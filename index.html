@@ -13,11 +13,14 @@
   <script src='http://rstacruz.github.io/flatdoc/v/0.8.0/flatdoc.js'></script>
 
   <!-- Favicon -->
-  <link rel="icon" href="favicon.ico">
+  <link rel="icon" href="assets/favicon.ico">
 
   <!-- Flatdoc theme -->
-  <link href='http://rstacruz.github.io/flatdoc/v/0.8.0/theme-white/style.css' rel='stylesheet'>
-  <script src='http://rstacruz.github.io/flatdoc/v/0.8.0/theme-white/script.js'></script>
+  <link href='assets/theme-white.css' rel='stylesheet'>
+  <script src='assets/theme-white.js'></script>
+
+  <!-- Spark theme mods -->
+  <link href='assets/style.css' rel='stylesheet'>
 
   <!-- Meta -->
   <meta content="Spark" property="og:title">
@@ -34,18 +37,20 @@
 
   <div class='header'>
     <div class='left'>
-      <h1>Spark</h1>
+      <a href="https://www.spark.io">
+        <img src="assets/sparklogo-2x.png" id="logo">
+      </a>
       <ul>
         <li><a href='#start'>Getting started</a></li>
         <li><a href='#examples'>Annotated examples</a></li>
         <li><a href='#api'>Cloud API reference</a></li>
         <li><a href='#firmware'>Core firmware reference</a></li>
         <li><a href='#hardware'>Core hardware reference</a></li>
+        <li><a href='#shields'>Shields and kits</a></li>
       </ul>
     </div>
     <div class='right'>
-      <!-- GitHub buttons: see http://ghbtns.com -->
-      <iframe src="http://ghbtns.com/github-btn.html?user=USER&amp;repo=REPO&amp;type=watch&amp;count=true" allowtransparency="true" frameborder="0" scrolling="0" width="110" height="20"></iframe>
+      <!-- nothing here right now but I bet we'll use this -->
     </div>
   </div>
 
@@ -56,8 +61,13 @@
     <div role='flatdoc-content' class='content'></div>
   </div>
 
+  <div id="markdown" style="display:none;">
+
+  <div>
+
+
   <!-- Custom -->
-  <script src='main.js'></script>
+  <script src='assets/main.js'></script>
 
 </body>
 </html>

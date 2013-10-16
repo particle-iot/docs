@@ -1,0 +1,21 @@
+#logo {
+  height: 32px;
+  width: 85px;
+  float: left;
+  margin: -5px 0 -7px 0;
+  display: block;
+}
+
+@media (min-width: 768px) {
+ .header ul {
+    border-left: solid 1px #dfe2e7;
+    margin-left: 15px;
+  }
+}
+
+@media (max-width: 768px) {
+  .header ul {
+    padding-top: 10px;
+    clear: both;
+  }
+}
