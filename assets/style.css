@@ -6,6 +6,32 @@
   display: block;
 }
 
+.content img {
+  width: 100%;
+  border: 1px solid #e7e7e7;
+}
+
+@media (min-width: 1180px) {
+  body:not(.no-literate) .content img {
+    width: 330px;
+    padding: 5px;
+    margin-left: 15px;
+    margin-right: 15px;
+    background: #ffffff;
+    border: 1px solid #f2f2f2;
+    float: right;
+    clear: right;
+  }
+}
+
+@media (min-width: 1340px) {
+  body:not(.no-literate) .content img {
+    width: 480px;
+    margin-right: -135px;
+  }
+}
+
+
 @media (min-width: 768px) {
  .header ul {
     border-left: solid 1px #dfe2e7;
