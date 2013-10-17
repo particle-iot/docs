@@ -11,6 +11,25 @@
   border: 1px solid #e7e7e7;
 }
 
+.content table th,
+.content table td {
+  padding: 5px;
+  line-height: 1.428571429;
+  vertical-align: top;
+  font-family: Menlo, monospace;
+  font-size: 11px;
+}
+
+.content table th {
+  vertical-align: bottom;
+  border-bottom: 2px solid #dddddd;
+  font-weight: bold;
+}
+
+.content table td {
+  border-top: 1px solid #dddddd;  
+}
+
 @media (min-width: 1180px) {
   body:not(.no-literate) .content img {
     width: 330px;
@@ -19,6 +38,14 @@
     margin-right: 15px;
     background: #ffffff;
     border: 1px solid #f2f2f2;
+    float: right;
+    clear: right;
+  }
+
+  body:not(.no-literate) .content table {
+    width: 380px;
+    padding-left: 20px;
+    padding-right: 20px;
     float: right;
     clear: right;
   }
