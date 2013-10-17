@@ -63,9 +63,6 @@ The Core also has a Wi-Fi module, which connects it to your local Wi-Fi network 
 
 When the Core connects to the internet, it establishes a connection to the *Spark Cloud*. By connecting to the Cloud, the Core becomes accessible from anywhere through a simple REST API. This API is designed to make it very easy to interface with the Core through a web app or mobile app in a secure, private way, so that only you and those you trust can access the Core.
 
-The Spark Core
----
-
 ### Buttons
 
 There are two buttons on the Core: the RESET button (on the right) and the MODE button (on the left). The RESET button will put the Core in a hard reset, effectively depowering and repowering the microcontroller. This is a good way to restart the application that you've downloaded onto the Core. The MODE button serves three functions:

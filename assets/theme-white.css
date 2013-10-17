@@ -760,6 +760,7 @@ a.big.button:hover:visited {
 }
 .menu a.level-2 {
   font-weight: normal;
+  font-size: 0.9em;
 }
 .menu a.level-3 {
   font-weight: normal;

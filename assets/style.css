@@ -6,6 +6,14 @@
   display: block;
 }
 
+.content h1 {
+  font-size: 2em;
+}
+
+.content h2 {
+  color: #9090aa;
+}
+
 .content img {
   width: 100%;
   border: 1px solid #e7e7e7;

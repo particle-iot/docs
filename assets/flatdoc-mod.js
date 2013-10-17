@@ -230,12 +230,14 @@ Also includes:
       var level = +(this.nodeName.substr(1));
 
       parent = mkdir_p(level-1);
-
+      debugger;
       var obj = { section: $el.text(), items: [], level: level, id: $el.attr('id') };
       parent.items.push(obj);
       cache[level] = obj;
     });
 
+    console.log(root);
+    console.log(cache);
     return root;
   };
 
