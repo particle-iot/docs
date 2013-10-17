@@ -154,6 +154,7 @@ Also includes:
    */
   Transformer.mangle = function($content) {
     this.addIDs($content);
+    this.tagImages($content);
     this.buttonize($content);
     this.smartquotes($content);
   };
@@ -197,6 +198,17 @@ Also includes:
     });
 
   };
+
+  /**
+   * Tags paragraphs that include images.
+   */
+
+   Transformer.tagImages = function($content) {
+    $content.find('p:has(img)').each(function() {
+      var $el = $(this);
+      $el.addClass('img');
+    })
+   }
 
   /**
    * Returns menu data for a given HTML.

@@ -68,13 +68,18 @@ a:hover,
 }
 
 @media (min-width: 1180px) {
+
+
   body:not(.no-literate) .content img {
     width: 330px;
     padding: 5px;
-    margin-left: 15px;
-    margin-right: 15px;
     background: #ffffff;
     border: 1px solid #f2f2f2;
+  }
+
+  body:not(.no-literate) .content p.img {
+    width: 380px;
+    padding: 0 20px;
     float: right;
     clear: right;
   }
@@ -85,6 +90,57 @@ a:hover,
     padding-right: 20px;
     float: right;
     clear: right;
+  }
+
+  body:not(.no-literate) .content > p,
+  body:not(.no-literate) .content > ul,
+  body:not(.no-literate) .content > ol,
+  body:not(.no-literate) .content > h4,
+  body:not(.no-literate) .content > h5,
+  body:not(.no-literate) .content > h6 {
+    float: left;
+    clear: none;
+  }
+
+  body:not(.no-literate) .content > pre + p,
+  body:not(.no-literate) .content > blockquote + p,
+  body:not(.no-literate) .content > p.img + p,
+  body:not(.no-literate) .content > pre + ul,
+  body:not(.no-literate) .content > blockquote + ul,
+  body:not(.no-literate) .content > p.img + ul,
+  body:not(.no-literate) .content > pre + ol,
+  body:not(.no-literate) .content > blockquote + ol,
+  body:not(.no-literate) .content > p.img + ol,
+  body:not(.no-literate) .content > pre + h4,
+  body:not(.no-literate) .content > blockquote + h4,
+  body:not(.no-literate) .content > p.img + h4,
+  body:not(.no-literate) .content > pre + h5,
+  body:not(.no-literate) .content > blockquote + h5,
+  body:not(.no-literate) .content > p.img + h5,
+  body:not(.no-literate) .content > pre + h6,
+  body:not(.no-literate) .content > blockquote + h6,
+  body:not(.no-literate) .content > p.img + h6 {
+    clear: none;
+  }
+
+  body:not(.no-literate) .content > pre + p,
+  body:not(.no-literate) .content > blockquote + p,
+  body:not(.no-literate) .content > pre + ul,
+  body:not(.no-literate) .content > blockquote + ul,
+  body:not(.no-literate) .content > pre + ol,
+  body:not(.no-literate) .content > blockquote + ol,
+  body:not(.no-literate) .content > pre + h4,
+  body:not(.no-literate) .content > blockquote + h4,
+  body:not(.no-literate) .content > pre + h5,
+  body:not(.no-literate) .content > blockquote + h5,
+  body:not(.no-literate) .content > pre + h6,
+  body:not(.no-literate) .content > blockquote + h6 {
+    clear: none;
+  }
+
+  body:not(.no-literate) .content > ul,
+  body:not(.no-literate) .content > ol {
+    width: 530px;
   }
 }
 
