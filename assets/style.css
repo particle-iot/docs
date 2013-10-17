@@ -6,6 +6,10 @@
   display: block;
 }
 
+.menubar .level-1 {
+  margin-top: 20px;
+}
+
 .content h1 {
   font-size: 2em;
 }
