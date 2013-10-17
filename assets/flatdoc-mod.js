@@ -211,34 +211,17 @@ Also includes:
    */
 
   Transformer.getMenu = function($content) {
-    var root = {items: [], id: '', level: 0};
-    var cache = [root];
-
-    function mkdir_p(level) {
-      var parent = (level > 1) ? mkdir_p(level-1) : root;
-      if (!cache[level]) {
-        var obj = { items: [], level: level };
-        cache[level] = obj;
-        parent.items.push(obj);
-        return obj;
-      }
-      return cache[level];
-    }
+    var menu = [];
 
     $content.find('h1, h2, h3').each(function() {
       var $el = $(this);
       var level = +(this.nodeName.substr(1));
 
-      parent = mkdir_p(level-1);
-      debugger;
       var obj = { section: $el.text(), items: [], level: level, id: $el.attr('id') };
-      parent.items.push(obj);
-      cache[level] = obj;
+      menu.push(obj);
     });
 
-    console.log(root);
-    console.log(cache);
-    return root;
+    return menu;
   };
 
   /**
@@ -329,36 +312,26 @@ Also includes:
   var MenuView = Flatdoc.menuView = function(menu) {
     var $el = $("<ul>");
 
-    function process(node, $parent) {
-      var id = node.id || 'root';
+    if (menu.length > 0) {
+      menu.forEach(function(item) {
+        var id = item.id;
 
-      var $li = $('<li>')
-        .attr('id', id + '-item')
-        .addClass('level-' + node.level)
-        .appendTo($parent);
+        var $li = $('<li>')
+          .attr('id', id + '-item')
+          .addClass('level-' + item.level)
+          .appendTo($el);
 
-      if (node.section) {
-        var $a = $('<a>')
-          .html(node.section)
-          .attr('id', id + '-link')
-          .attr('href', '#' + node.id)
-          .addClass('level-' + node.level)
-          .appendTo($li);
-      }
-
-      if (node.items.length > 0) {
-        var $ul = $('<ul>')
-          .addClass('level-' + (node.level+1))
-          .attr('id', id + '-list')
-          .appendTo($li);
-
-        node.items.forEach(function(item) {
-          process(item, $ul);
-        });
-      }
+        if (item.section) {
+          var $a = $('<a>')
+            .html(item.section)
+            .attr('id', id + '-link')
+            .attr('href', '#' + id)
+            .addClass('level-' + item.level)
+            .appendTo($li);
+        }
+      });
     }
 
-    process(menu, $el);
     return $el;
   };
 
