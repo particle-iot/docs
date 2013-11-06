@@ -4,6 +4,20 @@ Here you'll find the documentation for the Spark platform, including the Spark C
 
 To view this documentation, visit [our website](http://docs.spark.io), where the documentation is hosted.
 
+### Hosting locally
+
+To host this documentation locally, you'll need Node.js and npm. Once you have those, navigate to this repository's directory on your machine, and then:
+
+`npm install`
+
+to install the necessary dependencies (Express), and
+
+`npm start`
+
+to spin up Node to host this documentation. The default port is 3000, so you should find the documentation at
+
+`http://localhost:3000/`
+
 ### Organization
 
 The majority of the content herein is stored in the `docs` directory as a set of Markdown files. Images are stored in the `images` directory. The root directory contains the HTML, CSS, and JavaScript that makes everything pretty and organized.
