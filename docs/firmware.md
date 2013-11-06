@@ -216,10 +216,55 @@ Math
 Language Syntax
 ========
 
+The following documentation is based on the Arduino reference which can be found [here.](http://arduino.cc/en/Reference/HomePage)
+
 Structure
 ---
 ### setup()
+The setup() function is called when an application starts. Use it to initialize variables, pin modes, start using libraries, etc. The setup function will only run once, after each powerup or reset of the Spark Core.
+
+```
+EXAMPLE USAGE
+int button = D0;
+int LED = D1;
+//setup initializes D0 as input and D1 as output
+void setup()
+{
+  pinMode(button, INPUT_PULLDOWN);
+  pinMode(LED, OUTPUT);
+}
+
+void loop()
+{
+  // ...
+}
+```
+
 ### loop()
+After creating a setup() function, which initializes and sets the initial values, the loop() function does precisely what its name suggests, and loops consecutively, allowing your program to change and respond. Use it to actively control the Spark Core.
+
+```
+EXAMPLE USAGE
+int button = D0;
+int LED = D1;
+//setup initializes D0 as input and D1 as output
+void setup()
+{
+  pinMode(button, INPUT_PULLDOWN);
+  pinMode(LED, OUTPUT);
+}
+
+//loops to check if button was pressed,
+//if it was, then it turns ON the LED,
+//else the LED remains OFF
+void loop()
+{
+  if (digitalRead(button) == HIGH)
+    digitalWrite(LED,HIGH);
+  else
+    digitalWrite(LED,LOW);
+}
+```
 
 Control structures
 ---
