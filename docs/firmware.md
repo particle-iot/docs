@@ -635,7 +635,7 @@ switch (var)
     // statements
 }
 ```
-'var' is the variable whose value to compare to the various cases 
+`var` is the variable whose value to compare to the various cases 
 `label` is a value to compare the variable to
 
 ```C++
@@ -915,6 +915,90 @@ Note that #include, similar to #define, has no semicolon terminator, and the com
 Arithmetic operators
 ---
 
+### = (assignment operator)
+
+Stores the value to the right of the equal sign in the variable to the left of the equal sign.
+
+The single equal sign in the C programming language is called the assignment operator. It has a different meaning than in algebra class where it indicated an equation or equality. The assignment operator tells the microcontroller to evaluate whatever value or expression is on the right side of the equal sign, and store it in the variable to the left of the equal sign. 
+
+```C++
+EXAMPLE USAGE
+int sensVal;                // declare an integer variable named sensVal
+senVal = analogRead(A0);    // store the (digitized) input voltage at analog pin A0 in SensVal
+```
+**TIP:**
+The variable on the left side of the assignment operator ( = sign ) needs to be able to hold the value stored in it. If it is not large enough to hold a value, the value stored in the variable will be incorrect.
+
+Don't confuse the assignment operator `=` (single equal sign) with the comparison operator `==` (double equal signs), which evaluates whether two expressions are equal. 
+
+### + - / (additon subtraction division)
+
+These operators return the sum, difference, product, or quotient (respectively) of the two operands. The operation is conducted using the data type of the operands, so, for example,`9 / 4` gives 2 since 9 and 4 are ints. This also means that the operation can overflow if the result is larger than that which can be stored in the data type (e.g. adding 1 to an int with the value 32,767 gives -32,768). If the operands are of different types, the "larger" type is used for the calculation.
+
+If one of the numbers (operands) are of the type float or of type double, floating point math will be used for the calculation. 
+
+```C++
+EXAMPLE USAGES
+y = y + 3;
+x = x - 7;
+i = j * 6;
+r = r / 5;
+```
+
+```C++
+SYNTAX
+result = value1 + value2;
+result = value1 - value2;
+result = value1 * value2;
+result = value1 / value2;
+```
+`value1` and `value2` can be any variable or constant.
+
+**TIPS:** 
+
+  - Know that integer constants default to int, so some constant calculations may overflow (e.g. 60 * 1000 will yield a negative result).
+  - Choose variable sizes that are large enough to hold the largest results from your calculations  
+  - Know at what point your variable will "roll over" and also what happens in the other direction e.g. (0 - 1) OR (0 - - 32768)  
+  - For math that requires fractions, use float variables, but be aware of their drawbacks: large size, slow computation speeds  
+  - Use the cast operator e.g. (int)myFloat to convert one variable type to another on the fly.  
+
+### % (modulo)
+
+Calculates the remainder when one integer is divided by another. It is useful for keeping a variable within a particular range (e.g. the size of an array).
+
+`result = dividend % divisor`
+
+`dividend` is the number to be divided and  
+`divisor` is the number to divide by.
+
+`result` is the remainder
+
+```C++
+EXAMPLE USAGES
+x = 7 % 5;   // x now contains 2
+x = 9 % 5;   // x now contains 4
+x = 5 % 5;   // x now contains 0
+x = 4 % 5;   // x now contains 4
+```
+
+```C++
+EXAMPLE CODE
+//update one value in an array each time through a loop
+
+int values[10];
+int i = 0;
+
+void setup() {}
+
+void loop()
+{
+  values[i] = analogRead(A0);
+  i = (i + 1) % 10;   // modulo operator rolls over variable  
+}
+```
+
+**TIP:**
+The modulo operator does not work on floats.
 
 Comparison operators
 ---
