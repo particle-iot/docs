@@ -470,15 +470,324 @@ Control structures
 ---
 
 ### if
+
+`if`, which is used in conjunction with a comparison operator, tests whether a certain condition has been reached, such as an input being above a certain number. 
+
+```C++
+SYNTAX
+if (someVariable > 50)
+{
+  // do something here
+}
+```
+The program tests to see if someVariable is greater than 50. If it is, the program takes a particular action. Put another way, if the statement in parentheses is true, the statements inside the brackets are run. If not, the program skips over the code. 
+
+The brackets may be omitted after an *if* statement. If this is done, the next line (defined by the semicolon) becomes the only conditional statement. 
+
+```C++
+if (x > 120) digitalWrite(LEDpin, HIGH); 
+
+if (x > 120) 
+digitalWrite(LEDpin, HIGH); 
+
+if (x > 120){ digitalWrite(LEDpin, HIGH); } 
+
+if (x > 120)
+{ 
+  digitalWrite(LEDpin1, HIGH);
+  digitalWrite(LEDpin2, HIGH); 
+}                                 // all are correct
+```
+The statements being evaluated inside the parentheses require the use of one or more operators:
+
+### Comparison Operators
+
+```C++
+x == y (x is equal to y)
+x != y (x is not equal to y)
+x <  y (x is less than y)  
+x >  y (x is greater than y) 
+x <= y (x is less than or equal to y) 
+x >= y (x is greater than or equal to y)
+```
+
+**WARNING:**
+Beware of accidentally using the single equal sign (e.g. `if (x = 10)` ). The single equal sign is the assignment operator, and sets x to 10 (puts the value 10 into the variable x). Instead use the double equal sign (e.g. `if (x == 10)` ), which is the comparison operator, and tests whether x is equal to 10 or not. The latter statement is only true if x equals 10, but the former statement will always be true.
+
+This is because C evaluates the statement `if (x=10)` as follows: 10 is assigned to x (remember that the single equal sign is the assignment operator), so x now contains 10. Then the 'if' conditional evaluates 10, which always evaluates to TRUE, since any non-zero number evaluates to TRUE. Consequently, `if (x = 10)` will always evaluate to TRUE, which is not the desired result when using an 'if' statement. Additionally, the variable x will be set to 10, which is also not a desired action.
+
+`if` can also be part of a branching control structure using the `if...else`] construction. 
+
 ### if...else
+
+*if/else* allows greater control over the flow of code than the basic *if* statement, by allowing multiple tests to be grouped together. For example, an analog input could be tested and one action taken if the input was less than 500, and another action taken if the input was 500 or greater. The code would look like this: 
+
+```C++
+SYNTAX
+if (pinFiveInput < 500)
+{
+  // action A
+}
+else
+{
+  // action B
+}
+```
+`else` can proceed another `if` test, so that multiple, mutually exclusive tests can be run at the same time. 
+
+Each test will proceed to the next one until a true test is encountered. When a true test is found, its associated block of code is run, and the program then skips to the line following the entire if/else construction. If no test proves to be true, the default else block is executed, if one is present, and sets the default behavior. 
+
+Note that an *else if* block may be used with or without a terminating *else* block and vice versa. An unlimited number of such else if branches is allowed. 
+
+```C++
+if (pinFiveInput < 500)
+{
+  // do Thing A
+}
+else if (pinFiveInput >= 1000)
+{
+  // do Thing B
+}
+else
+{
+  // do Thing C
+}
+```
+
+Another way to express branching, mutually exclusive tests, is with the [`switch case`](http://spark.github.io/docs/#control-structures-switch-case) statement.
+
 ### for
+
+The `for` statement is used to repeat a block of statements enclosed in curly braces. An increment counter is usually used to increment and terminate the loop. The `for` statement is useful for any repetitive operation, and is often used in combination with arrays to operate on collections of data/pins. 
+
+There are three parts to the for loop header: 
+
+```C++
+SYNTAX
+for (initialization; condition; increment) 
+{
+  //statement(s);
+} 
+```
+The *initialization* happens first and exactly once. Each time through the loop, the *condition* is tested; if it's true, the statement block, and the *increment* is executed, then the condition is tested again. When the *condition* becomes false, the loop ends.
+
+```C++
+EXAMPLE USAGE
+// Dim an LED using a PWM pin
+int ledPin = D1; // LED in series with 470 ohm resistor on pin D1
+
+void setup()
+{
+  // no setup needed
+}
+
+void loop()
+{
+   for (int i=0; i <= 255; i++){
+      analogWrite(ledPin, i);
+      delay(10);
+   } 
+}
+```
+The C `for` loop is much more flexible than for loops found in some other computer languages, including BASIC. Any or all of the three header elements may be omitted, although the semicolons are required. Also the statements for initialization, condition, and increment can be any valid C statements with unrelated variables, and use any C datatypes including floats. These types of unusual for statements may provide solutions to some rare programming problems.
+
+For example, using a multiplication in the increment line will generate a logarithmic progression:
+
+```C++
+for(int x = 2; x < 100; x = x * 1.5)
+{
+  Serial.print(x);
+}
+//Generates: 2,3,4,6,9,13,19,28,42,63,94 
+```
+Another example, fade an LED up and down with one for loop: 
+
+```C++
+void loop()
+{
+   int x = 1;
+   for (int i = 0; i > -1; i = i + x)
+   {
+      analogWrite(ledPin, i);
+      if (i == 255) x = -1;     // switch direction at peak
+      delay(10);
+   } 
+}
+```
+
 ### switch case
+
+Like `if` statements, `switch`...`case` controls the flow of programs by allowing programmers to specify different code that should be executed in various conditions. In particular, a switch statement compares the value of a variable to the values specified in case statements. When a case statement is found whose value matches that of the variable, the code in that case statement is run.
+
+The `break` keyword exits the switch statement, and is typically used at the end of each case. Without a break statement, the switch statement will continue executing the following expressions ("falling-through") until a break, or the end of the switch statement is reached. 
+
+```C++
+SYNTAX
+switch (var) 
+{
+  case label:
+    // statements
+    break;
+  case label:
+    // statements
+    break;
+  default: 
+    // statements
+}
+```
+'var' is the variable whose value to compare to the various cases 
+`label` is a value to compare the variable to
+
+```C++
+EXAMPLE USAGE
+switch (var) 
+{
+    case 1:
+      //do something when var equals 1
+      break;
+    case 2:
+      //do something when var equals 2
+      break;
+    default: 
+      // if nothing else matches, do the default
+      // default is optional
+}
+```
+
 ### while
+
+`while` loops will loop continuously, and infinitely, until the expression inside the parenthesis, () becomes false. Something must change the tested variable, or the `while` loop will never exit. This could be in your code, such as an incremented variable, or an external condition, such as testing a sensor.
+
+```C++
+SYNTAX
+while(expression)
+{
+  // statement(s)
+}
+```
+`expression` is a (boolean) C statement that evaluates to true or false.
+
+```C++
+EXAMPLE USAGE
+var = 0;
+while(var < 200)
+{
+  // do something repetitive 200 times
+  var++;
+}
+```
+
 ### do... while
+
+The `do` loop works in the same manner as the `while` loop, with the exception that the condition is tested at the end of the loop, so the do loop will *always* run at least once. 
+
+```C++
+SYNTAX
+do
+{
+    // statement block
+} while (test condition);
+```
+
+```C++
+EXAMPLE USAGE
+do
+{
+  delay(50);          // wait for sensors to stabilize
+  x = readSensors();  // check the sensors
+
+} while (x < 100);
+```
+
 ### break
+
+`break` is used to exit from a `do`, `for`, or `while` loop, bypassing the normal loop condition. It is also used to exit from a `switch` statement.
+
+```C++
+EXAMPLE USAGE
+for (int x = 0; x < 255; x ++)
+{
+    digitalWrite(ledPin, x);
+    sens = analogRead(sensorPin);  
+    if (sens > threshold)         // bail out on sensor detect
+    {      
+       x = 0;
+       break;
+    }  
+    delay(50);
+}
+```
+
 ### continue
+
+The continue statement skips the rest of the current iteration of a loop (`do`, `for`, or `while`). It continues by checking the conditional expression of the loop, and proceeding with any subsequent iterations.
+
+```C++
+EXAMPLE USAGE
+for (x = 0; x < 255; x ++)
+{
+    if (x > 40 && x < 120) continue;    // create jump in values
+    
+    digitalWrite(PWMpin, x);
+    delay(50);
+}
+```
+
 ### return
+
+Terminate a function and return a value from a function to the calling function, if desired.
+
+```C++
+EXAMPLE
+// A function to compare a sensor input to a threshold 
+ int checkSensor()
+ {       
+    if (analogRead(0) > 400) return 1;
+    else return 0;
+}
+```
+The return keyword is handy to test a section of code without having to "comment out" large sections of possibly buggy code. 
+
+```C++
+void loop()
+{
+  // brilliant code idea to test here
+
+  return;
+
+  // the rest of a dysfunctional sketch here
+  // this code will never be executed
+}
+```
+
 ### goto
+
+Transfers program flow to a labeled point in the program
+
+```C++
+USAGE
+label:
+
+goto label; // sends program flow to the label 
+```
+
+**TIP:**
+The use of `goto` is discouraged in C programming, and some authors of C programming books claim that the `goto` statement is never necessary, but used judiciously, it can simplify certain programs. The reason that many programmers frown upon the use of `goto` is that with the unrestrained use of `goto` statements, it is easy to create a program with undefined program flow, which can never be debugged.
+
+With that said, there are instances where a `goto` statement can come in handy, and simplify coding. One of these situations is to break out of deeply nested `for` loops, or `if` logic blocks, on a certain condition. 
+
+```C++
+EXAMPLE USAGE
+for(byte r = 0; r < 255; r++){
+    for(byte g = 255; g > -1; g--){
+        for(byte b = 0; b < 255; b++){
+            if (analogRead(0) > 250){ goto bailout;}
+            // more statements ... 
+        }
+    }
+}
+bailout:
+```
 
 Further syntax
 ---
