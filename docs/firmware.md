@@ -793,11 +793,124 @@ Further syntax
 ---
 
 ### ; (semicolon)
+
+Used to end a statement.
+
+`int a = 13;`
+
+**Tip:**
+Forgetting to end a line in a semicolon will result in a compiler error. The error text may be obvious, and refer to a missing semicolon, or it may not. If an impenetrable or seemingly illogical compiler error comes up, one of the first things to check is a missing semicolon, in the immediate vicinity, preceding the line at which the compiler complained. 
+
 ### {} (curly braces)
+
+Curly braces (also referred to as just "braces" or as "curly brackets") are a major part of the C programming language. They are used in several different constructs, outlined below, and this can sometimes be confusing for beginners. 
+
+```C++
+//The main uses of curly braces
+
+//Functions
+  void myfunction(datatype argument){
+    statements(s)
+  }
+
+//Loops
+  while (boolean expression)
+  {
+     statement(s)
+  }
+
+  do
+  {
+     statement(s)
+  } while (boolean expression);
+
+  for (initialisation; termination condition; incrementing expr)
+  {
+     statement(s)
+  } 
+
+//Conditional statements
+  if (boolean expression)
+  {
+     statement(s)
+  }
+
+  else if (boolean expression)
+  {
+     statement(s)
+  } 
+  else
+  {
+     statement(s)
+  }
+
+```
+
+An opening curly brace "{" must always be followed by a closing curly brace "}". This is a condition that is often referred to as the braces being balanced. 
+
+Beginning programmers, and programmers coming to C from the BASIC language often find using braces confusing or daunting. After all, the same curly braces replace the RETURN statement in a subroutine (function), the ENDIF statement in a conditional and the NEXT statement in a FOR loop. 
+
+Because the use of the curly brace is so varied, it is good programming practice to type the closing brace immediately after typing the opening brace when inserting a construct which requires curly braces. Then insert some carriage returns between your braces and begin inserting statements. Your braces, and your attitude, will never become unbalanced. 
+
+Unbalanced braces can often lead to cryptic, impenetrable compiler errors that can sometimes be hard to track down in a large program. Because of their varied usages, braces are also incredibly important to the syntax of a program and moving a brace one or two lines will often dramatically affect the meaning of a program.
+
+
 ### // (single line comment)
-### /* */ (multi-line comment)
+### /\* \*/ (multi-line comment)
+
+Comments are lines in the program that are used to inform yourself or others about the way the program works. They are ignored by the compiler, and not exported to the processor, so they don't take up any space on the Spark Core.
+
+Comments only purpose are to help you understand (or remember) how your program works or to inform others how your program works. There are two different ways of marking a line as a comment:
+
+```C++
+EXAMPLE USAGE
+ x = 5;  // This is a single line comment. Anything after the slashes is a comment 
+         // to the end of the line
+
+/* this is multiline comment - use it to comment out whole blocks of code
+
+if (gwb == 0){   // single line comment is OK inside a multiline comment
+x = 3;           /* but not another multiline comment - this is invalid */
+}
+// don't forget the "closing" comment - they have to be balanced!
+*/
+```
+
+**TIP:**
+When experimenting with code, "commenting out" parts of your program is a convenient way to remove lines that may be buggy. This leaves the lines in the code, but turns them into comments, so the compiler just ignores them. This can be especially useful when trying to locate a problem, or when a program refuses to compile and the compiler error is cryptic or unhelpful. 
+
+
 ### #define
+
+`#define` is a useful C component that allows the programmer to give a name to a constant value before the program is compiled. Defined constants don't take up any program memory space on the chip. The compiler will replace references to these constants with the defined value at compile time.
+
+`#define constantName value`  
+Note that the # is necessary.
+
+This can have some unwanted side effects though, if for example, a constant name that had been `#defined` is included in some other constant or variable name. In that case the text would be replaced by the #defined number (or text).
+
+```C++
+EXAMPLE USAGE
+#define ledPin 3
+// The compiler will replace any mention of ledPin with the value 3 at compile time.
+```
+
+In general, the [const]() keyword is preferred for defining constants and should be used instead of #define. 
+
+**TIP:**
+There is no semicolon after the #define statement. If you include one, the compiler will throw cryptic errors further down the page. 
+
+`#define ledPin 3;    // this is an error`
+
+Similarly, including an equal sign after the #define statement will also generate a cryptic compiler error further down the page. 
+
+`#define ledPin  = 3  // this is also an error`
+
 ### #include
+
+`#include` is used to include outside libraries in your application code. This gives the programmer access to a large group of standard C libraries (groups of pre-made functions), and also libraries written especially for Spark Core.
+
+Note that #include, similar to #define, has no semicolon terminator, and the compiler will yield cryptic error messages if you add one.
 
 Arithmetic operators
 ---
