@@ -36,20 +36,55 @@ GET https://api.sprk.io/v1/devices/abcd1234/temp
 
 Expose a *function* through the Spark Cloud so that it can be called with `POST device/{FUNCTION}`.
 
-```C++
-SYNTAX
-Spark.function(func);
+Currently the application supports the creation of upto 4 different Spark functions.
 
+```C++
+SYNTAX TO REGISTER A SPARK FUNCTION
+Spark.function("funcKey", funcName);
+                  ^
+                  |
+     (max of 12 characters long)
+```
+
+In order to register a Spark function, the user provides the `funcKey`, which is the string name used to make a POST request and a `funcName`, which is the actual name of the function that gets called in the Spark app. The Spark function must always return an `INT` value of either `1` (success) or `-1` (failure).
+
+The length of the `funcKey` is limited to a max of 12 characters.
+
+A Spark function is set up to take one argument of the [String](http://arduino.cc/en/Reference/StringObject) datatype. This argument length is limited to a max of 64 characters.
+
+```C++
 EXAMPLE USAGE
-void brew() {
-  activateWaterHeater();
-  activateWaterPump();
+int brewCoffee(String command);
+
+void setup()
+{
+  //register the Spark function
+  Spark.function("brew", brewCoffee);
 }
 
-Spark.function(brew);
+void loop()
+{
+  //this loops forever
+}
 
+//this function automagically gets called upon a matching POST request
+int brewCoffee(String command) 
+{
+  //look for the matching argument "coffee" <-- max of 64 characters long
+  if(command == "coffee")
+  {
+    //do something here
+    activateWaterHeater();
+    activateWaterPump();
+    return 1;
+  }
+  else return -1;
+}
+```
+
+```C++
 COMPLEMENTARY API CALL
-POST https://api.sprk.io/v1/devices/abcd1234/brew
+POST https://api.sprk.io/v1/devices/abcd1234/brew -d params=coffee
 ```
 
 ### Spark.event()
