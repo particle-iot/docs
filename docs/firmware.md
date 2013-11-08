@@ -415,12 +415,12 @@ void loop()
   delay(1000);
 }
 ```
-**TIP:**
-Note that the parameter for millis is an unsigned long, errors may be generated if a programmer tries to do math with other datatypes such as ints.
+**Note:** 
+The parameter for millis is an unsigned long, errors may be generated if a programmer tries to do math with other datatypes such as ints.
 
 ### micros()
 
-**Not implemented yet***
+**Not implemented yet**
 
 Returns the number of microseconds since the Arduino board began running the current program. This number will overflow (go back to zero), after approximately 70 minutes.
 
@@ -516,12 +516,183 @@ Math
 ---
 
 ### min()
+
+Calculates the minimum of two numbers.
+
+`min(x, y)`
+
+`x` is the first number, any data type  
+`y` is the second number, any data type  
+
+The functions returns the smaller of the two numbers.
+
+```C++
+EXAMPLE USAGE
+sensVal = min(sensVal, 100); // assigns sensVal to the smaller of sensVal or 100
+                             // ensuring that it never gets above 100.
+```
+
+**NOTE:**
+Perhaps counter-intuitively, max() is often used to constrain the lower end of a variable's range, while min() is used to constrain the upper end of the range.
+
+**WARNING:** 
+Because of the way the min() function is implemented, avoid using other functions inside the brackets, it may lead to incorrect results 
+
+```C++
+min(a++, 100);   // avoid this - yields incorrect results
+
+a++;
+min(a, 100);    // use this instead - keep other math outside the function
+```
+
 ### max()
+
+Calculates the maximum of two numbers.
+
+`man(x, y)`
+
+`x` is the first number, any data type  
+`y` is the second number, any data type  
+
+The functions returns the larger of the two numbers.
+
+```C++
+EXAMPLE USAGE
+sensVal = max(senVal, 20); // assigns sensVal to the larger of sensVal or 20
+                           // (effectively ensuring that it is at least 20)
+```
+
+**NOTE:**
+Perhaps counter-intuitively, max() is often used to constrain the lower end of a variable's range, while min() is used to constrain the upper end of the range.
+
+**WARNING:** 
+Because of the way the max() function is implemented, avoid using other functions inside the brackets, it may lead to incorrect results 
+
+```C++
+max(a--, 0);   // avoid this - yields incorrect results
+
+a--;           // use this instead -
+max(a, 0);     // keep other math outside the function
+```
+
 ### abs()
+
+Computes the absolute value of a number.
+
+`abs(x);`
+
+where `x` is the number  
+
+The function returns `x` if `x` is greater than or equal to `0`  
+and returns `-x` if `x` is less than `0`.
+
+**WARNING:**
+Because of the way the abs() function is implemented, avoid using other functions inside the brackets, it may lead to incorrect results.
+
+```C++
+abs(a++);   // avoid this - yields incorrect results
+
+a++;          // use this instead -
+abs(a);       // keep other math outside the function
+```
+
 ### constrain()
+
+Constrains a number to be within a range.
+
+`constrain(x, a, b);`
+
+`x` is the number to constrain, all data types  
+`a` is the lower end of the range, all data types
+`b` is the upper end of the range, all data types
+
+The function will return:  
+`x`: if x is between `a` and `b`  
+`a`: if `x` is less than `a`  
+`b`: if `x` is greater than `b`
+
+```C++
+EXAMPLE USAGE
+sensVal = constrain(sensVal, 10, 150);
+// limits range of sensor values to between 10 and 150
+```
+
 ### map()
+
+Re-maps a number from one range to another. That is, a value of fromLow would get mapped to `toLow`, a `value` of `fromHigh` to `toHigh`, values in-between to values in-between, etc.
+
+`map(value, fromLow, fromHigh, toLow, toHigh);`
+
+Does not constrain values to within the range, because out-of-range values are sometimes intended and useful. The `constrain()` function may be used either before or after this function, if limits to the ranges are desired.
+
+Note that the "lower bounds" of either range may be larger or smaller than the "upper bounds" so the `map()` function may be used to reverse a range of numbers, for example
+
+`y = map(x, 1, 50, 50, 1);` 
+
+The function also handles negative numbers well, so that this example
+
+`y = map(x, 1, 50, 50, -100);`
+
+is also valid and works well. 
+
+The `map()` function uses integer math so will not generate fractions, when the math might indicate that it should do so. Fractional remainders are truncated, and are not rounded or averaged.
+
+*Parameters:*  
+
+- `value`: the number to map
+- `fromLow`: the lower bound of the value's current range
+- `fromHigh`: the upper bound of the value's current range
+- `toLow`: the lower bound of the value's target range
+- `toHigh`: the upper bound of the value's target range 
+
+The function returns the mapped value
+
+```C++
+EXAMPLE USAGE
+/* Map an analog value to 8 bits (0 to 255) */
+void setup() {}
+
+void loop()
+{
+  int val = analogRead(0);
+  val = map(val, 0, 1023, 0, 255);
+  analogWrite(9, val);
+}
+```
+
+*Appendix:*  
+For the mathematically inclined, here's the whole function
+
+```C++
+long map(long x, long in_min, long in_max, long out_min, long out_max)
+{
+  return (x - in_min) * (out_max - out_min) / (in_max - in_min) + out_min;
+}
+```
+
 ### pow()
+
+Calculates the value of a number raised to a power. `pow()` can be used to raise a number to a fractional power. This is useful for generating exponential mapping of values or curves.
+
+`pow(base, exponent);`
+
+`base` is the number *(float)*  
+`exponent` is the power to which the base is raised *(float)*
+
+The function returns the result of the exponentiation *(double)*
+
+EXAMPLE **TBD**
+
 ### sqrt()
+
+Calculates the square root of a number.
+
+`sqrt(x)`
+
+`x` is the number, any data type
+
+The function returns the number's square root *(double)*
+
 
 Language Syntax
 ========
