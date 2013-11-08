@@ -392,10 +392,119 @@ Time
 ---
 
 ### millis()
+
+Returns the number of milliseconds since the Spark Core began running the current program. This number will overflow (go back to zero), after approximately 49 days.
+
+`unsigned long time = millis();`
+
+```C++
+EXAMPLE USAGE
+unsigned long time;
+
+void setup()
+{
+  Serial.begin(9600);
+}
+void loop()
+{
+  Serial.print("Time: ");
+  time = millis();
+  //prints time since program started
+  Serial.println(time);
+  // wait a second so as not to send massive amounts of data
+  delay(1000);
+}
+```
+**TIP:**
+Note that the parameter for millis is an unsigned long, errors may be generated if a programmer tries to do math with other datatypes such as ints.
+
 ### micros()
+
+**Not implemented yet***
+
+Returns the number of microseconds since the Arduino board began running the current program. This number will overflow (go back to zero), after approximately 70 minutes.
+
+`unsigned long time = micros();`
+
+```C++
+EXAMPLE USAGE
+unsigned long time;
+
+void setup()
+{
+  Serial.begin(9600);
+}
+void loop()
+{
+  Serial.print("Time: ");
+  time = micros();
+  //prints time since program started
+  Serial.println(time);
+  // wait a second so as not to send massive amounts of data
+  delay(1000);
+}
+```
+
 ### delay()
+
+Pauses the program for the amount of time (in miliseconds) specified as parameter. (There are 1000 milliseconds in a second.)
+
+```C++
+SYNTAX
+delay(ms);
+```
+
+`ms` is the number of milliseconds to pause *(unsigned long)*
+
+```C++
+EXAMPLE USAGE
+int ledPin = D1;                 // LED connected to digital pin D1
+
+void setup()
+{
+  pinMode(ledPin, OUTPUT);      // sets the digital pin as output
+}
+
+void loop()
+{
+  digitalWrite(ledPin, HIGH);   // sets the LED on
+  delay(1000);                  // waits for a second
+  digitalWrite(ledPin, LOW);    // sets the LED off
+  delay(1000);                  // waits for a second
+}
+```
+**NOTE:** 
+the parameter for millis is an unsigned long, errors may be generated if a programmer tries to do math with other datatypes such as ints.
+
 ### delayMicroseconds()
 
+**Not implemented yet**
+
+Pauses the program for the amount of time (in microseconds) specified as parameter. There are a thousand microseconds in a millisecond, and a million microseconds in a second.
+
+```C++
+SYNTAX
+delayMicroseconds(us);
+```
+`us` is the number of microseconds to pause *(unsigned int)*
+
+```C++
+EXAMPLE USAGE
+int outPin = D1;                 // digital pin D1
+
+void setup()
+{
+  pinMode(outPin, OUTPUT);      // sets the digital pin as output
+}
+
+void loop()
+{
+  digitalWrite(outPin, HIGH);   // sets the pin on
+  delayMicroseconds(50);        // pauses for 50 microseconds      
+  digitalWrite(outPin, LOW);    // sets the pin off
+  delayMicroseconds(50);        // pauses for 50 microseconds      
+}
+```
 
 Interrupts
 ---
