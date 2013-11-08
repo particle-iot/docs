@@ -1188,18 +1188,158 @@ If you are careful to avoid sign extension, you can use the right-shift operator
 int x = 1000;
 int y = x >> 3;   // integer division of 1000 by 8, causing y = 125
 ```
-
 Compound operators
 ---
 
-### ++ (increment)
-### -- (decrement)
-### += (compound addition)
-### -= (compound subtraction)
-### *= (compound multiplication)
-### /= (compound division)
+### ++ (increment), -- (decrement)
+
+Increment or decrement a variable
+
+```C++
+SYNTAX
+x++;  // increment x by one and returns the old value of x
+++x;  // increment x by one and returns the new value of x
+
+x-- ;   // decrement x by one and returns the old value of x 
+--x ;   // decrement x by one and returns the new value of x 
+```
+
+where `x` is an integer or long (possibly unsigned)
+
+```C++
+EXAMPLE USAGE
+x = 2;
+y = ++x;      // x now contains 3, y contains 3
+y = x--;      // x contains 2 again, y still contains 3 
+```
+
+### compound arithmetic
+
+- += (compound addition)
+- -= (compound subtraction)
+- *= (compound multiplication)
+- /= (compound division)
+
+Perform a mathematical operation on a variable with another constant or variable. The += (et al) operators are just a convenient shorthand for the expanded syntax.
+
+```C++
+SYNTAX
+x += y;   // equivalent to the expression x = x + y;
+x -= y;   // equivalent to the expression x = x - y; 
+x *= y;   // equivalent to the expression x = x * y; 
+x /= y;   // equivalent to the expression x = x / y; 
+```
+
+`x` can be any variable type  
+`y` can be any variable type or constant
+
+```C++
+EXAMPLE USAGE
+x = 2;
+x += 4;      // x now contains 6
+x -= 3;      // x now contains 3
+x *= 10;     // x now contains 30
+x /= 2;      // x now contains 15
+```
+
 ### &= (compound bitwise and)
+
+The compound bitwise AND operator (&=) is often used with a variable and a constant to force particular bits in a variable to the LOW state (to 0). This is often referred to in programming guides as "clearing" or "resetting" bits.
+
+`x &= y;   // equivalent to x = x & y;`
+
+`x` can be a char, int or long variable  
+`y` can be an integer constant, char, int, or long  
+
+```
+   0  0  1  1    operand1
+   0  1  0  1    operand2
+   ----------
+   0  0  0  1    (operand1 & operand2) - returned result
+```
+Bits that are "bitwise ANDed" with 0 are cleared to 0 so, if myByte is a byte variable,  
+`myByte & B00000000 = 0;`  
+
+Bits that are "bitwise ANDed" with 1 are unchanged so,  
+`myByte & B11111111 = myByte;`
+
+**Note:** because we are dealing with bits in a bitwise operator - it is convenient to use the binary formatter with constants. The numbers are still the same value in other representations, they are just not as easy to understand. Also, B00000000 is shown for clarity, but zero in any number format is zero (hmmm something philosophical there?)
+
+Consequently - to clear (set to zero) bits 0 & 1 of a variable, while leaving the rest of the variable unchanged, use the compound bitwise AND operator (&=) with the constant B11111100 
+
+```
+   1  0  1  0  1  0  1  0    variable  
+   1  1  1  1  1  1  0  0    mask
+   ----------------------
+   1  0  1  0  1  0  0  0
+
+ variable unchanged
+                     bits cleared
+```
+Here is the same representation with the variable's bits replaced with the symbol x
+
+```
+   x  x  x  x  x  x  x  x    variable
+   1  1  1  1  1  1  0  0    mask
+   ----------------------
+   x  x  x  x  x  x  0  0
+
+ variable unchanged
+                     bits cleared
+```
+
+So if:  
+`myByte =  10101010;`  
+`myByte &= B1111100 == B10101000;`
+
+
 ### |= (compound bitwise or)
+
+The compound bitwise OR operator (|=) is often used with a variable and a constant to "set" (set to 1) particular bits in a variable.
+
+```C++
+SYNTAX
+x |= y;   // equivalent to x = x | y; 
+```
+`x` can be a char, int or long variable  
+`y` can be an integer constant or char, int or long  
+
+```
+   0  0  1  1    operand1
+   0  1  0  1    operand2
+   ----------
+   0  1  1  1    (operand1 | operand2) - returned result
+```   
+Bits that are "bitwise ORed" with 0 are unchanged, so if myByte is a byte variable,  
+`myByte | B00000000 = myByte;`
+
+Bits that are "bitwise ORed" with 1 are set to 1 so:  
+`myByte | B11111111 = B11111111;` 
+
+Consequently - to set bits 0 & 1 of a variable, while leaving the rest of the variable unchanged, use the compound bitwise OR operator (|=) with the constant B00000011   
+
+```
+   1  0  1  0  1  0  1  0    variable
+   0  0  0  0  0  0  1  1    mask
+   ----------------------
+   1  0  1  0  1  0  1  1
+
+ variable unchanged
+                     bits set
+```
+Here is the same representation with the variables bits replaced with the symbol x
+```
+   x  x  x  x  x  x  x  x    variable
+   0  0  0  0  0  0  1  1    mask
+   ----------------------
+   x  x  x  x  x  x  1  1
+
+ variable unchanged
+                     bits set
+```
+So if:  
+`myByte =  B10101010;`  
+`myByte |= B00000011 == B10101011;`  
 
 Variables
 ========
