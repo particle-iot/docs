@@ -105,20 +105,210 @@ Having said that, the user can send analog values to the pins using the function
 This feature is only available on the following pins: `A0, A1, A4, A5, A6, A7, D0 and D1.`
 
 ### Serial (UART)
+
+The Core features two serial ports. The first one is a CDC (communications Device Class) available over the USB port . When configured, it will show up as a virtual COM port on the computer.
+
+The second one is a hardware USART available via the TX and RX pins on the Core. 
+
+Both of these serial ports can be configured and used using the [serial functions.](http://spark.github.io/docs/#communication-serial)
+
+**NOTE:** Please take into account that the voltage levels on these pins runs at 0V to 3.3V and should not be connected directly to a computer's RS232 serial port which operates at +/- 12V and can damage the Core.  
+
+```
+HIGHLIGHTED IMAGE OF THE PINS ON THE CORE
+```
+
 ### SPI
+
+The Serial Peripheral Interface is available on pins:
+
+`A2: SS (Slave Select)`  
+`A3: SCK (Serial Clock)`  
+`A4: MISO (Master In Slave Out)`  
+`A5: MOSI (Master Out Slave In)`  
+
+**NOTE:** All of these pins run at 3.3V logic levels.
+
+```
+HIGHLIGHTED IMAGE OF THE PINS ON THE CORE
+```  
+
+
 ### I2C
+
+I2C communication pins are multiplexed with the standard GPIO pins D0 and D1.
+
+`D0: SDA (Serial Data Line)`  
+`D1: SCL (Serial Clock)`
+
+Both of these pins run at 3.3V logic level but *are* tolerant to 5V inputs.
+
+```
+HIGHLIGHTED IMAGE OF THE PINS ON THE CORE
+```
+
 ### JTAG
 
+In addition to having the ability to load new firmware over USB and WiFi, the users also have direct access to the STM32 chip via the JTAG channel. In order to do this, you will need a JTAG shield and a JTAG programmer. You could make your own JTAG shield or buy one from us. Currently we have only tested the [ST-LINK/V2](http://www.st.com/web/catalog/tools/FM146/CL1984/SC724/SS1677/PF251168) programmer successfully.
+
+The hardware files for the JTAG shield are available [here.]()
+
+```
+HIGHLIGHTED IMAGE OF THE PINS ON THE CORE
+``` 
 
 Memory mapping
 ---
+
+###Internal Flash Memory Map
+
+The STM32 has a total of 128KB internal flash memory which is divided into three main regions by us. Beginning at the top of the memory space is where the bootloader is saved and locked. The second region is reserved for storing system flags and the third region holds the actual user firmware. 
+
+<table border = '1'>
+   <tr>
+      <th>Memory Address</th>
+      <th>Content</th>
+      <th>Size</th>
+   </tr>
+   <tr> 
+      <td>0x08000000</td>
+      <td>Bootloader</td>
+      <td>19 KB max</td>
+   </tr>
+   <tr> 
+      <td>0x08004C00</td>
+      <td>System Flags</td>
+      <td>1 KB max</td>
+   </tr>
+   <tr> 
+      <td>0x08005000</td>
+      <td>Core Firmware Location</td>
+      <td>108 KB max</td>
+   </tr>
+</table>
+
+###External Flash Memory Map
+
+The external flash memory gives us an additional 2MB of storage space. This space is used to store the public and private keys, the factory reset firmware, a back-up firmware and a copy of the firmware sent Over The Air (OTA). The rest of the memory space is available to the user.
+
+<table border = '1'>
+   <tr>
+      <th>Memory Address</th>
+      <th>Content</th>
+      <th>Size</th>
+   </tr>
+   <tr>
+      <td>0x00000</td>
+      <td>Reserved</td>
+      <td>4KB</td>
+   </tr>
+   <tr> 
+      <td>0x01000</td>
+      <td>Public Key</td>
+      <td>294 Bytes - 4KB max</td>
+   </tr>
+   <tr> 
+      <td>0x02000</td>
+      <td>Private Key</td>
+      <td>612 Bytes</td>
+   </tr>
+   <tr> 
+      <td>0x20000</td>
+      <td>Factory Reset Firmware Location</td>
+      <td>128 KB max</td>
+   </tr>
+   <tr> 
+      <td>0x40000</td>
+      <td>BackUp Firmware Location</td>
+      <td>128 KB max</td>
+   </tr>
+   <tr> 
+      <td>0x60000</td>
+      <td>OTA Firmware Location</td>
+      <td>128 KB max</td>
+   </tr>
+   <tr> 
+      <td>0x80000</td>
+      <td>End of OTA Firmware</td>
+   </tr>
+   <tr> 
+      <td> </td>
+      <td> NOT USED </td>
+   </tr>
+   <tr> 
+      <td>0x200000</td>
+      <td>End of Flash Memory</td>
+   </tr>
+</table>
 
 Electrical characteristics
 ---
 
 ### Power
+
+<table border = '1'>
+   <tr>
+      <th>Parameter</th>
+      <th>Min</th>
+      <th>Max</th>
+   </tr>
+   <tr> 
+      <td>Input Voltage (at VIN)</td>
+      <td> 3.6 V</td>
+      <td> 6.0 V</td>
+   </tr>  
+   <tr> 
+      <td>Total Current Consumption</td>
+      <td>50mA</td>
+      <td>300mA</td>
+   </tr>
+   <tr> 
+      <td>Current per I/O pin</td>
+      <td>8mA</td>
+      <td>20mA</td>
+   </tr>
+</table>
+
 ### RF
-### Minimums and maximums
+
+With the on board chip antenna, the peak return loss (S11) has been measured and verified to be in the excess of 20dB.
+
+The transmission loss for the u.FL connector has been measured to be approximately 0.5 to 0.75dB.
+
+```
+ANDY'S S11 PLOTS GO HERE
+```  
 
 Physical layout
 ---
+
+The header pins on the Core are spaced at an interval of 0.1", which is the standard pitch size for proto-boards and breadboards. The physical layout of the Core was inspired from the [Arduino Pro Mini](http://arduino.cc/en/Main/ArduinoBoardProMini) board.
+
+Mechanical drawings of the Core are available [here.](https://github.com/spark/core/blob/master/PDFs/core-mechanical-drawing-v1.pdf)
+
+<table border = '1'>
+   <tr>
+      <th>Parameter</th>
+      <th>Value</th>
+   </tr>
+   <tr> 
+      <td>Length</td>
+      <td>1.47"</td>
+   </tr>
+   <tr> 
+      <td>Width</td>
+      <td>0.8"</td>
+   </tr>
+   <tr> 
+      <td>Height</td>
+      <td>0.5"</td>
+   </tr>
+   <tr> 
+      <td>Weight</td>
+      <td>2 unicorns</td>
+   </tr>
+</table>
+
+```
+IMAGE OF THE CAD DRAWING GOES HERE
+```  
