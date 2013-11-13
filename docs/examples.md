@@ -63,7 +63,7 @@ void loop()
 Control LEDs over the Internet
 ===
 
-Now that we know how to blink and LED, how about we control it over the Internet? This is where the fun begins.
+Now that we know how to blink an LED, how about we control it over the Internet? This is where the fun begins.
 
 Lets hook up two LEDs this time.
 
@@ -115,8 +115,8 @@ void loop()
 
 // This function gets called whenever there is a matching API request
 // the command string format is l<led number>,<state>
-// for example: l1,HIGH
-//              L2,LOW
+// for example: l1,HIGH or l1,LOW
+//              l2,HIGH or l2,LOW
 
 int ledControl(String command)
 {
