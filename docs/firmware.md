@@ -331,6 +331,7 @@ void loop()
 {
   val = analogRead(analogPin);  // read the input pin
   analogWrite(ledPin, val/16);  // analogRead values go from 0 to 4095, analogWrite values from 0 to 255
+  delay(10);
 }
 ```
 
@@ -362,6 +363,7 @@ void loop()
 {
   val = analogRead(analogPin);  // read the input pin
   analogWrite(ledPin, val/16);  // analogRead values go from 0 to 4095, analogWrite values from 0 to 255
+  delay(10);
 }
 ```
 
@@ -1177,12 +1179,13 @@ The *initialization* happens first and exactly once. Each time through the loop,
 
 ```C++
 EXAMPLE USAGE
-// Dim an LED using a PWM pin
+// slowy make the LED glow brighter
 int ledPin = D1; // LED in series with 470 ohm resistor on pin D1
 
 void setup()
 {
-  // no setup needed
+  // set ledPin as an output
+	pinMode(ledPin,OUTPUT);
 }
 
 void loop()
@@ -1207,6 +1210,15 @@ for(int x = 2; x < 100; x = x * 1.5)
 Another example, fade an LED up and down with one for loop: 
 
 ```C++
+// slowy make the LED glow brighter
+int ledPin = D1; // LED in series with 470 ohm resistor on pin D1
+
+void setup()
+{
+  // set ledPin as an output
+	pinMode(ledPin,OUTPUT);
+}
+
 void loop()
 {
    int x = 1;
