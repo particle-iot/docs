@@ -60,6 +60,84 @@ void loop()
 }
 ```
 
+Control LEDs over the Internet
+===
+
+Now that we know how to blink and LED, how about we control it over the Internet? This is where the fun begins.
+
+Lets hook up two LEDs this time.
+
+```
+ADD IMAGE OF THE SETUP
+```
+
+Here is the algorithm: 
+
+- Set up the pins as outputs that have LEDs connected to them
+- Create and register a Spark function ( this gets called automagically when you make an API request to it)
+- Parse the incoming command and take appropriate actions
+
+```C++
+// -----------------------------------
+// Controlling LEDs over the Internet
+// -----------------------------------
+
+// name the pins
+int led1 = D0;
+int led2 = D1;
+
+
+// Function prototypes
+int ledControl(String command);
+
+// This routine runs only once upon reset
+void setup()
+{
+   //Register our Spark function here
+   Spark.function("led", ledControl);
+
+   // Configure the pins to be outputs
+   pinMode(led1, OUTPUT);
+   pinMode(led2, OUTPUT);
+
+   // Initialize both the LEDs to be OFF
+   digitalWrite(led1, LOW);
+   digitalWrite(led2, LOW);
+}
+
+
+// This routine loops forever 
+void loop()
+{
+   // Nothing to do here
+}
+
+
+// This function gets called whenever there is a matching API request
+// the command string format is l<led number>,<state>
+// for example: l1,HIGH
+//              L2,LOW
+
+int ledControl(String command)
+{
+   int state = 0;
+   //find out the pin number and convert the ascii to integer
+   int pinNumber = command.charAt(1) - '0';
+   //Sanity check to see if the pin numbers are within limits
+   if (pinNumber < 0 || pinNumber > 1) return -1;
+
+   // find out the state of the led
+   if(command.substring(3,7) == "HIGH") state = 1;
+   else if(command.substring(3,6) == "LOW") state = 0;
+   else return -1;
+
+   // write to the appropriate pin
+   digitalWrite(pinNumber, state);
+   return 1;
+}
+```
+
+**TO DO:** Add curl/javascript command example here
 
 Measuring the temperature
 ===
