@@ -172,13 +172,16 @@ Turning ON a relay is as simple as setting the associated pin to HIGH.
 
 `` ADD AN IMAGE OF THE TEST SETUP HERE ``
 
-(the following example does not involve any Internet API calls)
+Explain the example here. Yet to test.
+
 ``` C
 #include "application.h"
 int RELAY1 = D0;
 int RELAY2 = D1;
 int RELAY3 = D2;
 int RELAY4 = D3;
+
+int relayControl(String command);
 
 void setup()
 {
@@ -192,12 +195,35 @@ void setup()
    digitalWrite(RELAY2, LOW);
    digitalWrite(RELAY3, LOW);
    digitalWrite(RELAY4, LOW);
+
+   //register the Spark function
+   Spark.function("relay", relayControl);
 }
 
 void loop()
 {
-   //User application code example
+   // This loops for ever
 }
+
+// command format r1,HIGH
+int relayControl(String command)
+{
+  int relayState = 0;
+  // parse the relay number
+  int relayNumber = command.charAt(1) - '0';
+  // do a sanity check
+  if (relayNumber < 1 || relayNumber > 4) return -1;
+
+  // find out the state of the relay
+  if (command.substring(3,7) == "HIGH") relayState = 1;
+  else if (command.substring(3,6) == "LOW") relayState = 0;
+  else return -1;
+
+  // write to the appropriate relay
+  digitalWrite(relayNumber, relayState);
+  return 1;
+}
+
 ```
 
 Sample use cases
