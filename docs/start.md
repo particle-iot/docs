@@ -61,9 +61,9 @@ When the Core connects to the internet, it establishes a connection to the *Spar
 
 There are two buttons on the Core: the RESET button (on the right) and the MODE button (on the left). The RESET button will put the Core in a hard reset, effectively depowering and repowering the microcontroller. This is a good way to restart the application that you've downloaded onto the Core. The MODE button serves three functions:
 
-- Hold the MODE button for one second to put the Core into *Smart Config* mode to connect it to your local Wi-Fi network. The LED should start flashing purple.
-- Hold the MODE button for three seconds while powering on the Core to enter *Bootloader* mode, where you can reprogram the Core over USB or JTAG. The LED should start flashing yellow. If you do this by accident, simply hit MODE again to leave *Bootloader* mode.
-- Hold the MODE button for *ten seconds* while powering on the Core to do a *Factory Reset*, where the Core is reprogrammed with the software that was installed on the Core in the factory (the Tinker application). The LED should turn white for three seconds and begin flashing quickly; when the LED switches to another color the Core has been reset. This is useful if you encounter bugs with your firmware, or if you just want to get back to Tinker.
+- Hold the MODE button for three seconds to put the Core into *Smart Config* mode to connect it to your local Wi-Fi network. The LED should start flashing blue.
+- Hold the MODE button for *three seconds* while tapping on the RESET button once to enter *Bootloader* mode, where you can reprogram the Core over USB or JTAG. Release the MODE button when you see the LED flashing yellow. If you do this by accident, simply hit RESET button to leave *Bootloader* mode.
+- Hold the MODE button for *ten seconds* while tapping on the RESET button once to do a *Factory Reset*, where the Core is reprogrammed with the software that was installed on the Core in the factory (the Tinker application). The LED should turn white for three seconds and begin flashing quickly; when the LED switches to another color the Core has been reset. This is useful if you encounter bugs with your firmware, or if you just want to get back to Tinker.
 
 
 ### LEDs
@@ -72,12 +72,12 @@ There are two LEDs on the Core. The big fat one in the middle is a full-color RG
 
 The RGB LED could show the following states:
 
-- *Flashing purple*: Smart Config mode, waiting for network information.
-- *Solid purple*: Smart Config complete, network information found.
+- *Flashing blue*: Smart Config mode, waiting for network information.
+- *Solid blue*: Smart Config complete, network information found.
 - *Flashing green*: Connecting to local Wi-Fi network.
 - *Solid green*: Local Wi-Fi connection complete.
 - *Flashing cyan*: Connecting to Spark Cloud.
-- *Pulsing cyan*: Successfully connected to Spark Cloud.
+- *Slow breathing cyan*: Successfully connected to Spark Cloud.
 - *Flashing yellow*: Bootloader mode, waiting for new code via USB or JTAG.
 - *Flashing white*: Factory Reset initiated.
 - *Solid white*: Factory Reset complete; rebooting.
@@ -92,9 +92,9 @@ The RGB LED can also let you know if there were errors in establishing an intern
 
 The Core has 24 pins that you can connect a circuit to. These pins are:
 
-- _RAW_: Connect an unregulated power source here with a voltage between 3.7V and 9V (6V for v0.2.x) to power the Core. If you're powering the Core over USB, this pin should not be used.
-- _VCC_: This pin will output a regulated 3.3V power rail that can be used to power any components outside the Core. (Also, if you have your own 3.3V regulated power source, you can plug it in here to power the Core).
-- _VDDA_: This is a separate low-noise regulated 3.3V power rail designed for analog circuitry that may be susceptible to noise from the digital components. If you're using any sensitive analog sensors, power them from _VDDA_ instead of from _VCC_.
+- _VIN_: Connect an unregulated power source here with a voltage between 3.6V and 6V to power the Core. If you're powering the Core over USB, this pin should *not* be used.
+- _3V3_: This pin will output a regulated 3.3V power rail that can be used to power any components outside the Core. (Also, if you have your own 3.3V regulated power source, you can plug it in here to power the Core).
+- _3V3*_: This is a separate low-noise regulated 3.3V power rail designed for analog circuitry that may be susceptible to noise from the digital components. If you're using any sensitive analog sensors, power them from _3V3*_ instead of from _3V3_.
 - _!RST_: You can reset the Core (same as pressing the RESET button) by connecting this pin to GND.
 - _GND_: These pins are your ground pins.
 - _D0 to D7_: These are the bread and butter of the Spark Core: 8 GPIO (General Purpose Input/Output) pins. They're labeled "D" because they are "Digital" pins, meaning they can't read the values of analog sensors. Some of these pins have additional peripherals (SPI, JTAG, etc.) available, keep reading to find out more.
@@ -103,7 +103,7 @@ The Core has 24 pins that you can connect a circuit to. These pins are:
 
 #### PWM Pins
 
-When you want to use the `analogWrite()` function on the Core, for instance to smoothly dim the brightness of LEDs, you need to use pins that have a timer peripheral.  People often call these PWM pins, since what they do is called Pulse Width Modulation.  The Core has 8 PWM pins: A0–A1, A4–A7, D0–D1.
+When you want to use the `analogWrite()` function on the Core, for instance to smoothly dim the brightness of LEDs, you need to use pins that have a timer peripheral.  People often call these PWM pins, since what they do is called Pulse Width Modulation.  The Core has 8 PWM pins: A0, A1, A4, A5, A6, A7, D0 and D1.
 
 The Spark Cloud
 ---
