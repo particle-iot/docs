@@ -126,6 +126,17 @@ The Tinker API
 The Tinker Firmware
 ---
 
+The Tinker firmware is the default application program stored in the Spark Core upon its commissioning from the factory assembly line. You can always get back to it by putting the Core in the [factory reset mode.](#buttons)
+
+The Tinker firmware has four basic functions:
+
+- Write a digital value to an I/O pin
+- Write an analog/PWM value to an I/O pin
+- Read a digital value from an I/O pin
+- Read an analog value from an I/O pin
+
+You can have a look at the latest release [here.](https://github.com/spark/core-firmware/blob/master/src/application.cpp)
+
 Writing Core Firmware
 ===
 
