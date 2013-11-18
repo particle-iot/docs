@@ -12,13 +12,13 @@ Congratulations on being the owner of a brand new Spark Core! Go ahead, open the
 - *One USB cable*. The included USB cable is used for two things: powering the Spark Core (by connecting it to your computer, to a USB power brick, or to a USB battery pack) and reprogramming. Most of the time you will be reprogramming the Core through the Cloud, but you always have the option of reprogramming it over USB, especially if your internet connection is down or you would prefer to use your own servers.
 
 
-### Power the Core
+### Step 1: Power the Core
 
 Powering the Core is easy; it receives power over a Micro USB port, much like many smartphones and other gadgets. Power your Core on by connecting the Micro USB cable to the USB port on the Core, and plug the other end into any USB port on your computer, a USB hub (preferably powered), or a USB power adapter (like the one that probably came with your smartphone).
 
 ![Power the Core](images/core-usb.jpg)
 
-### Download the Spark iOS or Android app
+### Step 2: Download the Spark iOS or Android app
 
 ![Spark apps](images/spark-apps.jpg)
 
@@ -28,7 +28,7 @@ The Spark mobile app is the easiest way to get your Spark Core connected to the 
 - Connect your Spark Core to your Wi-Fi network
 - Control your Core without writing any code
 
-### Connect the Core to Wi-Fi
+### Step 3: Connect the Core to Wi-Fi
 
 ![Smart Config](images/smart-config.jpg)
 
@@ -41,7 +41,7 @@ The Spark mobile app will guide you through the process, but basically it's a on
 - **Flashing cyan**: Connecting to the Spark Cloud
 - **Breathing cyan**: Connected!
 
-### Blink an LED with Tinker
+### Step 4: Blink an LED with Tinker
 
 ![Tinker](images/tinker.jpg)
 
@@ -218,7 +218,7 @@ The parameters must be the pin (A0 to A7, D0 to D7), followed by an integer valu
 
 This will read the digital value of a pin, which can be read as either HIGH or LOW. If you were to connect the pin to 3.3V, it would read HIGH; if you connect it to GND, it would read LOW. Anywhere in between, it'll probably read whichever one it's closer to, but it gets dicey in the middle.
 
-The parameters must be the pin (A0 to A7, D0 to D7). The return value will be 1 if the pin is HIGH, 0 if the pin is LOW, and -1 if the read fails.
+The parameter must be the pin (A0 to A7, D0 to D7). The return value will be 1 if the pin is HIGH, 0 if the pin is LOW, and -1 if the read fails.
 
 
 
