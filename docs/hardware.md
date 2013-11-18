@@ -78,7 +78,7 @@ The RF circuit is probably where we spent the most time on during hardware desig
 
 ![RF Circuit](images/core-rf.jpg)
 
-You can download a copy of the RF test report [here.]()  
+You can download a copy of the RF test report [here.](images/core-rf-test-report.pdf)  
 
 Pins and I/O
 ---
