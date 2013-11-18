@@ -19,9 +19,7 @@ Congratulations on being the owner of a brand new Spark Core! Go ahead, open the
 
 Powering the Core is easy; it receives power over a Micro USB port, much like many smartphones and other gadgets. Power your Core on by connecting the Micro USB cable to the USB port on the Core, and plug the other end into any USB port on your computer, a USB hub (preferably powered), or a USB power adapter (like the one that probably came with your smartphone).
 
-```
-ADD AN ILLUSTRATIVE PICTURE HERE
-```
+![Power the Core](images/core-usb.jpg)
 
 ### Download the Spark iOS or Android app
 
