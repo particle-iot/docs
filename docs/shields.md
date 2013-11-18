@@ -147,7 +147,7 @@ Relay Shield
 ====
 The Relay Shield, in combination with the Spark Core, allows you to control high power devices over the internet. Want to control a lamp, fan or garden sprinklers? Then this is a solution for you! 
 
-[Here is a GitHub link to the hardware files.](https://github.com/spark/shields/tree/master/Relay%20Shield)
+[Relay Shield Hardware Files >](https://github.com/spark/shields/tree/master/Relay%20Shield)
 
 
 ![Relay Shield Top](images/relay-shield-top.jpg)
