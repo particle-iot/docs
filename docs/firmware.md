@@ -104,6 +104,12 @@ The API request will be routed to the Spark Core and will run your brew function
 
 Send an *event* through the Spark Cloud that will be forwarded to registered callbacks and server-sent event streams.
 
+This feature will allow the Core to generate an *event* based on a condition. For example, you could connect a motion sensor to the core and have a the Core generate an event whenever motion is detected. Unlike the Spark variable, you don't have to send out an API GET request.
+
+This feature is currently under implementation.
+
+<!-- TO DO -->
+<!--
 ```C++
 SYNTAX
 Spark.event(event_name, event_result);
@@ -123,6 +129,7 @@ void loop() {
 COMPLEMENTARY API CALL
 I guess this should be callback registration...?
 ```
+-->
 
 ### Spark.connected()
 
@@ -171,22 +178,26 @@ Re-connects the Spark Core to the Spark Cloud after `Spark.disconnect()` is call
 ```C++
 SYNTAX
 Spark.connect()
-
-EXAMPLE USAGE
-Not sure about this one either...
 ```
 
 The Spark Core connects to the cloud by default, so it's not necessary to call `Spark.connect()` unless you have explicitly disconnected the Core.
 
-
+<!-- TO DO -->
+<!-- Add example implementation here -->
 
 ### Spark.print()
 
 Prints to the debug console in Spark's web IDE.
 
+<!-- TO DO -->
+<!-- Add example implementation here -->
+
 ### Spark.println()
 
 Prints to the debug console in Spark's web IDE, followed by a *newline* character.
+
+<!-- TO DO -->
+<!-- Add example implementation here -->
 
 Sleep
 ---
@@ -204,6 +215,9 @@ Spark.sleep(int millis, array peripherals);
 `Spark.sleep()` takes one argument, an `int`, for the number of milliseconds to sleep.
 
 `Spark.sleep()` can also take an optional second argument, an `array` of other peripherals to deactivate. Deactivating unused peripherals on the micro-controller can take its power consumption into the micro-amps.
+
+<!-- TO DO -->
+<!-- Add example implementation here -->
 
 Input/Output
 ---
@@ -618,6 +632,10 @@ Serial1.flush();
 
 TCP
 -----
+<!-- TO DO -->
+<!-- Add example implementation here -->
+
+**Coming Soon**
 
 ### TCPClient()
 ### TCPServer()
@@ -625,7 +643,10 @@ TCP
 UDP
 -----
 
-TBD
+<!-- TO DO -->
+<!-- Add example implementation here -->
+
+**Coming Soon**
 
 Other functions
 ====
@@ -1973,5 +1994,60 @@ So if:
 Variables
 ========
 
+Constants
+----
+
+### HIGH | LOW
+
+When reading or writing to a digital pin there are only two possible values a pin can take/be-set-to: HIGH and LOW.
+
+`HIGH`
+
+The meaning of `HIGH` (in reference to a pin) is somewhat different depending on whether a pin is set to an `INPUT` or `OUTPUT`. When a pin is configured as an INPUT with pinMode, and read with digitalRead, the microcontroller will report HIGH if a voltage of 3 volts or more is present at the pin.
+
+A pin may also be configured as an `INPUT` with `pinMode`, and subsequently made `HIGH` with `digitalWrite`, this will set the internal 40K pullup resistors, which will steer the input pin to a `HIGH` reading unless it is pulled LOW by external circuitry. This is how INPUT_PULLUP works as well
+
+When a pin is configured to `OUTPUT` with `pinMode`, and set to `HIGH` with `digitalWrite`, the pin is at 3.3 volts. In this state it can source current, e.g. light an LED that is connected through a series resistor to ground, or to another pin configured as an output, and set to `LOW.`
+
+`LOW`
+
+The meaning of `LOW` also has a different meaning depending on whether a pin is set to `INPUT` or `OUTPUT`. When a pin is configured as an `INPUT` with `pinMode`, and read with `digitalRead`, the microcontroller will report `LOW` if a voltage of 1.5 volts or less is present at the pin.
+
+When a pin is configured to `OUTPUT` with `pinMode`, and set to `LOW` with digitalWrite, the pin is at 0 volts. In this state it can sink current, e.g. light an LED that is connected through a series resistor to, +3.3 volts, or to another pin configured as an output, and set to `HIGH.` 
+
+### INPUT, OUTPUT, INPUT_PULLUP, INPUT_PULLDOWN 
+
+Digital pins can be used as INPUT, INPUT_PULLUP, INPUT_PULLDOWN or OUTPUT. Changing a pin with `pinMode()` changes the electrical behavior of the pin.
+
+Pins Configured as `INPUT`
+
+The Spark Core's pins configured as `INPUT` with `pinMode()`` are said to be in a high-impedance state. Pins configured as `INPUT` make extremely small demands on the circuit that they are sampling, equivalent to a series resistor of 100 Megohms in front of the pin. This makes them useful for reading a sensor, but not powering an LED.
+
+If you have your pin configured as an `INPUT`, you will want the pin to have a reference to ground, often accomplished with a pull-down resistor (a resistor going to ground). 
+
+Pins Configured as `INPUT_PULLUP` or `INPUT_PULLDOWN`
+
+The STM32 microcontroller has internal pull-up resistors (resistors that connect to power internally) and pull-down resistors (resistors that connect to ground internally) that you can access. If you prefer to use these instead of external resistors, you can use these argument in `pinMode()`. 
+
+Pins Configured as `OUTPUT`
+
+Pins configured as `OUTPUT` with `pinMode()`` are said to be in a low-impedance state. This means that they can provide a substantial amount of current to other circuits. STM32 pins can source (provide positive current) or sink (provide negative current) up to 20 mA (milliamps) of current to other devices/circuits. This makes them useful for powering LED's but useless for reading sensors. Pins configured as outputs can also be damaged or destroyed if short circuited to either ground or 3.3 volt power rails. The amount of current provided by the pin is also not enough to power most relays or motors, and some interface circuitry will be required. 
+
+### true | false
+
+There are two constants used to represent truth and falsity in the Arduino language: true, and false.
+
+`false`
+
+`false` is the easier of the two to define. false is defined as 0 (zero).
+
+`true`
+
+`true` is often said to be defined as 1, which is correct, but true has a wider definition. Any integer which is non-zero is true, in a Boolean sense. So -1, 2 and -200 are all defined as true, too, in a Boolean sense.
+
+Note that the true and false constants are typed in lowercase unlike `HIGH, LOW, INPUT, & OUTPUT.` 
+
 Libraries
 ========
+
+*coming soon*
