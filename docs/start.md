@@ -8,7 +8,7 @@ Spark is the fastest and easiest way to build an internet-connected hardware pro
 
 Congratulations on being the owner of a brand new Spark Core! Go ahead, open the box, and let's talk about what you see. Your box should include:
 
-![Spark Core in box](/images/core-in-box.jpg)
+![Spark Core in box](images/core-in-box.jpg)
 
 - *One Spark Core*. The reason you bought this thing. We'll dig in more here in a bit.
 - *One breadboard*. A breadboard makes it easy to wire components to the Core without solder. Internally, the rows are electrically connected horizontally, and the "rails" along the edges are connected vertically. See the [breadboard article on Wikipedia](http://en.wikipedia.org/wiki/Breadboard) for more information.

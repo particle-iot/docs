@@ -8,7 +8,7 @@ Subsystems
 
 Spark Core v1.0 uses the STM32F103CB - ARM 32-bit Cortex M3 based - microcontroller for its brain power. You can download the datasheet [here.](https://github.com/spark/core/blob/master/Datasheets/ST_STM32F103CB.pdf)
 
-![STM32](/images/core-stm32.jpg)
+![STM32](images/core-stm32.jpg)
 
 Some of its key features are as follows:
 
