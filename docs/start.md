@@ -23,24 +23,41 @@ Powering the Core is easy; it receives power over a Micro USB port, much like ma
 ADD AN ILLUSTRATIVE PICTURE HERE
 ```
 
-### Create an account
+### Download the Spark iOS or Android app
 
-This is more content.
+![Spark apps](images/spark-apps.jpg)
 
-``` Javascript
-  console.log('hello');
-```
+The Spark mobile app is the easiest way to get your Spark Core connected to the internet. The app will help you do three things:
 
+- Create an account with Spark
+- Connect your Spark Core to your Wi-Fi network
+- Control your Core without writing any code
 
 ### Connect the Core to Wi-Fi
 
-This is more content.
+![Smart Config](images/smart-config.jpg)
 
-``` Javascript
-  console.log('hello');
-```
+Connecting the Spark Core to your Wi-Fi is dead simple. In fact, I did it twice while I was typing this paragraph.
 
-### Blink an LED
+The Spark mobile app will guide you through the process, but basically it's a one-step process where you type your Wi-Fi network name (SSID) and password and they're sent over Wi-Fi to the Spark Core, which automatically connects to the network and to the Spark Cloud. If everything works as planned, you'll see the LED go through the following colors:
+
+- **Flashing blue**: Listening for Wi-Fi credentials
+- **Flashing green**: Connecting to the Wi-Fi network
+- **Flashing cyan**: Connecting to the Spark Cloud
+- **Breathing cyan**: Connected!
+
+### Blink an LED with Tinker
+
+![Tinker](images/tinker.jpg)
+
+The Spark mobile app contains a mini-app called Tinker that lets you... well, tinker. It lets you talk with the Input/Output pins of the Spark Core without writing a single line of code.
+
+Each of the pins has up to four functions available:
+
+- **digitalWrite**: Sets the pin to HIGH or LOW, which either connects it to 3.3V (the maximum voltage of the system) or to GND (ground). Pin D7 is connected to an on-board LED; if you set pin D7 to HIGH, the LED will turn on, and if you set it to LOW, it will turn off.
+- **analogWrite**: Sets the pin to a value between 0 and 255, where 0 is the same as LOW and 255 is the same as HIGH. This is sort of like sending a voltage between 0 and 3.3V, but since this is a digital system, it uses a mechanism called Pulse Width Modulation, or PWM. You could use *analogWrite* to dim an LED, as an example.
+- **digitalRead**: This will read the digital value of a pin, which can be read as either HIGH or LOW. If you were to connect the pin to 3.3V, it would read HIGH; if you connect it to GND, it would read LOW. Anywhere in between, it'll probably read whichever one it's closer to, but it gets dicey in the middle.
+- **analogRead**: This will read the analog value of a pin, which is a value from 0 to 4095, where 0 is LOW (GND) and 4095 is HIGH (3.3V). All of the analog pins (A0 to A7) can handle this. *analogRead* is great for reading data from sensors.
 
 Wait, what is this thing?
 =====
