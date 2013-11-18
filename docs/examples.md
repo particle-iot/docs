@@ -67,9 +67,7 @@ Now that we know how to blink an LED, how about we control it over the Internet?
 
 Lets hook up two LEDs this time.
 
-```
-ADD IMAGE OF THE SETUP
-```
+![Two LED setup](images/breadboard-two-leds.jpg)
 
 Here is the algorithm: 
 
