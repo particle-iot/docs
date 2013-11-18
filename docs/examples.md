@@ -16,7 +16,7 @@ Connect everything together as shown in the picture. The LED is connected to pin
 
 &nbsp;
 
-![One LED setup](images/breadboard-one-led.jpg)
+![One LED setup](images/breadboard-one-led.JPG)
 
 But wait, whats the value of the resistor again?
 

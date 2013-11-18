@@ -154,7 +154,7 @@ The Relay Shield, in combination with the Spark Core, allows you to control high
 
 Operation
 -----
-(I'm adding the description of the schematic here in case we decide to include it in the documentation.)  
+<!--(I'm adding the description of the schematic here in case we decide to include it in the documentation.)  -->
 The schematic for the relay shield is simple and self explanatory. The shield has four relays that are controlled by pins D0, D1, D2 and D3 on the Core. Each relay is triggered via a NPN transistor that takes a control signal from the core and switches the relay coil ON and OFF which in turn makes or breaks the electrical contact on the output. There is also a [flyback diode](http://en.wikipedia.org/wiki/Flyback_diode) connected across the coil to help protect the transistor from high voltage transients caused during switching.  
 The relays are SPDT (Single Pole Double Throw) type, which means they have three terminals at the output: COMMON (COMM), Normally Open (NO) and Normally Closed (NC). We can either connect the load in between the COMM and NO or COMM and NC terminals. When connected in between COMM and NO, the output remains open/disconnected when the relay is turned OFF and closes/connects when the relay is turned ON. In the later case, the output remains closed/connected when the relay is OFF and opens/disconnets when the relay is ON. 
 
@@ -173,9 +173,9 @@ Setting up the Relay Shield
 -----
 Turning ON a relay is as simple as setting the associated pin to HIGH.
 
-`` ADD AN IMAGE OF THE TEST SETUP HERE ``
+<!--`` ADD AN IMAGE OF THE TEST SETUP HERE ``-->
 
-Explain the example here. Yet to test.
+<!--Explain the example here. Yet to test.-->
 
 ``` C
 #include "application.h"
@@ -272,7 +272,7 @@ The shield is build around  Microchip's MCP73871 battery charge management contr
 
 [Battery Shield Hardware Files >](https://github.com/spark/shields/tree/master/Battery%20Shield)
 
-`` ADD SYSTEM BLOCK DIAGRAM HERE`` 
+<!--`` ADD SYSTEM BLOCK DIAGRAM HERE``-->
 
 Operation 
 -----
@@ -280,7 +280,7 @@ Operation
 MCP73871 is an intelligent battery charge management controller that allows one to charge the battery and power the system simultaneously. There is also an under voltage lock out which protects the battery from draining completely. The TPS61200 converts the 3.7V to 4.1V battery output to a regulated 5V to power the core or potentially any other hardware (cellphones?!)  
 The charge current to the battery is set to 500mA.
 
-Link to GitHub repo.  
+<!--Link to GitHub repo.-->  
 
 Specifications
 -----
@@ -296,17 +296,17 @@ Setting up the shield
 -----
 In order to just charge the battery, simply plug in the battery into the JST connector (*CAUTION: Remember to check the polarity of the battery header!!*) and a USB cable into the microB socket as shown in the picture.  
 
-`` ADD PICTURE OF THE SETUP HERE ``
+<!--`` ADD PICTURE OF THE SETUP HERE ``-->
 
 You will see the Blue power LED light up on the shield and either the RED (indicating charging in progress) or GREEN (indicating charging complete) LED light up.  
 You could also power the Spark Core while the battery is charging but remember that the charging might be slower as the current will be distributed between the Core and the battery.  
 
-`` ADD PICTURE OF SHIELD CONNECTED TO THE CORE ``  
+<!--`` ADD PICTURE OF SHIELD CONNECTED TO THE CORE `-->  
 
 Explain the power save mode and the jumper configuration on the TPS61200.
 
-`` ADD PICTURE OF THE PS JUMPER ``
+<!--`` ADD PICTURE OF THE PS JUMPER ``-->
 
-`` ADD PICTURE OF A PHONE BEING CHARGED ``
+<!--` ADD PICTURE OF A PHONE BEING CHARGED ``-->
 
 **CAUTION:** Check the battery polarity and its voltage rating  
