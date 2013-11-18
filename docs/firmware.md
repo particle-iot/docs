@@ -9,27 +9,32 @@ Cloud
 
 ### Spark.variable()
 
-Expose a *variable* through the Spark Cloud so that it can be called with `GET device/{VARIABLE}`.
+Expose a *variable* through the Spark Cloud so that it can be called with `GET /v1/devices/{DEVICE_ID}/{VARIABLE}`.
 
 ```C++
-SYNTAX
-Spark.variable(var);
-
 EXAMPLE USAGE
-int temp_sensor = 0;
-int temp;
-Spark.variable(temp);
+int temperature = 0;
 
-void loop() {
-  temp = analogRead(temp_sensor);
+void setup()
+{
+  Spark.variable("temperature", &temperature, INT);
+  pinMode(A0, INPUT);
 }
 
-COMPLEMENTARY API CALL
-GET https://api.sprk.io/v1/devices/abcd1234/temp
+void loop()
+{
+  temperature = analogRead(A0);
+}
 ```
 
-<!--**TO BE RESOLVED: How do we handle typing?**-->
+COMPLEMENTARY API CALL
 
+```json
+# EXAMPLE REQUEST IN TERMINAL
+# Core ID is 0123456789abcdef01234567
+# Your access token is 1234123412341234123412341234123412341234
+curl "https://api.spark.io/v1/devices/0123456789abcdef01234567/temperature?access_token=1234123412341234123412341234123412341234"
+```
 
 
 ### Spark.function()
@@ -82,10 +87,18 @@ int brewCoffee(String command)
 }
 ```
 
-```C++
+```json
 COMPLEMENTARY API CALL
-POST https://api.sprk.io/v1/devices/abcd1234/brew -d params=coffee
+POST /v1/devices/{DEVICE_ID}/{FUNCTION}
+
+# EXAMPLE REQUEST
+curl https://api.spark.io/v1/devices/0123456789abcdef01234567/brew \
+     -d access_token=1234123412341234123412341234123412341234 \
+     -d "args=coffee"
 ```
+
+The API request will be routed to the Spark Core and will run your brew function. The response will have a return_value key containing the integer returned by brew.
+
 
 ### Spark.event()
 
