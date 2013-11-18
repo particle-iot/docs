@@ -116,17 +116,17 @@ The Core features two serial ports. The first one is a CDC (communications Devic
 
 The second one is a hardware USART available via the TX and RX pins on the Core. 
 
+![Hardware USART](images/core-pin-usart.jpg)
+
 Both of these serial ports can be configured and used using the [serial functions.](http://spark.github.io/docs/#communication-serial)
 
 **NOTE:** Please take into account that the voltage levels on these pins runs at 0V to 3.3V and should not be connected directly to a computer's RS232 serial port which operates at +/- 12V and can damage the Core.  
 
-```
-HIGHLIGHTED IMAGE OF THE PINS ON THE CORE
-```
-
 ### SPI
 
 The Serial Peripheral Interface is available on pins:
+
+![SPI](images/core-pin-spi.jpg)
 
 `A2: SS (Slave Select)`  
 `A3: SCK (Serial Clock)`  
@@ -135,33 +135,24 @@ The Serial Peripheral Interface is available on pins:
 
 **NOTE:** All of these pins run at 3.3V logic levels.
 
-```
-HIGHLIGHTED IMAGE OF THE PINS ON THE CORE
-```  
-
-
 ### I2C
 
 I2C communication pins are multiplexed with the standard GPIO pins D0 and D1.
+
+![I2C](images/core-pin-i2c.jpg)
 
 `D0: SDA (Serial Data Line)`  
 `D1: SCL (Serial Clock)`
 
 Both of these pins run at 3.3V logic level but *are* tolerant to 5V inputs.
 
-```
-HIGHLIGHTED IMAGE OF THE PINS ON THE CORE
-```
-
 ### JTAG
+
+![JTAG](images/core-pins-jtag.jpg)
 
 In addition to having the ability to load new firmware over USB and WiFi, the users also have direct access to the STM32 chip via the JTAG channel. In order to do this, you will need a JTAG shield and a JTAG programmer. You could make your own JTAG shield or buy one from us. Currently we have only tested the [ST-LINK/V2](http://www.st.com/web/catalog/tools/FM146/CL1984/SC724/SS1677/PF251168) programmer successfully.
 
 The hardware files for the JTAG shield are available [here.]()
-
-```
-HIGHLIGHTED IMAGE OF THE PINS ON THE CORE
-``` 
 
 Memory mapping
 ---
@@ -290,6 +281,8 @@ Physical layout
 
 The header pins on the Core are spaced at an interval of 0.1", which is the standard pitch size for proto-boards and breadboards. The physical layout of the Core was inspired from the [Arduino Pro Mini](http://arduino.cc/en/Main/ArduinoBoardProMini) board.
 
+![DIMENSIONS](images/core-dim.jpg)
+
 Mechanical drawings of the Core are available [here.](https://github.com/spark/core/blob/master/PDFs/core-mechanical-drawing-v1.pdf)
 
 <table border = '1'>
@@ -314,7 +307,3 @@ Mechanical drawings of the Core are available [here.](https://github.com/spark/c
       <td>2 unicorns</td>
    </tr>
 </table>
-
-```
-IMAGE OF THE CAD DRAWING GOES HERE
-```  
