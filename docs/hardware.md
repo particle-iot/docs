@@ -8,7 +8,7 @@ Subsystems
 
 Spark Core v1.0 uses the STM32F103CB - ARM 32-bit Cortex M3 based - microcontroller for its brain power. You can download the datasheet [here.](https://github.com/spark/core/blob/master/Datasheets/ST_STM32F103CB.pdf)
 
-![STM32](images/core-stm32.jpg)
+![STM32](/images/core-stm32.jpg)
 
 Some of its key features are as follows:
 
@@ -50,7 +50,7 @@ The datasheet is available [here.](http://www.ti.com/lit/ds/symlink/cc3000.pdf)
 
 In addition to having 128KB of internal flash memory for storing the firmware, the Core also features an external SPI based flash memory chip - [SST25VF016B](https://github.com/spark/core/blob/master/Datasheets/MicrochipTech_SST25VF016B-75-4I-S2AF-T.pdf?raw=true). This memory space (a total of 2MB) is used to store the factory reset firmware, a back up firmware, a copy of the firmware sent during Over The Air (OTA) update and the keys. Part of the space is also available to the user who can use it to store log data, user parameters, etc. A detailed description of the memory mapping can be found further down this document in the [memory mapping section.](http://spark.github.io/docs/#spark-core-datasheet-memory-mapping)
 
-![CC3000](/images/core-flashchip.jpg)
+![External Flash](/images/core-flashchip.jpg)
 
 Since the flash memory is non-volatile, it retains the data even after turning off the power. According to the manufacturer of the chip, the data retention of this memory is greater than 100 years, which we reckon should be good enough for now. Also, note that the maximum read-write endurance is limited to 100,000 cycles. meh.
 
@@ -58,7 +58,7 @@ Since the flash memory is non-volatile, it retains the data even after turning o
 
 The entire Core, including all of the on board peripherals run at 3.3V DC. So, in order to power the Core from the USB port or an external power supply, we need to *downconvert* the voltage before feeding it into the Core. We went through a couple of iterations before choosing Microchip's [MCP1825S-3302E](http://ww1.microchip.com/downloads/en/devicedoc/22056b.pdf) power regulator which comfortably meets the specs.
 
-![CC3000](/images/core-regulator.jpg)
+![Power Regulator](/images/core-regulator.jpg)
 
 Some of its key features are:  
 
@@ -75,15 +75,14 @@ This means, you can power the Core via the USB port or via the VIN pin from an e
 
 The RF circuit is probably where we spent the most time on during hardware design. RF design is like voodoo black magic, so we sought guidance from the industry experts before finalizing the component values and placement.
 
+![RF Circuit](/images/core-rf.jpg)
+
 You can download a copy of the RF test report [here.]()  
 
 RF Performance Specs:
 
 - add here
 
-```
-HIGHLIGHTED IMAGE OF THE RF CIRCUIT ON THE CORE
-```
 Pins and I/O
 ---
 
