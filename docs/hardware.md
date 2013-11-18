@@ -70,6 +70,7 @@ Some of its key features are:
 
 This means, you can power the Core via the USB port or via the VIN pin from an external power supply that can range from 3.6V to 6.0V DC. Ideal sources of power can be: 3.6V LiPo battery, 4AA battery pack, backup USB battery or an USB wall charger.
 
+![Powering the Core](images/core-power1.jpg)
 
 ### RF circuit
 
