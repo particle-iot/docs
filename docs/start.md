@@ -59,7 +59,7 @@ The Spark Core is a Wi-Fi development kit for internet-connected hardware. It is
 
 The Core has on board a microcontroller, which is a small, low-cost, low-power computer that can run a single application. The microcontroller runs the show; it runs your software and tells the rest of the Core what to do. It doesn't have an Operating System the way that your computer does; it just runs a single application (often called *firmware* or an *embedded application*), which can be simple, just a few lines of code, or very complex, depending on what you want to do.
 
-Microcontrollers are particularly good at *controlling things*; hence the name. They have a set of "pins" (little spider leg type things sticking off the chip) that are called *GPIO* (General Purpose Input and Output) pins, or I/O pins. They can be hooked to sensors or buttons to listen to the world, or they can be hooked to lights and motors to act upon the world. These microcontroller's pins have been directly connected to the headers on the sides of the Core so you can easily access them; specifically the pins labeled D0 to D7 and A0 to A7 are hooked directly to the microcontroller's GPIO pins.
+Microcontrollers are particularly good at *controlling things*; hence the name. They have a set of "pins" (little spider leg type things sticking off the chip) that are called *GPIO* (General Purpose Input and Output) pins, or I/O pins. They can be hooked to sensors or buttons to listen to the world, or they can be hooked to lights and motors to act upon the world. These microcontroller's pins have been directly connected to the headers on the sides of the Core so you can easily access them; specifically, the pins labeled D0 to D7 and A0 to A7 are hooked directly to the microcontroller's GPIO pins.
 
 The microcontroller can also communicate with other chips using common protocols like *Serial* (also called UART), *SPI*, or *I2C* (also called Wire). You can then make the Core more powerful by connecting it to special-purpose chips like motor drivers or shift registers. Sometimes we'll wrap up these chips on a *Shield*, an accessory to the Core that makes it easy to extend the Core.
 
@@ -140,7 +140,7 @@ Making the stuff in your home available outside your home is a pain, and usually
 
 We avoid this issue entirely with the Cloud. The Core connects to the Cloud when it hits your Wi-Fi network, and holds open a persistent connection. This means that it's available from anywhere in the world at any time.
 
-But wait, if local networks are a security measure, then doesn't this open you up to all sorts of nasties? Well, it would, except...
+But wait, if local networks are a security measure, then doesn't this open you up to all sorts of nastiness? Well, it would, except...
 
 ### Security
 
@@ -245,7 +245,7 @@ Writing Core Firmware
 Firmware sounds scary
 ---
 
-It's not really that bad, especially when you can flash it over the air! But it's 1:30am and we're running out of time before we publish this documentation, so you'll have to take my word for it until I have time to write more.
+It's not really that bad, especially when you can flash it over the air! But it's 1:30am and we're running out of time before we publish this documentation, so you'll have to take our word for it until we have time to write more.
 
 The Spark Web IDE
 ---
