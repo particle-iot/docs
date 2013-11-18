@@ -28,7 +28,7 @@ COMPLEMENTARY API CALL
 GET https://api.sprk.io/v1/devices/abcd1234/temp
 ```
 
-**TO BE RESOLVED: How do we handle typing?**
+<!--**TO BE RESOLVED: How do we handle typing?**-->
 
 
 
