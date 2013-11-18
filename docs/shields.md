@@ -2,7 +2,7 @@ Shield Shield
 ====
 This shield is essentially an adapter that allows the user to connect Arduino compatible shields to the Spark Core. There are two functions that this shield performs: pin mapping of the Spark Core to the Arduino pin layout and voltage translation of 3.3V to/from 5V.
 
-[Hardware files >](https://github.com/spark/shields/tree/master/Shield%20Shield)
+[Shield Shield Hardware files >](https://github.com/spark/shields/tree/master/Shield%20Shield)
 
 Operation
 -----
@@ -246,7 +246,7 @@ Project Ideas
 Programmer Shield (JTAG)
 ====
 The programmer shield is a simple adapter that lets you connect a JTAG programmer to the Spark Core.  
-[Here is a GitHub link to the hardware files.](https://github.com/spark/shields/tree/master/Programmer%20Shield)
+[JTAG Shield Hardware Files >](https://github.com/spark/shields/tree/master/Programmer%20Shield)
 
 ![JTAG Shield Top](images/jtag-topview.jpg)
 
@@ -270,7 +270,7 @@ Battery Shield
 The battery shield is a LiPo battery charger and voltage regulator combined into one. You can use it to power your core with any 3.7V LiPo battery and charge it at the same time via the USB port.
 The shield is build around  Microchip's MCP73871 battery charge management controller and TI's TPS61200 boost converter for up converting 3.7V to 5.0V.
 
-[Here is a GitHub link to the hardware files.](https://github.com/spark/shields/tree/master/Battery%20Shield)
+[Battery Shield Hardware Files >](https://github.com/spark/shields/tree/master/Battery%20Shield)
 
 `` ADD SYSTEM BLOCK DIAGRAM HERE`` 
 
