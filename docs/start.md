@@ -69,7 +69,11 @@ When the Core connects to the internet, it establishes a connection to the *Spar
 
 ### Buttons
 
-There are two buttons on the Core: the RESET button (on the right) and the MODE button (on the left). The RESET button will put the Core in a hard reset, effectively depowering and repowering the microcontroller. This is a good way to restart the application that you've downloaded onto the Core. The MODE button serves three functions:
+There are two buttons on the Core: the RESET button (on the right) and the MODE button (on the left). 
+
+The RESET button will put the Core in a hard reset, effectively depowering and repowering the microcontroller. This is a good way to restart the application that you've downloaded onto the Core.  
+
+The MODE button serves three functions:
 
 - Hold down the MODE button for three seconds to put the Core into *Smart Config* mode to connect it to your local Wi-Fi network. The LED should start flashing blue.
 - Hold down the MODE button, tap on the RESET button and wait for *three seconds* to enter *Bootloader* mode, where you can reprogram the Core over USB or JTAG. Release the MODE button when you see the LED flashing yellow. If you do this by accident, simply hit RESET button to leave *Bootloader* mode.
