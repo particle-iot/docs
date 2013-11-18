@@ -1,8 +1,6 @@
 Annotated examples
 =======
 
-TBD
-
 Blink an LED
 ===
 
@@ -12,9 +10,7 @@ For this example, you will need a Spark Core (duh!), a Breadboard, an LED, a Res
 
 Connect everything together as shown in the picture. 
 
-```
-ADD IMAGE OF THE SETUP
-```
+![One LED setup](images/breadboard-one-led.jpg)
 
 But wait, whats the value of the resistor again?
 
@@ -135,14 +131,29 @@ int ledControl(String command)
 }
 ```
 
-**TO DO:** Add curl/javascript command example here
+The API request will look something like this:
+
+```
+POST /v1/devices/{DEVICE_ID}/digitalwrite
+
+# EXAMPLE REQUEST
+curl https://api.spark.io/v1/devices/teapot/led \
+  -d access_token=1234123412341234123412341234123412341234 -d params=l1,HIGH
+```  
+
+To better understand the concept of making API calls to your Core over the cloud checkout the [Cloud API reference.](/#api)
 
 Measuring the temperature
 ===
 
+**coming soon!**
+
 Texting the Core
 ===
+
+**coming soon!**
 
 An internet button
 ===
 
+**coming soon!**
