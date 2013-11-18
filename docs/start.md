@@ -66,7 +66,7 @@ The Spark Core is a Wi-Fi development kit for internet-connected hardware. It is
 
 The Core has on board a microcontroller, which is a small, low-cost, low-power computer that can run a single application. The microcontroller runs the show; it runs your software and tells the rest of the Core what to do. It doesn't have an Operating System the way that your computer does; it just runs a single application (often called *firmware* or an *embedded application*), which can be as simple as a few lines of code, or very complex, depending on what you want to do.
 
-Microcontrollers are particularly good at *controlling things*; hence the name. They have a set of "pins" (little spider leg type things sticking off the chip) that are called *GPIO* (General Purpose Input and Output) pins. They can be hooked to sensors or buttons to listen in on the world, or they can be hooked to lights and motors to act upon the world. These pins have been extended out on the Core so you can easily connect to them; the pins labeled D0 to D7 and A0 to A7 are hooked directly to the microcontroller's GPIO pins.
+Microcontrollers are particularly good at *controlling things*; hence the name. They have a set of "pins" (little spider leg type things sticking off the chip) that are called *GPIO* (General Purpose Input and Output) pins, or I/O pins. They can be hooked to sensors or buttons to listen to the world, or they can be hooked to lights and motors to act upon the world. These pins have been extended out on the Core so you can easily connect to them; the pins labeled D0 to D7 and A0 to A7 are hooked directly to the microcontroller's GPIO pins.
 
 The microcontroller can also communicate with other chips using common protocols like *Serial* (also called UART), *SPI*, or *I2C* (also called Wire). You can then make the Core more powerful by connecting it to special-purpose chips like motor drivers or shift registers. Sometimes we'll wrap up these chips on a *Shield*, an accessory to the Core that makes extending the Core dead simple.
 
@@ -124,6 +124,34 @@ When you want to use the `analogWrite()` function on the Core, for instance to s
 
 The Spark Cloud
 ---
+
+The Spark Cloud is a network of servers hosted at `https://api.spark.io/` that the Spark Core connects to once it's on your Wi-Fi network.
+
+The Cloud exists for three main reasons:
+
+### Simplicity
+
+Generally speaking, when you work in an embedded system, networking means sending bytes over TCP sockets and UDP datagrams. Everyone agrees - socket programming is not fun. But higher-level communications are difficult because microcontrollers have so little memory they can't generally host a traditional HTTP web server. The Cloud gives you the simplicity of the web server with the low cost and low power of a microcontroller by translating between web communications (HTTP requests) and embedded communications (in our case, encrypted CoAP messages).
+
+But you don't have to know any of that. The whole point of the Cloud is that all of this is abstracted away. You don't need to know *how* it connects to the internet; it just does. And once it's connected, you can make it do awesome things quickly and easily, without dealing with sockets.
+
+### Global availability
+
+By default, if you connect a thing to your Wi-Fi network, it's only available from elsewhere on your local network. This is a result of the fact that we've run out of IP addresses, and it's also a security measure, since it means that people can't just reach into your home willy-nilly and mess with your stuff.
+
+Making the stuff in your home available outside your home is a pain, and usually requires nasty things like port mapping and static IP addresses. Even if you're technically savvy enough to handle this stuff, if you're developing a product, you don't want to make familiarity with OpenWRT a pre-requisite for purchasing your product.
+
+We avoid this issue entirely with the Cloud. The Core connects to the Cloud when it hits your Wi-Fi network, and holds open a persistent connection. This means that it's available from anywhere in the world at any time.
+
+But wait, if local networks are a security measure, then doesn't this open you up to all sorts of nasties? Well, it would, except...
+
+### Security
+
+Yep, that's right. We thought of that.
+
+Security is hard. It's especially hard on an embedded system, because encryption is resource intensive. But it's also important, because you don't want anyone turning on and off your lights, or worse, locking and unlocking your front doors.
+
+We hand-picked a set of rock-solid security protocols that are both fully secure and incredibly efficient, so they work great on an embedded system. They're baked into the Spark Protocol, which is open source and ready to be extended to other products.
 
 
 
