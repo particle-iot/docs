@@ -12,6 +12,8 @@ Due to the limited number of pin to function combinations, we have only mapped t
 
 The shield has an onboard voltage regulator and can be powered from 7V to 15V DC. You could also power it via the USB plug on the Spark Core alone but the current would be limited to 500mA.
 
+![Shield Shield](images/sshield-top.jpg)
+
 Shield Specifications
 -----
 
@@ -25,7 +27,8 @@ Setting up the shield
   Pin layout  
   Pin Description/Functions  
   Compatibility - list of supported shields
-( add more functions here)
+
+![Shield Shield Setup](images/sshield-setup.jpg)
 
 Pin mapping
 -----
@@ -147,7 +150,7 @@ The Relay Shield, in combination with the Spark Core, allows you to control high
 [Here is a GitHub link to the hardware files.](https://github.com/spark/shields/tree/master/Relay%20Shield)
 
 
-`` ADD AN IMAGE OF THE SHIELD HERE ``
+![Relay Shield Top](images/relay-shield-top.jpg)
 
 Operation
 -----
@@ -155,7 +158,7 @@ Operation
 The schematic for the relay shield is simple and self explanatory. The shield has four relays that are controlled by pins D0, D1, D2 and D3 on the Core. Each relay is triggered via a NPN transistor that takes a control signal from the core and switches the relay coil ON and OFF which in turn makes or breaks the electrical contact on the output. There is also a [flyback diode](http://en.wikipedia.org/wiki/Flyback_diode) connected across the coil to help protect the transistor from high voltage transients caused during switching.  
 The relays are SPDT (Single Pole Double Throw) type, which means they have three terminals at the output: COMMON (COMM), Normally Open (NO) and Normally Closed (NC). We can either connect the load in between the COMM and NO or COMM and NC terminals. When connected in between COMM and NO, the output remains open/disconnected when the relay is turned OFF and closes/connects when the relay is turned ON. In the later case, the output remains closed/connected when the relay is OFF and opens/disconnets when the relay is ON. 
 
-``ADD ILLUSTRATION HERE``
+![Relay Shield Setup](images/relay-shield-setup.jpg)
 
 Specifications
 -----
@@ -245,7 +248,7 @@ Programmer Shield (JTAG)
 The programmer shield is a simple adapter that lets you connect a JTAG programmer to the Spark Core.  
 [Here is a GitHub link to the hardware files.](https://github.com/spark/shields/tree/master/Programmer%20Shield)
 
-`` ADD IMAGE OF THE SHIELD ``  
+![JTAG Shield Top](images/jtag-topview.jpg)
 
 Specifications
 -----
@@ -259,7 +262,7 @@ Setting up the programmer
 - Hardware setup
 - Software setup under Windows/Mac/Linux
 
-`` ADD IMAGE OF THE CORE CONECTED TO THE SHIELD ``
+![JTAG Setup](images/jtag-setup.jpg)
 
 
 Battery Shield
