@@ -19,9 +19,7 @@ Congratulations on being the owner of a brand new Spark Core! Go ahead, open the
 
 Powering the Core is easy; it receives power over a Micro USB port, much like many smartphones and other gadgets. Power your Core on by connecting the Micro USB cable to the USB port on the Core, and plug the other end into any USB port on your computer, a USB hub (preferably powered), or a USB power adapter (like the one that probably came with your smartphone).
 
-```
-ADD AN ILLUSTRATIVE PICTURE HERE
-```
+![Spark plugged in](images/spark-plugged-in.jpg)
 
 ### Download the Spark iOS or Android app
 
@@ -52,12 +50,7 @@ The Spark mobile app will guide you through the process, but basically it's a on
 
 The Spark mobile app contains a mini-app called Tinker that lets you... well, tinker. It lets you talk with the Input/Output pins of the Spark Core without writing a single line of code.
 
-Each of the pins has up to four functions available:
-
-- **digitalWrite**: Sets the pin to HIGH or LOW, which either connects it to 3.3V (the maximum voltage of the system) or to GND (ground). Pin D7 is connected to an on-board LED; if you set pin D7 to HIGH, the LED will turn on, and if you set it to LOW, it will turn off.
-- **analogWrite**: Sets the pin to a value between 0 and 255, where 0 is the same as LOW and 255 is the same as HIGH. This is sort of like sending a voltage between 0 and 3.3V, but since this is a digital system, it uses a mechanism called Pulse Width Modulation, or PWM. You could use *analogWrite* to dim an LED, as an example.
-- **digitalRead**: This will read the digital value of a pin, which can be read as either HIGH or LOW. If you were to connect the pin to 3.3V, it would read HIGH; if you connect it to GND, it would read LOW. Anywhere in between, it'll probably read whichever one it's closer to, but it gets dicey in the middle.
-- **analogRead**: This will read the analog value of a pin, which is a value from 0 to 4095, where 0 is LOW (GND) and 4095 is HIGH (3.3V). All of the analog pins (A0 to A7) can handle this. *analogRead* is great for reading data from sensors.
+Each of the pins has up to four functions available: *digitalWrite*, *analogWrite*, *digitalRead*, and *analogRead*. For more information, scroll down to the "Tinkering with Tinker" section.
 
 Wait, what is this thing?
 =====
@@ -161,26 +154,86 @@ Tinkering with "Tinker"
 The Tinker app
 ---
 
-### Controlling I/O pins
-### Reading I/O pins
-### Changing functions
+![Tinker](images/tinker.jpg)
+
+The Tinker section of the Spark mobile app makes it very easy to start playing with your Spark Core without writing any code. It's great for early development, and often it will do everything you need to get your project off of the ground.
+
+The app consists of 16 pins in vertical rows - 8 analog pins on the left, 8 digital pins on the right. These pins represent the 16 GPIO (General Purpose Input and Output) pins on the Spark Core, and are organized the same way.
+
+![Tinker selection](images/tinker-selection.jpg)
+
+To begin, tap any of the pins. A menu will pop up showing the functions that pin has available. Each pin can have up to four possible functions:
+
+- **digitalWrite**: Sets the pin to HIGH or LOW, which either connects it to 3.3V (the maximum voltage of the system) or to GND (ground). Pin D7 is connected to an on-board LED; if you set pin D7 to HIGH, the LED will turn on, and if you set it to LOW, it will turn off.
+- **analogWrite**: Sets the pin to a value between 0 and 255, where 0 is the same as LOW and 255 is the same as HIGH. This is sort of like sending a voltage between 0 and 3.3V, but since this is a digital system, it uses a mechanism called Pulse Width Modulation, or PWM. You could use *analogWrite* to dim an LED, as an example.
+- **digitalRead**: This will read the digital value of a pin, which can be read as either HIGH or LOW. If you were to connect the pin to 3.3V, it would read HIGH; if you connect it to GND, it would read LOW. Anywhere in between, it'll probably read whichever one it's closer to, but it gets dicey in the middle.
+- **analogRead**: This will read the analog value of a pin, which is a value from 0 to 4095, where 0 is LOW (GND) and 4095 is HIGH (3.3V). All of the analog pins (A0 to A7) can handle this. *analogRead* is great for reading data from sensors.
+
+To change the function of the pin, simply tap and hold on the pin, and the function select menu will come back up. Any further questions? Come talk to us in the [forums!](https://community.sparkdevices.com/)
+
+The Tinker firmware
+---
+
+The Tinker firmware is the default application program stored in the Spark Core upon its commissioning from the factory assembly line. You can always get back to it by putting the Core in the [factory reset mode](#buttons), or by re-flashing your Core with Tinker in the Spark mobile app.
+
+The Tinker app is a great example of how to build a very powerful application with not all that much code. You can have a look at the latest release [here.](https://github.com/spark/core-firmware/blob/master/src/application.cpp)
 
 The Tinker API
 ---
 
-The Tinker Firmware
----
+When the Tinker firmware is installed on your Spark Core, it will respond to certain API requests from your mobile app, which mirror the four basic GPIO functions (digitalWrite, analogWrite, digitalRead, analogRead). These API requests can also be made from another application, so you can build your own web or mobile app around the Tinker firmware.
 
-The Tinker firmware is the default application program stored in the Spark Core upon its commissioning from the factory assembly line. You can always get back to it by putting the Core in the [factory reset mode.](#buttons)
+### digitalWrite
 
-The Tinker firmware has four basic functions:
+    POST /v1/devices/{DEVICE_ID}/digitalwrite
 
-- Write a digital value to an I/O pin
-- Write an analog/PWM value to an I/O pin
-- Read a digital value from an I/O pin
-- Read an analog value from an I/O pin
+    # EXAMPLE REQUEST
+    curl https://api.spark.io/v1/devices/teapot/digitalwrite \
+      -d access_token=1234123412341234123412341234123412341234 -d params=D0,HIGH
 
-You can have a look at the latest release [here.](https://github.com/spark/core-firmware/blob/master/src/application.cpp)
+Sets the pin to HIGH or LOW, which either connects it to 3.3V (the maximum voltage of the system) or to GND (ground). Pin D7 is connected to an on-board LED; if you set pin D7 to HIGH, the LED will turn on, and if you set it to LOW, it will turn off.
+
+The parameters must be the pin (A0 to A7, D0 to D7), followed by either HIGH or LOW, separated by a comma. The return value will be 1 if the write succeeds, and -1 if it fails.
+
+### analogWrite
+
+    POST /v1/devices/{DEVICE_ID}/analogwrite
+
+    # EXAMPLE REQUEST
+    curl https://api.spark.io/v1/devices/teapot/analogwrite \
+      -d access_token=1234123412341234123412341234123412341234 -d params=A0,215
+
+Sets the pin to a value between 0 and 255, where 0 is the same as LOW and 255 is the same as HIGH. This is sort of like sending a voltage between 0 and 3.3V, but since this is a digital system, it uses a mechanism called Pulse Width Modulation, or PWM. You could use *analogWrite* to dim an LED, as an example.
+
+The parameters must be the pin (A0 to A7, D0 to D7), followed by an integer value from 0 to 255, separated by a comma. The return value will be 1 if the write succeeds, and -1 if it fails.
+
+### digitalRead
+
+    POST /v1/devices/{DEVICE_ID}/digitalread
+
+    # EXAMPLE REQUEST
+    curl https://api.spark.io/v1/devices/teapot/digitalread \
+      -d access_token=1234123412341234123412341234123412341234 -d params=D0
+
+This will read the digital value of a pin, which can be read as either HIGH or LOW. If you were to connect the pin to 3.3V, it would read HIGH; if you connect it to GND, it would read LOW. Anywhere in between, it'll probably read whichever one it's closer to, but it gets dicey in the middle.
+
+The parameters must be the pin (A0 to A7, D0 to D7). The return value will be 1 if the pin is HIGH, 0 if the pin is LOW, and -1 if the read fails.
+
+
+
+### analogRead
+
+    POST /v1/devices/{DEVICE_ID}/analogread
+
+    # EXAMPLE REQUEST
+    curl https://api.spark.io/v1/devices/teapot/analogread \
+      -d access_token=1234123412341234123412341234123412341234 -d params=A0
+
+This will read the analog value of a pin, which is a value from 0 to 4095, where 0 is LOW (GND) and 4095 is HIGH (3.3V). All of the analog pins (A0 to A7) can handle this. *analogRead* is great for reading data from sensors.
+
+The parameters must be the pin (A0 to A7, D0 to D7). The return value will be between 0 and 4095 if the read succeeds, and -1 if it fails.
+
+
 
 Writing Core Firmware
 ===
@@ -188,32 +241,22 @@ Writing Core Firmware
 Firmware sounds scary
 ---
 
+It's not really that bad, especially when you can flash it over the air! But it's 1:30am and we're running out of time before we publish this documentation, so you'll have to take my word for it until I have time to write more.
+
 The Spark Web IDE
 ---
 
-### Writing firmware
-### Flashing the Core
+**Coming soon!** We'll give you instructions for how to write your own firmware for the Spark Core in the Spark Build page using our web IDE (Integrated Development Environment). Sounds fancy, eh?
 
 The Spark Command Line
 ---
 
-### Set up
-### Flashing the command line
+**Coming soon!** Command line tools so that you can build Spark applications with your own desktop IDE, whether it's Eclipse, Sublime Text, Vim, or anything else.
 
 Deploying a Spark web app
 ===
 
-Writing your web app
----
-
-Testing it locally
----
-
-Deploying to Heroku
----
-
-More options
----
+**Coming soon!** We'll give you instructions for how to deploy a web app on Heroku that can talk with a Spark Core.
 
 Troubleshooting
 ===
@@ -222,8 +265,16 @@ What's wrong?
 ---
 
 ### My Core won't connect to the Cloud
+
+**Coming soon!**
+
 ### My Core won't start up
+
+**Coming soon!**
+
 ### My Core is behaving erratically
+
+**Coming soon!**
 
 
 Further resources
@@ -233,10 +284,20 @@ Hardware development
 ---
 
 ### Hardware for dummies
+
+**Coming soon!**
+
 ### Advanced hardware
+
+**Coming soon!**
 
 Software development
 ---
 
 ### Software for dummies
+
+**Coming soon!**
+
 ### Advanced software
+
+**Coming soon!**
