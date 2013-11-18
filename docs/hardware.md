@@ -269,7 +269,7 @@ With the on board chip antenna, the peak return loss (S11) has been measured and
 
 The transmission loss for the u.FL connector has been measured to be approximately 0.5 to 0.75dB.
 
-![S11 Chart](images/core-s11.png)  
+![S11 Chart](images/core-s11-chart.png)  
 
 Physical layout
 ---
