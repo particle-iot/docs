@@ -1,9 +1,6 @@
 Getting started
 =====
 
-Spark is the fastest and easiest way to build an internet-connected hardware product.
-
-
 ### What's in the box
 
 Congratulations on being the owner of a brand new Spark Core! Go ahead, open the box, and let's talk about what you see. Your box should include:
