@@ -151,6 +151,10 @@ Setting up the Relay Shield
 -----
 Turning ON a relay is as simple as setting the associated pin to HIGH.
 
+![Relay Shield Connection](images/relay-shield-bulb.jpg)
+
+The picture shows a sample setup where the relay is used as a switch to control a light bulb.
+
 ```C++
 #include "application.h"
 int RELAY1 = D0;
@@ -202,8 +206,18 @@ int relayControl(String command)
 }
 
 ```
-`` ADD VECTOR DIAGRAM FOR THE SETUP/USE CASES ``
 
+An example API request to this function would look something like this:
+
+```json
+POST /v1/devices/{DEVICE_ID}/relay
+
+# EXAMPLE REQUEST
+curl https://api.spark.io/v1/devices/teapot/relay \
+  -d access_token=1234123412341234123412341234123412341234 -d params=r1,HIGH
+```
+
+**USE EXTREME CAUTION WHEN DEALING WITH HIGH VOLATGE !!**
 
 [Relay Shield Hardware Files >](https://github.com/spark/shields/tree/master/Relay%20Shield)
 
