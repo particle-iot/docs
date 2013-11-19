@@ -244,8 +244,8 @@ All of the hardware files for the JTAG shield are available for download.
 
 Battery Shield
 ====
-The battery shield is a LiPo battery charger and voltage regulator combined into one. You can use it to power your core with any 3.7V LiPo battery and charge it at the same time via the USB port.
-The shield is build around  Microchip's MCP73871 battery charge management controller and TI's TPS61200 boost converter for up converting 3.7V to 5.0V.
+The battery shield is a LiPo battery charger and voltage regulator combined into one. You can use it to power your Core with any 3.7V LiPo battery and charge it at the same time via the USB port.
+The shield is built around  Microchip's MCP73871 battery charge management controller and TI's TPS61200 boost converter for up converting 3.7V to 5.0V.
 
 ![Battery Shield Top](images/bshield-top.jpg)
 
@@ -258,7 +258,7 @@ The shield is build around  Microchip's MCP73871 battery charge management contr
 Operation 
 -----
 
-MCP73871 is an intelligent battery charge management controller that allows one to charge the battery and power the system simultaneously. There is also an under voltage lock out which protects the battery from draining completely. The TPS61200 converts the 3.7V to 4.1V battery output to a regulated 5V to power the core or potentially any other hardware (cellphones?!)  
+MCP73871 is an intelligent battery charge management controller that allows one to charge the battery and power the system simultaneously. There is also an under voltage lock out which protects the battery from draining completely. The TPS61200 converts the 3.7V to 4.1V battery output to a regulated 5V to power the Core or potentially any other hardware (cellphones?!)  
 The charge current to the battery is set to 500mA.
 
 <!--Link to GitHub repo.-->  
