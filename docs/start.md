@@ -23,7 +23,7 @@ Powering the Core is easy; it receives power over a Micro USB port, much like ma
 
 ### Download the Spark iOS or Android app
 
-![Spark apps](images/spark-apps.jpg)
+![Spark apps](images/spark-apps.png)
 
 The Spark mobile app is the easiest way to get your Spark Core connected to the internet. The app will help you do three things:
 
@@ -33,7 +33,7 @@ The Spark mobile app is the easiest way to get your Spark Core connected to the 
 
 ### Connect the Core to Wi-Fi
 
-![Smart Config](images/smart-config.jpg)
+![Smart Config](images/smart-config.png)
 
 Connecting the Spark Core to your Wi-Fi is dead simple. In fact, I did it twice while I was typing this paragraph.
 
@@ -46,7 +46,7 @@ The Spark mobile app will guide you through the process, but basically it's a on
 
 ### Blink an LED with Tinker
 
-![Tinker](images/tinker.jpg)
+![Tinker](images/tinker.png)
 
 The Spark mobile app contains a mini-app called Tinker that lets you... well, tinker. It lets you talk with the Input/Output pins of the Spark Core without writing a single line of code.
 
@@ -154,13 +154,13 @@ Tinkering with "Tinker"
 The Tinker app
 ---
 
-![Tinker](images/tinker.jpg)
+![Tinker](images/tinker.png)
 
 The Tinker section of the Spark mobile app makes it very easy to start playing with your Spark Core without writing any code. It's great for early development, and often it will do everything you need to get your project off of the ground.
 
 The app consists of 16 pins in vertical rows - 8 analog pins on the left, 8 digital pins on the right. These pins represent the 16 GPIO (General Purpose Input and Output) pins on the Spark Core, and are organized the same way.
 
-![Tinker selection](images/tinker-selection.jpg)
+![Tinker selection](images/tinker-select.png)
 
 To begin, tap any of the pins. A menu will pop up showing the functions that pin has available. Each pin can have up to four possible functions:
 
