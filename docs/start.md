@@ -1,9 +1,6 @@
 Getting started
 =====
 
-Spark is the fastest and easiest way to build an internet-connected hardware product.
-
-
 ### What's in the box
 
 Congratulations on being the owner of a brand new Spark Core! Go ahead, open the box, and let's talk about what you see. Your box should include:
@@ -15,13 +12,13 @@ Congratulations on being the owner of a brand new Spark Core! Go ahead, open the
 - *One USB cable*. The included USB cable is used for two things: powering the Spark Core (by connecting it to your computer, to a USB power brick, or to a USB battery pack) and reprogramming. Most of the time you will be reprogramming the Core through the Cloud, but you always have the option of reprogramming it over USB, especially if your internet connection is down or you would prefer to use your own servers.
 
 
-### Power the Core
+### Step 1: Power the Core
 
 Powering the Core is easy; it receives power over a Micro USB port, much like many smartphones and other gadgets. Power your Core on by connecting the Micro USB cable to the USB port on the Core, and plug the other end into any USB port on your computer, a USB hub (preferably powered), or a USB power adapter (like the one that probably came with your smartphone).
 
 ![Power the Core](images/core-usb.jpg)
 
-### Download the Spark iOS or Android app
+### Step 2: Download the Spark iOS or Android app
 
 ![Spark apps](images/spark-apps.png)
 
@@ -31,7 +28,7 @@ The Spark mobile app is the easiest way to get your Spark Core connected to the 
 - Connect your Spark Core to your Wi-Fi network
 - Control your Core without writing any code
 
-### Connect the Core to Wi-Fi
+### Step 3: Connect the Core to Wi-Fi
 
 ![Smart Config](images/smart-config.png)
 
@@ -44,7 +41,7 @@ The Spark mobile app will guide you through the process, but basically it's a on
 - **Flashing cyan**: Connecting to the Spark Cloud
 - **Breathing cyan**: Connected!
 
-### Blink an LED with Tinker
+### Step 4: Blink an LED with Tinker
 
 ![Tinker](images/tinker.png)
 
@@ -57,11 +54,11 @@ Wait, what is this thing?
 
 The Spark Core is a Wi-Fi development kit for internet-connected hardware. It is, in essence, the "brains" of a connected hardware product or project.
 
-The Core has on board a microcontroller, which is a small, low-cost, low-power computer that can run a single application. The microcontroller runs the show; it runs your software and tells the rest of the Core what to do. It doesn't have an Operating System the way that your computer does; it just runs a single application (often called *firmware* or an *embedded application*), which can be as simple as a few lines of code, or very complex, depending on what you want to do.
+The Core has on board a microcontroller, which is a small, low-cost, low-power computer that can run a single application. The microcontroller runs the show; it runs your software and tells the rest of the Core what to do. It doesn't have an Operating System the way that your computer does; it just runs a single application (often called *firmware* or an *embedded application*), which can be simple, just a few lines of code, or very complex, depending on what you want to do.
 
-Microcontrollers are particularly good at *controlling things*; hence the name. They have a set of "pins" (little spider leg type things sticking off the chip) that are called *GPIO* (General Purpose Input and Output) pins, or I/O pins. They can be hooked to sensors or buttons to listen to the world, or they can be hooked to lights and motors to act upon the world. These pins have been extended out on the Core so you can easily connect to them; the pins labeled D0 to D7 and A0 to A7 are hooked directly to the microcontroller's GPIO pins.
+Microcontrollers are particularly good at *controlling things*; hence the name. They have a set of "pins" (little spider leg type things sticking off the chip) that are called *GPIO* (General Purpose Input and Output) pins, or I/O pins. They can be hooked to sensors or buttons to listen to the world, or they can be hooked to lights and motors to act upon the world. These microcontroller's pins have been directly connected to the headers on the sides of the Core so you can easily access them; specifically, the pins labeled D0 to D7 and A0 to A7 are hooked directly to the microcontroller's GPIO pins.
 
-The microcontroller can also communicate with other chips using common protocols like *Serial* (also called UART), *SPI*, or *I2C* (also called Wire). You can then make the Core more powerful by connecting it to special-purpose chips like motor drivers or shift registers. Sometimes we'll wrap up these chips on a *Shield*, an accessory to the Core that makes extending the Core dead simple.
+The microcontroller can also communicate with other chips using common protocols like *Serial* (also called UART), *SPI*, or *I2C* (also called Wire). You can then make the Core more powerful by connecting it to special-purpose chips like motor drivers or shift registers. Sometimes we'll wrap up these chips on a *Shield*, an accessory to the Core that makes it easy to extend the Core.
 
 The Core also has a Wi-Fi module, which connects it to your local Wi-Fi network in the same way that your computer or smartphone might connect to a Wi-Fi network. The Core is programmed to stay connected to the internet by default, so long as it can find and connect to a network.
 
@@ -69,7 +66,11 @@ When the Core connects to the internet, it establishes a connection to the *Spar
 
 ### Buttons
 
-There are two buttons on the Core: the RESET button (on the right) and the MODE button (on the left). The RESET button will put the Core in a hard reset, effectively depowering and repowering the microcontroller. This is a good way to restart the application that you've downloaded onto the Core. The MODE button serves three functions:
+There are two buttons on the Core: the RESET button (on the right) and the MODE button (on the left). 
+
+The RESET button will put the Core in a hard reset, effectively depowering and repowering the microcontroller. This is a good way to restart the application that you've downloaded onto the Core.  
+
+The MODE button serves three functions:
 
 - Hold down the MODE button for three seconds to put the Core into *Smart Config* mode to connect it to your local Wi-Fi network. The LED should start flashing blue.
 - Hold down the MODE button, tap on the RESET button and wait for *three seconds* to enter *Bootloader* mode, where you can reprogram the Core over USB or JTAG. Release the MODE button when you see the LED flashing yellow. If you do this by accident, simply hit RESET button to leave *Bootloader* mode.
@@ -136,7 +137,7 @@ Making the stuff in your home available outside your home is a pain, and usually
 
 We avoid this issue entirely with the Cloud. The Core connects to the Cloud when it hits your Wi-Fi network, and holds open a persistent connection. This means that it's available from anywhere in the world at any time.
 
-But wait, if local networks are a security measure, then doesn't this open you up to all sorts of nasties? Well, it would, except...
+But wait, if local networks are a security measure, then doesn't this open you up to all sorts of nastiness? Well, it would, except...
 
 ### Security
 
@@ -217,7 +218,7 @@ The parameters must be the pin (A0 to A7, D0 to D7), followed by an integer valu
 
 This will read the digital value of a pin, which can be read as either HIGH or LOW. If you were to connect the pin to 3.3V, it would read HIGH; if you connect it to GND, it would read LOW. Anywhere in between, it'll probably read whichever one it's closer to, but it gets dicey in the middle.
 
-The parameters must be the pin (A0 to A7, D0 to D7). The return value will be 1 if the pin is HIGH, 0 if the pin is LOW, and -1 if the read fails.
+The parameter must be the pin (A0 to A7, D0 to D7). The return value will be 1 if the pin is HIGH, 0 if the pin is LOW, and -1 if the read fails.
 
 
 
@@ -241,7 +242,7 @@ Writing Core Firmware
 Firmware sounds scary
 ---
 
-It's not really that bad, especially when you can flash it over the air! But it's 1:30am and we're running out of time before we publish this documentation, so you'll have to take my word for it until I have time to write more.
+It's not really that bad, especially when you can flash it over the air! But it's 1:30am and we're running out of time before we publish this documentation, so you'll have to take our word for it until we have time to write more.
 
 The Spark Web IDE
 ---
