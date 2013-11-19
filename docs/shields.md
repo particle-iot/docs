@@ -20,7 +20,7 @@ Specifications
 - Dimensions: 3.79 x 2.1  
 - Weight: 40gms
 
-<!-- TODO - Weight   -->
+
 
 ![Shield Shield Setup](images/sshield-setup.jpg)
 
@@ -248,6 +248,7 @@ Setting up the programmer
 -----
 
 If you are using the STLink V2, you can download the supporting drivers and utilities from [their website.](http://www.st.com/web/catalog/tools/FM146/CL1984/SC724/SS1677/PF251168)
+
 
 ![JTAG Setup](images/jtag-setup.jpg)
 
