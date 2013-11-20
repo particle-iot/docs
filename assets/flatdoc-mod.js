@@ -337,7 +337,7 @@ Also includes:
           var $a = $('<a>')
             .html(item.section)
             .attr('id', id + '-link')
-            .attr('href', '#' + id)
+            .attr('href', '#/' + Docs.section + '/' + id)
             .addClass('level-' + item.level)
             .appendTo($li);
         }
