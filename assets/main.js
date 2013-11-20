@@ -22,12 +22,18 @@ var Docs = {
         fetcher: Flatdoc.file('docs/' + this.section + '.md')
       });
     } else {
-      $(document.body).scrollTop($("#" + this.subsection).offset().top);
+      Docs.scrollSmooth();
     }
   },
 
   scroll: function() {
     $(document.body).scrollTop($("#" + Docs.subsection).offset().top);
+  },
+
+  scrollSmooth: function() {
+    $(document.body).animate({
+      scrollTop: $("#" + Docs.subsection).offset().top
+    }, 500);
   }
 };
 

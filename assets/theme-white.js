@@ -183,7 +183,7 @@
 // You can jump to a given area.
 //
 //     $.anchorjump('#bank-deposit', options);
-/*
+
 
 (function($) {
   var defaults = {
@@ -246,7 +246,7 @@
     }
   };
 })(jQuery);
-*/
+
 /*! fillsize (c) 2012, Rico Sta. Cruz. MIT License.
  *  http://github.com/rstacruz/jquery-stuff/tree/master/fillsize */
 
