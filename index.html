@@ -12,6 +12,9 @@
   <script src='http://rstacruz.github.io/flatdoc/v/0.8.0/legacy.js'></script>
   <script src='assets/flatdoc-mod.js'></script>
 
+  <!-- Sammy.js for routing -->
+  <script src="assets/sammy-0.7.4.min.js"></script>
+
   <!-- Favicon -->
   <link rel="icon" href="assets/favicon.ico">
 
@@ -35,35 +38,36 @@
 </head>
 <body role='flatdoc'>
 
-  <div class='header'>
-    <div class='left'>
-      <a href="https://www.spark.io">
-        <img src="assets/sparklogo-2x.png" id="logo">
-      </a>
-      <ul>
-        <li><a href='#start'>Getting started</a></li>
-        <li><a href='#examples'>Annotated examples</a></li>
-        <li><a href='#api'>Cloud API reference</a></li>
-        <li><a href='#firmware'>Core firmware reference</a></li>
-        <li><a href='#hardware'>Core hardware reference</a></li>
-        <li><a href='#shields'>Shields and kits</a></li>
-      </ul>
+  <div id="docs">
+    <div class='header'>
+      <div class='left'>
+        <a href="https://www.spark.io">
+          <img src="assets/sparklogo-2x.png" id="logo">
+        </a>
+        <ul>
+          <li><a href='#/start'>Getting started</a></li>
+          <li><a href='#/examples'>Annotated examples</a></li>
+          <li><a href='#/api'>Cloud API reference</a></li>
+          <li><a href='#/firmware'>Core firmware reference</a></li>
+          <li><a href='#/hardware'>Core hardware reference</a></li>
+          <li><a href='#/shields'>Shields and kits</a></li>
+        </ul>
+      </div>
+      <div class='right'>
+        <a href="http://www.github.com/spark/docs" class="contribute">Contribute</a>
+      </div>
     </div>
-    <div class='right'>
-      <a href="http://www.github.com/spark/docs" class="contribute">Contribute</a>
+
+    <div class='content-root'>
+      <div class='menubar'>
+        <div class='menu section' role='flatdoc-menu'></div>
+      </div>
+      <div role='flatdoc-content' class='content'></div>
+    </div>
+
+    <div id="markdown" style="display:none;">
     </div>
   </div>
-
-  <div class='content-root'>
-    <div class='menubar'>
-      <div class='menu section' role='flatdoc-menu'></div>
-    </div>
-    <div role='flatdoc-content' class='content'></div>
-  </div>
-
-  <div id="markdown" style="display:none;">
-
-  <div>
 
 
   <!-- Custom -->
