@@ -6,24 +6,23 @@
   * Scrollspy.
   */
 
+// Deactivated scrollagent until I can get the math to work.
+/*
  $document.on('flatdoc:ready', function() {
     $("h2, h3").scrollagent(function(cid, pid, currentElement, previousElement) {
       if (pid) {
-       $("[href='#"+pid+"']").removeClass('active');
+       $("[href='#/" + Docs.section + '/' + pid + "']").removeClass('active');
       }
       if (cid) {
-       $("[href='#"+cid+"']").addClass('active');
+       $("[href='#/" + Docs.section + '/' + cid + "']").addClass('active');
       }
     });
   });
+*/
 
  /*
   * Anchor jump links.
   */
-
- $document.on('flatdoc:ready', function() {
-   //$('.menu a').anchorjump();
- });
 
  /*
   * Title card.
