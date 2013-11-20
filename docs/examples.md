@@ -142,14 +142,16 @@ int ledControl(String command)
 The API request will look something like this:
 
 ```json
-POST /v1/devices/{DEVICE_ID}/ledControl
+POST /v1/devices/{DEVICE_ID}/led
 
 # EXAMPLE REQUEST IN TERMINAL
 # Core ID is 0123456789abcdef01234567
 # Your access token is 1234123412341234123412341234123412341234
-curl https://api.spark.io/v1/devices/0123456789abcdef01234567/ledControl \
+curl https://api.spark.io/v1/devices/0123456789abcdef01234567/led \
   -d access_token=1234123412341234123412341234123412341234 -d params=l1,HIGH
 ```
+
+Note that the API endpoint is 'led', not 'ledControl'. This is because the endpoint is defined by the first argument of Spark.function(), which is a string of characters, rather than the second argument, which is a function.
 
 To better understand the concept of making API calls to your Core over the cloud checkout the [Cloud API reference.](/#api)
 
