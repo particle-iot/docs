@@ -214,44 +214,72 @@ In the build section of the Spark website, you will be able to register a URL on
 You will soon be able to make an API call that will open a stream of [Server-Sent Events](http://www.w3.org/TR/eventsource/).  You will make one API call that opens a connection to the Spark Cloud.  That connection will stay open, unlike normal HTTP calls which end quickly.  Very little data will come to you across the connection unless your Spark Core emits an event, at which point you will be immediately notified.
 
 
-Flashing new firmware
+Verifing and Flashing new firmware
 ---------
 
 All your Spark firmware coding can happen entirely in the build section of the website.
-However, if you prefer to use your own text editor or IDE, you can!
-It just means that, instead of hitting the "Flash" button, you make an API call.
+However, if you prefer to use your own text editor or IDE, you can!  It just means that instead of hitting the "Flash" or "Verify" button, you'll make API calls that reference a file.
+
+This API endpoint has two modes, one of them provides the ability to flash a core
+by referenceing a source code text file (default), or alternatively, if you've build the firmware binary yourself, you can specify "file_type=binary".
+
+### Flash a Core with source code
+
+The API request should include a `multipart/form-data` encoded form with the `file`
+field populated and use the HTTP PUT verb.  Your filename does not matter.  As long as you send a single text file that defines `setup()` and `loop()` functions.  This API request will submit your firmware to be compiled into a Spark binary, after which, if compilation was successful, the binary will be flashed to your Core wirelessly.
 
 ```
+# EXAMPLE HTTP REQUEST
 PUT /v1/devices/{DEVICE_ID}
 Content-Type: multipart/form-data
 Send file as "file" in request body.
+```
 
-# EXAMPLE REQUEST IN TERMINAL
+```
+# EXAMPLE REQUEST to verify and flash a Core
+# with a file called "my-firmware-app.cpp"
 curl -X PUT -F file=@my-firmware-app.cpp \
   "https://api.spark.io/v1/devices/0123456789abcdef01234567?access_token=1234123412341234123412341234123412341234"
 ```
 
-Your filename does not matter.  In particular, the extension can be .c, .cpp, .ino, or anything else your prefer.
-You should send a single file that defines `setup()` and `loop()`.
+There are three possible response formats:
 
-This API request will submit your firmware to be compiled into a Spark binary, after which, if compilation was successful, the binary will be flashed to your Core wirelessly.
+* A successful response, in which both verification and flashing succeed. Note that the LED on your Core will blink magenta when this happens.
 
-```js
-// SUCCESSFUL RESPONSE
+* A failure due to compilation/verification errors.
+
+* A failure due to inability to transmit the binary to the core.
+
+
+```
+# EXAMPLE SUCCESSFUL RESPONSE
 {
-  "ok": true
-}
-
-// FAILURE RESPONSE
-{
-  "ok": false,
-  "errors": ["Compile error"],
-  "output": ".... lots of debug output..."
+  "ok": true,
+  "firmware_binary_id": "12345"
 }
 ```
 
-If you want to compile the firmware yourself and send a binary instead of source file, you can do that too!
-Just add `file_type=binary` to the request body.
+```
+# EXAMPLE COMPILE FAILURE RESPONSE
+{
+  "ok": false,
+  "errors": ["Compile error"],
+  "output": ".... lots of debug output from the compiler..."
+}
+```
+
+```
+# EXAMPLE FLASH FAILURE RESPONSE
+{
+  "ok": false,
+  "firmware_binary_id": "1234567",
+  "errors": ["Device is not connected."]
+}
+```
+
+### Flash a Core with a pre-compiled binary
+
+If you want to compile the firmware yourself and send a binary instead of source file, you can do that too!  Just add `file_type=binary` to the request body, this will skip the compilation stage all together. The response format will look like those shown above.
 
 ```
 # EXAMPLE BINARY REQUEST IN TERMINAL
