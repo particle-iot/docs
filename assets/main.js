@@ -1,34 +1,47 @@
 var Docs = {
-  section: "",
-  subsection: "docs"
+  section: "start",
+  subsection: "docs",
+
+  loadSection: function(section) {
+    this.subsection = "docs";
+
+    if (this.section != section) {
+      this.section = section;
+      Flatdoc.run({
+        fetcher: Flatdoc.file('docs/' + this.section + '.md')
+      });
+    }
+  },
+
+  loadSubsection: function(section, subsection) {
+    this.subsection = subsection;
+
+    if (this.section != section) {
+      this.section = section;
+      Flatdoc.run({
+        fetcher: Flatdoc.file('docs/' + this.section + '.md')
+      });
+    } else {
+      $(document.body).scrollTop($("#" + this.subsection).offset().top);
+    }
+  },
+
+  scroll: function() {
+    $(document.body).scrollTop($("#" + Docs.subsection).offset().top);
+  }
 };
 
 var app = Sammy('#docs', function() {
 
   this.get('#/', function() {
-    Docs.section = "start";
   })
 
   this.get('#/:section', function() {
-    if (Docs.section != this.params['section']) {
-      Docs.section = this.params['section'];
-      Flatdoc.run({
-        fetcher: Flatdoc.file('docs/' + Docs.section + '.md')
-      });
-    }
+    Docs.loadSection(this.params['section']);
   });
 
   this.get('#/:section/:subsection', function() {
-    Docs.subsection = this.params['subsection'];
-
-    if (Docs.section != this.params['section']) {
-      Docs.section = this.params['section'];
-      Flatdoc.run({
-        fetcher: Flatdoc.file('docs/' + Docs.section + '.md')
-      });
-    } else {
-      $(document.body).scrollTop($("#" + Docs.subsection).offset().top);
-    }
+    Docs.loadSubsection(this.params['section'], this.params['subsection']);
   });
 });
 
@@ -40,6 +53,6 @@ var app = Sammy('#docs', function() {
   )
 
   $(document).on('flatdoc:ready', function() {
-    $(document.body).scrollTop($("#" + Docs.subsection).offset().top);
+    Docs.scroll();
   });
 })(window.jQuery)
