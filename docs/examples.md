@@ -142,12 +142,14 @@ int ledControl(String command)
 The API request will look something like this:
 
 ```json
-POST /v1/devices/{DEVICE_ID}/digitalwrite
+POST /v1/devices/{DEVICE_ID}/ledControl
 
-# EXAMPLE REQUEST
-curl https://api.spark.io/v1/devices/teapot/led \
+# EXAMPLE REQUEST IN TERMINAL
+# Core ID is 0123456789abcdef01234567
+# Your access token is 1234123412341234123412341234123412341234
+curl https://api.spark.io/v1/devices/0123456789abcdef01234567/ledControl \
   -d access_token=1234123412341234123412341234123412341234 -d params=l1,HIGH
-```  
+```
 
 To better understand the concept of making API calls to your Core over the cloud checkout the [Cloud API reference.](/#api)
 
@@ -204,6 +206,8 @@ Temperature (in Celsius) = (voltage - 0.5) X 100
 The API request will look something like this:
 
 ```json
+GET /v1/devices/{DEVICE_ID}/temperature
+
 # EXAMPLE REQUEST IN TERMINAL
 # Core ID is 0123456789abcdef01234567
 # Your access token is 1234123412341234123412341234123412341234
