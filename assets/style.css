@@ -58,6 +58,11 @@ a:hover,
 .content img {
   width: 100%;
   border: 1px solid #e7e7e7;
+  min-height: 320px;
+}
+
+.content iframe {
+  max-width: 480px;
 }
 
 .content table th,
@@ -84,6 +89,15 @@ a:hover,
 
   body:not(.no-literate) .content img {
     width: 330px;
+    padding: 5px;
+    background: #ffffff;
+    border: 1px solid #f2f2f2;
+  }
+
+  body:not(.no-literate) .content iframe {
+    float: right;
+    clear: none;
+    max-width: 330px;
     padding: 5px;
     background: #ffffff;
     border: 1px solid #f2f2f2;
@@ -164,14 +178,14 @@ a:hover,
 }
 
 
-@media (min-width: 960px) {
+@media (min-width: 1180px) {
  .header ul {
     border-left: solid 1px #dfe2e7;
     margin-left: 15px;
   }
 }
 
-@media (max-width: 960px) {
+@media (max-width: 1180px) {
   .header ul {
     padding-top: 10px;
     clear: both;
