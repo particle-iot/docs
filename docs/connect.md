@@ -9,13 +9,13 @@ For all of the following methods, the Spark Core must be in "listening" mode, wh
 
 The Core boots into listening mode by default, so if your Core is brand new, it should go straight into listening mode. Otherwise, hold the MODE button for three seconds:
 
-VINE
+<iframe class="vine-embed" src="https://vine.co/v/hFHlpBDELeU/embed/simple" width="320" height="320" frameborder="0"></iframe>
 
 ## Smart Config with the Spark app
 
 Once you've downloaded the Spark Core app from the App Store or Google Play, you should create an account. Afterwords you'll be asked to connect your Core using a process called Smart Config. *NOTE: You must be connected to the Wi-Fi network that you want to connect the Core to.* Enter your Wi-Fi password and hit connect:
 
-VINE
+<iframe class="vine-embed" src="https://vine.co/v/hFH09MJwbxg/embed/simple" width="320" height="320" frameborder="0"></iframe>
 
 Smart Config can take up to a minute, so be patient. The closer your phone to your Spark Core, the faster it will connect. Once the Core hears the signal, it will go through the following sequence of lights:
 
@@ -26,21 +26,21 @@ Smart Config can take up to a minute, so be patient. The closer your phone to yo
 
 It looks something like this:
 
-VINE
+<iframe class="vine-embed" src="https://vine.co/v/hFwubhA3JXV/embed/simple" width="320" height="320" frameborder="0"></iframe>
 
 Once the Spark Core has connected, your phone will "claim" the Core and attach it to your account. Then you'll get to name your Core:
 
-VINE
+<iframe class="vine-embed" src="https://vine.co/v/hFdj1TJjA9M/embed/simple" width="320" height="320" frameborder="0"></iframe>
 
 *NOTE: If the Spark Core has been claimed by someone else, the app won't recognize it. If you need to transfer a Spark Core to another account, email us at [hello@spark.io](mailto:hello@spark.io).*
 
 If you are connecting multiple Cores, you'll go through this naming process for each Core. You'll know which one is which by the rainbow signal:
 
-VINE
+<iframe class="vine-embed" src="https://vine.co/v/hFdPKul226i/embed/simple" width="320" height="320" frameborder="0"></iframe>
 
 Once you've finished naming your Cores, you can control them with Tinker! Try *digitalWrite* on D7 to turn on the user LED.
 
-VINE
+<iframe class="vine-embed" src="https://vine.co/v/hFdxB9lHOmv/embed/simple" width="320" height="320" frameborder="0"></iframe>
 
 ## Smart Config with the TI app
 
@@ -67,7 +67,7 @@ Plug your Spark Core into your computer over USB. When the Spark Core is in list
 - Parity: none
 - Stop Bits: 1
 
-SCREENSHOT
+![CoolTerm settings](images/coolterm-settings.png)
 
 Once you've opened a serial connection, you have two commands at your disposal by hitting either **w** or **i** on the keyboard. Here's what they do:
 
@@ -76,7 +76,7 @@ Once you've opened a serial connection, you have two commands at your disposal b
 
 Here's what setting up the Spark Core over USB looks like:
 
-VINE
+![CoolTerm setup](images/coolterm-setup.png)
 
 ## Coming soon: Hard-code credentials
 
@@ -84,3 +84,5 @@ Currently there is not a mechanism to hard-code your SSID and password into the 
 
 Troubleshooting
 ===
+
+**Coming soon!**
