@@ -85,4 +85,63 @@ Currently there is not a mechanism to hard-code your SSID and password into the 
 Troubleshooting
 ===
 
-**Coming soon!**
+There are many reasons that your Spark Core might not be able to connect to your network. There are many types of Wi-Fi networks, and the Spark Core and the CC3000 do not support all of them. We consider it an important goal of ours to connect easily and painlessly to as many networks as possible, and your feedback is extremely valuable so that we can get better.
+
+The Spark Core works best with a traditional home network: simple networks with WPA/WPA2 or WEP security (or unsecured),  with a single router from a reputable company (Apple, Netgear, Linksys, D-Link, etc.) without any fancy settings. The more your network diverges from the norm, there more likely you might encounter issues.
+
+There are known issues with the following types of networks:
+
+- **802.11n-only networks**. The Spark Core is 802.11b/g. Most 802.11n networks are backwards compatible with 802.11b/g, but if yours is not, the Spark Core will not connect.
+- **Networks with ["captive portal"](http://en.wikipedia.org/wiki/Captive_portal) security**. A captive portal is the little website that comes up to ask you to sign in to a network or sign an agreement, like at a Starbucks. The Spark Core can't navigate these portals.
+- **Enterprise networks**. We have had mixed results connecting the Spark Core to enterprise networks, although we don't yet have a great understanding of what's causing the issue. This is something that we are working to improve.
+- **Complex networks**. Networks with multiple routers, with non-standard firewalls, and with non-standard settings. 
+
+So, let's dig in. If your Spark Core is not connecting to your Wi-Fi network, we recommend following these steps:
+
+## STEP 0: Check your credentials
+
+This may go without saying, but definitely check your Wi-Fi password to make sure you typed it correctly.
+
+## STEP 1: Try setting up your Core over USB
+
+On some networks, Smart Config does not work, but the Core can connect to the network just fine. We've implemented a back-up mechanism so you can set up your Core over USB. For instructions, see above.
+
+## STEP 2: Try another network
+
+There are many reasons that your Core might not connect; some of them have to do with the Spark Core; some have to do with your mobile device sending the Wi-Fi credentials; some have to do with the network. If your Core doesn't connect, try another Wi-Fi network. This will quickly help you figure out which type of issue you might be seeing.
+
+## STEP 3: Reboot the app and the Core, and clear the Core's memory
+
+So often, electronics start behaving after you shut them off and turn them back on. Try:
+
+- Closing your mobile app and re-opening it
+- Un-plugging the Spark Core and plugging it back in
+- Clear the Spark Core's memory of Wi-Fi networks by holding the MODE button for 10 seconds. After 3 seconds, the light should start flashing blue; after 10 seconds, it should do a quick burst of blue flashes. That means the memory has been cleared.
+
+<iframe class="vine-embed" src="https://vine.co/v/hFHQlj6iuKT/embed/simple" width="320" height="320" frameborder="0"></iframe>
+
+## STEP 4: Check your router settings
+
+There are a million ways router settings could cause problems, but here's a few things to look out for:
+
+- **Use DHCP**. Although the Spark Core can handle static IP addresses, it's not configured for it out of the box, so you'll have to dig into the source code.
+- **Turn off access control and firewalls**. Not permanently, but temporarily, to see if it resolves the issue. If it does, you can hopefully just tweak your settings to accommodate the Core rather than taking down your security.
+
+## STEP 5: Search the forums
+
+It's possible that other folks have encountered the same issues that you have. The best way to check and learn from others is to search the forums; search for your particular symptoms or for your Wi-Fi router make and model to find relevant posts.
+
+[Visit the forums >](https://community.sparkdevices.com)
+
+## STEP 6: Post a report
+
+We would love to hear about your issues, regardless of whether you were able to resolve them, so that we can improve our platform. If you haven't been able to resolve your issue, hopefully we or the community will be able to help.
+
+Please post issues with connectivity either as responses to this topic or, if they are dissimilar from other reported issues, as their own topic. When you make a post, please include:
+
+- Router make and model
+- Network security (unsecured, WEP, WPA2, etc.)
+- Environment (home, small office, enterprise, public network, etc.)
+- Network topology (number of routers and/or range extenders, estimated number of devices connected to network)
+- Internet Service Provider
+- Any network settings that might diverge from the norm
