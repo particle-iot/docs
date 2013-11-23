@@ -26,8 +26,10 @@ var Docs = {
     }
   },
 
-  scroll: function() {
-    $(document.body).scrollTop($("#" + Docs.subsection).offset().top);
+  waitThenScroll: function() {
+    waitForAllImagesToLoad("img", function() {
+      $(document.body).scrollTop($("#" + Docs.subsection).offset().top);
+    });
   },
 
   scrollSmooth: function() {
@@ -59,6 +61,20 @@ var app = Sammy('#docs', function() {
   )
 
   $(document).on('flatdoc:ready', function() {
-    Docs.scroll();
+    Docs.waitThenScroll();
   });
 })(window.jQuery)
+
+var waitForAllImagesToLoad = function(selector, callback) {
+  var numNodes = $(selector).length;
+  var numLoaded = 0;
+  var checkDone = function() {
+    if (numLoaded >= numNodes) {
+      callback(true);
+    }
+  };
+
+  $(selector)
+    .one('load', function() { numLoaded++; checkDone(); })
+    .each(function() { if (this.complete) { $(this).load(); }});
+}
