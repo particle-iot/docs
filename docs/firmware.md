@@ -154,7 +154,7 @@ void loop() {
   delay(1000);
 }
 ```
-
+<!-- TO DO 
 ### Spark.disconnect()
 
 Disconnects the Spark Core from the Spark Cloud.
@@ -181,21 +181,24 @@ Spark.connect()
 ```
 
 The Spark Core connects to the cloud by default, so it's not necessary to call `Spark.connect()` unless you have explicitly disconnected the Core.
+-->
 
 <!-- TO DO -->
 <!-- Add example implementation here -->
-
+<!--
 ### Spark.print()
 
 Prints to the debug console in Spark's web IDE.
+-->
 
 <!-- TO DO -->
 <!-- Add example implementation here -->
 
+<!--
 ### Spark.println()
 
 Prints to the debug console in Spark's web IDE, followed by a *newline* character.
-
+-->
 <!-- TO DO -->
 <!-- Add example implementation here -->
 
@@ -209,12 +212,17 @@ Sleep
 ```C++
 SYNTAX
 Spark.sleep(int millis);
-Spark.sleep(int millis, array peripherals);
 ```
+<!--
+Spark.sleep(int millis, array peripherals);
+-->
+
 
 `Spark.sleep()` takes one argument, an `int`, for the number of milliseconds to sleep.
 
+<!--
 `Spark.sleep()` can also take an optional second argument, an `array` of other peripherals to deactivate. Deactivating unused peripherals on the micro-controller can take its power consumption into the micro-amps.
+-->
 
 <!-- TO DO -->
 <!-- Add example implementation here -->
