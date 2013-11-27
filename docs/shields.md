@@ -546,6 +546,8 @@ The RC car kit is a two-wheeled differentially driven platform that you can cont
 - Spark Core
 
 Assemble the RC Car chassis as shown in the [tutorial here.](http://www.dfrobot.com/wiki/index.php/3PA_Assembly_Guide_%28SKU:ROB0005%29) (Without the electronics)
+
+![Top View](images/rc-car-top-small.jpg)
 <!--
 Put together the Shield Shield and the Motor Driver Shield as shown in the picture.
 The Motor Driver shield is setup in the PWM mode as shown in the picture. 
@@ -559,6 +561,16 @@ The Motor Driver shield is setup in the PWM mode as shown in the picture.
 - Pin 7: Connects with M2
 
 Where E1 and E2 control the speed of the motors, while M1 and M2 change the direction.
+
+![Jumper Settings](images/rc-car-jumpers-small.jpg)
+
+Connect the left and right motor terminals to M2+,M2-,M1+ and M1- respectively.
+
+![Motor Connections](images/rc-car-motor-conn-small.jpg)
+
+The motors can run from a voltage in the range of 5V to 9V DC. The jumpers can be set to get power from Vin from the Shield below.
+
+![Power Selection](images/rc-car-power-small.jpg)
 
 A simple example for controlling the RC Car is as described: 
 
