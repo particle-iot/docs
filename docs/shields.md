@@ -322,7 +322,7 @@ When powering the Core via the battery alone, the blue LED will NOT light up.
 
 [Battery Shield Hardware Files >](https://github.com/spark/shields/tree/master/Battery%20Shield)
 
-# Spark Maker Kit Contents
+# Spark Maker Kit
 
 <!-- 
    TO DO 
@@ -501,7 +501,7 @@ This is a 7" x 9" general purpose dot-matrix prototyping PCB.
 #### 24. Spark Core - u.FL or CA (1)
 Your very own Spark Core, ready to take over the world, one byte at a time.
 
-
+<!--
 1. Ceramic Capacitor - 10nF (10)
 2. Ceramic Capacitors 100nF (10)
 3. Electrolytic Capacitors 100uF (5)
@@ -533,7 +533,7 @@ Your very own Spark Core, ready to take over the world, one byte at a time.
 30. Resistor 10K-Ohm (10)
 31. 10K Rotary Potentiometer (1) 
 32. Spark Core - u.FL or CA (1)
-
+-->
 
 # Spark RC Car Kit
 The RC car kit is a two-wheeled differentially driven platform that you can control using a Spark Core.
@@ -545,11 +545,11 @@ The RC car kit is a two-wheeled differentially driven platform that you can cont
 - Motor Driver Shield
 - Spark Core
 
-Assemble the RC Car chassis as shown in the tutorial here.
-
+Assemble the RC Car chassis as shown in the [tutorial here.](http://www.dfrobot.com/wiki/index.php/3PA_Assembly_Guide_%28SKU:ROB0005%29) (Without the electronics)
+<!--
 Put together the Shield Shield and the Motor Driver Shield as shown in the picture.
-
 The Motor Driver shield is setup in the PWM mode as shown in the picture. 
+-->
 
 <!-- TO DO - Add picture of the motor shield setup -->
 
@@ -560,6 +560,123 @@ The Motor Driver shield is setup in the PWM mode as shown in the picture.
 
 Where E1 and E2 control the speed of the motors, while M1 and M2 change the direction.
 
+A simple example for controlling the RC Car is as described: 
+
+
+```C++
+/* Includes ------------------------------------------------------------------*/  
+#include "application.h"
+
+/* Function prototypes -------------------------------------------------------*/
+
+int rcCarControl(String command);
+
+/* Globals -------------------------------------------------------------------*/
+int leftMotorEnable   = D1;
+int rightMotorEnable  = A7;
+int leftMotorDir    = D3;
+int rightMotorDir   = D4;
+
+
+/* This function is called once at start up ----------------------------------*/
+void setup()
+{
+  //Register Spark function
+  Spark.function("rccar", rcCarControl);
+
+  pinMode(leftMotorDir, OUTPUT);
+  pinMode(leftMotorEnable, OUTPUT);
+  pinMode(rightMotorDir, OUTPUT);
+  pinMode(rightMotorEnable, OUTPUT);
+
+  pinMode(D7,OUTPUT);
+}
+
+/* This function loops forever --------------------------------------------*/
+void loop()
+{
+  // Nothing to do here
+}
+
+/*******************************************************************************
+ * Function Name  : rcCarControl
+ * Description    : Parses the incoming API commands and sets the motor control
+          pins accordingly
+ * Input          : RC Car commands
+          e.g.: rc,FORWARD
+            rc,BACK
+ * Output         : Motor signals
+ * Return         : 1 on success and -1 on fail
+ *******************************************************************************/
+int rcCarControl(String command)
+{
+  if(command.substring(3,7) == "STOP")
+  {
+    digitalWrite(leftMotorEnable,LOW);
+    digitalWrite(rightMotorEnable,LOW);
+
+    digitalWrite(leftMotorDir,LOW);
+    digitalWrite(rightMotorDir,LOW);
+
+    return 1;
+  }
+
+  if(command.substring(3,7) == "BACK")
+  {
+    digitalWrite(leftMotorDir,LOW);
+    digitalWrite(rightMotorDir,HIGH);
+
+    digitalWrite(leftMotorEnable,HIGH);
+    digitalWrite(rightMotorEnable,HIGH);
+
+    return 1;
+  }
+
+  if(command.substring(3,10) == "FORWARD")
+  {
+    digitalWrite(leftMotorDir,HIGH);
+    digitalWrite(rightMotorDir,LOW);
+
+    digitalWrite(leftMotorEnable,HIGH);
+    digitalWrite(rightMotorEnable,HIGH);
+
+    return 1;
+  }
+
+  if(command.substring(3,8) == "RIGHT")
+  {
+    digitalWrite(leftMotorDir,HIGH);
+    digitalWrite(rightMotorDir,HIGH);
+
+    digitalWrite(leftMotorEnable,HIGH);
+    digitalWrite(rightMotorEnable,HIGH);
+
+    return 1;
+  }
+
+  if(command.substring(3,7) == "LEFT")
+  {
+    digitalWrite(leftMotorDir,LOW);
+    digitalWrite(rightMotorDir,LOW);
+
+    digitalWrite(leftMotorEnable,HIGH);
+    digitalWrite(rightMotorEnable,HIGH);
+
+    return 1;
+  }
+
+  // If none of the commands were executed, return false
+  return -1;
+}
+```
+
+To send API commands:
+
+```json
+# Sending command to go forward
+curl https://api.spark.io/v1/devices/1234/rccar -d access_token=1234 -d params=rc,FORWARD
+```
+
 #### Motor Driver Shield Specifications:
 The motor driver shield is based around the L298 [Full-bridge](http://en.wikipedia.org/wiki/H_bridge) motor driver chip.
 
@@ -568,7 +685,7 @@ The motor driver shield is based around the L298 [Full-bridge](http://en.wikiped
 - Motor drive voltage: 7V to 12V DC
 - Motor drive current: 2Amp Max
 
-
+<!--
 Plug in the Spark Core.
 
 Now plug in the battery.
@@ -576,6 +693,7 @@ Now plug in the battery.
 Example user code.
 
 Project Ideas.
+-->
 
 #### DATASHEETS
 
