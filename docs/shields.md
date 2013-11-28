@@ -440,7 +440,7 @@ These are nifty little switches that plug nicely into a breadboard or a proto-bo
 This is a tiny Double Pole Double Throw (DPDT) Switch with 6 legs and is rated at 
 
 #### 16. Shift Register IC (1)
-74HC595 is an 8 bit serial-in parallel-out shift register commonly used as an output expander. You can derive of upto 8 outputs from only 3 lines (using one chip). You could potentially daisy chain multiple of these to get even more outputs.
+74HC595 is an 8 bit serial-in parallel-out shift register commonly used as an output expander. You can drive of up to 8 outputs from only 3 lines (using one chip). You could potentially daisy chain multiple of these to get even more outputs.
 
 [Datasheet](http://www.nxp.com/documents/data_sheet/74HC_HCT595.pdf)
 

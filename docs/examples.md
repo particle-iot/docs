@@ -6,15 +6,13 @@ Here you will find a bunch of examples to get you started with your all new Spar
 Blink an LED
 ===
 
+![One LED illustration](images/annotated-example1.jpg)
+
 Blinking an LED is the ["Hello World"](http://en.wikipedia.org/wiki/Hello_world_program) example of the microcontroller  world. It's a nice way to warm up and start your journey into the land of embedded hardware.
 
 For this example, you will need a Spark Core (duh!), a Breadboard, an LED, a Resistor (we will soon find out a suitable value) and an USB cable.
 
 Connect everything together as shown in the picture. The LED is connected to pin D0 of the Core. The positive (longer pin) of the LED is connected to D0 and its negative pin (shorter) is connected to ground via a resistor.
-
-![One LED illustration](images/annotated-example1.jpg)  
-
-&nbsp;
 
 ![One LED setup](images/breadboard-one-led.jpg)
 
@@ -64,14 +62,14 @@ void loop()
 }
 ```
 
-Control LEDs over the Internet
+Control LEDs over the 'net
 ===
+
+![Two LED setup](images/breadboard-two-leds.jpg)
 
 Now that we know how to blink an LED, how about we control it over the Internet? This is where the fun begins.
 
 Lets hook up two LEDs this time.
-
-![Two LED setup](images/breadboard-two-leds.jpg)
 
 Here is the algorithm: 
 
@@ -139,6 +137,8 @@ int ledControl(String command)
 }
 ```
 
+---
+
 The API request will look something like this:
 
 ```json
@@ -148,7 +148,8 @@ POST /v1/devices/{DEVICE_ID}/led
 # Core ID is 0123456789abcdef01234567
 # Your access token is 1234123412341234123412341234123412341234
 curl https://api.spark.io/v1/devices/0123456789abcdef01234567/led \
-  -d access_token=1234123412341234123412341234123412341234 -d params=l1,HIGH
+  -d access_token=1234123412341234123412341234123412341234 \
+  -d params=l1,HIGH
 ```
 
 Note that the API endpoint is 'led', not 'ledControl'. This is because the endpoint is defined by the first argument of Spark.function(), which is a string of characters, rather than the second argument, which is a function.
@@ -158,13 +159,11 @@ To better understand the concept of making API calls to your Core over the cloud
 Measuring the temperature
 ===
 
+![Read Sensor](images/annotated-example3.jpg)
+
 We have now learned how to send custom commands to the Core and control the hardware. But how about reading data back from the Core?
 
 In this example, we will hook up a temperature sensor to the Core and read the values over the internet with a web browser.
-
-![Read Sensor](images/annotated-example3.jpg)
-
-&nbsp;
 
 ![Read Temperature](images/breadboard-temp-sensor.jpg)
 
@@ -204,6 +203,8 @@ The returned value from the Core is going to be in the range from 0 to 4095. You
 voltage = (sensor reading x 3.3)/4095  
 Temperature (in Celsius) = (voltage - 0.5) X 100
 ```
+
+---
 
 The API request will look something like this:
 
