@@ -1,21 +1,23 @@
 Connecting your Core
 ===
 
-The easiest way to connect the Spark Core to Wi-Fi is using the Spark mobile app for iPhone or Android. But in case that's not working for you or you don't have an iOS/Android phone, there are other methods as well.
-
-For all of the following methods, the Spark Core must be in "listening" mode, which you'll know by its flashing blue LED:
-
 <iframe class="vine-embed" src="https://vine.co/v/hFHPMue5lgd/embed/simple" width="320" height="320" frameborder="0"></iframe>
 
-The Core boots into listening mode by default, so if your Core is brand new, it should go straight into listening mode. Otherwise, hold the MODE button for three seconds:
+The easiest way to connect the Spark Core to Wi-Fi is using the Spark mobile app for iPhone or Android. But in case that's not working for you or you don't have an iOS/Android phone, there are other methods as well.
+
+For all of the following methods, the Spark Core must be in "listening" mode, which you'll know by its flashing blue LED.
 
 <iframe class="vine-embed" src="https://vine.co/v/hFHlpBDELeU/embed/simple" width="320" height="320" frameborder="0"></iframe>
 
+The Core boots into listening mode by default, so if your Core is brand new, it should go straight into listening mode. Otherwise, hold the MODE button for three seconds.
+
 ## Smart Config with the Spark app
 
-Once you've downloaded the Spark Core app from the App Store or Google Play, you should create an account. Afterwords you'll be asked to connect your Core using a process called Smart Config. *NOTE: You must be connected to the Wi-Fi network that you want to connect the Core to.* Enter your Wi-Fi password and hit connect:
-
 <iframe class="vine-embed" src="https://vine.co/v/hFH09MJwbxg/embed/simple" width="320" height="320" frameborder="0"></iframe>
+
+Once you've downloaded the Spark Core app from the App Store or Google Play, you should create an account. Afterwords you'll be asked to connect your Core using a process called Smart Config. *NOTE: You must be connected to the Wi-Fi network that you want to connect the Core to.* Enter your Wi-Fi password and hit connect.
+
+<iframe class="vine-embed" src="https://vine.co/v/hFwubhA3JXV/embed/simple" width="320" height="320" frameborder="0"></iframe>
 
 Smart Config can take up to a minute, so be patient. The closer your phone to your Spark Core, the faster it will connect. Once the Core hears the signal, it will go through the following sequence of lights:
 
@@ -24,23 +26,19 @@ Smart Config can take up to a minute, so be patient. The closer your phone to yo
 - **Flashing cyan**: Connecting to Spark Cloud
 - **Breathing cyan**: Connected to Spark Cloud
 
-It looks something like this:
-
-<iframe class="vine-embed" src="https://vine.co/v/hFwubhA3JXV/embed/simple" width="320" height="320" frameborder="0"></iframe>
-
-Once the Spark Core has connected, your phone will "claim" the Core and attach it to your account. Then you'll get to name your Core:
-
 <iframe class="vine-embed" src="https://vine.co/v/hFdj1TJjA9M/embed/simple" width="320" height="320" frameborder="0"></iframe>
+
+Once the Spark Core has connected, your phone will "claim" the Core and attach it to your account. Then you'll get to name your Core.
 
 *NOTE: If the Spark Core has been claimed by someone else, the app won't recognize it. If you need to transfer a Spark Core to another account, email us at [hello@spark.io](mailto:hello@spark.io).*
 
-If you are connecting multiple Cores, you'll go through this naming process for each Core. You'll know which one is which by the rainbow signal:
-
 <iframe class="vine-embed" src="https://vine.co/v/hFdPKul226i/embed/simple" width="320" height="320" frameborder="0"></iframe>
 
-Once you've finished naming your Cores, you can control them with Tinker! Try *digitalWrite* on D7 to turn on the user LED.
+If you are connecting multiple Cores, you'll go through this naming process for each Core. You'll know which one is which by the rainbow signal.
 
 <iframe class="vine-embed" src="https://vine.co/v/hFdxB9lHOmv/embed/simple" width="320" height="320" frameborder="0"></iframe>
+
+Once you've finished naming your Cores, you can control them with Tinker! Try *digitalWrite* on D7 to turn on the user LED.
 
 ## Smart Config with the TI app
 
@@ -60,6 +58,8 @@ You can also connect the Spark Core to your Wi-Fi network over USB by communicat
 
 First, you'll need to download a serial terminal application; we recommend [PuTTY](http://www.chiark.greenend.org.uk/~sgtatham/putty/) for Windows and [CoolTerm](http://freeware.the-meiers.org/) for Mac.
 
+![CoolTerm settings](images/coolterm-settings.png)
+
 Plug your Spark Core into your computer over USB. When the Spark Core is in listening mode, open a serial port over USB using the standard settings, which should be:
 
 - Baudrate: 9600
@@ -67,16 +67,13 @@ Plug your Spark Core into your computer over USB. When the Spark Core is in list
 - Parity: none
 - Stop Bits: 1
 
-![CoolTerm settings](images/coolterm-settings.png)
+![CoolTerm setup](images/coolterm-setup.png)
 
 Once you've opened a serial connection, you have two commands at your disposal by hitting either **w** or **i** on the keyboard. Here's what they do:
 
 - **w**: Set up your Wi-Fi SSID and password
 - **i**: Read out the Spark Core ID
 
-Here's what setting up the Spark Core over USB looks like:
-
-![CoolTerm setup](images/coolterm-setup.png)
 
 ## Coming soon: Hard-code credentials
 
@@ -102,7 +99,7 @@ So, let's dig in. If your Spark Core is not connecting to your Wi-Fi network, we
 
 This may go without saying, but definitely check your Wi-Fi password to make sure you typed it correctly.
 
-## STEP 1: Try setting up your Core over USB
+## STEP 1: Set up your Core over USB
 
 On some networks, Smart Config does not work, but the Core can connect to the network just fine. We've implemented a back-up mechanism so you can set up your Core over USB. For instructions, see above.
 
@@ -110,15 +107,15 @@ On some networks, Smart Config does not work, but the Core can connect to the ne
 
 There are many reasons that your Core might not connect; some of them have to do with the Spark Core; some have to do with your mobile device sending the Wi-Fi credentials; some have to do with the network. If your Core doesn't connect, try another Wi-Fi network. This will quickly help you figure out which type of issue you might be seeing.
 
-## STEP 3: Reboot the app and the Core, and clear the Core's memory
+## STEP 3: Reboot and clear memory
+
+<iframe class="vine-embed" src="https://vine.co/v/hFHQlj6iuKT/embed/simple" width="320" height="320" frameborder="0"></iframe>
 
 So often, electronics start behaving after you shut them off and turn them back on. Try:
 
 - Closing your mobile app and re-opening it
 - Un-plugging the Spark Core and plugging it back in
 - Clear the Spark Core's memory of Wi-Fi networks by holding the MODE button for 10 seconds. After 3 seconds, the light should start flashing blue; after 10 seconds, it should do a quick burst of blue flashes. That means the memory has been cleared.
-
-<iframe class="vine-embed" src="https://vine.co/v/hFHQlj6iuKT/embed/simple" width="320" height="320" frameborder="0"></iframe>
 
 ## STEP 4: Check your router settings
 
