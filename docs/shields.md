@@ -322,3 +322,392 @@ When powering the Core via the battery alone, the blue LED will NOT light up.
 
 [Battery Shield Hardware Files >](https://github.com/spark/shields/tree/master/Battery%20Shield)
 
+# Spark Maker Kit
+
+<!-- 
+   TO DO 
+   - add short description
+   - add pictures of all the components laid out and number them 
+-->
+
+### Spark Maker Kit Details:
+
+#### 1. Ceramic Capacitors (10 each)
+These are standard [ceramic capacitors.](http://en.wikipedia.org/wiki/Ceramic_capacitor) They are widely used in analog circuits as bypass/ decoupling capacitors, in timers, filters, etc. The kit comes with:
+
+- 10nF (0.01uF) - Number code: 103
+- 100nF (0.1uF) - Number coed: 104
+
+*Note:* These are non-polar capacitors which means they can be oriented both ways.
+
+<!-- TO Do Capacitor number codes -->
+
+#### 2. Electrolytic Capacitor 100uF (5)
+[Electrolytic capacitors](http://en.wikipedia.org/wiki/Electrolytic_capacitor) offer larger values and are polar. These capacitors are ideal for decoupling power supplies, as transient suppressors, and in timing circuits.
+
+*Note:* These are polar capacitors. The longer lead denotes positive while the shorter one denotes negative. These are also know to "pop" when subjected to voltages higher than their ratings.
+
+<!-- TO DO ADD VOLTAGE VALUE-->
+
+#### 3. Headers
+These are standard 0.1" pitch headers that can be cut to size. Very handy when building circuits on breadboard or PCBs alike.
+
+- 8-Pin Female Headers (5)
+- 40-Pin Male Breakaway Headers (2)
+- 40-Pin Male Breakaway Dual-Headers (1) 
+
+#### 4. LEDs
+These are general purpose 3mm LEDs. You can never have enough of them! Use a resistor in series when hooking them up to the Spark Core. ( 220 ohms to 1K ohms)
+
+- Red (5)
+- Green (5)
+
+*Note:* The longer lead is positive (anode) while the shorter one is negative (cathode).
+
+#### 5. RGB LEDs (1)
+So, Red and Green aren't enough for you? Want to make bazzillion different colors? Then this RGB LED will do it for ya. You can mix colors by connecting each pin to an analogWrite compatible pin on the Core and feed them different values. Let the disco party begin!
+
+This LED has four pins, one for each color and a common anode (+) pin.
+
+[Datasheet](datasheets/makerkit/rgb-led.pdf)
+
+<!-- TO DO pin diagram-->
+
+#### 6. NPN Transistor (1) 
+S9013 is a general purpose small signal NPN [transistor](http://en.wikipedia.org/wiki/Transistor) rated at 40V, 500mA. 
+
+You can this transistor to switch small loads like relays, mini motors, buzzers, etc.
+
+[Datasheet](http://www.fairchildsemi.com/ds/SS/SS9013.pdf)
+
+#### 7. Diode (6)
+[1N4004](http://en.wikipedia.org/wiki/1N4004) is a general purpose diode rated at 400V, 1000mA with a forward voltage drop of 1.1V. Excellent as a [fly-back diode](http://en.wikipedia.org/wiki/Flyback_diode) or as a general rectifying diode.
+
+[Datasheet](http://www.diodes.com/datasheets/ds28002.pdf)
+
+#### 8. Micro Servo (1) 
+Emax ES08A is a mini RC servo motor.
+
+- Operating Voltage: 4.8 to 6.0VDC
+- Stall Torque: 1.8Kg/cm
+- Speed: 0.10sec/degree at no load
+
+[Datasheet](http://www.emaxmodel.com/views.asp?hw_id=6)
+
+
+#### 9. Deluxe Jumper Wire Pack (1)
+Multi-colored and stripped. You can never have enough of these either.
+
+#### 10. USB Micro B Cable (1)
+A custom Spark USB cable for you Core! We were really excited to have our logo printed on them.
+
+#### 11. Mini DC Motor (1)
+This is a simple DC motor that you can switch using the NPN transistor provided in the kit.
+
+[Datasheet](datasheets/makerkit/mini-dc-motor.pdf)
+
+<!-- TO DO 
+   - add motor specs
+   - add illustration
+ -->
+
+#### 12. Vibration Motor (1)
+Wanna give your next Spark Core project a tactile feedback? This vibration motor serves the purpose nicely. Use the NPN transistor to switch it.
+
+[Datasheet](datasheets/makerkit/vibration-motor.pdf)
+
+<!-- TO DO 
+   - add motor specs
+   - add illustration
+ -->
+
+#### 13. Piezo Buzzer (1)
+Add an audible feedback to your project with this buzzer. The loner lead is positive and the shorter is negative. You will need a transistor to driver it.
+
+*Note:* The sound gets annoying after a while. Use it sparingly! 
+
+- Operating Voltage: 4.0 to 7.0 V DC
+- Oscillation Frequency: 2.3KHz
+- Current: 30mA
+- Sound Pressure: 85dB
+
+[Datasheet](datasheets/makerkit/buzzer.pdf)
+
+#### 14. Mini Pushbuttons (3) 
+These are nifty little switches that plug nicely into a breadboard or a proto-board. They are normally-open type and are rated at 12V, 50mA.
+
+#### 15. DPDT Switch (2)
+This is a tiny Double Pole Double Throw (DPDT) Switch with 6 legs and is rated at 
+
+#### 16. Shift Register IC (1)
+74HC595 is an 8 bit serial-in parallel-out shift register commonly used as an output expander. You can drive of up to 8 outputs from only 3 lines (using one chip). You could potentially daisy chain multiple of these to get even more outputs.
+
+[Datasheet](http://www.nxp.com/documents/data_sheet/74HC_HCT595.pdf)
+
+<!-- TO DO ADD EXAMPLES AND LINKS-->
+
+#### 17. Tilt Sensor (2)
+SW-200D is a tiny tilt sensor that when tilted to more than 30 degrees will internally connects its two terminals together. The magic happens with the use of gravity and a tiny metal ball.
+
+You can use to it detect tilt, orientation or vibrations.
+
+[Datasheet](datasheets/makerkit/tilt-sensor.pdf)
+
+#### 18. Temperature Sensor (1)
+The TMP36 is a low voltage, precision centigrade temperature sensor. It provides a voltage output that is linearly proportional to the Celsius (centigrade) temperature. The TMP36 does not require any external calibration to provide typical accuracies of ±1°C at +25°C and ±2°C over the −40°C to +125°C temperature range. 
+
+[Here is an example](http://docs.spark.io/#/examples) of how you could use it the Core.
+
+[Datasheet](http://www.analog.com/static/imported-files/data_sheets/TMP35_36_37.pdf)
+
+<!-- TO DO ADD LINK TO EXAMPLE-->
+
+#### 19. Thermistor (2)
+A [thermistor](http://en.wikipedia.org/wiki/Thermistor) is a temperature dependent resistor. This one is a NTC type (Negative Temperature Coefficient), which means its resistance decreases with an increase in temperature.
+
+Unlike the TMP36, you will need to use this as a part of a voltage divider circuit as nicely described in this [tutorial.](http://learn.adafruit.com/thermistor/using-a-thermistor)
+
+[Datasheet](datasheets/makerkit/thermistor.pdf)
+
+#### 19. Force-Sensitive Resistor (1)
+Manufacturer Part Number: Interlink 30-81794
+This is a force sensitive resistor with a 0.5" diameter and an operating force from 10gms to 1000gms. Their resistance decreases with an increase in applied pressure.
+
+[Datasheet]()
+
+<!-- TO DO ADD LINK TO EXAMPLE-->
+
+#### 20. Photo Resistors (2)
+A photo resistor is a light dependent resistor whose resistance decreases with the increase in the intensity of light striking it. You can use it to detect the ambient light in the surrounding, detect shadows or use it as a part of a burglar alarm system.
+
+[Datasheet](datasheets/makerkit/photoresistor.pdf)
+<!-- TO DO ADD LINK TO EXAMPLE-->
+
+#### 21. Resistors
+There are three different value resistor in this kit. All of them are rated at 5%, 1/4 Watt.
+
+- 330-Ohm (10)
+- 1K-Ohm (10)
+- 10K-Ohm (10)
+
+#### 22. Rotary Potentiometer (1) 
+This is a [variable resistor](http://en.wikipedia.org/wiki/Potentiometer) whose value can be changed by simply turning the knob.
+
+#### 23. Proto-board (1)
+This is a 7" x 9" general purpose dot-matrix prototyping PCB.
+<!-- TO DO ADD LINK TO EXAMPLE-->
+
+
+#### 24. Spark Core - u.FL or CA (1)
+Your very own Spark Core, ready to take over the world, one byte at a time.
+
+<!--
+1. Ceramic Capacitor - 10nF (10)
+2. Ceramic Capacitors 100nF (10)
+3. Electrolytic Capacitors 100uF (5)
+4. 8-Pin Female Headers (5)
+5. 40-Pin Male Breakaway Headers (2)
+6. 40-Pin Male Breakaway Dual-Headers (1) 
+7. Basic LED - Red (5)
+8. Basic LED - Green (5)
+9. RGB LEDs (1)
+10. NPN Transistor (1) 
+11. Diode (6)
+12. Micro Servo (1) 
+13. Deluxe Jumper Wire Pack (1)
+14. USB Micro B Cable (1)
+15. Mini DC Motor (1)
+16. Vibration Motor (1)
+17. Piezo Buzzer (1)
+18. Mini Pushbuttons (3) 
+19. Shift Register IC (1)
+20. DPDT Switch (2)
+21. Tilt Sensor (2)
+22. Temperature Sensor (1)
+24. Proto-board (1)
+25. Force-Sensitive Resistor (1)
+26. Photo Resistors (2)
+27. Thermistor (2)
+28. Resistor 330-Ohm (10)
+29. Resistor 1K-Ohm (10)
+30. Resistor 10K-Ohm (10)
+31. 10K Rotary Potentiometer (1) 
+32. Spark Core - u.FL or CA (1)
+-->
+
+# Spark RC Car Kit
+The RC car kit is a two-wheeled differentially driven platform that you can control using a Spark Core.
+
+#### Kit Contents:
+
+- RC Car Chassis kit
+- Spark Shield Shield
+- Motor Driver Shield
+- Spark Core
+
+Assemble the RC Car chassis as shown in the [tutorial here.](http://www.dfrobot.com/wiki/index.php/3PA_Assembly_Guide_%28SKU:ROB0005%29) (Without the electronics)
+
+![Top View](images/rc-car-top-small.jpg)
+<!--
+Put together the Shield Shield and the Motor Driver Shield as shown in the picture.
+The Motor Driver shield is setup in the PWM mode as shown in the picture. 
+-->
+
+<!-- TO DO - Add picture of the motor shield setup -->
+
+- Pin 4: Connects with M1
+- Pin 5: Connects with E1 (PWM)
+- Pin 6: Connects with E2 (PWM)
+- Pin 7: Connects with M2
+
+Where E1 and E2 control the speed of the motors, while M1 and M2 change the direction.
+
+![Jumper Settings](images/rc-car-jumpers-small.jpg)
+
+Connect the left and right motor terminals to M2+,M2-,M1+ and M1- respectively.
+
+![Motor Connections](images/rc-car-motor-conn-small.jpg)
+
+The motors can run from a voltage in the range of 5V to 9V DC. The jumpers can be set to get power from Vin from the Shield below.
+
+![Power Selection](images/rc-car-power-small.jpg)
+
+A simple example for controlling the RC Car is as described: 
+
+
+```C++
+/* Includes ------------------------------------------------------------------*/  
+#include "application.h"
+
+/* Function prototypes -------------------------------------------------------*/
+
+int rcCarControl(String command);
+
+/* Globals -------------------------------------------------------------------*/
+int leftMotorEnable   = D1;
+int rightMotorEnable  = A7;
+int leftMotorDir    = D3;
+int rightMotorDir   = D4;
+
+
+/* This function is called once at start up ----------------------------------*/
+void setup()
+{
+  //Register Spark function
+  Spark.function("rccar", rcCarControl);
+
+  pinMode(leftMotorDir, OUTPUT);
+  pinMode(leftMotorEnable, OUTPUT);
+  pinMode(rightMotorDir, OUTPUT);
+  pinMode(rightMotorEnable, OUTPUT);
+
+  pinMode(D7,OUTPUT);
+}
+
+/* This function loops forever --------------------------------------------*/
+void loop()
+{
+  // Nothing to do here
+}
+
+/*******************************************************************************
+ * Function Name  : rcCarControl
+ * Description    : Parses the incoming API commands and sets the motor control
+          pins accordingly
+ * Input          : RC Car commands
+          e.g.: rc,FORWARD
+            rc,BACK
+ * Output         : Motor signals
+ * Return         : 1 on success and -1 on fail
+ *******************************************************************************/
+int rcCarControl(String command)
+{
+  if(command.substring(3,7) == "STOP")
+  {
+    digitalWrite(leftMotorEnable,LOW);
+    digitalWrite(rightMotorEnable,LOW);
+
+    digitalWrite(leftMotorDir,LOW);
+    digitalWrite(rightMotorDir,LOW);
+
+    return 1;
+  }
+
+  if(command.substring(3,7) == "BACK")
+  {
+    digitalWrite(leftMotorDir,LOW);
+    digitalWrite(rightMotorDir,HIGH);
+
+    digitalWrite(leftMotorEnable,HIGH);
+    digitalWrite(rightMotorEnable,HIGH);
+
+    return 1;
+  }
+
+  if(command.substring(3,10) == "FORWARD")
+  {
+    digitalWrite(leftMotorDir,HIGH);
+    digitalWrite(rightMotorDir,LOW);
+
+    digitalWrite(leftMotorEnable,HIGH);
+    digitalWrite(rightMotorEnable,HIGH);
+
+    return 1;
+  }
+
+  if(command.substring(3,8) == "RIGHT")
+  {
+    digitalWrite(leftMotorDir,HIGH);
+    digitalWrite(rightMotorDir,HIGH);
+
+    digitalWrite(leftMotorEnable,HIGH);
+    digitalWrite(rightMotorEnable,HIGH);
+
+    return 1;
+  }
+
+  if(command.substring(3,7) == "LEFT")
+  {
+    digitalWrite(leftMotorDir,LOW);
+    digitalWrite(rightMotorDir,LOW);
+
+    digitalWrite(leftMotorEnable,HIGH);
+    digitalWrite(rightMotorEnable,HIGH);
+
+    return 1;
+  }
+
+  // If none of the commands were executed, return false
+  return -1;
+}
+```
+
+To send API commands:
+
+```json
+# Sending command to go forward
+curl https://api.spark.io/v1/devices/1234/rccar -d access_token=1234 -d params=rc,FORWARD
+```
+
+#### Motor Driver Shield Specifications:
+The motor driver shield is based around the L298 [Full-bridge](http://en.wikipedia.org/wiki/H_bridge) motor driver chip.
+
+- Logic voltage: 5V DC
+- Logic Supply Current: 36mA
+- Motor drive voltage: 7V to 12V DC
+- Motor drive current: 2Amp Max
+
+<!--
+Plug in the Spark Core.
+
+Now plug in the battery.
+
+Example user code.
+
+Project Ideas.
+-->
+
+#### DATASHEETS
+
+- [L298 datasheet.](http://www.st.com/st-web-ui/static/active/en/resource/technical/document/datasheet/CD00000240.pdf)
+- [Motor Driver Shield Manual](http://www.dfrobot.com/wiki/index.php?title=Arduino_Motor_Shield_%28L298N%29_%28SKU:DRI0009%29)

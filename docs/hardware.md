@@ -256,6 +256,11 @@ Electrical characteristics
       <td>50mA</td>
       <td>300mA</td>
    </tr>
+      <tr> 
+      <td>Current Consumption in Deep Sleep</td>
+      <td>3.2 μA</td>
+      <td> - </td>
+   </tr>
    <tr> 
       <td>Current per I/O pin</td>
       <td>8mA</td>

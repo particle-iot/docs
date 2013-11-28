@@ -154,7 +154,7 @@ void loop() {
   delay(1000);
 }
 ```
-
+<!-- TO DO 
 ### Spark.disconnect()
 
 Disconnects the Spark Core from the Spark Cloud.
@@ -181,21 +181,24 @@ Spark.connect()
 ```
 
 The Spark Core connects to the cloud by default, so it's not necessary to call `Spark.connect()` unless you have explicitly disconnected the Core.
+-->
 
 <!-- TO DO -->
 <!-- Add example implementation here -->
-
+<!--
 ### Spark.print()
 
 Prints to the debug console in Spark's web IDE.
+-->
 
 <!-- TO DO -->
 <!-- Add example implementation here -->
 
+<!--
 ### Spark.println()
 
 Prints to the debug console in Spark's web IDE, followed by a *newline* character.
-
+-->
 <!-- TO DO -->
 <!-- Add example implementation here -->
 
@@ -208,13 +211,40 @@ Sleep
 
 ```C++
 SYNTAX
-Spark.sleep(int millis);
-Spark.sleep(int millis, array peripherals);
+Spark.sleep(int seconds);
 ```
 
-`Spark.sleep()` takes one argument, an `int`, for the number of milliseconds to sleep.
+```C++
+// EXAMPLE USAGE: Put the Core to sleep for 5 seconds
+Spark.sleep(5);
+// The Core LED will flash green during sleep
+```
 
+`Spark.sleep()` can also be used to put the entire Core into a *deep sleep* mode. In this particular mode, the Core shuts down the Wi-Fi chipset (CC3000) and puts the microcontroller in a stand-by mode.
+
+```C++
+SYNTAX
+Spark.sleep(SLEEP_MODE_DEEP, int seconds);
+```
+
+```C++
+// EXAMPLE USAGE: Put the Core into deep sleep for 60 seconds
+Spark.sleep(SLEEP_MODE_DEEP,60);
+// The Core LED will shut off during deep sleep
+```
+The Core will automatically *wake up* and reestablish the WiFi connection after the specified number of seconds.
+
+In *standard sleep mode*, the Core current consumption is in the range of: **15mA to 30mA**
+
+In *deep sleep mode*, the Core current consumption is around: **3.2 μA**
+
+<!--
+Spark.sleep(int millis, array peripherals);
+-->
+
+<!--
 `Spark.sleep()` can also take an optional second argument, an `array` of other peripherals to deactivate. Deactivating unused peripherals on the micro-controller can take its power consumption into the micro-amps.
+-->
 
 <!-- TO DO -->
 <!-- Add example implementation here -->
