@@ -924,24 +924,313 @@ Register a function to be called when a master requests data from this slave dev
 
 Parameters: `handler`: the function to be called, takes no parameters and returns nothing, e.g.: `void myHandler() `
 
-
-TCP
+TCPServer
 -----
-<!-- TO DO -->
-<!-- Add example implementation here -->
+### TCPServer
 
-**Coming Soon**
+Create a server that listens for incoming connections on the specified port. 
 
-### TCPClient()
-### TCPServer()
+```C++
+// SYNTAX
+TCPServer server = TCPServer(port);
+```
+
+Parameters: `port`: the port to listen on (`int`)
+
+```C++
+// EXAMPLE USAGE
+
+// telnet defaults to port 23
+TCPServer server = TCPServer(23);
+
+void setup()
+{
+    // start listening for clients
+    server.begin();
+    
+    Serial.begin(9600);
+
+    delay(1000);
+
+    Serial.println(Network.localIP());
+    Serial.println(Network.subnetMask());
+    Serial.println(Network.gatewayIP());
+    Serial.println(Network.SSID());
+}
+
+void loop()
+{
+  // if an incoming client connects, there will be bytes available to read:
+  TCPClient client = server.available();
+  if (client == true) 
+  {
+      // read bytes from the incoming client and write them back
+      // to any clients connected to the server:
+      server.write(client.read());
+  }
+}
+```
+
+### begin()
+
+Tells the server to begin listening for incoming connections. 
+
+```C++
+// SYNTAX
+server.begin();
+```
+
+### available()
+
+Gets a client that is connected to the server and has data available for reading. The connection persists when the returned client object goes out of scope; you can close it by calling `client.stop()`.
+
+`available()` inherits from the `Stream` utility class. 
+
+### write()
+
+Write data to all the clients connected to a server. This data is sent as a byte or series of bytes. 
+
+```C++
+// Syntax
+server.write(val);
+server.write(buf, len); 
+```
+
+Parameters:
+
+- `val`: a value to send as a single byte (byte or char)
+- `buf`: an array to send as a series of bytes (byte or char)
+- `len`: the length of the buffer
+
+Returns: `byte`: `write()` returns the number of bytes written. It is not necessary to read this. 
+
+### print()
+
+Print data to all the clients connected to a server. Prints numbers as a sequence of digits, each an ASCII character (e.g. the number 123 is sent as the three characters '1', '2', '3'). 
+
+```C++
+// Syntax
+server.print(data);
+server.print(data, BASE) ;
+```
+
+Parameters: 
+
+- `data`: the data to print (char, byte, int, long, or string)
+- `BASE`(optional): the base in which to print numbers: BIN for binary (base 2), DEC for decimal (base 10), OCT for octal (base 8), HEX for hexadecimal (base 16). 
+
+Returns:  `byte`:  `print()` will return the number of bytes written, though reading that number is optional
+
+### println()
+
+Print data, followed by a newline, to all the clients connected to a server. Prints numbers as a sequence of digits, each an ASCII character (e.g. the number 123 is sent as the three characters '1', '2', '3'). 
+
+```C++
+// Syntax
+
+server.println();
+server.println(data);
+server.println(data, BASE) ;
+```
+
+Parameters: 
+
+- `data` (optional): the data to print (char, byte, int, long, or string)
+- `BASE` (optional): the base in which to print numbers: BIN for binary (base 2), DEC for decimal (base 10), OCT for octal (base 8), HEX for hexadecimal (base 16). 
+
+TCPClient
+-----
+
+### TCPClient
+
+Creates a client which can connect to a specified internet IP address and port (defined in the `client.connect()` function). 
+
+```C++
+// SYNTAX
+TCPClient client;
+```
+
+```C++
+// EXAMPLE USAGE
+
+TCPClient client;
+byte server[] = { 74, 125, 224, 72 }; // Google
+void setup()
+{
+  Serial.begin(9600);
+  delay(1000);
+  Serial.println("connecting...");
+
+  if (client.connect(server, 80)) 
+  {
+    Serial.println("connected");
+    client.println("GET /search?q=unicorn HTTP/1.0");
+    client.println();
+  } 
+  else 
+  {
+    Serial.println("connection failed");
+  }
+}
+
+void loop()
+{
+  if (client.available()) 
+  {
+    char c = client.read();
+    Serial.print(c);
+  }
+
+  if (!client.connected()) 
+  {
+    Serial.println();
+    Serial.println("disconnecting.");
+    client.stop();
+    for(;;)
+      ;
+  }
+}
+```
+
+### connected()
+
+Whether or not the client is connected. Note that a client is considered connected if the connection has been closed but there is still unread data. 
+
+```C++
+// SYNTAX
+client.connected();
+```
+
+Returns true if the client is connected, false if not. 
+
+### connect()
+
+Connects to a specified IP address and port. The return value indicates success or failure. Also supports DNS lookups when using a domain name. 
+
+```C++
+// SYNTAX
+
+client.connect();
+client.connect(ip, port);
+client.connect(URL, port);
+```
+
+Parameters:
+
+- `ip`: the IP address that the client will connect to (array of 4 bytes)
+- `URL`: the domain name the client will connect to (string, ex.:"spark.io")
+- `port`: the port that the client will connect to (`int`) 
+
+Returns true if the connection succeeds, false if not. 
+
+### write()
+
+Write data to the server the client is connected to. This data is sent as a byte or series of bytes. 
+
+```C++
+// SYNTAX
+client.write(val);
+client.write(buf, len);
+```
+
+Parameters:
+
+- `val`: a value to send as a single byte (byte or char)
+- `buf`: an array to send as a series of bytes (byte or char)
+- `len`: the length of the buffer 
+
+Returns: `byte`: `write()` returns the number of bytes written. It is not necessary to read this value.
+
+### print()
+
+Print data to the server that a client is connected to. Prints numbers as a sequence of digits, each an ASCII character (e.g. the number 123 is sent as the three characters '1', '2', '3'). 
+
+```C++
+// Syntax
+client.print(data);
+client.print(data, BASE) ;
+```
+
+Parameters: 
+
+- `data`: the data to print (char, byte, int, long, or string)
+- `BASE`(optional): the base in which to print numbers: BIN for binary (base 2), DEC for decimal (base 10), OCT for octal (base 8), HEX for hexadecimal (base 16). 
+
+Returns:  `byte`:  `print()` will return the number of bytes written, though reading that number is optional
+
+### println()
+
+Print data, followed by a carriage return and newline, to the server a client is connected to. Prints numbers as a sequence of digits, each an ASCII character (e.g. the number 123 is sent as the three characters '1', '2', '3'). 
+
+```C++
+// Syntax
+
+client.println();
+client.println(data);
+client.println(data, BASE) ;
+```
+
+Parameters: 
+
+- `data` (optional): the data to print (char, byte, int, long, or string)
+- `BASE` (optional): the base in which to print numbers: BIN for binary (base 2), DEC for decimal (base 10), OCT for octal (base 8), HEX for hexadecimal (base 16). 
+
+### available()
+
+Returns the number of bytes available for reading (that is, the amount of data that has been written to the client by the server it is connected to). 
+
+```C++
+// SYNTAX
+client.available();
+```
+
+Returns the number of bytes available. 
+
+### read()
+Read the next byte received from the server the client is connected to (after the last call to `read()`). 
+
+```C++
+// SYNTAX
+client.read();
+```
+
+Returns the next byte (or character), or -1 if none is available. 
+
+### flush()
+
+Discard any bytes that have been written to the client but not yet read. 
+
+```C++
+// SYNTAX
+client.flush();
+```
+
+### stop()
+
+Disconnect from the server. 
+
+```C++
+// SYNTAX
+client.stop();
+```
+
 
 UDP
 -----
 
-<!-- TO DO -->
-<!-- Add example implementation here -->
-
-**Coming Soon**
+### UDP
+### begin()
+### available()
+### beginPacket()
+### endPacket()
+### write()
+### parsePacket()
+### peek()
+### read()
+### flush()
+### stop()
+### remoteIP()
+### remotePort() 
 
 Other functions
 ====
@@ -1514,7 +1803,7 @@ int ledPin = D1; // LED in series with 470 ohm resistor on pin D1
 void setup()
 {
   // set ledPin as an output
-	pinMode(ledPin,OUTPUT);
+  pinMode(ledPin,OUTPUT);
 }
 
 void loop()
@@ -1545,7 +1834,7 @@ int ledPin = D1; // LED in series with 470 ohm resistor on pin D1
 void setup()
 {
   // set ledPin as an output
-	pinMode(ledPin,OUTPUT);
+  pinMode(ledPin,OUTPUT);
 }
 
 void loop()
