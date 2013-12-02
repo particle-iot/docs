@@ -659,6 +659,271 @@ Serial1.flush();
 
 `flush()` neither takes a parameter nor returns anything
 
+SPI
+----
+This library allows you to communicate with SPI devices, with the Spark Core as the master device.
+
+![SPI](images/core-pin-spi.jpg)
+
+### begin()
+
+Initializes the SPI bus by setting SCK, MOSI, and SS to outputs, pulling SCK and MOSI low, and SS high. 
+
+Note that once the pin is configured, you can't use it anymore as a general I/O, unless you call the SPI.end() method on the same pin. 
+
+```C++
+// SYNTAX
+SPI.begin();
+```
+
+### end()
+
+Disables the SPI bus (leaving pin modes unchanged). 
+
+```C++
+// SYNTAX
+SPI.end();
+```
+
+### setBitOrder()
+
+Sets the order of the bits shifted out of and into the SPI bus, either LSBFIRST (least-significant bit first) or MSBFIRST (most-significant bit first). 
+
+```C++
+// SYNTAX
+SPI.setBitOrder(order);
+```
+
+Where, the parameter `order` can either be `LSBFIRST` or `MSBFIRST`. 
+
+### setClockDivider()
+
+Sets the SPI clock divider relative to the system clock. The available dividers  are 2, 4, 8, 16, 32, 64, 128 or 256. The default setting is SPI_CLOCK_DIV4, which sets the SPI clock to one-quarter the frequency of the system clock.
+
+```C++
+// SYNTAX
+SPI.setClockDivider(divider) ;
+```
+Where the parameter, `divider` can be: 
+```
+SPI_CLOCK_DIV2
+SPI_CLOCK_DIV4
+SPI_CLOCK_DIV8
+SPI_CLOCK_DIV16
+SPI_CLOCK_DIV32
+SPI_CLOCK_DIV64
+SPI_CLOCK_DIV128 
+SPI_CLOCK_DIV256 
+```
+
+### setDataMode()
+
+Sets the SPI data mode: that is, clock polarity and phase. See the [Wikipedia article on SPI](http://en.wikipedia.org/wiki/Serial_Peripheral_Interface_Bus) for details. 
+
+```C++
+// SYNTAX
+SPI.setClockDivider(mode) ;
+```
+Where the parameter, `mode` can be: 
+
+```
+SPI_MODE0
+SPI_MODE1
+SPI_MODE2
+SPI_MODE3 
+```
+
+### transfer() 
+
+Transfers one byte over the SPI bus, both sending and receiving. 
+
+```C++
+// SYNTAX
+SPI.transfer(val);
+```
+Where the parameter `val`, can is the byte to send out over the SPI bus.
+
+Wire
+----
+
+![I2C](images/core-pin-i2c.jpg)
+
+This library allows you to communicate with I2C / TWI devices. On the Spark Core, D0 is the Serial Data Line (SDA) and D1 is the Serial Clock (SCL). Both of these pins runs at 3.3V logic but are tolerant to 5V.
+
+### begin()
+
+Initiate the Wire library and join the I2C bus as a master or slave. This should normally be called only once. 
+
+```C++
+// SYNTAX
+Wire.begin();
+Wire.begin(address);
+```
+
+Parameters: `address`: the 7-bit slave address (optional); if not specified, join the bus as a master. 
+
+### requestFrom()
+
+Used by the master to request bytes from a slave device. The bytes may then be retrieved with the `available()` and `read()` functions. 
+
+If true, requestFrom() sends a stop message after the request, releasing the I2C bus.
+
+If false, requestFrom() sends a restart message after the request. The bus will not be released, which prevents another master device from requesting between messages. This allows one master device to send multiple requests while in control.
+
+The default value is true. 
+
+```C++
+// SYNTAX
+Wire.requestFrom(address, quantity);
+Wire.requestFrom(address, quantity, stop) ;
+```
+
+Parameters:
+
+- `address`: the 7-bit address of the device to request bytes from
+- `quantity`: the number of bytes to request
+- `stop`: boolean. true will send a stop message after the request, releasing the bus. false will continually send a restart after the request, keeping the connection active. 
+
+Returns: `byte` : the number of bytes returned from the slave device.
+
+### beginTransmission()
+
+Begin a transmission to the I2C slave device with the given address. Subsequently, queue bytes for transmission with the `write()` function and transmit them by calling `endTransmission()`. 
+
+```C++
+// SYNTAX
+Wire.beginTransmission(address);
+```
+
+Parameters: `address`: the 7-bit address of the device to transmit to.
+
+### endTransmission()
+
+Ends a transmission to a slave device that was begun by `beginTransmission()` and transmits the bytes that were queued by `write()`. 
+
+If true, `endTransmission()` sends a stop message after transmission, releasing the I2C bus.
+
+If false, `endTransmission()` sends a restart message after transmission. The bus will not be released, which prevents another master device from transmitting between messages. This allows one master device to send multiple transmissions while in control.
+
+The default value is true. 
+
+```C++
+Wire.endTransmission();
+Wire.endTransmission(stop);
+```
+
+Parameters: `stop` : boolean.  
+`true` will send a stop message, releasing the bus after transmission. `false` will send a restart, keeping the connection active. 
+
+Returns: `byte`, which indicates the status of the transmission:
+
+- 0: success
+- 1: data too long to fit in transmit buffer
+- 2: received NACK on transmit of address
+- 3: received NACK on transmit of data
+- 4: other error 
+
+### write()
+
+Writes data from a slave device in response to a request from a master, or queues bytes for transmission from a master to slave device (in-between calls to `beginTransmission()` and `endTransmission()`). 
+
+```C++
+// Syntax
+Wire.write(value);
+Wire.write(string);
+Wire.write(data, length);
+```
+Parameters:
+
+- `value`: a value to send as a single byte
+- `string`: a string to send as a series of bytes
+- `data`: an array of data to send as bytes
+- `length`: the number of bytes to transmit 
+
+Returns:  `byte`  
+
+`write()` will return the number of bytes written, though reading that number is optional.
+
+```C++
+// EXAMPLE USAGE
+byte val = 0;
+
+void setup()
+{
+  Wire.begin(); // join i2c bus
+}
+
+void loop()
+{
+  Wire.beginTransmission(44); // transmit to device #44 (0x2c)
+                              // device address is specified in datasheet
+  Wire.write(val);             // sends value byte  
+  Wire.endTransmission();     // stop transmitting
+
+  val++;        // increment value
+  if(val == 64) // if reached 64th position (max)
+  {
+    val = 0;    // start over from lowest value
+  }
+  delay(500);
+}
+```
+
+### available()
+
+Returns the number of bytes available for retrieval with `read()`. This should be called on a master device after a call to `requestFrom()` or on a slave inside the `onReceive()` handler. 
+
+```C++
+Wire.available();
+```
+
+Returns: The number of bytes available for reading. 
+
+### read()
+
+Reads a byte that was transmitted from a slave device to a master after a call to `requestFrom()` or was transmitted from a master to a slave. `read()` inherits from the `Stream` utility class. 
+
+```C++
+Wire.read() ;
+```
+
+Returns: The next byte received 
+
+```C++
+// EXAMPLE USAGE
+
+void setup()
+{
+  Wire.begin();        // join i2c bus (address optional for master)
+  Serial.begin(9600);  // start serial for output
+}
+
+void loop()
+{
+  Wire.requestFrom(2, 6);    // request 6 bytes from slave device #2
+
+  while(Wire.available())    // slave may send less than requested
+  {
+    char c = Wire.read();    // receive a byte as character
+    Serial.print(c);         // print the character
+  }
+
+  delay(500);
+}
+```
+
+### onReceive()
+
+Registers a function to be called when a slave device receives a transmission from a master. 
+
+Parameters: `handler`: the function to be called when the slave receives data; this should take a single int parameter (the number of bytes read from the master) and return nothing, e.g.: `void myHandler(int numBytes) `
+
+### onRequest() 
+
+Register a function to be called when a master requests data from this slave device. 
+
+Parameters: `handler`: the function to be called, takes no parameters and returns nothing, e.g.: `void myHandler() `
+
 
 TCP
 -----
