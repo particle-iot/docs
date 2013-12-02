@@ -2345,8 +2345,4 @@ Note that the true and false constants are typed in lowercase unlike `HIGH, LOW,
 Libraries
 ========
 
-<<<<<<< HEAD
 *coming soon*
-=======
-*coming soon*
->>>>>>> e9563cde7e3df3629f7ce36765d09296089eb079
