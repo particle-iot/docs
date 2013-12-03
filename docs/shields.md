@@ -201,7 +201,7 @@ int relayControl(String command)
   else return -1;
 
   // write to the appropriate relay
-  digitalWrite(relayNumber, relayState);
+  digitalWrite(relayNumber-1, relayState);
   return 1;
 }
 
