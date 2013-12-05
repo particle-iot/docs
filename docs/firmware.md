@@ -154,7 +154,7 @@ void loop() {
   delay(1000);
 }
 ```
-
+<!-- TO DO 
 ### Spark.disconnect()
 
 Disconnects the Spark Core from the Spark Cloud.
@@ -181,21 +181,24 @@ Spark.connect()
 ```
 
 The Spark Core connects to the cloud by default, so it's not necessary to call `Spark.connect()` unless you have explicitly disconnected the Core.
+-->
 
 <!-- TO DO -->
 <!-- Add example implementation here -->
-
+<!--
 ### Spark.print()
 
 Prints to the debug console in Spark's web IDE.
+-->
 
 <!-- TO DO -->
 <!-- Add example implementation here -->
 
+<!--
 ### Spark.println()
 
 Prints to the debug console in Spark's web IDE, followed by a *newline* character.
-
+-->
 <!-- TO DO -->
 <!-- Add example implementation here -->
 
@@ -208,13 +211,40 @@ Sleep
 
 ```C++
 SYNTAX
-Spark.sleep(int millis);
-Spark.sleep(int millis, array peripherals);
+Spark.sleep(int seconds);
 ```
 
-`Spark.sleep()` takes one argument, an `int`, for the number of milliseconds to sleep.
+```C++
+// EXAMPLE USAGE: Put the Core to sleep for 5 seconds
+Spark.sleep(5);
+// The Core LED will flash green during sleep
+```
 
+`Spark.sleep()` can also be used to put the entire Core into a *deep sleep* mode. In this particular mode, the Core shuts down the Wi-Fi chipset (CC3000) and puts the microcontroller in a stand-by mode.
+
+```C++
+SYNTAX
+Spark.sleep(SLEEP_MODE_DEEP, int seconds);
+```
+
+```C++
+// EXAMPLE USAGE: Put the Core into deep sleep for 60 seconds
+Spark.sleep(SLEEP_MODE_DEEP,60);
+// The Core LED will shut off during deep sleep
+```
+The Core will automatically *wake up* and reestablish the WiFi connection after the specified number of seconds.
+
+In *standard sleep mode*, the Core current consumption is in the range of: **15mA to 30mA**
+
+In *deep sleep mode*, the Core current consumption is around: **3.2 μA**
+
+<!--
+Spark.sleep(int millis, array peripherals);
+-->
+
+<!--
 `Spark.sleep()` can also take an optional second argument, an `array` of other peripherals to deactivate. Deactivating unused peripherals on the micro-controller can take its power consumption into the micro-amps.
+-->
 
 <!-- TO DO -->
 <!-- Add example implementation here -->
@@ -629,24 +659,578 @@ Serial1.flush();
 
 `flush()` neither takes a parameter nor returns anything
 
+SPI
+----
+This library allows you to communicate with SPI devices, with the Spark Core as the master device.
 
-TCP
+![SPI](images/core-pin-spi.jpg)
+
+### begin()
+
+Initializes the SPI bus by setting SCK, MOSI, and SS to outputs, pulling SCK and MOSI low, and SS high. 
+
+Note that once the pin is configured, you can't use it anymore as a general I/O, unless you call the SPI.end() method on the same pin. 
+
+```C++
+// SYNTAX
+SPI.begin();
+```
+
+### end()
+
+Disables the SPI bus (leaving pin modes unchanged). 
+
+```C++
+// SYNTAX
+SPI.end();
+```
+
+### setBitOrder()
+
+Sets the order of the bits shifted out of and into the SPI bus, either LSBFIRST (least-significant bit first) or MSBFIRST (most-significant bit first). 
+
+```C++
+// SYNTAX
+SPI.setBitOrder(order);
+```
+
+Where, the parameter `order` can either be `LSBFIRST` or `MSBFIRST`. 
+
+### setClockDivider()
+
+Sets the SPI clock divider relative to the system clock. The available dividers  are 2, 4, 8, 16, 32, 64, 128 or 256. The default setting is SPI_CLOCK_DIV4, which sets the SPI clock to one-quarter the frequency of the system clock.
+
+```C++
+// SYNTAX
+SPI.setClockDivider(divider) ;
+```
+Where the parameter, `divider` can be: 
+```
+SPI_CLOCK_DIV2
+SPI_CLOCK_DIV4
+SPI_CLOCK_DIV8
+SPI_CLOCK_DIV16
+SPI_CLOCK_DIV32
+SPI_CLOCK_DIV64
+SPI_CLOCK_DIV128 
+SPI_CLOCK_DIV256 
+```
+
+### setDataMode()
+
+Sets the SPI data mode: that is, clock polarity and phase. See the [Wikipedia article on SPI](http://en.wikipedia.org/wiki/Serial_Peripheral_Interface_Bus) for details. 
+
+```C++
+// SYNTAX
+SPI.setClockDivider(mode) ;
+```
+Where the parameter, `mode` can be: 
+
+```
+SPI_MODE0
+SPI_MODE1
+SPI_MODE2
+SPI_MODE3 
+```
+
+### transfer() 
+
+Transfers one byte over the SPI bus, both sending and receiving. 
+
+```C++
+// SYNTAX
+SPI.transfer(val);
+```
+Where the parameter `val`, can is the byte to send out over the SPI bus.
+
+Wire
+----
+
+![I2C](images/core-pin-i2c.jpg)
+
+This library allows you to communicate with I2C / TWI devices. On the Spark Core, D0 is the Serial Data Line (SDA) and D1 is the Serial Clock (SCL). Both of these pins runs at 3.3V logic but are tolerant to 5V.
+
+### begin()
+
+Initiate the Wire library and join the I2C bus as a master or slave. This should normally be called only once. 
+
+```C++
+// SYNTAX
+Wire.begin();
+Wire.begin(address);
+```
+
+Parameters: `address`: the 7-bit slave address (optional); if not specified, join the bus as a master. 
+
+### requestFrom()
+
+Used by the master to request bytes from a slave device. The bytes may then be retrieved with the `available()` and `read()` functions. 
+
+If true, requestFrom() sends a stop message after the request, releasing the I2C bus.
+
+If false, requestFrom() sends a restart message after the request. The bus will not be released, which prevents another master device from requesting between messages. This allows one master device to send multiple requests while in control.
+
+The default value is true. 
+
+```C++
+// SYNTAX
+Wire.requestFrom(address, quantity);
+Wire.requestFrom(address, quantity, stop) ;
+```
+
+Parameters:
+
+- `address`: the 7-bit address of the device to request bytes from
+- `quantity`: the number of bytes to request
+- `stop`: boolean. true will send a stop message after the request, releasing the bus. false will continually send a restart after the request, keeping the connection active. 
+
+Returns: `byte` : the number of bytes returned from the slave device.
+
+### beginTransmission()
+
+Begin a transmission to the I2C slave device with the given address. Subsequently, queue bytes for transmission with the `write()` function and transmit them by calling `endTransmission()`. 
+
+```C++
+// SYNTAX
+Wire.beginTransmission(address);
+```
+
+Parameters: `address`: the 7-bit address of the device to transmit to.
+
+### endTransmission()
+
+Ends a transmission to a slave device that was begun by `beginTransmission()` and transmits the bytes that were queued by `write()`. 
+
+If true, `endTransmission()` sends a stop message after transmission, releasing the I2C bus.
+
+If false, `endTransmission()` sends a restart message after transmission. The bus will not be released, which prevents another master device from transmitting between messages. This allows one master device to send multiple transmissions while in control.
+
+The default value is true. 
+
+```C++
+Wire.endTransmission();
+Wire.endTransmission(stop);
+```
+
+Parameters: `stop` : boolean.  
+`true` will send a stop message, releasing the bus after transmission. `false` will send a restart, keeping the connection active. 
+
+Returns: `byte`, which indicates the status of the transmission:
+
+- 0: success
+- 1: data too long to fit in transmit buffer
+- 2: received NACK on transmit of address
+- 3: received NACK on transmit of data
+- 4: other error 
+
+### write()
+
+Writes data from a slave device in response to a request from a master, or queues bytes for transmission from a master to slave device (in-between calls to `beginTransmission()` and `endTransmission()`). 
+
+```C++
+// Syntax
+Wire.write(value);
+Wire.write(string);
+Wire.write(data, length);
+```
+Parameters:
+
+- `value`: a value to send as a single byte
+- `string`: a string to send as a series of bytes
+- `data`: an array of data to send as bytes
+- `length`: the number of bytes to transmit 
+
+Returns:  `byte`  
+
+`write()` will return the number of bytes written, though reading that number is optional.
+
+```C++
+// EXAMPLE USAGE
+byte val = 0;
+
+void setup()
+{
+  Wire.begin(); // join i2c bus
+}
+
+void loop()
+{
+  Wire.beginTransmission(44); // transmit to device #44 (0x2c)
+                              // device address is specified in datasheet
+  Wire.write(val);             // sends value byte  
+  Wire.endTransmission();     // stop transmitting
+
+  val++;        // increment value
+  if(val == 64) // if reached 64th position (max)
+  {
+    val = 0;    // start over from lowest value
+  }
+  delay(500);
+}
+```
+
+### available()
+
+Returns the number of bytes available for retrieval with `read()`. This should be called on a master device after a call to `requestFrom()` or on a slave inside the `onReceive()` handler. 
+
+```C++
+Wire.available();
+```
+
+Returns: The number of bytes available for reading. 
+
+### read()
+
+Reads a byte that was transmitted from a slave device to a master after a call to `requestFrom()` or was transmitted from a master to a slave. `read()` inherits from the `Stream` utility class. 
+
+```C++
+Wire.read() ;
+```
+
+Returns: The next byte received 
+
+```C++
+// EXAMPLE USAGE
+
+void setup()
+{
+  Wire.begin();        // join i2c bus (address optional for master)
+  Serial.begin(9600);  // start serial for output
+}
+
+void loop()
+{
+  Wire.requestFrom(2, 6);    // request 6 bytes from slave device #2
+
+  while(Wire.available())    // slave may send less than requested
+  {
+    char c = Wire.read();    // receive a byte as character
+    Serial.print(c);         // print the character
+  }
+
+  delay(500);
+}
+```
+
+### onReceive()
+
+Registers a function to be called when a slave device receives a transmission from a master. 
+
+Parameters: `handler`: the function to be called when the slave receives data; this should take a single int parameter (the number of bytes read from the master) and return nothing, e.g.: `void myHandler(int numBytes) `
+
+### onRequest() 
+
+Register a function to be called when a master requests data from this slave device. 
+
+Parameters: `handler`: the function to be called, takes no parameters and returns nothing, e.g.: `void myHandler() `
+
+TCPServer
 -----
-<!-- TO DO -->
-<!-- Add example implementation here -->
+### TCPServer
 
-**Coming Soon**
+Create a server that listens for incoming connections on the specified port. 
 
-### TCPClient()
-### TCPServer()
+```C++
+// SYNTAX
+TCPServer server = TCPServer(port);
+```
+
+Parameters: `port`: the port to listen on (`int`)
+
+```C++
+// EXAMPLE USAGE
+
+// telnet defaults to port 23
+TCPServer server = TCPServer(23);
+
+void setup()
+{
+    // start listening for clients
+    server.begin();
+    
+    Serial.begin(9600);
+
+    delay(1000);
+
+    Serial.println(Network.localIP());
+    Serial.println(Network.subnetMask());
+    Serial.println(Network.gatewayIP());
+    Serial.println(Network.SSID());
+}
+
+void loop()
+{
+  // if an incoming client connects, there will be bytes available to read:
+  TCPClient client = server.available();
+  if (client == true) 
+  {
+      // read bytes from the incoming client and write them back
+      // to any clients connected to the server:
+      server.write(client.read());
+  }
+}
+```
+
+### begin()
+
+Tells the server to begin listening for incoming connections. 
+
+```C++
+// SYNTAX
+server.begin();
+```
+
+### available()
+
+Gets a client that is connected to the server and has data available for reading. The connection persists when the returned client object goes out of scope; you can close it by calling `client.stop()`.
+
+`available()` inherits from the `Stream` utility class. 
+
+### write()
+
+Write data to all the clients connected to a server. This data is sent as a byte or series of bytes. 
+
+```C++
+// Syntax
+server.write(val);
+server.write(buf, len); 
+```
+
+Parameters:
+
+- `val`: a value to send as a single byte (byte or char)
+- `buf`: an array to send as a series of bytes (byte or char)
+- `len`: the length of the buffer
+
+Returns: `byte`: `write()` returns the number of bytes written. It is not necessary to read this. 
+
+### print()
+
+Print data to all the clients connected to a server. Prints numbers as a sequence of digits, each an ASCII character (e.g. the number 123 is sent as the three characters '1', '2', '3'). 
+
+```C++
+// Syntax
+server.print(data);
+server.print(data, BASE) ;
+```
+
+Parameters: 
+
+- `data`: the data to print (char, byte, int, long, or string)
+- `BASE`(optional): the base in which to print numbers: BIN for binary (base 2), DEC for decimal (base 10), OCT for octal (base 8), HEX for hexadecimal (base 16). 
+
+Returns:  `byte`:  `print()` will return the number of bytes written, though reading that number is optional
+
+### println()
+
+Print data, followed by a newline, to all the clients connected to a server. Prints numbers as a sequence of digits, each an ASCII character (e.g. the number 123 is sent as the three characters '1', '2', '3'). 
+
+```C++
+// Syntax
+
+server.println();
+server.println(data);
+server.println(data, BASE) ;
+```
+
+Parameters: 
+
+- `data` (optional): the data to print (char, byte, int, long, or string)
+- `BASE` (optional): the base in which to print numbers: BIN for binary (base 2), DEC for decimal (base 10), OCT for octal (base 8), HEX for hexadecimal (base 16). 
+
+TCPClient
+-----
+
+### TCPClient
+
+Creates a client which can connect to a specified internet IP address and port (defined in the `client.connect()` function). 
+
+```C++
+// SYNTAX
+TCPClient client;
+```
+
+```C++
+// EXAMPLE USAGE
+
+TCPClient client;
+byte server[] = { 74, 125, 224, 72 }; // Google
+void setup()
+{
+  Serial.begin(9600);
+  delay(1000);
+  Serial.println("connecting...");
+
+  if (client.connect(server, 80)) 
+  {
+    Serial.println("connected");
+    client.println("GET /search?q=unicorn HTTP/1.0");
+    client.println();
+  } 
+  else 
+  {
+    Serial.println("connection failed");
+  }
+}
+
+void loop()
+{
+  if (client.available()) 
+  {
+    char c = client.read();
+    Serial.print(c);
+  }
+
+  if (!client.connected()) 
+  {
+    Serial.println();
+    Serial.println("disconnecting.");
+    client.stop();
+    for(;;)
+      ;
+  }
+}
+```
+
+### connected()
+
+Whether or not the client is connected. Note that a client is considered connected if the connection has been closed but there is still unread data. 
+
+```C++
+// SYNTAX
+client.connected();
+```
+
+Returns true if the client is connected, false if not. 
+
+### connect()
+
+Connects to a specified IP address and port. The return value indicates success or failure. Also supports DNS lookups when using a domain name. 
+
+```C++
+// SYNTAX
+
+client.connect();
+client.connect(ip, port);
+client.connect(URL, port);
+```
+
+Parameters:
+
+- `ip`: the IP address that the client will connect to (array of 4 bytes)
+- `URL`: the domain name the client will connect to (string, ex.:"spark.io")
+- `port`: the port that the client will connect to (`int`) 
+
+Returns true if the connection succeeds, false if not. 
+
+### write()
+
+Write data to the server the client is connected to. This data is sent as a byte or series of bytes. 
+
+```C++
+// SYNTAX
+client.write(val);
+client.write(buf, len);
+```
+
+Parameters:
+
+- `val`: a value to send as a single byte (byte or char)
+- `buf`: an array to send as a series of bytes (byte or char)
+- `len`: the length of the buffer 
+
+Returns: `byte`: `write()` returns the number of bytes written. It is not necessary to read this value.
+
+### print()
+
+Print data to the server that a client is connected to. Prints numbers as a sequence of digits, each an ASCII character (e.g. the number 123 is sent as the three characters '1', '2', '3'). 
+
+```C++
+// Syntax
+client.print(data);
+client.print(data, BASE) ;
+```
+
+Parameters: 
+
+- `data`: the data to print (char, byte, int, long, or string)
+- `BASE`(optional): the base in which to print numbers: BIN for binary (base 2), DEC for decimal (base 10), OCT for octal (base 8), HEX for hexadecimal (base 16). 
+
+Returns:  `byte`:  `print()` will return the number of bytes written, though reading that number is optional
+
+### println()
+
+Print data, followed by a carriage return and newline, to the server a client is connected to. Prints numbers as a sequence of digits, each an ASCII character (e.g. the number 123 is sent as the three characters '1', '2', '3'). 
+
+```C++
+// Syntax
+
+client.println();
+client.println(data);
+client.println(data, BASE) ;
+```
+
+Parameters: 
+
+- `data` (optional): the data to print (char, byte, int, long, or string)
+- `BASE` (optional): the base in which to print numbers: BIN for binary (base 2), DEC for decimal (base 10), OCT for octal (base 8), HEX for hexadecimal (base 16). 
+
+### available()
+
+Returns the number of bytes available for reading (that is, the amount of data that has been written to the client by the server it is connected to). 
+
+```C++
+// SYNTAX
+client.available();
+```
+
+Returns the number of bytes available. 
+
+### read()
+Read the next byte received from the server the client is connected to (after the last call to `read()`). 
+
+```C++
+// SYNTAX
+client.read();
+```
+
+Returns the next byte (or character), or -1 if none is available. 
+
+### flush()
+
+Discard any bytes that have been written to the client but not yet read. 
+
+```C++
+// SYNTAX
+client.flush();
+```
+
+### stop()
+
+Disconnect from the server. 
+
+```C++
+// SYNTAX
+client.stop();
+```
+
 
 UDP
 -----
 
-<!-- TO DO -->
-<!-- Add example implementation here -->
-
-**Coming Soon**
+### UDP
+### begin()
+### available()
+### beginPacket()
+### endPacket()
+### write()
+### parsePacket()
+### peek()
+### read()
+### flush()
+### stop()
+### remoteIP()
+### remotePort() 
 
 Other functions
 ====
@@ -1219,7 +1803,7 @@ int ledPin = D1; // LED in series with 470 ohm resistor on pin D1
 void setup()
 {
   // set ledPin as an output
-	pinMode(ledPin,OUTPUT);
+  pinMode(ledPin,OUTPUT);
 }
 
 void loop()
@@ -1250,7 +1834,7 @@ int ledPin = D1; // LED in series with 470 ohm resistor on pin D1
 void setup()
 {
   // set ledPin as an output
-	pinMode(ledPin,OUTPUT);
+  pinMode(ledPin,OUTPUT);
 }
 
 void loop()
@@ -2050,8 +2634,4 @@ Note that the true and false constants are typed in lowercase unlike `HIGH, LOW,
 Libraries
 ========
 
-<<<<<<< HEAD
 *coming soon*
-=======
-*coming soon*
->>>>>>> e9563cde7e3df3629f7ce36765d09296089eb079

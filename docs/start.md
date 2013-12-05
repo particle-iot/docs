@@ -3,9 +3,9 @@ Getting started
 
 ### What's in the box
 
-Congratulations on being the owner of a brand new Spark Core! Go ahead, open the box, and let's talk about what you see. Your box should include:
-
 ![Spark Core in box](images/core-in-box.jpg)
+
+Congratulations on being the owner of a brand new Spark Core! Go ahead, open the box, and let's talk about what you see. Your box should include:
 
 - *One Spark Core*. The reason you bought this thing. We'll dig in more here in a bit.
 - *One breadboard*. A breadboard makes it easy to wire components to the Core without solder. Internally, the rows are electrically connected horizontally, and the "rails" along the edges are connected vertically. See the [breadboard article on Wikipedia](http://en.wikipedia.org/wiki/Breadboard) for more information.
@@ -14,9 +14,9 @@ Congratulations on being the owner of a brand new Spark Core! Go ahead, open the
 
 ### Step 1: Power the Core
 
-Powering the Core is easy; it receives power over a Micro USB port, much like many smartphones and other gadgets. Power your Core on by connecting the Micro USB cable to the USB port on the Core, and plug the other end into any USB port on your computer, a USB hub (preferably powered), or a USB power adapter (like the one that probably came with your smartphone).
-
 ![Power the Core](images/core-usb.jpg)
+
+Powering the Core is easy; it receives power over a Micro USB port, much like many smartphones and other gadgets. Power your Core on by connecting the Micro USB cable to the USB port on the Core, and plug the other end into any USB port on your computer, a USB hub (preferably powered), or a USB power adapter (like the one that probably came with your smartphone).
 
 ### Step 2: Download the Spark iOS or Android app
 
@@ -186,17 +186,21 @@ When the Tinker firmware is installed on your Spark Core, it will respond to cer
 
 ### digitalWrite
 
+Sets the pin to HIGH or LOW, which either connects it to 3.3V (the maximum voltage of the system) or to GND (ground). Pin D7 is connected to an on-board LED; if you set pin D7 to HIGH, the LED will turn on, and if you set it to LOW, it will turn off.
+
     POST /v1/devices/{DEVICE_ID}/digitalwrite
 
     # EXAMPLE REQUEST
     curl https://api.spark.io/v1/devices/teapot/digitalwrite \
       -d access_token=1234123412341234123412341234123412341234 -d params=D0,HIGH
 
-Sets the pin to HIGH or LOW, which either connects it to 3.3V (the maximum voltage of the system) or to GND (ground). Pin D7 is connected to an on-board LED; if you set pin D7 to HIGH, the LED will turn on, and if you set it to LOW, it will turn off.
-
 The parameters must be the pin (A0 to A7, D0 to D7), followed by either HIGH or LOW, separated by a comma. The return value will be 1 if the write succeeds, and -1 if it fails.
 
+
+
 ### analogWrite
+
+Sets the pin to a value between 0 and 255, where 0 is the same as LOW and 255 is the same as HIGH. This is sort of like sending a voltage between 0 and 3.3V, but since this is a digital system, it uses a mechanism called Pulse Width Modulation, or PWM. You could use *analogWrite* to dim an LED, as an example.
 
     POST /v1/devices/{DEVICE_ID}/analogwrite
 
@@ -204,11 +208,14 @@ The parameters must be the pin (A0 to A7, D0 to D7), followed by either HIGH or 
     curl https://api.spark.io/v1/devices/teapot/analogwrite \
       -d access_token=1234123412341234123412341234123412341234 -d params=A0,215
 
-Sets the pin to a value between 0 and 255, where 0 is the same as LOW and 255 is the same as HIGH. This is sort of like sending a voltage between 0 and 3.3V, but since this is a digital system, it uses a mechanism called Pulse Width Modulation, or PWM. You could use *analogWrite* to dim an LED, as an example.
-
 The parameters must be the pin (A0 to A7, D0 to D7), followed by an integer value from 0 to 255, separated by a comma. The return value will be 1 if the write succeeds, and -1 if it fails.
 
+    
+
+
 ### digitalRead
+
+This will read the digital value of a pin, which can be read as either HIGH or LOW. If you were to connect the pin to 3.3V, it would read HIGH; if you connect it to GND, it would read LOW. Anywhere in between, it'll probably read whichever one it's closer to, but it gets dicey in the middle.
 
     POST /v1/devices/{DEVICE_ID}/digitalread
 
@@ -216,7 +223,6 @@ The parameters must be the pin (A0 to A7, D0 to D7), followed by an integer valu
     curl https://api.spark.io/v1/devices/teapot/digitalread \
       -d access_token=1234123412341234123412341234123412341234 -d params=D0
 
-This will read the digital value of a pin, which can be read as either HIGH or LOW. If you were to connect the pin to 3.3V, it would read HIGH; if you connect it to GND, it would read LOW. Anywhere in between, it'll probably read whichever one it's closer to, but it gets dicey in the middle.
 
 The parameter must be the pin (A0 to A7, D0 to D7). The return value will be 1 if the pin is HIGH, 0 if the pin is LOW, and -1 if the read fails.
 
@@ -224,16 +230,15 @@ The parameter must be the pin (A0 to A7, D0 to D7). The return value will be 1 i
 
 ### analogRead
 
+This will read the analog value of a pin, which is a value from 0 to 4095, where 0 is LOW (GND) and 4095 is HIGH (3.3V). All of the analog pins (A0 to A7) can handle this. *analogRead* is great for reading data from sensors.
+
     POST /v1/devices/{DEVICE_ID}/analogread
 
     # EXAMPLE REQUEST
     curl https://api.spark.io/v1/devices/teapot/analogread \
       -d access_token=1234123412341234123412341234123412341234 -d params=A0
 
-This will read the analog value of a pin, which is a value from 0 to 4095, where 0 is LOW (GND) and 4095 is HIGH (3.3V). All of the analog pins (A0 to A7) can handle this. *analogRead* is great for reading data from sensors.
-
 The parameters must be the pin (A0 to A7, D0 to D7). The return value will be between 0 and 4095 if the read succeeds, and -1 if it fails.
-
 
 
 Writing Core Firmware

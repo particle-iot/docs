@@ -140,12 +140,10 @@ int brew(String args)
 }
 ```
 
+---
+
 Let's say, as an example, you create a Spark-powered coffeemaker.
 Within the firmware, we might expect to see something like this brew function.
-
-In a normal coffeemaker, `brew` might be called when a button on the front of the coffeemaker is pressed.
-
-To make this function available through the Spark Cloud, simply add a `Spark.function` call to your `setup()`.
 
 ```cpp
 /* FIRMWARE */
@@ -155,8 +153,15 @@ void setup()
 }
 ```
 
-This *exposes* the brew function so that it can be called through the API.
-When this code is present in the firmware, you can make this API call.
+In a normal coffeemaker, `brew` might be called when a button on the front of the coffeemaker is pressed.
+
+To make this function available through the Spark Cloud, simply add a `Spark.function` call to your `setup()`.
+
+
+
+---
+
+This *exposes* the brew function so that it can be called through the API. When this code is present in the firmware, you can make this API call.
 
 ```bash
 POST /v1/devices/{DEVICE_ID}/{FUNCTION}
@@ -167,8 +172,9 @@ curl https://api.spark.io/v1/devices/0123456789abcdef01234567/brew \
      -d "args=202,230"
 ```
 
-The API request will be routed to the Spark Core and will run your `brew` function.
-The response will have a `return_value` key containing the integer returned by `brew`.
+---
+
+The API request will be routed to the Spark Core and will run your `brew` function. The response will have a `return_value` key containing the integer returned by `brew`.
 
 ```json
 // EXAMPLE RESPONSE
@@ -207,6 +213,8 @@ void loop()
   temperature = analogRead(A0);
 }
 ```
+
+---
 
 You can now make a `GET` request, even with your browser, to read the sensor at any time.
 The API endpoint is `/v1/devices/{DEVICE_ID}/{VARIABLE}` and as always, you have to include your access token.
@@ -259,6 +267,8 @@ Content-Type: multipart/form-data
 Send the source code file as "file" in request body.
 ```
 
+---
+
 The API request should be encoded as `multipart/form-data` with a `file` field populated.
 Your filename does not matter.  In particular, the extension can be .c, .cpp, .ino, or anything else your prefer.
 
@@ -271,6 +281,8 @@ if compilation was successful, the binary will be flashed to your Core wirelessl
 curl -X PUT -F file=@my-firmware-app.cpp \
   "https://api.spark.io/v1/devices/0123456789abcdef01234567?access_token=1234123412341234123412341234123412341234"
 ```
+
+---
 
 There are three possible response formats:
 
