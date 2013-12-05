@@ -38,6 +38,7 @@ The Spark mobile app will guide you through the process, but basically it's a on
 
 - **Flashing blue**: Listening for Wi-Fi credentials
 - **Flashing green**: Connecting to the Wi-Fi network
+- **Flashing magenta**: Updating to the newest firmware
 - **Flashing cyan**: Connecting to the Spark Cloud
 - **Breathing cyan**: Connected!
 
@@ -145,7 +146,7 @@ Yep, that's right. We thought of that.
 
 Security is hard. It's especially hard on an embedded system, because encryption is resource intensive. But it's also important, because you don't want anyone turning on and off your lights, or worse, locking and unlocking your front doors.
 
-We hand-picked a set of rock-solid security protocols that are both fully secure and incredibly efficient, so they work great on an embedded system. They're baked into the Spark Protocol, which is open source and ready to be extended to other products.
+We hand-picked a set of rock-solid security protocols that are secure and efficient, so they work great on an embedded system. They're baked into the Spark Protocol, which is open source and ready to be extended to other products.
 
 
 
