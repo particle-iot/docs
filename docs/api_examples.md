@@ -49,3 +49,8 @@ This file exists to demonstrate successful low-level Spark Cloud API interaction
         }
     });
 
+## Name a core
+
+### Bash
+
+    curl -X PUT -d 'name=yffff' -d 'access_token=f7207ba15ebad0f7b71654ea2633d355f69f6b6f' https://api.spark.io/v1/devices/55ff68064989495329092587
