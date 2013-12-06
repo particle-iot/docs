@@ -15,7 +15,7 @@ The Core boots into listening mode by default, so if your Core is brand new, it 
 
 <iframe class="vine-embed" src="https://vine.co/v/hFH09MJwbxg/embed/simple" width="320" height="320" frameborder="0"></iframe>
 
-Once you've downloaded the Spark Core app from the App Store or Google Play, you should create an account. Afterwords you'll be asked to connect your Core using a process called Smart Config. *NOTE: You must be connected to the Wi-Fi network that you want to connect the Core to.* Enter your Wi-Fi password and hit connect.
+Once you've downloaded the Spark Core app from the App Store or Google Play, you should create an account. Afterwords, you'll be asked to connect your Core using a process called Smart Config.  If your Core has a u.FL connector, you must connect an external antenna before initiating Smart Config. *NOTE: Your phone must be connected to the Wi-Fi network that you want to connect the Core to.* The app will automatically fill the SSID field with the name of the network that your phone is connected to.  Enter your Wi-Fi password and hit connect.
 
 <iframe class="vine-embed" src="https://vine.co/v/hFwubhA3JXV/embed/simple" width="320" height="320" frameborder="0"></iframe>
 
@@ -28,9 +28,9 @@ Smart Config can take up to a minute, so be patient. The closer your phone to yo
 
 <iframe class="vine-embed" src="https://vine.co/v/hFdj1TJjA9M/embed/simple" width="320" height="320" frameborder="0"></iframe>
 
-Once the Spark Core has connected, your phone will "claim" the Core and attach it to your account. Then you'll get to name your Core.
+Once the Spark Core has connected, your phone will "claim" the Core and attach it to your account. Then you'll get to name your Core.  If you're uncertain, you can confirm that the claim process was successful by logging into the [Spark Web IDE](www.spark.io/build) and clicking the "Cores" icon at the bottom of the page.  Is your Core listed?  Great!  The world is perfect.  
 
-*NOTE: If the Spark Core has been claimed by someone else, the app won't recognize it. If you need to transfer a Spark Core to another account, email us at [hello@spark.io](mailto:hello@spark.io).*
+*NOTE: The Core **MUST** be online (breathing cyan) in order for the claiming process to work. If the Spark Core has been claimed by someone else, the app won't recognize it. If you need to transfer a Spark Core to another account, email us at [hello@spark.io](mailto:hello@spark.io).*
 
 <iframe class="vine-embed" src="https://vine.co/v/hFdPKul226i/embed/simple" width="320" height="320" frameborder="0"></iframe>
 
