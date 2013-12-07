@@ -1230,7 +1230,106 @@ UDP
 ### flush()
 ### stop()
 ### remoteIP()
-### remotePort() 
+### remotePort()
+
+Libraries
+===
+
+Servo
+---
+
+This library allows a Spark Core to control RC (hobby) servo motors. Servos have integrated gears and a shaft that can be precisely controlled. Standard servos allow the shaft to be positioned at various angles, usually between 0 and 180 degrees. Continuous rotation servos allow the rotation of the shaft to be set to various speeds.
+
+```cpp
+// EXAMPLE CODE
+
+Servo myservo;  // create servo object to control a servo 
+                // a maximum of eight servo objects can be created 
+ 
+int pos = 0;    // variable to store the servo position 
+ 
+void setup() 
+{ 
+  myservo.attach(A0);  // attaches the servo on the A0 pin to the servo object 
+} 
+ 
+ 
+void loop() 
+{ 
+  for(pos = 0; pos < 180; pos += 1)  // goes from 0 degrees to 180 degrees 
+  {                                  // in steps of 1 degree 
+    myservo.write(pos);              // tell servo to go to position in variable 'pos' 
+    delay(15);                       // waits 15ms for the servo to reach the position 
+  } 
+  for(pos = 180; pos>=1; pos-=1)     // goes from 180 degrees to 0 degrees 
+  {                                
+    myservo.write(pos);              // tell servo to go to position in variable 'pos' 
+    delay(15);                       // waits 15ms for the servo to reach the position 
+  } 
+}
+```
+
+NOTE: Unlike Arduino, you do not need to include `Servo.h`; it is included automatically.
+
+
+### attach()
+
+Set up a servo on a particular pin. Note that, on the Spark Core, Servo can only be attached to pins with a timer (A0, A1, A4, A5, A6, A7, D0, and D1).
+
+```cpp
+// SYNTAX
+servo.attach(pin)
+```
+
+### write()
+
+Writes a value to the servo, controlling the shaft accordingly. On a standard servo, this will set the angle of the shaft (in degrees), moving the shaft to that orientation. On a continuous rotation servo, this will set the speed of the servo (with 0 being full-speed in one direction, 180 being full speed in the other, and a value near 90 being no movement).
+
+```cpp
+// SYNTAX
+servo.write(angle)
+```
+
+### writeMicroseconds()
+
+Writes a value in microseconds (uS) to the servo, controlling the shaft accordingly. On a standard servo, this will set the angle of the shaft. On standard servos a parameter value of 1000 is fully counter-clockwise, 2000 is fully clockwise, and 1500 is in the middle.
+
+```cpp
+// SYNTAX
+servo.writeMicroseconds(uS)
+```
+
+Note that some manufactures do not follow this standard very closely so that servos often respond to values between 700 and 2300. Feel free to increase these endpoints until the servo no longer continues to increase its range. Note however that attempting to drive a servo past its endpoints (often indicated by a growling sound) is a high-current state, and should be avoided.
+
+Continuous-rotation servos will respond to the writeMicrosecond function in an analogous manner to the write function.
+
+
+### read()
+
+Read the current angle of the servo (the value passed to the last call to write()). Returns an integer from 0 to 180 degrees.
+
+```cpp
+// SYNTAX
+servo.read()
+```
+
+### attached()
+
+Check whether the Servo variable is attached to a pin. Returns a boolean.
+
+```cpp
+// SYNTAX
+servo.attached()
+```
+
+### detach()
+
+Detach the Servo variable from its pin.
+
+```cpp
+// SYNTAX
+servo.detach()
+```
 
 Other functions
 ====
