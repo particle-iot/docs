@@ -18,6 +18,8 @@ Congratulations on being the owner of a brand new Spark Core! Go ahead, open the
 
 Powering the Core is easy; it receives power over a Micro USB port, much like many smartphones and other gadgets. Power your Core on by connecting the Micro USB cable to the USB port on the Core, and plug the other end into any USB port on your computer, a USB hub (preferably powered), or a USB power adapter (like the one that probably came with your smartphone).
 
+If you so desire, you can also power the Core with 3.6V to 6V to the `VIN` pin, or 3.3V to the `3.3V` pin.
+
 ### Step 2: Download the Spark iOS or Android app
 
 ![Spark apps](images/spark-apps.png)
@@ -27,6 +29,14 @@ The Spark mobile app is the easiest way to get your Spark Core connected to the 
 - Create an account with Spark
 - Connect your Spark Core to your Wi-Fi network
 - Control your Core without writing any code
+
+The iOS app requires iOS 7, and the Android app works with Ice Cream Sandwich (Android 4.0) and newer.
+
+[Download the iPhone app >](https://itunes.apple.com/us/app/spark-core/id760157884)
+
+[Download the Android app >](https://play.google.com/store/apps/details?id=io.spark.core.android)
+
+
 
 ### Step 3: Connect the Core to Wi-Fi
 
@@ -41,6 +51,10 @@ The Spark mobile app will guide you through the process, but basically it's a on
 - **Flashing magenta**: Updating to the newest firmware
 - **Flashing cyan**: Connecting to the Spark Cloud
 - **Breathing cyan**: Connected!
+
+If the mobile app doesn't work for you, you can also connect your Spark Core over USB. For more information, or for a detailed explanation of how to connect your Core to the 'net, check out:
+
+[Connect your Core >](/#/connect)
 
 ### Step 4: Blink an LED with Tinker
 
@@ -74,6 +88,7 @@ The RESET button will put the Core in a hard reset, effectively depowering and r
 The MODE button serves three functions:
 
 - Hold down the MODE button for three seconds to put the Core into *Smart Config* mode to connect it to your local Wi-Fi network. The LED should start flashing blue.
+- Hold down the MODE button for ten seconds to clear the Core's memory of Wi-Fi networks.
 - Hold down the MODE button, tap on the RESET button and wait for *three seconds* to enter *Bootloader* mode, where you can reprogram the Core over USB or JTAG. Release the MODE button when you see the LED flashing yellow. If you do this by accident, simply hit RESET button to leave *Bootloader* mode.
 - Hold down the MODE button, tap on the RESET button and wait for *ten seconds* to do a *Factory Reset*, where the Core is reprogrammed with the software that was installed on the Core in the factory (the Tinker application). The LED should turn white for three seconds and begin flashing quickly; when the LED switches to another color the Core has been reset. This is useful if you encounter bugs with your firmware, or if you just want to get back to Tinker.
 
@@ -84,10 +99,9 @@ There are two LEDs on the Core. The big fat one in the middle is a full-color RG
 
 The RGB LED could show the following states:
 
-- *Flashing blue*: Smart Config mode, waiting for network information.
+- *Flashing blue*: Listening mode, waiting for network information.
 - *Solid blue*: Smart Config complete, network information found.
 - *Flashing green*: Connecting to local Wi-Fi network.
-- *Solid green*: Local Wi-Fi connection complete.
 - *Flashing cyan*: Connecting to Spark Cloud.
 - *Slow breathing cyan*: Successfully connected to Spark Cloud.
 - *Flashing yellow*: Bootloader mode, waiting for new code via USB or JTAG.
@@ -99,6 +113,7 @@ The RGB LED can also let you know if there were errors in establishing an intern
 - *Two red flashes*: Connection failure due to bad internet connection. Check your network connection.
 - *Three red flashes*: The Cloud is inaccessible, but the internet connection is fine. Check our [Twitter feed](http://www.twitter.com/sparkdevices) to see if there have been any reported outages; if not, visit our [support page](https://www.sparkdevices.com/support) for help.
 - *Four red flashes*: The Cloud was reached but the secure handshake failed. Visit our [support page](https://www.sparkdevices.com/support) for help.
+- *Flashing yellow/red*: Bad credentials for the Spark Cloud. Contact the Spark team (<a href="mailto@hello@spark.io">hello@spark.io</a>).
 
 ### Pins
 
@@ -245,15 +260,57 @@ The parameters must be the pin (A0 to A7, D0 to D7). The return value will be be
 Writing Core Firmware
 ===
 
-Firmware sounds scary
+What is firmware?
 ---
 
-It's not really that bad, especially when you can flash it over the air! But it's 1:30am and we're running out of time before we publish this documentation, so you'll have to take our word for it until we have time to write more.
+An *embedded system* like the Spark Core doesn't have an Operating System like a traditional computer. Instead, it runs a single application, often called *firmware*, which runs whenever the system is powered.
 
-The Spark Web IDE
+*Firmware* is so-called because it's harder than software and softer than hardware. Hardware is fixed during manufacturing, and doesn't change. Software can be updated anytime, so it's very flexible. Firmware is somewhere in between; hardware companies do issue firmware updates, but they tend to be very infrequent, because upgrading firmware can be difficult.
+
+In our case, because the Spark Core is connected to the internet, updating firmware is quite trivial; we send it over the network, and we have put in place safeguards to keep you from "bricking" the Core.
+
+When you flash code onto the Spark Core, you are doing an *over-the-air firmware update*. This firmware update overwrites almost all of the software on the Spark Core; the only piece that is untouched is the [bootloader](http://www.github.com/spark/bootloader), which manages the process of loading new firmware and ensures you can always update the firmware over USB or through a factory reset.
+
+Spark Build, our web IDE
 ---
 
-**Coming soon!** We'll give you instructions for how to write your own firmware for the Spark Core in the Spark Build page using our web IDE (Integrated Development Environment). Sounds fancy, eh?
+![Spark Build](images/ide.png)
+
+When you're ready to reprogram your Spark Core, head over to our IDE:
+
+[Spark Build >](https://www.spark.io/build)
+
+Spark Build is an Integrated Development Environment, or IDE; that means that you can do software development in an easy-to-use application, which just so happens to run in your web browser.
+
+Spark Build starts with the navigation bar on the left. On the top, there are three buttons, which serve important functions:
+
+- **Flash**: Flashes the current code to the Spark Core. This initiates an *over-the-air firmware update* and loads the new software onto your Spark Core.
+- **Verify**: This compiles your code without actually flashing it to the Core; if there are any errors in your code, they will be shown in the debug console on the bottom of the screen.
+- **Save**: Saves any changes you've made to your code.
+
+At the bottom, there are four more buttons to navigate through the IDE:
+
+- **Code**: Shows a list of your firmware applications and lets you select which one to edit/flash.
+- **Docs**: Brings you to the documentation for Spark.
+- **Cores**: Shows a list of your Spark Cores, so you can choose which to flash, and get more information on each Core.
+- **Settings**: Change your password, log out, or get your access token for API calls.
+
+The best way to get started with the IDE is to start writing code! Try pasting in this snippet of code, hit flash, and watch the LED blink!
+
+    int LED = D7;
+
+    void setup() {
+        pinMode(LED, OUTPUT);
+    }
+
+    void loop() {
+        digitalWrite(LED, HIGH);
+        delay(250);
+        digitalWrite(LED, LOW);
+        delay(250);
+    }
+
+
 
 The Spark Command Line
 ---
@@ -271,17 +328,35 @@ Troubleshooting
 What's wrong?
 ---
 
-### My Core won't connect to the Cloud
+### My Core won't connect to Wi-Fi
 
-**Coming soon!**
+There are many reasons that your Core might not be connecting to your Wi-Fi network. To debug, check out our detailed connection troubleshooting section:
+
+[Why won't it connect? >](/#/connect/troubleshooting)
+
+### I can't talk to my Core
+
+Once your Core is connected, it needs to be *claimed* in order to be associated with your account. This is what lets you control your Core and keeps anyone else from doing so.
+
+If you use the mobile app to set up your Core, it should claim it automatically. However if you connect your Core over USB, or if the claiming process is unsuccessful, you can claim it manually.
+
+Head over to our connection page to learn about this:
+
+[ Claiming your Core >](http://localhost:3000/#/connect/claiming-your-core)
 
 ### My Core won't start up
 
-**Coming soon!**
+If your Core won't start up (the LED never comes on), here are a few things to check:
+
+- Is the Core receiving sufficient power? If you're not sure, connect a multimeter to the 3.3V pin and GND and see if you get 3.3V, as expected. Try connecting the Core to another power source.
+- Have any components been damaged? Visually inspect both sides of the Core.
 
 ### My Core is behaving erratically
 
-**Coming soon!**
+If you're seeing unexpected behavior with your Core, here are a few things to check:
+
+- Is the Core receiving sufficient power? The Core might behave eratically if it's plugged into an unpowered USB hub and not receiving enough power. In addition, if you have components that draw a lot of power (motors, for instance), you might need more power than your computer can supply. Try using a USB power supply or providing more power directly to the VIN or 3.3V pins.
+- If you have a u.FL Core, is an antenna connected? Are you within range of the Wi-Fi router?
 
 
 Further resources

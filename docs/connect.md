@@ -79,6 +79,24 @@ Once you've opened a serial connection, you have two commands at your disposal b
 
 Currently there is not a mechanism to hard-code your SSID and password into the firmware for the Spark Core. We're working on it!
 
+Claiming your Core
+===
+
+Once your Core is connected, it needs to be *claimed* in order to be associated with your account. This is what lets you control your Core and keeps anyone else from doing so.
+
+If you use the mobile app to set up your Core, it should claim it automatically. However if you connect your Core over USB, or if the claiming process is unsuccessful, you can claim it manually.
+
+First, you'll need to get your Core's ID. You can do this by opening a Serial connection to the Core and pressing the **i** key (see the above instuctions for connecting over USB). It should show you a number like this:
+
+    # Example Core ID
+    55ff68064989495329092587
+
+---
+
+Then open up [Spark Build](https://www.spark.io/build) and click the 'Cores' icon. Click the button that says 'Add a Core', and enter your ID in the text box.
+
+We will be releasing a command-line tool to simplify this process; stay tuned!
+
 Troubleshooting
 ===
 
@@ -95,13 +113,18 @@ There are known issues with the following types of networks:
 
 So, let's dig in. If your Spark Core is not connecting to your Wi-Fi network, we recommend following these steps:
 
-## STEP 0: Check your credentials
+## STEP 0: Check the basics
 
-This may go without saying, but definitely check your Wi-Fi password to make sure you typed it correctly.
+There are a few common issues to check first:
+
+- Check your Wi-Fi credentials (SSID and password) to make sure you typed them correctly.
+- Make sure you're in range of your Wi-Fi network. If your phone or computer has a poor connection in the same location, try moving closer to your Wi-Fi access point.
+- If you're using a u.FL Core, make sure you have an antenna attached, and that it's firmly connected.
+- Make sure your Core has enough power to transmit Wi-Fi signals (300mA in bursts). Try a different power source, or unplug components that draw a lot of power.
 
 ## STEP 1: Set up your Core over USB
 
-On some networks, Smart Config does not work, but the Core can connect to the network just fine. We've implemented a back-up mechanism so you can set up your Core over USB. For instructions, see above.
+On some networks, Smart Config does not work, but the Core can connect to the network just fine. We've implemented a back-up mechanism so you can set up your Core over USB. For instructions, see above. Don't forget that you'll need to claim your Core manually as well if you haven't already!
 
 ## STEP 2: Try another network
 
