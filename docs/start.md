@@ -342,7 +342,7 @@ If you use the mobile app to set up your Core, it should claim it automatically.
 
 Head over to our connection page to learn about this:
 
-[ Claiming your Core >](http://localhost:3000/#/connect/claiming-your-core)
+[ Claiming your Core >](/#/connect/claiming-your-core)
 
 ### My Core won't start up
 
