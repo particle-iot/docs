@@ -469,7 +469,7 @@ Unlike the TMP36, you will need to use this as a part of a voltage divider circu
 
 [Datasheet](datasheets/makerkit/thermistor.pdf)
 
-#### 19. Force-Sensitive Resistor (1)
+#### 20. Force-Sensitive Resistor (1)
 Manufacturer Part Number: Interlink 30-81794
 This is a force sensitive resistor with a 0.5" diameter and an operating force from 10gms to 1000gms. Their resistance decreases with an increase in applied pressure.
 
@@ -477,28 +477,28 @@ This is a force sensitive resistor with a 0.5" diameter and an operating force f
 
 <!-- TO DO ADD LINK TO EXAMPLE-->
 
-#### 20. Photo Resistors (2)
+#### 21. Photo Resistors (2)
 A photo resistor is a light dependent resistor whose resistance decreases with the increase in the intensity of light striking it. You can use it to detect the ambient light in the surrounding, detect shadows or use it as a part of a burglar alarm system.
 
 [Datasheet](datasheets/makerkit/photoresistor.pdf)
 <!-- TO DO ADD LINK TO EXAMPLE-->
 
-#### 21. Resistors
+#### 22. Resistors
 There are three different value resistor in this kit. All of them are rated at 5%, 1/4 Watt.
 
 - 330-Ohm (10)
 - 1K-Ohm (10)
 - 10K-Ohm (10)
 
-#### 22. Rotary Potentiometer (1) 
+#### 23. Rotary Potentiometer (1) 
 This is a [variable resistor](http://en.wikipedia.org/wiki/Potentiometer) whose value can be changed by simply turning the knob.
 
-#### 23. Proto-board (1)
+#### 24. Proto-board (1)
 This is a 7" x 9" general purpose dot-matrix prototyping PCB.
 <!-- TO DO ADD LINK TO EXAMPLE-->
 
 
-#### 24. Spark Core - u.FL or CA (1)
+#### 25. Spark Core - u.FL or CA (1)
 Your very own Spark Core, ready to take over the world, one byte at a time.
 
 <!--
