@@ -60,6 +60,10 @@ First, you'll need to download a serial terminal application; we recommend [PuTT
 
 ![CoolTerm settings](images/coolterm-settings.png)
 
+If you're running Windows, you'll need a driver:
+
+[Windows driver for Spark Core >](https://s3.amazonaws.com/spark-website/spark_core.inf)
+
 Plug your Spark Core into your computer over USB. When the Spark Core is in listening mode, open a serial port over USB using the standard settings, which should be:
 
 - Baudrate: 9600
