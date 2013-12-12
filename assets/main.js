@@ -33,7 +33,7 @@ var Docs = {
   },
 
   scrollSmooth: function() {
-    $(document.body).animate({
+    $('body, html').animate({
       scrollTop: $("#" + Docs.subsection).offset().top
     }, 500);
   }
