@@ -462,7 +462,7 @@ The TMP36 is a low voltage, precision centigrade temperature sensor. It provides
 
 <!-- TO DO ADD LINK TO EXAMPLE-->
 
-#### 20. Thermistor (2)
+#### 19. Thermistor (2)
 A [thermistor](http://en.wikipedia.org/wiki/Thermistor) is a temperature dependent resistor. This one is a NTC type (Negative Temperature Coefficient), which means its resistance decreases with an increase in temperature.
 
 Unlike the TMP36, you will need to use this as a part of a voltage divider circuit as nicely described in this [tutorial.](http://learn.adafruit.com/thermistor/using-a-thermistor)
