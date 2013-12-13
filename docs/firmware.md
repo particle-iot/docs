@@ -2310,7 +2310,6 @@ The remainder function can have unexpected behavoir when some of the opperands a
 
 ```C++
 EXAMPLE USAGES
-x = 7 % 5;   // x now contains 2
 x = 9 % 5;   // x now contains 4
 x = 5 % 5;   // x now contains 0
 x = 4 % 5;   // x now contains 4
