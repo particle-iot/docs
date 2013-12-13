@@ -1698,7 +1698,7 @@ void setup() {}
 void loop()
 {
   int val = analogRead(0);
-  val = map(val, 0, 1023, 0, 255);
+  val = map(val, 0, 4095, 0, 255);
   analogWrite(9, val);
 }
 ```
