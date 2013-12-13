@@ -2295,7 +2295,7 @@ result = value1 / value2;
   - For math that requires fractions, use float variables, but be aware of their drawbacks: large size, slow computation speeds  
   - Use the cast operator e.g. (int)myFloat to convert one variable type to another on the fly.  
 
-### % (remainder)
+### % (modulo)
 
 Calculates the remainder when one integer is divided by another. It is useful for keeping a variable within a particular range (e.g. the size of an array).  It is defined so that `a % b == a - ((a / b) * b)`.  
 
