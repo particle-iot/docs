@@ -156,13 +156,10 @@ Turning ON a relay is as simple as setting the associated pin to HIGH.
 The picture shows a sample setup where the relay is used as a switch to control a light bulb.
 
 ```C++
-#include "application.h"
 int RELAY1 = D0;
 int RELAY2 = D1;
 int RELAY3 = D2;
 int RELAY4 = D3;
-
-int relayControl(String command);
 
 void setup()
 {
@@ -576,21 +573,11 @@ A simple example for controlling the RC Car is as described:
 
 
 ```C++
-/* Includes ------------------------------------------------------------------*/  
-#include "application.h"
-
-/* Function prototypes -------------------------------------------------------*/
-
-int rcCarControl(String command);
-
-/* Globals -------------------------------------------------------------------*/
 int leftMotorEnable   = D1;
 int rightMotorEnable  = A7;
 int leftMotorDir    = D3;
 int rightMotorDir   = D4;
 
-
-/* This function is called once at start up ----------------------------------*/
 void setup()
 {
   //Register Spark function
@@ -604,7 +591,6 @@ void setup()
   pinMode(D7,OUTPUT);
 }
 
-/* This function loops forever --------------------------------------------*/
 void loop()
 {
   // Nothing to do here
