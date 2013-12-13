@@ -2295,9 +2295,9 @@ result = value1 / value2;
   - For math that requires fractions, use float variables, but be aware of their drawbacks: large size, slow computation speeds  
   - Use the cast operator e.g. (int)myFloat to convert one variable type to another on the fly.  
 
-### % (modulo)
+### % (remainder)
 
-Calculates the remainder when one integer is divided by another. It is useful for keeping a variable within a particular range (e.g. the size of an array).
+Calculates the remainder when one integer is divided by another. It is useful for keeping a variable within a particular range (e.g. the size of an array).  It is defined so that `a % b == a - ((a / b) * b)`.  
 
 `result = dividend % divisor`
 
@@ -2306,12 +2306,17 @@ Calculates the remainder when one integer is divided by another. It is useful fo
 
 `result` is the remainder
 
+The remainder function can have unexpected behavoir when some of the opperands are negative.  If the dividend is negative, then the result will be the smallest negative equivalency class.  In other words, when `a` is negative, `(a % b) == (a mod b) - b` where (a mod b) follows the standard mathematical definition of mod.  When the divisor is negative, the result is the same as it would be if it was positive.  
+
 ```C++
 EXAMPLE USAGES
-x = 7 % 5;   // x now contains 2
 x = 9 % 5;   // x now contains 4
 x = 5 % 5;   // x now contains 0
 x = 4 % 5;   // x now contains 4
+x = 7 % 5;   // x now contains 2
+x = -7 % 5;  // x now contains -2
+x = 7 % -5;  // x now contains 2
+x = -7 % -5; // x now contains -2
 ```
 
 ```C++
@@ -2331,7 +2336,7 @@ void loop()
 ```
 
 **TIP:**
-The modulo operator does not work on floats.
+The modulo operator does not work on floats.  For floats, an equivalent expression to `a % b` is `a - (b * ((int)(a / b)))`
 
 Boolean operators
 ---
