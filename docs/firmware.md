@@ -2297,7 +2297,7 @@ result = value1 / value2;
 
 ### % (remainder)
 
-Calculates the remainder when one integer is divided by another. It is useful for keeping a variable within a particular range (e.g. the size of an array).  It is defined so that `a % b == a - ((a / b) * b).  
+Calculates the remainder when one integer is divided by another. It is useful for keeping a variable within a particular range (e.g. the size of an array).  It is defined so that `a % b == a - ((a / b) * b)`.  
 
 `result = dividend % divisor`
 
