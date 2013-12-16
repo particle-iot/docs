@@ -269,7 +269,7 @@ An *embedded system* like the Spark Core doesn't have an Operating System like a
 
 In our case, because the Spark Core is connected to the internet, updating firmware is quite trivial; we send it over the network, and we have put in place safeguards to keep you from "bricking" the Core.
 
-When you flash code onto the Spark Core, you are doing an *over-the-air firmware update*. This firmware update overwrites almost all of the software on the Spark Core; the only piece that is untouched is the [bootloader](http://www.github.com/spark/bootloader), which manages the process of loading new firmware and ensures you can always update the firmware over USB or through a factory reset.
+When you flash code onto the Spark Core, you are doing an *over-the-air firmware update*. This firmware update overwrites almost all of the software on the Spark Core; the only piece that is untouched is the bootloader, which manages the process of loading new firmware and ensures you can always update the firmware over USB or through a factory reset.  (We'll be open sourcing the bootloader as soon as we can bring the README up to date.)
 
 Spark Build, our web IDE
 ---
