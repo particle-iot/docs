@@ -154,7 +154,7 @@ curl https://api.spark.io/v1/devices/0123456789abcdef01234567/led \
 
 Note that the API endpoint is 'led', not 'ledControl'. This is because the endpoint is defined by the first argument of Spark.function(), which is a string of characters, rather than the second argument, which is a function.
 
-To better understand the concept of making API calls to your Core over the cloud checkout the [Cloud API reference.](/#api)
+To better understand the concept of making API calls to your Core over the cloud checkout the [Cloud API reference.](/#/api)
 
 Measuring the temperature
 ===
