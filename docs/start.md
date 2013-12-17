@@ -206,8 +206,10 @@ Sets the pin to HIGH or LOW, which either connects it to 3.3V (the maximum volta
 
     POST /v1/devices/{DEVICE_ID}/digitalwrite
 
-    # EXAMPLE REQUEST
-    curl https://api.spark.io/v1/devices/teapot/digitalwrite \
+    # EXAMPLE REQUEST IN TERMINAL
+    # Core ID is 0123456789abcdef01234567
+    # Your access token is 1234123412341234123412341234123412341234
+    curl https://api.spark.io/v1/devices/0123456789abcdef01234567/digitalwrite \
       -d access_token=1234123412341234123412341234123412341234 -d params=D0,HIGH
 
 The parameters must be the pin (A0 to A7, D0 to D7), followed by either HIGH or LOW, separated by a comma. The return value will be 1 if the write succeeds, and -1 if it fails.
@@ -220,8 +222,10 @@ Sets the pin to a value between 0 and 255, where 0 is the same as LOW and 255 is
 
     POST /v1/devices/{DEVICE_ID}/analogwrite
 
-    # EXAMPLE REQUEST
-    curl https://api.spark.io/v1/devices/teapot/analogwrite \
+    # EXAMPLE REQUEST IN TERMINAL
+    # Core ID is 0123456789abcdef01234567
+    # Your access token is 1234123412341234123412341234123412341234
+    curl https://api.spark.io/v1/devices/0123456789abcdef01234567/analogwrite \
       -d access_token=1234123412341234123412341234123412341234 -d params=A0,215
 
 The parameters must be the pin (A0 to A7, D0 to D7), followed by an integer value from 0 to 255, separated by a comma. The return value will be 1 if the write succeeds, and -1 if it fails.
@@ -235,8 +239,10 @@ This will read the digital value of a pin, which can be read as either HIGH or L
 
     POST /v1/devices/{DEVICE_ID}/digitalread
 
-    # EXAMPLE REQUEST
-    curl https://api.spark.io/v1/devices/teapot/digitalread \
+    # EXAMPLE REQUEST IN TERMINAL
+    # Core ID is 0123456789abcdef01234567
+    # Your access token is 1234123412341234123412341234123412341234
+    curl https://api.spark.io/v1/devices/0123456789abcdef01234567/digitalread \
       -d access_token=1234123412341234123412341234123412341234 -d params=D0
 
 
@@ -250,8 +256,10 @@ This will read the analog value of a pin, which is a value from 0 to 4095, where
 
     POST /v1/devices/{DEVICE_ID}/analogread
 
-    # EXAMPLE REQUEST
-    curl https://api.spark.io/v1/devices/teapot/analogread \
+    # EXAMPLE REQUEST IN TERMINAL
+    # Core ID is 0123456789abcdef01234567
+    # Your access token is 1234123412341234123412341234123412341234
+    curl https://api.spark.io/v1/devices/0123456789abcdef01234567/analogread \
       -d access_token=1234123412341234123412341234123412341234 -d params=A0
 
 The parameters must be the pin (A0 to A7, D0 to D7). The return value will be between 0 and 4095 if the read succeeds, and -1 if it fails.
