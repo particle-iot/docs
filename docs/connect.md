@@ -169,3 +169,132 @@ Please post issues with connectivity either as responses to this topic or, if th
 - Network topology (number of routers and/or range extenders, estimated number of devices connected to network)
 - Internet Service Provider
 - Any network settings that might diverge from the norm
+
+Troubleshooting by color
+===
+
+The Spark Core has an RGB LED positioned on the front that displays the connectivity status of the Core. This LED can help you debug your Core and resolve any issues that you might encounter.
+
+## Flashing blue
+
+<iframe class="vine-embed" src="https://vine.co/v/hFHPMue5lgd/embed/simple" width="320" height="320" frameborder="0"></iframe>
+
+- *What’s the Core doing?* My Core is flashing blue.
+- *What’s the problem?* Your Core doesn’t have Wi-Fi credentials to join your local network
+- *How do I fix it?*
+        
+Right now, your Core does not have the information it needs to connect to your local Wi-Fi network.  If you haven’t already, try using the Spark Core app for [iPhone](https://itunes.apple.com/us/app/spark-core/id760157884) or [Android](https://play.google.com/store/apps/details?id=io.spark.core.android)  to send your network credentials to your Core.  Detailed instructions can be found [here](http://docs.spark.io/#/connect/connecting-your-core-smart-config-with-the-ti-app).
+
+
+If that doesn’t work, try the steps below:
+
+
+1. If your network router supports 802.11n, make sure that it also supports Legacy network protocols, and that it is configured into that mode (the Core supports 802.11 a/c networks)
+2. If you have a Core with a u.FL connector, make sure the antenna is attached
+3. Try [rebooting the Core and clearing its memory](/#/connect/troubleshooting-step-3-reboot-and-clear-memory).
+4. If you have an Android phone, and your network has no password, you cannot currently use the Spark Core app to communicate the credentials to your Core.  Instead, try using [TI’s SmartConfig app to configure your Core](/#/connect/connecting-your-core-smart-config-with-the-ti-app).
+5. Try configuring your Core over USB.  Instructions can be found [here](/#/connect/connecting-your-core-connect-over-usb).
+6. If all else fails, please [contact the Spark team](mailto:hello@sparkdevices.com) and provide us with the brand and model of your smartphone.
+
+---
+
+
+## Flashing green
+
+- *What’s the Core doing?* My Core is [flashing green](https://mtc.cdn.vine.co/r/videos/DB9E0E87311015399731217969152_1d6c83d12a3.4.3.2795910212236322177_4RBA9frM0a4pwIG_RbZgo.ZOBEbBr_CpxzoOsBNuExDz6TFldcjJSYHVh203e6F4.mp4?versionId=orM0m0DvLYdciAwsb6DYHhqb974AHMj_), but doesn’t progress to flashing Cyan.
+- *What’s the problem?* Your Core has received Wi-Fi credentials (an SSID and password), but still can't connect to the Wi-Fi network.
+- *How do I fix it?*
+
+Please complete the following steps:
+
+1. [Check the basics] (/#/connect/troubleshooting-step-0-check-the-basics).
+2. Try a new power source. You should be powering your Core with a power supply that is capable of providing 500mA of current.  We recommend the 5V/1A wall wart power supplies that are commonly used for charging cell phones.
+3. If your network has a landing page or splash page, the Core will not be able to connect; try configuring it onto a different network.
+4. Try [rebooting the Core and clearing its memory](/#/connect/troubleshooting-step-3-reboot-and-clear-memory).
+5. Try a factory reset.  Hold down both buttons, then release the RST button, while holding down the MODE button.  The LED should begin flashing yellow.  Continue holding down the MODE button until you see the Core change from flashing yellow to flashing white.  Then release the button.  The Core should begin [flashing blue](https://v.cdn.vine.co/r/videos/E465A8959B1015390893882101760_178fcfd2b3c.4.3.11510817618992331600_MIW9HE1mtZ9H_SpBlKdK1lv2UfmniExCFQHrgJ7iqiFDUiDb0E31bR7GwvB_7wz0.mp4?versionId=eS01KUZ6NaUZgEipSDeVi0rxZENByp1N) after the factory reset is complete.
+6. Try manually re-running the patch programmer to update the CC3000’s firmware over USB.  You can find detailed instructions [here](https://community.sparkdevices.com/t/failed-connecting-to-wifi/648/53).  
+7. If none of the above are successful, please [contact the Spark team](mailto:hello@sparkdevices.com) and provide us with the brand and model number of your access point.
+
+---
+
+## Flashing yellow
+
+- *What’s the Core doing?* My Core is starts flashing yellow when I plug it or when I hit the RST button.
+- *What’s the problem?* Your Core is missing important firmware.
+- *How do I fix it?*
+
+Please complete the following steps:
+  
+1. Try hitting the RST button to make sure you did not accidentally configure your Core into DFU mode.
+2. Try a factory reset.  Hold down both buttons, then release the RST button, while holding down the MODE button.  The LED should begin flashing yellow.  Continue holding down the MODE button until you see the Core change from flashing yellow to flashing white.  Then release the button.  The Core should begin [flashing blue](https://v.cdn.vine.co/r/videos/E465A8959B1015390893882101760_178fcfd2b3c.4.3.11510817618992331600_MIW9HE1mtZ9H_SpBlKdK1lv2UfmniExCFQHrgJ7iqiFDUiDb0E31bR7GwvB_7wz0.mp4?versionId=eS01KUZ6NaUZgEipSDeVi0rxZENByp1N) after the factory reset is complete.
+3. If a factory reset is unsuccessful, then we have to write the firmware over DFU.  You can accomplish this by following the steps below:
+
+Install dfu-util for your system either using homebrew on a mac, http://dfu-util.gnumonks.org/ on windows, or you can build from source on linux:
+        
+    opkg install libusb-1.0-dev
+    wget http://dfu-util.gnumonks.org/releases/dfu-util-0.7.tar.gz
+    tar xvf dfu-util-0.7.tar.gz
+    cd dfu-util-0.7
+    ./configure
+    make
+    sudo make install
+
+---
+
+If you install those you should be able to run, with your core connected over USB:
+        
+    sudo dfu-util -l
+
+---
+
+This should give you a list with something like [1d50:607f] in the list, if that's the case, then we can install the missing firmware (can be found here: https://s3.amazonaws.com/spark-website/factory_firmware.bin)
+
+    dfu-util -d 1d50:607f -a 1 -s 0x00020000 -D factory_firmware.bin
+    dfu-util -d 1d50:607f -a 0 -s 0x08005000:leave -D factory_firmware.bin
+
+You can reboot your Core and it should start [slow flashing blue](https://v.cdn.vine.co/r/videos/E465A8959B1015390893882101760_178fcfd2b3c.4.3.11510817618992331600_MIW9HE1mtZ9H_SpBlKdK1lv2UfmniExCFQHrgJ7iqiFDUiDb0E31bR7GwvB_7wz0.mp4?versionId=eS01KUZ6NaUZgEipSDeVi0rxZENByp1N), or start [flashing green](https://mtc.cdn.vine.co/r/videos/DB9E0E87311015399731217969152_1d6c83d12a3.4.3.2795910212236322177_4RBA9frM0a4pwIG_RbZgo.ZOBEbBr_CpxzoOsBNuExDz6TFldcjJSYHVh203e6F4.mp4?versionId=orM0m0DvLYdciAwsb6DYHhqb974AHMj_) if everything worked.
+
+If none of these steps are successful, please [contact the Spark team](mailto:hello@sparkdevices.com).
+
+---
+
+## Flashing orange (red/yellow)
+
+- *What’s the Core doing?* My Core is flashing yellow/red/orange lights after it connects to Wi-Fi.
+- *What’s the problem?* A decryption error occurred during the handshake with the Spark Cloud
+- *How do I fix it?*
+
+Please complete the following steps:
+
+1. A full set of instructions for resolving this issue can be found at the following location on the Spark Community forums.  If the steps included in the link below are unsuccessful, please [contact the Spark team](mailto:hello@sparkdevices.com).
+
+[Replacing your Spark Cloud credentials >](https://community.sparkdevices.com/t/troubleshooting-my-core-is-flashing-yellow-red-lights-after-it-connects-to-wifi/627)
+
+---
+
+## Flashing green then red
+
+- *What’s the Core doing?* My Core starts flashing green to connect to my network, then the LED turns red.
+- *What’s the problem?* Your Core is facing a networking issue and cannot connect to the Cloud.
+- *How do I fix it?*
+
+There are two potential failure modes here--either your home network does not have a working internet connection, or we are having issues with our servers. 
+
+1. Try power cycling your router to resolve any transient networking hiccups in your home Wi-Fi network
+2. Try going to a website like [Google](http://www.google.com/) on your computer or laptop to verify that your Wi-Fi network is connected to the internet and is capable of serving up web pages
+3. Check www.spark.io/status to see if there is a known issue with the Spark Cloud
+4. If you’re still seeing this issue, please [contact the Spark team](mailto:hello@sparkdevices.com).
+
+---
+
+## Blank or unresponsive
+
+- *What’s the Core doing?* My Core isn’t showing any LED activity when I power it over USB.
+- *What’s the problem?* Your Core may not have the necessary firmware installed
+- *How do I fix it?*
+
+Please complete the following steps:
+  
+1. Try powering the Core with a different USB cable and power supply (different USB port on your computer, for example)
+2. Try a factory reset.  Hold down both buttons, then release the RST button, while holding down the MODE button.  The LED should begin flashing yellow.  Continue holding down the MODE button until you see the Core change from flashing yellow to flashing white.  Then release the button.  The Core should begin [flashing blue](https://v.cdn.vine.co/r/videos/E465A8959B1015390893882101760_178fcfd2b3c.4.3.11510817618992331600_MIW9HE1mtZ9H_SpBlKdK1lv2UfmniExCFQHrgJ7iqiFDUiDb0E31bR7GwvB_7wz0.mp4?versionId=eS01KUZ6NaUZgEipSDeVi0rxZENByp1N) after the factory reset is complete.
+3. If you see no flashing lights during factory reset, then your Core may be temporarily nonfunctional.  If you have a JTAG shield, contact the Spark team so we can help walk you through re-installing the Core firmware.  If you do not have a JTAG shield, please [contact the Spark team](mailto:hello@sparkdevices.com) to let us know, and we’ll help you take next steps.
