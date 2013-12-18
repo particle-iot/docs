@@ -52,15 +52,9 @@ The Spark mobile app will guide you through the process, but basically it's a on
 - **Flashing magenta**: Updating to the newest firmware
 - **Breathing cyan**: Connected!
 
-<div class="core small"><div class="core-butt"></div><div class="rgb blue"><div class="pattern flashing"></div></div></div>
+<div id="core1" class="core"><div class="core-butt"></div><div class="rgb"><div class="pattern"></div></div></div>
 
-<div class="core small"><div class="core-butt"></div><div class="rgb green"><div class="pattern flashing"></div></div></div>
-
-<div class="core small"><div class="core-butt"></div><div class="rgb cyan"><div class="pattern flashing"></div></div></div>
-
-<div class="core small"><div class="core-butt"></div><div class="rgb magenta"><div class="pattern fast flashing"></div></div></div>
-
-<div class="core small"><div class="core-butt"></div><div class="rgb cyan"><div class="pattern breathing"></div></div></div>
+<button id="button1" onclick="animateCore()">See an animation</button>
 
 If the mobile app doesn't work for you, you can also connect your Spark Core over USB. For more information, or for a detailed explanation of how to connect your Core to the 'net, check out:
 
