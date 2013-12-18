@@ -214,7 +214,8 @@ GET /v1/devices/{DEVICE_ID}/temperature
 # EXAMPLE REQUEST IN TERMINAL
 # Core ID is 0123456789abcdef01234567
 # Your access token is 1234123412341234123412341234123412341234
-curl "https://api.spark.io/v1/devices/0123456789abcdef01234567/temperature?access_token=1234123412341234123412341234123412341234"
+curl -G https://api.spark.io/v1/devices/0123456789abcdef01234567/temperature \
+  -d access_token=1234123412341234123412341234123412341234
 ```
 
 Texting the Core
