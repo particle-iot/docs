@@ -58,7 +58,6 @@ Authentication
 
 Just because you've connected your Spark Core to the internet doesn't mean anyone else should have access to it.
 Permissions for controlling and communciating with your Spark Core are managed with OAuth2.
-When you create a developer account with Spark, you'll be provided an access token.
 
 ```
 # You type in your terminal
@@ -75,6 +74,10 @@ curl https://api.spark.io/v1/devices/0123456789abcdef01234567/brew \
 
 # LESSON: Protect your access token.
 ```
+
+Your access token can be found in the Spark Build web IDE on the 'Settings' page.
+
+[Spark Build >](https://www.spark.io/build)
 
 When you connect your Spark Core to the Cloud for the first time, it will be associated with your account,
 and only you will have permission to control your Spark Core—using your access token.

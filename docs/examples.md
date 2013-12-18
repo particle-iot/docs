@@ -38,7 +38,7 @@ In the picture above, we used a 1K resistor (Brown Black Red)
 
 Now on to the actual program:
 
-```C++
+```cpp
 // Program to blink an LED connected to pin D0
 // of the Spark Core. 
 
@@ -47,9 +47,9 @@ int led = D0;
 
 // This routine runs only once upon reset
 void setup() 
-{                
+{
   // Initialize D0 pin as output
-  pinMode(led, OUTPUT);    
+  pinMode(led, OUTPUT);
 }
 
 // This routine loops forever 
@@ -77,7 +77,7 @@ Here is the algorithm:
 - Create and register a Spark function ( this gets called automagically when you make an API request to it)
 - Parse the incoming command and take appropriate actions
 
-```C++
+```cpp
 // -----------------------------------
 // Controlling LEDs over the Internet
 // -----------------------------------
@@ -85,10 +85,6 @@ Here is the algorithm:
 // name the pins
 int led1 = D0;
 int led2 = D1;
-
-
-// Function prototypes
-int ledControl(String command);
 
 // This routine runs only once upon reset
 void setup()
@@ -200,7 +196,7 @@ void loop()
 The returned value from the Core is going to be in the range from 0 to 4095. You can easily convert this value to actual temperature reading by using the following formula:
 
 ```
-voltage = (sensor reading x 3.3)/4095  
+voltage = (sensor reading x 3.3)/4095
 Temperature (in Celsius) = (voltage - 0.5) X 100
 ```
 
