@@ -196,13 +196,26 @@ hr {
  * A CORE MADE OF CSS
  **************/
 
+#button1 {
+  position: relative;
+  top:-80px;
+  left: 120px;
+  cursor: pointer;
+}
+
+@media (min-width: 1180px) {
+    body:not(.no-literate) #core1 {
+    margin-left: 40px;
+  }
+}
+
 .core {
    width: 100px; 
    height: 130px; 
    background: rgba(0,0,0,0.2);
    position: relative;
+   top: 15px;
    display: inline-block;
-   margin-left: 40px;
 }
 .core-butt {
    height: 0;

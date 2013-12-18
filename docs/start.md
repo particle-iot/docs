@@ -54,7 +54,7 @@ The Spark mobile app will guide you through the process, but basically it's a on
 
 <div id="core1" class="core"><div class="core-butt"></div><div class="rgb"><div class="pattern"></div></div></div>
 
-<button id="button1" onclick="animateCore()">See an animation</button>
+<a id="button1" class="button" onclick="animateCore()">See an animation</a>
 
 If the mobile app doesn't work for you, you can also connect your Spark Core over USB. For more information, or for a detailed explanation of how to connect your Core to the 'net, check out:
 
