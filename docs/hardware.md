@@ -6,9 +6,9 @@ Subsystems
 
 ### Microcontroller
 
-Spark Core v1.0 uses the STM32F103CB - ARM 32-bit Cortex M3 based - microcontroller for its brain power. You can download the datasheet [here.](https://github.com/spark/core/blob/master/Datasheets/ST_STM32F103CB.pdf)
-
 ![STM32](images/core-stm32.jpg)
+
+Spark Core v1.0 uses the STM32F103CB - ARM 32-bit Cortex M3 based - microcontroller for its brain power. You can download the datasheet [here.](https://github.com/spark/core/blob/master/Datasheets/ST_STM32F103CB.pdf)
 
 Some of its key features are as follows:
 
@@ -25,9 +25,9 @@ Some of its key features are as follows:
 
 ### Wi-Fi module
 
-Core v1.0 uses TI's CC3000 module for the WiFi communications.
-
 ![CC3000](images/core-cc3000.jpg)
+
+Core v1.0 uses TI's CC3000 module for the WiFi communications.
 
 Some of the key features of the CC3000 module are as follows:
 
@@ -48,17 +48,17 @@ The datasheet is available [here.](http://www.ti.com/lit/ds/symlink/cc3000.pdf)
 
 ### External FLASH
 
-In addition to having 128KB of internal flash memory for storing the firmware, the Core also features an external SPI based flash memory chip - [SST25VF016B](https://github.com/spark/core/blob/master/Datasheets/MicrochipTech_SST25VF016B-75-4I-S2AF-T.pdf?raw=true). This memory space (a total of 2MB) is used to store the factory reset firmware, a back up firmware, a copy of the firmware sent during Over The Air (OTA) update and the keys. Part of the space is also available to the user who can use it to store log data, user parameters, etc. A detailed description of the memory mapping can be found further down this document in the [memory mapping section.](http://spark.github.io/docs/#spark-core-datasheet-memory-mapping)
-
 ![External Flash](images/core-flashchip.jpg)
+
+In addition to having 128KB of internal flash memory for storing the firmware, the Core also features an external SPI based flash memory chip - [SST25VF016B](https://github.com/spark/core/blob/master/Datasheets/MicrochipTech_SST25VF016B-75-4I-S2AF-T.pdf?raw=true). This memory space (a total of 2MB) is used to store the factory reset firmware, a back up firmware, a copy of the firmware sent during Over The Air (OTA) update and the keys. Part of the space is also available to the user who can use it to store log data, user parameters, etc. A detailed description of the memory mapping can be found further down this document in the [memory mapping section.](http://spark.github.io/docs/#spark-core-datasheet-memory-mapping)
 
 Since the flash memory is non-volatile, it retains the data even after turning off the power. According to the manufacturer of the chip, the data retention of this memory is greater than 100 years, which we reckon should be good enough for now. Also, note that the maximum read-write endurance is limited to 100,000 cycles. meh.
 
 ### Power regulator
 
-The entire Core, including all of the on board peripherals run at 3.3V DC. So, in order to power the Core from the USB port or an external power supply, we need to *downconvert* the voltage before feeding it into the Core. We went through a couple of iterations before choosing Microchip's [MCP1825S-3302E](http://ww1.microchip.com/downloads/en/devicedoc/22056b.pdf) power regulator which comfortably meets the specs.
-
 ![Power Regulator](images/core-regulator.jpg)
+
+The entire Core, including all of the on board peripherals run at 3.3V DC. So, in order to power the Core from the USB port or an external power supply, we need to *downconvert* the voltage before feeding it into the Core. We went through a couple of iterations before choosing Microchip's [MCP1825S-3302E](http://ww1.microchip.com/downloads/en/devicedoc/22056b.pdf) power regulator which comfortably meets the specs.
 
 Some of its key features are:  
 
@@ -74,9 +74,9 @@ This means, you can power the Core via the USB port or via the VIN pin from an e
 
 ### RF circuit
 
-The RF circuit is probably where we spent the most time on during hardware design. RF design is like voodoo black magic, so we sought guidance from the industry experts before finalizing the component values and placement.
-
 ![RF Circuit](images/core-rf.jpg)
+
+The RF circuit is probably where we spent the most time on during hardware design. RF design is like voodoo black magic, so we sought guidance from the industry experts before finalizing the component values and placement.
 
 You can download a copy of the RF test report [here.](images/core-rf-test-report.pdf)  
 
@@ -109,21 +109,21 @@ This feature is only available on the following pins: `A0, A1, A4, A5, A6, A7, D
 
 ### Serial (UART)
 
-The Core features two serial ports. The first one is a CDC (communications Device Class) available over the USB port . When configured, it will show up as a virtual COM port on the computer.
+![Hardware USART](images/core-pin-usart.jpg)
+
+The Core features two serial ports. The first one is a CDC (Communications Device Class) available over the USB port . When configured, it will show up as a virtual COM port on the computer.
 
 The second one is a hardware USART available via the TX and RX pins on the Core. 
 
-![Hardware USART](images/core-pin-usart.jpg)
-
 Both of these serial ports can be configured and used using the [serial functions.](http://spark.github.io/docs/#communication-serial)
 
-**NOTE:** Please take into account that the voltage levels on these pins runs at 0V to 3.3V and should not be connected directly to a computer's RS232 serial port which operates at +/- 12V and can damage the Core.  
+**NOTE:** Please take into account that the voltage levels on these pins runs at 0V to 3.3V and should not be connected directly to a computer's RS232 serial port which operates at +/- 12V and can damage the Core.
 
 ### SPI
 
-The Serial Peripheral Interface is available on pins:
-
 ![SPI](images/core-pin-spi.jpg)
+
+The Serial Peripheral Interface is available on pins:
 
 `A2: SS (Slave Select)`  
 `A3: SCK (Serial Clock)`  
@@ -134,9 +134,9 @@ The Serial Peripheral Interface is available on pins:
 
 ### I2C
 
-I2C communication pins are multiplexed with the standard GPIO pins D0 and D1.
-
 ![I2C](images/core-pin-i2c.jpg)
+
+I2C communication pins are multiplexed with the standard GPIO pins D0 and D1.
 
 `D0: SDA (Serial Data Line)`  
 `D1: SCL (Serial Clock)`
@@ -270,18 +270,18 @@ Electrical characteristics
 
 ### RF
 
+![S11 Chart](images/core-s11-chart.png)  
+
 With the on board chip antenna, the peak return loss (S11) has been measured and verified to be in the excess of 20dB.
 
 The transmission loss for the u.FL connector has been measured to be approximately 0.5 to 0.75dB.
 
-![S11 Chart](images/core-s11-chart.png)  
-
 Physical layout
 ---
 
-The header pins on the Core are spaced at an interval of 0.1", which is the standard pitch size for proto-boards and breadboards. The physical layout of the Core was inspired from the [Arduino Pro Mini](http://arduino.cc/en/Main/ArduinoBoardProMini) board.
-
 ![DIMENSIONS](images/core-dim.jpg)
+
+The header pins on the Core are spaced at an interval of 0.1", which is the standard pitch size for proto-boards and breadboards. The physical layout of the Core was inspired from the [Arduino Pro Mini](http://arduino.cc/en/Main/ArduinoBoardProMini) board.
 
 Mechanical drawings of the Core are available [here.](https://github.com/spark/core/blob/master/PDFs/core-mechanical-drawing-v1.pdf)
 
@@ -304,6 +304,6 @@ Mechanical drawings of the Core are available [here.](https://github.com/spark/c
    </tr>
    <tr> 
       <td>Weight</td>
-      <td>2 unicorns</td>
+      <td>14 grams</td>
    </tr>
 </table>

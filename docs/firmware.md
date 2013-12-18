@@ -43,7 +43,7 @@ Expose a *function* through the Spark Cloud so that it can be called with `POST 
 
 Currently the application supports the creation of upto 4 different Spark functions.
 
-```C++
+```cpp
 SYNTAX TO REGISTER A SPARK FUNCTION
 Spark.function("funcKey", funcName);
                   ^
@@ -51,13 +51,13 @@ Spark.function("funcKey", funcName);
      (max of 12 characters long)
 ```
 
-In order to register a Spark function, the user provides the `funcKey`, which is the string name used to make a POST request and a `funcName`, which is the actual name of the function that gets called in the Spark app. The Spark function must always return an `INT` value of either `1` (success) or `-1` (failure).
+In order to register a Spark function, the user provides the `funcKey`, which is the string name used to make a POST request and a `funcName`, which is the actual name of the function that gets called in the Spark app. The Spark function can return any integer; `-1` is commonly used for a failed function call.
 
 The length of the `funcKey` is limited to a max of 12 characters.
 
 A Spark function is set up to take one argument of the [String](http://arduino.cc/en/Reference/StringObject) datatype. This argument length is limited to a max of 64 characters.
 
-```C++
+```cpp
 EXAMPLE USAGE
 int brewCoffee(String command);
 
