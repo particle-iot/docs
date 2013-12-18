@@ -254,7 +254,7 @@ The parameter must be the pin (A0 to A7, D0 to D7). The return value will be 1 i
 
 This will read the analog value of a pin, which is a value from 0 to 4095, where 0 is LOW (GND) and 4095 is HIGH (3.3V). All of the analog pins (A0 to A7) can handle this. *analogRead* is great for reading data from sensors.
 
-    POST /v1/devices/{DEVICE_ID}/analogred
+    POST /v1/devices/{DEVICE_ID}/analogread
 
     # EXAMPLE REQUEST IN TERMINAL
     # Core ID is 0123456789abcdef01234567
