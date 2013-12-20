@@ -218,7 +218,7 @@ Local Communication
 ===
 
 Now let's imagine you want to control your Core locally,
-so you build a simple server app the Core will connect to directly.
+so you build a simple server app to which the Core will directly connect.
 One puzzle to solve is that you don't know in advance the
 IP address of your Core or of the laptop that will run the server.
 How can the Core and the server discover each other?
@@ -230,63 +230,43 @@ the data going through the Spark Cloud.
 
 ---
 
-First, we construct the client that will connect to our local server.
-
 ```C++
 TCPClient client;
-
-struct string_tokenization_state {
-  int begin_number;
-  int end_dot;
-};
-
-byte next_byte_from_string(String s, struct string_tokenization_state &state) {
-  state.begin_number = state.end_dot + 1;
-  state.end_dot = s.indexOf('.', state.begin_number);
-  String tmp = s.substring(state.begin_number, state.end_dot);
-  return atoi(tmp.c_str());
-}
-
 ```
 
-Then we need to translate the IP address String into
+First, we construct the client that will connect to our local server.
+
+---
+
+```C++
+void ipArrayFromString(byte ipArray[], String ipString) {
+  int dot1 = ipString.indexOf('.');
+  ipArray[0] = ipString.substring(0, dot1).toInt();
+  int dot2 = ipString.indexOf('.', dot1 + 1);
+  ipArray[1] = ipString.substring(dot1 + 1, dot2).toInt();
+  dot1 = ipString.indexOf('.', dot2 + 1);
+  ipArray[2] = ipString.substring(dot2 + 1, dot1).toInt();
+  ipArray[3] = ipString.substring(dot1 + 1).toInt();
+}
+```
+
+Then we need a function for translating the IP address String into
 the array of four bytes needed by the TCP client.
-To keep track of the dots in the string we group two variables
-together with a struct, and we pass it to a helper function
-for parsing strings.
 
-We save the fact that the number begins after our last dot,
-then we search for the next dot with `indexOf()`.
-We use `substring()` to pull out just the number like `"192"`
-and then use `atoi()` to turn that string into an integer.
+We work our way progressively through the string, saving the
+positions of the dots and the numeric substrings between them.
 
 ---
 
 ```C++
-void ip_array_from_string(byte ip_array[], String ip_string) {
-  struct string_tokenization_state tok_state = { 0, -1 };
+int connectToMyServer(String ip) {
+  byte serverAddress[4];
+  ipArrayFromString(serverAddress, ip);
 
-  for (int i = 0; i < 4; ++i) {
-    ip_array[i] = next_byte_from_string(ip_string, tok_state);
-  }
-}
-```
-
-With that helper function in place, we can easily make a
-super simple `ip_array_from_string()` function.
-Just setup the struct, then call `next_byte_from_string()` four times.
-
----
-
-```C++
-int connect_to_my_server(String ip) {
-  byte server_address[4];
-  ip_array_from_string(server_address, ip);
-
-  if (client.connect(server_address, 9000)) {
+  if (client.connect(serverAddress, 9000)) {
     return 1; // successfully connected
   } else {
-    return 0; // failed to connect
+    return -1; // failed to connect
   }
 }
 ```
@@ -294,7 +274,7 @@ int connect_to_my_server(String ip) {
 Here's the Spark function we're going to register.
 Like all Spark functions it takes a String parameter
 and returns an int.  We allocate an array of 4 bytes
-for the IP address, then call `ip_array_from_string()`
+for the IP address, then call `ipArrayFromString()`
 to convert the String into an array.
 
 After that, we simply call `client.connect()` with the
@@ -304,7 +284,7 @@ newly received address! Super simple!
 
 ```C++
 void setup() {
-  Spark.function("connect", connect_to_my_server);
+  Spark.function("connect", connectToMyServer);
 
   for (int pin = D0; pin <= D7; ++pin) {
     pinMode(pin, OUTPUT);
@@ -323,9 +303,13 @@ In `setup()` we only have two jobs:
 void loop() {
   if (client.connected()) {
     if (client.available()) {
-      char pin = client.read();
+      char pin = client.read() - '0' + D0;
       char level = client.read();
-      digitalWrite(pin - '0' + D0, 'h' == level ? HIGH : LOW);
+      if ('h' == level) {
+        digitalWrite(pin, HIGH);
+      } else {
+        digitalWrite(pin, LOW);
+      }
     }
   }
 }
@@ -341,12 +325,14 @@ we don't do anything.
 However, if we are *connected* and have *received a command*
 then we use the command to perform a `digitalWrite()`.
 
-Texting the Core
+[Get all the codez! >](https://github.com/spark/local-communication-example)
+
+texting the core
 ===
 
 **coming soon!**
 
-An internet button
+an internet button
 ===
 
 **coming soon!**
