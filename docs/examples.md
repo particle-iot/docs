@@ -325,7 +325,7 @@ we don't do anything.
 However, if we are *connected* and have *received a command*
 then we use the command to perform a `digitalWrite()`.
 
-[Get all the codez! >](https://github.com/spark/local-communication-example)
+[Example server and firmware on github >](https://github.com/spark/local-communication-example)
 
 texting the core
 ===
