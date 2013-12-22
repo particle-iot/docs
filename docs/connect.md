@@ -113,7 +113,8 @@ There are known issues with the following types of networks:
 - **802.11n-only networks**. The Spark Core is 802.11b/g. Most 802.11n networks are backwards compatible with 802.11b/g, but if yours is not, the Spark Core will not connect.
 - **Networks with ["captive portal"](http://en.wikipedia.org/wiki/Captive_portal) security**. A captive portal is the little website that comes up to ask you to sign in to a network or sign an agreement, like at a Starbucks. The Spark Core can't navigate these portals.
 - **Enterprise networks**. We have had mixed results connecting the Spark Core to enterprise networks, although we don't yet have a great understanding of what's causing the issue. This is something that we are working to improve.
-- **Complex networks**. Networks with multiple routers, with non-standard firewalls, and with non-standard settings. 
+- **Complex networks**. Networks with multiple routers, with non-standard firewalls, and with non-standard settings.
+- **Networks with WEP security**. If connecting with the mobile app works for you, WEP-secured networks should be fine. However, you cannot currently connect to a WEP-secured network over USB. We are implementing a fix for this now, which should be available in the next couple of weeks.
 
 So, let's dig in. If your Spark Core is not connecting to your Wi-Fi network, we recommend following these steps:
 
