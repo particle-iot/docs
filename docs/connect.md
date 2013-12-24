@@ -78,6 +78,8 @@ Once you've opened a serial connection, you have two commands at your disposal b
 - **w**: Set up your Wi-Fi SSID and password
 - **i**: Read out the Spark Core ID
 
+**NOTE:** If you connect your Core over USB the first time, you will also need to manually *claim* your Core to connect it with your account. Please see the section below on [claiming your Core](/#/connect/claiming-your-core) for more details.
+
 
 ## Coming soon: Hard-code credentials
 
