@@ -2262,9 +2262,9 @@ The variable on the left side of the assignment operator ( = sign ) needs to be 
 
 Don't confuse the assignment operator `=` (single equal sign) with the comparison operator `==` (double equal signs), which evaluates whether two expressions are equal. 
 
-### + - / (additon subtraction division)
+### + - * / (additon subtraction multiplication division)
 
-These operators return the sum, difference, product, or quotient (respectively) of the two operands. The operation is conducted using the data type of the operands, so, for example,`9 / 4` gives 2 since 9 and 4 are ints. This also means that the operation can overflow if the result is larger than that which can be stored in the data type (e.g. adding 1 to an int with the value 32,767 gives -32,768). If the operands are of different types, the "larger" type is used for the calculation.
+These operators return the sum, difference, product, or quotient (respectively) of the two operands. The operation is conducted using the data type of the operands, so, for example,`9 / 4` gives 2 since 9 and 4 are ints. This also means that the operation can overflow if the result is larger than that which can be stored in the data type (e.g. adding 1 to an int with the value 2,147,483,647 gives -2,147,483,648). If the operands are of different types, the "larger" type is used for the calculation.
 
 If one of the numbers (operands) are of the type float or of type double, floating point math will be used for the calculation. 
 
@@ -2287,9 +2287,9 @@ result = value1 / value2;
 
 **TIPS:** 
 
-  - Know that integer constants default to int, so some constant calculations may overflow (e.g. 60 * 1000 will yield a negative result).
+  - Know that integer constants default to int, so some constant calculations may overflow (e.g. 50 * 50,000,000 will yield a negative result).
   - Choose variable sizes that are large enough to hold the largest results from your calculations  
-  - Know at what point your variable will "roll over" and also what happens in the other direction e.g. (0 - 1) OR (0 - - 32768)  
+  - Know at what point your variable will "roll over" and also what happens in the other direction e.g. (0 - 1) OR (0 + 2147483648)  
   - For math that requires fractions, use float variables, but be aware of their drawbacks: large size, slow computation speeds  
   - Use the cast operator e.g. (int)myFloat to convert one variable type to another on the fly.  
 
