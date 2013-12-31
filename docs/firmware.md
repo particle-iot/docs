@@ -360,8 +360,6 @@ Writes an analog value (PWM wave) to a pin. Can be used to light a LED at varyin
 
 On the Spark Core, this function works on pins A0, A1, A4, A5, A6, A7, D0 and D1.
 
-You do not need to call pinMode() to set the pin as an output before calling analogWrite().
-
 The analogWrite function has nothing to do with the analog pins or the analogRead function. 
 
 ```C++
