@@ -210,7 +210,7 @@ If that doesn’t work, try the steps below:
 
 Please complete the following steps:
 
-1. [Check the basics] (/#/connect/troubleshooting-step-0-check-the-basics).
+1. [Check the basics](/#/connect/troubleshooting-step-0-check-the-basics).
 2. Try a new power source. You should be powering your Core with a power supply that is capable of providing 500mA of current.  We recommend the 5V/1A wall wart power supplies that are commonly used for charging cell phones.
 3. If your network has a landing page or splash page, the Core will not be able to connect; try configuring it onto a different network.
 4. Try [rebooting the Core and clearing its memory](/#/connect/troubleshooting-step-3-reboot-and-clear-memory).
@@ -290,14 +290,22 @@ There are two potential failure modes here--either your home network does not ha
 
 ---
 
-## Blank or unresponsive
+## Main LED off, small blue LED dim
+
+- *What’s the Core doing?* The main LED on my Spark Core is off, but the small blue LED in the upper right corner is dimly glowing.
+- *What’s the problem?* Your Core is missing firmware.
+- *How do I fix it?*
+
+1. Try a factory reset.  Hold down both buttons, then release the RST button, while holding down the MODE button.  The LED should begin flashing yellow.  Continue holding down the MODE button until you see the Core change from flashing yellow to flashing white.  Then release the button.  The Core should begin [flashing blue](https://v.cdn.vine.co/r/videos/E465A8959B1015390893882101760_178fcfd2b3c.4.3.11510817618992331600_MIW9HE1mtZ9H_SpBlKdK1lv2UfmniExCFQHrgJ7iqiFDUiDb0E31bR7GwvB_7wz0.mp4?versionId=eS01KUZ6NaUZgEipSDeVi0rxZENByp1N) after the factory reset is complete.
+2. If you see no flashing lights during factory reset, then your Core may be temporarily nonfunctional.  If you have a JTAG shield, [contact the Spark team](mailto:hello@spark.io) so we can help walk you through re-installing the Core firmware.  If you do not have a JTAG shield, please [contact the Spark team](mailto:hello@spark.io) to let us know, and we’ll help you take next steps.
+
+## LEDs off and unresponsive
 
 - *What’s the Core doing?* My Core isn’t showing any LED activity when I power it over USB.
-- *What’s the problem?* Your Core may not have the necessary firmware installed
+- *What’s the problem?* Your Core is not receiving power.
 - *How do I fix it?*
 
 Please complete the following steps:
   
 1. Try powering the Core with a different USB cable and power supply (different USB port on your computer, for example)
-2. Try a factory reset.  Hold down both buttons, then release the RST button, while holding down the MODE button.  The LED should begin flashing yellow.  Continue holding down the MODE button until you see the Core change from flashing yellow to flashing white.  Then release the button.  The Core should begin [flashing blue](https://v.cdn.vine.co/r/videos/E465A8959B1015390893882101760_178fcfd2b3c.4.3.11510817618992331600_MIW9HE1mtZ9H_SpBlKdK1lv2UfmniExCFQHrgJ7iqiFDUiDb0E31bR7GwvB_7wz0.mp4?versionId=eS01KUZ6NaUZgEipSDeVi0rxZENByp1N) after the factory reset is complete.
-3. If you see no flashing lights during factory reset, then your Core may be temporarily nonfunctional.  If you have a JTAG shield, contact the Spark team so we can help walk you through re-installing the Core firmware.  If you do not have a JTAG shield, please [contact the Spark team](mailto:hello@sparkdevices.com) to let us know, and we’ll help you take next steps.
+2. If a different USB cable and power supply does not fix the issue, your Core may have a hardware short. Please [contact the Spark team](mailto:hello@spark.io) for further debugging.
