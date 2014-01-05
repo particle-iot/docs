@@ -1329,6 +1329,56 @@ Detach the Servo variable from its pin.
 servo.detach()
 ```
 
+RGB
+---
+
+This library allows the user to control the RGB LED on the front of the Spark Core.
+
+```cpp
+// EXAMPLE CODE
+
+// take control of the LED
+RGB.control(true);
+
+// red, green, blue, 0-255
+RGB.color(0, 0, 0);
+
+// wait one second
+delay(1000);
+
+// resume normal operation
+RGB.control(false);
+```
+
+### control(user_control)
+
+User can take control of the RGB LED, or give control back to the Spark Core firmware.
+
+```cpp
+// take control of the LED
+RGB.control(true);
+
+// resume normal operation
+RGB.control(false);
+```
+
+### color(red, green, blue)
+
+Set the color of the RGB with three values, 0 to 255 (0 is off, 255 is maximum brightness).
+
+```cpp
+// Set the LED to red
+RGB.color(255, 0, 0);
+
+// Sets the LED to cyan
+RGB.color(0, 255, 255);
+
+// Sets the LED to white
+RGB.color(255, 255, 255);
+```
+
+
+
 Other functions
 ====
 
