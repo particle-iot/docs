@@ -229,6 +229,8 @@ The API endpoint is `/v1/devices/{DEVICE_ID}/{VARIABLE}` and as always, you have
 curl "https://api.spark.io/v1/devices/0123456789abcdef01234567/temperature?access_token=1234123412341234123412341234123412341234"
 ```
 
+**NOTE**: Variable names are truncated after the 12th character: `temperature_sensor` is accessable as `temperature_`
+
 ### Events
 
 Event-related Spark Cloud behaviors (callbacks and event streams) are not ready yet, but they will be soon.
