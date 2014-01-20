@@ -720,7 +720,7 @@ Sets the SPI data mode: that is, clock polarity and phase. See the [Wikipedia ar
 
 ```C++
 // SYNTAX
-SPI.setClockDivider(mode) ;
+SPI.setDataMode(mode) ;
 ```
 Where the parameter, `mode` can be: 
 
