@@ -807,7 +807,7 @@ The default value is true.
 
 ```C++
 Wire.endTransmission();
-Wire.endTransmission(stop);
+Wire.endTransmission(true);
 ```
 
 Parameters: `stop` : boolean.  
