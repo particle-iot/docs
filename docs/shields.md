@@ -297,14 +297,14 @@ Setting up the shield
 
 In order to just charge the battery, simply plug the battery into the JST connector (**CAUTION: Remember to check the polarity of the battery header!!**) and a USB cable into the microB socket as shown in the picture.  
 
-You will see the BLUE power LED light up on the shield and either the RED (indicating charging in progress) or GREEN (indicating charging complete) LED light up.  
+You will see the BLUE power LED light up on the shield and either the YELLOW (indicating charging in progress) or GREEN (indicating charging complete) LED light up.  
 
 ![Battery Shield Charging and Powering](images/bshield-charging-powering.jpg)
 
 To summarize the LED functions:
 
 - Blue LED: Power indicator for the USB cable. Lights up only when the USB cable is plugged in.
-- Red LED: Charging in progress indicator. Is ON when the battery is charging. Turns OFF when charging complete.
+- Yellow LED: Charging in progress indicator. Is ON when the battery is charging. Turns OFF when charging complete.
 - Green LED: Charge Complete Indicator. This LED lights up when the battery is completely charged.
 
 You could also power the Spark Core while the battery is charging but remember that the charging might be slower as the current will be distributed in between the Core and the battery.  
