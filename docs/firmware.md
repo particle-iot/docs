@@ -133,7 +133,7 @@ I guess this should be callback registration...?
 
 ### Spark.connected()
 
-Returns `true` when connected to the Spark Cloud, and `false` when disconnected to the Spark Cloud.
+Returns `true` when connected to the Spark Cloud, and `false` when disconnected from the Spark Cloud.
 
 ```C++
 SYNTAX
@@ -154,20 +154,52 @@ void loop() {
   delay(1000);
 }
 ```
-<!-- TO DO 
-### Spark.disconnect()
 
-Disconnects the Spark Core from the Spark Cloud.
+### Spark.disconnect() and Spark.connect()
+
+Disconnects the Spark Core from the Spark Cloud and subsequently reconnect.
 
 ```C++
-SYNTAX
-Spark.disconnect()
+int counter = 10000;
 
-EXAMPLE USAGE
-Hmm, not sure what this one should look like...
+void doConnectedWork() {
+  digitalWrite(D7, HIGH);
+  Serial.println("Working online");
+}
+
+void doOfflineWork() {
+  digitalWrite(D7, LOW);
+  Serial.println("Working offline");
+}
+
+bool needConnection() {
+  --counter;
+  if (0 == counter)
+    counter = 10000;
+  return (2000 > counter);
+}
+
+void setup() {
+  pinMode(D7, OUTPUT);
+  Serial.begin(9600);
+}
+
+void loop() {
+  if (needConnection()) {
+    if (!Spark.connected())
+      Spark.connect();
+    doConnectedWork();
+  } else {
+    if (Spark.connected())
+      Spark.disconnect();
+    doOfflineWork();
+  }
+}
 ```
 
-NOTE: When the Core is disconnected, over-the-air updates are no longer possible. To re-enable over-the-air firmware updates, initiate a factory reset.
+NOTE: When the Core is disconnected, many features are not possible, including over-the-air updates, reading Spark.variables, and calling Spark.functions.
+*If you flash firmware that does not stay connected very long, you will NOT BE ABLE to flash new firmware.*
+A factory reset should solve this.
 
 
 
@@ -175,13 +207,9 @@ NOTE: When the Core is disconnected, over-the-air updates are no longer possible
 
 Re-connects the Spark Core to the Spark Cloud after `Spark.disconnect()` is called.
 
-```C++
-SYNTAX
-Spark.connect()
-```
 
 The Spark Core connects to the cloud by default, so it's not necessary to call `Spark.connect()` unless you have explicitly disconnected the Core.
--->
+
 
 <!-- TO DO -->
 <!-- Add example implementation here -->
