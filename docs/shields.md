@@ -609,12 +609,15 @@ Your very own Spark Core, ready to take over the world, one byte at a time.
 
 The RC car kit is a two-wheeled differentially driven platform that you can control using a Spark Core.
 
+
 ### Kit Contents
 
-- RC Car Chassis kit
-- Spark Shield Shield
-- Motor Driver Shield
-- Spark Core
+NOTE: This is no longer available for purchase through Spark, however, if you want to build this, you can buy the components individually via the links below.
+
+- RC Car Chassis kit ([buy from DFRobot](http://www.dfrobot.com/index.php?route=product/product&path=37_111&product_id=65))
+- Motor Driver Shield ([buy from DFRobot](http://www.dfrobot.com/index.php?route=product/product&product_id=69))
+- Spark Shield Shield ([buy from Spark](https://www.trycelery.com/shop/spark))
+- Spark Core ([buy from Spark](https://www.trycelery.com/shop/spark))
 
 Assemble the RC Car chassis as shown in the [tutorial here.](http://www.dfrobot.com/wiki/index.php/3PA_Assembly_Guide_%28SKU:ROB0005%29) (Without the electronics)
 
