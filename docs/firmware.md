@@ -157,7 +157,8 @@ void loop() {
 
 ### Spark.disconnect() and Spark.connect()
 
-Disconnects the Spark Core from the Spark Cloud and subsequently reconnect.
+`Spark.disconnect()` disconnects the Spark Core from the Spark Cloud, while
+`Spark.connect() subsequently reconnects.
 
 ```C++
 int counter = 10000;
@@ -197,18 +198,14 @@ void loop() {
 }
 ```
 
+The Spark Core connects to the cloud by default, so it's not necessary to call `Spark.connect()` unless you have explicitly disconnected the Core.
+
 NOTE: When the Core is disconnected, many features are not possible, including over-the-air updates, reading Spark.variables, and calling Spark.functions.
+
 *If you flash firmware that does not stay connected very long, you will NOT BE ABLE to flash new firmware.*
+
 A factory reset should solve this.
 
-
-
-### Spark.connect()
-
-Re-connects the Spark Core to the Spark Cloud after `Spark.disconnect()` is called.
-
-
-The Spark Core connects to the cloud by default, so it's not necessary to call `Spark.connect()` unless you have explicitly disconnected the Core.
 
 
 <!-- TO DO -->
