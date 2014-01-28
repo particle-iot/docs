@@ -86,6 +86,84 @@ In the future, you will be able to provision access to your Spark Core to other 
 and to third-party app developers, and transfer ownership of your Spark Core to another account;
 however, these features are not yet available.
 
+
+### Generate a new access token
+
+```
+POST /oauth/token
+
+# Using curl in your terminal
+curl https://api.spark.io/oauth/token -u spark:spark \
+     -d grant_type=password -d username=joe@example.com -d password=SuperSecret
+
+# A typical JSON response will look like this
+{
+    "access_token": "254406f79c1999af65a7df4388971354f85cfee9",
+    "token_type": "bearer",
+    "expires_in": 7776000
+}
+```
+
+When creating a new access token, you need to specify several additional pieces of info.
+
+You must give a valid client ID and password in HTTP Basic Auth.
+Any client ID will work right now, so we suggest `spark:spark`.
+In the POST body, you need three parameters:
+
+* grant_type=password
+* username=YOUR_EMAIL@ADDRE.SS
+* password=YOUR_PASSWORD
+
+For now, Spark Build will list the single most recently created token.
+
+
+### List all your tokens
+
+```
+GET /v1/access_tokens
+
+# Using curl in your terminal
+curl https://api.spark.io/v1/access_tokens -u joe@example.com:SuperSecret
+
+# Example JSON response
+[
+    {
+        "token": "b5b901e8760164e134199bc2c3dd1d228acf2d98",
+        "expires_at": "2014-04-27T02:20:36.177Z",
+        "client": "spark"
+    },
+    {
+        "token": "ba54b6bb71a43b7612bdc7c972914604a078892b",
+        "expires_at": "2014-04-27T06:31:08.991Z",
+        "client": "spark"
+    }
+]
+```
+
+You can list all your access tokens by passing your email address and password
+in an HTTP Basic Auth header to `/v1/access_tokens`.
+
+
+### Deleting an access token
+
+```
+DELETE /v1/access_tokens/:token
+
+# Using curl in your terminal
+curl https://api.spark.io/v1/access_tokens/b5b901e8760164e134199bc2c3dd1d228acf2d98 \
+     -u joe@example.com:SuperSecret -X DELETE
+
+# Example JSON response
+{
+    "ok": true
+}
+```
+
+If you have a bunch of unused tokens and want to clean up, you can delete tokens.
+
+Just as for listing them, send your username and password in an HTTP Basic Auth header.
+
+
 Errors
 -------
 

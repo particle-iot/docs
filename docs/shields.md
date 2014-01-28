@@ -215,7 +215,7 @@ An example API request to this function would look something like this:
 POST /v1/devices/{DEVICE_ID}/relay
 
 # EXAMPLE REQUEST
-curl https://api.spark.io/v1/devices/teapot/relay \
+curl https://api.spark.io/v1/devices/0123456789abcdef01234567/relay \
   -d access_token=1234123412341234123412341234123412341234 -d params=r1,HIGH
 ```
 
@@ -297,14 +297,14 @@ Setting up the shield
 
 In order to just charge the battery, simply plug the battery into the JST connector (**CAUTION: Remember to check the polarity of the battery header!!**) and a USB cable into the microB socket as shown in the picture.  
 
-You will see the BLUE power LED light up on the shield and either the RED (indicating charging in progress) or GREEN (indicating charging complete) LED light up.  
+You will see the BLUE power LED light up on the shield and either the YELLOW (indicating charging in progress) or GREEN (indicating charging complete) LED light up.  
 
 ![Battery Shield Charging and Powering](images/bshield-charging-powering.jpg)
 
 To summarize the LED functions:
 
 - Blue LED: Power indicator for the USB cable. Lights up only when the USB cable is plugged in.
-- Red LED: Charging in progress indicator. Is ON when the battery is charging. Turns OFF when charging complete.
+- Yellow LED: Charging in progress indicator. Is ON when the battery is charging. Turns OFF when charging complete.
 - Green LED: Charge Complete Indicator. This LED lights up when the battery is completely charged.
 
 You could also power the Spark Core while the battery is charging but remember that the charging might be slower as the current will be distributed in between the Core and the battery.  
@@ -753,7 +753,7 @@ To send API commands:
 
 ```json
 # Sending command to go forward
-curl https://api.spark.io/v1/devices/1234/rccar -d access_token=1234 -d params=rc,FORWARD
+curl https://api.spark.io/v1/devices/0123456789abcdef01234567/rccar -d access_token=1234 -d params=rc,FORWARD
 ```
 
 ### Motor Driver Shield Specifications
