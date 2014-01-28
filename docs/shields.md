@@ -612,10 +612,11 @@ The RC car kit is a two-wheeled differentially driven platform that you can cont
 
 ### Kit Contents
 
-NOTE: This is no longer available for purchase through Spark, however, if you want to build this, you can buy the components individually via the links below.
+NOTE: This is no longer available for purchase through Spark, however, if you still want to build this, check out the links to the individual components below.
 
 - RC Car Chassis kit ([buy from DFRobot](http://www.dfrobot.com/index.php?route=product/product&path=37_111&product_id=65))
 - Motor Driver Shield ([buy from DFRobot](http://www.dfrobot.com/index.php?route=product/product&product_id=69))
+- Battery (NiCad, Alkaline, LiPo, Li Ion : 6V to 12V DC) ([buy from DFRobot](http://www.dfrobot.com/index.php?route=product/product&filter_name=battery&product_id=489))
 - Spark Shield Shield ([buy from Spark](https://www.trycelery.com/shop/spark))
 - Spark Core ([buy from Spark](https://www.trycelery.com/shop/spark))
 
