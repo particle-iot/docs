@@ -1241,19 +1241,173 @@ client.stop();
 UDP
 -----
 
-### UDP
+This class enables UDP messages to be sent and received. 
+
+<!-- TO DO -->
+<!-- Add more examples-->
+
 ### begin()
+
+Initializes the UDP library and network settings. 
+
+```cpp
+// EXAMPLE USAGE
+
+// local port to listen on
+unsigned int localPort = 8888;      
+
+// An UDP instance to let us send and receive packets over UDP
+UDP Udp;
+
+void setup() 
+{
+  // start the UDP
+  Udp.begin(localPort);
+}
+
+void loop() 
+{
+}
+
+```
+
 ### available()
+
+Get the number of bytes (characters) available for reading from the buffer. This is data that's already arrived.
+
+This function can only be successfully called after `UDP.parsePacket()`.
+
+`available()` inherits from the `Stream` utility class. 
+
+```cpp
+// SYNTAX
+UDP.available() 
+```
+
+Returns the number of bytes available to read.
+
+Parameters:
+
+ - `remoteIP`: the IP address of the remote connection (4 bytes)
+ - `remotePort`: the port of the remote connection (int)
+
+Its returns nothing.
+
 ### beginPacket()
+
+Starts a connection to write UDP data to the remote connection.
+
+```cpp
+// SYNTAX
+UDP.beginPacket(remoteIP, remotePort); 
+```
+
 ### endPacket()
+
+Called after writing UDP data to the remote connection. 
+
+```cpp
+// SYNTAX
+UDP.endPacket(); 
+```
+
+Parameters: NONE
+
 ### write()
+
+Writes UDP data to the remote connection. Must be wrapped between `beginPacket()` and `endPacket()`. `beginPacket()` initializes the packet of data, it is not sent until `endPacket()` is called. 
+
+```cpp
+// SYNTAX
+UDP.write(message);
+UDP.write(buffer, size); 
+```
+
+Parameters:
+
+ - `message`: the outgoing message (char)
+ - `buffer`: an array to send as a series of bytes (byte or char)
+ - `size`: the length of the buffer
+
+Returns: 
+
+ - `byte`: returns the number of characters sent. This does not have to be read 
+
+
 ### parsePacket()
-### peek()
+
+Checks for the presence of a UDP packet, and reports the size. `parsePacket()` must be called before reading the buffer with `UDP.read()`. 
+
+```cpp
+// SYNTAX
+UDP.parsePacket(); 
+```
+
+Parameters: NONE
+
+Returns:
+
+ - `int`: the size of a received UDP packet 
+
 ### read()
-### flush()
+
+Reads UDP data from the specified buffer. If no arguments are given, it will return the next character in the buffer.
+
+This function can only be successfully called after `UDP.parsePacket()`. 
+
+```cpp
+// SYNTAX
+UDP.read();
+UDP.read(packetBuffer, MaxSize); 
+```
+Parameters:
+
+ - `packetBuffer`: buffer to hold incoming packets (char)
+ - `MaxSize`: maximum size of the buffer (int)
+
+Returns:
+
+ - `char`: returns the characters in the buffer 
+
+
 ### stop()
+
+Disconnect from the server. Release any resource being used during the UDP session. 
+
+```cpp
+// SYNTAX
+UDP.stop();
+```
+Parameters: NONE
+
 ### remoteIP()
+
+Gets the IP address of the remote connection. This function must be called after `UDP.parsePacket()`. 
+
+```cpp
+// SYNTAX
+UDP.remoteIP(); 
+```
+Parameters: NONE
+
+Returns:
+
+ - 4 bytes : the IP address of the remote connection 
+
+
 ### remotePort()
+
+Gets the port of the remote UDP connection. This function must be called after `UDP.parsePacket()`.
+
+```cpp
+// SYNTAX
+UDP.remotePort(); 
+```
+Parameters: NONE
+
+Returns:
+
+- `int`: the port of the UDP connection to a remote host 
 
 Libraries
 ===
