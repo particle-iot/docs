@@ -965,6 +965,7 @@ Parameters: `port`: the port to listen on (`int`)
 
 // telnet defaults to port 23
 TCPServer server = TCPServer(23);
+TCPClient client;
 
 void setup()
 {
@@ -983,13 +984,14 @@ void setup()
 
 void loop()
 {
-  // if an incoming client connects, there will be bytes available to read:
-  TCPClient client = server.available();
-  if (client == true) 
-  {
-      // read bytes from the incoming client and write them back
-      // to any clients connected to the server:
+  if (client.connected()) {
+    // echo all available bytes back to the client
+    while (client.available()) {
       server.write(client.read());
+    }
+  } else {
+    // if no client is yet connected, check for a new connection
+    client = server.available();
   }
 }
 ```
