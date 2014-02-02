@@ -56,7 +56,7 @@ The only thing that's different is that you'll need to activate the optional AES
 
 You can also connect the Spark Core to your Wi-Fi network over USB by communicating through Serial. *NOTE: This only works when the Spark Core is in listening mode*.
 
-First, you'll need to download a serial terminal application; we recommend [PuTTY](http://www.chiark.greenend.org.uk/~sgtatham/putty/) for Windows and [CoolTerm](http://freeware.the-meiers.org/) for Mac.
+First, you'll need to download a serial terminal application; we recommend [PuTTY](http://www.chiark.greenend.org.uk/~sgtatham/putty/) for Windows and [CoolTerm](http://freeware.the-meiers.org/) for Mac. From the command line, [GNU Screen](https://www.gnu.org/software/screen/) works great.
 
 ![CoolTerm settings](images/coolterm-settings.png)
 
@@ -70,6 +70,8 @@ Plug your Spark Core into your computer over USB. When the Spark Core is in list
 - Data Bits: 8
 - Parity: none
 - Stop Bits: 1
+
+Screen should work by running `sudo screen <port> 9600`, and then pressing either of the commands below. On Ubuntu, `<port>` is probably /dev/ttyACM0.
 
 ![CoolTerm setup](images/coolterm-setup.png)
 
