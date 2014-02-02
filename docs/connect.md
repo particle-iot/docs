@@ -76,7 +76,7 @@ Plug your Spark Core into your computer over USB. When the Spark Core is in list
 Once you've opened a serial connection, you have two commands at your disposal by hitting either **w** or **i** on the keyboard. Here's what they do:
 
 - **w**: Set up your Wi-Fi SSID and password
-- **i**: Read out the Spark Core ID
+- **i (the i in tiger)**: Read out the Spark Core ID
 
 **NOTE:** If you connect your Core over USB the first time, you will also need to manually *claim* your Core to connect it with your account. Please see the section below on [claiming your Core](/#/connect/claiming-your-core) for more details.
 
