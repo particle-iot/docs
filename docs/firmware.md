@@ -17,6 +17,7 @@ int temperature = 0;
 
 void setup()
 {
+  // variable name max length is 12 characters long
   Spark.variable("temperature", &temperature, INT);
   pinMode(A0, INPUT);
 }
@@ -36,7 +37,6 @@ COMPLEMENTARY API CALL
 curl "https://api.spark.io/v1/devices/0123456789abcdef01234567/temperature?access_token=1234123412341234123412341234123412341234"
 ```
 
-
 ### Spark.function()
 
 Expose a *function* through the Spark Cloud so that it can be called with `POST device/{FUNCTION}`.
@@ -44,11 +44,11 @@ Expose a *function* through the Spark Cloud so that it can be called with `POST 
 Currently the application supports the creation of upto 4 different Spark functions.
 
 ```cpp
-SYNTAX TO REGISTER A SPARK FUNCTION
+// SYNTAX TO REGISTER A SPARK FUNCTION
 Spark.function("funcKey", funcName);
-                  ^
-                  |
-     (max of 12 characters long)
+//                ^
+//                |
+//     (max of 12 characters long)
 ```
 
 In order to register a Spark function, the user provides the `funcKey`, which is the string name used to make a POST request and a `funcName`, which is the actual name of the function that gets called in the Spark app. The Spark function can return any integer; `-1` is commonly used for a failed function call.
