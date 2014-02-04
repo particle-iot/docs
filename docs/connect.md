@@ -304,7 +304,7 @@ There are two potential failure modes here--either your home network does not ha
 - *What’s the problem?* Your Core is missing firmware.
 - *How do I fix it?*
 
-1. Try a factory reset.  Hold down both buttons, then release the RST button, while holding down the MODE button.  The LED should begin flashing yellow.  Continue holding down the MODE button until you see the Core change from flashing yellow to flashing white.  Then release the button.  The Core should begin [flashing blue](https://v.cdn.vine.co/r/videos/E465A8959B1015390893882101760_178fcfd2b3c.4.3.11510817618992331600_MIW9HE1mtZ9H_SpBlKdK1lv2UfmniExCFQHrgJ7iqiFDUiDb0E31bR7GwvB_7wz0.mp4?versionId=eS01KUZ6NaUZgEipSDeVi0rxZENByp1N) after the factory reset is complete.
+1. Try a factory reset.  Hold down both buttons, then release the RST button, while holding down the MODE button.  The LED should begin flashing yellow.  Continue holding down the MODE button until you see the Core change from flashing yellow to flashing white.  Then release the button.  The Core should begin after the factory reset is complete.
 2. If you see no flashing lights during factory reset, then your Core may be temporarily nonfunctional.  If you have a JTAG shield, [contact the Spark team](mailto:hello@spark.io) so we can help walk you through re-installing the Core firmware.  If you do not have a JTAG shield, please [contact the Spark team](mailto:hello@spark.io) to let us know, and we’ll help you take next steps.
 
 ## LEDs off and unresponsive
@@ -317,3 +317,31 @@ Please complete the following steps:
   
 1. Try powering the Core with a different USB cable and power supply (different USB port on your computer, for example)
 2. If a different USB cable and power supply does not fix the issue, your Core may have a hardware short. Please [contact the Spark team](mailto:hello@spark.io) for further debugging.
+
+
+APPENDIX
+===
+
+## DFU Mode (Device Firmware Upgrade)
+
+If you are wish to program a Core with a custom firmware via USB, you'll need to use this mode. This mode triggers the on-board bootloader that accepts firmware binary files via the dfu-utility.
+
+Procedure:
+
+Hold down both buttons, then release the RST button, while holding down the MODE button. Release the MODE button as soon as the LED starts flashing yellow. The Core now is in the DFU mode.
+
+
+<iframe class="vine-embed" src="https://vine.co/v/MahhI1Fg7O6/embed/simple" width="320" height="320" frameborder="0"></iframe>
+
+
+## Factory Reset
+
+A factory reset restores the firmware on the Core to the default Tinker app and clears all your WiFi credentials. 
+
+Procedure: 
+
+The procedure is same as the one described above (DFU Mode), but in this case you should continue holding down the MODE button until you see the Core change from flashing yellow to flashing white. Then release the button.  The Core should begin after the factory reset is complete.
+
+**Note:** The video here is a continuation of the video from above (DFU Mode).
+
+<iframe class="vine-embed" src="https://vine.co/v/MahOmIaX2xP/embed/simple" width="320" height="320" frameborder="0"></iframe>
