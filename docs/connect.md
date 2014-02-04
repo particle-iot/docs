@@ -54,15 +54,24 @@ The only thing that's different is that you'll need to activate the optional AES
 
 ## Connect over USB
 
-You can also connect the Spark Core to your Wi-Fi network over USB by communicating through Serial. *NOTE: This only works when the Spark Core is in listening mode*.
+You can also connect the Spark Core to your Wi-Fi network over USB by communicating through Serial. *NOTE: This only works when the Spark Core is in listening mode (i.e. rgb led is blinking blue)*.
 
-First, you'll need to download a serial terminal application; we recommend [PuTTY](http://www.chiark.greenend.org.uk/~sgtatham/putty/) for Windows and [CoolTerm](http://freeware.the-meiers.org/) for Mac.
+First, you'll need to download a serial terminal application.
 
+For __Windows__ users, we recommend [PuTTY](http://www.chiark.greenend.org.uk/~sgtatham/putty/).
+You'll also need to install the [Windows driver for Spark Core](https://s3.amazonaws.com/spark-website/spark_core.inf)
+
+[CoolTerm](http://freeware.the-meiers.org/) provides a nice GUI.
 ![CoolTerm settings](images/coolterm-settings.png)
+![CoolTerm setup](images/coolterm-setup.png)
 
-If you're running Windows, you'll need a driver:
+For __Mac__ users, either CoolTerm or screen work.
 
-[Windows driver for Spark Core >](https://s3.amazonaws.com/spark-website/spark_core.inf)
+For __Linux__ command line usage, [GNU Screen](https://www.gnu.org/software/screen/) works great.
+(On OS X, the command line invocation might look something like `screen /dev/cu.usbmodem1411 9600`.
+On Ubuntu, it looks something like `screen /dev/ttyACM0 9600`.)
+
+__How-to__
 
 Plug your Spark Core into your computer over USB. When the Spark Core is in listening mode, open a serial port over USB using the standard settings, which should be:
 
@@ -71,15 +80,12 @@ Plug your Spark Core into your computer over USB. When the Spark Core is in list
 - Parity: none
 - Stop Bits: 1
 
-![CoolTerm setup](images/coolterm-setup.png)
-
 Once you've opened a serial connection, you have two commands at your disposal by hitting either **w** or **i** on the keyboard. Here's what they do:
 
 - **w**: Set up your Wi-Fi SSID and password
-- **i**: Read out the Spark Core ID
+- **i**: ("i" as in identify) Read out the Spark Core ID
 
 **NOTE:** If you connect your Core over USB the first time, you will also need to manually *claim* your Core to connect it with your account. Please see the section below on [claiming your Core](/#/connect/claiming-your-core) for more details.
-
 
 ## Coming soon: Hard-code credentials
 
