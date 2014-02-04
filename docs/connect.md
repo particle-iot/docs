@@ -153,6 +153,7 @@ So often, electronics start behaving after you shut them off and turn them back 
 - Closing your mobile app and re-opening it
 - Un-plugging the Spark Core and plugging it back in
 - Clear the Spark Core's memory of Wi-Fi networks by holding the MODE button for 10 seconds. After 3 seconds, the light should start flashing blue; after 10 seconds, it should do a quick burst of blue flashes. That means the memory has been cleared.
+- Restoring the Spark Core's firmware to the factory default.  Getting this right can be tricky, see [this video](https://community.spark.io/t/how-to-do-a-factory-reset/2579) for illustration.
 
 ## STEP 4: Check your router settings
 
