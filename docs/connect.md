@@ -59,7 +59,9 @@ You can also connect the Spark Core to your Wi-Fi network over USB by communicat
 First, you'll need to download a serial terminal application.
 
 For __Windows__ users, we recommend [PuTTY](http://www.chiark.greenend.org.uk/~sgtatham/putty/).
-You'll also need to install the [Windows driver for Spark Core](https://s3.amazonaws.com/spark-website/spark_core.inf)
+You'll also need to install the Windows driver:
+
+[Windows driver for Spark Core >](https://s3.amazonaws.com/spark-website/Spark.zip)
 
 [CoolTerm](http://freeware.the-meiers.org/) provides a nice GUI.
 ![CoolTerm settings](images/coolterm-settings.png)
@@ -69,7 +71,7 @@ For __Mac__ users, either CoolTerm or screen work.
 
 For __Linux__ command line usage, [GNU Screen](https://www.gnu.org/software/screen/) works great.
 (On OS X, the command line invocation might look something like `screen /dev/cu.usbmodem1411 9600`.
-On Ubuntu, it looks something like `screen /dev/ttyACM0 9600`.)
+On Ubuntu, it looks something like `screen /dev/ttyACM0 9600`. Device location may vary, poke around in the `/dev` directory if you don't find it immediately)
 
 __How-to__
 
