@@ -118,7 +118,7 @@ int ledControl(String command)
 {
    int state = 0;
    //find out the pin number and convert the ascii to integer
-   int pinNumber = command.charAt(1) - '0';
+   int pinNumber = (command.charAt(1) - '0') - 1;
    //Sanity check to see if the pin numbers are within limits
    if (pinNumber < 0 || pinNumber > 1) return -1;
 
