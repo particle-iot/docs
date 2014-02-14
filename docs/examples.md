@@ -165,7 +165,7 @@ In this example, we will hook up a temperature sensor to the Core and read the v
 
 We have used a widely available analog temperature called TMP36 from Analog Devices. You can download the [datasheet here.](http://www.analog.com/static/imported-files/data_sheets/TMP35_36_37.pdf)
 
-Notice how we are powering the sensor from 3.3V\* pin instead of the regular 3.3V. This is because the 3.3V\* pin gives out a (LC) clean filtered  voltage, ideal for analog applications like these.
+Notice how we are powering the sensor from 3.3V\* pin instead of the regular 3.3V. This is because the 3.3V\* pin gives out a (LC) clean filtered  voltage, ideal for analog applications like these. If the readings you get are noisy or inconsistent, add a 0.1uF (100nF) ceramic capacitor between the analog input pin (in this case,A0) and GND as shown in the set up.
 
 ```C++
 // -----------------
