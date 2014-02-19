@@ -276,6 +276,22 @@ With the on board chip antenna, the peak return loss (S11) has been measured and
 
 The transmission loss for the u.FL connector has been measured to be approximately 0.5 to 0.75dB.
 
+Types of Cores
+---
+
+Currently the Core is available in two flavors. With an on-board chip antenna or an uFL connector to connect an external antenna.
+
+![Antenna Options](images/chip-ufl.jpg)
+
+### Chip Antenna
+
+This version of the Core comes with an on board chip antenna that gives a signal strength similar to a mobile phone.  In most cases, a simple plastic enclosure will not affect the signal strength of the chip antenna.
+
+### uFL Connector
+
+If you want to improve the signal strength of the Core, you can connect an external antenna with the help of the [uFL connector](http://en.wikipedia.org/wiki/Hirose_U.FL). Most antennas that are designed to operate at 2.4GHz or are WiFi rated will do the job. You can also make your own [cantenna](https://community.spark.io/t/extending-the-core-wifi-range-with-a-cantenna/1357)!
+
+
 Physical layout
 ---
 
@@ -307,18 +323,3 @@ Mechanical drawings of the Core are available [here.](https://github.com/spark/c
       <td>14 grams</td>
    </tr>
 </table>
-
-Types of Cores
----
-
-Currently the Core is available in two flavors. With an on-board chip antenna or an uFL connector to connect an external antenna.
-
-![Antenna Options](images/chip-ufl.jpg)
-
-### Chip Antenna
-
-This version of the Core comes with an on board chip antenna that gives a signal strength similar to a mobile phone.  In most cases, a simple plastic enclosure will not affect the signal strength of the chip antenna.
-
-### uFL Connector
-
-If you want to improve the signal strength of the Core, you can connect an external antenna with the help of the [uFL connector](http://en.wikipedia.org/wiki/Hirose_U.FL). Most antennas that are designed to operate at 2.4GHz or are WiFi rated will do the job. You can also make your own [cantenna](https://community.spark.io/t/extending-the-core-wifi-range-with-a-cantenna/1357)!
