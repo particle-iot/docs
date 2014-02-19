@@ -295,7 +295,7 @@ If you want to improve the signal strength of the Core, you can connect an exter
 
 Physical layout
 ---
-
+![DIMENSIONS](images/core-dim.jpg)
 
 The header pins on the Core are spaced at an interval of 0.1", which is the standard pitch size for proto-boards and breadboards. The physical layout of the Core was inspired from the [Arduino Pro Mini](http://arduino.cc/en/Main/ArduinoBoardProMini) board.
 
