@@ -1,15 +1,63 @@
-<!DOCTYPE html>
-  <html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <title>Spark Docs | </title>
-    <link rel="stylesheet" href="http://getbootstrap.com/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="../assets/validation.css">
-  </head>
-  <body style="padding-top: 60px;">
-    <div class="container">
+<!doctype html>
+<html>
+<head>
+  <meta charset='utf-8'>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width">
 
-          <pre><code>        Spark Core Firmware</code></pre>
+  <title>Spark Docs | </title>
+
+  <!-- Flatdoc -->
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
+  <!-- Let me embed vines --> 
+  <script async src="//platform.vine.co/static/scripts/embed.js" charset="utf-8"></script>
+
+  <!-- Favicon -->
+  <link rel="icon" href="../assets/favicon.ico">
+
+  <!-- Flatdoc theme -->
+  <link href='../assets/theme-white.css' rel='stylesheet'>
+  <script src='../assets/theme-white.js'></script>
+
+  <!-- Spark theme mods -->
+  <link href='../assets/style.css' rel='stylesheet'>
+  <script src='../assets/spark.js'></script>
+
+  <!-- Meta -->
+  <meta content="Spark" property="og:title">
+  <meta content="Documentation for Spark, a platform for connected devices." name="description">
+
+</head>
+<body role='flatdoc'>
+
+  <div id="docs">
+    <div class='header'>
+      <div class='left'>
+        <a href="https://www.spark.io">
+          <img src="../assets/sparklogo-2x.png" id="logo">
+        </a>
+        <ul>
+          <li><a href='#/start'>Getting started</a></li>
+          <li><a href='#/connect'>Connecting your Core</a></li>
+          <li><a href='#/examples'>Annotated examples</a></li>
+          <li><a href='#/api'>Cloud API reference</a></li>
+          <li><a href='#/firmware'>Core firmware reference</a></li>
+          <li><a href='#/hardware'>Core hardware reference</a></li>
+          <li><a href='#/shields'>Shields and kits</a></li>
+        </ul>
+      </div>
+      <div class='right'>
+        <a href="http://www.github.com/spark/docs" class="contribute">Contribute</a>
+      </div>
+    </div>
+
+    <div class='content-root'>
+      <div class='menubar'>
+        <div class='menu section' role='flatdoc-menu'></div>
+      </div>
+      <div role='flatdoc-content' class='content'>
+        <pre><code>      Spark Core Firmware</code></pre>
 <p>==========</p>
 <h1 id="functions">Functions</h1>
 <h2 id="cloud">Cloud</h2>
@@ -1842,9 +1890,13 @@ x |= y;   // equivalent to x = x | y;</code></pre>
 <p><code>true</code> is often said to be defined as 1, which is correct, but true has a wider definition. Any integer which is non-zero is true, in a Boolean sense. So -1, 2 and -200 are all defined as true, too, in a Boolean sense.</p>
 <p>Note that the true and false constants are typed in lowercase unlike <code>HIGH, LOW, INPUT, &amp; OUTPUT.</code> </p>
 
-
       </div>
     </div>
-    <script src="../assets/validation.js"></script>
-  </body>
+  </div>
+
+
+  <!-- Custom -->
+  <script src='../assets/main.js'></script>
+
+</body>
 </html>

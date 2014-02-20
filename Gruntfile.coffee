@@ -29,12 +29,6 @@ module.exports = (grunt) ->
           layout: 'docs.hbs'
         files:
           'dest/': 'docs/*.md'
-      markdown:
-        options:
-          ext: '.md'
-          engine: 'handlebars'
-          layout: 'markdown.hbs'
-        files: 'docs/*.md'
 
     # 'gh-pages':
 
