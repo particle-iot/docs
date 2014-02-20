@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+  <html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Spark Docs | </title>
+    <link rel="stylesheet" href="http://getbootstrap.com/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../assets/validation.css">
+  </head>
+  <body style="padding-top: 60px;">
+    <div class="container">
+
+          <pre><code>        Spark Core API Curl Examples</code></pre>
+<p>=======================</p>
+<ul>
+<li><a href="#claim_a_core">claim a core</a></li>
+<li><a href="#name_a_core">name a core</a></li>
+<li><a href="#list_my_cores">list my cores</a> (id, name, is connected to cloud)</li>
+<li><p><a href="#signal_a_core">signal LED on core</a></p>
+</li>
+<li><p><a href="#compile_a_binary">compile a binary</a></p>
+</li>
+<li><p><a href="#flash_a_binary">flash firmware</a></p>
+</li>
+<li><p><a href="#call_firmware_function">call a firmware function</a></p>
+</li>
+<li><a href="#get_firmware_variable">get a firmware variable value</a></li>
+</ul>
+<h2 id="-a-name-claim_a_core-a-claim-a-core"><a name="claim_a_core"></a> Claim a core</h2>
+<pre><code>curl -d &#39;id=55ff68064989495329092587&#39; \
+     -d &#39;access_token=f7207ba15ebad0f7b71654ea2633d355f69f6b6f&#39; \
+  https://api.spark.io/v1/devices</code></pre>
+<h2 id="-a-name-name_a_core-a-name-a-core"><a name="name_a_core"></a> Name a core</h2>
+<pre><code>curl -X PUT \
+  -d &#39;name=NEW_NAME&#39;
+  -d &#39;access_token=f7207ba15ebad0f7b71654ea2633d355f69f6b6f&#39;
+  https://api.spark.io/v1/devices/55ff68064989495329092587</code></pre>
+<h2 id="-a-name-list_my_cores-a-list-my-cores"><a name="list_my_cores"></a> List my cores</h2>
+<pre><code>curl &#39;https://api.spark.io/v1/devices?access_token=f7207ba15ebad0f7b71654ea2633d355f69f6b6f&#39;</code></pre>
+<h2 id="-a-name-signal_a_core-a-signal-led-on-core"><a name="signal_a_core"></a> Signal LED on core</h2>
+<pre><code>TODO</code></pre>
+<h2 id="-a-name-compile_a_binary-a-compile-firmware"><a name="compile_a_binary"></a> Compile firmware</h2>
+<pre><code>TODO</code></pre>
+<h2 id="-a-name-flash_a_binary-a-flash-firmware"><a name="flash_a_binary"></a> Flash firmware</h2>
+<pre><code>TODO</code></pre>
+<h2 id="-a-name-call_firmware_function-a-call-a-firmware-function"><a name="call_firmware_function"></a> Call a firmware function</h2>
+<pre><code>TODO</code></pre>
+<h2 id="-a-name-get_firmware_variable-a-get-a-firmware-variable-value"><a name="get_firmware_variable"></a> Get a firmware variable value</h2>
+<pre><code>TODO</code></pre>
+
+
+      </div>
+    </div>
+    <script src="../assets/validation.js"></script>
+  </body>
+</html>

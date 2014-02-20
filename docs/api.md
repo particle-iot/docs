@@ -1,3 +1,7 @@
+---
+title: Cloud API reference
+---
+
 Spark Cloud API
 ==========
 
