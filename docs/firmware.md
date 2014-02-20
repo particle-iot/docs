@@ -2106,7 +2106,7 @@ else
 }
 ```
 
-Another way to express branching, mutually exclusive tests, is with the [`switch case`](http://spark.github.io/docs/#control-structures-switch-case) statement.
+Another way to express branching, mutually exclusive tests, is with the [`switch case`](#/firmware/control-structures-switch-case) statement.
 
 ### for
 
