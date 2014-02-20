@@ -28,13 +28,13 @@ module.exports = (grunt) ->
           ext: '.html'
           layout: 'docs.hbs'
         files:
-          'dest/': 'docs/*.md'
+          'dest/': 'content/*.md'
 
     # 'gh-pages':
 
     watch:
-      markdown:
-        files: ['docs/*.md']
+      main:
+        files: ['content/*.md']
         tasks: ['assemble:docs']
 
   grunt.initConfig gruntConfig
