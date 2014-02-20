@@ -10,6 +10,7 @@
   },
   "devDependencies": {
     "assemble": "~0.4.35",
-    "grunt-gh-pages": "~0.9.1"
+    "grunt-gh-pages": "~0.9.1",
+    "grunt-contrib-watch": "~0.5.3"
   }
 }

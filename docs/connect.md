@@ -1,3 +1,7 @@
+---
+title: Connecting your Core
+---
+
 Connecting your Core
 ===
 

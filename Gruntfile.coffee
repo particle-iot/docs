@@ -32,9 +32,15 @@ module.exports = (grunt) ->
 
     # 'gh-pages':
 
+    watch:
+      markdown:
+        files: ['docs/*.md']
+        tasks: ['assemble:docs']
+
   grunt.initConfig gruntConfig
 
   grunt.loadNpmTasks 'assemble'
   grunt.loadNpmTasks 'grunt-gh-pages'
+  grunt.loadNpmTasks 'grunt-contrib-watch'
 
   grunt.registerTask 'publish', ['assemble', 'gh-pages']

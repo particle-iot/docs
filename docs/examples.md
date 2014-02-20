@@ -1,3 +1,7 @@
+---
+Annotated examples
+---
+
 Annotated examples
 =======
 
