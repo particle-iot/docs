@@ -27,13 +27,27 @@ module.exports = (grunt) ->
         options:
           ext: '.html'
           layout: 'docs.hbs'
-        files:
-          'dest/': 'content/*.md'
+        files: [
+          {
+            expand: true
+            cwd: 'content/'
+            src: ['*.md']
+            dest: 'dest/'
+            rename: (dest, src) ->
+              dest + src.substring(0, src.indexOf('.')) + '/index.html'
+          }
+        ]
+          
 
     # 'gh-pages':
 
     clean:
-      main: ['dest/*.html']
+      dest: ['dest/**/*']
+
+    copy:
+      start:
+        dest: 'dest/index.html'
+        src: 'dest/start/index.html'
 
     watch:
       main:
@@ -46,6 +60,7 @@ module.exports = (grunt) ->
   grunt.loadNpmTasks 'grunt-gh-pages'
   grunt.loadNpmTasks 'grunt-contrib-watch'
   grunt.loadNpmTasks 'grunt-contrib-clean'
+  grunt.loadNpmTasks 'grunt-contrib-copy'
 
-  grunt.registerTask 'publish', ['assemble', 'gh-pages']
-  grunt.registerTask 'build', ['clean', 'assemble']
+  grunt.registerTask 'publish', ['build', 'gh-pages']
+  grunt.registerTask 'build', ['clean', 'assemble', 'copy']
