@@ -1,3 +1,7 @@
+---
+title: Hardware datasheet
+---
+
 Spark Core Datasheet
 ===
 

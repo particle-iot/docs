@@ -1,3 +1,7 @@
+---
+title: Firmware reference
+---
+
 Spark Core Firmware
 ==========
 
