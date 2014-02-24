@@ -370,22 +370,70 @@ curl "https://api.spark.io/v1/devices/0123456789abcdef01234567/temperature?acces
 
 ### Events
 
-Event-related Spark Cloud behaviors (callbacks and event streams) are not ready yet, but they will be soon.
-Here's a sneak peak.
+*FEATURE IN PROGRESS—EXPECT IN EARLY MARCH*
 
 #### Registering a callback
 
 In the build section of the Spark website, you will be able to register a URL on your own server
-that we will hit each time your Spark Core emits a certain event.
+to which we will POST each time one of your Spark Cores publishes a certain event.
 
 #### Subscribing to events
 
 You will soon be able to make an API call that will open a stream of
-[Server-Sent Events](http://www.w3.org/TR/eventsource/).
+[Server-Sent Events](http://www.w3.org/TR/eventsource/) (SSEs).
 You will make one API call that opens a connection to the Spark Cloud.
 That connection will stay open, unlike normal HTTP calls which end quickly.
-Very little data will come to you across the connection unless your Spark Core emits an event,
+Very little data will come to you across the connection unless your Spark Core publishes an event,
 at which point you will be immediately notified.
+
+To subscribe to an event stream, make a GET request to one of the following endpoints.
+This will open a Server-Sent Events (SSE) stream, i.e., a TCP socket that stays open.
+In each case, the event name filter in the URI is optional.
+
+SSE resources:
+
+* http://dev.w3.org/html5/eventsource/
+* https://developer.mozilla.org/en-US/docs/Server-sent_events/Using_server-sent_events
+* http://www.html5rocks.com/en/tutorials/eventsource/basics/
+
+---
+
+Subscribe to the firehose of public events, plus private events published by devices one owns:
+
+```
+GET /v1/events[/:event_name]
+
+# EXAMPLE
+curl -H "Authorization: Bearer 38bb7b318cc6898c80317decb34525844bc9db55"
+https://api.spark.io/v1/events/temperature
+```
+
+---
+
+Subscribe to all events, public and private, published by devices one owns:
+
+```
+GET /v1/devices/events[/:event_name]
+
+# EXAMPLE
+curl -H "Authorization: Bearer 38bb7b318cc6898c80317decb34525844bc9db55"
+https://api.spark.io/v1/devices/events/temperature
+```
+
+---
+
+Subscribe to events from one specific device.
+If the API user owns the device, then she will receive all events,
+public and private, published by that device.
+If the API user does not own the device she will only receive public events.
+
+```
+GET /v1/devices/:device_id/events[/:event_name]
+
+# EXAMPLE
+curl -H "Authorization: Bearer 38bb7b318cc6898c80317decb34525844bc9db55"
+https://api.spark.io/v1/devices/55ff70064939494339432586/events/temperature
+```
 
 
 Verifying and Flashing new firmware
