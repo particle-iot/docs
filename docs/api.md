@@ -329,7 +329,7 @@ Very little data will come to you across the connection unless your Spark Core e
 at which point you will be immediately notified.
 
 
-Verifing and Flashing new firmware
+Verifying and Flashing new firmware
 ---------
 
 All your Spark firmware coding can happen entirely in the build section of the website.
