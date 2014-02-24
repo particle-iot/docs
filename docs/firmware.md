@@ -1,11 +1,10 @@
 Spark Core Firmware
 ==========
 
-Functions
+Cloud Functions
 =====
 
-Cloud
----
+## Data and Control
 
 ### Spark.variable()
 
@@ -100,36 +99,123 @@ curl https://api.spark.io/v1/devices/0123456789abcdef01234567/brew \
 The API request will be routed to the Spark Core and will run your brew function. The response will have a return_value key containing the integer returned by brew.
 
 
-### Spark.event()
+### Spark.publish()
 
-Send an *event* through the Spark Cloud that will be forwarded to registered callbacks and server-sent event streams.
+*FEATURE IN PROGRESS—EXPECT IN EARLY MARCH*
 
-This feature will allow the Core to generate an *event* based on a condition. For example, you could connect a motion sensor to the core and have a the Core generate an event whenever motion is detected. Unlike the Spark variable, you don't have to send out an API GET request.
+Publish an *event* through the Spark Cloud that will be forwarded to all registered callbacks and subscribed streams of Server-Sent Events.
 
-This feature is currently under implementation.
+This feature will allow the Core to generate an event based on a condition. For example, you could connect a motion sensor to the Core and have the Core generate an event whenever motion is detected.
 
-<!-- TO DO -->
-<!--
+Spark events have the following properties:
+
+* name (1–63 ASCII characters)
+* public/private (default public)
+* ttl (time to live, 0–16777215 seconds, default 60)
+* optional data (up to 63 bytes)
+
+Anyone may subscribe to public events; think of them like tweets.
+Only the owner of the Core will be able to subscribe to private events.
+
+A Core may not publish events beginning with a case-insensitive match for "spark".
+Such events are reserved for officially curated data originating from the Spark Cloud.
+
+---
+
+Publish a public event with the given name, no data, and the default TTL of 60 seconds.
+
 ```C++
 SYNTAX
-Spark.event(event_name, event_result);
+Spark.publish(const char *eventName);
+Spark.publish(String eventName);
 
 EXAMPLE USAGE
-int motion_sensor = 0;
-int sensor_value = 0;
-
-void loop() {
-  sensor_value = analogRead(motion_sensor);
-
-  if (sensor_value == 1) {
-    Spark.event("motion", "motion detected");
-  }
-}
-
-COMPLEMENTARY API CALL
-I guess this should be callback registration...?
+Spark.publish("motion-detected");
 ```
+
+---
+
+Publish a public event with the given name and data, with the default TTL of 60 seconds.
+
+```C++
+SYNTAX
+Spark.publish(const char *eventName, const char *data);
+Spark.publish(String eventName, String data);
+
+EXAMPLE
+Spark.publish("temperature", "19 F");
+```
+
+---
+
+Publish a public event with the given name, data, and TTL.
+
+```C++
+SYNTAX
+Spark.publish(const char *eventName, const char *data, int ttl);
+Spark.publish(String eventName, String data, int ttl);
+
+EXAMPLE
+Spark.publish("lake-depth/1", "28m", 21600);
+```
+
+---
+
+Publish a private event with the given name, data, and TTL.
+In order to publish a private event, you must pass all four parameters.
+
+```C++
+SYNTAX
+Spark.publish(const char *eventName, const char *data, int ttl, PRIVATE);
+Spark.publish(String eventName, String data, int ttl, PRIVATE);
+
+EXAMPLE
+Spark.publish("front-door-unlocked", NULL, 60, PRIVATE);
+```
+
+<!--
+### Spark.subscribe()
+
+*NOT FULLY SPECIFIED YET, WILL UNCOMMENT THIS WHEN READY TO FLESH IT OUT*
+
+*FEATURE IN PROGRESS—EXPECT IN EARLY MARCH*
+
+This feature will allow a Core to subscribe to events published by other Cores.
+After a `Spark.subscribe()` call, the Core will 
+
+A subscription works like a prefix filter.
+If you subscribe to "foo", you will receive any event whose name begins with "foo",
+including "foo", "fool", "foobar", and "food/indian/sweet-curry-beans".
+
+Receive events will be passed to a handler function similar to `Spark.function()`.
+A subscription handler must return `void` and take a SparkEvent object.
+
+Subscribe to events from one device.
+
+Spark.subscribe(const char *eventName, const char *deviceID)
+Spark.subscribe(String eventName, String deviceID)
+
+Example: `Spark.subscribe("hot-water", "55ff70064939494339432586")`
+
+Subscrbe to events from all devices owned by the same user as this Core.
+
+Spark.subscribe(const char *eventName, MY_DEVICES)
+Spark.subscribe(String eventName, MY_DEVICES)
+
+Example: `Spark.subscribe("alert", MY_DEVICES)`
+
+Subscribe to all accessible events with the given event name filter.
+
+Spark.subscribe(const char *eventName)
+Spark.subscribe(String eventName)
+
+Example: `Spark.subscribe("us/mn/weather")`
+
+A Core MUST filter the firehose, that is, they MAY NOT subscribe to the empty string.
 -->
+
+
+## Connection Management
 
 ### Spark.connected()
 
