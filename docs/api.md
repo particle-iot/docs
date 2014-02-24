@@ -50,7 +50,17 @@ e.g., `POST /v1/devices/0123456789abcdef01234567/brew`
 POST /v1/devices/{DEVICE_ID}/{FUNCTION}
 ```
 
-*Coming soon* Open a stream of [Server-Sent Events](http://www.w3.org/TR/eventsource/)
+---
+
+*COMING SOON*
+
+Open a stream of [Server-Sent Events](http://www.w3.org/TR/eventsource/)
+
+```
+GET /v1/events[/:event_name]
+GET /v1/devices/events[/:event_name]
+GET /v1/devices/{DEVICE_ID}/events[/:event_name]
+```
 
 
 Authentication
@@ -85,6 +95,55 @@ and only you will have permission to control your Spark Core—using your access
 In the future, you will be able to provision access to your Spark Core to other accounts
 and to third-party app developers, and transfer ownership of your Spark Core to another account;
 however, these features are not yet available.
+
+
+### How to send your access token
+
+There are three ways to send your access token in a request.
+
+* In an HTTP Authorization header (always works)
+* In the URL query string (only works with GET requests)
+* In the request body (only works for POST & PUT when body is URL-encoded)
+
+In these docs, you'll see example calls written using a terminal program called
+[curl](http://curl.haxx.se/)
+which may already be available on your machine.
+
+Example commands will always start with `curl`.
+
+---
+
+To send a custom header using curl, use you the `-H` flag.
+The access token is called a "Bearer" token and goes in the standard
+HTTP `Authorization` header.
+
+```
+curl -H "Authorization: Bearer 38bb7b318cc6898c80317decb34525844bc9db55"
+  https://...
+```
+
+---
+
+The query string is the part of the URL after a `?` question mark.
+To send the access token in the query string just add `access_token=38bb...`.
+Because your terminal thinks the question mark is special, we escape it with a backslash.
+
+```
+curl https://api.spark.io/v1/devices\?access_token=38bb7b318cc6898c80317decb34525844bc9db55
+```
+
+---
+
+The request body is how form contents are submitted on the web.
+Using curl, each parameter you send, including the access token is preceded by a `-d` flag.
+By default, if you add a `-d` flag, curl assumes that the request is a POST.
+If you need a different request type, you have to specifically say so with the `-X` flag,
+for example `-X PUT`.
+
+```
+curl -d access_token=38bb7b318cc6898c80317decb34525844bc9db55
+  https://...
+```
 
 
 ### Generate a new access token
