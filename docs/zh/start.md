@@ -1,14 +1,14 @@
-Getting started
+让我们开始吧
 =====
 
-### What's in the box
+### 盒子里的内容
 
 ![Spark Core in box](images/core-in-box.jpg)
 
-Congratulations on being the owner of a brand new Spark Core! Go ahead, open the box, and let's talk about what you see. Your box should include:
+恭喜您成为一个全新的火花核心的主人！来吧，打开盒子，让我们来谈谈你所看到的。你的盒子应包括：
 
-- *One Spark Core*. The reason you bought this thing. We'll dig in more here in a bit.
-- *One breadboard*. A breadboard makes it easy to wire components to the Core without solder. Internally, the rows are electrically connected horizontally, and the "rails" along the edges are connected vertically. See the [breadboard article on Wikipedia](http://en.wikipedia.org/wiki/Breadboard) for more information.
+- *一个星火核心*. The reason you bought this thing. We'll dig in more here in a bit.
+- *一个面包板*. 面包板能轻易把电子元件接到星火核心上，不许软焊. Internally, the rows are electrically connected horizontally, and the "rails" along the edges are connected vertically. See the [breadboard article on Wikipedia](http://en.wikipedia.org/wiki/Breadboard) for more information.
 - *One USB cable*. The included USB cable is used for two things: powering the Spark Core (by connecting it to your computer, to a USB power brick, or to a USB battery pack) and reprogramming. Most of the time you will be reprogramming the Core through the Cloud, but you always have the option of reprogramming it over USB, especially if your internet connection is down or you would prefer to use your own servers.
 
 
