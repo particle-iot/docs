@@ -7,28 +7,28 @@
 
 恭喜您成为一个全新的星火核心的主人！来吧，打开盒子，让我们来谈谈你所看到的。你的盒子应包括：
 
-- *一个星火核心*. 你买的原因就是为了它. 我们将会进一步探讨.
-- *一个面包板*. 面包板能轻易把电子元件接到星火核心上，不许软焊. Internally, the rows are electrically connected horizontally, and the "rails" along the edges are connected vertically. 请参阅 [breadboard article on Wikipedia](http://en.wikipedia.org/wiki/Breadboard) 了解更多信息.
-- *一条USB电缆*. 附带的USB电缆能用来做两件事: 为星火核心供电 (连接到您的电脑, USB 电源适配器, 或者是 USB 能量砖) 和重新编程. 大部分时间,您会通过星火云来重新编程星火核心,但你总是可以选择通过 USB 重新编程, 特别是如果您的互联网无法连接，或你选拔使用自己的服务器.
+- *一个 Spark Core*. 你买的原因就是为了它. 我们将会进一步探讨.
+- *一个面包板*. 面包板能轻易把电子元件接到 Spark Core 上，不许软焊. Internally, the rows are electrically connected horizontally, and the "rails" along the edges are connected vertically. 请参阅 [breadboard article on Wikipedia](http://en.wikipedia.org/wiki/Breadboard) 了解更多信息.
+- *一条USB电缆*. 附带的USB电缆能用来做两件事: 为 Spark Core 供电 (连接到您的电脑, USB 电源适配器, 或者是 USB 能量砖) 和重新编程. 大部分时间,您会通过星火云来重新编程星火核心,但你总是可以选择通过 USB 重新编程, 特别是如果您的互联网无法连接，或你选拔使用自己的服务器.
 
 
 ### 第1步: 接上电源
 
 ![Power the Core](images/core-usb.jpg)
 
-让星火核心接上电源很容易；它通过一个微型USB端口接收电,就像许多智能手机和其他小机件. Power your Core on by connecting the Micro USB cable to the USB port on the Core, USB电缆的另一端插入电脑, USB集线器 (自有电源), 或 USB 电源适配器 (想是您的智能手机).
+让 Spark Core 接上电源很容易；它通过一个微型USB端口接收电,就像许多智能手机和其他小机件. Power your Core on by connecting the Micro USB cable to the USB port on the Core, USB电缆的另一端插入电脑, USB集线器 (自有电源), 或 USB 电源适配器 (想是您的智能手机).
 
 If you so desire, you can also power the Core with 3.6V to 6V to the `VIN` pin, or 3.3V to the `3.3V` pin.
 
-### 第2步: 下载星火的 iOS or Android 手机程序
+### 第2步: 下载 Spark 的 iOS or Android 手机程序
 
 ![Spark apps](images/spark-apps.png)
 
-The Spark mobile app is the easiest way to get your Spark Core connected to the internet. The app will help you do three things:
+利用手机程序将是把星火核心连接到互联网最简单的方法. 手机程序能帮您做以下的三件事项:
 
-- 开一个账户 with Spark
-- Connect your Spark Core to your Wi-Fi network
-- Control your Core without writing any code
+- 开一个 Spark 账户 
+- 连接 Spark Core 到您的 Wi-Fi网络
+- 而无需编写任何代码,控制您的 Spark Core
 
 iOS 手机程序需要 iOS 7, Android 的手机程序需要 (Android 4.0) 以上.
 
