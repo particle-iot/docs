@@ -5,11 +5,11 @@
 
 ![Spark Core in box](images/core-in-box.jpg)
 
-恭喜您成为一个全新的火花核心的主人！来吧，打开盒子，让我们来谈谈你所看到的。你的盒子应包括：
+恭喜您成为一个全新的星火核心的主人！来吧，打开盒子，让我们来谈谈你所看到的。你的盒子应包括：
 
-- *一个星火核心*. The reason you bought this thing. We'll dig in more here in a bit.
-- *一个面包板*. 面包板能轻易把电子元件接到星火核心上，不许软焊. Internally, the rows are electrically connected horizontally, and the "rails" along the edges are connected vertically. See the [breadboard article on Wikipedia](http://en.wikipedia.org/wiki/Breadboard) for more information.
-- *One USB cable*. The included USB cable is used for two things: powering the Spark Core (by connecting it to your computer, to a USB power brick, or to a USB battery pack) and reprogramming. Most of the time you will be reprogramming the Core through the Cloud, but you always have the option of reprogramming it over USB, especially if your internet connection is down or you would prefer to use your own servers.
+- *一个星火核心*. 你买的原因就是为了它. 我们将会进一步探讨.
+- *一个面包板*. 面包板能轻易把电子元件接到星火核心上，不许软焊. Internally, the rows are electrically connected horizontally, and the "rails" along the edges are connected vertically. 请参阅 [breadboard article on Wikipedia](http://en.wikipedia.org/wiki/Breadboard) 了解更多信息.
+- *一条USB电缆*. 附带的USB电缆能用来做两件事: 为星火核心供电 (连接到您的电脑, USB 电源适配器, 或者是 USB 能量砖) 和重新编程. 大部分时间,您会通过星火云来重新编程星火核心,但你总是可以选择通过 USB 重新编程, 特别是如果您的互联网无法连接，或你选拔使用自己的服务器.
 
 
 ### Step 1: Power the Core
