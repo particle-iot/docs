@@ -38,19 +38,19 @@ iOS 手机程序需要 iOS 7, Android 的手机程序需要 (Android 4.0) 以上
 
 
 
-### Step 3: Connect the Core to Wi-Fi
+### 第3步:  Spark Core 连接 Wi-Fi
 
 ![Smart Config](images/smart-config.png)
 
-Connecting the Spark Core to your Wi-Fi is dead simple. In fact, I did it twice while I was typing this paragraph.
+连接星火核心到您的Wi-Fi是非常的简单. 其实，我在打这一段字时就做了两次！
 
-The Spark mobile app will guide you through the process, but basically it's a one-step process where you type your Wi-Fi network name (SSID) and password and they're sent over Wi-Fi to the Spark Core, which automatically connects to the network and to the Spark Cloud. If everything works as planned, you'll see the LED go through the following colors:
+Spark 手机程序会指导您完成整个过程, 但基本上它是一个一步到位的过程. 您输入您的Wi-Fi网络名称（SSID）和密码，通过 Wi-Fi 发到 Spark Core, 它会自动连接到网络和 Spark 云. 如果一切按计划进行，你会看到LED会经历以下颜色：
 
-- **Flashing blue**: Listening for Wi-Fi credentials
-- **Flashing green**: Connecting to the Wi-Fi network
-- **Flashing cyan**: Connecting to the Spark Cloud
-- **Flashing magenta**: Updating to the newest firmware
-- **Breathing cyan**: Connected!
+- **蓝色闪烁**: 正在监听 Wi-Fi 的认证
+- **绿色闪烁**: 正在连接到 Wi-Fi 网络
+- **Flashing cyan**: 正在连接到 Spark 云
+- **品红闪烁**: 正在更新到最新的固件
+- **Breathing cyan**: 连接成功！
 
 <div id="core1" class="core"><div class="core-butt"></div><div class="rgb"><div class="pattern"></div></div></div>
 
