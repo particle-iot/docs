@@ -12,29 +12,29 @@
 - *一条USB电缆*. 附带的USB电缆能用来做两件事: 为星火核心供电 (连接到您的电脑, USB 电源适配器, 或者是 USB 能量砖) 和重新编程. 大部分时间,您会通过星火云来重新编程星火核心,但你总是可以选择通过 USB 重新编程, 特别是如果您的互联网无法连接，或你选拔使用自己的服务器.
 
 
-### Step 1: Power the Core
+### 第1步: 接上电源
 
 ![Power the Core](images/core-usb.jpg)
 
-Powering the Core is easy; it receives power over a Micro USB port, much like many smartphones and other gadgets. Power your Core on by connecting the Micro USB cable to the USB port on the Core, and plug the other end into any USB port on your computer, a USB hub (preferably powered), or a USB power adapter (like the one that probably came with your smartphone).
+让星火核心接上电源很容易；它通过一个微型USB端口接收电,就像许多智能手机和其他小机件. Power your Core on by connecting the Micro USB cable to the USB port on the Core, USB电缆的另一端插入电脑, USB集线器 (自有电源), 或 USB 电源适配器 (想是您的智能手机).
 
 If you so desire, you can also power the Core with 3.6V to 6V to the `VIN` pin, or 3.3V to the `3.3V` pin.
 
-### Step 2: Download the Spark iOS or Android app
+### 第2步: 下载星火的 iOS or Android 手机程序
 
 ![Spark apps](images/spark-apps.png)
 
 The Spark mobile app is the easiest way to get your Spark Core connected to the internet. The app will help you do three things:
 
-- Create an account with Spark
+- 开一个账户 with Spark
 - Connect your Spark Core to your Wi-Fi network
 - Control your Core without writing any code
 
-The iOS app requires iOS 7, and the Android app works with Ice Cream Sandwich (Android 4.0) and newer.
+iOS 手机程序需要 iOS 7, Android 的手机程序需要 (Android 4.0) 以上.
 
-[Download the iPhone app >](https://itunes.apple.com/us/app/spark-core/id760157884)
+[下载 iPhone 手机程序 >](https://itunes.apple.com/us/app/spark-core/id760157884)
 
-[Download the Android app >](https://play.google.com/store/apps/details?id=io.spark.core.android)
+[下载 Android 手机程序 >](https://play.google.com/store/apps/details?id=io.spark.core.android)
 
 
 
