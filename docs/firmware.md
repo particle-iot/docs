@@ -41,7 +41,6 @@ void loop()
 }
 ```
 
-COMPLEMENTARY API CALL
 
 ```json
 # EXAMPLE REQUEST IN TERMINAL
