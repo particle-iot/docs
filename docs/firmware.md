@@ -1820,8 +1820,6 @@ the parameter for millis is an unsigned long, errors may be generated if a progr
 
 ### delayMicroseconds()
 
-**Not implemented yet**
-
 Pauses the program for the amount of time (in microseconds) specified as parameter. There are a thousand microseconds in a millisecond, and a million microseconds in a second.
 
 ```C++
