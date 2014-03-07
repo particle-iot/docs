@@ -44,19 +44,19 @@ iOS 手机程序需要 iOS 7, Android 的手机程序需要 (Android 4.0) 以上
 
 连接星火核心到您的Wi-Fi是非常的简单. 其实，我在打这一段字时就做了两次！
 
-Spark 手机程序会指导您完成整个过程, 但基本上它是一个一步到位的过程. 您输入您的Wi-Fi网络名称（SSID）和密码，通过 Wi-Fi 发到 Spark Core, 它会自动连接到网络和 Spark 云. 如果一切按计划进行，你会看到LED会经历以下颜色：
+Spark 的手机程序会指导您完成整个过程, 但基本上它是一个一步到位的过程. 您输入您的Wi-Fi网络名称（SSID）和密码，通过 Wi-Fi 发到 Spark Core, 它会自动连接到网络和 Spark 云. 如果一切按计划进行，你会看到LED会经历以下颜色：
 
 - **蓝色闪烁**: 正在监听 Wi-Fi 的认证
 - **绿色闪烁**: 正在连接到 Wi-Fi 网络
-- **Flashing cyan**: 正在连接到 Spark 云
+- **青色闪烁**: 正在连接到 Spark 云
 - **品红闪烁**: 正在更新到最新的固件
-- **Breathing cyan**: 连接成功！
+- **青色慢速闪烁**: 连接成功！
 
 <div id="core1" class="core"><div class="core-butt"></div><div class="rgb"><div class="pattern"></div></div></div>
 
 <a id="button1" class="button" onclick="animateCore()">See an animation</a>
 
-If the mobile app doesn't work for you, you can also connect your Spark Core over USB. For more information, or for a detailed explanation of how to connect your Core to the 'net, check out:
+如果 Spark 的手机程序无法帮您完成以上的过程, 您也能透过 USB 把 Spark Core 连接到网络. 欲了解更多信息，或详细解释, 请到：
 
 [Connect your Core >](/#/connect)
 
