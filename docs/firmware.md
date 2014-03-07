@@ -292,11 +292,37 @@ NOTE: When the Core is disconnected, many features are not possible, including o
 
 A factory reset should solve this.
 
+### Spark.deviceID()
+---
+
+`Spark.deviceID()` provides an easy way to extract the device ID of your Core.
+
+```cpp
+// Example Usage
+
+void setup()
+{
+    Serial.begin(9600);
+    delay(1000);
+
+    String myID = Spark.deviceID();
+    // Prints out the device ID over Serial
+    Serial.println(myID);  
+}
+
+void loop()
+{
+
+}
+```
+
+
+
 ### Network
 ---
 
 ```cpp
-# Example Usage
+// Example Usage
 
 void setup()
 {
