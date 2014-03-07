@@ -10,20 +10,34 @@ Cloud Functions
 
 Expose a *variable* through the Spark Cloud so that it can be called with `GET /v1/devices/{DEVICE_ID}/{VARIABLE}`.
 
+There are three supported data types:
+ 
+ * `INT`
+ * `DOUBLE`
+ * `STRING` 
+
 ```C++
-EXAMPLE USAGE
-int temperature = 0;
+//EXAMPLE USAGE
+int analogvalue = 0;
+double tempC = 0;
+char  *message = "my name is spark";
 
 void setup()
 {
   // variable name max length is 12 characters long
-  Spark.variable("temperature", &temperature, INT);
+  Spark.variable("analogvalue", &analogvalue, INT);
+  Spark.variable("temp", &tempC, DOUBLE);
+  Spark.variable("mess", message, STRING);
   pinMode(A0, INPUT);
 }
 
 void loop()
 {
-  temperature = analogRead(A0);
+    // Read the analog value of the sensor (TMP36)
+    analogvalue = analogRead(A0);
+    //Convert the reading into degree celcius
+    tempC = (((analogvalue * 3.3)/4095) - 0.5) * 100;
+    Delay(200);
 }
 ```
 
@@ -33,7 +47,15 @@ COMPLEMENTARY API CALL
 # EXAMPLE REQUEST IN TERMINAL
 # Core ID is 0123456789abcdef01234567
 # Your access token is 1234123412341234123412341234123412341234
-curl "https://api.spark.io/v1/devices/0123456789abcdef01234567/temperature?access_token=1234123412341234123412341234123412341234"
+curl "https://api.spark.io/v1/devices/0123456789abcdef01234567/analogvalue?access_token=1234123412341234123412341234123412341234"
+curl "https://api.spark.io/v1/devices/0123456789abcdef01234567/temp?access_token=1234123412341234123412341234123412341234"
+curl "https://api.spark.io/v1/devices/0123456789abcdef01234567/mess?access_token=1234123412341234123412341234123412341234"
+
+# In return you'll get something like this:
+960
+27.44322344322344
+my name is spark
+
 ```
 
 ### Spark.function()
