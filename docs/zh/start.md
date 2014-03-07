@@ -64,25 +64,27 @@ Spark 的手机程序会指导您完成整个过程, 但基本上它是一个一
 
 ![Tinker](images/tinker.png)
 
-Spark 的手机程包含一个小应用程序叫 Tinker. It lets you talk with the Input/Output pins of the Spark Core without writing a single line of code.
+Spark 的手机程包含一个小应用程序叫 Tinker. 它可以让您无需编写任何代码,就能控制 Spark Core 输入/输出引脚. 
 
-Each of the pins has up to four functions available: *digitalWrite*, *analogWrite*, *digitalRead*, and *analogRead*. For more information, scroll down to the "Tinkering with Tinker" section.
 
-### Step 5: Write Apps with Spark Build
+每个 pin 可具有多达四个功能：*digitalWrite*, *analogWrite*, *digitalRead*, and *analogRead*. 欲了解更多信息，向下滚动到
+ "Tinkering with Tinker" 部分.
+
+### 第5步: 用 Spark Build 编写应用程序
 
 ![Spark Build](images/ide.png)
 
-Once you're tired of reading reading sensor values and flashing LEDs, head over to the Spark Build IDE for the real show.  Spark Build allows you to create and flash custom applications to your Core from any modern web browser, and equips your Core with the full capabilities of the Internet!  Wow!  
+当您开始厌倦了读取传感器的值或闪烁 LEDs, head over to the Spark Build IDE for the real show.  Spark Build 允许您从任何现代Web浏览器,创建和上传自定义应用程序到您的 Spark Core, 和让 Core 备有互联网全部的功能！哇！
 
-Don't be nervous--we've got you covered with plenty of community-approved example applications and libraries that will get you started on the right foot.  To learn more, check out the "Writing Apps with Spark Build" section further down on this page.  
+不要紧张--我们已经准备了大量的示例应用程序和库,将让你从对的方向开始. 要了解更多信息，上进一步回落 向下滚动到 Spark Build 编写的应用程序” 部分.  
 
 
-Wait, what is this thing?
+等一下，这是什么东西？
 =====
 
-The Spark Core is a Wi-Fi development kit for internet-connected hardware. It is, in essence, the "brains" of a connected hardware product or project.
+Spark Core 是Wi-Fi的开发套件，用于网络连接的硬件。它在本质上，是一个连接的硬件产品或项目的“大脑”。
 
-The Core has on board a microcontroller, which is a small, low-cost, low-power computer that can run a single application. The microcontroller runs the show; it runs your software and tells the rest of the Core what to do. It doesn't have an Operating System the way that your computer does; it just runs a single application (often called *firmware* or an *embedded application*), which can be simple, just a few lines of code, or very complex, depending on what you want to do.
+Core 上有微控制器, 是一种小型，低成本，低功耗， 可以运行一个应用程序的电脑. 微控制器主要运行，它运行在您的软件，并告诉 Core 的其余部分该做什么. 它不像一般的电脑有一个操作系统; 它只是运行一个应用程序(通常被称为 *固件* 或 *嵌入式应用*）, 可以是简单的，只需几行代码，还是很复杂的，这取决于你想要做什么。
 
 Microcontrollers are particularly good at *controlling things*; hence the name. They have a set of "pins" (little spider leg type things sticking off the chip) that are called *GPIO* (General Purpose Input and Output) pins, or I/O pins. They can be hooked to sensors or buttons to listen to the world, or they can be hooked to lights and motors to act upon the world. These microcontroller's pins have been directly connected to the headers on the sides of the Core so you can easily access them; specifically, the pins labeled D0 to D7 and A0 to A7 are hooked directly to the microcontroller's GPIO pins.
 
