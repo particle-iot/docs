@@ -9,16 +9,16 @@
 
 - *一个 Spark Core*. 你买的原因就是为了它. 我们将会进一步探讨.
 - *一个面包板*. 面包板能轻易把电子元件接到 Spark Core 上，不许软焊. Internally, the rows are electrically connected horizontally, and the "rails" along the edges are connected vertically. 请参阅 [breadboard article on Wikipedia](http://en.wikipedia.org/wiki/Breadboard) 了解更多信息.
-- *一条USB电缆*. 附带的USB电缆能用来做两件事: 为 Spark Core 供电 (连接到您的电脑, USB 电源适配器, 或者是 USB 能量砖) 和重新编程. 大部分时间,您会通过星火云来重新编程星火核心,但你总是可以选择通过 USB 重新编程, 特别是如果您的互联网无法连接，或你选拔使用自己的服务器.
+- *一条 USB 数据线*. 附带的 USB 数据线能用来做两件事: 为 Spark Core 供电 (连接到您的电脑, USB 电源适配器, 或者是 USB 能量砖) 和重新编程. 大部分时间,您会通过 Spark 云来重新编程 Spark Core,但你总是可以选择通过 USB 重新编程, 特别是如果您的互联网无法连接，或你选拔使用自己的服务器.
 
 
 ### 第1步: 接上电源
 
 ![Power the Core](images/core-usb.jpg)
 
-让 Spark Core 接上电源很容易；它通过一个微型USB端口接收电,就像许多智能手机和其他小机件. Power your Core on by connecting the Micro USB cable to the USB port on the Core, USB电缆的另一端插入电脑, USB集线器 (自有电源), 或 USB 电源适配器 (想是您的智能手机).
+让 Spark Core 接上电源很容易；它通过一个微型USB端口接收电,就像许多智能手机和其他小机件. 把  Micro USB 数据线连接到 Spark Core 的 USB 端口, USB 数据线的另一端插入电脑, USB集线器 (自有电源), 或 USB 电源适配器 (像是您智能手机所用的).
 
-If you so desire, you can also power the Core with 3.6V to 6V to the `VIN` pin, or 3.3V to the `3.3V` pin.
+如果您想要的话, 您也能把 （3.6V 到 6V） 接到 `VIN` pin, 或 3.3V 到 `3.3V` pin.
 
 ### 第2步: 下载 Spark 的 iOS or Android 手机程序
 
@@ -44,7 +44,7 @@ iOS 手机程序需要 iOS 7, Android 的手机程序需要 (Android 4.0) 以上
 
 连接星火核心到您的Wi-Fi是非常的简单. 其实，我在打这一段字时就做了两次！
 
-Spark 的手机程序会指导您完成整个过程, 但基本上它是一个一步到位的过程. 您输入您的Wi-Fi网络名称（SSID）和密码，通过 Wi-Fi 发到 Spark Core, 它会自动连接到网络和 Spark 云. 如果一切按计划进行，你会看到LED会经历以下颜色：
+Spark 的手机程序会指导您完成整个过程, 但基本上它是一个一步到位的过程. 您输入您的Wi-Fi网络名称（SSID）和密码，通过 Wi-Fi 发到 Spark Core, 它会自动连接到网络和 Spark 云. 如果一切按计划进行，你会看到LED会呈献以下颜色：
 
 - **蓝色闪烁**: 正在监听 Wi-Fi 的认证
 - **绿色闪烁**: 正在连接到 Wi-Fi 网络
@@ -60,11 +60,11 @@ Spark 的手机程序会指导您完成整个过程, 但基本上它是一个一
 
 [Connect your Core >](/#/connect)
 
-### Step 4: Blink an LED with Tinker
+### 第4步: 用 Tinker 闪烁 LED
 
 ![Tinker](images/tinker.png)
 
-The Spark mobile app contains a mini-app called Tinker that lets you... well, tinker. It lets you talk with the Input/Output pins of the Spark Core without writing a single line of code.
+Spark 的手机程包含一个小应用程序叫 Tinker. It lets you talk with the Input/Output pins of the Spark Core without writing a single line of code.
 
 Each of the pins has up to four functions available: *digitalWrite*, *analogWrite*, *digitalRead*, and *analogRead*. For more information, scroll down to the "Tinkering with Tinker" section.
 
