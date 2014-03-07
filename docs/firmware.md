@@ -292,6 +292,39 @@ NOTE: When the Core is disconnected, many features are not possible, including o
 
 A factory reset should solve this.
 
+### Network
+---
+
+```cpp
+# Example Usage
+
+void setup()
+{
+    Serial.begin(9600);
+    delay(1000);
+
+    // Prints out the network parameters over Serial
+    Serial.println(Network.SSID());
+    Serial.println(Network.gatewayIP());
+    Serial.println(Network.subnetMask());
+    Serial.println(Network.localIP());
+}
+
+void loop()
+{
+
+}
+```
+
+`Network.SSID()` returns the SSID of the network the Core is currently connected to.
+
+`Network.gatewayIP()` returns the gateway IP address of the network.
+
+`Network.subnetMask()` returns the subnet mask of the network.
+
+`Network.localIP()` returns the local IP address assigned to the Core.
+
+
 
 
 <!-- TO DO -->
