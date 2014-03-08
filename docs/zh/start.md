@@ -47,7 +47,7 @@ iOS 手机程序需要 iOS 7, Android 的手机程序需要 (Android 4.0) 以上
 Spark 的手机程序会指导您完成整个过程, 但基本上它是一个一步到位的过程. 您输入您的Wi-Fi网络名称（SSID）和密码，通过 Wi-Fi 发到 Spark Core, 它会自动连接到网络和 Spark 云. 如果一切按计划进行，你会看到LED会呈献以下颜色：
 
 - **蓝色闪烁**: 正在监听 Wi-Fi 的认证
-- **绿色闪烁**: 正在连接到 Wi-Fi 网络
+- **绿色闪烁**: 正在连接到本地 Wi-Fi 网络
 - **青色闪烁**: 正在连接到 Spark 云
 - **品红闪烁**: 正在更新到最新的固件
 - **青色慢速闪烁**: 连接成功！
@@ -96,41 +96,41 @@ Spark Core 还具有Wi-Fi模块，它连接到您的本地 Wi-Fi 网络，像您
 当 Spark Core 连接到互联网，它会与 *Spark 云* 建立连接. 通过连接到云，Spark Core 从任何地方通过一个简单的 REST API 变得容易存取。 这个API被设计成使它很容易与 Spark Core 互动. 通过一个web应用程序或移动应用程序, 在一个安全的，私人的方式接口与 Spark Core，这样只有您和您信任的人可以与 Spark Core 互动。
 
 
-### Buttons
+### 按钮
 
-There are two buttons on the Core: the RESET button (on the right) and the MODE button (on the left). 
+Spark Core 上有两个按钮：按RESET按钮（右侧）和MODE按钮（左侧).
 
-The RESET button will put the Core in a hard reset, effectively depowering and repowering the microcontroller. This is a good way to restart the application that you've downloaded onto the Core.  
+RESET按钮将会把 Spark Core 硬复位，有效切除微控制器的电源和重新通电。这是重新启动，你已经下载到核心的应用程序的好方.
 
-The MODE button serves three functions:
+MODE 按钮有三个功能:
 
-- Hold down the MODE button for three seconds to put the Core into *Smart Config* mode to connect it to your local Wi-Fi network. The LED should start flashing blue.
-- Hold down the MODE button for ten seconds to clear the Core's memory of Wi-Fi networks.
-- Hold down the MODE button, tap on the RESET button and wait for *three seconds* to enter *Bootloader* mode, where you can reprogram the Core over USB or JTAG. Release the MODE button when you see the LED flashing yellow. If you do this by accident, simply hit RESET button to leave *Bootloader* mode.
-- Hold down the MODE button, tap on the RESET button and wait for *ten seconds* to do a *Factory Reset*, where the Core is reprogrammed with the software that was installed on the Core in the factory (the Tinker application). The LED should turn white for three seconds and begin flashing quickly; when the LED switches to another color the Core has been reset. This is useful if you encounter bugs with your firmware, or if you just want to get back to Tinker.
+- 按住 MODE 键三秒钟把 Spark Core 进入 *Smart Config* 模式，将它连接到您的本地 Wi-Fi 网络. LED应开始蓝色闪烁.
+- 按住 MODE 按钮十秒钟以清除 Spark Core 内存的 Wi-Fi 网络.
+- 按住 MODE 键，点击RESET按钮，等待*3秒* 进入 *Bootloader* 的模式. 当您看到LED闪烁黄色,松开MODE按钮.在这里您可以通过 USB 或 JTAG 重新编程 Spark Core.  如果你不小心这样做，只需点击 RESET 按钮就能离开 *Bootloader* 的模式。
+- 按住 MODE 键，点击 RESET 按钮，等待 *10秒* 做 *出厂重置*， 将 Spark Core 重新编程，回到工厂安装的核心软件 (Tinker 小应用程序). LED应该变成白色三秒钟，然后开始快速闪烁; 当 LED 切换到另一种颜色的核心已被重置. 如果遇到固件错误, 或者如果你只是想回 Tinker 小应用程序匠,这是有用的.
 
 
 ### LEDs
 
-There are two LEDs on the Core. The big fat one in the middle is a full-color RGB LED that shows you the status of the Core's internet connection. The other small blue LED is the *user LED*; it's hooked up to D7, so when you turn the D7 pin `HIGH` or `LOW`, it turns on and off, respectively.
+Spark core 有两个 LED. 中间胖肥的是一个全彩 RGB LED，显示您 Spark Core 互联网连接的状态。另外小的蓝色 LED 是 *用户LED*; 它连接到 D7, 所以当你控制 D7 脚`高`或`低`，它打亮灯或关闭.
 
-The RGB LED could show the following states:
+RGB LED可以显示出以下状态：
 
-- *Flashing blue*: Listening mode, waiting for network information.
-- *Solid blue*: Smart Config complete, network information found.
-- *Flashing green*: Connecting to local Wi-Fi network.
-- *Flashing cyan*: Connecting to Spark Cloud.
-- *Slow breathing cyan*: Successfully connected to Spark Cloud.
-- *Flashing yellow*: Bootloader mode, waiting for new code via USB or JTAG.
-- *Flashing white*: Factory Reset initiated.
-- *Solid white*: Factory Reset complete; rebooting.
+- **蓝色闪烁**: 正在监听 Wi-Fi 的认证
+- *蓝色固体*: Smart Config 完成, 收到 Wi-Fi 网络信息
+- **绿色闪烁**: 正在连接到本地 Wi-Fi 网络
+- **青色闪烁**: 正在连接到 Spark 云
+- **青色慢速闪烁**: 连接成功！
+- *黄色闪烁*: Bootloader 模式, 等待 USB 或 JTAG 重新编程.
+- *白色闪烁*: 出厂设置启动.
+- *白色固体*: 恢复出厂设置齐全;重启.
 
-The RGB LED can also let you know if there were errors in establishing an internet connection. *A red LED means an error has occurred.* These errors might include:
+RGB LED 也可以让你知道，如果在建立互联网连接有错误. *红色LED表示发生了故障* 这些故障可能包括：
 
-- *Two red flashes*: Connection failure due to bad internet connection. Check your network connection.
-- *Three red flashes*: The Cloud is inaccessible, but the internet connection is fine. Check our [Twitter feed](http://www.twitter.com/sparkdevices) to see if there have been any reported outages; if not, visit our [support page](https://www.sparkdevices.com/support) for help.
-- *Four red flashes*: The Cloud was reached but the secure handshake failed. Visit our [support page](https://www.sparkdevices.com/support) for help.
-- *Flashing yellow/red*: Bad credentials for the Spark Cloud. Contact the Spark team (<a href="mailto@hello@spark.io">hello@spark.io</a>).
+- *两个红色闪烁*： 连接失败是由于不良的互联网连接。请检查您的网络连接.
+- *三个红色闪烁*： 无法与 Spark 云连接，但互联网连接是好的。 查看我们的 [Twitter feed](http://www.twitter.com/sparkdevices) 看是否有过任何报道停运; 否则，请到 [支持页面](https://www.sparkdevices.com/support) 寻求支援.
+- *四个红色闪烁*： 与 Spark 云达成，但安全握手失败。 请到 [支持页面](https://www.sparkdevices.com/support)寻求支援.
+- *黄/红闪烁*: Spark 云错误认证. 请发电子邮件到(<a href="mailto@hello@spark.io">hello@spark.io</a>).
 
 ### Pins
 
