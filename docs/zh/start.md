@@ -74,7 +74,7 @@ Spark 的手机程包含一个小应用程序叫 Tinker. 它可以让您无需�
 
 ![Spark Build](images/ide.png)
 
-当您开始厌倦了读取传感器的值或闪烁 LEDs, head over to the Spark Build IDE for the real show.  Spark Build 允许您从任何现代Web浏览器,创建和上传自定义应用程序到您的 Spark Core, 和让 Core 备有互联网全部的功能！哇！
+当您开始厌倦了读取传感器的值或闪烁 LEDs, 请到 Spark Build IDE 尝试实际的应用程序.  Spark Build 允许您从任何现代Web浏览器,创建和上传自定义应用程序到您的 Spark Core, 和让 Core 备有互联网全部的功能！哇！
 
 不要紧张--我们已经准备了大量的示例应用程序和库,将让你从对的方向开始. 要了解更多信息，上进一步回落 向下滚动到 Spark Build 编写的应用程序” 部分.  
 
@@ -86,13 +86,15 @@ Spark Core 是Wi-Fi的开发套件，用于网络连接的硬件。它在本质�
 
 Core 上有微控制器, 是一种小型，低成本，低功耗， 可以运行一个应用程序的电脑. 微控制器主要运行，它运行在您的软件，并告诉 Core 的其余部分该做什么. 它不像一般的电脑有一个操作系统; 它只是运行一个应用程序(通常被称为 *固件* 或 *嵌入式应用*）, 可以是简单的，只需几行代码，还是很复杂的，这取决于你想要做什么。
 
-Microcontrollers are particularly good at *controlling things*; hence the name. They have a set of "pins" (little spider leg type things sticking off the chip) that are called *GPIO* (General Purpose Input and Output) pins, or I/O pins. They can be hooked to sensors or buttons to listen to the world, or they can be hooked to lights and motors to act upon the world. These microcontroller's pins have been directly connected to the headers on the sides of the Core so you can easily access them; specifically, the pins labeled D0 to D7 and A0 to A7 are hooked directly to the microcontroller's GPIO pins.
+微控制器*在控制东西*方面特别好; 所以故名为‘微控制器’. 他们有一套“管脚" (小蜘蛛腿型的东西) 这被称为 *GPIO* (通用输入和输出) 管脚, or I/O 管脚. 它们可以被连接到传感器或按钮来与世界接触, 或者他们可以挂接到灯和马达. 
+这些微控制器的管脚已被直接连到 Spark Core 接头上的两侧方便使用; 特别是, 标记 D0 到 D7 和 A0 到 A7 的引脚直接挂接到单 片机的 GPIO 管脚。
 
-The microcontroller can also communicate with other chips using common protocols like *Serial* (also called UART), *SPI*, or *I2C* (also called Wire). You can then make the Core more powerful by connecting it to special-purpose chips like motor drivers or shift registers. Sometimes we'll wrap up these chips on a *Shield*, an accessory to the Core that makes it easy to extend the Core.
+微控制器还可以与其他芯片使用像普通的协议进行通信,譬如 *Serial* (也被称为 UART), *SPI*, or *I2C* (也被称为 Wire). 然后，您可以让 Core 更加强大，它连接到专用芯片，如马达驱动器或移位寄存器。 有时候，我们会将这些芯片放在一个  *Shield*, 一个附件，可以很容易扩展 Spark Core 的功能.
 
-The Core also has a Wi-Fi module, which connects it to your local Wi-Fi network in the same way that your computer or smartphone might connect to a Wi-Fi network. The Core is programmed to stay connected to the internet by default, so long as it can find and connect to a network.
+Spark Core 还具有Wi-Fi模块，它连接到您的本地 Wi-Fi 网络，像您的电脑或智能手机可以连接到 Wi-Fi 网络的方式相同. Spark Core 编程,在默认情况下，只要它能找到并连接到网络,就为保持连接到互联网.
 
-When the Core connects to the internet, it establishes a connection to the *Spark Cloud*. By connecting to the Cloud, the Core becomes accessible from anywhere through a simple REST API. This API is designed to make it very easy to interface with the Core through a web app or mobile app in a secure, private way, so that only you and those you trust can access the Core.
+当 Spark Core 连接到互联网，它会与 *Spark 云* 建立连接. 通过连接到云，Spark Core 从任何地方通过一个简单的 REST API 变得容易存取。 这个API被设计成使它很容易与 Spark Core 互动. 通过一个web应用程序或移动应用程序, 在一个安全的，私人的方式接口与 Spark Core，这样只有您和您信任的人可以与 Spark Core 互动。
+
 
 ### Buttons
 
