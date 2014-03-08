@@ -134,18 +134,18 @@ RGB LED 也可以让你知道，如果在建立互联网连接有错误. *红色
 
 ### Pins
 
-The Core has 24 pins that you can connect a circuit to. These pins are:
+Spark Core 具有 24 可以将电路连接的管脚，这些管脚是:
 
-- _VIN_: Connect an unregulated power source here with a voltage between 3.6V and 6V to power the Core. If you're powering the Core over USB, this pin should *not* be used.
-- _3V3_: This pin will output a regulated 3.3V power rail that can be used to power any components outside the Core. (Also, if you have your own 3.3V regulated power source, you can plug it in here to power the Core).
-- _3V3*_: This is a separate low-noise regulated 3.3V power rail designed for analog circuitry that may be susceptible to noise from the digital components. If you're using any sensitive analog sensors, power them from _3V3*_ instead of from _3V3_.
-- _!RST_: You can reset the Core (same as pressing the RESET button) by connecting this pin to GND.
-- _GND_: These pins are your ground pins.
-- _D0 to D7_: These are the bread and butter of the Spark Core: 8 GPIO (General Purpose Input/Output) pins. They're labeled "D" because they are "Digital" pins, meaning they can't read the values of analog sensors. Some of these pins have additional peripherals (SPI, JTAG, etc.) available, keep reading to find out more.
-- _A0 to A7_: These pins are 8 more GPIO pins, to bring the total count up to 16. These pins are just like D0 to D7, but they are "Analog" pins, which means they can read the values of analog sensors (technically speaking they have an ADC peripheral). As with the Digital pins, some of these pins have additional peripherals available.
-- _TX and RX_: These pins are for communicating over Serial/UART. TX represents the transmitting pin, and RX represents the receiving pin.
+- _VIN_: 这里连接一个不受管制的电源与3.6V至6V的电压来驱动 Spark Core. 如果你通过 USB 供电的 Spark Core，该引脚应*不*使用。
+- _3V3_: 该引脚将输出一个稳定的 3.3V 电源轨，可用于 Spark Core之外的任何组件提供电力. (此外，如果你有自己的 3.3V 稳压电源，你可以将其插入这里驱动 Spark Core）.
+- _3V3*_: 这是一个单独的低噪声稳定的 3.3V 电轨设计用于可能容易受到数字元件噪声影响的模拟电路。 如果你正在使用任何敏 感的模拟传感器，请用_3V3*_ 电源，而不是从_3V3_.
+- _!RST_: 把该引脚连接到GND， 您可以重置 Spark Core (就像是按 RESET 按钮)
+- _GND_: 这些引脚是您的电气接地引脚。
+- _D0 to D7_: 这些都是 Spark Core 的基础: 8 GPIO (通用输入/输出) 管脚. 它们标有“D” 因为他们是“数字”管脚, 这意味着它们无法读取模拟传感器的值. 有些管脚可有额外的外设（SPI，JTAG，等). 请继续阅读以了解更多信息.
+- _A0 to A7_:这些是多 8 个 GPIO 管脚, 把总数拉到 16. T这些管脚就像D0到D7，但他们是“模拟”管脚， 这意味着它们可以读取模拟传感器的值(从技术上来说，他们有一个ADC外设).和“数字”管脚一样，其中的一些管脚有额外的可用外设
+- _TX and RX_: 这些引脚用于串行通信 Serial/ UART. TX 表示传动管脚，和 RX 表示接收引脚。
 
-#### PWM Pins
+#### 脉冲宽度调制 管脚
 
 When you want to use the `analogWrite()` function on the Core, for instance to smoothly dim the brightness of LEDs, you need to use pins that have a timer peripheral.  People often call these PWM pins, since what they do is called Pulse Width Modulation.  The Core has 8 PWM pins: A0, A1, A4, A5, A6, A7, D0 and D1.
 
