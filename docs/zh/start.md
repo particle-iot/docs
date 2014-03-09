@@ -295,7 +295,7 @@ Tinker 应用程式介面 (API)
 
 *固件*是所谓的，比软件容易但比硬件较难。 在制造过程中的硬件是固定的，不会改变. 软件可以随时更新，所以它是非常灵活的. 固件是介于两者之间;硬件公司做发行的固件更新，但往往是非常罕见的，因为升级固件可能会很困难。
 
-在我们的例子中，因为 Spark Core 连接到互联网，更新固件是相当微不足道的; 我们通过网络发送它，我们制定了预防措施，不让您的 Spark Core “变砖”.
+在我们的例子中，因为 Spark Core 连接到互联网，更新固件是相当微不足道的; 我们通过网络发送它，制定了预防措施，不让您的 Spark Core “变砖”.
 
 当你闪代码到星火核心，你正在做一个 *空中固件更新*。 此固件更新几乎将覆盖所有的 Spark Core 的软件; 唯一不变的一块是引导程序,管理加载新固件的程序，并确保你总是可以通过USB或通过恢复出厂设置更新固件。  （我们将公开引导程序）
 
@@ -323,7 +323,7 @@ Spark Build 是一个集成开发环境 或短称 IDE; 这意味着你可以在W
 Spark Build 的侧导航栏在左侧. 在顶端，有三个按钮，从而起到重要的功能：
 
 - **Flash**（闪存）: 闪存当前的代码到 Spark Core. 这将启动一个 *空中固件更新* 并加载新的软件到您的 Spark Core.
-- **Verify**(确认): 这将编译你的代码，而不会把它闪烁到 Core; 如果在你的代码中的任何错误，它们会显示在屏幕底部的 调试控制台.
+- **Verify**(验证): 这将编译你的代码，而不会把它闪烁到 Core; 如果在你的代码中的任何错误，它们会显示在屏幕底部的 调试控制台.
 - **Save**(储存）: 储存您对代码进行的任何更改
 
 在底部，有多四个的按钮来导航 IDE：
@@ -333,41 +333,41 @@ Spark Build 的侧导航栏在左侧. 在顶端，有三个按钮，从而起到
 - **Cores**: 显示 Spark Cores 列表, 所以你可以选择要闪烁的 Core, 并获得每个 Spark Core 的更多信息.
 - **Settings**(设置): 更改您的密码，注销，或获得调用您 API 的访问令牌。
 
-Spark Apps and Libraries
+Spark 应用程序和库
 ---
 
 ![Spark Build](images/spark-apps.jpg)
 
-The heart of Spark Build is the "Spark Apps" section, which displays the name of the current app in your editor, as well as a list of your other applications and community-supported example apps.
+Spark Build 的中心是 "Spark 应用程序" 一节, 这在编辑器中显示当前应用程序的名称, 以及您的其他应用程序的列表 和社区支持的例子应用程序.
 
-The application you've got open in the editor is displayed under the "Current App" header.  You'll notice that this "HELLOWORLD" sample application has only one file, but firmware with associated libraries/multiple files are fully supported.  
+你在编辑器中打开的该应用程序显示在“当前应用程序”标题下。  你会发现，这个“HelloWorld”的示例应用程序只有一个文件，但也能全面支持与固件相关的库/多个文件.
 
-From this pane, you've got a lot of buttons and actions available to you that can help you grow and manage your library of kick-ass applications:
+在此窗格中，您已经得到了很多的按钮和提供给您可用的行动选项，可以帮助您修改和管理您的应用程序库.
 
-- **Create**: You can create a new application by clicking the "Create New App" button.  Give it a sweet name and press enter!  Your app is now saved to your account and ready for editing.
+- **Create**（创建）: 您可以通过单击“创建新的应用程序”按钮，创建一个新的应用程序.  给它一个甜美的名字，然后按 Enter！您的应用程序现在都保存到您的帐户，并可以进行编辑.
 
-- **Delete**: Click the "Remove App" button to remove it forever from your Spark library.
+- **Delete**(删除): 点击“删除应用程序”按钮，从您的Spark库中永久删除.
 
-- **Rename**: You can rename your Spark App by simply double-clicking on the title of your app under the "Current App" header.  You can modify the "Optional description" field in the same way.
-- **My Apps**: Tired of working on your current project?  Select the name of another app under the "My apps" header to open it in a tab of the Spark Build editor.
+- **Rename**(重命名): 您可以通过在您的应用程序的标题简单地双击“当前应用程序”标题下重命名你的 Spark 应用程序. 您可以以同样的方式修改“可选的描述”字段.
+- **My Apps**(我的应用程序）: 不想继续您当前的项目？ “我的应用”标题下选择另一个应用程序的名称 在 Spark Build 编辑 的一个标签中打开.
 
-- **Files**: This header lists all known files associated with the open application.  Click on a supporting file in your application to open it as an active tab in the editor.
+- **Files**(档): 这个头列出了所有打开的应用程序相关联的已知的文件. 在您的应用程序点击支持文件, 打开它作为在编辑器中的活动选项卡.
 
-- **Examples**: The "Example apps" header lists a continuously growing number of community-supported example apps.  Use these apps as references for developing your own, or fork them outright to extend their functionality.
+- **Examples**(示例): “示例应用程序”标题列出一个不断增加的，社区支持的例子应用程序。  使用这些应用程序作为开发自己的引用，或叉它们直接来扩展其功能.
 
 
-Flashing Your First App
+闪存您的第一个应用程序
 ---
 
-The best way to get started with the IDE is to start writing code:
+开始使用IDE中的最好的办法是开始编写代码：
 
-- **Connect**: Make sure your Core is powered and "breathing" Cyan, which indicates that it's connected to the Spark Cloud and ready to be updated.
+- **Connect**（连接）:请确保您的 Spark Core 已接上电源并在‘青色慢速闪烁’, 这表明它是连接到 Spark 云，随时可以更新.
 
 ---
-- **Get Code**: Try clicking on the "Blink an LED" example under the "Example apps" header.  The Spark Build editor should display the code for the example application in an active tab.  Alternatively, you can copy and paste this snippet of code into a new application in the Build IDE.
+- **Get Code**(获取代码): 尝试从“示例应用程序”，点击“闪烁LED”的示例. Spark Build 星火构建编辑器应该在活跃选项卡中 显示了示例应用程序的代码.  或者，您也可以复制并粘贴此代码段成在IDE中构建新的应用程序.
 
 ```
-//D7 LED Flash Example
+//闪烁 D7 LED 的示例
 int LED = D7;
 
 void setup() {
@@ -384,68 +384,68 @@ void loop() {
 
 ![Spark Build](images/select-a-core.jpg)
 
-- **Select Your Core**: The next step is to make sure that you've selected which of your Cores to flash code to.  Click on the "Cores" icon at the bottom left side of the navigation pane, and click on the start next to the Core you'd like to update.  Once you've selecte a Core, the star associated with it will turn yellow.
+- **Select Your Core**(选择您的 Core): 下一个步骤是要确保你已经选择要闪存代码的 Spark Core.  单击导航窗格底部左侧的 Spark Core 图标, 并点击您想要更新的 Spark Core 旁边的星.  一旦你选择了一个 Spark Core，与它相关的星会变黄.
 
-- **Flash**: Click the "Flash" button, and your code will be sent wirelessly to your Core.  If the flash was successful, the LED on your Core will begin flashing magenta.
+- **Flash**（闪存）: 击“闪存”按钮，您的代码将通过无线发送到您的 Spark Core.  如果闪光灯是成功的，你的核心指示灯将 开始闪烁紫红色。
 
 ![Spark Build](images/fork-app.jpg)
 
-- **Fork**: Wish the timing of that LED flash was a little bit faster?  Try clicking on the "Fork This Example" button after selecting the "Blink An LED" example application.  You've now got a personal copy of that application that you can modify, save, and flash to all of your Cores.
+- **Fork**(叉): 希望LED闪光灯的时机快一点？ 请尝试选择“点亮LED的”示例应用程序后单击 "Fork This Example"（叉此示例） 按钮.  现在，您已经得到了该应用程序，你可以修改，保存，并闪存到您所有的 Spark Core 的个人副本。
 
-- **Edit**: Try changing the values in the delay() function from 1000 to 250, which changes the timing interval from 1000 milliseconds to only 250 milliseconds.  Click the Verify button, then the Flash button.  Is your Core's LED blinking faster?  Well done :)
+- **Edit**（编辑）: 尝试改变delay()函数的值从1000到250, 它改变了从1000毫秒的时间， 到只有250毫秒.  点击 Verify(验证) 按钮，然后在Flash(闪存) 按钮。您的 Spark Core 的 LED 闪烁速度是不是更快？干得好:)
 
 
-Account Information
+帐户信息
 ---
 
-There are a couple of other neat bells and whistles in Spark Build.  The Spark Build IDE the best tool for viewing important information about your Core, managing Cores associated with your Spark account, and "unclaiming" them so they can be transferred to your buddy.
+Spark Build 也具有其他的特点. Spark Build IDE 用于查看有关您的 Spark Core 重要信息的最佳工具, 管理与您 Spark 帐户相关的 Core, 和“取消”它们，这样就可以被转移给您的好友。
 
 ![Spark Build](images/device-id.jpg)
 
-- **Core ID**: You can view your Core's Device ID by clicking on the "Cores" icon at the bottom of the navigation pane, then clicking the dropdown arrow next to the Core of interest.  
+- **Core ID**（设备标识号）: 您可以通过点击 Core 图标，在导航窗格的底部查看 Spark Core 的设备 ID, 然后点击要选择的 Spark Core 旁边的下拉箭头.
 
-- **Unclaim**: You can "Unclaim" a Core by pressing the "Remove Core" button that is revealed by clicking the dropdown arrow.  Once a Core has been unclaimed, it is available to be reassociated with any Spark users' account.
+- **Unclaim**(取消声明): 点击要取消的 Spark Core 旁边的下拉箭头, 按下“删除 Spark Core”按钮.  一旦 Spark Core 被取消，它能提供给任何 Spark 用户的帐户被重新关联。
 
 ![Spark Build](images/access-token.png)
 
-- **API Key**: You can find your most recent API Key listed under the "Settings" tab in your account.  You can press the "Reset Token" button to assign a new API Key to your account.  *Note* that pressing this button will require you to update any hard-coded API Credentials in your Spark-powered projects!
+- **API Key**（API密钥）: 您可以在您的帐户中的“设置”选项卡下的你最近的API密钥.  您可以按“复位标记”按钮，指定新的API密钥到您的帐户.  *注意*当按下这个按钮将要求，您必须更新用硬编码的API证书的项目!
 
 
 
 
 
 
-The Spark Command Line
+Spark 命令行
 ===
 
-**Coming soon!** Command line tools so that you can build Spark applications with your own desktop IDE, whether it's Eclipse, Sublime Text, Vim, or anything else.
+**敬请期待！** 命令行工具，使您可以用自己的 IDE 构建 Spark 应用程序, 无论是 Eclipse, Sublime Text, Vim, 或其他任何东西.
 
-Deploying a Spark web app
+部署 Spark Web应用程序
 ===
 
-**Coming soon!** We'll give you instructions for how to deploy a web app on Heroku that can talk with a Spark Core.
+**敬请期待！* 我们将为您提供如何部署在Heroku上的Web应用程序，可以与 Spark Core 说话的说明。
 
-Troubleshooting
+故障排除
 ===
 
-What's wrong?
+出了什么问题？
 ---
 
-### My Core won't connect to Wi-Fi
+### Core 无法连接到 Wi-Fi
 
-There are many reasons that your Core might not be connecting to your Wi-Fi network. To debug, check out our detailed connection troubleshooting section:
+您的 Core 可能无法连接到 Wi-Fi 网络的原因有很多。要调试，看看我们的详细的连接故障排除部分：
 
-[Why won't it connect? >](/#/connect/troubleshooting)
+[为什么无法连接？ >](/#/connect/troubleshooting)
 
-### I can't talk to my Core
+### 无法于 Core 连接
 
-Once your Core is connected, it needs to be *claimed* in order to be associated with your account. This is what lets you control your Core and keeps anyone else from doing so.
+一旦你的 Spark Core 连接, 它需要被*认领*并与您的帐户相关联。.这就是让您控制您的 Spark Core 的方式 ，并保持其他人无法这样做.
 
-If you use the mobile app to set up your Core, it should claim it automatically. However if you connect your Core over USB, or if the claiming process is unsuccessful, you can claim it manually.
+如果使用手机应用程序来设置您的 Spark Core， 它应该会自动认领. 但是，如果你通过USB连接你的 Core, 或者认领过程不成功，您可以亲自认领。
 
-Head over to our connection page to learn about this:
+到我们的连接页面，了解这一点：
 
-[ Claiming your Core >](/#/connect/claiming-your-core)
+[ 认领您的 Core >](/#/connect/claiming-your-core)
 
 ### My Core won't start up
 
