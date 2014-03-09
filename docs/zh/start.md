@@ -285,48 +285,48 @@ Tinker 应用程式介面 (API)
 该参数必须是管脚 (A0 to A7, D0 to D7). 返回值将介于0和4095如果读取成功，返回-1，如果它失败。
 
 
-Flash Apps with Spark Build
+用 Spark Build　闪存应用程序
 ===
 
-What is firmware?
+什么是固件?
 ---
 
-An *embedded system* like the Spark Core doesn't have an Operating System like a traditional computer. Instead, it runs a single application, often called *firmware*, which runs whenever the system is powered.
+一个*嵌入式系统*如 Spark Core 并没有像传统电脑的操作系统. 相反，它运行一个单独的应用程序，通常被称为*固件*，即每当系统通电运行。
 
-*Firmware* is so-called because it's harder than software and softer than hardware. Hardware is fixed during manufacturing, and doesn't change. Software can be updated anytime, so it's very flexible. Firmware is somewhere in between; hardware companies do issue firmware updates, but they tend to be very infrequent, because upgrading firmware can be difficult.
+*固件*是所谓的，比软件容易但比硬件较难。 在制造过程中的硬件是固定的，不会改变. 软件可以随时更新，所以它是非常灵活的. 固件是介于两者之间;硬件公司做发行的固件更新，但往往是非常罕见的，因为升级固件可能会很困难。
 
-In our case, because the Spark Core is connected to the internet, updating firmware is quite trivial; we send it over the network, and we have put in place safeguards to keep you from "bricking" the Core.
+在我们的例子中，因为 Spark Core 连接到互联网，更新固件是相当微不足道的; 我们通过网络发送它，我们制定了预防措施，不让您的 Spark Core “变砖”.
 
-When you flash code onto the Spark Core, you are doing an *over-the-air firmware update*. This firmware update overwrites almost all of the software on the Spark Core; the only piece that is untouched is the bootloader, which manages the process of loading new firmware and ensures you can always update the firmware over USB or through a factory reset.  (We'll be open sourcing the bootloader as soon as we can bring the README up to date.)
+当你闪代码到星火核心，你正在做一个 *空中固件更新*。 此固件更新几乎将覆盖所有的 Spark Core 的软件; 唯一不变的一块是引导程序,管理加载新固件的程序，并确保你总是可以通过USB或通过恢复出厂设置更新固件。  （我们将公开引导程序）
 
-Logging into Spark Build
+登录到 Spark Build
 ---
-When you're ready to reprogram your Spark Core, head over to our IDE:
+当你准备好重新编程您的 Spark Core，请到我们的 IDE：
 
 [Spark Build >](https://www.spark.io/build)
 
 ![Spark Build](images/create-account.jpg)
 
-Creating an account is a simple one-step process.  When presented with the login screen, simply enter your email address (careful!), and desired account password.  Press the big friendly "Sign Up" button, and you'll reach the Spark Build home page.
+创建一个帐户是一个简单的单步过程。  当登录屏幕出现，只需输入您的电子邮件地址（小心!），和所需的帐户密码。 按大友好的“注册”按钮，你就会到达 Spark Build 主页
 
 ![Spark Build](images/log-in.jpg)
 
-If you've already logged into Spark Build before, click the "Let me log in" text beneath the Sign Up button, and you'll be presented with a login for existing users.  Don't worry--if you already have an account and accidentally click the "Sign Up" button, we'll still log you into your existing account.
+如果您之前已经登录到 Spark Build, 点击注册按钮下方的“让我登录”文本, a你会看到一个现有用户的登录. 不要担心 - 如果你已经有一个帐户，不小心点击“注册”按钮，我们还是会您登录到您现有的帐户。
 
-Spark Build, our web IDE
+Spark Build, 我们的网上 IDE
 ---
 
 ![Spark Build](images/ide.png)
 
-Spark Build is an Integrated Development Environment, or IDE; that means that you can do software development in an easy-to-use application, which just so happens to run in your web browser.
+Spark Build 是一个集成开发环境 或短称 IDE; 这意味着你可以在Web浏览器中，用一个易于使用的应用程序，做软件开发.
 
-Spark Build starts with the navigation bar on the left. On the top, there are three buttons, which serve important functions:
+Spark Build 的侧导航栏在左侧. 在顶端，有三个按钮，从而起到重要的功能：
 
-- **Flash**: Flashes the current code to the Spark Core. This initiates an *over-the-air firmware update* and loads the new software onto your Spark Core.
-- **Verify**: This compiles your code without actually flashing it to the Core; if there are any errors in your code, they will be shown in the debug console on the bottom of the screen.
-- **Save**: Saves any changes you've made to your code.
+- **Flash**（闪存）: 闪存当前的代码到 Spark Core. 这将启动一个 *空中固件更新* 并加载新的软件到您的 Spark Core.
+- **Verify**(确认): 这将编译你的代码，而不会把它闪烁到 Core; 如果在你的代码中的任何错误，它们会显示在屏幕底部的 调试控制台.
+- **Save**(储存）: 储存您对代码进行的任何更改
 
-At the bottom, there are four more buttons to navigate through the IDE:
+在底部，有多四个的按钮来导航 IDE：
 
 - **Code**: Shows a list of your firmware applications and lets you select which one to edit/flash.
 - **Docs**: Brings you to the documentation for Spark.
