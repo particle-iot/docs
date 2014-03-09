@@ -214,10 +214,11 @@ Tinker 固件是 Spark Core 在工厂流水线时储存的默认应用程序. �
 
  Tinker 应用程序, 是如何用极少的代码建立一个功能强大的应用程序，很好的一个例子。 你可以 [在这里](https://github.com/spark/core-firmware/blob/master/src/application.cpp) 看看最新发布
 
-The Tinker API
+Tinker 应用程式介面 (API)
+
 ---
 
-When the Tinker firmware is installed on your Spark Core, it will respond to certain API requests from your mobile app, which mirror the four basic GPIO functions (digitalWrite, analogWrite, digitalRead, analogRead). These API requests can also be made from another application, so you can build your own web or mobile app around the Tinker firmware.
+当补 Tinker 固件安装在你的 Spark Core, 它会从您的手机应用程序响应某些API请求, 反映四个基本的GPIO功能 (digitalWrite, analogWrite, digitalRead, analogRead). 这些API请求，也可以从其他应用软件作出, 这样您就可以围绕 Tinker 固件构建自己的Web或手机应用程序.
 
 ### digitalWrite
 
