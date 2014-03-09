@@ -143,24 +143,25 @@ Spark Core 具有 24 可以将电路连接的管脚，这些管脚是:
 - _GND_: 这些引脚是您的电气接地引脚。
 - _D0 to D7_: 这些都是 Spark Core 的基础: 8 GPIO (通用输入/输出) 管脚. 它们标有“D” 因为他们是“数字”管脚, 这意味着它们无法读取模拟传感器的值. 有些管脚可有额外的外设（SPI，JTAG，等). 请继续阅读以了解更多信息.
 - _A0 to A7_:这些是多 8 个 GPIO 管脚, 把总数拉到 16. T这些管脚就像D0到D7，但他们是“模拟”管脚， 这意味着它们可以读取模拟传感器的值(从技术上来说，他们有一个ADC外设).和“数字”管脚一样，其中的一些管脚有额外的可用外设
-- _TX and RX_: 这些引脚用于串行通信 Serial/ UART. TX 表示传动管脚，和 RX 表示接收引脚。
+- _TX and RX_: 这些引脚用于串行通信 Serial/ UART. TX 表示传动管脚，和 RX 表示接收管脚。
 
 #### 脉冲宽度调制 管脚
 
-When you want to use the `analogWrite()` function on the Core, for instance to smoothly dim the brightness of LEDs, you need to use pins that have a timer peripheral.  People often call these PWM pins, since what they do is called Pulse Width Modulation.  The Core has 8 PWM pins: A0, A1, A4, A5, A6, A7, D0 and D1.
+当您要使用 Core `analogWrite()` 的功能, 例如为了自如暗淡 LED 的的亮度, 您需要使用具有定时器外设管脚.  人们常常称这些 PWM 管脚, 因为他们做的就是脉宽调制.  Spark Core 有8个 PWM 管脚： A0, A1, A4, A5, A6, A7, D0 and D1.
 
-The Spark Cloud
+Spark 云
 ---
 
-The Spark Cloud is a network of servers hosted at `https://api.spark.io/` that the Spark Core connects to once it's on your Wi-Fi network.
+Spark 云的一簇服务器托管在`https://api.spark.io/`，Spark core 一旦连接到您的Wi-Fi网络上就会连接到 Spark 云
 
-The Cloud exists for three main reasons:
+Spark 云的存在主要有三个原因：
 
-### Simplicity
+### 简单性
+一般而言，当您在一使用个嵌入式系统，联网方式是通过TCP套接字和UDP数据包发送的字节.每个人都同意 - socket 编程一点也不好玩. 但更高级别的通信是困难的，因为微控制器有那么一点记忆，他们一般不能举办一个传统的HTTP Web服务器.
 
-Generally speaking, when you work in an embedded system, networking means sending bytes over TCP sockets and UDP datagrams. Everyone agrees - socket programming is not fun. But higher-level communications are difficult because microcontrollers have so little memory they can't generally host a traditional HTTP web server. The Cloud gives you the simplicity of the web server with the low cost and low power of a microcontroller by translating between web communications (HTTP requests) and embedded communications (in our case, encrypted CoAP messages).
+云给你的是 Web服务器的简单性和微控制器的低成本与低功耗通.透过网络通信（HTTP请求）和嵌入式通信之间进行转换（在我们的案例中，是用加密COAP消息）。
 
-But you don't have to know any of that. The whole point of the Cloud is that all of this is abstracted away. You don't need to know *how* it connects to the internet; it just does. And once it's connected, you can make it do awesome things quickly and easily, without dealing with sockets.
+但你不必知道任何一切. Spark 云整个的一点是，把所有这一切都抽象出来. 你不需要知道*它如何*连接到互联网，它自然就会. 而一旦它连接，您可以快速的把它弄做成很棒的东西，很轻松地，无需处理 socket 编程。
 
 ### Global availability
 
