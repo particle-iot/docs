@@ -192,7 +192,7 @@ Tinker 应用程序
 
 ![Tinker](images/tinker.png)
 
-Tinker section of the Spark mobile app makes it very easy to start playing with your Spark Core without writing any code. It's great for early development, and often it will do everything you need to get your project off of the ground.
+Spark 手机应用程序的 Tinker 部分，而无需编写任何代码就能容易对 Spark Core 入手. 它在您发展的初期很管用，能提供您需要的一切让你的项目起步.
 
 Tinker 应用程序包含16个管脚的控制接口 - 8模拟管脚在左边，8个数字管脚在右边. 这些管脚代表了 Spark Core 上的 16 个 GPIO（通用输入输出）管脚.
 
@@ -200,8 +200,8 @@ Tinker 应用程序包含16个管脚的控制接口 - 8模拟管脚在左边，8
 
 首先，请点选任何管脚.一个菜单会弹出显示管脚有可用的功能. 每个管脚最多有四个可能的功能：
 
-- **digitalWrite** （数字写）:设置管脚为 HIGH(高)或低(LOW), 这是在连接到 3.3V（该系统的最大电压）或 GND（地）. D7 管脚连接到 一个板上的LED;如果你设置D7管脚为高电平时，LED会亮起，如果你将其设置为低时，它会关闭。
-- **analogWrite** (模拟写）: 设置管脚的值0和255之间, 其中0是相同的 LOW(低)和 255 是 HIGH(高)。 这有点像介于0和3.3V发送电压, 但因为这是一个数字系统， it uses a mechanism called Pulse Width Modulation, 或短称 PWM. 作为一个例子, 你可以使用 *analogWrite* 把 LED 暗淡.
+- **digitalWrite** （数字写）:设置管脚为 HIGH(高)或低(LOW), 这是在连接到 3.3V（该系统的最大电压）或 GND（地）. D7 管脚连接到 一个板上的LED;如果你设置D7管脚为高电平时, LED会亮起, 如果你将其设置为低时，它会关闭.
+- **analogWrite** (模拟写）: 设置管脚的值0和255之间, 其中0是相同的 LOW(低)和 255 是 HIGH(高). 这有点像介于0和3.3V发送电压, 但因为这是一个数字系统, 它使用一个叫做脉宽调制机制, 或短称 PWM. 作为一个例子, 你可以使用 *analogWrite* 把 LED 暗淡.
 - **digitalRead** (数字读）: 这将读取数字管脚的值，这可以是高或低. 如果您管脚连接到 3.3V，它会读高;如果您将它连接到 GND，它会读低。 在任何地方之间，它会读取靠近的那一方，但在中间就很难决定.
 - **analogRead** (模拟读）: 这将读取模拟管脚的值，这是从 0 值的模拟值4095，其中0表示低电平（GND）和 4095 是 高电压（3.3V）. 所有的模拟管脚（A0到A7）可以处理应付这个。 *analogRead* 用在读取传感器的数据最管用.
 
