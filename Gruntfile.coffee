@@ -1,4 +1,4 @@
-### 
+###
 #
 # The Gruntfile for the Spark documentation
 # Created by Zach Supalla
@@ -15,13 +15,19 @@
 
 module.exports = (grunt) ->
 
-  gruntConfig = 
+  gruntConfig =
+
+    config:
+      src: 'src'
+      dist: 'dest'
+      content: 'src/content'
+
     assemble:
       # ASSEMBLE!!!
       options:
         flatten: true
-        assets: 'assets'
-        layoutdir: 'layouts'
+        assets: '<%= config.src %>/assets'
+        layoutdir: '<%= config.src %>/layouts'
         layout: 'default.hbs'
       docs:
         options:
@@ -30,29 +36,48 @@ module.exports = (grunt) ->
         files: [
           {
             expand: true
-            cwd: 'content/'
+            cwd: '<%= config.content %>'
             src: ['*.md']
-            dest: 'dest/'
+            dest: '<%= config.dist %>'
             rename: (dest, src) ->
               dest + src.substring(0, src.indexOf('.')) + '/index.html'
           }
         ]
-          
+
 
     # 'gh-pages':
 
     clean:
-      dest: ['dest/**/*']
+      dest: ['<%= config.dist %>/**/*']
 
     copy:
       start:
-        dest: 'dest/index.html'
-        src: 'dest/start/index.html'
+        dest: '<%= config.dist %>/index.html'
+        src: '<%= config.dist %>/start/index.html'
 
     watch:
       main:
-        files: ['content/*.md']
+        files: ['<%= config.content %>/*.md']
         tasks: ['build']
+      livereload:
+        options:
+          livereload: '<%= connect.options.livereload %>'
+        files: [
+          '<%= config.dist %>/{,*/}*.html',
+          '<%= config.dist %>/assets/{,*/}*.css',
+          '<%= config.dist %>/assets/{,*/}*.js',
+          '<%= config.dist %>/assets/{,*/}*.{png,jpg,jpeg,gif,webp,svg}'
+        ]
+
+    connect:
+      options:
+        port: 9000
+        livereload: 35729
+        hostname: 'localhost'
+      livereload:
+        options:
+          open: true
+          base: ['<%= config.dist %>']
 
   grunt.initConfig gruntConfig
 
@@ -61,6 +86,8 @@ module.exports = (grunt) ->
   grunt.loadNpmTasks 'grunt-contrib-watch'
   grunt.loadNpmTasks 'grunt-contrib-clean'
   grunt.loadNpmTasks 'grunt-contrib-copy'
+  grunt.loadNpmTasks 'grunt-contrib-connect'
 
+  grunt.registerTask 'server', ['build', 'connect:livereload', 'watch']
   grunt.registerTask 'publish', ['build', 'gh-pages']
   grunt.registerTask 'build', ['clean', 'assemble', 'copy']
