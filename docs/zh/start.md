@@ -200,7 +200,7 @@ Tinker 应用程序包含16个管脚的控制接口 - 8模拟管脚在左边，8
 
 首先，请点选任何管脚.一个菜单会弹出显示管脚有可用的功能. 每个管脚最多有四个可能的功能：
 
-- **digitalWrite** （数字写）:设置管脚为 HIGH(高)或低(LOW), 这是在连接到 3.3V（该系统的最大电压）或 GND（地）. D7 管脚连接到 一个板上的LED;如果你设置D7管脚为高电平时, LED会亮起, 如果你将其设置为低时，它会关闭.
+- **digitalWrite** （数字写）:设置管脚为 HIGH(高)或低(LOW), 这是在连接到 3.3V（该系统的最大电压）或 GND（地）. D7 管脚连接到 一个板上的 LED; 如果你设置D7管脚为高电平时, LED会亮起, 如果你将其设置为低时，它会关闭.
 - **analogWrite** (模拟写）: 设置管脚的值0和255之间, 其中0是相同的 LOW(低)和 255 是 HIGH(高). 这有点像介于0和3.3V发送电压, 但因为这是一个数字系统, 它使用一个叫做脉宽调制机制, 或短称 PWM. 作为一个例子, 你可以使用 *analogWrite* 把 LED 暗淡.
 - **digitalRead** (数字读）: 这将读取数字管脚的值，这可以是高或低. 如果您管脚连接到 3.3V，它会读高;如果您将它连接到 GND，它会读低。 在任何地方之间，它会读取靠近的那一方，但在中间就很难决定.
 - **analogRead** (模拟读）: 这将读取模拟管脚的值，这是从 0 值的模拟值4095，其中0表示低电平（GND）和 4095 是 高电压（3.3V）. 所有的模拟管脚（A0到A7）可以处理应付这个。 *analogRead* 用在读取传感器的数据最管用.
@@ -220,69 +220,69 @@ Tinker 应用程式介面 (API)
 
 当补 Tinker 固件安装在你的 Spark Core, 它会从您的手机应用程序响应某些API请求, 反映四个基本的GPIO功能 (digitalWrite, analogWrite, digitalRead, analogRead). 这些API请求，也可以从其他应用软件作出, 这样您就可以围绕 Tinker 固件构建自己的Web或手机应用程序.
 
-### digitalWrite
+### digitalWrite（模拟写）
 
-Sets the pin to HIGH or LOW, which either connects it to 3.3V (the maximum voltage of the system) or to GND (ground). Pin D7 is connected to an on-board LED; if you set pin D7 to HIGH, the LED will turn on, and if you set it to LOW, it will turn off.
+设置管脚为 HIGH(高)或低(LOW), 这是在连接到 3.3V（该系统的最大电压）或 GND（地）. D7 管脚连接到 一个板上的 LED; 如果你设置D7管脚为高电平时, LED会亮起, 如果你将其设置为低时，它会关闭.
 
-    POST /v1/devices/{DEVICE_ID}/digitalwrite
+    POST /v1/devices/{设备标识号}/digitalwrite
 
-    # EXAMPLE REQUEST IN TERMINAL
-    # Core ID is 0123456789abcdef01234567
-    # Your access token is 1234123412341234123412341234123412341234
+    # 串行终端请求示例
+    # Core ID(设备标识号) is 0123456789abcdef01234567
+    # Your access token(访问令牌) is 1234123412341234123412341234123412341234
     curl https://api.spark.io/v1/devices/0123456789abcdef01234567/digitalwrite \
       -d access_token=1234123412341234123412341234123412341234 -d params=D0,HIGH
 
-The parameters must be the pin (A0 to A7, D0 to D7), followed by either HIGH or LOW, separated by a comma. The return value will be 1 if the write succeeds, and -1 if it fails.
+该参数必须是管脚 (A0 to A7, D0 to D7), 其次是高或低, 用逗号分隔. 返回值将是1，如果写入成功，返回-1，如果它失败。
 
 
 
-### analogWrite
+### analogWrite（数字写）
 
-Sets the pin to a value between 0 and 255, where 0 is the same as LOW and 255 is the same as HIGH. This is sort of like sending a voltage between 0 and 3.3V, but since this is a digital system, it uses a mechanism called Pulse Width Modulation, or PWM. You could use *analogWrite* to dim an LED, as an example.
+设置管脚的值0和255之间, 其中0是相同的 LOW(低)和 255 是 HIGH(高). 这有点像介于0和3.3V发送电压, 但因为这是一个数字系统, 它使用一个叫做脉宽调制机制, 或短称 PWM. 作为一个例子, 你可以使用 *analogWrite* 把 LED 暗淡.
 
-    POST /v1/devices/{DEVICE_ID}/analogwrite
+    POST /v1/devices/{设备标识号}/analogwrite
 
-    # EXAMPLE REQUEST IN TERMINAL
-    # Core ID is 0123456789abcdef01234567
-    # Your access token is 1234123412341234123412341234123412341234
+    # 串行终端请求示例
+    # Core ID(设备标识号) is 0123456789abcdef01234567
+    # Your access token(访问令牌) is 1234123412341234123412341234123412341234
     curl https://api.spark.io/v1/devices/0123456789abcdef01234567/analogwrite \
       -d access_token=1234123412341234123412341234123412341234 -d params=A0,215
 
-The parameters must be the pin (A0 to A7, D0 to D7), followed by an integer value from 0 to 255, separated by a comma. The return value will be 1 if the write succeeds, and -1 if it fails.
+该参数必须是管脚 (A0 to A7, D0 to D7), 其次是一个整数值从0到255, 用逗号分隔. 返回值将是1，如果写入成功，返回-1，如果它失败.
 
     
 
 
-### digitalRead
+### digitalRead(数字读）
 
-This will read the digital value of a pin, which can be read as either HIGH or LOW. If you were to connect the pin to 3.3V, it would read HIGH; if you connect it to GND, it would read LOW. Anywhere in between, it'll probably read whichever one it's closer to, but it gets dicey in the middle.
+这将读取数字管脚的值，这可以是高或低. 如果您管脚连接到 3.3V，它会读高;如果您将它连接到 GND，它会读低。 在任何地方之间，它会读取靠近的那一方，但在中间就很难决定.
 
-    POST /v1/devices/{DEVICE_ID}/digitalread
+    POST /v1/devices/{设备标识号}/digitalread
 
-    # EXAMPLE REQUEST IN TERMINAL
-    # Core ID is 0123456789abcdef01234567
-    # Your access token is 1234123412341234123412341234123412341234
+    # 串行终端请求示例
+    # Core ID(设备标识号) is 0123456789abcdef01234567
+    # Your access token(访问令牌) is 1234123412341234123412341234123412341234
     curl https://api.spark.io/v1/devices/0123456789abcdef01234567/digitalread \
       -d access_token=1234123412341234123412341234123412341234 -d params=D0
 
 
-The parameter must be the pin (A0 to A7, D0 to D7). The return value will be 1 if the pin is HIGH, 0 if the pin is LOW, and -1 if the read fails.
+该参数必须是管脚 (A0 to A7, D0 to D7).返回值将是1，如果该引脚为高电平，0，如果该引脚为低电平，并-1，如果读取失败。
 
 
 
-### analogRead
+### analogRead(模拟读）
 
-This will read the analog value of a pin, which is a value from 0 to 4095, where 0 is LOW (GND) and 4095 is HIGH (3.3V). All of the analog pins (A0 to A7) can handle this. *analogRead* is great for reading data from sensors.
+这将读取模拟管脚的值，这是从 0 值的模拟值4095，其中0表示低电平（GND）和 4095 是 高电压（3.3V）. 所有的模拟管脚（A0到A7）可以处理应付这个。 *analogRead* 用在读取传感器的数据最管用.
 
-    POST /v1/devices/{DEVICE_ID}/analogread
+    POST /v1/devices/{设备标识号}/analogread
 
-    # EXAMPLE REQUEST IN TERMINAL
-    # Core ID is 0123456789abcdef01234567
-    # Your access token is 1234123412341234123412341234123412341234
+    # 串行终端请求示例
+    # Core ID(设备标识号) is 0123456789abcdef01234567
+    # Your access token(访问令牌) is 1234123412341234123412341234123412341234
     curl https://api.spark.io/v1/devices/0123456789abcdef01234567/analogread \
       -d access_token=1234123412341234123412341234123412341234 -d params=A0
 
-The parameters must be the pin (A0 to A7, D0 to D7). The return value will be between 0 and 4095 if the read succeeds, and -1 if it fails.
+该参数必须是管脚 (A0 to A7, D0 to D7). 返回值将介于0和4095如果读取成功，返回-1，如果它失败。
 
 
 Flash Apps with Spark Build
