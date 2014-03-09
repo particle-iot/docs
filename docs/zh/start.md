@@ -117,13 +117,13 @@ Spark core 有两个 LED. 中间胖肥的是一个全彩 RGB LED，显示您 Spa
 RGB LED可以显示出以下状态：
 
 - **蓝色闪烁**: 正在监听 Wi-Fi 的认证
-- *蓝色固体*: Smart Config 完成, 收到 Wi-Fi 网络信息
+- **蓝色固体**: Smart Config 完成, 收到 Wi-Fi 网络信息
 - **绿色闪烁**: 正在连接到本地 Wi-Fi 网络
 - **青色闪烁**: 正在连接到 Spark 云
 - **青色慢速闪烁**: 连接成功！
-- *黄色闪烁*: Bootloader 模式, 等待 USB 或 JTAG 重新编程.
-- *白色闪烁*: 出厂设置启动.
-- *白色固体*: 恢复出厂设置齐全;重启.
+- **黄色闪烁**: Bootloader 模式, 等待 USB 或 JTAG 重新编程.
+- **白色闪烁**: 出厂设置启动.
+- **白色固体**: 恢复出厂设置齐全;重启.
 
 RGB LED 也可以让你知道，如果在建立互联网连接有错误. *红色LED表示发生了故障* 这些故障可能包括：
 
@@ -194,18 +194,18 @@ Tinker 应用程序
 
 Tinker section of the Spark mobile app makes it very easy to start playing with your Spark Core without writing any code. It's great for early development, and often it will do everything you need to get your project off of the ground.
 
-The app consists of 16 pins in vertical rows - 8 analog pins on the left, 8 digital pins on the right. These pins represent the 16 GPIO (General Purpose Input and Output) pins on the Spark Core, and are organized the same way.
+Tinker 应用程序包含16个管脚的控制接口 - 8模拟管脚在左边，8个数字管脚在右边. 这些管脚代表了 Spark Core 上的 16 个 GPIO（通用输入输出）管脚.
 
 ![Tinker selection](images/tinker-select.png)
 
-To begin, tap any of the pins. A menu will pop up showing the functions that pin has available. Each pin can have up to four possible functions:
+首先，请点选任何管脚.一个菜单会弹出显示管脚有可用的功能. 每个管脚最多有四个可能的功能：
 
-- **digitalWrite**: Sets the pin to HIGH or LOW, which either connects it to 3.3V (the maximum voltage of the system) or to GND (ground). Pin D7 is connected to an on-board LED; if you set pin D7 to HIGH, the LED will turn on, and if you set it to LOW, it will turn off.
-- **analogWrite**: Sets the pin to a value between 0 and 255, where 0 is the same as LOW and 255 is the same as HIGH. This is sort of like sending a voltage between 0 and 3.3V, but since this is a digital system, it uses a mechanism called Pulse Width Modulation, or PWM. You could use *analogWrite* to dim an LED, as an example.
-- **digitalRead**: This will read the digital value of a pin, which can be read as either HIGH or LOW. If you were to connect the pin to 3.3V, it would read HIGH; if you connect it to GND, it would read LOW. Anywhere in between, it'll probably read whichever one it's closer to, but it gets dicey in the middle.
-- **analogRead**: This will read the analog value of a pin, which is a value from 0 to 4095, where 0 is LOW (GND) and 4095 is HIGH (3.3V). All of the analog pins (A0 to A7) can handle this. *analogRead* is great for reading data from sensors.
+- **digitalWrite** （数字写）:设置管脚为 HIGH(高)或低(LOW), 这是在连接到 3.3V（该系统的最大电压）或 GND（地）. D7 管脚连接到 一个板上的LED;如果你设置D7管脚为高电平时，LED会亮起，如果你将其设置为低时，它会关闭。
+- **analogWrite** (模拟写）: 设置管脚的值0和255之间, 其中0是相同的 LOW(低)和 255 是 HIGH(高)。 这有点像介于0和3.3V发送电压, 但因为这是一个数字系统， it uses a mechanism called Pulse Width Modulation, 或短称 PWM. 作为一个例子, 你可以使用 *analogWrite* 把 LED 暗淡.
+- **digitalRead** (数字读）: 这将读取数字管脚的值，这可以是高或低. 如果您管脚连接到 3.3V，它会读高;如果您将它连接到 GND，它会读低。 在任何地方之间，它会读取靠近的那一方，但在中间就很难决定.
+- **analogRead** (模拟读）: 这将读取模拟管脚的值，这是从 0 值的模拟值4095，其中0表示低电平（GND）和 4095 是 高电压（3.3V）. 所有的模拟管脚（A0到A7）可以处理应付这个。 *analogRead* 用在读取传感器的数据最管用.
 
-To change the function of the pin, simply tap and hold on the pin, and the function select menu will come back up. Any further questions? Come talk to us in the [forums!](https://community.sparkdevices.com/)
+要改变管脚的功能，只需轻触并按住管脚, 功能选择菜单就会回来了。 任何进一步的问题？ [论坛！](https://community.sparkdevices.com/) 与我们谈一谈！
 
 The Tinker firmware
 ---
