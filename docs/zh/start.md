@@ -163,23 +163,24 @@ Spark 云的存在主要有三个原因：
 
 但你不必知道任何一切. Spark 云整个的一点是，把所有这一切都抽象出来. 你不需要知道*它如何*连接到互联网，它自然就会. 而一旦它连接，您可以快速的把它弄做成很棒的东西，很轻松地，无需处理 socket 编程。
 
-### Global availability
+### 到处都能连接
 
-By default, if you connect a thing to your Wi-Fi network, it's only available from elsewhere on your local network. This is a result of the fact that we've run out of IP addresses, and it's also a security measure, since it means that people can't just reach into your home willy-nilly and mess with your stuff.
+默认情况下，如果你一个东西连接到 Wi-Fi 网络，它是只能从本地网络上的连接。 这是我们已经用完了IP地址的事实的结果
+, 也是一种安全措施, 因为外人不能随意侵入您的网路，任意控制您的东西.
 
-Making the stuff in your home available outside your home is a pain, and usually requires nasty things like port mapping and static IP addresses. Even if you're technically savvy enough to handle this stuff, if you're developing a product, you don't want to make familiarity with OpenWRT a pre-requisite for purchasing your product.
+要使得您家里的东西能从家外面控制是一件非常不容易的事. 通常需要做讨厌的东西，像端口映射和静态IP地址. 即使你在技术上精明，足以应付这东西,如果你正在开发一个产品, 你不想让技术上精明作为先决条件.
 
-We avoid this issue entirely with the Cloud. The Core connects to the Cloud when it hits your Wi-Fi network, and holds open a persistent connection. This means that it's available from anywhere in the world at any time.
+我们用 Spark 云完全回避这个问题。一旦 Spark Core 连接到您的 Wi-Fi 网络上就会连接到 Spark 云, 并保持打开持久的连接. 这意味着它可从世界上任何地方在任何时间都能都能被连接上.
 
-But wait, if local networks are a security measure, then doesn't this open you up to all sorts of nastiness? Well, it would, except...
+但是，如果本地网络是一种安全措施，那么这难道不是打开种种的龌龊？嗯，是的，不过...
 
-### Security
+### 安全
 
-Yep, that's right. We thought of that.
+是，没错.我们有想到这一点.
 
-Security is hard. It's especially hard on an embedded system, because encryption is resource intensive. But it's also important, because you don't want anyone turning on and off your lights, or worse, locking and unlocking your front doors.
+安全性是很难的. 特别是难在嵌入式系统上，因为加密很资耗费源密. 但它也是重要的，因为你不希望任何人打开和关闭你的灯，或者更糟的是，锁定和解锁你的前门.
 
-We hand-picked a set of rock-solid security protocols that are secure and efficient, so they work great on an embedded system. They're baked into the Spark Protocol, which is open source and ready to be extended to other products.
+我们手选的一组安全协议是安全有效和坚固的，能有效的在嵌入式系统上运行. 安全协议是公开的，能扩展到其它产品.
 
 
 
