@@ -207,12 +207,12 @@ Tinker 应用程序包含16个管脚的控制接口 - 8模拟管脚在左边，8
 
 要改变管脚的功能，只需轻触并按住管脚, 功能选择菜单就会回来了。 任何进一步的问题？ [论坛！](https://community.sparkdevices.com/) 与我们谈一谈！
 
-The Tinker firmware
+Tinker 固件
 ---
 
-The Tinker firmware is the default application program stored in the Spark Core upon its commissioning from the factory assembly line. You can always get back to it by putting the Core in the [factory reset mode](#buttons), or by re-flashing your Core with Tinker in the Spark mobile app.
+Tinker 固件是 Spark Core 在工厂流水线时储存的默认应用程序. 您可以随时用 [恢复出厂设置模式](#buttons) 让 Spark Core 回到 Tinker 固件 , 或者通过 Spark 的手机程序重新重新下载 Tinker 固件.
 
-The Tinker app is a great example of how to build a very powerful application with not all that much code. You can have a look at the latest release [here.](https://github.com/spark/core-firmware/blob/master/src/application.cpp)
+ Tinker 应用程序, 是如何用极少的代码建立一个功能强大的应用程序，很好的一个例子。 你可以 [在这里](https://github.com/spark/core-firmware/blob/master/src/application.cpp) 看看最新发布
 
 The Tinker API
 ---
