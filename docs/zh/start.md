@@ -328,10 +328,10 @@ Spark Build 的侧导航栏在左侧. 在顶端，有三个按钮，从而起到
 
 在底部，有多四个的按钮来导航 IDE：
 
-- **Code**: Shows a list of your firmware applications and lets you select which one to edit/flash.
-- **Docs**: Brings you to the documentation for Spark.
-- **Cores**: Shows a list of your Spark Cores, so you can choose which to flash, and get more information on each Core.
-- **Settings**: Change your password, log out, or get your access token for API calls.
+- **Code**(编码): 显示你的固件应用程序的列表，并允许您选择要编辑/闪光哪一个。
+- **Docs**(文档): 为您带来的 Spark Core 文档。
+- **Cores**: 显示 Spark Cores 列表, 所以你可以选择要闪烁的 Core, 并获得每个 Spark Core 的更多信息.
+- **Settings**(设置): 更改您的密码，注销，或获得调用您 API 的访问令牌。
 
 Spark Apps and Libraries
 ---
