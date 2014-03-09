@@ -447,42 +447,42 @@ Spark 命令行
 
 [ 认领您的 Core >](/#/connect/claiming-your-core)
 
-### My Core won't start up
+### Core 不能启动
 
-If your Core won't start up (the LED never comes on), here are a few things to check:
+如果您的 Core 无法启动（指示灯从未亮起），这里有几件事情要检查：
 
-- Is the Core receiving sufficient power? If you're not sure, connect a multimeter to the 3.3V pin and GND and see if you get 3.3V, as expected. Try connecting the Core to another power source.
-- Have any components been damaged? Visually inspect both sides of the Core.
+- Core 有没有得到足够的电？ 如果你不知道, 用表连接到3.3V的引脚和GND，看看有没有3.3V，符合要求。 尝试连接 Core 到另一个电源。
+- 有任何部件损坏？目视检查 Core 的两侧.
 
-### My Core is behaving erratically
+### Core 运行不稳定
 
-If you're seeing unexpected behavior with your Core, here are a few things to check:
+如果您的核心有怪异的行为，这里有几件事情要检查：
 
-- Is the Core receiving sufficient power? The Core might behave eratically if it's plugged into an unpowered USB hub and not receiving enough power. In addition, if you have components that draw a lot of power (motors, for instance), you might need more power than your computer can supply. Try using a USB power supply or providing more power directly to the VIN or 3.3V pins.
-- If you have a u.FL Core, is an antenna connected? Are you within range of the Wi-Fi router?
+- Core 有没有得到足够的电？ 如果它插入到一个无动力的USB集线器，或并没有收到足够的力量，就可能出现怪异的行为. 此外，如果您的元件有使用大量的电力(例如马达), 你可能需要比你的电脑可以提供更大的电源. 尝试使用USB供电或直接到VIN或3.3V引脚提供更多的电力.
+- 如果你有一个 u.FL(天线) Core, 天线是否连接？ 您是不是在Wi-Fi路由器的范围?
 
 
-Further resources
+更多资源
 ===
 
-Hardware development
+硬件开发
 ---
 
 ### Hardware for dummies
 
-**Coming soon!**
+**敬请期待!**
 
-### Advanced hardware
+### 先进的硬件
 
-**Coming soon!**
+**敬请期待!**
 
-Software development
+软件开发
 ---
 
 ### Software for dummies
 
-**Coming soon!**
+**敬请期待!**
 
-### Advanced software
+### 先进的软件
 
-**Coming soon!**
+**敬请期待!**
