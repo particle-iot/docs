@@ -178,21 +178,21 @@ Spark 云的存在主要有三个原因：
 
 是，没错.我们有想到这一点.
 
-安全性是很难的. 特别是难在嵌入式系统上，因为加密很资耗费源密. 但它也是重要的，因为你不希望任何人打开和关闭你的灯，或者更糟的是，锁定和解锁你的前门.
+安全性是很难的. 特别是难在嵌入式系统上，因为加密很耗费源资. 但它也是重要的，因为你不希望任何人打开和关闭你的灯，或者更糟的是，锁定和解锁你的前门.
 
 我们手选的一组安全协议是安全有效和坚固的，能有效的在嵌入式系统上运行. 安全协议是公开的，能扩展到其它产品.
 
 
 
-Tinkering with "Tinker"
+用 "Tinker" 操作
 ======
 
-The Tinker app
+Tinker 应用程序
 ---
 
 ![Tinker](images/tinker.png)
 
-The Tinker section of the Spark mobile app makes it very easy to start playing with your Spark Core without writing any code. It's great for early development, and often it will do everything you need to get your project off of the ground.
+Tinker section of the Spark mobile app makes it very easy to start playing with your Spark Core without writing any code. It's great for early development, and often it will do everything you need to get your project off of the ground.
 
 The app consists of 16 pins in vertical rows - 8 analog pins on the left, 8 digital pins on the right. These pins represent the 16 GPIO (General Purpose Input and Output) pins on the Spark Core, and are organized the same way.
 
