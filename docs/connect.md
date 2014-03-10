@@ -75,54 +75,54 @@ Su Ubuntu, è qualcosa del genere `screen /dev/ttyACM0 9600`. Dove si trovano i 
 
 __Come fare__
 
-Plug your Spark Core into your computer over USB. When the Spark Core is in listening mode, open a serial port over USB using the standard settings, which should be:
+Connettete il vostro Spark Core al computer via USB. Mentre lo Spark Core è in modalità ascolto, aprire una porta seriale via USB usando i parametri standard che dovrebbero essere:
 
 - Baudrate: 9600
 - Data Bits: 8
 - Parity: none
 - Stop Bits: 1
 
-Once you've opened a serial connection, you have two commands at your disposal by hitting either **w** or **i** on the keyboard. Here's what they do:
+Dopo aver aperto una connessione seriale, avete a disposizione due comandi premendo **w** o **i** sulla tastiera. Ecco cosa fanno:
 
-- **w**: Set up your Wi-Fi SSID and password
-- **i**: ("i" as in identify) Read out the Spark Core ID
+- **w**: Definisce l'SSID e la password del vostro Wi-Fi
+- **i**: ("i" come identifica) Legge l'ID dello Spark Core
 
-**NOTE:** If you connect your Core over USB the first time, you will also need to manually *claim* your Core to connect it with your account. Please see the section below on [claiming your Core](/#/connect/claiming-your-core) for more details.
+**NOTA:** Se collegate il vostro Core via USB per la prima volta, avete bisogno di una *associazione* manuale del Core per connetterlo al vostro account. Si veda la sezione su [Associare il vostro Core](/#/connect/claiming-your-core) più in basso per maggiori dettagli.
 
-## Coming soon: Hard-code credentials
+## Prossimamente: credenziali codificate fisse
 
-Currently there is not a mechanism to hard-code your SSID and password into the firmware for the Spark Core. We're working on it!
+Al momento non esiste ancora un meccanismo per codificare in modo fisso il vostro SSID e password nel firmaware dello Spark Core. Ci stiamo lavorando!
 
-Claiming your Core
+Associare il vostro Core
 ===
 
-Once your Core is connected, it needs to be *claimed* in order to be associated with your account. This is what lets you control your Core and keeps anyone else from doing so.
+Una volta che il vostro Core è connesso, ha bisogno di essere *associato* in modo da poter essere legato al vostro account. Questo è ciò che vi permette di controllare il vostro Core e fare in modo che nessun altro lo possa fare.
 
-If you use the mobile app to set up your Core, it should claim it automatically. However if you connect your Core over USB, or if the claiming process is unsuccessful, you can claim it manually.
+Se usate l'applicazione mobile per configurare il vostro Core, dovrebbe associarsi automaticamente. Comunque se connettete il vostro Core via USB, o se l'associazione non ha avuto successo, potete associarlo manualmente.
 
-First, you'll need to get your Core's ID. You can do this by opening a Serial connection to the Core and pressing the **i** key (see the above instuctions for connecting over USB). It should show you a number like this:
+Per prima cosa, dovete ricevere il vostro ID del Core. Potete fare questo aprendo una connessione seriale con il Core e premendo il tasto **i** (vedi le istruzioni sopra su come connettersi via USB). Dovrebbe essere visualizzato un numero di questo tipo:
 
-    # Example Core ID
+    # Esempio di Core ID
     55ff68064989495329092587
 
 ---
 
-Then open up [Spark Build](https://www.spark.io/build) and click the 'Cores' icon. Click the button that says 'Add a Core', and enter your ID in the text box.
+Dopo aprite lo [Spark Build](https://www.spark.io/build) e cliccate sull'icona 'Cores'. Premete il bottone 'Add a Core', e immettete il vostro ID nel campo di testo.
 
-We will be releasing a command-line tool to simplify this process; stay tuned!
+Metteremo a disposizione uno strumento command-line per semplificare questo processo; rimanete collegati!
 
-Troubleshooting
+Risoluzione di problemi
 ===
 
-There are many reasons that your Spark Core might not be able to connect to your network. There are many types of Wi-Fi networks, and the Spark Core and the CC3000 do not support all of them. We consider it an important goal of ours to connect easily and painlessly to as many networks as possible, and your feedback is extremely valuable so that we can get better.
+Ci possono essere molte ragioni per cui il vostro Spark Core non riesce a collegarsi alla vostra rete. Ci sono differenti tipi di reti Wi-Fi e lo Spark Core e il CC3000 non li supportano tutti. È un importante traguardo per noi riuscire a collegarsi in modo semplice e senza problemi al maggior numero possibilee di essi, e il vostro feedback è estremamente importante per poterci migliorare.
 
-The Spark Core works best with a traditional home network: simple networks with WPA/WPA2 or WEP security (or unsecured),  with a single router from a reputable company (Apple, Netgear, Linksys, D-Link, etc.) without any fancy settings. The more your network diverges from the norm, there more likely you might encounter issues.
+Lo Spark Core lavora al meglio con una rete domestica tradizionale: una rete semplice con sicurezza WPA/WPA2 o WEP (o libera), con un router unico di una ditta conosciuta (Apple, Netgear, Linksys, D-Link, ecc.) senza settaggi particolari. Più la vostra rete diverge dalle norme e più probabilmente avrete dei problemi.
 
-There are known issues with the following types of networks:
+Ci sono dei problemi conosciuti con i seguenti tipi di rete:
 
-- **802.11n-only networks**. The Spark Core is 802.11b/g. Most 802.11n networks are backwards compatible with 802.11b/g, but if yours is not, the Spark Core will not connect.
-- **Networks with ["captive portal"](http://en.wikipedia.org/wiki/Captive_portal) security**. A captive portal is the little website that comes up to ask you to sign in to a network or sign an agreement, like at a Starbucks. The Spark Core can't navigate these portals.
-- **Enterprise networks**. We have had mixed results connecting the Spark Core to enterprise networks, although we don't yet have a great understanding of what's causing the issue. This is something that we are working to improve.
+- **reti solo 802.11n**. Lo Spark Core è 802.11b/g. La maggior parte delle reti 802.11n sono retro-compatibili con 802.11b/g, ma se la vostra non lo è, lo Spark Core non si collegherà.
+- **Reti con sicurezza ["captive portal"](http://en.wikipedia.org/wiki/Captive_portal)**. Un captive portal è quella piccola pagina web che vi chiede di annunciarvi alla rete o di accettare delle condizioni d'uso, come per esempio Starbucks. Lo Spark Core non può accedere a questi portali.
+- **Reti aziendali**. Abbiamo avuto differenti risultati connettendoci a reti aziendali, sebbene non sia ancora ben chiaro cosa sono le cause dei problemi. Questo è un tema su cui stiamo lavorando per migliorare.
 - **Complex networks**. Networks with multiple routers, with non-standard firewalls, and with non-standard settings.
 - **Networks with WEP security**. If connecting with the mobile app works for you, WEP-secured networks should be fine. However, you cannot currently connect to a WEP-secured network over USB. We are implementing a fix for this now, which should be available in the next couple of weeks.
 - **Channels above 11**. This is in particular an international issue; if you are outside the U.S., your Wi-Fi router might run at channels 12, 13, or 14, which the CC3000 does not support. Please use channels numbered 11 or lower.
