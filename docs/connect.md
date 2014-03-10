@@ -205,10 +205,10 @@ Se queto non funziona, provate i seguenti passi:
 
 1. Se il vostro router supporta 802.11n, assicuratevi che supporti anche protocolli di rete Legacy e che sia configurato in questo modo (il Core supporta reti 802.11 a/c)
 2. Se avete un Core con connettore u.FL, assicuratevi che l'antenna sia collegata
-3. Provate [reboot e liberare la memoria](/#/connect.md/passo-3-reboot-e-liberare-la-memoria).
-4. If you have an Android phone, and your network has no password, you cannot currently use the Spark Core app to communicate the credentials to your Core.  Instead, try using [TI’s SmartConfig app to configure your Core](/#/connect/connecting-your-core-smart-config-with-the-ti-app).
-5. Try configuring your Core over USB.  Instructions can be found [here](/#/connect/connecting-your-core-connect-over-usb).
-6. If all else fails, please [contact the Spark team](mailto:hello@sparkdevices.com) and provide us with the brand and model of your smartphone.
+3. Provate [reboot e liberare la memoria](/#/connect/passo-3-reboot-e-liberare-la-memoria).
+4. Se avete un telefono Android e la vostra rete non ha password, non potete usare l'applicazione Spark Core per comunicare le credenziali al vostro Core. Alternativamente provate ad usare  [l'applicazione SmartConfig di TI per configurare il vostro Core](/#/connect/smart-config-con-lapplicazione-ti).
+5. Provate a configurare il vostro Core via USB.  Istruzioni si possono trovare [qui](/#/connect/connessione-via-usb).
+6. Se tutto non funziona, vi preghiamo di [contattare lo Spark team](mailto:hello@sparkdevices.com) comunicando la marca ed il modello del vostro telefono.
 
 ---
 
