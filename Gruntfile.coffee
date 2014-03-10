@@ -26,7 +26,7 @@ module.exports = (grunt) ->
       # ASSEMBLE!!!
       options:
         flatten: true
-        assets: '<%= config.src %>/assets'
+        assets: '<%= config.dist %>/assets'
         layoutdir: '<%= config.src %>/layouts'
         layout: 'default.hbs'
       docs:
@@ -48,7 +48,7 @@ module.exports = (grunt) ->
     # 'gh-pages':
 
     clean:
-      dest: ['<%= config.dist %>/**/*']
+      dest: ['<%= config.dist %>/*.{html,xml}']
 
     copy:
       start:
