@@ -19,22 +19,22 @@ Dopo aver scaricato l'applicazione Spark Core dall'App Store o da Google Play, d
 
 <iframe class="vine-embed" src="https://vine.co/v/hFwubhA3JXV/embed/simple" width="320" height="320" frameborder="0"></iframe>
 
-Smart Config can take up to a minute, so be patient. The closer your phone to your Spark Core, the faster it will connect. Once the Core hears the signal, it will go through the following sequence of lights:
+Smart Config può durare fino ad un minuto, quindi abbiate pazienza. Più il vostro smartphone è vicino al Core e più questo si collegherà velocemente. Quando il Core riceverà il segnale passerà questa sequenza di luci:
 
-- **Solid blue**: Credentials captured
-- **Flashing green**: Connecting to Wi-Fi network
-- **Flashing cyan**: Connecting to Spark Cloud
-- **Breathing cyan**: Connected to Spark Cloud
+- **Blu fisso**: Credenziali ricevute
+- **Verde lampeggiante**: Connessione alla rete Wi-Fi
+- **Ciano lampeggiante**: Connessione allo Spark Cloud
+- **Ciano pulsante**: Connesso allo Spark Cloud
 
 <iframe class="vine-embed" src="https://vine.co/v/hFdj1TJjA9M/embed/simple" width="320" height="320" frameborder="0"></iframe>
 
-Once the Spark Core has connected, your phone will "claim" the Core and attach it to your account. Then you'll get to name your Core.  If you're uncertain, you can confirm that the claim process was successful by logging into the [Spark Web IDE](https://www.spark.io/build) and clicking the "Cores" icon at the bottom of the page.  Is your Core listed?  Great!  The world is perfect.  
+Una volta che il Core si è connesso, il vostro telefono associerà il vostro Core collegandolo al vostro account. Dopo dovrete dare un nome al vostro Core. Se non siete sicuri sul processo di associazione potete annunciarvi sulla [Spark Web IDE](https://www.spark.io/build) e cliccare sull'icona "Cores" in fondo alla pagina. Il vostro Core é nella lista? Bene! Il mondo è perfetto.
 
-*NOTE: The Core **MUST** be online (breathing cyan) in order for the claiming process to work. If the Spark Core has been claimed by someone else, the app won't recognize it. If you need to transfer a Spark Core to another account, email us at [hello@spark.io](mailto:hello@spark.io).*
+*NOTA: Il Core **DEVE** essere online (ciano pulsante) per far sì che il processo di associazione funzioni. Se lo Spark Core è stato associato da qualcun'altro, l'applicazione non lo riconoscerà. Se dovete trasferire un Core ad un altro account, mandate un mail a [hello@spark.io](mailto:hello@spark.io).*
 
 <iframe class="vine-embed" src="https://vine.co/v/hFdPKul226i/embed/simple" width="320" height="320" frameborder="0"></iframe>
 
-If you are connecting multiple Cores, you'll go through this naming process for each Core. You'll know which one is which by the rainbow signal.
+Se volete connettere più Cores, dovrete seguier questo processo per ognuno di essi.If you are connecting multiple Cores, you'll go through this naming process for each Core. You'll know which one is which by the rainbow signal.
 
 <iframe class="vine-embed" src="https://vine.co/v/hFdxB9lHOmv/embed/simple" width="320" height="320" frameborder="0"></iframe>
 
