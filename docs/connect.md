@@ -1,21 +1,21 @@
-Connecting your Core
+Collegare il vostro Core
 ===
 
 <iframe class="vine-embed" src="https://vine.co/v/hFHPMue5lgd/embed/simple" width="320" height="320" frameborder="0"></iframe>
 
-The easiest way to connect the Spark Core to Wi-Fi is using the Spark mobile app for iPhone or Android. But in case that's not working for you or you don't have an iOS/Android phone, there are other methods as well.
+Il metodo più semplice per collegare lo Spark Core al Wi-Fi è usare l'applicazione Spark mobile per iPhone o Android. Nel caso questo per voi non va bene o non avete un telefono iOS/Android, ci sono degli altri metodi.
 
-For all of the following methods, the Spark Core must be in "listening" mode, which you'll know by its flashing blue LED.
+Per tutti i metodi seguenti lo Spark Core deve essere in modalità "ascolto", riconoscibile dal LED blu lampeggiante.
 
 <iframe class="vine-embed" src="https://vine.co/v/hFHlpBDELeU/embed/simple" width="320" height="320" frameborder="0"></iframe>
 
-The Core boots into listening mode by default, so if your Core is brand new, it should go straight into listening mode. Otherwise, hold the MODE button for three seconds.
+Il Core parte in modo ascolto per default quindi, se il vostro Core è nuovo, dovrebbe partire direttamente in modalità ascolto. Altrimenti tenete premuto il bottone MODE per tre secondi.
 
-## Smart Config with the Spark app
+## Configurazione smart con l'app Spark
 
 <iframe class="vine-embed" src="https://vine.co/v/hFH09MJwbxg/embed/simple" width="320" height="320" frameborder="0"></iframe>
 
-Once you've downloaded the Spark Core app from the App Store or Google Play, you should create an account. Afterwords, you'll be asked to connect your Core using a process called Smart Config.  If your Core has a u.FL connector, you must connect an external antenna before initiating Smart Config. *NOTE: Your phone must be connected to the Wi-Fi network that you want to connect the Core to.* The app will automatically fill the SSID field with the name of the network that your phone is connected to.  Enter your Wi-Fi password and hit connect.
+Dopo aver scaricato l'applicazione Spark Core dall'App Store o da Google Play, dovete creare un account. Dopodiché verrete chiamati a collegare il vostro Core mediante un processo chiamato configurazione Smart. Se il vostro Core ha un connettore u.FL, dovete collegare un'antenna esterna prima di procedere con la configurazione Smart. *NOTA: Il vostro telefono deve essere collegato alla stessa rete Wi-Fi dove vorrete collegare il Core.* L'applicaione riempirà automaticamente il campo SSID con il nome della rete Wi-Fi dove è collegato il vostro telefono. Immettete la vostra parola d'ordine Wi-Fi e premete connect.
 
 <iframe class="vine-embed" src="https://vine.co/v/hFwubhA3JXV/embed/simple" width="320" height="320" frameborder="0"></iframe>
 
