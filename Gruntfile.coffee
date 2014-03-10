@@ -40,7 +40,7 @@ module.exports = (grunt) ->
             src: ['*.md']
             dest: '<%= config.dist %>'
             rename: (dest, src) ->
-              dest + src.substring(0, src.indexOf('.')) + '/index.html'
+              dest + '/' + src.substring(0, src.indexOf('.')) + '/index.html'
           }
         ]
 
