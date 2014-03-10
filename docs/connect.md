@@ -34,13 +34,13 @@ Una volta che il Core si è connesso, il vostro telefono associerà il vostro Co
 
 <iframe class="vine-embed" src="https://vine.co/v/hFdPKul226i/embed/simple" width="320" height="320" frameborder="0"></iframe>
 
-Se volete connettere più Cores, dovrete seguier questo processo per ognuno di essi.If you are connecting multiple Cores, you'll go through this naming process for each Core. You'll know which one is which by the rainbow signal.
+Se volete connettere più Cores, dovrete seguire questo processo per ognuno di essi. Saprete quale è quale dal segnale dell'arcobaleno.
 
 <iframe class="vine-embed" src="https://vine.co/v/hFdxB9lHOmv/embed/simple" width="320" height="320" frameborder="0"></iframe>
 
-Once you've finished naming your Cores, you can control them with Tinker! Try *digitalWrite* on D7 to turn on the user LED.
+Una volta finito di nominare i vostri Cores, potrete controllarli con l'applicazione Tinker! Provate *digitalWrite* sul pin D7 per accendere il LED sul Core.
 
-## Smart Config with the TI app
+## Smart Config con l'applicazione TI
 
 Smart Config with the Texas Instruments CC3000 app is similar to the process above, although you don't need an account with Spark, and TI also has a Java applet that can work from a Mac, Windows, or Linux computer.
 
