@@ -123,88 +123,89 @@ Ci sono dei problemi conosciuti con i seguenti tipi di rete:
 - **reti solo 802.11n**. Lo Spark Core è 802.11b/g. La maggior parte delle reti 802.11n sono retro-compatibili con 802.11b/g, ma se la vostra non lo è, lo Spark Core non si collegherà.
 - **Reti con sicurezza ["captive portal"](http://en.wikipedia.org/wiki/Captive_portal)**. Un captive portal è quella piccola pagina web che vi chiede di annunciarvi alla rete o di accettare delle condizioni d'uso, come per esempio Starbucks. Lo Spark Core non può accedere a questi portali.
 - **Reti aziendali**. Abbiamo avuto differenti risultati connettendoci a reti aziendali, sebbene non sia ancora ben chiaro cosa sono le cause dei problemi. Questo è un tema su cui stiamo lavorando per migliorare.
-- **Complex networks**. Networks with multiple routers, with non-standard firewalls, and with non-standard settings.
-- **Networks with WEP security**. If connecting with the mobile app works for you, WEP-secured networks should be fine. However, you cannot currently connect to a WEP-secured network over USB. We are implementing a fix for this now, which should be available in the next couple of weeks.
-- **Channels above 11**. This is in particular an international issue; if you are outside the U.S., your Wi-Fi router might run at channels 12, 13, or 14, which the CC3000 does not support. Please use channels numbered 11 or lower.
+- **Reti complesse**. Reti con routers multipli, con firewalls non standard e con parametri non standard.
+- **Reti con sicurezza WEP**. Se potete collegarvi con l'applicazione mobile, reti con sicurezza WEP dovrebbero essere OK. Comunque al momento non potete collegarvi ad una rete con sicurezza WEP via USB. Stiamo creando una soluzione per questo che dovrebbe essere disponibile nelle prossime settimane.
+- **Canali sopra l'11**. Questa è particolarmente una problematica internazionale; se siete fuori dall'America, il vostro router Wi-Fi potrebbe lavorare sui canali 12, 13, o 14, che il CC3000 non supporta. Si prega di usare il canale 11 o più basso.
 
-So, let's dig in. If your Spark Core is not connecting to your Wi-Fi network, we recommend following these steps:
+Bene, andiamo in profondità. Se il vostro Spark Core non si connette alla vostra rete Wi-Fi, raccomandiamo i seguenti passi:
 
-## STEP 0: Check the basics
+## PASSO 0: Controllate le cose basilari
 
-There are a few common issues to check first:
+Ci sono alcune cose di base da controllare:
 
-- Check your Wi-Fi credentials (SSID and password) to make sure you typed them correctly.
-- Make sure you're in range of your Wi-Fi network. If your phone or computer has a poor connection in the same location, try moving closer to your Wi-Fi access point.
-- If you're using a u.FL Core, make sure you have an antenna attached, and that it's firmly connected.
-- Make sure your Core has enough power to transmit Wi-Fi signals (300mA in bursts). Try a different power source, or unplug components that draw a lot of power.
+- Controllate le credenziali del vostro Wi-Fi (SSID e password) per essere sicuri di averli immessi in modo corretto.
+- Siate sicuri di essere nel raggio di copertura della vostra rete Wi-Fi. Se il vostro telefono o computer hanno una connessione debole nello stesso luogo, cercate di avvicinarvi al vostro punto di accesso Wi-Fi.
+- Se utilizzate un Core u.FL, assicuratevi di avere un'antenna collegata, e che sia ben fissata.
+- Assicuratevi che il vostro Core abbia abbastanza alimentazione per trasmettre signali Wi-Fi (300mA di punta). Provate differenti sorgenti di alimentazione o sconnettete compenenti che succhiano troppa corrente.
 
-## STEP 1: Set up your Core over USB
+## PASSO 1: Configurate il vostro Core via USB
 
-On some networks, Smart Config does not work, but the Core can connect to the network just fine. We've implemented a back-up mechanism so you can set up your Core over USB. For instructions, see above. Don't forget that you'll need to claim your Core manually as well if you haven't already!
+In alcune reti, Smart Config non funziona, ma il Core può connettersi alla rete senza problemi. Abbiamo implementato un meccanismo di back-up in modo da poter configurare il vostro Core via USB. Per istruzioni, vedi sopra. Non dimenticate di associare il vostro Core manualmente se non l'avete ancora fatto!
 
-## STEP 2: Try another network
+## PASSO 2: Provate un'altra rete
 
-There are many reasons that your Core might not connect; some of them have to do with the Spark Core; some have to do with your mobile device sending the Wi-Fi credentials; some have to do with the network. If your Core doesn't connect, try another Wi-Fi network. This will quickly help you figure out which type of issue you might be seeing.
+Ci sono molte ragioni per cui il vostro Core può non connettersi; alcune di queste hanno a che fare con lo Spark Core; altre hanno a che fare col il vostro apparecchio mobile che spedisce le credenziali del Wi-Fi; altre hanno a che fare con la rete. Se il vcostro Core non si connette, provate un'altra rete Wi-Fi. Questo potrà velocemente aiutarvi a capire quale genere di problema state riscontrando.
 
-## STEP 3: Reboot and clear memory
+
+## PASSO 3: Reboot e liberare la memoria
 
 <iframe class="vine-embed" src="https://vine.co/v/hFHQlj6iuKT/embed/simple" width="320" height="320" frameborder="0"></iframe>
 
-So often, electronics start behaving after you shut them off and turn them back on. Try:
+Spesso gli apparecchi elettronici cominciano a comportarsi in modo corretto dopo averli spenti e riaccesi. Provate a:
 
-- Closing your mobile app and re-opening it
-- Un-plugging the Spark Core and plugging it back in
-- Clear the Spark Core's memory of Wi-Fi networks by holding the MODE button for 10 seconds. After 3 seconds, the light should start flashing blue; after 10 seconds, it should do a quick burst of blue flashes. That means the memory has been cleared.
-- Restoring the Spark Core's firmware to the factory default.  Getting this right can be tricky, see [this video](https://community.spark.io/t/how-to-do-a-factory-reset/2579) for illustration.
+- Chiudere la vostra applicazione mobile e riaprirla
+- Scollegare e ricollegare lo Spark Core
+- Pulire la memoria delle reti Wi-Fi dello Spark Core tenendo premuto il bottone MODE per 10 secondi. Dopo 3 secondi la luce dovrebbe cominciare a lampeggiare blu; dopo 10 secondi dovrebbe emettere dei veloci flashes blu. Questo significa che la memoria è stata liberata.
+- Impostare il firmware dello Spark Core ai valori predefiniti di fabbrica. Fare questo in modo giusto può essere un po' complicato, si veda [questo video](https://community.spark.io/t/how-to-do-a-factory-reset/2579) per un'illustrazione.
 
-## STEP 4: Check your router settings
+## PASSO 4: Controllare i valori del router
 
-There are a million ways router settings could cause problems, but here's a few things to look out for:
+Ci sono milioni di possibilità per cui i parametri del router potrebbero causare dei problemi, ma ecco alcune cose da controllare per primo:
 
-- **Use DHCP**. Although the Spark Core can handle static IP addresses, it's not configured for it out of the box, so you'll have to dig into the source code.
-- **Turn off access control and firewalls**. Not permanently, but temporarily, to see if it resolves the issue. If it does, you can hopefully just tweak your settings to accommodate the Core rather than taking down your security. The only change you may need to make to your router is to open up outgoing port 5683, the default [CoAP](http://en.wikipedia.org/wiki/Constrained_Application_Protocol) port the Spark Core uses to connect to the Spark Cloud. If your core flashes cyan and occasionally flashes red, router issues are likely the culprit.
+- **Usare DHCP**. Anche se lo Spark Core può gestire indirizzi IP statici, non è configurato per questo dall'inizio, quindi dovrete entrare nel codice sorgente.
+- **Disattivate il controllo degli accessi e i firewalls**. Non permanentemente, ma temporaneamente, per vedere se questo risolve il problema. Se lo fa, si spera possiate modificare i settaggi per far funzionare il Core piuttosto che disabilitare la sicurezza L'unica modifica che potreste dover fare al vostro router è aprire la porta in uscita 5683, la porta [CoAP](http://en.wikipedia.org/wiki/Constrained_Application_Protocol) di default che lo Spark Core usa per connettersi allo spark Cloud. Se il vostro Core lampeggia ciano e ogni tanto lampeggia rosso, probabilmente il problema è dovuto al router.
 
-## STEP 5: Search the forums
+## PASSO 5: Cercare nei forums
 
-It's possible that other folks have encountered the same issues that you have. The best way to check and learn from others is to search the forums; search for your particular symptoms or for your Wi-Fi router make and model to find relevant posts.
+È probabile che altri abbiano già riscontrato il vostro stesso problema. Il miglior modo per controllare ed imparare dagli altri è cercare nei forums; cercate il vostro particolare sintomo o il modello e marca del vostro router Wi-Fi per trovare dei commenti rilevanti.
 
-[Visit the forums >](https://community.sparkdevices.com)
+[Visitate i forums >](https://community.sparkdevices.com)
 
-## STEP 6: Post a report
+## PASSO 6: Riportate un rapporto
 
-We would love to hear about your issues, regardless of whether you were able to resolve them, so that we can improve our platform. If you haven't been able to resolve your issue, hopefully we or the community will be able to help.
+Ci fa piacere sentire i vostri problemi, indipendentemente se siete riusciti a risolverli, in modo da migliorare la nostra piattaforma. Se non siete riusciti a risolvere il vostro problema, speriamo che noi o la comunità sarà capace di aiutare.
 
-Please post issues with connectivity either as responses to this topic or, if they are dissimilar from other reported issues, as their own topic. When you make a post, please include:
+Si prega di riportare i problemi come risposta ad un argomento, o se sono differenti dagli altri problemi, come nuovo argomento. Quando riportate un problema, si prega di includere:
 
-- Router make and model
-- Network security (unsecured, WEP, WPA2, etc.)
-- Environment (home, small office, enterprise, public network, etc.)
-- Network topology (number of routers and/or range extenders, estimated number of devices connected to network)
+- Marca e modello del Router
+- Sicurezza della rete (aperta, WEP, WPA2, ecc.)
+- Ambiente (casa, piccolo ufficio, azienda, rete pubblica, ecc.)
+- Topologia di rete (numero di routers e/o estensioni di rete, stima degli aparecchi connessi con la rete)
 - Internet Service Provider
-- Any network settings that might diverge from the norm
+- Eventuali parametri di rete che potrebbero differire dalle norme
 
-Troubleshooting by color
+Eliminazione dei problemi con i colori
 ===
 
-The Spark Core has an RGB LED positioned on the front that displays the connectivity status of the Core. This LED can help you debug your Core and resolve any issues that you might encounter.
+Lo Spark Coreha un LED RGB posizionato sul davanti che riporta lo stato della connessione del Core. Questo LED vi può aiutare ad analizzare il Core e risolvere i problemi che riscontrate.
 
-## Flashing blue
+## Blu lampeggiante
 
 <iframe class="vine-embed" src="https://vine.co/v/hFHPMue5lgd/embed/simple" width="320" height="320" frameborder="0"></iframe>
 
-- *What’s the Core doing?* My Core is flashing blue.
-- *What’s the problem?* Your Core doesn’t have Wi-Fi credentials to join your local network
-- *How do I fix it?*
+- *Cosa sta facendo il Core?* Il mio Core lampeggia blu.
+- *Qual'è il problema?* Il vostro Core non ha le credenziali del Wi-Fi per collegarsi alla vostra rete locale
+- *Come risolgo il problema?*
         
-Right now, your Core does not have the information it needs to connect to your local Wi-Fi network.  If you haven’t already, try using the Spark Core app for [iPhone](https://itunes.apple.com/us/app/spark-core/id760157884) or [Android](https://play.google.com/store/apps/details?id=io.spark.core.android)  to send your network credentials to your Core.  Detailed instructions can be found [here](http://docs.spark.io/#/connect/connecting-your-core-smart-config-with-the-ti-app).
+Al momento il vostro Core non ha le informazioni necessarie per connettersi alla vostra rete locale Wi-Fi. Se non l'avete ancora fatto provate ad usare l'applicazione Spark Core per [iPhone](https://itunes.apple.com/us/app/spark-core/id760157884) o [Android](https://play.google.com/store/apps/details?id=io.spark.core.android)  per inviare le vostre credenziali di rete al Core. Istruzioni dettagliate possono essere trovate  [qui](http://docs.spark.io/#/connect/connecting-your-core-smart-config-with-the-ti-app).
 
 
-If that doesn’t work, try the steps below:
+Se queto non funziona, provate i seguenti passi:
 
 
-1. If your network router supports 802.11n, make sure that it also supports Legacy network protocols, and that it is configured into that mode (the Core supports 802.11 a/c networks)
-2. If you have a Core with a u.FL connector, make sure the antenna is attached
-3. Try [rebooting the Core and clearing its memory](/#/connect/troubleshooting-step-3-reboot-and-clear-memory).
+1. Se il vostro router supporta 802.11n, assicuratevi che supporti anche protocolli di rete Legacy e che sia configurato in questo modo (il Core supporta reti 802.11 a/c)
+2. Se avete un Core con connettore u.FL, assicuratevi che l'antenna sia collegata
+3. Provate [reboot e liberare la memoria](/#/connect/troubleshooting-step-3-reboot-and-clear-memory).
 4. If you have an Android phone, and your network has no password, you cannot currently use the Spark Core app to communicate the credentials to your Core.  Instead, try using [TI’s SmartConfig app to configure your Core](/#/connect/connecting-your-core-smart-config-with-the-ti-app).
 5. Try configuring your Core over USB.  Instructions can be found [here](/#/connect/connecting-your-core-connect-over-usb).
 6. If all else fails, please [contact the Spark team](mailto:hello@sparkdevices.com) and provide us with the brand and model of your smartphone.
