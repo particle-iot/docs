@@ -30,7 +30,7 @@ Smart Config può durare fino ad un minuto, quindi abbiate pazienza. Più il vos
 
 Una volta che il Core si è connesso, il vostro telefono associerà il vostro Core collegandolo al vostro account. Dopo dovrete dare un nome al vostro Core. Se non siete sicuri sul processo di associazione potete annunciarvi sulla [Spark Web IDE](https://www.spark.io/build) e cliccare sull'icona "Cores" in fondo alla pagina. Il vostro Core é nella lista? Bene! Il mondo è perfetto.
 
-*NOTA: Il Core **DEVE** essere online (ciano pulsante) per far sì che il processo di associazione funzioni. Se lo Spark Core è stato associato da qualcun'altro, l'applicazione non lo riconoscerà. Se dovete trasferire un Core ad un altro account, mandate un mail a [hello@spark.io](mailto:hello@spark.io).*
+*NOTA: Il Core DEVE essere online (ciano pulsante) per far sì che il processo di associazione funzioni. Se lo Spark Core è stato associato da qualcun'altro, l'applicazione non lo riconoscerà. Se dovete trasferire un Core ad un altro account, mandate un mail a [hello@spark.io](mailto:hello@spark.io).*
 
 <iframe class="vine-embed" src="https://vine.co/v/hFdPKul226i/embed/simple" width="320" height="320" frameborder="0"></iframe>
 
@@ -42,38 +42,38 @@ Una volta finito di nominare i vostri Cores, potrete controllarli con l'applicaz
 
 ## Smart Config con l'applicazione TI
 
-Smart Config with the Texas Instruments CC3000 app is similar to the process above, although you don't need an account with Spark, and TI also has a Java applet that can work from a Mac, Windows, or Linux computer.
+Lo Smart Config con l'applicazione Texas Instruments CC3000 è simile al processo descritto prima, sebbene non sia necessario un account Spark e  TI ha anche un applet Java che può lavorare da un computer Mac, Windows, o Linux.
 
-Follow the instructions on Texas Instrument's website:
+Seguite le istruzioni sul sito di Texas Instrument:
 
 [CC3000 Smart Config @ Texas Instruments](http://processors.wiki.ti.com/index.php/CC3000_Smart_Config)
 
-The only thing that's different is that you'll need to activate the optional AES key and type `sparkdevices2013`.
+L'unica cosa che è differente è che dovrete attivare la chiave AES opzionale e immettere `sparkdevices2013`.
 
-*NOTE: TI's Android app is not available in Google Play; you'll have to download it off of their website and side-load the apk yourself.*
+*NOTA: L'applicazione Android di TI non é disponibile su Google Play; dovrete scaricarla voi dalla loro pagina web e caricare l'apk voi stessi.*
 
-## Connect over USB
+## Connessione via USB
 
-You can also connect the Spark Core to your Wi-Fi network over USB by communicating through Serial. *NOTE: This only works when the Spark Core is in listening mode (i.e. rgb led is blinking blue)*.
+Potete anche connettere lo Spark Core alla vostra rete Wi-Fi via USB comunicando via Serial. *NOTA: Questo funziona solo se lo Spark Core è in modalità di ascolto (cioè il led RGB lampeggia blu)*.
 
-First, you'll need to download a serial terminal application.
+Prima di tutto dovrete scaricare un'applicazione di terminale seriale.
 
-For __Windows__ users, we recommend [PuTTY](http://www.chiark.greenend.org.uk/~sgtatham/putty/).
-You'll also need to install the Windows driver:
+Per utenti __Windows__ , raccomandiamo [PuTTY](http://www.chiark.greenend.org.uk/~sgtatham/putty/).
+Dovrete pure installare il driver per Windows:
 
-[Windows driver for Spark Core >](https://s3.amazonaws.com/spark-website/Spark.zip)
+[< Driver Windows per lo Spark Core >](https://s3.amazonaws.com/spark-website/Spark.zip)
 
-[CoolTerm](http://freeware.the-meiers.org/) provides a nice GUI.
+[CoolTerm](http://freeware.the-meiers.org/) fornisce una bella interfaccia GUI.
 ![CoolTerm settings](images/coolterm-settings.png)
 ![CoolTerm setup](images/coolterm-setup.png)
 
-For __Mac__ users, either CoolTerm or screen work.
+Per utenti __Mac__ , sia CoolTerm che screen vanno bene.
 
-For __Linux__ command line usage, [GNU Screen](https://www.gnu.org/software/screen/) works great.
-(On OS X, the command line invocation might look something like `screen /dev/cu.usbmodem1411 9600`.
-On Ubuntu, it looks something like `screen /dev/ttyACM0 9600`. Device location may vary, poke around in the `/dev` directory if you don't find it immediately)
+Per un utilizzo __Linux__ command line, [GNU Screen](https://www.gnu.org/software/screen/) funziona bene.
+(Con OS X, il modo command line viene fatto partire con un comando simile a `screen /dev/cu.usbmodem1411 9600`.
+Su Ubuntu, è qualcosa del genere `screen /dev/ttyACM0 9600`. Dove si trovano i Device può variare: cercate nella cartella `/dev` se non lo trovate subito)
 
-__How-to__
+__Come fare__
 
 Plug your Spark Core into your computer over USB. When the Spark Core is in listening mode, open a serial port over USB using the standard settings, which should be:
 
