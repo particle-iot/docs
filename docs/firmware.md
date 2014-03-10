@@ -3563,3 +3563,262 @@ There are two constants used to represent truth and falsity in the Arduino langu
 `true` is often said to be defined as 1, which is correct, but true has a wider definition. Any integer which is non-zero is true, in a Boolean sense. So -1, 2 and -200 are all defined as true, too, in a Boolean sense.
 
 Note that the true and false constants are typed in lowercase unlike `HIGH, LOW, INPUT, & OUTPUT.` 
+
+
+Data Types
+----
+
+**Note:** The Spark Core uses a 32-bit ARM based microcontroller and hence the datatype lengths are different from a standard 8-bit system (for eg. Arduino Uno).
+
+### void
+
+The `void` keyword is used only in function declarations. It indicates that the function is expected to return no information to the function from which it was called.
+
+```cpp
+
+//EXAMPLE
+// actions are performed in the functions "setup" and "loop"
+// but  no information is reported to the larger program
+
+void setup()
+{
+  // ...
+}
+
+void loop()
+{
+  // ...
+}
+```
+
+### boolean
+
+A `boolean` holds one of two values, `true` or `false`. (Each boolean variable occupies one byte of memory.)
+
+```cpp
+//EXAMPLE
+
+int LEDpin = D0;       // LED on D0
+int switchPin = A0;   // momentary switch on A0, other side connected to ground
+
+boolean running = false;
+
+void setup()
+{
+  pinMode(LEDpin, OUTPUT);
+  pinMode(switchPin, INPUT_PULLUP);
+}
+
+void loop()
+{
+  if (digitalRead(switchPin) == LOW)
+  {  // switch is pressed - pullup keeps pin high normally
+    delay(100);                        // delay to debounce switch
+    running = !running;                // toggle running variable
+    digitalWrite(LEDpin, running)      // indicate via LED
+  }
+}
+
+```
+
+### char
+
+A data type that takes up 1 byte of memory that stores a character value. Character literals are written in single quotes, like this: 'A' (for multiple characters - strings - use double quotes: "ABC").
+Characters are stored as numbers however. You can see the specific encoding in the ASCII chart. This means that it is possible to do arithmetic on characters, in which the ASCII value of the character is used (e.g. 'A' + 1 has the value 66, since the ASCII value of the capital letter A is 65). See Serial.println reference for more on how characters are translated to numbers.
+The char datatype is a signed type, meaning that it encodes numbers from -128 to 127. For an unsigned, one-byte (8 bit) data type, use the `byte` data type.
+
+```cpp
+//EXAMPLE
+
+char myChar = 'A';
+char myChar = 65;      // both are equivalent
+```
+
+### unsigned char
+
+An unsigned data type that occupies 1 byte of memory. Same as the `byte` datatype.
+The unsigned char datatype encodes numbers from 0 to 255.
+For consistency of Arduino programming style, the `byte` data type is to be preferred.
+
+```cpp
+//EXAMPLE
+
+unsigned char myChar = 240;
+```
+
+### byte
+
+A byte stores an 8-bit unsigned number, from 0 to 255.
+
+```cpp
+//EXAMPLE
+
+byte b = 0x11;
+```
+
+### int
+
+Integers are your primary data-type for number storage. On the Core, an int stores a 32-bit (4-byte) value. This yields a range of -2,147,483,648 to 2,147,483,647 (minimum value of -2^31 and a maximum value of (2^31) - 1).
+int's store negative numbers with a technique called 2's complement math. The highest bit, sometimes referred to as the "sign" bit, flags the number as a negative number. The rest of the bits are inverted and 1 is added.
+
+Other variations: 
+
+  * `int32_t` : 32 bit signed integer
+  * `int16_t` : 16 bit signed integer
+  * `int8_t`  : 8 bit signed integer
+
+### unsigned int
+
+The Core stores a 4 byte (32-bit) value, ranging from 0 to 4,294,967,295 (2^32 - 1).
+The difference between unsigned ints and (signed) ints, lies in the way the highest bit, sometimes referred to as the "sign" bit, is interpreted.
+
+Other variations:
+
+  * `uint32_t`  : 32 bit unsigned integer
+  * `uint16_t`  : 16 bit unsigned integer
+  * `uint8_t`   : 8 bit unsigned integer
+
+### word
+
+`word` stores a 32-bit unsigned number, from 0 to 4,294,967,295.
+
+### long
+
+Long variables are extended size variables for number storage, and store 32 bits (4 bytes), from -2,147,483,648 to 2,147,483,647.
+
+### unsigned long
+
+Unsigned long variables are extended size variables for number storage, and store 32 bits (4 bytes). Unlike standard longs unsigned longs won't store negative numbers, making their range from 0 to 4,294,967,295 (2^32 - 1).
+
+### short
+
+A short is a 16-bit data-type. This yields a range of -32,768 to 32,767 (minimum value of -2^15 and a maximum value of (2^15) - 1). 
+
+### float
+
+Datatype for floating-point numbers, a number that has a decimal point. Floating-point numbers are often used to approximate analog and continuous values because they have greater resolution than integers. Floating-point numbers can be as large as 3.4028235E+38 and as low as -3.4028235E+38. They are stored as 32 bits (4 bytes) of information.
+
+Floating point numbers are not exact, and may yield strange results when compared. For example 6.0 / 3.0 may not equal 2.0. You should instead check that the absolute value of the difference between the numbers is less than some small number.
+Floating point math is also much slower than integer math in performing calculations, so should be avoided if, for example, a loop has to run at top speed for a critical timing function. Programmers often go to some lengths to convert floating point calculations to integer math to increase speed.
+
+### double
+
+Double precision floating point number. On the Core, doubles have 8-byte (64 bit) precision.
+
+### string - char array
+
+A string can be made out of an array of type `char` and null-terminated.
+
+```cpp
+// EXAMPLES
+
+char Str1[15];
+char Str2[8] = {'a', 'r', 'd', 'u', 'i', 'n', 'o'};
+char Str3[8] = {'a', 'r', 'd', 'u', 'i', 'n', 'o', '\0'};
+char Str4[ ] = "arduino";
+char Str5[8] = "arduino";
+char Str6[15] = "arduino";
+```
+
+Possibilities for declaring strings:
+
+  * Declare an array of chars without initializing it as in Str1
+  * Declare an array of chars (with one extra char) and the compiler will add the required null character, as in Str2
+  * Explicitly add the null character, Str3
+  * Initialize with a string constant in quotation marks; the compiler will size the array to fit the string constant and a terminating null character, Str4
+  * Initialize the array with an explicit size and string constant, Str5
+  * Initialize the array, leaving extra space for a larger string, Str6
+
+*Null termination:*  
+Generally, strings are terminated with a null character (ASCII code 0). This allows functions (like Serial.print()) to tell where the end of a string is. Otherwise, they would continue reading subsequent bytes of memory that aren't actually part of the string.
+This means that your string needs to have space for one more character than the text you want it to contain. That is why Str2 and Str5 need to be eight characters, even though "arduino" is only seven - the last position is automatically filled with a null character. Str4 will be automatically sized to eight characters, one for the extra null. In Str3, we've explicitly included the null character (written '\0') ourselves.
+Note that it's possible to have a string without a final null character (e.g. if you had specified the length of Str2 as seven instead of eight). This will break most functions that use strings, so you shouldn't do it intentionally. If you notice something behaving strangely (operating on characters not in the string), however, this could be the problem.
+
+*Single quotes or double quotes?*  
+Strings are always defined inside double quotes ("Abc") and characters are always defined inside single quotes('A').
+
+Wrapping long strings
+
+```cpp
+//You can wrap long strings like this:
+char myString[] = "This is the first line"
+" this is the second line"
+" etcetera";
+```
+
+*Arrays of strings:*  
+It is often convenient, when working with large amounts of text, such as a project with an LCD display, to setup an array of strings. Because strings themselves are arrays, this is in actually an example of a two-dimensional array.
+In the code below, the asterisk after the datatype char "char*" indicates that this is an array of "pointers". All array names are actually pointers, so this is required to make an array of arrays. Pointers are one of the more esoteric parts of C for beginners to understand, but it isn't necessary to understand pointers in detail to use them effectively here.
+
+
+```cpp
+//EXAMPLE
+
+char* myStrings[]={"This is string 1", "This is string 2", "This is string 3",
+"This is string 4", "This is string 5","This is string 6"};
+
+void setup(){
+Serial.begin(9600);
+}
+
+void loop(){
+for (int i = 0; i < 6; i++){
+   Serial.println(myStrings[i]);
+   delay(500);
+   }
+}
+
+```
+
+### String - object
+
+More info can be found [here.](http://docs.spark.io/#/firmware/language-syntax-string-class)
+
+### array
+
+An array is a collection of variables that are accessed with an index number.
+
+*Creating (Declaring) an Array:*  
+All of the methods below are valid ways to create (declare) an array.
+
+```cpp
+int myInts[6];
+int myPins[] = {2, 4, 8, 3, 6};
+int mySensVals[6] = {2, 4, -8, 3, 2};
+char message[6] = "hello";
+```
+
+You can declare an array without initializing it as in myInts.
+
+In myPins we declare an array without explicitly choosing a size. The compiler counts the elements and creates an array of the appropriate size.
+Finally you can both initialize and size your array, as in mySensVals. Note that when declaring an array of type char, one more element than your initialization is required, to hold the required null character.
+
+*Accessing an Array:*  
+Arrays are zero indexed, that is, referring to the array initialization above, the first element of the array is at index 0, hence
+
+`mySensVals[0] == 2, mySensVals[1] == 4`, and so forth.
+It also means that in an array with ten elements, index nine is the last element. Hence:  
+```cpp
+int myArray[10]={9,3,2,4,3,2,7,8,9,11};
+     // myArray[9]    contains 11
+     // myArray[10]   is invalid and contains random information (other memory address)
+```      
+
+For this reason you should be careful in accessing arrays. Accessing past the end of an array (using an index number greater than your declared array size - 1) is reading from memory that is in use for other purposes. Reading from these locations is probably not going to do much except yield invalid data. Writing to random memory locations is definitely a bad idea and can often lead to unhappy results such as crashes or program malfunction. This can also be a difficult bug to track down.
+Unlike BASIC or JAVA, the C compiler does no checking to see if array access is within legal bounds of the array size that you have declared.
+
+*To assign a value to an array:*  
+`mySensVals[0] = 10;`
+
+*To retrieve a value from an array:*  
+`x = mySensVals[4];`
+
+*Arrays and FOR Loops:*  
+Arrays are often manipulated inside for loops, where the loop counter is used as the index for each array element. For example, to print the elements of an array over the serial port, you could do something like this:
+
+```cpp
+int i;
+for (i = 0; i < 5; i = i + 1) {
+  Serial.println(myPins[i]);
+}
+```
