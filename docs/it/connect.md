@@ -193,7 +193,7 @@ Lo Spark Coreha un LED RGB posizionato sul davanti che riporta lo stato della co
 
 <iframe class="vine-embed" src="https://vine.co/v/hFHPMue5lgd/embed/simple" width="320" height="320" frameborder="0"></iframe>
 
-- *Cosa sta facendo il Core?* Il mio Core lampeggia blu.
+- *Cosa sta facendo il Core?* Il mio Core sta lampeggiando in blu.
 - *Qual'è il problema?* Il vostro Core non ha le credenziali del Wi-Fi per collegarsi alla vostra rete locale
 - *Come risolgo il problema?*
         
@@ -213,15 +213,15 @@ Se queto non funziona, provate i seguenti passi:
 ---
 
 
-## Flashing green
+## Verde lampeggiante
 
-- *What’s the Core doing?* My Core is [flashing green](https://mtc.cdn.vine.co/r/videos/DB9E0E87311015399731217969152_1d6c83d12a3.4.3.2795910212236322177_4RBA9frM0a4pwIG_RbZgo.ZOBEbBr_CpxzoOsBNuExDz6TFldcjJSYHVh203e6F4.mp4?versionId=orM0m0DvLYdciAwsb6DYHhqb974AHMj_), but doesn’t progress to flashing Cyan.
-- *What’s the problem?* Your Core has received Wi-Fi credentials (an SSID and password), but still can't connect to the Wi-Fi network.
-- *How do I fix it?*
+- *Cosa sta facendo il Core?* Il mio Core sta [lampeggiando in  verde](https://mtc.cdn.vine.co/r/videos/DB9E0E87311015399731217969152_1d6c83d12a3.4.3.2795910212236322177_4RBA9frM0a4pwIG_RbZgo.ZOBEbBr_CpxzoOsBNuExDz6TFldcjJSYHVh203e6F4.mp4?versionId=orM0m0DvLYdciAwsb6DYHhqb974AHMj_), ma non prosegue con il ciano lampeggiante.
+- *Qual'è il problema?* Il vostro Core ha ricevuto le credenziali del Wi-Fi (un SSID e la password) ma continua a non riuscire a collegarsi alla rete Wi-Fi.
+- *Come risolgo il problema?*
 
-Please complete the following steps:
+Completate i seguenti passi:
 
-1. [Check the basics](/#/connect/troubleshooting-step-0-check-the-basics).
+1. [Controllate le cose basilari](/#/connect/troubleshooting-passo-0-controllate-le-cose-basilari).
 2. Try a new power source. You should be powering your Core with a power supply that is capable of providing 500mA of current.  We recommend the 5V/1A wall wart power supplies that are commonly used for charging cell phones.
 3. If your network has a landing page or splash page, the Core will not be able to connect; try configuring it onto a different network.
 4. Try [rebooting the Core and clearing its memory](/#/connect/troubleshooting-step-3-reboot-and-clear-memory).
