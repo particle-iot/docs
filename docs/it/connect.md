@@ -87,7 +87,7 @@ Dopo aver aperto una connessione seriale, avete a disposizione due comandi preme
 - **w**: Definisce l'SSID e la password del vostro Wi-Fi
 - **i**: ("i" come identifica) Legge l'ID dello Spark Core
 
-**NOTA:** Se collegate il vostro Core via USB per la prima volta, avete bisogno di una *associazione* manuale del Core per connetterlo al vostro account. Si veda la sezione su [Associare il vostro Core](/#/connect/claiming-your-core) più in basso per maggiori dettagli.
+**NOTA:** Se collegate il vostro Core via USB per la prima volta, avete bisogno di una *associazione* manuale del Core per connetterlo al vostro account. Si veda la sezione su [Associare il vostro Core](/#/connect/associare-il-vostro-core) più in basso per maggiori dettagli.
 
 ## Prossimamente: credenziali codificate fisse
 
