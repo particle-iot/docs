@@ -168,53 +168,54 @@ Abbiamo usato un sensore molto comune chiamato TMP36 di Analog Devices. Potete s
 Notate come alimentiamo il sensore dal pin 3.3V\* invece che da quello regolare 3.3V. Questo perchè il pin 3.3V\* offre una tensione pulita e filtrata, ideale per applicazioni analogiche come questa. Se le letture che ottenete sono disturbate o inconsistenti, aggiungete un condensatore in ceramica da 0.1uF (100nF) tra il pin analogico di entrata (in questo caso A0) e la massa GND come illustrato nell'immagine.
 
 ```C++
-// -----------------
-// Read temperature
-// -----------------
+// ----------------------
+// Leggere la temperatura
+// ----------------------
 
-// Create a variable that will store the temperature value
+// Creare una variabile per salvare il valore della temperatura
 int temperature = 0;
 
 void setup()
 {
-  // Register a Spark variable here
+  // Registrare una variabile Spark
   Spark.variable("temperature", &temperature, INT);
 
-  // Connect the temperature sensor to A0 and configure it
-  // to be an input
+  // Connettere il sensore di temperatura a A0 e configurarlo
+  // come inputt
   pinMode(A0, INPUT);
 }
 
 void loop()
 {
-  // Keep reading the temperature so when we make an API
-  // call to read its value, we have the latest one
+  // Continuare a leggere la temperatura in modo che quando
+  // si fa una chiamata API per leggere il valore, abbiamo l'ultimo
   temperature = analogRead(A0);
 }
 ```
 
-The returned value from the Core is going to be in the range from 0 to 4095. You can easily convert this value to actual temperature reading by using the following formula:
+Il valore proveniente dal Core avrà un valore tra 0 e 4095. Lo si può
+facilmente convertire alla temperatura attuale usando la seguente formula:
 
 ```
-voltage = (sensor reading x 3.3)/4095
-Temperature (in Celsius) = (voltage - 0.5) X 100
+tensione = (lettura sensore x 3.3)/4095
+Temperatura (in Celsius) = (tensione - 0.5) X 100
 ```
 
 ---
 
-The API request will look something like this:
+La richiesta API è qualcosa del genere:
 
 ```json
 GET /v1/devices/{DEVICE_ID}/temperature
 
-# EXAMPLE REQUEST IN TERMINAL
-# Core ID is 0123456789abcdef01234567
-# Your access token is 1234123412341234123412341234123412341234
+# ESEMPIO DI RICHIESTA DA TERMINAL
+# Core ID è 0123456789abcdef01234567
+# Il vostro access token è  1234123412341234123412341234123412341234
 curl -G https://api.spark.io/v1/devices/0123456789abcdef01234567/temperature \
   -d access_token=1234123412341234123412341234123412341234
 ```
 
-Local Communication
+Comunicazione locale
 ===
 
 Now let's imagine you want to control your Core locally,
