@@ -218,9 +218,9 @@ curl -G https://api.spark.io/v1/devices/0123456789abcdef01234567/temperature \
 Comunicazione locale
 ===
 
-Now let's imagine you want to control your Core locally,
-so you build a simple server app to which the Core will directly connect.
-One puzzle to solve is that you don't know in advance the
+Adesso immaginate di voler controllare il vostro Core localmente,
+così create una semplice applicazione server alla quale il Core si collega direttamente.
+UnOne puzzle to solve is that you don't know in advance the
 IP address of your Core or of the laptop that will run the server.
 How can the Core and the server discover each other?
 
