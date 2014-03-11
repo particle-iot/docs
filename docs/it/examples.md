@@ -1,133 +1,133 @@
-Annotated examples
+Esempi
 =======
 
-Here you will find a bunch of examples to get you started with your all new Spark Core!
+Qui troverete diversi esempi per cominciare a lavorare con il vostro nuovo Spark Core!
 
-Blink an LED
+Lampeggiare un LED
 ===
 
 ![One LED illustration](images/annotated-example1.jpg)
 
-Blinking an LED is the ["Hello World"](http://en.wikipedia.org/wiki/Hello_world_program) example of the microcontroller  world. It's a nice way to warm up and start your journey into the land of embedded hardware.
+Far lampeggiare un LED è il programma di esempio ["Hello World"](http://en.wikipedia.org/wiki/Hello_world_program) per il mondo dei microprocessori. È un modo carino per scaldarsi e iniziare il viaggio nel modo dell'hardware embedded.
 
-For this example, you will need a Spark Core (duh!), a Breadboard, an LED, a Resistor (we will soon find out a suitable value) and an USB cable.
+Per questo esempio avete bisogno di uno Spark Core (già!), una Breadboard, un LED, una resistenza (vedremo dopo di trovarne il valore) e un cavo USB.
 
-Connect everything together as shown in the picture. The LED is connected to pin D0 of the Core. The positive (longer pin) of the LED is connected to D0 and its negative pin (shorter) is connected to ground via a resistor.
+Collegate il tutto come sull'immagine a fianco. Il LED è connesso con il pin D0 del Core. Il pin positivo del LED (quello più lungo) è collegato al pin D0 e quello negativo (più corto) è connesso a massa tramite una resistenza.
 
 ![One LED setup](images/breadboard-one-led.jpg)
 
-But wait, whats the value of the resistor again?
+Un momento, qual'è il valore della resistenza?
 
-*Heres how we find that out:*
+*Ecco come possiamo trovarlo:*
 
-According to [Ohm's Law](http://en.wikipedia.org/wiki/Ohm%27s_law) : Voltage = Current x Resistance
+Secondo la [legge di Ohm](http://it.wikipedia.org/wiki/Legge_di_Ohm) : Tensione = Corrente x Resistenza
 
-Therefore, Resistance = Voltage/ Current
+Quindi Resistenza = Tensione / Corrente
 
-In our case, the output voltage of the Core is 3.3V but the LED (typically) has a forward voltage drop of around 2.0V. So the actual voltage would be:
+Nel nostro caso, la tensione di uscita del Core è 3.3V ma il LED (normalmente) ha una caduta di tensione di ca. 2.0V. La tensione effettiva è quindi:
 
 3.3V - 2.0V = 1.3V
 
-The required current to light up an LED varies any where between 2mA to 20mA. More the current, brighter the intensity. But generally its a good idea to drive the LED at a lower limit to prolong its life span. We will choose a drive current of 5mA.
+La corrente necessaria per far illuminare un LED varia tra 2mA a 20mA. Più corrente, più luminosità. Generalmente è una buona idea di usare il LED al suo limite inferiore per prolungarne la vita. Sceglieremo una corrente di 5mA.
 
-Hence, Resistance = 1.3V/ 5mA = 260 Ohms
+Quindi, Resistenza = 1.3V/ 5mA = 260 Ohms
 
-**NOTE:** Since there is so much variation in the values of the forward voltage drop of the LEDs depending upon type, size, color, manufacturer, etc., you could successfully use a resistor value from anywhere between 220Ohms to 1K Ohms.
+**NOTA:** Visto che ci sono talmente tanti valori della caduta di tensione dei LEDs a dipendenza dal tipo, grandezza, colore, produttore, ecc. potrete usare con successo dei valori tra 220 Ohms e 1K Ohms.
 
-In the picture above, we used a 1K resistor (Brown Black Red)
+Nell'immagine abbiamo usato una resistenza da 1K (Marrone Nero Rosso)
 
-Now on to the actual program:
+Adesso il programma:
 
 ```cpp
-// Program to blink an LED connected to pin D0
-// of the Spark Core. 
+// Programma per far lampeggiare un LED collegato al pin D0
+// dello Spark Core. 
 
-// We name pin D0 as led
+// Diamo il nome led al pin D0
 int led = D0; 
 
-// This routine runs only once upon reset
+// Questa routine gira una sola volta dopo il reset
 void setup() 
 {
-  // Initialize D0 pin as output
+  // Inizializzare il pin D0 come output
   pinMode(led, OUTPUT);
 }
 
-// This routine loops forever 
+// Questa routine gira per sempre 
 void loop() 
 {
-  digitalWrite(led, HIGH);   // Turn ON the LED
-  delay(1000);               // Wait for 1000mS = 1 second
-  digitalWrite(led, LOW);    // Turn OFF the LED
-  delay(1000);               // Wait for 1 second
+  digitalWrite(led, HIGH);   // Accendi il LED
+  delay(1000);               // Aspetta per 1000mS = 1 secondo
+  digitalWrite(led, LOW);    // Spegni il LED
+  delay(1000);               // Aspetta per un secondo
 }
 ```
 
-Control LEDs over the 'net
+Controllare i LEDs via rete
 ===
 
 ![Two LED setup](images/breadboard-two-leds.jpg)
 
-Now that we know how to blink an LED, how about we control it over the Internet? This is where the fun begins.
+Adesso che sappiamo come far lampeggiare un LED, come sarebbe controllarlo via Internet? Ecco dove comincia il divertimento.
 
-Lets hook up two LEDs this time.
+Questa volta colleghiamo due LEDs.
 
-Here is the algorithm: 
+Questo è l'algoritmo: 
 
-- Set up the pins as outputs that have LEDs connected to them
-- Create and register a Spark function ( this gets called automagically when you make an API request to it)
-- Parse the incoming command and take appropriate actions
+- Definire i pins che hanno un LED attaccato come outpu
+- Creare e registrare una funzione Spark (questa viene chiamata automaticamente quando fate una richiesta API)
+- Analizzare il comando in entrata e agire di conseguenza
 
 ```cpp
 // -----------------------------------
-// Controlling LEDs over the Internet
+// Controllare dei LEDs via Internet
 // -----------------------------------
 
-// name the pins
+// nome dei pins
 int led1 = D0;
 int led2 = D1;
 
-// This routine runs only once upon reset
+// Questa routine gira una sola volta dopo il reset
 void setup()
 {
-   //Register our Spark function here
+   //Registrare la funzione Spark
    Spark.function("led", ledControl);
 
-   // Configure the pins to be outputs
+   // Configurare i pins come output
    pinMode(led1, OUTPUT);
    pinMode(led2, OUTPUT);
 
-   // Initialize both the LEDs to be OFF
+   // Inizializzare entrambi i LEDs come spenti
    digitalWrite(led1, LOW);
    digitalWrite(led2, LOW);
 }
 
 
-// This routine loops forever 
+// Questa routine gira per sempre 
 void loop()
 {
-   // Nothing to do here
+   // Niente da fare qui
 }
 
 
-// This function gets called whenever there is a matching API request
-// the command string format is l<led number>,<state>
-// for example: l1,HIGH or l1,LOW
-//              l2,HIGH or l2,LOW
+// Questa funzione viene chiamata ogni volta che c'è una richiesta API corrispondente
+// il formato dello string di comando è l<numero led>,<stato>
+// per esempio: l1,HIGH o l1,LOW
+//              l2,HIGH o l2,LOW
 
 int ledControl(String command)
 {
    int state = 0;
-   //find out the pin number and convert the ascii to integer
+   //trovare il numero di pin e convertire il valore ascii a integer
    int pinNumber = (command.charAt(1) - '0') - 1;
-   //Sanity check to see if the pin numbers are within limits
+   //Controllare se il numero di pin è nei limiti
    if (pinNumber < 0 || pinNumber > 1) return -1;
 
-   // find out the state of the led
+   // trovare lo stato del led
    if(command.substring(3,7) == "HIGH") state = 1;
    else if(command.substring(3,6) == "LOW") state = 0;
    else return -1;
 
-   // write to the appropriate pin
+   // scrivere sul pin appropriato
    digitalWrite(pinNumber, state);
    return 1;
 }
@@ -135,37 +135,37 @@ int ledControl(String command)
 
 ---
 
-The API request will look something like this:
+La richiesta API dovrebbe essere qualcosa del genere:
 
 ```json
 POST /v1/devices/{DEVICE_ID}/led
 
-# EXAMPLE REQUEST IN TERMINAL
-# Core ID is 0123456789abcdef01234567
-# Your access token is 1234123412341234123412341234123412341234
+# ESEMPIO DI RICHIESTA DA TERMINAL
+# Core ID è 0123456789abcdef01234567
+# Il vostro access token è 1234123412341234123412341234123412341234
 curl https://api.spark.io/v1/devices/0123456789abcdef01234567/led \
   -d access_token=1234123412341234123412341234123412341234 \
   -d params=l1,HIGH
 ```
 
-Note that the API endpoint is 'led', not 'ledControl'. This is because the endpoint is defined by the first argument of Spark.function(), which is a string of characters, rather than the second argument, which is a function.
+Notate che la fine della chiamata API è 'led' e non 'ledControl'. Questo perchè il punto finale è definito dal primo argomento di Spark.function(), che è una stringa di caratteri piuttosto che il secondo parametro che è invece una funzione.
 
-To better understand the concept of making API calls to your Core over the cloud checkout the [Cloud API reference.](/#/api)
+Per comprendere meglio il concetto delle chiamate API al Core via cloud controllate la [referenza Cloud API.](/#/api)
 
-Measuring the temperature
+Misurare la temperatura
 ===
 
 ![Read Sensor](images/annotated-example3.jpg)
 
-We have now learned how to send custom commands to the Core and control the hardware. But how about reading data back from the Core?
+Abbiamo imparato come mandare dei comandi al Core per controllare dell'hardware. Ma come funziona invece leggere dei dati dal Core?
 
-In this example, we will hook up a temperature sensor to the Core and read the values over the internet with a web browser.
+In questo esempio collegheremo un sensore di temperatura al Core e leggeremo i valori via internet con un browser web.
 
 ![Read Temperature](images/breadboard-temp-sensor.jpg)
 
-We have used a widely available analog temperature called TMP36 from Analog Devices. You can download the [datasheet here.](http://www.analog.com/static/imported-files/data_sheets/TMP35_36_37.pdf)
+Abbiamo usato un sensore molto comune chiamato TMP36 di Analog Devices. Potete scaricare le [specifiche qui.](http://www.analog.com/static/imported-files/data_sheets/TMP35_36_37.pdf)
 
-Notice how we are powering the sensor from 3.3V\* pin instead of the regular 3.3V. This is because the 3.3V\* pin gives out a (LC) clean filtered  voltage, ideal for analog applications like these. If the readings you get are noisy or inconsistent, add a 0.1uF (100nF) ceramic capacitor between the analog input pin (in this case,A0) and GND as shown in the set up.
+Notate come alimentiamo il sensore dal pin 3.3V\* invece che da quello regolare 3.3V. Questo perchè il pin 3.3V\* offre una tensione pulita e filtrata, ideale per applicazioni analogiche come questa. Se le letture che ottenete sono disturbate o inconsistenti, aggiungete un condensatore in ceramica da 0.1uF (100nF) tra il pin analogico di entrata (in questo caso A0) e la massa GND come illustrato nell'immagine.
 
 ```C++
 // -----------------
