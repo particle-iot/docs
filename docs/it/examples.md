@@ -219,15 +219,14 @@ Comunicazione locale
 ===
 
 Adesso immaginate di voler controllare il vostro Core localmente,
-così create una semplice applicazione server alla quale il Core si collega direttamente.
-UnOne puzzle to solve is that you don't know in advance the
-IP address of your Core or of the laptop that will run the server.
-How can the Core and the server discover each other?
+così create una semplice applicazione server alla quale il Core si collega
+direttamente. Un enigma da risolvere è il fatto che non conoscete in
+anticipo l'indirizzo IP del vostro Core o del computer dove girerà il server.
+Come possono fare il Core ed il Server a scoprirsi a vicenda?
 
-In this example, we will register a Spark function to pass the
-server IP address to the Core.  Once we've established the
-local connection, we'll be able to control the Core without
-the data going through the Spark Cloud.
+In questo esempio registreremo una funzione Spark per passare l'indirizzo IP
+del server al Core. Dopo aver stabilito la connessione locale, saremo in grado
+di controllare il Core senza passare dal Cloud.
 
 ---
 
@@ -235,7 +234,7 @@ the data going through the Spark Cloud.
 TCPClient client;
 ```
 
-First, we construct the client that will connect to our local server.
+Prima costruiamo il client che si collegherà col nostro server locale.
 
 ---
 
@@ -251,11 +250,11 @@ void ipArrayFromString(byte ipArray[], String ipString) {
 }
 ```
 
-Then we need a function for translating the IP address String into
-the array of four bytes needed by the TCP client.
+Dopo abbiamo bisogno di una funzione che trasformi lo string dell'indirizzo IP
+in un array di 4 bytes necessario al client TCP.
 
-We work our way progressively through the string, saving the
-positions of the dots and the numeric substrings between them.
+Lavoriamo progressivamente attraverso lo string, salvando le posizioni dei punti
+e dei substring numerici tra di essi.
 
 ---
 
@@ -272,14 +271,13 @@ int connectToMyServer(String ip) {
 }
 ```
 
-Here's the Spark function we're going to register.
-Like all Spark functions it takes a String parameter
-and returns an int.  We allocate an array of 4 bytes
-for the IP address, then call `ipArrayFromString()`
-to convert the String into an array.
+Questa è la funzione Spark che registreremo.
+Come tutte le funzioni Spark necessita di un parametro String e ritorna un integer.
+Riserviamo un array di 4 bytes per l'indirizzo IP, poi chiamiamo `ipArrayFromString()`
+per convertire lo String in un array.
 
-After that, we simply call `client.connect()` with the
-newly received address! Super simple!
+Dopo questo, chiamiamo semplicemente `client.connect()` con l'indirizzo appena ricevuto!
+Molto semplice!
 
 ---
 
@@ -293,10 +291,10 @@ void setup() {
 }
 ```
 
-In `setup()` we only have two jobs:
+In `setup()` abbiamo solo due cose da fare:
 
-* Register the Spark function
-* Set D0–D7 as output pins
+* Registrare la funzione Spark
+* Mettere D0–D7 come pins di output
 
 ---
 
@@ -316,24 +314,23 @@ void loop() {
 }
 ```
 
-In `loop()` we first check whether the client is connected
-to the server.  If not, we don't do anything.
+In `loop()` prima controlliamo che il client sia connesso al server.
+Se non lo è, non facciamo niente.
 
-If the client is connected, then we ask whether any commands
-have been received over local communication.  If not, again,
-we don't do anything.
+Se il client è connesso, controlliamo se sono stati ricevuti dei comandi via
+comunicazione locale. Se non ricevuti, di nuovo, non facciamo niente.
 
-However, if we are *connected* and have *received a command*
-then we use the command to perform a `digitalWrite()`.
+Se siamo *connessi* e abbiamo *ricevuto un comando* usiamo il comando
+per eseguire un `digitalWrite()`.
 
-[Example server and firmware on github >](https://github.com/spark/local-communication-example)
+[Esempio di server e firmware su github >](https://github.com/spark/local-communication-example)
 
-texting the core
+texting il core
 ===
 
-**coming soon!**
+**Prossimamente!**
 
-an internet button
+un bottone internet
 ===
 
-**coming soon!**
+**Prossimamente!**
