@@ -447,6 +447,9 @@ Spark.sleep(int millis, array peripherals);
 Input/Output
 =====
 
+Setup
+-----
+
 ### pinMode()
 
 `pinMode()` configures the specified pin to behave either as an input or an output.
@@ -482,6 +485,9 @@ void loop()
   }
 }
 ```
+
+I/O
+------
 
 ### digitalWrite()
 
