@@ -366,20 +366,18 @@ The API endpoint is `/v1/devices/{DEVICE_ID}/{VARIABLE}` and as always, you have
 curl "https://api.spark.io/v1/devices/0123456789abcdef01234567/temperature?access_token=1234123412341234123412341234123412341234"
 ```
 
-**NOTE**: Variable names are truncated after the 12th character: `temperature_sensor` is accessable as `temperature_`
+**NOTE**: Variable names are truncated after the 12th character: `temperature_sensor` is accessible as `temperature_`
 
 ### Events
-
-*FEATURE IN PROGRESS—EXPECT IN EARLY MARCH*
 
 #### Registering a callback
 
 In the build section of the Spark website, you will be able to register a URL on your own server
-to which we will POST each time one of your Spark Cores publishes a certain event.
+to which we will POST each time one of your Spark Cores publishes a certain event. *This feature is still in progress, and will be released later in March.*
 
 #### Subscribing to events
 
-You will soon be able to make an API call that will open a stream of
+You can make an API call that will open a stream of
 [Server-Sent Events](http://www.w3.org/TR/eventsource/) (SSEs).
 You will make one API call that opens a connection to the Spark Cloud.
 That connection will stay open, unlike normal HTTP calls which end quickly.
