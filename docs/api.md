@@ -50,10 +50,6 @@ e.g., `POST /v1/devices/0123456789abcdef01234567/brew`
 POST /v1/devices/{DEVICE_ID}/{FUNCTION}
 ```
 
----
-
-*COMING SOON*
-
 Open a stream of [Server-Sent Events](http://www.w3.org/TR/eventsource/)
 
 ```
