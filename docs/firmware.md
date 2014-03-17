@@ -1771,9 +1771,7 @@ The parameter for millis is an unsigned long, errors may be generated if a progr
 
 ### micros()
 
-**Not implemented yet**
-
-Returns the number of microseconds since the Arduino board began running the current program. This number will overflow (go back to zero), after approximately 70 minutes.
+Returns the number of microseconds since the Spark Core began running the current program. This number will overflow (go back to zero), after approximately 59.65 seconds.
 
 `unsigned long time = micros();`
 
