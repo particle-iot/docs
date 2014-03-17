@@ -1771,9 +1771,7 @@ The parameter for millis is an unsigned long, errors may be generated if a progr
 
 ### micros()
 
-**Not implemented yet**
-
-Returns the number of microseconds since the Arduino board began running the current program. This number will overflow (go back to zero), after approximately 70 minutes.
+Returns the number of microseconds since the Spark Core began running the current program. This number will overflow (go back to zero), after approximately 59.65 seconds.
 
 `unsigned long time = micros();`
 
@@ -1995,7 +1993,7 @@ min(a, 100);    // use this instead - keep other math outside the function
 
 Calculates the maximum of two numbers.
 
-`man(x, y)`
+`max(x, y)`
 
 `x` is the first number, any data type  
 `y` is the second number, any data type  
