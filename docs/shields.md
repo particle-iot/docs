@@ -459,7 +459,7 @@ Wanna give your next Spark Core project a tactile feedback? This vibration motor
 
 ![Buzzer](images/mk-buzzer.bmp)
 
-Add an audible feedback to your project with this buzzer. The loner lead is positive and the shorter is negative. You will need a transistor to driver it.
+Add an audible feedback to your project with this buzzer. The longer lead is positive and the shorter is negative. You will need a transistor to drive it.
 
 *Note:* The sound gets annoying after a while. Use it sparingly! 
 
