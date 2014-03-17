@@ -1993,7 +1993,7 @@ min(a, 100);    // use this instead - keep other math outside the function
 
 Calculates the maximum of two numbers.
 
-`man(x, y)`
+`max(x, y)`
 
 `x` is the first number, any data type  
 `y` is the second number, any data type  
