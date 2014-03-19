@@ -142,7 +142,7 @@ Le Core possède 24 broches que vous pouvez connecter à un circuit. Ces broches
 
 #### Broche PWM
 
-Quand vous souhaitez utiliser la fonction `analogWrite()` du Core, par exemple pour diminuer l'intensité lumineuse de LED, vous devez utiliser les broches qui possèdent un timer. Les gens les appelent fréquemment des broches PWM, car ce qu'elles font est appelé Pulse Width Modulation (Modulation à Largeur d'Impulsion). Le Core possède 8 broches PWM : A0, A1, A4, A5, A6, A7, D0 et D1.
+Quand vous souhaitez utiliser la fonction `analogWrite()` du Core, par exemple pour diminuer l'intensité lumineuse de LED, vous devez utiliser les broches qui possèdent un timer. Les gens les appelent fréquemment des broches PWM, car ce qu'elles font est appelé Pulse Width Modulation (Modulation par Largeur d'Impulsion). Le Core possède 8 broches PWM : A0, A1, A4, A5, A6, A7, D0 et D1.
 
 Le Spark Cloud
 ---
@@ -177,104 +177,104 @@ Nous avons choisi un ensemble de protocoles de sécurité éprouvés, qui sont �
 
 
 
-Tinkering with "Tinker"
+Bidouiller avec « Tinker »
 ======
 
-The Tinker app
+L'application Tinker
 ---
 
-![Tinker](images/tinker.png)
+![Tinker](../images/tinker.png)
 
-The Tinker section of the Spark mobile app makes it very easy to start playing with your Spark Core without writing any code. It's great for early development, and often it will do everything you need to get your project off of the ground.
+La section Tinker de l'application mobile Spark rend plus facile la volonté de jouer avec votre Spark Core sans écrire de code. Elle est extraordinaire pour les développements préliminaires, et fournira fréquemment tout ce dont vous avez besoin pour démarrer votre projet.
 
-The app consists of 16 pins in vertical rows - 8 analog pins on the left, 8 digital pins on the right. These pins represent the 16 GPIO (General Purpose Input and Output) pins on the Spark Core, and are organized the same way.
+L'application consiste en 16 broches dans des colonnes verticales - 8 broches analogiques à gauche, 8 broches numériques à droite. Ces broches représentent les 16 broches GPIO du Spark Core, et sont organisées de la même manière.
 
-![Tinker selection](images/tinker-select.png)
+![Sélection Tinker](../images/tinker-select.png)
 
-To begin, tap any of the pins. A menu will pop up showing the functions that pin has available. Each pin can have up to four possible functions:
+Pour commencer, sélectionnez n'importe quelle broche. Un menu apparaitra pour vous proposer les fonctions disponibles pour cette broche. Chaque broche peut avoir jusqu'à quatre fonctions :
 
-- **digitalWrite**: Sets the pin to HIGH or LOW, which either connects it to 3.3V (the maximum voltage of the system) or to GND (ground). Pin D7 is connected to an on-board LED; if you set pin D7 to HIGH, the LED will turn on, and if you set it to LOW, it will turn off.
-- **analogWrite**: Sets the pin to a value between 0 and 255, where 0 is the same as LOW and 255 is the same as HIGH. This is sort of like sending a voltage between 0 and 3.3V, but since this is a digital system, it uses a mechanism called Pulse Width Modulation, or PWM. You could use *analogWrite* to dim an LED, as an example.
-- **digitalRead**: This will read the digital value of a pin, which can be read as either HIGH or LOW. If you were to connect the pin to 3.3V, it would read HIGH; if you connect it to GND, it would read LOW. Anywhere in between, it'll probably read whichever one it's closer to, but it gets dicey in the middle.
-- **analogRead**: This will read the analog value of a pin, which is a value from 0 to 4095, where 0 is LOW (GND) and 4095 is HIGH (3.3V). All of the analog pins (A0 to A7) can handle this. *analogRead* is great for reading data from sensors.
+- **digitalWrite** : Place la broche à HIGH ou LOW, ce qui la connecte à 3,3V (la tension maximale du système) ou à GND (ground, la masse). La broche D7 est connectée à une LED embarquée. Si vous placez D7 à HIGH, la LED s'allumera, et si vous la placez à LOW, la LED s'éteindra.
+- **analogWrite** : Place la broche à une valeur comprise entre 0 et 255, où 0 est équivalent à LOW et 255 à HIGH. C'est une manière de faire comme si nous envoyions une tension comprise entre 0 et 3,3 volts, mais comme il s'agit d'un système numérique, ça utilise un mécanisme nommé Modulation par Largeur d'Impulsion, ou PWM (Pulse Width Modulation). Vous pouvez par exemple utiliser *analogWrite* pour diminuer l'intensité lumineuse d'une LED.
+- **digitalRead** : Lit la valeur numérique d'une broche, qui peut être soit HIGH, soit LOW. Si vous aviez connecté la broche à 3,3V, le résultat serait HIGH, si vous l'aviez connecté à GND, ce serait LOW. Quelque part entre les deux, ça retournerai le résultat le plus proche, mais ça reste aléatoire vers le milieu.
+- **analogRead** : Lit la valeur numérique d'une broche, qui est une valeur comprise entre 0 et 4095, où 0 est LOW (GND) et 4095 est HIGH (3,3V). Toutes les broches analogiques (A0 à A7) le supportent. *analogRead* est adapté à la lecteur de données provenant de capteurs.
 
-To change the function of the pin, simply tap and hold on the pin, and the function select menu will come back up. Any further questions? Come talk to us in the [forums!](https://community.sparkdevices.com/)
+Pour changer la fonction d'une broche, laissez le doigt sur la broche, et le menu de sélection de fonction sera de nouveau disponible. Vous avez d'autres questions ? Venez nous en parler sur les [forums!](https://community.sparkdevices.com/)
 
-The Tinker firmware
+Le firmware Tinker
 ---
 
-The Tinker firmware is the default application program stored in the Spark Core upon its commissioning from the factory assembly line. You can always get back to it by putting the Core in the [factory reset mode](#buttons), or by re-flashing your Core with Tinker in the Spark mobile app.
+Le firmware Tinker est l'application stockée par défaut quand le Spark Core quitte les lignes d'assemblages à l'usine. Vous pouvez le retrouver en mettant le Core en mode [restauration des réglages d'usine](#boutons), ou bien en reflashant votre Core avec Tinker depuis l'application mobile Spark.
 
-The Tinker app is a great example of how to build a very powerful application with not all that much code. You can have a look at the latest release [here.](https://github.com/spark/core-firmware/blob/master/src/application.cpp)
+L'application Tinker est un bon exemple de comment construire une application puissante avec peu de code. Vous pouvez jeter un œil sur la dernière version disponible [ici.](https://github.com/spark/core-firmware/blob/master/src/application.cpp)
 
-The Tinker API
+L'API Tinker
 ---
 
-When the Tinker firmware is installed on your Spark Core, it will respond to certain API requests from your mobile app, which mirror the four basic GPIO functions (digitalWrite, analogWrite, digitalRead, analogRead). These API requests can also be made from another application, so you can build your own web or mobile app around the Tinker firmware.
+Quand le firmware Tinker est installé sur votre Spark Core, il répondra à certaines requêtes depuis votre application mobile, qui reflète les quatre fonctions GPIO basiques (digitalWrite, analogWrite, digitalRead et analogRead). Ces requêtes peuvent aussi être effectuées depuis une autre application, ce qui fait que vous pouvez construire votre propre application web ou mobile autour du firmware Tinker.
 
 ### digitalWrite
 
-Sets the pin to HIGH or LOW, which either connects it to 3.3V (the maximum voltage of the system) or to GND (ground). Pin D7 is connected to an on-board LED; if you set pin D7 to HIGH, the LED will turn on, and if you set it to LOW, it will turn off.
+Place la broche à HIGH ou LOW, ce qui la connecte à 3,3V (la tension maximale du système) ou à GND (ground, la masse). La broche D7 est connectée à une LED embarquée. Si vous placez D7 à HIGH, la LED s'allumera, et si vous la placez à LOW, la LED s'éteindra.
 
     POST /v1/devices/{DEVICE_ID}/digitalwrite
 
-    # EXAMPLE REQUEST IN TERMINAL
-    # Core ID is 0123456789abcdef01234567
-    # Your access token is 1234123412341234123412341234123412341234
+    # EXEMPLE DE REQUETE DANS LE TERMINAL
+    # Core ID : 0123456789abcdef01234567
+    # Access token : 1234123412341234123412341234123412341234
     curl https://api.spark.io/v1/devices/0123456789abcdef01234567/digitalwrite \
       -d access_token=1234123412341234123412341234123412341234 -d params=D0,HIGH
 
-The parameters must be the pin (A0 to A7, D0 to D7), followed by either HIGH or LOW, separated by a comma. The return value will be 1 if the write succeeds, and -1 if it fails.
+Les paramètres doivent être une broche (A0 à A7, D0 à D7), suivi par HIGH ou LOW, séparés par une virgule. La valeur de retour est 1 si l'écriture a réussi, -1 sinon.
 
 
 
 ### analogWrite
 
-Sets the pin to a value between 0 and 255, where 0 is the same as LOW and 255 is the same as HIGH. This is sort of like sending a voltage between 0 and 3.3V, but since this is a digital system, it uses a mechanism called Pulse Width Modulation, or PWM. You could use *analogWrite* to dim an LED, as an example.
+Place la broche à une valeur comprise entre 0 et 255, où 0 est équivalent à LOW et 255 à HIGH. C'est une manière de faire comme si nous envoyions une tension comprise entre 0 et 3,3 volts, mais comme il s'agit d'un système numérique, ça utilise un mécanisme nommé Modulation par Largeur d'Impulsion, ou PWM (Pulse Width Modulation). Vous pouvez par exemple utiliser *analogWrite* pour diminuer l'intensité lumineuse d'une LED.
 
     POST /v1/devices/{DEVICE_ID}/analogwrite
 
-    # EXAMPLE REQUEST IN TERMINAL
-    # Core ID is 0123456789abcdef01234567
-    # Your access token is 1234123412341234123412341234123412341234
+    # EXEMPLE DE REQUETE DANS LE TERMINAL
+    # Core ID : 0123456789abcdef01234567
+    # Access token : 1234123412341234123412341234123412341234
     curl https://api.spark.io/v1/devices/0123456789abcdef01234567/analogwrite \
       -d access_token=1234123412341234123412341234123412341234 -d params=A0,215
 
-The parameters must be the pin (A0 to A7, D0 to D7), followed by an integer value from 0 to 255, separated by a comma. The return value will be 1 if the write succeeds, and -1 if it fails.
+Les paramètres doivent être une broche (A0 à A7, D0 à D7), suivi par une valeur comprise entre 0 et 255, séparées par une virgule. La valeur de retour est 1 si l'écriture a réussi, -1 sinon.
 
     
 
 
 ### digitalRead
 
-This will read the digital value of a pin, which can be read as either HIGH or LOW. If you were to connect the pin to 3.3V, it would read HIGH; if you connect it to GND, it would read LOW. Anywhere in between, it'll probably read whichever one it's closer to, but it gets dicey in the middle.
+Lit la valeur numérique d'une broche, qui peut être soit HIGH, soit LOW. Si vous aviez connecté la broche à 3,3V, le résultat serait HIGH, si vous l'aviez connecté à GND, ce serait LOW. Quelque part entre les deux, ça retournerai le résultat le plus proche, mais ça reste aléatoire vers le milieu.
 
     POST /v1/devices/{DEVICE_ID}/digitalread
 
-    # EXAMPLE REQUEST IN TERMINAL
-    # Core ID is 0123456789abcdef01234567
-    # Your access token is 1234123412341234123412341234123412341234
+    # EXEMPLE DE REQUETE DANS LE TERMINAL
+    # Core ID : 0123456789abcdef01234567
+    # Access token : 1234123412341234123412341234123412341234
     curl https://api.spark.io/v1/devices/0123456789abcdef01234567/digitalread \
       -d access_token=1234123412341234123412341234123412341234 -d params=D0
 
 
-The parameter must be the pin (A0 to A7, D0 to D7). The return value will be 1 if the pin is HIGH, 0 if the pin is LOW, and -1 if the read fails.
+Le paramètre doit être une broche (A0 à A7, D0 à D7). La valeur de retour est 1 si la broche est à HIGH, 0 si la broche est à LOW, -1 en cas d'échec de lecture.
 
 
 
 ### analogRead
 
-This will read the analog value of a pin, which is a value from 0 to 4095, where 0 is LOW (GND) and 4095 is HIGH (3.3V). All of the analog pins (A0 to A7) can handle this. *analogRead* is great for reading data from sensors.
+Lit la valeur numérique d'une broche, qui est une valeur comprise entre 0 et 4095, où 0 est LOW (GND) et 4095 est HIGH (3,3V). Toutes les broches analogiques (A0 à A7) le supportent. *analogRead* est adapté à la lecteur de données provenant de capteurs.
 
     POST /v1/devices/{DEVICE_ID}/analogread
 
-    # EXAMPLE REQUEST IN TERMINAL
-    # Core ID is 0123456789abcdef01234567
-    # Your access token is 1234123412341234123412341234123412341234
+    # EXEMPLE DE REQUETE DANS LE TERMINAL
+    # Core ID : 0123456789abcdef01234567
+    # Access token : 1234123412341234123412341234123412341234
     curl https://api.spark.io/v1/devices/0123456789abcdef01234567/analogread \
       -d access_token=1234123412341234123412341234123412341234 -d params=A0
 
-The parameters must be the pin (A0 to A7, D0 to D7). The return value will be between 0 and 4095 if the read succeeds, and -1 if it fails.
+Le paramètre doit être une broche (A0 à A7, D0 à D7). La valeur de retour est comprise entre 0 et 4095 si la lecture réussi, -1 sinon.
 
 
 Flash Apps with Spark Build
