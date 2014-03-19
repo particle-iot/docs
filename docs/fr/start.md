@@ -46,10 +46,10 @@ Connecter le Spark Core au Wi-Fi est simple comme tout. En fait, je l'ai fait de
 
 L'application mobile Spark vous guidera pendant le processus, mais c'est tout simpelment un processus en une étape où vous saisirez le nom de votre réseau Wi-Fi (SSID) et son mot de passe, et ces derniers seront envoyés via le Wi-Fi à votre Spark Core, qui se connectera automatiquement au réseau et au Spark Cloud. Si tout fonctionne comme prévu, vous verrez la LED passer par les couleurs suivantes :
 
-- **Flashs bleus** : En attente des informations Wi-Fi
-- **Flashs verts** : Connection au réseau Wi-Fi
-- **Flashs cyans** : Connection au Spark Cloud
-- **Flashs magenta** : Mise à jour du dernier firmware
+- **Clignotements bleus** : En attente des informations Wi-Fi
+- **Clignotements verts** : Connexion au réseau Wi-Fi
+- **Clignotements cyans** : Connexion au Spark Cloud
+- **Clignotements magenta** : Mise à jour du dernier firmware
 - **Pulsations cyans**: Connecté !
 
 <div id="core1" class="core"><div class="core-butt"></div><div class="rgb"><div class="pattern"></div></div></div>
@@ -76,73 +76,73 @@ Une fois que vous serez fatigués de lire des valeurs de capteurs et de faire cl
 
 Ne soyez pas nerveux. Nous vous avons préparé plein d'exemples validés par la communauté et de bibliothèques de fonctions qui vont permettrons de partir du bon pied. Pour en savoir plus, jetez un œil à la section « Écrire des application avec Spark Build » plus bas dans la page.
 
-Wait, what is this thing?
+Doucement, c'est quoi ce truc ?
 =====
 
-The Spark Core is a Wi-Fi development kit for internet-connected hardware. It is, in essence, the "brains" of a connected hardware product or project.
+Le Spark Core est un kit de développement Wi-Fi pour du matériel connecté à Internet. Il est, par essence, le « cerveau » d'un produit ou projet de matériel connecté à Internet.
 
-The Core has on board a microcontroller, which is a small, low-cost, low-power computer that can run a single application. The microcontroller runs the show; it runs your software and tells the rest of the Core what to do. It doesn't have an Operating System the way that your computer does; it just runs a single application (often called *firmware* or an *embedded application*), which can be simple, just a few lines of code, or very complex, depending on what you want to do.
+Le Core possède un micro-contrôleur, qui est un ordinateur petit, bon marché et peu puissant (en performances et consommation d'énergie) capable de faire tourner une application unique. Le micro-contrôleur est le directeur du spectable : il fait tourner le logiciel et indique au reste du Core ce qu'il a à faire. Il ne possède pas de système d'exploitation tel que celui que fait tourner votre ordinateur; il fait simplement tourner une application unique (souvent appelée *firmware* ou *application embarquée*), qui peu être toute simple (quelques lignes de code) ou extrèmement complexe, selon ce que vous voulez faire.
 
-Microcontrollers are particularly good at *controlling things*; hence the name. They have a set of "pins" (little spider leg type things sticking off the chip) that are called *GPIO* (General Purpose Input and Output) pins, or I/O pins. They can be hooked to sensors or buttons to listen to the world, or they can be hooked to lights and motors to act upon the world. These microcontroller's pins have been directly connected to the headers on the sides of the Core so you can easily access them; specifically, the pins labeled D0 to D7 and A0 to A7 are hooked directly to the microcontroller's GPIO pins.
+Les micro-contrôleurs sont particulièrement doués pour *contrôler des choses*, d'où le nom. Ils ont un ensemble de « broches » (les petites pattes d'araignée sortant de la puce) qui sont appelées broches *GPIO* (General Purpose Input and Output - Entrées et Sorties à Usage Générique), ou broches E/S (Entrée / Sortie).Ils peuvent être branchés à des capteurs ou boutons pour observer le monde, ou bien être branchés à des lumières ou moteurs pour agir sur le monde. Ces broches du micro-contrôleur ont été directement connectés aux barettes de broches sur les côtés du Spark Core de manière à pouvoir aisément y accéder. Plus précisément, les broches libellées D0 à D7, et A0 à A7 sont directement branchées sur les broches GPIO du micro-contrôleur.
 
-The microcontroller can also communicate with other chips using common protocols like *Serial* (also called UART), *SPI*, or *I2C* (also called Wire). You can then make the Core more powerful by connecting it to special-purpose chips like motor drivers or shift registers. Sometimes we'll wrap up these chips on a *Shield*, an accessory to the Core that makes it easy to extend the Core.
+Le micro-contrôleur peut aussi communiquer avec d'autres puces à l'aide de protocoles courant comme *Série* (aussi appelé UART), *SPI* ou *I2C* (aussi appelé Wire). Vous pouvez rendre le Core encore plus puissant en le connectant à des puces spécialisées, telles des pilotes de moteurs ou des décaleurs de registre. Parfois, ces puces seront « emballées » sur un *Shield*, un accessoire au Core qui rends plus facile la possibilité d'étendre les capacités de ce dernier.
 
-The Core also has a Wi-Fi module, which connects it to your local Wi-Fi network in the same way that your computer or smartphone might connect to a Wi-Fi network. The Core is programmed to stay connected to the internet by default, so long as it can find and connect to a network.
+Le Core possède aussi un module Wi-Fi, qui le connecte à votre réseau Wi-Fi local de la même manière que votre ordinateur ou smartphone se connecte à un réseau Wi-Fi. Le Core est programmé par défaut pour rester connecté à Internet tant qu'il peut trouver et se connecter à un réseau.
 
-When the Core connects to the internet, it establishes a connection to the *Spark Cloud*. By connecting to the Cloud, the Core becomes accessible from anywhere through a simple REST API. This API is designed to make it very easy to interface with the Core through a web app or mobile app in a secure, private way, so that only you and those you trust can access the Core.
+Quand le Core de connecte à Internet, il crée une connexion au *Spark Cloud*. En se connectant au Cloud, le Core devient accessible de n'importe où à l'aide d'une simple API REST. Cette API est conçue pour faciliter l'interfaçage au Core via une appli web ou un appli mobile de manière sécurisée et privé. De cette façon, seuls vous et ceux à qui vous faites confiance peuvent accéder au Core.
 
-### Buttons
+### Boutons
 
-There are two buttons on the Core: the RESET button (on the right) and the MODE button (on the left). 
+Il y a deux boutons sur le Core : le bouton RESET (sur la droite) et le bouton MODE (sur la gauche).
 
-The RESET button will put the Core in a hard reset, effectively depowering and repowering the microcontroller. This is a good way to restart the application that you've downloaded onto the Core.  
+Le bouton RESET va effectuer un redémarrage matériel du Core, en coupant et réactivant son alimentation. C'est une bonne manière pour redémarrer une application que vous avez téléchargé sur le Core.
 
-The MODE button serves three functions:
+Le bouton MODE a trois fonctions :
 
-- Hold down the MODE button for three seconds to put the Core into *Smart Config* mode to connect it to your local Wi-Fi network. The LED should start flashing blue.
-- Hold down the MODE button for ten seconds to clear the Core's memory of Wi-Fi networks.
-- Hold down the MODE button, tap on the RESET button and wait for *three seconds* to enter *Bootloader* mode, where you can reprogram the Core over USB or JTAG. Release the MODE button when you see the LED flashing yellow. If you do this by accident, simply hit RESET button to leave *Bootloader* mode.
-- Hold down the MODE button, tap on the RESET button and wait for *ten seconds* to do a *Factory Reset*, where the Core is reprogrammed with the software that was installed on the Core in the factory (the Tinker application). The LED should turn white for three seconds and begin flashing quickly; when the LED switches to another color the Core has been reset. This is useful if you encounter bugs with your firmware, or if you just want to get back to Tinker.
+- Tenez le bouton MODE enfoncé pendant trois secondes pour mettre le Core en mode *Smart Config* afin de le connecter à votre réseau Wi-Fi local. La LED devrait commencer à clignoter en bleu.
+- Tenez le bouton MODE enfoncé pendant dix secodes pour effacer de la mémoire du Core les informations sur les réseaux Wi-Fi
+- Tenez le bouton MODE enfoncé, appuyez un coup sur le bouton RESET, et patientez *trois secondes* pour entrer dans le mode *Bootloader*, d'où vous pouvez reprogrammer le Core via USB ou JTAG. Relâchez le bouton MODE quand la LED commence à clignoter en jaune. Si vous le faites accidentellement, appuyez juste un coup sur le bouton RESET pour quitter le mode *Bootloader*
+- Tenez le bouton MODE enfoncé, appuyez un coup sur le bouton RESET, et patientez *dix secondes* pour effectuer une *restauration des paramètres d'usine* où le Core est reprogrammé avec l'application qui y était installé à l'usine (l'application Tinker). La LED devrait clignoter en blanc pendant trois secondes puis se mettre à clignoter rapidement. Quand la LED clignote d'une autre couleur, le Core a été remis aux valeurs par défaut. C'est très utile quand vous avez un bug dans votre firmware ou bien que vous souhaitez réinstaller l'application Tinker.
 
 
 ### LEDs
 
-There are two LEDs on the Core. The big fat one in the middle is a full-color RGB LED that shows you the status of the Core's internet connection. The other small blue LED is the *user LED*; it's hooked up to D7, so when you turn the D7 pin `HIGH` or `LOW`, it turns on and off, respectively.
+Il y a deux LEDs sur le Core. La grosse présente au milieu est une LED RVB qui vous indique le statut de la connexion Internet du Core. L'autre petite LED bleue est la *LED utilisateur*. Elle est connectée à D7, donc quand vous basculez D7 à `HIGH` où `LOW`, elle s'allume ou s'éteint respectivement.
 
-The RGB LED could show the following states:
+La LED RVB devrait présenter les états suivants : 
 
-- *Flashing blue*: Listening mode, waiting for network information.
-- *Solid blue*: Smart Config complete, network information found.
-- *Flashing green*: Connecting to local Wi-Fi network.
-- *Flashing cyan*: Connecting to Spark Cloud.
-- *Slow breathing cyan*: Successfully connected to Spark Cloud.
-- *Flashing yellow*: Bootloader mode, waiting for new code via USB or JTAG.
-- *Flashing white*: Factory Reset initiated.
-- *Solid white*: Factory Reset complete; rebooting.
+- *Clignotement bleu* : En écoute des informations réseau.
+- *Bleu fixe* : Fin du Smart Config, les informations réseau ont été trouvées.
+- *Clignotement vert* : Connexion au réseau Wi-Fi local
+- *Clignotement cyan* : Connexion au Spark Cloud.
+- *Pulsation cyan lente*: Connecté au Spark Cloud.
+- *Clignotement jaune*: Mode bootloader mode, en attente du nouveau code via USB ou JTAG.
+- *Clignotement blanc*: Lancement de la restauration des paramètres d'usine.
+- *Blanc fixe*: Fin de la restauration des paramètres d'usine, redémarrage.
 
-The RGB LED can also let you know if there were errors in establishing an internet connection. *A red LED means an error has occurred.* These errors might include:
+La LED RVB peut aussi vous faire savoir s'il y a eu des erreurs lors de l'établissement de la connexion à Internet. *Une LED rouge signifie qu'il y a eu une erreur.* Ces erreurs peuvent être :
 
-- *Two red flashes*: Connection failure due to bad internet connection. Check your network connection.
-- *Three red flashes*: The Cloud is inaccessible, but the internet connection is fine. Check our [Twitter feed](http://www.twitter.com/sparkdevices) to see if there have been any reported outages; if not, visit our [support page](https://www.sparkdevices.com/support) for help.
-- *Four red flashes*: The Cloud was reached but the secure handshake failed. Visit our [support page](https://www.sparkdevices.com/support) for help.
-- *Flashing yellow/red*: Bad credentials for the Spark Cloud. Contact the Spark team (<a href="mailto@hello@spark.io">hello@spark.io</a>).
+- *Deux clignotements rouges* : Échec de la connexion suite à une mauvaise connexion à Internet. Vérifiez votre connexion réseau.
+- *Trois clignotements rouges* : Le Cloud est inaccessible, mais la connexion Internet est bonne. Vérifiez notre [flux Twitter](http://www.twitter.com/sparkdevices) pour voir si nous avons signalé une interruption des services. Si ce n'est pas le cas, allez voir nos [pages de support](https://www.sparkdevices.com/support) pour obtenir de l'aide.
+- *Quatre clignotements rouges* : le Cloud est joignable, mais la connexion sécurisée n'a pu se faire. Allez voir nos [pages de support](https://www.sparkdevices.com/support) pour obtenir de l'aide.
+- *Clignotements jaunes / rouges* : Mauvais identifiants pour le Spark Cloud. Contactez l'équipe Spark (<a href="mailto@hello@spark.io">hello@spark.io</a>).
 
-### Pins
+### Broches
 
-The Core has 24 pins that you can connect a circuit to. These pins are:
+Le Core possède 24 broches que vous pouvez connecter à un circuit. Ces broches sont :
 
-- _VIN_: Connect an unregulated power source here with a voltage between 3.6V and 6V to power the Core. If you're powering the Core over USB, this pin should *not* be used.
-- _3V3_: This pin will output a regulated 3.3V power rail that can be used to power any components outside the Core. (Also, if you have your own 3.3V regulated power source, you can plug it in here to power the Core).
-- _3V3*_: This is a separate low-noise regulated 3.3V power rail designed for analog circuitry that may be susceptible to noise from the digital components. If you're using any sensitive analog sensors, power them from _3V3*_ instead of from _3V3_.
-- _!RST_: You can reset the Core (same as pressing the RESET button) by connecting this pin to GND.
-- _GND_: These pins are your ground pins.
-- _D0 to D7_: These are the bread and butter of the Spark Core: 8 GPIO (General Purpose Input/Output) pins. They're labeled "D" because they are "Digital" pins, meaning they can't read the values of analog sensors. Some of these pins have additional peripherals (SPI, JTAG, etc.) available, keep reading to find out more.
-- _A0 to A7_: These pins are 8 more GPIO pins, to bring the total count up to 16. These pins are just like D0 to D7, but they are "Analog" pins, which means they can read the values of analog sensors (technically speaking they have an ADC peripheral). As with the Digital pins, some of these pins have additional peripherals available.
-- _TX and RX_: These pins are for communicating over Serial/UART. TX represents the transmitting pin, and RX represents the receiving pin.
+- _VIN_ : Connectez à cette broche une alimentation non régulée d'une tension comprise entre 3,6V et 6V pour alimenter le Core. Si vous alimentez le Core via USB, cette broche *ne doit pas* être utilisée.
+- _3V3_ : Cette broche fournie une tension régulée de 3,3V que vous pouvez utiliser pour alimenter d'autres composants en dehors du Core. (De même, si vous possédez votre propre alimentation régulée de 3,3V, vous pouvez la brancher ici pour alimenter le Core).
+- _3V3*_ : Cette broche fournie une autre tension régulée de 3,3V, mais filtrée. Elle est destinée à alimenter des circuits sensibles au bruit provenant des composants électroniques. Si vous utilisez des capteurs analogiques sensibles, alimentez les via la broche _3V3*_ plutôt que la broche _3V3_.
+- _!RST_ : Vous pouvez redémarrer le Core (de la même manière qu'en appuyant sur le bouton RESET) en connectant cette broche à GND.
+- _GND_ : Ces broches sont les broches de mise à la masse.
+- _D0 à D7_ : Ces broches sont les broches à tout faire du Spark Core : 8 broches GPIO (General Purpose Input/Output). Elles sont libellées « D » parce que ce sont des broches « numériques » (Digital), ce qui signifie qu'elles ne peuvent pas lire les valeurs des capteurs analogiques. Certaines de ces broches possèdent des périphériques additionnels (SPI, JTAG, etc.), plus d'infos plus loin.
+- _A0 à A7_ : Ces broches sont 8 broches GPIO supplémentaires, pour un total de 16. Elles sont identiques à D0 à D7, si ce n'est qu'elles sont des broches « analogiques », ce qui signifie qu'elles peuvent lire les valeurs de capteurs analogiques (techniquement, elles possèdent un périphérique de convertion analogique vers numérique). Tout comme les broches numériques, certaines de ces broches possèdent des périphériques additionnels
+- _TX et RX_ : Ces broches sont dédiées aux communications Série / UART. TX correspond à la broche émettrice et RX correspond à la broche réceptrique.
 
-#### PWM Pins
+#### Broche PWM
 
-When you want to use the `analogWrite()` function on the Core, for instance to smoothly dim the brightness of LEDs, you need to use pins that have a timer peripheral.  People often call these PWM pins, since what they do is called Pulse Width Modulation.  The Core has 8 PWM pins: A0, A1, A4, A5, A6, A7, D0 and D1.
+Quand vous souhaitez utiliser la fonction `analogWrite()` du Core, par exemple pour diminuer l'intensité lumineuse de LED, vous devez utiliser les broches qui possèdent un timer. Les gens les appelent fréquemment des broches PWM, car ce qu'elles font est appelé Pulse Width Modulation (Modulation à Largeur d'Impulsion). Le Core possède 8 broches PWM : A0, A1, A4, A5, A6, A7, D0 et D1.
 
 The Spark Cloud
 ---
