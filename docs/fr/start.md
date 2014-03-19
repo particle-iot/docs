@@ -144,36 +144,36 @@ Le Core possède 24 broches que vous pouvez connecter à un circuit. Ces broches
 
 Quand vous souhaitez utiliser la fonction `analogWrite()` du Core, par exemple pour diminuer l'intensité lumineuse de LED, vous devez utiliser les broches qui possèdent un timer. Les gens les appelent fréquemment des broches PWM, car ce qu'elles font est appelé Pulse Width Modulation (Modulation à Largeur d'Impulsion). Le Core possède 8 broches PWM : A0, A1, A4, A5, A6, A7, D0 et D1.
 
-The Spark Cloud
+Le Spark Cloud
 ---
 
-The Spark Cloud is a network of servers hosted at `https://api.spark.io/` that the Spark Core connects to once it's on your Wi-Fi network.
+Le Spark Cloud est le réseau de serveurs hébergés à l'adresse `https://api.spark.io/` auquel se connecte le Spark Core une fois qu'il est connecté au réseau Wi-Fi.
 
-The Cloud exists for three main reasons:
+Le Cloud existe pour trois raisons principales :
 
-### Simplicity
+### Simplicité
 
-Generally speaking, when you work in an embedded system, networking means sending bytes over TCP sockets and UDP datagrams. Everyone agrees - socket programming is not fun. But higher-level communications are difficult because microcontrollers have so little memory they can't generally host a traditional HTTP web server. The Cloud gives you the simplicity of the web server with the low cost and low power of a microcontroller by translating between web communications (HTTP requests) and embedded communications (in our case, encrypted CoAP messages).
+Généralement, quand vous travaillez sur un système embarqué, le réseau signifie envoyer des octets à travers des sockets TCP et des datagrammes UDP. Tout le monde avoue que la programmation de socket n'est pas amusante. Mais les communications de haut niveau sont difficiles parce que les micro-contrôleurs ont si peu de mémoire qu'ils ne peuvent héberger un serveur web HTTP traditionnel. Le Cloud vous fourni la simplicité d'un serveur web avec le faible coût et la faible consommation d'un micro-contrôleur en faisant le lien entre les communications web (requêtes HTTP) et les communications embarquées (dans notre cas, des messages CoAP chiffrés).
 
-But you don't have to know any of that. The whole point of the Cloud is that all of this is abstracted away. You don't need to know *how* it connects to the internet; it just does. And once it's connected, you can make it do awesome things quickly and easily, without dealing with sockets.
+Mais vous n'avez pas besoin de savoir tout ça. Le fait est que tout ceci est masqué au premier abord. Vous n'avez pas besoin de savoir *comment* ça se connecte à Internet, ça se contente de le faire. Et une fois que c'est connecté, vous pouvez faire facilement faire des choses fantastiques sans avoir à gérer les sockets.
 
-### Global availability
+### Disponibilité générale
 
-By default, if you connect a thing to your Wi-Fi network, it's only available from elsewhere on your local network. This is a result of the fact that we've run out of IP addresses, and it's also a security measure, since it means that people can't just reach into your home willy-nilly and mess with your stuff.
+Par défaut, si vous connectez quelque chose à votre réseau Wi-Fi, c'est seulement disponible depuis le réseau local. C'est le résultat du fait que nous arrivons à court d'adresses IP disponibles, et c'est aussi une mesure de sécurité, car les gens ne peuvent pas simplement accéder à l'intérieur de votre maison et jouer avec vos trucs.
 
-Making the stuff in your home available outside your home is a pain, and usually requires nasty things like port mapping and static IP addresses. Even if you're technically savvy enough to handle this stuff, if you're developing a product, you don't want to make familiarity with OpenWRT a pre-requisite for purchasing your product.
+Rendre les trucs dans votre maison accessible à l'extérieur est quelque chose de compliqué, et nécessite des choses horribles comme des redirections de port et des adresses IP fixes. Même si vous êtes suffisamment doués pour savoir gérer ce côté technique, si vous développez un produit vous ne voudriez pas qu'être expert avec OpenWRT soit un pré-requis pour l'achat de ce produit.
 
-We avoid this issue entirely with the Cloud. The Core connects to the Cloud when it hits your Wi-Fi network, and holds open a persistent connection. This means that it's available from anywhere in the world at any time.
+Nous évitons complètement ce problème avec le Cloud. Le Core se connecte au Cloud après sa connexion au réseau Wi-Fi, et maintient ouverte une connection permanente. Ceci signifie qu'il est accessible n'importe où et n'importe quand dans le monde.
 
-But wait, if local networks are a security measure, then doesn't this open you up to all sorts of nastiness? Well, it would, except...
+Mais attendez, si les réseau locaux sont une mesure de sécurité, est-ce que ça ne vous expose pas à plein de vilaines choses ? Et bien, ça devrait, mais…
 
-### Security
+### Securité
 
-Yep, that's right. We thought of that.
+Oui, vous avez raison, nous y avons pensé.
 
-Security is hard. It's especially hard on an embedded system, because encryption is resource intensive. But it's also important, because you don't want anyone turning on and off your lights, or worse, locking and unlocking your front doors.
+La sécurité, c'est difficile. Et c'est particulièrement difficile sur un système embarqué parce que le chiffrage est fortement consommateur de ressources. Mais c'est aussi important parce que vous ne voudriez pas que n'importe qui puisse éteindre ou allumer vos lumières, ou pire, verrouiller ou déverrouiller votre porte d'entrée.
 
-We hand-picked a set of rock-solid security protocols that are secure and efficient, so they work great on an embedded system. They're baked into the Spark Protocol, which is open source and ready to be extended to other products.
+Nous avons choisi un ensemble de protocoles de sécurité éprouvés, qui sont à la fois sécurisés et efficaces et qui fonctionnent très bien sur un système embarqué. Ils ont été incorporés au Spark Protocol, qui est open source et prêt à être ajouté à d'autres produits.
 
 
 
