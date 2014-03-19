@@ -277,86 +277,87 @@ Lit la valeur numérique d'une broche, qui est une valeur comprise entre 0 et 40
 Le paramètre doit être une broche (A0 à A7, D0 à D7). La valeur de retour est comprise entre 0 et 4095 si la lecture réussi, -1 sinon.
 
 
-Flash Apps with Spark Build
+Flasher des application à l'aide du Spark Build
 ===
 
-What is firmware?
+Qu'est-ce qu'un firmware
 ---
 
-An *embedded system* like the Spark Core doesn't have an Operating System like a traditional computer. Instead, it runs a single application, often called *firmware*, which runs whenever the system is powered.
+Un *système embarqué* comme le Spark Core ne possède pas de système d'exploitation tel un ordinateur. À la place, il fait tourner une unique application, souvent nommée *firmware* (micro-logiciel), qui fonctionne dès que le système est alimenté.
 
-*Firmware* is so-called because it's harder than software and softer than hardware. Hardware is fixed during manufacturing, and doesn't change. Software can be updated anytime, so it's very flexible. Firmware is somewhere in between; hardware companies do issue firmware updates, but they tend to be very infrequent, because upgrading firmware can be difficult.
+Le nom *firmware* vient du fait qu'il est plus dur que le logiciel, et plus mou que le matériel (logiciel : software, soft signifiant mou; matériel : hardware, hard signifiant dur; firmware : micro-logiciel; firm signifiant ferme). Le matériel est figé pendant sa fabrication et ne change pas. Le logiciel peut-être mis à jour n'importe quand, ce qui le rend très flexible. Le firmware est quelque part entre les deux. Les sociétés de matériel fournissent des mise à jour de firmware, mais le font peu souvent parce que mettre à jour un firmware peut être compliqué.
 
-In our case, because the Spark Core is connected to the internet, updating firmware is quite trivial; we send it over the network, and we have put in place safeguards to keep you from "bricking" the Core.
+Dans notre cas, parce-que le Spark Core est connecté à Internet, la mise à jour du firmware est quasiment triviale. Nous la transférons par le réseau, et avons mis en place des sécurités pour vous empêcher de transformer le Core en un inutile presse-papier.
 
-When you flash code onto the Spark Core, you are doing an *over-the-air firmware update*. This firmware update overwrites almost all of the software on the Spark Core; the only piece that is untouched is the bootloader, which manages the process of loading new firmware and ensures you can always update the firmware over USB or through a factory reset.  (We'll be open sourcing the bootloader as soon as we can bring the README up to date.)
+Quand vous flashez du code dans le Spark Core, vous faites une *mise à jour du firmware par les airs*. La mise à jour du firmware écrase quasiment tout le logiciel du Spark Core. Le seul morceau qui n'est pas modifié est ce qu'on appelle le bootloader, qui gère le processus de chargement du nouveau firmware et s'assure que vous pouvez toujours mettre à jour le firmware via USB ou une restauration des paramètres d'usine. (Nous mettrons le bootloader en open source dès que nous aurons mis à jour son README).
 
-Logging into Spark Build
+Connexion au Spark Build
 ---
-When you're ready to reprogram your Spark Core, head over to our IDE:
+Quand vous êtes prêt à reprogrammer votre Spark Core, dirigez vous vers notre IDE (environnement de développement).
 
 [Spark Build >](https://www.spark.io/build)
 
 ![Spark Build](images/create-account.jpg)
 
-Creating an account is a simple one-step process.  When presented with the login screen, simply enter your email address (careful!), and desired account password.  Press the big friendly "Sign Up" button, and you'll reach the Spark Build home page.
+Créer un compte est un simple processus en une étape. Quand vous êtes face à l'écran de connexion, saisissez simplement votre adresse mail (vérifiez de ne pas faire d'erreur) et le mot de passe que vous souhaitez. Cliquez sur le gros bouton « Sign Up », et vous accèderez à la page d'accueil de Spark Build.
 
 ![Spark Build](images/log-in.jpg)
 
-If you've already logged into Spark Build before, click the "Let me log in" text beneath the Sign Up button, and you'll be presented with a login for existing users.  Don't worry--if you already have an account and accidentally click the "Sign Up" button, we'll still log you into your existing account.
+Si vous vous êtes déjà connecté au Spark Build auparavant, cliquez sur le lien « Let me log in » juste sous le bouton « Sign Up », et vous arriverez sur une page d'authentification pour les utilisateurs existants. Ne vous inquiétez pas : si vous avez déjà un compte et cliquez accidentellement sur le bouton « Sign Up », nous vous connecterons à votre compte existant.
 
-Spark Build, our web IDE
+Spark Build, notre IDE web
 ---
 
 ![Spark Build](images/ide.png)
 
-Spark Build is an Integrated Development Environment, or IDE; that means that you can do software development in an easy-to-use application, which just so happens to run in your web browser.
+Spark Build est un environnement de développement intégré, ou IDE (Integrated Development Environment), ce qui signifie que vous pouvez faire du développement logiciel dans une application facile à utiliser, qui arrive à fonctionner dans votre navigateur.
 
-Spark Build starts with the navigation bar on the left. On the top, there are three buttons, which serve important functions:
+Spark Build commence avec une barre de navigation sur la gauche. Au sommet se trouvent trois boutons qui fournissent des fonctionnalités importantes :
 
-- **Flash**: Flashes the current code to the Spark Core. This initiates an *over-the-air firmware update* and loads the new software onto your Spark Core.
-- **Verify**: This compiles your code without actually flashing it to the Core; if there are any errors in your code, they will be shown in the debug console on the bottom of the screen.
-- **Save**: Saves any changes you've made to your code.
+- **Flash** : Flashe le code actuel sur le Spark Core. Ça débute une *une mise à jour du firmware par les airs* et charge le nouveau code dans votre Spark Core.
+- **Verify** : Compile le code sans le flasher sur le Core. S'il y a des erreurs, elles seront affichées dans la console de debug en bas de l'écran.
+- **Save** : Sauve les modifications faites à votre code.
 
-At the bottom, there are four more buttons to navigate through the IDE:
+En bas de la barre de navigation se trouvent quatre autres boutons :
 
-- **Code**: Shows a list of your firmware applications and lets you select which one to edit/flash.
-- **Docs**: Brings you to the documentation for Spark.
-- **Cores**: Shows a list of your Spark Cores, so you can choose which to flash, and get more information on each Core.
-- **Settings**: Change your password, log out, or get your access token for API calls.
+- **Code** : Affiche la liste de vous applications et vous permet de choisir celle à éditer / flasher.
+- **Docs** : Vous envoie à la documentation.
+- **Cores** : Affiche la liste de vos Spark Core, de manière à choisir celui à flasher et obtenir plus d'informations à son sujet.
+- **Settings** : Change votre mot de passe, vous déconnecte, ou vous donne votre jeton d'accès pour les appels à l'API.
 
-Spark Apps and Libraries
+Spark Apps et bibliothèques de fonctions
 ---
 
 ![Spark Build](images/spark-apps.jpg)
 
-The heart of Spark Build is the "Spark Apps" section, which displays the name of the current app in your editor, as well as a list of your other applications and community-supported example apps.
+Le cœur de Spark Build est la section « Spark Apps », qui affiche le nom de l'application courante dans l'éditeur ainsi que la liste des autres applications et les applications d'exemple de la communauté.
 
-The application you've got open in the editor is displayed under the "Current App" header.  You'll notice that this "HELLOWORLD" sample application has only one file, but firmware with associated libraries/multiple files are fully supported.  
+L'application que vous avez ouverte dans l'éditeur est affichée sous l'entête « Current App ». Vous remarquerez que cette application d'exemple « HELLOWORLD » a un seul fichier, mais les firmware avec des bibliothèques de fonction ou plusieurs fichiers sont parfaitement gérés.
 
-From this pane, you've got a lot of buttons and actions available to you that can help you grow and manage your library of kick-ass applications:
+Depuis ce panneau, vous avez un certain nombre de boutons et actions disponibles qui peuvent vous aider à gérer votre bibliothèque d'applications du tonnerre :
 
-- **Create**: You can create a new application by clicking the "Create New App" button.  Give it a sweet name and press enter!  Your app is now saved to your account and ready for editing.
+- **Create** : Vous pouvez créer une nouvelle application en cliquant sur le bouton « Create New App ». Donnez lui un joli nom, et appuyez sur Entrée. Votre application est maintenant sauvée dans votre compte et prête pour l'édition.
 
-- **Delete**: Click the "Remove App" button to remove it forever from your Spark library.
+- **Delete** : Cliquez sur le bouton « Remove App » pour supprimer définitivement l'application de votre bibliothèque.
 
-- **Rename**: You can rename your Spark App by simply double-clicking on the title of your app under the "Current App" header.  You can modify the "Optional description" field in the same way.
-- **My Apps**: Tired of working on your current project?  Select the name of another app under the "My apps" header to open it in a tab of the Spark Build editor.
+- **Rename** : Vous pouvez renommer votre application juste en double-cliquant sur son titre sous l'entête « Current App ». Vous pouvez modifier le champ « Optional description » de la même manière.
 
-- **Files**: This header lists all known files associated with the open application.  Click on a supporting file in your application to open it as an active tab in the editor.
+- **My Apps** : Vous en avez assez de travailler sur votre projet actuel ? Sélectionnez le nom d'une autre application sous l'entête « My apps » pour ouvrir cette dernière dans un onglet de l'éditeur Spark Build.
 
-- **Examples**: The "Example apps" header lists a continuously growing number of community-supported example apps.  Use these apps as references for developing your own, or fork them outright to extend their functionality.
+- **Files** : Cette entête liste tous les fichiers connus associés à l'application ouverte. Cliquez sur un des fichiers pour ouvrir celui-ci dans un nouvel onglet de l'éditeur.
+
+- **Examples** : L'entête « Example apps » liste un nombre en perpétuelle augmentation d'applications de la communauté. Utilisez ces applications comme référence pour développer la votre, ou dupliquez les afin d'étendre leurs fonctionnalités.
 
 
-Flashing Your First App
+Flasher votre première application
 ---
 
-The best way to get started with the IDE is to start writing code:
+La meilleure façon de débuter avec l'IDE est de commencer à écrire du code :
 
-- **Connect**: Make sure your Core is powered and "breathing" Cyan, which indicates that it's connected to the Spark Cloud and ready to be updated.
+- **Connectez vous** : Vérifiez que votre Core est allumé et émette des pulsations cyans, ce qui signifie qu'il est connecté au Spark Cloud et prêt à être mis à jour.
 
 ---
-- **Get Code**: Try clicking on the "Blink an LED" example under the "Example apps" header.  The Spark Build editor should display the code for the example application in an active tab.  Alternatively, you can copy and paste this snippet of code into a new application in the Build IDE.
+- **Récupérez du code** : Essayez de cliquer sur l'exemple « Blink a LED » sous l'entête « Example apps ». L'éditeur Spark Build devrait afficher le code de l'application d'exemple dans un onglet actif. Autrement, vous pouvez aussi copier / coller le morceau de code ci-dessous dans une nouvelle application de l'IDE.
 
 ```
 //D7 LED Flash Example
@@ -376,31 +377,31 @@ void loop() {
 
 ![Spark Build](images/select-a-core.jpg)
 
-- **Select Your Core**: The next step is to make sure that you've selected which of your Cores to flash code to.  Click on the "Cores" icon at the bottom left side of the navigation pane, and click on the star next to the Core you'd like to update.  Once you've selected a Core, the star associated with it will turn yellow.
+- **Sélectionnez votre Core**: L'étape suivante est de vérifier que vous avez sélectionné le Core que vous souhaitez flasher. Cliquez sur l'icône « Cores » en bas à gauche de votre panneau de navigation, et cliquez sur l'étoile à côté du Core que vous souhaitez mettre à jour. Une fois le Core sélectionné, l'étoile associée passera au jaune.
 
-- **Flash**: Click the "Flash" button, and your code will be sent wirelessly to your Core.  If the flash was successful, the LED on your Core will begin flashing magenta.
+- **Flashez** : Cliquez sur le bouton « Flash », et votre code sera envoyé à votre Core. Si le flash se termine avec succès, la LED sur le Core se mettra à clignoter en magenta.
 
 ![Spark Build](images/fork-app.jpg)
 
-- **Fork**: Wish the timing of that LED flash was a little bit faster?  Try clicking on the "Fork This Example" button after selecting the "Blink An LED" example application.  You've now got a personal copy of that application that you can modify, save, and flash to all of your Cores.
+- **Dupliquez** : Vous auriez souhaité que le clignotement de la LED soit un peu plus rapide ? Essayez de cliquer sur le bouton « Fork This Example » après avoir sélectionné l'application d'exemple « Blink a LED ». Vous avez maintenant une copie personnelle que vous pouvez modifier, sauver et flasher sur tous vos Cores.
 
-- **Edit**: Try changing the values in the delay() function from 1000 to 250, which changes the timing interval from 1000 milliseconds to only 250 milliseconds.  Click the Verify button, then the Flash button.  Is your Core's LED blinking faster?  Well done :)
+- **Editez** : Essayez de changer les valeurs dans la fonction delay() de 1000 à 250, ce qui va changer l'intervalle de clignotement de 1000 millisecondes à  250 millisecondes. Cliquez sur le bouton « Verify » puis le bouton « Flash ». La LED du Core clignote plus vite ? Bien joué :)
 
 
-Account Information
+Informations du compte
 ---
 
-There are a couple of other neat bells and whistles in Spark Build.  The Spark Build IDE the best tool for viewing important information about your Core, managing Cores associated with your Spark account, and "unclaiming" them so they can be transferred to your buddy.
+Il y a aussi quelques autres trucs utiles dans Spark Build. L'IDE Spark Build est le meilleur outil pour voir les informations importantes au sujet de votre Core, gérer les Cores associés à votre compte Spark, et les « déréclamer » afin de pouvoir les transférer à votre ami.
 
 ![Spark Build](images/device-id.jpg)
 
-- **Core ID**: You can view your Core's Device ID by clicking on the "Cores" icon at the bottom of the navigation pane, then clicking the dropdown arrow next to the Core of interest.  
+- **Core ID** : Vous pouvez voir les Device ID de vos Cores en cliquant sur l'icône « Cores » en bas du panneau de navigation, puis en cliquant sur la flèche à côté du Core qui vous intéresse.
 
-- **Unclaim**: You can "Unclaim" a Core by pressing the "Remove Core" button that is revealed by clicking the dropdown arrow.  Once a Core has been unclaimed, it is available to be reassociated with any Spark users' account.
+- **Unclaim** : Vous pouvez « déréclamer » un Core en cliquant sur le bouton « Remove Core » qui est affiché en cliquant sur la flèche à côté du Core correspondant. Une fois qu'un Core a été supprimé, il peut être associé à nouveau à n'importe quel compte utilisateur Spark.
 
 ![Spark Build](images/access-token.png)
 
-- **API Key**: You can find your most recent API Key listed under the "Settings" tab in your account.  You can press the "Reset Token" button to assign a new API Key to your account.  *Note* that pressing this button will require you to update any hard-coded API Credentials in your Spark-powered projects!
+- **API Key** : Vous pouvez trouver votre clée d'API la plus récente dans l'onglet « Settings » de votre compte. Vous pouvez cliquer sur le bouton « Reset Token » pour assigner une nouvelle clé à votre compte. *Notez* que cliquer sur ce bouton nécessitera que vous mettiez à jour tous les projets pour lesquels vous avez codé en dur cette clé.
 
 
 
