@@ -1,81 +1,80 @@
-Getting started
+Premiers pas
 =====
 
-### What's in the box
+### Contenu de la boîte
 
-![Spark Core in box](images/core-in-box.jpg)
+![Le Spark Core dans sa boîte](../images/core-in-box.jpg)
 
-Congratulations on being the owner of a brand new Spark Core! Go ahead, open the box, and let's talk about what you see. Your box should include:
+Félicitations pour la possession du tout nouveau Spark Core ! Commençons par ouvrir la boîte, et parlons de ce que vous voyez. Votre boîte devrait contenir :
 
-- *One Spark Core*. The reason you bought this thing. We'll dig in more here in a bit.
-- *One breadboard*. A breadboard makes it easy to wire components to the Core without solder. Internally, the rows are electrically connected horizontally, and the "rails" along the edges are connected vertically. See the [breadboard article on Wikipedia](http://en.wikipedia.org/wiki/Breadboard) for more information.
-- *One USB cable*. The included USB cable is used for two things: powering the Spark Core (by connecting it to your computer, to a USB power brick, or to a USB battery pack) and reprogramming. Most of the time you will be reprogramming the Core through the Cloud, but you always have the option of reprogramming it over USB, especially if your internet connection is down or you would prefer to use your own servers.
-
-
-### Step 1: Power the Core
-
-![Power the Core](images/core-usb.jpg)
-
-Powering the Core is easy; it receives power over a Micro USB port, much like many smartphones and other gadgets. Power your Core on by connecting the Micro USB cable to the USB port on the Core, and plug the other end into any USB port on your computer, a USB hub (preferably powered), or a USB power adapter (like the one that probably came with your smartphone).
-
-If you so desire, you can also power the Core with 3.6V to 6V to the `VIN` pin, or 3.3V to the `3.3V` pin.
-
-### Step 2: Download the Spark iOS or Android app
-
-![Spark apps](images/spark-apps.png)
-
-The Spark mobile app is the easiest way to get your Spark Core connected to the internet. The app will help you do three things:
-
-- Create an account with Spark
-- Connect your Spark Core to your Wi-Fi network
-- Control your Core without writing any code
-
-The iOS app requires iOS 7, and the Android app works with Ice Cream Sandwich (Android 4.0) and newer.
-
-[Download the iPhone app >](https://itunes.apple.com/us/app/spark-core/id760157884)
-
-[Download the Android app >](https://play.google.com/store/apps/details?id=io.spark.core.android)
+- *Un Spark Core*. La raison de votre achat. Nous en parlerons plus amplement ultérieurement.
+- *Une plaque d'essai*. Une plaque d'essai facilite le branchement sans soudure des composants au Core. À l'intérieur, les colonnes sont connectées à l'horizontale, et les « rails » le long des bords sont connectés verticalement. Référez vous à [l'article Wikipedia correspondant](http://fr.wikipedia.org/wiki/Platine_d%27exp%C3%A9rimentation) pour plus d'information.
+- *Un câble USB*. Le câble USB fourni est utilisé pour deux choses : alimenter le Spark Core (en le connectant à votre ordinateur, à une alimentation USB, ou à une batterie USB) et le reprogrammer. La plupart du temps, vous reprogrammerez la Core via le Cloud, mais vous aurez toujours la possibilité de le reprogrammer via l'USB, surtout si vous n'avez plus de connexion à Internet ou souhaitez utiliser vos propres serveurs.
 
 
+### Étape 1 : Alimenter le Core
 
-### Step 3: Connect the Core to Wi-Fi
+![Alimenter le Core](../images/core-usb.jpg)
 
-![Smart Config](images/smart-config.png)
+Alimenter le Core est facile. Il recoit du courant à travers un port micro USB, de manière similaire à beaucoup de smartphones et autres gadgets. Alimentez votre Core en connectant le câble micro USB au connecteur USB du Core, et l'autre extrémité dans un connecteur USB de votre ordinateur, d'un hub USB (de préférence avec une alimentation externe), ou d'une alimentation USB (comme celle qui vient surement avec votre smartphone).
 
-Connecting the Spark Core to your Wi-Fi is dead simple. In fact, I did it twice while I was typing this paragraph.
+Si vous le souhaitez, vous pouvez aussi alimenter le Core en appliquant une tension de 3,6V à 6V sur la broche `VIN`, ou 3,3V sur la broche `3.3V`.
 
-The Spark mobile app will guide you through the process, but basically it's a one-step process where you type your Wi-Fi network name (SSID) and password and they're sent over Wi-Fi to the Spark Core, which automatically connects to the network and to the Spark Cloud. If everything works as planned, you'll see the LED go through the following colors:
+### Étape 2 : Télécharger l'application Spark pour iOS ou Android
 
-- **Flashing blue**: Listening for Wi-Fi credentials
-- **Flashing green**: Connecting to the Wi-Fi network
-- **Flashing cyan**: Connecting to the Spark Cloud
-- **Flashing magenta**: Updating to the newest firmware
-- **Breathing cyan**: Connected!
+![L'application Spark](../images/spark-apps.png)
+
+L'application mobile Spark est la méthode la plus facile pour connecter votre Spark Core à Internet. L'application vous aidera à effectuer trois choses :
+
+- Créer un compte Spark
+- Connecter votre Spark Core à votre réseau Wi-Fi
+- Contrôler votre Core sans écrire une seule ligne de code
+
+L'application iOS nécessite iOS 7, and l'application Android fonctionne à partir de Ice Cream Sandwich (Android 4.0).
+
+[Télécharger l'application iPhone >](https://itunes.apple.com/fr/app/spark-core/id760157884)
+
+[Télécharger l'application Android >](https://play.google.com/store/apps/details?id=io.spark.core.android)
+
+
+
+### Étape 3 : Connecter le Core au Wi-Fi
+
+![Smart Config](../images/smart-config.png)
+
+Connecter le Spark Core au Wi-Fi est simple comme tout. En fait, je l'ai fait deux fois tout en rédigeant ce paragraphe.
+
+L'application mobile Spark vous guidera pendant le processus, mais c'est tout simpelment un processus en une étape où vous saisirez le nom de votre réseau Wi-Fi (SSID) et son mot de passe, et ces derniers seront envoyés via le Wi-Fi à votre Spark Core, qui se connectera automatiquement au réseau et au Spark Cloud. Si tout fonctionne comme prévu, vous verrez la LED passer par les couleurs suivantes :
+
+- **Flashs bleus** : En attente des informations Wi-Fi
+- **Flashs verts** : Connection au réseau Wi-Fi
+- **Flashs cyans** : Connection au Spark Cloud
+- **Flashs magenta** : Mise à jour du dernier firmware
+- **Pulsations cyans**: Connecté !
 
 <div id="core1" class="core"><div class="core-butt"></div><div class="rgb"><div class="pattern"></div></div></div>
 
-<a id="button1" class="button" onclick="animateCore()">See an animation</a>
+<a id="button1" class="button" onclick="animateCore()">Voir l'animation</a>
 
-If the mobile app doesn't work for you, you can also connect your Spark Core over USB. For more information, or for a detailed explanation of how to connect your Core to the 'net, check out:
+Si l'application mobile ne fonctionne pas dans votre cas, vous pouvez aussi connecter votre Spark Core via USB. Pour plus d'information, ou pour une explication plus complète sur comment connecter votre Core à Internet, référez-vous à :
 
-[Connect your Core >](/#/connect)
+[Connecter votre Core >](/#/connect)
 
-### Step 4: Blink an LED with Tinker
+### Étape 4 : Faire clignoter une LED avec Tinker
 
-![Tinker](images/tinker.png)
+![Tinker](../images/tinker.png)
 
-The Spark mobile app contains a mini-app called Tinker that lets you... well, tinker. It lets you talk with the Input/Output pins of the Spark Core without writing a single line of code.
+L'application mobile Spark contient une mini-application nommée Tinker qui vous permet… et bien, de bidouiller (to tinker en anglais = bricoler, tripatouiller, bidouiller). Elle vous permet de communiquer avec les entrées / sorties du Spark Core sans écrire une seule ligne de code.
 
-Each of the pins has up to four functions available: *digitalWrite*, *analogWrite*, *digitalRead*, and *analogRead*. For more information, scroll down to the "Tinkering with Tinker" section.
+Chacune des broches possède jusqu'à fonctions : *digitalWrite*, *analogWrite*, *digitalRead*, et *analogRead*. Pour plus d'informations, descendez jusqu'à la section « Bidouiller avec Tinker ».
 
-### Step 5: Write Apps with Spark Build
+### Étape 5 : Écrire des applications avec Spark Build
 
-![Spark Build](images/ide.png)
+![Spark Build](../images/ide.png)
 
-Once you're tired of reading reading sensor values and flashing LEDs, head over to the Spark Build IDE for the real show.  Spark Build allows you to create and flash custom applications to your Core from any modern web browser, and equips your Core with the full capabilities of the Internet!  Wow!  
+Une fois que vous serez fatigués de lire des valeurs de capteurs et de faire clignoter des LEDs, dirigez vous vers l'IDE (environnement de développement) Spark Build pour le vrai spectacle. Spark Build vous permet de créer et flasher des applications personnelles sur votre Core depuis n'importe quel navigateur récent, et équiper votre Core avec toutes les possibilitées d'Internet ! Impressionnant !
 
-Don't be nervous--we've got you covered with plenty of community-approved example applications and libraries that will get you started on the right foot.  To learn more, check out the "Writing Apps with Spark Build" section further down on this page.  
-
+Ne soyez pas nerveux. Nous vous avons préparé plein d'exemples validés par la communauté et de bibliothèques de fonctions qui vont permettrons de partir du bon pied. Pour en savoir plus, jetez un œil à la section « Écrire des application avec Spark Build » plus bas dans la page.
 
 Wait, what is this thing?
 =====
