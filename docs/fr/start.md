@@ -163,7 +163,7 @@ Par défaut, si vous connectez quelque chose à votre réseau Wi-Fi, c'est seule
 
 Rendre les trucs dans votre maison accessible à l'extérieur est quelque chose de compliqué, et nécessite des choses horribles comme des redirections de port et des adresses IP fixes. Même si vous êtes suffisamment doués pour savoir gérer ce côté technique, si vous développez un produit vous ne voudriez pas qu'être expert avec OpenWRT soit un pré-requis pour l'achat de ce produit.
 
-Nous évitons complètement ce problème avec le Cloud. Le Core se connecte au Cloud après sa connexion au réseau Wi-Fi, et maintient ouverte une connection permanente. Ceci signifie qu'il est accessible n'importe où et n'importe quand dans le monde.
+Nous évitons complètement ce problème avec le Cloud. Le Core se connecte au Cloud après sa connexion au réseau Wi-Fi, et maintient ouverte une connexion permanente. Ceci signifie qu'il est accessible n'importe où et n'importe quand dans le monde.
 
 Mais attendez, si les réseau locaux sont une mesure de sécurité, est-ce que ça ne vous expose pas à plein de vilaines choses ? Et bien, ça devrait, mais…
 
@@ -408,74 +408,74 @@ Il y a aussi quelques autres trucs utiles dans Spark Build. L'IDE Spark Build es
 
 
 
-The Spark Command Line
+La ligne de commande Spark
 ===
 
-**Coming soon!** Command line tools so that you can build Spark applications with your own desktop IDE, whether it's Eclipse, Sublime Text, Vim, or anything else.
+**À venir** Les outils en ligne de commande vous permettrons de créer des applications Spark avec votre propre environnement de bureau, que ce soit Eclipse, Sublime Text, Vim ou autre chose.
 
-Deploying a Spark web app
+Déployer une appli web Spark
 ===
 
-**Coming soon!** We'll give you instructions for how to deploy a web app on Heroku that can talk with a Spark Core.
+**À venir** Nous vous donnerons les instructions pour déployer une appli web sur Heroku qui pourra parler à un Spark Core.
 
-Troubleshooting
+Dépannage
 ===
 
-What's wrong?
+Qu'est ce qui se passe ?
 ---
 
-### My Core won't connect to Wi-Fi
+### Mon Core ne se connecte pas au Wi-Fi
 
-There are many reasons that your Core might not be connecting to your Wi-Fi network. To debug, check out our detailed connection troubleshooting section:
+Il y a plein de raisons possibles qui font que votre Core puisse ne pas se connecter au réseau Wi-Fi. Pour trouver la raison, jeter un œil à notre section des dépannages de connexion :
 
-[Why won't it connect? >](/#/connect/troubleshooting)
+[Pourquoi ne se connecte-t-il pas? >](/#/connect/troubleshooting)
 
-### I can't talk to my Core
+### Je n'arrive pas à parler à mon Core
 
-Once your Core is connected, it needs to be *claimed* in order to be associated with your account. This is what lets you control your Core and keeps anyone else from doing so.
+Une fois que votre Core est connecté, il a besoin d'être *réclamé* afin d'être associé à votre compte. C'est ce qui vous permet de contrôler votre Core et d'empêcher les autres d'en faire autant.
 
-If you use the mobile app to set up your Core, it should claim it automatically. However if you connect your Core over USB, or if the claiming process is unsuccessful, you can claim it manually.
+Si vous utilisez l'application mobile pour configurer votre Core, elle devrait automatiquement la réclamer. Cependant, si vous connectez votre Core via USB ou que le processus de réclamation échoue, vous pouvez le réclamer manuellement.
 
-Head over to our connection page to learn about this:
+Dirigez-vous vers notre page sur la connexion pour apprendre comment faire :
 
-[ Claiming your Core >](/#/connect/claiming-your-core)
+[ Réclamer votre Core >](/#/connect/claiming-your-core)
 
-### My Core won't start up
+### Mon Core ne démarre pas
 
-If your Core won't start up (the LED never comes on), here are a few things to check:
+Si votre Core ne démarre pas (la LED ne s'allume jamais), il y a quelques pistes à vérifier :
 
-- Is the Core receiving sufficient power? If you're not sure, connect a multimeter to the 3.3V pin and GND and see if you get 3.3V, as expected. Try connecting the Core to another power source.
-- Have any components been damaged? Visually inspect both sides of the Core.
+- Est-ce que le Core reçoit une tension suffisante ? Si nous n'êtes pas sûr, connectez un multimètre aux broches 3,3V et GND et vérifiez que vous voyez bien 3,3V comme attendu. Sinon, essayez de connecter le Core à une autre alimentation.
+- Des composants ont-ils été endommagés ? Inspectez de manière visuelle les deux faces du Core.
 
-### My Core is behaving erratically
+### Mon Core se comporte de manière étrange
 
-If you're seeing unexpected behavior with your Core, here are a few things to check:
+Si vous constatez un comportement inattendu de la part de votre Core, voici quelques pistes à vérifier :
 
-- Is the Core receiving sufficient power? The Core might behave eratically if it's plugged into an unpowered USB hub and not receiving enough power. In addition, if you have components that draw a lot of power (motors, for instance), you might need more power than your computer can supply. Try using a USB power supply or providing more power directly to the VIN or 3.3V pins.
-- If you have a u.FL Core, is an antenna connected? Are you within range of the Wi-Fi router?
+- Est-ce que le Core reçoit suffisamment de courant ? Le Core peut se comporter de manière erratique s'il est connecté à un hub USB non alimenté et ne reçoit pas assez de courant. De plus, si vous avez des composants qui demandent beaucoup de courant (par exemple, des moteurs), vous pourriez avoir besoin de plus de courant que l'ordinateur ne peut en fournir. Essayez d'utiliser une alimentation USB ou de fournir plus de courant aux broches VIN ou 3.3V
+- Si vous avez un Core avec un connecteur u.FL, est-ce qu'une antenne y est connectée ? Êtes-vous à portée de votre routeur Wi-Fi ?
 
 
-Further resources
+Autre ressources
 ===
 
-Hardware development
+Développement matériel
 ---
 
-### Hardware for dummies
+### Le développement matériel pour les nuls
 
-**Coming soon!**
+**À venir**
 
-### Advanced hardware
+### Le matériel avancé
 
-**Coming soon!**
+**À venir**
 
-Software development
+Développement logiciel
 ---
 
-### Software for dummies
+### Le logiciel pour les nuls
 
-**Coming soon!**
+**À venir**
 
-### Advanced software
+### Le logiciel avancé
 
-**Coming soon!**
+**À venir**
