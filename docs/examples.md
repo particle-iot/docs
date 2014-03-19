@@ -165,7 +165,7 @@ In this example, we will hook up a temperature sensor to the Core and read the v
 
 We have used a widely available analog temperature called TMP36 from Analog Devices. You can download the [datasheet here.](http://www.analog.com/static/imported-files/data_sheets/TMP35_36_37.pdf)
 
-Notice how we are powering the sensor from 3.3V\* pin instead of the regular 3.3V. This is because the 3.3V\* pin gives out a (LC) clean filtered  voltage, ideal for analog applications like these. If the readings you get are noisy or inconsistent, add a 0.1uF (100nF) ceramic capacitor between the analog input pin (in this case,A0) and GND as shown in the set up.
+Notice how we are powering the sensor from 3.3V\* pin instead of the regular 3.3V. This is because the 3.3V\* pin gives out a (LC) clean filtered  voltage, ideal for analog applications like these. If the readings you get are noisy or inconsistent, add a 0.01uF (10nF) ceramic capacitor between the analog input pin (in this case,A7) and GND as shown in the set up. Ideally, the sensor should be placed away from the Core so that the heat dissipated by the Core does not affect the temperature readings.
 
 ```C++
 // -----------------
@@ -180,16 +180,16 @@ void setup()
   // Register a Spark variable here
   Spark.variable("temperature", &temperature, INT);
 
-  // Connect the temperature sensor to A0 and configure it
+  // Connect the temperature sensor to A7 and configure it
   // to be an input
-  pinMode(A0, INPUT);
+  pinMode(A7, INPUT);
 }
 
 void loop()
 {
   // Keep reading the temperature so when we make an API
   // call to read its value, we have the latest one
-  temperature = analogRead(A0);
+  temperature = analogRead(A7);
 }
 ```
 
