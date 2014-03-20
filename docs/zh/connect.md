@@ -1,30 +1,30 @@
-Connecting your Core
+连接您的 Core
 ===
 
 <iframe class="vine-embed" src="https://vine.co/v/hFHPMue5lgd/embed/simple" width="320" height="320" frameborder="0"></iframe>
 
-The easiest way to connect the Spark Core to Wi-Fi is using the Spark mobile app for iPhone or Android. But in case that's not working for you or you don't have an iOS/Android phone, there are other methods as well.
+连接 Spark Core 到Wi-Fi的最简单方法是使用为iPhone或Android 手机应用程序. 但如果这行不通，或者您没有 iOS/ Android手机，我们还有还有其它方法.
 
-For all of the following methods, the Spark Core must be in "listening" mode, which you'll know by its flashing blue LED.
+对于所有下面的方法, Spark Core 必须在“聆听”模式，闪烁蓝色 LED 能让您知道它已在此模式.
 
 <iframe class="vine-embed" src="https://vine.co/v/hFHlpBDELeU/embed/simple" width="320" height="320" frameborder="0"></iframe>
 
-The Core boots into listening mode by default, so if your Core is brand new, it should go straight into listening mode. Otherwise, hold the MODE button for three seconds.
+Core 在默认情况下会进入“聆听”模式，所以如果您的 Core 是全新的，它应该直接进入聆听模式. 否则，请按MODE按钮3秒钟. seconds.
 
-## Smart Config with the Spark app
+## Spark 手机应用程序的智能配置
 
 <iframe class="vine-embed" src="https://vine.co/v/hFH09MJwbxg/embed/simple" width="320" height="320" frameborder="0"></iframe>
 
-Once you've downloaded the Spark Core app from the App Store or Google Play, you should create an account. Afterwords, you'll be asked to connect your Core using a process called Smart Config.  If your Core has a u.FL connector, you must connect an external antenna before initiating Smart Config. *NOTE: Your phone must be connected to the Wi-Fi network that you want to connect the Core to.* The app will automatically fill the SSID field with the name of the network that your phone is connected to.  Enter your Wi-Fi password and hit connect.
+一旦您从 App Store 或 Google Play 下载星火核心的应用程序下载，您应该注册一个 Spark 帐户. 之后，您会被要求使用一种称为智能配置过程来连接您的 Core.  If your Core has a u.FL connector, you must connect an external antenna before initiating Smart Config. *NOTE: Your phone must be connected to the Wi-Fi network that you want to connect the Core to.* 该应用程序会自动填入 SSID 字段与您的手机连接到网络的名称. 输入您的Wi-Fi密码，并点击连接。
 
 <iframe class="vine-embed" src="https://vine.co/v/hFwubhA3JXV/embed/simple" width="320" height="320" frameborder="0"></iframe>
 
-Smart Config can take up to a minute, so be patient. The closer your phone to your Spark Core, the faster it will connect. Once the Core hears the signal, it will go through the following sequence of lights:
+智能配置可能需要长达一分钟的时间，请耐心等待. 如果您的手机越接近您的 Spark Core，它将更快连接. 一旦核心听到信号时，它会通过灯光的顺序如下：
 
-- **Solid blue**: Credentials captured
-- **Flashing green**: Connecting to Wi-Fi network
-- **Flashing cyan**: Connecting to Spark Cloud
-- **Breathing cyan**: Connected to Spark Cloud
+- **蓝色固体**: 收到WiFi凭证
+- **绿色闪烁**: 正连接到Wi-Fi网络
+- **青色闪烁**: 正连接到 Spark 云
+- **青色慢速闪烁**: 已连接到 Spark 云
 
 <iframe class="vine-embed" src="https://vine.co/v/hFdj1TJjA9M/embed/simple" width="320" height="320" frameborder="0"></iframe>
 
