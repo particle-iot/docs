@@ -15,7 +15,7 @@ Core 在默认情况下会进入“聆听”模式，所以如果您的 Core 是
 
 <iframe class="vine-embed" src="https://vine.co/v/hFH09MJwbxg/embed/simple" width="320" height="320" frameborder="0"></iframe>
 
-一旦您从 App Store 或 Google Play 下载星火核心的应用程序下载，您应该注册一个 Spark 帐户. 之后，您会被要求使用一种称为智能配置过程来连接您的 Core.  If your Core has a u.FL connector, you must connect an external antenna before initiating Smart Config. *NOTE: Your phone must be connected to the Wi-Fi network that you want to connect the Core to.* 该应用程序会自动填入 SSID 字段与您的手机连接到网络的名称. 输入您的Wi-Fi密码，并点击连接。
+一旦您从 App Store 或 Google Play 下载星火核心的应用程序下载，您应该注册一个 Spark 帐户. 之后，您会被要求使用一种称为智能配置过程来连接您的 Core.  如果您的核心有U.FL连接器， 您必须启动智能配置前连接一个外接天线. *注意：您的手机必须连接到您想要 Core 连接到的Wi-Fi网络* 该应用程序会自动填入 SSID 字段与您的手机连接到网络的名称. 输入您的Wi-Fi密码，并点击连接。
 
 <iframe class="vine-embed" src="https://vine.co/v/hFwubhA3JXV/embed/simple" width="320" height="320" frameborder="0"></iframe>
 
