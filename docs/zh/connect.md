@@ -103,27 +103,27 @@ __操作方法__
 首先，您需要您的core 标识号. 您可以通过打开串行与 core 连接，按下**i**关键做到这一点 (请但以上的‘通过 USB 连接’).
 它应该告诉您一个类似的数字：
 
-    #  Core 标识号 例子
+    #  core 标识号 例子
     55ff68064989495329092587
 
 ---
 
-Then open up [Spark Build](https://www.spark.io/build) and click the 'Cores' icon. Click the button that says 'Add a Core', and enter your ID in the text box.
+然后打开 [Spark Build](https://www.spark.io/build)并点击“core”图标. 点击上面写着' 添加一个 core“的该按钮， 并在文本框中输入您的 core 标识号.
 
 我们将发布一个命令行工具来把这个过程简化. 敬请关注！
 
 故障排除
 ===
 
-There are many reasons that your Spark Core might not be able to connect to your network. There are many types of Wi-Fi networks, and the Spark Core and the CC3000 do not support all of them. We consider it an important goal of ours to connect easily and painlessly to as many networks as possible, and your feedback is extremely valuable so that we can get better.
+您的 Spark Core 可能无法连接到您的网络有很多原因. 市面上有许多类型的Wi-Fi网络，而 Spark core 和 CC3000 不连接到所有的. 我们认为这是我们的一个重要目标. 以最轻松的方式， 尽可能连接到越多网络越好. 您的反馈意见是非常有价值的，这样我们就可以做得更好.
 
-The Spark Core works best with a traditional home network: simple networks with WPA/WPA2 or WEP security (or unsecured),  with a single router from a reputable company (Apple, Netgear, Linksys, D-Link, etc.) without any fancy settings. The more your network diverges from the norm, there more likely you might encounter issues.
+Spark Core 与传统家庭网络的效果最佳：设用 WPA/WPA2 或 WEP 安全模式（或安全）的简单网络, 和只有一台从有信誉的公司的路由器（苹果，美国网件，Linksys的，D-Link的，等等）加上没有任何花哨的设置. 您的网络越比正常的不同，遇到的问题有可能更多.
 
-There are known issues with the following types of networks:
+有已知的问题与网络的种类如下：
 
-- **802.11n-only networks**. The Spark Core is 802.11b/g. Most 802.11n networks are backwards compatible with 802.11b/g, but if yours is not, the Spark Core will not connect.
-- **Networks with ["captive portal"](http://en.wikipedia.org/wiki/Captive_portal) security**. A captive portal is the little website that comes up to ask you to sign in to a network or sign an agreement, like at a Starbucks. The Spark Core can't navigate these portals.
-- **Enterprise networks**. We have had mixed results connecting the Spark Core to enterprise networks, although we don't yet have a great understanding of what's causing the issue. This is something that we are working to improve.
+- **802.11n-only 网络**. Spark Core 是 802.11b/g. 大多的 802.11n 网络向后兼容与 802.11b/g, 但如果您的不是， Spark Core 将无法连接.
+- **网络设有 ["强制网络门户"](http://en.wikipedia.org/wiki/Captive_portal) 安全模式**. 强制网络门户，就像在星巴克，是个小网站. 会请您登录到网络或签署协议. Spark Core 无法浏览这些门户.
+- **企业网络**. 我们连接 Spark Core 到企业网络有不同的结果. 虽然我们还没有非常了解是什么造成这个问题, 但是我们正在努力改善.
 - **Complex networks**. Networks with multiple routers, with non-standard firewalls, and with non-standard settings.
 - **Networks with WEP security**. If connecting with the mobile app works for you, WEP-secured networks should be fine. However, you cannot currently connect to a WEP-secured network over USB. We are implementing a fix for this now, which should be available in the next couple of weeks.
 - **Channels above 11**. This is in particular an international issue; if you are outside the U.S., your Wi-Fi router might run at channels 12, 13, or 14, which the CC3000 does not support. Please use channels numbered 11 or lower.
