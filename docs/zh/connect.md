@@ -28,7 +28,7 @@ Core 在默认情况下会进入“聆听”模式，所以如果您的 Core 是
 
 <iframe class="vine-embed" src="https://vine.co/v/hFdj1TJjA9M/embed/simple" width="320" height="320" frameborder="0"></iframe>
 
-Once the Spark Core has connected, your phone will "claim" the Core and attach it to your account. Then you'll get to name your Core.  If you're uncertain, you can confirm that the claim process was successful by logging into the [Spark Web IDE](https://www.spark.io/build) and clicking the "Cores" icon at the bottom of the page.  Is your Core listed?  Great!  The world is perfect.  
+一旦 Spark Core 已经连接，您的手机将“认领” core，并将它附加到您的帐户. 然后您可以为您的 core 取名字. 如果您不确定认领过程是否成功，您可以登录 [Spark Web IDE](https://www.spark.io/build) 并在页面的底部点击“core”的图标. 您的 core 是否被列出？  太棒了！这个世界是完美的!
 
 *NOTE: The Core **MUST** be online (breathing cyan) in order for the claiming process to work. If the Spark Core has been claimed by someone else, the app won't recognize it. If you need to transfer a Spark Core to another account, email us at [hello@spark.io](mailto:hello@spark.io).*
 
