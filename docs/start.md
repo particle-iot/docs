@@ -428,7 +428,7 @@ What's wrong?
 
 There are many reasons that your Core might not be connecting to your Wi-Fi network. To debug, check out our detailed connection troubleshooting section:
 
-[Why won't it connect? >](/#/connect/troubleshooting)
+[Why won't it connect? >](/#/troubleshooting)
 
 ### I can't talk to my Core
 
