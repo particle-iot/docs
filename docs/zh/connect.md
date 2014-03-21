@@ -38,21 +38,21 @@ Core 在默认情况下会进入“聆听”模式，所以如果您的 Core 是
 
 <iframe class="vine-embed" src="https://vine.co/v/hFdxB9lHOmv/embed/simple" width="320" height="320" frameborder="0"></iframe>
 
-Once you've finished naming your Cores, you can control them with Tinker! Try *digitalWrite* on D7 to turn on the user LED.
+一旦您已经完成了core的命名，您可以用 Tinker 控制它们！ 尝试用 *digitalWrite* 在D7把用户LED打亮.
 
-## Smart Config with the TI app
+## 德州仪器（TI) 手机应用程序智能配置
 
-Smart Config with the Texas Instruments CC3000 app is similar to the process above, although you don't need an account with Spark, and TI also has a Java applet that can work from a Mac, Windows, or Linux computer.
+Texas Instruments(德州仪器) CC3000手机应用程序的智能配置过程与以上过程类似, 但您不需要用Spark帐户. TI 也提供 Java applet,可以从Mac，Windows或Linux电脑使用.
 
-Follow the instructions on Texas Instrument's website:
+按照德州仪器（TI）的网站上的说明：
 
 [CC3000 Smart Config @ Texas Instruments](http://processors.wiki.ti.com/index.php/CC3000_Smart_Config)
 
-The only thing that's different is that you'll need to activate the optional AES key and type `sparkdevices2013`.
+唯一的不同的是，您需要通过可选的AES密钥并输入`sparkdevices2013`.
 
-*NOTE: TI's Android app is not available in Google Play; you'll have to download it off of their website and side-load the apk yourself.*
+*注意: 德州仪器（TI) 的手机应用程序不在 Google Play 上; 您必须从它们的网站下载它apk,自己安装在手机上.*
 
-## Connect over USB
+## 通过 USB 连接
 
 You can also connect the Spark Core to your Wi-Fi network over USB by communicating through Serial. *NOTE: This only works when the Spark Core is in listening mode (i.e. rgb led is blinking blue)*.
 
