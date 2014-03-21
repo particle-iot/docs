@@ -33,7 +33,7 @@ Spark Core 与传统家庭网络的效果最佳：设用 WPA/WPA2 或 WEP 安全
 
 您的 Spark Core 可能无法连接到您的网络有很多原因; 有些是由于 Spare Core, 有些是由于您的移动设备发送的 Wi-Fi 认证，有些可能是由于网络. 如果您的 core 没有连接，请尝试另一个 Wi-Fi 网络.这将迅速帮助您找出问题.
 
-## 步骤 3: 重新启动和清晰的记忆
+## 步骤 3: 重新启动和删除记忆
 
 <iframe class="vine-embed" src="https://vine.co/v/hFHQlj6iuKT/embed/simple" width="320" height="320" frameborder="0"></iframe>
 
