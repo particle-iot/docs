@@ -87,31 +87,32 @@ __操作方法__
 - **w**: 设置您的无线网络的SSID和密码
 - **i**: （“i”作为标识）读出 Spark Core 标识号
 
-**注意：**如果您通过USB第一次连接您的内核，你还需要亲自*认领*您的核心将它与您的帐户进行连接. P请参阅下面的章节 [认领您的 Core](/#/connect/claiming-your-core) 了解更多的细节.
+**注意：**如果您通过USB第一次连接您的内核，你还需要亲自*认领*您的核心将它与您的帐户进行连接. 请参阅下面的章节 [认领您的 Core](/#/connect/claiming-your-core) 了解更多的细节.
 
-## Coming soon: Hard-code credentials
+## 即将推出：自编 SSID 和密码
 
-Currently there is not a mechanism to hard-code your SSID and password into the firmware for the Spark Core. We're working on it!
+目前还没有一种机制来自编您的 SSID 和密码到 Spark Core 里.我们正在努力！
 
-Claiming your Core
+认领您的 Core
 ===
 
-Once your Core is connected, it needs to be *claimed* in order to be associated with your account. This is what lets you control your Core and keeps anyone else from doing so.
+一旦您的 Spark Core 连接, 它需要被认领并与您的帐户相关联。.这就是让您控制您的 Spark Core 的方式 ，并保持其它人 无法这样做.
 
-If you use the mobile app to set up your Core, it should claim it automatically. However if you connect your Core over USB, or if the claiming process is unsuccessful, you can claim it manually.
+如果使用手机应用程序来设置您的 Spark Core， 它应该会自动认领. 但是，如果您通过USB连接您的 Core, 或者认领过程不成功，您可以亲自认领.
 
-First, you'll need to get your Core's ID. You can do this by opening a Serial connection to the Core and pressing the **i** key (see the above instuctions for connecting over USB). It should show you a number like this:
+首先，您需要您的core 标识号. 您可以通过打开串行与 core 连接，按下**i**关键做到这一点 (请但以上的‘通过 USB 连接’).
+它应该告诉您一个类似的数字：
 
-    # Example Core ID
+    #  Core 标识号 例子
     55ff68064989495329092587
 
 ---
 
 Then open up [Spark Build](https://www.spark.io/build) and click the 'Cores' icon. Click the button that says 'Add a Core', and enter your ID in the text box.
 
-We will be releasing a command-line tool to simplify this process; stay tuned!
+我们将发布一个命令行工具来把这个过程简化. 敬请关注！
 
-Troubleshooting
+故障排除
 ===
 
 There are many reasons that your Spark Core might not be able to connect to your network. There are many types of Wi-Fi networks, and the Spark Core and the CC3000 do not support all of them. We consider it an important goal of ours to connect easily and painlessly to as many networks as possible, and your feedback is extremely valuable so that we can get better.
