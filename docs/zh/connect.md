@@ -59,7 +59,7 @@ Texas Instruments(德州仪器) CC3000手机应用程序的智能配置过程与
 首先，您需要下载一个串行终端应用程序.
 
  __Windows__ 用户, 我们推荐 [PuTTY](http://www.chiark.greenend.org.uk/~sgtatham/putty/).
-您还需要安装Windows驱动程序：
+您还需要安装 Windows 驱动程序：
 
 [Spark Core Windows 驱动程序 >](https://s3.amazonaws.com/spark-website/Spark.zip)
 
@@ -75,7 +75,7 @@ Texas Instruments(德州仪器) CC3000手机应用程序的智能配置过程与
 
 __操作方法__
 
-将您的 Spark Core通过USB连接到您的电脑. 当 Spark Core 是在聆听模式，通过USB使用打开一个串行端口,标准设置应该是：
+将您的 Spark Core 通过 USB 连接到您的电脑. 当 Spark Core 是在聆听模式，通过 USB 打开一个串行端口,标准设置应该是：
 
 - baudrate(波特率): 9600
 - data bit(数据位): 8
@@ -124,45 +124,45 @@ Spark Core 与传统家庭网络的效果最佳：设用 WPA/WPA2 或 WEP 安全
 - **802.11n-only 网络**. Spark Core 是 802.11b/g. 大多的 802.11n 网络向后兼容与 802.11b/g, 但如果您的不是， Spark Core 将无法连接.
 - **网络设有 ["强制网络门户"](http://en.wikipedia.org/wiki/Captive_portal) 安全模式**. 强制网络门户，就像在星巴克，是个小网站. 会请您登录到网络或签署协议. Spark Core 无法浏览这些门户.
 - **企业网络**. 我们连接 Spark Core 到企业网络有不同的结果. 虽然我们还没有非常了解是什么造成这个问题, 但是我们正在努力改善.
-- **Complex networks**. Networks with multiple routers, with non-standard firewalls, and with non-standard settings.
-- **Networks with WEP security**. If connecting with the mobile app works for you, WEP-secured networks should be fine. However, you cannot currently connect to a WEP-secured network over USB. We are implementing a fix for this now, which should be available in the next couple of weeks.
-- **Channels above 11**. This is in particular an international issue; if you are outside the U.S., your Wi-Fi router might run at channels 12, 13, or 14, which the CC3000 does not support. Please use channels numbered 11 or lower.
+- **复杂网络**. 网络具有多个路由器，非标准防火墙和非标准设置.
+- **WEP安全模式的网路**. If connecting with the mobile app works for you, WEP-secured networks should be fine. However, you cannot currently connect to a WEP-secured network over USB. We are implementing a fix for this now, which should be available in the next couple of weeks.
+- **渠道11以上**.这是在一个国际特定的问题; 如果您是在美国以外，您的 Wi-Fi 路由器可能会运行在渠道 12，13，或 14, 其中CC3000不支持. 请使用编号为 11 或更低的渠道。
 
-So, let's dig in. If your Spark Core is not connecting to your Wi-Fi network, we recommend following these steps:
+所以，让我们开始深入了解. 如果您的 Spark Core 无法连接到 Wi-Fi 网络，我们推荐遵循以下步骤：
 
-## STEP 0: Check the basics
+## 步骤 0: 检查基本
 
-There are a few common issues to check first:
+首先要检查的一些常简单的问题：
 
-- Check your Wi-Fi credentials (SSID and password) to make sure you typed them correctly.
-- Make sure you're in range of your Wi-Fi network. If your phone or computer has a poor connection in the same location, try moving closer to your Wi-Fi access point.
-- If you're using a u.FL Core, make sure you have an antenna attached, and that it's firmly connected.
-- Make sure your Core has enough power to transmit Wi-Fi signals (300mA in bursts). Try a different power source, or unplug components that draw a lot of power.
+- 请检查您的Wi-Fi凭据（SSID和密码），以确保您正确键入了它们.
+- 请确保您在您的 Wi-Fi 网络的范围. 如果您的手机或电脑在同一位置连接不良，请尝试移动到更靠近您的 Wi-Fi 接入点.
+- 如果您使用的是 U.FL coere, 确保您有附加的天线. 并且，它是牢固连接的.
+- 请确保您的 core 有足够的电力来传输 Wi-Fi的信号（300毫安）. 尝试使用不同的电源，或拔掉借鉴很多电的组成部分.
 
-## STEP 1: Set up your Core over USB
+## 步骤 1: 通过 USB 安装您的 core
 
-On some networks, Smart Config does not work, but the Core can connect to the network just fine. We've implemented a back-up mechanism so you can set up your Core over USB. For instructions, see above. Don't forget that you'll need to claim your Core manually as well if you haven't already!
+在某些网络中，智能配置不起作用，但 core 还是可以连接到网络. 我们已经实现了一个备份机制，这样您就可以通过 USB 安装您的 core. 有关说明，请参阅上面. 不要忘了，你需要亲自*认领*您的核心，如果您还没有！
 
-## STEP 2: Try another network
+## 步骤 2: 尝试用另一个网络
 
-There are many reasons that your Core might not connect; some of them have to do with the Spark Core; some have to do with your mobile device sending the Wi-Fi credentials; some have to do with the network. If your Core doesn't connect, try another Wi-Fi network. This will quickly help you figure out which type of issue you might be seeing.
+您的 Spark Core 可能无法连接到您的网络有很多原因; 有些是由于 Spare Core, 有些是由于您的移动设备发送的 Wi-Fi 认证，有些可能是由于网络. 如果您的 core 没有连接，请尝试另一个 Wi-Fi 网络.这将迅速帮助您找出问题.
 
-## STEP 3: Reboot and clear memory
+## 步骤 3: 重新启动和清晰的记忆
 
 <iframe class="vine-embed" src="https://vine.co/v/hFHQlj6iuKT/embed/simple" width="320" height="320" frameborder="0"></iframe>
 
-So often, electronics start behaving after you shut them off and turn them back on. Try:
+有很多时候，电子产品关闭它们，然后将它们重新打开后，就开始表现正常. 尝试：
 
-- Closing your mobile app and re-opening it
-- Un-plugging the Spark Core and plugging it back in
-- Clear the Spark Core's memory of Wi-Fi networks by holding the MODE button for 10 seconds. After 3 seconds, the light should start flashing blue; after 10 seconds, it should do a quick burst of blue flashes. That means the memory has been cleared.
-- Restoring the Spark Core's firmware to the factory default.  Getting this right can be tricky, see [this video](https://community.spark.io/t/how-to-do-a-factory-reset/2579) for illustration.
+- 关闭您的移动应用程序，并重新打开它
+- 拔开 Spark Core USB 然后把它插回
+- 按住 MODE 按钮 10 秒钟清除 Spark Core 内存的 Wi-Fi 网络. 3秒钟后，指示灯应开始闪烁蓝色; 10秒后，它应该做一个快速的蓝色闪烁. 这意味着记忆已被清除.
+- 恢复 Spark Core 的固件到出厂默认值状态. [此视频](https://community.spark.io/t/how-to-do-a-factory-reset/2579) 作说明.
 
-## STEP 4: Check your router settings
+## 步骤 4: 请检查您的路由器设置
 
-There are a million ways router settings could cause problems, but here's a few things to look out for:
+有一百万个方式路由器的设置可能会导致问题，但这里有几件事情要注意的事项：
 
-- **Use DHCP**. Although the Spark Core can handle static IP addresses, it's not configured for it out of the box, so you'll have to dig into the source code.
+- **使用DHCP**. Although the Spark Core can handle static IP addresses, it's not configured for it out of the box, so you'll have to dig into the source code.
 - **Turn off access control and firewalls**. Not permanently, but temporarily, to see if it resolves the issue. If it does, you can hopefully just tweak your settings to accommodate the Core rather than taking down your security. The only change you may need to make to your router is to open up outgoing port 5683, the default [CoAP](http://en.wikipedia.org/wiki/Constrained_Application_Protocol) port the Spark Core uses to connect to the Spark Cloud. If your core flashes cyan and occasionally flashes red, router issues are likely the culprit.
 
 ## STEP 5: Search the forums
