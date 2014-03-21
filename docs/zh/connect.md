@@ -19,7 +19,7 @@ Core 在默认情况下会进入“聆听”模式，所以如果您的 Core 是
 
 <iframe class="vine-embed" src="https://vine.co/v/hFwubhA3JXV/embed/simple" width="320" height="320" frameborder="0"></iframe>
 
-智能配置可能需要长达一分钟的时间，请耐心等待. 如果您的手机越接近您的 Spark Core，它将更快连接. 一旦核心听到信号时，它会通过灯光的顺序如下：
+智能配置可能需要长达一分钟的时间，请耐心等待. 如果您的手机越接近您的 Spark Core，它将更快连接. 一旦 core 听到信号时，它会通过灯光的顺序如下：
 
 - **蓝色固体**: 收到WiFi凭证
 - **绿色闪烁**: 正连接到Wi-Fi网络
@@ -54,40 +54,40 @@ Texas Instruments(德州仪器) CC3000手机应用程序的智能配置过程与
 
 ## 通过 USB 连接
 
-You can also connect the Spark Core to your Wi-Fi network over USB by communicating through Serial. *NOTE: This only works when the Spark Core is in listening mode (i.e. rgb led is blinking blue)*.
+您也可以通过USB串行通信连接 Spark Core 接到您的Wi-Fi网络.  *注意: 这只有当 Spark Core 在聆听模式才能使用 (i.e. LED 在蓝色闪烁)*.
 
-First, you'll need to download a serial terminal application.
+首先，您需要下载一个串行终端应用程序.
 
-For __Windows__ users, we recommend [PuTTY](http://www.chiark.greenend.org.uk/~sgtatham/putty/).
-You'll also need to install the Windows driver:
+ __Windows__ 用户, 我们推荐 [PuTTY](http://www.chiark.greenend.org.uk/~sgtatham/putty/).
+您还需要安装Windows驱动程序：
 
-[Windows driver for Spark Core >](https://s3.amazonaws.com/spark-website/Spark.zip)
+[Spark Core Windows 驱动程序 >](https://s3.amazonaws.com/spark-website/Spark.zip)
 
-[CoolTerm](http://freeware.the-meiers.org/) provides a nice GUI.
-![CoolTerm settings](images/coolterm-settings.png)
-![CoolTerm setup](images/coolterm-setup.png)
+[CoolTerm](http://freeware.the-meiers.org/) 提供一个很好的图形用户界面（GUI）.
+![CoolTerm 设置](images/coolterm-settings.png)
+![CoolTerm 安装](images/coolterm-setup.png)
 
-For __Mac__ users, either CoolTerm or screen work.
+ __Mac__ 用户, 请使用 CoolTerm 或 screen work.
 
-For __Linux__ command line usage, [GNU Screen](https://www.gnu.org/software/screen/) works great.
-(On OS X, the command line invocation might look something like `screen /dev/cu.usbmodem1411 9600`.
-On Ubuntu, it looks something like `screen /dev/ttyACM0 9600`. Device location may vary, poke around in the `/dev` directory if you don't find it immediately)
+ __Linux__ 命令行用法, [GNU Screen](https://www.gnu.org/software/screen/) 很棒.
+(在OS X上，在命令行调用可能看起来像 `screen /dev/cu.usbmodem1411 9600`.
+在Ubuntu上，它看起来像 `screen /dev/ttyACM0 9600`. 设备位置可能会有所不同，如果你不能马上找到它，请看 `/dev`目录.）
 
-__How-to__
+__操作方法__
 
-Plug your Spark Core into your computer over USB. When the Spark Core is in listening mode, open a serial port over USB using the standard settings, which should be:
+将您的 Spark Core通过USB连接到您的电脑. 当 Spark Core 是在聆听模式，通过USB使用打开一个串行端口,标准设置应该是：
 
-- Baudrate: 9600
-- Data Bits: 8
-- Parity: none
-- Stop Bits: 1
+- baudrate(波特率): 9600
+- data bit(数据位): 8
+- parity(奇偶校验位): none
+- Stop Bits(停止数据位): 1
 
-Once you've opened a serial connection, you have two commands at your disposal by hitting either **w** or **i** on the keyboard. Here's what they do:
+一旦您打开了一个串行连接，您有两个命令能透过键盘打**W**或**i** 使用. 它们的功能是：
 
-- **w**: Set up your Wi-Fi SSID and password
-- **i**: ("i" as in identify) Read out the Spark Core ID
+- **w**: 设置您的无线网络的SSID和密码
+- **i**: （“i”作为标识）读出 Spark Core 标识号
 
-**NOTE:** If you connect your Core over USB the first time, you will also need to manually *claim* your Core to connect it with your account. Please see the section below on [claiming your Core](/#/connect/claiming-your-core) for more details.
+**注意：**如果您通过USB第一次连接您的内核，你还需要亲自*认领*您的核心将它与您的帐户进行连接. P请参阅下面的章节 [认领您的 Core](/#/connect/claiming-your-core) 了解更多的细节.
 
 ## Coming soon: Hard-code credentials
 
