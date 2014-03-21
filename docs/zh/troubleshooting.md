@@ -70,7 +70,7 @@ Please post issues with connectivity either as responses to this topic or, if th
 - Internet Service Provider
 - Any network settings that might diverge from the norm
 
-Troubleshooting by color
+Troubleshoot by color
 ===
 
 The Spark Core has an RGB LED positioned on the front that displays the connectivity status of the Core. This LED can help you debug your Core and resolve any issues that you might encounter.
