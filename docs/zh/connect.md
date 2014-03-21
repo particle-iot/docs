@@ -30,11 +30,11 @@ Core 在默认情况下会进入“聆听”模式，所以如果您的 Core 是
 
 一旦 Spark Core 已经连接，您的手机将“认领” core，并将它附加到您的帐户. 然后您可以为您的 core 取名字. 如果您不确定认领过程是否成功，您可以登录 [Spark Web IDE](https://www.spark.io/build) 并在页面的底部点击“core”的图标. 您的 core 是否被列出？  太棒了！这个世界是完美的!
 
-*NOTE: The Core **MUST** be online (breathing cyan) in order for the claiming process to work. If the Spark Core has been claimed by someone else, the app won't recognize it. If you need to transfer a Spark Core to another account, email us at [hello@spark.io](mailto:hello@spark.io).*
+*注意: Core **必须** 已连接到互联网 (青色慢速闪烁) 才能让认领过程运作. 如果 Spark Core 已被别人领取，手机运用程序将无法连接. 如果您需要把 Spark Core 过户到另一个户口, 请发电子邮件到 [hello@spark.io](mailto:hello@spark.io).*
 
 <iframe class="vine-embed" src="https://vine.co/v/hFdPKul226i/embed/simple" width="320" height="320" frameborder="0"></iframe>
 
-If you are connecting multiple Cores, you'll go through this naming process for each Core. You'll know which one is which by the rainbow signal.
+如果您要连接多个 core，您会经历为每个核心命名的过程. 您会透过LED彩虹信号知道是哪一个.
 
 <iframe class="vine-embed" src="https://vine.co/v/hFdxB9lHOmv/embed/simple" width="320" height="320" frameborder="0"></iframe>
 
