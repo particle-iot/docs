@@ -3,7 +3,7 @@
 
 <iframe class="vine-embed" src="https://vine.co/v/hFHPMue5lgd/embed/simple" width="320" height="320" frameborder="0"></iframe>
 
-连接 Spark Core 到Wi-Fi的最简单方法是使用为iPhone或Android 手机应用程序. 但如果这行不通，或者您没有 iOS/ Android手机，我们还有还有其它方法.
+连接 Spark Core 到 Wi-Fi 的最简单方法是使用为 iPhone 或 Android 手机应用程序. 但如果这行不通，或者您没有 iOS/ Android 手机，我们还有还有其它方法.
 
 对于所有下面的方法, Spark Core 必须在“聆听”模式，闪烁蓝色 LED 能让您知道它已在此模式.
 
@@ -40,11 +40,11 @@ Core 在默认情况下会进入“聆听”模式，所以如果您的 Core 是
 
 一旦您已经完成了core的命名，您可以用 Tinker 控制它们！ 尝试用 *digitalWrite* 在D7把用户LED打亮.
 
-## 德州仪器（TI) 手机应用程序智能配置
+## 德州仪器(TI) 手机应用程序智能配置
 
-Texas Instruments(德州仪器) CC3000手机应用程序的智能配置过程与以上过程类似, 但您不需要用Spark帐户. TI 也提供 Java applet,可以从Mac，Windows或Linux电脑使用.
+Texas Instruments(德州仪器) CC3000手机应用程序的智能配置过程与以上过程类似, 但您不需要用Spark帐户. TI 也提供 Java applet,可以从 Mac，Windows 或 Linux 电脑使用.
 
-按照德州仪器（TI）的网站上的说明：
+按照德州仪器(TI)的网站上的说明：
 
 [CC3000 Smart Config @ Texas Instruments](http://processors.wiki.ti.com/index.php/CC3000_Smart_Config)
 
@@ -54,7 +54,7 @@ Texas Instruments(德州仪器) CC3000手机应用程序的智能配置过程与
 
 ## 通过 USB 连接
 
-您也可以通过USB串行通信连接 Spark Core 接到您的Wi-Fi网络.  *注意: 这只有当 Spark Core 在聆听模式才能使用 (i.e. LED 在蓝色闪烁)*.
+您也可以通过 USB 串行通信连接 Spark Core 接到您的Wi-Fi网络.  *注意: 这只有当 Spark Core 在聆听模式才能使用 (i.e. LED 在蓝色闪烁)*.
 
 首先，您需要下载一个串行终端应用程序.
 
@@ -115,29 +115,28 @@ __操作方法__
 
 
 
-APPENDIX
+附录
 ===
 
-## DFU Mode (Device Firmware Upgrade)
+## DFU 模式 (设备固件升级)
 
-If you are wish to program a Core with a custom firmware via USB, you'll need to use this mode. This mode triggers the on-board bootloader that accepts firmware binary files via the dfu-utility.
+一如果您想通过 USB 把自定固件下载到 core, 您将需要使用此模式. 这个模式触发板上的 bootloader, 通过 DFU 下载二进制固件文件.
 
-Procedure:
+程序:
 
-Hold down both buttons, then release the RST button, while holding down the MODE button. Release the MODE button as soon as the LED starts flashing yellow. The Core now is in the DFU mode.
-
+按住两个按键，然后松开 RST 键，同时还按住 MODE 按钮.一旦 LED 开始闪烁黄色，松开 MODE 按钮. Core 现在在 DFU 模式.
 
 <iframe class="vine-embed" src="https://vine.co/v/MahhI1Fg7O6/embed/simple" width="320" height="320" frameborder="0"></iframe>
 
 
-## Factory Reset
+## 恢复出厂设置
 
-A factory reset restores the firmware on the Core to the default Tinker app and clears all your WiFi credentials. 
+出厂重置恢复的核心固件默认的 tinker 应用程序，并清除所有的 WiFi 凭证.
 
-Procedure: 
+程序: 
 
-The procedure is same as the one described above (DFU Mode), but in this case you should continue holding down the MODE button until you see the Core change from flashing yellow to flashing white. Then release the button.  The Core should begin after the factory reset is complete.
+该程序和以上（DFU模式）所描述的相同. 但在这情况下您应该继续按住 MODE 键直到您看到 LED 从黄色闪烁变化到闪烁白色, 然后松开按钮. core 重新开始后，恢复出厂设置就完成了
 
-**Note:** The video here is a continuation of the video from above (DFU Mode).
+**注意：**这里的视频是从上面（DFU模式）的视频延续的.
 
 <iframe class="vine-embed" src="https://vine.co/v/MahOmIaX2xP/embed/simple" width="320" height="320" frameborder="0"></iframe>
