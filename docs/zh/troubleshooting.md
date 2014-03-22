@@ -48,42 +48,42 @@ Spark Core 与传统家庭网络的效果最佳：设用 WPA/WPA2 或 WEP 安全
 
 有一百万个方式路由器的设置可能会导致问题，但这里有几件事情要注意的事项：
 
-- **使用DHCP**. Although the Spark Core can handle static IP addresses, it's not configured for it out of the box, so you'll have to dig into the source code.
-- **Turn off access control and firewalls**. Not permanently, but temporarily, to see if it resolves the issue. If it does, you can hopefully just tweak your settings to accommodate the Core rather than taking down your security. The only change you may need to make to your router is to open up outgoing port 5683, the default [CoAP](http://en.wikipedia.org/wiki/Constrained_Application_Protocol) port the Spark Core uses to connect to the Spark Cloud. If your core flashes cyan and occasionally flashes red, router issues are likely the culprit.
+- **使用DHCP**. 尽管 Spark Core 可以处理静态 IP 地址, 它不是默认配置. 所以您必须要深入到源代码.
+- **关闭访问控制和防火墙**.  不是永久的，而是暂时的，看它是否解决问题. 如果是这样，您可以尝试调整您的设置，以适 core，而不是降低您的安全模式.  您可能需要对您的路由器唯一的变化是开辟出 [COAP] 默认的 5683 端口， [CoAP](http://en.wikipedia.org/wiki/Constrained_Application_Protocol) 端口是用于连接到 Spark 云. 如果您的核心闪烁青色和偶尔闪烁红色，路由器的问题很可能是罪魁祸首.
 
-## STEP 5: Search the forums
+## 步骤 5: 搜索论坛
 
-It's possible that other folks have encountered the same issues that you have. The best way to check and learn from others is to search the forums; search for your particular symptoms or for your Wi-Fi router make and model to find relevant posts.
+这有可能是其他人都遇到过的同样的问题. 检查和向他人学习的最好方法是搜索论坛; 搜索您的特定症状或为您的 Wi-Fi 路由器的品牌和型号来找到相关的帖子.
 
-[Visit the forums >](https://community.sparkdevices.com)
+[请到论坛 >](https://community.sparkdevices.com)
 
-## STEP 6: Post a report
+## 步骤 6: 发布一份报告
 
-We would love to hear about your issues, regardless of whether you were able to resolve them, so that we can improve our platform. If you haven't been able to resolve your issue, hopefully we or the community will be able to help.
+我们很想听到您的问题，不管你是否能够解决这些问题，让我们可以学习改善我们的平台. 如果您还没有能够解决您的问题， 希望我们或社区将能够帮助.
 
-Please post issues with connectivity either as responses to this topic or, if they are dissimilar from other reported issues, as their own topic. When you make a post, please include:
+请张贴回应相同的话题，或者，如果您的连接问题和其他不同，打开一个新的论坛帖子. 当你打开一个新的论坛帖子，请包括：
 
-- Router make and model
-- Network security (unsecured, WEP, WPA2, etc.)
-- Environment (home, small office, enterprise, public network, etc.)
-- Network topology (number of routers and/or range extenders, estimated number of devices connected to network)
-- Internet Service Provider
-- Any network settings that might diverge from the norm
+- 路由器的品牌和型号 
+- 网络安全（无抵押，WEP，WPA2等） 
+- 环境（家庭，小型办公室，企业，公共网络等） 
+- 网络拓扑（多个路由器和/或范围扩展器，连接到网络的设备的估计数目） 
+- 互联网服务提供商 
+- 任何可能偏离正常的网络设置
 
-Troubleshoot by color
+按颜色疑难解答
 ===
 
-The Spark Core has an RGB LED positioned on the front that displays the connectivity status of the Core. This LED can help you debug your Core and resolve any issues that you might encounter.
+Spark Core 有一个 RGB LED 定位在的前部,显示 core 的连接状态.此指示灯可以帮助您调试 core 和解决可能遇到的任何问题.
 
-## Flashing blue
+## 蓝色闪烁
 
 <iframe class="vine-embed" src="https://vine.co/v/hFHPMue5lgd/embed/simple" width="320" height="320" frameborder="0"></iframe>
 
-- *What’s the Core doing?* My Core is flashing blue.
-- *What’s the problem?* Your Core doesn’t have Wi-Fi credentials to join your local network
-- *How do I fix it?*
+- *Core 在做什么?* 我的核心是闪烁的蓝色？ 
+- *问题是什么?* 您的 core 不具备Wi-Fi认证,无法加入您的本地网络
+- *我如何修复它?*
         
-Right now, your Core does not have the information it needs to connect to your local Wi-Fi network.  If you haven’t already, try using the Spark Core app for [iPhone](https://itunes.apple.com/us/app/spark-core/id760157884) or [Android](https://play.google.com/store/apps/details?id=io.spark.core.android)  to send your network credentials to your Core.  Detailed instructions can be found [here](http://docs.spark.io/#/connect/connecting-your-core-smart-config-with-the-ti-app).
+现在，您的 core 没有它需要连接到您的本地 Wi-Fi 网络的信息. 如果您还没有，请尝试使用 Spark Core [iPhone](https://itunes.apple.com/us/app/spark-core/id760157884) 或 [Android](https://play.google.com/store/apps/details?id=io.spark.core.android) 应用程序发送您的网络凭据到您的 core. 详细的说明可以看 [这里](http://docs.spark.io/#/connect/connecting-your-core-smart-config-with-the-ti-app).
 
 
 If that doesn’t work, try the steps below:
