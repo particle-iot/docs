@@ -290,7 +290,8 @@ An *embedded system* like the Spark Core doesn't have an Operating System like a
 
 In our case, because the Spark Core is connected to the internet, updating firmware is quite trivial; we send it over the network, and we have put in place safeguards to keep you from "bricking" the Core.
 
-When you flash code onto the Spark Core, you are doing an *over-the-air firmware update*. This firmware update overwrites almost all of the software on the Spark Core; the only piece that is untouched is the bootloader, which manages the process of loading new firmware and ensures you can always update the firmware over USB or through a factory reset.  (We'll be open sourcing the bootloader as soon as we can bring the README up to date.)
+When you flash code onto the Spark Core, you are doing an *over-the-air firmware update*. This firmware update overwrites almost all of the software on the Spark Core; the only piece that is untouched is the bootloader, which manages the process of loading new firmware and ensures you can always update the firmware over USB or through a factory reset.
+
 
 Logging into Spark Build
 ---
@@ -404,14 +405,11 @@ There are a couple of other neat bells and whistles in Spark Build.  The Spark B
 - **API Key**: You can find your most recent API Key listed under the "Settings" tab in your account.  You can press the "Reset Token" button to assign a new API Key to your account.  *Note* that pressing this button will require you to update any hard-coded API Credentials in your Spark-powered projects!
 
 
-
-
-
-
 The Spark Command Line
 ===
 
-**Coming soon!** Command line tools so that you can build Spark applications with your own desktop IDE, whether it's Eclipse, Sublime Text, Vim, or anything else.
+The Spark command line tool provides a rich set of functionality ranging from initial account creation, verifying and flashing firmware via the Spark Cloud, and
+interacting with deployed cores.  You can find more details about how to get it installed and all of the cool things you can do with it [here on GitHub](https://github.com/spark/spark-cli).
 
 Deploying a Spark web app
 ===
