@@ -70,6 +70,34 @@ Please post issues with connectivity either as responses to this topic or, if th
 - Internet Service Provider
 - Any network settings that might diverge from the norm
 
+What's wrong?
+===
+
+## I can't talk to my Core
+
+Once your Core is connected, it needs to be *claimed* in order to be associated with your account. This is what lets you control your Core and keeps anyone else from doing so.
+
+If you use the mobile app to set up your Core, it should claim it automatically. However if you connect your Core over USB, or if the claiming process is unsuccessful, you can claim it manually.
+
+Head over to our connection page to learn about this:
+
+[ Claiming your Core >](/#/connect/claiming-your-core)
+
+## My Core won't start up
+
+If your Core won't start up (the LED never comes on), here are a few things to check:
+
+- Is the Core receiving sufficient power? If you're not sure, connect a multimeter to the 3.3V pin and GND and see if you get 3.3V, as expected. Try connecting the Core to another power source.
+- Have any components been damaged? Visually inspect both sides of the Core.
+
+## My Core is behaving erratically
+
+If you're seeing unexpected behavior with your Core, here are a few things to check:
+
+- Is the Core receiving sufficient power? The Core might behave eratically if it's plugged into an unpowered USB hub and not receiving enough power. In addition, if you have components that draw a lot of power (motors, for instance), you might need more power than your computer can supply. Try using a USB power supply or providing more power directly to the VIN or 3.3V pins.
+- If you have a u.FL Core, is an antenna connected? Are you within range of the Wi-Fi router?
+
+
 Troubleshoot by color
 ===
 
