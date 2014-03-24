@@ -99,16 +99,16 @@ If that doesn’t work, try the steps below:
 ---
 
 
-## Flashing green
+## 绿色闪烁
 
-- *What’s the Core doing?* My Core is [flashing green](https://mtc.cdn.vine.co/r/videos/DB9E0E87311015399731217969152_1d6c83d12a3.4.3.2795910212236322177_4RBA9frM0a4pwIG_RbZgo.ZOBEbBr_CpxzoOsBNuExDz6TFldcjJSYHVh203e6F4.mp4?versionId=orM0m0DvLYdciAwsb6DYHhqb974AHMj_), but doesn’t progress to flashing Cyan.
-- *What’s the problem?* Your Core has received Wi-Fi credentials (an SSID and password), but still can't connect to the Wi-Fi network.
-- *How do I fix it?*
+- *Core 在做什么?* Core 正在 [绿色闪烁](https://mtc.cdn.vine.co/r/videos/DB9E0E87311015399731217969152_1d6c83d12a3.4.3.2795910212236322177_4RBA9frM0a4pwIG_RbZgo.ZOBEbBr_CpxzoOsBNuExDz6TFldcjJSYHVh203e6F4.mp4?versionId=orM0m0DvLYdciAwsb6DYHhqb974AHMj_), 但不会进展到闪烁青色.
+- *问题是什么?* 您的 core 已收到 Wi-Fi 的认证（SSID 和密码），但仍无法连接到Wi-Fi网络.
+- *我如何修复它?*
 
-Please complete the following steps:
+请完成以下步骤：
 
-1. [Check the basics](/#/connect/troubleshooting-step-0-check-the-basics).
-2. Try a new power source. You should be powering your Core with a power supply that is capable of providing 500mA of current.  We recommend the 5V/1A wall wart power supplies that are commonly used for charging cell phones.
+1. [检查基本](/#/connect/troubleshooting-step-0-check-the-basics).
+2. 尝试新的点源适配器. 您所用的电源应能够提 core，为 500mA 的电流. 我们建议使用通常用于手机充电的 5V/1A 电源适配器.
 3. If your network has a landing page or splash page, the Core will not be able to connect; try configuring it onto a different network.
 4. Try [rebooting the Core and clearing its memory](/#/connect/troubleshooting-step-3-reboot-and-clear-memory).
 5. Try a factory reset.  Hold down both buttons, then release the RST button, while holding down the MODE button.  The LED should begin flashing yellow.  Continue holding down the MODE button until you see the Core change from flashing yellow to flashing white.  Then release the button.  The Core should begin [flashing blue](https://v.cdn.vine.co/r/videos/E465A8959B1015390893882101760_178fcfd2b3c.4.3.11510817618992331600_MIW9HE1mtZ9H_SpBlKdK1lv2UfmniExCFQHrgJ7iqiFDUiDb0E31bR7GwvB_7wz0.mp4?versionId=eS01KUZ6NaUZgEipSDeVi0rxZENByp1N) after the factory reset is complete.
@@ -117,11 +117,11 @@ Please complete the following steps:
 
 ---
 
-## Flashing yellow
+## 黄色闪烁
 
-- *What’s the Core doing?* My Core is starts flashing yellow when I plug it or when I hit the RST button.
-- *What’s the problem?* Your Core is missing important firmware.
-- *How do I fix it?*
+- *Core 在做什么?* My Core is starts flashing yellow when I plug it or when I hit the RST button.
+- *问题是什么?* Your Core is missing important firmware.
+- *我如何修复它?*
 
 Please complete the following steps:
   
@@ -160,9 +160,9 @@ If none of these steps are successful, please [contact the Spark team](mailto:he
 
 ## Flashing orange (red/yellow)
 
-- *What’s the Core doing?* My Core is flashing yellow/red/orange lights after it connects to Wi-Fi.
-- *What’s the problem?* A decryption error occurred during the handshake with the Spark Cloud
-- *How do I fix it?*
+- *Core 在做什么?* My Core is flashing yellow/red/orange lights after it connects to Wi-Fi.
+- *问题是什么?* A decryption error occurred during the handshake with the Spark Cloud
+- *我如何修复它?*
 
 Please complete the following steps:
 
@@ -174,9 +174,9 @@ Please complete the following steps:
 
 ## Flashing green then red
 
-- *What’s the Core doing?* My Core starts flashing green to connect to my network, then the LED turns red.
-- *What’s the problem?* Your Core is facing a networking issue and cannot connect to the Cloud.
-- *How do I fix it?*
+- *Core 在做什么?* My Core starts flashing green to connect to my network, then the LED turns red.
+- *问题是什么?* Your Core is facing a networking issue and cannot connect to the Cloud.
+- *我如何修复它?*
 
 There are two potential failure modes here--either your home network does not have a working internet connection, or we are having issues with our servers. 
 
@@ -189,18 +189,18 @@ There are two potential failure modes here--either your home network does not ha
 
 ## Main LED off, small blue LED dim
 
-- *What’s the Core doing?* The main LED on my Spark Core is off, but the small blue LED in the upper right corner is dimly glowing.
-- *What’s the problem?* Your Core is missing firmware.
-- *How do I fix it?*
+- *Core 在做什么?* The main LED on my Spark Core is off, but the small blue LED in the upper right corner is dimly glowing.
+- *问题是什么?* Your Core is missing firmware.
+- *我如何修复它?*
 
 1. Try a factory reset.  Hold down both buttons, then release the RST button, while holding down the MODE button.  The LED should begin flashing yellow.  Continue holding down the MODE button until you see the Core change from flashing yellow to flashing white.  Then release the button.  The Core should begin after the factory reset is complete.
 2. If you see no flashing lights during factory reset, then your Core may be temporarily nonfunctional.  If you have a JTAG shield, [contact the Spark team](mailto:hello@spark.io) so we can help walk you through re-installing the Core firmware.  If you do not have a JTAG shield, please [contact the Spark team](mailto:hello@spark.io) to let us know, and we’ll help you take next steps.
 
 ## LEDs off and unresponsive
 
-- *What’s the Core doing?* My Core isn’t showing any LED activity when I power it over USB.
-- *What’s the problem?* Your Core is not receiving power.
-- *How do I fix it?*
+- *Core 在做什么?* My Core isn’t showing any LED activity when I power it over USB.
+- *问题是什么?* Your Core is not receiving power.
+- *我如何修复它?*
 
 Please complete the following steps:
   
