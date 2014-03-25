@@ -1,4 +1,4 @@
-Can't get connected
+Can't get connected?
 ===
 
 There are many reasons that your Spark Core might not be able to connect to your network. There are many types of Wi-Fi networks, and the Spark Core and the CC3000 do not support all of them. We consider it an important goal of ours to connect easily and painlessly to as many networks as possible, and your feedback is extremely valuable so that we can get better.
@@ -70,7 +70,7 @@ Please post issues with connectivity either as responses to this topic or, if th
 - Internet Service Provider
 - Any network settings that might diverge from the norm
 
-What's wrong?
+Other problems
 ===
 
 ## I can't talk to my Core
@@ -110,7 +110,7 @@ The Spark Core has an RGB LED positioned on the front that displays the connecti
 - *What’s the Core doing?* My Core is flashing blue.
 - *What’s the problem?* Your Core doesn’t have Wi-Fi credentials to join your local network
 - *How do I fix it?*
-        
+
 Right now, your Core does not have the information it needs to connect to your local Wi-Fi network.  If you haven’t already, try using the Spark Core app for [iPhone](https://itunes.apple.com/us/app/spark-core/id760157884) or [Android](https://play.google.com/store/apps/details?id=io.spark.core.android)  to send your network credentials to your Core.  Detailed instructions can be found [here](http://docs.spark.io/#/connect/connecting-your-core-smart-config-with-the-ti-app).
 
 
@@ -152,13 +152,13 @@ Please complete the following steps:
 - *How do I fix it?*
 
 Please complete the following steps:
-  
+
 1. Try hitting the RST button to make sure you did not accidentally configure your Core into DFU mode.
 2. Try a factory reset.  Hold down both buttons, then release the RST button, while holding down the MODE button.  The LED should begin flashing yellow.  Continue holding down the MODE button until you see the Core change from flashing yellow to flashing white.  Then release the button.  The Core should begin [flashing blue](https://v.cdn.vine.co/r/videos/E465A8959B1015390893882101760_178fcfd2b3c.4.3.11510817618992331600_MIW9HE1mtZ9H_SpBlKdK1lv2UfmniExCFQHrgJ7iqiFDUiDb0E31bR7GwvB_7wz0.mp4?versionId=eS01KUZ6NaUZgEipSDeVi0rxZENByp1N) after the factory reset is complete.
 3. If a factory reset is unsuccessful, then we have to write the firmware over DFU.  You can accomplish this by following the steps below:
 
 Install dfu-util for your system either using homebrew on a mac, http://dfu-util.gnumonks.org/ on windows, or you can build from source on linux:
-        
+
     opkg install libusb-1.0-dev
     wget http://dfu-util.gnumonks.org/releases/dfu-util-0.7.tar.gz
     tar xvf dfu-util-0.7.tar.gz
@@ -170,7 +170,7 @@ Install dfu-util for your system either using homebrew on a mac, http://dfu-util
 ---
 
 If you install those you should be able to run, with your core connected over USB:
-        
+
     sudo dfu-util -l
 
 ---
@@ -206,7 +206,7 @@ Please complete the following steps:
 - *What’s the problem?* Your Core is facing a networking issue and cannot connect to the Cloud.
 - *How do I fix it?*
 
-There are two potential failure modes here--either your home network does not have a working internet connection, or we are having issues with our servers. 
+There are two potential failure modes here--either your home network does not have a working internet connection, or we are having issues with our servers.
 
 1. Try power cycling your router to resolve any transient networking hiccups in your home Wi-Fi network
 2. Try going to a website like [Google](http://www.google.com/) on your computer or laptop to verify that your Wi-Fi network is connected to the internet and is capable of serving up web pages
@@ -231,7 +231,7 @@ There are two potential failure modes here--either your home network does not ha
 - *How do I fix it?*
 
 Please complete the following steps:
-  
+
 1. Try powering the Core with a different USB cable and power supply (different USB port on your computer, for example)
 2. If a different USB cable and power supply does not fix the issue, your Core may have a hardware short. Please [contact the Spark team](mailto:hello@spark.io) for further debugging.
 
@@ -239,9 +239,11 @@ Please complete the following steps:
 Known Issues
 ===
 
-## Flashing Cyan / WiFi Disconnect
-* Status: In Progress
+## Flashing Cyan
+* Status: **Solution in progress, available in 1-2 weeks**
 * Forum Thread: https://community.spark.io/t/bug-bounty-kill-the-cyan-flash-of-death/1322
+
+#### Description
 
 With certain WiFi networks, the Spark Core will sometimes enter a state where the status LED will flash cyan. Flashing cyan means that the Spark Core can no longer communicate with the Spark Cloud server. If this happens, the Spark Core is programmed to try to reconnect. When the Core reconnects, the status LED will go back to 'Breathing Cyan'.
 
@@ -251,35 +253,50 @@ The good news is that the firmware on the CC3000 module can be updated and the S
 
 So far TI has supplied a couple of firmware patches to the Spark Team to test, but at this time, the issue doesn't seem to have been fully resolved. TI has been very helpful during this process and we're hopeful to have a fix soon. When the fix is ready and fully tested, we will provide instructions on how to update the CC3000 firmware.
 
-## Stuck Flashing Blue
-* Status: Trying to replicate
+## Flashing Blue
+* Status: **Fixed but not yet deployed**
+* Github Issue: https://github.com/spark/core-firmware/issues/144
 * Forum Thread: https://community.spark.io/t/status-led-flashing-blue/2915
 
-## Inaccurate Analog Readings
-* Status: Partially Resolved (Not yet available in the web IDE)
+#### Description
+
+In some cases after attempting to connect to a Wi-Fi network and failing repeatedly, the Core will step back into listening mode, and will stop attempting to connect to the internet.
+
+This issue has been resolved, but the fix is not yet available on the web IDE; it will be deployed in the next week.
+
+## Inaccurate analog readings
+* Status: **Fixed but not yet deployed**
 * Forum Thread: https://community.spark.io/t/odd-analog-readings/906
 * Forum Thread: https://community.spark.io/t/odd-analog-readings-part-2/2718
 
-## Serial1 UART Missing Received Data due to being polled
+#### Description
+
+Timing issues were causing analog readings to return incorrectly; this has now been fixed with [this commit](https://github.com/spark/core-firmware/commit/b7ce24a4fb2dfe4f90e597e3a0f568f9ae098cfe). The fix has not been pushed to the web IDE yet, and will be available in Firmware v0.2.0, to be released within the next week.
+
+Recently Resolved Issues
+===
+
+## Serial1 UART missing data
 * Status: Resolved
-* Forum Thread:
 
-Serial UART Tx/Rx is now Interrupt Driven
+#### Description
 
-## Long delays cause Core to drop off of the Cloud
+Previously, Serial UART was polling, and data could be dropped if the user code did not check frequently enough. Serial UART is now interrupt driven, so this is no longer an issue.
+
+## Long delays break connectivity
 * Status: Resolved
 * Forum Thread: https://community.spark.io/t/known-issue-long-delays-or-blocking-code-kills-the-connection-to-the-cloud/950
 
-Long delays now call the background tasks to keep the Cloud connected.
+#### Description
 
-## Initializing peripherals in Class constructors causes the Core to hang
+Long delays can keep messages from being sent to the Cloud, which can cause the connection with the Cloud to abruptly die.
+
+We recently released an update to process Cloud messages during long delays, making this issue significantly less of a problem. It is still possible to block the connection to the Cloud with a long series of very short delays, but longer delays will no longer cause issues.
+
+## Can't init. peripherals in constructors
 * Status: Resolved
 * Forum Thread: https://community.spark.io/t/serial1-begin-in-class-constructor-hangs-core/3133
 
-Constructors are called after the Core is initialized
+#### Description
 
-## UDP and TCP ports close if not accessed
-* Status: ???
-* Forum Thread: https://community.spark.io/t/strange-udp-bug/2583/
-* Comments: (From @Dave) - re-read that thread, apparently there was a fix for this I wasn't aware of?
-
+Constructors are now called after the Core is initialized.
