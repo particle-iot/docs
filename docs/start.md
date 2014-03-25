@@ -20,6 +20,8 @@ Powering the Core is easy; it receives power over a Micro USB port, much like ma
 
 If you so desire, you can also power the Core with 3.6V to 6V to the `VIN` pin, or 3.3V to the `3.3V` pin.
 
+If you have a Core with the [u.FL connector](#/hardware/spark-core-datasheet-types-of-cores) for an external antenna, now is a good time to connect that as well.
+
 ### Step 2: Download the Spark iOS or Android app
 
 ![Spark apps](images/spark-apps.png)
