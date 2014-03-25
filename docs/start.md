@@ -290,7 +290,8 @@ An *embedded system* like the Spark Core doesn't have an Operating System like a
 
 In our case, because the Spark Core is connected to the internet, updating firmware is quite trivial; we send it over the network, and we have put in place safeguards to keep you from "bricking" the Core.
 
-When you flash code onto the Spark Core, you are doing an *over-the-air firmware update*. This firmware update overwrites almost all of the software on the Spark Core; the only piece that is untouched is the bootloader, which manages the process of loading new firmware and ensures you can always update the firmware over USB or through a factory reset.  (We'll be open sourcing the bootloader as soon as we can bring the README up to date.)
+When you flash code onto the Spark Core, you are doing an *over-the-air firmware update*. This firmware update overwrites almost all of the software on the Spark Core; the only piece that is untouched is the bootloader, which manages the process of loading new firmware and ensures you can always update the firmware over USB or through a factory reset.
+
 
 Logging into Spark Build
 ---
@@ -404,14 +405,11 @@ There are a couple of other neat bells and whistles in Spark Build.  The Spark B
 - **API Key**: You can find your most recent API Key listed under the "Settings" tab in your account.  You can press the "Reset Token" button to assign a new API Key to your account.  *Note* that pressing this button will require you to update any hard-coded API Credentials in your Spark-powered projects!
 
 
-
-
-
-
 The Spark Command Line
 ===
 
-**Coming soon!** Command line tools so that you can build Spark applications with your own desktop IDE, whether it's Eclipse, Sublime Text, Vim, or anything else.
+The Spark command line tool provides a rich set of functionality ranging from initial account creation, verifying and flashing firmware via the Spark Cloud, and
+interacting with deployed cores.  You can find more details about how to get it installed and all of the cool things you can do with it [here on GitHub](https://github.com/spark/spark-cli).
 
 Deploying a Spark web app
 ===
@@ -421,61 +419,6 @@ Deploying a Spark web app
 Troubleshooting
 ===
 
-What's wrong?
----
+There are many reasons that your Core might not be connecting to your Wi-Fi network or is not behaving exactly as you might expect.
 
-### My Core won't connect to Wi-Fi
-
-There are many reasons that your Core might not be connecting to your Wi-Fi network. To debug, check out our detailed connection troubleshooting section:
-
-[Why won't it connect? >](/#/connect/troubleshooting)
-
-### I can't talk to my Core
-
-Once your Core is connected, it needs to be *claimed* in order to be associated with your account. This is what lets you control your Core and keeps anyone else from doing so.
-
-If you use the mobile app to set up your Core, it should claim it automatically. However if you connect your Core over USB, or if the claiming process is unsuccessful, you can claim it manually.
-
-Head over to our connection page to learn about this:
-
-[ Claiming your Core >](/#/connect/claiming-your-core)
-
-### My Core won't start up
-
-If your Core won't start up (the LED never comes on), here are a few things to check:
-
-- Is the Core receiving sufficient power? If you're not sure, connect a multimeter to the 3.3V pin and GND and see if you get 3.3V, as expected. Try connecting the Core to another power source.
-- Have any components been damaged? Visually inspect both sides of the Core.
-
-### My Core is behaving erratically
-
-If you're seeing unexpected behavior with your Core, here are a few things to check:
-
-- Is the Core receiving sufficient power? The Core might behave eratically if it's plugged into an unpowered USB hub and not receiving enough power. In addition, if you have components that draw a lot of power (motors, for instance), you might need more power than your computer can supply. Try using a USB power supply or providing more power directly to the VIN or 3.3V pins.
-- If you have a u.FL Core, is an antenna connected? Are you within range of the Wi-Fi router?
-
-
-Further resources
-===
-
-Hardware development
----
-
-### Hardware for dummies
-
-**Coming soon!**
-
-### Advanced hardware
-
-**Coming soon!**
-
-Software development
----
-
-### Software for dummies
-
-**Coming soon!**
-
-### Advanced software
-
-**Coming soon!**
+[Check out the troubleshooting section >](/#/troubleshooting)
