@@ -253,8 +253,11 @@ The good news is that the firmware on the CC3000 module can be updated and the S
 
 So far TI has supplied a couple of firmware patches to the Spark Team to test, but at this time, the issue doesn't seem to have been fully resolved. TI has been very helpful during this process and we're hopeful to have a fix soon. When the fix is ready and fully tested, we will provide instructions on how to update the CC3000 firmware.
 
+Recently Resolved Issues
+===
+
 ## Flashing Blue
-* Status: **Fixed but not yet deployed**
+* Status: **Resolved as of v0.2.0**
 * Github Issue: https://github.com/spark/core-firmware/issues/144
 * Forum Thread: https://community.spark.io/t/status-led-flashing-blue/2915
 
@@ -262,29 +265,28 @@ So far TI has supplied a couple of firmware patches to the Spark Team to test, b
 
 In some cases after attempting to connect to a Wi-Fi network and failing repeatedly, the Core will step back into listening mode, and will stop attempting to connect to the internet.
 
-This issue has been resolved, but the fix is not yet available on the web IDE; it will be deployed in the next week.
+This issue has been resolved, and the fix was pushed with firmware v0.2.0 on March 25.
 
 ## Inaccurate analog readings
-* Status: **Fixed but not yet deployed**
+* Status: **Resolved as of v0.2.0**
 * Forum Thread: https://community.spark.io/t/odd-analog-readings/906
 * Forum Thread: https://community.spark.io/t/odd-analog-readings-part-2/2718
 
 #### Description
 
-Timing issues were causing analog readings to return incorrectly; this has now been fixed with [this commit](https://github.com/spark/core-firmware/commit/b7ce24a4fb2dfe4f90e597e3a0f568f9ae098cfe). The fix has not been pushed to the web IDE yet, and will be available in Firmware v0.2.0, to be released within the next week.
+Timing issues were causing analog readings to return incorrectly; this has now been fixed with [this commit](https://github.com/spark/core-firmware/commit/b7ce24a4fb2dfe4f90e597e3a0f568f9ae098cfe).
 
-Recently Resolved Issues
-===
+This issue has been resolved, and the fix was pushed with firmware v0.2.0 on March 25.
 
 ## Serial1 UART missing data
-* Status: Resolved
+* Status: **Resolved**
 
 #### Description
 
 Previously, Serial UART was polling, and data could be dropped if the user code did not check frequently enough. Serial UART is now interrupt driven, so this is no longer an issue.
 
 ## Long delays break connectivity
-* Status: Resolved
+* Status: **Resolved**
 * Forum Thread: https://community.spark.io/t/known-issue-long-delays-or-blocking-code-kills-the-connection-to-the-cloud/950
 
 #### Description
@@ -294,7 +296,7 @@ Long delays can keep messages from being sent to the Cloud, which can cause the 
 We recently released an update to process Cloud messages during long delays, making this issue significantly less of a problem. It is still possible to block the connection to the Cloud with a long series of very short delays, but longer delays will no longer cause issues.
 
 ## Can't init. peripherals in constructors
-* Status: Resolved
+* Status: **Resolved**
 * Forum Thread: https://community.spark.io/t/serial1-begin-in-class-constructor-hangs-core/3133
 
 #### Description
