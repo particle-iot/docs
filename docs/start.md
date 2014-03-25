@@ -120,6 +120,8 @@ The RGB LED could show the following states:
 - *Flashing yellow*: Bootloader mode, waiting for new code via USB or JTAG.
 - *Flashing white*: Factory Reset initiated.
 - *Solid white*: Factory Reset complete; rebooting.
+- *Flashing magenta*: Updating firmware.
+- *Solid magenta*: May have lost connection to the Spark Cloud. Pressing the Reset (RST) button will attempt the update again.
 
 The RGB LED can also let you know if there were errors in establishing an internet connection. *A red LED means an error has occurred.* These errors might include:
 
