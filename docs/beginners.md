@@ -14,7 +14,8 @@ It's like the 'Hello world' example for any beginners in electronics!
  - LED of your color choice
 
 **Schematic diagram:**
-![Example LED](https://raw.githubusercontent.com/kennethlimcp/docs/master/docs/example-images/ex-led.png)
+
+![Example LED](https://github.com/kennethlimcp/docs/blob/master/docs/example-images/ex-led.png?raw=true)
 
 
 **Tinker App:**
@@ -47,14 +48,17 @@ In example code:
  3. Try other values but keep it below `2000`
  4. You can also make it turn on/off longer or shorter be varying the 2 numbers in `delay()`
 
-    eg.
+    eg. Slow blink (Short On, Long Off)
    ```
     digitalWrite(D0,LOW);  //turn off LED
     delay(500);            //wait for 500ms
     digitalWrite(D0,HIGH); //turn on LED
-    delay(500);            //wait for 500ms
+    delay(1000);            //wait for 1s
    ``` 
- 5. 
+   
+ 5. Change the 300 Ohm resistor to a 1K Ohm. You will notice that the LED becomes much dimmer.
+
+**Congratulations for completing your very 1st Spark activity!!**
 
 
 
