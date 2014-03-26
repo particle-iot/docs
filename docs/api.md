@@ -239,6 +239,8 @@ codes in the 500 range indicate failure within Spark's server infrastructure.
 
 404 Not Found - The Core you requested is not currently connected to the cloud.
 
+408 Timed Out - The cloud experienced a significant delay when trying to reach the Core.
+
 500 Server errors - Fail whale. Something's wrong on our end.
 ```
 
