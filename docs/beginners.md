@@ -21,7 +21,7 @@ In this activity, we will construct a simple circuit for you to turn on and off 
  1. In your Tinker App, press on DO and make it a 'digitalwrite'
  2. Toggle the DO pin and see that the LED turns On and Off
 
-**Example Code:**
+**Example Code in Cloud IDE:**
 ```
   void setup(){
     pinMode(D0,OUTPUT);   //Set D0 as an Output pin
