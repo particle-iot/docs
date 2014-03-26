@@ -5,13 +5,12 @@ Trying out stuff in your Maker Kit!
 
 **Description**
 
-This activity will construct a simple circuit for you to turn on and off an led! 
+In this activity, we will construct a simple circuit for you to turn on and off an LED. It's like the 'Hello world' example for any beginner in electronics!
 
-It's like the 'Hello world' example for any beginners in electronics!
-
-**Parts required:**
- - 330 Ohm Resistor
+**Items required:**
+ - 330 Ohm Resistor 
  - LED of your color choice
+ - Tinker App or Cloud IDE
 
 **Schematic diagram:**
 
