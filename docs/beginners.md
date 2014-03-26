@@ -1,2 +1,2 @@
-Build stuff with your Maker Kit!
+Trying out stuff in your Maker Kit!
 =======
