@@ -13,7 +13,7 @@ Parts needed:
 
 Schematic:
 
-![Example LED](https://github.com/kennethlimcp/docs/edit/master/docs/)
+![Example LED](https://github.com/kennethlimcp/docs/master/docs/example-images/ex-led.png)
 
 Example Code:
 
