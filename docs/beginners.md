@@ -14,8 +14,8 @@ It's like the 'Hello world' example for any beginners in electronics!
  - LED of your color choice
 
 **Schematic diagram:**
-
 ![Example LED](https://raw.githubusercontent.com/kennethlimcp/docs/master/docs/example-images/ex-led.png)
+
 
 **Tinker App:**
  1. In your Tinker App, press on DO and make it a 'digitalwrite'
