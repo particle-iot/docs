@@ -340,7 +340,7 @@ When powering the Core via the battery alone, the blue LED will NOT light up.
 These are standard [ceramic capacitors.](http://en.wikipedia.org/wiki/Ceramic_capacitor) They are widely used in analog circuits as bypass/ decoupling capacitors, in timers, filters, etc. The kit comes with:
 
 - 10nF (0.01uF) - Number code: 103
-- 100nF (0.1uF) - Number coed: 104
+- 100nF (0.1uF) - Number code: 104
 
 *Note:* These are non-polar capacitors which means they can be oriented both ways.
 

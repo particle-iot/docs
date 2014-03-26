@@ -20,6 +20,8 @@ Powering the Core is easy; it receives power over a Micro USB port, much like ma
 
 If you so desire, you can also power the Core with 3.6V to 6V to the `VIN` pin, or 3.3V to the `3.3V` pin.
 
+If you have a Core with the [u.FL connector](#/hardware/spark-core-datasheet-types-of-cores) for an external antenna, now is a good time to connect that as well.
+
 ### Step 2: Download the Spark iOS or Android app
 
 ![Spark apps](images/spark-apps.png)
@@ -120,6 +122,8 @@ The RGB LED could show the following states:
 - *Flashing yellow*: Bootloader mode, waiting for new code via USB or JTAG.
 - *Flashing white*: Factory Reset initiated.
 - *Solid white*: Factory Reset complete; rebooting.
+- *Flashing magenta*: Updating firmware.
+- *Solid magenta*: May have lost connection to the Spark Cloud. Pressing the Reset (RST) button will attempt the update again.
 
 The RGB LED can also let you know if there were errors in establishing an internet connection. *A red LED means an error has occurred.* These errors might include:
 
