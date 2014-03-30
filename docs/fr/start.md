@@ -16,7 +16,7 @@ Félicitations pour la possession du tout nouveau Spark Core ! Commençons par o
 
 ![Alimenter le Core](../images/core-usb.jpg)
 
-Alimenter le Core est facile. Il recoit du courant à travers un port micro USB, de manière similaire à beaucoup de smartphones et autres gadgets. Alimentez votre Core en connectant le câble micro USB au connecteur USB du Core, et l'autre extrémité dans un connecteur USB de votre ordinateur, d'un hub USB (de préférence avec une alimentation externe), ou d'une alimentation USB (comme celle qui vient surement avec votre smartphone).
+Alimenter le Core est facile. Il reçoit du courant à travers un port micro USB, de manière similaire à beaucoup de smartphones et autres gadgets. Alimentez votre Core en connectant le câble micro USB au connecteur USB du Core, et l'autre extrémité dans un connecteur USB de votre ordinateur, d'un hub USB (de préférence avec une alimentation externe), ou d'une alimentation USB (comme celle qui vient surement avec votre smartphone).
 
 Si vous le souhaitez, vous pouvez aussi alimenter le Core en appliquant une tension de 3,6V à 6V sur la broche `VIN`, ou 3,3V sur la broche `3.3V`.
 
@@ -30,7 +30,7 @@ L'application mobile Spark est la méthode la plus facile pour connecter votre S
 - Connecter votre Spark Core à votre réseau Wi-Fi
 - Contrôler votre Core sans écrire une seule ligne de code
 
-L'application iOS nécessite iOS 7, and l'application Android fonctionne à partir de Ice Cream Sandwich (Android 4.0).
+L'application iOS nécessite iOS 7, et l'application Android fonctionne à partir de Ice Cream Sandwich (Android 4.0).
 
 [Télécharger l'application iPhone >](https://itunes.apple.com/fr/app/spark-core/id760157884)
 
@@ -44,7 +44,7 @@ L'application iOS nécessite iOS 7, and l'application Android fonctionne à part
 
 Connecter le Spark Core au Wi-Fi est simple comme tout. En fait, je l'ai fait deux fois tout en rédigeant ce paragraphe.
 
-L'application mobile Spark vous guidera pendant le processus, mais c'est tout simpelment un processus en une étape où vous saisirez le nom de votre réseau Wi-Fi (SSID) et son mot de passe, et ces derniers seront envoyés via le Wi-Fi à votre Spark Core, qui se connectera automatiquement au réseau et au Spark Cloud. Si tout fonctionne comme prévu, vous verrez la LED passer par les couleurs suivantes :
+L'application mobile Spark vous guidera pendant le processus, mais c'est tout simplement un processus en une étape où vous saisirez le nom de votre réseau Wi-Fi (SSID) et son mot de passe, et ces derniers seront envoyés via le Wi-Fi à votre Spark Core, qui se connectera automatiquement au réseau et au Spark Cloud. Si tout fonctionne comme prévu, vous verrez la LED passer par les couleurs suivantes :
 
 - **Clignotements bleus** : En attente des informations Wi-Fi
 - **Clignotements verts** : Connexion au réseau Wi-Fi
@@ -56,7 +56,7 @@ L'application mobile Spark vous guidera pendant le processus, mais c'est tout si
 
 <a id="button1" class="button" onclick="animateCore()">Voir l'animation</a>
 
-Si l'application mobile ne fonctionne pas dans votre cas, vous pouvez aussi connecter votre Spark Core via USB. Pour plus d'information, ou pour une explication plus complète sur comment connecter votre Core à Internet, référez-vous à :
+Si l'application mobile ne fonctionne pas dans votre cas, vous pouvez aussi connecter votre Spark Core via USB. Pour plus d'informations, ou pour une explication plus complète sur comment connecter votre Core à Internet, référez-vous à :
 
 [Connecter votre Core >](/#/connect)
 
@@ -72,7 +72,7 @@ Chacune des broches possède jusqu'à fonctions : *digitalWrite*, *analogWrite*,
 
 ![Spark Build](../images/ide.png)
 
-Une fois que vous serez fatigués de lire des valeurs de capteurs et de faire clignoter des LEDs, dirigez vous vers l'IDE (environnement de développement) Spark Build pour le vrai spectacle. Spark Build vous permet de créer et flasher des applications personnelles sur votre Core depuis n'importe quel navigateur récent, et équiper votre Core avec toutes les possibilitées d'Internet ! Impressionnant !
+Une fois que vous serez fatigués de lire des valeurs de capteurs et de faire clignoter des LEDs, dirigez vous vers l'IDE (environnement de développement) Spark Build pour le vrai spectacle. Spark Build vous permet de créer et flasher des applications personnelles sur votre Core depuis n'importe quel navigateur récent, et équiper votre Core avec toutes les possibilités d'Internet ! Impressionnant !
 
 Ne soyez pas nerveux. Nous vous avons préparé plein d'exemples validés par la communauté et de bibliothèques de fonctions qui vont permettrons de partir du bon pied. Pour en savoir plus, jetez un œil à la section « Écrire des application avec Spark Build » plus bas dans la page.
 
@@ -81,15 +81,15 @@ Doucement, c'est quoi ce truc ?
 
 Le Spark Core est un kit de développement Wi-Fi pour du matériel connecté à Internet. Il est, par essence, le « cerveau » d'un produit ou projet de matériel connecté à Internet.
 
-Le Core possède un micro-contrôleur, qui est un ordinateur petit, bon marché et peu puissant (en performances et consommation d'énergie) capable de faire tourner une application unique. Le micro-contrôleur est le directeur du spectable : il fait tourner le logiciel et indique au reste du Core ce qu'il a à faire. Il ne possède pas de système d'exploitation tel que celui que fait tourner votre ordinateur; il fait simplement tourner une application unique (souvent appelée *firmware* ou *application embarquée*), qui peu être toute simple (quelques lignes de code) ou extrèmement complexe, selon ce que vous voulez faire.
+Le Core possède un micro-contrôleur, qui est un ordinateur petit, bon marché et peu puissant (en performances et consommation d'énergie) capable de faire tourner une application unique. Le micro-contrôleur est le directeur du spectacle : il fait tourner le logiciel et indique au reste du Core ce qu'il a à faire. Il ne possède pas de système d'exploitation tel que celui que fait tourner votre ordinateur; il fait simplement tourner une application unique (souvent appelée *firmware* ou *application embarquée*), qui peu être toute simple (quelques lignes de code) ou extrêmement complexe, selon ce que vous voulez faire.
 
-Les micro-contrôleurs sont particulièrement doués pour *contrôler des choses*, d'où le nom. Ils ont un ensemble de « broches » (les petites pattes d'araignée sortant de la puce) qui sont appelées broches *GPIO* (General Purpose Input and Output - Entrées et Sorties à Usage Générique), ou broches E/S (Entrée / Sortie).Ils peuvent être branchés à des capteurs ou boutons pour observer le monde, ou bien être branchés à des lumières ou moteurs pour agir sur le monde. Ces broches du micro-contrôleur ont été directement connectés aux barettes de broches sur les côtés du Spark Core de manière à pouvoir aisément y accéder. Plus précisément, les broches libellées D0 à D7, et A0 à A7 sont directement branchées sur les broches GPIO du micro-contrôleur.
+Les micro-contrôleurs sont particulièrement doués pour *contrôler des choses*, d'où le nom. Ils ont un ensemble de « broches » (les petites pattes d'araignée sortant de la puce) qui sont appelées broches *GPIO* (General Purpose Input and Output - Entrées et Sorties à Usage Générique), ou broches E/S (Entrée / Sortie). Ils peuvent être branchés à des capteurs ou boutons pour observer le monde, ou bien être branchés à des lumières ou moteurs pour agir sur le monde. Ces broches du micro-contrôleur ont été directement connectés aux barrettes de broches sur les côtés du Spark Core de manière à pouvoir aisément y accéder. Plus précisément, les broches libellées D0 à D7, et A0 à A7 sont directement branchées sur les broches GPIO du micro-contrôleur.
 
-Le micro-contrôleur peut aussi communiquer avec d'autres puces à l'aide de protocoles courant comme *Série* (aussi appelé UART), *SPI* ou *I2C* (aussi appelé Wire). Vous pouvez rendre le Core encore plus puissant en le connectant à des puces spécialisées, telles des pilotes de moteurs ou des décaleurs de registre. Parfois, ces puces seront « emballées » sur un *Shield*, un accessoire au Core qui rends plus facile la possibilité d'étendre les capacités de ce dernier.
+Le micro-contrôleur peut aussi communiquer avec d'autres puces à l'aide de protocoles courants comme *Série* (aussi appelé UART), *SPI* ou *I2C* (aussi appelé Wire). Vous pouvez rendre le Core encore plus puissant en le connectant à des puces spécialisées, telles des pilotes de moteurs ou des registres à décalage. Parfois, ces puces seront « emballées » sur un *Shield*, un accessoire au Core qui rend plus facile la possibilité d'étendre les capacités de ce dernier.
 
 Le Core possède aussi un module Wi-Fi, qui le connecte à votre réseau Wi-Fi local de la même manière que votre ordinateur ou smartphone se connecte à un réseau Wi-Fi. Le Core est programmé par défaut pour rester connecté à Internet tant qu'il peut trouver et se connecter à un réseau.
 
-Quand le Core de connecte à Internet, il crée une connexion au *Spark Cloud*. En se connectant au Cloud, le Core devient accessible de n'importe où à l'aide d'une simple API REST. Cette API est conçue pour faciliter l'interfaçage au Core via une appli web ou un appli mobile de manière sécurisée et privé. De cette façon, seuls vous et ceux à qui vous faites confiance peuvent accéder au Core.
+Quand le Core de connecte à Internet, il crée une connexion au *Spark Cloud*. En se connectant au Cloud, le Core devient accessible de n'importe où à l'aide d'une simple API REST. Cette API est conçue pour faciliter l'interfaçage au Core via une application web ou un application mobile de manière sécurisée et privée. De cette façon, seuls vous et ceux à qui vous faites confiance peuvent accéder au Core.
 
 ### Boutons
 
@@ -100,9 +100,9 @@ Le bouton RESET va effectuer un redémarrage matériel du Core, en coupant et r�
 Le bouton MODE a trois fonctions :
 
 - Tenez le bouton MODE enfoncé pendant trois secondes pour mettre le Core en mode *Smart Config* afin de le connecter à votre réseau Wi-Fi local. La LED devrait commencer à clignoter en bleu.
-- Tenez le bouton MODE enfoncé pendant dix secodes pour effacer de la mémoire du Core les informations sur les réseaux Wi-Fi
+- Tenez le bouton MODE enfoncé pendant dix secondes pour effacer de la mémoire du Core les informations sur les réseaux Wi-Fi
 - Tenez le bouton MODE enfoncé, appuyez un coup sur le bouton RESET, et patientez *trois secondes* pour entrer dans le mode *Bootloader*, d'où vous pouvez reprogrammer le Core via USB ou JTAG. Relâchez le bouton MODE quand la LED commence à clignoter en jaune. Si vous le faites accidentellement, appuyez juste un coup sur le bouton RESET pour quitter le mode *Bootloader*
-- Tenez le bouton MODE enfoncé, appuyez un coup sur le bouton RESET, et patientez *dix secondes* pour effectuer une *restauration des paramètres d'usine* où le Core est reprogrammé avec l'application qui y était installé à l'usine (l'application Tinker). La LED devrait clignoter en blanc pendant trois secondes puis se mettre à clignoter rapidement. Quand la LED clignote d'une autre couleur, le Core a été remis aux valeurs par défaut. C'est très utile quand vous avez un bug dans votre firmware ou bien que vous souhaitez réinstaller l'application Tinker.
+- Tenez le bouton MODE enfoncé, appuyez un coup sur le bouton RESET, et patientez *dix secondes* pour effectuer une *restauration des paramètres d'usine* où le Core est reprogrammé avec l'application qui y était installée à l'usine (l'application Tinker). La LED devrait clignoter en blanc pendant trois secondes puis se mettre à clignoter rapidement. Quand la LED clignote d'une autre couleur, le Core a été remis aux valeurs par défaut. C'est très utile quand vous avez un bug dans votre firmware ou bien que vous souhaitez réinstaller l'application Tinker.
 
 
 ### LEDs
@@ -116,7 +116,7 @@ La LED RVB devrait présenter les états suivants :
 - *Clignotement vert* : Connexion au réseau Wi-Fi local
 - *Clignotement cyan* : Connexion au Spark Cloud.
 - *Pulsation cyan lente*: Connecté au Spark Cloud.
-- *Clignotement jaune*: Mode bootloader mode, en attente du nouveau code via USB ou JTAG.
+- *Clignotement jaune*: Mode bootloader, en attente du nouveau code via USB ou JTAG.
 - *Clignotement blanc*: Lancement de la restauration des paramètres d'usine.
 - *Blanc fixe*: Fin de la restauration des paramètres d'usine, redémarrage.
 
@@ -137,12 +137,12 @@ Le Core possède 24 broches que vous pouvez connecter à un circuit. Ces broches
 - _!RST_ : Vous pouvez redémarrer le Core (de la même manière qu'en appuyant sur le bouton RESET) en connectant cette broche à GND.
 - _GND_ : Ces broches sont les broches de mise à la masse.
 - _D0 à D7_ : Ces broches sont les broches à tout faire du Spark Core : 8 broches GPIO (General Purpose Input/Output). Elles sont libellées « D » parce que ce sont des broches « numériques » (Digital), ce qui signifie qu'elles ne peuvent pas lire les valeurs des capteurs analogiques. Certaines de ces broches possèdent des périphériques additionnels (SPI, JTAG, etc.), plus d'infos plus loin.
-- _A0 à A7_ : Ces broches sont 8 broches GPIO supplémentaires, pour un total de 16. Elles sont identiques à D0 à D7, si ce n'est qu'elles sont des broches « analogiques », ce qui signifie qu'elles peuvent lire les valeurs de capteurs analogiques (techniquement, elles possèdent un périphérique de convertion analogique vers numérique). Tout comme les broches numériques, certaines de ces broches possèdent des périphériques additionnels
-- _TX et RX_ : Ces broches sont dédiées aux communications Série / UART. TX correspond à la broche émettrice et RX correspond à la broche réceptrique.
+- _A0 à A7_ : Ces broches sont 8 broches GPIO supplémentaires, pour un total de 16. Elles sont identiques à D0 à D7, si ce n'est qu'elles sont des broches « analogiques », ce qui signifie qu'elles peuvent lire les valeurs de capteurs analogiques (techniquement, elles possèdent un périphérique de conversion analogique vers numérique). Tout comme les broches numériques, certaines de ces broches possèdent des périphériques additionnels
+- _TX et RX_ : Ces broches sont dédiées aux communications Série / UART. TX correspond à la broche émettrice et RX correspond à la broche réceptrice.
 
 #### Broche PWM
 
-Quand vous souhaitez utiliser la fonction `analogWrite()` du Core, par exemple pour diminuer l'intensité lumineuse de LED, vous devez utiliser les broches qui possèdent un timer. Les gens les appelent fréquemment des broches PWM, car ce qu'elles font est appelé Pulse Width Modulation (Modulation par Largeur d'Impulsion). Le Core possède 8 broches PWM : A0, A1, A4, A5, A6, A7, D0 et D1.
+Quand vous souhaitez utiliser la fonction `analogWrite()` du Core, par exemple pour diminuer l'intensité lumineuse de LED, vous devez utiliser les broches qui possèdent un timer. Les gens les appellent fréquemment des broches PWM, car ce qu'elles font est appelé Pulse Width Modulation (Modulation par Largeur d'Impulsion). Le Core possède 8 broches PWM : A0, A1, A4, A5, A6, A7, D0 et D1.
 
 Le Spark Cloud
 ---
@@ -167,7 +167,7 @@ Nous évitons complètement ce problème avec le Cloud. Le Core se connecte au C
 
 Mais attendez, si les réseau locaux sont une mesure de sécurité, est-ce que ça ne vous expose pas à plein de vilaines choses ? Et bien, ça devrait, mais…
 
-### Securité
+### Sécurité
 
 Oui, vous avez raison, nous y avons pensé.
 
@@ -196,7 +196,7 @@ Pour commencer, sélectionnez n'importe quelle broche. Un menu apparaitra pour v
 - **digitalWrite** : Place la broche à HIGH ou LOW, ce qui la connecte à 3,3V (la tension maximale du système) ou à GND (ground, la masse). La broche D7 est connectée à une LED embarquée. Si vous placez D7 à HIGH, la LED s'allumera, et si vous la placez à LOW, la LED s'éteindra.
 - **analogWrite** : Place la broche à une valeur comprise entre 0 et 255, où 0 est équivalent à LOW et 255 à HIGH. C'est une manière de faire comme si nous envoyions une tension comprise entre 0 et 3,3 volts, mais comme il s'agit d'un système numérique, ça utilise un mécanisme nommé Modulation par Largeur d'Impulsion, ou PWM (Pulse Width Modulation). Vous pouvez par exemple utiliser *analogWrite* pour diminuer l'intensité lumineuse d'une LED.
 - **digitalRead** : Lit la valeur numérique d'une broche, qui peut être soit HIGH, soit LOW. Si vous aviez connecté la broche à 3,3V, le résultat serait HIGH, si vous l'aviez connecté à GND, ce serait LOW. Quelque part entre les deux, ça retournerai le résultat le plus proche, mais ça reste aléatoire vers le milieu.
-- **analogRead** : Lit la valeur numérique d'une broche, qui est une valeur comprise entre 0 et 4095, où 0 est LOW (GND) et 4095 est HIGH (3,3V). Toutes les broches analogiques (A0 à A7) le supportent. *analogRead* est adapté à la lecteur de données provenant de capteurs.
+- **analogRead** : Lit la valeur numérique d'une broche, qui est une valeur comprise entre 0 et 4095, où 0 est LOW (GND) et 4095 est HIGH (3,3V). Toutes les broches analogiques (A0 à A7) le supportent. *analogRead* est adapté à la lecture de données provenant de capteurs.
 
 Pour changer la fonction d'une broche, laissez le doigt sur la broche, et le menu de sélection de fonction sera de nouveau disponible. Vous avez d'autres questions ? Venez nous en parler sur les [forums!](https://community.sparkdevices.com/)
 
@@ -277,7 +277,7 @@ Lit la valeur numérique d'une broche, qui est une valeur comprise entre 0 et 40
 Le paramètre doit être une broche (A0 à A7, D0 à D7). La valeur de retour est comprise entre 0 et 4095 si la lecture réussi, -1 sinon.
 
 
-Flasher des application à l'aide du Spark Build
+Flasher des applications à l'aide du Spark Build
 ===
 
 Qu'est-ce qu'un firmware
@@ -320,9 +320,9 @@ Spark Build commence avec une barre de navigation sur la gauche. Au sommet se tr
 
 En bas de la barre de navigation se trouvent quatre autres boutons :
 
-- **Code** : Affiche la liste de vous applications et vous permet de choisir celle à éditer / flasher.
+- **Code** : Affiche la liste de vos applications et vous permet de choisir celle à éditer / flasher.
 - **Docs** : Vous envoie à la documentation.
-- **Cores** : Affiche la liste de vos Spark Core, de manière à choisir celui à flasher et obtenir plus d'informations à son sujet.
+- **Cores** : Affiche la liste de vos Spark Cores, de manière à choisir celui à flasher ou obtenir plus d'informations à son sujet.
 - **Settings** : Change votre mot de passe, vous déconnecte, ou vous donne votre jeton d'accès pour les appels à l'API.
 
 Spark Apps et bibliothèques de fonctions
@@ -332,9 +332,9 @@ Spark Apps et bibliothèques de fonctions
 
 Le cœur de Spark Build est la section « Spark Apps », qui affiche le nom de l'application courante dans l'éditeur ainsi que la liste des autres applications et les applications d'exemple de la communauté.
 
-L'application que vous avez ouverte dans l'éditeur est affichée sous l'entête « Current App ». Vous remarquerez que cette application d'exemple « HELLOWORLD » a un seul fichier, mais les firmware avec des bibliothèques de fonction ou plusieurs fichiers sont parfaitement gérés.
+L'application que vous avez ouverte dans l'éditeur est affichée sous l'entête « Current App ». Vous remarquerez que cette application d'exemple « HELLOWORLD » a un seul fichier, mais les firmwares avec des bibliothèques de fonction ou plusieurs fichiers sont parfaitement gérés.
 
-Depuis ce panneau, vous avez un certain nombre de boutons et actions disponibles qui peuvent vous aider à gérer votre bibliothèque d'applications du tonnerre :
+Depuis ce panneau, vous avez un certain nombre de boutons et actions disponibles qui peuvent vous aider à gérer votre bibliothèque de merveilleuses applications :
 
 - **Create** : Vous pouvez créer une nouvelle application en cliquant sur le bouton « Create New App ». Donnez lui un joli nom, et appuyez sur Entrée. Votre application est maintenant sauvée dans votre compte et prête pour l'édition.
 
@@ -356,7 +356,6 @@ La meilleure façon de débuter avec l'IDE est de commencer à écrire du code :
 
 - **Connectez vous** : Vérifiez que votre Core est allumé et émette des pulsations cyans, ce qui signifie qu'il est connecté au Spark Cloud et prêt à être mis à jour.
 
----
 - **Récupérez du code** : Essayez de cliquer sur l'exemple « Blink a LED » sous l'entête « Example apps ». L'éditeur Spark Build devrait afficher le code de l'application d'exemple dans un onglet actif. Autrement, vous pouvez aussi copier / coller le morceau de code ci-dessous dans une nouvelle application de l'IDE.
 
 ```
@@ -401,7 +400,7 @@ Il y a aussi quelques autres trucs utiles dans Spark Build. L'IDE Spark Build es
 
 ![Spark Build](images/access-token.png)
 
-- **API Key** : Vous pouvez trouver votre clée d'API la plus récente dans l'onglet « Settings » de votre compte. Vous pouvez cliquer sur le bouton « Reset Token » pour assigner une nouvelle clé à votre compte. *Notez* que cliquer sur ce bouton nécessitera que vous mettiez à jour tous les projets pour lesquels vous avez codé en dur cette clé.
+- **API Key** : Vous pouvez trouver votre clé d'API la plus récente dans l'onglet « Settings » de votre compte. Vous pouvez cliquer sur le bouton « Reset Token » pour assigner une nouvelle clé à votre compte. *Notez* que cliquer sur ce bouton nécessitera que vous mettiez à jour tous les projets pour lesquels vous avez codé en dur cette clé.
 
 
 
@@ -411,12 +410,12 @@ Il y a aussi quelques autres trucs utiles dans Spark Build. L'IDE Spark Build es
 La ligne de commande Spark
 ===
 
-**À venir** Les outils en ligne de commande vous permettrons de créer des applications Spark avec votre propre environnement de bureau, que ce soit Eclipse, Sublime Text, Vim ou autre chose.
+**À venir** Les outils en ligne de commande vous permettront de créer des applications Spark avec votre propre environnement de bureau, que ce soit Eclipse, Sublime Text, Vim ou autre chose.
 
-Déployer une appli web Spark
+Déployer une application web Spark
 ===
 
-**À venir** Nous vous donnerons les instructions pour déployer une appli web sur Heroku qui pourra parler à un Spark Core.
+**À venir** Nous vous donnerons les instructions pour déployer une application web sur Heroku qui pourra parler à un Spark Core.
 
 Dépannage
 ===
@@ -428,7 +427,7 @@ Qu'est ce qui se passe ?
 
 Il y a plein de raisons possibles qui font que votre Core puisse ne pas se connecter au réseau Wi-Fi. Pour trouver la raison, jeter un œil à notre section des dépannages de connexion :
 
-[Pourquoi ne se connecte-t-il pas? >](/#/connect/troubleshooting)
+[Pourquoi ne se connecte-t-il pas? >](/#/connect/dépannage)
 
 ### Je n'arrive pas à parler à mon Core
 
@@ -438,7 +437,7 @@ Si vous utilisez l'application mobile pour configurer votre Core, elle devrait a
 
 Dirigez-vous vers notre page sur la connexion pour apprendre comment faire :
 
-[ Réclamer votre Core >](/#/connect/claiming-your-core)
+[ Réclamer votre Core >](/#/connect/réclamer-votre-core)
 
 ### Mon Core ne démarre pas
 
@@ -455,7 +454,7 @@ Si vous constatez un comportement inattendu de la part de votre Core, voici quel
 - Si vous avez un Core avec un connecteur u.FL, est-ce qu'une antenne y est connectée ? Êtes-vous à portée de votre routeur Wi-Fi ?
 
 
-Autre ressources
+Autres ressources
 ===
 
 Développement matériel

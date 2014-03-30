@@ -436,7 +436,7 @@ Spark 命令行
 
 您的 Core 可能无法连接到 Wi-Fi 网络的原因有很多. 要调试，看看我们的详细的连接故障排除部分：
 
-[为什么无法连接？ >](/#/connect/troubleshooting)
+[为什么无法连接？ >](/#/troubleshooting)
 
 ### 无法于 Core 连接
 

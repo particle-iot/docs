@@ -417,7 +417,7 @@ Cosa non funziona?
 
 Ci sono molte ragioni per cui il vostro Core non si collega con la vostra rete Wi-Fi. Per analizzare il problema controllate la nostra sezione per l'analisi dettagliata dei problemi di connessione:
 
-[Perchè non si collega? >](/#/connect/troubleshooting)
+[Perchè non si collega? >](/#/troubleshooting)
 
 ### Non riesco a parlare con il mio Core
 

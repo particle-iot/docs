@@ -80,7 +80,7 @@ a:hover,
 }
 
 .content table td {
-  border-top: 1px solid #dddddd;  
+  border-top: 1px solid #dddddd;
 }
 
 hr {
@@ -172,14 +172,14 @@ hr {
 }
 
 
-@media (min-width: 1180px) {
+@media (min-width: 1280px) {
  .header ul {
     border-left: solid 1px #dfe2e7;
     margin-left: 15px;
   }
 }
 
-@media (max-width: 1180px) {
+@media (max-width: 1279px) {
   .header ul {
     padding-top: 10px;
     clear: both;
@@ -210,8 +210,8 @@ hr {
 }
 
 .core {
-   width: 100px; 
-   height: 130px; 
+   width: 100px;
+   height: 130px;
    background: rgba(0,0,0,0.2);
    position: relative;
    top: 15px;
@@ -221,10 +221,10 @@ hr {
    height: 0;
    width: 60px;
    content:"";
-   position: absolute; 
-   border-top: 20px solid rgba(0,0,0,0.2); 
-   border-left: 20px solid transparent;  
-   border-right: 20px solid transparent; 
+   position: absolute;
+   border-top: 20px solid rgba(0,0,0,0.2);
+   border-left: 20px solid transparent;
+   border-right: 20px solid transparent;
    top: 130px;
 }
 
@@ -235,9 +235,9 @@ hr {
 
 .small .core-butt {
     width: 40px;
-    border-top: 10px solid rgba(0,0,0,0.2); 
-    border-left: 10px solid transparent;  
-    border-right: 10px solid transparent; 
+    border-top: 10px solid rgba(0,0,0,0.2);
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
     top: 80px;
 }
 
