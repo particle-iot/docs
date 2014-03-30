@@ -20,6 +20,8 @@ Alimenter le Core est facile. Il reçoit du courant à travers un port micro USB
 
 Si vous le souhaitez, vous pouvez aussi alimenter le Core en appliquant une tension de 3,6V à 6V sur la broche `VIN`, ou 3,3V sur la broche `3.3V`.
 
+Si vous possédez un Core avec un [connecteur u.FL](#/hardware/spark-core-datasheet-types-of-cores) pour une antenne externe, c'est le bon moment pour la brancher.
+
 ### Étape 2 : Télécharger l'application Spark pour iOS ou Android
 
 ![L'application Spark](../images/spark-apps.png)
@@ -115,10 +117,13 @@ La LED RVB devrait présenter les états suivants :
 - *Bleu fixe* : Fin du Smart Config, les informations réseau ont été trouvées.
 - *Clignotement vert* : Connexion au réseau Wi-Fi local
 - *Clignotement cyan* : Connexion au Spark Cloud.
-- *Pulsation cyan lente*: Connecté au Spark Cloud.
-- *Clignotement jaune*: Mode bootloader, en attente du nouveau code via USB ou JTAG.
-- *Clignotement blanc*: Lancement de la restauration des paramètres d'usine.
-- *Blanc fixe*: Fin de la restauration des paramètres d'usine, redémarrage.
+- *Pulsation cyan lente* : Connecté au Spark Cloud.
+- *Clignotement jaune* : Mode bootloader, en attente du nouveau code via USB ou JTAG.
+- *Clignotement blanc* : Lancement de la restauration des paramètres d'usine.
+- *Blanc fixe* : Fin de la restauration des paramètres d'usine, redémarrage.
+- *Clignotement magenta* : Mise à jour du firmware.
+- *Magenta fixe* : Possible perte de la connexion au Spark Cloud. Un appui sur le bouton reset (RST) lancera à nouveau la mise à jour.
+
 
 La LED RVB peut aussi vous faire savoir s'il y a eu des erreurs lors de l'établissement de la connexion à Internet. *Une LED rouge signifie qu'il y a eu une erreur.* Ces erreurs peuvent être :
 
@@ -289,7 +294,7 @@ Le nom *firmware* vient du fait qu'il est plus dur que le logiciel, et plus mou 
 
 Dans notre cas, parce-que le Spark Core est connecté à Internet, la mise à jour du firmware est quasiment triviale. Nous la transférons par le réseau, et avons mis en place des sécurités pour vous empêcher de transformer le Core en un inutile presse-papier.
 
-Quand vous flashez du code dans le Spark Core, vous faites une *mise à jour du firmware par les airs*. La mise à jour du firmware écrase quasiment tout le logiciel du Spark Core. Le seul morceau qui n'est pas modifié est ce qu'on appelle le bootloader, qui gère le processus de chargement du nouveau firmware et s'assure que vous pouvez toujours mettre à jour le firmware via USB ou une restauration des paramètres d'usine. (Nous mettrons le bootloader en open source dès que nous aurons mis à jour son README).
+Quand vous flashez du code dans le Spark Core, vous faites une *mise à jour du firmware par les airs*. La mise à jour du firmware écrase quasiment tout le logiciel du Spark Core. Le seul morceau qui n'est pas modifié est ce qu'on appelle le bootloader, qui gère le processus de chargement du nouveau firmware et s'assure que vous pouvez toujours mettre à jour le firmware via USB ou une restauration des paramètres d'usine.
 
 Connexion au Spark Build
 ---
@@ -410,7 +415,7 @@ Il y a aussi quelques autres trucs utiles dans Spark Build. L'IDE Spark Build es
 La ligne de commande Spark
 ===
 
-**À venir** Les outils en ligne de commande vous permettront de créer des applications Spark avec votre propre environnement de bureau, que ce soit Eclipse, Sublime Text, Vim ou autre chose.
+Les outils en ligne de commande Spark fournisse un jeu de fonctionnalités allant de la création du compte à l'interaction avec les Cores déployés, en passant par la vérification et flashage de code via le Spark Cloud. Vous trouverez plus de détails sur l'installation et toutes les choses intéressantes que vous pourrez faire avec [sur GitHub](https://github.com/spark/spark-cli).
 
 Déployer une application web Spark
 ===
@@ -420,61 +425,7 @@ Déployer une application web Spark
 Dépannage
 ===
 
-Qu'est ce qui se passe ?
----
+Il existe de nombreuses raisons qui font que votre Core ne puisse pas se connecter à votre réseau Wi-Fi ou bien ne se comporte pas comme il le devrait.
 
-### Mon Core ne se connecte pas au Wi-Fi
+[Jetez un œil à la section dépannage >](/#/troubleshooting)
 
-Il y a plein de raisons possibles qui font que votre Core puisse ne pas se connecter au réseau Wi-Fi. Pour trouver la raison, jeter un œil à notre section des dépannages de connexion :
-
-[Pourquoi ne se connecte-t-il pas? >](/#/connect/dépannage)
-
-### Je n'arrive pas à parler à mon Core
-
-Une fois que votre Core est connecté, il a besoin d'être *réclamé* afin d'être associé à votre compte. C'est ce qui vous permet de contrôler votre Core et d'empêcher les autres d'en faire autant.
-
-Si vous utilisez l'application mobile pour configurer votre Core, elle devrait automatiquement la réclamer. Cependant, si vous connectez votre Core via USB ou que le processus de réclamation échoue, vous pouvez le réclamer manuellement.
-
-Dirigez-vous vers notre page sur la connexion pour apprendre comment faire :
-
-[ Réclamer votre Core >](/#/connect/réclamer-votre-core)
-
-### Mon Core ne démarre pas
-
-Si votre Core ne démarre pas (la LED ne s'allume jamais), il y a quelques pistes à vérifier :
-
-- Est-ce que le Core reçoit une tension suffisante ? Si nous n'êtes pas sûr, connectez un multimètre aux broches 3,3V et GND et vérifiez que vous voyez bien 3,3V comme attendu. Sinon, essayez de connecter le Core à une autre alimentation.
-- Des composants ont-ils été endommagés ? Inspectez de manière visuelle les deux faces du Core.
-
-### Mon Core se comporte de manière étrange
-
-Si vous constatez un comportement inattendu de la part de votre Core, voici quelques pistes à vérifier :
-
-- Est-ce que le Core reçoit suffisamment de courant ? Le Core peut se comporter de manière erratique s'il est connecté à un hub USB non alimenté et ne reçoit pas assez de courant. De plus, si vous avez des composants qui demandent beaucoup de courant (par exemple, des moteurs), vous pourriez avoir besoin de plus de courant que l'ordinateur ne peut en fournir. Essayez d'utiliser une alimentation USB ou de fournir plus de courant aux broches VIN ou 3.3V
-- Si vous avez un Core avec un connecteur u.FL, est-ce qu'une antenne y est connectée ? Êtes-vous à portée de votre routeur Wi-Fi ?
-
-
-Autres ressources
-===
-
-Développement matériel
----
-
-### Le développement matériel pour les nuls
-
-**À venir**
-
-### Le matériel avancé
-
-**À venir**
-
-Développement logiciel
----
-
-### Le logiciel pour les nuls
-
-**À venir**
-
-### Le logiciel avancé
-
-**À venir**
