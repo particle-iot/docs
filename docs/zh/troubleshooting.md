@@ -109,21 +109,21 @@ If that doesn’t work, try the steps below:
 
 1. [检查基本](/#/connect/troubleshooting-step-0-check-the-basics).
 2. 尝试新的点源适配器. 您所用的电源应能够提 core，为 500mA 的电流. 我们建议使用通常用于手机充电的 5V/1A 电源适配器.
-3. If your network has a landing page or splash page, the Core will not be able to connect; try configuring it onto a different network.
-4. Try [rebooting the Core and clearing its memory](/#/connect/troubleshooting-step-3-reboot-and-clear-memory).
-5. Try a factory reset.  Hold down both buttons, then release the RST button, while holding down the MODE button.  The LED should begin flashing yellow.  Continue holding down the MODE button until you see the Core change from flashing yellow to flashing white.  Then release the button.  The Core should begin [flashing blue](https://v.cdn.vine.co/r/videos/E465A8959B1015390893882101760_178fcfd2b3c.4.3.11510817618992331600_MIW9HE1mtZ9H_SpBlKdK1lv2UfmniExCFQHrgJ7iqiFDUiDb0E31bR7GwvB_7wz0.mp4?versionId=eS01KUZ6NaUZgEipSDeVi0rxZENByp1N) after the factory reset is complete.
-6. Try manually re-running the patch programmer to update the CC3000’s firmware over USB.  You can find detailed instructions [here](https://community.sparkdevices.com/t/failed-connecting-to-wifi/648/53).  
-7. If none of the above are successful, please [contact the Spark team](mailto:hello@sparkdevices.com) and provide us with the brand and model number of your access point.
+3. 如果您的网络有一个登陆页面，核心将无法进行连接;尝试将其配置到不同的网络.
+4. 尝试 [重新启动 core 和清除它的内存](/#/connect/troubleshooting-step-3-reboot-and-clear-memory).
+5. 尝试恢复出厂设置.按住两个按键，然后只松开RST键. LED应开始闪烁黄色.  继续按住 MODE 键直到您看到闪烁的黄色变化成闪烁的白色, 然后松开按钮. Core 后恢复出厂设置完成后应该开始 [闪烁蓝色](https://v.cdn.vine.co/r/videos/E465A8959B1015390893882101760_178fcfd2b3c.4.3.11510817618992331600_MIW9HE1mtZ9H_SpBlKdK1lv2UfmniExCFQHrgJ7iqiFDUiDb0E31bR7GwvB_7wz0.mp4?versionId=eS01KUZ6NaUZgEipSDeVi0rxZENByp1N）
+6. 尝试通过 USB 运行,重新补丁程序员,更新 CC3000 的固件. 您可以在 [这里](https://community.sparkdevices.com/t/failed-connecting-to-wifi/648/53) 找到详细的说明.
+7. 如果以上都不成功，请[联系 Spark Team]（邮寄地址：hello@sparkdevices.com），并为我们提供路由器的品牌和型号.
 
 ---
 
 ## 黄色闪烁
 
-- *Core 在做什么?* My Core is starts flashing yellow when I plug it or when I hit the RST button.
-- *问题是什么?* Your Core is missing important firmware.
+- *Core 在做什么?* 当我开启电源，或当我按 RST 按, core 便开始闪烁黄色.
+- *问题是什么?* 您的 core 缺少重要的固件.
 - *我如何修复它?*
 
-Please complete the following steps:
+请完成以下步骤：
   
 1. Try hitting the RST button to make sure you did not accidentally configure your Core into DFU mode.
 2. Try a factory reset.  Hold down both buttons, then release the RST button, while holding down the MODE button.  The LED should begin flashing yellow.  Continue holding down the MODE button until you see the Core change from flashing yellow to flashing white.  Then release the button.  The Core should begin [flashing blue](https://v.cdn.vine.co/r/videos/E465A8959B1015390893882101760_178fcfd2b3c.4.3.11510817618992331600_MIW9HE1mtZ9H_SpBlKdK1lv2UfmniExCFQHrgJ7iqiFDUiDb0E31bR7GwvB_7wz0.mp4?versionId=eS01KUZ6NaUZgEipSDeVi0rxZENByp1N) after the factory reset is complete.
