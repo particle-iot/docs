@@ -155,6 +155,7 @@ Mac 使用自制软件， Windows 需要到 http://dfu-util.gnumonks.org 下载�
 你可以重新启动您的 core. 如果一切顺利，它应该开始 [慢速闪烁蓝色](https://v.cdn.vine.co/r/videos/E465A8959B1015390893882101760_178fcfd2b3c.4.3.11510817618992331600_MIW9HE1mtZ9H_SpBlKdK1lv2UfmniExCFQHrgJ7iqiFDUiDb0E31bR7GwvB_7wz0.mp4?versionId=eS01KUZ6NaUZgEipSDeVi0rxZENByp1N), 或开始 [绿色闪烁](https://mtc.cdn.vine.co/r/videos/DB9E0E87311015399731217969152_1d6c83d12a3.4.3.2795910212236322177_4RBA9frM0a4pwIG_RbZgo.ZOBEbBr_CpxzoOsBNuExDz6TFldcjJSYHVh203e6F4.mp4?versionId=orM0m0DvLYdciAwsb6DYHhqb974AHMj_)
 
 如果以上都不成功，请[联系 Spark Team]（邮寄地址：hello@sparkdevices.com).
+
 ---
 
 ## 橙色闪烁（红色/黄色）
