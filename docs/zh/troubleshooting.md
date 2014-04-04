@@ -125,12 +125,12 @@ If that doesn’t work, try the steps below:
 
 请完成以下步骤：
   
-1. Try hitting the RST button to make sure you did not accidentally configure your Core into DFU mode.
-2. Try a factory reset.  Hold down both buttons, then release the RST button, while holding down the MODE button.  The LED should begin flashing yellow.  Continue holding down the MODE button until you see the Core change from flashing yellow to flashing white.  Then release the button.  The Core should begin [flashing blue](https://v.cdn.vine.co/r/videos/E465A8959B1015390893882101760_178fcfd2b3c.4.3.11510817618992331600_MIW9HE1mtZ9H_SpBlKdK1lv2UfmniExCFQHrgJ7iqiFDUiDb0E31bR7GwvB_7wz0.mp4?versionId=eS01KUZ6NaUZgEipSDeVi0rxZENByp1N) after the factory reset is complete.
-3. If a factory reset is unsuccessful, then we have to write the firmware over DFU.  You can accomplish this by following the steps below:
+1. 尝试打 RST 键，以确保您没不小心设定您的核心进入 DFU 模式.
+2. 尝试恢复出厂设置.按住两个按键，然后只松开RST键. LED应开始闪烁黄色.  继续按住 MODE 键直到您看到闪烁的黄色变化成闪烁的白色, 然后松开按钮. Core 后恢复出厂设置完成后应该开始 [闪烁蓝色](https://v.cdn.vine.co/r/videos/E465A8959B1015390893882101760_178fcfd2b3c.4.3.11510817618992331600_MIW9HE1mtZ9H_SpBlKdK1lv2UfmniExCFQHrgJ7iqiFDUiDb0E31bR7GwvB_7wz0.mp4?versionId=eS01KUZ6NaUZgEipSDeVi0rxZENByp1N）
+3. 如果恢复出厂设置不成功，那么我们就通过 DFU 更新固件. 您可以按照以下的步骤做：
 
-Install dfu-util for your system either using homebrew on a mac, http://dfu-util.gnumonks.org/ on windows, or you can build from source on linux:
-        
+Mac 使用自制软件， Windows 需要到 http://dfu-util.gnumonks.org 下载，或者您也可以从源代码在Linux上构建，安装 DFU-util ：
+
     opkg install libusb-1.0-dev
     wget http://dfu-util.gnumonks.org/releases/dfu-util-0.7.tar.gz
     tar xvf dfu-util-0.7.tar.gz
@@ -141,49 +141,48 @@ Install dfu-util for your system either using homebrew on a mac, http://dfu-util
 
 ---
 
-If you install those you should be able to run, with your core connected over USB:
-        
+如果您安装了这些，您应该通过 USB 与您的 core 连接：        
+
     sudo dfu-util -l
 
 ---
 
-This should give you a list with something like [1d50:607f] in the list, if that's the case, then we can install the missing firmware (can be found here: https://s3.amazonaws.com/spark-website/factory_firmware.bin)
+这应该给您一个列表. 列表中应有 [1d50：607F]，如果是这样的话， 那么我们就可以安装缺少的固件（可以在这里找到：https://s3.amazonaws.com/spark-website/factory_firmware.bin）
 
     dfu-util -d 1d50:607f -a 1 -s 0x00020000 -D factory_firmware.bin
     dfu-util -d 1d50:607f -a 0 -s 0x08005000:leave -D factory_firmware.bin
 
-You can reboot your Core and it should start [slow flashing blue](https://v.cdn.vine.co/r/videos/E465A8959B1015390893882101760_178fcfd2b3c.4.3.11510817618992331600_MIW9HE1mtZ9H_SpBlKdK1lv2UfmniExCFQHrgJ7iqiFDUiDb0E31bR7GwvB_7wz0.mp4?versionId=eS01KUZ6NaUZgEipSDeVi0rxZENByp1N), or start [flashing green](https://mtc.cdn.vine.co/r/videos/DB9E0E87311015399731217969152_1d6c83d12a3.4.3.2795910212236322177_4RBA9frM0a4pwIG_RbZgo.ZOBEbBr_CpxzoOsBNuExDz6TFldcjJSYHVh203e6F4.mp4?versionId=orM0m0DvLYdciAwsb6DYHhqb974AHMj_) if everything worked.
+你可以重新启动您的 core. 如果一切顺利，它应该开始 [慢速闪烁蓝色](https://v.cdn.vine.co/r/videos/E465A8959B1015390893882101760_178fcfd2b3c.4.3.11510817618992331600_MIW9HE1mtZ9H_SpBlKdK1lv2UfmniExCFQHrgJ7iqiFDUiDb0E31bR7GwvB_7wz0.mp4?versionId=eS01KUZ6NaUZgEipSDeVi0rxZENByp1N), 或开始 [绿色闪烁](https://mtc.cdn.vine.co/r/videos/DB9E0E87311015399731217969152_1d6c83d12a3.4.3.2795910212236322177_4RBA9frM0a4pwIG_RbZgo.ZOBEbBr_CpxzoOsBNuExDz6TFldcjJSYHVh203e6F4.mp4?versionId=orM0m0DvLYdciAwsb6DYHhqb974AHMj_)
 
-If none of these steps are successful, please [contact the Spark team](mailto:hello@sparkdevices.com).
+如果以上都不成功，请[联系 Spark Team]（邮寄地址：hello@sparkdevices.com).
+---
+
+## 橙色闪烁（红色/黄色）
+
+- *Core 在做什么?* 我的 core 接到 Wi-Fi 后，开始闪烁黄色/红色/橙色
+- *问题是什么?* 与 Spark 云握手期间发生错误解密
+- *我如何修复它?*
+
+请完成以下步骤：
+
+1.全套解决这个问题的指示可以在以下的星火社区论坛位置找到. 如果都不成功，请[联系 Spark Team]（邮寄地址：hello@sparkdevices.com）
+
+[更换你的 Spark 云凭据 >](https://community.sparkdevices.com/t/troubleshooting-my-core-is-flashing-yellow-red-lights-after-it-connects-to-wifi/627)
 
 ---
 
-## Flashing orange (red/yellow)
+## 绿色闪烁接着红色
 
-- *Core 在做什么?* My Core is flashing yellow/red/orange lights after it connects to Wi-Fi.
-- *问题是什么?* A decryption error occurred during the handshake with the Spark Cloud
+- *Core 在做什么?* 我的核心开始闪烁绿色并连接到我的网络，然后 LED 变成红色.
+- *问题是什么?* 您的 core 正面临着一个网络问题，无法连接到 Spark 云.
 - *我如何修复它?*
 
-Please complete the following steps:
+有两种潜在的失效模式存在 - 你的家庭网络没有一个可用的互联网连接，或者我们的服务器出现问题. 
 
-1. A full set of instructions for resolving this issue can be found at the following location on the Spark Community forums.  If the steps included in the link below are unsuccessful, please [contact the Spark team](mailto:hello@sparkdevices.com).
-
-[Replacing your Spark Cloud credentials >](https://community.sparkdevices.com/t/troubleshooting-my-core-is-flashing-yellow-red-lights-after-it-connects-to-wifi/627)
-
----
-
-## Flashing green then red
-
-- *Core 在做什么?* My Core starts flashing green to connect to my network, then the LED turns red.
-- *问题是什么?* Your Core is facing a networking issue and cannot connect to the Cloud.
-- *我如何修复它?*
-
-There are two potential failure modes here--either your home network does not have a working internet connection, or we are having issues with our servers. 
-
-1. Try power cycling your router to resolve any transient networking hiccups in your home Wi-Fi network
-2. Try going to a website like [Google](http://www.google.com/) on your computer or laptop to verify that your Wi-Fi network is connected to the internet and is capable of serving up web pages
-3. Check www.spark.io/status to see if there is a known issue with the Spark Cloud
-4. If you’re still seeing this issue, please [contact the Spark team](mailto:hello@sparkdevices.com).
+1. 请尝试重新启动路由器来解决任何 Wi-Fi 网络短暂的网络问题.
+2. 尝试使用电脑到一个网站 [谷歌](http://www.google.com/) 以验证您的Wi-Fi网络连接到互联网，并能服务于 web 页面.
+3. 查看 www.spark.io/status，看看是否有一个已知的 Spark 云问题
+4. 如果您还在看这个问题, 请[联系 Spark Team]（邮寄地址：hello@sparkdevices.com).
 
 ---
 
