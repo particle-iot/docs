@@ -11,7 +11,7 @@ Spark Core 与传统家庭网络的效果最佳：设用 WPA/WPA2 或 WEP 安全
 - **网络设有 ["强制网络门户"](http://en.wikipedia.org/wiki/Captive_portal) 安全模式**. 强制网络门户，就像在星巴克，是个小网站. 会请您登录到网络或签署协议. Spark Core 无法浏览这些门户.
 - **企业网络**. 我们连接 Spark Core 到企业网络有不同的结果. 虽然我们还没有非常了解是什么造成这个问题, 但是我们正在努力改善.
 - **复杂网络**. 网络具有多个路由器，非标准防火墙和非标准设置.
-- **WEP安全模式的网路**. If connecting with the mobile app works for you, WEP-secured networks should be fine. However, you cannot currently connect to a WEP-secured network over USB. We are implementing a fix for this now, which should be available in the next couple of weeks.
+- **WEP安全模式的网路**. 如果与手机应用程序的连接效果很好，WEP 的安全网络应该没问题. 但是，您目前无法通过 USB 连接到 WEP 保护的网络. 我们现在正在实施这个修复程序，应该可以在接下来的几个星期看到.
 - **渠道11以上**.这是在一个国际特定的问题; 如果您是在美国以外，您的 Wi-Fi 路由器可能会运行在渠道 12，13，或 14, 其中CC3000不支持. 请使用编号为 11 或更低的渠道。
 
 所以，让我们开始深入了解. 如果您的 Spark Core 无法连接到 Wi-Fi 网络，我们推荐遵循以下步骤：
