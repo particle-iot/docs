@@ -128,7 +128,7 @@ Spark Core 有一个 RGB LED 定位在的前部,显示 core 的连接状态.此�
 2. 尝试恢复出厂设置.按住两个按键，然后只松开RST键. LED应开始闪烁黄色.  继续按住 MODE 键直到您看到闪烁的黄色变化成闪烁的白色, 然后松开按钮. Core 后恢复出厂设置完成后应该开始 [闪烁蓝色](https://v.cdn.vine.co/r/videos/E465A8959B1015390893882101760_178fcfd2b3c.4.3.11510817618992331600_MIW9HE1mtZ9H_SpBlKdK1lv2UfmniExCFQHrgJ7iqiFDUiDb0E31bR7GwvB_7wz0.mp4?versionId=eS01KUZ6NaUZgEipSDeVi0rxZENByp1N)
 3. 如果恢复出厂设置不成功，那么我们就通过 DFU 更新固件. 您可以按照以下的步骤做：
 
-Mac 使用自制软件， Windows 需要到 http://dfu-util.gnumonks.org 下载，或者您也可以从源代码在Linux上构建，安装 DFU-util ：
+Mac 使用自制软件， Windows 需要到 http://dfu-util.gnumonks.org 下载，或者您也可以从源代码在Linux上构建，安装 DFU-util：
 
     opkg install libusb-1.0-dev
     wget http://dfu-util.gnumonks.org/releases/dfu-util-0.7.tar.gz
