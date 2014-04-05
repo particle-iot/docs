@@ -86,15 +86,14 @@ Spark Core 有一个 RGB LED 定位在的前部,显示 core 的连接状态.此�
 现在，您的 core 没有它需要连接到您的本地 Wi-Fi 网络的信息. 如果您还没有，请尝试使用 Spark Core [iPhone](https://itunes.apple.com/us/app/spark-core/id760157884) 或 [Android](https://play.google.com/store/apps/details?id=io.spark.core.android) 应用程序发送您的网络凭据到您的 core. 详细的说明可以看 [这里](http://docs.spark.io/#/connect/connecting-your-core-smart-config-with-the-ti-app).
 
 
-If that doesn’t work, try the steps below:
+如果还是不行，请尝试以下步骤:
 
 
-1. If your network router supports 802.11n, make sure that it also supports Legacy network protocols, and that it is configured into that mode (the Core supports 802.11 a/c networks)
-2. If you have a Core with a u.FL connector, make sure the antenna is attached
-3. Try [rebooting the Core and clearing its memory](/#/connect/troubleshooting-step-3-reboot-and-clear-memory).
-4. If you have an Android phone, and your network has no password, you cannot currently use the Spark Core app to communicate the credentials to your Core.  Instead, try using [TI’s SmartConfig app to configure your Core](/#/connect/connecting-your-core-smart-config-with-the-ti-app).
-5. Try configuring your Core over USB.  Instructions can be found [here](/#/connect/connecting-your-core-connect-over-usb).
-6. If all else fails, please [contact the Spark team](mailto:hello@sparkdevices.com) and provide us with the brand and model of your smartphone.
+1. 如果您的网络路由器支持 802.11n 标准，确保它也支持传统的网络协议，并且它被配置成这种模式（core 支持 802.11 的 A/C 网）
+2. 如果你有一个 U.FL 连接器的 core，确保天线已连接.
+3. 尝试 [重新启动 core 和清除它的内存](/#/connect/troubleshooting-step-3-reboot-and-clear-memory).
+4. 尝试通过 USB 配置 core. 步骤可以在这里找到 [here](/#/connect/connecting-your-core-connect-over-usb).
+5. 如果一切都失败，请 [联系 Spark Team]（邮寄地址：hello@sparkdevices.com)并且向我们提供您的智能手机的品牌和型号.
 
 ---
 
@@ -111,9 +110,9 @@ If that doesn’t work, try the steps below:
 2. 尝试新的点源适配器. 您所用的电源应能够提 core，为 500mA 的电流. 我们建议使用通常用于手机充电的 5V/1A 电源适配器.
 3. 如果您的网络有一个登陆页面，核心将无法进行连接;尝试将其配置到不同的网络.
 4. 尝试 [重新启动 core 和清除它的内存](/#/connect/troubleshooting-step-3-reboot-and-clear-memory).
-5. 尝试恢复出厂设置.按住两个按键，然后只松开RST键. LED应开始闪烁黄色.  继续按住 MODE 键直到您看到闪烁的黄色变化成闪烁的白色, 然后松开按钮. Core 后恢复出厂设置完成后应该开始 [闪烁蓝色](https://v.cdn.vine.co/r/videos/E465A8959B1015390893882101760_178fcfd2b3c.4.3.11510817618992331600_MIW9HE1mtZ9H_SpBlKdK1lv2UfmniExCFQHrgJ7iqiFDUiDb0E31bR7GwvB_7wz0.mp4?versionId=eS01KUZ6NaUZgEipSDeVi0rxZENByp1N）
+5. 尝试恢复出厂设置.按住两个按键，然后只松开RST键. LED应开始闪烁黄色.  继续按住 MODE 键直到您看到闪烁的黄色变化成闪烁的白色, 然后松开按钮. Core 恢复出厂设置完成后应该开始 [闪烁蓝色](https://v.cdn.vine.co/r/videos/E465A8959B1015390893882101760_178fcfd2b3c.4.3.11510817618992331600_MIW9HE1mtZ9H_SpBlKdK1lv2UfmniExCFQHrgJ7iqiFDUiDb0E31bR7GwvB_7wz0.mp4?versionId=eS01KUZ6NaUZgEipSDeVi0rxZENByp1N）
 6. 尝试通过 USB 运行,重新补丁程序员,更新 CC3000 的固件. 您可以在 [这里](https://community.sparkdevices.com/t/failed-connecting-to-wifi/648/53) 找到详细的说明.
-7. 如果以上都不成功，请[联系 Spark Team]（邮寄地址：hello@sparkdevices.com），并为我们提供路由器的品牌和型号.
+7. 如果以上都不成功，请 [联系 Spark Team]（邮寄地址：hello@sparkdevices.com），并为我们提供路由器的品牌和型号.
 
 ---
 
@@ -187,34 +186,36 @@ Mac 使用自制软件， Windows 需要到 http://dfu-util.gnumonks.org 下载�
 
 ---
 
-## Main LED off, small blue LED dim
+## 主要 LED 没亮起，小蓝色 LED 暗淡
 
-- *Core 在做什么?* The main LED on my Spark Core is off, but the small blue LED in the upper right corner is dimly glowing.
-- *问题是什么?* Your Core is missing firmware.
+- *Core 在做什么?* Spark Core 的主要 LED 没亮起，但右上角的小蓝色 LED 发光暗淡.
+- *问题是什么?* 您的 core 缺失的固件.
 - *我如何修复它?*
 
-1. Try a factory reset.  Hold down both buttons, then release the RST button, while holding down the MODE button.  The LED should begin flashing yellow.  Continue holding down the MODE button until you see the Core change from flashing yellow to flashing white.  Then release the button.  The Core should begin after the factory reset is complete.
-2. If you see no flashing lights during factory reset, then your Core may be temporarily nonfunctional.  If you have a JTAG shield, [contact the Spark team](mailto:hello@spark.io) so we can help walk you through re-installing the Core firmware.  If you do not have a JTAG shield, please [contact the Spark team](mailto:hello@spark.io) to let us know, and we’ll help you take next steps.
+1. 尝试恢复出厂设置.按住两个按键，然后只松开RST键. LED应开始闪烁黄色.  继续按住 MODE 键直到您看到闪烁的黄色变化成闪烁的白色, 然后松开按钮. Core 恢复出厂设置完成后应该开始.
+2. 如果您在恢复出厂设置后没有看到闪灯，那么您的 core 可能暂时不起作用.  如果你有一个 JTAG shield, [联系 Spark Team ](邮寄地址：hello@spark.io)这样我们就可以帮您完成重新安装内核固件.  如果你没有一个 JTAG shield, 请 [联系 Spark Team ](邮寄地址：hello@spark.io) 让我们知道，我们会帮助您采取下一步措施.
 
-## LEDs off and unresponsive
+## LED 灯关闭，反应迟钝
 
-- *Core 在做什么?* My Core isn’t showing any LED activity when I power it over USB.
-- *问题是什么?* Your Core is not receiving power.
+- *Core 在做什么?* 当我通过 USB 供电, core 没有显示任何 LED 的活动.
+- *问题是什么?* 你的核心没有接通电源.
 - *我如何修复它?*
 
-Please complete the following steps:
+请完成以下步骤:
   
-1. Try powering the Core with a different USB cable and power supply (different USB port on your computer, for example)
-2. If a different USB cable and power supply does not fix the issue, your Core may have a hardware short. Please [contact the Spark team](mailto:hello@spark.io) for further debugging.
+1. 试着使用不同的 USB 电缆和电源为 core 供电（例如,您的电脑上不同的 USB 端口）
+2. 如果使用不同的USB电缆和电源不解决这个问题，你的 core 硬件可能出现问题， 请 [联系 Spark Team ](邮寄地址：hello@spark.io) 为进一步调试.
 
 
 
 Known Issues
 ===
 
-## Flashing Cyan / WiFi Disconnect
-* Status: In Progress
+## Flashing Cyan
+* Status: **Solution in progress, available in 1-2 weeks**
 * Forum Thread: https://community.spark.io/t/bug-bounty-kill-the-cyan-flash-of-death/1322
+
+#### Description
 
 With certain WiFi networks, the Spark Core will sometimes enter a state where the status LED will flash cyan. Flashing cyan means that the Spark Core can no longer communicate with the Spark Cloud server. If this happens, the Spark Core is programmed to try to reconnect. When the Core reconnects, the status LED will go back to 'Breathing Cyan'.
 
@@ -224,34 +225,62 @@ The good news is that the firmware on the CC3000 module can be updated and the S
 
 So far TI has supplied a couple of firmware patches to the Spark Team to test, but at this time, the issue doesn't seem to have been fully resolved. TI has been very helpful during this process and we're hopeful to have a fix soon. When the fix is ready and fully tested, we will provide instructions on how to update the CC3000 firmware.
 
-## Stuck Flashing Blue
-* Status: Trying to replicate
+## Spark.publish() breaks inside of Spark.function()
+* Status: **Acknowledged**
+* Forum Thread: https://community.spark.io/t/spark-publish-crashing-core/3463
+
+#### Description
+
+If `Spark.publish()` is called within a function declared in `Spark.function()`, the Core may become unresponsive for a short period of time and return a 408 timed out error in the cloud API call.
+
+A fix can be applied in the user code that will work around this issue.  A simple explanation can be found in [post #10 of the forum thread](https://community.spark.io/t/spark-publish-crashing-core/3463/10).
+
+Recently Resolved Issues
+===
+
+## Flashing Blue
+* Status: **Resolved as of v0.2.0**
+* Github Issue: https://github.com/spark/core-firmware/issues/144
 * Forum Thread: https://community.spark.io/t/status-led-flashing-blue/2915
 
-## Inaccurate Analog Readings
-* Status: Partially Resolved (Not yet available in the web IDE)
+#### Description
+
+In some cases after attempting to connect to a Wi-Fi network and failing repeatedly, the Core will step back into listening mode, and will stop attempting to connect to the internet.
+
+This issue has been resolved, and the fix was pushed with firmware v0.2.0 on March 25.
+
+## Inaccurate analog readings
+* Status: **Resolved as of v0.2.0**
 * Forum Thread: https://community.spark.io/t/odd-analog-readings/906
 * Forum Thread: https://community.spark.io/t/odd-analog-readings-part-2/2718
 
-## Serial1 UART Missing Received Data due to being polled
-* Status: Resolved
-* Forum Thread:
+#### Description
 
-Serial UART Tx/Rx is now Interrupt Driven
+Timing issues were causing analog readings to return incorrectly; this has now been fixed with [this commit](https://github.com/spark/core-firmware/commit/b7ce24a4fb2dfe4f90e597e3a0f568f9ae098cfe).
 
-## Long delays cause Core to drop off of the Cloud
-* Status: Resolved
+This issue has been resolved, and the fix was pushed with firmware v0.2.0 on March 25.
+
+## Serial1 UART missing data
+* Status: **Resolved**
+
+#### Description
+
+Previously, Serial UART was polling, and data could be dropped if the user code did not check frequently enough. Serial UART is now interrupt driven, so this is no longer an issue.
+
+## Long delays break connectivity
+* Status: **Resolved**
 * Forum Thread: https://community.spark.io/t/known-issue-long-delays-or-blocking-code-kills-the-connection-to-the-cloud/950
 
-Long delays now call the background tasks to keep the Cloud connected.
+#### Description
 
-## Initializing peripherals in Class constructors causes the Core to hang
-* Status: Resolved
+Long delays can keep messages from being sent to the Cloud, which can cause the connection with the Cloud to abruptly die.
+
+We recently released an update to process Cloud messages during long delays, making this issue significantly less of a problem. It is still possible to block the connection to the Cloud with a long series of very short delays, but longer delays will no longer cause issues.
+
+## Can't init. peripherals in constructors
+* Status: **Resolved**
 * Forum Thread: https://community.spark.io/t/serial1-begin-in-class-constructor-hangs-core/3133
 
-Constructors are called after the Core is initialized
+#### Description
 
-## UDP and TCP ports close if not accessed
-* Status: ???
-* Forum Thread: https://community.spark.io/t/strange-udp-bug/2583/
-* Comments: (From @Dave) - re-read that thread, apparently there was a fix for this I wasn't aware of?
+Constructors are now called after the Core is initialized.
