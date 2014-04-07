@@ -144,10 +144,12 @@ Specifications
 -----
 - Operating voltage: 7 to 15V DC
 - Current consumption: 150mA min to 290mA (at 9V DC)
-- Relay Max Voltage: 220V AC
+- Relay Max Voltage: 250V AC
 - Relay Max Current: 10Amp at 125V AC
+- Relay Part Number: JS1-5V-F  [(Data Sheet)](http://pewa.panasonic.com/assets/pcsd/catalog/js-catalog.pdf)
 - Dimensions: 3.5 x 3.3
 - Weight: 100gms
+
 
 Setting up the Relay Shield
 -----
@@ -338,7 +340,7 @@ When powering the Core via the battery alone, the blue LED will NOT light up.
 These are standard [ceramic capacitors.](http://en.wikipedia.org/wiki/Ceramic_capacitor) They are widely used in analog circuits as bypass/ decoupling capacitors, in timers, filters, etc. The kit comes with:
 
 - 10nF (0.01uF) - Number code: 103
-- 100nF (0.1uF) - Number coed: 104
+- 100nF (0.1uF) - Number code: 104
 
 *Note:* These are non-polar capacitors which means they can be oriented both ways.
 
@@ -457,7 +459,7 @@ Wanna give your next Spark Core project a tactile feedback? This vibration motor
 
 ![Buzzer](images/mk-buzzer.bmp)
 
-Add an audible feedback to your project with this buzzer. The loner lead is positive and the shorter is negative. You will need a transistor to driver it.
+Add an audible feedback to your project with this buzzer. The longer lead is positive and the shorter is negative. You will need a transistor to drive it.
 
 *Note:* The sound gets annoying after a while. Use it sparingly! 
 
