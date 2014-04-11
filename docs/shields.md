@@ -148,7 +148,7 @@ Specifications
 - Relay Max Current: 10Amp at 125V AC
 - Relay Part Number: JS1-5V-F  [(Data Sheet)](http://pewa.panasonic.com/assets/pcsd/catalog/js-catalog.pdf)
 - Dimensions: 3.5 x 3.3
-- Weight: 100gms
+- Weight: 100g
 
 
 Setting up the Relay Shield
@@ -289,7 +289,7 @@ Specifications
 - Simultaneously charge the battery and power the core
 - Provide link to the datasheets MCP73871 and TPS61200
 - Dimensions: 2.3 x 0.61
-- Weight: 20gms
+- Weight: 20g
 
 
 Setting up the shield
