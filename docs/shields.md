@@ -138,7 +138,7 @@ Operation
 ![Relay Shield Setup](images/relay-shield-setup.jpg)
 
 The schematic for the relay shield is simple and self explanatory. The shield has four relays that are controlled by pins D0, D1, D2 and D3 on the Core. Each relay is triggered via a NPN transistor that takes a control signal from the core and switches the relay coil ON and OFF which in turn makes or breaks the electrical contact on the output. There is also a [flyback diode](http://en.wikipedia.org/wiki/Flyback_diode) connected across the coil to help protect the transistor from high voltage transients caused during switching.  
-The relays are SPDT (Single Pole Double Throw) type, which means they have three terminals at the output: COMMON (COMM), Normally Open (NO) and Normally Closed (NC). We can either connect the load in between the COMM and NO or COMM and NC terminals. When connected in between COMM and NO, the output remains open/disconnected when the relay is turned OFF and closes/connects when the relay is turned ON. In the later case, the output remains closed/connected when the relay is OFF and opens/disconnets when the relay is ON. 
+The relays are SPDT (Single Pole Double Throw) type, which means they have three terminals at the output: COMMON (COMM), Normally Open (NO) and Normally Closed (NC). We can either connect the load in between the COMM and NO or COMM and NC terminals. When connected in between COMM and NO, the output remains open/disconnected when the relay is turned OFF and closes/connects when the relay is turned ON. In the later case, the output remains closed/connected when the relay is OFF and opens/disconnects when the relay is ON. 
 
 Specifications
 -----
@@ -148,7 +148,7 @@ Specifications
 - Relay Max Current: 10Amp at 125V AC
 - Relay Part Number: JS1-5V-F  [(Data Sheet)](http://pewa.panasonic.com/assets/pcsd/catalog/js-catalog.pdf)
 - Dimensions: 3.5 x 3.3
-- Weight: 100gms
+- Weight: 100g
 
 
 Setting up the Relay Shield
@@ -289,7 +289,7 @@ Specifications
 - Simultaneously charge the battery and power the core
 - Provide link to the datasheets MCP73871 and TPS61200
 - Dimensions: 2.3 x 0.61
-- Weight: 20gms
+- Weight: 20g
 
 
 Setting up the shield
