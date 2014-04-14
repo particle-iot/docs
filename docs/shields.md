@@ -287,7 +287,6 @@ Specifications
 
 - Works with any 3.7V Lithium Polymer battery.
 - Simultaneously charge the battery and power the core
-- Provide link to the datasheets MCP73871 and TPS61200
 - Dimensions: 2.3 x 0.61
 - Weight: 20g
 
