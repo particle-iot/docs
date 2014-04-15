@@ -529,7 +529,7 @@ Unlike the TMP36, you will need to use this as a part of a voltage divider circu
 ![Force Sensor](images/mk-force-sensor.bmp)
 
 Manufacturer Part Number: Interlink 30-81794
-This is a force sensitive resistor with a 0.5" diameter and an operating force from 10gms to 1000gms. Their resistance decreases with an increase in applied pressure.
+This is a force sensitive resistor with a 0.5" diameter and an operating force from 10g to 1000g. Their resistance decreases with an increase in applied pressure.
 
 [Datasheet >]()
 
