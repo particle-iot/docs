@@ -375,7 +375,9 @@ void loop()
 
 `Network.localIP()` returns the local IP address assigned to the Core.
 
-
+`Network.RSSI()` returns the signal strength of a Wifi network from from -127 to -1dB.
+  
+`Network.ping()` allows you to ping an IP address and know the number of packets received.
 
 
 <!-- TO DO -->
