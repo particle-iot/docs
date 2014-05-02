@@ -289,6 +289,7 @@ Specifications
 - Simultaneously charge the battery and power the core
 - Dimensions: 2.3 x 0.61
 - Weight: 20g
+- Datasheet: [MCP73871](https://github.com/spark/shields/blob/master/Battery%20Shield/battery-shield-smallinductor/Datasheets/MCP73871.pdf) and [TPS61200](https://github.com/spark/shields/blob/master/Battery%20Shield/battery-shield-smallinductor/Datasheets/tps61200.pdf)
 
 
 Setting up the shield
