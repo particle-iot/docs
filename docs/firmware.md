@@ -121,16 +121,11 @@ curl https://api.spark.io/v1/devices/0123456789abcdef01234567/brew \
 
 The API request will be routed to the Spark Core and will run your brew function. The response will have a return_value key containing the integer returned by brew.
 
-
 ### Spark.publish()
 
-Publish an *event* through the Spark Cloud that will be forwarded to all registered callbacks and subscribed streams of Server-Sent Events.
+Publish an *event* through the Spark Cloud that will be forwarded to all registered callbacks, subscribed streams of Server-Sent Events, and Cores listening via `Spark.subscribe()`.
 
-```cpp
-Spark.publish();
-```
-
-This feature will allow the Core to generate an event based on a condition. For example, you could connect a motion sensor to the Core and have the Core generate an event whenever motion is detected.
+This feature allows the Core to generate an event based on a condition. For example, you could connect a motion sensor to the Core and have the Core generate an event whenever motion is detected.
 
 Spark events have the following properties:
 
@@ -198,47 +193,69 @@ EXAMPLE
 Spark.publish("front-door-unlocked", NULL, 60, PRIVATE);
 ```
 
-<!--
 ### Spark.subscribe()
 
-*NOT FULLY SPECIFIED YET, WILL UNCOMMENT THIS WHEN READY TO FLESH IT OUT*
+Subscribe to events published by Cores.
 
-*FEATURE IN PROGRESS—EXPECT IN EARLY MARCH*
+This allows Cores to talk to each other very easily.  For example, one Core could publish events when a motion sensor is triggered and another could subscribe to these events and respond by sounding an alarm.
 
-This feature will allow a Core to subscribe to events published by other Cores.
-After a `Spark.subscribe()` call, the Core will
+```cpp
+int i = 0;
 
-A subscription works like a prefix filter.
-If you subscribe to "foo", you will receive any event whose name begins with "foo",
-including "foo", "fool", "foobar", and "food/indian/sweet-curry-beans".
+void myHandler(const char *event, const char *data)
+{
+  i++;
+  Serial.print(i);
+  Serial.print(event);
+  Serial.print(", data: ");
+  if (data)
+      Serial.println(data);
+  else
+      Serial.println("NULL");
+}
 
-Receive events will be passed to a handler function similar to `Spark.function()`.
-A subscription handler must return `void` and take a SparkEvent object.
+void setup()
+{
+  Spark.subscribe("temperature", myHandler);
+  Serial.begin(9600);
+}
+```
 
-Subscribe to events from one device.
+To use `Spark.subscribe()`, define a handler function and register it in `setup()`.
 
-Spark.subscribe(const char *eventName, const char *deviceID)
-Spark.subscribe(String eventName, String deviceID)
 
-Example: `Spark.subscribe("hot-water", "55ff70064939494339432586")`
+---
 
-Subscribe to events from all devices owned by the same user as this Core.
+You can listen to events published only by your own Cores by adding a `MY_DEVICES` constant.
 
-Spark.subscribe(const char *eventName, MY_DEVICES)
-Spark.subscribe(String eventName, MY_DEVICES)
+```cpp
+// only events from my Cores
+Spark.subscribe("the_event_prefix", theHandler, MY_DEVICES);
+```
 
-Example: `Spark.subscribe("alert", MY_DEVICES)`
+---
 
-Subscribe to all accessible events with the given event name filter.
+In the near future, you'll also be able to subscribe to events from a single Core by specifying the Core's ID.
 
-Spark.subscribe(const char *eventName)
-Spark.subscribe(String eventName)
+```cpp
+// Subscribe to events published from one Core
+// COMING SOON!
+Spark.subscribe("motion/front-door", motionHandler, "55ff70064989495339432587");
+```
 
-Example: `Spark.subscribe("us/mn/weather")`
+---
 
-A Core MUST filter the firehose, that is, they MAY NOT subscribe to the empty string.
--->
+A subscription works like a prefix filter.  If you subscribe to "foo", you will receive any event whose name begins with "foo", including "foo", "fool", "foobar", and "food/indian/sweet-curry-beans".
 
+Received events will be passed to a handler function similar to `Spark.function()`.
+A _subscription handler_ (like `myHandler` above) must return `void` and take two arguments, both of which are C strings (`const char *`).
+
+- The first argument is the full name of the published event.
+- The second argument (which may be NULL) is any data that came along with the event.
+
+`Spark.subscribe()` returns a `bool` indicating success.
+
+NOTE: A Core can register up to 4 event handlers. This means you can call `Spark.subscribe()` a maximum of 4 times; after that it will return `false`.
 
 ## Connection Management
 
@@ -375,7 +392,9 @@ void loop()
 
 `Network.localIP()` returns the local IP address assigned to the Core.
 
-
+`Network.RSSI()` returns the signal strength of a Wifi network from from -127 to -1dB.
+  
+`Network.ping()` allows you to ping an IP address and know the number of packets received.
 
 
 <!-- TO DO -->

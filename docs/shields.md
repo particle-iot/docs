@@ -287,9 +287,9 @@ Specifications
 
 - Works with any 3.7V Lithium Polymer battery.
 - Simultaneously charge the battery and power the core
-- Provide link to the datasheets MCP73871 and TPS61200
 - Dimensions: 2.3 x 0.61
 - Weight: 20g
+- Datasheet: [MCP73871](https://github.com/spark/shields/blob/master/Battery%20Shield/battery-shield-smallinductor/Datasheets/MCP73871.pdf) and [TPS61200](https://github.com/spark/shields/blob/master/Battery%20Shield/battery-shield-smallinductor/Datasheets/tps61200.pdf)
 
 
 Setting up the shield
@@ -529,7 +529,7 @@ Unlike the TMP36, you will need to use this as a part of a voltage divider circu
 ![Force Sensor](images/mk-force-sensor.bmp)
 
 Manufacturer Part Number: Interlink 30-81794
-This is a force sensitive resistor with a 0.5" diameter and an operating force from 10gms to 1000gms. Their resistance decreases with an increase in applied pressure.
+This is a force sensitive resistor with a 0.5" diameter and an operating force from 10g to 1000g. Their resistance decreases with an increase in applied pressure.
 
 [Datasheet >]()
 
