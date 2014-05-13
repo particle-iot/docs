@@ -31,6 +31,9 @@ module.exports = (grunt) ->
         assets: '<%= config.dist %>/assets'
         layoutdir: '<%= config.src %>/layouts'
         layout: 'default.hbs'
+        plugins: ['assemble-contrib-permalinks']
+        permalinks:
+          structure: ':basename/index:ext'
       docs:
         options:
           ext: '.html'
@@ -41,8 +44,6 @@ module.exports = (grunt) ->
             cwd: '<%= config.content %>'
             src: ['*.md']
             dest: '<%= config.dist %>'
-            rename: (dest, src) ->
-              dest + '/' + src.substring(0, src.indexOf('.')) + '/index.html'
           }
         ]
 
