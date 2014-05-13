@@ -47,13 +47,9 @@
       <div class='menubar'>
         <div class='menu section' role='flatdoc-menu'>
           <ul>
-            <li><a href='/start'>Getting started</a></li>
-            <li><a href='/connect'>Connecting your Core</a></li>
-            <li><a href='/examples'>Annotated examples</a></li>
-            <li><a href='/api'>Cloud API reference</a></li>
-            <li><a href='/firmware'>Core firmware reference</a></li>
-            <li><a href='/hardware'>Core hardware reference</a></li>
-            <li><a href='/shields'>Shields and kits</a></li>
+            {{#pages}}
+              <li><a href='{{dest}}'>{{data.title}}</a></li>
+            {{/pages}}
           </ul>
         </div>
       </div>

@@ -5,8 +5,9 @@
 # https://www.spark.io/
 #
 # Use this gruntfile to:
-# - Assemble the static site (grunt assemble)
-# - Publish to Github pages (grunt gh-pages)
+# - Assemble the static site (grunt build)
+# - Deploy locally for development (grunt server)
+# - Publish to Github pages (grunt publish)
 #
 # Copyright (c) 2013 Spark Labs, Inc.
 # Licensed under a Creative Commons Attribution-Sharealike 3.0 License.

@@ -1,0 +1,5 @@
+[ ] Rewrite structure using permalink plugin
+[ ] Fix navigation structure to get relative links
+[ ] Parse markdown to get nested document layout
+[ ] Add javascripty animations for folding/unfolding navigation
+[ ] Clean up styling
