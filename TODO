@@ -1,4 +1,4 @@
 [ ] Fix the order of the navigation bar
-[ ] Parse markdown to get nested document layout
+[ ] Parse markdown to get nested document layout (assemble TOC plugin?)
 [ ] Add javascripty animations for folding/unfolding navigation
 [ ] Clean up styling
