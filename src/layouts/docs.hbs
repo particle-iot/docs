@@ -45,10 +45,11 @@
 
     <div class='content-root'>
       <div class='menubar'>
-          <ul class='menu section' role='flatdoc-menu'>
+        <div class='menu section' role='flatdoc-menu'>
+          <ul>
             {{#pages}}
-              <li><a href='{{dest}}'>{{data.title}}</a></li>
-              <ul class='menu subsection'>
+              <li><a href='{{relative ../page.dest this.dest}}'>{{data.title}}</a></li>
+              <ul>
                 <!-- TODO: add nested lists for headers/subheaders -->
               </ul>
             {{/pages}}
