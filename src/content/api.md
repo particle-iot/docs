@@ -1,5 +1,6 @@
 ---
 title: Cloud API reference
+order: 4
 ---
 
 Spark Cloud API

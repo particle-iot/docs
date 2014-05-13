@@ -1,5 +1,6 @@
 ---
 title: Hardware datasheet
+order: 5
 ---
 
 Spark Core Datasheet
@@ -95,7 +96,7 @@ The Spark Core offers a total 18 I/O pins to the user: `D0 to D7`, `A0 to A7` an
 
 Each pin on the Core can either be configured as input (with or without pull-up or pull-down) or as output (push-pull or open-drain) using the [pinMode()](http://spark.github.io/docs/#input-output-pinmode) function.
 
-After setting them up, the user can then write to or read from the pins using [digitalWrite()](http://spark.github.io/docs/#input-output-digitalwrite) and [digitalRead()](http://spark.github.io/docs/#input-output-digitalread) functions respectively. 
+After setting them up, the user can then write to or read from the pins using [digitalWrite()](http://spark.github.io/docs/#input-output-digitalwrite) and [digitalRead()](http://spark.github.io/docs/#input-output-digitalread) functions respectively.
 
 Each of these pins can individually source/sink a maximum of 20mA. In the input mode, the user can activate internal pull-up or pull-down resistors (typically equal to 40K ohms). By default these are deactivated.
 
@@ -117,7 +118,7 @@ This feature is only available on the following pins: `A0, A1, A4, A5, A6, A7, D
 
 The Core features two serial ports. The first one is a CDC (Communications Device Class) available over the USB port . When configured, it will show up as a virtual COM port on the computer.
 
-The second one is a hardware USART available via the TX and RX pins on the Core. 
+The second one is a hardware USART available via the TX and RX pins on the Core.
 
 Both of these serial ports can be configured and used using the [serial functions.](http://spark.github.io/docs/#communication-serial)
 
@@ -160,7 +161,7 @@ Memory mapping
 
 ###Internal Flash Memory Map
 
-The STM32 has a total of 128KB internal flash memory which is divided into three main regions by us. Beginning at the top of the memory space is where the bootloader is saved and locked. The second region is reserved for storing system flags and the third region holds the actual user firmware. 
+The STM32 has a total of 128KB internal flash memory which is divided into three main regions by us. Beginning at the top of the memory space is where the bootloader is saved and locked. The second region is reserved for storing system flags and the third region holds the actual user firmware.
 
 <table border = '1'>
    <tr>
@@ -168,17 +169,17 @@ The STM32 has a total of 128KB internal flash memory which is divided into three
       <th>Content</th>
       <th>Size</th>
    </tr>
-   <tr> 
+   <tr>
       <td>0x08000000</td>
       <td>Bootloader</td>
       <td>19 KB max</td>
    </tr>
-   <tr> 
+   <tr>
       <td>0x08004C00</td>
       <td>System Flags</td>
       <td>1 KB max</td>
    </tr>
-   <tr> 
+   <tr>
       <td>0x08005000</td>
       <td>Core Firmware Location</td>
       <td>108 KB max</td>
@@ -200,40 +201,40 @@ The external flash memory gives us an additional 2MB of storage space. This spac
       <td>Reserved</td>
       <td>4KB</td>
    </tr>
-   <tr> 
+   <tr>
       <td>0x01000</td>
       <td>Public Key</td>
       <td>294 Bytes - 4KB max</td>
    </tr>
-   <tr> 
+   <tr>
       <td>0x02000</td>
       <td>Private Key</td>
       <td>612 Bytes</td>
    </tr>
-   <tr> 
+   <tr>
       <td>0x20000</td>
       <td>Factory Reset Firmware Location</td>
       <td>128 KB max</td>
    </tr>
-   <tr> 
+   <tr>
       <td>0x40000</td>
       <td>BackUp Firmware Location</td>
       <td>128 KB max</td>
    </tr>
-   <tr> 
+   <tr>
       <td>0x60000</td>
       <td>OTA Firmware Location</td>
       <td>128 KB max</td>
    </tr>
-   <tr> 
+   <tr>
       <td>0x80000</td>
       <td>End of OTA Firmware</td>
    </tr>
-   <tr> 
+   <tr>
       <td> </td>
       <td> NOT USED </td>
    </tr>
-   <tr> 
+   <tr>
       <td>0x200000</td>
       <td>End of Flash Memory</td>
    </tr>
@@ -250,22 +251,22 @@ Electrical characteristics
       <th>Min</th>
       <th>Max</th>
    </tr>
-   <tr> 
+   <tr>
       <td>Input Voltage (at VIN)</td>
       <td> 3.6 V</td>
       <td> 6.0 V</td>
    </tr>  
-   <tr> 
+   <tr>
       <td>Total Current Consumption</td>
       <td>50mA</td>
       <td>300mA</td>
    </tr>
-      <tr> 
+      <tr>
       <td>Current Consumption in Deep Sleep</td>
       <td>3.2 μA</td>
       <td> - </td>
    </tr>
-   <tr> 
+   <tr>
       <td>Current per I/O pin</td>
       <td>8mA</td>
       <td>20mA</td>
@@ -294,19 +295,19 @@ Mechanical drawings of the Core are available [here.](https://github.com/spark/c
       <th>Parameter</th>
       <th>Value</th>
    </tr>
-   <tr> 
+   <tr>
       <td>Length</td>
       <td>1.47"</td>
    </tr>
-   <tr> 
+   <tr>
       <td>Width</td>
       <td>0.8"</td>
    </tr>
-   <tr> 
+   <tr>
       <td>Height</td>
       <td>0.5"</td>
    </tr>
-   <tr> 
+   <tr>
       <td>Weight</td>
       <td>14 grams</td>
    </tr>

@@ -47,12 +47,12 @@
       <div class='menubar'>
         <div class='menu section' role='flatdoc-menu'>
           <ul>
-            {{#pages}}
+            {{#withSort pages "data.order"}}
               <li><a href='../{{basename}}'>{{data.title}}</a></li>
               <ul>
                 <!-- TODO: add nested lists for headers/subheaders -->
               </ul>
-            {{/pages}}
+            {{/withSort}}
           </ul>
         </div>
       </div>

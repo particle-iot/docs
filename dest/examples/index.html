@@ -5,7 +5,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
   <meta name="viewport" content="width=device-width">
 
-  <title>Spark Docs | </title>
+  <title>Spark Docs | Annotated examples</title>
 
   <!-- Flatdoc -->
   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
@@ -48,7 +48,7 @@
         <div class='menu section' role='flatdoc-menu'>
           <ul>
             
-              <li><a href='../api'>Cloud API reference</a></li>
+              <li><a href='../start'>Getting started</a></li>
               <ul>
                 <!-- TODO: add nested lists for headers/subheaders -->
               </ul>
@@ -58,12 +58,17 @@
                 <!-- TODO: add nested lists for headers/subheaders -->
               </ul>
             
-              <li><a href='../examples'></a></li>
+              <li><a href='../examples'>Annotated examples</a></li>
               <ul>
                 <!-- TODO: add nested lists for headers/subheaders -->
               </ul>
             
               <li><a href='../firmware'>Firmware reference</a></li>
+              <ul>
+                <!-- TODO: add nested lists for headers/subheaders -->
+              </ul>
+            
+              <li><a href='../api'>Cloud API reference</a></li>
               <ul>
                 <!-- TODO: add nested lists for headers/subheaders -->
               </ul>
@@ -74,11 +79,6 @@
               </ul>
             
               <li><a href='../shields'>Shields and kits</a></li>
-              <ul>
-                <!-- TODO: add nested lists for headers/subheaders -->
-              </ul>
-            
-              <li><a href='../start'>Getting started</a></li>
               <ul>
                 <!-- TODO: add nested lists for headers/subheaders -->
               </ul>
@@ -107,20 +107,20 @@
 <p>In the picture above, we used a 1K resistor (Brown Black Red)</p>
 <p>Now on to the actual program:</p>
 <pre><code class="language-cpp"><span class="comment">// Program to blink an LED connected to pin D0</span>
-<span class="comment">// of the Spark Core. </span>
+<span class="comment">// of the Spark Core.</span>
 
 <span class="comment">// We name pin D0 as led</span>
-<span class="keyword">int</span> led = D0; 
+<span class="keyword">int</span> led = D0;
 
 <span class="comment">// This routine runs only once upon reset</span>
-<span class="keyword">void</span> setup() 
+<span class="keyword">void</span> setup()
 {
   <span class="comment">// Initialize D0 pin as output</span>
   pinMode(led, OUTPUT);
 }
 
-<span class="comment">// This routine loops forever </span>
-<span class="keyword">void</span> loop() 
+<span class="comment">// This routine loops forever</span>
+<span class="keyword">void</span> loop()
 {
   digitalWrite(led, HIGH);   <span class="comment">// Turn ON the LED</span>
   delay(<span class="number">1000</span>);               <span class="comment">// Wait for 1000mS = 1 second</span>
@@ -131,7 +131,7 @@
 <p><img src="images/breadboard-two-leds.jpg" alt="Two LED setup"></p>
 <p>Now that we know how to blink an LED, how about we control it over the Internet? This is where the fun begins.</p>
 <p>Lets hook up two LEDs this time.</p>
-<p>Here is the algorithm: </p>
+<p>Here is the algorithm:</p>
 <ul>
 <li>Set up the pins as outputs that have LEDs connected to them</li>
 <li>Create and register a Spark function ( this gets called automagically when you make an API request to it)</li>
@@ -161,7 +161,7 @@
 }
 
 
-<span class="comment">// This routine loops forever </span>
+<span class="comment">// This routine loops forever</span>
 <span class="keyword">void</span> loop()
 {
    <span class="comment">// Nothing to do here</span>

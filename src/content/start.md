@@ -1,5 +1,6 @@
 ---
 title: Getting started
+order: 0
 ---
 
 Getting started
@@ -89,7 +90,7 @@ When the Core connects to the internet, it establishes a connection to the *Spar
 
 ### Buttons
 
-There are two buttons on the Core: the RESET button (on the right) and the MODE button (on the left). 
+There are two buttons on the Core: the RESET button (on the right) and the MODE button (on the left).
 
 The RESET button will put the Core in a hard reset, effectively depowering and repowering the microcontroller. This is a good way to restart the application that you've downloaded onto the Core.  
 
@@ -238,7 +239,7 @@ Sets the pin to a value between 0 and 255, where 0 is the same as LOW and 255 is
 
 The parameters must be the pin (A0 to A7, D0 to D7), followed by an integer value from 0 to 255, separated by a comma. The return value will be 1 if the write succeeds, and -1 if it fails.
 
-    
+
 
 
 ### digitalRead

@@ -1,5 +1,6 @@
 ---
 title: Connecting your Core
+order: 1
 ---
 
 Connecting your Core
@@ -190,7 +191,7 @@ The Spark Core has an RGB LED positioned on the front that displays the connecti
 - *What’s the Core doing?* My Core is flashing blue.
 - *What’s the problem?* Your Core doesn’t have Wi-Fi credentials to join your local network
 - *How do I fix it?*
-        
+
 Right now, your Core does not have the information it needs to connect to your local Wi-Fi network.  If you haven’t already, try using the Spark Core app for [iPhone](https://itunes.apple.com/us/app/spark-core/id760157884) or [Android](https://play.google.com/store/apps/details?id=io.spark.core.android)  to send your network credentials to your Core.  Detailed instructions can be found [here](http://docs.spark.io/#/connect/connecting-your-core-smart-config-with-the-ti-app).
 
 
@@ -232,13 +233,13 @@ Please complete the following steps:
 - *How do I fix it?*
 
 Please complete the following steps:
-  
+
 1. Try hitting the RST button to make sure you did not accidentally configure your Core into DFU mode.
 2. Try a factory reset.  Hold down both buttons, then release the RST button, while holding down the MODE button.  The LED should begin flashing yellow.  Continue holding down the MODE button until you see the Core change from flashing yellow to flashing white.  Then release the button.  The Core should begin [flashing blue](https://v.cdn.vine.co/r/videos/E465A8959B1015390893882101760_178fcfd2b3c.4.3.11510817618992331600_MIW9HE1mtZ9H_SpBlKdK1lv2UfmniExCFQHrgJ7iqiFDUiDb0E31bR7GwvB_7wz0.mp4?versionId=eS01KUZ6NaUZgEipSDeVi0rxZENByp1N) after the factory reset is complete.
 3. If a factory reset is unsuccessful, then we have to write the firmware over DFU.  You can accomplish this by following the steps below:
 
 Install dfu-util for your system either using homebrew on a mac, http://dfu-util.gnumonks.org/ on windows, or you can build from source on linux:
-        
+
     opkg install libusb-1.0-dev
     wget http://dfu-util.gnumonks.org/releases/dfu-util-0.7.tar.gz
     tar xvf dfu-util-0.7.tar.gz
@@ -250,7 +251,7 @@ Install dfu-util for your system either using homebrew on a mac, http://dfu-util
 ---
 
 If you install those you should be able to run, with your core connected over USB:
-        
+
     sudo dfu-util -l
 
 ---
@@ -286,7 +287,7 @@ Please complete the following steps:
 - *What’s the problem?* Your Core is facing a networking issue and cannot connect to the Cloud.
 - *How do I fix it?*
 
-There are two potential failure modes here--either your home network does not have a working internet connection, or we are having issues with our servers. 
+There are two potential failure modes here--either your home network does not have a working internet connection, or we are having issues with our servers.
 
 1. Try power cycling your router to resolve any transient networking hiccups in your home Wi-Fi network
 2. Try going to a website like [Google](http://www.google.com/) on your computer or laptop to verify that your Wi-Fi network is connected to the internet and is capable of serving up web pages
@@ -311,6 +312,6 @@ There are two potential failure modes here--either your home network does not ha
 - *How do I fix it?*
 
 Please complete the following steps:
-  
+
 1. Try powering the Core with a different USB cable and power supply (different USB port on your computer, for example)
 2. If a different USB cable and power supply does not fix the issue, your Core may have a hardware short. Please [contact the Spark team](mailto:hello@spark.io) for further debugging.

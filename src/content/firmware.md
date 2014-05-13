@@ -1,5 +1,6 @@
 ---
 title: Firmware reference
+order: 3
 ---
 
 Spark Core Firmware
@@ -77,7 +78,7 @@ void loop()
 }
 
 //this function automagically gets called upon a matching POST request
-int brewCoffee(String command) 
+int brewCoffee(String command)
 {
   //look for the matching argument "coffee" <-- max of 64 characters long
   if(command == "coffee")
@@ -158,7 +159,7 @@ void loop() {
   delay(1000);
 }
 ```
-<!-- TO DO 
+<!-- TO DO
 ### Spark.disconnect()
 
 Disconnects the Spark Core from the Spark Cloud.
@@ -258,7 +259,7 @@ Input/Output
 
 ### pinMode()
 
-`pinMode()` configures the specified pin to behave either as an input or an output. 
+`pinMode()` configures the specified pin to behave either as an input or an output.
 
 ```C++
 SYNTAX
@@ -272,7 +273,7 @@ pinMode(pin,mode);
 ```C++
 EXAMPLE USAGE
 int button = D0;                       // button is connected to D0
-int LED = D1;                          // LED is connected to D1 
+int LED = D1;                          // LED is connected to D1
 
 void setup()
 {
@@ -341,7 +342,7 @@ digitalRead(pin);
 ```C++
 EXAMPLE USAGE
 int button = D0;                       // button is connected to D0
-int LED = D1;                          // LED is connected to D1 
+int LED = D1;                          // LED is connected to D1
 int val = 0;                           // variable to store the read value
 
 void setup()
@@ -364,7 +365,7 @@ Writes an analog value (PWM wave) to a pin. Can be used to light a LED at varyin
 
 On the Spark Core, this function works on pins A0, A1, A4, A5, A6, A7, D0 and D1.
 
-The analogWrite function has nothing to do with the analog pins or the analogRead function. 
+The analogWrite function has nothing to do with the analog pins or the analogRead function.
 
 ```C++
 SYNTAX
@@ -439,11 +440,11 @@ Used for communication between the Spark Core and a computer or other devices. T
 
 `Serial1:` This channel is available via the Core's TX and RX pins. To use these pins to communicate with your personal computer, you will need an additional USB-to-serial adapter. To use them to communicate with an external TTL serial device, connect the TX pin to your device's RX pin, the RX to your device's TX pin, and the ground of your Core to your device's ground.
 
-**NOTE:** Please take into account that the voltage levels on these pins runs at 0V to 3.3V and should not be connected directly to a computer's RS232 serial port which operates at +/- 12V and can damage the Core. 
+**NOTE:** Please take into account that the voltage levels on these pins runs at 0V to 3.3V and should not be connected directly to a computer's RS232 serial port which operates at +/- 12V and can damage the Core.
 
 ### begin()
 
-Sets the data rate in bits per second (baud) for serial data transmission. For communicating with the computer, use one of these rates: 300, 600, 1200, 2400, 4800, 9600, 14400, 19200, 28800, 38400, 57600, or 115200. You can, however, specify other rates - for example, to communicate over pins TX and RX with a component that requires a particular baud rate. 
+Sets the data rate in bits per second (baud) for serial data transmission. For communicating with the computer, use one of these rates: 300, 600, 1200, 2400, 4800, 9600, 14400, 19200, 28800, 38400, 57600, or 115200. You can, however, specify other rates - for example, to communicate over pins TX and RX with a component that requires a particular baud rate.
 
 ```C++
 SYNTAX
@@ -483,23 +484,23 @@ Get the number of bytes (characters) available for reading from the serial port.
 
 ```C++
 EXAMPLE USAGE
-void setup() 
+void setup()
 {
   Serial.begin(9600);
   Serial1.begin(9600);
 
 }
 
-void loop() 
+void loop()
 {
   // read from port 0, send to port 1:
-  if (Serial.available()) 
+  if (Serial.available())
   {
     int inByte = Serial.read();
     Serial1.print(inByte, BYTE);
   }
   // read from port 1, send to port 0:
-  if (Serial1.available()) 
+  if (Serial1.available())
   {
     int inByte = Serial1.read();
     Serial.print(inByte, BYTE);
@@ -509,12 +510,12 @@ void loop()
 
 ### peek()
 
-Returns the next byte (character) of incoming serial data without removing it from the internal serial buffer. That is, successive calls to peek() will return the same character, as will the next call to `read()`. 
+Returns the next byte (character) of incoming serial data without removing it from the internal serial buffer. That is, successive calls to peek() will return the same character, as will the next call to `read()`.
 
 ```C++
 SYNTAX
 Serial.peek();
-Serial1.peek(); 
+Serial1.peek();
 ```
 `peek()` returns the first byte of incoming serial data available (or `-1` if no data is available) - *int*
 
@@ -526,13 +527,13 @@ Writes binary data to the serial port. This data is sent as a byte or series of 
 SYNTAX
 Serial.write(val);
 Serial.write(str);
-Serial.write(buf, len); 
+Serial.write(buf, len);
 ```
 
 *Parameters:*
 
 - `val`: a value to send as a single byte
-- `str`: a string to send as a series of bytes 
+- `str`: a string to send as a series of bytes
 - `buf`: an array to send as a series of bytes
 - `len`: the length of the buffer
 
@@ -592,7 +593,7 @@ Prints data to the serial port as human-readable ASCII text. This command can ta
 - Serial.print(78) gives "78"
 - Serial.print(1.23456) gives "1.23"
 - Serial.print('N') gives "N"
-- Serial.print("Hello world.") gives "Hello world." 
+- Serial.print("Hello world.") gives "Hello world."
 
 An optional second parameter specifies the base (format) to use; permitted values are BIN (binary, or base 2), OCT (octal, or base 8), DEC (decimal, or base 10), HEX (hexadecimal, or base 16). For floating point numbers, this parameter specifies the number of decimal places to use. For example:
 
@@ -602,7 +603,7 @@ An optional second parameter specifies the base (format) to use; permitted value
 - Serial.print(78, HEX) gives "4E"
 - Serial.println(1.23456, 0) gives "1"
 - Serial.println(1.23456, 2) gives "1.23"
-- Serial.println(1.23456, 4) gives "1.2346" 
+- Serial.println(1.23456, 4) gives "1.2346"
 
 ### println()
 
@@ -617,7 +618,7 @@ Serial.println(val, format);
 *Parameters:*  
 
 - `val`: the value to print - any data type
-- `format`: specifies the number base (for integral data types) or number of decimal places (for floating point types) 
+- `format`: specifies the number base (for integral data types) or number of decimal places (for floating point types)
 
 `println()` returns the number of bytes written, though reading that number is optional - `size_t (long)`
 
@@ -627,7 +628,7 @@ EXAMPLE
 
 int analogValue = 0;    // variable to hold the analog value
 
-void setup() 
+void setup()
 {
   // open the serial port at 9600 bps:
   Serial.begin(9600);
@@ -657,7 +658,7 @@ Waits for the transmission of outgoing serial data to complete.
 SYNTAX
 Serial.flush();
 Serial1.flush();
-``` 
+```
 
 `flush()` neither takes a parameter nor returns anything
 
@@ -669,9 +670,9 @@ This library allows you to communicate with SPI devices, with the Spark Core as 
 
 ### begin()
 
-Initializes the SPI bus by setting SCK, MOSI, and SS to outputs, pulling SCK and MOSI low, and SS high. 
+Initializes the SPI bus by setting SCK, MOSI, and SS to outputs, pulling SCK and MOSI low, and SS high.
 
-Note that once the pin is configured, you can't use it anymore as a general I/O, unless you call the SPI.end() method on the same pin. 
+Note that once the pin is configured, you can't use it anymore as a general I/O, unless you call the SPI.end() method on the same pin.
 
 ```C++
 // SYNTAX
@@ -680,7 +681,7 @@ SPI.begin();
 
 ### end()
 
-Disables the SPI bus (leaving pin modes unchanged). 
+Disables the SPI bus (leaving pin modes unchanged).
 
 ```C++
 // SYNTAX
@@ -689,14 +690,14 @@ SPI.end();
 
 ### setBitOrder()
 
-Sets the order of the bits shifted out of and into the SPI bus, either LSBFIRST (least-significant bit first) or MSBFIRST (most-significant bit first). 
+Sets the order of the bits shifted out of and into the SPI bus, either LSBFIRST (least-significant bit first) or MSBFIRST (most-significant bit first).
 
 ```C++
 // SYNTAX
 SPI.setBitOrder(order);
 ```
 
-Where, the parameter `order` can either be `LSBFIRST` or `MSBFIRST`. 
+Where, the parameter `order` can either be `LSBFIRST` or `MSBFIRST`.
 
 ### setClockDivider()
 
@@ -706,7 +707,7 @@ Sets the SPI clock divider relative to the system clock. The available dividers 
 // SYNTAX
 SPI.setClockDivider(divider) ;
 ```
-Where the parameter, `divider` can be: 
+Where the parameter, `divider` can be:
 ```
 SPI_CLOCK_DIV2
 SPI_CLOCK_DIV4
@@ -714,30 +715,30 @@ SPI_CLOCK_DIV8
 SPI_CLOCK_DIV16
 SPI_CLOCK_DIV32
 SPI_CLOCK_DIV64
-SPI_CLOCK_DIV128 
-SPI_CLOCK_DIV256 
+SPI_CLOCK_DIV128
+SPI_CLOCK_DIV256
 ```
 
 ### setDataMode()
 
-Sets the SPI data mode: that is, clock polarity and phase. See the [Wikipedia article on SPI](http://en.wikipedia.org/wiki/Serial_Peripheral_Interface_Bus) for details. 
+Sets the SPI data mode: that is, clock polarity and phase. See the [Wikipedia article on SPI](http://en.wikipedia.org/wiki/Serial_Peripheral_Interface_Bus) for details.
 
 ```C++
 // SYNTAX
 SPI.setClockDivider(mode) ;
 ```
-Where the parameter, `mode` can be: 
+Where the parameter, `mode` can be:
 
 ```
 SPI_MODE0
 SPI_MODE1
 SPI_MODE2
-SPI_MODE3 
+SPI_MODE3
 ```
 
-### transfer() 
+### transfer()
 
-Transfers one byte over the SPI bus, both sending and receiving. 
+Transfers one byte over the SPI bus, both sending and receiving.
 
 ```C++
 // SYNTAX
@@ -754,7 +755,7 @@ This library allows you to communicate with I2C / TWI devices. On the Spark Core
 
 ### begin()
 
-Initiate the Wire library and join the I2C bus as a master or slave. This should normally be called only once. 
+Initiate the Wire library and join the I2C bus as a master or slave. This should normally be called only once.
 
 ```C++
 // SYNTAX
@@ -762,17 +763,17 @@ Wire.begin();
 Wire.begin(address);
 ```
 
-Parameters: `address`: the 7-bit slave address (optional); if not specified, join the bus as a master. 
+Parameters: `address`: the 7-bit slave address (optional); if not specified, join the bus as a master.
 
 ### requestFrom()
 
-Used by the master to request bytes from a slave device. The bytes may then be retrieved with the `available()` and `read()` functions. 
+Used by the master to request bytes from a slave device. The bytes may then be retrieved with the `available()` and `read()` functions.
 
 If true, requestFrom() sends a stop message after the request, releasing the I2C bus.
 
 If false, requestFrom() sends a restart message after the request. The bus will not be released, which prevents another master device from requesting between messages. This allows one master device to send multiple requests while in control.
 
-The default value is true. 
+The default value is true.
 
 ```C++
 // SYNTAX
@@ -784,13 +785,13 @@ Parameters:
 
 - `address`: the 7-bit address of the device to request bytes from
 - `quantity`: the number of bytes to request
-- `stop`: boolean. true will send a stop message after the request, releasing the bus. false will continually send a restart after the request, keeping the connection active. 
+- `stop`: boolean. true will send a stop message after the request, releasing the bus. false will continually send a restart after the request, keeping the connection active.
 
 Returns: `byte` : the number of bytes returned from the slave device.
 
 ### beginTransmission()
 
-Begin a transmission to the I2C slave device with the given address. Subsequently, queue bytes for transmission with the `write()` function and transmit them by calling `endTransmission()`. 
+Begin a transmission to the I2C slave device with the given address. Subsequently, queue bytes for transmission with the `write()` function and transmit them by calling `endTransmission()`.
 
 ```C++
 // SYNTAX
@@ -801,13 +802,13 @@ Parameters: `address`: the 7-bit address of the device to transmit to.
 
 ### endTransmission()
 
-Ends a transmission to a slave device that was begun by `beginTransmission()` and transmits the bytes that were queued by `write()`. 
+Ends a transmission to a slave device that was begun by `beginTransmission()` and transmits the bytes that were queued by `write()`.
 
 If true, `endTransmission()` sends a stop message after transmission, releasing the I2C bus.
 
 If false, `endTransmission()` sends a restart message after transmission. The bus will not be released, which prevents another master device from transmitting between messages. This allows one master device to send multiple transmissions while in control.
 
-The default value is true. 
+The default value is true.
 
 ```C++
 Wire.endTransmission();
@@ -815,7 +816,7 @@ Wire.endTransmission(stop);
 ```
 
 Parameters: `stop` : boolean.  
-`true` will send a stop message, releasing the bus after transmission. `false` will send a restart, keeping the connection active. 
+`true` will send a stop message, releasing the bus after transmission. `false` will send a restart, keeping the connection active.
 
 Returns: `byte`, which indicates the status of the transmission:
 
@@ -823,11 +824,11 @@ Returns: `byte`, which indicates the status of the transmission:
 - 1: data too long to fit in transmit buffer
 - 2: received NACK on transmit of address
 - 3: received NACK on transmit of data
-- 4: other error 
+- 4: other error
 
 ### write()
 
-Writes data from a slave device in response to a request from a master, or queues bytes for transmission from a master to slave device (in-between calls to `beginTransmission()` and `endTransmission()`). 
+Writes data from a slave device in response to a request from a master, or queues bytes for transmission from a master to slave device (in-between calls to `beginTransmission()` and `endTransmission()`).
 
 ```C++
 // Syntax
@@ -840,7 +841,7 @@ Parameters:
 - `value`: a value to send as a single byte
 - `string`: a string to send as a series of bytes
 - `data`: an array of data to send as bytes
-- `length`: the number of bytes to transmit 
+- `length`: the number of bytes to transmit
 
 Returns:  `byte`  
 
@@ -873,23 +874,23 @@ void loop()
 
 ### available()
 
-Returns the number of bytes available for retrieval with `read()`. This should be called on a master device after a call to `requestFrom()` or on a slave inside the `onReceive()` handler. 
+Returns the number of bytes available for retrieval with `read()`. This should be called on a master device after a call to `requestFrom()` or on a slave inside the `onReceive()` handler.
 
 ```C++
 Wire.available();
 ```
 
-Returns: The number of bytes available for reading. 
+Returns: The number of bytes available for reading.
 
 ### read()
 
-Reads a byte that was transmitted from a slave device to a master after a call to `requestFrom()` or was transmitted from a master to a slave. `read()` inherits from the `Stream` utility class. 
+Reads a byte that was transmitted from a slave device to a master after a call to `requestFrom()` or was transmitted from a master to a slave. `read()` inherits from the `Stream` utility class.
 
 ```C++
 Wire.read() ;
 ```
 
-Returns: The next byte received 
+Returns: The next byte received
 
 ```C++
 // EXAMPLE USAGE
@@ -916,13 +917,13 @@ void loop()
 
 ### onReceive()
 
-Registers a function to be called when a slave device receives a transmission from a master. 
+Registers a function to be called when a slave device receives a transmission from a master.
 
 Parameters: `handler`: the function to be called when the slave receives data; this should take a single int parameter (the number of bytes read from the master) and return nothing, e.g.: `void myHandler(int numBytes) `
 
-### onRequest() 
+### onRequest()
 
-Register a function to be called when a master requests data from this slave device. 
+Register a function to be called when a master requests data from this slave device.
 
 Parameters: `handler`: the function to be called, takes no parameters and returns nothing, e.g.: `void myHandler() `
 
@@ -930,7 +931,7 @@ TCPServer
 -----
 ### TCPServer
 
-Create a server that listens for incoming connections on the specified port. 
+Create a server that listens for incoming connections on the specified port.
 
 ```C++
 // SYNTAX
@@ -949,7 +950,7 @@ void setup()
 {
     // start listening for clients
     server.begin();
-    
+
     Serial.begin(9600);
 
     delay(1000);
@@ -964,7 +965,7 @@ void loop()
 {
   // if an incoming client connects, there will be bytes available to read:
   TCPClient client = server.available();
-  if (client == true) 
+  if (client == true)
   {
       // read bytes from the incoming client and write them back
       // to any clients connected to the server:
@@ -975,7 +976,7 @@ void loop()
 
 ### begin()
 
-Tells the server to begin listening for incoming connections. 
+Tells the server to begin listening for incoming connections.
 
 ```C++
 // SYNTAX
@@ -986,16 +987,16 @@ server.begin();
 
 Gets a client that is connected to the server and has data available for reading. The connection persists when the returned client object goes out of scope; you can close it by calling `client.stop()`.
 
-`available()` inherits from the `Stream` utility class. 
+`available()` inherits from the `Stream` utility class.
 
 ### write()
 
-Write data to all the clients connected to a server. This data is sent as a byte or series of bytes. 
+Write data to all the clients connected to a server. This data is sent as a byte or series of bytes.
 
 ```C++
 // Syntax
 server.write(val);
-server.write(buf, len); 
+server.write(buf, len);
 ```
 
 Parameters:
@@ -1004,11 +1005,11 @@ Parameters:
 - `buf`: an array to send as a series of bytes (byte or char)
 - `len`: the length of the buffer
 
-Returns: `byte`: `write()` returns the number of bytes written. It is not necessary to read this. 
+Returns: `byte`: `write()` returns the number of bytes written. It is not necessary to read this.
 
 ### print()
 
-Print data to all the clients connected to a server. Prints numbers as a sequence of digits, each an ASCII character (e.g. the number 123 is sent as the three characters '1', '2', '3'). 
+Print data to all the clients connected to a server. Prints numbers as a sequence of digits, each an ASCII character (e.g. the number 123 is sent as the three characters '1', '2', '3').
 
 ```C++
 // Syntax
@@ -1016,16 +1017,16 @@ server.print(data);
 server.print(data, BASE) ;
 ```
 
-Parameters: 
+Parameters:
 
 - `data`: the data to print (char, byte, int, long, or string)
-- `BASE`(optional): the base in which to print numbers: BIN for binary (base 2), DEC for decimal (base 10), OCT for octal (base 8), HEX for hexadecimal (base 16). 
+- `BASE`(optional): the base in which to print numbers: BIN for binary (base 2), DEC for decimal (base 10), OCT for octal (base 8), HEX for hexadecimal (base 16).
 
 Returns:  `byte`:  `print()` will return the number of bytes written, though reading that number is optional
 
 ### println()
 
-Print data, followed by a newline, to all the clients connected to a server. Prints numbers as a sequence of digits, each an ASCII character (e.g. the number 123 is sent as the three characters '1', '2', '3'). 
+Print data, followed by a newline, to all the clients connected to a server. Prints numbers as a sequence of digits, each an ASCII character (e.g. the number 123 is sent as the three characters '1', '2', '3').
 
 ```C++
 // Syntax
@@ -1035,17 +1036,17 @@ server.println(data);
 server.println(data, BASE) ;
 ```
 
-Parameters: 
+Parameters:
 
 - `data` (optional): the data to print (char, byte, int, long, or string)
-- `BASE` (optional): the base in which to print numbers: BIN for binary (base 2), DEC for decimal (base 10), OCT for octal (base 8), HEX for hexadecimal (base 16). 
+- `BASE` (optional): the base in which to print numbers: BIN for binary (base 2), DEC for decimal (base 10), OCT for octal (base 8), HEX for hexadecimal (base 16).
 
 TCPClient
 -----
 
 ### TCPClient
 
-Creates a client which can connect to a specified internet IP address and port (defined in the `client.connect()` function). 
+Creates a client which can connect to a specified internet IP address and port (defined in the `client.connect()` function).
 
 ```C++
 // SYNTAX
@@ -1063,13 +1064,13 @@ void setup()
   delay(1000);
   Serial.println("connecting...");
 
-  if (client.connect(server, 80)) 
+  if (client.connect(server, 80))
   {
     Serial.println("connected");
     client.println("GET /search?q=unicorn HTTP/1.0");
     client.println();
-  } 
-  else 
+  }
+  else
   {
     Serial.println("connection failed");
   }
@@ -1077,13 +1078,13 @@ void setup()
 
 void loop()
 {
-  if (client.available()) 
+  if (client.available())
   {
     char c = client.read();
     Serial.print(c);
   }
 
-  if (!client.connected()) 
+  if (!client.connected())
   {
     Serial.println();
     Serial.println("disconnecting.");
@@ -1096,18 +1097,18 @@ void loop()
 
 ### connected()
 
-Whether or not the client is connected. Note that a client is considered connected if the connection has been closed but there is still unread data. 
+Whether or not the client is connected. Note that a client is considered connected if the connection has been closed but there is still unread data.
 
 ```C++
 // SYNTAX
 client.connected();
 ```
 
-Returns true if the client is connected, false if not. 
+Returns true if the client is connected, false if not.
 
 ### connect()
 
-Connects to a specified IP address and port. The return value indicates success or failure. Also supports DNS lookups when using a domain name. 
+Connects to a specified IP address and port. The return value indicates success or failure. Also supports DNS lookups when using a domain name.
 
 ```C++
 // SYNTAX
@@ -1121,13 +1122,13 @@ Parameters:
 
 - `ip`: the IP address that the client will connect to (array of 4 bytes)
 - `URL`: the domain name the client will connect to (string, ex.:"spark.io")
-- `port`: the port that the client will connect to (`int`) 
+- `port`: the port that the client will connect to (`int`)
 
-Returns true if the connection succeeds, false if not. 
+Returns true if the connection succeeds, false if not.
 
 ### write()
 
-Write data to the server the client is connected to. This data is sent as a byte or series of bytes. 
+Write data to the server the client is connected to. This data is sent as a byte or series of bytes.
 
 ```C++
 // SYNTAX
@@ -1139,13 +1140,13 @@ Parameters:
 
 - `val`: a value to send as a single byte (byte or char)
 - `buf`: an array to send as a series of bytes (byte or char)
-- `len`: the length of the buffer 
+- `len`: the length of the buffer
 
 Returns: `byte`: `write()` returns the number of bytes written. It is not necessary to read this value.
 
 ### print()
 
-Print data to the server that a client is connected to. Prints numbers as a sequence of digits, each an ASCII character (e.g. the number 123 is sent as the three characters '1', '2', '3'). 
+Print data to the server that a client is connected to. Prints numbers as a sequence of digits, each an ASCII character (e.g. the number 123 is sent as the three characters '1', '2', '3').
 
 ```C++
 // Syntax
@@ -1153,16 +1154,16 @@ client.print(data);
 client.print(data, BASE) ;
 ```
 
-Parameters: 
+Parameters:
 
 - `data`: the data to print (char, byte, int, long, or string)
-- `BASE`(optional): the base in which to print numbers: BIN for binary (base 2), DEC for decimal (base 10), OCT for octal (base 8), HEX for hexadecimal (base 16). 
+- `BASE`(optional): the base in which to print numbers: BIN for binary (base 2), DEC for decimal (base 10), OCT for octal (base 8), HEX for hexadecimal (base 16).
 
 Returns:  `byte`:  `print()` will return the number of bytes written, though reading that number is optional
 
 ### println()
 
-Print data, followed by a carriage return and newline, to the server a client is connected to. Prints numbers as a sequence of digits, each an ASCII character (e.g. the number 123 is sent as the three characters '1', '2', '3'). 
+Print data, followed by a carriage return and newline, to the server a client is connected to. Prints numbers as a sequence of digits, each an ASCII character (e.g. the number 123 is sent as the three characters '1', '2', '3').
 
 ```C++
 // Syntax
@@ -1172,35 +1173,35 @@ client.println(data);
 client.println(data, BASE) ;
 ```
 
-Parameters: 
+Parameters:
 
 - `data` (optional): the data to print (char, byte, int, long, or string)
-- `BASE` (optional): the base in which to print numbers: BIN for binary (base 2), DEC for decimal (base 10), OCT for octal (base 8), HEX for hexadecimal (base 16). 
+- `BASE` (optional): the base in which to print numbers: BIN for binary (base 2), DEC for decimal (base 10), OCT for octal (base 8), HEX for hexadecimal (base 16).
 
 ### available()
 
-Returns the number of bytes available for reading (that is, the amount of data that has been written to the client by the server it is connected to). 
+Returns the number of bytes available for reading (that is, the amount of data that has been written to the client by the server it is connected to).
 
 ```C++
 // SYNTAX
 client.available();
 ```
 
-Returns the number of bytes available. 
+Returns the number of bytes available.
 
 ### read()
-Read the next byte received from the server the client is connected to (after the last call to `read()`). 
+Read the next byte received from the server the client is connected to (after the last call to `read()`).
 
 ```C++
 // SYNTAX
 client.read();
 ```
 
-Returns the next byte (or character), or -1 if none is available. 
+Returns the next byte (or character), or -1 if none is available.
 
 ### flush()
 
-Discard any bytes that have been written to the client but not yet read. 
+Discard any bytes that have been written to the client but not yet read.
 
 ```C++
 // SYNTAX
@@ -1209,7 +1210,7 @@ client.flush();
 
 ### stop()
 
-Disconnect from the server. 
+Disconnect from the server.
 
 ```C++
 // SYNTAX
@@ -1245,29 +1246,29 @@ This library allows a Spark Core to control RC (hobby) servo motors. Servos have
 ```cpp
 // EXAMPLE CODE
 
-Servo myservo;  // create servo object to control a servo 
-                // a maximum of eight servo objects can be created 
- 
-int pos = 0;    // variable to store the servo position 
- 
-void setup() 
-{ 
-  myservo.attach(A0);  // attaches the servo on the A0 pin to the servo object 
-} 
- 
- 
-void loop() 
-{ 
-  for(pos = 0; pos < 180; pos += 1)  // goes from 0 degrees to 180 degrees 
-  {                                  // in steps of 1 degree 
-    myservo.write(pos);              // tell servo to go to position in variable 'pos' 
-    delay(15);                       // waits 15ms for the servo to reach the position 
-  } 
-  for(pos = 180; pos>=1; pos-=1)     // goes from 180 degrees to 0 degrees 
-  {                                
-    myservo.write(pos);              // tell servo to go to position in variable 'pos' 
-    delay(15);                       // waits 15ms for the servo to reach the position 
-  } 
+Servo myservo;  // create servo object to control a servo
+                // a maximum of eight servo objects can be created
+
+int pos = 0;    // variable to store the servo position
+
+void setup()
+{
+  myservo.attach(A0);  // attaches the servo on the A0 pin to the servo object
+}
+
+
+void loop()
+{
+  for(pos = 0; pos < 180; pos += 1)  // goes from 0 degrees to 180 degrees
+  {                                  // in steps of 1 degree
+    myservo.write(pos);              // tell servo to go to position in variable 'pos'
+    delay(15);                       // waits 15ms for the servo to reach the position
+  }
+  for(pos = 180; pos>=1; pos-=1)     // goes from 180 degrees to 0 degrees
+  {
+    myservo.write(pos);              // tell servo to go to position in variable 'pos'
+    delay(15);                       // waits 15ms for the servo to reach the position
+  }
 }
 ```
 
@@ -1413,7 +1414,7 @@ void loop()
   delay(1000);
 }
 ```
-**Note:** 
+**Note:**
 The parameter for millis is an unsigned long, errors may be generated if a programmer tries to do math with other datatypes such as ints.
 
 ### micros()
@@ -1471,7 +1472,7 @@ void loop()
   delay(1000);                  // waits for a second
 }
 ```
-**NOTE:** 
+**NOTE:**
 the parameter for millis is an unsigned long, errors may be generated if a programmer tries to do math with other datatypes such as ints.
 
 ### delayMicroseconds()
@@ -1498,9 +1499,9 @@ void setup()
 void loop()
 {
   digitalWrite(outPin, HIGH);   // sets the pin on
-  delayMicroseconds(50);        // pauses for 50 microseconds      
+  delayMicroseconds(50);        // pauses for 50 microseconds
   digitalWrite(outPin, LOW);    // sets the pin off
-  delayMicroseconds(50);        // pauses for 50 microseconds      
+  delayMicroseconds(50);        // pauses for 50 microseconds
 }
 ```
 
@@ -1525,7 +1526,7 @@ A0, A1, A3, A4, A5, A6, A7
 - `mode`: defines when the interrupt should be triggered. Four constants are predefined as valid values:
     - CHANGE to trigger the interrupt whenever the pin changes value,
     - RISING to trigger when the pin goes from low to high,
-    - FALLING for when the pin goes from high to low. 
+    - FALLING for when the pin goes from high to low.
 
 The function does not return anything.
 
@@ -1535,7 +1536,7 @@ Inside the attached function, `delay()` won't work and the value returned by `mi
 *Using Interrupts:*  
 Interrupts are useful for making things happen automatically in microcontroller programs, and can help solve timing problems. Good tasks for using an interrupt may include reading a rotary encoder, or monitoring user input.
 
-If you wanted to insure that a program always caught the pulses from a rotary encoder, so that it never misses a pulse, it would make it very tricky to write a program to do anything else, because the program would need to constantly poll the sensor lines for the encoder, in order to catch pulses when they occurred. Other sensors have a similar interface dynamic too, such as trying to read a sound sensor that is trying to catch a click, or an infrared slot sensor (photo-interrupter) trying to catch a coin drop. In all of these situations, using an interrupt can free the microcontroller to get some other work done while not missing the input. 
+If you wanted to insure that a program always caught the pulses from a rotary encoder, so that it never misses a pulse, it would make it very tricky to write a program to do anything else, because the program would need to constantly poll the sensor lines for the encoder, in order to catch pulses when they occurred. Other sensors have a similar interface dynamic too, such as trying to read a sound sensor that is trying to catch a click, or an infrared slot sensor (photo-interrupter) trying to catch a coin drop. In all of these situations, using an interrupt can free the microcontroller to get some other work done while not missing the input.
 
 ```C++
 EXAMPLE USAGE
@@ -1630,8 +1631,8 @@ sensVal = min(sensVal, 100); // assigns sensVal to the smaller of sensVal or 100
 **NOTE:**
 Perhaps counter-intuitively, max() is often used to constrain the lower end of a variable's range, while min() is used to constrain the upper end of the range.
 
-**WARNING:** 
-Because of the way the min() function is implemented, avoid using other functions inside the brackets, it may lead to incorrect results 
+**WARNING:**
+Because of the way the min() function is implemented, avoid using other functions inside the brackets, it may lead to incorrect results
 
 ```C++
 min(a++, 100);   // avoid this - yields incorrect results
@@ -1660,8 +1661,8 @@ sensVal = max(senVal, 20); // assigns sensVal to the larger of sensVal or 20
 **NOTE:**
 Perhaps counter-intuitively, max() is often used to constrain the lower end of a variable's range, while min() is used to constrain the upper end of the range.
 
-**WARNING:** 
-Because of the way the max() function is implemented, avoid using other functions inside the brackets, it may lead to incorrect results 
+**WARNING:**
+Because of the way the max() function is implemented, avoid using other functions inside the brackets, it may lead to incorrect results
 
 ```C++
 max(a--, 0);   // avoid this - yields incorrect results
@@ -1722,13 +1723,13 @@ Does not constrain values to within the range, because out-of-range values are s
 
 Note that the "lower bounds" of either range may be larger or smaller than the "upper bounds" so the `map()` function may be used to reverse a range of numbers, for example
 
-`y = map(x, 1, 50, 50, 1);` 
+`y = map(x, 1, 50, 50, 1);`
 
 The function also handles negative numbers well, so that this example
 
 `y = map(x, 1, 50, 50, -100);`
 
-is also valid and works well. 
+is also valid and works well.
 
 The `map()` function uses integer math so will not generate fractions, when the math might indicate that it should do so. Fractional remainders are truncated, and are not rounded or averaged.
 
@@ -1738,7 +1739,7 @@ The `map()` function uses integer math so will not generate fractions, when the 
 - `fromLow`: the lower bound of the value's current range
 - `fromHigh`: the upper bound of the value's current range
 - `toLow`: the lower bound of the value's target range
-- `toHigh`: the upper bound of the value's target range 
+- `toHigh`: the upper bound of the value's target range
 
 The function returns the mapped value
 
@@ -1846,7 +1847,7 @@ Control structures
 
 ### if
 
-`if`, which is used in conjunction with a comparison operator, tests whether a certain condition has been reached, such as an input being above a certain number. 
+`if`, which is used in conjunction with a comparison operator, tests whether a certain condition has been reached, such as an input being above a certain number.
 
 ```C++
 SYNTAX
@@ -1855,22 +1856,22 @@ if (someVariable > 50)
   // do something here
 }
 ```
-The program tests to see if someVariable is greater than 50. If it is, the program takes a particular action. Put another way, if the statement in parentheses is true, the statements inside the brackets are run. If not, the program skips over the code. 
+The program tests to see if someVariable is greater than 50. If it is, the program takes a particular action. Put another way, if the statement in parentheses is true, the statements inside the brackets are run. If not, the program skips over the code.
 
-The brackets may be omitted after an *if* statement. If this is done, the next line (defined by the semicolon) becomes the only conditional statement. 
+The brackets may be omitted after an *if* statement. If this is done, the next line (defined by the semicolon) becomes the only conditional statement.
 
 ```C++
-if (x > 120) digitalWrite(LEDpin, HIGH); 
-
-if (x > 120) 
-digitalWrite(LEDpin, HIGH); 
-
-if (x > 120){ digitalWrite(LEDpin, HIGH); } 
+if (x > 120) digitalWrite(LEDpin, HIGH);
 
 if (x > 120)
-{ 
+digitalWrite(LEDpin, HIGH);
+
+if (x > 120){ digitalWrite(LEDpin, HIGH); }
+
+if (x > 120)
+{
   digitalWrite(LEDpin1, HIGH);
-  digitalWrite(LEDpin2, HIGH); 
+  digitalWrite(LEDpin2, HIGH);
 }                                 // all are correct
 ```
 The statements being evaluated inside the parentheses require the use of one or more operators:
@@ -1881,8 +1882,8 @@ The statements being evaluated inside the parentheses require the use of one or 
 x == y (x is equal to y)
 x != y (x is not equal to y)
 x <  y (x is less than y)  
-x >  y (x is greater than y) 
-x <= y (x is less than or equal to y) 
+x >  y (x is greater than y)
+x <= y (x is less than or equal to y)
 x >= y (x is greater than or equal to y)
 ```
 
@@ -1891,11 +1892,11 @@ Beware of accidentally using the single equal sign (e.g. `if (x = 10)` ). The si
 
 This is because C evaluates the statement `if (x=10)` as follows: 10 is assigned to x (remember that the single equal sign is the assignment operator), so x now contains 10. Then the 'if' conditional evaluates 10, which always evaluates to TRUE, since any non-zero number evaluates to TRUE. Consequently, `if (x = 10)` will always evaluate to TRUE, which is not the desired result when using an 'if' statement. Additionally, the variable x will be set to 10, which is also not a desired action.
 
-`if` can also be part of a branching control structure using the `if...else`] construction. 
+`if` can also be part of a branching control structure using the `if...else`] construction.
 
 ### if...else
 
-*if/else* allows greater control over the flow of code than the basic *if* statement, by allowing multiple tests to be grouped together. For example, an analog input could be tested and one action taken if the input was less than 500, and another action taken if the input was 500 or greater. The code would look like this: 
+*if/else* allows greater control over the flow of code than the basic *if* statement, by allowing multiple tests to be grouped together. For example, an analog input could be tested and one action taken if the input was less than 500, and another action taken if the input was 500 or greater. The code would look like this:
 
 ```C++
 SYNTAX
@@ -1908,11 +1909,11 @@ else
   // action B
 }
 ```
-`else` can proceed another `if` test, so that multiple, mutually exclusive tests can be run at the same time. 
+`else` can proceed another `if` test, so that multiple, mutually exclusive tests can be run at the same time.
 
-Each test will proceed to the next one until a true test is encountered. When a true test is found, its associated block of code is run, and the program then skips to the line following the entire if/else construction. If no test proves to be true, the default else block is executed, if one is present, and sets the default behavior. 
+Each test will proceed to the next one until a true test is encountered. When a true test is found, its associated block of code is run, and the program then skips to the line following the entire if/else construction. If no test proves to be true, the default else block is executed, if one is present, and sets the default behavior.
 
-Note that an *else if* block may be used with or without a terminating *else* block and vice versa. An unlimited number of such else if branches is allowed. 
+Note that an *else if* block may be used with or without a terminating *else* block and vice versa. An unlimited number of such else if branches is allowed.
 
 ```C++
 if (pinFiveInput < 500)
@@ -1933,16 +1934,16 @@ Another way to express branching, mutually exclusive tests, is with the [`switch
 
 ### for
 
-The `for` statement is used to repeat a block of statements enclosed in curly braces. An increment counter is usually used to increment and terminate the loop. The `for` statement is useful for any repetitive operation, and is often used in combination with arrays to operate on collections of data/pins. 
+The `for` statement is used to repeat a block of statements enclosed in curly braces. An increment counter is usually used to increment and terminate the loop. The `for` statement is useful for any repetitive operation, and is often used in combination with arrays to operate on collections of data/pins.
 
-There are three parts to the for loop header: 
+There are three parts to the for loop header:
 
 ```C++
 SYNTAX
-for (initialization; condition; increment) 
+for (initialization; condition; increment)
 {
   //statement(s);
-} 
+}
 ```
 The *initialization* happens first and exactly once. Each time through the loop, the *condition* is tested; if it's true, the statement block, and the *increment* is executed, then the condition is tested again. When the *condition* becomes false, the loop ends.
 
@@ -1962,7 +1963,7 @@ void loop()
    for (int i=0; i <= 255; i++){
       analogWrite(ledPin, i);
       delay(10);
-   } 
+   }
 }
 ```
 The C `for` loop is much more flexible than for loops found in some other computer languages, including BASIC. Any or all of the three header elements may be omitted, although the semicolons are required. Also the statements for initialization, condition, and increment can be any valid C statements with unrelated variables, and use any C datatypes including floats. These types of unusual for statements may provide solutions to some rare programming problems.
@@ -1974,9 +1975,9 @@ for(int x = 2; x < 100; x = x * 1.5)
 {
   Serial.print(x);
 }
-//Generates: 2,3,4,6,9,13,19,28,42,63,94 
+//Generates: 2,3,4,6,9,13,19,28,42,63,94
 ```
-Another example, fade an LED up and down with one for loop: 
+Another example, fade an LED up and down with one for loop:
 
 ```C++
 // slowy make the LED glow brighter
@@ -1996,7 +1997,7 @@ void loop()
       analogWrite(ledPin, i);
       if (i == 255) x = -1;     // switch direction at peak
       delay(10);
-   } 
+   }
 }
 ```
 
@@ -2004,11 +2005,11 @@ void loop()
 
 Like `if` statements, `switch`...`case` controls the flow of programs by allowing programmers to specify different code that should be executed in various conditions. In particular, a switch statement compares the value of a variable to the values specified in case statements. When a case statement is found whose value matches that of the variable, the code in that case statement is run.
 
-The `break` keyword exits the switch statement, and is typically used at the end of each case. Without a break statement, the switch statement will continue executing the following expressions ("falling-through") until a break, or the end of the switch statement is reached. 
+The `break` keyword exits the switch statement, and is typically used at the end of each case. Without a break statement, the switch statement will continue executing the following expressions ("falling-through") until a break, or the end of the switch statement is reached.
 
 ```C++
 SYNTAX
-switch (var) 
+switch (var)
 {
   case label:
     // statements
@@ -2016,16 +2017,16 @@ switch (var)
   case label:
     // statements
     break;
-  default: 
+  default:
     // statements
 }
 ```
-`var` is the variable whose value to compare to the various cases 
+`var` is the variable whose value to compare to the various cases
 `label` is a value to compare the variable to
 
 ```C++
 EXAMPLE USAGE
-switch (var) 
+switch (var)
 {
     case 1:
       //do something when var equals 1
@@ -2033,7 +2034,7 @@ switch (var)
     case 2:
       //do something when var equals 2
       break;
-    default: 
+    default:
       // if nothing else matches, do the default
       // default is optional
 }
@@ -2064,7 +2065,7 @@ while(var < 200)
 
 ### do... while
 
-The `do` loop works in the same manner as the `while` loop, with the exception that the condition is tested at the end of the loop, so the do loop will *always* run at least once. 
+The `do` loop works in the same manner as the `while` loop, with the exception that the condition is tested at the end of the loop, so the do loop will *always* run at least once.
 
 ```C++
 SYNTAX
@@ -2095,7 +2096,7 @@ for (int x = 0; x < 255; x ++)
     digitalWrite(ledPin, x);
     sens = analogRead(sensorPin);  
     if (sens > threshold)         // bail out on sensor detect
-    {      
+    {
        x = 0;
        break;
     }  
@@ -2112,7 +2113,7 @@ EXAMPLE USAGE
 for (x = 0; x < 255; x ++)
 {
     if (x > 40 && x < 120) continue;    // create jump in values
-    
+
     digitalWrite(PWMpin, x);
     delay(50);
 }
@@ -2124,14 +2125,14 @@ Terminate a function and return a value from a function to the calling function,
 
 ```C++
 EXAMPLE
-// A function to compare a sensor input to a threshold 
+// A function to compare a sensor input to a threshold
  int checkSensor()
- {       
+ {
     if (analogRead(0) > 400) return 1;
     else return 0;
 }
 ```
-The return keyword is handy to test a section of code without having to "comment out" large sections of possibly buggy code. 
+The return keyword is handy to test a section of code without having to "comment out" large sections of possibly buggy code.
 
 ```C++
 void loop()
@@ -2153,13 +2154,13 @@ Transfers program flow to a labeled point in the program
 USAGE
 label:
 
-goto label; // sends program flow to the label 
+goto label; // sends program flow to the label
 ```
 
 **TIP:**
 The use of `goto` is discouraged in C programming, and some authors of C programming books claim that the `goto` statement is never necessary, but used judiciously, it can simplify certain programs. The reason that many programmers frown upon the use of `goto` is that with the unrestrained use of `goto` statements, it is easy to create a program with undefined program flow, which can never be debugged.
 
-With that said, there are instances where a `goto` statement can come in handy, and simplify coding. One of these situations is to break out of deeply nested `for` loops, or `if` logic blocks, on a certain condition. 
+With that said, there are instances where a `goto` statement can come in handy, and simplify coding. One of these situations is to break out of deeply nested `for` loops, or `if` logic blocks, on a certain condition.
 
 ```C++
 EXAMPLE USAGE
@@ -2167,7 +2168,7 @@ for(byte r = 0; r < 255; r++){
     for(byte g = 255; g > -1; g--){
         for(byte b = 0; b < 255; b++){
             if (analogRead(0) > 250){ goto bailout;}
-            // more statements ... 
+            // more statements ...
         }
     }
 }
@@ -2184,11 +2185,11 @@ Used to end a statement.
 `int a = 13;`
 
 **Tip:**
-Forgetting to end a line in a semicolon will result in a compiler error. The error text may be obvious, and refer to a missing semicolon, or it may not. If an impenetrable or seemingly illogical compiler error comes up, one of the first things to check is a missing semicolon, in the immediate vicinity, preceding the line at which the compiler complained. 
+Forgetting to end a line in a semicolon will result in a compiler error. The error text may be obvious, and refer to a missing semicolon, or it may not. If an impenetrable or seemingly illogical compiler error comes up, one of the first things to check is a missing semicolon, in the immediate vicinity, preceding the line at which the compiler complained.
 
 ### {} (curly braces)
 
-Curly braces (also referred to as just "braces" or as "curly brackets") are a major part of the C programming language. They are used in several different constructs, outlined below, and this can sometimes be confusing for beginners. 
+Curly braces (also referred to as just "braces" or as "curly brackets") are a major part of the C programming language. They are used in several different constructs, outlined below, and this can sometimes be confusing for beginners.
 
 ```C++
 //The main uses of curly braces
@@ -2212,7 +2213,7 @@ Curly braces (also referred to as just "braces" or as "curly brackets") are a ma
   for (initialisation; termination condition; incrementing expr)
   {
      statement(s)
-  } 
+  }
 
 //Conditional statements
   if (boolean expression)
@@ -2223,7 +2224,7 @@ Curly braces (also referred to as just "braces" or as "curly brackets") are a ma
   else if (boolean expression)
   {
      statement(s)
-  } 
+  }
   else
   {
      statement(s)
@@ -2231,11 +2232,11 @@ Curly braces (also referred to as just "braces" or as "curly brackets") are a ma
 
 ```
 
-An opening curly brace "{" must always be followed by a closing curly brace "}". This is a condition that is often referred to as the braces being balanced. 
+An opening curly brace "{" must always be followed by a closing curly brace "}". This is a condition that is often referred to as the braces being balanced.
 
-Beginning programmers, and programmers coming to C from the BASIC language often find using braces confusing or daunting. After all, the same curly braces replace the RETURN statement in a subroutine (function), the ENDIF statement in a conditional and the NEXT statement in a FOR loop. 
+Beginning programmers, and programmers coming to C from the BASIC language often find using braces confusing or daunting. After all, the same curly braces replace the RETURN statement in a subroutine (function), the ENDIF statement in a conditional and the NEXT statement in a FOR loop.
 
-Because the use of the curly brace is so varied, it is good programming practice to type the closing brace immediately after typing the opening brace when inserting a construct which requires curly braces. Then insert some carriage returns between your braces and begin inserting statements. Your braces, and your attitude, will never become unbalanced. 
+Because the use of the curly brace is so varied, it is good programming practice to type the closing brace immediately after typing the opening brace when inserting a construct which requires curly braces. Then insert some carriage returns between your braces and begin inserting statements. Your braces, and your attitude, will never become unbalanced.
 
 Unbalanced braces can often lead to cryptic, impenetrable compiler errors that can sometimes be hard to track down in a large program. Because of their varied usages, braces are also incredibly important to the syntax of a program and moving a brace one or two lines will often dramatically affect the meaning of a program.
 
@@ -2249,7 +2250,7 @@ Comments only purpose are to help you understand (or remember) how your program 
 
 ```C++
 EXAMPLE USAGE
- x = 5;  // This is a single line comment. Anything after the slashes is a comment 
+ x = 5;  // This is a single line comment. Anything after the slashes is a comment
          // to the end of the line
 
 /* this is multiline comment - use it to comment out whole blocks of code
@@ -2262,7 +2263,7 @@ x = 3;           /* but not another multiline comment - this is invalid */
 ```
 
 **TIP:**
-When experimenting with code, "commenting out" parts of your program is a convenient way to remove lines that may be buggy. This leaves the lines in the code, but turns them into comments, so the compiler just ignores them. This can be especially useful when trying to locate a problem, or when a program refuses to compile and the compiler error is cryptic or unhelpful. 
+When experimenting with code, "commenting out" parts of your program is a convenient way to remove lines that may be buggy. This leaves the lines in the code, but turns them into comments, so the compiler just ignores them. This can be especially useful when trying to locate a problem, or when a program refuses to compile and the compiler error is cryptic or unhelpful.
 
 
 ### #define
@@ -2280,14 +2281,14 @@ EXAMPLE USAGE
 // The compiler will replace any mention of ledPin with the value 3 at compile time.
 ```
 
-In general, the [const]() keyword is preferred for defining constants and should be used instead of #define. 
+In general, the [const]() keyword is preferred for defining constants and should be used instead of #define.
 
 **TIP:**
-There is no semicolon after the #define statement. If you include one, the compiler will throw cryptic errors further down the page. 
+There is no semicolon after the #define statement. If you include one, the compiler will throw cryptic errors further down the page.
 
 `#define ledPin 3;    // this is an error`
 
-Similarly, including an equal sign after the #define statement will also generate a cryptic compiler error further down the page. 
+Similarly, including an equal sign after the #define statement will also generate a cryptic compiler error further down the page.
 
 `#define ledPin  = 3  // this is also an error`
 
@@ -2304,7 +2305,7 @@ Arithmetic operators
 
 Stores the value to the right of the equal sign in the variable to the left of the equal sign.
 
-The single equal sign in the C programming language is called the assignment operator. It has a different meaning than in algebra class where it indicated an equation or equality. The assignment operator tells the microcontroller to evaluate whatever value or expression is on the right side of the equal sign, and store it in the variable to the left of the equal sign. 
+The single equal sign in the C programming language is called the assignment operator. It has a different meaning than in algebra class where it indicated an equation or equality. The assignment operator tells the microcontroller to evaluate whatever value or expression is on the right side of the equal sign, and store it in the variable to the left of the equal sign.
 
 ```C++
 EXAMPLE USAGE
@@ -2314,13 +2315,13 @@ senVal = analogRead(A0);    // store the (digitized) input voltage at analog pin
 **TIP:**
 The variable on the left side of the assignment operator ( = sign ) needs to be able to hold the value stored in it. If it is not large enough to hold a value, the value stored in the variable will be incorrect.
 
-Don't confuse the assignment operator `=` (single equal sign) with the comparison operator `==` (double equal signs), which evaluates whether two expressions are equal. 
+Don't confuse the assignment operator `=` (single equal sign) with the comparison operator `==` (double equal signs), which evaluates whether two expressions are equal.
 
 ### + - * / (additon subtraction multiplication division)
 
 These operators return the sum, difference, product, or quotient (respectively) of the two operands. The operation is conducted using the data type of the operands, so, for example,`9 / 4` gives 2 since 9 and 4 are ints. This also means that the operation can overflow if the result is larger than that which can be stored in the data type (e.g. adding 1 to an int with the value 2,147,483,647 gives -2,147,483,648). If the operands are of different types, the "larger" type is used for the calculation.
 
-If one of the numbers (operands) are of the type float or of type double, floating point math will be used for the calculation. 
+If one of the numbers (operands) are of the type float or of type double, floating point math will be used for the calculation.
 
 ```C++
 EXAMPLE USAGES
@@ -2339,7 +2340,7 @@ result = value1 / value2;
 ```
 `value1` and `value2` can be any variable or constant.
 
-**TIPS:** 
+**TIPS:**
 
   - Know that integer constants default to int, so some constant calculations may overflow (e.g. 50 * 50,000,000 will yield a negative result).
   - Choose variable sizes that are large enough to hold the largest results from your calculations  
@@ -2400,9 +2401,9 @@ These can be used inside the condition of an if statement.
 True only if both operands are true, e.g.
 
 ```C++
-if (digitalRead(D2) == HIGH  && digitalRead(D3) == HIGH) 
-{ 
-  // read two switches 
+if (digitalRead(D2) == HIGH  && digitalRead(D3) == HIGH)
+{
+  // read two switches
   // ...
 }
 //is true only if both inputs are high.
@@ -2410,10 +2411,10 @@ if (digitalRead(D2) == HIGH  && digitalRead(D3) == HIGH)
 
 ### || (or)
 
-True if either operand is true, e.g. 
+True if either operand is true, e.g.
 
 ```C++
-if (x > 0 || y > 0) 
+if (x > 0 || y > 0)
 {
   // ...
 }
@@ -2422,14 +2423,14 @@ if (x > 0 || y > 0)
 
 ### ! (not)
 
-True if the operand is false, e.g. 
+True if the operand is false, e.g.
 
 ```C++
-if (!x) 
-{ 
+if (!x)
+{
   // ...
-} 
-//is true if x is false (i.e. if x equals 0). 
+}
+//is true if x is false (i.e. if x equals 0).
 ```
 
 **WARNING:**  
@@ -2446,7 +2447,7 @@ Bitwise operators
 
 ### & (bitwise and)
 
-The bitwise AND operator in C++ is a single ampersand, &, used between two other integer expressions. Bitwise AND operates on each bit position of the surrounding expressions independently, according to this rule: if both input bits are 1, the resulting output is 1, otherwise the output is 0. Another way of expressing this is: 
+The bitwise AND operator in C++ is a single ampersand, &, used between two other integer expressions. Bitwise AND operates on each bit position of the surrounding expressions independently, according to this rule: if both input bits are 1, the resulting output is 1, otherwise the output is 0. Another way of expressing this is:
 
 ```
     0  0  1  1    operand1
@@ -2461,11 +2462,11 @@ int a =  92;    // in binary: 0000000001011100
 int b = 101;    // in binary: 0000000001100101
 int c = a & b;  // result:    0000000001000100, or 68 in decimal.
 ```
-One of the most common uses of bitwise AND is to select a particular bit (or bits) from an integer value, often called masking. 
+One of the most common uses of bitwise AND is to select a particular bit (or bits) from an integer value, often called masking.
 
 ### | (bitwise or)
 
-The bitwise OR operator in C++ is the vertical bar symbol, |. Like the & operator, | operates independently each bit in its two surrounding integer expressions, but what it does is different (of course). The bitwise OR of two bits is 1 if either or both of the input bits is 1, otherwise it is 0. In other words: 
+The bitwise OR operator in C++ is the vertical bar symbol, |. Like the & operator, | operates independently each bit in its two surrounding integer expressions, but what it does is different (of course). The bitwise OR of two bits is 1 if either or both of the input bits is 1, otherwise it is 0. In other words:
 
 ```
     0  0  1  1    operand1
@@ -2482,7 +2483,7 @@ int c = a | b;  // result:    0000000001111101, or 125 in decimal.
 
 ### ^ (bitwise xor)
 
-There is a somewhat unusual operator in C++ called bitwise EXCLUSIVE OR, also known as bitwise XOR. (In English this is usually pronounced "eks-or".) The bitwise XOR operator is written using the caret symbol ^. This operator is very similar to the bitwise OR operator |, only it evaluates to 0 for a given bit position when both of the input bits for that position are 1: 
+There is a somewhat unusual operator in C++ called bitwise EXCLUSIVE OR, also known as bitwise XOR. (In English this is usually pronounced "eks-or".) The bitwise XOR operator is written using the caret symbol ^. This operator is very similar to the bitwise OR operator |, only it evaluates to 0 for a given bit position when both of the input bits for that position are 1:
 
 ```
     0  0  1  1    operand1
@@ -2504,7 +2505,7 @@ The ^ operator is often used to toggle (i.e. change from 0 to 1, or 1 to 0) some
 
 ### ~ (bitwise not)
 
-The bitwise NOT operator in C++ is the tilde character ~. Unlike & and |, the bitwise NOT operator is applied to a single operand to its right. Bitwise NOT changes each bit to its opposite: 0 becomes 1, and 1 becomes 0. For example: 
+The bitwise NOT operator in C++ is the tilde character ~. Unlike & and |, the bitwise NOT operator is applied to a single operand to its right. Bitwise NOT changes each bit to its opposite: 0 becomes 1, and 1 becomes 0. For example:
 
 ```
     0  1    operand1
@@ -2518,7 +2519,7 @@ You might be surprised to see a negative number like -104 as the result of this 
 
 As an aside, it is interesting to note that for any integer x, ~x is the same as -x-1.
 
-At times, the sign bit in a signed integer expression can cause some unwanted surprises. 
+At times, the sign bit in a signed integer expression can cause some unwanted surprises.
 
 ### << (bitwise left shift), >> (bitwise right shift)
 
@@ -2528,7 +2529,7 @@ More on bitwise math may be found [here.](http://www.arduino.cc/playground/Code/
 
 ```
 variable << number_of_bits
-variable >> number_of_bits 
+variable >> number_of_bits
 ```
 
 `variable` can be `byte`, `int`, `long`  
@@ -2540,13 +2541,13 @@ int a = 5;        // binary: 0000000000000101
 int b = a << 3;   // binary: 0000000000101000, or 40 in decimal
 int c = b >> 3;   // binary: 0000000000000101, or back to 5 like we started with
 ```
-When you shift a value x by y bits (x << y), the leftmost y bits in x are lost, literally shifted out of existence: 
+When you shift a value x by y bits (x << y), the leftmost y bits in x are lost, literally shifted out of existence:
 
 ```C++
 int a = 5;        // binary: 0000000000000101
 int b = a << 14;  // binary: 0100000000000000 - the first 1 in 101 was discarded
 ```
-If you are certain that none of the ones in a value are being shifted into oblivion, a simple way to think of the left-shift operator is that it multiplies the left operand by 2 raised to the right operand power. For example, to generate powers of 2, the following expressions can be employed: 
+If you are certain that none of the ones in a value are being shifted into oblivion, a simple way to think of the left-shift operator is that it multiplies the left operand by 2 raised to the right operand power. For example, to generate powers of 2, the following expressions can be employed:
 
 ```
 1 <<  0  ==    1
@@ -2559,20 +2560,20 @@ If you are certain that none of the ones in a value are being shifted into obliv
 1 << 10  == 1024
 ...
 ```
-When you shift x right by y bits (x >> y), and the highest bit in x is a 1, the behavior depends on the exact data type of x. If x is of type int, the highest bit is the sign bit, determining whether x is negative or not, as we have discussed above. In that case, the sign bit is copied into lower bits, for esoteric historical reasons: 
+When you shift x right by y bits (x >> y), and the highest bit in x is a 1, the behavior depends on the exact data type of x. If x is of type int, the highest bit is the sign bit, determining whether x is negative or not, as we have discussed above. In that case, the sign bit is copied into lower bits, for esoteric historical reasons:
 
 ```C++
 int x = -16;     // binary: 1111111111110000
 int y = x >> 3;  // binary: 1111111111111110
 ```
-This behavior, called sign extension, is often not the behavior you want. Instead, you may wish zeros to be shifted in from the left. It turns out that the right shift rules are different for unsigned int expressions, so you can use a typecast to suppress ones being copied from the left: 
+This behavior, called sign extension, is often not the behavior you want. Instead, you may wish zeros to be shifted in from the left. It turns out that the right shift rules are different for unsigned int expressions, so you can use a typecast to suppress ones being copied from the left:
 
 ```C++
 int x = -16;                   // binary: 1111111111110000
 int y = (unsigned int)x >> 3;  // binary: 0001111111111110
 ```
 
-If you are careful to avoid sign extension, you can use the right-shift operator >> as a way to divide by powers of 2. For example: 
+If you are careful to avoid sign extension, you can use the right-shift operator >> as a way to divide by powers of 2. For example:
 
 ```C++
 int x = 1000;
@@ -2590,8 +2591,8 @@ SYNTAX
 x++;  // increment x by one and returns the old value of x
 ++x;  // increment x by one and returns the new value of x
 
-x-- ;   // decrement x by one and returns the old value of x 
---x ;   // decrement x by one and returns the new value of x 
+x-- ;   // decrement x by one and returns the old value of x
+--x ;   // decrement x by one and returns the new value of x
 ```
 
 where `x` is an integer or long (possibly unsigned)
@@ -2600,7 +2601,7 @@ where `x` is an integer or long (possibly unsigned)
 EXAMPLE USAGE
 x = 2;
 y = ++x;      // x now contains 3, y contains 3
-y = x--;      // x contains 2 again, y still contains 3 
+y = x--;      // x contains 2 again, y still contains 3
 ```
 
 ### compound arithmetic
@@ -2615,9 +2616,9 @@ Perform a mathematical operation on a variable with another constant or variable
 ```C++
 SYNTAX
 x += y;   // equivalent to the expression x = x + y;
-x -= y;   // equivalent to the expression x = x - y; 
-x *= y;   // equivalent to the expression x = x * y; 
-x /= y;   // equivalent to the expression x = x / y; 
+x -= y;   // equivalent to the expression x = x - y;
+x *= y;   // equivalent to the expression x = x * y;
+x /= y;   // equivalent to the expression x = x / y;
 ```
 
 `x` can be any variable type  
@@ -2655,7 +2656,7 @@ Bits that are "bitwise ANDed" with 1 are unchanged so,
 
 **Note:** because we are dealing with bits in a bitwise operator - it is convenient to use the binary formatter with constants. The numbers are still the same value in other representations, they are just not as easy to understand. Also, B00000000 is shown for clarity, but zero in any number format is zero (hmmm something philosophical there?)
 
-Consequently - to clear (set to zero) bits 0 & 1 of a variable, while leaving the rest of the variable unchanged, use the compound bitwise AND operator (&=) with the constant B11111100 
+Consequently - to clear (set to zero) bits 0 & 1 of a variable, while leaving the rest of the variable unchanged, use the compound bitwise AND operator (&=) with the constant B11111100
 
 ```
    1  0  1  0  1  0  1  0    variable  
@@ -2689,7 +2690,7 @@ The compound bitwise OR operator (|=) is often used with a variable and a consta
 
 ```C++
 SYNTAX
-x |= y;   // equivalent to x = x | y; 
+x |= y;   // equivalent to x = x | y;
 ```
 `x` can be a char, int or long variable  
 `y` can be an integer constant or char, int or long  
@@ -2699,14 +2700,14 @@ x |= y;   // equivalent to x = x | y;
    0  1  0  1    operand2
    ----------
    0  1  1  1    (operand1 | operand2) - returned result
-```   
+```
 Bits that are "bitwise ORed" with 0 are unchanged, so if myByte is a byte variable,  
 `myByte | B00000000 = myByte;`
 
 Bits that are "bitwise ORed" with 1 are set to 1 so:  
-`myByte | B11111111 = B11111111;` 
+`myByte | B11111111 = B11111111;`
 
-Consequently - to set bits 0 & 1 of a variable, while leaving the rest of the variable unchanged, use the compound bitwise OR operator (|=) with the constant B00000011   
+Consequently - to set bits 0 & 1 of a variable, while leaving the rest of the variable unchanged, use the compound bitwise OR operator (|=) with the constant B00000011
 
 ```
    1  0  1  0  1  0  1  0    variable
@@ -2753,9 +2754,9 @@ When a pin is configured to `OUTPUT` with `pinMode`, and set to `HIGH` with `dig
 
 The meaning of `LOW` also has a different meaning depending on whether a pin is set to `INPUT` or `OUTPUT`. When a pin is configured as an `INPUT` with `pinMode`, and read with `digitalRead`, the microcontroller will report `LOW` if a voltage of 1.5 volts or less is present at the pin.
 
-When a pin is configured to `OUTPUT` with `pinMode`, and set to `LOW` with digitalWrite, the pin is at 0 volts. In this state it can sink current, e.g. light an LED that is connected through a series resistor to, +3.3 volts, or to another pin configured as an output, and set to `HIGH.` 
+When a pin is configured to `OUTPUT` with `pinMode`, and set to `LOW` with digitalWrite, the pin is at 0 volts. In this state it can sink current, e.g. light an LED that is connected through a series resistor to, +3.3 volts, or to another pin configured as an output, and set to `HIGH.`
 
-### INPUT, OUTPUT, INPUT_PULLUP, INPUT_PULLDOWN 
+### INPUT, OUTPUT, INPUT_PULLUP, INPUT_PULLDOWN
 
 Digital pins can be used as INPUT, INPUT_PULLUP, INPUT_PULLDOWN or OUTPUT. Changing a pin with `pinMode()` changes the electrical behavior of the pin.
 
@@ -2763,15 +2764,15 @@ Pins Configured as `INPUT`
 
 The Spark Core's pins configured as `INPUT` with `pinMode()`` are said to be in a high-impedance state. Pins configured as `INPUT` make extremely small demands on the circuit that they are sampling, equivalent to a series resistor of 100 Megohms in front of the pin. This makes them useful for reading a sensor, but not powering an LED.
 
-If you have your pin configured as an `INPUT`, you will want the pin to have a reference to ground, often accomplished with a pull-down resistor (a resistor going to ground). 
+If you have your pin configured as an `INPUT`, you will want the pin to have a reference to ground, often accomplished with a pull-down resistor (a resistor going to ground).
 
 Pins Configured as `INPUT_PULLUP` or `INPUT_PULLDOWN`
 
-The STM32 microcontroller has internal pull-up resistors (resistors that connect to power internally) and pull-down resistors (resistors that connect to ground internally) that you can access. If you prefer to use these instead of external resistors, you can use these argument in `pinMode()`. 
+The STM32 microcontroller has internal pull-up resistors (resistors that connect to power internally) and pull-down resistors (resistors that connect to ground internally) that you can access. If you prefer to use these instead of external resistors, you can use these argument in `pinMode()`.
 
 Pins Configured as `OUTPUT`
 
-Pins configured as `OUTPUT` with `pinMode()`` are said to be in a low-impedance state. This means that they can provide a substantial amount of current to other circuits. STM32 pins can source (provide positive current) or sink (provide negative current) up to 20 mA (milliamps) of current to other devices/circuits. This makes them useful for powering LED's but useless for reading sensors. Pins configured as outputs can also be damaged or destroyed if short circuited to either ground or 3.3 volt power rails. The amount of current provided by the pin is also not enough to power most relays or motors, and some interface circuitry will be required. 
+Pins configured as `OUTPUT` with `pinMode()`` are said to be in a low-impedance state. This means that they can provide a substantial amount of current to other circuits. STM32 pins can source (provide positive current) or sink (provide negative current) up to 20 mA (milliamps) of current to other devices/circuits. This makes them useful for powering LED's but useless for reading sensors. Pins configured as outputs can also be damaged or destroyed if short circuited to either ground or 3.3 volt power rails. The amount of current provided by the pin is also not enough to power most relays or motors, and some interface circuitry will be required.
 
 ### true | false
 
@@ -2785,4 +2786,4 @@ There are two constants used to represent truth and falsity in the Arduino langu
 
 `true` is often said to be defined as 1, which is correct, but true has a wider definition. Any integer which is non-zero is true, in a Boolean sense. So -1, 2 and -200 are all defined as true, too, in a Boolean sense.
 
-Note that the true and false constants are typed in lowercase unlike `HIGH, LOW, INPUT, & OUTPUT.` 
+Note that the true and false constants are typed in lowercase unlike `HIGH, LOW, INPUT, & OUTPUT.`

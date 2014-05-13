@@ -1,5 +1,6 @@
 ---
-Annotated examples
+title: Annotated examples
+order: 2
 ---
 
 Annotated examples
@@ -44,20 +45,20 @@ Now on to the actual program:
 
 ```cpp
 // Program to blink an LED connected to pin D0
-// of the Spark Core. 
+// of the Spark Core.
 
 // We name pin D0 as led
-int led = D0; 
+int led = D0;
 
 // This routine runs only once upon reset
-void setup() 
+void setup()
 {
   // Initialize D0 pin as output
   pinMode(led, OUTPUT);
 }
 
-// This routine loops forever 
-void loop() 
+// This routine loops forever
+void loop()
 {
   digitalWrite(led, HIGH);   // Turn ON the LED
   delay(1000);               // Wait for 1000mS = 1 second
@@ -75,7 +76,7 @@ Now that we know how to blink an LED, how about we control it over the Internet?
 
 Lets hook up two LEDs this time.
 
-Here is the algorithm: 
+Here is the algorithm:
 
 - Set up the pins as outputs that have LEDs connected to them
 - Create and register a Spark function ( this gets called automagically when you make an API request to it)
@@ -106,7 +107,7 @@ void setup()
 }
 
 
-// This routine loops forever 
+// This routine loops forever
 void loop()
 {
    // Nothing to do here

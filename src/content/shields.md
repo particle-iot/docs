@@ -1,5 +1,6 @@
 ---
 title: Shields and kits
+order: 6
 ---
 
 Shield Shield
@@ -23,7 +24,7 @@ Specifications
 ![Shield Shield Setup](images/sshield-setup.jpg)
 
 - Operating voltage: 7 to 15V DC
-- Current consumption: without the core plugged in 7mA at 9V DC and 150mA with the Core. 
+- Current consumption: without the core plugged in 7mA at 9V DC and 150mA with the Core.
 - Dimensions: 3.79" x 2.1"
 - Weight: 40g
 
@@ -134,7 +135,7 @@ Relay Shield
 
 ![Relay Shield Top](images/relay-shield-top.jpg)
 
-The Relay Shield, in combination with the Spark Core, allows you to control high power devices over the internet. Want to control a lamp, fan or garden sprinklers? Then this is a solution for you! 
+The Relay Shield, in combination with the Spark Core, allows you to control high power devices over the internet. Want to control a lamp, fan or garden sprinklers? Then this is a solution for you!
 
 Operation
 -----
@@ -142,7 +143,7 @@ Operation
 ![Relay Shield Setup](images/relay-shield-setup.jpg)
 
 The schematic for the relay shield is simple and self explanatory. The shield has four relays that are controlled by pins D0, D1, D2 and D3 on the Core. Each relay is triggered via a NPN transistor that takes a control signal from the core and switches the relay coil ON and OFF which in turn makes or breaks the electrical contact on the output. There is also a [flyback diode](http://en.wikipedia.org/wiki/Flyback_diode) connected across the coil to help protect the transistor from high voltage transients caused during switching.  
-The relays are SPDT (Single Pole Double Throw) type, which means they have three terminals at the output: COMMON (COMM), Normally Open (NO) and Normally Closed (NC). We can either connect the load in between the COMM and NO or COMM and NC terminals. When connected in between COMM and NO, the output remains open/disconnected when the relay is turned OFF and closes/connects when the relay is turned ON. In the later case, the output remains closed/connected when the relay is OFF and opens/disconnets when the relay is ON. 
+The relays are SPDT (Single Pole Double Throw) type, which means they have three terminals at the output: COMMON (COMM), Normally Open (NO) and Normally Closed (NC). We can either connect the load in between the COMM and NO or COMM and NC terminals. When connected in between COMM and NO, the output remains open/disconnected when the relay is turned OFF and closes/connects when the relay is turned ON. In the later case, the output remains closed/connected when the relay is OFF and opens/disconnets when the relay is ON.
 
 Specifications
 -----
@@ -258,7 +259,7 @@ Setting up the programmer
 
 If you are using the STLink V2, you can download the supporting drivers and utilities from [their website.](http://www.st.com/web/catalog/tools/FM146/CL1984/SC724/SS1677/PF251168)
 
-All of the hardware files for the JTAG shield are available for download. 
+All of the hardware files for the JTAG shield are available for download.
 
 [JTAG Shield Hardware Files >](https://github.com/spark/shields/tree/master/Programmer%20Shield)
 
@@ -276,7 +277,7 @@ The shield is built around  Microchip's MCP73871 battery charge management contr
 
 <!--TO DO ADD SYSTEM BLOCK DIAGRAM HERE -->
 
-Operation 
+Operation
 -----
 
 MCP73871 is an intelligent battery charge management controller that allows one to charge the battery and power the system simultaneously. There is also an under voltage lock out which protects the battery from draining completely. The TPS61200 converts the 3.7V to 4.1V battery output to a regulated 5V to power the Core or potentially any other hardware (cellphones?!)  
@@ -315,7 +316,7 @@ You could also power the Spark Core while the battery is charging but remember t
 
 ![Battery Shield Powering](images/bshield-powering.jpg)
 
-When powering the Core via the battery alone, the blue LED will NOT light up. 
+When powering the Core via the battery alone, the blue LED will NOT light up.
 
 **TIP:** Remember to unplug the battery from the shield when not in use. If you leave the battery connected to the battery shield, it will eventually drain it.
 
@@ -329,10 +330,10 @@ When powering the Core via the battery alone, the blue LED will NOT light up.
 
 # Spark Maker Kit
 
-<!-- 
-   TO DO 
+<!--
+   TO DO
    - add short description
-   - add pictures of all the components laid out and number them 
+   - add pictures of all the components laid out and number them
 -->
 
 ### 1. Ceramic Capacitors (10 each)
@@ -366,7 +367,7 @@ These are standard 0.1" pitch headers that can be cut to size. Very handy when b
 
 - 8-Pin Female Headers (5)
 - 40-Pin Male Breakaway Headers (2)
-- 40-Pin Male Breakaway Dual-Headers (1) 
+- 40-Pin Male Breakaway Dual-Headers (1)
 
 ### 4. LEDs
 
@@ -391,11 +392,11 @@ This LED has four pins, one for each color and a common anode (+) pin.
 
 <!-- TO DO pin diagram-->
 
-### 6. NPN Transistor (1) 
+### 6. NPN Transistor (1)
 
 ![NPN Transistor](images/mk-npn-transistor.bmp)
 
-S9013 is a general purpose small signal NPN [transistor](http://en.wikipedia.org/wiki/Transistor) rated at 40V, 500mA. 
+S9013 is a general purpose small signal NPN [transistor](http://en.wikipedia.org/wiki/Transistor) rated at 40V, 500mA.
 
 You can this transistor to switch small loads like relays, mini motors, buzzers, etc.
 
@@ -409,7 +410,7 @@ You can this transistor to switch small loads like relays, mini motors, buzzers,
 
 [Datasheet >](http://www.diodes.com/datasheets/ds28002.pdf)
 
-### 8. Micro Servo (1) 
+### 8. Micro Servo (1)
 
 ![RC Servo](images/mk-micro-rc-servo.bmp)
 
@@ -439,7 +440,7 @@ This is a simple DC motor that you can switch using the NPN transistor provided 
 
 [Datasheet >](datasheets/makerkit/mini-dc-motor.pdf)
 
-<!-- TO DO 
+<!-- TO DO
    - add motor specs
    - add illustration
  -->
@@ -452,7 +453,7 @@ Wanna give your next Spark Core project a tactile feedback? This vibration motor
 
 [Datasheet >](datasheets/makerkit/vibration-motor.pdf)
 
-<!-- TO DO 
+<!-- TO DO
    - add motor specs
    - add illustration
  -->
@@ -463,7 +464,7 @@ Wanna give your next Spark Core project a tactile feedback? This vibration motor
 
 Add an audible feedback to your project with this buzzer. The loner lead is positive and the shorter is negative. You will need a transistor to driver it.
 
-*Note:* The sound gets annoying after a while. Use it sparingly! 
+*Note:* The sound gets annoying after a while. Use it sparingly!
 
 - Operating Voltage: 4.0 to 7.0 V DC
 - Oscillation Frequency: 2.3KHz
@@ -472,7 +473,7 @@ Add an audible feedback to your project with this buzzer. The loner lead is posi
 
 [Datasheet >](datasheets/makerkit/buzzer.pdf)
 
-### 14. Mini Pushbuttons (3) 
+### 14. Mini Pushbuttons (3)
 
 ![Push Buttons](images/mk-mini-pushbutton.bmp)
 
@@ -482,7 +483,7 @@ These are nifty little switches that plug nicely into a breadboard or a proto-bo
 
 ![DPDT Switch](images/mk-dpdt-switch.bmp)
 
-This is a tiny Double Pole Double Throw (DPDT) Switch with 6 legs and is rated at 
+This is a tiny Double Pole Double Throw (DPDT) Switch with 6 legs and is rated at
 
 ### 16. Shift Register IC (1)
 
@@ -508,7 +509,7 @@ You can use to it detect tilt, orientation or vibrations.
 
 ![Temp Sensor](images/mk-temp-sensor.bmp)
 
-The TMP36 is a low voltage, precision centigrade temperature sensor. It provides a voltage output that is linearly proportional to the Celsius (centigrade) temperature. The TMP36 does not require any external calibration to provide typical accuracies of ±1°C at +25°C and ±2°C over the −40°C to +125°C temperature range. 
+The TMP36 is a low voltage, precision centigrade temperature sensor. It provides a voltage output that is linearly proportional to the Celsius (centigrade) temperature. The TMP36 does not require any external calibration to provide typical accuracies of ±1°C at +25°C and ±2°C over the −40°C to +125°C temperature range.
 
 [Here is an example](http://docs.spark.io/#/examples) of how you could use it the Core.
 
@@ -556,7 +557,7 @@ There are three different value resistor in this kit. All of them are rated at 5
 - 1K-Ohm (10)
 - 10K-Ohm (10)
 
-### 23. Rotary Potentiometer (1) 
+### 23. Rotary Potentiometer (1)
 
 ![Pot](images/mk-potentiometer.bmp)
 
@@ -579,19 +580,19 @@ Your very own Spark Core, ready to take over the world, one byte at a time.
 3. Electrolytic Capacitors 100uF (5)
 4. 8-Pin Female Headers (5)
 5. 40-Pin Male Breakaway Headers (2)
-6. 40-Pin Male Breakaway Dual-Headers (1) 
+6. 40-Pin Male Breakaway Dual-Headers (1)
 7. Basic LED - Red (5)
 8. Basic LED - Green (5)
 9. RGB LEDs (1)
-10. NPN Transistor (1) 
+10. NPN Transistor (1)
 11. Diode (6)
-12. Micro Servo (1) 
+12. Micro Servo (1)
 13. Deluxe Jumper Wire Pack (1)
 14. USB Micro B Cable (1)
 15. Mini DC Motor (1)
 16. Vibration Motor (1)
 17. Piezo Buzzer (1)
-18. Mini Pushbuttons (3) 
+18. Mini Pushbuttons (3)
 19. Shift Register IC (1)
 20. DPDT Switch (2)
 21. Tilt Sensor (2)
@@ -603,7 +604,7 @@ Your very own Spark Core, ready to take over the world, one byte at a time.
 28. Resistor 330-Ohm (10)
 29. Resistor 1K-Ohm (10)
 30. Resistor 10K-Ohm (10)
-31. 10K Rotary Potentiometer (1) 
+31. 10K Rotary Potentiometer (1)
 32. Spark Core - u.FL or CA (1)
 -->
 
@@ -625,7 +626,7 @@ Assemble the RC Car chassis as shown in the [tutorial here.](http://www.dfrobot.
 
 <!--
 Put together the Shield Shield and the Motor Driver Shield as shown in the picture.
-The Motor Driver shield is setup in the PWM mode as shown in the picture. 
+The Motor Driver shield is setup in the PWM mode as shown in the picture.
 -->
 
 <!-- TO DO - Add picture of the motor shield setup -->
@@ -649,7 +650,7 @@ The motors can run from a voltage in the range of 5V to 9V DC. The jumpers can b
 
 ### Example code
 
-A simple example for controlling the RC Car is as described: 
+A simple example for controlling the RC Car is as described:
 
 
 ```C++
