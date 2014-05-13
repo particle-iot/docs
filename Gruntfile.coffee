@@ -21,6 +21,7 @@ module.exports = (grunt) ->
       src: 'src'
       dist: 'dest'
       content: 'src/content'
+      layouts: 'src/layouts'
 
     assemble:
       # ASSEMBLE!!!
@@ -57,7 +58,7 @@ module.exports = (grunt) ->
 
     watch:
       main:
-        files: ['<%= config.content %>/*.md']
+        files: ['<%= config.content %>/*.md', '<%= config.layouts %>/*.hbs']
         tasks: ['build']
       livereload:
         options:
