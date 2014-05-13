@@ -4,23 +4,39 @@ Here you'll find the documentation for the Spark platform, including the Spark C
 
 To view this documentation, visit [our website](http://docs.spark.io), where the documentation is hosted.
 
-### Hosting locally
+### Installation
 
-To host this documentation locally, you'll need Node.js and npm. Once you have those, navigate to this repository's directory on your machine, and then:
+To host this documentation locally, you'll need Node.js and npm. If you don't already have Grunt installed, you'll need that too:
+
+`npm install -g grunt-cli`
+
+Once you have the dependencies, navigate to this repository's directory on your machine, and then:
 
 `npm install`
 
-to install the necessary dependencies (Express), and
+to install any other necessary dependencies
 
-`npm start`
+### Hosting locally
 
-to spin up Node to host this documentation. The default port is 3000, so you should find the documentation at
+This documentation uses Grunt and Assemble to build and push documentation updates. Once everything's installed, to build the documentation, type:
 
-`http://localhost:3000/`
+`grunt build`
+
+The documentation will be located in the `dest` directory. If you would like to host this documentation locally, try:
+
+`grunt server`
+
+This will set up a Connect server and load the local documentation in a web browser. If you make changes, the browser should automatically refresh.
+
+When you're ready to deploy to production, try:
+
+`grunt publish`
+
+This will push your changes to the gh-pages branch, updating the content on http://docs.spark.io
 
 ### Organization
 
-The majority of the content herein is stored in the `docs` directory as a set of Markdown files. Images are stored in the `images` directory. The root directory contains the HTML, CSS, and JavaScript that makes everything pretty and organized.
+The majority of the content herein is stored in the `src/content` directory as a set of Markdown files. Assets such as images, javascript, and css are stored in the `dest/assets` directory.
 
 ### Attributions
 
