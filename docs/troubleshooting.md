@@ -96,6 +96,27 @@ If you're seeing unexpected behavior with your Core, here are a few things to ch
 - Is the Core receiving sufficient power? The Core might behave eratically if it's plugged into an unpowered USB hub and not receiving enough power. In addition, if you have components that draw a lot of power (motors, for instance), you might need more power than your computer can supply. Try using a USB power supply or providing more power directly to the VIN or 3.3V pins.
 - If you have a u.FL Core, is an antenna connected? Are you within range of the Wi-Fi router?
 
+## My core flashes red after running my program for a while
+
+Are you getting a red flashing LED after running your code on your Spark core? You may be getting a panic code, telling you what went wrong!
+
+The panic code is a red LED blinking out SOS (... --- ...) followed by N flashes, followed by another SOS.
+
+Here are the meanings of the N flashes, but 8 flashes, signifying out of heap, is the most common:
+
+1. Hard fault
+2. Non-maskable interrupt fault
+3. Memory Manager fault
+4. Bus fault
+5. Usage fault
+6. Invalid length
+7. Exit
+8. Out of heap memory
+9. SPI over-run
+10. Assertion failure
+11. Invalid case
+12. Pure virtual call
+
 
 Troubleshoot by color
 ===
