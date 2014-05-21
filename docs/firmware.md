@@ -463,6 +463,29 @@ Spark.sleep(int millis, array peripherals);
 <!-- TO DO -->
 <!-- Add example implementation here -->
 
+
+## Time
+
+### Spark.syncTime()
+
+Synchronize the time with the Spark Cloud.
+This happens automatically when the Core connects to the Cloud.
+However, if your Core runs continuously for a long time,
+you may want to synchronize once per day or so.
+
+```C++
+static const int ONE_DAY_MILLIS = 24 * 60 * 60 * 1000;
+
+void loop() {
+  static int lastSync = millis();
+  if (millis() - lastSync > ONE_DAY_MILLIS) {
+    // Request time synchronization from the Spark Cloud
+    Spark.syncTime();
+    lastSync = millis();
+  }
+}
+```
+
 Input/Output
 =====
 
@@ -1753,6 +1776,248 @@ RGB.color(0, 255, 255);
 RGB.color(255, 255, 255);
 ```
 
+Time
+---
+
+The Spark Core synchronizes time with the Spark Cloud during the handshake.
+From then, the time is continually updated on the Core.
+This reduces the need for external libraries to manage dates and times.
+
+
+### hour()
+
+Retrieve the hour for the current or given time.
+Integer is returned without a leading zero.
+
+```cpp
+// Print the hour for the current time
+Serial.print(Time.hour());
+
+// Print the hour for the given time, in this case: 4
+Serial.print(Time.hour(1400647897));
+```
+
+Optional parameters: Integer (Unix timestamp)
+
+Returns: Integer 0-23
+
+
+### hourFormat12()
+
+Retrieve the hour in 12-hour format for the current or given time.
+Integer is returned without a leading zero.
+
+```cpp
+// Print the hour in 12-hour format for the current time
+Serial.print(Time.hourFormat12());
+
+// Print the hour in 12-hour format for the given time, in this case: 15
+Serial.print(Time.hourFormat12(1400684400));
+```
+
+Optional parameters: Integer (Unix timestamp)
+
+Returns: Integer 1-12
+
+
+### isAM()
+
+Returns true if the current or given time is AM.
+
+```cpp
+// Print true or false depending on whether the current time is AM
+Serial.print(Time.isAM());
+
+// Print whether the given time is AM, in this case: true
+Serial.print(Time.isAM(1400647897));
+```
+
+Optional parameters: Integer (Unix timestamp)
+
+Returns: Unsigned 8-bit integer: 0 = false, 1 = true
+
+
+### isPM()
+
+Returns true if the current or given time is PM.
+
+```cpp
+// Print true or false depending on whether the current time is PM
+Serial.print(Time.isPM());
+
+// Print whether the given time is PM, in this case: false
+Serial.print(Time.isPM(1400647897));
+```
+
+Optional parameters: Integer (Unix timestamp)
+
+Returns: Unsigned 8-bit integer: 0 = false, 1 = true
+
+
+### minute()
+
+Retrieve the minute for the current or given time.
+Integer is returned without a leading zero.
+
+```cpp
+// Print the minute for the current time
+Serial.print(Time.minute());
+
+// Print the minute for the given time, in this case: 51
+Serial.print(Time.minute(1400647897));
+```
+
+Optional parameters: Integer (Unix timestamp)
+
+Returns: Integer 0-59
+
+
+### second()
+
+Retrieve the seconds for the current or given time.
+Integer is returned without a leading zero.
+
+```cpp
+// Print the second for the current time
+Serial.print(Time.second());
+
+// Print the second for the given time, in this case: 51
+Serial.print(Time.second(1400647897));
+```
+
+Optional parameters: Integer (Unix timestamp)
+
+Returns: Integer 0-59
+
+
+### day()
+
+Retrieve the day for the current or given time.
+Integer is returned without a leading zero.
+
+```cpp
+// Print the day for the current time
+Serial.print(Time.day());
+
+// Print the minute for the given time, in this case: 21
+Serial.print(Time.day(1400647897));
+```
+
+Optional parameters: Integer (Unix timestamp)
+
+Returns: Integer 1-31
+
+
+### weekday()
+
+Retrieve the weekday for the current or given time.
+
+ - 1 = Sunday
+ - 2 = Monday
+ - 3 = Tuesday
+ - 4 = Wednesday
+ - 5 = Thursday
+ - 6 = Saturday
+ - 7 = Sunday
+
+```cpp
+// Print the weekday number for the current time
+Serial.print(Time.weekday());
+
+// Print the weekday for the given time, in this case: 4
+Serial.print(Time.weekday(1400647897));
+```
+
+Optional parameters: Integer (Unix timestamp)
+
+Returns: Integer 1-7
+
+
+### month()
+
+Retrieve the month for the current or given time.
+Integer is returned without a leading zero.
+
+```cpp
+// Print the month number for the current time
+Serial.print(Time.month());
+
+// Print the month for the given time, in this case: 5
+Serial.print(Time.month(1400647897));
+```
+
+Optional parameters: Integer (Unix timestamp)
+
+Returns: Integer 1-12
+
+
+### year()
+
+Retrieve the 4-digit year for the current or given time.
+
+```cpp
+// Print the current year
+Serial.print(Time.year());
+
+// Print the year for the given time, in this case: 2014
+Serial.print(Time.year(1400647897));
+```
+
+Optional parameters: Integer (Unix timestamp)
+
+Returns: Integer
+
+
+### now()
+
+Retrieve the current time as seconds since January 1, 1970 (commonly known as "Unix time" or "epoch time")
+
+```cpp
+// Print the current Unix timestamp
+Serial.print(Time.now()); // 1400647897
+```
+
+Returns: Integer
+
+
+### zone()
+
+Set the time zone offset (+/-) from UTC.
+The Spark Core will remember this offset until reboot.
+
+```cpp
+// Set time zone to Eastern USA daylight saving time
+Serial.print(Time.zone(-5));
+```
+
+Parameters: floating point offset from UTC in hours, from -12.0 to 13.0
+
+
+### setTime()
+
+Set the Spark Core's time to the given timestamp.
+
+*NOTE*: This will override the time set by the Spark Cloud.
+If the cloud connection drops, the reconnection handshake will set the time again.
+
+Also see: [`Spark.syncTime()`](#/firmware/time-spark-synctime)
+
+```cpp
+// Set the time to 2014-10-11 13:37:42
+Time.setTime(1413034662);
+```
+
+Parameters: Unix timestamp (integer)
+
+
+### timeStr()
+
+Return string representation for the given time.
+```cpp
+Serial.print(Time.timeStr()); // Wed May 21 01:08:47 2014
+```
+
+Returns: String
 
 
 Other functions
