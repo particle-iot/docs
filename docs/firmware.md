@@ -1753,6 +1753,211 @@ RGB.color(0, 255, 255);
 RGB.color(255, 255, 255);
 ```
 
+Time
+---
+
+The Spark Core now retrieves the time from the cloud in the handshake and is continually updated on the Core.  This reduces the need for external libraries to manage dates and times.
+
+### hour()
+
+Retrieve the hour for the current or given time.  Integer is returned without leading 0.
+
+```cpp
+Serial.print(Time.hour()); // Return the hour for the current time
+Serial.print(Time.hour(1400647897)); // Return the hour for the given time, in this case: 4
+```
+Optional Parameters: Integer (Unix timestamp)
+
+Returns:
+
+ - Integer
+
+
+### hourFormat12()
+
+Retrieve the hour in 12-hour format for the current or given time.  Integer is returned without leading 0.
+
+```cpp
+Serial.print(Time.hourFormat12()); // Return the hour in 12-hour format for the current time
+Serial.print(Time.hourFormat12(1400684400)); // Return the hour in 12-hour format for the given time, in this case: 15
+```
+Optional Parameters: Integer (Unix timestamp)
+
+Returns:
+
+ - Integer
+
+
+### isAM()
+
+Returns true if the current or given time is AM.
+
+```cpp
+Serial.print(Time.isAM()); // Return true if the current time is AM
+Serial.print(Time.isAM(1400647897)); // Return true if the given time is AM, in this case: true
+```
+Optional Parameters: Integer (Unix timestamp)
+
+Returns:
+
+ - Unsigned 8-bit integer: 0 = false, 1 = true
+
+
+### isPM()
+
+Returns true if the current or given time is PM.
+
+```cpp
+Serial.print(Time.isPM()); // Return true if the current time is PM
+Serial.print(Time.isPM(1400647897)); // Return true if the given time is PM, in this case: false
+```
+Optional Parameters: Integer (Unix timestamp)
+
+Returns:
+
+ - Unsigned 8-bit integer: 0 = false, 1 = true
+
+
+### minute()
+
+Retrieve the minute for the current or given time.  Integer is returned without leading zero.
+
+```cpp
+Serial.print(Time.minute()); // Return the minute for the current time
+Serial.print(Time.minute(1400647897)); // Return the minute for the given time, in this case: 51
+```
+Optional Parameters: Integer (Unix timestamp)
+
+Returns:
+
+ - Integer
+
+
+### second()
+
+Retrieve the seconds for the current or given time.  Integer is returned without leading zero.
+
+```cpp
+Serial.print(Time.second()); // Return the second for the current time
+Serial.print(Time.second(1400647897)); // Return the second for the given time, in this case: 51
+```
+Optional Parameters: Integer (Unix timestamp)
+
+Returns:
+
+ - Integer
+
+
+### day()
+
+Retrieve the day for the current or given time.  Integer is returned without leading zero.
+
+```cpp
+Serial.print(Time.day()); // Return the day for the current time
+Serial.print(Time.day(1400647897)); // Return the minute for the given time, in this case: 21
+```
+Optional Parameters: Integer (Unix timestamp)
+
+Returns:
+
+ - Integer
+
+
+### weekday()
+
+Retrieve the weekday for the current or given time.
+
+ - 1 = Sunday
+ - 2 = Monday
+ - 3 = Tuesday
+ - 4 = Wednesday
+ - 5 = Thursday
+ - 6 = Saturday
+ - 7 = Sunday
+
+```cpp
+Serial.print(Time.weekday()); // Return the weekday for the current time
+Serial.print(Time.weekday(1400647897)); // Return the weekday for the given time, in this case: 4
+```
+Optional Parameters: Integer (Unix timestamp)
+
+Returns:
+
+ - Integer
+
+
+### month()
+
+Retrieve the month for the current or given time.  Integer is returned without leading zero.
+
+```cpp
+Serial.print(Time.month()); // Return the month for the current time
+Serial.print(Time.month(1400647897)); // Return the month for the given time, in this case: 5
+```
+Optional Parameters: Integer (Unix timestamp)
+
+Returns:
+
+ - Integer
+
+
+### year()
+
+Retrieve the 4-digit year for the current or given time.
+
+```cpp
+Serial.print(Time.year()); // Return the minute for the current time
+Serial.print(Time.year(1400647897)); // Return the minute for the given time, in this case: 2014
+```
+Optional Parameters: Integer (Unix timestamp)
+
+Returns:
+
+ - Integer
+
+
+### now()
+
+Retrieve the current time as seconds since January 1, 1970 (commonly known as "Unix time" or "epoch time")
+
+```cpp
+Serial.print(Time.now()); // 1400647897
+```
+
+Returns:
+
+ - Integer
+
+
+### zone()
+
+Set the time zone offset (+/-) from GMT.
+
+```cpp
+Serial.print(Time.zone(-5)); // Set time zone to Eastern USA daylight savings time
+```
+Parameters: Signed integer
+
+
+### setTime()
+
+Set the given time.
+```cpp
+Serial.print(Time.setTime(1413034662)); // Set the time to 2014-10-11 13:37:42
+```
+Parameters: Unix timestamp (integer)
+
+
+### timeStr()
+
+Return string representation for the given time.
+```cpp
+Serial.print(Time.timeStr()); // Wed May 21 01:08:47 2014
+```
+
+Returns:
+
+ - String
 
 
 Other functions
