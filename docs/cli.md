@@ -54,6 +54,16 @@ Getting Started / Documentation
 ``` $ spark setup```
 
 
+###spark help
+
+  Shows you what commands are available, and how to use them.  You can also give the name of a command for detailed help.
+  
+```sh
+$ spark help
+$ spark help keys 
+```
+
+
 ###spark login
 
   Login and save an access token for interacting with your account on the Spark Cloud.
@@ -113,109 +123,107 @@ Okay!
 
 ###spark flash
 
-  Send a firmware binary, a source file, or a directory of source files to your core.
+  Sends a firmware binary, a source file, or a directory of source files, or a known app to your core.
+
+####Flashing a directory
+
+```sh
+$ spark flash 0123456789ABCDEFGHI my_project
+```
+
+####Flashing one or more source files
+
+```sh
+$ spark flash 0123456789ABCDEFGHI app.ino library1.cpp library1.h
+```
+
+####Flashing a known app
+
+```sh
+$ spark flash 0123456789ABCDEFGHI tinker
+$ spark flash 0123456789ABCDEFGHI cc3000
+```
+
+####Compiling remotely and Flashing locally
+
+To work locally, but use the cloud compiler, simply use the compile command, and then the local flash command after.  Make sure you connect your core via USB and place it into [dfu mode](http://docs.spark.io/#/connect/appendix-dfu-mode-device-firmware-upgrade)
+
+```sh
+$ spark compile my_project_folder --saveTo firmware.bin
+OR
+$ spark compile app.ino library1.cpp library1.h --saveTo firmware.bin
+$ spark flash --usb firmware.bin
+```
 
 
 
-    > spark cloud flash 0123456789ABCDEFGHI core-firmware.bin
-    > spark cloud flash 0123456789ABCDEFGHI my_application.ino
-    > spark cloud flash 0123456789ABCDEFGHI /projects/big_app/src
+###spark call
+
+  Calls a function on one of your cores, use ```spark list``` to see which cores are online, and what functions are available.
+
+    $ spark call 0123456789ABCDEFGHI digitalWrite "D7,HIGH"
+    1
 
 
-###spark cloud compile
 
-    > spark cloud compile my_application.ino
-    > spark cloud compile /projects/big_app/src
-    > spark cloud compile main.ino SomeLib.h SomeLib.cpp OtherStuff.h
-    > spark cloud compile main.ino SomeLib.h SomeLib.cpp OtherStuff.h output.bin
-    > spark cloud compile main.ino SomeLib.h SomeLib.cpp OtherStuff.h --saveTo ~/output.bin
+###spark get
 
-  Create and download a firmware binary, by cloud compiling a source file, or a directory of source files
+  Retrieves a variable value from one of your cores, use ```spark list``` to see which cores are online, and what variables are available.
 
+    $ spark get 0123456789ABCDEFGHI temperature
+    72.1
 
-###spark flash firmware
-
-``` > spark flash firmware core-firmware.bin ```
-
-  When your core is flashing yellow (in dfu mode), and connected to your computer, flash your binary locally over USB.
-
-
-###spark variable list
-
-``` > spark variable list ```
-
-  Gets a list of all your cores and the exposed variables of the cores that are online.
-
-
-###spark variable get
-
-    > spark variable get 0123456789ABCDEFGHI temperature
-    > spark variable get all temperature
-
-  Retrieves the value of that variable from one or all cores
 
 
 ###spark variable monitor
-
-    > spark variable monitor 0123456789ABCDEFGHI temperature 5000
-    > spark variable monitor 0123456789ABCDEFGHI temperature 5000 --time
-    > spark variable monitor all temperature 5000
-    > spark variable monitor all temperature 5000 --time
-    > spark variable monitor all temperature 5000 --time > my_temperatures.csv
 
   Pulls the value of a variable at a set interval, and optionally display a timestamp
   
   * Minimum delay for now is 500 (there is a check anyway if you keyed anything less)
   * "ctrl + c" in the console stops the monitoring
 
-###spark function list
+```sh
+$ spark variable monitor 0123456789ABCDEFGHI temperature 5000
+$ spark variable monitor 0123456789ABCDEFGHI temperature 5000 --time
+$ spark variable monitor all temperature 5000
+$ spark variable monitor all temperature 5000 --time
+$ spark variable monitor all temperature 5000 --time > my_temperatures.csv
+```
 
-``` > spark function list ```
 
-  Gets a list of all your cores and the exposed functions of the cores that are online.
+###spark identify
 
+  Retrieves your core id when the core is connected via USB and in listening mode (flashing blue).
 
-###spark function call
+```sh
+$ spark identify
+$ spark identify 1
+$ spark identify COM3
+$ spark identify /dev/cu.usbmodem12345
 
-    > spark function call
-    > spark function call 0123456789ABCDEFGHI functionName "Here is my string"
+$ spark identify
+0123456789ABCDEFGHI
+```
 
-  Call a particular function on your core, and show the return value
 
 
 ###spark serial list
 
-``` > spark serial list ```
-
   Shows currently connected Spark Core's acting as serial devices over USB
+
+``` $ spark serial list ```
+
 
 ###spark serial monitor
 
-    > spark serial monitor
-    > spark serial monitor 1
-    > spark serial monitor COM3
-    > spark serial monitor /dev/cu.usbmodem12345
-
   Starts listening to the specified serial device, and echoes to the terminal
 
-
-###spark serial wifi
-
-    > spark serial wifi
-    > spark serial wifi 1
-    > spark serial wifi COM3
-    > spark serial wifi /dev/cu.usbmodem12345
-
-  Helpful shortcut for configuring Wi-Fi credentials over serial when your core is connected and in listening mode (flashing blue)
-
-###spark serial identify
-
-    > spark serial identify
-    > spark serial identify 1
-    > spark serial identify COM3
-    > spark serial identify /dev/cu.usbmodem12345
-
-  Retrieves your core id when the core is connected and in listening mode (flashing blue)
+```sh
+$ spark serial monitor
+$ spark serial monitor 1
+$ spark serial monitor COM3
+$ spark serial monitor /dev/cu.usbmodem12345
+```
 
 
 ###spark keys doctor
