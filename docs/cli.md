@@ -1,0 +1,729 @@
+Spark CLI
+==========
+
+The Spark CLI is a powerful tool for interacting with your cores and the Spark Cloud.  The CLI uses [node.js](http://nodejs.org/) and can run on Windows, Mac OS X, and Linux fairly easily.  It's also [open source](https://github.com/spark/spark-cli) so you can edit and change it, and even send in your changes as [pull requests](https://help.github.com/articles/using-pull-requests) if you want to share!
+
+Getting Started
+=======
+
+
+  First, make sure you have node installed!  http://nodejs.org/
+
+  Then you can install the cli by typing:
+
+    npm install -g spark-cli
+    spark cloud login
+
+
+Install (advanced)
+---------------------------
+
+To use the local flash and key features you'll need to install [dfu-util](http://dfu-util.gnumonks.org/), and [openssl](http://www.openssl.org/).  There are freely available, and there are installers and binaries for most major platforms as well.  
+
+There are some great tutorials on the community for full installs:
+
+[Installing on Ubuntu](https://community.spark.io/t/how-to-install-spark-cli-on-ubuntu-12-04/3474)
+
+[Installing on Windows](https://community.spark.io/t/tutorial-spark-cli-on-windows-06-may-2014/3112)
+
+
+Upgrading
+---------------------------
+To upgrade Spark-CLI, enter the following command:
+
+    npm update -g spark-cli
+
+
+Running from source (advanced)
+---------------------------
+To grab the CLI source and play with it locally
+
+    git clone git@github.com:spark/spark-cli.git
+    cd spark-cli/js
+    node app.js help
+
+
+Getting Started / Documentation
+===============
+
+###spark setup
+
+``` > spark setup```
+
+  Guides you through creating a new account, and claiming your core!
+
+
+###spark cloud login
+
+``` > spark cloud login ```
+
+  Login and save an access token for interacting with your account on the Spark Cloud.
+
+
+###spark cloud list
+
+``` > spark cloud list ```
+
+  Pulls a list of what cores you own, and displays information about their status
+
+
+###spark cloud claim
+
+``` > spark cloud claim 0123456789ABCDEFGHI  ```
+
+  Claim a new core onto your current account
+
+
+###spark cloud name
+
+``` > spark cloud name 0123456789ABCDEFGHI "pirate frosting" ```
+
+  Assigns a new name to a core you've claimed
+
+
+###spark cloud flash
+
+    > spark cloud flash 0123456789ABCDEFGHI core-firmware.bin
+    > spark cloud flash 0123456789ABCDEFGHI my_application.ino
+    > spark cloud flash 0123456789ABCDEFGHI /projects/big_app/src
+
+  Send a firmware binary, a source file, or a directory of source files to your core.
+
+
+###spark cloud compile
+
+    > spark cloud compile my_application.ino
+    > spark cloud compile /projects/big_app/src
+    > spark cloud compile main.ino SomeLib.h SomeLib.cpp OtherStuff.h
+    > spark cloud compile main.ino SomeLib.h SomeLib.cpp OtherStuff.h output.bin
+    > spark cloud compile main.ino SomeLib.h SomeLib.cpp OtherStuff.h --saveTo ~/output.bin
+
+  Create and download a firmware binary, by cloud compiling a source file, or a directory of source files
+
+
+###spark flash firmware
+
+``` > spark flash firmware core-firmware.bin ```
+
+  When your core is flashing yellow (in dfu mode), and connected to your computer, flash your binary locally over USB.
+
+
+###spark variable list
+
+``` > spark variable list ```
+
+  Gets a list of all your cores and the exposed variables of the cores that are online.
+
+
+###spark variable get
+
+    > spark variable get 0123456789ABCDEFGHI temperature
+    > spark variable get all temperature
+
+  Retrieves the value of that variable from one or all cores
+
+
+###spark variable monitor
+
+    > spark variable monitor 0123456789ABCDEFGHI temperature 5000
+    > spark variable monitor 0123456789ABCDEFGHI temperature 5000 --time
+    > spark variable monitor all temperature 5000
+    > spark variable monitor all temperature 5000 --time
+    > spark variable monitor all temperature 5000 --time > my_temperatures.csv
+
+  Pulls the value of a variable at a set interval, and optionally display a timestamp
+  
+  * Minimum delay for now is 500 (there is a check anyway if you keyed anything less)
+  * "ctrl + c" in the console stops the monitoring
+
+###spark function list
+
+``` > spark function list ```
+
+  Gets a list of all your cores and the exposed functions of the cores that are online.
+
+
+###spark function call
+
+    > spark function call
+    > spark function call 0123456789ABCDEFGHI functionName "Here is my string"
+
+  Call a particular function on your core, and show the return value
+
+
+###spark serial list
+
+``` > spark serial list ```
+
+  Shows currently connected Spark Core's acting as serial devices over USB
+
+###spark serial monitor
+
+    > spark serial monitor
+    > spark serial monitor 1
+    > spark serial monitor COM3
+    > spark serial monitor /dev/cu.usbmodem12345
+
+  Starts listening to the specified serial device, and echoes to the terminal
+
+
+###spark serial wifi
+
+    > spark serial wifi
+    > spark serial wifi 1
+    > spark serial wifi COM3
+    > spark serial wifi /dev/cu.usbmodem12345
+
+  Helpful shortcut for configuring Wi-Fi credentials over serial when your core is connected and in listening mode (flashing blue)
+
+###spark serial identify
+
+    > spark serial identify
+    > spark serial identify 1
+    > spark serial identify COM3
+    > spark serial identify /dev/cu.usbmodem12345
+
+  Retrieves your core id when the core is connected and in listening mode (flashing blue)
+
+
+###spark keys doctor
+
+``` > spark keys doctor 0123456789ABCDEFGHI```
+
+  Runs a series of steps to generate a new public/private keypair, and send it to the server for your core.  Helpful
+  for recovering from key issues.
+
+
+###spark subscribe
+
+    > spark subscribe
+    > spark subscribe mine
+    > spark subscribe eventName
+    > spark subscribe eventName mine
+    > spark subscribe eventName CoreName
+    > spark subscribe eventName 0123456789ABCDEFGHI
+
+
+  Subscribes to published events on the cloud, and pipes them to the console.  Special core name "mine" will subscribe to events from just your cores.
+
+asdf
+======
+
+
+
+The Spark Cloud API is a [REST](http://en.wikipedia.org/wiki/Representational_State_Transfer) API.
+REST means a lot of things, but first and foremost it means that we use the URL in the way that it's intended:
+as a "Uniform Resource Locator".
+
+In this case, the unique "resource" in question is your Spark Core.
+Every Spark Core has a URL, which can be used to `GET` variables, `POST` a function call, or `PUT` new firmware.
+The variables and functions that you have written in your firmware are exposed as *subresources* within the Spark Core.
+
+All requests to the Spark Core come through our API server using TLS security.
+
+```
+PROTOCOL AND HOST
+https://api.spark.io
+```
+
+There are a number of API calls available, which are summarized here, and described in more detail below.
+
+List devices the currently authenticated user has access to.
+
+```
+GET /v1/devices
+```
+
+Get basic information about the given Core, including the custom variables and functions it has exposed.
+
+```
+GET /v1/devices/{DEVICE_ID}
+```
+
+Update the Core, including the display name or the firmware (either binary or source).
+
+```
+PUT /v1/devices/{DEVICE_ID}
+```
+
+Request the current value of a variable exposed by the core,
+e.g., `GET /v1/devices/0123456789abcdef01234567/temperature`
+
+```
+GET /v1/devices/{DEVICE_ID}/{VARIABLE}
+```
+
+Call a function exposed by the core, with arguments passed in request body,
+e.g., `POST /v1/devices/0123456789abcdef01234567/brew`
+
+```
+POST /v1/devices/{DEVICE_ID}/{FUNCTION}
+```
+
+Open a stream of [Server-Sent Events](http://www.w3.org/TR/eventsource/)
+
+```
+GET /v1/events[/:event_name]
+GET /v1/devices/events[/:event_name]
+GET /v1/devices/{DEVICE_ID}/events[/:event_name]
+```
+
+
+Authentication
+-------
+
+Just because you've connected your Spark Core to the internet doesn't mean anyone else should have access to it.
+Permissions for controlling and communciating with your Spark Core are managed with OAuth2.
+
+```
+# You type in your terminal
+curl https://api.spark.io/v1/devices/0123456789abcdef01234567/brew \
+     -d access_token=9876987698769876987698769876987698769876
+# Response status is 200 OK, which means
+# the Core says, "Yes ma'am!"
+
+# Sneaky Pete tries the same thing in his terminal
+curl https://api.spark.io/v1/devices/0123456789abcdef01234567/brew \
+     -d access_token=1234123412341234123412341234123412341234
+# Response status is 403 Forbidden, which means
+# the Core says, "You ain't the boss of me."
+
+# LESSON: Protect your access token.
+```
+
+Your access token can be found in the Spark Build web IDE on the 'Settings' page.
+
+[Spark Build >](https://www.spark.io/build)
+
+When you connect your Spark Core to the Cloud for the first time, it will be associated with your account,
+and only you will have permission to control your Spark Core—using your access token.
+
+If you need to transfer ownership of the core to another user, the easiest way is to simply log into the [Spark build site](https://www.spark.io/build), click on the 'cores' drawer on the bottom left, and then click the small 'right arrow' by the core you want to release, then click "Remove Core". This will make it possible for the other person you are transfering the core to, to go through the normal [claiming process](/#/connect/claiming-your-core).
+
+In the future, you will be able to provision access to your Spark Core to other accounts
+and to third-party app developers; however, these features are not yet available.
+
+
+
+### How to send your access token
+
+There are three ways to send your access token in a request.
+
+* In an HTTP Authorization header (always works)
+* In the URL query string (only works with GET requests)
+* In the request body (only works for POST & PUT when body is URL-encoded)
+
+In these docs, you'll see example calls written using a terminal program called
+[curl](http://curl.haxx.se/)
+which may already be available on your machine.
+
+Example commands will always start with `curl`.
+
+---
+
+To send a custom header using curl, use you the `-H` flag.
+The access token is called a "Bearer" token and goes in the standard
+HTTP `Authorization` header.
+
+```
+curl -H "Authorization: Bearer 38bb7b318cc6898c80317decb34525844bc9db55"
+  https://...
+```
+
+---
+
+The query string is the part of the URL after a `?` question mark.
+To send the access token in the query string just add `access_token=38bb...`.
+Because your terminal thinks the question mark is special, we escape it with a backslash.
+
+```
+curl https://api.spark.io/v1/devices\?access_token=38bb7b318cc6898c80317decb34525844bc9db55
+```
+
+---
+
+The request body is how form contents are submitted on the web.
+Using curl, each parameter you send, including the access token is preceded by a `-d` flag.
+By default, if you add a `-d` flag, curl assumes that the request is a POST.
+If you need a different request type, you have to specifically say so with the `-X` flag,
+for example `-X PUT`.
+
+```
+curl -d access_token=38bb7b318cc6898c80317decb34525844bc9db55
+  https://...
+```
+
+
+### Generate a new access token
+
+```
+POST /oauth/token
+
+# Using curl in your terminal
+curl https://api.spark.io/oauth/token -u spark:spark \
+     -d grant_type=password -d username=joe@example.com -d password=SuperSecret
+
+# A typical JSON response will look like this
+{
+    "access_token": "254406f79c1999af65a7df4388971354f85cfee9",
+    "token_type": "bearer",
+    "expires_in": 7776000
+}
+```
+
+When creating a new access token, you need to specify several additional pieces of info.
+
+You must give a valid client ID and password in HTTP Basic Auth.
+Any client ID will work right now, so we suggest `spark:spark`.
+In the POST body, you need three parameters:
+
+* grant_type=password
+* username=YOUR_EMAIL@ADDRE.SS
+* password=YOUR_PASSWORD
+
+For now, Spark Build will list the single most recently created token.
+
+
+### List all your tokens
+
+```
+GET /v1/access_tokens
+
+# Using curl in your terminal
+curl https://api.spark.io/v1/access_tokens -u joe@example.com:SuperSecret
+
+# Example JSON response
+[
+    {
+        "token": "b5b901e8760164e134199bc2c3dd1d228acf2d98",
+        "expires_at": "2014-04-27T02:20:36.177Z",
+        "client": "spark"
+    },
+    {
+        "token": "ba54b6bb71a43b7612bdc7c972914604a078892b",
+        "expires_at": "2014-04-27T06:31:08.991Z",
+        "client": "spark"
+    }
+]
+```
+
+You can list all your access tokens by passing your email address and password
+in an HTTP Basic Auth header to `/v1/access_tokens`.
+
+
+### Deleting an access token
+
+```
+DELETE /v1/access_tokens/:token
+
+# Using curl in your terminal
+curl https://api.spark.io/v1/access_tokens/b5b901e8760164e134199bc2c3dd1d228acf2d98 \
+     -u joe@example.com:SuperSecret -X DELETE
+
+# Example JSON response
+{
+    "ok": true
+}
+```
+
+If you have a bunch of unused tokens and want to clean up, you can delete tokens.
+
+Just as for listing them, send your username and password in an HTTP Basic Auth header.
+
+
+Errors
+-------
+
+The Spark Cloud uses traditional HTTP response codes to provide feedback from the Core regarding the validity
+of the request and its success or failure. As with other HTTP resources, response codes in the 200 range
+indicate success; codes in the 400 range indicate failure due to the information provided;
+codes in the 500 range indicate failure within Spark's server infrastructure.
+
+```
+200 OK - API call successfully delivered to the Core and executed.
+
+400 Bad Request - Your request is not understood by the Core,
+    or the requested subresource (variable/function) has not been exposed.
+
+401 Unauthorized - Your access token is not valid.
+
+403 Forbidden - Your access token is not authorized to interface with this Core.
+
+404 Not Found - The Core you requested is not currently connected to the cloud.
+
+408 Timed Out - The cloud experienced a significant delay when trying to reach the Core.
+
+500 Server errors - Fail whale. Something's wrong on our end.
+```
+
+Versioning
+-------
+
+The API endpoints all start with `/v1` to represent the first official version of the Spark Cloud API.
+The existing API is stable, and we may add new endpoints with the `/v1` prefix.
+
+If in the future we make backwards-incompatible changes to the API, the new endpoints will start with
+something different, probably `/v2`.  If we decide to deprecate any `/v1` endpoints,
+we'll give you lots of notice and a clear upgrade path.
+
+Basic functions
+========
+
+Controlling a Core
+--------
+
+To control a Core, you must first define and expose *functions* in the Core firmware.
+You then call these functions remotely using the Spark Cloud API.
+
+```cpp
+/* FIRMWARE */
+int brew(String args)
+{
+  // parse brew temperature and duration from args
+  // ...
+
+  activate_heating_element(temperature);
+  start_water_pump(duration_seconds);
+
+  // int status_code = ...
+  return status_code;
+}
+```
+
+---
+
+Let's say, as an example, you create a Spark-powered coffeemaker.
+Within the firmware, we might expect to see something like this brew function.
+
+```cpp
+/* FIRMWARE */
+void setup()
+{
+  Spark.function("brew", brew);
+}
+```
+
+In a normal coffeemaker, `brew` might be called when a button on the front of the coffeemaker is pressed.
+
+To make this function available through the Spark Cloud, simply add a `Spark.function` call to your `setup()`.
+
+
+
+---
+
+This *exposes* the brew function so that it can be called through the API. When this code is present in the firmware, you can make this API call.
+
+```bash
+POST /v1/devices/{DEVICE_ID}/{FUNCTION}
+
+# EXAMPLE REQUEST
+curl https://api.spark.io/v1/devices/0123456789abcdef01234567/brew \
+     -d access_token=1234123412341234123412341234123412341234 \
+     -d "args=202,230"
+```
+
+---
+
+The API request will be routed to the Spark Core and will run your `brew` function. The response will have a `return_value` key containing the integer returned by `brew`.
+
+```json
+// EXAMPLE RESPONSE
+{
+  "id": "0123456789abcdef01234567",
+  "name": "prototype99",
+  "connected": true,
+  "return_value": 42
+}
+
+```
+
+All Spark functions take a String as the only argument and must return a 32-bit integer.
+
+
+Reading data from a Core
+--------
+
+### Variables
+
+Imagine you have a temperature sensor attached to the A0 pin of your Spark Core
+and your firmware has exposed the value of the sensor as a Spark variable.
+
+```cpp
+/* FIRMWARE */
+int temperature = 0;
+
+void setup()
+{
+  Spark.variable("temperature", &temperature, INT);
+  pinMode(A0, INPUT);
+}
+
+void loop()
+{
+  temperature = analogRead(A0);
+}
+```
+
+---
+
+You can now make a `GET` request, even with your browser, to read the sensor at any time.
+The API endpoint is `/v1/devices/{DEVICE_ID}/{VARIABLE}` and as always, you have to include your access token.
+
+```bash
+# EXAMPLE REQUEST IN TERMINAL
+# Core ID is 0123456789abcdef01234567
+# Your access token is 1234123412341234123412341234123412341234
+curl "https://api.spark.io/v1/devices/0123456789abcdef01234567/temperature?access_token=1234123412341234123412341234123412341234"
+```
+
+**NOTE**: Variable names are truncated after the 12th character: `temperature_sensor` is accessible as `temperature_`
+
+### Events
+
+#### Registering a callback
+
+In the build section of the Spark website, you will be able to register a URL on your own server
+to which we will POST each time one of your Spark Cores publishes a certain event. *This feature is still in progress, and will be released later in March.*
+
+#### Subscribing to events
+
+You can make an API call that will open a stream of
+[Server-Sent Events](http://www.w3.org/TR/eventsource/) (SSEs).
+You will make one API call that opens a connection to the Spark Cloud.
+That connection will stay open, unlike normal HTTP calls which end quickly.
+Very little data will come to you across the connection unless your Spark Core publishes an event,
+at which point you will be immediately notified.
+
+To subscribe to an event stream, make a GET request to one of the following endpoints.
+This will open a Server-Sent Events (SSE) stream, i.e., a TCP socket that stays open.
+In each case, the event name filter in the URI is optional.
+
+SSE resources:
+
+* http://dev.w3.org/html5/eventsource/
+* https://developer.mozilla.org/en-US/docs/Server-sent_events/Using_server-sent_events
+* http://www.html5rocks.com/en/tutorials/eventsource/basics/
+
+---
+
+Subscribe to the firehose of public events, plus private events published by devices one owns:
+
+```
+GET /v1/events[/:event_name]
+
+# EXAMPLE
+curl -H "Authorization: Bearer 38bb7b318cc6898c80317decb34525844bc9db55"
+https://api.spark.io/v1/events/temperature
+```
+
+---
+
+Subscribe to all events, public and private, published by devices one owns:
+
+```
+GET /v1/devices/events[/:event_name]
+
+# EXAMPLE
+curl -H "Authorization: Bearer 38bb7b318cc6898c80317decb34525844bc9db55"
+https://api.spark.io/v1/devices/events/temperature
+```
+
+---
+
+Subscribe to events from one specific device.
+If the API user owns the device, then she will receive all events,
+public and private, published by that device.
+If the API user does not own the device she will only receive public events.
+
+```
+GET /v1/devices/:device_id/events[/:event_name]
+
+# EXAMPLE
+curl -H "Authorization: Bearer 38bb7b318cc6898c80317decb34525844bc9db55"
+https://api.spark.io/v1/devices/55ff70064939494339432586/events/temperature
+```
+
+
+Verifying and Flashing new firmware
+---------
+
+All your Spark firmware coding can happen entirely in the build section of the website.
+However, if you prefer to use your own text editor or IDE, you can!
+It just means that instead of hitting the "Flash" or "Verify" buttons, you'll make API calls that reference a file.
+
+
+### Flash a Core with source code
+
+If you have written a source code file that defines `setup()` and `loop()` functions,
+you can flash it to your Spark Core with an HTTP PUT request.
+
+```
+# HTTP REQUEST DEFINITION
+PUT /v1/devices/{DEVICE_ID}
+Content-Type: multipart/form-data
+
+Send the source code file as "file" in request body.
+```
+
+---
+
+The API request should be encoded as `multipart/form-data` with a `file` field populated.
+Your filename does not matter.  In particular, the extension can be .c, .cpp, .ino, or anything else your prefer.
+
+This API request will submit your firmware to be compiled into a Spark binary, after which,
+if compilation was successful, the binary will be flashed to your Core wirelessly.
+
+```bash
+# EXAMPLE REQUEST IN TERMINAL
+# Flash a Core with a file called "my-firmware-app.cpp"
+curl -X PUT -F file=@my-firmware-app.cpp \
+  "https://api.spark.io/v1/devices/0123456789abcdef01234567?access_token=1234123412341234123412341234123412341234"
+```
+
+---
+
+There are three possible response formats:
+
+* A successful response, in which both compilation and flashing succeed.
+  * Note that the LED on your Core will blink magenta while updating.
+* A failure due to compilation errors.
+* A failure due to inability to transmit the binary to the core.
+
+
+```js
+// EXAMPLE SUCCESSFUL RESPONSE
+{
+  "ok": true,
+  "firmware_binary_id": "12345"
+}
+```
+
+```js
+// EXAMPLE COMPILE FAILURE RESPONSE
+{
+  "ok": false,
+  "errors": ["Compile error"],
+  "output": ".... lots of debug output from the compiler..."
+}
+```
+
+```js
+// EXAMPLE FLASH FAILURE RESPONSE
+{
+  "ok": false,
+  "firmware_binary_id": "1234567",
+  "errors": ["Device is not connected."]
+}
+```
+
+### Flash a Core with a pre-compiled binary
+
+If you want to compile the firmware yourself and send a binary instead of a source file, you can do that too!
+Just add `file_type=binary` to the request body, and we will skip the compilation stage altogether.
+The response format will look like those shown above.
+
+```bash
+# EXAMPLE REQUEST IN TERMINAL TO FLASH A BINARY
+curl -X PUT -F file=@my-firmware-app.bin -F file_type=binary \
+  "https://api.spark.io/v1/devices/0123456789abcdef01234567?access_token=1234123412341234123412341234123412341234"
+```
