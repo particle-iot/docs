@@ -1308,6 +1308,7 @@ void setup()
   {
     Serial.println("connected");
     client.println("GET /search?q=unicorn HTTP/1.0");
+    client.println("Host: www.google.com");
     client.println();
   }
   else
