@@ -6,20 +6,21 @@ The Spark CLI is a powerful tool for interacting with your cores and the Spark C
 Installing
 =======
 
-  First, make sure you have node installed!  http://nodejs.org/
+  First, make sure you have [node.js](http://nodejs.org/) installed!  
 
-  Then you can install the cli by typing:
+  Next, open a command prompt or terminal, and install by typing:
 
-    npm install -g spark-cli
-    spark cloud login
-
+```sh 
+$ npm install -g spark-cli
+$ spark cloud login
+```
 
 Install (advanced)
 ---------------------------
 
-To use the local flash and key features you'll need to install [dfu-util](http://dfu-util.gnumonks.org/), and [openssl](http://www.openssl.org/).  There are freely available, and there are installers and binaries for most major platforms as well.  
+To use the local flash and key features you'll need to install [dfu-util](http://dfu-util.gnumonks.org/), and [openssl](http://www.openssl.org/).  They are freely available and open-source, and there are installers and binaries for most major platforms as well.  
 
-There are some great tutorials on the community for full installs:
+Here are some great tutorials on the community for full installs:
 
 [Installing on Ubuntu](https://community.spark.io/t/how-to-install-spark-cli-on-ubuntu-12-04/3474)
 
@@ -30,7 +31,9 @@ Upgrading
 ---------------------------
 To upgrade Spark-CLI, enter the following command:
 
-    npm update -g spark-cli
+```sh
+$ npm update -g spark-cli
+```
 
 
 Running from source (advanced)
@@ -44,8 +47,13 @@ To grab the CLI source and play with it locally
 
 
 
-Getting Started / Documentation
+
+
+Getting Started
 ===============
+
+  These next two commands are all you need to get started setting up an account, claiming a core, and discovering new features.
+
 
 ###spark setup
 
@@ -64,11 +72,30 @@ $ spark help keys
 ```
 
 
+
+
+Command Reference
+================
+
+###spark setup wifi
+
+  Helpful shortcut for adding another wifi network to a core connected over USB.  Make sure your core is connected via a USB cable, and is slow blinking blue [listening mode](http://docs.spark.io/#/connect)
+
+``` $ spark setup wifi```
+
+
 ###spark login
 
   Login and save an access token for interacting with your account on the Spark Cloud.
 
 ``` $ spark login ```
+
+
+###spark logout
+
+  Logout and optionally revoke the access token for your CLI session.
+
+``` $ spark logout ```
 
 
 ###spark list
@@ -91,7 +118,7 @@ my_core_name (0123456789ABCDEFGHI) 0 variables, and 4 functions
 
 ###spark core add
 
-  Claims a new core onto your account
+  Adds a new core to your account
 
 ```sh 
 $ spark cloud claim 0123456789ABCDEFGHI
@@ -127,6 +154,8 @@ Okay!
 
 ####Flashing a directory
 
+  You can setup a directory of source files and libraries for your project, and the CLI will use those when compiling remotely.  You can also create ```spark.include``` and / or a ```spark.ignore``` file in that directory that will tell the CLI specifically which files to use or ignore.
+
 ```sh
 $ spark flash 0123456789ABCDEFGHI my_project
 ```
@@ -146,7 +175,7 @@ $ spark flash 0123456789ABCDEFGHI cc3000
 
 ####Compiling remotely and Flashing locally
 
-To work locally, but use the cloud compiler, simply use the compile command, and then the local flash command after.  Make sure you connect your core via USB and place it into [dfu mode](http://docs.spark.io/#/connect/appendix-dfu-mode-device-firmware-upgrade)
+To work locally, but use the cloud compiler, simply use the compile command, and then the local flash command after.  Make sure you connect your core via USB and place it into [dfu mode](http://docs.spark.io/#/connect/appendix-dfu-mode-device-firmware-upgrade).
 
 ```sh
 $ spark compile my_project_folder --saveTo firmware.bin
@@ -154,6 +183,41 @@ OR
 $ spark compile app.ino library1.cpp library1.h --saveTo firmware.bin
 $ spark flash --usb firmware.bin
 ```
+
+
+###spark compile
+
+  Compiles one or more source file, or a directory of source files, and downloads a firmware binary.
+
+####compiling a directory
+
+  You can setup a directory of source files and libraries for your project, and the CLI will use those when compiling remotely.  You can also create ```spark.include``` and / or a ```spark.ignore``` file in that directory that will tell the CLI specifically which files to use or ignore.  Those files are just plain text with one line per filename
+
+```sh
+$ spark compile my_project_folder
+```
+
+####example spark.include
+```text
+application.cpp
+library1.h
+library1.cpp
+```
+
+####example spark.ignore
+```text
+.ds_store
+logo.png
+old_version.cpp
+```
+
+
+####Flashing one or more source files
+
+```sh
+$ spark compile app.ino library1.cpp library1.h
+```
+
 
 
 
@@ -175,19 +239,19 @@ $ spark flash --usb firmware.bin
 
 
 
-###spark variable monitor
+###spark monitor
 
   Pulls the value of a variable at a set interval, and optionally display a timestamp
   
   * Minimum delay for now is 500 (there is a check anyway if you keyed anything less)
-  * "ctrl + c" in the console stops the monitoring
+  * hitting ```CTRL + C``` in the console will exit the monitoring
 
 ```sh
-$ spark variable monitor 0123456789ABCDEFGHI temperature 5000
-$ spark variable monitor 0123456789ABCDEFGHI temperature 5000 --time
-$ spark variable monitor all temperature 5000
-$ spark variable monitor all temperature 5000 --time
-$ spark variable monitor all temperature 5000 --time > my_temperatures.csv
+$ spark monitor 0123456789ABCDEFGHI temperature 5000
+$ spark monitor 0123456789ABCDEFGHI temperature 5000 --time
+$ spark monitor all temperature 5000
+$ spark monitor all temperature 5000 --time
+$ spark monitor all temperature 5000 --time > my_temperatures.csv
 ```
 
 
@@ -204,6 +268,22 @@ $ spark identify /dev/cu.usbmodem12345
 $ spark identify
 0123456789ABCDEFGHI
 ```
+
+###spark subscribe
+
+    > spark subscribe
+    > spark subscribe mine
+    > spark subscribe eventName
+    > spark subscribe eventName mine
+    > spark subscribe eventName CoreName
+    > spark subscribe eventName 0123456789ABCDEFGHI
+
+
+  Subscribes to published events on the cloud, and pipes them to the console.  Special core name "mine" will subscribe to events from just your cores.
+
+     
+        
+
 
 
 
@@ -233,16 +313,4 @@ $ spark serial monitor /dev/cu.usbmodem12345
   Runs a series of steps to generate a new public/private keypair, and send it to the server for your core.  Helpful
   for recovering from key issues.
 
-
-###spark subscribe
-
-    > spark subscribe
-    > spark subscribe mine
-    > spark subscribe eventName
-    > spark subscribe eventName mine
-    > spark subscribe eventName CoreName
-    > spark subscribe eventName 0123456789ABCDEFGHI
-
-
-  Subscribes to published events on the cloud, and pipes them to the console.  Special core name "mine" will subscribe to events from just your cores.
 
