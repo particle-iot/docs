@@ -271,18 +271,17 @@ $ spark identify
 
 ###spark subscribe
 
-    > spark subscribe
-    > spark subscribe mine
-    > spark subscribe eventName
-    > spark subscribe eventName mine
-    > spark subscribe eventName CoreName
-    > spark subscribe eventName 0123456789ABCDEFGHI
-
-
   Subscribes to published events on the cloud, and pipes them to the console.  Special core name "mine" will subscribe to events from just your cores.
 
-     
-        
+
+```sh 
+$ spark subscribe
+$ spark subscribe mine
+$ spark subscribe eventName
+$ spark subscribe eventName mine
+$ spark subscribe eventName CoreName
+$ spark subscribe eventName 0123456789ABCDEFGHI
+```
 
 
 
@@ -308,9 +307,69 @@ $ spark serial monitor /dev/cu.usbmodem12345
 
 ###spark keys doctor
 
-``` > spark keys doctor 0123456789ABCDEFGHI```
+Helps you update your keys, or recover your core when the keys on the server are out of sync with the keys on your core.  The ```spark keys``` tools requires both dfu-util, and openssl to be installed.
 
-  Runs a series of steps to generate a new public/private keypair, and send it to the server for your core.  Helpful
-  for recovering from key issues.
+Connect your core in [dfu mode](http://docs.spark.io/#/connect/appendix-dfu-mode-device-firmware-upgrade), and run this command to replace the unique cryptographic keys on your core.  Automatically attempts to send the new public key to the cloud as well.
 
+``` $ spark keys doctor 0123456789ABCDEFGHI```
+
+
+###spark keys new
+
+Generates a new public / private keypair that can be used on a core.
+
+```sh
+$ spark keys new
+running openssl genrsa -out core.pem 1024
+running openssl rsa -in core.pem -pubout -out core.pub.pem
+running openssl rsa -in core.pem -outform DER -out core.der
+New Key Created!
+
+$ spark keys new mykey
+running openssl genrsa -out mykey.pem 1024
+running openssl rsa -in mykey.pem -pubout -out mykey.pub.pem
+running openssl rsa -in mykey.pem -outform DER -out mykey.der
+New Key Created!
+```
+
+###spark keys load
+
+Copies a ```.DER``` formatted private key onto your core's external flash.  Make sure your core is connected and in [dfu mode](http://docs.spark.io/#/connect/appendix-dfu-mode-device-firmware-upgrade).  The ```spark keys``` tools requires both dfu-util, and openssl to be installed.  Make sure any key you load is sent to the cloud with ```spark keys send core.pub.pem```
+
+```sh
+$ spark keys load core.der
+...
+Saved!
+```
+
+###spark keys save
+
+Copies a ```.DER``` formatted private key from your core's external flash to your computer.  Make sure your core is connected and in [dfu mode](http://docs.spark.io/#/connect/appendix-dfu-mode-device-firmware-upgrade).  The ```spark keys``` tools requires both dfu-util, and openssl to be installed.
+
+```sh
+$ spark keys save core.der
+...
+Saved!
+```
+
+###spark keys send
+
+Sends a core's public key to the cloud for use in opening an encrypted session with your core.  Please make sure your core has the corresponding private key loaded using the ```spark keys load``` command.
+
+```sh
+$ spark keys send 0123456789ABCDEFGHI core.pub.pem
+submitting public key succeeded!
+```
+
+###spark keys server
+
+Switches the server public key stored on the core's external flash.  This command is important when changing which server your core is connecting to, and the server public key helps protect your connection.   Your core will stay in DFU mode after this command, so that you can load new firmware to connect to your server.
+
+Coming Soon - more commands to make it easier to change the server settings on your core!
+
+
+```sh
+$ spark keys server my_server.der
+Okay!  New keys in place, your core will not restart.
+```
 
