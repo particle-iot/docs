@@ -73,6 +73,44 @@ $ spark help keys
 
 
 
+What can I do?
+============
+
+Now that you have an account, are logged in, and have a core online, lets try calling Tinker!  Lets see a list of your cores:
+
+```sh
+$ spark list
+
+Checking with the cloud...
+Retrieving cores... (this might take a few seconds)
+my_core_name (0123456789ABCDEFGHI) 0 variables, and 4 functions
+  Functions:
+    int digitalread(String args) 
+    int digitalwrite(String args) 
+    int analogread(String args) 
+    int analogwrite(String args) 
+
+```
+
+Lets flash that LED on D7 with some CLI ease!
+
+```sh
+$ spark call my_core_name digitalWrite D7,HIGH
+1
+$ spark call my_core_name digitalWrite D7,LOW
+1
+```
+
+Nice!
+
+
+
+
+
+
+
+
+
 
 Command Reference
 ================
