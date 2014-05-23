@@ -96,27 +96,6 @@ If you're seeing unexpected behavior with your Core, here are a few things to ch
 - Is the Core receiving sufficient power? The Core might behave eratically if it's plugged into an unpowered USB hub and not receiving enough power. In addition, if you have components that draw a lot of power (motors, for instance), you might need more power than your computer can supply. Try using a USB power supply or providing more power directly to the VIN or 3.3V pins.
 - If you have a u.FL Core, is an antenna connected? Are you within range of the Wi-Fi router?
 
-## My core flashes red after running my program for a while
-
-Are you getting a red flashing LED after running your code on your Spark core? You may be getting a panic code, telling you what went wrong!
-
-The panic code is a red LED blinking out SOS (... --- ...) followed by N flashes, followed by another SOS.
-
-Here are the meanings of the N flashes, but 8 flashes, signifying out of heap, is the most common:
-
-1. Hard fault
-2. Non-maskable interrupt fault
-3. Memory Manager fault
-4. Bus fault
-5. Usage fault
-6. Invalid length
-7. Exit
-8. Out of heap memory
-9. SPI over-run
-10. Assertion failure
-11. Invalid case
-12. Pure virtual call
-
 
 Troubleshoot by color
 ===
@@ -202,6 +181,31 @@ This should give you a list with something like [1d50:607f] in the list, if that
 You can reboot your Core and it should start [slow flashing blue](https://v.cdn.vine.co/r/videos/E465A8959B1015390893882101760_178fcfd2b3c.4.3.11510817618992331600_MIW9HE1mtZ9H_SpBlKdK1lv2UfmniExCFQHrgJ7iqiFDUiDb0E31bR7GwvB_7wz0.mp4?versionId=eS01KUZ6NaUZgEipSDeVi0rxZENByp1N), or start [flashing green](https://mtc.cdn.vine.co/r/videos/DB9E0E87311015399731217969152_1d6c83d12a3.4.3.2795910212236322177_4RBA9frM0a4pwIG_RbZgo.ZOBEbBr_CpxzoOsBNuExDz6TFldcjJSYHVh203e6F4.mp4?versionId=orM0m0DvLYdciAwsb6DYHhqb974AHMj_) if everything worked.
 
 If none of these steps are successful, please [contact the Spark team](mailto:hello@sparkdevices.com).
+
+---
+
+## Flashing red
+
+- *What’s the Core doing?* My Core is flashing red lights at different intervals when I power it on
+- *What’s the problem?* The Core is reporting a panic code, which could be caused by one of a large number of potential firmware issues.
+- *How do I fix it?*
+
+The panic code is signified by a series of flashing red LED blinks.  First, the LED will spell SOS ( ... - - - ... ), followed by a number of flashes, followed by another SOS message.
+
+The meaning of the panic codes is described below.  8 flashes, signifying out of heap memory, is the most common issue.  
+
+1. Hard fault
+2. Non-maskable interrupt fault
+3. Memory Manager fault
+4. Bus fault
+5. Usage fault
+6. Invalid length
+7. Exit
+8. Out of heap memory
+9. SPI over-run
+10. Assertion failure
+11. Invalid case
+12. Pure virtual call
 
 ---
 
