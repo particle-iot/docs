@@ -14,22 +14,18 @@ examples, source code, and documentation contributed by the community.
 
 ![The library drawer](images/library-drawer.png)
 
-Once the drawer is opened, you'll see the list of libraries you've published (My Libraries), as well as community libraries contributed by others (not shown).
+Once the drawer is opened, you'll see the list of libraries you've published (My Libraries), as well as community libraries contributed by others.
 
 This list of libraries is ordered by the number of apps that include it.
 You can click any of the library names to view details about it.
 
-![Find the right library](images/find-the-right-library.png)
-
-
-
 ![Include the library](images/choose-app-to-include-library.png)
 
-Here is some documentation.
+coming soon: more doc
 
 ![Use the library](images/using-library.png)
 
-Here is some documentation.
+coming soon: more doc
 
 
 ## Contribute a library
@@ -37,6 +33,13 @@ Here is some documentation.
 
 ![Import library from GitHub](images/import-library.png)
 
+coming soon: more doc
+
 ![Validate library](images/validate-library.png)
 
+coming soon: more doc
+
 ![Publish library](images/publish-library.png)
+
+coming soon: more doc
+
