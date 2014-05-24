@@ -1989,7 +1989,7 @@ The Spark Core will remember this offset until reboot.
 
 ```cpp
 // Set time zone to Eastern USA daylight saving time
-Serial.print(Time.zone(-5));
+Time.zone(-5);
 ```
 
 Parameters: floating point offset from UTC in hours, from -12.0 to 13.0
