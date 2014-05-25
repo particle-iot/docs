@@ -82,6 +82,9 @@ module.exports = (grunt) ->
           open: true
           base: ['<%= config.dist %>']
 
+    coffeelint:
+      grunt: ['Gruntfile.coffee']
+
   grunt.initConfig gruntConfig
 
   grunt.loadNpmTasks 'assemble'
@@ -90,7 +93,10 @@ module.exports = (grunt) ->
   grunt.loadNpmTasks 'grunt-contrib-clean'
   grunt.loadNpmTasks 'grunt-contrib-copy'
   grunt.loadNpmTasks 'grunt-contrib-connect'
+  grunt.loadNpmTasks 'grunt-contrib-jshint'
+  grunt.loadNpmTasks 'grunt-coffeelint'
 
   grunt.registerTask 'server', ['build', 'connect:livereload', 'watch']
   grunt.registerTask 'publish', ['build', 'gh-pages']
-  grunt.registerTask 'build', ['clean', 'assemble', 'copy']
+  grunt.registerTask 'build', ['test', 'clean', 'assemble', 'copy']
+  grunt.registerTask 'test', ['coffeelint']
