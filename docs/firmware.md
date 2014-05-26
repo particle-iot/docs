@@ -1166,6 +1166,65 @@ Register a function to be called when a master requests data from this slave dev
 
 Parameters: `handler`: the function to be called, takes no parameters and returns nothing, e.g.: `void myHandler() `
 
+IPAddress
+-----
+### IPAddress
+
+Creates an IP address that can be used with TCPServer, TCPClient, UPD, and Network objects.
+
+```C++
+// EXAMPLE USAGE
+IPAddress localIP;
+IPAddress server(8,8,8,8);
+IPAddress IPfromInt( 167772162UL );  // 10.0.0.2 as 10*256^3+0*256^2+0*256+2
+uint8_t server[] = { 10, 0, 0, 2};
+IPAddress IPfromBytes( server );
+```
+
+The IPAddress also allows for comparisons.
+
+```C++
+if (IPfromInt == IPfromBytes 
+{
+  Serial.println("Same IP addresses")
+}
+```
+
+You can also use indexing the get or change individual bytes in the IP address.
+
+```C++
+// PING ALL HOSTS ON YOUR SUBNET EXCEPT YOURSELF
+IPAddress localIP = Network.localIP();
+uint8_t myLastAddrByte = localIP[3];
+for(uint8_t ipRange=1; ipRange<255; ipRange++)
+{
+  if (ipRange != myLastAddrByte)
+  {
+    localIP[3] = ipRange;
+    Network.ping(localIP);
+  }  
+}
+```
+
+You can also assign to an IPAddress from an array of uint8's or a 32-bit unsigned integer.
+
+```C++
+IPAddress IPfromInt;  // 10.0.0.2 as 10*256^3+0*256^2+0*256+2
+IPfromInt = 167772162UL;
+uint8_t server[] = { 10, 0, 0, 2};
+IPAddress IPfromBytes;
+IPfromBytes = server;
+```
+  
+Finally IPAddress can be used directly with print.
+
+```C++
+// PRINT THE CORE'S IP ADDRESS IN
+// THE FORMAT 192.168.0.10
+IPAddress myIP = Network.localIP();
+Serial.println(myIP);    // prints the core's IP address
+```
+
 TCPServer
 -----
 ### TCPServer
