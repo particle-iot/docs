@@ -1,4 +1,5 @@
 ---
+word: Accessories
 title: Shields and kits
 order: 6
 ---

@@ -1,0 +1,136 @@
+/**************
+ * A CORE MADE OF CSS
+ **************/
+
+#button1 {
+  position: relative;
+  top:-80px;
+  left: 120px;
+  cursor: pointer;
+}
+
+@media (min-width: 1180px) {
+    body:not(.no-literate) #core1 {
+    margin-left: 40px;
+  }
+}
+
+.core {
+   width: 100px;
+   height: 130px;
+   background: rgba(0,0,0,0.2);
+   position: relative;
+   top: 15px;
+   display: inline-block;
+}
+.core-butt {
+   height: 0;
+   width: 60px;
+   content:"";
+   position: absolute;
+   border-top: 20px solid rgba(0,0,0,0.2);
+   border-left: 20px solid transparent;
+   border-right: 20px solid transparent;
+   top: 130px;
+}
+
+.core.small {
+    width: 60px;
+    height: 80px;
+}
+
+.small .core-butt {
+    width: 40px;
+    border-top: 10px solid rgba(0,0,0,0.2);
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    top: 80px;
+}
+
+.rgb {
+    width: 0;
+    height: 0;
+}
+
+.cyan {
+    background: #00ffff;
+}
+
+.red {
+    background: #ff0000;
+}
+
+.green {
+    background: #00ff00;
+}
+
+.blue {
+    background: #0000ff;
+}
+
+.magenta {
+    background: #ff00ff;
+}
+
+.yellow {
+    background: #ffff00;
+}
+
+.pattern {
+    width: 20px;
+    height: 20px;
+    border-radius: 20px;
+    content: "";
+    background: white;
+    position: absolute;
+    top: 20px;
+    left: 40px;
+}
+
+.small .pattern {
+    width: 15px;
+    height: 15px;
+    top: 15px;
+    left: 22.5px;
+}
+
+.breathing {
+    animation: change 4s infinite;
+    -webkit-animation: change 4s infinite;
+    -moz-animation: change 4s infinite;
+    -o-animation: change 4s infinite;
+}
+
+.flashing {
+    animation: change 0.4s infinite step-end;
+    -webkit-animation: change 0.4s infinite step-end;
+    -moz-animation: change 0.4s infinite step-end;
+    -o-animation: change 0.4s infinite step-end;
+}
+
+.fast {
+    animation-duration: 0.1s;
+    -webkit-animation-duration: 0.1s;
+    -moz-animation-duration: 0.1s;
+    -o-animation-duration: 0.1s;
+}
+
+@keyframes change {
+    from, to { background: rgba(0,0,0,0.1); }
+    50% { background: inherit; }
+}
+
+@-webkit-keyframes change {
+    from, to { background: rgba(0,0,0,0.1); }
+    50% { background: inherit; }
+}
+
+@-moz-keyframes change {
+    from, to { background: rgba(0,0,0,0.1); }
+    50% { background: inherit; }
+}
+
+@-o-keyframes change {
+    from, to { background: rgba(0,0,0,0.1); }
+    50% { background: inherit; }
+}

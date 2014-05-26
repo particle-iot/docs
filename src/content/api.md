@@ -1,4 +1,5 @@
 ---
+word: API
 title: Cloud API reference
 order: 4
 ---

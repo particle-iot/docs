@@ -1,19 +1,27 @@
+#logo {
+  height: 32px;
+  width: 85px;
+  margin: 10px 15px;
+  display: block;
+}
+
+a.contribute {
+  font-size: 0.88em;
+  color: #9090aa;
+  padding-right: 30px;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+a.contribute:hover {
+  color: #3a3a44;
+}
+
 .header {
   background: #f3f6fb;
-  text-shadow: 0 1px 0 rgba(255,255,255,0.5);
-  border-bottom: solid 1px #dfe2e7;
-  padding: 15px 15px 15px 30px;
   zoom: 1;
   line-height: 20px;
-  position: relative;
-}
-.header:before,
-.header:after {
-  content: "";
-  display: table;
-}
-.header:after {
-  clear: both;
+  height: 52px;
 }
 .header .left {
   float: left;
@@ -21,36 +29,11 @@
 .header .right {
   text-align: right;
   position: absolute;
-  right: 15px;
-  top: 15px;
+  right: 0px;
+  top: 10px;
 }
-.header .right iframe {
-  display: inline-block;
-  vertical-align: middle;
-}
-.header h1 {
-  -webkit-font-smoothing: antialiased;
-  text-rendering: optimizeLegibility;
-  font-weight: bold;
-  font-family: montserrat, sans-serif;
-  font-size: 13px;
-}
-.header h1,
-.header h1 a,
-.header h1 a:visited {
-  color: #9090aa;
-}
-.header h1 a:hover {
-  color: #505050;
-}
-.header li a {
-  font-size: 0.88em;
-  color: #9090aa;
-  display: block;
-}
-.header li a:hover {
-  color: #3a3a44;
-}
+
+/*
 @media (min-width: 480px) {
   .header h1 {
     float: left;
@@ -92,3 +75,4 @@
     clear: both;
   }
 }
+*/

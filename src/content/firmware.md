@@ -1,4 +1,5 @@
 ---
+word: Firmware
 title: Firmware reference
 order: 3
 ---

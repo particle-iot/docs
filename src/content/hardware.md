@@ -1,4 +1,5 @@
 ---
+word: Datasheet
 title: Hardware datasheet
 order: 5
 ---

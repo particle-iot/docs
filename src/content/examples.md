@@ -1,4 +1,5 @@
 ---
+word: Examples
 title: Annotated examples
 order: 2
 ---

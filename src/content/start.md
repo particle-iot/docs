@@ -1,4 +1,5 @@
 ---
+word: Start
 title: Getting started
 order: 0
 ---

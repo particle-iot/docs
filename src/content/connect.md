@@ -1,4 +1,5 @@
 ---
+word: Connect
 title: Connecting your Core
 order: 1
 ---
