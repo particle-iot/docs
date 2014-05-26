@@ -667,7 +667,7 @@ SPI
 ----
 This library allows you to communicate with SPI devices, with the Spark Core as the master device.
 
-![SPI](images/core-pin-spi.jpg)
+![SPI]({{assets}}/images/core-pin-spi.jpg)
 
 ### begin()
 
@@ -750,7 +750,7 @@ Where the parameter `val`, can is the byte to send out over the SPI bus.
 Wire
 ----
 
-![I2C](images/core-pin-i2c.jpg)
+![I2C]({{assets}}/images/core-pin-i2c.jpg)
 
 This library allows you to communicate with I2C / TWI devices. On the Spark Core, D0 is the Serial Data Line (SDA) and D1 is the Serial Clock (SCL). Both of these pins runs at 3.3V logic but are tolerant to 5V.
 

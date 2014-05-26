@@ -282,7 +282,7 @@
         };
 
         // If image is wider than the container
-        if (imageRatio > containerRatio) {
+        if ({{assets}}/imageRatio > containerRatio) {
           css.left = Math.round((parent.width - imageRatio * parent.height) / 2) + 'px';
           css.width = 'auto';
           css.height = '100%';

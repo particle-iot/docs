@@ -12,7 +12,7 @@ Here you will find a bunch of examples to get you started with your all new Spar
 Blink an LED
 ===
 
-![One LED illustration](images/annotated-example1.jpg)
+![One LED illustration]({{assets}}/images/annotated-example1.jpg)
 
 Blinking an LED is the ["Hello World"](http://en.wikipedia.org/wiki/Hello_world_program) example of the microcontroller  world. It's a nice way to warm up and start your journey into the land of embedded hardware.
 
@@ -20,7 +20,7 @@ For this example, you will need a Spark Core (duh!), a Breadboard, an LED, a Res
 
 Connect everything together as shown in the picture. The LED is connected to pin D0 of the Core. The positive (longer pin) of the LED is connected to D0 and its negative pin (shorter) is connected to ground via a resistor.
 
-![One LED setup](images/breadboard-one-led.jpg)
+![One LED setup]({{assets}}/images/breadboard-one-led.jpg)
 
 But wait, whats the value of the resistor again?
 
@@ -71,7 +71,7 @@ void loop()
 Control LEDs over the 'net
 ===
 
-![Two LED setup](images/breadboard-two-leds.jpg)
+![Two LED setup]({{assets}}/images/breadboard-two-leds.jpg)
 
 Now that we know how to blink an LED, how about we control it over the Internet? This is where the fun begins.
 
@@ -161,13 +161,13 @@ To better understand the concept of making API calls to your Core over the cloud
 Measuring the temperature
 ===
 
-![Read Sensor](images/annotated-example3.jpg)
+![Read Sensor]({{assets}}/images/annotated-example3.jpg)
 
 We have now learned how to send custom commands to the Core and control the hardware. But how about reading data back from the Core?
 
 In this example, we will hook up a temperature sensor to the Core and read the values over the internet with a web browser.
 
-![Read Temperature](images/breadboard-temp-sensor.jpg)
+![Read Temperature]({{assets}}/images/breadboard-temp-sensor.jpg)
 
 We have used a widely available analog temperature called TMP36 from Analog Devices. You can download the [datasheet here.](http://www.analog.com/static/imported-files/data_sheets/TMP35_36_37.pdf)
 

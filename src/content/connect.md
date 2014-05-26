@@ -64,7 +64,7 @@ You can also connect the Spark Core to your Wi-Fi network over USB by communicat
 
 First, you'll need to download a serial terminal application; we recommend [PuTTY](http://www.chiark.greenend.org.uk/~sgtatham/putty/) for Windows and [CoolTerm](http://freeware.the-meiers.org/) for Mac.
 
-![CoolTerm settings](images/coolterm-settings.png)
+![CoolTerm settings]({{assets}}/images/coolterm-settings.png)
 
 If you're running Windows, you'll need a driver:
 
@@ -77,7 +77,7 @@ Plug your Spark Core into your computer over USB. When the Spark Core is in list
 - Parity: none
 - Stop Bits: 1
 
-![CoolTerm setup](images/coolterm-setup.png)
+![CoolTerm setup]({{assets}}/images/coolterm-setup.png)
 
 Once you've opened a serial connection, you have two commands at your disposal by hitting either **w** or **i** on the keyboard. Here's what they do:
 
