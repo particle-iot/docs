@@ -21,6 +21,7 @@ Derived from Flatdoc (http://ricostacruz.com/flatdoc)
   Docs.transform = function() {
     this.tagImages();
     this.buttonize();
+    this.prettifyCode();
   };
 
   /**
@@ -47,7 +48,18 @@ Derived from Flatdoc (http://ricostacruz.com/flatdoc)
     });
   };
 
+  /**
+   * Make code prettier
+   */
+
+  Docs.prettifyCode = function() {
+    $('.content').find('pre code').each(function() {
+      $(this).addClass("prettyprint");
+    });
+  };
+
   // Ok, then let's do it!
   Docs.transform();
+  prettyPrint();
 
 })(jQuery);

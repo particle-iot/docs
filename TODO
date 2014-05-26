@@ -1,6 +1,6 @@
-[ ] Parse markdown to get nested document layout (assemble TOC plugin?)
-[ ] Add javascripty animations for folding/unfolding navigation
 [ ] Clean up styling
-[ ] Add 'download ZIP' button
 [ ] Make all assets local (so ZIP is awesome)
 [ ] Make old links still work
+[ ] Scrollspy
+[ ] Separate scroll for menu and content
+[ ] Code prettify

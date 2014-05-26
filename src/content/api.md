@@ -68,7 +68,7 @@ Authentication
 Just because you've connected your Spark Core to the internet doesn't mean anyone else should have access to it.
 Permissions for controlling and communciating with your Spark Core are managed with OAuth2.
 
-```
+```bash
 # You type in your terminal
 curl https://api.spark.io/v1/devices/0123456789abcdef01234567/brew \
      -d access_token=9876987698769876987698769876987698769876
