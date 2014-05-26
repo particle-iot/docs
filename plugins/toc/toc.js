@@ -1,4 +1,8 @@
 /**
+*
+* Table of Contents generator.
+*
+* Based on:
 * Assemble Contrib Plugin: TOC
 * https://github.com/assemble/assemble-contrib-toc
 *
@@ -10,50 +14,68 @@
 * @return {[type]} [description]
 */
 
-
 var options = {
   stage: 'render:post:page'
 };
 
 var cheerio = require('cheerio');
 
-/**
- * Anchor Plugin
- * @param  {Object}   params
- * @param  {Function} callback
- */
 module.exports = function(params, callback) {
   'use strict';
 
-  var opts = params.assemble.options;
-  opts.toc = opts.toc || {};
+  var grunt = params.grunt;
+  var page = params.page;
+  var content = params.content;
+
+  var opts = page.data.toc || params.assemble.options.toc;
 
   // id to use to append TOC
-  var id = '#' + (opts.toc.id || 'toc');
-  var modifier = opts.toc.modifier || '';
-  var li = opts.toc.li ? (' class="' + opts.toc.li + '"') : '';
+  var id = '#' + (opts.id || 'toc');
+  var modifier = opts.modifier || '';
+  var li = opts.li ? (' class="' + opts.li + '"') : '';
 
   // load current page content
-  var $ = cheerio.load(params.content);
-  var toc = cheerio.load('<ul id="toc-list" class="' + modifier + '"></ul>');
+  var $ = cheerio.load(content);
+  var $toc = $(id);
 
-  // get all the anchor tags from inside the headers
-  var anchors = $('h1 a[name],h2 a[name],h3 a[name],h4 a[name]');
-  anchors.map(function(i, e) {
-    var text  = $(e.parent).text().trim();
-    var link  = e.attribs.name
-    var depth = parseInt(e.parent.name.replace(/h/gi, ''), 10);
+  // create menu object
+  var menu = [];
 
-    var arr = new Array(depth);
-    var level = arr.join('<li><ul>') + '<li><a href="#' + link + '">' + text + '</a></li>' + arr.join('</ul></li>');
-    toc('#toc-list').append(level);
+  $('.content').find('h1, h2, h3').each(function() {
+    var $el = $(this);
+    var level = +($el[0].name.substr(1));
+
+    var obj = { section: $el.text(), items: [], level: level, id: $el.attr('id') };
+    menu.push(obj);
   });
-  $(id).append(toc.html()
-       .replace(/(<li>\s*<ul>\s*)+/g, '<li><ul>')
-       .replace(/(<\/ul>\s*<\/li>\s*)+/g, '</ul></li>')
-       .replace( /(<\/li>\s*<\/ul>\s*<\/li>\s*<li>\s*<ul>\s*<li>)/g, '</li><li>'));
+
+
+  // Add the TOC
+  if (menu.length > 0) {
+    menu.forEach(function(item) {
+      var id = item.id;
+
+      var $li = $('<li>')
+        .attr('id', id + '-item')
+        .addClass('level-' + item.level);
+
+      if (item.section) {
+        var $a = $('<a>')
+          .html(item.section)
+          .attr('id', id + '-link')
+          .attr('href', '#')
+          .addClass('level-' + item.level);
+          $li.append($a);
+      }
+
+      $toc.append($li);
+
+
+    });
+  }
 
   params.content = $.html();
+
   callback();
 };
 

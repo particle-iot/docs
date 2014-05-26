@@ -30,9 +30,11 @@ module.exports = (grunt) ->
         assets: '<%= config.dist %>/assets'
         layoutdir: '<%= config.src %>/layouts'
         layout: 'default.hbs'
-        plugins: ['assemble-contrib-permalinks', 'plugins/toc.js']
+        plugins: ['assemble-contrib-permalinks', 'plugins/toc/toc.js']
         permalinks:
           structure: ':basename/index:ext'
+        toc:
+          id: 'toc'
       docs:
         options:
           ext: '.html'
