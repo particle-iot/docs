@@ -1,6 +1,6 @@
 ---
 word: Datasheet
-title: Hardware datasheet
+title: Spark Core datasheet
 order: 5
 ---
 
