@@ -1,15 +1,15 @@
 language: node_js
 node_js:
-  - "0.10"
+- '0.10'
 before_install: npm install -g grunt-cli
 after_script: grunt build
 deploy:
   provider: s3
-  access_key_id: "AKIAI3BB2PQELXWJY6FA"
+  access_key_id: AKIAI3BB2PQELXWJY6FA
   secret_access_key:
-    secure: "IcQZR3Ka9D2Rxleo6nTYDJQg+HcWeEmBIXSsAzRCOEP/MKgjbSi1syD7djkToWbEC/+lTnYSxBk4+DYnpO4szB4Rz5X33TxW2fUswEY32Vv4EukVkzZ06ZDLn2gpw03lWB2qB2RHbhwKYcKD1HpzizhOswW8LQkIztS9HlGao5g="
-  bucket: "docs.spark.io"
+    secure: IwjvIgZAk7H9Y1reab8ycr+68nPAdk1j7spcIGE72pGQQgIhQzFifvCSebs4Fto4czzYQaw400D44MXt+rmejU7qNJCmWs4GQf/N9VAdIaJ5kadqlpM0m23LR61CRQu62nayIGtHMWOHw/FHhGtsK/RHKn2wEiqCNeooxKGcdS8=
+  bucket: docs.spark.io
+  local-dir: dest
   on:
+    repo: spark/docs
     branch: feature/server-side-rendering
-  # skip_cleanup: true
-  # local_dir: dest
