@@ -3,6 +3,14 @@
   var $document = $(document);
 
   /*
+   * Redirect a hash map.
+   */
+
+  if (window.location.hash.indexOf("#/") === 0) {
+    window.location = "#" + window.location.hash.substring(2);
+  }
+
+  /*
    * Sidebar stick.
    */
 

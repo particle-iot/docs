@@ -32,6 +32,8 @@ This will set up a Connect server and load the local documentation in a web brow
 
 When updated documentation is pushed to the master branch, it is automatically pushed to Amazon S3 by Travis CI.
 
+Travis calls `grunt deploy`, which is the same as `grunt build`, except that it also zips up the docs for downloading.
+
 To see the latest build, visit the [Travis CI page](https://travis-ci.org/spark/docs).
 
 ### Organization
