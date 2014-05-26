@@ -13,12 +13,12 @@
   "devDependencies": {
     "assemble": "~0.4.35",
     "assemble-contrib-permalinks": "0.3.4",
-    "grunt-gh-pages": "~0.9.1",
     "grunt-contrib-watch": "~0.5.3",
     "grunt-contrib-copy": "~0.5.0",
     "grunt-contrib-connect": "~0.7.1",
     "grunt-contrib-jshint": "~0.10.0",
     "grunt-coffeelint": "0.0.10",
-    "grunt-contrib-clean": "~0.5.0"
+    "grunt-contrib-clean": "~0.5.0",
+    "grunt-contrib-less": "~0.11.0"
   }
 }

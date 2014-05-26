@@ -7,8 +7,8 @@
 
   <title>Spark Docs | {{title}}</title>
 
-  <!-- Flatdoc -->
-  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <!-- jQuery -->
+  <script src="{{assets}}/js/jquery-1.11.1.min.js"></script>
 
   <!-- Let me embed vines -->
   <script async src="//platform.vine.co/static/scripts/embed.js" charset="utf-8"></script>
@@ -17,7 +17,6 @@
   <link rel="icon" href="{{assets}}/favicon.ico">
 
   <!-- Flatdoc theme -->
-  <link href='{{assets}}/css/theme-white.css' rel='stylesheet'>
   <script src='{{assets}}/js/theme-white.js'></script>
 
   <!-- Spark theme mods -->
@@ -39,6 +38,7 @@
         </a>
       </div>
       <div class='right'>
+        <a href="https://github.com/spark/docs/edit/master/src/content/{{basename}}.md" class="button">Edit this page</a>
         <a href="http://www.github.com/spark/docs" class="contribute">Contribute</a>
       </div>
     </div>
@@ -47,8 +47,9 @@
       <div class='menubar'>
         <div class='menu section' role='flatdoc-menu'>
           <ul>
+            <h3>Table of Contents</h3>
             {{#withSort pages "data.order"}}
-              <li><a href='../{{basename}}'>{{data.title}}</a></li>
+              <li><a href='../{{basename}}' class="level-0">{{data.title}}</a></li>
               <ul>
                 <!-- TODO: add nested lists for headers/subheaders -->
               </ul>

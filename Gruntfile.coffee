@@ -7,7 +7,6 @@
 # Use this gruntfile to:
 # - Assemble the static site (grunt build)
 # - Deploy locally for development (grunt server)
-# - Publish to Github pages (grunt publish)
 #
 # Copyright (c) 2013 Spark Labs, Inc.
 # Licensed under a Creative Commons Attribution-Sharealike 3.0 License.
@@ -59,9 +58,12 @@ module.exports = (grunt) ->
         src: '<%= config.dist %>/start/index.html'
 
     watch:
-      main:
+      content:
         files: ['<%= config.content %>/*.md', '<%= config.layouts %>/*.hbs']
         tasks: ['build']
+      stylesheets:
+        files: ['<%= config.src %>/stylesheets/*.less']
+        tasks: ['less']
       livereload:
         options:
           livereload: '<%= connect.options.livereload %>'
@@ -85,18 +87,23 @@ module.exports = (grunt) ->
     coffeelint:
       grunt: ['Gruntfile.coffee']
 
+    less:
+      docs:
+        files:
+          '<%= config.dist %>/assets/css/style.css':
+            '<%= config.src %>/stylesheets/style.less'
+
   grunt.initConfig gruntConfig
 
   grunt.loadNpmTasks 'assemble'
-  grunt.loadNpmTasks 'grunt-gh-pages'
   grunt.loadNpmTasks 'grunt-contrib-watch'
   grunt.loadNpmTasks 'grunt-contrib-clean'
   grunt.loadNpmTasks 'grunt-contrib-copy'
   grunt.loadNpmTasks 'grunt-contrib-connect'
   grunt.loadNpmTasks 'grunt-contrib-jshint'
   grunt.loadNpmTasks 'grunt-coffeelint'
+  grunt.loadNpmTasks 'grunt-contrib-less'
 
   grunt.registerTask 'server', ['build', 'connect:livereload', 'watch']
-  grunt.registerTask 'publish', ['build', 'gh-pages']
-  grunt.registerTask 'build', ['test', 'clean', 'assemble', 'copy']
+  grunt.registerTask 'build', ['test', 'clean', 'assemble', 'less', 'copy']
   grunt.registerTask 'test', ['coffeelint']
