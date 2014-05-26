@@ -2,3 +2,13 @@ language: node_js
 node_js:
   - "0.10"
 before_install: npm install -g grunt-cli
+after_script: grunt build
+deploy:
+  provider: s3
+  access_key_id:
+    secure: "bcA50bpgJt0aOsBDDvtoh6zm3p7LjEUATFGjvgpSiskCXK1LfU0jxHKjrly7YwMXFk2P3Q163iiq8EJdYT1YJj0SpptYXEgWiBGmYDyB3Flgg77mXeuK/geC5G7qnYNpcxeRIuQ/+RzESJeXpXm/bPKSBfpKfDhQDEsyXWntxes="
+  secret_access_key:
+    secure: "IcQZR3Ka9D2Rxleo6nTYDJQg+HcWeEmBIXSsAzRCOEP/MKgjbSi1syD7djkToWbEC/+lTnYSxBk4+DYnpO4szB4Rz5X33TxW2fUswEY32Vv4EukVkzZ06ZDLn2gpw03lWB2qB2RHbhwKYcKD1HpzizhOswW8LQkIztS9HlGao5g="
+  bucket: "docs.spark.io"
+  skip_cleanup: true
+  local_dir: dest
