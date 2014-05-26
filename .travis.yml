@@ -10,5 +10,5 @@ deploy:
   secret_access_key:
     secure: "IcQZR3Ka9D2Rxleo6nTYDJQg+HcWeEmBIXSsAzRCOEP/MKgjbSi1syD7djkToWbEC/+lTnYSxBk4+DYnpO4szB4Rz5X33TxW2fUswEY32Vv4EukVkzZ06ZDLn2gpw03lWB2qB2RHbhwKYcKD1HpzizhOswW8LQkIztS9HlGao5g="
   bucket: "docs.spark.io"
-  skip_cleanup: true
-  local_dir: dest
+  # skip_cleanup: true
+  # local_dir: dest
