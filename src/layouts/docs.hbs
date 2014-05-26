@@ -48,7 +48,7 @@
         <div class='menu section' role='flatdoc-menu'>
           <ul>
             {{#withSort pages "data.order"}}
-              <li><a href='../{{basename}}' class="level-0">{{data.title}}</a></li>
+              <li><a href='../{{basename}}' class="level-0 {{#compare basename "===" ../basename}}active{{/compare}}">{{data.title}}</a></li>
             {{/withSort}}
           </ul>
         </div>
