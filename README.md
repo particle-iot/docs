@@ -1,4 +1,4 @@
-## Spark Documentation
+## Spark Documentation [![Build Status](https://travis-ci.org/spark/docs.svg?branch=feature/server-side-rendering)](https://travis-ci.org/spark/docs)
 
 Here you'll find the documentation for the Spark platform, including the Spark Cloud and the Spark Core.
 
@@ -22,27 +22,27 @@ This documentation uses Grunt and Assemble to build and push documentation updat
 
 `grunt build`
 
-The documentation will be located in the `dest` directory. If you would like to host this documentation locally, try:
+The documentation will be located in the `build` directory. If you would like to host this documentation locally, try:
 
 `grunt server`
 
 This will set up a Connect server and load the local documentation in a web browser. If you make changes, the browser should automatically refresh.
 
-When you're ready to deploy to production, try:
+### Deployment
 
-`grunt publish`
+When updated documentation is pushed to the master branch, it is automatically pushed to Amazon S3 by Travis CI.
 
-This will push your changes to the gh-pages branch, updating the content on http://docs.spark.io
+To see the latest build, visit the [Travis CI page](https://travis-ci.org/spark/docs).
 
 ### Organization
 
-The majority of the content herein is stored in the `src/content` directory as a set of Markdown files. Assets such as images, javascript, and css are stored in the `dest/assets` directory.
+The majority of the content herein is stored in the `src/content` directory as a set of Markdown files. Assets such as images and javascript are stored in the `src/assets` directory.
 
 ### Attributions
 
 Some of this documentation is derived from the [Arduino documentation](http://arduino.cc/en/Reference), as the Arduino/Wiring language and libraries are used extensively on the Spark Core.
 
-This documentation is built using [Flatdoc](http://ricostacruz.com/flatdoc/), an awesome tool for building beautiful documentation from simple Markdown files.
+This documentation was originally built using [Flatdoc](http://ricostacruz.com/flatdoc/), an awesome tool for building beautiful documentation from simple Markdown files. We have made many modifications since, but the inspiration remains.
 
 ### Contributions
 
