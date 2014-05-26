@@ -8,7 +8,7 @@ Getting started
 
 ### What's in the box
 
-![Spark Core in box](images/core-in-box.jpg)
+![Spark Core in box]({{assets}}/images/core-in-box.jpg)
 
 Congratulations on being the owner of a brand new Spark Core! Go ahead, open the box, and let's talk about what you see. Your box should include:
 
@@ -19,7 +19,7 @@ Congratulations on being the owner of a brand new Spark Core! Go ahead, open the
 
 ### Step 1: Power the Core
 
-![Power the Core](images/core-usb.jpg)
+![Power the Core]({{assets}}/images/core-usb.jpg)
 
 Powering the Core is easy; it receives power over a Micro USB port, much like many smartphones and other gadgets. Power your Core on by connecting the Micro USB cable to the USB port on the Core, and plug the other end into any USB port on your computer, a USB hub (preferably powered), or a USB power adapter (like the one that probably came with your smartphone).
 
@@ -27,7 +27,7 @@ If you so desire, you can also power the Core with 3.6V to 6V to the `VIN` pin, 
 
 ### Step 2: Download the Spark iOS or Android app
 
-![Spark apps](images/spark-apps.png)
+![Spark apps]({{assets}}/images/spark-apps.png)
 
 The Spark mobile app is the easiest way to get your Spark Core connected to the internet. The app will help you do three things:
 
@@ -45,7 +45,7 @@ The iOS app requires iOS 7, and the Android app works with Ice Cream Sandwich (A
 
 ### Step 3: Connect the Core to Wi-Fi
 
-![Smart Config](images/smart-config.png)
+![Smart Config]({{assets}}/images/smart-config.png)
 
 Connecting the Spark Core to your Wi-Fi is dead simple. In fact, I did it twice while I was typing this paragraph.
 
@@ -63,11 +63,11 @@ The Spark mobile app will guide you through the process, but basically it's a on
 
 If the mobile app doesn't work for you, you can also connect your Spark Core over USB. For more information, or for a detailed explanation of how to connect your Core to the 'net, check out:
 
-[Connect your Core >](/#/connect)
+[Connect your Core >](/connect)
 
 ### Step 4: Blink an LED with Tinker
 
-![Tinker](images/tinker.png)
+![Tinker]({{assets}}/images/tinker.png)
 
 The Spark mobile app contains a mini-app called Tinker that lets you... well, tinker. It lets you talk with the Input/Output pins of the Spark Core without writing a single line of code.
 
@@ -180,13 +180,13 @@ Tinkering with "Tinker"
 The Tinker app
 ---
 
-![Tinker](images/tinker.png)
+![Tinker]({{assets}}/images/tinker.png)
 
 The Tinker section of the Spark mobile app makes it very easy to start playing with your Spark Core without writing any code. It's great for early development, and often it will do everything you need to get your project off of the ground.
 
 The app consists of 16 pins in vertical rows - 8 analog pins on the left, 8 digital pins on the right. These pins represent the 16 GPIO (General Purpose Input and Output) pins on the Spark Core, and are organized the same way.
 
-![Tinker selection](images/tinker-select.png)
+![Tinker selection]({{assets}}/images/tinker-select.png)
 
 To begin, tap any of the pins. A menu will pop up showing the functions that pin has available. Each pin can have up to four possible functions:
 
@@ -291,7 +291,7 @@ When you flash code onto the Spark Core, you are doing an *over-the-air firmware
 Spark Build, our web IDE
 ---
 
-![Spark Build](images/ide.png)
+![Spark Build]({{assets}}/images/ide.png)
 
 When you're ready to reprogram your Spark Core, head over to our IDE:
 
@@ -349,7 +349,7 @@ What's wrong?
 
 There are many reasons that your Core might not be connecting to your Wi-Fi network. To debug, check out our detailed connection troubleshooting section:
 
-[Why won't it connect? >](/#/connect/troubleshooting)
+[Why won't it connect? >](/connect/troubleshooting)
 
 ### I can't talk to my Core
 
@@ -359,7 +359,7 @@ If you use the mobile app to set up your Core, it should claim it automatically.
 
 Head over to our connection page to learn about this:
 
-[ Claiming your Core >](/#/connect/claiming-your-core)
+[ Claiming your Core >](/connect/claiming-your-core)
 
 ### My Core won't start up
 

@@ -89,7 +89,7 @@
       <div role='flatdoc-content' class='content'>
         <h1 id="getting-started">Getting started</h1>
 <h3 id="what-s-in-the-box">What&#39;s in the box</h3>
-<p><img src="images/core-in-box.jpg" alt="Spark Core in box"></p>
+<p><img src="../assets/images/core-in-box.jpg" alt="Spark Core in box"></p>
 <p>Congratulations on being the owner of a brand new Spark Core! Go ahead, open the box, and let&#39;s talk about what you see. Your box should include:</p>
 <ul>
 <li><em>One Spark Core</em>. The reason you bought this thing. We&#39;ll dig in more here in a bit.</li>
@@ -97,11 +97,11 @@
 <li><em>One USB cable</em>. The included USB cable is used for two things: powering the Spark Core (by connecting it to your computer, to a USB power brick, or to a USB battery pack) and reprogramming. Most of the time you will be reprogramming the Core through the Cloud, but you always have the option of reprogramming it over USB, especially if your internet connection is down or you would prefer to use your own servers.</li>
 </ul>
 <h3 id="step-1-power-the-core">Step 1: Power the Core</h3>
-<p><img src="images/core-usb.jpg" alt="Power the Core"></p>
+<p><img src="../assets/images/core-usb.jpg" alt="Power the Core"></p>
 <p>Powering the Core is easy; it receives power over a Micro USB port, much like many smartphones and other gadgets. Power your Core on by connecting the Micro USB cable to the USB port on the Core, and plug the other end into any USB port on your computer, a USB hub (preferably powered), or a USB power adapter (like the one that probably came with your smartphone).</p>
 <p>If you so desire, you can also power the Core with 3.6V to 6V to the <code>VIN</code> pin, or 3.3V to the <code>3.3V</code> pin.</p>
 <h3 id="step-2-download-the-spark-ios-or-android-app">Step 2: Download the Spark iOS or Android app</h3>
-<p><img src="images/spark-apps.png" alt="Spark apps"></p>
+<p><img src="../assets/images/spark-apps.png" alt="Spark apps"></p>
 <p>The Spark mobile app is the easiest way to get your Spark Core connected to the internet. The app will help you do three things:</p>
 <ul>
 <li>Create an account with Spark</li>
@@ -112,7 +112,7 @@
 <p><a href="https://itunes.apple.com/us/app/spark-core/id760157884">Download the iPhone app &gt;</a></p>
 <p><a href="https://play.google.com/store/apps/details?id=io.spark.core.android">Download the Android app &gt;</a></p>
 <h3 id="step-3-connect-the-core-to-wi-fi">Step 3: Connect the Core to Wi-Fi</h3>
-<p><img src="images/smart-config.png" alt="Smart Config"></p>
+<p><img src="../assets/images/smart-config.png" alt="Smart Config"></p>
 <p>Connecting the Spark Core to your Wi-Fi is dead simple. In fact, I did it twice while I was typing this paragraph.</p>
 <p>The Spark mobile app will guide you through the process, but basically it&#39;s a one-step process where you type your Wi-Fi network name (SSID) and password and they&#39;re sent over Wi-Fi to the Spark Core, which automatically connects to the network and to the Spark Cloud. If everything works as planned, you&#39;ll see the LED go through the following colors:</p>
 <ul>
@@ -126,9 +126,9 @@
 
 <p><a id="button1" class="button" onclick="animateCore()">See an animation</a></p>
 <p>If the mobile app doesn&#39;t work for you, you can also connect your Spark Core over USB. For more information, or for a detailed explanation of how to connect your Core to the &#39;net, check out:</p>
-<p><a href="/#/connect">Connect your Core &gt;</a></p>
+<p><a href="/connect">Connect your Core &gt;</a></p>
 <h3 id="step-4-blink-an-led-with-tinker">Step 4: Blink an LED with Tinker</h3>
-<p><img src="images/tinker.png" alt="Tinker"></p>
+<p><img src="../assets/images/tinker.png" alt="Tinker"></p>
 <p>The Spark mobile app contains a mini-app called Tinker that lets you... well, tinker. It lets you talk with the Input/Output pins of the Spark Core without writing a single line of code.</p>
 <p>Each of the pins has up to four functions available: <em>digitalWrite</em>, <em>analogWrite</em>, <em>digitalRead</em>, and <em>analogRead</em>. For more information, scroll down to the &quot;Tinkering with Tinker&quot; section.</p>
 <h1 id="wait-what-is-this-thing-">Wait, what is this thing?</h1>
@@ -199,10 +199,10 @@
 <p>We hand-picked a set of rock-solid security protocols that are secure and efficient, so they work great on an embedded system. They&#39;re baked into the Spark Protocol, which is open source and ready to be extended to other products.</p>
 <h1 id="tinkering-with-tinker-">Tinkering with &quot;Tinker&quot;</h1>
 <h2 id="the-tinker-app">The Tinker app</h2>
-<p><img src="images/tinker.png" alt="Tinker"></p>
+<p><img src="../assets/images/tinker.png" alt="Tinker"></p>
 <p>The Tinker section of the Spark mobile app makes it very easy to start playing with your Spark Core without writing any code. It&#39;s great for early development, and often it will do everything you need to get your project off of the ground.</p>
 <p>The app consists of 16 pins in vertical rows - 8 analog pins on the left, 8 digital pins on the right. These pins represent the 16 GPIO (General Purpose Input and Output) pins on the Spark Core, and are organized the same way.</p>
-<p><img src="images/tinker-select.png" alt="Tinker selection"></p>
+<p><img src="../assets/images/tinker-select.png" alt="Tinker selection"></p>
 <p>To begin, tap any of the pins. A menu will pop up showing the functions that pin has available. Each pin can have up to four possible functions:</p>
 <ul>
 <li><strong>digitalWrite</strong>: Sets the pin to HIGH or LOW, which either connects it to 3.3V (the maximum voltage of the system) or to GND (ground). Pin D7 is connected to an on-board LED; if you set pin D7 to HIGH, the LED will turn on, and if you set it to LOW, it will turn off.</li>
@@ -263,7 +263,7 @@ curl https://api.spark.io/v1/devices/0123456789abcdef01234567/analogread \
 <p>In our case, because the Spark Core is connected to the internet, updating firmware is quite trivial; we send it over the network, and we have put in place safeguards to keep you from &quot;bricking&quot; the Core.</p>
 <p>When you flash code onto the Spark Core, you are doing an <em>over-the-air firmware update</em>. This firmware update overwrites almost all of the software on the Spark Core; the only piece that is untouched is the bootloader, which manages the process of loading new firmware and ensures you can always update the firmware over USB or through a factory reset.  (We&#39;ll be open sourcing the bootloader as soon as we can bring the README up to date.)</p>
 <h2 id="spark-build-our-web-ide">Spark Build, our web IDE</h2>
-<p><img src="images/ide.png" alt="Spark Build"></p>
+<p><img src="../assets/images/ide.png" alt="Spark Build"></p>
 <p>When you&#39;re ready to reprogram your Spark Core, head over to our IDE:</p>
 <p><a href="https://www.spark.io/build">Spark Build &gt;</a></p>
 <p>Spark Build is an Integrated Development Environment, or IDE; that means that you can do software development in an easy-to-use application, which just so happens to run in your web browser.</p>
@@ -301,12 +301,12 @@ void loop() {
 <h2 id="what-s-wrong-">What&#39;s wrong?</h2>
 <h3 id="my-core-won-t-connect-to-wi-fi">My Core won&#39;t connect to Wi-Fi</h3>
 <p>There are many reasons that your Core might not be connecting to your Wi-Fi network. To debug, check out our detailed connection troubleshooting section:</p>
-<p><a href="/#/connect/troubleshooting">Why won&#39;t it connect? &gt;</a></p>
+<p><a href="/connect/troubleshooting">Why won&#39;t it connect? &gt;</a></p>
 <h3 id="i-can-t-talk-to-my-core">I can&#39;t talk to my Core</h3>
 <p>Once your Core is connected, it needs to be <em>claimed</em> in order to be associated with your account. This is what lets you control your Core and keeps anyone else from doing so.</p>
 <p>If you use the mobile app to set up your Core, it should claim it automatically. However if you connect your Core over USB, or if the claiming process is unsuccessful, you can claim it manually.</p>
 <p>Head over to our connection page to learn about this:</p>
-<p><a href="/#/connect/claiming-your-core"> Claiming your Core &gt;</a></p>
+<p><a href="/connect/claiming-your-core"> Claiming your Core &gt;</a></p>
 <h3 id="my-core-won-t-start-up">My Core won&#39;t start up</h3>
 <p>If your Core won&#39;t start up (the LED never comes on), here are a few things to check:</p>
 <ul>
@@ -337,7 +337,7 @@ void loop() {
 
 
   <!-- Custom -->
-  <script src='../assets/js/main.js'></script>
+  <script src='../assets/js/docs.js'></script>
 
 </body>
 </html>
