@@ -19,7 +19,7 @@ module.exports = (grunt) ->
 
     config:
       src: 'src'
-      dist: 'dest'
+      dist: 'build'
       content: 'src/content'
       layouts: 'src/layouts'
 
@@ -50,12 +50,17 @@ module.exports = (grunt) ->
     # 'gh-pages':
 
     clean:
-      dest: ['<%= config.dist %>/*.{html,xml}']
+      dest: ['<%= config.dist %>/**']
 
     copy:
       start:
         dest: '<%= config.dist %>/index.html'
         src: '<%= config.dist %>/start/index.html'
+      assets:
+        expand: true
+        dest: '<%= config.dist %>/assets/'
+        cwd: '<%= config.src %>/assets/'
+        src: '**'
 
     watch:
       content:
@@ -64,6 +69,9 @@ module.exports = (grunt) ->
       stylesheets:
         files: ['<%= config.src %>/stylesheets/*.less']
         tasks: ['less']
+      assets:
+        files: ['<%= config.src %>/assets/**']
+        tasks: ['copy']
       livereload:
         options:
           livereload: '<%= connect.options.livereload %>'

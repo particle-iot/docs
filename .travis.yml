@@ -9,7 +9,7 @@ deploy:
   secret_access_key:
     secure: IwjvIgZAk7H9Y1reab8ycr+68nPAdk1j7spcIGE72pGQQgIhQzFifvCSebs4Fto4czzYQaw400D44MXt+rmejU7qNJCmWs4GQf/N9VAdIaJ5kadqlpM0m23LR61CRQu62nayIGtHMWOHw/FHhGtsK/RHKn2wEiqCNeooxKGcdS8=
   bucket: docs.spark.io
-  local-dir: dest
+  local-dir: build
   on:
     repo: spark/docs
     branch: feature/server-side-rendering
