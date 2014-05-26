@@ -101,6 +101,21 @@ module.exports = (grunt) ->
           '<%= config.dist %>/assets/css/style.css':
             '<%= config.src %>/stylesheets/style.less'
 
+    compress:
+      main:
+        options:
+          archive: 'docs.zip'
+        files: [{
+          expand: true
+          cwd: '<%= config.dist %>/'
+          src: ['**']
+        }]
+
+    rename:
+      main:
+        dest: '<%= config.dist %>/assets/docs.zip'
+        src: 'docs.zip'
+
   grunt.initConfig gruntConfig
 
   grunt.loadNpmTasks 'assemble'
@@ -111,7 +126,11 @@ module.exports = (grunt) ->
   grunt.loadNpmTasks 'grunt-contrib-jshint'
   grunt.loadNpmTasks 'grunt-coffeelint'
   grunt.loadNpmTasks 'grunt-contrib-less'
+  grunt.loadNpmTasks 'grunt-contrib-compress'
+  grunt.loadNpmTasks 'grunt-rename'
 
   grunt.registerTask 'server', ['build', 'connect:livereload', 'watch']
   grunt.registerTask 'build', ['test', 'clean', 'assemble', 'less', 'copy']
+  grunt.registerTask 'archive', ['compress', 'rename']
+  grunt.registerTask 'deploy', ['build', 'archive']
   grunt.registerTask 'test', ['coffeelint']
