@@ -81,7 +81,8 @@
 .content pre > code {
   display: block;
   background: transparent;
-  font-size: 14px;
+  font-size: 16px;
+  line-height: 21px;
   letter-spacing: -1px;
 }
 .content blockquote :first-child {
@@ -157,14 +158,12 @@ body.big-h3 .content h3 {
 body.big-h3 .content h3:before {
   display: block;
   content: '';
-  background: -webkit-gradient(linear, left top, right top, color-stop(0.8, #dfe2e7), color-stop(1, rgba(223,226,231,0)));
-  background: -webkit-linear-gradient(left, #dfe2e7 80%, rgba(223,226,231,0) 100%);
-  background: -moz-linear-gradient(left, #dfe2e7 80%, rgba(223,226,231,0) 100%);
-  background: -o-linear-gradient(left, #dfe2e7 80%, rgba(223,226,231,0) 100%);
-  background: -ms-linear-gradient(left, #dfe2e7 80%, rgba(223,226,231,0) 100%);
-  background: linear-gradient(left, #dfe2e7 80%, rgba(223,226,231,0) 100%);
-  -webkit-box-shadow: 0 1px 0 rgba(255,255,255,0.4);
-  box-shadow: 0 1px 0 rgba(255,255,255,0.4);
+  background: -webkit-gradient(linear, left top, right top, color-stop(0.4, #dfe2e7), color-stop(1, @transparent-monokai));
+  background: -webkit-linear-gradient(left, #dfe2e7 40%, @transparent-monokai 100%);
+  background: -moz-linear-gradient(left, #dfe2e7 40%, @transparent-monokai 100%);
+  background: -o-linear-gradient(left, #dfe2e7 40%, @transparent-monokai 100%);
+  background: -ms-linear-gradient(left, #dfe2e7 40%, @transparent-monokai 100%);
+  background: linear-gradient(left, #dfe2e7 40%, @transparent-monokai 100%);
   height: 1px;
   position: relative;
   top: -40px;
@@ -232,7 +231,7 @@ body:not(.big-h3) .content h3 {
   }
 }
 body.no-literate .content pre > code {
-  background: #272822;
+  background: @monokai-gray;
   border: solid 1px #e7eaee;
   border-top: solid 1px #dbdde2;
   border-left: solid 1px #e2e5e9;
@@ -262,7 +261,7 @@ body.no-literate .content pre > code:hover::-webkit-scrollbar-thumb {
 }
 @media (max-width: 1180px) {
   .content pre > code {
-    background: #272822;
+    background: @monokai-gray;
     border: solid 1px #e7eaee;
     border-top: solid 1px #dbdde2;
     border-left: solid 1px #e2e5e9;
@@ -332,7 +331,7 @@ body.no-literate .content pre > code:hover::-webkit-scrollbar-thumb {
 }
 @media (min-width: 1180px) {
   body:not(.no-literate) .content-root {
-    background-color: #272822;
+    background-color: @monokai-gray;
     -webkit-box-shadow: inset 780px 0 #fff, inset 781px 0 #dfe2e7, inset 790px 0 5px -10px rgba(0,0,0,0.1);
     box-shadow: inset 780px 0 #fff, inset 781px 0 #dfe2e7, inset 790px 0 5px -10px rgba(0,0,0,0.1);
   }
