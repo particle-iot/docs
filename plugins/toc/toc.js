@@ -63,7 +63,7 @@ module.exports = function(params, callback) {
         var $a = $('<a>')
           .html(item.section)
           .attr('id', id + '-link')
-          .attr('href', '#')
+          .attr('href', '#' + id)
           .addClass('level-' + item.level);
           $li.append($a);
       }
