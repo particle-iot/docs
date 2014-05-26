@@ -2,7 +2,7 @@ language: node_js
 node_js:
 - '0.10'
 before_install: npm install -g grunt-cli
-script: grunt build
+script: grunt deploy
 deploy:
   provider: s3
   access_key_id: AKIAI3BB2PQELXWJY6FA
