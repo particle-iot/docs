@@ -1186,7 +1186,7 @@ The IPAddress also allows for comparisons.
 ```C++
 if (IPfromInt == IPfromBytes 
 {
-  Serial.println("Same IP addresses")
+  Serial.println("Same IP addresses");
 }
 ```
 
