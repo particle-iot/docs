@@ -127,22 +127,18 @@ curl https://api.spark.io/v1/devices/0123456789abcdef01234567/brew \
 
 The API request will be routed to the Spark Core and will run your brew function. The response will have a return_value key containing the integer returned by brew.
 
-
 ### Spark.publish()
 
-Publish an *event* through the Spark Cloud that will be forwarded to all registered callbacks and subscribed streams of Server-Sent Events.
+Publish an *event* through the Spark Cloud that will be forwarded to all registered callbacks, subscribed streams of Server-Sent Events, and Cores listening via `Spark.subscribe()`.
 
-```cpp
-Spark.publish();
-```
-
-This feature will allow the Core to generate an event based on a condition. For example, you could connect a motion sensor to the Core and have the Core generate an event whenever motion is detected.
+This feature allows the Core to generate an event based on a condition. For example, you could connect a motion sensor to the Core and have the Core generate an event whenever motion is detected.
 
 Spark events have the following properties:
 
 * name (1–63 ASCII characters)
 * public/private (default public)
 * ttl (time to live, 0–16777215 seconds, default 60)
+  !! NOTE: The user-specified ttl value is not yet implemented and will default to 60
 * optional data (up to 63 bytes)
 
 Anyone may subscribe to public events; think of them like tweets.
@@ -204,47 +200,69 @@ EXAMPLE
 Spark.publish("front-door-unlocked", NULL, 60, PRIVATE);
 ```
 
-<!--
 ### Spark.subscribe()
 
-*NOT FULLY SPECIFIED YET, WILL UNCOMMENT THIS WHEN READY TO FLESH IT OUT*
+Subscribe to events published by Cores.
 
-*FEATURE IN PROGRESS—EXPECT IN EARLY MARCH*
+This allows Cores to talk to each other very easily.  For example, one Core could publish events when a motion sensor is triggered and another could subscribe to these events and respond by sounding an alarm.
 
-This feature will allow a Core to subscribe to events published by other Cores.
-After a `Spark.subscribe()` call, the Core will
+```cpp
+int i = 0;
 
-A subscription works like a prefix filter.
-If you subscribe to "foo", you will receive any event whose name begins with "foo",
-including "foo", "fool", "foobar", and "food/indian/sweet-curry-beans".
+void myHandler(const char *event, const char *data)
+{
+  i++;
+  Serial.print(i);
+  Serial.print(event);
+  Serial.print(", data: ");
+  if (data)
+      Serial.println(data);
+  else
+      Serial.println("NULL");
+}
 
-Receive events will be passed to a handler function similar to `Spark.function()`.
-A subscription handler must return `void` and take a SparkEvent object.
+void setup()
+{
+  Spark.subscribe("temperature", myHandler);
+  Serial.begin(9600);
+}
+```
 
-Subscribe to events from one device.
+To use `Spark.subscribe()`, define a handler function and register it in `setup()`.
 
-Spark.subscribe(const char *eventName, const char *deviceID)
-Spark.subscribe(String eventName, String deviceID)
 
-Example: `Spark.subscribe("hot-water", "55ff70064939494339432586")`
+---
 
-Subscribe to events from all devices owned by the same user as this Core.
+You can listen to events published only by your own Cores by adding a `MY_DEVICES` constant.
 
-Spark.subscribe(const char *eventName, MY_DEVICES)
-Spark.subscribe(String eventName, MY_DEVICES)
+```cpp
+// only events from my Cores
+Spark.subscribe("the_event_prefix", theHandler, MY_DEVICES);
+```
 
-Example: `Spark.subscribe("alert", MY_DEVICES)`
+---
 
-Subscribe to all accessible events with the given event name filter.
+In the near future, you'll also be able to subscribe to events from a single Core by specifying the Core's ID.
 
-Spark.subscribe(const char *eventName)
-Spark.subscribe(String eventName)
+```cpp
+// Subscribe to events published from one Core
+// COMING SOON!
+Spark.subscribe("motion/front-door", motionHandler, "55ff70064989495339432587");
+```
 
-Example: `Spark.subscribe("us/mn/weather")`
+---
 
-A Core MUST filter the firehose, that is, they MAY NOT subscribe to the empty string.
--->
+A subscription works like a prefix filter.  If you subscribe to "foo", you will receive any event whose name begins with "foo", including "foo", "fool", "foobar", and "food/indian/sweet-curry-beans".
 
+Received events will be passed to a handler function similar to `Spark.function()`.
+A _subscription handler_ (like `myHandler` above) must return `void` and take two arguments, both of which are C strings (`const char *`).
+
+- The first argument is the full name of the published event.
+- The second argument (which may be NULL) is any data that came along with the event.
+
+`Spark.subscribe()` returns a `bool` indicating success.
+
+NOTE: A Core can register up to 4 event handlers. This means you can call `Spark.subscribe()` a maximum of 4 times; after that it will return `false`.
 
 ## Connection Management
 
@@ -381,7 +399,9 @@ void loop()
 
 `Network.localIP()` returns the local IP address assigned to the Core.
 
-
+`Network.RSSI()` returns the signal strength of a Wifi network from from -127 to -1dB.
+  
+`Network.ping()` allows you to ping an IP address and know the number of packets received.
 
 
 <!-- TO DO -->
@@ -449,6 +469,29 @@ Spark.sleep(int millis, array peripherals);
 
 <!-- TO DO -->
 <!-- Add example implementation here -->
+
+
+## Time
+
+### Spark.syncTime()
+
+Synchronize the time with the Spark Cloud.
+This happens automatically when the Core connects to the Cloud.
+However, if your Core runs continuously for a long time,
+you may want to synchronize once per day or so.
+
+```C++
+static const int ONE_DAY_MILLIS = 24 * 60 * 60 * 1000;
+
+void loop() {
+  static int lastSync = millis();
+  if (millis() - lastSync > ONE_DAY_MILLIS) {
+    // Request time synchronization from the Spark Cloud
+    Spark.syncTime();
+    lastSync = millis();
+  }
+}
+```
 
 Input/Output
 =====
@@ -1129,6 +1172,65 @@ Register a function to be called when a master requests data from this slave dev
 
 Parameters: `handler`: the function to be called, takes no parameters and returns nothing, e.g.: `void myHandler() `
 
+IPAddress
+-----
+### IPAddress
+
+Creates an IP address that can be used with TCPServer, TCPClient, UPD, and Network objects.
+
+```C++
+// EXAMPLE USAGE
+IPAddress localIP;
+IPAddress server(8,8,8,8);
+IPAddress IPfromInt( 167772162UL );  // 10.0.0.2 as 10*256^3+0*256^2+0*256+2
+uint8_t server[] = { 10, 0, 0, 2};
+IPAddress IPfromBytes( server );
+```
+
+The IPAddress also allows for comparisons.
+
+```C++
+if (IPfromInt == IPfromBytes 
+{
+  Serial.println("Same IP addresses");
+}
+```
+
+You can also use indexing the get or change individual bytes in the IP address.
+
+```C++
+// PING ALL HOSTS ON YOUR SUBNET EXCEPT YOURSELF
+IPAddress localIP = Network.localIP();
+uint8_t myLastAddrByte = localIP[3];
+for(uint8_t ipRange=1; ipRange<255; ipRange++)
+{
+  if (ipRange != myLastAddrByte)
+  {
+    localIP[3] = ipRange;
+    Network.ping(localIP);
+  }  
+}
+```
+
+You can also assign to an IPAddress from an array of uint8's or a 32-bit unsigned integer.
+
+```C++
+IPAddress IPfromInt;  // 10.0.0.2 as 10*256^3+0*256^2+0*256+2
+IPfromInt = 167772162UL;
+uint8_t server[] = { 10, 0, 0, 2};
+IPAddress IPfromBytes;
+IPfromBytes = server;
+```
+  
+Finally IPAddress can be used directly with print.
+
+```C++
+// PRINT THE CORE'S IP ADDRESS IN
+// THE FORMAT 192.168.0.10
+IPAddress myIP = Network.localIP();
+Serial.println(myIP);    // prints the core's IP address
+```
+
 TCPServer
 -----
 ### TCPServer
@@ -1272,6 +1374,7 @@ void setup()
   {
     Serial.println("connected");
     client.println("GET /search?q=unicorn HTTP/1.0");
+    client.println("Host: www.google.com");
     client.println();
   }
   else
@@ -1740,6 +1843,248 @@ RGB.color(0, 255, 255);
 RGB.color(255, 255, 255);
 ```
 
+Time
+---
+
+The Spark Core synchronizes time with the Spark Cloud during the handshake.
+From then, the time is continually updated on the Core.
+This reduces the need for external libraries to manage dates and times.
+
+
+### hour()
+
+Retrieve the hour for the current or given time.
+Integer is returned without a leading zero.
+
+```cpp
+// Print the hour for the current time
+Serial.print(Time.hour());
+
+// Print the hour for the given time, in this case: 4
+Serial.print(Time.hour(1400647897));
+```
+
+Optional parameters: Integer (Unix timestamp)
+
+Returns: Integer 0-23
+
+
+### hourFormat12()
+
+Retrieve the hour in 12-hour format for the current or given time.
+Integer is returned without a leading zero.
+
+```cpp
+// Print the hour in 12-hour format for the current time
+Serial.print(Time.hourFormat12());
+
+// Print the hour in 12-hour format for the given time, in this case: 15
+Serial.print(Time.hourFormat12(1400684400));
+```
+
+Optional parameters: Integer (Unix timestamp)
+
+Returns: Integer 1-12
+
+
+### isAM()
+
+Returns true if the current or given time is AM.
+
+```cpp
+// Print true or false depending on whether the current time is AM
+Serial.print(Time.isAM());
+
+// Print whether the given time is AM, in this case: true
+Serial.print(Time.isAM(1400647897));
+```
+
+Optional parameters: Integer (Unix timestamp)
+
+Returns: Unsigned 8-bit integer: 0 = false, 1 = true
+
+
+### isPM()
+
+Returns true if the current or given time is PM.
+
+```cpp
+// Print true or false depending on whether the current time is PM
+Serial.print(Time.isPM());
+
+// Print whether the given time is PM, in this case: false
+Serial.print(Time.isPM(1400647897));
+```
+
+Optional parameters: Integer (Unix timestamp)
+
+Returns: Unsigned 8-bit integer: 0 = false, 1 = true
+
+
+### minute()
+
+Retrieve the minute for the current or given time.
+Integer is returned without a leading zero.
+
+```cpp
+// Print the minute for the current time
+Serial.print(Time.minute());
+
+// Print the minute for the given time, in this case: 51
+Serial.print(Time.minute(1400647897));
+```
+
+Optional parameters: Integer (Unix timestamp)
+
+Returns: Integer 0-59
+
+
+### second()
+
+Retrieve the seconds for the current or given time.
+Integer is returned without a leading zero.
+
+```cpp
+// Print the second for the current time
+Serial.print(Time.second());
+
+// Print the second for the given time, in this case: 51
+Serial.print(Time.second(1400647897));
+```
+
+Optional parameters: Integer (Unix timestamp)
+
+Returns: Integer 0-59
+
+
+### day()
+
+Retrieve the day for the current or given time.
+Integer is returned without a leading zero.
+
+```cpp
+// Print the day for the current time
+Serial.print(Time.day());
+
+// Print the minute for the given time, in this case: 21
+Serial.print(Time.day(1400647897));
+```
+
+Optional parameters: Integer (Unix timestamp)
+
+Returns: Integer 1-31
+
+
+### weekday()
+
+Retrieve the weekday for the current or given time.
+
+ - 1 = Sunday
+ - 2 = Monday
+ - 3 = Tuesday
+ - 4 = Wednesday
+ - 5 = Thursday
+ - 6 = Saturday
+ - 7 = Sunday
+
+```cpp
+// Print the weekday number for the current time
+Serial.print(Time.weekday());
+
+// Print the weekday for the given time, in this case: 4
+Serial.print(Time.weekday(1400647897));
+```
+
+Optional parameters: Integer (Unix timestamp)
+
+Returns: Integer 1-7
+
+
+### month()
+
+Retrieve the month for the current or given time.
+Integer is returned without a leading zero.
+
+```cpp
+// Print the month number for the current time
+Serial.print(Time.month());
+
+// Print the month for the given time, in this case: 5
+Serial.print(Time.month(1400647897));
+```
+
+Optional parameters: Integer (Unix timestamp)
+
+Returns: Integer 1-12
+
+
+### year()
+
+Retrieve the 4-digit year for the current or given time.
+
+```cpp
+// Print the current year
+Serial.print(Time.year());
+
+// Print the year for the given time, in this case: 2014
+Serial.print(Time.year(1400647897));
+```
+
+Optional parameters: Integer (Unix timestamp)
+
+Returns: Integer
+
+
+### now()
+
+Retrieve the current time as seconds since January 1, 1970 (commonly known as "Unix time" or "epoch time")
+
+```cpp
+// Print the current Unix timestamp
+Serial.print(Time.now()); // 1400647897
+```
+
+Returns: Integer
+
+
+### zone()
+
+Set the time zone offset (+/-) from UTC.
+The Spark Core will remember this offset until reboot.
+
+```cpp
+// Set time zone to Eastern USA daylight saving time
+Time.zone(-5);
+```
+
+Parameters: floating point offset from UTC in hours, from -12.0 to 13.0
+
+
+### setTime()
+
+Set the Spark Core's time to the given timestamp.
+
+*NOTE*: This will override the time set by the Spark Cloud.
+If the cloud connection drops, the reconnection handshake will set the time again.
+
+Also see: [`Spark.syncTime()`](#/firmware/time-spark-synctime)
+
+```cpp
+// Set the time to 2014-10-11 13:37:42
+Time.setTime(1413034662);
+```
+
+Parameters: Unix timestamp (integer)
+
+
+### timeStr()
+
+Return string representation for the given time.
+```cpp
+Serial.print(Time.timeStr()); // Wed May 21 01:08:47 2014
+```
+
+Returns: String
 
 
 Other functions

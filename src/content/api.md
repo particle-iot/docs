@@ -97,9 +97,11 @@ Your access token can be found in the Spark Build web IDE on the 'Settings' page
 When you connect your Spark Core to the Cloud for the first time, it will be associated with your account,
 and only you will have permission to control your Spark Core—using your access token.
 
+If you need to transfer ownership of the core to another user, the easiest way is to simply log into the [Spark build site](https://www.spark.io/build), click on the 'cores' drawer on the bottom left, and then click the small 'right arrow' by the core you want to release, then click "Remove Core". This will make it possible for the other person you are transfering the core to, to go through the normal [claiming process](/#/connect/claiming-your-core).
+
 In the future, you will be able to provision access to your Spark Core to other accounts
-and to third-party app developers, and transfer ownership of your Spark Core to another account;
-however, these features are not yet available.
+and to third-party app developers; however, these features are not yet available.
+
 
 
 ### How to send your access token
@@ -247,6 +249,8 @@ codes in the 500 range indicate failure within Spark's server infrastructure.
 403 Forbidden - Your access token is not authorized to interface with this Core.
 
 404 Not Found - The Core you requested is not currently connected to the cloud.
+
+408 Timed Out - The cloud experienced a significant delay when trying to reach the Core.
 
 500 Server errors - Fail whale. Something's wrong on our end.
 ```

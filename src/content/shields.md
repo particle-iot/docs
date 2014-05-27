@@ -147,7 +147,8 @@ Operation
 ![Relay Shield Setup]({{assets}}/images/relay-shield-setup.jpg)
 
 The schematic for the relay shield is simple and self explanatory. The shield has four relays that are controlled by pins D0, D1, D2 and D3 on the Core. Each relay is triggered via a NPN transistor that takes a control signal from the core and switches the relay coil ON and OFF which in turn makes or breaks the electrical contact on the output. There is also a [flyback diode](http://en.wikipedia.org/wiki/Flyback_diode) connected across the coil to help protect the transistor from high voltage transients caused during switching.  
-The relays are SPDT (Single Pole Double Throw) type, which means they have three terminals at the output: COMMON (COMM), Normally Open (NO) and Normally Closed (NC). We can either connect the load in between the COMM and NO or COMM and NC terminals. When connected in between COMM and NO, the output remains open/disconnected when the relay is turned OFF and closes/connects when the relay is turned ON. In the later case, the output remains closed/connected when the relay is OFF and opens/disconnets when the relay is ON.
+
+The relays are SPDT (Single Pole Double Throw) type, which means they have three terminals at the output: COMMON (COMM), Normally Open (NO) and Normally Closed (NC). We can either connect the load in between the COMM and NO or COMM and NC terminals. When connected in between COMM and NO, the output remains open/disconnected when the relay is turned OFF and closes/connects when the relay is turned ON. In the later case, the output remains closed/connected when the relay is OFF and opens/disconnects when the relay is ON.
 
 Specifications
 -----
@@ -157,7 +158,7 @@ Specifications
 - Relay Max Current: 10Amp at 125V AC
 - Relay Part Number: JS1-5V-F  [(Data Sheet)](http://pewa.panasonic.com/assets/pcsd/catalog/js-catalog.pdf)
 - Dimensions: 3.5 x 3.3
-- Weight: 100gms
+- Weight: 100g
 
 
 Setting up the Relay Shield
@@ -296,9 +297,9 @@ Specifications
 
 - Works with any 3.7V Lithium Polymer battery.
 - Simultaneously charge the battery and power the core
-- Provide link to the datasheets MCP73871 and TPS61200
 - Dimensions: 2.3 x 0.61
-- Weight: 20gms
+- Weight: 20g
+- Datasheet: [MCP73871](https://github.com/spark/shields/blob/master/Battery%20Shield/battery-shield-smallinductor/Datasheets/MCP73871.pdf) and [TPS61200](https://github.com/spark/shields/blob/master/Battery%20Shield/battery-shield-smallinductor/Datasheets/tps61200.pdf)
 
 
 Setting up the shield
@@ -349,7 +350,7 @@ When powering the Core via the battery alone, the blue LED will NOT light up.
 These are standard [ceramic capacitors.](http://en.wikipedia.org/wiki/Ceramic_capacitor) They are widely used in analog circuits as bypass/ decoupling capacitors, in timers, filters, etc. The kit comes with:
 
 - 10nF (0.01uF) - Number code: 103
-- 100nF (0.1uF) - Number coed: 104
+- 100nF (0.1uF) - Number code: 104
 
 *Note:* These are non-polar capacitors which means they can be oriented both ways.
 
@@ -538,7 +539,7 @@ Unlike the TMP36, you will need to use this as a part of a voltage divider circu
 ![Force Sensor]({{assets}}/images/mk-force-sensor.bmp)
 
 Manufacturer Part Number: Interlink 30-81794
-This is a force sensitive resistor with a 0.5" diameter and an operating force from 10gms to 1000gms. Their resistance decreases with an increase in applied pressure.
+This is a force sensitive resistor with a 0.5" diameter and an operating force from 10g to 1000g. Their resistance decreases with an increase in applied pressure.
 
 [Datasheet >]()
 

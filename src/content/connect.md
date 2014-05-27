@@ -106,7 +106,10 @@ Once your Core is connected, it needs to be *claimed* in order to be associated 
 
 If you use the mobile app to set up your Core, it should claim it automatically. However if you connect your Core over USB, or if the claiming process is unsuccessful, you can claim it manually.
 
-First, you'll need to get your Core's ID. You can do this by opening a Serial connection to the Core and pressing the **i** key (see the above instuctions for connecting over USB). It should show you a number like this:
+The easiest way to manually claim a Core over USB is to use the [Spark Command Line Interface](https://github.com/spark/spark-cli). Once you have this installed, you can simple type `spark setup` and follow the instructions.
+
+Alternatively, if you have troubles installing the command line tool, you can get the Core's ID over serial and claim it via the build site.
+You can do this by opening a Serial connection to the Core and pressing the **i** key (see the above instuctions for connecting over USB). It should show you a number like this:
 
     # Example Core ID
     55ff68064989495329092587
@@ -115,7 +118,6 @@ First, you'll need to get your Core's ID. You can do this by opening a Serial co
 
 Then open up [Spark Build](https://www.spark.io/build) and click the 'Cores' icon. Click the button that says 'Add a Core', and enter your ID in the text box.
 
-We will be releasing a command-line tool to simplify this process; stay tuned!
 
 
 APPENDIX

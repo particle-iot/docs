@@ -20,7 +20,6 @@ There are known issues with the following types of networks:
 - **Networks with ["captive portal"](http://en.wikipedia.org/wiki/Captive_portal) security**. A captive portal is the little website that comes up to ask you to sign in to a network or sign an agreement, like at a Starbucks. The Spark Core can't navigate these portals.
 - **Enterprise networks**. We have had mixed results connecting the Spark Core to enterprise networks, although we don't yet have a great understanding of what's causing the issue. This is something that we are working to improve.
 - **Complex networks**. Networks with multiple routers, with non-standard firewalls, and with non-standard settings.
-- **Networks with WEP security**. If connecting with the mobile app works for you, WEP-secured networks should be fine. However, you cannot currently connect to a WEP-secured network over USB. We are implementing a fix for this now, which should be available in the next couple of weeks.
 - **Channels above 11**. This is in particular an international issue; if you are outside the U.S., your Wi-Fi router might run at channels 12, 13, or 14, which the CC3000 does not support. Please use channels numbered 11 or lower.
 
 So, let's dig in. If your Spark Core is not connecting to your Wi-Fi network, we recommend following these steps:
@@ -129,9 +128,8 @@ If that doesn’t work, try the steps below:
 1. If your network router supports 802.11n, make sure that it also supports Legacy network protocols, and that it is configured into that mode (the Core supports 802.11 a/c networks)
 2. If you have a Core with a u.FL connector, make sure the antenna is attached
 3. Try [rebooting the Core and clearing its memory](/#/troubleshooting/can-t-get-connected-step-3-reboot-and-clear-memory).
-4. If you have an Android phone, and your network has no password, you cannot currently use the Spark Core app to communicate the credentials to your Core.  Instead, try using [TI’s SmartConfig app to configure your Core](/#/connect/connecting-your-core-smart-config-with-the-ti-app).
-5. Try configuring your Core over USB.  Instructions can be found [here](/#/connect/connecting-your-core-connect-over-usb).
-6. If all else fails, please [contact the Spark team](mailto:hello@sparkdevices.com) and provide us with the brand and model of your smartphone.
+4. Try configuring your Core over USB.  Instructions can be found [here](/#/connect/connecting-your-core-connect-over-usb).
+5. If all else fails, please [contact the Spark team](mailto:hello@sparkdevices.com) and provide us with the brand and model of your smartphone.
 
 ---
 
@@ -192,6 +190,31 @@ This should give you a list with something like [1d50:607f] in the list, if that
 You can reboot your Core and it should start [slow flashing blue](https://v.cdn.vine.co/r/videos/E465A8959B1015390893882101760_178fcfd2b3c.4.3.11510817618992331600_MIW9HE1mtZ9H_SpBlKdK1lv2UfmniExCFQHrgJ7iqiFDUiDb0E31bR7GwvB_7wz0.mp4?versionId=eS01KUZ6NaUZgEipSDeVi0rxZENByp1N), or start [flashing green](https://mtc.cdn.vine.co/r/videos/DB9E0E87311015399731217969152_1d6c83d12a3.4.3.2795910212236322177_4RBA9frM0a4pwIG_RbZgo.ZOBEbBr_CpxzoOsBNuExDz6TFldcjJSYHVh203e6F4.mp4?versionId=orM0m0DvLYdciAwsb6DYHhqb974AHMj_) if everything worked.
 
 If none of these steps are successful, please [contact the Spark team](mailto:hello@sparkdevices.com).
+
+---
+
+## Flashing red
+
+- *What’s the Core doing?* My Core is flashing red lights at different intervals when I power it on
+- *What’s the problem?* The Core is reporting a panic code, which could be caused by one of a large number of potential firmware issues.
+- *How do I fix it?*
+
+The panic code is signified by a series of flashing red LED blinks.  First, the LED will spell SOS ( ... - - - ... ), followed by a number of flashes, followed by another SOS message.
+
+The meaning of the panic codes is described below.  8 flashes, signifying out of heap memory, is the most common issue.  
+
+1. Hard fault
+2. Non-maskable interrupt fault
+3. Memory Manager fault
+4. Bus fault
+5. Usage fault
+6. Invalid length
+7. Exit
+8. Out of heap memory
+9. SPI over-run
+10. Assertion failure
+11. Invalid case
+12. Pure virtual call
 
 ---
 
@@ -261,6 +284,16 @@ The Spark Core is equipped with a Texas Instruments (TI) CC3000 WiFi module to f
 The good news is that the firmware on the CC3000 module can be updated and the Spark team has been working with TI in order to resolve the issue. Also, because of the great work by many community members and the Spark team, the Spark Core firmware has been modified to work around the issues with the CC3000. When the CC3000 fails, the Spark Core firmware will attempt to reset the CC3000 and reconnect to the Spark Cloud.
 
 So far TI has supplied a couple of firmware patches to the Spark Team to test, but at this time, the issue doesn't seem to have been fully resolved. TI has been very helpful during this process and we're hopeful to have a fix soon. When the fix is ready and fully tested, we will provide instructions on how to update the CC3000 firmware.
+
+## Spark.publish() breaks inside of Spark.function()
+* Status: **Acknowledged**
+* Forum Thread: https://community.spark.io/t/spark-publish-crashing-core/3463
+
+#### Description
+
+If `Spark.publish()` is called within a function declared in `Spark.function()`, the Core may become unresponsive for a short period of time and return a 408 timed out error in the cloud API call.
+
+A fix can be applied in the user code that will work around this issue.  A simple explanation can be found in [post #10 of the forum thread](https://community.spark.io/t/spark-publish-crashing-core/3463/10).
 
 Recently Resolved Issues
 ===
