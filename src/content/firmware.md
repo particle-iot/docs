@@ -2053,6 +2053,8 @@ Returns: Integer
 Set the time zone offset (+/-) from UTC.
 The Spark Core will remember this offset until reboot.
 
+*NOTE*: This function does not observe daylight savings time.
+
 ```cpp
 // Set time zone to Eastern USA daylight saving time
 Time.zone(-5);
