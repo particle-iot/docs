@@ -44,6 +44,10 @@ The iOS app requires iOS 7, and the Android app works with Ice Cream Sandwich (A
 
 [Download the Android app >](https://play.google.com/store/apps/details?id=io.spark.core.android)
 
+**At a conference?** Setup your Core with the
+[Spark CLI](https://github.com/spark/spark-cli#spark-cli)
+instead.
+
 
 
 ### Step 3: Connect the Core to Wi-Fi
