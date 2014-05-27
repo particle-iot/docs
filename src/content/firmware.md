@@ -481,10 +481,10 @@ However, if your Core runs continuously for a long time,
 you may want to synchronize once per day or so.
 
 ```C++
-static const int ONE_DAY_MILLIS = 24 * 60 * 60 * 1000;
+#define ONE_DAY_MILLIS (24 * 60 * 60 * 1000)
+unsigned long lastSync = millis();
 
 void loop() {
-  static int lastSync = millis();
   if (millis() - lastSync > ONE_DAY_MILLIS) {
     // Request time synchronization from the Spark Cloud
     Spark.syncTime();
