@@ -13,4 +13,4 @@ deploy:
   local-dir: build
   on:
     repo: spark/docs
-    branch: feature/server-side-rendering
+    branch: master
