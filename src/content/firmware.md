@@ -1839,7 +1839,7 @@ RGB.control(false);
 
 ### controlled()
 
-Returns Boolean 'true' when the RGB LED is under user control, or 'false' when it is not.
+Returns Boolean `true` when the RGB LED is under user control, or `false` when it is not.
 
 ```cpp
 // take control of the RGB LED
