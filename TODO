@@ -2,3 +2,15 @@
 [ ] Compress all the assets and remove any external dependencies so it will run perfectly offline
 [ ] Improve the coloring on the code, which sometimes gets funky
 [ ] Make the headers for the code (like EXAMPLE SYNTAX) in regular fonts instead of monospace fonts so they stick out better
+
+Feedback:
+I really love the main sections on the left side now.
+I love the sample code formatting on the side...
+however, I would like to see code "blocks" that we can use to distinguish a chunk of code from another chunk of code. I see places where we blast some firmware code, then right under it paste the API endpoint and a curl command. We should separate those somehow so the user doesn't think the curl command is part of the C++ code.
+Related, when i select the code (for copy/pasta) it's also selecting text from the docs, which makes it impossible to just copy and paste the example code. (Although the links to the example code on github is nice, sometimes it's easier to just copy it since I'm already here)
+Spark.publish() needs some example consumer code (such as a curl command to stream SSEs or some browser JS) (Actually I just found it in the cloud reference section. Maybe link between the two sections for Spark.publish()?
+the shield-shield pin mapping is a bit hard to read with the new font colors
+ - Can the nav stuff scroll with the browser?  I find myself scrolling a lot with the current docs.  Or even a jump-to-top button that scrolls with you.  Or, if all else fails, we can manually add jump-to-top links at the end of each section.
+ - Can you send the CI alerts to Joe?  That guy needs more alert e-mails.
+- The font on the LHS menu is pixelated and looks poor
+- The code font IS larger but in Chrome, looks a bit rough
