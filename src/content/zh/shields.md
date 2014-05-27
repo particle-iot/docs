@@ -7,7 +7,7 @@ This shield is essentially an adapter that allows the user to connect Arduino co
 操作
 -----
 
-![屏蔽 屏蔽](images/sshield-top.jpg)
+![屏蔽 屏蔽]({{assets}}/images/sshield-top.jpg)
 
 我们采用德州仪器 [TXB0108PWR]（http://www.ti.com/lit/ds/symlink/txb0108.pdf）做电压转换. 从 Spark Core 的3.3V 逻辑 到 Arduino 的 5V 逻辑.
 
@@ -18,7 +18,7 @@ This shield is essentially an adapter that allows the user to connect Arduino co
 产品规格
 -----
 
-![屏蔽 屏蔽 设置](images/sshield-setup.jpg)
+![屏蔽 屏蔽 设置]({{assets}}/images/sshield-setup.jpg)
 
 - 工作电压：7-15V DC 
 - 电流消耗：不插 Spark Core 时是 7毫安 在 9V DC 和插上 Core 时是 150 毫安.
@@ -130,14 +130,14 @@ This shield is essentially an adapter that allows the user to connect Arduino co
 继电器 屏蔽
 ====
 
-![继电器 屏蔽 顶部](images/relay-shield-top.jpg)
+![继电器 屏蔽 顶部]({{assets}}/images/relay-shield-top.jpg)
 
 继电器 屏蔽，与 Spark Core 组合，让您在互联网上控制高功率器件. 要控制一盏灯，风扇或花园洒水器？那么这是给您的一个解决方案！
 
 操作
 -----
 
-![继电器 屏蔽 设置](images/relay-shield-setup.jpg)
+![继电器 屏蔽 设置]({{assets}}/images/relay-shield-setup.jpg)
 
 该继电器 屏蔽示意图是简单和自我解释的. 继电器 屏蔽具有四个继电器, 通过 Spark Core 的 D0，D1， D2 控制. 每个继电器经由 NPN 晶体管，需要一个从 Core 的控制信号来开关继电器线圈，接通和断开电接触. 还有一个 [续流二极管] (http://en.wikipedia.org/wiki/Flyback_diode) 跨接在线圈, 以帮助保护晶体管于瞬变切换过程中造成的高电压. 该继电器是 SPDT（单刀双掷）型，这意味着它有三个端子的输出：常见 (通讯)，常开(NO)和常闭(NC).  我们既可以连接负载在 COMM 和 NO 或 COMM 和 NC 端子之间. 在后一种情况下，该继电器 OFF 时， 输出保持闭合/当继, ，并在继电器 ON 时,打开/断开.
 
@@ -155,7 +155,7 @@ This shield is essentially an adapter that allows the user to connect Arduino co
 设置继电器 屏蔽
 -----
 
-![继电器 屏蔽 连接](images/relay-shield-bulb.jpg)
+![继电器 屏蔽 连接]({{assets}}/images/relay-shield-bulb.jpg)
 
 接通继电器很简单，只要相关的引脚设置为高。 
 
@@ -239,7 +239,7 @@ Project Ideas
 程序 屏蔽 (JTAG)
 ====
 
-![JTAG 屏蔽 顶部](images/jtag-topview.jpg)
+![JTAG 屏蔽 顶部]({{assets}}/images/jtag-topview.jpg)
 
 JTAG 屏蔽是一个简单的适配器, 可以让您把一个 JTAG 编程器连接到 Spark Core. 如果您需要完全控制您的 core 和适应 ARM 的开发环境，您需要这面屏蔽作为 JTAG 编程器和 core 之间的接口.
 
@@ -252,7 +252,7 @@ JTAG 屏蔽是一个简单的适配器, 可以让您把一个 JTAG 编程器连�
 设立编程器
 -----
 
-![JTAG 设置](images/jtag-setup.jpg)
+![JTAG 设置]({{assets}}/images/jtag-setup.jpg)
 
 如果您使用的是 STLink V2，则可以从[它们的网站.]（HTTP :// www.st.com/web/catalog/tools/FM146/CL1984/SC724/SS1677/PF251168）下载支持的驱动程序和实用程序.
 
@@ -264,13 +264,13 @@ JTAG 屏蔽是一个简单的适配器, 可以让您把一个 JTAG 编程器连�
 电池 屏蔽
 ====
 
-![电池 屏蔽 顶部](images/bshield-top.jpg)
+![电池 屏蔽 顶部]({{assets}}/images/bshield-top.jpg)
 
 电池屏蔽是锂电池充电器和电压调节器结合为一体. 您可以用它来通过 3.7V 锂电池使用您的 core ，并在同一时间，通过 USB 端口充电池.
 
 屏蔽是围绕 Microchip 的 MCP73871 电池负载管理控制器 和德州仪器的 TPS61200 升压转换器，用于将 3.7V 电压升到 5.0V。
 
-![电池 屏蔽 底部](images/bshield-bottom.jpg)
+![电池 屏蔽 底部]({{assets}}/images/bshield-bottom.jpg)
 
 
 <!--TO DO ADD SYSTEM BLOCK DIAGRAM HERE -->
@@ -297,13 +297,13 @@ MCP73871 是，允许一个同时装入电池和电源系统的智能电池充�
 设立屏蔽
 -----
 
-![电池 屏蔽 充电](images/bshield-charging.jpg)
+![电池 屏蔽 充电]({{assets}}/images/bshield-charging.jpg)
 
 如果要为电池从点，只需将电池插入 JST 连接器（*注意：记住要检查电池头的极性!!**）和 USB 连接线插入 microB 插座，如图片所显示的.
 
 你会看到屏蔽上，蓝色的电源指示灯亮起，黄色（指示指示正在充电）或绿色（表示指示充电完成），LED 也亮起来.
 
-![电池 屏蔽 池充电和供电](images/bshield-charging-powering.jpg)
+![电池 屏蔽 池充电和供电]({{assets}}/images/bshield-charging-powering.jpg)
 
 总结 LED 的功能：
 
@@ -313,7 +313,7 @@ MCP73871 是，允许一个同时装入电池和电源系统的智能电池充�
 
 您可能当电池正在充电时也同时启动 core, 但充电的速度将会放慢. 因为电流将分布在 core 和电池之间.
 
-![Battery Shield Powering](images/bshield-powering.jpg)
+![Battery Shield Powering]({{assets}}/images/bshield-powering.jpg)
 
 当通过电池单独供电到 core，蓝色 LED 指示灯会不亮.
 
@@ -337,9 +337,9 @@ MCP73871 是，允许一个同时装入电池和电源系统的智能电池充�
 
 ### 1. 陶瓷电容器 (10 each)
 
-![陶瓷电容器](images/mk-ceramic-capacitor-10nF.bmp)
+![陶瓷电容器]({{assets}}/images/mk-ceramic-capacitor-10nF.bmp)
 
-这些都是标准 [陶瓷电容器.](http://en.wikipedia.org/wiki/Ceramic_capacitor)， 它们被广泛应用于模拟电路旁路/去耦电容，在计时器，过滤器等。该工具包随附：
+这些都是标准 [陶瓷电容器.](http://en.wikipedia.org/wiki/Ceramic_capacitor)， 它们被广泛应用于模拟电路旁路/去耦电容���在计时器，过滤器等。该工具包随附：
 
 - 10nF (0.01uF) - 验证码: 103
 - 100nF (0.1uF) - 验证码: 104
@@ -350,7 +350,7 @@ MCP73871 是，允许一个同时装入电池和电源系统的智能电池充�
 
 ### 2. 电解电容器 100uF (5)
 
-![电解电容器](images/mk-electrolytic-capacitor.bmp)
+![电解电容器]({{assets}}/images/mk-electrolytic-capacitor.bmp)
 
 [电解电容器](http://en.wikipedia.org/wiki/Electrolytic_capacitor) 提供更多的容量选择，是极性的. 这些电容是去耦电源供应器最好的选择，或用在瞬态抑制器，以及定时电路.	
 
@@ -360,7 +360,7 @@ MCP73871 是，允许一个同时装入电池和电源系统的智能电池充�
 
 ### 3. 排针（或简称标头）
 
-![排针](images/mk-header-male.bmp)
+![排针]({{assets}}/images/mk-header-male.bmp)
 
 这些尺寸标准 0.1“ 间距的排针可以切割成您所需要的大小. 在面包板或 PCB 上建立电路时使用，会非常好用的.
 
@@ -370,7 +370,7 @@ MCP73871 是，允许一个同时装入电池和电源系统的智能电池充�
 
 ### 4. LED 灯
 
-![LED 灯](images/mk-led-3mm.bmp)
+![LED 灯]({{assets}}/images/mk-led-3mm.bmp)
 
 这些都是通用的 3 毫米 LED. 使用一个 220 欧姆到 1K 欧姆的电阻，串联起来连接到 core.
 
@@ -381,7 +381,7 @@ MCP73871 是，允许一个同时装入电池和电源系统的智能电池充�
 
 ### 5. RGB LED 灯 (1)
 
-![RGB LED 灯](images/mk-rgb-led.bmp)
+![RGB LED 灯]({{assets}}/images/mk-rgb-led.bmp)
 
 红色和绿色的 LED 还是不够刺激？想要制造千白种不同的颜色？那么这个 RGB LED 将做到这一点！ 您可以通过每个引脚连接到 core 的  analogWrite 兼容的引脚, 用不同的值混合颜色. 让迪斯科派对开始吧！
 
@@ -393,7 +393,7 @@ MCP73871 是，允许一个同时装入电池和电源系统的智能电池充�
 
 ### 6. NPN 晶体管 (1) 
 
-![NPN 晶体管](images/mk-npn-transistor.bmp)
+![NPN 晶体管]({{assets}}/images/mk-npn-transistor.bmp)
 
 S9013 是一个通用的小信号 NPN [晶体管]（http://en.wikipedia.org/wiki/Transistor）额定 40V，500mA 的电流.
 
@@ -401,7 +401,7 @@ S9013 是一个通用的小信号 NPN [晶体管]（http://en.wikipedia.org/wiki
 
 ### 7. 二极管 (6)
 
-![二极管](images/mk-diode.bmp)
+![二极管]({{assets}}/images/mk-diode.bmp)
 
 [1N4004](http://en.wikipedia.org/wiki/1N4004) 是一种通用二极管,额定电压为 400V，千毫安与 1.1V 的正向压降. 优良的[回扫二极管]（http://en.wikipedia.org/wiki/Flyback_diode），或作为一般整流二极管.
 
@@ -409,7 +409,7 @@ S9013 是一个通用的小信号 NPN [晶体管]（http://en.wikipedia.org/wiki
 
 ### 8. 微型伺服 (1) 
 
-![RC 伺服](images/mk-micro-rc-servo.bmp)
+![RC 伺服]({{assets}}/images/mk-micro-rc-servo.bmp)
 
 Emax ES08A 是个 迷你 RC 伺服电机.
 
@@ -422,7 +422,7 @@ Emax ES08A 是个 迷你 RC 伺服电机.
 
 ### 9.豪华 跳线 包 (1)
 
-![跳线](images/mk-jumper-cables.bmp)
+![跳线]({{assets}}/images/mk-jumper-cables.bmp)
 
 多色和已剥离.
 
@@ -432,7 +432,7 @@ Emax ES08A 是个 迷你 RC 伺服电机.
 
 ### 11. 微型直流电机 (1)
 
-![微型直流电机](images/mk-mini-dc-motor.bmp)
+![微型直流电机]({{assets}}/images/mk-mini-dc-motor.bmp)
 
 这是一个简单的直流电机，您可以使用套件中提供的 NPN 晶体管开关.
 
@@ -445,7 +445,7 @@ Emax ES08A 是个 迷你 RC 伺服电机.
 
 ### 12. 振动电机 (1)
 
-![振动电机](images/mk-vibration-motor.bmp)
+![振动电机]({{assets}}/images/mk-vibration-motor.bmp)
 
 想给您的下一个 Spark Core 项目触觉反馈？这种振动电机是最适合不过的！使用 NPN 晶体管切换它.
 
@@ -458,7 +458,7 @@ Emax ES08A 是个 迷你 RC 伺服电机.
 
 ### 13.压电式蜂鸣器(1)
 
-![压电式蜂鸣器](images/mk-buzzer.bmp)
+![压电式蜂鸣器]({{assets}}/images/mk-buzzer.bmp)
 
 用这个蜂鸣器，添加声音反馈到您的项目. 较长的引脚是正极和较短的是负的. 您将需要一个晶体管来驱动它.
 
@@ -473,19 +473,19 @@ Emax ES08A 是个 迷你 RC 伺服电机.
 
 ### 14. 迷你按键 (3) 
 
-![迷你按键](images/mk-mini-pushbutton.bmp)
+![迷你按键]({{assets}}/images/mk-mini-pushbutton.bmp)
 
 这些都是漂亮的小开关. 能很好的插到实验电路板或一个原板。他们是常开式和额定电压为 12V，50mA电流.
 
 ### 15. 双刀双掷开关 (2)
 
-![双刀双掷开关](images/mk-dpdt-switch.bmp)
+![双刀双掷开关]({{assets}}/images/mk-dpdt-switch.bmp)
 
 这是一个很小的双刀双掷（DPDT）开关，具有6腿和额定功率为: <!-- To add in rating -->
 
 ### 16. 移位寄存器 IC (1)
 
-![移位寄存器](images/mk-shift-register.bmp)
+![移位寄存器]({{assets}}/images/mk-shift-register.bmp)
 
 74HC595 是 8 位串行输入常用为输出扩展并行输出的移位寄存器. 可以从只有 3 条线（使用 1 芯片) 驱动高达 8 个输出. 您可能把它连锁数倍，以获得更多的输出.
 
@@ -495,7 +495,7 @@ Emax ES08A 是个 迷你 RC 伺服电机.
 
 ### 17. 倾角传感器 (2)
 
-![倾角传感器](images/mk-tilt-sensor.bmp)
+![倾角传感器]({{assets}}/images/mk-tilt-sensor.bmp)
 
 SW-200D 是一个微小的倾斜传感器，当倾斜到30度以上将其两个在内部的端子连接在一起. 利用重力和一个小金属球制造这个神奇!
 
@@ -505,7 +505,7 @@ SW-200D 是一个微小的倾斜传感器，当倾斜到30度以上将其两个�
 
 ### 18. 温度传感器 (1)
 
-![温度传感器](images/mk-temp-sensor.bmp)
+![温度传感器]({{assets}}/images/mk-temp-sensor.bmp)
 
 该 TMP36 是一个低电压，精密摄氏温度传感器, 它提供的电压输出是线性正比于摄氏（℃）温度. 该 TMP36 不需要任何外部校准，以提供超过 ±1°C 典型精度在 +25°C 和 ±2°C 在 40°C 至 +125°C 的温度范围.
 
@@ -517,7 +517,7 @@ SW-200D 是一个微小的倾斜传感器，当倾斜到30度以上将其两个�
 
 ### 19. 热敏电阻 (2)
 
-![热敏电阻](images/mk-thermistor.bmp)
+![热敏电阻]({{assets}}/images/mk-thermistor.bmp)
 
 一个 [热敏电阻]（http://en.wikipedia.org/wiki/Thermistor） 是随温度变化的电阻. 这个是 NTC 型 （负温度系数）， 表示与温度的上升其电阻值降低. 
  
@@ -528,7 +528,7 @@ SW-200D 是一个微小的倾斜传感器，当倾斜到30度以上将其两个�
 
 ### 20. 力敏电阻 (1)
 
-![力敏电阻](images/mk-force-sensor.bmp)
+![力敏电阻]({{assets}}/images/mk-force-sensor.bmp)
 
 制造商零件编号：互联30-81794 
 这是一个力敏感电阻与一个 0.5“ 直径和从 10g 到 1000g 的操作力. 与增加施加的压力及其电阻减小.
@@ -539,7 +539,7 @@ SW-200D 是一个微小的倾斜传感器，当倾斜到30度以上将其两个�
 
 ### 21. 光敏电阻 (2)
 
-![LDR](images/mk-ldr.bmp)
+![LDR]({{assets}}/images/mk-ldr.bmp)
 
 一种光电阻器是一种光相关电阻器，照射到它的光,的强度增加,其电阻的值降低. 您可以用它来检测周围的环境光， 检测出阴影或使用它作为一个防盗报警系统的一部分.
 
@@ -548,7 +548,7 @@ SW-200D 是一个微小的倾斜传感器，当倾斜到30度以上将其两个�
 
 ### 22. 电阻器
 
-![电阻器](images/mk-1k-resistor.bmp)
+![电阻器]({{assets}}/images/mk-1k-resistor.bmp)
 
 在这一套件三种不同的电阻值。所有这些额定为5％，1/4瓦。
 
@@ -558,13 +558,13 @@ SW-200D 是一个微小的倾斜传感器，当倾斜到30度以上将其两个�
 
 ### 23. 旋转电位器 (1) 
 
-![旋转电位器](images/mk-potentiometer.bmp)
+![旋转电位器]({{assets}}/images/mk-potentiometer.bmp)
 
 这是一个[可变电阻]（http://en.wikipedia.org/wiki/Potentiometer），其值可以通过简单地旋转旋钮来改变.
 
 ### 24. 原板 (1)
 
-![原型板](images/mk-pcb.bmp)
+![原型板]({{assets}}/images/mk-pcb.bmp)
 
 这是一个 7" × 9" 通用点阵式原型板.
 <!-- TO DO ADD LINK TO EXAMPLE-->

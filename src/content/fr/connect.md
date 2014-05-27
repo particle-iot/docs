@@ -65,8 +65,8 @@ Vous devez aussi installer les pilotes Windows :
 [Pilotes Windows pour Spark Core >](https://s3.amazonaws.com/spark-website/Spark.zip)
 
 [CoolTerm](http://freeware.the-meiers.org/) fourni aussi une interface graphique agréable.
-![Paramétrages CoolTerm](images/coolterm-settings.png)
-![Configuration CoolTerm](images/coolterm-setup.png)
+![Paramétrages CoolTerm]({{assets}}/images/coolterm-settings.png)
+![Configuration CoolTerm]({{assets}}/images/coolterm-setup.png)
 
 Pour les utilisateurs __Mac__, tant CoolTerm que screen fonctionnent.
 

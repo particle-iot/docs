@@ -302,18 +302,18 @@ Quand vous êtes prêt à reprogrammer votre Spark Core, dirigez vous vers notre
 
 [Spark Build >](https://www.spark.io/build)
 
-![Spark Build](images/create-account.jpg)
+![Spark Build]({{assets}}/images/create-account.jpg)
 
 Créer un compte est un simple processus en une étape. Quand vous êtes face à l'écran de connexion, saisissez simplement votre adresse mail (vérifiez de ne pas faire d'erreur) et le mot de passe que vous souhaitez. Cliquez sur le gros bouton « Sign Up », et vous accèderez à la page d'accueil de Spark Build.
 
-![Spark Build](images/log-in.jpg)
+![Spark Build]({{assets}}/images/log-in.jpg)
 
 Si vous vous êtes déjà connecté au Spark Build auparavant, cliquez sur le lien « Let me log in » juste sous le bouton « Sign Up », et vous arriverez sur une page d'authentification pour les utilisateurs existants. Ne vous inquiétez pas : si vous avez déjà un compte et cliquez accidentellement sur le bouton « Sign Up », nous vous connecterons à votre compte existant.
 
 Spark Build, notre IDE web
 ---
 
-![Spark Build](images/ide.png)
+![Spark Build]({{assets}}/images/ide.png)
 
 Spark Build est un environnement de développement intégré, ou IDE (Integrated Development Environment), ce qui signifie que vous pouvez faire du développement logiciel dans une application facile à utiliser, qui arrive à fonctionner dans votre navigateur.
 
@@ -333,7 +333,7 @@ En bas de la barre de navigation se trouvent quatre autres boutons :
 Spark Apps et bibliothèques de fonctions
 ---
 
-![Spark Build](images/spark-apps.jpg)
+![Spark Build]({{assets}}/images/spark-apps.jpg)
 
 Le cœur de Spark Build est la section « Spark Apps », qui affiche le nom de l'application courante dans l'éditeur ainsi que la liste des autres applications et les applications d'exemple de la communauté.
 
@@ -379,13 +379,13 @@ void loop() {
 }
 ```
 
-![Spark Build](images/select-a-core.jpg)
+![Spark Build]({{assets}}/images/select-a-core.jpg)
 
 - **Sélectionnez votre Core**: L'étape suivante est de vérifier que vous avez sélectionné le Core que vous souhaitez flasher. Cliquez sur l'icône « Cores » en bas à gauche de votre panneau de navigation, et cliquez sur l'étoile à côté du Core que vous souhaitez mettre à jour. Une fois le Core sélectionné, l'étoile associée passera au jaune.
 
 - **Flashez** : Cliquez sur le bouton « Flash », et votre code sera envoyé à votre Core. Si le flash se termine avec succès, la LED sur le Core se mettra à clignoter en magenta.
 
-![Spark Build](images/fork-app.jpg)
+![Spark Build]({{assets}}/images/fork-app.jpg)
 
 - **Dupliquez** : Vous auriez souhaité que le clignotement de la LED soit un peu plus rapide ? Essayez de cliquer sur le bouton « Fork This Example » après avoir sélectionné l'application d'exemple « Blink a LED ». Vous avez maintenant une copie personnelle que vous pouvez modifier, sauver et flasher sur tous vos Cores.
 
@@ -397,13 +397,13 @@ Informations du compte
 
 Il y a aussi quelques autres trucs utiles dans Spark Build. L'IDE Spark Build est le meilleur outil pour voir les informations importantes au sujet de votre Core, gérer les Cores associés à votre compte Spark, et les « déréclamer » afin de pouvoir les transférer à votre ami.
 
-![Spark Build](images/device-id.jpg)
+![Spark Build]({{assets}}/images/device-id.jpg)
 
 - **Core ID** : Vous pouvez voir les Device ID de vos Cores en cliquant sur l'icône « Cores » en bas du panneau de navigation, puis en cliquant sur la flèche à côté du Core qui vous intéresse.
 
 - **Unclaim** : Vous pouvez « déréclamer » un Core en cliquant sur le bouton « Remove Core » qui est affiché en cliquant sur la flèche à côté du Core correspondant. Une fois qu'un Core a été supprimé, il peut être associé à nouveau à n'importe quel compte utilisateur Spark.
 
-![Spark Build](images/access-token.png)
+![Spark Build]({{assets}}/images/access-token.png)
 
 - **API Key** : Vous pouvez trouver votre clé d'API la plus récente dans l'onglet « Settings » de votre compte. Vous pouvez cliquer sur le bouton « Reset Token » pour assigner une nouvelle clé à votre compte. *Notez* que cliquer sur ce bouton nécessitera que vous mettiez à jour tous les projets pour lesquels vous avez codé en dur cette clé.
 

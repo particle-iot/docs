@@ -64,8 +64,8 @@ Texas Instruments(德州仪器) CC3000手机应用程序的智能配置过程与
 [Spark Core Windows 驱动程序 >](https://s3.amazonaws.com/spark-website/Spark.zip)
 
 [CoolTerm](http://freeware.the-meiers.org/) 提供一个很好的图形用户界面（GUI）.
-![CoolTerm 设置](images/coolterm-settings.png)
-![CoolTerm 安装](images/coolterm-setup.png)
+![CoolTerm 设置]({{assets}}/images/coolterm-settings.png)
+![CoolTerm 安装]({{assets}}/images/coolterm-setup.png)
 
  __Mac__ 用户, 请使用 CoolTerm 或 screen work.
 

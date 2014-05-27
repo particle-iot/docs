@@ -2,6 +2,7 @@
 [ ] Compress all the assets and remove any external dependencies so it will run perfectly offline
 [ ] Improve the coloring on the code, which sometimes gets funky
 [ ] Make the headers for the code (like EXAMPLE SYNTAX) in regular fonts instead of monospace fonts so they stick out better
+[ ] Bring in the language ones
 
 Feedback:
 I really love the main sections on the left side now.
