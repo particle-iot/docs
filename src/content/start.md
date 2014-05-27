@@ -74,6 +74,15 @@ The Spark mobile app contains a mini-app called Tinker that lets you... well, ti
 
 Each of the pins has up to four functions available: *digitalWrite*, *analogWrite*, *digitalRead*, and *analogRead*. For more information, scroll down to the "Tinkering with Tinker" section.
 
+### Step 5: Write Apps with Spark Build
+
+![Spark Build]({{assets}}/images/ide.png)
+
+Once you're tired of reading reading sensor values and flashing LEDs, head over to the Spark Build IDE for the real show.  Spark Build allows you to create and flash custom applications to your Core from any modern web browser, and equips your Core with the full capabilities of the Internet!  Wow!  
+
+Don't be nervous--we've got you covered with plenty of community-approved example applications and libraries that will get you started on the right foot.  To learn more, check out the "Writing Apps with Spark Build" section further down on this page.  
+
+
 Wait, what is this thing?
 =====
 
@@ -275,7 +284,7 @@ This will read the analog value of a pin, which is a value from 0 to 4095, where
 The parameters must be the pin (A0 to A7, D0 to D7). The return value will be between 0 and 4095 if the read succeeds, and -1 if it fails.
 
 
-Writing Core Firmware
+Flash Apps with Spark Build
 ===
 
 What is firmware?
@@ -287,16 +296,27 @@ An *embedded system* like the Spark Core doesn't have an Operating System like a
 
 In our case, because the Spark Core is connected to the internet, updating firmware is quite trivial; we send it over the network, and we have put in place safeguards to keep you from "bricking" the Core.
 
-When you flash code onto the Spark Core, you are doing an *over-the-air firmware update*. This firmware update overwrites almost all of the software on the Spark Core; the only piece that is untouched is the bootloader, which manages the process of loading new firmware and ensures you can always update the firmware over USB or through a factory reset.  (We'll be open sourcing the bootloader as soon as we can bring the README up to date.)
+When you flash code onto the Spark Core, you are doing an *over-the-air firmware update*. This firmware update overwrites almost all of the software on the Spark Core; the only piece that is untouched is the bootloader, which manages the process of loading new firmware and ensures you can always update the firmware over USB or through a factory reset.
+
+
+Logging into Spark Build
+---
+When you're ready to reprogram your Spark Core, head over to our IDE:
+
+[Spark Build >](https://www.spark.io/build)
+
+![Spark Build]({{assets}}/images/create-account.jpg)
+
+Creating an account is a simple one-step process.  When presented with the login screen, simply enter your email address (careful!), and desired account password.  Press the big friendly "Sign Up" button, and you'll reach the Spark Build home page.
+
+![Spark Build]({{assets}}/images/log-in.jpg)
+
+If you've already logged into Spark Build before, click the "Let me log in" text beneath the Sign Up button, and you'll be presented with a login for existing users.  Don't worry--if you already have an account and accidentally click the "Sign Up" button, we'll still log you into your existing account.
 
 Spark Build, our web IDE
 ---
 
 ![Spark Build]({{assets}}/images/ide.png)
-
-When you're ready to reprogram your Spark Core, head over to our IDE:
-
-[Spark Build >](https://www.spark.io/build)
 
 Spark Build is an Integrated Development Environment, or IDE; that means that you can do software development in an easy-to-use application, which just so happens to run in your web browser.
 
@@ -313,27 +333,88 @@ At the bottom, there are four more buttons to navigate through the IDE:
 - **Cores**: Shows a list of your Spark Cores, so you can choose which to flash, and get more information on each Core.
 - **Settings**: Change your password, log out, or get your access token for API calls.
 
-The best way to get started with the IDE is to start writing code! Try pasting in this snippet of code, hit flash, and watch the LED blink!
+Spark Apps and Libraries
+---
 
-    int LED = D7;
+![Spark Build]({{assets}}/images/spark-apps.jpg)
 
-    void setup() {
-        pinMode(LED, OUTPUT);
-    }
+The heart of Spark Build is the "Spark Apps" section, which displays the name of the current app in your editor, as well as a list of your other applications and community-supported example apps.
 
-    void loop() {
-        digitalWrite(LED, HIGH);
-        delay(250);
-        digitalWrite(LED, LOW);
-        delay(250);
-    }
+The application you've got open in the editor is displayed under the "Current App" header.  You'll notice that this "HELLOWORLD" sample application has only one file, but firmware with associated libraries/multiple files are fully supported.  
 
+From this pane, you've got a lot of buttons and actions available to you that can help you grow and manage your library of kick-ass applications:
+
+- **Create**: You can create a new application by clicking the "Create New App" button.  Give it a sweet name and press enter!  Your app is now saved to your account and ready for editing.
+
+- **Delete**: Click the "Remove App" button to remove it forever from your Spark library.
+
+- **Rename**: You can rename your Spark App by simply double-clicking on the title of your app under the "Current App" header.  You can modify the "Optional description" field in the same way.
+- **My Apps**: Tired of working on your current project?  Select the name of another app under the "My apps" header to open it in a tab of the Spark Build editor.
+
+- **Files**: This header lists all known files associated with the open application.  Click on a supporting file in your application to open it as an active tab in the editor.
+
+- **Examples**: The "Example apps" header lists a continuously growing number of community-supported example apps.  Use these apps as references for developing your own, or fork them outright to extend their functionality.
+
+
+Flashing Your First App
+---
+
+The best way to get started with the IDE is to start writing code:
+
+- **Connect**: Make sure your Core is powered and "breathing" Cyan, which indicates that it's connected to the Spark Cloud and ready to be updated.
+- **Get Code**: Try clicking on the "Blink an LED" example under the "Example apps" header.  The Spark Build editor should display the code for the example application in an active tab.  Alternatively, you can copy and paste this snippet of code into a new application in the Build IDE.
+
+```
+//D7 LED Flash Example
+int LED = D7;
+
+void setup() {
+   	pinMode(LED, OUTPUT);
+}
+
+void loop() {
+   	digitalWrite(LED, HIGH);
+   	delay(1000);
+   	digitalWrite(LED, LOW);
+   	delay(1000);
+}
+```
+
+![Spark Build]({{assets}}/images/select-a-core.jpg)
+
+
+- **Select Your Core**: The next step is to make sure that you've selected which of your Cores to flash code to.  Click on the "Cores" icon at the bottom left side of the navigation pane, and click on the star next to the Core you'd like to update.  Once you've selected a Core, the star associated with it will turn yellow.
+
+- **Flash**: Click the "Flash" button, and your code will be sent wirelessly to your Core.  If the flash was successful, the LED on your Core will begin flashing magenta.
+
+![Spark Build]({{assets}}/images/fork-app.jpg)
+
+- **Fork**: Wish the timing of that LED flash was a little bit faster?  Try clicking on the "Fork This Example" button after selecting the "Blink An LED" example application.  You've now got a personal copy of that application that you can modify, save, and flash to all of your Cores.
+
+- **Edit**: Try changing the values in the delay() function from 1000 to 250, which changes the timing interval from 1000 milliseconds to only 250 milliseconds.  Click the Verify button, then the Flash button.  Is your Core's LED blinking faster?  Well done :)
+
+
+Account Information
+---
+
+There are a couple of other neat bells and whistles in Spark Build.  The Spark Build IDE the best tool for viewing important information about your Core, managing Cores associated with your Spark account, and "unclaiming" them so they can be transferred to your buddy.
+
+![Spark Build]({{assets}}/images/device-id.jpg)
+
+- **Core ID**: You can view your Core's Device ID by clicking on the "Cores" icon at the bottom of the navigation pane, then clicking the dropdown arrow next to the Core of interest.  
+
+- **Unclaim**: You can "Unclaim" a Core by pressing the "Remove Core" button that is revealed by clicking the dropdown arrow.  Once a Core has been unclaimed, it is available to be reassociated with any Spark users' account.
+
+![Spark Build]({{assets}}/images/access-token.png)
+
+- **API Key**: You can find your most recent API Key listed under the "Settings" tab in your account.  You can press the "Reset Token" button to assign a new API Key to your account.  *Note* that pressing this button will require you to update any hard-coded API Credentials in your Spark-powered projects!
 
 
 The Spark Command Line
----
+===
 
-**Coming soon!** Command line tools so that you can build Spark applications with your own desktop IDE, whether it's Eclipse, Sublime Text, Vim, or anything else.
+The Spark command line tool provides a rich set of functionality ranging from initial account creation, verifying and flashing firmware via the Spark Cloud, and
+interacting with deployed cores.  You can find more details about how to get it installed and all of the cool things you can do with it [here on GitHub](https://github.com/spark/spark-cli).
 
 Deploying a Spark web app
 ===
@@ -343,61 +424,6 @@ Deploying a Spark web app
 Troubleshooting
 ===
 
-What's wrong?
----
+There are many reasons that your Core might not be connecting to your Wi-Fi network or is not behaving exactly as you might expect.
 
-### My Core won't connect to Wi-Fi
-
-There are many reasons that your Core might not be connecting to your Wi-Fi network. To debug, check out our detailed connection troubleshooting section:
-
-[Why won't it connect? >](/connect/troubleshooting)
-
-### I can't talk to my Core
-
-Once your Core is connected, it needs to be *claimed* in order to be associated with your account. This is what lets you control your Core and keeps anyone else from doing so.
-
-If you use the mobile app to set up your Core, it should claim it automatically. However if you connect your Core over USB, or if the claiming process is unsuccessful, you can claim it manually.
-
-Head over to our connection page to learn about this:
-
-[ Claiming your Core >](/connect/claiming-your-core)
-
-### My Core won't start up
-
-If your Core won't start up (the LED never comes on), here are a few things to check:
-
-- Is the Core receiving sufficient power? If you're not sure, connect a multimeter to the 3.3V pin and GND and see if you get 3.3V, as expected. Try connecting the Core to another power source.
-- Have any components been damaged? Visually inspect both sides of the Core.
-
-### My Core is behaving erratically
-
-If you're seeing unexpected behavior with your Core, here are a few things to check:
-
-- Is the Core receiving sufficient power? The Core might behave eratically if it's plugged into an unpowered USB hub and not receiving enough power. In addition, if you have components that draw a lot of power (motors, for instance), you might need more power than your computer can supply. Try using a USB power supply or providing more power directly to the VIN or 3.3V pins.
-- If you have a u.FL Core, is an antenna connected? Are you within range of the Wi-Fi router?
-
-
-Further resources
-===
-
-Hardware development
----
-
-### Hardware for dummies
-
-**Coming soon!**
-
-### Advanced hardware
-
-**Coming soon!**
-
-Software development
----
-
-### Software for dummies
-
-**Coming soon!**
-
-### Advanced software
-
-**Coming soon!**
+[Check out the troubleshooting section >](/#/troubleshooting)

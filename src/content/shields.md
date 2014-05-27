@@ -153,10 +153,12 @@ Specifications
 -----
 - Operating voltage: 7 to 15V DC
 - Current consumption: 150mA min to 290mA (at 9V DC)
-- Relay Max Voltage: 220V AC
+- Relay Max Voltage: 250V AC
 - Relay Max Current: 10Amp at 125V AC
+- Relay Part Number: JS1-5V-F  [(Data Sheet)](http://pewa.panasonic.com/assets/pcsd/catalog/js-catalog.pdf)
 - Dimensions: 3.5 x 3.3
 - Weight: 100gms
+
 
 Setting up the Relay Shield
 -----
@@ -224,7 +226,7 @@ An example API request to this function would look something like this:
 POST /v1/devices/{DEVICE_ID}/relay
 
 # EXAMPLE REQUEST
-curl https://api.spark.io/v1/devices/teapot/relay \
+curl https://api.spark.io/v1/devices/0123456789abcdef01234567/relay \
   -d access_token=1234123412341234123412341234123412341234 -d params=r1,HIGH
 ```
 
@@ -306,14 +308,14 @@ Setting up the shield
 
 In order to just charge the battery, simply plug the battery into the JST connector (**CAUTION: Remember to check the polarity of the battery header!!**) and a USB cable into the microB socket as shown in the picture.  
 
-You will see the BLUE power LED light up on the shield and either the RED (indicating charging in progress) or GREEN (indicating charging complete) LED light up.  
+You will see the BLUE power LED light up on the shield and either the YELLOW (indicating charging in progress) or GREEN (indicating charging complete) LED light up.  
 
 ![Battery Shield Charging and Powering]({{assets}}/images/bshield-charging-powering.jpg)
 
 To summarize the LED functions:
 
 - Blue LED: Power indicator for the USB cable. Lights up only when the USB cable is plugged in.
-- Red LED: Charging in progress indicator. Is ON when the battery is charging. Turns OFF when charging complete.
+- Yellow LED: Charging in progress indicator. Is ON when the battery is charging. Turns OFF when charging complete.
 - Green LED: Charge Complete Indicator. This LED lights up when the battery is completely charged.
 
 You could also power the Spark Core while the battery is charging but remember that the charging might be slower as the current will be distributed in between the Core and the battery.  
@@ -466,7 +468,7 @@ Wanna give your next Spark Core project a tactile feedback? This vibration motor
 
 ![Buzzer]({{assets}}/images/mk-buzzer.bmp)
 
-Add an audible feedback to your project with this buzzer. The loner lead is positive and the shorter is negative. You will need a transistor to driver it.
+Add an audible feedback to your project with this buzzer. The longer lead is positive and the shorter is negative. You will need a transistor to drive it.
 
 *Note:* The sound gets annoying after a while. Use it sparingly!
 
@@ -618,12 +620,16 @@ Your very own Spark Core, ready to take over the world, one byte at a time.
 
 The RC car kit is a two-wheeled differentially driven platform that you can control using a Spark Core.
 
+
 ### Kit Contents
 
-- RC Car Chassis kit
-- Spark Shield Shield
-- Motor Driver Shield
-- Spark Core
+NOTE: This is no longer available for purchase through Spark, however, if you still want to build this, check out the links to the individual components below.
+
+- RC Car Chassis kit ([buy from DFRobot](http://www.dfrobot.com/index.php?route=product/product&path=37_111&product_id=65))
+- Motor Driver Shield ([buy from DFRobot](http://www.dfrobot.com/index.php?route=product/product&product_id=69))
+- Battery (NiCad, Alkaline, LiPo, Li Ion : 6V to 12V DC) ([buy from DFRobot](http://www.dfrobot.com/index.php?route=product/product&filter_name=battery&product_id=489))
+- Spark Shield Shield ([buy from Spark](https://www.trycelery.com/shop/spark))
+- Spark Core ([buy from Spark](https://www.trycelery.com/shop/spark))
 
 Assemble the RC Car chassis as shown in the [tutorial here.](http://www.dfrobot.com/wiki/index.php/3PA_Assembly_Guide_%28SKU:ROB0005%29) (Without the electronics)
 
@@ -759,7 +765,7 @@ To send API commands:
 
 ```json
 # Sending command to go forward
-curl https://api.spark.io/v1/devices/1234/rccar -d access_token=1234 -d params=rc,FORWARD
+curl https://api.spark.io/v1/devices/0123456789abcdef01234567/rccar -d access_token=1234 -d params=rc,FORWARD
 ```
 
 ### Motor Driver Shield Specifications

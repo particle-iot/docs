@@ -7,55 +7,77 @@ order: 3
 Spark Core Firmware
 ==========
 
-Functions
+Cloud Functions
 =====
 
-Cloud
----
+## Data and Control
 
 ### Spark.variable()
 
 Expose a *variable* through the Spark Cloud so that it can be called with `GET /v1/devices/{DEVICE_ID}/{VARIABLE}`.
 
 ```C++
-EXAMPLE USAGE
-int temperature = 0;
+//EXAMPLE USAGE
+int analogvalue = 0;
+double tempC = 0;
+char  *message = "my name is spark";
 
 void setup()
 {
-  Spark.variable("temperature", &temperature, INT);
+  // variable name max length is 12 characters long
+  Spark.variable("analogvalue", &analogvalue, INT);
+  Spark.variable("temp", &tempC, DOUBLE);
+  Spark.variable("mess", message, STRING);
   pinMode(A0, INPUT);
 }
 
 void loop()
 {
-  temperature = analogRead(A0);
+    // Read the analog value of the sensor (TMP36)
+    analogvalue = analogRead(A0);
+    //Convert the reading into degree celcius
+    tempC = (((analogvalue * 3.3)/4095) - 0.5) * 100;
+    Delay(200);
 }
 ```
 
-COMPLEMENTARY API CALL
+There are three supported data types:
+
+ * `INT`
+ * `DOUBLE`
+ * `STRING`
+
+
+
 
 ```json
 # EXAMPLE REQUEST IN TERMINAL
 # Core ID is 0123456789abcdef01234567
 # Your access token is 1234123412341234123412341234123412341234
-curl "https://api.spark.io/v1/devices/0123456789abcdef01234567/temperature?access_token=1234123412341234123412341234123412341234"
-```
+curl "https://api.spark.io/v1/devices/0123456789abcdef01234567/analogvalue?access_token=1234123412341234123412341234123412341234"
+curl "https://api.spark.io/v1/devices/0123456789abcdef01234567/temp?access_token=1234123412341234123412341234123412341234"
+curl "https://api.spark.io/v1/devices/0123456789abcdef01234567/mess?access_token=1234123412341234123412341234123412341234"
 
+# In return you'll get something like this:
+960
+27.44322344322344
+my name is spark
+
+```
 
 ### Spark.function()
 
 Expose a *function* through the Spark Cloud so that it can be called with `POST device/{FUNCTION}`.
 
-Currently the application supports the creation of upto 4 different Spark functions.
-
 ```cpp
-SYNTAX TO REGISTER A SPARK FUNCTION
+// SYNTAX TO REGISTER A SPARK FUNCTION
 Spark.function("funcKey", funcName);
-                  ^
-                  |
-     (max of 12 characters long)
+//                ^
+//                |
+//     (max of 12 characters long)
 ```
+
+Currently the application supports the creation of up to 4 different Spark functions.
 
 In order to register a Spark function, the user provides the `funcKey`, which is the string name used to make a POST request and a `funcName`, which is the actual name of the function that gets called in the Spark app. The Spark function can return any integer; `-1` is commonly used for a failed function call.
 
@@ -106,40 +128,129 @@ curl https://api.spark.io/v1/devices/0123456789abcdef01234567/brew \
 The API request will be routed to the Spark Core and will run your brew function. The response will have a return_value key containing the integer returned by brew.
 
 
-### Spark.event()
+### Spark.publish()
 
-Send an *event* through the Spark Cloud that will be forwarded to registered callbacks and server-sent event streams.
+Publish an *event* through the Spark Cloud that will be forwarded to all registered callbacks and subscribed streams of Server-Sent Events.
 
-This feature will allow the Core to generate an *event* based on a condition. For example, you could connect a motion sensor to the core and have a the Core generate an event whenever motion is detected. Unlike the Spark variable, you don't have to send out an API GET request.
+```cpp
+Spark.publish();
+```
 
-This feature is currently under implementation.
+This feature will allow the Core to generate an event based on a condition. For example, you could connect a motion sensor to the Core and have the Core generate an event whenever motion is detected.
 
-<!-- TO DO -->
-<!--
+Spark events have the following properties:
+
+* name (1–63 ASCII characters)
+* public/private (default public)
+* ttl (time to live, 0–16777215 seconds, default 60)
+* optional data (up to 63 bytes)
+
+Anyone may subscribe to public events; think of them like tweets.
+Only the owner of the Core will be able to subscribe to private events.
+
+A Core may not publish events beginning with a case-insensitive match for "spark".
+Such events are reserved for officially curated data originating from the Spark Cloud.
+
+---
+
+Publish a public event with the given name, no data, and the default TTL of 60 seconds.
+
 ```C++
 SYNTAX
-Spark.event(event_name, event_result);
+Spark.publish(const char *eventName);
+Spark.publish(String eventName);
 
 EXAMPLE USAGE
-int motion_sensor = 0;
-int sensor_value = 0;
-
-void loop() {
-  sensor_value = analogRead(motion_sensor);
-
-  if (sensor_value == 1) {
-    Spark.event("motion", "motion detected");
-  }
-}
-
-COMPLEMENTARY API CALL
-I guess this should be callback registration...?
+Spark.publish("motion-detected");
 ```
+
+---
+
+Publish a public event with the given name and data, with the default TTL of 60 seconds.
+
+```C++
+SYNTAX
+Spark.publish(const char *eventName, const char *data);
+Spark.publish(String eventName, String data);
+
+EXAMPLE
+Spark.publish("temperature", "19 F");
+```
+
+---
+
+Publish a public event with the given name, data, and TTL.
+
+```C++
+SYNTAX
+Spark.publish(const char *eventName, const char *data, int ttl);
+Spark.publish(String eventName, String data, int ttl);
+
+EXAMPLE
+Spark.publish("lake-depth/1", "28m", 21600);
+```
+
+---
+
+Publish a private event with the given name, data, and TTL.
+In order to publish a private event, you must pass all four parameters.
+
+```C++
+SYNTAX
+Spark.publish(const char *eventName, const char *data, int ttl, PRIVATE);
+Spark.publish(String eventName, String data, int ttl, PRIVATE);
+
+EXAMPLE
+Spark.publish("front-door-unlocked", NULL, 60, PRIVATE);
+```
+
+<!--
+### Spark.subscribe()
+
+*NOT FULLY SPECIFIED YET, WILL UNCOMMENT THIS WHEN READY TO FLESH IT OUT*
+
+*FEATURE IN PROGRESS—EXPECT IN EARLY MARCH*
+
+This feature will allow a Core to subscribe to events published by other Cores.
+After a `Spark.subscribe()` call, the Core will
+
+A subscription works like a prefix filter.
+If you subscribe to "foo", you will receive any event whose name begins with "foo",
+including "foo", "fool", "foobar", and "food/indian/sweet-curry-beans".
+
+Receive events will be passed to a handler function similar to `Spark.function()`.
+A subscription handler must return `void` and take a SparkEvent object.
+
+Subscribe to events from one device.
+
+Spark.subscribe(const char *eventName, const char *deviceID)
+Spark.subscribe(String eventName, String deviceID)
+
+Example: `Spark.subscribe("hot-water", "55ff70064939494339432586")`
+
+Subscribe to events from all devices owned by the same user as this Core.
+
+Spark.subscribe(const char *eventName, MY_DEVICES)
+Spark.subscribe(String eventName, MY_DEVICES)
+
+Example: `Spark.subscribe("alert", MY_DEVICES)`
+
+Subscribe to all accessible events with the given event name filter.
+
+Spark.subscribe(const char *eventName)
+Spark.subscribe(String eventName)
+
+Example: `Spark.subscribe("us/mn/weather")`
+
+A Core MUST filter the firehose, that is, they MAY NOT subscribe to the empty string.
 -->
+
+
+## Connection Management
 
 ### Spark.connected()
 
-Returns `true` when connected to the Spark Cloud, and `false` when disconnected to the Spark Cloud.
+Returns `true` when connected to the Spark Cloud, and `false` when disconnected from the Spark Cloud.
 
 ```C++
 SYNTAX
@@ -160,34 +271,118 @@ void loop() {
   delay(1000);
 }
 ```
-<!-- TO DO
-### Spark.disconnect()
 
-Disconnects the Spark Core from the Spark Cloud.
+### Spark.disconnect() and Spark.connect()
 
-```C++
-SYNTAX
-Spark.disconnect()
-
-EXAMPLE USAGE
-Hmm, not sure what this one should look like...
-```
-
-NOTE: When the Core is disconnected, over-the-air updates are no longer possible. To re-enable over-the-air firmware updates, initiate a factory reset.
-
-
-
-### Spark.connect()
-
-Re-connects the Spark Core to the Spark Cloud after `Spark.disconnect()` is called.
+`Spark.disconnect()` disconnects the Spark Core from the Spark Cloud, while
+`Spark.connect() subsequently reconnects.
 
 ```C++
-SYNTAX
-Spark.connect()
+int counter = 10000;
+
+void doConnectedWork() {
+  digitalWrite(D7, HIGH);
+  Serial.println("Working online");
+}
+
+void doOfflineWork() {
+  digitalWrite(D7, LOW);
+  Serial.println("Working offline");
+}
+
+bool needConnection() {
+  --counter;
+  if (0 == counter)
+    counter = 10000;
+  return (2000 > counter);
+}
+
+void setup() {
+  pinMode(D7, OUTPUT);
+  Serial.begin(9600);
+}
+
+void loop() {
+  if (needConnection()) {
+    if (!Spark.connected())
+      Spark.connect();
+    doConnectedWork();
+  } else {
+    if (Spark.connected())
+      Spark.disconnect();
+    doOfflineWork();
+  }
+}
 ```
 
 The Spark Core connects to the cloud by default, so it's not necessary to call `Spark.connect()` unless you have explicitly disconnected the Core.
--->
+
+NOTE: When the Core is disconnected, many features are not possible, including over-the-air updates, reading Spark.variables, and calling Spark.functions.
+
+*If you flash firmware that does not stay connected very long, you will NOT BE ABLE to flash new firmware.*
+
+A factory reset should solve this.
+
+### Spark.deviceID()
+---
+
+`Spark.deviceID()` provides an easy way to extract the device ID of your Core.
+
+```cpp
+// Example Usage
+
+void setup()
+{
+    Serial.begin(9600);
+    delay(1000);
+
+    String myID = Spark.deviceID();
+    // Prints out the device ID over Serial
+    Serial.println(myID);  
+}
+
+void loop()
+{
+
+}
+```
+
+
+
+### Network
+---
+
+```cpp
+// Example Usage
+
+void setup()
+{
+    Serial.begin(9600);
+    delay(1000);
+
+    // Prints out the network parameters over Serial
+    Serial.println(Network.SSID());
+    Serial.println(Network.gatewayIP());
+    Serial.println(Network.subnetMask());
+    Serial.println(Network.localIP());
+}
+
+void loop()
+{
+
+}
+```
+
+`Network.SSID()` returns the SSID of the network the Core is currently connected to.
+
+`Network.gatewayIP()` returns the gateway IP address of the network.
+
+`Network.subnetMask()` returns the subnet mask of the network.
+
+`Network.localIP()` returns the local IP address assigned to the Core.
+
+
+
 
 <!-- TO DO -->
 <!-- Add example implementation here -->
@@ -256,7 +451,10 @@ Spark.sleep(int millis, array peripherals);
 <!-- Add example implementation here -->
 
 Input/Output
----
+=====
+
+Setup
+-----
 
 ### pinMode()
 
@@ -293,6 +491,9 @@ void loop()
   }
 }
 ```
+
+I/O
+------
 
 ### digitalWrite()
 
@@ -726,7 +927,7 @@ Sets the SPI data mode: that is, clock polarity and phase. See the [Wikipedia ar
 
 ```C++
 // SYNTAX
-SPI.setClockDivider(mode) ;
+SPI.setDataMode(mode) ;
 ```
 Where the parameter, `mode` can be:
 
@@ -946,6 +1147,7 @@ Parameters: `port`: the port to listen on (`int`)
 
 // telnet defaults to port 23
 TCPServer server = TCPServer(23);
+TCPClient client;
 
 void setup()
 {
@@ -964,13 +1166,14 @@ void setup()
 
 void loop()
 {
-  // if an incoming client connects, there will be bytes available to read:
-  TCPClient client = server.available();
-  if (client == true)
-  {
-      // read bytes from the incoming client and write them back
-      // to any clients connected to the server:
+  if (client.connected()) {
+    // echo all available bytes back to the client
+    while (client.available()) {
       server.write(client.read());
+    }
+  } else {
+    // if no client is yet connected, check for a new connection
+    client = server.available();
   }
 }
 ```
@@ -1222,19 +1425,173 @@ client.stop();
 UDP
 -----
 
-### UDP
+This class enables UDP messages to be sent and received.
+
+<!-- TO DO -->
+<!-- Add more examples-->
+
 ### begin()
+
+Initializes the UDP library and network settings.
+
+```cpp
+// EXAMPLE USAGE
+
+// local port to listen on
+unsigned int localPort = 8888;
+
+// An UDP instance to let us send and receive packets over UDP
+UDP Udp;
+
+void setup()
+{
+  // start the UDP
+  Udp.begin(localPort);
+}
+
+void loop()
+{
+}
+
+```
+
 ### available()
+
+Get the number of bytes (characters) available for reading from the buffer. This is data that's already arrived.
+
+This function can only be successfully called after `UDP.parsePacket()`.
+
+`available()` inherits from the `Stream` utility class.
+
+```cpp
+// SYNTAX
+UDP.available()
+```
+
+Returns the number of bytes available to read.
+
+Parameters:
+
+ - `remoteIP`: the IP address of the remote connection (4 bytes)
+ - `remotePort`: the port of the remote connection (int)
+
+Its returns nothing.
+
 ### beginPacket()
+
+Starts a connection to write UDP data to the remote connection.
+
+```cpp
+// SYNTAX
+UDP.beginPacket(remoteIP, remotePort);
+```
+
 ### endPacket()
+
+Called after writing UDP data to the remote connection.
+
+```cpp
+// SYNTAX
+UDP.endPacket();
+```
+
+Parameters: NONE
+
 ### write()
+
+Writes UDP data to the remote connection. Must be wrapped between `beginPacket()` and `endPacket()`. `beginPacket()` initializes the packet of data, it is not sent until `endPacket()` is called.
+
+```cpp
+// SYNTAX
+UDP.write(message);
+UDP.write(buffer, size);
+```
+
+Parameters:
+
+ - `message`: the outgoing message (char)
+ - `buffer`: an array to send as a series of bytes (byte or char)
+ - `size`: the length of the buffer
+
+Returns:
+
+ - `byte`: returns the number of characters sent. This does not have to be read
+
+
 ### parsePacket()
-### peek()
+
+Checks for the presence of a UDP packet, and reports the size. `parsePacket()` must be called before reading the buffer with `UDP.read()`.
+
+```cpp
+// SYNTAX
+UDP.parsePacket();
+```
+
+Parameters: NONE
+
+Returns:
+
+ - `int`: the size of a received UDP packet
+
 ### read()
-### flush()
+
+Reads UDP data from the specified buffer. If no arguments are given, it will return the next character in the buffer.
+
+This function can only be successfully called after `UDP.parsePacket()`.
+
+```cpp
+// SYNTAX
+UDP.read();
+UDP.read(packetBuffer, MaxSize);
+```
+Parameters:
+
+ - `packetBuffer`: buffer to hold incoming packets (char)
+ - `MaxSize`: maximum size of the buffer (int)
+
+Returns:
+
+ - `char`: returns the characters in the buffer
+
+
 ### stop()
+
+Disconnect from the server. Release any resource being used during the UDP session.
+
+```cpp
+// SYNTAX
+UDP.stop();
+```
+Parameters: NONE
+
 ### remoteIP()
+
+Gets the IP address of the remote connection. This function must be called after `UDP.parsePacket()`.
+
+```cpp
+// SYNTAX
+UDP.remoteIP();
+```
+Parameters: NONE
+
+Returns:
+
+ - 4 bytes : the IP address of the remote connection
+
+
 ### remotePort()
+
+Gets the port of the remote UDP connection. This function must be called after `UDP.parsePacket()`.
+
+```cpp
+// SYNTAX
+UDP.remotePort();
+```
+Parameters: NONE
+
+Returns:
+
+- `int`: the port of the UDP connection to a remote host
 
 Libraries
 ===
@@ -1420,9 +1777,7 @@ The parameter for millis is an unsigned long, errors may be generated if a progr
 
 ### micros()
 
-**Not implemented yet**
-
-Returns the number of microseconds since the Arduino board began running the current program. This number will overflow (go back to zero), after approximately 70 minutes.
+Returns the number of microseconds since the Spark Core began running the current program. This number will overflow (go back to zero), after approximately 59.65 seconds.
 
 `unsigned long time = micros();`
 
@@ -1477,8 +1832,6 @@ void loop()
 the parameter for millis is an unsigned long, errors may be generated if a programmer tries to do math with other datatypes such as ints.
 
 ### delayMicroseconds()
-
-**Not implemented yet**
 
 Pauses the program for the amount of time (in microseconds) specified as parameter. There are a thousand microseconds in a millisecond, and a million microseconds in a second.
 
@@ -1646,7 +1999,7 @@ min(a, 100);    // use this instead - keep other math outside the function
 
 Calculates the maximum of two numbers.
 
-`man(x, y)`
+`max(x, y)`
 
 `x` is the first number, any data type  
 `y` is the second number, any data type  
@@ -1931,7 +2284,7 @@ else
 }
 ```
 
-Another way to express branching, mutually exclusive tests, is with the [`switch case`](http://spark.github.io/docs/#control-structures-switch-case) statement.
+Another way to express branching, mutually exclusive tests, is with the [`switch case`](#/firmware/control-structures-switch-case) statement.
 
 ### for
 
@@ -2733,6 +3086,442 @@ So if:
 `myByte =  B10101010;`  
 `myByte |= B00000011 == B10101011;`  
 
+
+
+String Class
+----
+
+The String class allows you to use and manipulate strings of text in more complex ways than character arrays do. You can concatenate Strings, append to them, search for and replace substrings, and more. It takes more memory than a simple character array, but it is also more useful.
+
+For reference, character arrays are referred to as strings with a small s, and instances of the String class are referred to as Strings with a capital S. Note that constant strings, specified in "double quotes" are treated as char arrays, not instances of the String class.
+
+### String()
+
+Constructs an instance of the String class. There are multiple versions that construct Strings from different data types (i.e. format them as sequences of characters), including:
+
+  * a constant string of characters, in double quotes (i.e. a char array)
+  * a single constant character, in single quotes
+  * another instance of the String object
+  * a constant integer or long integer
+  * a constant integer or long integer, using a specified base
+  * an integer or long integer variable
+  * an integer or long integer variable, using a specified base
+
+Constructing a String from a number results in a string that contains the ASCII representation of that number. The default is base ten, so
+
+`String thisString = String(13)`
+gives you the String "13". You can use other bases, however. For example,
+`String thisString = String(13, HEX)`
+gives you the String "D", which is the hexadecimal representation of the decimal value 13. Or if you prefer binary,
+`String thisString = String(13, BIN)`
+gives you the String "1101", which is the binary representation of 13.
+
+```
+SYNTAX:
+
+String(val)
+String(val, base)
+```
+
+Parameters:  
+
+  * val: a variable to format as a String - string, char, byte, int, long, unsigned int, unsigned long
+  * base (optional) - the base in which to format an integral value
+
+Returns: an instance of the String class
+
+```cpp
+// EXAMPLES
+String stringOne = "Hello String";                     // using a constant String
+String stringOne =  String('a');                       // converting a constant char into a String
+String stringTwo =  String("This is a string");        // converting a constant string into a String object
+String stringOne =  String(stringTwo + " with more");  // concatenating two strings
+String stringOne =  String(13);                        // using a constant integer
+String stringOne =  String(analogRead(0), DEC);        // using an int and a base
+String stringOne =  String(45, HEX);                   // using an int and a base (hexadecimal)
+String stringOne =  String(255, BIN);                  // using an int and a base (binary)
+String stringOne =  String(millis(), DEC);             // using a long and a base
+```
+
+### charAt()
+
+Access a particular character of the String.
+
+```
+SYNTAX:
+
+string.charAt(n)
+```
+Parameters:
+
+  * `string`: a variable of type String
+  * `n`: the character to access
+
+Returns: the n'th character of the String
+
+
+### compareTo()
+
+Compares two Strings, testing whether one comes before or after the other, or whether they're equal. The strings are compared character by character, using the ASCII values of the characters. That means, for example, that 'a' comes before 'b' but after 'A'. Numbers come before letters.
+
+
+```
+SYNTAX:
+
+string.compareTo(string2)
+```
+
+Parameters:
+
+  * string: a variable of type String
+  * string2: another variable of type String
+
+Returns:
+
+  * a negative number: if string comes before string2
+  * 0: if string equals string2
+  * a positive number: if string comes after string2
+
+### concat()
+
+Combines, or *concatenates* two strings into one new String. The second string is appended to the first, and the result is placed in a new String.
+
+```
+SYNTAX:
+
+string.concat(string, string2)
+```
+
+Parameters:
+
+  * string, string2: variables of type String
+
+Returns: new String that is the combination of the original two Strings
+
+### endsWith()
+
+Tests whether or not a String ends with the characters of another String.
+
+```
+SYNTAX:
+
+string.endsWith(string2)
+```
+
+Parameters:
+
+  * string: a variable of type String
+  * string2: another variable of type String
+
+Returns:
+
+  * true: if string ends with the characters of string2
+  * false: otherwise
+
+
+### equals()
+
+Compares two strings for equality. The comparison is case-sensitive, meaning the String "hello" is not equal to the String "HELLO".
+
+```
+SYNTAX:
+
+string.equals(string2)
+```
+Parameters:
+
+  * string, string2: variables of type String
+
+Returns:
+
+  * true: if string equals string2
+  * false: otherwise
+
+### equalsIgnoreCase()
+
+Compares two strings for equality. The comparison is not case-sensitive, meaning the String("hello") is equal to the String("HELLO").
+
+```
+SYNTAX:
+
+string.equalsIgnoreCase(string2)
+```
+Parameters:
+
+  * string, string2: variables of type String
+
+Returns:
+
+  * true: if string equals string2 (ignoring case)
+  * false: otherwise
+
+### getBytes()
+
+Copies the string's characters to the supplied buffer.
+
+```
+SYNTAX:
+
+string.getBytes(buf, len)
+```
+Parameters:
+
+  * string: a variable of type String
+  * buf: the buffer to copy the characters into (byte [])
+  * len: the size of the buffer (unsigned int)
+
+Returns: None
+
+### indexOf()
+
+Locates a character or String within another String. By default, searches from the beginning of the String, but can also start from a given index, allowing for the locating of all instances of the character or String.
+
+```
+SYNTAX:
+
+string.indexOf(val)
+string.indexOf(val, from)
+```
+
+Parameters:
+
+  * string: a variable of type String
+  * val: the value to search for - char or String
+  * from: the index to start the search from
+
+Returns: The index of val within the String, or -1 if not found.
+
+### lastIndexOf()
+
+Locates a character or String within another String. By default, searches from the end of the String, but can also work backwards from a given index, allowing for the locating of all instances of the character or String.
+
+```SYNTAX:
+
+string.lastIndexOf(val)
+string.lastIndexOf(val, from)
+```
+
+Parameters:
+
+  * string: a variable of type String
+  * val: the value to search for - char or String
+  * from: the index to work backwards from
+
+Returns: The index of val within the String, or -1 if not found.
+
+### length()
+
+Returns the length of the String, in characters. (Note that this doesn't include a trailing null character.)
+
+```
+SYNTAX:
+
+string.length()
+```
+
+Parameters:
+
+  * string: a variable of type String
+
+Returns: The length of the String in characters.
+
+### replace()
+
+The String `replace()` function allows you to replace all instances of a given character with another character. You can also use replace to replace substrings of a string with a different substring.
+
+```
+SYNTAX:
+
+string.replace(substring1, substring2)
+```
+
+Parameters:
+
+  * string: a variable of type String
+  * substring1: another variable of type String
+  * substring2: another variable of type String
+
+Returns: another String containing the new string with replaced characters.
+
+### reserve()
+
+The String reserve() function allows you to allocate a buffer in memory for manipulating strings.
+
+```
+SYNTAX:
+
+string.reserve(size)
+```
+Parameters:
+
+  * size: unsigned int declaring the number of bytes in memory to save for string manipulation
+
+Returns: None
+
+```cpp
+//EXAMPLE
+
+String myString;
+
+void setup() {
+  // initialize serial and wait for port to open:
+  Serial.begin(9600);
+  while (!Serial) {
+    ; // wait for serial port to connect. Needed for Leonardo only
+  }
+
+  myString.reserve(26);
+  myString = "i=";
+  myString += "1234";
+  myString += ", is that ok?";
+
+  // print the String:
+  Serial.println(myString);
+}
+
+void loop() {
+ // nothing to do here
+}
+```
+
+### setCharAt()
+
+Sets a character of the String. Has no effect on indices outside the existing length of the String.
+
+```
+SYNTAX:
+
+string.setCharAt(index, c)
+```
+Parameters:
+
+  * string: a variable of type String
+  * index: the index to set the character at
+  * c: the character to store to the given location
+
+Returns: None
+
+### startsWith()
+
+Tests whether or not a String starts with the characters of another String.
+
+```
+SYNTAX:
+
+string.startsWith(string2)
+```
+
+Parameters:
+
+  * string, string2: variable2 of type String
+
+Returns:
+
+  * true: if string starts with the characters of string2
+  * false: otherwise
+
+
+### substring()
+
+Get a substring of a String. The starting index is inclusive (the corresponding character is included in the substring), but the optional ending index is exclusive (the corresponding character is not included in the substring). If the ending index is omitted, the substring continues to the end of the String.
+
+```
+SYNTAX:
+
+string.substring(from)
+string.substring(from, to)
+```
+
+Parameters:
+
+  * string: a variable of type String
+  * from: the index to start the substring at
+  * to (optional): the index to end the substring before
+
+Returns: the substring
+
+### toCharArray()
+
+Copies the string's characters to the supplied buffer.
+
+```
+SYNTAX:
+
+string.toCharArray(buf, len)
+```
+Parameters:
+
+  * string: a variable of type String
+  * buf: the buffer to copy the characters into (char [])
+  * len: the size of the buffer (unsigned int)
+
+Returns: None
+
+### toInt()
+
+Converts a valid String to an integer. The input string should start with an integral number. If the string contains non-integral numbers, the function will stop performing the conversion.
+
+```
+SYNTAX:
+
+string.toInt()
+```
+
+Parameters:
+
+  * string: a variable of type String
+
+Returns: long (If no valid conversion could be performed because the string doesn't start with a integral number, a zero is returned.)
+
+### toLowerCase()
+
+Get a lower-case version of a String. `toLowerCase()` modifies the string in place.
+
+```
+SYNTAX:
+
+string.toLowerCase()
+```
+
+Parameters:
+
+  * string: a variable of type String
+
+Returns: None
+
+### toUpperCase()
+
+Get an upper-case version of a String. `toUpperCase()` modifies the string in place.
+
+```
+SYNTAX:
+
+string.toUpperCase()
+```
+
+Parameters:
+
+  * string: a variable of type String
+
+Returns: None
+
+### trim()
+
+Get a version of the String with any leading and trailing whitespace removed.
+
+```
+SYNTAX:
+
+string.trim()
+```
+
+Parameters:
+
+  * string: a variable of type String
+
+Returns: None
+
+
 Variables
 ========
 
@@ -2788,3 +3577,262 @@ There are two constants used to represent truth and falsity in the Arduino langu
 `true` is often said to be defined as 1, which is correct, but true has a wider definition. Any integer which is non-zero is true, in a Boolean sense. So -1, 2 and -200 are all defined as true, too, in a Boolean sense.
 
 Note that the true and false constants are typed in lowercase unlike `HIGH, LOW, INPUT, & OUTPUT.`
+
+
+Data Types
+----
+
+**Note:** The Spark Core uses a 32-bit ARM based microcontroller and hence the datatype lengths are different from a standard 8-bit system (for eg. Arduino Uno).
+
+### void
+
+The `void` keyword is used only in function declarations. It indicates that the function is expected to return no information to the function from which it was called.
+
+```cpp
+
+//EXAMPLE
+// actions are performed in the functions "setup" and "loop"
+// but  no information is reported to the larger program
+
+void setup()
+{
+  // ...
+}
+
+void loop()
+{
+  // ...
+}
+```
+
+### boolean
+
+A `boolean` holds one of two values, `true` or `false`. (Each boolean variable occupies one byte of memory.)
+
+```cpp
+//EXAMPLE
+
+int LEDpin = D0;       // LED on D0
+int switchPin = A0;   // momentary switch on A0, other side connected to ground
+
+boolean running = false;
+
+void setup()
+{
+  pinMode(LEDpin, OUTPUT);
+  pinMode(switchPin, INPUT_PULLUP);
+}
+
+void loop()
+{
+  if (digitalRead(switchPin) == LOW)
+  {  // switch is pressed - pullup keeps pin high normally
+    delay(100);                        // delay to debounce switch
+    running = !running;                // toggle running variable
+    digitalWrite(LEDpin, running)      // indicate via LED
+  }
+}
+
+```
+
+### char
+
+A data type that takes up 1 byte of memory that stores a character value. Character literals are written in single quotes, like this: 'A' (for multiple characters - strings - use double quotes: "ABC").
+Characters are stored as numbers however. You can see the specific encoding in the ASCII chart. This means that it is possible to do arithmetic on characters, in which the ASCII value of the character is used (e.g. 'A' + 1 has the value 66, since the ASCII value of the capital letter A is 65). See Serial.println reference for more on how characters are translated to numbers.
+The char datatype is a signed type, meaning that it encodes numbers from -128 to 127. For an unsigned, one-byte (8 bit) data type, use the `byte` data type.
+
+```cpp
+//EXAMPLE
+
+char myChar = 'A';
+char myChar = 65;      // both are equivalent
+```
+
+### unsigned char
+
+An unsigned data type that occupies 1 byte of memory. Same as the `byte` datatype.
+The unsigned char datatype encodes numbers from 0 to 255.
+For consistency of Arduino programming style, the `byte` data type is to be preferred.
+
+```cpp
+//EXAMPLE
+
+unsigned char myChar = 240;
+```
+
+### byte
+
+A byte stores an 8-bit unsigned number, from 0 to 255.
+
+```cpp
+//EXAMPLE
+
+byte b = 0x11;
+```
+
+### int
+
+Integers are your primary data-type for number storage. On the Core, an int stores a 32-bit (4-byte) value. This yields a range of -2,147,483,648 to 2,147,483,647 (minimum value of -2^31 and a maximum value of (2^31) - 1).
+int's store negative numbers with a technique called 2's complement math. The highest bit, sometimes referred to as the "sign" bit, flags the number as a negative number. The rest of the bits are inverted and 1 is added.
+
+Other variations:
+
+  * `int32_t` : 32 bit signed integer
+  * `int16_t` : 16 bit signed integer
+  * `int8_t`  : 8 bit signed integer
+
+### unsigned int
+
+The Core stores a 4 byte (32-bit) value, ranging from 0 to 4,294,967,295 (2^32 - 1).
+The difference between unsigned ints and (signed) ints, lies in the way the highest bit, sometimes referred to as the "sign" bit, is interpreted.
+
+Other variations:
+
+  * `uint32_t`  : 32 bit unsigned integer
+  * `uint16_t`  : 16 bit unsigned integer
+  * `uint8_t`   : 8 bit unsigned integer
+
+### word
+
+`word` stores a 32-bit unsigned number, from 0 to 4,294,967,295.
+
+### long
+
+Long variables are extended size variables for number storage, and store 32 bits (4 bytes), from -2,147,483,648 to 2,147,483,647.
+
+### unsigned long
+
+Unsigned long variables are extended size variables for number storage, and store 32 bits (4 bytes). Unlike standard longs unsigned longs won't store negative numbers, making their range from 0 to 4,294,967,295 (2^32 - 1).
+
+### short
+
+A short is a 16-bit data-type. This yields a range of -32,768 to 32,767 (minimum value of -2^15 and a maximum value of (2^15) - 1).
+
+### float
+
+Datatype for floating-point numbers, a number that has a decimal point. Floating-point numbers are often used to approximate analog and continuous values because they have greater resolution than integers. Floating-point numbers can be as large as 3.4028235E+38 and as low as -3.4028235E+38. They are stored as 32 bits (4 bytes) of information.
+
+Floating point numbers are not exact, and may yield strange results when compared. For example 6.0 / 3.0 may not equal 2.0. You should instead check that the absolute value of the difference between the numbers is less than some small number.
+Floating point math is also much slower than integer math in performing calculations, so should be avoided if, for example, a loop has to run at top speed for a critical timing function. Programmers often go to some lengths to convert floating point calculations to integer math to increase speed.
+
+### double
+
+Double precision floating point number. On the Core, doubles have 8-byte (64 bit) precision.
+
+### string - char array
+
+A string can be made out of an array of type `char` and null-terminated.
+
+```cpp
+// EXAMPLES
+
+char Str1[15];
+char Str2[8] = {'a', 'r', 'd', 'u', 'i', 'n', 'o'};
+char Str3[8] = {'a', 'r', 'd', 'u', 'i', 'n', 'o', '\0'};
+char Str4[ ] = "arduino";
+char Str5[8] = "arduino";
+char Str6[15] = "arduino";
+```
+
+Possibilities for declaring strings:
+
+  * Declare an array of chars without initializing it as in Str1
+  * Declare an array of chars (with one extra char) and the compiler will add the required null character, as in Str2
+  * Explicitly add the null character, Str3
+  * Initialize with a string constant in quotation marks; the compiler will size the array to fit the string constant and a terminating null character, Str4
+  * Initialize the array with an explicit size and string constant, Str5
+  * Initialize the array, leaving extra space for a larger string, Str6
+
+*Null termination:*  
+Generally, strings are terminated with a null character (ASCII code 0). This allows functions (like Serial.print()) to tell where the end of a string is. Otherwise, they would continue reading subsequent bytes of memory that aren't actually part of the string.
+This means that your string needs to have space for one more character than the text you want it to contain. That is why Str2 and Str5 need to be eight characters, even though "arduino" is only seven - the last position is automatically filled with a null character. Str4 will be automatically sized to eight characters, one for the extra null. In Str3, we've explicitly included the null character (written '\0') ourselves.
+Note that it's possible to have a string without a final null character (e.g. if you had specified the length of Str2 as seven instead of eight). This will break most functions that use strings, so you shouldn't do it intentionally. If you notice something behaving strangely (operating on characters not in the string), however, this could be the problem.
+
+*Single quotes or double quotes?*  
+Strings are always defined inside double quotes ("Abc") and characters are always defined inside single quotes('A').
+
+Wrapping long strings
+
+```cpp
+//You can wrap long strings like this:
+char myString[] = "This is the first line"
+" this is the second line"
+" etcetera";
+```
+
+*Arrays of strings:*  
+It is often convenient, when working with large amounts of text, such as a project with an LCD display, to setup an array of strings. Because strings themselves are arrays, this is in actually an example of a two-dimensional array.
+In the code below, the asterisk after the datatype char "char*" indicates that this is an array of "pointers". All array names are actually pointers, so this is required to make an array of arrays. Pointers are one of the more esoteric parts of C for beginners to understand, but it isn't necessary to understand pointers in detail to use them effectively here.
+
+
+```cpp
+//EXAMPLE
+
+char* myStrings[]={"This is string 1", "This is string 2", "This is string 3",
+"This is string 4", "This is string 5","This is string 6"};
+
+void setup(){
+Serial.begin(9600);
+}
+
+void loop(){
+for (int i = 0; i < 6; i++){
+   Serial.println(myStrings[i]);
+   delay(500);
+   }
+}
+
+```
+
+### String - object
+
+More info can be found [here.](http://docs.spark.io/#/firmware/language-syntax-string-class)
+
+### array
+
+An array is a collection of variables that are accessed with an index number.
+
+*Creating (Declaring) an Array:*  
+All of the methods below are valid ways to create (declare) an array.
+
+```cpp
+int myInts[6];
+int myPins[] = {2, 4, 8, 3, 6};
+int mySensVals[6] = {2, 4, -8, 3, 2};
+char message[6] = "hello";
+```
+
+You can declare an array without initializing it as in myInts.
+
+In myPins we declare an array without explicitly choosing a size. The compiler counts the elements and creates an array of the appropriate size.
+Finally you can both initialize and size your array, as in mySensVals. Note that when declaring an array of type char, one more element than your initialization is required, to hold the required null character.
+
+*Accessing an Array:*  
+Arrays are zero indexed, that is, referring to the array initialization above, the first element of the array is at index 0, hence
+
+`mySensVals[0] == 2, mySensVals[1] == 4`, and so forth.
+It also means that in an array with ten elements, index nine is the last element. Hence:  
+```cpp
+int myArray[10]={9,3,2,4,3,2,7,8,9,11};
+     // myArray[9]    contains 11
+     // myArray[10]   is invalid and contains random information (other memory address)
+```
+
+For this reason you should be careful in accessing arrays. Accessing past the end of an array (using an index number greater than your declared array size - 1) is reading from memory that is in use for other purposes. Reading from these locations is probably not going to do much except yield invalid data. Writing to random memory locations is definitely a bad idea and can often lead to unhappy results such as crashes or program malfunction. This can also be a difficult bug to track down.
+Unlike BASIC or JAVA, the C compiler does no checking to see if array access is within legal bounds of the array size that you have declared.
+
+*To assign a value to an array:*  
+`mySensVals[0] = 10;`
+
+*To retrieve a value from an array:*  
+`x = mySensVals[4];`
+
+*Arrays and FOR Loops:*  
+Arrays are often manipulated inside for loops, where the loop counter is used as the index for each array element. For example, to print the elements of an array over the serial port, you could do something like this:
+
+```cpp
+int i;
+for (i = 0; i < 5; i = i + 1) {
+  Serial.println(myPins[i]);
+}
+```

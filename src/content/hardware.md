@@ -56,7 +56,7 @@ The datasheet is available [here.](http://www.ti.com/lit/ds/symlink/cc3000.pdf)
 
 ![External Flash]({{assets}}/images/core-flashchip.jpg)
 
-In addition to having 128KB of internal flash memory for storing the firmware, the Core also features an external SPI based flash memory chip - [SST25VF016B](https://github.com/spark/core/blob/master/Datasheets/MicrochipTech_SST25VF016B-75-4I-S2AF-T.pdf?raw=true). This memory space (a total of 2MB) is used to store the factory reset firmware, a back up firmware, a copy of the firmware sent during Over The Air (OTA) update and the keys. Part of the space is also available to the user who can use it to store log data, user parameters, etc. A detailed description of the memory mapping can be found further down this document in the [memory mapping section.](http://spark.github.io/docs/#spark-core-datasheet-memory-mapping)
+In addition to having 128KB of internal flash memory for storing the firmware, the Core also features an external SPI based flash memory chip - [SST25VF016B](https://github.com/spark/core/blob/master/Datasheets/MicrochipTech_SST25VF016B-75-4I-S2AF-T.pdf?raw=true). This memory space (a total of 2MB) is used to store the factory reset firmware, a back up firmware, a copy of the firmware sent during Over The Air (OTA) update and the keys. Part of the space is also available to the user who can use it to store log data, user parameters, etc. A detailed description of the memory mapping can be found further down this document in the [memory mapping section.](#/hardware/spark-core-datasheet-memory-mapping)
 
 Since the flash memory is non-volatile, it retains the data even after turning off the power. According to the manufacturer of the chip, the data retention of this memory is greater than 100 years, which we reckon should be good enough for now. Also, note that the maximum read-write endurance is limited to 100,000 cycles. meh.
 
@@ -95,21 +95,22 @@ The Spark Core offers a total 18 I/O pins to the user: `D0 to D7`, `A0 to A7` an
 
 ### Digital pins
 
-Each pin on the Core can either be configured as input (with or without pull-up or pull-down) or as output (push-pull or open-drain) using the [pinMode()](http://spark.github.io/docs/#input-output-pinmode) function.
+Each pin on the Core can either be configured as input (with or without pull-up or pull-down) or as output (push-pull or open-drain) using the [pinMode()](#/firmware/input-output-pinmode) function.
 
-After setting them up, the user can then write to or read from the pins using [digitalWrite()](http://spark.github.io/docs/#input-output-digitalwrite) and [digitalRead()](http://spark.github.io/docs/#input-output-digitalread) functions respectively.
+
+After setting them up, the user can then write to or read from the pins using [digitalWrite()](#/firmware/input-output-digitalwrite) and [digitalRead()](#/firmware/input-output-digitalread) functions respectively.
 
 Each of these pins can individually source/sink a maximum of 20mA. In the input mode, the user can activate internal pull-up or pull-down resistors (typically equal to 40K ohms). By default these are deactivated.
 
 ### Analog Inputs
 
-Pins A0 to A7 can be set up as analog inputs and can measure voltages of upto 3.3V and are internally referenced to VDD. The user can read the pins using [analogRead()](http://spark.github.io/docs/#input-output-analogread) function which returns a 12bit value.
+Pins A0 to A7 can be set up as analog inputs and can measure voltages of upto 3.3V and are internally referenced to VDD. The user can read the pins using [analogRead()](#/firmware/input-output-analogread) function which returns a 12bit value.
 
 ### Analog Outputs
 
 This term is misleading and misused but is widely adopted in the Arduino community. The pins that are set to output an analog value don't actually output an analog voltage but rather produce a PWM signal whose duty cycle can be varied thus varying the total average power of the signal. On the Core, the PWM signals have a resolution of 8 bits and run at a frequency of 500Hz.
 
-Having said that, the user can send analog values to the pins using the function [analogWrite().](http://spark.github.io/docs/#input-output-analogwrite)
+Having said that, the user can send analog values to the pins using the function [analogWrite().](#/firmware/input-output-analogwrite)
 
 This feature is only available on the following pins: `A0, A1, A4, A5, A6, A7, D0 and D1.`
 
@@ -121,7 +122,7 @@ The Core features two serial ports. The first one is a CDC (Communications Devic
 
 The second one is a hardware USART available via the TX and RX pins on the Core.
 
-Both of these serial ports can be configured and used using the [serial functions.](http://spark.github.io/docs/#communication-serial)
+Both of these serial ports can be configured and used using the [serial functions.](#/firmware/communication-serial)
 
 **NOTE:** Please take into account that the voltage levels on these pins runs at 0V to 3.3V and should not be connected directly to a computer's RS232 serial port which operates at +/- 12V and can damage the Core.
 
@@ -282,9 +283,25 @@ With the on board chip antenna, the peak return loss (S11) has been measured and
 
 The transmission loss for the u.FL connector has been measured to be approximately 0.5 to 0.75dB.
 
-Physical layout
+Types of Cores
 ---
 
+![Antenna Options]({{assets}}/images/chip-ufl.jpg)
+
+Currently the Core is available in two flavors. With an on-board chip antenna or an uFL connector to connect an external antenna.
+
+#### Chip Antenna
+
+
+This version of the Core comes with an on board chip antenna that gives a signal strength similar to a mobile phone.  In most cases, a simple plastic enclosure will not affect the signal strength of the chip antenna.
+
+#### uFL Connector
+
+If you want to improve the signal strength of the Core, you can connect an external antenna with the help of the [uFL connector](http://en.wikipedia.org/wiki/Hirose_U.FL). Most antennas that are designed to operate at 2.4GHz or are WiFi rated will do the job. You can also make your own [cantenna](https://community.spark.io/t/extending-the-core-wifi-range-with-a-cantenna/1357)!
+
+
+Physical layout
+---
 ![DIMENSIONS]({{assets}}/images/core-dim.jpg)
 
 The header pins on the Core are spaced at an interval of 0.1", which is the standard pitch size for proto-boards and breadboards. The physical layout of the Core was inspired from the [Arduino Pro Mini](http://arduino.cc/en/Main/ArduinoBoardProMini) board.
