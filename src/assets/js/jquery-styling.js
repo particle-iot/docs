@@ -7,7 +7,15 @@
    */
 
   if (window.location.hash.indexOf("#/") === 0) {
-    window.location = "#" + window.location.hash.substring(2);
+    var remainder = window.location.hash.substring(2);
+    var slash = remainder.indexOf("/");
+
+    if (slash >= 0) {
+      var redirect = remainder.substring(0, slash) + "#" + remainder.substring(slash+1);
+      window.location = redirect;
+    } else {
+      window.location = remainder;
+    }
   }
 
   /*
