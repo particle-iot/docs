@@ -119,6 +119,16 @@ module.exports = (grunt) ->
         dest: '<%= config.dist %>/assets/docs.zip'
         src: 'docs.zip'
 
+    replace:
+      index:
+        src: ['<%= config.dist %>/index.html']
+        overwrite: true
+        replacements:[{
+          from: '../'
+          to: ''
+        }]
+
+
   grunt.initConfig gruntConfig
 
   grunt.loadNpmTasks 'assemble'
@@ -131,9 +141,11 @@ module.exports = (grunt) ->
   grunt.loadNpmTasks 'grunt-contrib-less'
   grunt.loadNpmTasks 'grunt-contrib-compress'
   grunt.loadNpmTasks 'grunt-rename'
+  grunt.loadNpmTasks 'grunt-text-replace'
 
   grunt.registerTask 'server', ['build', 'connect:livereload', 'watch']
-  grunt.registerTask 'build', ['test', 'clean', 'assemble', 'less', 'copy']
+  grunt.registerTask 'build', ['test', 'clean', 'assemble', 'less',
+    'copy', 'replace']
   grunt.registerTask 'archive', ['compress', 'rename']
   grunt.registerTask 'deploy', ['build', 'archive']
   grunt.registerTask 'test', ['coffeelint']

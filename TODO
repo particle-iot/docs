@@ -1,4 +1,3 @@
-[ ] Local version of index doesn't resolve correctly
 [ ] Fix the scroll spy thing that highlights the section where you are in the menu. Can’t get the mapping to work, David I might need a hand with this one.
 [ ] Compress all the assets and remove any external dependencies so it will run perfectly offline
 [ ] Improve the coloring on the code, which sometimes gets funky
