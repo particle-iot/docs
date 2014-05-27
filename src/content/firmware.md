@@ -20,7 +20,7 @@ Expose a *variable* through the Spark Cloud so that it can be called with `GET /
 //EXAMPLE USAGE
 int analogvalue = 0;
 double tempC = 0;
-char  *message = "my name is spark";
+char *message = "my name is spark";
 
 void setup()
 {
@@ -33,11 +33,11 @@ void setup()
 
 void loop()
 {
-    // Read the analog value of the sensor (TMP36)
-    analogvalue = analogRead(A0);
-    //Convert the reading into degree celcius
-    tempC = (((analogvalue * 3.3)/4095) - 0.5) * 100;
-    Delay(200);
+  // Read the analog value of the sensor (TMP36)
+  analogvalue = analogRead(A0);
+  //Convert the reading into degree celcius
+  tempC = (((analogvalue * 3.3)/4095) - 0.5) * 100;
+  Delay(200);
 }
 ```
 
