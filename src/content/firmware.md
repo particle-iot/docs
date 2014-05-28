@@ -200,6 +200,20 @@ EXAMPLE
 Spark.publish("front-door-unlocked", NULL, 60, PRIVATE);
 ```
 
+
+```json
+COMPLEMENTARY API CALL
+GET /v1/events/{EVENT_NAME}
+
+# EXAMPLE REQUEST
+curl -H "Authorization: Bearer {ACCESS_TOKEN_GOES_HERE}" \
+    https://api.spark.io/v1/events/motion-detected
+
+# Will return a stream that echoes text when your event is published
+event: motion-detected
+data: {"data":"23:23:44","ttl":"60","published_at":"2014-05-28T19:20:34.638Z","coreid":"0123456789abcdef01234567"}
+```
+
 ### Spark.subscribe()
 
 Subscribe to events published by Cores.
