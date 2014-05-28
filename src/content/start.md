@@ -435,14 +435,9 @@ Contribute a library
 
 Adding a library to the IDE starts by creating an open source GitHub repository where your code will live.
 At minimum, this repository needs a `spark.json` file, some documentation, some example firmware files, and some Arduino/C++ files.
-The import and validation process is designed to be forgiving and easy to interpret, so don't be scared--the IDE will walk you through what is required to get your library set to go.
+The import and validation process is designed to be forgiving and easy to interpret, so don't be scared; the IDE will walk you through what is required to get your library set to go.
 
 The easiest way to generate library boilerplate code is to follow the instructions on the [getting started section](https://github.com/spark/uber-library-example/#getting-started) of the `uber-library-example`, a project designed to illustrate and document what a library is supposed to look like.
-
-
-
-
-
 
 The Spark Command Line
 ===
