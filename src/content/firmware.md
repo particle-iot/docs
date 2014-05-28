@@ -697,7 +697,11 @@ Used for communication between the Spark Core and a computer or other devices. T
 
 `Serial:` This channel communicates through the USB port and when connected to a computer, will show up as a virtual COM port.  
 
-`Serial1:` This channel is available via the Core's TX and RX pins. To use these pins to communicate with your personal computer, you will need an additional USB-to-serial adapter. To use them to communicate with an external TTL serial device, connect the TX pin to your device's RX pin, the RX to your device's TX pin, and the ground of your Core to your device's ground.
+`Serial1:` This channel is available via the Core's TX and RX pins.
+
+`Serial2:` This channel is available via the Core's D1(TX) and D0(RX) pins. Serial2 is not available by default, to save Flash memory when not in use. To use Serial2, add `#include "Serial2.h"` near the top of your Spark App's main code file.
+
+To use the TX/RX (Serial1) or D1/D0 (Serial2) pins to communicate with your personal computer, you will need an additional USB-to-serial adapter. To use them to communicate with an external TTL serial device, connect the TX pin to your device's RX pin, the RX to your device's TX pin, and the ground of your Core to your device's ground.
 
 **NOTE:** Please take into account that the voltage levels on these pins runs at 0V to 3.3V and should not be connected directly to a computer's RS232 serial port which operates at +/- 12V and can damage the Core.
 
