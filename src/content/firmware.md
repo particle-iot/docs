@@ -20,7 +20,7 @@ Expose a *variable* through the Spark Cloud so that it can be called with `GET /
 //EXAMPLE USAGE
 int analogvalue = 0;
 double tempC = 0;
-char  *message = "my name is spark";
+char *message = "my name is spark";
 
 void setup()
 {
@@ -33,11 +33,11 @@ void setup()
 
 void loop()
 {
-    // Read the analog value of the sensor (TMP36)
-    analogvalue = analogRead(A0);
-    //Convert the reading into degree celcius
-    tempC = (((analogvalue * 3.3)/4095) - 0.5) * 100;
-    Delay(200);
+  // Read the analog value of the sensor (TMP36)
+  analogvalue = analogRead(A0);
+  //Convert the reading into degree celcius
+  tempC = (((analogvalue * 3.3)/4095) - 0.5) * 100;
+  Delay(200);
 }
 ```
 
@@ -481,10 +481,10 @@ However, if your Core runs continuously for a long time,
 you may want to synchronize once per day or so.
 
 ```C++
-static const int ONE_DAY_MILLIS = 24 * 60 * 60 * 1000;
+#define ONE_DAY_MILLIS (24 * 60 * 60 * 1000)
+unsigned long lastSync = millis();
 
 void loop() {
-  static int lastSync = millis();
   if (millis() - lastSync > ONE_DAY_MILLIS) {
     // Request time synchronization from the Spark Cloud
     Spark.syncTime();
@@ -1190,7 +1190,7 @@ IPAddress IPfromBytes( server );
 The IPAddress also allows for comparisons.
 
 ```C++
-if (IPfromInt == IPfromBytes 
+if (IPfromInt == IPfromBytes) 
 {
   Serial.println("Same IP addresses");
 }
@@ -1375,6 +1375,7 @@ void setup()
     Serial.println("connected");
     client.println("GET /search?q=unicorn HTTP/1.0");
     client.println("Host: www.google.com");
+    client.println("Content-Length: 0");
     client.println();
   }
   else
@@ -1806,10 +1807,18 @@ This library allows the user to control the RGB LED on the front of the Spark Co
 // take control of the LED
 RGB.control(true);
 
-// red, green, blue, 0-255
-RGB.color(0, 0, 0);
+// red, green, blue, 0-255.
+// the following sets the RGB LED to white:
+RGB.color(255, 255, 255);
 
 // wait one second
+delay(1000);
+
+// scales brightness of all three colors, 0-255.
+// the following sets the RGB LED brightness to 25%:
+RGB.brightness(64);
+
+// wait one more second
 delay(1000);
 
 // resume normal operation
@@ -1821,8 +1830,25 @@ RGB.control(false);
 User can take control of the RGB LED, or give control back to the Spark Core firmware.
 
 ```cpp
-// take control of the LED
+// take control of the RGB LED
 RGB.control(true);
+
+// resume normal operation
+RGB.control(false);
+```
+
+### controlled()
+
+Returns Boolean `true` when the RGB LED is under user control, or `false` when it is not.
+
+```cpp
+// take control of the RGB LED
+RGB.control(true);
+
+// Print true or false depending on whether
+// the RGB LED is currently under user control.
+// In this case it prints "true".
+Serial.println(RGB.controlled());
 
 // resume normal operation
 RGB.control(false);
@@ -1830,17 +1856,32 @@ RGB.control(false);
 
 ### color(red, green, blue)
 
-Set the color of the RGB with three values, 0 to 255 (0 is off, 255 is maximum brightness).
+Set the color of the RGB with three values, 0 to 255 (0 is off, 255 is maximum brightness for that color).  User must take control of the RGB LED before calling this method.
 
 ```cpp
-// Set the LED to red
+// Set the RGB LED to red
 RGB.color(255, 0, 0);
 
-// Sets the LED to cyan
+// Sets the RGB LED to cyan
 RGB.color(0, 255, 255);
 
-// Sets the LED to white
+// Sets the RGB LED to white
 RGB.color(255, 255, 255);
+```
+
+### brightness(val)
+
+Scale the brightness value of all three RGB colors with one value, 0 to 255 (0 is 0%, 255 is 100%).  This setting persists after `RGB.control()` is set to `false`, and will govern the overall brightness of the RGB LED under normal system operation. User must take control of the RGB LED before calling this method.
+
+```cpp
+// Scale the RGB LED brightness to 25%
+RGB.brightness(64);
+
+// Scale the RGB LED brightness to 50%
+RGB.brightness(128);
+
+// Scale the RGB LED brightness to 100%
+RGB.brightness(255);
 ```
 
 Time
@@ -2051,6 +2092,8 @@ Returns: Integer
 
 Set the time zone offset (+/-) from UTC.
 The Spark Core will remember this offset until reboot.
+
+*NOTE*: This function does not observe daylight savings time.
 
 ```cpp
 // Set time zone to Eastern USA daylight saving time
