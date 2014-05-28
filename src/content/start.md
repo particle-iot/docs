@@ -421,46 +421,26 @@ There are a couple of other neat bells and whistles in Spark Build.  The Spark B
 Using Libraries
 ---
 
+![Include the library]({{assets}}/images/choose-app-to-include-library.png)
+
 When you want to reuse code across multiple applications, Spark Libraries are your friend.
 Spark Libraries are easily shareable, extensible packages built by the community to help with common problems many Spark applications encounter. They are hosted on GitHub and easily pulled into the IDE where they can be included in apps and shared with others.
 
-![open the library drawer]({{assets}}/images/library-icon.png)
-
-The first step in using a library is finding one that will work
-for your project. Start your search by clicking the library icon
-to open the library drawer, from here you'll be able to peruse
-available libraries, see which libraries are most popular, and view
-examples, source code, and documentation contributed by the community.
-
-![The library drawer]({{assets}}/images/library-drawer.png)
-
-Once the drawer is opened, you'll see the list of libraries you've published (My Libraries), as well as community libraries contributed by others.
-
-This list of libraries is ordered by the number of apps that include it.
-You can click any of the library names to view details about it.
-
-![Include the library]({{assets}}/images/choose-app-to-include-library.png)
-
-coming soon: more doc
-
-![Use the library]({{assets}}/images/using-library.png)
-
-coming soon: more doc
+You can include a library in an application by opening the library drawer, finding a library that will work for your project, and clicking the "include in app" button. This will add an `#include` statement to your code that will expose all the capabilities of the library to your code.
 
 Contribute a library
 ---
 
-![Import library from GitHub]({{assets}}/images/import-library.png)
-
-coming soon: more doc
-
 ![Validate library]({{assets}}/images/validate-library.png)
 
-coming soon: more doc
+Adding a library to the IDE starts by creating an open source GitHub repository where your code will live.
+At minimum, this repository needs a `spark.json` file, some documentation, some example firmware files, and some Arduino/C++ files.
+The import and validation process is designed to be forgiving and easy to interpret, so don't be scared--the IDE will walk you through what is required to get your library set to go.
 
-![Publish library]({{assets}}/images/publish-library.png)
+The easiest way to generate library boilerplate code is to follow the instructions on the [getting started section](https://github.com/spark/uber-library-example/#getting-started) of the `uber-library-example`, a project designed to illustrate and document what a library is supposed to look like.
 
-coming soon: more doc
+
+
 
 
 
