@@ -713,6 +713,7 @@ Sets the data rate in bits per second (baud) for serial data transmission. For c
 SYNTAX
 Serial.begin(speed);    // serial via USB port
 Serial1.begin(speed);   // serial via TX and RX pins
+Serial2.begin(speed);   // serial via D1(TX) and D0(RX) pins
 ```
 `speed`: parameter that specifies the baud rate *(long)*
 
