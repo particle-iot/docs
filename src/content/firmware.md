@@ -450,12 +450,13 @@ Spark.sleep(int seconds);
 ```
 
 ```C++
-// EXAMPLE USAGE: Put the Core to sleep for 5 seconds
+// EXAMPLE USAGE: Put the Wi-Fi module in standbly (low power) for 5 seconds
 Spark.sleep(5);
 // The Core LED will flash green during sleep
 ```
+`Spark.slee(int seconds) does NOT stop the execution of user code (non-blocking call).  User code will continue running while the Wi-Fi module is in standby mode. During sleep, WiFi.status() will return WIFI_ON.  Once sleep time has expired and the Wi-FI module attempts reconnection, WiFi.status() will return value WIFI_CONNECTING and WIF_ON.
 
-`Spark.sleep()` can also be used to put the entire Core into a *deep sleep* mode. In this particular mode, the Core shuts down the Wi-Fi chipset (CC3000) and puts the microcontroller in a stand-by mode.
+`Spark.sleep()` can also be used to put the entire Core into a *deep sleep* mode. In this particular mode, the Core shuts down the Wi-Fi chipset (CC3000) and puts the microcontroller in a stand-by mode.  When the Core awakens from deep sleep, it will reset the Core and run all user code from the beginning with no values being maintained in memory from before the deep sleep.  As such, it is recommended that deep sleep be called only after all user code has completed.
 
 ```C++
 SYNTAX
@@ -469,7 +470,7 @@ Spark.sleep(SLEEP_MODE_DEEP,60);
 ```
 The Core will automatically *wake up* and reestablish the WiFi connection after the specified number of seconds.
 
-In *standard sleep mode*, the Core current consumption is in the range of: **15mA to 30mA**
+In *standard sleep mode*, the Core current consumption is in the range of: **30mA to 38mA**
 
 In *deep sleep mode*, the Core current consumption is around: **3.2 μA**
 
