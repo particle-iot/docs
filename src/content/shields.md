@@ -395,7 +395,7 @@ So, Red and Green aren't enough for you? Want to make bazzillion different color
 
 This LED has four pins, one for each color and a common anode (+) pin.
 
-[Datasheet >](datasheets/makerkit/rgb-led.pdf)
+[Datasheet >]({{assets}}/datasheets/makerkit/rgb-led.pdf)
 
 <!-- TO DO pin diagram-->
 
@@ -445,7 +445,7 @@ A custom Spark USB cable for you Core! We were really excited to have our logo p
 
 This is a simple DC motor that you can switch using the NPN transistor provided in the kit.
 
-[Datasheet >](datasheets/makerkit/mini-dc-motor.pdf)
+[Datasheet >]({{assets}}/datasheets/makerkit/mini-dc-motor.pdf)
 
 <!-- TO DO
    - add motor specs
@@ -458,7 +458,7 @@ This is a simple DC motor that you can switch using the NPN transistor provided 
 
 Wanna give your next Spark Core project a tactile feedback? This vibration motor serves the purpose nicely. Use the NPN transistor to switch it.
 
-[Datasheet >](datasheets/makerkit/vibration-motor.pdf)
+[Datasheet >]({{assets}}/datasheets/makerkit/vibration-motor.pdf)
 
 <!-- TO DO
    - add motor specs
@@ -478,7 +478,7 @@ Add an audible feedback to your project with this buzzer. The longer lead is pos
 - Current: 30mA
 - Sound Pressure: 85dB
 
-[Datasheet >](datasheets/makerkit/buzzer.pdf)
+[Datasheet >]({{assets}}/datasheets/makerkit/buzzer.pdf)
 
 ### 14. Mini Pushbuttons (3)
 
@@ -510,7 +510,7 @@ SW-200D is a tiny tilt sensor that when tilted to more than 30 degrees will inte
 
 You can use to it detect tilt, orientation or vibrations.
 
-[Datasheet >](datasheets/makerkit/tilt-sensor.pdf)
+[Datasheet >]({{assets}}/datasheets/makerkit/tilt-sensor.pdf)
 
 ### 18. Temperature Sensor (1)
 
@@ -532,7 +532,7 @@ A [thermistor](http://en.wikipedia.org/wiki/Thermistor) is a temperature depende
 
 Unlike the TMP36, you will need to use this as a part of a voltage divider circuit as nicely described in this [tutorial.](http://learn.adafruit.com/thermistor/using-a-thermistor)
 
-[Datasheet >](datasheets/makerkit/thermistor.pdf)
+[Datasheet >]({{assets}}/datasheets/makerkit/thermistor.pdf)
 
 ### 20. Force-Sensitive Resistor (1)
 
@@ -551,7 +551,7 @@ This is a force sensitive resistor with a 0.5" diameter and an operating force f
 
 A photo resistor is a light dependent resistor whose resistance decreases with the increase in the intensity of light striking it. You can use it to detect the ambient light in the surrounding, detect shadows or use it as a part of a burglar alarm system.
 
-[Datasheet >](datasheets/makerkit/photoresistor.pdf)
+[Datasheet >]({{assets}}/datasheets/makerkit/photoresistor.pdf)
 <!-- TO DO ADD LINK TO EXAMPLE-->
 
 ### 22. Resistors
