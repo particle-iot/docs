@@ -307,7 +307,7 @@ void loop() {
 ### Spark.disconnect() and Spark.connect()
 
 `Spark.disconnect()` disconnects the Spark Core from the Spark Cloud, while
-`Spark.connect() subsequently reconnects.
+`Spark.connect()` subsequently reconnects.
 
 ```C++
 int counter = 10000;
