@@ -1412,8 +1412,7 @@ void loop()
     Serial.println();
     Serial.println("disconnecting.");
     client.stop();
-    for(;;)
-      ;
+    for(;;);
   }
 }
 ```
