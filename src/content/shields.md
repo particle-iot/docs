@@ -429,6 +429,12 @@ Emax ES08A is a mini RC servo motor.
 
 [Datasheet >](http://www.emaxmodel.com/views.asp?hw_id=6)
 
+Wiring:
+- Yellow - Signal (D0, D1, A0, A1, A4, A5, A6, A7)
+- Orange - +5V (VIN)
+- Brown  - Ground (GND)
+
+Note: The Ground pin may vary as Brown or Black, +5V pin may vary as Orange or Red and Signal pin may vary as Yellow or White and sometimes Orange if there is already a Red and Black wire.
 
 ### 9. Deluxe Jumper Wire Pack (1)
 
