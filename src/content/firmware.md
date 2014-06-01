@@ -2565,9 +2565,10 @@ Calculates the square root of a number.
 The function returns the number's square root *(double)*
 
 EEPROM
+----
 
 The EEPROM emulator allocates 100 bytes of the Spark Core's built-in flash memory to act as EEPROM. Unlike "true EEPROM, flash doesn't suffer from write "wear".  The EEPROM functions can be used to store small amounts of data in flash that will persist even after the Core resets after a deep sleep.
----
+
 
 ### read()
 Read a byte of data from the emulated EEPROM.
