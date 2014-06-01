@@ -2575,7 +2575,7 @@ Read a byte of data from the emulated EEPROM.
 
 `read(address)`
 
-`address' is the address of the EERPOM location (0-99) to read
+`address` is the address (int) of the EERPOM location (0-99) to read
 
 ```C++
 EXAMPLE USAGE
@@ -2588,8 +2588,8 @@ Write a byte of data to the emulated EEPROM.
 
 `write(address, value)`
 
-`address' is the address of the EERPOM location (0-99) to write to
-`value' is the byte data to write
+`address` is the address (int) of the EERPOM location (0-99) to write to
+`value` is the byte data (uint8_t) to write
 
 ```C++
 EXAMPLE USAGE
