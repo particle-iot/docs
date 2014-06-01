@@ -2564,6 +2564,7 @@ Calculates the square root of a number.
 
 The function returns the number's square root *(double)*
 
+
 EEPROM
 ----
 
@@ -2582,6 +2583,7 @@ EXAMPLE USAGE
 /* Read the value of the second byte of EEPROM */
 int addr = 1;
 uint8_t value = EEPROM.read(addr);
+```
 
 ### write()
 Write a byte of data to the emulated EEPROM.
@@ -2597,7 +2599,7 @@ EXAMPLE USAGE
 int addr = 1;
 uint8_t val = 0x45;
 EEPROM.write(addr, val);
-
+```
 
 
 Language Syntax
