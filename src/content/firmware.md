@@ -2058,8 +2058,8 @@ Retrieve the weekday for the current or given time.
  - 3 = Tuesday
  - 4 = Wednesday
  - 5 = Thursday
- - 6 = Saturday
- - 7 = Sunday
+ - 6 = Friday
+ - 7 = Saturday
 
 ```cpp
 // Print the weekday number for the current time
