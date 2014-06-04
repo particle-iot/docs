@@ -129,7 +129,13 @@ If you are wish to program a Core with a custom firmware via USB, you'll need to
 
 Procedure:
 
-Hold down both buttons, then release the RST button, while holding down the MODE button. Release the MODE button as soon as the LED starts flashing yellow. The Core now is in the DFU mode.
+1. Hold down BOTH buttons
+2. Release only the RST button, while holding down the MODE button. 
+3. Wait for the LED to start flashing yellow
+6. Release the MODE button
+
+
+The Core now is in the DFU mode.
 
 
 <iframe class="vine-embed" src="https://vine.co/v/MahhI1Fg7O6/embed/simple" width="320" height="320" frameborder="0"></iframe>
@@ -141,6 +147,13 @@ A factory reset restores the firmware on the Core to the default Tinker app and 
 Procedure:
 
 The procedure is same as the one described above (DFU Mode), but in this case you should continue holding down the MODE button until you see the Core change from flashing yellow to flashing white. Then release the button.  The Core should begin after the factory reset is complete.
+
+1. Hold down BOTH buttons
+2. Release only the RST button, while holding down the MODE button. 
+3. Wait for the LED to start flashing yellow (continue to hold the MODE button)
+4. The LED will turn solid white (continue to hold the MODE button)
+5. Finally, the LED will turn blink white rapidly 
+6. Release the MODE button
 
 **Note:** The video here is a continuation of the video from above (DFU Mode).
 
