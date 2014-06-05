@@ -40,7 +40,7 @@ void loop()
   Delay(200);
 }
 ```
-Currently the application supports the creation of up to 10 different Spark variables. The length of the variable name is limited to a max of 12 characters.
+Currently, a user is allowed to define up to 10 Spark variables and each variable name is limited to a max of 12 characters.
 
 There are three supported data types:
 
