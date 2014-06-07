@@ -1608,13 +1608,6 @@ UDP.available()
 
 Returns the number of bytes available to read.
 
-Parameters:
-
- - `remoteIP`: the IP address of the remote connection (4 bytes)
- - `remotePort`: the port of the remote connection (int)
-
-Its returns nothing.
-
 ### beginPacket()
 
 Starts a connection to write UDP data to the remote connection.
@@ -1623,6 +1616,13 @@ Starts a connection to write UDP data to the remote connection.
 // SYNTAX
 UDP.beginPacket(remoteIP, remotePort);
 ```
+
+Parameters:
+
+ - `remoteIP`: the IP address of the remote connection (4 bytes)
+ - `remotePort`: the port of the remote connection (int)
+
+It returns nothing.
 
 ### endPacket()
 
