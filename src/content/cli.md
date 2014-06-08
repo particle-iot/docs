@@ -29,7 +29,9 @@ To use the local flash and key features you'll also need to install [dfu-util](h
 
 Here are some great tutorials on the community for full installs:
 
-[Installing on Ubuntu](https://community.spark.io/t/how-to-install-spark-cli-on-ubuntu-12-04/3474)
+[Installing on Ubuntu 12.04](https://community.spark.io/t/how-to-install-spark-cli-on-ubuntu-12-04/3474)
+
+[Installing on Ubuntu 14.04](https://community.spark.io/t/how-to-install-the-spark-toolchain-in-ubuntu-14-04/4139)
 
 [Installing on Windows](https://community.spark.io/t/tutorial-spark-cli-on-windows-06-may-2014/3112)
 
