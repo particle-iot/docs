@@ -2391,7 +2391,7 @@ void loop()
 Math
 ---
 
-Note that in addition to functions outlined below all of the newlib math functions described at https://sourceware.org/newlib/libm.html are also available for use by simply including the math.h header file thus:
+Note that in addition to functions outlined below all of the newlib math functions described at [sourceware.org](https://sourceware.org/newlib/libm.html) are also available for use by simply including the math.h header file thus:
 
 `#include "math.h"`
 
