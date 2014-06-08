@@ -148,6 +148,8 @@ Only the owner of the Core will be able to subscribe to private events.
 A Core may not publish events beginning with a case-insensitive match for "spark".
 Such events are reserved for officially curated data originating from the Spark Cloud.
 
+For the time being there exists no way to access a previously published but TTL-unexpired event.
+
 ---
 
 Publish a public event with the given name, no data, and the default TTL of 60 seconds.
