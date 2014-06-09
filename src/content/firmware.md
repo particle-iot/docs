@@ -519,7 +519,7 @@ Setup
 
 ### pinMode()
 
-`pinMode()` configures the specified pin to behave either as an input or an output.
+`pinMode()` configures the specified pin to behave either as an input or an output, with or without an internal weak pull-up or pull-down resistor.
 
 ```C++
 SYNTAX
@@ -1548,7 +1548,7 @@ UDP
 
 This class enables UDP messages to be sent and received.
 
-The UDP protocol implementation has known issues that will require extra consideration when programming with it. Please refer to the Known Issues category of the Community for details. The are also numerous working examples and workarounds in the searchable Community topics.
+The UDP protocol implementation has known issues that may require extra consideration when programming with it. Please refer to the Known Issues category of the Community for details. The are also numerous working examples and workarounds in the searchable Community topics.
 
 <!-- TO DO -->
 <!-- Add more examples-->
