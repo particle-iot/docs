@@ -297,11 +297,11 @@ A fix can be applied in the user code that will work around this issue.  A simpl
 
 ## Spark UDP - numerous issues
 * Status: **Acknowledged**
-* Forum Thread: https://community.spark.io/t/udp-is-broken-issues-and-workarounds/4975
+* Forum Thread: https://community.spark.io/t/udp-issues-and-workarounds/4975
 
 #### Description
 
-There are numerous issues with Spark UDP. The central one is that received datagram boundaries are not preserved by Spark UDP. This and other other issues, together with some workarounds, are detailed at the forum thread linked to above. 
+There are numerous issues with Spark UDP. The central one is that received datagram boundaries are not preserved by Spark UDP. This and other issues, together with some workarounds, are detailed at the forum thread linked to above. 
 
 
 
