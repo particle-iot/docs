@@ -519,7 +519,7 @@ Setup
 
 ### pinMode()
 
-`pinMode()` configures the specified pin to behave either as an input or an output, with or without an internal weak pull-up or pull-down resistor.
+`pinMode()` configures the specified pin to behave either as an input (with or without an internal weak pull-up or pull-down resistor), or an output.
 
 ```C++
 SYNTAX
