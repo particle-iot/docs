@@ -128,8 +128,10 @@ The RGB LED could show the following states:
 - *Solid blue*: Smart Config complete, network information found.
 - *Flashing green*: Connecting to local Wi-Fi network.
 - *Flashing cyan*: Connecting to Spark Cloud.
+- *High-speed flashing cyan*: Spark Cloud handshake.
 - *Slow breathing cyan*: Successfully connected to Spark Cloud.
 - *Flashing yellow*: Bootloader mode, waiting for new code via USB or JTAG.
+- *White pulse*: Start-up, the Core was powered on or reset.
 - *Flashing white*: Factory Reset initiated.
 - *Solid white*: Factory Reset complete; rebooting.
 - *Flashing magenta*: Updating firmware.
