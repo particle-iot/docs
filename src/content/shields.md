@@ -36,98 +36,31 @@ The pictures shows a robot shield interfaced with the Spark Core via the Shield 
 
 Pin mapping
 -----
-<table>
-  <tr>
-    <th>Arduino pin</th>
-    <th>Spark Core pin</th>
-    <th>Peripherals</th>
-  </tr>
-  <tr>
-    <td>0</td>
-    <td>RX</td>
-    <td></td>
-  </tr>
-  <tr>
-    <td>1</td>
-    <td>TX</td>
-    <td></td>
-  </tr>
-  <tr>
-    <td>2</td>
-    <td>D2</td>
-    <td></td>
-  </tr>
-  <tr>
-    <td>3</td>
-    <td>D0</td>
-    <td>PWM (analogWrite)</td>
-  </tr>
-  <tr>
-    <td>4</td>
-    <td>D3</td>
-    <td></td>
-  </tr>
-  <tr>
-    <td>5</td>
-    <td>D1</td>
-    <td>PWM (analogWrite)</td>
-  </tr>
-  <tr>
-    <td>6</td>
-    <td>A7</td>
-    <td>PWM (analogWrite)</td>
-  </tr>
-  <tr>
-    <td>7</td>
-    <td>D4</td>
-    <td></td>
-  </tr>
-  <tr>
-    <td>8</td>
-    <td>D5</td>
-    <td></td>
-  </tr>
-  <tr>
-    <td>9</td>
-    <td>D6</td>
-    <td></td>
-  </tr>
-  <tr>
-    <td>10</td>
-    <td>A2</td>
-    <td>SS</td>
-  </tr>
-  <tr>
-    <td>11</td>
-    <td>A5</td>
-    <td>PWM (analogWrite) / MOSI</td>
-  </tr>
-  <tr>
-    <td>12</td>
-    <td>A4</td>
-    <td>PWM (analogWrite) / MISO</td>
-  </tr>
-  <tr>
-    <td>13</td>
-    <td>A3</td>
-    <td>SCK</td>
-  </tr>
-  <tr>
-    <td>A0</td>
-    <td>A0</td>
-    <td>analogRead (ADC, 3.3V)</td>
-  </tr>
-  <tr>
-    <td>A1</td>
-    <td>A1</td>
-    <td>analogRead (ADC, 3.3V)</td>
-  </tr>
-  <tr>
-    <td>A2</td>
-    <td>A6</td>
-    <td>analogRead (ADC, 3.3V)</td>
-  </tr>
-</table>
+```cpp
+Arduino | Spark Core | Peripherals
+0         RX           Serial1 RX
+1         TX           Serial1 TX
+2         D2
+3         D0           PWM
+4         D3
+5         D1           PWM
+6         A7           PWM
+7         D4
+8         D5
+9         D6
+10        A2                 SS
+11        A5           PWM,  MOSI
+12        A4           PWM,  MISO
+13        A3                 SCK
+A0        A0           PWM*, ADC**
+A1        A1           PWM*, ADC**
+A2        A6           PWM*, ADC**
+
+*  Note: These pins can also function as 3.3V
+         PMW outputs or 3.3V Servo outputs.
+
+** Note: ADC inputs are 3.3V max.
+```
 
 **IMPORTANT**: The Shield Shield does *not* map the Spark Core pins to like-numbered pins on the Arduino. In other words, D0 on the Spark Core is **not** the same as D0 on the Arduino. Please review the pin mapping table to the right and plan accordingly.
 
