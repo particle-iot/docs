@@ -247,6 +247,16 @@ There are two potential failure modes here--either your home network does not ha
 
 ---
 
+## Pulsing White
+
+- *What’s the Core doing?* The main LED on my Core slowly pulses white, even if I reset it or perform a factory reset.
+- *What’s the problem?* The CC3000 on the Core is having trouble initializing due to a potential hardware issue.
+- *How do I fix it?*
+
+In general, if the LED on your Core starts breathing white, the best thing to do is to [reach out to the Spark team](mailto:hello@sparkdevices.com).  Refer to this issue in your email, and Spark's Technical Support staff will help you resolve the problem directly.   
+
+---
+
 ## Main LED off, small blue LED dim
 
 - *What’s the Core doing?* The main LED on my Spark Core is off, but the small blue LED in the upper right corner is dimly glowing.
