@@ -2610,8 +2610,7 @@ EXAMPLE USAGE
 int addr = 1;
 uint8_t val = 0x45;
 EEPROM.write(addr, val);
-
-
+```
 
 Language Syntax
 ========
