@@ -392,14 +392,32 @@ void loop()
 
 void setup()
 {
+    byte mac[6];
+
     Serial.begin(9600);
     delay(1000);
+    Network.macAddress(mac);
 
     // Prints out the network parameters over Serial
     Serial.println(Network.SSID());
     Serial.println(Network.gatewayIP());
     Serial.println(Network.subnetMask());
     Serial.println(Network.localIP());
+
+    // Print the Mac address with formatting
+    // Take note of byte ordering
+    Serial.print(mac[5],HEX);
+    Serial.print(":");
+    Serial.print(mac[4],HEX);
+    Serial.print(":");
+    Serial.print(mac[3],HEX);
+    Serial.print(":");
+    Serial.print(mac[2],HEX);
+    Serial.print(":");
+    Serial.print(mac[1],HEX);
+    Serial.print(":");
+    Serial.println(mac[0],HEX);
+
 }
 
 void loop()
@@ -412,6 +430,8 @@ void loop()
 
 `Network.gatewayIP()` returns the gateway IP address of the network.
 
+`Network.macAddress()` returns the MAC address of the device.
+
 `Network.subnetMask()` returns the subnet mask of the network.
 
 `Network.localIP()` returns the local IP address assigned to the Core.
@@ -419,7 +439,6 @@ void loop()
 `Network.RSSI()` returns the signal strength of a Wifi network from from -127 to -1dB.
   
 `Network.ping()` allows you to ping an IP address and know the number of packets received.
-
 
 <!-- TO DO -->
 <!-- Add example implementation here -->
