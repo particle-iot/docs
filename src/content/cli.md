@@ -12,7 +12,7 @@ The Spark CLI is a powerful tool for interacting with your cores and the Spark C
 Installing
 =======
 
-  First, make sure you have [node.js](http://nodejs.org/) installed!  
+  First, make sure you have [node.js](http://nodejs.org/) installed!
 
   Next, open a command prompt or terminal, and install by typing:
 
@@ -81,11 +81,11 @@ $ spark setup
 ###spark help
 
   Shows you what commands are available and how to use them.  You can also give the name of a command for detailed help.
-  
+
 ```sh
 # how to get help
 $ spark help
-$ spark help keys 
+$ spark help keys
 ```
 
 
@@ -115,10 +115,10 @@ Checking with the cloud...
 Retrieving cores... (this might take a few seconds)
 my_core_name (0123456789ABCDEFGHI) 0 variables, and 4 functions
   Functions:
-    int digitalread(String args) 
-    int digitalwrite(String args) 
-    int analogread(String args) 
-    int analogwrite(String args) 
+    int digitalread(String args)
+    int digitalwrite(String args)
+    int analogread(String args)
+    int analogwrite(String args)
 
 ```
 
@@ -415,7 +415,7 @@ $ spark get 0123456789ABCDEFGHI temperature
 ###spark monitor
 
   Pulls the value of a variable at a set interval, and optionally display a timestamp
-  
+
   * Minimum delay for now is 500 (there is a check anyway if you keyed anything less)
   * hitting ```CTRL + C``` in the console will exit the monitoring
 

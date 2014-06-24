@@ -34,7 +34,7 @@ Smart Config can take up to a minute, so be patient. The closer your phone to yo
 
 <iframe class="vine-embed" src="https://vine.co/v/hFdj1TJjA9M/embed/simple" width="320" height="320" frameborder="0"></iframe>
 
-Once the Spark Core has connected, your phone will "claim" the Core and attach it to your account. Then you'll get to name your Core.  If you're uncertain, you can confirm that the claim process was successful by logging into the [Spark Web IDE](https://www.spark.io/build) and clicking the "Cores" icon at the bottom of the page.  Is your Core listed?  Great!  The world is perfect.  
+Once the Spark Core has connected, your phone will "claim" the Core and attach it to your account. Then you'll get to name your Core.  If you're uncertain, you can confirm that the claim process was successful by logging into the [Spark Web IDE](https://www.spark.io/build) and clicking the "Cores" icon at the bottom of the page.  Is your Core listed?  Great!  The world is perfect.
 
 *NOTE: The Core **MUST** be online (breathing cyan) in order for the claiming process to work. If the Spark Core has been claimed by someone else, the app won't recognize it. If you need to transfer a Spark Core to another account, email us at [hello@spark.io](mailto:hello@spark.io).*
 
@@ -106,7 +106,7 @@ Once your Core is connected, it needs to be *claimed* in order to be associated 
 
 If you use the mobile app to set up your Core, it should claim it automatically. However if you connect your Core over USB, or if the claiming process is unsuccessful, you can claim it manually.
 
-The easiest way to manually claim a Core over USB is to use the [Spark Command Line Interface](https://github.com/spark/spark-cli). Once you have this installed, you can simple type `spark setup` and follow the instructions.
+The easiest way to manually claim a Core over USB is to use the [Spark Command Line Interface](https://github.com/spark/spark-cli). Once you have this installed, you can simply type `spark setup` and follow the instructions.
 
 Alternatively, if you have troubles installing the command line tool, you can get the Core's ID over serial and claim it via the build site.
 You can do this by opening a Serial connection to the Core and pressing the **i** key (see the above instuctions for connecting over USB). It should show you a number like this:
@@ -130,7 +130,7 @@ If you are wish to program a Core with a custom firmware via USB, you'll need to
 Procedure:
 
 1. Hold down BOTH buttons
-2. Release only the RST button, while holding down the MODE button. 
+2. Release only the RST button, while holding down the MODE button.
 3. Wait for the LED to start flashing yellow
 6. Release the MODE button
 
@@ -149,10 +149,10 @@ Procedure:
 The procedure is same as the one described above (DFU Mode), but in this case you should continue holding down the MODE button until you see the Core change from flashing yellow to flashing white. Then release the button.  The Core should begin after the factory reset is complete.
 
 1. Hold down BOTH buttons
-2. Release only the RST button, while holding down the MODE button. 
+2. Release only the RST button, while holding down the MODE button.
 3. Wait for the LED to start flashing yellow (continue to hold the MODE button)
 4. The LED will turn solid white (continue to hold the MODE button)
-5. Finally, the LED will turn blink white rapidly 
+5. Finally, the LED will turn blink white rapidly
 6. Release the MODE button
 
 **Note:** The video here is a continuation of the video from above (DFU Mode).

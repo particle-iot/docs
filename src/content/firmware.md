@@ -373,7 +373,7 @@ void setup()
 
     String myID = Spark.deviceID();
     // Prints out the device ID over Serial
-    Serial.println(myID);  
+    Serial.println(myID);
 }
 
 void loop()
@@ -417,7 +417,7 @@ void loop()
 `Network.localIP()` returns the local IP address assigned to the Core.
 
 `Network.RSSI()` returns the signal strength of a Wifi network from from -127 to -1dB.
-  
+
 `Network.ping()` allows you to ping an IP address and know the number of packets received.
 
 
@@ -697,9 +697,9 @@ Communication
 Serial
 -----
 
-Used for communication between the Spark Core and a computer or other devices. The Core has two serial channels:  
+Used for communication between the Spark Core and a computer or other devices. The Core has two serial channels:
 
-`Serial:` This channel communicates through the USB port and when connected to a computer, will show up as a virtual COM port.  
+`Serial:` This channel communicates through the USB port and when connected to a computer, will show up as a virtual COM port.
 
 `Serial1:` This channel is available via the Core's TX and RX pins. To use these pins to communicate with your personal computer, you will need an additional USB-to-serial adapter. To use them to communicate with an external TTL serial device, connect the TX pin to your device's RX pin, the RX to your device's TX pin, and the ground of your Core to your device's ground.
 
@@ -878,7 +878,7 @@ Serial.println(val);
 Serial.println(val, format);
 ```
 
-*Parameters:*  
+*Parameters:*
 
 - `val`: the value to print - any data type
 - `format`: specifies the number base (for integral data types) or number of decimal places (for floating point types)
@@ -1078,7 +1078,7 @@ Wire.endTransmission();
 Wire.endTransmission(stop);
 ```
 
-Parameters: `stop` : boolean.  
+Parameters: `stop` : boolean.
 `true` will send a stop message, releasing the bus after transmission. `false` will send a restart, keeping the connection active.
 
 Returns: `byte`, which indicates the status of the transmission:
@@ -1106,7 +1106,7 @@ Parameters:
 - `data`: an array of data to send as bytes
 - `length`: the number of bytes to transmit
 
-Returns:  `byte`  
+Returns:  `byte`
 
 `write()` will return the number of bytes written, though reading that number is optional.
 
@@ -1123,7 +1123,7 @@ void loop()
 {
   Wire.beginTransmission(44); // transmit to device #44 (0x2c)
                               // device address is specified in datasheet
-  Wire.write(val);             // sends value byte  
+  Wire.write(val);             // sends value byte
   Wire.endTransmission();     // stop transmitting
 
   val++;        // increment value
@@ -1208,7 +1208,7 @@ IPAddress IPfromBytes( server );
 The IPAddress also allows for comparisons.
 
 ```C++
-if (IPfromInt == IPfromBytes) 
+if (IPfromInt == IPfromBytes)
 {
   Serial.println("Same IP addresses");
 }
@@ -1226,7 +1226,7 @@ for(uint8_t ipRange=1; ipRange<255; ipRange++)
   {
     localIP[3] = ipRange;
     Network.ping(localIP);
-  }  
+  }
 }
 ```
 
@@ -1239,7 +1239,7 @@ uint8_t server[] = { 10, 0, 0, 2};
 IPAddress IPfromBytes;
 IPfromBytes = server;
 ```
-  
+
 Finally IPAddress can be used directly with print.
 
 ```C++
@@ -1562,33 +1562,33 @@ Initializes the UDP library and network settings.
 
 // UDP Port used for two way communication
 unsigned int localPort = 8888;
- 
+
 // An UDP instance to let us send and receive packets over UDP
 UDP Udp;
- 
+
 void setup() {
     // start the UDP
     Udp.begin(localPort);
-    
-    // Print your device IP Address via serial 
+
+    // Print your device IP Address via serial
     Serial.begin(9600);
     Serial.println(Network.localIP());
 }
- 
+
 void loop() {
     // Check if data has been received
     if (Udp.parsePacket() > 0) {
-        
+
         // Read first char of data received
         char c = Udp.read();
-        
+
         // Ignore other chars
         Udp.flush();
-        
+
         // Store sender ip and port
         IPAddress ipAddress = Udp.remoteIP();
         int port = Udp.remotePort();
-        
+
         // Echo back data to sender
         Udp.beginPacket(ipAddress, port);
         Udp.write(c);
@@ -2296,12 +2296,12 @@ Specifies a function to call when an external interrupt occurs. Replaces any pre
 
 The Spark Core currently supports external interrupts on the following pins:
 
-D0, D1, D2, D3, D4  
-A0, A1, A3, A4, A5, A6, A7  
+D0, D1, D2, D3, D4
+A0, A1, A3, A4, A5, A6, A7
 
 `attachInterrupt(pin, function, mode);`
 
-*Parameters:*  
+*Parameters:*
 
 - `pin`: the pin number
 - `function`: the function to call when the interrupt occurs; this function must take no parameters and return nothing. This function is sometimes referred to as an *interrupt service routine* (ISR).
@@ -2312,10 +2312,10 @@ A0, A1, A3, A4, A5, A6, A7
 
 The function does not return anything.
 
-**NOTE:**  
+**NOTE:**
 Inside the attached function, `delay()` won't work and the value returned by `millis()` will not increment. Serial data received while in the function may be lost. You should declare as `volatile` any variables that you modify within the attached function.
 
-*Using Interrupts:*  
+*Using Interrupts:*
 Interrupts are useful for making things happen automatically in microcontroller programs, and can help solve timing problems. Good tasks for using an interrupt may include reading a rotary encoder, or monitoring user input.
 
 If you wanted to insure that a program always caught the pulses from a rotary encoder, so that it never misses a pulse, it would make it very tricky to write a program to do anything else, because the program would need to constantly poll the sensor lines for the encoder, in order to catch pulses when they occurred. Other sensors have a similar interface dynamic too, such as trying to read a sound sensor that is trying to catch a click, or an infrared slot sensor (photo-interrupter) trying to catch a coin drop. In all of these situations, using an interrupt can free the microcontroller to get some other work done while not missing the input.
@@ -2403,8 +2403,8 @@ Calculates the minimum of two numbers.
 
 `min(x, y)`
 
-`x` is the first number, any data type  
-`y` is the second number, any data type  
+`x` is the first number, any data type
+`y` is the second number, any data type
 
 The functions returns the smaller of the two numbers.
 
@@ -2433,8 +2433,8 @@ Calculates the maximum of two numbers.
 
 `max(x, y)`
 
-`x` is the first number, any data type  
-`y` is the second number, any data type  
+`x` is the first number, any data type
+`y` is the second number, any data type
 
 The functions returns the larger of the two numbers.
 
@@ -2463,9 +2463,9 @@ Computes the absolute value of a number.
 
 `abs(x);`
 
-where `x` is the number  
+where `x` is the number
 
-The function returns `x` if `x` is greater than or equal to `0`  
+The function returns `x` if `x` is greater than or equal to `0`
 and returns `-x` if `x` is less than `0`.
 
 **WARNING:**
@@ -2484,13 +2484,13 @@ Constrains a number to be within a range.
 
 `constrain(x, a, b);`
 
-`x` is the number to constrain, all data types  
+`x` is the number to constrain, all data types
 `a` is the lower end of the range, all data types
 `b` is the upper end of the range, all data types
 
-The function will return:  
-`x`: if x is between `a` and `b`  
-`a`: if `x` is less than `a`  
+The function will return:
+`x`: if x is between `a` and `b`
+`a`: if `x` is less than `a`
 `b`: if `x` is greater than `b`
 
 ```C++
@@ -2519,7 +2519,7 @@ is also valid and works well.
 
 The `map()` function uses integer math so will not generate fractions, when the math might indicate that it should do so. Fractional remainders are truncated, and are not rounded or averaged.
 
-*Parameters:*  
+*Parameters:*
 
 - `value`: the number to map
 - `fromLow`: the lower bound of the value's current range
@@ -2542,7 +2542,7 @@ void loop()
 }
 ```
 
-*Appendix:*  
+*Appendix:*
 For the mathematically inclined, here's the whole function
 
 ```C++
@@ -2558,7 +2558,7 @@ Calculates the value of a number raised to a power. `pow()` can be used to raise
 
 `pow(base, exponent);`
 
-`base` is the number *(float)*  
+`base` is the number *(float)*
 `exponent` is the power to which the base is raised *(float)*
 
 The function returns the result of the exponentiation *(double)*
@@ -2703,7 +2703,7 @@ The statements being evaluated inside the parentheses require the use of one or 
 ```C++
 x == y (x is equal to y)
 x != y (x is not equal to y)
-x <  y (x is less than y)  
+x <  y (x is less than y)
 x >  y (x is greater than y)
 x <= y (x is less than or equal to y)
 x >= y (x is greater than or equal to y)
@@ -2916,12 +2916,12 @@ EXAMPLE USAGE
 for (int x = 0; x < 255; x ++)
 {
     digitalWrite(ledPin, x);
-    sens = analogRead(sensorPin);  
+    sens = analogRead(sensorPin);
     if (sens > threshold)         // bail out on sensor detect
     {
        x = 0;
        break;
-    }  
+    }
     delay(50);
 }
 ```
@@ -3092,7 +3092,7 @@ When experimenting with code, "commenting out" parts of your program is a conven
 
 `#define` is a useful C component that allows the programmer to give a name to a constant value before the program is compiled. Defined constants don't take up any program memory space on the chip. The compiler will replace references to these constants with the defined value at compile time.
 
-`#define constantName value`  
+`#define constantName value`
 Note that the # is necessary.
 
 This can have some unwanted side effects though, if for example, a constant name that had been `#defined` is included in some other constant or variable name. In that case the text would be replaced by the #defined number (or text).
@@ -3165,23 +3165,23 @@ result = value1 / value2;
 **TIPS:**
 
   - Know that integer constants default to int, so some constant calculations may overflow (e.g. 50 * 50,000,000 will yield a negative result).
-  - Choose variable sizes that are large enough to hold the largest results from your calculations  
-  - Know at what point your variable will "roll over" and also what happens in the other direction e.g. (0 - 1) OR (0 + 2147483648)  
-  - For math that requires fractions, use float variables, but be aware of their drawbacks: large size, slow computation speeds  
-  - Use the cast operator e.g. (int)myFloat to convert one variable type to another on the fly.  
+  - Choose variable sizes that are large enough to hold the largest results from your calculations
+  - Know at what point your variable will "roll over" and also what happens in the other direction e.g. (0 - 1) OR (0 + 2147483648)
+  - For math that requires fractions, use float variables, but be aware of their drawbacks: large size, slow computation speeds
+  - Use the cast operator e.g. (int)myFloat to convert one variable type to another on the fly.
 
 ### % (modulo)
 
-Calculates the remainder when one integer is divided by another. It is useful for keeping a variable within a particular range (e.g. the size of an array).  It is defined so that `a % b == a - ((a / b) * b)`.  
+Calculates the remainder when one integer is divided by another. It is useful for keeping a variable within a particular range (e.g. the size of an array).  It is defined so that `a % b == a - ((a / b) * b)`.
 
 `result = dividend % divisor`
 
-`dividend` is the number to be divided and  
+`dividend` is the number to be divided and
 `divisor` is the number to divide by.
 
 `result` is the remainder
 
-The remainder function can have unexpected behavoir when some of the opperands are negative.  If the dividend is negative, then the result will be the smallest negative equivalency class.  In other words, when `a` is negative, `(a % b) == (a mod b) - b` where (a mod b) follows the standard mathematical definition of mod.  When the divisor is negative, the result is the same as it would be if it was positive.  
+The remainder function can have unexpected behavoir when some of the opperands are negative.  If the dividend is negative, then the result will be the smallest negative equivalency class.  In other words, when `a` is negative, `(a % b) == (a mod b) - b` where (a mod b) follows the standard mathematical definition of mod.  When the divisor is negative, the result is the same as it would be if it was positive.
 
 ```C++
 EXAMPLE USAGES
@@ -3206,7 +3206,7 @@ void setup() {}
 void loop()
 {
   values[i] = analogRead(A0);
-  i = (i + 1) % 10;   // modulo operator rolls over variable  
+  i = (i + 1) % 10;   // modulo operator rolls over variable
 }
 ```
 
@@ -3255,7 +3255,7 @@ if (!x)
 //is true if x is false (i.e. if x equals 0).
 ```
 
-**WARNING:**  
+**WARNING:**
 Make sure you don't mistake the boolean AND operator, && (double ampersand) for the bitwise AND operator & (single ampersand). They are entirely different beasts.
 
 Similarly, do not confuse the boolean || (double pipe) operator with the bitwise OR operator | (single pipe).
@@ -3354,8 +3354,8 @@ variable << number_of_bits
 variable >> number_of_bits
 ```
 
-`variable` can be `byte`, `int`, `long`  
-`number_of_bits` and integer <= 32  
+`variable` can be `byte`, `int`, `long`
+`number_of_bits` and integer <= 32
 
 ```C++
 EXAMPLE USAGE
@@ -3443,7 +3443,7 @@ x *= y;   // equivalent to the expression x = x * y;
 x /= y;   // equivalent to the expression x = x / y;
 ```
 
-`x` can be any variable type  
+`x` can be any variable type
 `y` can be any variable type or constant
 
 ```C++
@@ -3461,8 +3461,8 @@ The compound bitwise AND operator (&=) is often used with a variable and a const
 
 `x &= y;   // equivalent to x = x & y;`
 
-`x` can be a char, int or long variable  
-`y` can be an integer constant, char, int, or long  
+`x` can be a char, int or long variable
+`y` can be an integer constant, char, int, or long
 
 ```
    0  0  1  1    operand1
@@ -3470,10 +3470,10 @@ The compound bitwise AND operator (&=) is often used with a variable and a const
    ----------
    0  0  0  1    (operand1 & operand2) - returned result
 ```
-Bits that are "bitwise ANDed" with 0 are cleared to 0 so, if myByte is a byte variable,  
-`myByte & B00000000 = 0;`  
+Bits that are "bitwise ANDed" with 0 are cleared to 0 so, if myByte is a byte variable,
+`myByte & B00000000 = 0;`
 
-Bits that are "bitwise ANDed" with 1 are unchanged so,  
+Bits that are "bitwise ANDed" with 1 are unchanged so,
 `myByte & B11111111 = myByte;`
 
 **Note:** because we are dealing with bits in a bitwise operator - it is convenient to use the binary formatter with constants. The numbers are still the same value in other representations, they are just not as easy to understand. Also, B00000000 is shown for clarity, but zero in any number format is zero (hmmm something philosophical there?)
@@ -3481,7 +3481,7 @@ Bits that are "bitwise ANDed" with 1 are unchanged so,
 Consequently - to clear (set to zero) bits 0 & 1 of a variable, while leaving the rest of the variable unchanged, use the compound bitwise AND operator (&=) with the constant B11111100
 
 ```
-   1  0  1  0  1  0  1  0    variable  
+   1  0  1  0  1  0  1  0    variable
    1  1  1  1  1  1  0  0    mask
    ----------------------
    1  0  1  0  1  0  0  0
@@ -3501,8 +3501,8 @@ Here is the same representation with the variable's bits replaced with the symbo
                      bits cleared
 ```
 
-So if:  
-`myByte =  10101010;`  
+So if:
+`myByte =  10101010;`
 `myByte &= B1111100 == B10101000;`
 
 
@@ -3514,8 +3514,8 @@ The compound bitwise OR operator (|=) is often used with a variable and a consta
 SYNTAX
 x |= y;   // equivalent to x = x | y;
 ```
-`x` can be a char, int or long variable  
-`y` can be an integer constant or char, int or long  
+`x` can be a char, int or long variable
+`y` can be an integer constant or char, int or long
 
 ```
    0  0  1  1    operand1
@@ -3523,10 +3523,10 @@ x |= y;   // equivalent to x = x | y;
    ----------
    0  1  1  1    (operand1 | operand2) - returned result
 ```
-Bits that are "bitwise ORed" with 0 are unchanged, so if myByte is a byte variable,  
+Bits that are "bitwise ORed" with 0 are unchanged, so if myByte is a byte variable,
 `myByte | B00000000 = myByte;`
 
-Bits that are "bitwise ORed" with 1 are set to 1 so:  
+Bits that are "bitwise ORed" with 1 are set to 1 so:
 `myByte | B11111111 = B11111111;`
 
 Consequently - to set bits 0 & 1 of a variable, while leaving the rest of the variable unchanged, use the compound bitwise OR operator (|=) with the constant B00000011
@@ -3550,9 +3550,9 @@ Here is the same representation with the variables bits replaced with the symbol
  variable unchanged
                      bits set
 ```
-So if:  
-`myByte =  B10101010;`  
-`myByte |= B00000011 == B10101011;`  
+So if:
+`myByte =  B10101010;`
+`myByte |= B00000011 == B10101011;`
 
 
 
@@ -3591,7 +3591,7 @@ String(val)
 String(val, base)
 ```
 
-Parameters:  
+Parameters:
 
   * val: a variable to format as a String - string, char, byte, int, long, unsigned int, unsigned long
   * base (optional) - the base in which to format an integral value
@@ -4211,12 +4211,12 @@ Possibilities for declaring strings:
   * Initialize the array with an explicit size and string constant, Str5
   * Initialize the array, leaving extra space for a larger string, Str6
 
-*Null termination:*  
+*Null termination:*
 Generally, strings are terminated with a null character (ASCII code 0). This allows functions (like Serial.print()) to tell where the end of a string is. Otherwise, they would continue reading subsequent bytes of memory that aren't actually part of the string.
 This means that your string needs to have space for one more character than the text you want it to contain. That is why Str2 and Str5 need to be eight characters, even though "arduino" is only seven - the last position is automatically filled with a null character. Str4 will be automatically sized to eight characters, one for the extra null. In Str3, we've explicitly included the null character (written '\0') ourselves.
 Note that it's possible to have a string without a final null character (e.g. if you had specified the length of Str2 as seven instead of eight). This will break most functions that use strings, so you shouldn't do it intentionally. If you notice something behaving strangely (operating on characters not in the string), however, this could be the problem.
 
-*Single quotes or double quotes?*  
+*Single quotes or double quotes?*
 Strings are always defined inside double quotes ("Abc") and characters are always defined inside single quotes('A').
 
 Wrapping long strings
@@ -4228,7 +4228,7 @@ char myString[] = "This is the first line"
 " etcetera";
 ```
 
-*Arrays of strings:*  
+*Arrays of strings:*
 It is often convenient, when working with large amounts of text, such as a project with an LCD display, to setup an array of strings. Because strings themselves are arrays, this is in actually an example of a two-dimensional array.
 In the code below, the asterisk after the datatype char "char*" indicates that this is an array of "pointers". All array names are actually pointers, so this is required to make an array of arrays. Pointers are one of the more esoteric parts of C for beginners to understand, but it isn't necessary to understand pointers in detail to use them effectively here.
 
@@ -4260,7 +4260,7 @@ More info can be found [here.](http://docs.spark.io/#/firmware/language-syntax-s
 
 An array is a collection of variables that are accessed with an index number.
 
-*Creating (Declaring) an Array:*  
+*Creating (Declaring) an Array:*
 All of the methods below are valid ways to create (declare) an array.
 
 ```cpp
@@ -4275,11 +4275,11 @@ You can declare an array without initializing it as in myInts.
 In myPins we declare an array without explicitly choosing a size. The compiler counts the elements and creates an array of the appropriate size.
 Finally you can both initialize and size your array, as in mySensVals. Note that when declaring an array of type char, one more element than your initialization is required, to hold the required null character.
 
-*Accessing an Array:*  
+*Accessing an Array:*
 Arrays are zero indexed, that is, referring to the array initialization above, the first element of the array is at index 0, hence
 
 `mySensVals[0] == 2, mySensVals[1] == 4`, and so forth.
-It also means that in an array with ten elements, index nine is the last element. Hence:  
+It also means that in an array with ten elements, index nine is the last element. Hence:
 ```cpp
 int myArray[10]={9,3,2,4,3,2,7,8,9,11};
      // myArray[9]    contains 11
@@ -4289,13 +4289,13 @@ int myArray[10]={9,3,2,4,3,2,7,8,9,11};
 For this reason you should be careful in accessing arrays. Accessing past the end of an array (using an index number greater than your declared array size - 1) is reading from memory that is in use for other purposes. Reading from these locations is probably not going to do much except yield invalid data. Writing to random memory locations is definitely a bad idea and can often lead to unhappy results such as crashes or program malfunction. This can also be a difficult bug to track down.
 Unlike BASIC or JAVA, the C compiler does no checking to see if array access is within legal bounds of the array size that you have declared.
 
-*To assign a value to an array:*  
+*To assign a value to an array:*
 `mySensVals[0] = 10;`
 
-*To retrieve a value from an array:*  
+*To retrieve a value from an array:*
 `x = mySensVals[4];`
 
-*Arrays and FOR Loops:*  
+*Arrays and FOR Loops:*
 Arrays are often manipulated inside for loops, where the loop counter is used as the index for each array element. For example, to print the elements of an array over the serial port, you could do something like this:
 
 ```cpp
