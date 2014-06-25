@@ -147,7 +147,7 @@ Please complete the following steps:
 3. If your network has a landing page or splash page, the Core will not be able to connect; try configuring it onto a different network.
 4. Try [rebooting the Core and clearing its memory](/#/troubleshooting/can-t-get-connected-step-3-reboot-and-clear-memory).
 5. Try a factory reset.  Hold down both buttons, then release the RST button, while holding down the MODE button.  The LED should begin flashing yellow.  Continue holding down the MODE button until you see the Core change from flashing yellow to flashing white.  Then release the button.  The Core should begin [flashing blue](https://v.cdn.vine.co/r/videos/E465A8959B1015390893882101760_178fcfd2b3c.4.3.11510817618992331600_MIW9HE1mtZ9H_SpBlKdK1lv2UfmniExCFQHrgJ7iqiFDUiDb0E31bR7GwvB_7wz0.mp4?versionId=eS01KUZ6NaUZgEipSDeVi0rxZENByp1N) after the factory reset is complete.
-6. Try manually re-running the patch programmer to update the CC3000’s firmware over USB.  You can find detailed instructions [here](https://community.sparkdevices.com/t/failed-connecting-to-wifi/648/53).  
+6. Try manually re-running the patch programmer to update the CC3000’s firmware over USB.  You can find detailed instructions [here](https://community.sparkdevices.com/t/failed-connecting-to-wifi/648/53).
 7. If none of the above are successful, please [contact the Spark team](mailto:hello@sparkdevices.com) and provide us with the brand and model number of your access point.
 
 ---
@@ -201,7 +201,7 @@ If none of these steps are successful, please [contact the Spark team](mailto:he
 
 The panic code is signified by a series of flashing red LED blinks.  First, the LED will spell SOS ( ... - - - ... ), followed by a number of flashes, followed by another SOS message.
 
-The meaning of the panic codes is described below.  8 flashes, signifying out of heap memory, is the most common issue.  
+The meaning of the panic codes is described below.  8 flashes, signifying out of heap memory, is the most common issue.
 
 1. Hard fault
 2. Non-maskable interrupt fault
@@ -253,7 +253,7 @@ There are two potential failure modes here--either your home network does not ha
 - *What’s the problem?* The CC3000 on the Core is having trouble initializing due to a potential hardware issue.
 - *How do I fix it?*
 
-In general, if the LED on your Core starts breathing white, the best thing to do is to [reach out to the Spark team](mailto:hello@sparkdevices.com).  Refer to this issue in your email, and Spark's Technical Support staff will help you resolve the problem directly.   
+In general, if the LED on your Core starts breathing white, the best thing to do is to [reach out to the Spark team](mailto:hello@sparkdevices.com).  Refer to this issue in your email, and Spark's Technical Support staff will help you resolve the problem directly.
 
 ---
 
@@ -311,7 +311,7 @@ A fix can be applied in the user code that will work around this issue.  A simpl
 
 #### Description
 
-There are numerous issues with Spark UDP. The central one is that received datagram boundaries are not preserved by Spark UDP. This and other issues, together with some workarounds, are detailed at the forum thread linked to above. 
+There are numerous issues with Spark UDP. The central one is that received datagram boundaries are not preserved by Spark UDP. This and other issues, together with some workarounds, are detailed at the forum thread linked to above.
 
 
 

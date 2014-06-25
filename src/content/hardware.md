@@ -66,7 +66,7 @@ Since the flash memory is non-volatile, it retains the data even after turning o
 
 The entire Core, including all of the on board peripherals run at 3.3V DC. So, in order to power the Core from the USB port or an external power supply, we need to *downconvert* the voltage before feeding it into the Core. We went through a couple of iterations before choosing Microchip's [MCP1825S-3302E](http://ww1.microchip.com/downloads/en/devicedoc/22056b.pdf) power regulator which comfortably meets the specs.
 
-Some of its key features are:  
+Some of its key features are:
 
 - 500mA output current
 - Input voltage range of 3.6 to 6.0V (for 3.3V output)
@@ -84,7 +84,7 @@ This means, you can power the Core via the USB port or via the VIN pin from an e
 
 The RF circuit is probably where we spent the most time on during hardware design. RF design is like voodoo black magic, so we sought guidance from the industry experts before finalizing the component values and placement.
 
-You can download a copy of the RF test report [here.]({{assets}}/images/core-rf-test-report.pdf)  
+You can download a copy of the RF test report [here.]({{assets}}/images/core-rf-test-report.pdf)
 
 Pins and I/O
 ---
@@ -132,10 +132,10 @@ Both of these serial ports can be configured and used using the [serial function
 
 The Serial Peripheral Interface is available on pins:
 
-`A2: SS (Slave Select)`  
-`A3: SCK (Serial Clock)`  
-`A4: MISO (Master In Slave Out)`  
-`A5: MOSI (Master Out Slave In)`  
+`A2: SS (Slave Select)`
+`A3: SCK (Serial Clock)`
+`A4: MISO (Master In Slave Out)`
+`A5: MOSI (Master Out Slave In)`
 
 **NOTE:** All of these pins run at 3.3V logic levels.
 
@@ -145,7 +145,7 @@ The Serial Peripheral Interface is available on pins:
 
 I2C communication pins are multiplexed with the standard GPIO pins D0 and D1.
 
-`D0: SDA (Serial Data Line)`  
+`D0: SDA (Serial Data Line)`
 `D1: SCL (Serial Clock)`
 
 Both of these pins run at 3.3V logic level but *are* tolerant to 5V inputs.
@@ -257,7 +257,7 @@ Electrical characteristics
       <td>Input Voltage (at VIN)</td>
       <td> 3.6 V</td>
       <td> 6.0 V</td>
-   </tr>  
+   </tr>
    <tr>
       <td>Total Current Consumption</td>
       <td>50mA</td>
@@ -277,7 +277,7 @@ Electrical characteristics
 
 ### RF
 
-![S11 Chart]({{assets}}/images/core-s11-chart.png)  
+![S11 Chart]({{assets}}/images/core-s11-chart.png)
 
 With the on board chip antenna, the peak return loss (S11) has been measured and verified to be in the excess of 20dB.
 

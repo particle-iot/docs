@@ -84,9 +84,9 @@ Each of the pins has up to four functions available: *digitalWrite*, *analogWrit
 
 ![Spark Build]({{assets}}/images/ide.png)
 
-Once you're tired of reading reading sensor values and flashing LEDs, head over to the Spark Build IDE for the real show.  Spark Build allows you to create and flash custom applications to your Core from any modern web browser, and equips your Core with the full capabilities of the Internet!  Wow!  
+Once you're tired of reading reading sensor values and flashing LEDs, head over to the Spark Build IDE for the real show.  Spark Build allows you to create and flash custom applications to your Core from any modern web browser, and equips your Core with the full capabilities of the Internet!  Wow!
 
-Don't be nervous--we've got you covered with plenty of community-approved example applications and libraries that will get you started on the right foot.  To learn more, check out the "Writing Apps with Spark Build" section further down on this page.  
+Don't be nervous--we've got you covered with plenty of community-approved example applications and libraries that will get you started on the right foot.  To learn more, check out the "Writing Apps with Spark Build" section further down on this page.
 
 
 Wait, what is this thing?
@@ -108,7 +108,7 @@ When the Core connects to the internet, it establishes a connection to the *Spar
 
 There are two buttons on the Core: the RESET button (on the right) and the MODE button (on the left).
 
-The RESET button will put the Core in a hard reset, effectively depowering and repowering the microcontroller. This is a good way to restart the application that you've downloaded onto the Core.  
+The RESET button will put the Core in a hard reset, effectively depowering and repowering the microcontroller. This is a good way to restart the application that you've downloaded onto the Core.
 
 The MODE button serves three functions:
 
@@ -350,7 +350,7 @@ Spark Apps and Libraries
 
 The heart of Spark Build is the "Spark Apps" section, which displays the name of the current app in your editor, as well as a list of your other applications and community-supported example apps.
 
-The application you've got open in the editor is displayed under the "Current App" header.  You'll notice that this "HELLOWORLD" sample application has only one file, but firmware with associated libraries/multiple files are fully supported.  
+The application you've got open in the editor is displayed under the "Current App" header.  You'll notice that this "HELLOWORLD" sample application has only one file, but firmware with associated libraries/multiple files are fully supported.
 
 From this pane, you've got a lot of buttons and actions available to you that can help you grow and manage your library of kick-ass applications:
 
@@ -379,14 +379,14 @@ The best way to get started with the IDE is to start writing code:
 int LED = D7;
 
 void setup() {
-   	pinMode(LED, OUTPUT);
+    pinMode(LED, OUTPUT);
 }
 
 void loop() {
-   	digitalWrite(LED, HIGH);
-   	delay(1000);
-   	digitalWrite(LED, LOW);
-   	delay(1000);
+    digitalWrite(LED, HIGH);
+    delay(1000);
+    digitalWrite(LED, LOW);
+    delay(1000);
 }
 ```
 
@@ -411,7 +411,7 @@ There are a couple of other neat bells and whistles in Spark Build.  The Spark B
 
 ![Spark Build]({{assets}}/images/device-id.jpg)
 
-- **Core ID**: You can view your Core's Device ID by clicking on the "Cores" icon at the bottom of the navigation pane, then clicking the dropdown arrow next to the Core of interest.  
+- **Core ID**: You can view your Core's Device ID by clicking on the "Cores" icon at the bottom of the navigation pane, then clicking the dropdown arrow next to the Core of interest.
 
 - **Unclaim**: You can "Unclaim" a Core by pressing the "Remove Core" button that is revealed by clicking the dropdown arrow.  Once a Core has been unclaimed, it is available to be reassociated with any Spark users' account.
 
