@@ -63,7 +63,7 @@ There are a million ways router settings could cause problems, but here's a few 
 
 It's possible that other folks have encountered the same issues that you have. The best way to check and learn from others is to search the forums; search for your particular symptoms or for your Wi-Fi router make and model to find relevant posts.
 
-[Visit the forums >](https://community.sparkdevices.com)
+[Visit the forums >](https://community.spark.io)
 
 ## STEP 6: Post a report
 
@@ -129,7 +129,7 @@ If that doesn’t work, try the steps below:
 2. If you have a Core with a u.FL connector, make sure the antenna is attached
 3. Try [rebooting the Core and clearing its memory](/#/troubleshooting/can-t-get-connected-step-3-reboot-and-clear-memory).
 4. Try configuring your Core over USB.  Instructions can be found [here](/#/connect/connecting-your-core-connect-over-usb).
-5. If all else fails, please [contact the Spark team](mailto:hello@sparkdevices.com) and provide us with the brand and model of your smartphone.
+5. If all else fails, please [contact the Spark team](mailto:hello@spark.io) and provide us with the brand and model of your smartphone.
 
 ---
 
@@ -147,8 +147,8 @@ Please complete the following steps:
 3. If your network has a landing page or splash page, the Core will not be able to connect; try configuring it onto a different network.
 4. Try [rebooting the Core and clearing its memory](/#/troubleshooting/can-t-get-connected-step-3-reboot-and-clear-memory).
 5. Try a factory reset.  Hold down both buttons, then release the RST button, while holding down the MODE button.  The LED should begin flashing yellow.  Continue holding down the MODE button until you see the Core change from flashing yellow to flashing white.  Then release the button.  The Core should begin [flashing blue](https://v.cdn.vine.co/r/videos/E465A8959B1015390893882101760_178fcfd2b3c.4.3.11510817618992331600_MIW9HE1mtZ9H_SpBlKdK1lv2UfmniExCFQHrgJ7iqiFDUiDb0E31bR7GwvB_7wz0.mp4?versionId=eS01KUZ6NaUZgEipSDeVi0rxZENByp1N) after the factory reset is complete.
-6. Try manually re-running the patch programmer to update the CC3000’s firmware over USB.  You can find detailed instructions [here](https://community.sparkdevices.com/t/failed-connecting-to-wifi/648/53).
-7. If none of the above are successful, please [contact the Spark team](mailto:hello@sparkdevices.com) and provide us with the brand and model number of your access point.
+6. Try manually re-running the patch programmer to update the CC3000’s firmware over USB.  You can find detailed instructions [here](https://community.spark.io/t/failed-connecting-to-wifi/648/53).
+7. If none of the above are successful, please [contact the Spark team](mailto:hello@spark.io) and provide us with the brand and model number of your access point.
 
 ---
 
@@ -189,7 +189,7 @@ This should give you a list with something like [1d50:607f] in the list, if that
 
 You can reboot your Core and it should start [slow flashing blue](https://v.cdn.vine.co/r/videos/E465A8959B1015390893882101760_178fcfd2b3c.4.3.11510817618992331600_MIW9HE1mtZ9H_SpBlKdK1lv2UfmniExCFQHrgJ7iqiFDUiDb0E31bR7GwvB_7wz0.mp4?versionId=eS01KUZ6NaUZgEipSDeVi0rxZENByp1N), or start [flashing green](https://mtc.cdn.vine.co/r/videos/DB9E0E87311015399731217969152_1d6c83d12a3.4.3.2795910212236322177_4RBA9frM0a4pwIG_RbZgo.ZOBEbBr_CpxzoOsBNuExDz6TFldcjJSYHVh203e6F4.mp4?versionId=orM0m0DvLYdciAwsb6DYHhqb974AHMj_) if everything worked.
 
-If none of these steps are successful, please [contact the Spark team](mailto:hello@sparkdevices.com).
+If none of these steps are successful, please [contact the Spark team](mailto:hello@spark.io).
 
 ---
 
@@ -226,9 +226,9 @@ The meaning of the panic codes is described below.  8 flashes, signifying out of
 
 Please complete the following steps:
 
-1. A full set of instructions for resolving this issue can be found at the following location on the Spark Community forums.  If the steps included in the link below are unsuccessful, please [contact the Spark team](mailto:hello@sparkdevices.com).
+1. A full set of instructions for resolving this issue can be found at the following location on the Spark Community forums.  If the steps included in the link below are unsuccessful, please [contact the Spark team](mailto:hello@spark.io).
 
-[Replacing your Spark Cloud credentials >](https://community.sparkdevices.com/t/troubleshooting-my-core-is-flashing-yellow-red-lights-after-it-connects-to-wifi/627)
+[Replacing your Spark Cloud credentials >](https://community.spark.io/t/troubleshooting-my-core-is-flashing-yellow-red-lights-after-it-connects-to-wifi/627)
 
 ---
 
@@ -243,7 +243,7 @@ There are two potential failure modes here--either your home network does not ha
 1. Try power cycling your router to resolve any transient networking hiccups in your home Wi-Fi network
 2. Try going to a website like [Google](http://www.google.com/) on your computer or laptop to verify that your Wi-Fi network is connected to the internet and is capable of serving up web pages
 3. Check www.spark.io/status to see if there is a known issue with the Spark Cloud
-4. If you’re still seeing this issue, please [contact the Spark team](mailto:hello@sparkdevices.com).
+4. If you’re still seeing this issue, please [contact the Spark team](mailto:hello@spark.io).
 
 ---
 
@@ -253,7 +253,7 @@ There are two potential failure modes here--either your home network does not ha
 - *What’s the problem?* The CC3000 on the Core is having trouble initializing due to a potential hardware issue.
 - *How do I fix it?*
 
-In general, if the LED on your Core starts breathing white, the best thing to do is to [reach out to the Spark team](mailto:hello@sparkdevices.com).  Refer to this issue in your email, and Spark's Technical Support staff will help you resolve the problem directly.
+In general, if the LED on your Core starts breathing white, the best thing to do is to [reach out to the Spark team](mailto:hello@spark.io).  Refer to this issue in your email, and Spark's Technical Support staff will help you resolve the problem directly.
 
 ---
 
