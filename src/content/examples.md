@@ -147,10 +147,10 @@ The API request will look something like this:
 POST /v1/devices/{DEVICE_ID}/led
 
 # EXAMPLE REQUEST IN TERMINAL
-# Core ID is 0123456789abcdef01234567
-# Your access token is 1234123412341234123412341234123412341234
-curl https://api.spark.io/v1/devices/0123456789abcdef01234567/led \
-  -d access_token=1234123412341234123412341234123412341234 \
+# Core ID is 0123456789abcdef
+# Your access token is 123412341234
+curl https://api.spark.io/v1/devices/0123456789abcdef/led \
+  -d access_token=123412341234 \
   -d params=l1,HIGH
 ```
 
@@ -214,10 +214,10 @@ The API request will look something like this:
 GET /v1/devices/{DEVICE_ID}/temperature
 
 # EXAMPLE REQUEST IN TERMINAL
-# Core ID is 0123456789abcdef01234567
-# Your access token is 1234123412341234123412341234123412341234
-curl -G https://api.spark.io/v1/devices/0123456789abcdef01234567/temperature \
-  -d access_token=1234123412341234123412341234123412341234
+# Core ID is 0123456789abcdef
+# Your access token is 123412341234
+curl -G https://api.spark.io/v1/devices/0123456789abcdef/temperature \
+  -d access_token=123412341234
 ```
 
 Local Communication
