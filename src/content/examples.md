@@ -22,7 +22,7 @@ Connect everything together as shown in the picture. The LED is connected to pin
 
 ![One LED setup]({{assets}}/images/breadboard-one-led.jpg)
 
-But wait, whats the value of the resistor again?
+But wait, what's the value of the resistor again?
 
 *Heres how we find that out:*
 
