@@ -23,7 +23,7 @@ The Core boots into listening mode by default, so if your Core is brand new, it 
 
 Once you've downloaded the Spark Core app from the App Store or Google Play, you should create an account. Afterwards, you'll be asked to connect your Core using a process called Smart Config.  If your Core has a u.FL connector, you must connect an external antenna before initiating Smart Config. *NOTE: Your phone must be connected to the Wi-Fi network that you want to connect the Core to.* The app will automatically fill the SSID field with the name of the network that your phone is connected to.  Enter your Wi-Fi password and hit connect.
 
-*\*Note that in a Wifi-noisy environment like a conference/workshop, Smart config might not work well.*
+*\*Note that in places like conference/workshop where multiple cores are connected, Smart config is not preferred. Claiming over USB will prevent confusion with accidentally claiming of another core.*
 
 <iframe class="vine-embed" src="https://vine.co/v/hFwubhA3JXV/embed/simple" width="320" height="320" frameborder="0"></iframe>
 
