@@ -429,7 +429,7 @@ These are nifty little switches that plug nicely into a breadboard or a proto-bo
 
 ![DPDT Switch]({{assets}}/images/mk-dpdt-switch.bmp)
 
-This is a tiny Double Pole Double Throw (DPDT) Switch with 6 legs and is rated at
+This is a tiny Double Pole Double Throw (DPDT) Switch with 6 legs.
 
 ### 16. Shift Register IC (1)
 
