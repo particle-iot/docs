@@ -24,7 +24,7 @@ Connect everything together as shown in the picture. The LED is connected to pin
 
 But wait, what's the value of the resistor again?
 
-*Heres how we find that out:*
+*Here's how we find that out:*
 
 According to [Ohm's Law](http://en.wikipedia.org/wiki/Ohm%27s_law) : Voltage = Current x Resistance
 
