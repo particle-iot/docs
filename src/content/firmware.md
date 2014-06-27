@@ -7,7 +7,7 @@ order: 3
 Spark Core Firmware
 ==========
 
-Cloud Functions
+Cloud FunctionsT
 =====
 
 ## Data and Control
@@ -1276,8 +1276,8 @@ void setup()
 
     Serial.begin(9600);
 
-    delay(1000);
-
+    while(!Serial.available()) SPARK_WLAN_Loop(); //Press any keys to continue!
+    
     Serial.println(Network.localIP());
     Serial.println(Network.subnetMask());
     Serial.println(Network.gatewayIP());
