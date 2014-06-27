@@ -7,7 +7,7 @@ order: 3
 Spark Core Firmware
 ==========
 
-Cloud FunctionsT
+Cloud Functions
 =====
 
 ## Data and Control
