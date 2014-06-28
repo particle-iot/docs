@@ -53,11 +53,11 @@ There are three supported data types:
 
 ```json
 # EXAMPLE REQUEST IN TERMINAL
-# Core ID is 0123456789abcdef01234567
-# Your access token is 1234123412341234123412341234123412341234
-curl "https://api.spark.io/v1/devices/0123456789abcdef01234567/analogvalue?access_token=1234123412341234123412341234123412341234"
-curl "https://api.spark.io/v1/devices/0123456789abcdef01234567/temp?access_token=1234123412341234123412341234123412341234"
-curl "https://api.spark.io/v1/devices/0123456789abcdef01234567/mess?access_token=1234123412341234123412341234123412341234"
+# Core ID is 0123456789abcdef
+# Your access token is 123412341234
+curl "https://api.spark.io/v1/devices/0123456789abcdef/analogvalue?access_token=123412341234"
+curl "https://api.spark.io/v1/devices/0123456789abcdef/temp?access_token=123412341234"
+curl "https://api.spark.io/v1/devices/0123456789abcdef/mess?access_token=123412341234"
 
 # In return you'll get something like this:
 960
@@ -121,8 +121,8 @@ COMPLEMENTARY API CALL
 POST /v1/devices/{DEVICE_ID}/{FUNCTION}
 
 # EXAMPLE REQUEST
-curl https://api.spark.io/v1/devices/0123456789abcdef01234567/brew \
-     -d access_token=1234123412341234123412341234123412341234 \
+curl https://api.spark.io/v1/devices/0123456789abcdef/brew \
+     -d access_token=123412341234 \
      -d "args=coffee"
 ```
 
@@ -214,7 +214,7 @@ curl -H "Authorization: Bearer {ACCESS_TOKEN_GOES_HERE}" \
 
 # Will return a stream that echoes text when your event is published
 event: motion-detected
-data: {"data":"23:23:44","ttl":"60","published_at":"2014-05-28T19:20:34.638Z","coreid":"0123456789abcdef01234567"}
+data: {"data":"23:23:44","ttl":"60","published_at":"2014-05-28T19:20:34.638Z","coreid":"0123456789abcdef"}
 ```
 
 ### Spark.subscribe()

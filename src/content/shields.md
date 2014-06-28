@@ -160,8 +160,8 @@ An example API request to this function would look something like this:
 POST /v1/devices/{DEVICE_ID}/relay
 
 # EXAMPLE REQUEST
-curl https://api.spark.io/v1/devices/0123456789abcdef01234567/relay \
-  -d access_token=1234123412341234123412341234123412341234 -d params=r1,HIGH
+curl https://api.spark.io/v1/devices/0123456789abcdef/relay \
+  -d access_token=123412341234 -d params=r1,HIGH
 ```
 
 **USE EXTREME CAUTION WHEN DEALING WITH HIGH VOLTAGE !!**
@@ -705,7 +705,7 @@ To send API commands:
 
 ```json
 # Sending command to go forward
-curl https://api.spark.io/v1/devices/0123456789abcdef01234567/rccar -d access_token=1234 -d params=rc,FORWARD
+curl https://api.spark.io/v1/devices/0123456789abcdef/rccar -d access_token=123412341234 -d params=rc,FORWARD
 ```
 
 ### Motor Driver Shield Specifications
