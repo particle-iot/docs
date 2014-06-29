@@ -368,12 +368,14 @@ A factory reset should solve this.
 
 void setup()
 {
-    Serial.begin(9600);
-    delay(1000);
+  // Make sure your Serial Terminal app is closed before powering your Core
+  Serial.begin(9600);
+  // Now open your Serial Terminal, and hit any key to continue!
+  while(!Serial.available()) SPARK_WLAN_Loop();
 
-    String myID = Spark.deviceID();
-    // Prints out the device ID over Serial
-    Serial.println(myID);
+  String myID = Spark.deviceID();
+  // Prints out the device ID over Serial
+  Serial.println(myID);
 }
 
 void loop()
@@ -394,8 +396,11 @@ void setup()
 {
     byte mac[6];
 
+    // Make sure your Serial Terminal app is closed before powering your Core
     Serial.begin(9600);
-    delay(1000);
+    // Now open your Serial Terminal, and hit any key to continue!
+    while(!Serial.available()) SPARK_WLAN_Loop();
+
     Network.macAddress(mac);
 
     // Prints out the network parameters over Serial
@@ -742,6 +747,11 @@ EXAMPLE USAGE
 void setup()
 {
   Serial.begin(9600);   // open serial over USB
+  // On Windows it will be necessary to implement the following line:
+  // Make sure your Serial Terminal app is closed before powering your Core
+  // Now open your Serial Terminal, and hit any key to continue!
+  while(!Serial.available()) SPARK_WLAN_Loop();
+
   Serial1.begin(9600);  // open serial over TX and RX pins
 
   Serial.println("Hello Computer");
@@ -912,8 +922,10 @@ int analogValue = 0;    // variable to hold the analog value
 
 void setup()
 {
-  // open the serial port at 9600 bps:
+  // Make sure your Serial Terminal app is closed before powering your Core
   Serial.begin(9600);
+  // Now open your Serial Terminal, and hit any key to continue!
+  while(!Serial.available()) SPARK_WLAN_Loop();
 }
 
 void loop() {
@@ -1293,9 +1305,10 @@ void setup()
     // start listening for clients
     server.begin();
 
+    // Make sure your Serial Terminal app is closed before powering your Core
     Serial.begin(9600);
-
-    while(!Serial.available()) SPARK_WLAN_Loop(); //Press any key to continue!
+    // Now open your Serial Terminal, and hit any key to continue!
+    while(!Serial.available()) SPARK_WLAN_Loop();
     
     Serial.println(Network.localIP());
     Serial.println(Network.subnetMask());
@@ -1403,8 +1416,11 @@ TCPClient client;
 byte server[] = { 74, 125, 224, 72 }; // Google
 void setup()
 {
+  // Make sure your Serial Terminal app is closed before powering your Core
   Serial.begin(9600);
-  while(!Serial.available()) SPARK_WLAN_Loop(); //Press any key to continue!
+  // Now open your Serial Terminal, and hit any key to continue!
+  while(!Serial.available()) SPARK_WLAN_Loop();
+  
   Serial.println("connecting...");
 
   if (client.connect(server, 80))
