@@ -298,11 +298,11 @@ Recently Resolved Issues
 
 #### Description
 
-With certain WiFi networks, the Spark Core will sometimes enter a state where the status LED will flash cyan. Flashing cyan means that the Spark Core can no longer communicate with the Spark Cloud server. If this happens, the Spark Core is programmed to try to reconnect. When the Core reconnects, the status LED will go back to 'Breathing Cyan'.
+With certain Wi-Fi networks, the Spark Core will sometimes enter a state where the status LED will flash cyan. Flashing cyan means that the Spark Core can no longer communicate with the Spark Cloud server. If this happens, the Spark Core is programmed to try to reconnect. When the Core reconnects, the status LED will go back to 'Breathing Cyan'.
 
-The Spark Core is equipped with a Texas Instruments (TI) CC3000 WiFi module to facilitate wireless networking. The CC3000 module has it's own closed-source firmware that was created by TI. Unfortunately, it was discovered that the firmware on the CC3000 module itself has an issue that can cause the module to stop responding. In this case, the Spark Core entered a permanent state of flashing cyan referred to as the 'Cyan Flash of Death' or CFOD. A manual reset was required to reconnect the Spark Core.
+The Spark Core is equipped with a Texas Instruments (TI) CC3000 Wi-Fi module to facilitate wireless networking. The CC3000 module has its own closed-source firmware that was created by TI. Unfortunately, it was discovered that the firmware on the CC3000 module itself has an issue that can cause the module to stop responding. In this case, the Spark Core entered a permanent state of flashing cyan referred to as the 'Cyan Flash of Death' or CFOD. A manual reset was required to reconnect the Spark Core.
 
-The good news is that, as of July 2014, after months of iterating with TI to develop a patch that resolves the issue, we finally have a working patch and streamlined approach to roll it out. The following describes how can apply the patch.
+The good news is that, as of July 2014, after months of iterating with TI to develop a patch that resolves the issue, we finally have a working patch and streamlined approach to roll it out. The following describes how to apply the patch.
 
 ## Flashing Cyan Solution
 
@@ -312,7 +312,7 @@ We're calling the solution to the cyan flash of death <b>"deep update"</b> becau
 
 The easiest way to apply deep_update_2014_06 is to simply log into the [Spark Build IDE](spark.io/build).  When you login, if you have any cores that haven't flashed this deep update, the IDE will prompt or provide links to the Cores drawer where you can click the ↑ icon next to the Core name.  Note: You'll need have your core connected and breathing cyan for this to work.
 
-The cool thing about the this approach to applying deep update is that it's extremely simple and streamlined. However, if you've had troubles with the over-the-air flashing in the past; you might want to consider using one of the alternate approaches described below
+The cool thing about the this approach to applying deep update is that it's extremely simple and streamlined. However, if you've had troubles with the over-the-air flashing in the past; you might want to consider using one of the alternate approaches described below.
 
 ### Flash via Spark CLI
 
@@ -324,7 +324,7 @@ TODO: Write something
 
 ### What will deep update look like on the core
 
-TODO: Write something once binary behaves as expected...
+TODO: Write something once binary behaves as expected...  The core will flash orange for XX seconds.
 
 ### Troubleshooting
 
