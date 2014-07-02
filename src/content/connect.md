@@ -21,9 +21,9 @@ The Core boots into listening mode by default, so if your Core is brand new, it 
 
 <iframe class="vine-embed" src="https://vine.co/v/hFH09MJwbxg/embed/simple" width="320" height="320" frameborder="0"></iframe>
 
-Once you've downloaded the Spark Core app from the App Store or Google Play, you should create an account. Afterwards, you'll be asked to connect your Core using a process called Smart Config.  If your Core has a u.FL connector, you must connect an external antenna before initiating Smart Config. *NOTE: Your phone must be connected to the Wi-Fi network that you want to connect the Core to.* The app will automatically fill the SSID field with the name of the network that your phone is connected to.  Enter your Wi-Fi password and hit connect.
+Once you've downloaded the Spark Core app from the App Store or Google Play, you should create an account. Afterwards, you'll be asked to connect your Core using a process called Smart Config.  If your Core has a u.FL connector, you must connect an external antenna before initiating Smart Config. *NOTE: Your phone must be connected to the Wi-Fi network that you want to connect the Core to.  Wi-Fi Hotspots generated from the phone you are running this app on typically will yield an error claiming there is no Wi-Fi available.  Please try to [Connect over USB](/connect/#connecting-your-core-connect-over-usb) and enter your Hotspot credentials manually.*  When connected to Wi-Fi, the app will automatically fill the SSID field with the name of the network that your phone is connected to.  Enter your Wi-Fi password and hit connect.
 
-*\*Note that in places like conference/workshop where multiple cores are connected, Smart config is not preferred. Claiming over USB will prevent confusion with accidentally claiming of another core.*
+*NOTE: In places like a conference or workshop where multiple cores are connected, Smart Config is not preferred. Claiming a Core over USB will prevent confusion with accidentally claiming of another Core.*
 
 <iframe class="vine-embed" src="https://vine.co/v/hFwubhA3JXV/embed/simple" width="320" height="320" frameborder="0"></iframe>
 
@@ -47,6 +47,8 @@ If you are connecting multiple Cores, you'll go through this naming process for 
 <iframe class="vine-embed" src="https://vine.co/v/hFdxB9lHOmv/embed/simple" width="320" height="320" frameborder="0"></iframe>
 
 Once you've finished naming your Cores, you can control them with Tinker! Try *digitalWrite* on D7 to turn on the user LED.
+
+For more information on how the *seemingly magical* Smart Config mode works, check out [this community thread by GHawkins](https://community.spark.io/t/smart-config-the-missing-manual-now-available/442)
 
 ## Smart Config with the TI app
 
@@ -144,7 +146,7 @@ The Core now is in the DFU mode.
 
 ## Factory Reset
 
-A factory reset restores the firmware on the Core to the default Tinker app and clears all your WiFi credentials.
+A factory reset restores the firmware on the Core to the default Tinker app and clears all your Wi-Fi credentials.
 
 Procedure:
 
