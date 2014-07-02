@@ -326,6 +326,8 @@ TODO: Write something
 
 TODO: Write something once binary behaves as expected...  The core will flash orange for XX seconds.
 
+NOTE: The core will be running Tinker when deep update is completely finished.
+
 ### Troubleshooting
 
 TODO: Write something once we've tried it a couple of times via the CLI or IDE and have some insights.
