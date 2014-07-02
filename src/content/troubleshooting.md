@@ -308,17 +308,21 @@ The good news is that, as of July 2014, after months of iterating with TI to dev
 
 We're calling the solution to the cyan flash of death <b>"deep update"</b> because it reaches <i>deep</i> into the internals of a core and <i>updates</i> the firmware of peripheral modules like the CC3000.  Periodically, as enhancements and bugfixes become available for components on the Core, we'll release new deep updates to keep your hardware always running the latest, greatest firmware within your application <i>and</i> the other underlying flashable components.  Our first deep update release, "deep_update_2014_06" is the maiden voyage of this feature, designed to apply the CC3000 patch, fix the flashing cyan issue, and dramatically improve the stability and performance of the Core.
 
-### Flash Deep Update In Spark Build
+### Flash via Spark Build
 
 The easiest way to apply deep_update_2014_06 is to simply log into the [Spark Build IDE](spark.io/build).  When you login, if you have any cores that haven't flashed this deep update, the IDE will prompt or provide links to the Cores drawer where you can click the ↑ icon next to the Core name.  Note: You'll need have your core connected and breathing cyan for this to work.
 
 The cool thing about the this approach to applying deep update is that it's extremely simple and streamlined. However, if you've had troubles with the over-the-air flashing in the past; you might want to consider using one of the alternate approaches described below
 
-### Flash Deep Update From Spark CLI
+### Flash via Spark CLI
 
 The [Spark-CLI](https://github.com/spark/spark-cli) is a swiss army command line knife that can be used to do all kinds of cool things...like flash a deep update to your core. The README provides some nice documentation about how to install it and [how to do a deep update over USB](https://github.com/spark/spark-cli#performing-a-deep-update).  The process is pretty simple: connect a Core to your computer via USB, put it into DFU mode, and type `spark flash --usb deep_update_2014_06`
 
-### What will deep update look like
+### Flash via download + dfu-util
+
+TODO: Write something
+
+### What will deep update look like on the core
 
 TODO: Write something once binary behaves as expected...
 
