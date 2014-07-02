@@ -281,30 +281,6 @@ Please complete the following steps:
 Known Issues
 ===
 
-## Flashing Cyan
-* Status: **Solution in progress, available in 1-2 weeks**
-* Forum Thread: https://community.spark.io/t/bug-bounty-kill-the-cyan-flash-of-death/1322
-
-#### Description
-
-With certain WiFi networks, the Spark Core will sometimes enter a state where the status LED will flash cyan. Flashing cyan means that the Spark Core can no longer communicate with the Spark Cloud server. If this happens, the Spark Core is programmed to try to reconnect. When the Core reconnects, the status LED will go back to 'Breathing Cyan'.
-
-The Spark Core is equipped with a Texas Instruments (TI) CC3000 WiFi module to facilitate wireless networking. The CC3000 module has it's own closed-source firmware that was created by TI. Unfortunately, it was discovered that the firmware on the CC3000 module itself has an issue that can cause the module to stop responding. In this case, the Spark Core entered a permanent state of flashing cyan referred to as the 'Cyan Flash of Death' or CFOD. A reset was required to reconnect the Spark Core.
-
-The good news is that the firmware on the CC3000 module can be updated and the Spark team has been working with TI in order to resolve the issue. Also, because of the great work by many community members and the Spark team, the Spark Core firmware has been modified to work around the issues with the CC3000. When the CC3000 fails, the Spark Core firmware will attempt to reset the CC3000 and reconnect to the Spark Cloud.
-
-So far TI has supplied a couple of firmware patches to the Spark Team to test, but at this time, the issue doesn't seem to have been fully resolved. TI has been very helpful during this process and we're hopeful to have a fix soon. When the fix is ready and fully tested, we will provide instructions on how to update the CC3000 firmware.
-
-## Spark.publish() breaks inside of Spark.function()
-* Status: **Acknowledged**
-* Forum Thread: https://community.spark.io/t/spark-publish-crashing-core/3463
-
-#### Description
-
-If `Spark.publish()` is called within a function declared in `Spark.function()`, the Core may become unresponsive for a short period of time and return a 408 timed out error in the cloud API call.
-
-A fix can be applied in the user code that will work around this issue.  A simple explanation can be found in [post #10 of the forum thread](https://community.spark.io/t/spark-publish-crashing-core/3463/10).
-
 ## Spark UDP - numerous issues
 * Status: **Acknowledged**
 * Forum Thread: https://community.spark.io/t/udp-issues-and-workarounds/4975
@@ -313,10 +289,53 @@ A fix can be applied in the user code that will work around this issue.  A simpl
 
 There are numerous issues with Spark UDP. The central one is that received datagram boundaries are not preserved by Spark UDP. This and other issues, together with some workarounds, are detailed at the forum thread linked to above.
 
-
-
 Recently Resolved Issues
 ===
+
+## Flashing Cyan
+* Status: **Solution available, see below.**
+* Forum Thread: https://community.spark.io/t/bug-bounty-kill-the-cyan-flash-of-death/1322
+
+#### Description
+
+With certain WiFi networks, the Spark Core will sometimes enter a state where the status LED will flash cyan. Flashing cyan means that the Spark Core can no longer communicate with the Spark Cloud server. If this happens, the Spark Core is programmed to try to reconnect. When the Core reconnects, the status LED will go back to 'Breathing Cyan'.
+
+The Spark Core is equipped with a Texas Instruments (TI) CC3000 WiFi module to facilitate wireless networking. The CC3000 module has it's own closed-source firmware that was created by TI. Unfortunately, it was discovered that the firmware on the CC3000 module itself has an issue that can cause the module to stop responding. In this case, the Spark Core entered a permanent state of flashing cyan referred to as the 'Cyan Flash of Death' or CFOD. A manual reset was required to reconnect the Spark Core.
+
+The good news is that, as of July 2014, after months of iterating with TI to develop a patch that resolves the issue, we finally have a working patch and streamlined approach to roll it out. The following describes how can apply the patch.
+
+## Flashing Cyan Solution
+
+We're calling the solution to the cyan flash of death <b>"deep update"</b> because it reaches <i>deep</i> into the internals of a core and <i>updates</i> the firmware of peripheral modules like the CC3000.  Periodically, as enhancements and bugfixes become available for components on the Core, we'll release new deep updates to keep your hardware always running the latest, greatest firmware within your application <i>and</i> the other underlying flashable components.  Our first deep update release, "deep_update_2014_06" is the maiden voyage of this feature, designed to apply the CC3000 patch, fix the flashing cyan issue, and dramatically improve the stability and performance of the Core.
+
+### Flash Deep Update In Spark Build
+
+The easiest way to apply deep_update_2014_06 is to simply log into the [Spark Build IDE](spark.io/build).  When you login, if you have any cores that haven't flashed this deep update, the IDE will prompt or provide links to the Cores drawer where you can click the ↑ icon next to the Core name.  Note: You'll need have your core connected and breathing cyan for this to work.
+
+The cool thing about the this approach to applying deep update is that it's extremely simple and streamlined. However, if you've had troubles with the over-the-air flashing in the past; you might want to consider using one of the alternate approaches described below
+
+### Flash Deep Update From Spark CLI
+
+The [Spark-CLI](https://github.com/spark/spark-cli) is a swiss army command line knife that can be used to do all kinds of cool things...like flash a deep update to your core. The README provides some nice documentation about how to install it and [how to do a deep update over USB](https://github.com/spark/spark-cli#performing-a-deep-update).  The process is pretty simple: connect a Core to your computer via USB, put it into DFU mode, and type `spark flash --usb deep_update_2014_06`
+
+### What will deep update look like
+
+TODO: Write something once binary behaves as expected...
+
+### Troubleshooting
+
+TODO: Write something once we've tried it a couple of times via the CLI or IDE and have some insights.
+
+
+## Spark.publish() breaks inside of Spark.function()
+* Status: **Resolved as of v0.2.1**
+* Forum Thread: https://community.spark.io/t/spark-publish-crashing-core/3463
+
+#### Description
+
+If `Spark.publish()` is called within a function declared in `Spark.function()`, the Core may become unresponsive for a short period of time and return a 408 timed out error in the cloud API call.
+
+A fix can be applied in the user code that will work around this issue.  A simple explanation can be found in [post #10 of the forum thread](https://community.spark.io/t/spark-publish-crashing-core/3463/10).
 
 ## Flashing Blue
 * Status: **Resolved as of v0.2.0**
