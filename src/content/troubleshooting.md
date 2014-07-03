@@ -308,29 +308,148 @@ The good news is that, as of July 2014, after months of iterating with TI to dev
 
 We're calling the solution to the cyan flash of death <b>"deep update"</b> because it reaches <i>deep</i> into the internals of a core and <i>updates</i> the firmware of peripheral modules like the CC3000.  Periodically, as enhancements and bugfixes become available for components on the Core, we'll release new deep updates to keep your hardware always running the latest, greatest firmware within your application <i>and</i> the other underlying flashable components.  Our first deep update release, "deep_update_2014_06" is the maiden voyage of this feature, designed to apply the CC3000 patch, fix the flashing cyan issue, and dramatically improve the stability and performance of the Core.
 
-### Flash via Spark Build
+### Overview
 
-The easiest way to apply deep_update_2014_06 is to simply log into the [Spark Build IDE](spark.io/build).  When you login, if you have any cores that haven't flashed this deep update, the IDE will prompt or provide links to the Cores drawer where you can click the ↑ icon next to the Core name.  Note: You'll need have your core connected and breathing cyan for this to work.
+There are multiple ways to apply the CC3000 deep update described below.
+Regardless of which path you choose, all of them will invoke the same behaviors once the binary has been flashed to the Core.
+This firmware employs the following logic:
 
-The cool thing about the this approach to applying deep update is that it's extremely simple and streamlined. However, if you've had troubles with the over-the-air flashing in the past; you might want to consider using one of the alternate approaches described below.
+1. Selectively apply the patch if needed, if the CC3000 firmware version is less than "1.28".
+1. Restart, reconnect to cloud, auto-upgrade to the latest Tinker via an over the air firmware update.
+1. Restart, reconnect to cloud, firmware on Core is now running Tinker.
 
-### Flash via Spark CLI
+In step one, when the CC3000 firmware is being upgraded the LED will blink orange.
+It looks very similar to the dfu-mode yellow blinking, if you look closely it is in fact orange! :)
 
-The [Spark-CLI](https://github.com/spark/spark-cli) is a swiss army command line knife that can be used to do all kinds of cool things...like flash a deep update to your core. The README provides some nice documentation about how to install it and [how to do a deep update over USB](https://github.com/spark/spark-cli#performing-a-deep-update).  The process is pretty simple: connect a Core to your computer via USB, put it into DFU mode, and type `spark flash --usb deep_update_2014_06`
+Sometimes over air firmware updates can fail, if your Core freezes while blinking magenta, just reset it and try again.
 
-### Flash via download + dfu-util
+If you want to get a preview of what to expect, please checkout
+these **videos that illustrate what a deep update looks like on a Core**.
 
-TODO: Write something
+- TODO: [This video](TODO) illustrates what a deep update looks like when triggered from the IDE.
+- [This video](https://vimeo.com/99867395) illustrates what a deep update looks like when the OTA firmware update fails a couple of times, but ultimately succeeds.
 
-### What will deep update look like on the core
+### Flash via Spark Build IDE
 
-TODO: Write something once binary behaves as expected...  The core will flash orange for XX seconds.
+The easiest way to apply deep_update_2014_06 is to simply log into the [Spark Build IDE](spark.io/build).  
+When you login, you'll be prompted with instructions and links that will show you the way.
+Once all of your claimed cores have had the deep update applied to them, you'll no longer be prompted.
+Note: You'll need have a Core connected and breathing cyan for this to work.
 
-NOTE: The core will be running Tinker when deep update is completely finished.
+The cool thing about this approach is that it's extremely simple and streamlined.
+However, if you're on a noisy WiFi network you've had troubles flashing wirelessly in the past, you might want to consider using one of the alternate USB-based approaches described below.
+
+### Flash via USB with dfu-util
+
+To flash a Core over USB you'll need the `dfu-util` utility and the deep_update_2014_06 binary.
+
+- You can install dfu-util via the instructions provided [here](https://github.com/spark/core-firmware#3-device-firmware-upgrade-utilities).
+- You can download the deep_update_2014_06 binary [here](TODO) TODO.
+
+To flash the deep update binary to the core, first put it into [dfu-mode](http://docs.spark.io/connect/#appendix-dfu-mode-device-firmware-upgrade):
+
+- Hold down BOTH buttons
+- Release only the RST button, while holding down the MODE button.
+- Wait for the LED to start flashing yellow
+- Release the MODE button
+
+Then, with your lovely Core blinking yellow, type:
+
+    dfu-util -d 1d50:607f -a 0 -s 0x8005000:leave -D ~/Downloads/deep_update_2014_06.bin
+                                                     ^^ YOU WILL NEED TO CHANGE THIS ^^
+                                                        TO POINT AT THE FILE YOU
+                                                        DOWNLOADED
+
+After that completes, the core will reset and commence the deep update.
+
+#### With Spark CLI
+
+The [Spark-CLI](https://github.com/spark/spark-cli) is a swiss army command line knife that can be used to do all kinds of cool things...like flash a deep update to your core. The README provides some nice documentation about how to install it and [how to do a deep update over USB](https://github.com/spark/spark-cli#performing-a-deep-update).  The process is pretty simple: 
+
+1. Download the deep update binary
+2. Connect a Core to your computer via USB and put it into DFU mode.
+3. Run the flash command:
+
+    spark flash --usb deep_update_2014_06.bin
+                      ^^ YOU WILL NEED TO CHANGE THIS ^^
+                         TO POINT AT THE FILE YOU
+                         DOWNLOADED
 
 ### Troubleshooting
 
-TODO: Write something once we've tried it a couple of times via the CLI or IDE and have some insights.
+#### Verify the deep update worked
+
+The following gets very technical, it is provided in case you're unsure whether the patch worked or not or you need to inspect the 
+state of your Core more closely.
+
+If a core requires a deep update, the API will tell you via the list devices endpoint:
+
+```bash
+# Which cores require a deep update?
+curl -H "Authorization: Bearer daa51891b8ec07bbaabcb5bc703be11c1d1883af" https://api.spark.io/v1/devices
+#                              ^^  REPLACE WITH YOUR ACCESS TOKEN    ^^
+
+# The ones that have the requires_deep_update: true key/value pair!
+[
+  {
+    "id": "51ff69065067545755380687",
+    "name": "joe_prod_core2",
+    "last_app": null,
+    "last_heard": "2014-07-02T23:15:00.409Z",
+    "connected": true,
+    "requires_deep_update": true, <--- NEW KEY/VALUE
+     ^^ present only when required ^^
+  }
+]
+```
+
+The API will also tell you what firmware version the CC3000 is running for a particular core.
+This is handy for verifying that the patch was successfully applied.
+
+```
+# Before applying the patch, the version is less than the newest
+curl -H "Authorization: Bearer 98a51891b8lc0bhbaabcb8b97dfbe71a331883ff" https://api.spark.io/v1/devices/51ff69065067545755380687
+#                              ^^  REPLACE WITH YOUR ACCESS TOKEN    ^^                                  ^^ REPLACE WITH YOUR CORE ID ^^
+
+# Note the cc3000_patch_version and requires_deep_update keys
+{
+  "id": "51ff6b0e5e675f5755380687",
+  "name": "jfg_core",
+  "connected": true,
+  "variables": {},
+  "functions": [],
+  "cc3000_patch_version": "1.23", <--- THE RADIO FIRMWARE VERSION
+  "requires_deep_update": true    <--- REQUIRES UPDATE
+}
+
+# After applying the patch, the requires_deep_update key is not there and the version is different
+curl -H "Authorization: Bearer 9aaa1091b8eca7fbaabcb7bc70fbe71c331883ff" https://api.spark.io/v1/device/51ff69065067545755380687
+#                              ^^  REPLACE WITH YOUR ACCESS TOKEN    ^^                                  ^^ REPLACE WITH YOUR CORE ID ^^
+
+# Note the updated cc3000_patch_version key
+{
+  "id": "51ff69065067545755380687",
+  "name": "joe_prod_core2",
+  "connected": true,
+  "variables": {},
+  "functions": [
+    "digitalread",
+    "digitalwrite",
+    "analogread",
+    "analogwrite"
+  ],
+  "cc3000_patch_version": "1.28" <---- AH SO FRESH, NO UPDATE NEEDED ANYMORE, YAY!!!!!!
+```
+
+#### It won't work, help!
+
+If you've tried both the IDE and command line approaches to applying the deep update and neither of them are working for you:
+
+1. Search the [community site](community.spark.io) for "deep update", maybe someone else has encountered your issue and can help you out.
+2. If you can't find a thread that sounds similar to the problem you're experiencing, post a thread that includes the words "deep update" in the title.
+   Be sure to include detailed information about what you've tried so far and what the failure condition looks like so it's easy for others to help you
+3. If you you've tried the suggestions here and on the community site and nothing seems to be working, please contact hello@spark.io. Again,
+   please provide information about what you've tried, how it's failing, relevant threads that didn't work, etc.
 
 
 ## Spark.publish() breaks inside of Spark.function()
