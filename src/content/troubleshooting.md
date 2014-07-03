@@ -397,8 +397,7 @@ curl -H "Authorization: Bearer daa51891b8ec07bbaabcb5bc703be11c1d1883af" https:/
     "last_app": null,
     "last_heard": "2014-07-02T23:15:00.409Z",
     "connected": true,
-    "requires_deep_update": true, <--- NEW KEY/VALUE
-     ^^ present only when required ^^
+    "requires_deep_update": true  # <--- NEW KEY/VALUE
   }
 ]
 ```
@@ -418,8 +417,8 @@ curl -H "Authorization: Bearer 98a51891b8lc0bhbaabcb8b97dfbe71a331883ff" https:/
   "connected": true,
   "variables": {},
   "functions": [],
-  "cc3000_patch_version": "1.23", <--- THE RADIO FIRMWARE VERSION
-  "requires_deep_update": true    <--- REQUIRES UPDATE
+  "cc3000_patch_version": "1.23", # <--- THE RADIO FIRMWARE VERSION
+  "requires_deep_update": true    # <--- REQUIRES UPDATE
 }
 
 # After applying the patch, the requires_deep_update key is not there and the version is different
@@ -438,7 +437,7 @@ curl -H "Authorization: Bearer 9aaa1091b8eca7fbaabcb7bc70fbe71c331883ff" https:/
     "analogread",
     "analogwrite"
   ],
-  "cc3000_patch_version": "1.28" <---- AH SO FRESH, NO UPDATE NEEDED ANYMORE, YAY!!!!!!
+  "cc3000_patch_version": "1.28" # <---- AH SO FRESH, NO UPDATE NEEDED ANYMORE, YAY!!!!!!
 ```
 
 #### It won't work, help!
