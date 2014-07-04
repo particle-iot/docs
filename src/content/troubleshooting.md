@@ -316,7 +316,7 @@ This firmware employs the following logic:
 
 1. Selectively apply the patch if needed, if the CC3000 firmware version is less than "1.28".
 1. Restart, reconnect to cloud, auto-upgrade to the latest Tinker via an over the air firmware update.
-1. Restart, reconnect to cloud, firmware on Core is now running Tinker.
+1. Restart, reconnect to cloud, publish spark/cc3000-patch-version (latest Tinker does this).
 
 In step one, when the CC3000 firmware is being upgraded the LED will blink orange.
 It looks very similar to the dfu-mode yellow blinking, if you look closely it is in fact orange! :)
@@ -339,7 +339,31 @@ Note: You'll need have a Core connected and breathing cyan for this to work.
 The cool thing about this approach is that it's extremely simple and streamlined.
 However, if you're on a noisy WiFi network you've had troubles flashing wirelessly in the past, you might want to consider using one of the alternate USB-based approaches described below.
 
+#### Flash via Spark CLI
+
+The [Spark-CLI](https://github.com/spark/spark-cli) is a swiss army command line knife that can be used to do all kinds of cool things...like flash a deep update to your core. The README provides some nice documentation about how to install it and [how to do a deep update over USB](https://github.com/spark/spark-cli#performing-a-deep-update).  The process is pretty simple: 
+
+Install or Upgrade the CLI (requires node.js):
+
+```bash
+npm install -g spark-cli
+```
+
+Connect a Core to your computer via USB and put it into [dfu-mode](http://docs.spark.io/connect/#appendix-dfu-mode-device-firmware-upgrade).
+
+Run the flash command:
+
+```bash
+spark flash --usb deep_update_2014_06
+```
+
+This installs the deep update from a binary that is packaged with the Spark CLI, so you don't have to download it.
+TODO: DEPLOY THIS
+
 ### Flash via USB with dfu-util
+
+Note: If you can, you should use the spark-cli described above, its simpler, easier, and does all kinds of other handy things.
+If you
 
 To flash a Core over USB you'll need the `dfu-util` utility and the deep_update_2014_06 binary.
 
@@ -362,18 +386,6 @@ Then, with your lovely Core blinking yellow, type:
 
 After that completes, the core will reset and commence the deep update.
 
-#### With Spark CLI
-
-The [Spark-CLI](https://github.com/spark/spark-cli) is a swiss army command line knife that can be used to do all kinds of cool things...like flash a deep update to your core. The README provides some nice documentation about how to install it and [how to do a deep update over USB](https://github.com/spark/spark-cli#performing-a-deep-update).  The process is pretty simple: 
-
-1. Download the deep update binary
-2. Connect a Core to your computer via USB and put it into DFU mode.
-3. Run the flash command:
-
-    spark flash --usb deep_update_2014_06.bin
-                      ^^ YOU WILL NEED TO CHANGE THIS ^^
-                         TO POINT AT THE FILE YOU
-                         DOWNLOADED
 
 ### Troubleshooting
 
