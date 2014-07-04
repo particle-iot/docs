@@ -277,38 +277,12 @@ Please complete the following steps:
 1. Try powering the Core with a different USB cable and power supply (different USB port on your computer, for example)
 2. If a different USB cable and power supply does not fix the issue, your Core may have a hardware short. Please [contact the Spark team](mailto:hello@spark.io) for further debugging.
 
-
-Known Issues
+Deep Update
 ===
 
-## Spark UDP - numerous issues
-* Status: **Acknowledged**
-* Forum Thread: https://community.spark.io/t/udp-issues-and-workarounds/4975
+A *deep update* is a firmware update that reaches *deep* into the internals of a core and *updates* the firmware of peripheral modules like the CC3000.  Periodically, as enhancements and bugfixes become available for components on the Core, we'll release new deep updates to keep your hardware always running the latest, greatest firmware within your application <i>and</i> the other underlying flashable components.  Our first deep update release, `deep_update_2014_06` is the maiden voyage of this feature, designed to apply the CC3000 patch, fix the flashing cyan issue, and dramatically improve the stability and performance of the Core.
 
-#### Description
-
-There are numerous issues with Spark UDP. The central one is that received datagram boundaries are not preserved by Spark UDP. This and other issues, together with some workarounds, are detailed at the forum thread linked to above.
-
-Recently Resolved Issues
-===
-
-## Flashing Cyan
-* Status: **Solution available, see below.**
-* Forum Thread: https://community.spark.io/t/bug-bounty-kill-the-cyan-flash-of-death/1322
-
-#### Description
-
-With certain Wi-Fi networks, the Spark Core will sometimes enter a state where the status LED will flash cyan. Flashing cyan means that the Spark Core can no longer communicate with the Spark Cloud server. If this happens, the Spark Core is programmed to try to reconnect. When the Core reconnects, the status LED will go back to 'Breathing Cyan'.
-
-The Spark Core is equipped with a Texas Instruments (TI) CC3000 Wi-Fi module to facilitate wireless networking. The CC3000 module has its own closed-source firmware that was created by TI. Unfortunately, it was discovered that the firmware on the CC3000 module itself has an issue that can cause the module to stop responding. In this case, the Spark Core entered a permanent state of flashing cyan referred to as the 'Cyan Flash of Death' or CFOD. A manual reset was required to reconnect the Spark Core.
-
-The good news is that, as of July 2014, after months of iterating with TI to develop a patch that resolves the issue, we finally have a working patch and streamlined approach to roll it out. The following describes how to apply the patch.
-
-## Flashing Cyan Solution
-
-We're calling the solution to the cyan flash of death <b>"deep update"</b> because it reaches <i>deep</i> into the internals of a core and <i>updates</i> the firmware of peripheral modules like the CC3000.  Periodically, as enhancements and bugfixes become available for components on the Core, we'll release new deep updates to keep your hardware always running the latest, greatest firmware within your application <i>and</i> the other underlying flashable components.  Our first deep update release, "deep_update_2014_06" is the maiden voyage of this feature, designed to apply the CC3000 patch, fix the flashing cyan issue, and dramatically improve the stability and performance of the Core.
-
-### Overview
+## Overview
 
 There are multiple ways to apply the CC3000 deep update described below.
 Regardless of which path you choose, all of them will invoke the same behaviors once the binary has been flashed to the Core.
@@ -319,9 +293,9 @@ This firmware employs the following logic:
 1. Restart, reconnect to cloud, publish spark/cc3000-patch-version (latest Tinker does this).
 
 In step one, when the CC3000 firmware is being upgraded the LED will blink orange.
-It looks very similar to the dfu-mode yellow blinking, if you look closely it is in fact orange! :)
+It looks very similar to the bootloader mode's blinking yellow; if you look closely, it is in fact orange! :)
 
-Sometimes over air firmware updates can fail, if your Core freezes while blinking magenta, just reset it and try again.
+Sometimes over air firmware updates can fail. If your Core freezes while blinking magenta, just reset it and try again.
 
 If you want to get a preview of what to expect, please checkout
 these **videos that illustrate what a deep update looks like on a Core**.
@@ -329,21 +303,20 @@ these **videos that illustrate what a deep update looks like on a Core**.
 - TODO: [This video](TODO) illustrates what a deep update looks like when triggered from the IDE.
 - [This video](https://vimeo.com/99867395) illustrates what a deep update looks like when the OTA firmware update fails a couple of times, but ultimately succeeds.
 
-### Flash via Spark Build IDE
+## Flash via Spark Build IDE
 
-The easiest way to apply deep_update_2014_06 is to simply log into the [Spark Build IDE](spark.io/build).  
+The easiest way to apply `deep_update_2014_06` is to simply log into the [Spark Build IDE](spark.io/build).  
 When you login, you'll be prompted with instructions and links that will show you the way.
-Once all of your claimed cores have had the deep update applied to them, you'll no longer be prompted.
+Once all of your claimed cores have had the *deep update* applied to them, you'll no longer be prompted.
 Note: You'll need have a Core connected and breathing cyan for this to work.
 
-The cool thing about this approach is that it's extremely simple and streamlined.
-However, if you're on a noisy WiFi network you've had troubles flashing wirelessly in the past, you might want to consider using one of the alternate USB-based approaches described below.
+If you're on a noisy WiFi network you've had troubles flashing wirelessly in the past, you might want to consider using one of the alternate USB-based approaches described below.
 
-#### Flash via Spark CLI
+### Flash via Spark CLI
 
-The [Spark-CLI](https://github.com/spark/spark-cli) is a swiss army command line knife that can be used to do all kinds of cool things...like flash a deep update to your core. The README provides some nice documentation about how to install it and [how to do a deep update over USB](https://github.com/spark/spark-cli#performing-a-deep-update).  The process is pretty simple: 
+The [Spark-CLI](https://github.com/spark/spark-cli) is a swiss army command line knife that can be used to do all kinds of cool things...like flash a deep update to your core. The README provides some nice documentation about how to install it and [how to do a deep update over USB](https://github.com/spark/spark-cli#performing-a-deep-update).  The process is pretty simple:
 
-Install or Upgrade the CLI (requires node.js):
+Install or Upgrade the CLI (requires Node.js):
 
 ```bash
 npm install -g spark-cli
@@ -358,14 +331,14 @@ spark flash --usb deep_update_2014_06
 ```
 
 This installs the deep update from a binary that is packaged with the Spark CLI, so you don't have to download it.
+
 TODO: DEPLOY THIS
 
-### Flash via USB with dfu-util
+## Flash via USB with dfu-util
 
-Note: If you can, you should use the spark-cli described above, its simpler, easier, and does all kinds of other handy things.
-If you
+Note: If you can, you should use the `spark-cli` described above; it's simpler and easier.
 
-To flash a Core over USB you'll need the `dfu-util` utility and the deep_update_2014_06 binary.
+To flash a Core over USB without the `spark-cli`, you'll need the `dfu-util` utility and the `deep_update_2014_06` binary.
 
 - You can install dfu-util via the instructions provided [here](https://github.com/spark/core-firmware#3-device-firmware-upgrade-utilities).
 - You can download the deep_update_2014_06 binary [here](TODO) TODO.
@@ -379,27 +352,27 @@ To flash the deep update binary to the core, first put it into [dfu-mode](http:/
 
 Then, with your lovely Core blinking yellow, type:
 
-    dfu-util -d 1d50:607f -a 0 -s 0x8005000:leave -D ~/Downloads/deep_update_2014_06.bin
-                                                     ^^ YOU WILL NEED TO CHANGE THIS ^^
-                                                        TO POINT AT THE FILE YOU
-                                                        DOWNLOADED
+    dfu-util -d 1d50:607f -a 0 -s 0x8005000:leave -D \
+      ~/Downloads/deep_update_2014_06.bin
+      ^^ YOU WILL NEED TO CHANGE THIS ^^
+         TO POINT AT THE FILE YOU DOWNLOADED
 
 After that completes, the core will reset and commence the deep update.
 
 
-### Troubleshooting
+## Troubleshooting
 
-#### Verify the deep update worked
+### Verify the deep update worked
 
-The following gets very technical, it is provided in case you're unsure whether the patch worked or not or you need to inspect the 
-state of your Core more closely.
+The following gets very technical, it is provided in case you're unsure whether the patch worked or not or you need to inspect the state of your Core more closely.
 
 If a core requires a deep update, the API will tell you via the list devices endpoint:
 
 ```bash
 # Which cores require a deep update?
-curl -H "Authorization: Bearer daa51891b8ec07bbaabcb5bc703be11c1d1883af" https://api.spark.io/v1/devices
-#                              ^^  REPLACE WITH YOUR ACCESS TOKEN    ^^
+curl -H "Authorization: Bearer daa51891b8ec07bbaabcb5bc703be11c1d1883af" \
+  https://api.spark.io/v1/devices
+  #                              ^^  REPLACE WITH YOUR ACCESS TOKEN    ^^
 
 # The ones that have the requires_deep_update: true key/value pair!
 [
@@ -419,7 +392,8 @@ This is handy for verifying that the patch was successfully applied.
 
 ```
 # Before applying the patch, the version is less than the newest
-curl -H "Authorization: Bearer 98a51891b8lc0bhbaabcb8b97dfbe71a331883ff" https://api.spark.io/v1/devices/51ff69065067545755380687
+curl -H "Authorization: Bearer 98a51891b8lc0bhbaabcb8b97dfbe71a331883ff" \
+https://api.spark.io/v1/devices/51ff69065067545755380687
 #                              ^^  REPLACE WITH YOUR ACCESS TOKEN    ^^                                  ^^ REPLACE WITH YOUR CORE ID ^^
 
 # Note the cc3000_patch_version and requires_deep_update keys
@@ -452,15 +426,41 @@ curl -H "Authorization: Bearer 9aaa1091b8eca7fbaabcb7bc70fbe71c331883ff" https:/
   "cc3000_patch_version": "1.28" # <---- AH SO FRESH, NO UPDATE NEEDED ANYMORE, YAY!!!!!!
 ```
 
-#### It won't work, help!
+### It won't work, help!
 
 If you've tried both the IDE and command line approaches to applying the deep update and neither of them are working for you:
 
 1. Search the [community site](community.spark.io) for "deep update", maybe someone else has encountered your issue and can help you out.
 2. If you can't find a thread that sounds similar to the problem you're experiencing, post a thread that includes the words "deep update" in the title.
    Be sure to include detailed information about what you've tried so far and what the failure condition looks like so it's easy for others to help you
-3. If you you've tried the suggestions here and on the community site and nothing seems to be working, please contact hello@spark.io. Again,
-   please provide information about what you've tried, how it's failing, relevant threads that didn't work, etc.
+3. If you you've tried the suggestions here and on the community site and nothing seems to be working, please contact [hello@spark.io](mailto:hello@spark.io). Again, please provide information about what you've tried, how it's failing, relevant threads that didn't work, etc.
+
+
+Known Issues
+===
+
+## Spark UDP - numerous issues
+* Status: **Acknowledged**
+* Forum Thread: https://community.spark.io/t/udp-issues-and-workarounds/4975
+
+#### Description
+
+There are numerous issues with Spark UDP. The central one is that received datagram boundaries are not preserved by Spark UDP. This and other issues, together with some workarounds, are detailed at the forum thread linked to above.
+
+Recently Resolved Issues
+===
+
+## Flashing Cyan
+* Status: **Solution available, see below.**
+* Forum Thread: https://community.spark.io/t/bug-bounty-kill-the-cyan-flash-of-death/1322
+
+#### Description
+
+With certain Wi-Fi networks, the Spark Core will sometimes enter a state where the status LED will flash cyan. Flashing cyan means that the Spark Core can no longer communicate with the Spark Cloud server. If this happens, the Spark Core is programmed to try to reconnect. When the Core reconnects, the status LED will go back to 'Breathing Cyan'.
+
+The Spark Core is equipped with a Texas Instruments (TI) CC3000 Wi-Fi module to facilitate wireless networking. The CC3000 module has its own closed-source firmware that was created by TI. Unfortunately, it was discovered that the firmware on the CC3000 module itself has an issue that can cause the module to stop responding. In this case, the Spark Core entered a permanent state of flashing cyan referred to as the 'Cyan Flash of Death' or CFOD. A manual reset was required to reconnect the Spark Core.
+
+As of July 2014, after months of iterating with TI to develop a patch that resolves the issue, we finally have a working patch and streamlined approach to roll it out. See [the deep update section above](#deep-update) for complete documentation of the fix
 
 
 ## Spark.publish() breaks inside of Spark.function()
