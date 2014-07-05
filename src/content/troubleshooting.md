@@ -408,7 +408,7 @@ https://api.spark.io/v1/devices/51ff69065067545755380687
 }
 
 # After applying the patch, the requires_deep_update key is not there and the version is different
-curl -H "Authorization: Bearer 9aaa1091b8eca7fbaabcb7bc70fbe71c331883ff" https://api.spark.io/v1/device/51ff69065067545755380687
+curl -H "Authorization: Bearer 9aaa1091b8eca7fbaabcb7bc70fbe71c331883ff" https://api.spark.io/v1/devices/51ff69065067545755380687
 #                              ^^  REPLACE WITH YOUR ACCESS TOKEN    ^^                                  ^^ REPLACE WITH YOUR CORE ID ^^
 
 # Note the updated cc3000_patch_version key
