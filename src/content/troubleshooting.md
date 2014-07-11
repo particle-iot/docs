@@ -300,7 +300,6 @@ Sometimes over air firmware updates can fail. If your Core freezes while blinkin
 If you want to get a preview of what to expect, please checkout
 these **videos that illustrate what a deep update looks like on a Core**.
 
-- TODO: [This video](TODO) illustrates what a deep update looks like when triggered from the IDE.
 - [This video](https://vimeo.com/99867395) illustrates what a deep update looks like when the OTA firmware update fails a couple of times, but ultimately succeeds.
 
 ## Flash via Spark Build IDE
@@ -370,11 +369,8 @@ If a core requires a deep update, the API will tell you via the list devices end
 
 ```bash
 # Which cores require a deep update?
-curl -H "Authorization: Bearer daa51891b8ec07bbaabcb5bc703be11c1d1883af" \
-  https://api.spark.io/v1/devices
-  #                              ^^  REPLACE WITH YOUR ACCESS TOKEN    ^^
-
-# The ones that have the requires_deep_update: true key/value pair!
+curl 'https://api.spark.io/v1/devices?access_token=9aa51...'
+#                   REPLACE WITH YOUR ACCESS TOKEN ^^^^^^^^
 [
   {
     "id": "51ff69065067545755380687",
@@ -387,14 +383,15 @@ curl -H "Authorization: Bearer daa51891b8ec07bbaabcb5bc703be11c1d1883af" \
 ]
 ```
 
+---
+
 The API will also tell you what firmware version the CC3000 is running for a particular core.
 This is handy for verifying that the patch was successfully applied.
 
-```
+```bash
 # Before applying the patch, the version is less than the newest
-curl -H "Authorization: Bearer 98a51891b8lc0bhbaabcb8b97dfbe71a331883ff" \
-https://api.spark.io/v1/devices/51ff69065067545755380687
-#                              ^^  REPLACE WITH YOUR ACCESS TOKEN    ^^                                  ^^ REPLACE WITH YOUR CORE ID ^^
+curl 'https://api.spark.io/v1/devices/51fab...?access_token=9aa51091b8...'
+#                REPLACE WITH CORE ID ^^^^^^^^  REPLACE ACCESS TOKEN ^^
 
 # Note the cc3000_patch_version and requires_deep_update keys
 {
@@ -407,9 +404,10 @@ https://api.spark.io/v1/devices/51ff69065067545755380687
   "requires_deep_update": true    # <--- REQUIRES UPDATE
 }
 
+
 # After applying the patch, the requires_deep_update key is not there and the version is different
-curl -H "Authorization: Bearer 9aaa1091b8eca7fbaabcb7bc70fbe71c331883ff" https://api.spark.io/v1/devices/51ff69065067545755380687
-#                              ^^  REPLACE WITH YOUR ACCESS TOKEN    ^^                                  ^^ REPLACE WITH YOUR CORE ID ^^
+curl 'https://api.spark.io/v1/devices/51fab...?access_token=9aa51091b8...'
+#                REPLACE WITH CORE ID ^^^^^^^^  REPLACE ACCESS TOKEN ^^
 
 # Note the updated cc3000_patch_version key
 {
@@ -423,7 +421,7 @@ curl -H "Authorization: Bearer 9aaa1091b8eca7fbaabcb7bc70fbe71c331883ff" https:/
     "analogread",
     "analogwrite"
   ],
-  "cc3000_patch_version": "1.28" # <---- AH SO FRESH, NO UPDATE NEEDED ANYMORE, YAY!!!!!!
+  "cc3000_patch_version": "1.28" # <-- AH SO FRESH, DEEP UPDATE DONE
 ```
 
 ### It won't work, help!
