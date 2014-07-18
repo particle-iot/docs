@@ -3836,11 +3836,11 @@ string.replace(substring1, substring2)
 
 Parameters:
 
-  * string: a variable of type String
+  * string: the string which will be modified - a variable of type String
   * substring1: another variable of type String
   * substring2: another variable of type String
 
-Returns: another String containing the new string with replaced characters.
+Returns: None
 
 ### reserve()
 
