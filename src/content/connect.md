@@ -14,6 +14,7 @@ The easiest way to connect the Spark Core to Wi-Fi is using the Spark mobile app
 For all of the following methods, the Spark Core must be in "listening" mode, which you'll know by its flashing blue LED.
 
 <iframe class="vine-embed" src="https://vine.co/v/hFHlpBDELeU/embed/simple" width="320" height="320" frameborder="0"></iframe>
+## Listening Mode
 
 The Core boots into listening mode by default, so if your Core is brand new, it should go straight into listening mode. Otherwise, hold the MODE button for three seconds.
 
@@ -85,7 +86,7 @@ On Ubuntu, it looks something like `screen /dev/ttyACM0 9600`. Device location m
 
 __How-to__
 
-Plug your Spark Core into your computer over USB. When the Spark Core is in listening mode, open a serial port over USB using the standard settings, which should be:
+Plug your Spark Core into your computer over USB. When the Spark Core is in [Listening Mode](/connect/#Listening-Mode)listening mode, open a serial port over USB using the standard settings, which should be:
 
 - Baudrate: 9600
 - Data Bits: 8
