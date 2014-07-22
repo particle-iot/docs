@@ -3837,8 +3837,8 @@ string.replace(substring1, substring2)
 Parameters:
 
   * string: the string which will be modified - a variable of type String
-  * substring1: another variable of type String
-  * substring2: another variable of type String
+  * substring1: searched for - another variable of type String (single or multi-character), char or const char (single character only)
+  * substring2: replaced with - another variable of type String (signle or multi-character), char or const char (single character only)
 
 Returns: None
 
