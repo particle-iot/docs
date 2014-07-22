@@ -17,7 +17,7 @@ For all of the following methods, the Spark Core must be in [Listening Mode](/co
 
 ## Listening Mode
 
-The Core boots into listening mode by default, so if your Core is brand new, it should go straight into listening mode. Otherwise, hold the MODE button for three seconds. The rgb LED will be flashing blue in this mode.  To completely clear all stored Wi-Fi credentials, continue to hold the MODE button for 10 seconds until the rgb LED flashes blue quickly, signaling all profiles have been deleted.  The rgb LED should now be flashing blue again.
+The Core boots into listening mode by default, so if your Core is brand new, it should go straight into listening mode. Otherwise, hold the MODE button for three seconds. The RGB LED will be flashing blue in this mode.  To completely clear all stored Wi-Fi credentials, continue to hold the MODE button for 10 seconds until the RGB LED flashes blue quickly, signaling that all profiles have been deleted.  The RGB LED should now be flashing blue again.
 
 ## Smart Config with the Spark app
 
@@ -66,7 +66,7 @@ The only thing that's different is that you'll need to activate the optional AES
 
 ## Connect over USB
 
-You can also connect the Spark Core to your Wi-Fi network over USB by communicating through Serial. *NOTE: This only works when the Spark Core is in [Listening Mode](/connect/#connecting-your-core-listening-mode) (i.e. rgb led is blinking blue)*.
+You can also connect the Spark Core to your Wi-Fi network over USB by communicating through Serial. *NOTE: This only works when the Spark Core is in [Listening Mode](/connect/#connecting-your-core-listening-mode) (i.e. RGB led is blinking blue)*.
 
 First, you'll need to download a serial terminal application.
 
