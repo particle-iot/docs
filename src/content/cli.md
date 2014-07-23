@@ -319,8 +319,8 @@ $ spark flash 0123456789ABCDEFGHI cc3000
 
 # how to flash if your core is blinking yellow and connected over usb
 # requires dfu-util
-$ spark flash 0123456789ABCDEFGHI tinker --usb
-$ spark flash 0123456789ABCDEFGHI cc3000 --usb
+$ spark flash --usb tinker
+$ spark flash --usb cc3000
 ```
 
 
