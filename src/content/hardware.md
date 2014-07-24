@@ -132,10 +132,10 @@ Both of these serial ports can be configured and used using the [serial function
 
 The Serial Peripheral Interface is available on pins:
 
-`A2: SS (Slave Select)`
-`A3: SCK (Serial Clock)`
-`A4: MISO (Master In Slave Out)`
-`A5: MOSI (Master Out Slave In)`
+ - `A2: SS (Slave Select)`
+ - `A3: SCK (Serial Clock)`
+ - `A4: MISO (Master In Slave Out)`
+ - `A5: MOSI (Master Out Slave In)`
 
 **NOTE:** All of these pins run at 3.3V logic levels.
 
@@ -145,8 +145,8 @@ The Serial Peripheral Interface is available on pins:
 
 I2C communication pins are multiplexed with the standard GPIO pins D0 and D1.
 
-`D0: SDA (Serial Data Line)`
-`D1: SCL (Serial Clock)`
+ - `D0: SDA (Serial Data Line)`
+ - `D1: SCL (Serial Clock)`
 
 Both of these pins run at 3.3V logic level but *are* tolerant to 5V inputs.
 
