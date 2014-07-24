@@ -1001,16 +1001,15 @@ Sets the SPI clock divider relative to the system clock. The available dividers 
 SPI.setClockDivider(divider) ;
 ```
 Where the parameter, `divider` can be:
-```
-SPI_CLOCK_DIV2
-SPI_CLOCK_DIV4
-SPI_CLOCK_DIV8
-SPI_CLOCK_DIV16
-SPI_CLOCK_DIV32
-SPI_CLOCK_DIV64
-SPI_CLOCK_DIV128
-SPI_CLOCK_DIV256
-```
+
+ - `SPI_CLOCK_DIV2`
+ - `SPI_CLOCK_DIV4`
+ - `SPI_CLOCK_DIV8`
+ - `SPI_CLOCK_DIV16`
+ - `SPI_CLOCK_DIV32`
+ - `SPI_CLOCK_DIV64`
+ - `SPI_CLOCK_DIV128`
+ - `SPI_CLOCK_DIV256`
 
 ### setDataMode()
 
@@ -1022,12 +1021,10 @@ SPI.setDataMode(mode) ;
 ```
 Where the parameter, `mode` can be:
 
-```
-SPI_MODE0
-SPI_MODE1
-SPI_MODE2
-SPI_MODE3
-```
+ - `SPI_MODE0`
+ - `SPI_MODE1`
+ - `SPI_MODE2`
+ - `SPI_MODE3`
 
 ### transfer()
 
