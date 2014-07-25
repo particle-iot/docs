@@ -80,6 +80,8 @@ The Spark mobile app contains a mini-app called Tinker that lets you... well, ti
 
 Each of the pins has up to four functions available: *digitalWrite*, *analogWrite*, *digitalRead*, and *analogRead*. For more information, scroll down to the "Tinkering with Tinker" section.
 
+To control the tiny blue LED on the board, tap D7 then *digitalWrite* in the popup. Now when you tap the D7 circle the blue LED should turn off or on!
+
 ### Step 5: Write Apps with Spark Build
 
 ![Spark Build]({{assets}}/images/ide.png)
