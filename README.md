@@ -6,15 +6,19 @@ To view this documentation, visit [our website](http://docs.spark.io), where the
 
 ### Installation
 
-To host this documentation locally, you'll need Node.js and npm. If you don't already have Grunt installed, you'll need that too:
+To host this documentation locally, you'll need Node.js and npm:
 
-`npm install -g grunt-cli`
+    brew install nodejs
+
+If you don't already have Grunt installed, you'll need that too:
+
+    npm install -g grunt-cli
 
 Once you have the dependencies, navigate to this repository's directory on your machine, and then:
 
-`npm install`
+    npm install
 
-to install any other necessary dependencies
+to install any other necessary dependencies:
 
 ### Hosting locally
 
