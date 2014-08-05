@@ -1,6 +1,6 @@
 ---
 word: Firmware
-title: Firmware reference
+title: Core code
 order: 3
 ---
 

@@ -1,13 +1,13 @@
 ---
 word: Examples
-title: Annotated examples
+title: Examples
 order: 2
 ---
 
 Annotated examples
 =======
 
-Here you will find a bunch of examples to get you started with your all new Spark Core!
+Here you will find a bunch of examples to get you started with your new Spark Core!
 
 Blink an LED
 ===
