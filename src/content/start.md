@@ -85,10 +85,6 @@ You can always get Tinker back on the Core by following [these instructions](/#/
 
 ### Put Code on Your Core
 
-To control the tiny blue LED on the board, tap D7 then *digitalWrite* in the popup. Now when you tap the D7 circle the blue LED should turn off or on!
-
-### Step 5: Write Apps with Spark Build
-
 ![Spark Build]({{assets}}/images/ide.png)
 
 Now let's control the blue LED using code instead of Tinker. If you [click here](http://spark.io/build) or on Build on the main page, you'll be in the IDE- where we can write code and upload it to the Core. Log in with the same email and password you used to sign up in the app, and we're off!
