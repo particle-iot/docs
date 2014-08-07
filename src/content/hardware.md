@@ -1,6 +1,6 @@
 ---
 word: Datasheet
-title: Spark Core datasheet
+title: Hardware datasheet
 order: 5
 ---
 
@@ -88,10 +88,13 @@ You can download a copy of the RF test report [here.]({{assets}}/images/core-rf-
 
 Pins and I/O
 ---
+![Spark Pinout]({{assets}}/images/spark-pinout.png)
 
 The Spark Core offers a total 18 I/O pins to the user: `D0 to D7`, `A0 to A7` and two pins that are preset to serial - `TX` and `RX`. All of these I/O pins run at *3.3V* and the user should keep this in mind before attaching any external peripherals to them. The only exception to this are the following pins that are tolerant to 5V inputs:
 
 `D0, D1, D3, D4, D5, D6 and D7`
+
+[Click here to view a larger pinout diagram]({{assets}}/images/spark-pinout.png)
 
 ### Digital pins
 

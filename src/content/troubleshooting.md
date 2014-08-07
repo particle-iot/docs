@@ -35,7 +35,9 @@ There are a few common issues to check first:
 
 ## STEP 1: Set up your Core over USB
 
-On some networks, Smart Config does not work, but the Core can connect to the network just fine. We've implemented a back-up mechanism so you can set up your Core over USB. For instructions, see above. Don't forget that you'll need to claim your Core manually as well if you haven't already!
+On some networks, Smart Config does not work, but the Core can connect to the network just fine. We've implemented a back-up mechanism so you can set up your Core over USB. Don't forget that you'll need to claim your Core manually as well if you haven't already!
+
+[Setup with USB >](/#/connect/#connecting-your-core-connect-over-usb)
 
 ## STEP 2: Try another network
 
@@ -119,7 +121,7 @@ The Spark Core has an RGB LED positioned on the front that displays the connecti
 - *What’s the problem?* Your Core doesn’t have Wi-Fi credentials to join your local network
 - *How do I fix it?*
 
-Right now, your Core does not have the information it needs to connect to your local Wi-Fi network.  If you haven’t already, try using the Spark Core app for [iPhone](https://itunes.apple.com/us/app/spark-core/id760157884) or [Android](https://play.google.com/store/apps/details?id=io.spark.core.android)  to send your network credentials to your Core.  Detailed instructions can be found [here](http://docs.spark.io/#/connect/connecting-your-core-smart-config-with-the-ti-app).
+Right now, your Core does not have the information it needs to connect to your local Wi-Fi network.  If you haven’t already, try using the Spark Core app for [iPhone](https://itunes.apple.com/us/app/spark-core/id760157884) or [Android](https://play.google.com/store/apps/details?id=io.spark.core.android)  to send your network credentials to your Core.  Detailed instructions can be found [here](/#/connect/connecting-your-core-smart-config-with-the-spark-app).
 
 
 If that doesn’t work, try the steps below:

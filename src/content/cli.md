@@ -1,6 +1,6 @@
 ---
 word: API
-title: Command Line Reference
+title: Command Line
 order: 7
 ---
 

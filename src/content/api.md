@@ -1,6 +1,6 @@
 ---
 word: API
-title: Cloud API reference
+title: Cloud code (API)
 order: 4
 ---
 
