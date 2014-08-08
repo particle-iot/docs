@@ -391,7 +391,7 @@ void redundantLoop() {
 }
 ```
 
-`Spark.process()` is a blocking call, and blocks for a few milliseconds. `Spark.process()` is called automatically after every `loop()` and during delays. Typically you will not need to call `Spark.process()` unless you block in some other way and need to maintain the connection to the Cloud, or you change the [system mode](#advanced-system-modes). If the user puts the Core into `MANUAL` mode, the user is responsible for calling Spark.process(). The more frequently this function is called, the more responsive the Core will be to incoming messages, the more likely the Cloud connection will stay open, and the less likely that the CC3000's buffer will overrun.
+`Spark.process()` is a blocking call, and blocks for a few milliseconds. `Spark.process()` is called automatically after every `loop()` and during delays. Typically you will not need to call `Spark.process()` unless you block in some other way and need to maintain the connection to the Cloud, or you change the [system mode](#advanced-system-modes). If the user puts the Core into `MANUAL` mode, the user is responsible for calling `Spark.process()`. The more frequently this function is called, the more responsive the Core will be to incoming messages, the more likely the Cloud connection will stay open, and the less likely that the CC3000's buffer will overrun.
 
 
 
@@ -491,30 +491,11 @@ WiFi
 
 `WiFi.on()` turns on the Wi-Fi module. Useful when you've turned it off, and you changed your mind.
 
-```cpp
-SYSTEM_MODE(MANUAL);
-
-void setup() {
-  WiFi.on();
-  // Now open a TCP connection
-}
-```
-
-Note that`WiFi.on()` does not need to be called unless you have changed the [system mode](#advanced-system-modes) or you have previously turned the Wi-Fi module off.
+Note that `WiFi.on()` does not need to be called unless you have changed the [system mode](#advanced-system-modes) or you have previously turned the Wi-Fi module off.
 
 ### WiFi.off()
 
 `WiFi.off()` turns off the Wi-Fi module. Useful for saving power, since most of the power draw of the Spark Core is the Wi-Fi module.
-
-```cpp
-void setup() {}
-
-void loop() {
-  if (buttonDepressed()) {
-    WiFi.off();
-  }
-}
-```
 
 ### WiFi.connect()
 
@@ -563,7 +544,7 @@ WiFi.setCredentials("My_Router", "wepistheworst", WEP);
 
 ### WiFi.clearCredentials()
 
-This will clear all saved credentials from the CC3000's memory.
+This will clear all saved credentials from the CC3000's memory. This will return `true` on success and `false` if the CC3000 has an error.
 
 ### WiFi.hasCredentials()
 
@@ -2790,7 +2771,7 @@ void loop() {
 
 - When the Core starts up, it automatically tries to connect to Wi-Fi and the Spark Cloud.
 - Once a connection with the Spark Cloud has been established, the user code starts running.
-- Messages to and from the Cloud are handled in between runs of the user loop; the user loop automatically alternates with `Spark.process()`.
+- Messages to and from the Cloud are handled in between runs of the user loop; the user loop automatically alternates with [`Spark.process()`](#spark-process).
 - `Spark.process()` is also called during any delay() of at least 1 second.
 - If the user loop blocks for more than about 20 seconds, the connection to the Cloud will be lost. To prevent this from happening, the user can call `Spark.process()` manually.
 - If the connection to the Cloud is ever lost, the Core will automatically attempt to reconnect. This re-connection will block from a few milliseconds up to 8 seconds.
@@ -2821,11 +2802,11 @@ void loop() {
 The "manual connect" mode is therefore much like the automatic mode, except:
 
 - When the Core boots up, the user code will begin running immediately.
-- When the user calls `Spark.connect()`, the user code will be blocked, and the Core will attempt to negotiate a connection. This connection will block until either the Core connects to the Cloud or an interrupt is fired that calls `Spark.disconnect()`.
+- When the user calls [`Spark.connect()`](#spark-connect), the user code will be blocked, and the Core will attempt to negotiate a connection. This connection will block until either the Core connects to the Cloud or an interrupt is fired that calls [`Spark.disconnect()`](#spark-disconnect).
 
 ### Manual mode
 
-The "manual" mode puts the Spark Core's connectivity completely in the user's control. This means that the user is responsible for both establishing a connection to the Spark Cloud and handling communications with the Cloud by calling `Spark.process()` on a regular basis.
+The "manual" mode puts the Spark Core's connectivity completely in the user's control. This means that the user is responsible for both establishing a connection to the Spark Cloud and handling communications with the Cloud by calling [`Spark.process()`](#spark-process) on a regular basis.
 
 ```cpp
 SYSTEM_MODE(MANUAL);
@@ -2848,8 +2829,8 @@ void loop() {
 When using manual mode:
 
 - The user code will run immediately when the Core is powered on.
-- Once the user calls `Spark.connect()`, the Core will attempt to begin the connection process.
-- Once the Core is connected to the Cloud (`Spark.connected() == true`), the user must call `Spark.process()` regularly to handle incoming messages and keep the connection alive. The more frequently `Spark.process()` is called, the more responsive the Core will be to incoming messages.
+- Once the user calls [`Spark.connect()`](#spark-connect), the Core will attempt to begin the connection process.
+- Once the Core is connected to the Cloud ([`Spark.connected()`](#spark-connected)` == true`), the user must call `Spark.process()` regularly to handle incoming messages and keep the connection alive. The more frequently `Spark.process()` is called, the more responsive the Core will be to incoming messages.
 - If `Spark.process()` is called less frequently than every 20 seconds, the connection with the Cloud will die. It may take a couple of additional calls of `Spark.process()` for the Core to recognize that the connection has been lost.
 
 
@@ -2862,7 +2843,7 @@ Structure
 ### setup()
 The setup() function is called when an application starts. Use it to initialize variables, pin modes, start using libraries, etc. The setup function will only run once, after each powerup or reset of the Spark Core.
 
-```C++
+```cpp
 // EXAMPLE USAGE
 int button = D0;
 int LED = D1;
