@@ -340,7 +340,7 @@ void loop() {
 }
 ```
 
-While this function will disconnect from the Spark Cloud, it will keep the connection to the Wi-Fi network. If you would like to completely deactivate the Wi-Fi module, use [`WiFi.disconnect()`](#wifi-disconnect).
+While this function will disconnect from the Spark Cloud, it will keep the connection to the Wi-Fi network. If you would like to completely deactivate the Wi-Fi module, use [`WiFi.off()`](#wifi-off).
 
 NOTE: When the Core is disconnected, many features are not possible, including over-the-air updates, reading Spark.variables, and calling Spark.functions.
 
@@ -372,7 +372,7 @@ void loop() {
 
 ### Spark.process()
 
-`Spark.process()` checks the Wi-Fi module for incoming messages from the Cloud, and processes any messages that have come in. It also sends pings to the Cloud, so if it's not called frequently, the connection to the Cloud may be lost.
+`Spark.process()` checks the Wi-Fi module for incoming messages from the Cloud, and processes any messages that have come in. It also sends keep-alive pings to the Cloud, so if it's not called frequently, the connection to the Cloud may be lost.
 
 ```cpp
 void setup() {
@@ -499,13 +499,11 @@ Note that `WiFi.on()` does not need to be called unless you have changed the [sy
 
 ### WiFi.connect()
 
-Attempts to connect to the Wi-Fi network. If there are no credentials stored, this will enter listening mode. If there are credentials stored, this will try the available credentials until connection is successful. When this function returns, the device should have an IP address on the LAN.
+Attempts to connect to the Wi-Fi network. If there are no credentials stored, this will enter listening mode. If there are credentials stored, this will try the available credentials until connection is successful. When this function returns, the device may not have an IP address on the LAN; use `WiFi.ready()` to determine the connection status.
 
 ### WiFi.disconnect()
 
 Disconnects from the Wi-Fi network, but leaves the Wi-Fi module on.
-
-This function will return true once the Core is attempting to connect using stored Wi-Fi credentials, and will return false once the Core has successfully connected to the Wi-Fi network.
 
 ### WiFi.connecting()
 
@@ -2758,7 +2756,7 @@ System modes must be called before the setup() function. By default, the Core is
 The automatic mode of connectivity provides the default behavior of the Spark Core, which is that:
 
 ```cpp
-System.mode(AUTOMATIC);
+SYSTEM_MODE(AUTOMATIC);
 
 void setup() {
   // This won't be called until the Core is connected
@@ -2781,7 +2779,7 @@ In automatic mode, the user can still call `Spark.disconnect()` to disconnect fr
 
 ### Semi-automatic mode
 
-The "manual connect" mode will not attempt to connect the Core to the Cloud automatically. However once the Core is connected to the Cloud (through some user intervention), messages will be processed automatically, as in the automatic process above.
+The semi-automatic mode will not attempt to connect the Core to the Cloud automatically. However once the Core is connected to the Cloud (through some user intervention), messages will be processed automatically, as in the automatic mode above.
 
 ```cpp
 SYSTEM_MODE(SEMI_AUTOMATIC);
@@ -2799,7 +2797,7 @@ void loop() {
 }
 ```
 
-The "manual connect" mode is therefore much like the automatic mode, except:
+The semi-automatic mode is therefore much like the automatic mode, except:
 
 - When the Core boots up, the user code will begin running immediately.
 - When the user calls [`Spark.connect()`](#spark-connect), the user code will be blocked, and the Core will attempt to negotiate a connection. This connection will block until either the Core connects to the Cloud or an interrupt is fired that calls [`Spark.disconnect()`](#spark-disconnect).
