@@ -293,7 +293,7 @@ void loop() {
 }
 ```
 
-`Spark.connect()` blocks, which means that while the Core is attempting to connect to the Cloud, your code will not run.
+After you call `Spark.connect()`, your loop will not be called again until the Core finishes connecting to the Cloud. Typically, you can expect a delay of approximately one second.
 
 In most cases, you do not need to call `Spark.connect()`; it is called automatically when the Core turns on. Typically you only need to call `Spark.connect()` after disconnecting with [`Spark.disconnect()`](#spark-disconnect) or when you change the [system mode](#advanced-system-modes).
 
