@@ -10,8 +10,6 @@ Spark Core Firmware
 Cloud Functions
 =====
 
-## Data and Control
-
 ### Spark.variable()
 
 Expose a *variable* through the Spark Cloud so that it can be called with `GET /v1/devices/{DEVICE_ID}/{VARIABLE}`.
@@ -281,36 +279,28 @@ A _subscription handler_ (like `myHandler` above) must return `void` and take tw
 
 NOTE: A Core can register up to 4 event handlers. This means you can call `Spark.subscribe()` a maximum of 4 times; after that it will return `false`.
 
-## Connection Management
+### Spark.connect()
 
-### Spark.connected()
+`Spark.connect()` connects the Spark Core to the Cloud. This will automatically activate the Wi-Fi module and attempt to connect to a Wi-Fi network if the Core is not already connected to a network.
 
-Returns `true` when connected to the Spark Cloud, and `false` when disconnected from the Spark Cloud.
-
-```C++
-// SYNTAX
-Spark.connected();
-
-RETURNS
-boolean (true or false)
-
-// EXAMPLE USAGE
-void setup() {
-  Serial.begin(9600);
-}
+```cpp
+void setup() {}
 
 void loop() {
-  if (Spark.connected()) {
-    Serial.println("Connected!");
+  if (Spark.connected() == false) {
+    Spark.connect();
   }
-  delay(1000);
 }
 ```
 
-### Spark.disconnect() and Spark.connect()
+After you call `Spark.connect()`, your loop will not be called again until the Core finishes connecting to the Cloud. Typically, you can expect a delay of approximately one second.
 
-`Spark.disconnect()` disconnects the Spark Core from the Spark Cloud, while
-`Spark.connect()` subsequently reconnects.
+In most cases, you do not need to call `Spark.connect()`; it is called automatically when the Core turns on. Typically you only need to call `Spark.connect()` after disconnecting with [`Spark.disconnect()`](#spark-disconnect) or when you change the [system mode](#advanced-system-modes).
+
+
+### Spark.disconnect()
+
+`Spark.disconnect()` disconnects the Spark Core from the Spark Cloud.
 
 ```C++
 int counter = 10000;
@@ -350,20 +340,66 @@ void loop() {
 }
 ```
 
-The Spark Core connects to the cloud by default, so it's not necessary to call `Spark.connect()` unless you have explicitly disconnected the Core.
+While this function will disconnect from the Spark Cloud, it will keep the connection to the Wi-Fi network. If you would like to completely deactivate the Wi-Fi module, use [`WiFi.off()`](#wifi-off).
 
 NOTE: When the Core is disconnected, many features are not possible, including over-the-air updates, reading Spark.variables, and calling Spark.functions.
 
-*If you flash firmware that does not stay connected very long, you will NOT BE ABLE to flash new firmware.*
+*If you disconnect from the Cloud, you will NOT BE ABLE to flash new firmware over the air. A factory reset should resolve the issue.*
 
-A factory reset should solve this.
+### Spark.connected()
 
-### Spark.deviceID()
----
-
-`Spark.deviceID()` provides an easy way to extract the device ID of your Core.
+Returns `true` when connected to the Spark Cloud, and `false` when disconnected from the Spark Cloud.
 
 ```C++
+// SYNTAX
+Spark.connected();
+
+RETURNS
+boolean (true or false)
+
+// EXAMPLE USAGE
+void setup() {
+  Serial.begin(9600);
+}
+
+void loop() {
+  if (Spark.connected()) {
+    Serial.println("Connected!");
+  }
+  delay(1000);
+}
+```
+
+### Spark.process()
+
+`Spark.process()` checks the Wi-Fi module for incoming messages from the Cloud, and processes any messages that have come in. It also sends keep-alive pings to the Cloud, so if it's not called frequently, the connection to the Cloud may be lost.
+
+```cpp
+void setup() {
+  Serial.begin(9600);
+}
+
+void loop() {
+  while (1) {
+    Spark.process();
+    redundantLoop();
+  }
+}
+
+void redundantLoop() {
+  Serial.println("Well that was unnecessary.");
+}
+```
+
+`Spark.process()` is a blocking call, and blocks for a few milliseconds. `Spark.process()` is called automatically after every `loop()` and during delays. Typically you will not need to call `Spark.process()` unless you block in some other way and need to maintain the connection to the Cloud, or you change the [system mode](#advanced-system-modes). If the user puts the Core into `MANUAL` mode, the user is responsible for calling `Spark.process()`. The more frequently this function is called, the more responsive the Core will be to incoming messages, the more likely the Cloud connection will stay open, and the less likely that the CC3000's buffer will overrun.
+
+
+
+### Spark.deviceID()
+
+`Spark.deviceID()` provides an easy way to extract the device ID of your Core. It returns a [String object](#data-types-string-object) of the device ID, which is used frequently in Sparkland to identify your Core.
+
+```cpp
 // EXAMPLE USAGE
 
 void setup()
@@ -371,100 +407,15 @@ void setup()
   // Make sure your Serial Terminal app is closed before powering your Core
   Serial.begin(9600);
   // Now open your Serial Terminal, and hit any key to continue!
-  while(!Serial.available()) SPARK_WLAN_Loop();
+  while(!Serial.available()) Spark.process();
 
   String myID = Spark.deviceID();
   // Prints out the device ID over Serial
   Serial.println(myID);
 }
 
-void loop()
-{
-
-}
+void loop() {}
 ```
-
-
-
-### Network
----
-
-```C++
-// EXAMPLE USAGE
-
-void setup()
-{
-  byte mac[6];
-
-  // Make sure your Serial Terminal app is closed before powering your Core
-  Serial.begin(9600);
-  // Now open your Serial Terminal, and hit any key to continue!
-  while(!Serial.available()) SPARK_WLAN_Loop();
-
-  Network.macAddress(mac);
-
-  // Prints out the network parameters over Serial
-  Serial.println(Network.SSID());
-  Serial.println(Network.gatewayIP());
-  Serial.println(Network.subnetMask());
-  Serial.println(Network.localIP());
-
-  // Print the Mac address with formatting
-  // Take note of byte ordering
-  Serial.print(mac[5],HEX);
-  Serial.print(":");
-  Serial.print(mac[4],HEX);
-  Serial.print(":");
-  Serial.print(mac[3],HEX);
-  Serial.print(":");
-  Serial.print(mac[2],HEX);
-  Serial.print(":");
-  Serial.print(mac[1],HEX);
-  Serial.print(":");
-  Serial.println(mac[0],HEX);
-}
-
-void loop()
-{
-
-}
-```
-
-`Network.SSID()` returns the SSID of the network the Core is currently connected to.
-
-`Network.gatewayIP()` returns the gateway IP address of the network.
-
-`Network.macAddress()` returns the MAC address of the device.
-
-`Network.subnetMask()` returns the subnet mask of the network.
-
-`Network.localIP()` returns the local IP address assigned to the Core.
-
-`Network.RSSI()` returns the signal strength of a Wifi network from from -127 to -1dB.
-
-`Network.ping()` allows you to ping an IP address and know the number of packets received.
-
-<!-- TO DO -->
-<!-- Add example implementation here -->
-<!--
-### Spark.print()
-
-Prints to the debug console in Spark's web IDE.
--->
-
-<!-- TO DO -->
-<!-- Add example implementation here -->
-
-<!--
-### Spark.println()
-
-Prints to the debug console in Spark's web IDE, followed by a *newline* character.
--->
-<!-- TO DO -->
-<!-- Add example implementation here -->
-
-Sleep
----
 
 ### Spark.sleep()
 
@@ -511,9 +462,6 @@ Spark.sleep(int millis, array peripherals);
 <!-- TO DO -->
 <!-- Add example implementation here -->
 
-
-## Time
-
 ### Spark.syncTime()
 
 Synchronize the time with the Spark Cloud.
@@ -531,6 +479,161 @@ void loop() {
     Spark.syncTime();
     lastSync = millis();
   }
+}
+```
+
+
+
+WiFi
+===
+
+### WiFi.on()
+
+`WiFi.on()` turns on the Wi-Fi module. Useful when you've turned it off, and you changed your mind.
+
+Note that `WiFi.on()` does not need to be called unless you have changed the [system mode](#advanced-system-modes) or you have previously turned the Wi-Fi module off.
+
+### WiFi.off()
+
+`WiFi.off()` turns off the Wi-Fi module. Useful for saving power, since most of the power draw of the Spark Core is the Wi-Fi module.
+
+### WiFi.connect()
+
+Attempts to connect to the Wi-Fi network. If there are no credentials stored, this will enter listening mode. If there are credentials stored, this will try the available credentials until connection is successful. When this function returns, the device may not have an IP address on the LAN; use `WiFi.ready()` to determine the connection status.
+
+### WiFi.disconnect()
+
+Disconnects from the Wi-Fi network, but leaves the Wi-Fi module on.
+
+### WiFi.connecting()
+
+This function will return `true` once the Core is attempting to connect using stored Wi-Fi credentials, and will return `false` once the Core has successfully connected to the Wi-Fi network.
+
+### WiFi.ready()
+
+This function will return `true` once the Core is connected to the network and has been assigned an IP address, which means that it's ready to open TCP sockets and send UDP datagrams. Otherwise it will return `false`.
+
+### WiFi.listen()
+
+This will enter listening mode, which opens a Serial connection to get Wi-Fi credentials over USB, and also listens for credentials over Smart Config.
+
+### WiFi.listening()
+
+This will return `true` once `WiFi.listen()` has been called and will return `false` once the Core has been given some Wi-Fi credentials to try, either over USB or Smart Config.
+
+### WiFi.setCredentials()
+
+Allows the user to set credentials for the Wi-Fi network from within the code. These credentials will be added to the CC3000's memory, and the Core will automatically attempt to connect to this network in the future.
+
+```cpp
+// Connects to an unsecured network.
+WiFi.setCredentials(SSID);
+WiFi.setCredentials("My_Router_Is_Big");
+
+// Connects to a network secured with WPA2 credentials.
+WiFi.setCredentials(SSID, PASSWORD);
+WiFi.setCredentials("My_Router", "mypasswordishuge");
+
+// Connects to a network with a specified authentication procedure.
+// Options are WPA2, WPA, or WEP.
+WiFi.setCredentials(SSID, PASSWORD, AUTH);
+WiFi.setCredentials("My_Router", "wepistheworst", WEP);
+```
+
+### WiFi.clearCredentials()
+
+This will clear all saved credentials from the CC3000's memory. This will return `true` on success and `false` if the CC3000 has an error.
+
+### WiFi.hasCredentials()
+
+Will return `true` if there are Wi-Fi credentials stored in the CC3000's memory.
+
+### WiFi.macAddress()
+
+`WiFi.macAddress()` returns the MAC address of the device.
+
+```cpp
+
+byte mac[6];
+
+void setup() {
+  Serial.begin(9600);
+  while (!Serial.available()) Spark.process();
+
+  Serial.print(mac[5],HEX);
+  Serial.print(":");
+  Serial.print(mac[4],HEX);
+  Serial.print(":");
+  Serial.print(mac[3],HEX);
+  Serial.print(":");
+  Serial.print(mac[2],HEX);
+  Serial.print(":");
+  Serial.print(mac[1],HEX);
+  Serial.print(":");
+  Serial.println(mac[0],HEX);
+}
+
+void loop() {}
+```
+
+### WiFi.SSID()
+
+`WiFi.SSID()` returns the SSID of the network the Core is currently connected to as a `char*`.
+
+### WiFi.RSSI()
+
+`WiFi.RSSI()` returns the signal strength of a Wifi network from from -127 to -1dB as an `int`.
+
+### WiFi.ping()
+
+`WiFi.ping()` allows you to ping an IP address and returns the number of packets received as an `int`. It takes two forms:
+
+`WiFi.ping(IPAddress remoteIP)` takes an `IPAddress` and pings that address.
+
+`WiFi.ping(IPAddress remoteIP, uint8_t nTries)` and pings that address a specified number of times.
+
+### WiFi.localIP()
+
+`WiFi.localIP()` returns the local IP address assigned to the Core as an `IPAddress`.
+
+```cpp
+
+void setup() {
+  Serial.begin(9600);
+  while(!Serial.available()) Spark.process();
+
+  // Prints out the local IP over Serial.
+  Serial.println(WiFi.localIP());
+}
+```
+
+### WiFi.subnetMask()
+
+`WiFi.subnetMask()` returns the subnet mask of the network as an `IPAddress`.
+
+```cpp
+
+void setup() {
+  Serial.begin(9600);
+  while(!Serial.available()) Spark.process();
+
+  // Prints out the subnet mask over Serial.
+  Serial.println(WiFi.subnetMask());
+}
+```
+
+### WiFi.gatewayIP()
+
+`WiFi.gatewayIP()` returns the gateway IP address of the network as an `IPAddress`.
+
+```cpp
+
+void setup() {
+  Serial.begin(9600);
+  while(!Serial.available()) Spark.process();
+
+  // Prints out the gateway IP over Serial.
+  Serial.println(WiFi.gatewayIP());
 }
 ```
 
@@ -1310,7 +1413,7 @@ void setup()
   Serial.begin(9600);
   // Now open your Serial Terminal, and hit any key to continue!
   while(!Serial.available()) SPARK_WLAN_Loop();
-   
+
   Serial.println(Network.localIP());
   Serial.println(Network.subnetMask());
   Serial.println(Network.gatewayIP());
@@ -1421,7 +1524,7 @@ void setup()
   Serial.begin(9600);
   // Now open your Serial Terminal, and hit any key to continue!
   while(!Serial.available()) SPARK_WLAN_Loop();
-  
+
   Serial.println("connecting...");
 
   if (client.connect(server, 80))
@@ -2641,6 +2744,94 @@ uint8_t val = 0x45;
 EEPROM.write(addr, val);
 ```
 
+Advanced: System Modes
+===
+
+By default, the Spark Core connects to the Cloud and processes messages automatically. However there are many cases where a user will want to take control over that connection. There are three available system modes: `AUTOMATIC`, `SEMI_AUTOMATIC`, and `MANUAL`. These modes describe how connectivity is handled.
+
+System modes must be called before the setup() function. By default, the Core is always in `AUTOMATIC` mode.
+
+### Automatic mode
+
+The automatic mode of connectivity provides the default behavior of the Spark Core, which is that:
+
+```cpp
+SYSTEM_MODE(AUTOMATIC);
+
+void setup() {
+  // This won't be called until the Core is connected
+}
+
+void loop() {
+  // Neither will this
+}
+```
+
+- When the Core starts up, it automatically tries to connect to Wi-Fi and the Spark Cloud.
+- Once a connection with the Spark Cloud has been established, the user code starts running.
+- Messages to and from the Cloud are handled in between runs of the user loop; the user loop automatically alternates with [`Spark.process()`](#spark-process).
+- `Spark.process()` is also called during any delay() of at least 1 second.
+- If the user loop blocks for more than about 20 seconds, the connection to the Cloud will be lost. To prevent this from happening, the user can call `Spark.process()` manually.
+- If the connection to the Cloud is ever lost, the Core will automatically attempt to reconnect. This re-connection will block from a few milliseconds up to 8 seconds.
+- `SYSTEM_MODE(AUTOMATIC)` does not need to be called, because it is the default state; however the user can invoke this method to make the mode explicit.
+
+In automatic mode, the user can still call `Spark.disconnect()` to disconnect from the Cloud, but is then responsible for re-connecting to the Cloud by calling `Spark.connect()`.
+
+### Semi-automatic mode
+
+The semi-automatic mode will not attempt to connect the Core to the Cloud automatically. However once the Core is connected to the Cloud (through some user intervention), messages will be processed automatically, as in the automatic mode above.
+
+```cpp
+SYSTEM_MODE(SEMI_AUTOMATIC);
+
+void setup() {
+  // This is called immediately
+}
+
+void loop() {
+  if (buttonIsPressed()) {
+    Spark.connect();
+  } else {
+    doOfflineStuff();
+  }
+}
+```
+
+The semi-automatic mode is therefore much like the automatic mode, except:
+
+- When the Core boots up, the user code will begin running immediately.
+- When the user calls [`Spark.connect()`](#spark-connect), the user code will be blocked, and the Core will attempt to negotiate a connection. This connection will block until either the Core connects to the Cloud or an interrupt is fired that calls [`Spark.disconnect()`](#spark-disconnect).
+
+### Manual mode
+
+The "manual" mode puts the Spark Core's connectivity completely in the user's control. This means that the user is responsible for both establishing a connection to the Spark Cloud and handling communications with the Cloud by calling [`Spark.process()`](#spark-process) on a regular basis.
+
+```cpp
+SYSTEM_MODE(MANUAL);
+
+void setup() {
+  // This will run automatically
+}
+
+void loop() {
+  if (buttonIsPressed()) {
+    Spark.connect();
+  }
+  if (Spark.connected()) {
+    Spark.process();
+    doOtherStuff();
+  }
+}
+```
+
+When using manual mode:
+
+- The user code will run immediately when the Core is powered on.
+- Once the user calls [`Spark.connect()`](#spark-connect), the Core will attempt to begin the connection process.
+- Once the Core is connected to the Cloud ([`Spark.connected()`](#spark-connected)` == true`), the user must call `Spark.process()` regularly to handle incoming messages and keep the connection alive. The more frequently `Spark.process()` is called, the more responsive the Core will be to incoming messages.
+- If `Spark.process()` is called less frequently than every 20 seconds, the connection with the Cloud will die. It may take a couple of additional calls of `Spark.process()` for the Core to recognize that the connection has been lost.
+
+
 Language Syntax
 ========
 The following documentation is based on the Arduino reference which can be found [here.](http://arduino.cc/en/Reference/HomePage)
@@ -2650,7 +2841,7 @@ Structure
 ### setup()
 The setup() function is called when an application starts. Use it to initialize variables, pin modes, start using libraries, etc. The setup function will only run once, after each powerup or reset of the Spark Core.
 
-```C++
+```cpp
 // EXAMPLE USAGE
 int button = D0;
 int LED = D1;
@@ -2886,7 +3077,7 @@ switch (var)
     // do something when var equals 2
     break;
   default:
-    // if nothing else matches, do the 
+    // if nothing else matches, do the
     // default (which is optional)
 }
 ```
@@ -3018,7 +3209,7 @@ With that said, there are instances where a `goto` statement can come in handy, 
 for(byte r = 0; r < 255; r++) {
   for(byte g = 255; g > -1; g--) {
     for(byte b = 0; b < 255; b++) {
-      if (analogRead(0) > 250) { 
+      if (analogRead(0) > 250) {
         goto bailout;
       }
       // more statements ...
@@ -3026,7 +3217,7 @@ for(byte r = 0; r < 255; r++) {
   }
 }
 bailout:
-// Code execution jumps here from 
+// Code execution jumps here from
 // goto bailout; statement
 ```
 
@@ -4269,7 +4460,7 @@ In the code below, the asterisk after the datatype char "char*" indicates that t
 ```cpp
 //EXAMPLE
 
-char* myStrings[] = {"This is string 1", "This is string 2", 
+char* myStrings[] = {"This is string 1", "This is string 2",
 "This is string 3", "This is string 4", "This is string 5",
 "This is string 6"};
 
