@@ -18,7 +18,7 @@ Blinking an LED is the ["Hello World"](http://en.wikipedia.org/wiki/Hello_world_
 
 For this example, you will need a Spark Core (duh!), a Breadboard, an LED, a Resistor (we will soon find out a suitable value) and a USB cable.
 
-Connect everything together as shown in the picture. The LED is connected to pin D0 of the Core. The positive (longer pin) of the LED is connected to D0 and its negative pin (shorter) is connected to ground via a resistor.
+Connect everything together as shown in the picture. The LED is connected to pin D0 of the Core. The positive (longer pin) of the LED is connected to D0 via a resistor and its negative pin (shorter) is connected to ground.
 
 ![One LED setup]({{assets}}/images/breadboard-one-led.jpg)
 
