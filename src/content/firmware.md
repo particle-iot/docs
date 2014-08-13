@@ -44,7 +44,7 @@ There are three supported data types:
 
  * `INT`
  * `DOUBLE`
- * `STRING`
+ * `STRING`   (maximum string size is 622 bytes)
 
 
 
