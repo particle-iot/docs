@@ -2751,7 +2751,8 @@ By default, the Spark Core connects to the Cloud and processes messages automati
 
 System modes must be called before the setup() function. By default, the Core is always in `AUTOMATIC` mode.
 
-### Automatic mode
+Automatic mode
+----
 
 The automatic mode of connectivity provides the default behavior of the Spark Core, which is that:
 
@@ -2777,7 +2778,8 @@ void loop() {
 
 In automatic mode, the user can still call `Spark.disconnect()` to disconnect from the Cloud, but is then responsible for re-connecting to the Cloud by calling `Spark.connect()`.
 
-### Semi-automatic mode
+Semi-automatic mode
+----
 
 The semi-automatic mode will not attempt to connect the Core to the Cloud automatically. However once the Core is connected to the Cloud (through some user intervention), messages will be processed automatically, as in the automatic mode above.
 
@@ -2802,7 +2804,8 @@ The semi-automatic mode is therefore much like the automatic mode, except:
 - When the Core boots up, the user code will begin running immediately.
 - When the user calls [`Spark.connect()`](#spark-connect), the user code will be blocked, and the Core will attempt to negotiate a connection. This connection will block until either the Core connects to the Cloud or an interrupt is fired that calls [`Spark.disconnect()`](#spark-disconnect).
 
-### Manual mode
+Manual mode
+----
 
 The "manual" mode puts the Spark Core's connectivity completely in the user's control. This means that the user is responsible for both establishing a connection to the Spark Cloud and handling communications with the Cloud by calling [`Spark.process()`](#spark-process) on a regular basis.
 
