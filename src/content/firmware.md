@@ -485,7 +485,7 @@ void loop() {
 
 
 WiFi
-===
+=====
 
 ### WiFi.on()
 
@@ -1875,7 +1875,7 @@ Returns:
 - `int`: the port of the UDP connection to a remote host
 
 Libraries
-===
+=====
 
 Servo
 ---
@@ -2308,7 +2308,7 @@ Returns: String
 
 
 Other functions
-====
+=====
 
 Note that most of the functions in newlib described at https://sourceware.org/newlib/libc.html are available for use in addition to the functions outlined below.
 
@@ -2745,7 +2745,7 @@ EEPROM.write(addr, val);
 ```
 
 Advanced: System Modes
-===
+=====
 
 By default, the Spark Core connects to the Cloud and processes messages automatically. However there are many cases where a user will want to take control over that connection. There are three available system modes: `AUTOMATIC`, `SEMI_AUTOMATIC`, and `MANUAL`. These modes describe how connectivity is handled.
 
@@ -2833,7 +2833,7 @@ When using manual mode:
 
 
 Language Syntax
-========
+=====
 The following documentation is based on the Arduino reference which can be found [here.](http://arduino.cc/en/Reference/HomePage)
 
 Structure
@@ -4215,7 +4215,7 @@ Returns: None
 
 
 Variables
-========
+=====
 
 Constants
 ----
