@@ -374,6 +374,22 @@ The API endpoint is `/v1/devices/{DEVICE_ID}/{VARIABLE}` and as always, you have
 # Your access token is 1234123412341234123412341234123412341234
 curl "https://api.spark.io/v1/devices/0123456789abcdef01234567/temperature?access_token=1234123412341234123412341234123412341234"
 ```
+And the response contains a `result` like this:
+
+```json
+// EXAMPLE RESPONSE
+{
+  "cmd": "VarReturn",
+  "name": "temperature",
+  "result": 42,
+  "coreInfo": {
+    "last_app": "",
+    "last_heard": "2014-08-22T22:33:25.407Z",
+    "connected": true,
+    "deviceID": "53ff6c065075535119511687"
+  }
+
+```
 
 **NOTE**: Variable names are truncated after the 12th character: `temperature_sensor` is accessible as `temperature_`
 
