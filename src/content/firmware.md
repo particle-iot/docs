@@ -1,4 +1,4 @@
----
+﻿---
 word: Firmware
 title: Core code (Firmware)
 order: 3
@@ -1150,6 +1150,33 @@ Wire
 ![I2C]({{assets}}/images/core-pin-i2c.jpg)
 
 This library allows you to communicate with I2C / TWI devices. On the Spark Core, D0 is the Serial Data Line (SDA) and D1 is the Serial Clock (SCL). Both of these pins runs at 3.3V logic but are tolerant to 5V.
+Connect a pull-up resistor(1.5K to 10K) on SDA line. Connect a pull-up resistor(1.5K to 10K) on SCL line.
+
+### setSpeed()
+
+Sets the I2C clock speed. This is an optional call (not from the original Arduino specs.) and should normally be called once before calling begin().
+
+```C++
+// SYNTAX
+Wire.setSpeed(clockSpeed);
+```
+
+Parameters: 
+
+- `clockSpeed`: CLOCK_SPEED_100KHZ, CLOCK_SPEED_400KHZ or user specified speeds.
+
+### stretchClock()
+
+Enables or Disables I2C clock stretching. This is an optional call (not from the original Arduino specs.).
+
+```C++
+// SYNTAX
+Wire.stretchClock(stretch);
+```
+
+Parameters: 
+
+- `stretch`: boolean. true will enable clock stretching. false will disable clock stretching.
 
 ### begin()
 
@@ -1247,25 +1274,23 @@ Returns:  `byte`
 
 ```C++
 // EXAMPLE USAGE
-byte val = 0;
+// Master Writer running on Core No.1 (Use with corresponding Slave Reader running on Core No.2)
 
 void setup()
 {
-  Wire.begin(); // join i2c bus
+  Wire.begin();              // join i2c bus as master
 }
+
+byte x = 0;
 
 void loop()
 {
-  Wire.beginTransmission(44); // transmit to device #44 (0x2c)
-                              // device address is specified in datasheet
-  Wire.write(val);            // sends value byte
-  Wire.endTransmission();     // stop transmitting
+  Wire.beginTransmission(4); // transmit to slave device #4
+  Wire.write("x is ");       // sends five bytes
+  Wire.write(x);             // sends one byte  
+  Wire.endTransmission();    // stop transmitting
 
-  val++;        // increment value
-  if(val == 64) // if reached 64th position (max)
-  {
-    val = 0;    // start over from lowest value
-  }
+  x++;
   delay(500);
 }
 ```
@@ -1292,21 +1317,22 @@ Returns: The next byte received
 
 ```C++
 // EXAMPLE USAGE
+// Master Reader running on Core No.1 (Use with corresponding Slave Writer running on Core No.2)
 
 void setup()
 {
-  Wire.begin();           // join i2c bus (address optional for master)
-  Serial.begin(9600);     // start serial for output
+  Wire.begin();              // join i2c bus as master
+  Serial.begin(9600);        // start serial for output
 }
 
 void loop()
 {
-  Wire.requestFrom(2, 6); // request 6 bytes from slave device #2
+  Wire.requestFrom(2, 6);    // request 6 bytes from slave device #2
 
-  while(Wire.available()) // slave may send less than requested
-  {
-    char c = Wire.read(); // receive a byte as character
-    Serial.print(c);      // print the character
+  while(Wire.available())    // slave may send less than requested
+  { 
+    char c = Wire.read();    // receive a byte as character
+    Serial.print(c);         // print the character
   }
 
   delay(500);
@@ -1319,11 +1345,64 @@ Registers a function to be called when a slave device receives a transmission fr
 
 Parameters: `handler`: the function to be called when the slave receives data; this should take a single int parameter (the number of bytes read from the master) and return nothing, e.g.: `void myHandler(int numBytes) `
 
+```C++
+// EXAMPLE USAGE
+// Slave Reader running on Core No.2 (Use with corresponding Master Writer running on Core No.1)
+
+// function that executes whenever data is received from master
+// this function is registered as an event, see setup()
+void receiveEvent(int howMany)
+{
+  while(1 < Wire.available())   // loop through all but the last
+  {
+    char c = Wire.read();       // receive byte as a character
+    Serial.print(c);            // print the character
+  }
+  int x = Wire.read();          // receive byte as an integer
+  Serial.println(x);            // print the integer
+}
+
+void setup()
+{
+  Wire.begin(4);                // join i2c bus with address #4
+  Wire.onReceive(receiveEvent); // register event
+  Serial.begin(9600);           // start serial for output
+}
+
+void loop()
+{
+  delay(100);
+}
+```
+
 ### onRequest()
 
 Register a function to be called when a master requests data from this slave device.
 
 Parameters: `handler`: the function to be called, takes no parameters and returns nothing, e.g.: `void myHandler() `
+
+```C++
+// EXAMPLE USAGE
+// Slave Writer running on Core No.2 (Use with corresponding Master Reader running on Core No.1)
+
+// function that executes whenever data is requested by master
+// this function is registered as an event, see setup()
+void requestEvent()
+{
+  Wire.write("hello ");         // respond with message of 6 bytes as expected by master
+}
+
+void setup()
+{
+  Wire.begin(2);                // join i2c bus with address #2
+  Wire.onRequest(requestEvent); // register event
+}
+
+void loop()
+{
+  delay(100);
+}
+```
 
 IPAddress
 -----
