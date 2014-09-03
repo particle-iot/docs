@@ -1,7 +1,7 @@
 ---
-word: Accessories
+word: Troubleshooting
 title: Troubleshooting
-order: 8
+order: 11
 ---
 
 Troubleshooting

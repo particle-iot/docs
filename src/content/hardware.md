@@ -1,7 +1,7 @@
 ---
 word: Datasheet
 title: Hardware datasheet
-order: 5
+order: 7
 ---
 
 Spark Core Datasheet

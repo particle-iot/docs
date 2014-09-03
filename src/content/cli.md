@@ -1,7 +1,7 @@
 ---
 word: API
 title: Command Line
-order: 7
+order: 10
 ---
 
 Spark CLI
@@ -566,4 +566,3 @@ Coming Soon - more commands to make it easier to change the server settings on y
 $ spark keys server my_server.der
 Okay!  New keys in place, your core will not restart.
 ```
-

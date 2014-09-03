@@ -1,7 +1,7 @@
 ---
 word: Tinker
 title: Tinker
-order: 6
+order: 9
 ---
 
 Tinkering with "Tinker"
@@ -28,7 +28,7 @@ To change the function of the pin, simply tap and hold on the pin, and the funct
 The Tinker firmware
 ---
 
-The Tinker firmware is the default application program stored in the Spark Core upon its commissioning from the factory assembly line. You can always get back to it by putting the Core in the [factory reset mode](#buttons), or by re-flashing your Core with Tinker in the Spark app. 
+The Tinker firmware is the default application program stored in the Spark Core upon its commissioning from the factory assembly line. You can always get back to it by putting the Core in the [factory reset mode](#buttons), or by re-flashing your Core with Tinker in the Spark app.
 
 To reflash Tinker from within the app:
 
