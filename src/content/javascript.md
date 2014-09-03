@@ -26,7 +26,7 @@ $ npm install -g spark
 To start using SparkJS in your code, require it first
 
 ```javascript
-var Spark = require('spark');
+var spark = require('spark');
 ```
 
 You can interact with the api using callbacks, events or promises,
@@ -46,7 +46,7 @@ var callback = function(err, body) {
   console.log('API call login completed on callback:', body);
 };
 
-Spark.login({username: 'email@example.com', password: 'password'},
+spark.login({username: 'email@example.com', password: 'password'},
             callback);
 ```
 
@@ -56,7 +56,7 @@ If you rather use [promises](http://promisesaplus.com/) you should not send
 the callback param and use the returned promise.
 
 ```javascript
-Spark.login({username: 'email@example.com', password: 'pass'}).then(
+spark.login({username: 'email@example.com', password: 'pass'}).then(
   function(token){
     console.log('API call completed on promise resolve: ', token);
   },
@@ -72,11 +72,11 @@ Finally you can also register an event listener to get the result
 of the executed command.
 
 ```javascript
-Spark.on('login', function(err, body) {
+spark.on('login', function(err, body) {
   console.log('API call completed on Login event:', body);
 });
 
-Spark.login({username: 'email@example.com', password: 'password'});
+spark.login({username: 'email@example.com', password: 'password'});
 ```
 
 ## Supported commands
@@ -85,11 +85,11 @@ To execute this commands you need to login first, it's recommended that you
 use a promise, callback or event listener of login command:
 
 ```javascript
-Spark.on('login', function() {
+spark.on('login', function() {
   //Your code here
 });
 
-Spark.login({username: 'email@example.com', password: 'password'});
+spark.login({username: 'email@example.com', password: 'password'});
 ```
 
 Check the examples repository [here](https://github.com/spark/sparkjs/tree/master/examples)
@@ -109,7 +109,7 @@ var callback = function(err, data) {
   }
 };
 
-Spark.compileCode(['./path/to/file1', './path/to/file2'], callback);
+spark.compileCode(['./path/to/file1', './path/to/file2'], callback);
 ```
 
 ### createUser
@@ -117,14 +117,14 @@ Spark.compileCode(['./path/to/file1', './path/to/file2'], callback);
 Creates an user in the Spark cloud
 
 ```javascript
-Spark.createUser('example@email.com', 'pass', function(err, data) {
+spark.createUser('example@email.com', 'pass', function(err, data) {
 ```
 
 We try to login and get back an accessToken to verify user creation
 
 ```javascript
   if (!err) {
-    var loginPromise = Spark.login('example@email.com', 'pass');
+    var loginPromise = spark.login('example@email.com', 'pass');
 ```
 
 We'll use promises to check the result of the login process
@@ -147,7 +147,7 @@ We'll use promises to check the result of the login process
 Call a function on a Core
 
 ```javascript
-Spark.callFunction('CORE_ID', 'brew', 'D0:HIGH', function(e, data) {
+spark.callFunction('CORE_ID', 'brew', 'D0:HIGH', function(e, data) {
   if (e) {
     console.log('An error occurred:', e);
   } else {
@@ -166,23 +166,23 @@ You pass along the name of the function and the params.
 Claims a core and adds it to the user currently logged in
 
 ```javascript
-Spark.claimCore('CORE_ID', function(err, data) {
-  console.log('Spark.claimCore err:', err);
-  console.log('Spark.claimCore data:', data);
+spark.claimCore('CORE_ID', function(err, data) {
+  console.log('spark.claimCore err:', err);
+  console.log('spark.claimCore data:', data);
 });
 ```
 
 ### downloadBinary
 
-Download binary file compiled in the spark cloud
+Download binary file compiled in the Spark cloud
 
 ```javascript
-var promise = Spark.compileCode('./path/to/your/file1', callback);
+var promise = spark.compileCode('./path/to/your/file1', callback);
 
 promise.then(
   function(d) {
     setTimeout(function() {
-      Spark.downloadBinary(d.binary_url, 'bin', function(err, d) {
+      spark.downloadBinary(d.binary_url, 'bin', function(err, d) {
         if (err) {
           console.log('Error occurred! -->', err);
         } else {
@@ -199,7 +199,7 @@ promise.then(
 Flash firmware to a Core
 
 ```javascript
-Spark.flashCore('CORE_ID',
+spark.flashCore('CORE_ID',
                 ['./path/to/your/file1', './path/to/your/file2'],
                 function(err, data) {
   if (err) {
@@ -215,7 +215,7 @@ Spark.flashCore('CORE_ID',
 Gets all attributes for a given core
 
 ```javascript
-Spark.getAttributes(devices[0].id, function(err, data) {
+spark.getAttributes(devices[0].id, function(err, data) {
   if (err) {
     console.log('An error occurred while getting core attrs:', err);
   } else {
@@ -229,7 +229,7 @@ Spark.getAttributes(devices[0].id, function(err, data) {
 Retrieves all attributes for all cores for the currently logged in user
 
 ```javascript
-var devicesPr = Spark.getAttributesForAll();
+var devicesPr = spark.getAttributesForAll();
 
 devicesPr.then(
   function(data){
@@ -247,17 +247,17 @@ Get eventListener to an event stream in the Spark cloud
 
 ```javascript
 //Get all events
-Spark.getEventStream(false, false, function(data) {
+spark.getEventStream(false, false, function(data) {
   console.log("Event: " + data);
 });
 
 //Get your devices events
-Spark.getEventStream(false, 'mine', function(data) {
+spark.getEventStream(false, 'mine', function(data) {
   console.log("Event: " + data);
 });
 
 //Get test event for specific core
-Spark.getEventStream('test', 'CORE_ID', function(data) {
+spark.getEventStream('test', 'CORE_ID', function(data) {
   console.log("Event: " + data);
 });
 ```
@@ -267,7 +267,7 @@ Spark.getEventStream('test', 'CORE_ID', function(data) {
 Gets a variable value for a specific Core
 
 ```javascript
-Spark.getVariable('CORE_ID, 'temp', function(err, data) {
+spark.getVariable('CORE_ID, 'temp', function(err, data) {
   if (err) {
     console.log('An error occurred while getting core attrs:', err);
   } else {
@@ -283,7 +283,7 @@ The variable needs to be defined in Spark Core code.
 Returns a list of devices for the logged in user
 
 ```javascript
-var devicesPr = Spark.listDevices();
+var devicesPr = spark.listDevices();
 
 devicesPr.then(
   function(devices){
@@ -300,7 +300,7 @@ devicesPr.then(
 Register an event stream in the Spark cloud
 
 ```javascript
-var publishEventPr = Sparkjs.publishEvent('test', {});
+var publishEventPr = spark.publishEvent('test', {});
 
 publishEventPr.then(
   function(data) {
@@ -318,7 +318,7 @@ publishEventPr.then(
 Removes a core from the user currently logged in
 
 ```javascript
-Sparkjs.removeCore('CORE_ID', function(err, data) {
+spark.removeCore('CORE_ID', function(err, data) {
   if (err) {
     console.log('An error occurred while removing core:', err);
   } else {
@@ -340,7 +340,7 @@ var callback = function(err, data) {
   }
 };
 
-Sparkjs.removeAccessToken('u@m.com', 'pass', 'token', callback);
+spark.removeAccessToken('u@m.com', 'pass', 'token', callback);
 ```
 
 ### renameCore
@@ -348,7 +348,7 @@ Sparkjs.removeAccessToken('u@m.com', 'pass', 'token', callback);
 Renames a core for the user currently logged in
 
 ```javascript
-Sparkjs.renameCore('CORE_ID', 'new-name', function(err, data) {
+spark.renameCore('CORE_ID', 'new-name', function(err, data) {
   if (err) {
     console.log('An error occurred while renaming core:', err);
   } else {
@@ -364,7 +364,7 @@ Send a signal to a Core
 ```javascript
 // Signal sent to start playing rainbow in the LED
 // Send a 0 if you want animation to stop
-Sparkjs.signalCore('CORE_ID', 1, function(err, data) {
+spark.signalCore('CORE_ID', 1, function(err, data) {
   if (err) {
     console.log('Error sending a signal to the core:', err);
   } else {
@@ -375,12 +375,12 @@ Sparkjs.signalCore('CORE_ID', 1, function(err, data) {
 
 ## Device object
 
-You can get a list of devices by calling: `Spark.devices`
+You can get a list of devices by calling: `spark.devices`
 
 Each device has the following parameters:
 
 ```javascript
-var device = Spark.devices[0];
+var device = spark.devices[0];
 
 console.log('Device name: ' + device.name);
 console.log('- connected?: ' + device.connected);
