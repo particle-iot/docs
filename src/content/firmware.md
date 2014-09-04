@@ -1,4 +1,4 @@
----
+﻿---
 word: Firmware
 title: Core code (Firmware)
 order: 3
@@ -559,6 +559,8 @@ byte mac[6];
 void setup() {
   Serial.begin(9600);
   while (!Serial.available()) Spark.process();
+
+  WiFi.macAddress(mac);
 
   Serial.print(mac[5],HEX);
   Serial.print(":");
