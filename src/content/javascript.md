@@ -380,6 +380,24 @@ device.update(function(data) {
 
 ### Subscribing to events
 
+Subscribe to an specific event (global/device)
+
+```javascript
+//Subscribe to global test event
+spark.on('test', function(data) {
+  console.log("Event: " + data);
+});
+
+//Subscribe to device test event
+spark.listdevices().then(function(devices) {
+  devices[0].on('test', function(data) {
+    console.log("Event: " + data);
+  });
+});
+```
+
+### Get event stream
+
 Get event listener to an stream in the Spark cloud
 
 ```javascript
