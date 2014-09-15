@@ -384,13 +384,13 @@ Subscribe to an specific event (global/device)
 
 ```javascript
 //Subscribe to global test event
-spark.on('test', function(data) {
+spark.onEvent('test', function(data) {
   console.log("Event: " + data);
 });
 
 //Subscribe to device test event
 spark.listdevices().then(function(devices) {
-  devices[0].on('test', function(data) {
+  devices[0].onEvent('test', function(data) {
     console.log("Event: " + data);
   });
 });
