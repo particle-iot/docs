@@ -50,7 +50,7 @@ Or you can use an existing access token.
 ```javascript
 var spark = require('spark');
 
-spark.login({access_token: 'ACCESS_TOKEN'});
+spark.login({accessToken: 'ACCESS_TOKEN'});
 ```
 
 ## Responses
