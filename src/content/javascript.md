@@ -31,7 +31,7 @@ $ npm install -g spark
 Add this script tag to your page to get started with Sparkjs
 
 ```html
-<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/sparkjs/0.1.0/spark-browser.min.js">
+<script type="text/javascript" src="//cdn.jsdelivr.net/sparkjs/0.2.0/spark.min.js">
 </script>
 ```
 
@@ -55,7 +55,7 @@ Add an empty div with "spark-login" id where you want the "Login to Spark" butto
 Add this script tag to your page to include Sparkjs
 
 ```javascript
-<script src="//cdnjs.cloudflare.com/ajax/libs/sparkjs/0.1.0/spark-browser.min.js"></script>
+<script src="//cdn.jsdelivr.net/sparkjs/0.2.0/spark.min.js"></script>
 ```
 
 Call `sparkLogin` function with a callback function that will be called on succesful login:
