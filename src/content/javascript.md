@@ -213,12 +213,12 @@ Each device has the following parameters:
 
 And you can call the following commands on it:
 
-### call
+### callFunction
 
 Call a function in device
 
 ```javascript
-device.call('brew', 'D0:HIGH', function(err, data) {
+device.callFunction('brew', 'D0:HIGH', function(err, data) {
   if (err) {
     console.log('An error occurred:', err);
   } else {
