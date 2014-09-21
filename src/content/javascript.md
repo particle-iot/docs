@@ -344,7 +344,7 @@ device.stopSignal(function(err, data) {
 
 ### sendPublicKey
 
-Send publick key to device
+Send public key to device
 
 ```javascript
 device.sendPublicKey('key', function(err, data) {
