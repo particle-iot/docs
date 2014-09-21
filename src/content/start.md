@@ -14,15 +14,15 @@ Getting started
 Congratulations on being the owner of a brand new Spark Core! Go ahead, open the box, and let's talk about what you see. Your box should include:
 
 - *(1) Spark Core*  The reason you bought it! 
-- *(1) Breadboard*  A breadboard makes it easy to wire components to the Core without solder. See [Wikipedia](http://en.wikipedia.org/wiki/Breadboard) for more information.
-- *(1) USB cable*  The included USB cable is great for powering the Spark Core and more technical things we'll cover later.
+- *(1) Breadboard*  A breadboard makes it easy to wire components to the Core without soldering. See [Wikipedia](http://en.wikipedia.org/wiki/Breadboard) for more information.
+- *(1) USB cable*  The included USB cable is great for powering the Spark Core and we'll cover more technical things later.
 
 
 ### Step 1: Power the Core
 
 ![Power the Core]({{assets}}/images/core-usb.jpg)
 
-Plug the included USB cable into the Spark Core and your computer. The Core should start blinking blue.  [Have one of these u.FL connectors?](/#/hardware#spark-core-datasheet-types-of-cores) Make sure to connect an antenna to it now!
+Plug the included USB cable into the Spark Core and your computer. The Core should start blinking blue.  [Have one of these u.FL connectors?](/#/hardware#spark-core-datasheet-types-of-cores) Make sure you connect an antenna to it now!
 
 - Not blinking blue?
 - - Maybe it's already been configured. Hold down the MODE button until it starts blinking blue, then continue.
@@ -32,7 +32,7 @@ Plug the included USB cable into the Spark Core and your computer. The Core shou
 
 ![Spark apps]({{assets}}/images/spark-app.jpg)
 
-It's called "Spark Core", or you can click one of these links:
+You can search for the mobile app named "Spark Core", or you can click one of these links:
 
 [iPhone >](https://itunes.apple.com/us/app/spark-core/id760157884)  [Android >](https://play.google.com/store/apps/details?id=io.spark.core.android)
 
