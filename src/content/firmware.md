@@ -35,7 +35,7 @@ void loop()
   analogvalue = analogRead(A0);
   //Convert the reading into degree celcius
   tempC = (((analogvalue * 3.3)/4095) - 0.5) * 100;
-  Delay(200);
+  delay(200);
 }
 ```
 Currently, up to 10 Spark variables may be defined and each variable name is limited to a max of 12 characters.
