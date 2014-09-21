@@ -2413,9 +2413,9 @@ Parameters: floating point offset from UTC in hours, from -12.0 to 13.0
 Set the Spark Core's time to the given timestamp.
 
 *NOTE*: This will override the time set by the Spark Cloud.
-If the cloud connection drops, the reconnection handshake will set the time again.
+If the cloud connection drops, the reconnection handshake will set the time again
 
-Also see: [`Spark.syncTime()`](#/firmware/time-spark-synctime)
+Also see: [`Spark.syncTime()`](#spark-synctime)
 
 ```cpp
 // Set the time to 2014-10-11 13:37:42
