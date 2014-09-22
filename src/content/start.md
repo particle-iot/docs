@@ -152,7 +152,7 @@ The RGB LED can also let you know if there were errors in establishing an intern
 
 The Core has 24 pins that you can connect a circuit to. These pins are:
 
-- _VIN_: Connect an unregulated power source here with a voltage between 3.6V and 6V to power the Core. If you're powering the Core over USB, this pin should *not* be used.
+- _VIN_: To power the Core off an unregulated power source with a voltage between 3.6V and 6V, or, if you're powering the Core over USB, this pin can be used as 5V V~OUT~. In this case consider the current limitation imposed by your USB power source (e.g. max. 500mA for standard USB 2.0 ports). *Avoid powering the Core via USB and V~IN~ concurrently*.
 - _3V3_: This pin will output a regulated 3.3V power rail that can be used to power any components outside the Core. (Also, if you have your own 3.3V regulated power source, you can plug it in here to power the Core).
 - _3V3*_: This is a separate low-noise regulated 3.3V power rail designed for analog circuitry that may be susceptible to noise from the digital components. If you're using any sensitive analog sensors, power them from _3V3*_ instead of from _3V3_.
 - _!RST_: You can reset the Core (same as pressing the RESET button) by connecting this pin to GND.
