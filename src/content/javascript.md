@@ -26,7 +26,63 @@ $ npm install -g spark
 
 ### Client side
 
-Coming soon
+#### Including Sparkjs
+
+Add this script tag to your page to get started with Sparkjs
+
+```html
+<script type="text/javascript" src="//cdn.jsdelivr.net/sparkjs/0.2.0/spark.min.js">
+</script>
+```
+
+Now you will have available a `spark` object and you can use in your application.
+
+#### Spark login
+
+![LOGINB]({{assets}}/images/spark-login-button.png)
+
+You can add spark login to your application with very few code.
+
+By following the instructions provided you will get a "Login to Spark" button
+that will open a modal form to login.
+
+Add an empty div with "spark-login" id where you want the "Login to Spark" button to be rendered.
+
+```html
+<div id="spark-login" />
+```
+
+Add this script tag to your page to include Sparkjs
+
+```javascript
+<script src="//cdn.jsdelivr.net/sparkjs/0.2.0/spark.min.js"></script>
+```
+
+Call `sparkLogin` function with a callback function that will be called on succesful login:
+
+```html
+<script>
+  sparkLogin(function(data) {
+    // Your code here
+  });
+</script>
+```
+
+Check out a [complete example here](https://github.com/spark/sparkjs/blob/master/examples/client/index.html)
+
+##### Customize styles
+
+![LOGINM]({{assets}}/images/spark-login-modal.png)
+
+It is possible to edit styles of button and modal using css to
+match your needs.
+
+You just need to update the following css rules:
+
+* .spark-login-button
+* .spark-login-input
+* .spark-login-modal
+* .spark-login-error
 
 ## Logging in
 
