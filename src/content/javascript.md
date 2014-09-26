@@ -12,7 +12,7 @@ It's also open source so you can edit, change or even send in pull requests if y
 
 # Getting Started
 
-## Instaling library
+## Installation
 
 ### Node.js
 
@@ -21,30 +21,33 @@ First, make sure you have [node.js](http://nodejs.org/) installed!
 Next, open a command prompt or terminal, and install by typing:
 
 ```shell
-$ npm install -g spark
+$ npm install spark
 ```
 
 ### Client side
 
-#### Including Sparkjs
+#### Including SparkJS
 
-Add this script tag to your page to get started with Sparkjs
+SparkJS can be included using bower:
+
+```shell
+$ bower install spark
+```
+
+Alternately, you can pull in SparkJS from the JSDelivr and simply include the script in your HTML.
 
 ```html
 <script type="text/javascript" src="//cdn.jsdelivr.net/sparkjs/0.2.0/spark.min.js">
 </script>
 ```
 
-Now you will have available a `spark` object and you can use in your application.
+Now you will have a `spark` object available that you can use in your application.
 
 #### Spark login
 
 ![LOGINB]({{assets}}/images/spark-login-button.png)
 
-You can add spark login to your application with very few code.
-
-By following the instructions provided you will get a "Login to Spark" button
-that will open a modal form to login.
+If you are using SparkJS in the browser and want a dead simple way to log in to a Spark account to get your devices, the following instructions will give you a "Login to Spark" button to open a login modal.
 
 Add an empty div with "spark-login" id where you want the "Login to Spark" button to be rendered.
 
@@ -52,13 +55,13 @@ Add an empty div with "spark-login" id where you want the "Login to Spark" butto
 <div id="spark-login" />
 ```
 
-Add this script tag to your page to include Sparkjs
+Add this script tag to your page to include SparkJS
 
 ```javascript
 <script src="//cdn.jsdelivr.net/sparkjs/0.2.0/spark.min.js"></script>
 ```
 
-Call `sparkLogin` function with a callback function that will be called on succesful login:
+Call `sparkLogin` function with a callback function that will be called on successful login:
 
 ```html
 <script>
