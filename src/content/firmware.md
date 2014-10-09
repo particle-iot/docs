@@ -1,4 +1,4 @@
-﻿---
+---
 word: Firmware
 title: Core code (Firmware)
 order: 3
