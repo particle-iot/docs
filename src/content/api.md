@@ -411,7 +411,10 @@ at which point you will be immediately notified.
 
 To subscribe to an event stream, make a GET request to one of the following endpoints.
 This will open a Server-Sent Events (SSE) stream, i.e., a TCP socket that stays open.
-In each case, the event name filter in the URI is optional.
+In each case, the event name filter in the URI is optional.  When specifying an event name filter,
+published events will be limited to those events with names that begin with the specified string.
+For example, specifying an event name filter of 'temp' will return events with names 'temp' and 
+'temperature'. 
 
 SSE resources:
 
