@@ -338,7 +338,7 @@ This LED has four pins, one for each color and a common anode (+) pin.
 
 S9013 is a general purpose small signal NPN [transistor](http://en.wikipedia.org/wiki/Transistor) rated at 40V, 500mA.
 
-You can this transistor to switch small loads like relays, mini motors, buzzers, etc.
+You can use this transistor to switch small loads like relays, mini motors, buzzers, etc.
 
 [Datasheet >](http://www.fairchildsemi.com/ds/SS/SS9013.pdf)
 
