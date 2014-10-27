@@ -71,7 +71,7 @@ Call `sparkLogin` function with a callback function that will be called on succe
 </script>
 ```
 
-Check out a [complete example here](https://github.com/spark/sparkjs/blob/master/examples/client/index.html)
+Check out a [complete example here](https://github.com/spark/sparkjs/blob/master/examples/client)
 
 ##### Customize styles
 
