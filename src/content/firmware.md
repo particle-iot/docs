@@ -866,6 +866,71 @@ void loop()
 }
 ```
 
+ADVANCED I/O
+------
+
+### tone()
+
+Generates a square wave of the specified frequency and duration (and 50% duty cycle) on a timer channel pin (D0, D1, A0, A1, A4, A5, A6, A7, RX, TX). Use of the tone() function will interfere with PWM output on the selected pin.
+
+```C++
+// SYNTAX
+tone(pin, frequency, duration)
+```
+
+`tone()` takes three arguments, `pin`: the pin on which to generate the tone, `frequency`: the frequency of the tone in hertz and `duration`: the duration of the tone in milliseconds (a zero value = continuous tone).
+
+`tone()` does not return anything.
+
+```C++
+/*
+ Plays a melody - Connect small speaker to analog pin A0
+*/
+int speakerPin = A0;
+
+// notes in the melody:
+int melody[] = {1908,2551,2551,2273,2551,0,2024,1908}; //C4,G3,G3,A3,G3,0,B3,C4
+
+// note durations: 4 = quarter note, 8 = eighth note, etc.:
+int noteDurations[] = {4,8,8,4,4,4,4,4 };
+
+void setup() {
+  // iterate over the notes of the melody:
+  for (int thisNote = 0; thisNote < 8; thisNote++) {
+
+    // to calculate the note duration, take one second 
+    // divided by the note type.
+    //e.g. quarter note = 1000 / 4, eighth note = 1000/8, etc.
+    int noteDuration = 1000/noteDurations[thisNote];
+    tone(speakerPin, melody[thisNote],noteDuration);
+
+    // to distinguish the notes, set a minimum time between them.
+    // the note's duration + 30% seems to work well:
+    int pauseBetweenNotes = noteDuration * 1.30;
+    delay(pauseBetweenNotes);
+    // stop the tone playing:
+    noTone(speakerPin);
+  }
+}
+```
+
+### noTone()
+
+Stops the generation of a square wave triggered by tone() on a specified pin (D0, D1, A0, A1, A4, A5, A6, A7, RX, TX). Has no effect if no tone is being generated.
+
+
+```C++
+// SYNTAX
+noTone(pin)
+```
+
+`noTone()` takes one argument, `pin`: the pin on which to stop generating the tone.
+
+`noTone()` does not return anything.
+
+```C++
+//See the tone() example
+```
 
 Communication
 ===
