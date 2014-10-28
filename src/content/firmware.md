@@ -883,9 +883,9 @@ tone(pin, frequency, duration)
 `tone()` does not return anything.
 
 ```C++
-/*
- Plays a melody - Connect small speaker to analog pin A0
-*/
+// EXAMPLE USAGE
+// Plays a melody - Connect small speaker to analog pin A0
+
 int speakerPin = A0;
 
 // notes in the melody:
