@@ -2707,6 +2707,97 @@ Calculates the square root of a number.
 
 The function returns the number's square root *(double)*
 
+## Random Numbers
+
+The firmware incorporates a pseudo-random number generator. 
+
+### random()
+
+Retrieves the next random value, restricted to a given range. 
+
+ `random(max);`
+
+Parameters
+
+- `max` - the upper limit of the random number to retrieve.
+
+Returns: a random value between 0 and up to, but not including `max`. 
+
+```c++
+int r = random(10);
+// r is >= 0 and < 10
+// The smallest value returned is 0
+// The largest value returned is 9
+```
+
+ NB: When `max` is 0, the result is always 0.
+
+---
+
+`random(min,max);`
+
+Parameters: 
+
+ - `min` - the lower limit (inclusive) of the random number to retrieve.
+ - `max` - the upper limit (exclusive) of the random number to retrieve.
+
+Returns: a random value from `min` and up to, but not including `max`. 
+
+  
+```c++
+int r = random(10, 100);
+// r is >= 10 and < 100
+// The smallest value returned is 10
+// The largest value returned is 99
+```
+
+  NB: If `min` is greater or equal to `max`, the result is always 0. 
+
+### randomSeed()
+
+`randomSeed(newSeed);`
+
+Parameters:
+ 
+ - `newSeed` - the new random seed
+
+The pseudorandom numbers produced by the firmware are derived from a single value - the random seed. 
+The value of this seed fully determines the sequence of random numbers produced by successive
+calls to `random()`. Using the same seed on two separate runs will produce
+the same sequence of random numbers, and in contrast, using different seeds 
+will produce a different sequence of random numbers.
+
+On startup, the default random seed is [set by the system](http://www.cplusplus.com/reference/cstdlib/srand/) to 1.
+Unless the seed is modified, the same sequence of random numbers would be produced each time
+the system starts. 
+
+Fortunately, when the core connects to the cloud, it receives a very randomized seed value,
+which is used as the random seed. So you can be sure the random numbers produced
+will be different each time your program is run.
+
+
+*** Disable random seed from the cloud ***
+
+When the core receives a new random seed from the cloud, it's passed to this function:
+
+```
+void random_seed_from_cloud(unsigned int seed);
+```
+
+The system implementation of this function calls `randomSeed()` to set
+the new seed value. If you don't wish to use random seed values from the cloud, 
+you can take control of the ransom seeds set by adding this code to your app:
+
+```cpp
+void random_seed_from_cloud(unsigned int seed) {
+   // don't do anything with this. Continue with existing seed.
+}
+```
+
+In the example, the seed is simply ignored, so the system will continue using
+whatever seed was previously set. In this case, the random seed will not be set 
+from the cloud, and setting the seed is left to up you.
+
 
 EEPROM
 ----
