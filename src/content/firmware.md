@@ -866,7 +866,7 @@ void loop()
 }
 ```
 
-ADVANCED I/O
+Advanced I/O
 ------
 
 ### tone()
