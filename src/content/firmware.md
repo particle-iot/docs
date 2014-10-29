@@ -932,6 +932,92 @@ noTone(pin)
 //See the tone() example
 ```
 
+### shiftOut()
+
+Shifts out a byte of data one bit at a time on a specified pin. Starts from either the most (i.e. the leftmost) or least (rightmost) significant bit. Each bit is written in turn to a data pin, after which a clock pin is pulsed (taken high, then low) to indicate that the bit is available.
+Note: if you're interfacing with a device that's clocked by rising edges, you'll need to make sure that the clock pin is low before the call to shiftOut(), e.g. with a call to digitalWrite(clockPin, LOW).
+This is a software implementation; see also the SPI function, which provides a hardware implementation that is faster but works only on specific pins.
+
+
+```C++
+// SYNTAX
+shiftOut(dataPin, clockPin, bitOrder, value)
+```
+
+`shiftOut()` takes four arguments, 'dataPin': the pin on which to output each bit, `clockPin`: the pin to toggle once the dataPin has been set to the correct value, `bitOrder`: which order to shift out the bits; either MSBFIRST or LSBFIRST (Most Significant Bit First, or, Least Significant Bit First) and `value`: the data (byte) to shift out.
+
+`shiftOut()` does not return anything.
+
+```C++
+// EXAMPLE USAGE
+
+// Use digital pins D0 for data and D1 for clock
+int dataPin = D0;
+int clock = D1;
+
+uint8_t data = 50;
+
+setup() {
+	// Set data and clock pins as OUTPUT pins before using shiftOut()
+	pinMode(dataPin, OUTPUT);
+	pinMode(clock, OUTPUT);
+	
+	// shift out data using MSB first
+	shiftOut(dataPin, clock, MSBFIRST, data);
+
+	// Or do this for LSBFIRST serial
+	shiftOut(dataPin, clock, LSBFIRST, data);  
+}
+
+loop() {
+	// nothing to do
+}
+```
+
+### shiftIn()
+
+Shifts in a byte of data one bit at a time. Starts from either the most (i.e. the leftmost) or least (rightmost) significant bit. For each bit, the clock pin is pulled high, the next bit is read from the data line, and then the clock pin is taken low.
+Note: if you're interfacing with a device that's clocked by rising edges, you'll need to make sure that the clock pin is low before the call to shiftOut(), e.g. with a call to digitalWrite(clockPin, LOW).
+This is a software implementation; see also the SPI function, which provides a hardware implementation that is faster but works only on specific pins.
+
+
+```C++
+// SYNTAX
+shiftIn(dataPin, clockPin, bitOrder)
+```
+
+`shiftIn()` takes three arguments, 'dataPin': the pin on which to input each bit, `clockPin`: the pin to toggle to signal a read from dataPin, `bitOrder`: which order to shift in the bits; either MSBFIRST or LSBFIRST (Most Significant Bit First, or, Least Significant Bit First).
+
+`shiftIn()` returns the byte value read.
+
+
+```C++
+// EXAMPLE USAGE
+
+// Use digital pins D0 for data and D1 for clock
+int dataPin = D0;
+int clock = D1;
+
+uint8_t data;
+
+setup() {
+	// Set data as INPUT and clock pin as OUTPUT before using shiftIn()
+	pinMode(dataPin, INPUT);
+	pinMode(clock, OUTPUT);
+	
+	// shift in data using MSB first
+	data = shiftIn(dataPin, clock, MSBFIRST);
+
+	// Or do this for LSBFIRST serial
+	data = shiftIn(dataPin, clock, LSBFIRST);  
+}
+
+loop() {
+	// nothing to do
+}
+```
+
+
 Communication
 ===
 
