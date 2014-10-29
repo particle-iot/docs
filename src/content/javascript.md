@@ -1,7 +1,7 @@
 ---
 word: Javascript
 title: Javascript SDK
-order: 6
+order: 7
 ---
 
 # sparkjs
