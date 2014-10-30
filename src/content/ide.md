@@ -59,8 +59,17 @@ Then you will see list of all your Core along with online indicator. You can sea
 Compiling code
 ---
 
-![Compile errors]({{assets}}/images/ide-compile-errors.jpg)
+![Compile button]({{assets}}/images/ide-compile.jpg)
 
 To compile your current project, click on the **Compile in the cloud** button. If your code doesn't contain errors, you'll see a new file named **firmware_X.bin** in your project's directory (where *X* is a timestamp).
 
+![Compile errors]({{assets}}/images/ide-compile-errors.jpg)
+
 If there are some errors, you'll see a list of them allowing you to quickly jump to relevant line in code. You can show this list by clicking red error icon on the bottom of the window.
+
+Flashing Core
+---
+
+![Active Flash button]({{assets}}/images/ide-flash.jpg)
+
+When you're sure that your code is correct it's time to flash it to the Core. To do this, click **Flash using cloud** button.
