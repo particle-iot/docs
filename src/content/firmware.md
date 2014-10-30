@@ -2585,6 +2585,22 @@ Serial.print(Time.timeStr()); // Wed May 21 01:08:47 2014
 
 Returns: String
 
+System
+---
+
+### reset()
+
+Resets the device, just like hitting the reset button or powering down and back up.
+
+```C++
+// Reset every 60 seconds
+void loop() {
+  if (60000 > millis()) {
+    System.reset();
+  }
+}
+```
+
 
 Other functions
 =====
