@@ -82,7 +82,7 @@ In order to register a Spark function, the user provides the `funcKey`, which is
 
 The length of the `funcKey` is limited to a max of 12 characters.
 
-A Spark function is set up to take one argument of the [String](http://arduino.cc/en/Reference/StringObject) datatype. This argument length is limited to a max of 64 characters.
+A Spark function is set up to take one argument of the [String](http://arduino.cc/en/Reference/StringObject) datatype. This argument length is limited to a max of 63 characters.
 
 ```cpp
 // EXAMPLE USAGE
