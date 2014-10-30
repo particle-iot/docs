@@ -98,3 +98,25 @@ Functions
 To call a function, just click on the button with its name. After finishing you'll see its result on the right side.
 
 You can also add parameters to the call by entering them on the right of button.
+
+Managing Core
+===
+
+Using IDE you can do many things with your Core including setting up its WiFi, claiming or renaming it.
+
+Setting up WiFi
+---
+
+![WiFi list]({{assets}}/images/ide-wifi-list.jpg)
+
+To setup Core's WiFi, connect it via USB and click **Setup Core's WiFi...** button on the toolbar.
+
+If your Core isn't in [listening mode](/connect/#connecting-your-core-listening-mode) you'll see animation showing how to enter it.
+
+Next you'll see all available networks. One you are currently connected to will be first.
+
+Select one you want Core to use or choose **Enter SSID manually** (last item) to specify all information by hand.
+
+![WiFi setup]({{assets}}/images/ide-wifi-save.jpg)
+
+Now you need to fill missing information and click **Save**. Core will go dark for a second and then try to connect to the WiFi.
