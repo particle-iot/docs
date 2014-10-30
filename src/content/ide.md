@@ -7,6 +7,24 @@ order: 6
 Build Apps with Local IDE
 ===
 
+Introduction
+===
+
+![IDE Menu]({{assets}}/images/ide-menu.jpg)
+
+Every command is available from **Spark** menu item. Depending on being logged in or having selected a Core, this menu will change.
+
+![Command Palette]({{assets}}/images/ide-palette.jpg)
+
+If you prefer more keyboard oriented workflow, there's **Command Palette** with all available commands, which can be filtered.
+
+To show the palette press `Command`, `Shift` and `P` keys together on a Mac or `Control`, `Shift`, `P` on Windows.
+
+![Toolbar]({{assets}}/images/ide-toolbar.jpg)
+**Tip**: you can change toolbar's position in settings.
+
+There's also a toolbar on left side of IDE (it looks just like one from [Build IDE](/build) isn't it?), which contains shortcuts to most used commands like compiling or flashing.
+
 Logging In
 ---
 If you want to work on more advanced projects, local IDE could be the choice for you. Head over and download our IDE:
@@ -32,8 +50,8 @@ Most of features like **Flashing** or accessing **Cloud variables and functions*
 
 There are three ways to select core:
 
-* click **Select Core** button in the left toolbar
-* click Core's name on the bottom of the window
-* click on **Spark** -> **Select Core...** menu
+* Click **Select Core** button in the left toolbar
+* Click Core's name on the bottom of the window
+* Click on **Spark** -> **Select Core...** menu
 
 Then you will see list of all your Core along with online indicator. You can search for specific one by typing its name. Clicking on Core or pressing `Enter` when Core is selected, will make it the current one.
