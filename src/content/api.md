@@ -337,6 +337,7 @@ The API request will be routed to the Spark Core and will run your `brew` functi
 ```
 
 All Spark functions take a String as the only argument and must return a 32-bit integer.
+The maximum length of the argument is 63 characters.
 
 
 Reading data from a Core
