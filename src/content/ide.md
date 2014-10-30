@@ -70,6 +70,31 @@ If there are some errors, you'll see a list of them allowing you to quickly jump
 Flashing Core
 ---
 
-![Active Flash button]({{assets}}/images/ide-flash.jpg)
+![Flash button]({{assets}}/images/ide-flash.jpg)
 
-When you're sure that your code is correct it's time to flash it to the Core. To do this, click **Flash using cloud** button.
+When you're sure that your code is correct it's time to flash it to the Core. To do this, click **Flash using cloud** button. Your code will be sent wirelessly to your Core. If the flash was successful, the LED on your Core will begin flashing magenta.
+
+Cloud variables & functions
+===
+
+To access all registered variables and functions, go to **Spark** -> **Show cloud variables and functions** menu.
+
+Variables
+---
+
+![Getting variable]({{assets}}/images/ide-get-variable.gif)
+
+All registered variables are shown on the left side of panel. To get lastest variable value, click **Refresh** button for variable you want to update.
+
+![Watching variable]({{assets}}/images/ide-watch-variable.gif)
+
+When you want to check variable value constantly, you can start watching it by clicking **Watch** button. When variable is watched, IDE will fetch latest value every 5 seconds.
+
+Functions
+---
+
+![Functions]({{assets}}/images/ide-functions.gif)
+
+To call a function, just click on the button with its name. After finishing you'll see its result on the right side.
+
+You can also add parameters to the call by entering them on the right of button.
