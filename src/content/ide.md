@@ -55,3 +55,12 @@ There are three ways to select core:
 * Click on **Spark** -> **Select Core...** menu
 
 Then you will see list of all your Core along with online indicator. You can search for specific one by typing its name. Clicking on Core or pressing `Enter` when Core is selected, will make it the current one.
+
+Compiling code
+---
+
+![Compile errors]({{assets}}/images/ide-compile-errors.jpg)
+
+To compile your current project, click on the **Compile in the cloud** button. If your code doesn't contain errors, you'll see a new file named **firmware_X.bin** in your project's directory (where *X* is a timestamp).
+
+If there are some errors, you'll see a list of them allowing you to quickly jump to relevant line in code. You can show this list by clicking red error icon on the bottom of the window.
