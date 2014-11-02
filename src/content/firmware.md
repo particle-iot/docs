@@ -427,7 +427,7 @@ Spark.sleep(int seconds);
 ```
 
 ```C++
-// EXAMPLE USAGE: Put the Wi-Fi module in standbly (low power) for 5 seconds
+// EXAMPLE USAGE: Put the Wi-Fi module in standby (low power) for 5 seconds
 Spark.sleep(5);
 // The Core LED will flash green during sleep
 ```
