@@ -1354,11 +1354,12 @@ Connect a pull-up resistor(1.5K to 10K) on SDA line. Connect a pull-up resistor(
 
 ### setSpeed()
 
-Sets the I2C clock speed. This is an optional call (not from the original Arduino specs.) and should normally be called once before calling begin().
+Sets the I2C clock speed. This is an optional call (not from the original Arduino specs.) and must be called once before calling begin().  The default I2C clock speed is 100KHz.
 
 ```C++
 // SYNTAX
 Wire.setSpeed(clockSpeed);
+Wire.begin();
 ```
 
 Parameters: 
@@ -1367,16 +1368,31 @@ Parameters:
 
 ### stretchClock()
 
-Enables or Disables I2C clock stretching. This is an optional call (not from the original Arduino specs.).
+Enables or Disables I2C clock stretching. This is an optional call (not from the original Arduino specs.) and must be called once before calling begin(). The default I2C stretch mode is disabled.
 
 ```C++
 // SYNTAX
 Wire.stretchClock(stretch);
+Wire.begin();
 ```
 
 Parameters: 
 
 - `stretch`: boolean. true will enable clock stretching. false will disable clock stretching.
+
+### enableDMAMode()
+
+Enables or Disables I2C DMA mode. This is an optional call (not from the original Arduino specs.) and must be called once before calling begin(). The default I2C DMA mode is disabled.
+
+```C++
+// SYNTAX
+Wire.enableDMAMode(enable);
+Wire.begin();
+```
+
+Parameters: 
+
+- `enable`: boolean. true will enable DMA mode. false will disable DMA mode.
 
 ### begin()
 
