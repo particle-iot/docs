@@ -1380,19 +1380,6 @@ Parameters:
 
 - `stretch`: boolean. true will enable clock stretching. false will disable clock stretching.
 
-### enableDMAMode()
-
-Enables or Disables I2C DMA mode. This is an optional call (not from the original Arduino specs.) and must be called once before calling begin(). The default I2C DMA mode is disabled.
-
-```C++
-// SYNTAX
-Wire.enableDMAMode(enable);
-Wire.begin();
-```
-
-Parameters: 
-
-- `enable`: boolean. true will enable DMA mode. false will disable DMA mode.
 
 ### begin()
 
