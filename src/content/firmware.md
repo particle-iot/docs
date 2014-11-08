@@ -2129,7 +2129,7 @@ Parameters: NONE
 
 ### remoteIP()
 
-Returns the IP address of sender of the packet of parsed by `UDP.parsePacket()`.
+Returns the IP address of sender of the packet parsed by `UDP.parsePacket()`.
 
 ```cpp
 // SYNTAX
