@@ -2129,7 +2129,7 @@ Parameters: NONE
 
 ### remoteIP()
 
-Gets the IP address of the remote connection. This function must be called after `UDP.parsePacket()`.
+Returns the IP address of sender of the packet parsed by `UDP.parsePacket()`.
 
 ```cpp
 // SYNTAX
@@ -2139,12 +2139,12 @@ Parameters: NONE
 
 Returns:
 
- - 4 bytes : the IP address of the remote connection
+ - 4 bytes : the IP address of the sender of the packet parsed by `UDP.parsePacket()`.
 
 
 ### remotePort()
 
-Gets the port of the remote UDP connection. This function must be called after `UDP.parsePacket()`.
+Returns the port from which the UDP packet was sent. The packet is the one most recently processed by  UDP.parsePacket()`.
 
 ```cpp
 // SYNTAX
@@ -2154,7 +2154,7 @@ Parameters: NONE
 
 Returns:
 
-- `int`: the port of the UDP connection to a remote host
+- `int`: the port from which the packet parsed by `UDP.parsePacket()` was sent.
 
 Libraries
 =====
