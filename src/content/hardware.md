@@ -125,7 +125,7 @@ The Core features two serial ports. The first one is a CDC (Communications Devic
 
 The second one is a hardware USART available via the TX and RX pins on the Core.
 
-Both of these serial ports can be configured and used using the [serial functions.](firmware/#communication-serial)
+Both of these serial ports can be configured and used using the [serial functions.](/firmware/#communication-serial)
 
 **NOTE:** Please take into account that the voltage levels on these pins runs at 0V to 3.3V and should not be connected directly to a computer's RS232 serial port which operates at +/- 12V and can damage the Core.
 
