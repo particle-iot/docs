@@ -121,11 +121,13 @@ This feature is only available on the following pins: `A0, A1, A4, A5, A6, A7, D
 
 ![Hardware USART]({{assets}}/images/core-pin-usart.jpg)
 
-The Core features two serial ports. The first one is a CDC (Communications Device Class) available over the USB port . When configured, it will show up as a virtual COM port on the computer.
+The Core features three serial ports. The first one is a CDC (Communications Device Class) available over the USB port. When configured, it will show up as a virtual COM port on the computer. (usage: `Serial.begin(9600);`)
 
-The second one is a hardware USART available via the TX and RX pins on the Core.
+The second one is a hardware USART available via the TX and RX pins on the Core. (usage: `Serial1.begin(9600);`)
 
-Both of these serial ports can be configured and used using the [serial functions.](/firmware/#communication-serial)
+The third one is a hardware USART available via the D1(Tx) and D0(Rx) pins on the Core. (usage: `Serial2.begin(9600);`)
+
+Configuration and use of all of these serial ports is described in the [serial functions.](/firmware/#communication-serial)
 
 **NOTE:** Please take into account that the voltage levels on these pins runs at 0V to 3.3V and should not be connected directly to a computer's RS232 serial port which operates at +/- 12V and can damage the Core.
 
