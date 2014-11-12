@@ -12,18 +12,18 @@ Introduction
 
 ![IDE Menu]({{assets}}/images/ide-menu.jpg)
 
-Every command is available from **Spark** menu item. Depending on being logged in or having selected a device, this menu will change.
+All the commands are available from the **Spark** menu. The menu changes depending on whether you're logged in or have selected a device, so some of the commands will only show up once you're in the right context.
 
 ![Command Palette]({{assets}}/images/ide-palette.jpg)
 
-If you prefer more keyboard oriented workflow, there's **Command Palette** with all available commands, which can be filtered.
+If you prefer a keyboard-oriented workflow, there's **Command Palette** with all available commands in a searchable list.
 
-To show the palette press `Command`, `Shift` and `P` keys together on a Mac or `Control`, `Shift`, `P` on Windows.
+To show the palette press `Command`+`Shift`+`P` keys together on a Mac or `Control`+`Shift`+`P` on Windows.
 
 ![Toolbar]({{assets}}/images/ide-toolbar.jpg)
 **Tip**: you can change toolbar's position in settings.
 
-There's also a toolbar on left side of IDE (it looks just like one from [Web IDE (Build)](/build) isn't it?), which contains shortcuts to most used commands like compiling or flashing.
+There's also a toolbar on left side of IDE which contains shortcuts to the most frequently used commands like compiling and flashing (looks a lot like the one from [Web IDE (Build)](/build), doesn't it?).
 
 Logging In
 ---
@@ -33,20 +33,20 @@ If you want to work on more advanced projects, Spark Dev could be the choice for
 
 ![IDE Window]({{assets}}/images/ide-window.jpg)
 
-To access most of features you need to log in using your Spark account (which you can [create here](https://www.spark.io/signup)) by clicking link on the bottom of the window.
+To access most of features you need to log in using your Spark account (which you can [create here](https://www.spark.io/signup)) by clicking the link on the bottom of the window.
 
 ![Logging in]({{assets}}/images/ide-log-in.jpg)
 
-Enter your email and password then click the "Log In" button. After quick verification, dialog will hide and link from the bottom will show your current account email.
+Enter your email and password then click the "Log In" button. After a successful login, the dialog will hide and a link will appear at the bottom showing your current account email.
 
-**NOTE**: Using [Command Line](/cli) you'll notice that log-in status is shared between Spark Dev and CLI. So if you successfully ran `spark login`, you will be logged in within the Spark Dev.
+**NOTE**: When using [Command Line](/cli) you'll notice that log-in status is shared between Spark Dev and CLI. So if you successfully ran `spark login`, you will be logged in within the Spark Dev.
 
 Selecting device
 ---
 
 ![Selecting device]({{assets}}/images/ide-select-core.jpg)
 
-Most of features like **Flashing** or accessing **Cloud variables and functions** requires selecting which device they will interact with.
+Most features like **Flashing** or accessing **Cloud variables and functions** require selecting a target device they will interact with.
 
 There are three ways to select core:
 
@@ -54,7 +54,7 @@ There are three ways to select core:
 * Click device's name on the bottom of the window
 * Click on **Spark** -> **Select device...** menu
 
-Then you will see list of all your device along with online indicator. You can search for specific one by typing its name. Clicking on device or pressing `Enter` when device is selected, will make it the current one.
+Then you will see list of all your devices along with an indicator of online status. You can search for a specific one by typing its name. Clicking on the device or pressing `Enter` when a device is selected will select it.
 
 Compiling code
 ---
@@ -72,7 +72,7 @@ Flashing device
 
 ![Flash button]({{assets}}/images/ide-flash.jpg)
 
-When you're sure that your code is correct it's time to flash it to the device. To do this, click **Flash using cloud** button. Your code will be sent wirelessly to your device. If the flash was successful, the LED on your device will begin flashing magenta.
+When you're sure that your code is correct it's time to flash it to the device. To do this, click **Flash using cloud** button. Your code will be sent wirelessly to your device. If the request was successful, the LED on your device will begin flashing magenta as code is downloaded to it. The process is complete when the magenta is replaced by your online status indication patterns.
 
 Cloud variables & functions
 ===
@@ -84,20 +84,20 @@ Variables
 
 ![Getting variable]({{assets}}/images/ide-get-variable.gif)
 
-All registered variables are shown on the left side of panel. To get lastest variable value, click **Refresh** button for variable you want to update.
+All variables declared with [Spark.variable()](http://docs.spark.io/firmware/#spark-variable) are shown on the left side of panel. To poll lastest variable value, click **Refresh** button for variable you want to update.
 
 ![Watching variable]({{assets}}/images/ide-watch-variable.gif)
 
-When you want to check variable value constantly, you can start watching it by clicking **Watch** button. When variable is watched, Spark Dev will fetch latest value every 5 seconds.
+When you want to check variable value constantly, you can click **Watch** button. When a variable is watched, Spark Dev will fetch latest value every 5 seconds.
 
 Functions
 ---
 
 ![Functions]({{assets}}/images/ide-functions.gif)
 
-To call a function, just click on the button with its name. After finishing you'll see its result on the right side.
+To call an [exposed function](http://docs.spark.io/firmware/#spark-function) simply click on the button with its name. You'll see any data the function returns on the right side.
 
-You can also add parameters to the call by entering them on the right of button.
+You can also add parameters to the call by entering them to the right of button.
 
 Managing device
 ===
@@ -113,9 +113,9 @@ To setup device's WiFi, connect it via USB and click **Setup device's WiFi...** 
 
 If your device isn't in [listening mode](/connect/#connecting-your-core-listening-mode) you'll see animation showing how to enter it.
 
-Next you'll see all available networks. One you are currently connected to will be first.
+Next you'll see all available networks. The one you are currently connected to will be listed first.
 
-Select one you want device to use or choose **Enter SSID manually** (last item) to specify all information by hand.
+Select the one you want your device to use or choose **Enter SSID manually** (listed last) to specify all information by hand.
 
 ![WiFi setup]({{assets}}/images/ide-wifi-save.jpg)
 
