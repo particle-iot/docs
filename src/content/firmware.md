@@ -1611,7 +1611,7 @@ IPAddress
 -----
 ### IPAddress
 
-Creates an IP address that can be used with TCPServer, TCPClient, UPD, and Network objects.
+Creates an IP address that can be used with TCPServer, TCPClient, and UPD objects.
 
 ```C++
 // EXAMPLE USAGE
@@ -1635,14 +1635,14 @@ You can also use indexing the get or change individual bytes in the IP address.
 
 ```C++
 // PING ALL HOSTS ON YOUR SUBNET EXCEPT YOURSELF
-IPAddress localIP = Network.localIP();
+IPAddress localIP = WiFi.localIP();
 uint8_t myLastAddrByte = localIP[3];
 for(uint8_t ipRange=1; ipRange<255; ipRange++)
 {
   if (ipRange != myLastAddrByte)
   {
     localIP[3] = ipRange;
-    Network.ping(localIP);
+    WiFi.ping(localIP);
   }
 }
 ```
@@ -1662,7 +1662,7 @@ Finally IPAddress can be used directly with print.
 ```C++
 // PRINT THE CORE'S IP ADDRESS IN
 // THE FORMAT 192.168.0.10
-IPAddress myIP = Network.localIP();
+IPAddress myIP = WiFi.localIP();
 Serial.println(myIP);    // prints the core's IP address
 ```
 
@@ -1696,10 +1696,10 @@ void setup()
   // Now open your Serial Terminal, and hit any key to continue!
   while(!Serial.available()) SPARK_WLAN_Loop();
 
-  Serial.println(Network.localIP());
-  Serial.println(Network.subnetMask());
-  Serial.println(Network.gatewayIP());
-  Serial.println(Network.SSID());
+  Serial.println(WiFi.localIP());
+  Serial.println(WiFi.subnetMask());
+  Serial.println(WiFi.gatewayIP());
+  Serial.println(WiFi.SSID());
 }
 
 void loop()
@@ -1993,7 +1993,7 @@ void setup() {
 
   // Print your device IP Address via serial
   Serial.begin(9600);
-  Serial.println(Network.localIP());
+  Serial.println(WiFi.localIP());
 }
 
 void loop() {
