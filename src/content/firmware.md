@@ -1611,7 +1611,7 @@ IPAddress
 -----
 ### IPAddress
 
-Creates an IP address that can be used with TCPServer, TCPClient, and UPD objects.
+Creates an IP address that can be used with TCPServer, TCPClient, and UDP objects.
 
 ```C++
 // EXAMPLE USAGE
