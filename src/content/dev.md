@@ -61,6 +61,8 @@ Compiling code
 
 ![Compile button]({{assets}}/images/ide-compile.jpg)
 
+Before compiling your project, make sure your project files are in a dedicated directory.  If other files not related to your project are present in the project directory, you may experience errors when trying to compile.
+
 To compile your current project, click on the **Compile in the cloud** button. If your code doesn't contain errors, you'll see a new file named **firmware_X.bin** in your project's directory (where *X* is a timestamp).
 
 ![Compile errors]({{assets}}/images/ide-compile-errors.jpg)
