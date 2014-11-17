@@ -59,6 +59,8 @@ Then you will see list of all your devices along with an indicator of online sta
 Compiling code
 ---
 
+Before compiling your project, make sure your project files are in a dedicated directory.  If other files not related to your project are present in the project directory, you may experience errors when trying to compile.
+
 ![Compile button]({{assets}}/images/ide-compile.jpg)
 
 To compile your current project, click on the **Compile in the cloud** button. If your code doesn't contain errors, you'll see a new file named **firmware_X.bin** in your project's directory (where *X* is a timestamp).
