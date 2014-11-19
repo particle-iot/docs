@@ -25,7 +25,7 @@ $ spark cloud login
 Advanced Install
 ---------------------------
 
-To use the local flash and key features you'll also need to install [dfu-util](http://dfu-util.gnumonks.org/), and [openssl](http://www.openssl.org/).  They are freely available and open-source, and there are installers and binaries for most major platforms.
+To use the local flash and key features you'll also need to install [dfu-util](http://dfu-util.sourceforge.net/), and [openssl](http://www.openssl.org/).  They are freely available and open-source, and there are installers and binaries for most major platforms.
 
 Here are some great tutorials on the community for full installs:
 
