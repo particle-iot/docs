@@ -272,7 +272,9 @@ Controlling a Core
 --------
 
 To control a Core, you must first define and expose *functions* in the Core firmware.
-You then call these functions remotely using the Spark Cloud API.
+You then call these functions remotely using the Spark Cloud API. 
+
+Note: If you have declared a function name longer than 12 characters it *will be truncated* to 12 characters. Example: Spark.function("someFunction1", ...); exposes a function called **someFunction** and *not* **someFunction1**
 
 ```cpp
 /* FIRMWARE */
