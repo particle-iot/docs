@@ -80,7 +80,7 @@ Currently the application supports the creation of up to 4 different Spark funct
 
 In order to register a Spark function, the user provides the `funcKey`, which is the string name used to make a POST request and a `funcName`, which is the actual name of the function that gets called in the Spark app. The Spark function can return any integer; `-1` is commonly used for a failed function call.
 
-The length of the `funcKey` is limited to a max of 12 characters.
+The length of the `funcKey` is limited to a max of 12 characters. If you declare a function name longer than 12 characters it will be truncated to 12 characters. Example: Spark.function("someFunction1", ...); exposes a function called someFunction and not someFunction1
 
 A Spark function is set up to take one argument of the [String](http://arduino.cc/en/Reference/StringObject) datatype. This argument length is limited to a max of 63 characters.
 
