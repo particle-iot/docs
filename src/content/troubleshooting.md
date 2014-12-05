@@ -226,11 +226,18 @@ The meaning of the panic codes is described below.  8 flashes, signifying out of
 - *What’s the problem?* A decryption error occurred during the handshake with the Spark Cloud
 - *How do I fix it?*
 
+Please make sure the following software is installed:
+
+* [Spark-CLI](http://docs.spark.io/cli/)
+* [DFU-util](https://community.spark.io/t/tutorial-installing-dfu-driver-on-windows/3518)
+
 Please complete the following steps:
 
-1. A full set of instructions for resolving this issue can be found at the following location on the Spark Community forums.  If the steps included in the link below are unsuccessful, please [contact the Spark team](mailto:hello@spark.io).
-
-[Replacing your Spark Cloud credentials >](https://community.spark.io/t/troubleshooting-my-core-is-flashing-yellow-red-lights-after-it-connects-to-wifi/627)
+1. Place the core in [Listening Mode](http://docs.spark.io/connect/#connecting-your-core-listening-mode)
+2. In a command line window / terminal run the command ```spark keys identify``` to get a list of cores connected to the computer. Make note of the core id (replace core_id below with this core id)
+3. Place the core in [DFU Mode](http://docs.spark.io/connect/#appendix-dfu-mode-device-firmware-upgrade)
+4. Run the command ```spark keys doctor core_id```
+5. Your Spark Core should connect to the network (green, cyan, breathing cyan). If not feel free to [contact the Spark team](mailto:hello@spark.io).
 
 ---
 
