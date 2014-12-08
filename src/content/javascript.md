@@ -242,12 +242,12 @@ devicesPr.then(
 
 ## Device object
 
-You get a list of device instances after calling: `spark.getDevices`,
+You get a list of device instances after calling: `spark.listDevices`,
 if you want to access devices without calling API again, you can use
 `spark.devices`
 
 ```javascript
-spark.listDevices(function(devices) {
+spark.listDevices(function(err, devices) {
   var device = devices[0];
 
   console.log('Device name: ' + device.name);
@@ -256,6 +256,14 @@ spark.listDevices(function(devices) {
   console.log('- functions: ' + device.functions);
   console.log('- version: ' + device.version);
   console.log('- requires upgrade?: ' + device.requiresUpgrade);
+});
+```
+
+You can ask for a specific device by it's id with: `spark.getDevice`
+
+```javascript
+spark.getDevice('DEVICE_ID', function(err, device) {
+  console.log('Device name: ' + device.name);
 });
 ```
 
