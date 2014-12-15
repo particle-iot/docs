@@ -484,6 +484,18 @@ spark.getEventStream('test', 'CORE_ID', function(data) {
 });
 ```
 
+data is an object with the following properties
+
+```
+{ 
+  "name":"Uptime",
+  "data":"5:28:54",
+  "ttl":"60",
+  "published_at":"2014-MM-DDTHH:mm:ss.000Z",
+  "coreid":"012345678901234567890123"
+}
+```
+
 ### Publishing event
 
 Register an event stream in the Spark cloud
