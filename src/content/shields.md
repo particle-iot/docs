@@ -74,6 +74,8 @@ Relay Shield
 
 The Relay Shield, in combination with the Spark Core, allows you to control high power devices over the internet. Want to control a lamp, fan or garden sprinklers? Then this is a solution for you!
 
+**IMPORTANT**: This shield provide **regulated power (5v)** to the seated SparkCore and relays however it does **not** support power to the devices controlled by the relays. 
+
 Operation
 -----
 
