@@ -93,7 +93,7 @@ $ spark help keys
 Blink an LED with Tinker
 ============
 
-If you're just opening a new core, chances are it's already loaded with Tinker, the app we load at the factory.  If you don't have Tinker, or if you've been using the build IDE already, lets load it quickly by typing:
+If you're just opening a new core, chances are it's already loaded with Tinker, the app we load at the factory.  If you don't have Tinker, or if you've been using the build IDE already, let's load it quickly by typing:
 
 ```sh
 # How to re-load tinker onto a core
@@ -105,7 +105,7 @@ flash core said  {"id":"0123456789ABCDEFGHI","status":"Update started"}
 ```
 
 
-Lets make sure your core is online and loaded with Tinker.  We should see the four characteristic functions exposed by Tinker, "digitalwrite", "digitalread", "analogwrite", and "analogread".
+Let's make sure your core is online and loaded with Tinker.  We should see the four characteristic functions exposed by Tinker, "digitalwrite", "digitalread", "analogwrite", and "analogread".
 
 ```sh
 # how to show all your cores and their functions and variables
@@ -122,7 +122,7 @@ my_core_name (0123456789ABCDEFGHI) 0 variables, and 4 functions
 
 ```
 
-Lets try turning on the LED attached to pin D7 on your core.
+Let's try turning on the LED attached to pin D7 on your core.
 
 ```sh
 # how to call a function on your core
@@ -139,7 +139,7 @@ Nice!  You should have seen the small blue LED turn on, and then off.
 Update your core remotely
 =========================
 
-You can write whole apps and flash them remotely from the command line just as you would from the build IDE.  Lets write a small blink sketch to try it out.
+You can write whole apps and flash them remotely from the command line just as you would from the build IDE.  Let's write a small blink sketch to try it out.
 
 Copy and paste the following program into a file called blinky.ino
 
@@ -165,7 +165,7 @@ void loop() {
 ```
 
 
-Then lets compile that program to make sure it's valid code.  The CLI will automatically download the compiled binary of your program if everything went well, and show you the url.  The server will also keep a copy of your binary around for you for about 24 hours.
+Then let's compile that program to make sure it's valid code.  The CLI will automatically download the compiled binary of your program if everything went well, and show you the url.  The server will also keep a copy of your binary around for you for about 24 hours.
 
 
 ```sh
@@ -181,7 +181,7 @@ Compiled firmware downloaded.
 ```
 
 
-Now that we have a valid program, lets flash it to our core!  We can use either the source code again, or we can send our binary.
+Now that we have a valid program, let's flash it to our core!  We can use either the source code again, or we can send our binary.
 
 ```sh
 # how to flash a program to your core (from source code)
