@@ -57,7 +57,7 @@ A1        A1           PWM*, ADC**
 A2        A6           PWM*, ADC**
 
 *  Note: These pins can also function as 3.3V
-         PMW outputs or 3.3V Servo outputs.
+         PWM outputs or 3.3V Servo outputs.
 
 ** Note: ADC inputs are 3.3V max.
 ```
