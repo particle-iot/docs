@@ -810,7 +810,7 @@ The analogWrite function has nothing to do with the analog pins or the analogRea
 analogWrite(pin, value);
 ```
 
-`analogWrite()` takes two arguments, `pin`: the number of the pin whose value you wish to set and `value`: the duty cycle: between 0 (always off) and 255 (always on).
+`analogWrite()` takes two arguments, `pin`: the number of the pin whose value you wish to set and `value`: the duty cycle: between 0 (always off) and 255 (always on).  Note: `pinMode(pin, OUTPUT);` is required before calling `analogWrite(pin, value);` or else the `pin` will not be initialized as a PWM output and set to the desired duty cycle.
 
 `analogWrite()` does not return anything.
 
