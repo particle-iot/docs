@@ -161,13 +161,11 @@ To better understand the concept of making API calls to your Core over the cloud
 Measuring the temperature
 ===
 
-![Read Sensor]({{assets}}/images/annotated-example3.jpg)
+![Read Temperature]({{assets}}/images/breadboard-temp-sensor.jpg)
 
 We have now learned how to send custom commands to the Core and control the hardware. But how about reading data back from the Core?
 
 In this example, we will hook up a temperature sensor to the Core and read the values over the internet with a web browser.
-
-![Read Temperature]({{assets}}/images/breadboard-temp-sensor.jpg)
 
 We have used a widely available analog temperature sensor called TMP36 from Analog Devices, and is the temperature sensor that comes with your Spark Maker Kit! You can download the [datasheet here.](http://www.analog.com/static/imported-files/data_sheets/TMP35_36_37.pdf)
 
