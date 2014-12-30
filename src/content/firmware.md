@@ -2596,9 +2596,16 @@ System
 Resets the device, just like hitting the reset button or powering down and back up.
 
 ```C++
-// Reset every 60 seconds
+uint32_t lastReset = 0;
+
+void setup() {
+    lastReset = millis();
+}
+
 void loop() {
-  if (60000 > millis()) {
+  // Reset after 5 minutes of operation
+  // ==================================
+  if (millis() - lastReset > 5*60000UL) {
     System.reset();
   }
 }
