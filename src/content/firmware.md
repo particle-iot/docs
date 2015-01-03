@@ -4275,19 +4275,19 @@ Returns:
 
 ### concat()
 
-Combines, or *concatenates* two strings into one new String. The second string is appended to the first, and the result is placed in a new String.
+Combines, or *concatenates* two strings into one string. The second string is appended to the first, and the result is placed in the original string.
 
 ```
 SYNTAX:
 
-string.concat(string, string2)
+string.concat(string2)
 ```
 
 Parameters:
 
   * string, string2: variables of type String
 
-Returns: new String that is the combination of the original two Strings
+Returns: None
 
 ### endsWith()
 
