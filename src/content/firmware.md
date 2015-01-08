@@ -259,11 +259,10 @@ Spark.subscribe("the_event_prefix", theHandler, MY_DEVICES);
 
 ---
 
-In the near future, you'll also be able to subscribe to events from a single Core by specifying the Core's ID.
+You are also able to subscribe to events from a single Core by specifying the Core's ID.
 
 ```cpp
 // Subscribe to events published from one Core
-// COMING SOON!
 Spark.subscribe("motion/front-door", motionHandler, "55ff70064989495339432587");
 ```
 
