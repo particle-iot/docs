@@ -457,7 +457,7 @@ You can use to it detect tilt, orientation or vibrations.
 
 The TMP36 is a low voltage, precision centigrade temperature sensor. It provides a voltage output that is linearly proportional to the Celsius (centigrade) temperature. The TMP36 does not require any external calibration to provide typical accuracies of ±1°C at +25°C and ±2°C over the −40°C to +125°C temperature range.
 
-[Here is an example](http://docs.spark.io/#/examples) of how you could use it the Core.
+[Here is an example](http://docs.spark.io/examples/#measuring-the-temperature) of how you could use it the Core.
 
 [Datasheet >](http://www.analog.com/static/imported-files/data_sheets/TMP35_36_37.pdf)
 
