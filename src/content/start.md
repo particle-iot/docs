@@ -22,7 +22,7 @@ Congratulations on being the owner of a brand new Spark Core! Go ahead, open the
 
 ![Power the Core]({{assets}}/images/core-usb.jpg)
 
-Plug the included USB cable into the Spark Core and your computer. The Core should start blinking blue.  [Have one of these u.FL connectors?](/#/hardware#spark-core-datasheet-types-of-cores) Make sure you connect an antenna to it now!
+Plug the included USB cable into the Spark Core and your computer. The Core should start blinking blue.  [Have one of these u.FL connectors?](/hardware#spark-core-datasheet-types-of-cores) Make sure you connect an antenna to it now!
 
 - Not blinking blue?
 - - Maybe it's already been configured. Hold down the MODE button until it starts blinking blue, then continue.
