@@ -107,9 +107,9 @@ int brewCoffee(String command)
   // look for the matching argument "coffee" <-- max of 64 characters long
   if(command == "coffee")
   {
-    // do something here
-    activateWaterHeater();
-    activateWaterPump();
+    // some example functions you might have
+    //activateWaterHeater();
+    //activateWaterPump();
     return 1;
   }
   else return -1;
