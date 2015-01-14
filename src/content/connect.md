@@ -160,7 +160,3 @@ Follow the instructions on Texas Instrument's website:
 The only thing that's different is that you'll need to activate the optional AES key and type `sparkdevices2013`.
 
 *NOTE: TI's Android app is not available in Google Play; you'll have to download it off of their website and side-load the apk yourself.*
-
-## Coming soon: Hard-code credentials
-
-Currently there is not a mechanism to hard-code your SSID and password into the firmware for the Spark Core. We're working on it!
