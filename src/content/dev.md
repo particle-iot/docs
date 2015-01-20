@@ -79,7 +79,7 @@ When you're sure that your code is correct it's time to flash it to the device. 
 Cloud variables & functions
 ===
 
-To access all registered variables and functions, go to **Spark** -> **Show cloud variables and functions** menu.
+To access all registered variables and functions, go to **Spark** -> **Show cloud functions**/**Show cloud functions** menus.
 
 Variables
 ---
