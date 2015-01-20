@@ -79,7 +79,7 @@ When you're sure that your code is correct it's time to flash it to the device. 
 Cloud variables & functions
 ===
 
-To access all registered variables and functions, go to **Spark** -> **Show cloud variables and functions** menu.
+To access all registered variables and functions, go to **Spark** -> **Show cloud functions**/**Show cloud functions** menus.
 
 Variables
 ---
@@ -122,3 +122,28 @@ Select the one you want your device to use or choose **Enter SSID manually** (li
 ![WiFi setup]({{assets}}/images/ide-wifi-save.jpg)
 
 Now you need to fill missing information and click **Save**. Core will go dark for a second and then try to connect to the WiFi.
+
+Using community libraries
+===
+
+Currently community libraries aren't supported natively (but we're working on it). You can still use them, just follow these instructions:
+
+![Libraries]({{assets}}/images/build-libraries.jpg)
+
+Find the [library you want to use](/build/#flash-apps-with-spark-build-using-libraries)
+
+![Link to GitHub repository]({{assets}}/images/build-library-github.jpg)
+
+View it on GitHub
+
+![Download link]({{assets}}/images/github-download.jpg)
+
+Download the repository
+
+![Correct files selected]({{assets}}/images/ide-selected-library.jpg)
+
+Copy files from `firmware` directory **without** `examples` to your project directory
+
+![Example project with include]({{assets}}/images/ide-include-library.jpg)
+
+Include library adding `#include "LIBRARY.h"` to your code
