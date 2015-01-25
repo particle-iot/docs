@@ -145,6 +145,19 @@ The import and validation process is designed to be forgiving and easy to interp
 
 The easiest way to generate library boilerplate code is to follow the instructions on the [getting started section](https://github.com/spark/uber-library-example/#getting-started) of the `uber-library-example`, a project designed to illustrate and document what a library is supposed to look like.
 
+Checking code memory usage
+---
+
+!["i" button]({{assets}}/images/ide-i-button.png)
+
+Whenever you **verify** your code and it compiles successfully, an "i" button will be displayed at the console output window.
+
+This allows you to view the amount of FLASH and RAM used by this particular code/app that is currently being worked on.
+
+*If there are no code changes and you **verify** code for the second time, the "i" button will not be available. You can simply add an extra blank space or new line before you **verify** and the "i" button will now appear.
+
+![Code memory information]({{assets}}/images/ide-mem-usage.jpg)
+
 Wait, what is firmware?
 ---
 
