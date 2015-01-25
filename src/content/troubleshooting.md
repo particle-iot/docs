@@ -229,7 +229,8 @@ The meaning of the panic codes is described below.  8 flashes, signifying out of
 Please make sure the following software is installed:
 
 * [Spark-CLI](http://docs.spark.io/cli/)
-* [DFU-util](https://community.spark.io/t/tutorial-installing-dfu-driver-on-windows/3518)
+* [DFU-util (windows)](https://community.spark.io/t/tutorial-installing-dfu-driver-on-windows/3518)
+* [DFU-util (mac)] (https://github.com/spark/firmware#3-device-firmware-upgrade-utilities)
 
 Please complete the following steps:
 
