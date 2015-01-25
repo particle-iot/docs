@@ -154,9 +154,9 @@ Whenever you **verify** your code and it compiles successfully, an "i" button wi
 
 This allows you to view the amount of FLASH and RAM used by this particular code/app that is currently being worked on.
 
-*If there are no code changes and you **verify** code for the second time, the "i" button will not be available. You can simply add an extra blank space or new line before you **verify** and the "i" button will now appear.
+_If there are no code changes and you **verify** code for the second time, the "i" button will not be available. You can simply add an extra blank space or new line before you **verify** and the "i" button will now appear._
 
-![Code memory information]({{assets}}/images/ide-mem-usage.jpg)
+![Code memory information]({{assets}}/images/ide-mem-usage.png)
 
 Wait, what is firmware?
 ---
