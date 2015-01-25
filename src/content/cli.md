@@ -251,7 +251,7 @@ my_core_name (0123456789ABCDEFGHI) 0 variables, and 4 functions
 
 ```
 
-###spark core add
+###spark cloud claim
 
   Adds a new core to your account
 
