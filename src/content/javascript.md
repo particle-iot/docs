@@ -37,7 +37,7 @@ $ bower install spark
 Alternately, you can pull in SparkJS from the JSDelivr and simply include the script in your HTML.
 
 ```html
-<script type="text/javascript" src="//cdn.jsdelivr.net/sparkjs/0.2.4/spark.min.js">
+<script type="text/javascript" src="//cdn.jsdelivr.net/sparkjs/0.2.6/spark.min.js">
 </script>
 ```
 
@@ -58,7 +58,7 @@ Add an empty div with "spark-login" id where you want the "Login to Spark" butto
 Add this script tag to your page to include SparkJS
 
 ```javascript
-<script src="//cdn.jsdelivr.net/sparkjs/0.2.4/spark.min.js"></script>
+<script src="//cdn.jsdelivr.net/sparkjs/0.2.6/spark.min.js"></script>
 ```
 
 Call `sparkLogin` function with a callback function that will be called on successful login:
