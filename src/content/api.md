@@ -27,11 +27,17 @@ https://api.spark.io
 
 There are a number of API calls available, which are summarized here, and described in more detail below.
 
+List devices
+-------
+
 List devices the currently authenticated user has access to.
 
 ```
 GET /v1/devices
 ```
+
+Device information
+-------
 
 Get basic information about the given Core, including the custom variables and functions it has exposed.
 
@@ -45,12 +51,18 @@ Update the Core, including the display name or the firmware (either binary or so
 PUT /v1/devices/{DEVICE_ID}
 ```
 
+Requesting a variable value
+-------
+
 Request the current value of a variable exposed by the core,
 e.g., `GET /v1/devices/0123456789abcdef01234567/temperature`
 
 ```
 GET /v1/devices/{DEVICE_ID}/{VARIABLE}
 ```
+
+Calling a function
+-------
 
 Call a function exposed by the core, with arguments passed in request body,
 e.g., `POST /v1/devices/0123456789abcdef01234567/brew`
