@@ -27,7 +27,7 @@ Parts of an IFTTT Recipe
 
 ###What are triggers?
 
-Triggers are the _this_ part of a Recipe. Triggers are how IFTTT knows when to run your recipe. A trigger can be as conceptually simple as "is x is greater than 5?" or "did I get new email?", and they frequently are!
+Triggers are the _this_ part of a Recipe. Triggers are how IFTTT knows when to run your recipe. A trigger can be as conceptually simple as "is x greater than 5?" or "did I get new email?", and they frequently are!
 
 ###What are actions?
 
