@@ -154,3 +154,129 @@ Sample output:
     The temp is: 15.0 *F
     The wind is: from the Northwest at 19.6 gusting to 28.8 MPH (17 gusting to 25 KT)
 ```
+
+
+
+
+
+
+
+
+
+Webhook Options
+===
+
+What about when you want to send custom headers or parameters?  This section explains what's available and how to use them all!
+
+event
+---
+
+The topic or name of the event being published from your device.  This field is required for a webhook.
+
+```
+    Spark.publish(event, data);
+    #  This part  ^^^^^
+```
+
+
+url
+---
+
+The address of the resource you want to contact.  Make sure you have permission to be sending requests to this server.  This field is required.
+
+Hooks that result in a high error count or cause that server to go over our limit will be muted for a time to make sure no sites are being abused.  If you're a site operator and you believe you're being spammed by webhooks, please email us at hello@spark.io.
+
+
+requestType
+---
+
+Optionally specify a standard web request method (GET, POST, PUT, DELETE).  This defaults to POST if not supplied.
+
+
+
+deviceID
+---
+
+Provide a full id of one of your devices, and the webhook will only respond to events from that device.
+
+
+mydevices
+---
+
+Expects true or false, and will optionally filter to only events coming from devices owned by you.
+
+
+headers
+---
+
+Optionally provide a JSON object with key / value pairs specifying custom headers.  This can be useful for authorization codes or custom headers required by some services.
+
+```json
+#example
+
+    "headers": {
+        "Authorization: Bearer 12345"
+    }
+```
+
+
+form
+---
+
+Optionally include custom fields and values as if submitting a form with your request.  This parameter will change the content-type header to `application/x-www-form-urlencoded`
+
+```json
+#example
+    "form": {
+        "custom-field": "reindeer counts"
+    }
+```
+
+json
+---
+
+Optionally include custom fields and values as JSON with your request.  This parameter will change the content-type header to `application/json`.
+
+```json
+#example
+    "json": {
+        "table-name": "racetrack_times"
+    }
+```
+
+
+query
+---
+
+Optionally include extra parameters in the URL of the request encoded as normal query params.
+
+```json
+#example
+    "query": {
+        "q": "how much can an unladen swallow carry",
+        "p": 2
+    }
+
+#would be:
+    http://url.com/?q=how+much+can+an+unladen+swallow+carry&p=2
+
+```
+
+auth
+---
+
+Optionally include an object with username/password set to include a properly encoded HTTP basic auth header.
+
+```json
+#example
+    "auth": {
+        "username": "dancy_pants",
+        "password": "speak friend and enter",
+    }
+```
+                    
+                       
+                       
+                       
+Limits
+===
