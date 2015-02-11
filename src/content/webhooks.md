@@ -280,3 +280,27 @@ Optionally include an object with username/password set to include a properly en
                        
 Limits
 ===
+
+Web requests via webhooks have the potential to cause side-effects anywhere on the internet, with any service, which is awesome.  In being a responsible member of the Internet community, we want to make sure we're not sending unwanted requests to sites, or sending too much traffic, or causing errors.  For this reason we ask that you make sure you have permission to make requests to any sites you configure hooks for, and that you're sending those requests within their usage policies.  We will generally disable any hooks, or adjust rate limiting if we hear from site administrators that contact us about issues.
+
+We also have a handful of rate limits that we hope will provide you a ton of usability, while also protecting against accidental abuse, they fall into 3 categories:
+
+Limits by Host
+---
+
+Spark webhooks will not contact any host more often than 120 times per minute, despite any number of configured webhooks from any number of users.  Requests over this limit for the moment will be dropped.  We intend to add a proper queuing system so this is done more fairly, but for the moment we've opted to protect sites against abuse first.  If you're a site owner / operator and you want to allow more traffic, please email us at hello@spark.io.
+
+
+Limits by User
+---
+
+A user by default may trigger a hook up to 10 times per minute for every core that is registered to their account.
+
+
+
+Limits by Hook
+---
+
+Any hook that results in an error code from the server (above a 400), 10 consequetive times in a row will be automatically disabled.  We'll be adding notifications, and the ability to pause/unpause when this happens, but for the moment you might notice your hook stop working for this reason.  
+
+
