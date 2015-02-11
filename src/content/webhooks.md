@@ -294,7 +294,7 @@ Spark webhooks will not contact any host more often than 120 times per minute, d
 Limits by User
 ---
 
-A user by default may trigger a hook up to 10 times per minute for every core that is registered to their account.
+A user by default may trigger a hook up to 10 times per minute for every core that is registered to their account.  A user may create up to 20 webhooks total.
 
 
 
