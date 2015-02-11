@@ -16,7 +16,7 @@ Webhooks listen for events from your devices, and then make a request to somewhe
 
 If you're totally new to Spark, that's okay!  Checkout our [Getting started guide here](http://docs.spark.io/start/) first, and come back when you're ready.
 
-Lets go!  
+Lets go!
 
 
 
@@ -38,6 +38,119 @@ https://github.com/spark/spark-cli#installing
 
 
 
-Your first webhook
+Your first webhook (Showing the weather)
 ===
 
+Lets grab and display some weather data, that's fun!
+
+If you're in the US, pick your state and area here ( http://w1.weather.gov/xml/current_obs/ ), if you're somewhere else, try to find a weather service site that is open to being accessed from your device, and can send a simple text report.
+
+
+Creating the webhook
+-----
+
+```sh
+
+    # create the webhook on the commane line with spark-cli
+    # spark webhook GET http://w1.weather.gov/xml/current_obs/<your_local_weather_station_here>.xml
+    
+    
+    # create a hook for the event "get_weather" that will hit the following URL
+    spark webhook GET get_weather http://w1.weather.gov/xml/current_obs/KMSP.xml 
+```
+
+This webhook will now be triggered when we publish "get_weather" from any of our devices.  So let's write some firmware!
+
+
+The weather displaying firmware
+-----
+
+```cpp
+    
+    void setup() {
+        Serial.begin(115200);
+        
+        // setup our subscription to hear the hook response
+        Spark.subscribe("hook-response/get_weather", gotWeatherData, MY_DEVICES);
+    
+        //wait for someone to open a serial monitor
+        for(int i=0;i<10;i++) {
+            Serial.println("waiting " + String(10-i) + " seconds before we publish");
+            delay(1000);
+        }
+        
+        //trigger our webhook
+        Serial.println("Requesting Weather!");
+        Spark.publish("get_weather");
+    }
+    
+    void loop() {
+    
+    }
+    
+    void gotWeatherData(const char *name, const char *data) {
+        //Important note!  This assumes we're getting our info in whole chunks, and doesn't work when the chunks are split.
+        //Sample data:
+        // <location>Minneapolis, Minneapolis-St. Paul International Airport, MN</location>
+        // <weather>Overcast</weather>
+        // <temperature_string>26.0 F (-3.3 C)</temperature_string>
+        // <temp_f>26.0</temp_f>
+    
+        
+        String str = String(data);
+        String locationStr = tryExtractString(str, "<location>", "</location>");
+        String weatherStr = tryExtractString(str, "<weather>", "</weather>");
+        String tempStr = tryExtractString(str, "<temp_f>", "</temp_f>");
+        String windStr = tryExtractString(str, "<wind_string>", "</wind_string>");
+    
+    
+    
+        if (locationStr != NULL) {
+            Serial.println("At location: " + locationStr);
+        }
+        
+        if (weatherStr != NULL) {
+            Serial.println("The weather is: " + weatherStr);
+        }
+        
+        if (tempStr != NULL) {
+            Serial.println("The temp is: " + tempStr + String(" *F"));
+        }
+        
+        if (windStr != NULL) {
+            Serial.println("The wind is: " + windStr);
+        }
+    }
+    
+    
+    
+    String tryExtractString(String str, const char* start, const char* end) {
+        if (str == NULL) {
+            return NULL;
+        }
+        
+        int idx = str.indexOf(start);
+        if (idx < 0) {
+            return NULL;
+        }
+        
+        int endIdx = str.indexOf(end);
+        if (endIdx < 0) {
+            return NULL;
+        }
+        
+        return str.substring(idx + strlen(start), endIdx);
+    }
+```
+
+
+
+Sample output:
+
+```
+    Requesting Weather!
+    At location: Minneapolis, Minneapolis-St. Paul International Airport, MN
+    The weather is: A Few Clouds
+    The temp is: 15.0 *F
+    The wind is: from the Northwest at 19.6 gusting to 28.8 MPH (17 gusting to 25 KT)
+```
