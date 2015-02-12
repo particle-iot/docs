@@ -12,7 +12,9 @@ Introduction
 
 You've built an amazing device, and paired it with a powerful application online, and now you want to connect them.  You're in the right place!
 
-Webhooks listen for events from your devices, and then make a request to somewhere online.  They make it easy to connect with anything online that accepts a web request style integration (which by now is most things).  So let's show you how to say, log events published from your devices, or let your devices make secure requests anywhere on the internet.
+Webhooks are a simple and flexible way for your devices to make a web request anywhere on the Internet!  When you create a webhook, it listens for specific events from your devices.  When you send that event, the hook will make your request, and optionally send you back the result.
+
+This means you can quickly and easily connect your devices to most modern web services!  So let's show you how to say, log events published from your devices, or let your devices make secure requests anywhere on the internet.
 
 If you're totally new to Spark, that's okay!  Checkout our [Getting started guide here](http://docs.spark.io/start/) first, and come back when you're ready.
 
@@ -38,7 +40,7 @@ https://github.com/spark/spark-cli#installing
 
 
 
-Your first webhook (Showing the weather)
+Your first webhook (Getting the weather)
 ===
 
 Lets grab and display some weather data, that's fun!
@@ -89,12 +91,15 @@ The weather displaying firmware
     }
     
     void gotWeatherData(const char *name, const char *data) {
-        //Important note!  This assumes we're getting our info in whole chunks, and doesn't work when the chunks are split.
-        //Sample data:
-        // <location>Minneapolis, Minneapolis-St. Paul International Airport, MN</location>
-        // <weather>Overcast</weather>
-        // <temperature_string>26.0 F (-3.3 C)</temperature_string>
-        // <temp_f>26.0</temp_f>
+        // Important note!  -- Right now the response comes in 512 byte chunks.  
+        //  This code assumes we're getting the response in large chunks, and this
+        //  assumption breaks down if a line happens to be split across response chunks.
+        //
+        // Sample data:
+        //  <location>Minneapolis, Minneapolis-St. Paul International Airport, MN</location>
+        //  <weather>Overcast</weather>
+        //  <temperature_string>26.0 F (-3.3 C)</temperature_string>
+        //  <temp_f>26.0</temp_f>
     
         
         String str = String(data);
