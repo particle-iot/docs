@@ -3244,10 +3244,11 @@ This will perform a factory reset and do the following:
 - Erase WiFi profiles
 - Enter Listening mode upon completion
 
+
 System.bootloader()
 ----
 
-The device will enter DFU-mode and boot up in DFU when a reset occurs until a user firmware is flashed uploaded via DFU-util.
+The device will enter DFU-mode and boot up in DFU when a reset occurs until a user firmware is uploaded via DFU-util.
 
 
 Language Syntax
