@@ -3244,12 +3244,19 @@ This will perform a factory reset and do the following:
 - Erase WiFi profiles
 - Enter Listening mode upon completion
 
+```cpp
+System.factoryReset()
+```
 
 System.bootloader()
 ----
 
+
 The device will enter DFU-mode and boot up in DFU when a reset occurs until a user firmware is uploaded via DFU-util.
 
+```cpp
+System.bootloader()
+```
 
 Language Syntax
 =====
