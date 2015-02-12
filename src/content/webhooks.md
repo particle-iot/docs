@@ -10,11 +10,11 @@ Webhooks
 Introduction
 ===
 
-You've built an amazing device, and paired it with a powerful application online, and now you want to connect them.  You're in the right place!
+You've built an amazing device, to be paired with a powerful application online, and you're looking for a way to connect them.  You're in the right place!
 
 Webhooks listen for events from your devices, and then make a request to somewhere online.  They make it easy to connect with anything online that accepts a web request style integration (which by now is most things).  So let's show you how to say, log events published from your devices, or let your devices make secure requests anywhere on the internet.
 
-If you're totally new to Spark, that's okay!  Checkout our [Getting started guide here](http://docs.spark.io/start/) first, and come back when you're ready.
+If you're totally new to Spark, that's okay!  Checkout our [Getting started guide here](http://docs.spark.io/start/) or our [Spark Basics tutorial](http://cmsunu28.gitbooks.io/spark-basics/content/), and come back when you're ready.
 
 Lets go!
 
@@ -23,43 +23,57 @@ Lets go!
 Seriously what's a web request?
 ====
 
-You're probably reading this documentation page with the help of a web browser.  Your browser sent a "GET" request when it asked for this page, which our web server recognized and so it sent the page back.  Most of your average requests to view a page or browse around online are "GET" requests.  This is all part of that hypertext ```http://``` thing that is at the front of the address in your browser.  When you fill out and submit a form, your browser tends to send "POST" requests.  POST requests are usually for sending data to a server.  You can read more about all the different types here ( http://en.wikipedia.org/wiki/Hypertext_Transfer_Protocol#Request_methods ).
+When you surf the internet, you are riding a continuous wave of web requests. Browsers make requests to web servers, which send information back that allow you to view, point, click, and interact. When you loaded this page, your browser sent a "GET" request to our web server to ask to display the site. Our server recognized the information in that "GET" request, and it sent the page back to your browser.
 
-Webhooks lets you setup a web request that is tied to an event from your devices.  That means you can probably grab or send values to any web service or site with something as simple as ```Spark.publish("lets go!");```
+There are many different kinds of web requests. Most of your average requests to view a page or browse around online are "GET" requests.  This is all part of that hypertext ```http://``` thing that is at the front of the address in your browser.  When you fill out and submit a form, your browser tends to send "POST" requests.  POST requests are usually for sending data to a server.  You can read more about all the different types [here](http://en.wikipedia.org/wiki/Hypertext_Transfer_Protocol#Request_methods).
+
+Imagine that you could use your devices to make these requests. You could grab or send values to any web service or site with something as simple as ```Spark.publish("lets go!");``` That's what we are going to teach you to do with Webhooks.
 
 
 Installing the CLI
 ===
 
-We're still building the beautiful, intuitive web interface for creating and managing webhooks, but we didn't want you to wait any longer.  Grab the Spark-CLI for quick and easy access to managing your webhooks.  You'll need Node.js installed to use the CLI, but it's worth it and pretty easy to install.  At the moment you might also need to learn how to use the terminal.  Adafruit has a lovely intro to the command line here https://learn.adafruit.com/what-is-the-command-line/overview .
+We're still building the beautiful, intuitive web interface for creating and managing webhooks, but we didn't want you to wait any longer.  Here's a way you can use it without the web interface, using the terminal and the Spark Command Line Interface (Spark-CLI).
+
+For those of you who have used the Spark-CLI in the past, you're all set! If you are a CLI newcomer, install it by following [these instructions](http://docs.spark.io/cli/#installing).
+
+You'll also need some basic knowledge of the terminal. Adafruit has a [lovely intro to the command line](https://learn.adafruit.com/what-is-the-command-line/overview) that beginners may find helpful.
 
 
 https://github.com/spark/spark-cli#installing
 
 
 
-Your first webhook (Showing the weather)
+Your first Webhook (Showing the weather)
 ===
 
 Lets grab and display some weather data, that's fun!
 
-If you're in the US, pick your state and area here ( http://w1.weather.gov/xml/current_obs/ ), if you're somewhere else, try to find a weather service site that is open to being accessed from your device, and can send a simple text report.
+If you're in the US, pick your state and area [here](http://w1.weather.gov/xml/current_obs/), if you're somewhere else, try to find a weather service site that is open to being accessed from your device, and can send a simple text report.
 
 
-Creating the webhook
+Creating the Webhook
 -----
+
+Remember that Webhooks listen for events from your devices and then make requests based on those events. We want this webhook to listen for an event called `get_weather` from our device, and then we want it to make a GET request to the weather site server.
+
+Hop on the terminal, download and update the Spark-CLI if you haven't yet, and type `spark login` to log in. Then:
 
 ```sh
 
-    # create the webhook on the commane line with spark-cli
-    # spark webhook GET http://w1.weather.gov/xml/current_obs/<your_local_weather_station_here>.xml
-    
-    
-    # create a hook for the event "get_weather" that will hit the following URL
+    # create the webhook on the command line with spark-cli
+    # the syntax is:
+    # spark webhook GET <your_event_name> http://<website.you.are.trying.to.contact>
+    # in this case, the request will be:
+    # spark webhook GET get_weather http://w1.weather.gov/xml/current_obs/<your_local_weather_station_here>.xml
+    # our local weather station is KMSP, so we will enter the following:
     spark webhook GET get_weather http://w1.weather.gov/xml/current_obs/KMSP.xml 
+    
 ```
 
-This webhook will now be triggered when we publish "get_weather" from any of our devices.  So let's write some firmware!
+This webhook will now be triggered when we publish "get_weather" from any of our devices.
+
+Now, let's write some firmware!
 
 
 The weather displaying firmware
@@ -166,7 +180,7 @@ Sample output:
 Webhook Options
 ===
 
-What about when you want to send custom headers or parameters?  This section explains what's available and how to use them all!
+You can even customize the Webhook to send custom headers, form fields, and more. This section explains what's available and how to use them all!
 
 event
 ---
@@ -281,7 +295,7 @@ Optionally include an object with username/password set to include a properly en
 Limits
 ===
 
-Web requests via webhooks have the potential to cause side-effects anywhere on the internet, with any service, which is awesome.  In being a responsible member of the Internet community, we want to make sure we're not sending unwanted requests to sites, or sending too much traffic, or causing errors.  For this reason we ask that you make sure you have permission to make requests to any sites you configure hooks for, and that you're sending those requests within their usage policies.  We will generally disable any hooks, or adjust rate limiting if we hear from site administrators that contact us about issues.
+Web requests via webhooks can go almost anywhere on the internet, with any service, which is awesome.  In being responsible members of the Internet community, we want to make sure we're not sending unwanted requests to sites, or sending too much traffic, or causing errors.  For this reason we ask that you make sure you have permission to make requests to any sites you configure hooks for, and that you're sending those requests within their usage policies.  We will generally disable any hooks, or adjust rate limiting if we hear from site administrators that contact us about issues.
 
 We also have a handful of rate limits that we hope will provide you a ton of usability, while also protecting against accidental abuse, they fall into 3 categories:
 
