@@ -3142,15 +3142,18 @@ uint8_t val = 0x45;
 EEPROM.write(addr, val);
 ```
 
-Advanced: System Modes
+Advanced
 =====
+
+System modes
+----
 
 By default, the Spark Core connects to the Cloud and processes messages automatically. However there are many cases where a user will want to take control over that connection. There are three available system modes: `AUTOMATIC`, `SEMI_AUTOMATIC`, and `MANUAL`. These modes describe how connectivity is handled.
 
 System modes must be called before the setup() function. By default, the Core is always in `AUTOMATIC` mode.
 
-Automatic mode
-----
+### Automatic mode
+
 
 The automatic mode of connectivity provides the default behavior of the Spark Core, which is that:
 
@@ -3176,8 +3179,8 @@ void loop() {
 
 In automatic mode, the user can still call `Spark.disconnect()` to disconnect from the Cloud, but is then responsible for re-connecting to the Cloud by calling `Spark.connect()`.
 
-Semi-automatic mode
-----
+### Semi-automatic mode
+
 
 The semi-automatic mode will not attempt to connect the Core to the Cloud automatically. However once the Core is connected to the Cloud (through some user intervention), messages will be processed automatically, as in the automatic mode above.
 
@@ -3202,8 +3205,8 @@ The semi-automatic mode is therefore much like the automatic mode, except:
 - When the Core boots up, the user code will begin running immediately.
 - When the user calls [`Spark.connect()`](#spark-connect), the user code will be blocked, and the Core will attempt to negotiate a connection. This connection will block until either the Core connects to the Cloud or an interrupt is fired that calls [`Spark.disconnect()`](#spark-disconnect).
 
-Manual mode
-----
+### Manual mode
+
 
 The "manual" mode puts the Spark Core's connectivity completely in the user's control. This means that the user is responsible for both establishing a connection to the Spark Cloud and handling communications with the Cloud by calling [`Spark.process()`](#spark-process) on a regular basis.
 
@@ -3231,6 +3234,21 @@ When using manual mode:
 - Once the user calls [`Spark.connect()`](#spark-connect), the Core will attempt to begin the connection process.
 - Once the Core is connected to the Cloud ([`Spark.connected()`](#spark-connected)` == true`), the user must call `Spark.process()` regularly to handle incoming messages and keep the connection alive. The more frequently `Spark.process()` is called, the more responsive the Core will be to incoming messages.
 - If `Spark.process()` is called less frequently than every 20 seconds, the connection with the Cloud will die. It may take a couple of additional calls of `Spark.process()` for the Core to recognize that the connection has been lost.
+
+System.factoryReset()
+----
+
+This will perform a factory reset and do the following:
+
+- Restore factory reset firmware from external flash (tinker)
+- Erase WiFi profiles
+- Enter Listening mode upon completion
+
+
+System.bootloader()
+----
+
+The device will enter DFU-mode and boot up in DFU when a reset occurs until a user firmware is uploaded via DFU-util.
 
 
 Language Syntax
