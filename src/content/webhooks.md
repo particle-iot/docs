@@ -61,9 +61,9 @@ Hop on the terminal, download and update the Spark-CLI if you haven't yet, and t
 
     # create the webhook on the command line with spark-cli
     # the syntax is:
-    # spark webhook GET <your_event_name> http://<website.you.are.trying.to.contact>
+    #    spark webhook GET <your_event_name> http://<website.you.are.trying.to.contact>
     # in this case, the request will be:
-    # spark webhook GET get_weather http://w1.weather.gov/xml/current_obs/<your_local_weather_station_here>.xml
+    #    spark webhook GET get_weather http://w1.weather.gov/xml/current_obs/<your_local_weather_station_here>.xml
     # our local weather station is KMSP, so we will enter the following:
     spark webhook GET get_weather http://w1.weather.gov/xml/current_obs/KMSP.xml 
     
