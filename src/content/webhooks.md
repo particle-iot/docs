@@ -40,8 +40,6 @@ For those of you who have used the Spark-CLI in the past, you're all set! If you
 You'll also need some basic knowledge of the terminal. Adafruit has a [lovely intro to the command line](https://learn.adafruit.com/what-is-the-command-line/overview) that beginners may find helpful.
 
 
-https://github.com/spark/spark-cli#installing
-
 
 
 Your first Webhook (Showing the weather)
