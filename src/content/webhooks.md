@@ -53,7 +53,7 @@ If you're in the US, pick your state and area [here](http://w1.weather.gov/xml/c
 Creating the Webhook
 -----
 
-Remember that Webhooks listen for events from your devices and then make requests based on those events. We want this webhook to listen for an event called `get_weather` from our device, and then we want it to make a GET request to the weather site server.
+Remember that Webhooks listen for events from your devices and then make requests based on those events. We want this Webhook to listen for an event called `get_weather` from our device, and then we want it to make a GET request to the weather site server.
 
 Hop on the terminal, download and update the Spark-CLI if you haven't yet, and type `spark login` to log in. Then:
 
@@ -69,7 +69,7 @@ Hop on the terminal, download and update the Spark-CLI if you haven't yet, and t
     
 ```
 
-This webhook will now be triggered when we publish "get_weather" from any of our devices.
+This Webhook will now be triggered when we publish "get_weather" from any of our devices.
 
 Now, let's write some firmware!
 
@@ -80,12 +80,15 @@ The weather displaying firmware
 ```cpp
     
     void setup() {
+    
         // First, we are going to set up serial data transmission.
         // Serial allows us to listen in on our device over USB and get updates.
         // In this example, we will use Serial communication to display the data our Webhook fetches
         // but you could just as easily display it in a webpage or pass the data to another system.
+    
         // We set up Serial using:
         Serial.begin(115200);
+    
         // Now, when we write commands that begin with Serial, such as
         //     Serial.println('Hello, World!')
         // we will be able to see the result when we open a serial monitor.
@@ -96,7 +99,7 @@ The weather displaying firmware
         // Otherwise, you will have to select which serial port is being used.
         
         // Next, we will set up our subscription to hear the hook response
-        // (We registered this webhook earlier using the Spark-CLI)
+        // (We registered this Webhook earlier using the Spark-CLI)
         Spark.subscribe("hook-response/get_weather", gotWeatherData, MY_DEVICES);
     
         // We will give the system 10 seconds before we actually start the program.
