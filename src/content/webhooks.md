@@ -80,26 +80,57 @@ The weather displaying firmware
 ```cpp
     
     void setup() {
+        // First, we are going to set up serial data transmission.
+        // Serial allows us to listen in on our device over USB and get updates.
+        // In this example, we will use Serial communication to display the data our Webhook fetches
+        // but you could just as easily display it in a webpage or pass the data to another system.
+        // We set up Serial using:
         Serial.begin(115200);
+        // Now, when we write commands that begin with Serial, such as
+        //     Serial.println('Hello, World!')
+        // we will be able to see the result when we open a serial monitor.
+        // You can open a serial monitor on your computer by using the Spark-CLI.
+        // Open a terminal window and type:
+        //    spark serial monitor
+        // If you only have one device connected via serial, your device should open automatically.
+        // Otherwise, you will have to select which serial port is being used.
         
-        // setup our subscription to hear the hook response
+        // Next, we will set up our subscription to hear the hook response
+        // (We registered this webhook earlier using the Spark-CLI)
         Spark.subscribe("hook-response/get_weather", gotWeatherData, MY_DEVICES);
     
-        //wait for someone to open a serial monitor
+        // We will give the system 10 seconds before we actually start the program.
+        // This for loop will make us wait 10 seconds and count down until the program starts.
+        // That will just give us a chance to open the serial monitor before the program publishes anything.
         for(int i=0;i<10;i++) {
             Serial.println("waiting " + String(10-i) + " seconds before we publish");
             delay(1000);
         }
         
-        //trigger our webhook
-        Serial.println("Requesting Weather!");
-        Spark.publish("get_weather");
-    }
     
     void loop() {
     
+        // We're goign to request the weather here.
+        // Let's do it only every 20 seconds.
+        
+        // First, write to the serial monitor that we are requesting weather...
+        Serial.println("Requesting Weather!");
+        
+        // Then, actually publish the event that gets the weather...
+        Spark.publish("get_weather");
+        
+        // ...and wait 20 seconds before you do it again.
+        delay(20000);
+        
+        // If we wanted our webhook to be triggered by a button press,
+        // we could put an if statement here instead so that 
+        //     Spark.publish("get_weather")
+        // is only called when the button is pressed
+
     }
     
+    // Now we are going to define a function to handle the weather data when it comes in and make it look pretty
+    // Don't worry too much about the details of this; basically just know that it makes the data pretty for the Serial monitor
     void gotWeatherData(const char *name, const char *data) {
         //Important note!  This assumes we're getting our info in whole chunks, and doesn't work when the chunks are split.
         //Sample data:
