@@ -12,6 +12,8 @@ Introduction
 
 ![IDE Menu]({{assets}}/images/ide-menu.jpg)
 
+**Spark dev** is an desktop-based application that allows you to work with local copies of your firmware files. However, **internet** access is required as the binary is pushed to Spark Cloud for compilation. i.e. This is not an offline development tool, yet.
+
 All the commands are available from the **Spark** menu. The menu changes depending on whether you're logged in or have selected a device, so some of the commands will only show up once you're in the right context.
 
 ![Command Palette]({{assets}}/images/ide-palette.jpg)
