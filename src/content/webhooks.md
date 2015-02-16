@@ -195,7 +195,6 @@ Copy and save that access token for your webhook.  Create a text file somewhere 
             }
         ]
       },
-      "auth": null,
       "mydevices": true
     }
 ```
