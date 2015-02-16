@@ -69,7 +69,7 @@ http://w1.weather.gov/xml/current_obs/<your_local_weather_station_here>.xml
 
 Here are a few:
 
-<<<INSERT LINKS HERE / ALTERNATE EXAMPLE>>>
+<<<TODO: INSERT LINKS HERE / ALTERNATE EXAMPLE>>>
 openweathermap.org
 
 
@@ -200,7 +200,8 @@ Lets make some graphs (Logging to Librato)
 
 Librato is great service that lets you quickly track and graph any data over time.  If you want to try this example, make sure you create a free account.  When you first login you'll see a screen like this:
 
-INSERT webhooks_librato_example_1.png
+
+![Librato Welcome Screen]({{assets}}/images/webhooks_librato_example_1.png)
 
 
 
@@ -235,6 +236,8 @@ Create your webhook with the cli by running this in a command prompt.  Make sure
 
 ```sh
     spark webhook create librato.json
+    > ...
+    > Successfully created webhook!
 ```
 
 
@@ -270,10 +273,49 @@ Here's the fun part, hook anything up to your core!  A motion sensor, temperatur
 ```
 
 
+<<<TODO: INSERT CLI monitoring screenshot showing success / show user how to pre-verify that things work>>>
+
+<<<TODO: INSERT LIBRATO Metrics screen>>>
+
+<<<TODO: INSERT LIBRATO Metrics graph screen>>>
 
 
 
 
+
+What gets sent in each request?
+===
+
+Since your webhook listens for events from your devices, it can send that event data along to whatever url you specify.  If you don't add any custom options, the hook will send a JSON type POST request with the following values:
+
+```json
+    {
+        event: "Your event name",
+        data: "Your event contents",
+        published_at: "When it was published",
+        coreid: "Your core ID"
+    }
+```
+
+<<<TODO: what's the shorthand for this bit again? ".661Z", ISO what?  >>>
+published_at is in the form YYYY-MM-DDTHH:mm:ss.661Z
+
+
+Templates
+===
+
+In order to help connect with many different services, you can move these published event values around in your request using simple templates.  You can picture the example above as the following template:
+ 
+ 
+```json
+    {
+        event:  "{{SPARK_EVENT_NAME}}",
+        data: "{{SPARK_EVENT_VALUE}}",
+        published_at: "{{SPARK_PUBLISHED_AT}}",
+        coreid: "{{SPARK_CORE_ID}}"
+    }
+```
+        
 
 
 
@@ -391,10 +433,10 @@ Optionally include an object with username/password set to include a properly en
         "password": "speak friend and enter",
     }
 ```
-                    
-                       
-                       
-                       
+
+
+
+
 Limits
 ===
 
@@ -433,7 +475,8 @@ Responses from hooks are sent in the following format:
 Where the response is cut into some number of chunks of about 512 bytes, and sent back to your device at a rate of one per 250ms, or about 4 per second.  The event name will use the triggering event, and not the registered hook name filter.  If your hook captures everything starting with "my-hooks", but you published "my-hooks/get_weather", then your response event name would be "hook-response/my-hooks/get_weather".  Each packet event name includes the index of the packet in the response.  For example, a large response might appear as:
 
 ```
-TODO: insert real data here, please show tags split across response packets
+
+<<<TODO: insert real data here, please show tags split across response packets>>>
 
 hook-response/get-weather/0
     <location>Minneapolis, Minneapolis-St. Paul International Airport, MN</location>
