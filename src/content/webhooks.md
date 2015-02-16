@@ -18,7 +18,7 @@ This means you can quickly and easily connect your devices to most modern web se
 
 If you're totally new to Spark, that's okay!  Checkout our [Getting started guide here](http://docs.spark.io/start/) first, and come back when you're ready.
 
-Lets go!
+Let's go!
 
 
 
@@ -53,7 +53,7 @@ Creating the webhook
 
 ```sh
 
-    # create the webhook on the commane line with spark-cli
+    # create the webhook on the command line with spark-cli
     # spark webhook GET http://w1.weather.gov/xml/current_obs/<your_local_weather_station_here>.xml
     
     
@@ -378,13 +378,13 @@ Spark webhooks will not contact any host more often than 120 times per minute, d
 Limits by User
 ---
 
-A user by default may trigger a hook up to 10 times per minute for every core that is registered to their account.  A user may create up to 20 webhooks total.
+A user by default may trigger a hook up to 10 times per minute for every core that is registered to their account.  A user may create up to 20 webhooks in total.
 
 
 
 Limits by Hook
 ---
 
-Any hook that results in an error code from the server (above a 400), 10 consequetive times in a row will be automatically disabled.  We'll be adding notifications, and the ability to pause/unpause when this happens, but for the moment you might notice your hook stop working for this reason.  
+Any hook that results in an error code from the server (above a 400), 10 consecutive times in a row will be automatically disabled.  We'll be adding notifications, and the ability to pause/unpause when this happens, but for the moment you might notice that your hook stops working for this reason.  
 
 
