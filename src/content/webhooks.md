@@ -12,9 +12,9 @@ Introduction
 
 You've built an amazing device, and paired it with a powerful application online, and now you want to connect them.  You're in the right place!
 
-Webhooks are a simple and flexible way for your devices to make a web request anywhere on the Internet!  When you create a webhook, it listens for specific events from your devices.  When you send that event, the hook will make your request, and optionally send you back the result.
+Webhooks are a simple and flexible way for your devices to make a web request anywhere on the Internet!  When you create a webhook, it starts listening for specific events from your devices.  When you send that event, the hook will send the prepared request for you, and you can use the response!
 
-This means you can quickly and easily connect your devices to most modern web services!  So let's show you how to say, log events published from your devices, or let your devices make secure requests anywhere on the internet.
+This means you can\ quickly and easily connect your devices to just about anything online!  We're going to show you how to securely log your data to third party services, or do something like pull the weather from a local service.  
 
 If you're totally new to Spark, that's okay!  Checkout our [Getting started guide here](http://docs.spark.io/start/) first, and come back when you're ready.
 
@@ -27,16 +27,32 @@ Seriously what's a web request?
 
 You're probably reading this documentation page with the help of a web browser.  Your browser sent a "GET" request when it asked for this page, which our web server recognized and so it sent the page back.  Most of your average requests to view a page or browse around online are "GET" requests.  This is all part of that hypertext ```http://``` thing that is at the front of the address in your browser.  When you fill out and submit a form, your browser tends to send "POST" requests.  POST requests are usually for sending data to a server.  You can read more about all the different types here ( http://en.wikipedia.org/wiki/Hypertext_Transfer_Protocol#Request_methods ).
 
-Webhooks lets you setup a web request that is tied to an event from your devices.  That means you can probably grab or send values to any web service or site with something as simple as ```Spark.publish("lets go!");```
+Webhooks let you trigger a request by simply publishing an event from your devices.  That means you can probably grab or send values to any web service or site with something as simple as ```Spark.publish("lets go!");```
 
 
 Installing the CLI
 ===
 
-We're still building the beautiful, intuitive web interface for creating and managing webhooks, but we didn't want you to wait any longer.  Grab the Spark-CLI for quick and easy access to managing your webhooks.  You'll need Node.js installed to use the CLI, but it's worth it and pretty easy to install.  At the moment you might also need to learn how to use the terminal.  Adafruit has a lovely intro to the command line here https://learn.adafruit.com/what-is-the-command-line/overview .
+We're still building the beautiful, intuitive web interface for creating and managing webhooks, but we didn't want you to wait any longer.  Grab the Spark-CLI for quick and easy access to managing your webhooks.  You might need to install a few things, but it's going to be worth it.  Make sure you have [Node.js](https://www.nodejs.org) installed if you don't already. 
 
 
 https://github.com/spark/spark-cli#installing
+
+```
+    # if you haven't already, open a command prompt / terminal, and login to the CLI
+    spark login
+    > Could I please have an email address?:  cheddar_robot@spark.io
+    > and a password?: **********
+    ...
+    Success!
+```
+
+
+What's the command prompt?
+---
+
+
+If you're not already familiar, [Adafruit has a lovely intro to the command line here](https://learn.adafruit).com/what-is-the-command-line/overview).
 
 
 
@@ -45,20 +61,28 @@ Your first webhook (Getting the weather)
 
 Lets grab and display some weather data, that's fun!
 
-If you're in the US, pick your state and area here ( http://w1.weather.gov/xml/current_obs/ ), if you're somewhere else, try to find a weather service site that is open to being accessed from your device, and can send a simple text report.
+If you're in the US, pick your state and area here ( http://w1.weather.gov/xml/current_obs/ ), if you're somewhere else, try to find a weather service site that is open to being accessed from your device, and can send a simple text report.  We're going to insert our local station name into this url for our webhook:
+
+```
+http://w1.weather.gov/xml/current_obs/<your_local_weather_station_here>.xml
+```
+
+Here are a few:
+
+<<<INSERT LINKS HERE / ALTERNATE EXAMPLE>>>
+openweathermap.org
 
 
 Creating the webhook
 -----
 
 ```sh
-
-    # create the webhook on the command line with spark-cli
-    # spark webhook GET http://w1.weather.gov/xml/current_obs/<your_local_weather_station_here>.xml
-    
-    
-    # create a hook for the event "get_weather" that will hit the following URL
-    spark webhook GET get_weather http://w1.weather.gov/xml/current_obs/KMSP.xml 
+    #
+    # this will send a "GET" request to this URL whenever we publish the event "get_weather"
+    #
+    spark webhook GET get_weather http://w1.weather.gov/xml/current_obs/KMSP.xml
+    > ...
+    > Successfully created webhook!
 ```
 
 This webhook will now be triggered when we publish "get_weather" from any of our devices.  So let's write some firmware!
@@ -67,29 +91,37 @@ This webhook will now be triggered when we publish "get_weather" from any of our
 The weather displaying firmware
 -----
 
+ Even if you're familiar with writing firmware or wiring, there are some great details here to catch.  First when we want to capture a reponse from a webhook, make sure you're subscribing to "hook-response/" + ( your published event name ).  That means if your hook captures everything starting with "my-hooks", but you published "my-hooks/get_weather", then your response event name would be "hook-response/my-hooks/get_weather".
+  
+ The other important detail from this example is that webhooks right now assumes you're using an embedded device without a lot of ram.  Large web responses are cut into 512 byte pieces, and are sent at a fixed rate of about 4 per second.  This is to make it easier for these low power devices to parse and process responses that otherwise wouldn't fit in ram.
+
+
 ```cpp
     
+    // called once on startup
     void setup() {
         Serial.begin(115200);
         
         // setup our subscription to hear the hook response
         Spark.subscribe("hook-response/get_weather", gotWeatherData, MY_DEVICES);
     
-        //wait for someone to open a serial monitor
+        // wait for someone to open a serial monitor
         for(int i=0;i<10;i++) {
             Serial.println("waiting " + String(10-i) + " seconds before we publish");
             delay(1000);
         }
         
-        //trigger our webhook
+        // trigger our webhook
         Serial.println("Requesting Weather!");
         Spark.publish("get_weather");
     }
     
+    // called forever really fast
     void loop() {
     
     }
     
+    // used by our "subscribe" call up in setup(), gets called when we hear back from our webhook
     void gotWeatherData(const char *name, const char *data) {
         // Important note!  -- Right now the response comes in 512 byte chunks.  
         //  This code assumes we're getting the response in large chunks, and this
@@ -387,6 +419,47 @@ Limits by Hook
 ---
 
 Any hook that results in an error code from the server (above a 400), 10 consecutive times in a row will be automatically disabled.  We'll be adding notifications, and the ability to pause/unpause when this happens, but for the moment you might notice that your hook stops working for this reason.  
+
+
+Handling Web Responses
+===
+
+Responses from hooks are sent in the following format:
+
+```
+    hook-response/<triggering-event-name>/<index>
+```
+
+Where the response is cut into some number of chunks of about 512 bytes, and sent back to your device at a rate of one per 250ms, or about 4 per second.  The event name will use the triggering event, and not the registered hook name filter.  If your hook captures everything starting with "my-hooks", but you published "my-hooks/get_weather", then your response event name would be "hook-response/my-hooks/get_weather".  Each packet event name includes the index of the packet in the response.  For example, a large response might appear as:
+
+```
+TODO: insert real data here, please show tags split across response packets
+
+hook-response/get-weather/0
+    <location>Minneapolis, Minneapolis-St. Paul International Airport, MN</location>
+    <weather>Overcast</weather>
+    <temperature_string>26.0 F (-3.3 C)</temperature_string>
+    <temp_f>26.0</temp_f>
+    
+hook-response/get-weather/1
+    <location>Minneapolis, Minneapolis-St. Paul International Airport, MN</location>
+    <weather>Overcast</weather>
+    <temperature_string>26.0 F (-3.3 C)</temperature_string>
+    <temp_f>26.0</temp_f>
+    
+hook-response/get-weather/2
+    <location>Minneapolis, Minneapolis-St. Paul International Airport, MN</location>
+    <weather>Overcast</weather>
+    <temperature_string>26.0 F (-3.3 C)</temperature_string>
+    <temp_f>26.0</temp_f>
+    
+hook-response/get-weather/3
+    <location>Minneapolis, Minneapolis-St. Paul International Airport, MN</location>
+    <weather>Overcast</weather>
+    <temperature_string>26.0 F (-3.3 C)</temperature_string>
+    <temp_f>26.0</temp_f>
+    
+```
 
 
 
