@@ -127,8 +127,8 @@ The weather displaying firmware
         }
     }
     
-    
-    
+    // Returns any text found between a start and end string inside 'str'
+    // example: startfooend  -> returns foo
     String tryExtractString(String str, const char* start, const char* end) {
         if (str == NULL) {
             return NULL;
@@ -159,6 +159,85 @@ Sample output:
     The temp is: 15.0 *F
     The wind is: from the Northwest at 19.6 gusting to 28.8 MPH (17 gusting to 25 KT)
 ```
+
+
+
+
+Lets make some graphs (Logging to Librato)
+===
+
+Librato is great service that lets you quickly track and graph any data over time.  If you want to try this example, make sure you create a free account.  When you first login you'll see a screen like this:
+
+INSERT webhooks_librato_example_1.png
+
+
+
+An example librato webhook
+---
+
+Copy and save that access token for your webhook.  Create a text file somewhere named librato.json, and lets paste this in:
+
+```json
+  {
+      "eventName": "librato_",
+      "url": "https://metrics-api.librato.com/v1/metrics",
+      "requestType": "POST",
+      "auth": {
+            "username": "YOUR_LIBRATO_USERNAME",
+            "password": "YOUR_LIBRATO_ACCESS_TOKEN"
+      },
+      "json": {
+        "gauges": [
+            {
+                "name": "{{SPARK_EVENT_NAME}}",
+                "value": "{{SPARK_EVENT_VALUE}}",
+                "source": "{{SPARK_CORE_ID}}"
+            }
+        ]
+      },
+      "auth": null,
+      "mydevices": true
+    }
+```
+
+Create your webhook with the cli by running this in a command prompt.  Make sure you're next to where you created the file.  The webhook will see the special template keywords, and replace them with the values from your published event.
+
+```sh
+    spark webhook create librato.json
+```
+
+
+The example data logging code!
+---
+
+Here's the fun part, hook anything up to your core!  A motion sensor, temperature sensor, a switch, anything that generates some data that you're interested in tracking over time.  Our example code will assume you have something interesting happening on A0.  This firmware waits 10 seconds, reads pin A0, and then publishes the value to your webhook.
+
+```cpp
+
+    #define publish_delay 10000
+    unsigned int lastPublish = 0;
+    
+    void setup() {
+        pinMode(A0, INPUT);
+        
+    }
+    
+    void loop() {
+        unsigned int now = millis();
+        
+        if ((now - lastPublish) < publish_delay) {
+            // it hasn't been 10 seconds yet...
+            return;
+        }
+        
+        
+        int value = analogRead(A0);
+        Spark.publish("librato_A0", String(value), 60, PRIVATE);
+        
+        lastPublish = now;
+    }
+```
+
 
 
 
