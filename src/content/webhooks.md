@@ -334,6 +334,7 @@ query
 Optionally include extra parameters in the URL of the request encoded as normal query params.
 
 ```json
+
 #example
     "query": {
         "q": "how much can an unladen swallow carry",
@@ -351,6 +352,7 @@ auth
 Optionally include an object with username/password set to include a properly encoded HTTP basic auth header.
 
 ```json
+
 #example
     "auth": {
         "username": "dancy_pants",
@@ -386,4 +388,14 @@ Limits by Hook
 
 Any hook that results in an error code from the server (above a 400), 10 consecutive times in a row will be automatically disabled.  We'll be adding notifications, and the ability to pause/unpause when this happens, but for the moment you might notice that your hook stops working for this reason.  
 
+
+
+Errors
+===
+
+Error responses from the target url will also be sent back in the response event.  If you have 10 consecutive errors, the hook will send you a "Too many errors, webhook disabled" message.  Make sure you're watching the responses when developing your hook!  You can monitor these with the spark-cli by running:
+
+```
+    spark subscribe mine
+```
 
