@@ -10,13 +10,11 @@ Webhooks
 Introduction
 ===
 
-You've built an amazing device, and paired it with a powerful application online, and now you want to connect them.  You're in the right place!
+You've built an amazing device, to be paired with a powerful application online, and you're looking for a way to connect them.  You're in the right place!
 
 Webhooks are a simple and flexible way for your devices to make a web request anywhere on the Internet!  When you create a webhook, it starts listening for specific events from your devices.  When you send that event, the hook will send the prepared request for you, and you can use the response!
 
-This means you can\ quickly and easily connect your devices to just about anything online!  We're going to show you how to securely log your data to third party services, or do something like pull the weather from a local service.  
-
-If you're totally new to Spark, that's okay!  Checkout our [Getting started guide here](http://docs.spark.io/start/) first, and come back when you're ready.
+If you're totally new to Spark, that's okay!  Checkout our [Getting started guide here](http://docs.spark.io/start/) or our [Spark Basics tutorial](http://cmsunu28.gitbooks.io/spark-basics/content/), and come back when you're ready.
 
 Let's go!
 
@@ -25,18 +23,22 @@ Let's go!
 Seriously what's a web request?
 ====
 
-You're probably reading this documentation page with the help of a web browser.  Your browser sent a "GET" request when it asked for this page, which our web server recognized and so it sent the page back.  Most of your average requests to view a page or browse around online are "GET" requests.  This is all part of that hypertext ```http://``` thing that is at the front of the address in your browser.  When you fill out and submit a form, your browser tends to send "POST" requests.  POST requests are usually for sending data to a server.  You can read more about all the different types here ( http://en.wikipedia.org/wiki/Hypertext_Transfer_Protocol#Request_methods ).
+When you surf the internet, you are riding a continuous wave of web requests. Browsers make requests to web servers, which send information back that allow you to view, point, click, and interact. When you loaded this page, your browser sent a "GET" request to our web server to ask to display the site. Our server recognized the information in that "GET" request, and it sent the page back to your browser.
 
+There are many different kinds of web requests. Most of your average requests to view a page or browse around online are "GET" requests.  This is all part of that hypertext ```http://``` thing that is at the front of the address in your browser.  When you fill out and submit a form, your browser tends to send "POST" requests.  POST requests are usually for sending data to a server.  You can read more about all the different types [here](http://en.wikipedia.org/wiki/Hypertext_Transfer_Protocol#Request_methods).
 Webhooks let you trigger a request by simply publishing an event from your devices.  That means you can probably grab or send values to any web service or site with something as simple as ```Spark.publish("lets go!");```
+
+Imagine that you could use your devices to make these requests. You could grab or send values to any web service or site with something as simple as ```Spark.publish("lets go!");``` That's what we are going to teach you to do with Webhooks.
 
 
 Installing the CLI
 ===
 
-We're still building the beautiful, intuitive web interface for creating and managing webhooks, but we didn't want you to wait any longer.  Grab the Spark-CLI for quick and easy access to managing your webhooks.  You might need to install a few things, but it's going to be worth it.  Make sure you have [Node.js](https://www.nodejs.org) installed if you don't already. 
+We're still building the beautiful, intuitive web interface for creating and managing Webhooks, but we didn't want you to wait any longer.  Here's a way you can use it without the web interface, using the terminal and the Spark Command Line Interface (Spark-CLI).  You might need to install a few things, but it's going to be worth it.  Make sure you have [Node.js](https://www.nodejs.org) installed if you don't already.
 
+For those of you who have used the Spark-CLI in the past, you're all set! If you are a CLI newcomer, install it by following [these instructions](http://docs.spark.io/cli/#installing).
 
-https://github.com/spark/spark-cli#installing
+You'll also need some basic knowledge of the terminal. Adafruit has a [lovely intro to the command line](https://learn.adafruit.com/what-is-the-command-line/overview) that beginners may find helpful.
 
 ```
     # if you haven't already, open a command prompt / terminal, and login to the CLI
@@ -48,20 +50,12 @@ https://github.com/spark/spark-cli#installing
 ```
 
 
-What's the command prompt?
----
-
-
-If you're not already familiar, [Adafruit has a lovely intro to the command line here](https://learn.adafruit).com/what-is-the-command-line/overview).
-
-
-
 Your first webhook (Getting the weather)
 ===
 
 Lets grab and display some weather data, that's fun!
 
-If you're in the US, pick your state and area here ( http://w1.weather.gov/xml/current_obs/ ), if you're somewhere else, try to find a weather service site that is open to being accessed from your device, and can send a simple text report.  We're going to insert our local station name into this url for our webhook:
+If you're in the US, pick your state and area from [Weather.gov here](http://w1.weather.gov/xml/current_obs/), if you're somewhere else, try to find a weather service site that is open to being accessed from your device, and can send a simple text report.
 
 ```
 http://w1.weather.gov/xml/current_obs/<your_local_weather_station_here>.xml
@@ -76,16 +70,28 @@ openweathermap.org
 Creating the webhook
 -----
 
+Remember that Webhooks listen for events from your devices and then make requests based on those events. We want this Webhook to listen for an event called `get_weather` from our device, and then we want it to make a GET request to the weather site server.
+
+Hop on the terminal, download and update the Spark-CLI if you haven't yet, and type `spark login` to log in. Then:
+
 ```sh
+    # create the webhook on the command line with spark-cli
+    # the syntax is:
     #
+    #    spark webhook GET <your_event_name> http://<website.you.are.trying.to.contact>
+    #
+    # in this case, the weather site we want to hit is :
+    #    http://w1.weather.gov/xml/current_obs/<your_local_weather_station_here>.xml
+    #
+    # since our local weather station is KMSP, let's use:
+    
     # this will send a "GET" request to this URL whenever we publish the event "get_weather"
-    #
     spark webhook GET get_weather http://w1.weather.gov/xml/current_obs/KMSP.xml
     > ...
     > Successfully created webhook!
 ```
 
-This webhook will now be triggered when we publish "get_weather" from any of our devices.  So let's write some firmware!
+This Webhook will now be triggered when we publish "get_weather" from any of our devices.
 
 
 The weather displaying firmware
@@ -95,33 +101,70 @@ The weather displaying firmware
   
  The other important detail from this example is that webhooks right now assumes you're using an embedded device without a lot of ram.  Large web responses are cut into 512 byte pieces, and are sent at a fixed rate of about 4 per second.  This is to make it easier for these low power devices to parse and process responses that otherwise wouldn't fit in ram.
 
+ Now, let's write some firmware!
+
+
 
 ```cpp
     
     // called once on startup
     void setup() {
+    
+        // First, we are going to set up serial data transmission.
+        // Serial allows us to listen in on our device over USB and get updates.
+        // In this example, we will use Serial communication to display the data our Webhook fetches
+        // but you could just as easily display it in a webpage or pass the data to another system.
+    
+        // We set up Serial using:
         Serial.begin(115200);
+    
+        // Now, when we write commands that begin with Serial, such as
+        //     Serial.println('Hello, World!')
+        // we will be able to see the result when we open a serial monitor.
+        // You can open a serial monitor on your computer by using the Spark-CLI.
+        // Open a terminal window and type:
+        //    spark serial monitor
+        // If you only have one device connected via serial, your device should open automatically.
+        // Otherwise, you will have to select which serial port is being used.
         
-        // setup our subscription to hear the hook response
+        // Next, we will set up our subscription to hear the hook response
+        // (We registered this Webhook earlier using the Spark-CLI)
         Spark.subscribe("hook-response/get_weather", gotWeatherData, MY_DEVICES);
     
-        // wait for someone to open a serial monitor
+        // We will give the system 10 seconds before we actually start the program.
+        // This for loop will make us wait 10 seconds and count down until the program starts.
+        // That will just give us a chance to open the serial monitor before the program publishes anything.
         for(int i=0;i<10;i++) {
             Serial.println("waiting " + String(10-i) + " seconds before we publish");
             delay(1000);
         }
-        
-        // trigger our webhook
-        Serial.println("Requesting Weather!");
-        Spark.publish("get_weather");
     }
+        
     
     // called forever really fast
     void loop() {
     
+        // We're goign to request the weather here.
+        // Let's do it only every 20 seconds.
+        
+        // First, write to the serial monitor that we are requesting weather...
+        Serial.println("Requesting Weather!");
+        
+        // Then, actually publish the event that gets the weather...
+        Spark.publish("get_weather");
+        
+        // ...and wait 20 seconds before you do it again.
+        delay(20000);
+        
+        // If we wanted our webhook to be triggered by a button press,
+        // we could put an if statement here instead so that 
+        //     Spark.publish("get_weather")
+        // is only called when the button is pressed
+
     }
     
-    // used by our "subscribe" call up in setup(), gets called when we hear back from our webhook
+    // Now we are going to define a function to handle the weather data when it comes in and make it look pretty
+    // Don't worry too much about the details of this; basically just know that it makes the data pretty for the Serial monitor
     void gotWeatherData(const char *name, const char *data) {
         // Important note!  -- Right now the response comes in 512 byte chunks.  
         //  This code assumes we're getting the response in large chunks, and this
@@ -323,7 +366,7 @@ In order to help connect with many different services, you can move these publis
 Webhook Options
 ===
 
-What about when you want to send custom headers or parameters?  This section explains what's available and how to use them all!
+You can even customize the Webhook to send custom headers, form fields, and more. This section explains what's available and how to use them all!
 
 event
 ---
@@ -440,7 +483,7 @@ Optionally include an object with username/password set to include a properly en
 Limits
 ===
 
-Web requests via webhooks have the potential to cause side-effects anywhere on the internet, with any service, which is awesome.  In being a responsible member of the Internet community, we want to make sure we're not sending unwanted requests to sites, or sending too much traffic, or causing errors.  For this reason we ask that you make sure you have permission to make requests to any sites you configure hooks for, and that you're sending those requests within their usage policies.  We will generally disable any hooks, or adjust rate limiting if we hear from site administrators that contact us about issues.
+Web requests via webhooks can go almost anywhere on the internet, with any service, which is awesome.  In being responsible members of the Internet community, we want to make sure we're not sending unwanted requests to sites, or sending too much traffic, or causing errors.  For this reason we ask that you make sure you have permission to make requests to any sites you configure hooks for, and that you're sending those requests within their usage policies.  We will generally disable any hooks, or adjust rate limiting if we hear from site administrators that contact us about issues.
 
 We also have a handful of rate limits that we hope will provide you a ton of usability, while also protecting against accidental abuse, they fall into 3 categories:
 
