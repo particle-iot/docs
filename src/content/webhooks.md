@@ -93,8 +93,6 @@ Hop on the terminal, download and update the Spark-CLI if you haven't yet, and t
 
 This Webhook will now be triggered when we publish "get_weather" from any of our devices.
 
-Now, let's write some firmware!
-
 
 The weather displaying firmware
 -----
@@ -103,10 +101,7 @@ The weather displaying firmware
   
  The other important detail from this example is that webhooks right now assumes you're using an embedded device without a lot of ram.  Large web responses are cut into 512 byte pieces, and are sent at a fixed rate of about 4 per second.  This is to make it easier for these low power devices to parse and process responses that otherwise wouldn't fit in ram.
 
-MERGE ME:
-This Webhook will now be triggered when we publish "get_weather" from any of our devices.
-
-Now, let's write some firmware!
+ Now, let's write some firmware!
 
 
 
