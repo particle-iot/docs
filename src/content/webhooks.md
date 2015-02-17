@@ -14,7 +14,7 @@ You've built an amazing device, to be paired with a powerful application online,
 
 Webhooks are a simple and flexible way for your devices to make a web request anywhere on the Internet!  When you create a webhook, it starts listening for specific events from your devices.  When you send that event, the hook will send the prepared request for you, and you can use the response!
 
-If you're totally new to Spark, that's okay!  Checkout our [Getting started guide here](http://docs.spark.io/start/) or our [Spark Basics tutorial](http://cmsunu28.gitbooks.io/spark-basics/content/), and come back when you're ready.
+If you're totally new to Spark, that's okay!  Check out our [Getting started guide here](http://docs.spark.io/start/) or our [Spark Basics tutorial](http://cmsunu28.gitbooks.io/spark-basics/content/), and come back when you're ready.
 
 Let's go!
 
@@ -26,7 +26,6 @@ Seriously what's a web request?
 When you surf the internet, you are riding a continuous wave of web requests. Browsers make requests to web servers, which send information back that allow you to view, point, click, and interact. When you loaded this page, your browser sent a "GET" request to our web server to ask to display the site. Our server recognized the information in that "GET" request, and it sent the page back to your browser.
 
 There are many different kinds of web requests. Most of your average requests to view a page or browse around online are "GET" requests.  This is all part of that hypertext ```http://``` thing that is at the front of the address in your browser.  When you fill out and submit a form, your browser tends to send "POST" requests.  POST requests are usually for sending data to a server.  You can read more about all the different types [here](http://en.wikipedia.org/wiki/Hypertext_Transfer_Protocol#Request_methods).
-Webhooks let you trigger a request by simply publishing an event from your devices.  That means you can probably grab or send values to any web service or site with something as simple as ```Spark.publish("lets go!");```
 
 Imagine that you could use your devices to make these requests. You could grab or send values to any web service or site with something as simple as ```Spark.publish("lets go!");``` That's what we are going to teach you to do with Webhooks.
 
