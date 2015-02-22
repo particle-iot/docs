@@ -34,6 +34,24 @@ List devices the currently authenticated user has access to.
 
 ```
 GET /v1/devices
+
+# A typical JSON response will look like this
+[
+  {
+    "id": "53ff6f0650723",
+    "name": "plumber_laser",
+    "last_app": null,
+    "last_heard": null,
+    "connected": false
+  },
+  {
+    "id": "53ff291839887",
+    "name": "spark_love",
+    "last_app": null,
+    "last_heard": 2014-12-15T20:12:51.974Z,
+    "connected": true
+  }
+]
 ```
 
 Device information
