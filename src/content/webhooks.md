@@ -530,32 +530,20 @@ Responses from hooks are sent in the following format:
 Where the response is cut into some number of chunks of about 512 bytes, and sent back to your device at a rate of one per 250ms, or about 4 per second.  The event name will use the triggering event, and not the registered hook name filter.  If your hook captures everything starting with "my-hooks", but you published "my-hooks/get_weather", then your response event name would be "hook-response/my-hooks/get_weather".  Each packet event name includes the index of the packet in the response.  For example, a large response might appear as:
 
 ```
+hook-response/get_weather/0
+    "<?xml version=\"1.0\" encoding=\"ISO-8859-1\"?> \r\n<?xml-stylesheet href=\"latest_ob.xsl\" type=\"text/xsl\"?>\r\n<current_observation version=\"1.0\"\r\n\t xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\"\r\n\t xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\r\n\t xsi:noNamespaceSchemaLocation=\"http://www.weather.gov/view/current_observation.xsd\">\r\n\t<credit>NOAA's National Weather Service</credit>\r\n\t<credit_URL>http://weather.gov/</credit_URL>\r\n\t<image>\r\n\t\t<url>http://weather.gov/images/xml_logo.gif</url>\r\n\t\t<title>NOAA's Nat"
 
-<<<TODO: insert real data here, please show tags split across response packets>>>
+hook-response/get_weather/1
+    "ional Weather Service</title>\r\n\t\t<link>http://weather.gov</link>\r\n\t</image>\r\n\t<suggested_pickup>15 minutes after the hour</suggested_pickup>\r\n\t<suggested_pickup_period>60</suggested_pickup_period>\n\t<location>Minneapolis, Minneapolis-St. Paul International Airport, MN</location>\n\t<station_id>KMSP</station_id>\n\t<latitude>44.88306</latitude>\n\t<longitude>-93.22889</longitude>\n\t<observation_time>Last Updated on Feb 27 2015, 4:53 pm CST</observation_time>\r\n        <observation_time_rfc822>Fri, 27 Feb 2015 16:53:0"
 
-hook-response/get-weather/0
-    <location>Minneapolis, Minneapolis-St. Paul International Airport, MN</location>
-    <weather>Overcast</weather>
-    <temperature_string>26.0 F (-3.3 C)</temperature_string>
-    <temp_f>26.0</temp_f>
-    
-hook-response/get-weather/1
-    <location>Minneapolis, Minneapolis-St. Paul International Airport, MN</location>
-    <weather>Overcast</weather>
-    <temperature_string>26.0 F (-3.3 C)</temperature_string>
-    <temp_f>26.0</temp_f>
-    
-hook-response/get-weather/2
-    <location>Minneapolis, Minneapolis-St. Paul International Airport, MN</location>
-    <weather>Overcast</weather>
-    <temperature_string>26.0 F (-3.3 C)</temperature_string>
-    <temp_f>26.0</temp_f>
-    
-hook-response/get-weather/3
-    <location>Minneapolis, Minneapolis-St. Paul International Airport, MN</location>
-    <weather>Overcast</weather>
-    <temperature_string>26.0 F (-3.3 C)</temperature_string>
-    <temp_f>26.0</temp_f>
+hook-response/get_weather/2
+    "0 -0600</observation_time_rfc822>\n\t<weather>Fair</weather>\n\t<temperature_string>14.0 F (-10.0 C)</temperature_string>\r\n\t<temp_f>14.0</temp_f>\r\n\t<temp_c>-10.0</temp_c>\n\t<relative_humidity>49</relative_humidity>\n\t<wind_string>Southwest at 8.1 MPH (7 KT)</wind_string>\n\t<wind_dir>Southwest</wind_dir>\n\t<wind_degrees>240</wind_degrees>\n\t<wind_mph>8.1</wind_mph>\n\t<wind_kt>7</wind_kt>\n\t<pressure_string>1035.2 mb</pressure_string>\n\t<pressure_mb>1035.2</pressure_mb>\n\t<pressure_in>30.50</pressure_in>\n\t<dewpoint_string"
+
+hook-response/get_weather/3
+    ">-2.0 F (-18.9 C)</dewpoint_string>\r\n\t<dewpoint_f>-2.0</dewpoint_f>\r\n\t<dewpoint_c>-18.9</dewpoint_c>\n\t<windchill_string>3 F (-16 C)</windchill_string>\r\n      \t<windchill_f>3</windchill_f>\r\n      \t<windchill_c>-16</windchill_c>\n\t<visibility_mi>10.00</visibility_mi>\n \t<icon_url_base>http://forecast.weather.gov/images/wtf/small/</icon_url_base>\n\t<two_day_history_url>http://www.weather.gov/data/obhistory/KMSP.html</two_day_history_url>\n\t<icon_url_name>skc.png</icon_url_name>\n\t<ob_url>http://www.weather.gov/data"
+
+hook-response/get_weather/4
+    "/METAR/KMSP.1.txt</ob_url>\n\t<disclaimer_url>http://weather.gov/disclaimer.html</disclaimer_url>\r\n\t<copyright_url>http://weather.gov/disclaimer.html</copyright_url>\r\n\t<privacy_policy_url>http://weather.gov/notice.html</privacy_policy_url>\r\n</current_observation>\n"
     
 ```
 
