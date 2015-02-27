@@ -60,10 +60,15 @@ If you're in the US, pick your state and area from [Weather.gov here](http://w1.
 http://w1.weather.gov/xml/current_obs/<your_local_weather_station_here>.xml
 ```
 
-Here are a few:
+There are a ton of weather data services spread around the world, here's one we found with lots of great international data:
 
-<<<TODO: INSERT LINKS HERE / ALTERNATE EXAMPLE>>>
-openweathermap.org
+http://openweathermap.org/api
+
+sample request, make sure you get an API key from them first!
+
+```
+http://api.openweathermap.org/data/2.5/weather?q=London&mode=xml
+```
 
 
 Creating the webhook
@@ -315,11 +320,18 @@ Here's the fun part, hook anything up to your core!  A motion sensor, temperatur
 ```
 
 
-<<<TODO: INSERT CLI monitoring screenshot showing success / show user how to pre-verify that things work>>>
+After you flash the firmware to your core, open up the Spark-CLI, and subscribe to your events, you should see something like:
 
-<<<TODO: INSERT LIBRATO Metrics screen>>>
+![Testing the events first]({{assets}}/images/webhooks-librato-cli-example.png)
 
-<<<TODO: INSERT LIBRATO Metrics graph screen>>>
+Once you've created the webhook, and some events are coming through successfully, your metric should show up in your metrics list:
+
+![Librato Metrics Screen]({{assets}}/images/webhooks-librato-metrics-screen1.png)
+
+Open up that metric, and congrats!  Your sensor data is now readily available to you in Librato!
+
+![Librato Sample Graph]({{assets}}/images/webhooks-librato-metric-sample.png)
+
 
 
 
@@ -339,8 +351,9 @@ Since your webhook listens for events from your devices, it can send that event 
     }
 ```
 
-<<<TODO: what's the shorthand for this bit again? ".661Z", ISO what?  >>>
-published_at is in the form YYYY-MM-DDTHH:mm:ss.661Z
+This is same data you'd see if you subscribed to your event stream http://docs.spark.io/api/#reading-data-from-a-core-events 
+
+published_at is an ISO8601 date, which tends to be in the form YYYY-MM-DDTHH:mm:ssZ
 
 
 Templates
