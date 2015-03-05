@@ -300,13 +300,12 @@ void setup() {
 }
 
 void loop() {
-    unsigned int now = millis();
+    unsigned long now = millis();
     
     if ((now - lastPublish) < publish_delay) {
         // it hasn't been 10 seconds yet...
         return;
     }
-    
     
     int value = analogRead(A0);
     Spark.publish("librato_A0", String(value), 60, PRIVATE);
