@@ -97,7 +97,6 @@ Creating the webhook
 -----
 
 ```sh
-
 # creating a GET hook with the Spark-CLI
 # spark webhook GET <your_event_name> http://<website.you.are.trying.to.contact>
 
@@ -118,7 +117,6 @@ The weather firmware
 -----
 
 ```cpp
-
 // called once on startup
 void setup() {
     // For simplicity, we'll format our weather data as text, and pipe it to serial.
@@ -254,16 +252,16 @@ An example librato webhook
 Copy and save the librato access token for your webhook below.  Create a text file somewhere named librato.json, and paste in this example.  Make sure you replace the librato username, and librato access token as well.
 
 ```json
-  # copy-paste the stuff between the {}'s (including those brackets) into a file librato.json
-  {
-      "eventName": "librato_",
-      "url": "https://metrics-api.librato.com/v1/metrics",
-      "requestType": "POST",
-      "auth": {
-            "username": "YOUR_LIBRATO_USERNAME",
-            "password": "YOUR_LIBRATO_ACCESS_TOKEN"
-      },
-      "json": {
+# copy-paste the stuff between the {}'s (including those brackets) into a file librato.json
+{
+    "eventName": "librato_",
+    "url": "https://metrics-api.librato.com/v1/metrics",
+    "requestType": "POST",
+    "auth": {
+        "username": "YOUR_LIBRATO_USERNAME",
+        "password": "YOUR_LIBRATO_ACCESS_TOKEN"
+    },
+    "json": {
         "gauges": [
             {
                 "name": "{{SPARK_EVENT_NAME}}",
@@ -271,9 +269,9 @@ Copy and save the librato access token for your webhook below.  Create a text fi
                 "source": "{{SPARK_CORE_ID}}"
             }
         ]
-      },
-      "mydevices": true
-    }
+    },
+    "mydevices": true
+}
 ```
 
 
@@ -596,6 +594,6 @@ Errors
 Error responses from the target url will also be sent back in the response event.  If you have 10 consecutive errors, the hook will send you a "Too many errors, webhook disabled" message.  Make sure you're watching the responses when developing your hook!  You can monitor these with the spark-cli by running:
 
 ```
-    spark subscribe mine
+spark subscribe mine
 ```
 
