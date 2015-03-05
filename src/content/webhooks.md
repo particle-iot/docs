@@ -49,6 +49,70 @@ For those of you who have used the Spark-CLI in the past, you're all set! If you
 You'll also need some basic knowledge of the terminal. Adafruit has a [lovely intro to the command line](https://learn.adafruit.com/what-is-the-command-line/overview) that beginners may find helpful.
 
 
+CLI Command Reference
+================
+
+###spark webhook create
+
+  Registers your webhook with the Spark Cloud.  Creates a postback to the given url when your event is sent.  See [Webhook Options](#webhook-options) for JSON formatting requirements and parameters.
+
+```sh
+# how to create a webhook with json data using the CLI
+$ spark webhook create slack.json
+
+Using settings from the file slack.json
+Sending webhook request  { uri: 'https://api.spark.io/v1/webhooks',
+  method: 'POST',
+  json: true,
+  form: 
+   { event: 'slack-incoming-webhook',
+     url: 'https://hooks.slack.com/services/B1234567/C234567/345634563456345634563456',
+     deviceid: undefined,
+     access_token: '56785678567856785678567856785678',
+     requestType: 'POST',
+     headers: undefined,
+     json: 
+      { channel: '#random',
+        username: 'SparkBot',
+        text: '{{SPARK_EVENT_VALUE}}',
+        icon_emoji: ':spark:' },
+     query: undefined,
+     auth: undefined,
+     mydevices: true } }
+```
+
+
+###spark webhook list
+
+Generates a list of what webhooks you own, including their ID numbers and registered event names.
+
+```sh
+# how to show your currently registered webhooks using the CLI
+$ spark webhook list
+
+Found 2 hooks registered
+
+    1.) Hook #123412341234123412341234 is watching for "Librato_"
+        and posting to: https://metrics-api.librato.com/v1/metrics
+        created at 2015-02-28T03:32:41.412Z
+
+    2.) Hook #234523452345234523452345 is watching for "slack-incoming-webhook"
+        and posting to: https://hooks.slack.com/services/B1234567/C234567/345634563456345634563456
+        created at 2015-02-28T04:31:47.133Z
+```
+
+###spark webhook delete
+
+  Delete a webhook using your registered webhook ID number.  Use `spark webhook list` to find the WEBHOOK_ID you wish to delete, then copy/paste it into the `spark webhook delete WEBHOOK_ID` command.
+
+```sh
+# how to delete your previously registered webhook 
+# from the Spark Cloud using the CLI
+$ spark webhook delete WEBHOOK_ID
+
+$ spark webhook delete 234523452345234523452345
+Successfully deleted webhook!
+```
 
 
 Your first webhook
