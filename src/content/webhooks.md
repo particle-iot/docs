@@ -298,7 +298,6 @@ Here's the fun part, hook anything up to your core!  A motion sensor, temperatur
 unsigned int lastPublish = 0;
 
 void setup() {
-    pinMode(A0, INPUT);
     
 }
 
@@ -501,7 +500,7 @@ Optionally include an object with username/password set to include a properly en
 # example auth usage
 "auth": {
     "username": "dancy_pants",
-    "password": "speak friend and enter",
+    "password": "speak friend and enter"
 }
 ```
 
