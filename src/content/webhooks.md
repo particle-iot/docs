@@ -306,7 +306,7 @@ Librato is great service that lets you quickly track and graph any data over tim
 
 When you first login you'll see a screen like this:
 
-![Librato Welcome Screen]({{assets}}/images/webhooks_librato_example_1.png)
+[![Librato Welcome Screen]({{assets}}/images/webhooks_librato_example_1.png)]({{assets}}/images/webhooks_librato_example_1.png)
 
 
 
@@ -378,18 +378,18 @@ void loop() {
 }
 ```
 
-![Testing the events first]({{assets}}/images/webhooks-librato-cli-example.png)
+[![Testing the events first]({{assets}}/images/webhooks-librato-cli-example.png)]({{assets}}/images/webhooks-librato-cli-example.png)
 
 
 After you flash the firmware to your core, open up the Spark-CLI, and subscribe to your events with `spark subscribe mine`, you should see something like:
 
-![Librato Metrics Screen]({{assets}}/images/webhooks-librato-metrics-screen1.png)
+[![Librato Metrics Screen]({{assets}}/images/webhooks-librato-metrics-screen1.png)]({{assets}}/images/webhooks-librato-metrics-screen1.png)
 
 
 Once you've created the webhook, and some events are coming through successfully, your metric should show up in your metrics list:
 
 
-![Librato Sample Graph]({{assets}}/images/webhooks-librato-metric-sample.png)
+[![Librato Sample Graph]({{assets}}/images/webhooks-librato-metric-sample.png)]({{assets}}/images/webhooks-librato-metric-sample.png)
 
 
 Open up that metric, and congrats!  Your sensor data is now readily available to you in Librato!
