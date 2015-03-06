@@ -220,13 +220,3 @@ GET /v1/devices/{DEVICE_ID}/temperature
 curl -G https://api.spark.io/v1/devices/0123456789abcdef/temperature \
   -d access_token=123412341234
 ```
-
-texting the core
-===
-
-**coming soon!**
-
-an internet button
-===
-
-**coming soon!**
