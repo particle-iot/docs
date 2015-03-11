@@ -150,6 +150,8 @@ Such events are reserved for officially curated data originating from the Spark 
 
 For the time being there exists no way to access a previously published but TTL-unexpired event.
 
+**NOTE:** Currently, a device can publish at rate of about 1 event/sec, with bursts of up to 4 allowed in 1 second.
+
 ---
 
 Publish a public event with the given name, no data, and the default TTL of 60 seconds.
