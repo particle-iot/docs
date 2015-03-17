@@ -218,41 +218,53 @@ For now, Spark Build will list the single most recently created token.
 You can control when your access token will expire, or set it to not expire at all!  
 There are two ways to specify how / when your token should expire.
 
-expires_in - Optional - How many seconds should the token last for?  Setting this to 0 seconds will create a token that never expires.
-```
-  "expires_in": 3600
-```
 
-or
+####expires_in - Optional
 
-```
-  "expires_in": 0
-```
+How many seconds should the token last for?  Setting this to 0 seconds will create a token that never expires.
 
-
-expires_at - Optional - At what date and time should the token expire?  This should be an ISO8601 style date string
-```
-  "expires_at": "2020-01-01"
-```
-
-or
+It's generally a little safer to create short lived tokens and refresh them frequently, since it makes it harder to lose a token that has access to your devices.
 
 ```
-  "expires_at": null
+# expires in 3600 seconds, or 1 hour
+"expires_in": 3600
 ```
 
-
 ```
-POST /oauth/token
-
 # Setting token lifespan using expires_in with curl in your terminal
 curl https://api.spark.io/oauth/token -u spark:spark \
-     -d grant_type=password -d username=joe@example.com -d password=SuperSecret -d expires_in=3600
+     -d grant_type=password \
+     -d username=joe@example.com \
+     -d password=SuperSecret \
+     -d expires_in=3600
+```
+
+ 
+```
+ 
+```
+
+####expires_at - Optional
+
+At what date and time should the token expire?  This should be an ISO8601 style date string, or null for never
 
 
+```
+# expires in 2020
+"expires_at": "2020-01-01"
+```
+
+```
 # Setting token lifespan using a date string with curl in your terminal
 curl https://api.spark.io/oauth/token -u spark:spark \
-     -d grant_type=password -d username=joe@example.com -d password=SuperSecret -d expires_at=2020-01-01
+     -d grant_type=password \
+     -d username=joe@example.com \
+     -d password=SuperSecret \
+     -d expires_at=2020-01-01
+```
+
+
+
 
 
 ### List all your tokens
