@@ -25,7 +25,7 @@ Congratulations on being the owner of a brand new Spark Core! Go ahead, open the
 Plug the included USB cable into the Spark Core and your computer. The Core should start blinking blue.  [Have one of these u.FL connectors?](/hardware#spark-core-datasheet-types-of-cores) Make sure you connect an antenna to it now!
 
 - Not blinking blue?
-- - Maybe it's already been configured. Hold down the MODE button until it starts blinking blue, then continue.
+  - Maybe it's already been configured. Hold down the MODE button until it starts blinking blue, then continue.
 
 
 ### Step 2: Install the App
@@ -58,13 +58,13 @@ This may take a little while- but don't worry. It should go through the followin
 
 Did your phone not find any Cores?
 - Is it blinking blue?
-- - Give it another go.
+  - Give it another go.
 - Is it blinking green and not getting to cyan?
-- - Try it again by holding the MODE button on the core until it begins flashing blue, then double-check your network name and password.
+  - Try it again by holding the MODE button on the core until it begins flashing blue, then double-check your network name and password.
 - Is it now breathing cyan, but the app didn't find any Cores?
-- - Uh oh. Your Core's on the network, but it took too long. [We're going to claim your core manually.](/connect#claiming-your-core)
+  - Uh oh. Your Core's on the network, but it took too long. [We're going to claim your core manually.](/connect#claiming-your-core)
 - Something else altogether?
-- - Give the [Connecting Your Core](/connect) page a read-through and if you're still stuck, search the [community.](http://community.spark.io)
+  - Give the [Connecting Your Core](/connect) page a read-through and if you're still stuck, search the [community.](http://community.spark.io)
 
 
 
