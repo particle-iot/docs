@@ -548,6 +548,30 @@ curl -H "Authorization: Bearer 38bb7b318cc6898c80317decb34525844bc9db55"
 https://api.spark.io/v1/devices/55ff70064939494339432586/events/temperature
 ```
 
+#### Publishing events
+
+You can publish events to your devices using the publish event endpoint.
+
+
+```
+POST /v1/devices/events
+
+# EXAMPLE
+curl https://api.spark.io/v1/devices/events \
+     -d access_token=1234123412341234123412341234123412341234 \
+     -d "name=myevent"
+     -d "data=Hello World"
+     -d "private=true"
+     -d "ttl=60"     
+```
+
+"data", "private", and "ttl" are all optional.  You can also send these with the Spark CLI:
+
+```
+# grab the spark-cli here - https://github.com/spark/spark-cli
+spark publish test "Hello World"
+```
+
 
 Verifying and Flashing new firmware
 ---------
