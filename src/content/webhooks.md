@@ -434,7 +434,32 @@ In order to help connect with many different services, you can move these publis
     coreid: "\{{SPARK_CORE_ID}}"
 }
 ```
-        
+
+
+Custom template variables
+---
+
+
+You can also add custom template values by formatting your publish event data as JSON!
+
+```
+Spark.publish("custom_templates", "{ \"my-var\": \"foo\", \"my-temp\": \"98.6F\" }", 60, PRIVATE);
+```
+
+An example hook that uses custom templates.  In this case the URL of the request will change as the value of "my-var" changes in your published event!
+```json
+{
+    "eventName": "custom_templates",
+    "url": "http://my-awesome-website.spark/\{{my-var}}",
+    "requestType": "POST",
+    "json": {
+        "my-temp": "\{{my-temp}}",
+        "source": "\{{SPARK_CORE_ID}}"
+    },
+    "mydevices": true
+}
+```
+
 
 
 Webhook Options
