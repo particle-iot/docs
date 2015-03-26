@@ -3111,7 +3111,7 @@ from the cloud, and setting the seed is left to up you.
 EEPROM
 ----
 
-The EEPROM emulator allocates 100 bytes of the Spark Core's built-in flash memory to act as EEPROM. Unlike "true EEPROM, flash doesn't suffer from write "wear".  The EEPROM functions can be used to store small amounts of data in flash that will persist even after the Core resets after a deep sleep.
+The EEPROM emulator allocates 100 bytes of the Spark Core's built-in flash memory to act as EEPROM. Unlike "true" EEPROM, flash doesn't suffer from write "wear".  The EEPROM functions can be used to store small amounts of data in flash that will persist even after the Core resets after a deep sleep.
 
 
 ### read()
