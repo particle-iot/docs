@@ -559,10 +559,10 @@ POST /v1/devices/events
 # EXAMPLE
 curl https://api.spark.io/v1/devices/events \
      -d access_token=1234123412341234123412341234123412341234 \
-     -d "name=myevent"
-     -d "data=Hello World"
-     -d "private=true"
-     -d "ttl=60"     
+     -d "name=myevent" \
+     -d "data=Hello World" \
+     -d "private=true" \
+     -d "ttl=60"      
 ```
 
 "data", "private", and "ttl" are all optional.  You can also send these with the Spark CLI:
