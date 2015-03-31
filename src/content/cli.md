@@ -1,7 +1,7 @@
 ---
 word: API
 title: Command Line
-order: 12
+order: 13
 ---
 
 Spark CLI
