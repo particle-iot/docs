@@ -150,7 +150,7 @@ Such events are reserved for officially curated data originating from the Spark 
 
 For the time being there exists no way to access a previously published but TTL-unexpired event.
 
-**NOTE:** Currently, a device can publish at rate of about 1 event/sec, with bursts of up to 4 allowed in 1 second.
+**NOTE:** Currently, a device can publish at rate of about 1 event/sec, with bursts of up to 4 allowed in 1 second. Back to back burst of 4 messages will take 4 seconds to recover.
 
 ---
 
