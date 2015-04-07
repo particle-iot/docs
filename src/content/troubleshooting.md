@@ -1,7 +1,7 @@
 ---
 word: Troubleshooting
 title: Troubleshooting
-order: 11
+order: 12
 ---
 
 Troubleshooting
@@ -314,7 +314,7 @@ these **videos that illustrate what a deep update looks like on a Core**.
 
 ## Flash via Spark Build IDE
 
-The easiest way to apply `deep_update_2014_06` is to simply log into the [Spark Build IDE](spark.io/build).  
+The easiest way to apply `deep_update_2014_06` is to simply log into the [Spark Build IDE](spark.io/build).
 When you login, you'll be prompted with instructions and links that will show you the way.
 Once all of your claimed cores have had the *deep update* applied to them, you'll no longer be prompted.
 Note: You'll need have a Core connected and breathing cyan for this to work.

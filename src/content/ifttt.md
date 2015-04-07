@@ -1,7 +1,7 @@
 ---
 word: IFTTT
 title: IFTTT
-order: 13
+order: 14
 ---
 
 Spark Channel on IFTTT
@@ -16,7 +16,7 @@ The Spark Channel on IFTTT will let you connect your devices to other powerful c
 
 If you're totally new to Spark, that's okay! Before you get going on the Spark channel, be sure to get your Photon or Core connected and claimed. [Get started here](http://docs.spark.io/start/).
 
-Lets go!  
+Lets go!
 
 Parts of an IFTTT Recipe
 ===

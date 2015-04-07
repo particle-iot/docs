@@ -1,7 +1,7 @@
 ---
 word: Accessories
 title: Shields and kits
-order: 9
+order: 10
 ---
 
 Shields and accessories
@@ -505,7 +505,7 @@ There are three different value resistor in this kit. All of them are rated at 5
 - 1K-Ohm (10)
 - 10K-Ohm (10)
 
-You can use this [online guide](http://www.digikey.com/en/resources/conversion-calculators/conversion-calculator-resistor-color-code-4-band) to help identify which resistor is which value.  
+You can use this [online guide](http://www.digikey.com/en/resources/conversion-calculators/conversion-calculator-resistor-color-code-4-band) to help identify which resistor is which value.
 
 ### 23. Rotary Potentiometer (1)
 
