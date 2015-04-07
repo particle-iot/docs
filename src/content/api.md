@@ -264,6 +264,7 @@ At what date and time should the token expire?  This should be an ISO8601 style 
 
 
 ```
+# date format: YYYY-MM-DD
 # expires in 2020
 "expires_at": "2020-01-01"
 ```
