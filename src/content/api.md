@@ -54,6 +54,20 @@ GET /v1/devices
 ]
 ```
 
+Claim core
+-------
+
+You can claim a brand new or released core through a simple API call. All you need as an access token and core id!
+
+```
+POST /v1/devices
+
+# EXAMPLE REQUEST
+curl https://api.spark.io/v1/devices \
+     -d access_token=1234 \
+     -d id=0123456789abcdef01234567
+```
+
 Device information
 -------
 
