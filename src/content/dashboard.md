@@ -28,7 +28,9 @@ The Dashboard will show you an overview of your devices and their activity. Itâ€
 
 You can watch events published from your devices with `Spark.publish()` come in, in realtime.
 
-![Logs App]({{assets}}/images/dashboard/logs-big-picture.png)
+[![Logs App]({{assets}}/images/dashboard/logs-big-picture.png)]({{assets}}/images/dashboard/logs-big-picture.png)
+
+
 
 The Logs feature provides a clean interface to view event information in real-time, just from your devices. We're hoping that this is handy both while debugging code during development, and checking out recent activity on your device once you power-on your finished project. Hereâ€™s a snapshot of a Spark device monitoring the health of a theoretical aquarium.
 
@@ -42,7 +44,9 @@ Below the title is a side-scrolling bar graph. It's a visualization of the numbe
 
 
 
-![Raw event]({{assets}}/images/dashboard/raw-event.jpg)
+[![Raw event]({{assets}}/images/dashboard/raw-event.jpg)]({{assets}}/images/dashboard/raw-event.jpg)
+
+
 
 At the bottom is a real-time log of events passing through the cloud. You'll get the name, data, timestamp and the device name associated with each event as it comes in. Oh Yeah! And, if you click on the event, you can see a raw JSON view of the event.
 
