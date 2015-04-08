@@ -531,7 +531,7 @@ Optionally provide a JSON object with key / value pairs specifying custom header
 ```json
 # example headers usage
 "headers": {
-    "Authorization: Bearer 12345"
+    "Authorization": "Bearer 12345"
 }
 ```
 
