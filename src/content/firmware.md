@@ -396,7 +396,70 @@ void redundantLoop() {
 
 `Spark.process()` is a blocking call, and blocks for a few milliseconds. `Spark.process()` is called automatically after every `loop()` and during delays. Typically you will not need to call `Spark.process()` unless you block in some other way and need to maintain the connection to the Cloud, or you change the [system mode](#advanced-system-modes). If the user puts the Core into `MANUAL` mode, the user is responsible for calling `Spark.process()`. The more frequently this function is called, the more responsive the Core will be to incoming messages, the more likely the Cloud connection will stay open, and the less likely that the CC3000's buffer will overrun.
 
+### Get Public IP
 
+Using this feature, the device can programmatically know its own public IP address.
+
+```cpp
+// Open a serial terminal and see the IP address printed out
+void handler(const char *topic, const char *data) {
+    Serial.println("received " + String(topic) + ": " + String(data));
+}
+
+void setup() {
+    Serial.begin(115200);
+    for(int i=0;i<5;i++) {
+        Serial.println("waiting... " + String(5 - i));
+        delay(1000);
+    }
+
+    Spark.subscribe("spark/", handler);
+    Spark.publish("spark/device/ip");
+}
+```
+
+### Get Device name
+
+This gives you the device name that is stored in the cloud,
+
+```cpp
+// Open a serial terminal and see the device name printed out
+void handler(const char *topic, const char *data) {
+    Serial.println("received " + String(topic) + ": " + String(data));
+}
+
+void setup() {
+    Serial.begin(115200);
+    for(int i=0;i<5;i++) {
+        Serial.println("waiting... " + String(5 - i));
+        delay(1000);
+    }
+
+    Spark.subscribe("spark/", handler);
+    Spark.publish("spark/device/name");
+}
+```
+
+### Get Random seed
+
+Grab 40 bytes of randomness from the cloud and {e}n{c}r{y}t away!
+
+```cpp
+void handler(const char *topic, const char *data) {
+    Serial.println("received " + String(topic) + ": " + String(data));
+}
+
+void setup() {
+    Serial.begin(115200);
+    for(int i=0;i<5;i++) {
+        Serial.println("waiting... " + String(5 - i));
+        delay(1000);
+    }
+
+    Spark.subscribe("spark/", handler);
+    Spark.publish("spark/device/random");
+}
+```
 
 ### Spark.deviceID()
 
