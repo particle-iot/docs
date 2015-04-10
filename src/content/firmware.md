@@ -442,7 +442,7 @@ void setup() {
 
 ### Get Random seed
 
-Grab 40 bytes of randomness from the cloud and {e}n{c}r{y}t away!
+Grab 40 bytes of randomness from the cloud and {e}n{c}r{y}p{t} away!
 
 ```cpp
 void handler(const char *topic, const char *data) {
