@@ -396,6 +396,26 @@ void redundantLoop() {
 
 `Spark.process()` is a blocking call, and blocks for a few milliseconds. `Spark.process()` is called automatically after every `loop()` and during delays. Typically you will not need to call `Spark.process()` unless you block in some other way and need to maintain the connection to the Cloud, or you change the [system mode](#system-system-modes). If the user puts the Core into `MANUAL` mode, the user is responsible for calling `Spark.process()`. The more frequently this function is called, the more responsive the Core will be to incoming messages, the more likely the Cloud connection will stay open, and the less likely that the CC3000's buffer will overrun.
 
+### Spark.syncTime()
+
+Synchronize the time with the Spark Cloud.
+This happens automatically when the Core connects to the Cloud.
+However, if your Core runs continuously for a long time,
+you may want to synchronize once per day or so.
+
+```C++
+#define ONE_DAY_MILLIS (24 * 60 * 60 * 1000)
+unsigned long lastSync = millis();
+
+void loop() {
+  if (millis() - lastSync > ONE_DAY_MILLIS) {
+    // Request time synchronization from the Spark Cloud
+    Spark.syncTime();
+    lastSync = millis();
+  }
+}
+```
+
 ### Get Public IP
 
 Using this feature, the device can programmatically know its own public IP address.
@@ -576,25 +596,7 @@ Spark.sleep(int millis, array peripherals);
 <!-- TO DO -->
 <!-- Add example implementation here -->
 
-### Spark.syncTime()
 
-Synchronize the time with the Spark Cloud.
-This happens automatically when the Core connects to the Cloud.
-However, if your Core runs continuously for a long time,
-you may want to synchronize once per day or so.
-
-```C++
-#define ONE_DAY_MILLIS (24 * 60 * 60 * 1000)
-unsigned long lastSync = millis();
-
-void loop() {
-  if (millis() - lastSync > ONE_DAY_MILLIS) {
-    // Request time synchronization from the Spark Cloud
-    Spark.syncTime();
-    lastSync = millis();
-  }
-}
-```
 
 
 
