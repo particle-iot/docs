@@ -481,29 +481,6 @@ void setup() {
 }
 ```
 
-### Spark.deviceID()
-
-`Spark.deviceID()` provides an easy way to extract the device ID of your Core. It returns a [String object](#data-types-string-object) of the device ID, which is used frequently in Sparkland to identify your Core.
-
-```cpp
-// EXAMPLE USAGE
-
-void setup()
-{
-  // Make sure your Serial Terminal app is closed before powering your Core
-  Serial.begin(9600);
-  // Now open your Serial Terminal, and hit any key to continue!
-  while(!Serial.available()) Spark.process();
-
-  String myID = Spark.deviceID();
-  // Prints out the device ID over Serial
-  Serial.println(myID);
-}
-
-void loop() {}
-```
-
-
 WiFi
 =====
 
@@ -2563,6 +2540,28 @@ Returns: String
 
 System
 ---
+
+### Spark.deviceID()
+
+`Spark.deviceID()` provides an easy way to extract the device ID of your Core. It returns a [String object](#data-types-string-object) of the device ID, which is used frequently in Sparkland to identify your Core.
+
+```cpp
+// EXAMPLE USAGE
+
+void setup()
+{
+  // Make sure your Serial Terminal app is closed before powering your Core
+  Serial.begin(9600);
+  // Now open your Serial Terminal, and hit any key to continue!
+  while(!Serial.available()) Spark.process();
+
+  String myID = Spark.deviceID();
+  // Prints out the device ID over Serial
+  Serial.println(myID);
+}
+
+void loop() {}
+```
 
 ### Spark.sleep()
 
