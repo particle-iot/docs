@@ -3183,7 +3183,8 @@ The device will enter DFU-mode and boot up in DFU when a reset occurs until a us
 System.bootloader()
 ```
 
-### Spark.deviceID()
+Spark.deviceID()
+----
 
 `Spark.deviceID()` provides an easy way to extract the device ID of your Core. It returns a [String object](#data-types-string-object) of the device ID, which is used frequently in Sparkland to identify your Core.
 
@@ -3205,7 +3206,8 @@ void setup()
 void loop() {}
 ```
 
-### Spark.sleep()
+Spark.sleep()
+----
 
 `Spark.sleep()` can be used to dramatically improve the battery life of a Spark-powered project by temporarily deactivating the Wi-Fi module, which is by far the biggest power draw.
 
@@ -3298,7 +3300,8 @@ Spark.sleep(int millis, array peripherals);
 <!-- TO DO -->
 <!-- Add example implementation here -->
 
-### System.reset()
+System.reset()
+----
 
 Resets the device, just like hitting the reset button or powering down and back up.
 
