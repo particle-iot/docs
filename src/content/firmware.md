@@ -298,7 +298,7 @@ void loop() {
 
 After you call `Spark.connect()`, your loop will not be called again until the Core finishes connecting to the Cloud. Typically, you can expect a delay of approximately one second.
 
-In most cases, you do not need to call `Spark.connect()`; it is called automatically when the Core turns on. Typically you only need to call `Spark.connect()` after disconnecting with [`Spark.disconnect()`](#spark-disconnect) or when you change the [system mode](#advanced-system-modes).
+In most cases, you do not need to call `Spark.connect()`; it is called automatically when the Core turns on. Typically you only need to call `Spark.connect()` after disconnecting with [`Spark.disconnect()`](#spark-disconnect) or when you change the [system mode](#system-system-modes).
 
 
 ### Spark.disconnect()
@@ -394,7 +394,27 @@ void redundantLoop() {
 }
 ```
 
-`Spark.process()` is a blocking call, and blocks for a few milliseconds. `Spark.process()` is called automatically after every `loop()` and during delays. Typically you will not need to call `Spark.process()` unless you block in some other way and need to maintain the connection to the Cloud, or you change the [system mode](#advanced-system-modes). If the user puts the Core into `MANUAL` mode, the user is responsible for calling `Spark.process()`. The more frequently this function is called, the more responsive the Core will be to incoming messages, the more likely the Cloud connection will stay open, and the less likely that the CC3000's buffer will overrun.
+`Spark.process()` is a blocking call, and blocks for a few milliseconds. `Spark.process()` is called automatically after every `loop()` and during delays. Typically you will not need to call `Spark.process()` unless you block in some other way and need to maintain the connection to the Cloud, or you change the [system mode](#system-system-modes). If the user puts the Core into `MANUAL` mode, the user is responsible for calling `Spark.process()`. The more frequently this function is called, the more responsive the Core will be to incoming messages, the more likely the Cloud connection will stay open, and the less likely that the CC3000's buffer will overrun.
+
+### Spark.syncTime()
+
+Synchronize the time with the Spark Cloud.
+This happens automatically when the Core connects to the Cloud.
+However, if your Core runs continuously for a long time,
+you may want to synchronize once per day or so.
+
+```C++
+#define ONE_DAY_MILLIS (24 * 60 * 60 * 1000)
+unsigned long lastSync = millis();
+
+void loop() {
+  if (millis() - lastSync > ONE_DAY_MILLIS) {
+    // Request time synchronization from the Spark Cloud
+    Spark.syncTime();
+    lastSync = millis();
+  }
+}
+```
 
 ### Get Public IP
 
@@ -461,143 +481,6 @@ void setup() {
 }
 ```
 
-### Spark.deviceID()
-
-`Spark.deviceID()` provides an easy way to extract the device ID of your Core. It returns a [String object](#data-types-string-object) of the device ID, which is used frequently in Sparkland to identify your Core.
-
-```cpp
-// EXAMPLE USAGE
-
-void setup()
-{
-  // Make sure your Serial Terminal app is closed before powering your Core
-  Serial.begin(9600);
-  // Now open your Serial Terminal, and hit any key to continue!
-  while(!Serial.available()) Spark.process();
-
-  String myID = Spark.deviceID();
-  // Prints out the device ID over Serial
-  Serial.println(myID);
-}
-
-void loop() {}
-```
-
-### Spark.sleep()
-
-`Spark.sleep()` can be used to dramatically improve the battery life of a Spark-powered project by temporarily deactivating the Wi-Fi module, which is by far the biggest power draw.
-
-```C++
-// SYNTAX
-Spark.sleep(int seconds);
-```
-
-```C++
-// EXAMPLE USAGE: Put the Wi-Fi module in standby (low power) for 5 seconds
-Spark.sleep(5);
-// The Core LED will flash green during sleep
-```
-`Spark.sleep(int seconds)` does NOT stop the execution of user code (non-blocking call).  User code will continue running while the Wi-Fi module is in standby mode. During sleep, WiFi.status() will return WIFI_OFF.  Once sleep time has expired and the Wi-FI module attempts reconnection, WiFi.status() will return value WIFI_CONNECTING and WIFI_ON.
-
-`Spark.sleep(SLEEP_MODE_DEEP, int seconds)` can be used to put the entire Core into a *deep sleep* mode. In this particular mode, the Core shuts down the Wi-Fi chipset (CC3000) and puts the microcontroller in a stand-by mode.  When the Core awakens from deep sleep, it will reset the Core and run all user code from the beginning with no values being maintained in memory from before the deep sleep.  As such, it is recommended that deep sleep be called only after all user code has completed. The Standby mode is used to achieve the lowest power consumption.  After entering Standby mode, the SRAM and register contents are lost except for registers in the backup domain.
-
-```C++
-// SYNTAX
-Spark.sleep(SLEEP_MODE_DEEP, int seconds);
-```
-
-```C++
-// EXAMPLE USAGE: Put the Core into deep sleep for 60 seconds
-Spark.sleep(SLEEP_MODE_DEEP,60);
-// The Core LED will shut off during deep sleep
-```
-The Core will automatically *wake up* and reestablish the WiFi connection after the specified number of seconds.
-
-`Spark.sleep(uint16_t wakeUpPin, uint16_t edgeTriggerMode)` can be used to put the entire Core into a *stop* mode with *wakeup on interrupt*. In this particular mode, the Core shuts down the Wi-Fi chipset (CC3000) and puts the microcontroller in a stop mode with configurable wakeup pin and edge triggered interrupt. When the specific interrupt arrives, the Core awakens from stop mode, it will behave as if the Core is reset and run all user code from the beginning with no values being maintained in memory from before the stop mode. As such, it is recommended that stop mode be called only after all user code has completed. (Note: The new Spark Photon firmware will not reset before going into stop mode so all the application variables are preserved after waking up from this mode. The voltage regulator is put in low-power mode. This mode achieves the lowest power consumption while retaining the contents of SRAM and registers.)
-It is mandatory to update the *bootloader* (https://github.com/spark/core-firmware/tree/bootloader-patch-update) for proper functioning of this mode(valid only for Spark Core).
-
-```C++
-// SYNTAX
-Spark.sleep(uint16_t wakeUpPin, uint16_t edgeTriggerMode);
-```
-
-```C++
-// EXAMPLE USAGE: Put the Core into stop mode with wakeup using RISING edge interrupt on D0 pin
-Spark.sleep(D0,RISING);
-// The Core LED will shut off during sleep
-```
-
-*Parameters:*
-
-- `wakeUpPin`: the wakeup pin number. supports external interrupts on the following pins:
-    - D0, D1, D2, D3, D4, A0, A1, A3, A4, A5, A6, A7
-- `edgeTriggerMode`: defines when the interrupt should be triggered. Four constants are predefined as valid values:
-    - CHANGE to trigger the interrupt whenever the pin changes value,
-    - RISING to trigger when the pin goes from low to high,
-    - FALLING for when the pin goes from high to low.
-
-`Spark.sleep(uint16_t wakeUpPin, uint16_t edgeTriggerMode, long seconds)` can be used to put the entire Core into a *stop* mode with *wakeup on interrupt* or *wakeup after specified seconds*. In this particular mode, the Core shuts down the Wi-Fi chipset (CC3000) and puts the microcontroller in a stop mode with configurable wakeup pin and edge triggered interrupt or wakeup after the specified seconds . When the specific interrupt arrives or upon reaching configured seconds, the Core awakens from stop mode, it will behave as if the Core is reset and run all user code from the beginning with no values being maintained in memory from before the stop mode. As such, it is recommended that stop mode be called only after all user code has completed. (Note: The new Spark Photon firmware will not reset before going into stop mode so all the application variables are preserved after waking up from this mode. The voltage regulator is put in low-power mode. This mode achieves the lowest power consumption while retaining the contents of SRAM and registers.)
-
-It is mandatory to update the *bootloader* (https://github.com/spark/core-firmware/tree/bootloader-patch-update) for proper functioning of this mode(valid only for Spark Core).
-
-```C++
-// SYNTAX
-Spark.sleep(uint16_t wakeUpPin, uint16_t edgeTriggerMode, long seconds);
-```
-
-```C++
-// EXAMPLE USAGE: Put the Core into stop mode with wakeup using RISING edge interrupt on D0 pin or wakeup after 60 seconds whichever comes first
-Spark.sleep(D0,RISING,60);
-// The Core LED will shut off during sleep
-```
-
-*Parameters:*
-
-- `wakeUpPin`: the wakeup pin number. supports external interrupts on the following pins:
-    - D0, D1, D2, D3, D4, A0, A1, A3, A4, A5, A6, A7
-- `edgeTriggerMode`: defines when the interrupt should be triggered. Four constants are predefined as valid values:
-    - CHANGE to trigger the interrupt whenever the pin changes value,
-    - RISING to trigger when the pin goes from low to high,
-    - FALLING for when the pin goes from high to low.
-- `seconds`: wakeup after the specified number of seconds
-
-In *standard sleep mode*, the Core current consumption is in the range of: **30mA to 38mA**
-
-In *deep sleep mode*, the Core current consumption is around: **3.2 μA**
-
-<!--
-Spark.sleep(int millis, array peripherals);
--->
-
-<!--
-`Spark.sleep()` can also take an optional second argument, an `array` of other peripherals to deactivate. Deactivating unused peripherals on the micro-controller can take its power consumption into the micro-amps.
--->
-
-<!-- TO DO -->
-<!-- Add example implementation here -->
-
-### Spark.syncTime()
-
-Synchronize the time with the Spark Cloud.
-This happens automatically when the Core connects to the Cloud.
-However, if your Core runs continuously for a long time,
-you may want to synchronize once per day or so.
-
-```C++
-#define ONE_DAY_MILLIS (24 * 60 * 60 * 1000)
-unsigned long lastSync = millis();
-
-void loop() {
-  if (millis() - lastSync > ONE_DAY_MILLIS) {
-    // Request time synchronization from the Spark Cloud
-    Spark.syncTime();
-    lastSync = millis();
-  }
-}
-```
-
-
-
 WiFi
 =====
 
@@ -605,7 +488,7 @@ WiFi
 
 `WiFi.on()` turns on the Wi-Fi module. Useful when you've turned it off, and you changed your mind.
 
-Note that `WiFi.on()` does not need to be called unless you have changed the [system mode](#advanced-system-modes) or you have previously turned the Wi-Fi module off.
+Note that `WiFi.on()` does not need to be called unless you have changed the [system mode](#system-system-modes) or you have previously turned the Wi-Fi module off.
 
 ### WiFi.off()
 
@@ -2655,29 +2538,6 @@ Serial.print(Time.timeStr()); // Wed May 21 01:08:47 2014
 
 Returns: String
 
-System
----
-
-### reset()
-
-Resets the device, just like hitting the reset button or powering down and back up.
-
-```C++
-uint32_t lastReset = 0;
-
-void setup() {
-    lastReset = millis();
-}
-
-void loop() {
-  // Reset after 5 minutes of operation
-  // ==================================
-  if (millis() - lastReset > 5*60000UL) {
-    System.reset();
-  }
-}
-```
-
 
 Other functions
 =====
@@ -3207,7 +3067,7 @@ uint8_t val = 0x45;
 EEPROM.write(addr, val);
 ```
 
-Advanced
+System
 =====
 
 System modes
@@ -3322,6 +3182,142 @@ The device will enter DFU-mode and boot up in DFU when a reset occurs until a us
 ```cpp
 System.bootloader()
 ```
+
+### Spark.deviceID()
+
+`Spark.deviceID()` provides an easy way to extract the device ID of your Core. It returns a [String object](#data-types-string-object) of the device ID, which is used frequently in Sparkland to identify your Core.
+
+```cpp
+// EXAMPLE USAGE
+
+void setup()
+{
+  // Make sure your Serial Terminal app is closed before powering your Core
+  Serial.begin(9600);
+  // Now open your Serial Terminal, and hit any key to continue!
+  while(!Serial.available()) Spark.process();
+
+  String myID = Spark.deviceID();
+  // Prints out the device ID over Serial
+  Serial.println(myID);
+}
+
+void loop() {}
+```
+
+### Spark.sleep()
+
+`Spark.sleep()` can be used to dramatically improve the battery life of a Spark-powered project by temporarily deactivating the Wi-Fi module, which is by far the biggest power draw.
+
+```C++
+// SYNTAX
+Spark.sleep(int seconds);
+```
+
+```C++
+// EXAMPLE USAGE: Put the Wi-Fi module in standby (low power) for 5 seconds
+Spark.sleep(5);
+// The Core LED will flash green during sleep
+```
+`Spark.sleep(int seconds)` does NOT stop the execution of user code (non-blocking call).  User code will continue running while the Wi-Fi module is in standby mode. During sleep, WiFi.status() will return WIFI_OFF.  Once sleep time has expired and the Wi-FI module attempts reconnection, WiFi.status() will return value WIFI_CONNECTING and WIFI_ON.
+
+`Spark.sleep(SLEEP_MODE_DEEP, int seconds)` can be used to put the entire Core into a *deep sleep* mode. In this particular mode, the Core shuts down the Wi-Fi chipset (CC3000) and puts the microcontroller in a stand-by mode.  When the Core awakens from deep sleep, it will reset the Core and run all user code from the beginning with no values being maintained in memory from before the deep sleep.  As such, it is recommended that deep sleep be called only after all user code has completed. The Standby mode is used to achieve the lowest power consumption.  After entering Standby mode, the SRAM and register contents are lost except for registers in the backup domain.
+
+```C++
+// SYNTAX
+Spark.sleep(SLEEP_MODE_DEEP, int seconds);
+```
+
+```C++
+// EXAMPLE USAGE: Put the Core into deep sleep for 60 seconds
+Spark.sleep(SLEEP_MODE_DEEP,60);
+// The Core LED will shut off during deep sleep
+```
+The Core will automatically *wake up* and reestablish the WiFi connection after the specified number of seconds.
+
+`Spark.sleep(uint16_t wakeUpPin, uint16_t edgeTriggerMode)` can be used to put the entire Core into a *stop* mode with *wakeup on interrupt*. In this particular mode, the Core shuts down the Wi-Fi chipset (CC3000) and puts the microcontroller in a stop mode with configurable wakeup pin and edge triggered interrupt. When the specific interrupt arrives, the Core awakens from stop mode, it will behave as if the Core is reset and run all user code from the beginning with no values being maintained in memory from before the stop mode. As such, it is recommended that stop mode be called only after all user code has completed. (Note: The new Spark Photon firmware will not reset before going into stop mode so all the application variables are preserved after waking up from this mode. The voltage regulator is put in low-power mode. This mode achieves the lowest power consumption while retaining the contents of SRAM and registers.)
+It is mandatory to update the *bootloader* (https://github.com/spark/core-firmware/tree/bootloader-patch-update) for proper functioning of this mode(valid only for Spark Core).
+
+```C++
+// SYNTAX
+Spark.sleep(uint16_t wakeUpPin, uint16_t edgeTriggerMode);
+```
+
+```C++
+// EXAMPLE USAGE: Put the Core into stop mode with wakeup using RISING edge interrupt on D0 pin
+Spark.sleep(D0,RISING);
+// The Core LED will shut off during sleep
+```
+
+*Parameters:*
+
+- `wakeUpPin`: the wakeup pin number. supports external interrupts on the following pins:
+    - D0, D1, D2, D3, D4, A0, A1, A3, A4, A5, A6, A7
+- `edgeTriggerMode`: defines when the interrupt should be triggered. Four constants are predefined as valid values:
+    - CHANGE to trigger the interrupt whenever the pin changes value,
+    - RISING to trigger when the pin goes from low to high,
+    - FALLING for when the pin goes from high to low.
+
+`Spark.sleep(uint16_t wakeUpPin, uint16_t edgeTriggerMode, long seconds)` can be used to put the entire Core into a *stop* mode with *wakeup on interrupt* or *wakeup after specified seconds*. In this particular mode, the Core shuts down the Wi-Fi chipset (CC3000) and puts the microcontroller in a stop mode with configurable wakeup pin and edge triggered interrupt or wakeup after the specified seconds . When the specific interrupt arrives or upon reaching configured seconds, the Core awakens from stop mode, it will behave as if the Core is reset and run all user code from the beginning with no values being maintained in memory from before the stop mode. As such, it is recommended that stop mode be called only after all user code has completed. (Note: The new Spark Photon firmware will not reset before going into stop mode so all the application variables are preserved after waking up from this mode. The voltage regulator is put in low-power mode. This mode achieves the lowest power consumption while retaining the contents of SRAM and registers.)
+
+It is mandatory to update the *bootloader* (https://github.com/spark/core-firmware/tree/bootloader-patch-update) for proper functioning of this mode(valid only for Spark Core).
+
+```C++
+// SYNTAX
+Spark.sleep(uint16_t wakeUpPin, uint16_t edgeTriggerMode, long seconds);
+```
+
+```C++
+// EXAMPLE USAGE: Put the Core into stop mode with wakeup using RISING edge interrupt on D0 pin or wakeup after 60 seconds whichever comes first
+Spark.sleep(D0,RISING,60);
+// The Core LED will shut off during sleep
+```
+
+*Parameters:*
+
+- `wakeUpPin`: the wakeup pin number. supports external interrupts on the following pins:
+    - D0, D1, D2, D3, D4, A0, A1, A3, A4, A5, A6, A7
+- `edgeTriggerMode`: defines when the interrupt should be triggered. Four constants are predefined as valid values:
+    - CHANGE to trigger the interrupt whenever the pin changes value,
+    - RISING to trigger when the pin goes from low to high,
+    - FALLING for when the pin goes from high to low.
+- `seconds`: wakeup after the specified number of seconds
+
+In *standard sleep mode*, the Core current consumption is in the range of: **30mA to 38mA**
+
+In *deep sleep mode*, the Core current consumption is around: **3.2 μA**
+
+<!--
+Spark.sleep(int millis, array peripherals);
+-->
+
+<!--
+`Spark.sleep()` can also take an optional second argument, an `array` of other peripherals to deactivate. Deactivating unused peripherals on the micro-controller can take its power consumption into the micro-amps.
+-->
+
+<!-- TO DO -->
+<!-- Add example implementation here -->
+
+### System.reset()
+
+Resets the device, just like hitting the reset button or powering down and back up.
+
+```C++
+uint32_t lastReset = 0;
+
+void setup() {
+    lastReset = millis();
+}
+
+void loop() {
+  // Reset after 5 minutes of operation
+  // ==================================
+  if (millis() - lastReset > 5*60000UL) {
+    System.reset();
+  }
+}
+```
+
 
 Language Syntax
 =====
