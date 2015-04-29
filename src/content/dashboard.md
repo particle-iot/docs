@@ -11,7 +11,7 @@ Dashboard <small class="beta">(alpha)</small>
 Introduction
 ===
 
-The [Dashboard](https://dashboard.spark.io) is a new feature we're working on to make creating products easier. It's currently in alpha, which means we'll be working on it and releasing frequent updates. Stuff might change a lot over the next few weeks, so check back often!
+The [Dashboard](https://dashboard.spark.io) is a new feature we're working on to improve the developer experience of building connected products with Particle. It's currently in alpha, which means we'll be working on it and releasing frequent updates.
 
 Being in alpha also means we're trying to get your feedback as we build it. Head on over to the community to join the conversation. We'll be making release announcements, answering questions and asking for feedback.
 
