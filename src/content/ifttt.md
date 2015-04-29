@@ -4,17 +4,17 @@ title: IFTTT
 order: 14
 ---
 
-Spark Channel on IFTTT
+Particle Channel on IFTTT
 ==========
 
 Introduction
 ===
 
-Anything you build with Spark is now easily available on IFTTT! IFTTT is a service that lets you create powerful connections with one simple statement: "If this then that."  There is a great introduction to their ecosystem [on IFTTT's website](https://ifttt.com/wtf). Go check it out if you haven't already, it's super helpful.
+Anything you build with Particle is now easily available on IFTTT! IFTTT is a service that lets you create powerful connections with one simple statement: "If this then that."  There is a great introduction to their ecosystem [on IFTTT's website](https://ifttt.com/wtf). Go check it out if you haven't already, it's super helpful.
 
-The Spark Channel on IFTTT will let you connect your devices to other powerful channels. You can now easily send and receive tweets, SMS, check the weather, respond to price changes, monitor astronauts, and much, much more. This page is a reference for you to use as you get your Spark Recipes set up.
+The Particle Channel on IFTTT will let you connect your devices to other powerful channels. You can now easily send and receive tweets, SMS, check the weather, respond to price changes, monitor astronauts, and much, much more. This page is a reference for you to use as you get your Spark Recipes set up.
 
-If you're totally new to Spark, that's okay! Before you get going on the Spark channel, be sure to get your Photon or Core connected and claimed. [Get started here](http://docs.spark.io/start/).
+If you're totally new to Particle, that's okay! Before you get going on the Particle channel, be sure to get your Photon or Core connected and claimed. [Get started here](http://docs.spark.io/start/).
 
 Lets go!
 
@@ -38,17 +38,17 @@ A combination of a Trigger and an Action. IFTTT lets you connect triggers to act
 
 ###What are ingredients?
 
-Ingredients are pieces of data from a Trigger. Ingredient values are automatically found by IFTTT using certain aspects of your device and/or firmware. These pieces of data can be used when setting up the Action that goes with your created Trigger. For Spark, ingredients will often include the name you've given your Core or Photon, the time that the trigger occurred, and any data that trigger returned.
+Ingredients are pieces of data from a Trigger. Ingredient values are automatically found by IFTTT using certain aspects of your device and/or firmware. These pieces of data can be used when setting up the Action that goes with your created Trigger. For Particle, ingredients will often include the name you've given your Core or Photon, the time that the trigger occurred, and any data that trigger returned.
 
 Other IFTTT channels will provide (and sometimes automatically insert) their own ingredients. If ingredients are available, they can be found in the blue Erlenmeyer flask icon next to the relevant input box.
 
-###Before you build with Spark + IFTTT
+###Before you build with Particle + IFTTT
 
 **Firmware is key**: IFTTT will pull directly from the firmware that is currently flashed to your devices. It will only show functions,variables,etc from firmware that is currently flashed to one of your devices. That means that if, for example, you're trying to use the "Monitor a Function" Trigger you'll need to have flashed firmware to your board that includes spark.function().
 
 **But what if I want to try this without writing firmware?** We recommend starting with the Monitor a Device Status Trigger. You can use this Trigger with the firmware that came with your device.
 
-**Okay, I'm ready to build my own firmware. Where do I start?** Get to know [the web IDE](http://docs.spark.io/build/) and explore the Spark [community site](http://community.spark.io/) for great tutorials, examples and advice on projects.
+**Okay, I'm ready to build my own firmware. Where do I start?** Get to know [the web IDE](http://docs.spark.io/build/) and explore the Particle [community site](http://community.particle.io/) for great tutorials, examples and advice on projects.
 
 Triggers
 ===
@@ -108,7 +108,7 @@ allbuttons
 "on"
 
 ```
-**DeviceName:** The name you provided when you claimed your Spark device.
+**DeviceName:** The name you provided when you claimed your Particle device.
 
 ```
 // EXAMPLE DEVICE NAME
@@ -299,7 +299,7 @@ Monitor your device status
 -------
 
 ### Firmware requirements
-You must have firmware on your Spark device, but nothing else is necessary. Basically, you're fine unless you've actively wiped your device.
+You must have firmware on your Particle device, but nothing else is necessary. Basically, you're fine unless you've actively wiped your device.
 
 
 ### Trigger fields
@@ -427,7 +427,7 @@ You must have firmware on your Spark device, but nothing else is necessary. Basi
 
   - I don't see my function in the list on IFTTT?
 
-  Make sure you flashed your firmware to your device with the function you've exposed, and try refreshing the IFTTT page.  You can confirm what functions are available using [Spark Dev](http://docs.spark.io/dev/) and clicking the 'Cloud variables and functions' menu or in the [Spark-CLI]( https://github.com/spark/spark-cli) by running `spark list`
+  Make sure you flashed your firmware to your device with the function you've exposed, and try refreshing the IFTTT page.  You can confirm what functions are available using [Particle Dev](http://docs.spark.io/dev/) and clicking the 'Cloud variables and functions' menu or in the [Particle-CLI]( https://github.com/spark/spark-cli) by running `spark list`
 
   - Why can I log in on spark.io/build, but I can't log in on IFTTT?
 
