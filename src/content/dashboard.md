@@ -15,7 +15,7 @@ The [Dashboard](https://dashboard.spark.io) is a new feature we're working on to
 
 Being in alpha also means we're trying to get your feedback as we build it. Head on over to the community to join the conversation. We'll be making release announcements, answering questions and asking for feedback.
 
-[Talk to us on the Community! >](http://community.spark.io/t/fleet-management-dashboard-alpha-run-feedback/11118)
+[Talk to us on the Community!](http://community.spark.io/t/fleet-management-dashboard-alpha-run-feedback/11118)
 
 Features
 ===
