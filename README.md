@@ -1,8 +1,8 @@
-## Spark Documentation [![Build Status](https://travis-ci.org/spark/docs.svg?branch=feature/server-side-rendering)](https://travis-ci.org/spark/docs)
+## Particle Documentation [![Build Status](https://travis-ci.org/spark/docs.svg?branch=feature/server-side-rendering)](https://travis-ci.org/spark/docs)
 
-Here you'll find the documentation for the Spark platform, including the Spark Cloud and the Spark Core.
+Here you'll find the documentation for the Particle platform, including the Particle Cloud, Photon, and Spark Core.
 
-To view this documentation, visit [our website](http://docs.spark.io), where the documentation is hosted.
+To view this documentation, visit [our website](http://docs.particle.io), where the documentation is hosted.
 
 ### Installation
 
@@ -52,7 +52,7 @@ This documentation was originally built using [Flatdoc](http://ricostacruz.com/f
 
 ### Contributions
 
-This documentation is managed by Spark, but supported by the community. We welcome contributions such as:
+This documentation is managed by Particle, but supported by the community. We welcome contributions such as:
 
 * Edits to improve grammar or fix typos
 * Edits to improve clarity
