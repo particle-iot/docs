@@ -4,9 +4,9 @@ title: Javascript SDK
 order: 8
 ---
 
-# sparkjs
+# particlejs
 
-SparkJS is a library for interacting with your cores and the Spark Cloud.
+ParticleJS is a library for interacting with your devices and the Particle Cloud.
 It uses node.js and can run on Windows, Mac OS X, and Linux fairly easily.
 It's also open source so you can edit, change or even send in pull requests if you want to share!
 
@@ -26,15 +26,15 @@ $ npm install spark
 
 ### Client side
 
-#### Including SparkJS
+#### Including ParticleJS
 
-SparkJS can be included using bower:
+ParticleJS can be included using bower:
 
 ```shell
 $ bower install spark
 ```
 
-Alternately, you can pull in SparkJS from the JSDelivr and simply include the script in your HTML.
+Alternately, you can pull in ParticleJS from the JSDelivr and simply include the script in your HTML.
 
 ```html
 <script type="text/javascript" src="//cdn.jsdelivr.net/sparkjs/0.4.2/spark.min.js">
@@ -47,7 +47,7 @@ Now you will have a `spark` object available that you can use in your applicatio
 
 ![LOGINB]({{assets}}/images/spark-login-button.png)
 
-If you are using SparkJS in the browser and want a dead simple way to log in to a Spark account to get your devices, the following instructions will give you a "Login to Spark" button to open a login modal.
+If you are using ParticleJS in the browser and want a dead simple way to log in to a Spark account to get your devices, the following instructions will give you a "Login to Spark" button to open a login modal.
 
 Add an empty div with "spark-login" id where you want the "Login to Spark" button to be rendered.
 
@@ -55,7 +55,7 @@ Add an empty div with "spark-login" id where you want the "Login to Spark" butto
 <div id="spark-login" />
 ```
 
-Add this script tag to your page to include SparkJS
+Add this script tag to your page to include ParticleJS
 
 ```javascript
 <script src="//cdn.jsdelivr.net/sparkjs/0.4.2/spark.min.js"></script>
@@ -89,8 +89,8 @@ You just need to update the following css rules:
 
 ## Logging in
 
-Before performing any action with Sparkjs, you need to login with
-your Spark Cloud credentials.
+Before performing any action with ParticleJS, you need to login with
+your Particle Cloud credentials.
 
 ### With username/password
 
@@ -204,7 +204,7 @@ devicesPr.then(
 Claim a device and add it to the user currently logged in
 
 ```javascript
-spark.claimCore('CORE_ID', function(err, data) {
+spark.claimCore('DEVICE_ID', function(err, data) {
   console.log('spark.claimCore err:', err);
   console.log('spark.claimCore data:', data);
 });
@@ -215,9 +215,9 @@ spark.claimCore('CORE_ID', function(err, data) {
 Remove a device from the user currently logged in
 
 ```javascript
-spark.removeCore('CORE_ID', function(err, data) {
+spark.removeCore('DEVICE_ID', function(err, data) {
   if (err) {
-    console.log('An error occurred while removing core:', err);
+    console.log('An error occurred while removing device:', err);
   } else {
     console.log('removeCore call response:', data);
   });
@@ -232,7 +232,7 @@ var devicesPr = spark.getAttributesForAll();
 
 devicesPr.then(
   function(data){
-    console.log('Core attrs retrieved successfully:', data);
+    console.log('Device attrs retrieved successfully:', data);
   },
   function(err) {
     console.log('API call failed: ', err);
@@ -295,7 +295,7 @@ device.callFunction('brew', 'D0:HIGH', function(err, data) {
 ```
 
 The function needs to be defined in the firmware uploaded to the
-Spark core and registered to the Spark cloud.
+device and registered to the Particle cloud.
 
 You pass along the name of the function and the params.
 
@@ -317,9 +317,9 @@ Flash firmware to device
 ```javascript
 device.flash(['./path/file1', './path/file2'], function(err, data) {
   if (err) {
-    console.log('An error occurred while flashing the core:', err);
+    console.log('An error occurred while flashing the device:', err);
   } else {
-    console.log('Core flashing started successfully:', data);
+    console.log('Device flashing started successfully:', data);
   }
 });
 ```
@@ -347,12 +347,12 @@ device.getVariable('temp', function(err, data) {
   if (err) {
     console.log('An error occurred while getting attrs:', err);
   } else {
-    console.log('Core attr retrieved successfully:', data);
+    console.log('Device attr retrieved successfully:', data);
   }
 });
 ```
 
-The variable needs to be defined in Spark Core code.
+The variable needs to be defined in your device's code.
 
 ### remove
 
@@ -388,9 +388,9 @@ Send a signal to the device
 ```javascript
 device.signal(function(err, data) {
   if (err) {
-    console.log('Error sending a signal to the core:', err);
+    console.log('Error sending a signal to the device:', err);
   } else {
-    console.log('Core signal sent successfully:', data);
+    console.log('Signal sent successfully:', data);
   }
 });
 ```
@@ -435,7 +435,7 @@ device.subscribe('test', function(data) {
 
 ### update
 
-Refresh device with values from Spark Cloud API
+Refresh device with values from Particle Cloud API
 
 ```javascript
 device.update(function(data) {
@@ -465,7 +465,7 @@ spark.listdevices().then(function(devices) {
 
 ### Get event stream
 
-Get event listener to an stream in the Spark cloud
+Get event listener to an stream in the Particle cloud
 
 ```javascript
 //Get all events
@@ -478,8 +478,8 @@ spark.getEventStream(false, 'mine', function(data) {
   console.log("Event: " + data);
 });
 
-//Get test event for specific core
-spark.getEventStream('test', 'CORE_ID', function(data) {
+//Get test event for specific device
+spark.getEventStream('test', 'DEVICE_ID', function(data) {
   console.log("Event: " + data);
 });
 ```
@@ -492,13 +492,13 @@ data is an object with the following properties
   "data":"5:28:54",
   "ttl":"60",
   "published_at":"2014-MM-DDTHH:mm:ss.000Z",
-  "coreid":"012345678901234567890123"
+  "deviceid":"012345678901234567890123"
 }
 ```
 
 ### Publishing event
 
-Register an event stream in the Spark cloud
+Register an event stream in the Particle cloud
 
 ```javascript
 var publishEventPr = spark.publishEvent('test', {});
@@ -519,7 +519,7 @@ publishEventPr.then(
 
 ### Compiling
 
-Compiles files in the Spark cloud
+Compiles files in the Particle cloud
 
 ```javascript
 var callback = function(err, data) {
@@ -538,20 +538,20 @@ spark.compileCode(['./path/to/file1', './path/to/file2'], callback);
 Flash firmware to a device
 
 ```javascript
-spark.flashCore('CORE_ID',
+spark.flashCore('DEVICE_ID',
                 ['./path/to/your/file1', './path/to/your/file2'],
                 function(err, data) {
   if (err) {
-    console.log('An error occurred while flashing the core:', err);
+    console.log('An error occurred while flashing the device:', err);
   } else {
-    console.log('Core flashing started successfully:', data);
+    console.log('Device flashing started successfully:', data);
   }
 });
 ```
 
 ### Downloading a binary
 
-Download binary file compiled in the Spark cloud
+Download binary file compiled in the Particle cloud
 
 ```javascript
 var promise = spark.compileCode('./path/to/your/file1', callback);
@@ -575,7 +575,7 @@ promise.then(
 
 ### Create user
 
-Creates an user in the Spark cloud
+Creates an user in the Particle cloud
 
 ```javascript
 spark.createUser('example@email.com', 'pass', function(err, data) {
@@ -605,7 +605,7 @@ We'll use promises to check the result of the login process
 
 ### Removing access token
 
-Removes accessToken from the Spark cloud for the specified user
+Removes accessToken from the Particle cloud for the specified user
 
 ```javascript
 
