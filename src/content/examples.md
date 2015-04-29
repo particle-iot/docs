@@ -7,42 +7,31 @@ order: 2
 Annotated examples
 =======
 
-Here you will find a bunch of examples to get you started with your new Spark Core!
+Here you will find a bunch of examples to get you started with your new Particle Device!
 
 Blink an LED
 ===
 
-![One LED illustration]({{assets}}/images/annotated-example1.jpg)
+![One LED illustration](PLACEHOLDER)
 
-Blinking an LED is the ["Hello World"](http://en.wikipedia.org/wiki/Hello_world_program) example of the microcontroller  world. It's a nice way to warm up and start your journey into the land of embedded hardware.
+Blinking an LED is the ["Hello World"](http://en.wikipedia.org/wiki/Hello_world_program) example of the microcontroller universe. It's a nice way to warm up and start your journey into the land of embedded hardware.
 
-For this example, you will need a Spark Core (duh!), a Breadboard, an LED, a Resistor (we will soon find out a suitable value) and a USB cable.
+For this example, you will need:
+- Your Particle device
+- a Breadboard
+- an LED
+- a Resistor (between 220 and 1000 Ohms recommended, see note)
+- a USB to micro-USB cable
+
+
+**NOTE:** Since there is so much variation in the values of the forward voltage drop of the LEDs depending upon type, size, color, manufacturer, etc., you could successfully use a resistor value from anywhere between 220Ohms to 1K Ohms. In our picture below, we used a 1K resistor (Brown Black Red).
+
 
 Connect everything together as shown in the picture. The negative (shorter) pin of the LED is connected to ground via a resistor and the positive (longer) pin is connected to D0.
 
-![One LED setup]({{assets}}/images/breadboard-one-led.jpg)
+![Fritzing Image](PLACEHOLDER)
 
-But wait, what's the value of the resistor again?
-
-*Here's how we find that out:*
-
-According to [Ohm's Law](http://en.wikipedia.org/wiki/Ohm%27s_law) : Voltage = Current x Resistance
-
-Therefore, Resistance = Voltage/ Current
-
-In our case, the output voltage of the Core is 3.3V but the LED (typically) has a forward voltage drop of around 2.0V. So the actual voltage would be:
-
-3.3V - 2.0V = 1.3V
-
-The required current to light up an LED varies any where between 2mA to 20mA. More the current, brighter the intensity. But generally its a good idea to drive the LED at a lower limit to prolong its life span. We will choose a drive current of 5mA.
-
-Hence, Resistance = 1.3V/ 5mA = 260 Ohms
-
-**NOTE:** Since there is so much variation in the values of the forward voltage drop of the LEDs depending upon type, size, color, manufacturer, etc., you could successfully use a resistor value from anywhere between 220Ohms to 1K Ohms.
-
-In the picture above, we used a 1K resistor (Brown Black Red)
-
-Now on to the actual program:
+Next, we're going to load code onto your core. Copy and paste this code into a new application on http://build.particle.io or on Particle Dev. We've heavily commented this code so that you can see what is going on in each line.
 
 ```cpp
 // Program to blink an LED connected to pin D0
@@ -68,17 +57,22 @@ void loop()
 }
 ```
 
+Go ahead and save this application, then flash it to your Core or Photon. You should be able to see that LED blinking away!
+
+When you're ready for the next step, learn to control that LED over the internet!
+
+
 Control LEDs over the 'net
 ===
 
-![Two LED setup]({{assets}}/images/breadboard-two-leds.jpg)
+![Fritzing Diagram](PLACEHOLDER)
 
 Now that we know how to blink an LED, how about we control it over the Internet? This is where the fun begins.
 
 Lets hook up two LEDs this time.
 
-Here is the algorithm:
 
+Here is the algorithm:
 - Set up the pins as outputs that have LEDs connected to them
 - Create and register a Spark function ( this gets called automagically when you make an API request to it)
 - Parse the incoming command and take appropriate actions
@@ -154,18 +148,18 @@ curl https://api.spark.io/v1/devices/0123456789abcdef/led \
   -d params=l1,HIGH
 ```
 
-Note that the API endpoint is 'led', not 'ledControl'. This is because the endpoint is defined by the first argument of Spark.function(), which is a string of characters, rather than the second argument, which is a function.
+Note that the API endpoint is 'led', not 'ledControl'. This is because the endpoint is defined by the first argument of [Spark.function() PLACEHOLDER], which is a string of characters, rather than the second argument, which is a function.
 
-To better understand the concept of making API calls to your Core over the cloud checkout the [Cloud API reference.](/#/api)
+To better understand the concept of making API calls to your device over the cloud checkout the [Cloud API reference.](#/api)
 
 Measuring the temperature
 ===
 
-![Read Temperature]({{assets}}/images/breadboard-temp-sensor.jpg)
+![Temperature Fritzing](PLACEHOLDER)
 
-We have now learned how to send custom commands to the Core and control the hardware. But how about reading data back from the Core?
+We have now learned how to send custom commands to our device and control the hardware. But how about reading data back from our device?
 
-In this example, we will hook up a temperature sensor to the Core and read the values over the internet with a web browser.
+In this example, we will hook up a temperature sensor to your device and read the values over the internet with a web browser.
 
 We have used a widely available analog temperature sensor called TMP36 from Analog Devices, and is the temperature sensor that comes with your Spark Maker Kit! You can download the [datasheet here.](http://www.analog.com/static/imported-files/data_sheets/TMP35_36_37.pdf)
 
