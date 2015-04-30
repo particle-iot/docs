@@ -14,7 +14,7 @@ You've built an amazing device, and a powerful application online, and now you w
 
 Webhooks are a simple and flexible way for your devices to make requests to almost anything on the Internet.  Webhooks listen for events from your devices.  When you send a matching event, the hook will send a request to your web application with all the details!
 
-If you're totally new to Spark, that's okay!  Check out our [Getting started guide here](http://docs.spark.io/start/) or our [Spark Basics tutorial](http://cmsunu28.gitbooks.io/spark-basics/content/), and come back when you're ready.
+If you're totally new to Particle, that's okay!  Check out our [Getting started guide here](http://docs.spark.io/start/) or our [Particle Basics tutorial](http://cmsunu28.gitbooks.io/spark-basics/content/), and come back when you're ready.
 
 Let's go!
 
@@ -54,7 +54,7 @@ CLI Command Reference
 
 ###spark webhook create
 
-  Registers your webhook with the Spark Cloud.  Creates a postback to the given url when your event is sent.  See [Webhook Options](#webhook-options) for JSON formatting requirements and parameters.
+  Registers your webhook with the Particle Cloud.  Creates a postback to the given url when your event is sent.  See [Webhook Options](#webhook-options) for JSON formatting requirements and parameters.
 
 ```sh
 # how to create a webhook with json data using the CLI
@@ -107,7 +107,7 @@ Found 2 hooks registered
 
 ```sh
 # how to delete your previously registered webhook 
-# from the Spark Cloud using the CLI
+# from the Particle Cloud using the CLI
 $ spark webhook delete WEBHOOK_ID
 
 $ spark webhook delete 234523452345234523452345
@@ -330,7 +330,7 @@ Copy and save the librato access token for your webhook below.  Create a text fi
             {
                 "name": "\{{SPARK_EVENT_NAME}}",
                 "value": "\{{SPARK_EVENT_VALUE}}",
-                "source": "\{{SPARK_CORE_ID}}"
+                "source": "\{{SPARK_DEVICE_ID}}"
             }
         ]
     },
@@ -353,7 +353,7 @@ Use the `spark webhook create` command in your terminal to create the webhook.  
 The example data logging code!
 ---
 
-Here's the fun part, hook anything up to your core!  A motion sensor, temperature sensor, a switch, anything that generates some data that you're interested in tracking over time.  You can also leave the pins floating and measure the floating pin too!  Our example code will assume you have something interesting happening on A0.  This firmware waits 10 seconds, reads pin A0, and then publishes the value to your webhook.
+Here's the fun part, hook anything up to your device!  A motion sensor, temperature sensor, a switch, anything that generates some data that you're interested in tracking over time.  You can also leave the pins floating and measure the floating pin too!  Our example code will assume you have something interesting happening on A0.  This firmware waits 10 seconds, reads pin A0, and then publishes the value to your webhook.
 
 ```cpp
 #define publish_delay 10000
@@ -381,7 +381,7 @@ void loop() {
 [![Testing the events first]({{assets}}/images/webhooks-librato-cli-example.png)]({{assets}}/images/webhooks-librato-cli-example.png)
 
 
-After you flash the firmware to your core, open up the Spark-CLI, and subscribe to your events with `spark subscribe mine`, you should see something like:
+After you flash the firmware to your device, open up the Spark-CLI, and subscribe to your events with `spark subscribe mine`, you should see something like:
 
 [![Librato Metrics Screen]({{assets}}/images/webhooks-librato-metrics-screen1.png)]({{assets}}/images/webhooks-librato-metrics-screen1.png)
 
@@ -408,7 +408,7 @@ What's in a request?
     event: "Your event name",
     data: "Your event contents",
     published_at: "When it was published",
-    coreid: "Your core ID"
+    coreid: "Your device ID"
 }
 ```
 
@@ -625,7 +625,7 @@ You can create up to 20 webhooks,
 you can send 10 hooks per minute per device
 ```
 
-A user by default may trigger a hook up to 10 times per minute for every core that is registered to their account.  A user may create up to 20 webhooks in total.
+A user by default may trigger a hook up to 10 times per minute for every device that is registered to their account.  A user may create up to 20 webhooks in total.
 
 
 
