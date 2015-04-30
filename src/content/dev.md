@@ -12,9 +12,9 @@ Introduction
 
 ![IDE Menu]({{assets}}/images/ide-menu.jpg)
 
-**Spark dev** is a desktop application that allows you to work with local copies of your firmware files. However, **internet** access is required as the files are pushed to Spark Cloud for compilation and returns a binary. i.e. This is not an offline development tool, yet.
+**Particle dev** is a desktop application that allows you to work with local copies of your firmware files. However, **internet** access is required as the files are pushed to the Particle Cloud for compilation and returns a binary. i.e. This is not an offline development tool, yet.
 
-All the commands are available from the **Spark** menu. The menu changes depending on whether you're logged in or have selected a device, so some of the commands will only show up once you're in the right context.
+All the commands are available from the **Particle** menu. The menu changes depending on whether you're logged in or have selected a device, so some of the commands will only show up once you're in the right context.
 
 ![Command Palette]({{assets}}/images/ide-palette.jpg)
 
@@ -29,23 +29,22 @@ There's also a toolbar on left side of IDE which contains shortcuts to the most 
 
 Logging In
 ---
-If you want to work on more advanced projects, Spark Dev could be the choice for you. Head over and download latest release:
+If you want to work on more advanced projects, Partilce Dev could be the choice for you. Head over and download latest release:
 
-[Spark Dev Download >](https://github.com/spark/spark-dev/releases/latest)
+[Particle Dev Download >](https://github.com/spark/spark-dev/releases/latest)
 
 ![IDE Window]({{assets}}/images/ide-window.jpg)
 
-To access most of features you need to log in using your Spark account (which you can [create here](https://www.spark.io/signup)) by clicking the link on the bottom of the window.
+To access most of features you need to log in using your Particle account (which you can [create here](https://www.spark.io/signup)) by clicking the link on the bottom of the window.
 
 ![Logging in]({{assets}}/images/ide-log-in.jpg)
 
 Enter your email and password then click the "Log In" button. After a successful login, the dialog will hide and a link will appear at the bottom showing your current account email.
 
-**NOTE**: When using [Command Line](/cli) you'll notice that log-in status is shared between Spark Dev and CLI. So if you successfully ran `spark login`, you will be logged in within the Spark Dev.
+**NOTE**: When using [Command Line](/cli) you'll notice that log-in status is shared between Particle Dev and CLI. So if you successfully ran `particle login`, you will be logged in within the Particle Dev.
 
-Selecting device
+Selecting Device
 ---
-
 ![Selecting device]({{assets}}/images/ide-select-core.jpg)
 
 Most features like **Flashing** or accessing **Cloud variables and functions** require selecting a target device they will interact with.
@@ -54,13 +53,12 @@ There are three ways to select core:
 
 * Click **Select device** button in the left toolbar
 * Click device's name on the bottom of the window
-* Click on **Spark** -> **Select device...** menu
+* Click on **Partilce** -> **Select device...** menu
 
 Then you will see list of all your devices along with an indicator of online status. You can search for a specific one by typing its name. Clicking on the device or pressing `Enter` when a device is selected will select it.
 
-Compiling code
+Compiling Code
 ---
-
 Before compiling your project, make sure your project files are in a dedicated directory.  If other files not related to your project are present in the project directory, you may experience errors when trying to compile.
 
 ![Compile button]({{assets}}/images/ide-compile.jpg)
@@ -81,23 +79,23 @@ When you're sure that your code is correct it's time to flash it to the device. 
 Cloud variables & functions
 ===
 
-To access all registered variables and functions, go to **Spark** -> **Show cloud functions**/**Show cloud functions** menus.
+To access all registered variables and functions, go to **Particle** -> **Show cloud functions**/**Show cloud functions** menus.
 
 Variables
 ---
 
-![Getting variable]({{assets}}/images/ide-get-variable.gif)
+![Getting variable](http://docs.spark.io/assets/images/ide-get-variable.gif)
 
-All variables declared with [Spark.variable()](http://docs.spark.io/firmware/#spark-variable) are shown on the left side of panel. To poll lastest variable value, click **Refresh** button for variable you want to update.
+All variables declared with [Particle.variable()](http://docs.spark.io/firmware/#spark-variable) are shown on the left side of panel. To poll lastest variable value, click **Refresh** button for variable you want to update.
 
-![Watching variable]({{assets}}/images/ide-watch-variable.gif)
+![Watching variable](http://docs.spark.io/assets/images/ide-watch-variable.gif)
 
-When you want to check variable value constantly, you can click **Watch** button. When a variable is watched, Spark Dev will fetch latest value every 5 seconds.
+When you want to check variable value constantly, you can click **Watch** button. When a variable is watched, Particle Dev will fetch latest value every 5 seconds.
 
 Functions
 ---
 
-![Functions]({{assets}}/images/ide-functions.gif)
+![Functions](http://docs.spark.io/assets/images/ide-functions.gif)
 
 To call an [exposed function](http://docs.spark.io/firmware/#spark-function) simply click on the button with its name. You'll see any data the function returns on the right side.
 
@@ -106,12 +104,10 @@ You can also add parameters to the call by entering them to the right of button.
 Managing device
 ===
 
-Using Spark Dev you can do many things with your device including setting up its WiFi, claiming or renaming it.
-
 Setting up WiFi
 ---
 
-![WiFi list]({{assets}}/images/ide-wifi-list.jpg)
+![WiFi list](http://docs.spark.io/assets/images/ide-wifi-list.jpg)
 
 To setup device's WiFi, connect it via USB and click **Setup device's WiFi...** button on the toolbar.
 
@@ -121,31 +117,31 @@ Next you'll see all available networks. The one you are currently connected to w
 
 Select the one you want your device to use or choose **Enter SSID manually** (listed last) to specify all information by hand.
 
-![WiFi setup]({{assets}}/images/ide-wifi-save.jpg)
+![WiFi setup](http://docs.spark.io/assets/images/ide-wifi-save.jpg)
 
-Now you need to fill missing information and click **Save**. Core will go dark for a second and then try to connect to the WiFi.
+Now you need to fill missing information and click **Save**. Your device will go dark for a second and then try to connect to the WiFi.
 
 Using community libraries
 ===
 
 Currently community libraries aren't supported natively (but we're working on it). You can still use them, just follow these instructions:
 
-![Libraries]({{assets}}/images/build-libraries.jpg)
+Find the [library you want to use](http://spark.readme.io/v1.0/docs/using-libraries)
 
-Find the [library you want to use](/build/#flash-apps-with-spark-build-using-libraries)
-
-![Link to GitHub repository]({{assets}}/images/build-library-github.jpg)
+![Link to GitHub repository](http://docs.spark.io/assets/images/build-libraries.jpg)
 
 View it on GitHub
 
-![Download link]({{assets}}/images/github-download.jpg)
+![Download link](http://docs.spark.io/assets/images/build-library-github.jpg)
 
 Download the repository
 
-![Correct files selected]({{assets}}/images/ide-selected-library.jpg)
+![Correct files selected](http://docs.spark.io/assets/images/github-download.jpg)
 
 Copy files from `firmware` directory **without** `examples` to your project directory
 
-![Example project with include]({{assets}}/images/ide-include-library.jpg)
+![Example project with include](http://docs.spark.io/assets/images/ide-selected-library.jpg)
 
 Include library adding `#include "LIBRARY.h"` to your code
+
+![](http://docs.spark.io/assets/images/ide-include-library.jpg)
