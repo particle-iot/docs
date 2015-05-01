@@ -5,9 +5,9 @@ before_install: npm install -g grunt-cli
 script: grunt deploy
 deploy:
   provider: s3
-  access_key_id: AKIAI3BB2PQELXWJY6FA
+  access_key_id: AKIAJ5RMM3264VMARJQQ
   secret_access_key:
-    secure: IwjvIgZAk7H9Y1reab8ycr+68nPAdk1j7spcIGE72pGQQgIhQzFifvCSebs4Fto4czzYQaw400D44MXt+rmejU7qNJCmWs4GQf/N9VAdIaJ5kadqlpM0m23LR61CRQu62nayIGtHMWOHw/FHhGtsK/RHKn2wEiqCNeooxKGcdS8=
+    secure: DgdwuAHQ9cZ6Rb/OncDLu/E9v+Yzv4dOgWW0Xo0QcUhWVuZECzLck9xNf0qrKwrAcy4n+I8s8zw9ake6lOriVrW4h9w8Mo8G0BVIruz08f+ZvBi6RN7nCoDATX5xKpH7UUT92qkhx1xnPgoMfhb/rZRd5AuRrJLFk8jCABAyavo=
   bucket: docs.particle.io
   skip_cleanup: true
   local-dir: build
