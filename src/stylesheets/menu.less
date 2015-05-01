@@ -3,9 +3,8 @@
   text-rendering: optimizeLegibility;
 }
 .menubar .section {
-  padding: 30px 30px;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
+  padding: 30px 10px;
+  overflow: hidden;
   box-sizing: border-box;
 }
 .menubar .section + .section {
@@ -71,14 +70,11 @@
 }
 
 .menu a {
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
   position: relative;
   display: block;
   padding-top: 1px;
   padding-bottom: 1px;
-  margin-right: -30px;
+  padding-left: 10px;
 }
 
 .menu a,
@@ -92,13 +88,11 @@
 
 .menu a.level-0,
 .menu a.level-0:visited {
-  font-family: montserrat, sans-serif;
-  text-transform: uppercase;
-  font-size: 12px;
-  font-weight: bold;
-  color: #505050;
-  padding-top: 5px;
-  padding-bottom: 4px;
+  font-size: 14px;
+  font-weight: 400;
+  color: @gray;
+  margin: 5px 0;
+  border-left: 3px solid transparent;
 }
 
 .menu a.level-0:hover {
@@ -106,13 +100,12 @@
 }
 
 .menu a.level-0.active {
-  background: #eeeeee;
-  margin-left: -30px;
-  padding-left: 30px;
+  font-weight: 500;
+  border-left: 3px solid @spark-blue;
+  color: @dark-gray;
 }
 
 .menu a.level-1 {
-  font-family: montserrat, sans-serif;
   text-transform: uppercase;
   font-size: 12px;
   font-weight: bold;
@@ -124,7 +117,8 @@
 
 .menu a.level-1,
 .menu a.level-1:visited {
-  color: #9090aa;
+  color: @gray;
+  letter-spacing: .7px;
 }
 .menu a.level-1:hover {
   color: #565666;
