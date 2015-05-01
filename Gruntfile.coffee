@@ -86,6 +86,9 @@ module.exports = (grunt) ->
       core:
         src: '<%= config.dist %>/photon/start/index.html'
         dest:'<%= config.dist %>/photon/index.html'
+      robots:
+        src: '<%= config.src %>/robots.txt'
+        dest:'<%= config.dist %>/robots.txt'
       assets:
         expand: true
         dest: '<%= config.dist %>/assets/'
