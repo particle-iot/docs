@@ -2,7 +2,6 @@
 word: Start
 title: Getting started
 order: 0
-device: photon
 ---
 
 Your New Particle Device
