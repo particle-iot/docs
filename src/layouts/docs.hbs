@@ -38,6 +38,10 @@
         <a href="https://www.spark.io">
           <img src="{{assets}}/images/spark-docs.png" id="logo">
         </a>
+        <a class="toggle-button {{#contains dirname
+          'photon'}}active{{/contains}}" href="/photon">Photon</a>
+        <a class="toggle-button {{#contains dirname
+          'core'}}active{{/contains}}" href="/core">Core</a>
       </div>
       <div class='right'>
         <a href="{{assets}}/docs.zip" class="icon"><i class="icon ion-arrow-down-a"></i></a>
@@ -51,8 +55,11 @@
         <div class='menu section' role='flatdoc-menu'>
           <ul>
             {{#withSort pages "data.order"}}
-              <li><a href='../{{basename}}' class="level-0 {{#compare basename "===" ../basename}}active{{/compare}}">{{data.title}}</a></li>
-            {{/withSort}}
+                <li class="{{data.device}}"><a
+                  href='{{#contains dirname
+                  "photon"}}/photon/{{basename}}{{else}}/core/{{basename}}
+                  {{/contains}}' class="level-0 {{#compare basename "===" ../basename}}active{{/compare}}">{{data.title}}</a></li>
+                {{/withSort}}
           </ul>
         </div>
         <div class='menu section' role='flatdoc-menu'>

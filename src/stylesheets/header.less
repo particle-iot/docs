@@ -23,6 +23,26 @@ a.icon:hover {
 }
 .header .left {
   float: left;
+  a {
+    display: inline-block;
+    margin-right: 10px;
+    vertical-align: middle;
+    &.toggle-button {
+      background: @spark-blue;
+      padding: 5px 10px;
+      border-radius: 4px;
+      color: #fff;
+      width: 60px;
+      text-align: center;
+      opacity: 0.4;
+      &:hover {
+        opacity: 1;
+      }
+      &.active {
+        opacity: 1;
+      }
+    }
+  }
 }
 .header .right {
   float: right;

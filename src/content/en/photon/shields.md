@@ -1,3 +1,8 @@
+---
+  word: Accessories
+  title: Shields and kits
+  order: 10
+---
 # Shield Shield
 
 Sometimes life can be a little difficult in the land of electronics when two systems talk a different voltage language. How do you make them talk to each other without making one of them _burnout_? The Shield Shield is the answer. This shield performs all the necessary voltage translation and provides an Arduino-like footprint to make it easier for you to plug in your existing Arduino shields or talk to other 5V hardware.

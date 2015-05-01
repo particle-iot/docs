@@ -20,7 +20,7 @@ module.exports = (grunt) ->
     config:
       src: 'src'
       dist: 'build'
-      content: 'src/content'
+      content: 'src/content/en'
       layouts: 'src/layouts'
 
     assemble:
@@ -29,23 +29,32 @@ module.exports = (grunt) ->
         flatten: true
         assets: '<%= config.dist %>/assets'
         layoutdir: '<%= config.src %>/layouts'
-        layout: 'default.hbs'
+        layout: 'docs.hbs'
+        ext: '.html'
         plugins: ['assemble-contrib-permalinks', 'plugins/verbose/verbose.js',
           'plugins/toc/toc.js']
         permalinks:
           structure: ':basename/index:ext'
         toc:
           id: 'toc'
-      docs:
-        options:
-          ext: '.html'
-          layout: 'docs.hbs'
+      photon:
         files: [
           {
             expand: true
             cwd: '<%= config.content %>'
-            src: ['*.md']
-            dest: '<%= config.dist %>'
+            src: ['photon/*.md', 'shared/*.md']
+            dest: '<%= config.dist %>/photon'
+            flatten: true
+          }
+        ]
+      core:
+        files: [
+          {
+            expand: true
+            cwd: '<%= config.content %>'
+            src: ['core/*.md', 'shared/*.md']
+            dest: '<%= config.dist %>/core'
+            flatten: true
           }
         ]
 
@@ -58,7 +67,13 @@ module.exports = (grunt) ->
     copy:
       start:
         dest: '<%= config.dist %>/index.html'
-        src: '<%= config.dist %>/start/index.html'
+        src: '<%= config.dist %>/photon/start/index.html'
+      photon:
+        src: '<%= config.dist %>/core/start/index.html'
+        dest:'<%= config.dist %>/core/index.html'
+      core:
+        src: '<%= config.dist %>/photon/start/index.html'
+        dest:'<%= config.dist %>/photon/index.html'
       assets:
         expand: true
         dest: '<%= config.dist %>/assets/'
@@ -67,7 +82,7 @@ module.exports = (grunt) ->
 
     watch:
       content:
-        files: ['<%= config.content %>/*.md', '<%= config.layouts %>/*.hbs']
+        files: ['<%= config.content %>/**.md', '<%= config.layouts %>/**.hbs']
         tasks: ['build']
       stylesheets:
         files: ['<%= config.src %>/stylesheets/*.less']
