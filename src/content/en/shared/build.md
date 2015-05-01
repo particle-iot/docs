@@ -27,8 +27,6 @@ Web IDE
 
 ![Particle Build]({{assets}}/images/ide.png)
 
-![Spark Build]({{assets}}/images/ide.png)
-
 Particle Build is an Integrated Development Environment, or IDE; that means that you can do software development in an easy-to-use application, which just so happens to run in your web browser.
 
 Particle Build starts with the navigation bar on the left. On the top, there are three buttons, which serve important functions:
