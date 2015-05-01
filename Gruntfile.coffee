@@ -37,6 +37,18 @@ module.exports = (grunt) ->
           structure: ':basename/index:ext'
         toc:
           id: 'toc'
+      start:
+        options:
+          layoutdir: '<%= config.src %>/layouts'
+          layout: 'start.hbs'
+        files: [
+          {
+            expand: true
+            cwd: '<%= config.content %>'
+            src: ['start.md']
+            dest: '<%= config.dist %>'
+          }
+        ]
       photon:
         files: [
           {
@@ -67,7 +79,7 @@ module.exports = (grunt) ->
     copy:
       start:
         dest: '<%= config.dist %>/index.html'
-        src: '<%= config.dist %>/photon/start/index.html'
+        src: '<%= config.dist %>/start/index.html'
       photon:
         src: '<%= config.dist %>/core/start/index.html'
         dest:'<%= config.dist %>/core/index.html'
