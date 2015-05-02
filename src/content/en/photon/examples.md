@@ -7,7 +7,7 @@ order: 2
 Annotated examples
 =======
 
-Here you will find a bunch of examples to get you started with your new Particle Device!
+Here you will find a bunch of examples to get you started with your new Photon!
 
 Blink an LED
 ===

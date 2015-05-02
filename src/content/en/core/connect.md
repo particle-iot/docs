@@ -4,14 +4,14 @@ title: Connecting your Device
 order: 1
 ---
 
-Connecting your Core
+Connecting your Device
 ===
 
 <iframe class="vine-embed" src="https://vine.co/v/hFHPMue5lgd/embed/simple" width="320" height="320" frameborder="0"></iframe>
 
-The easiest way to connect your device to Wi-Fi is using the [Particle mobile app](PLACEHOLDER) for iPhone or Android. But in case that's not working for you or you don't have an iOS/Android phone, there are other methods as well.
+The easiest way to connect your device to Wi-Fi is using the [Particle mobile app]({{assets}}/images/mobile-app) for iPhone or Android. But in case that's not working for you or you don't have an iOS/Android phone, there are other methods as well.
 
-For all of the following methods, the device must be in [Listening Mode](PLACEHOLDER), which you'll know by its flashing blue LED.
+For all of the following methods, the device must be in [Listening Mode](#/#Listening-Mode), which you'll know by its flashing blue LED.
 
 <iframe class="vine-embed" src="https://vine.co/v/hFHlpBDELeU/embed/simple" width="320" height="320" frameborder="0"></iframe>
 
@@ -23,98 +23,149 @@ The Core and Photon both boot into listening mode by default, so if your device 
 
 ## Particle App for Photon
 
-[PLACEHOLDER]
+More information on this lovely app is coming soon! For now, please try connecting over USB.
 
+If you are by yourself, and no other Photons are in listening mode in the same house/apt/room/conference, then you should not attempt to claim your device with the Particle App. Instead, use the CLI.
 
-## Particle App for Core
-
-<iframe class="vine-embed" src="https://vine.co/v/hFH09MJwbxg/embed/simple" width="320" height="320" frameborder="0"></iframe>
-
-Once you've downloaded the Particle app from the App Store or Google Play, you should create an account. Afterwards, you'll be asked to connect your Core using a process called Smart Config.  If your Core has a u.FL connector, you must connect an external antenna before initiating Smart Config. *NOTE: Your phone must be connected to the Wi-Fi network that you want to connect the Core to.  Wi-Fi Hotspots generated from the phone you are running this app on typically will yield an error claiming there is no Wi-Fi available.  Please try to [Connect over USB](PLACEHOLDER) and enter your Hotspot credentials manually.*  When connected to Wi-Fi, the app will automatically fill the SSID field with the name of the network that your phone is connected to.  Enter your Wi-Fi password and hit connect.
-
-*NOTE: In places like a conference or workshop where multiple cores are connected, Smart Config is not preferred. Claiming a Core over USB will prevent confusion with accidentally claiming of another Core.*
-
-<iframe class="vine-embed" src="https://vine.co/v/hFwubhA3JXV/embed/simple" width="320" height="320" frameborder="0"></iframe>
-
-Smart Config can take up to a minute, so be patient. The closer your phone to your Core, the faster it will connect. Once the Core hears the signal, it will go through the following sequence of lights:
-
-- **Solid blue**: Credentials captured
-- **Flashing green**: Connecting to Wi-Fi network
-- **Flashing cyan**: Connecting to Particle Cloud
-- **Breathing cyan**: Connected to Particle Cloud
-
-<iframe class="vine-embed" src="https://vine.co/v/hFdj1TJjA9M/embed/simple" width="320" height="320" frameborder="0"></iframe>
-
-Once the Core has connected, your phone will "claim" the Core and attach it to your account. Then you'll get to name your Core.  If you're uncertain, you can confirm that the claim process was successful by logging into the [Web IDE](https://www.particle.io/build) and clicking the "Cores" icon at the bottom of the page.  Is your Core listed?  Great!  The world is perfect.
-
-*NOTE: The Core **MUST** be online (breathing cyan) in order for the claiming process to work. If the Core has been claimed by someone else, the app won't recognize it. If you need to transfer a Core to another account, email us at [hello@Particle.io](mailto:hello@Particle.io).*
-
-<iframe class="vine-embed" src="https://vine.co/v/hFdPKul226i/embed/simple" width="320" height="320" frameborder="0"></iframe>
-
-If you are connecting multiple Cores, you'll go through this naming process for each Core. You'll know which one is which by the rainbow signal.
-
-<iframe class="vine-embed" src="https://vine.co/v/hFdxB9lHOmv/embed/simple" width="320" height="320" frameborder="0"></iframe>
-
-Once you've finished naming your Cores, you can control them with Tinker! Try *digitalWrite* on D7 to turn on the user LED.
-
-For more information on how the *seemingly magical* Smart Config mode works, check out [this community thread by GHawkins](PLACEHOLDER)
 
 ## Connect over USB
 
-You can also connect your device to your Wi-Fi network over USB by communicating through Serial. *NOTE: This only works when the device is in [Listening Mode](PLACEHOLDER) (i.e. RGB led is blinking blue)*.
+You can also connect your device to your Wi-Fi network over USB by communicating through Serial. *NOTE: This only works when the device is in [Listening Mode](#/connect/#listening-mode) (i.e. RGB led is blinking blue)*.
 
-First, you'll need to download a serial terminal application.
+There are a few ways to go about connecting your Photon over USB. We find that the easiest way is to just use the Particle Command Line Interface (Particle CLI), but this can be intimidating if you have little experience with the Terminal, or if you have a Windows computer that is recalcitrant to node.js. Follow these links depending on your preferences:
 
-For __Windows__ users, we recommend [PuTTY](http://www.chiark.greenend.org.uk/~sgtatham/putty/).
-You'll also need to install the Windows driver:
+[Windows, using CLI](#/cli/#using-windows)
+[Windows, not using CLI](#/connect/#using-windows)
 
-[Windows driver for the Core >](https://s3.amazonaws.com/spark-website/Spark.zip)
+[Mac OSX, using CLI](#/cli/#using-osx)
+[Mac OSX, not using CLI](#/connect/#using-osx)
 
-For __Mac__ users, we recommend [CoolTerm](http://freeware.the-meiers.org/).
+[Linux, using CLI](#/cli/#linux-start)
+[Linux, not using CLI](#/connect/#linux-start)
 
-[CoolTerm](http://freeware.the-meiers.org/) provides a nice GUI.
-![CoolTerm settings]({{assets}}/images/coolterm-settings.png)
-![CoolTerm setup]({{assets}}/images/coolterm-setup.png)
+###Using Windows
 
-For __Linux__ command line usage, [GNU Screen](https://www.gnu.org/software/screen/) works great.
-(On OS X, the command line invocation might look something like `screen /dev/cu.usbmodem1411 9600`.
-On Ubuntu, it looks something like `screen /dev/ttyACM0 9600`. Device location may vary, poke around in the `/dev` directory if you don't find it immediately)
+We're going to install the Particle CLI on your computer. If you already have node.js installed, you can skip to [this step](#/connect/#install-cli).
 
-__How-to__
+####Installing Node.js
+Go to the [node.js website](https://nodejs.org/download) and download the Windows installer. Download the 32-Bit or 64-Bit .msi files, depending on your operating system.
 
-Plug your device into your computer over USB. When the Core is in [Listening Mode](PLACEHOLDER), open a serial port over USB using the standard settings, which should be:
+**If you do not know if you are running 32-bit or 64-bit, checking is easy!**
+- __On Windows 8__ Mouse over the upper right hand corner of your screen and nagivate to Settings. Then click "PC info" to display basic information about your computer.
+- __On Windows 7__ Open System by clicking the Start button Picture of the Start button, right-clicking Computer, and then clicking Properties. Under System, you can view the system type.
 
-- Baudrate: 9600
-- Data Bits: 8
-- Parity: none
-- Stop Bits: 1
+Run the installer you downloaded. Follow the prompts. The default file locations should be fine for this.
 
-Once you've opened a serial connection, you have two commands at your disposal by hitting either **w** or **i** on the keyboard. Here's what they do:
+Restart your computer.
+__(You can do this by mousing over the upper right hand corner of the screen, then going to Settings > Power > Restart)__
 
-- **w**: Set up your Wi-Fi SSID and password
-- **i**: ("i" as in identify) Read out the Spark Core ID
+Node should now be installed! In the next step we will test it and install the CLI.
 
-**NOTE:** If you connect your Core over USB the first time, you will also need to manually *claim* your Core to connect it with your account. Please see the section below on [claiming your device](PLACEHOLDER) for more details.
+####Installing the Particle Drivers
+You'll also need to install the Windows driver. [Download it here.](https://s3.amazonaws.com/spark-website/Spark.zip)
 
-Claiming your Device
-===
+Unzip the file. It is fine to unzip this as a default into your Downloads folder.
 
-Once your device is connected, it needs to be *claimed* in order to be associated with your account. This is what lets you control your Core and keeps anyone else from doing so.
+Go to the Device Manager and double-click on your Particle device under `Other Devices`.
 
-If you use the mobile app to set up your device, it should claim it automatically. However if you connect your Core over USB, or if the claiming process is unsuccessful, you can claim it manually.
+Click `Update Driver`, and select `Browse for driver software on your computer`.
 
-The easiest way to manually claim a device over USB is to use the [Spark Command Line Interface](http://support.spark.io/hc/en-us/articles/203265730-Installing-the-Spark-CLI). Once you have this installed, you can simply type `particle setup` and follow the instructions.
+Navigate to your Downloads folder, or wherever you unzipped the drivers.
 
-Alternatively, if you have troubles installing the command line tool, you can get the device's ID over serial and claim it via the build site.
-You can do this by opening a Serial connection to the Core and pressing the **i** key (see the above instuctions for connecting over USB). It should show you a number like this:
+(Note that right now, the drivers are in a `Spark` folder and are named `spark_core`)
 
-    # Example Core ID
-    55ff68064989495329092587
+If you have a problem installing, you may have to temporarily disable the digitally signed driver enforcement policy. (We're sorry.) There are good instrunctions on how to do that [here](http://www.howtogeek.com/167723/how-to-disable-driver-signature-verification-on-64-bit-windows-8.1-so-that-you-can-install-unsigned-drivers/).
 
----
+####Opening the Command Prompt
+You'll need to open the command prompt for this next part. You can also use Powershell or a similar command line tool if that is what you are used to.
 
-Then open up [Particle Build](http://build.particle.io) and click the 'Devices' icon. Click the button that says 'Add a Device', and enter your ID in the text box.
+To open the command prompt:
+1) Mouse over the upper right hand corner of the screen and select "Search"
+2) Search for `cmd` in the search box
+3) Click on Command Prompt
 
+Now your Command Prompt, is open for use.
+
+####Installing the Particle CLI
+In the Command Prompt window, type:
+`npm install -g spark-cli`
+
+and press enter.
+
+The terminal will spit out a lot of data that ends in
+
+`[serialport] Success:`
+
+with a lot more data after it.
+
+Now let's try using the CLI!
+
+####Connecting Your Device
+Make sure your device is plugged in via USB and in [Listening Mode]() (blinking blue). Then type:
+`spark setup`
+
+Log in with your [Particle Build account](http://build.particle.io) and follow the prompts to set up your device.
+
+If you have already claimed your device and you want to connect it to wifi, type `spark serial wifi` instead of `spark setup`. This will set up your device on the current wifi.
+
+**Wait! What is an SSID? What kind of security does my wifi have?**
+- __The SSID__ is the name of your network. When you connect on your computer, it is the name that you select when you connect your computer to wifi.
+-__The Security__ of your wifi is often set up by the administrator. Typically this is WPA2 if a password is needed, or unsecured if no password is needed. Contact your network administrator if you can't get this step to work, and find out exactly what kind of wifi you have.
+
+If your device is not connecting, try troubleshooting [here](http://support.spark.io/hc/en-us/articles/204357684-Can-t-Get-Connected-).
+
+More info on the CLI is available [here](#/cli).
+
+
+###Using OSX
+
+We're going to install the Particle CLI on your computer. If you already have node.js installed, you can skip to [this step](#/connect/#install-cli).
+
+####Installing Node.js
+Go to the [node.js website](https://nodejs.org/download) and download the OSX installer.
+
+Launch the installer and follow the instructions to install node.js.
+
+Next, open your terminal, or preferred terminal program.
+
+To open the terminal, go to the spotlight search and type `Terminal`, then press enter.
+
+In the terminal, type or paste this series of commands:
+`mkdir ~/npm-global`
+`npm config set prefix '~/npm-global'`
+
+If you have a .profile, (or a .bash_profile) then type:
+`export PATH=~/npm-global/bin:$PATH`
+`source ~/.profile` or `source ~/.bash_profile`
+
+If you do not have a .profile, type:
+`cat >~/.profile`
+`export PATH=~/npm-global/bin:$PATH`
+
+
+####Install the Particle CLI
+
+Type:
+`npm install -g spark-cli`
+
+_Note:_ You may need to update xcode at this time.
+
+
+####Connecting Your Device
+Make sure your device is plugged in via USB and in [Listening Mode]() (blinking blue). Open the terminal and type:
+`spark setup`
+
+Log in with your [Particle Build account](http://build.particle.io) and follow the prompts to set up your device.
+
+If you have already claimed your device and you want to connect it to wifi, type `spark serial wifi` instead of `spark setup`. This will set up your device on the current wifi.
+
+**Wait! What is an SSID? What kind of security does my wifi have?**
+- __The SSID__ is the name of your network. When you connect on your computer, it is the name that you select when you connect your computer to wifi.
+-__The Security__ of your wifi is often set up by the administrator. Typically this is WPA2 if a password is needed, or unsecured if no password is needed. Contact your network administrator if you can't get this step to work, and find out exactly what kind of wifi you have.
+
+If your device is not connecting, try troubleshooting [here](http://support.spark.io/hc/en-us/articles/204357684-Can-t-Get-Connected-).
+
+More info on the CLI is available [here](#/cli).
 
 
 APPENDIX
