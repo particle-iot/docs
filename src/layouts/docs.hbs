@@ -47,9 +47,10 @@
           'core'}}active{{/contains}}" href="/core">Core</a>
       </div>
       <div class='right'>
-        <a href="{{assets}}/docs.zip" class="icon"><i class="icon ion-arrow-down-a"></i></a>
-        <a href="http://www.github.com/spark/docs" class="icon"><i class="icon ion-social-github"></i></a>
-        <a href="https://github.com/spark/docs/edit/master/src/content/{{basename}}.md" class="button">Edit this page</a>
+        <a href="{{assets}}/docs.zip" class="icon"><i class="icon ion-arrow-down-a"></i>Download</a>
+        <a href='https://github.com/spark/docs/edit/master/src/content{{#contains dirname
+                  "photon"}}/photon/{{basename}}{{else}}/core/{{basename}}
+                  {{/contains}}.md' class="icon"><i class="ion-edit"></i>Edit</a>
       </div>
     </div>
 
