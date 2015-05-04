@@ -2,8 +2,9 @@
   padding: 50px;
   text-align: center;
   h1.choose-device-header {
-    font-size: 28px;
+    font-size: 42px;
     margin-bottom: 80px;
+    font-weight: 200;
   }
 }
 ul.devices {
@@ -15,7 +16,9 @@ ul.devices {
     h3 {
       font-size: 20px;
       margin-bottom: 10px;
-      color: @dark-gray;
+      color: @gray;
+      font-weight: 300;
+      font-family: @base-font-family;
     }
     img {
       max-width: 100%;
@@ -29,13 +32,15 @@ ul.devices {
       transition: opacity .2s;
     }
     &#photon {
-      margin-right: 60px;
       img {
         width: 184px;
       }
     }
   }
   li:hover {
+    h3 {
+      color: @dark-gray;
+    }
     img {
       opacity: 1;
     }
@@ -43,8 +48,10 @@ ul.devices {
 }
 @media (max-width: 768px) {
   .getting-started {
+    padding: 30px 15px;
     h1.choose-device-header {
       margin-bottom: 40px;
+      font-size: 32px;
     }
   }
   ul.devices {
