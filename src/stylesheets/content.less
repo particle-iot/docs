@@ -172,20 +172,21 @@
 .content h2,
 .content .big-heading,
 body.big-h3 .content h3 {
-  padding-top: 60px;
+  padding: 40px 0 10px;
 }
 .content h1:before,
 .content h2:before,
 .content .big-heading:before,
 body.big-h3 .content h3:before {
-  display: block;
+  display: none;
   content: '';
-  background: -webkit-gradient(linear, left top, right top, color-stop(0.4, #dfe2e7), color-stop(1, @transparent-monokai));
+  /*background: -webkit-gradient(linear, left top, right top, color-stop(0.4, #dfe2e7), color-stop(1, @transparent-monokai));
   background: -webkit-linear-gradient(left, #dfe2e7 40%, @transparent-monokai 100%);
   background: -moz-linear-gradient(left, #dfe2e7 40%, @transparent-monokai 100%);
   background: -o-linear-gradient(left, #dfe2e7 40%, @transparent-monokai 100%);
   background: -ms-linear-gradient(left, #dfe2e7 40%, @transparent-monokai 100%);
-  background: linear-gradient(left, #dfe2e7 40%, @transparent-monokai 100%);
+  background: linear-gradient(left, #dfe2e7 40%, @transparent-monokai 100%);*/
+  background: @light-gray;
   height: 1px;
   position: relative;
   top: -40px;
@@ -226,7 +227,7 @@ body:not(.big-h3) .content h3 {
   font-size: 12px;
 }
 .content h1:first-child {
-  padding-top: 0;
+  padding: 0;
 }
 .content h1:first-child:before {
   display: none;
@@ -521,7 +522,7 @@ code .comment {
 
 
 .menubar .level-1:not(:first-of-type) {
-  margin-top: 20px;
+  margin-top: 0;
 }
 
 
