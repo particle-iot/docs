@@ -94,6 +94,7 @@
   background: transparent;
   font-size: 16px;
   line-height: 21px;
+  margin-bottom: 40px;
 }
 .content blockquote :first-child {
   padding-top: 0;
@@ -377,7 +378,7 @@ h1 small.beta {
   body:not(.no-literate) .content {
     padding-left: 0;
     padding-right: 0;
-    width: 930px;
+    width: 1140px;
     max-width: none;
   }
   body:not(.no-literate) .content > p,
@@ -405,7 +406,7 @@ h1 small.beta {
   }
   body:not(.no-literate) .content > pre,
   body:not(.no-literate) .content > blockquote {
-    width: 380px;
+    width: 570px;
     padding-left: 20px;
     padding-right: 20px;
     float: right;
@@ -540,7 +541,9 @@ code .comment {
 }
 
 .content iframe {
-  max-width: 480px;
+  max-width: 570px;
+  margin-bottom: 50px;
+
 }
 
 .content table th,
@@ -577,7 +580,9 @@ hr {
 
 
   body:not(.no-literate) .content img {
-    width: 330px;
+    width: 480px;
+    display: block;
+    margin: 0 auto 50px;
     padding: 5px;
     background: #ffffff;
     border: 1px solid #f2f2f2;
@@ -586,21 +591,22 @@ hr {
   body:not(.no-literate) .content iframe {
     float: right;
     clear: both;
-    max-width: 330px;
+    max-width: 570px;
+    width: 480px;
     padding: 5px;
     background: #ffffff;
     border: 1px solid #f2f2f2;
   }
 
   body:not(.no-literate) .content p.img {
-    width: 380px;
+    width: 570px;
     padding: 0 20px;
     float: right;
     clear: both;
   }
 
   body:not(.no-literate) .content table {
-    width: 380px;
+    width: 570px;
     padding-left: 20px;
     padding-right: 20px;
     float: right;
@@ -614,7 +620,7 @@ hr {
   body:not(.no-literate) .content > h5,
   body:not(.no-literate) .content > h6 {
     float: left;
-    clear: none;
+    clear: left;
   }
 
   body:not(.no-literate) .content > pre + p,
@@ -635,7 +641,7 @@ hr {
   body:not(.no-literate) .content > pre + h6,
   body:not(.no-literate) .content > blockquote + h6,
   body:not(.no-literate) .content > p.img + h6 {
-    clear: none;
+    clear: left;
   }
 
   body:not(.no-literate) .content > ul,
@@ -648,5 +654,7 @@ hr {
   body:not(.no-literate) .content img {
     width: 480px;
     margin-right: -135px;
+    display: block;
+    margin: 0 auto 50px;
   }
 }
