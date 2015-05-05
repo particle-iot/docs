@@ -1,4 +1,67 @@
+<<<<<<< HEAD
 # Shield Shield
+=======
+---
+word: Accessories
+title: Shields and kits
+order: 11
+---
+
+Shields and accessories
+===
+
+Shield Shield
+====
+This shield is essentially an adapter that allows the user to connect Arduino compatible shields to the Spark Core. There are two functions that this shield performs: pin mapping of the Spark Core to the Arduino pin layout and voltage translation of 3.3V to/from 5V.
+
+Operation
+-----
+
+![Shield Shield]({{assets}}/images/sshield-top.jpg)
+
+We use Texas Instruments [TXB0108PWR](http://www.ti.com/lit/ds/symlink/txb0108.pdf) to do the voltage translation in between Spark Core's 3.3V logic level and Arduino's 5V logic.
+
+Due to the limited number of pin to function combinations, we have only mapped three analog channels `A0`, `A1` and `A2`. Unlike other IO pins, the analog pins are rated at only a max of 3.3V and NOT 5.0V. **Please remember NOT to exceed this voltage at anytime.**
+
+The shield has an onboard voltage regulator and can be powered from 7V to 15V DC. You could also power it via the USB plug on the Spark Core alone but the current would be limited to 500mA.
+
+Specifications
+-----
+
+![Shield Shield Setup]({{assets}}/images/sshield-setup.jpg)
+
+- Operating voltage: 7 to 15V DC
+- Current consumption: without the core plugged in 7mA at 9V DC and 150mA with the Core.
+- Dimensions: 3.79" x 2.1"
+- Weight: 40g
+
+The pictures shows a robot shield interfaced with the Spark Core via the Shield Shield.
+
+Pin mapping
+-----
+```cpp
+Arduino | Spark Core | Peripherals
+0         RX           Serial1 RX
+1         TX           Serial1 TX
+2         D2
+3         D0           PWM
+4         D3
+5         D1           PWM
+6         A7           PWM
+7         D4
+8         D5
+9         D6
+10        A2                 SS
+11        A5           PWM,  MOSI
+12        A4           PWM,  MISO
+13        A3                 SCK
+A0        A0           PWM*, ADC**
+A1        A1           PWM*, ADC**
+A2        A6           PWM*, ADC**
+
+*  Note: These pins can also function as 3.3V
+         PWM outputs or 3.3V Servo outputs.
+>>>>>>> some updates for this branch including modes
 
 Sometimes life can be a little difficult in the land of electronics when two systems talk a different voltage language. How do you make them talk to each other without making one of them _burnout_? The Shield Shield is the answer. This shield performs all the necessary voltage translation and provides an Arduino-like footprint to make it easier for you to plug in your existing Arduino shields or talk to other 5V hardware.
 

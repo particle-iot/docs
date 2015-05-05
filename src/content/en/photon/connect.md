@@ -46,13 +46,14 @@ We're going to install the Particle CLI on your computer. If you already have no
 Go to the [node.js website](https://nodejs.org/download) and download the Windows installer. Download the 32-Bit or 64-Bit .msi files, depending on your operating system.
 
 **If you do not know if you are running 32-bit or 64-bit, checking is easy!**
-- __On Windows 8__ Mouse over the upper right hand corner of your screen and nagivate to Settings. Then click "PC info" to display basic information about your computer.
-- __On Windows 7__ Open System by clicking the Start button Picture of the Start button, right-clicking Computer, and then clicking Properties. Under System, you can view the system type.
+- _On Windows 8_ Mouse over the upper right hand corner of your screen and nagivate to Settings. Then click "PC info" to display basic information about your computer.
+- _On Windows 7_ Open System by clicking the Start button Picture of the Start button, right-clicking Computer, and then clicking Properties. Under System, you can view the system type.
 
 Run the installer you downloaded. Follow the prompts. The default file locations should be fine for this.
 
 Restart your computer.
-__(You can do this by mousing over the upper right hand corner of the screen, then going to Settings > Power > Restart)__
+
+_(You can do this by mousing over the upper right hand corner of the screen, then going to Settings > Power > Restart)_
 
 Node should now be installed! In the next step we will test it and install the CLI.
 
@@ -104,8 +105,9 @@ Log in with your [Particle Build account](http://build.particle.io) and follow t
 If you have already claimed your device and you want to connect it to wifi, type `spark serial wifi` instead of `spark setup`. This will set up your device on the current wifi.
 
 **Wait! What is an SSID? What kind of security does my wifi have?**
-- __The SSID__ is the name of your network. When you connect on your computer, it is the name that you select when you connect your computer to wifi.
--__The Security__ of your wifi is often set up by the administrator. Typically this is WPA2 if a password is needed, or unsecured if no password is needed. Contact your network administrator if you can't get this step to work, and find out exactly what kind of wifi you have.
+
+- _The SSID_ is the name of your network. When you connect on your computer, it is the name that you select when you connect your computer to wifi.
+- _The Security_ of your wifi is often set up by the administrator. Typically this is WPA2 if a password is needed, or unsecured if no password is needed. Contact your network administrator if you can't get this step to work, and find out exactly what kind of wifi you have.
 
 If your device is not connecting, try troubleshooting [here](http://support.spark.io/hc/en-us/articles/204357684-Can-t-Get-Connected-).
 
@@ -172,7 +174,7 @@ APPENDIX
 
 ## DFU Mode (Device Firmware Upgrade)
 
-If you are wish to program a device with a custom firmware via USB, you'll need to use this mode. This mode triggers the on-board bootloader that accepts firmware binary files via the dfu-utility.
+If you wish to program a device with a custom firmware via USB, you'll need to use this mode. This mode triggers the on-board bootloader that accepts firmware binary files via the dfu-utility.
 
 Procedure:
 

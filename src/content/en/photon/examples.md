@@ -1,7 +1,7 @@
 ---
 word: Examples
 title: Examples
-order: 2
+order: 3
 ---
 
 Annotated examples

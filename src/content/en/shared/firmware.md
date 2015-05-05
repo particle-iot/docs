@@ -1,7 +1,7 @@
 ---
 word: Firmware
 title: Core code (Firmware)
-order: 3
+order: 4
 ---
 
 Spark Core Firmware

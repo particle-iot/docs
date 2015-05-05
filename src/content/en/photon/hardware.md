@@ -1,7 +1,7 @@
 ---
 word: Datasheet
 title: Hardware datasheet
-order: 9
+order: 10
 ---
 
 Photon Datasheet
