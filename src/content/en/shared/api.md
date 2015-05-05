@@ -14,11 +14,11 @@ The Particle Cloud API is a [REST](http://en.wikipedia.org/wiki/Representational
 REST means a lot of things, but first and foremost it means that we use the URL in the way that it's intended:
 as a "Uniform Resource Locator".
 
-In this case, the unique "resource" in question is your Particle device.
-Every Particle devicee has a URL, which can be used to `GET` variables, `POST` a function call, or `PUT` new firmware.
-The variables and functions that you have written in your firmware are exposed as *subresources* within the Particle device.
+In this case, the unique "resource" in question is your device (Spark Core, Photon, Electron).
+Every device has a URL, which can be used to `GET` variables, `POST` a function call, or `PUT` new firmware.
+The variables and functions that you have written in your firmware are exposed as *subresources* under the device.
 
-All requests to the Particle device come through our API server using TLS security.
+All requests to the device come through our API server using TLS security.
 
 ```
 PROTOCOL AND HOST
@@ -27,12 +27,17 @@ PROTOCOL AND HOST
 
 There are a number of API calls available, which are summarized here, and described in more detail below.
 
+*Formatting note:* When we write something in braces and all caps, we mean you should substitute your own information.
+For example when you see something like `/v1/devices/{DEVICE_ID}`
+you might code something like `/v1/devices/55ff8800beefcafe12345678`.
+
+
 List devices
 -------
 
 List devices the currently authenticated user has access to.
 
-```
+``` json
 GET /v1/devices
 
 # A typical JSON response will look like this
@@ -54,10 +59,10 @@ GET /v1/devices
 ]
 ```
 
-Claim core
+Claim device
 -------
 
-You can claim a brand new or released core through a simple API call. All you need as an access token and core id!
+You can claim a brand new or unclaimed device through a simple API call. All you need is an access token and the device ID!
 
 ``` bash
 POST /v1/devices
@@ -71,32 +76,32 @@ curl https://api.particle.io/v1/devices \
 Device information
 -------
 
-Get basic information about the given Core, including the custom variables and functions it has exposed.
+Get basic information about the given device, including the custom variables and functions it has exposed.
 
-```
+``` bash
 GET /v1/devices/{DEVICE_ID}
 ```
 
-Update the Core, including the display name or the firmware (either binary or source).
+Update the device, including the name or the firmware (either binary or source).
 
-```
+``` bash
 PUT /v1/devices/{DEVICE_ID}
 ```
 
 Requesting a variable value
 -------
 
-Request the current value of a variable exposed by the core,
+Request the current value of a variable exposed by the device,
 e.g., `GET /v1/devices/0123456789abcdef01234567/temperature`
 
-```
+``` bash
 GET /v1/devices/{DEVICE_ID}/{VARIABLE}
 ```
 
 Calling a function
 -------
 
-Call a function exposed by the core, with arguments passed in request body,
+Call a function exposed by the device, with arguments passed in the request body,
 e.g., `POST /v1/devices/0123456789abcdef01234567/brew`
 
 ```
@@ -104,11 +109,15 @@ POST /v1/devices/{DEVICE_ID}/{FUNCTION}
 ```
 
 Open a stream of [Server-Sent Events](http://www.w3.org/TR/eventsource/)
+--------
 
-```
-GET /v1/events[/:event_name]
-GET /v1/devices/events[/:event_name]
-GET /v1/devices/{DEVICE_ID}/events[/:event_name]
+``` bash
+GET /v1/events
+GET /v1/events/{EVENT_PREFIX}
+GET /v1/devices/events
+GET /v1/devices/events/{EVENT_PREFIX}
+GET /v1/devices/{DEVICE_ID}/events
+GET /v1/devices/{DEVICE_ID}/events/{EVENT_PREFIX}
 ```
 
 
