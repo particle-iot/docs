@@ -13,4 +13,4 @@ deploy:
   local-dir: build
   on:
     repo: spark/docs-private
-    branch: feature/restructure-docs
+    branch: master
