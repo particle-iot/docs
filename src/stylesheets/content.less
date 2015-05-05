@@ -74,15 +74,18 @@
 .content i,
 .content em {
   font-style: italic;
-  color: #9090aa;
+  font-weight: 500;
 }
 .content code {
-  font-family: Inconsolata, Menlo, Monaco, monotype;
-  background: #f3f6fb;
+  font-family: 'Fira Mono Medium', Monaco, monotype;
+  background: @almost-white;
   padding: 1px 3px;
   span {
-    font-family: Inconsolata, Menlo, Monaco, monotype;
-    font-size: 16px;
+    font-family: 'Fira Mono Medium', Monaco, monotype;
+    font-size: 14px;
+    &.com {
+      font-family: 'Fira Mono Regular', Monaco, monotype;
+    }
   }
 }
 .content pre > code {
