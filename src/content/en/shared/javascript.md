@@ -4,7 +4,7 @@ title: Javascript SDK
 order: 8
 ---
 
-# particlejs
+# ParticleJS
 
 ParticleJS is a library for interacting with your devices and the Particle Cloud.
 It uses node.js and can run on Windows, Mac OS X, and Linux fairly easily.

@@ -14,7 +14,7 @@
   <script async src="//platform.vine.co/static/scripts/embed.js" charset="utf-8"></script>
 
   <!-- Favicon -->
-  <link rel="shortcut icon" href="{{assets}}/orange.ico" type="image/x-icon" />
+  <link rel="shortcut icon" href="{{assets}}/blue.ico" type="image/x-icon" />
 
   <!-- Vendor theme mods -->
   <script src='{{assets}}/js/jquery-styling.js'></script>
@@ -24,6 +24,9 @@
   <!-- Spark theme mods -->
   <link href='{{assets}}/css/style.css' rel='stylesheet'>
   <script src='{{assets}}/js/animated-core.js'></script>
+
+  <!-- GOTHAM YO -->
+  <link rel="stylesheet" type="text/css" href="//cloud.typography.com/6107112/665726/css/fonts.css" />
 
   <!-- Meta -->
   <meta content="Spark" property="og:title">
@@ -36,13 +39,19 @@
     <div class='header'>
       <div class='left'>
         <a href="https://www.spark.io">
-          <img src="{{assets}}/images/spark-docs.png" id="logo">
+          <img src="{{assets}}/images/particle-horizontal.png" id="logo">
         </a>
+        <a class="toggle-button {{#contains dirname
+          'photon'}}active{{/contains}}" href="/photon">Photon</a>
+        <a class="toggle-button {{#contains dirname
+          'core'}}active{{/contains}}" href="/core">Core</a>
       </div>
       <div class='right'>
-        <a href="{{assets}}/docs.zip" class="icon"><i class="icon ion-arrow-down-a"></i></a>
-        <a href="http://www.github.com/spark/docs" class="icon"><i class="icon ion-social-github"></i></a>
-        <a href="https://github.com/spark/docs/edit/master/src/content/{{basename}}.md" class="button">Edit this page</a>
+        <a href="https://support.particle.io" class="icon" target="_blank"><i class="icon ion-help-buoy"></i>Support</a>
+        <a href="{{assets}}/docs.zip" class="icon"><i class="icon ion-arrow-down-a"></i>Download</a>
+        <a href='https://github.com/spark/docs/edit/master/src/content{{#contains dirname
+                  "photon"}}/photon/{{basename}}{{else}}/core/{{basename}}
+                  {{/contains}}.md' class="icon" target="_blank"><i class="ion-edit"></i>Edit</a>
       </div>
     </div>
 
@@ -51,7 +60,10 @@
         <div class='menu section' role='flatdoc-menu'>
           <ul>
             {{#withSort pages "data.order"}}
-              <li><a href='../{{basename}}' class="level-0 {{#compare basename "===" ../basename}}active{{/compare}}">{{data.title}}</a></li>
+                <li class="{{data.device}}"><a
+                  href='{{#contains dirname
+                  "photon"}}/photon/{{basename}}{{else}}/core/{{basename}}
+                  {{/contains}}' class="level-0 {{#compare basename '===' ../basename}}active{{/compare}}">{{data.title}}</a></li>
             {{/withSort}}
           </ul>
         </div>
@@ -70,15 +82,6 @@
 
   <!-- Custom -->
   <script src='{{assets}}/js/docs.js'></script>
-  <script>
-    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-    ga('create', 'UA-37038200-11', 'auto');
-    ga('send', 'pageview');
-
-  </script>
+  <script src='{{assets}}/js/ga.js'></script>
 </body>
 </html>

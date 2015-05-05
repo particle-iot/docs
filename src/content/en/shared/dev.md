@@ -23,6 +23,7 @@ If you prefer a keyboard-oriented workflow, there's **Command Palette** with all
 To show the palette press `Command`+`Shift`+`P` keys together on a Mac or `Control`+`Shift`+`P` on Windows.
 
 ![Toolbar]({{assets}}/images/ide-toolbar.jpg)
+
 **Tip**: you can change toolbar's position in settings.
 
 There's also a toolbar on left side of IDE which contains shortcuts to the most frequently used commands like compiling and flashing (looks a lot like the one from [Web IDE (Build)](/build), doesn't it?).

@@ -22,7 +22,7 @@ All requests to the Spark Core come through our API server using TLS security.
 
 ```
 PROTOCOL AND HOST
-https://api.spark.io
+"https://api.spark.io"
 ```
 
 There are a number of API calls available, which are summarized here, and described in more detail below.
@@ -59,7 +59,7 @@ Claim core
 
 You can claim a brand new or released core through a simple API call. All you need as an access token and core id!
 
-```
+``` bash
 POST /v1/devices
 
 # EXAMPLE REQUEST
@@ -168,7 +168,7 @@ To send a custom header using curl, use you the `-H` flag.
 The access token is called a "Bearer" token and goes in the standard
 HTTP `Authorization` header.
 
-```
+``` bash
 curl -H "Authorization: Bearer 38bb7b318cc6898c80317decb34525844bc9db55"
   https://...
 ```
@@ -179,7 +179,7 @@ The query string is the part of the URL after a `?` question mark.
 To send the access token in the query string just add `access_token=38bb...`.
 Because your terminal thinks the question mark is special, we escape it with a backslash.
 
-```
+``` bash
 curl https://api.spark.io/v1/devices\?access_token=38bb7b318cc6898c80317decb34525844bc9db55
 ```
 
@@ -191,7 +191,7 @@ By default, if you add a `-d` flag, curl assumes that the request is a POST.
 If you need a different request type, you have to specifically say so with the `-X` flag,
 for example `-X PUT`.
 
-```
+``` bash
 curl -d access_token=38bb7b318cc6898c80317decb34525844bc9db55
   https://...
 ```
@@ -199,7 +199,7 @@ curl -d access_token=38bb7b318cc6898c80317decb34525844bc9db55
 
 ### Generate a new access token
 
-```
+``` bash
 POST /oauth/token
 
 # Using curl in your terminal
@@ -263,13 +263,13 @@ curl https://api.spark.io/oauth/token -u spark:spark \
 At what date and time should the token expire?  This should be an ISO8601 style date string, or null for never
 
 
-```
+``` bash
 # date format: YYYY-MM-DD
 # expires in 2020
 "expires_at": "2020-01-01"
 ```
 
-```
+``` bash
 # Setting token lifespan using a date string with curl in your terminal
 curl https://api.spark.io/oauth/token -u spark:spark \
      -d grant_type=password \
@@ -284,7 +284,7 @@ curl https://api.spark.io/oauth/token -u spark:spark \
 
 ### List all your tokens
 
-```
+``` bash
 GET /v1/access_tokens
 
 # Using curl in your terminal
@@ -311,7 +311,7 @@ in an HTTP Basic Auth header to `/v1/access_tokens`.
 
 ### Deleting an access token
 
-```
+```bash
 DELETE /v1/access_tokens/:token
 
 # Using curl in your terminal
@@ -375,7 +375,7 @@ You then call these functions remotely using the Spark Cloud API.
 
 Note: If you have declared a function name longer than 12 characters it *will be truncated* to 12 characters. Example: Spark.function("someFunction1", ...); exposes a function called **someFunction** and *not* **someFunction1**
 
-```cpp
+``` cpp
 /* FIRMWARE */
 int brew(String args)
 {

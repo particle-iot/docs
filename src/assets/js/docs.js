@@ -58,7 +58,20 @@ Derived from Flatdoc (http://ricostacruz.com/flatdoc)
     });
   };
 
+
+  Docs.rememberDevices = function() {
+    if(typeof(Storage) !== "undefined") {
+      var currentPath = window.location.pathname;
+      if(currentPath.indexOf("photon") > -1) {
+        localStorage.setItem("lastDevice", "photon");
+      } else if (currentPath.indexOf("core") > -1) {
+        localStorage.setItem("lastDevice", "core");
+      }
+    }
+  };
+
   // Ok, then let's do it!
+  Docs.rememberDevices();
   Docs.transform();
   prettyPrint();
 

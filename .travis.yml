@@ -5,12 +5,12 @@ before_install: npm install -g grunt-cli
 script: grunt deploy
 deploy:
   provider: s3
-  access_key_id: AKIAI3BB2PQELXWJY6FA
+  access_key_id: "AKIAJ5RMM3264VMARJQQ"
   secret_access_key:
-    secure: IwjvIgZAk7H9Y1reab8ycr+68nPAdk1j7spcIGE72pGQQgIhQzFifvCSebs4Fto4czzYQaw400D44MXt+rmejU7qNJCmWs4GQf/N9VAdIaJ5kadqlpM0m23LR61CRQu62nayIGtHMWOHw/FHhGtsK/RHKn2wEiqCNeooxKGcdS8=
-  bucket: docs.spark.io
+    secure: "S+NEZ9yJpSh4p2v/Hw1Nm5bWKAy99tLNPiiIWBmFG1hWOxKRAfMN+K2oNkB2o4vQ36yNMiBM2Lp5XPG8kWBWvxoza0rQ2Sf3FMylDxRYC1OAIH4jedRQefuGr727LU6UXojjSRcLZ3PbkDDqZztnZboHEVlKVQR1ea5UgoZBP9E=" 
+  bucket: docs.particle.io
   skip_cleanup: true
   local-dir: build
   on:
-    repo: spark/docs
+    repo: spark/docs-private
     branch: master
