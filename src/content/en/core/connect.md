@@ -13,10 +13,10 @@ The easiest way to connect your device to Wi-Fi is using the [Particle mobile ap
 
 For all of the following methods, the device must be in [Listening Mode](#/#Listening-Mode), which you'll know by its flashing blue LED.
 
-<iframe class="vine-embed" src="https://vine.co/v/hFHlpBDELeU/embed/simple" width="320" height="320" frameborder="0"></iframe>
-
 
 ## Listening Mode
+
+<iframe class="vine-embed" src="https://vine.co/v/hFHlpBDELeU/embed/simple" width="320" height="320" frameborder="0"></iframe>
 
 The Core and Photon both boot into listening mode by default, so if your device is brand new, it should go straight into listening mode. Otherwise, hold the MODE button for three seconds. The RGB LED will be flashing blue in this mode.  To completely clear all stored Wi-Fi credentials, continue to hold the MODE button for 10 seconds until the RGB LED flashes blue quickly, signaling that all profiles have been deleted.  The RGB LED should now be flashing blue again.
 

@@ -9,7 +9,7 @@ Your New Particle Device
 
 ### Congratulations!
 
-![Core in Box](../assets/images/core-unboxed.jpg)
+![Core in Box]({{assets}}/images/core-unboxed.jpg)
 
 Congratulations on being the owner of a brand new Photon! Go ahead, open the box, and let's talk about what you see. Your box should include:
 
@@ -31,7 +31,7 @@ Powering Your Core
 
 ### Step 1: Power the Core
 
-![Power the Core](../assets/images/core-front.jpg)
+![Power the Core]({{assets}}/images/core-front.jpg)
 
 Plug the included USB cable into the Core and your computer. The Core should start blinking blue.  If you have a [core with a u.FL connector](PLACEHOLDER LINK), make sure you connect an antenna to it now!
 
@@ -95,7 +95,7 @@ You can always get Tinker back on the Core by following [these instructions](/#/
 
 ### Put Code on Your Core
 
-![Particle Build](../assets/images/ide-main.png)
+![Particle Build]({{assets}}/images/ide-main.png)
 
 Now let's control the blue LED using code instead of Tinker. If you [click here](http://build.particle.io) or on Build on the main page, you'll be in the IDE- where we can write code and upload it to the Core. Log in with the same email and password you used to sign up in the app, and we're off!
 
@@ -108,17 +108,23 @@ Getting to Know Your Core
 
 The Core is a Wi-Fi development kit for internet-connected hardware. It is, in essence, the "brains" of a connected hardware product or project.
 
+![Microcontroller]({{assets}}/images/core-cc3000.jpg)
+
 The Core has on board a microcontroller, which is a small, low-cost, low-power computer that can run a single application. The microcontroller runs the show; it runs your software and tells the rest of the Core what to do. It doesn't have an Operating System the way that your computer does; it just runs a single application (often called *firmware* or an *embedded application*), which can be simple, just a few lines of code, or very complex, depending on what you want to do.
 
 Microcontrollers are particularly good at *controlling things*; hence the name. They have a set of "pins" (little spider leg type things sticking off the chip) that are called *GPIO* (General Purpose Input and Output) pins, or I/O pins. They can be hooked to sensors or buttons to listen to the world, or they can be hooked to lights and motors to act upon the world. These microcontroller's pins have been directly connected to the headers on the sides of the Core so you can easily access them; specifically, the pins labeled D0 to D7 and A0 to A7 are hooked directly to the microcontroller's GPIO pins.
 
 The microcontroller can also communicate with other chips using common protocols like *Serial* (also called UART), *SPI*, or *I2C* (also called Wire). You can then make the Core more powerful by connecting it to special-purpose chips like motor drivers or shift registers. Sometimes we'll wrap up these chips on a *Shield*, an accessory to the Core that makes it easy to extend the Core.
 
+![wifi module]({{assets}}/images/core-stm32.jpg)
+
 The Core also has a Wi-Fi module, which connects it to your local Wi-Fi network in the same way that your computer or smartphone might connect to a Wi-Fi network. The Core is programmed to stay connected to the internet by default, so long as it can find and connect to a network.
 
 When the Core connects to the internet, it establishes a connection to Particle's Cloud. By connecting to the Cloud, the Core becomes accessible from anywhere through a simple REST API. This API is designed to make it very easy to interface with the Core through a web app or mobile app in a secure, private way, so that only you and those you trust can access the Core.
 
 ### Buttons
+
+![Buttons]({{assets}}/images/core-buttons.jpg)
 
 There are two buttons on the Core: the RESET button (when holding the Core with its USB-port to the top, it's the button on the right) and the MODE button (on the left).
 
@@ -134,7 +140,7 @@ The MODE button serves three functions:
 
 ### LEDs
 
-![LEDs](../assets/images/core-leds.jpg)
+![LEDs]({{assets}}/images/core-leds.jpg)
 
 There are two LEDs on the Core. The big fat one in the middle is a full-color RGB LED that shows you the status of the Core's internet connection. The other small blue LED is the *user LED*; it's hooked up to D7, so when you turn the D7 pin `HIGH` or `LOW`, it turns on and off, respectively.
 
@@ -162,8 +168,6 @@ The RGB LED can also let you know if there were errors in establishing an intern
 
 ### Pins
 
-![Spark Core Pinout](spark-pinout.png)
-
 The Core has 24 pins that you can connect a circuit to. These pins are:
 
 - _VIN_: To power the Core off an unregulated power source with a voltage between 3.6V and 6V, or, if you're powering the Core over USB, this pin can be used as 5V V~OUT~ to power external components. In this case consider the current limitation imposed by your USB power source (e.g. max. 500mA for standard USB 2.0 ports). *Avoid powering the Core via USB and V~IN~ concurrently*.
@@ -176,6 +180,7 @@ The Core has 24 pins that you can connect a circuit to. These pins are:
 - _TX and RX_: These pins are for communicating over Serial/UART. TX represents the transmitting pin, and RX represents the receiving pin.
 
 #### PWM Pins
+![Spark Core Pinout]({{assets}}/images/spark-pinout.png)
 
 When you want to use the `analogWrite()` function on the Core, for instance to smoothly dim the brightness of LEDs, you need to use pins that have a timer peripheral.  People often call these PWM pins, since what they do is called Pulse Width Modulation.  The Core has 8 PWM pins: A0, A1, A4, A5, A6, A7, D0 and D1.
 

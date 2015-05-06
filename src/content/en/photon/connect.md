@@ -7,16 +7,15 @@ order: 1
 Connecting your Device
 ===
 
-<iframe class="vine-embed" src="https://vine.co/v/hFHPMue5lgd/embed/simple" width="320" height="320" frameborder="0"></iframe>
+<iframe src="https://vine.co/v/eZUH7WaWjMT/embed/simple" width="320" height="320" frameborder="0"></iframe>
 
 The easiest way to connect your device to Wi-Fi is using the [Particle mobile app]({{assets}}/images/mobile-app) for iPhone or Android. But in case that's not working for you or you don't have an iOS/Android phone, there are other methods as well.
 
-For all of the following methods, the device must be in [Listening Mode](#/#Listening-Mode), which you'll know by its flashing blue LED.
-
-<iframe class="vine-embed" src="https://vine.co/v/hFHlpBDELeU/embed/simple" width="320" height="320" frameborder="0"></iframe>
-
+For all of the following methods, the device must be in [Listening Mode](./#connecting-your-device-listening-mode), which you'll know by its flashing blue LED.
 
 ## Listening Mode
+
+<iframe src="https://vine.co/v/eZUHUIjq7pO/embed/simple" width="320" height="320" frameborder="0"></iframe>
 
 The Core and Photon both boot into listening mode by default, so if your device is brand new, it should go straight into listening mode. Otherwise, hold the MODE button for three seconds. The RGB LED will be flashing blue in this mode.  To completely clear all stored Wi-Fi credentials, continue to hold the MODE button for 10 seconds until the RGB LED flashes blue quickly, signaling that all profiles have been deleted.  The RGB LED should now be flashing blue again.
 
@@ -30,12 +29,12 @@ If you are by yourself, and no other Photons are in listening mode in the same h
 
 ## Connect over USB
 
-You can also connect your device to your Wi-Fi network over USB by communicating through Serial. *NOTE: This only works when the device is in [Listening Mode](#/connect/#connecting-your-device-listening-mode) (i.e. RGB led is blinking blue)*.
+You can also connect your device to your Wi-Fi network over USB by communicating through Serial. *NOTE: This only works when the device is in [Listening Mode](./#connecting-your-device-listening-mode) (i.e. RGB led is blinking blue)*.
 
 There are a few ways to go about connecting your Photon over USB. We find that the easiest way is to just use the Particle Command Line Interface (Particle CLI), but this can be intimidating if you have little experience with the Terminal, or if you have a Windows computer that is recalcitrant to node.js. Follow these links depending on your preferences:
 
-[Windows](#/connect/#connect-over-usb-using-windows)
-[Mac OSX](#/connect/#connect-over-usb-using-osx)
+- [Windows](./#connect-over-usb-using-windows)
+- [Mac OSX](./#connect-over-usb-using-osx)
 
 
 ###Using Windows
@@ -97,7 +96,7 @@ with a lot more data after it.
 Now let's try using the CLI!
 
 ####Connecting Your Device
-Make sure your device is plugged in via USB and in [Listening Mode]() (blinking blue). Then type:
+Make sure your device is plugged in via USB and in [Listening Mode](./#connecting-your-device-listening-mode) (blinking blue). Then type:
 `spark setup`
 
 Log in with your [Particle Build account](http://build.particle.io) and follow the prompts to set up your device.
@@ -153,7 +152,7 @@ _Note:_ You may need to update xcode at this time.
 
 
 ####Connecting Your Device
-Make sure your device is plugged in via USB and in [Listening Mode]() (blinking blue). Open the terminal and type:
+Make sure your device is plugged in via USB and in [Listening Mode](./#connecting-your-device-listening-mode) (blinking blue). Open the terminal and type:
 `spark setup`
 
 Log in with your [Particle Build account](http://build.particle.io) and follow the prompts to set up your device.
@@ -167,43 +166,3 @@ If you have already claimed your device and you want to connect it to wifi, type
 If your device is not connecting, try troubleshooting [here](http://support.spark.io/hc/en-us/articles/204357684-Can-t-Get-Connected-).
 
 More info on the CLI is available [here](#/cli).
-
-
-APPENDIX
-===
-
-## DFU Mode (Device Firmware Upgrade)
-
-If you wish to program a device with a custom firmware via USB, you'll need to use this mode. This mode triggers the on-board bootloader that accepts firmware binary files via the dfu-utility.
-
-Procedure:
-
-1. Hold down BOTH buttons
-2. Release only the RST button, while holding down the MODE button.
-3. Wait for the LED to start flashing yellow
-6. Release the MODE button
-
-
-The device now is in the DFU mode.
-
-
-<iframe class="vine-embed" src="https://vine.co/v/MahhI1Fg7O6/embed/simple" width="320" height="320" frameborder="0"></iframe>
-
-## Factory Reset
-
-A factory reset restores the firmware on the device to the default Tinker app and clears all your Wi-Fi credentials.
-
-Procedure:
-
-The procedure is same as the one described above (DFU Mode), but in this case you should continue holding down the MODE button until you see the device change from flashing yellow to flashing white. Then release the button.  The device should begin after the factory reset is complete.
-
-1. Hold down BOTH buttons
-2. Release only the RST button, while holding down the MODE button.
-3. Wait for the LED to start flashing yellow (continue to hold the MODE button)
-4. The LED will turn solid white (continue to hold the MODE button)
-5. Finally, the LED will turn blink white rapidly
-6. Release the MODE button
-
-**Note:** The video here is a continuation of the video from above (DFU Mode).
-
-<iframe class="vine-embed" src="https://vine.co/v/MahOmIaX2xP/embed/simple" width="320" height="320" frameborder="0"></iframe>
