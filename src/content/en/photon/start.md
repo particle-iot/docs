@@ -52,6 +52,8 @@ Now use the app to sign up for an account!
 
 Make sure your phone is connected to the Photon-xxxx WiFi AP you want to use (it'll show up in the SSID blank on the app), then enter your password and click CONNECT!
 
+<iframe src="https://vine.co/v/eZUX7KJQnbX/embed/simple" width="320" height="320" frameborder="0"></iframe>
+
 This may take a little while- but don't worry. It should go through the following colors:
 - **Flashing blue**: Soft-AP setup mode, waiting for network information.
 - **Solid blue**: Soft-AP setup complete, network information found.
@@ -60,8 +62,6 @@ This may take a little while- but don't worry. It should go through the followin
 - **High-speed flashing cyan**: Cloud handshake.
 - **Blinking magenta**: Updating to the newest firmware
 - **Breathing cyan**: Successfully connected to Cloud.
-
-![gif of photon connecting](PLACEHOLDER)
 
 Did your phone not find any Photons?
 - Is it blinking blue?
