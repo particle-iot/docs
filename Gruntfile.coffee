@@ -97,7 +97,7 @@ module.exports = (grunt) ->
 
     watch:
       content:
-        files: ['<%= config.content %>/**.md', '<%= config.layouts %>/**.hbs']
+        files: ['<%= config.content %>/**/*.md', '<%= config.layouts %>/*.hbs']
         tasks: ['build']
       stylesheets:
         files: ['<%= config.src %>/stylesheets/*.less']
