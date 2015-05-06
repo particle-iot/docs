@@ -9,13 +9,15 @@ Your New Particle Device
 
 ### Congratulations!
 
+
+![Photons](../assets/images/photon-unboxing.gif)
+
 Congratulations on being the owner of a brand new Photon! Go ahead, open the box, and let's talk about what you see. Your box should include:
 
 - _(1) Photon_ The reason you bought it!
-- _(1) Breadboard_ A breadboard makes it easy to wire components to the Core without soldering. See Wikipedia for more information. **Included in Photon Kit and Prototyping Bundle.**
-- _(1) USB cable_ The included USB cable is great for powering the Photon and we'll cover more technical things later. **Included in Photon Kit and Prototyping Bundle.**
+- _(1) Breadboard_ A breadboard makes it easy to wire components to the Photon without soldering. See Wikipedia for more information. **Included in Photon Kit and Prototyping Bundle.**
+- _(1) USB cable_ The included USB cable is great for powering the Photon, and we'll cover more technical things later. **Included in Photon Kit and Prototyping Bundle.**
 
-![Particle Products in Box](PLACEHOLDER)
 
 In the next section, we'll teach you how to set up your device. To go through this setup process, you will need:
 - Your Photon
@@ -28,7 +30,7 @@ Powering Your Photon
 
 ### Step 1: Power the Photon
 
-![Power the Photon](PLACEHOLDER)
+![Power the Photon](../assets/images/photon-plugged-in.jpg)
 
 Plug the included USB cable into the Photon and your computer. The Photon should start blinking blue.
 
@@ -90,7 +92,7 @@ You can always get Tinker back on the Photon by following [these instructions](/
 
 ### Put Code on Your Photon
 
-![Particle Build updated screenshot](PLACEHOLDER)
+![Particle Build](../assets/images/ide-main.png)
 
 Now let's control the blue LED using code instead of Tinker. If you [click here](http://build.particle.io) or on Build on the main page, you'll be in the IDE- where we can write code and upload it to the Photon. Log in with the same email and password you used to sign up in the app, and we're off!
 

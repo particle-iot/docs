@@ -9,15 +9,19 @@ Your New Particle Device
 
 ### Congratulations!
 
-Congratulations on being the owner of a brand new Particle device
+![Core in Box](../assets/images/core-unboxed.jpg)
 
-Depending on the product you purchased, there will be different things in the box. The most essential thing is that you'll have your Particle Device, whether it be Core, Photon, or Electron.
+Congratulations on being the owner of a brand new Photon! Go ahead, open the box, and let's talk about what you see. Your box should include:
 
-![Particle Products in Box](PLACEHOLDER)
+- _(1) Core_ The reason you bought it!
+- _(1) Breadboard_ A breadboard makes it easy to wire components to the Core without soldering. See Wikipedia for more information.
+- _(1) USB cable_ The included USB cable is great for powering the Core, and we'll cover more technical things later.
+
 
 In the next section, we'll teach you how to set up your device. To go through this setup process, you will need:
-- Your Particle Device (Core, Photon, or Electron)
+- Your Core
 - USB-to-micro-USB cable (Included with Core and Photon Kit)
+- Breadboard optional, although recommended if you are working on a metal surface
 
 Great! Let's power up your device and start blinking LEDs.
 
@@ -27,7 +31,7 @@ Powering Your Core
 
 ### Step 1: Power the Core
 
-![Power the Core](PLACEHOLDER)
+![Power the Core](../assets/images/core-front.jpg)
 
 Plug the included USB cable into the Core and your computer. The Core should start blinking blue.  If you have a [core with a u.FL connector](PLACEHOLDER LINK), make sure you connect an antenna to it now!
 
@@ -91,7 +95,7 @@ You can always get Tinker back on the Core by following [these instructions](/#/
 
 ### Put Code on Your Core
 
-![Particle Build]({{assets}}/images/ide.png)
+![Particle Build](../assets/images/ide-main.png)
 
 Now let's control the blue LED using code instead of Tinker. If you [click here](http://build.particle.io) or on Build on the main page, you'll be in the IDE- where we can write code and upload it to the Core. Log in with the same email and password you used to sign up in the app, and we're off!
 
@@ -130,6 +134,8 @@ The MODE button serves three functions:
 
 ### LEDs
 
+![LEDs](../assets/images/core-leds.jpg)
+
 There are two LEDs on the Core. The big fat one in the middle is a full-color RGB LED that shows you the status of the Core's internet connection. The other small blue LED is the *user LED*; it's hooked up to D7, so when you turn the D7 pin `HIGH` or `LOW`, it turns on and off, respectively.
 
 The RGB LED could show the following states:
@@ -155,6 +161,8 @@ The RGB LED can also let you know if there were errors in establishing an intern
 - *Flashing yellow/red*: Bad credentials for the Cloud. Contact the Particle team (<a href="mailto@hello@particle.io">hello@particle.io</a>).
 
 ### Pins
+
+![Spark Core Pinout](spark-pinout.png)
 
 The Core has 24 pins that you can connect a circuit to. These pins are:
 
