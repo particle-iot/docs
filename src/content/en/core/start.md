@@ -42,16 +42,18 @@ Plug the included USB cable into the Core and your computer. The Core should sta
 
 ### Step 2: Install the App
 
-You can search for the mobile app named [PLACEHOLDER], or you can click one of these links:
+![Spark Core Tinker]({{assets}}/images/spark-app.jpg)
 
-[iPhone >](PLACEHOLDER)  [Android >](PLACEHOLDER)
+You can search for the mobile app named Spark Core, or you can click one of these links:
+
+[iPhone >](https://itunes.apple.com/us/app/spark-core/id760157884?mt=8)  [Android >](https://play.google.com/store/apps/details?id=io.spark.core.android&hl=en)
 
 Now use the app to sign up for an account!
 
-![Particle apps](PLACEHOLDER)
 
 ### Step 3: Connect your Core to the Cloud!
 
+![Smart Config]({{assets}}/images/smart-config.jpg)
 
 Make sure your phone is connected to the WiFi you want to use (it'll show up in the SSID blank on the app), then enter your password and click CONNECT!
 
@@ -62,8 +64,6 @@ This may take a little while- but don't worry. It should go through the followin
 - **Blinking cyan**: Connecting to the Particle Cloud
 - **Blinking magenta**: Updating to the newest firmware
 - **Breathing cyan**: Connected!
-
-![Smart Config](PLACEHOLDER)
 
 <div id="core1" class="core"><div class="core-butt"></div><div class="rgb"><div class="pattern"></div></div></div>
 
