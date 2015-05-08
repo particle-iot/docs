@@ -1,6 +1,9 @@
 /* ----------------------------------------------------------------------------
  * Content styling
  */
+.content {
+  position: relative;
+}
 .content p,
 .content ul,
 .content ol,
@@ -27,6 +30,8 @@
 }
 .content pre {
   white-space: pre-wrap;
+  position: relative;
+  z-index: 1;
 }
 .content p {
   line-height: 24px;
@@ -373,16 +378,26 @@ h1 small.beta {
 
 @media (min-width: 1180px) {
   body:not(.no-literate) .content-root {
-    background-color: @monokai-gray;
-    -webkit-box-shadow: inset 780px 0 #fff, inset 781px 0 #dfe2e7, inset 790px 0 5px -10px rgba(0,0,0,0.1);
-    box-shadow: inset 780px 0 #fff, inset 781px 0 #dfe2e7, inset 790px 0 5px -10px rgba(0,0,0,0.1);
+    background-color: #fff;
+    /*-webkit-box-shadow: inset 780px 0 #fff, inset 781px 0 #dfe2e7, inset 790px 0 5px -10px rgba(0,0,0,0.1);
+    box-shadow: inset 780px 0 #fff, inset 781px 0 #dfe2e7, inset 790px 0 5px -10px rgba(0,0,0,0.1);*/
+  }
+  .code-samples {
+    background: #272822;
+    margin-left: 780px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 70%;
+    z-index: 0;
   }
 }
 @media (min-width: 1180px) {
   body:not(.no-literate) .content {
     padding-left: 0;
     padding-right: 0;
-    width: 1140px;
+    width: 100%;
     max-width: none;
   }
   body:not(.no-literate) .content > p,
@@ -396,7 +411,7 @@ h1 small.beta {
   body:not(.no-literate) .content > h6,
   body:not(.no-literate) .content > pre,
   body:not(.no-literate) .content > blockquote {
-    width: 550px;
+    width: 30%;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
@@ -410,11 +425,9 @@ h1 small.beta {
   }
   body:not(.no-literate) .content > pre,
   body:not(.no-literate) .content > blockquote {
-    width: 570px;
-    padding-left: 20px;
-    padding-right: 20px;
-    float: right;
-    clear: right;
+    width: 70%;
+    padding: 10px 40px 0;
+    margin-left: 30%;
   }
   body:not(.no-literate) .content > pre + p,
   body:not(.no-literate) .content > blockquote + p,
@@ -443,18 +456,18 @@ h1 small.beta {
   body:not(.no-literate) .content > h5,
   body:not(.no-literate) .content > .small-heading,
   body:not(.big-h3) body:not(.no-literate) .content > h3 {
-    margin-left: 40px;
-    width: 470px;
+    width: 100%;
     margin-bottom: 3px;
-    padding-left: 0;
-    padding-right: 0;
+    padding-left: 40px;
+    padding-right: 40px;
+    clear: left;
   }
   body:not(.no-literate):not(.big-h3) .content > h3 {
-    margin-left: 40px;
-    width: 470px;
+    width: 30%;
     margin-bottom: 3px;
-    padding-left: 0;
-    padding-right: 0;
+    padding-left: 40px;
+    padding-right: 40px;
+    clear: left;
   }
 }
 
@@ -542,11 +555,15 @@ code .comment {
 .content img {
   width: 100%;
   border: 1px solid #e7e7e7;
+  position: relative;
+  z-index: 1;
 }
 
 .content iframe {
   max-width: 570px;
   margin-bottom: 50px;
+  position: relative;
+  z-index: 1;
 
 }
 
@@ -593,21 +610,24 @@ hr {
   }
 
   body:not(.no-literate) .content iframe {
-    float: right;
-    clear: both;
     max-width: 570px;
     width: 480px;
     padding: 5px;
     background: #ffffff;
     border: 1px solid #f2f2f2;
-    margin-right: 40px;
+    margin-left: 40px;
+    float: none;
+    clear: none;
+    margin-top: 10px;
   }
 
   body:not(.no-literate) .content p.img {
     width: 570px;
-    padding: 0 20px;
-    float: right;
-    clear: both;
+    padding: 0 40px;
+    margin-left: 30%;
+    margin-top: 10px;
+    float: none;
+    clear: none;
   }
 
   body:not(.no-literate) .content table {
@@ -651,7 +671,9 @@ hr {
 
   body:not(.no-literate) .content > ul,
   body:not(.no-literate) .content > ol {
-    width: 530px;
+    width: 30%;
+    margin-left: 0;
+    padding-left: 75px;
   }
 }
 

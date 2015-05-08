@@ -10,9 +10,9 @@ Your New Particle Device
 ### Congratulations!
 
 
-![Photons]({{assets}}/images/photon-unboxing.gif)
-
 Congratulations on being the owner of a brand new Photon! Go ahead, open the box, and let's talk about what you see. Your box should include:
+
+![Photons]({{assets}}/images/photon-unboxing.gif)
 
 - _(1) Photon_ The reason you bought it!
 - _(1) Breadboard_ A breadboard makes it easy to wire components to the Photon without soldering. See Wikipedia for more information. **Included in Photon Kit and Prototyping Bundle.**

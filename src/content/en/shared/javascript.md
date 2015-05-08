@@ -45,11 +45,12 @@ Now you will have a `spark` object available that you can use in your applicatio
 
 #### Spark login
 
-![LOGINB]({{assets}}/images/spark-login-button.png)
 
 If you are using ParticleJS in the browser and want a dead simple way to log in to a Spark account to get your devices, the following instructions will give you a "Login to Spark" button to open a login modal.
 
 Add an empty div with "spark-login" id where you want the "Login to Spark" button to be rendered.
+
+![LOGINB]({{assets}}/images/spark-login-button.png)
 
 ```html
 <div id="spark-login" />
@@ -75,7 +76,6 @@ Check out a [complete example here](https://github.com/spark/sparkjs/blob/master
 
 ##### Customize styles
 
-![LOGINM]({{assets}}/images/spark-login-modal.png)
 
 It is possible to edit styles of button and modal using css to
 match your needs.
@@ -86,6 +86,8 @@ You just need to update the following css rules:
 * .spark-login-input
 * .spark-login-modal
 * .spark-login-error
+
+![LOGINM]({{assets}}/images/spark-login-modal.png)
 
 ## Logging in
 

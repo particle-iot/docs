@@ -9,14 +9,11 @@ Your New Particle Device
 
 ### Congratulations!
 
-![Core in Box]({{assets}}/images/core-unboxed.jpg)
-
 Congratulations on being the owner of a brand new Photon! Go ahead, open the box, and let's talk about what you see. Your box should include:
 
 - _(1) Core_ The reason you bought it!
 - _(1) Breadboard_ A breadboard makes it easy to wire components to the Core without soldering. See Wikipedia for more information.
 - _(1) USB cable_ The included USB cable is great for powering the Core, and we'll cover more technical things later.
-
 
 In the next section, we'll teach you how to set up your device. To go through this setup process, you will need:
 - Your Core
@@ -25,23 +22,26 @@ In the next section, we'll teach you how to set up your device. To go through th
 
 Great! Let's power up your device and start blinking LEDs.
 
+![Core in Box]({{assets}}/images/core-unboxed.jpg)
+
+
+
 
 Powering Your Core
 ====
 
 ### Step 1: Power the Core
 
-![Power the Core]({{assets}}/images/core-front.jpg)
-
 Plug the included USB cable into the Core and your computer. The Core should start blinking blue.  If you have a [core with a u.FL connector](PLACEHOLDER LINK), make sure you connect an antenna to it now!
 
 - Not blinking blue?
   - Maybe it's already been configured. Hold down the MODE button until it starts blinking blue, then continue.
 
+![Power the Core]({{assets}}/images/core-front.jpg)
+
+
 
 ### Step 2: Install the App
-
-![Particle apps](PLACEHOLDER)
 
 You can search for the mobile app named [PLACEHOLDER], or you can click one of these links:
 
@@ -49,9 +49,10 @@ You can search for the mobile app named [PLACEHOLDER], or you can click one of t
 
 Now use the app to sign up for an account!
 
+![Particle apps](PLACEHOLDER)
+
 ### Step 3: Connect your Core to the Cloud!
 
-![Smart Config](PLACEHOLDER)
 
 Make sure your phone is connected to the WiFi you want to use (it'll show up in the SSID blank on the app), then enter your password and click CONNECT!
 
@@ -62,6 +63,8 @@ This may take a little while- but don't worry. It should go through the followin
 - **Blinking cyan**: Connecting to the Particle Cloud
 - **Blinking magenta**: Updating to the newest firmware
 - **Breathing cyan**: Connected!
+
+![Smart Config](PLACEHOLDER)
 
 <div id="core1" class="core"><div class="core-butt"></div><div class="rgb"><div class="pattern"></div></div></div>
 
@@ -83,7 +86,6 @@ Blink an LED on your Core
 
 ### Blink an LED with Tinker
 
-![Tinker]({{assets}}/images/tinker-select.jpg)
 
 The Particle app should now be on the Tinker screen, as shown to the right. 
 
@@ -93,9 +95,10 @@ You could hook your own LED up to the Core on another pin and do the same thing,
 
 You can always get Tinker back on the Core by following [these instructions](/#/tinker#tinkering-with-tinker-the-tinker-firmware)
 
+![Tinker]({{assets}}/images/tinker-select.jpg)
+
 ### Put Code on Your Core
 
-![Particle Build]({{assets}}/images/ide-main.png)
 
 Now let's control the blue LED using code instead of Tinker. If you [click here](http://build.particle.io) or on Build on the main page, you'll be in the IDE- where we can write code and upload it to the Core. Log in with the same email and password you used to sign up in the app, and we're off!
 
@@ -103,12 +106,13 @@ Click "BLINK AN LED" under the Example apps title. This code turns D7 (labeled _
 
 You can find more info in the [Web IDE (Build) page](/#/build)
 
+![Particle Build]({{assets}}/images/ide-main.png)
+
 Getting to Know Your Core
 =====
 
 The Core is a Wi-Fi development kit for internet-connected hardware. It is, in essence, the "brains" of a connected hardware product or project.
 
-![Microcontroller]({{assets}}/images/core-cc3000.jpg)
 
 The Core has on board a microcontroller, which is a small, low-cost, low-power computer that can run a single application. The microcontroller runs the show; it runs your software and tells the rest of the Core what to do. It doesn't have an Operating System the way that your computer does; it just runs a single application (often called *firmware* or an *embedded application*), which can be simple, just a few lines of code, or very complex, depending on what you want to do.
 
@@ -116,15 +120,14 @@ Microcontrollers are particularly good at *controlling things*; hence the name. 
 
 The microcontroller can also communicate with other chips using common protocols like *Serial* (also called UART), *SPI*, or *I2C* (also called Wire). You can then make the Core more powerful by connecting it to special-purpose chips like motor drivers or shift registers. Sometimes we'll wrap up these chips on a *Shield*, an accessory to the Core that makes it easy to extend the Core.
 
-![wifi module]({{assets}}/images/core-stm32.jpg)
-
 The Core also has a Wi-Fi module, which connects it to your local Wi-Fi network in the same way that your computer or smartphone might connect to a Wi-Fi network. The Core is programmed to stay connected to the internet by default, so long as it can find and connect to a network.
 
 When the Core connects to the internet, it establishes a connection to Particle's Cloud. By connecting to the Cloud, the Core becomes accessible from anywhere through a simple REST API. This API is designed to make it very easy to interface with the Core through a web app or mobile app in a secure, private way, so that only you and those you trust can access the Core.
 
-### Buttons
+![Microcontroller]({{assets}}/images/core-cc3000.jpg)
+![wifi module]({{assets}}/images/core-stm32.jpg)
 
-![Buttons]({{assets}}/images/core-buttons.jpg)
+### Buttons
 
 There are two buttons on the Core: the RESET button (when holding the Core with its USB-port to the top, it's the button on the right) and the MODE button (on the left).
 
@@ -137,10 +140,11 @@ The MODE button serves three functions:
 - Hold down the MODE button, tap on the RESET button and wait for *three seconds* to enter *Bootloader* mode, where you can reprogram the Core over USB or JTAG. Release the MODE button when you see the LED flashing yellow. If you do this by accident, simply hit RESET button to leave *Bootloader* mode.
 - Hold down the MODE button, tap once on the RESET button and wait for *ten seconds* to do a *Factory Reset*, where the Core is reprogrammed with the software that was installed on the Core in the factory (the Tinker application). The LED should turn white for three seconds and begin flashing quickly; when the LED switches to another color the Core has been reset. This is useful if you encounter bugs with your firmware, or if you just want to get back to Tinker.
 
+![Buttons]({{assets}}/images/core-buttons.jpg)
+
 
 ### LEDs
 
-![LEDs]({{assets}}/images/core-leds.jpg)
 
 There are two LEDs on the Core. The big fat one in the middle is a full-color RGB LED that shows you the status of the Core's internet connection. The other small blue LED is the *user LED*; it's hooked up to D7, so when you turn the D7 pin `HIGH` or `LOW`, it turns on and off, respectively.
 
@@ -165,6 +169,8 @@ The RGB LED can also let you know if there were errors in establishing an intern
 - *Three red flashes*: The Cloud is inaccessible, but the internet connection is fine. Check our [support page](http://support.particle.io) to make sure that all systems are operational.
 - *Four red flashes*: The Cloud was reached but the secure handshake failed. Visit our [support page](http://support.particle.io) for help.
 - *Flashing yellow/red*: Bad credentials for the Cloud. Contact the Particle team (<a href="mailto@hello@particle.io">hello@particle.io</a>).
+
+![LEDs]({{assets}}/images/core-leds.jpg)
 
 ### Pins
 

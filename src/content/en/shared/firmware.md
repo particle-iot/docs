@@ -116,6 +116,8 @@ int brewCoffee(String command)
 }
 ```
 
+The API request will be routed to the Spark Core and will run your brew function. The response will have a return_value key containing the integer returned by brew.
+
 ```json
 COMPLEMENTARY API CALL
 POST /v1/devices/{DEVICE_ID}/{FUNCTION}
@@ -126,7 +128,6 @@ curl https://api.spark.io/v1/devices/0123456789abcdef/brew \
      -d "args=coffee"
 ```
 
-The API request will be routed to the Spark Core and will run your brew function. The response will have a return_value key containing the integer returned by brew.
 
 ### Spark.publish()
 
