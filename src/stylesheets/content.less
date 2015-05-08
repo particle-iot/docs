@@ -618,13 +618,18 @@ hr {
     border: 1px solid #f2f2f2;
   }
 
-  body:not(.no-literate) .content iframe {
-    max-width: none;
+  body:not(.no-literate) .content .iframe-wrapper {
     width: 55%;
-    background: #ffffff;
     float: right;
     clear: right;
     margin-top: 10px;
+    margin-bottom: 50px;
+  }
+
+  body:not(.no-literate) .content iframe {
+    width: 480px;
+    margin: 0;
+    padding-left: 40px;
   }
 
   body:not(.no-literate) .content p.img {

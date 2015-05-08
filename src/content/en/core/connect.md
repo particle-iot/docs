@@ -7,7 +7,9 @@ order: 1
 Connecting your Device
 ===
 
-<iframe class="vine-embed" src="https://vine.co/v/hFHPMue5lgd/embed/simple" width="320" height="320" frameborder="0"></iframe>
+<div class="iframe-wrapper">
+  <iframe class="vine-embed" src="https://vine.co/v/hFHPMue5lgd/embed/simple" width="320" height="320" frameborder="0"></iframe>
+</div>
 
 The easiest way to connect your device to Wi-Fi is using the [Particle mobile app]({{assets}}/images/mobile-app) for iPhone or Android. But in case that's not working for you or you don't have an iOS/Android phone, there are other methods as well.
 
@@ -16,7 +18,9 @@ For all of the following methods, the device must be in [Listening Mode](#/#List
 
 ## Listening Mode
 
-<iframe class="vine-embed" src="https://vine.co/v/hFHlpBDELeU/embed/simple" width="320" height="320" frameborder="0"></iframe>
+<div class="iframe-wrapper">
+  <iframe class="vine-embed" src="https://vine.co/v/hFHlpBDELeU/embed/simple" width="320" height="320" frameborder="0"></iframe>
+</div>
 
 The Core and Photon both boot into listening mode by default, so if your device is brand new, it should go straight into listening mode. Otherwise, hold the MODE button for three seconds. The RGB LED will be flashing blue in this mode.  To completely clear all stored Wi-Fi credentials, continue to hold the MODE button for 10 seconds until the RGB LED flashes blue quickly, signaling that all profiles have been deleted.  The RGB LED should now be flashing blue again.
 
@@ -185,8 +189,9 @@ Procedure:
 
 The device now is in the DFU mode.
 
-
-<iframe class="vine-embed" src="https://vine.co/v/MahhI1Fg7O6/embed/simple" width="320" height="320" frameborder="0"></iframe>
+<div class="iframe-wrapper">
+  <iframe class="vine-embed" src="https://vine.co/v/MahhI1Fg7O6/embed/simple" width="320" height="320" frameborder="0"></iframe>
+</div>
 
 ## Factory Reset
 
@@ -205,7 +210,9 @@ The procedure is same as the one described above (DFU Mode), but in this case yo
 
 **Note:** The video here is a continuation of the video from above (DFU Mode).
 
-<iframe class="vine-embed" src="https://vine.co/v/MahOmIaX2xP/embed/simple" width="320" height="320" frameborder="0"></iframe>
+<div class="iframe-wrapper">
+  <iframe class="vine-embed" src="https://vine.co/v/MahOmIaX2xP/embed/simple" width="320" height="320" frameborder="0"></iframe>
+</div>
 
 ## Smart Config with the TI app (Core Only)
 
