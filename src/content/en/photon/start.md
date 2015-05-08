@@ -30,7 +30,7 @@ Powering Your Photon
 
 ### Step 1: Power the Photon
 
-![Power the Photon]({{assets}}/images/photon-plugged-in.jpg)
+<iframe src="https://vine.co/v/eZUH7WaWjMT/embed/simple" width="320" height="320" frameborder="0"></iframe>
 
 Plug the included USB cable into the Photon and your computer. The Photon should start blinking blue.
 
@@ -40,21 +40,21 @@ Plug the included USB cable into the Photon and your computer. The Photon should
 
 ### Step 2: Install the App
 
-![Particle apps](PLACEHOLDER)
+![Particle apps]({{assets}}/images/tinker.png)
 
-You can search for the mobile app named [PLACEHOLDER], or you can click one of these links:
+You can search for the mobile app named Particle, or you can click one of these links:
 
 [iPhone >](PLACEHOLDER)  [Android >](PLACEHOLDER)
 
-Now use the app to sign up for an account!
+Open up the Particle app on your mobile device, and tap the "Get Started" button to start the process of connecting your Photon to wifi.
 
 ### Step 3: Connect Your Photon to the Cloud
 
-Make sure your phone is connected to the Photon-xxxx WiFi AP you want to use (it'll show up in the SSID blank on the app), then enter your password and click CONNECT!
+Follow the on-screen instructions in the mobile app to connect your Photon to the Particle cloud.
 
 <iframe src="https://vine.co/v/eZUX7KJQnbX/embed/simple" width="320" height="320" frameborder="0"></iframe>
 
-This may take a little while- but don't worry. It should go through the following colors:
+When your Photon is connecting to wifi, it should go through the following colors:
 - **Flashing blue**: Soft-AP setup mode, waiting for network information.
 - **Solid blue**: Soft-AP setup complete, network information found.
 - **Flashing green**: Connecting to local Wi-Fi network.
