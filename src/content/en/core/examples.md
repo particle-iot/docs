@@ -12,6 +12,7 @@ Here you will find a bunch of examples to get you started with your new Particle
 Blink an LED
 ===
 
+![One LED illustration](PLACEHOLDER)
 
 Blinking an LED is the ["Hello World"](http://en.wikipedia.org/wiki/Hello_world_program) example of the microcontroller universe. It's a nice way to warm up and start your journey into the land of embedded hardware.
 
@@ -22,9 +23,6 @@ For this example, you will need:
 - a Resistor (between 220 and 1000 Ohms recommended, see note)
 - a USB to micro-USB cable
 
-![One LED illustration](PLACEHOLDER)
-
-
 **NOTE:** Since there is so much variation in the values of the forward voltage drop of the LEDs depending upon type, size, color, manufacturer, etc., you could successfully use a resistor value from anywhere between 220Ohms to 1K Ohms. In our picture below, we used a 1K resistor (Brown Black Red).
 
 
@@ -33,6 +31,7 @@ Connect everything together as shown in the picture. The negative (shorter) pin 
 ![Fritzing Image](PLACEHOLDER)
 
 Next, we're going to load code onto your core. Copy and paste this code into a new application on http://build.particle.io or on Particle Dev. We've heavily commented this code so that you can see what is going on in each line.
+
 
 ```cpp
 // Program to blink an LED connected to pin D0

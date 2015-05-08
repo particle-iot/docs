@@ -25,6 +25,8 @@ If you've already logged into Particle Build before, click the "Let me log in" t
 Web IDE
 ---
 
+![Particle Build]({{assets}}/images/ide-main.png)
+
 Particle Build is an Integrated Development Environment, or IDE; that means that you can do software development in an easy-to-use application, which just so happens to run in your web browser.
 
 Particle Build starts with the navigation bar on the left. On the top, there are three buttons, which serve important functions:
@@ -33,7 +35,6 @@ Particle Build starts with the navigation bar on the left. On the top, there are
 - **Verify**: This compiles your code without actually flashing it to the Core; if there are any errors in your code, they will be shown in the debug console on the bottom of the screen.
 - **Save**: Saves any changes you've made to your code.
 
-![Particle Build]({{assets}}/images/ide-main.png)
 
 At the bottom, there are four more buttons to navigate through the IDE:
 
@@ -51,6 +52,7 @@ Missing your keyboard shortcuts? [This cheatsheet will help.](https://github.com
 Particle Apps and Libraries
 ---
 
+![Spark Build]({{assets}}/images/ide-apps.png)
 
 The heart of Particle Build is the "Particle Apps" section, which displays the name of the current app in your editor, as well as a list of your other applications and community-supported example apps.
 
@@ -69,7 +71,6 @@ From this pane, you've got a lot of buttons and actions available to you that ca
 
 - **Examples**: The "Example apps" header lists a continuously growing number of community-supported example apps.  Use these apps as references for developing your own, or fork them outright to extend their functionality.
 
-![Spark Build]({{assets}}/images/ide-apps.png)
 
 Flashing Your First App
 ---
@@ -94,17 +95,19 @@ void loop() {
     delay(1000);
 }
 ```
+![Spark Build]({{assets}}/images/ide-devices.png)
+
 - **Select Your Device**: The next step is to make sure that you've selected which of your devices to flash code to.  Click on the "Devices" icon at the bottom left side of the navigation pane, and click on the star next to the device you'd like to update.  Once you've selected a device, the star associated with it will turn yellow. (If you only have one device, there is no need to select it, you can continue on to the next step).
 
 
 - **Flash**: Click the "Flash" button, and your code will be sent wirelessly to your device.  If the flash was successful, the LED on your device will begin flashing magenta.
 
-![Spark Build]({{assets}}/images/ide-devices.png)
+![Spark Build]({{assets}}/images/ide-examples.png)
+
 - **Fork**: Wish the timing of that LED flash was a little bit faster?  Try clicking on the "Fork This Example" button after selecting the "Blink An LED" example application.  You've now got a personal copy of that application that you can modify, save, and flash to all of your devices.
 
 - **Edit**: Try changing the values in the delay() function from 1000 to 250, which changes the timing interval from 1000 milliseconds to only 250 milliseconds.  Click the Verify button, then the Flash button.  Is your device's LED blinking faster?  Well done :)
 
-![Spark Build]({{assets}}/images/ide-examples.png)
 
 
 Account Information
