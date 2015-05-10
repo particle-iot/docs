@@ -31,7 +31,7 @@ If you are by yourself, and no other Photons are in listening mode in the same h
 
 You can also connect your device to your Wi-Fi network over USB by communicating through Serial. *NOTE: This only works when the device is in [Listening Mode](./#connecting-your-device-listening-mode) (i.e. RGB led is blinking blue)*.
 
-There are a few ways to go about connecting your Photon over USB. We find that the easiest way is to just use the Particle Command Line Interface (Particle CLI), but this can be intimidating if you have little experience with the Terminal, or if you have a Windows computer that is recalcitrant to node.js. Follow these links depending on your preferences:
+There are a few ways to go about connecting your Photon over USB. Follow these links depending on your preferences:
 
 - [Windows](./#connect-over-usb-using-windows)
 - [Mac OSX](./#connect-over-usb-using-osx)
@@ -42,16 +42,15 @@ There are a few ways to go about connecting your Photon over USB. We find that t
 We're going to install the Particle CLI on your computer. If you already have node.js installed, you can skip to [this step](#/cli).
 
 ####Installing Node.js
-Go to the [node.js website](https://nodejs.org/download) and download the Windows installer. Download the 32-Bit or 64-Bit .msi files, depending on your operating system.
+The Particle CLI is most stable on the 10.38 version of Node.js. To use the CLI, download the [10.38 version of the Windows installer](http://nodejs.org/dist/v0.10.38/node-v0.10.38-x86.msi), the [x64 bit if you need it](http://nodejs.org/dist/v0.10.38/x64/node-v0.10.38-x64.msi), and the [x64 files if you need those.](http://nodejs.org/dist/v0.10.38/x64/)
 
 **If you do not know if you are running 32-bit or 64-bit, checking is easy!**
-- _On Windows 8_ Mouse over the upper right hand corner of your screen and nagivate to Settings. Then click "PC info" to display basic information about your computer.
-- _On Windows 7_ Open System by clicking the Start button Picture of the Start button, right-clicking Computer, and then clicking Properties. Under System, you can view the system type.
+- __On Windows 8__ Mouse over the upper right hand corner of your screen and nagivate to Settings. Then click "PC info" to display basic information about your computer.
+- __On Windows 7__ Open System by clicking the Start button Picture of the Start button, right-clicking Computer, and then clicking Properties. Under System, you can view the system type.
 
 Run the installer you downloaded. Follow the prompts. The default file locations should be fine for this.
 
 Restart your computer.
-
 _(You can do this by mousing over the upper right hand corner of the screen, then going to Settings > Power > Restart)_
 
 Node should now be installed! In the next step we will test it and install the CLI.
@@ -87,13 +86,12 @@ In the Command Prompt window, type:
 
 and press enter.
 
-The terminal will spit out a lot of data that ends in
+The terminal will spit out a lot of data, in the midst of which you will see:
 
 `[serialport] Success:`
 
-with a lot more data after it.
-
 Now let's try using the CLI!
+
 
 ####Connecting Your Device
 Make sure your device is plugged in via USB and in [Listening Mode](./#connecting-your-device-listening-mode) (blinking blue). Then type:
@@ -118,7 +116,7 @@ More info on the CLI is available [here](#/cli).
 We're going to install the Particle CLI on your computer. If you already have node.js installed, you can skip to [this step](#/connect/#install-cli).
 
 ####Installing Node.js
-Go to the [node.js website](https://nodejs.org/download) and download the OSX installer.
+The Particle CLI is most stable on the 10.38 version of Node.js. To use the CLI, download the [10.38 version of the OS X installer](http://nodejs.org/dist/v0.10.38/node-v0.10.38.pkg).
 
 Launch the installer and follow the instructions to install node.js.
 
@@ -127,20 +125,28 @@ Next, open your terminal, or preferred terminal program.
 To open the terminal, go to the spotlight search and type `Terminal`, then press enter.
 
 In the terminal, type or paste this series of commands:
-`mkdir ~/npm-global`
+```mkdir ~/npm-global
+npm config set prefix '~/npm-global'```
 
-`npm config set prefix '~/npm-global'`
+If you have a .profile, then type:
+```export PATH=~/npm-global/bin:$PATH
+source ~/.profile```
 
+After that, add `export PATH=~/npm-global/bin:$PATH` to your .profile by typing:
+```cat >>~/.profile
 
-If you have a .profile, (or a .bash_profile) then type:
-`export PATH=~/npm-global/bin:$PATH`
+export PATH=~/npm-global/bin:$PATH
 
-`source ~/.profile` or `source ~/.bash_profile`
+```
+
+and then ctrl-C to return to the command line.
 
 If you do not have a .profile, type:
-`cat >~/.profile`
+```cat >>~/.profile
 
-`export PATH=~/npm-global/bin:$PATH`
+export PATH=~/npm-global/bin:$PATH
+
+```
 
 
 ####Install the Particle CLI
