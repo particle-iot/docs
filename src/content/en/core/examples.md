@@ -12,7 +12,7 @@ Here you will find a bunch of examples to get you started with your new Particle
 Blink an LED
 ===
 
-![One LED illustration](PLACEHOLDER)
+![One LED illustration]({{assets}}/images/annotated-example1.jpg)
 
 Blinking an LED is the ["Hello World"](http://en.wikipedia.org/wiki/Hello_world_program) example of the microcontroller universe. It's a nice way to warm up and start your journey into the land of embedded hardware.
 
@@ -23,15 +23,15 @@ For this example, you will need:
 - a Resistor (between 220 and 1000 Ohms recommended, see note)
 - a USB to micro-USB cable
 
-
 **NOTE:** Since there is so much variation in the values of the forward voltage drop of the LEDs depending upon type, size, color, manufacturer, etc., you could successfully use a resistor value from anywhere between 220Ohms to 1K Ohms. In our picture below, we used a 1K resistor (Brown Black Red).
 
 
 Connect everything together as shown in the picture. The negative (shorter) pin of the LED is connected to ground via a resistor and the positive (longer) pin is connected to D0.
 
-![Fritzing Image](PLACEHOLDER)
+![Fritzing Image]({{assets}}/images/breadboard-one-led.jpg)
 
 Next, we're going to load code onto your core. Copy and paste this code into a new application on http://build.particle.io or on Particle Dev. We've heavily commented this code so that you can see what is going on in each line.
+
 
 ```cpp
 // Program to blink an LED connected to pin D0
@@ -65,9 +65,10 @@ When you're ready for the next step, learn to control that LED over the internet
 Control LEDs over the 'net
 ===
 
-![Fritzing Diagram](PLACEHOLDER)
 
 Now that we know how to blink an LED, how about we control it over the Internet? This is where the fun begins.
+
+![Fritzing Diagram]({{assets}}/images/breadboard-two-leds.jpg)
 
 Lets hook up two LEDs this time.
 
@@ -155,9 +156,9 @@ To better understand the concept of making API calls to your device over the clo
 Measuring the temperature
 ===
 
-![Temperature Fritzing](PLACEHOLDER)
-
 We have now learned how to send custom commands to our device and control the hardware. But how about reading data back from our device?
+
+![Temperature Fritzing]({{assets}}/images/breadboard-temp-sensor.jpg)
 
 In this example, we will hook up a temperature sensor to your device and read the values over the internet with a web browser.
 

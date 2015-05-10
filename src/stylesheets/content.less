@@ -1,6 +1,9 @@
 /* ----------------------------------------------------------------------------
  * Content styling
  */
+.content {
+  position: relative;
+}
 .content p,
 .content ul,
 .content ol,
@@ -27,6 +30,8 @@
 }
 .content pre {
   white-space: pre-wrap;
+  position: relative;
+  z-index: 1;
 }
 .content p {
   line-height: 24px;
@@ -223,14 +228,23 @@ body.big-h3 .content h3:before {
 .content h5,
 .content .small-heading,
 body:not(.big-h3) .content h3 {
-  border-bottom: solid 1px @light-gray;
-  color: @gray;
+  color: @dark-gray;
   text-transform: uppercase;
   font-size: 12px;
   letter-spacing: 1px;
   font-family: @base-font-family;
   padding-top: 30px;
   padding-bottom: 10px;
+  position: relative;
+  &:after {
+    content: '';
+    height: 1px;
+    background: @light-gray;
+    position: absolute;
+    width: 90%;
+    bottom: 5px;
+    left: 40px;
+  }
 }
 body:not(.big-h3) .content h3 {
   font-size: 12px;
@@ -373,16 +387,26 @@ h1 small.beta {
 
 @media (min-width: 1180px) {
   body:not(.no-literate) .content-root {
-    background-color: @monokai-gray;
-    -webkit-box-shadow: inset 780px 0 #fff, inset 781px 0 #dfe2e7, inset 790px 0 5px -10px rgba(0,0,0,0.1);
-    box-shadow: inset 780px 0 #fff, inset 781px 0 #dfe2e7, inset 790px 0 5px -10px rgba(0,0,0,0.1);
+    background-color: #fff;
+    /*-webkit-box-shadow: inset 780px 0 #fff, inset 781px 0 #dfe2e7, inset 790px 0 5px -10px rgba(0,0,0,0.1);
+    box-shadow: inset 780px 0 #fff, inset 781px 0 #dfe2e7, inset 790px 0 5px -10px rgba(0,0,0,0.1);*/
+  }
+  .code-samples {
+    background: #272822;
+    margin-left: 780px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 55%;
+    z-index: 0;
   }
 }
 @media (min-width: 1180px) {
   body:not(.no-literate) .content {
     padding-left: 0;
     padding-right: 0;
-    width: 1140px;
+    width: 100%;
     max-width: none;
   }
   body:not(.no-literate) .content > p,
@@ -396,7 +420,7 @@ h1 small.beta {
   body:not(.no-literate) .content > h6,
   body:not(.no-literate) .content > pre,
   body:not(.no-literate) .content > blockquote {
-    width: 550px;
+    width: 45%;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
@@ -410,9 +434,8 @@ h1 small.beta {
   }
   body:not(.no-literate) .content > pre,
   body:not(.no-literate) .content > blockquote {
-    width: 570px;
-    padding-left: 20px;
-    padding-right: 20px;
+    width: 55%;
+    padding: 10px 40px 0;
     float: right;
     clear: right;
   }
@@ -443,18 +466,17 @@ h1 small.beta {
   body:not(.no-literate) .content > h5,
   body:not(.no-literate) .content > .small-heading,
   body:not(.big-h3) body:not(.no-literate) .content > h3 {
-    margin-left: 40px;
-    width: 470px;
-    margin-bottom: 3px;
-    padding-left: 0;
-    padding-right: 0;
+    margin-bottom: 10px;
+    padding-left: 40px;
+    padding-right: 40px;
+    clear: both;
   }
   body:not(.no-literate):not(.big-h3) .content > h3 {
-    margin-left: 40px;
-    width: 470px;
-    margin-bottom: 3px;
-    padding-left: 0;
-    padding-right: 0;
+    width: 45%;
+    margin-bottom: 10px;
+    padding-left: 40px;
+    padding-right: 40px;
+    clear: both;
   }
 }
 
@@ -542,11 +564,15 @@ code .comment {
 .content img {
   width: 100%;
   border: 1px solid #e7e7e7;
+  position: relative;
+  z-index: 1;
 }
 
 .content iframe {
   max-width: 570px;
   margin-bottom: 50px;
+  position: relative;
+  z-index: 1;
 
 }
 
@@ -586,27 +612,32 @@ hr {
   body:not(.no-literate) .content img {
     width: 480px;
     display: block;
-    margin: 0 auto 50px;
+    margin: 0 0 50px;
     padding: 5px;
     background: #ffffff;
     border: 1px solid #f2f2f2;
+  }
+
+  body:not(.no-literate) .content .iframe-wrapper {
+    width: 55%;
+    float: right;
+    clear: right;
+    margin-top: 10px;
+    margin-bottom: 50px;
   }
 
   body:not(.no-literate) .content iframe {
-    float: right;
-    clear: both;
-    max-width: 570px;
     width: 480px;
-    padding: 5px;
-    background: #ffffff;
-    border: 1px solid #f2f2f2;
+    margin: 0;
+    padding-left: 40px;
   }
 
   body:not(.no-literate) .content p.img {
-    width: 570px;
-    padding: 0 20px;
+    padding: 0 40px;
+    margin-top: 10px;
     float: right;
-    clear: both;
+    width: 55%;
+    clear: none;
   }
 
   body:not(.no-literate) .content table {
@@ -650,15 +681,16 @@ hr {
 
   body:not(.no-literate) .content > ul,
   body:not(.no-literate) .content > ol {
-    width: 530px;
+    width: 45%;
+    margin-left: 0;
+    padding-left: 75px;
   }
 }
 
 @media (min-width: 1340px) {
   body:not(.no-literate) .content img {
     width: 480px;
-    margin-right: -135px;
     display: block;
-    margin: 0 auto 50px;
+    margin: 0 0 50px;
   }
 }

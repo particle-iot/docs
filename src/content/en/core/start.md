@@ -17,7 +17,6 @@ Congratulations on being the owner of a brand new Photon! Go ahead, open the box
 - _(1) Breadboard_ A breadboard makes it easy to wire components to the Core without soldering. See Wikipedia for more information.
 - _(1) USB cable_ The included USB cable is great for powering the Core, and we'll cover more technical things later.
 
-
 In the next section, we'll teach you how to set up your device. To go through this setup process, you will need:
 - Your Core
 - USB-to-micro-USB cable (Included with Core and Photon Kit)
@@ -39,19 +38,22 @@ Plug the included USB cable into the Core and your computer. The Core should sta
   - Maybe it's already been configured. Hold down the MODE button until it starts blinking blue, then continue.
 
 
+
+
 ### Step 2: Install the App
 
-![Particle apps](PLACEHOLDER)
+![Spark Core Tinker]({{assets}}/images/spark-app.jpg)
 
-You can search for the mobile app named [PLACEHOLDER], or you can click one of these links:
+You can search for the mobile app named Spark Core, or you can click one of these links:
 
-[iPhone >](PLACEHOLDER)  [Android >](PLACEHOLDER)
+[iPhone >](https://itunes.apple.com/us/app/spark-core/id760157884?mt=8)  [Android >](https://play.google.com/store/apps/details?id=io.spark.core.android&hl=en)
 
 Now use the app to sign up for an account!
 
+
 ### Step 3: Connect your Core to the Cloud!
 
-![Smart Config](PLACEHOLDER)
+![Smart Config]({{assets}}/images/smart-config.jpg)
 
 Make sure your phone is connected to the WiFi you want to use (it'll show up in the SSID blank on the app), then enter your password and click CONNECT!
 
@@ -93,6 +95,7 @@ You could hook your own LED up to the Core on another pin and do the same thing,
 
 You can always get Tinker back on the Core by following [these instructions](/#/tinker#tinkering-with-tinker-the-tinker-firmware)
 
+
 ### Put Code on Your Core
 
 ![Particle Build]({{assets}}/images/ide-main.png)
@@ -103,24 +106,26 @@ Click "BLINK AN LED" under the Example apps title. This code turns D7 (labeled _
 
 You can find more info in the [Web IDE (Build) page](/#/build)
 
+
 Getting to Know Your Core
 =====
 
-The Core is a Wi-Fi development kit for internet-connected hardware. It is, in essence, the "brains" of a connected hardware product or project.
-
 ![Microcontroller]({{assets}}/images/core-cc3000.jpg)
 
+The Core is a Wi-Fi development kit for internet-connected hardware. It is, in essence, the "brains" of a connected hardware product or project.
+
 The Core has on board a microcontroller, which is a small, low-cost, low-power computer that can run a single application. The microcontroller runs the show; it runs your software and tells the rest of the Core what to do. It doesn't have an Operating System the way that your computer does; it just runs a single application (often called *firmware* or an *embedded application*), which can be simple, just a few lines of code, or very complex, depending on what you want to do.
+
+![wifi module]({{assets}}/images/core-stm32.jpg)
 
 Microcontrollers are particularly good at *controlling things*; hence the name. They have a set of "pins" (little spider leg type things sticking off the chip) that are called *GPIO* (General Purpose Input and Output) pins, or I/O pins. They can be hooked to sensors or buttons to listen to the world, or they can be hooked to lights and motors to act upon the world. These microcontroller's pins have been directly connected to the headers on the sides of the Core so you can easily access them; specifically, the pins labeled D0 to D7 and A0 to A7 are hooked directly to the microcontroller's GPIO pins.
 
 The microcontroller can also communicate with other chips using common protocols like *Serial* (also called UART), *SPI*, or *I2C* (also called Wire). You can then make the Core more powerful by connecting it to special-purpose chips like motor drivers or shift registers. Sometimes we'll wrap up these chips on a *Shield*, an accessory to the Core that makes it easy to extend the Core.
 
-![wifi module]({{assets}}/images/core-stm32.jpg)
-
 The Core also has a Wi-Fi module, which connects it to your local Wi-Fi network in the same way that your computer or smartphone might connect to a Wi-Fi network. The Core is programmed to stay connected to the internet by default, so long as it can find and connect to a network.
 
 When the Core connects to the internet, it establishes a connection to Particle's Cloud. By connecting to the Cloud, the Core becomes accessible from anywhere through a simple REST API. This API is designed to make it very easy to interface with the Core through a web app or mobile app in a secure, private way, so that only you and those you trust can access the Core.
+
 
 ### Buttons
 

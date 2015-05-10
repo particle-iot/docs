@@ -244,7 +244,7 @@ It's generally a little safer to create short lived tokens and refresh them freq
 "expires_in": 3600
 ```
 
-```
+```bash
 # Setting token lifespan using expires_in with curl in your terminal
 curl https://api.spark.io/oauth/token -u spark:spark \
      -d grant_type=password \

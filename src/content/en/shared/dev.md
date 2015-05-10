@@ -60,7 +60,11 @@ Then you will see list of all your devices along with an indicator of online sta
 
 Compiling Code
 ---
-Before compiling your project, make sure your project files are in a dedicated directory.  If other files not related to your project are present in the project directory, you may experience errors when trying to compile.
+Before compiling your project, make sure your project files are in a dedicated directory.
+
+Notes:
+* If other files not related to your project are present in the project directory, you may experience errors when trying to compile.
+* All the files have to be on the same level (no subdirectories) like [this](http://docs.particle.io/assets/images/ide-include-library.jpg)
 
 ![Compile button]({{assets}}/images/ide-compile.jpg)
 
@@ -87,7 +91,7 @@ Variables
 
 ![Getting variable](http://docs.particle.io/assets/images/ide-get-variable.gif)
 
-All variables declared with [Spark.variable()](http://docs.particle.io/firmware/#spark-variable) are shown on the left side of panel. To poll lastest variable value, click **Refresh** button for variable you want to update.
+All variables declared with [Spark.variable()](http://docs.particle.io/firmware/#spark-variable) are shown on the left side of panel. To poll latest variable value, click **Refresh** button for variable you want to update.
 
 ![Watching variable](http://docs.particle.io/assets/images/ide-watch-variable.gif)
 

@@ -10,9 +10,9 @@ Your New Particle Device
 ### Congratulations!
 
 
-![Photons]({{assets}}/images/photon-unboxing.gif)
-
 Congratulations on being the owner of a brand new Photon! Go ahead, open the box, and let's talk about what you see. Your box should include:
+
+![Photons]({{assets}}/images/photon-unboxing.gif)
 
 - _(1) Photon_ The reason you bought it!
 - _(1) Breadboard_ A breadboard makes it easy to wire components to the Photon without soldering. See Wikipedia for more information. **Included in Photon Kit and Prototyping Bundle.**
@@ -30,7 +30,9 @@ Powering Your Photon
 
 ### Step 1: Power the Photon
 
-![Power the Photon]({{assets}}/images/photon-plugged-in.jpg)
+<div class="iframe-wrapper">
+  <iframe src="https://vine.co/v/eZUH7WaWjMT/embed/simple" width="320" height="320" frameborder="0"></iframe>
+</div>
 
 Plug the included USB cable into the Photon and your computer. The Photon should start blinking blue.
 
@@ -40,21 +42,23 @@ Plug the included USB cable into the Photon and your computer. The Photon should
 
 ### Step 2: Install the App
 
-![Particle apps](PLACEHOLDER)
+![Particle apps]({{assets}}/images/tinker.png)
 
-You can search for the mobile app named [PLACEHOLDER], or you can click one of these links:
+You can search for the mobile app named Particle, or you can click one of these links:
 
 [iPhone >](PLACEHOLDER)  [Android >](PLACEHOLDER)
 
-Now use the app to sign up for an account!
+Open up the Particle app on your mobile device, and tap the "Get Started" button to start the process of connecting your Photon to wifi.
 
 ### Step 3: Connect Your Photon to the Cloud
 
-Make sure your phone is connected to the Photon-xxxx WiFi AP you want to use (it'll show up in the SSID blank on the app), then enter your password and click CONNECT!
+Follow the on-screen instructions in the mobile app to connect your Photon to the Particle cloud.
 
-<iframe src="https://vine.co/v/eZUX7KJQnbX/embed/simple" width="320" height="320" frameborder="0"></iframe>
+<div class="iframe-wrapper">
+  <iframe src="https://vine.co/v/eZUX7KJQnbX/embed/simple" width="320" height="320" frameborder="0"></iframe>
+</div>
 
-This may take a little while- but don't worry. It should go through the following colors:
+When your Photon is connecting to wifi, it should go through the following colors:
 - **Flashing blue**: Soft-AP setup mode, waiting for network information.
 - **Solid blue**: Soft-AP setup complete, network information found.
 - **Flashing green**: Connecting to local Wi-Fi network.
