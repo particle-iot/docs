@@ -91,7 +91,7 @@ Variables
 
 ![Getting variable](http://docs.particle.io/assets/images/ide-get-variable.gif)
 
-All variables declared with [Spark.variable()](http://docs.particle.io/firmware/#spark-variable) are shown on the left side of panel. To poll lastest variable value, click **Refresh** button for variable you want to update.
+All variables declared with [Spark.variable()](http://docs.particle.io/firmware/#spark-variable) are shown on the left side of panel. To poll latest variable value, click **Refresh** button for variable you want to update.
 
 ![Watching variable](http://docs.particle.io/assets/images/ide-watch-variable.gif)
 
