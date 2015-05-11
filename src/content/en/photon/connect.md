@@ -37,8 +37,8 @@ You can also connect your device to your Wi-Fi network over USB by communicating
 
 There are a few ways to go about connecting your Photon over USB. Follow these links depending on your preferences:
 
-- [Windows](./#connect-over-usb-using-windows)
-- [Mac OSX](./#connect-over-usb-using-osx)
+- [Windows](#connecting-your-device-using-windows)
+- [Mac OSX](#connecting-your-device-using-osx)
 
 
 ##Using Windows
@@ -117,7 +117,7 @@ More info on the CLI is available [here](/photon/cli).
 
 ##Using OSX
 
-We're going to install the Particle CLI on your computer. If you already have node.js installed, you can skip to [this step](#install-cli).
+We're going to install the Particle CLI on your computer. If you already have node.js installed, you can skip to [this step](#install-the-particle-cli).
 
 ####Installing Node.js
 The Particle CLI is most stable on the 10.38 version of Node.js. To use the CLI, download the [10.38 version of the OS X installer](http://nodejs.org/dist/v0.10.38/node-v0.10.38.pkg).
@@ -177,6 +177,6 @@ If you have already claimed your device and you want to connect it to wifi, type
 - __The SSID__ is the name of your network. When you connect on your computer, it is the name that you select when you connect your computer to wifi.
 -__The Security__ of your wifi is often set up by the administrator. Typically this is WPA2 if a password is needed, or unsecured if no password is needed. Contact your network administrator if you can't get this step to work, and find out exactly what kind of wifi you have.
 
-If your device is not connecting, try troubleshooting [here](http://support.spark.io/hc/en-us/articles/204357684-Can-t-Get-Connected-).
+If your device is not connecting, try troubleshooting [here](http://support.particle.io/hc/en-us/articles/204357684-Can-t-Get-Connected-).
 
-More info on the CLI is available [here](#/cli).
+More info on the CLI is available [here](/photon/cli).

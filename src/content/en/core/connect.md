@@ -11,9 +11,10 @@ Connecting your Device
   <iframe class="vine-embed" src="https://vine.co/v/hFHPMue5lgd/embed/simple" width="320" height="320" frameborder="0"></iframe>
 </div>
 
-The easiest way to connect your device to Wi-Fi is using the [Particle mobile app]({{assets}}/images/mobile-app) for iPhone or Android. But in case that's not working for you or you don't have an iOS/Android phone, there are other methods as well.
+The easiest way to connect your device to Wi-Fi is using the [Spark Core
+mobile app](https://itunes.apple.com/us/app/spark-core/id760157884?mt=8) for iPhone or Android. But in case that's not working for you or you don't have an iOS/Android phone, there are other methods as well.
 
-For all of the following methods, the device must be in [Listening Mode](#/#Listening-Mode), which you'll know by its flashing blue LED.
+For all of the following methods, the device must be in [Listening Mode](#Listening-Mode), which you'll know by its flashing blue LED.
 
 
 ## Listening Mode
@@ -25,12 +26,39 @@ For all of the following methods, the device must be in [Listening Mode](#/#List
 The Core and Photon both boot into listening mode by default, so if your device is brand new, it should go straight into listening mode. Otherwise, hold the MODE button for three seconds. The RGB LED will be flashing blue in this mode.  To completely clear all stored Wi-Fi credentials, continue to hold the MODE button for 10 seconds until the RGB LED flashes blue quickly, signaling that all profiles have been deleted.  The RGB LED should now be flashing blue again.
 
 
-## Particle App for Photon
+## Spark Core mobile app
 
-More information on this lovely app is coming soon! For now, please try connecting over USB.
+You can search for the mobile app named Spark Core, or you can click one of these links:
 
-If you are by yourself, and no other Photons are in listening mode in the same house/apt/room/conference, then you should not attempt to claim your device with the Particle App. Instead, use the CLI.
+[iPhone >](https://itunes.apple.com/us/app/spark-core/id760157884?mt=8)  [Android >](https://play.google.com/store/apps/details?id=io.spark.core.android&hl=en)
 
+Now use the app to sign up for an account!
+
+![Smart Config]({{assets}}/images/smart-config.jpg)
+
+Make sure your phone is connected to the WiFi you want to use (it'll show up in the SSID blank on the app), then enter your password and click CONNECT!
+
+This may take a little while- but don't worry. It should go through the following colors:
+- **Blinking blue**: Listening for Wi-Fi credentials
+- **Solid blue**:    Getting Wi-Fi info from app
+- **Blinking green**: Connecting to the Wi-Fi network
+- **Blinking cyan**: Connecting to the Particle Cloud
+- **Blinking magenta**: Updating to the newest firmware
+- **Breathing cyan**: Connected!
+
+<div id="core1" class="core"><div class="core-butt"></div><div class="rgb"><div class="pattern"></div></div></div>
+
+<a id="button1" class="button" onclick="animateCore()">See an animation</a>
+
+Did your phone not find any Cores?
+- Is it blinking blue?
+  - Give it another go.
+- Is it blinking green and not getting to cyan?
+  - Try it again by holding the MODE button on the core until it begins flashing blue, then double-check your network name and password.
+- Is it now breathing cyan, but the app didn't find any Cores?
+  - Uh oh. Your Core's on the network, but it took too long. [We're going to claim your core manually.](/connect#claiming-your-core)
+- Something else altogether?
+  - Give the [Connecting Your Core](/connect) page a read-through and if you're still stuck, search the [community.](http://community.particle.io)
 
 ## Connect over USB
 
@@ -41,9 +69,10 @@ There are a few ways to go about connecting your Core over USB. Follow these lin
 - [Windows](./#connect-over-usb-using-windows)
 - [Mac OSX](./#connect-over-usb-using-osx)
 
-###Using Windows
+##Using Windows
 
-We're going to install the Particle CLI on your computer. If you already have node.js installed, you can skip to [this step](#/connect/#install-cli).
+We're going to install the Particle CLI on your computer. If you already
+have node.js installed, you can skip to [this step](#installing-the-particle-cli).
 
 ####Installing Node.js
 The Particle CLI is most stable on the 10.38 version of Node.js. To use the CLI, download the [10.38 version of the Windows installer](http://nodejs.org/dist/v0.10.38/node-v0.10.38-x86.msi), the [x64 bit if you need it](http://nodejs.org/dist/v0.10.38/x64/node-v0.10.38-x64.msi), and the [x64 files if you need those.](http://nodejs.org/dist/v0.10.38/x64/)
@@ -86,7 +115,7 @@ Now your Command Prompt, is open for use.
 
 ####Installing the Particle CLI
 In the Command Prompt window, type:
-`npm install -g spark-cli`
+`npm install -g particle-cli`
 
 and press enter.
 
@@ -98,11 +127,12 @@ Now let's try using the CLI!
 
 ####Connecting Your Device
 Make sure your device is plugged in via USB and in [Listening Mode]() (blinking blue). Then type:
-`spark setup`
+`particle setup`
 
 Log in with your [Particle Build account](http://build.particle.io) and follow the prompts to set up your device.
 
-If you have already claimed your device and you want to connect it to wifi, type `spark serial wifi` instead of `spark setup`. This will set up your device on the current wifi.
+If you have already claimed your device and you want to connect it to
+wifi, type `particle serial wifi` instead of `particle setup`. This will set up your device on the current wifi.
 
 **Wait! What is an SSID? What kind of security does my wifi have?**
 - __The SSID__ is the name of your network. When you connect on your computer, it is the name that you select when you connect your computer to wifi.
@@ -113,9 +143,10 @@ If your device is not connecting, try troubleshooting [here](http://support.spar
 More info on the CLI is available [here](#/cli).
 
 
-###Using OSX
+## Using OSX
 
-We're going to install the Particle CLI on your computer. If you already have node.js installed, you can skip to [this step](#/connect/#install-cli).
+We're going to install the Particle CLI on your computer. If you already
+have node.js installed, you can skip to [this step]installing-the-particle-cli).
 
 ####Installing Node.js
 The Particle CLI is most stable on the 10.38 version of Node.js. To use the CLI, download the [10.38 version of the OS X installer](http://nodejs.org/dist/v0.10.38/node-v0.10.38.pkg).
@@ -127,39 +158,44 @@ Next, open your terminal, or preferred terminal program.
 To open the terminal, go to the spotlight search and type `Terminal`, then press enter.
 
 In the terminal, type or paste this series of commands:
-```mkdir ~/npm-global
-npm config set prefix '~/npm-global'```
+```
+mkdir ~/npm-global
+npm config set prefix '~/npm-global'
+```
 
 If you have a .profile, then type:
-```export PATH=~/npm-global/bin:$PATH
-source ~/.profile```
+```
+export PATH=~/npm-global/bin:$PATH
+source ~/.profile
+```
+
 
 After that, add `export PATH=~/npm-global/bin:$PATH` to your .profile by typing:
-```cat >>~/.profile
 
+```
+cat >>~/.profile
 export PATH=~/npm-global/bin:$PATH
-
 ```
 
 and then ctrl-C to return to the command line.
 
 If you do not have a .profile, type:
-```cat >>~/.profile
 
+```
+cat >>~/.profile
 export PATH=~/npm-global/bin:$PATH
-
 ```
 
 
 ####Install the Particle CLI
 
 Type:
-`npm install -g spark-cli`
+`npm install -g particle-cli`
 
 _Note:_ You may need to update xcode at this time.
 
 
-####Connecting Your Device
+####Connecting Your Spark Core
 Make sure your device is plugged in via USB and in [Listening Mode]() (blinking blue). Open the terminal and type:
 `spark setup`
 
