@@ -129,7 +129,7 @@ Now let's try using the CLI!
 Make sure your device is plugged in via USB and in [Listening Mode]() (blinking blue). Then type:
 `particle setup`
 
-Log in with your [Particle Build account](http://build.particle.io) and follow the prompts to set up your device.
+Log in with your Particle account and follow the prompts to set up your device.
 
 If you have already claimed your device and you want to connect it to
 wifi, type `particle serial wifi` instead of `particle setup`. This will set up your device on the current wifi.
@@ -138,15 +138,16 @@ wifi, type `particle serial wifi` instead of `particle setup`. This will set up 
 - __The SSID__ is the name of your network. When you connect on your computer, it is the name that you select when you connect your computer to wifi.
 -__The Security__ of your wifi is often set up by the administrator. Typically this is WPA2 if a password is needed, or unsecured if no password is needed. Contact your network administrator if you can't get this step to work, and find out exactly what kind of wifi you have.
 
-If your device is not connecting, try troubleshooting [here](http://support.spark.io/hc/en-us/articles/204357684-Can-t-Get-Connected-).
+If your device is not connecting, try troubleshooting
+[here](http://support.particle.io/hc/en-us/articles/204357684-Can-t-Get-Connected-).
 
-More info on the CLI is available [here](#/cli).
+More info on the CLI is available [here](/core/cli).
 
 
 ## Using OSX
 
 We're going to install the Particle CLI on your computer. If you already
-have node.js installed, you can skip to [this step]installing-the-particle-cli).
+have node.js installed, you can skip to [this step](#install-the-particle-cli).
 
 ####Installing Node.js
 The Particle CLI is most stable on the 10.38 version of Node.js. To use the CLI, download the [10.38 version of the OS X installer](http://nodejs.org/dist/v0.10.38/node-v0.10.38.pkg).
@@ -196,7 +197,8 @@ _Note:_ You may need to update xcode at this time.
 
 
 ####Connecting Your Spark Core
-Make sure your device is plugged in via USB and in [Listening Mode]() (blinking blue). Open the terminal and type:
+Make sure your device is plugged in via USB and in [Listening
+Mode](#connecting-your-device-listening-mode) (blinking blue). Open the terminal and type:
 `spark setup`
 
 Log in with your [Particle Build account](http://build.particle.io) and follow the prompts to set up your device.
@@ -209,13 +211,17 @@ If you have already claimed your device and you want to connect it to wifi, type
 
 If your device is not connecting, try troubleshooting [here](http://support.spark.io/hc/en-us/articles/204357684-Can-t-Get-Connected-).
 
-More info on the CLI is available [here](#/cli).
+More info on the CLI is available [here](/core/cli).
 
 
 APPENDIX
 ===
 
 ## DFU Mode (Device Firmware Upgrade)
+
+<div class="iframe-wrapper">
+  <iframe class="vine-embed" src="https://vine.co/v/MahhI1Fg7O6/embed/simple" width="320" height="320" frameborder="0"></iframe>
+</div>
 
 If you are wish to program a device with a custom firmware via USB, you'll need to use this mode. This mode triggers the on-board bootloader that accepts firmware binary files via the dfu-utility.
 
@@ -229,11 +235,12 @@ Procedure:
 
 The device now is in the DFU mode.
 
-<div class="iframe-wrapper">
-  <iframe class="vine-embed" src="https://vine.co/v/MahhI1Fg7O6/embed/simple" width="320" height="320" frameborder="0"></iframe>
-</div>
 
 ## Factory Reset
+
+<div class="iframe-wrapper">
+  <iframe class="vine-embed" src="https://vine.co/v/MahOmIaX2xP/embed/simple" width="320" height="320" frameborder="0"></iframe>
+</div>
 
 A factory reset restores the firmware on the device to the default Tinker app and clears all your Wi-Fi credentials.
 
@@ -250,9 +257,6 @@ The procedure is same as the one described above (DFU Mode), but in this case yo
 
 **Note:** The video here is a continuation of the video from above (DFU Mode).
 
-<div class="iframe-wrapper">
-  <iframe class="vine-embed" src="https://vine.co/v/MahOmIaX2xP/embed/simple" width="320" height="320" frameborder="0"></iframe>
-</div>
 
 ## Smart Config with the TI app (Core Only)
 
