@@ -453,7 +453,8 @@ h1 small.beta {
   body:not(.no-literate) .content > blockquote + h6 {
     clear: both;
   }
-  body:not(.no-literate) .content > h4 + pre {
+  body:not(.no-literate) .content > h4 + pre,
+  body:not(.no-literate) .content > h3 + pre {
     clear: both;
   }
   body:not(.no-literate) .content > p,
@@ -560,6 +561,10 @@ code .comment {
 
 .menubar .level-1:not(:first-of-type) {
   margin-top: 10px;
+  padding-left: 10px;
+}
+.menubar .level-2, .menubar .level-3 {
+  padding-left: 10px;
 }
 
 
