@@ -41,9 +41,9 @@ There are a few ways to go about connecting your Photon over USB. Follow these l
 - [Mac OSX](./#connect-over-usb-using-osx)
 
 
-###Using Windows
+##Using Windows
 
-We're going to install the Particle CLI on your computer. If you already have node.js installed, you can skip to [this step](#/cli).
+We're going to install the Particle CLI on your computer. If you already have node.js installed, you can skip to [this step](#installing-the-particle-cli).
 
 ####Installing Node.js
 The Particle CLI is most stable on the 10.38 version of Node.js. To use the CLI, download the [10.38 version of the Windows installer](http://nodejs.org/dist/v0.10.38/node-v0.10.38-x86.msi), the [x64 bit if you need it](http://nodejs.org/dist/v0.10.38/x64/node-v0.10.38-x64.msi), and the [x64 files if you need those.](http://nodejs.org/dist/v0.10.38/x64/)
@@ -72,7 +72,7 @@ Navigate to your Downloads folder, or wherever you unzipped the drivers.
 
 (Note that right now, the drivers are in a `Spark` folder and are named `spark_core`)
 
-If you have a problem installing, you may have to temporarily disable the digitally signed driver enforcement policy. (We're sorry.) There are good instrunctions on how to do that [here](http://www.howtogeek.com/167723/how-to-disable-driver-signature-verification-on-64-bit-windows-8.1-so-that-you-can-install-unsigned-drivers/).
+If you have a problem installing, you may have to temporarily disable the digitally signed driver enforcement policy. (We're sorry.) There are good instructions on how to do that [here](http://www.howtogeek.com/167723/how-to-disable-driver-signature-verification-on-64-bit-windows-8.1-so-that-you-can-install-unsigned-drivers/).
 
 ####Opening the Command Prompt
 You'll need to open the command prompt for this next part. You can also use Powershell or a similar command line tool if that is what you are used to.
@@ -86,7 +86,7 @@ Now your Command Prompt, is open for use.
 
 ####Installing the Particle CLI
 In the Command Prompt window, type:
-`npm install -g spark-cli`
+`npm install -g particle-cli`
 
 and press enter.
 
@@ -101,7 +101,7 @@ Now let's try using the CLI!
 Make sure your device is plugged in via USB and in [Listening Mode](./#connecting-your-device-listening-mode) (blinking blue). Then type:
 `spark setup`
 
-Log in with your [Particle Build account](http://build.particle.io) and follow the prompts to set up your device.
+Log in with your Particle account and follow the prompts to set up your device.
 
 If you have already claimed your device and you want to connect it to wifi, type `spark serial wifi` instead of `spark setup`. This will set up your device on the current wifi.
 
@@ -110,14 +110,14 @@ If you have already claimed your device and you want to connect it to wifi, type
 - _The SSID_ is the name of your network. When you connect on your computer, it is the name that you select when you connect your computer to wifi.
 - _The Security_ of your wifi is often set up by the administrator. Typically this is WPA2 if a password is needed, or unsecured if no password is needed. Contact your network administrator if you can't get this step to work, and find out exactly what kind of wifi you have.
 
-If your device is not connecting, try troubleshooting [here](http://support.spark.io/hc/en-us/articles/204357684-Can-t-Get-Connected-).
+If your device is not connecting, try troubleshooting [here](http://support.particle.io/hc/en-us/articles/204357684-Can-t-Get-Connected-).
 
-More info on the CLI is available [here](#/cli).
+More info on the CLI is available [here](/photon/cli).
 
 
-###Using OSX
+##Using OSX
 
-We're going to install the Particle CLI on your computer. If you already have node.js installed, you can skip to [this step](#/connect/#install-cli).
+We're going to install the Particle CLI on your computer. If you already have node.js installed, you can skip to [this step](#install-cli).
 
 ####Installing Node.js
 The Particle CLI is most stable on the 10.38 version of Node.js. To use the CLI, download the [10.38 version of the OS X installer](http://nodejs.org/dist/v0.10.38/node-v0.10.38.pkg).
@@ -137,7 +137,9 @@ If you have a .profile, then type:
 source ~/.profile```
 
 After that, add `export PATH=~/npm-global/bin:$PATH` to your .profile by typing:
-```cat >>~/.profile
+
+```
+cat >>~/.profile
 
 export PATH=~/npm-global/bin:$PATH
 
@@ -146,7 +148,9 @@ export PATH=~/npm-global/bin:$PATH
 and then ctrl-C to return to the command line.
 
 If you do not have a .profile, type:
-```cat >>~/.profile
+
+```
+cat >>~/.profile
 
 export PATH=~/npm-global/bin:$PATH
 
@@ -156,18 +160,18 @@ export PATH=~/npm-global/bin:$PATH
 ####Install the Particle CLI
 
 Type:
-`npm install -g spark-cli`
+`npm install -g particle-cli`
 
 _Note:_ You may need to update xcode at this time.
 
 
 ####Connecting Your Device
 Make sure your device is plugged in via USB and in [Listening Mode](./#connecting-your-device-listening-mode) (blinking blue). Open the terminal and type:
-`spark setup`
+`particle setup`
 
-Log in with your [Particle Build account](http://build.particle.io) and follow the prompts to set up your device.
+Log in with your Particle account and follow the prompts to set up your device.
 
-If you have already claimed your device and you want to connect it to wifi, type `spark serial wifi` instead of `spark setup`. This will set up your device on the current wifi.
+If you have already claimed your device and you want to connect it to wifi, type `particle serial wifi` instead of `particle setup`. This will set up your device on the current wifi.
 
 **Wait! What is an SSID? What kind of security does my wifi have?**
 - __The SSID__ is the name of your network. When you connect on your computer, it is the name that you select when you connect your computer to wifi.

@@ -10,8 +10,6 @@ ParticleJS is a library for interacting with your devices and the Particle Cloud
 It uses node.js and can run on Windows, Mac OS X, and Linux fairly easily.
 It's also open source so you can edit, change or even send in pull requests if you want to share!
 
-# Getting Started
-
 ## Installation
 
 ### Node.js
@@ -24,7 +22,7 @@ Next, open a command prompt or terminal, and install by typing:
 $ npm install spark
 ```
 
-### Client side
+## Client side
 
 #### Including ParticleJS
 
@@ -43,10 +41,11 @@ Alternately, you can pull in ParticleJS from the JSDelivr and simply include the
 
 Now you will have a `spark` object available that you can use in your application.
 
-#### Spark login
+### Particle login
 
 
-If you are using ParticleJS in the browser and want a dead simple way to log in to a Spark account to get your devices, the following instructions will give you a "Login to Spark" button to open a login modal.
+If you are using ParticleJS in the browser and want a dead simple way to
+log in to a Particle  account to get your devices, the following instructions will give you a "Login to Spark" button to open a login modal.
 
 Add an empty div with "spark-login" id where you want the "Login to Spark" button to be rendered.
 

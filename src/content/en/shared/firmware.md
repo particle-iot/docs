@@ -1,10 +1,10 @@
 ---
 word: Firmware
-title: Core code (Firmware)
+title: Firmware
 order: 4
 ---
 
-Spark Core Firmware
+Particle Device Firmware
 ==========
 
 Cloud Functions
