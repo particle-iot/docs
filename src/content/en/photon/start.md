@@ -84,7 +84,7 @@ Now that you are connected, you can **blink an LED with Tinker.**
 
 ![Tinker Photon Screenshot]({{assets}}/images/photon-tinker.png)
 
-The Particle app should now be on the Tinker screen, as shown to the right. 
+The Particle app should now be on the Tinker screen, as shown to the right.
 
 Tap *D7* then _digitalWrite_ in the popup. Now when you tap the *D7* circle the tiny blue LED should turn off or on! This is because the LED shares a connection to the Photon with the pin labeled D7. 
 
