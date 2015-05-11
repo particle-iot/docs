@@ -4,26 +4,24 @@ title: Getting started
 order: 0
 ---
 
-Your New Particle Device
+Your New Photon
 =====
 
 ### Congratulations!
 
 
-Congratulations on being the owner of a brand new Photon! Go ahead, open the box, and let's talk about what you see. Your box should include:
+Congratulations on being the owner of a brand new Photon! Here's what
+you need to get started:
 
-![Photons]({{assets}}/images/photon-unboxing.gif)
+![Photons]({{assets}}/images/photon-plugged-in.jpg)
 
-- _(1) Photon_ The reason you bought it!
-- _(1) Breadboard_ A breadboard makes it easy to wire components to the Photon without soldering. See Wikipedia for more information. **Included in Photon Kit and Prototyping Bundle.**
-- _(1) USB cable_ The included USB cable is great for powering the Photon, and we'll cover more technical things later. **Included in Photon Kit and Prototyping Bundle.**
+- _(1) Photon_ Your Particle development board
+- _(1) USB cable_ A male-to-micro USB cable is needed to power the Photon, and we'll cover more technical things later. **Included in Photon Kit and Prototyping Bundle.**
 
+If you purchased a Photon Kit or a Prototyping Bundle, you also
+received a *breadboard* to wire components to the Photon.
 
-In the next section, we'll teach you how to set up your device. To go through this setup process, you will need:
-- Your Photon
-- USB-to-micro-USB cable (Included with Photon Kit)
-
-Great! Let's power up your device and start blinking LEDs.
+In the next section, we'll teach you how to set up your device. Sweet! Let's power up your device and start blinking LEDs.
 
 Powering Your Photon
 ====
@@ -84,7 +82,7 @@ Blinking an LED on Your Photon
 ### Step 1: Blink an LED
 Now that you are connected, you can **blink an LED with Tinker.**
 
-![Tinker Photon Screenshot](PLACEHOLDER)
+![Tinker Photon Screenshot]({{assets}}/images/photon-tinker.png)
 
 The Particle app should now be on the Tinker screen, as shown to the right. 
 
