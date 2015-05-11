@@ -66,8 +66,8 @@ You can also connect your device to your Wi-Fi network over USB by communicating
 
 There are a few ways to go about connecting your Core over USB. Follow these links depending on your preferences:
 
-- [Windows](./#connect-over-usb-using-windows)
-- [Mac OSX](./#connect-over-usb-using-osx)
+- [Windows](#connecting-your-device-using-windows)
+- [Mac OSX](#connecting-your-device-using-osx)
 
 ##Using Windows
 
