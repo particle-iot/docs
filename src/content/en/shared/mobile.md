@@ -25,6 +25,8 @@ All cloud operations take place asynchronously and use the well-known completion
 
 ## Usage
 
+SDK usage involves two basic classes: first is [SparkCloud](http://cocoadocs.org/docsets/Spark-SDK/0.2.6/Classes/SparkCloud.html) which is a singleton object that enables all basic cloud operations such as user authentication, device listing, claiming etc.
+Second class is [SparkDevice](http://cocoadocs.org/docsets/Spark-SDK/0.2.6/Classes/SparkDevice.html) which is an instance represnting a *claimed* device in the current user session. Each object enables device-specific operation such as: getting its info, invoking functions and reading variables from it. 
 Full class and variables [Reference is available on Cocoadocs website](http://cocoadocs.org/docsets/Spark-SDK/) or consult the javadoc style comments in `SparkCloud.h` and `SparkDevice.h` for each public method.
 If Particle iOS Cloud SDK installation completed successfully - you should be able to press `Esc` to get an auto-complete hints from XCode for each cloud and device method.
 
@@ -52,6 +54,11 @@ To use Particle Cloud SDK from within Swift based projects [read here](http://sw
 also be sure the check out [Apple documentation](https://developer.apple.com/library/ios/documentation/Swift/Conceptual/BuildingCocoaApps/InteractingWithObjective-CAPIs.html) on this matter.
 _Notice_ that we've included the required bridging header file in the SDK, you just need to copy it to your project add it as the active bridging header file in the project settings as described in the link above.
 We also have an example app [here](https://github.com/Spark/spark-setup-ios-example), this app also demonstrates the Particle DeviceSetup library usage
+
+#### Notes
+**Name change**
+Spark was re-branded as Particle. Libraries source code will be updated soon to reflect this change. 
+New cocoapod libraries will be released with new name and old ones will be depracted soon. This applies to both Cloud SDK and Device Setup library.
 
 ## License
 
@@ -186,12 +193,6 @@ setup wizard completes (delegate). Feel free to contribute to the example by sub
 
 Check out the [Reference in Cocoadocs website](http://cocoadocs.org/docsets/SparkSetup/) or consult the javadoc style comments in `SparkSetupCustomization.h` and `SparkSetupMainController.h` for each public method or property.
 If Particle Device Setup library installation completed successfully - you should be able to press `Esc` to get an auto-complete hints from XCode for each public method or property in the library.
-
-#### Notes
-**Name change**
-
-Spark was re-branded as Particle. Libraries source code will be updated soon to reflect this change. 
-New cocoapod libraries will be released with new name and old ones will be depracted soon. 
 
 ## Requirements / limitations
 
