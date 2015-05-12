@@ -35,9 +35,6 @@ The new version of the Shield Shield (v3.x.x) uses dedicated mosfet based voltag
 
 **Note:** One drawback of using the TXB0108PWR as a voltage translator is that it is only capable of driving loads at short distances. Long length wires will introduce excessive capacitive loading and cause the auto direction detection to fail. To overcome this drawback, the shield shield also has an optional on-board 74ABT125 buffer that is capable of driving heavier loads in *one* direction. A user can jumper wire to whichever IO pin they would like to be translated to 5V.
 
-//Circuit Diagram  
-//Product Photo with description
-
 **Pin Mapping**
 
 ![Shield Shield Pinmapping]({{assets}}/images/shields/shield-shield/shield-shield-pinmapping.png)
@@ -147,9 +144,6 @@ This is a FT2232H based JTAG programmer shield that is compatible with OpenOCD a
 
 ![Programmer Shield Description]({{assets}}/images/shields/prog-shield/prog-shield-description.png)
 
-//Circuit Diagram
-//Product Photo with description
-
 **Specifications:**
  - Operating supply: USB
  - Current consumption: 
@@ -175,9 +169,6 @@ The system switches in between the different power sources automatically, reduci
  - Dimensions: 
  - Weight: 
 
-//Circuit Diagram
-//Product Photo with description
-
 ![Power Shield Plugged]({{assets}}/images/shields/power-shield/power-shield-photon-plugged.png)
 
 The shield is setup so that when powered from the USB port as well as from a DC supply, it chooses the DC source over USB. The charge current is set to 500mA when charging from USB and set to 1A when charging from a DC source.
@@ -186,6 +177,6 @@ The shield is setup so that when powered from the USB port as well as from a DC 
 
 # Internet Button
 
-![](https://github.com/spark/photon-shields-docs/blob/master/internet-button/button.png)
+![Internet Button]({{assets}}/images/shields/internet-button/button.png)
 
-![](https://github.com/spark/photon-shields-docs/blob/master/internet-button/button-dimensions.png)
+![Internet Button Dimensions]({{assets}}/images/shields/internet-button/button-dimensions.png)
