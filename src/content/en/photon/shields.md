@@ -73,11 +73,11 @@ The new version of the Shield Shield (v3.x.x) uses dedicated mosfet based voltag
 ```
 
 **IMPORTANT:** The Shield Shield does not map the Particle device's pins to like-numbered pins on the Arduino. In other words, D0 on the Particle device is not the same as D0 on the Arduino. Please review the pin mapping table to the right and plan accordingly.
-
+<!--
 **Usage:**
 
 Link to the Shield Shield Library and example connections for I2C, SPI, ADC, and neopixel.
-
+-->
 # Relay Shield
 The Relay Shield allows you to take over the world, one electric appliance at a time. Want to control a lamp, fan, coffee machine, aquarium pumps or garden sprinklers? Then this is a solution for you! 
 
