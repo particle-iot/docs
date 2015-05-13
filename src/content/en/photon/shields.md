@@ -171,7 +171,7 @@ POST /v1/devices/{DEVICE_ID}/relay
 curl https://api.particle.io/v1/devices/0123456789abcdef/relay \
   -d access_token=123412341234 -d params=r1,HIGH
 ```
-
+<!--
 **Changing the relay control pins: (Advanced)**
 Not happy with which pins control the relays? Worry not. With a little bit of scratching and soldering, you can reconfigure the control pins.
 
@@ -193,6 +193,7 @@ Here is how to perform that surgery:
  Not happy with the change you just made? You can always go back to the default configuration by desoldering your new wired connection and adding a solder-jumper on the scratched pads.
 
 [picture of the pads solder jumped]
+-->
 
 # Programmer Shield
 
