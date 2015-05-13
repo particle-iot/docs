@@ -509,6 +509,52 @@ hr {
   border: 0;
   display: none;
 }
+.content sup, .content sub {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+.content sup {
+  top: -0.5em;
+}
+.content sub {
+  bottom: -.25em;
+}
+
+.two-columns {
+  .content {
+    padding: 20px 0;
+    margin: 0 auto;
+  }
+  .iframe-wrapper {
+    margin: 40px 0;
+    text-align: center;
+    iframe {
+      margin-bottom: 0;
+    }
+  }
+  body:not(.no-literate) .content img {
+    margin: 40px auto;
+    width: auto;
+    max-height: 500px;
+  }
+  .content h4:after, .content h5:after, .content .small-heading:after, body:not(.big-h3) .content h3:after {
+    left: 0;
+    width: 100%;
+  }
+  table {
+    margin: 40px 0;
+  }
+  .content pre > code {
+    background: #272822;
+    border-radius: 2px;
+    padding: 10px;
+  }
+  .content h4, .content h5, .content .small-heading, body:not(.big-h3) .content h3 {
+    margin-bottom: 10px;
+  }
+}
 
 .three-columns {
   @media (min-width: 1180px) {
