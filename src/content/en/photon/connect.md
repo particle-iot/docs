@@ -26,10 +26,7 @@ The Core and Photon both boot into listening mode by default, so if your device 
 
 ## Particle App for Photon
 
-More information on this lovely app is coming soon! For now, please try connecting over USB.
-
-If you are by yourself, and no other Photons are in listening mode in the same house/apt/room/conference, then you should not attempt to claim your device with the Particle App. Instead, use the CLI.
-
+Get the app and set up following the instructions [here!](http://docs.particle.io/photon/#step-2-install-the-app)
 
 ## Connect over USB
 
