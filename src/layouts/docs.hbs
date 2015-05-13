@@ -55,10 +55,12 @@
     </div>
 
     <div class='content-root' data-spy="scroll" data-target="#toc">
+
       <div class='menubar'>
         <div class='menu section' role='flatdoc-menu'>
           <ul>
             {{#withSort pages "data.order"}}
+
                 <li class="{{data.device}}"><a
                   href='{{#contains dirname
                   "photon"}}/photon/{{basename}}{{else}}/core/{{basename}}

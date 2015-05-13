@@ -19,9 +19,52 @@ Derived from Flatdoc (http://ricostacruz.com/flatdoc)
   var Docs = exports.Docs = {};
 
   Docs.transform = function() {
+    this.removeCodeColumn();
     this.tagImages();
     this.buttonize();
     this.prettifyCode();
+  };
+
+  /**
+   * Remove 3rd column if certain tag is found
+   */
+
+  Docs.removeCodeColumn = function() {
+    // $('.content').match(/<!--removeCodeColumn-->/g).each(function() {
+    //   alert("matched");
+    //   $('div.code-samples').hide();
+    // });
+
+    // $('.content').find('!--').each(function() {
+    //   var $comment = $(this);
+
+    //   var m = $comment.text().match(/<!--removeCodeColumn-->/g);
+    //   if (m) {
+    //     alert("matched");
+    //     $('div.code-samples').hide();
+    //   };
+    // });
+
+    var content = jQuery('body').html();
+    //alert(content.match(/<!--.*?-->/g));
+    // if (content.match(/<!--removeCodeColumn-->/g)) {
+    //   //$('div.code-samples').css("width","30%");
+    //   // Hide 'code-samples' div
+    //   $('div.code-samples').hide();
+
+    //   // Move images back to the left
+    //   $('.content').find('img').each(function() {
+    //     var $el = $(this);
+    //     $el.css("left","-450px");
+    //   });
+
+    //   // Move images back to the left
+    //   $('.content').find('pre').each(function() {
+    //     var $el = $(this);
+    //     $el.css("left","-450px");
+    //   });
+    // }
+  
   };
 
   /**
