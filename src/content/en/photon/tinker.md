@@ -14,7 +14,7 @@ The Tinker app
 
 The Tinker section of the Particle mobile app makes it very easy to start playing with your Particle device without writing any code. It's great for early development, and often it will do everything you need to get your project off of the ground.
 
-The app consists of 16 pins in vertical rows - 8 analog pins on the left, 8 digital pins on the right. These pins represent the 16 GPIO (General Purpose Input and Output) pins on the Spark Core, and are organized the same way.
+The app consists of 16 pins in vertical rows - 8 analog pins on the left, 8 digital pins on the right. These pins represent the 16 GPIO (General Purpose Input and Output) pins on the Photon, and are organized the same way.
 
 To begin, tap any of the pins. A menu will pop up showing the functions that pin has available. Each pin can have up to four possible functions:
 
@@ -23,7 +23,7 @@ To begin, tap any of the pins. A menu will pop up showing the functions that pin
 - **digitalRead**: This will read the digital value of a pin, which can be read as either HIGH or LOW. If you were to connect the pin to 3.3V, it would read HIGH; if you connect it to GND, it would read LOW. Anywhere in between, it'll probably read whichever one it's closer to, but it gets dicey in the middle.
 - **analogRead**: This will read the analog value of a pin, which is a value from 0 to 4095, where 0 is LOW (GND) and 4095 is HIGH (3.3V). All of the analog pins (A0 to A7) can handle this. *analogRead* is great for reading data from sensors.
 
-To change the function of the pin, simply tap and hold on the pin, and the function select menu will come back up. Any further questions? Come talk to us in the [forums!](https://community.sparkdevices.com/)
+To change the function of the pin, simply tap and hold on the pin, and the function select menu will come back up. Any further questions? Come talk to us in the [forums!](https://community.spark.io/)
 
 The Tinker firmware
 ---
@@ -137,7 +137,7 @@ Sets the pin to HIGH or LOW, which either connects it to 3.3V (the maximum volta
     POST /v1/devices/{DEVICE_ID}/digitalwrite
 
     # EXAMPLE REQUEST IN TERMINAL
-    # Core ID is 0123456789abcdef
+    # Device ID is 0123456789abcdef
     # Your access token is 123412341234
     curl https://api.spark.io/v1/devices/0123456789abcdef/digitalwrite \
       -d access_token=123412341234 -d params=D0,HIGH
@@ -153,7 +153,7 @@ Sets the pin to a value between 0 and 255, where 0 is the same as LOW and 255 is
     POST /v1/devices/{DEVICE_ID}/analogwrite
 
     # EXAMPLE REQUEST IN TERMINAL
-    # Core ID is 0123456789abcdef
+    # Device ID is 0123456789abcdef
     # Your access token is 123412341234
     curl https://api.spark.io/v1/devices/0123456789abcdef/analogwrite \
       -d access_token=123412341234 -d params=A0,215
@@ -170,7 +170,7 @@ This will read the digital value of a pin, which can be read as either HIGH or L
     POST /v1/devices/{DEVICE_ID}/digitalread
 
     # EXAMPLE REQUEST IN TERMINAL
-    # Core ID is 0123456789abcdef
+    # Device ID is 0123456789abcdef
     # Your access token is 123412341234
     curl https://api.spark.io/v1/devices/0123456789abcdef/digitalread \
       -d access_token=123412341234 -d params=D0
@@ -187,7 +187,7 @@ This will read the analog value of a pin, which is a value from 0 to 4095, where
     POST /v1/devices/{DEVICE_ID}/analogread
 
     # EXAMPLE REQUEST IN TERMINAL
-    # Core ID is 0123456789abcdef
+    # Device ID is 0123456789abcdef
     # Your access token is 123412341234
     curl https://api.spark.io/v1/devices/0123456789abcdef/analogread \
       -d access_token=123412341234 -d params=A0
