@@ -14,7 +14,7 @@ You've built an amazing device, and a powerful application online, and now you w
 
 Webhooks are a simple and flexible way for your devices to make requests to almost anything on the Internet.  Webhooks listen for events from your devices.  When you send a matching event, the hook will send a request to your web application with all the details!
 
-If you're totally new to Particle, that's okay!  Check out our [Getting started guide here](http://docs.spark.io/start/) or our [Particle Basics tutorial](http://cmsunu28.gitbooks.io/spark-basics/content/), and come back when you're ready.
+If you're totally new to Particle, that's okay!  Check out our [Getting started guide here](http://docs.particle.io/start/) or our [Particle Basics tutorial](http://cmsunu28.gitbooks.io/spark-basics/content/), and come back when you're ready.
 
 Let's go!
 
@@ -27,7 +27,7 @@ When you surf the internet, you are riding a continuous wave of web requests. Br
 
 There are many different kinds of web requests. Most of your average requests to view a page or browse around online are "GET" requests.  This is all part of that hypertext ```http://``` thing that is at the front of the address in your browser.  When you fill out and submit a form, your browser tends to send "POST" requests.  POST requests are usually for sending data to a server.  You can read more about all the [different kinds of web requests here](http://en.wikipedia.org/wiki/Hypertext_Transfer_Protocol#Request_methods).
 
-Your Spark powered device can now easily make these requests!  You could grab or send values to any web service or site with something as simple as ```Spark.publish("lets go!");``` That's what we are going to teach you how to do with Webhooks.
+Your Particle powered device can now easily make these requests!  You could grab or send values to any web service or site with something as simple as ```Spark.publish("lets go!");``` That's what we are going to teach you how to do with Webhooks.
 
 
 Installing the CLI
@@ -42,9 +42,9 @@ spark login
 Success!
 ```
 
-We're still building the beautiful, intuitive web interface for creating and managing Webhooks, but you're determined, you are ready to use webhooks now.  You're in luck!  With the Spark-CLI and your terminal you can start using webhooks right away.  You might need to install a few things, but it's going to be worth it.  First, make sure you have [Node.js](https://www.nodejs.org) installed if you don't already.
+We're still building the beautiful, intuitive web interface for creating and managing Webhooks, but you're determined, you are ready to use webhooks now.  You're in luck!  With the Particle CLI and your terminal you can start using webhooks right away.  You might need to install a few things, but it's going to be worth it.  First, make sure you have [Node.js](https://www.nodejs.org) installed if you don't already.
 
-For those of you who have used the Spark-CLI in the past, you're all set! If you are a CLI newcomer, install it by following [these instructions](http://docs.spark.io/cli/#installing).
+For those of you who have used the Particle CLI in the past, you're all set! If you are a CLI newcomer, install it by following [these instructions](http://docs.spark.io/cli/#installing).
 
 You'll also need some basic knowledge of the terminal. Adafruit has a [lovely intro to the command line](https://learn.adafruit.com/what-is-the-command-line/overview) that beginners may find helpful.
 
@@ -161,7 +161,7 @@ Creating the webhook
 -----
 
 ```sh
-# creating a GET hook with the Spark-CLI
+# creating a GET hook with the Particle CLI
 # spark webhook GET <your_event_name> http://<website.you.are.trying.to.contact>
 
 # create a webhook to send a "GET" request to our weather URL when we publish "get_weather"
@@ -172,7 +172,7 @@ spark webhook GET get_weather http://w1.weather.gov/xml/current_obs/KMSP.xml
 
 Webhooks listen for events from your devices and will make requests based on those events. For this example, lets setup a hook to listen for a `get_weather` event from our devices, and then have it make a GET request to our weather data url.
 
-Hop on the terminal, make sure you have the Spark-CLI, and make sure you've logged in (`spark login`).
+Hop on the terminal, make sure you have the Particle CLI, and make sure you've logged in (`spark login`).
 
 This Webhook will now be triggered when we publish "get_weather" from any of our devices.
 
@@ -186,8 +186,8 @@ void setup() {
     // For simplicity, we'll format our weather data as text, and pipe it to serial.
     // but you could just as easily display it in a webpage or pass the data to another system.
 
-    // Learn more about the serial commands here http://docs.spark.io/firmware/#communication-serial
-    // You can also watch what's sent over serial with the spark-cli with 
+    // Learn more about the serial commands here http://docs.particle.io/firmware/#communication-serial
+    // You can also watch what's sent over serial with the particle cli with 
     //  spark serial monitor
     Serial.begin(115200);
 
@@ -381,7 +381,7 @@ void loop() {
 [![Testing the events first]({{assets}}/images/webhooks-librato-cli-example.png)]({{assets}}/images/webhooks-librato-cli-example.png)
 
 
-After you flash the firmware to your device, open up the Spark-CLI, and subscribe to your events with `spark subscribe mine`, you should see something like:
+After you flash the firmware to your device, open up the Particle CLI, and subscribe to your events with `spark subscribe mine`, you should see something like:
 
 [![Librato Metrics Screen]({{assets}}/images/webhooks-librato-metrics-screen1.png)]({{assets}}/images/webhooks-librato-metrics-screen1.png)
 
@@ -414,7 +414,7 @@ What's in a request?
 
 Since your webhook listens for events from your devices, it can send that event data along to whatever url you specify.  If you don't add any custom options, the hook will send a JSON type POST request with the following values:
 
-This is same data you'd see if you subscribed to your event stream http://docs.spark.io/api/#reading-data-from-a-core-events 
+This is same data you'd see if you subscribed to your event stream http://docs.particle.io/api/#reading-data-from-a-core-events 
 
 
 These properties will all be strings except for published_at, which is an ISO8601 date formatted string, which tends to be in the form YYYY-MM-DDTHH:mm:ssZ
@@ -493,7 +493,7 @@ url
 
 The address of the resource you want to contact.  Make sure you have permission to be sending requests to this server.  This field is required.
 
-Hooks that result in a high error count or cause that server to go over our limit will be muted for a time to make sure no sites are being abused.  If you're a site operator and you believe you're being spammed by webhooks, please email us at hello@spark.io.
+Hooks that result in a high error count or cause that server to go over our limit will be muted for a time to make sure no sites are being abused.  If you're a site operator and you believe you're being spammed by webhooks, please email us at hello@particle.io.
 
 ```
 Usually something like: https://<some-website-name-here.com>/<some-cool-api>
@@ -614,7 +614,7 @@ Any host will be limited to 120 requests per minute
 unless we're contacted by the site administrator 
 ```
 
-Spark webhooks will not contact any host more often than 120 times per minute, despite any number of configured webhooks from any number of users.  Requests over this limit for the moment will be dropped.  We intend to add a proper queuing system so this is done more fairly, but for the moment we've opted to protect sites against abuse first.  If you're a site owner / operator and you want to allow more traffic, please email us at hello@spark.io.
+Particle webhooks will not contact any host more often than 120 times per minute, despite any number of configured webhooks from any number of users.  Requests over this limit for the moment will be dropped.  We intend to add a proper queuing system so this is done more fairly, but for the moment we've opted to protect sites against abuse first.  If you're a site owner / operator and you want to allow more traffic, please email us at hello@particle.io.
 
 
 Limits by User
@@ -679,7 +679,7 @@ hook-response/get_weather/4
 Errors
 ===
 
-Error responses from the target url will also be sent back in the response event.  If you have 10 consecutive errors, the hook will send you a "Too many errors, webhook disabled" message.  Make sure you're watching the responses when developing your hook!  You can monitor these with the spark-cli by running:
+Error responses from the target url will also be sent back in the response event.  If you have 10 consecutive errors, the hook will send you a "Too many errors, webhook disabled" message.  Make sure you're watching the responses when developing your hook!  You can monitor these with the particle cli by running:
 
 ```
 spark subscribe mine

@@ -62,19 +62,24 @@
   display: block;
   position: absolute;
   left: -17px;
-  top: 7px;
-  width: 5px;
-  height: 5px;
+  top: 9px;
+  width: 4px;
+  height: 4px;
   -webkit-border-radius: 4px;
   border-radius: 4px;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
-  background: #fff;
-  border: solid 1px #9090aa;
+  background: @gray;
+}
+.content ul > ul > li {
+  color: blue;
 }
 .content li > :first-child {
   padding-top: 0;
+}
+.content li > :last-child {
+  padding-bottom: 0;
 }
 .content strong,
 .content b {
@@ -521,11 +526,29 @@ hr {
 .content sub {
   bottom: -.25em;
 }
+.content dd, .content dt {
+  line-height: 1.45;
+}
+.content dd {
+  margin-left: 40px;
+  margin-top: 5px;
+}
+.content dt {
+  font-weight: bold;
+  margin-top: 15px;
+}
+.dictionary-wrapper p {
+  display: none;
+}
 
 .two-columns {
   .content {
-    padding: 20px 0;
+    padding: 20px 30px;
     margin: 0 auto;
+  }
+  .content p.img {
+    padding-top: 0;
+    padding-bottom: 0;
   }
   .iframe-wrapper {
     margin: 40px 0;
@@ -536,7 +559,7 @@ hr {
   }
   body:not(.no-literate) .content img {
     margin: 40px auto;
-    width: auto;
+    max-width: 100%;
     max-height: 500px;
   }
   .content h4:after, .content h5:after, .content .small-heading:after, body:not(.big-h3) .content h3:after {
@@ -703,7 +726,7 @@ hr {
     body:not(.no-literate) .content > blockquote + h5,
     body:not(.no-literate) .content > pre + h6,
     body:not(.no-literate) .content > blockquote + h6 {
-      clear: both;
+      clear: left;
     }
     body:not(.no-literate) .content > h4 + pre,
     body:not(.no-literate) .content > h3 + pre {
@@ -738,7 +761,6 @@ hr {
 
 @media (min-width: 1340px) {
   body:not(.no-literate) .content img {
-    width: 480px;
     display: block;
     margin: 0 0 50px;
   }

@@ -11,7 +11,7 @@ Your New Particle Device
 
 ![Core in Box]({{assets}}/images/core-unboxed.jpg)
 
-Congratulations on being the owner of a brand new Photon! Go ahead, open the box, and let's talk about what you see. Your box should include:
+Congratulations on being the owner of a brand new Spark Core! Go ahead, open the box, and let's talk about what you see. Your box should include:
 
 - _(1) Core_ The reason you bought it!
 - _(1) Breadboard_ A breadboard makes it easy to wire components to the Core without soldering.
@@ -84,7 +84,7 @@ Blink an LED on your Core
 
 ![Tinker]({{assets}}/images/tinker-select.jpg)
 
-The Particle app should now be on the Tinker screen, as shown to the right. 
+The Spark Core app should now be on the Tinker screen, as shown to the right. 
 
 Tap *D7* then _digitalWrite_ in the popup. Now when you tap the *D7* circle the tiny blue LED should turn off or on! This is because the LED shares a connection to the Core with the pin labeled D7. 
 

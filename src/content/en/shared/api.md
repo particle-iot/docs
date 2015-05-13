@@ -132,13 +132,13 @@ Permissions for controlling and communciating with your Particle device are mana
 curl https://api.particle.io/v1/devices/0123456789abcdef01234567/brew \
      -d access_token=9876987698769876987698769876987698769876
 # Response status is 200 OK, which means
-# the Core says, "Yes ma'am!"
+# the device says, "Yes ma'am!"
 
 # Sneaky Pete tries the same thing in his terminal
 curl https://api.particle.io/v1/devices/0123456789abcdef01234567/brew \
      -d access_token=1234123412341234123412341234123412341234
 # Response status is 403 Forbidden, which means
-# the Core says, "You ain't the boss of me."
+# the device says, "You ain't the boss of me."
 
 # LESSON: Protect your access token.
 ```
@@ -150,7 +150,7 @@ Your access token can be found in the Particle Build web IDE on the 'Settings' p
 When you connect your Particle device to the Cloud for the first time, it will be associated with your account,
 and only you will have permission to control your Particle device—using your access token.
 
-If you need to transfer ownership of the core to another user, the easiest way is to simply log into the [Particle build site](https://build.particle.io), click on the 'cores' drawer on the bottom left, and then click the small 'right arrow' by the core you want to release, then click "Remove Core". This will make it possible for the other person you are transfering the core to, to go through the normal [claiming process](/#/connect/claiming-your-core).
+If you need to transfer ownership of the device to another user, the easiest way is to simply log into the [Particle build site](https://build.particle.io), click on the 'Devices' drawer on the bottom left, and then click the small 'right arrow' by the device you want to release, then click "Remove Device". This will make it possible for the other person you are transferring the device to, to go through the normal [claiming process](http://docs.particle.io).
 
 In the future, you will be able to provision access to your Particle device to other accounts
 and to third-party app developers; however, these features are not yet available.
@@ -234,6 +234,8 @@ In the POST body, you need three parameters:
 * password=YOUR_PASSWORD
 
 For now, Particle Build will list the single most recently created token.
+
+
 
 
 ### Configure when your token expires
@@ -341,24 +343,24 @@ Just as for listing them, send your username and password in an HTTP Basic Auth 
 Errors
 -------
 
-The Particle Cloud uses traditional HTTP response codes to provide feedback from the Core regarding the validity
+The Particle Cloud uses traditional HTTP response codes to provide feedback from the device regarding the validity
 of the request and its success or failure. As with other HTTP resources, response codes in the 200 range
 indicate success; codes in the 400 range indicate failure due to the information provided;
 codes in the 500 range indicate failure within Particle's server infrastructure.
 
 ```
-200 OK - API call successfully delivered to the Core and executed.
+200 OK - API call successfully delivered to the device and executed.
 
-400 Bad Request - Your request is not understood by the Core,
+400 Bad Request - Your request is not understood by the device,
     or the requested subresource (variable/function) has not been exposed.
 
 401 Unauthorized - Your access token is not valid.
 
-403 Forbidden - Your access token is not authorized to interface with this Core.
+403 Forbidden - Your access token is not authorized to interface with this device.
 
-404 Not Found - The Core you requested is not currently connected to the cloud.
+404 Not Found - The device you requested is not currently connected to the cloud.
 
-408 Timed Out - The cloud experienced a significant delay when trying to reach the Core.
+408 Timed Out - The cloud experienced a significant delay when trying to reach the device.
 
 500 Server errors - Fail whale. Something's wrong on our end.
 ```
@@ -376,10 +378,10 @@ we'll give you lots of notice and a clear upgrade path.
 Basic functions
 ========
 
-Controlling a Core
+Controlling a Device
 --------
 
-To control a Core, you must first define and expose *functions* in the Core firmware.
+To control a Particle device, you must first define and expose *functions* in the device firmware.
 You then call these functions remotely using the Particle Cloud API.
 
 Note: If you have declared a function name longer than 12 characters it *will be truncated* to 12 characters. Example: Spark.function("someFunction1", ...); exposes a function called **someFunction** and *not* **someFunction1**
@@ -450,7 +452,7 @@ All Particle functions take a String as the only argument and must return a 32-b
 The maximum length of the argument is 63 characters.
 
 
-Reading data from a Core
+Reading data from a Device
 --------
 
 ### Variables
@@ -481,7 +483,7 @@ The API endpoint is `/v1/devices/{DEVICE_ID}/{VARIABLE}` and as always, you have
 
 ```bash
 # EXAMPLE REQUEST IN TERMINAL
-# Core ID is 0123456789abcdef01234567
+# Device ID is 0123456789abcdef01234567
 # Your access token is 1234123412341234123412341234123412341234
 curl "https://api.particle.io/v1/devices/0123456789abcdef01234567/temperature?access_token=1234123412341234123412341234123412341234"
 ```
@@ -605,7 +607,7 @@ However, if you prefer to use your own text editor or IDE, you can!
 It just means that instead of hitting the "Flash" or "Verify" buttons, you'll make API calls that reference a file.
 
 
-### Flash a Core with source code
+### Flash a Device with source code
 
 If you have written a source code file that defines `setup()` and `loop()` functions,
 you can flash it to your Particle device with an HTTP PUT request.
@@ -624,11 +626,11 @@ The API request should be encoded as `multipart/form-data` with a `file` field p
 Your filename does not matter.  In particular, the extension can be .c, .cpp, .ino, or anything else your prefer.
 
 This API request will submit your firmware to be compiled into a Particle binary, after which,
-if compilation was successful, the binary will be flashed to your Core wirelessly.
+if compilation was successful, the binary will be flashed to your device wirelessly.
 
 ```bash
 # EXAMPLE REQUEST IN TERMINAL
-# Flash a Core with a file called "my-firmware-app.cpp"
+# Flash a device with a file called "my-firmware-app.cpp"
 curl -X PUT -F file=@my-firmware-app.cpp \
   "https://api.particle.io/v1/devices/0123456789abcdef01234567?access_token=1234123412341234123412341234123412341234"
 ```
@@ -638,9 +640,9 @@ curl -X PUT -F file=@my-firmware-app.cpp \
 There are three possible response formats:
 
 * A successful response, in which both compilation and flashing succeed.
-  * Note that the LED on your Core will blink magenta while updating.
+  * Note that the LED on your device will blink magenta while updating.
 * A failure due to compilation errors.
-* A failure due to inability to transmit the binary to the core.
+* A failure due to inability to transmit the binary to the device.
 
 
 ```js
@@ -669,7 +671,7 @@ There are three possible response formats:
 }
 ```
 
-### Flash a Core with a pre-compiled binary
+### Flash a device with a pre-compiled binary
 
 If you want to compile the firmware yourself and send a binary instead of a source file, you can do that too!
 Just add `file_type=binary` to the request body, and we will skip the compilation stage altogether.

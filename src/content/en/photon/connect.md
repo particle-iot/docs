@@ -13,7 +13,7 @@ Connecting your Device
 
 The easiest way to connect your device to Wi-Fi is using the Particle mobile app for iPhone or Android. But in case that's not working for you or you don't have an iOS/Android phone, there are other methods as well.
 
-For all of the following methods, the device must be in [Listening Mode](./#connecting-your-device-listening-mode), which you'll know by its flashing blue LED.
+For all of the following methods, the device must be in [Listening Mode](./#connecting-your-device-listening-mode), where the RGB LED is flashing blue.
 
 ## Listening Mode
 
@@ -21,21 +21,18 @@ For all of the following methods, the device must be in [Listening Mode](./#conn
   <iframe src="https://vine.co/v/eZUHUIjq7pO/embed/simple" width="320" height="320" frameborder="0"></iframe>
 </div>
 
-The Core and Photon both boot into listening mode by default, so if your device is brand new, it should go straight into listening mode. Otherwise, hold the MODE button for three seconds. The RGB LED will be flashing blue in this mode.  To completely clear all stored Wi-Fi credentials, continue to hold the MODE button for 10 seconds until the RGB LED flashes blue quickly, signaling that all profiles have been deleted.  The RGB LED should now be flashing blue again.
+The Core and Photon both boot into listening mode by default, so if your device is brand new, it should go straight into listening mode. Otherwise, hold the MODE button for three seconds. The RGB LED will be flashing blue in this mode.
 
 
 ## Particle App for Photon
 
-More information on this lovely app is coming soon! For now, please try connecting over USB.
-
-If you are by yourself, and no other Photons are in listening mode in the same house/apt/room/conference, then you should not attempt to claim your device with the Particle App. Instead, use the CLI.
-
+Get the app and set up following the instructions [here!](http://docs.particle.io/photon/#step-2-install-the-app)
 
 ## Connect over USB
 
-You can also connect your device to your Wi-Fi network over USB by communicating through Serial. *NOTE: This only works when the device is in [Listening Mode](./#connecting-your-device-listening-mode) (i.e. RGB led is blinking blue)*.
+You can also set up your device using USB. *NOTE: This only works when the device is in [Listening Mode](./#connecting-your-device-listening-mode) (i.e. RGB led is blinking blue)*.
 
-There are a few ways to go about connecting your Photon over USB. Follow these links depending on your preferences:
+There are a two ways to go about connecting your Photon over USB, depending on your OS. These links will take you to the right place:
 
 - [Windows](#connecting-your-device-using-windows)
 - [Mac OSX](#connecting-your-device-using-osx)
@@ -129,12 +126,16 @@ Next, open your terminal, or preferred terminal program.
 To open the terminal, go to the spotlight search and type `Terminal`, then press enter.
 
 In the terminal, type or paste this series of commands:
-```mkdir ~/npm-global
-npm config set prefix '~/npm-global'```
+```
+mkdir ~/npm-global
+npm config set prefix '~/npm-global'
+```
 
 If you have a .profile, then type:
-```export PATH=~/npm-global/bin:$PATH
-source ~/.profile```
+```
+export PATH=~/npm-global/bin:$PATH
+source ~/.profile
+```
 
 After that, add `export PATH=~/npm-global/bin:$PATH` to your .profile by typing:
 
@@ -175,8 +176,8 @@ If you have already claimed your device and you want to connect it to wifi, type
 
 **Wait! What is an SSID? What kind of security does my wifi have?**
 - __The SSID__ is the name of your network. When you connect on your computer, it is the name that you select when you connect your computer to wifi.
--__The Security__ of your wifi is often set up by the administrator. Typically this is WPA2 if a password is needed, or unsecured if no password is needed. Contact your network administrator if you can't get this step to work, and find out exactly what kind of wifi you have.
+- __The Security__ of your wifi is often set up by the administrator. Typically this is WPA2 if a password is needed, or unsecured if no password is needed. Contact your network administrator if you can't get this step to work, and find out exactly what kind of wifi you have.
 
-If your device is not connecting, try troubleshooting [here](http://support.particle.io/hc/en-us/articles/204357684-Can-t-Get-Connected-).
+If your device is not connecting, try troubleshooting [here](http://support.particle.io/).
 
-More info on the CLI is available [here](/photon/cli).
+More info on the CLI is available [here](http://docs.particle.io/photon/cli).

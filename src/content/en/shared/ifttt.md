@@ -12,9 +12,9 @@ Introduction
 
 Anything you build with Particle is now easily available on IFTTT! IFTTT is a service that lets you create powerful connections with one simple statement: "If this then that."  There is a great introduction to their ecosystem [on IFTTT's website](https://ifttt.com/wtf). Go check it out if you haven't already, it's super helpful.
 
-The Particle Channel on IFTTT will let you connect your devices to other powerful channels. You can now easily send and receive tweets, SMS, check the weather, respond to price changes, monitor astronauts, and much, much more. This page is a reference for you to use as you get your Spark Recipes set up.
+The Particle Channel on IFTTT will let you connect your devices to other powerful channels. You can now easily send and receive tweets, SMS, check the weather, respond to price changes, monitor astronauts, and much, much more. This page is a reference for you to use as you get your Particle Recipes set up.
 
-If you're totally new to Particle, that's okay! Before you get going on the Particle channel, be sure to get your Photon or Core connected and claimed. [Get started here](http://docs.spark.io/start/).
+If you're totally new to Particle, that's okay! Before you get going on the Particle channel, be sure to get your Photon or Core connected and claimed. [Get started here](http://docs.particle.io/start/).
 
 Lets go!
 
@@ -48,7 +48,7 @@ Other IFTTT channels will provide (and sometimes automatically insert) their own
 
 **But what if I want to try this without writing firmware?** We recommend starting with the Monitor a Device Status Trigger. You can use this Trigger with the firmware that came with your device.
 
-**Okay, I'm ready to build my own firmware. Where do I start?** Get to know [the web IDE](http://docs.spark.io/build/) and explore the Particle [community site](http://community.particle.io/) for great tutorials, examples and advice on projects.
+**Okay, I'm ready to build my own firmware. Where do I start?** Get to know [the web IDE](http://build.particle.io/) and explore the Particle [community site](http://community.particle.io/) for great tutorials, examples and advice on projects.
 
 Triggers
 ===
@@ -81,9 +81,9 @@ Spark.publish("Boiling!", "212", 60, PRIVATE);
 
 ### Firmware requirements
 
-To use this Trigger, firmware must include spark.publish(). Complete documentation on using [Spark.publish() is here.](http://docs.spark.io/firmware/#spark-publish)
+To use this Trigger, firmware must include spark.publish(). Complete documentation on using [Spark.publish() is here.](http://docs.particle.io/firmware/#spark-publish)
 
-A word of caution - firmware loops quickly, so it's very easy to run publish() too frequently. You'll trigger your IFTTT recipe 100 times in a blink, and if you publish() more than once a second then the Spark cloud will briefly disable further publishes. Make sure to think through the logic of your code so that it only publishes when you actually want it to.
+A word of caution - firmware loops quickly, so it's very easy to run publish() too frequently. You'll trigger your IFTTT recipe 100 times in a blink, and if you publish() more than once a second then the Particle Cloud will briefly disable further publishes. Make sure to think through the logic of your code so that it only publishes when you actually want it to.
 
 ### Trigger fields
 
@@ -91,7 +91,7 @@ A word of caution - firmware loops quickly, so it's very easy to run publish() t
 
 **is (Event Contents): ** *Optional* Any data you included with your Spark.publish call from firmware.
 
-**Device Name or ID:** This dropdown menu will be automatically populated with the names of Spark devices that are claimed to your account and are loaded with firmware.
+**Device Name or ID:** This dropdown menu will be automatically populated with the names of Particle devices that are claimed to your account and are loaded with firmware.
 
 ### Ingredients
 
@@ -128,7 +128,7 @@ Monitor a variable
 ### Firmware requirements
 Monitoring variables is also a simple way to get going. You'll need to create a variable at the top of your code, call Spark.variable() using the format to the right in the setup() function, and then you're good to go.
 
-Complete documentation on using [Spark.variable() is here.](http://docs.spark.io/firmware/#spark-variable)
+Complete documentation on using [Spark.variable() is here.](http://docs.particle.io/firmware/#spark-variable)
 
 ```C++
 // EXAMPLE SHOWING THREE DATA TYPES
@@ -247,7 +247,7 @@ Your Spark.function()s can be used in several ways with IFTTT. You can send a va
 ### Firmware requirements
 All of the details are covered in the example to the right. Just remember to declare a function at the top of your code, make it Spark.function() in setup(), and then declare what the function does down below. Currently, only the first 4 Spark.function()s that you register will show up in IFTTT.
 
-Complete documentation on using [Spark.function() is here.](http://docs.spark.io/firmware/#spark-function)
+Complete documentation on using [Spark.function() is here.](http://docs.particle.io/firmware/#spark-function)
 
 
 ### Trigger fields
@@ -304,7 +304,7 @@ You must have firmware on your Particle device, but nothing else is necessary. B
 
 ### Trigger fields
 
-**If (Device Name or ID:** This dropdown menu will be automatically populated with the names of Spark devices that are claimed to your account and are loaded with firmware.
+**If (Device Name or ID:** This dropdown menu will be automatically populated with the names of Particle devices that are claimed to your account and are loaded with firmware.
 
   **is (Status of your device):** Selected from a dropdown menu - either online or offline.
 
@@ -341,7 +341,7 @@ You must have firmware on your Particle device, but nothing else is necessary. B
 
   ### Firmware requirements
 
-  This action has IFTTT publishing an event, so your Spark device needs to subscribe to that event. These are complementary; a Spark.subscribe("myEventName") watches for a publish("myEventName") and runs a function when it sees this matching event name. This means that even though this action is called *Publish* an event, your firmware needs to include Spark.subscribe().
+  This action has IFTTT publishing an event, so your Particle device needs to subscribe to that event. These are complementary; a Spark.subscribe("myEventName") watches for a publish("myEventName") and runs a function when it sees this matching event name. This means that even though this action is called *Publish* an event, your firmware needs to include Spark.subscribe().
 
   ```cpp
   int i = 0;
@@ -376,7 +376,7 @@ You must have firmware on your Particle device, but nothing else is necessary. B
   Spark.subscribe("the_event_prefix", theHandler, MY_DEVICES);
   ```
 
-  Complete documentation on using [Spark.subscribe() is here.](http://docs.spark.io/firmware/#spark-subscribe)
+  Complete documentation on using [Spark.subscribe() is here.](http://docs.particle.io/firmware/#spark-subscribe)
 
   ### Action fields
 
@@ -401,7 +401,7 @@ You must have firmware on your Particle device, but nothing else is necessary. B
 
   This is very similar to using a Spark.function() as a trigger, only you won't be using any values it returns. The same setup on the firmware side, and the example code above for Spark.function() as trigger, will work for this as well.
 
-  Complete documentation on using [Spark.function() is here.](http://docs.spark.io/firmware/#spark-function)
+  Complete documentation on using [Spark.function() is here.](http://docs.particle.io/firmware/#spark-function)
 
   ### Action fields
 
@@ -427,8 +427,8 @@ You must have firmware on your Particle device, but nothing else is necessary. B
 
   - I don't see my function in the list on IFTTT?
 
-  Make sure you flashed your firmware to your device with the function you've exposed, and try refreshing the IFTTT page.  You can confirm what functions are available using [Particle Dev](http://docs.spark.io/dev/) and clicking the 'Cloud variables and functions' menu or in the [Particle-CLI]( https://github.com/spark/spark-cli) by running `spark list`
+  Make sure you flashed your firmware to your device with the function you've exposed, and try refreshing the IFTTT page.  You can confirm what functions are available using [Particle Dev](http://docs.particle.io/dev/) and clicking the 'Cloud variables and functions' menu or in the [Particle-CLI]( https://github.com/spark/spark-cli) by running `spark list`
 
-  - Why can I log in on spark.io/build, but I can't log in on IFTTT?
+  - Why can I log in on build.particle.io, but I can't log in on IFTTT?
 
   Try just once more, and make sure that you're typing your username and password exactly how you entered it when creating your account.  The build site is a little more forgiving than others at the moment.

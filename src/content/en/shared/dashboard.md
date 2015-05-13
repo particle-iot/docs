@@ -43,20 +43,18 @@ There's also an icon of a terminal window. When you click on it, we give you a h
 
 Below the title is a side-scrolling bar graph. It's a visualization of the number of events from your devices over time. Each color in the bar graph represents a unique event name. Each bar is 5 seconds in duration.
 
-
+At the bottom is a real-time log of events passing through the cloud. You'll get the name, data, timestamp and the device name associated with each event as it comes in. Oh Yeah! And, if you click on the event, you can see a raw JSON view of the event.
 
 [![Raw event]({{assets}}/images/dashboard/raw-event.jpg)]({{assets}}/images/dashboard/raw-event.jpg)
-
-
-
-At the bottom is a real-time log of events passing through the cloud. You'll get the name, data, timestamp and the device name associated with each event as it comes in. Oh Yeah! And, if you click on the event, you can see a raw JSON view of the event.
 
 In this view, you'll only see events that come in while the browser window is open.
 
 
-### Devices (Coming Soon)
+### Devices
 
-The Devices view will display all your devices, their status, last messages, IDs, and manage their ownership.
+The Devices page allows you to see a list of the devices registered to your account. Here, you can see specific information about each device, including it's unique Device ID, it's name, the last time it connected to the Particle cloud, and whether or not the device is currently online.
+
+![{Devices]({{assets}}/images/devices.png)
 
 ### Data (Coming Soon)
 

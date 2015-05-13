@@ -58,7 +58,7 @@ We also have an example app [here](https://github.com/Spark/spark-setup-ios-exam
 #### Notes
 **Name change**
 Spark was re-branded as Particle. Libraries source code will be updated soon to reflect this change. 
-New cocoapod libraries will be released with new name and old ones will be depracted soon. This applies to both Cloud SDK and Device Setup library.
+New cocoapod libraries will be released with new name and old ones will be deprecated soon. This applies to both Cloud SDK and Device Setup library.
 
 ## License
 
@@ -70,7 +70,7 @@ iOS Device Setup Library
 
 The Particle Device Setup library is meant for integrating the initial setup process of Particle devices in your app.
 This library will enable you to easily invoke a standalone setup wizard UI for setting up internet-connect products
-powered by a Particle Photon/P0/P1. The setup UI can be easily customized by a customization proxy class available to the user
+powered by a Photon/P0/P1. The setup UI can be easily customized by a customization proxy class available to the user
 that includes: look & feel, colors, fonts as well as custom brand logos and instructional video for your product. There are good defaults if you don’t set these properties, but you can override the look and feel as needed to suit the rest of your app.
 
 As you may have heard, the wireless setup process for the Photon uses very different underlying technology from the Core. Where the Core used Smart Config, the Photon uses what we call “soft AP” — the Photon advertises a Wi-Fi network, you join that network from your mobile app to exchange credentials, and then the Photon connects using the Wi-Fi credentials you supplied.
@@ -94,7 +94,7 @@ SparkSetupMainController *setupController = [[SparkSetupMainController alloc] in
 [self presentViewController:setupController animated:YES completion:nil];
 ```
 
-This will invoke Particle Cloud authentication (login/signup/password recovery screens) only, 
+This will invoke Particle Cloud authentication (login/signup/password recovery screens) only 
 after user has successfully logged in or signed up, control will be returned to the calling app. 
 If an active user session already exists control will be returned immediately.
 
