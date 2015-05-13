@@ -226,9 +226,9 @@ The system switches in between the different power sources automatically, reduci
 
 **Specifications:**
  - Operating voltage: USB or External DC of 7 to 20V
- - Current consumption: 
- - Dimensions: 
- - Weight: 
+ - Current consumption: 500mA max (USB) & 1.2A max (other DC sources)
+ - Dimensions: 1" x 1.84"
+ <!-- - Weight: -->
 
 ![Power Shield Plugged]({{assets}}/images/shields/power-shield/power-shield-photon-plugged.png)
 
