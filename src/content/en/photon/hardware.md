@@ -54,7 +54,7 @@ The Photon comes in two physical forms: with headers and without. Prototyping is
 
 ### 2.1 Block Diagram
 
-<div align=center><img src="https://lh5.googleusercontent.com/-q7W5VzCMofY/VSRBXcSLbWI/AAAAAAAAAvk/algJWCwNz94/s0/photon-block-diagram.png" width=500></div>
+<div align=center><img src="https://lh5.googleusercontent.com/-q7W5VzCMofY/VSRBXcSLbWI/AAAAAAAAAvk/algJWCwNz94/s0/photon-block-diagram.png" width=600></div>
 
 ---
 
@@ -125,7 +125,7 @@ Pin D3 through D7 are JTAG interface pins.  These can be used to reprogram your 
   
 A standard 20-pin 0.1" shrouded male JTAG interface connector should be wired as follows:
 
-<div align=center><img src="https://lh3.googleusercontent.com/--4iVwHSsCIM/VTU9aVqaKMI/AAAAAAAAA1E/Lg4gamELH40/s0/photon-jtag.png" width=600></div>
+<div align=center><img src="https://lh3.googleusercontent.com/--4iVwHSsCIM/VTU9aVqaKMI/AAAAAAAAA1E/Lg4gamELH40/s0/photon-jtag.png" width=700></div>
 
 ---
 
@@ -134,7 +134,7 @@ A standard 20-pin 0.1" shrouded male JTAG interface connector should be wired as
 
 The Photon supports coexistence with Bluetooth and other external radios via the three gold pads on the top side of the PCB near pin A3.  These pads are 0.035" square, spaced 0.049" apart.  This spacing supports the possibility of tacking on a small 1.25mm - 1.27mm pitch 3-pin male header to make it somewhat easier to interface with.
 
-<div align=center><img src="https://lh5.googleusercontent.com/-jB3f8zlmvOo/VS2pJumJqvI/AAAAAAAAAyI/9SB1T1a-9Tg/s0/photon_bt_coex.png" width=600></div>
+<div align=center><img src="https://lh5.googleusercontent.com/-jB3f8zlmvOo/VS2pJumJqvI/AAAAAAAAAyI/9SB1T1a-9Tg/s0/photon_bt_coex.png" width=400></div>
 
 When two radios occupying the same frequency band are used in the same system, such as Wi-Fi and Bluetooth, a coexistence interface can be used to coordinate transmit activity, to ensure optimal performance by arbitrating conflicts between the two radios.
 
@@ -153,7 +153,7 @@ When these pads are programmed to be used as a Bluetooth coexistence interface, 
 
 ### 3.1 Pin markings
 
-<div align=left><img src="https://lh5.googleusercontent.com/-yw3NMvMly3g/VSdS9L3Z8bI/AAAAAAAAAwk/w5pJi059I_c/s0/photon_pin_markings_1400.png" width=700></div>
+<div align=center><img src="https://lh5.googleusercontent.com/-yw3NMvMly3g/VSdS9L3Z8bI/AAAAAAAAAwk/w5pJi059I_c/s0/photon_pin_markings_1400.png"></div>
 
 ---
 
@@ -178,74 +178,47 @@ When these pads are programmed to be used as a Bluetooth coexistence interface, 
 
 ### 3.3 Pin out diagrams
 
-![pinout1](https://lh5.googleusercontent.com/-2iq_vpzIbSo/VSNL_l6b_EI/AAAAAAAAAus/rU8kqMpU6KM/s0/pinout1.png)
+<div align=left><img src="https://lh5.googleusercontent.com/-2iq_vpzIbSo/VSNL_l6b_EI/AAAAAAAAAus/rU8kqMpU6KM/s0/pinout1.png"</div>
 
-![pinout2](https://lh3.googleusercontent.com/-hRBjEn99caM/VSNMUZW6BiI/AAAAAAAAAu0/bPFhTFl01Kk/s0/pinout2.png)
+<div align=left><img src="https://lh3.googleusercontent.com/-hRBjEn99caM/VSNMUZW6BiI/AAAAAAAAAu0/bPFhTFl01Kk/s0/pinout2.png"</div>
 
-![pinout3](https://lh3.googleusercontent.com/-a0qGnIQv7oA/VSNMdhLtCXI/AAAAAAAAAu8/sjM5n0okavU/s0/pinout3.png)
-
----
-
+<div align=left><img src="https://lh3.googleusercontent.com/-a0qGnIQv7oA/VSNMdhLtCXI/AAAAAAAAAu8/sjM5n0okavU/s0/pinout3.png"</div>
 
 # 4. Schematic
 
 ### 4.1 Schematic - USB
 
-![photon-sch-usb](https://lh5.googleusercontent.com/-TRtBGqF_2Is/VS1Yu39sFGI/AAAAAAAAAxU/8BmuoMvdtKI/s0/photon-sch-usb.png "photon-sch-usb.png")
+<div align=center><img src="https://lh5.googleusercontent.com/-TRtBGqF_2Is/VS1Yu39sFGI/AAAAAAAAAxU/8BmuoMvdtKI/s0/photon-sch-usb.png" width=400></div>
 
 ### 4.2 Schematic - Power
 
-![photon-sch-power](https://lh3.googleusercontent.com/-LQjAriIjIr4/VS1boW48MeI/AAAAAAAAAxg/omH1OOvvc2k/s0/photon-sch-power.png "photon-sch-power.png")
-
----
-
+<div align=center><img src="https://lh3.googleusercontent.com/-LQjAriIjIr4/VS1boW48MeI/AAAAAAAAAxg/omH1OOvvc2k/s0/photon-sch-power.png" width=600></div>
 
 ### 4.3 Schematic - User I/O
 
-![photon-sch-user-io](https://lh5.googleusercontent.com/-cE0wE8pu_FM/VS1bvRlmJRI/AAAAAAAAAxo/zZWY6LuwNR4/s0/photon-sch-user-io.png "photon-sch-user-io.png")
-
----
-
+<div align=center><img src="https://lh5.googleusercontent.com/-cE0wE8pu_FM/VS1bvRlmJRI/AAAAAAAAAxo/zZWY6LuwNR4/s0/photon-sch-user-io.png" width=600></div>
 
 ### 4.4 Schematic - RF
 
-![photon-sch-rf](https://lh3.googleusercontent.com/-7L3_CXzCczQ/VS1b2P0NwSI/AAAAAAAAAxw/CFjdo9brUUw/s0/photon-sch-rf.png "photon-sch-rf.png")
-
----
-
+<div align=center><img src="https://lh3.googleusercontent.com/-7L3_CXzCczQ/VS1b2P0NwSI/AAAAAAAAAxw/CFjdo9brUUw/s0/photon-sch-rf.png" width=500></div>
 
 ### 4.5 Schematic - PØ Wi-Fi Module
 
-![photon-sch-p0-wifi-module](https://lh5.googleusercontent.com/-I2eLMMMKtyA/VS1b-V32ZII/AAAAAAAAAx4/OkB_G-8snpU/s0/photon-sch-p0-wifi-module.png "photon-sch-p0-wifi-module.png")
-
----
-
+<div align=center><img src="https://lh5.googleusercontent.com/-I2eLMMMKtyA/VS1b-V32ZII/AAAAAAAAAx4/OkB_G-8snpU/s0/photon-sch-p0-wifi-module.png" width=500></div>
 
 # 5. Layout
 
 ###5.1 Photon v1.0.0 Top Layer (GTL)
 <div align=center><img src="https://lh4.googleusercontent.com/-miOPKqwGEhY/VS3R4sqsNqI/AAAAAAAAAyc/7LkhRbmgU28/s0/photon_v100_pcb_top.png" width=200></div>
 
----
-
-
 ###5.2 Photon v1.0.0 GND Layer (G2L)
 <div align=center><img src="https://lh3.googleusercontent.com/-C9fEDtH6t7U/VS3YcHMR3bI/AAAAAAAAAyw/FBW7FmsXagA/s0/photon_v100_pcb_gnd.png" width=200></div>
-
----
-
 
 ###5.1 Photon v1.0.0 3V3 Layer (G15L)
 <div align=center><img src="https://lh6.googleusercontent.com/-yz0W5MTvoKY/VS3YUGQIgPI/AAAAAAAAAyo/o-fsCEr4muI/s0/photon_v100_pcb_3v3.png" width=200></div>
 
----
-
-
 ###5.1 Photon v1.0.0 Bottom Layer (GBL)
 <div align=center><img src="https://lh5.googleusercontent.com/-tdisZ8MhFTM/VS6qtMcyfZI/AAAAAAAAAzM/pxqLZhIcKuw/s0/photon_v100_pcb_bot.png" width=200></div>
-
----
-
 
 # 6. Technical specification
 
@@ -259,9 +232,6 @@ When these pads are programmed to be used as a Bluetooth coexistence interface, 
 | Storage Temperature | T<sub>stg</sub> | -40 |  | +85 | °C |
 | Enable Voltage | V<sub>EN</sub> |  |  | V<sub>IN</sub>+0.6 | V |
 | ESD Susceptibility HBM (Human Body Mode) | V<sub>ESD</sub> |  |  | 2 | kV |
-
----
-
 
 ### 6.2 Recommended operating conditions <i class="icon-check"></i>
 
@@ -283,10 +253,8 @@ When these pads are programmed to be used as a Bluetooth coexistence interface, 
 **Notes:**
 
 <sup>[1]</sup> These numbers represent the extreme range of short peak current bursts when transmitting and receiving in 802.11b/g/n modes at different power levels.  Average TX current consumption in will be 80-100mA.
+
 <sup>[2]</sup> These are very short average current bursts when transmitting and receiving.  On average if minimizing frequency of TX/RX events, current consumption in powersave mode will be 18mA
-
----
-
 
 ### 6.3 Wi-Fi Specifications <i class="icon-signal"></i>
 
@@ -325,7 +293,7 @@ These specifications are based on the STM32F205RG datasheet, with reference to P
 | Standard I/O Schmitt trigger voltage hysteresis<sup>[2]</sup> | V<sub>hys</sub> | | 200 | | | mV |
 | I/O FT Schmitt trigger voltage hysteresis<sup>[2]</sup> | V<sub>hys</sub> | | 5% V<sub>3V3</sub><sup>[3]</sup> | | | mV |
 | Input leakage current<sup>[4]</sup> | I<sub>lkg</sub> | GND ≤ V<sub>io</sub> ≤ V<sub>3V3</sub> GPIOs | | | ±1 | µA |
-| Input leakage current<sup>[4]</sup> | I<sub>lkg</sub> | R<sub>PU</sub> | V<sub>io</sub> = 5V, I/O FT | | | 3 | µA |
+| Input leakage current<sup>[4]</sup> | I<sub>lkg</sub> | R<sub>PU</sub> | V<sub>io</sub> = 5V, I/O FT | | 3 | µA |
 | Weak pull-up equivalent resistor<sup>[5]</sup> | R<sub>PU</sub>| V<sub>io</sub> = GND | 30 | 40 | 50 | k Ω |
 | Weak pull-down equivalent resistor<sup>[5]</sup> | R<sub>PD</sub>| V<sub>io</sub> = V<sub>3V3</sub> | 30 | 40 | 50 | k Ω |
 | I/O pin capacitance | C<sub>IO</sub> | | | 5 | | pF |
@@ -333,9 +301,13 @@ These specifications are based on the STM32F205RG datasheet, with reference to P
 **Notes:**
 
 <sub>[1]</sub> FT = Five-volt tolerant. In order to sustain a voltage higher than V<sub>3V3</sub>+0.3 the internal pull-up/pull-down resistors must be disabled.
+
 <sub>[2]</sub> Hysteresis voltage between Schmitt trigger switching levels.  Based on characterization, not tested in production.
+
 <sub>[3]</sub> With a minimum of 100mV.
+
 <sub>[4]</sub> Leakage could be higher than max. if negative current is injected on adjacent pins.
+
 <sub>[5]</sub> Pull-up and pull-down resistors are designed with a true resistance in series with switchable PMOS/NMOS. This PMOS/NMOS contribution to the series resistance is minimum (~10% order).
 
 # 7. Mechanical specifications
@@ -361,36 +333,25 @@ Description | MFG | MFG Part Number
 
 You may also search for other types, such as reverse mounted (bottom side SMT) female headers, low profile types, machine pin, etc..
 
----
-
-
 ### 7.3 Recommended pcb land pattern (Photon with headers)
 
 The Photon (with headers) can be mounted with 0.1" 12-pin female header receptacles using the following PCB land pattern:
 
-<div align=left><img src="https://lh3.googleusercontent.com/-19uJEiJdQew/VTcXbIy2y4I/AAAAAAAAA18/0gpYs_BtsC4/s0/photon_land_pattern_with_headers.png" width=400></div>
+<div align=left><img src="https://lh3.googleusercontent.com/-19uJEiJdQew/VTcXbIy2y4I/AAAAAAAAA18/0gpYs_BtsC4/s0/photon_land_pattern_with_headers.png" width=300></div>
 
 This land pattern can be found in the [Spark.lbr Eagle library](https://github.com/spark/photon/blob/master/libraries/Spark.lbr), as a Device named `PHOTON`.  **Note: Clone or Download the complete repository as a ZIP file to avoid corrupted data in Eagle files.**
-
----
-
 
 ### 7.4 Recommended pcb land pattern (Photon without headers)
 
 The Photon (without headers) can be surface mounted directly in an end application PCB using the following PCB land pattern:
 
-<div align=left><img src="https://lh3.googleusercontent.com/-7JOlKRosWHU/VT2bI7T1vTI/AAAAAAAAA2Q/TilveIALeyI/s0/photon_land_pattern_without_headers.png" width=800></div>
-
+<div align=left><img src="https://lh3.googleusercontent.com/-7JOlKRosWHU/VT2bI7T1vTI/AAAAAAAAA2Q/TilveIALeyI/s0/photon_land_pattern_without_headers.png" width=600></div>
 
 This land pattern can be found in the [Spark.lbr Eagle library](https://github.com/spark/photon/blob/master/libraries/Spark.lbr), as a Device named `PHOTON_SMD`.  **Note: Clone or Download the complete repository as a ZIP file to avoid corrupted data in Eagle files.**
 
----
-
-
 # 8. Recommended solder reflow profile
 
-<div align=center><img src="https://lh3.googleusercontent.com/-iqdI9CkFiFY/VTaqZesp0zI/AAAAAAAAA1g/Wja3JvzIHoE/s0/photon-reflow-profile.png" width=800></div>
-
+<div align=left><img src="https://lh3.googleusercontent.com/-iqdI9CkFiFY/VTaqZesp0zI/AAAAAAAAA1g/Wja3JvzIHoE/s0/photon-reflow-profile.png" width=600></div>
 
 | Phase | Temperatures and Rates |
 | -:|:- |
@@ -399,10 +360,6 @@ This land pattern can be found in the [Spark.lbr Eagle library](https://github.c
 | C-D. | 200~245°C, Heating rate: < 3°C/s |
 | D.   | Peak temp.: 235~245°C, Time above 220°C: 40~90 s |
 | D-E. | 245~220°C, Cooling rate: < 1°C/s |
-
-
----
-
 
 # 9. Bill of Materials
 
@@ -435,9 +392,6 @@ This land pattern can be found in the [Spark.lbr Eagle library](https://github.c
 |4|RESISTOR|1k 5%|0402|R1,R2,R3,R7|Fenghua|RC-02W102JT|
 |2|SWITCH|Button 160gf|3.6mm x 3.1mm|SETUP,RESET|Haoyu|TS-1185A-C|
 
----
-
-
 #10. Ordering information
 
 Photons are available from [store.particle.io](https://store.particle.io/) in single quantities with and without headers, and also included in different maker kits.
@@ -446,14 +400,10 @@ Photons are available from [store.particle.io](https://store.particle.io/) in si
 
 <div align=left><img src="https://lh3.googleusercontent.com/-aDUV82SdozM/VVJlGZ9OP_I/AAAAAAAAA-o/HWmFqfmrVk8/s0/lead-free-fcc-ce.png" height=100></div>
 
-
 -	RoHS
 -	CE
 -	FCC ID: 2AEMI-PHOTON
 -	IC: 20127-PHOTON
-
----
-
 
 # 12. Product handling
 
@@ -465,23 +415,15 @@ The Photon comes in two primary styles of packaging: Matchbox and Kit Box.  The 
 
 Photons without headers are also available in JEDEC style trays for automated pick and place machines.  Request more details from us on this in the Contact section below.
 
----
-
-
 ### 12.2 Moisture sensitivity levels
 
 <i class="icon-attention"></i> The Moisture Sensitivity Level (MSL) relates to the packaging and handling precautions required. The PØ module on the Photons dominate the MSL requirements and are rated level 3. In general, this precaution applies for Photons without headers.  If reflowing a Photon directly onto an application PCB, increased moisture levels prior to reflow can damage sensitive electronics on the Photon.  A bake process to reduce moisture may be required. <i class="icon-attention"></i>
-
-
 
 <i class="icon-right-hand"></i>For more information regarding moisture sensitivity levels, labeling, storage and drying see the MSL standard see IPC/JEDEC J-STD-020 (can be downloaded from [www.jedec.org](www.jedec.org)).
 
 ### 12.3 ESD Precautions
 
 <i class="icon-attention"></i> The photon contains highly sensitive electronic circuitry and is an Electrostatic Sensitive Device (ESD). Handling a photon without proper ESD protection may destroy or damage it permanently.  Proper ESD handling and packaging procedures must be applied throughout the processing, handling and operation of any application that incorporates photons.  ESD precautions should be implemented on the application board where the photon is mounted. Failure to observe these precautions can result in severe damage to the photon! <i class="icon-attention"></i>
-
----
-
 
 # 13. Default settings
 
@@ -490,9 +432,6 @@ The Photon comes preprogrammed with a bootloader and a user application called T
 The bootloader allows you to easily update the user application via several different methods, USB, OTA, Serial Y-Modem, and also internally via the Factory Reset procedure.  All of these methods have multiple tools associated with them as well.
 
 You may use the online Web IDE [Particle Build](https://www.particle.io/build) to code, compile and flash a user application OTA (Over The Air).  [Particle Dev](https://www.particle.io/dev) is a local tool that uses the Cloud to compile and flash OTA as well.  There is also a package `Spark DFU-UTIL` for Particle Dev that allows for Cloud compiling and local flashing via DFU over USB.  This requires `dfu-util` to be installed on your system.  'dfu-util' can also be used with [Particle CLI](https://github.com/spark/spark-cli) for Cloud compiling and local flashing via the command line.  Finally the lowest level of development is available via the [GNU GCC toolchain for ARM](https://github.com/spark/firmware), which offers local compile and flash via dfu-util.  This gives the user complete control of all source code and flashing methods.  This is an extensive list, however not exhaustive.
-
----
-
 
 Glossary
 ----------
@@ -536,8 +475,6 @@ RTC
 OTA
 :	Over The Air; describing how firmware is transferred to the device.
 
----
-
 
 Revision history
 -----------------
@@ -552,18 +489,18 @@ Revision history
 | v007 | 28-Apr-2015 | BW | Added Layout, Updated analog pins, Land patterns, Packaging, Mating Connectors |
 | v008 | 1-May-2015 | BW | Updated BT CO-EX, PWM info, Qualifications |
 
-
----
-
 Contact
 -------
 
 **Web**
+
 https://www.particle.io
 
 **Community Forums**
+
 https://community.particle.io
 
 **Email**
+
 <mailto:hello@particle.io>
 
