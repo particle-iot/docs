@@ -12,7 +12,7 @@ The Tinker app
 
 ![Tinker selection]({{assets}}/images/tinker.png)
 
-The Tinker section of the Spark mobile app makes it very easy to start playing with your Spark Core without writing any code. It's great for early development, and often it will do everything you need to get your project off of the ground.
+The Tinker section of the Particle mobile app makes it very easy to start playing with your Particle device without writing any code. It's great for early development, and often it will do everything you need to get your project off of the ground.
 
 The app consists of 16 pins in vertical rows - 8 analog pins on the left, 8 digital pins on the right. These pins represent the 16 GPIO (General Purpose Input and Output) pins on the Spark Core, and are organized the same way.
 
@@ -28,12 +28,12 @@ To change the function of the pin, simply tap and hold on the pin, and the funct
 The Tinker firmware
 ---
 
-The Tinker firmware is the default application program stored in the Spark Core upon its commissioning from the factory assembly line. You can always get back to it by putting the Core in the [factory reset mode](#buttons), or by re-flashing your Core with Tinker in the Spark app.
+The Tinker firmware is the default application program stored in the Particle device upon its commissioning from the factory assembly line. You can always get back to it by putting the device in the [factory reset mode](#buttons), or by re-flashing your device with Tinker in the Particle app.
 
 To reflash Tinker from within the app:
 
-- **iOS Users**: Tap the list button at the top left. Then tap the arrow next to your desired Core and tap the "Re-flash Tinker" button in the pop out menu.
-- **Android Users**: With your desired Core selected, tap the options button in the upper right and tap the "Reflash Tinker" option in the drop down menu.
+- **iOS Users**: Tap the list button at the top left. Then tap the arrow next to your desired device and tap the "Re-flash Tinker" button in the pop out menu.
+- **Android Users**: With your desired device selected, tap the options button in the upper right and tap the "Reflash Tinker" option in the drop down menu.
 
 The Tinker app is a great example of how to build a very powerful application with not all that much code. You can have a look at the latest release [here.](https://github.com/spark/core-firmware/blob/master/src/application.cpp)
 
@@ -42,7 +42,7 @@ Using Tinker with Your Code
 
 I know what you're thinking: this is amazing, but I really want to use Tinker *while* my code is running so I can see what's happening! Now you can.
 
-Combine your code with this framework, flash it to your Core, and Tinker away.
+Combine your code with this framework, flash it to your device, and Tinker away.
 
 ```cpp
 int tinkerDigitalRead(String pin);
@@ -128,7 +128,7 @@ int tinkerAnalogWrite(String command){
 The Tinker API
 ---
 
-When the Tinker firmware is installed on your Spark Core, it will respond to certain API requests from your mobile app, which mirror the four basic GPIO functions (digitalWrite, analogWrite, digitalRead, analogRead). These API requests can also be made from another application, so you can build your own web or mobile app around the Tinker firmware.
+When the Tinker firmware is installed on your Particle device, it will respond to certain API requests from your mobile app, which mirror the four basic GPIO functions (digitalWrite, analogWrite, digitalRead, analogRead). These API requests can also be made from another application, so you can build your own web or mobile app around the Tinker firmware.
 
 ### digitalWrite
 
