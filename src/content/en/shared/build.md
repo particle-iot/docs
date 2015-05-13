@@ -4,7 +4,7 @@ title: Web IDE (Build)
 order: 5
 ---
 
-Flash Apps with Spark Build
+Flash Apps with Particle Build
 ===
 
 Logging In
@@ -32,8 +32,8 @@ Particle Build is an Integrated Development Environment, or IDE; that means that
 
 Particle Build starts with the navigation bar on the left. On the top, there are three buttons, which serve important functions:
 
-- **Flash**: Flashes the current code to the Core. This initiates an *over-the-air firmware update* and loads the new software onto your Core.
-- **Verify**: This compiles your code without actually flashing it to the Core; if there are any errors in your code, they will be shown in the debug console on the bottom of the screen.
+- **Flash**: Flashes the current code to the device. This initiates an *over-the-air firmware update* and loads the new software onto your device.
+- **Verify**: This compiles your code without actually flashing it to the device; if there are any errors in your code, they will be shown in the debug console on the bottom of the screen.
 - **Save**: Saves any changes you've made to your code.
 
 
@@ -42,7 +42,7 @@ At the bottom, there are four more buttons to navigate through the IDE:
 - **Code**: Shows a list of your firmware applications and lets you select which one to edit/flash.
 - **Library**: Explore libraries submitted by other users, and develop your own.
 - **Docs**: Brings you to the documentation for Particle.
-- **Cores**: Shows a list of your Cores, so you can choose which to flash, and get more information on each Core.
+- **Devices**: Shows a list of your devices, so you can choose which to flash, and get more information on each device.
 - **Settings**: Change your password, log out, or get your access token for API calls.
 
 Keyboard Shortcuts
@@ -53,7 +53,7 @@ Missing your keyboard shortcuts? [This cheatsheet will help.](https://github.com
 Particle Apps and Libraries
 ---
 
-![Spark Build]({{assets}}/images/ide-apps.png)
+![Particle Build]({{assets}}/images/ide-apps.png)
 
 The heart of Particle Build is the "Particle Apps" section, which displays the name of the current app in your editor, as well as a list of your other applications and community-supported example apps.
 
@@ -96,14 +96,14 @@ void loop() {
     delay(1000);
 }
 ```
-![Spark Build]({{assets}}/images/ide-devices.png)
+![Particle Build]({{assets}}/images/ide-devices.png)
 
 - **Select Your Device**: The next step is to make sure that you've selected which of your devices to flash code to.  Click on the "Devices" icon at the bottom left side of the navigation pane, and click on the star next to the device you'd like to update.  Once you've selected a device, the star associated with it will turn yellow. (If you only have one device, there is no need to select it, you can continue on to the next step).
 
 
 - **Flash**: Click the "Flash" button, and your code will be sent wirelessly to your device.  If the flash was successful, the LED on your device will begin flashing magenta.
 
-![Spark Build]({{assets}}/images/ide-examples.png)
+![Particle Build]({{assets}}/images/ide-examples.png)
 
 - **Fork**: Wish the timing of that LED flash was a little bit faster?  Try clicking on the "Fork This Example" button after selecting the "Blink An LED" example application.  You've now got a personal copy of that application that you can modify, save, and flash to all of your devices.
 
@@ -116,13 +116,13 @@ Account Information
 
 There are a couple of other neat bells and whistles in Particle Build.  The Particle Build IDE the best tool for viewing important information about your device, managing devices associated with your Particle account, and "unclaiming" them so they can be transferred to your buddy.
 
-![Spark Build]({{assets}}/images/ide-account.png)
+![Particle Build]({{assets}}/images/ide-account.png)
 
 - **Device ID**: You can view your device's ID by clicking on the "Device" icon at the bottom of the navigation pane, then clicking the dropdown arrow next to the device of interest.
 
 - **Unclaim**: You can "Unclaim" a device by pressing the "Remove Device" button that is revealed by clicking the dropdown arrow.  Once a device has been unclaimed, it is available to be reassociated with any Particle users' account.
 
-![Spark Build]({{assets}}/images/ide-settings.png)
+![Particle Build]({{assets}}/images/ide-settings.png)
 
 - **API Key**: You can find your most recent API Key listed under the "Settings" tab in your account.  You can press the "Reset Token" button to assign a new API Key to your account.  *Note* that pressing this button will require you to update any hard-coded API Credentials in your Particle-powered projects!
 
@@ -168,6 +168,6 @@ An *embedded system* like the Core or Photon doesn't have an Operating System li
 
 *Firmware* is so-called because it's harder than software and softer than hardware. Hardware is fixed during manufacturing, and doesn't change. Software can be updated anytime, so it's very flexible. Firmware is somewhere in between; hardware companies do issue firmware updates, but they tend to be very infrequent, because upgrading firmware can be difficult.
 
-In our case, because the Core and Photons are connected to the internet, updating firmware is quite trivial; we send it over the network, and we have put in place safeguards to keep you from "bricking" your device.
+In our case, because the Cores and Photons are connected to the internet, updating firmware is quite trivial; we send it over the network, and we have put in place safeguards to keep you from "bricking" your device.
 
 When you flash code onto your device, you are doing an *over-the-air firmware update*. This firmware update overwrites almost all of the software on the device; the only piece that is untouched is the bootloader, which manages the process of loading new firmware and ensures you can always update the firmware over USB or through a factory reset.
