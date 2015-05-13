@@ -5,10 +5,8 @@ order: 10
 columns: 2
 ---
 
-Photon Datasheet (v008)
+Photon Datasheet
 ===
-
-Download a PDF copy of the [Photon Datasheet](https://github.com/spark/photon-internal/raw/master/datasheets/photon/photon-datasheet-v007.pdf)
 
 <div align=center><img src="https://lh5.googleusercontent.com/-IsU3dwQN57Q/VSdSqLfZDgI/AAAAAAAAAwc/XoaeHpk8kaE/s0/photon_vector2_600.png" width=200></div>
 
