@@ -9,11 +9,12 @@ Flash Apps with Spark Build
 
 Logging In
 ---
+
+![Particle Build]({{assets}}/images/ide-new-account.png)
+
 When you're ready to reprogram your device, head over to our IDE:
 
 [Particle Build >](https://www.particle.io/build)
-
-![Particle Build]({{assets}}/images/ide-new-account.png)
 
 Creating an account is a simple one-step process.  When presented with the login screen, simply enter your email address (careful!), and desired account password.  Press the big friendly "Sign Up" button, and you'll reach the Particle Build home page.
 
