@@ -245,16 +245,23 @@ The shield is setup so that when powered from the USB port as well as from a DC 
 
 # Internet Button
 
+The Internet Button is not only an easy way to get started on the Internet of Things, it's also a clean and simple way to start building your own prototypes. Quickly start playing with LEDs, multiple buttons, an accelerometer and more without any wires or soldering.
+
 ![Internet Button]({{assets}}/images/shields/internet-button/button.png)
 
 ![Internet Button Description]({{assets}}/images/shields/internet-button/button-description.png)
 
 **Specifications:**
- - Operating voltage: USB or External DC of 3.6 to 6VDC
+- Operating voltage: USB or External DC of 3.6 to 6VDC
+- Dimensions: 2.6" x 2.6"
 <!-- - Current consumption: -->
- - Dimensions: 2.6" x 2.6"
-
- <!-- - Weight: -->
+<!-- - Weight: -->
+- 11 individually controllable RGB LEDs
+- ADXL362 3-axis accelerometer
+- 4 tactile buttons for D-pad style interactions
+- Female socket for connection to a Particle device
+- Additional female headers for adding extra actuators and sensors
+- Backward compatible with the Core
 
 ![Internet Button Dimensions]({{assets}}/images/shields/internet-button/button-dimensions.png)
 
