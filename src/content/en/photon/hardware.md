@@ -10,8 +10,7 @@ Photon Datasheet (v008)
 
 Download a PDF copy of the [Photon Datasheet](https://github.com/spark/photon-internal/raw/master/datasheets/photon/photon-datasheet-v007.pdf)
 
-<br><div align=center><img src="https://lh5.googleusercontent.com/-IsU3dwQN57Q/VSdSqLfZDgI/AAAAAAAAAwc/XoaeHpk8kaE/s0/photon_vector2_600.png" width=200></div>
-<br>
+<div align=center><img src="https://lh5.googleusercontent.com/-IsU3dwQN57Q/VSdSqLfZDgI/AAAAAAAAAwc/XoaeHpk8kaE/s0/photon_vector2_600.png" width=200></div>
 
 ```c++
 void setup() {
@@ -136,7 +135,6 @@ A standard 20-pin 0.1" shrouded male JTAG interface connector should be wired as
 The Photon supports coexistence with Bluetooth and other external radios via the three gold pads on the top side of the PCB near pin A3.  These pads are 0.035" square, spaced 0.049" apart.  This spacing supports the possibility of tacking on a small 1.25mm - 1.27mm pitch 3-pin male header to make it somewhat easier to interface with.
 
 <div align=center><img src="https://lh5.googleusercontent.com/-jB3f8zlmvOo/VS2pJumJqvI/AAAAAAAAAyI/9SB1T1a-9Tg/s0/photon_bt_coex.png" width=600></div>
-<br>
 
 When two radios occupying the same frequency band are used in the same system, such as Wi-Fi and Bluetooth, a coexistence interface can be used to coordinate transmit activity, to ensure optimal performance by arbitrating conflicts between the two radios.
 
@@ -145,7 +143,7 @@ When two radios occupying the same frequency band are used in the same system, s
 | 1 | BTCX_RF_ACTIVE | 9 | I | Signals Bluetooth is active |
 | 2 | BTCX_STATUS | 10 | I | Signals Bluetooth priority status and TX/RX direction |
 | 3 | BTCX_TXCONF | 11 | O | Output giving Bluetooth permission to TX |
-￼
+
 When these pads are programmed to be used as a Bluetooth coexistence interface, they're set as high impedance on power up and reset. Alternatively, they can be individually programmed to be used as GPIOs through software control. They can also be programmed to have an internal pull-up or pull-down resistor.
 
 ---
@@ -338,10 +336,6 @@ These specifications are based on the STM32F205RG datasheet, with reference to P
 <sub>[2]</sub> Hysteresis voltage between Schmitt trigger switching levels.  Based on characterization, not tested in production.
 <sub>[3]</sub> With a minimum of 100mV.
 <sub>[4]</sub> Leakage could be higher than max. if negative current is injected on adjacent pins.
-
----
-
-<br>
 <sub>[5]</sub> Pull-up and pull-down resistors are designed with a true resistance in series with switchable PMOS/NMOS. This PMOS/NMOS contribution to the series resistance is minimum (~10% order).
 
 # 7. Mechanical specifications
@@ -375,7 +369,6 @@ You may also search for other types, such as reverse mounted (bottom side SMT) f
 The Photon (with headers) can be mounted with 0.1" 12-pin female header receptacles using the following PCB land pattern:
 
 <div align=left><img src="https://lh3.googleusercontent.com/-19uJEiJdQew/VTcXbIy2y4I/AAAAAAAAA18/0gpYs_BtsC4/s0/photon_land_pattern_with_headers.png" width=400></div>
-<br>
 
 This land pattern can be found in the [Spark.lbr Eagle library](https://github.com/spark/photon/blob/master/libraries/Spark.lbr), as a Device named `PHOTON`.  **Note: Clone or Download the complete repository as a ZIP file to avoid corrupted data in Eagle files.**
 
@@ -387,7 +380,7 @@ This land pattern can be found in the [Spark.lbr Eagle library](https://github.c
 The Photon (without headers) can be surface mounted directly in an end application PCB using the following PCB land pattern:
 
 <div align=left><img src="https://lh3.googleusercontent.com/-7JOlKRosWHU/VT2bI7T1vTI/AAAAAAAAA2Q/TilveIALeyI/s0/photon_land_pattern_without_headers.png" width=800></div>
-<br>
+
 
 This land pattern can be found in the [Spark.lbr Eagle library](https://github.com/spark/photon/blob/master/libraries/Spark.lbr), as a Device named `PHOTON_SMD`.  **Note: Clone or Download the complete repository as a ZIP file to avoid corrupted data in Eagle files.**
 
@@ -397,7 +390,7 @@ This land pattern can be found in the [Spark.lbr Eagle library](https://github.c
 # 8. Recommended solder reflow profile
 
 <div align=center><img src="https://lh3.googleusercontent.com/-iqdI9CkFiFY/VTaqZesp0zI/AAAAAAAAA1g/Wja3JvzIHoE/s0/photon-reflow-profile.png" width=800></div>
-<br>
+
 
 | Phase | Temperatures and Rates |
 | -:|:- |
@@ -452,7 +445,7 @@ Photons are available from [store.particle.io](https://store.particle.io/) in si
 #11. Qualification and approvals
 
 <div align=left><img src="https://lh3.googleusercontent.com/-aDUV82SdozM/VVJlGZ9OP_I/AAAAAAAAA-o/HWmFqfmrVk8/s0/lead-free-fcc-ce.png" height=100></div>
-<br>
+
 
 -	RoHS
 -	CE
