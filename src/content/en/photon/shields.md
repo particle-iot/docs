@@ -257,3 +257,226 @@ The shield is setup so that when powered from the USB port as well as from a DC 
  <!-- - Weight: -->
 
 ![Internet Button Dimensions]({{assets}}/images/shields/internet-button/button-dimensions.png)
+
+# Photon Maker Kit Contents
+
+### 1. Ceramic Capacitors (10 each)
+
+![Ceramic Capacitors]({{assets}}/images/mk-ceramic-capacitor-10nF.bmp)
+
+These are standard [ceramic capacitors.](http://en.wikipedia.org/wiki/Ceramic_capacitor) They are widely used in analog circuits as bypass/ decoupling capacitors, in timers, filters, etc. The kit comes with:
+
+- 10nF (0.01uF) - Number code: 103
+- 100nF (0.1uF) - Number code: 104
+
+*Note:* These are non-polar capacitors which means they can be oriented both ways.
+
+### 2. Electrolytic Capacitor 100uF (5)
+
+![Electrolytic Capacitors]({{assets}}/images/mk-electrolytic-capacitor.bmp)
+
+[Electrolytic capacitors](http://en.wikipedia.org/wiki/Electrolytic_capacitor) offer larger values and are polar. These capacitors are ideal for decoupling power supplies, as transient suppressors, and in timing circuits.
+
+*Note:* These are polar capacitors. The longer lead denotes positive while the shorter one denotes negative. These are also know to "pop" when subjected to voltages higher than their ratings.
+
+### 3. Headers
+
+![Headers]({{assets}}/images/mk-header-male.bmp)
+
+These are standard 0.1" pitch headers that can be cut to size. Very handy when building circuits on breadboard or PCBs alike.
+
+- 12-Pin Female Headers (5)
+- 40-Pin Male Breakaway Headers (2)
+
+### 4. NPN Transistor (1)
+
+![NPN Transistor]({{assets}}/images/mk-npn-transistor.bmp)
+
+S9013 is a general purpose small signal NPN [transistor](http://en.wikipedia.org/wiki/Transistor) rated at 40V, 500mA.
+
+You can use this transistor to switch small loads like relays, mini motors, buzzers, etc.
+
+[Datasheet >](http://www.fairchildsemi.com/ds/SS/SS9013.pdf)
+
+### 5. LEDs
+
+![LEDs]({{assets}}/images/mk-led-3mm.bmp)
+
+These are general purpose 3mm LEDs. You can never have enough of them! Use a resistor in series when hooking them up to the Spark Core. ( 220 ohms to 1K ohms)
+
+- Red (5)
+- Green (5)
+
+*Note:* The longer lead is positive (anode) while the shorter one is negative (cathode).
+
+### 6. RGB LED (1)
+
+![RGB LED]({{assets}}/images/mk-rgb-led.bmp)
+
+So, Red and Green aren't enough for you? Want to make bazzillion different colors? Then this RGB LED will do it for ya. You can mix colors by connecting each pin to an analogWrite compatible pin on the Core and feed them different values. Let the disco party begin!
+
+This LED has four pins, one for each color and a common anode (+) pin.
+
+[Datasheet >]({{assets}}/datasheets/makerkit/rgb-led.pdf)
+
+### 7. Diode (6)
+
+![Diode]({{assets}}/images/mk-diode.bmp)
+
+[1N4004](http://en.wikipedia.org/wiki/1N4004) is a general purpose diode rated at 400V, 1000mA with a forward voltage drop of 1.1V. Excellent as a [fly-back diode](http://en.wikipedia.org/wiki/Flyback_diode) or as a general rectifying diode.
+
+[Datasheet >](http://www.diodes.com/datasheets/ds28002.pdf)
+
+### 8. Micro Servo (1)
+
+![RC Servo]({{assets}}/images/mk-micro-rc-servo.bmp)
+
+Emax ES08A is a mini RC servo motor.
+
+- Operating Voltage: 4.8 to 6.0VDC
+- Stall Torque: 1.8Kg/cm
+- Speed: 0.10sec/degree at no load
+
+[Datasheet >](http://www.emaxmodel.com/views.asp?hw_id=6)
+
+Wiring:
+- Yellow - Signal (D0, D1, A0, A1, A4, A5, A6, A7)
+- Orange - +5V (VIN)
+- Brown  - Ground (GND)
+
+Note: The Ground pin may vary as Brown or Black, +5V pin may vary as Orange or Red and Signal pin may vary as Yellow or White and sometimes Orange if there is already a Red and Black wire.
+
+### 9. Deluxe Jumper Wire Pack (1)
+
+![Jumper Cables]({{assets}}/images/mk-jumper-cables.bmp)
+
+Multi-colored and stripped. You can never have enough of these either.
+
+### 10. USB Micro B Cable (1)
+A custom Spark USB cable for you Core! We were really excited to have our logo printed on them.
+
+### 11. Pancake Vibration Motor (1)
+
+![Vibration Motor]({{assets}}/images/mk-vibration-motor.bmp)
+
+Wanna give your next Spark Core project a tactile feedback? This vibration motor serves the purpose nicely. Use the NPN transistor to switch it.
+
+[Datasheet >]({{assets}}/datasheets/makerkit/vibration-motor.pdf)
+
+### 12. Piezo Buzzer (1)
+
+![Buzzer]({{assets}}/images/mk-buzzer.bmp)
+
+Add an audible feedback to your project with this buzzer. The longer lead is positive and the shorter is negative. You will need a transistor to drive it.
+
+*Note:* The sound gets annoying after a while. Use it sparingly!
+
+- Operating Voltage: 4.0 to 7.0 V DC
+- Oscillation Frequency: 2.3KHz
+- Current: 30mA
+- Sound Pressure: 85dB
+
+[Datasheet >]({{assets}}/datasheets/makerkit/buzzer.pdf)
+
+### 13. Mini Pushbuttons (3)
+
+![Push Buttons]({{assets}}/images/mk-mini-pushbutton.bmp)
+
+These are nifty little switches that plug nicely into a breadboard or a proto-board. They are normally-open type and are rated at 12V, 50mA.
+
+### 14. Photo Resistors (2)
+
+![LDR]({{assets}}/images/mk-ldr.bmp)
+
+A photo resistor is a light dependent resistor whose resistance decreases with the increase in the intensity of light striking it. You can use it to detect the ambient light in the surrounding, detect shadows or use it as a part of a burglar alarm system.
+
+[Datasheet >]({{assets}}/datasheets/makerkit/photoresistor.pdf)
+
+### 15. Resistors
+
+![Resistors]({{assets}}/images/mk-1k-resistor.bmp)
+
+There are three different value resistor in this kit. All of them are rated at 5%, 1/4 Watt.
+
+- 330-Ohm (10)
+- 1K-Ohm (10)
+- 10K-Ohm (10)
+
+You can use this [online guide](http://www.digikey.com/en/resources/conversion-calculators/conversion-calculator-resistor-color-code-4-band) to help identify which resistor is which value.
+
+### 16. Proto-board (1)
+
+![PCB]({{assets}}/images/mk-pcb.bmp)
+
+This is a 7" x 9" general purpose dot-matrix prototyping PCB.
+
+### IR LED (1)
+Everlight IR333-A
+
+### Serial OLED LCD,0.96"(1)
+
+### Flex antenna (1)
+
+### Male to Female Jmper Wires (10)
+
+### Battey holder - 4xAA (1)
+
+### SPDT Switch (2)
+
+### Temperature Sensor (1)
+DS18B20+
+
+### Temperature Sensor - Sealed (1)
+DS18B20+
+
+### SPDT Relay (1)
+
+### PIR sensor (1)
+
+### Gas sensor - Carbon Monoxide (1)
+
+### 10K Rotary Potentiometer (1)
+
+### Mini Breadboard (1)
+
+### Particle Photon with Headers (1)
+
+
+
+<!--
+Ceramic Capacitor - 10nF
+Ceramic Capacitors 100nF
+Electrolytic Capacitors 100uF
+40-Pin Male Breakaway Headers
+12-Pin Female Headers
+Basic LED - Red
+Basic LED - Green
+RGB LEDs
+Diode
+IR LED
+Micro Servo
+Deluxe Jumper Wire Pack
+Serial OLED LCD,0.96"
+USB Micro B Cable
+Flex antenna
+Male to Female Jmper Wires
+Battey holder (4xAA, 2x2 with switch)
+Piezo Buzzer
+Mini Pushbuttons
+SPDT Switch
+Temperature Sensor
+Temperature Sensor (covered)
+SPDT Relay
+PIR sensor
+Gas sensor (CO)
+Pancake Vibration Motor
+NPN Transistor
+Proto-board
+Photo Resistors
+Resistor 220-Ohm
+Resistor 1K-Ohm
+Resistor 10K-Ohm
+10K Rotary Potentiometer
+Particle Photon with Headers
+Mini Breadboard
+-->
