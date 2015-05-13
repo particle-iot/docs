@@ -22,7 +22,7 @@ When it is breathing cyan, your device is happily connected to the internet. Whe
   <iframe src="https://vine.co/v/eZUX322TaU2/embed/simple" width="320" height="320" frameborder="0"></iframe>
 </div>
 
-If your device is flashing purple, it is currently loading an app or updating its firmware. This state is triggered by a firmware update or by flashing code from Particle Dev or Particle Build.
+If your device is flashing magenta, it is currently loading an app or updating its firmware. This state is triggered by a firmware update or by flashing code from Particle Dev or Particle Build.
 
 
 ## Looking For Internet
@@ -36,14 +36,15 @@ If your device is flashing green, it is trying to connect to the internet. If yo
 
 ## Listening Mode
 
+
 <div class="iframe-wrapper">
-  <iframe src="https://vine.co/v/eZUHUIjq7pO/embed/simple" width="320" height="320" frameborder="0"></iframe>
+  <iframe src="https://vine.co/v/eZUH7WaWjMT/embed/simple" width="320" height="320" frameborder="0"></iframe>
 </div>
 
 When your device is in Listening Mode, it is waiting for your input to connect to the wifi. Your device needs to be in Listening Mode in order to begin connecting with the Mobile App or over USB.
 
 <div class="iframe-wrapper">
-  <iframe src="https://vine.co/v/eZUH7WaWjMT/embed/simple" width="320" height="320" frameborder="0"></iframe>
+  <iframe src="https://vine.co/v/eZUHUIjq7pO/embed/simple" width="320" height="320" frameborder="0"></iframe>
 </div>
 
 To put your device in Listening Mode, hold the `MODE` button for three seconds, until the RGB LED begins flashing blue.
@@ -64,16 +65,14 @@ To erase the stored wifi networks on your device, hold the `MODE` button for abo
   <iframe src="https://vine.co/v/eZUF2ilvLxJ/embed/simple" width="320" height="320" frameborder="0"></iframe>
 </div>
 
-If something goes wrong with the app you loaded onto your device, you can set your device to Safe Mode. This keeps all of the device's factory firmware but erases any apps you have loaded onto your device.
+This mode is one of the most useful. If something goes wrong with the app you loaded onto your device, you can set your device to Safe Mode. This runs the device's factory firmware but prevents your user code from executing.
 
 To put your device in Safe Mode:
 
 1. Hold down BOTH buttons
 2. Release only the RST button, while holding down the MODE button.
-3. Wait for the LED to start flashing purple
+3. Wait for the LED to start flashing magenta
 6. Release the MODE button
-
-
 
 
 ## DFU Mode (Device Firmware Upgrade)
@@ -88,7 +87,7 @@ To enter DFU Mode:
 
 1. Hold down BOTH buttons
 2. Release only the RST button, while holding down the MODE button.
-3. Wait for the LED to start flashing yellow (it will flash purple first)
+3. Wait for the LED to start flashing yellow (it will flash magenta first)
 6. Release the MODE button
 
 <div class="iframe-wrapper">
@@ -110,7 +109,7 @@ To perform a firmware reset:
 
 1. Hold down BOTH buttons
 2. Release only the RST button, while holding down the MODE button.
-3. Wait for the LED to start flashing green (it will flash purple and yellow first)
+3. Wait for the LED to start flashing green (it will flash magenta and yellow first)
 6. Release the MODE button
 
 
@@ -124,13 +123,13 @@ A factory reset restores the firmware on the device to the default Tinker app an
 
 Procedure:
 
-The procedure is same as the one described above (DFU Mode), but in this case you should continue holding down the MODE button until you see the device change from flashing yellow to flashing white. Then release the button.  The device should begin after the factory reset is complete.
+The procedure is same as the one described above (DFU Mode), but in this case you should continue holding down the MODE button until you see the device change from flashing yellow to flashing white. Then release the button.  This will take about 10 seconds. The device should begin after the factory reset is complete.
 
 To perform a factory reset:
 
 1. Hold down BOTH buttons
 2. Release only the RST button, while holding down the MODE button.
-3. Wait for the LED to start flashing purple, then yellow, then green (continue to hold the MODE button)
+3. Wait for the LED to start flashing magenta, then yellow, then green (continue to hold the MODE button)
 4. The LED will turn solid white (continue to hold the MODE button)
 5. Finally, the LED will turn blink white rapidly
 6. Release the MODE button
