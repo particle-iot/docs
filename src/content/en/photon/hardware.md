@@ -433,51 +433,38 @@ The bootloader allows you to easily update the user application via several diff
 
 You may use the online Web IDE [Particle Build](https://www.particle.io/build) to code, compile and flash a user application OTA (Over The Air).  [Particle Dev](https://www.particle.io/dev) is a local tool that uses the Cloud to compile and flash OTA as well.  There is also a package `Spark DFU-UTIL` for Particle Dev that allows for Cloud compiling and local flashing via DFU over USB.  This requires `dfu-util` to be installed on your system.  'dfu-util' can also be used with [Particle CLI](https://github.com/spark/spark-cli) for Cloud compiling and local flashing via the command line.  Finally the lowest level of development is available via the [GNU GCC toolchain for ARM](https://github.com/spark/firmware), which offers local compile and flash via dfu-util.  This gives the user complete control of all source code and flashing methods.  This is an extensive list, however not exhaustive.
 
-Glossary
-----------
+# 14. Glossary
 
-SMPS
-:	Switch-Mode Power Supply
-
-RF
-:   Radio Frequency
-
-Castellated
-:   The edge of the PCB has plated holes that are cut in half which resemble the top of a castle.  These make it easy to solder the Photon down to another PCB with a SMT reflow process.
-
-SMT
-:   Surface Mount Technology (often associated with SMD which is a surface mount device).
-
-AP
-:	Access Point
-
-LED
-:	Light-Emitting Diode
-
-RGB LED
-:	Red green and blue LEDs combined and diffused in one package.
-
-USB
-:	Universal Serial Bus
-
-Quiescent current
-:	Current consumed in the deepest sleep state
-
-FT
-:	Five-tolerant; Refers to a pin being tolerant to 5V.
-
-3V3
-:	+3.3V; The regulated +3.3V supply rail.  Also used to note a pin is only 3.3V tolerant.
-
-RTC
-:	Real Time Clock
-
-OTA
-:	Over The Air; describing how firmware is transferred to the device.
+<div class="dictionary-wrapper">
+<dt>SMPS</dt><dd>Switched-Mode Power Supply</dd>
+<dt>RF</dt>
+<dd>Radio Frequency</dd>
+<dt>Castellated</dt>
+<dd>The edge of the PCB has plated holes that are cut in half which resemble the top of a castle.  These make it easy to solder the Photon down to another PCB with a SMT reflow process.</dd>
+<dt>SMT</dt>
+<dd>Surface Mount Technology (often associated with SMD which is a surface mount device).</dd>
+<dt>AP</dt>
+<dd>Access Point</dd>
+<dt>LED</dt>
+<dd>Light-Emitting Diode</dd>
+<dt>RGB LED</dt>
+<dd>Red green and blue LEDs combined and diffused in one package.</dd>
+<dt>USB</dt>
+<dd>Universal Serial Bus</dd>
+<dt>Quiescent current</dt>
+<dd>Current consumed in the deepest sleep state</dd>
+<dt>FT</dt>
+<dd>Five-tolerant; Refers to a pin being tolerant to 5V.</dd>
+<dt>3V3</dt>
+<dd>+3.3V; The regulated +3.3V supply rail.  Also used to note a pin is only 3.3V tolerant.</dd>
+<dt>RTC</dt>
+<dd>Real Time Clock</dd>
+<dt>OTA</dt>
+<dd>Over The Air; describing how firmware is transferred to the device.</dd>
+</div>
 
 
-Revision history
------------------
+#15. Revision history
 
 | Revision | Date | Author | Comments |
 |:-:|:-:|:-:|:-|
@@ -489,8 +476,7 @@ Revision history
 | v007 | 28-Apr-2015 | BW | Added Layout, Updated analog pins, Land patterns, Packaging, Mating Connectors |
 | v008 | 1-May-2015 | BW | Updated BT CO-EX, PWM info, Qualifications |
 
-Contact
--------
+#16. Contact
 
 **Web**
 
