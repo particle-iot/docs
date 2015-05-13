@@ -24,6 +24,8 @@ Sometimes life can be a little difficult in the land of electronics when two sys
  - Dimensions: 3.4" x 2.1"
  - Weight: 28 gms
 
+[Drill Template >]({{assets}}/images/shields/shield-shield/shield-shield-template.pdf)
+
 ![Shield Shield Dimensions]({{assets}}/images/shields/shield-shield/shield-shield-dimensions.png)
 
 **Operation:**   
@@ -94,8 +96,6 @@ We have even provided a small prototyping area around the shield for you to add 
 
 **IMPORTANT:** This shield provides regulated power (5V) to the seated Particle device and relays. However, it does not support power to the devices controlled by the relays.
 
-![Relay Shield Dimensions]({{assets}}/images/shields/relay-shield/relay-shield-dimensions.png)
-
 **Specifications:**
  - Operating voltage: 7 to 20V DC
  - Current consumption: 150mA min to 290mA max (at 9V DC)
@@ -104,6 +104,10 @@ We have even provided a small prototyping area around the shield for you to add 
  - Relay Part Number: JS1-5V-F (Data Sheet)
  - Dimensions: 6.0" x 1.7"
  - Weight: 80 gms
+
+[Drill Template >]({{assets}}/images/shields/relay-shield/relay-shield-template.pdf)
+
+![Relay Shield Dimensions]({{assets}}/images/shields/relay-shield/relay-shield-dimensions.png)
 
 **Operation:**
 The schematic for the relay shield is simple and self explanatory. The shield has four relays that are controlled by pins D3, D4, D5 and D6 on the Particle device. Each relay is triggered via a NPN transistor that takes a control signal from the Particle device and switches the relay coil ON and OFF, which in turn makes or breaks the electrical contact on the output. There is also a fly-back diode connected across the coil to help protect the transistor from high voltage transients caused during switching.
@@ -213,6 +217,8 @@ Do you want to gain complete control over your Particle device right down to its
 This is a FT2232H based JTAG programmer shield that is compatible with OpenOCD and Broadcom's WICED IDE. The FT2232 chip is setup to provide an USB-JTAG and USB-UART interface simultaneously. The FT2232 can be also reconfigured by the user by reprogramming the on-board config EEPROM. The unused pins are clearly marked and broken out into easy to access header holes.
 
 ![Programmer Shield Description]({{assets}}/images/shields/prog-shield/prog-shield-description.png)
+
+[Drill Template >]({{assets}}/images/shields/prog-shield/programmer-shield-template.pdf)
 
 **Specifications:**
  - Operating supply: USB
