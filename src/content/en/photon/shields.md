@@ -29,7 +29,11 @@ Sometimes life can be a little difficult in the land of electronics when two sys
 
 We use Texas Instruments TXB0108PWR to do the voltage translation in between the Particle's device's 3.3V to a 5V logic. Unlike other IO pins, the analog pins are rated at only a max of 3.3V and **NOT** 5.0V. Please remember NOT to exceed this voltage at anytime. The shield has an on-board voltage regulator and can be powered from 7V to 15V DC source. You could also power it via the USB plug on the Spark Core alone but the current would be limited to 500mA.
 
+![Shield Shield TXB0108PWR]({{assets}}/images/shields/shield-shield/txb0108pwr-schematic.png)
+
 The new version of the Shield Shield (v3.x.x) uses dedicated mosfet based voltage translation on the I2C lines. We also decided to add a prototyping area in empty space in the middle of the shield.
+
+![Shield Shield I2C]({{assets}}/images/shields/shield-shield/mosfet-i2c-schematic.png)
 
 ![Shield Shield Description]({{assets}}/images/shields/shield-shield/shield-shield-description.png)
 
