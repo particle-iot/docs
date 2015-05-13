@@ -83,17 +83,17 @@ The chip antenna is impedance matched to the 50 ohm RF feed line via a Pi networ
 
 The Photon has ton of capability in a small footprint, with analog, digital and communication interfaces.
 
-Peripheral Type | Qty | Input(I) / Output(O) | FT<sup>[1]</sup> / 3V3<sup>[2]</sup>
-  :---:|:---:|:---:|:---:
-  Digital | 18 | I/O | FT/3V3
-  Analog (ADC) | 9 | I | 3V3
-  Analog (DAC) | 2 | O | 3V3
-  SPI | 2 | I/O | 3V3
-  I2S | 1 | I/O | 3V3
-  I2C | 1 | I/O | FT
-  CAN | 1 | I/O | FT
-  USB | 1 | I/O | 3V3
-  PWM | 9<sup>3</sup> | O | 3V3
+| Peripheral Type | Qty | Input(I) / Output(O) | FT<sup>[1]</sup> / 3V3<sup>[2]</sup> |
+| :-:|:-:|:-:|:-: |
+| Digital | 18 | I/O | FT/3V3 |
+| Analog (ADC) | 9 | I | 3V3 |
+| Analog (DAC) | 2 | O | 3V3 |
+| SPI | 2 | I/O | 3V3 |
+| I2S | 1 | I/O | 3V3 |
+| I2C | 1 | I/O | FT |
+| CAN | 1 | I/O | FT |
+| USB | 1 | I/O | 3V3 |
+| PWM | 9<sup>3</sup> | O | 3V3 |
 
 **Notes:**
 
@@ -110,16 +110,16 @@ Peripheral Type | Qty | Input(I) / Output(O) | FT<sup>[1]</sup> / 3V3<sup>[2]</s
 
 Pin D3 through D7 are JTAG interface pins.  These can be used to reprogram your Photon bootloader or user firmware image with standard JTAG tools such as the ST-Link v2, J-Link, R-Link, OLIMEX ARM-USB-TINI-H, and also the FTDI-based Particle JTAG Programmer.
 
-Photon Pin | Description | STM32 Pin | PØ Pin # | PØ Pin Name | Default Internal<sup>[1]</sup>
-:---:|:---:|:---:|:---:|:---:|:---
-D7 | JTAG_TMS | PA13 | 44 | MICRO_JTAG_TMS | ~40k pull-up
-D6 | JTAG_TCK | PA14 | 40 | MICRO_JTAG_TCK | ~40k pull-down
-D5 | JTAG_TDI | PA15 | 43 | MICRO_JTAG_TDI | ~40k pull-up
-D4 | JTAG_TDO | PB3 | 41 | MICRO_JTAG_TDO | Floating
-D3 | JTAG_TRST | PB4 | 42 | MICRO_JTAG_TRSTN | ~40k pull-up
-3V3 | Power | | |
-GND | Ground | | |
-RST | Reset | | |
+| Photon Pin | Description | STM32 Pin | PØ Pin # | PØ Pin Name | Default Internal<sup>[1]</sup> |
+| :-:|:-:|:-:|:-:|:-:|:- |
+| D7 | JTAG_TMS | PA13 | 44 | MICRO_JTAG_TMS | ~40k pull-up |
+| D6 | JTAG_TCK | PA14 | 40 | MICRO_JTAG_TCK | ~40k pull-down |
+| D5 | JTAG_TDI | PA15 | 43 | MICRO_JTAG_TDI | ~40k pull-up |
+| D4 | JTAG_TDO | PB3 | 41 | MICRO_JTAG_TDO | Floating |
+| D3 | JTAG_TRST | PB4 | 42 | MICRO_JTAG_TRSTN | ~40k pull-up |
+| 3V3 | Power | | | | |
+| GND | Ground | | | | |
+| RST | Reset | | | | |
 
 **Notes:**
 <sup>[1]</sup> Default state after reset for a short period of time before these pins are restored to GPIO (if JTAG debugging is not required, i.e. `USE_SWD_JTAG=y` is not specified on the command line.
@@ -140,11 +140,11 @@ The Photon supports coexistence with Bluetooth and other external radios via the
 
 When two radios occupying the same frequency band are used in the same system, such as Wi-Fi and Bluetooth, a coexistence interface can be used to coordinate transmit activity, to ensure optimal performance by arbitrating conflicts between the two radios.
 
-Pad # | PØ Pin Name | PØ Pin # | I/O | Description
-:---:|:---|:---:|:---:|:---
-1 | BTCX_RF_ACTIVE | 9 | I | Signals Bluetooth is active
-2 | BTCX_STATUS | 10 | I | Signals Bluetooth priority status and TX/RX direction
-3 | BTCX_TXCONF | 11 | O | Output giving Bluetooth permission to TX
+| Pad # | PØ Pin Name | PØ Pin # | I/O | Description |
+| :-:|:-|:-:|:-:|:- |
+| 1 | BTCX_RF_ACTIVE | 9 | I | Signals Bluetooth is active |
+| 2 | BTCX_STATUS | 10 | I | Signals Bluetooth priority status and TX/RX direction |
+| 3 | BTCX_TXCONF | 11 | O | Output giving Bluetooth permission to TX |
 ￼
 When these pads are programmed to be used as a Bluetooth coexistence interface, they're set as high impedance on power up and reset. Alternatively, they can be individually programmed to be used as GPIOs through software control. They can also be programmed to have an internal pull-up or pull-down resistor.
 
@@ -163,17 +163,17 @@ When these pads are programmed to be used as a Bluetooth coexistence interface, 
 ### 3.2 Pin description
 
 | Pin | Description |
-|-----|-------------|
-| VIN | This pin can be used as an input or output. As an input, supply 3.6 to 5.5VDC to power the Photon. When the Photon is powered via the USB port, this pin will output a voltage of approximately 4.8VDC due to a reverse polarity protection series schottky diode between VUSB and VIN. When used as an output, the max load on VIN is 1A.                                     |
-| RST | Active-low reset input. On-board circuitry contains a 1k ohm pull-up resistor between RST and 3V3, and 0.1uF capacitor between RST and GND.                                                                                                                                                                                                                                    |
-| VBAT | Supply to the internal RTC, backup registers and SRAM (1.8 to 3.3VDC).                                                                                                                                                                                                                                                                                                         |
-| 3V3  | This pin is the output of the on-board regulator and is internally connected to the VDD of the WiFi module. When powering the Photon via VIN or the USB port, this pin will output a voltage of 3.3VDC. This pin can also be used to power the Photon directly (max input 3.3VDC). When used as an output, the max load on 3V3 is 100mA. NOTE: When powering the Photon via this pin, ensure power is disconnected from VIN and USB. |
-| WKP | Active-high wakeup pin, wakes the module from sleep/standby modes. When not used as a WAKEUP, this pin can also be used as a digital GPIO, ADC input or PWM.                                                                                                                                                                                                                   |
-| D0~D7 | Digital only GPIO pins.                                                                                                                                                                                                                                                                                                                                              |
-| A0~A5, A7~A9 | 12-bit Analog-to-Digital (A/D) inputs, and also digital GPIOs. A7~A9 are code convenience mappings, which means pins are not actually labeled as such but you may use code like `analogRead(A9)`.  A7 maps to the WKP pin, A8 to the RX pin and A9 to the TX pin.                                                                                                                                                                                                                                                                                                                |
-| DAC   | 10-bit Digital-to-Analog (D/A) output, and also a digital GPIO.                                                                                                                                                                                                                                                                                                                      |
-| RX    | Primarily used as UART RX, but can also be used as a digital GPIO, ADC input or PWM.                                                                                                                                                                                                                                                                                           |
-| TX    | Primarily used as UART TX, but can also be used as a digital GPIO, ADC input or PWM.                                                                                                                                                                                                                                                                                           |
+|-|-|
+| VIN | This pin can be used as an input or output. As an input, supply 3.6 to 5.5VDC to power the Photon. When the Photon is powered via the USB port, this pin will output a voltage of approximately 4.8VDC due to a reverse polarity protection series schottky diode between VUSB and VIN. When used as an output, the max load on VIN is 1A. |
+| RST | Active-low reset input. On-board circuitry contains a 1k ohm pull-up resistor between RST and 3V3, and 0.1uF capacitor between RST and GND. |
+| VBAT | Supply to the internal RTC, backup registers and SRAM (1.8 to 3.3VDC). |
+| 3V3 | This pin is the output of the on-board regulator and is internally connected to the VDD of the WiFi module. When powering the Photon via VIN or the USB port, this pin will output a voltage of 3.3VDC. This pin can also be used to power the Photon directly (max input 3.3VDC). When used as an output, the max load on 3V3 is 100mA. NOTE: When powering the Photon via this pin, ensure power is disconnected from VIN and USB. |
+| WKP | Active-high wakeup pin, wakes the module from sleep/standby modes. When not used as a WAKEUP, this pin can also be used as a digital GPIO, ADC input or PWM. |
+| D0~D7 | Digital only GPIO pins. |
+| A0~A5, A7~A9 | 12-bit Analog-to-Digital (A/D) inputs, and also digital GPIOs. A7~A9 are code convenience mappings, which means pins are not actually labeled as such but you may use code like `analogRead(A9)`.  A7 maps to the WKP pin, A8 to the RX pin and A9 to the TX pin. |
+| DAC | 10-bit Digital-to-Analog (D/A) output, and also a digital GPIO. |
+| RX | Primarily used as UART RX, but can also be used as a digital GPIO, ADC input or PWM. |
+| TX | Primarily used as UART TX, but can also be used as a digital GPIO, ADC input or PWM. |
 
 ---
 
@@ -226,25 +226,25 @@ When these pads are programmed to be used as a Bluetooth coexistence interface, 
 # 5. Layout
 
 ###5.1 Photon v1.0.0 Top Layer (GTL)
-<div align=center><img src="https://lh4.googleusercontent.com/-miOPKqwGEhY/VS3R4sqsNqI/AAAAAAAAAyc/7LkhRbmgU28/s0/photon_v100_pcb_top.png" width=400></div>
+<div align=center><img src="https://lh4.googleusercontent.com/-miOPKqwGEhY/VS3R4sqsNqI/AAAAAAAAAyc/7LkhRbmgU28/s0/photon_v100_pcb_top.png" width=200></div>
 
 ---
 
 
 ###5.2 Photon v1.0.0 GND Layer (G2L)
-<div align=center><img src="https://lh3.googleusercontent.com/-C9fEDtH6t7U/VS3YcHMR3bI/AAAAAAAAAyw/FBW7FmsXagA/s0/photon_v100_pcb_gnd.png" width=400></div>
+<div align=center><img src="https://lh3.googleusercontent.com/-C9fEDtH6t7U/VS3YcHMR3bI/AAAAAAAAAyw/FBW7FmsXagA/s0/photon_v100_pcb_gnd.png" width=200></div>
 
 ---
 
 
 ###5.1 Photon v1.0.0 3V3 Layer (G15L)
-<div align=center><img src="https://lh6.googleusercontent.com/-yz0W5MTvoKY/VS3YUGQIgPI/AAAAAAAAAyo/o-fsCEr4muI/s0/photon_v100_pcb_3v3.png" width=400></div>
+<div align=center><img src="https://lh6.googleusercontent.com/-yz0W5MTvoKY/VS3YUGQIgPI/AAAAAAAAAyo/o-fsCEr4muI/s0/photon_v100_pcb_3v3.png" width=200></div>
 
 ---
 
 
 ###5.1 Photon v1.0.0 Bottom Layer (GBL)
-<div align=center><img src="https://lh5.googleusercontent.com/-tdisZ8MhFTM/VS6qtMcyfZI/AAAAAAAAAzM/pxqLZhIcKuw/s0/photon_v100_pcb_bot.png" width=400></div>
+<div align=center><img src="https://lh5.googleusercontent.com/-tdisZ8MhFTM/VS6qtMcyfZI/AAAAAAAAAzM/pxqLZhIcKuw/s0/photon_v100_pcb_bot.png" width=200></div>
 
 ---
 
@@ -254,13 +254,13 @@ When these pads are programmed to be used as a Bluetooth coexistence interface, 
 ### 6.1 Absolute maximum ratings <i class="icon-attention"></i>
 
 | Parameter | Symbol | Min | Typ | Max | Unit |
-:-|:-|:-:|:-:|:-:|:-:
-Supply Input Voltage | V<sub>IN-MAX</sub> |  |  | +6.5 | V
-Supply Output Current | I<sub>IN-MAX-L</sub> |  |  | 1 | A
-Supply Output Current | I<sub>3V3-MAX-L</sub> |  |  | 100 | mA
-Storage Temperature | T<sub>stg</sub> | -40 |  | +85 | ºC
-Enable Voltage | V<sub>EN</sub> |  |  | V<sub>IN</sub>+0.6 | V
-ESD Susceptibility HBM (Human Body Mode) | V<sub>ESD</sub> |  |  | 2 | kV
+|:-|:-|:-:|:-:|:-:|:-:|
+| Supply Input Voltage | V<sub>IN-MAX</sub> |  |  | +6.5 | V |
+| Supply Output Current | I<sub>IN-MAX-L</sub> |  |  | 1 | A |
+| Supply Output Current | I<sub>3V3-MAX-L</sub> |  |  | 100 | mA |
+| Storage Temperature | T<sub>stg</sub> | -40 |  | +85 | °C |
+| Enable Voltage | V<sub>EN</sub> |  |  | V<sub>IN</sub>+0.6 | V |
+| ESD Susceptibility HBM (Human Body Mode) | V<sub>ESD</sub> |  |  | 2 | kV |
 
 ---
 
@@ -268,19 +268,19 @@ ESD Susceptibility HBM (Human Body Mode) | V<sub>ESD</sub> |  |  | 2 | kV
 ### 6.2 Recommended operating conditions <i class="icon-check"></i>
 
 | Parameter | Symbol | Min | Typ | Max | Unit |
-:-|:-|:-:|:-:|:-:|:-:
-Supply Input Voltage | V<sub>IN</sub> | +3.6 |  | +5.5 | V
-Supply Input Voltage | V<sub>3V3</sub> | +3.0 | +3.3 | +3.6 | V
-Supply Output Voltage | V<sub>IN</sub> |  | +4.8 |  | V
-Supply Output Voltage | V<sub>3V3</sub> |  | +3.3 |  | V
-Operating Current (Wi-Fi on) | I<sub>IN avg</sub> |  | 80 | 100 | mA
-Operating Current (Wi-Fi on) | I<sub>IN pk</sub> | 235<sup>[1]</sup> |  | 430<sup>[1]</sup> | mA
-Operating Current (Wi-Fi on, w/powersave) | I<sub>IN avg</sub> |  | 18 | 100<sup>[2]</sup> | mA
-Operating Current (Wi-Fi off) | I<sub>IN avg</sub> |  | 30 | 40 | mA
-Sleep Current | I<sub>Q</sub> |  | 1 | 2 | mA
-Deep Sleep Current | I<sub>Q</sub> |  | 160 | 187 | uA
-Operating Temperature | T<sub>op</sub> | -20 |  | +60 | ºC
-Humidity Range Non condensing, relative humidity | | | | 95 | %
+| :-|:-|:-:|:-:|:-:|:-:
+| Supply Input Voltage | V<sub>IN</sub> | +3.6 |  | +5.5 | V |
+| Supply Input Voltage | V<sub>3V3</sub> | +3.0 | +3.3 | +3.6 | V |
+| Supply Output Voltage | V<sub>IN</sub> |  | +4.8 |  | V |
+| Supply Output Voltage | V<sub>3V3</sub> |  | +3.3 |  | V |
+| Operating Current (Wi-Fi on) | I<sub>IN avg</sub> |  | 80 | 100 | mA |
+| Operating Current (Wi-Fi on) | I<sub>IN pk</sub> | 235<sup>[1]</sup> |  | 430<sup>[1]</sup> | mA |
+| Operating Current (Wi-Fi on, w/powersave) | I<sub>IN avg</sub> |  | 18 | 100<sup>[2]</sup> | mA |
+| Operating Current (Wi-Fi off) | I<sub>IN avg</sub> |  | 30 | 40 | mA |
+| Sleep Current | I<sub>Q</sub> |  | 1 | 2 | mA |
+| Deep Sleep Current | I<sub>Q</sub> |  | 160 | 187 | uA |
+| Operating Temperature | T<sub>op</sub> | -20 |  | +60 | °C |
+| Humidity Range Non condensing, relative humidity | | | | 95 | % |
 
 **Notes:**
 
@@ -293,22 +293,22 @@ Humidity Range Non condensing, relative humidity | | | | 95 | %
 ### 6.3 Wi-Fi Specifications <i class="icon-signal"></i>
 
 | Feature | Description| |
-:-|:-|:-:
-WLAN Standards | IEEE 802 11b/g/n |
-Antenna Port | Single Antenna |
-Frequency Band | 2.400 GHz – 2.484 GHz |
-Sub Channels | 1 ~ 14 |
-Modulation | DSSS, CCK, OFDM, BPSK, QPSK,16QAM, 64QAM |
+| :-|:-|:-: |
+| WLAN Standards | IEEE 802 11b/g/n |
+| Antenna Port | Single Antenna |
+| Frequency Band | 2.400 GHz – 2.484 GHz |
+| Sub Channels | 1 ~ 14 |
+| Modulation | DSSS, CCK, OFDM, BPSK, QPSK,16QAM, 64QAM |
 
 
 | PØ module Wi-Fi output power | | Typ. | Tol. | Unit |
-:-|:-|:-:|:-:|:-:
-RF Average Output Power, 802.11b CCK Mode | 1M | 16.5 | +/- 1.5 | dBm
-<sub></sub> | 11M | 16.5 | +/- 1.5 | dBm
-RF Average Output Power, 802.11g OFDM Mode | 6M | 15 | +/- 1.5 | dBm
-<sub></sub> | 54M | 13 | +/- 1.5 | dBm
-RF Average Output Power, 802.11n OFDM Mode | MCS0 | 14.5 | +/- 1.5 | dBm
-<sub></sub> | MCS7 | 12 | +/- 1.5 | dBm
+| :-|:-|:-:|:-:|:-: |
+| RF Average Output Power, 802.11b CCK Mode | 1M | 16.5 | +/- 1.5 | dBm |
+| <sub></sub> | 11M | 16.5 | +/- 1.5 | dBm |
+| RF Average Output Power, 802.11g OFDM Mode | 6M | 15 | +/- 1.5 | dBm |
+| <sub></sub> | 54M | 13 | +/- 1.5 | dBm |
+| RF Average Output Power, 802.11n OFDM Mode | MCS0 | 14.5 | +/- 1.5 | dBm |
+| <sub></sub> | MCS7 | 12 | +/- 1.5 | dBm |
 
 ---
 
@@ -317,20 +317,20 @@ RF Average Output Power, 802.11n OFDM Mode | MCS0 | 14.5 | +/- 1.5 | dBm
 
 These specifications are based on the STM32F205RG datasheet, with reference to Photon pin nomenclature.
 
-| Parameter | Symbol | Conditions | Min | Typ | Max | Unit
-:-|:-|:-:|:-:|:-:|:-:|:-:
-Standard I/O input low level voltage | V<sub>IL</sub> | | -0.3 | | 0.28*(V<sub>3V3</sub>-2)+0.8 | V
-I/O FT<sup>[1]</sup> input low level voltage | V<sub>IL</sub> | | -0.3 | | 0.32*(V<sub>3V3</sub>-2)+0.75 | V
-Standard I/O input high level voltage | V<sub>IH</sub> | | 0.41*(V<sub>3V3</sub>-2)+1.3 | | V<sub>3V3</sub>+0.3 | V
-I/O FT<sup>[1]</sup> input high level voltage | V<sub>IH</sub> | V<sub>3V3</sub> > 2V | 0.42*(V<sub>3V3</sub>-2)+1 | | 5.5 | V
-<sup></sup> | V<sub>IH</sub> | V<sub>3V3</sub> ≤ 2V | 0.42*(V<sub>3V3</sub>-2)+1 | | 5.2 | V
-Standard I/O Schmitt trigger voltage hysteresis<sup>[2]</sup> | V<sub>hys</sub> | | 200 | | | mV
-I/O FT Schmitt trigger voltage hysteresis<sup>[2]</sup> | V<sub>hys</sub> | | 5% V<sub>3V3</sub><sup>[3]</sup> | | | mV
-Input leakage current<sup>[4]</sup> | I<sub>lkg</sub> | GND ≤ V<sub>io</sub> ≤ V<sub>3V3</sub> GPIOs | | | ±1 | µA
-Input leakage current<sup>[4]</sup> | I<sub>lkg</sub> | R<sub>PU</sub> | V<sub>io</sub> = 5V, I/O FT | | | 3 | µA
-Weak pull-up equivalent resistor<sup>[5]</sup> | R<sub>PU</sub>| V<sub>io</sub> = GND | 30 | 40 | 50 | k Ω
-Weak pull-down equivalent resistor<sup>[5]</sup> | R<sub>PD</sub>| V<sub>io</sub> = V<sub>3V3</sub> | 30 | 40 | 50 | k Ω
-I/O pin capacitance | C<sub>IO</sub> | | | 5 | | pF
+| Parameter | Symbol | Conditions | Min | Typ | Max | Unit |
+| :-|:-|:-:|:-:|:-:|:-:|:-: |
+| Standard I/O input low level voltage | V<sub>IL</sub> | | -0.3 | | 0.28*(V<sub>3V3</sub>-2)+0.8 | V |
+| I/O FT<sup>[1]</sup> input low level voltage | V<sub>IL</sub> | | -0.3 | | 0.32*(V<sub>3V3</sub>-2)+0.75 | V |
+| Standard I/O input high level voltage | V<sub>IH</sub> | | 0.41*(V<sub>3V3</sub>-2)+1.3 | | V<sub>3V3</sub>+0.3 | V |
+| I/O FT<sup>[1]</sup> input high level voltage | V<sub>IH</sub> | V<sub>3V3</sub> > 2V | 0.42*(V<sub>3V3</sub>-2)+1 | | 5.5 | V |
+| <sup></sup> | V<sub>IH</sub> | V<sub>3V3</sub> ≤ 2V | 0.42*(V<sub>3V3</sub>-2)+1 | | 5.2 | V |
+| Standard I/O Schmitt trigger voltage hysteresis<sup>[2]</sup> | V<sub>hys</sub> | | 200 | | | mV |
+| I/O FT Schmitt trigger voltage hysteresis<sup>[2]</sup> | V<sub>hys</sub> | | 5% V<sub>3V3</sub><sup>[3]</sup> | | | mV |
+| Input leakage current<sup>[4]</sup> | I<sub>lkg</sub> | GND ≤ V<sub>io</sub> ≤ V<sub>3V3</sub> GPIOs | | | ±1 | µA |
+| Input leakage current<sup>[4]</sup> | I<sub>lkg</sub> | R<sub>PU</sub> | V<sub>io</sub> = 5V, I/O FT | | | 3 | µA |
+| Weak pull-up equivalent resistor<sup>[5]</sup> | R<sub>PU</sub>| V<sub>io</sub> = GND | 30 | 40 | 50 | k Ω |
+| Weak pull-down equivalent resistor<sup>[5]</sup> | R<sub>PD</sub>| V<sub>io</sub> = V<sub>3V3</sub> | 30 | 40 | 50 | k Ω |
+| I/O pin capacitance | C<sub>IO</sub> | | | 5 | | pF |
 
 **Notes:**
 
@@ -400,12 +400,12 @@ This land pattern can be found in the [Spark.lbr Eagle library](https://github.c
 <br>
 
 | Phase | Temperatures and Rates |
--:|:-
-A-B. | Ambient~150°C, Heating rate: < 3°C/s
-B-C. | 150~200°C, soak time: 60~120 s
-C-D. | 200~245°C, Heating rate: < 3°C/s
-D.   |   Peak temp.: 235~245°C, Time above 220°C: 40~90 s
-D-E. | 245~220°C, Cooling rate: < 1°C/s
+| -:|:- |
+| A-B. | Ambient~150°C, Heating rate: < 3°C/s |
+| B-C. | 150~200°C, soak time: 60~120 s |
+| C-D. | 200~245°C, Heating rate: < 3°C/s |
+| D.   | Peak temp.: 235~245°C, Time above 220°C: 40~90 s |
+| D-E. | 245~220°C, Cooling rate: < 1°C/s |
 
 
 ---
@@ -550,7 +550,7 @@ Revision history
 -----------------
 
 | Revision | Date | Author | Comments |
-|:---:|:---:|:---:|:----|
+|:-:|:-:|:-:|:-|
 | - | 30-Mar-2015 | BW | Initial release |
 | v003 | 7-Apr-2015 | BW | Updated template |
 | v004 | 8-Apr-2015 | BW | Updated Overview, Block diagram, Power, RF, and Pin markings sections |
