@@ -23,8 +23,7 @@ For all of the following methods, the device must be in [Listening Mode](#connec
   <iframe class="vine-embed" src="https://vine.co/v/hFHlpBDELeU/embed/simple" width="320" height="320" frameborder="0"></iframe>
 </div>
 
-The Core and Photon both boot into listening mode by default, so if your device is brand new, it should go straight into listening mode. Otherwise, hold the MODE button for three seconds. The RGB LED will be flashing blue in this mode.  To completely clear all stored Wi-Fi credentials, continue to hold the MODE button for 10 seconds until the RGB LED flashes blue quickly, signaling that all profiles have been deleted.  The RGB LED should now be flashing blue again.
-
+The Core and Photon both boot into listening mode by default, so if your device is brand new, it should go straight into listening mode. Otherwise, hold the MODE button for three seconds. The RGB LED will be flashing blue in this mode.  
 
 ## Spark Core mobile app
 
@@ -62,9 +61,9 @@ Did your phone not find any Cores?
 
 ## Connect over USB
 
-You can also connect your device to your Wi-Fi network over USB by communicating through Serial. *NOTE: This only works when the device is in [Listening Mode](#connecting-your-device-listening-mode) (i.e. RGB led is blinking blue)*.
+You can also connect your device using USB. *NOTE: This only works when the device is in [Listening Mode](#connecting-your-device-listening-mode) (i.e. RGB led is blinking blue)*.
 
-There are a few ways to go about connecting your Core over USB. Follow these links depending on your preferences:
+There are two ways to go about connecting your Core over USB. Follow these links depending on your OS:
 
 - [Windows](#connecting-your-device-using-windows)
 - [Mac OSX](#connecting-your-device-using-osx)
@@ -207,7 +206,7 @@ If you have already claimed your device and you want to connect it to wifi, type
 
 **Wait! What is an SSID? What kind of security does my wifi have?**
 - __The SSID__ is the name of your network. When you connect on your computer, it is the name that you select when you connect your computer to wifi.
--__The Security__ of your wifi is often set up by the administrator. Typically this is WPA2 if a password is needed, or unsecured if no password is needed. Contact your network administrator if you can't get this step to work, and find out exactly what kind of wifi you have.
+- __The Security__ of your wifi is often set up by the administrator. Typically this is WPA2 if a password is needed, or unsecured if no password is needed. Contact your network administrator if you can't get this step to work, and find out exactly what kind of wifi you have.
 
 If your device is not connecting, try troubleshooting [here](http://support.spark.io/hc/en-us/articles/204357684-Can-t-Get-Connected-).
 
