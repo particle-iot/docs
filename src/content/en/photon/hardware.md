@@ -5,16 +5,14 @@ order: 10
 columns: 2
 ---
 
-Photon Datasheet (v008)
+Photon Datasheet
 ===
-
-Download a PDF copy of the [Photon Datasheet](https://github.com/spark/photon-internal/raw/master/datasheets/photon/photon-datasheet-v007.pdf)
 
 <div align=center><img src="https://lh5.googleusercontent.com/-IsU3dwQN57Q/VSdSqLfZDgI/AAAAAAAAAwc/XoaeHpk8kaE/s0/photon_vector2_600.png" width=200></div>
 
 ```c++
 void setup() {
-    Particle.publish("my-event","The internet just got smarter!");
+    Spark.publish("my-event","The internet just got smarter!");
 }
 ```
 
@@ -184,45 +182,9 @@ When these pads are programmed to be used as a Bluetooth coexistence interface, 
 
 <div align=left><img src="https://lh3.googleusercontent.com/-a0qGnIQv7oA/VSNMdhLtCXI/AAAAAAAAAu8/sjM5n0okavU/s0/pinout3.png"</div>
 
-# 4. Schematic
+# 4. Technical specification
 
-### 4.1 Schematic - USB
-
-<div align=center><img src="https://lh5.googleusercontent.com/-TRtBGqF_2Is/VS1Yu39sFGI/AAAAAAAAAxU/8BmuoMvdtKI/s0/photon-sch-usb.png" width=400></div>
-
-### 4.2 Schematic - Power
-
-<div align=center><img src="https://lh3.googleusercontent.com/-LQjAriIjIr4/VS1boW48MeI/AAAAAAAAAxg/omH1OOvvc2k/s0/photon-sch-power.png" width=600></div>
-
-### 4.3 Schematic - User I/O
-
-<div align=center><img src="https://lh5.googleusercontent.com/-cE0wE8pu_FM/VS1bvRlmJRI/AAAAAAAAAxo/zZWY6LuwNR4/s0/photon-sch-user-io.png" width=600></div>
-
-### 4.4 Schematic - RF
-
-<div align=center><img src="https://lh3.googleusercontent.com/-7L3_CXzCczQ/VS1b2P0NwSI/AAAAAAAAAxw/CFjdo9brUUw/s0/photon-sch-rf.png" width=500></div>
-
-### 4.5 Schematic - PØ Wi-Fi Module
-
-<div align=center><img src="https://lh5.googleusercontent.com/-I2eLMMMKtyA/VS1b-V32ZII/AAAAAAAAAx4/OkB_G-8snpU/s0/photon-sch-p0-wifi-module.png" width=500></div>
-
-# 5. Layout
-
-###5.1 Photon v1.0.0 Top Layer (GTL)
-<div align=center><img src="https://lh4.googleusercontent.com/-miOPKqwGEhY/VS3R4sqsNqI/AAAAAAAAAyc/7LkhRbmgU28/s0/photon_v100_pcb_top.png" width=200></div>
-
-###5.2 Photon v1.0.0 GND Layer (G2L)
-<div align=center><img src="https://lh3.googleusercontent.com/-C9fEDtH6t7U/VS3YcHMR3bI/AAAAAAAAAyw/FBW7FmsXagA/s0/photon_v100_pcb_gnd.png" width=200></div>
-
-###5.1 Photon v1.0.0 3V3 Layer (G15L)
-<div align=center><img src="https://lh6.googleusercontent.com/-yz0W5MTvoKY/VS3YUGQIgPI/AAAAAAAAAyo/o-fsCEr4muI/s0/photon_v100_pcb_3v3.png" width=200></div>
-
-###5.1 Photon v1.0.0 Bottom Layer (GBL)
-<div align=center><img src="https://lh5.googleusercontent.com/-tdisZ8MhFTM/VS6qtMcyfZI/AAAAAAAAAzM/pxqLZhIcKuw/s0/photon_v100_pcb_bot.png" width=200></div>
-
-# 6. Technical specification
-
-### 6.1 Absolute maximum ratings <i class="icon-attention"></i>
+### 4.1 Absolute maximum ratings <i class="icon-attention"></i>
 
 | Parameter | Symbol | Min | Typ | Max | Unit |
 |:-|:-|:-:|:-:|:-:|:-:|
@@ -233,7 +195,7 @@ When these pads are programmed to be used as a Bluetooth coexistence interface, 
 | Enable Voltage | V<sub>EN</sub> |  |  | V<sub>IN</sub>+0.6 | V |
 | ESD Susceptibility HBM (Human Body Mode) | V<sub>ESD</sub> |  |  | 2 | kV |
 
-### 6.2 Recommended operating conditions <i class="icon-check"></i>
+### 4.2 Recommended operating conditions <i class="icon-check"></i>
 
 | Parameter | Symbol | Min | Typ | Max | Unit |
 | :-|:-|:-:|:-:|:-:|:-:
@@ -256,7 +218,7 @@ When these pads are programmed to be used as a Bluetooth coexistence interface, 
 
 <sup>[2]</sup> These are very short average current bursts when transmitting and receiving.  On average if minimizing frequency of TX/RX events, current consumption in powersave mode will be 18mA
 
-### 6.3 Wi-Fi Specifications <i class="icon-signal"></i>
+### 4.3 Wi-Fi Specifications <i class="icon-signal"></i>
 
 | Feature | Description| |
 | :-|:-|:-: |
@@ -276,10 +238,8 @@ When these pads are programmed to be used as a Bluetooth coexistence interface, 
 | RF Average Output Power, 802.11n OFDM Mode | MCS0 | 14.5 | +/- 1.5 | dBm |
 | <sub></sub> | MCS7 | 12 | +/- 1.5 | dBm |
 
----
 
-
-### 6.4 I/O Characteristics
+### 4.4 I/O Characteristics
 
 These specifications are based on the STM32F205RG datasheet, with reference to Photon pin nomenclature.
 
@@ -310,16 +270,16 @@ These specifications are based on the STM32F205RG datasheet, with reference to P
 
 <sub>[5]</sub> Pull-up and pull-down resistors are designed with a true resistance in series with switchable PMOS/NMOS. This PMOS/NMOS contribution to the series resistance is minimum (~10% order).
 
-# 7. Mechanical specifications
+# 5. Mechanical specifications
 
-### 7.1 Dimensions and Weight
+### 5.1 Dimensions and Weight
 
 | Headers | Dimensions in inches (mm)                | Weight    |
 |:-------:|:----------------------------------------:|:---------:|
 |  With   | 1.44 x 0.8 x 0.17 (36.58 x 20.32 x 4.32) |  5 grams  |
 | Without | 1.44 x 0.8 x 0.27 (36.58 x 20.32 x 6.86) | 3.7 grams |
 
-### 7.2 Mating connectors
+### 5.2 Mating connectors
 
 The Photon (with headers) can be mounted with (qty 2) 12-pin single row 0.1" female headers.  Typically these are 0.335" (8.5mm) tall, but you may pick a taller one if desired.  When you search for parts like these it can be difficult to navigate the thousands of parts available.  
 
@@ -333,7 +293,7 @@ Description | MFG | MFG Part Number
 
 You may also search for other types, such as reverse mounted (bottom side SMT) female headers, low profile types, machine pin, etc..
 
-### 7.3 Recommended pcb land pattern (Photon with headers)
+### 5.3 Recommended pcb land pattern (Photon with headers)
 
 The Photon (with headers) can be mounted with 0.1" 12-pin female header receptacles using the following PCB land pattern:
 
@@ -341,13 +301,49 @@ The Photon (with headers) can be mounted with 0.1" 12-pin female header receptac
 
 This land pattern can be found in the [Spark.lbr Eagle library](https://github.com/spark/photon/blob/master/libraries/Spark.lbr), as a Device named `PHOTON`.  **Note: Clone or Download the complete repository as a ZIP file to avoid corrupted data in Eagle files.**
 
-### 7.4 Recommended pcb land pattern (Photon without headers)
+### 5.4 Recommended pcb land pattern (Photon without headers)
 
 The Photon (without headers) can be surface mounted directly in an end application PCB using the following PCB land pattern:
 
 <div align=left><img src="https://lh3.googleusercontent.com/-7JOlKRosWHU/VT2bI7T1vTI/AAAAAAAAA2Q/TilveIALeyI/s0/photon_land_pattern_without_headers.png" width=600></div>
 
 This land pattern can be found in the [Spark.lbr Eagle library](https://github.com/spark/photon/blob/master/libraries/Spark.lbr), as a Device named `PHOTON_SMD`.  **Note: Clone or Download the complete repository as a ZIP file to avoid corrupted data in Eagle files.**
+
+# 6. Schematic
+
+### 6.1 Schematic - USB
+
+<div align=center><img src="https://lh5.googleusercontent.com/-TRtBGqF_2Is/VS1Yu39sFGI/AAAAAAAAAxU/8BmuoMvdtKI/s0/photon-sch-usb.png" width=400></div>
+
+### 6.2 Schematic - Power
+
+<div align=center><img src="https://lh3.googleusercontent.com/-LQjAriIjIr4/VS1boW48MeI/AAAAAAAAAxg/omH1OOvvc2k/s0/photon-sch-power.png" width=600></div>
+
+### 6.3 Schematic - User I/O
+
+<div align=center><img src="https://lh5.googleusercontent.com/-cE0wE8pu_FM/VS1bvRlmJRI/AAAAAAAAAxo/zZWY6LuwNR4/s0/photon-sch-user-io.png" width=600></div>
+
+### 6.4 Schematic - RF
+
+<div align=center><img src="https://lh3.googleusercontent.com/-7L3_CXzCczQ/VS1b2P0NwSI/AAAAAAAAAxw/CFjdo9brUUw/s0/photon-sch-rf.png" width=500></div>
+
+### 6.5 Schematic - PØ Wi-Fi Module
+
+<div align=center><img src="https://lh5.googleusercontent.com/-I2eLMMMKtyA/VS1b-V32ZII/AAAAAAAAAx4/OkB_G-8snpU/s0/photon-sch-p0-wifi-module.png" width=500></div>
+
+# 7. Layout
+
+### 7.1 Photon v1.0.0 Top Layer (GTL)
+<div align=center><img src="https://lh4.googleusercontent.com/-miOPKqwGEhY/VS3R4sqsNqI/AAAAAAAAAyc/7LkhRbmgU28/s0/photon_v100_pcb_top.png" width=200></div>
+
+### 7.2 Photon v1.0.0 GND Layer (G2L)
+<div align=center><img src="https://lh3.googleusercontent.com/-C9fEDtH6t7U/VS3YcHMR3bI/AAAAAAAAAyw/FBW7FmsXagA/s0/photon_v100_pcb_gnd.png" width=200></div>
+
+### 7.3 Photon v1.0.0 3V3 Layer (G15L)
+<div align=center><img src="https://lh6.googleusercontent.com/-yz0W5MTvoKY/VS3YUGQIgPI/AAAAAAAAAyo/o-fsCEr4muI/s0/photon_v100_pcb_3v3.png" width=200></div>
+
+### 7.4 Photon v1.0.0 Bottom Layer (GBL)
+<div align=center><img src="https://lh5.googleusercontent.com/-tdisZ8MhFTM/VS6qtMcyfZI/AAAAAAAAAzM/pxqLZhIcKuw/s0/photon_v100_pcb_bot.png" width=200></div>
 
 # 8. Recommended solder reflow profile
 
@@ -411,7 +407,7 @@ Photons are available from [store.particle.io](https://store.particle.io/) in si
 
 The Photon comes in two primary styles of packaging: Matchbox and Kit Box.  The Matchbox contains the bare essentials to get you started, while the kit box contains a breadboard, Micro B USB cable, sticker, prototyping card and a couple sensors to build your first internet connected project!
 
-![enter image description here](https://lh3.googleusercontent.com/-uLR0FslmX1Q/VT_GUFYOGtI/AAAAAAAAA2s/116FRxfYVIg/s0/photon-packaging.png "photon-packaging.png")
+![photon-packaging](https://lh3.googleusercontent.com/-E7B5bPuCIvU/VVOs6bdsAmI/AAAAAAAAA_c/5NQ5v6Rnhm0/s0/photon-packaging.png)
 
 Photons without headers are also available in JEDEC style trays for automated pick and place machines.  Request more details from us on this in the Contact section below.
 
