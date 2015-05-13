@@ -16,9 +16,9 @@ you need to get started:
 ![Photons]({{assets}}/images/photon-plugged-in.jpg)
 
 - _(1) Photon_: Your Particle development board
-- _(1) USB cable_: A male-to-micro USB cable is needed to power the Photon. **Included in Photon Kit and Prototyping Bundle.**
+- _(1) USB cable_: A male-to-micro USB cable is needed to power the Photon. **Included in Photon Kit, Maker Kit, and Prototyping Bundle.**
 
-If you purchased a Photon Kit or a Prototyping Bundle, you also
+If you purchased a Photon Kit, Maker Kit or a Prototyping Bundle, you also
 received a *breadboard* to wire components to the Photon.
 
 In the next section, we'll teach you how to set up your device.
@@ -32,7 +32,7 @@ Powering Your Photon
   <iframe src="https://vine.co/v/eZUH7WaWjMT/embed/simple" width="320" height="320" frameborder="0"></iframe>
 </div>
 
-Plug the included USB cable into the Photon and your computer. The Photon should start blinking blue.
+Plug the USB cable into the Photon and your computer. The Photon should start blinking blue.
 
 - Not blinking blue?
   - Maybe it's already been configured. Hold down the SETUP button until it starts blinking blue, then continue.
@@ -56,7 +56,7 @@ Follow the on-screen instructions in the mobile app to connect your Photon to th
   <iframe src="https://vine.co/v/eZUX7KJQnbX/embed/simple" width="320" height="320" frameborder="0"></iframe>
 </div>
 
-When your Photon is connecting to wifi, it should go through the following colors:
+When your Photon is connecting to wifi it will go through the following colors, but don't worry if you don't see them all:
 - **Flashing blue**: Soft-AP setup mode, waiting for network information.
 - **Solid blue**: Soft-AP setup complete, network information found.
 - **Flashing green**: Connecting to local Wi-Fi network.
@@ -65,7 +65,7 @@ When your Photon is connecting to wifi, it should go through the following color
 - **Blinking magenta**: Updating to the newest firmware
 - **Breathing cyan**: Successfully connected to Cloud.
 
-**Note:** All new Photons will receive an update from the Particle cloud after coming online for the first time. You'll know your Photon is being updated when it starts flashing Magenta. Please be patient, this could take a few minutes.
+**Note:** All new Photons will receive an update from the Particle cloud after coming online for the first time. You'll know your Photon is being updated when it starts flashing magenta. Please be patient, this could take a few minutes.
 
 **Did your phone not find any Photons?**
 Check the [support page](https://support.particle.io).
@@ -101,11 +101,11 @@ Getting To Know Your Photon
 
 The Photon is a Wi-Fi development kit for internet-connected hardware. It is, in essence, the "brains" of a connected hardware product or project.
 
-The Photon has on board a microcontroller, which is a small, low-cost, low-power computer that can run a single application. The microcontroller runs the show; it runs your software and tells the rest of the Photon what to do. It has a Real-Time Operating System (RTOS) similar to the way that your computer does; it runs multiple threads at the same time, system tasks and user application tasks, switching between then depending on which task needs more system resources at that particular moment.  The user tasks are coded in an application (often called *firmware* or an *embedded application*), which can be simple, just a few lines of code, or very complex, depending on what you want to do.
+The Photon has on board a microcontroller, which is a small, low-cost, low-power computer that can run a single application. The microcontroller runs the show; it runs your software and tells the rest of the Photon what to do. It has a Real-Time Operating System (RTOS); it runs multiple threads at the same time, system tasks and user application tasks, switching between then depending on which task needs more system resources at that particular moment.  The user tasks are coded in an application (often called *firmware* or an *embedded application*), which can be simple, just a few lines of code, or very complex, depending on what you want to do.
 
 ![Microcontroller and Wifi]({{assets}}/images/photon-module.jpg)
 
-Microcontrollers are particularly good at *controlling things*; hence the name. They have a set of "pins" (little spider leg type things sticking off the chip) that are called *GPIO* (General Purpose Input and Output) pins, or I/O pins. They can be hooked to sensors or buttons to listen to the world, or they can be hooked to lights and motors to act upon the world. These microcontroller's pins have been directly connected to the headers on the sides of the Core so you can easily access them; specifically, the pins labeled D0 to D7 and A0 to A7 are hooked directly to the microcontroller's GPIO pins.
+Microcontrollers are particularly good at *controlling things*; hence the name. They have a set of "pins" (the named connections along the edges of the board) that are called *GPIO* (General Purpose Input and Output) pins, or I/O pins. They can be hooked to sensors or buttons to listen to the world, or they can be hooked to lights and motors to act upon the world. These microcontroller's pins have been directly connected to the headers on the sides of the Core so you can easily access them; specifically, the pins labeled D0 to D7 and A0 to A7 are hooked directly to the microcontroller's GPIO pins.
 
 The microcontroller can also communicate with other chips using common protocols like *Serial* (also called UART), *SPI*, *CAN*, or *I2C* (also called Wire). You can then make the Photon more powerful by connecting it to special-purpose chips like motor drivers or shift registers. Sometimes we'll wrap up these chips on a *Shield*, an accessory to the Photon that makes it easy to extend the capabilities of the Photon.
 
@@ -128,10 +128,10 @@ The SETUP button serves two functions after the Photon has booted:
 
 The SETUP button serves four functions before the Photon has booted:
 
-- Hold down the SETUP button, tap on the RESET button and wait for *less than 1 second* to enter *User Safe Mode* mode, where the RGB LED will be flashing Magenta. Release the SETUP button. In this mode your user application will not execute.  This can be useful if you have a bug in your code that is keeping you from re-flashing it over the air.
-- Hold down the SETUP button, tap on the RESET button and wait for *3 seconds* to enter *Bootloader* mode, where the RGB LED will be flashing Yellow. Release the SETUP button. In this mode you can reprogram the Photon over USB or JTAG. If you do this by accident, simply hit RESET button to leave *Bootloader* mode.
-- Hold down the SETUP button, tap on the RESET button and wait for *6.5 seconds* to enter *Factory Reset Safe Mode* mode, where the RGB LED will be flashing Green. Release the SETUP button. In this mode the Photon is reprogrammed with the software that was installed on the Photon in the factory (the Tinker application). The LED should turn white for three seconds and begin flashing quickly; when the LED switches to another color the Photon has been reset. This is useful if you encounter bugs with your firmware, or if you just want to get back to Tinker. Wi-Fi credentials are not erased in this mode.
-- Hold down the SETUP button, tap once on the RESET button and wait for *ten seconds* to do a *Factory Reset*, where the RGB LED will be flashing White. Release the SETUP button. In this mode the Photon is reprogrammed with the software that was installed on the Photon in the factory (the Tinker application). The LED should turn white for three seconds and begin flashing quickly; when the LED switches to another color the Photon has been reset. This is useful if you encounter bugs with your firmware, or if you just want to get back to Tinker. Wi-Fi credentials are also erased in this mode, so you'll have to set those up again.
+- Hold down the SETUP button, tap on the RESET button and wait for *less than 3 seconds* to enter *User Safe Mode* mode, where the RGB LED will be flashing Magenta. Release the SETUP button. This is the most frequently mode, because your user application will not execute.  This can be useful if you have a bug in your code that is keeping you from re-flashing it over the air, or causing other hanging issues.
+- Hold down the SETUP button, tap on the RESET button and wait for *3-6 seconds* to enter *Bootloader* mode, where the RGB LED will be flashing Yellow. Release the SETUP button. In this mode you can reprogram the Photon over USB or JTAG. If you do this by accident, simply hit RESET button to leave *Bootloader* mode.
+- Hold down the SETUP button, tap on the RESET button and wait for *6-10 seconds* to enter *Factory Reset Safe Mode* mode, where the RGB LED will be flashing Green. Release the SETUP button. In this mode the Photon is reprogrammed with the software that was installed on the Photon in the factory (the Tinker application). The LED should turn white for three seconds and begin flashing quickly; when the LED switches to another color the Photon has been reset. This is useful if you encounter bugs with your firmware, or if you just want to get back to Tinker. Wi-Fi credentials are not erased in this mode.
+- Hold down the SETUP button, tap once on the RESET button and wait for *10 seconds+* to do a *Factory Reset*, where the RGB LED will be flashing White. Release the SETUP button. In this mode the Photon is reprogrammed with the software that was installed on the Photon in the factory (the Tinker application). The LED should turn white for three seconds and begin flashing quickly; when the LED switches to another color the Photon has been reset. This is useful if you encounter bugs with your firmware, or if you just want to get back to Tinker. Wi-Fi credentials are also erased in this mode, so you'll have to set those up again.
 
 ### LEDs
 
