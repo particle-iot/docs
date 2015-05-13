@@ -14,7 +14,7 @@ Connecting your Device
 The easiest way to connect your device to Wi-Fi is using the [Spark Core
 mobile app](https://itunes.apple.com/us/app/spark-core/id760157884?mt=8) for iPhone or Android. But in case that's not working for you or you don't have an iOS/Android phone, there are other methods as well.
 
-For all of the following methods, the device must be in [Listening Mode](#Listening-Mode), which you'll know by its flashing blue LED.
+For all of the following methods, the device must be in [Listening Mode](#connecting-your-device-listening-mode), which you'll know by its flashing blue LED.
 
 
 ## Listening Mode
@@ -62,7 +62,7 @@ Did your phone not find any Cores?
 
 ## Connect over USB
 
-You can also connect your device to your Wi-Fi network over USB by communicating through Serial. *NOTE: This only works when the device is in [Listening Mode](#/connect/#listening-mode) (i.e. RGB led is blinking blue)*.
+You can also connect your device to your Wi-Fi network over USB by communicating through Serial. *NOTE: This only works when the device is in [Listening Mode](#connecting-your-device-listening-mode) (i.e. RGB led is blinking blue)*.
 
 There are a few ways to go about connecting your Core over USB. Follow these links depending on your preferences:
 
@@ -126,7 +126,7 @@ The terminal will spit out a lot of data, in the midst of which you will see:
 Now let's try using the CLI!
 
 ####Connecting Your Device
-Make sure your device is plugged in via USB and in [Listening Mode]() (blinking blue). Then type:
+Make sure your device is plugged in via USB and in [Listening Mode](#connecting-your-device-listening-mode) (blinking blue). Then type:
 `particle setup`
 
 Log in with your Particle account and follow the prompts to set up your device.

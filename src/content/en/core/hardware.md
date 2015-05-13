@@ -2,6 +2,7 @@
 word: Datasheet
 title: Hardware datasheet
 order: 9
+columns: 2
 ---
 
 Spark Core Datasheet

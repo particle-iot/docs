@@ -8,7 +8,7 @@ title: Get started with Particle
   <a href="/photon">
     <li class="device" id="photon">
       <h3>Photon</h3>
-      <img src="{{assets}}/images/photon_new.jpg"/>
+      <img src="{{assets}}/images/photon-new.jpg"/>
     </li>
   </a>
   <a href="/core">

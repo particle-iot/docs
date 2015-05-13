@@ -14,7 +14,7 @@ Your New Particle Device
 Congratulations on being the owner of a brand new Photon! Go ahead, open the box, and let's talk about what you see. Your box should include:
 
 - _(1) Core_ The reason you bought it!
-- _(1) Breadboard_ A breadboard makes it easy to wire components to the Core without soldering. See Wikipedia for more information.
+- _(1) Breadboard_ A breadboard makes it easy to wire components to the Core without soldering.
 - _(1) USB cable_ The included USB cable is great for powering the Core, and we'll cover more technical things later.
 
 In the next section, we'll teach you how to set up your device. To go through this setup process, you will need:
@@ -32,13 +32,10 @@ Powering Your Core
 
 ![Power the Core]({{assets}}/images/core-front.jpg)
 
-Plug the included USB cable into the Core and your computer. The Core should start blinking blue.  If you have a [core with a u.FL connector](PLACEHOLDER LINK), make sure you connect an antenna to it now!
+Plug the included USB cable into the Core and your computer. The Core should start blinking blue.  If you have a [core with a u.FL connector]({{assets}}/images/chip-ufl.jpg), make sure you connect an antenna to it now!
 
 - Not blinking blue?
   - Maybe it's already been configured. Hold down the MODE button until it starts blinking blue, then continue.
-
-
-
 
 ### Step 2: Install the App
 
@@ -75,9 +72,9 @@ Did your phone not find any Cores?
 - Is it blinking green and not getting to cyan?
   - Try it again by holding the MODE button on the core until it begins flashing blue, then double-check your network name and password.
 - Is it now breathing cyan, but the app didn't find any Cores?
-  - Uh oh. Your Core's on the network, but it took too long. [We're going to claim your core manually.](/connect#claiming-your-core)
+  - Uh oh. Your Core's on the network, but it took too long. [We're going to claim your core manually.](/core/connect#connecting-your-device-connect-over-usb)
 - Something else altogether?
-  - Give the [Connecting Your Core](/connect) page a read-through and if you're still stuck, search the [community.](http://community.particle.io)
+  - Give the [Connecting Your Core](/core/connect) page a read-through and if you're still stuck, search the [community.](http://community.particle.io)
 
 
 Blink an LED on your Core
@@ -93,7 +90,7 @@ Tap *D7* then _digitalWrite_ in the popup. Now when you tap the *D7* circle the 
 
 You could hook your own LED up to the Core on another pin and do the same thing, use digitalRead to tell that a switch has been pressed, or analogRead to see the position of a knob.
 
-You can always get Tinker back on the Core by following [these instructions](/#/tinker#tinkering-with-tinker-the-tinker-firmware)
+You can always get Tinker back on the Core by following [these instructions](/core/tinker#tinkering-with-tinker-the-tinker-firmware)
 
 
 ### Put Code on Your Core
@@ -104,7 +101,7 @@ Now let's control the blue LED using code instead of Tinker. If you [click here]
 
 Click "BLINK AN LED" under the Example apps title. This code turns D7 (labeled _led2_) on and off, once a second. Click the lightning bolt icon in the upper left and it will upload or "flash" this code onto your Core. You'll see a series of status colors on the main LED, and then the little blue LED blinking. Magic!
 
-You can find more info in the [Web IDE (Build) page](/#/build)
+You can find more info in the [Web IDE (Build) page](/core/build)
 
 
 Getting to Know Your Core

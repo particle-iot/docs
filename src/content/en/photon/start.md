@@ -15,13 +15,13 @@ you need to get started:
 
 ![Photons]({{assets}}/images/photon-plugged-in.jpg)
 
-- _(1) Photon_ Your Particle development board
-- _(1) USB cable_ A male-to-micro USB cable is needed to power the Photon, and we'll cover more technical things later. **Included in Photon Kit and Prototyping Bundle.**
+- _(1) Photon_: Your Particle development board
+- _(1) USB cable_: A male-to-micro USB cable is needed to power the Photon. **Included in Photon Kit and Prototyping Bundle.**
 
 If you purchased a Photon Kit or a Prototyping Bundle, you also
 received a *breadboard* to wire components to the Photon.
 
-In the next section, we'll teach you how to set up your device. Sweet! Let's power up your device and start blinking LEDs.
+In the next section, we'll teach you how to set up your device.
 
 Powering Your Photon
 ====
@@ -35,7 +35,7 @@ Powering Your Photon
 Plug the included USB cable into the Photon and your computer. The Photon should start blinking blue.
 
 - Not blinking blue?
-  - Maybe it's already been configured. Hold down the MODE button until it starts blinking blue, then continue.
+  - Maybe it's already been configured. Hold down the SETUP button until it starts blinking blue, then continue.
 
 
 ### Step 2: Install the App
@@ -44,9 +44,9 @@ Plug the included USB cable into the Photon and your computer. The Photon should
 
 You can search for the mobile app named Particle, or you can click one of these links:
 
-[iPhone >](PLACEHOLDER)  [Android >](PLACEHOLDER)
+[iPhone >](https://itunes.apple.com/us/app/particle-build-photon-electron/id991459054?ls=1&mt=8)  [Android >](https://play.google.com/store/apps/details?id=io.particle.android.app)
 
-Open up the Particle app on your mobile device, and tap the "Get Started" button to start the process of connecting your Photon to wifi.
+Open up the Particle app on your mobile device, and tap the "Get Started" button to start the process of connecting your Photon to wifi. In the app, you'll need to login with your Particle account or create an account if you don't have one.
 
 ### Step 3: Connect Your Photon to the Cloud
 
@@ -65,20 +65,15 @@ When your Photon is connecting to wifi, it should go through the following color
 - **Blinking magenta**: Updating to the newest firmware
 - **Breathing cyan**: Successfully connected to Cloud.
 
-Did your phone not find any Photons?
-- Is it blinking blue?
-  - Give it another go.
-- Is it blinking green and not getting to cyan?
-  - Try it again by holding the SETUP button on the Photon until it begins flashing blue, then double-check your network name and password.
-- Is it now breathing cyan, but the app didn't find any Photons?
-  - Uh oh. Your Photon's on the network, but it took too long. [We're going to claim your Photon manually.](/connect#claiming-your-core)
-- Something else altogether?
-  - Give the [Connecting Your Photon](/connect) page a read-through, try searching on [our support page](http://support.particle.io), and if you're still stuck, search the [community.](http://community.particle.io)
+**Note:** All new Photons will receive an update from the Particle cloud after coming online for the first time. You'll know your Photon is being updated when it starts flashing Magenta. Please be patient, this could take a few minutes.
 
+**Did your phone not find any Photons?**
+Check the [support page](https://support.particle.io).
 
 Blinking an LED on Your Photon
 ====
 
+<!--
 ### Step 1: Blink an LED
 Now that you are connected, you can **blink an LED with Tinker.**
 
@@ -89,14 +84,13 @@ The Particle app should now be on the Tinker screen, as shown to the right.
 Tap *D7* then _digitalWrite_ in the popup. Now when you tap the *D7* circle the tiny blue LED should turn off or on! This is because the LED shares a connection to the Photon with the pin labeled D7. 
 
 You could hook your own LED up to the Photon on another pin and do the same thing, use digitalRead to tell that a switch has been pressed, or analogRead to see the position of a knob.
-
-You can always get Tinker back on the Photon by following [these instructions](/#/tinker#tinkering-with-tinker-the-tinker-firmware)
+-->
 
 ### Put Code on Your Photon
 
 ![Particle Build]({{assets}}/images/ide-main.png)
 
-Now let's control the blue LED using code instead of Tinker. If you [click here](http://build.particle.io) or on Build on the main page, you'll be in the IDE- where we can write code and upload it to the Photon. Log in with the same email and password you used to sign up in the app, and we're off!
+Now let's control the blue LED on the device. If you [click here](http://build.particle.io) or on Build on the main page, you'll be in the IDE- where we can write code and upload it to the Photon. Log in with the same email and password you used to sign up in the app, and we're off!
 
 Click "BLINK AN LED" under the Example apps title. This code turns D7 (labeled _led2_) on and off, once a second. Click the lightning bolt icon in the upper left and it will upload or "flash" this code onto your Photon. You'll see a series of status colors on the main LED, and then the little blue LED blinking. Magic!
 
@@ -115,7 +109,7 @@ Microcontrollers are particularly good at *controlling things*; hence the name. 
 
 The microcontroller can also communicate with other chips using common protocols like *Serial* (also called UART), *SPI*, *CAN*, or *I2C* (also called Wire). You can then make the Photon more powerful by connecting it to special-purpose chips like motor drivers or shift registers. Sometimes we'll wrap up these chips on a *Shield*, an accessory to the Photon that makes it easy to extend the capabilities of the Photon.
 
-The Photon also has a Wi-Fi module, which connects it to your local Wi-Fi network in the same way that your computer or smartphone might connect to a Wi-Fi network. The Photon is programmed to stay connected to the internet by default, so long as it can find and connect to a network.
+The Photon also has a Wi-Fi module, which connects it to your local Wi-Fi network in the same way that your computer or smartphone might connect to a Wi-Fi network. The Photon is programmed to stay connected to the internet by default, so long as it can find and connect to a network. Please note that your Wi-Fi module is a bit shy and does not like to be touched or compressed. This means that if you poke and prod the Wi-Fi module on your Photon, your device may reset.
 
 When the Photon connects to the internet, it establishes a connection to Particle's Cloud. By connecting to the Cloud, the Photon becomes accessible from anywhere through a simple REST API. This API is designed to make it very easy to interface with the Photon through a web app or mobile app in a secure, private way, so that only you and those you trust can access the Photon.
 
