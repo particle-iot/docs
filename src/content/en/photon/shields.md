@@ -2,6 +2,7 @@
 word: Accessories
 title: Shields and kits
 order: 10
+columns: 2
 ---
 
 Shields and accessories
@@ -407,7 +408,7 @@ A photo resistor is a light dependent resistor whose resistance decreases with t
 
 There are three different value resistor in this kit. All of them are rated at 5%, 1/4 Watt.
 
-- 330-Ohm (10)
+- 220-Ohm (10)
 - 1K-Ohm (10)
 - 10K-Ohm (10)
 
