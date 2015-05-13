@@ -2,34 +2,15 @@
 word: Datasheet
 title: Hardware datasheet
 order: 10
-col: 2
+columns: 2
 ---
-
-<!--removeCodeColumn-->
 
 Photon Datasheet (v008)
 ===
 
-<br>
-<br>
-<br>
-<br>
-<br>
+Download a PDF copy of the [Photon Datasheet](https://github.com/spark/photon-internal/raw/master/datasheets/photon/photon-datasheet-v007.pdf)
 
-```c++
-setup() {
-	// haha, I'm over here!
-}
-```
-
-For now, check out a PDF of the [Photon Datasheet](https://github.com/spark/photon-internal/raw/master/datasheets/photon/photon-datasheet-v007.pdf)
-
----
-<p align="right"><img align="left" src="https://lh3.googleusercontent.com/-OnSElmw6VjM/VUV0xy8Up_I/AAAAAAAAA58/j2GpePInVU4/s0/particle-horizontal-no-whitespace.png" width=120><br></p>
-
-# Photon Datasheet
-
-<br><div align=center><img src="https://lh5.googleusercontent.com/-IsU3dwQN57Q/VSdSqLfZDgI/AAAAAAAAAwc/XoaeHpk8kaE/s0/photon_vector2_600.png" width=300></div>
+<br><div align=center><img src="https://lh5.googleusercontent.com/-IsU3dwQN57Q/VSdSqLfZDgI/AAAAAAAAAwc/XoaeHpk8kaE/s0/photon_vector2_600.png" width=200></div>
 <br>
 
 ```c++
@@ -37,13 +18,6 @@ void setup() {
     Particle.publish("my-event","The internet just got smarter!");
 }
 ```
-
----
-
-
-## Contents
-
-[TOC]
 
 ---
 
@@ -60,7 +34,7 @@ The Photon comes in two physical forms: with headers and without. Prototyping is
 
 ### 1.2 Features
 
-- Spark PØ Wi-Fi module
+- Particle PØ Wi-Fi module
 	- Broadcom BCM43362 Wi-Fi chip
 	- 802.11b/g/n Wi-Fi
     - STM32F205 120Mhz ARM Cortex M3
@@ -81,7 +55,7 @@ The Photon comes in two physical forms: with headers and without. Prototyping is
 
 ### 2.1 Block Diagram
 
-![photon-block-diagram](https://lh5.googleusercontent.com/-q7W5VzCMofY/VSRBXcSLbWI/AAAAAAAAAvk/algJWCwNz94/s0/photon-block-diagram.png)
+<div align=center><img src="https://lh5.googleusercontent.com/-q7W5VzCMofY/VSRBXcSLbWI/AAAAAAAAAvk/algJWCwNz94/s0/photon-block-diagram.png" width=500></div>
 
 ---
 
