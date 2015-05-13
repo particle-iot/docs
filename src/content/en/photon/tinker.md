@@ -12,7 +12,7 @@ The Tinker app
 
 ![Tinker selection]({{assets}}/images/tinker.png)
 
-The Tinker section of the Particle mobile app makes it very easy to start playing with your Particle device without writing any code. It's great for early development, and often it will do everything you need to get your project off of the ground.
+The Tinker section of the [Particle mobile app](https://itunes.apple.com/us/app/particle-build-photon-electron/id991459054?ls=1&mt=8) makes it very easy to start playing with your Particle device without writing any code. It's great for early development, and often it will do everything you need to get your project off of the ground.
 
 The app consists of 16 pins in vertical rows - 8 analog pins on the left, 8 digital pins on the right. These pins represent the 16 GPIO (General Purpose Input and Output) pins on the Photon, and are organized the same way.
 
