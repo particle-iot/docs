@@ -41,9 +41,9 @@ Plug the included USB cable into the Core and your computer. The Core should sta
 
 ![Spark Core Tinker]({{assets}}/images/spark-app.jpg)
 
-You can search for the mobile app named Spark Core, or you can click one of these links:
+You can search for the mobile app named "Spark Core", or you can click one of these links:
 
-[iPhone >](https://itunes.apple.com/us/app/spark-core/id760157884?mt=8)  [Android >](https://play.google.com/store/apps/details?id=io.spark.core.android&hl=en)
+[iPhone >](https://itunes.apple.com/us/app/spark-core/id760157884)  [Android >](https://play.google.com/store/apps/details?id=io.spark.core.android)
 
 Now use the app to sign up for an account!
 
