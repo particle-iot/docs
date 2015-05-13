@@ -13,7 +13,7 @@ Connecting your Device
 
 The easiest way to connect your device to Wi-Fi is using the [Particle mobile app](https://itunes.apple.com/us/app/particle-build-photon-electron/id991459054?ls=1&mt=8) for iPhone or Android. But in case that's not working for you or you don't have an iOS/Android phone, there are other methods as well.
 
-For all of the following methods, the device must be in [Listening Mode](./#connecting-your-device-listening-mode), where the RGB LED is flashing blue.
+For all of the following methods, the device must be in [Listening Mode](#connecting-your-device-listening-mode), where the RGB LED is flashing blue.
 
 ## Listening Mode
 
@@ -30,7 +30,7 @@ Get [the app](https://itunes.apple.com/us/app/particle-build-photon-electron/id9
 
 ## Connect over USB
 
-You can also set up your device using USB. *NOTE: This only works when the device is in [Listening Mode](./#connecting-your-device-listening-mode) (i.e. RGB led is blinking blue)*.
+You can also set up your device using USB. *NOTE: This only works when the device is in [Listening Mode](#connecting-your-device-listening-mode) (i.e. RGB led is blinking blue)*.
 
 There are a two ways to go about connecting your Photon over USB, depending on your OS. These links will take you to the right place:
 
@@ -95,7 +95,7 @@ Now let's try using the CLI!
 
 
 ####Connecting Your Device
-Make sure your device is plugged in via USB and in [Listening Mode](./#connecting-your-device-listening-mode) (blinking blue). Then type:
+Make sure your device is plugged in via USB and in [Listening Mode](#connecting-your-device-listening-mode) (blinking blue). Then type:
 `spark setup`
 
 Log in with your Particle account and follow the prompts to set up your device.
@@ -167,7 +167,7 @@ _Note:_ You may need to update xcode at this time.
 
 
 ####Connecting Your Device
-Make sure your device is plugged in via USB and in [Listening Mode](./#connecting-your-device-listening-mode) (blinking blue). Open the terminal and type:
+Make sure your device is plugged in via USB and in [Listening Mode](#connecting-your-device-listening-mode) (blinking blue). Open the terminal and type:
 `particle setup`
 
 Log in with your Particle account and follow the prompts to set up your device.

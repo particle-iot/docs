@@ -150,7 +150,7 @@ curl https://api.spark.io/v1/devices/0123456789abcdef01234567/led \
 
 Notate che la fine della chiamata API è 'led' e non 'ledControl'. Questo perchè il punto finale è definito dal primo argomento di Spark.function(), che è una stringa di caratteri piuttosto che il secondo parametro che è invece una funzione.
 
-Per comprendere meglio il concetto delle chiamate API al Core via cloud controllate la [referenza Cloud API.](/#/api)
+Per comprendere meglio il concetto delle chiamate API al Core via cloud controllate la [referenza Cloud API.](#api)
 
 Misurare la temperatura
 ===

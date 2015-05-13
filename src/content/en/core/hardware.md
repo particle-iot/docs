@@ -99,22 +99,22 @@ The Spark Core offers a total 18 I/O pins to the user: `D0 to D7`, `A0 to A7` an
 
 ### Digital pins
 
-Each pin on the Core can either be configured as input (with or without pull-up or pull-down) or as output (push-pull or open-drain) using the [pinMode()](firmware/#setup-pinmode) function.
+Each pin on the Core can either be configured as input (with or without pull-up or pull-down) or as output (push-pull or open-drain) using the [pinMode()](../firmware/#setup-pinmode) function.
 
 
-After setting them up, the user can then write to or read from the pins using [digitalWrite()](firmware/#i-o-digitalwrite) and [digitalRead()](firmware/#i-o-digitalread) functions respectively.
+After setting them up, the user can then write to or read from the pins using [digitalWrite()](../firmware/#i-o-digitalwrite) and [digitalRead()](../firmware/#i-o-digitalread) functions respectively.
 
 Each of these pins can individually source/sink a maximum of 20mA. In the input mode, the user can activate internal pull-up or pull-down resistors (typically equal to 40K ohms). By default these are deactivated.
 
 ### Analog Inputs
 
-Pins A0 to A7 can be set up as analog inputs and can measure voltages of upto 3.3V and are internally referenced to VDD. The user can read the pins using [analogRead()](firmware/#i-o-analogread) function which returns a 12bit value.
+Pins A0 to A7 can be set up as analog inputs and can measure voltages of upto 3.3V and are internally referenced to VDD. The user can read the pins using [analogRead()](../firmware/#i-o-analogread) function which returns a 12bit value.
 
 ### Analog Outputs
 
 This term is misleading and misused but is widely adopted in the Arduino community. The pins that are set to output an analog value don't actually output an analog voltage but rather produce a PWM signal whose duty cycle can be varied thus varying the total average power of the signal. On the Core, the PWM signals have a resolution of 8 bits and run at a frequency of 500Hz.
 
-Having said that, the user can send analog values to the pins using the function [analogWrite().](firmware/#i-o-analogwrite)
+Having said that, the user can send analog values to the pins using the function [analogWrite().](../firmware/#i-o-analogwrite)
 
 This feature is only available on the following pins: `A0, A1, A4, A5, A6, A7, D0 and D1.`
 
@@ -128,7 +128,7 @@ The second one is a hardware USART available via the TX and RX pins on the Core.
 
 The third one is a hardware USART available via the D1(Tx) and D0(Rx) pins on the Core. (usage: `Serial2.begin(9600);`)
 
-Configuration and use of all of these serial ports is described in the [serial functions.](/firmware/#communication-serial)
+Configuration and use of all of these serial ports is described in the [serial functions.](../firmware/#communication-serial)
 
 **NOTE:** Please take into account that the voltage levels on these pins runs at 0V to 3.3V and should not be connected directly to a computer's RS232 serial port which operates at +/- 12V and can damage the Core.
 
@@ -303,7 +303,7 @@ This version of the Core comes with an on board chip antenna that gives a signal
 
 #### uFL Connector
 
-If you want to improve the signal strength of the Core, you can connect an external antenna with the help of the [uFL connector](http://en.wikipedia.org/wiki/Hirose_U.FL). Most antennas that are designed to operate at 2.4GHz or are WiFi rated will do the job. You can also make your own [cantenna](https://community.spark.io/t/extending-the-core-wifi-range-with-a-cantenna/1357)!
+If you want to improve the signal strength of the Core, you can connect an external antenna with the help of the [uFL connector](http://en.wikipedia.org/wiki/Hirose_U.FL). Most antennas that are designed to operate at 2.4GHz or are WiFi rated will do the job. You can also make your own [cantenna](https://community.particle.io/t/extending-the-core-wifi-range-with-a-cantenna/1357)!
 
 
 Physical layout

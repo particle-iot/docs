@@ -68,7 +68,7 @@ When your Photon is connecting to wifi it will go through the following colors, 
 **Note:** All new Photons will receive an update from the Particle cloud after coming online for the first time. You'll know your Photon is being updated when it starts flashing magenta. Please be patient, this could take a few minutes.
 
 **Did your phone not find any Photons?**
-Check the [support page](https://support.particle.io).
+Check the [support page](http://support.particle.io).
 
 Blinking an LED on Your Photon
 ====
@@ -94,7 +94,7 @@ Now let's control the blue LED on the device. If you [click here](http://build.p
 
 Click "BLINK AN LED" under the Example apps title. This code turns D7 (labeled _led2_) on and off, once a second. Click the lightning bolt icon in the upper left and it will upload or "flash" this code onto your Photon. You'll see a series of status colors on the main LED, and then the little blue LED blinking. Magic!
 
-You can find more info in the [Web IDE (Build) page](/#/build)
+You can find more info in the [Web IDE (Build) page](#build)
 
 Getting To Know Your Photon
 ====

@@ -11,7 +11,7 @@
   <script src="{{assets}}/js/jquery-1.11.1.min.js"></script>
 
   <!-- Let me embed vines -->
-  <script async src="//platform.vine.co/static/scripts/embed.js" charset="utf-8"></script>
+  <script async src="https://platform.vine.co/static/scripts/embed.js" charset="utf-8"></script>
 
   <!-- Favicon -->
   <link rel="shortcut icon" href="{{assets}}/orange.ico" type="image/x-icon" />
@@ -48,9 +48,7 @@
       <div class='right'>
         <a href="http://support.particle.io" class="icon" target="_blank"><i class="icon ion-help-buoy"></i>Support</a>
         <a href="{{assets}}/docs.zip" class="icon"><i class="icon ion-arrow-down-a"></i>Download</a>
-        <a href='https://github.com/spark/docs/edit/master/src/content{{#contains dirname
-                  "photon"}}/photon/{{basename}}{{else}}/core/{{basename}}
-                  {{/contains}}.md' class="icon" target="_blank"><i class="ion-edit"></i>Edit</a>
+        <a href='https://github.com/spark/docs/edit/master/src/content{{#contains dirname "photon"}}/photon/{{basename}}{{else}}/core/{{basename}}{{/contains}}.md' class="icon" target="_blank"><i class="ion-edit"></i>Edit</a>
       </div>
     </div>
 
@@ -62,9 +60,7 @@
             {{#withSort pages "data.order"}}
 
                 <li class="{{data.device}}"><a
-                  href='{{#contains dirname
-                  "photon"}}/photon/{{basename}}{{else}}/core/{{basename}}
-                  {{/contains}}' class="level-0 {{#compare basename '===' ../basename}}active{{/compare}}">{{data.title}}</a></li>
+                  href='{{#contains dirname "photon"}}/photon/{{basename}}{{else}}/core/{{basename}}{{/contains}}' class="level-0 {{#compare basename '===' ../basename}}active{{/compare}}">{{data.title}}</a></li>
             {{/withSort}}
           </ul>
         </div>

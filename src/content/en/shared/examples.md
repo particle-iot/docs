@@ -436,7 +436,7 @@ In the code on the right, we've created a system where you turn your LED and pho
 
 For your convenience, we've set up a little calibrate function so that your device will work no matter how bright your LED is, or how bright the ambient light may be. Put your finger in the beam when the D7 LED goes on, and hold it in the beam until you see two flashes from the D7 LED. Then take your finger out of the beam.
 
-You can check out the results on your dashboard at [dashboard.particle.io](http://dashboard.particle.io). As you put your finger in front of the beam, you'll see an event appear that says the beam was broken. When you remove your finger, the event says that the beam is now intact.
+You can check out the results on your dashboard at [dashboard.particle.io](https://dashboard.particle.io). As you put your finger in front of the beam, you'll see an event appear that says the beam was broken. When you remove your finger, the event says that the beam is now intact.
 
 You can also hook up publishes to IFTTT! More info [here](/photon/ifttt).
 
@@ -753,7 +753,7 @@ curl https://api.spark.io/v1/devices/0123456789abcdef/led \
 
 Note that the API endpoint is 'led', not 'ledControl'. This is because the endpoint is defined by the first argument of [Spark.function() PLACEHOLDER], which is a string of characters, rather than the second argument, which is a function.
 
-To better understand the concept of making API calls to your device over the cloud checkout the [Cloud API reference.](#/api)
+To better understand the concept of making API calls to your device over the cloud checkout the [Cloud API reference.](#api)
 
 Measuring the temperature
 ===
@@ -762,7 +762,7 @@ We have now learned how to send custom commands to our device and control the ha
 
 In this example, we will hook up a temperature sensor to your device and read the values over the internet with a web browser.
 
-We have used a widely available analog temperature sensor called TMP36 from Analog Devices, and is the temperature sensor that comes with your Spark Maker Kit! You can download the [datasheet here.](http://www.analog.com/static/imported-files/data_sheets/TMP35_36_37.pdf)
+We have used a widely available analog temperature sensor called TMP36 from Analog Devices, and is the temperature sensor that comes with your Spark Maker Kit! You can download the [datasheet here.](http://www.analog.com/media/en/technical-documentation/data-sheets/TMP35_36_37.pdf)
 
 Notice how we are powering the sensor from 3.3V\* pin instead of the regular 3.3V. This is because the 3.3V\* pin gives out a (LC) clean filtered  voltage, ideal for analog applications like these. If the readings you get are noisy or inconsistent, add a 0.01uF (10nF) ceramic capacitor between the analog input pin (in this case, A7) and GND as shown in the set up. Ideally, the sensor should be placed away from the Core so that the heat dissipated by the Core does not affect the temperature readings.
 

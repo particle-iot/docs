@@ -166,7 +166,7 @@ The RGB LED can also let you know if there were errors in establishing an intern
 - *Two red flashes*: Connection failure due to bad internet connection. Check your network connection.
 - *Three red flashes*: The Cloud is inaccessible, but the internet connection is fine. Check our [support page](http://support.particle.io) to make sure that all systems are operational.
 - *Four red flashes*: The Cloud was reached but the secure handshake failed. Visit our [support page](http://support.particle.io) for help.
-- *Flashing yellow/red*: Bad credentials for the Cloud. Contact the Particle team (<a href="mailto@hello@particle.io">hello@particle.io</a>).
+- *Flashing yellow/red*: Bad credentials for the Cloud. Contact the Particle team (<a href="mailto:hello@particle.io">hello@particle.io</a>).
 
 ### Pins
 

@@ -42,9 +42,9 @@ spark login
 Success!
 ```
 
-We're still building the beautiful, intuitive web interface for creating and managing Webhooks, but you're determined, you are ready to use webhooks now.  You're in luck!  With the Particle CLI and your terminal you can start using webhooks right away.  You might need to install a few things, but it's going to be worth it.  First, make sure you have [Node.js](https://www.nodejs.org) installed if you don't already.
+We're still building the beautiful, intuitive web interface for creating and managing Webhooks, but you're determined, you are ready to use webhooks now.  You're in luck!  With the Particle CLI and your terminal you can start using webhooks right away.  You might need to install a few things, but it's going to be worth it.  First, make sure you have [Node.js](https://nodejs.org) installed if you don't already.
 
-For those of you who have used the Particle CLI in the past, you're all set! If you are a CLI newcomer, install it by following [these instructions](http://docs.spark.io/cli/#installing).
+For those of you who have used the Particle CLI in the past, you're all set! If you are a CLI newcomer, install it by following [these instructions](/cli/#installing).
 
 You'll also need some basic knowledge of the terminal. Adafruit has a [lovely intro to the command line](https://learn.adafruit.com/what-is-the-command-line/overview) that beginners may find helpful.
 
@@ -302,7 +302,7 @@ Lets make some graphs
 Logging to Librato
 ---
 
-Librato is great service that lets you quickly track and graph any data over time.  This example requires you have an account with them first, [signup for librato here](https://librato.com)
+Librato is great service that lets you quickly track and graph any data over time.  This example requires you have an account with them first, [signup for librato here](https://metrics.librato.com)
 
 When you first login you'll see a screen like this:
 
@@ -414,7 +414,7 @@ What's in a request?
 
 Since your webhook listens for events from your devices, it can send that event data along to whatever url you specify.  If you don't add any custom options, the hook will send a JSON type POST request with the following values:
 
-This is same data you'd see if you subscribed to your event stream http://docs.particle.io/api/#reading-data-from-a-core-events 
+This is same data you'd see if you subscribed to your event stream http://docs.particle.io/core/api#reading-data-from-a-core-events 
 
 
 These properties will all be strings except for published_at, which is an ISO8601 date formatted string, which tends to be in the form YYYY-MM-DDTHH:mm:ssZ

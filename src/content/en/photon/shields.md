@@ -312,7 +312,7 @@ S9013 is a general purpose small signal NPN [transistor](http://en.wikipedia.org
 
 You can use this transistor to switch small loads like relays, mini motors, buzzers, etc.
 
-[Datasheet >](http://www.fairchildsemi.com/ds/SS/SS9013.pdf)
+[Datasheet >](https://www.fairchildsemi.com/datasheets/SS/SS9013.pdf)
 
 ### 5. LEDs
 

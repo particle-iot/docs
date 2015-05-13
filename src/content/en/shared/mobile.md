@@ -39,7 +39,7 @@ If Particle iOS Cloud SDK installation completed successfully - you should be ab
 
 ## Installation
 
-Particle iOS Cloud SDK is available through [CocoaPods](http://cocoapods.org). To install it, simply add the following line to your Podfile on main project folder:
+Particle iOS Cloud SDK is available through [CocoaPods](https://cocoapods.org). To install it, simply add the following line to your Podfile on main project folder:
 
 ```ruby
 pod "Spark-SDK"
@@ -186,7 +186,7 @@ To use Particle DeviceSetup library from within Swift based projects [read here]
 also be sure the check out [Apple documentation](https://developer.apple.com/library/ios/documentation/Swift/Conceptual/BuildingCocoaApps/InteractingWithObjective-CAPIs.html) on this matter.
 
 ### Example
-Usage example app (in Swift) can be found [here](https://www.github.com/particle/spark-setup-ios-example/). Example app demonstates - invoking the setup wizard, customizing its UI and using the returned ParticleDevice instance once 
+Usage example app (in Swift) can be found [here](https://github.com/particle/spark-setup-ios-example/). Example app demonstates - invoking the setup wizard, customizing its UI and using the returned ParticleDevice instance once 
 setup wizard completes (delegate). Feel free to contribute to the example by submitting pull requests.
 
 ### Reference

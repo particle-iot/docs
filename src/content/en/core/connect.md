@@ -208,7 +208,7 @@ If you have already claimed your device and you want to connect it to wifi, type
 - __The SSID__ is the name of your network. When you connect on your computer, it is the name that you select when you connect your computer to wifi.
 - __The Security__ of your wifi is often set up by the administrator. Typically this is WPA2 if a password is needed, or unsecured if no password is needed. Contact your network administrator if you can't get this step to work, and find out exactly what kind of wifi you have.
 
-If your device is not connecting, try troubleshooting [here](http://support.spark.io/hc/en-us/articles/204357684-Can-t-Get-Connected-).
+If your device is not connecting, try troubleshooting [here](http://support.particle.io/hc/en-us/articles/204357684-Can-t-Get-Connected-).
 
 More info on the CLI is available [here](/core/cli).
 

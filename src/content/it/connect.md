@@ -156,7 +156,7 @@ Spesso gli apparecchi elettronici cominciano a comportarsi in modo corretto dopo
 - Chiudere la vostra applicazione mobile e riaprirla
 - Scollegare e ricollegare lo Spark Core
 - Pulire la memoria delle reti Wi-Fi dello Spark Core tenendo premuto il bottone MODE per 10 secondi. Dopo 3 secondi la luce dovrebbe cominciare a lampeggiare blu; dopo 10 secondi dovrebbe emettere dei veloci flashes blu. Questo significa che la memoria è stata liberata.
-- Impostare il firmware dello Spark Core ai valori predefiniti di fabbrica. Fare questo in modo giusto può essere un po' complicato, si veda [questo video](https://community.spark.io/t/how-to-do-a-factory-reset/2579) per un'illustrazione.
+- Impostare il firmware dello Spark Core ai valori predefiniti di fabbrica. Fare questo in modo giusto può essere un po' complicato, si veda [questo video](https://community.particle.io/t/how-to-do-a-factory-reset/2579) per un'illustrazione.
 
 ## PASSO 4: Controllare i valori del router
 
@@ -197,7 +197,7 @@ Lo Spark Coreha un LED RGB posizionato sul davanti che riporta lo stato della co
 - *Qual'è il problema?* Il vostro Core non ha le credenziali del Wi-Fi per collegarsi alla vostra rete locale
 - *Come risolgo il problema?*
         
-Al momento il vostro Core non ha le informazioni necessarie per connettersi alla vostra rete locale Wi-Fi. Se non l'avete ancora fatto provate ad usare l'applicazione Spark Core per [iPhone](https://itunes.apple.com/us/app/spark-core/id760157884) o [Android](https://play.google.com/store/apps/details?id=io.spark.core.android)  per inviare le vostre credenziali di rete al Core. Istruzioni dettagliate possono essere trovate  [qui](http://docs.spark.io/#/connect/connecting-your-core-smart-config-with-the-ti-app).
+Al momento il vostro Core non ha le informazioni necessarie per connettersi alla vostra rete locale Wi-Fi. Se non l'avete ancora fatto provate ad usare l'applicazione Spark Core per [iPhone](https://itunes.apple.com/us/app/spark-core/id760157884) o [Android](https://play.google.com/store/apps/details?id=io.spark.core.android)  per inviare le vostre credenziali di rete al Core. Istruzioni dettagliate possono essere trovate  [qui](http://docs.particle.io/#/connect/connecting-your-core-smart-config-with-the-ti-app).
 
 
 Se queto non funziona, provate i seguenti passi:

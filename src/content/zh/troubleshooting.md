@@ -42,7 +42,7 @@ Spark Core 与传统家庭网络的效果最佳：设用 WPA/WPA2 或 WEP 安全
 - 关闭您的移动应用程序，并重新打开它
 - 拔开 Spark Core USB 然后把它插回
 - 按住 MODE 按钮 10 秒钟清除 Spark Core 内存的 Wi-Fi 网络. 3秒钟后，指示灯应开始闪烁蓝色; 10秒后，它应该做一个快速的蓝色闪烁. 这意味着记忆已被清除.
-- 恢复 Spark Core 的固件到出厂默认值状态. [此视频](https://community.spark.io/t/how-to-do-a-factory-reset/2579) 作说明.
+- 恢复 Spark Core 的固件到出厂默认值状态. [此视频](https://community.particle.io/t/how-to-do-a-factory-reset/2579) 作说明.
 
 ## 步骤 4: 请检查您的路由器设置
 
@@ -83,7 +83,7 @@ Spark Core 有一个 RGB LED 定位在的前部,显示 core 的连接状态.此�
 - *问题是什么?* 您的 core 不具备Wi-Fi认证,无法加入您的本地网络
 - *我如何修复它?*
         
-现在，您的 core 没有它需要连接到您的本地 Wi-Fi 网络的信息. 如果您还没有，请尝试使用 Spark Core [iPhone](https://itunes.apple.com/us/app/spark-core/id760157884) 或 [Android](https://play.google.com/store/apps/details?id=io.spark.core.android) 应用程序发送您的网络凭据到您的 core. 详细的说明可以看 [这里](http://docs.spark.io/#/connect/connecting-your-core-smart-config-with-the-ti-app).
+现在，您的 core 没有它需要连接到您的本地 Wi-Fi 网络的信息. 如果您还没有，请尝试使用 Spark Core [iPhone](https://itunes.apple.com/us/app/spark-core/id760157884) 或 [Android](https://play.google.com/store/apps/details?id=io.spark.core.android) 应用程序发送您的网络凭据到您的 core. 详细的说明可以看 [这里](http://docs.particle.io/#/connect/connecting-your-core-smart-config-with-the-ti-app).
 
 
 如果还是不行，请尝试以下步骤:
@@ -213,7 +213,7 @@ Known Issues
 
 ## Flashing Cyan
 * Status: **Solution in progress, available in 1-2 weeks**
-* Forum Thread: https://community.spark.io/t/bug-bounty-kill-the-cyan-flash-of-death/1322
+* Forum Thread: https://community.particle.io/t/bug-bounty-kill-the-cyan-flash-of-death/1322
 
 #### Description
 
@@ -227,13 +227,13 @@ So far TI has supplied a couple of firmware patches to the Spark Team to test, b
 
 ## Spark.publish() breaks inside of Spark.function()
 * Status: **Acknowledged**
-* Forum Thread: https://community.spark.io/t/spark-publish-crashing-core/3463
+* Forum Thread: https://community.particle.io/t/spark-publish-crashing-core/3463
 
 #### Description
 
 If `Spark.publish()` is called within a function declared in `Spark.function()`, the Core may become unresponsive for a short period of time and return a 408 timed out error in the cloud API call.
 
-A fix can be applied in the user code that will work around this issue.  A simple explanation can be found in [post #10 of the forum thread](https://community.spark.io/t/spark-publish-crashing-core/3463/10).
+A fix can be applied in the user code that will work around this issue.  A simple explanation can be found in [post #10 of the forum thread](https://community.particle.io/t/spark-publish-crashing-core/3463/10).
 
 Recently Resolved Issues
 ===
@@ -241,7 +241,7 @@ Recently Resolved Issues
 ## Flashing Blue
 * Status: **Resolved as of v0.2.0**
 * Github Issue: https://github.com/spark/core-firmware/issues/144
-* Forum Thread: https://community.spark.io/t/status-led-flashing-blue/2915
+* Forum Thread: https://community.particle.io/t/status-led-flashing-blue/2915
 
 #### Description
 
@@ -251,8 +251,8 @@ This issue has been resolved, and the fix was pushed with firmware v0.2.0 on Mar
 
 ## Inaccurate analog readings
 * Status: **Resolved as of v0.2.0**
-* Forum Thread: https://community.spark.io/t/odd-analog-readings/906
-* Forum Thread: https://community.spark.io/t/odd-analog-readings-part-2/2718
+* Forum Thread: https://community.particle.io/t/odd-analog-readings/906
+* Forum Thread: https://community.particle.io/t/odd-analog-readings-part-2/2718
 
 #### Description
 
@@ -269,7 +269,7 @@ Previously, Serial UART was polling, and data could be dropped if the user code 
 
 ## Long delays break connectivity
 * Status: **Resolved**
-* Forum Thread: https://community.spark.io/t/known-issue-long-delays-or-blocking-code-kills-the-connection-to-the-cloud/950
+* Forum Thread: https://community.particle.io/t/known-issue-long-delays-or-blocking-code-kills-the-connection-to-the-cloud/950
 
 #### Description
 
@@ -279,7 +279,7 @@ We recently released an update to process Cloud messages during long delays, mak
 
 ## Can't init. peripherals in constructors
 * Status: **Resolved**
-* Forum Thread: https://community.spark.io/t/serial1-begin-in-class-constructor-hangs-core/3133
+* Forum Thread: https://community.particle.io/t/serial1-begin-in-class-constructor-hangs-core/3133
 
 #### Description
 

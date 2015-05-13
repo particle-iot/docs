@@ -89,7 +89,7 @@ The length of the `funcKey` is limited to a max of 12 characters. If you declare
 
 Example: Spark.function("someFunction1", ...); exposes a function called someFunction and not someFunction1
 
-A Spark function is set up to take one argument of the [String](http://docs.spark.io/firmware/#language-syntax-string-class) datatype. This argument length is limited to a max of 63 characters.
+A Spark function is set up to take one argument of the [String](http://docs.particle.io/firmware/#language-syntax-string-class) datatype. This argument length is limited to a max of 63 characters.
 
 ```cpp
 // EXAMPLE USAGE
@@ -3375,7 +3375,7 @@ void loop() {
 
 Language Syntax
 =====
-The following documentation is based on the Arduino reference which can be found [here.](http://arduino.cc/en/Reference/HomePage)
+The following documentation is based on the Arduino reference which can be found [here.](http://www.arduino.cc/en/Reference/HomePage)
 
 Structure
 ---
@@ -4112,7 +4112,7 @@ At times, the sign bit in a signed integer expression can cause some unwanted su
 
 There are two bit shift operators in C++: the left shift operator << and the right shift operator >>. These operators cause the bits in the left operand to be shifted left or right by the number of positions specified by the right operand.
 
-More on bitwise math may be found [here.](http://www.arduino.cc/playground/Code/BitMath)
+More on bitwise math may be found [here.](http://playground.arduino.cc/Code/BitMath)
 
 ```
 variable << number_of_bits
@@ -5020,7 +5020,7 @@ void loop(){
 
 ### String - object
 
-More info can be found [here.](http://docs.spark.io/#/firmware/language-syntax-string-class)
+More info can be found [here.](http://docs.particle.io/#/firmware/language-syntax-string-class)
 
 ### array
 

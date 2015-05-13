@@ -95,7 +95,7 @@ your Particle Cloud credentials.
 
 ### With username/password
 
-You can create an account [here](https://www.spark.io/signup)
+You can create an account [here](https://build.particle.io/signup)
 
 ```javascript
 var spark = require('spark');
@@ -138,7 +138,7 @@ spark.login({username: 'email@example.com', password: 'password'},
 
 ### Promises
 
-If you rather use [promises](http://promisesaplus.com/) you should not send
+If you rather use [promises](https://promisesaplus.com/) you should not send
 the callback param and use the returned promise.
 
 ```javascript

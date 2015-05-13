@@ -415,7 +415,7 @@ Photons without headers are also available in JEDEC style trays for automated pi
 
 <i class="icon-attention"></i> The Moisture Sensitivity Level (MSL) relates to the packaging and handling precautions required. The PØ module on the Photons dominate the MSL requirements and are rated level 3. In general, this precaution applies for Photons without headers.  If reflowing a Photon directly onto an application PCB, increased moisture levels prior to reflow can damage sensitive electronics on the Photon.  A bake process to reduce moisture may be required. <i class="icon-attention"></i>
 
-<i class="icon-right-hand"></i>For more information regarding moisture sensitivity levels, labeling, storage and drying see the MSL standard see IPC/JEDEC J-STD-020 (can be downloaded from [www.jedec.org](www.jedec.org)).
+<i class="icon-right-hand"></i>For more information regarding moisture sensitivity levels, labeling, storage and drying see the MSL standard see IPC/JEDEC J-STD-020 (can be downloaded from [www.jedec.org](http://www.jedec.org)).
 
 ### 12.3 ESD Precautions
 

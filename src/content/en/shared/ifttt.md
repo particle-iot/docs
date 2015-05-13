@@ -81,7 +81,7 @@ Spark.publish("Boiling!", "212", 60, PRIVATE);
 
 ### Firmware requirements
 
-To use this Trigger, firmware must include spark.publish(). Complete documentation on using [Spark.publish() is here.](http://docs.particle.io/photon/firmware/#spark-publish)
+To use this Trigger, firmware must include spark.publish(). Complete documentation on using [Spark.publish() is here.](http://docs.particle.io/photon/firmware#spark-publish)
 
 A word of caution - firmware loops quickly, so it's very easy to run publish() too frequently. You'll trigger your IFTTT recipe 100 times in a blink, and if you publish() more than once a second then the Particle Cloud will briefly disable further publishes. Make sure to think through the logic of your code so that it only publishes when you actually want it to.
 
@@ -128,7 +128,7 @@ Monitor a variable
 ### Firmware requirements
 Monitoring variables is also a simple way to get going. You'll need to create a variable at the top of your code, call Spark.variable() using the format to the right in the setup() function, and then you're good to go.
 
-Complete documentation on using [Spark.variable() is here.](http://docs.particle.io/photon/firmware/#spark-variable)
+Complete documentation on using [Spark.variable() is here.](http://docs.particle.io/photon/firmware#spark-variable)
 
 ```C++
 // EXAMPLE SHOWING THREE DATA TYPES
@@ -247,7 +247,7 @@ Your Spark.function()s can be used in several ways with IFTTT. You can send a va
 ### Firmware requirements
 All of the details are covered in the example to the right. Just remember to declare a function at the top of your code, make it Spark.function() in setup(), and then declare what the function does down below. Currently, only the first 4 Spark.function()s that you register will show up in IFTTT.
 
-Complete documentation on using [Spark.function() is here.](http://docs.particle.io/photon/firmware/#spark-function)
+Complete documentation on using [Spark.function() is here.](http://docs.particle.io/photon/firmware#spark-function)
 
 
 ### Trigger fields
@@ -376,7 +376,7 @@ You must have firmware on your Particle device, but nothing else is necessary. B
   Spark.subscribe("the_event_prefix", theHandler, MY_DEVICES);
   ```
 
-  Complete documentation on using [Spark.subscribe() is here.](http://docs.particle.io/photon/firmware/#spark-subscribe)
+  Complete documentation on using [Spark.subscribe() is here.](http://docs.particle.io/photon/firmware#spark-subscribe)
 
   ### Action fields
 
@@ -401,7 +401,7 @@ You must have firmware on your Particle device, but nothing else is necessary. B
 
   This is very similar to using a Spark.function() as a trigger, only you won't be using any values it returns. The same setup on the firmware side, and the example code above for Spark.function() as trigger, will work for this as well.
 
-  Complete documentation on using [Spark.function() is here.](http://docs.particle.io/photon/firmware/#spark-function)
+  Complete documentation on using [Spark.function() is here.](http://docs.particle.io/photon/firmware#spark-function)
 
   ### Action fields
 

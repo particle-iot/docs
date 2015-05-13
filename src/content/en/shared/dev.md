@@ -26,7 +26,7 @@ To show the palette press `Command`+`Shift`+`P` keys together on a Mac or `Contr
 
 **Tip**: you can change toolbar's position in settings.
 
-There's also a toolbar on left side of IDE which contains shortcuts to the most frequently used commands like compiling and flashing (looks a lot like the one from [Web IDE (Build)](/build), doesn't it?).
+There's also a toolbar on left side of IDE which contains shortcuts to the most frequently used commands like compiling and flashing (looks a lot like the one from [Web IDE (Build)](https://build.particle.io/), doesn't it?).
 
 Logging In
 ---
@@ -36,7 +36,7 @@ If you want to work on more advanced projects, Partilce Dev could be the choice 
 
 ![IDE Window]({{assets}}/images/ide-window.jpg)
 
-To access most of features you need to log in using your Particle account (which you can [create here](https://www.particle.io/signup)) by clicking the link on the bottom of the window.
+To access most of features you need to log in using your Particle account (which you can [create here](https://build.particle.io/signup)) by clicking the link on the bottom of the window.
 
 ![Logging in]({{assets}}/images/ide-log-in.jpg)
 
@@ -91,7 +91,7 @@ Variables
 
 ![Getting variable](http://docs.particle.io/assets/images/ide-get-variable.gif)
 
-All variables declared with [Spark.variable()](http://docs.particle.io/firmware/#spark-variable) are shown on the left side of panel. To poll latest variable value, click **Refresh** button for variable you want to update.
+All variables declared with [Spark.variable()](http://docs.particle.io/photon/firmware#spark-variable) are shown on the left side of panel. To poll latest variable value, click **Refresh** button for variable you want to update.
 
 ![Watching variable](http://docs.particle.io/assets/images/ide-watch-variable.gif)
 
@@ -102,7 +102,7 @@ Functions
 
 ![Functions](http://docs.particle.io/assets/images/ide-functions.gif)
 
-To call an [exposed function](http://docs.particle.io/firmware/#spark-function) simply click on the button with its name. You'll see any data the function returns on the right side.
+To call an [exposed function](http://docs.particle.io/photon/firmware#spark-function) simply click on the button with its name. You'll see any data the function returns on the right side.
 
 You can also add parameters to the call by entering them to the right of button.
 
@@ -116,7 +116,7 @@ Setting up WiFi
 
 To setup device's WiFi, connect it via USB and click **Setup device's WiFi...** button on the toolbar.
 
-If your device isn't in [listening mode](/connect/#connecting-your-core-listening-mode) you'll see animation showing how to enter it.
+If your device isn't in [listening mode](../connect#connecting-your-core-listening-mode) you'll see animation showing how to enter it.
 
 Next you'll see all available networks. The one you are currently connected to will be listed first.
 
@@ -131,7 +131,7 @@ Using community libraries
 
 Currently community libraries aren't supported natively (but we're working on it). You can still use them, just follow these instructions:
 
-Find the [library you want to use](http://particle.readme.io/v1.0/docs/using-libraries)
+Find the [library you want to use](http://docs.particle.io/photon/build/#flash-apps-with-particle-build-using-libraries)
 
 ![Link to GitHub repository](http://docs.particle.io/assets/images/build-libraries.jpg)
 

@@ -342,7 +342,7 @@ S9013 is a general purpose small signal NPN [transistor](http://en.wikipedia.org
 
 You can use this transistor to switch small loads like relays, mini motors, buzzers, etc.
 
-[Datasheet >](http://www.fairchildsemi.com/ds/SS/SS9013.pdf)
+[Datasheet >](https://www.fairchildsemi.com/datasheets/SS/SS9013.pdf)
 
 ### 7. Diode (6)
 
@@ -459,7 +459,7 @@ You can use to it detect tilt, orientation or vibrations.
 
 The TMP36 is a low voltage, precision centigrade temperature sensor. It provides a voltage output that is linearly proportional to the Celsius (centigrade) temperature. The TMP36 does not require any external calibration to provide typical accuracies of ±1°C at +25°C and ±2°C over the −40°C to +125°C temperature range.
 
-[Here is an example](http://docs.spark.io/examples/#measuring-the-temperature) of how you could use it the Core.
+[Here is an example](http://docs.particle.io/core/examples/#measuring-the-temperature) of how you could use it the Core.
 
 [Datasheet >](http://www.analog.com/static/imported-files/data_sheets/TMP35_36_37.pdf)
 
@@ -471,7 +471,7 @@ The TMP36 is a low voltage, precision centigrade temperature sensor. It provides
 
 A [thermistor](http://en.wikipedia.org/wiki/Thermistor) is a temperature dependent resistor. This one is a NTC type (Negative Temperature Coefficient), which means its resistance decreases with an increase in temperature.
 
-Unlike the TMP36, you will need to use this as a part of a voltage divider circuit as nicely described in this [tutorial.](http://learn.adafruit.com/thermistor/using-a-thermistor)
+Unlike the TMP36, you will need to use this as a part of a voltage divider circuit as nicely described in this [tutorial.](https://learn.adafruit.com/thermistor/using-a-thermistor)
 
 [Datasheet >]({{assets}}/datasheets/makerkit/thermistor.pdf)
 
@@ -572,8 +572,8 @@ NOTE: This is no longer available for purchase through Spark, however, if you st
 - RC Car Chassis kit ([buy from DFRobot](http://www.dfrobot.com/index.php?route=product/product&path=37_111&product_id=65))
 - Motor Driver Shield ([buy from DFRobot](http://www.dfrobot.com/index.php?route=product/product&product_id=69))
 - Battery (NiCad, Alkaline, LiPo, Li Ion : 6V to 12V DC) ([buy from DFRobot](http://www.dfrobot.com/index.php?route=product/product&filter_name=battery&product_id=489))
-- Spark Shield Shield ([buy from Spark](https://www.trycelery.com/shop/spark))
-- Spark Core ([buy from Spark](https://www.trycelery.com/shop/spark))
+- Spark Shield Shield ([buy from Spark](https://store.particle.io/?product=shield-shield))
+- Spark Core ([buy from Spark](https://store.particle.io/?product=spark-core))
 
 Assemble the RC Car chassis as shown in the [tutorial here.](http://www.dfrobot.com/wiki/index.php/3PA_Assembly_Guide_%28SKU:ROB0005%29) (Without the electronics)
 
