@@ -12,7 +12,7 @@ Photon Datasheet
 
 ```c++
 void setup() {
-    Particle.publish("my-event","The internet just got smarter!");
+    Spark.publish("my-event","The internet just got smarter!");
 }
 ```
 
