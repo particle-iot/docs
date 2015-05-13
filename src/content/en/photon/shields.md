@@ -39,6 +39,8 @@ The new version of the Shield Shield (v3.x.x) uses dedicated mosfet based voltag
 
 ![Shield Shield Pinmapping]({{assets}}/images/shields/shield-shield/shield-shield-pinmapping.png)
 
+```cpp
+
 |Shield  | Photon | Peripherals             |
 |--------|--------|-------------------------|
 |0       | RX     |     Serial1 RX,PWM      |
@@ -62,8 +64,9 @@ The new version of the Shield Shield (v3.x.x) uses dedicated mosfet based voltag
 |A4      | D0     |     SDA,PWM*            |
 |A5      | D1     |     SCL,PWM*,CAN_TX     |
 
-*Note: These pins can also function as 3.3V PWM outputs or 3.3V Servo outputs.  
+* Note: These pins can also function as 3.3V PWM outputs or 3.3V Servo outputs.  
 ** Note: ADC inputs are 3.3V max.
+```
 
 **IMPORTANT:** The Shield Shield does not map the Particle device's pins to like-numbered pins on the Arduino. In other words, D0 on the Particle device is not the same as D0 on the Arduino. Please review the pin mapping table to the right and plan accordingly.
 
