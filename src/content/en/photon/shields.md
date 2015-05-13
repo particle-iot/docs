@@ -242,4 +242,10 @@ The shield is setup so that when powered from the USB port as well as from a DC 
 
 ![Internet Button Description]({{assets}}/images/shields/internet-button/button-description.png)
 
+**Specifications:**
+ - Operating voltage: USB or External DC of 3.6 to 6VDC
+<!-- - Current consumption: -->
+ - Dimensions: 2.6" x 2.6"
+ <!-- - Weight: -->
+
 ![Internet Button Dimensions]({{assets}}/images/shields/internet-button/button-dimensions.png)
