@@ -84,7 +84,7 @@ analogRead: Reading a Sensor
 If we want to read a sensor, like a temperature or light sensor, we will need our device to give us more details than than just "It's on!" or "It's off!" When you want to read a value between `LOW` and `HIGH`, use `analogRead`.
 
 Plug in a sensor. In this example, we'll use a photoresistor.
-![Photoresistor Only Fritzing]({{assets}}/images/photon-photoresistor-only-fritzing.png)
+![Photoresistor Only Fritzing]({{assets}}/images/photon-photores-only-fritzing.png)
 
 Wire it up as pictured on the right. You can use any resistor for this; a larger resistor (like 10K Ohms) will give you a wider range of values whereas a smaller resistor (like 330 Ohms) will give you lower range of values.
 
