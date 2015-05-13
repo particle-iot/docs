@@ -240,4 +240,6 @@ The shield is setup so that when powered from the USB port as well as from a DC 
 
 ![Internet Button]({{assets}}/images/shields/internet-button/button.png)
 
+![Internet Button Description]({{assets}}/images/shields/internet-button/button-description.png)
+
 ![Internet Button Dimensions]({{assets}}/images/shields/internet-button/button-dimensions.png)
