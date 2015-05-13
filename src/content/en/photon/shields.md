@@ -9,7 +9,7 @@ Shields and accessories
 
 # Shield Shield
 
-Sometimes life can be a little difficult in the land of electronics when two systems talk a different voltage language. How do you make them talk to each other without making one of them _burnout_? The Shield Shield is the answer. This shield performs all the necessary voltage translation and provides an Arduino-like footprint to make it easier for you to plug in your existing Arduino shields or talk to other 5V hardware.
+Sometimes life can be a little difficult in the land of electronics when two systems talk a different voltage language. How do you make them talk to each other without making one of them _burn out_? The Shield Shield is the answer. This shield performs all the necessary voltage translation and provides an Arduino-compatible footprint to make it easier for you to plug in your existing Arduino shields or talk to other 5V hardware.
 
 ![Shield Shield]({{assets}}/images/shields/shield-shield/shield-shield.png)
 
@@ -27,7 +27,7 @@ Sometimes life can be a little difficult in the land of electronics when two sys
 
 **Operation:**   
 
-We use Texas Instruments TXB0108PWR to do the voltage translation in between the Particle's device's 3.3V to a 5V logic. Unlike other IO pins, the analog pins are rated at only a max of 3.3V and **NOT** 5.0V. Please remember NOT to exceed this voltage at anytime. The shield has an on-board voltage regulator and can be powered from 7V to 15V DC source. You could also power it via the USB plug on the Spark Core alone but the current would be limited to 500mA.
+We use Texas Instruments TXB0108PWR to do the voltage translation in between the Particle's device's 3.3V to a 5V logic. Unlike other IO pins, the analog pins are rated at only a max of 3.3V and **NOT** 5.0V. Please remember NOT to exceed this voltage at anytime. The shield has an on-board voltage regulator and can be powered from 7V to 15V DC source. You could also power it via the USB plug on the Particle device alone but the current would be limited to 500mA.
 
 ![Shield Shield TXB0108PWR]({{assets}}/images/shields/shield-shield/txb0108pwr-schematic.png)
 
@@ -78,6 +78,8 @@ The new version of the Shield Shield (v3.x.x) uses dedicated mosfet based voltag
 **Usage:**
 
 Link to the Shield Shield Library and example connections for I2C, SPI, ADC, and neopixel.
+
+add PDF template for holes
 -->
 
 # Relay Shield
@@ -309,7 +311,7 @@ You can use this transistor to switch small loads like relays, mini motors, buzz
 
 ![LEDs]({{assets}}/images/mk-led-3mm.bmp)
 
-These are general purpose 3mm LEDs. You can never have enough of them! Use a resistor in series when hooking them up to the Spark Core. ( 220 ohms to 1K ohms)
+These are general purpose 3mm LEDs. You can never have enough of them! Use a resistor in series when hooking them up to the Particle device. ( 220 ohms to 1K ohms)
 
 - Red (5)
 - Green (5)
@@ -360,13 +362,13 @@ Note: The Ground pin may vary as Brown or Black, +5V pin may vary as Orange or R
 Multi-colored and stripped. You can never have enough of these either.
 
 ### 10. USB Micro B Cable (1)
-A custom Spark USB cable for you Core! We were really excited to have our logo printed on them.
+A custom Particle USB cable for you Core! We were really excited to have our logo printed on them.
 
 ### 11. Pancake Vibration Motor (1)
 
 ![Vibration Motor]({{assets}}/images/mk-vibration-motor.bmp)
 
-Wanna give your next Spark Core project a tactile feedback? This vibration motor serves the purpose nicely. Use the NPN transistor to switch it.
+Wanna give your next Particle device project a tactile feedback? This vibration motor serves the purpose nicely. Use the NPN transistor to switch it.
 
 [Datasheet >]({{assets}}/datasheets/makerkit/vibration-motor.pdf)
 
@@ -418,23 +420,39 @@ You can use this [online guide](http://www.digikey.com/en/resources/conversion-c
 This is a 7" x 9" general purpose dot-matrix prototyping PCB.
 
 ### IR LED (1)
-Everlight IR333-A
+You can take control of your television, air-conditioner or any other IR remote controlled devices with this IR LED. Simply connect it to the Particle device with a series 220 ohm resistor, use the appropriate IR code library, and control things over the Internet! 
 
-### Serial OLED LCD,0.96"(1)
+**Specifications:**
+- Continuous forward current: 100mA (1A peak)
+- Power dissipation: 150mW
+- Peak wavelength: 940nm
+- View angle: 20 deg
+
+[Datasheet >]({{assets}}/datasheets/makerkit/ir333-a.pdf)
+
+### Serial OLED Screen,0.96"(1)
 
 ### Flex antenna (1)
 
-### Male to Female Jmper Wires (10)
+### Male to Female Jumper Wires (10)
 
-### Battey holder - 4xAA (1)
+### Battery holder - 4xAA (1)
 
 ### SPDT Switch (2)
 
 ### Temperature Sensor (1)
-DS18B20+
+The DS18B20 is an easy to use one wire digital thermometer with upto 12-bit measuring resolution. 
+
+- Supply Voltage: 3.0V to 5.5V DC
+- Current consumption: 4mA max
+- Measuring temperature range: -55°C to +125°C 
+- Accuracy: ±0.5°C (from -10°C to +85°C)
+- Package: TO-92
+
+[Datasheet >]({{assets}}/datasheets/makerkit/DS18B20.pdf)
 
 ### Temperature Sensor - Sealed (1)
-DS18B20+
+This is the sealed, water proof version of the DS18B20 temperature sensor with wires.
 
 ### SPDT Relay (1)
 
@@ -446,7 +464,7 @@ DS18B20+
 
 ### Mini Breadboard (1)
 
-### Particle Photon with Headers (1)
+### Photon with Headers (1)
 
 
 
@@ -466,8 +484,8 @@ Deluxe Jumper Wire Pack
 Serial OLED LCD,0.96"
 USB Micro B Cable
 Flex antenna
-Male to Female Jmper Wires
-Battey holder (4xAA, 2x2 with switch)
+Male to Female Jumper Wires
+Battery holder (4xAA, 2x2 with switch)
 Piezo Buzzer
 Mini Pushbuttons
 SPDT Switch
