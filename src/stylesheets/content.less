@@ -509,6 +509,34 @@ hr {
   border: 0;
   display: none;
 }
+.content sup, .content sub {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+.content sup {
+  top: -0.5em;
+}
+.content sub {
+  bottom: -.25em;
+}
+
+.two-columns {
+  .iframe-wrapper {
+    margin: 20px 0;
+    text-align: center;
+    iframe {
+      margin-bottom: 0;
+    }
+  }
+  body:not(.no-literate) .content img {
+    margin: 20px auto;
+  }
+  .content h4:after, .content h5:after, .content .small-heading:after, body:not(.big-h3) .content h3:after {
+    left: 0;
+  }
+}
 
 .three-columns {
   @media (min-width: 1180px) {
