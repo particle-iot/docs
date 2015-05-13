@@ -73,11 +73,13 @@ The new version of the Shield Shield (v3.x.x) uses dedicated mosfet based voltag
 ```
 
 **IMPORTANT:** The Shield Shield does not map the Particle device's pins to like-numbered pins on the Arduino. In other words, D0 on the Particle device is not the same as D0 on the Arduino. Please review the pin mapping table to the right and plan accordingly.
+
 <!--
 **Usage:**
 
 Link to the Shield Shield Library and example connections for I2C, SPI, ADC, and neopixel.
 -->
+
 # Relay Shield
 The Relay Shield allows you to take over the world, one electric appliance at a time. Want to control a lamp, fan, coffee machine, aquarium pumps or garden sprinklers? Then this is a solution for you! 
 
@@ -232,6 +234,7 @@ The system switches in between the different power sources automatically, reduci
  - Operating voltage: USB or External DC of 7 to 20V
  - Current consumption: 500mA max (USB) & 1.2A max (other DC sources)
  - Dimensions: 1" x 1.84"
+
  <!-- - Weight: -->
 
 ![Power Shield Plugged]({{assets}}/images/shields/power-shield/power-shield-photon-plugged.png)
@@ -250,6 +253,7 @@ The shield is setup so that when powered from the USB port as well as from a DC 
  - Operating voltage: USB or External DC of 3.6 to 6VDC
 <!-- - Current consumption: -->
  - Dimensions: 2.6" x 2.6"
+
  <!-- - Weight: -->
 
 ![Internet Button Dimensions]({{assets}}/images/shields/internet-button/button-dimensions.png)
