@@ -13,6 +13,10 @@ Cloud Functions
 ### Spark.variable()
 
 Expose a *variable* through the Spark Cloud so that it can be called with `GET /v1/devices/{DEVICE_ID}/{VARIABLE}`.
+Returns a success value - `true` when the variable was registered. 
+
+It is fine to call this function when the cloud is disconnected - the variable
+will be registered next time the cloud is connected.
 
 ```C++
 // EXAMPLE USAGE
@@ -25,7 +29,8 @@ void setup()
   // variable name max length is 12 characters long
   Spark.variable("analogvalue", &analogvalue, INT);
   Spark.variable("temp", &tempC, DOUBLE);
-  Spark.variable("mess", message, STRING);
+  if (Spark.variable("mess", message, STRING)==false)
+      // variable not registered!
   pinMode(A0, INPUT);
 }
 
@@ -51,7 +56,7 @@ There are three supported data types:
 
 ```json
 # EXAMPLE REQUEST IN TERMINAL
-# Core ID is 0123456789abcdef
+# Device ID is 0123456789abcdef
 # Your access token is 123412341234
 curl "https://api.particle.io/v1/devices/0123456789abcdef/analogvalue?access_token=123412341234"
 curl "https://api.particle.io/v1/devices/0123456789abcdef/temp?access_token=123412341234"
@@ -70,17 +75,17 @@ Expose a *function* through the Spark Cloud so that it can be called with `POST 
 
 ```cpp
 // SYNTAX TO REGISTER A SPARK FUNCTION
-Spark.function("funcKey", funcName);
-//                ^
-//                |
-//     (max of 12 characters long)
+bool success = Spark.function("funcKey", funcName);
+//                               ^
+//                               |
+//                  (max of 12 characters long)
 ```
 
 Currently the application supports the creation of up to 4 different Spark functions.
 
 In order to register a Spark function, the user provides the `funcKey`, which is the string name used to make a POST request and a `funcName`, which is the actual name of the function that gets called in the Spark app. The Spark function can return any integer; `-1` is commonly used for a failed function call.
 
-The length of the `funcKey` is limited to a max of 12 characters. If you declare a function name longer than 12 characters it will be truncated to 12 characters. 
+The length of the `funcKey` is limited to a max of 12 characters. If you declare a function name longer than 12 characters the function will not be registered. 
 
 Example: Spark.function("someFunction1", ...); exposes a function called someFunction and not someFunction1
 
@@ -116,7 +121,7 @@ int brewCoffee(String command)
 }
 ```
 
-The API request will be routed to the Spark Core and will run your brew function. The response will have a return_value key containing the integer returned by brew.
+The API request will be routed to the device and will run your brew function. The response will have a return_value key containing the integer returned by brew.
 
 ```json
 COMPLEMENTARY API CALL
@@ -131,9 +136,9 @@ curl https://api.particle.io/v1/devices/0123456789abcdef/brew \
 
 ### Spark.publish()
 
-Publish an *event* through the Spark Cloud that will be forwarded to all registered callbacks, subscribed streams of Server-Sent Events, and Cores listening via `Spark.subscribe()`.
+Publish an *event* through the Spark Cloud that will be forwarded to all registered callbacks, subscribed streams of Server-Sent Events, and other devices listening via `Spark.subscribe()`.
 
-This feature allows the Core to generate an event based on a condition. For example, you could connect a motion sensor to the Core and have the Core generate an event whenever motion is detected.
+This feature allows the device to generate an event based on a condition. For example, you could connect a motion sensor to the device and have the device generate an event whenever motion is detected.
 
 Spark events have the following properties:
 
@@ -144,10 +149,14 @@ Spark events have the following properties:
 * optional data (up to 63 bytes)
 
 Anyone may subscribe to public events; think of them like tweets.
-Only the owner of the Core will be able to subscribe to private events.
+Only the owner of the device will be able to subscribe to private events.
 
-A Core may not publish events beginning with a case-insensitive match for "spark".
+A device may not publish events beginning with a case-insensitive match for "spark".
 Such events are reserved for officially curated data originating from the Spark Cloud.
+
+Calling `Spark.publish()` when the device is not connected to the cloud will not
+result in an event being published. This is indicated by the return success code
+of `false`.
 
 For the time being there exists no way to access a previously published but TTL-unexpired event.
 
@@ -217,14 +226,14 @@ curl -H "Authorization: Bearer {ACCESS_TOKEN_GOES_HERE}" \
 
 # Will return a stream that echoes text when your event is published
 event: motion-detected
-data: {"data":"23:23:44","ttl":"60","published_at":"2014-05-28T19:20:34.638Z","coreid":"0123456789abcdef"}
+data: {"data":"23:23:44","ttl":"60","published_at":"2014-05-28T19:20:34.638Z","deviceid":"0123456789abcdef"}
 ```
 
 ### Spark.subscribe()
 
-Subscribe to events published by Cores.
+Subscribe to events published by devices.
 
-This allows Cores to talk to each other very easily.  For example, one Core could publish events when a motion sensor is triggered and another could subscribe to these events and respond by sounding an alarm.
+This allows devices to talk to each other very easily.  For example, one device could publish events when a motion sensor is triggered and another could subscribe to these events and respond by sounding an alarm.
 
 ```cpp
 int i = 0;
@@ -253,19 +262,19 @@ To use `Spark.subscribe()`, define a handler function and register it in `setup(
 
 ---
 
-You can listen to events published only by your own Cores by adding a `MY_DEVICES` constant.
+You can listen to events published only by your own devices by adding a `MY_DEVICES` constant.
 
 ```cpp
-// only events from my Cores
+// only events from my devices
 Spark.subscribe("the_event_prefix", theHandler, MY_DEVICES);
 ```
 
 ---
 
-You are also able to subscribe to events from a single Core by specifying the Core's ID.
+You are also able to subscribe to events from a single device by specifying the device's ID.
 
 ```cpp
-// Subscribe to events published from one Core
+// Subscribe to events published from a specific device
 Spark.subscribe("motion/front-door", motionHandler, "55ff70064989495339432587");
 ```
 
@@ -279,13 +288,15 @@ A _subscription handler_ (like `myHandler` above) must return `void` and take tw
 - The first argument is the full name of the published event.
 - The second argument (which may be NULL) is any data that came along with the event.
 
-`Spark.subscribe()` returns a `bool` indicating success.
+`Spark.subscribe()` returns a `bool` indicating success. It is ok to register a subscription when
+the device is not connected to the cloud - the subscription is automatically registered
+with the cloud next time the device connects. 
 
-NOTE: A Core can register up to 4 event handlers. This means you can call `Spark.subscribe()` a maximum of 4 times; after that it will return `false`.
+NOTE: A device can register up to 4 event handlers. This means you can call `Spark.subscribe()` a maximum of 4 times; after that it will return `false`.
 
 ### Spark.connect()
 
-`Spark.connect()` connects the Spark Core to the Cloud. This will automatically activate the Wi-Fi module and attempt to connect to a Wi-Fi network if the Core is not already connected to a network.
+`Spark.connect()` connects the device to the Cloud. This will automatically activate the Wi-Fi module and attempt to connect to a Wi-Fi network if the device is not already connected to a network.
 
 ```cpp
 void setup() {}
@@ -297,14 +308,14 @@ void loop() {
 }
 ```
 
-After you call `Spark.connect()`, your loop will not be called again until the Core finishes connecting to the Cloud. Typically, you can expect a delay of approximately one second.
+After you call `Spark.connect()`, your loop will not be called again until the device finishes connecting to the Cloud. Typically, you can expect a delay of approximately one second.
 
-In most cases, you do not need to call `Spark.connect()`; it is called automatically when the Core turns on. Typically you only need to call `Spark.connect()` after disconnecting with [`Spark.disconnect()`](#spark-disconnect) or when you change the [system mode](#system-system-modes).
+In most cases, you do not need to call `Spark.connect()`; it is called automatically when the device turns on. Typically you only need to call `Spark.connect()` after disconnecting with [`Spark.disconnect()`](#spark-disconnect) or when you change the [system mode](#system-system-modes).
 
 
 ### Spark.disconnect()
 
-`Spark.disconnect()` disconnects the Spark Core from the Spark Cloud.
+`Spark.disconnect()` disconnects the device from the Cloud.
 
 ```C++
 int counter = 10000;
@@ -346,7 +357,7 @@ void loop() {
 
 While this function will disconnect from the Spark Cloud, it will keep the connection to the Wi-Fi network. If you would like to completely deactivate the Wi-Fi module, use [`WiFi.off()`](#wifi-off).
 
-NOTE: When the Core is disconnected, many features are not possible, including over-the-air updates, reading Spark.variables, and calling Spark.functions.
+NOTE: When the device is disconnected, many features are not possible, including over-the-air updates, reading Spark.variables, and calling Spark.functions.
 
 *If you disconnect from the Cloud, you will NOT BE ABLE to flash new firmware over the air. A factory reset should resolve the issue.*
 
@@ -376,7 +387,12 @@ void loop() {
 
 ### Spark.process()
 
-`Spark.process()` checks the Wi-Fi module for incoming messages from the Cloud, and processes any messages that have come in. It also sends keep-alive pings to the Cloud, so if it's not called frequently, the connection to the Cloud may be lost.
+Runs the background loop. This is the public API for the former internal function
+`SPARK_WLAN_Loop()`. 
+
+`Spark.process()` checks the Wi-Fi module for incoming messages from the Cloud, 
+and processes any messages that have come in. It also sends keep-alive pings to the Cloud, 
+so if it's not called frequently, the connection to the Cloud may be lost.
 
 ```cpp
 void setup() {
@@ -395,13 +411,13 @@ void redundantLoop() {
 }
 ```
 
-`Spark.process()` is a blocking call, and blocks for a few milliseconds. `Spark.process()` is called automatically after every `loop()` and during delays. Typically you will not need to call `Spark.process()` unless you block in some other way and need to maintain the connection to the Cloud, or you change the [system mode](#system-system-modes). If the user puts the Core into `MANUAL` mode, the user is responsible for calling `Spark.process()`. The more frequently this function is called, the more responsive the Core will be to incoming messages, the more likely the Cloud connection will stay open, and the less likely that the CC3000's buffer will overrun.
+`Spark.process()` is a blocking call, and blocks for a few milliseconds. `Spark.process()` is called automatically after every `loop()` and during delays. Typically you will not need to call `Spark.process()` unless you block in some other way and need to maintain the connection to the Cloud, or you change the [system mode](#system-system-modes). If the user puts the device into `MANUAL` mode, the user is responsible for calling `Spark.process()`. The more frequently this function is called, the more responsive the device will be to incoming messages, the more likely the Cloud connection will stay open, and the less likely that the CC3000's buffer will overrun.
 
 ### Spark.syncTime()
 
 Synchronize the time with the Spark Cloud.
-This happens automatically when the Core connects to the Cloud.
-However, if your Core runs continuously for a long time,
+This happens automatically when the device connects to the Cloud.
+However, if your device runs continuously for a long time,
 you may want to synchronize once per day or so.
 
 ```C++
@@ -493,7 +509,7 @@ Note that `WiFi.on()` does not need to be called unless you have changed the [sy
 
 ### WiFi.off()
 
-`WiFi.off()` turns off the Wi-Fi module. Useful for saving power, since most of the power draw of the Spark Core is the Wi-Fi module.
+`WiFi.off()` turns off the Wi-Fi module. Useful for saving power, since most of the power draw of the device is the Wi-Fi module.
 
 ### WiFi.connect()
 
@@ -505,11 +521,11 @@ Disconnects from the Wi-Fi network, but leaves the Wi-Fi module on.
 
 ### WiFi.connecting()
 
-This function will return `true` once the Core is attempting to connect using stored Wi-Fi credentials, and will return `false` once the Core has successfully connected to the Wi-Fi network.
+This function will return `true` once the device is attempting to connect using stored Wi-Fi credentials, and will return `false` once the device has successfully connected to the Wi-Fi network.
 
 ### WiFi.ready()
 
-This function will return `true` once the Core is connected to the network and has been assigned an IP address, which means that it's ready to open TCP sockets and send UDP datagrams. Otherwise it will return `false`.
+This function will return `true` once the device is connected to the network and has been assigned an IP address, which means that it's ready to open TCP sockets and send UDP datagrams. Otherwise it will return `false`.
 
 ### WiFi.listen()
 
@@ -517,11 +533,11 @@ This will enter listening mode, which opens a Serial connection to get Wi-Fi cre
 
 ### WiFi.listening()
 
-This will return `true` once `WiFi.listen()` has been called and will return `false` once the Core has been given some Wi-Fi credentials to try, either over USB or Smart Config.
+This will return `true` once `WiFi.listen()` has been called and will return `false` once the device has been given some Wi-Fi credentials to try, either over USB or Smart Config.
 
 ### WiFi.setCredentials()
 
-Allows the user to set credentials for the Wi-Fi network from within the code. These credentials will be added to the CC3000's memory, and the Core will automatically attempt to connect to this network in the future.
+Allows the user to set credentials for the Wi-Fi network from within the code. These credentials will be added to the device's memory, and the device will automatically attempt to connect to this network in the future.
 
 ```cpp
 // Connects to an unsecured network.
@@ -578,7 +594,7 @@ void loop() {}
 
 ### WiFi.SSID()
 
-`WiFi.SSID()` returns the SSID of the network the Core is currently connected to as a `char*`.
+`WiFi.SSID()` returns the SSID of the network the device is currently connected to as a `char*`.
 
 ### WiFi.RSSI()
 
@@ -594,7 +610,7 @@ void loop() {}
 
 ### WiFi.localIP()
 
-`WiFi.localIP()` returns the local IP address assigned to the Core as an `IPAddress`.
+`WiFi.localIP()` returns the local IP address assigned to the device as an `IPAddress`.
 
 ```cpp
 
@@ -752,7 +768,8 @@ void loop()
 
 Writes an analog value (PWM wave) to a pin. Can be used to light a LED at varying brightnesses or drive a motor at various speeds. After a call to analogWrite(), the pin will generate a steady square wave of the specified duty cycle until the next call to analogWrite() (or a call to digitalRead() or digitalWrite() on the same pin). The frequency of the PWM signal is approximately 500 Hz.
 
-On the Spark Core, this function works on pins A0, A1, A4, A5, A6, A7, D0 and D1.
+- On the Spark Core, this function works on pins A0, A1, A4, A5, A6, A7, D0 and D1.
+- On the Photon, this function works on pins A0, A1, A2, A3, A4, A5, WKP, TX and RX
 
 The analogWrite function has nothing to do with the analog pins or the analogRead function.
 
@@ -787,7 +804,7 @@ void loop()
 
 ### analogRead()
 
-Reads the value from the specified analog pin. The Spark Core has 8 channels (A0 to A7) with a 12-bit resolution. This means that it will map input voltages between 0 and 3.3 volts into integer values between 0 and 4095. This yields a resolution between readings of: 3.3 volts / 4096 units or, 0.0008 volts (0.8 mV) per unit.
+Reads the value from the specified analog pin. The device has 8 channels (A0 to A7) with a 12-bit resolution. This means that it will map input voltages between 0 and 3.3 volts into integer values between 0 and 4095. This yields a resolution between readings of: 3.3 volts / 4096 units or, 0.0008 volts (0.8 mV) per unit.
 
 ```C++
 // SYNTAX
@@ -975,17 +992,17 @@ Communication
 Serial
 -----
 
-Used for communication between the Spark Core and a computer or other devices. The Core has two serial channels:
+Used for communication between the device and a computer or other devices. The device has two serial channels:
 
 `Serial:` This channel communicates through the USB port and when connected to a computer, will show up as a virtual COM port.
 
-`Serial1:` This channel is available via the Core's TX and RX pins.
+`Serial1:` This channel is available via the device's TX and RX pins.
 
-`Serial2:` This channel is optionally available via the Core's D1(TX) and D0(RX) pins. To use Serial2, add `#include "Serial2/Serial2.h"` near the top of your Spark App's main code file.
+`Serial2:` This channel is optionally available via the device's D1(TX) and D0(RX) pins. To use Serial2, add `#include "Serial2/Serial2.h"` near the top of your app's main code file.
 
-To use the TX/RX (Serial1) or D1/D0 (Serial2) pins to communicate with your personal computer, you will need an additional USB-to-serial adapter. To use them to communicate with an external TTL serial device, connect the TX pin to your device's RX pin, the RX to your device's TX pin, and the ground of your Core to your device's ground.
+To use the TX/RX (Serial1) or D1/D0 (Serial2) pins to communicate with your personal computer, you will need an additional USB-to-serial adapter. To use them to communicate with an external TTL serial device, connect the TX pin to your device's RX pin, the RX to your device's TX pin, and the ground of your Core/Photon to your device's ground.
 
-**NOTE:** Please take into account that the voltage levels on these pins runs at 0V to 3.3V and should not be connected directly to a computer's RS232 serial port which operates at +/- 12V and can damage the Core.
+**NOTE:** Please take into account that the voltage levels on these pins runs at 0V to 3.3V and should not be connected directly to a computer's RS232 serial port which operates at +/- 12V and can damage the Core/Photon.
 
 ### begin()
 
@@ -1007,7 +1024,7 @@ void setup()
 {
   Serial.begin(9600);   // open serial over USB
   // On Windows it will be necessary to implement the following line:
-  // Make sure your Serial Terminal app is closed before powering your Core
+  // Make sure your Serial Terminal app is closed before powering your device
   // Now open your Serial Terminal, and hit any key to continue!
   while(!Serial.available()) SPARK_WLAN_Loop();
 
@@ -1180,7 +1197,7 @@ int analogValue = 0;    // variable to hold the analog value
 
 void setup()
 {
-  // Make sure your Serial Terminal app is closed before powering your Core
+  // Make sure your Serial Terminal app is closed before powering your device
   Serial.begin(9600);
   // Now open your Serial Terminal, and hit any key to continue!
   while(!Serial.available()) SPARK_WLAN_Loop();
@@ -1216,7 +1233,7 @@ Serial1.flush();
 
 SPI
 ----
-This library allows you to communicate with SPI devices, with the Spark Core as the master device.
+This library allows you to communicate with SPI devices, with the Core/Photon as the master device.
 
 ![SPI]({{assets}}/images/core-pin-spi.jpg)
 
@@ -1300,7 +1317,7 @@ Wire
 
 ![I2C]({{assets}}/images/core-pin-i2c.jpg)
 
-This library allows you to communicate with I2C / TWI devices. On the Spark Core, D0 is the Serial Data Line (SDA) and D1 is the Serial Clock (SCL). Both of these pins runs at 3.3V logic but are tolerant to 5V.
+This library allows you to communicate with I2C / TWI devices. On the Core/Photon, D0 is the Serial Data Line (SDA) and D1 is the Serial Clock (SCL). Both of these pins runs at 3.3V logic but are tolerant to 5V.
 Connect a pull-up resistor(1.5K to 10K) on SDA line. Connect a pull-up resistor(1.5K to 10K) on SCL line.
 
 ### setSpeed()
@@ -1428,7 +1445,7 @@ Returns:  `byte`
 
 ```C++
 // EXAMPLE USAGE
-// Master Writer running on Core No.1 (Use with corresponding Slave Reader running on Core No.2)
+// Master Writer running on Device No.1 (Use with corresponding Slave Reader running on Device No.2)
 
 void setup()
 {
@@ -1471,7 +1488,7 @@ Returns: The next byte received
 
 ```C++
 // EXAMPLE USAGE
-// Master Reader running on Core No.1 (Use with corresponding Slave Writer running on Core No.2)
+// Master Reader running on Device No.1 (Use with corresponding Slave Writer running on Device No.2)
 
 void setup()
 {
@@ -1501,7 +1518,7 @@ Parameters: `handler`: the function to be called when the slave receives data; t
 
 ```C++
 // EXAMPLE USAGE
-// Slave Reader running on Core No.2 (Use with corresponding Master Writer running on Core No.1)
+// Slave Reader running on Device No.2 (Use with corresponding Master Writer running on Device No.1)
 
 // function that executes whenever data is received from master
 // this function is registered as an event, see setup()
@@ -1537,7 +1554,7 @@ Parameters: `handler`: the function to be called, takes no parameters and return
 
 ```C++
 // EXAMPLE USAGE
-// Slave Writer running on Core No.2 (Use with corresponding Master Reader running on Core No.1)
+// Slave Writer running on Device No.2 (Use with corresponding Master Reader running on Device No.1)
 
 // function that executes whenever data is requested by master
 // this function is registered as an event, see setup()
@@ -1611,10 +1628,10 @@ IPfromBytes = server;
 Finally IPAddress can be used directly with print.
 
 ```C++
-// PRINT THE CORE'S IP ADDRESS IN
+// PRINT THE DEVICE'S IP ADDRESS IN
 // THE FORMAT 192.168.0.10
 IPAddress myIP = WiFi.localIP();
-Serial.println(myIP);    // prints the core's IP address
+Serial.println(myIP);    // prints the device's IP address
 ```
 
 TCPServer
@@ -1642,7 +1659,7 @@ void setup()
   // start listening for clients
   server.begin();
 
-  // Make sure your Serial Terminal app is closed before powering your Core
+  // Make sure your Serial Terminal app is closed before powering your device
   Serial.begin(9600);
   // Now open your Serial Terminal, and hit any key to continue!
   while(!Serial.available()) SPARK_WLAN_Loop();
@@ -1753,7 +1770,7 @@ TCPClient client;
 byte server[] = { 74, 125, 224, 72 }; // Google
 void setup()
 {
-  // Make sure your Serial Terminal app is closed before powering your Core
+  // Make sure your Serial Terminal app is closed before powering your device
   Serial.begin(9600);
   // Now open your Serial Terminal, and hit any key to continue!
   while(!Serial.available()) SPARK_WLAN_Loop();
@@ -2113,7 +2130,7 @@ Libraries
 Servo
 ---
 
-This library allows a Spark Core to control RC (hobby) servo motors. Servos have integrated gears and a shaft that can be precisely controlled. Standard servos allow the shaft to be positioned at various angles, usually between 0 and 180 degrees. Continuous rotation servos allow the rotation of the shaft to be set to various speeds.
+This library allows your device to control RC (hobby) servo motors. Servos have integrated gears and a shaft that can be precisely controlled. Standard servos allow the shaft to be positioned at various angles, usually between 0 and 180 degrees. Continuous rotation servos allow the rotation of the shaft to be set to various speeds.
 
 ```cpp
 // EXAMPLE CODE
@@ -2149,7 +2166,10 @@ NOTE: Unlike Arduino, you do not need to include `Servo.h`; it is included autom
 
 ### attach()
 
-Set up a servo on a particular pin. Note that, on the Spark Core, Servo can only be attached to pins with a timer (A0, A1, A4, A5, A6, A7, D0, and D1).
+Set up a servo on a particular pin. Note that, Servo can only be attached to pins with a timer.
+
+- on the Spark Core, Servo can be connected to A0, A1, A4, A5, A6, A7, D0, and D1.
+- on the Photon, Servo can be connected to A4, A5, WKP, RX, TX, D0, D1, D2, D3
 
 ```cpp
 // SYNTAX
@@ -2209,7 +2229,7 @@ servo.detach()
 RGB
 ---
 
-This library allows the user to control the RGB LED on the front of the Spark Core.
+This library allows the user to control the RGB LED on the front of the device.
 
 ```cpp
 // EXAMPLE CODE
@@ -2237,7 +2257,7 @@ RGB.control(false);
 
 ### control(user_control)
 
-User can take control of the RGB LED, or give control back to the Spark Core firmware.
+User can take control of the RGB LED, or give control back to the system.
 
 ```cpp
 // take control of the RGB LED
@@ -2297,8 +2317,8 @@ RGB.brightness(255);
 Time
 ---
 
-The Spark Core synchronizes time with the Spark Cloud during the handshake.
-From then, the time is continually updated on the Core.
+The device synchronizes time with the Spark Cloud during the handshake.
+From then, the time is continually updated on the device.
 This reduces the need for external libraries to manage dates and times.
 
 
@@ -2501,7 +2521,7 @@ Returns: Integer
 ### zone()
 
 Set the time zone offset (+/-) from UTC.
-The Spark Core will remember this offset until reboot.
+The device will remember this offset until reboot.
 
 *NOTE*: This function does not observe daylight savings time.
 
@@ -2515,7 +2535,7 @@ Parameters: floating point offset from UTC in hours, from -12.0 to 13.0
 
 ### setTime()
 
-Set the Spark Core's time to the given timestamp.
+Set the system time to the given timestamp.
 
 *NOTE*: This will override the time set by the Spark Cloud.
 If the cloud connection drops, the reconnection handshake will set the time again
@@ -2550,7 +2570,7 @@ Time
 
 ### millis()
 
-Returns the number of milliseconds since the Spark Core began running the current program. This number will overflow (go back to zero), after approximately 49 days.
+Returns the number of milliseconds since the device began running the current program. This number will overflow (go back to zero), after approximately 49 days.
 
 `unsigned long time = millis();`
 
@@ -2577,7 +2597,7 @@ The parameter for millis is an unsigned long, errors may be generated if a progr
 
 ### micros()
 
-Returns the number of microseconds since the Spark Core began running the current program. This number will overflow (go back to zero), after approximately 59.65 seconds.
+Returns the number of microseconds since the device began running the current program. This number will overflow (go back to zero), after approximately 59.65 seconds.
 
 `unsigned long time = micros();`
 
@@ -2689,10 +2709,10 @@ void blink()
 }
 ```
 
-The Spark Core currently supports external interrupts on the following pins:
+External interrupts are supported on the following pins:
 
-D0, D1, D2, D3, D4
-A0, A1, A3, A4, A5, A6, A7
+- Core: D0, D1, D2, D3, D4, A0, A1, A3, A4, A5, A6, A7
+- Photon: all pins
 
 `attachInterrupt(pin, function, mode);`
 
@@ -3004,14 +3024,14 @@ On startup, the default random seed is [set by the system](http://www.cplusplus.
 Unless the seed is modified, the same sequence of random numbers would be produced each time
 the system starts. 
 
-Fortunately, when the core connects to the cloud, it receives a very randomized seed value,
+Fortunately, when the device connects to the cloud, it receives a very randomized seed value,
 which is used as the random seed. So you can be sure the random numbers produced
 will be different each time your program is run.
 
 
 *** Disable random seed from the cloud ***
 
-When the core receives a new random seed from the cloud, it's passed to this function:
+When the device receives a new random seed from the cloud, it's passed to this function:
 
 ```
 void random_seed_from_cloud(unsigned int seed);
@@ -3035,15 +3055,37 @@ from the cloud, and setting the seed is left to up you.
 EEPROM
 ----
 
-The EEPROM emulator allocates 100 bytes of the Spark Core's built-in flash memory to act as EEPROM. Unlike "true" EEPROM, flash doesn't suffer from write "wear".  The EEPROM functions can be used to store small amounts of data in flash that will persist even after the Core resets after a deep sleep.
+The EEPROM emulator allocates a region of the device's built-in flash memory to act as EEPROM. 
+Unlike "true" EEPROM, flash doesn't suffer from write "wear" with each write to
+each individual address. Instead, the page suffers wear when it is filled. Each write
+will add more data to the page until it is full, causing a page erase. 
+ 
+The EEPROM functions can be used to store small amounts of data in flash that 
+will persist even after the device resets after a deep sleep or is powered off.
 
+### length()
+Returns the total number of bytes of emulated EEPROM.
+
+`size_t length()`
+
+- The Core has 100 bytes of emulated EEPROM.
+- The photon has 2048 bytes of emulated EEPROM.
+
+```c++
+// EXAMPLE USAGE
+// Find out the size of the emulated eeprom
+size_t length = EEPROM.length();
+```
 
 ### read()
 Read a byte of data from the emulated EEPROM.
 
 `read(address)`
 
-`address` is the address (int) of the EERPOM location (0-99) to read
+`address` is the address (int) of the EERPOM location to read
+
+- On the Core, this must be a value between 0 and 99
+- On the Photon, this must be a value between 0 and 2047
 
 ```C++
 // EXAMPLE USAGE
@@ -3057,8 +3099,12 @@ Write a byte of data to the emulated EEPROM.
 
 `write(address, value)`
 
-`address` is the address (int) of the EERPOM location (0-99) to write to
+`address` is the address (int) of the EERPOM location to write to
 `value` is the byte data (uint8_t) to write
+
+- On the Core, this must be a value between 0 and 99
+- On the Photon, this must be a value between 0 and 2047
+
 
 ```C++
 // EXAMPLE USAGE
@@ -3074,20 +3120,20 @@ System
 System modes
 ----
 
-By default, the Spark Core connects to the Cloud and processes messages automatically. However there are many cases where a user will want to take control over that connection. There are three available system modes: `AUTOMATIC`, `SEMI_AUTOMATIC`, and `MANUAL`. These modes describe how connectivity is handled.
+By default, the device connects to the Cloud and processes messages automatically. However there are many cases where a user will want to take control over that connection. There are three available system modes: `AUTOMATIC`, `SEMI_AUTOMATIC`, and `MANUAL`. These modes describe how connectivity is handled.
 
-System modes must be called before the setup() function. By default, the Core is always in `AUTOMATIC` mode.
+System modes must be called before the setup() function. By default, the device is always in `AUTOMATIC` mode.
 
 ### Automatic mode
 
 
-The automatic mode of connectivity provides the default behavior of the Spark Core, which is that:
+The automatic mode of connectivity provides the default behavior of the device, which is that:
 
 ```cpp
 SYSTEM_MODE(AUTOMATIC);
 
 void setup() {
-  // This won't be called until the Core is connected
+  // This won't be called until the device is connected to the cloud
 }
 
 void loop() {
@@ -3095,12 +3141,12 @@ void loop() {
 }
 ```
 
-- When the Core starts up, it automatically tries to connect to Wi-Fi and the Spark Cloud.
+- When the device starts up, it automatically tries to connect to Wi-Fi and the Spark Cloud.
 - Once a connection with the Spark Cloud has been established, the user code starts running.
 - Messages to and from the Cloud are handled in between runs of the user loop; the user loop automatically alternates with [`Spark.process()`](#spark-process).
 - `Spark.process()` is also called during any delay() of at least 1 second.
 - If the user loop blocks for more than about 20 seconds, the connection to the Cloud will be lost. To prevent this from happening, the user can call `Spark.process()` manually.
-- If the connection to the Cloud is ever lost, the Core will automatically attempt to reconnect. This re-connection will block from a few milliseconds up to 8 seconds.
+- If the connection to the Cloud is ever lost, the device will automatically attempt to reconnect. This re-connection will block from a few milliseconds up to 8 seconds.
 - `SYSTEM_MODE(AUTOMATIC)` does not need to be called, because it is the default state; however the user can invoke this method to make the mode explicit.
 
 In automatic mode, the user can still call `Spark.disconnect()` to disconnect from the Cloud, but is then responsible for re-connecting to the Cloud by calling `Spark.connect()`.
@@ -3108,7 +3154,7 @@ In automatic mode, the user can still call `Spark.disconnect()` to disconnect fr
 ### Semi-automatic mode
 
 
-The semi-automatic mode will not attempt to connect the Core to the Cloud automatically. However once the Core is connected to the Cloud (through some user intervention), messages will be processed automatically, as in the automatic mode above.
+The semi-automatic mode will not attempt to connect the device to the Cloud automatically. However once the device is connected to the Cloud (through some user intervention), messages will be processed automatically, as in the automatic mode above.
 
 ```cpp
 SYSTEM_MODE(SEMI_AUTOMATIC);
@@ -3128,13 +3174,13 @@ void loop() {
 
 The semi-automatic mode is therefore much like the automatic mode, except:
 
-- When the Core boots up, the user code will begin running immediately.
-- When the user calls [`Spark.connect()`](#spark-connect), the user code will be blocked, and the Core will attempt to negotiate a connection. This connection will block until either the Core connects to the Cloud or an interrupt is fired that calls [`Spark.disconnect()`](#spark-disconnect).
+- When the device boots up, the user code will begin running immediately.
+- When the user calls [`Spark.connect()`](#spark-connect), the user code will be blocked, and the device will attempt to negotiate a connection. This connection will block until either the device connects to the Cloud or an interrupt is fired that calls [`Spark.disconnect()`](#spark-disconnect).
 
 ### Manual mode
 
 
-The "manual" mode puts the Spark Core's connectivity completely in the user's control. This means that the user is responsible for both establishing a connection to the Spark Cloud and handling communications with the Cloud by calling [`Spark.process()`](#spark-process) on a regular basis.
+The "manual" mode puts the device's connectivity completely in the user's control. This means that the user is responsible for both establishing a connection to the Spark Cloud and handling communications with the Cloud by calling [`Spark.process()`](#spark-process) on a regular basis.
 
 ```cpp
 SYSTEM_MODE(MANUAL);
@@ -3156,10 +3202,10 @@ void loop() {
 
 When using manual mode:
 
-- The user code will run immediately when the Core is powered on.
-- Once the user calls [`Spark.connect()`](#spark-connect), the Core will attempt to begin the connection process.
-- Once the Core is connected to the Cloud ([`Spark.connected()`](#spark-connected)` == true`), the user must call `Spark.process()` regularly to handle incoming messages and keep the connection alive. The more frequently `Spark.process()` is called, the more responsive the Core will be to incoming messages.
-- If `Spark.process()` is called less frequently than every 20 seconds, the connection with the Cloud will die. It may take a couple of additional calls of `Spark.process()` for the Core to recognize that the connection has been lost.
+- The user code will run immediately when the device is powered on.
+- Once the user calls [`Spark.connect()`](#spark-connect), the device will attempt to begin the connection process.
+- Once the device is connected to the Cloud ([`Spark.connected()`](#spark-connected)` == true`), the user must call `Spark.process()` regularly to handle incoming messages and keep the connection alive. The more frequently `Spark.process()` is called, the more responsive the device will be to incoming messages.
+- If `Spark.process()` is called less frequently than every 20 seconds, the connection with the Cloud will die. It may take a couple of additional calls of `Spark.process()` for the device to recognize that the connection has been lost.
 
 System.factoryReset()
 ----
@@ -3184,17 +3230,17 @@ The device will enter DFU-mode and boot up in DFU when a reset occurs until a us
 System.bootloader()
 ```
 
-Spark.deviceID()
+System.deviceID()
 ----
 
-`Spark.deviceID()` provides an easy way to extract the device ID of your Core. It returns a [String object](#data-types-string-object) of the device ID, which is used frequently in Sparkland to identify your Core.
+`System.deviceID()` provides an easy way to extract the device ID of your device. It returns a [String object](#data-types-string-object) of the device ID, which is used to identify your device.
 
 ```cpp
 // EXAMPLE USAGE
 
 void setup()
 {
-  // Make sure your Serial Terminal app is closed before powering your Core
+  // Make sure your Serial Terminal app is closed before powering your device
   Serial.begin(9600);
   // Now open your Serial Terminal, and hit any key to continue!
   while(!Serial.available()) Spark.process();
@@ -3220,11 +3266,11 @@ Spark.sleep(int seconds);
 ```C++
 // EXAMPLE USAGE: Put the Wi-Fi module in standby (low power) for 5 seconds
 Spark.sleep(5);
-// The Core LED will flash green during sleep
+// The device LED will flash green during sleep
 ```
 `Spark.sleep(int seconds)` does NOT stop the execution of user code (non-blocking call).  User code will continue running while the Wi-Fi module is in standby mode. During sleep, WiFi.status() will return WIFI_OFF.  Once sleep time has expired and the Wi-FI module attempts reconnection, WiFi.status() will return value WIFI_CONNECTING and WIFI_ON.
 
-`Spark.sleep(SLEEP_MODE_DEEP, int seconds)` can be used to put the entire Core into a *deep sleep* mode. In this particular mode, the Core shuts down the Wi-Fi chipset (CC3000) and puts the microcontroller in a stand-by mode.  When the Core awakens from deep sleep, it will reset the Core and run all user code from the beginning with no values being maintained in memory from before the deep sleep.  As such, it is recommended that deep sleep be called only after all user code has completed. The Standby mode is used to achieve the lowest power consumption.  After entering Standby mode, the SRAM and register contents are lost except for registers in the backup domain.
+`Spark.sleep(SLEEP_MODE_DEEP, int seconds)` can be used to put the entire device into a *deep sleep* mode. In this particular mode, the device shuts down the network subsystem and puts the microcontroller in a stand-by mode.  When the device awakens from deep sleep, it will reset and run all user code from the beginning with no values being maintained in memory from before the deep sleep.  As such, it is recommended that deep sleep be called only after all user code has completed. The Standby mode is used to achieve the lowest power consumption.  After entering Standby mode, the SRAM and register contents are lost except for registers in the backup domain.
 
 ```C++
 // SYNTAX
@@ -3232,14 +3278,14 @@ Spark.sleep(SLEEP_MODE_DEEP, int seconds);
 ```
 
 ```C++
-// EXAMPLE USAGE: Put the Core into deep sleep for 60 seconds
+// EXAMPLE USAGE: Put the device into deep sleep for 60 seconds
 Spark.sleep(SLEEP_MODE_DEEP,60);
-// The Core LED will shut off during deep sleep
+// The device LED will shut off during deep sleep
 ```
-The Core will automatically *wake up* and reestablish the WiFi connection after the specified number of seconds.
+The device will automatically *wake up* and reestablish the WiFi connection after the specified number of seconds.
 
-`Spark.sleep(uint16_t wakeUpPin, uint16_t edgeTriggerMode)` can be used to put the entire Core into a *stop* mode with *wakeup on interrupt*. In this particular mode, the Core shuts down the Wi-Fi chipset (CC3000) and puts the microcontroller in a stop mode with configurable wakeup pin and edge triggered interrupt. When the specific interrupt arrives, the Core awakens from stop mode, it will behave as if the Core is reset and run all user code from the beginning with no values being maintained in memory from before the stop mode. As such, it is recommended that stop mode be called only after all user code has completed. (Note: The new Spark Photon firmware will not reset before going into stop mode so all the application variables are preserved after waking up from this mode. The voltage regulator is put in low-power mode. This mode achieves the lowest power consumption while retaining the contents of SRAM and registers.)
-It is mandatory to update the *bootloader* (https://github.com/spark/core-firmware/tree/bootloader-patch-update) for proper functioning of this mode(valid only for Spark Core).
+`Spark.sleep(uint16_t wakeUpPin, uint16_t edgeTriggerMode)` can be used to put the entire device into a *stop* mode with *wakeup on interrupt*. In this particular mode, the device shuts down the Wi-Fi chipset and puts the microcontroller in a stop mode with configurable wakeup pin and edge triggered interrupt. When the specific interrupt arrives, the device awakens from stop mode, it will behave as if the device is reset and run all user code from the beginning with no values being maintained in memory from before the stop mode. As such, it is recommended that stop mode be called only after all user code has completed. (Note: The new Spark Photon firmware will not reset before going into stop mode so all the application variables are preserved after waking up from this mode. The voltage regulator is put in low-power mode. This mode achieves the lowest power consumption while retaining the contents of SRAM and registers.)
+It is mandatory to update the *bootloader* (https://github.com/spark/firmware/tree/bootloader-patch-update) for proper functioning of this mode (valid only for Spark Core).
 
 ```C++
 // SYNTAX
@@ -3247,9 +3293,9 @@ Spark.sleep(uint16_t wakeUpPin, uint16_t edgeTriggerMode);
 ```
 
 ```C++
-// EXAMPLE USAGE: Put the Core into stop mode with wakeup using RISING edge interrupt on D0 pin
+// EXAMPLE USAGE: Put the device into stop mode with wakeup using RISING edge interrupt on D0 pin
 Spark.sleep(D0,RISING);
-// The Core LED will shut off during sleep
+// The device LED will shut off during sleep
 ```
 
 *Parameters:*
@@ -3261,9 +3307,9 @@ Spark.sleep(D0,RISING);
     - RISING to trigger when the pin goes from low to high,
     - FALLING for when the pin goes from high to low.
 
-`Spark.sleep(uint16_t wakeUpPin, uint16_t edgeTriggerMode, long seconds)` can be used to put the entire Core into a *stop* mode with *wakeup on interrupt* or *wakeup after specified seconds*. In this particular mode, the Core shuts down the Wi-Fi chipset (CC3000) and puts the microcontroller in a stop mode with configurable wakeup pin and edge triggered interrupt or wakeup after the specified seconds . When the specific interrupt arrives or upon reaching configured seconds, the Core awakens from stop mode, it will behave as if the Core is reset and run all user code from the beginning with no values being maintained in memory from before the stop mode. As such, it is recommended that stop mode be called only after all user code has completed. (Note: The new Spark Photon firmware will not reset before going into stop mode so all the application variables are preserved after waking up from this mode. The voltage regulator is put in low-power mode. This mode achieves the lowest power consumption while retaining the contents of SRAM and registers.)
+`Spark.sleep(uint16_t wakeUpPin, uint16_t edgeTriggerMode, long seconds)` can be used to put the entire device into a *stop* mode with *wakeup on interrupt* or *wakeup after specified seconds*. In this particular mode, the Core shuts down the Wi-Fi chipset (CC3000) and puts the microcontroller in a stop mode with configurable wakeup pin and edge triggered interrupt or wakeup after the specified seconds . When the specific interrupt arrives or upon reaching configured seconds, the Core awakens from stop mode, it will behave as if the Core is reset and run all user code from the beginning with no values being maintained in memory from before the stop mode. As such, it is recommended that stop mode be called only after all user code has completed. (Note: The new Spark Photon firmware will not reset before going into stop mode so all the application variables are preserved after waking up from this mode. The voltage regulator is put in low-power mode. This mode achieves the lowest power consumption while retaining the contents of SRAM and registers.)
 
-It is mandatory to update the *bootloader* (https://github.com/spark/core-firmware/tree/bootloader-patch-update) for proper functioning of this mode(valid only for Spark Core).
+It is mandatory to update the *bootloader* (https://github.com/spark/firmware/tree/bootloader-patch-update) for proper functioning of this mode(valid only for Spark Core).
 
 ```C++
 // SYNTAX
@@ -3271,9 +3317,9 @@ Spark.sleep(uint16_t wakeUpPin, uint16_t edgeTriggerMode, long seconds);
 ```
 
 ```C++
-// EXAMPLE USAGE: Put the Core into stop mode with wakeup using RISING edge interrupt on D0 pin or wakeup after 60 seconds whichever comes first
+// EXAMPLE USAGE: Put the device into stop mode with wakeup using RISING edge interrupt on D0 pin or wakeup after 60 seconds whichever comes first
 Spark.sleep(D0,RISING,60);
-// The Core LED will shut off during sleep
+// The device LED will shut off during sleep
 ```
 
 *Parameters:*
@@ -3286,9 +3332,13 @@ Spark.sleep(D0,RISING,60);
     - FALLING for when the pin goes from high to low.
 - `seconds`: wakeup after the specified number of seconds
 
-In *standard sleep mode*, the Core current consumption is in the range of: **30mA to 38mA**
+*Power consumption:*
 
-In *deep sleep mode*, the Core current consumption is around: **3.2 μA**
+- Core
+ - In *standard sleep mode*, the device current consumption is in the range of: **30mA to 38mA**
+ - In *deep sleep mode*, the current consumption is around: **3.2 μA**
+- Photon
+ - Please see the [datasheet](../hardware/#4-2-recommended-operating-conditions)
 
 <!--
 Spark.sleep(int millis, array peripherals);
@@ -3330,7 +3380,7 @@ The following documentation is based on the Arduino reference which can be found
 Structure
 ---
 ### setup()
-The setup() function is called when an application starts. Use it to initialize variables, pin modes, start using libraries, etc. The setup function will only run once, after each powerup or reset of the Spark Core.
+The setup() function is called when an application starts. Use it to initialize variables, pin modes, start using libraries, etc. The setup function will only run once, after each powerup or device reset.
 
 ```cpp
 // EXAMPLE USAGE
@@ -3350,7 +3400,7 @@ void loop()
 ```
 
 ### loop()
-After creating a setup() function, which initializes and sets the initial values, the loop() function does precisely what its name suggests, and loops consecutively, allowing your program to change and respond. Use it to actively control the Spark Core.
+After creating a setup() function, which initializes and sets the initial values, the loop() function does precisely what its name suggests, and loops consecutively, allowing your program to change and respond. Use it to actively control the device.
 
 ```C++
 EXAMPLE USAGE
@@ -3781,7 +3831,7 @@ Unbalanced braces can often lead to cryptic, impenetrable compiler errors that c
 ### // (single line comment)
 ### /\* \*/ (multi-line comment)
 
-Comments are lines in the program that are used to inform yourself or others about the way the program works. They are ignored by the compiler, and not exported to the processor, so they don't take up any space on the Spark Core.
+Comments are lines in the program that are used to inform yourself or others about the way the program works. They are ignored by the compiler, and not exported to the processor, so they don't take up any space on the device.
 
 Comments only purpose are to help you understand (or remember) how your program works or to inform others how your program works. There are two different ways of marking a line as a comment:
 
@@ -3831,7 +3881,7 @@ Similarly, including an equal sign after the #define statement will also generat
 
 ### #include
 
-`#include` is used to include outside libraries in your application code. This gives the programmer access to a large group of standard C libraries (groups of pre-made functions), and also libraries written especially for Spark Core.
+`#include` is used to include outside libraries in your application code. This gives the programmer access to a large group of standard C libraries (groups of pre-made functions), and also libraries written especially for your device.
 
 Note that #include, similar to #define, has no semicolon terminator, and the compiler will yield cryptic error messages if you add one.
 
@@ -4735,7 +4785,7 @@ Digital pins can be used as INPUT, INPUT_PULLUP, INPUT_PULLDOWN or OUTPUT. Chang
 
 Pins Configured as `INPUT`
 
-The Spark Core's pins configured as `INPUT` with `pinMode()`` are said to be in a high-impedance state. Pins configured as `INPUT` make extremely small demands on the circuit that they are sampling, equivalent to a series resistor of 100 Megohms in front of the pin. This makes them useful for reading a sensor, but not powering an LED.
+The device's pins configured as `INPUT` with `pinMode()`` are said to be in a high-impedance state. Pins configured as `INPUT` make extremely small demands on the circuit that they are sampling, equivalent to a series resistor of 100 Megohms in front of the pin. This makes them useful for reading a sensor, but not powering an LED.
 
 If you have your pin configured as an `INPUT`, you will want the pin to have a reference to ground, often accomplished with a pull-down resistor (a resistor going to ground).
 
@@ -4765,7 +4815,7 @@ Note that the true and false constants are typed in lowercase unlike `HIGH, LOW,
 Data Types
 ----
 
-**Note:** The Spark Core uses a 32-bit ARM based microcontroller and hence the datatype lengths are different from a standard 8-bit system (for eg. Arduino Uno).
+**Note:** The Spark Core/Photon uses a 32-bit ARM based microcontroller and hence the datatype lengths are different from a standard 8-bit system (for eg. Arduino Uno).
 
 ### void
 
@@ -4855,7 +4905,7 @@ byte b = 0x11;
 
 ### int
 
-Integers are your primary data-type for number storage. On the Core, an int stores a 32-bit (4-byte) value. This yields a range of -2,147,483,648 to 2,147,483,647 (minimum value of -2^31 and a maximum value of (2^31) - 1).
+Integers are your primary data-type for number storage. On the Core/Photon, an int stores a 32-bit (4-byte) value. This yields a range of -2,147,483,648 to 2,147,483,647 (minimum value of -2^31 and a maximum value of (2^31) - 1).
 int's store negative numbers with a technique called 2's complement math. The highest bit, sometimes referred to as the "sign" bit, flags the number as a negative number. The rest of the bits are inverted and 1 is added.
 
 Other variations:
@@ -4866,7 +4916,7 @@ Other variations:
 
 ### unsigned int
 
-The Core stores a 4 byte (32-bit) value, ranging from 0 to 4,294,967,295 (2^32 - 1).
+The Core/Photon stores a 4 byte (32-bit) value, ranging from 0 to 4,294,967,295 (2^32 - 1).
 The difference between unsigned ints and (signed) ints, lies in the way the highest bit, sometimes referred to as the "sign" bit, is interpreted.
 
 Other variations:
@@ -4900,7 +4950,7 @@ Floating point math is also much slower than integer math in performing calculat
 
 ### double
 
-Double precision floating point number. On the Core, doubles have 8-byte (64 bit) precision.
+Double precision floating point number. On the Core/Photon, doubles have 8-byte (64 bit) precision.
 
 ### string - char array
 
