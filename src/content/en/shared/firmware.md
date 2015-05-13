@@ -12,7 +12,7 @@ Cloud Functions
 
 ### Spark.variable()
 
-Expose a *variable* through the Spark Cloud so that it can be called with `GET /v1/devices/{DEVICE_ID}/{VARIABLE}`.
+Expose a *variable* through the Cloud so that it can be called with `GET /v1/devices/{DEVICE_ID}/{VARIABLE}`.
 Returns a success value - `true` when the variable was registered. 
 
 It is fine to call this function when the cloud is disconnected - the variable
@@ -43,7 +43,7 @@ void loop()
   delay(200);
 }
 ```
-Currently, up to 10 Spark variables may be defined and each variable name is limited to a max of 12 characters.
+Currently, up to 10 cloud variables may be defined and each variable name is limited to a max of 12 characters.
 
 There are three supported data types:
 
@@ -71,25 +71,25 @@ my name is particle
 
 ### Spark.function()
 
-Expose a *function* through the Spark Cloud so that it can be called with `POST device/{FUNCTION}`.
+Expose a *function* through the Cloud so that it can be called with `POST device/{FUNCTION}`.
 
 ```cpp
-// SYNTAX TO REGISTER A SPARK FUNCTION
+// SYNTAX TO REGISTER A CLOUD FUNCTION
 bool success = Spark.function("funcKey", funcName);
 //                               ^
 //                               |
 //                  (max of 12 characters long)
 ```
 
-Currently the application supports the creation of up to 4 different Spark functions.
+Currently the application supports the creation of up to 4 different cloud functions.
 
-In order to register a Spark function, the user provides the `funcKey`, which is the string name used to make a POST request and a `funcName`, which is the actual name of the function that gets called in the Spark app. The Spark function can return any integer; `-1` is commonly used for a failed function call.
+In order to register a cloud  function, the user provides the `funcKey`, which is the string name used to make a POST request and a `funcName`, which is the actual name of the function that gets called in your app. The cloud function can return any integer; `-1` is commonly used for a failed function call.
 
 The length of the `funcKey` is limited to a max of 12 characters. If you declare a function name longer than 12 characters the function will not be registered. 
 
 Example: Spark.function("someFunction1", ...); exposes a function called someFunction and not someFunction1
 
-A Spark function is set up to take one argument of the [String](http://docs.particle.io/firmware/#language-syntax-string-class) datatype. This argument length is limited to a max of 63 characters.
+A cloud function is set up to take one argument of the [String](#language-syntax-string-class) datatype. This argument length is limited to a max of 63 characters.
 
 ```cpp
 // EXAMPLE USAGE
@@ -97,7 +97,7 @@ int brewCoffee(String command);
 
 void setup()
 {
-  // register the Spark function
+  // register the cloud function
   Spark.function("brew", brewCoffee);
 }
 
@@ -136,11 +136,11 @@ curl https://api.particle.io/v1/devices/0123456789abcdef/brew \
 
 ### Spark.publish()
 
-Publish an *event* through the Spark Cloud that will be forwarded to all registered callbacks, subscribed streams of Server-Sent Events, and other devices listening via `Spark.subscribe()`.
+Publish an *event* through the Particle Cloud that will be forwarded to all registered callbacks, subscribed streams of Server-Sent Events, and other devices listening via `Spark.subscribe()`.
 
 This feature allows the device to generate an event based on a condition. For example, you could connect a motion sensor to the device and have the device generate an event whenever motion is detected.
 
-Spark events have the following properties:
+Cloud events have the following properties:
 
 * name (1–63 ASCII characters)
 * public/private (default public)
@@ -152,7 +152,7 @@ Anyone may subscribe to public events; think of them like tweets.
 Only the owner of the device will be able to subscribe to private events.
 
 A device may not publish events beginning with a case-insensitive match for "spark".
-Such events are reserved for officially curated data originating from the Particle Cloud.
+Such events are reserved for officially curated data originating from the Cloud.
 
 Calling `Spark.publish()` when the device is not connected to the cloud will not
 result in an event being published. This is indicated by the return success code
@@ -355,7 +355,7 @@ void loop() {
 }
 ```
 
-While this function will disconnect from the Spark Cloud, it will keep the connection to the Wi-Fi network. If you would like to completely deactivate the Wi-Fi module, use [`WiFi.off()`](#wifi-off).
+While this function will disconnect from the Cloud, it will keep the connection to the Wi-Fi network. If you would like to completely deactivate the Wi-Fi module, use [`WiFi.off()`](#wifi-off).
 
 NOTE: When the device is disconnected, many features are not possible, including over-the-air updates, reading Spark.variables, and calling Spark.functions.
 
@@ -363,7 +363,7 @@ NOTE: When the device is disconnected, many features are not possible, including
 
 ### Spark.connected()
 
-Returns `true` when connected to the Spark Cloud, and `false` when disconnected from the Spark Cloud.
+Returns `true` when connected to the Cloud, and `false` when disconnected from the Cloud.
 
 ```C++
 // SYNTAX
@@ -415,7 +415,7 @@ void redundantLoop() {
 
 ### Spark.syncTime()
 
-Synchronize the time with the Spark Cloud.
+Synchronize the time with the Particle Cloud.
 This happens automatically when the device connects to the Cloud.
 However, if your device runs continuously for a long time,
 you may want to synchronize once per day or so.
@@ -426,7 +426,7 @@ unsigned long lastSync = millis();
 
 void loop() {
   if (millis() - lastSync > ONE_DAY_MILLIS) {
-    // Request time synchronization from the Spark Cloud
+    // Request time synchronization from the Particle Cloud
     Spark.syncTime();
     lastSync = millis();
   }
@@ -768,7 +768,7 @@ void loop()
 
 Writes an analog value (PWM wave) to a pin. Can be used to light a LED at varying brightnesses or drive a motor at various speeds. After a call to analogWrite(), the pin will generate a steady square wave of the specified duty cycle until the next call to analogWrite() (or a call to digitalRead() or digitalWrite() on the same pin). The frequency of the PWM signal is approximately 500 Hz.
 
-- On the Spark Core, this function works on pins A0, A1, A4, A5, A6, A7, D0 and D1.
+- On the Core, this function works on pins A0, A1, A4, A5, A6, A7, D0 and D1.
 - On the Photon, this function works on pins A0, A1, A2, A3, A4, A5, WKP, TX and RX
 
 The analogWrite function has nothing to do with the analog pins or the analogRead function.
@@ -2168,7 +2168,7 @@ NOTE: Unlike Arduino, you do not need to include `Servo.h`; it is included autom
 
 Set up a servo on a particular pin. Note that, Servo can only be attached to pins with a timer.
 
-- on the Spark Core, Servo can be connected to A0, A1, A4, A5, A6, A7, D0, and D1.
+- on the Core, Servo can be connected to A0, A1, A4, A5, A6, A7, D0, and D1.
 - on the Photon, Servo can be connected to A4, A5, WKP, RX, TX, D0, D1, D2, D3
 
 ```cpp
@@ -2317,7 +2317,7 @@ RGB.brightness(255);
 Time
 ---
 
-The device synchronizes time with the Spark Cloud during the handshake.
+The device synchronizes time with the Particle Cloud during the handshake.
 From then, the time is continually updated on the device.
 This reduces the need for external libraries to manage dates and times.
 
@@ -2537,7 +2537,7 @@ Parameters: floating point offset from UTC in hours, from -12.0 to 13.0
 
 Set the system time to the given timestamp.
 
-*NOTE*: This will override the time set by the Spark Cloud.
+*NOTE*: This will override the time set by the Particle Cloud.
 If the cloud connection drops, the reconnection handshake will set the time again
 
 Also see: [`Spark.syncTime()`](#spark-synctime)
@@ -3141,8 +3141,8 @@ void loop() {
 }
 ```
 
-- When the device starts up, it automatically tries to connect to Wi-Fi and the Spark Cloud.
-- Once a connection with the Spark Cloud has been established, the user code starts running.
+- When the device starts up, it automatically tries to connect to Wi-Fi and the Particle Cloud.
+- Once a connection with the Particle Cloud has been established, the user code starts running.
 - Messages to and from the Cloud are handled in between runs of the user loop; the user loop automatically alternates with [`Spark.process()`](#spark-process).
 - `Spark.process()` is also called during any delay() of at least 1 second.
 - If the user loop blocks for more than about 20 seconds, the connection to the Cloud will be lost. To prevent this from happening, the user can call `Spark.process()` manually.
@@ -3180,7 +3180,7 @@ The semi-automatic mode is therefore much like the automatic mode, except:
 ### Manual mode
 
 
-The "manual" mode puts the device's connectivity completely in the user's control. This means that the user is responsible for both establishing a connection to the Spark Cloud and handling communications with the Cloud by calling [`Spark.process()`](#spark-process) on a regular basis.
+The "manual" mode puts the device's connectivity completely in the user's control. This means that the user is responsible for both establishing a connection to the Particle Cloud and handling communications with the Cloud by calling [`Spark.process()`](#spark-process) on a regular basis.
 
 ```cpp
 SYSTEM_MODE(MANUAL);
@@ -3284,8 +3284,8 @@ Spark.sleep(SLEEP_MODE_DEEP,60);
 ```
 The device will automatically *wake up* and reestablish the WiFi connection after the specified number of seconds.
 
-`Spark.sleep(uint16_t wakeUpPin, uint16_t edgeTriggerMode)` can be used to put the entire device into a *stop* mode with *wakeup on interrupt*. In this particular mode, the device shuts down the Wi-Fi chipset and puts the microcontroller in a stop mode with configurable wakeup pin and edge triggered interrupt. When the specific interrupt arrives, the device awakens from stop mode, it will behave as if the device is reset and run all user code from the beginning with no values being maintained in memory from before the stop mode. As such, it is recommended that stop mode be called only after all user code has completed. (Note: The new Spark Photon firmware will not reset before going into stop mode so all the application variables are preserved after waking up from this mode. The voltage regulator is put in low-power mode. This mode achieves the lowest power consumption while retaining the contents of SRAM and registers.)
-It is mandatory to update the *bootloader* (https://github.com/spark/firmware/tree/bootloader-patch-update) for proper functioning of this mode (valid only for Spark Core).
+`Spark.sleep(uint16_t wakeUpPin, uint16_t edgeTriggerMode)` can be used to put the entire device into a *stop* mode with *wakeup on interrupt*. In this particular mode, the device shuts down the Wi-Fi chipset and puts the microcontroller in a stop mode with configurable wakeup pin and edge triggered interrupt. When the specific interrupt arrives, the device awakens from stop mode, it will behave as if the device is reset and run all user code from the beginning with no values being maintained in memory from before the stop mode. As such, it is recommended that stop mode be called only after all user code has completed. (Note: The new Particle Photon firmware will not reset before going into stop mode so all the application variables are preserved after waking up from this mode. The voltage regulator is put in low-power mode. This mode achieves the lowest power consumption while retaining the contents of SRAM and registers.)
+It is mandatory to update the *bootloader* (https://github.com/spark/firmware/tree/bootloader-patch-update) for proper functioning of this mode (valid only for Core).
 
 ```C++
 // SYNTAX
@@ -3307,9 +3307,9 @@ Spark.sleep(D0,RISING);
     - RISING to trigger when the pin goes from low to high,
     - FALLING for when the pin goes from high to low.
 
-`Spark.sleep(uint16_t wakeUpPin, uint16_t edgeTriggerMode, long seconds)` can be used to put the entire device into a *stop* mode with *wakeup on interrupt* or *wakeup after specified seconds*. In this particular mode, the Core shuts down the Wi-Fi chipset (CC3000) and puts the microcontroller in a stop mode with configurable wakeup pin and edge triggered interrupt or wakeup after the specified seconds . When the specific interrupt arrives or upon reaching configured seconds, the Core awakens from stop mode, it will behave as if the Core is reset and run all user code from the beginning with no values being maintained in memory from before the stop mode. As such, it is recommended that stop mode be called only after all user code has completed. (Note: The new Spark Photon firmware will not reset before going into stop mode so all the application variables are preserved after waking up from this mode. The voltage regulator is put in low-power mode. This mode achieves the lowest power consumption while retaining the contents of SRAM and registers.)
+`Spark.sleep(uint16_t wakeUpPin, uint16_t edgeTriggerMode, long seconds)` can be used to put the entire device into a *stop* mode with *wakeup on interrupt* or *wakeup after specified seconds*. In this particular mode, the Core shuts down the Wi-Fi chipset (CC3000) and puts the microcontroller in a stop mode with configurable wakeup pin and edge triggered interrupt or wakeup after the specified seconds . When the specific interrupt arrives or upon reaching configured seconds, the Core awakens from stop mode, it will behave as if the Core is reset and run all user code from the beginning with no values being maintained in memory from before the stop mode. As such, it is recommended that stop mode be called only after all user code has completed. (Note: The new Particle Photon firmware will not reset before going into stop mode so all the application variables are preserved after waking up from this mode. The voltage regulator is put in low-power mode. This mode achieves the lowest power consumption while retaining the contents of SRAM and registers.)
 
-It is mandatory to update the *bootloader* (https://github.com/spark/firmware/tree/bootloader-patch-update) for proper functioning of this mode(valid only for Spark Core).
+It is mandatory to update the *bootloader* (https://github.com/spark/firmware/tree/bootloader-patch-update) for proper functioning of this mode(valid only for Core).
 
 ```C++
 // SYNTAX
@@ -4815,7 +4815,7 @@ Note that the true and false constants are typed in lowercase unlike `HIGH, LOW,
 Data Types
 ----
 
-**Note:** The Spark Core/Photon uses a 32-bit ARM based microcontroller and hence the datatype lengths are different from a standard 8-bit system (for eg. Arduino Uno).
+**Note:** The Core/Photon uses a 32-bit ARM based microcontroller and hence the datatype lengths are different from a standard 8-bit system (for eg. Arduino Uno).
 
 ### void
 
