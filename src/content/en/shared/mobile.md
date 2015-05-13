@@ -1,7 +1,7 @@
 ---
 word: Mobile
 title: Mobile SDK
-order: 10
+order: 11
 ---
 
 iOS Cloud SDK

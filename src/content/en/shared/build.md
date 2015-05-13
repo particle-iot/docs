@@ -1,7 +1,7 @@
 ---
 word: Build
 title: Web IDE (Build)
-order: 5
+order: 6
 ---
 
 Flash Apps with Spark Build

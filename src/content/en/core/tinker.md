@@ -1,7 +1,7 @@
 ---
 word: Tinker
 title: Tinker
-order: 11
+order: 3
 ---
 
 Tinkering with "Tinker"
@@ -12,9 +12,9 @@ The Tinker app
 
 ![Tinker selection]({{assets}}/images/tinker-core.png)
 
-The Tinker section of the Spark mobile app makes it very easy to start playing with your Spark Core without writing any code. It's great for early development, and often it will do everything you need to get your project off of the ground.
+The Tinker section of the Particle mobile app makes it very easy to start playing with your Particle device without writing any code. It's great for early development, and often it will do everything you need to get your project off of the ground.
 
-The app consists of 16 pins in vertical rows - 8 analog pins on the left, 8 digital pins on the right. These pins represent the 16 GPIO (General Purpose Input and Output) pins on the Spark Core, and are organized the same way.
+The app consists of 16 pins in vertical rows - 8 analog pins on the left, 8 digital pins on the right. These pins represent the 16 GPIO (General Purpose Input and Output) pins on the Core, and are organized the same way.
 
 To begin, tap any of the pins. A menu will pop up showing the functions that pin has available. Each pin can have up to four possible functions:
 
@@ -23,26 +23,105 @@ To begin, tap any of the pins. A menu will pop up showing the functions that pin
 - **digitalRead**: This will read the digital value of a pin, which can be read as either HIGH or LOW. If you were to connect the pin to 3.3V, it would read HIGH; if you connect it to GND, it would read LOW. Anywhere in between, it'll probably read whichever one it's closer to, but it gets dicey in the middle.
 - **analogRead**: This will read the analog value of a pin, which is a value from 0 to 4095, where 0 is LOW (GND) and 4095 is HIGH (3.3V). All of the analog pins (A0 to A7) can handle this. *analogRead* is great for reading data from sensors.
 
-To change the function of the pin, simply tap and hold on the pin, and the function select menu will come back up. Any further questions? Come talk to us in the [forums!](https://community.sparkdevices.com/)
+
+In other words, Tinker lets you control and read the voltage of the pins on your device. You can choose to send a lot of voltage to an LED to light it up, or read the voltage at a sensor. Let's do that now!
+
+
+digitalWrite: LED On/Off
+---
+
+The easiest thing we can do is to turn the [D7 LED](/core/#leds) on and off. The first step is to [connect your device](/core/connect). Then, open your Particle mobile app and select your device.
+
+To turn on the LED, tap the D7 pin on the mobile app. Then tap `digitalWrite` to let it know that you want to send high or low voltage to that pin.
+
+Once you have done that, try tapping the D7 pin. It will change its status to `HIGH` and your device's D7 LED will turn on. Tapping it again will change the status to `LOW` and the LED will turn off.
+
+`digitalWrite` only has two options: `HIGH` and `LOW`. When we speak to our pins digitally, we can only send the maximum voltage or no voltage. That's great for when you only need two settings-- like if you had a light switch that could only go on and off, or locks that could only be open or closed. For everything in between, we use `analogWrite`.
+
+
+
+analogWrite: LED Dimming
+---
+
+In this example, we'll plug an LED into D0 and change its brightness with analogWrite.
+
+![LED fritzing]({{assets}}/images/core-led-fritzing.png)
+
+Pick a resistor between 220 and 1000 Ohms (we're using 330 Ohms) and set up your device just like the picture to the right.
+
+Then, pull up your mobile app and select D0 this time. Instead of `digitalWrite`, select `analogWrite`.
+
+_NOTE:_  You get this option on the D0 pin because D0 is a PWM pin and D7 is not. Don't worry about this too much if you're a beginner.
+
+You should now be able to set the D0 pin to any number between 0 and 255. It basically divides the maximum voltage by 255 and allows us to set the slider to any fraction of the voltage between minimum and maximum. Pretty cool, right?
+
+By sliding and releasing the slider, you should be able to see the LED dim and glow at different levels.
+
+If we wanted to, we could also switch modes and `digitalWrite` this LED to turn it on or off. To change the function of the pin, simply tap and hold on the pin, and the function select menu will come back up.
+
+
+digitalRead: The One Wire Test
+---
+
+We can also use Tinker to check to see if a pin is on or off. `digitalRead` is great for checking things that only have two states-- switches and buttons for example.
+
+![One Wire Fritzing]({{assets}}/images/core-onewire-fritzing.png)
+
+In this case, we're going to do the simplest thing possible and simply use one wire. Plug a wire into D0 of your device as show in the image to the right.
+
+As you can see, one side of the wire is plugged inot 3v3 and the other is plugged into D0. 3V3 sends the maximum voltage out. We've plugged it into D0, so D0 is receiving the maximum voltage.
+
+Let's read that. Go into your mobile app and tap D0. Hold it to reset it first if you were previously using D0 in Tinker for something else. Once the menu comes up, select `digitalRead`.
+
+If your wire is plugged in, you'll see the word `HIGH` next to the D0 pin. Now unplug the wire and tap the D0 pin on the mobile app once more. Now the pin will say `LOW`.
+
+_NOTE:_  If you don't get `LOW` right away, give it a moment. There's still some residual voltage hanging out in the pin, but in a second or two that will disperse and it should read as `LOW`.
+
+
+analogRead: Reading a Sensor
+---
+
+If we want to read a sensor, like a temperature or light sensor, we will need our device to give us more details than than just "It's on!" or "It's off!" When you want to read a value between `LOW` and `HIGH`, use `analogRead`.
+
+Plug in a sensor. In this example, we'll use a photoresistor.
+![Photoresistor Only Fritzing]({{assets}}/images/core-photoresistor-only-fritzing.png)
+
+Wire it up as pictured on the right. You can use any resistor for this; a larger resistor (like 10K Ohms) will give you a wider range of values whereas a smaller resistor (like 330 Ohms) will give you lower range of values.
+
+Tap the A5 pin and set it to `digitalWrite` and `HIGH`. This essentially gives us a consistent power source from A5 that will go to our photoresistor. (We are doing this because sometimes an on-board power source like 3v3 has small fluctuations in power that could affect our photoresistor readings.)
+
+Now tap A0 and set it to `analogRead`. Hold your breadboard with the photoresistor on it up to a light source and tap A0 again to get the reading of the photoresistor. Now cover the photoresistor and tap A0 again. See the difference?
+
+You can try testing different kinds of light, or you can even swap out your photoresistor for another kind of fluctuating resistor like a thermistor or a force sensitive resistor.
+
+
 
 The Tinker firmware
 ---
 
-The Tinker firmware is the default application program stored in the Spark Core upon its commissioning from the factory assembly line. You can always get back to it by putting the Core in the [factory reset mode](#buttons), or by re-flashing your Core with Tinker in the Spark app.
+Pretty cool examples, but what's actually happening here?
+
+When you tap a pin on the mobile app, it sends a message up to the cloud. Your device is always listening to the cloud and waiting for instructions-- like "write D7 HIGH" or "read the voltage at A0".
+
+Your device already knows how to communicate with the mobile app because we've put firmware on your device already. We call this the Tinker firmware. It's just like the user firmware you might load onto your device later, to blink and LED, drive a robot, monitor the temperature of your basement, or whatever you like. It's just that with the Tinker firmware, we've specified special `Spark.function`s that the mobile app knows and understands.
+
+If your device is new, it already has the Tinker firmware on it. It's the default firmware stored on your device right from the factory. When you put your own user firmware on your device, you'll rewrite the Tinker firmware. (That means that your device will no longer understand commands from the Particle mobile app.) However, you can always get the Tinker firmware back on your device by putting it in [factory reset mode](/core/modes/#core-modes-factory-reset), or by re-flashing your device with Tinker in the Particle app.
 
 To reflash Tinker from within the app:
 
-- **iOS Users**: Tap the list button at the top left. Then tap the arrow next to your desired Core and tap the "Re-flash Tinker" button in the pop out menu.
-- **Android Users**: With your desired Core selected, tap the options button in the upper right and tap the "Reflash Tinker" option in the drop down menu.
+- **iOS Users**: Tap the list button at the top left. Then tap the arrow next to your desired device and tap the "Re-flash Tinker" button in the pop out menu.
+- **Android Users**: With your desired device selected, tap the options button in the upper right and tap the "Reflash Tinker" option in the drop down menu.
 
-The Tinker app is a great example of how to build a very powerful application with not all that much code. You can have a look at the latest release [here.](https://github.com/spark/core-firmware/blob/master/src/application.cpp)
+
+The Tinker app is a great example of how to build a very powerful application with not all that much code. If you're a technical person, you can have a look at the latest release [here.](https://github.com/spark/core-firmware/blob/master/src/application.cpp)
+
 
 Using Tinker with Your Code
 ---
 
 I know what you're thinking: this is amazing, but I really want to use Tinker *while* my code is running so I can see what's happening! Now you can.
 
-Combine your code with this framework, flash it to your Core, and Tinker away.
+Combine your code with this framework, flash it to your device, and Tinker away.
 
 ```cpp
 int tinkerDigitalRead(String pin);
@@ -125,24 +204,23 @@ int tinkerAnalogWrite(String command){
 	else return -2;}
 ```
 
+
 The Tinker API
 ---
 
-When the Tinker firmware is installed on your Spark Core, it will respond to certain API requests from your mobile app, which mirror the four basic GPIO functions (digitalWrite, analogWrite, digitalRead, analogRead). These API requests can also be made from another application, so you can build your own web or mobile app around the Tinker firmware.
+When the Tinker firmware is installed on your Particle device, it will respond to certain API requests from your mobile app, which mirror the four basic GPIO functions (digitalWrite, analogWrite, digitalRead, analogRead). These API requests can also be made from another application or from the command line, so you can build your own web or mobile app around the Tinker firmware.
 
 ### digitalWrite
 
 Sets the pin to HIGH or LOW, which either connects it to 3.3V (the maximum voltage of the system) or to GND (ground). Pin D7 is connected to an on-board LED; if you set pin D7 to HIGH, the LED will turn on, and if you set it to LOW, it will turn off.
 
-``` bash
-POST /v1/devices/{DEVICE_ID}/digitalwrite
+    POST /v1/devices/{DEVICE_ID}/digitalwrite
 
-# EXAMPLE REQUEST IN TERMINAL
-# Core ID is 0123456789abcdef
-# Your access token is 123412341234
-$ curl https://api.spark.io/v1/devices/0123456789abcdef/digitalwrite \
-  -d access_token=123412341234 -d params=D0,HIGH
-```
+    # EXAMPLE REQUEST IN TERMINAL
+    # Device ID is 0123456789abcdef
+    # Your access token is 123412341234
+    curl https://api.spark.io/v1/devices/0123456789abcdef/digitalwrite \
+      -d access_token=123412341234 -d params=D0,HIGH
 
 The parameters must be the pin (A0 to A7, D0 to D7), followed by either HIGH or LOW, separated by a comma. The return value will be 1 if the write succeeds, and -1 if it fails.
 
@@ -152,15 +230,13 @@ The parameters must be the pin (A0 to A7, D0 to D7), followed by either HIGH or 
 
 Sets the pin to a value between 0 and 255, where 0 is the same as LOW and 255 is the same as HIGH. This is sort of like sending a voltage between 0 and 3.3V, but since this is a digital system, it uses a mechanism called Pulse Width Modulation, or PWM. You could use *analogWrite* to dim an LED, as an example.
 
-```bash
-POST /v1/devices/{DEVICE_ID}/analogwrite
+    POST /v1/devices/{DEVICE_ID}/analogwrite
 
-# EXAMPLE REQUEST IN TERMINAL
-# Core ID is 0123456789abcdef
-# Your access token is 123412341234
-$ curl https://api.spark.io/v1/devices/0123456789abcdef/analogwrite \
-  -d access_token=123412341234 -d params=A0,215
-```
+    # EXAMPLE REQUEST IN TERMINAL
+    # Device ID is 0123456789abcdef
+    # Your access token is 123412341234
+    curl https://api.spark.io/v1/devices/0123456789abcdef/analogwrite \
+      -d access_token=123412341234 -d params=A0,215
 
 The parameters must be the pin (A0 to A7, D0 to D7), followed by an integer value from 0 to 255, separated by a comma. The return value will be 1 if the write succeeds, and -1 if it fails.
 
@@ -171,15 +247,13 @@ The parameters must be the pin (A0 to A7, D0 to D7), followed by an integer valu
 
 This will read the digital value of a pin, which can be read as either HIGH or LOW. If you were to connect the pin to 3.3V, it would read HIGH; if you connect it to GND, it would read LOW. Anywhere in between, it'll probably read whichever one it's closer to, but it gets dicey in the middle.
 
-```bash
-POST /v1/devices/{DEVICE_ID}/digitalread
+    POST /v1/devices/{DEVICE_ID}/digitalread
 
-# EXAMPLE REQUEST IN TERMINAL
-# Core ID is 0123456789abcdef
-# Your access token is 123412341234
-$ curl https://api.spark.io/v1/devices/0123456789abcdef/digitalread \
-  -d access_token=123412341234 -d params=D0
-```
+    # EXAMPLE REQUEST IN TERMINAL
+    # Device ID is 0123456789abcdef
+    # Your access token is 123412341234
+    curl https://api.spark.io/v1/devices/0123456789abcdef/digitalread \
+      -d access_token=123412341234 -d params=D0
 
 
 The parameter must be the pin (A0 to A7, D0 to D7). The return value will be 1 if the pin is HIGH, 0 if the pin is LOW, and -1 if the read fails.
@@ -190,14 +264,12 @@ The parameter must be the pin (A0 to A7, D0 to D7). The return value will be 1 i
 
 This will read the analog value of a pin, which is a value from 0 to 4095, where 0 is LOW (GND) and 4095 is HIGH (3.3V). All of the analog pins (A0 to A7) can handle this. *analogRead* is great for reading data from sensors.
 
-```bash
-POST /v1/devices/{DEVICE_ID}/analogread
+    POST /v1/devices/{DEVICE_ID}/analogread
 
-# EXAMPLE REQUEST IN TERMINAL
-# Core ID is 0123456789abcdef
-# Your access token is 123412341234
-$ curl https://api.spark.io/v1/devices/0123456789abcdef/analogread \
-  -d access_token=123412341234 -d params=A0
-```
+    # EXAMPLE REQUEST IN TERMINAL
+    # Device ID is 0123456789abcdef
+    # Your access token is 123412341234
+    curl https://api.spark.io/v1/devices/0123456789abcdef/analogread \
+      -d access_token=123412341234 -d params=A0
 
 The parameters must be the pin (A0 to A7, D0 to D7). The return value will be between 0 and 4095 if the read succeeds, and -1 if it fails.

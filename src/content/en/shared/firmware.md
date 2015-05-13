@@ -1,7 +1,7 @@
 ---
 word: Firmware
 title: Firmware
-order: 4
+order: 5
 ---
 
 Particle Device Firmware

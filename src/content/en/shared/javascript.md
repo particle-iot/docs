@@ -1,7 +1,7 @@
 ---
 word: Javascript
 title: Javascript SDK
-order: 8
+order: 9
 ---
 
 # ParticleJS

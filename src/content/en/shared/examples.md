@@ -1,13 +1,14 @@
 ---
 word: Examples
 title: Examples
-order: 3
+order: 4
 ---
 
 Annotated examples
 =======
 
 Here you will find a bunch of examples to get you started with your new Particle device! The diagrams here show the Photon, but these examples will work with either the Photon or the Core.
+
 
 Blink an LED
 ===
