@@ -59,8 +59,8 @@ The new version of the Shield Shield (v3.x.x) uses dedicated mosfet based voltag
 |A4      | D0     |     SDA,PWM*            |
 |A5      | D1     |     SCL,PWM*,CAN_TX     |
 
-* Note: These pins can also function as 3.3V PWM outputs or 3.3V Servo outputs.  
-** Note: ADC inputs are 3.3V max.
+\* Note: These pins can also function as 3.3V PWM outputs or 3.3V Servo outputs.  
+\*\* Note: ADC inputs are 3.3V max.
 
 **IMPORTANT:** The Shield Shield does not map the Particle device's pins to like-numbered pins on the Arduino. In other words, D0 on the Particle device is not the same as D0 on the Arduino. Please review the pin mapping table to the right and plan accordingly.
 
@@ -488,8 +488,6 @@ This is the sealed, water proof version of the DS18B20 temperature sensor with w
 ### PIR sensor (1)
 [Datasheet >]({{assets}}/datasheets/makerkit/pir-sensor.pdf)
 
-### Gas sensor - Carbon Monoxide (1)
-
 ### 10K Rotary Potentiometer (1)
 [Datasheet >]({{assets}}/datasheets/makerkit/10k-pot.pdf)
 
@@ -524,7 +522,6 @@ Temperature Sensor
 Temperature Sensor (covered)
 SPDT Relay
 PIR sensor
-Gas sensor (CO)
 Pancake Vibration Motor
 NPN Transistor
 Proto-board
