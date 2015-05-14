@@ -477,17 +477,21 @@ code .comment {
 
 
 .content img {
-  max-width: 100%;
+  max-width: 320px;
   //border: 1px solid #e7e7e7;
   position: relative;
   z-index: 1;
+  display: block;
+  margin: 20px auto;
 }
 
 .content iframe {
-  max-width: 570px;
+  max-width: 320px;
   margin-bottom: 50px;
   position: relative;
   z-index: 1;
+  display: block;
+  margin: 20px auto;
 
 }
 
@@ -578,6 +582,12 @@ hr {
     margin-bottom: 10px;
   }
 }
+body:not(.no-literate) .content img[alt="Connection sequence"] {
+  background: @dark-gray;
+  margin: 20px auto;
+  display: block;
+  padding: 10px;
+}
 
 .three-columns {
   @media (min-width: 1180px) {
@@ -587,9 +597,16 @@ hr {
       clear: both;
     }
 
+    body:not(.no-literate) .content img[alt="Connection sequence"] {
+      background: transparent;
+      border: none;
+      width: 250px;
+      margin: 0;
+      padding: 0;
+    }
 
     body:not(.no-literate) .content img {
-      width: 480px;
+      max-width: 400px;
       display: block;
       margin: 0 0 50px;
       padding: 5px;
@@ -606,7 +623,7 @@ hr {
     }
 
     body:not(.no-literate) .content iframe {
-      width: 480px;
+      max-width: 400px;
       margin: 0;
       padding-left: 40px;
     }

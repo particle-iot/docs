@@ -50,11 +50,9 @@ Open up the Particle app on your mobile device, and tap the "Get Started" button
 
 ### Step 3: Connect Your Photon to the Cloud
 
-Follow the on-screen instructions in the mobile app to connect your Photon to the Particle cloud.
+![Connection sequence]({{assets}}/images/photon-setup-sequence.png)
 
-<div class="iframe-wrapper">
-  <iframe src="https://vine.co/v/eZUX7KJQnbX/embed/simple" width="320" height="320" frameborder="0"></iframe>
-</div>
+Follow the on-screen instructions in the mobile app to connect your Photon to the Particle cloud.
 
 When your Photon is connecting to wifi it will go through the following colors, but don't worry if you don't see them all:
 - **Flashing blue**: Soft-AP setup mode, waiting for network information.
