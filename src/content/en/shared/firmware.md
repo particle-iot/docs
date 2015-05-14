@@ -3338,7 +3338,7 @@ Spark.sleep(D0,RISING,60);
  - In *standard sleep mode*, the device current consumption is in the range of: **30mA to 38mA**
  - In *deep sleep mode*, the current consumption is around: **3.2 μA**
 - Photon
- - Please see the [datasheet](../hardware/#4-2-recommended-operating-conditions)
+ - Please see the [datasheet](/photon/hardware/#4-2-recommended-operating-conditions)
 
 <!--
 Spark.sleep(int millis, array peripherals);
@@ -3513,7 +3513,7 @@ else
 }
 ```
 
-Another way to express branching, mutually exclusive tests, is with the [`switch case`](#/firmware/control-structures-switch-case) statement.
+Another way to express branching, mutually exclusive tests, is with the [`switch case`](#control-structures-switch-case) statement.
 
 ### for
 

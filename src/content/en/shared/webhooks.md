@@ -44,7 +44,7 @@ Success!
 
 We're still building the beautiful, intuitive web interface for creating and managing Webhooks, but you're determined, you are ready to use webhooks now.  You're in luck!  With the Particle CLI and your terminal you can start using webhooks right away.  You might need to install a few things, but it's going to be worth it.  First, make sure you have [Node.js](https://nodejs.org) installed if you don't already.
 
-For those of you who have used the Particle CLI in the past, you're all set! If you are a CLI newcomer, install it by following [these instructions](/cli/#installing).
+For those of you who have used the Particle CLI in the past, you're all set! If you are a CLI newcomer, install it by following [these instructions](../cli/#installing).
 
 You'll also need some basic knowledge of the terminal. Adafruit has a [lovely intro to the command line](https://learn.adafruit.com/what-is-the-command-line/overview) that beginners may find helpful.
 

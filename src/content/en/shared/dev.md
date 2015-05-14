@@ -42,7 +42,7 @@ To access most of features you need to log in using your Particle account (which
 
 Enter your email and password then click the "Log In" button. After a successful login, the dialog will hide and a link will appear at the bottom showing your current account email.
 
-**NOTE**: When using [Command Line](/cli) you'll notice that log-in status is shared between Particle Dev and CLI. So if you successfully ran `particle login`, you will be logged in within the Particle Dev.
+**NOTE**: When using [Command Line](../cli) you'll notice that log-in status is shared between Particle Dev and CLI. So if you successfully ran `particle login`, you will be logged in within the Particle Dev.
 
 Selecting Device
 ---
@@ -116,7 +116,7 @@ Setting up WiFi
 
 To setup device's WiFi, connect it via USB and click **Setup device's WiFi...** button on the toolbar.
 
-If your device isn't in [listening mode](../connect#connecting-your-core-listening-mode) you'll see animation showing how to enter it.
+If your device isn't in [listening mode](../connect#connecting-your-device-listening-mode) you'll see animation showing how to enter it.
 
 Next you'll see all available networks. The one you are currently connected to will be listed first.
 

@@ -158,6 +158,14 @@ module.exports = (grunt) ->
           to: ''
         }]
 
+    linkChecker:
+      dev:
+        site: 'localhost',
+        options: {
+          initialPort: 9000
+          maxConcurrency: 20
+        }
+
 
   grunt.initConfig gruntConfig
 
@@ -172,6 +180,7 @@ module.exports = (grunt) ->
   grunt.loadNpmTasks 'grunt-contrib-compress'
   grunt.loadNpmTasks 'grunt-rename'
   grunt.loadNpmTasks 'grunt-text-replace'
+  grunt.loadNpmTasks 'grunt-link-checker'
 
   grunt.registerTask 'server', ['build', 'connect:livereload', 'watch']
   grunt.registerTask 'build', ['test', 'clean', 'assemble', 'less',

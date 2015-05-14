@@ -94,7 +94,7 @@ Now let's control the blue LED on the device. If you [click here](http://build.p
 
 Click "BLINK AN LED" under the Example apps title. This code turns D7 (labeled _led2_) on and off, once a second. Click the lightning bolt icon in the upper left and it will upload or "flash" this code onto your Photon. You'll see a series of status colors on the main LED, and then the little blue LED blinking. Magic!
 
-You can find more info in the [Web IDE (Build) page](#build)
+You can find more info in the [Web IDE (Build) page](build)
 
 Getting To Know Your Photon
 ====

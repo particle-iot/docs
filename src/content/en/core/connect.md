@@ -55,9 +55,9 @@ Did your phone not find any Cores?
 - Is it blinking green and not getting to cyan?
   - Try it again by holding the MODE button on the core until it begins flashing blue, then double-check your network name and password.
 - Is it now breathing cyan, but the app didn't find any Cores?
-  - Uh oh. Your Core's on the network, but it took too long. [We're going to claim your core manually.](/connect#claiming-your-core)
+  - Uh oh. Your Core's on the network, but it took too long. [We're going to claim your core manually.](../cli#running-from-source-advanced-spark-cloud-claim)
 - Something else altogether?
-  - Give the [Connecting Your Core](/connect) page a read-through and if you're still stuck, search the [community.](http://community.particle.io)
+  - Give the [Connecting Your Core](/core/connect) page a read-through and if you're still stuck, search the [community.](http://community.particle.io)
 
 ## Connect over USB
 
