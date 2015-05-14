@@ -14,27 +14,17 @@ Sometimes life can be a little difficult in the land of electronics when two sys
 
 ![Shield Shield]({{assets}}/images/shields/shield-shield/shield-shield.png)
 
-**Specifications (v3.x.x):**
- - Operating voltage: 7 to 15V DC
- - Current consumption: standalone 7mA at 9V DC
- - Voltage translator with auto direction detect: TXB0108PWR
- - Dedicated MOSFET based voltage translator on I2C lines
- - Separate unidirectional quad buffer for driving heavy loads: 74ACT125
- - Diode protection on ADC pins
- - Dimensions: 3.4" x 2.1"
- - Weight: 28 gms
-
-[Drill Template >]({{assets}}/images/shields/shield-shield/shield-shield-template.pdf)
-
-![Shield Shield Dimensions]({{assets}}/images/shields/shield-shield/shield-shield-dimensions.png)
-
-**Operation:**   
+### Shield Shield - Operation   
 
 We use Texas Instruments TXB0108PWR to do the voltage translation in between the Particle's device's 3.3V to a 5V logic. Unlike other IO pins, the analog pins are rated at only a max of 3.3V and **NOT** 5.0V. Please remember NOT to exceed this voltage at anytime. The shield has an on-board voltage regulator and can be powered from 7V to 15V DC source. You could also power it via the USB plug on the Particle device alone but the current would be limited to 500mA.
+
+### Shield Shield Schematic - TXB0108PWR
 
 ![Shield Shield TXB0108PWR]({{assets}}/images/shields/shield-shield/txb0108pwr-schematic.png)
 
 The new version of the Shield Shield (v3.x.x) uses dedicated mosfet based voltage translation on the I2C lines. We also decided to add a prototyping area in empty space in the middle of the shield.
+
+### Shield Shield Schematic - MOSFET I2C
 
 ![Shield Shield I2C]({{assets}}/images/shields/shield-shield/mosfet-i2c-schematic.png)
 
@@ -42,11 +32,9 @@ The new version of the Shield Shield (v3.x.x) uses dedicated mosfet based voltag
 
 **Note:** One drawback of using the TXB0108PWR as a voltage translator is that it is only capable of driving loads at short distances. Long length wires will introduce excessive capacitive loading and cause the auto direction detection to fail. To overcome this drawback, the shield shield also has an optional on-board 74ABT125 buffer that is capable of driving heavier loads in *one* direction. A user can jumper wire to whichever IO pin they would like to be translated to 5V.
 
-**Pin Mapping**
+### Shield Shield - Pin Mapping
 
 ![Shield Shield Pinmapping]({{assets}}/images/shields/shield-shield/shield-shield-pinmapping.png)
-
-```cpp
 
 |Shield  | Photon | Peripherals             |
 |--------|--------|-------------------------|
@@ -73,9 +61,22 @@ The new version of the Shield Shield (v3.x.x) uses dedicated mosfet based voltag
 
 * Note: These pins can also function as 3.3V PWM outputs or 3.3V Servo outputs.  
 ** Note: ADC inputs are 3.3V max.
-```
 
 **IMPORTANT:** The Shield Shield does not map the Particle device's pins to like-numbered pins on the Arduino. In other words, D0 on the Particle device is not the same as D0 on the Arduino. Please review the pin mapping table to the right and plan accordingly.
+
+### Shield Shield - Specifications (v3.x.x)
+ - Operating voltage: 7 to 15V DC
+ - Current consumption: standalone 7mA at 9V DC
+ - Voltage translator with auto direction detect: TXB0108PWR
+ - Dedicated MOSFET based voltage translator on I2C lines
+ - Separate unidirectional quad buffer for driving heavy loads: 74ACT125
+ - Diode protection on ADC pins
+ - Dimensions: 3.4" x 2.1"
+ - Weight: 28 gms
+
+[Drill Template >]({{assets}}/images/shields/shield-shield/shield-shield-template.pdf)
+
+![Shield Shield Dimensions]({{assets}}/images/shields/shield-shield/shield-shield-dimensions.png)
 
 <!--
 **Usage:**
@@ -96,25 +97,17 @@ We have even provided a small prototyping area around the shield for you to add 
 
 **IMPORTANT:** This shield provides regulated power (5V) to the seated Particle device and relays. However, it does not support power to the devices controlled by the relays.
 
-**Specifications:**
- - Operating voltage: 7 to 20V DC
- - Current consumption: 150mA min to 290mA max (at 9V DC)
- - Relay Max Voltage: 220V AC
- - Relay Max Current: 10Amp at 125V AC
- - Relay Part Number: JS1-5V-F (Data Sheet)
- - Dimensions: 6.0" x 1.7"
- - Weight: 80 gms
+### Relay Shield - Operation
 
-[Drill Template >]({{assets}}/images/shields/relay-shield/relay-shield-template.pdf)
-
-![Relay Shield Dimensions]({{assets}}/images/shields/relay-shield/relay-shield-dimensions.png)
-
-**Operation:**
 The schematic for the relay shield is simple and self explanatory. The shield has four relays that are controlled by pins D3, D4, D5 and D6 on the Particle device. Each relay is triggered via a NPN transistor that takes a control signal from the Particle device and switches the relay coil ON and OFF, which in turn makes or breaks the electrical contact on the output. There is also a fly-back diode connected across the coil to help protect the transistor from high voltage transients caused during switching.
+
+### Relay Shield Schematic - Control
 
 ![Relay Shield Interface]({{assets}}/images/shields/relay-shield/relay-shield-schematic-1.png)
 
 The relays are SPDT (Single Pole Double Throw) type, which means they have three terminals at the output: COMMON (COMM), Normally Open (NO) and Normally Closed (NC). We can either connect the load in between the COMM and NO or COMM and NC terminals. When connected in between COMM and NO, the output remains open/disconnected when the relay is turned OFF and closes/connects when the relay is turned ON. In the later case, the output remains closed/connected when the relay is OFF and opens/disconnects when the relay is ON.
+
+### Relay Shield Schematic - Power Supply
 
 ![Relay Shield Power Supply]({{assets}}/images/shields/relay-shield/relay-shield-schematic-2.png)
 
@@ -122,7 +115,11 @@ The Relay Shield uses a high efficiency [RT8259](http://www.richtek.com/download
 
 Here is an example setup to control a light bulb. The relay acts like a switch which is normally open and when pin D3 on the Particle device is turned HIGH, it activates Relay 1 thereby closing the circuit on the light bulb and turning it ON. Ta dah!
 
+### Relay Shield - Sample Setup
+
 ![Relay Shield Setup]({{assets}}/images/shields/relay-shield/relay-shield-setup.png)
+
+### Relay Shield - Sample Code
 
 ```cpp
 int RELAY1 = D3;
@@ -184,6 +181,20 @@ POST /v1/devices/{DEVICE_ID}/relay
 curl https://api.particle.io/v1/devices/0123456789abcdef/relay \
   -d access_token=123412341234 -d params=r1,HIGH
 ```
+
+### Relay Shield - Specifications (v3.x.x)
+ - Operating voltage: 7 to 20V DC
+ - Current consumption: 150mA min to 290mA max (at 9V DC)
+ - Relay Max Voltage: 220V AC
+ - Relay Max Current: 10Amp at 125V AC
+ - Relay Part Number: JS1-5V-F (Data Sheet)
+ - Dimensions: 6.0" x 1.7"
+ - Weight: 80 gms
+
+[Drill Template >]({{assets}}/images/shields/relay-shield/relay-shield-template.pdf)
+
+![Relay Shield Dimensions]({{assets}}/images/shields/relay-shield/relay-shield-dimensions.png)
+
 <!--
 **Changing the relay control pins: (Advanced)**
 Not happy with which pins control the relays? Worry not. With a little bit of scratching and soldering, you can reconfigure the control pins.
@@ -218,14 +229,14 @@ This is a FT2232H based JTAG programmer shield that is compatible with OpenOCD a
 
 ![Programmer Shield Description]({{assets}}/images/shields/prog-shield/prog-shield-description.png)
 
-[Drill Template >]({{assets}}/images/shields/prog-shield/programmer-shield-template.pdf)
-
-**Specifications:**
+### Programmer Shield - Specifications
  - Operating supply: USB
  - Current consumption: 
  - Dimensions: 1.55" x 3.3"
  - Weight: 18 gms
  - Compatibility: OpenOCD and WICED IDE
+
+[Drill Template >]({{assets}}/images/shields/prog-shield/programmer-shield-template.pdf)
 
 ![Programmer Shield Dimensions]({{assets}}/images/shields/prog-shield/prog-shield-dimensions.png)
 
@@ -237,20 +248,20 @@ The Power Shield, as the name implies, allows the Particle device to be powered 
 
 The system switches in between the different power sources automatically, reducing the charge and discharge cycle stress on the battery. The fuel-guage allows you to monitor the battery's state-of-charge (SOC), allowing it to notify the user remotely and take preemptive actions when necessary.
 
-![Power Shield Dimensions]({{assets}}/images/shields/power-shield/power-shield-dimensions.png)
+![Power Shield Plugged]({{assets}}/images/shields/power-shield/power-shield-photon-plugged.png)
 
-**Specifications:**
+The shield is setup so that when powered from the USB port as well as from a DC supply, it chooses the DC source over USB. The charge current is set to 500mA when charging from USB and set to 1A when charging from a DC source.
+
+![Power Shield Supply]({{assets}}/images/shields/power-shield/power-shield-powersupply.png)
+
+### Power Shield - Specifications
  - Operating voltage: USB or External DC of 7 to 20V
  - Current consumption: 500mA max (USB) & 1.2A max (other DC sources)
  - Dimensions: 1" x 1.84"
 
  <!-- - Weight: -->
 
-![Power Shield Plugged]({{assets}}/images/shields/power-shield/power-shield-photon-plugged.png)
-
-The shield is setup so that when powered from the USB port as well as from a DC supply, it chooses the DC source over USB. The charge current is set to 500mA when charging from USB and set to 1A when charging from a DC source.
-
-![Power Shield Supply]({{assets}}/images/shields/power-shield/power-shield-powersupply.png)
+ ![Power Shield Dimensions]({{assets}}/images/shields/power-shield/power-shield-dimensions.png)
 
 # Internet Button
 
@@ -260,7 +271,8 @@ The Internet Button is not only an easy way to get started on the Internet of Th
 
 ![Internet Button Description]({{assets}}/images/shields/internet-button/button-description.png)
 
-**Specifications:**
+### Internet Button - Specifications
+
 - Operating voltage: USB or External DC of 3.6 to 6VDC
 - Dimensions: 2.6" x 2.6"
 <!-- - Current consumption: -->
@@ -377,7 +389,7 @@ A custom Particle USB cable for you Core! We were really excited to have our log
 
 Wanna give your next Particle device project a tactile feedback? This vibration motor serves the purpose nicely. Use the NPN transistor to switch it.
 
-[Datasheet >]({{assets}}/datasheets/makerkit/vibration-motor.pdf)
+[Datasheet >]({{assets}}/datasheets/makerkit/pancake-motor.pdf)
 
 ### 12. Piezo Buzzer (1)
 
@@ -426,7 +438,7 @@ You can use this [online guide](http://www.digikey.com/en/resources/conversion-c
 
 This is a 7" x 9" general purpose dot-matrix prototyping PCB.
 
-### IR LED (1)
+### 17. IR LED (1)
 You can take control of your television, air-conditioner or any other IR remote controlled devices with this IR LED. Simply connect it to the Particle device with a series 220 ohm resistor, use the appropriate IR code library, and control things over the Internet! 
 
 **Specifications:**
@@ -438,6 +450,14 @@ You can take control of your television, air-conditioner or any other IR remote 
 [Datasheet >]({{assets}}/datasheets/makerkit/ir333-a.pdf)
 
 ### Serial OLED Screen,0.96"(1)
+This is a 128x64 pixel graphic OLED screen that can be either controlled via the SPI (default) or I2C. 
+
+**Specifications:**
+- Supply Voltage: 3.0V to 5V DC
+- Current consumption: 50mA max
+- Communication modes: SPI or I2C
+
+[Datasheet >]({{assets}}/datasheets/makerkit/oled.pdf)
 
 ### Flex antenna (1)
 
@@ -446,6 +466,7 @@ You can take control of your television, air-conditioner or any other IR remote 
 ### Battery holder - 4xAA (1)
 
 ### SPDT Switch (2)
+[Datasheet >]({{assets}}/datasheets/makerkit/spdt-switch.pdf)
 
 ### Temperature Sensor (1)
 The DS18B20 is an easy to use one wire digital thermometer with upto 12-bit measuring resolution. 
@@ -462,12 +483,15 @@ The DS18B20 is an easy to use one wire digital thermometer with upto 12-bit meas
 This is the sealed, water proof version of the DS18B20 temperature sensor with wires.
 
 ### SPDT Relay (1)
+[Datasheet >]({{assets}}/datasheets/makerkit/spdt-relay.pdf)
 
 ### PIR sensor (1)
+[Datasheet >]({{assets}}/datasheets/makerkit/pir-sensor.pdf)
 
 ### Gas sensor - Carbon Monoxide (1)
 
 ### 10K Rotary Potentiometer (1)
+[Datasheet >]({{assets}}/datasheets/makerkit/10k-pot.pdf)
 
 ### Mini Breadboard (1)
 
