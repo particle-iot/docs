@@ -3259,15 +3259,25 @@ This will perform a factory reset and do the following:
 System.factoryReset()
 ```
 
-System.bootloader()
+System.dfu()
 ----
 
 
-The device will enter DFU-mode and boot up in DFU when a reset occurs until a user firmware is uploaded via DFU-util.
+The device will enter DFU-mode to allow new user firmware to be refreshed. DFU mode is cancelled by
+- flashing firmware to the device using dfu-util, specifying the `:leave` option, or 
+- a system reset
 
 ```cpp
-System.bootloader()
+System.dfu()
 ```
+
+To make DFU mode permanent - so that it continues to enter DFU mode even after a reset until
+new firmware is flashed, pass `true` to the `dfu()` function. 
+
+```cpp
+System.dfu(true);   // persistent DFU mode - will enter DFU after a reset until firmware is flashed.
+```
+
 
 System.deviceID()
 ----
