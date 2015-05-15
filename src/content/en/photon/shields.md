@@ -269,7 +269,11 @@ The Internet Button is not only an easy way to get started on the Internet of Th
 
 ![Internet Button]({{assets}}/images/shields/internet-button/button.png)
 
-![Internet Button Description]({{assets}}/images/shields/internet-button/button-description.png)
+### Internet Button - Top
+![Internet Button Description]({{assets}}/images/shields/internet-button/button-description-top.png)
+
+### Internet Button - Bottom
+![Internet Button Description]({{assets}}/images/shields/internet-button/button-description-bottom.png)
 
 ### Internet Button - Specifications
 
