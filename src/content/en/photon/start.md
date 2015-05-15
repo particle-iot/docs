@@ -16,9 +16,9 @@ you need to get started:
 ![Photons]({{assets}}/images/photon-plugged-in.jpg)
 
 - _(1) Photon_: Your Particle development board
-- _(1) USB cable_: A male-to-micro USB cable is needed to power the Photon. **Included in Photon Kit, Maker Kit, and Prototyping Bundle.**
+- _(1) USB cable_: A male-to-micro USB cable is needed to power the Photon. **Included in Photon Kit and Maker Kit**
 
-If you purchased a Photon Kit, Maker Kit or a Prototyping Bundle, you also
+If you purchased a Photon Kit or Maker Kit, you also
 received a *breadboard* to wire components to the Photon.
 
 In the next section, we'll teach you how to set up your device.
