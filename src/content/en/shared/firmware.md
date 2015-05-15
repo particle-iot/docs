@@ -771,7 +771,7 @@ Writes an analog value (PWM wave) to a pin. Can be used to light a LED at varyin
 - On the Core, this function works on pins A0, A1, A4, A5, A6, A7, D0 and D1.
 - On the Photon, this function works on pins A0, A1, A2, A3, A4, A5, WKP, TX and RX
 
-The analogWrite function has nothing to do with the analog pins or the analogRead function.
+When used with these pins, he analogWrite function has nothing to do with the analog pins or the analogRead function.
 
 ```C++
 // SYNTAX
@@ -800,6 +800,19 @@ void loop()
                                // analogWrite values from 0 to 255.
   delay(10);
 }
+```
+
+#### Analog Output (Photon)
+
+The Photon supports true analog output on pins DAC (DAC1 in code) and A3 (DAC2). Using `analogWrite(pin, value)`
+with these pins, the output of the pin is set to an analog voltage from 0v to 3.3v that corresponds to values
+from 0-4095.
+
+```C++
+// SYNTAX
+pinMode(DAC1, OUTPUT);
+analogWrite(DAC1, 1024);
+// sets DAC1 to an output voltage of 4095/1024 * 3.3v = 0.826v.
 ```
 
 ### analogRead()
