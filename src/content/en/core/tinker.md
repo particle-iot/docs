@@ -219,7 +219,7 @@ Sets the pin to HIGH or LOW, which either connects it to 3.3V (the maximum volta
     # EXAMPLE REQUEST IN TERMINAL
     # Device ID is 0123456789abcdef
     # Your access token is 123412341234
-    curl https://api.spark.io/v1/devices/0123456789abcdef/digitalwrite \
+    curl https://api.particle.io/v1/devices/0123456789abcdef/digitalwrite \
       -d access_token=123412341234 -d params=D0,HIGH
 
 The parameters must be the pin (A0 to A7, D0 to D7), followed by either HIGH or LOW, separated by a comma. The return value will be 1 if the write succeeds, and -1 if it fails.
@@ -235,7 +235,7 @@ Sets the pin to a value between 0 and 255, where 0 is the same as LOW and 255 is
     # EXAMPLE REQUEST IN TERMINAL
     # Device ID is 0123456789abcdef
     # Your access token is 123412341234
-    curl https://api.spark.io/v1/devices/0123456789abcdef/analogwrite \
+    curl https://api.particle.io/v1/devices/0123456789abcdef/analogwrite \
       -d access_token=123412341234 -d params=A0,215
 
 The parameters must be the pin (A0 to A7, D0 to D7), followed by an integer value from 0 to 255, separated by a comma. The return value will be 1 if the write succeeds, and -1 if it fails.
@@ -252,7 +252,7 @@ This will read the digital value of a pin, which can be read as either HIGH or L
     # EXAMPLE REQUEST IN TERMINAL
     # Device ID is 0123456789abcdef
     # Your access token is 123412341234
-    curl https://api.spark.io/v1/devices/0123456789abcdef/digitalread \
+    curl https://api.particle.io/v1/devices/0123456789abcdef/digitalread \
       -d access_token=123412341234 -d params=D0
 
 
@@ -269,7 +269,7 @@ This will read the analog value of a pin, which is a value from 0 to 4095, where
     # EXAMPLE REQUEST IN TERMINAL
     # Device ID is 0123456789abcdef
     # Your access token is 123412341234
-    curl https://api.spark.io/v1/devices/0123456789abcdef/analogread \
+    curl https://api.particle.io/v1/devices/0123456789abcdef/analogread \
       -d access_token=123412341234 -d params=A0
 
 The parameters must be the pin (A0 to A7, D0 to D7). The return value will be between 0 and 4095 if the read succeeds, and -1 if it fails.

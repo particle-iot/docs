@@ -143,7 +143,7 @@ POST /v1/devices/{DEVICE_ID}/led
 # ESEMPIO DI RICHIESTA DA TERMINAL
 # Core ID è 0123456789abcdef01234567
 # Il vostro access token è 1234123412341234123412341234123412341234
-curl https://api.spark.io/v1/devices/0123456789abcdef01234567/led \
+curl https://api.particle.io/v1/devices/0123456789abcdef01234567/led \
   -d access_token=1234123412341234123412341234123412341234 \
   -d params=l1,HIGH
 ```
@@ -211,7 +211,7 @@ GET /v1/devices/{DEVICE_ID}/temperature
 # ESEMPIO DI RICHIESTA DA TERMINAL
 # Core ID è 0123456789abcdef01234567
 # Il vostro access token è  1234123412341234123412341234123412341234
-curl -G https://api.spark.io/v1/devices/0123456789abcdef01234567/temperature \
+curl -G https://api.particle.io/v1/devices/0123456789abcdef01234567/temperature \
   -d access_token=1234123412341234123412341234123412341234
 ```
 

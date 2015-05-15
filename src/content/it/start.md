@@ -126,7 +126,7 @@ Il LED RGB serve anche ad indicare se ci sono stati errori durante la connession
 - *Due flash rossi*: Errore di connessione dovuto ad una non buona connessione internet. Controllare la connessione internet.
 - *Tre flash rossi*: Il Cloud non è accessibile ma la connessione internet è buona. Controllare il nostro [Feed Twitter](http://www.twitter.com/sparkdevices) per vedere se ci sono annunciati dei problemi; se non ci sono visitare la [pagina di supporto](https://www.sparkdevices.com/support) per ricevere aiuto.
 - *Quattro flash rossi*: Il Cloud è stato raggiunto ma lo scambio di informazioni di sicurezza è fallito. Visitate la nostra [pagina di supporto](https://www.sparkdevices.com/support) per ricevere aiuto.
-- *Lampeggio giallo/rosso*: Credenziali non valide per lo Spark Cloud. Contattare lo Spark Tteam (<a href="mailto@hello@spark.io">hello@spark.io</a>).
+- *Lampeggio giallo/rosso*: Credenziali non valide per lo Spark Cloud. Contattare lo Spark Tteam (<a href="mailto@hello@particle.io">hello@particle.io</a>).
 
 ### Pins
 
@@ -148,7 +148,7 @@ Quando volete usare la funzione `analogWrite()` nel Core, per esempio per regola
 Lo Spark Cloud
 ---
 
-Lo Spark Cloud è una rete di servers presso `https://api.spark.io/` dove il vostro Core si collega quando è collegato a internet.
+Lo Spark Cloud è una rete di servers presso `https://api.particle.io/` dove il vostro Core si collega quando è collegato a internet.
 
 Il Cloud esiste per tre ragioni principali:
 
@@ -220,7 +220,7 @@ Mette il pin a HIGH o LOW, cioè lo connette a 3.3V (la tensione massima del sis
     # ESEMPIO DI RICHIESTA NEL TERMINALE
     # Core ID è 0123456789abcdef01234567
     # Il tuo token di accesso è 1234123412341234123412341234123412341234
-    curl https://api.spark.io/v1/devices/0123456789abcdef01234567/digitalwrite \
+    curl https://api.particle.io/v1/devices/0123456789abcdef01234567/digitalwrite \
       -d access_token=1234123412341234123412341234123412341234 -d params=D0,HIGH
 
 I parametri devono essere il pin (A0 a A7, D0 a D7), seguito da HIGH o LOW, separati da una virgola. Il valore di ritorno sarà 1 se la scrittura ha avuto successo e -1 in caso di non riuscita.
@@ -235,7 +235,7 @@ Mette il pin ad un valore tra 0 e 255, dove 0 è come LOW e 255 come HIGH. Quest
     # ESEMPIO DI RICHIESTA NEL TERMINALE
     # Core ID è 0123456789abcdef01234567
     # Il tuo token di accesso è 1234123412341234123412341234123412341234
-    curl https://api.spark.io/v1/devices/0123456789abcdef01234567/analogwrite \
+    curl https://api.particle.io/v1/devices/0123456789abcdef01234567/analogwrite \
       -d access_token=1234123412341234123412341234123412341234 -d params=A0,215
 
 I parametri devono essere il pin (A0 a A7, D0 a D7), seguito da un valore integer da 0 a 255, separati da una virgola. Il valore di ritorno sarà 1 se la scrittura ha avuto successo e -1 in caso di non riuscita.
@@ -250,7 +250,7 @@ Legge il valore digitale del pin, che può essere HIGH o LOW. Se avete collegato
     # ESEMPIO DI RICHIESTA NEL TERMINALE
     # Core ID è 0123456789abcdef01234567
     # Il tuo token di accesso è  1234123412341234123412341234123412341234
-    curl https://api.spark.io/v1/devices/0123456789abcdef01234567/digitalread \
+    curl https://api.particle.io/v1/devices/0123456789abcdef01234567/digitalread \
       -d access_token=1234123412341234123412341234123412341234 -d params=D0
 
 
@@ -266,7 +266,7 @@ Legge il valore analogico di un pin, che è un valore tra 0 e 4095 dove 0 è LOW
     # ESEMPIO DI RICHIESTA NEL TERMINALE
     # Core ID è 0123456789abcdef01234567
     # Il tuo token di accesso è  1234123412341234123412341234123412341234
-    curl https://api.spark.io/v1/devices/0123456789abcdef01234567/analogread \
+    curl https://api.particle.io/v1/devices/0123456789abcdef01234567/analogread \
       -d access_token=1234123412341234123412341234123412341234 -d params=A0
 
 Il parametro deve essere il pin (A0 a A7, D0 a D7). Il valore di ritorno sarà tra 0 e 4095 se la lettura è riuscita e -1 se è fallita.
@@ -290,7 +290,7 @@ Annunciarsi allo Spark Build
 ---
 Quando siete pronti a riprogrammare il vostro Spark Core, andate sulla nostra IDE:
 
-[Spark Build >](https://www.spark.io/build)
+[Particle Build >](https://www.particle.io/build)
 
 ![Spark Build]({{assets}}/images/create-account.jpg)
 

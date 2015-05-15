@@ -96,11 +96,11 @@ Now let's try using the CLI!
 
 ####Connecting Your Device
 Make sure your device is plugged in via USB and in [Listening Mode](#connecting-your-device-listening-mode) (blinking blue). Then type:
-`spark setup`
+`particle setup`
 
 Log in with your Particle account and follow the prompts to set up your device.
 
-If you have already claimed your device and you want to connect it to wifi, type `spark serial wifi` instead of `spark setup`. This will set up your device on the current wifi.
+If you have already claimed your device and you want to connect it to wifi, type `particle serial wifi` instead of `particle setup`. This will set up your device on the current wifi.
 
 **Wait! What is an SSID? What kind of security does my wifi have?**
 

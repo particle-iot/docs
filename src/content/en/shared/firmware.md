@@ -22,7 +22,7 @@ will be registered next time the cloud is connected.
 // EXAMPLE USAGE
 int analogvalue = 0;
 double tempC = 0;
-char *message = "my name is spark";
+char *message = "my name is particle";
 
 void setup()
 {
@@ -65,7 +65,7 @@ curl "https://api.particle.io/v1/devices/0123456789abcdef/mess?access_token=1234
 # In return you'll get something like this:
 960
 27.44322344322344
-my name is spark
+my name is particle
 
 ```
 
@@ -152,7 +152,7 @@ Anyone may subscribe to public events; think of them like tweets.
 Only the owner of the device will be able to subscribe to private events.
 
 A device may not publish events beginning with a case-insensitive match for "spark".
-Such events are reserved for officially curated data originating from the Spark Cloud.
+Such events are reserved for officially curated data originating from the Particle Cloud.
 
 Calling `Spark.publish()` when the device is not connected to the cloud will not
 result in an event being published. This is indicated by the return success code
@@ -1835,7 +1835,7 @@ client.connect(URL, port);
 Parameters:
 
 - `ip`: the IP address that the client will connect to (array of 4 bytes)
-- `URL`: the domain name the client will connect to (string, ex.:"spark.io")
+- `URL`: the domain name the client will connect to (string, ex.:"particle.io")
 - `port`: the port that the client will connect to (`int`)
 
 Returns true if the connection succeeds, false if not.

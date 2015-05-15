@@ -1,8 +1,8 @@
 ###
 #
-# The Gruntfile for the Spark documentation
+# The Gruntfile for the Particle documentation
 # Created by Zach Supalla
-# https://www.spark.io/
+# https://www.particle.io/
 #
 # Use this gruntfile to:
 # - Assemble the static site (grunt build)

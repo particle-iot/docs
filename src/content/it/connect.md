@@ -28,9 +28,9 @@ Smart Config può durare fino ad un minuto, quindi abbiate pazienza. Più il vos
 
 <iframe class="vine-embed" src="https://vine.co/v/hFdj1TJjA9M/embed/simple" width="320" height="320" frameborder="0"></iframe>
 
-Una volta che il Core si è connesso, il vostro telefono associerà il vostro Core collegandolo al vostro account. Dopo dovrete dare un nome al vostro Core. Se non siete sicuri sul processo di associazione potete annunciarvi sulla [Spark Web IDE](https://www.spark.io/build) e cliccare sull'icona "Cores" in fondo alla pagina. Il vostro Core é nella lista? Bene! Il mondo è perfetto.
+Una volta che il Core si è connesso, il vostro telefono associerà il vostro Core collegandolo al vostro account. Dopo dovrete dare un nome al vostro Core. Se non siete sicuri sul processo di associazione potete annunciarvi sulla [Spark Web IDE](https://www.particle.io/build) e cliccare sull'icona "Cores" in fondo alla pagina. Il vostro Core é nella lista? Bene! Il mondo è perfetto.
 
-*NOTA: Il Core DEVE essere online (ciano pulsante) per far sì che il processo di associazione funzioni. Se lo Spark Core è stato associato da qualcun'altro, l'applicazione non lo riconoscerà. Se dovete trasferire un Core ad un altro account, mandate un mail a [hello@spark.io](mailto:hello@spark.io).*
+*NOTA: Il Core DEVE essere online (ciano pulsante) per far sì che il processo di associazione funzioni. Se lo Spark Core è stato associato da qualcun'altro, l'applicazione non lo riconoscerà. Se dovete trasferire un Core ad un altro account, mandate un mail a [hello@particle.io](mailto:hello@particle.io).*
 
 <iframe class="vine-embed" src="https://vine.co/v/hFdPKul226i/embed/simple" width="320" height="320" frameborder="0"></iframe>
 
@@ -107,7 +107,7 @@ Per prima cosa, dovete ricevere il vostro ID del Core. Potete fare questo aprend
 
 ---
 
-Dopo aprite lo [Spark Build](https://www.spark.io/build) e cliccate sull'icona 'Cores'. Premete il bottone 'Add a Core', e immettete il vostro ID nel campo di testo.
+Dopo aprite lo [Particle Build](https://www.particle.io/build) e cliccate sull'icona 'Cores'. Premete il bottone 'Add a Core', e immettete il vostro ID nel campo di testo.
 
 Metteremo a disposizione uno strumento command-line per semplificare questo processo; rimanete collegati!
 

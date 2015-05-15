@@ -134,7 +134,7 @@ Complete documentation on using [Spark.variable() is here.](http://docs.particle
 // EXAMPLE SHOWING THREE DATA TYPES
 int analogvalue = 0;
 double tempC = 0;
-char *message = "my name is spark";
+char *message = "my name is particle";
 
 void setup()
 {
@@ -427,7 +427,7 @@ You must have firmware on your Particle device, but nothing else is necessary. B
 
   - I don't see my function in the list on IFTTT?
 
-  Make sure you flashed your firmware to your device with the function you've exposed, and try refreshing the IFTTT page.  You can confirm what functions are available using [Particle Dev](http://docs.particle.io/photon/dev/) and clicking the 'Cloud variables and functions' menu or in the [Particle-CLI]( https://github.com/spark/spark-cli) by running `spark list`
+  Make sure you flashed your firmware to your device with the function you've exposed, and try refreshing the IFTTT page.  You can confirm what functions are available using [Particle Dev](http://docs.particle.io/photon/dev/) and clicking the 'Cloud variables and functions' menu or in the [Particle-CLI]( https://github.com/spark/particle-cli) by running `particle list`
 
   - Why can I log in on build.particle.io, but I can't log in on IFTTT?
 

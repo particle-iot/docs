@@ -57,7 +57,7 @@ This documentation is managed by Particle, but supported by the community. We we
 * Edits to improve grammar or fix typos
 * Edits to improve clarity
 * Additional annotated examples for others to follow
-* Additional content that would help provide a complete understanding of the Spark platform
+* Additional content that would help provide a complete understanding of the Particle platform
 * Translations to other languages
 
 Making a contribution is as simple as forking this repository, making edits to your fork, and contributing those edits as a pull request. For more information on how to make a pull request, see [Github's documentation](https://help.github.com/articles/using-pull-requests/).

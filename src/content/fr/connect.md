@@ -28,9 +28,9 @@ Smart Config peut prendre jusqu'à une minute, donc soyez patient. Le plus proch
 
 <iframe class="vine-embed" src="https://vine.co/v/hFdj1TJjA9M/embed/simple" width="320" height="320" frameborder="0"></iframe>
 
-Une fois que le Spark Core sera connecté, votre téléphone « réclamera » ce dernier et le rattachera à votre compte. Ensuite, il ne vous restera plus qu'à donner un nom à votre Core. Si vous n'êtes pas certain, vous pouvez confirmer que le processus de réclamation s'est terminé avec succès en vous connectant sur l'[IDE Spark](https://www.spark.io/build) et en cliquant sur l'icône « Cores » en bas de la page. Votre Core est dans la liste ? Bravo ! Tous est pour le mieux en ce bas monde.
+Une fois que le Spark Core sera connecté, votre téléphone « réclamera » ce dernier et le rattachera à votre compte. Ensuite, il ne vous restera plus qu'à donner un nom à votre Core. Si vous n'êtes pas certain, vous pouvez confirmer que le processus de réclamation s'est terminé avec succès en vous connectant sur l'[IDE Spark](https://www.particle.io/build) et en cliquant sur l'icône « Cores » en bas de la page. Votre Core est dans la liste ? Bravo ! Tous est pour le mieux en ce bas monde.
 
-*NOTE: Le Core **DOIT** être connecté (pulsations cyan) pour que le processus de réclamation fonctionne. Si le Spark Core a été réclamé par quelqu'un d'autre, l'application ne le reconnaitra pas. Si vous devez transférer votre Spark Core vers un autre compte, envoyez nous un mail à [hello@spark.io](mailto:hello@spark.io).*
+*NOTE: Le Core **DOIT** être connecté (pulsations cyan) pour que le processus de réclamation fonctionne. Si le Spark Core a été réclamé par quelqu'un d'autre, l'application ne le reconnaitra pas. Si vous devez transférer votre Spark Core vers un autre compte, envoyez nous un mail à [hello@particle.io](mailto:hello@particle.io).*
 
 <iframe class="vine-embed" src="https://vine.co/v/hFdPKul226i/embed/simple" width="320" height="320" frameborder="0"></iframe>
 
@@ -108,7 +108,7 @@ Tout d'abord, vous devez obtenir l'ID de votre Core. Vous pouvez faire ça en ou
 
 ---
 
-Puis accédez à [Spark Build](https://www.spark.io/build) et cliquez sur l'icône « Cores ». Cliquez sur le bouton affichant « Add a Core », et entrez votre ID dans le champ texte.
+Puis accédez à [Particle Build](https://www.particle.io/build) et cliquez sur l'icône « Cores ». Cliquez sur le bouton affichant « Add a Core », et entrez votre ID dans le champ texte.
 
 Nous mettrons à disposition un outil en ligne de commande qui simplifiera le processus. Restez à l'écoute !
 

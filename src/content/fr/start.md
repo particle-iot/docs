@@ -130,7 +130,7 @@ La LED RVB peut aussi vous faire savoir s'il y a eu des erreurs lors de l'établ
 - *Deux clignotements rouges* : Échec de la connexion suite à une mauvaise connexion à Internet. Vérifiez votre connexion réseau.
 - *Trois clignotements rouges* : Le Cloud est inaccessible, mais la connexion Internet est bonne. Vérifiez notre [flux Twitter](http://www.twitter.com/sparkdevices) pour voir si nous avons signalé une interruption des services. Si ce n'est pas le cas, allez voir nos [pages de support](https://www.sparkdevices.com/support) pour obtenir de l'aide.
 - *Quatre clignotements rouges* : le Cloud est joignable, mais la connexion sécurisée n'a pu se faire. Allez voir nos [pages de support](https://www.sparkdevices.com/support) pour obtenir de l'aide.
-- *Clignotements jaunes / rouges* : Mauvais identifiants pour le Spark Cloud. Contactez l'équipe Spark (<a href="mailto@hello@spark.io">hello@spark.io</a>).
+- *Clignotements jaunes / rouges* : Mauvais identifiants pour le Spark Cloud. Contactez l'équipe Spark (<a href="mailto@hello@particle.io">hello@particle.io</a>).
 
 ### Broches
 
@@ -149,10 +149,10 @@ Le Core possède 24 broches que vous pouvez connecter à un circuit. Ces broches
 
 Quand vous souhaitez utiliser la fonction `analogWrite()` du Core, par exemple pour diminuer l'intensité lumineuse de LED, vous devez utiliser les broches qui possèdent un timer. Les gens les appellent fréquemment des broches PWM, car ce qu'elles font est appelé Pulse Width Modulation (Modulation par Largeur d'Impulsion). Le Core possède 8 broches PWM : A0, A1, A4, A5, A6, A7, D0 et D1.
 
-Le Spark Cloud
+Le Particle Cloud
 ---
 
-Le Spark Cloud est le réseau de serveurs hébergés à l'adresse `https://api.spark.io/` auquel se connecte le Spark Core une fois qu'il est connecté au réseau Wi-Fi.
+Le Particle Cloud est le réseau de serveurs hébergés à l'adresse `https://api.particle.io/` auquel se connecte le Spark Core une fois qu'il est connecté au réseau Wi-Fi.
 
 Le Cloud existe pour trois raisons principales :
 
@@ -226,7 +226,7 @@ Place la broche à HIGH ou LOW, ce qui la connecte à 3,3V (la tension maximale 
     # EXEMPLE DE REQUETE DANS LE TERMINAL
     # Core ID : 0123456789abcdef01234567
     # Access token : 1234123412341234123412341234123412341234
-    curl https://api.spark.io/v1/devices/0123456789abcdef01234567/digitalwrite \
+    curl https://api.particle.io/v1/devices/0123456789abcdef01234567/digitalwrite \
       -d access_token=1234123412341234123412341234123412341234 -d params=D0,HIGH
 
 Les paramètres doivent être une broche (A0 à A7, D0 à D7), suivi par HIGH ou LOW, séparés par une virgule. La valeur de retour est 1 si l'écriture a réussi, -1 sinon.
@@ -242,7 +242,7 @@ Place la broche à une valeur comprise entre 0 et 255, où 0 est équivalent à 
     # EXEMPLE DE REQUETE DANS LE TERMINAL
     # Core ID : 0123456789abcdef01234567
     # Access token : 1234123412341234123412341234123412341234
-    curl https://api.spark.io/v1/devices/0123456789abcdef01234567/analogwrite \
+    curl https://api.particle.io/v1/devices/0123456789abcdef01234567/analogwrite \
       -d access_token=1234123412341234123412341234123412341234 -d params=A0,215
 
 Les paramètres doivent être une broche (A0 à A7, D0 à D7), suivi par une valeur comprise entre 0 et 255, séparées par une virgule. La valeur de retour est 1 si l'écriture a réussi, -1 sinon.
@@ -259,7 +259,7 @@ Lit la valeur numérique d'une broche, qui peut être soit HIGH, soit LOW. Si vo
     # EXEMPLE DE REQUETE DANS LE TERMINAL
     # Core ID : 0123456789abcdef01234567
     # Access token : 1234123412341234123412341234123412341234
-    curl https://api.spark.io/v1/devices/0123456789abcdef01234567/digitalread \
+    curl https://api.particle.io/v1/devices/0123456789abcdef01234567/digitalread \
       -d access_token=1234123412341234123412341234123412341234 -d params=D0
 
 
@@ -276,7 +276,7 @@ Lit la valeur numérique d'une broche, qui est une valeur comprise entre 0 et 40
     # EXEMPLE DE REQUETE DANS LE TERMINAL
     # Core ID : 0123456789abcdef01234567
     # Access token : 1234123412341234123412341234123412341234
-    curl https://api.spark.io/v1/devices/0123456789abcdef01234567/analogread \
+    curl https://api.particle.io/v1/devices/0123456789abcdef01234567/analogread \
       -d access_token=1234123412341234123412341234123412341234 -d params=A0
 
 Le paramètre doit être une broche (A0 à A7, D0 à D7). La valeur de retour est comprise entre 0 et 4095 si la lecture réussi, -1 sinon.
@@ -296,11 +296,11 @@ Dans notre cas, parce-que le Spark Core est connecté à Internet, la mise à jo
 
 Quand vous flashez du code dans le Spark Core, vous faites une *mise à jour du firmware par les airs*. La mise à jour du firmware écrase quasiment tout le logiciel du Spark Core. Le seul morceau qui n'est pas modifié est ce qu'on appelle le bootloader, qui gère le processus de chargement du nouveau firmware et s'assure que vous pouvez toujours mettre à jour le firmware via USB ou une restauration des paramètres d'usine.
 
-Connexion au Spark Build
+Connexion au Particle Build
 ---
 Quand vous êtes prêt à reprogrammer votre Spark Core, dirigez vous vers notre IDE (environnement de développement).
 
-[Spark Build >](https://www.spark.io/build)
+[Particle Build >](https://www.particle.io/build)
 
 ![Spark Build]({{assets}}/images/create-account.jpg)
 

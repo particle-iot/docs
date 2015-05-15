@@ -51,7 +51,7 @@ GET /v1/devices
   },
   {
     "id": "53ff291839887",
-    "name": "spark_love",
+    "name": "particle_love",
     "last_app": null,
     "last_heard": 2014-12-15T20:12:51.974Z,
     "connected": true
@@ -212,7 +212,7 @@ curl -d access_token=38bb7b318cc6898c80317decb34525844bc9db55
 POST /oauth/token
 
 # Using curl in your terminal
-curl https://api.particle.io/oauth/token -u spark:spark \
+curl https://api.particle.io/oauth/token -u particle:particle \
      -d grant_type=password -d username=joe@example.com -d password=SuperSecret
 
 # A typical JSON response will look like this
@@ -226,7 +226,7 @@ curl https://api.particle.io/oauth/token -u spark:spark \
 When creating a new access token, you need to specify several additional pieces of info.
 
 You must give a valid client ID and password in HTTP Basic Auth.
-Any client ID will work right now, so we suggest `spark:spark`.
+Any client ID will work right now, so we suggest `particle:particle`.
 In the POST body, you need three parameters:
 
 * grant_type=password
@@ -257,7 +257,7 @@ It's generally a little safer to create short lived tokens and refresh them freq
 
 ```bash
 # Setting token lifespan using expires_in with curl in your terminal
-curl https://api.particle.io/oauth/token -u spark:spark \
+curl https://api.particle.io/oauth/token -u particle:particle \
      -d grant_type=password \
      -d username=joe@example.com \
      -d password=SuperSecret \
@@ -282,7 +282,7 @@ At what date and time should the token expire?  This should be an ISO8601 style 
 
 ``` bash
 # Setting token lifespan using a date string with curl in your terminal
-curl https://api.particle.io/oauth/token -u spark:spark \
+curl https://api.particle.io/oauth/token -u particle:particle \
      -d grant_type=password \
      -d username=joe@example.com \
      -d password=SuperSecret \
@@ -306,12 +306,12 @@ curl https://api.particle.io/v1/access_tokens -u joe@example.com:SuperSecret
     {
         "token": "b5b901e8760164e134199bc2c3dd1d228acf2d98",
         "expires_at": "2014-04-27T02:20:36.177Z",
-        "client": "spark"
+        "client": "particle"
     },
     {
         "token": "ba54b6bb71a43b7612bdc7c972914604a078892b",
         "expires_at": "2014-04-27T06:31:08.991Z",
-        "client": "spark"
+        "client": "particle"
     }
 ]
 ```
@@ -595,7 +595,7 @@ curl https://api.particle.io/v1/devices/events \
 
 ```
 # grab the spark-cli here - https://github.com/spark/spark-cli
-spark publish test "Hello World"
+particle publish test "Hello World"
 ```
 
 

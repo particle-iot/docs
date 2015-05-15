@@ -35,8 +35,8 @@ Installing the CLI
 
 ```
 # if you haven't already, open a command prompt / terminal, and login to the CLI
-spark login
-> Could I please have an email address?:  cheddar_robot@spark.io
+particle login
+> Could I please have an email address?:  cheddar_robot@particle.io
 > and a password?: **********
 ...
 Success!
@@ -52,16 +52,16 @@ You'll also need some basic knowledge of the terminal. Adafruit has a [lovely in
 CLI Command Reference
 ================
 
-###spark webhook create
+###particle webhook create
 
   Registers your webhook with the Particle Cloud.  Creates a postback to the given url when your event is sent.  See [Webhook Options](#webhook-options) for JSON formatting requirements and parameters.
 
 ```sh
 # how to create a webhook with json data using the CLI
-$ spark webhook create slack.json
+$ particle webhook create slack.json
 
 Using settings from the file slack.json
-Sending webhook request  { uri: 'https://api.spark.io/v1/webhooks',
+Sending webhook request  { uri: 'https://api.particle.io/v1/webhooks',
   method: 'POST',
   json: true,
   form: 
@@ -73,7 +73,7 @@ Sending webhook request  { uri: 'https://api.spark.io/v1/webhooks',
      headers: undefined,
      json: 
       { channel: '#random',
-        username: 'SparkBot',
+        username: 'ParticleBot',
         text: '{{SPARK_EVENT_VALUE}}',
         icon_emoji: ':spark:' },
      query: undefined,
@@ -82,13 +82,13 @@ Sending webhook request  { uri: 'https://api.spark.io/v1/webhooks',
 ```
 
 
-###spark webhook list
+###particle webhook list
 
 Generates a list of what webhooks you own, including their ID numbers and registered event names.
 
 ```sh
 # how to show your currently registered webhooks using the CLI
-$ spark webhook list
+$ particle webhook list
 
 Found 2 hooks registered
 
@@ -101,16 +101,16 @@ Found 2 hooks registered
         created at 2015-02-28T04:31:47.133Z
 ```
 
-###spark webhook delete
+###particle webhook delete
 
-  Delete a webhook using your registered webhook ID number.  Use `spark webhook list` to find the WEBHOOK_ID you wish to delete, then copy/paste it into the `spark webhook delete WEBHOOK_ID` command.
+  Delete a webhook using your registered webhook ID number.  Use `particle webhook list` to find the WEBHOOK_ID you wish to delete, then copy/paste it into the `particle webhook delete WEBHOOK_ID` command.
 
 ```sh
 # how to delete your previously registered webhook 
 # from the Particle Cloud using the CLI
-$ spark webhook delete WEBHOOK_ID
+$ particle webhook delete WEBHOOK_ID
 
-$ spark webhook delete 234523452345234523452345
+$ particle webhook delete 234523452345234523452345
 Successfully deleted webhook!
 ```
 
@@ -162,17 +162,17 @@ Creating the webhook
 
 ```sh
 # creating a GET hook with the Particle CLI
-# spark webhook GET <your_event_name> http://<website.you.are.trying.to.contact>
+# particle webhook GET <your_event_name> http://<website.you.are.trying.to.contact>
 
 # create a webhook to send a "GET" request to our weather URL when we publish "get_weather"
-spark webhook GET get_weather http://w1.weather.gov/xml/current_obs/KMSP.xml
+particle webhook GET get_weather http://w1.weather.gov/xml/current_obs/KMSP.xml
 > ...
 > Successfully created webhook!
 ```
 
 Webhooks listen for events from your devices and will make requests based on those events. For this example, lets setup a hook to listen for a `get_weather` event from our devices, and then have it make a GET request to our weather data url.
 
-Hop on the terminal, make sure you have the Particle CLI, and make sure you've logged in (`spark login`).
+Hop on the terminal, make sure you have the Particle CLI, and make sure you've logged in (`particle login`).
 
 This Webhook will now be triggered when we publish "get_weather" from any of our devices.
 
@@ -188,7 +188,7 @@ void setup() {
 
     // Learn more about the serial commands here http://docs.particle.io/firmware/#communication-serial
     // You can also watch what's sent over serial with the particle cli with 
-    //  spark serial monitor
+    //  particle serial monitor
     Serial.begin(115200);
 
     // Lets listen for the hook response
@@ -341,12 +341,12 @@ Copy and save the librato access token for your webhook below.  Create a text fi
 
 ```sh
 # example of creating the hook 
-spark webhook create librato.json
+particle webhook create librato.json
 > ...
 > Successfully created webhook!
 ```
 
-Use the `spark webhook create` command in your terminal to create the webhook.  Make sure you're in the same folder as where you created the file.  The webhook will see the special template keywords, and replace them with the values from your published event.
+Use the `particle webhook create` command in your terminal to create the webhook.  Make sure you're in the same folder as where you created the file.  The webhook will see the special template keywords, and replace them with the values from your published event.
 
 
 
@@ -381,7 +381,7 @@ void loop() {
 [![Testing the events first]({{assets}}/images/webhooks-librato-cli-example.png)]({{assets}}/images/webhooks-librato-cli-example.png)
 
 
-After you flash the firmware to your device, open up the Particle CLI, and subscribe to your events with `spark subscribe mine`, you should see something like:
+After you flash the firmware to your device, open up the Particle CLI, and subscribe to your events with `particle subscribe mine`, you should see something like:
 
 [![Librato Metrics Screen]({{assets}}/images/webhooks-librato-metrics-screen1.png)]({{assets}}/images/webhooks-librato-metrics-screen1.png)
 
@@ -450,7 +450,7 @@ An example hook that uses custom templates.  In this case the URL of the request
 ```json
 {
     "eventName": "custom_templates",
-    "url": "http://my-awesome-website.spark/\{{my-var}}",
+    "url": "http://my-awesome-website.particle/\{{my-var}}",
     "requestType": "POST",
     "json": {
         "my-temp": "\{{my-temp}}",
@@ -682,6 +682,6 @@ Errors
 Error responses from the target url will also be sent back in the response event.  If you have 10 consecutive errors, the hook will send you a "Too many errors, webhook disabled" message.  Make sure you're watching the responses when developing your hook!  You can monitor these with the particle cli by running:
 
 ```
-spark subscribe mine
+particle subscribe mine
 ```
 

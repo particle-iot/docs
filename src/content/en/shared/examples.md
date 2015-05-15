@@ -179,7 +179,7 @@ and replace your-access-token-goes-here with your actual access token-->
 <br>
 <br>
 <br>
-<form action="https://api.spark.io/v1/devices/your-device-ID-goes-here/led?access_token=your-access-token-goes-here" method="POST">
+<form action="https://api.particle.io/v1/devices/your-device-ID-goes-here/led?access_token=your-access-token-goes-here" method="POST">
 Tell your device what to do!<br>
 <br>
 <input type="radio" name="args" value="on">Turn the LED on.
@@ -209,18 +209,18 @@ Edit the code in your text file so that "your-device-ID-goes-here" is your actua
 
 Open that `.html` file in a browser. You'll see a very simple HTML form that allows you to select whether you'd like to turn the LED on or off.
 
-When you click "Do it!" you are posting information to the URL `https://api.spark.io/v1/devices/your-device-ID-goes-here/led?access_token=your-access-token-goes-here`. The information you give is the `args`, or argument value, of `on` or `off`. This hooks up to your `Spark.function` that we registered with the cloud in our firmware, which in turn sends info to your device to turn the LED on or off.
+When you click "Do it!" you are posting information to the URL `https://api.particle.io/v1/devices/your-device-ID-goes-here/led?access_token=your-access-token-goes-here`. The information you give is the `args`, or argument value, of `on` or `off`. This hooks up to your `Spark.function` that we registered with the cloud in our firmware, which in turn sends info to your device to turn the LED on or off.
 
 You'll get some info back after you submit the page that gives the status of your device and lets you know that it was indeed able to post to the URL. If you want to go back, just click "back" on your browser.
 
 
 If you are using the command line, you can also turn the LED on and off by typing:
 
-`spark call device_name led on`
+`particle call device_name led on`
 
 and
 
-`spark call device_name led off`
+`particle call device_name led off`
 
 Remember to replace `device_name` with either your device ID or the casual nickname you made for your device when you set it up.
 
@@ -231,13 +231,13 @@ We can also check the value of the Photoresistor as we turn the LED on and off. 
 
 Try going to the URL:
 
-`https://api.spark.io/v1/devices/your-device-ID-goes-here/analogvalue?access_token=your-access-token-goes-here`
+`https://api.particle.io/v1/devices/your-device-ID-goes-here/analogvalue?access_token=your-access-token-goes-here`
 
 That will give you an (albeit ugly) output of the value of your photoresistor, as read by your device.
 
 You can also check out this value by using the command line. Type:
 
-`spark variable get device_name analogvalue`
+`particle variable get device_name analogvalue`
 
 and make sure you replace `device_name` with either your device ID or the casual nickname you made for your device when you set it up.
 
@@ -746,7 +746,7 @@ POST /v1/devices/{DEVICE_ID}/led
 # EXAMPLE REQUEST IN TERMINAL
 # Core ID is 0123456789abcdef
 # Your access token is 123412341234
-curl https://api.spark.io/v1/devices/0123456789abcdef/led \
+curl https://api.particle.io/v1/devices/0123456789abcdef/led \
   -d access_token=123412341234 \
   -d params=l1,HIGH
 ```
@@ -812,6 +812,6 @@ GET /v1/devices/{DEVICE_ID}/temperature
 # EXAMPLE REQUEST IN TERMINAL
 # Core ID is 0123456789abcdef
 # Your access token is 123412341234
-curl -G https://api.spark.io/v1/devices/0123456789abcdef/temperature \
+curl -G https://api.particle.io/v1/devices/0123456789abcdef/temperature \
   -d access_token=123412341234
 ```
