@@ -54,9 +54,9 @@ There are three ways to select core:
 
 * Click **Select device** button in the left toolbar
 * Click device's name on the bottom of the window
-* Click on **Partilce** -> **Select device...** menu
+* Click on **Particle** -> **Select device...** menu
 
-Then you will see list of all your devices along with an indicator of online status. You can search for a specific one by typing its name. Clicking on the device or pressing `Enter` when a device is selected will select it.
+Then you will see list of all your devices along with an indicator of online status and platform. You can search for a specific one by typing its name. Clicking on the device or pressing `Enter` when a device is selected will select it.
 
 Compiling Code
 ---
@@ -68,7 +68,9 @@ Notes:
 
 ![Compile button]({{assets}}/images/ide-compile.jpg)
 
-To compile your current project, click on the **Compile in the cloud** button. If your code doesn't contain errors, you'll see a new file named **firmware_X.bin** in your project's directory (where *X* is a timestamp).
+To compile your current project, click on the **Compile in the cloud** button. If your code doesn't contain errors, you'll see a new file named **PLATFORM_firmware_X.bin** in your project's directory (where *PLATFORM* is name of currently selected platform and *X* is a timestamp).
+
+Different devices usually require separate binaries (i.e. you can't flash Core with firmware compiled for a Photon) and resulting file is going to be compiled for platform of currently selected device.  If you don't have a device selected, the code is going to be compiled for the Core.
 
 ![Compile errors]({{assets}}/images/ide-compile-errors.jpg)
 
