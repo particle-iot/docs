@@ -30,9 +30,9 @@ There's also a toolbar on left side of IDE which contains shortcuts to the most 
 
 Logging In
 ---
-If you want to work on more advanced projects, Partilce Dev could be the choice for you. Head over and download latest release:
+If you want to work on more advanced projects, Particle Dev could be the choice for you. Head over and download latest release:
 
-[Particle Dev Download >](https://github.com/particle/particle-dev/releases/latest)
+[Particle Dev Download >](https://www.particle.io/dev)
 
 ![IDE Window]({{assets}}/images/ide-window.jpg)
 
@@ -64,7 +64,7 @@ Before compiling your project, make sure your project files are in a dedicated d
 
 Notes:
 * If other files not related to your project are present in the project directory, you may experience errors when trying to compile.
-* All the files have to be on the same level (no subdirectories) like [this](http://docs.particle.io/assets/images/ide-include-library.jpg)
+* All the files have to be on the same level (no subdirectories) like [this]({{assets}}/images/ide-include-library.jpg)
 
 ![Compile button]({{assets}}/images/ide-compile.jpg)
 
@@ -89,18 +89,18 @@ To access all registered variables and functions, go to **Particle** -> **Show c
 Variables
 ---
 
-![Getting variable](http://docs.particle.io/assets/images/ide-get-variable.gif)
+![Getting variable]({{assets}}/images/ide-get-variable.gif)
 
 All variables declared with [Spark.variable()](http://docs.particle.io/photon/firmware#spark-variable) are shown on the left side of panel. To poll latest variable value, click **Refresh** button for variable you want to update.
 
-![Watching variable](http://docs.particle.io/assets/images/ide-watch-variable.gif)
+![Watching variable]({{assets}}/images/ide-watch-variable.gif)
 
 When you want to check variable value constantly, you can click **Watch** button. When a variable is watched, Particle Dev will fetch latest value every 5 seconds.
 
 Functions
 ---
 
-![Functions](http://docs.particle.io/assets/images/ide-functions.gif)
+![Functions]({{assets}}/images/ide-functions.gif)
 
 To call an [exposed function](http://docs.particle.io/photon/firmware#spark-function) simply click on the button with its name. You'll see any data the function returns on the right side.
 
@@ -112,7 +112,7 @@ Managing device
 Setting up WiFi
 ---
 
-![WiFi list](http://docs.particle.io/assets/images/ide-wifi-list.jpg)
+![WiFi list]({{assets}}/images/ide-wifi-list.jpg)
 
 To setup device's WiFi, connect it via USB and click **Setup device's WiFi...** button on the toolbar.
 
@@ -122,7 +122,7 @@ Next you'll see all available networks. The one you are currently connected to w
 
 Select the one you want your device to use or choose **Enter SSID manually** (listed last) to specify all information by hand.
 
-![WiFi setup](http://docs.particle.io/assets/images/ide-wifi-save.jpg)
+![WiFi setup]({{assets}}/images/ide-wifi-save.jpg)
 
 Now you need to fill missing information and click **Save**. Your device will go dark for a second and then try to connect to the WiFi.
 
@@ -133,20 +133,20 @@ Currently community libraries aren't supported natively (but we're working on it
 
 Find the [library you want to use](http://docs.particle.io/photon/build/#flash-apps-with-particle-build-using-libraries)
 
-![Link to GitHub repository](http://docs.particle.io/assets/images/build-libraries.jpg)
+![Link to GitHub repository]({{assets}}/images/build-libraries.jpg)
 
 View it on GitHub
 
-![Download link](http://docs.particle.io/assets/images/build-library-github.jpg)
+![Download link]({{assets}}/images/build-library-github.jpg)
 
 Download the repository
 
-![Correct files selected](http://docs.particle.io/assets/images/github-download.jpg)
+![Correct files selected]({{assets}}/images/github-download.jpg)
 
 Copy files from `firmware` directory **without** `examples` to your project directory
 
-![Example project with include](http://docs.particle.io/assets/images/ide-selected-library.jpg)
+![Example project with include]({{assets}}/images/ide-selected-library.jpg)
 
 Include library adding `#include "LIBRARY.h"` to your code
 
-![](http://docs.particle.io/assets/images/ide-include-library.jpg)
+![]({{assets}}/images/ide-include-library.jpg)
