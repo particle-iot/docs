@@ -12,5 +12,5 @@ deploy:
   skip_cleanup: true
   local-dir: build
   on:
-    repo: spark/docs-private
+    repo: spark/docs
     branch: master
