@@ -1,4 +1,8 @@
 ## Particle Documentation [![Build Status](https://travis-ci.org/spark/docs.svg?branch=feature/server-side-rendering)](https://travis-ci.org/spark/docs)
+=======
+**THIS REPO IS NOW DEPRECATED. PLEASE USE THE NEW DOCUMENTATION
+REPOSITORY AT: https://github.com/spark/docs**
+
 
 Here you'll find the documentation for the Particle platform, including the Particle Cloud, Photon, and Spark Core.
 
