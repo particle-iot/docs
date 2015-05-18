@@ -7,7 +7,7 @@ deploy:
   provider: s3
   access_key_id: "AKIAJ5RMM3264VMARJQQ"
   secret_access_key:
-    secure: "S+NEZ9yJpSh4p2v/Hw1Nm5bWKAy99tLNPiiIWBmFG1hWOxKRAfMN+K2oNkB2o4vQ36yNMiBM2Lp5XPG8kWBWvxoza0rQ2Sf3FMylDxRYC1OAIH4jedRQefuGr727LU6UXojjSRcLZ3PbkDDqZztnZboHEVlKVQR1ea5UgoZBP9E=" 
+    secure: "N0vTpvBUaqsoTKgA/Jq7GSl1oeg5ntEmhMrfjr4NqM9HQpTIRR7h1KTBrAB74+Y2WAZwhW0p1Vulk5c80u/dw3Uecc/v6QXB6HZCfmK28x4tRB4ZXpZmiPSK3WVSaILVynoDFelVnn0X+Z17wG30uLHvqtpZq9T4M9Y1YH6YnnE="
   bucket: docs.particle.io
   skip_cleanup: true
   local-dir: build
