@@ -2,6 +2,7 @@
 word: Build
 title: Web IDE (Build)
 order: 6
+shared: true
 ---
 
 Flash Apps with Particle Build

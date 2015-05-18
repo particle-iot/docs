@@ -3,6 +3,7 @@ word: Dashboard
 title: Dashboard
 order: 8
 columns: 2
+shared: true
 ---
 
 

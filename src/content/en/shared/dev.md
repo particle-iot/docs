@@ -2,6 +2,7 @@
 word: Dev
 title: Particle Dev
 order: 7
+shared: true
 ---
 
 Build Apps with Particle Dev

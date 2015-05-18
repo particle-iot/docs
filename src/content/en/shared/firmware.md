@@ -2,6 +2,7 @@
 word: Firmware
 title: Firmware
 order: 5
+shared: true
 ---
 
 Particle Device Firmware

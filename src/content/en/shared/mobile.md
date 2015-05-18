@@ -2,6 +2,7 @@
 word: Mobile
 title: Mobile SDK
 order: 11
+shared: true
 ---
 
 iOS Cloud SDK

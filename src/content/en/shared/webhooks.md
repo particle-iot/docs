@@ -2,6 +2,7 @@
 word: Webhooks
 title: Webhooks
 order: 15
+shared: true
 ---
 
 Webhooks

@@ -2,6 +2,7 @@
 word: Examples
 title: Examples
 order: 4
+shared: true
 ---
 
 Annotated examples

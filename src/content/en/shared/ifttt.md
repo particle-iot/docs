@@ -2,6 +2,7 @@
 word: IFTTT
 title: IFTTT
 order: 14
+shared: true
 ---
 
 Particle Channel on IFTTT

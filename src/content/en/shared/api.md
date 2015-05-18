@@ -2,6 +2,7 @@
 word: API
 title: Cloud code (API)
 order: 4
+shared: true
 ---
 
 Particle Cloud API

@@ -47,7 +47,26 @@ To see the latest build, visit the [Travis CI page](https://travis-ci.org/spark/
 
 ### Organization
 
-The majority of the content herein is stored in the `src/content` directory as a set of Markdown files. Assets such as images and javascript are stored in the `src/assets` directory.
+The majority of the content herein is stored in the `src/content/en` directory as a set of Markdown files. Assets such as images and javascript are stored in the `src/assets` directory.
+
+Within the `en` subdirectory, there are three subfolders: `core`,
+`photon`, and `shared`. Files in `core` will only be shown in the menu when the user
+is viewing Core-specific docs, and `photon` files will be visible when
+viewing Photon-specific docs. Files in `shared` will be nested under both
+devices, so put pages here that apply to both the Core and the Photon.
+
+If you create a new file under the `shared`, please add `shared: true`
+to the front-matter at the beginning of the MD file so that the link to
+edit the file on GitHub will be correct. For instance:
+
+```
+---
+word: API
+title: Cloud code (API)
+order: 4
+shared: true
+---
+```
 
 ### Attributions
 

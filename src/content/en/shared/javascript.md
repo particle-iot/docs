@@ -2,6 +2,7 @@
 word: Javascript
 title: Javascript SDK
 order: 9
+shared: true
 ---
 
 # ParticleJS
