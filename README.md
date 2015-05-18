@@ -4,6 +4,10 @@ Here you'll find the documentation for the Particle platform, including the Part
 
 To view this documentation, visit [our website](http://docs.particle.io), where the documentation is hosted.
 
+**Note**: This is a new public repository as of May 18, 2015. All
+outsdanding pull requests from the old docs repository have been closed.
+Please re-open them in this repo.
+
 ### Installation
 
 To host this documentation locally, you'll need Node.js and npm:
