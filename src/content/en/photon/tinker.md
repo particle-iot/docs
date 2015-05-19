@@ -10,6 +10,8 @@ Tinkering with "Tinker"
 The Tinker app
 ---
 
+**NOTE: THIS PART OF THE MOBILE APP WILL BE RELEASED IN THE NEXT UPDATE**
+
 ![Tinker selection]({{assets}}/images/tinker.png)
 
 The Tinker section of the [Particle mobile app](https://itunes.apple.com/us/app/particle-build-photon-electron/id991459054?ls=1&mt=8) makes it very easy to start playing with your Particle device without writing any code. It's great for early development, and often it will do everything you need to get your project off of the ground.
