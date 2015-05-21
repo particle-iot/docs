@@ -187,7 +187,7 @@ curl https://api.particle.io/v1/devices/0123456789abcdef/relay \
  - Current consumption: 150mA min to 290mA max (at 9V DC)
  - Relay Max Voltage: 220V AC
  - Relay Max Current: 10Amp at 125V AC
- - Relay Part Number: JS1-5V-F (Data Sheet)
+ - Relay Part Number: JS1-5V-F [Data Sheet](http://www3.panasonic.biz/ac/e_download/control/relay/power/catalog/mech_eng_js.pdf?f_cd=300182)
  - Dimensions: 6.0" x 1.7"
  - Weight: 80 gms
 
