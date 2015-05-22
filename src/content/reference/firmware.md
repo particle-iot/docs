@@ -78,9 +78,9 @@ Expose a *function* through the Cloud so that it can be called with `POST /v1/de
 ```cpp
 // SYNTAX TO REGISTER A CLOUD FUNCTION
 bool success = Spark.function("funcKey", funcName);
-//                               ^
-//                               |
-//                  (max of 12 characters long)
+//                ^
+//                |
+//     (max of 12 characters long)
 ```
 
 Currently the application supports the creation of up to 4 different cloud functions.
@@ -821,7 +821,7 @@ void loop() {}
 
 ### WiFi.RSSI()
 
-`WiFi.RSSI()` returns the signal strength of a Wifi network from from -127 to -1dB as an `int`. Positive return values indicate an error with 1 indicating a WiFi chip error and 2 indicating a time-out error.
+`WiFi.RSSI()` returns the signal strength of a Wifi network from from -127 to -1dB as an `int`. Positive return values indicate an error with 1 indicating a WiFi chip error and 2 indicating a time-out error. 
 
 ```cpp
 // SYNTAX
@@ -1430,7 +1430,7 @@ void setup() {
   // iterate over the notes of the melody:
   for (int thisNote = 0; thisNote < 8; thisNote++) {
 
-    // to calculate the note duration, take one second
+    // to calculate the note duration, take one second 
     // divided by the note type.
     //e.g. quarter note = 1000 / 4, eighth note = 1000/8, etc.
     int noteDuration = 1000/noteDurations[thisNote];
@@ -1488,12 +1488,12 @@ setup() {
 	// Set data and clock pins as OUTPUT pins before using shiftOut()
 	pinMode(dataPin, OUTPUT);
 	pinMode(clock, OUTPUT);
-
+	
 	// shift out data using MSB first
 	shiftOut(dataPin, clock, MSBFIRST, data);
 
 	// Or do this for LSBFIRST serial
-	shiftOut(dataPin, clock, LSBFIRST, data);
+	shiftOut(dataPin, clock, LSBFIRST, data);  
 }
 
 loop() {
@@ -1531,12 +1531,12 @@ setup() {
 	// Set data as INPUT and clock pin as OUTPUT before using shiftIn()
 	pinMode(dataPin, INPUT);
 	pinMode(clock, OUTPUT);
-
+	
 	// shift in data using MSB first
 	data = shiftIn(dataPin, clock, MSBFIRST);
 
 	// Or do this for LSBFIRST serial
-	data = shiftIn(dataPin, clock, LSBFIRST);
+	data = shiftIn(dataPin, clock, LSBFIRST);  
 }
 
 loop() {
@@ -1954,6 +1954,22 @@ SPI.transfer(val);
 ```
 Where the parameter `val`, can is the byte to send out over the SPI bus.
 
+### transfer(void*, void*, size_t, std::function)
+
+For transferring large bytes of transfer the above function uses DMA to speed up SPI data transfer and at the same time allows you to run code in parallel of the data transmission. The function initialises, configures and enables the DMA peripheral’s channel and stream for the selected SPI peripheral for both TX(Output) and RX(Input) and initiates the data transfer. If a user callback function is passed then the same would be called after completion of DMA transfer. This results in asynchronous filling up of RX buffer after which the DMA transfer is disabled till the transfer function is called again. If NULL is passed as a callback then the result is synchronous i.e. transfer function would wait till the receipt of response from the slave.
+
+```C++
+// SYNTAX
+SPI.transfer(tx_buffer, rx_buffer, length, myFunction)
+```
+
+Parameters: 
+
+- `tx_buffer`: array of Tx bytes that needs to be filled by the user before starting the spi transfer
+- `rx_buffer`: array of Rx bytes that would be filled by the slave using the DMA scheme.
+- `length`: size of data bytes that needs to be transferred
+- `myFunction`: user specified function callback that would be called after completion of spi dma transfer.
+
 Wire (I2C)
 ----
 
@@ -1971,7 +1987,7 @@ Wire.setSpeed(clockSpeed);
 Wire.begin();
 ```
 
-Parameters:
+Parameters: 
 
 - `clockSpeed`: CLOCK_SPEED_100KHZ, CLOCK_SPEED_400KHZ or a user specified speed in hertz (e.g. `Wire.setSpeed(20000)` for 20kHz)
 
@@ -1985,7 +2001,7 @@ Wire.stretchClock(stretch);
 Wire.begin();
 ```
 
-Parameters:
+Parameters: 
 
 - `stretch`: boolean. `true` will enable clock stretching. `false` will disable clock stretching.
 
@@ -2111,7 +2127,7 @@ void loop()
 {
   Wire.beginTransmission(4); // transmit to slave device #4
   Wire.write("x is ");       // sends five bytes
-  Wire.write(x);             // sends one byte
+  Wire.write(x);             // sends one byte  
   Wire.endTransmission();    // stop transmitting
 
   x++;
@@ -2135,7 +2151,7 @@ Reads a byte that was transmitted from a slave device to a master after a call t
 
 ```C++
 // SYNTAX
-Wire.read();
+Wire.read() ;
 ```
 
 Returns: The next byte received
@@ -2156,7 +2172,7 @@ void loop()
   Wire.requestFrom(2, 6);    // request 6 bytes from slave device #2
 
   while(Wire.available())    // slave may send less than requested
-  {
+  { 
     char c = Wire.read();    // receive a byte as character
     Serial.print(c);         // print the character
   }
@@ -3986,11 +4002,11 @@ The function returns the number's square root *(double)*
 
 ## Random Numbers
 
-The firmware incorporates a pseudo-random number generator.
+The firmware incorporates a pseudo-random number generator. 
 
 ### random()
 
-Retrieves the next random value, restricted to a given range.
+Retrieves the next random value, restricted to a given range. 
 
  `random(max);`
 
@@ -3998,7 +4014,7 @@ Parameters
 
 - `max` - the upper limit of the random number to retrieve.
 
-Returns: a random value between 0 and up to, but not including `max`.
+Returns: a random value between 0 and up to, but not including `max`. 
 
 ```c++
 int r = random(10);
@@ -4013,14 +4029,14 @@ int r = random(10);
 
 `random(min,max);`
 
-Parameters:
+Parameters: 
 
  - `min` - the lower limit (inclusive) of the random number to retrieve.
  - `max` - the upper limit (exclusive) of the random number to retrieve.
 
-Returns: a random value from `min` and up to, but not including `max`.
+Returns: a random value from `min` and up to, but not including `max`. 
 
-
+  
 ```c++
 int r = random(10, 100);
 // r is >= 10 and < 100
@@ -4028,25 +4044,25 @@ int r = random(10, 100);
 // The largest value returned is 99
 ```
 
-  NB: If `min` is greater or equal to `max`, the result is always 0.
+  NB: If `min` is greater or equal to `max`, the result is always 0. 
 
 ### randomSeed()
 
 `randomSeed(newSeed);`
 
 Parameters:
-
+ 
  - `newSeed` - the new random seed
 
-The pseudorandom numbers produced by the firmware are derived from a single value - the random seed.
+The pseudorandom numbers produced by the firmware are derived from a single value - the random seed. 
 The value of this seed fully determines the sequence of random numbers produced by successive
 calls to `random()`. Using the same seed on two separate runs will produce
-the same sequence of random numbers, and in contrast, using different seeds
+the same sequence of random numbers, and in contrast, using different seeds 
 will produce a different sequence of random numbers.
 
 On startup, the default random seed is [set by the system](http://www.cplusplus.com/reference/cstdlib/srand/) to 1.
 Unless the seed is modified, the same sequence of random numbers would be produced each time
-the system starts.
+the system starts. 
 
 Fortunately, when the device connects to the cloud, it receives a very randomized seed value,
 which is used as the random seed. So you can be sure the random numbers produced
@@ -4062,7 +4078,7 @@ void random_seed_from_cloud(unsigned int seed);
 ```
 
 The system implementation of this function calls `randomSeed()` to set
-the new seed value. If you don't wish to use random seed values from the cloud,
+the new seed value. If you don't wish to use random seed values from the cloud, 
 you can take control of the ransom seeds set by adding this code to your app:
 
 ```cpp
@@ -4072,7 +4088,7 @@ void random_seed_from_cloud(unsigned int seed) {
 ```
 
 In the example, the seed is simply ignored, so the system will continue using
-whatever seed was previously set. In this case, the random seed will not be set
+whatever seed was previously set. In this case, the random seed will not be set 
 from the cloud, and setting the seed is left to up you.
 
 
