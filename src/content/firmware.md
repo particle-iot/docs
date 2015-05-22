@@ -1346,6 +1346,22 @@ SPI.transfer(val);
 ```
 Where the parameter `val`, can is the byte to send out over the SPI bus.
 
+### transfer(void*, void*, size_t, std::function)
+
+For transferring large bytes of transfer the above function uses DMA to speed up SPI data transfer and at the same time allows you to run code in parallel of the data transmission. The function initialises, configures and enables the DMA peripheral’s channel and stream for the selected SPI peripheral for both TX(Output) and RX(Input) and initiates the data transfer. If a user callback function is passed then the same would be called after completion of DMA transfer. This results in asynchronous filling up of RX buffer after which the DMA transfer is disabled till the transfer function is called again. If NULL is passed as a callback then the result is synchronous i.e. transfer function would wait till the receipt of response from the slave.
+
+```C++
+// SYNTAX
+SPI.transfer(tx_buffer, rx_buffer, length, myFunction)
+```
+
+Parameters: 
+
+- `tx_buffer`: array of Tx bytes that needs to be filled by the user before starting the spi transfer
+- `rx_buffer`: array of Rx bytes that would be filled by the slave using the DMA scheme.
+- `length`: size of data bytes that needs to be transferred
+- `myFunction`: user specified function callback that would be called after completion of spi dma transfer.
+
 Wire
 ----
 
