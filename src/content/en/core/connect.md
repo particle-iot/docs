@@ -61,20 +61,20 @@ Did your phone not find any Cores?
 
 ## Connect over USB
 
-You can also connect your device using USB. *NOTE: This only works when the device is in [Listening Mode](#connecting-your-device-listening-mode) (i.e. RGB led is blinking blue)*.
+You can also set up your device using USB. *NOTE: This only works when the device is in [Listening Mode](#connecting-your-device-listening-mode) (i.e. RGB led is blinking blue)*.
 
-There are two ways to go about connecting your Core over USB. Follow these links depending on your OS:
+There are a two ways to go about connecting your Core over USB, depending on your OS. These links will take you to the right place:
 
 - [Windows](#connecting-your-device-using-windows)
 - [Mac OSX](#connecting-your-device-using-osx)
 
+
 ##Using Windows
 
-We're going to install the Particle CLI on your computer. If you already
-have node.js installed, you can skip to [this step](#installing-the-particle-cli).
+We're going to install the Particle CLI on your computer. If you already have node.js installed, you can skip to [this step](#installing-the-particle-cli).
 
 ####Installing Node.js
-The Particle CLI is most stable on the 10.38 version of Node.js. To use the CLI, download the [10.38 version of the Windows installer](http://nodejs.org/dist/v0.10.38/node-v0.10.38-x86.msi), the [x64 bit if you need it](http://nodejs.org/dist/v0.10.38/x64/node-v0.10.38-x64.msi), and the [x64 files if you need those.](http://nodejs.org/dist/v0.10.38/x64/)
+The Particle CLI runs with Node.js. Grab the latest version from [the Node.js website](http://nodejs.org/download)
 
 **If you do not know if you are running 32-bit or 64-bit, checking is easy!**
 - __On Windows 8__ Mouse over the upper right hand corner of your screen and nagivate to Settings. Then click "PC info" to display basic information about your computer.
@@ -100,7 +100,7 @@ Navigate to your Downloads folder, or wherever you unzipped the drivers.
 
 (Note that right now, the drivers are in a `Spark` folder and are named `spark_core`)
 
-If you have a problem installing, you may have to temporarily disable the digitally signed driver enforcement policy. (We're sorry.) There are good instrunctions on how to do that [here](http://www.howtogeek.com/167723/how-to-disable-driver-signature-verification-on-64-bit-windows-8.1-so-that-you-can-install-unsigned-drivers/).
+If you have a problem installing, you may have to temporarily disable the digitally signed driver enforcement policy. (We're sorry.) There are good instructions on how to do that [here](http://www.howtogeek.com/167723/how-to-disable-driver-signature-verification-on-64-bit-windows-8.1-so-that-you-can-install-unsigned-drivers/).
 
 ####Opening the Command Prompt
 You'll need to open the command prompt for this next part. You can also use Powershell or a similar command line tool if that is what you are used to.
@@ -118,11 +118,8 @@ In the Command Prompt window, type:
 
 and press enter.
 
-The terminal will spit out a lot of data, in the midst of which you will see:
-
-`[serialport] Success:`
-
 Now let's try using the CLI!
+
 
 ####Connecting Your Device
 Make sure your device is plugged in via USB and in [Listening Mode](#connecting-your-device-listening-mode) (blinking blue). Then type:
@@ -130,26 +127,24 @@ Make sure your device is plugged in via USB and in [Listening Mode](#connecting-
 
 Log in with your Particle account and follow the prompts to set up your device.
 
-If you have already claimed your device and you want to connect it to
-wifi, type `particle serial wifi` instead of `particle setup`. This will set up your device on the current wifi.
+If you have already claimed your device and you want to connect it to wifi, type `particle serial wifi` instead of `particle setup`. This will set up your device on the current wifi.
 
 **Wait! What is an SSID? What kind of security does my wifi have?**
-- __The SSID__ is the name of your network. When you connect on your computer, it is the name that you select when you connect your computer to wifi.
--__The Security__ of your wifi is often set up by the administrator. Typically this is WPA2 if a password is needed, or unsecured if no password is needed. Contact your network administrator if you can't get this step to work, and find out exactly what kind of wifi you have.
 
-If your device is not connecting, try troubleshooting
-[here](http://support.particle.io/hc/en-us/articles/204357684-Can-t-Get-Connected-).
+- _The SSID_ is the name of your network. When you connect on your computer, it is the name that you select when you connect your computer to wifi.
+- _The Security_ of your wifi is often set up by the administrator. Typically this is WPA2 if a password is needed, or unsecured if no password is needed. Contact your network administrator if you can't get this step to work, and find out exactly what kind of wifi you have.
+
+If your device is not connecting, try troubleshooting [here](http://support.particle.io/hc/en-us/articles/204357684-Can-t-Get-Connected-).
 
 More info on the CLI is available [here](/core/cli).
 
 
-## Using OSX
+##Using OSX
 
-We're going to install the Particle CLI on your computer. If you already
-have node.js installed, you can skip to [this step](#install-the-particle-cli).
+We're going to install the Particle CLI on your computer. If you already have node.js installed, you can skip to [this step](#install-the-particle-cli).
 
 ####Installing Node.js
-The Particle CLI is most stable on the 10.38 version of Node.js. To use the CLI, download the [10.38 version of the OS X installer](http://nodejs.org/dist/v0.10.38/node-v0.10.38.pkg).
+The Particle CLI runs with Node.js. Grab the latest version from [the Node.js website](http://nodejs.org/download)
 
 Launch the installer and follow the instructions to install node.js.
 
@@ -169,12 +164,13 @@ export PATH=~/npm-global/bin:$PATH
 source ~/.profile
 ```
 
-
 After that, add `export PATH=~/npm-global/bin:$PATH` to your .profile by typing:
 
 ```
 cat >>~/.profile
+
 export PATH=~/npm-global/bin:$PATH
+
 ```
 
 and then ctrl-C to return to the command line.
@@ -183,7 +179,9 @@ If you do not have a .profile, type:
 
 ```
 cat >>~/.profile
+
 export PATH=~/npm-global/bin:$PATH
+
 ```
 
 
@@ -195,67 +193,25 @@ Type:
 _Note:_ You may need to update xcode at this time.
 
 
-####Connecting Your Spark Core
-Make sure your device is plugged in via USB and in [Listening
-Mode](#connecting-your-device-listening-mode) (blinking blue). Open the terminal and type:
-`spark setup`
+####Connecting Your Device
+Make sure your device is plugged in via USB and in [Listening Mode](#connecting-your-device-listening-mode) (blinking blue). Open the terminal and type:
+`particle setup`
 
-Log in with your [Particle Build account](http://build.particle.io) and follow the prompts to set up your device.
+Log in with your Particle account and follow the prompts to set up your device.
 
-If you have already claimed your device and you want to connect it to wifi, type `spark serial wifi` instead of `spark setup`. This will set up your device on the current wifi.
+If you have already claimed your device and you want to connect it to wifi, type `particle serial wifi` instead of `particle setup`. This will set up your device on the current wifi.
 
 **Wait! What is an SSID? What kind of security does my wifi have?**
 - __The SSID__ is the name of your network. When you connect on your computer, it is the name that you select when you connect your computer to wifi.
 - __The Security__ of your wifi is often set up by the administrator. Typically this is WPA2 if a password is needed, or unsecured if no password is needed. Contact your network administrator if you can't get this step to work, and find out exactly what kind of wifi you have.
 
-If your device is not connecting, try troubleshooting [here](http://support.particle.io/hc/en-us/articles/204357684-Can-t-Get-Connected-).
+If your device is not connecting, try troubleshooting [here](http://support.particle.io/).
 
-More info on the CLI is available [here](/core/cli).
+More info on the CLI is available [here](http://docs.particle.io/core/cli).
 
 
 APPENDIX
 ===
-
-## DFU Mode (Device Firmware Upgrade)
-
-<div class="iframe-wrapper">
-  <iframe class="vine-embed" src="https://vine.co/v/MahhI1Fg7O6/embed/simple" width="320" height="320" frameborder="0"></iframe>
-</div>
-
-If you are wish to program a device with a custom firmware via USB, you'll need to use this mode. This mode triggers the on-board bootloader that accepts firmware binary files via the dfu-utility.
-
-Procedure:
-
-1. Hold down BOTH buttons
-2. Release only the RST button, while holding down the MODE button.
-3. Wait for the LED to start flashing yellow
-6. Release the MODE button
-
-
-The device now is in the DFU mode.
-
-
-## Factory Reset
-
-<div class="iframe-wrapper">
-  <iframe class="vine-embed" src="https://vine.co/v/MahOmIaX2xP/embed/simple" width="320" height="320" frameborder="0"></iframe>
-</div>
-
-A factory reset restores the firmware on the device to the default Tinker app and clears all your Wi-Fi credentials.
-
-Procedure:
-
-The procedure is same as the one described above (DFU Mode), but in this case you should continue holding down the MODE button until you see the device change from flashing yellow to flashing white. Then release the button.  The device should begin after the factory reset is complete.
-
-1. Hold down BOTH buttons
-2. Release only the RST button, while holding down the MODE button.
-3. Wait for the LED to start flashing yellow (continue to hold the MODE button)
-4. The LED will turn solid white (continue to hold the MODE button)
-5. Finally, the LED will turn blink white rapidly
-6. Release the MODE button
-
-**Note:** The video here is a continuation of the video from above (DFU Mode).
-
 
 ## Smart Config with the TI app (Core Only)
 

@@ -43,7 +43,7 @@ There are a two ways to go about connecting your Photon over USB, depending on y
 We're going to install the Particle CLI on your computer. If you already have node.js installed, you can skip to [this step](#installing-the-particle-cli).
 
 ####Installing Node.js
-The Particle CLI is most stable on the 10.38 version of Node.js. To use the CLI, download the [10.38 version of the Windows installer](http://nodejs.org/dist/v0.10.38/node-v0.10.38-x86.msi), the [x64 bit if you need it](http://nodejs.org/dist/v0.10.38/x64/node-v0.10.38-x64.msi), and the [x64 files if you need those.](http://nodejs.org/dist/v0.10.38/x64/)
+The Particle CLI runs with Node.js. Grab the latest version from [the Node.js website](http://nodejs.org/download)
 
 **If you do not know if you are running 32-bit or 64-bit, checking is easy!**
 - __On Windows 8__ Mouse over the upper right hand corner of your screen and nagivate to Settings. Then click "PC info" to display basic information about your computer.
@@ -87,10 +87,6 @@ In the Command Prompt window, type:
 
 and press enter.
 
-The terminal will spit out a lot of data, in the midst of which you will see:
-
-`[serialport] Success:`
-
 Now let's try using the CLI!
 
 
@@ -117,7 +113,7 @@ More info on the CLI is available [here](/photon/cli).
 We're going to install the Particle CLI on your computer. If you already have node.js installed, you can skip to [this step](#install-the-particle-cli).
 
 ####Installing Node.js
-The Particle CLI is most stable on the 10.38 version of Node.js. To use the CLI, download the [10.38 version of the OS X installer](http://nodejs.org/dist/v0.10.38/node-v0.10.38.pkg).
+The Particle CLI runs with Node.js. Grab the latest version from [the Node.js website](http://nodejs.org/download)
 
 Launch the installer and follow the instructions to install node.js.
 
