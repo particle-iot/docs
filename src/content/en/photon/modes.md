@@ -60,8 +60,9 @@ To erase the stored wifi networks on your device, hold the `MODE` button for abo
 
 ## Selecting Safe, DFU, Firmware and Factory Resets
 
-These four modes are all selected using the same process, but by releasing the `SETUP` button at different times. The diagram to the right details the order, LED codes you'll see, and a little bit about what each does.
+![Photon Reset Modes]({{assets}}/images/photon-reset-modes.png)
 
+These four modes are all selected using the same process, but by releasing the `SETUP` button at different times. The diagram to the right details the order, LED codes you'll see, and a little bit about what each does.
 
 ## Safe Mode
 

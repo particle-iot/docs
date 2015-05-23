@@ -10,9 +10,11 @@ Annotated examples
 
 Here you will find a bunch of examples to get you started with your new Particle device! The diagrams here show the Photon, but these examples will work with either the Photon or the Core.
 
+<a id="blink-an-led" data-firmware-example-title="Blink an LED" data-firmware-example-description="Blink an LED">
 
 Blink an LED
 ===
+
 
 ![One LED illustration]({{assets}}/images/photon-led-fritzing.png)
 
@@ -34,27 +36,34 @@ Connect everything together as shown in the picture. The negative (shorter) pin 
 
 Next, we're going to load code onto your core. Copy and paste this code into a new application on http://build.particle.io or on Particle Dev. We've heavily commented this code so that you can see what is going on in each line.
 
+<a data-firmware-example-code-block=true>
+
 ```cpp
-// Program to blink an LED connected to pin D0
-// of the Spark Core.
+// This program will blink an led on and off every second.
+// It blinks the D7 LED on your Particle device. If you have an LED wired to D0, it will blink that LED as well.
 
-// We name pin D0 as led
-int led = D0;
+// First, define the pins we are going to use.
+int led = D0;  // You'll need to wire an LED to this one to see it blink.
+int led2 = D7; // This one is the little blue LED on your board. On the Photon it is next to D7, and on the Core it is next to the USB jack.
 
-// This routine runs only once upon reset
-void setup()
-{
-  // Initialize D0 pin as output
+// This routine runs only once when the device boots up or is reset
+void setup() {
+  // We are going to tell our device that D0 and D7 (which we named led and led2 respectively) are going to be output
+  // (That means that we will be sending voltage to them, rather than monitoring voltage that comes from them)
+  // It's important you do this here, inside the setup() function rather than outside it or in the loop function.
   pinMode(led, OUTPUT);
+  pinMode(led2, OUTPUT);
 }
 
-// This routine loops forever
-void loop()
-{
-  digitalWrite(led, HIGH);   // Turn ON the LED
+// This next routine gets called over and over, as much as possible, after your device boots up.
+// Firmware interleaves background CPU activity associated with WiFi + Cloud activity with your code. Note: Code that blocks for too long (like more than 5 seconds), can make weird things happen (like dropping the network connection).  The built-in delay function shown below safely interleaves required background activity, so arbitrarily long delays can safely be done if you need them.
+void loop() {
+  digitalWrite(led, HIGH);   // Turn ON the LED pins
+  digitalWrite(led2, HIGH);
   delay(1000);               // Wait for 1000mS = 1 second
-  digitalWrite(led, LOW);    // Turn OFF the LED
-  delay(1000);               // Wait for 1 second
+  digitalWrite(led, LOW);    // Turn OFF the LED pins
+  digitalWrite(led2, LOW);
+  delay(1000);               // Wait for 1 second in off mode
 }
 ```
 
@@ -72,10 +81,14 @@ We have some heavily commented code for you (soon to be imported into the IDE) t
 
 Wire up your Photon or Core to look like the image on the right, and then follow the examples below.
 
+<a id="variables-and-functions-with-photoresistors" data-firmware-example-title="Variables and Functions (part 1)" data-firmware-example-description="Learn about Variables and Functions using Photoresistors">
 
 Read your LED with your Photoresistor: Function and Variable
 ---
-```
+
+<a data-firmware-example-code-block=true>
+
+```cpp
 // We're going to start by declaring which pins everything is plugged into.
 
 int led = D0; // This is where the long pin of your LED is plugged in. The other side goes to a resistor connected to GND.
@@ -242,10 +255,14 @@ You can also check out this value by using the command line. Type:
 
 and make sure you replace `device_name` with either your device ID or the casual nickname you made for your device when you set it up.
 
+<a id="publish-with-photoresistors" data-firmware-example-title="Publish (part 2)" data-firmware-example-description="Learn about Publish using Photoresistors">
 
 Make a Motion Detector: Publish and the Dashboard
 ---
-```
+
+<a data-firmware-example-code-block=true>
+
+```cpp
 /*---OH HI THERE, WELCOME TO THE PHOTORESISTOR PROGRAM---
 
 Part Two: Sensing motion with your photoresistor
@@ -441,11 +458,14 @@ You can check out the results on your dashboard at [dashboard.particle.io](https
 
 You can also hook up publishes to IFTTT! More info [here](/photon/ifttt).
 
+<a id="publish-and-subscribe-with-photoresistors" data-firmware-example-title="Publish and Subscribe (part 3)" data-firmware-example-description="Learn about Publish and Subscribe using Photoresistors">
 
 The Buddy System: Publish and Subscribe
 ---
 
-```
+<a data-firmware-example-code-block=true>
+
+```cpp
 /*---OH HI THERE, WELCOME TO THE PHOTORESISTOR PROGRAM---
 
 Part Three-- Publish and Subscribe with your Photoresistor and a Buddy
@@ -667,6 +687,7 @@ Flash the firmware to your devices. Calibrate your device when it comes online (
 
 No photoresistors? Other examples are below!
 
+<a id="control-led-over-the-net" data-firmware-example-title="Control LED over the Internet" data-firmware-example-description="">
 
 Control LEDs over the 'net
 ===
@@ -680,6 +701,8 @@ Here is the algorithm:
 - Set up the pins as outputs that have LEDs connected to them
 - Create and register a Spark function ( this gets called automagically when you make an API request to it)
 - Parse the incoming command and take appropriate actions
+
+<a data-firmware-example-code-block=true>
 
 ```cpp
 // -----------------------------------
@@ -756,6 +779,8 @@ Note that the API endpoint is 'led', not 'ledControl'. This is because the endpo
 
 To better understand the concept of making API calls to your device over the cloud checkout the [Cloud API reference.](../api)
 
+<a id="variables-with-a-temperature-sensor" data-firmware-example-title="Measure the temperature" data-firmware-example-description="">
+
 Measuring the temperature
 ===
 
@@ -767,7 +792,9 @@ We have used a widely available analog temperature sensor called TMP36 from Anal
 
 Notice how we are powering the sensor from 3.3V\* pin instead of the regular 3.3V. This is because the 3.3V\* pin gives out a (LC) clean filtered  voltage, ideal for analog applications like these. If the readings you get are noisy or inconsistent, add a 0.01uF (10nF) ceramic capacitor between the analog input pin (in this case, A7) and GND as shown in the set up. Ideally, the sensor should be placed away from the Core so that the heat dissipated by the Core does not affect the temperature readings.
 
-```C++
+<a data-firmware-example-code-block=true>
+
+```cpp
 // -----------------
 // Read temperature
 // -----------------

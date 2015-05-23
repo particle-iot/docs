@@ -772,7 +772,7 @@ Writes an analog value (PWM wave) to a pin. Can be used to light a LED at varyin
 - On the Core, this function works on pins A0, A1, A4, A5, A6, A7, D0 and D1.
 - On the Photon, this function works on pins A0, A1, A2, A3, A4, A5, WKP, TX and RX
 
-When used with these pins, he analogWrite function has nothing to do with the analog pins or the analogRead function.
+When used with these pins, the analogWrite function has nothing to do with the analog pins or the analogRead function.
 
 ```C++
 // SYNTAX
