@@ -14,7 +14,7 @@ Cloud Functions
 ### Spark.variable()
 
 Expose a *variable* through the Cloud so that it can be called with `GET /v1/devices/{DEVICE_ID}/{VARIABLE}`.
-Returns a success value - `true` when the variable was registered. 
+Returns a success value - `true` when the variable was registered.
 
 It is fine to call this function when the cloud is disconnected - the variable
 will be registered next time the cloud is connected.
@@ -86,7 +86,7 @@ Currently the application supports the creation of up to 4 different cloud funct
 
 In order to register a cloud  function, the user provides the `funcKey`, which is the string name used to make a POST request and a `funcName`, which is the actual name of the function that gets called in your app. The cloud function can return any integer; `-1` is commonly used for a failed function call.
 
-The length of the `funcKey` is limited to a max of 12 characters. If you declare a function name longer than 12 characters the function will not be registered. 
+The length of the `funcKey` is limited to a max of 12 characters. If you declare a function name longer than 12 characters the function will not be registered.
 
 Example: Spark.function("someFunction1", ...); exposes a function called someFunction and not someFunction1
 
@@ -291,7 +291,7 @@ A _subscription handler_ (like `myHandler` above) must return `void` and take tw
 
 `Spark.subscribe()` returns a `bool` indicating success. It is ok to register a subscription when
 the device is not connected to the cloud - the subscription is automatically registered
-with the cloud next time the device connects. 
+with the cloud next time the device connects.
 
 NOTE: A device can register up to 4 event handlers. This means you can call `Spark.subscribe()` a maximum of 4 times; after that it will return `false`.
 
@@ -389,10 +389,10 @@ void loop() {
 ### Spark.process()
 
 Runs the background loop. This is the public API for the former internal function
-`SPARK_WLAN_Loop()`. 
+`SPARK_WLAN_Loop()`.
 
-`Spark.process()` checks the Wi-Fi module for incoming messages from the Cloud, 
-and processes any messages that have come in. It also sends keep-alive pings to the Cloud, 
+`Spark.process()` checks the Wi-Fi module for incoming messages from the Cloud,
+and processes any messages that have come in. It also sends keep-alive pings to the Cloud,
 so if it's not called frequently, the connection to the Cloud may be lost.
 
 ```cpp
@@ -599,7 +599,7 @@ void loop() {}
 
 ### WiFi.RSSI()
 
-`WiFi.RSSI()` returns the signal strength of a Wifi network from from -127 to -1dB as an `int`. Positive return values indicate an error with 1 indicating a WiFi chip error and 2 indicating a time-out error. 
+`WiFi.RSSI()` returns the signal strength of a Wifi network from from -127 to -1dB as an `int`. Positive return values indicate an error with 1 indicating a WiFi chip error and 2 indicating a time-out error.
 
 ### WiFi.ping()
 
@@ -862,7 +862,7 @@ On Core, this parameter can be one of the following values:
  * ADC_SampleTime_55Cycles5: Sample time equal to 55.5 cycles
  * ADC_SampleTime_71Cycles5: Sample time equal to 71.5 cycles
  * ADC_SampleTime_239Cycles5: Sample time equal to 239.5 cycles
- 
+
  On Photon, this parameter can be one of the following values:
 
  * ADC_SampleTime_3Cycles: Sample time equal to 3 cycles
@@ -906,7 +906,7 @@ void setup() {
   // iterate over the notes of the melody:
   for (int thisNote = 0; thisNote < 8; thisNote++) {
 
-    // to calculate the note duration, take one second 
+    // to calculate the note duration, take one second
     // divided by the note type.
     //e.g. quarter note = 1000 / 4, eighth note = 1000/8, etc.
     int noteDuration = 1000/noteDurations[thisNote];
@@ -969,7 +969,7 @@ setup() {
 	// Set data and clock pins as OUTPUT pins before using shiftOut()
 	pinMode(dataPin, OUTPUT);
 	pinMode(clock, OUTPUT);
-	
+
 	// shift out data using MSB first
 	shiftOut(dataPin, clock, MSBFIRST, data);
 
@@ -1012,7 +1012,7 @@ setup() {
 	// Set data as INPUT and clock pin as OUTPUT before using shiftIn()
 	pinMode(dataPin, INPUT);
 	pinMode(clock, OUTPUT);
-	
+
 	// shift in data using MSB first
 	data = shiftIn(dataPin, clock, MSBFIRST);
 
@@ -1370,7 +1370,7 @@ Wire.setSpeed(clockSpeed);
 Wire.begin();
 ```
 
-Parameters: 
+Parameters:
 
 - `clockSpeed`: CLOCK_SPEED_100KHZ, CLOCK_SPEED_400KHZ or user specified speeds.
 
@@ -1384,7 +1384,7 @@ Wire.stretchClock(stretch);
 Wire.begin();
 ```
 
-Parameters: 
+Parameters:
 
 - `stretch`: boolean. true will enable clock stretching. false will disable clock stretching.
 
@@ -1541,7 +1541,7 @@ void loop()
   Wire.requestFrom(2, 6);    // request 6 bytes from slave device #2
 
   while(Wire.available())    // slave may send less than requested
-  { 
+  {
     char c = Wire.read();    // receive a byte as character
     Serial.print(c);         // print the character
   }
@@ -3002,11 +3002,11 @@ The function returns the number's square root *(double)*
 
 ## Random Numbers
 
-The firmware incorporates a pseudo-random number generator. 
+The firmware incorporates a pseudo-random number generator.
 
 ### random()
 
-Retrieves the next random value, restricted to a given range. 
+Retrieves the next random value, restricted to a given range.
 
  `random(max);`
 
@@ -3014,7 +3014,7 @@ Parameters
 
 - `max` - the upper limit of the random number to retrieve.
 
-Returns: a random value between 0 and up to, but not including `max`. 
+Returns: a random value between 0 and up to, but not including `max`.
 
 ```c++
 int r = random(10);
@@ -3029,14 +3029,14 @@ int r = random(10);
 
 `random(min,max);`
 
-Parameters: 
+Parameters:
 
  - `min` - the lower limit (inclusive) of the random number to retrieve.
  - `max` - the upper limit (exclusive) of the random number to retrieve.
 
-Returns: a random value from `min` and up to, but not including `max`. 
+Returns: a random value from `min` and up to, but not including `max`.
 
-  
+
 ```c++
 int r = random(10, 100);
 // r is >= 10 and < 100
@@ -3044,25 +3044,25 @@ int r = random(10, 100);
 // The largest value returned is 99
 ```
 
-  NB: If `min` is greater or equal to `max`, the result is always 0. 
+  NB: If `min` is greater or equal to `max`, the result is always 0.
 
 ### randomSeed()
 
 `randomSeed(newSeed);`
 
 Parameters:
- 
+
  - `newSeed` - the new random seed
 
-The pseudorandom numbers produced by the firmware are derived from a single value - the random seed. 
+The pseudorandom numbers produced by the firmware are derived from a single value - the random seed.
 The value of this seed fully determines the sequence of random numbers produced by successive
 calls to `random()`. Using the same seed on two separate runs will produce
-the same sequence of random numbers, and in contrast, using different seeds 
+the same sequence of random numbers, and in contrast, using different seeds
 will produce a different sequence of random numbers.
 
 On startup, the default random seed is [set by the system](http://www.cplusplus.com/reference/cstdlib/srand/) to 1.
 Unless the seed is modified, the same sequence of random numbers would be produced each time
-the system starts. 
+the system starts.
 
 Fortunately, when the device connects to the cloud, it receives a very randomized seed value,
 which is used as the random seed. So you can be sure the random numbers produced
@@ -3078,7 +3078,7 @@ void random_seed_from_cloud(unsigned int seed);
 ```
 
 The system implementation of this function calls `randomSeed()` to set
-the new seed value. If you don't wish to use random seed values from the cloud, 
+the new seed value. If you don't wish to use random seed values from the cloud,
 you can take control of the ransom seeds set by adding this code to your app:
 
 ```cpp
@@ -3088,19 +3088,19 @@ void random_seed_from_cloud(unsigned int seed) {
 ```
 
 In the example, the seed is simply ignored, so the system will continue using
-whatever seed was previously set. In this case, the random seed will not be set 
+whatever seed was previously set. In this case, the random seed will not be set
 from the cloud, and setting the seed is left to up you.
 
 
 EEPROM
 ----
 
-The EEPROM emulator allocates a region of the device's built-in flash memory to act as EEPROM. 
+The EEPROM emulator allocates a region of the device's built-in flash memory to act as EEPROM.
 Unlike "true" EEPROM, flash doesn't suffer from write "wear" with each write to
 each individual address. Instead, the page suffers wear when it is filled. Each write
-will add more data to the page until it is full, causing a page erase. 
- 
-The EEPROM functions can be used to store small amounts of data in flash that 
+will add more data to the page until it is full, causing a page erase.
+
+The EEPROM functions can be used to store small amounts of data in flash that
 will persist even after the device resets after a deep sleep or is powered off.
 
 ### length()
@@ -3265,7 +3265,7 @@ System.dfu()
 
 
 The device will enter DFU-mode to allow new user firmware to be refreshed. DFU mode is cancelled by
-- flashing firmware to the device using dfu-util, specifying the `:leave` option, or 
+- flashing firmware to the device using dfu-util, specifying the `:leave` option, or
 - a system reset
 
 ```cpp
@@ -3273,7 +3273,7 @@ System.dfu()
 ```
 
 To make DFU mode permanent - so that it continues to enter DFU mode even after a reset until
-new firmware is flashed, pass `true` to the `dfu()` function. 
+new firmware is flashed, pass `true` to the `dfu()` function.
 
 ```cpp
 System.dfu(true);   // persistent DFU mode - will enter DFU after a reset until firmware is flashed.
