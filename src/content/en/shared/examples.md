@@ -89,6 +89,33 @@ Read your Photoresistor: Function and Variable
 <a data-firmware-example-code-block=true>
 
 ```cpp
+/*---OH HI THERE, WELCOME TO THE PHOTORESISTOR PROGRAM---
+
+Part One: Spark Variable and Spark Function
+
+We've heavily commented this code for you. If you're a pro, feel free to ignore it.
+
+Comments start with two slashes or are blocked off by a slash and a star.
+You can read them, but your device can't.
+It's like a secret message just for you.
+
+Every microcontroller program has two essential parts:
+setup - runs once at the beginning of your program
+loop - runs continuously over and over
+
+You'll see how we use these in a second.
+
+Often times, we'll also declare variables and include libraries before we define the setup function.
+We'll also add other functions as we go that we may need to use in loop and setup,
+or that we want to have on our device so that we can call them from the cloud.
+
+In this example, we're going to register a Spark.variable with the cloud so that we can read brightness levels from the photoresistor.
+
+We'll also register a Spark.function so that we can turn the LED on and off remotely.
+
+Ready to start?
+---------------------------------------*/
+
 // We're going to start by declaring which pins everything is plugged into.
  
 int led = D0; // This is where your LED is plugged in. The other side goes to a resistor connected to GND.
@@ -192,6 +219,10 @@ Tell your device what to do!<br>
 </center>
 ---------------------------
 */
+
+You can also see a JSON output of your Spark.variable call by going to:
+
+https://api.particle.io/v1/devices/your-device-ID-goes-here/analogvalue?access_token=your-access-token-goes-here
 
 ```
 
@@ -496,40 +527,6 @@ int beamThreshold;
 
 bool beamBroken = false;
 
-
-void setup() {
-  pinMode(led,OUTPUT);
-  pinMode(boardLed,OUTPUT);
-  pinMode(photoresistor,INPUT);
-  pinMode(power,OUTPUT);
-  
-  analogWrite(power,4095);
-
-  // Here we are going to subscribe to your buddy's event using Spark.subscribe
-  Spark.subscribe("buddy_unique_event_name", myHandler);
-  // Subscribe will listen for the event buddy_unique_event_name and, when it finds it, will run the function myHandler()
-  // (Remember to replace buddy_unique_event_name with your buddy's actual unique event name that they have in their firmware.)
-  // myHandler() is declared later in this app.
-
-  // Calibrate:
-// Just like before, we're going to start by declaring which pins everything is plugged into.
-
-int led = D0; // This is where your LED is plugged in. The other side goes to a resistor connected to GND.
-int boardLed = D7; // This is the LED that is already on your device.
-// On the Core, it's the LED in the upper right hand corner.
-// On the Photon, it's next to the D7 pin.
-
-int photoresistor = A0; // This is where your photoresistor is plugged in. The other side goes to the "power" pin (below).
-
-int power = A5; // This is the other end of your photoresistor. The other side is plugged into the "photoresistor" pin (above).
-
-// The following values get set up when your device boots up and calibrates:
-int intactValue; // This is the average value that the photoresistor reads when the beam is intact.
-int brokenValue; // This is the average value that the photoresistor reads when the beam is broken.
-int beamThreshold; // This is a value halfway between ledOnValue and ledOffValue, above which we will assume the led is on and below which we will assume it is off.
-
-bool beamBroken = false; // This flag will be used to mark if we have a new status or now. We will use it in the loop.
-
 // We start with the setup function.
 
 void setup() {
@@ -538,6 +535,12 @@ void setup() {
   pinMode(boardLed,OUTPUT); // Our on-board LED is output as well
   pinMode(photoresistor,INPUT);  // Our photoresistor pin is input (reading the photoresistor)
   pinMode(power,OUTPUT); // The pin powering the photoresistor is output (sending out consistent power)
+
+  // Here we are going to subscribe to your buddy's event using Spark.subscribe
+  Spark.subscribe("buddy_unique_event_name", myHandler);
+  // Subscribe will listen for the event buddy_unique_event_name and, when it finds it, will run the function myHandler()
+  // (Remember to replace buddy_unique_event_name with your buddy's actual unique event name that they have in their firmware.)
+  // myHandler() is declared later in this app.
 
   // Next, write the power of the photoresistor to be the maximum possible, which is 4095 in analog.
   analogWrite(power,4095);
@@ -657,6 +660,7 @@ void myHandler(const char *event, const char *data)
     // Really the data shouldn't be anything but those two listed above.
   }
 }
+
 ```
 
 In the last example, we sent a private publish. This publish went to you alone; it was just for you and your own apps, programs, integrations, and devices. We can also send a public publish, though, which allows anyone anywhere to see and subscribe to our event in the cloud. All they need is our event name.
