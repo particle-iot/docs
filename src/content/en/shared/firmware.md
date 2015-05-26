@@ -3318,13 +3318,13 @@ System.sleep(int seconds);
 System.sleep(5);
 // The device LED will flash green during sleep
 ```
-`System.sleep(int seconds)` does NOT stop the execution of user code (non-blocking call).  User code will continue running while the Wi-Fi module is in standby mode. During sleep, WiFi.status() will return WIFI_OFF.  Once sleep time has expired and the Wi-FI module attempts reconnection, WiFi.status() will return value WIFI_CONNECTING and WIFI_ON.
+`System.sleep(long seconds)` does NOT stop the execution of user code (non-blocking call).  User code will continue running while the Wi-Fi module is in standby mode. During sleep, WiFi.status() will return WIFI_OFF.  Once sleep time has expired and the Wi-FI module attempts reconnection, WiFi.status() will return value WIFI_CONNECTING and WIFI_ON.
 
-`System.sleep(SLEEP_MODE_DEEP, int seconds)` can be used to put the entire device into a *deep sleep* mode. In this particular mode, the device shuts down the network subsystem and puts the microcontroller in a stand-by mode.  When the device awakens from deep sleep, it will reset and run all user code from the beginning with no values being maintained in memory from before the deep sleep.  As such, it is recommended that deep sleep be called only after all user code has completed. The Standby mode is used to achieve the lowest power consumption.  After entering Standby mode, the SRAM and register contents are lost except for registers in the backup domain.
+`System.sleep(SLEEP_MODE_DEEP, long seconds)` can be used to put the entire device into a *deep sleep* mode. In this particular mode, the device shuts down the network subsystem and puts the microcontroller in a stand-by mode.  When the device awakens from deep sleep, it will reset and run all user code from the beginning with no values being maintained in memory from before the deep sleep.  As such, it is recommended that deep sleep be called only after all user code has completed. The Standby mode is used to achieve the lowest power consumption.  After entering Standby mode, the SRAM and register contents are lost except for registers in the backup domain.
 
 ```C++
 // SYNTAX
-System.sleep(SLEEP_MODE_DEEP, int seconds);
+System.sleep(SLEEP_MODE_DEEP, long seconds);
 ```
 
 ```C++
