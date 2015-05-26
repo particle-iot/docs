@@ -10,7 +10,7 @@ Annotated examples
 
 Here you will find a bunch of examples to get you started with your new Particle device! The diagrams here show the Photon, but these examples will work with either the Photon or the Core.
 
-<a id="blink-an-led" data-firmware-example-title="Blink an LED" data-firmware-example-description="Blink an LED">
+<a id="blink-an-led" data-firmware-example-url="http://docs.particle.io/photon/examples/#blink-an-led" data-firmware-example-title="Blink an LED" data-firmware-example-description="Blink an LED">
 
 Blink an LED
 ===
@@ -81,7 +81,7 @@ We have some heavily commented code for you (soon to be imported into the IDE) t
 
 Wire up your Photon or Core to look like the image on the right, and then follow the examples below.
 
-<a id="variables-and-functions-with-photoresistors" data-firmware-example-title="Variables and Functions - part 1" data-firmware-example-description="Learn about Variables and Functions using Photoresistors">
+<a id="variables-and-functions-with-photoresistors" data-firmware-example-url="http://docs.particle.io/photon/examples/#variables-and-functions-with-photoresistors" data-firmware-example-title="Variables and Functions - part 1" data-firmware-example-description="Learn about Variables and Functions using Photoresistors">
 
 Read your Photoresistor: Function and Variable
 ---
@@ -274,7 +274,7 @@ You can also check out this value by using the command line. Type:
 
 and make sure you replace `device_name` with either your device ID or the casual nickname you made for your device when you set it up.
 
-<a id="publish-with-photoresistors" data-firmware-example-title="Publish - part 2" data-firmware-example-description="Learn about Publish using Photoresistors">
+<a id="publish-with-photoresistors" data-firmware-example-url="http://docs.particle.io/photon/examples/#publish-with-photoresistors" data-firmware-example-title="Publish - part 2" data-firmware-example-description="Learn about Publish using Photoresistors">
 
 Make a Motion Detector: Publish and the Dashboard
 ---
@@ -477,7 +477,7 @@ You can check out the results on your dashboard at [dashboard.particle.io](https
 
 You can also hook up publishes to IFTTT! More info [here](/photon/ifttt).
 
-<a id="publish-and-subscribe-with-photoresistors" data-firmware-example-title="Publish and Subscribe - part 3" data-firmware-example-description="Learn about Publish and Subscribe using Photoresistors">
+<a id="publish-and-subscribe-with-photoresistors" data-firmware-example-url="http://docs.particle.io/photon/examples/#publish-and-subscribe-with-photoresistors" data-firmware-example-title="Publish and Subscribe - part 3" data-firmware-example-description="Learn about Publish and Subscribe using Photoresistors">
 
 The Buddy System: Publish and Subscribe
 ---
@@ -679,7 +679,7 @@ Flash the firmware to your devices. Calibrate your device when it comes online (
 
 No photoresistors? Other examples are below!
 
-<a id="control-led-over-the-net" data-firmware-example-title="Control LED over the Internet" data-firmware-example-description="">
+<a id="control-led-over-the-net" data-firmware-example-url="http://docs.particle.io/photon/examples/#control-led-over-the-net" data-firmware-example-title="Control LED over the Internet" data-firmware-example-description="">
 
 Control LEDs over the 'net
 ===
@@ -771,7 +771,7 @@ Note that the API endpoint is 'led', not 'ledControl'. This is because the endpo
 
 To better understand the concept of making API calls to your device over the cloud checkout the [Cloud API reference.](../api)
 
-<a id="variables-with-a-temperature-sensor" data-firmware-example-title="Measure the temperature" data-firmware-example-description="">
+<a id="variables-with-a-temperature-sensor" data-firmware-example-url="http://docs.particle.io/photon/examples/#variables-with-a-temperature-sensor" data-firmware-example-title="Measure the temperature" data-firmware-example-description="">
 
 Measuring the temperature
 ===

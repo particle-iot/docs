@@ -116,12 +116,16 @@ To reflash Tinker from within the app:
 The Tinker app is a great example of how to build a very powerful application with not all that much code. If you're a technical person, you can have a look at the latest release [here.](https://github.com/spark/core-firmware/blob/master/src/application.cpp)
 
 
+<a id="annotated-tinker-firmware" data-firmware-example-url="http://docs.particle.io/photon/tinker/#annotated-tinker-firmware" data-firmware-example-title="Tinker" data-firmware-example-description="The factory default firmware that mobile apps interact with">
+
 Using Tinker with Your Code
 ---
 
 I know what you're thinking: this is amazing, but I really want to use Tinker *while* my code is running so I can see what's happening! Now you can.
 
 Combine your code with this framework, flash it to your device, and Tinker away.
+
+<a data-firmware-example-code-block=true>
 
 ```cpp
 int tinkerDigitalRead(String pin);
