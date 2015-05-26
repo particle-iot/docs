@@ -412,7 +412,7 @@ void redundantLoop() {
 }
 ```
 
-`Spark.process()` is a blocking call, and blocks for a few milliseconds. `Spark.process()` is called automatically after every `loop()` and during delays. Typically you will not need to call `Spark.process()` unless you block in some other way and need to maintain the connection to the Cloud, or you change the [system mode](#system-system-modes). If the user puts the device into `MANUAL` mode, the user is responsible for calling `Spark.process()`. The more frequently this function is called, the more responsive the device will be to incoming messages, the more likely the Cloud connection will stay open, and the less likely that the CC3000's buffer will overrun.
+`Spark.process()` is a blocking call, and blocks for a few milliseconds. `Spark.process()` is called automatically after every `loop()` and during delays. Typically you will not need to call `Spark.process()` unless you block in some other way and need to maintain the connection to the Cloud, or you change the [system mode](#system-system-modes). If the user puts the device into `MANUAL` mode, the user is responsible for calling `Spark.process()`. The more frequently this function is called, the more responsive the device will be to incoming messages, the more likely the Cloud connection will stay open, and the less likely that the WiFi module's buffer will overrun.
 
 ### Spark.syncTime()
 
@@ -557,11 +557,11 @@ WiFi.setCredentials("My_Router", "wepistheworst", WEP);
 
 ### WiFi.clearCredentials()
 
-This will clear all saved credentials from the CC3000's memory. This will return `true` on success and `false` if the CC3000 has an error.
+This will clear all saved credentials from the WiFi module's memory. This will return `true` on success and `false` if the WiFi module has an error.
 
 ### WiFi.hasCredentials()
 
-Will return `true` if there are Wi-Fi credentials stored in the CC3000's memory.
+Will return `true` if there are Wi-Fi credentials stored in the WiFi module's memory.
 
 ### WiFi.macAddress()
 
