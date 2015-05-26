@@ -218,11 +218,13 @@ Tell your device what to do!<br>
 </form>
 </center>
 ---------------------------
-*/
 
 You can also see a JSON output of your Spark.variable call by going to:
 
 https://api.particle.io/v1/devices/your-device-ID-goes-here/analogvalue?access_token=your-access-token-goes-here
+
+*/
+
 
 ```
 
