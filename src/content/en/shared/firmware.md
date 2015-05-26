@@ -516,25 +516,55 @@ Note that `WiFi.on()` does not need to be called unless you have changed the [sy
 
 Attempts to connect to the Wi-Fi network. If there are no credentials stored, this will enter listening mode. If there are credentials stored, this will try the available credentials until connection is successful. When this function returns, the device may not have an IP address on the LAN; use `WiFi.ready()` to determine the connection status.
 
+```cpp
+// SYNTAX
+WiFi.connect();
+```
+
 ### WiFi.disconnect()
 
 Disconnects from the Wi-Fi network, but leaves the Wi-Fi module on.
+
+```cpp
+// SYNTAX
+WiFi.disconnect();
+```
 
 ### WiFi.connecting()
 
 This function will return `true` once the device is attempting to connect using stored Wi-Fi credentials, and will return `false` once the device has successfully connected to the Wi-Fi network.
 
+```cpp
+// SYNTAX
+WiFi.connecting();
+```
+
 ### WiFi.ready()
 
 This function will return `true` once the device is connected to the network and has been assigned an IP address, which means that it's ready to open TCP sockets and send UDP datagrams. Otherwise it will return `false`.
+
+```cpp
+// SYNTAX
+WiFi.ready();
+```
 
 ### WiFi.listen()
 
 This will enter listening mode, which opens a Serial connection to get Wi-Fi credentials over USB, and also listens for credentials over Smart Config.
 
+```cpp
+// SYNTAX
+WiFi.listen();
+```
+
 ### WiFi.listening()
 
 This will return `true` once `WiFi.listen()` has been called and will return `false` once the device has been given some Wi-Fi credentials to try, either over USB or Smart Config.
+
+```cpp
+// SYNTAX
+WiFi.listening();
+```
 
 ### WiFi.setCredentials()
 
@@ -559,9 +589,19 @@ WiFi.setCredentials("My_Router", "wepistheworst", WEP);
 
 This will clear all saved credentials from the CC3000's memory. This will return `true` on success and `false` if the CC3000 has an error.
 
+```cpp
+// SYNTAX
+WiFi.clearCredentials();
+```
+
 ### WiFi.hasCredentials()
 
 Will return `true` if there are Wi-Fi credentials stored in the CC3000's memory.
+
+```cpp
+// SYNTAX
+WiFi.hasCredentials();
+```
 
 ### WiFi.macAddress()
 
@@ -600,6 +640,11 @@ void loop() {}
 ### WiFi.RSSI()
 
 `WiFi.RSSI()` returns the signal strength of a Wifi network from from -127 to -1dB as an `int`. Positive return values indicate an error with 1 indicating a WiFi chip error and 2 indicating a time-out error.
+
+```cpp
+// SYNTAX
+WiFi.RSSI();
+```
 
 ### WiFi.ping()
 
