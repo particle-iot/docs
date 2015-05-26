@@ -3310,7 +3310,7 @@ System.sleep()
 
 ```C++
 // SYNTAX
-System.sleep(int seconds);
+System.sleep(long seconds);
 ```
 
 ```C++
