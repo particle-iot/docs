@@ -14,7 +14,7 @@ Cloud Functions
 ### Spark.variable()
 
 Expose a *variable* through the Cloud so that it can be called with `GET /v1/devices/{DEVICE_ID}/{VARIABLE}`.
-Returns a success value - `true` when the variable was registeresd.
+Returns a success value - `true` when the variable was registered.
 
 It is fine to call this function when the cloud is disconnected - the variable
 will be registered next time the cloud is connected.
@@ -3310,7 +3310,7 @@ System.sleep()
 
 ```C++
 // SYNTAX
-System.sleep(int seconds);
+System.sleep(long seconds);
 ```
 
 ```C++
