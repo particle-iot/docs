@@ -14,7 +14,7 @@ Cloud Functions
 ### Spark.variable()
 
 Expose a *variable* through the Cloud so that it can be called with `GET /v1/devices/{DEVICE_ID}/{VARIABLE}`.
-Returns a success value - `true` when the variable was registered.
+Returns a success value - `true` when the variable was registeresd.
 
 It is fine to call this function when the cloud is disconnected - the variable
 will be registered next time the cloud is connected.
@@ -3318,7 +3318,7 @@ System.sleep(int seconds);
 System.sleep(5);
 // The device LED will flash green during sleep
 ```
-`System.sleep(int seconds)` does NOT stop the execution of user code (non-blocking call).  User code will continue running while the Wi-Fi module is in standby mode. During sleep, WiFi.status() will return WIFI_OFF.  Once sleep time has expired and the Wi-FI module attempts reconnection, WiFi.status() will return value WIFI_CONNECTING and WIFI_ON.
+`System.sleep(int seconds)` does NOT stop the execution of user code (non-blocking call).  User code will continue running while the Wi-Fi module is in standby mode.
 
 `System.sleep(SLEEP_MODE_DEEP, int seconds)` can be used to put the entire device into a *deep sleep* mode. In this particular mode, the device shuts down the network subsystem and puts the microcontroller in a stand-by mode.  When the device awakens from deep sleep, it will reset and run all user code from the beginning with no values being maintained in memory from before the deep sleep.  As such, it is recommended that deep sleep be called only after all user code has completed. The Standby mode is used to achieve the lowest power consumption.  After entering Standby mode, the SRAM and register contents are lost except for registers in the backup domain.
 
