@@ -9,11 +9,10 @@ Your New Photon
 
 ### Congratulations!
 
+![Photons]({{assets}}/images/photon-plugged-in.jpg)
 
 Congratulations on being the owner of a brand new Photon! Here's what
 you need to get started:
-
-![Photons]({{assets}}/images/photon-plugged-in.jpg)
 
 - _(1) Photon_: Your Particle development board
 - _(1) USB cable_: A male-to-micro USB cable is needed to power the Photon. **Included in Photon Kit and Maker Kit**
