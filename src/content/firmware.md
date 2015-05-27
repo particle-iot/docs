@@ -3125,7 +3125,7 @@ from the cloud, and setting the seed is left to up you.
 EEPROM
 ----
 
-The EEPROM emulator allocates 100 bytes of the Spark Core's built-in flash memory to act as EEPROM. Unlike "true EEPROM, flash doesn't suffer from write "wear".  The EEPROM functions can be used to store small amounts of data in flash that will persist even after the Core resets after a deep sleep.
+The EEPROM emulator allocates `2048 bytes on Photon` & `100 bytes on Core` of the device's built-in flash memory to act as EEPROM. Unlike "true EEPROM, flash doesn't suffer from write "wear".  The EEPROM functions can be used to store small amounts of data in flash that will persist even after the Core resets after a deep sleep.
 
 
 ### read()
@@ -3133,7 +3133,7 @@ Read a byte of data from the emulated EEPROM.
 
 `read(address)`
 
-`address` is the address (int) of the EERPOM location (0-99) to read
+`address` is the address (int) of the EERPOM location to read
 
 ```C++
 // EXAMPLE USAGE
@@ -3147,7 +3147,7 @@ Write a byte of data to the emulated EEPROM.
 
 `write(address, value)`
 
-`address` is the address (int) of the EERPOM location (0-99) to write to
+`address` is the address (int) of the EERPOM location to write to
 `value` is the byte data (uint8_t) to write
 
 ```C++
@@ -3156,6 +3156,70 @@ Write a byte of data to the emulated EEPROM.
 int addr = 1;
 uint8_t val = 0x45;
 EEPROM.write(addr, val);
+```
+
+### update()
+This method is similar to `EEPROM.write()` however this method will only write data if the cell contents pointed to by `address` is different to `value`. This method can help prevent unnecessary wear on the EEPROM cells.
+
+`update(address, value)`
+
+`address` is the address (int) of the EERPOM location that needs to be updated
+`value` is the byte data (uint8_t) to write
+
+```C++
+// EXAMPLE USAGE
+// Update a byte value to the second byte of EEPROM
+int addr = 1;
+uint8_t val = 0x45;
+EEPROM.update(addr, val);
+```
+
+### get()
+This function will retrieve any object from the EEPROM. Two parameters are needed to call this function. The first is an int containing the address from where the object needs to be read, and the second is the object you would like to read.
+
+`get(address, object)`
+
+`address` is the address (int) of the EERPOM location
+`object` is the object data that would be read
+
+```C++
+// EXAMPLE USAGE
+// Read a custom object from EEPROM addres
+int addr = 10;
+float fValue = 0.00f;
+EEPROM.get(addr, fValue);
+
+struct MyObject{
+float field1;
+byte field2;
+char name[10];
+};
+MyObject myObj;
+EEPROM.get(addr, myObj);
+```
+
+### put()
+This function will write any object to the EEPROM. Two parameters are needed to call this function. The first is an int containing the address that is to be written, and the second is the object you would like to write.
+
+`put(address, object)`
+
+`address` is the address (int) of the EERPOM location to write to
+`object` is the object data to write
+
+```C++
+// EXAMPLE USAGE
+// Write a object value to the EEPROM address
+int addr = 10;
+float fValue = 123.456f;
+EEPROM.put(addr, fValue);
+
+struct MyObject{
+float field1;
+byte field2;
+char name[10];
+};
+MyObject myObj = {12.34f, 25, "Test!"}
+EEPROM.put(addr, myObj);
 ```
 
 Advanced: System Modes
