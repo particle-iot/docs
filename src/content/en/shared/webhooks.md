@@ -406,10 +406,10 @@ What's in a request?
 
 ```json
 {
-    event: "Your event name",
-    data: "Your event contents",
-    published_at: "When it was published",
-    coreid: "Your device ID"
+    "event": "Your event name",
+    "data": "Your event contents",
+    "published_at": "When it was published",
+    "coreid": "Your device ID"
 }
 ```
 
@@ -429,10 +429,10 @@ In order to help connect with many different services, you can move these publis
  
 ```json
 {
-    event:  "\{{SPARK_EVENT_NAME}}",
-    data: "\{{SPARK_EVENT_VALUE}}",
-    published_at: "\{{SPARK_PUBLISHED_AT}}",
-    coreid: "\{{SPARK_CORE_ID}}"
+    "event":  "\{{SPARK_EVENT_NAME}}",
+    "data": "\{{SPARK_EVENT_VALUE}}",
+    "published_at": "\{{SPARK_PUBLISHED_AT}}",
+    "coreid": "\{{SPARK_CORE_ID}}"
 }
 ```
 
