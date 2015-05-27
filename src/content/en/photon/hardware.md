@@ -1,7 +1,7 @@
 ---
 word: Datasheet
 title: Hardware datasheet
-order: 10
+order: 12
 columns: 2
 ---
 
