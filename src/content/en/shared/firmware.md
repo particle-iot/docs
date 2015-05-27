@@ -21,6 +21,7 @@ will be registered next time the cloud is connected.
 
 ```C++
 // EXAMPLE USAGE
+
 int analogvalue = 0;
 double tempC = 0;
 char *message = "my name is particle";
@@ -94,6 +95,7 @@ A cloud function is set up to take one argument of the [String](#language-syntax
 
 ```cpp
 // EXAMPLE USAGE
+
 int brewCoffee(String command);
 
 void setup()
@@ -814,22 +816,14 @@ void loop()
 
 Writes an analog value (PWM wave) to a pin. Can be used to light a LED at varying brightnesses or drive a motor at various speeds. After a call to analogWrite(), the pin will generate a steady square wave of the specified duty cycle until the next call to analogWrite() (or a call to digitalRead() or digitalWrite() on the same pin). The frequency of the PWM signal is approximately 500 Hz.
 
-- On the Core, this function works on pins A0, A1, A4, A5, A6, A7, D0 and D1.
-- On the Photon, this function works on pins A0, A1, A2, A3, A4, A5, WKP, TX and RX
-
-When used with these pins, the analogWrite function has nothing to do with the analog pins or the analogRead function.
-
 ```C++
 // SYNTAX
 analogWrite(pin, value);
 ```
 
-`analogWrite()` takes two arguments, `pin`: the number of the pin whose value you wish to set and `value`: the duty cycle: between 0 (always off) and 255 (always on).  NOTE: `pinMode(pin, OUTPUT);` is required before calling `analogWrite(pin, value);` or else the `pin` will not be initialized as a PWM output and set to the desired duty cycle.
-
-`analogWrite()` does not return anything.
-
 ```C++
 // EXAMPLE USAGE
+
 int ledPin = D1;               // LED connected to digital pin D1
 int analogPin = A0;            // potentiometer connected to analog pin A0
 int val = 0;                   // variable to store the read value
@@ -847,6 +841,18 @@ void loop()
   delay(10);
 }
 ```
+
+- On the Core, this function works on pins A0, A1, A4, A5, A6, A7, D0 and D1.
+- On the Photon, this function works on pins A0, A1, A2, A3, A4, A5, WKP, TX and RX
+
+When used with these pins, the analogWrite function has nothing to do with the analog pins or the analogRead function.
+
+
+`analogWrite()` takes two arguments, `pin`: the number of the pin whose value you wish to set and `value`: the duty cycle: between 0 (always off) and 255 (always on).  NOTE: `pinMode(pin, OUTPUT);` is required before calling `analogWrite(pin, value);` or else the `pin` will not be initialized as a PWM output and set to the desired duty cycle.
+
+`analogWrite()` does not return anything.
+
+
 
 #### Analog Output (Photon)
 
@@ -893,7 +899,7 @@ void loop()
 }
 ```
 
-#### setADCSampleTime()
+### setADCSampleTime()
 
 The function `setADCSampleTime(duration)` is used to change the default sample time for `analogRead()`.
 
@@ -996,11 +1002,6 @@ This is a software implementation; see also the SPI function, which provides a h
 // SYNTAX
 shiftOut(dataPin, clockPin, bitOrder, value)
 ```
-
-`shiftOut()` takes four arguments, 'dataPin': the pin on which to output each bit, `clockPin`: the pin to toggle once the dataPin has been set to the correct value, `bitOrder`: which order to shift out the bits; either MSBFIRST or LSBFIRST (Most Significant Bit First, or, Least Significant Bit First) and `value`: the data (byte) to shift out.
-
-`shiftOut()` does not return anything.
-
 ```C++
 // EXAMPLE USAGE
 
@@ -1027,6 +1028,12 @@ loop() {
 }
 ```
 
+`shiftOut()` takes four arguments, 'dataPin': the pin on which to output each bit, `clockPin`: the pin to toggle once the dataPin has been set to the correct value, `bitOrder`: which order to shift out the bits; either MSBFIRST or LSBFIRST (Most Significant Bit First, or, Least Significant Bit First) and `value`: the data (byte) to shift out.
+
+`shiftOut()` does not return anything.
+
+
+
 ### shiftIn()
 
 Shifts in a byte of data one bit at a time. Starts from either the most (i.e. the leftmost) or least (rightmost) significant bit. For each bit, the clock pin is pulled high, the next bit is read from the data line, and then the clock pin is taken low.
@@ -1038,12 +1045,6 @@ This is a software implementation; see also the SPI function, which provides a h
 // SYNTAX
 shiftIn(dataPin, clockPin, bitOrder)
 ```
-
-`shiftIn()` takes three arguments, 'dataPin': the pin on which to input each bit, `clockPin`: the pin to toggle to signal a read from dataPin, `bitOrder`: which order to shift in the bits; either MSBFIRST or LSBFIRST (Most Significant Bit First, or, Least Significant Bit First).
-
-`shiftIn()` returns the byte value read.
-
-
 ```C++
 // EXAMPLE USAGE
 
@@ -1069,6 +1070,10 @@ loop() {
 	// nothing to do
 }
 ```
+
+`shiftIn()` takes three arguments, 'dataPin': the pin on which to input each bit, `clockPin`: the pin to toggle to signal a read from dataPin, `bitOrder`: which order to shift in the bits; either MSBFIRST or LSBFIRST (Most Significant Bit First, or, Least Significant Bit First).
+
+`shiftIn()` returns the byte value read.
 
 
 Communication
@@ -1183,17 +1188,9 @@ Serial.write(str);
 Serial.write(buf, len);
 ```
 
-*Parameters:*
-
-- `val`: a value to send as a single byte
-- `str`: a string to send as a series of bytes
-- `buf`: an array to send as a series of bytes
-- `len`: the length of the buffer
-
-`write()` will return the number of bytes written, though reading that number is optional.
-
 ```C++
 // EXAMPLE USAGE
+
 void setup()
 {
   Serial.begin(9600);
@@ -1206,6 +1203,16 @@ void loop()
   int bytesSent = Serial.write(“hello”); //send the string “hello” and return the length of the string.
 }
 ```
+
+*Parameters:*
+
+- `val`: a value to send as a single byte
+- `str`: a string to send as a series of bytes
+- `buf`: an array to send as a series of bytes
+- `len`: the length of the buffer
+
+`write()` will return the number of bytes written, though reading that number is optional.
+
 
 ### read()
 
@@ -1275,7 +1282,7 @@ Serial.println(val, format);
 `println()` returns the number of bytes written, though reading that number is optional - `size_t (long)`
 
 ```C++
-EXAMPLE
+// EXAMPLE
 //reads an analog input on analog in A0, prints the value out.
 
 int analogValue = 0;    // variable to hold the analog value
@@ -1512,7 +1519,7 @@ Returns: `byte`, which indicates the status of the transmission:
 Writes data from a slave device in response to a request from a master, or queues bytes for transmission from a master to slave device (in-between calls to `beginTransmission()` and `endTransmission()`).
 
 ```C++
-// Syntax
+// SYNTAX
 Wire.write(value);
 Wire.write(string);
 Wire.write(data, length);
@@ -1530,6 +1537,7 @@ Returns:  `byte`
 
 ```C++
 // EXAMPLE USAGE
+
 // Master Writer running on Device No.1 (Use with corresponding Slave Reader running on Device No.2)
 
 void setup()
@@ -1566,13 +1574,15 @@ Returns: The number of bytes available for reading.
 Reads a byte that was transmitted from a slave device to a master after a call to `requestFrom()` or was transmitted from a master to a slave. `read()` inherits from the `Stream` utility class.
 
 ```C++
-Wire.read() ;
+// SYNTAX
+Wire.read();
 ```
 
 Returns: The next byte received
 
 ```C++
 // EXAMPLE USAGE
+
 // Master Reader running on Device No.1 (Use with corresponding Slave Writer running on Device No.2)
 
 void setup()
@@ -1603,6 +1613,7 @@ Parameters: `handler`: the function to be called when the slave receives data; t
 
 ```C++
 // EXAMPLE USAGE
+
 // Slave Reader running on Device No.2 (Use with corresponding Master Writer running on Device No.1)
 
 // function that executes whenever data is received from master
@@ -1639,6 +1650,7 @@ Parameters: `handler`: the function to be called, takes no parameters and return
 
 ```C++
 // EXAMPLE USAGE
+
 // Slave Writer running on Device No.2 (Use with corresponding Master Reader running on Device No.1)
 
 // function that executes whenever data is requested by master
@@ -1668,6 +1680,7 @@ Creates an IP address that can be used with TCPServer, TCPClient, and UDP object
 
 ```C++
 // EXAMPLE USAGE
+
 IPAddress localIP;
 IPAddress server(8,8,8,8);
 IPAddress IPfromInt( 167772162UL );  // 10.0.0.2 as 10*256^3+0*256^2+0*256+2
@@ -1789,7 +1802,7 @@ Gets a client that is connected to the server and has data available for reading
 Write data to all the clients connected to a server. This data is sent as a byte or series of bytes.
 
 ```C++
-// Syntax
+// SYNTAX
 server.write(val);
 server.write(buf, len);
 ```
@@ -1807,7 +1820,7 @@ Returns: `byte`: `write()` returns the number of bytes written. It is not necess
 Print data to all the clients connected to a server. Prints numbers as a sequence of digits, each an ASCII character (e.g. the number 123 is sent as the three characters '1', '2', '3').
 
 ```C++
-// Syntax
+// SYNTAX
 server.print(data);
 server.print(data, BASE) ;
 ```
@@ -1824,8 +1837,7 @@ Returns:  `byte`:  `print()` will return the number of bytes written, though rea
 Print data, followed by a newline, to all the clients connected to a server. Prints numbers as a sequence of digits, each an ASCII character (e.g. the number 123 is sent as the three characters '1', '2', '3').
 
 ```C++
-// Syntax
-
+// SYNTAX
 server.println();
 server.println(data);
 server.println(data, BASE) ;
@@ -1911,7 +1923,6 @@ Connects to a specified IP address and port. The return value indicates success 
 
 ```C++
 // SYNTAX
-
 client.connect();
 client.connect(ip, port);
 client.connect(URL, port);
@@ -1948,7 +1959,7 @@ Returns: `byte`: `write()` returns the number of bytes written. It is not necess
 Print data to the server that a client is connected to. Prints numbers as a sequence of digits, each an ASCII character (e.g. the number 123 is sent as the three characters '1', '2', '3').
 
 ```C++
-// Syntax
+// SYNTAX
 client.print(data);
 client.print(data, BASE) ;
 ```
@@ -1965,8 +1976,7 @@ Returns:  `byte`:  `print()` will return the number of bytes written, though rea
 Print data, followed by a carriage return and newline, to the server a client is connected to. Prints numbers as a sequence of digits, each an ASCII character (e.g. the number 123 is sent as the three characters '1', '2', '3').
 
 ```C++
-// Syntax
-
+// SYNTAX
 client.println();
 client.println(data);
 client.println(data, BASE) ;
@@ -2661,6 +2671,7 @@ Returns the number of milliseconds since the device began running the current pr
 
 ```C++
 // EXAMPLE USAGE
+
 unsigned long time;
 
 void setup()
@@ -2688,6 +2699,7 @@ Returns the number of microseconds since the device began running the current pr
 
 ```C++
 // EXAMPLE USAGE
+
 unsigned long time;
 
 void setup()
@@ -2710,7 +2722,7 @@ void loop()
 Pauses the program for the amount of time (in miliseconds) specified as parameter. (There are 1000 milliseconds in a second.)
 
 ```C++
-SYNTAX
+// SYNTAX
 delay(ms);
 ```
 
@@ -2718,6 +2730,7 @@ delay(ms);
 
 ```C++
 // EXAMPLE USAGE
+
 int ledPin = D1;              // LED connected to digital pin D1
 
 void setup()
@@ -2741,13 +2754,14 @@ the parameter for millis is an unsigned long, errors may be generated if a progr
 Pauses the program for the amount of time (in microseconds) specified as parameter. There are a thousand microseconds in a millisecond, and a million microseconds in a second.
 
 ```C++
-SYNTAX
+// SYNTAX
 delayMicroseconds(us);
 ```
 `us` is the number of microseconds to pause *(unsigned int)*
 
 ```C++
 // EXAMPLE USAGE
+
 int outPin = D1;              // digital pin D1
 
 void setup()
@@ -2773,6 +2787,7 @@ Specifies a function to call when an external interrupt occurs. Replaces any pre
 
 ```C++
 // EXAMPLE USAGE
+
 void blink(void);
 int ledPin = D1;
 volatile int state = LOW;
@@ -2825,7 +2840,10 @@ If you wanted to insure that a program always caught the pulses from a rotary en
 
 Turns off the given interrupt.
 
-`detachInterrupt(pin);`
+```
+// SYNTAX
+detachInterrupt(pin);
+```
 
 `pin` is the pin number of the interrupt to disable.
 
@@ -2836,6 +2854,7 @@ Re-enables interrupts (after they've been disabled by `noInterrupts()`). Interru
 
 ```C++
 // EXAMPLE USAGE
+
 void setup() {}
 
 void loop()
@@ -2856,6 +2875,9 @@ void loop()
 ### noInterrupts()
 
 Disables interrupts (you can re-enable them with `interrupts()`). Interrupts allow certain important tasks to happen in the background and are enabled by default. Some functions will not work while interrupts are disabled, and incoming communication may be ignored. Interrupts can slightly disrupt the timing of code, however, and may be disabled for particularly critical sections of code.
+
+// SYNTAX
+noInterrupts();
 
 `noInterrupts()` neither accepts a parameter nor returns anything.
 
@@ -3001,6 +3023,7 @@ The function returns the mapped value
 
 ```C++
 // EXAMPLE USAGE
+
 // Map an analog value to 8 bits (0 to 255)
 void setup() {}
 
@@ -3158,6 +3181,7 @@ Returns the total number of bytes of emulated EEPROM.
 
 ```c++
 // EXAMPLE USAGE
+
 // Find out the size of the emulated eeprom
 size_t length = EEPROM.length();
 ```
@@ -3174,6 +3198,7 @@ Read a byte of data from the emulated EEPROM.
 
 ```C++
 // EXAMPLE USAGE
+
 // Read the value of the second byte of EEPROM
 int addr = 1;
 uint8_t value = EEPROM.read(addr);
@@ -3193,6 +3218,7 @@ Write a byte of data to the emulated EEPROM.
 
 ```C++
 // EXAMPLE USAGE
+
 // Write a byte value to the second byte of EEPROM
 int addr = 1;
 uint8_t val = 0x45;
@@ -3359,11 +3385,13 @@ System.sleep(long seconds);
 ```
 
 ```C++
-// EXAMPLE USAGE: Put the Wi-Fi module in standby (low power) for 5 seconds
+// EXAMPLE USAGE
+
+// Put the Wi-Fi module in standby (low power) for 5 seconds
 System.sleep(5);
 // The device LED will flash green during sleep
 ```
-`System.sleep(long seconds)` does NOT stop the execution of user code (non-blocking call).  User code will continue running while the Wi-Fi module is in standby mode. 
+`System.sleep(long seconds)` does NOT stop the execution of user code (non-blocking call).  User code will continue running while the Wi-Fi module is in standby mode.
 
 `System.sleep(SLEEP_MODE_DEEP, long seconds)` can be used to put the entire device into a *deep sleep* mode. In this particular mode, the device shuts down the network subsystem and puts the microcontroller in a stand-by mode.  When the device awakens from deep sleep, it will reset and run all user code from the beginning with no values being maintained in memory from before the deep sleep.  As such, it is recommended that deep sleep be called only after all user code has completed. The Standby mode is used to achieve the lowest power consumption.  After entering Standby mode, the SRAM and register contents are lost except for registers in the backup domain.
 
@@ -3373,7 +3401,9 @@ System.sleep(SLEEP_MODE_DEEP, long seconds);
 ```
 
 ```C++
-// EXAMPLE USAGE: Put the device into deep sleep for 60 seconds
+// EXAMPLE USAGE
+
+// Put the device into deep sleep for 60 seconds
 System.sleep(SLEEP_MODE_DEEP,60);
 // The device LED will shut off during deep sleep
 ```
@@ -3388,7 +3418,9 @@ System.sleep(uint16_t wakeUpPin, uint16_t edgeTriggerMode);
 ```
 
 ```C++
-// EXAMPLE USAGE: Put the device into stop mode with wakeup using RISING edge interrupt on D0 pin
+// EXAMPLE USAGE
+
+// Put the device into stop mode with wakeup using RISING edge interrupt on D0 pin
 System.sleep(D0,RISING);
 // The device LED will shut off during sleep
 ```
@@ -3404,18 +3436,21 @@ System.sleep(D0,RISING);
 
 `System.sleep(uint16_t wakeUpPin, uint16_t edgeTriggerMode, long seconds)` can be used to put the entire device into a *stop* mode with *wakeup on interrupt* or *wakeup after specified seconds*. In this particular mode, the Core shuts down the Wi-Fi chipset (CC3000) and puts the microcontroller in a stop mode with configurable wakeup pin and edge triggered interrupt or wakeup after the specified seconds . When the specific interrupt arrives or upon reaching configured seconds, the Core awakens from stop mode, it will behave as if the Core is reset and run all user code from the beginning with no values being maintained in memory from before the stop mode. As such, it is recommended that stop mode be called only after all user code has completed. (Note: The new Particle Photon firmware will not reset before going into stop mode so all the application variables are preserved after waking up from this mode. The voltage regulator is put in low-power mode. This mode achieves the lowest power consumption while retaining the contents of SRAM and registers.)
 
-It is mandatory to update the *bootloader* (https://github.com/spark/firmware/tree/bootloader-patch-update) for proper functioning of this mode(valid only for Core).
-
 ```C++
 // SYNTAX
 System.sleep(uint16_t wakeUpPin, uint16_t edgeTriggerMode, long seconds);
 ```
 
 ```C++
-// EXAMPLE USAGE: Put the device into stop mode with wakeup using RISING edge interrupt on D0 pin or wakeup after 60 seconds whichever comes first
+// EXAMPLE USAGE
+
+// Put the device into stop mode with wakeup using RISING edge interrupt on D0 pin or wakeup after 60 seconds whichever comes first
 System.sleep(D0,RISING,60);
 // The device LED will shut off during sleep
 ```
+
+It is mandatory to update the *bootloader* (https://github.com/spark/firmware/tree/bootloader-patch-update) for proper functioning of this mode(valid only for Core).
+
 
 *Parameters:*
 
@@ -3479,6 +3514,7 @@ The setup() function is called when an application starts. Use it to initialize 
 
 ```cpp
 // EXAMPLE USAGE
+
 int button = D0;
 int LED = D1;
 //setup initializes D0 as input and D1 as output
@@ -3498,7 +3534,8 @@ void loop()
 After creating a setup() function, which initializes and sets the initial values, the loop() function does precisely what its name suggests, and loops consecutively, allowing your program to change and respond. Use it to actively control the device.
 
 ```C++
-EXAMPLE USAGE
+// EXAMPLE USAGE
+
 int button = D0;
 int LED = D1;
 //setup initializes D0 as input and D1 as output
@@ -3528,7 +3565,7 @@ Control structures
 `if`, which is used in conjunction with a comparison operator, tests whether a certain condition has been reached, such as an input being above a certain number.
 
 ```C++
-SYNTAX
+// SYNTAX
 if (someVariable > 50)
 {
   // do something here
@@ -3577,7 +3614,7 @@ This is because C evaluates the statement `if (x=10)` as follows: 10 is assigned
 *if/else* allows greater control over the flow of code than the basic *if* statement, by allowing multiple tests to be grouped together. For example, an analog input could be tested and one action taken if the input was less than 500, and another action taken if the input was 500 or greater. The code would look like this:
 
 ```C++
-SYNTAX
+// SYNTAX
 if (pinFiveInput < 500)
 {
   // action A
@@ -3617,7 +3654,7 @@ The `for` statement is used to repeat a block of statements enclosed in curly br
 There are three parts to the for loop header:
 
 ```C++
-SYNTAX
+// SYNTAX
 for (initialization; condition; increment)
 {
   //statement(s);
@@ -3627,6 +3664,7 @@ The *initialization* happens first and exactly once. Each time through the loop,
 
 ```C++
 // EXAMPLE USAGE
+
 // slowy make the LED glow brighter
 int ledPin = D1; // LED in series with 470 ohm resistor on pin D1
 
@@ -3686,7 +3724,7 @@ Like `if` statements, `switch`...`case` controls the flow of programs by allowin
 The `break` keyword exits the switch statement, and is typically used at the end of each case. Without a break statement, the switch statement will continue executing the following expressions ("falling-through") until a break, or the end of the switch statement is reached.
 
 ```C++
-SYNTAX
+// SYNTAX
 switch (var)
 {
   case label:
@@ -3704,6 +3742,7 @@ switch (var)
 
 ```C++
 // EXAMPLE USAGE
+
 switch (var)
 {
   case 1:
@@ -3723,7 +3762,7 @@ switch (var)
 `while` loops will loop continuously, and infinitely, until the expression inside the parenthesis, () becomes false. Something must change the tested variable, or the `while` loop will never exit. This could be in your code, such as an incremented variable, or an external condition, such as testing a sensor.
 
 ```C++
-SYNTAX
+// SYNTAX
 while(expression)
 {
   // statement(s)
@@ -3733,6 +3772,7 @@ while(expression)
 
 ```C++
 // EXAMPLE USAGE
+
 var = 0;
 while(var < 200)
 {
@@ -3746,7 +3786,7 @@ while(var < 200)
 The `do` loop works in the same manner as the `while` loop, with the exception that the condition is tested at the end of the loop, so the do loop will *always* run at least once.
 
 ```C++
-SYNTAX
+// SYNTAX
 do
 {
   // statement block
@@ -3755,6 +3795,7 @@ do
 
 ```C++
 // EXAMPLE USAGE
+
 do
 {
   delay(50);          // wait for sensors to stabilize
@@ -3769,6 +3810,7 @@ do
 
 ```C++
 // EXAMPLE USAGE
+
 for (int x = 0; x < 255; x++)
 {
   digitalWrite(ledPin, x);
@@ -3788,6 +3830,7 @@ The continue statement skips the rest of the current iteration of a loop (`do`, 
 
 ```C++
 // EXAMPLE USAGE
+
 for (x = 0; x < 255; x++)
 {
     if (x > 40 && x < 120) continue;  // create jump in values
@@ -3802,7 +3845,8 @@ for (x = 0; x < 255; x++)
 Terminate a function and return a value from a function to the calling function, if desired.
 
 ```C++
-EXAMPLE
+//EXAMPLE USAGE
+
 // A function to compare a sensor input to a threshold
  int checkSensor()
  {
@@ -3829,10 +3873,12 @@ void loop()
 Transfers program flow to a labeled point in the program
 
 ```C++
-USAGE
+// SYNTAX
+
 label:
 
 goto label; // sends program flow to the label
+
 ```
 
 **TIP:**
@@ -3842,6 +3888,7 @@ With that said, there are instances where a `goto` statement can come in handy, 
 
 ```C++
 // EXAMPLE USAGE
+
 for(byte r = 0; r < 255; r++) {
   for(byte g = 255; g > -1; g--) {
     for(byte b = 0; b < 255; b++) {
@@ -3932,6 +3979,7 @@ Comments only purpose are to help you understand (or remember) how your program 
 
 ```C++
 // EXAMPLE USAGE
+
 x = 5;  // This is a single line comment. Anything after the slashes is a comment
         // to the end of the line
 
@@ -3959,6 +4007,7 @@ This can have some unwanted side effects though, if for example, a constant name
 
 ```C++
 // EXAMPLE USAGE
+
 #define ledPin 3
 // The compiler will replace any mention of ledPin with the value 3 at compile time.
 ```
@@ -3991,6 +4040,7 @@ The single equal sign in the C programming language is called the assignment ope
 
 ```C++
 // EXAMPLE USAGE
+
 int sensVal;                // declare an integer variable named sensVal
 senVal = analogRead(A0);    // store the (digitized) input voltage at analog pin A0 in SensVal
 ```
@@ -4007,6 +4057,7 @@ If one of the numbers (operands) are of the type float or of type double, floati
 
 ```C++
 // EXAMPLE USAGES
+
 y = y + 3;
 x = x - 7;
 i = j * 6;
@@ -4045,6 +4096,7 @@ The remainder function can have unexpected behavoir when some of the opperands a
 
 ```C++
 // EXAMPLE USAGES
+
 x = 9 % 5;   // x now contains 4
 x = 5 % 5;   // x now contains 0
 x = 4 % 5;   // x now contains 4
@@ -4140,6 +4192,7 @@ The bitwise AND operator in C++ is a single ampersand, &, used between two other
 
 ```C++
 // EXAMPLE USAGE
+
 int a =  92;    // in binary: 0000000001011100
 int b = 101;    // in binary: 0000000001100101
 int c = a & b;  // result:    0000000001000100, or 68 in decimal.
@@ -4158,6 +4211,7 @@ The bitwise OR operator in C++ is the vertical bar symbol, |. Like the & operato
 ```
 ```C++
 // EXAMPLE USAGE
+
 int a =  92;    // in binary: 0000000001011100
 int b = 101;    // in binary: 0000000001100101
 int c = a | b;  // result:    0000000001111101, or 125 in decimal.
@@ -4177,6 +4231,7 @@ Another way to look at bitwise XOR is that each bit in the result is a 1 if the 
 
 ```C++
 // EXAMPLE USAGE
+
 int x = 12;     // binary: 1100
 int y = 10;     // binary: 1010
 int z = x ^ y;  // binary: 0110, or decimal 6
@@ -4219,6 +4274,7 @@ variable >> number_of_bits
 
 ```C++
 // EXAMPLE USAGE
+
 int a = 5;        // binary: 0000000000000101
 int b = a << 3;   // binary: 0000000000101000, or 40 in decimal
 int c = b >> 3;   // binary: 0000000000000101, or back to 5 like we started with
@@ -4269,7 +4325,7 @@ Compound operators
 Increment or decrement a variable
 
 ```C++
-SYNTAX
+// SYNTAX
 x++;  // increment x by one and returns the old value of x
 ++x;  // increment x by one and returns the new value of x
 
@@ -4281,6 +4337,7 @@ where `x` is an integer or long (possibly unsigned)
 
 ```C++
 // EXAMPLE USAGE
+
 x = 2;
 y = ++x;      // x now contains 3, y contains 3
 y = x--;      // x contains 2 again, y still contains 3
@@ -4296,7 +4353,7 @@ y = x--;      // x contains 2 again, y still contains 3
 Perform a mathematical operation on a variable with another constant or variable. The += (et al) operators are just a convenient shorthand for the expanded syntax.
 
 ```C++
-SYNTAX
+// SYNTAX
 x += y;   // equivalent to the expression x = x + y;
 x -= y;   // equivalent to the expression x = x - y;
 x *= y;   // equivalent to the expression x = x * y;
@@ -4308,6 +4365,7 @@ x /= y;   // equivalent to the expression x = x / y;
 
 ```C++
 // EXAMPLE USAGE
+
 x = 2;
 x += 4;      // x now contains 6
 x -= 3;      // x now contains 3
@@ -4371,7 +4429,7 @@ So if:
 The compound bitwise OR operator (|=) is often used with a variable and a constant to "set" (set to 1) particular bits in a variable.
 
 ```C++
-SYNTAX
+// SYNTAX
 x |= y;   // equivalent to x = x | y;
 ```
 `x` can be a char, int or long variable
@@ -4435,31 +4493,15 @@ Constructs an instance of the String class. There are multiple versions that con
   * an integer or long integer variable
   * an integer or long integer variable, using a specified base
 
-Constructing a String from a number results in a string that contains the ASCII representation of that number. The default is base ten, so
-
-`String thisString = String(13)`
-gives you the String "13". You can use other bases, however. For example,
-`String thisString = String(13, HEX)`
-gives you the String "D", which is the hexadecimal representation of the decimal value 13. Or if you prefer binary,
-`String thisString = String(13, BIN)`
-gives you the String "1101", which is the binary representation of 13.
-
-```
-SYNTAX:
-
+```C++
+// SYNTAX
 String(val)
 String(val, base)
 ```
 
-Parameters:
-
-  * val: a variable to format as a String - string, char, byte, int, long, unsigned int, unsigned long
-  * base (optional) - the base in which to format an integral value
-
-Returns: an instance of the String class
-
 ```cpp
 // EXAMPLES
+
 String stringOne = "Hello String";                     // using a constant String
 String stringOne =  String('a');                       // converting a constant char into a String
 String stringTwo =  String("This is a string");        // converting a constant string into a String object
@@ -4470,14 +4512,32 @@ String stringOne =  String(45, HEX);                   // using an int and a bas
 String stringOne =  String(255, BIN);                  // using an int and a base (binary)
 String stringOne =  String(millis(), DEC);             // using a long and a base
 ```
+Constructing a String from a number results in a string that contains the ASCII representation of that number. The default is base ten, so
+
+`String thisString = String(13)`
+gives you the String "13". You can use other bases, however. For example,
+`String thisString = String(13, HEX)`
+gives you the String "D", which is the hexadecimal representation of the decimal value 13. Or if you prefer binary,
+`String thisString = String(13, BIN)`
+gives you the String "1101", which is the binary representation of 13.
+
+
+
+Parameters:
+
+  * val: a variable to format as a String - string, char, byte, int, long, unsigned int, unsigned long
+  * base (optional) - the base in which to format an integral value
+
+Returns: an instance of the String class
+
+
 
 ### charAt()
 
 Access a particular character of the String.
 
-```
-SYNTAX:
-
+```C++
+// SYNTAX
 string.charAt(n)
 ```
 Parameters:
@@ -4493,9 +4553,8 @@ Returns: the n'th character of the String
 Compares two Strings, testing whether one comes before or after the other, or whether they're equal. The strings are compared character by character, using the ASCII values of the characters. That means, for example, that 'a' comes before 'b' but after 'A'. Numbers come before letters.
 
 
-```
-SYNTAX:
-
+```C++
+// SYNTAX
 string.compareTo(string2)
 ```
 
@@ -4514,9 +4573,8 @@ Returns:
 
 Combines, or *concatenates* two strings into one string. The second string is appended to the first, and the result is placed in the original string.
 
-```
-SYNTAX:
-
+```C++
+// SYNTAX
 string.concat(string2)
 ```
 
@@ -4530,9 +4588,8 @@ Returns: None
 
 Tests whether or not a String ends with the characters of another String.
 
-```
-SYNTAX:
-
+```C++
+// SYNTAX
 string.endsWith(string2)
 ```
 
@@ -4551,9 +4608,8 @@ Returns:
 
 Compares two strings for equality. The comparison is case-sensitive, meaning the String "hello" is not equal to the String "HELLO".
 
-```
-SYNTAX:
-
+```C++
+// SYNTAX
 string.equals(string2)
 ```
 Parameters:
@@ -4569,9 +4625,8 @@ Returns:
 
 Compares two strings for equality. The comparison is not case-sensitive, meaning the String("hello") is equal to the String("HELLO").
 
-```
-SYNTAX:
-
+```C++
+// SYNTAX
 string.equalsIgnoreCase(string2)
 ```
 Parameters:
@@ -4587,9 +4642,8 @@ Returns:
 
 Copies the string's characters to the supplied buffer.
 
-```
-SYNTAX:
-
+```C++
+// SYNTAX
 string.getBytes(buf, len)
 ```
 Parameters:
@@ -4604,9 +4658,8 @@ Returns: None
 
 Locates a character or String within another String. By default, searches from the beginning of the String, but can also start from a given index, allowing for the locating of all instances of the character or String.
 
-```
-SYNTAX:
-
+```C++
+// SYNTAX
 string.indexOf(val)
 string.indexOf(val, from)
 ```
@@ -4623,8 +4676,8 @@ Returns: The index of val within the String, or -1 if not found.
 
 Locates a character or String within another String. By default, searches from the end of the String, but can also work backwards from a given index, allowing for the locating of all instances of the character or String.
 
-```SYNTAX:
-
+```C++
+// SYNTAX
 string.lastIndexOf(val)
 string.lastIndexOf(val, from)
 ```
@@ -4641,9 +4694,8 @@ Returns: The index of val within the String, or -1 if not found.
 
 Returns the length of the String, in characters. (Note that this doesn't include a trailing null character.)
 
-```
-SYNTAX:
-
+```C++
+// SYNTAX
 string.length()
 ```
 
@@ -4657,9 +4709,8 @@ Returns: The length of the String in characters.
 
 The String `replace()` function allows you to replace all instances of a given character with another character. You can also use replace to replace substrings of a string with a different substring.
 
-```
-SYNTAX:
-
+```C++
+// SYNTAX
 string.replace(substring1, substring2)
 ```
 
@@ -4675,9 +4726,8 @@ Returns: None
 
 The String reserve() function allows you to allocate a buffer in memory for manipulating strings.
 
-```
-SYNTAX:
-
+```C++
+// SYNTAX
 string.reserve(size)
 ```
 Parameters:
@@ -4716,9 +4766,8 @@ void loop() {
 
 Sets a character of the String. Has no effect on indices outside the existing length of the String.
 
-```
-SYNTAX:
-
+```C++
+// SYNTAX
 string.setCharAt(index, c)
 ```
 Parameters:
@@ -4733,9 +4782,8 @@ Returns: None
 
 Tests whether or not a String starts with the characters of another String.
 
-```
-SYNTAX:
-
+```C++
+// SYNTAX
 string.startsWith(string2)
 ```
 
@@ -4753,9 +4801,8 @@ Returns:
 
 Get a substring of a String. The starting index is inclusive (the corresponding character is included in the substring), but the optional ending index is exclusive (the corresponding character is not included in the substring). If the ending index is omitted, the substring continues to the end of the String.
 
-```
-SYNTAX:
-
+```C++
+// SYNTAX
 string.substring(from)
 string.substring(from, to)
 ```
@@ -4772,9 +4819,8 @@ Returns: the substring
 
 Copies the string's characters to the supplied buffer.
 
-```
-SYNTAX:
-
+```C++
+// SYNTAX
 string.toCharArray(buf, len)
 ```
 Parameters:
@@ -4789,9 +4835,8 @@ Returns: None
 
 Converts a valid String to an integer. The input string should start with an integral number. If the string contains non-integral numbers, the function will stop performing the conversion.
 
-```
-SYNTAX:
-
+```C++
+// SYNTAX
 string.toInt()
 ```
 
@@ -4805,9 +4850,8 @@ Returns: long (If no valid conversion could be performed because the string does
 
 Get a lower-case version of a String. `toLowerCase()` modifies the string in place.
 
-```
-SYNTAX:
-
+```C++
+// SYNTAX
 string.toLowerCase()
 ```
 
@@ -4821,9 +4865,8 @@ Returns: None
 
 Get an upper-case version of a String. `toUpperCase()` modifies the string in place.
 
-```
-SYNTAX:
-
+```C++
+// SYNTAX
 string.toUpperCase()
 ```
 
@@ -4837,9 +4880,8 @@ Returns: None
 
 Get a version of the String with any leading and trailing whitespace removed.
 
-```
-SYNTAX:
-
+```C++
+// SYNTAX
 string.trim()
 ```
 
@@ -5143,7 +5185,7 @@ Arrays are zero indexed, that is, referring to the array initialization above, t
 It also means that in an array with ten elements, index nine is the last element. Hence:
 ```cpp
 int myArray[10] = {9,3,2,4,3,2,7,8,9,11};
-//  myArray[9]    contains 11
+//  myArray[9]    contains the value 11
 //  myArray[10]   is invalid and contains random information (other memory address)
 ```
 
