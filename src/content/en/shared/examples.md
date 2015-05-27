@@ -122,7 +122,7 @@ int led = D0; // This is where your LED is plugged in. The other side goes to a 
  
 int photoresistor = A0; // This is where your photoresistor is plugged in. The other side goes to the "power" pin (below).
  
-int power = A4; // This is the other end of your photoresistor. The other side is plugged into the "photoresistor" pin (above).
+int power = A5; // This is the other end of your photoresistor. The other side is plugged into the "photoresistor" pin (above).
 // The reason we have plugged one side into an analog pin instead of to "power" is because we want a very steady voltage to be sent to the photoresistor.
 // That way, when we read the value from the other side of the photoresistor, we can accurately calculate a voltage drop.
  
