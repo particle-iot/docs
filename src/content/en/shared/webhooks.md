@@ -628,6 +628,7 @@ you can send 10 hooks per minute per device
 
 A user by default may trigger a hook up to 10 times per minute for every device that is registered to their account.  A user may create up to 20 webhooks in total.
 
+Note: This means you must have at least one device registered to your account to trigger a webhook.
 
 
 Limits by Hook
