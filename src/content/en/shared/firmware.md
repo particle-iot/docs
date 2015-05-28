@@ -610,6 +610,30 @@ WiFi.hasCredentials();
 `WiFi.macAddress()` returns the MAC address of the device.
 
 ```cpp
+// EXAMPLE USAGE
+
+byte mac[6];
+
+void setup() {
+  WiFi.on();
+  Serial.begin(9600);
+  while (!Serial.available()) Spark.process();
+
+  WiFi.macAddress(mac);
+
+  for (int i=0; i<6; i++) {
+    if (i) Serial.print(":");
+    Serial.print(mac[i], HEX);
+  }
+}
+```
+
+```cpp
+// EXAMPLE USAGE
+
+// Only for Spark Core using firmware < 0.4.0
+// Mac address is in the reversed order and
+// is fixed from V0.4.0 onwards
 
 byte mac[6];
 
