@@ -5181,7 +5181,7 @@ void loop(){
 
 ### String - object
 
-More info can be found [here.](http://docs.particle.io/#/firmware/language-syntax-string-class)
+More info can be found [here.](#language-syntax-string-class)
 
 ### array
 
