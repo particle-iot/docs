@@ -423,10 +423,6 @@ This happens automatically when the device connects to the Cloud.
 However, if your device runs continuously for a long time,
 you may want to synchronize once per day or so.
 
-Note that this function sends a request message to the Cloud and then returns.
-The time on the device will not be synchronized until some milliseconds later
-when the Cloud responds with the current time between calls to your loop.
-
 ```C++
 #define ONE_DAY_MILLIS (24 * 60 * 60 * 1000)
 unsigned long lastSync = millis();
@@ -439,6 +435,10 @@ void loop() {
   }
 }
 ```
+
+Note that this function sends a request message to the Cloud and then returns.
+The time on the device will not be synchronized until some milliseconds later
+when the Cloud responds with the current time between calls to your loop.
 
 ### Get Public IP
 
