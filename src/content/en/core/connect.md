@@ -11,7 +11,7 @@ Connecting your Device
   <iframe class="vine-embed" src="https://vine.co/v/hFHPMue5lgd/embed/simple" width="320" height="320" frameborder="0"></iframe>
 </div>
 
-The easiest way to connect your device to Wi-Fi is using the Spark Core mobile app for [iPhone](https://itunes.apple.com/us/app/spark-core/id760157884?mt=8) or [Android](https://play.google.com/store/apps/details?id=io.spark.core.android). But in case that's not working for you or you don't have an iOS/Android phone, there are other methods as well.
+The easiest way to connect your device to Wi-Fi is using the [Spark Core mobile app](#connecting-your-device-spark-core-mobile-app) for iPhone or Android. But in case that's not working for you or you don't have an iOS/Android phone, there are other methods as well.
 
 For all of the following methods, the device must be in [Listening Mode](#connecting-your-device-listening-mode), which you'll know by its flashing blue LED.
 
