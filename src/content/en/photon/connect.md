@@ -11,7 +11,7 @@ Connecting your Device
   <iframe src="https://vine.co/v/eZUH7WaWjMT/embed/simple" width="320" height="320" frameborder="0"></iframe>
 </div>
 
-The easiest way to connect your device to Wi-Fi is using the [Particle mobile app](https://itunes.apple.com/us/app/particle-build-photon-electron/id991459054?ls=1&mt=8) for iPhone or Android. But in case that's not working for you or you don't have an iOS/Android phone, there are other methods as well.
+The easiest way to connect your device to Wi-Fi is using the [Particle mobile app](#connecting-your-device-particle-app-for-photon) for iPhone or Android. But in case that's not working for you or you don't have an iOS/Android phone, there are other methods as well.
 
 For all of the following methods, the device must be in [Listening Mode](#connecting-your-device-listening-mode), where the RGB LED is flashing blue.
 
@@ -26,7 +26,9 @@ The Core and Photon both boot into listening mode by default, so if your device 
 
 ## Particle App for Photon
 
-Get [the app](https://itunes.apple.com/us/app/particle-build-photon-electron/id991459054?ls=1&mt=8) and set up following the instructions [here!](http://docs.particle.io/photon/#step-2-install-the-app)
+Get the app and set up following the instructions [here!](http://docs.particle.io/photon/#step-2-install-the-app)
+
+[iPhone >](https://itunes.apple.com/us/app/particle-build-photon-electron/id991459054?ls=1&mt=8)  [Android >](https://play.google.com/store/apps/details?id=io.particle.android.app)
 
 ## Connect over USB
 
