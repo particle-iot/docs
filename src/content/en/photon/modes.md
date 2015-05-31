@@ -58,13 +58,13 @@ To put your device in Listening Mode, hold the `MODE` button for three seconds, 
 
 To erase the stored wifi networks on your device, hold the `MODE` button for about ten seconds, until the RGB LED flashes blue rapidly.
 
-## Selecting Safe, DFU, Firmware and Factory Resets
+## Selecting various MODES
 
 ![Photon Reset Modes]({{assets}}/images/photon-reset-modes.png)
 
 These four modes are all selected using the same process, but by releasing the `SETUP` button at different times. The diagram to the right details the order, LED codes you'll see, and a little bit about what each does.
 
-## Safe Mode
+### Safe Mode
 
 <div class="iframe-wrapper">
   <iframe src="https://vine.co/v/eZUF2ilvLxJ/embed/simple" width="320" height="320" frameborder="0"></iframe>
@@ -80,7 +80,7 @@ To put your device in Safe Mode:
 6. Release the MODE button
 
 
-## DFU Mode (Device Firmware Upgrade)
+### DFU Mode (Device Firmware Upgrade)
 
 <div class="iframe-wrapper">
   <iframe src="https://vine.co/v/eZUHnhaUD9Y/embed/simple" width="320" height="320" frameborder="0"></iframe>
@@ -104,7 +104,7 @@ To enter DFU Mode:
 The device now is in the DFU mode.
 
 
-## Firmware Reset
+### Firmware Reset
 
 <div class="iframe-wrapper">
   <iframe src="https://vine.co/v/eZUwv3Za6Lq/embed/simple" width="320" height="320" frameborder="0"></iframe>
@@ -120,7 +120,7 @@ To perform a firmware reset:
 6. Release the MODE button
 
 
-## Factory Reset
+### Factory Reset
 
 <div class="iframe-wrapper">
   <iframe src="https://vine.co/v/eZUXpd2hUqa/embed/simple" width="320" height="320" frameborder="0"></iframe>
