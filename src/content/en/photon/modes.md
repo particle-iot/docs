@@ -86,7 +86,9 @@ To put your device in Safe Mode:
   <iframe src="https://vine.co/v/eZUHnhaUD9Y/embed/simple" width="320" height="320" frameborder="0"></iframe>
 </div>
 
-If you wish to program a device with a custom firmware via USB, you'll need to use this mode. This mode triggers the on-board bootloader that accepts firmware binary files via the dfu-utility.
+If you wish to program a device with a custom firmware via USB, you'll need to use this mode. This mode triggers the on-board bootloader that accepts firmware binary files via the [dfu-utility.](http://dfu-util.sourceforge.net)
+
+Installation tutorial can be found [here.](http://docs.particle.io/photon/cli/#installing-advanced-install)
 
 To enter DFU Mode:
 
@@ -143,4 +145,3 @@ To perform a factory reset:
 ````
 // The above video is at 2x speed.
 ````
-
