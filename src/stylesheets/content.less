@@ -53,9 +53,17 @@
   margin-left: 20px;
 }
 .content ul > li {
-  list-style-type: none;
-  position: relative;
-  margin-bottom: 7px;
+  list-style-type: disc;
+  // position: relative;
+  margin-bottom: 5px;
+}
+.content ul > li > ul > li {
+  list-style-type: circle;
+  margin-bottom: 5px;
+}
+.content ul > li > ul > li > ul > li {
+  list-style-type: square;
+  margin-bottom: 5px;
 }
 .content ul > li:before {
   content: '';
