@@ -187,7 +187,7 @@ When these pads are programmed to be used as a Bluetooth coexistence interface, 
 | 30	|	MICRO_UART2_CTS	|	PA0	|	WKP |
 | 31	|	MICRO_UART2_RXD	|	PA3	|	RGB_LED_BLUE |
 | 32	|	MICRO_UART2_TXD	|	PA2	|	RGB_LED_GREEN |
-| 33	|	TESTMODE	|	PA8	|	 | GPIO (see STM32F205 datasheet)
+| 33	|	TESTMODE	|	PA8	| GPIO (see STM32F205 datasheet) |
 | 34	|	MICRO_RST_N	|	I	|	/RESET, Active low MCU reset |
 | 35	|	MICRO_I2C1_SCL	|	PB6	|	D1, I2C SCL |
 | 36	|	MICRO_I2C1_SDA	|	PB7	|	D0, I2C SDA |
