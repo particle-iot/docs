@@ -5,7 +5,7 @@ order: 12
 columns: 2
 ---
 
-Photon Datasheet <sup>(v009)</sup>
+Photon Datasheet <sup>(v010)</sup>
 ===
 
 <div align=center><img src="{{assets}}/images/photon_vector2_600.png" width=200></div>
@@ -162,7 +162,7 @@ When these pads are programmed to be used as a Bluetooth coexistence interface, 
 |-|-|
 | VIN | This pin can be used as an input or output. As an input, supply 3.6 to 5.5VDC to power the Photon. When the Photon is powered via the USB port, this pin will output a voltage of approximately 4.8VDC due to a reverse polarity protection series schottky diode between VUSB and VIN. When used as an output, the max load on VIN is 1A. |
 | RST | Active-low reset input. On-board circuitry contains a 1k ohm pull-up resistor between RST and 3V3, and 0.1uF capacitor between RST and GND. |
-| VBAT | Supply to the internal RTC, backup registers and SRAM (1.8 to 3.3VDC). |
+| VBAT | Supply to the internal RTC, backup registers and SRAM when 3V3 is not present (1.65 to 3.6VDC). |
 | 3V3 | This pin is the output of the on-board regulator and is internally connected to the VDD of the WiFi module. When powering the Photon via VIN or the USB port, this pin will output a voltage of 3.3VDC. This pin can also be used to power the Photon directly (max input 3.3VDC). When used as an output, the max load on 3V3 is 100mA. NOTE: When powering the Photon via this pin, ensure power is disconnected from VIN and USB. |
 | WKP | Active-high wakeup pin, wakes the module from sleep/standby modes. When not used as a WAKEUP, this pin can also be used as a digital GPIO, ADC input or PWM. |
 | D0~D7 | Digital only GPIO pins. |
@@ -203,6 +203,7 @@ When these pads are programmed to be used as a Bluetooth coexistence interface, 
 | Supply Input Voltage | V<sub>3V3</sub> | +3.0 | +3.3 | +3.6 | V |
 | Supply Output Voltage | V<sub>IN</sub> |  | +4.8 |  | V |
 | Supply Output Voltage | V<sub>3V3</sub> |  | +3.3 |  | V |
+| Supply Input Voltage | V<sub>VBAT</sub> | +1.65 |  | +3.6 | V |
 | Supply Input Current (VBAT) | I<sub>VBAT</sub> |  |  | 19 | uA |
 | Operating Current (Wi-Fi on) | I<sub>IN avg</sub> |  | 80 | 100 | mA |
 | Operating Current (Wi-Fi on) | I<sub>IN pk</sub> | 235<sup>[1]</sup> |  | 430<sup>[1]</sup> | mA |
@@ -475,6 +476,7 @@ You may use the online Web IDE [Particle Build](https://www.particle.io/build) t
 | v007 | 28-Apr-2015 | BW | Added Layout, Updated analog pins, Land patterns, Packaging, Mating Connectors |
 | v008 | 11-May-2015 | BW | Updated BT CO-EX, PWM info, Qualifications |
 | v009 | 31-May-2015 | BW | Updated Pinouts, DAC info, Height dimensions, Solder mask info, Recommended operating conditions |
+| v010 | 1-June-2015 | BW | Updated VBAT info |
 
 
 #16. Contact

@@ -5,7 +5,7 @@ order: 13
 columns: 2
 ---
 
-P1 Datasheet <sup>(v002)</sup>
+P1 Datasheet <sup>(v003)</sup>
 ===
 
 <div align=center><img src="{{assets}}/images/p1-vector.png" width=200></div>
@@ -49,7 +49,7 @@ The P1 is Particle's tiny Wi-Fi module that contains both the Broadcom Wi-Fi chi
 
 ### 2.2 Power
 
-Power to the P1 is supplied via 3 different inputs: VBAT_WL (pin 2 & 3), VDDIO_3V3_WL (pin 5), VDD_3V3 (pin 26 & 27).  Optionally +3.3V may be supplied to MICRO_VBAT (pin 38) for data retention in low power sleep modes. Each of these inputs also requires a 0.1uF and 10uF ceramic decoupling capacitor, located as close as possible to the pin (see Fig 1). The voltage should be regulated between 3.0VDC and 3.6VDC.
+Power to the P1 is supplied via 3 different inputs: VBAT_WL (pin 2 & 3), VDDIO_3V3_WL (pin 5), VDD_3V3 (pin 26 & 27).  Optionally +3.3V may be supplied to VBAT_MICRO (pin 38) for data retention in low power sleep modes. Each of these inputs also requires a 0.1uF and 10uF ceramic decoupling capacitor, located as close as possible to the pin (see Fig 1). The voltage should be regulated between 3.0VDC and 3.6VDC.
 
 Typical current consumption is 80mA with a 3.3V input.  Deep sleep quiescent current is 160uA.  When powering the P1 make sure the power supply can handle 600mA continuous. If a lesser power supply is provided, peak currents drawn from the P1 when transmitting and receiving will result in voltage sag at the input which may cause a system brown out or intermittent operation.  Likewise, the power source should be sufficient enough to source 1A of current to be on the safe side.
 
@@ -140,8 +140,8 @@ When these pads are programmed to be used as a Bluetooth coexistence interface, 
 | Pin | Description |
 |-----|-------------|
 | RST | Active-low reset input. On-board circuitry contains a 1k ohm pull-up resistor between RST and 3V3, and 0.1uF capacitor between RST and GND. |
-| VBAT | Supply to the internal RTC, backup registers and SRAM (1.8 to 3.3VDC). |
-| 3V3  | This pin represents the regulated +3.3V DC power to the P1 module.  In reality, +3.3V must be supplied to 3 different inputs: VBAT_WL (pin 2 & 3), VDDIO_3V3_WL (pin 5), VDD_3V3 (pin 26 & 27). Optionally +3.3V may be supplied to MICRO_VBAT (pin 38) for data retention in low power sleep modes. Each of these inputs also requires a 0.1uF and 10uF ceramic decoupling capacitor, located as close as possible to the pin. |
+| VBAT | Supply to the internal RTC, backup registers and SRAM when 3V3 not present (1.65 to 3.6VDC). |
+| 3V3  | This pin represents the regulated +3.3V DC power to the P1 module.  In reality, +3.3V must be supplied to 3 different inputs: VBAT_WL (pin 2 & 3), VDDIO_3V3_WL (pin 5), VDD_3V3 (pin 26 & 27). Optionally +3.3V may be supplied to VBAT_MICRO (pin 38) for data retention in low power sleep modes. Each of these inputs also requires a 0.1uF and 10uF ceramic decoupling capacitor, located as close as possible to the pin. |
 | D0~D7 | Digital only GPIO pins. |
 | A0~A7 | 12-bit Analog-to-Digital (A/D) inputs (0-4095), and also digital GPIOs. A6 and A7 are code convenience mappings, which means pins are not actually labeled as such but you may use code like `analogRead(A7)`.  A6 maps to DAC pin and A7 maps to the WKP pin. |
 | DAC   | 12-bit Digital-to-Analog (D/A) output (0-4095), and also a digital GPIO. DAC is used as `DAC1` in software, and A5 is a second DAC output used as `DAC2` in software. |
@@ -192,7 +192,7 @@ When these pads are programmed to be used as a Bluetooth coexistence interface, 
 | 35	|	MICRO_I2C1_SCL	|	PB6	|	D1, I2C SCL |
 | 36	|	MICRO_I2C1_SDA	|	PB7	|	D0, I2C SDA |
 | 37	|	GND	|	PWR	|	Ground |
-| 38	|	VBAT_MICRO	|	PWR	|	Supply to the internal RTC, backup registers and SRAM (1.8 to 3.3VDC) |
+| 38	|	VBAT_MICRO	|	PWR	|	Supply to the internal RTC, backup registers and SRAM when 3V3 not present (1.65 to 3.6VDC) |
 | 39	|	GND	|	PWR	|	Ground |
 | 40	|	MICRO_GPIO_1	|	PB0	|	SPARE1 |
 | 41	|	MICRO_GPIO_2	|	PB1	|	SPARE2 |
@@ -241,6 +241,7 @@ When these pads are programmed to be used as a Bluetooth coexistence interface, 
 | Supply Input Current (VBAT_WL) | I<sub>VBAT_WL</sub> |  |  | 310 | mA |
 | Supply Input Current (VDDIO_3V3_WL) | I<sub>VDDIO_3V3_WL</sub> |  |  | 50 | mA |
 | Supply Input Current (VDD_3V3) | I<sub>VDD_3V3</sub> |  |  | 120 | mA |
+| Supply Input Voltage | V<sub>VBAT_MICRO</sub> | +1.65 |  | +3.6 | V |
 | Supply Input Current (VBAT_MICRO) | I<sub>VBAT_MICRO</sub> |  |  | 19 | uA |
 | Operating Current (Wi-Fi on) | I<sub>3V3 avg</sub><sup>[1]</sup> |  | 80 | 100 | mA |
 | Operating Current (Wi-Fi on) | I<sub>3V3 pk</sub><sup>[1]</sup> | 235<sup>[2]</sup> |  | 430<sup>[2]</sup> | mA |
@@ -440,6 +441,7 @@ You may use the online Web IDE [Particle Build](https://www.particle.io/build) t
 |:---:|:---:|:---:|:----|
 | v001 | 4-May-2015 | BW | Initial release |
 | v002 | 31-May-2015 | BW | Update assets |
+| v003 | 1-June-2015 | BW | Updated VBAT_MICRO info |
 
 
 #15. Contact
