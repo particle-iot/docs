@@ -8,7 +8,7 @@ columns: 2
 Photon Datasheet <sup>(v009)</sup>
 ===
 
-<div align=center><img src="https://lh5.googleusercontent.com/-IsU3dwQN57Q/VSdSqLfZDgI/AAAAAAAAAwc/XoaeHpk8kaE/s0/photon_vector2_600.png" width=200></div>
+<div align=center><img src="{{assets}}/images/photon_vector2_600.png" width=200></div>
 
 ```c++
 void setup() {
@@ -52,7 +52,7 @@ The Photon comes in two physical forms: with headers and without. Prototyping is
 
 ### 2.1 Block Diagram
 
-<div align=center><img src="https://lh5.googleusercontent.com/-q7W5VzCMofY/VSRBXcSLbWI/AAAAAAAAAvk/algJWCwNz94/s0/photon-block-diagram.png" width=600></div>
+<div align=center><img src="{{assets}}/images/photon-block-diagram.png" width=600></div>
 
 ---
 
@@ -123,7 +123,7 @@ Pin D3 through D7 are JTAG interface pins.  These can be used to reprogram your 
   
 A standard 20-pin 0.1" shrouded male JTAG interface connector should be wired as follows:
 
-<div align=center><img src="https://lh3.googleusercontent.com/--4iVwHSsCIM/VTU9aVqaKMI/AAAAAAAAA1E/Lg4gamELH40/s0/photon-jtag.png" width=700></div>
+<div align=center><img src="{{assets}}/images/photon-jtag.png" width=700></div>
 
 ---
 
@@ -132,7 +132,7 @@ A standard 20-pin 0.1" shrouded male JTAG interface connector should be wired as
 
 The Photon supports coexistence with Bluetooth and other external radios via the three gold pads on the top side of the PCB near pin A3.  These pads are 0.035" square, spaced 0.049" apart.  This spacing supports the possibility of tacking on a small 1.25mm - 1.27mm pitch 3-pin male header to make it somewhat easier to interface with.
 
-<div align=center><img src="https://lh5.googleusercontent.com/-jB3f8zlmvOo/VS2pJumJqvI/AAAAAAAAAyI/9SB1T1a-9Tg/s0/photon_bt_coex.png" width=400></div>
+<div align=center><img src="{{assets}}/images/photon_bt_coex.png" width=400></div>
 
 When two radios occupying the same frequency band are used in the same system, such as Wi-Fi and Bluetooth, a coexistence interface can be used to coordinate transmit activity, to ensure optimal performance by arbitrating conflicts between the two radios.
 
@@ -151,7 +151,7 @@ When these pads are programmed to be used as a Bluetooth coexistence interface, 
 
 ### 3.1 Pin markings
 
-<div align=center><img src="https://lh5.googleusercontent.com/-yw3NMvMly3g/VSdS9L3Z8bI/AAAAAAAAAwk/w5pJi059I_c/s0/photon_pin_markings_1400.png"></div>
+<div align=center><img src="{{assets}}/images/photon_pin_markings_1400.png"></div>
 
 ---
 
@@ -176,11 +176,11 @@ When these pads are programmed to be used as a Bluetooth coexistence interface, 
 
 ### 3.3 Pin out diagrams
 
-<div align=left><img src="https://lh3.googleusercontent.com/-uCQgczfKZho/VV-DjJZG-3I/AAAAAAAABA0/1E1_dbXuMfE/s0/photon-pinout1.png"</div>
+<div align=left><img src="{{assets}}/images/photon-pinout1.png"</div>
 
-<div align=left><img src="https://lh3.googleusercontent.com/-Qzukh9eGxuo/VWvrdQgp35I/AAAAAAAABE0/FVbpzQp2SLY/s0/photon-pinout2.png"</div>
+<div align=left><img src="{{assets}}/images/photon-pinout2.png"</div>
 
-<div align=left><img src="https://lh3.googleusercontent.com/-3neGv6AbUZ0/VWvrkh-C8wI/AAAAAAAABE8/IAGbPIc9XXA/s0/photon-pinout3.png"</div>
+<div align=left><img src="{{assets}}/images/photon-pinout3.png"</div>
 
 # 4. Technical specification
 
@@ -298,7 +298,7 @@ You may also search for other types, such as reverse mounted (bottom side SMT) f
 
 The Photon (with headers) can be mounted with 0.1" 12-pin female header receptacles using the following PCB land pattern:
 
-<div align=left><img src="https://lh3.googleusercontent.com/-19uJEiJdQew/VTcXbIy2y4I/AAAAAAAAA18/0gpYs_BtsC4/s0/photon_land_pattern_with_headers.png" width=300></div>
+<div align=left><img src="{{assets}}/images/photon_land_pattern_with_headers.png" width=300></div>
 
 This land pattern can be found in the [Spark.lbr Eagle library](https://github.com/spark/photon/blob/master/libraries/Spark.lbr), as a Device named `PHOTON`.  **Note: Clone or Download the complete repository as a ZIP file to avoid corrupted data in Eagle files.**
 
@@ -306,7 +306,7 @@ This land pattern can be found in the [Spark.lbr Eagle library](https://github.c
 
 The Photon (without headers) can be surface mounted directly in an end application PCB using the following PCB land pattern:
 
-<div align=left><img src="https://lh3.googleusercontent.com/-7JOlKRosWHU/VT2bI7T1vTI/AAAAAAAAA2Q/TilveIALeyI/s0/photon_land_pattern_without_headers.png" width=600></div>
+<div align=left><img src="{{assets}}/images/photon_land_pattern_without_headers.png" width=600></div>
 
 Solder mask around exposed copper pads should be 0.1mm (4 mils) larger in all directions.  E.g., a 0.08" x 0.10" pad would have a 0.088" x 0.108" solder mask.
 
@@ -316,41 +316,41 @@ This land pattern can be found in the [Spark.lbr Eagle library](https://github.c
 
 ### 6.1 Schematic - USB
 
-<div align=center><img src="https://lh5.googleusercontent.com/-TRtBGqF_2Is/VS1Yu39sFGI/AAAAAAAAAxU/8BmuoMvdtKI/s0/photon-sch-usb.png" width=400></div>
+<div align=center><img src="{{assets}}/images/photon-sch-usb.png" width=400></div>
 
 ### 6.2 Schematic - Power
 
-<div align=center><img src="https://lh3.googleusercontent.com/-LQjAriIjIr4/VS1boW48MeI/AAAAAAAAAxg/omH1OOvvc2k/s0/photon-sch-power.png" width=600></div>
+<div align=center><img src="{{assets}}/images/photon-sch-power.png" width=600></div>
 
 ### 6.3 Schematic - User I/O
 
-<div align=center><img src="https://lh5.googleusercontent.com/-cE0wE8pu_FM/VS1bvRlmJRI/AAAAAAAAAxo/zZWY6LuwNR4/s0/photon-sch-user-io.png" width=600></div>
+<div align=center><img src="{{assets}}/images/photon-sch-user-io.png" width=600></div>
 
 ### 6.4 Schematic - RF
 
-<div align=center><img src="https://lh3.googleusercontent.com/-7L3_CXzCczQ/VS1b2P0NwSI/AAAAAAAAAxw/CFjdo9brUUw/s0/photon-sch-rf.png" width=500></div>
+<div align=center><img src="{{assets}}/images/photon-sch-rf.png" width=500></div>
 
 ### 6.5 Schematic - PØ Wi-Fi Module
 
-<div align=center><img src="https://lh5.googleusercontent.com/-I2eLMMMKtyA/VS1b-V32ZII/AAAAAAAAAx4/OkB_G-8snpU/s0/photon-sch-p0-wifi-module.png" width=500></div>
+<div align=center><img src="{{assets}}/images/photon-sch-p0-wifi-module.png" width=500></div>
 
 # 7. Layout
 
 ### 7.1 Photon v1.0.0 Top Layer (GTL)
-<div align=center><img src="https://lh4.googleusercontent.com/-miOPKqwGEhY/VS3R4sqsNqI/AAAAAAAAAyc/7LkhRbmgU28/s0/photon_v100_pcb_top.png" width=200></div>
+<div align=center><img src="{{assets}}/images/photon_v100_pcb_top.png" width=200></div>
 
 ### 7.2 Photon v1.0.0 GND Layer (G2L)
-<div align=center><img src="https://lh3.googleusercontent.com/-C9fEDtH6t7U/VS3YcHMR3bI/AAAAAAAAAyw/FBW7FmsXagA/s0/photon_v100_pcb_gnd.png" width=200></div>
+<div align=center><img src="{{assets}}/images/photon_v100_pcb_gnd.png" width=200></div>
 
 ### 7.3 Photon v1.0.0 3V3 Layer (G15L)
-<div align=center><img src="https://lh6.googleusercontent.com/-yz0W5MTvoKY/VS3YUGQIgPI/AAAAAAAAAyo/o-fsCEr4muI/s0/photon_v100_pcb_3v3.png" width=200></div>
+<div align=center><img src="{{assets}}/images/photon_v100_pcb_3v3.png" width=200></div>
 
 ### 7.4 Photon v1.0.0 Bottom Layer (GBL)
-<div align=center><img src="https://lh5.googleusercontent.com/-tdisZ8MhFTM/VS6qtMcyfZI/AAAAAAAAAzM/pxqLZhIcKuw/s0/photon_v100_pcb_bot.png" width=200></div>
+<div align=center><img src="{{assets}}/images/photon_v100_pcb_bot.png" width=200></div>
 
 # 8. Recommended solder reflow profile
 
-<div align=left><img src="https://lh3.googleusercontent.com/-iqdI9CkFiFY/VTaqZesp0zI/AAAAAAAAA1g/Wja3JvzIHoE/s0/photon-reflow-profile.png" width=600></div>
+<div align=left><img src="{{assets}}/images/photon-reflow-profile.png" width=600></div>
 
 | Phase | Temperatures and Rates |
 | -:|:- |
@@ -397,7 +397,7 @@ Photons are available from [store.particle.io](https://store.particle.io/) in si
 
 #11. Qualification and approvals
 
-<div align=left><img src="https://lh3.googleusercontent.com/-aDUV82SdozM/VVJlGZ9OP_I/AAAAAAAAA-o/HWmFqfmrVk8/s0/lead-free-fcc-ce.png" height=100></div>
+<div align=left><img src="{{assets}}/images/lead-free-fcc-ce.png" height=100></div>
 
 -	RoHS
 -	CE
