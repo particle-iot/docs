@@ -3502,7 +3502,7 @@ It is mandatory to update the *bootloader* (https://github.com/spark/firmware/tr
  - In *standard sleep mode*, the device current consumption is in the range of: **30mA to 38mA**
  - In *deep sleep mode*, the current consumption is around: **3.2 μA**
 - Photon
- - Please see the [datasheet](/photon/hardware/#4-2-recommended-operating-conditions)
+ - Please see the [Photon datasheet](/photon/photon-datasheet/#4-2-recommended-operating-conditions)
 
 <!--
 System.sleep(int millis, array peripherals);

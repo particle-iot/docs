@@ -189,4 +189,4 @@ When you want to use the `analogWrite()` function on the Photon, for instance to
 
 
 ### More Info
-Hungry for more information? We've got you covered! Check out the [Photon Datasheet](http://docs.particle.io/photon/hardware/)
+Hungry for more information? We've got you covered! Check out the [Photon datasheet](/photon/photon-datasheet)
