@@ -10,7 +10,7 @@ deploy:
     secure: "Yp3DejZxlSN6JP4IDqEJH5Sh+STcLx3d9fIeqVc6g64MnqDQ/moYHDxg/JO9wkt9pRQ98GPuF7B/KjMLHftU2GkKVLNasJf4CySx9n8OVsCZCo/7OlzLBmDP7PWj+liROaGMcm7OOWGvXNGF4gd6vDUtC2kboRosw3FucWtO+tgdRFea7efvkTqB8QHe0p1kBrTWHWWG55NzXokOOo2Sl+PUTxberPN8h8fraWWmcI5IQ7IHHckXEy9YRlSCUszJO9HLHXEHa8Q0oLsgv8MTamDBGgQkfHj+CBfiO/CDcNaOquYM2B+tFfqCaT+M8dYy/bONlQsA/78XG1qnsblqTwvn4/d+IPmRFMRkYF1cszuBxWwgVJ9iJem5C57hzYhsjLgfNBuoKdSIL1z1EuSbyvPmO3k6U3r4CaFoClI9dY3Y8XUTYKq5+6uUJnwoRJr7KCoCABIUG96tLpm5aKaoSxsMbttrD0h71egndffXB6es9OKFTkDwXZDg+v9eg0bRoT5Xpq7EEdqZk9unPHBY2bdISUlhdLU8x3IUSy0p3YZ+mqUjCf0j7YqRbFYeMphUdtUQHL7ejKUgy3FZ8guoUjNSV4ZNQfJe9HJ7wzZYtfwK/1vAs/pLdsXdgs6Xo4YZBYbVJpGW8QrjbXLVIDaqSDGIcPybko82rFo4jumDrLI="
   bucket: docs.particle.io
   skip_cleanup: false
-  local-dir: build
+  local_dir: build
   on:
     repo: spark/docs
     branch: master
