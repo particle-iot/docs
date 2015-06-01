@@ -5,7 +5,7 @@ order: 12
 columns: 2
 ---
 
-Photon Datasheet
+Photon Datasheet <sup>(v009)</sup>
 ===
 
 <div align=center><img src="https://lh5.googleusercontent.com/-IsU3dwQN57Q/VSdSqLfZDgI/AAAAAAAAAwc/XoaeHpk8kaE/s0/photon_vector2_600.png" width=200></div>
@@ -31,19 +31,19 @@ The Photon comes in two physical forms: with headers and without. Prototyping is
 
 ### 1.2 Features
 
-- Particle PØ Wi-Fi module
-	- Broadcom BCM43362 Wi-Fi chip
-	- 802.11b/g/n Wi-Fi
-    - STM32F205 120Mhz ARM Cortex M3
-	- 1MB flash, 128KB RAM
-	- RF avg. output power (max) 
-	  - b / g / n, 16.5dBm / 15.0dBm / 14.5dBm (+/-1.5dBm)
-- On-board RGB status LED (ext. drive provided)
-- 18 Mixed-signal GPIO and advanced peripherals
-- Open source design
-- Real-time operating system (FreeRTOS)
-- Soft AP setup
-- FCC, CE and IC certified
+* Particle PØ Wi-Fi module
+	* Broadcom BCM43362 Wi-Fi chip
+	* 802.11b/g/n Wi-Fi
+    * STM32F205 120Mhz ARM Cortex M3
+	* 1MB flash, 128KB RAM
+	* RF avg. output power (max) 
+		* b / g / n, 16.5dBm / 15.0dBm / 14.5dBm (+/-1.5dBm)
+* On-board RGB status LED (ext. drive provided)
+* 18 Mixed-signal GPIO and advanced peripherals
+* Open source design
+* Real-time operating system (FreeRTOS)
+* Soft AP setup
+* FCC, CE and IC certified
 
 ---
 
@@ -83,7 +83,7 @@ The Photon has ton of capability in a small footprint, with analog, digital and 
 | Peripheral Type | Qty | Input(I) / Output(O) | FT<sup>[1]</sup> / 3V3<sup>[2]</sup> |
 | :-:|:-:|:-:|:-: |
 | Digital | 18 | I/O | FT/3V3 |
-| Analog (ADC) | 9 | I | 3V3 |
+| Analog (ADC) | 8 | I | 3V3 |
 | Analog (DAC) | 2 | O | 3V3 |
 | SPI | 2 | I/O | 3V3 |
 | I2S | 1 | I/O | 3V3 |
@@ -166,21 +166,21 @@ When these pads are programmed to be used as a Bluetooth coexistence interface, 
 | 3V3 | This pin is the output of the on-board regulator and is internally connected to the VDD of the WiFi module. When powering the Photon via VIN or the USB port, this pin will output a voltage of 3.3VDC. This pin can also be used to power the Photon directly (max input 3.3VDC). When used as an output, the max load on 3V3 is 100mA. NOTE: When powering the Photon via this pin, ensure power is disconnected from VIN and USB. |
 | WKP | Active-high wakeup pin, wakes the module from sleep/standby modes. When not used as a WAKEUP, this pin can also be used as a digital GPIO, ADC input or PWM. |
 | D0~D7 | Digital only GPIO pins. |
-| A0~A5, A7~A9 | 12-bit Analog-to-Digital (A/D) inputs, and also digital GPIOs. A7~A9 are code convenience mappings, which means pins are not actually labeled as such but you may use code like `analogRead(A9)`.  A7 maps to the WKP pin, A8 to the RX pin and A9 to the TX pin. |
-| DAC | 10-bit Digital-to-Analog (D/A) output, and also a digital GPIO. |
-| RX | Primarily used as UART RX, but can also be used as a digital GPIO, ADC input or PWM. |
-| TX | Primarily used as UART TX, but can also be used as a digital GPIO, ADC input or PWM. |
+| A0~A9 | 12-bit Analog-to-Digital (A/D) inputs (0-4095), and also digital GPIOs. A6 and A7 are code convenience mappings, which means pins are not actually labeled as such but you may use code like `analogRead(A7)`.  A6 maps to the DAC pin and A7 maps to the WKP pin. |
+| DAC   | 12-bit Digital-to-Analog (D/A) output (0-4095), and also a digital GPIO. DAC is used as `DAC1` in software, and A5 is a second DAC output used as `DAC2` in software. |
+| RX    | Primarily used as UART RX, but can also be used as a digital GPIO or PWM. |
+| TX    | Primarily used as UART TX, but can also be used as a digital GPIO or PWM. |
 
 ---
 
 
 ### 3.3 Pin out diagrams
 
-<div align=left><img src="https://lh5.googleusercontent.com/-2iq_vpzIbSo/VSNL_l6b_EI/AAAAAAAAAus/rU8kqMpU6KM/s0/pinout1.png"</div>
+<div align=left><img src="https://lh3.googleusercontent.com/-uCQgczfKZho/VV-DjJZG-3I/AAAAAAAABA0/1E1_dbXuMfE/s0/photon-pinout1.png"</div>
 
-<div align=left><img src="https://lh3.googleusercontent.com/-hRBjEn99caM/VSNMUZW6BiI/AAAAAAAAAu0/bPFhTFl01Kk/s0/pinout2.png"</div>
+<div align=left><img src="https://lh3.googleusercontent.com/-Qzukh9eGxuo/VWvrdQgp35I/AAAAAAAABE0/FVbpzQp2SLY/s0/photon-pinout2.png"</div>
 
-<div align=left><img src="https://lh3.googleusercontent.com/-a0qGnIQv7oA/VSNMdhLtCXI/AAAAAAAAAu8/sjM5n0okavU/s0/pinout3.png"</div>
+<div align=left><img src="https://lh3.googleusercontent.com/-3neGv6AbUZ0/VWvrkh-C8wI/AAAAAAAABE8/IAGbPIc9XXA/s0/photon-pinout3.png"</div>
 
 # 4. Technical specification
 
@@ -203,12 +203,13 @@ When these pads are programmed to be used as a Bluetooth coexistence interface, 
 | Supply Input Voltage | V<sub>3V3</sub> | +3.0 | +3.3 | +3.6 | V |
 | Supply Output Voltage | V<sub>IN</sub> |  | +4.8 |  | V |
 | Supply Output Voltage | V<sub>3V3</sub> |  | +3.3 |  | V |
+| Supply Input Current (VBAT) | I<sub>VBAT</sub> |  |  | 19 | uA |
 | Operating Current (Wi-Fi on) | I<sub>IN avg</sub> |  | 80 | 100 | mA |
 | Operating Current (Wi-Fi on) | I<sub>IN pk</sub> | 235<sup>[1]</sup> |  | 430<sup>[1]</sup> | mA |
 | Operating Current (Wi-Fi on, w/powersave) | I<sub>IN avg</sub> |  | 18 | 100<sup>[2]</sup> | mA |
 | Operating Current (Wi-Fi off) | I<sub>IN avg</sub> |  | 30 | 40 | mA |
-| Sleep Current | I<sub>Q</sub> |  | 1 | 2 | mA |
-| Deep Sleep Current | I<sub>Q</sub> |  | 160 | 187 | uA |
+| Sleep Current (5V @ VIN)| I<sub>Qs</sub> |  | 1 | 2 | mA |
+| Deep Sleep Current (5V @ VIN) | I<sub>Qds</sub> |  | 80 | 100 | uA |
 | Operating Temperature | T<sub>op</sub> | -20 |  | +60 | °C |
 | Humidity Range Non condensing, relative humidity | | | | 95 | % |
 
@@ -276,8 +277,8 @@ These specifications are based on the STM32F205RG datasheet, with reference to P
 
 | Headers | Dimensions in inches (mm)                | Weight    |
 |:-------:|:----------------------------------------:|:---------:|
-|  With   | 1.44 x 0.8 x 0.17 (36.58 x 20.32 x 4.32) |  5 grams  |
-| Without | 1.44 x 0.8 x 0.27 (36.58 x 20.32 x 6.86) | 3.7 grams |
+|  With   | 1.44 x 0.8 x 0.27 (36.58 x 20.32 x 6.86) |  5 grams  |
+| Without | 1.44 x 0.8 x 0.17 (36.58 x 20.32 x 4.32) | 3.7 grams |
 
 ### 5.2 Mating connectors
 
@@ -306,6 +307,8 @@ This land pattern can be found in the [Spark.lbr Eagle library](https://github.c
 The Photon (without headers) can be surface mounted directly in an end application PCB using the following PCB land pattern:
 
 <div align=left><img src="https://lh3.googleusercontent.com/-7JOlKRosWHU/VT2bI7T1vTI/AAAAAAAAA2Q/TilveIALeyI/s0/photon_land_pattern_without_headers.png" width=600></div>
+
+Solder mask around exposed copper pads should be 0.1mm (4 mils) larger in all directions.  E.g., a 0.08" x 0.10" pad would have a 0.088" x 0.108" solder mask.
 
 This land pattern can be found in the [Spark.lbr Eagle library](https://github.com/spark/photon/blob/master/libraries/Spark.lbr), as a Device named `PHOTON_SMD`.  **Note: Clone or Download the complete repository as a ZIP file to avoid corrupted data in Eagle files.**
 
@@ -470,7 +473,9 @@ You may use the online Web IDE [Particle Build](https://www.particle.io/build) t
 | v005 | 9-Apr-2015 | BW | Updated BOM |
 | v006 | 21-Apr-2015 | BW | Added JTAG, BT CO-EX, I/O Characteristics, Schematic, Layout, Reflow Profile, Glossary, Updated Operating Conditions |
 | v007 | 28-Apr-2015 | BW | Added Layout, Updated analog pins, Land patterns, Packaging, Mating Connectors |
-| v008 | 1-May-2015 | BW | Updated BT CO-EX, PWM info, Qualifications |
+| v008 | 11-May-2015 | BW | Updated BT CO-EX, PWM info, Qualifications |
+| v009 | 31-May-2015 | BW | Updated Pinouts, DAC info, Height dimensions, Solder mask info, Recommended operating conditions |
+
 
 #16. Contact
 
