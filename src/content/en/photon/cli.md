@@ -1,7 +1,7 @@
 ---
 word: API
 title: Command Line
-order: 13
+order: 15
 ---
 
 Particle CLI

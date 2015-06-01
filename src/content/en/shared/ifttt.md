@@ -1,7 +1,7 @@
 ---
 word: IFTTT
 title: IFTTT
-order: 14
+order: 16
 shared: true
 ---
 

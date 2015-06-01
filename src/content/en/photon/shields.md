@@ -1,7 +1,7 @@
 ---
 word: Accessories
 title: Shields and kits
-order: 13
+order: 14
 columns: 2
 ---
 

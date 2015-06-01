@@ -1,7 +1,7 @@
 ---
 word: Hackathon
 title: Hackathon
-order: 16
+order: 18
 columns: 2
 shared: true
 ---
