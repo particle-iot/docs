@@ -99,7 +99,7 @@ Comments start with two slashes or are blocked off by a slash and a star.
 You can read them, but your device can't.
 It's like a secret message just for you.
 
-Every microcontroller program has two essential parts:
+Every program based on Wiring (programming language used by Arduino, and Particle devices) has two essential parts:
 setup - runs once at the beginning of your program
 loop - runs continuously over and over
 
@@ -132,7 +132,7 @@ int analogvalue; // Here we are declaring the integer variable analogvalue, whic
 // Next we go into the setup function.
  
 void setup() {
-    /* The setup function is a part of every microcontroller app.
+    /* The setup function is a part of every Wiring-based app.
     The setup function is called once when your device turns on or resets.
     Steps taken in this function should be things you only want to have to do once, when your device starts running.
     For this app, our steps are as follows:
@@ -159,7 +159,7 @@ void setup() {
 // Next is the loop function...
  
 void loop() {
-    /* The loop function is a part of every microcontroller app.
+    /* The loop function is a part of every Wiring-based app.
     After the setup function is done running, the loop function gets called
     as much as possible and as often as possible, over and over again
     until your device turns off or is reset.
