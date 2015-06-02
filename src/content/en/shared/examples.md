@@ -109,7 +109,7 @@ Often times, we'll also declare variables and include libraries before we define
 We'll also add other functions as we go that we may need to use in loop and setup,
 or that we want to have on our device so that we can call them from the cloud.
 
-In this example, we're going to register a Spark.variable with the cloud so that we can read brightness levels from the photoresistor.
+In this example, we're going to register a Spark.variable() with the cloud so that we can read brightness levels from the photoresistor.
 
 We'll also register a Spark.function so that we can turn the LED on and off remotely.
 
@@ -146,7 +146,7 @@ void setup() {
     // Next, write the power of the photoresistor to be the maximum possible, which is 4095 in analog.
     analogWrite(power,4095);
     
-    // We are going to declare a Spark.variable here so that we can access the value of the photoresistor from the cloud.
+    // We are going to declare a Spark.variable() here so that we can access the value of the photoresistor from the cloud.
     Spark.variable("analogvalue", &analogvalue, INT);
     // This is saying that when we ask the cloud for "analogvalue", this will reference the variable analogvalue in this app, which is an integer variable.
     
@@ -219,7 +219,7 @@ Tell your device what to do!<br>
 </center>
 ---------------------------
 
-You can also see a JSON output of your Spark.variable call by going to:
+You can also see a JSON output of your Spark.variable() call by going to:
 
 https://api.particle.io/v1/devices/your-device-ID-goes-here/analogvalue?access_token=your-access-token-goes-here
 
@@ -230,7 +230,7 @@ https://api.particle.io/v1/devices/your-device-ID-goes-here/analogvalue?access_t
 
 The code on the right shows you how to use `Spark.function` to create and register a function with the cloud. By telling the cloud "led on" you will be able to turn the LED on, and by telling it "led off" you can tell it to turn the LED off.
 
-Meanwhile, the photoresistor will be putting its values into a variable called `analogvalue`. We also registered this variable to the cloud with `Spark.variable`, and now we can find out the value of that variable whenever we want to.
+Meanwhile, the photoresistor will be putting its values into a variable called `analogvalue`. We also registered this variable to the cloud with `Spark.variable()`, and now we can find out the value of that variable whenever we want to.
 
 When we register a function or variable, we're basically making a space for it on the internet, similar to the way there's a space for a website you'd navigate to with your browser. Thanks to the REST API, there's a specific address that identifies you and your device. You can send requests, like `GET` and `POST` requests, to this URL just like you would with any webpage in a browser.
 
