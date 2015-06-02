@@ -22,6 +22,13 @@ $ npm install -g particle-cli
 $ particle cloud login
 ```
 
+Upgrading from the Spark CLI
+======
+
+If you have already installed `spark-cli`, please uninstall it before installing the Particle CLI. Simply type: `npm install -g spark-cli` into the command line.
+
+Once this is done, then run `npm install -g particle-cli` to install the Particle CLI.
+
 Advanced Install
 ---------------------------
 
