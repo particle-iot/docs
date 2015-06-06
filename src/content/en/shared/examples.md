@@ -703,7 +703,7 @@ Here is the algorithm:
 
 // name the pins
 int led1 = D0;
-int led2 = D1;
+int led2 = D7;
 
 // This routine runs only once upon reset
 void setup()
