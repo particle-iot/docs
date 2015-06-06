@@ -218,6 +218,17 @@ Spark.publish(String eventName, String data, int ttl, PRIVATE);
 Spark.publish("front-door-unlocked", NULL, 60, PRIVATE);
 ```
 
+Publish a private event with the given name.
+
+```C++
+// SYNTAX
+Spark.publish(const char *eventName, PRIVATE);
+Spark.publish(String eventName, PRIVATE);
+
+// EXAMPLE USAGE
+Spark.publish("front-door-unlocked", PRIVATE);
+```
+
 
 ```json
 COMPLEMENTARY API CALL
