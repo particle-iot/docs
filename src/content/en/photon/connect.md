@@ -122,41 +122,6 @@ Launch the installer and follow the instructions to install node.js.
 
 Next, open your terminal, or preferred terminal program.
 
-To open the terminal, go to the spotlight search and type `Terminal`, then press enter.
-
-In the terminal, type or paste this series of commands:
-```
-mkdir ~/npm-global
-npm config set prefix '~/npm-global'
-```
-
-If you have a .profile, then type:
-```
-export PATH=~/npm-global/bin:$PATH
-source ~/.profile
-```
-
-After that, add `export PATH=~/npm-global/bin:$PATH` to your .profile by typing:
-
-```
-cat >>~/.profile
-
-export PATH=~/npm-global/bin:$PATH
-
-```
-
-and then ctrl-C to return to the command line.
-
-If you do not have a .profile, type:
-
-```
-cat >>~/.profile
-
-export PATH=~/npm-global/bin:$PATH
-
-```
-
-
 ####Install the Particle CLI
 
 Type:
