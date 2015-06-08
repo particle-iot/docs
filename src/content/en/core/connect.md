@@ -70,7 +70,7 @@ There are a two ways to go about connecting your Core over USB, depending on you
 
 ##Using Windows
 
-To connect and interact with a Particle Device over USB from a Windows machine, the easiet route is to use the Particle command line interface.
+To connect and interact with a Particle Device over USB from a Windows machine, the easiest route is to use the Particle command line interface.
 The following describes how to install the Particle CLI on your computer. If you already have Node.js installed, you can skip to [this step](#installing-the-particle-cli).
 
 ####Installing Node.js
