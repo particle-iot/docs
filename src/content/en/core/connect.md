@@ -54,7 +54,7 @@ Did your phone not find any Cores?
 - Is it blinking green and not getting to cyan?
   - Try it again by holding the MODE button on the core until it begins flashing blue, then double-check your network name and password.
 - Is it now breathing cyan, but the app didn't find any Cores?
-  - Uh oh. Your Core's on the network, but it took too long. [We're going to claim your core manually.](../cli#running-from-source-advanced-spark-cloud-claim)
+  - Uh oh. Your Core's on the network, but it took too long. [We're going to claim your core manually.](../cli#upgrading-from-the-spark-cli-running-from-source-advanced)
 - Something else altogether?
   - Give the [Connecting Your Core](/core/connect) page a read-through and if you're still stuck, search the [community.](http://community.particle.io)
 
@@ -173,7 +173,7 @@ If you have already claimed your device and you want to connect it to wifi, type
 
 If your device is not connecting, try troubleshooting [here](http://support.particle.io/).
 
-More info on the CLI is available [here](http://docs.particle.io/core/cli).
+More info on the CLI is available [here](/core/cli).
 
 
 APPENDIX

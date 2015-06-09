@@ -31,7 +31,7 @@ Your device is currently loading an app or updating its firmware. Triggered by a
   <iframe src="https://vine.co/v/eZU6zBzpW6U/embed/simple" width="320" height="320" frameborder="0"></iframe>
 </div>
 
-Your device is trying to find the internet. If you already entered your wifi credentials, give your device a few seconds to connect and start breathing cyan. If you haven't yet connected your device to wifi, then set your device to [Listening Mode](http://docs.particle.io/core/modes/#core-modes-listening-mode). If your Core continuously flashes green and won't stop, then try doing a [full firmware update](http://docs.particle.io/core/modes/#core-modes-dfu-mode-device-firmware-upgrade).
+Your device is trying to find the internet. If you already entered your wifi credentials, give your device a few seconds to connect and start breathing cyan. If you haven't yet connected your device to wifi, then set your device to [Listening Mode](/core/modes/#core-modes-listening-mode). If your Core continuously flashes green and won't stop, then try doing a [full firmware update](/core/modes/#core-modes-dfu-mode-device-firmware-upgrade).
 
 
 ## Listening Mode
@@ -87,7 +87,7 @@ The procedure is same as the one described above (DFU Mode), but in this case yo
 
 If you wish to program a device with a custom firmware via USB, you'll need to use this mode. This mode triggers the on-board bootloader that accepts firmware binary files via the [dfu-utility.](http://dfu-util.sourceforge.net)
 
-Installation tutorial can be found [here.](http://docs.particle.io/photon/cli/#installing-advanced-install)
+Installation tutorial can be found [here.](/core/cli/#installing-advanced-install)
 
 Procedure:
 
