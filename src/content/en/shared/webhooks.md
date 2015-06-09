@@ -43,7 +43,7 @@ particle login
 Success!
 ```
 
-We're still building the beautiful, intuitive web interface for creating and managing Webhooks, but you're determined, you are ready to use webhooks now.  You're in luck!  With the Particle CLI and your terminal you can start using webhooks right away.  You might need to install a few things, but it's going to be worth it.  First, make sure you have [Node.js](https://nodejs.org) installed if you don't already.
+We're still building the beautiful, intuitive web interface for creating and managing Webhooks, but you're determined, you are ready to use Webhooks now.  You're in luck!  With the Particle CLI and your terminal you can start using Webhooks right away.  You might need to install a few things, but it's going to be worth it.  First, make sure you have [Node.js](https://nodejs.org) installed if you don't already.
 
 For those of you who have used the Particle CLI in the past, you're all set! If you are a CLI newcomer, install it by following [these instructions](../cli/#installing).
 
@@ -55,7 +55,7 @@ CLI Command Reference
 
 ###particle webhook create
 
-  Registers your webhook with the Particle Cloud.  Creates a postback to the given url when your event is sent.  See [Webhook Options](#webhook-options) for JSON formatting requirements and parameters.
+  Registers your Webhook with the Particle Cloud.  Creates a postback to the given url when your event is sent.  See [Webhook Options](#Webhook-options) for JSON formatting requirements and parameters.
 
 ```sh
 # how to create a webhook with json data using the CLI
@@ -65,14 +65,14 @@ Using settings from the file slack.json
 Sending webhook request  { uri: 'https://api.particle.io/v1/webhooks',
   method: 'POST',
   json: true,
-  form: 
+  form:
    { event: 'slack-incoming-webhook',
      url: 'https://hooks.slack.com/services/B1234567/C234567/345634563456345634563456',
      deviceid: undefined,
      access_token: '56785678567856785678567856785678',
      requestType: 'POST',
      headers: undefined,
-     json: 
+     json:
       { channel: '#random',
         username: 'ParticleBot',
         text: '{{SPARK_EVENT_VALUE}}',
@@ -85,7 +85,7 @@ Sending webhook request  { uri: 'https://api.particle.io/v1/webhooks',
 
 ###particle webhook list
 
-Generates a list of what webhooks you own, including their ID numbers and registered event names.
+Generates a list of what Webhooks you own, including their ID numbers and registered event names.
 
 ```sh
 # how to show your currently registered webhooks using the CLI
@@ -107,7 +107,7 @@ Found 2 hooks registered
   Delete a webhook using your registered webhook ID number.  Use `particle webhook list` to find the WEBHOOK_ID you wish to delete, then copy/paste it into the `particle webhook delete WEBHOOK_ID` command.
 
 ```sh
-# how to delete your previously registered webhook 
+# how to delete your previously registered webhook
 # from the Particle Cloud using the CLI
 $ particle webhook delete WEBHOOK_ID
 
@@ -116,7 +116,7 @@ Successfully deleted webhook!
 ```
 
 
-Your first webhook
+Your first Webhook
 ===
 
 
@@ -128,7 +128,7 @@ Getting the weather in the US
 http://w1.weather.gov/xml/current_obs/
 
 
-# Once you've picked your state and local station, pick your url 
+# Once you've picked your state and local station, pick your url
 http://w1.weather.gov/xml/current_obs/<your_local_weather_station_here>.xml
 
 
@@ -149,16 +149,16 @@ Getting the weather Globally
 http://openweathermap.org/api
 
 # To use OpenWeatherMap, make sure you sign up for an API key from them before using their data
-# Sample request for London weather 
+# Sample request for London weather
 http://api.openweathermap.org/data/2.5/weather?q=London&mode=xml
 ```
 
 There are a ton of weather data services spread around the world!
- 
+
 One we found with lots of great international data, and a developer program is [OpenWeatherMap](http://openweathermap.org/)
 
 
-Creating the webhook
+Creating the Webhook
 -----
 
 ```sh
@@ -188,7 +188,7 @@ void setup() {
     // but you could just as easily display it in a webpage or pass the data to another system.
 
     // Learn more about the serial commands here http://docs.particle.io/firmware/#communication-serial
-    // You can also watch what's sent over serial with the particle cli with 
+    // You can also watch what's sent over serial with the particle cli with
     //  particle serial monitor
     Serial.begin(115200);
 
@@ -202,17 +202,17 @@ void setup() {
         delay(1000);
     }
 }
-    
+
 
 // called forever really fast
 void loop() {
 
     // Let's request the weather, but no more than once every 60 seconds.
     Serial.println("Requesting Weather!");
-    
-    // publish the event that will trigger our webhook
+
+    // publish the event that will trigger our Webhook
     Spark.publish("get_weather");
-    
+
     // and wait at least 60 seconds before doing it again
     delay(60000);
 }
@@ -229,7 +229,7 @@ void gotWeatherData(const char *name, const char *data) {
     //  <temperature_string>26.0 F (-3.3 C)</temperature_string>
     //  <temp_f>26.0</temp_f>
 
-    
+
     String str = String(data);
     String locationStr = tryExtractString(str, "<location>", "</location>");
     String weatherStr = tryExtractString(str, "<weather>", "</weather>");
@@ -239,15 +239,15 @@ void gotWeatherData(const char *name, const char *data) {
     if (locationStr != NULL) {
         Serial.println("At location: " + locationStr);
     }
-    
+
     if (weatherStr != NULL) {
         Serial.println("The weather is: " + weatherStr);
     }
-    
+
     if (tempStr != NULL) {
         Serial.println("The temp is: " + tempStr + String(" *F"));
     }
-    
+
     if (windStr != NULL) {
         Serial.println("The wind is: " + windStr);
     }
@@ -259,25 +259,25 @@ String tryExtractString(String str, const char* start, const char* end) {
     if (str == NULL) {
         return NULL;
     }
-    
+
     int idx = str.indexOf(start);
     if (idx < 0) {
         return NULL;
     }
-    
+
     int endIdx = str.indexOf(end);
     if (endIdx < 0) {
         return NULL;
     }
-    
+
     return str.substring(idx + strlen(start), endIdx);
 }
 ```
 
 
-Even if you're already familiar with writing firmware, that's great!, there are some great details here to catch.  First when we want to capture a reponse from a webhook, make sure you're subscribing to "hook-response/" + ( your published event name ).  That means if your hook captures everything starting with "my-hooks", but you published "my-hooks/get_weather", then your response event name would be "hook-response/my-hooks/get_weather".
+Even if you're already familiar with writing firmware, that's great!, there are some great details here to catch.  First when we want to capture a reponse from a Webhook, make sure you're subscribing to "hook-response/" + ( your published event name ).  That means if your hook captures everything starting with "my-hooks", but you published "my-hooks/get_weather", then your response event name would be "hook-response/my-hooks/get_weather".
 
-The other important detail from this example is that webhooks right now assumes you're using an embedded device without a lot of ram.  Large web responses are cut into 512 byte pieces, and are sent at a fixed rate of about 4 per second.  This is to make it easier for these low power devices to parse and process responses that otherwise wouldn't fit in ram.
+The other important detail from this example is that Webhooks right now assumes you're using an embedded device without a lot of ram.  Large web responses are cut into 512 byte pieces, and are sent at a fixed rate of about 4 per second.  This is to make it easier for these low power devices to parse and process responses that otherwise wouldn't fit in ram.
 
 Now, let's write some firmware!
 
@@ -299,7 +299,7 @@ The wind is: from the Northwest at 19.6 gusting to 28.8 MPH (17 gusting to 25 KT
 
 Lets make some graphs
 ===
- 
+
 Logging to Librato
 ---
 
@@ -311,7 +311,7 @@ When you first login you'll see a screen like this:
 
 
 
-An example librato webhook
+An example librato Webhook
 ---
 
 Copy and save the librato access token for your webhook below.  Create a text file somewhere named librato.json, and paste in this example.  Make sure you replace the librato username, and librato access token as well.
@@ -319,7 +319,7 @@ Copy and save the librato access token for your webhook below.  Create a text fi
 ```json
 # copy-paste the stuff between the {}'s (including those brackets) into a file librato.json
 {
-    "eventName": "librato_",
+    "event": "librato_",
     "url": "https://metrics-api.librato.com/v1/metrics",
     "requestType": "POST",
     "auth": {
@@ -341,40 +341,40 @@ Copy and save the librato access token for your webhook below.  Create a text fi
 
 
 ```sh
-# example of creating the hook 
+# example of creating the hook
 particle webhook create librato.json
 > ...
 > Successfully created webhook!
 ```
 
-Use the `particle webhook create` command in your terminal to create the webhook.  Make sure you're in the same folder as where you created the file.  The webhook will see the special template keywords, and replace them with the values from your published event.
+Use the `particle webhook create` command in your terminal to create the Webhook.  Make sure you're in the same folder as where you created the file.  The Webhook will see the special template keywords, and replace them with the values from your published event.
 
 
 
 The example data logging code!
 ---
 
-Here's the fun part, hook anything up to your device!  A motion sensor, temperature sensor, a switch, anything that generates some data that you're interested in tracking over time.  You can also leave the pins floating and measure the floating pin too!  Our example code will assume you have something interesting happening on A0.  This firmware waits 10 seconds, reads pin A0, and then publishes the value to your webhook.
+Here's the fun part, hook anything up to your device!  A motion sensor, temperature sensor, a switch, anything that generates some data that you're interested in tracking over time.  You can also leave the pins floating and measure the floating pin too!  Our example code will assume you have something interesting happening on A0.  This firmware waits 10 seconds, reads pin A0, and then publishes the value to your Webhook.
 
 ```cpp
 #define publish_delay 10000
 unsigned int lastPublish = 0;
 
 void setup() {
-    
+
 }
 
 void loop() {
     unsigned long now = millis();
-    
+
     if ((now - lastPublish) < publish_delay) {
         // it hasn't been 10 seconds yet...
         return;
     }
-    
+
     int value = analogRead(A0);
     Spark.publish("librato_A0", String(value), 60, PRIVATE);
-    
+
     lastPublish = now;
 }
 ```
@@ -387,7 +387,7 @@ After you flash the firmware to your device, open up the Particle CLI, and subsc
 [![Librato Metrics Screen]({{assets}}/images/webhooks-librato-metrics-screen1.png)]({{assets}}/images/webhooks-librato-metrics-screen1.png)
 
 
-Once you've created the webhook, and some events are coming through successfully, your metric should show up in your metrics list:
+Once you've created the Webhook, and some events are coming through successfully, your metric should show up in your metrics list:
 
 
 [![Librato Sample Graph]({{assets}}/images/webhooks-librato-metric-sample.png)]({{assets}}/images/webhooks-librato-metric-sample.png)
@@ -413,9 +413,9 @@ What's in a request?
 }
 ```
 
-Since your webhook listens for events from your devices, it can send that event data along to whatever url you specify.  If you don't add any custom options, the hook will send a JSON type POST request with the following values:
+Since your Webhook listens for events from your devices, it can send that event data along to whatever url you specify.  If you don't add any custom options, the hook will send a JSON type POST request with the following values:
 
-This is same data you'd see if you subscribed to your event stream http://docs.particle.io/core/api#reading-data-from-a-core-events 
+This is same data you'd see if you subscribed to your event stream http://docs.particle.io/core/api#reading-data-from-a-core-events
 
 
 These properties will all be strings except for published_at, which is an ISO8601 date formatted string, which tends to be in the form YYYY-MM-DDTHH:mm:ssZ
@@ -425,8 +425,8 @@ Templates
 ===
 
 In order to help connect with many different services, you can move these published event values around in your request using simple templates.  You can picture the example above as the following template:
- 
- 
+
+
 ```json
 {
     "event":  "\{{SPARK_EVENT_NAME}}",
@@ -450,7 +450,7 @@ Spark.publish("custom_templates", "{ \"my-var\": \"foo\", \"my-temp\": \"98.6F\"
 An example hook that uses custom templates.  In this case the URL of the request will change as the value of "my-var" changes in your published event!
 ```json
 {
-    "eventName": "custom_templates",
+    "event": "custom_templates",
     "url": "http://my-awesome-website.particle/\{{my-var}}",
     "requestType": "POST",
     "json": {
@@ -466,7 +466,7 @@ An example hook that uses custom templates.  In this case the URL of the request
 Webhook Options
 ===
 
-You can even customize the Webhook to send custom headers, form fields, and more. This section explains what's available and how to use them all!
+You can even customize the webhook to send custom headers, form fields, and more. This section explains what's available and how to use them all!
 
 event
 ---
@@ -574,7 +574,7 @@ Optionally include extra parameters in the URL of the request encoded as normal 
     "p": 2
 }
 
-# would cause the hook to include those query parameters 
+# would cause the hook to include those query parameters
 http://<the url>/?q=how+much+can+an+unladen+swallow+carry&p=2
 ```
 
@@ -612,7 +612,7 @@ Limits by Host
 
 ```
 Any host will be limited to 120 requests per minute
-unless we're contacted by the site administrator 
+unless we're contacted by the site administrator
 ```
 
 Particle webhooks will not contact any host more often than 120 times per minute, despite any number of configured webhooks from any number of users.  Requests over this limit for the moment will be dropped.  We intend to add a proper queuing system so this is done more fairly, but for the moment we've opted to protect sites against abuse first.  If you're a site owner / operator and you want to allow more traffic, please email us at hello@particle.io.
@@ -648,7 +648,7 @@ Handling Web Responses
 Responses from hooks are sent in the following format:
 
 ```
-# format for hook response events 
+# format for hook response events
 hook-response/<triggering-event-name>/<index>
 ```
 
@@ -673,7 +673,7 @@ hook-response/get_weather/3
 
 hook-response/get_weather/4
     "/METAR/KMSP.1.txt</ob_url>\n\t<disclaimer_url>http://weather.gov/disclaimer.html</disclaimer_url>\r\n\t<copyright_url>http://weather.gov/disclaimer.html</copyright_url>\r\n\t<privacy_policy_url>http://weather.gov/notice.html</privacy_policy_url>\r\n</current_observation>\n"
-    
+
 ```
 
 
@@ -686,4 +686,3 @@ Error responses from the target url will also be sent back in the response event
 ```
 particle subscribe mine
 ```
-
