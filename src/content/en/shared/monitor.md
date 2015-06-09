@@ -39,9 +39,7 @@ void loop(){
 	/* Run the report() function as often as you want to get data back. You can throttle it by running it less frequently, but once per loop is good */
 	mon.report();
 }
-
 ```
-
 App Interface
 ===
 The non-obvious thing here is the Connection state indicator. It'll be a WiFi symbol when you're in "Local" mode, communicating over TCP, and will be a cloud symbol when it's using publishes via the Particle Cloud.
@@ -70,9 +68,7 @@ void setup(){
 void loop(){
 	mon.report();
 }
-
 ```
-
 ### Turning the LED off
 When the Monitor has connected locally it'll blink the D7 LED every time a message is sent. If you're using the D7 pin, this would be very disruptive. Calling `.ledOff()` before `.begin()` will prevent the blinking behavior and keep the pinMode of D7 from being changed to output.
 
@@ -89,8 +85,7 @@ void setup(){
 void loop(){
 	mon.report();
 }
-
-
+```
 ### Communication
 When Monitor is transmitting data via the cloud, it sends two types of events: `~pins~` and `~vars~`. Pins is sent 3x as frequently as vars to make the graphs more responsive. You'll see these events showing up in the [dashboard](https://dashboard.particle.io) if you'd like to view or reuse the format.
 
