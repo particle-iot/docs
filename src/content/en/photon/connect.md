@@ -26,7 +26,7 @@ The Core and Photon both boot into listening mode by default, so if your device 
 
 ## Particle App for Photon
 
-Get the app and set up following the instructions [here!](http://docs.particle.io/photon/#step-2-install-the-app)
+Get the app and set up following the instructions [here!](/photon/#step-2-install-the-app)
 
 [iPhone >](https://itunes.apple.com/us/app/particle-build-photon-electron/id991459054?ls=1&mt=8)  [Android >](https://play.google.com/store/apps/details?id=io.particle.android.app)
 
@@ -144,4 +144,4 @@ If you have already claimed your device and you want to connect it to wifi, type
 
 If your device is not connecting, try troubleshooting [here](http://support.particle.io/).
 
-More info on the CLI is available [here](http://docs.particle.io/photon/cli).
+More info on the CLI is available [here](/photon/cli).

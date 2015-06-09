@@ -78,7 +78,7 @@ Now that you are connected, you can **blink an LED with Tinker.**
 
 The Particle app should now be on the Tinker screen, as shown to the right.
 
-Tap *D7* then _digitalWrite_ in the popup. Now when you tap the *D7* circle the tiny blue LED should turn off or on! This is because the LED shares a connection to the Photon with the pin labeled D7. 
+Tap *D7* then _digitalWrite_ in the popup. Now when you tap the *D7* circle the tiny blue LED should turn off or on! This is because the LED shares a connection to the Photon with the pin labeled D7.
 
 You could hook your own LED up to the Photon on another pin and do the same thing, use digitalRead to tell that a switch has been pressed, or analogRead to see the position of a knob.
 -->
@@ -91,7 +91,7 @@ Now let's control the blue LED on the device. If you [click here](http://build.p
 
 Click "BLINK AN LED" under the Example apps title. This code turns D7 (labeled _led2_) on and off, once a second. Click the lightning bolt icon in the upper left and it will upload or "flash" this code onto your Photon. You'll see a series of status colors on the main LED, and then the little blue LED blinking. Magic!
 
-You can find more info in the [Web IDE (Build) page](http://docs.particle.io/photon/build/)
+You can find more info in the [Web IDE (Build) page](/photon/build/)
 
 Getting To Know Your Photon
 ====

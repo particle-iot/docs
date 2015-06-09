@@ -209,7 +209,7 @@ Command Reference
 
 ###particle setup wifi
 
-  Helpful shortcut for adding another wifi network to a device connected over USB.  Make sure your device is connected via a USB cable, and is slow blinking blue [listening mode](http://docs.particle.io/#connect)
+  Helpful shortcut for adding another wifi network to a device connected over USB.  Make sure your device is connected via a USB cable, and is slow blinking blue [listening mode](/photon/#connect)
 
 ```sh
 # how to just update your wifi settings.
@@ -318,7 +318,7 @@ $ particle flash 0123456789ABCDEFGHI app.ino library1.cpp library1.h
 
 ####Compiling remotely and Flashing locally
 
-To work locally, but use the cloud compiler, simply use the compile command, and then the local flash command after.  Make sure you connect your device via USB and place it into [dfu mode](http://docs.particle.io/photon/modes/#photon-modes-dfu-mode-device-firmware-upgrade).
+To work locally, but use the cloud compiler, simply use the compile command, and then the local flash command after.  Make sure you connect your device via USB and place it into [dfu mode](/photon/modes/#photon-modes-dfu-mode-device-firmware-upgrade).
 
 ```sh
 # how to compile a directory of source code and tell the CLI where to save the results
