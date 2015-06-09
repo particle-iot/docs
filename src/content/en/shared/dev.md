@@ -94,7 +94,7 @@ Variables
 
 ![Getting variable]({{assets}}/images/ide-get-variable.gif)
 
-All variables declared with [Spark.variable()](http://docs.particle.io/photon/firmware#spark-variable) are shown on the left side of panel. To poll latest variable value, click **Refresh** button for variable you want to update.
+All variables declared with [Spark.variable()](../firmware#spark-variable) are shown on the left side of panel. To poll latest variable value, click **Refresh** button for variable you want to update.
 
 ![Watching variable]({{assets}}/images/ide-watch-variable.gif)
 
@@ -105,7 +105,7 @@ Functions
 
 ![Functions]({{assets}}/images/ide-functions.gif)
 
-To call an [exposed function](http://docs.particle.io/photon/firmware#spark-function) simply click on the button with its name. You'll see any data the function returns on the right side.
+To call an [exposed function](../firmware#spark-function) simply click on the button with its name. You'll see any data the function returns on the right side.
 
 You can also add parameters to the call by entering them to the right of button.
 
@@ -134,7 +134,7 @@ Using community libraries
 
 Currently community libraries aren't supported natively (but we're working on it). You can still use them, just follow these instructions:
 
-Find the [library you want to use](http://docs.particle.io/photon/build/#flash-apps-with-particle-build-using-libraries)
+Find the [library you want to use](../build/#flash-apps-with-particle-build-using-libraries)
 
 ![Link to GitHub repository]({{assets}}/images/build-libraries.jpg)
 
