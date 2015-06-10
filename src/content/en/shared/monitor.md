@@ -28,7 +28,7 @@ Launching the App:
 1. In `chrome://extensions` click the "Launch" link under "Spark Monitor"
 2. Login to your Particle account so you can access your devices and their data
 
-- OR -
+* OR *
 Install and use [Chrome App Launcher](https://support.google.com/chrome_webstore/answer/3060053?p=cws_app_launcher&rd=1&hl=en)
 
 ### The Firmware Library
