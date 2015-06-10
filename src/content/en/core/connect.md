@@ -187,6 +187,6 @@ Follow the instructions on Texas Instrument's website:
 
 [CC3000 Smart Config @ Texas Instruments](http://processors.wiki.ti.com/index.php/CC3000_Smart_Config)
 
-The only thing that's different is that you'll need to activate the optional AES key and type `particledevices2013`.
+The only thing that's different is that you'll need to activate the optional AES key and type `sparkdevices2013`.
 
 *NOTE: TI's Android app is not available in Google Play; you'll have to download it off of their website and side-load the apk yourself.*

@@ -32,7 +32,7 @@ Powering Your Core
 
 ![Power the Core]({{assets}}/images/core-front.jpg)
 
-Plug the included USB cable into the Core and your computer. The Core should start blinking blue.  If you have a [core with a u.FL connector]({{assets}}/images/chip-ufl.jpg), make sure you connect an antenna to it now!
+Plug the included USB cable into the Core and your computer. The Core should start blinking blue.  If you have a [core with a u.FL connector](/core/hardware/#spark-core-datasheet-types-of-cores), make sure you connect an antenna to it now!
 
 - Not blinking blue?
   - Maybe it's already been configured. Hold down the MODE button until it starts blinking blue, then continue.
@@ -84,13 +84,13 @@ Blink an LED on your Core
 
 ![Tinker]({{assets}}/images/tinker-select.jpg)
 
-The Spark Core app should now be on the Tinker screen, as shown to the right. 
+The Spark Core app should now be on the Tinker screen, as shown to the right.
 
-Tap *D7* then _digitalWrite_ in the popup. Now when you tap the *D7* circle the tiny blue LED should turn off or on! This is because the LED shares a connection to the Core with the pin labeled D7. 
+Tap *D7* then _digitalWrite_ in the popup. Now when you tap the *D7* circle the tiny blue LED should turn off or on! This is because the LED shares a connection to the Core with the pin labeled D7.
 
 You could hook your own LED up to the Core on another pin and do the same thing, use digitalRead to tell that a switch has been pressed, or analogRead to see the position of a knob.
 
-You can always get Tinker back on the Core by following [these instructions](/core/tinker#tinkering-with-tinker-the-tinker-firmware)
+You can always get Tinker back on the Core by following [these instructions](/core/tinker/#tinkering-with-tinker-using-tinker-with-your-code)
 
 
 ### Put Code on Your Core
@@ -185,4 +185,3 @@ The Core has 24 pins that you can connect a circuit to. These pins are:
 ![Spark Core Pinout]({{assets}}/images/spark-pinout.png)
 
 When you want to use the `analogWrite()` function on the Core, for instance to smoothly dim the brightness of LEDs, you need to use pins that have a timer peripheral.  People often call these PWM pins, since what they do is called Pulse Width Modulation.  The Core has 8 PWM pins: A0, A1, A4, A5, A6, A7, D0 and D1.
-

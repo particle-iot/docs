@@ -15,29 +15,29 @@ Particle iOS Cloud SDK enables iOS apps to interact with Particle-powered connec
 - Get a list of instances of user's Particle devices
 - Read variables from devices
 - Invoke functions on devices
-- Publish events from the mobile app and subscribe to events coming from devices *(Coming Soon)* 
+- Publish events from the mobile app and subscribe to events coming from devices *(Coming Soon)*
 
-All cloud operations take place asynchronously and use the well-known completion blocks (closures for swift) design pattern for reporting results allowing you to build beautiful responsive apps for your Particle products and projects. 
-iOS Cloud SDK is implemented as an open-source Cocoapod library. See [Installation](#installation) section for more details. It works well for both Objective-C and [Swift](#support-for-swift-projects) projects.
+All cloud operations take place asynchronously and use the well-known completion blocks (closures for swift) design pattern for reporting results allowing you to build beautiful responsive apps for your Particle products and projects.
+iOS Cloud SDK is implemented as an open-source Cocoapod library. See [Installation](#ios-cloud-sdk-installation) section for more details. It works well for both Objective-C and [Swift](#support-for-swift-projects) projects.
 
 **Rebranding notice**
 
-Spark has been recently rebranded as Particle. 
+Spark has been recently rebranded as Particle.
 Code currently refers to `SparkCloud` and `SparkDevice`, this will soon be replaced with `ParticleCloud` and `ParticleDevice`. A new Cocoapod library will be published and current one will be depracated and point to the new one. This should not bother or affect your code.
 
 **Beta notice**
 
-This SDK is still under development and is currently released as Beta, although tested, bugs and issues may be present, some code might require cleanups. 
+This SDK is still under development and is currently released as Beta, although tested, bugs and issues may be present, some code might require cleanups.
 
 ## Getting Started
 
 - Perform the installation step described under the **Installation** section below for integrating in your own project
 - You can also [Download Particle iOS Cloud SDK](https://github.com/spark/spark-sdk-ios/archive/master.zip) and try out the included iOS example app
-- Be sure to check [Usage](#usage) before you begin for some code examples
+- Be sure to check [Usage](#ios-cloud-sdk-usage) before you begin for some code examples
 
 ## Usage
 
-Cloud SDK usage involves two basic classes: first is `SparkCloud` which is a singleton object that enables all basic cloud operations such as user authentication, device listing, claiming etc. Second class is `SparkDevice` which is an instance represnting a claimed device in the current user session. Each object enables device-specific operation such as: getting its info, invoking functions and reading variables from it. 
+Cloud SDK usage involves two basic classes: first is `SparkCloud` which is a singleton object that enables all basic cloud operations such as user authentication, device listing, claiming etc. Second class is `SparkDevice` which is an instance represnting a claimed device in the current user session. Each object enables device-specific operation such as: getting its info, invoking functions and reading variables from it.
 
 Here are few examples for the most common use cases to get your started:
 
@@ -47,9 +47,9 @@ You don't need to worry about access tokens, SDK takes care of that for you
 **Objective-C**
 ```objc
 [[SparkCloud sharedInstance] loginWithUser:@"ido@particle.io" password:@"userpass" completion:^(NSError *error) {
-    if (!error) 
+    if (!error)
         NSLog(@"Logged in to cloud");
-    else 
+    else
         NSLog(@"Wrong credentials or no internet connectivity, please try again");
 }];
 ```
@@ -245,7 +245,7 @@ myPhoton!.rename("myNewDeviceName", completion: { (error:NSError!) -> Void in
 ```
 ---
 
-#### Logout 
+#### Logout
 Also clears user session and access token
 
 **Objective-C**
@@ -280,7 +280,7 @@ adding `#import "Spark-SDK.h"`. (that is not required for swift projects)
 - If you **need help**, use [Our community website](http://community.particle.io), use the `Mobile` category for dicussion/troubleshooting iOS apps using the Particle iOS Cloud SDK.
 - If you are certain you **found a bug**, _and can provide steps to reliably reproduce it_, open an issue, label it as `bug`.
 - If you **have a feature request**, open an issue with an `enhancement` label on it
-- If you **want to contribute**, submit a pull request, be sure to check out spark.github.io for our contribution guidelines, and please sign the [CLA](https://docs.google.com/a/particle.io/forms/d/1_2P-vRKGUFg5bmpcKLHO_qNZWGi5HKYnfrrkd-sbZoA/viewform). 
+- If you **want to contribute**, submit a pull request, be sure to check out spark.github.io for our contribution guidelines, and please sign the [CLA](https://docs.google.com/a/particle.io/forms/d/1_2P-vRKGUFg5bmpcKLHO_qNZWGi5HKYnfrrkd-sbZoA/viewform).
 
 
 #### Support for Swift projects
