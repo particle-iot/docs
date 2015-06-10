@@ -24,6 +24,13 @@ You'll need to download the Chrome app from here: [spark-monitor.zip](https://s3
 5. Select the unzipped directory (`spark-monitor`)
 6. Celebrate a hard day's work. The app opens just like any other Chrome packaged app.
 
+Launching the App:
+1. In `chrome://extensions` click the "Launch" link under "Spark Monitor"
+2. Login to your Particle account so you can access your devices and their data
+
+- OR -
+Install and use [Chrome App Launcher](https://support.google.com/chrome_webstore/answer/3060053?p=cws_app_launcher&rd=1&hl=en)
+
 ### The Firmware Library
 The other part of Monitor is the firmware library. If you're already logged in, you can click this link to the [Monitor library](https://build.particle.io/libs/557649649022b2af38000d4e/tab/1_SimpleMonitor.cpp) or you can search the libraries in [Build](https://build.particle.io/) for "Monitor". The example code shows the simplest setup, with two Monitored variables. The minimum for it to work is here:
 
