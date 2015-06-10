@@ -2,6 +2,7 @@
 word: Monitor
 title: Monitor
 order: 12
+shared: true
 columns: 2
 ---
 
@@ -14,9 +15,9 @@ Getting Monitor
 ===
 
 ### The App
-You'll need to download the Chrome app from [here](url). To install it:
+You'll need to download the Chrome app from here: [spark-monitor.zip](https://s3.amazonaws.com/spark-website/spark-monitor.zip). To install it:
 
-1. Unzip the [spark-monitor.zip](https://s3.amazonaws.com/spark-website/spark-monitor.zip) file
+1. Unzip the spark-monitor.zip file
 2. Go to `chrome://extensions` (you'll need to copy/paste it)
 3. Click the "Developer mode" check box in the upper right
 4. Click "Load unpacked extension..."
