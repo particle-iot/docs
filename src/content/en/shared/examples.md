@@ -117,64 +117,64 @@ Ready to start?
 ---------------------------------------*/
 
 // We're going to start by declaring which pins everything is plugged into.
- 
+
 int led = D0; // This is where your LED is plugged in. The other side goes to a resistor connected to GND.
- 
+
 int photoresistor = A0; // This is where your photoresistor is plugged in. The other side goes to the "power" pin (below).
- 
+
 int power = A5; // This is the other end of your photoresistor. The other side is plugged into the "photoresistor" pin (above).
 // The reason we have plugged one side into an analog pin instead of to "power" is because we want a very steady voltage to be sent to the photoresistor.
 // That way, when we read the value from the other side of the photoresistor, we can accurately calculate a voltage drop.
- 
+
 int analogvalue; // Here we are declaring the integer variable analogvalue, which we will use later to store the value of the photoresistor.
- 
- 
+
+
 // Next we go into the setup function.
- 
+
 void setup() {
     /* The setup function is a part of every Wiring-based app.
     The setup function is called once when your device turns on or resets.
     Steps taken in this function should be things you only want to have to do once, when your device starts running.
     For this app, our steps are as follows:
     */
-    
+
     // First, declare all of our pins. This lets our device know which ones will be used for outputting voltage, and which ones will read incoming voltage.
     pinMode(led,OUTPUT); // Our LED pin is output (lighting up the LED)
     pinMode(photoresistor,INPUT);  // Our photoresistor pin is input (reading the photoresistor)
     pinMode(power,OUTPUT); // The pin powering the photoresistor is output (sending out consistent power)
-    
+
     // Next, write the power of the photoresistor to be the maximum possible, which is 4095 in analog.
     analogWrite(power,4095);
-    
+
     // We are going to declare a Spark.variable() here so that we can access the value of the photoresistor from the cloud.
     Spark.variable("analogvalue", &analogvalue, INT);
     // This is saying that when we ask the cloud for "analogvalue", this will reference the variable analogvalue in this app, which is an integer variable.
-    
+
     // We are also going to declare a Spark.function so that we can turn the LED on and off from the cloud.
     Spark.function("led",ledToggle);
     // This is saying that when we ask the cloud for the function "led", it will employ the function ledToggle() from this app.
 }
- 
- 
+
+
 // Next is the loop function...
- 
+
 void loop() {
     /* The loop function is a part of every Wiring-based app.
     After the setup function is done running, the loop function gets called
     as much as possible and as often as possible, over and over again
     until your device turns off or is reset.
-    
+
     In this loop function, we're goint to check to see what the value
     of the photoresistor is and store it in the int variable analogvalue
     */
- 
+
     // This will store the value of the photoresistor in our int variable, analogvalue:
     analogvalue = analogRead(photoresistor);
 }
- 
- 
+
+
 // Finally, we will write out our ledToggle function, which is referenced by the Spark.function() called "led"
- 
+
 int ledToggle(String command) {
     /* Spark.functions always take a string as an argument and return an integer.
     Since we can pass a string, it means that we can write instructions on how the function should be used.
@@ -183,7 +183,7 @@ int ledToggle(String command) {
     In this case, it will return 1 for the LED turning on, 0 for the LED turning off,
     and -1 if we received a totally bogus command that didn't do anything to the LED.
     */
-    
+
     if (command=="on") {
         digitalWrite(led,HIGH);
         return 1;
@@ -341,22 +341,22 @@ void setup() {
 
   // Since everyone sets up their leds differently, we are also going to start by calibrating our photoresistor.
   // This one is going to require some input from the user!
-  
+
   // First, the D7 LED will go on to tell you to put your hand in front of the beam.
   digitalWrite(boardLed,HIGH);
   delay(2000);
-  
+
   // Then, the D7 LED will go off and the LED will turn on.
   digitalWrite(boardLed,LOW);
   digitalWrite(led,HIGH);
   delay(500);
-  
+
   // Now we'll take some readings...
   int on_1 = analogRead(photoresistor); // read photoresistor
   delay(200); // wait 200 milliseconds
   int on_2 = analogRead(photoresistor); // read photoresistor
   delay(300); // wait 300 milliseconds
-  
+
   // Now flash to let us know that you've taken the readings...
   digitalWrite(boardLed,HIGH);
   delay(100);
@@ -366,14 +366,14 @@ void setup() {
   delay(100);
   digitalWrite(boardLed,LOW);
   delay(100);
-  
+
   // Now the D7 LED will go on to tell you to remove your hand...
   digitalWrite(boardLed,HIGH);
   delay(2000);
-  
+
   // The D7 LED will turn off...
   digitalWrite(boardLed,LOW);
-  
+
   // ...And we will take two more readings.
   int off_1 = analogRead(photoresistor); // read photoresistor
   delay(200); // wait 200 milliseconds
@@ -392,7 +392,7 @@ void setup() {
   digitalWrite(boardLed,HIGH);
   delay(100);
   digitalWrite(boardLed,LOW);
-  
+
 
   // Now we average the "on" and "off" values to get an idea of what the resistance will be when the LED is on and off
   intactValue = (on_1+on_2)/2;
@@ -415,7 +415,7 @@ void loop() {
   */
 
   if (analogRead(photoresistor)>beamThreshold) {
-      
+
     /* If you are above the threshold, we'll assume the beam is intact.
     If the beam was intact before, though, we don't need to change anything.
     We'll use the beamBroken flag to help us find this out.
@@ -423,18 +423,18 @@ void loop() {
     After the beam is broken, it is set TRUE
     and when the beam reconnects it is set to FALSE.
     */
-    
+
     if (beamBroken==true) {
         // If the beam was broken before, then this is a new status.
         // We will send a publish to the cloud and turn the LED on.
-        
+
         // Send a publish to your devices...
         Spark.publish("beamStatus","intact",60,PRIVATE);
         // And flash the on-board LED on and off.
         digitalWrite(boardLed,HIGH);
         delay(500);
         digitalWrite(boardLed,LOW);
-        
+
         // Finally, set the flag to reflect the current status of the beam.
         beamBroken=false;
     }
@@ -446,14 +446,14 @@ void loop() {
   else {
       // If you are below the threshold, the beam is probably broken.
       if (beamBroken==false) {
-        
+
         // Send a publish...
         Spark.publish("beamStatus","broken",60,PRIVATE);
         // And flash the on-board LED on and off.
         digitalWrite(boardLed,HIGH);
         delay(500);
         digitalWrite(boardLed,LOW);
-        
+
         // Finally, set the flag to reflect the current status of the beam.
         beamBroken=true;
       }
@@ -475,7 +475,7 @@ For your convenience, we've set up a little calibrate function so that your devi
 
 You can check out the results on your dashboard at [dashboard.particle.io](https://dashboard.particle.io). As you put your finger in front of the beam, you'll see an event appear that says the beam was broken. When you remove your finger, the event says that the beam is now intact.
 
-You can also hook up publishes to IFTTT! More info [here](/photon/ifttt).
+You can also hook up publishes to IFTTT! More info [here](../ifttt).
 
 <a id="publish-and-subscribe-with-photoresistors" data-firmware-example-url="http://docs.particle.io/photon/examples/#publish-and-subscribe-with-photoresistors" data-firmware-example-title="Publish and Subscribe - part 3" data-firmware-example-description="Learn about Publish and Subscribe using Photoresistors">
 
@@ -549,23 +549,23 @@ void setup() {
 
   // Since everyone sets up their leds differently, we are also going to start by calibrating our photoresistor.
   // This one is going to require some input from the user!
-  
+
   // Calibrate:
   // First, the D7 LED will go on to tell you to put your hand in front of the beam.
   digitalWrite(boardLed,HIGH);
   delay(2000);
-  
+
   // Then, the D7 LED will go off and the LED will turn on.
   digitalWrite(boardLed,LOW);
   digitalWrite(led,HIGH);
   delay(500);
-  
+
   // Now we'll take some readings...
   int on_1 = analogRead(photoresistor); // read photoresistor
   delay(200); // wait 200 milliseconds
   int on_2 = analogRead(photoresistor); // read photoresistor
   delay(300); // wait 300 milliseconds
-  
+
   // Now flash to let us know that you've taken the readings...
   digitalWrite(boardLed,HIGH);
   delay(100);
@@ -575,14 +575,14 @@ void setup() {
   delay(100);
   digitalWrite(boardLed,LOW);
   delay(100);
-  
+
   // Now the D7 LED will go on to tell you to remove your hand...
   digitalWrite(boardLed,HIGH);
   delay(2000);
-  
+
   // The D7 LED will turn off...
   digitalWrite(boardLed,LOW);
-  
+
   // ...And we will take two more readings.
   int off_1 = analogRead(photoresistor); // read photoresistor
   delay(200); // wait 200 milliseconds
@@ -617,7 +617,7 @@ void loop() {
         // publish this public event
         // rename your_unique_event_name with your actual unique event name. No spaces, 63 ASCII characters.
         // give your event name to your buddy and have them put it in their app.
-        
+
         // Set the flag to reflect the current status of the beam.
         beamBroken=false;
     }
@@ -639,12 +639,12 @@ void myHandler(const char *event, const char *data)
   /* Spark.subscribe handlers are void functions, which means they don't return anything.
   They take two variables-- the name of your event, and any data that goes along with your event.
   In this case, the event will be "buddy_unique_event_name" and the data will be "intact" or "broken"
-  
+
   Since the input here is a char, we can't do
      data=="intact"
     or
      data=="broken"
-  
+
   chars just don't play that way. Instead we're going to strcmp(), which compares two chars.
   If they are the same, strcmp will return 0.
   */
@@ -808,15 +808,15 @@ void loop()
 {
   int reading = 0;
   double voltage = 0.0;
-  
+
   // Keep reading the sensor value so when we make an API
   // call to read its value, we have the latest one
   reading = analogRead(A7);
-  
+
   // The returned value from the Core is going to be in the range from 0 to 4095
   // Calculate the voltage from the sensor reading
   voltage = (reading * 3.3) / 4095;
-  
+
   // Calculate the temperature and update our static variable
   temperature = (voltage - 0.5) * 100;
 }

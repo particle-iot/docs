@@ -94,7 +94,7 @@ Variables
 
 ![Getting variable]({{assets}}/images/ide-get-variable.gif)
 
-All variables declared with [Spark.variable()](../firmware#spark-variable) are shown on the left side of panel. To poll latest variable value, click **Refresh** button for variable you want to update.
+All variables declared with [Spark.variable()](../firmware/#spark-variable) are shown on the left side of panel. To poll latest variable value, click **Refresh** button for variable you want to update.
 
 ![Watching variable]({{assets}}/images/ide-watch-variable.gif)
 
@@ -105,7 +105,7 @@ Functions
 
 ![Functions]({{assets}}/images/ide-functions.gif)
 
-To call an [exposed function](../firmware#spark-function) simply click on the button with its name. You'll see any data the function returns on the right side.
+To call an [exposed function](../firmware/#spark-function) simply click on the button with its name. You'll see any data the function returns on the right side.
 
 You can also add parameters to the call by entering them to the right of button.
 
@@ -119,7 +119,7 @@ Setting up WiFi
 
 To setup device's WiFi, connect it via USB and click **Setup device's WiFi...** button on the toolbar.
 
-If your device isn't in [listening mode](../connect#connecting-your-device-listening-mode) you'll see animation showing how to enter it.
+If your device isn't in [listening mode](../connect/#connecting-your-device-listening-mode) you'll see animation showing how to enter it.
 
 Next you'll see all available networks. The one you are currently connected to will be listed first.
 
