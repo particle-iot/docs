@@ -151,7 +151,7 @@ Your access token can be found in the Particle Build web IDE on the 'Settings' p
 When you connect your Particle device to the Cloud for the first time, it will be associated with your account,
 and only you will have permission to control your Particle device—using your access token.
 
-If you need to transfer ownership of the device to another user, the easiest way is to simply log into the [Particle build site](https://build.particle.io), click on the 'Devices' drawer on the bottom left, and then click the small 'right arrow' by the device you want to release, then click "Remove Device". This will make it possible for the other person you are transferring the device to, to go through the normal [claiming process](http://docs.particle.io).
+If you need to transfer ownership of the device to another user, the easiest way is to simply log into the [Particle build site](https://build.particle.io), click on the 'Devices' drawer on the bottom left, and then click the small 'right arrow' by the device you want to release, then click "Remove Device". This will make it possible for the other person you are transferring the device to, to go through the normal [claiming process](../start).
 
 In the future, you will be able to provision access to your Particle device to other accounts
 and to third-party app developers; however, these features are not yet available.
@@ -265,9 +265,9 @@ curl https://api.particle.io/oauth/token -u particle:particle \
      -d expires_in=3600
 ```
 
- 
+
 ```
- 
+
 ```
 
 ####expires_at - Optional
@@ -527,8 +527,8 @@ To subscribe to an event stream, make a GET request to one of the following endp
 This will open a Server-Sent Events (SSE) stream, i.e., a TCP socket that stays open.
 In each case, the event name filter in the URI is optional.  When specifying an event name filter,
 published events will be limited to those events with names that begin with the specified string.
-For example, specifying an event name filter of 'temp' will return events with names 'temp' and 
-'temperature'. 
+For example, specifying an event name filter of 'temp' will return events with names 'temp' and
+'temperature'.
 
 SSE resources:
 
@@ -589,7 +589,7 @@ curl https://api.particle.io/v1/devices/events \
      -d "name=myevent" \
      -d "data=Hello World" \
      -d "private=true" \
-     -d "ttl=60"      
+     -d "ttl=60"
 ```
 
 "data", "private", and "ttl" are all optional.  You can also send these with the Particle CLI:

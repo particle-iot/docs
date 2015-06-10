@@ -152,4 +152,4 @@ Copy files from `firmware` directory **without** `examples` to your project dire
 
 Include library adding `#include "LIBRARY.h"` to your code
 
-![]({{assets}}/images/ide-include-library.jpg)
+![include-library]({{assets}}/images/ide-include-library.jpg)

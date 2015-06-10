@@ -15,7 +15,7 @@ Anything you build with Particle is now easily available on IFTTT! IFTTT is a se
 
 The Particle Channel on IFTTT will let you connect your devices to other powerful channels. You can now easily send and receive tweets, SMS, check the weather, respond to price changes, monitor astronauts, and much, much more. This page is a reference for you to use as you get your Particle Recipes set up.
 
-If you're totally new to Particle, that's okay! Before you get going on the Particle channel, be sure to get your Photon or Core connected and claimed. [Get started here](../start/).
+If you're totally new to Particle, that's okay! Before you get going on the Particle channel, be sure to get your Photon or Core connected and claimed. [Get started here](../start).
 
 Lets go!
 
