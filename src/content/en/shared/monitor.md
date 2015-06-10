@@ -28,8 +28,9 @@ Launching the App:
 1. In `chrome://extensions` click the "Launch" link under "Spark Monitor"
 2. Login to your Particle account so you can access your devices and their data
 
-* OR *
-Install and use [Chrome App Launcher](https://support.google.com/chrome_webstore/answer/3060053?p=cws_app_launcher&rd=1&hl=en)
+You can also launch using the Chrome App Launcher:
+1. Install [Chrome App Launcher](https://support.google.com/chrome_webstore/answer/3060053?p=cws_app_launcher&rd=1&hl=en)
+2. Open Chrome App Launcher and click on "Spark Monitor"
 
 ### The Firmware Library
 The other part of Monitor is the firmware library. If you're already logged in, you can click this link to the [Monitor library](https://build.particle.io/libs/557649649022b2af38000d4e/tab/1_SimpleMonitor.cpp) or you can search the libraries in [Build](https://build.particle.io/) for "Monitor". The example code shows the simplest setup, with two Monitored variables. The minimum for it to work is here:
@@ -57,12 +58,14 @@ The non-obvious thing here is the Connection state indicator. It'll be a WiFi sy
 Firmware Reference
 ===
 ### Monitor Variables
-Tracking variables with Monitor is as easy as swapping out `Spark.variableName()` with `mon.variableName()` (or whatever your Monitor object is named). They use the same format, and support the same variable types. Monitor will also create a Spark variable as part of the process, so you'll still have that variable available to the API and it won't interfere with existing behaviors.
+Tracking up to 4 variables with Monitor is as easy as swapping out `Spark.variableName()` with `mon.variableName()` (or whatever your Monitor object is named). They use the same format, and support the same variable types. Monitor will also create a Spark variable as part of the process, so you'll still have that variable available to the API and it won't interfere with existing behaviors.
 
 Currently, variables are sampled once every 4 seconds when in remote/cloud mode, and at the same 20Hz as the pins when in local.
 
 ### publishMode
-The default behavior of Monitor is to `.publish()` data even when it's connected to TCP. This function allows you to disable publishing altogether... use it when you want to minimize execution speed impact *and* you know it's only going to be used on the same network.
+The default behavior of Monitor is to [Spark.publish()](http://docs.particle.io/photon/firmware/#spark-publish) data even when it's connected locally. That makes the connection more robust, as in the scenario when the TCP connection is dropped by the app or the device, but the frequent `Spark.publish()` calls will slow down your code. 
+
+This function allows you to disable publishing altogether. Use `.publishMode(false)` when you want to stop the publishes in order to minimize execution speed impact. Remember that with the publishing behavior disabled, Monitor will only work when both the device and the app are on the same network.
 ```
 Monitor mon;
 
