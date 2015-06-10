@@ -16,7 +16,7 @@ Getting Monitor
 ### The App
 You'll need to download the Chrome app from [here](url). To install it:
 
-1. Unzip the spark-monitor.zip file
+1. Unzip the [spark-monitor.zip](https://s3.amazonaws.com/spark-website/spark-monitor.zip) file
 2. Go to `chrome://extensions` (you'll need to copy/paste it)
 3. Click the "Developer mode" check box in the upper right
 4. Click "Load unpacked extension..."
@@ -44,7 +44,7 @@ App Interface
 ===
 The non-obvious thing here is the Connection state indicator. It'll be a WiFi symbol when you're in "Local" mode, communicating over TCP, and will be a cloud symbol when it's using publishes via the Particle Cloud.
 
-INSERT APP DIAGRAM HERE
+![App Diagram](https://s3.amazonaws.com/spark-website/spark_monitor_diagram_720.png)
 
 Firmware Reference
 ===
