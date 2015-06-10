@@ -33,7 +33,7 @@ The P1 is Particle's tiny Wi-Fi module that contains both the Broadcom Wi-Fi chi
 	- Integrated PCB antenna
 	- Integrated u.FL connector for external antenna
 	- Integrated RF switch
-	- RF avg. output power (max) 
+	- RF avg. output power (max)
 	  - b / g / n, 16.5dBm / 15.0dBm / 14.5dBm (+/-1.5dBm)
 - 25 Mixed-signal GPIO and advanced peripherals
 - Open source design
@@ -110,7 +110,7 @@ Pin D3 through D7 are JTAG interface pins.  These can be used to reprogram your 
 
 **Notes:**
 <sup>[1]</sup> Default state after reset for a short period of time before these pins are restored to GPIO (if JTAG debugging is not required, i.e. `USE_SWD_JTAG=y` is not specified on the command line.
-  
+
 A standard 20-pin 0.1" shrouded male JTAG interface connector should be wired as follows:
 
 <div align=center><img src="{{assets}}/images/photon-jtag.png" width=700></div>
@@ -410,7 +410,7 @@ The P1 module comes preprogrammed with a bootloader and a user application calle
 
 The bootloader allows you to easily update the user application via several different methods, USB, OTA, Serial Y-Modem, and also internally via the Factory Reset procedure.  All of these methods have multiple tools associated with them as well.
 
-You may use the online Web IDE [Particle Build](https://www.particle.io/build) to code, compile and flash a user application OTA (Over The Air).  [Particle Dev](https://www.particle.io/dev) is a local tool that uses the Cloud to compile and flash OTA as well.  There is also a package `Spark DFU-UTIL` for Particle Dev that allows for Cloud compiling and local flashing via DFU over USB.  This requires `dfu-util` to be installed on your system.  'dfu-util' can also be used with [Particle CLI](https://github.com/spark/spark-cli) for Cloud compiling and local flashing via the command line.  Finally the lowest level of development is available via the [GNU GCC toolchain for ARM](https://github.com/spark/firmware), which offers local compile and flash via dfu-util.  This gives the user complete control of all source code and flashing methods.  This is an extensive list, however not exhaustive.
+You may use the online Web IDE [Particle Build](https://www.particle.io/build) to code, compile and flash a user application OTA (Over The Air).  [Particle Dev](https://www.particle.io/dev) is a local tool that uses the Cloud to compile and flash OTA as well.  There is also a package `Spark DFU-UTIL` for Particle Dev that allows for Cloud compiling and local flashing via DFU over USB.  This requires `dfu-util` to be installed on your system.  'dfu-util' can also be used with [Particle CLI](https://github.com/spark/particle-cli) for Cloud compiling and local flashing via the command line.  Finally the lowest level of development is available via the [GNU GCC toolchain for ARM](https://github.com/spark/firmware), which offers local compile and flash via dfu-util.  This gives the user complete control of all source code and flashing methods.  This is an extensive list, however not exhaustive.
 
 # 13. Glossary
 
@@ -457,4 +457,3 @@ https://community.particle.io
 **Email**
 
 <mailto:hello@particle.io>
-

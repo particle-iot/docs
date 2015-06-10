@@ -88,7 +88,7 @@ To put your device in Safe Mode:
 
 If you wish to program a device with a custom firmware via USB, you'll need to use this mode. This mode triggers the on-board bootloader that accepts firmware binary files via the [dfu-utility.](http://dfu-util.sourceforge.net)
 
-Installation tutorial can be found [here.](/photon/cli/#installing-advanced-install)
+Installation tutorial can be found [here.](/photon/cli/#upgrading-from-the-spark-cli-advanced-install)
 
 To enter DFU Mode:
 

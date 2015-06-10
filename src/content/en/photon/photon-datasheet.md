@@ -23,7 +23,7 @@ void setup() {
 
 ### 1.1 Overview
 
-Particle's Internet of Things hardware development kit, the Photon, provides everything you need to build a connected product. Particle combines a powerful ARM Cortex M3 micro-controller with a Broadcom Wi-Fi chip in a tiny thumbnail-sized module called the PØ (P-zero). 
+Particle's Internet of Things hardware development kit, the Photon, provides everything you need to build a connected product. Particle combines a powerful ARM Cortex M3 micro-controller with a Broadcom Wi-Fi chip in a tiny thumbnail-sized module called the PØ (P-zero).
 
 To get you started quickly, Particle adds a rock solid 3.3VDC SMPS power supply, RF and user interface components to the PØ on a small single-sided PCB called the Photon. The design is open source, so when you're ready to integrate the Photon into your product, you can.
 
@@ -36,7 +36,7 @@ The Photon comes in two physical forms: with headers and without. Prototyping is
 	* 802.11b/g/n Wi-Fi
     * STM32F205 120Mhz ARM Cortex M3
 	* 1MB flash, 128KB RAM
-	* RF avg. output power (max) 
+	* RF avg. output power (max)
 		* b / g / n, 16.5dBm / 15.0dBm / 14.5dBm (+/-1.5dBm)
 * On-board RGB status LED (ext. drive provided)
 * 18 Mixed-signal GPIO and advanced peripherals
@@ -120,7 +120,7 @@ Pin D3 through D7 are JTAG interface pins.  These can be used to reprogram your 
 
 **Notes:**
 <sup>[1]</sup> Default state after reset for a short period of time before these pins are restored to GPIO (if JTAG debugging is not required, i.e. `USE_SWD_JTAG=y` is not specified on the command line.
-  
+
 A standard 20-pin 0.1" shrouded male JTAG interface connector should be wired as follows:
 
 <div align=center><img src="{{assets}}/images/photon-jtag.png" width=700></div>
@@ -285,7 +285,7 @@ These specifications are based on the STM32F205RG datasheet, with reference to P
 
 The Photon (with headers) can be mounted with (qty 2) 12-pin single row 0.1" female headers.  Typically these are 0.335" (8.5mm) tall, but you may pick a taller one if desired.  When you search for parts like these it can be difficult to navigate the thousands of parts available.  
 
-On [Digikey.com](http://www.digikey.com), this section [Rectangular Connectors - Headers, Receptacles, Female Sockets](http://www.digikey.com/product-search/en/connectors-interconnects/rectangular-connectors-headers-receptacles-female-sockets/1442548) 
+On [Digikey.com](http://www.digikey.com), this section [Rectangular Connectors - Headers, Receptacles, Female Sockets](http://www.digikey.com/product-search/en/connectors-interconnects/rectangular-connectors-headers-receptacles-female-sockets/1442548)
  contains 36,000 of them.  Narrow the search with: 12 positions, 1 row, 0.1" (2.54mm) pitch, Through Hole mounting types (unless you want SMT), and sort by Price Ascending.  You may find something like this:
 
 Description | MFG | MFG Part Number
@@ -431,7 +431,7 @@ The Photon comes preprogrammed with a bootloader and a user application called T
 
 The bootloader allows you to easily update the user application via several different methods, USB, OTA, Serial Y-Modem, and also internally via the Factory Reset procedure.  All of these methods have multiple tools associated with them as well.
 
-You may use the online Web IDE [Particle Build](https://www.particle.io/build) to code, compile and flash a user application OTA (Over The Air).  [Particle Dev](https://www.particle.io/dev) is a local tool that uses the Cloud to compile and flash OTA as well.  There is also a package `Spark DFU-UTIL` for Particle Dev that allows for Cloud compiling and local flashing via DFU over USB.  This requires `dfu-util` to be installed on your system.  'dfu-util' can also be used with [Particle CLI](https://github.com/spark/spark-cli) for Cloud compiling and local flashing via the command line.  Finally the lowest level of development is available via the [GNU GCC toolchain for ARM](https://github.com/spark/firmware), which offers local compile and flash via dfu-util.  This gives the user complete control of all source code and flashing methods.  This is an extensive list, however not exhaustive.
+You may use the online Web IDE [Particle Build](https://build.particle.io) to code, compile and flash a user application OTA (Over The Air).  [Particle Dev](https://www.particle.io/dev) is a local tool that uses the Cloud to compile and flash OTA as well.  There is also a package `Spark DFU-UTIL` for Particle Dev that allows for Cloud compiling and local flashing via DFU over USB.  This requires `dfu-util` to be installed on your system.  'dfu-util' can also be used with [Particle CLI](https://github.com/spark/particle-cli) for Cloud compiling and local flashing via the command line.  Finally the lowest level of development is available via the [GNU GCC toolchain for ARM](https://github.com/spark/firmware), which offers local compile and flash via dfu-util.  This gives the user complete control of all source code and flashing methods.  This is an extensive list, however not exhaustive.
 
 # 14. Glossary
 
@@ -492,4 +492,3 @@ https://community.particle.io
 **Email**
 
 <mailto:hello@particle.io>
-
