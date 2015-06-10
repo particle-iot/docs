@@ -19,7 +19,7 @@ Installing
 ```sh
 # how to install the particle-cli
 $ npm install -g particle-cli
-$ particle cloud login
+$ particle login
 ```
 
 Upgrading from the Spark CLI
@@ -61,6 +61,7 @@ To grab the CLI source and play with it locally
 # how to get the source code for the CLI
 $ git clone git@github.com:spark/particle-cli.git
 $ cd particle-cli
+$ npm install
 $ node app.js help
 ```
 
@@ -258,13 +259,13 @@ my_device_name (0123456789ABCDEFGHI) 0 variables, and 4 functions
 
 ```
 
-###particle cloud claim
+###particle device add
 
   Adds a new device to your account
 
 ```sh
 # how to add a new device to your account
-$ particle cloud claim 0123456789ABCDEFGHI
+$ particle device add 0123456789ABCDEFGHI
 Claiming device 0123456789ABCDEFGHI
 Successfully claimed device 0123456789ABCDEFGHI
 ```
