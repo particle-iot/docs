@@ -626,6 +626,8 @@ Send the source code file as "file" in request body.
 The API request should be encoded as `multipart/form-data` with a `file` field populated.
 Your filename does not matter.  In particular, the extension can be .c, .cpp, .ino, or anything else your prefer.
 
+**NOTE**: Remeber that **\*.cpp** and **\*.ino** files behave differently. You can read more about it on our [support page](http://support.particle.io/hc/en-us/articles/204952620).
+
 This API request will submit your firmware to be compiled into a Particle binary, after which,
 if compilation was successful, the binary will be flashed to your device wirelessly.
 
