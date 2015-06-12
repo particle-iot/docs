@@ -740,6 +740,50 @@ void setup() {
 }
 ```
 
+### WiFi.setIPAddressSource()
+
+Determines how the device obtains it's IP Address.
+
+`WiFi.selectAddress(*type*)` where *type* is one of:
+
+- `DYNAMIC_IP`: the device obtains an IP address from a DHCP server. This is the default.
+- `STATIC_IP`: the device uses the statically-configured IP address
+
+The setting is remembered after reset. Changing this setting does not take affect
+immediately. It takes affect from the next time the WiFi module connects to an access point.
+
+Calling this function with the same value as already configured (such as on each restart) does not cause additional wear
+on the system flash storage. The value is stored to flash only if it is different from what is already configured.
+
+
+### WiFi.setIPAddress()
+
+Defines the IP Address for this device when using `STATIC_IP` mode.
+
+SYSTEM_MODE(SEMI_AUTOMATIC);
+
+```cpp
+void setup() {
+    // define the static addresses to use
+    IPAddress deviceIP(192,168,1,234);
+    IPAddress subnetMask(255,255,255,0);
+    IPAddress gatewayIP(192,168,1,1);
+    IPAddress dns1(192,168,1,1);
+    // set these addresses
+    WiFi.setIPAddress(deviceIP, subnetMask, gatewayIP, dns1);
+    WiFi.setIPAddressSource(STATIC_IP);
+    Spark.connect();
+}
+```
+
+The configured addresses are remembered after a reset. Setting the addresses
+does not automatically cause the device to use these configured addresses. They
+take affect next time the WiFi module connects to an Access Point, and `WiFi.setIPAddressSource(STATIC_IP)` has been called.
+
+Calling this function with the same values as already configured (such as on each restart) does not cause additional wear
+on the system flash storage. The values are stored to flash only if it is different from what is already configured.
+
+
 Input/Output
 =====
 
@@ -1059,7 +1103,7 @@ setup() {
 	shiftOut(dataPin, clock, MSBFIRST, data);
 
 	// Or do this for LSBFIRST serial
-	shiftOut(dataPin, clock, LSBFIRST, data);  
+	shiftOut(dataPin, clock, LSBFIRST, data);
 }
 
 loop() {
@@ -1102,7 +1146,7 @@ setup() {
 	data = shiftIn(dataPin, clock, MSBFIRST);
 
 	// Or do this for LSBFIRST serial
-	data = shiftIn(dataPin, clock, LSBFIRST);  
+	data = shiftIn(dataPin, clock, LSBFIRST);
 }
 
 loop() {
@@ -1590,7 +1634,7 @@ void loop()
 {
   Wire.beginTransmission(4); // transmit to slave device #4
   Wire.write("x is ");       // sends five bytes
-  Wire.write(x);             // sends one byte  
+  Wire.write(x);             // sends one byte
   Wire.endTransmission();    // stop transmitting
 
   x++;
@@ -3433,7 +3477,7 @@ System.sleep(5);
 ```
 `System.sleep(long seconds)` does NOT stop the execution of user code (non-blocking call).  User code will continue running while the Wi-Fi module is in standby mode.
 
-`System.sleep(SLEEP_MODE_DEEP, long seconds)` can be used to put the entire device into a *deep sleep* mode. In this particular mode, the device shuts down the network subsystem and puts the microcontroller in a stand-by mode.  When the device awakens from deep sleep, it will reset and run all user code from the beginning with no values being maintained in memory from before the deep sleep.  
+`System.sleep(SLEEP_MODE_DEEP, long seconds)` can be used to put the entire device into a *deep sleep* mode. In this particular mode, the device shuts down the network subsystem and puts the microcontroller in a stand-by mode.  When the device awakens from deep sleep, it will reset and run all user code from the beginning with no values being maintained in memory from before the deep sleep.
 
 As such, it is recommended that deep sleep be called only after all user code has completed. The Standby mode is used to achieve the lowest power consumption.  After entering Standby mode, the SRAM and register contents are lost except for registers in the backup domain.
 
