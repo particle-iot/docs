@@ -3,6 +3,7 @@ word: Examples
 title: Examples
 order: 4
 shared: true
+columns: 2
 ---
 
 Annotated examples
@@ -14,7 +15,6 @@ Here you will find a bunch of examples to get you started with your new Particle
 
 Blink an LED
 ===
-
 
 ![One LED illustration]({{assets}}/images/photon-led-fritzing.png)
 
@@ -36,40 +36,314 @@ Connect everything together as shown in the picture. The negative (shorter) pin 
 
 Next, we're going to load code onto your core. Copy and paste this code into a new application on http://build.particle.io or on Particle Dev. We've heavily commented this code so that you can see what is going on in each line.
 
+Go ahead and save this application, then flash it to your Core or Photon. You should be able to see that LED blinking away!
+
+
 <a data-firmware-example-code-block=true>
 
 ```cpp
-// This program will blink an led on and off every second.
-// It blinks the D7 LED on your Particle device. If you have an LED wired to D0, it will blink that LED as well.
+// ------------
+// Blink an LED
+// ------------
 
-// First, define the pins we are going to use.
-int led = D0;  // You'll need to wire an LED to this one to see it blink.
-int led2 = D7; // This one is the little blue LED on your board. On the Photon it is next to D7, and on the Core it is next to the USB jack.
+/*-------------
 
-// This routine runs only once when the device boots up or is reset
+We've heavily commented this code for you. If you're a pro, feel free to ignore it.
+
+Comments start with two slashes or are blocked off by a slash and a star.
+You can read them, but your device can't.
+It's like a secret message just for you.
+
+Every program based on Wiring (programming language used by Arduino, and Particle devices) has two essential parts:
+setup - runs once at the beginning of your program
+loop - runs continuously over and over
+
+You'll see how we use these in a second. 
+
+This program will blink an led on and off every second.
+It blinks the D7 LED on your Particle device. If you have an LED wired to D0, it will blink that LED as well.
+
+-------------*/
+
+
+// First, we're going to make some variables.
+// This is our "shorthand" that we'll use throughout the program:
+
+int led1 = D0; // Instead of writing D0 over and over again, we'll write led1
+// You'll need to wire an LED to this one to see it blink.
+
+int led2 = D7; // Instead of writing D7 over and over again, we'll write led2
+// This one is the little blue LED on your board. On the Photon it is next to D7, and on the Core it is next to the USB jack.
+
+// Having declared these variables, let's move on to the setup function.
+// The setup function is a standard part of any microcontroller program.
+// It runs only once when the device boots up or is reset.
+
 void setup() {
-  // We are going to tell our device that D0 and D7 (which we named led and led2 respectively) are going to be output
+
+  // We are going to tell our device that D0 and D7 (which we named led1 and led2 respectively) are going to be output
   // (That means that we will be sending voltage to them, rather than monitoring voltage that comes from them)
+
   // It's important you do this here, inside the setup() function rather than outside it or in the loop function.
-  pinMode(led, OUTPUT);
+
+  pinMode(led1, OUTPUT);
   pinMode(led2, OUTPUT);
+
 }
 
-// This next routine gets called over and over, as much as possible, after your device boots up.
-// Firmware interleaves background CPU activity associated with WiFi + Cloud activity with your code. Note: Code that blocks for too long (like more than 5 seconds), can make weird things happen (like dropping the network connection).  The built-in delay function shown below safely interleaves required background activity, so arbitrarily long delays can safely be done if you need them.
+// Next we have the loop function, the other essential part of a microcontroller program.
+// This routine gets repeated over and over, as quickly as possible and as many times as possible, after the setup function is called.
+// Note: Code that blocks for too long (like more than 5 seconds), can make weird things happen (like dropping the network connection).  The built-in delay function shown below safely interleaves required background activity, so arbitrarily long delays can safely be done if you need them.
+
 void loop() {
-  digitalWrite(led, HIGH);   // Turn ON the LED pins
+  // To blink the LED, first we'll turn it on...
+  digitalWrite(led1, HIGH);
   digitalWrite(led2, HIGH);
-  delay(1000);               // Wait for 1000mS = 1 second
-  digitalWrite(led, LOW);    // Turn OFF the LED pins
+
+  // We'll leave it on for 1 second...
+  delay(1000);
+
+  // Then we'll turn it off...
+  digitalWrite(led1, LOW);
   digitalWrite(led2, LOW);
-  delay(1000);               // Wait for 1 second in off mode
+
+  // Wait 1 second...
+  delay(1000);
+
+  // And repeat!
 }
+
 ```
 
-Go ahead and save this application, then flash it to your Core or Photon. You should be able to see that LED blinking away!
+<a id="control-led-over-the-net" data-firmware-example-url="http://docs.particle.io/photon/examples/#control-led-over-the-net" data-firmware-example-title="Control LED over the Internet" data-firmware-example-description="">
 
-We know that's not enough for you, though. Let's add some sensors.
+Control LEDs over the 'net
+===
+
+![One LED illustration]({{assets}}/images/photon-led-fritzing.png)
+
+Now that we know how to blink an LED, how about we control it over the Internet? This is where the fun begins.
+
+We've heavily commented the code below so that you can see what's going on. Basically, we are going to:
+
+- Set up the pins as outputs that have LEDs connected to them
+- Create and register a Spark function (this gets called automagically when you make an API request to it)
+- Parse the incoming command and take appropriate actions
+
+<a data-firmware-example-code-block=true>
+
+```cpp
+// -----------------------------------
+// Controlling LEDs over the Internet
+// -----------------------------------
+
+// First, let's create our "shorthand" for the pins
+// Same as in the Blink an LED example:
+// led1 is D0, led2 is D7
+
+int led1 = D0;
+int led2 = D7;
+
+// Last time, we only needed to declare pins in the setup function.
+// This time, we are also going to register our Spark function
+
+void setup()
+{
+
+   // Here's the pin configuration, same as last time
+   pinMode(led1, OUTPUT);
+   pinMode(led2, OUTPUT);
+
+   // We are also going to declare a Spark.function so that we can turn the LED on and off from the cloud.
+   Spark.function("led",ledToggle);
+   // This is saying that when we ask the cloud for the function "led", it will employ the function ledToggle() from this app.
+
+   // For good measure, let's also make sure both LEDs are off when we start:
+   digitalWrite(led1, LOW);
+   digitalWrite(led2, LOW);
+
+}
+
+
+// Last time, we wanted to continously blink the LED on and off
+// Since we're waiting for input through the cloud this time,
+// we don't actually need to put anything in the loop
+
+void loop()
+{
+   // Nothing to do here
+}
+
+// We're going to have a super cool function now that gets called when a matching API request is sent
+// This is the ledToggle function we registered to the "led" Spark.function earlier.
+
+
+int ledToggle(String command) {
+    /* Spark.functions always take a string as an argument and return an integer.
+    Since we can pass a string, it means that we can give the program commands on how the function should be used.
+    In this case, telling the function "on" will turn the LED on and telling it "off" will turn the LED off.
+    Then, the function returns a value to us to let us know what happened.
+    In this case, it will return 1 for the LEDs turning on, 0 for the LEDs turning off,
+    and -1 if we received a totally bogus command that didn't do anything to the LEDs.
+    */
+
+    if (command=="on") {
+        digitalWrite(led1,HIGH);
+        digitalWrite(led2,HIGH);
+        return 1;
+    }
+    else if (command=="off") {
+        digitalWrite(led1,LOW);
+        digitalWrite(led2,LOW);
+        return 0;
+    }
+    else {
+        return -1;
+    }
+}
+
+```
+
+---
+
+The API request will look something like this:
+
+```json
+POST /v1/devices/{DEVICE_ID}/led
+
+# EXAMPLE REQUEST IN TERMINAL
+# Core ID is 0123456789abcdef
+# Your access token is 123412341234
+curl https://api.particle.io/v1/devices/0123456789abcdef/led \
+  -d access_token=123412341234 \
+  -d params=on
+```
+
+Note that the API endpoint is 'led', not 'ledToggle'. This is because the endpoint is defined by the first argument of [Spark.function() PLACEHOLDER], which is a string of characters, rather than the second argument, which is a function.
+
+You should also be able to control the LEDs by sending a `POST` request to the REST API. Check it out:
+
+```
+/* Paste the code between the dashes below into a .txt file and save it as an .html file. Replace your-device-ID-goes-here with your actual device ID and your-access-token-goes-here with your actual access token.
+
+---------------------------
+<!-- Replace your-device-ID-goes-here with your actual device ID
+and replace your-access-token-goes-here with your actual access token-->
+<center>
+<br>
+<br>
+<br>
+<form action="https://api.particle.io/v1/devices/your-device-ID-goes-here/led?access_token=your-access-token-goes-here" method="POST">
+Tell your device what to do!<br>
+<br>
+<input type="radio" name="args" value="on">Turn the LED on.
+<br>
+<input type="radio" name="args" value="off">Turn the LED off.
+<br>
+<br>
+<input type="submit" value="Do it!">
+</form>
+</center>
+---------------------------
+
+Now open the .html file in your browser. You should be able to turn the LEDs on and off using this form.
+
+*/
+```
+
+To better understand the concept of making API calls to your device over the cloud checkout the [Cloud API reference.](../api)
+
+
+<a id="variables-with-a-temperature-sensor" data-firmware-example-url="http://docs.particle.io/photon/examples/#variables-with-a-temperature-sensor" data-firmware-example-title="Measure the temperature" data-firmware-example-description="">
+
+Measuring a Variable
+===
+
+![One LED illustration]({{assets}}/images/photon-temp-fritzing.png)
+
+We have now learned how to send custom commands to our device and control the hardware. But how about reading data back from our device?
+
+In this example, we will hook up a temperature sensor to your device and read the values over the internet with a web browser.
+
+For this example, you will need:
+- Your Particle device
+- a Breadboard
+- a TMP36 temperature sensor
+- 3 wires
+- a USB to micro-USB cable
+
+We have used a widely available analog temperature sensor called TMP36 from Analog Devices, and is the temperature sensor that comes with your Particle Maker Kit! You can download the [datasheet here.](http://www.analog.com/media/en/technical-documentation/data-sheets/TMP35_36_37.pdf)
+
+You'll want to set up the temperature sensor like the picture above, and flash the firmware below to your device.
+
+<a data-firmware-example-code-block=true>
+
+```cpp
+// -----------------
+// Read temperature
+// -----------------
+
+// Create a variable that will store the temperature value
+double temperature = 0.0;
+
+void setup()
+{
+
+  // We are going to register a Spark.variable() here so that we can access the value of the temperature sensor from the cloud.
+  Spark.variable("temperature", &temperature, DOUBLE);
+  // This is saying that when we ask the cloud for "temperature", this will reference the variable temperature in this app, which is a double variable.
+
+  // Connect the temperature sensor's data (middle) pin to A5 and configure it to be an input
+  pinMode(A5, INPUT);
+
+}
+
+void loop()
+{
+
+  // Create some variables we will use in a moment:
+  int reading = 0;
+  double voltage = 0.0;
+
+  // We must keep reading the sensor value so when we make an API call to read its value, we have the latest one
+  // We will store these values in the reading variable
+
+  reading = analogRead(A5);
+
+  // This reading variable is going to be in the range from 0 to 4095
+  // To accurately get the voltage, we must calculate it from the sensor reading
+
+  voltage = (reading * 3.3) / 4095;
+
+  // Next, we will calculate the temperature and put that value into our temperature variable
+
+  temperature = (voltage - 0.5) * 100;
+
+  // Now when we check on our temperature variable through the cloud, we will get an updated value for temperature
+
+}
+
+```
+
+---
+
+The API request will look something like this:
+
+```json
+GET /v1/devices/{DEVICE_ID}/temperature
+
+# EXAMPLE REQUEST IN TERMINAL
+# Core ID is 0123456789abcdef
+# Your access token is 123412341234
+curl -G https://api.particle.io/v1/devices/0123456789abcdef/temperature \
+  -d access_token=123412341234
+```
+
+You can also see a JSON output of your Spark.variable() call by going to:
+
+https://api.particle.io/v1/devices/your-device-ID-goes-here/temperature?access_token=your-access-token-goes-here
+
+(Be sure to replace `your-device-ID-goes-here` with your actual device ID and `your-access-token-goes-here` with your actual access token!)
 
 
 Learning about Particle with Photoresistors
@@ -77,7 +351,7 @@ Learning about Particle with Photoresistors
 
 ![Fritzing Diagram]({{assets}}/images/photon-photoresistor-fritzing.png)
 
-We have some heavily commented code for you (soon to be imported into the IDE) to help you learn about using Particle with two resistors, a photoresistor, and an LED.
+Now we're going to put it all together with some photoresistor examples!
 
 Wire up your Photon or Core to look like the image on the right, and then follow the examples below.
 
@@ -85,6 +359,11 @@ Wire up your Photon or Core to look like the image on the right, and then follow
 
 Read your Photoresistor: Function and Variable
 ---
+
+This example shows you how to use `Spark.function` to create and register a function with the cloud. By telling the cloud "led on" you will be able to turn the LED on, and by telling it "led off" you can tell it to turn the LED off.
+
+Meanwhile, the photoresistor will be putting its values into a variable called `analogvalue`. We also registered this variable to the cloud with `Spark.variable()`, and now we can find out the value of that variable whenever we want to. Paste the following code into your IDE, or just access the examples on the left hand menu bar.
+
 
 <a data-firmware-example-code-block=true>
 
@@ -228,10 +507,6 @@ https://api.particle.io/v1/devices/your-device-ID-goes-here/analogvalue?access_t
 
 ```
 
-The code on the right shows you how to use `Spark.function` to create and register a function with the cloud. By telling the cloud "led on" you will be able to turn the LED on, and by telling it "led off" you can tell it to turn the LED off.
-
-Meanwhile, the photoresistor will be putting its values into a variable called `analogvalue`. We also registered this variable to the cloud with `Spark.variable()`, and now we can find out the value of that variable whenever we want to.
-
 When we register a function or variable, we're basically making a space for it on the internet, similar to the way there's a space for a website you'd navigate to with your browser. Thanks to the REST API, there's a specific address that identifies you and your device. You can send requests, like `GET` and `POST` requests, to this URL just like you would with any webpage in a browser.
 
 Remember the last time you submitted a form online? You may not have known it, but the website probably sent a `POST` request with the info you put in the form over to another URL that would store your data. We can do the same thing to send information to your device, telling it to turn the LED on and off.
@@ -278,6 +553,18 @@ and make sure you replace `device_name` with either your device ID or the casual
 
 Make a Motion Detector: Publish and the Dashboard
 ---
+
+What if we simply want to know that something has happened, without all the information of a variable or all the action of a fuction? We might have a security system that tells us, "motion was detected!" or a smart washing machine that tells us "your laundry is done!" In that case, we might want to use `Spark.publish`.
+
+`Spark.publish` sends a message to the cloud saying that some event has occured. We're allowed to name that event, set the privacy of that event, and add a little bit of info to go along with the event.
+
+In this example, we've created a system where you turn your LED and photoresistor to face each other, making a beam of light that can be broken by the motion of your finger. Every time the beam is broken or reconnected, your device will send a `Spark.publish` to the cloud letting it know the state of the beam.
+
+For your convenience, we've set up a little calibrate function so that your device will work no matter how bright your LED is, or how bright the ambient light may be. Put your finger in the beam when the D7 LED goes on, and hold it in the beam until you see two flashes from the D7 LED. Then take your finger out of the beam.
+
+You can check out the results on your dashboard at [dashboard.particle.io](https://dashboard.particle.io). As you put your finger in front of the beam, you'll see an event appear that says the beam was broken. When you remove your finger, the event says that the beam is now intact.
+
+You can also hook up publishes to IFTTT! More info [here](../ifttt).
 
 <a data-firmware-example-code-block=true>
 
@@ -465,22 +752,22 @@ void loop() {
 }
 ```
 
-What if we simply want to know that something has happened, without all the information of a variable or all the action of a fuction? We might have a security system that tells us, "motion was detected!" or a smart washing machine that tells us "your laundry is done!" In that case, we might want to use `Spark.publish`.
-
-`Spark.publish` sends a message to the cloud saying that some event has occured. We're allowed to name that event, set the privacy of that event, and add a little bit of info to go along with the event.
-
-In the code on the right, we've created a system where you turn your LED and photoresistor to face each other, making a beam of light that can be broken by the motion of your finger. Every time the beam is broken or reconnected, your device will send a `Spark.publish` to the cloud letting it know the state of the beam.
-
-For your convenience, we've set up a little calibrate function so that your device will work no matter how bright your LED is, or how bright the ambient light may be. Put your finger in the beam when the D7 LED goes on, and hold it in the beam until you see two flashes from the D7 LED. Then take your finger out of the beam.
-
-You can check out the results on your dashboard at [dashboard.particle.io](https://dashboard.particle.io). As you put your finger in front of the beam, you'll see an event appear that says the beam was broken. When you remove your finger, the event says that the beam is now intact.
-
-You can also hook up publishes to IFTTT! More info [here](../ifttt).
-
 <a id="publish-and-subscribe-with-photoresistors" data-firmware-example-url="http://docs.particle.io/photon/examples/#publish-and-subscribe-with-photoresistors" data-firmware-example-title="Publish and Subscribe - part 3" data-firmware-example-description="Learn about Publish and Subscribe using Photoresistors">
 
 The Buddy System: Publish and Subscribe
 ---
+
+In the last example, we sent a private publish. This publish went to you alone; it was just for you and your own apps, programs, integrations, and devices. We can also send a public publish, though, which allows anyone anywhere to see and subscribe to our event in the cloud. All they need is our event name.
+
+Go find a buddy who has a Core or Photon. Your buddy does not have to be next to you-- he or she can be across the world if you like! All you need is Wi-Fi.
+
+Connect your device and copy the firmware on the right into a new app. Pick a weird name for your event. If your core were named `starfish` for example, you could make your event name something like `starfish_special_event_20150515`. Have your buddy pick a name for their event as well.
+
+Now replace `your_unique_event_name` with your actual event name and `buddy_unique_event_name` with your buddy's unique event name.
+
+Have your buddy do the same thing, only with their event name and yours (swap 'em).
+
+Flash the firmware to your devices. Calibrate your device when it comes online (same as in the previous example). When the beam is broken on your device, the D7 LED on your buddy's device will light up! Now you can send little messages to each other in morse code.
 
 <a data-firmware-example-code-block=true>
 
@@ -665,173 +952,4 @@ void myHandler(const char *event, const char *data)
 
 ```
 
-In the last example, we sent a private publish. This publish went to you alone; it was just for you and your own apps, programs, integrations, and devices. We can also send a public publish, though, which allows anyone anywhere to see and subscribe to our event in the cloud. All they need is our event name.
 
-Go find a buddy who has a Core or Photon. Your buddy does not have to be next to you-- he or she can be across the world if you like! All you need is Wi-Fi.
-
-Connect your device and copy the firmware on the right into a new app. Pick a weird name for your event. If your core were named `starfish` for example, you could make your event name something like `starfish_special_event_20150515`. Have your buddy pick a name for their event as well.
-
-Now replace `your_unique_event_name` with your actual event name and `buddy_unique_event_name` with your buddy's unique event name.
-
-Have your buddy do the same thing, only with their event name and yours (swap 'em).
-
-Flash the firmware to your devices. Calibrate your device when it comes online (same as in the previous example). When the beam is broken on your device, the D7 LED on your buddy's device will light up! Now you can send little messages to each other in morse code.
-
-No photoresistors? Other examples are below!
-
-<a id="control-led-over-the-net" data-firmware-example-url="http://docs.particle.io/photon/examples/#control-led-over-the-net" data-firmware-example-title="Control LED over the Internet" data-firmware-example-description="">
-
-Control LEDs over the 'net
-===
-
-Now that we know how to blink an LED, how about we control it over the Internet? This is where the fun begins.
-
-Lets hook up two LEDs this time.
-
-
-Here is the algorithm:
-- Set up the pins as outputs that have LEDs connected to them
-- Create and register a Spark function ( this gets called automagically when you make an API request to it)
-- Parse the incoming command and take appropriate actions
-
-<a data-firmware-example-code-block=true>
-
-```cpp
-// -----------------------------------
-// Controlling LEDs over the Internet
-// -----------------------------------
-
-// name the pins
-int led1 = D0;
-int led2 = D7;
-
-// This routine runs only once upon reset
-void setup()
-{
-   //Register our Spark function here
-   Spark.function("led", ledControl);
-
-   // Configure the pins to be outputs
-   pinMode(led1, OUTPUT);
-   pinMode(led2, OUTPUT);
-
-   // Initialize both the LEDs to be OFF
-   digitalWrite(led1, LOW);
-   digitalWrite(led2, LOW);
-}
-
-
-// This routine loops forever
-void loop()
-{
-   // Nothing to do here
-}
-
-
-// This function gets called whenever there is a matching API request
-// the command string format is l<led number>,<state>
-// for example: l1,HIGH or l1,LOW
-//              l2,HIGH or l2,LOW
-
-int ledControl(String command)
-{
-   int state = 0;
-   //find out the pin number and convert the ascii to integer
-   int pinNumber = (command.charAt(1) - '0') - 1;
-   //Sanity check to see if the pin numbers are within limits
-   if (pinNumber < 0 || pinNumber > 1) return -1;
-
-   // find out the state of the led
-   if(command.substring(3,7) == "HIGH") state = 1;
-   else if(command.substring(3,6) == "LOW") state = 0;
-   else return -1;
-
-   // write to the appropriate pin
-   digitalWrite(pinNumber, state);
-   return 1;
-}
-```
-
----
-
-The API request will look something like this:
-
-```json
-POST /v1/devices/{DEVICE_ID}/led
-
-# EXAMPLE REQUEST IN TERMINAL
-# Core ID is 0123456789abcdef
-# Your access token is 123412341234
-curl https://api.particle.io/v1/devices/0123456789abcdef/led \
-  -d access_token=123412341234 \
-  -d params=l1,HIGH
-```
-
-Note that the API endpoint is 'led', not 'ledControl'. This is because the endpoint is defined by the first argument of [Spark.function() PLACEHOLDER], which is a string of characters, rather than the second argument, which is a function.
-
-To better understand the concept of making API calls to your device over the cloud checkout the [Cloud API reference.](../api)
-
-<a id="variables-with-a-temperature-sensor" data-firmware-example-url="http://docs.particle.io/photon/examples/#variables-with-a-temperature-sensor" data-firmware-example-title="Measure the temperature" data-firmware-example-description="">
-
-Measuring the temperature
-===
-
-We have now learned how to send custom commands to our device and control the hardware. But how about reading data back from our device?
-
-In this example, we will hook up a temperature sensor to your device and read the values over the internet with a web browser.
-
-We have used a widely available analog temperature sensor called TMP36 from Analog Devices, and is the temperature sensor that comes with your Spark Maker Kit! You can download the [datasheet here.](http://www.analog.com/media/en/technical-documentation/data-sheets/TMP35_36_37.pdf)
-
-Notice how we are powering the sensor from 3.3V\* pin instead of the regular 3.3V. This is because the 3.3V\* pin gives out a (LC) clean filtered  voltage, ideal for analog applications like these. If the readings you get are noisy or inconsistent, add a 0.01uF (10nF) ceramic capacitor between the analog input pin (in this case, A7) and GND as shown in the set up. Ideally, the sensor should be placed away from the Core so that the heat dissipated by the Core does not affect the temperature readings.
-
-<a data-firmware-example-code-block=true>
-
-```cpp
-// -----------------
-// Read temperature
-// -----------------
-
-// Create a variable that will store the temperature value
-double temperature = 0.0;
-
-void setup()
-{
-  // Register a Spark variable here
-  Spark.variable("temperature", &temperature, DOUBLE);
-
-  // Connect the temperature sensor to A7 and configure it
-  // to be an input
-  pinMode(A7, INPUT);
-}
-
-void loop()
-{
-  int reading = 0;
-  double voltage = 0.0;
-
-  // Keep reading the sensor value so when we make an API
-  // call to read its value, we have the latest one
-  reading = analogRead(A7);
-
-  // The returned value from the Core is going to be in the range from 0 to 4095
-  // Calculate the voltage from the sensor reading
-  voltage = (reading * 3.3) / 4095;
-
-  // Calculate the temperature and update our static variable
-  temperature = (voltage - 0.5) * 100;
-}
-```
-
----
-
-The API request will look something like this:
-
-```json
-GET /v1/devices/{DEVICE_ID}/temperature
-
-# EXAMPLE REQUEST IN TERMINAL
-# Core ID is 0123456789abcdef
-# Your access token is 123412341234
-curl -G https://api.particle.io/v1/devices/0123456789abcdef/temperature \
-  -d access_token=123412341234
-```
