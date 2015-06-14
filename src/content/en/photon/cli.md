@@ -259,13 +259,13 @@ my_device_name (0123456789ABCDEFGHI) 0 variables, and 4 functions
 
 ```
 
-###particle device add
+###particle device claim
 
   Adds a new device to your account
 
 ```sh
 # how to add a new device to your account
-$ particle device add 0123456789ABCDEFGHI
+$ particle device claim 0123456789ABCDEFGHI
 Claiming device 0123456789ABCDEFGHI
 Successfully claimed device 0123456789ABCDEFGHI
 ```
