@@ -290,6 +290,23 @@ The Internet Button is not only an easy way to get started on the Internet of Th
 
 ![Internet Button Dimensions]({{assets}}/images/shields/internet-button/button-dimensions.png)
 
+# Photon Kit
+
+### 1. Photoresistor (1)
+![LDR]({{assets}}/images/mk-ldr.bmp)
+
+A photo resistor is a light dependent resistor whose resistance decreases with the increase in the intensity of light striking it. You can use it to detect the ambient light in the surrounding, detect shadows or use it as a part of a burglar alarm system. One photoresistor comes in your Photon Kit.
+
+### 2. LED (1)
+![LEDs]({{assets}}/images/mk-led-3mm.bmp)
+
+This general purpose 3mm red LED is great for getting started with your Photon. You can never have enough of them!
+
+### 3. Resistors (2)
+![Resistors]({{assets}}/images/mk-1k-resistor.bmp)
+
+You get two 220-Ohm resistors in your Photon Kit. They are rated at 5%, 1/4 Watt.
+
 # Photon Maker Kit Contents
 
 ### 1. Ceramic Capacitors (10 each)
@@ -416,7 +433,7 @@ Add an audible feedback to your project with this buzzer. The longer lead is pos
 
 These are nifty little switches that plug nicely into a breadboard or a proto-board. They are normally-open type and are rated at 12V, 50mA.
 
-### 14. Photo Resistors (2)
+### 14. Photoresistors (2)
 
 ![LDR]({{assets}}/images/mk-ldr.bmp)
 

@@ -13,10 +13,11 @@ Here you will find a bunch of examples to get you started with your new Particle
 
 <a id="blink-an-led" data-firmware-example-url="http://docs.particle.io/photon/examples/#blink-an-led" data-firmware-example-title="Blink an LED" data-firmware-example-description="Blink an LED">
 
-Blink an LED
-===
+##Blink an LED
 
 ![One LED illustration]({{assets}}/images/photon-led-fritzing.png)
+
+###Intro
 
 Blinking an LED is the ["Hello World"](http://en.wikipedia.org/wiki/Hello_world_program) example of the microcontroller universe. It's a nice way to warm up and start your journey into the land of embedded hardware.
 
@@ -38,6 +39,7 @@ Next, we're going to load code onto your core. Copy and paste this code into a n
 
 Go ahead and save this application, then flash it to your Core or Photon. You should be able to see that LED blinking away!
 
+###Code
 
 <a data-firmware-example-code-block=true>
 
@@ -117,10 +119,11 @@ void loop() {
 
 <a id="control-led-over-the-net" data-firmware-example-url="http://docs.particle.io/photon/examples/#control-led-over-the-net" data-firmware-example-title="Control LED over the Internet" data-firmware-example-description="">
 
-Control LEDs over the 'net
-===
+##Control LEDs over the 'net
 
 ![One LED illustration]({{assets}}/images/photon-led-fritzing.png)
+
+###Intro
 
 Now that we know how to blink an LED, how about we control it over the Internet? This is where the fun begins.
 
@@ -129,6 +132,8 @@ We've heavily commented the code below so that you can see what's going on. Basi
 - Set up the pins as outputs that have LEDs connected to them
 - Create and register a Spark function (this gets called automagically when you make an API request to it)
 - Parse the incoming command and take appropriate actions
+
+###Code
 
 <a data-firmware-example-code-block=true>
 
@@ -204,7 +209,7 @@ int ledToggle(String command) {
 
 ```
 
----
+###Use
 
 When we register a function or variable, we're basically making a space for it on the internet, similar to the way there's a space for a website you'd navigate to with your browser. Thanks to the REST API, there's a specific address that identifies you and your device. You can send requests, like `GET` and `POST` requests, to this URL just like you would with any webpage in a browser.
 
@@ -282,10 +287,11 @@ To better understand the concept of making API calls to your device over the clo
 
 <a id="variables-and-functions-with-photoresistors" data-firmware-example-url="http://docs.particle.io/photon/examples/#variables-and-functions-with-photoresistors" data-firmware-example-title="Variables and Functions - part 1" data-firmware-example-description="Learn about Variables and Functions using Photoresistors">
 
-Read your Photoresistor: Function and Variable
-===
+##Read your Photoresistor: Function and Variable
 
 ![Fritzing Diagram]({{assets}}/images/photon-photoresistor-fritzing.png)
+
+###Intro
 
 This example uses the same setup as the LED control example to make a `Spark.function`. This time, though, we're going to add a sensor.
 
@@ -293,6 +299,7 @@ We will get a value from a photoresistor and store it in the cloud.
 
 Paste the following code into your IDE, or just access the examples on the left hand menu bar in the online IDE.
 
+###Code
 
 <a data-firmware-example-code-block=true>
 
@@ -370,6 +377,8 @@ int ledToggle(String command) {
 
 ```
 
+###Use
+
 Just like with our earlier example, we can toggle our LED on and off by creating an HTML page:
 
 ```
@@ -437,8 +446,11 @@ Now you can turn your LED on and off and see the values at A0 change based on th
 
 <a id="publish-with-photoresistors" data-firmware-example-url="http://docs.particle.io/photon/examples/#publish-with-photoresistors" data-firmware-example-title="Publish - part 2" data-firmware-example-description="Learn about Publish using Photoresistors">
 
-Make a Motion Detector: Publish and the Dashboard
-===
+##Make a Motion Detector: Publish and the Dashboard
+
+![Fritzing Diagram]({{assets}}/images/photon-photoresistor-fritzing.png)
+
+###Intro
 
 What if we simply want to know that something has happened, without all the information of a variable or all the action of a fuction? We might have a security system that tells us, "motion was detected!" or a smart washing machine that tells us "your laundry is done!" In that case, we might want to use `Spark.publish`.
 
@@ -451,6 +463,8 @@ For your convenience, we've set up a little calibrate function so that your devi
 You can check out the results on your dashboard at [dashboard.particle.io](https://dashboard.particle.io). As you put your finger in front of the beam, you'll see an event appear that says the beam was broken. When you remove your finger, the event says that the beam is now intact.
 
 You can also hook up publishes to IFTTT! More info [here](../ifttt).
+
+###Code
 
 <a data-firmware-example-code-block=true>
 
@@ -619,8 +633,11 @@ void loop() {
 
 <a id="publish-and-subscribe-with-photoresistors" data-firmware-example-url="http://docs.particle.io/photon/examples/#publish-and-subscribe-with-photoresistors" data-firmware-example-title="Publish and Subscribe - part 3" data-firmware-example-description="Learn about Publish and Subscribe using Photoresistors">
 
-The Buddy System: Publish and Subscribe
-===
+##The Buddy System: Publish and Subscribe
+
+![Fritzing Diagram]({{assets}}/images/photon-photoresistor-fritzing.png)
+
+###Intro
 
 In the previous example, we sent a private publish. This publish went to you alone; it was just for you and your own apps, programs, integrations, and devices. We can also send a public publish, though, which allows anyone anywhere to see and subscribe to our event in the cloud. All they need is our event name.
 
@@ -635,6 +652,8 @@ Have your buddy do the same thing, only with their event name and yours (swap 'e
 Flash the firmware to your devices. Calibrate your device when it comes online (same as in the previous example).
 
 When the beam is broken on your device, the D7 LED on your buddy's device will light up! Now you can send little messages to each other in morse code.
+
+###Code
 
 <a data-firmware-example-code-block=true>
 

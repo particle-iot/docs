@@ -20,6 +20,17 @@ you need to get started:
 If you purchased a Photon Kit or Maker Kit, you also
 received a *breadboard* to wire components to the Photon.
 
+**Photon Kits** also contain:
+- _(1) Photoresistor_
+- _(1) LED_
+- _(2) 220 Ohm Resistors_
+
+More info on this [here](/photon/shields/#photon-kit).
+
+Examples that use these awesome components are detailed [here](/photon/examples)!
+
+**Maker Kits** contain more goodies, listed [here](/photon/shields/#photon-maker-kit-contents).
+
 In the next section, we'll teach you how to set up your device.
 
 Powering Your Photon
