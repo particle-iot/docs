@@ -281,10 +281,6 @@ Note that the API endpoint is 'led', not 'ledToggle'. This is because the endpoi
 
 To better understand the concept of making API calls to your device over the cloud checkout the [Cloud API reference.](../api)
 
-
-<a id="variables-with-a-temperature-sensor" data-firmware-example-url="http://docs.particle.io/photon/examples/#variables-with-a-temperature-sensor" data-firmware-example-title="Measure the temperature" data-firmware-example-description="">
-
-
 <a id="variables-and-functions-with-photoresistors" data-firmware-example-url="http://docs.particle.io/photon/examples/#variables-and-functions-with-photoresistors" data-firmware-example-title="Variables and Functions - part 1" data-firmware-example-description="Learn about Variables and Functions using Photoresistors">
 
 ##Read your Photoresistor: Function and Variable
