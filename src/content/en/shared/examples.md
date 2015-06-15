@@ -300,7 +300,6 @@ Paste the following code into your IDE, or just access the examples on the left 
 <a data-firmware-example-code-block=true>
 
 ```cpp
-
 // -----------------------------------------
 // Function and Variable with Photoresistors
 // -----------------------------------------
