@@ -281,7 +281,7 @@ Note that the API endpoint is 'led', not 'ledToggle'. This is because the endpoi
 
 To better understand the concept of making API calls to your device over the cloud checkout the [Cloud API reference.](../api)
 
-<a id="variables-and-functions-with-photoresistors" data-firmware-example-url="http://docs.particle.io/photon/examples/#variables-and-functions-with-photoresistors" data-firmware-example-title="Variables and Functions - part 1" data-firmware-example-description="Learn about Variables and Functions using Photoresistors">
+<a id="variables-and-functions-with-photoresistors" data-firmware-example-url="http://docs.particle.io/photon/examples/#variables-and-functions-with-photoresistors" data-firmware-example-title="Variables and Functions" data-firmware-example-description="Learn about Variables and Functions using Photoresistors">
 
 ##Read your Photoresistor: Function and Variable
 
@@ -439,7 +439,7 @@ and make sure you replace `device_name` with either your device ID or the casual
 Now you can turn your LED on and off and see the values at A0 change based on the photoresistor!
 
 
-<a id="publish-with-photoresistors" data-firmware-example-url="http://docs.particle.io/photon/examples/#publish-with-photoresistors" data-firmware-example-title="Publish - part 2" data-firmware-example-description="Learn about Publish using Photoresistors">
+<a id="publish-with-photoresistors" data-firmware-example-url="http://docs.particle.io/photon/examples/#publish-with-photoresistors" data-firmware-example-title="Publish" data-firmware-example-description="Learn about Publish using Photoresistors">
 
 ##Make a Motion Detector: Publish and the Dashboard
 
@@ -626,7 +626,7 @@ void loop() {
 }
 ```
 
-<a id="publish-and-subscribe-with-photoresistors" data-firmware-example-url="http://docs.particle.io/photon/examples/#publish-and-subscribe-with-photoresistors" data-firmware-example-title="Publish and Subscribe - part 3" data-firmware-example-description="Learn about Publish and Subscribe using Photoresistors">
+<a id="publish-and-subscribe-with-photoresistors" data-firmware-example-url="http://docs.particle.io/photon/examples/#publish-and-subscribe-with-photoresistors" data-firmware-example-title="Publish and Subscribe" data-firmware-example-description="Learn about Publish and Subscribe using Photoresistors">
 
 ##The Buddy System: Publish and Subscribe
 
