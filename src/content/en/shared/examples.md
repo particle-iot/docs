@@ -117,7 +117,7 @@ void loop() {
 
 ```
 
-<a id="control-led-over-the-net" data-firmware-example-url="http://docs.particle.io/photon/examples/#control-led-over-the-net" data-firmware-example-title="Control LED over the Internet" data-firmware-example-description="">
+<a id="control-led-over-the-net" data-firmware-example-url="http://docs.particle.io/photon/examples/#control-led-over-the-net" data-firmware-example-title="'Net-Connected LED'" data-firmware-example-description="">
 
 ##Control LEDs over the 'net
 
@@ -281,7 +281,7 @@ Note that the API endpoint is 'led', not 'ledToggle'. This is because the endpoi
 
 To better understand the concept of making API calls to your device over the cloud checkout the [Cloud API reference.](../api)
 
-<a id="variables-and-functions-with-photoresistors" data-firmware-example-url="http://docs.particle.io/photon/examples/#variables-and-functions-with-photoresistors" data-firmware-example-title="Variables and Functions" data-firmware-example-description="Learn about Variables and Functions using Photoresistors">
+<a id="variables-and-functions-with-photoresistors" data-firmware-example-url="http://docs.particle.io/photon/examples/#variables-and-functions-with-photoresistors" data-firmware-example-title="Variable & Function" data-firmware-example-description="Learn about Variables and Functions using Photoresistors">
 
 ##Read your Photoresistor: Function and Variable
 
@@ -626,7 +626,7 @@ void loop() {
 }
 ```
 
-<a id="publish-and-subscribe-with-photoresistors" data-firmware-example-url="http://docs.particle.io/photon/examples/#publish-and-subscribe-with-photoresistors" data-firmware-example-title="Publish and Subscribe" data-firmware-example-description="Learn about Publish and Subscribe using Photoresistors">
+<a id="publish-and-subscribe-with-photoresistors" data-firmware-example-url="http://docs.particle.io/photon/examples/#publish-and-subscribe-with-photoresistors" data-firmware-example-title="Subscribe" data-firmware-example-description="Learn about Publish and Subscribe using Photoresistors">
 
 ##The Buddy System: Publish and Subscribe
 
