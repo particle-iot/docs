@@ -58,7 +58,7 @@ To put your device in Listening Mode, hold the `MODE` button for three seconds, 
 
 To erase the stored wifi networks on your device, hold the `MODE` button for about ten seconds, until the RGB LED flashes blue rapidly.
 
-## Selecting various MODES
+## Selecting various Modes
 
 ![Photon Reset Modes]({{assets}}/images/photon-reset-modes.png)
 

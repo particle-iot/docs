@@ -149,7 +149,7 @@ Cloud events have the following properties:
 * public/private (default public)
 * ttl (time to live, 0–16777215 seconds, default 60)
   !! NOTE: The user-specified ttl value is not yet implemented, so changing this property will not currently have any impact.
-* optional data (up to 63 bytes)
+* optional data (up to 255 bytes)
 
 Anyone may subscribe to public events; think of them like tweets.
 Only the owner of the device will be able to subscribe to private events.
@@ -1059,7 +1059,7 @@ setup() {
 	shiftOut(dataPin, clock, MSBFIRST, data);
 
 	// Or do this for LSBFIRST serial
-	shiftOut(dataPin, clock, LSBFIRST, data);  
+	shiftOut(dataPin, clock, LSBFIRST, data);
 }
 
 loop() {
@@ -1102,7 +1102,7 @@ setup() {
 	data = shiftIn(dataPin, clock, MSBFIRST);
 
 	// Or do this for LSBFIRST serial
-	data = shiftIn(dataPin, clock, LSBFIRST);  
+	data = shiftIn(dataPin, clock, LSBFIRST);
 }
 
 loop() {
@@ -1590,7 +1590,7 @@ void loop()
 {
   Wire.beginTransmission(4); // transmit to slave device #4
   Wire.write("x is ");       // sends five bytes
-  Wire.write(x);             // sends one byte  
+  Wire.write(x);             // sends one byte
   Wire.endTransmission();    // stop transmitting
 
   x++;
@@ -2834,7 +2834,7 @@ volatile int state = LOW;
 void setup()
 {
   pinMode(ledPin, OUTPUT);
-  attachInterrupt(D0, blink, CHANGE);
+  attachInterrupt(D2, blink, CHANGE);
 }
 
 void loop()
@@ -2851,7 +2851,7 @@ void blink()
 External interrupts are supported on the following pins:
 
 - Core: D0, D1, D2, D3, D4, A0, A1, A3, A4, A5, A6, A7
-- Photon: all pins
+- Photon: all pins with the exception of D0
 
 `attachInterrupt(pin, function, mode);`
 
@@ -3271,17 +3271,44 @@ System
 System modes
 ----
 
-By default, the device connects to the Cloud and processes messages automatically. However there are many cases where a user will want to take control over that connection. There are three available system modes: `AUTOMATIC`, `SEMI_AUTOMATIC`, and `MANUAL`. These modes describe how connectivity is handled.
+System modes help you control how the device manages the connection with the cloud.
+
+By default, the device connects to the Cloud and processes messages automatically.
+However there are times when you want to take control over that connection.
+
+The system modes describe what the system will manage and what your code will manage.  There are 3 available system modes:  `AUTOMATIC`, `SEMI_AUTOMATIC`, and `MANUAL`:
+- `AUTOMATIC`: the cloud connection is started by the system
+- `SEMI_AUTOMATIC`: the cloud connection is started by user code, but the cloud connection is managed by the system it when it is started. User code needs to simply run
+```
+Spark.connect()
+```
+to have the cloud connection start.
+
+- `MANUAL`: the cloud connection and cloud events are managed by user code
+
+
+
+SYSTEM_THREADING(ENABLED)
+- enables threaded execution of the system and user code
+
+T
+
+
+
+
+
+
+These system modes describe how connectivity is handled and when user code is run.
 
 System modes must be called before the setup() function. By default, the device is always in `AUTOMATIC` mode.
 
 ### Automatic mode
 
 
-The automatic mode of connectivity provides the default behavior of the device, which is that:
+The blocking mode of connectivity provides the default behavior of the device, which is that:
 
 ```cpp
-SYSTEM_MODE(AUTOMATIC);
+SYSTEM_MODE(BLOCKING);
 
 void setup() {
   // This won't be called until the device is connected to the cloud
@@ -3433,7 +3460,7 @@ System.sleep(5);
 ```
 `System.sleep(long seconds)` does NOT stop the execution of user code (non-blocking call).  User code will continue running while the Wi-Fi module is in standby mode.
 
-`System.sleep(SLEEP_MODE_DEEP, long seconds)` can be used to put the entire device into a *deep sleep* mode. In this particular mode, the device shuts down the network subsystem and puts the microcontroller in a stand-by mode.  When the device awakens from deep sleep, it will reset and run all user code from the beginning with no values being maintained in memory from before the deep sleep.  
+`System.sleep(SLEEP_MODE_DEEP, long seconds)` can be used to put the entire device into a *deep sleep* mode. In this particular mode, the device shuts down the network subsystem and puts the microcontroller in a stand-by mode.  When the device awakens from deep sleep, it will reset and run all user code from the beginning with no values being maintained in memory from before the deep sleep.
 
 As such, it is recommended that deep sleep be called only after all user code has completed. The Standby mode is used to achieve the lowest power consumption.  After entering Standby mode, the SRAM and register contents are lost except for registers in the backup domain.
 
