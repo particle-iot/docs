@@ -356,7 +356,7 @@ $ particle flash --usb firmware.bin
 
   Compiles one or more source file, or a directory of source files, and downloads a firmware binary.
 
-  **NOTE**: Remeber that **\*.cpp** and **\*.ino** files behave differently. You can read more about it on our [support page](http://support.particle.io/hc/en-us/articles/204952620).
+  **NOTE**: Remember that **\*.cpp** and **\*.ino** files behave differently. You can read more about it on our [support page](http://support.particle.io/hc/en-us/articles/204952620).
 
 ####compiling a directory
 
