@@ -73,6 +73,8 @@ To compile your current project, click on the **Compile in the cloud** button. I
 
 Different devices usually require separate binaries (i.e. you can't flash Core with firmware compiled for a Photon) and resulting file is going to be compiled for platform of currently selected device.  If you don't have a device selected, the code is going to be compiled for the Core.
 
+**NOTE**: Remember that **\*.cpp** and **\*.ino** files behave differently. You can read more about it on our [support page](http://support.particle.io/hc/en-us/articles/204952620).
+
 ![Compile errors]({{assets}}/images/ide-compile-errors.jpg)
 
 If there are some errors, you'll see a list of them allowing you to quickly jump to relevant line in code. You can show this list by clicking red error icon on the bottom of the window.
