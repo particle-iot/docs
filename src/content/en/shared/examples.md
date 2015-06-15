@@ -117,7 +117,7 @@ void loop() {
 
 ```
 
-<a id="control-led-over-the-net" data-firmware-example-url="http://docs.particle.io/photon/examples/#control-led-over-the-net" data-firmware-example-title="Web-Connected LED" data-firmware-example-description="">
+<a id="control-led-over-the-net" data-firmware-example-url="http://docs.particle.io/photon/examples/#control-led-over-the-net" data-firmware-example-title="Web-Connected LED" data-firmware-example-description="Control an LED over the Internet">
 
 ##Control LEDs over the 'net
 
