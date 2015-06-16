@@ -3273,42 +3273,17 @@ System modes
 
 System modes help you control how the device manages the connection with the cloud.
 
-By default, the device connects to the Cloud and processes messages automatically.
-However there are times when you want to take control over that connection.
-
-The system modes describe what the system will manage and what your code will manage.  There are 3 available system modes:  `AUTOMATIC`, `SEMI_AUTOMATIC`, and `MANUAL`:
-- `AUTOMATIC`: the cloud connection is started by the system
-- `SEMI_AUTOMATIC`: the cloud connection is started by user code, but the cloud connection is managed by the system it when it is started. User code needs to simply run
-```
-Spark.connect()
-```
-to have the cloud connection start.
-
-- `MANUAL`: the cloud connection and cloud events are managed by user code
-
-
-
-SYSTEM_THREADING(ENABLED)
-- enables threaded execution of the system and user code
-
-T
-
-
-
-
-
-
+By default, the device connects to the Cloud and processes messages automatically. However there are many cases where a user will want to take control over that connection. There are three available system modes: `AUTOMATIC`, `SEMI_AUTOMATIC`, and `MANUAL`. These modes describe how connectivity is handled.
 These system modes describe how connectivity is handled and when user code is run.
 
 System modes must be called before the setup() function. By default, the device is always in `AUTOMATIC` mode.
 
 ### Automatic mode
 
-
-The blocking mode of connectivity provides the default behavior of the device, which is that:
+The automatic mode of connectivity provides the default behavior of the device, which is that:
 
 ```cpp
-SYSTEM_MODE(BLOCKING);
+SYSTEM_MODE(AUTOMATIC);
 
 void setup() {
   // This won't be called until the device is connected to the cloud
