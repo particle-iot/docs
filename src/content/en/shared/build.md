@@ -1,7 +1,7 @@
 ---
 word: Build
 title: Web IDE (Build)
-order: 6
+order: 4
 shared: true
 ---
 

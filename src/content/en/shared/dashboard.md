@@ -1,7 +1,7 @@
 ---
 word: Dashboard
 title: Dashboard
-order: 8
+order: 7
 columns: 2
 shared: true
 ---

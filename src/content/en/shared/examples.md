@@ -1,7 +1,7 @@
 ---
 word: Examples
 title: Examples
-order: 4
+order: 5
 shared: true
 columns: 2
 ---

@@ -1,7 +1,7 @@
 ---
 word: Firmware
 title: Firmware
-order: 5
+order: 8
 shared: true
 ---
 
