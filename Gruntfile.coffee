@@ -49,29 +49,46 @@ module.exports = (grunt) ->
             dest: '<%= config.dist %>'
           }
         ]
-      photon:
+      photonguide:
         files: [
           {
             expand: true
             cwd: '<%= config.content %>'
-            src: ['photon/*.md', 'shared/*.md']
-            dest: '<%= config.dist %>/photon'
+            src: ['guide/photon/*.md', 'guide/shared/*.md']
+            dest: '<%= config.dist %>/guide/photon'
             flatten: true
           }
         ]
-      core:
+      coreguide:
         files: [
           {
             expand: true
             cwd: '<%= config.content %>'
-            src: ['core/*.md', 'shared/*.md']
-            dest: '<%= config.dist %>/core'
+            src: ['guide/core/*.md', 'guide/shared/*.md']
+            dest: '<%= config.dist %>/guide/core'
             flatten: true
           }
         ]
-
-
-    # 'gh-pages':
+      reference:
+        files: [
+          {
+            expand: true
+            cwd: '<%= config.content %>'
+            src: ['reference/*.md']
+            dest: '<%= config.dist %>/reference'
+            flatten: true
+          }
+        ]
+      datasheets:
+        files: [
+          {
+            expand: true
+            cwd: '<%= config.content %>'
+            src: ['datasheets/*.md']
+            dest: '<%= config.dist %>/datasheets'
+            flatten: true
+          }
+        ]
 
     clean:
       dest: ['<%= config.dist %>/**']

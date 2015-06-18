@@ -1,6 +1,6 @@
 ---
 word: Datasheet
-title: Hardware datasheet
+title: Core datasheet
 order: 12
 columns: 2
 ---
