@@ -43,7 +43,7 @@
         </a>
         <a class="toggle-button {{#contains dirname 'guide'}}active{{/contains}}" href="/guide">Guide</a>
         <a class="toggle-button {{#contains dirname 'reference'}}active{{/contains}}" href="/reference">Reference</a>
-        <a class="toggle-button {{#contains dirname 'datasheets'}}active{{/contains}}" href="/datasheets">Reference</a>
+        <a class="toggle-button {{#contains dirname 'datasheets'}}active{{/contains}}" href="/datasheets">Datasheets</a>
         <div class="search">
           <script src='{{assets}}/js/google-search.js'></script>
           <gcse:search></gcse:search>
@@ -74,8 +74,12 @@
           <ul>
             {{#withSort pages "data.order"}}
 
-                <li class="{{data.device}}"><a
-                  href='{{#contains dirname "photon"}}/photon/{{basename}}{{else}}/core/{{basename}}{{/contains}}' class="level-0 {{#compare basename '===' ../basename}}active{{/compare}}">{{data.title}}</a></li>
+                <li class="{{data.device}}"><a href='
+                  {{#contains dirname "reference"}}/reference/{{basename}}{{/contains}}
+                  {{#contains dirname "datasheets"}}/datasheets/{{basename}}{{/contains}}
+                  {{#contains dirname "photon"}}/guide/photon/{{basename}}{{/contains}}
+                  {{#contains dirname "core"}}/guide/core/{{basename}}{{/contains}}
+                ' class="level-0 {{#compare basename '===' ../basename}}active{{/compare}}">{{data.title}}</a></li>
             {{/withSort}}
           </ul>
         </div>
