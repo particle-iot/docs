@@ -41,8 +41,9 @@
         <a href="https://www.particle.io">
           <img src="{{assets}}/images/particle-docs.png" id="logo">
         </a>
-        <a class="toggle-button active" href="/guide">Guide</a>
-        <a class="toggle-button" href="/reference">Reference</a>
+        <a class="toggle-button {{#contains dirname 'guide'}}active{{/contains}}" href="/guide">Guide</a>
+        <a class="toggle-button {{#contains dirname 'reference'}}active{{/contains}}" href="/reference">Reference</a>
+        <a class="toggle-button {{#contains dirname 'datasheets'}}active{{/contains}}" href="/datasheets">Reference</a>
         <div class="search">
           <script src='{{assets}}/js/google-search.js'></script>
           <gcse:search></gcse:search>
