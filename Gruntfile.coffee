@@ -8,7 +8,7 @@
 # - Assemble the static site (grunt build)
 # - Deploy locally for development (grunt server)
 #
-# Copyright (c) 2013 Spark Labs, Inc.
+# Copyright (c) 2015 Spark Labs, Inc.
 # Licensed under a Creative Commons Attribution-Sharealike 3.0 License.
 #
 ###
