@@ -1,7 +1,7 @@
 ---
 word: Datasheet
 title: P1 datasheet
-order: 13
+order: 3
 columns: 2
 ---
 

@@ -1,7 +1,7 @@
 ---
 word: Accessories
 title: Shields and kits
-order: 14
+order: 2
 columns: 2
 ---
 
@@ -14,7 +14,7 @@ Sometimes life can be a little difficult in the land of electronics when two sys
 
 ![Shield Shield]({{assets}}/images/shields/shield-shield/shield-shield.png)
 
-### Shield Shield - Operation   
+### Shield Shield - Operation
 
 We use Texas Instruments TXB0108PWR to do the voltage translation in between the Particle's device's 3.3V to a 5V logic. Unlike other IO pins, the analog pins are rated at only a max of 3.3V and **NOT** 5.0V. Please remember NOT to exceed this voltage at anytime. The shield has an on-board voltage regulator and can be powered from 7V to 15V DC source. You could also power it via the USB plug on the Particle device alone but the current would be limited to 500mA.
 
@@ -87,7 +87,7 @@ add PDF template for holes
 -->
 
 # Relay Shield
-The Relay Shield allows you to take over the world, one electric appliance at a time. Want to control a lamp, fan, coffee machine, aquarium pumps or garden sprinklers? Then this is a solution for you! 
+The Relay Shield allows you to take over the world, one electric appliance at a time. Want to control a lamp, fan, coffee machine, aquarium pumps or garden sprinklers? Then this is a solution for you!
 
 The shield comes with four relays that are rated at a max of 220V @10Amp allowing you to control any electric appliance rated at under 2000 Watts. You are not just limited to an appliance though; any gadget that requires high voltage and/or a lot of current can be controlled with this shield.
 
@@ -221,7 +221,7 @@ Here is how to perform that surgery:
 
 # Programmer Shield
 
-Do you want to gain complete control over your Particle device right down to its every bit of memory space? or watch as your code gets executed and debug it? Then this shield should be able to pacify that control freak inside of you. 
+Do you want to gain complete control over your Particle device right down to its every bit of memory space? or watch as your code gets executed and debug it? Then this shield should be able to pacify that control freak inside of you.
 
 ![Programmer Shield]({{assets}}/images/shields/prog-shield/prog-shield.png)
 
@@ -231,7 +231,7 @@ This is a FT2232H based JTAG programmer shield that is compatible with OpenOCD a
 
 ### Programmer Shield - Specifications
  - Operating supply: USB
- - Current consumption: 
+ - Current consumption:
  - Dimensions: 1.55" x 3.3"
  - Weight: 18 gms
  - Compatibility: OpenOCD and WICED IDE
@@ -242,7 +242,7 @@ This is a FT2232H based JTAG programmer shield that is compatible with OpenOCD a
 
 # Power Shield
 
-The Power Shield, as the name implies, allows the Particle device to be powered from different types of power sources. The shield has an intelligent battery charger and power management unit along with a wide input voltage regulator and an I2C based fuel-gauge. You can power a Particle device with either a USB plug or a DC supply of anywhere from 7 to 20VDC and charge a 3.7V LiPo battery all at the same time. 
+The Power Shield, as the name implies, allows the Particle device to be powered from different types of power sources. The shield has an intelligent battery charger and power management unit along with a wide input voltage regulator and an I2C based fuel-gauge. You can power a Particle device with either a USB plug or a DC supply of anywhere from 7 to 20VDC and charge a 3.7V LiPo battery all at the same time.
 
 ![Power Shield]({{assets}}/images/shields/power-shield/power-shield.png)
 
@@ -460,7 +460,7 @@ You can use this [online guide](http://www.digikey.com/en/resources/conversion-c
 This is a 7" x 9" general purpose dot-matrix prototyping PCB.
 
 ### 17. IR LED (1)
-You can take control of your television, air-conditioner or any other IR remote controlled devices with this IR LED. Simply connect it to the Particle device with a series 220 ohm resistor, use the appropriate IR code library, and control things over the Internet! 
+You can take control of your television, air-conditioner or any other IR remote controlled devices with this IR LED. Simply connect it to the Particle device with a series 220 ohm resistor, use the appropriate IR code library, and control things over the Internet!
 
 **Specifications:**
 - Continuous forward current: 100mA (1A peak)
@@ -471,7 +471,7 @@ You can take control of your television, air-conditioner or any other IR remote 
 [Datasheet >]({{assets}}/datasheets/makerkit/ir333-a.pdf)
 
 ### Serial OLED Screen,0.96"(1)
-This is a 128x64 pixel graphic OLED screen that can be either controlled via the SPI (default) or I2C. 
+This is a 128x64 pixel graphic OLED screen that can be either controlled via the SPI (default) or I2C.
 
 **Specifications:**
 - Supply Voltage: 3.0V to 5V DC
@@ -490,11 +490,11 @@ This is a 128x64 pixel graphic OLED screen that can be either controlled via the
 [Datasheet >]({{assets}}/datasheets/makerkit/spdt-switch.pdf)
 
 ### Temperature Sensor (1)
-The DS18B20 is an easy to use one wire digital thermometer with upto 12-bit measuring resolution. 
+The DS18B20 is an easy to use one wire digital thermometer with upto 12-bit measuring resolution.
 
 - Supply Voltage: 3.0V to 5.5V DC
 - Current consumption: 4mA max
-- Measuring temperature range: -55°C to +125°C 
+- Measuring temperature range: -55°C to +125°C
 - Accuracy: ±0.5°C (from -10°C to +85°C)
 - Package: TO-92
 

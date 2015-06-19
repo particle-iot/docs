@@ -1,7 +1,7 @@
 ---
 word: Accessories
 title: Shields and kits
-order: 13
+order: 5
 ---
 
 Shields and accessories

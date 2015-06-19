@@ -1,7 +1,7 @@
 ---
 word: Datasheet
 title: Photon datasheet
-order: 12
+order: 1
 columns: 2
 ---
 

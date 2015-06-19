@@ -97,12 +97,21 @@ module.exports = (grunt) ->
       start:
         dest: '<%= config.dist %>/index.html'
         src: '<%= config.dist %>/start/index.html'
+      guide:
+        dest: '<%= config.dist %>/guide/index.html'
+        src: '<%= config.dist %>/start/index.html'
       photon:
-        src: '<%= config.dist %>/core/start/index.html'
-        dest:'<%= config.dist %>/core/index.html'
+        src: '<%= config.dist %>/guide/core/start/index.html'
+        dest:'<%= config.dist %>/guide/core/index.html'
       core:
-        src: '<%= config.dist %>/photon/start/index.html'
-        dest:'<%= config.dist %>/photon/index.html'
+        src: '<%= config.dist %>/guide/photon/start/index.html'
+        dest:'<%= config.dist %>/guide/photon/index.html'
+      reference:
+        src: '<%= config.dist %>/reference/firmware/index.html'
+        dest:'<%= config.dist %>/reference/index.html'
+      datasheets:
+        src: '<%= config.dist %>/datasheets/photon-datasheet/index.html'
+        dest:'<%= config.dist %>/datasheets/index.html'
       robots:
         src: '<%= config.src %>/robots.txt'
         dest:'<%= config.dist %>/robots.txt'

@@ -50,21 +50,23 @@
         </div>
       </div>
       <div class='right'>
-        <div class="dropdown">
-          <a id="dLabel" data-target="#" class="icon" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
-            {{#contains dirname 'photon'}}Photon{{/contains}}
-            {{#contains dirname 'core'}}Core{{/contains}}
-            <i class="icon ion-chevron-down"></i>
-          </a>
-          <ul class="dropdown-menu" aria-labelledby="dLabel">
-            <li><a href="/photon/{{basename}}">Photon</a></li>
-            <li><a href="/core/{{basename}}">Core</a></li>
-          </ul>
-        </div>
-        <a href="http://support.particle.io" class="icon" target="_blank"><i class="icon ion-help-buoy"></i>Support</a>
-        <a href="{{assets}}/docs.zip" class="icon"><i class="icon ion-arrow-down-a"></i>Download</a>
-        <a href='https://github.com/spark/docs/edit/master/src/content/en{{#is page.shared true}}/shared/{{else}}{{#contains dirname "photon"}}/photon/{{else}}/core/{{/contains}}{{/is}}{{basename}}.md' class="icon" target="_blank"><i class="ion-edit"></i>Edit</a>
-      </div>
+        {{#contains dirname 'guide'}}
+          <div class="dropdown">
+            <a id="dLabel" data-target="#" class="icon" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+              {{#contains dirname 'photon'}}Photon{{/contains}}
+              {{#contains dirname 'core'}}Core{{/contains}}
+              <i class="icon ion-chevron-down"></i>
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="dLabel">
+              <li><a href="/guide/photon/{{basename}}">Photon</a></li>
+              <li><a href="/guide/core/{{basename}}">Core</a></li>
+            </ul>
+          </div>
+          <a href="http://support.particle.io" class="icon" target="_blank"><i class="icon ion-help-buoy"></i>Support</a>
+          <a href="{{assets}}/docs.zip" class="icon"><i class="icon ion-arrow-down-a"></i>Download</a>
+          <a href='https://github.com/spark/docs/edit/master/src/content/en{{#is page.shared true}}/shared/{{else}}{{#contains dirname "photon"}}/photon/{{else}}/core/{{/contains}}{{/is}}{{basename}}.md' class="icon" target="_blank"><i class="ion-edit"></i>Edit</a>
+          </div>
+        {{/contains}}
     </div>
 
     <div class='content-root' data-spy="scroll" data-target="#toc">

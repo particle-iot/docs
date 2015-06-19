@@ -1,7 +1,7 @@
 ---
 word: Datasheet
 title: Core datasheet
-order: 12
+order: 4
 columns: 2
 ---
 
