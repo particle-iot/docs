@@ -28,13 +28,12 @@ If you are not yet familiar with these tools, please read the previous guides ab
 At a high level, you should expect to follow these steps to transition from your first functional prototype to a mass-manufactured product:
 
 - Design your own printed circuit board (PCB)
-- Set up an organization in Particle's [dashboard](https://dashboard.particle.io)
-- Creating a 'product' in Particle's dashboard
-- Building your own mobile apps (iOS and Android)
-- Optional: building your own web app
-- Manufacturing, provisioning, and testing devices
+- Set up your product in Particle's [dashboard](https://dashboard.particle.io)
+- Build your own mobile apps (iOS and Android)
+- Build your own web app
+- Manufacture, provision, and test devices
 
-There are, of course, other issues you will likely encounter, such as injection molded plastic tooling, packaging, etc. This tutorial will focus strictly on the electronics and software, as that is our area of focus.
+There are, of course, other issues you will likely encounter, such as injection molded plastic tooling, packaging, etc. This tutorial will focus strictly on the electronics and software, as that is where the Particle platform is most useful.
 
 ### What if I need help?
 

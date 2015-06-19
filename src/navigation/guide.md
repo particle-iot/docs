@@ -17,9 +17,9 @@
 - How to build a product
   - [Introduction](../build-intro)
   - [Designing a PCB](../build-pcb)
-  - [Setting up an organization](../build-org)
-  - [Defining a product](../build-product)
-  - [Building your app](../build-app)
+  - [Setting up your dashboard](../build-dashboard)
+  - [Building your mobile app](../build-app)
+  - [Building your web app](../build-web)
   - [Manufacturing](../build-mfg)
 
 - Miscellaneous
