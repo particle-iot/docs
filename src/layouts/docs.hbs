@@ -41,18 +41,20 @@
         <a href="https://www.particle.io">
           <img src="{{assets}}/images/particle-docs.png" id="logo">
         </a>
-        <a class="toggle-button {{#contains dirname 'guide'}}active{{/contains}}" href="/guide">Guide</a>
-        <a class="toggle-button {{#contains dirname 'reference'}}active{{/contains}}" href="/reference">Reference</a>
-        <a class="toggle-button {{#contains dirname 'datasheets'}}active{{/contains}}" href="/datasheets">Datasheets</a>
+        <div class="sections">
+          <a class="nav {{#contains dirname 'guide'}}active{{/contains}}" href="/guide">Guide</a>
+          <a class="nav {{#contains dirname 'reference'}}active{{/contains}}" href="/reference">Reference</a>
+          <a class="nav {{#contains dirname 'datasheets'}}active{{/contains}}" href="/datasheets">Datasheets</a>
+        </div>
+      </div>
+      <div class='right'>
         <div class="search">
           <script src='{{assets}}/js/google-search.js'></script>
           <gcse:search></gcse:search>
         </div>
-      </div>
-      <div class='right'>
         {{#contains dirname 'guide'}}
           <div class="dropdown">
-            <a id="dLabel" data-target="#" class="icon" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+            <a id="dLabel" data-target="#" class="nav" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
               {{#contains dirname 'photon'}}Photon{{/contains}}
               {{#contains dirname 'core'}}Core{{/contains}}
               <i class="icon ion-chevron-down"></i>
@@ -63,9 +65,9 @@
             </ul>
           </div>
         {{/contains}}
-        <a href="http://support.particle.io" class="icon" target="_blank"><i class="icon ion-help-buoy"></i>Support</a>
-        <a href="{{assets}}/docs.zip" class="icon"><i class="icon ion-arrow-down-a"></i>Download</a>
-        <a href='https://github.com/spark/docs/edit/master/src/content/en{{#is page.shared true}}/shared/{{else}}{{#contains dirname "photon"}}/photon/{{else}}/core/{{/contains}}{{/is}}{{basename}}.md' class="icon" target="_blank"><i class="ion-edit"></i>Edit</a>
+        <a href="http://support.particle.io" class="nav" target="_blank"><i class="icon ion-help-buoy"></i>Support</a>
+        <a href="{{assets}}/docs.zip" class="nav"><i class="icon ion-arrow-down-a"></i>Download</a>
+        <a href='https://github.com/spark/docs/edit/master/src/content/en{{#is page.shared true}}/shared/{{else}}{{#contains dirname "photon"}}/photon/{{else}}/core/{{/contains}}{{/is}}{{basename}}.md' class="nav" target="_blank"><i class="ion-edit"></i>Edit</a>
       </div>
     </div>
 
