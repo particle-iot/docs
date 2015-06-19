@@ -20,7 +20,7 @@
   <script src='{{assets}}/js/jquery-styling.js'></script>
   <script src='{{assets}}/js/bootstrap-dropdown.js'></script>
   <script src='{{assets}}/js/prettify.js'></script>
-  <!-- <script src='{{assets}}/js/scrollspy.js'></script> -->
+  <script src='{{assets}}/js/scrollspy.js'></script>
 
   <!-- Spark theme mods -->
   <link href='{{assets}}/css/style.css' rel='stylesheet'>
@@ -72,8 +72,15 @@
     </div>
 
     <div class='content-root' data-spy="scroll" data-target="#toc">
-
       <div class='menubar'>
+
+        {{#contains dirname 'guide'}}
+          {{#markdown}}
+            {{> guide }}
+          {{/markdown}}
+        {{/contains}}
+
+
         <div class='menu section' role='flatdoc-menu'>
           <ul class="sections">
             {{#withSort pages "data.order"}}

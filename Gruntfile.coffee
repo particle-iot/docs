@@ -37,6 +37,7 @@ module.exports = (grunt) ->
           structure: ':basename/index:ext'
         toc:
           id: 'toc'
+        partials: ['<%= config.src %>/navigation/*.md']
       start:
         options:
           layoutdir: '<%= config.src %>/layouts'
