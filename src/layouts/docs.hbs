@@ -80,37 +80,8 @@
           {{/markdown}}
         {{/contains}}
 
-
-        <div class='menu section' role='flatdoc-menu'>
-          <ul class="sections">
-            {{#withSort pages "data.order"}}
-              <li class="{{data.device}}"><a href='{{#contains dirname "reference"}}/reference/{{basename}}{{/contains}}{{#contains dirname "datasheets"}}/datasheets/{{basename}}{{/contains}}{{#contains dirname "photon"}}/guide/photon/{{basename}}{{/contains}}{{#contains dirname "core"}}/guide/core/{{basename}}{{/contains}}' class="level-0 {{#compare basename '===' ../basename}}active{{/compare}}">{{data.title}}</a></li>
-
-              {{#compare basename '===' ../basename}}
-              {{#contains dirname 'guide'}}
-                <div class='menu section' role='flatdoc-menu'>
-                  <ul id="toc">
-                  </ul>
-                </div>
-              {{/contains}}
-              {{/compare}}
-
-            {{/withSort}}
-          </ul>
-        </div>
-        {{#contains dirname 'reference'}}
-          <div class='menu section' role='flatdoc-menu'>
-            <ul id="toc">
-            </ul>
-          </div>
-        {{/contains}}
-        {{#contains dirname 'datasheets'}}
-          <div class='menu section' role='flatdoc-menu'>
-            <ul id="toc">
-            </ul>
-          </div>
-        {{/contains}}
       </div>
+
       <div role='flatdoc-content' class='content'>
         {{#markdown}}
           {{> body}}
@@ -119,7 +90,6 @@
         </div>
       </div>
     </div>
-  </div>
 
   <!-- Custom -->
   <script type="text/javascript" src="https://s3.amazonaws.com/redirect.particle.io/redirect-banner.js"></script>
