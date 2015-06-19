@@ -80,6 +80,18 @@
           {{/markdown}}
         {{/contains}}
 
+        {{#contains dirname 'reference'}}
+          {{#markdown}}
+            {{> guide }}
+          {{/markdown}}
+        {{/contains}}
+
+        {{#contains dirname 'datasheets'}}
+          {{#markdown}}
+            {{> guide }}
+          {{/markdown}}
+        {{/contains}}
+
       </div>
 
       <div role='flatdoc-content' class='content'>

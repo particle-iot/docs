@@ -77,7 +77,10 @@ Derived from Flatdoc (http://ricostacruz.com/flatdoc)
 
     // var $toc = $('.menubar');
     var $toc = $('.menubar a[href*="' + page + '"]');
-    console.log($toc);
+
+    if ($toc.length < 1) {
+      $toc = $('.menubar');
+    }
 
     // create menu object
     var menu = [];
