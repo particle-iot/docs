@@ -7,7 +7,7 @@ So you've got a prototype in a breadboard. It's probably a mess of wires, someth
 
 **PUT A PICTURE OF A BREADBOARDED PROTOTYPE HERE**
 
-Your first step towards a manufacturable product is to re-design this product into your own printed circuit board (PCB). Parts of this lesson are relevant to any electronics product (PCB design), while other elements are Particle-specific (transitioning from a dev kit to a module).
+Your first step towards a manufacturable product is to re-design this product into your own printed circuit board (PCB) using our modules (P0 or P1) rather than our development kits (Photon/Core).
 
 Here's a quick overview of the steps you'll take:
 
@@ -18,6 +18,12 @@ Here's a quick overview of the steps you'll take:
 - Spin up your PCB
 - Assemble your components (PCBA)
 - Program and test your new hardware
+
+### TODO: REFACTOR
+
+- Reduce focus on things you could learn elsewhere
+- Increase focus on Particle-specific stuff
+- Add a section about hardware requirements (one RGB LED, one button)
 
 ### Select PCB design software
 

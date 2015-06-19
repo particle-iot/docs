@@ -21,6 +21,7 @@
   - [Building your mobile app](../build-app)
   - [Building your web app](../build-web)
   - [Manufacturing](../build-mfg)
+  - [Further considerations](../build-considerations)
 
 - Miscellaneous
   - [Running a hackathon](../hackathon)

@@ -20,27 +20,15 @@ Our device dashboard is designed to provide visibility into the state of your "f
 
 Up until now, you've been an individual user of Particle. Your devices belong to you.
 
-Setting up an organization makes sense when your *team* and your *users* are different people.
+Setting up an organization makes sense when your *team* and your *customers* are different people.
 
 - Your organization has a *team* with access to the dashboard.
-- Your organization has *users* who are the end users of your product. If you make a connected toaster, the person who purchased the toaster is the *user*.
-- *Team members* and *users* have different levels of access. For instance, only *team members* will typically be able to send an over-the-air firmware update, while only *users* may have the ability to control the product. These access levels can be controlled in the dashboard.
+- Your organization has *customers* who are the end users of your product. If you make a connected toaster, the person who purchased the toaster is the *customer*.
+- *Team members* and *customers* have different levels of access. For instance, only *team members* will typically be able to send an over-the-air firmware update, while *customers* may have the ability to control the product. These access levels will be controlled through the dashboard.
 
 ### Setting up an organization
 
 Currently the organization dashboard is in private beta. If you are interested in gaining access, please contact [sales@particle.io](sales@particle.io). The dashboard will be available to everyone in Summer 2015.
-
-### Authenticating your users
-
-Once you have set up an organization, users will be able to create accounts on the Particle platform that are registered to your organization. When properly implemented, your users will have no idea that Particle is behind the scenes; they will feel like they are creating an account with *ACME, Inc.*.
-
-There are three ways you can authenticate your users:
-
-- **Simple authentication**. Your users will create an account with Particle that is registered to your organization. You will be able to see each of these users in your dashboard. You do not need to set up your own authentication system.
-- **Two-legged authentication**. Your users will create an account on your servers using your own authentication system, and your web servers will create an account with Particle that is paired to that user.
-- **OAuth 2.0**. Your users will create a Particle account and a separate account on your website, and link the two together using OAuth 2.0. This is most useful when the product is reprogrammable and the user will be using Particle's development tools to reprogram it.
-
-When you create your organization/product, you will be asked which authentication method you want to use. Implementation of these authentication protocols will be covered later in this tutorial.
 
 ### Defining a product
 
@@ -52,7 +40,22 @@ Your product is (probably) not a development kit. While some of the characterist
 
 - Limiting access (e.g. only certain people can reprogram them)
 - Collecting bulk data, events, errors, and logs from all of your devices
-- Distributing firmware updates
+- Distributing firmware updates in a controlled fashion
+
+Once you have an organization set up in the dashboard, you will be able to add a product.
+
+### Authenticating your customers
+
+Once you have set up an organization, your customers will be able to create accounts on the Particle platform that are registered to your organization. When properly implemented, your customers will have no idea that Particle is behind the scenes; they will feel like they are creating an account with *ACME, Inc.*.
+
+There are four ways you can authenticate your customers:
+
+- **Simple authentication**. Your customers will create an account with Particle that is registered to your organization. You will be able to see each of these customers in your dashboard. You do not need to set up your own authentication system.
+- **Self-managed authentication**. Your customers will create an account on your servers using your own authentication system. Your web servers will have a single set of credentials that control all of your products, and you will be responsible for mapping access between customers and devices.
+- **Two-legged authentication**. Your customers will create an account on your servers using your own authentication system, and your web servers will create an account with Particle for each customer that is paired to that customer.
+- **Login with Particle**. Your customers will create a Particle account and a separate account on your website, and link the two together using OAuth 2.0. Unlike the other authentication options, this option must showcase Particle branding. This is most useful when the customer is aware of Particle and may be using Particle's development tools with the product.
+
+When you create your product in the dashboard, you will be asked which authentication method you want to use. Implementation of these authentication protocols will be covered later in this tutorial.
 
 #### TODO
 
