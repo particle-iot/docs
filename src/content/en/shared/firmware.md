@@ -882,7 +882,7 @@ void loop()
 ```
 
 - On the Core, this function works on pins A0, A1, A4, A5, A6, A7, D0 and D1.
-- On the Photon, this function works on pins A0, A1, A2, A3, A4, A5, WKP, TX and RX
+- On the Photon, this function works on pins D0, D1, D2, D3, A4, A5, WKP, TX and TX with a caveat: PWM timer peripheral is duplicated on two pins (A5/D2) and (A4/D3) for 7 total independent PWM outputs. For example: PWM may be used on A5 while D2 is used as a GPIO, or D2 as a PWM while A5 is used as an analog input. However A5 and D2 cannot be used as independently controlled PWM outputs at the same time.
 
 When used with these pins, the analogWrite function has nothing to do with the analog pins or the analogRead function.
 
@@ -895,15 +895,15 @@ When used with these pins, the analogWrite function has nothing to do with the a
 
 #### Analog Output (Photon)
 
-The Photon supports true analog output on pins DAC (DAC1 in code) and A3 (DAC2). Using `analogWrite(pin, value)`
-with these pins, the output of the pin is set to an analog voltage from 0v to 3.3v that corresponds to values
+The Photon supports true analog output on pins DAC (`DAC1` or `A6` in code) and A3 (`DAC2` or `A3` in code). Using `analogWrite(pin, value)`
+with these pins, the output of the pin is set to an analog voltage from 0V to 3.3V that corresponds to values
 from 0-4095.
 
 ```C++
 // SYNTAX
 pinMode(DAC1, OUTPUT);
 analogWrite(DAC1, 1024);
-// sets DAC1 to an output voltage of 4095/1024 * 3.3v = 0.826v.
+// sets DAC pin to an output voltage of 1024/4095 * 3.3V = 0.825V.
 ```
 
 ### analogRead()
