@@ -5,6 +5,8 @@ columns: 2
 
 As you've developed your product with Particle, you've probably become very familiar with our development tools. Now that you're transitioning to production, you're about to become very familiar with a new part of our software stack: our device dashboard.
 
+**PICTURE OF THE DASHBOARD AND HOW AWESOME IT IS**
+
 ### Introducing your dashboard
 
 Once you're shipping your connected product at scale, you will be exposed to a whole bunch of new problems and opportunities. You'll be asking questions like:
@@ -36,13 +38,13 @@ Our cloud platform thinks that all devices are *Photons* or *Cores* — unless i
 
 *Photons* are development kits. They're designed to be easy to reprogram and run a variety of software applications that you, our users, develop.
 
-Your product is (probably) not a development kit. While some of the characteristics of the development kits will carry over, you're going to want to make a bunch of changes to how your product works. These include:
+*Your product* is (probably) not a development kit. While some of the characteristics of the development kits will carry over, you're going to want to make a bunch of changes to how your product works. These include:
 
 - Limiting access (e.g. only certain people can reprogram them)
 - Collecting bulk data, events, errors, and logs from all of your devices
 - Distributing firmware updates in a controlled fashion
 
-Once you have an organization set up in the dashboard, you will be able to add a product.
+Once you have an organization set up in the dashboard, you will be able to add a product and you will be walked through these decisions.
 
 ### Authenticating your customers
 
@@ -57,6 +59,10 @@ There are four ways you can authenticate your customers:
 
 When you create your product in the dashboard, you will be asked which authentication method you want to use. Implementation of these authentication protocols will be covered later in this tutorial.
 
-#### TODO
+#### Building your web app
+
+Now that you have set up your product in the dashboard, you're ready to:
+
+[Build your web app >](build-web)
 
 MORE

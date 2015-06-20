@@ -18,8 +18,8 @@
   - [Introduction](../build-intro)
   - [Designing a PCB](../build-pcb)
   - [Setting up your dashboard](../build-dashboard)
-  - [Building your mobile app](../build-app)
   - [Building your web app](../build-web)
+  - [Building your mobile app](../build-app)
   - [Manufacturing](../build-mfg)
   - [Further considerations](../build-considerations)
 
