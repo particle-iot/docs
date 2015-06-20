@@ -3032,6 +3032,22 @@ sensVal = constrain(sensVal, 10, 150);
 
 ### map()
 
+```C++
+// EXAMPLE USAGE
+
+// Map an analog value to 8 bits (0 to 255)
+void setup() {
+  pinMode(D1, OUTPUT);
+}
+
+void loop()
+{
+  int val = analogRead(A0);
+  val = map(val, 0, 4095, 0, 255);
+  analogWrite(D1, val);
+}
+```
+
 Re-maps a number from one range to another. That is, a value of fromLow would get mapped to `toLow`, a `value` of `fromHigh` to `toHigh`, values in-between to values in-between, etc.
 
 `map(value, fromLow, fromHigh, toLow, toHigh);`
@@ -3059,20 +3075,6 @@ The `map()` function uses integer math so will not generate fractions, when the 
 - `toHigh`: the upper bound of the value's target range
 
 The function returns the mapped value
-
-```C++
-// EXAMPLE USAGE
-
-// Map an analog value to 8 bits (0 to 255)
-void setup() {}
-
-void loop()
-{
-  int val = analogRead(0);
-  val = map(val, 0, 4095, 0, 255);
-  analogWrite(9, val);
-}
-```
 
 *Appendix:*
 For the mathematically inclined, here's the whole function
