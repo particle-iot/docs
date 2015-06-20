@@ -8,7 +8,7 @@ How to build a product with Particle
 
 Particle is not just a development platform. In fact, our primary goal is to help product creators (engineers and entrepreneurs) bring new connected products to market.
 
-This guide will teach you everything you need to transition from a breadboard prototype to a device manufactured at scale running on Particle's software platform. Many of the lessons within are broadly applicable to a wide range of products (whether they run on our platform or not). Other lessons are platform specific. If you are an experienced engineer with manufacturing experience, some of these lessons will feel juvenile; if so, simply skip over the bits that you already know.
+This guide will teach you everything you need to transition from a breadboard prototype to a device manufactured at scale running on Particle's software platform. Many of the lessons within are broadly applicable to a wide range of products (whether they run on our platform or not). Other lessons are platform-specific. If you are an experienced engineer with manufacturing experience, some of these lessons will feel juvenile; if so, simply skip over the bits that you already know.
 
 #### But wait, I thought you were a hardware company?
 
@@ -18,7 +18,7 @@ Sort of. We're a software company that serves hardware companies. In order to mo
 
 Before you start to follow this guide, you should already have:
 
-- A functional prototype running on a Core, Photon, P0, P1, or electronic
+- A functional prototype running on a Core, Photon, P0, P1, or Electron
 - A working knowledge of Particle's development tools and cloud platform
 
 If you are not yet familiar with these tools, please read the previous guides above ("Getting started" and "Features and tools").
@@ -29,11 +29,11 @@ At a high level, you should expect to follow these steps to transition from your
 
 - Design your own printed circuit board (PCB)
 - Set up your product in Particle's [dashboard](https://dashboard.particle.io)
-- Build your own mobile apps (iOS and Android)
 - Build your own web app
-- Manufacture, provision, and test devices
+- Build your own mobile apps (iOS and Android)
+- Manufacture, program, and test devices
 
-There are, of course, other issues you will likely encounter, such as injection molded plastic tooling, packaging, etc. This tutorial will focus strictly on the electronics and software, as that is where the Particle platform is most useful.
+There are, of course, other issues you will likely encounter, such as injection molded plastic tooling, packaging, etc. This tutorial will focus strictly on electronics and software, as that is where the Particle platform is most relevant.
 
 ### What if I need help?
 
@@ -54,8 +54,6 @@ If you are interested in engaging us or our partners to help develop your produc
 
 ### Let's get started!
 
-Okay! First, let's start with [designing your own PCB](build-pcb).
+Okay! First, let's start with:
 
-### TODO
-
-- Add images
+[Designing your own PCB >](build-pcb).
