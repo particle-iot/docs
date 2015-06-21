@@ -2,6 +2,10 @@
   "name": "particle-docs",
   "version": "0.3.0",
   "private": false,
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/spark/docs.git"
+  },
   "scripts": {
     "start": "node ./scripts/server.js",
     "test": "node ./node_modules/mocha/bin/mocha ./test/test.js --reporter dot",
@@ -13,6 +17,7 @@
     "handlebars": "^2.0.0-alpha.2",
     "metalsmith": "^1.7.0",
     "metalsmith-markdown": "^0.2.1",
+    "metalsmith-move-up": "^1.0.0",
     "metalsmith-serve": "0.0.3",
     "metalsmith-templates": "^0.6.1",
     "metalsmith-watch": "^1.0.1",

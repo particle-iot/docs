@@ -3,16 +3,18 @@ var markdown = require('metalsmith-markdown');
 var templates = require('metalsmith-templates');
 var serve = require('metalsmith-serve');
 var watch = require('metalsmith-watch');
+var moveUp = require('metalsmith-move-up');
 
 exports.metalsmith = function() {
   var metalsmith = Metalsmith(__dirname)
     .source("../src")
     .destination("../build")
     .use(markdown())
-    .use(templates('handlebars'));
+    .use(templates('handlebars'))
+    .use(moveUp('content/**/*'));
 
   return metalsmith;
-}
+};
 
 exports.build = function(callback) {
   exports.metalsmith().build(function(err, files) {
@@ -21,7 +23,7 @@ exports.build = function(callback) {
       callback(err, files);
     }
   });
-}
+};
 
 exports.server = function(callback) {
   exports.metalsmith().use(serve())
@@ -34,4 +36,4 @@ exports.server = function(callback) {
         callback(err, files);
       }
     });
-}
+};
