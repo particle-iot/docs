@@ -14,9 +14,12 @@ exports.metalsmith = function() {
   return metalsmith;
 }
 
-exports.build = function() {
+exports.build = function(callback) {
   exports.metalsmith().build(function(err, files) {
     if (err) { throw err; }
+    if (callback) {
+      callback(err, files);
+    }
   });
 }
 

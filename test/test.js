@@ -1,6 +1,6 @@
 var assert = require("assert");
 var should = require("should");
-var server = require('../scripts/metalsmith.js').server;
+var metalsmith = require('../scripts/metalsmith.js');
 var crawler = require('../scripts/crawler.js');
 
 describe('Tests', function(){
@@ -12,7 +12,16 @@ describe('Tests', function(){
 describe('Server', function() {
   it('should run without error', function(done){
     this.timeout(5000);
-    server(function(err, files) {
+    metalsmith.server(function(err, files) {
+      should.not.exist(err);
+      done();
+    });
+  });
+});
+
+describe('Build', function() {
+  it('should run without error', function(done){
+    metalsmith.build(function(err, files) {
       should.not.exist(err);
       done();
     });
