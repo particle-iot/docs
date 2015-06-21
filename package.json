@@ -3,7 +3,7 @@
   "version": "0.3.0",
   "private": false,
   "scripts": {
-    "build": "node build.js"
+    "start": "node server.js"
   },
   "dependencies": {
     "cheerio": "~0.16.0",

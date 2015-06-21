@@ -15,33 +15,27 @@ To host this documentation locally, you'll need Node.js and npm:
 
     brew install nodejs
 
-If you don't already have Grunt installed, you'll need that too:
-
-    npm install -g grunt-cli
-
-Once you have the dependencies, navigate to this repository's directory on your machine, and then:
+Once you have Node.js set up, navigate to this repository's directory on your machine, and then:
 
     npm install
 
-to install any other necessary dependencies:
+to install any other necessary dependencies.
 
 ### Hosting locally
 
-This documentation uses Grunt and Assemble to build and push documentation updates. Once everything's installed, to build the documentation, type:
+This documentation uses a fabulous tool from the folks at Segment called [Metalsmith](http://www.metalsmith.io). Metalsmith is a static site generator that builds static HTML sites from source material in other formats; in this case, Markdown and Handlebars.
 
-`grunt build`
+To run a locally hosted version of the documentation, follow the installation instructions above, and then within the 'docs' directory type in your terminal:
 
-The documentation will be located in the `build` directory. If you would like to host this documentation locally, try:
+`npm start`
 
-`grunt server`
-
-This will set up a Connect server and load the local documentation in a web browser. If you make changes, the browser should automatically refresh.
+This will set up a server running at `http://localhost:8080`. If you make changes to the source content, your browser should automatically refresh using `livereload`.
 
 ### Deployment
 
 When updated documentation is pushed to the master branch, it is automatically pushed to Amazon S3 by Travis CI.
 
-Travis calls `grunt deploy`, which is the same as `grunt build`, except that it also zips up the docs for downloading.
+TODO: FURTHER INSTRUCTIONS FOR DEPLOYMENT
 
 To see the latest build, visit the [Travis CI page](https://travis-ci.org/spark/docs).
 
