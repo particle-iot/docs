@@ -3,8 +3,9 @@
   "version": "0.3.0",
   "private": false,
   "scripts": {
-    "start": "node server.js",
-    "test": "node ./node_modules/mocha/bin/mocha ./test/test.js --reporter dot"
+    "start": "node ./scripts/server.js",
+    "test": "node ./node_modules/mocha/bin/mocha ./test/test.js --reporter dot",
+    "build": "node ./scripts/build.js"
   },
   "dependencies": {
     "cheerio": "~0.16.0",
@@ -15,6 +16,7 @@
     "metalsmith-templates": "^0.6.1",
     "metalsmith-watch": "^1.0.1",
     "mocha": "^2.2.5",
-    "should": "^7.0.1"
+    "should": "^7.0.1",
+    "simplecrawler": "^0.5.2"
   }
 }
