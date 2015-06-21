@@ -8,7 +8,7 @@
     "build": "node ./scripts/build.js"
   },
   "dependencies": {
-    "cheerio": "~0.16.0",
+    "cheerio": "^0.16.0",
     "handlebars": "^2.0.0-alpha.2",
     "metalsmith": "^1.7.0",
     "metalsmith-markdown": "^0.2.1",
@@ -16,6 +16,7 @@
     "metalsmith-templates": "^0.6.1",
     "metalsmith-watch": "^1.0.1",
     "mocha": "^2.2.5",
+    "request": "^2.58.0",
     "should": "^7.0.1",
     "simplecrawler": "^0.5.2"
   }

@@ -32,7 +32,6 @@ describe('Server', function() {
 
 describe('Crawler', function() {
   crawler.initialPort = 8080;
-  crawler.maxDepth = 1;
 
   it('should complete without error', function(done) {
     crawler.start();
@@ -47,12 +46,23 @@ describe('Crawler', function() {
 
   it('should succeed', function() {
     crawler.queue[0].status.should.not.equal("failed");
-  })
+  });
 });
 
 describe('Docs', function() {
-  it('should exist', function() {
-
+  it('index should exist', function() {
+    crawler.queue[0].status.should.not.equal("failed");
     crawler.queue[0].status.should.not.equal("notfound");
+    console.log(crawler.queue);
+  });
+});
+
+describe('Internal links', function() {
+  it('should all succeed', function() {
+    crawler.queue.countWithStatus("failed").should.equal(0);
+  });
+
+  it('should all return 200 OK', function() {
+    crawler.queue.countWithStatus("notfound").should.equal(0);
   });
 });
