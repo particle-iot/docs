@@ -6,11 +6,14 @@ var watch = require('metalsmith-watch');
 var moveUp = require('metalsmith-move-up');
 var less = require('metalsmith-less');
 var ignore = require('metalsmith-ignore');
+var permalinks = require('metalsmith-permalinks');
+var collections = require('metalsmith-collections');
 
 exports.metalsmith = function() {
   var metalsmith = Metalsmith(__dirname)
     .source("../src")
     .destination("../build")
+    .use(collections())
     .use(markdown())
     .use(ignore([
       '**/less/*.less'
@@ -23,7 +26,10 @@ exports.metalsmith = function() {
       engine: 'handlebars',
       directory: '../templates'
     }))
-    .use(moveUp('content/**/*'));
+    .use(moveUp('content/**/*'))
+    .use(permalinks({
+      relative: false
+    }));
 
   return metalsmith;
 };
