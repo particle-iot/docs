@@ -1,12 +1,13 @@
-var server = require('./metalsmith.js').server;
 var Crawler = require("simplecrawler");
 
-var runCrawler = function() {
-  Crawler.crawl("http://localhost:8080/test.html")
-    .on("fetchcomplete", function(queueItem){
-      console.log("Fetch completed");
-      console.log(queueItem);
-    })
-}
+module.exports = function(callback) {
+  var crawler = new Crawler("http://localhost");
+  crawler.initialPort = 8080;
+  crawler.maxDepth = 1;
 
-server(runCrawler);
+  if(callback) {
+    callback(crawler);
+  }
+
+  return crawler;
+}

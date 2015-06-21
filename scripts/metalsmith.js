@@ -26,10 +26,9 @@ exports.server = function(callback) {
       livereload: true
     }))
     .build(function(err, files) {
-      if (err) { throw err; }
-      console.log(callback);
+      console.log(err);
       if (callback) {
-        callback();
+        callback(err, files);
       }
     });
 }
