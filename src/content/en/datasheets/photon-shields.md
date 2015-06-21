@@ -12,7 +12,7 @@ Shields and accessories
 
 Sometimes life can be a little difficult in the land of electronics when two systems talk a different voltage language. How do you make them talk to each other without making one of them _burn out_? The Shield Shield is the answer. This shield performs all the necessary voltage translation and provides an Arduino-compatible footprint to make it easier for you to plug in your existing Arduino shields or talk to other 5V hardware.
 
-![Shield Shield]({{assets}}/images/shields/shield-shield/shield-shield.png)
+![Shield Shield](/assets/images/shields/shield-shield/shield-shield.png)
 
 ### Shield Shield - Operation
 
@@ -20,21 +20,21 @@ We use Texas Instruments TXB0108PWR to do the voltage translation in between the
 
 ### Shield Shield Schematic - TXB0108PWR
 
-![Shield Shield TXB0108PWR]({{assets}}/images/shields/shield-shield/txb0108pwr-schematic.png)
+![Shield Shield TXB0108PWR](/assets/images/shields/shield-shield/txb0108pwr-schematic.png)
 
 The new version of the Shield Shield (v3.x.x) uses dedicated mosfet based voltage translation on the I2C lines. We also decided to add a prototyping area in empty space in the middle of the shield.
 
 ### Shield Shield Schematic - MOSFET I2C
 
-![Shield Shield I2C]({{assets}}/images/shields/shield-shield/mosfet-i2c-schematic.png)
+![Shield Shield I2C](/assets/images/shields/shield-shield/mosfet-i2c-schematic.png)
 
-![Shield Shield Description]({{assets}}/images/shields/shield-shield/shield-shield-description.png)
+![Shield Shield Description](/assets/images/shields/shield-shield/shield-shield-description.png)
 
 **Note:** One drawback of using the TXB0108PWR as a voltage translator is that it is only capable of driving loads at short distances. Long length wires will introduce excessive capacitive loading and cause the auto direction detection to fail. To overcome this drawback, the shield shield also has an optional on-board 74ABT125 buffer that is capable of driving heavier loads in *one* direction. A user can jumper wire to whichever IO pin they would like to be translated to 5V.
 
 ### Shield Shield - Pin Mapping
 
-![Shield Shield Pinmapping]({{assets}}/images/shields/shield-shield/shield-shield-pinmapping.png)
+![Shield Shield Pinmapping](/assets/images/shields/shield-shield/shield-shield-pinmapping.png)
 
 |Shield  | Photon | Peripherals             |
 |--------|--------|-------------------------|
@@ -74,9 +74,9 @@ The new version of the Shield Shield (v3.x.x) uses dedicated mosfet based voltag
  - Dimensions: 3.4" x 2.1"
  - Weight: 28 gms
 
-[Drill Template >]({{assets}}/images/shields/shield-shield/shield-shield-template.pdf)
+[Drill Template >](/assets/images/shields/shield-shield/shield-shield-template.pdf)
 
-![Shield Shield Dimensions]({{assets}}/images/shields/shield-shield/shield-shield-dimensions.png)
+![Shield Shield Dimensions](/assets/images/shields/shield-shield/shield-shield-dimensions.png)
 
 <!--
 **Usage:**
@@ -91,7 +91,7 @@ The Relay Shield allows you to take over the world, one electric appliance at a 
 
 The shield comes with four relays that are rated at a max of 220V @10Amp allowing you to control any electric appliance rated at under 2000 Watts. You are not just limited to an appliance though; any gadget that requires high voltage and/or a lot of current can be controlled with this shield.
 
-![Relay Shield]({{assets}}/images/shields/relay-shield/relayshield.png)
+![Relay Shield](/assets/images/shields/relay-shield/relayshield.png)
 
 We have even provided a small prototyping area around the shield for you to add more components or connectors. A temperature sensor to go along with your brewer, maybe?
 
@@ -103,13 +103,13 @@ The schematic for the relay shield is simple and self explanatory. The shield ha
 
 ### Relay Shield Schematic - Control
 
-![Relay Shield Interface]({{assets}}/images/shields/relay-shield/relay-shield-schematic-1.png)
+![Relay Shield Interface](/assets/images/shields/relay-shield/relay-shield-schematic-1.png)
 
 The relays are SPDT (Single Pole Double Throw) type, which means they have three terminals at the output: COMMON (COMM), Normally Open (NO) and Normally Closed (NC). We can either connect the load in between the COMM and NO or COMM and NC terminals. When connected in between COMM and NO, the output remains open/disconnected when the relay is turned OFF and closes/connects when the relay is turned ON. In the later case, the output remains closed/connected when the relay is OFF and opens/disconnects when the relay is ON.
 
 ### Relay Shield Schematic - Power Supply
 
-![Relay Shield Power Supply]({{assets}}/images/shields/relay-shield/relay-shield-schematic-2.png)
+![Relay Shield Power Supply](/assets/images/shields/relay-shield/relay-shield-schematic-2.png)
 
 The Relay Shield uses a high efficiency [RT8259](http://www.richtek.com/download_ds.jsp?p=RT8259) switch mode voltage regulator that provides a constant 5V to the Particle device and the relays. The regulator is rated at 1.2A max output current which is ample enough to power the Particle device, the four relays and still have left over for other things you may decided to connect later. You can power the shield via the 5.5mm barrel jack or through the screw terminal. There is a reverse polarity protection diode in place so that you don't fry the electronics buy plugging in the wires in reverse!
 
@@ -117,7 +117,7 @@ Here is an example setup to control a light bulb. The relay acts like a switch w
 
 ### Relay Shield - Sample Setup
 
-![Relay Shield Setup]({{assets}}/images/shields/relay-shield/relay-shield-setup.png)
+![Relay Shield Setup](/assets/images/shields/relay-shield/relay-shield-setup.png)
 
 ### Relay Shield - Sample Code
 
@@ -191,9 +191,9 @@ curl https://api.particle.io/v1/devices/0123456789abcdef/relay \
  - Dimensions: 6.0" x 1.7"
  - Weight: 80 gms
 
-[Drill Template >]({{assets}}/images/shields/relay-shield/relay-shield-template.pdf)
+[Drill Template >](/assets/images/shields/relay-shield/relay-shield-template.pdf)
 
-![Relay Shield Dimensions]({{assets}}/images/shields/relay-shield/relay-shield-dimensions.png)
+![Relay Shield Dimensions](/assets/images/shields/relay-shield/relay-shield-dimensions.png)
 
 <!--
 **Changing the relay control pins: (Advanced)**
@@ -223,11 +223,11 @@ Here is how to perform that surgery:
 
 Do you want to gain complete control over your Particle device right down to its every bit of memory space? or watch as your code gets executed and debug it? Then this shield should be able to pacify that control freak inside of you.
 
-![Programmer Shield]({{assets}}/images/shields/prog-shield/prog-shield.png)
+![Programmer Shield](/assets/images/shields/prog-shield/prog-shield.png)
 
 This is a FT2232H based JTAG programmer shield that is compatible with OpenOCD and Broadcom's WICED IDE. The FT2232 chip is setup to provide an USB-JTAG and USB-UART interface simultaneously. The FT2232 can be also reconfigured by the user by reprogramming the on-board config EEPROM. The unused pins are clearly marked and broken out into easy to access header holes.
 
-![Programmer Shield Description]({{assets}}/images/shields/prog-shield/prog-shield-description.png)
+![Programmer Shield Description](/assets/images/shields/prog-shield/prog-shield-description.png)
 
 ### Programmer Shield - Specifications
  - Operating supply: USB
@@ -236,23 +236,23 @@ This is a FT2232H based JTAG programmer shield that is compatible with OpenOCD a
  - Weight: 18 gms
  - Compatibility: OpenOCD and WICED IDE
 
-[Drill Template >]({{assets}}/images/shields/prog-shield/programmer-shield-template.pdf)
+[Drill Template >](/assets/images/shields/prog-shield/programmer-shield-template.pdf)
 
-![Programmer Shield Dimensions]({{assets}}/images/shields/prog-shield/prog-shield-dimensions.png)
+![Programmer Shield Dimensions](/assets/images/shields/prog-shield/prog-shield-dimensions.png)
 
 # Power Shield
 
 The Power Shield, as the name implies, allows the Particle device to be powered from different types of power sources. The shield has an intelligent battery charger and power management unit along with a wide input voltage regulator and an I2C based fuel-gauge. You can power a Particle device with either a USB plug or a DC supply of anywhere from 7 to 20VDC and charge a 3.7V LiPo battery all at the same time.
 
-![Power Shield]({{assets}}/images/shields/power-shield/power-shield.png)
+![Power Shield](/assets/images/shields/power-shield/power-shield.png)
 
 The system switches in between the different power sources automatically, reducing the charge and discharge cycle stress on the battery. The fuel-guage allows you to monitor the battery's state-of-charge (SOC), allowing it to notify the user remotely and take preemptive actions when necessary.
 
-![Power Shield Plugged]({{assets}}/images/shields/power-shield/power-shield-photon-plugged.png)
+![Power Shield Plugged](/assets/images/shields/power-shield/power-shield-photon-plugged.png)
 
 The shield is setup so that when powered from the USB port as well as from a DC supply, it chooses the DC source over USB. The charge current is set to 500mA when charging from USB and set to 1A when charging from a DC source.
 
-![Power Shield Supply]({{assets}}/images/shields/power-shield/power-shield-powersupply.png)
+![Power Shield Supply](/assets/images/shields/power-shield/power-shield-powersupply.png)
 
 ### Power Shield - Specifications
  - Operating voltage: USB or External DC of 7 to 20V
@@ -261,19 +261,19 @@ The shield is setup so that when powered from the USB port as well as from a DC 
 
  <!-- - Weight: -->
 
- ![Power Shield Dimensions]({{assets}}/images/shields/power-shield/power-shield-dimensions.png)
+ ![Power Shield Dimensions](/assets/images/shields/power-shield/power-shield-dimensions.png)
 
 # Internet Button
 
 The Internet Button is not only an easy way to get started on the Internet of Things, it's also a clean and simple way to start building your own prototypes. Quickly start playing with LEDs, multiple buttons, an accelerometer and more without any wires or soldering.
 
-![Internet Button]({{assets}}/images/shields/internet-button/button.png)
+![Internet Button](/assets/images/shields/internet-button/button.png)
 
 ### Internet Button - Top
-![Internet Button Description]({{assets}}/images/shields/internet-button/button-description-top.png)
+![Internet Button Description](/assets/images/shields/internet-button/button-description-top.png)
 
 ### Internet Button - Bottom
-![Internet Button Description]({{assets}}/images/shields/internet-button/button-description-bottom.png)
+![Internet Button Description](/assets/images/shields/internet-button/button-description-bottom.png)
 
 ### Internet Button - Specifications
 
@@ -288,22 +288,22 @@ The Internet Button is not only an easy way to get started on the Internet of Th
 - Additional female headers for adding extra actuators and sensors
 - Backward compatible with the Core
 
-![Internet Button Dimensions]({{assets}}/images/shields/internet-button/button-dimensions.png)
+![Internet Button Dimensions](/assets/images/shields/internet-button/button-dimensions.png)
 
 # Photon Kit
 
 ### 1. Photoresistor (1)
-![LDR]({{assets}}/images/mk-ldr.bmp)
+![LDR](/assets/images/mk-ldr.bmp)
 
 A photo resistor is a light dependent resistor whose resistance decreases with the increase in the intensity of light striking it. You can use it to detect the ambient light in the surrounding, detect shadows or use it as a part of a burglar alarm system. One photoresistor comes in your Photon Kit.
 
 ### 2. LED (1)
-![LEDs]({{assets}}/images/mk-led-3mm.bmp)
+![LEDs](/assets/images/mk-led-3mm.bmp)
 
 This general purpose 3mm red LED is great for getting started with your Photon. You can never have enough of them!
 
 ### 3. Resistors (2)
-![Resistors]({{assets}}/images/mk-1k-resistor.bmp)
+![Resistors](/assets/images/mk-1k-resistor.bmp)
 
 You get two 220-Ohm resistors in your Photon Kit. They are rated at 5%, 1/4 Watt.
 
@@ -311,7 +311,7 @@ You get two 220-Ohm resistors in your Photon Kit. They are rated at 5%, 1/4 Watt
 
 ### 1. Ceramic Capacitors (10 each)
 
-![Ceramic Capacitors]({{assets}}/images/mk-ceramic-capacitor-10nF.bmp)
+![Ceramic Capacitors](/assets/images/mk-ceramic-capacitor-10nF.bmp)
 
 These are standard [ceramic capacitors.](http://en.wikipedia.org/wiki/Ceramic_capacitor) They are widely used in analog circuits as bypass/ decoupling capacitors, in timers, filters, etc. The kit comes with:
 
@@ -322,7 +322,7 @@ These are standard [ceramic capacitors.](http://en.wikipedia.org/wiki/Ceramic_ca
 
 ### 2. Electrolytic Capacitor 100uF (5)
 
-![Electrolytic Capacitors]({{assets}}/images/mk-electrolytic-capacitor.bmp)
+![Electrolytic Capacitors](/assets/images/mk-electrolytic-capacitor.bmp)
 
 [Electrolytic capacitors](http://en.wikipedia.org/wiki/Electrolytic_capacitor) offer larger values and are polar. These capacitors are ideal for decoupling power supplies, as transient suppressors, and in timing circuits.
 
@@ -330,7 +330,7 @@ These are standard [ceramic capacitors.](http://en.wikipedia.org/wiki/Ceramic_ca
 
 ### 3. Headers
 
-![Headers]({{assets}}/images/mk-header-male.bmp)
+![Headers](/assets/images/mk-header-male.bmp)
 
 These are standard 0.1" pitch headers that can be cut to size. Very handy when building circuits on breadboard or PCBs alike.
 
@@ -339,7 +339,7 @@ These are standard 0.1" pitch headers that can be cut to size. Very handy when b
 
 ### 4. NPN Transistor (1)
 
-![NPN Transistor]({{assets}}/images/mk-npn-transistor.bmp)
+![NPN Transistor](/assets/images/mk-npn-transistor.bmp)
 
 S9013 is a general purpose small signal NPN [transistor](http://en.wikipedia.org/wiki/Transistor) rated at 40V, 500mA.
 
@@ -349,7 +349,7 @@ You can use this transistor to switch small loads like relays, mini motors, buzz
 
 ### 5. LEDs
 
-![LEDs]({{assets}}/images/mk-led-3mm.bmp)
+![LEDs](/assets/images/mk-led-3mm.bmp)
 
 These are general purpose 3mm LEDs. You can never have enough of them! Use a resistor in series when hooking them up to the Particle device. ( 220 ohms to 1K ohms)
 
@@ -360,17 +360,17 @@ These are general purpose 3mm LEDs. You can never have enough of them! Use a res
 
 ### 6. RGB LED (1)
 
-![RGB LED]({{assets}}/images/mk-rgb-led.bmp)
+![RGB LED](/assets/images/mk-rgb-led.bmp)
 
 So, Red and Green aren't enough for you? Want to make bazzillion different colors? Then this RGB LED will do it for ya. You can mix colors by connecting each pin to an analogWrite compatible pin on the Core and feed them different values. Let the disco party begin!
 
 This LED has four pins, one for each color and a common anode (+) pin.
 
-[Datasheet >]({{assets}}/datasheets/makerkit/rgb-led.pdf)
+[Datasheet >](/assets/datasheets/makerkit/rgb-led.pdf)
 
 ### 7. Diode (6)
 
-![Diode]({{assets}}/images/mk-diode.bmp)
+![Diode](/assets/images/mk-diode.bmp)
 
 [1N4004](http://en.wikipedia.org/wiki/1N4004) is a general purpose diode rated at 400V, 1000mA with a forward voltage drop of 1.1V. Excellent as a [fly-back diode](http://en.wikipedia.org/wiki/Flyback_diode) or as a general rectifying diode.
 
@@ -378,7 +378,7 @@ This LED has four pins, one for each color and a common anode (+) pin.
 
 ### 8. Micro Servo (1)
 
-![RC Servo]({{assets}}/images/mk-micro-rc-servo.bmp)
+![RC Servo](/assets/images/mk-micro-rc-servo.bmp)
 
 Emax ES08A is a mini RC servo motor.
 
@@ -397,7 +397,7 @@ Note: The Ground pin may vary as Brown or Black, +5V pin may vary as Orange or R
 
 ### 9. Deluxe Jumper Wire Pack (1)
 
-![Jumper Cables]({{assets}}/images/mk-jumper-cables.bmp)
+![Jumper Cables](/assets/images/mk-jumper-cables.bmp)
 
 Multi-colored and stripped. You can never have enough of these either.
 
@@ -406,15 +406,15 @@ A custom Particle USB cable for you Core! We were really excited to have our log
 
 ### 11. Pancake Vibration Motor (1)
 
-![Vibration Motor]({{assets}}/images/mk-vibration-motor.bmp)
+![Vibration Motor](/assets/images/mk-vibration-motor.bmp)
 
 Wanna give your next Particle device project a tactile feedback? This vibration motor serves the purpose nicely. Use the NPN transistor to switch it.
 
-[Datasheet >]({{assets}}/datasheets/makerkit/pancake-motor.pdf)
+[Datasheet >](/assets/datasheets/makerkit/pancake-motor.pdf)
 
 ### 12. Piezo Buzzer (1)
 
-![Buzzer]({{assets}}/images/mk-buzzer.bmp)
+![Buzzer](/assets/images/mk-buzzer.bmp)
 
 Add an audible feedback to your project with this buzzer. The longer lead is positive and the shorter is negative. You will need a transistor to drive it.
 
@@ -425,25 +425,25 @@ Add an audible feedback to your project with this buzzer. The longer lead is pos
 - Current: 30mA
 - Sound Pressure: 85dB
 
-[Datasheet >]({{assets}}/datasheets/makerkit/buzzer.pdf)
+[Datasheet >](/assets/datasheets/makerkit/buzzer.pdf)
 
 ### 13. Mini Pushbuttons (3)
 
-![Push Buttons]({{assets}}/images/mk-mini-pushbutton.bmp)
+![Push Buttons](/assets/images/mk-mini-pushbutton.bmp)
 
 These are nifty little switches that plug nicely into a breadboard or a proto-board. They are normally-open type and are rated at 12V, 50mA.
 
 ### 14. Photoresistors (2)
 
-![LDR]({{assets}}/images/mk-ldr.bmp)
+![LDR](/assets/images/mk-ldr.bmp)
 
 A photo resistor is a light dependent resistor whose resistance decreases with the increase in the intensity of light striking it. You can use it to detect the ambient light in the surrounding, detect shadows or use it as a part of a burglar alarm system.
 
-[Datasheet >]({{assets}}/datasheets/makerkit/photoresistor.pdf)
+[Datasheet >](/assets/datasheets/makerkit/photoresistor.pdf)
 
 ### 15. Resistors
 
-![Resistors]({{assets}}/images/mk-1k-resistor.bmp)
+![Resistors](/assets/images/mk-1k-resistor.bmp)
 
 There are three different value resistor in this kit. All of them are rated at 5%, 1/4 Watt.
 
@@ -455,7 +455,7 @@ You can use this [online guide](http://www.digikey.com/en/resources/conversion-c
 
 ### 16. Proto-board (1)
 
-![PCB]({{assets}}/images/mk-pcb.bmp)
+![PCB](/assets/images/mk-pcb.bmp)
 
 This is a 7" x 9" general purpose dot-matrix prototyping PCB.
 
@@ -468,7 +468,7 @@ You can take control of your television, air-conditioner or any other IR remote 
 - Peak wavelength: 940nm
 - View angle: 20 deg
 
-[Datasheet >]({{assets}}/datasheets/makerkit/ir333-a.pdf)
+[Datasheet >](/assets/datasheets/makerkit/ir333-a.pdf)
 
 ### Serial OLED Screen,0.96"(1)
 This is a 128x64 pixel graphic OLED screen that can be either controlled via the SPI (default) or I2C.
@@ -478,7 +478,7 @@ This is a 128x64 pixel graphic OLED screen that can be either controlled via the
 - Current consumption: 50mA max
 - Communication modes: SPI or I2C
 
-[Datasheet >]({{assets}}/datasheets/makerkit/oled.pdf)
+[Datasheet >](/assets/datasheets/makerkit/oled.pdf)
 
 ### Flex antenna (1)
 
@@ -487,7 +487,7 @@ This is a 128x64 pixel graphic OLED screen that can be either controlled via the
 ### Battery holder - 4xAA (1)
 
 ### SPDT Switch (2)
-[Datasheet >]({{assets}}/datasheets/makerkit/spdt-switch.pdf)
+[Datasheet >](/assets/datasheets/makerkit/spdt-switch.pdf)
 
 ### Temperature Sensor (1)
 The DS18B20 is an easy to use one wire digital thermometer with upto 12-bit measuring resolution.
@@ -498,19 +498,19 @@ The DS18B20 is an easy to use one wire digital thermometer with upto 12-bit meas
 - Accuracy: ±0.5°C (from -10°C to +85°C)
 - Package: TO-92
 
-[Datasheet >]({{assets}}/datasheets/makerkit/DS18B20.pdf)
+[Datasheet >](/assets/datasheets/makerkit/DS18B20.pdf)
 
 ### Temperature Sensor - Sealed (1)
 This is the sealed, water proof version of the DS18B20 temperature sensor with wires.
 
 ### SPDT Relay (1)
-[Datasheet >]({{assets}}/datasheets/makerkit/spdt-relay.pdf)
+[Datasheet >](/assets/datasheets/makerkit/spdt-relay.pdf)
 
 ### PIR sensor (1)
-[Datasheet >]({{assets}}/datasheets/makerkit/pir-sensor.pdf)
+[Datasheet >](/assets/datasheets/makerkit/pir-sensor.pdf)
 
 ### 10K Rotary Potentiometer (1)
-[Datasheet >]({{assets}}/datasheets/makerkit/10k-pot.pdf)
+[Datasheet >](/assets/datasheets/makerkit/10k-pot.pdf)
 
 ### Mini Breadboard (1)
 

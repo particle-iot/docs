@@ -8,23 +8,23 @@
   <title>Particle Documentation (formerly Spark) | {{title}}</title>
 
   <!-- jQuery -->
-  <script src="{{assets}}/js/jquery-1.11.1.min.js"></script>
+  <script src="/assets/js/jquery-1.11.1.min.js"></script>
 
   <!-- Let me embed vines -->
   <script async src="https://platform.vine.co/static/scripts/embed.js" charset="utf-8"></script>
 
   <!-- Favicon -->
-  <link rel="shortcut icon" href="{{assets}}/orange.ico" type="image/x-icon" />
+  <link rel="shortcut icon" href="/assets/orange.ico" type="image/x-icon" />
 
   <!-- Vendor theme mods -->
-  <script src='{{assets}}/js/jquery-styling.js'></script>
-  <script src='{{assets}}/js/bootstrap-dropdown.js'></script>
-  <script src='{{assets}}/js/prettify.js'></script>
-  <script src='{{assets}}/js/scrollspy.js'></script>
+  <script src='/assets/js/jquery-styling.js'></script>
+  <script src='/assets/js/bootstrap-dropdown.js'></script>
+  <script src='/assets/js/prettify.js'></script>
+  <script src='/assets/js/scrollspy.js'></script>
 
   <!-- Spark theme mods -->
-  <link href='{{assets}}/css/style.css' rel='stylesheet'>
-  <script src='{{assets}}/js/animated-core.js'></script>
+  <link href='/assets/css/style.css' rel='stylesheet'>
+  <script src='/assets/js/animated-core.js'></script>
 
   <!-- GOTHAM YO -->
   <link rel="stylesheet" type="text/css" href="//cloud.typography.com/6107112/665726/css/fonts.css" />
@@ -39,7 +39,7 @@
     <div class='header'>
       <div class='left'>
         <a href="https://www.particle.io">
-          <img src="{{assets}}/images/particle-docs.png" id="logo">
+          <img src="/assets/images/particle-docs.png" id="logo">
         </a>
         <div class="sections">
           <a class="nav {{#contains dirname 'guide'}}active{{/contains}}" href="/guide">Guide</a>
@@ -49,7 +49,7 @@
       </div>
       <div class='right'>
         <div class="search">
-          <script src='{{assets}}/js/google-search.js'></script>
+          <script src='/assets/js/google-search.js'></script>
           <gcse:search></gcse:search>
         </div>
         {{#contains dirname 'guide'}}
@@ -66,7 +66,7 @@
           </div>
         {{/contains}}
         <a href="http://support.particle.io" class="nav" target="_blank"><i class="icon ion-help-buoy"></i>Support</a>
-        <a href="{{assets}}/docs.zip" class="nav"><i class="icon ion-arrow-down-a"></i>Download</a>
+        <a href="/assets/docs.zip" class="nav"><i class="icon ion-arrow-down-a"></i>Download</a>
         <a href='https://github.com/spark/docs/edit/master/src/content/en{{#is page.shared true}}/shared/{{else}}{{#contains dirname "photon"}}/photon/{{else}}/core/{{/contains}}{{/is}}{{basename}}.md' class="nav" target="_blank"><i class="ion-edit"></i>Edit</a>
       </div>
     </div>
@@ -105,7 +105,7 @@
 
   <!-- Custom -->
   <script type="text/javascript" src="https://s3.amazonaws.com/redirect.particle.io/redirect-banner.js"></script>
-  <script src='{{assets}}/js/docs.js'></script>
-  <script src='{{assets}}/js/ga.js'></script>
+  <script src='/assets/js/docs.js'></script>
+  <script src='/assets/js/ga.js'></script>
 </body>
 </html>

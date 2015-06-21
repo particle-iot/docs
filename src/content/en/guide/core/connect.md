@@ -32,7 +32,7 @@ You can search for the mobile app named Spark Core, or you can click one of thes
 
 Now use the app to sign up for an account!
 
-![Smart Config]({{assets}}/images/smart-config.jpg)
+![Smart Config](/assets/images/smart-config.jpg)
 
 Make sure your phone is connected to the WiFi you want to use (it'll show up in the SSID blank on the app), then enter your password and click CONNECT!
 

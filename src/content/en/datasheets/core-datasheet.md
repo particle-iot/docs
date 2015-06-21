@@ -13,7 +13,7 @@ Subsystems
 
 ### Microcontroller
 
-![STM32]({{assets}}/images/core-stm32.jpg)
+![STM32](/assets/images/core-stm32.jpg)
 
 Spark Core v1.0 uses the STM32F103CB - ARM 32-bit Cortex M3 based - microcontroller for its brain power. You can download the datasheet [here.](https://github.com/spark/core/blob/master/Datasheets/ST_STM32F103CB.pdf)
 
@@ -32,7 +32,7 @@ Some of its key features are as follows:
 
 ### Wi-Fi module
 
-![CC3000]({{assets}}/images/core-cc3000.jpg)
+![CC3000](/assets/images/core-cc3000.jpg)
 
 Core v1.0 uses TI's CC3000 module for the WiFi communications.
 
@@ -55,7 +55,7 @@ The datasheet is available [here.](http://www.ti.com/lit/ds/symlink/cc3000.pdf)
 
 ### External FLASH
 
-![External Flash]({{assets}}/images/core-flashchip.jpg)
+![External Flash](/assets/images/core-flashchip.jpg)
 
 In addition to having 128KB of internal flash memory for storing the firmware, the Core also features an external SPI based flash memory chip - [SST25VF016B](https://github.com/spark/core/blob/master/Datasheets/MicrochipTech_SST25VF016B-75-4I-S2AF-T.pdf?raw=true). This memory space (a total of 2MB) is used to store the factory reset firmware, a back up firmware, a copy of the firmware sent during Over The Air (OTA) update and the keys. Part of the space is also available to the user who can use it to store log data, user parameters, etc. A detailed description of the memory mapping can be found further down this document in the [memory mapping section.](#spark-core-datasheet-memory-mapping)
 
@@ -63,7 +63,7 @@ Since the flash memory is non-volatile, it retains the data even after turning o
 
 ### Power regulator
 
-![Power Regulator]({{assets}}/images/core-regulator.jpg)
+![Power Regulator](/assets/images/core-regulator.jpg)
 
 The entire Core, including all of the on board peripherals run at 3.3V DC. So, in order to power the Core from the USB port or an external power supply, we need to *downconvert* the voltage before feeding it into the Core. We went through a couple of iterations before choosing Microchip's [MCP1825S-3302E](http://ww1.microchip.com/downloads/en/devicedoc/22056b.pdf) power regulator which comfortably meets the specs.
 
@@ -77,25 +77,25 @@ Some of its key features are:
 
 This means, you can power the Core via the USB port or via the VIN pin from an external power supply that can range from 3.6V to 6.0V DC. Ideal sources of power can be: 3.6V LiPo battery, 4AA battery pack, backup USB battery or an USB wall charger.
 
-![Powering the Core]({{assets}}/images/core-power.jpg)
+![Powering the Core](/assets/images/core-power.jpg)
 
 ### RF circuit
 
-![RF Circuit]({{assets}}/images/core-rf.jpg)
+![RF Circuit](/assets/images/core-rf.jpg)
 
 The RF circuit is probably where we spent the most time on during hardware design. RF design is like voodoo black magic, so we sought guidance from the industry experts before finalizing the component values and placement.
 
-You can download a copy of the RF test report [here.]({{assets}}/images/core-rf-test-report.pdf)
+You can download a copy of the RF test report [here.](/assets/images/core-rf-test-report.pdf)
 
 Pins and I/O
 ---
-![Spark Pinout]({{assets}}/images/spark-pinout.png)
+![Spark Pinout](/assets/images/spark-pinout.png)
 
 The Spark Core offers a total 18 I/O pins to the user: `D0 to D7`, `A0 to A7` and two pins that are preset to serial - `TX` and `RX`. All of these I/O pins run at *3.3V* and the user should keep this in mind before attaching any external peripherals to them. The only exception to this are the following pins that are tolerant to 5V inputs:
 
 `D0, D1, D3, D4, D5, D6 and D7`
 
-[Click here to view a larger pinout diagram]({{assets}}/images/spark-pinout.png)
+[Click here to view a larger pinout diagram](/assets/images/spark-pinout.png)
 
 ### Digital pins
 
@@ -120,7 +120,7 @@ This feature is only available on the following pins: `A0, A1, A4, A5, A6, A7, D
 
 ### Serial (UART)
 
-![Hardware USART]({{assets}}/images/core-pin-usart.jpg)
+![Hardware USART](/assets/images/core-pin-usart.jpg)
 
 The Core features three serial ports. The first one is a CDC (Communications Device Class) available over the USB port. When configured, it will show up as a virtual COM port on the computer. (usage: `Serial.begin(9600);`)
 
@@ -134,7 +134,7 @@ Configuration and use of all of these serial ports is described in the [serial f
 
 ### SPI
 
-![SPI]({{assets}}/images/core-pin-spi.jpg)
+![SPI](/assets/images/core-pin-spi.jpg)
 
 The Serial Peripheral Interface is available on pins:
 
@@ -147,7 +147,7 @@ The Serial Peripheral Interface is available on pins:
 
 ### I2C
 
-![I2C]({{assets}}/images/core-pin-i2c.jpg)
+![I2C](/assets/images/core-pin-i2c.jpg)
 
 I2C communication pins are multiplexed with the standard GPIO pins D0 and D1.
 
@@ -158,7 +158,7 @@ Both of these pins run at 3.3V logic level but *are* tolerant to 5V inputs.
 
 ### JTAG
 
-![JTAG]({{assets}}/images/core-pins-jtag.jpg)
+![JTAG](/assets/images/core-pins-jtag.jpg)
 
 In addition to having the ability to load new firmware over USB and WiFi, the users also have direct access to the STM32 chip via the JTAG channel. In order to do this, you will need a JTAG shield and a JTAG programmer. You could make your own JTAG shield or buy one from us. Currently we have only tested the [ST-LINK/V2](http://www.st.com/web/catalog/tools/FM146/CL1984/SC724/SS1677/PF251168) programmer successfully.
 
@@ -283,7 +283,7 @@ Electrical characteristics
 
 ### RF
 
-![S11 Chart]({{assets}}/images/core-s11-chart.png)
+![S11 Chart](/assets/images/core-s11-chart.png)
 
 With the on board chip antenna, the peak return loss (S11) has been measured and verified to be in the excess of 20dB.
 
@@ -292,7 +292,7 @@ The transmission loss for the u.FL connector has been measured to be approximate
 Types of Cores
 ---
 
-![Antenna Options]({{assets}}/images/chip-ufl.jpg)
+![Antenna Options](/assets/images/chip-ufl.jpg)
 
 Currently the Core is available in two flavors. With an on-board chip antenna or an uFL connector to connect an external antenna.
 
@@ -308,7 +308,7 @@ If you want to improve the signal strength of the Core, you can connect an exter
 
 Physical layout
 ---
-![DIMENSIONS]({{assets}}/images/core-dim.jpg)
+![DIMENSIONS](/assets/images/core-dim.jpg)
 
 The header pins on the Core are spaced at an interval of 0.1", which is the standard pitch size for proto-boards and breadboards. The physical layout of the Core was inspired from the [Arduino Pro Mini](http://arduino.cc/en/Main/ArduinoBoardProMini) board.
 

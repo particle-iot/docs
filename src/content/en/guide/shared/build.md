@@ -11,7 +11,7 @@ Flash Apps with Particle Build
 Logging In
 ---
 
-![Particle Build]({{assets}}/images/ide-new-account.png)
+![Particle Build](/assets/images/ide-new-account.png)
 
 When you're ready to reprogram your device, head over to our IDE:
 
@@ -19,7 +19,7 @@ When you're ready to reprogram your device, head over to our IDE:
 
 Creating an account is a simple one-step process.  When presented with the login screen, simply enter your email address (careful!), and desired account password.  Press the big friendly "Sign Up" button, and you'll reach the Particle Build home page.
 
-![Particle Build]({{assets}}/images/ide-login.png)
+![Particle Build](/assets/images/ide-login.png)
 
 If you've already logged into Particle Build before, click the "Let me log in" text beneath the Sign Up button, and you'll be presented with a login for existing users.  Don't worry--if you already have an account and accidentally click the "Sign Up" button, we'll still log you into your existing account.
 
@@ -27,7 +27,7 @@ If you've already logged into Particle Build before, click the "Let me log in" t
 Web IDE
 ---
 
-![Particle Build]({{assets}}/images/ide-main.png)
+![Particle Build](/assets/images/ide-main.png)
 
 Particle Build is an Integrated Development Environment, or IDE; that means that you can do software development in an easy-to-use application, which just so happens to run in your web browser.
 
@@ -54,7 +54,7 @@ Missing your keyboard shortcuts? [This cheatsheet will help.](https://github.com
 Particle Apps and Libraries
 ---
 
-![Particle Build]({{assets}}/images/ide-apps.png)
+![Particle Build](/assets/images/ide-apps.png)
 
 The heart of Particle Build is the "Particle Apps" section, which displays the name of the current app in your editor, as well as a list of your other applications and community-supported example apps.
 
@@ -97,7 +97,7 @@ void loop() {
     delay(1000);
 }
 ```
-![Particle Build]({{assets}}/images/ide-devices.png)
+![Particle Build](/assets/images/ide-devices.png)
 
 - **Select Your Device**: The next step is to make sure that you've selected which of your devices to flash code to.  Click on the "Devices" icon at the bottom left side of the navigation pane, and click on the star next to the device you'd like to update.  Once you've selected a device, the star associated with it will turn yellow. (If you only have one device, there is no need to select it, you can continue on to the next step).
 
@@ -105,7 +105,7 @@ void loop() {
 
 - **Flash**: Click the "Flash" button, and your code will be sent wirelessly to your device.  If the flash was successful, the LED on your device will begin flashing magenta.
 
-![Particle Build]({{assets}}/images/ide-examples.png)
+![Particle Build](/assets/images/ide-examples.png)
 
 - **Fork**: Wish the timing of that LED flash was a little bit faster?  Try clicking on the "Fork This Example" button after selecting the "Blink An LED" example application.  You've now got a personal copy of that application that you can modify, save, and flash to all of your devices.
 
@@ -118,13 +118,13 @@ Account Information
 
 There are a couple of other neat bells and whistles in Particle Build.  The Particle Build IDE the best tool for viewing important information about your device, managing devices associated with your Particle account, and "unclaiming" them so they can be transferred to your buddy.
 
-![Particle Build]({{assets}}/images/ide-account.png)
+![Particle Build](/assets/images/ide-account.png)
 
 - **Device ID**: You can view your device's ID by clicking on the "Device" icon at the bottom of the navigation pane, then clicking the dropdown arrow next to the device of interest.
 
 - **Unclaim**: You can "Unclaim" a device by pressing the "Remove Device" button that is revealed by clicking the dropdown arrow.  Once a device has been unclaimed, it is available to be reassociated with any Particle users' account.
 
-![Particle Build]({{assets}}/images/ide-settings.png)
+![Particle Build](/assets/images/ide-settings.png)
 
 - **API Key**: You can find your most recent API Key listed under the "Settings" tab in your account.  You can press the "Reset Token" button to assign a new API Key to your account.  *Note* that pressing this button will require you to update any hard-coded API Credentials in your Particle-powered projects!
 
@@ -132,7 +132,7 @@ There are a couple of other neat bells and whistles in Particle Build.  The Part
 Using Libraries
 ---
 
-![Include the library]({{assets}}/images/choose-app-to-include-library.png)
+![Include the library](/assets/images/choose-app-to-include-library.png)
 
 When you want to reuse code across multiple applications, Particle Libraries are your friend.
 Particle Libraries are easily shareable, extensible packages built by the community to help with common problems many Particle applications encounter. They are hosted on GitHub and easily pulled into the IDE where they can be included in apps and shared with others.
@@ -142,7 +142,7 @@ You can include a library in an application by opening the library drawer, findi
 Contribute a library
 ---
 
-![Validate library]({{assets}}/images/validate-library.png)
+![Validate library](/assets/images/validate-library.png)
 
 Adding a library to the IDE starts by creating an open source GitHub repository where your code will live.
 At minimum, this repository needs a `particle.json` file, some documentation, some example firmware files, and some Arduino/C++ files.
@@ -153,7 +153,7 @@ The easiest way to generate library boilerplate code is to follow the instructio
 Checking code memory usage
 ---
 
-!["i" button]({{assets}}/images/ide-i-button.png)
+!["i" button](/assets/images/ide-i-button.png)
 
 Whenever you **verify** your code and it compiles successfully, an "i" button will be displayed at the console output window.
 
@@ -161,7 +161,7 @@ This allows you to view the amount of FLASH and RAM used by this particular code
 
 _If there are no code changes and you **verify** code for the second time, the "i" button will not be available. You can simply add an extra blank space or new line before you **verify** and the "i" button will now appear._
 
-![Code memory information]({{assets}}/images/ide-mem-usage.png)
+![Code memory information](/assets/images/ide-mem-usage.png)
 
 Wait, what is firmware?
 ---

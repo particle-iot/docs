@@ -11,19 +11,19 @@ Build Apps with Particle Dev
 Introduction
 ===
 
-![IDE Menu]({{assets}}/images/ide-menu.jpg)
+![IDE Menu](/assets/images/ide-menu.jpg)
 
 **Particle Dev** is a desktop application that allows you to work with local copies of your firmware files. However, **internet** access is required as the files are pushed to the Particle Cloud for compilation and returns a binary. i.e. This is not an offline development tool, yet.
 
 All the commands are available from the **Particle** menu. The menu changes depending on whether you're logged in or have selected a device, so some of the commands will only show up once you're in the right context.
 
-![Command Palette]({{assets}}/images/ide-palette.jpg)
+![Command Palette](/assets/images/ide-palette.jpg)
 
 If you prefer a keyboard-oriented workflow, there's **Command Palette** with all available commands in a searchable list.
 
 To show the palette press `Command`+`Shift`+`P` keys together on a Mac or `Control`+`Shift`+`P` on Windows.
 
-![Toolbar]({{assets}}/images/ide-toolbar.jpg)
+![Toolbar](/assets/images/ide-toolbar.jpg)
 
 **Tip**: you can change toolbar's position in settings.
 
@@ -35,11 +35,11 @@ If you want to work on more advanced projects, Particle Dev could be the choice 
 
 [Particle Dev Download >](https://www.particle.io/dev)
 
-![IDE Window]({{assets}}/images/ide-window.jpg)
+![IDE Window](/assets/images/ide-window.jpg)
 
 To access most of features you need to log in using your Particle account (which you can [create here](https://build.particle.io/signup)) by clicking the link on the bottom of the window.
 
-![Logging in]({{assets}}/images/ide-log-in.jpg)
+![Logging in](/assets/images/ide-log-in.jpg)
 
 Enter your email and password then click the "Log In" button. After a successful login, the dialog will hide and a link will appear at the bottom showing your current account email.
 
@@ -47,7 +47,7 @@ Enter your email and password then click the "Log In" button. After a successful
 
 Selecting Device
 ---
-![Selecting device]({{assets}}/images/ide-select-core.jpg)
+![Selecting device](/assets/images/ide-select-core.jpg)
 
 Most features like **Flashing** or accessing **Cloud variables and functions** require selecting a target device they will interact with.
 
@@ -65,9 +65,9 @@ Before compiling your project, make sure your project files are in a dedicated d
 
 Notes:
 * If other files not related to your project are present in the project directory, you may experience errors when trying to compile.
-* All the files have to be on the same level (no subdirectories) like [this]({{assets}}/images/ide-include-library.jpg)
+* All the files have to be on the same level (no subdirectories) like [this](/assets/images/ide-include-library.jpg)
 
-![Compile button]({{assets}}/images/ide-compile.jpg)
+![Compile button](/assets/images/ide-compile.jpg)
 
 To compile your current project, click on the **Compile in the cloud** button. If your code doesn't contain errors, you'll see a new file named **PLATFORM_firmware_X.bin** in your project's directory (where *PLATFORM* is name of currently selected platform and *X* is a timestamp).
 
@@ -75,14 +75,14 @@ Different devices usually require separate binaries (i.e. you can't flash Core w
 
 **NOTE**: Remember that **\*.cpp** and **\*.ino** files behave differently. You can read more about it on our [support page](http://support.particle.io/hc/en-us/articles/204952620).
 
-![Compile errors]({{assets}}/images/ide-compile-errors.jpg)
+![Compile errors](/assets/images/ide-compile-errors.jpg)
 
 If there are some errors, you'll see a list of them allowing you to quickly jump to relevant line in code. You can show this list by clicking red error icon on the bottom of the window.
 
 Flashing device
 ---
 
-![Flash button]({{assets}}/images/ide-flash.jpg)
+![Flash button](/assets/images/ide-flash.jpg)
 
 When you're sure that your code is correct it's time to flash it to the device. To do this, click **Flash using cloud** button. Your code will be sent wirelessly to your device. If the request was successful, the LED on your device will begin flashing magenta as code is downloaded to it. The process is complete when the magenta is replaced by your online status indication patterns.
 
@@ -94,18 +94,18 @@ To access all registered variables and functions, go to **Particle** -> **Show c
 Variables
 ---
 
-![Getting variable]({{assets}}/images/ide-get-variable.gif)
+![Getting variable](/assets/images/ide-get-variable.gif)
 
 All variables declared with [Spark.variable()](../firmware/#spark-variable) are shown on the left side of panel. To poll latest variable value, click **Refresh** button for variable you want to update.
 
-![Watching variable]({{assets}}/images/ide-watch-variable.gif)
+![Watching variable](/assets/images/ide-watch-variable.gif)
 
 When you want to check variable value constantly, you can click **Watch** button. When a variable is watched, Particle Dev will fetch latest value every 5 seconds.
 
 Functions
 ---
 
-![Functions]({{assets}}/images/ide-functions.gif)
+![Functions](/assets/images/ide-functions.gif)
 
 To call an [exposed function](../firmware/#spark-function) simply click on the button with its name. You'll see any data the function returns on the right side.
 
@@ -117,7 +117,7 @@ Managing device
 Setting up WiFi
 ---
 
-![WiFi list]({{assets}}/images/ide-wifi-list.jpg)
+![WiFi list](/assets/images/ide-wifi-list.jpg)
 
 To setup device's WiFi, connect it via USB and click **Setup device's WiFi...** button on the toolbar.
 
@@ -127,7 +127,7 @@ Next you'll see all available networks. The one you are currently connected to w
 
 Select the one you want your device to use or choose **Enter SSID manually** (listed last) to specify all information by hand.
 
-![WiFi setup]({{assets}}/images/ide-wifi-save.jpg)
+![WiFi setup](/assets/images/ide-wifi-save.jpg)
 
 Now you need to fill missing information and click **Save**. Your device will go dark for a second and then try to connect to the WiFi.
 
@@ -138,20 +138,20 @@ Currently community libraries aren't supported natively (but we're working on it
 
 Find the [library you want to use](../build/#flash-apps-with-particle-build-using-libraries)
 
-![Link to GitHub repository]({{assets}}/images/build-libraries.jpg)
+![Link to GitHub repository](/assets/images/build-libraries.jpg)
 
 View it on GitHub
 
-![Download link]({{assets}}/images/build-library-github.jpg)
+![Download link](/assets/images/build-library-github.jpg)
 
 Download the repository
 
-![Correct files selected]({{assets}}/images/github-download.jpg)
+![Correct files selected](/assets/images/github-download.jpg)
 
 Copy files from `firmware` directory **without** `examples` to your project directory
 
-![Example project with include]({{assets}}/images/ide-selected-library.jpg)
+![Example project with include](/assets/images/ide-selected-library.jpg)
 
 Include library adding `#include "LIBRARY.h"` to your code
 
-![include-library]({{assets}}/images/ide-include-library.jpg)
+![include-library](/assets/images/ide-include-library.jpg)

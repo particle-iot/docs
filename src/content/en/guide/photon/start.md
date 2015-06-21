@@ -9,7 +9,7 @@ Your New Photon
 
 ### Congratulations!
 
-![Photons]({{assets}}/images/photon-plugged-in.jpg)
+![Photons](/assets/images/photon-plugged-in.jpg)
 
 Congratulations on being the owner of a brand new Photon! Here's what
 you need to get started:
@@ -50,7 +50,7 @@ Plug the USB cable into the Photon and your computer. The Photon should start bl
 
 ### Step 2: Install the App
 
-![Particle apps]({{assets}}/images/tinker.png)
+![Particle apps](/assets/images/tinker.png)
 
 You can search for the mobile app named Particle, or you can click one of these links:
 
@@ -60,7 +60,7 @@ Open up the Particle app on your mobile device, and tap the "Get Started" button
 
 ### Step 3: Connect Your Photon to the Cloud
 
-![Connection sequence]({{assets}}/images/photon-setup-sequence.png)
+![Connection sequence](/assets/images/photon-setup-sequence.png)
 
 Follow the on-screen instructions in the mobile app to connect your Photon to the Particle cloud.
 
@@ -85,7 +85,7 @@ Blinking an LED on Your Photon
 ### Step 1: Blink an LED
 Now that you are connected, you can **blink an LED with Tinker.**
 
-![Tinker Photon Screenshot]({{assets}}/images/photon-tinker.png)
+![Tinker Photon Screenshot](/assets/images/photon-tinker.png)
 
 The Particle app should now be on the Tinker screen, as shown to the right.
 
@@ -96,7 +96,7 @@ You could hook your own LED up to the Photon on another pin and do the same thin
 
 ### Put Code on Your Photon
 
-![Particle Build]({{assets}}/images/ide-main.png)
+![Particle Build](/assets/images/ide-main.png)
 
 Now let's control the blue LED on the device. If you [click here](http://build.particle.io) or on Build on the main page, you'll be in the IDE- where we can write code and upload it to the Photon. Log in with the same email and password you used to sign up in the app, and we're off!
 
@@ -111,7 +111,7 @@ The Photon is a Wi-Fi development kit for internet-connected hardware. It is, in
 
 The Photon has on board a microcontroller, which is a small, low-cost, low-power computer that can run a single application. The microcontroller runs the show; it runs your software and tells the rest of the Photon what to do. It has a Real-Time Operating System (RTOS); it runs multiple threads at the same time, system tasks and user application tasks, switching between then depending on which task needs more system resources at that particular moment.  The user tasks are coded in an application (often called *firmware* or an *embedded application*), which can be simple, just a few lines of code, or very complex, depending on what you want to do.
 
-![Microcontroller and Wifi]({{assets}}/images/photon-module.jpg)
+![Microcontroller and Wifi](/assets/images/photon-module.jpg)
 
 Microcontrollers are particularly good at *controlling things*; hence the name. They have a set of "pins" (the named connections along the edges of the board) that are called *GPIO* (General Purpose Input and Output) pins, or I/O pins. They can be hooked to sensors or buttons to listen to the world, or they can be hooked to lights and motors to act upon the world. These microcontroller's pins have been directly connected to the headers on the sides of the Core so you can easily access them; specifically, the pins labeled D0 to D7 and A0 to A7 are hooked directly to the microcontroller's GPIO pins.
 
@@ -125,7 +125,7 @@ When the Photon connects to the internet, it establishes a connection to Particl
 
 There are two buttons on the Photon: the RESET button (when holding the Photon with its USB-port to the top, it's the button on the right) and the SETUP button (on the left).
 
-![Buttons]({{assets}}/images/photon-buttons.jpg)
+![Buttons](/assets/images/photon-buttons.jpg)
 
 The RESET button will put the Photon in a hard reset, effectively rebooting the microcontroller. This is a good way to restart the application that you've downloaded onto the Photon.
 
@@ -145,7 +145,7 @@ The SETUP button serves four functions before the Photon has booted:
 
 There are two LEDs on the Photon. The big fat one in the middle is a full-color RGB LED that shows you the status of the Photon's internet connection. The other small blue LED is the *user LED*; it's hooked up to D7, so when you turn the D7 pin `HIGH` or `LOW`, it turns on and off, respectively.
 
-![LEDs]({{assets}}/images/photon-leds.jpg)
+![LEDs](/assets/images/photon-leds.jpg)
 
 The RGB LED could show the following states:
 
@@ -175,7 +175,7 @@ Flashing yellow/red | Bad credentials for the Cloud. Contact the Particle team a
 
 ### Pins
 
-![Photon Pinout]({{assets}}/images/photon-pinout.png)
+![Photon Pinout](/assets/images/photon-pinout.png)
 
 The Photon has 24 pins that you can connect a circuit to. These pins are:
 

@@ -50,7 +50,7 @@ log in to a Particle  account to get your devices, the following instructions wi
 
 Add an empty div with "spark-login" id where you want the "Login to Spark" button to be rendered.
 
-![LOGINB]({{assets}}/images/spark-login-button.png)
+![LOGINB](/assets/images/spark-login-button.png)
 
 ```html
 <div id="spark-login" />
@@ -87,7 +87,7 @@ You just need to update the following css rules:
 * .spark-login-modal
 * .spark-login-error
 
-![LOGINM]({{assets}}/images/spark-login-modal.png)
+![LOGINM](/assets/images/spark-login-modal.png)
 
 ## Logging in
 

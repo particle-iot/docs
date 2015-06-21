@@ -10,7 +10,7 @@ Tinkering with "Tinker"
 The Particle app
 ---
 
-![Tinker selection]({{assets}}/images/tinker.png)
+![Tinker selection](/assets/images/tinker.png)
 
 The Tinker section of the Particle mobile app [for iOS](https://itunes.apple.com/us/app/particle-build-photon-electron/id991459054?ls=1&mt=8) or [for Android](https://play.google.com/store/apps/details?id=io.particle.android.app) makes it very easy to start playing with your Particle device without writing any code. It's great for early development, and often it will do everything you need to get your project off of the ground.
 
@@ -44,7 +44,7 @@ analogWrite: LED Dimming
 
 In this example, we'll plug an LED into D0 and change its brightness with analogWrite.
 
-![LED fritzing]({{assets}}/images/photon-led-fritzing.png)
+![LED fritzing](/assets/images/photon-led-fritzing.png)
 
 Pick a resistor between 220 and 1000 Ohms (we're using 330 Ohms) and set up your device just like the picture to the right.
 
@@ -64,7 +64,7 @@ digitalRead: The One Wire Test
 
 We can also use Tinker to check to see if a pin is on or off. `digitalRead` is great for checking things that only have two states-- switches and buttons for example.
 
-![One Wire Fritzing]({{assets}}/images/photon-onewire-fritzing.png)
+![One Wire Fritzing](/assets/images/photon-onewire-fritzing.png)
 
 In this case, we're going to do the simplest thing possible and simply use one wire. Plug a wire into D0 of your device as show in the image to the right.
 
@@ -83,7 +83,7 @@ analogRead: Reading a Sensor
 If we want to read a sensor, like a temperature or light sensor, we will need our device to give us more details than than just "It's on!" or "It's off!" When you want to read a value between `LOW` and `HIGH`, use `analogRead`.
 
 Plug in a sensor. In this example, we'll use a photoresistor.
-![Photoresistor Only Fritzing]({{assets}}/images/photon-photores-only-fritzing.png)
+![Photoresistor Only Fritzing](/assets/images/photon-photores-only-fritzing.png)
 
 Wire it up as pictured on the right. You can use any resistor for this; a larger resistor (like 10K Ohms) will give you a wider range of values whereas a smaller resistor (like 330 Ohms) will give you lower range of values.
 

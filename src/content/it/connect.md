@@ -64,8 +64,8 @@ Dovrete pure installare il driver per Windows:
 [< Driver Windows per lo Spark Core >](https://s3.amazonaws.com/spark-website/Spark.zip)
 
 [CoolTerm](http://freeware.the-meiers.org/) fornisce una bella interfaccia GUI.
-![CoolTerm settings]({{assets}}/images/coolterm-settings.png)
-![CoolTerm setup]({{assets}}/images/coolterm-setup.png)
+![CoolTerm settings](/assets/images/coolterm-settings.png)
+![CoolTerm setup](/assets/images/coolterm-setup.png)
 
 Per utenti __Mac__ , sia CoolTerm che screen vanno bene.
 

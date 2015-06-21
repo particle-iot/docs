@@ -3,7 +3,7 @@ Come iniziare
 
 ### Cosa c'è nella scatola
 
-![Spark Core in box]({{assets}}/images/core-in-box.jpg)
+![Spark Core in box](/assets/images/core-in-box.jpg)
 
 Congratulazioni per essere i nuovi proprietari di un nuovissimo Spark Core! Andate avanti, aprite la scatola e vediamo cosa trovate. La scatola dovrebbe contenere:
 
@@ -14,7 +14,7 @@ Congratulazioni per essere i nuovi proprietari di un nuovissimo Spark Core! Anda
 
 ### Passo 1: Alimentare il Core
 
-![Alimentare il Core]({{assets}}/images/core-usb.jpg)
+![Alimentare il Core](/assets/images/core-usb.jpg)
 
 Alimentare il Core è facile; riceve corrente via una porta Micro USB come molti smartphone e altri apparecchi. Alimentate il vostro Core collegando il cavo Micro USB alla porta USB del Core e l'altra parte del cavo alla porta USB del vostro computer, ad un hub USB (preferibilmente con alimentazione) o ad un alimentatore USB (come quello che avete ricevuto col vostro smartphone).
 
@@ -22,7 +22,7 @@ Se desiderate, potete anche alimentare il Core con una sorgente da 3.6V fino a 6
 
 ### Passo 2: Scaricamento dell'applicazione Spark iOS o Android
 
-![Spark apps]({{assets}}/images/spark-apps.png)
+![Spark apps](/assets/images/spark-apps.png)
 
 L'applicazione Spark mobile è il modo più semplice per connettere il vostro Spark Core ad internet. L'applicazione vi aiuta a fare tre cose:
 
@@ -40,7 +40,7 @@ L'applicazione iOS necessita iOS 7, l'applicazione Android lavora con Ice Cream 
 
 ### Passo 3: Collegare il Core alla rete Wi-Fi
 
-![Smart Config]({{assets}}/images/smart-config.png)
+![Smart Config](/assets/images/smart-config.png)
 
 Connettere lo Spark Core al vostro Wi-Fi è molto semplice. Infatti, io l'ho fatto due volte scrivendo questo paragrafo!
 
@@ -62,7 +62,7 @@ Se l'applicazione mobile non va bene per voi, potete collegare lo Spark Core via
 
 ### Passo 4: Fare lampeggiare un LED con Tinker
 
-![Tinker]({{assets}}/images/tinker.png)
+![Tinker](/assets/images/tinker.png)
 
 L'applicazione Spark mobile contiene una mini-applicazione chiamata Tinker che vi permette di ... appunto, tinker, cioè armeggiare. Vi permette di parlare con i pins di Input/Output dello Spark Core senza scrivere una singola riga di codice.
 
@@ -70,7 +70,7 @@ Ognuno dei pins ha quattro possibili funzioni: *digitalWrite*, *analogWrite*, *d
 
 ### Passo 5: Scrivere applicazioni con Spark Build
 
-![Spark Build]({{assets}}/images/ide.png)
+![Spark Build](/assets/images/ide.png)
 
 Quando sarete stufi di leggere dati dai sensori e far lampeggiare dei LED, andate sulla Spark Build IDE per il vero spettacolo.  Spark Build vi permette di creare e caricare applicazioni personali sul vostro Core partendo da qualsiasi web browser moderno e di equipaggiare il vostro Core con tutte le possibilità di Internet!  Wow!  
 
@@ -182,13 +182,13 @@ Armeggiare con "Tinker"
 L'applicazione Tinker
 ---
 
-![Tinker]({{assets}}/images/tinker.png)
+![Tinker](/assets/images/tinker.png)
 
 La sezione Tinker dell'applicazione Spark mobile rende molto semplice cominciare a giocare con lo Spark Core senza bisogno di scrivere del codice. È l'ideale per l'inizio dello sviluppo e spesso potrà fare tutto il necessario per far partire il vostro progetto.
 
 L'applicazione consiste in 16 pins in colonne verticali - 8 pins analogici sulla sinistra, 8 pins digitali sulla destra. Questi pins rappresentano i 16 pins GPIO (General Purpose Input and Output) dello Spark Core e sono organizzati nello stesso modo.
 
-![Tinker selection]({{assets}}/images/tinker-select.png)
+![Tinker selection](/assets/images/tinker-select.png)
 
 Per cominciare tocca uno dei pins. Apparirà un menu con le funzioni a disposizione. Ogni pin può avere quattro funzioni:
 
@@ -292,18 +292,18 @@ Quando siete pronti a riprogrammare il vostro Spark Core, andate sulla nostra ID
 
 [Particle Build >](https://www.particle.io/build)
 
-![Spark Build]({{assets}}/images/create-account.jpg)
+![Spark Build](/assets/images/create-account.jpg)
 
 Creare un account in un semplice passo. Quando si presenta la schermata di login, mettete semplicemente il vostro indirizzo email (con cura!) e la parola d'ordine desiderata. Premete l'amichevole bottone "Sign Up" e raggiungerete la pagina iniziale dello Spark Build.
 
-![Spark Build]({{assets}}/images/log-in.jpg)
+![Spark Build](/assets/images/log-in.jpg)
 
 Se vi siete già annunciati nello Spark Core, premete sul testo "Let me log in" vicino al bottone di Sign Up e vi troverete una finestra di login per utenti registrati. Non preoccupatevi se per errore avete premuto su "Sign Up" pur avendo già un account, verrete annunciati con il vostro account esistente.
 
 Spark Build, il nostro web IDE
 ---
 
-![Spark Build]({{assets}}/images/ide.png)
+![Spark Build](/assets/images/ide.png)
 
 Spark Build è un ambiente integrato di sviluppo (Integrated Development Environment) detto IDE; questo significa che potete sviluppare software in una appicazione semplice da usare che gira sul vostro web browser.
 
@@ -323,7 +323,7 @@ In basso a sinistra ci sono altri quattro bottoni per navigare nella IDE:
 Applicazioni e librerie Spark
 ---
 
-![Spark Build]({{assets}}/images/spark-apps.jpg)
+![Spark Build](/assets/images/spark-apps.jpg)
 
 Il cuore dello Spark Build è la sezione "Spark Apps", che vi mostra il nome dell'applicazione corrente nell'editor come pure una lista delle vostre altre applicazioni così come quelle di esempio supportate dalla comunità.
 
@@ -367,13 +367,13 @@ void loop() {
 }
 ```
 
-![Spark Build]({{assets}}/images/select-a-core.jpg)
+![Spark Build](/assets/images/select-a-core.jpg)
 
 - **Select Your Core**: Il prossimo passo è assicurarsi di aver scelto il Core giusto dove caricare l'applicazione. Cliccate sull'icona "Cores" in basso a sinistra della finestra di navigazione e cliccate sulla stella vicino al Core che volete aggiornare. Una volta selezionato la stella associata diventerà gialla.
 
 - **Flash**: Premete il bottone "Flash" e il vostro codice sarà inviato in modo wireless al vostro Core. Se il caricamento avrà successo il LED sul Core comincerà a lampeggiare color magenta.
 
-![Spark Build]({{assets}}/images/fork-app.jpg)
+![Spark Build](/assets/images/fork-app.jpg)
 
 - **Fork**: Vorreste che il ritmo del lampeggio del LED fosse più veloce? Premete sul bottone "Fork This Example" dopo aver selezionato l'esempio "Blink An LED". Avrete ora una copia personale dell'applicazione che potete modificare, salvare e caricare su tutti i vostri Cores.
 
@@ -384,13 +384,13 @@ Informazioni Account
 
 Ci sono diversi altri sviluppi e miglioramenti nello Spark Build. La Spark Build IDE è il miglior utensile per vedere informazioni importanti del vostro Core, gestire i Cores associati al vostro account Spark e dissociarli in modo che possano essere trasferiti ai vostri amici.
 
-![Spark Build]({{assets}}/images/device-id.jpg)
+![Spark Build](/assets/images/device-id.jpg)
 
 - **Core ID**: Potete visualizzare il Device ID del vostro Core cliccando sull'icona "Cores" in basso al pannello di navigazione e poi sulla freccina verso il basso vicino al Core di vostro interesse.  
 
 - **Unclaim**: Potete dissociare un Core premendo il bottone "Remove Core" che si presenta dopo aver cliccato la freccia verso il basso. Una volta che un Core è stato dissociato è a disposizione per riassociarlo con un qualsiasi altro account di un utente Spark.
 
-![Spark Build]({{assets}}/images/access-token.png)
+![Spark Build](/assets/images/access-token.png)
 
 - **API Key**: Potete trovare la vostra attuale chiave per l'API sotto il pannello "Settings" del vostro account. Potete premere il bottone "Reset Token" per assegnare una nuova chiave al vostro account. *Notare* che dopo aver premuto questo bottone dovrete modificare tutte le credenziali API programmate in modo fisso nei vostri progetti Spark!
 

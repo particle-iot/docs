@@ -6,7 +6,7 @@ Qui troverete diversi esempi per cominciare a lavorare con il vostro nuovo Spark
 Lampeggiare un LED
 ===
 
-![One LED illustration]({{assets}}/images/annotated-example1.jpg)
+![One LED illustration](/assets/images/annotated-example1.jpg)
 
 Far lampeggiare un LED è il programma di esempio ["Hello World"](http://en.wikipedia.org/wiki/Hello_world_program) per il mondo dei microprocessori. È un modo carino per scaldarsi e iniziare il viaggio nel modo dell'hardware embedded.
 
@@ -14,7 +14,7 @@ Per questo esempio avete bisogno di uno Spark Core (già!), una Breadboard, un L
 
 Collegate il tutto come sull'immagine a fianco. Il LED è connesso con il pin D0 del Core. Il pin positivo del LED (quello più lungo) è collegato al pin D0 e quello negativo (più corto) è connesso a massa tramite una resistenza.
 
-![One LED setup]({{assets}}/images/breadboard-one-led.jpg)
+![One LED setup](/assets/images/breadboard-one-led.jpg)
 
 Un momento, qual'è il valore della resistenza?
 
@@ -65,7 +65,7 @@ void loop()
 Controllare i LEDs via rete
 ===
 
-![Two LED setup]({{assets}}/images/breadboard-two-leds.jpg)
+![Two LED setup](/assets/images/breadboard-two-leds.jpg)
 
 Adesso che sappiamo come far lampeggiare un LED, come sarebbe controllarlo via Internet? Ecco dove comincia il divertimento.
 
@@ -155,13 +155,13 @@ Per comprendere meglio il concetto delle chiamate API al Core via cloud controll
 Misurare la temperatura
 ===
 
-![Read Sensor]({{assets}}/images/annotated-example3.jpg)
+![Read Sensor](/assets/images/annotated-example3.jpg)
 
 Abbiamo imparato come mandare dei comandi al Core per controllare dell'hardware. Ma come funziona invece leggere dei dati dal Core?
 
 In questo esempio collegheremo un sensore di temperatura al Core e leggeremo i valori via internet con un browser web.
 
-![Read Temperature]({{assets}}/images/breadboard-temp-sensor.jpg)
+![Read Temperature](/assets/images/breadboard-temp-sensor.jpg)
 
 Abbiamo usato un sensore molto comune chiamato TMP36 di Analog Devices. Potete scaricare le [specifiche qui.](http://www.analog.com/static/imported-files/data_sheets/TMP35_36_37.pdf)
 

@@ -14,7 +14,7 @@ This shield is essentially an adapter that allows the user to connect Arduino co
 Operation
 -----
 
-![Shield Shield]({{assets}}/images/sshield-top.jpg)
+![Shield Shield](/assets/images/sshield-top.jpg)
 
 We use Texas Instruments [TXB0108PWR](http://www.ti.com/lit/ds/symlink/txb0108.pdf) to do the voltage translation in between Spark Core's 3.3V logic level and Arduino's 5V logic.
 
@@ -25,7 +25,7 @@ The shield has an onboard voltage regulator and can be powered from 7V to 15V DC
 Specifications
 -----
 
-![Shield Shield Setup]({{assets}}/images/sshield-setup.jpg)
+![Shield Shield Setup](/assets/images/sshield-setup.jpg)
 
 - Operating voltage: 7 to 15V DC
 - Current consumption: without the core plugged in 7mA at 9V DC and 150mA with the Core.
@@ -70,7 +70,7 @@ A2        A6           PWM*, ADC**
 Relay Shield
 ====
 
-![Relay Shield Top]({{assets}}/images/relay-shield-top.jpg)
+![Relay Shield Top](/assets/images/relay-shield-top.jpg)
 
 The Relay Shield, in combination with the Spark Core, allows you to control high power devices over the internet. Want to control a lamp, fan or garden sprinklers? Then this is a solution for you!
 
@@ -79,7 +79,7 @@ The Relay Shield, in combination with the Spark Core, allows you to control high
 Operation
 -----
 
-![Relay Shield Setup]({{assets}}/images/relay-shield-setup.jpg)
+![Relay Shield Setup](/assets/images/relay-shield-setup.jpg)
 
 The schematic for the relay shield is simple and self explanatory. The shield has four relays that are controlled by pins D0, D1, D2 and D3 on the Core. Each relay is triggered via a NPN transistor that takes a control signal from the core and switches the relay coil ON and OFF which in turn makes or breaks the electrical contact on the output. There is also a [flyback diode](http://en.wikipedia.org/wiki/Flyback_diode) connected across the coil to help protect the transistor from high voltage transients caused during switching.
 
@@ -99,7 +99,7 @@ Specifications
 Setting up the Relay Shield
 -----
 
-![Relay Shield Connection]({{assets}}/images/relay-shield-bulb.jpg)
+![Relay Shield Connection](/assets/images/relay-shield-bulb.jpg)
 
 Turning ON a relay is as simple as setting the associated pin to HIGH.
 
@@ -184,7 +184,7 @@ Project Ideas
 Programmer Shield (JTAG)
 ====
 
-![JTAG Shield Top]({{assets}}/images/jtag-topview.jpg)
+![JTAG Shield Top](/assets/images/jtag-topview.jpg)
 
 The programmer shield is a simple adapter that lets you connect a JTAG programmer to the Spark Core. If you need complete control over your Core and are comfortable with the ARM development environment, you will need this shield as an interface between the JTAG programmer and the Core.
 
@@ -197,7 +197,7 @@ Specifications
 Setting up the programmer
 -----
 
-![JTAG Setup]({{assets}}/images/jtag-setup.jpg)
+![JTAG Setup](/assets/images/jtag-setup.jpg)
 
 If you are using the STLink V2, you can download the supporting drivers and utilities from [their website.](http://www.st.com/web/catalog/tools/FM146/CL1984/SC724/SS1677/PF251168)
 
@@ -209,12 +209,12 @@ All of the hardware files for the JTAG shield are available for download.
 Battery Shield
 ====
 
-![Battery Shield Top]({{assets}}/images/bshield-top.jpg)
+![Battery Shield Top](/assets/images/bshield-top.jpg)
 
 The battery shield is a LiPo battery charger and voltage regulator combined into one. You can use it to power your Core with any 3.7V LiPo battery and charge it at the same time via the USB port.
 The shield is built around  Microchip's MCP73871 battery charge management controller and TI's TPS61200 boost converter for up converting 3.7V to 5.0V.
 
-![Battery Shield Bottom]({{assets}}/images/bshield-bottom.jpg)
+![Battery Shield Bottom](/assets/images/bshield-bottom.jpg)
 
 
 <!--TO DO ADD SYSTEM BLOCK DIAGRAM HERE -->
@@ -240,13 +240,13 @@ Specifications
 Setting up the shield
 -----
 
-![Battery Shield Charging]({{assets}}/images/bshield-charging.jpg)
+![Battery Shield Charging](/assets/images/bshield-charging.jpg)
 
 In order to just charge the battery, simply plug the battery into the JST connector (**CAUTION: Remember to check the polarity of the battery header!!**) and a USB cable into the microB socket as shown in the picture.
 
 You will see the BLUE power LED light up on the shield and either the YELLOW (indicating charging in progress) or GREEN (indicating charging complete) LED light up.
 
-![Battery Shield Charging and Powering]({{assets}}/images/bshield-charging-powering.jpg)
+![Battery Shield Charging and Powering](/assets/images/bshield-charging-powering.jpg)
 
 To summarize the LED functions:
 
@@ -256,7 +256,7 @@ To summarize the LED functions:
 
 You could also power the Spark Core while the battery is charging but remember that the charging might be slower as the current will be distributed in between the Core and the battery.
 
-![Battery Shield Powering]({{assets}}/images/bshield-powering.jpg)
+![Battery Shield Powering](/assets/images/bshield-powering.jpg)
 
 When powering the Core via the battery alone, the blue LED will NOT light up.
 
@@ -280,7 +280,7 @@ When powering the Core via the battery alone, the blue LED will NOT light up.
 
 ### 1. Ceramic Capacitors (10 each)
 
-![Ceramic Capacitors]({{assets}}/images/mk-ceramic-capacitor-10nF.bmp)
+![Ceramic Capacitors](/assets/images/mk-ceramic-capacitor-10nF.bmp)
 
 These are standard [ceramic capacitors.](http://en.wikipedia.org/wiki/Ceramic_capacitor) They are widely used in analog circuits as bypass/ decoupling capacitors, in timers, filters, etc. The kit comes with:
 
@@ -293,7 +293,7 @@ These are standard [ceramic capacitors.](http://en.wikipedia.org/wiki/Ceramic_ca
 
 ### 2. Electrolytic Capacitor 100uF (5)
 
-![Electrolytic Capacitors]({{assets}}/images/mk-electrolytic-capacitor.bmp)
+![Electrolytic Capacitors](/assets/images/mk-electrolytic-capacitor.bmp)
 
 [Electrolytic capacitors](http://en.wikipedia.org/wiki/Electrolytic_capacitor) offer larger values and are polar. These capacitors are ideal for decoupling power supplies, as transient suppressors, and in timing circuits.
 
@@ -303,7 +303,7 @@ These are standard [ceramic capacitors.](http://en.wikipedia.org/wiki/Ceramic_ca
 
 ### 3. Headers
 
-![Headers]({{assets}}/images/mk-header-male.bmp)
+![Headers](/assets/images/mk-header-male.bmp)
 
 These are standard 0.1" pitch headers that can be cut to size. Very handy when building circuits on breadboard or PCBs alike.
 
@@ -313,7 +313,7 @@ These are standard 0.1" pitch headers that can be cut to size. Very handy when b
 
 ### 4. LEDs
 
-![LEDs]({{assets}}/images/mk-led-3mm.bmp)
+![LEDs](/assets/images/mk-led-3mm.bmp)
 
 These are general purpose 3mm LEDs. You can never have enough of them! Use a resistor in series when hooking them up to the Spark Core. ( 220 ohms to 1K ohms)
 
@@ -324,19 +324,19 @@ These are general purpose 3mm LEDs. You can never have enough of them! Use a res
 
 ### 5. RGB LED (1)
 
-![RGB LED]({{assets}}/images/mk-rgb-led.bmp)
+![RGB LED](/assets/images/mk-rgb-led.bmp)
 
 So, Red and Green aren't enough for you? Want to make bazzillion different colors? Then this RGB LED will do it for ya. You can mix colors by connecting each pin to an analogWrite compatible pin on the Core and feed them different values. Let the disco party begin!
 
 This LED has four pins, one for each color and a common anode (+) pin.
 
-[Datasheet >]({{assets}}/datasheets/makerkit/rgb-led.pdf)
+[Datasheet >](/assets/datasheets/makerkit/rgb-led.pdf)
 
 <!-- TO DO pin diagram-->
 
 ### 6. NPN Transistor (1)
 
-![NPN Transistor]({{assets}}/images/mk-npn-transistor.bmp)
+![NPN Transistor](/assets/images/mk-npn-transistor.bmp)
 
 S9013 is a general purpose small signal NPN [transistor](http://en.wikipedia.org/wiki/Transistor) rated at 40V, 500mA.
 
@@ -346,7 +346,7 @@ You can use this transistor to switch small loads like relays, mini motors, buzz
 
 ### 7. Diode (6)
 
-![Diode]({{assets}}/images/mk-diode.bmp)
+![Diode](/assets/images/mk-diode.bmp)
 
 [1N4004](http://en.wikipedia.org/wiki/1N4004) is a general purpose diode rated at 400V, 1000mA with a forward voltage drop of 1.1V. Excellent as a [fly-back diode](http://en.wikipedia.org/wiki/Flyback_diode) or as a general rectifying diode.
 
@@ -354,7 +354,7 @@ You can use this transistor to switch small loads like relays, mini motors, buzz
 
 ### 8. Micro Servo (1)
 
-![RC Servo]({{assets}}/images/mk-micro-rc-servo.bmp)
+![RC Servo](/assets/images/mk-micro-rc-servo.bmp)
 
 Emax ES08A is a mini RC servo motor.
 
@@ -373,7 +373,7 @@ Note: The Ground pin may vary as Brown or Black, +5V pin may vary as Orange or R
 
 ### 9. Deluxe Jumper Wire Pack (1)
 
-![Jumper Cables]({{assets}}/images/mk-jumper-cables.bmp)
+![Jumper Cables](/assets/images/mk-jumper-cables.bmp)
 
 Multi-colored and stripped. You can never have enough of these either.
 
@@ -382,11 +382,11 @@ A custom Spark USB cable for you Core! We were really excited to have our logo p
 
 ### 11. Mini DC Motor (1)
 
-![DC Motor]({{assets}}/images/mk-mini-dc-motor.bmp)
+![DC Motor](/assets/images/mk-mini-dc-motor.bmp)
 
 This is a simple DC motor that you can switch using the NPN transistor provided in the kit.
 
-[Datasheet >]({{assets}}/datasheets/makerkit/mini-dc-motor.pdf)
+[Datasheet >](/assets/datasheets/makerkit/mini-dc-motor.pdf)
 
 <!-- TO DO
    - add motor specs
@@ -395,11 +395,11 @@ This is a simple DC motor that you can switch using the NPN transistor provided 
 
 ### 12. Vibration Motor (1)
 
-![Vibration Motor]({{assets}}/images/mk-vibration-motor.bmp)
+![Vibration Motor](/assets/images/mk-vibration-motor.bmp)
 
 Wanna give your next Spark Core project a tactile feedback? This vibration motor serves the purpose nicely. Use the NPN transistor to switch it.
 
-[Datasheet >]({{assets}}/datasheets/makerkit/vibration-motor.pdf)
+[Datasheet >](/assets/datasheets/makerkit/vibration-motor.pdf)
 
 <!-- TO DO
    - add motor specs
@@ -408,7 +408,7 @@ Wanna give your next Spark Core project a tactile feedback? This vibration motor
 
 ### 13. Piezo Buzzer (1)
 
-![Buzzer]({{assets}}/images/mk-buzzer.bmp)
+![Buzzer](/assets/images/mk-buzzer.bmp)
 
 Add an audible feedback to your project with this buzzer. The longer lead is positive and the shorter is negative. You will need a transistor to drive it.
 
@@ -419,23 +419,23 @@ Add an audible feedback to your project with this buzzer. The longer lead is pos
 - Current: 30mA
 - Sound Pressure: 85dB
 
-[Datasheet >]({{assets}}/datasheets/makerkit/buzzer.pdf)
+[Datasheet >](/assets/datasheets/makerkit/buzzer.pdf)
 
 ### 14. Mini Pushbuttons (3)
 
-![Push Buttons]({{assets}}/images/mk-mini-pushbutton.bmp)
+![Push Buttons](/assets/images/mk-mini-pushbutton.bmp)
 
 These are nifty little switches that plug nicely into a breadboard or a proto-board. They are normally-open type and are rated at 12V, 50mA.
 
 ### 15. DPDT Switch (2)
 
-![DPDT Switch]({{assets}}/images/mk-dpdt-switch.bmp)
+![DPDT Switch](/assets/images/mk-dpdt-switch.bmp)
 
 This is a tiny Double Pole Double Throw (DPDT) Switch with 6 legs.
 
 ### 16. Shift Register IC (1)
 
-![Shift Register]({{assets}}/images/mk-shift-register.bmp)
+![Shift Register](/assets/images/mk-shift-register.bmp)
 
 74HC595 is an 8 bit serial-in parallel-out shift register commonly used as an output expander. You can drive of up to 8 outputs from only 3 lines (using one chip). You could potentially daisy chain multiple of these to get even more outputs.
 
@@ -445,17 +445,17 @@ This is a tiny Double Pole Double Throw (DPDT) Switch with 6 legs.
 
 ### 17. Tilt Sensor (2)
 
-![Tilt Sensor]({{assets}}/images/mk-tilt-sensor.bmp)
+![Tilt Sensor](/assets/images/mk-tilt-sensor.bmp)
 
 SW-200D is a tiny tilt sensor that when tilted to more than 30 degrees will internally connects its two terminals together. The magic happens with the use of gravity and a tiny metal ball.
 
 You can use to it detect tilt, orientation or vibrations.
 
-[Datasheet >]({{assets}}/datasheets/makerkit/tilt-sensor.pdf)
+[Datasheet >](/assets/datasheets/makerkit/tilt-sensor.pdf)
 
 ### 18. Temperature Sensor (1)
 
-![Temp Sensor]({{assets}}/images/mk-temp-sensor.bmp)
+![Temp Sensor](/assets/images/mk-temp-sensor.bmp)
 
 The TMP36 is a low voltage, precision centigrade temperature sensor. It provides a voltage output that is linearly proportional to the Celsius (centigrade) temperature. The TMP36 does not require any external calibration to provide typical accuracies of ±1°C at +25°C and ±2°C over the −40°C to +125°C temperature range.
 
@@ -467,17 +467,17 @@ The TMP36 is a low voltage, precision centigrade temperature sensor. It provides
 
 ### 19. Thermistor (2)
 
-![Thermistor]({{assets}}/images/mk-thermistor.bmp)
+![Thermistor](/assets/images/mk-thermistor.bmp)
 
 A [thermistor](http://en.wikipedia.org/wiki/Thermistor) is a temperature dependent resistor. This one is a NTC type (Negative Temperature Coefficient), which means its resistance decreases with an increase in temperature.
 
 Unlike the TMP36, you will need to use this as a part of a voltage divider circuit as nicely described in this [tutorial.](https://learn.adafruit.com/thermistor/using-a-thermistor)
 
-[Datasheet >]({{assets}}/datasheets/makerkit/thermistor.pdf)
+[Datasheet >](/assets/datasheets/makerkit/thermistor.pdf)
 
 ### 20. Force-Sensitive Resistor (1)
 
-![Force Sensor]({{assets}}/images/mk-force-sensor.bmp)
+![Force Sensor](/assets/images/mk-force-sensor.bmp)
 
 Manufacturer Part Number: Interlink 30-81794
 This is a force sensitive resistor with a 0.5" diameter and an operating force from 10g to 1000g. Their resistance decreases with an increase in applied pressure.
@@ -488,16 +488,16 @@ This is a force sensitive resistor with a 0.5" diameter and an operating force f
 
 ### 21. Photo Resistors (2)
 
-![LDR]({{assets}}/images/mk-ldr.bmp)
+![LDR](/assets/images/mk-ldr.bmp)
 
 A photo resistor is a light dependent resistor whose resistance decreases with the increase in the intensity of light striking it. You can use it to detect the ambient light in the surrounding, detect shadows or use it as a part of a burglar alarm system.
 
-[Datasheet >]({{assets}}/datasheets/makerkit/photoresistor.pdf)
+[Datasheet >](/assets/datasheets/makerkit/photoresistor.pdf)
 <!-- TO DO ADD LINK TO EXAMPLE-->
 
 ### 22. Resistors
 
-![Resistors]({{assets}}/images/mk-1k-resistor.bmp)
+![Resistors](/assets/images/mk-1k-resistor.bmp)
 
 There are three different value resistor in this kit. All of them are rated at 5%, 1/4 Watt.
 
@@ -509,13 +509,13 @@ You can use this [online guide](http://www.digikey.com/en/resources/conversion-c
 
 ### 23. Rotary Potentiometer (1)
 
-![Pot]({{assets}}/images/mk-potentiometer.bmp)
+![Pot](/assets/images/mk-potentiometer.bmp)
 
 This is a [variable resistor](http://en.wikipedia.org/wiki/Potentiometer) whose value can be changed by simply turning the knob.
 
 ### 24. Proto-board (1)
 
-![PCB]({{assets}}/images/mk-pcb.bmp)
+![PCB](/assets/images/mk-pcb.bmp)
 
 This is a 7" x 9" general purpose dot-matrix prototyping PCB.
 <!-- TO DO ADD LINK TO EXAMPLE-->
@@ -560,7 +560,7 @@ Your very own Spark Core, ready to take over the world, one byte at a time.
 
 # Spark RC Car Kit
 
-![Top View]({{assets}}/images/rc-car-top-small.jpg)
+![Top View](/assets/images/rc-car-top-small.jpg)
 
 The RC car kit is a two-wheeled differentially driven platform that you can control using a Spark Core.
 
@@ -592,15 +592,15 @@ The Motor Driver shield is setup in the PWM mode as shown in the picture.
 
 Where E1 and E2 control the speed of the motors, while M1 and M2 change the direction.
 
-![Jumper Settings]({{assets}}/images/rc-car-jumpers-small.jpg)
+![Jumper Settings](/assets/images/rc-car-jumpers-small.jpg)
 
 Connect the left and right motor terminals to M2+,M2-,M1+ and M1- respectively.
 
-![Motor Connections]({{assets}}/images/rc-car-motor-conn-small.jpg)
+![Motor Connections](/assets/images/rc-car-motor-conn-small.jpg)
 
 The motors can run from a voltage in the range of 5V to 9V DC. The jumpers can be set to get power from Vin from the Shield below.
 
-![Power Selection]({{assets}}/images/rc-car-power-small.jpg)
+![Power Selection](/assets/images/rc-car-power-small.jpg)
 
 ### Example code
 

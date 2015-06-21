@@ -30,7 +30,7 @@ The Dashboard will show you an overview of your devices and their activity. Itâ€
 
 You can watch events published from your devices with `Spark.publish()` come in, in realtime.
 
-[![Logs App]({{assets}}/images/dashboard/logs-big-picture.png)]({{assets}}/images/dashboard/logs-big-picture.png)
+[![Logs App](/assets/images/dashboard/logs-big-picture.png)](/assets/images/dashboard/logs-big-picture.png)
 
 
 
@@ -46,7 +46,7 @@ Below the title is a side-scrolling bar graph. It's a visualization of the numbe
 
 At the bottom is a real-time log of events passing through the cloud. You'll get the name, data, timestamp and the device name associated with each event as it comes in. Oh Yeah! And, if you click on the event, you can see a raw JSON view of the event.
 
-[![Raw event]({{assets}}/images/dashboard/raw-event.jpg)]({{assets}}/images/dashboard/raw-event.jpg)
+[![Raw event](/assets/images/dashboard/raw-event.jpg)](/assets/images/dashboard/raw-event.jpg)
 
 In this view, you'll only see events that come in while the browser window is open.
 
@@ -55,7 +55,7 @@ In this view, you'll only see events that come in while the browser window is op
 
 The Devices page allows you to see a list of the devices registered to your account. Here, you can see specific information about each device, including it's unique Device ID, it's name, the last time it connected to the Particle cloud, and whether or not the device is currently online.
 
-![{Devices]({{assets}}/images/devices.png)
+![{Devices](/assets/images/devices.png)
 
 ### Data (Coming Soon)
 

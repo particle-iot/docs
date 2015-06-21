@@ -8,7 +8,7 @@ columns: 2
 P1 Datasheet <sup>(v003)</sup>
 ===
 
-<div align=center><img src="{{assets}}/images/p1-vector.png" width=200></div>
+<div align=center><img src="/assets/images/p1-vector.png" width=200></div>
 
 ```c++
 void setup() {
@@ -45,7 +45,7 @@ The P1 is Particle's tiny Wi-Fi module that contains both the Broadcom Wi-Fi chi
 
 ### 2.1 Block Diagram
 
-<div align=center><img src="{{assets}}/images/p1-block-diagram.png" width=600></div>
+<div align=center><img src="/assets/images/p1-block-diagram.png" width=600></div>
 
 ### 2.2 Power
 
@@ -53,7 +53,7 @@ Power to the P1 is supplied via 3 different inputs: VBAT_WL (pin 2 & 3), VDDIO_3
 
 Typical current consumption is 80mA with a 3.3V input.  Deep sleep quiescent current is 160uA.  When powering the P1 make sure the power supply can handle 600mA continuous. If a lesser power supply is provided, peak currents drawn from the P1 when transmitting and receiving will result in voltage sag at the input which may cause a system brown out or intermittent operation.  Likewise, the power source should be sufficient enough to source 1A of current to be on the safe side.
 
-<div align=center><img src="{{assets}}/images/p1-power-pins.png" width="500">
+<div align=center><img src="/assets/images/p1-power-pins.png" width="500">
 <br><br><b>Fig. 1</b> Recommended power connections with decoupling capacitors.</div>
 
 ### 2.3 RF
@@ -113,7 +113,7 @@ Pin D3 through D7 are JTAG interface pins.  These can be used to reprogram your 
 
 A standard 20-pin 0.1" shrouded male JTAG interface connector should be wired as follows:
 
-<div align=center><img src="{{assets}}/images/photon-jtag.png" width=700></div>
+<div align=center><img src="/assets/images/photon-jtag.png" width=700></div>
 
 ### 2.6 External Coexistence Interface
 
@@ -133,7 +133,7 @@ When these pads are programmed to be used as a Bluetooth coexistence interface, 
 
 ### 3.1 Pin markings
 
-<div align=center><img src="{{assets}}/images/p1-pin-numbers.png" width=600></div>
+<div align=center><img src="/assets/images/p1-pin-numbers.png" width=600></div>
 
 ### 3.2 Pin description
 
@@ -151,11 +151,11 @@ When these pads are programmed to be used as a Bluetooth coexistence interface, 
 
 ### 3.3 Pin out diagrams
 
-<div align=left><img src="{{assets}}/images/p1-pinout1.png"</div>
+<div align=left><img src="/assets/images/p1-pinout1.png"</div>
 
-<div align=left><img src="{{assets}}/images/p1-pinout2.png"</div>
+<div align=left><img src="/assets/images/p1-pinout2.png"</div>
 
-<div align=left><img src="{{assets}}/images/p1-pinout3.png"</div>
+<div align=left><img src="/assets/images/p1-pinout3.png"</div>
 
 ### 3.4 Complete P1 Module Pin Listing
 
@@ -318,40 +318,40 @@ These specifications are based on the STM32F205RG datasheet, with reference to P
 
 P1 module dimensions are: 0.787"(28mm) (W) x 1.102"(20mm) (L) x 0.0787"(2.0mm) (H) +/-0.0039"(0.1mm) (includes metal shielding)
 
-<div align=center><img src="{{assets}}/images/p1-overall_dimensions.png" width=300></div>
+<div align=center><img src="/assets/images/p1-overall_dimensions.png" width=300></div>
 
-<div align=center><img src="{{assets}}/images/p1-vector.png" width=80>
+<div align=center><img src="/assets/images/p1-vector.png" width=80>
 Actual size (so tiny!)</div>
 
 ### 5.2 P1 Module Dimensions
 
 These are the physical dimensions of the P1 module itself, including all pins:
 
-<div align=center><img src="{{assets}}/images/p1-module-dimensions.png" width=600></div>
+<div align=center><img src="/assets/images/p1-module-dimensions.png" width=600></div>
 
 ### 5.3 P1 Module Recommended pcb land pattern
 
 The P1 can be mounted directly on a carrier PCB with following PCB land pattern:
 
-<div align=center><img src="{{assets}}/images/p1-land-pattern.png" width=600px></div>
+<div align=center><img src="/assets/images/p1-land-pattern.png" width=600px></div>
 
 # 6. P1 Reference Design Schematic
 
 ### 6.1 Schematic - USB
 
-<div align=center><img src="{{assets}}/images/p1-sch-usb.png" width=400></div>
+<div align=center><img src="/assets/images/p1-sch-usb.png" width=400></div>
 
 ### 6.2 Schematic - Power
 
-<div align=center><img src="{{assets}}/images/p1-sch-power.png" width=600></div>
+<div align=center><img src="/assets/images/p1-sch-power.png" width=600></div>
 
 ### 6.3 Schematic - User I/O
 
-<div align=center><img src="{{assets}}/images/p1-sch-user-io.png" width=600></div>
+<div align=center><img src="/assets/images/p1-sch-user-io.png" width=600></div>
 
 ### 6.4 Schematic - P1 Wi-Fi Module
 
-<div align=center><img src="{{assets}}/images/p1-sch-wifi-module.png" height=500></div>
+<div align=center><img src="/assets/images/p1-sch-wifi-module.png" height=500></div>
 
 # 7. P1 Reference Design Layout
 
@@ -365,7 +365,7 @@ To be added.
 
 # 8. Recommended solder reflow profile
 
-<div align=left><img src="{{assets}}/images/photon-reflow-profile.png" width=600></div>
+<div align=left><img src="/assets/images/photon-reflow-profile.png" width=600></div>
 
 | Phase | Temperatures and Rates |
 | -:|:- |
@@ -381,7 +381,7 @@ P1 modules are available from [store.particle.io](https://store.particle.io/) as
 
 #10. Qualification and approvals
 
-<div align=left><img src="{{assets}}/images/lead-free-fcc-ce.png" height=100></div>
+<div align=left><img src="/assets/images/lead-free-fcc-ce.png" height=100></div>
 
 -	RoHS
 -	CE
@@ -392,7 +392,7 @@ P1 modules are available from [store.particle.io](https://store.particle.io/) as
 
 ### 11.1 Tape and Reel Info
 
-<div align=center><img src="{{assets}}/images/p1-tape-and-reel.png" width=500></div>
+<div align=center><img src="/assets/images/p1-tape-and-reel.png" width=500></div>
 
 ### 11.2 Moisture sensitivity levels
 
