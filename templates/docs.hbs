@@ -1,5 +1,5 @@
 <!doctype html>
-<html class="{{#is page.columns 2}}two-columns{{else}}three-columns{{/is}}">
+<html class="two-columns">
 <head>
   <meta charset='utf-8'>
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
@@ -23,7 +23,7 @@
   <script src='/assets/js/scrollspy.js'></script>
 
   <!-- Spark theme mods -->
-  <link href='/assets/css/style.css' rel='stylesheet'>
+  <link href='/assets/stylesheets/style.css' rel='stylesheet'>
   <script src='/assets/js/animated-core.js'></script>
 
   <!-- GOTHAM YO -->
@@ -42,9 +42,9 @@
           <img src="/assets/images/particle-docs.png" id="logo">
         </a>
         <div class="sections">
-          <a class="nav {{#contains dirname 'guide'}}active{{/contains}}" href="/guide">Guide</a>
-          <a class="nav {{#contains dirname 'reference'}}active{{/contains}}" href="/reference">Reference</a>
-          <a class="nav {{#contains dirname 'datasheets'}}active{{/contains}}" href="/datasheets">Datasheets</a>
+          <a class="nav" href="/guide">Guide</a>
+          <a class="nav" href="/reference">Reference</a>
+          <a class="nav" href="/datasheets">Datasheets</a>
         </div>
       </div>
       <div class='right'>
@@ -52,52 +52,28 @@
           <script src='/assets/js/google-search.js'></script>
           <gcse:search></gcse:search>
         </div>
-        {{#contains dirname 'guide'}}
           <div class="dropdown">
             <a id="dLabel" data-target="#" class="nav" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
-              {{#contains dirname 'photon'}}Photon{{/contains}}
-              {{#contains dirname 'core'}}Core{{/contains}}
               <i class="icon ion-chevron-down"></i>
             </a>
             <ul class="dropdown-menu" aria-labelledby="dLabel">
-              <li><a href="/guide/photon/{{basename}}">Photon</a></li>
-              <li><a href="/guide/core/{{basename}}">Core</a></li>
+              <li><a href="/guide/photon/">Photon</a></li>
+              <li><a href="/guide/core/">Core</a></li>
             </ul>
           </div>
-        {{/contains}}
         <a href="http://support.particle.io" class="nav" target="_blank"><i class="icon ion-help-buoy"></i>Support</a>
         <a href="/assets/docs.zip" class="nav"><i class="icon ion-arrow-down-a"></i>Download</a>
-        <a href='https://github.com/spark/docs/edit/master/src/content/en{{#is page.shared true}}/shared/{{else}}{{#contains dirname "photon"}}/photon/{{else}}/core/{{/contains}}{{/is}}{{basename}}.md' class="nav" target="_blank"><i class="ion-edit"></i>Edit</a>
+        <a href='#' class="nav" target="_blank"><i class="ion-edit"></i>Edit</a>
       </div>
     </div>
 
     <div class='content-root' data-spy="scroll" data-target="#toc">
       <div class='menubar'>
 
-        {{#contains dirname 'guide'}}
-          {{#markdown}}
-            {{> guide }}
-          {{/markdown}}
-        {{/contains}}
-
-        {{#contains dirname 'reference'}}
-          {{#markdown}}
-            {{> reference }}
-          {{/markdown}}
-        {{/contains}}
-
-        {{#contains dirname 'datasheets'}}
-          {{#markdown}}
-            {{> datasheets }}
-          {{/markdown}}
-        {{/contains}}
-
       </div>
 
       <div role='flatdoc-content' class='content'>
-        {{#markdown}}
-          {{> body}}
-        {{/markdown}}
+        {{{contents}}}
         <div class="code-samples">
         </div>
       </div>

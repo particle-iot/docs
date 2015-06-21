@@ -1,7 +1,6 @@
 ---
-word: Start
-title: Getting started
-order: 0
+title: Getting started with the Photon
+template: docs.hbs
 ---
 
 Your New Photon

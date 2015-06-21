@@ -8,6 +8,8 @@ var less = require('metalsmith-less');
 var ignore = require('metalsmith-ignore');
 var permalinks = require('metalsmith-permalinks');
 var collections = require('metalsmith-collections');
+var blc = require('metalsmith-broken-link-checker');
+var cleanCSS = require('metalsmith-clean-css');
 
 exports.metalsmith = function() {
   var metalsmith = Metalsmith(__dirname)
@@ -22,6 +24,9 @@ exports.metalsmith = function() {
       pattern: "**/style.less",
       useDynamicSourceMap: true
     }))
+    .use(cleanCSS({
+      files: '**/*.css'
+    }))
     .use(templates({
       engine: 'handlebars',
       directory: '../templates'
@@ -30,6 +35,7 @@ exports.metalsmith = function() {
     .use(permalinks({
       relative: false
     }));
+    //.use(blc());
 
   return metalsmith;
 };
