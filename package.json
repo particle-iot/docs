@@ -8,6 +8,7 @@
     "build": "node ./scripts/build.js"
   },
   "dependencies": {
+    "async": "^1.2.1",
     "cheerio": "^0.16.0",
     "handlebars": "^2.0.0-alpha.2",
     "metalsmith": "^1.7.0",

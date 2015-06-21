@@ -6,4 +6,3 @@ title: Get started with Particle
 <a href="test2.html">Test2</a>
 
 [google](http://www.google.com)
-[gibberish](http://www.aslkdvjalksdfjlaksdjlakjsdf.asdjfhasdf)
