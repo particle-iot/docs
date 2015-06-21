@@ -18,6 +18,7 @@ describe('Tests', function(){
 
 describe('Build', function() {
   it('should run without error', function(done){
+    this.timeout(5000);
     metalsmith.build(function(err, files) {
       should.not.exist(err);
       done();
@@ -39,6 +40,7 @@ describe('Crawler', function() {
   crawler.initialPort = 8080;
 
   it('should complete without error', function(done) {
+    this.timeout(10000);
     crawler.start();
     crawler.on("fetchcomplete", function(queueItem, responseBuffer, response) {
       responses.push(responseBuffer);

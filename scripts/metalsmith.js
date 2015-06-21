@@ -4,13 +4,25 @@ var templates = require('metalsmith-templates');
 var serve = require('metalsmith-serve');
 var watch = require('metalsmith-watch');
 var moveUp = require('metalsmith-move-up');
+var less = require('metalsmith-less');
+var ignore = require('metalsmith-ignore');
 
 exports.metalsmith = function() {
   var metalsmith = Metalsmith(__dirname)
     .source("../src")
     .destination("../build")
     .use(markdown())
-    .use(templates('handlebars'))
+    .use(ignore([
+      '**/less/*.less'
+    ]))
+    .use(less({
+      pattern: "**/style.less",
+      useDynamicSourceMap: true
+    }))
+    .use(templates({
+      engine: 'handlebars',
+      directory: '../templates'
+    }))
     .use(moveUp('content/**/*'));
 
   return metalsmith;
@@ -28,10 +40,13 @@ exports.build = function(callback) {
 exports.server = function(callback) {
   exports.metalsmith().use(serve())
     .use(watch({
+      paths: {
+        "${source}/**/*": true,
+        "../templates/**/*": "**/*.md",
+      },
       livereload: true
     }))
     .build(function(err, files) {
-      console.log(err);
       if (callback) {
         callback(err, files);
       }
