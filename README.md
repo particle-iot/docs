@@ -62,6 +62,10 @@ shared: true
 ---
 ```
 
+### Tests
+
+To run the test scripts, run `npm test`.
+
 ### Attributions
 
 Some of this documentation is derived from the [Arduino documentation](http://arduino.cc/en/Reference), as the Arduino/Wiring language and libraries are used extensively on the Spark Core.
