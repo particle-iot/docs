@@ -1,7 +1,3 @@
-var serve = require('metalsmith-serve');
-var watch = require('metalsmith-watch');
-var metalsmith = require('./metalsmith.js');
+var build = require('./metalsmith.js').build;
 
-metalsmith().build(function(err, files) {
-  if (err) { throw err; }
-});
+build();
