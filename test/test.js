@@ -58,19 +58,38 @@ describe('Crawler', function() {
 });
 
 describe('Docs', function() {
-  it('index should exist', function() {
-    crawler.queue[0].status.should.not.equal("failed");
+  it('should exist', function() {
     crawler.queue[0].status.should.not.equal("notfound");
   });
 });
 
 describe('Internal links', function() {
-  it('should all succeed', function() {
-    crawler.queue.countWithStatus("failed").should.equal(0);
+  it('should all succeed', function(done) {
+    var badLinks = [];
+    crawler.queue.getWithStatus("failed").forEach(function(queueItem) {
+      badLinks.push(queueItem.url);
+    });
+    var message = badLinks.join("\r\n");
+    if (message.length !== 0) {
+      var e = new Error("Bad internal links or assets:\r\n" + message);
+      done(e);
+    } else {
+      done();
+    }
   });
 
-  it('should all return 200 OK', function() {
-    crawler.queue.countWithStatus("notfound").should.equal(0);
+  it('should all return 200 OK', function(done) {
+    var badLinks = [];
+    crawler.queue.getWithStatus("notfound").forEach(function(queueItem) {
+      badLinks.push(queueItem.url);
+    });
+    var message = badLinks.join("\r\n");
+    if (message.length !== 0) {
+      var e = new Error("Bad internal links or assets:\r\n" + message);
+      done(e);
+    } else {
+      done();
+    }
   });
 });
 
