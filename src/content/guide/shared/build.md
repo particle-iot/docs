@@ -1,8 +1,7 @@
 ---
-word: Build
 title: Web IDE (Build)
-order: 4
-shared: true
+template: docs.hbs
+columns: two
 ---
 
 Flash Apps with Particle Build
@@ -101,7 +100,7 @@ void loop() {
 
 - **Select Your Device**: The next step is to make sure that you've selected which of your devices to flash code to.  Click on the "Devices" icon at the bottom left side of the navigation pane, and click on the star next to the device you'd like to update.  Once you've selected a device, the star associated with it will turn yellow. (If you only have one device, there is no need to select it, you can continue on to the next step).
 
-**NOTE**: Left to the name of your device there is an icon which shows which platform it belongs to. The Core has a cyan **C** and Photon a yellow **P**. 
+**NOTE**: Left to the name of your device there is an icon which shows which platform it belongs to. The Core has a cyan **C** and Photon a yellow **P**.
 
 - **Flash**: Click the "Flash" button, and your code will be sent wirelessly to your device.  If the flash was successful, the LED on your device will begin flashing magenta.
 

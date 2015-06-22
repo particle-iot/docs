@@ -1,7 +1,8 @@
 ---
-word: Start
 title: Getting started
-order: 0
+template: docs.hbs
+columns: two
+device: core
 ---
 
 Your New Particle Device

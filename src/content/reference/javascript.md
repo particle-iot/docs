@@ -1,8 +1,7 @@
 ---
-word: Javascript
-title: Javascript SDK
-order: 9
-shared: true
+title: ParticleJS (Javascript SDK)
+template: docs.hbs
+columns: three
 ---
 
 # ParticleJS

@@ -1,8 +1,7 @@
 ---
-word: Webhooks
 title: Webhooks
-order: 17
-shared: true
+template: docs.hbs
+columns: two
 ---
 
 Webhooks

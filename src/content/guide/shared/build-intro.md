@@ -1,6 +1,7 @@
 ---
 title: How to build a product with Particle
-columns: 2
+template: docs.hbs
+columns: two
 ---
 
 How to build a product with Particle

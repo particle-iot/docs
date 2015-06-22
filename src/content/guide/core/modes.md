@@ -1,7 +1,8 @@
 ---
-word: Modes
-title: Device Modes
-order: 2
+title: Device modes
+template: docs.hbs
+columns: two
+device: core
 ---
 
 Core Modes

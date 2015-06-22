@@ -1,8 +1,7 @@
 ---
-word: IFTTT
 title: IFTTT
-order: 16
-shared: true
+template: docs.hbs
+columns: two
 ---
 
 Particle Channel on IFTTT

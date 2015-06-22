@@ -1,8 +1,7 @@
 ---
-word: Firmware
-title: Firmware
-order: 8
-shared: true
+title: Firmware Reference
+template: docs.hbs
+columns: three
 ---
 
 Particle Device Firmware

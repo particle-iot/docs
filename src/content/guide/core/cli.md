@@ -1,7 +1,8 @@
 ---
-word: API
-title: Command Line
-order: 13
+title: Command Line Interface
+template: docs.hbs
+columns: two
+device: core
 ---
 
 Particle CLI

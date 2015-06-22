@@ -1,8 +1,7 @@
 ---
-word: iOS
 title: iOS SDK
-order: 11
-shared: true
+template: docs.hbs
+columns: three
 ---
 
 iOS Cloud SDK

@@ -1,8 +1,7 @@
 ---
-word: Dev
 title: Particle Dev
-order: 6
-shared: true
+template: docs.hbs
+columns: two
 ---
 
 Build Apps with Particle Dev

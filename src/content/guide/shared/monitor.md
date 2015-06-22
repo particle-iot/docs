@@ -1,9 +1,7 @@
 ---
-word: Monitor
 title: Monitor
-order: 12
-shared: true
-columns: 2
+template: docs.hbs
+columns: two
 ---
 
 Introduction
@@ -63,7 +61,7 @@ Tracking up to 4 variables with Monitor is as easy as swapping out `Spark.variab
 Currently, variables are sampled once every 4 seconds when in remote/cloud mode, and at the same 20Hz as the pins when in local.
 
 ### publishMode
-The default behavior of Monitor is to [Spark.publish()](http://docs.particle.io/photon/firmware/#spark-publish) data even when it's connected locally. That makes the connection more robust, as in the scenario when the TCP connection is dropped by the app or the device, but the frequent `Spark.publish()` calls will slow down your code. 
+The default behavior of Monitor is to [Spark.publish()](http://docs.particle.io/photon/firmware/#spark-publish) data even when it's connected locally. That makes the connection more robust, as in the scenario when the TCP connection is dropped by the app or the device, but the frequent `Spark.publish()` calls will slow down your code.
 
 This function allows you to disable publishing altogether. Use `.publishMode(false)` when you want to stop the publishes in order to minimize execution speed impact. Remember that with the publishing behavior disabled, Monitor will only work when both the device and the app are on the same network.
 ```
@@ -72,7 +70,7 @@ Monitor mon;
 void setup(){
 	//disable publishing
 	mon.publishMode(false);
-	
+
 	mon.begin();
 }
 
@@ -89,7 +87,7 @@ Monitor mon;
 void setup(){
 	//disable D7 blinking
 	mon.ledOff();
-	
+
 	mon.begin();
 }
 
@@ -106,5 +104,3 @@ If the firmware successfully receives a connection request from a client, then i
 
 ### Impact on Code Execution
 Monitor is fairly optimized, but it still requires some resources. It has some timing-dependent behaviors, but there are no `delay()`s in the code. It only reads the pins and variables when it intends to transmit them, so there's no extra overhead there. The `.publish()`s once a second are probably the biggest blocking problem, and those can be commented out. Currently, they continue even when it's in local mode in case there's a silent TCP connection drop.
-
-

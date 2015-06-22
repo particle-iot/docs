@@ -1,8 +1,7 @@
 ---
-word: API
-title: Cloud code (API)
-order: 9
-shared: true
+title: Cloud API Reference
+template: docs.hbs
+columns: three
 ---
 
 Particle Cloud API

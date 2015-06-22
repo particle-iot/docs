@@ -1,7 +1,8 @@
 ---
-word: Tinker
 title: Tinker
-order: 3
+template: docs.hbs
+columns: two
+device: core
 ---
 
 Tinkering with "Tinker"

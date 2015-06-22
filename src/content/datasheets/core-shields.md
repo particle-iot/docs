@@ -1,7 +1,7 @@
 ---
-word: Accessories
-title: Shields and kits
-order: 5
+title: Core shields and kits
+template: docs.hbs
+columns: two
 ---
 
 Shields and accessories

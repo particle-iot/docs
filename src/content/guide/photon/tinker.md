@@ -1,7 +1,8 @@
 ---
-word: Tinker
 title: Tinker (Particle app)
-order: 3
+template: docs.hbs
+columns: two
+device: photon
 ---
 
 Tinkering with "Tinker"

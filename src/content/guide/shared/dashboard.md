@@ -1,9 +1,7 @@
 ---
-word: Dashboard
 title: Dashboard
-order: 7
-columns: 2
-shared: true
+template: docs.hbs
+columns: two
 ---
 
 

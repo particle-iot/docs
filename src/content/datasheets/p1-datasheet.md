@@ -1,8 +1,7 @@
 ---
-word: Datasheet
 title: P1 datasheet
-order: 3
-columns: 2
+template: docs.hbs
+columns: two
 ---
 
 P1 Datasheet <sup>(v003)</sup>

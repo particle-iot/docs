@@ -1,6 +1,7 @@
 ---
 title: Further considerations
-columns: 2
+template: docs.hbs
+columns: two
 ---
 
 Thanks for reading. Now that you've finished the tutorial, you should be ready to build your own Particle-powered product.

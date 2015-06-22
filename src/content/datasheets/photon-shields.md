@@ -1,8 +1,7 @@
 ---
-word: Accessories
-title: Shields and kits
-order: 2
-columns: 2
+title: Photon shields and kits
+template: docs.hbs
+columns: two
 ---
 
 Shields and accessories

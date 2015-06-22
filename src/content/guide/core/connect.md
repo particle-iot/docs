@@ -1,7 +1,8 @@
 ---
-word: Connect
-title: Connecting your Device
-order: 1
+title: Connecting your device
+template: docs.hbs
+columns: two
+device: core
 ---
 
 Connecting your Device

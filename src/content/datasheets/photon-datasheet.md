@@ -1,8 +1,7 @@
 ---
-word: Datasheet
 title: Photon datasheet
-order: 1
-columns: 2
+template: docs.hbs
+columns: two
 ---
 
 Photon Datasheet <sup>(v010)</sup>

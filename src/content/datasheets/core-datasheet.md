@@ -1,8 +1,7 @@
 ---
-word: Datasheet
 title: Core datasheet
-order: 4
-columns: 2
+template: docs.hbs
+columns: two
 ---
 
 Spark Core Datasheet

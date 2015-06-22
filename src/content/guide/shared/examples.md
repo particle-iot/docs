@@ -1,9 +1,7 @@
 ---
-word: Examples
 title: Examples
-order: 5
-shared: true
-columns: 2
+template: docs.hbs
+columns: two
 ---
 
 Annotated examples
@@ -60,7 +58,7 @@ Every program based on Wiring (programming language used by Arduino, and Particl
 setup - runs once at the beginning of your program
 loop - runs continuously over and over
 
-You'll see how we use these in a second. 
+You'll see how we use these in a second.
 
 This program will blink an led on and off every second.
 It blinks the D7 LED on your Particle device. If you have an LED wired to D0, it will blink that LED as well.
@@ -829,5 +827,3 @@ void myHandler(const char *event, const char *data)
 }
 
 ```
-
-
