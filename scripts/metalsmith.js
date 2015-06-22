@@ -40,13 +40,17 @@ exports.metalsmith = function() {
       directory: '../templates/partials',
       engine: 'handlebars'
     }))
-    .use(moveUp('content/**/*'))
+    .use(moveUp(['content/**/*']))
     .use(paths())
     .use(permalinks({
       relative: false
     }))
     .use(redirect({
-      '/start': '/'
+      '/start': '/',
+      '/guide/photon/': '/guide/photon/start',
+      '/guide/core/': '/guide/core/start',
+      '/reference': '/reference/firmware',
+      '/datasheets': '/datasheets/photon-datasheet'
     }))
     .use(compress());
     //.use(blc());

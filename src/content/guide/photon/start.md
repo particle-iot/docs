@@ -2,6 +2,7 @@
 title: Getting started with the Photon
 template: docs.hbs
 columns: two
+device: photon
 ---
 
 Your New Photon
