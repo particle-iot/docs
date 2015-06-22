@@ -71,7 +71,11 @@
     <div class='content-root' data-spy="scroll" data-target="#toc">
       <div class='menubar'>
 
-
+      <ul>
+      {{#each collections.guide}}
+      <li>{{this.name}}</li>
+      {{/each}}
+      </ul>
       </div>
 
 

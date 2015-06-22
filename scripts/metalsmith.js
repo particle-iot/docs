@@ -20,7 +20,6 @@ exports.metalsmith = function() {
   var metalsmith = Metalsmith(__dirname)
     .source("../src")
     .destination("../build")
-    .use(collections())
     .use(markdown())
     .use(ignore([
       '**/less/*.less'
@@ -32,16 +31,30 @@ exports.metalsmith = function() {
     .use(cleanCSS({
       files: '**/*.css'
     }))
-    .use(templates({
-      engine: 'handlebars',
-      directory: '../templates'
-    }))
     .use(partial({
       directory: '../templates/partials',
       engine: 'handlebars'
     }))
     .use(moveUp(['content/**/*']))
     .use(paths())
+    .use(collections({
+      guide: {
+        pattern: '**/guide/**/*.md',
+        sortBy: 'order'
+      },
+      datasheets: {
+        pattern: '**/datasheets/**/*.md',
+        sortBy: 'order'
+      },
+      reference: {
+        pattern: '**/reference/**/*.md',
+        sortBy: 'order'
+      }
+    }))
+    .use(templates({
+      engine: 'handlebars',
+      directory: '../templates'
+    }))
     .use(permalinks({
       relative: false
     }))
