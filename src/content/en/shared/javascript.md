@@ -385,28 +385,28 @@ device.rename('new-name', function(err, data) {
 
 ### signal
 
-Send a signal to the device
+Send a signal to the device to start shouting rainbows like when first claiming the device. 
 
 ```javascript
 device.signal(function(err, data) {
   if (err) {
     console.log('Error sending a signal to the device:', err);
   } else {
-    console.log('Signal sent successfully:', data);
+    console.log('The LED is blinking like a rainbow:', data);
   }
 });
 ```
 
 ### stopSignal
 
-Send stop signal to the device
+Send a signal to the device to stop shouting rainbows
 
 ```javascript
 device.stopSignal(function(err, data) {
   if (err) {
     console.log('Error sending stop signal to the device:', err);
   } else {
-    console.log('Device stop signal sent successfully:', data);
+    console.log('The LED is sadly one color again:', data);
   }
 });
 ```
