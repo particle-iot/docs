@@ -15,6 +15,7 @@ var compress = require('metalsmith-gzip');
 var paths = require('metalsmith-paths');
 var partial = require('metalsmith-partial');
 var redirect = require('metalsmith-redirect');
+var copy = require('metalsmith-copy');
 
 exports.metalsmith = function() {
   var metalsmith = Metalsmith(__dirname)
@@ -65,6 +66,11 @@ exports.metalsmith = function() {
       '/guide/core/': '/guide/core/start',
       '/reference': '/reference/firmware',
       '/datasheets': '/datasheets/photon-datasheet'
+    }))
+    .use(copy({
+      pattern: '../src/content/page-not-found.md',
+      directory: "",
+      extension: '.html'
     }))
     .use(compress());
     //.use(blc());
