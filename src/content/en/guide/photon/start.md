@@ -1,6 +1,7 @@
 ---
 title: Getting started with the Photon
 template: docs.hbs
+columns: two
 ---
 
 Your New Photon
