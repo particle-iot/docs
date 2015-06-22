@@ -94,6 +94,7 @@ exports.server = function(callback) {
       livereload: true
     }))
     .build(function(err, files) {
+      if(err) {throw err;}
       if (callback) {
         callback(err, files);
       }
