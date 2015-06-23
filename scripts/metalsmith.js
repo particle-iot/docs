@@ -67,11 +67,6 @@ exports.metalsmith = function() {
       '/reference': '/reference/firmware',
       '/datasheets': '/datasheets/photon-datasheet'
     }))
-    .use(copy({
-      pattern: '../src/content/page-not-found.md',
-      directory: "",
-      extension: '.html'
-    }))
     .use(compress());
     //.use(blc());
 

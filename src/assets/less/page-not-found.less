@@ -1,0 +1,43 @@
+.page-not-found {
+  h1 {
+    font-size: 46px;
+    margin-bottom: 40px;
+  }
+  .image {
+    width: 30%;
+    display: inline-block;
+    vertical-align: middle;
+    img {
+      max-width: 100%;
+    }
+  }
+  .not-found-text {
+    width: 45%;
+    margin-left: 50px;
+    display: inline-block;
+    vertical-align: middle;
+    p {
+      font-size: 18px;
+    }
+  }
+  @media (max-width: 768px) {
+    h1 {
+      font-size: 24px;
+      margin-bottom: 10px;
+    }
+    .image, .not-found-text {
+      display: block;
+      width: 100%;
+    }
+    .image {
+      margin-bottom: 20px;
+    }
+    .not-found-text {
+      margin-left: 0;
+      p {
+        font-size: 14px;
+      }
+    }
+
+  }
+}
