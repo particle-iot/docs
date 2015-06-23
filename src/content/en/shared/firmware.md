@@ -2851,7 +2851,11 @@ void blink()
 External interrupts are supported on the following pins:
 
 - Core: D0, D1, D2, D3, D4, A0, A1, A3, A4, A5, A6, A7
-- Photon: all pins with the exception of D0
+- Photon: All pins with the exception of D0 and A5 (since at present Mode Button external interrupt(EXTI) line is shared with D0, A5). Also please note following are the pins for which EXTI lines are shared so only one can work at a time:
+    - D1, A4
+    - D2, A0, A3
+    - D3, DAC
+    - D4, A1
 
 `attachInterrupt(pin, function, mode);`
 
