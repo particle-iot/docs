@@ -1059,7 +1059,7 @@ setup() {
 	shiftOut(dataPin, clock, MSBFIRST, data);
 
 	// Or do this for LSBFIRST serial
-	shiftOut(dataPin, clock, LSBFIRST, data);  
+	shiftOut(dataPin, clock, LSBFIRST, data);
 }
 
 loop() {
@@ -1102,7 +1102,7 @@ setup() {
 	data = shiftIn(dataPin, clock, MSBFIRST);
 
 	// Or do this for LSBFIRST serial
-	data = shiftIn(dataPin, clock, LSBFIRST);  
+	data = shiftIn(dataPin, clock, LSBFIRST);
 }
 
 loop() {
@@ -1590,7 +1590,7 @@ void loop()
 {
   Wire.beginTransmission(4); // transmit to slave device #4
   Wire.write("x is ");       // sends five bytes
-  Wire.write(x);             // sends one byte  
+  Wire.write(x);             // sends one byte
   Wire.endTransmission();    // stop transmitting
 
   x++;
@@ -3268,6 +3268,59 @@ EEPROM.write(addr, val);
 System
 =====
 
+System Threading
+----
+
+On platforms that support multithreading (presently, the Photon), there are two
+separate threads of execution:
+
+- the system loop: this maintains the wifi and cloud connection state, performs
+  firmware updates and setup mode
+- the application loop: whatever the application code performs from within `loop()`.
+
+On non-threaded platforms, the system loop and the application loop are interleaved, which can lead to the application
+loop being delayed while the system loop is busy.  On threaded platforms, this does not occur since the application and system loops each run in a separate thread of execution.
+
+#### `SYSTEM_THREAD` macro
+
+System threading is enabled by default on platforms where it is supported. To enable it explicitly, add
+
+```
+SYSTEM_THREAD(ENABLED);
+```
+
+to your application code.
+
+
+To disable multithreading and revert to a single thread of execution, place the following code in your application:
+
+```
+SYSTEM_THREAD(DISABLED)
+```
+
+#### Affects of System Threading
+
+When system threading is enabled:
+
+- the application is not blocked by system code at all. setup() and loop() function independently of what the system is doing.
+- the application continues to run during WiFi setup mode. Application code can detect this by calling `WiFi.listening()`.
+- the application continues to run during over-the-air or over-the-wire firmware updates
+- Cloud functions registered with `Spark.function()` execute on the application thread in between calls to loop().
+- Calling `Spark.process()` has no affect.
+- The system mode does not influence application execution.
+
+When system threading is disabled:
+
+- the application may stop executing intermittently when the wifi or cloud connection goes offline
+- the application does not run during WiFi setup mode. This can be detected by checking the result of `WiFi.listening()` on a timer interrupt.
+- the application does not run during over-the-air or over-the-wire firmware updates
+- Cloud functions registered with `Spark.function()` execute in-between invocations of `loop()` or when the application calls `Spark.process()`.
+- The system mode influences when the application setup() and loop() function are called in relation to the cloud connection state.
+
+IN both cases, the system mode determines the initial cloud connection state - connected for AUTOMATIC mode, disconnected for SEMI_AUTOMATIC/MANUAL modes.
+
+
+
 System modes
 ----
 
@@ -3358,6 +3411,8 @@ When using manual mode:
 - Once the device is connected to the Cloud ([`Spark.connected()`](#spark-connected)` == true`), the user must call `Spark.process()` regularly to handle incoming messages and keep the connection alive. The more frequently `Spark.process()` is called, the more responsive the device will be to incoming messages.
 - If `Spark.process()` is called less frequently than every 20 seconds, the connection with the Cloud will die. It may take a couple of additional calls of `Spark.process()` for the device to recognize that the connection has been lost.
 
+
+
 System.factoryReset()
 ----
 
@@ -3433,7 +3488,7 @@ System.sleep(5);
 ```
 `System.sleep(long seconds)` does NOT stop the execution of user code (non-blocking call).  User code will continue running while the Wi-Fi module is in standby mode.
 
-`System.sleep(SLEEP_MODE_DEEP, long seconds)` can be used to put the entire device into a *deep sleep* mode. In this particular mode, the device shuts down the network subsystem and puts the microcontroller in a stand-by mode.  When the device awakens from deep sleep, it will reset and run all user code from the beginning with no values being maintained in memory from before the deep sleep.  
+`System.sleep(SLEEP_MODE_DEEP, long seconds)` can be used to put the entire device into a *deep sleep* mode. In this particular mode, the device shuts down the network subsystem and puts the microcontroller in a stand-by mode.  When the device awakens from deep sleep, it will reset and run all user code from the beginning with no values being maintained in memory from before the deep sleep.
 
 As such, it is recommended that deep sleep be called only after all user code has completed. The Standby mode is used to achieve the lowest power consumption.  After entering Standby mode, the SRAM and register contents are lost except for registers in the backup domain.
 
