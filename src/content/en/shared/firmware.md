@@ -1362,6 +1362,32 @@ Serial1.flush();
 
 `flush()` neither takes a parameter nor returns anything
 
+### halfduplex()
+
+Puts Serial1 into half-duplex mode.  In this mode both the transmit and receive
+are on the TX pin.  This mode can be used for a single wire bus communications 
+scheme between microcontrollers.
+
+```C++
+// SYNTAX
+Serial1.halfduplex(true);  // Enable half-duplex mode
+Serial1.halfduplex(false); // Disable half-duplex mode
+```
+
+```C++
+// EXAMPLE
+// Initializes Serial1 at 9600 baud and enables half duplex mode
+
+Serial1.begin(9600);
+Serial1.halfduplex(true);
+
+```
+*Parameters:*
+
+- `enable`: true to enable half-duplex mode.  false to disable.
+
+`halfduplex()` returns nothing
+
 SPI
 ----
 This library allows you to communicate with SPI devices, with the Core/Photon as the master device.
