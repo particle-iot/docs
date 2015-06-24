@@ -1382,9 +1382,7 @@ Serial1.begin(9600);
 Serial1.halfduplex(true);
 
 ```
-*Parameters:*
-
-- `enable`: true to enable half-duplex mode.  false to disable.
+`halfduplex()` takes one argument: `true` enables half-duplex mode, `false` disables half-duplex mode
 
 `halfduplex()` returns nothing
 
