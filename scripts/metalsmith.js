@@ -15,6 +15,7 @@ var compress = require('metalsmith-gzip');
 var paths = require('metalsmith-paths');
 var partial = require('metalsmith-partial');
 var redirect = require('metalsmith-redirect');
+var copy = require('metalsmith-copy');
 
 exports.metalsmith = function() {
   var metalsmith = Metalsmith(__dirname)
@@ -94,6 +95,7 @@ exports.server = function(callback) {
       livereload: true
     }))
     .build(function(err, files) {
+      if(err) {throw err;}
       if (callback) {
         callback(err, files);
       }
