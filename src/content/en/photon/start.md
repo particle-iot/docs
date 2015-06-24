@@ -25,11 +25,11 @@ received a *breadboard* to wire components to the Photon.
 - _(1) LED_
 - _(2) 220 Ohm Resistors_
 
-More info on this [here](/photon/shields/#photon-kit).
+We have [complete examples in detail](/photon/examples) that show you how to use these awesome components!
 
-Examples that use these awesome components are detailed [here](/photon/examples)!
+More info on [the components themselves](/photon/shields/#photon-kit).
 
-**Maker Kits** contain more goodies, listed [here](/photon/shields/#photon-maker-kit-contents).
+**Maker Kits** contain more goodies, [all detailed here](/photon/shields/#photon-maker-kit-contents).
 
 In the next section, we'll teach you how to set up your device.
 
