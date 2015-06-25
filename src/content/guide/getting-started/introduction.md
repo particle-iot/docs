@@ -1,8 +1,8 @@
 ---
-title: Getting started with the Photon
+title: Getting started
 template: docs.hbs
 columns: two
-device: photon
+devices: [ photon, core ]
 ---
 
 Your New Photon
