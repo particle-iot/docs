@@ -14,6 +14,7 @@ var define = require('metalsmith-define');
 var compress = require('metalsmith-gzip');
 var paths = require('metalsmith-paths');
 var partial = require('metalsmith-partial');
+var helpers = require('metalsmith-register-helpers');
 var redirect = require('metalsmith-redirect');
 var copy = require('metalsmith-copy');
 
@@ -51,6 +52,9 @@ exports.metalsmith = function() {
         pattern: '**/reference/**/*.md',
         sortBy: 'order'
       }
+    }))
+    .use(helpers({
+      directory: '../templates/helpers'
     }))
     .use(templates({
       engine: 'handlebars',

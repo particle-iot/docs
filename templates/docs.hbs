@@ -35,6 +35,11 @@
 
 </head>
 <body role='flatdoc'>
+  {{#contains path.href 'guide'}}
+    Contains guide!
+  {{else}}
+    nope
+  {{/contains}}
   <div id="docs">
     <div class='header'>
       <div class='left'>
