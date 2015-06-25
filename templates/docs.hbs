@@ -46,7 +46,19 @@
           <a class="nav {{#contains path.href 'reference'}}active{{/contains}}" href="/reference">Reference</a>
           <a class="nav {{#contains path.href 'datasheets'}}active{{/contains}}" href="/datasheets">Datasheets</a>
         </div>
+        <div class="dropdown mobile-only">
+          <a id="dLabel" data-target="#" class="nav" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+            {{first-word-in-relative-url path.href}}
+            <i class="icon ion-chevron-down"></i>
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="dLabel">
+            <li><a href="/guide/{{device}}">Guide</a></li>
+            <li><a href="/reference">Reference</a></li>
+            <li><a href="/datasheets">Datasheets</a></li>
+          </ul>
+        </div>
       </div>
+      {{log this.develpment}}
       <div class='right'>
         <div class="search">
           <script src='/assets/js/google-search.js'></script>

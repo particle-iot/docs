@@ -18,6 +18,10 @@
 .sections {
   display: block;
   float: left;
+  background: blue;
+  @media(max-width: @medium-size) {
+    display: none;
+  }
 }
 
 a.nav {
@@ -176,6 +180,12 @@ table.gsc-search-box {
 .dropdown {
   position: relative;
   display: inline-block;
+  &.mobile-only {
+    display: none;
+    @media(max-width: @medium-size) {
+      display: inline-block;
+    }
+  }
 }
 .dropdown-toggle:focus {
   outline: 0;
@@ -202,7 +212,7 @@ table.gsc-search-box {
   -webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, .175);
           box-shadow: 0 6px 12px rgba(0, 0, 0, .175);
 }
-.dropdown:hover .dropdown-menu {
+.dropdown:hover .dropdown-menu, .dropdown:active .dropdown-menu {
   display: block;
 }
 .dropdown-menu.pull-right {
