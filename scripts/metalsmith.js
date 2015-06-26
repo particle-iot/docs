@@ -17,12 +17,14 @@ var partial = require('metalsmith-partial');
 var helpers = require('metalsmith-register-helpers');
 var redirect = require('metalsmith-redirect');
 var copy = require('metalsmith-copy');
+var fork = require('./fork');
+var inPlace = require('metalsmith-in-place');
+var layouts = require('metalsmith-layouts');
 
 exports.metalsmith = function() {
   var metalsmith = Metalsmith(__dirname)
     .source("../src")
     .destination("../build")
-    .use(markdown())
     .use(ignore([
       '**/less/*.less'
     ]))
@@ -39,23 +41,31 @@ exports.metalsmith = function() {
     }))
     .use(moveUp(['content/**/*']))
     .use(paths())
-    .use(collections({
-      guide: {
-        pattern: '**/guide/**/*.md',
-        sortBy: 'order'
-      },
-      datasheets: {
-        pattern: '**/datasheets/**/*.md',
-        sortBy: 'order'
-      },
-      reference: {
-        pattern: '**/reference/**/*.md',
-        sortBy: 'order'
-      }
-    }))
+    // .use(collections({
+    //   guide: {
+    //     pattern: '**/guide/**/*.md',
+    //     sortBy: 'order'
+    //   },
+    //   datasheets: {
+    //     pattern: '**/datasheets/**/*.md',
+    //     sortBy: 'order'
+    //   },
+    //   reference: {
+    //     pattern: '**/reference/**/*.md',
+    //     sortBy: 'order'
+    //   }
+    // }))
     .use(helpers({
       directory: '../templates/helpers'
     }))
+    .use(fork({
+      key: 'devices'
+    }))
+    .use(inPlace({
+      engine: 'handlebars',
+      pattern: '**/*.md'
+    }))
+    .use(markdown())
     .use(templates({
       engine: 'handlebars',
       directory: '../templates'
@@ -99,7 +109,9 @@ exports.server = function(callback) {
       livereload: true
     }))
     .build(function(err, files) {
-      if(err) {throw err;}
+      if (err) {
+        console.error(err);
+      }
       if (callback) {
         callback(err, files);
       }

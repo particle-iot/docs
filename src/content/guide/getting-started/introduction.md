@@ -4,9 +4,8 @@ template: docs.hbs
 columns: two
 devices: [ photon, core ]
 ---
-
-Your New Photon
-=====
+{{#if photon}}# Your New Photon{{/if}}
+{{#if core}}# Your New Core{{/if}}
 
 ### Congratulations!
 
