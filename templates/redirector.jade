@@ -1,0 +1,22 @@
+html
+	head
+		meta(charset='utf-8')
+		script(type='text/javascript')
+			| var devices = !{JSON.stringify(devices)};
+			| var forkLocations = !{JSON.stringify(forkLocations)};
+		script(type='text/javascript').
+			if (devices.length === 1) {
+				var location = forkLocations[devices[0]];
+				//- window.location.replace(location);
+				console.log(location);
+			} else {
+				var lastDevice = localStorage.getItem('lastDevice');
+				if (lastDevice && forkLocations[lastDevice]) {
+					//- window.location.replace(forkLocations[lastDevice]);
+					console.log(forkLocations[lastDevice]);
+				}
+			}
+
+	body
+		each path, device in forkLocations
+			a(href=path) #{device}

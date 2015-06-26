@@ -19,7 +19,6 @@ var redirect = require('metalsmith-redirect');
 var copy = require('metalsmith-copy');
 var fork = require('./fork');
 var inPlace = require('metalsmith-in-place');
-var layouts = require('metalsmith-layouts');
 
 exports.metalsmith = function() {
   var metalsmith = Metalsmith(__dirname)
@@ -59,7 +58,17 @@ exports.metalsmith = function() {
       directory: '../templates/helpers'
     }))
     .use(fork({
-      key: 'devices'
+      key: 'devices',
+      redirectTemplate: './templates/redirector.jade'
+    }))
+    .use(inPlace({
+      engine: 'jade',
+      pattern: '**/*.jade'
+    }))
+    .use(copy({
+      pattern: '**/*.jade',
+      extension: '.html',
+      move: true
     }))
     .use(inPlace({
       engine: 'handlebars',
@@ -110,7 +119,7 @@ exports.server = function(callback) {
     }))
     .build(function(err, files) {
       if (err) {
-        console.error(err);
+        console.error(err, err.stack);
       }
       if (callback) {
         callback(err, files);

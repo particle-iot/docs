@@ -15,6 +15,7 @@
     "async": "^1.2.1",
     "cheerio": "^0.16.0",
     "handlebars": "^3.0.1",
+    "jade": "^1.11.0",
     "lodash": "^3.9.3",
     "metalsmith": "^1.7.0",
     "metalsmith-broken-link-checker": "^0.1.3",
