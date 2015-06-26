@@ -1,22 +1,45 @@
 html
 	head
 		meta(charset='utf-8')
+		meta(http-equiv="X-UA-Compatible" content="IE=edge,chrome=1")
+		meta(name="viewport" content="width=device-width")
+		meta(content="Particle" property="og:title")
+		meta(content="Documentation for Particle, a platform for connected devices." name="description")
+
+		title Particle Documentation (formerly Spark) | #{title}
+		script(src='/assets/js/jquery-1.11.1.min.js')
+		link(rel="shortcut icon" href="/assets/orange.ico" type="image/x-icon")
+		link(href="/assets/stylesheets/style.css" rel="stylesheet")
+		link(rel="stylesheet" type="text/css" href="//cloud.typography.com/6107112/665726/css/fonts.css")
+
 		script(type='text/javascript')
 			| var devices = !{JSON.stringify(devices)};
 			| var forkLocations = !{JSON.stringify(forkLocations)};
 		script(type='text/javascript').
 			if (devices.length === 1) {
 				var location = forkLocations[devices[0]];
-				//- window.location.replace(location);
-				console.log(location);
+				- window.location.replace(location);
 			} else {
 				var lastDevice = localStorage.getItem('lastDevice');
 				if (lastDevice && forkLocations[lastDevice]) {
-					//- window.location.replace(forkLocations[lastDevice]);
-					console.log(forkLocations[lastDevice]);
+					- window.location.replace(forkLocations[lastDevice]);
 				}
 			}
 
 	body
-		each path, device in forkLocations
-			a(href=path) #{device}
+		script(src='/assets/js/docs.js')
+		script(src='/assets/js/ga.js')
+		script(src="http://localhost:35729/livereload.js")
+		#docs
+			.header
+				.left
+					a(href="https://www.particle.io")
+					img(src="/assets/images/particle-docs.png" id="logo")
+			.getting-started
+				h1.choose-device-header Which device are you interested in?
+				ul.devices
+					each path, device in forkLocations
+						a(href=path)
+							li.device(id=device)
+								h3 #{device}
+								img(src="/assets/images/#{device}.png")

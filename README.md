@@ -62,6 +62,29 @@ shared: true
 ---
 ```
 
+### Device Specific Content
+
+If you are working on a page that has device-specific content, the
+first thing you need to do is add the relevant device names to the
+front-matter of the MD file, like this:
+
+```
+devices: ['photon', 'core']
+```
+Where Photon and Core are the relevant devices to this page. Then, in
+the body of the page, you can specify device-specific content by
+using a special helper, like this:
+
+```
+{{#if photon}}
+  PHOTON SPECIFIC STUFFZ
+{{/if}}
+
+{{#if core}}
+  CORE SPECIFIC STUFFZ
+{{/if}}
+```
+
 ### Tests
 
 To run the test scripts, run `npm test`.
