@@ -101,7 +101,7 @@ void loop() {
 
 - **Select Your Device**: The next step is to make sure that you've selected which of your devices to flash code to.  Click on the "Devices" icon at the bottom left side of the navigation pane, and click on the star next to the device you'd like to update.  Once you've selected a device, the star associated with it will turn yellow. (If you only have one device, there is no need to select it, you can continue on to the next step).
 
-**NOTE**: Left to the name of your device there is an icon which shows which platform it belongs to. The Core has a cyan **C** and Photon a yellow **P**. 
+**NOTE**: Left to the name of your device there is an icon which shows which platform it belongs to. The Core has a cyan **C** and Photon a yellow **P**.
 
 - **Flash**: Click the "Flash" button, and your code will be sent wirelessly to your device.  If the flash was successful, the LED on your device will begin flashing magenta.
 
@@ -168,8 +168,13 @@ Wait, what is firmware?
 
 An *embedded system* like the Core or Photon doesn't have an Operating System like a traditional computer. Instead, it runs a single application, often called *firmware*, which runs whenever the system is powered.
 
+
+![Firmware versions]({{assets}}/images/ide-firmware-versions.png)
+
 *Firmware* is so-called because it's harder than software and softer than hardware. Hardware is fixed during manufacturing, and doesn't change. Software can be updated anytime, so it's very flexible. Firmware is somewhere in between; hardware companies do issue firmware updates, but they tend to be very infrequent, because upgrading firmware can be difficult.
 
 In our case, because the Cores and Photons are connected to the internet, updating firmware is quite trivial; we send it over the network, and we have put in place safeguards to keep you from "bricking" your device.
 
 When you flash code onto your device, you are doing an *over-the-air firmware update*. This firmware update overwrites almost all of the software on the device; the only piece that is untouched is the bootloader, which manages the process of loading new firmware and ensures you can always update the firmware over USB or through a factory reset.
+
+For every device which version of our firmware you want to build against. In most cases you want to build with the latest firmware (which is used by default). If you need to target an older version (i.e. when newer version has some breaking changes) you can select it in dropdown located in device details.
