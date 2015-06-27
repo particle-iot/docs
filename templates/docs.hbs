@@ -83,10 +83,12 @@
       <div class='menubar'>
 
       <ul>
-      {{collections}}
-      {{#each collections.guide}}
-      <li>{{this.name}}</li>
-      {{/each}}
+        {{#each guide}}
+          <h3>{{section}}</h3>
+          {{#each this}}
+            <p>{{title}}</p>
+          {{/each}}
+        {{/each}}
       </ul>
       </div>
 

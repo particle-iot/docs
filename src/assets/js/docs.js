@@ -121,7 +121,7 @@ Derived from Flatdoc (http://ricostacruz.com/flatdoc)
   // Ok, then let's do it!
   Docs.rememberDevices();
   Docs.transform();
-  Docs.buildTableOfContents();
+  //Docs.buildTableOfContents();
   prettyPrint();
 
 })(jQuery);

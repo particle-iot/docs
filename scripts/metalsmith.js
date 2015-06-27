@@ -57,6 +57,11 @@ exports.metalsmith = function() {
     .use(helpers({
       directory: '../templates/helpers'
     }))
+    .use(collections({
+      guide: {
+        pattern: 'guide/:section/*.md',
+      }
+    }))
     .use(fork({
       key: 'devices',
       redirectTemplate: './templates/redirector.jade'
