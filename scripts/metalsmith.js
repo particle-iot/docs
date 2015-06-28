@@ -59,7 +59,7 @@ exports.metalsmith = function() {
     }))
     .use(collections({
       guide: {
-        pattern: 'guide/:section/*.md',
+        pattern: 'guide/:section/*.md'
       }
     }))
     .use(fork({

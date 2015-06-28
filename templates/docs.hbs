@@ -63,16 +63,22 @@
           <script src='/assets/js/google-search.js'></script>
           <gcse:search></gcse:search>
         </div>
-          <div class="dropdown">
-            <a id="dLabel" data-target="#" class="nav" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
-              {{device}}
-              <i class="icon ion-chevron-down"></i>
-            </a>
-            <ul class="dropdown-menu" aria-labelledby="dLabel">
-              <li><a href="/guide/photon/">Photon</a></li>
-              <li><a href="/guide/core/">Core</a></li>
-            </ul>
-          </div>
+          {{#if devices}}
+            <div class="dropdown">
+              <a id="dLabel" data-target="#" class="nav" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+                {{#if photon}}
+                  Photon
+                {{else}}
+                  Core
+                {{/if}}
+                <i class="icon ion-chevron-down"></i>
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="dLabel">
+                <li><a href="{{path.href}}{{path.name}}/photon/">Photon</a></li>
+                <li><a href="{{path.href}}{{path.name}}/core/">Core</a></li>
+              </ul>
+            </div>
+          {{/if}}
         <a href="http://support.particle.io" class="nav" target="_blank"><i class="icon ion-help-buoy"></i>Support</a>
         <a href="/assets/docs.zip" class="nav"><i class="icon ion-arrow-down-a"></i>Download</a>
         <a href='https://www.github.com/spark/docs/tree/master/src/content/{{name}}' class="nav" target="_blank"><i class="ion-edit"></i>Edit</a>
@@ -84,10 +90,14 @@
 
       <ul>
         {{#each guide}}
-          <h3>{{section}}</h3>
-          {{#each this}}
-            <p>{{title}}</p>
-          {{/each}}
+          <li>
+            <h3 class="guide-section-titles">{{titelize section}}</h3>
+            <ul>
+              {{#each this}}
+                <li><a href="{{path.href}}{{path.name}}">{{title}}</a></li>
+              {{/each}}
+            </ul>
+          </li>
         {{/each}}
       </ul>
       </div>
