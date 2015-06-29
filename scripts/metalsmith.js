@@ -2,7 +2,6 @@ var Metalsmith = require('metalsmith');
 var markdown = require('metalsmith-markdown');
 var templates = require('metalsmith-templates');
 var serve = require('metalsmith-serve');
-var watch = require('metalsmith-watch');
 var moveUp = require('metalsmith-move-up');
 var less = require('metalsmith-less');
 var ignore = require('metalsmith-ignore');
@@ -13,12 +12,14 @@ var cleanCSS = require('metalsmith-clean-css');
 var define = require('metalsmith-define');
 var compress = require('metalsmith-gzip');
 var paths = require('metalsmith-paths');
+var path = require('path');
 var partial = require('metalsmith-partial');
 var helpers = require('metalsmith-register-helpers');
 var redirect = require('metalsmith-redirect');
 var copy = require('metalsmith-copy');
 var fork = require('./fork');
 var inPlace = require('metalsmith-in-place');
+var watch = require('metalsmith-simplewatch');
 
 exports.metalsmith = function() {
   var metalsmith = Metalsmith(__dirname)
@@ -111,23 +112,16 @@ exports.build = function(callback) {
 };
 
 exports.server = function(callback) {
-  exports.metalsmith().use(serve())
+
+  watch({
+    buildFn: exports.metalsmith().build,
+    buildPath: path.resolve(__dirname, '../build/'),
+    srcPath: path.resolve(__dirname, '../src/'),
+    port: 8080
+  });
+
+  exports.metalsmith()
     .use(define({
       development: true
     }))
-    .use(watch({
-      paths: {
-        "${source}/**/*": true,
-        "../templates/**/*": "**/*.md",
-      },
-      livereload: true
-    }))
-    .build(function(err, files) {
-      if (err) {
-        console.error(err, err.stack);
-      }
-      if (callback) {
-        callback(err, files);
-      }
-    });
 };

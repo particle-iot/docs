@@ -35,6 +35,7 @@
     "metalsmith-redirect": "^1.0.2",
     "metalsmith-register-helpers": "git://github.com/brycekahle/metalsmith-register-helpers",
     "metalsmith-serve": "0.0.3",
+    "metalsmith-simplewatch": "^2.0.0",
     "metalsmith-templates": "^0.6.1",
     "metalsmith-watch": "^1.0.1",
     "mocha": "^2.2.5",
