@@ -91,11 +91,11 @@
 
       <ul>
         {{#each guide}}
-          <li data-level="1">
+        <li data-level="{{inc @index}}">
             <h3 class="guide-section-titles" >{{titelize section}}</h3>
             <ul>
               {{#each this}}
-                <li><a href="{{path.href}}{{path.name}}">{{title}}</a></li>
+                <li data-level="{{inc @../index}}.{{inc @index}}"><a href="{{path.href}}{{path.name}}">{{title}}</a></li>
               {{/each}}
             </ul>
           </li>

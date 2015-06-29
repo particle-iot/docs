@@ -1,8 +1,9 @@
 define([
   "lodash",
   "jquery",
-  "utils/storage"
-], function(_, $, storage) {
+  "utils/storage",
+  "core/state"
+], function(_, $, storage, state) {
     // Get current level
     var getCurrentLevel = function() {
         return state.level;
@@ -26,6 +27,7 @@ define([
         _.each(levels, function(level) {
             progress[level] = progress[level] || 0;
         });
+
 
         return progress;
     };
