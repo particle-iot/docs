@@ -5,7 +5,8 @@ requirejs.config({
   }
 });
 // Start the main app logic.
-requirejs(['utils/storage', 'core/progress', 'core/state', 'jquery', 'lodash'],
-function   (storage, progress, state, $, _) {
+requirejs(['core/navigation', 'utils/storage', 'core/progress', 'core/state', 'jquery', 'lodash'],
+function (nav, storage, progress, state, $, _) {
+  nav.init();
   progress.show();
 });

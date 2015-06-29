@@ -44,6 +44,7 @@ define([
             ? Date.now()
             : 0;
 
+
         storage.set("progress", progress);
     };
 

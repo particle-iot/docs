@@ -3,6 +3,7 @@
   text-rendering: optimizeLegibility;
   background: @white;
   font-size: 12px;
+  padding-top: 20px;
 
   > ul {
     padding: 10px 15px;
@@ -100,6 +101,28 @@ h3.guide-section-titles {
   text-transform: uppercase;
   letter-spacing: .7px;
   font-weight: 700;
+}
+
+.menubar li[data-level] a,
+.menubar li[data-level] a:visited {
+  font-size: 14px;
+  font-weight: 400;
+  color: @gray;
+  margin: 2px 0;
+}
+.menubar li[data-level] {
+  border-left: 3px solid transparent;
+}
+
+.menubar li[data-level].active {
+  border-left: 3px solid @spark-blue;
+  a {
+    font-weight: 500;
+    color: @dark-gray;
+  }
+}
+.guide-section {
+  margin-bottom: 15px;
 }
 
 /*
