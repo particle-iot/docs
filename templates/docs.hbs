@@ -33,9 +33,10 @@
   <meta content="Particle" property="og:title">
   <meta content="Documentation for Particle, a platform for connected devices." name="description">
 
+
 </head>
 <body role='flatdoc'>
-  <div id="docs">
+  <div id="docs" data-level>
     <div class='header'>
       <div class='left'>
         <a href="https://www.particle.io">
@@ -90,8 +91,8 @@
 
       <ul>
         {{#each guide}}
-          <li>
-            <h3 class="guide-section-titles">{{titelize section}}</h3>
+          <li data-level="1">
+            <h3 class="guide-section-titles" >{{titelize section}}</h3>
             <ul>
               {{#each this}}
                 <li><a href="{{path.href}}{{path.name}}">{{title}}</a></li>
@@ -114,6 +115,9 @@
   <script type="text/javascript" src="https://s3.amazonaws.com/redirect.particle.io/redirect-banner.js"></script>
   <script src='/assets/js/docs.js'></script>
   <script src='/assets/js/ga.js'></script>
+
+  <!-- REQUIRE JS -->
+  <script data-main="/assets/js/modules/app" src="/assets/js/modules/require.js"></script>
 
   <!-- Live Reload -->
   {{#if development}}
