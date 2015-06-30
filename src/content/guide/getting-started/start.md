@@ -1,5 +1,4 @@
 ---
-word: Start
 title: Getting started
 template: docs.hbs
 columns: three
