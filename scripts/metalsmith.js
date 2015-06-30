@@ -24,6 +24,7 @@ var watch = require('metalsmith-watch');
 
 exports.metalsmith = function() {
   var metalsmith = Metalsmith(__dirname)
+    .concurrency(100)
     .source("../src")
     .destination("../build")
     .use(ignore([
