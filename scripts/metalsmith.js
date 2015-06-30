@@ -19,7 +19,8 @@ var redirect = require('metalsmith-redirect');
 var copy = require('metalsmith-copy');
 var fork = require('./fork');
 var inPlace = require('metalsmith-in-place');
-var watch = require('metalsmith-simplewatch');
+//var watch = require('metalsmith-simplewatch');
+var watch = require('metalsmith-watch');
 
 exports.metalsmith = function() {
   var metalsmith = Metalsmith(__dirname)
@@ -112,6 +113,28 @@ exports.build = function(callback) {
 };
 
 exports.server = function(callback) {
+  exports.metalsmith().use(serve())
+    .use(define({
+      development: true
+    }))
+    .use(watch({
+      paths: {
+        "${source}/**/*": true,
+        "../templates/**/*": "**/*.md",
+      },
+      livereload: true
+    }))
+    .build(function(err, files) {
+      if (err) {
+        console.error(err, err.stack);
+      }
+      if (callback) {
+        callback(err, files);
+      }
+    });
+};
+
+/*exports.server = function(callback) {
 
   watch({
     buildFn: exports.metalsmith().build,
@@ -124,4 +147,4 @@ exports.server = function(callback) {
     .use(define({
       development: true
     }))
-};
+};*/
