@@ -2,8 +2,9 @@
 word: Hackathon
 title: Hackathon
 order: 18
-columns: 2
 shared: true
+columns: two
+template: docs.hbs
 ---
 
 Hackathoning with Particle

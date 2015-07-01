@@ -3,6 +3,7 @@ word: Dev
 title: Particle Dev
 order: 6
 shared: true
+columns: 2
 ---
 
 Build Apps with Particle Dev

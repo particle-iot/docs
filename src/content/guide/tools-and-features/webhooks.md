@@ -3,6 +3,8 @@ word: Webhooks
 title: Webhooks
 order: 17
 shared: true
+columns: two
+template: docs.hbs
 ---
 
 Webhooks

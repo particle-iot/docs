@@ -2,8 +2,9 @@
 word: Dashboard
 title: Dashboard
 order: 7
-columns: 2
 shared: true
+columns: two
+template: docs.hbs
 ---
 
 

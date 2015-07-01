@@ -1,6 +1,7 @@
 ---
 title: Designing your own PCB
-columns: 2
+columns: two
+template: docs.hbs
 ---
 
 So you've got a prototype in a breadboard. It's probably a mess of wires, something like this:

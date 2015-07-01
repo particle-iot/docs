@@ -3,7 +3,8 @@ word: Monitor
 title: Monitor
 order: 12
 shared: true
-columns: 2
+columns: two
+template: docs.hbs
 ---
 
 Introduction

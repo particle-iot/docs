@@ -2,7 +2,8 @@
 word: intro
 title: Introduction
 order: 1
-columns: 2
+columns: two
+template: docs.hbs
 ---
 
 #Introduction to THE GUIDE

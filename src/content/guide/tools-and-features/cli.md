@@ -2,6 +2,8 @@
 word: API
 title: Command Line
 order: 15
+columns: two
+template: docs.hbs
 ---
 
 Particle CLI
