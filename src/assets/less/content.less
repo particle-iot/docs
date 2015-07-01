@@ -1,6 +1,10 @@
 /* ----------------------------------------------------------------------------
  * Content styling
  */
+#docs {
+  height: 100%;
+  width: 100%;
+}
 .content {
   position: relative;
 }
@@ -130,16 +134,28 @@
  * Content
  */
 .content-root {
-  min-height: 90%;
+  height: 100%;
   position: relative;
 }
-.content {
+.content, .content-body {
   padding-top: 20px;
   padding-bottom: 20px;
   padding-left: 40px;
   padding-right: 40px;
   zoom: 1;
   max-width: 700px;
+}
+.content-inner {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  overflow-y: auto;
+  @media(max-width: @xlarge-size) {
+    position: static;
+    min-height: calc(~"100% - 50px");
+  }
 }
 .content:before,
 .content:after {
@@ -398,6 +414,65 @@ h1 small.beta {
   color: #9090aa;
   font-size: 0.6em;
   vertical-align: text-top;
+}
+
+.guide-body {
+  position: absolute;
+  left: 230px;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  overflow-y: auto;
+}
+
+.arrow {
+  position: absolute;
+  top: -100px;
+  bottom: 0;
+  max-width: 150px;
+  min-width: 150px;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  flex-direction: column;
+  cursor: pointer;
+  text-align: center;
+  @media(max-width: @xlarge-size) {
+   position: static;
+   top: auto;
+   display: inline-block;
+   float: left;
+   max-width: 50%;
+   width: 50%;
+   height: 180px;
+   margin-top: 50px;
+  }
+  &:hover {
+    i {
+      color: @spark-blue;
+    }
+  }
+  &.previous-arrow {
+    left: 0;
+    @media(max-width: @xlarge-size) {
+      left: 0;
+    }
+  }
+  &.next-arrow {
+    right: 0;
+    @media(max-width: @xlarge-size) {
+      right: 0;
+    }
+  }
+  i {
+    color: @light-gray;
+    font-style: normal;
+    font-size: 2em;
+    .transition(color 0.2s);
+    &:hover {
+      color: @spark-blue;
+    }
+  }
 }
 
 @media (max-width: @medium-size) {
