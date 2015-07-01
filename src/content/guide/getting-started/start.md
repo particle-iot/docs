@@ -9,39 +9,48 @@ devices: [ photon, core ]
 
 ## Getting to Know You
 
-{{#if photon}}![]({{assets}}/images/photon-in-box.jpg){{/if}}
-{{#if core}}![]({{assets}}/images/core-in-box.jpg){{/if}}
+{{#if photon}}![](/assets/images/phokit-box.jpg){{/if}}
+{{#if core}}![](/assets/images/core-in-box.jpg){{/if}}
 
 Congratulations on being the owner of a brand new Particle Device! Go ahead and open the box. You can see the different [contents](/datasheets/kits) and check out their [hardware datasheets](/datasheets) if you like! Let's quickly go over what you see.
 
 ####What's on it?
 
-{{#if photon}}![]({{assets}}/images/photon-module.jpg){{/if}}
+{{#if photon}}![](/assets/images/photon-module.jpg){{/if}}
 
-{{#if core}}![]({{assets}}/images/core-module.jpg){{/if}}
+{{#if core}}![](/assets/images/core-module.jpg){{/if}}
+
 **The Wi-Fi Module.** This is probably why you bought your device-- the Wi-Fi module allows your Core or Photon to communicate with the internet. It connects your device to the internet in the same way that your smartphone might connect to a wifi network.
 
-{{#if core}}![]({{assets}}/images/core-microcontroller.jpg){{/if}}
+{{#if core}}![](/assets/images/core-microcontroller.jpg){{/if}}
+
 **The Microcontroller.** The microcontroller is the brain of your device. It runs your software and tells your prototype what to do. Unlike your computer, it can only run one application (often called *firmware* or an *embedded application*). This application can be simple (just a few lines of code), or very complex, depending on what you want to do. The microcontroller interacts with the outside world using pins.
 
-{{#if photon}}![]({{assets}}/images/photon-pinout.png){{/if}}
+{{#if photon}}![](/assets/images/photon-pinout.png){{/if}}
+
 **The Pins.** Pins are the input and output parts of the microcontroller that are exposed on the sides of your device. GPIO pins can be hooked to sensors or buttons to listen to the world, or they can be hooked to lights and buzzers to act upon the world. There are also pins to allow you to power your device, or power motors and outputs outside of your device. There are pins for Serial/UART communication, and a pin for resetting your device.
 
-{{#if photon}}![]({{assets}}/images/photon-buttons.jpg) 
-![]({{assets}}/images/photon-leds.jpg) 
+{{#if photon}}![](/assets/images/photon-buttons.jpg) 
+![](/assets/images/photon-leds.jpg)
+
 **Buttons and LEDs.** There are several awesome buttons and LEDs on your Photon to make it easier to use.
+
 - The `SETUP` button is on the left and the `RESET` button is on the right. You can use these buttons to help you set your device's [mode](/guide/modes).
 - The RGB LED is in the center of your Photon, above the module. The color of the RGB LED tells you what [mode](/guide/modes) your Photon is currently in.
 - The D7 LED is next to the D7 pin on your Photon, on the upper right quadrant. This LED will turn on when the D7 pin is set to `HIGH`.
+
 {{/if}}
 
 
-{{#if core}}![]({{assets}}/images/core-buttons.jpg)
-![]({{assets}}/images/core-leds.jpg)
+{{#if core}}![](/assets/images/core-buttons.jpg)
+![](/assets/images/core-leds.jpg)
+
 **Buttons and LEDs.** There are several awesome buttons and LEDs on your Core to make it easier to use.
+
 - The `MODE` button is on the left and the `RESET` button is on the right. You can use these buttons to help you set your device's [mode](/guide/modes).
-- The RGB LED is in the center of your Core, above the module. The color of the RGB LED tells you what [mode](/guide/modes) your Core is currently in.
-- The D7 LED in the upper right side of your device. This LED will turn on when the D7 pin is set to `HIGH`.
+- The **RGB LED** is in the center of your Core, above the module. The color of the RGB LED tells you what [mode](/guide/modes) your Core is currently in.
+- The **D7 LED** in the upper right side of your device. This LED will turn on when the D7 pin is set to `HIGH`.
+
 {{/if}}
 
 For more technical details on what comes on your device, go [here](/datasheets).
@@ -53,28 +62,45 @@ Good, me too! Let's get started.
 ##Hello World!
 In this example, we will connect your device to the internet for the very first time. Then, we will blink the D7 LED on your device by using your smartphone. If you don't have your smartphone with you, go ahead and move to the next lesson on [connecting over USB.](/guide/connect)
 
+{{#if photon}}
 ####Materials
 * **Hardware**
-    * Your Particle device, brand new and out of the box!
-    * USB to micro USB cable {{#if photon}}(included with Photon Kit and Maker Kit){{/if}}
-    * Power source for USB cable (such as your computer, USB battery, or power brick)
-    * Your iPhone or Android smartphone
+  * Your Particle device, brand new and out of the box!
+  * USB to micro USB cable {{#if photon}}(included with Photon Kit and Maker Kit){{/if}}
+  * Power source for USB cable (such as your computer, USB battery, or power brick)
+  * Your iPhone or Android smartphone
 * **Software**
-{{#if photon}}    * Particle Mobile App - [iPhone](https://itunes.apple.com/us/app/particle-build-photon-electron/id991459054?ls=1&mt=8) | [Android](https://play.google.com/store/apps/details?id=io.particle.android.app){/if}
-{{#if core}}    * Spark Core Mobile App - [iPhone](https://itunes.apple.com/us/app/spark-core/id760157884) | [Android](https://play.google.com/store/apps/details?id=io.spark.core.android) {{/if}}
+  * Particle Mobile App - [iPhone](https://itunes.apple.com/us/app/particle-build-photon-electron/id991459054?ls=1&mt=8) | [Android](https://play.google.com/store/apps/details?id=io.particle.android.app)
 * **Experience**
     * None! This is your first project.
 
+{{/if}}
+
+{{#if core}}
+####Materials
+* **Hardware**
+  * Your Particle device, brand new and out of the box!
+  * USB to micro USB cable {{#if photon}}(included with Photon Kit and Maker Kit){{/if}}
+  * Power source for USB cable (such as your computer, USB battery, or power brick)
+  * Your iPhone or Android smartphone
+* **Software**
+  * Spark Core Mobile App - [iPhone](https://itunes.apple.com/us/app/spark-core/id760157884) | [Android](https://play.google.com/store/apps/details?id=io.spark.core.android)
+* **Experience**
+    * None! This is your first project.
+
+{{/if}}
+
 ####Step 1: Power On Your Device
-![plug in your device!]({{assets}}/images/photon-plugged-in.jpg)
+![plug in your device!](/assets/images/photon-plugged-in.jpg)
 
 Plug the USB cable into your power source. (Your computer works perfectly for this purpose.)
 
-<div class="boxed">
-*Learning Note: I've got the powerrrrrr!!!*
+<p class="boxed">
+Learning Note: I've got the powerrrrrr!!
+</br>
+Although you may be plugging it into your computer,  your device doesn't need the computer to learn to connect to the internet. Right now, it's just using it for power. You could just as easily power your device with a power brick, a battery shield, or another power source wired to the VIN pin.
 
-*Although you may be plugging it into your computer,  your device doesn't need the computer to learn to connect to the internet. Right now, it's just using it for power. You could just as easily power your device with a power brick, a battery shield, or another power source wired to the VIN pin.*
-</div> 
+</p> 
 
 As soon as it is plugged in, the RGB LED on your device should begin blinking blue.
 
@@ -120,7 +146,7 @@ Once you have connected your device, it has learned that network. Your device ca
 ####Step 3: Blink an LED!
 The Spark app should now be on the Tinker screen, as shown for the Particle app below. The Spark Core App looks a bit different but works in basically the same way.
 
-![Tinker on your Phone!]({{assets}}/images/tinker.png)
+![Tinker on your Phone!](/assets/images/tinker.png)
 
 #### 
 *Learning Note: What is Tinker?*
@@ -149,4 +175,4 @@ Keep in mind that with tinker, you can communicate with any of the pins, not jus
 
 The next lesson is on [connecting over USB](/guide/photon/connect). If you've successfully connected with your smartphone and you'd like to keep playing around with Tinker, skip ahead to learn [device modes](/guide/photon/modes) and then do some [Tinker examples](/guide/photon/tinker).
 
-Otherwise, go to the [next section](/guide/photon/connect) to learn to connect over USB.
+Otherwise, go to the [next section](../../connect) to learn to connect over USB.

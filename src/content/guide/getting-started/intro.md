@@ -19,4 +19,6 @@ We'll fill in more parts of the guide in the coming months, but for now the best
 - Search _[the community](http://community.particle.io)_ for cool examples and advice relevant to your exact project
 - Check out _How to Build a Product_ for final advice
 
-Ready to get started? [Read on!](/guide/start)
+Ready to get started? [Read on!](../../start)
+
+<p class="boxed">test header</p>
