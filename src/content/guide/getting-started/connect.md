@@ -1,25 +1,39 @@
 ---
-word: Connect
-title: Connecting your Device
-order: 3
-columns: 2
+title: Connecting Your Device
+template: docs.hbs
+columns: two
+devices: [ photon, core ]
 ---
 
 #Connecting your Device over USB
 
+The easiest way to connect your device to Wi-Fi is using the mobile app as described in the [previous lesson](/guide/start). But in case that's not working for you or you don't have an iOS/Android phone, there are other methods as well.
+
+For all of the following methods, the device must be in [Listening Mode](/../../modes), where the RGB LED is flashing blue.
+
+{{#if photon}}
 <div class="iframe-wrapper">
   <iframe src="https://vine.co/v/eZUH7WaWjMT/embed/simple" width="320" height="320" frameborder="0"></iframe>
 </div>
+{{/if}}
+{{#if core}}
+<div class="iframe-wrapper">
+  <iframe src="https://vine.co/v/eZU6YiK20Hl/embed/simple" width="320" height="320" frameborder="0"></iframe>
+</div>
+{{/if}}
 
-The easiest way to connect your device to Wi-Fi is using the mobile app as described in the [previous lesson](/guide/start). But in case that's not working for you or you don't have an iOS/Android phone, there are other methods as well.
+The Core and Photon both boot into listening mode by default, so if your device is brand new, it should go straight into listening mode. Otherwise, hold the MODE button for three seconds. The RGB LED will be flashing blue in this mode.
 
-For all of the following methods, the device must be in [Listening Mode](/guide/modes), where the RGB LED is flashing blue.
-
+{{#if photon}}
 <div class="iframe-wrapper">
   <iframe src="https://vine.co/v/eZUHUIjq7pO/embed/simple" width="320" height="320" frameborder="0"></iframe>
 </div>
-
-The Core and Photon both boot into listening mode by default, so if your device is brand new, it should go straight into listening mode. Otherwise, hold the MODE button for three seconds. The RGB LED will be flashing blue in this mode.
+{{/if}}
+{{#if core}}
+<div class="iframe-wrapper">
+  <iframe src="https://vine.co/v/eZUgHYYrYgl/embed/simple" width="600" height="600" frameborder="0"></iframe>
+</div>
+{{/if}}
 
 There are a two ways to go about connecting your Photon over USB, depending on your OS. These links will take you to the right place:
 

@@ -1,15 +1,15 @@
 ---
-word: Modes
 title: Device Modes
-order: 4
-columns: 2
+template: docs.hbs
+columns: two
+devices: [ photon, core ]
 ---
 
 #Device Modes
 
 Now that we've gone over connecting your device, we're going to review the different modes for your Core or Photon. We suggest that you loop through this section, putting your device in the different listed modes to familiarize yourself with them.
 
-
+{{#if photon}}
 ## Photon Modes
 
 ### Connected
@@ -146,7 +146,9 @@ To perform a factory reset:
 4. The LED will turn solid white (continue to hold the MODE button)
 5. Finally, the LED will turn blink white rapidly
 6. Release the MODE button
+{{/if}}
 
+{{#if core}}
 ## Core Modes
 
 ### Connected
@@ -240,3 +242,4 @@ Procedure:
 
 The device now is in the DFU mode.
 
+{{/if}}

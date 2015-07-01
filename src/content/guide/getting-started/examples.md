@@ -1,9 +1,8 @@
 ---
-word: Examples
 title: Examples
-order: 5
-shared: true
-columns: 2
+template: docs.hbs
+columns: two
+devices: [ photon, core ]
 ---
 
 Annotated examples

@@ -1,23 +1,36 @@
 ---
-word: Tinker
-title: Tinker (Particle app)
-order: 5
-columns: 2
+title: Tinkering with Tinker
+template: docs.hbs
+columns: two
+devices: [ photon, core ]
 ---
 
 #Tinkering with "Tinker"
 
-##The Particle app
-
 ![Tinker selection]({{assets}}/images/tinker.png)
 
-The Tinker section of the Particle mobile app makes it very easy to start playing with your Particle device without writing any code. It's great for early development, and often it will do everything you need to get your project off of the ground.
+The Tinker section of the Particle mobile app makes it very easy to start playing with your Particle device without writing any code. It's great for early development, learning, and prototyping. We'll learn to use it in the next few examples.
 
-If you don't yet have it, go ahead and grab the Particle App if you have a Photon and Spark Core App if you have a Core.
-- Particle App for Photon: [iPhone](https://itunes.apple.com/us/app/particle-build-photon-electron/id991459054?ls=1&mt=8) | [Android](https://play.google.com/store/apps/details?id=io.particle.android.app)
-- Spark Core App for Core: [iPhone](https://itunes.apple.com/us/app/spark-core/id760157884) | [Android](https://play.google.com/store/apps/details?id=io.spark.core.android)
+To get started, you'll need the following things:
+
+####Materials
+* **Hardware**
+  * Your Particle device, brand new and out of the box!
+  * USB to micro USB cable {{#if photon}}(included with Photon Kit and Maker Kit){{/if}}
+  * Power source for USB cable (such as your computer, USB battery, or power brick)
+  * Your iPhone or Android smartphone
+* **Software**
+  * Particle Mobile App - [iPhone](https://itunes.apple.com/us/app/particle-build-photon-electron/id991459054?ls=1&mt=8) | [Android](https://play.google.com/store/apps/details?id=io.particle.android.app)
+* **Experience**
+    * Connecting your Device [with your smartphone](../../start) or [over USB](../../connect)
+
+{{#if core}}**NOTE:** You may already have the Spark Core App for [iPhone](https://itunes.apple.com/us/app/spark-core/id760157884) or [Android](https://play.google.com/store/apps/details?id=io.spark.core.android). We recommend getting the newer Particle Mobile App anyway, since it's a very nice interface for Tinker that works across all devices. Sadly, the new Particle Mobile App will not connect your Core, though. So, if you don't feel like having two apps on your phone, the old Spark Core App will still work just fine for these examples.{{/if}}
+
+##Tinker App Layout
 
 The app consists of 16 pins in vertical rows - 8 analog pins on the left, 8 digital pins on the right. These pins represent the 16 GPIO (General Purpose Input and Output) pins on your device.
+
+![](/assets/images/tinker.png)
 
 To begin, tap any of the pins. A menu will pop up showing the functions that pin has available, tap a function name to select the pin functionality. You can reset the pin function by long-pressing it. Each pin can have up to four possible functions:
 
@@ -31,7 +44,7 @@ In other words, Tinker lets you control and read the voltage of the pins on your
 
 ##digitalWrite: LED On/Off
 
-The easiest thing we can do is to turn the D7 LED on and off. The first step is to [connect your device](/photon/connect). Then, open your Particle mobile app and select your device.
+The easiest thing we can do is to turn the D7 LED on and off. The first step is to [connect your device](/../../connect). Then, open your Particle mobile app and select your device.
 
 To turn on the LED, tap the D7 pin on the mobile app. Then tap `digitalWrite` to let it know that you want to send high or low voltage to that pin.
 
