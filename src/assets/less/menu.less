@@ -65,7 +65,7 @@
     left: 0;
     top: 0;
     bottom: 0;
-    width: 230px;
+    width: 280px;
     border-right: solid 1px #dfe2e7;
   }
   .menubar.fixed {
@@ -100,6 +100,7 @@ h3.guide-section-titles {
   text-transform: uppercase;
   letter-spacing: .7px;
   font-weight: 700;
+  margin-bottom: 5px;
 }
 
 .menubar li[data-level] a,
@@ -110,14 +111,16 @@ h3.guide-section-titles {
   margin: 2px 0;
 }
 .menubar li[data-level] {
-  border-left: 3px solid transparent;
+  text-overflow: ellipsis;
+  overflow-x: hidden;
+  white-space: nowrap;
+  padding: 2px 0;
 }
 
 .menubar li[data-level].active {
-  border-left: 3px solid @spark-blue;
   a {
-    font-weight: 500;
-    color: @dark-gray;
+    font-weight: 700;
+    color: @spark-blue;
   }
 }
 .guide-section {

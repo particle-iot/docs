@@ -95,8 +95,8 @@
             <h3 class="guide-section-titles" >{{titelize section}}</h3>
             <ul>
               {{#each this}}
-              <!--<li data-level="{{inc @../index}}.{{inc @index}}"><a href="{{path.href}}{{path.name}}{{#if ../../photon}}/photon/{{else}}{{#if ../../core}}/core/{{/if}}{{/if}}">{{title}}</a></li>-->
-                <li data-level="{{inc @../index}}.{{inc @index}}"><a href="{{path.href}}{{path.name}}">{{title}}</a></li>
+                <!--<li data-level="{{inc @../index}}.{{inc @index}}"><a href="{{path.href}}{{path.name}}{{#if ../../photon}}/photon/{{else}}{{#if ../../core}}/core/{{/if}}{{/if}}">{{title}}</a></li>-->
+                <li class="{{#objects-are-equal ../../path.href ../../path.name path.href path.name}}active{{/objects-are-equal}}" data-level="{{inc @../index}}.{{inc @index}}"><a href="{{path.href}}{{path.name}}">{{title}}</a></li>
               {{/each}}
             </ul>
           </li>
