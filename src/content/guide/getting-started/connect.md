@@ -3,6 +3,7 @@ title: Connecting Your Device
 template: docs.hbs
 columns: two
 devices: [ photon, core ]
+order: 4
 ---
 
 #Connecting your Device over USB

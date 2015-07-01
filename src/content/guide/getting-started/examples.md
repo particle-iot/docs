@@ -3,6 +3,7 @@ title: Examples
 template: docs.hbs
 columns: two
 devices: [ photon, core ]
+order: 5
 ---
 
 Annotated examples

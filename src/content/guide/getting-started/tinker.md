@@ -3,6 +3,7 @@ title: Tinkering with Tinker
 template: docs.hbs
 columns: two
 devices: [ photon, core ]
+order: 6
 ---
 
 #Tinkering with "Tinker"

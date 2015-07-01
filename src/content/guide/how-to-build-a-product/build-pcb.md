@@ -2,6 +2,7 @@
 title: Designing your own PCB
 columns: two
 template: docs.hbs
+order: 2
 ---
 
 So you've got a prototype in a breadboard. It's probably a mess of wires, something like this:

@@ -2,6 +2,7 @@
 title: Building your own mobile app (iOS and Android)
 columns: two
 template: docs.hbs
+order: 6
 ---
 
 While using your Photon, you've probably come across our Particle mobile apps (iOS and Android). You may have used these apps to set up your device and "tinker" with the GPIO pins.

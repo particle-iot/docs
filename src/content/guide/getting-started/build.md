@@ -3,6 +3,7 @@ title: Web IDE (Build)
 template: docs.hbs
 columns: two
 devices: [ photon, core ]
+order: 7
 ---
 
 Flash Apps with Particle Build

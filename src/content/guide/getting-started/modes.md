@@ -3,6 +3,7 @@ title: Device Modes
 template: docs.hbs
 columns: two
 devices: [ photon, core ]
+order: 3
 ---
 
 #Device Modes
