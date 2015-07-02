@@ -14,7 +14,7 @@ Here you will find a bunch of examples to get you started with your new Particle
 
 ##Blink an LED
 
-![One LED illustration]({{assets}}/images/photon-led-fritzing.png)
+![One LED illustration](/assets/images/photon-led-fritzing.png)
 
 ###Intro
 
@@ -120,7 +120,7 @@ void loop() {
 
 ##Control LEDs over the 'net
 
-![One LED illustration]({{assets}}/images/photon-led-fritzing.png)
+![One LED illustration](/assets/images/photon-led-fritzing.png)
 
 ###Intro
 
@@ -284,7 +284,7 @@ To better understand the concept of making API calls to your device over the clo
 
 ##Read your Photoresistor: Function and Variable
 
-![Fritzing Diagram]({{assets}}/images/photon-photoresistor-fritzing.png)
+![Fritzing Diagram](/assets/images/photon-photoresistor-fritzing.png)
 
 ###Intro
 
@@ -442,7 +442,7 @@ Now you can turn your LED on and off and see the values at A0 change based on th
 
 ##Make a Motion Detector: Publish and the Dashboard
 
-![Fritzing Diagram]({{assets}}/images/photon-photoresistor-fritzing.png)
+![Fritzing Diagram](/assets/images/photon-photoresistor-fritzing.png)
 
 ###Intro
 
@@ -629,7 +629,7 @@ void loop() {
 
 ##The Buddy System: Publish and Subscribe
 
-![Fritzing Diagram]({{assets}}/images/photon-photoresistor-fritzing.png)
+![Fritzing Diagram](/assets/images/photon-photoresistor-fritzing.png)
 
 ###Intro
 

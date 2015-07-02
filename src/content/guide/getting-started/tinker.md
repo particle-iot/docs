@@ -8,7 +8,7 @@ order: 5
 
 #Tinkering with "Tinker"
 
-![Tinker selection]({{assets}}/images/tinker.png)
+![Tinker selection](/assets/images/tinker.png)
 
 The Tinker section of the Particle mobile app makes it very easy to start playing with your Particle device without writing any code. It's great for early development, learning, and prototyping. We'll learn to use it in the next few examples.
 
@@ -105,7 +105,7 @@ In this example, we'll plug an LED into D0 and change its brightness with analog
 
 Wire up your LED with one of your resistors as follows:
 
-![LED fritzing]({{assets}}/images/photon-led-fritzing.png)
+![LED fritzing](/assets/images/photon-led-fritzing.png)
 
 Then, pull up your mobile app and select D0 this time. Instead of `digitalWrite`, select `analogWrite`.
 
