@@ -2,6 +2,7 @@
 title: Building your own web app
 columns: two
 template: docs.hbs
+order: 3
 ---
 
 In many cases, you will want to set up your own web service that interacts with your customers' products. At a high level, there are two types of web applications you might consider building:

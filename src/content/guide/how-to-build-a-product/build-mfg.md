@@ -2,6 +2,7 @@
 title: Manufacturing, programming, and testing
 columns: two
 template: docs.hbs
+order: 4
 ---
 
 You've finished your hardware and software development. Your PCB is designed and tested; you've built your own web and mobile apps, and you've had a few beta customers successfully use products that you've built for them by hand. You've lined up a contract manufacturer (CM), and now you're ready to start manufacturing.

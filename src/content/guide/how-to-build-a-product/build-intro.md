@@ -2,6 +2,7 @@
 title: How to build a product with Particle
 columns: two
 template: docs.hbs
+order: 1
 ---
 
 How to build a product with Particle
