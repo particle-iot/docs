@@ -3,6 +3,7 @@ title: Web IDE (Build)
 template: docs.hbs
 columns: two
 devices: [ photon, core ]
+order: 6
 ---
 
 Flash Apps with Particle Build
@@ -173,3 +174,5 @@ An *embedded system* like the Core or Photon doesn't have an Operating System li
 In our case, because the Cores and Photons are connected to the internet, updating firmware is quite trivial; we send it over the network, and we have put in place safeguards to keep you from "bricking" your device.
 
 When you flash code onto your device, you are doing an *over-the-air firmware update*. This firmware update overwrites almost all of the software on the device; the only piece that is untouched is the bootloader, which manages the process of loading new firmware and ensures you can always update the firmware over USB or through a factory reset.
+
+Feeling oriented? Let's move on to some more interesting [examples.](../../examples)

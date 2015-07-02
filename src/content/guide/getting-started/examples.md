@@ -1,12 +1,12 @@
 ---
-title: Examples
+title: Code Examples
 template: docs.hbs
 columns: two
 devices: [ photon, core ]
+order: 7
 ---
 
-Annotated examples
-=======
+#Annotated examples
 
 Here you will find a bunch of examples to get you started with your new Particle device! The diagrams here show the Photon, but these examples will work with either the Photon or the Core.
 
@@ -828,5 +828,109 @@ void myHandler(const char *event, const char *data)
 }
 
 ```
+<a id="annotated-tinker-firmware" data-firmware-example-url="http://docs.particle.io/photon/tinker/#annotated-tinker-firmware" data-firmware-example-title="Tinker" data-firmware-example-description="The factory default firmware that mobile apps interact with">
 
+##Tinker
+
+Remember back when we were blinking lights and reading sensors with Tinker on the mobile app?
+
+When you tap a pin on the mobile app, it sends a message up to the cloud. Your device is always listening to the cloud and waiting for instructions-- like "write D7 HIGH" or "read the voltage at A0".
+
+Your device already knew how to communicate with the mobile app because of the firmware loaded onto your device as a default. We call this the Tinker firmware. It's just like the user firmware you've been loading onto your device in these examples. It's just that with the Tinker firmware, we've specified special `Spark.function`s that the mobile app knows and understands.
+
+If your device is new, it already has the Tinker firmware on it. It's the default firmware stored on your device right from the factory. When you put your own user firmware on your device, you'll rewrite the Tinker firmware. (That means that your device will no longer understand commands from the Particle mobile app.) However, you can always get the Tinker firmware back on your device by putting it in [factory reset mode](/photon/modes/#selecting-various-modes-factory-reset), or by re-flashing your device with Tinker in the Particle app.
+
+To reflash Tinker from within the app:
+
+- **iOS Users**: Tap the list button at the top left. Then tap the arrow next to your desired device and tap the "Re-flash Tinker" button in the pop out menu.
+- **Android Users**: With your desired device selected, tap the options button in the upper right and tap the "Reflash Tinker" option in the drop down menu.
+
+The Tinker app is a great example of how to build a very powerful application with not all that much code. If you're a technical person, you can have a look at the latest release [here.](https://github.com/spark/firmware/blob/master/src/application.cpp)
+
+I know what you're thinking: this is amazing, but I really want to use Tinker *while* my code is running so I can see what's happening! Now you can.
+
+Combine your code with this framework, flash it to your device, and Tinker away. You can also access Tinker code by clicking on the last example in the online IDE's code menu.
+
+<a data-firmware-example-code-block=true>
+
+```cpp
+int tinkerDigitalRead(String pin);
+int tinkerDigitalWrite(String command);
+int tinkerAnalogRead(String pin);
+int tinkerAnalogWrite(String command);
+
+//PUT YOUR VARIABLES HERE
+
+void setup()
+{
+  Spark.function("digitalread", tinkerDigitalRead);
+  Spark.function("digitalwrite", tinkerDigitalWrite);
+  Spark.function("analogread", tinkerAnalogRead);
+  Spark.function("analogwrite", tinkerAnalogWrite);
+
+  //PUT YOUR SETUP CODE HERE
+
+
+}
+
+void loop()
+{
+  //PUT YOUR LOOP CODE HERE
+
+
+}
+
+int tinkerDigitalRead(String pin) {
+  int pinNumber = pin.charAt(1) - '0';
+  if (pinNumber< 0 || pinNumber >7) return -1;
+  if(pin.startsWith("D")) {
+    pinMode(pinNumber, INPUT_PULLDOWN);
+    return digitalRead(pinNumber);}
+  else if (pin.startsWith("A")){
+    pinMode(pinNumber+10, INPUT_PULLDOWN);
+    return digitalRead(pinNumber+10);}
+  return -2;}
+
+int tinkerDigitalWrite(String command){
+  bool value = 0;
+  int pinNumber = command.charAt(1) - '0';
+  if (pinNumber< 0 || pinNumber >7) return -1;
+  if(command.substring(3,7) == "HIGH") value = 1;
+  else if(command.substring(3,6) == "LOW") value = 0;
+  else return -2;
+  if(command.startsWith("D")){
+    pinMode(pinNumber, OUTPUT);
+    digitalWrite(pinNumber, value);
+    return 1;}
+  else if(command.startsWith("A")){
+    pinMode(pinNumber+10, OUTPUT);
+    digitalWrite(pinNumber+10, value);
+    return 1;}
+  else return -3;}
+
+int tinkerAnalogRead(String pin){
+  int pinNumber = pin.charAt(1) - '0';
+  if (pinNumber< 0 || pinNumber >7) return -1;
+  if(pin.startsWith("D")){
+    pinMode(pinNumber, INPUT);
+    return analogRead(pinNumber);}
+  else if (pin.startsWith("A")){
+    pinMode(pinNumber+10, INPUT);
+    return analogRead(pinNumber+10);}
+  return -2;}
+
+int tinkerAnalogWrite(String command){
+  int pinNumber = command.charAt(1) - '0';
+  if (pinNumber< 0 || pinNumber >7) return -1;
+  String value = command.substring(3);
+  if(command.startsWith("D")){
+    pinMode(pinNumber, OUTPUT);
+    analogWrite(pinNumber, value.toInt());
+    return 1;}
+  else if(command.startsWith("A")){
+    pinMode(pinNumber+10, OUTPUT);
+    analogWrite(pinNumber+10, value.toInt());
+    return 1;}
+  else return -2;}
+```
 

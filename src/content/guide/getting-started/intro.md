@@ -3,6 +3,7 @@ title: Introduction
 template: docs.hbs
 columns: two
 devices: [ photon, core ]
+order: 1
 ---
 
 #Introduction to THE GUIDE

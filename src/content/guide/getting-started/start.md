@@ -3,6 +3,7 @@ title: Getting started
 template: docs.hbs
 columns: two
 devices: [ photon, core ]
+order: 2
 ---
 
 #Getting Started

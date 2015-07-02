@@ -3,6 +3,7 @@ title: Connecting Your Device
 template: docs.hbs
 columns: two
 devices: [ photon, core ]
+order: 3
 ---
 
 #Connecting your Device over USB
@@ -37,8 +38,8 @@ The Core and Photon both boot into listening mode by default, so if your device 
 
 There are a two ways to go about connecting your Photon over USB, depending on your OS. These links will take you to the right place:
 
-- [Windows](#connecting-your-device-using-windows)
-- [Mac OSX](#connecting-your-device-using-osx)
+- [Windows](../#connecting-your-device-using-windows)
+- [Mac OSX](../#connecting-your-device-using-osx)
 
 ##Using Windows
 
@@ -113,7 +114,7 @@ More info on the CLI is available [here](/photon/cli).
 
 ##Using OSX
 
-We're going to install the Particle CLI on your computer. If you already have node.js installed, you can skip to [this step](#install-the-particle-cli).
+We're going to install the Particle CLI on your computer. If you already have node.js installed, you can skip to [this step](../#install-the-particle-cli).
 
 ###Installing Node.js
 The Particle CLI runs with Node.js. Grab the latest version from [the Node.js website](http://nodejs.org/download)
@@ -144,6 +145,4 @@ If you have already claimed your device and you want to connect it to wifi, type
 
 If your device is not connecting, try troubleshooting [here](http://support.particle.io/).
 
-More info on the CLI is available [here](/photon/cli).
-
-Once you've finished connecting your device, head over to [the next section](/guide/modes) to learn about the different modes for your device.
+Once you've finished connecting your device, head over to [the next section](/../../modes) to learn about the different modes for your device.
