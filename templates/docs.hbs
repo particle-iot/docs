@@ -102,7 +102,9 @@
                     {{#each ../../../toc}}
                       <li><a href="#{{id}}">{{text}}</a></li>
                       {{#each children}}
-                      <!--<li><a href="#{{id}}">{{text}}</a></li>-->
+                      <ul class="secondary-in-page-toc">
+                        <li><a href="#{{id}}">{{text}}</a></li>
+                      </ul>
                       {{/each}}
                     {{/each}}
                   </ul>
