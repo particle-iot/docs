@@ -109,12 +109,27 @@ h3.guide-section-titles {
   font-weight: 400;
   color: @gray;
   margin: 2px 0;
+  .transition(color 0.2s);
+  &:hover {
+    color: @dark-gray;
+  }
 }
 .menubar li[data-level] {
   text-overflow: ellipsis;
   overflow-x: hidden;
   white-space: nowrap;
   padding: 2px 0;
+  ul.in-page-toc {
+    padding-left: 10px;
+    li {
+      text-overflow: ellipsis;
+      overflow-x: hidden;
+      padding: 2px 0;
+      a {
+        font-size: 12px;
+      }
+    }
+  }
 }
 
 .menubar li[data-level].active {

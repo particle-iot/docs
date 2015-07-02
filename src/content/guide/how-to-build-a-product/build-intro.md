@@ -12,7 +12,7 @@ Particle is not just a development platform. In fact, our primary goal is to hel
 
 This guide will teach you everything you need to transition from a breadboard prototype to a device manufactured at scale running on Particle's software platform. Many of the lessons within are broadly applicable to a wide range of products (whether they run on our platform or not). Other lessons are platform-specific. If you are an experienced engineer with manufacturing experience, some of these lessons will feel juvenile; if so, simply skip over the bits that you already know.
 
-#### But wait, I thought you were a hardware company?
+### But wait, I thought you were a hardware company?
 
 Sort of. We're a software company that serves hardware companies. In order to most effectively deliver our software platform, we sell hardware (development kits and modules) that are pre-programmed with our software stack. All of our magic is in the software.
 
