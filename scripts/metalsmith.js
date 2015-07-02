@@ -20,7 +20,7 @@ var copy = require('metalsmith-copy');
 var fork = require('./fork');
 var inPlace = require('metalsmith-in-place');
 var watch = require('metalsmith-simplewatch');
-//var watch = require('metalsmith-watch');
+var autotoc = require('metalsmith-autotoc');
 
 exports.metalsmith = function() {
   var metalsmith = Metalsmith(__dirname)
@@ -43,20 +43,6 @@ exports.metalsmith = function() {
     }))
     .use(moveUp(['content/**/*']))
     .use(paths())
-    // .use(collections({
-    //   guide: {
-    //     pattern: '**/guide/**/*.md',
-    //     sortBy: 'order'
-    //   },
-    //   datasheets: {
-    //     pattern: '**/datasheets/**/*.md',
-    //     sortBy: 'order'
-    //   },
-    //   reference: {
-    //     pattern: '**/reference/**/*.md',
-    //     sortBy: 'order'
-    //   }
-    // }))
     .use(helpers({
       directory: '../templates/helpers'
     }))
@@ -84,6 +70,10 @@ exports.metalsmith = function() {
       pattern: '**/*.md'
     }))
     .use(markdown())
+    .use(autotoc({
+      selector: 'h2, h3, h4',
+      pattern: '**/**/*.md'
+    }))
     .use(templates({
       engine: 'handlebars',
       directory: '../templates'

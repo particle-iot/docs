@@ -90,13 +90,13 @@
     <div class='content-root' data-spy="scroll" data-target="#toc">
       <div class='menubar'>
 
+      TABLE OF CONTENTS: {{toc}}
       <ul>
         {{#each guide}}
         <li data-level="{{inc @index}}" class="guide-section">
             <h3 class="guide-section-titles" >{{titelize section}}</h3>
             <ul>
               {{#each this}}
-                <!--<li data-level="{{inc @../index}}.{{inc @index}}"><a href="{{path.href}}{{path.name}}{{#if ../../photon}}/photon/{{else}}{{#if ../../core}}/core/{{/if}}{{/if}}">{{title}}</a></li>-->
                 <li class="{{#objects-are-equal ../../path.href ../../path.name path.href path.name}}active{{/objects-are-equal}}" data-level="{{inc @../index}}.{{inc @index}}"><a href="{{path.href}}{{path.name}}">{{title}}</a></li>
               {{/each}}
             </ul>
