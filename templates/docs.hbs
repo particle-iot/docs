@@ -20,7 +20,8 @@
   <script src='/assets/js/jquery-styling.js'></script>
   <script src='/assets/js/bootstrap-dropdown.js'></script>
   <script src='/assets/js/prettify.js'></script>
-  <script src='/assets/js/scrollspy.js'></script>
+  <script src='/assets/js/jquery.waypoints.js'></script>
+  <script src='/assets/js/jquery.waypoints.inview.js'></script>
 
   <!-- Spark theme mods -->
   <link href='/assets/stylesheets/style.css' rel='stylesheet'>
@@ -87,10 +88,10 @@
       </div>
     </div>
 
-    <div class='content-root' data-spy="scroll" data-target="#toc">
+    <div class='content-root'>
       <div class='menubar'>
 
-      <ul>
+      <ul class="nav">
         {{#each guide}}
         <li data-level="{{inc @index}}" class="guide-section">
             <h3 class="guide-section-titles" >{{titelize section}}</h3>
@@ -98,16 +99,18 @@
               {{#each this}}
                 <li class="{{#page-equal ../../path.href ../../path.name path.href path.name}}active{{/page-equal}}" data-level="{{inc @../index}}.{{inc @index}}"><a href="{{path.href}}{{path.name}}">{{title}}</a></li>
                 {{#page-equal ../../path.href ../../path.name path.href path.name}}
-                  <ul class="in-page-toc">
-                    {{#each ../../../toc}}
-                      <li><a href="#{{id}}">{{text}}</a></li>
-                      {{#each children}}
-                      <ul class="secondary-in-page-toc">
+                  <div class="in-page-toc-container">
+                    <ul class="nav in-page-toc">
+                      {{#each ../../../toc}}
                         <li><a href="#{{id}}">{{text}}</a></li>
-                      </ul>
+                        <ul class="nav secondary-in-page-toc">
+                          {{#each children}}
+                            <li><a href="#{{id}}">{{text}}</a></li>
+                          {{/each}}
+                        </ul>
                       {{/each}}
-                    {{/each}}
-                  </ul>
+                    </ul>
+                  </div>
                 {{/page-equal}}
               {{/each}}
             </ul>
@@ -117,7 +120,7 @@
       </div>
       <div class="guide-body">
         <div class='content-inner'>
-          <div class="content">
+          <div class="content" >
             {{{contents}}}
           </div>
           <div class="code-samples">
@@ -138,7 +141,7 @@
   <script src='/assets/js/ga.js'></script>
 
   <!-- REQUIRE JS -->
-  <script data-main="/assets/js/modules/app" src="/assets/js/modules/require.js"></script>
+  <!--<script data-main="/assets/js/modules/app" src="/assets/js/modules/require.js"></script>-->
 
   <!-- Live Reload -->
   {{#if development}}

@@ -70,58 +70,32 @@ Derived from Flatdoc (http://ricostacruz.com/flatdoc)
     }
   };
 
-  Docs.buildTableOfContents = function() {
-
-    var pathArray = window.location.pathname.split('/');
-    var page = pathArray[pathArray.length - 2];
-
-    // var $toc = $('.menubar');
-    var $toc = $('.menubar a[href*="' + page + '"]');
-
-    if ($toc.length < 1) {
-      $toc = $('.menubar');
-    }
-
-    // create menu object
-    var menu = [];
-
-    $('.content').find('h1, h2, h3').each(function() {
-      var $el = $(this);
-      var level = +($el[0].tagName.substr(1));
-
-      var obj = { section: $el.text(), items: [], level: level, id: $el.attr('id') };
-      menu.push(obj);
-    });
-
-
-    // Add the TOC
-    if (menu.length > 0) {
-      menu.forEach(function(item) {
-        var id = item.id;
-
-        var $li = $('<li>')
-          .attr('id', id + '-item')
-          .addClass('level-' + item.level);
-
-        if (item.section) {
-          var $a = $('<a>')
-            .html(item.section)
-            .attr('id', id + '-link')
-            .attr('href', '#' + id)
-            .addClass('level-' + item.level);
-            $li.append($a);
-        }
-
-        $toc.append($li);
-
-      });
-    }
+  Docs.addClass = function() {
   };
+
+  Docs.buildTableOfContents = function() {
+    var $h2s = $('.content h2');
+    var $h3s = $('.content h3');
+
+    $h2s.each(function() {
+      var waypoint = new Waypoint.Inview({
+        element: $(this)[0],
+        enter: function() {
+          var elementId = this.element.id;
+          var $correspondingNavElement = $('ul.in-page-toc li a[href="#' + elementId + '"]');
+          $('ul.in-page-toc li a').removeClass('active');
+          $correspondingNavElement.addClass('active');
+        },
+        context: $('.content-inner')[0]
+      });
+    });
+  };
+
 
   // Ok, then let's do it!
   Docs.rememberDevices();
   Docs.transform();
-  //Docs.buildTableOfContents();
+  Docs.buildTableOfContents();
   prettyPrint();
 
 })(jQuery);
