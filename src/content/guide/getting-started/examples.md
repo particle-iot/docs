@@ -10,29 +10,38 @@ order: 7
 
 Here you will find a bunch of examples to get you started with your new Particle device! The diagrams here show the Photon, but these examples will work with either the Photon or the Core.
 
+These examples are also listed in the online IDE in the Code menu.
+
+To complete all the examples, you will need the following materials:
+
+####Materials
+* **Hardware**
+  * Your Particle device
+  * USB to micro USB cable {{#if photon}}(included with Photon Kit and Maker Kit){{/if}}
+  * Power source for USB cable (such as your computer, USB battery, or power brick)
+  * (2) Resistors between 220 Ohms and 1000 Ohms {{#if photon}}(220 Ohm Resistors included with Photon Kit and Maker Kit){{/if}}
+  * (1) LED, any color {{#if photon}}(Red LED included with Photon Kit and Maker Kit){{/if}}
+  * (1) Photoresistor {{#if photon}}(Included with Photon Kit and Maker Kit){{/if}}
+* **Software**
+  * A text editor such as [Sublime](http://www.sublimetext.com/) or [TextMate](https://macromates.com/)
+  * The [online IDE](http://build.particle.io) or [Particle Dev](http://particle.io/dev)
+* **Experience**
+  * Connecting your Device [with your smartphone](../../start) or [over USB](../../connect)
+
 <a id="blink-an-led" data-firmware-example-url="http://docs.particle.io/photon/examples/#blink-an-led" data-firmware-example-title="Blink an LED" data-firmware-example-description="Blink an LED">
 
 ##Blink an LED
-
-![One LED illustration](/assets/images/photon-led-fritzing.png)
 
 ###Intro
 
 Blinking an LED is the ["Hello World"](http://en.wikipedia.org/wiki/Hello_world_program) example of the microcontroller universe. It's a nice way to warm up and start your journey into the land of embedded hardware.
 
-For this example, you will need:
-- Your Particle device
-- a Breadboard
-- an LED
-- a Resistor (between 220 and 1000 Ohms recommended, see note)
-- a USB to micro-USB cable
 
+###Breadboard
 
-**NOTE:** Since there is so much variation in the values of the forward voltage drop of the LEDs depending upon type, size, color, manufacturer, etc., you could successfully use a resistor value from anywhere between 220Ohms to 1K Ohms. The resistor included in the Photon Kit is 220 Ohms and should work for these examples with a red LED.
+Connect everything together as shown in the image below. The negative (shorter) pin of the LED is connected to ground via a resistor and the positive (longer) pin is connected to D0.
 
-
-Connect everything together as shown in the picture. The negative (shorter) pin of the LED is connected to ground via a resistor and the positive (longer) pin is connected to D0.
-
+![One LED illustration](/assets/images/photon-led-fritzing.png)
 
 Next, we're going to load code onto your core. Copy and paste this code into a new application on http://build.particle.io or on Particle Dev. We've heavily commented this code so that you can see what is going on in each line.
 
@@ -222,21 +231,26 @@ Use the following to view your page:
 ---------------------------
 <!-- Replace your-device-ID-goes-here with your actual device ID
 and replace your-access-token-goes-here with your actual access token-->
-<center>
-<br>
-<br>
-<br>
-<form action="https://api.particle.io/v1/devices/your-device-ID-goes-here/led?access_token=your-access-token-goes-here" method="POST">
-Tell your device what to do!<br>
-<br>
-<input type="radio" name="args" value="on">Turn the LED on.
-<br>
-<input type="radio" name="args" value="off">Turn the LED off.
-<br>
-<br>
-<input type="submit" value="Do it!">
-</form>
-</center>
+<!DOCTYPE>
+<html>
+  <body>
+  <center>
+  <br>
+  <br>
+  <br>
+  <form action="https://api.particle.io/v1/devices/your-device-ID-goes-here/led?access_token=your-access-token-goes-here" method="POST">
+    Tell your device what to do!<br>
+    <br>
+    <input type="radio" name="args" value="on">Turn the LED on.
+    <br>
+    <input type="radio" name="args" value="off">Turn the LED off.
+    <br>
+    <br>
+    <input type="submit" value="Do it!">
+  </form>
+  </center>
+  </body>
+</html>
 ---------------------------
 */
 ```

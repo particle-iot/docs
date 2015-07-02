@@ -14,7 +14,7 @@ The guide is broken down into three parts:
 - **Tools and Features** details the different parts of the Particle platform that come in handy as you build a connected product. It includes using Particle Dev, the Dashboard, the Command Line Interface (CLI) and more.
 - **How to Build a Product** is the final section. It reviews everything you need to do to take the connected device you've prototyped and take it to production.
 
-We'll fill in more parts of the guide in the coming months, but for now the best way to use the guide is:
+We'll fill in more parts of the guide in the <span class="footnoteLink">coming months<span class="footnote">Thanks for your patience, friend.</span></span>, but for now the best way to use the guide is:
 - Go through _Getting Started_
 - Review _Tools and Features_
 - Search _[the community](http://community.particle.io)_ for cool examples and advice relevant to your exact project

@@ -1,0 +1,77 @@
+@media screen and (min-width: @medium-size) {
+
+	.footnoteLink {
+		border-bottom: 1px solid #00adef;
+		cursor: pointer;
+	}
+
+	.footnote {
+		background-color: #ffffff;
+		border-top: 2px solid #00adef;
+		border-bottom: 2px solid #00adef;
+		font-size: 8 px;
+		font-weight: normal;
+		height: auto;
+		left: -140px;
+		line-height: 1.4;
+		margin-top: -20px;
+		min-height: 50px;
+		opacity: 0;
+		padding: .85rem 0;
+		position: absolute;
+		width: 120px;
+		visibility: hidden;
+		z-index: 1;
+		transition: opacity .25s, visibility .25s;
+	}
+
+    .footnoteLink:hover .footnote {
+      visibility: visible;
+      opacity: 1;
+    }
+
+}
+
+@media screen and (max-width: @medium-size) and (min-width: 0) {
+    .footnoteLink {
+      border-bottom: 1px solid #00adef;
+      cursor: pointer;
+    }
+
+    .footnote {
+      background-color: #ffffff;
+      border-radius:2px;
+      border: 2px solid #00adef;
+      font-size: 6 px;
+      font-weight:normal;
+      height: auto;
+      left:0;
+      line-height: 1.5;
+      margin-top:-30px;
+      min-height: 50px;
+      opacity: 0;
+      padding: .85rem 1rem;
+      position: absolute;
+      visibility: hidden;
+      width: 100%;
+      z-index: 1;
+      -webkit-transition: opacity .25s, visibility .25s;
+      -moz-transition: opacity .25s, visibility .25s;
+      transition: opacity .25s, visibility .25s;
+    }
+    .footnoteLink.showing .footnote {
+      visibility: visible;
+      opacity: 1;
+    }
+.footnote:after {content: "— tap to close —";	font-family: Arial, sans-serif; color: #a0a0a0;	display: block; padding: 8px 0px 8px 0px; 
+font-size: 1.18rem; }
+}
+
+
+@media print
+{    
+    .footnoteLink
+    {
+        display: none !important;
+    }
+}
