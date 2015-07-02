@@ -25,6 +25,7 @@
   <!-- Spark theme mods -->
   <link href='/assets/stylesheets/style.css' rel='stylesheet'>
   <script src='/assets/js/animated-core.js'></script>
+  <link rel="stylesheet" href="https://s3.amazonaws.com/icomoon.io/49057/Dashboard/style.css?9t9e91">
 
   <!-- GOTHAM YO -->
   <link rel="stylesheet" type="text/css" href="//cloud.typography.com/6107112/665726/css/fonts.css" />
@@ -46,6 +47,7 @@
           <a class="nav {{#contains path.href 'guide'}}active{{/contains}}" href="/guide/{{device}}">Guide</a>
           <a class="nav {{#contains path.href 'reference'}}active{{/contains}}" href="/reference">Reference</a>
           <a class="nav {{#contains path.href 'datasheets'}}active{{/contains}}" href="/datasheets">Datasheets</a>
+          <a class="nav {{#contains path.href 'support'}}active{{/contains}}" href="/support">Support</a>
         </div>
         <div class="dropdown mobile-only">
           <a id="dLabel" data-target="#" class="nav" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
@@ -56,32 +58,31 @@
             <li><a href="/guide/{{device}}">Guide</a></li>
             <li><a href="/reference">Reference</a></li>
             <li><a href="/datasheets">Datasheets</a></li>
+            <li><a href="/support">Support</a></li>
           </ul>
         </div>
-      </div>
-      <div class='right'>
         <div class="search">
           <script src='/assets/js/google-search.js'></script>
           <gcse:search></gcse:search>
         </div>
-          {{#if devices}}
-            <div class="dropdown">
-              <a id="dLabel" data-target="#" class="nav" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
-                {{#if photon}}
-                  Photon
-                {{else}}
-                  Core
-                {{/if}}
-                <i class="icon ion-chevron-down"></i>
-              </a>
-              <ul class="dropdown-menu" aria-labelledby="dLabel">
-                <li><a href="{{path.href}}{{path.name}}/photon/">Photon</a></li>
-                <li><a href="{{path.href}}{{path.name}}/core/">Core</a></li>
-              </ul>
-            </div>
-          {{/if}}
-        <a href="http://support.particle.io" class="nav" target="_blank"><i class="icon ion-help-buoy"></i>Support</a>
-        <a href="/assets/docs.zip" class="nav"><i class="icon ion-arrow-down-a"></i>Download</a>
+      </div>
+      <div class='right'>
+        {{#if devices}}
+          <div class="dropdown">
+            <a id="dLabel" data-target="#" class="nav" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+              <i class="im-devices-icon"></i>
+              {{#if photon}}
+                Photon
+              {{else}}
+                Core
+              {{/if}}
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="dLabel">
+              <li><a href="{{path.href}}{{path.name}}/photon/">Photon</a></li>
+              <li><a href="{{path.href}}{{path.name}}/core/">Core</a></li>
+            </ul>
+          </div>
+        {{/if}}
         <a href='https://www.github.com/spark/docs/tree/master/src/content/{{name}}' class="nav" target="_blank"><i class="ion-edit"></i>Edit</a>
       </div>
     </div>
