@@ -36,8 +36,7 @@ To complete all the examples, you will need the following materials:
 
 Blinking an LED is the ["Hello World"](http://en.wikipedia.org/wiki/Hello_world_program) example of the microcontroller universe. It's a nice way to warm up and start your journey into the land of embedded hardware.
 
-
-###Breadboard
+###Setup
 
 Connect everything together as shown in the image below. The negative (shorter) pin of the LED is connected to ground via a resistor and the positive (longer) pin is connected to D0.
 
@@ -129,8 +128,6 @@ void loop() {
 
 ##Control LEDs over the 'net
 
-![One LED illustration](/assets/images/photon-led-fritzing.png)
-
 ###Intro
 
 Now that we know how to blink an LED, how about we control it over the Internet? This is where the fun begins.
@@ -140,6 +137,12 @@ We've heavily commented the code below so that you can see what's going on. Basi
 - Set up the pins as outputs that have LEDs connected to them
 - Create and register a Spark function (this gets called automagically when you make an API request to it)
 - Parse the incoming command and take appropriate actions
+
+###Setup
+
+As in the previous example, connect everything together as shown in the image below. The negative (shorter) pin of the LED is connected to ground via a resistor and the positive (longer) pin is connected to D0.
+
+![One LED illustration](/assets/images/photon-led-fritzing.png)
 
 ###Code
 
@@ -298,8 +301,6 @@ To better understand the concept of making API calls to your device over the clo
 
 ##Read your Photoresistor: Function and Variable
 
-![Fritzing Diagram](/assets/images/photon-photoresistor-fritzing.png)
-
 ###Intro
 
 This example uses the same setup as the LED control example to make a `Spark.function`. This time, though, we're going to add a sensor.
@@ -308,7 +309,18 @@ We will get a value from a photoresistor and store it in the cloud.
 
 Paste the following code into your IDE, or just access the examples on the left hand menu bar in the online IDE.
 
+###Setup
+
+Set up your breadboard as shown in the image below:
+![Fritzing Diagram](/assets/images/photon-photoresistor-fritzing.png)
+
+Make sure that the short leg of the LED is plugged into `GND`. The other orientations do not matter.
+
+Bend the LED and the PHotoresistor so that they are pointing at each other. (You want the LED, when turned on, to shine its beam of light directly at the photoresistor.)
+
 ###Code
+
+Copy and paste the following code into your [online IDE](http://build.particle.io) or [Particle Dev](http://particle.io/dev) environment.
 
 <a data-firmware-example-code-block=true>
 
@@ -395,21 +407,26 @@ Just like with our earlier example, we can toggle our LED on and off by creating
 ---------------------------
 <!-- Replace your-device-ID-goes-here with your actual device ID
 and replace your-access-token-goes-here with your actual access token-->
-<center>
-<br>
-<br>
-<br>
-<form action="https://api.particle.io/v1/devices/your-device-ID-goes-here/led?access_token=your-access-token-goes-here" method="POST">
-Tell your device what to do!<br>
-<br>
-<input type="radio" name="args" value="on">Turn the LED on.
-<br>
-<input type="radio" name="args" value="off">Turn the LED off.
-<br>
-<br>
-<input type="submit" value="Do it!">
-</form>
-</center>
+<!DOCTYPE>
+<html>
+  <body>
+  <center>
+  <br>
+  <br>
+  <br>
+  <form action="https://api.particle.io/v1/devices/your-device-ID-goes-here/led?access_token=your-access-token-goes-here" method="POST">
+    Tell your device what to do!<br>
+    <br>
+    <input type="radio" name="args" value="on">Turn the LED on.
+    <br>
+    <input type="radio" name="args" value="off">Turn the LED off.
+    <br>
+    <br>
+    <input type="submit" value="Do it!">
+  </form>
+  </center>
+  </body>
+</html>
 ---------------------------
 */
 ```
@@ -456,8 +473,6 @@ Now you can turn your LED on and off and see the values at A0 change based on th
 
 ##Make a Motion Detector: Publish and the Dashboard
 
-![Fritzing Diagram](/assets/images/photon-photoresistor-fritzing.png)
-
 ###Intro
 
 What if we simply want to know that something has happened, without all the information of a variable or all the action of a fuction? We might have a security system that tells us, "motion was detected!" or a smart washing machine that tells us "your laundry is done!" In that case, we might want to use `Spark.publish`.
@@ -471,6 +486,14 @@ For your convenience, we've set up a little calibrate function so that your devi
 You can check out the results on your dashboard at [dashboard.particle.io](https://dashboard.particle.io). As you put your finger in front of the beam, you'll see an event appear that says the beam was broken. When you remove your finger, the event says that the beam is now intact.
 
 You can also hook up publishes to IFTTT! More info [here](../ifttt).
+
+###Setup
+The setup is the same as in the last example. Set up your breadboard as follows:
+
+![Fritzing Diagram](/assets/images/photon-photoresistor-fritzing.png)
+
+Ensure that the short end of the LED is plugged into `GND` and that the LED and Photoresistor are bent to face each other. (You want the LED, when turned on, to shine its beam of light directly at the photoresistor.) Try to leave enough space between the LED and the Photoresistor for your finger or a piece of paper.
+
 
 ###Code
 
@@ -643,8 +666,6 @@ void loop() {
 
 ##The Buddy System: Publish and Subscribe
 
-![Fritzing Diagram](/assets/images/photon-photoresistor-fritzing.png)
-
 ###Intro
 
 In the previous example, we sent a private publish. This publish went to you alone; it was just for you and your own apps, programs, integrations, and devices. We can also send a public publish, though, which allows anyone anywhere to see and subscribe to our event in the cloud. All they need is our event name.
@@ -660,6 +681,13 @@ Have your buddy do the same thing, only with their event name and yours (swap 'e
 Flash the firmware to your devices. Calibrate your device when it comes online (same as in the previous example).
 
 When the beam is broken on your device, the D7 LED on your buddy's device will light up! Now you can send little messages to each other in morse code.
+
+###Setup
+The setup is the same as in the last example. Set up your breadboard as follows:
+
+![Fritzing Diagram](/assets/images/photon-photoresistor-fritzing.png)
+
+Ensure that the short end of the LED is plugged into `GND` and that the LED and Photoresistor are bent to face each other. (You want the LED, when turned on, to shine its beam of light directly at the photoresistor.) Try to leave enough space between the LED and the Photoresistor for your finger or a piece of paper.
 
 ###Code
 
