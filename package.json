@@ -18,7 +18,7 @@
     "jade": "^1.11.0",
     "lodash": "^3.9.3",
     "metalsmith": "^1.7.0",
-    "metalsmith-autotoc": "git://github.com/spark/metalsmith-toc",
+    "metalsmith-autotoc": "git://github.com/spark/metalsmith-autotoc",
     "metalsmith-broken-link-checker": "^0.1.3",
     "metalsmith-clean-css": "^2.0.0",
     "metalsmith-collections": "git://github.com/jlamontagne/metalsmith-collections#dynamic-collections",
