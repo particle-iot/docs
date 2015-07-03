@@ -1,5 +1,5 @@
 ---
-title: Code Examples
+title: 7. Code Examples
 template: docs.hbs
 columns: two
 devices: [ photon, core ]
