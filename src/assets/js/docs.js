@@ -80,11 +80,52 @@ Derived from Flatdoc (http://ricostacruz.com/flatdoc)
     $h2s.each(function() {
       var waypoint = new Waypoint.Inview({
         element: $(this)[0],
-        enter: function() {
-          var elementId = this.element.id;
-          var $correspondingNavElement = $('ul.in-page-toc li a[href="#' + elementId + '"]');
-          $('ul.in-page-toc li a').removeClass('active');
-          $correspondingNavElement.addClass('active');
+        exit: function(direction) {
+          if(direction === 'down') {
+            var elementId = this.element.id;
+            var $correspondingNavElement = $('ul.in-page-toc li a[href="#' + elementId + '"]').parent();
+            $('ul.in-page-toc li').removeClass('active');
+            $correspondingNavElement.addClass('active');
+            // Show the sub navigation
+            $('ul.secondary-in-page-toc').hide();
+            var $secondaryNav = $correspondingNavElement.next('.secondary-in-page-toc');
+            $secondaryNav.show();
+          }
+        },
+        enter: function(direction) {
+          if(direction === 'up') {
+            var elementId = this.element.id;
+            var $correspondingNavElement = $('ul.in-page-toc li a[href="#' + elementId + '"]').parent();
+            $('ul.in-page-toc li').removeClass('active');
+            $correspondingNavElement.addClass('active');
+            // Show the sub navigation
+            $('ul.secondary-in-page-toc').hide();
+            var $secondaryNav = $correspondingNavElement.prev('.secondary-in-page-toc');
+            $secondaryNav.show();
+          }
+        },
+        context: $('.content-inner')[0]
+      });
+    });
+    $h3s.each(function() {
+      var isAboveViewport = false;
+      var waypoint = new Waypoint.Inview({
+        element: $(this)[0],
+        exit: function(direction) {
+          if(direction === 'down') {
+            var elementId = this.element.id;
+            var $correspondingNavElement = $('ul.in-page-toc li a[href="#' + elementId + '"]').parent();
+            $('ul.in-page-toc li').removeClass('active');
+            $correspondingNavElement.addClass('active');
+          }
+        },
+        enter: function(direction) {
+          if(direction === 'up') {
+            var elementId = this.element.id;
+            var $correspondingNavElement = $('ul.in-page-toc li a[href="#' + elementId + '"]').parent();
+            $('ul.in-page-toc li').removeClass('active');
+            $correspondingNavElement.addClass('active');
+          }
         },
         context: $('.content-inner')[0]
       });
