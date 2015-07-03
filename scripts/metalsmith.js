@@ -71,7 +71,7 @@ exports.metalsmith = function() {
     }))
     .use(markdown())
     .use(autotoc({
-      selector: 'h2, h3, h4',
+      selector: 'h2, h3',
       pattern: '**/**/*.md'
     }))
     .use(templates({
