@@ -103,11 +103,13 @@
                     <ul class="nav in-page-toc">
                       {{#each ../../../toc}}
                         <li><a href="#{{id}}">{{text}}</a></li>
-                        <ul class="nav secondary-in-page-toc">
-                          {{#each children}}
-                            <li><a href="#{{id}}">{{text}}</a></li>
-                          {{/each}}
-                        </ul>
+                        {{#if children}}
+                          <ul class="nav secondary-in-page-toc">
+                            {{#each children}}
+                              <li class="{{../id}}-child"><a href="#{{id}}">{{text}}</a></li>
+                            {{/each}}
+                          </ul>
+                        {{/if}}
                       {{/each}}
                     </ul>
                   </div>

@@ -125,16 +125,19 @@ h3.guide-section-titles {
       text-overflow: ellipsis;
       overflow-x: hidden;
       padding: 2px 0;
+        &.active {
+          a {
+            font-weight: 700;
+            color: @spark-blue;
+          }
+        }
       a {
         font-size: 12px;
-        &.active {
-          font-weight: 700;
-          color: @spark-blue;
-        }
       }
     }
     .secondary-in-page-toc {
       padding-left: 10px;
+      display: none;
     }
   }
 }
