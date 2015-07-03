@@ -89,7 +89,9 @@ Derived from Flatdoc (http://ricostacruz.com/flatdoc)
             // Show the sub navigation
             $('ul.secondary-in-page-toc').hide();
             var $secondaryNav = $correspondingNavElement.next('.secondary-in-page-toc');
-            $secondaryNav.show();
+            if($secondaryNav.length > 0) {
+              $secondaryNav.show();
+            }
           }
         },
         enter: function(direction) {
@@ -97,11 +99,13 @@ Derived from Flatdoc (http://ricostacruz.com/flatdoc)
             var elementId = this.element.id;
             var $correspondingNavElement = $('ul.in-page-toc li a[href="#' + elementId + '"]').parent();
             $('ul.in-page-toc li').removeClass('active');
-            $correspondingNavElement.addClass('active');
             // Show the sub navigation
             $('ul.secondary-in-page-toc').hide();
             var $secondaryNav = $correspondingNavElement.prev('.secondary-in-page-toc');
-            $secondaryNav.show();
+            if($secondaryNav.length > 0) {
+              $secondaryNav.find('li:last-of-type').addClass('active');
+              $secondaryNav.show();
+            }
           }
         },
         context: $('.content-inner')[0]
