@@ -23,7 +23,7 @@ Before you start to follow this guide, you should already have:
 - A functional prototype running on a Core, Photon, P0, P1, or Electron
 - A working knowledge of Particle's development tools and cloud platform
 
-If you are not yet familiar with these tools, please read the previous guides above ("Getting started" and "Features and tools").
+If you are not yet familiar with these tools, please read the previous guides above (["Getting started"](../../getting-started/intro) and ["Tools and features"](../../tools-and-features/introduction)).
 
 ### Steps to deliver a product on the Particle platform
 
