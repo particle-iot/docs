@@ -87,7 +87,10 @@ exports.metalsmith = function() {
       '/guide/photon/': '/guide/photon/start',
       '/guide/core/': '/guide/core/start',
       '/reference': '/reference/firmware',
-      '/datasheets': '/datasheets/photon-datasheet'
+      '/datasheets': '/datasheets/photon-datasheet',
+      '/guide/getting-started': '/guide/getting-started/intro',
+      '/guide/how-to-build-a-product': '/guide/how-to-build-a-product/intro/',
+      '/guide/tools-and-features': '/guide/tools-and-features/intro'
     }))
     .use(compress());
     //.use(blc());
