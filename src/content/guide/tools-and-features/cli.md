@@ -203,4 +203,4 @@ flash device said  {"id":"01234567890ABCDEFGH","status":"Update started"}
 ```
 
 ##Reference
-For more info on CLI commands, go [here](../../../../reference).
+For more info on CLI commands, go [here](../../../../reference/cli).

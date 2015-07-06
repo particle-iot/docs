@@ -4,6 +4,7 @@ title: Particle Dev
 order: 2
 shared: true
 columns: two
+template: docs.hbs
 ---
 
 # Particle Dev

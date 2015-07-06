@@ -1,4 +1,5 @@
 ---
+word: CLI
 title: CLI Command Reference
 template: docs.hbs
 columns: three

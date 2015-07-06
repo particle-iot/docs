@@ -97,7 +97,7 @@ In this example, we will connect your device to the internet for the very first 
 Plug the USB cable into your power source. (Your computer works perfectly for this purpose.)
 
 <p class="boxed">
-Learning Note: I've got the powerrrrrr!!
+**Learning Note: I've got the powerrrrrr!!**
 </br>
 Although you may be plugging it into your computer,  your device doesn't need the computer to learn to connect to the internet. Right now, it's just using it for power. You could just as easily power your device with a power brick, a battery shield, or another power source wired to the VIN pin.
 

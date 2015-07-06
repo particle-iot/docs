@@ -301,7 +301,7 @@ You must have firmware on your Particle device, but nothing else is necessary. B
 
   **is (Status of your device):** Selected from a dropdown menu - either online or offline.
 
-  ### Ingredients
+#### Ingredients
 
   **DeviceName:** The name of the device that changed status
 
