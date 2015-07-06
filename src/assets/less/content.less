@@ -40,6 +40,13 @@
 .content p {
   line-height: 24px;
   color: @gray;
+  &.caption {
+    font-size: 12px;
+    font-style: italic;
+    text-align: center;
+    margin-top: -35px;
+    margin-bottom: 20px;
+  }
 }
 .content ul > li {
   list-style-type: disc;
@@ -618,6 +625,15 @@ hr {
 }
 .dictionary-wrapper p {
   display: none;
+}
+
+.dashboard-teaser {
+  img {
+    border: 1px solid @light-gray;
+    background: @almost-white;
+    padding: 10px;
+    max-height: 375px !important;
+  }
 }
 
 .two-columns {

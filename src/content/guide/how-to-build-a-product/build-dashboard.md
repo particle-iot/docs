@@ -1,38 +1,87 @@
 ---
-title: Setting up your Particle Dashboard
+title: Your Particle Dashboard
 columns: two
 template: docs.hbs
 order: 5
 ---
 
-As you've developed your product with Particle, you've probably become very familiar with our development tools. Now that you're transitioning to production, you're about to become very familiar with a new part of our software stack: our device dashboard.
+# {{title}}
 
-**PICTURE OF THE DASHBOARD AND HOW AWESOME IT IS**
+Everything up to this point in the product creator guide has asked you to
+think about how you will scale your Internet of Things product from a single prototype to hundreds, thousands,
+or even millions of units.
+
+It's an exciting time: your idea is now coming
+to life at scale! However, you may quickly realize that managing a "fleet" of
+devices brings a new set of challenges to the table requiring specialized
+tooling to help you provide the best possible experience for end-users of your
+product.
+
+Fear not! By setting up a dashboard for your organization, you will be equipped
+with everything you need to effectively oversee your fleet of devices and corresponding
+customers that makeup your IoT product.
+
+<div class="dashboard-teaser">
+  ![Particle Dashboard](/assets/images/dashboard-teaser.png)
+  <p class="caption">The Particle Dashboard has a suite of tools to make your life as a product creator easier</p>
+</div>
 
 ### Introducing your dashboard
 
-Once you're shipping your connected product at scale, you will be exposed to a whole bunch of new problems and opportunities. You'll be asking questions like:
+When you begin the process of manufacturing and distributing your product in
+large quantities, you will likely start to ask questions like:
 
-- How many of my devices are online right now?
-- Which of my customers are using their devices, and which aren't?
-- What firmware versions are running on each device?
-- What errors and exceptions are the devices generating?
+- _How many_ of my devices are online right now?
+- _Who_ of my customers are using their devices, and who isn't?
+- _How_ are my customers using their devices?
+- _Which_ firmware version is running on each device?
+- _What_ errors and exceptions are the devices generating?
 
-Our device dashboard is designed to provide visibility into the state of your "fleet" of devices and provide tools to monitor and make changes to the fleet. In order to manage a fleet, you need to start by setting up an organization with Particle.
+Without the right tools to answer these questions quickly and accurately, the
+health of your product and the relationship you have with your customers will be
+put at risk.
 
-### Organizations vs. individuals
+Luckily, the Particle dashboard is designed to give you full visibility into the
+state of your fleet, and provide a centralized control panel to change how
+devices are functioning.
 
-Up until now, you've been an individual user of Particle. Your devices belong to you.
+The first step to get started is understanding the differences between your
+individual developer dashboard and the Fleet Management Dashboard.
 
-Setting up an organization makes sense when your *team* and your *customers* are different people.
+### Organizations vs. Individuals
 
-- Your organization has a *team* with access to the dashboard.
-- Your organization has *customers* who are the end users of your product. If you make a connected toaster, the person who purchased the toaster is the *customer*.
-- *Team members* and *customers* have different levels of access. For instance, only *team members* will typically be able to send an over-the-air firmware update, while *customers* may have the ability to control the product. These access levels will be controlled through the dashboard.
+Up until now, you've been an individual user of Particle. Your devices belong to
+you, and you can only act upon one device at a time.
+
+The Fleet Management Dashboard presents a new architecture designed to empower
+product creators, specifically by introducing **organizations**,
+**products**, **devices**, and **customers**.
+
+![Organization architecture](/assets/images/organization-structure.png)
+
+In words, you set up an **organization**, the overarching group responsible for the
+development of your Internet of Things products.
+
+Your organization can have multiple **products**. Defining a product is what unifies a
+group of devices together, and can be configured to function exactly how you
+envision.
+
+Each product has its own fleet of associated **devices**. Either a P0, P1,
+Photon, or eventually, an Electron, can be used inside of each device.
+
+**Customers** own a device, and have permissions to control
+their device. The extent of their access to the device is defined by you when
+configuring your product.
+
+Your organization has **team members** with access to the dashboard.
+
+It is important to note that *team members* and *customers* have different levels of access. For instance, only *team members* will typically be able to send an over-the-air firmware update, while *customers* may have the ability to control the product. These access levels will be controlled through the dashboard.
 
 ### Setting up an organization
 
-Currently the organization dashboard is in private beta. If you are interested in gaining access, please contact [sales@particle.io](sales@particle.io). The dashboard will be available to everyone in Summer 2015.
+Currently the Fleet Management dashboard is in private beta. If you are interested
+in gaining access, please contact [hello@particle.io](mailto:hello@particle.io).
+The dashboard will be available to everyone in Fall 2015.
 
 ### Defining a product
 
@@ -48,7 +97,17 @@ Our cloud platform thinks that all devices are *Photons* or *Cores* — unless i
 
 Once you have an organization set up in the dashboard, you will be able to add a product and you will be walked through these decisions.
 
-### Authenticating your customers
+PRIVATE BETA
+
+MANUFACTURING FIRMWARE
+
+MOBILE CREDENTIALS
+
+### Adding Devices
+
+### Rollout Firmware
+
+### Managing Customers
 
 Once you have set up an organization, your customers will be able to create accounts on the Particle platform that are registered to your organization. When properly implemented, your customers will have no idea that Particle is behind the scenes; they will feel like they are creating an account with *ACME, Inc.*.
 
@@ -61,10 +120,5 @@ There are four ways you can authenticate your customers:
 
 When you create your product in the dashboard, you will be asked which authentication method you want to use. Implementation of these authentication protocols will be covered later in this tutorial.
 
-#### Building your web app
+### Monitoring Product Logs
 
-Now that you have set up your product in the dashboard, you're ready to:
-
-[Build your web app >](build-web)
-
-MORE
