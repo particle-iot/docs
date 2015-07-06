@@ -1,14 +1,13 @@
 ---
 word: Webhooks
 title: Webhooks
-order: 17
+order: 7
 shared: true
 columns: two
 template: docs.hbs
 ---
 
-Webhooks
-==========
+#Webhooks
 
 Introduction
 ===

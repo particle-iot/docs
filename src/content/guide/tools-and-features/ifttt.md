@@ -1,17 +1,15 @@
 ---
 word: IFTTT
 title: IFTTT
-order: 16
+order: 6
 shared: true
-columns: 2
+columns: two
 template: docs.hbs
 ---
 
-Particle Channel on IFTTT
-==========
+#Particle Channel on IFTTT
 
-Introduction
-===
+##Introduction
 
 Anything you build with Particle is now easily available on IFTTT! IFTTT is a service that lets you create powerful connections with one simple statement: "If this then that."  There is a great introduction to their ecosystem [on IFTTT's website](https://ifttt.com/wtf). Go check it out if you haven't already, it's super helpful.
 
@@ -21,12 +19,7 @@ If you're totally new to Particle, that's okay! Before you get going on the Part
 
 Lets go!
 
-Parts of an IFTTT Recipe
-===
-
-
-
-
+##Parts of an IFTTT Recipe
 
 ###What are triggers?
 
@@ -53,12 +46,10 @@ Other IFTTT channels will provide (and sometimes automatically insert) their own
 
 **Okay, I'm ready to build my own firmware. Where do I start?** Get to know [the web IDE](http://build.particle.io/) and explore the Particle [community site](http://community.particle.io/) for great tutorials, examples and advice on projects.
 
-Triggers
-===
+##Triggers
 
+###New Event Published
 
-New Event Published
--------
 ```C++
 // SIMPLEST SYNTAX
 Spark.publish(String eventName);
@@ -82,7 +73,7 @@ Spark.publish("Boiling!", "212", 60, PRIVATE);
 
 ```
 
-### Firmware requirements
+#### Firmware requirements
 
 To use this Trigger, firmware must include spark.publish(). Complete documentation on using [Spark.publish() is here.](../firmware#spark-publish)
 
@@ -96,7 +87,7 @@ A word of caution - firmware loops quickly, so it's very easy to run publish() t
 
 **Device Name or ID:** This dropdown menu will be automatically populated with the names of Particle devices that are claimed to your account and are loaded with firmware.
 
-### Ingredients
+#### Ingredients
 
 **EventName:** The name you gave to Spark.publish("name") in your firmware.
 
@@ -125,10 +116,10 @@ MyDevice
 January 12, 2015 at 6:59pm
 ```
 
-Monitor a variable
--------
+###Monitor a variable
 
-### Firmware requirements
+
+#### Firmware requirements
 Monitoring variables is also a simple way to get going. You'll need to create a variable at the top of your code, call Spark.variable() using the format to the right in the setup() function, and then you're good to go.
 
 Complete documentation on using [Spark.variable() is here.](../firmware#spark-variable)
@@ -158,7 +149,7 @@ void loop()
 }
 ```
 
-### Trigger fields
+#### Trigger fields
 
 **If (Variable Name):** Select the Spark.variable you'd like to use from an automatically populated dropdown menu. These options will be pulled from the firmware flashed to your claimed devices. No options will be displayed if your devices don't have Spark.variable()s defined, so check your code and reflash your firmware if it's empty.
 
@@ -176,7 +167,7 @@ temperature
 90
 ```
 
-### Ingredients
+#### Ingredients
 
 **Value:** The actual value of your variable. While your trigger will be doing a comparison, you can also use the value it returned in your action. This is useful for logging to email, Dropbox, or spreadsheets.
 
@@ -206,8 +197,8 @@ MyDevice
 January 17, 2015 at 7:52am
 ```
 
-Monitor a function result
--------
+###Monitor a function result
+
 ```cpp
 // SYNTAX TO REGISTER A SPARK FUNCTION
 Spark.function("cloudNickname", firmwareFunctionName);
@@ -247,13 +238,13 @@ int brewCoffee(String command)
 ```
 Your Spark.function()s can be used in several ways with IFTTT. You can send a value to your function to look up data, perform behaviors before taking a measurement, or ask for something to happen and get a response when it's successful.
 
-### Firmware requirements
+#### Firmware requirements
 All of the details are covered in the example to the right. Just remember to declare a function at the top of your code, make it Spark.function() in setup(), and then declare what the function does down below. Currently, only the first 4 Spark.function()s that you register will show up in IFTTT.
 
 Complete documentation on using [Spark.function() is here.](../firmware#spark-function)
 
 
-### Trigger fields
+#### Trigger fields
 
 **If the output value of (Function Name):** The name of your function.
 ```
@@ -271,7 +262,7 @@ allLedsOn()
 
 **Comparison Value:** The value that you are comparing with your Spark.function result.
 
-### Ingredients
+#### Ingredients
 
 **FunctionName:** The function you just called.
 
@@ -298,14 +289,13 @@ MyDevice
 May 2, 2013 at 9:02am
 ```
 
-Monitor your device status
--------
+###Monitor your device status
 
-### Firmware requirements
+#### Firmware requirements
 You must have firmware on your Particle device, but nothing else is necessary. Basically, you're fine unless you've actively wiped your device.
 
 
-### Trigger fields
+#### Trigger fields
 
 **If (Device Name or ID:** This dropdown menu will be automatically populated with the names of Particle devices that are claimed to your account and are loaded with firmware.
 
@@ -334,15 +324,11 @@ You must have firmware on your Particle device, but nothing else is necessary. B
   November 13, 2015 at 6:02pm
   ```
 
-  Actions
-  ===
+  ##Actions
 
+  ###Publish an event
 
-  Publish an event
-  -------
-
-
-  ### Firmware requirements
+  #### Firmware requirements
 
   This action has IFTTT publishing an event, so your Particle device needs to subscribe to that event. These are complementary; a Spark.subscribe("myEventName") watches for a publish("myEventName") and runs a function when it sees this matching event name. This means that even though this action is called *Publish* an event, your firmware needs to include Spark.subscribe().
 
@@ -381,7 +367,7 @@ You must have firmware on your Particle device, but nothing else is necessary. B
 
   Complete documentation on using [Spark.subscribe() is here.](../firmware#spark-subscribe)
 
-  ### Action fields
+  #### Action fields
 
   **Then publish (Event Name):** This may be autopopulated by the Trigger you have chosen, however you'll want to delete that and write in the Event Name that you have defined in your firmware. Also known as topic, event name, or channel.
 
@@ -395,18 +381,17 @@ You must have firmware on your Particle device, but nothing else is necessary. B
   **is this a public or private event?** Select either private or public.
 
 
-  Call a function
-  -------
+  ###Call a function
 
   It's important to note that if you turn off the board that is attached to this action while your recipe is still live, the IFTTT servers may disable your recipe. This is easy to fix, just turn it back on again. Your default IFTTT settings are set up to send you an email when your recipe encounters a serious issue (like not having a device to run the requested function). You can always change these by clicking on your username at the top of the IFTTT menu and selecting "Preferences".
 
-  ### Firmware requirements
+  #### Firmware requirements
 
   This is very similar to using a Spark.function() as a trigger, only you won't be using any values it returns. The same setup on the firmware side, and the example code above for Spark.function() as trigger, will work for this as well.
 
   Complete documentation on using [Spark.function() is here.](../firmware#spark-function)
 
-  ### Action fields
+  #### Action fields
 
   **Then call (Function Name):** Select the function you'd like to use from the options in a dropdown menu. These options will be pulled from the Spark.function()s that are in the firmware flashed to any of your claimed Cores or Photons. IFTTT will list the first 4 function()s defined in your firmware.
 
@@ -417,8 +402,7 @@ You must have firmware on your Particle device, but nothing else is necessary. B
 
   **with input (Function Input):** This is an optional field. It may be automatically populated with ingredients from the trigger that you chose (i.e. Twitter may put in something like "Favorite tweet: TweetEmbedCode"). If you don't have specific code in your function() to use this data, it's best to delete it. There will be cases when you'll want to send some specific input.
 
-  FAQs
-  ====
+  ##FAQs
 
   - How often should I expect IFTTT to check my triggers?
 

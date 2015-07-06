@@ -1,19 +1,19 @@
 ---
 word: Monitor
 title: Monitor
-order: 12
+order: 5
 shared: true
 columns: two
 template: docs.hbs
 ---
 
-Introduction
-===
+#Monitor
+
+##Introduction
 
 Spark Monitor (the name's clearly going to change) is a new product we've built to make it easier to gain insight into the behaviors of your device. It graphs the values on all pins as quickly as it can. When you're Monitoring from the same network, it'll try to set up a local connection to the device and stream data points at around 20 times/second. When you're on a different network, of if it has trouble, you should see updates around once per second.
 
-Getting Monitor
-===
+##Getting Monitor
 
 ### The App
 You'll need to download the Chrome app from here: [spark-monitor.zip](https://s3.amazonaws.com/spark-website/spark-monitor.zip). To install it:
@@ -50,14 +50,14 @@ void loop(){
 	mon.report();
 }
 ```
-App Interface
-===
+##App Interface
+
 The non-obvious thing here is the Connection state indicator. It'll be a WiFi symbol when you're in "Local" mode, communicating over TCP, and will be a cloud symbol when it's using publishes via the Particle Cloud.
 
 ![App Diagram](https://s3.amazonaws.com/spark-website/spark_monitor_diagram_720.png)
 
-Firmware Reference
-===
+##Firmware Reference
+
 ### Monitor Variables
 Tracking up to 4 variables with Monitor is as easy as swapping out `Spark.variableName()` with `mon.variableName()` (or whatever your Monitor object is named). They use the same format, and support the same variable types. Monitor will also create a Spark variable as part of the process, so you'll still have that variable available to the API and it won't interfere with existing behaviors.
 

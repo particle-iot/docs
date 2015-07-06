@@ -1,18 +1,16 @@
 ---
 word: Dashboard
 title: Dashboard
-order: 7
+order: 3
 shared: true
 columns: two
 template: docs.hbs
 ---
 
 
-Dashboard <small class="beta">(alpha)</small>
-==========
+#Dashboard <small class="beta">(alpha)</small>
 
-Introduction
-===
+##Introduction
 
 The [Dashboard](https://dashboard.particle.io) is a new feature we're working on to improve the developer experience of building connected products with Particle. It's currently in alpha, which means we'll be working on it and releasing frequent updates.
 
@@ -20,8 +18,7 @@ Being in alpha also means we're trying to get your feedback as we build it. Head
 
 [Talk to us on the Community!](http://community.particle.io/t/fleet-management-dashboard-alpha-run-feedback/11118)
 
-Features
-===
+##Features
 
 ### Home (Coming Soon)
 
