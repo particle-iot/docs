@@ -143,6 +143,7 @@
 .content-root {
   height: 100%;
   position: relative;
+  top: 53px;
 }
 .content, .content-body {
   padding-top: 20px;
@@ -431,6 +432,14 @@ h1 small.beta {
   bottom: 0;
   right: 0;
   overflow-y: auto;
+  @media(max-width: @medium-size) {
+    position: relative;
+    left: inherit;
+    right: inherit;
+    bottom: inherit;
+    width: 100%;
+  }
+
 }
 
 .arrow {
@@ -656,6 +665,9 @@ hr {
     margin: 40px auto;
     max-width: 100%;
     max-height: 500px;
+    @media(max-width: @medium-size) {
+      max-width: 300px;
+    }
   }
   .content h4:after, .content h5:after, .content .small-heading:after, body:not(.big-h3) .content h3:after {
     left: 0;

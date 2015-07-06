@@ -104,6 +104,9 @@ html,
 body {
   height: 100%;
   overflow-y: hidden;
+  @media(max-width: @medium-size) {
+    overflow-y: auto;
+  }
 }
 html {
   overflow-x: hidden;
