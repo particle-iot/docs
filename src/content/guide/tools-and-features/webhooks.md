@@ -4,7 +4,7 @@ title: Webhooks
 order: 7
 shared: true
 columns: two
-template: docs.hbs
+template: guide.hbs
 ---
 
 #Webhooks

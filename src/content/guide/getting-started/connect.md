@@ -1,6 +1,6 @@
 ---
 title: 3. Connecting Your Device
-template: docs.hbs
+template: guide.hbs
 columns: two
 devices: [ photon, core ]
 order: 3

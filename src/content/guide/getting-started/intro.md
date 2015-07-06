@@ -1,6 +1,6 @@
 ---
 title: 1. Introduction
-template: docs.hbs
+template: guide.hbs
 columns: two
 devices: [ photon, core ]
 order: 1

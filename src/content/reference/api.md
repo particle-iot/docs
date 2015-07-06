@@ -1,6 +1,6 @@
 ---
-title: Cloud API Reference
-template: docs.hbs
+title: Cloud API
+template: reference.hbs
 columns: three
 ---
 

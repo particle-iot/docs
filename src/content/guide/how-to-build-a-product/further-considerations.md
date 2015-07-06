@@ -1,7 +1,7 @@
 ---
 title: Further considerations
 columns: two
-template: docs.hbs
+template: guide.hbs
 order: 7
 ---
 

@@ -3,7 +3,7 @@ word: intro
 title: Introduction
 order: 1
 columns: two
-template: docs.hbs
+template: guide.hbs
 ---
 
 #Tools and Features

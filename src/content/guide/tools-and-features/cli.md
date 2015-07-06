@@ -3,7 +3,7 @@ word: CLI
 title: Command Line
 order: 4
 columns: two
-template: docs.hbs
+template: guide.hbs
 ---
 
 #Particle CLI

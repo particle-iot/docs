@@ -5,7 +5,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
   <meta name="viewport" content="width=device-width">
 
-  <title>Particle Documentation (formerly Spark) | {{title}}</title>
+  <title>Particle Reference Documentation (formerly Spark) | {{title}}</title>
 
   <!-- jQuery -->
   <script src="/assets/js/jquery-1.11.1.min.js"></script>
@@ -92,10 +92,11 @@
       <div class='menubar'>
 
       <ul class="nav">
-        {{#each guide}}
-        <li data-level="{{inc @index}}" class="guide-section">
-            <h3 class="guide-section-titles" >{{titelize section}}</h3>
+        {{#each reference}}
             <ul>
+              <li class="{{#page-equal ../path.href ../path.name path.href path.name}}active{{/page-equal}}"><a href="{{path.href}}{{path.name}}">{{title}}</a></li>
+            </ul>
+            <!--<ul>
               {{#each this}}
                 <li class="{{#page-equal ../../path.href ../../path.name path.href path.name}}active{{/page-equal}}" data-level="{{inc @../index}}.{{inc @index}}"><a href="{{path.href}}{{path.name}}">{{title}}</a></li>
                 {{#page-equal ../../path.href ../../path.name path.href path.name}}
@@ -115,25 +116,18 @@
                   </div>
                 {{/page-equal}}
               {{/each}}
-            </ul>
-          </li>
+            </ul>-->
         {{/each}}
       </ul>
       </div>
-      <div class="guide-body">
+      <div class="page-body">
         <div class='content-inner'>
           <div class="content" >
             {{{contents}}}
-          </div>
-          <div class="code-samples">
+            <div class="code-samples">
+            </div>
           </div>
         </div>
-        {{#if previous}}
-          <a href="{{previous.path.href}}{{previous.path.name}}" class="arrow previous-arrow"><i class="ion-chevron-left"></i></a>
-        {{/if}}
-        {{#if next}}
-          <a href="{{next.path.href}}{{next.path.name}}" class="arrow next-arrow"><i class="ion-chevron-right"></i></a>
-        {{/if}}
       </div>
     </div>
 

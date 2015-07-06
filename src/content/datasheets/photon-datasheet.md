@@ -1,6 +1,6 @@
 ---
 title: Photon datasheet
-template: docs.hbs
+template: datasheet.hbs
 columns: two
 ---
 

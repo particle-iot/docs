@@ -4,7 +4,7 @@ title: IFTTT
 order: 6
 shared: true
 columns: two
-template: docs.hbs
+template: guide.hbs
 ---
 
 #Particle Channel on IFTTT

@@ -1,7 +1,7 @@
 ---
 title: Manufacturing, programming, and testing
 columns: two
-template: docs.hbs
+template: guide.hbs
 order: 4
 ---
 

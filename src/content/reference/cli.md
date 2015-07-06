@@ -1,8 +1,7 @@
 ---
 word: CLI
-title: CLI Command Reference
-template: docs.hbs
-columns: three
+title: Command Line Interface (CLI)
+template: reference.hbs
 ---
 
 #CLI Command Reference

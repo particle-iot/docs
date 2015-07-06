@@ -1,7 +1,8 @@
 ---
-title: Firmware Reference
-template: docs.hbs
+title: Firmware
+template: reference.hbs
 columns: three
+device: [photon, core]
 ---
 
 Particle Device Firmware

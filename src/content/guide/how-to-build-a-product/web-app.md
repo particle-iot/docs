@@ -1,7 +1,7 @@
 ---
 title: Building your own web app
 columns: two
-template: docs.hbs
+template: guide.hbs
 order: 3
 ---
 

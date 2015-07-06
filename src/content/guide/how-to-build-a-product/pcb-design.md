@@ -1,7 +1,7 @@
 ---
 title: Designing your own PCB
 columns: two
-template: docs.hbs
+template: guide.hbs
 order: 2
 ---
 

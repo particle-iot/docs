@@ -4,7 +4,7 @@ title: Dashboard
 order: 3
 shared: true
 columns: two
-template: docs.hbs
+template: guide.hbs
 ---
 
 

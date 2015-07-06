@@ -4,7 +4,7 @@ title: Hackathon
 order: 8
 shared: true
 columns: two
-template: docs.hbs
+template: guide.hbs
 ---
 
 #Hackathoning with Particle

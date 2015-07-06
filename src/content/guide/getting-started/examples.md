@@ -1,6 +1,6 @@
 ---
 title: 7. Code Examples
-template: docs.hbs
+template: guide.hbs
 columns: two
 devices: [ photon, core ]
 order: 7

@@ -1,6 +1,6 @@
 ---
 title: 5. Tinker & Mobile App
-template: docs.hbs
+template: guide.hbs
 columns: two
 devices: [ photon, core ]
 order: 5

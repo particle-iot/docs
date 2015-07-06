@@ -4,7 +4,7 @@ title: Monitor
 order: 5
 shared: true
 columns: two
-template: docs.hbs
+template: guide.hbs
 ---
 
 #Monitor

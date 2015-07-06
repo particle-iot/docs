@@ -1,6 +1,6 @@
 ---
 title: iOS SDK
-template: docs.hbs
+template: reference.hbs
 columns: three
 ---
 

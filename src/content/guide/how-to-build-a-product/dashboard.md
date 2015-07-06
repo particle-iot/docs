@@ -1,7 +1,7 @@
 ---
 title: Your Particle Dashboard
 columns: two
-template: docs.hbs
+template: guide.hbs
 order: 5
 ---
 

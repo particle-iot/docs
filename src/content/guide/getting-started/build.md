@@ -1,6 +1,6 @@
 ---
 title: 6. Web IDE (Build)
-template: docs.hbs
+template: guide.hbs
 columns: two
 devices: [ photon, core ]
 order: 6

@@ -1,6 +1,6 @@
 ---
 title: 2. Getting started
-template: docs.hbs
+template: guide.hbs
 columns: two
 devices: [ photon, core ]
 order: 2

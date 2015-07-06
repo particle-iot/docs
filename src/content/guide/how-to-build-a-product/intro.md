@@ -1,7 +1,7 @@
 ---
 title: How to build a product with Particle
 columns: two
-template: docs.hbs
+template: guide.hbs
 order: 1
 ---
 

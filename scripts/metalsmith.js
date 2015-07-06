@@ -50,6 +50,10 @@ exports.metalsmith = function() {
       guide: {
         pattern: 'guide/:section/*.md',
         sortBy: 'order'
+      },
+      reference: {
+        pattern: 'reference/*md',
+        sortBy: 'order'
       }
     }))
     .use(fork({

@@ -1,6 +1,6 @@
 ---
 title: Photon shields and kits
-template: docs.hbs
+template: datasheet.hbs
 columns: two
 ---
 
