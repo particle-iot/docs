@@ -94,7 +94,7 @@
       <ul class="nav">
         {{#each guide}}
         <li data-level="{{inc @index}}" class="guide-section">
-            <h3 class="guide-section-titles" >{{titelize section}}</h3>
+          <h3 class="guide-section-titles" >{{{titelize section}}}</h3>
             <ul>
               {{#each this}}
                 <li class="{{#page-equal ../../path.href ../../path.name path.href path.name}}active{{/page-equal}}" data-level="{{inc @../index}}.{{inc @index}}"><a href="{{path.href}}{{path.name}}">{{title}}</a></li>
@@ -102,11 +102,11 @@
                   <div class="in-page-toc-container">
                     <ul class="nav in-page-toc">
                       {{#each ../../../toc}}
-                        <li><a href="#{{id}}">{{text}}</a></li>
+                        <li><a href="#{{id}}">{{{text}}}</a></li>
                         {{#if children}}
                           <ul class="nav secondary-in-page-toc">
                             {{#each children}}
-                              <li class="{{../id}}-child"><a href="#{{id}}">{{text}}</a></li>
+                              <li class="{{../id}}-child"><a href="#{{id}}">{{{text}}}</a></li>
                             {{/each}}
                           </ul>
                         {{/if}}
