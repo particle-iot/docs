@@ -5,11 +5,11 @@
 
     .popup {
       background-color: @almost-black;
-      border-radius:2px;
+      border-radius:5px;
       border: 2px solid #00adef;
       font-weight:normal;
-      height: auto;
-      left:auto;
+      left: 25%;
+      right: 50%;
       opacity: 0;
       visibility: hidden;
       width: 100%;
@@ -19,14 +19,23 @@
       transition: opacity .25s, visibility .25s;
       font-size: 12 px;
       max-width: 320px;
+      max-height: 320 px;
       position: absolute; 
+      transform: translateY(-50%);
+      display:block;
     }
 
     .popupLink:hover .popup {
       visibility: visible;
       opacity: 1;
     }
-.popup:after {content: "— release to close —"; margin:auto; }
+
+    .two-columns .content .img {
+      .popup {
+        margin: 0;
+      }
+
+    }
 
 
 

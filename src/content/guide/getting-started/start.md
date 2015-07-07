@@ -17,18 +17,18 @@ Congratulations on being the owner of a brand new Particle Device! Go ahead and 
 
 ####What's on it?
 
-{{#if photon}}<span class="popupLink">**The Wi-Fi Module.**<span class="popup"><img src="/assets/images/photon-module.jpg"></span></span>{{/if}}{{#if core}}<span class="popupLink">**The Wi-Fi Module.**<span class="popup"><img src="/assets/images/core-cc3000.jpg"></span></span>{{/if}} This is probably why you bought your device-- the Wi-Fi module allows your Core or Photon to communicate with the internet. It connects your device to the internet in the same way that your smartphone might connect to a wifi network.
+{{#if photon}}<span class="popupLink">**The Wi-Fi Module.**<span class="popup"><img src="/assets/images/photon-module.jpg" style="margin:auto;"></span></span>{{/if}}{{#if core}}<span class="popupLink">**The Wi-Fi Module.**<span class="popup"><img src="/assets/images/core-cc3000.jpg" style="margin:auto;"></span></span>{{/if}} This is probably why you bought your device-- the Wi-Fi module allows your Core or Photon to communicate with the internet. It connects your device to the internet in the same way that your smartphone might connect to a wifi network.
 
 
 
-{{#if photon}}<span class="popupLink">**The Microcontroller.**<span class="popup"><img src="/assets/images/photon-module.jpg"></span></span>{{/if}}{{#if core}}<span class="popupLink">**The Microcontroller.**<span class="popup"><img src="/assets/images/core-stm32.jpg"></span></span>{{/if}} The microcontroller is the brain of your device. It runs your software and tells your prototype what to do. Unlike your computer, it can only run one application (often called *firmware* or an *embedded application*). This application can be simple (just a few lines of code), or very complex, depending on what you want to do. The microcontroller interacts with the outside world using pins.
+{{#if photon}}<span class="popupLink">**The Microcontroller.**<span class="popup"><img src="/assets/images/photon-module.jpg" style="margin:auto;"></span></span>{{/if}}{{#if core}}<span class="popupLink">**The Microcontroller.**<span class="popup"><img src="/assets/images/core-stm32.jpg" style="margin:auto;"></span></span>{{/if}} The microcontroller is the brain of your device. It runs your software and tells your prototype what to do. Unlike your computer, it can only run one application (often called *firmware* or an *embedded application*). This application can be simple (just a few lines of code), or very complex, depending on what you want to do. The microcontroller interacts with the outside world using pins.
 
 
 
-{{#if photon}}<span class="popupLink">**The Pins.**<span class="popup"><img src="/assets/images/photon-pinout.png"></span></span>{{/if}} {{#if core}} **The Pins.** {{/if}} Pins are the input and output parts of the microcontroller that are exposed on the sides of your device. GPIO pins can be hooked to sensors or buttons to listen to the world, or they can be hooked to lights and buzzers to act upon the world. There are also pins to allow you to power your device, or power motors and outputs outside of your device. There are pins for Serial/UART communication, and a pin for resetting your device.
+{{#if photon}}<span class="popupLink">**The Pins.**<span class="popup"><img src="/assets/images/photon-pinout.png" style="margin:auto;"></span></span>{{/if}} {{#if core}} **The Pins.** {{/if}} Pins are the input and output parts of the microcontroller that are exposed on the sides of your device. GPIO pins can be hooked to sensors or buttons to listen to the world, or they can be hooked to lights and buzzers to act upon the world. There are also pins to allow you to power your device, or power motors and outputs outside of your device. There are pins for Serial/UART communication, and a pin for resetting your device.
 
 {{#if photon}}
-<span class="popupLink">**Buttons**<span class="popup"><img src="/assets/images/photon-buttons.jpg"></span></span> **and** <span class="popupLink">**LEDs.**<span class="popup"><img src="/assets/images/photon-leds.jpg"></span></span> There are several awesome buttons and LEDs on your Photon to make it easier to use.
+<span class="popupLink">**Buttons**<span class="popup"><img src="/assets/images/photon-buttons.jpg" style="margin:auto;"></span></span> **and** <span class="popupLink">**LEDs.**<span class="popup"><img src="/assets/images/photon-leds.jpg" style="margin:auto;"></span></span> There are several awesome buttons and LEDs on your Photon to make it easier to use.
 
 - The `SETUP` button is on the left and the `RESET` button is on the right. You can use these buttons to help you set your device's [mode](../../modes).
 - The RGB LED is in the center of your Photon, above the module. The color of the RGB LED tells you what [mode](/../../modes) your Photon is currently in.
@@ -39,7 +39,7 @@ Congratulations on being the owner of a brand new Particle Device! Go ahead and 
 
 {{#if core}}
 
-<span class="popupLink">**Buttons**<span class="popup"><img src="/assets/images/core-buttons.jpg"></span></span> **and** <span class="popupLink">**LEDs.**<span class="popup"><img src="/assets/images/core-leds.jpg"></span></span> There are several awesome buttons and LEDs on your Core to make it easier to use.
+<span class="popupLink">**Buttons**<span class="popup"><img src="/assets/images/core-buttons.jpg" style="margin:auto;"></span></span> **and** <span class="popupLink">**LEDs.**<span class="popup"><img src="/assets/images/core-leds.jpg" style="margin:auto;"></span></span> There are several awesome buttons and LEDs on your Core to make it easier to use.
 
 - The `MODE` button is on the left and the `RESET` button is on the right. You can use these buttons to help you set your device's [mode](../../modes).
 - The **RGB LED** is in the center of your Core, above the module. The color of the RGB LED tells you what [mode](../../modes) your Core is currently in.
