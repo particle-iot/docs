@@ -5,19 +5,64 @@ template: guide.hbs
 order: 2
 ---
 
+OUTLINE
+---
+####1. Hardware design requirements
+  - Use a supported hardware module
+  - RGB LED and button
+  - RF circuit and antenna
+  - **JTAG programming pins**. If you're building a product, you're probably going to flash it on the line, so these should be exposed. Even if you're not, it's still a good idea.
+  - **Expose serial pins test pads**. We can give you a little serial mode code to add to default firmware to help with testing, tracking, and serialization.
+
+####2. Transitioning from a dev kit to a module
+  - Photon in female headers
+  - Surface mounted Photon
+  - Transition to P0
+  - Transition to P1
+
+####3. PCB design resources
+  - Popular PCB design packages
+  - **EAGLE libraries**. Where to find our EAGLE libraries and how to use them.
+  - Popular PCB manufacturers
+  - Popular PCBA solutions
+
+####4. Prototyping early designs
+  - Purchasing modules for prototyping
+  - Prototyping assembly services
+  - **RF validation**.  You have to validate your RF design with a professional shop and equipment you probably don't have access to. Here's strategies for dealing with that.
+
+####5. Transitioning to mass production (customer success section)
+  - Reach out to us
+  - **Introductions to large PCB manufacturers and contract manufacturers**. We can intro our customer success program here and link to whatever we have, even if it's just the menu of options.
+  - Check out the manufacturing section of the guide
+
+####Open Questions:
+- [ ] Thing 1
+- [ ] Thing 2
+
+####Things we need to build:
+- [ ] Customer success menu and website
+
+---
+
+
+
+
+
 So you've got a prototype in a breadboard. It's probably a mess of wires, something like this:
 
 **PUT A PICTURE OF A BREADBOARDED PROTOTYPE HERE**
 
 Your first step towards a manufacturable product is to re-design this product into your own printed circuit board (PCB) using our modules (P0 or P1) rather than our development kits (Photon/Core).
 
-### Hardware Requirements
+### Hardware Design Requirements
 
-To work with Particle, your hardware must meet a small list of requirements. They are:
+To work with Particle, your hardware must meet a small list of design requirements. They are:
 
 - **Your device should use a supported hardware module.** While the firmware stack can be run on a variety of connectivity modules, we provide our own modules (the P0 and P1) as an out-of-the-box solution, and we can support other Broadcom WICED modules easily. You may also choose to port our firmware libraries to another module by implementing our [Hardware Abstraction Layer (HAL)](https://www.github.com/spark/firmware); this is, however, a more involved process. Please contact our [sales team](mailto:sales@particle.io) if you are interested in engaging us to support another hardware solution.
 - **Your device must have an RGB LED and a button to enter 'setup mode'**. The RGB LED shows the user the connectivity status, while the 'setup' button lets your customer reconfigure the device. These components should be wired according to the [Photon reference design](https://www.github.com/spark/photon).
 - **Your device must have an RF circuit and an antenna.** If you use the Photon or P1, the antenna is included in the hardware. If you use the P0, you must connect your own antenna. Please use the [Photon](https://www.github.com/spark/photon) as a reference design; if you use an antenna of equal or lesser gain, you may use the Photon's FCC/CE/IC modular certification.
+- **Your device must expose JTAG programming pins**. All Particle development kits (Photon/Electron) expose JTAG pins by default. Although the Particle platform has been optimized for over-the-air firmware updates, JTAG programming is required for advanced debugging and development, or modifications to the underlying Particle firmware libraries. All product creators working with the P0 or P1 should expose these pins on their PCB--the pins are identified in their corresponding datasheets.
 
 ### Transitioning from a dev kit to a module
 
