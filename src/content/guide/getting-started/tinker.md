@@ -40,9 +40,8 @@ This person has a lot of devices, so the list is pretty crowded. As you can see,
 
 Select the device you would like to Tinker around with by tapping on it.
 
+<p class = "boxedHead">Troubleshooting Note: I have a device online, but it doesn't have Tinker firmware on it.</p>
 <p class = "boxed">
-**Troubleshooting Note: I have a device online, but it doesn't have Tinker firmware on it.**
-
 If there is a little yellow circle next to the device you want to use, it is online but does not have Tinker firmware running on it. (You probably replaced it with your user firmware for a different project or example.)
 
 ![](/assets/images/tinker-device-screen-non-tinker.png)
@@ -52,7 +51,6 @@ When you tap on one of these devices, it will give you the option to reflash the
 ![](/assets/images/tinker-device-screen-reflash.png)
 
 To do the following examples, you'll want to reflash the Tinker firmware. Go ahead and do this.
-
 </p>
 
 ##Step Two: Explore the Tinker App
@@ -64,14 +62,14 @@ The app consists of 16 pins in vertical rows - 8 analog pins on the left, 8 digi
 To begin, tap any of the pins. A menu will pop up showing the functions that pin has available, tap a function name to select the pin functionality. You can reset the pin function by long-pressing it. Each pin can have up to four possible functions:
 
 - **digitalWrite**: Sets the pin to HIGH or LOW, which either connects it to 3.3V (the maximum voltage of the system) or to GND (ground). Pin D7 is connected to an on-board LED; if you set pin D7 to HIGH, the LED will turn on, and if you set it to LOW, it will turn off.
-- **analogWrite**: Sets the pin to a value between 0 and 255, where 0 is the same as LOW and 255 is the same as HIGH. This is sort of like sending a voltage between 0 and 3.3V, but since this is a digital system, it uses a mechanism called Pulse Width Modulation, or PWM. You could use *analogWrite* to dim an LED, as an example. **Note:** Photon (only) has two DACs (Digital to Analog converters) onboard connected to pin DAC (A6) and A3, when you select **analogWrite** on those two pins you can set a value between 0 to 4095 (12bit resolution) and continous analog voltage will be applied at the pin output (not PWM), you can use it for controlling electronic devices that require precision analog voltage setting. Those two pins will be marked in orange color when activated in analogWrite mode (instead of yellow color for the rest of the PWM-enabled pins).
+- **analogWrite**: Sets the pin to a value between 0 and 255, where 0 is the same as LOW and 255 is the same as HIGH. This is sort of like sending a voltage between 0 and 3.3V, but since this is a digital system, it uses a mechanism called Pulse Width Modulation, or PWM. You could use *analogWrite* to dim an LED, as an example. {{#if photon}}The Photon has two DACs (Digital to Analog converters) onboard connected to pin DAC (A6) and A3, when you select **analogWrite** on those two pins you can set a value between 0 to 4095 (12bit resolution) and continous analog voltage will be applied at the pin output (not PWM), you can use it for controlling electronic devices that require precision analog voltage setting. Those two pins will be marked in orange color when activated in analogWrite mode (instead of yellow color for the rest of the PWM-enabled pins).{{/if}}
 - **digitalRead**: This will read the digital value of a pin, which can be read as either HIGH or LOW. If you were to connect the pin to 3.3V, it would read HIGH; if you connect it to GND, it would read LOW. Anywhere in between, it'll probably read whichever one it's closer to, but it gets dicey in the middle.
 - **analogRead**: This will read the analog value of a pin, which is a value from 0 to 4095, where 0 is LOW (GND) and 4095 is HIGH (3.3V). All of the analog pins (A0 to A7) can handle this. *analogRead* is great for reading data from sensors.
 
 In other words, Tinker lets you control and read the voltage of the pins on your device. You can choose to send a lot of voltage to an LED to light it up, or read the voltage at a sensor.
 
+<p class="boxedHead">Learning Note: These Function Names Look Familiar...</p>
 <p class="boxed">
-Learning Note: These Function Names Look Familiar...
 If you've ever programmed an Arduino microcontroller, you may recognize `digitalWrite`, `analogWrite`, `digitalRead`, `analogRead`, and their respective use-cases. When you use Tinker in the Particle App, the App sends info to the Tinker Firmware that is currently loaded onto your device. This firmware is a pipeline for calling these very familiar Wiring functions from the cloud. But more on this [later](../../examples).
 </p>
 
@@ -101,7 +99,7 @@ It will change its status to `HIGH` and your device's D7 LED will turn on. Tappi
 
 ##Step Four: analogWrite
 
-In this example, we'll plug an LED into D0 and change its brightness with analogWrite.
+In this example, we'll plug an LED into D0 and change its brightness with analogWrite. (D0 is a <span class = "footnoteLink"> PWM pin.<span class = "footnote"> A <a href = "https://en.wikipedia.org/wiki/Pulse-width_modulation">Pulse Width Modulation (PWM)</a> output is a digital output that can be filtered through various means to create a pseudo analog output. It is possible to analogWrite to `D0` through its PWM functionality. </span></span>)
 
 Wire up your LED with one of your resistors as follows:
 
@@ -110,12 +108,6 @@ Wire up your LED with one of your resistors as follows:
 Then, pull up your mobile app and select D0 this time. Instead of `digitalWrite`, select `analogWrite`.
 
 ![](/assets/images/tinker-d0.png)
-
-<p class = "boxed">
-	Learning Note: Wait-- isn't this pin digital?
-
-	We do call D0 a digital pin, but it is also a Pulse Width Modulated (PWM) pin. A PWM output is a digital output that can be filtered through various means to create a pseudo analog output. Don't worry about this too much if you're a beginner, just know that it's possible to analogWrite to D0 through its PWM functionality.
-</p>
 
 You should now be able to set the D0 pin to any number between 0 and 255.
 
@@ -144,13 +136,10 @@ Let's read that. Go into your mobile app. Press and hold `D0` to reset it. After
 
 ![](/assets/images/tinker-d0.png)
 
-If your wire is plugged in, you'll see the word `HIGH` next to the `D0` pin. Now unplug the wire and tap the `D0` pin on the mobile app once more. Now the pin will say `LOW`.
+If your wire is plugged in, you'll see the word `HIGH` next to the `D0` pin. Now unplug the wire and tap the `D0` pin on the mobile app once more. <span class = "footnoteLink">Now the pin will say `LOW`. <span class = "footnote"> If you don't get `LOW` right away, give it a moment. There's still some residual voltage hanging out in the pin, but in a second or two that will disperse and it should read as `LOW`. </span></span>
 
 ![](/assets/images/tinker-d0-high.png)
 ![](/assets/images/tinker-d0-low.png)
-
-_NOTE:_  If you don't get `LOW` right away, give it a moment. There's still some residual voltage hanging out in the pin, but in a second or two that will disperse and it should read as `LOW`.
-
 
 ##Step Six: analogRead
 

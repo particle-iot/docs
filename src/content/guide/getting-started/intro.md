@@ -22,5 +22,4 @@ We'll fill in more parts of the guide in the <span class="footnoteLink">coming m
 
 Ready to get started?
 
-
 [Read on!](../../start)

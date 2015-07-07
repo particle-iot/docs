@@ -11,30 +11,24 @@ order: 2
 ## Getting to Know You
 
 {{#if photon}}![](/assets/images/phokit-box.jpg){{/if}}
-{{#if core}}![](/assets/images/core-in-box.jpg){{/if}}
+{{#if core}}![](/assets/images/core-box.jpg){{/if}}
 
 Congratulations on being the owner of a brand new Particle Device! Go ahead and open the box. You can see the different [contents](/datasheets/kits) and check out their [hardware datasheets](/datasheets) if you like! Let's quickly go over what you see.
 
 ####What's on it?
 
-{{#if photon}}![](/assets/images/photon-module.jpg){{/if}}
+{{#if photon}}<span class="popupLink">**The Wi-Fi Module.**<span class="popup"><img src="/assets/images/photon-module.jpg"></span></span>{{/if}}{{#if core}}<span class="popupLink">**The Wi-Fi Module.**<span class="popup"><img src="/assets/images/core-cc3000.jpg"></span></span>{{/if}} This is probably why you bought your device-- the Wi-Fi module allows your Core or Photon to communicate with the internet. It connects your device to the internet in the same way that your smartphone might connect to a wifi network.
 
-{{#if core}}![](/assets/images/core-module.jpg){{/if}}
 
-**The Wi-Fi Module.** This is probably why you bought your device-- the Wi-Fi module allows your Core or Photon to communicate with the internet. It connects your device to the internet in the same way that your smartphone might connect to a wifi network.
 
-{{#if core}}![](/assets/images/core-microcontroller.jpg){{/if}}
+{{#if photon}}<span class="popupLink">**The Microcontroller.**<span class="popup"><img src="/assets/images/photon-module.jpg"></span></span>{{/if}}{{#if core}}<span class="popupLink">**The Microcontroller.**<span class="popup"><img src="/assets/images/core-stm32.jpg"></span></span>{{/if}} The microcontroller is the brain of your device. It runs your software and tells your prototype what to do. Unlike your computer, it can only run one application (often called *firmware* or an *embedded application*). This application can be simple (just a few lines of code), or very complex, depending on what you want to do. The microcontroller interacts with the outside world using pins.
 
-**The Microcontroller.** The microcontroller is the brain of your device. It runs your software and tells your prototype what to do. Unlike your computer, it can only run one application (often called *firmware* or an *embedded application*). This application can be simple (just a few lines of code), or very complex, depending on what you want to do. The microcontroller interacts with the outside world using pins.
 
-{{#if photon}}![](/assets/images/photon-pinout.png){{/if}}
 
-**The Pins.** Pins are the input and output parts of the microcontroller that are exposed on the sides of your device. GPIO pins can be hooked to sensors or buttons to listen to the world, or they can be hooked to lights and buzzers to act upon the world. There are also pins to allow you to power your device, or power motors and outputs outside of your device. There are pins for Serial/UART communication, and a pin for resetting your device.
+{{#if photon}}<span class="popupLink">**The Pins.**<span class="popup"><img src="/assets/images/photon-pinout.png"></span></span>{{/if}} {{#if core}} **The Pins.** {{/if}} Pins are the input and output parts of the microcontroller that are exposed on the sides of your device. GPIO pins can be hooked to sensors or buttons to listen to the world, or they can be hooked to lights and buzzers to act upon the world. There are also pins to allow you to power your device, or power motors and outputs outside of your device. There are pins for Serial/UART communication, and a pin for resetting your device.
 
-{{#if photon}}![](/assets/images/photon-buttons.jpg) 
-![](/assets/images/photon-leds.jpg)
-
-**Buttons and LEDs.** There are several awesome buttons and LEDs on your Photon to make it easier to use.
+{{#if photon}}
+<span class="popupLink">**Buttons**<span class="popup"><img src="/assets/images/photon-buttons.jpg"></span></span> **and** <span class="popupLink">**LEDs.**<span class="popup"><img src="/assets/images/photon-leds.jpg"></span></span> There are several awesome buttons and LEDs on your Photon to make it easier to use.
 
 - The `SETUP` button is on the left and the `RESET` button is on the right. You can use these buttons to help you set your device's [mode](../../modes).
 - The RGB LED is in the center of your Photon, above the module. The color of the RGB LED tells you what [mode](/../../modes) your Photon is currently in.
@@ -43,13 +37,12 @@ Congratulations on being the owner of a brand new Particle Device! Go ahead and 
 {{/if}}
 
 
-{{#if core}}![](/assets/images/core-buttons.jpg)
-![](/assets/images/core-leds.jpg)
+{{#if core}}
 
-**Buttons and LEDs.** There are several awesome buttons and LEDs on your Core to make it easier to use.
+<span class="popupLink">**Buttons**<span class="popup"><img src="/assets/images/core-buttons.jpg"></span></span> **and** <span class="popupLink">**LEDs.**<span class="popup"><img src="/assets/images/core-leds.jpg"></span></span> There are several awesome buttons and LEDs on your Core to make it easier to use.
 
 - The `MODE` button is on the left and the `RESET` button is on the right. You can use these buttons to help you set your device's [mode](../../modes).
-- The **RGB LED** is in the center of your Core, above the module. The color of the RGB LED tells you what [mode](/../../modes) your Core is currently in.
+- The **RGB LED** is in the center of your Core, above the module. The color of the RGB LED tells you what [mode](../../modes) your Core is currently in.
 - The **D7 LED** in the upper right side of your device. This LED will turn on when the D7 pin is set to `HIGH`.
 
 {{/if}}
@@ -61,7 +54,7 @@ For more technical details on what comes on your device, go [here](/datasheets).
 Good, me too! Let's get started.
 
 ##Hello World!
-In this example, we will connect your device to the internet for the very first time. Then, we will blink the D7 LED on your device by using your smartphone. If you don't have your smartphone with you, go ahead and move to the next lesson on [connecting over USB.](/../../connect)
+In this example, we will connect your device to the internet for the very first time. Then, we will blink the D7 LED on your device by using your smartphone. If you don't have your smartphone with you, go ahead and move to the next lesson on [connecting over USB.](../../connect)
 
 {{#if photon}}
 ####Materials
@@ -92,16 +85,11 @@ In this example, we will connect your device to the internet for the very first 
 {{/if}}
 
 ####Step 1: Power On Your Device
-![plug in your device!](/assets/images/photon-plugged-in.jpg)
+{{#if photon}}![plug in your device!](/assets/images/photon-plugged-in.jpg){{/if}}
+{{#if core}}![plug in your device!](/assets/images/core-front.jpg){{/if}}
 
-Plug the USB cable into your power source. (Your computer works perfectly for this purpose.)
 
-<p class="boxed">
-**Learning Note: I've got the powerrrrrr!!**
-</br>
-Although you may be plugging it into your computer,  your device doesn't need the computer to learn to connect to the internet. Right now, it's just using it for power. You could just as easily power your device with a power brick, a battery shield, or another power source wired to the VIN pin.
-
-</p> 
+Plug the USB cable into your power source. <span class="footnoteLink">(Your computer works perfectly for this purpose.)<span class="footnote"> Your Particle device does not need your computer to connect to wifi. You could just as easily power your device with a power brick, a battery shield, or another power source wired to the VIN pin.</span></span>
 
 As soon as it is plugged in, the RGB LED on your device should begin blinking blue.
 
@@ -143,9 +131,9 @@ If your device is not blinking at all, or if the LED is burning a dull orange co
 
 ####Step 2: Connect With Your Smartphone
 
-<p class="boxed"> 
-Learning Note: What happens when my device wants to talk to the Internet?
+<p class="boxedHead">Learning Note: What happens when my device wants to talk to the Internet?</p>
 
+<p class="boxed"> 
 When your device comes to life for the first time, it has a specific set of objectives:
 * Find wifi
 * Connect to wifi
@@ -172,7 +160,7 @@ This may take a little while- but don't worry.
 * *Breathing cyan:* Connected!
 
 {{/if}}
-If you are having trouble connecting, that's okay! Read over this example quickly, and then check out the [next lesson](/../../connect) to connect your device using the USB cable.
+If you are having trouble connecting, that's okay! Read over this example quickly, and then check out the [next lesson](../../connect) to connect your device using the USB cable.
 
 Once you have connected your device, it has learned that network. Your device can store up to seven networks. If you feel like your device has too many networks on it, you can wipe your device's memory of any wifi networks it has learned. You can do so by continuing to hold the MODE button for 10 seconds until the RGB LED flashes blue quickly, signaling that all profiles have been deleted.
 
@@ -187,16 +175,15 @@ Once you have connected your device, it has learned that network. Your device ca
 {{/if}}
 
 
+<p class="boxedHead">**Learning Note: What is Tinker?**</p>
 <p class = "boxed"> 
-Learning Note: What is Tinker?
-
 We've taken the liberty of loading some firmware onto your device for you. It's called Tinker, and it helps you talk to your device by sending power to the pins and reading power levels from the pins. Tinker's functions include:
 * `digitalRead` reads the input of a digital pin, such as one connected to a button or motion sensor. The input will be either HIGH (powered at 3.3 V) or LOW (not powered).
 * `digitalWrite` sends digital output to a digital pin, such as one connected to a signal light. You can set this output to HIGH (powered at 3.3 V) or LOW (not powered).
 * `analogRead` reads the input of an analog pin, such as one connected to a temperature sensor. The input will be between 0 and 255.
 * `analogWrite` writes analog output to an analog pin, such as a dimmable LED. You can set this output from 0 to 255.
 
-We'll go over this more [later](/../../tinker), so don't worry. For more documentation on Tinker, click [here](/reference/tinker).
+We'll go over this more [later](../../tinker), so don't worry. For more documentation on Tinker, click [here](/reference/tinker).
 </p> 
 
 As you can see on your smartphone, the circles represent different pins on your device. If you tap on these circles, you can see the Tinker functions available for the associated pins.
@@ -212,6 +199,6 @@ Tap `D7` then `digitalWrite` in the popup. Now when you tap the D7 circle the ti
 
 Keep in mind that with Tinker, you can communicate with any of the pins, not just with the D7 LED. You can wire things to the pins to run motors, read sensors, and much more. The real fun part comes when you write your own firmware, of course. We'll go over that in later sections.
 
-The next lesson is on [connecting over USB](/../../connect). If you've successfully connected with your smartphone and you'd like to keep playing around with Tinker, skip ahead to learn [device modes](/../../modes) and then do some [Tinker examples](/../../tinker).
+The next lesson is on [connecting over USB](../../connect). If you've successfully connected with your smartphone and you'd like to keep playing around with Tinker, skip ahead to learn [device modes](../../modes) and then do some [Tinker examples](../../tinker).
 
 Otherwise, go to the [next section](../../connect) to learn to connect over USB.

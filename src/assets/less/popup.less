@@ -1,0 +1,39 @@
+    .popupLink {
+      border-bottom: 1px solid #00adef;
+      cursor: pointer;
+    }
+
+    .popup {
+      background-color: @almost-black;
+      border-radius:2px;
+      border: 2px solid #00adef;
+      font-weight:normal;
+      height: auto;
+      left:auto;
+      opacity: 0;
+      visibility: hidden;
+      width: 100%;
+      z-index: 1;
+      -webkit-transition: opacity .25s, visibility .25s;
+      -moz-transition: opacity .25s, visibility .25s;
+      transition: opacity .25s, visibility .25s;
+      font-size: 12 px;
+      max-width: 320px;
+      position: absolute; 
+    }
+
+    .popupLink:hover .popup {
+      visibility: visible;
+      opacity: 1;
+    }
+.popup:after {content: "— release to close —"; margin:auto; }
+
+
+
+@media print
+{    
+    .popupLink
+    {
+        display: none !important;
+    }
+}
