@@ -4,9 +4,6 @@ Documentation middleware.
 Created by Zach Supalla.
 (c) 2014 Spark Labs, Inc. MIT licensed.
 
-Derived from Flatdoc (http://ricostacruz.com/flatdoc)
-(c) 2013 Rico Sta. Cruz. MIT licensed.
-
 */
 
 (function($) {
@@ -70,8 +67,6 @@ Derived from Flatdoc (http://ricostacruz.com/flatdoc)
     }
   };
 
-  Docs.addClass = function() {
-  };
 
   Docs.createH3Waypoints = function(h3s) {
       h3s.each(function() {
@@ -101,7 +96,37 @@ Derived from Flatdoc (http://ricostacruz.com/flatdoc)
      })
   };
 
-  Docs.buildTableOfContents = function() {
+  Docs.scrollToElement = function(element, animationLength, callback) {
+    var $element = $(element);
+    if($element.length === 1) {
+      var position = $(element).position().top;
+      $('.content-inner').animate({
+        scrollTop: position
+      }, animationLength, callback);
+    }
+  };
+
+  Docs.scrollToInternalLinks = function() {
+    var $internalLinks = $('a[href^="#"]');
+    $internalLinks.click(function(e) {
+      e.preventDefault();
+      var id = $(this).attr('href');
+      Docs.scrollToElement(id, 500, function() {
+        window.location.hash = id;
+      });
+    });
+  };
+
+  Docs.scrollToHashOnLoad = function() {
+    var hash = window.location.hash;
+    if (hash !== '' && window.location.pathname !== '/') {
+      setTimeout(function() {
+        Docs.scrollToElement(hash, 500);
+      }, 1000);
+    }
+  };
+
+  Docs.createScrollSpies = function() {
     var $h2s = $('.content h2');
 
     $h2s.each(function() {
@@ -141,7 +166,6 @@ Derived from Flatdoc (http://ricostacruz.com/flatdoc)
               $secondaryNav.show();
             } else {
               var $thisSecondaryNav = $correspondingNavElement.next('.secondary-in-page-toc');
-              console.log($thisSecondaryNav);
               $thisSecondaryNav.length > 0 ? $correspondingNavElement.prev('li').addClass('active') : $correspondingNavElement.addClass('active');
             }
           }
@@ -155,7 +179,9 @@ Derived from Flatdoc (http://ricostacruz.com/flatdoc)
   // Ok, then let's do it!
   Docs.rememberDevices();
   Docs.transform();
-  Docs.buildTableOfContents();
+  Docs.createScrollSpies();
+  Docs.scrollToInternalLinks();
+  Docs.scrollToHashOnLoad();
   prettyPrint();
 
 })(jQuery);
