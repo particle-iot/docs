@@ -63,8 +63,8 @@
           </ul>
         </div>
         <div class="search">
-          <script src='/assets/js/google-search.js'></script>
-          <gcse:search></gcse:search>
+          <!--<script src='/assets/js/google-search.js'></script>
+          <gcse:search></gcse:search>-->
         </div>
       </div>
       <div class='right'>
@@ -94,29 +94,24 @@
       <ul class="nav">
         {{#each reference}}
             <ul>
-              <li class="{{#page-equal ../path.href ../path.name path.href path.name}}active{{/page-equal}}"><a href="{{path.href}}{{path.name}}">{{{title}}}</a></li>
-            </ul>
-            <!--<ul>
-              {{#each this}}
-                <li class="{{#page-equal ../../path.href ../../path.name path.href path.name}}active{{/page-equal}}" data-level="{{inc @../index}}.{{inc @index}}"><a href="{{path.href}}{{path.name}}">{{title}}</a></li>
-                {{#page-equal ../../path.href ../../path.name path.href path.name}}
+              <li class="{{#page-equal ../path.href ../path.name path.href path.name}}active{{/page-equal}}">                <a href="{{path.href}}{{path.name}}">{{{title}}}</a></li>
+                {{#page-equal ../path.href ../path.name path.href path.name}}
                   <div class="in-page-toc-container">
                     <ul class="nav in-page-toc">
-                      {{#each ../../../toc}}
-                        <li><a href="#{{id}}">{{text}}</a></li>
-                        {{#if children}}
-                          <ul class="nav secondary-in-page-toc">
-                            {{#each children}}
-                              <li class="{{../id}}-child"><a href="#{{id}}">{{text}}</a></li>
-                            {{/each}}
-                          </ul>
-                        {{/if}}
+                      {{#each ../../toc}}
+                      <li><a href="#{{id}}">{{{text}}}</a></li>
+                      {{#if children}}
+                        <ul class="nav secondary-in-page-toc">
+                          {{#each children}}
+                            <li class="{{../id}}-child"><a href="#{{id}}">{{{text}}}</a></li>
+                          {{/each}}
+                        </ul>
+                      {{/if}}
                       {{/each}}
                     </ul>
                   </div>
                 {{/page-equal}}
-              {{/each}}
-            </ul>-->
+            </ul>
         {{/each}}
       </ul>
       </div>

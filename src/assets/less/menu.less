@@ -122,26 +122,29 @@ h3.guide-section-titles {
   overflow-x: hidden;
   white-space: nowrap;
   padding: 2px 0;
-  ul.in-page-toc {
-    padding-left: 10px;
-    li {
-      text-overflow: ellipsis;
-      overflow-x: hidden;
-      padding: 2px 0;
-        &.active {
-          a {
-            font-weight: 700;
-            color: @spark-blue;
-          }
+}
+
+ul.in-page-toc {
+  padding: 5px 10px;
+  background-color: @almost-white;
+  margin: 5px 0 10px 10px;
+  li {
+    text-overflow: ellipsis;
+    overflow-x: hidden;
+    padding: 2px 0;
+      &.active {
+        a {
+          font-weight: 700;
+          color: @spark-blue;
         }
-      a {
-        font-size: 12px;
       }
+    a {
+      font-size: 12px;
     }
-    .secondary-in-page-toc {
-      padding-left: 10px;
-      display: none;
-    }
+  }
+  .secondary-in-page-toc {
+    padding-left: 10px;
+    display: none;
   }
 }
 

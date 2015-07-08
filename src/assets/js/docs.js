@@ -73,14 +73,43 @@ Derived from Flatdoc (http://ricostacruz.com/flatdoc)
   Docs.addClass = function() {
   };
 
+  Docs.createH3Waypoints = function(h3s) {
+      h3s.each(function() {
+        var element = $(this)[0];
+        setTimeout(function() {
+          var waypoint = new Waypoint.Inview({
+            element: element,
+            exit: function(direction) {
+              if(direction === 'down') {
+                var elementId = this.element.id;
+                var $correspondingNavElement = $('ul.in-page-toc li a[href="#' + elementId + '"]').parent();
+                $('ul.in-page-toc li').removeClass('active');
+                $correspondingNavElement.addClass('active');
+              }
+            },
+            enter: function(direction) {
+              if(direction === 'up') {
+                var elementId = this.element.id;
+                var $correspondingNavElement = $('ul.in-page-toc li a[href="#' + elementId + '"]').parent();
+                $('ul.in-page-toc li').removeClass('active');
+                $correspondingNavElement.addClass('active');
+              }
+            },
+            context: $('.content-inner')[0]
+          });
+        }, 0);
+     })
+  };
+
   Docs.buildTableOfContents = function() {
     var $h2s = $('.content h2');
-    var $h3s = $('.content h3');
 
     $h2s.each(function() {
+      var h3WaypointsCreated = false;
       var waypoint = new Waypoint.Inview({
         element: $(this)[0],
         exit: function(direction) {
+          var $h2 = $(this.element);
           if(direction === 'down') {
             var elementId = this.element.id;
             var $correspondingNavElement = $('ul.in-page-toc li a[href="#' + elementId + '"]').parent();
@@ -91,6 +120,11 @@ Derived from Flatdoc (http://ricostacruz.com/flatdoc)
             var $secondaryNav = $correspondingNavElement.next('.secondary-in-page-toc');
             if($secondaryNav.length > 0) {
               $secondaryNav.show();
+            }
+            var $nextH3s = $h2.nextUntil('h2', 'h3');
+            if(!h3WaypointsCreated) {
+              Docs.createH3Waypoints($nextH3s);
+              h3WaypointsCreated = true;
             }
           }
         },
@@ -105,30 +139,11 @@ Derived from Flatdoc (http://ricostacruz.com/flatdoc)
             if($secondaryNav.length > 0) {
               $secondaryNav.find('li:last-of-type').addClass('active');
               $secondaryNav.show();
+            } else {
+              var $thisSecondaryNav = $correspondingNavElement.next('.secondary-in-page-toc');
+              console.log($thisSecondaryNav);
+              $thisSecondaryNav.length > 0 ? $correspondingNavElement.prev('li').addClass('active') : $correspondingNavElement.addClass('active');
             }
-          }
-        },
-        context: $('.content-inner')[0]
-      });
-    });
-    $h3s.each(function() {
-      var isAboveViewport = false;
-      var waypoint = new Waypoint.Inview({
-        element: $(this)[0],
-        exit: function(direction) {
-          if(direction === 'down') {
-            var elementId = this.element.id;
-            var $correspondingNavElement = $('ul.in-page-toc li a[href="#' + elementId + '"]').parent();
-            $('ul.in-page-toc li').removeClass('active');
-            $correspondingNavElement.addClass('active');
-          }
-        },
-        enter: function(direction) {
-          if(direction === 'up') {
-            var elementId = this.element.id;
-            var $correspondingNavElement = $('ul.in-page-toc li a[href="#' + elementId + '"]').parent();
-            $('ul.in-page-toc li').removeClass('active');
-            $correspondingNavElement.addClass('active');
           }
         },
         context: $('.content-inner')[0]

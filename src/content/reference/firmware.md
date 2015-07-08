@@ -8,8 +8,7 @@ device: [photon, core]
 Particle Device Firmware
 ==========
 
-Cloud Functions
-=====
+##Cloud Functions
 
 ### Spark.variable()
 
@@ -516,8 +515,7 @@ void setup() {
 }
 ```
 
-WiFi
-=====
+## WiFi
 
 ### WiFi.on()
 
@@ -740,11 +738,7 @@ void setup() {
 }
 ```
 
-Input/Output
-=====
-
-Setup
------
+## Input/Output
 
 ### pinMode()
 
@@ -781,9 +775,6 @@ void loop()
   }
 }
 ```
-
-I/O
-------
 
 ### digitalWrite()
 
@@ -893,7 +884,7 @@ When used with these pins, the analogWrite function has nothing to do with the a
 
 
 
-#### Analog Output (Photon)
+### Analog Output (Photon)
 
 The Photon supports true analog output on pins DAC (DAC1 in code) and A3 (DAC2). Using `analogWrite(pin, value)`
 with these pins, the output of the pin is set to an analog voltage from 0v to 3.3v that corresponds to values
@@ -964,8 +955,7 @@ On Core, this parameter can be one of the following values:
  * ADC_SampleTime_144Cycles: Sample time equal to 144 cycles
  * ADC_SampleTime_480Cycles: Sample time equal to 480 cycles
 
-Advanced I/O
-------
+## Advanced I/O
 
 ### tone()
 
@@ -1115,11 +1105,7 @@ loop() {
 `shiftIn()` returns the byte value read.
 
 
-Communication
-===
-
-Serial
------
+## Serial
 
 Used for communication between the device and a computer or other devices. The device has two serial channels:
 
@@ -1711,9 +1697,7 @@ void loop()
 }
 ```
 
-IPAddress
------
-### IPAddress
+## IPAddress
 
 Creates an IP address that can be used with TCPServer, TCPClient, and UDP objects.
 
@@ -1771,9 +1755,7 @@ IPAddress myIP = WiFi.localIP();
 Serial.println(myIP);    // prints the device's IP address
 ```
 
-TCPServer
------
-### TCPServer
+## TCPServer
 
 Create a server that listens for incoming connections on the specified port.
 
@@ -1887,10 +1869,8 @@ Parameters:
 - `data` (optional): the data to print (char, byte, int, long, or string)
 - `BASE` (optional): the base in which to print numbers: BIN for binary (base 2), DEC for decimal (base 10), OCT for octal (base 8), HEX for hexadecimal (base 16).
 
-TCPClient
------
 
-### TCPClient
+## TCPClient
 
 Creates a client which can connect to a specified internet IP address and port (defined in the `client.connect()` function).
 
@@ -2066,8 +2046,7 @@ client.stop();
 ```
 
 
-UDP
------
+## UDP
 
 This class enables UDP messages to be sent and received.
 
@@ -2258,11 +2237,9 @@ Returns:
 
 - `int`: the port from which the packet parsed by `UDP.parsePacket()` was sent.
 
-Libraries
-=====
+## Libraries
 
-Servo
----
+### Servo
 
 This library allows your device to control RC (hobby) servo motors. Servos have integrated gears and a shaft that can be precisely controlled. Standard servos allow the shaft to be positioned at various angles, usually between 0 and 180 degrees. Continuous rotation servos allow the rotation of the shaft to be set to various speeds.
 
@@ -2360,8 +2337,7 @@ Detach the Servo variable from its pin.
 servo.detach()
 ```
 
-RGB
----
+### RGB
 
 This library allows the user to control the RGB LED on the front of the device.
 
@@ -2448,8 +2424,7 @@ RGB.brightness(128);
 RGB.brightness(255);
 ```
 
-Time
----
+### Time
 
 The device synchronizes time with the Particle Cloud during the handshake.
 From then, the time is continually updated on the device.
@@ -2693,9 +2668,7 @@ Serial.print(Time.timeStr()); // Wed May 21 01:08:47 2014
 
 Returns: String
 
-
-Other functions
-=====
+## Other Functions
 
 Note that most of the functions in newlib described at https://sourceware.org/newlib/libc.html are available for use in addition to the functions outlined below.
 
@@ -2817,8 +2790,7 @@ void loop()
 }
 ```
 
-Interrupts
----
+## Interrupts
 
 ### attachInterrupt()
 
@@ -2921,8 +2893,7 @@ noInterrupts();
 `noInterrupts()` neither accepts a parameter nor returns anything.
 
 
-Math
----
+## Math
 
 Note that in addition to functions outlined below all of the newlib math functions described at [sourceware.org](https://sourceware.org/newlib/libm.html) are also available for use by simply including the math.h header file thus:
 
@@ -3199,8 +3170,7 @@ whatever seed was previously set. In this case, the random seed will not be set
 from the cloud, and setting the seed is left to up you.
 
 
-EEPROM
-----
+### EEPROM
 
 The EEPROM emulator allocates a region of the device's built-in flash memory to act as EEPROM.
 Unlike "true" EEPROM, flash doesn't suffer from write "wear" with each write to
@@ -3265,11 +3235,9 @@ uint8_t val = 0x45;
 EEPROM.write(addr, val);
 ```
 
-System
-=====
+## System
 
-System modes
-----
+### System modes
 
 System modes help you control how the device manages the connection with the cloud.
 
@@ -3360,8 +3328,7 @@ When using manual mode:
 - Once the device is connected to the Cloud ([`Spark.connected()`](#spark-connected)` == true`), the user must call `Spark.process()` regularly to handle incoming messages and keep the connection alive. The more frequently `Spark.process()` is called, the more responsive the device will be to incoming messages.
 - If `Spark.process()` is called less frequently than every 20 seconds, the connection with the Cloud will die. It may take a couple of additional calls of `Spark.process()` for the device to recognize that the connection has been lost.
 
-System.factoryReset()
-----
+### System.factoryReset()
 
 This will perform a factory reset and do the following:
 
@@ -3393,8 +3360,7 @@ System.dfu(true);   // persistent DFU mode - will enter DFU after a reset until 
 ```
 
 
-System.deviceID()
-----
+### System.deviceID()
 
 `System.deviceID()` provides an easy way to extract the device ID of your device. It returns a [String object](#data-types-string-object) of the device ID, which is used to identify your device.
 
@@ -3550,8 +3516,7 @@ void loop() {
 ```
 
 
-Language Syntax
-=====
+### Language Syntax
 The following documentation is based on the Arduino reference which can be found [here.](http://www.arduino.cc/en/Reference/HomePage)
 
 Structure
@@ -4364,8 +4329,7 @@ If you are careful to avoid sign extension, you can use the right-shift operator
 int x = 1000;
 int y = x >> 3;   // integer division of 1000 by 8, causing y = 125
 ```
-Compound operators
----
+## Compound operators
 
 ### ++ (increment), -- (decrement)
 
@@ -4939,11 +4903,7 @@ Parameters:
 Returns: None
 
 
-Variables
-=====
-
-Constants
-----
+## Variables
 
 ### HIGH | LOW
 
@@ -4995,9 +4955,7 @@ There are two constants used to represent truth and falsity in the Arduino langu
 
 Note that the true and false constants are typed in lowercase unlike `HIGH, LOW, INPUT, & OUTPUT.`
 
-
-Data Types
-----
+## Data Types
 
 **Note:** The Core/Photon uses a 32-bit ARM based microcontroller and hence the datatype lengths are different from a standard 8-bit system (for eg. Arduino Uno).
 
