@@ -18,7 +18,7 @@ Operation
 
 We use Texas Instruments [TXB0108PWR](http://www.ti.com/lit/ds/symlink/txb0108.pdf) to do the voltage translation in between Spark Core's 3.3V logic level and Arduino's 5V logic.
 
-Due to the limited number of pin to function combinations, we have only mapped three analog channels `A0`, `A1` and `A2`. Unlike other IO pins, the analog pins are rated at only a max of 3.3V and NOT 5.0V. **Please remember NOT to exceed this voltage at anytime.**
+Due to the limited number of pin to function combinations, we have only mapped three analog channels to the Arduino footprint labeled `A0`, `A1` and `A2`. Unlike other IO pins, the analog pins are rated at only a max of 3.3V and NOT 5.0V. **Please remember NOT to exceed this voltage at anytime.**
 
 The shield has an onboard voltage regulator and can be powered from 7V to 15V DC. You could also power it via the USB plug on the Spark Core alone but the current would be limited to 500mA.
 
