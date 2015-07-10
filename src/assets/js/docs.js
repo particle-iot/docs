@@ -112,7 +112,7 @@ Created by Zach Supalla.
        });
   };
 
-  Docs.scrollToElement = function(element, animationLength, callback) {
+  Docs.scrollToElement = function(element) {
     var $element = $(element);
     if($element.length === 1) {
       var position = $(element).position().top;
@@ -125,9 +125,8 @@ Created by Zach Supalla.
     $internalLinks.click(function(e) {
       e.preventDefault();
       var id = $(this).attr('href');
-      Docs.scrollToElement(id, 1000, function() {
-        window.location.hash = id;
-      });
+      Docs.scrollToElement(id);
+      window.location.hash = id;
     });
   };
 
@@ -135,7 +134,7 @@ Created by Zach Supalla.
     var hash = window.location.hash;
     if (hash !== '' && window.location.pathname !== '/') {
       setTimeout(function() {
-        Docs.scrollToElement(hash, 1000);
+        Docs.scrollToElement(hash);
       }, 1000);
     }
   };
@@ -206,7 +205,7 @@ Created by Zach Supalla.
 
   Docs.watchToggleInPageNav = function() {
     $('li.top-level.active').click(function() {
-      $('ul.in-page-toc').toggleClass('show');
+      $('ul.in-page-toc').toggleClass('show hide');
       $(this).find('#toggle-in-page-nav').toggleClass("ion-plus ion-minus");
     });
   };
@@ -224,6 +223,15 @@ Created by Zach Supalla.
     });
   };
 
+  Docs.checkIfGuideScrollbar = function() {
+    var $contentInner = $('.content-inner')[0];
+    console.log('yo');
+    console.log($contentInner);
+    if($contentInner.scrollHeight > $contentInner.clientHeight) {
+      $('.arrow.next-arrow').css('margin-right', '15px');
+    }
+  };
+
 
   // Ok, then let's do it!
   Docs.rememberDevices();
@@ -232,6 +240,7 @@ Created by Zach Supalla.
   Docs.scrollToInternalLinks();
   Docs.watchToggleInPageNav();
   Docs.watchToggleSecondaryInPageNav();
+  Docs.checkIfGuideScrollbar();
   prettyPrint();
 
 })(jQuery);

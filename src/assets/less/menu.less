@@ -122,6 +122,22 @@ ul.guide-menu {
 }
 /* END GUIDE SPEFIFIC MENU */
 
+/* REFERENCE SPECIFIC MENU */
+.reference {
+  ul.in-page-toc {
+    display: none;
+  }
+}
+/* END REFERENCE SPECIFIC MENU */
+#toggle-in-page-nav {
+  color: @gray;
+  cursor: pointer;
+  position: absolute;
+  top: 11px;
+  right: 15px;
+  .transition(color 0.2s);
+}
+
 .menubar li a,
 .menubar li a:visited {
   font-size: 14px;
@@ -139,24 +155,14 @@ ul.guide-menu {
   padding: 2px 0;
 }
 
-.reference {
-  #toggle-in-page-nav {
-    color: @gray;
-    cursor: pointer;
-    position: absolute;
-    top: 11px;
-    right: 15px;
-    .transition(color 0.2s);
-  }
-  ul.in-page-toc {
-    display: none;
-    &.show {
-      display: block;
-    }
-  }
-}
 ul.in-page-toc {
   margin: 5px 0 10px 10px;
+  &.hide {
+    display: none;
+  }
+  &.show {
+    display: block;
+  }
   li {
     text-overflow: ellipsis;
     overflow-x: hidden;
