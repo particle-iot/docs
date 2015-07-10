@@ -112,7 +112,7 @@ h3.guide-section-titles {
   font-weight: 400;
   color: @gray;
   margin: 2px 0;
-  .transition(color 0.2s);
+  .transition(all 0.2s);
   &:hover {
     color: @spark-blue;
   }
@@ -124,20 +124,43 @@ h3.guide-section-titles {
   padding: 2px 0;
 }
 
+.reference {
+  #toggle-in-page-nav {
+    color: @gray;
+    cursor: pointer;
+    position: absolute;
+    top: 11px;
+    right: 15px;
+    .transition(color 0.2s);
+  }
+  ul.in-page-toc {
+    display: none;
+    &.show {
+      display: block;
+    }
+  }
+}
 ul.in-page-toc {
-  padding: 5px 10px;
-  background-color: @almost-white;
   margin: 5px 0 10px 10px;
   li {
     text-overflow: ellipsis;
     overflow-x: hidden;
     padding: 2px 0;
-      &.active {
-        a {
-          font-weight: 700;
-          color: @spark-blue;
-        }
+    i.toggle-secondary-toc {
+      color: @gray;
+      margin-right: 5px;
+      cursor: pointer;
+      .transition(color 0.2s);
+      &:hover {
+        color: @spark-blue;
       }
+    }
+    &.active {
+      a {
+        font-weight: 700;
+        color: @spark-blue;
+      }
+    }
     a {
       font-size: 12px;
     }
@@ -149,9 +172,22 @@ ul.in-page-toc {
 }
 
 .menubar li.active {
+  &.top-level {
+    padding: 5px;
+    background: @almost-white;
+    position: relative;
+    cursor: pointer;
+    margin: 0 -20px;
+    padding-left: 20px;
+    &:hover {
+      #toggle-in-page-nav {
+        color: @spark-blue;
+      }
+    }
+  }
   a {
     font-weight: 700;
-    color: @spark-blue;
+    color: @gray;
   }
 }
 .guide-section {

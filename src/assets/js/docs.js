@@ -77,20 +77,21 @@ Created by Zach Supalla.
             exit: function(direction) {
               if(direction === 'down') {
                 var elementId = this.element.id;
-                var $correspondingNavElement = $('ul.in-page-toc li a[href="#' + elementId + '"]').parent();
-                $('ul.in-page-toc li').removeClass('active');
+                var $correspondingNavElement = $('ul.in-page-toc li:not(.middle-level) a[href="#' + elementId + '"]').parent();
+                $('ul.in-page-toc li:not(.middle-level)').removeClass('active');
                 $correspondingNavElement.addClass('active');
               }
             },
             enter: function(direction) {
               if(direction === 'up') {
                 var elementId = this.element.id;
-                var $correspondingNavElement = $('ul.in-page-toc li a[href="#' + elementId + '"]').parent();
-                $('ul.in-page-toc li').removeClass('active');
+                var $correspondingNavElement = $('ul.in-page-toc li:not(.middle-level) a[href="#' + elementId + '"]').parent();
+                $('ul.in-page-toc li:not(.middle-level)').removeClass('active');
                 $correspondingNavElement.addClass('active');
               }
             },
-            context: $('.content-inner')[0]
+            context: $('.content-inner')[0],
+            continuous: false
           });
         }, 0);
      })
@@ -137,15 +138,25 @@ Created by Zach Supalla.
           var $h2 = $(this.element);
           if(direction === 'down') {
             var elementId = this.element.id;
-            var $correspondingNavElement = $('ul.in-page-toc li a[href="#' + elementId + '"]').parent();
-            $('ul.in-page-toc li').removeClass('active');
-            $correspondingNavElement.addClass('active');
-            // Show the sub navigation
+            // This is the menu li that corresponds to the h2 that was scrolled to
+            var $correspondingNavElement = $('li.middle-level a[href="#' + elementId + '"]').parent();
+            // Remove active class
+            $('ul.in-page-toc li.middle-level').removeClass('active')
+               // Show the secondary nav as collapsed
+              .find('.toggle-secondary-toc').removeClass('ion-arrow-down-b').addClass('ion-arrow-right-b');
+            // Make the current nav element active
+            $correspondingNavElement.addClass('active')
+               // Show the secondary nav as expanded
+              .find('.toggle-secondary-toc').removeClass('ion-arrow-right-b').addClass(' ion-arrow-down-b');
+
+            // Hide all the other secondary in page tocs
             $('ul.secondary-in-page-toc').hide();
+            // Show the secondary in page toc for this section
             var $secondaryNav = $correspondingNavElement.next('.secondary-in-page-toc');
             if($secondaryNav.length > 0) {
               $secondaryNav.show();
             }
+            // Create the waypoints for h3s intelligently
             var $nextH3s = $h2.nextUntil('h2', 'h3');
             if(!h3WaypointsCreated) {
               Docs.createH3Waypoints($nextH3s);
@@ -156,13 +167,21 @@ Created by Zach Supalla.
         enter: function(direction) {
           if(direction === 'up') {
             var elementId = this.element.id;
-            var $correspondingNavElement = $('ul.in-page-toc li a[href="#' + elementId + '"]').parent();
-            $('ul.in-page-toc li').removeClass('active');
-            // Show the sub navigation
+            var $correspondingNavElement = $('li.middle-level a[href="#' + elementId + '"]').parent();
+
+            // Remove the active class
+            $('ul.in-page-toc li.middle-level').removeClass('active')
+               // Show the secondary nav as collapsed
+              .find('.toggle-secondary-toc').removeClass('ion-arrow-down-b').addClass('ion-arrow-right-b');
+            // Hide all the other secondary in page tocs
             $('ul.secondary-in-page-toc').hide();
+
+            // Expand the previous secondary in page nav because the user is scrolling up!
             var $secondaryNav = $correspondingNavElement.prev('.secondary-in-page-toc');
             if($secondaryNav.length > 0) {
               $secondaryNav.find('li:last-of-type').addClass('active');
+              $secondaryNav.prev('.middle-level').addClass('active')
+                .find('.toggle-secondary-toc').toggleClass('ion-arrow-right-b ion-arrow-down-b');
               $secondaryNav.show();
             } else {
               var $thisSecondaryNav = $correspondingNavElement.next('.secondary-in-page-toc');
@@ -173,6 +192,28 @@ Created by Zach Supalla.
         context: $('.content-inner')[0]
       });
     });
+    // Scroll to the current hash if there is one
+    Docs.scrollToHashOnLoad();
+  };
+
+  Docs.watchToggleInPageNav = function() {
+    $('li.top-level.active').click(function() {
+      $('ul.in-page-toc').toggleClass('show');
+      $(this).find('#toggle-in-page-nav').toggleClass("ion-plus ion-minus");
+    });
+  };
+  Docs.watchToggleSecondaryInPageNav = function() {
+    $('.toggle-secondary-toc').click(function() {
+      var $this = $(this);
+      var $parent = $this.parent();
+      if($this.hasClass('ion-arrow-down-b')) {
+        $this.removeClass('ion-arrow-down-b').addClass('ion-arrow-right-b');
+        $parent.next('.secondary-in-page-toc').hide();
+      } else {
+        $this.removeClass('ion-arrow-right-b').addClass('ion-arrow-down-b');
+        $parent.next('.secondary-in-page-toc').show();
+      }
+    });
   };
 
 
@@ -181,7 +222,8 @@ Created by Zach Supalla.
   Docs.transform();
   Docs.createScrollSpies();
   Docs.scrollToInternalLinks();
-  Docs.scrollToHashOnLoad();
+  Docs.watchToggleInPageNav();
+  Docs.watchToggleSecondaryInPageNav();
   prettyPrint();
 
 })(jQuery);

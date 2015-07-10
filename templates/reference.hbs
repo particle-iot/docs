@@ -91,15 +91,20 @@
     <div class='content-root'>
       <div class='menubar'>
 
-      <ul class="nav">
+      <ul class="nav reference">
         {{#each reference}}
             <ul>
-              <li class="{{#page-equal ../path.href ../path.name path.href path.name}}active{{/page-equal}}">                <a href="{{path.href}}{{path.name}}">{{{title}}}</a></li>
+              <li class="top-level {{#page-equal ../path.href ../path.name path.href path.name}}active{{/page-equal}}">
+                <a href="{{path.href}}{{path.name}}">{{{title}}}</a>
+                {{#page-equal ../path.href ../path.name path.href path.name}}
+                  <i id="toggle-in-page-nav" class="ion-plus"></i>
+                {{/page-equal}}
+              </li>
                 {{#page-equal ../path.href ../path.name path.href path.name}}
                   <div class="in-page-toc-container">
                     <ul class="nav in-page-toc">
                       {{#each ../../toc}}
-                      <li><a href="#{{id}}">{{{text}}}</a></li>
+                      <li class="middle-level">{{#if children}}<i class="toggle-secondary-toc ion-arrow-right-b"></i>{{/if}}<a href="#{{id}}">{{{text}}}</a></li>
                       {{#if children}}
                         <ul class="nav secondary-in-page-toc">
                           {{#each children}}
