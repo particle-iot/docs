@@ -69,41 +69,51 @@ Created by Zach Supalla.
 
 
   Docs.createH3Waypoints = function(h3s) {
-      h3s.each(function() {
-        var element = $(this)[0];
-        setTimeout(function() {
-          var waypoint = new Waypoint.Inview({
-            element: element,
-            exit: function(direction) {
-              if(direction === 'down') {
-                var elementId = this.element.id;
-                var $correspondingNavElement = $('ul.in-page-toc li:not(.middle-level) a[href="#' + elementId + '"]').parent();
-                $('ul.in-page-toc li:not(.middle-level)').removeClass('active');
-                $correspondingNavElement.addClass('active');
-              }
-            },
-            enter: function(direction) {
-              if(direction === 'up') {
-                var elementId = this.element.id;
-                var $correspondingNavElement = $('ul.in-page-toc li:not(.middle-level) a[href="#' + elementId + '"]').parent();
-                $('ul.in-page-toc li:not(.middle-level)').removeClass('active');
-                $correspondingNavElement.addClass('active');
-              }
-            },
-            context: $('.content-inner')[0],
-            continuous: false
-          });
-        }, 0);
-     })
+        h3s.each(function() {
+          var element = $(this)[0];
+          setTimeout(function() {
+            console.log('scrollspy created');
+            var waypoint = new Waypoint.Inview({
+              element: element,
+              exit: function(direction) {
+                if(direction === 'down') {
+                  var elementId = this.element.id;
+                  var $correspondingNavElement = $('li[data-secondary-nav="'+elementId+ '"]');
+                  $('li[data-secondary-nav]').removeClass('active');
+                  $correspondingNavElement.addClass('active');
+                }
+              },
+              enter: function(direction) {
+                if(direction === 'up') {
+                  var elementId = this.element.id;
+                  var $correspondingNavElement = $('li[data-secondary-nav="'+elementId+ '"]');
+                  $('li[data-secondary-nav]').removeClass('active');
+                  $correspondingNavElement.addClass('active');
+
+                  var $parentli = $correspondingNavElement.parent().prev('li[data-nav]');
+                  var $nextli = $correspondingNavElement.parent().next('li[data-nav]');
+                  if(!$parentli.hasClass('active')) {
+                    $parentli.addClass('active')
+                      .find('.toggle-secondary-toc').removeClass('ion-arrow-right-b').addClass('ion-arrow-down-b');
+                    $nextli.removeClass('active')
+                      .find('.toggle-secondary-toc').removeClass('ion-arrow-down-b').addClass('ion-arrow-right-b');
+                    $correspondingNavElement.parent().show();
+                    $nextli.next('.secondary-in-page-toc').hide();
+                  }
+                }
+              },
+              context: $('.content-inner')[0],
+              continuous: false
+            });
+          }, 0);
+       });
   };
 
   Docs.scrollToElement = function(element, animationLength, callback) {
     var $element = $(element);
     if($element.length === 1) {
       var position = $(element).position().top;
-      $('.content-inner').animate({
-        scrollTop: position
-      }, animationLength, callback);
+      $('.content-inner').scrollTop(position);
     }
   };
 
@@ -112,7 +122,7 @@ Created by Zach Supalla.
     $internalLinks.click(function(e) {
       e.preventDefault();
       var id = $(this).attr('href');
-      Docs.scrollToElement(id, 500, function() {
+      Docs.scrollToElement(id, 1000, function() {
         window.location.hash = id;
       });
     });
@@ -122,8 +132,29 @@ Created by Zach Supalla.
     var hash = window.location.hash;
     if (hash !== '' && window.location.pathname !== '/') {
       setTimeout(function() {
-        Docs.scrollToElement(hash, 500);
+        Docs.scrollToElement(hash, 1000);
       }, 1000);
+    }
+  };
+
+  Docs.handleClassChanges = function(elementId, $h2, h3WaypointsCreated) {
+    // This is the menu li that corresponds to the h2 that was scrolled to
+    var $correspondingNavElement = $('li[data-nav="'+ elementId+'"]');
+    // Remove active class
+    $('ul.in-page-toc li[data-nav]').removeClass('active')
+       // Show the secondary nav as collapsed
+      .find('.toggle-secondary-toc').removeClass('ion-arrow-down-b').addClass('ion-arrow-right-b');
+    // Make the current nav element active
+    $correspondingNavElement.addClass('active')
+       // Show the secondary nav as expanded
+      .find('.toggle-secondary-toc').removeClass('ion-arrow-right-b').addClass(' ion-arrow-down-b');
+
+    // Hide all the other secondary in page tocs
+    $('ul.secondary-in-page-toc').hide();
+    // Show the secondary in page toc for this section
+    var $secondaryNav = $correspondingNavElement.next('.secondary-in-page-toc');
+    if($secondaryNav.length > 0) {
+      $secondaryNav.show();
     }
   };
 
@@ -138,24 +169,7 @@ Created by Zach Supalla.
           var $h2 = $(this.element);
           if(direction === 'down') {
             var elementId = this.element.id;
-            // This is the menu li that corresponds to the h2 that was scrolled to
-            var $correspondingNavElement = $('li.middle-level a[href="#' + elementId + '"]').parent();
-            // Remove active class
-            $('ul.in-page-toc li.middle-level').removeClass('active')
-               // Show the secondary nav as collapsed
-              .find('.toggle-secondary-toc').removeClass('ion-arrow-down-b').addClass('ion-arrow-right-b');
-            // Make the current nav element active
-            $correspondingNavElement.addClass('active')
-               // Show the secondary nav as expanded
-              .find('.toggle-secondary-toc').removeClass('ion-arrow-right-b').addClass(' ion-arrow-down-b');
-
-            // Hide all the other secondary in page tocs
-            $('ul.secondary-in-page-toc').hide();
-            // Show the secondary in page toc for this section
-            var $secondaryNav = $correspondingNavElement.next('.secondary-in-page-toc');
-            if($secondaryNav.length > 0) {
-              $secondaryNav.show();
-            }
+            Docs.handleClassChanges(elementId, $h2, h3WaypointsCreated);
             // Create the waypoints for h3s intelligently
             var $nextH3s = $h2.nextUntil('h2', 'h3');
             if(!h3WaypointsCreated) {
@@ -165,27 +179,15 @@ Created by Zach Supalla.
           }
         },
         enter: function(direction) {
+          var $h2 = $(this.element);
           if(direction === 'up') {
             var elementId = this.element.id;
-            var $correspondingNavElement = $('li.middle-level a[href="#' + elementId + '"]').parent();
-
-            // Remove the active class
-            $('ul.in-page-toc li.middle-level').removeClass('active')
-               // Show the secondary nav as collapsed
-              .find('.toggle-secondary-toc').removeClass('ion-arrow-down-b').addClass('ion-arrow-right-b');
-            // Hide all the other secondary in page tocs
-            $('ul.secondary-in-page-toc').hide();
-
-            // Expand the previous secondary in page nav because the user is scrolling up!
-            var $secondaryNav = $correspondingNavElement.prev('.secondary-in-page-toc');
-            if($secondaryNav.length > 0) {
-              $secondaryNav.find('li:last-of-type').addClass('active');
-              $secondaryNav.prev('.middle-level').addClass('active')
-                .find('.toggle-secondary-toc').toggleClass('ion-arrow-right-b ion-arrow-down-b');
-              $secondaryNav.show();
-            } else {
-              var $thisSecondaryNav = $correspondingNavElement.next('.secondary-in-page-toc');
-              $thisSecondaryNav.length > 0 ? $correspondingNavElement.prev('li').addClass('active') : $correspondingNavElement.addClass('active');
+            Docs.handleClassChanges(elementId, $h2, h3WaypointsCreated);
+            // Create the waypoints for h3s intelligently
+            var $nextH3s = $h2.nextUntil('h2', 'h3');
+            if(!h3WaypointsCreated) {
+              Docs.createH3Waypoints($nextH3s);
+              h3WaypointsCreated = true;
             }
           }
         },
@@ -220,7 +222,7 @@ Created by Zach Supalla.
   // Ok, then let's do it!
   Docs.rememberDevices();
   Docs.transform();
-  Docs.createScrollSpies();
+  //Docs.createScrollSpies();
   Docs.scrollToInternalLinks();
   Docs.watchToggleInPageNav();
   Docs.watchToggleSecondaryInPageNav();

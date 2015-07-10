@@ -45,7 +45,7 @@
           <img src="/assets/images/particle-docs.png" id="logo">
         </a>
         <div class="sections">
-          <a class="nav {{#contains path.href 'guide'}}active{{/contains}}" href="/guide/{{device}}">Guide</a>
+          <a class="nav {{#contains path.href 'guide'}}active{{/contains}}" href="/guide">Guide</a>
           <a class="nav {{#contains path.href 'reference'}}active{{/contains}}" href="/reference">Reference</a>
           <a class="nav {{#contains path.href 'datasheets'}}active{{/contains}}" href="/datasheets">Datasheets</a>
           <a class="nav {{#contains path.href 'support'}}active{{/contains}}" href="/support">Support</a>
@@ -56,7 +56,7 @@
             <i class="icon ion-chevron-down"></i>
           </a>
           <ul class="dropdown-menu" aria-labelledby="dLabel">
-            <li><a href="/guide/{{device}}">Guide</a></li>
+            <li><a href="/guide">Guide</a></li>
             <li><a href="/reference">Reference</a></li>
             <li><a href="/datasheets">Datasheets</a></li>
             <li><a href="/support">Support</a></li>
@@ -95,20 +95,22 @@
         {{#each reference}}
             <ul>
               <li class="top-level {{#page-equal ../path.href ../path.name path.href path.name}}active{{/page-equal}}">
-                <a href="{{path.href}}{{path.name}}">{{{title}}}</a>
                 {{#page-equal ../path.href ../path.name path.href path.name}}
+                  <span>{{{title}}}</span>
                   <i id="toggle-in-page-nav" class="ion-plus"></i>
+                {{else}}
+                  <a href="{{path.href}}{{path.name}}">{{{title}}}</a>
                 {{/page-equal}}
               </li>
                 {{#page-equal ../path.href ../path.name path.href path.name}}
                   <div class="in-page-toc-container">
                     <ul class="nav in-page-toc">
                       {{#each ../../toc}}
-                      <li class="middle-level">{{#if children}}<i class="toggle-secondary-toc ion-arrow-right-b"></i>{{/if}}<a href="#{{id}}">{{{text}}}</a></li>
+                      <li class="middle-level" data-nav="{{id}}">{{#if children}}<i class="toggle-secondary-toc ion-arrow-right-b"></i>{{/if}}<a href="#{{id}}">{{{text}}}</a></li>
                       {{#if children}}
                         <ul class="nav secondary-in-page-toc">
                           {{#each children}}
-                            <li class="{{../id}}-child"><a href="#{{id}}">{{{text}}}</a></li>
+                            <li data-secondary-nav="{{id}}"><a href="#{{id}}">{{{text}}}</a></li>
                           {{/each}}
                         </ul>
                       {{/if}}

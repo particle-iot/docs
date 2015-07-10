@@ -112,7 +112,6 @@ h3.guide-section-titles {
   font-weight: 400;
   color: @gray;
   margin: 2px 0;
-  .transition(all 0.2s);
   &:hover {
     color: @spark-blue;
   }
@@ -179,15 +178,17 @@ ul.in-page-toc {
     cursor: pointer;
     margin: 0 -20px;
     padding-left: 20px;
+    overflow-x: auto;
     &:hover {
       #toggle-in-page-nav {
         color: @spark-blue;
       }
     }
   }
-  a {
+  span {
     font-weight: 700;
     color: @gray;
+    font-size: 14px;
   }
 }
 .guide-section {
