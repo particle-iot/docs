@@ -55,6 +55,10 @@ exports.metalsmith = function() {
       reference: {
         pattern: 'reference/*md',
         sortBy: 'order'
+      },
+      datasheet: {
+        pattern: 'datasheets/*.md',
+        sortBy: 'order'
       }
     }))
     .use(fork({
@@ -123,6 +127,7 @@ exports.server = function(callback) {
         "${source}/assets/less/*.less": "assets/less/*.less",
         "../templates/reference.hbs": "content/reference/*.md",
         "../templates/guide.hbs": "content/guide/**/*.md",
+        "../templates/datasheet.hbs": "content/datasheets/*.md",
       },
       livereload: true
     }))
