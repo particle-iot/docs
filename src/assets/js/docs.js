@@ -225,8 +225,6 @@ Created by Zach Supalla.
 
   Docs.checkIfGuideScrollbar = function() {
     var $contentInner = $('.content-inner')[0];
-    console.log('yo');
-    console.log($contentInner);
     if($contentInner.scrollHeight > $contentInner.clientHeight) {
       $('.arrow.next-arrow').css('margin-right', '15px');
     }
