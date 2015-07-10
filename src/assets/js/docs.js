@@ -68,38 +68,41 @@ Created by Zach Supalla.
   };
 
 
-  Docs.createH3Waypoints = function(h3s) {
+  Docs.handleH3ClassChanges = function(elementId, noH2s, enter) {
+    var dataSelector = noH2s ? 'data-nav' : 'data-secondary-nav';
+    var $correspondingNavElement = $('li['+dataSelector+'="'+elementId+ '"]');
+    $('li['+dataSelector+']').removeClass('active');
+    $correspondingNavElement.addClass('active');
+    if(!noH2s && enter) {
+      var $parentli = $correspondingNavElement.parent().prev('li[data-nav]');
+      var $nextli = $correspondingNavElement.parent().next('li[data-nav]');
+      if(!$parentli.hasClass('active')) {
+        $parentli.addClass('active')
+          .find('.toggle-secondary-toc').removeClass('ion-arrow-right-b').addClass('ion-arrow-down-b');
+        $nextli.removeClass('active')
+          .find('.toggle-secondary-toc').removeClass('ion-arrow-down-b').addClass('ion-arrow-right-b');
+        $correspondingNavElement.parent().show();
+        $nextli.next('.secondary-in-page-toc').hide();
+      }
+    }
+  };
+
+  Docs.createH3Waypoints = function(h3s, noH2s) {
         h3s.each(function() {
           var element = $(this)[0];
           setTimeout(function() {
-            console.log('scrollspy created');
             var waypoint = new Waypoint.Inview({
               element: element,
               exit: function(direction) {
                 if(direction === 'down') {
                   var elementId = this.element.id;
-                  var $correspondingNavElement = $('li[data-secondary-nav="'+elementId+ '"]');
-                  $('li[data-secondary-nav]').removeClass('active');
-                  $correspondingNavElement.addClass('active');
+                  Docs.handleH3ClassChanges(elementId, noH2s);
                 }
               },
               enter: function(direction) {
                 if(direction === 'up') {
                   var elementId = this.element.id;
-                  var $correspondingNavElement = $('li[data-secondary-nav="'+elementId+ '"]');
-                  $('li[data-secondary-nav]').removeClass('active');
-                  $correspondingNavElement.addClass('active');
-
-                  var $parentli = $correspondingNavElement.parent().prev('li[data-nav]');
-                  var $nextli = $correspondingNavElement.parent().next('li[data-nav]');
-                  if(!$parentli.hasClass('active')) {
-                    $parentli.addClass('active')
-                      .find('.toggle-secondary-toc').removeClass('ion-arrow-right-b').addClass('ion-arrow-down-b');
-                    $nextli.removeClass('active')
-                      .find('.toggle-secondary-toc').removeClass('ion-arrow-down-b').addClass('ion-arrow-right-b');
-                    $correspondingNavElement.parent().show();
-                    $nextli.next('.secondary-in-page-toc').hide();
-                  }
+                  Docs.handleH3ClassChanges(elementId, noH2s, true);
                 }
               },
               context: $('.content-inner')[0],
@@ -160,40 +163,43 @@ Created by Zach Supalla.
 
   Docs.createScrollSpies = function() {
     var $h2s = $('.content h2');
-
-    $h2s.each(function() {
-      var h3WaypointsCreated = false;
-      var waypoint = new Waypoint.Inview({
-        element: $(this)[0],
-        exit: function(direction) {
-          var $h2 = $(this.element);
-          if(direction === 'down') {
-            var elementId = this.element.id;
-            Docs.handleClassChanges(elementId, $h2, h3WaypointsCreated);
-            // Create the waypoints for h3s intelligently
-            var $nextH3s = $h2.nextUntil('h2', 'h3');
-            if(!h3WaypointsCreated) {
-              Docs.createH3Waypoints($nextH3s);
-              h3WaypointsCreated = true;
+    if($h2s.length === 0) {
+      Docs.createH3Waypoints($('.content h3'), true);
+    } else {
+      $h2s.each(function() {
+        var h3WaypointsCreated = false;
+        var waypoint = new Waypoint.Inview({
+          element: $(this)[0],
+          exit: function(direction) {
+            var $h2 = $(this.element);
+            if(direction === 'down') {
+              var elementId = this.element.id;
+              Docs.handleClassChanges(elementId, $h2, h3WaypointsCreated);
+              // Create the waypoints for h3s intelligently
+              var $nextH3s = $h2.nextUntil('h2', 'h3');
+              if(!h3WaypointsCreated) {
+                Docs.createH3Waypoints($nextH3s);
+                h3WaypointsCreated = true;
+              }
             }
-          }
-        },
-        enter: function(direction) {
-          var $h2 = $(this.element);
-          if(direction === 'up') {
-            var elementId = this.element.id;
-            Docs.handleClassChanges(elementId, $h2, h3WaypointsCreated);
-            // Create the waypoints for h3s intelligently
-            var $nextH3s = $h2.nextUntil('h2', 'h3');
-            if(!h3WaypointsCreated) {
-              Docs.createH3Waypoints($nextH3s);
-              h3WaypointsCreated = true;
+          },
+          enter: function(direction) {
+            var $h2 = $(this.element);
+            if(direction === 'up') {
+              var elementId = this.element.id;
+              Docs.handleClassChanges(elementId, $h2, h3WaypointsCreated);
+              // Create the waypoints for h3s intelligently
+              var $nextH3s = $h2.nextUntil('h2', 'h3');
+              if(!h3WaypointsCreated) {
+                Docs.createH3Waypoints($nextH3s);
+                h3WaypointsCreated = true;
+              }
             }
-          }
-        },
-        context: $('.content-inner')[0]
+          },
+          context: $('.content-inner')[0]
+        });
       });
-    });
+    }
     // Scroll to the current hash if there is one
     Docs.scrollToHashOnLoad();
   };
@@ -222,7 +228,7 @@ Created by Zach Supalla.
   // Ok, then let's do it!
   Docs.rememberDevices();
   Docs.transform();
-  //Docs.createScrollSpies();
+  Docs.createScrollSpies();
   Docs.scrollToInternalLinks();
   Docs.watchToggleInPageNav();
   Docs.watchToggleSecondaryInPageNav();
