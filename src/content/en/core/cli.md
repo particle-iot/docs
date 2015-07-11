@@ -178,13 +178,13 @@ Then let's compile that program to make sure it's valid code.  The CLI will auto
 
 ```sh
 # how to compile a program without flashing to your device
-$ particle compile blinky.ino
+$ particle compile core blinky.ino
 Including:
 blinky.ino
 attempting to compile firmware
 pushing file: blinky.ino
 grabbing binary from: https://api.particle.io/v1/binaries/01234567890ABCDEFGH
-saved firmware to firmware_123456781234.bin
+saved firmware to core_firmware_123456781234.bin
 Compiled firmware downloaded.
 ```
 
@@ -338,12 +338,21 @@ $ particle flash --usb cc3000
 
 To work locally, but use the cloud compiler, simply use the compile command, and then the local flash command after.  Make sure you connect your device via USB and place it into [dfu mode](/core/modes/#core-modes-dfu-mode-device-firmware-upgrade).
 
+This is device specific and must be passed as an argument during compilation.
+
+The devices available are:
+
+- photon (alias is 'p')
+- core (alias is 'c')
+
+eg. `particle compile core xxx` OR `particle compile c xxxx` both targets the core
+
 ```sh
 # how to compile a directory of source code and tell the CLI where to save the results
-$ particle compile my_project_folder --saveTo firmware.bin
+$ particle compile core my_project_folder --saveTo firmware.bin
 OR
 # how to compile a list of source files
-$ particle compile app.ino library1.cpp library1.h --saveTo firmware.bin
+$ particle compile core app.ino library1.cpp library1.h --saveTo firmware.bin
 
 # how to flash a pre-compiled binary over usb to your device
 # make sure your device is flashing yellow and connected via USB
@@ -358,13 +367,22 @@ $ particle flash --usb firmware.bin
 
   **NOTE**: Remember that **\*.cpp** and **\*.ino** files behave differently. You can read more about it on our [support page](http://support.particle.io/hc/en-us/articles/204952620).
 
+  This is device specific and must be passed as an argument during compilation.
+
+  The devices available are:
+
+  - photon (alias is 'p')
+  - core (alias is 'c')
+
+  eg. `particle compile core xxx` OR `particle compile c xxxx` both targets the core
+
 ####compiling a directory
 
   You can setup a directory of source files and libraries for your project, and the CLI will use those when compiling remotely.  You can also create ```particle.include``` and / or a ```particle.ignore``` file in that directory that will tell the CLI specifically which files to use or ignore.  Those files are just plain text with one line per filename
 
 ```sh
 # how to compile a directory of source code
-$ particle compile my_project_folder
+$ particle compile core my_project_folder
 ```
 
 ####example particle.include
@@ -392,7 +410,7 @@ old_version.cpp
 
 ```sh
 # how to compile a list of source files
-$ particle compile app.ino library1.cpp library1.h
+$ particle compile core app.ino library1.cpp library1.h
 ```
 
 
