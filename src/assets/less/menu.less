@@ -106,15 +106,46 @@ h3.guide-section-titles {
   margin-bottom: 5px;
 }
 
+
+/* GUIDE SPECIFIC MENU */
+ul.guide-menu {
+  ul.in-page-toc {
+    margin-left: 20px;
+  }
+  li.active-section {
+    overflow-x: visible;
+    li.active.top-level {
+      overflow-x: hidden;
+      padding-left: 30px;
+    }
+  }
+}
+/* END GUIDE SPEFIFIC MENU */
+
+/* REFERENCE SPECIFIC MENU */
+.reference {
+  ul.in-page-toc {
+    display: none;
+  }
+}
+/* END REFERENCE SPECIFIC MENU */
+#toggle-in-page-nav {
+  color: @gray;
+  cursor: pointer;
+  position: absolute;
+  top: 11px;
+  right: 15px;
+  .transition(color 0.2s);
+}
+
 .menubar li a,
 .menubar li a:visited {
   font-size: 14px;
   font-weight: 400;
   color: @gray;
   margin: 2px 0;
-  .transition(color 0.2s);
   &:hover {
-    color: @dark-gray;
+    color: @spark-blue;
   }
 }
 .menubar li {
@@ -122,33 +153,64 @@ h3.guide-section-titles {
   overflow-x: hidden;
   white-space: nowrap;
   padding: 2px 0;
-  ul.in-page-toc {
-    padding-left: 10px;
-    li {
-      text-overflow: ellipsis;
-      overflow-x: hidden;
-      padding: 2px 0;
-        &.active {
-          a {
-            font-weight: 700;
-            color: @spark-blue;
-          }
-        }
-      a {
-        font-size: 12px;
+}
+
+ul.in-page-toc {
+  margin: 5px 0 10px 10px;
+  &.hide {
+    display: none;
+  }
+  &.show {
+    display: block;
+  }
+  li {
+    text-overflow: ellipsis;
+    overflow-x: hidden;
+    padding: 2px 0;
+    i.toggle-secondary-toc {
+      color: @gray;
+      margin-right: 5px;
+      cursor: pointer;
+      .transition(color 0.2s);
+      &:hover {
+        color: @spark-blue;
       }
     }
-    .secondary-in-page-toc {
-      padding-left: 10px;
-      display: none;
+    &.active {
+      a {
+        font-weight: 700;
+        color: @spark-blue;
+      }
     }
+    a {
+      font-size: 12px;
+    }
+  }
+  .secondary-in-page-toc {
+    padding-left: 10px;
+    display: none;
   }
 }
 
 .menubar li.active {
-  a {
+  &.top-level {
+    padding: 5px;
+    background: @almost-white;
+    position: relative;
+    cursor: pointer;
+    margin: 0 -20px;
+    padding-left: 20px;
+    overflow-x: auto;
+    &:hover {
+      #toggle-in-page-nav {
+        color: @spark-blue;
+      }
+    }
+  }
+  span {
     font-weight: 700;
-    color: @spark-blue;
+    color: @gray;
+    font-size: 14px;
   }
 }
 .guide-section {

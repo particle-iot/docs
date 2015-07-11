@@ -19,7 +19,8 @@ var redirect = require('metalsmith-redirect');
 var copy = require('metalsmith-copy');
 var fork = require('./fork');
 var inPlace = require('metalsmith-in-place');
-var watch = require('metalsmith-simplewatch');
+//var watch = require('metalsmith-simplewatch');
+var watch = require('metalsmith-watch');
 var autotoc = require('metalsmith-autotoc');
 
 exports.metalsmith = function() {
@@ -27,13 +28,13 @@ exports.metalsmith = function() {
     .concurrency(100)
     .source("../src")
     .destination("../build")
+    .use(less({
+      pattern: "**/less/style.less",
+      useDynamicSourceMap: true
+    }))
     .use(ignore([
       '**/less/*.less'
     ]))
-    .use(less({
-      pattern: "**/style.less",
-      useDynamicSourceMap: true
-    }))
     .use(cleanCSS({
       files: '**/*.css'
     }))
@@ -53,6 +54,10 @@ exports.metalsmith = function() {
       },
       reference: {
         pattern: 'reference/*md',
+        sortBy: 'order'
+      },
+      datasheet: {
+        pattern: 'datasheets/*.md',
         sortBy: 'order'
       }
     }))
@@ -112,16 +117,27 @@ exports.build = function(callback) {
 };
 
 exports.server = function(callback) {
-
-  watch({
-    buildFn: exports.build,
-    buildPath: path.resolve(__dirname, '../build/'),
-    srcPath: path.resolve(__dirname, '../src/'),
-    port: 8080
-  });
-
-  exports.metalsmith()
+  exports.metalsmith().use(serve())
     .use(define({
       development: true
     }))
+    .use(watch({
+      paths: {
+        "${source}/content/**/*.md": true,
+        "${source}/assets/less/*.less": "assets/less/*.less",
+        "../templates/reference.hbs": "content/reference/*.md",
+        "../templates/guide.hbs": "content/guide/**/*.md",
+        "../templates/datasheet.hbs": "content/datasheets/*.md",
+      },
+      livereload: true
+    }))
+    .build(function(err, files) {
+      if (err) {
+        console.error(err, err.stack);
+      }
+      if (callback) {
+        callback(err, files);
+      }
+    });
+
 };

@@ -130,7 +130,7 @@
   font-size: 16px;
   line-height: 21px;
   margin-bottom: 40px;
-  white-space: pre-line;
+  white-space: pre-wrap;
   overflow-x: hidden;
 }
 .content blockquote :first-child {
@@ -143,9 +143,11 @@
  * Content
  */
 .content-root {
-  height: 100%;
-  position: relative;
+  position: absolute;
   top: 53px;
+  left: 0;
+  right: 0;
+  bottom: 0;
 }
 .content, .content-body {
   padding-top: 20px;
@@ -161,8 +163,8 @@
   right: 0;
   left: 0;
   bottom: 0;
-  padding-bottom: 50px;
   overflow-y: auto;
+  -webkit-transform: translate3d(0,0,0);
   @media(max-width: @xlarge-size) {
     position: static;
     min-height: calc(~"100% - 50px");
@@ -434,6 +436,8 @@ h1 small.beta {
   bottom: 0;
   right: 0;
   overflow-y: auto;
+  -webkit-transform: translate3d(0,0,0);
+
   @media(max-width: @medium-size) {
     position: relative;
     left: inherit;
@@ -796,7 +800,6 @@ body:not(.no-literate) .content img[alt="Connection sequence"],
     }
     .code-samples {
       background: #272822;
-      margin-left: 780px;
       position: absolute;
       top: 0;
       right: 0;

@@ -41,6 +41,7 @@ Particle provides native mobile SDKs for both iOS (Objective-C and Swift) and An
 	- TODO
 	- and always: [Stack Overflow](http://stackoverflow.com/questions/tagged/android) - best Q&A website for programmers. You can probably find an answer to ALL your how-do-I-do-that Android questions there.
 
+![](/assets/images/apple-android.png)
 
 ### Mobile SDKs? As in plural?
 
@@ -55,30 +56,113 @@ Both the Cloud SDK and Device Setup library are available through CocoaPods, the
 
 **Starting from scratch**
 
-TODO
+Go ahead and create a new app in XCode by going to File menu and then:
+New -> Project -> iOS Application -> Single View Application -> Next
+then name your app and identifier, choose if you prefer to code in Obj-C or Swift, decide if the app is an iPhone/iPad or Universal app and click Next to place your new project in a folder. Project will open up.
 
-Then, to install the Device Setup library for iOS (which has the Cloud SDK as a dependency), simply add the following line to the Podfile in your iOS project root folder:
+![XCode new project](/assets/images/xcode-new-project.png)
+
+ Open Finder or Terminal and go to your project folder - create a new plain textfile named `Podfile` in the same directory then install the Device Setup library for iOS (which has the Cloud SDK as a dependency). Simply add the following line to the `Podfile` in your iOS project root folder:
 
 `pod "SparkSetup"`
 
-and from the command-line, in the project root directory type:
+save & exit.
+Now, from command line, while still in the project root directory type:
 
 `pod install`
 
-You project will now contain the Particle iOS SDKs ready to use.
-The mobile SDKs use the Apache 2.0 open source license, so submitting issues and contributions through pull requests is most welcome! In addtion apps built with the SDK can be free distrubuted in the Apple App Store or Google's Play Store.
+Go back to XCode, close the project and open the newly created `.xcworkspace` file - your project will now contain the Particle iOS SDKs ready to use. 
 
-You can find the source code for the Cloyd SDK in our GitHub:
+Go to the project storyboard, drag a UIButton to your main ViewController. Double click it and type "Setup device", press the "Assistant editor" in XCode toolbar to show your viewcontroller code side by side to the storyboard. Ctrl-drag the button to your code to create a new IBAction, name the function "startDeviceSetup".
+In the function body add:
 
-[Repository of iOS Cloud SDK](https://github.com/spark/spark-sdk-ios)
+```objc
+- (IBAction)startDeviceSetup:(id)sender {
+    SparkSetupMainController *setupController = [[SparkSetupMainController alloc] init];
+    [self presentViewController:setupController animated:YES completion:nil];
+}
+```
+Or the Swift version:
 
-[Repository of iOS Device Setup library](https://github.com/spark/spark-setup-ios)
+```swift
+@IBAction func startDeviceSetup(sender: AnyObject) {
+    var setupController = SparkSetupMainController()
+    self.presentViewController(setupController, animated: true, completion: nil)
+}
+```
+
+If you're using Objective-C don't forget to import the file `SparkSetup.h` in your view controller implementation file. If you're using Swift be sure to complete all the required steps to integrate the Objective-C Cocoapod libraries in your project as described [here](http://swiftalicio.us/2014/11/using-cocoapods-from-swift/).
+
+That's it. Build and run your project on a device or a simulator, tap the "Start Setup" button you created and you should see the device setup wizard pop up ready for setting up a new Particle Device and claim it to your user account.
+Make sure you setup your new Photon, claim it to your account and name the device `myDevice`. If you already setup your device and just need to rename it you can do it from [Particle Build](https://build.particle.io/build) -> Devices.
+
+Now, let's try to list your devices and read a variable from a certain device (using the Cloud SDK). Stop the app and go back to the split view of your view controller and code. Drag another button and name it "Read Variable", Ctrl-Drag it to your code and create another IBAction function. Call the function "readVariableButtonTapped" and fill in its body like so:
+
+TODO - finish code example
+
+```objc
+- (IBAction)readVariableButtonTapped:(id)sender {
+	__block SparkDevice *myPhoton;
+	[[SparkCloud sharedInstance] getDevices:^(NSArray *sparkDevices, NSError *error) {
+	    NSLog(@"%@",sparkDevices.description); // print all devices claimed to user
+
+	    for (SparkDevice *device in sparkDevices)
+	    {
+	        if ([device.name isEqualToString:@"myDevice"])
+	        {
+	            myPhoton = device;
+	        }
+	    }
+	}];
+}
+```
+
+or the Swift version:
+
+```swift
+@IBAction func startDeviceSetup(sender: AnyObject) {
+	var myPhoton : SparkDevice?
+	SparkCloud.sharedInstance().getDevices { (sparkDevices:[AnyObject]!, error:NSError!) -> Void in
+	    if let e = error {
+	        println("Check your internet connectivity")
+	    }
+	    else {
+	        if let devices = sparkDevices as? [SparkDevice] {
+	            for device in devices {
+	                if device.name == "myDevice" {
+	                    myPhoton = device
+	                }
+	            }
+	        }
+	    }
+	}
+}
+```
+
+
+TODO: finish guide, full documentation reference
+
+---
 
 **Modifying existing app**
 
-TODO
+TODO: list of modifiable apps & suggestions
 
+- Example app
+- Particle Tinker open-source app
+- 3rd party apps
+
+...
 There’s also an example app written in Swift that demonstrates the basic usage of invoking the setup wizard, customizing its UI and using the returned SparkDevice class instance once Device Setup wizard completes.
+
+The mobile SDKs use the Apache 2.0 open source license, so submitting issues and contributions through pull requests is most welcome! In addtion apps built with the SDK can be free distrubuted in the Apple App Store or Google's Play Store.
+
+You can find the source code for the Cloud SDK in our GitHub:
+**iOS*
+[Repository of iOS Cloud SDK](https://github.com/spark/spark-sdk-ios)
+[Repository of iOS Device Setup library](https://github.com/spark/spark-setup-ios)
+*
+
 
 **Android**
 

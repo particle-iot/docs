@@ -24,7 +24,7 @@
   <script src='/assets/js/jquery.waypoints.inview.js'></script>
 
   <!-- Spark theme mods -->
-  <link href='/assets/stylesheets/style.css' rel='stylesheet'>
+  <link href='/assets/css/style.css' rel='stylesheet'>
   <script src='/assets/js/animated-core.js'></script>
   <link rel="stylesheet" href="https://s3.amazonaws.com/icomoon.io/49057/Dashboard/style.css?9t9e91">
 
@@ -45,7 +45,7 @@
           <img src="/assets/images/particle-docs.png" id="logo">
         </a>
         <div class="sections">
-          <a class="nav {{#contains path.href 'guide'}}active{{/contains}}" href="/guide/{{device}}">Guide</a>
+          <a class="nav {{#contains path.href 'guide'}}active{{/contains}}" href="/guide">Guide</a>
           <a class="nav {{#contains path.href 'reference'}}active{{/contains}}" href="/reference">Reference</a>
           <a class="nav {{#contains path.href 'datasheets'}}active{{/contains}}" href="/datasheets">Datasheets</a>
           <a class="nav {{#contains path.href 'support'}}active{{/contains}}" href="/support">Support</a>
@@ -56,15 +56,15 @@
             <i class="icon ion-chevron-down"></i>
           </a>
           <ul class="dropdown-menu" aria-labelledby="dLabel">
-            <li><a href="/guide/{{device}}">Guide</a></li>
+            <li><a href="/guide">Guide</a></li>
             <li><a href="/reference">Reference</a></li>
             <li><a href="/datasheets">Datasheets</a></li>
             <li><a href="/support">Support</a></li>
           </ul>
         </div>
         <div class="search">
-          <script src='/assets/js/google-search.js'></script>
-          <gcse:search></gcse:search>
+          <!--<script src='/assets/js/google-search.js'></script>
+          <gcse:search></gcse:search>-->
         </div>
       </div>
       <div class='right'>
@@ -91,32 +91,38 @@
     <div class='content-root'>
       <div class='menubar'>
 
-      <ul class="nav">
+      <ul class="nav reference">
         {{#each reference}}
             <ul>
-              <li class="{{#page-equal ../path.href ../path.name path.href path.name}}active{{/page-equal}}"><a href="{{path.href}}{{path.name}}">{{title}}</a></li>
-            </ul>
-            <!--<ul>
-              {{#each this}}
-                <li class="{{#page-equal ../../path.href ../../path.name path.href path.name}}active{{/page-equal}}" data-level="{{inc @../index}}.{{inc @index}}"><a href="{{path.href}}{{path.name}}">{{title}}</a></li>
-                {{#page-equal ../../path.href ../../path.name path.href path.name}}
-                  <div class="in-page-toc-container">
-                    <ul class="nav in-page-toc">
-                      {{#each ../../../toc}}
-                        <li><a href="#{{id}}">{{text}}</a></li>
+              <li class="top-level {{#page-equal ../path.href ../path.name path.href path.name}}active{{/page-equal}}">
+                {{#page-equal ../path.href ../path.name path.href path.name}}
+                  <span>{{{title}}}</span>
+                  {{#if ../toc}}
+                    <i id="toggle-in-page-nav" class="ion-plus"></i>
+                  {{/if}}
+                {{else}}
+                  <a href="{{path.href}}{{path.name}}">{{{title}}}</a>
+                {{/page-equal}}
+              </li>
+                {{#page-equal ../path.href ../path.name path.href path.name}}
+                  {{#if ../../toc}}
+                    <div class="in-page-toc-container">
+                      <ul class="nav in-page-toc hide">
+                        {{#each ../../../toc}}
+                        <li class="middle-level" data-nav="{{id}}">{{#if children}}<i class="toggle-secondary-toc ion-arrow-right-b"></i>{{/if}}<a href="#{{id}}">{{{text}}}</a></li>
                         {{#if children}}
                           <ul class="nav secondary-in-page-toc">
                             {{#each children}}
-                              <li class="{{../id}}-child"><a href="#{{id}}">{{text}}</a></li>
+                              <li data-secondary-nav="{{id}}"><a href="#{{id}}">{{{text}}}</a></li>
                             {{/each}}
                           </ul>
                         {{/if}}
-                      {{/each}}
-                    </ul>
-                  </div>
+                        {{/each}}
+                      </ul>
+                    </div>
+                  {{/if}}
                 {{/page-equal}}
-              {{/each}}
-            </ul>-->
+            </ul>
         {{/each}}
       </ul>
       </div>
