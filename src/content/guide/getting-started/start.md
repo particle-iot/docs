@@ -89,9 +89,9 @@ In this example, we will connect your device to the internet for the very first 
 
 Plug the USB cable into your power source. <span class="footnoteLink">(Your computer works perfectly for this purpose.)<span class="footnote"> Your Particle device does not need your computer to connect to wifi. You could just as easily power your device with a power brick, a battery shield, or another power source wired to the VIN pin.</span></span>
 
-As soon as it is plugged in, the RGB LED on your device should begin {{#if photon}}{{{popup 'blinking blue' 'vine' 'https://vine.co/v/eZUg2ZjVpn7/embed/simple'}}}{{/if}}{{#if core}}{{{popup 'blinking blue' 'vine' 'https://vine.co/v/eZU92D9X9ge/embed/simple'}}}{{/if}}.
+As soon as it is plugged in, the RGB LED on your device should begin {{#if photon}}{{{popup 'blinking blue.' 'vine' 'https://vine.co/v/eZUg2ZjVpn7/embed/simple'}}}{{/if}}{{#if core}}{{{popup 'blinking blue.' 'vine' 'https://vine.co/v/eZU92D9X9ge/embed/simple'}}}{{/if}}
 
-If your device is not blinking blue, {{#if photon}}{{{popup 'hold down the `MODE` button' 'vine' 'https://vine.co/v/eZUH7WaWjMT/embed/simple'}}}{{/if}}{{#if core}}{{{popup 'hold down the `MODE` button' 'vine' 'https://vine.co/v/eZU6YiK20Hl/embed/simple'}}}{{/if}}.
+If your device is not blinking blue, {{#if photon}}{{{popup 'hold down the `MODE` button.' 'vine' 'https://vine.co/v/eZUH7WaWjMT/embed/simple'}}}{{/if}}{{#if core}}{{{popup 'hold down the `MODE` button.' 'vine' 'https://vine.co/v/eZU6YiK20Hl/embed/simple'}}}{{/if}}
 
 If your device is not blinking at all, or if the LED is burning a dull orange color, it may not be getting enough power. Try changing your power source or USB cable.
 
