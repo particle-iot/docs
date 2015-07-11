@@ -14,51 +14,38 @@ Now that we've gone over connecting your device, we're going to review the diffe
 
 ### Connected
 
-<div class="iframe-wrapper">
-  <iframe src="https://vine.co/v/eZUg2ZjVpn7/embed/simple" width="320" height="320" frameborder="0"></iframe>
-</div>
+{{{vine "https://vine.co/v/eZUg2ZjVpn7/embed/simple"}}}
 
 When it is breathing cyan, your device is happily connected to the internet. When it is in this mode, you can call functions and flash code.
 
 ### Flashing
 
-<div class="iframe-wrapper">
-  <iframe src="https://vine.co/v/eZUX322TaU2/embed/simple" width="320" height="320" frameborder="0"></iframe>
-</div>
+{{{vine "https://vine.co/v/eZUX322TaU2/embed/simple"}}}
 
 If your device is flashing magenta, it is currently loading an app or updating its firmware. This state is triggered by a firmware update or by flashing code from Particle Dev or Particle Build.
 
 
 ### Looking For Internet
 
-<div class="iframe-wrapper">
-  <iframe src="https://vine.co/v/eZUX7KJQnbX/embed/simple" width="320" height="320" frameborder="0"></iframe>
-</div>
+{{{vine "https://vine.co/v/eZUX7KJQnbX/embed/simple"}}}
 
 If your device is flashing green, it is trying to connect to the internet. If you already entered your wifi credentials, give your device a few seconds to connect and start breathing cyan. If you haven't yet connected your device to wifi, then set your device to [Listening Mode](#photon-modes-listening-mode).
 
 
 ### Listening Mode
 
-
-<div class="iframe-wrapper">
-  <iframe src="https://vine.co/v/eZUH7WaWjMT/embed/simple" width="320" height="320" frameborder="0"></iframe>
-</div>
+{{{vine "https://vine.co/v/eZUH7WaWjMT/embed/simple"}}}
 
 When your device is in Listening Mode, it is waiting for your input to connect to the wifi. Your device needs to be in Listening Mode in order to begin connecting with the Mobile App or over USB.
 
-<div class="iframe-wrapper">
-  <iframe src="https://vine.co/v/eZUHUIjq7pO/embed/simple" width="320" height="320" frameborder="0"></iframe>
-</div>
+{{{vine "https://vine.co/v/eZUHUIjq7pO/embed/simple"}}}
 
 To put your device in Listening Mode, hold the `MODE` button for three seconds, until the RGB LED begins flashing blue.
 
 
 ### Wifi Network Reset
 
-<div class="iframe-wrapper">
-  <iframe src="https://vine.co/v/eZUwtJljYnK/embed/simple" width="320" height="320" frameborder="0"></iframe>
-</div>
+{{{vine "https://vine.co/v/eZUwtJljYnK/embed/simple"}}}
 
 To erase the stored wifi networks on your device, hold the `MODE` button for about ten seconds, until the RGB LED flashes blue rapidly.
 
@@ -70,9 +57,7 @@ The next four modes are all selected using the same process, but by releasing th
 
 ### Safe Mode
 
-<div class="iframe-wrapper">
-  <iframe src="https://vine.co/v/eZUF2ilvLxJ/embed/simple" width="320" height="320" frameborder="0"></iframe>
-</div>
+{{{vine "https://vine.co/v/eZUF2ilvLxJ/embed/simple"}}}
 
 This mode is one of the most useful. If something goes wrong with the app you loaded onto your device, you can set your device to Safe Mode. This runs the device's factory firmware but prevents your user code from executing.
 
@@ -86,9 +71,7 @@ To put your device in Safe Mode:
 
 ### DFU Mode (Device Firmware Upgrade)
 
-<div class="iframe-wrapper">
-  <iframe src="https://vine.co/v/eZUHnhaUD9Y/embed/simple" width="320" height="320" frameborder="0"></iframe>
-</div>
+{{{vine "https://vine.co/v/eZUHnhaUD9Y/embed/simple"}}}
 
 If you wish to program a device with a custom firmware via USB, you'll need to use this mode. This mode triggers the on-board bootloader that accepts firmware binary files via the [dfu-utility.](http://dfu-util.sourceforge.net)
 
@@ -101,18 +84,14 @@ To enter DFU Mode:
 3. Wait for the LED to start flashing yellow (it will flash magenta first)
 6. Release the MODE button
 
-<div class="iframe-wrapper">
-  <iframe src="https://vine.co/v/eZUXM7ETevY/embed/simple" width="320" height="320" frameborder="0"></iframe>
-</div>
+{{{vine "https://vine.co/v/eZUXM7ETevY/embed/simple"}}}
 
 The device now is in the DFU mode.
 
 
 ### Firmware Reset
 
-<div class="iframe-wrapper">
-  <iframe src="https://vine.co/v/eZUwv3Za6Lq/embed/simple" width="320" height="320" frameborder="0"></iframe>
-</div>
+{{{vine "https://vine.co/v/eZUwv3Za6Lq/embed/simple"}}}
 
 This type of reset sets the firmware on your Photon back to factory settings without deleting your saved wifi networks.
 
@@ -126,9 +105,7 @@ To perform a firmware reset:
 
 ### Factory Reset
 
-<div class="iframe-wrapper">
-  <iframe src="https://vine.co/v/eZUXpd2hUqa/embed/simple" width="320" height="320" frameborder="0"></iframe>
-</div>
+{{{vine "https://vine.co/v/eZUXpd2hUqa/embed/simple"}}}
 
 _The above video is at 2x speed._
 
@@ -152,59 +129,45 @@ To perform a factory reset:
 
 ### Connected
 
-<div class="iframe-wrapper">
-  <iframe src="https://vine.co/v/eZU92D9X9ge/embed/simple" width="320" height="320" frameborder="0"></iframe>
-</div>
+{{{vine "https://vine.co/v/eZU92D9X9ge/embed/simple"}}}
 
 When breathing cyan, your device is happily connected to the internet. When it is in this mode, you can call functions and flash code.
 
 ### Flashing
 
-<div class="iframe-wrapper">
-  <iframe src="https://vine.co/v/eZU9LDuVKnr/embed/simple" width="320" height="320" frameborder="0"></iframe>
-</div>
+{{{vine "https://vine.co/v/eZU9LDuVKnr/embed/simple"}}}
 
 Your device is currently loading an app or updating its firmware. Triggered by a firmware update or by flashing code from Particle Dev or Particle Build.
 
 
 ### Looking For Internet
 
-<div class="iframe-wrapper">
-  <iframe src="https://vine.co/v/eZU6zBzpW6U/embed/simple" width="320" height="320" frameborder="0"></iframe>
-</div>
+{{{vine "https://vine.co/v/eZU6zBzpW6U/embed/simple"}}}
 
 Your device is trying to find the internet. If you already entered your wifi credentials, give your device a few seconds to connect and start breathing cyan. If you haven't yet connected your device to wifi, then set your device to [Listening Mode](/core/modes/#core-modes-listening-mode). If your Core continuously flashes green and won't stop, then try doing a [full firmware update](https://community.particle.io/t/spark-core-common-issues/12383).
 
 
 ### Listening Mode
 
-<div class="iframe-wrapper">
-  <iframe src="https://vine.co/v/eZU6YiK20Hl/embed/simple" width="320" height="320" frameborder="0"></iframe>
-</div>
+{{{vine "https://vine.co/v/eZU6YiK20Hl/embed/simple"}}}
 
 When your device is in Listening Mode, it is waiting for your input to connect to the wifi. Your device needs to be in Listening Mode in order to begin connecting with the Mobile App or over USB.
 
-<div class="iframe-wrapper">
-  <iframe src="https://vine.co/v/eZUgHYYrYgl/embed/simple" width="600" height="600" frameborder="0"></iframe>
-</div>
+{{{vine "https://vine.co/v/eZUgHYYrYgl/embed/simple"}}}
 
 To put your device in Listening Mode, hold the `MODE` button for three seconds, until the RGB LED begins flashing blue.
 
 
 ### Wifi Network Reset
 
-<div class="iframe-wrapper">
-  <iframe src="https://vine.co/v/eZU6expA5bA/embed/simple" width="320" height="320" frameborder="0"></iframe>
-</div>
+{{{vine "https://vine.co/v/eZU6expA5bA/embed/simple"}}}
 
 To erase the stored wifi networks on your device, hold the `MODE` button for about ten seconds, until the RGB LED flashes blue rapidly.
 
 
 ### Factory Reset
 
-<div class="iframe-wrapper">
-  <iframe src="https://vine.co/v/eZU6XdrYbd5/embed/simple" width="320" height="320" frameborder="0"></iframe>
-</div>
+{{{vine "https://vine.co/v/eZU6XdrYbd5/embed/simple"}}}
 
 A factory reset restores the firmware on the device to the default Tinker app and clears all your Wi-Fi credentials.
 
@@ -223,9 +186,7 @@ The procedure is same as the one described above (DFU Mode), but in this case yo
 
 ### DFU Mode (Device Firmware Upgrade)
 
-<div class="iframe-wrapper">
-  <iframe src="https://vine.co/v/eZUgeu0r639/embed/simple" width="320" height="320" frameborder="0"></iframe>
-</div>
+{{{vine "https://vine.co/v/eZUgeu0r639/embed/simple"}}}
 
 If you wish to program a device with a custom firmware via USB, you'll need to use this mode. This mode triggers the on-board bootloader that accepts firmware binary files via the [dfu-utility.](http://dfu-util.sourceforge.net)
 

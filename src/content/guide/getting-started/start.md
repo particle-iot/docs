@@ -17,18 +17,16 @@ Congratulations on being the owner of a brand new Particle Device! Go ahead and 
 
 ####What's on it?
 
-{{#if photon}}<span class="popupLink">**The Wi-Fi Module.**<span class="popup"><img src="/assets/images/photon-module.jpg" style="margin:auto;"></span></span>{{/if}}{{#if core}}<span class="popupLink">**The Wi-Fi Module.**<span class="popup"><img src="/assets/images/core-cc3000.jpg" style="margin:auto;"></span></span>{{/if}} This is probably why you bought your device-- the Wi-Fi module allows your Core or Photon to communicate with the internet. It connects your device to the internet in the same way that your smartphone might connect to a wifi network.
+{{#if photon}}{{{popup '**The Wi-Fi Module.**' 'img' 'photon-module.jpg'}}}{{/if}}{{#if core}}{{{popup '**The Wi-Fi Module.**' 'img' 'core-cc3000.jpg'}}}{{/if}} This is probably why you bought your device-- the Wi-Fi module allows your Core or Photon to communicate with the internet. It connects your device to the internet in the same way that your smartphone might connect to a wifi network.
 
 
-
-{{#if photon}}<span class="popupLink">**The Microcontroller.**<span class="popup"><img src="/assets/images/photon-module.jpg" style="margin:auto;"></span></span>{{/if}}{{#if core}}<span class="popupLink">**The Microcontroller.**<span class="popup"><img src="/assets/images/core-stm32.jpg" style="margin:auto;"></span></span>{{/if}} The microcontroller is the brain of your device. It runs your software and tells your prototype what to do. Unlike your computer, it can only run one application (often called *firmware* or an *embedded application*). This application can be simple (just a few lines of code), or very complex, depending on what you want to do. The microcontroller interacts with the outside world using pins.
-
+{{#if photon}}{{{popup '**The Microcontroller.**' 'img' 'photon-module.jpg'}}}{{/if}}{{#if core}}{{{popup '**The Microcontroller.**' 'img' 'core-stm32.jpg'}}}{{/if}} The microcontroller is the brain of your device. It runs your software and tells your prototype what to do. Unlike your computer, it can only run one application (often called *firmware* or an *embedded application*). This application can be simple (just a few lines of code), or very complex, depending on what you want to do. The microcontroller interacts with the outside world using pins.
 
 
-{{#if photon}}<span class="popupLink">**The Pins.**<span class="popup"><img src="/assets/images/photon-pinout.png" style="margin:auto;"></span></span>{{/if}} {{#if core}} **The Pins.** {{/if}} Pins are the input and output parts of the microcontroller that are exposed on the sides of your device. GPIO pins can be hooked to sensors or buttons to listen to the world, or they can be hooked to lights and buzzers to act upon the world. There are also pins to allow you to power your device, or power motors and outputs outside of your device. There are pins for Serial/UART communication, and a pin for resetting your device.
+{{#if photon}}{{{popup '**The Pins.**' 'img' 'photon-pinout.png'}}}{{/if}} {{#if core}} **The Pins.** {{/if}} Pins are the input and output parts of the microcontroller that are exposed on the sides of your device. GPIO pins can be hooked to sensors or buttons to listen to the world, or they can be hooked to lights and buzzers to act upon the world. There are also pins to allow you to power your device, or power motors and outputs outside of your device. There are pins for Serial/UART communication, and a pin for resetting your device.
 
 {{#if photon}}
-<span class="popupLink">**Buttons**<span class="popup"><img src="/assets/images/photon-buttons.jpg" style="margin:auto;"></span></span> **and** <span class="popupLink">**LEDs.**<span class="popup"><img src="/assets/images/photon-leds.jpg" style="margin:auto;"></span></span> There are several awesome buttons and LEDs on your Photon to make it easier to use.
+{{{popup '**Buttons**' 'img' 'photon-buttons.jpg'}}} **and** {{{popup '**LEDs.**' 'img' 'photon-leds.jpg'}}} There are several awesome buttons and LEDs on your Photon to make it easier to use.
 
 - The `SETUP` button is on the left and the `RESET` button is on the right. You can use these buttons to help you set your device's [mode](../../modes).
 - The RGB LED is in the center of your Photon, above the module. The color of the RGB LED tells you what [mode](/../../modes) your Photon is currently in.
@@ -39,7 +37,7 @@ Congratulations on being the owner of a brand new Particle Device! Go ahead and 
 
 {{#if core}}
 
-<span class="popupLink">**Buttons**<span class="popup"><img src="/assets/images/core-buttons.jpg" style="margin:auto;"></span></span> **and** <span class="popupLink">**LEDs.**<span class="popup"><img src="/assets/images/core-leds.jpg" style="margin:auto;"></span></span> There are several awesome buttons and LEDs on your Core to make it easier to use.
+{{{popup '**Buttons**' 'img' 'core-buttons.jpg'}}} **and** {{{popup '**LEDs.**' 'img' 'core-leds.jpg'}}} There are several awesome buttons and LEDs on your Core to make it easier to use.
 
 - The `MODE` button is on the left and the `RESET` button is on the right. You can use these buttons to help you set your device's [mode](../../modes).
 - The **RGB LED** is in the center of your Core, above the module. The color of the RGB LED tells you what [mode](../../modes) your Core is currently in.
@@ -91,41 +89,9 @@ In this example, we will connect your device to the internet for the very first 
 
 Plug the USB cable into your power source. <span class="footnoteLink">(Your computer works perfectly for this purpose.)<span class="footnote"> Your Particle device does not need your computer to connect to wifi. You could just as easily power your device with a power brick, a battery shield, or another power source wired to the VIN pin.</span></span>
 
-As soon as it is plugged in, the RGB LED on your device should begin blinking blue.
+As soon as it is plugged in, the RGB LED on your device should begin {{#if photon}}{{{popup 'blinking blue' 'vine' 'https://vine.co/v/eZUg2ZjVpn7/embed/simple'}}}{{/if}}{{#if core}}{{{popup 'blinking blue' 'vine' 'https://vine.co/v/eZU92D9X9ge/embed/simple'}}}{{/if}}.
 
-{{#if photon}}
-
-<div class="iframe-wrapper">
-  <iframe src="https://vine.co/v/eZUg2ZjVpn7/embed/simple" width="320" height="320" frameborder="0"></iframe>
-</div>
-
-{{/if}}
-
-{{#if core}}
-
-<div class="iframe-wrapper">
-  <iframe src="https://vine.co/v/eZU92D9X9ge/embed/simple" width="320" height="320" frameborder="0"></iframe>
-</div>
-
-{{/if}}
-
-If your device is not blinking blue, hold down the "MODE" button for three seconds to reset.
-
-{{#if photon}}
-
-<div class="iframe-wrapper">
-  <iframe src="https://vine.co/v/eZUH7WaWjMT/embed/simple" width="320" height="320" frameborder="0"></iframe>
-</div>
-
-{{/if}}
-
-{{#if core}}
-
-<div class="iframe-wrapper">
-  <iframe src="https://vine.co/v/eZU6YiK20Hl/embed/simple" width="320" height="320" frameborder="0"></iframe>
-</div>
-
-{{/if}}
+If your device is not blinking blue, {{#if photon}}{{{popup 'hold down the `MODE` button' 'vine' 'https://vine.co/v/eZUH7WaWjMT/embed/simple'}}}{{/if}}{{#if core}}{{{popup 'hold down the `MODE` button' 'vine' 'https://vine.co/v/eZU6YiK20Hl/embed/simple'}}}{{/if}}.
 
 If your device is not blinking at all, or if the LED is burning a dull orange color, it may not be getting enough power. Try changing your power source or USB cable.
 
