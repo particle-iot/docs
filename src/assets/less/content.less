@@ -106,7 +106,7 @@
 .content b {
   font-weight: bold;
 }
-.content i,
+
 .content em {
   font-style: italic;
   font-weight: 300;
@@ -448,6 +448,7 @@ h1 small.beta {
 
 }
 
+
 .arrow {
   position: absolute;
   top: -100px;
@@ -669,8 +670,11 @@ hr {
   }
   body:not(.no-literate) .content img {
     margin: 40px auto;
-    max-width: 100%;
+    max-width: 80%;
     max-height: 500px;
+    &[alt="Create a New Organization"] {
+      max-width: 300px;
+    }
     @media(max-width: @medium-size) {
       max-width: 300px;
     }

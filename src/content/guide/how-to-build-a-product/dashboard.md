@@ -83,6 +83,35 @@ Currently the Fleet Management dashboard is in private beta. If you are interest
 in gaining access, please contact [hello@particle.io](mailto:hello@particle.io).
 The dashboard will be available to everyone in Fall 2015.
 
+Once you have access to create an organization from the Particle team, log into your dashboard at [dashboard.particle.io](https://dashboard.particle.io) and click on the "New Organization" button that appears in the navigation:
+
+![Create a New Organization](/assets/images/new-organization-button.png)
+<p class="caption">Click the new organization button to start the process of setting up your organization</p>
+
+If you have been granted access into the private beta, you should see a modal appear asking you to give us some basic information about your organization. You'll notice that this modal includes fields for adding a credit card. Don't worry! **Your card will not be charged**. Members of the private beta will have a 2 month trial period to use your organization dashboard. When your trial is up, we will begin charging $49 per team member per month.
+
+![Create Organization Modal](/assets/images/new-organization-modal.png)
+<p class="caption">Setting up your organization. Your credit card won't be charged until the end of your free trial</p>
+
+Fill out all fields in the modal, and click **CREATE**. Congratulations! You now are the proud owner of a shiny new organization on Particle!
+
+### Adding team members
+
+Now that you have created an organization successfully, it's time to add your team members that are collaborating with you on your IoT product. Adding a team member will give them full access to your organization's dashboard.
+
+To do this, click on the *team icon* (<i class="ion-person-stalker"></i>) on the sidebar of your organization's dashboard. This will direct you to the team page, where you can view and manage team members of your organizaiton. Right now, your username should be the only one listed as a member of the organization. To add a new team member, just click the *Invite team member* button pictured below:
+
+![Team page](/assets/images/team-page.png)
+
+Clicking this button will open up a modal where you can invite a team member by email address. Before inviting a new team member, **make sure that they already have a Particle account with the email address you will be using to invite them to the organization**. Also, at this time, you are only allowed to belong to one organization. As such, the person you are trying to invite should not already belong to another organization.
+
+![Invite team member](/assets/images/invite-team-member.png)
+<p class="caption">The invite team member modal</p>
+
+Once your team member is successfully invited, they will receive an email notifying them of their invitation. The next time they log into their dashboard, they will have the option of accepting or declining the invitation. Remember that after your free trial, Particle will begin charging $49 per team member per month.
+
+Nice! Now you have an organization with a team.
+
 ### Defining a product
 
 Our cloud platform thinks that all devices are *Photons* or *Cores* — unless it's told otherwise. Now's the time to define your own product within the platform and tell us a bit about how that product should behave.
@@ -96,12 +125,6 @@ Our cloud platform thinks that all devices are *Photons* or *Cores* — unless i
 - Distributing firmware updates in a controlled fashion
 
 Once you have an organization set up in the dashboard, you will be able to add a product and you will be walked through these decisions.
-
-PRIVATE BETA
-
-MANUFACTURING FIRMWARE
-
-MOBILE CREDENTIALS
 
 ### Adding Devices
 
