@@ -509,11 +509,6 @@ And the response contains a `result` like this:
 
 ### Events
 
-#### Registering a callback
-
-In the build section of the Particle website, you will be able to register a URL on your own server
-to which we will POST each time one of your Particle devices publishes a certain event. *This feature is still in progress, and will be released later in March.*
-
 #### Subscribing to events
 
 You can make an API call that will open a stream of
