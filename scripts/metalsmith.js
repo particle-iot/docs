@@ -61,6 +61,9 @@ exports.metalsmith = function() {
         sortBy: 'order'
       }
     }))
+    .use(define({
+      lunr: true
+    }))
     .use(fork({
       key: 'devices',
       redirectTemplate: './templates/redirector.jade'
