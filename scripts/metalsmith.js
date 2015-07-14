@@ -19,9 +19,15 @@ var redirect = require('metalsmith-redirect');
 var copy = require('metalsmith-copy');
 var fork = require('./fork');
 var inPlace = require('metalsmith-in-place');
-//var watch = require('metalsmith-simplewatch');
 var watch = require('metalsmith-watch');
 var autotoc = require('metalsmith-autotoc');
+var lunr = require('metalsmith-lunr');
+var lunr_ = require('lunr');
+var fileMetadata = require('metalsmith-filemetadata');
+var msIf = require('metalsmith-if');
+
+
+var environment;
 
 exports.metalsmith = function() {
   var metalsmith = Metalsmith(__dirname)
@@ -33,7 +39,8 @@ exports.metalsmith = function() {
       useDynamicSourceMap: true
     }))
     .use(ignore([
-      '**/less/*.less'
+      '**/less/*.less',
+      'content/languages/**/*'
     ]))
     .use(cleanCSS({
       files: '**/*.css'
@@ -42,6 +49,9 @@ exports.metalsmith = function() {
       directory: '../templates/partials',
       engine: 'handlebars'
     }))
+    .use(fileMetadata([
+      {pattern: "content/**/*.md", metadata: {"lunr": true}}
+    ]))
     .use(moveUp(['content/**/*']))
     .use(paths())
     .use(helpers({
@@ -60,9 +70,6 @@ exports.metalsmith = function() {
         pattern: 'datasheets/*.md',
         sortBy: 'order'
       }
-    }))
-    .use(define({
-      lunr: true
     }))
     .use(fork({
       key: 'devices',
@@ -86,6 +93,16 @@ exports.metalsmith = function() {
       selector: 'h2, h3',
       pattern: '**/**/*.md'
     }))
+    .use(lunr({
+      indexPath: 'search-index.json',
+      pipelineFunctions: [
+        //lunr_.trimmer
+      ],
+      fields: {
+        contents: 1,
+        title: 10
+      }
+    }))
     .use(templates({
       engine: 'handlebars',
       directory: '../templates'
@@ -104,8 +121,10 @@ exports.metalsmith = function() {
       '/guide/how-to-build-a-product': '/guide/how-to-build-a-product/intro/',
       '/guide/tools-and-features': '/guide/tools-and-features/intro'
     }))
-    .use(compress());
-    //.use(blc());
+    .use(msIf(
+      environment !== 'development',
+      compress({overwrite: true})
+    ));
 
   return metalsmith;
 };
@@ -120,6 +139,7 @@ exports.build = function(callback) {
 };
 
 exports.server = function(callback) {
+  environment = 'development';
   exports.metalsmith().use(serve())
     .use(define({
       development: true
@@ -131,6 +151,7 @@ exports.server = function(callback) {
         "../templates/reference.hbs": "content/reference/*.md",
         "../templates/guide.hbs": "content/guide/**/*.md",
         "../templates/datasheet.hbs": "content/datasheets/*.md",
+        "${source}/assets/js/*.js" : true
       },
       livereload: true
     }))

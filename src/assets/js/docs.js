@@ -230,6 +230,13 @@ Created by Zach Supalla.
     }
   };
 
+  Docs.buildSearch = function() {
+    $.getJSON('/search-index.json', function(data) {
+      var idx = lunr.Index.load(data.index)
+      console.log(data.store);
+      console.log(idx);
+    });
+  };
 
   // Ok, then let's do it!
   Docs.rememberDevices();
@@ -239,6 +246,7 @@ Created by Zach Supalla.
   Docs.watchToggleInPageNav();
   Docs.watchToggleSecondaryInPageNav();
   Docs.checkIfGuideScrollbar();
+  Docs.buildSearch();
   prettyPrint();
 
 })(jQuery);
