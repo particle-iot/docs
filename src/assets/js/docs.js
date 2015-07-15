@@ -232,9 +232,12 @@ Created by Zach Supalla.
 
   Docs.buildSearch = function() {
     $.getJSON('/search-index.json', function(data) {
-      var idx = lunr.Index.load(data.index)
-      console.log(data.store);
-      console.log(idx);
+      var idx = lunr.Index.load(JSON.stringify(data.index));
+      $('input.search-box').keyup(function() {
+        var searchQuery = this.value;
+        var results = idx.search(searchQuery);
+        console.log(results);
+      });
     });
   };
 

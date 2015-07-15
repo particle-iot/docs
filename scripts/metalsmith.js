@@ -95,9 +95,6 @@ exports.metalsmith = function() {
     }))
     .use(lunr({
       indexPath: 'search-index.json',
-      pipelineFunctions: [
-        //lunr_.trimmer
-      ],
       fields: {
         contents: 1,
         title: 10
