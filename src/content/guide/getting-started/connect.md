@@ -1,5 +1,5 @@
 ---
-title: 3. Connecting Your Device
+title: Connecting Your Device
 template: guide.hbs
 columns: two
 devices: [ photon, core ]

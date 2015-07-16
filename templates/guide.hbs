@@ -14,7 +14,7 @@
         {{#each guide}}
         <li data-level="{{inc @index}}" class="guide-section {{#contains ../path.href section}}active-section{{/contains}}">
           <h3 class="guide-section-titles" >{{{titelize section}}}</h3>
-            <ul>
+            <ol type="1">
               {{#each this}}
                 <li class="top-level {{#page-equal ../../path.href ../../path.name path.href path.name}}active{{/page-equal}}" data-level="{{inc @../index}}.{{inc @index}}">
                   {{#page-equal ../../path.href ../../path.name path.href path.name}}
@@ -45,7 +45,7 @@
                   {{/if}}
                 {{/page-equal}}
               {{/each}}
-            </ul>
+            </ol>
           </li>
         {{/each}}
       </ul>
