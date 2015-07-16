@@ -126,7 +126,60 @@ Our cloud platform thinks that all devices are *Photons* or *Cores* — unless i
 
 Once you have an organization set up in the dashboard, you will be able to add a product and you will be walked through these decisions.
 
+To create a product, return to your organization's products page and click on the **New Product** button.
+
+![Your organization's product page](/assets/images/products-page.png)
+
+This will open up a modal where you can add basic details about your product:
+
+![A new product](/assets/images/new-product-modal.png)
+
+You now have your very first Particle product! Woot!
+
+After successfully creating your product, you will be directed to your product's configuration page.
+
+### Configuring Your Product
+
+### Your Product ID
+
+When you created your product, a unique numeric ID was assigned to it. This small piece of information is *very, very important* to you as a product creator, and it will be used countless times during the development and manufacturing process for your product. You will be able to find your product's ID at any time in the navigation bar when viewing information about your product:
+
+![A new product](/assets/images/product-id.png)
+<p class="caption">Your product ID is marked with a key icon</p>
+
+This ID will be used by the Particle cloud to identify which devices belong to your product, and subsequently it is what empowers you to manage firmware running on those devices *en masse*.
+
+When working with devices that belong to your product, it is important to note that this product ID must be compiled into the firmware that is running on each device. The product ID that the device reports to the cloud from its firmware is considered the source of truth as to how the device should be treated. This will be covered more in-depth in the [rollout firmware](#rollout-firmware) section below.
+
 ### Adding Devices
+
+Now that you have both your organization and your product, it's time to import devices. Importing devices will assign them to your product, and allow you to start viewing and managing these devices within your product dashboard.
+
+For any product you may be developing, you likely have one or more Particle development kits (i.e. a Photon) that you have been using internally for prototyping purposes. We strongly recommend importing these devices into your product, and using them as your *test group*.
+
+Your *test group* will serve as the guinea pigs for new versions of product firmware. You should get into the habit of uploading a new version of firmware to your product, and flashing it to your test group to ensure your code is working as expected. This too will be covered more in-depth in the [rollout firmware](#rollout-firmware) section below.
+
+To import devices, click on the Devices icon in your product sidebar, then click on the "Import" button.
+
+![Your product's devices](/assets/images/devices-page.png)
+
+To allow you to import devices in bulk, we allow you to upload a file containing multiple device IDs. Create a `.txt` file that contains all of the IDs of devices that you would like to import into your product, one on each line. [Not sure what your device ID is?](http://docs.particle.io/photon/cli/#running-from-source-advanced-particle-identify). *All devices included in this list must be owned by a team member of your organization*. The file should look something like this:
+
+```
+55ff6d04498b49XXXXXXXXXX
+45f96d06492949XXXXXXXXXX
+35ee6d064989a9XXXXXXXXXX
+```
+
+Where each line is one Device ID. Once you have your file ready, drop it onto the file selector in the import devices modal. Before clicking import, note the checkbox that says *Force imported devices to switch to this product*.
+
+![Import devices modal](/assets/images/import-devices.png)
+
+Checking this checkbox will signal to the Particle cloud that regardless of which product ID is reported by the device's firmware when it comes online next, it should be treated as your product. Your test devices are likely photons that do not have your new product ID compiled into its firmware. If this is the case, go ahead and **check this box**.
+
+When you do a real manufacturing run and import those devices into the dashboard, you will not need to check this box. This is because your devices will receive firmware with your product ID directly on the manufacturing line.
+
+
 
 ### Rollout Firmware
 
