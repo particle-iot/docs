@@ -13,17 +13,30 @@ var define = require('metalsmith-define');
 var compress = require('metalsmith-gzip');
 var paths = require('metalsmith-paths');
 var path = require('path');
-var partial = require('metalsmith-partial');
+var partials = require('metalsmith-register-partials');
 var helpers = require('metalsmith-register-helpers');
 var redirect = require('metalsmith-redirect');
 var copy = require('metalsmith-copy');
 var fork = require('./fork');
 var inPlace = require('metalsmith-in-place');
-//var watch = require('metalsmith-simplewatch');
 var watch = require('metalsmith-watch');
 var autotoc = require('metalsmith-autotoc');
+var lunr = require('metalsmith-lunr');
+var lunr_ = require('lunr');
+var fileMetadata = require('metalsmith-filemetadata');
+var msIf = require('metalsmith-if');
+var precompile = require('./precompile');
+
+
+var environment;
+
+
 
 exports.metalsmith = function() {
+
+  var _removeEmptyTokens = function removeEmptyTokens(token) {
+    if (token.length > 0) {return token};
+  }
   var metalsmith = Metalsmith(__dirname)
     .concurrency(100)
     .source("../src")
@@ -33,14 +46,25 @@ exports.metalsmith = function() {
       useDynamicSourceMap: true
     }))
     .use(ignore([
-      '**/less/*.less'
+      '**/less/*.less',
+      'content/languages/**/*'
     ]))
     .use(cleanCSS({
       files: '**/*.css'
     }))
-    .use(partial({
-      directory: '../templates/partials',
-      engine: 'handlebars'
+    .use(partials({
+      directory: '../templates/partials'
+    }))
+    .use(fileMetadata([
+      {pattern: "content/**/*.md", metadata: {"lunr": true}}
+    ]))
+    .use(precompile({
+      directory: '../templates/precompile',
+      dest: 'assets/js/precompiled.js',
+      knownHelpers: {
+        'each': true,
+        'if': true
+      }
     }))
     .use(moveUp(['content/**/*']))
     .use(paths())
@@ -65,9 +89,6 @@ exports.metalsmith = function() {
         sortBy: 'order'
       }
     }))
-    .use(define({
-      lunr: true
-    }))
     .use(fork({
       key: 'devices',
       redirectTemplate: './templates/redirector.jade'
@@ -90,6 +111,16 @@ exports.metalsmith = function() {
       selector: 'h2, h3',
       pattern: '**/**/*.md'
     }))
+    .use(lunr({
+      indexPath: 'search-index.json',
+      fields: {
+        contents: 1,
+        title: 10
+      },
+      pipelineFunctions: [
+        _removeEmptyTokens
+      ]
+    }))
     .use(templates({
       engine: 'handlebars',
       directory: '../templates'
@@ -109,11 +140,14 @@ exports.metalsmith = function() {
       '/guide/tools-and-features': '/guide/tools-and-features/intro',
       '/support': '/support/general-shipping-info'
     }))
-    .use(compress());
-    //.use(blc());
+    .use(msIf(
+      environment !== 'development',
+      compress({overwrite: true})
+    ));
 
   return metalsmith;
 };
+
 
 exports.build = function(callback) {
   exports.metalsmith().build(function(err, files) {
@@ -125,6 +159,7 @@ exports.build = function(callback) {
 };
 
 exports.server = function(callback) {
+  environment = 'development';
   exports.metalsmith().use(serve())
     .use(define({
       development: true
@@ -136,6 +171,7 @@ exports.server = function(callback) {
         "../templates/reference.hbs": "content/reference/*.md",
         "../templates/guide.hbs": "content/guide/**/*.md",
         "../templates/datasheet.hbs": "content/datasheets/*.md",
+        "${source}/assets/js/*.js" : true
       },
       livereload: true
     }))

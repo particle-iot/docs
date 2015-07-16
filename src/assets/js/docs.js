@@ -230,6 +230,63 @@ Created by Zach Supalla.
     }
   };
 
+  Docs._removeEmptyTokens = function removeEmptyTokens(token) {
+    if (token.length > 0) {return token};
+  };
+
+  Docs.resultsAdded = 0;
+
+  Docs.buildSearch = function() {
+    lunr.Pipeline.registerFunction(Docs._removeEmptyTokens, 'removeEmptyTokens');
+
+    $.getJSON('/search-index.json', function(data) {
+      var store = data.store;
+      var idx = lunr.Index.load(data.index);
+      $('input.search-box').keyup(function() {
+        var searchQuery = this.value;
+        Docs.emptyResults();
+        if(searchQuery === '' || searchQuery.length < 3) {
+          $('.search-results').hide();
+        }
+        else {
+          $('.search-results').show();
+          var results = idx.search(searchQuery);
+          Docs.buildSearchResults(results, store);
+        }
+      });
+    });
+  };
+  Docs.emptyResults = function() {
+    $('.search-results ul.results').empty();
+    Docs.resultsAdded = 0;
+  };
+
+  Docs.titleize = function(string) {
+    var stringNoDashes = string.replace(/-/g, ' ');
+    var stringToTitleCase = stringNoDashes.replace(/\w\S*/g, function(txt){return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();});
+    return stringToTitleCase;
+  }
+
+  Docs.buildSearchResults = function(results, store) {
+    var htmlToAppend = '';
+
+    var fiveResults = results.slice(0,5);
+
+    var niceResults = fiveResults.map(function(r) {
+      var resultInfo = store[r.ref];
+      var nr = {}
+      nr.link = r.ref;
+      nr.title = resultInfo.title;
+      nr.device = resultInfo.device;
+      nr.collection = Docs.titleize(resultInfo.collection);
+      nr.pageTitle = resultInfo.pageTitle;
+      nr.collectionClass = resultInfo.collection;
+      return nr;
+    });
+
+    var html = Handlebars.templates.search({results: niceResults});
+    $('.search-results').append(html);
+  };
 
   // Ok, then let's do it!
   Docs.rememberDevices();
@@ -239,6 +296,7 @@ Created by Zach Supalla.
   Docs.watchToggleInPageNav();
   Docs.watchToggleSecondaryInPageNav();
   Docs.checkIfGuideScrollbar();
+  Docs.buildSearch();
   prettyPrint();
 
 })(jQuery);
