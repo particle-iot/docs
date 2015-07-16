@@ -2,6 +2,7 @@
 title: iOS SDK
 template: reference.hbs
 columns: three
+order: 5
 ---
 
 iOS Cloud SDK

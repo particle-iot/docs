@@ -2,6 +2,7 @@
 title: ParticleJS (Javascript SDK)
 template: reference.hbs
 columns: three
+order: 4
 ---
 
 # ParticleJS

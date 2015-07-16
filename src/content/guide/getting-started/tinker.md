@@ -99,7 +99,7 @@ It will change its status to `HIGH` and your device's D7 LED will turn on. Tappi
 
 ##Step Four: analogWrite
 
-In this example, we'll plug an LED into D0 and change its brightness with analogWrite. (D0 is a <span class = "footnoteLink"> PWM pin.<span class = "footnote"> A <a href = "https://en.wikipedia.org/wiki/Pulse-width_modulation">Pulse Width Modulation (PWM)</a> output is a digital output that can be filtered through various means to create a pseudo analog output. It is possible to analogWrite to `D0` through its PWM functionality. </span></span>)
+In this example, we'll plug an LED into D0 and change its brightness with analogWrite. (D0 is a {{{popup 'PWM pin.' 'note' 'A <a href = "https://en.wikipedia.org/wiki/Pulse-width_modulation">Pulse Width Modulation (PWM)</a> output is a digital output that can be filtered through various means to create a pseudo analog output. It is possible to analogWrite to `D0` through its PWM functionality.'}}}
 
 Wire up your LED with one of your resistors as follows:
 
@@ -136,7 +136,7 @@ Let's read that. Go into your mobile app. Press and hold `D0` to reset it. After
 
 ![](/assets/images/tinker-d0.png)
 
-If your wire is plugged in, you'll see the word `HIGH` next to the `D0` pin. Now unplug the wire and tap the `D0` pin on the mobile app once more. <span class = "footnoteLink">Now the pin will say `LOW`. <span class = "footnote"> If you don't get `LOW` right away, give it a moment. There's still some residual voltage hanging out in the pin, but in a second or two that will disperse and it should read as `LOW`. </span></span>
+If your wire is plugged in, you'll see the word `HIGH` next to the `D0` pin. Now unplug the wire and tap the `D0` pin on the mobile app once more. {{{popup 'Now the pin will say `LOW`.' 'note' "If you don't get `LOW` right away, give it a moment. There is still some residual voltage hanging out in the pin, but in a second that will disperse and it should read as `LOW`."}}}
 
 ![](/assets/images/tinker-d0-high.png)
 ![](/assets/images/tinker-d0-low.png)

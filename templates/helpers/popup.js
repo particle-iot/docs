@@ -4,7 +4,7 @@ module.exports = function(link, type, args) {
 			+ link
 			+ '<span class="popup"><img src="/assets/images/'
 			+ args
-			+ '" style="margin:auto;"></span></span>';
+			+ '" style="margin:auto; max-width:100%"></span></span>';
 	}
 	else if (type == 'note') {
 		var r = '<span class="footnoteLink">'

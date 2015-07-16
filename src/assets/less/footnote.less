@@ -1,4 +1,4 @@
-@media screen and (min-width: @large-size) {
+@media screen and (min-width: @xlarge-size) {
 
 	.footnoteLink {
 		border-bottom: 1px solid #00adef;
@@ -32,7 +32,42 @@
 
 }
 
-@media screen and (max-width: @large-size) and (min-width: 0) {
+@media screen and (max-width: @large-size) and (mid-width: @medium-size) {
+  .footnoteLink {
+    border-bottom: 1px solid #00adef;
+    cursor: pointer;
+  }
+
+  .footnote {
+      background-color: @almost-black;
+      border-radius:5px;
+      border: 2px solid #00adef;
+      font-weight:normal;
+      left: 25%;
+      right: 50%;
+      opacity: 0;
+      visibility: hidden;
+      width: 100%;
+      z-index: 1;
+      -webkit-transition: opacity .25s, visibility .25s;
+      -moz-transition: opacity .25s, visibility .25s;
+      transition: opacity .25s, visibility .25s;
+      font-size: 12 px;
+      max-width: 320px;
+      max-height: 320 px;
+      position: absolute; 
+      transform: translateY(-50%);
+      display:block;
+    }
+
+    .footnoteLink:hover .footnote {
+      visibility: visible;
+      opacity: 1;
+    }
+
+}
+
+@media screen and (max-width: @medium-size) and (min-width: 0) {
     .footnoteLink {
       border-bottom: 1px solid #00adef;
       cursor: pointer;
@@ -63,7 +98,7 @@
       visibility: visible;
       opacity: 1;
     }
-.footnote:after {content: "— release to close —";	font-family: Arial, sans-serif; color: #a0a0a0;	display: block; padding: 8px 0px 8px 0px; 
+.footnote:after {content: "— release to close —";	color: #a0a0a0;	display: block; padding: 8px 0px 8px 0px; 
 font-size: 1.18rem; }
 }
 

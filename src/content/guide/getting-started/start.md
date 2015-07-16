@@ -87,11 +87,11 @@ In this example, we will connect your device to the internet for the very first 
 {{#if core}}![plug in your device!](/assets/images/core-front.jpg){{/if}}
 
 
-Plug the USB cable into your power source. <span class="footnoteLink">(Your computer works perfectly for this purpose.)<span class="footnote"> Your Particle device does not need your computer to connect to wifi. You could just as easily power your device with a power brick, a battery shield, or another power source wired to the VIN pin.</span></span>
+Plug the USB cable into your power source. {{{ popup '(Your computer works perfectly for this purpose.)' 'note' 'Your Particle device does not need your computer to connect to wifi. You could just as easily power your device with a power brick, a battery shield, or another power source wired to the VIN pin.'}}}
 
 As soon as it is plugged in, the RGB LED on your device should begin {{#if photon}}{{{popup 'blinking blue.' 'vine' 'https://vine.co/v/eZUg2ZjVpn7/embed/simple'}}}{{/if}}{{#if core}}{{{popup 'blinking blue.' 'vine' 'https://vine.co/v/eZU92D9X9ge/embed/simple'}}}{{/if}}
 
-If your device is not blinking blue, {{#if photon}}{{{popup 'hold down the `MODE` button.' 'vine' 'https://vine.co/v/eZUH7WaWjMT/embed/simple'}}}{{/if}}{{#if core}}{{{popup 'hold down the `MODE` button.' 'vine' 'https://vine.co/v/eZU6YiK20Hl/embed/simple'}}}{{/if}}
+If your device is not blinking blue, {{#if photon}}{{{popup 'hold down the SETUP button.' 'vine' 'https://vine.co/v/eZUH7WaWjMT/embed/simple'}}}{{/if}}{{#if core}}{{{popup 'hold down the MODE button.' 'vine' 'https://vine.co/v/eZU6YiK20Hl/embed/simple'}}}{{/if}}
 
 If your device is not blinking at all, or if the LED is burning a dull orange color, it may not be getting enough power. Try changing your power source or USB cable.
 
@@ -100,12 +100,7 @@ If your device is not blinking at all, or if the LED is burning a dull orange co
 <p class="boxedHead">Learning Note: What happens when my device wants to talk to the Internet?</p>
 
 <p class="boxed"> 
-When your device comes to life for the first time, it has a specific set of objectives:
-* Find wifi
-* Connect to wifi
-* Execute firmware
-
-Unless you tell it not to, your device will run through these commands every time you power it on. You can teach it different wifi networks using your phone or computer. It remembers up to 7 wifi networks, and it will connect to these automatically if it can find them.
+When your device comes to life for the first time, it has a specific set of objectives: Find Wi-Fi, Connect to Wi-Fi, and Execute Firmware. Unless you tell it not to, your device will run through these commands every time you power it on. You can teach it different wifi networks using your phone or computer. It remembers up to 7 wifi networks, and it will connect to these automatically if it can find them.
 
 When you power on your device for the very first time, though, it doesn't know any networks. It blinks blue, which is its way of saying, "Hey, I'm ready to find some wifi." Let's help it out.
 </p>
@@ -126,7 +121,10 @@ This may take a little while- but don't worry.
 * *Breathing cyan:* Connected!
 
 {{/if}}
-If you are having trouble connecting, that's okay! Read over this example quickly, and then check out the [next lesson](../../connect) to connect your device using the USB cable.
+
+{{#if photon}} If this is your Photon's first time connecting, it will blink purple for a few minutes as it downloads updates. This is perfectly normal. {{/if}}
+
+If you can't seem to get the Mobile App to connect your device, that's okay! Read over this example quickly, and then check out the [next lesson](../../connect) to connect your device using the USB cable.
 
 Once you have connected your device, it has learned that network. Your device can store up to seven networks. If you feel like your device has too many networks on it, you can wipe your device's memory of any wifi networks it has learned. You can do so by continuing to hold the MODE button for 10 seconds until the RGB LED flashes blue quickly, signaling that all profiles have been deleted.
 

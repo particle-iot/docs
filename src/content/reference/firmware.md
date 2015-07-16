@@ -3,6 +3,7 @@ title: Firmware
 template: reference.hbs
 columns: three
 device: [photon, core]
+order: 1
 ---
 
 Particle Device Firmware
