@@ -56,7 +56,7 @@ exports.metalsmith = function() {
       directory: '../templates/partials'
     }))
     .use(fileMetadata([
-      {pattern: "content/**/*.md", metadata: {"lunr": true}}
+      {pattern: "content/**/*.md", metadata: {"lunr": true, "assets": '/assets'}}
     ]))
     .use(precompile({
       directory: '../templates/precompile',
