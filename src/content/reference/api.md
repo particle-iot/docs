@@ -8,9 +8,6 @@ order: 2
 Particle Cloud API
 ==========
 
-Introduction
-===
-
 The Particle Cloud API is a [REST](http://en.wikipedia.org/wiki/Representational_State_Transfer) API.
 REST means a lot of things, but first and foremost it means that we use the URL in the way that it's intended:
 as a "Uniform Resource Locator".
