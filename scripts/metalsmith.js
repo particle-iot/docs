@@ -135,7 +135,7 @@ exports.metalsmith = function() {
     }))
     .use(redirect({
       '/start': '/',
-      '/guide': '/',
+      '/guide': '/guide/getting-started/intro',
       '/guide/photon/': '/guide/photon/start',
       '/guide/core/': '/guide/core/start',
       '/reference': '/reference/firmware',

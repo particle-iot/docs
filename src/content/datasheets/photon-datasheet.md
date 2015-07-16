@@ -18,9 +18,9 @@ void setup() {
 ---
 
 
-## 1. Functional description
+## Functional description
 
-### 1.1 Overview
+### Overview
 
 Particle's Internet of Things hardware development kit, the Photon, provides everything you need to build a connected product. Particle combines a powerful ARM Cortex M3 micro-controller with a Broadcom Wi-Fi chip in a tiny thumbnail-sized module called the PØ (P-zero).
 
@@ -28,7 +28,7 @@ To get you started quickly, Particle adds a rock solid 3.3VDC SMPS power supply,
 
 The Photon comes in two physical forms: with headers and without. Prototyping is easy with headers as the Photon plugs directly into standard breadboards and perfboards, and may also be mounted with 0.1" pitch female headers on a PCB. To minimize space required, the Photon form factor without headers has castellated edges. These make it possible to surface mount the Photon directly onto your PCB.
 
-### 1.2 Features
+### Features
 
 * Particle PØ Wi-Fi module
 	* Broadcom BCM43362 Wi-Fi chip
@@ -47,22 +47,22 @@ The Photon comes in two physical forms: with headers and without. Prototyping is
 ---
 
 
-## 2. Interfaces
+## Interfaces
 
-### 2.1 Block Diagram
+### Block Diagram
 
 <div align=center><img src="/assets/images/photon-block-diagram.png" width=600></div>
 
 ---
 
 
-### 2.2 Power
+### Power
 
 Power to the Photon is supplied via the on-board USB Micro B connector or directly via the VIN pin.  If power is supplied directly to the VIN pin, the voltage should be regulated between 3.6VDC and 5.5VDC.  When the Photon is powered via the USB port, VIN will output a voltage of approximately 4.8VDC due to a reverse polarity protection series schottky diode between V+ of USB and VIN. When used as an output, the max load on VIN is 1A.  
 
 Typical current consumption is 80mA with a 5V input.  Deep sleep quiescent current is 160uA.  When powering the Photon from the USB connector, make sure to use a quality cable to minimize IR drops (current x resistance = voltage) in the wiring.  If a high resistance cable (i.e., low current) is used, peak currents drawn from the Photon when transmitting and receiving will result in voltage sag at the input which may cause a system brown out or intermittent operation.  Likewise, the power source should be sufficient enough to source 1A of current to be on the safe side.
 
-### 2.3 RF
+### RF
 
 The RF section of the Photon is a finely tuned impedance controlled network of components that optimize the efficiency and sensitivity of the Wi-Fi communications.  
 
@@ -75,7 +75,7 @@ The chip antenna is impedance matched to the 50 ohm RF feed line via a Pi networ
 ---
 
 
-### 2.4 Peripherals and GPIO
+### Peripherals and GPIO
 
 The Photon has ton of capability in a small footprint, with analog, digital and communication interfaces.
 
@@ -102,7 +102,7 @@ The Photon has ton of capability in a small footprint, with analog, digital and 
 ---
 
 
-### 2.5 JTAG
+### JTAG
 
 Pin D3 through D7 are JTAG interface pins.  These can be used to reprogram your Photon bootloader or user firmware image with standard JTAG tools such as the ST-Link v2, J-Link, R-Link, OLIMEX ARM-USB-TINI-H, and also the FTDI-based Particle JTAG Programmer.
 
@@ -127,7 +127,7 @@ A standard 20-pin 0.1" shrouded male JTAG interface connector should be wired as
 ---
 
 
-### 2.6 External Coexistence Interface
+### External Coexistence Interface
 
 The Photon supports coexistence with Bluetooth and other external radios via the three gold pads on the top side of the PCB near pin A3.  These pads are 0.035" square, spaced 0.049" apart.  This spacing supports the possibility of tacking on a small 1.25mm - 1.27mm pitch 3-pin male header to make it somewhat easier to interface with.
 
@@ -146,16 +146,16 @@ When these pads are programmed to be used as a Bluetooth coexistence interface, 
 ---
 
 
-## 3. Pin and button definition
+## Pin and button definition
 
-### 3.1 Pin markings
+### Pin markings
 
 <div align=center><img src="/assets/images/photon_pin_markings_1400.png"></div>
 
 ---
 
 
-### 3.2 Pin description
+### Pin description
 
 | Pin | Description |
 |-|-|
@@ -173,7 +173,7 @@ When these pads are programmed to be used as a Bluetooth coexistence interface, 
 ---
 
 
-### 3.3 Pin out diagrams
+### Pin out diagrams
 
 <div align=left><img src="/assets/images/photon-pinout1.png"</div>
 
@@ -181,9 +181,9 @@ When these pads are programmed to be used as a Bluetooth coexistence interface, 
 
 <div align=left><img src="/assets/images/photon-pinout3.png"</div>
 
-## 4. Technical specification
+## Technical specification
 
-### 4.1 Absolute maximum ratings <i class="icon-attention"></i>
+### Absolute maximum ratings <i class="icon-attention"></i>
 
 | Parameter | Symbol | Min | Typ | Max | Unit |
 |:-|:-|:-:|:-:|:-:|:-:|
@@ -194,7 +194,7 @@ When these pads are programmed to be used as a Bluetooth coexistence interface, 
 | Enable Voltage | V<sub>EN</sub> |  |  | V<sub>IN</sub>+0.6 | V |
 | ESD Susceptibility HBM (Human Body Mode) | V<sub>ESD</sub> |  |  | 2 | kV |
 
-### 4.2 Recommended operating conditions <i class="icon-check"></i>
+### Recommended operating conditions <i class="icon-check"></i>
 
 | Parameter | Symbol | Min | Typ | Max | Unit |
 | :-|:-|:-:|:-:|:-:|:-:
@@ -219,7 +219,7 @@ When these pads are programmed to be used as a Bluetooth coexistence interface, 
 
 <sup>[2]</sup> These are very short average current bursts when transmitting and receiving.  On average if minimizing frequency of TX/RX events, current consumption in powersave mode will be 18mA
 
-### 4.3 Wi-Fi Specifications <i class="icon-signal"></i>
+### Wi-Fi Specifications <i class="icon-signal"></i>
 
 | Feature | Description| |
 | :-|:-|:-: |
@@ -240,7 +240,7 @@ When these pads are programmed to be used as a Bluetooth coexistence interface, 
 | <sub></sub> | MCS7 | 12 | +/- 1.5 | dBm |
 
 
-### 4.4 I/O Characteristics
+### I/O Characteristics
 
 These specifications are based on the STM32F205RG datasheet, with reference to Photon pin nomenclature.
 
@@ -271,16 +271,16 @@ These specifications are based on the STM32F205RG datasheet, with reference to P
 
 <sub>[5]</sub> Pull-up and pull-down resistors are designed with a true resistance in series with switchable PMOS/NMOS. This PMOS/NMOS contribution to the series resistance is minimum (~10% order).
 
-## 5. Mechanical specifications
+## Mechanical specifications
 
-### 5.1 Dimensions and Weight
+### Dimensions and Weight
 
 | Headers | Dimensions in inches (mm)                | Weight    |
 |:-------:|:----------------------------------------:|:---------:|
 |  With   | 1.44 x 0.8 x 0.27 (36.58 x 20.32 x 6.86) |  5 grams  |
 | Without | 1.44 x 0.8 x 0.17 (36.58 x 20.32 x 4.32) | 3.7 grams |
 
-### 5.2 Mating connectors
+### Mating connectors
 
 The Photon (with headers) can be mounted with (qty 2) 12-pin single row 0.1" female headers.  Typically these are 0.335" (8.5mm) tall, but you may pick a taller one if desired.  When you search for parts like these it can be difficult to navigate the thousands of parts available.  
 
@@ -294,7 +294,7 @@ Description | MFG | MFG Part Number
 
 You may also search for other types, such as reverse mounted (bottom side SMT) female headers, low profile types, machine pin, etc..
 
-### 5.3 Recommended pcb land pattern (Photon with headers)
+### Recommended pcb land pattern (Photon with headers)
 
 The Photon (with headers) can be mounted with 0.1" 12-pin female header receptacles using the following PCB land pattern:
 
@@ -302,7 +302,7 @@ The Photon (with headers) can be mounted with 0.1" 12-pin female header receptac
 
 This land pattern can be found in the [Spark.lbr Eagle library](https://github.com/spark/photon/blob/master/libraries/Spark.lbr), as a Device named `PHOTON`.  **Note: Clone or Download the complete repository as a ZIP file to avoid corrupted data in Eagle files.**
 
-### 5.4 Recommended pcb land pattern (Photon without headers)
+### Recommended pcb land pattern (Photon without headers)
 
 The Photon (without headers) can be surface mounted directly in an end application PCB using the following PCB land pattern:
 
@@ -312,43 +312,43 @@ Solder mask around exposed copper pads should be 0.1mm (4 mils) larger in all di
 
 This land pattern can be found in the [Spark.lbr Eagle library](https://github.com/spark/photon/blob/master/libraries/Spark.lbr), as a Device named `PHOTON_SMD`.  **Note: Clone or Download the complete repository as a ZIP file to avoid corrupted data in Eagle files.**
 
-## 6. Schematic
+## Schematic
 
-### 6.1 Schematic - USB
+### Schematic - USB
 
 <div align=center><img src="/assets/images/photon-sch-usb.png" width=400></div>
 
-### 6.2 Schematic - Power
+### Schematic - Power
 
 <div align=center><img src="/assets/images/photon-sch-power.png" width=600></div>
 
-### 6.3 Schematic - User I/O
+### Schematic - User I/O
 
 <div align=center><img src="/assets/images/photon-sch-user-io.png" width=600></div>
 
-### 6.4 Schematic - RF
+### Schematic - RF
 
 <div align=center><img src="/assets/images/photon-sch-rf.png" width=500></div>
 
-### 6.5 Schematic - PØ Wi-Fi Module
+### Schematic - PØ Wi-Fi Module
 
 <div align=center><img src="/assets/images/photon-sch-p0-wifi-module.png" width=500></div>
 
-## 7. Layout
+## Layout
 
-### 7.1 Photon v1.0.0 Top Layer (GTL)
+### Photon v1.0.0 Top Layer (GTL)
 <div align=center><img src="/assets/images/photon_v100_pcb_top.png" width=200></div>
 
-### 7.2 Photon v1.0.0 GND Layer (G2L)
+### Photon v1.0.0 GND Layer (G2L)
 <div align=center><img src="/assets/images/photon_v100_pcb_gnd.png" width=200></div>
 
-### 7.3 Photon v1.0.0 3V3 Layer (G15L)
+### Photon v1.0.0 3V3 Layer (G15L)
 <div align=center><img src="/assets/images/photon_v100_pcb_3v3.png" width=200></div>
 
-### 7.4 Photon v1.0.0 Bottom Layer (GBL)
+### Photon v1.0.0 Bottom Layer (GBL)
 <div align=center><img src="/assets/images/photon_v100_pcb_bot.png" width=200></div>
 
-## 8. Recommended solder reflow profile
+## Recommended solder reflow profile
 
 <div align=left><img src="/assets/images/photon-reflow-profile.png" width=600></div>
 
@@ -360,7 +360,7 @@ This land pattern can be found in the [Spark.lbr Eagle library](https://github.c
 | D.   | Peak temp.: 235~245°C, Time above 220°C: 40~90 s |
 | D-E. | 245~220°C, Cooling rate: < 1°C/s |
 
-## 9. Bill of Materials
+## Bill of Materials
 
 ### Build your own design based on the Photon!
 
@@ -391,11 +391,11 @@ This land pattern can be found in the [Spark.lbr Eagle library](https://github.c
 |4|RESISTOR|1k 5%|0402|R1,R2,R3,R7|Fenghua|RC-02W102JT|
 |2|SWITCH|Button 160gf|3.6mm x 3.1mm|SETUP,RESET|Haoyu|TS-1185A-C|
 
-## 10. Ordering information
+## Ordering information
 
 Photons are available from [store.particle.io](https://store.particle.io/) in single quantities with and without headers, and also included in different maker kits.
 
-## 11. Qualification and approvals
+## Qualification and approvals
 
 <div align=left><img src="/assets/images/lead-free-fcc-ce.png" height=100></div>
 
@@ -404,9 +404,9 @@ Photons are available from [store.particle.io](https://store.particle.io/) in si
 -	FCC ID: 2AEMI-PHOTON
 -	IC: 20127-PHOTON
 
-## 12. Product handling
+## Product handling
 
-### 12.1 Packaging
+### Packaging
 
 The Photon comes in two primary styles of packaging: Matchbox and Kit Box.  The Matchbox contains the bare essentials to get you started, while the kit box contains a breadboard, Micro B USB cable, sticker, prototyping card and a couple sensors to build your first internet connected project!
 
@@ -414,17 +414,17 @@ The Photon comes in two primary styles of packaging: Matchbox and Kit Box.  The 
 
 Photons without headers are also available in JEDEC style trays for automated pick and place machines.  Request more details from us on this in the Contact section below.
 
-### 12.2 Moisture sensitivity levels
+### Moisture sensitivity levels
 
 <i class="icon-attention"></i> The Moisture Sensitivity Level (MSL) relates to the packaging and handling precautions required. The PØ module on the Photons dominate the MSL requirements and are rated level 3. In general, this precaution applies for Photons without headers.  If reflowing a Photon directly onto an application PCB, increased moisture levels prior to reflow can damage sensitive electronics on the Photon.  A bake process to reduce moisture may be required. <i class="icon-attention"></i>
 
 <i class="icon-right-hand"></i>For more information regarding moisture sensitivity levels, labeling, storage and drying see the MSL standard see IPC/JEDEC J-STD-020 (can be downloaded from [www.jedec.org](http://www.jedec.org)).
 
-### 12.3 ESD Precautions
+### ESD Precautions
 
 <i class="icon-attention"></i> The photon contains highly sensitive electronic circuitry and is an Electrostatic Sensitive Device (ESD). Handling a photon without proper ESD protection may destroy or damage it permanently.  Proper ESD handling and packaging procedures must be applied throughout the processing, handling and operation of any application that incorporates photons.  ESD precautions should be implemented on the application board where the photon is mounted. Failure to observe these precautions can result in severe damage to the photon! <i class="icon-attention"></i>
 
-## 13. Default settings
+## Default settings
 
 The Photon comes preprogrammed with a bootloader and a user application called Tinker.  This application works with an iOS and Android app also named Tinker that allows you to very easily toggle digital pins, take analog and digital readings and drive variable PWM outputs.
 
@@ -432,7 +432,7 @@ The bootloader allows you to easily update the user application via several diff
 
 You may use the online Web IDE [Particle Build](https://build.particle.io) to code, compile and flash a user application OTA (Over The Air).  [Particle Dev](https://www.particle.io/dev) is a local tool that uses the Cloud to compile and flash OTA as well.  There is also a package `Spark DFU-UTIL` for Particle Dev that allows for Cloud compiling and local flashing via DFU over USB.  This requires `dfu-util` to be installed on your system.  'dfu-util' can also be used with [Particle CLI](https://github.com/spark/particle-cli) for Cloud compiling and local flashing via the command line.  Finally the lowest level of development is available via the [GNU GCC toolchain for ARM](https://github.com/spark/firmware), which offers local compile and flash via dfu-util.  This gives the user complete control of all source code and flashing methods.  This is an extensive list, however not exhaustive.
 
-## 14. Glossary
+## Glossary
 
 <div class="dictionary-wrapper">
 <dt>SMPS</dt><dd>Switched-Mode Power Supply</dd>
@@ -463,7 +463,7 @@ You may use the online Web IDE [Particle Build](https://build.particle.io) to co
 </div>
 
 
-## 15. Revision history
+## Revision history
 
 | Revision | Date | Author | Comments |
 |:-:|:-:|:-:|:-|
@@ -478,7 +478,7 @@ You may use the online Web IDE [Particle Build](https://build.particle.io) to co
 | v010 | 1-June-2015 | BW | Updated VBAT info |
 
 
-## 16. Contact
+## Contact
 
 **Web**
 
