@@ -13,7 +13,7 @@ var define = require('metalsmith-define');
 var compress = require('metalsmith-gzip');
 var paths = require('metalsmith-paths');
 var path = require('path');
-var partial = require('metalsmith-partial');
+var partials = require('metalsmith-register-partials');
 var helpers = require('metalsmith-register-helpers');
 var redirect = require('metalsmith-redirect');
 var copy = require('metalsmith-copy');
@@ -52,9 +52,8 @@ exports.metalsmith = function() {
     .use(cleanCSS({
       files: '**/*.css'
     }))
-    .use(partial({
-      directory: '../templates/partials',
-      engine: 'handlebars'
+    .use(partials({
+      directory: '../templates/partials'
     }))
     .use(fileMetadata([
       {pattern: "content/**/*.md", metadata: {"lunr": true}}
