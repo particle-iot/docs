@@ -2,7 +2,7 @@
 title: Cloud API
 template: reference.hbs
 columns: three
-Order: 2
+order: 2
 ---
 
 Particle Cloud API

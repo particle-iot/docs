@@ -1,7 +1,7 @@
 ---
 word: Hackathon
 title: Hackathon
-order: 8
+order: 9
 shared: true
 columns: two
 template: guide.hbs

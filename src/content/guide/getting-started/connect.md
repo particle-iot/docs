@@ -50,7 +50,8 @@ Click `Update Driver`, and select `Browse for driver software on your computer`.
 
 Navigate to your Downloads folder, or wherever you unzipped the drivers.
 
-(Note that right now, the drivers are in a `Spark` folder and are named `spark_core`)
+{{#if photon}}The driver is called `photon.cat`.{{/if}}
+{{#if core}}The driver is called `spark_core.cat`.{{/if}}
 
 If you have a problem installing, you may have to temporarily disable the digitally signed driver enforcement policy. (We're sorry.) There are good instructions on how to do that [here](http://www.howtogeek.com/167723/how-to-disable-driver-signature-verification-on-64-bit-windows-8.1-so-that-you-can-install-unsigned-drivers/).
 
