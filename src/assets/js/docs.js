@@ -115,7 +115,7 @@ Created by Zach Supalla.
   Docs.scrollToElement = function(element) {
     var $element = $(element);
     if($element.length === 1) {
-      var position = $(element).position().top;
+      var position = $(element).position().top + 10;
       $('.content-inner').scrollTop(position);
     }
   };
@@ -126,7 +126,9 @@ Created by Zach Supalla.
       e.preventDefault();
       var id = $(this).attr('href');
       Docs.scrollToElement(id);
-      window.location.hash = id;
+      if(window.history) {
+        history.pushState({hash: id}, "New Hash", id);
+      }
     });
   };
 

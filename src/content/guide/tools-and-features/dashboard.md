@@ -10,15 +10,11 @@ template: guide.hbs
 
 #Dashboard <small class="beta">(alpha)</small>
 
-##Introduction
-
 The [Dashboard](https://dashboard.particle.io) is a new feature we're working on to improve the developer experience of building connected products with Particle. It's currently in alpha, which means we'll be working on it and releasing frequent updates.
 
 Being in alpha also means we're trying to get your feedback as we build it. Head on over to the community to join the conversation. We'll be making release announcements, answering questions and asking for feedback.
 
 [Talk to us on the Community!](http://community.particle.io/t/fleet-management-dashboard-alpha-run-feedback/11118)
-
-##Features
 
 ### Home (Coming Soon)
 
