@@ -153,7 +153,7 @@ spark.login({username: 'email@example.com', password: 'pass'}).then(
 );
 ```
 
-### Events
+### Event Listeners
 
 Finally you can also register an event listener to get the result
 of the executed command.

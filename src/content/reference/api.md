@@ -507,9 +507,9 @@ And the response contains a `result` like this:
 
 **NOTE**: Variable names are truncated after the 12th character: `temperature_sensor` is accessible as `temperature_`
 
-### Events
+## Events
 
-#### Subscribing to events
+### Subscribing to events
 
 You can make an API call that will open a stream of
 [Server-Sent Events](http://www.w3.org/TR/eventsource/) (SSEs).
@@ -570,7 +570,7 @@ curl -H "Authorization: Bearer 38bb7b318cc6898c80317decb34525844bc9db55"
 https://api.particle.io/v1/devices/55ff70064939494339432586/events/temperature
 ```
 
-#### Publishing events
+### Publishing events
 
 You can publish events to your devices using the publish event endpoint.
 
@@ -595,8 +595,7 @@ particle publish test "Hello World"
 ```
 
 
-Verifying and Flashing new firmware
----------
+## Verifying and Flashing new firmware
 
 All your Particle firmware coding can happen entirely in the build section of the website.
 However, if you prefer to use your own text editor or IDE, you can!
