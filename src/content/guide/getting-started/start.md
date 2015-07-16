@@ -1,5 +1,5 @@
 ---
-title: 2. Getting started
+title: Getting started
 template: guide.hbs
 columns: two
 devices: [ photon, core ]

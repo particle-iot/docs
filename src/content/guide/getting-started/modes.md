@@ -1,5 +1,5 @@
 ---
-title: 4. Device Modes
+title: Device Modes
 template: guide.hbs
 columns: two
 devices: [ photon, core ]

@@ -51,6 +51,14 @@
   border-top: 0;
   padding-top: 0;
 }
+.menubar ol {
+  list-style: inherit;
+  list-style-position: inside;
+  list-style-type: decimal;
+  li {
+    color: @gray;
+  }
+}
 
 @media (max-width: 480px) {
   .menubar {
@@ -116,7 +124,7 @@ ul.guide-menu {
     overflow-x: visible;
     li.active.top-level {
       overflow-x: hidden;
-      padding-left: 30px;
+      padding-left: 20px;
     }
   }
 }

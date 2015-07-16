@@ -1,5 +1,5 @@
 ---
-title: 5. Tinker & Mobile App
+title: Tinker & Mobile App
 template: guide.hbs
 columns: two
 devices: [ photon, core ]

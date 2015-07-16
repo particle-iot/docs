@@ -1,5 +1,5 @@
 ---
-title: 1. Introduction
+title: Introduction
 template: guide.hbs
 columns: two
 devices: [ photon, core ]
