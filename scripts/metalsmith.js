@@ -74,7 +74,12 @@ exports.metalsmith = function() {
     .use(collections({
       guide: {
         pattern: 'guide/:section/*.md',
-        sortBy: 'order'
+        sortBy: 'order',
+        orderDynamicCollections: [
+          'getting-started',
+          'tools-and-features',
+          'how-to-build-a-product'
+        ]
       },
       reference: {
         pattern: 'reference/*md',

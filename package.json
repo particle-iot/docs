@@ -22,7 +22,7 @@
     "metalsmith-autotoc": "git://github.com/spark/metalsmith-autotoc",
     "metalsmith-broken-link-checker": "^0.1.3",
     "metalsmith-clean-css": "^2.0.0",
-    "metalsmith-collections": "git://github.com/jlamontagne/metalsmith-collections#dynamic-collections",
+    "metalsmith-collections": "git://github.com/spark/metalsmith-collections#dynamic-collections",
     "metalsmith-copy": "^0.2.1",
     "metalsmith-define": "^1.0.0",
     "metalsmith-filemetadata": "0.0.4",
