@@ -29,7 +29,13 @@ var msIf = require('metalsmith-if');
 
 var environment;
 
+
+
 exports.metalsmith = function() {
+
+  var _removeEmptyTokens = function removeEmptyTokens(token) {
+    if (token.length > 0) {return token};
+  }
   var metalsmith = Metalsmith(__dirname)
     .concurrency(100)
     .source("../src")
@@ -98,7 +104,10 @@ exports.metalsmith = function() {
       fields: {
         contents: 1,
         title: 10
-      }
+      },
+      pipelineFunctions: [
+        _removeEmptyTokens
+      ]
     }))
     .use(templates({
       engine: 'handlebars',
@@ -125,6 +134,7 @@ exports.metalsmith = function() {
 
   return metalsmith;
 };
+
 
 exports.build = function(callback) {
   exports.metalsmith().build(function(err, files) {

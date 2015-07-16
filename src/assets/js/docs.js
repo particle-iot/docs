@@ -230,15 +230,103 @@ Created by Zach Supalla.
     }
   };
 
+  Docs._removeEmptyTokens = function removeEmptyTokens(token) {
+    if (token.length > 0) {return token};
+  };
+
+  Docs.resultsAdded = 0;
+
   Docs.buildSearch = function() {
+    lunr.Pipeline.registerFunction(Docs._removeEmptyTokens, 'removeEmptyTokens');
+
     $.getJSON('/search-index.json', function(data) {
-      var idx = lunr.Index.load(JSON.stringify(data.index));
+      var store = data.store;
+      var idx = lunr.Index.load(data.index);
       $('input.search-box').keyup(function() {
         var searchQuery = this.value;
-        var results = idx.search(searchQuery);
-        console.log(results);
+        Docs.emptyResults();
+        if(searchQuery === '' || searchQuery.length < 3) {
+          $('.search-results').hide();
+        }
+        else {
+          $('.search-results').show();
+          var results = idx.search(searchQuery);
+          Docs.buildSearchResults(results, store);
+        }
       });
     });
+  };
+  Docs.emptyResults = function() {
+    $('.search-results ul.results').empty();
+    Docs.resultsAdded = 0;
+  };
+
+  Docs.titleize = function(string) {
+    var stringNoDashes = string.replace(/-/g, ' ');
+    var stringToTitleCase = stringNoDashes.replace(/\w\S*/g, function(txt){return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();});
+    return stringToTitleCase;
+  }
+
+  Docs.buildSearchResults = function(results, store) {
+    var htmlToAppend = '';
+
+    results.forEach(function(r) {
+      /*var resultInfo = store[r.ref];
+
+      r.link = r.ref;
+      r.title = resultInfo.title;
+      r.device = resultInfo.device;
+      r.collection = Docs.titleize(resultInfo.collection);
+      r.pageTitle = resultInfo.pageTitle;
+      r.collectionClass = resultInfo.collection;
+
+      if(counter < 5) {
+        fiveResults.push(r);
+        counter++;
+      }*/
+
+
+      var $results = $('.results li');
+      var resultCount = $results.length;
+
+
+      if( Docs.resultsAdded < 5 && r.ref) {
+
+        var resultInfo = store[r.ref];
+        var link = r.ref;
+        var title = resultInfo.title;
+        var collection = Docs.titleize(resultInfo.collection);
+        var collectionRaw = resultInfo.collection;
+        var pageTitle = resultInfo.pageTitle;
+        var device = resultInfo.device ? Docs.titleize(resultInfo.device) : null;
+
+        var li;
+
+        if(device) {
+          li = '<a href="/' + link + '"><li>' +
+                    '<div class="left-result">' +
+                      '<span class="title">' + title + '</span>' +
+                      '<span class="page-title">' + pageTitle + '</span>' +
+                      '<span class="device"><i class="im-devices-icon"></i>' + '<span>' + device + '</span>' + '</span>' +
+                    '</div>' +
+                    '<span class="tag ' + collectionRaw + '">'+collection +'</span>' +
+                  '</li></a>';
+        } else {
+          li = '<a href="/' + link + '"><li>' +
+                    '<div class="left-result">' +
+                      '<span class="title">' + title + '</span>' +
+                      '<span class="page-title">' + pageTitle + '</span>' +
+                    '</div>' +
+                    '<span class="tag ' + collectionRaw + '">'+collection +'</span>' +
+                  '</li></a>';
+        }
+
+        htmlToAppend += li;
+        Docs.resultsAdded++;
+      }
+    });
+
+    $('.search-results ul').append(htmlToAppend);
   };
 
   // Ok, then let's do it!
