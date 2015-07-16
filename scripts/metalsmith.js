@@ -59,6 +59,10 @@ exports.metalsmith = function() {
       datasheet: {
         pattern: 'datasheets/*.md',
         sortBy: 'order'
+      },
+      support: {
+        pattern: 'support/*.md',
+        sortBy: 'order'
       }
     }))
     .use(define({
@@ -102,7 +106,8 @@ exports.metalsmith = function() {
       '/datasheets': '/datasheets/photon-datasheet',
       '/guide/getting-started': '/guide/getting-started/intro',
       '/guide/how-to-build-a-product': '/guide/how-to-build-a-product/intro/',
-      '/guide/tools-and-features': '/guide/tools-and-features/intro'
+      '/guide/tools-and-features': '/guide/tools-and-features/intro',
+      '/support': '/support/general-shipping-info'
     }))
     .use(compress());
     //.use(blc());
