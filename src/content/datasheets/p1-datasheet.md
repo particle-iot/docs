@@ -2,10 +2,10 @@
 title: P1 datasheet
 template: datasheet.hbs
 columns: two
+order: 5
 ---
 
-P1 Datasheet <sup>(v003)</sup>
-===
+# P1 Datasheet <sup>(v003)</sup>
 
 <div align=center><img src="/assets/images/p1-vector.png" width=200></div>
 
@@ -15,7 +15,7 @@ void setup() {
 }
 ```
 
-# 1. Functional description
+## 1. Functional description
 
 ### 1.1 Overview
 
@@ -40,7 +40,7 @@ The P1 is Particle's tiny Wi-Fi module that contains both the Broadcom Wi-Fi chi
 - Soft AP setup
 - FCC, CE and IC certified
 
-# 2. Interfaces
+## 2. Interfaces
 
 ### 2.1 Block Diagram
 
@@ -128,7 +128,7 @@ When two radios occupying the same frequency band are used in the same system, s
 ￼
 When these pads are programmed to be used as a Bluetooth coexistence interface, they're set as high impedance on power up and reset. Alternatively, they can be individually programmed to be used as GPIOs through software control. They can also be programmed to have an internal pull-up or pull-down resistor.
 
-# 3. Pin and button definition
+## 3. Pin and button definition
 
 ### 3.1 Pin markings
 
@@ -222,7 +222,7 @@ When these pads are programmed to be used as a Bluetooth coexistence interface, 
 | 74	|	PAD1	|	NC	|	NC |
 | 75	|	PAD2	|	NC	|	NC |
 
-# 4. Technical specification
+## 4. Technical specification
 
 ### 4.1 Absolute maximum ratings <i class="icon-attention"></i>
 
@@ -311,7 +311,7 @@ These specifications are based on the STM32F205RG datasheet, with reference to P
 
 <sub>[5]</sub> Pull-up and pull-down resistors are designed with a true resistance in series with switchable PMOS/NMOS. This PMOS/NMOS contribution to the series resistance is minimum (~10% order).
 
-# 5. Mechanical specifications
+## 5. Mechanical specifications
 
 ### 5.1 Overall dimensions
 
@@ -334,7 +334,7 @@ The P1 can be mounted directly on a carrier PCB with following PCB land pattern:
 
 <div align=center><img src="/assets/images/p1-land-pattern.png" width=600px></div>
 
-# 6. P1 Reference Design Schematic
+## 6. P1 Reference Design Schematic
 
 ### 6.1 Schematic - USB
 
@@ -352,7 +352,7 @@ The P1 can be mounted directly on a carrier PCB with following PCB land pattern:
 
 <div align=center><img src="/assets/images/p1-sch-wifi-module.png" height=500></div>
 
-# 7. P1 Reference Design Layout
+## 7. P1 Reference Design Layout
 
 ### 7.1 P1 Reference Design Top Layer (GTL)
 
@@ -362,7 +362,7 @@ To be added.
 
 To be added.
 
-# 8. Recommended solder reflow profile
+## 8. Recommended solder reflow profile
 
 <div align=left><img src="/assets/images/photon-reflow-profile.png" width=600></div>
 
@@ -374,11 +374,11 @@ To be added.
 | D.   | Peak temp.: 235~245°C, Time above 220°C: 40~90 s |
 | D-E. | 245~220°C, Cooling rate: < 1°C/s |
 
-#9. Ordering information
+## 9. Ordering information
 
 P1 modules are available from [store.particle.io](https://store.particle.io/) as cut tape in quantities of 10 each.
 
-#10. Qualification and approvals
+## 10. Qualification and approvals
 
 <div align=left><img src="/assets/images/lead-free-fcc-ce.png" height=100></div>
 
@@ -387,7 +387,7 @@ P1 modules are available from [store.particle.io](https://store.particle.io/) as
 -	FCC ID: COFWMNBM11
 -	IC: 10293A-WMNBM11
 
-# 11. Product handling
+## 11. Product handling
 
 ### 11.1 Tape and Reel Info
 
@@ -403,7 +403,7 @@ P1 modules are available from [store.particle.io](https://store.particle.io/) as
 
 <i class="icon-attention"></i> The P1 module contains highly sensitive electronic circuitry and is an Electrostatic Sensitive Device (ESD). Handling a P1 module without proper ESD protection may destroy or damage it permanently.  Proper ESD handling and packaging procedures must be applied throughout the processing, handling and operation of any application that incorporates P1 modules.  ESD precautions should be implemented on the application board where the P1 module is mounted. Failure to observe these precautions can result in severe damage to the P1 module! <i class="icon-attention"></i>
 
-# 12. Default settings
+## 12. Default settings
 
 The P1 module comes preprogrammed with a bootloader and a user application called Tinker.  This application works with an iOS and Android app also named Tinker that allows you to very easily toggle digital pins, take analog and digital readings and drive variable PWM outputs.
 
@@ -411,7 +411,7 @@ The bootloader allows you to easily update the user application via several diff
 
 You may use the online Web IDE [Particle Build](https://www.particle.io/build) to code, compile and flash a user application OTA (Over The Air).  [Particle Dev](https://www.particle.io/dev) is a local tool that uses the Cloud to compile and flash OTA as well.  There is also a package `Spark DFU-UTIL` for Particle Dev that allows for Cloud compiling and local flashing via DFU over USB.  This requires `dfu-util` to be installed on your system.  'dfu-util' can also be used with [Particle CLI](https://github.com/spark/particle-cli) for Cloud compiling and local flashing via the command line.  Finally the lowest level of development is available via the [GNU GCC toolchain for ARM](https://github.com/spark/firmware), which offers local compile and flash via dfu-util.  This gives the user complete control of all source code and flashing methods.  This is an extensive list, however not exhaustive.
 
-# 13. Glossary
+## 13. Glossary
 
 <div class="dictionary-wrapper">
 <dd>Radio Frequency</dd>
@@ -434,7 +434,7 @@ You may use the online Web IDE [Particle Build](https://www.particle.io/build) t
 </div>
 
 
-#14. Revision history
+## 14. Revision history
 
 | Revision | Date | Author | Comments |
 |:---:|:---:|:---:|:----|
@@ -443,7 +443,7 @@ You may use the online Web IDE [Particle Build](https://www.particle.io/build) t
 | v003 | 1-June-2015 | BW | Updated VBAT_MICRO info |
 
 
-#15. Contact
+## 15. Contact
 
 **Web**
 

@@ -2,10 +2,10 @@
 title: Photon datasheet
 template: datasheet.hbs
 columns: two
+order: 4
 ---
 
-Photon Datasheet <sup>(v010)</sup>
-===
+# Photon Datasheet <sup>(v010)</sup>
 
 <div align=center><img src="/assets/images/photon_vector2_600.png" width=200></div>
 
@@ -18,7 +18,7 @@ void setup() {
 ---
 
 
-# 1. Functional description
+## 1. Functional description
 
 ### 1.1 Overview
 
@@ -47,7 +47,7 @@ The Photon comes in two physical forms: with headers and without. Prototyping is
 ---
 
 
-# 2. Interfaces
+## 2. Interfaces
 
 ### 2.1 Block Diagram
 
@@ -146,7 +146,7 @@ When these pads are programmed to be used as a Bluetooth coexistence interface, 
 ---
 
 
-# 3. Pin and button definition
+## 3. Pin and button definition
 
 ### 3.1 Pin markings
 
@@ -181,7 +181,7 @@ When these pads are programmed to be used as a Bluetooth coexistence interface, 
 
 <div align=left><img src="/assets/images/photon-pinout3.png"</div>
 
-# 4. Technical specification
+## 4. Technical specification
 
 ### 4.1 Absolute maximum ratings <i class="icon-attention"></i>
 
@@ -271,7 +271,7 @@ These specifications are based on the STM32F205RG datasheet, with reference to P
 
 <sub>[5]</sub> Pull-up and pull-down resistors are designed with a true resistance in series with switchable PMOS/NMOS. This PMOS/NMOS contribution to the series resistance is minimum (~10% order).
 
-# 5. Mechanical specifications
+## 5. Mechanical specifications
 
 ### 5.1 Dimensions and Weight
 
@@ -312,7 +312,7 @@ Solder mask around exposed copper pads should be 0.1mm (4 mils) larger in all di
 
 This land pattern can be found in the [Spark.lbr Eagle library](https://github.com/spark/photon/blob/master/libraries/Spark.lbr), as a Device named `PHOTON_SMD`.  **Note: Clone or Download the complete repository as a ZIP file to avoid corrupted data in Eagle files.**
 
-# 6. Schematic
+## 6. Schematic
 
 ### 6.1 Schematic - USB
 
@@ -334,7 +334,7 @@ This land pattern can be found in the [Spark.lbr Eagle library](https://github.c
 
 <div align=center><img src="/assets/images/photon-sch-p0-wifi-module.png" width=500></div>
 
-# 7. Layout
+## 7. Layout
 
 ### 7.1 Photon v1.0.0 Top Layer (GTL)
 <div align=center><img src="/assets/images/photon_v100_pcb_top.png" width=200></div>
@@ -348,7 +348,7 @@ This land pattern can be found in the [Spark.lbr Eagle library](https://github.c
 ### 7.4 Photon v1.0.0 Bottom Layer (GBL)
 <div align=center><img src="/assets/images/photon_v100_pcb_bot.png" width=200></div>
 
-# 8. Recommended solder reflow profile
+## 8. Recommended solder reflow profile
 
 <div align=left><img src="/assets/images/photon-reflow-profile.png" width=600></div>
 
@@ -360,7 +360,7 @@ This land pattern can be found in the [Spark.lbr Eagle library](https://github.c
 | D.   | Peak temp.: 235~245°C, Time above 220°C: 40~90 s |
 | D-E. | 245~220°C, Cooling rate: < 1°C/s |
 
-# 9. Bill of Materials
+## 9. Bill of Materials
 
 ### Build your own design based on the Photon!
 
@@ -391,11 +391,11 @@ This land pattern can be found in the [Spark.lbr Eagle library](https://github.c
 |4|RESISTOR|1k 5%|0402|R1,R2,R3,R7|Fenghua|RC-02W102JT|
 |2|SWITCH|Button 160gf|3.6mm x 3.1mm|SETUP,RESET|Haoyu|TS-1185A-C|
 
-#10. Ordering information
+## 10. Ordering information
 
 Photons are available from [store.particle.io](https://store.particle.io/) in single quantities with and without headers, and also included in different maker kits.
 
-#11. Qualification and approvals
+## 11. Qualification and approvals
 
 <div align=left><img src="/assets/images/lead-free-fcc-ce.png" height=100></div>
 
@@ -404,7 +404,7 @@ Photons are available from [store.particle.io](https://store.particle.io/) in si
 -	FCC ID: 2AEMI-PHOTON
 -	IC: 20127-PHOTON
 
-# 12. Product handling
+## 12. Product handling
 
 ### 12.1 Packaging
 
@@ -424,7 +424,7 @@ Photons without headers are also available in JEDEC style trays for automated pi
 
 <i class="icon-attention"></i> The photon contains highly sensitive electronic circuitry and is an Electrostatic Sensitive Device (ESD). Handling a photon without proper ESD protection may destroy or damage it permanently.  Proper ESD handling and packaging procedures must be applied throughout the processing, handling and operation of any application that incorporates photons.  ESD precautions should be implemented on the application board where the photon is mounted. Failure to observe these precautions can result in severe damage to the photon! <i class="icon-attention"></i>
 
-# 13. Default settings
+## 13. Default settings
 
 The Photon comes preprogrammed with a bootloader and a user application called Tinker.  This application works with an iOS and Android app also named Tinker that allows you to very easily toggle digital pins, take analog and digital readings and drive variable PWM outputs.
 
@@ -432,7 +432,7 @@ The bootloader allows you to easily update the user application via several diff
 
 You may use the online Web IDE [Particle Build](https://build.particle.io) to code, compile and flash a user application OTA (Over The Air).  [Particle Dev](https://www.particle.io/dev) is a local tool that uses the Cloud to compile and flash OTA as well.  There is also a package `Spark DFU-UTIL` for Particle Dev that allows for Cloud compiling and local flashing via DFU over USB.  This requires `dfu-util` to be installed on your system.  'dfu-util' can also be used with [Particle CLI](https://github.com/spark/particle-cli) for Cloud compiling and local flashing via the command line.  Finally the lowest level of development is available via the [GNU GCC toolchain for ARM](https://github.com/spark/firmware), which offers local compile and flash via dfu-util.  This gives the user complete control of all source code and flashing methods.  This is an extensive list, however not exhaustive.
 
-# 14. Glossary
+## 14. Glossary
 
 <div class="dictionary-wrapper">
 <dt>SMPS</dt><dd>Switched-Mode Power Supply</dd>
@@ -463,7 +463,7 @@ You may use the online Web IDE [Particle Build](https://build.particle.io) to co
 </div>
 
 
-#15. Revision history
+## 15. Revision history
 
 | Revision | Date | Author | Comments |
 |:-:|:-:|:-:|:-|
@@ -478,7 +478,7 @@ You may use the online Web IDE [Particle Build](https://build.particle.io) to co
 | v010 | 1-June-2015 | BW | Updated VBAT info |
 
 
-#16. Contact
+## 16. Contact
 
 **Web**
 

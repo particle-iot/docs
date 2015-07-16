@@ -2,12 +2,12 @@
 title: Photon shields and kits
 template: datasheet.hbs
 columns: two
+order: 6
 ---
 
-Shields and accessories
-===
+# Shields and accessories
 
-# Shield Shield
+## Shield Shield
 
 Sometimes life can be a little difficult in the land of electronics when two systems talk a different voltage language. How do you make them talk to each other without making one of them _burn out_? The Shield Shield is the answer. This shield performs all the necessary voltage translation and provides an Arduino-compatible footprint to make it easier for you to plug in your existing Arduino shields or talk to other 5V hardware.
 
@@ -85,7 +85,7 @@ Link to the Shield Shield Library and example connections for I2C, SPI, ADC, and
 add PDF template for holes
 -->
 
-# Relay Shield
+## Relay Shield
 The Relay Shield allows you to take over the world, one electric appliance at a time. Want to control a lamp, fan, coffee machine, aquarium pumps or garden sprinklers? Then this is a solution for you!
 
 The shield comes with four relays that are rated at a max of 220V @10Amp allowing you to control any electric appliance rated at under 2000 Watts. You are not just limited to an appliance though; any gadget that requires high voltage and/or a lot of current can be controlled with this shield.
@@ -218,7 +218,7 @@ Here is how to perform that surgery:
 [picture of the pads solder jumped]
 -->
 
-# Programmer Shield
+## Programmer Shield
 
 Do you want to gain complete control over your Particle device right down to its every bit of memory space? or watch as your code gets executed and debug it? Then this shield should be able to pacify that control freak inside of you.
 
@@ -262,7 +262,7 @@ The shield is setup so that when powered from the USB port as well as from a DC 
 
  ![Power Shield Dimensions](/assets/images/shields/power-shield/power-shield-dimensions.png)
 
-# Internet Button
+## Internet Button
 
 The Internet Button is not only an easy way to get started on the Internet of Things, it's also a clean and simple way to start building your own prototypes. Quickly start playing with LEDs, multiple buttons, an accelerometer and more without any wires or soldering.
 
@@ -289,7 +289,7 @@ The Internet Button is not only an easy way to get started on the Internet of Th
 
 ![Internet Button Dimensions](/assets/images/shields/internet-button/button-dimensions.png)
 
-# Photon Kit
+## Photon Kit
 
 ### 1. Photoresistor (1)
 ![LDR](/assets/images/mk-ldr.bmp)
@@ -306,7 +306,7 @@ This general purpose 3mm red LED is great for getting started with your Photon. 
 
 You get two 220-Ohm resistors in your Photon Kit. They are rated at 5%, 1/4 Watt.
 
-# Photon Maker Kit Contents
+## Photon Maker Kit Contents
 
 ### 1. Ceramic Capacitors (10 each)
 

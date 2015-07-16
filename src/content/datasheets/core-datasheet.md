@@ -2,13 +2,13 @@
 title: Core datasheet
 template: datasheet.hbs
 columns: two
+order: 2
 ---
 
-Spark Core Datasheet
-===
+#Spark Core Datasheet
 
-Subsystems
----
+
+## Subsystems
 
 ### Microcontroller
 
@@ -86,8 +86,8 @@ The RF circuit is probably where we spent the most time on during hardware desig
 
 You can download a copy of the RF test report [here.](/assets/images/core-rf-test-report.pdf)
 
-Pins and I/O
----
+## Pins and I/O
+
 ![Spark Pinout](/assets/images/spark-pinout.png)
 
 The Spark Core offers a total 18 I/O pins to the user: `D0 to D7`, `A0 to A7` and two pins that are preset to serial - `TX` and `RX`. All of these I/O pins run at *3.3V* and the user should keep this in mind before attaching any external peripherals to them. The only exception to this are the following pins that are tolerant to 5V inputs:
@@ -163,8 +163,7 @@ In addition to having the ability to load new firmware over USB and WiFi, the us
 
 The hardware files for the JTAG shield are available [here.](https://github.com/spark/shields/tree/master/Programmer%20Shield)
 
-Memory mapping
----
+## Memory mapping
 
 ###Internal Flash Memory Map
 
@@ -247,8 +246,7 @@ The external flash memory gives us an additional 2MB of storage space. This spac
    </tr>
 </table>
 
-Electrical characteristics
----
+## Electrical characteristics
 
 ### Power
 
@@ -288,25 +286,24 @@ With the on board chip antenna, the peak return loss (S11) has been measured and
 
 The transmission loss for the u.FL connector has been measured to be approximately 0.5 to 0.75dB.
 
-Types of Cores
----
+## Types of Cores
 
 ![Antenna Options](/assets/images/chip-ufl.jpg)
 
 Currently the Core is available in two flavors. With an on-board chip antenna or an uFL connector to connect an external antenna.
 
-#### Chip Antenna
+### Chip Antenna
 
 
 This version of the Core comes with an on board chip antenna that gives a signal strength similar to a mobile phone.  In most cases, a simple plastic enclosure will not affect the signal strength of the chip antenna.
 
-#### uFL Connector
+### uFL Connector
 
 If you want to improve the signal strength of the Core, you can connect an external antenna with the help of the [uFL connector](http://en.wikipedia.org/wiki/Hirose_U.FL). Most antennas that are designed to operate at 2.4GHz or are WiFi rated will do the job. You can also make your own [cantenna](https://community.particle.io/t/extending-the-core-wifi-range-with-a-cantenna/1357)!
 
 
-Physical layout
----
+## Physical layout
+
 ![DIMENSIONS](/assets/images/core-dim.jpg)
 
 The header pins on the Core are spaced at an interval of 0.1", which is the standard pitch size for proto-boards and breadboards. The physical layout of the Core was inspired from the [Arduino Pro Mini](http://arduino.cc/en/Main/ArduinoBoardProMini) board.
