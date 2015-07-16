@@ -3,7 +3,7 @@ word: CLI
 title: Command Line Interface (CLI)
 template: reference.hbs
 columns: three
-Order: 3
+order: 3
 ---
 
 #CLI Command Reference
