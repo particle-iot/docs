@@ -25,6 +25,7 @@ var lunr = require('metalsmith-lunr');
 var lunr_ = require('lunr');
 var fileMetadata = require('metalsmith-filemetadata');
 var msIf = require('metalsmith-if');
+var precompile = require('./precompile');
 
 
 var environment;
@@ -58,6 +59,14 @@ exports.metalsmith = function() {
     .use(fileMetadata([
       {pattern: "content/**/*.md", metadata: {"lunr": true}}
     ]))
+    .use(precompile({
+      directory: '../templates/precompile',
+      dest: 'assets/js/precompiled.js',
+      knownHelpers: {
+        'each': true,
+        'if': true
+      }
+    }))
     .use(moveUp(['content/**/*']))
     .use(paths())
     .use(helpers({

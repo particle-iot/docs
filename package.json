@@ -43,6 +43,7 @@
     "metalsmith-simplewatch": "git://github.com/spark/metalsmith-simplewatch",
     "metalsmith-templates": "^0.6.1",
     "metalsmith-watch": "^1.0.1",
+    "minimatch": "^2.0.8",
     "mocha": "^2.2.5",
     "request": "^2.58.0",
     "should": "^7.0.1",

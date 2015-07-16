@@ -270,63 +270,22 @@ Created by Zach Supalla.
   Docs.buildSearchResults = function(results, store) {
     var htmlToAppend = '';
 
-    results.forEach(function(r) {
-      /*var resultInfo = store[r.ref];
+    var fiveResults = results.slice(0,5);
 
-      r.link = r.ref;
-      r.title = resultInfo.title;
-      r.device = resultInfo.device;
-      r.collection = Docs.titleize(resultInfo.collection);
-      r.pageTitle = resultInfo.pageTitle;
-      r.collectionClass = resultInfo.collection;
-
-      if(counter < 5) {
-        fiveResults.push(r);
-        counter++;
-      }*/
-
-
-      var $results = $('.results li');
-      var resultCount = $results.length;
-
-
-      if( Docs.resultsAdded < 5 && r.ref) {
-
-        var resultInfo = store[r.ref];
-        var link = r.ref;
-        var title = resultInfo.title;
-        var collection = Docs.titleize(resultInfo.collection);
-        var collectionRaw = resultInfo.collection;
-        var pageTitle = resultInfo.pageTitle;
-        var device = resultInfo.device ? Docs.titleize(resultInfo.device) : null;
-
-        var li;
-
-        if(device) {
-          li = '<a href="/' + link + '"><li>' +
-                    '<div class="left-result">' +
-                      '<span class="title">' + title + '</span>' +
-                      '<span class="page-title">' + pageTitle + '</span>' +
-                      '<span class="device"><i class="im-devices-icon"></i>' + '<span>' + device + '</span>' + '</span>' +
-                    '</div>' +
-                    '<span class="tag ' + collectionRaw + '">'+collection +'</span>' +
-                  '</li></a>';
-        } else {
-          li = '<a href="/' + link + '"><li>' +
-                    '<div class="left-result">' +
-                      '<span class="title">' + title + '</span>' +
-                      '<span class="page-title">' + pageTitle + '</span>' +
-                    '</div>' +
-                    '<span class="tag ' + collectionRaw + '">'+collection +'</span>' +
-                  '</li></a>';
-        }
-
-        htmlToAppend += li;
-        Docs.resultsAdded++;
-      }
+    var niceResults = fiveResults.map(function(r) {
+      var resultInfo = store[r.ref];
+      var nr = {}
+      nr.link = r.ref;
+      nr.title = resultInfo.title;
+      nr.device = resultInfo.device;
+      nr.collection = Docs.titleize(resultInfo.collection);
+      nr.pageTitle = resultInfo.pageTitle;
+      nr.collectionClass = resultInfo.collection;
+      return nr;
     });
 
-    $('.search-results ul').append(htmlToAppend);
+    var html = Handlebars.templates.search({results: niceResults});
+    $('.search-results').append(html);
   };
 
   // Ok, then let's do it!
