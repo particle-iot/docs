@@ -27,6 +27,9 @@ var fileMetadata = require('metalsmith-filemetadata');
 var msIf = require('metalsmith-if');
 var precompile = require('./precompile');
 
+var marked = require('marked');
+var renderer = new marked.Renderer();
+
 
 var environment;
 

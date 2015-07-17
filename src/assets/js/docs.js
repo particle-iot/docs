@@ -95,14 +95,14 @@ Created by Zach Supalla.
               element: element,
               exit: function(direction) {
                 if(direction === 'down') {
-                  var elementId = this.element.id;
-                  Docs.handleH3ClassChanges(elementId, noH2s);
+                  var elementDataHref = this.element.getAttribute('data-href');
+                  Docs.handleH3ClassChanges(elementDataHref, noH2s);
                 }
               },
               enter: function(direction) {
                 if(direction === 'up') {
-                  var elementId = this.element.id;
-                  Docs.handleH3ClassChanges(elementId, noH2s, true);
+                  var elementDataHref = this.element.getAttribute('data-href');
+                  Docs.handleH3ClassChanges(elementDataHref, noH2s, true);
                 }
               },
               context: $('.content-inner')[0],
@@ -113,9 +113,9 @@ Created by Zach Supalla.
   };
 
   Docs.scrollToElement = function(element) {
-    var $element = $(element);
+    var $element = $('[data-href="'+element+'"]');
     if($element.length === 1) {
-      var position = $(element).position().top + 10;
+      var position = $element.position().top + 10;
       $('.content-inner').scrollTop(position);
     }
   };
@@ -124,19 +124,22 @@ Created by Zach Supalla.
     var $internalLinks = $('a[href^="#"]');
     $internalLinks.click(function(e) {
       e.preventDefault();
-      var id = $(this).attr('href');
-      Docs.scrollToElement(id);
+      var dataHref = $(this).data('menu-href');
+      var href = $(this).attr('href');
+      Docs.scrollToElement(dataHref);
       if(window.history) {
-        history.pushState({hash: id}, "New Hash", id);
+        history.pushState({hash: href}, "New Hash", href);
       }
     });
   };
 
   Docs.scrollToHashOnLoad = function() {
     var hash = window.location.hash;
+    var $headersWithHash = $('[id="'+hash+'"]');
+    var dataHref = $headersWithHash.data('href');
     if (hash !== '' && window.location.pathname !== '/') {
       setTimeout(function() {
-        Docs.scrollToElement(hash);
+        Docs.scrollToElement(dataHref);
       }, 1000);
     }
   };
@@ -174,8 +177,8 @@ Created by Zach Supalla.
           exit: function(direction) {
             var $h2 = $(this.element);
             if(direction === 'down') {
-              var elementId = this.element.id;
-              Docs.handleClassChanges(elementId, $h2, h3WaypointsCreated);
+              var elementDataHref = this.element.getAttribute('data-href');
+              Docs.handleClassChanges(elementDataHref, $h2, h3WaypointsCreated);
               // Create the waypoints for h3s intelligently
               var $nextH3s = $h2.nextUntil('h2', 'h3');
               if(!h3WaypointsCreated) {
@@ -187,8 +190,8 @@ Created by Zach Supalla.
           enter: function(direction) {
             var $h2 = $(this.element);
             if(direction === 'up') {
-              var elementId = this.element.id;
-              Docs.handleClassChanges(elementId, $h2, h3WaypointsCreated);
+              var elementDataHref = this.element.getAttribute('data-href');
+              Docs.handleClassChanges(elementDataHref, $h2, h3WaypointsCreated);
               // Create the waypoints for h3s intelligently
               var $nextH3s = $h2.nextUntil('h2', 'h3');
               if(!h3WaypointsCreated) {
@@ -275,6 +278,7 @@ Created by Zach Supalla.
     var fiveResults = results.slice(0,5);
 
     var niceResults = fiveResults.map(function(r) {
+      console.log(r.link);
       var resultInfo = store[r.ref];
       var nr = {}
       nr.link = r.ref;

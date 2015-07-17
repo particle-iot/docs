@@ -25,7 +25,7 @@ There are a two ways to go about connecting your Photon over USB, depending on y
 To connect and interact with a Particle Device over USB from a Windows machine, the easiest route is to use the Particle command line interface.
 The following describes how to install the Particle CLI on your computer. If you already have Node.js installed, you can skip to [this step](#installing-the-particle-cli).
 
-###Installing Node.js (Win)
+###Installing Node.js
 The Particle CLI runs with Node.js. Grab the latest version from [the Node.js website](http://nodejs.org/download)
 
 **If you do not know if you are running 32-bit or 64-bit, checking is easy!**
@@ -74,7 +74,7 @@ and press enter.
 Now let's try using the CLI!
 
 
-###Connecting Your Device (Win)
+###Connecting Your Device
 
 Make sure your device is plugged in via USB and in [Listening Mode](#connecting-your-device-listening-mode) (blinking blue). Then type:
 `particle setup`
