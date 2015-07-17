@@ -140,8 +140,12 @@ Created by Zach Supalla.
     if (hash !== '' && window.location.pathname !== '/') {
       setTimeout(function() {
         Docs.scrollToElement(dataHref);
-      }, 1000);
+      }, 100);
     }
+
+    $(window).on('hashchange', function() {
+      Docs.scrollToHashOnLoad();
+    });
   };
 
   Docs.handleClassChanges = function(elementId, $h2, h3WaypointsCreated) {
@@ -278,7 +282,6 @@ Created by Zach Supalla.
     var fiveResults = results.slice(0,5);
 
     var niceResults = fiveResults.map(function(r) {
-      console.log(r.link);
       var resultInfo = store[r.ref];
       var nr = {}
       nr.link = r.ref;
