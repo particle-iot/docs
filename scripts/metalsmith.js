@@ -176,6 +176,7 @@ exports.server = function(callback) {
         "../templates/reference.hbs": "content/reference/*.md",
         "../templates/guide.hbs": "content/guide/**/*.md",
         "../templates/datasheet.hbs": "content/datasheets/*.md",
+        "../templates/support.hbs": "content/support/*.md",
         "${source}/assets/js/*.js" : true
       },
       livereload: true
