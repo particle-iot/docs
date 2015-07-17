@@ -2,6 +2,7 @@
 
 var apidoc = require('apidoc');
 var _ = require('lodash');
+var fs = require('fs');
 
 function nestParameters(allParams) {
   if (allParams) {
@@ -31,6 +32,10 @@ module.exports = function(options) {
   return function(files, metalsmith, done) {
     options.parse = true;
     options.src = metalsmith.path(options.src);
+    if (!fs.existsSync(options.src)) {
+      return done();
+    }
+
     options.lineEnding = 'LF';
     var apiReturn = apidoc.createDoc(options);
     if (!apiReturn) {

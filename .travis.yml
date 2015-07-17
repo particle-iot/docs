@@ -1,8 +1,11 @@
 language: node_js
 node_js:
 - '0.12'
+git:
+  submodules: false
 before_install:
-- cd api-node && git fetch && git merge origin/master
+- echo -e "machine github.com\n  login $CI_USER_TOKEN" >> ~/.netrc
+- '[ "${TRAVIS_PULL_REQUEST}" = "false" ] && git submodule update --init --recursive && cd api-node && git fetch && git merge origin/master'
 before_script: npm test
 script: npm run build
 deploy:
