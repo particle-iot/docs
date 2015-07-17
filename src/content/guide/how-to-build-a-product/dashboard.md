@@ -179,9 +179,67 @@ Checking this checkbox will signal to the Particle cloud that regardless of whic
 
 When you do a real manufacturing run and import those devices into the dashboard, you will not need to check this box. This is because your devices will receive firmware with your product ID directly on the manufacturing line.
 
-
-
 ### Rollout Firmware
+
+One of the most significant benefits of your fleet management dashboard is being able to rollout firmware to groups of devices, all from one place. This opens up tremendous possibilities for your IoT product: you now have the power to continuously improve how a customer's device operates after purchase. In addition, over-the-air (OTA) firmware updates can provide you additional flexibility in the manufacturing process. Specifically, you may continue to develop firmware between the time of manufacturing and shipping your product to customers, and send the latest firmware to your customers on setup of their device.
+
+Click the Firmware icon in the left sidebar to get started. This will direct you to your product's firmware page, your centralized hub for viewing and managing firmware for your product's devices. If you haven't yet uploaded any firmware for this product, your page will look like this:
+
+![Firmware page](/assets/images/firmware-page.png)
+
+If you have been using the Web IDE or Particle Build to develop firmware, you are used to the process of writing, compiling, and then flashing firmware. You will follow the same high-level process here, but altered slightly to work with a group of devices. The first thing you'll need to do is compile a *firmware binary* that you will upload to your dashboard.
+
+Unlike compiling a binary for a single device, it is critical that the **product ID** and a **firmware version** are included in the compiled binary. Specifically, you must add `PRODUCT_ID([your product ID])` and `PRODUCT VERSION([version])` into the application code of your firmware. This is documented fully [here](https://github.com/spark/firmware/blob/develop/docs/build.md#product-id).
+
+You can add these two macros anywhere in your application code, but it's likely easiest to add them to the top of your main `.ino` file. Remember that your [product ID](#your-product-id) can be found in the navigation of your dashboard. The firmware version must be an integer that increments each time a new binary is uploaded to the dashboard. This allows the Particle cloud to determine which devices should be running which firmwares.
+
+Here is an example of Blinky with the correct product and version details:
+
+```
+PRODUCT_ID(94);
+PRODUCT_VERSION(1);
+
+int led = D0;  // You'll need to wire an LED to this one to see it blink.
+
+void setup() {
+  pinMode(led, OUTPUT);
+}
+
+void loop() {
+  digitalWrite(led, HIGH);   // Turn ON the LED pins
+  delay(300);               // Wait for 1000mS = 1 second
+  digitalWrite(led, LOW);    // Turn OFF the LED pins
+  delay(300);               // Wait for 1 second in off mode
+}
+```
+
+If you are in the Web IDE, you can click on the download icon (<i class="ion-ios7-cloud-download"></i>) next to your application name to compile and download your current binary. In Particle Dev, clicking on the compile icon (<i class="ion-checkmark-circled"></i>) will automatically add a `.bin` file to your current working directory if the compilation is a success.
+
+Now that you have a binary in-hand, it's now time to upload it to the dashboard. Back on the firmware page, click on the **Upload** button in the top-right corner of the page. This will launch the upload firmware modal:
+
+![Upload firmware](/assets/images/upload-firmware.png)
+
+A few things to keep in mind here:
+
+* The firmware version that you enter into this screen **must match** what you just compiled into your binary. Madness will ensue otherwise!
+* You should give your firmware a distict title that concisely describes how it differs from other versions of firmware. This name will be important in how firmware is rolled out to devices
+* Attach your newly compiled `.bin` file in the gray box
+
+Click upload. Congrats! You've uploaded your first version of product firmware! You should now see it appear in your list of firmware versions.
+
+![Product firmware version](/assets/images/product-firmware.png)
+<p class="caption">Your firmware version now appears in your list of available binaries</p>
+
+Time to flash that shiny new binary to some devices! Notice that when you hover over a version of firmware, you have the ability to **Release firmware** (<i class="ion-star"></i>). *Releasing* firmware sets that binary as the **preferred firmware version** for all devices reporting as your product. Unless set individually, any device that does not report this released version of firmware will **automatically download and run it** next time it comes online.
+
+Releasing firmware is the mechanism by which any number of devices can receive a single version of firmware without being individually targeted. This is incredibly valuable: imagine identifying a bug in your firmware and pushing out a fix to thousands of devices that are out in the field. Or, consider the possibility of continuing to build new features that can be introduced to customers, even after they have purchased your product and are acively using it. Amazing! This is the power of the Internet of Things.
+
+However, releasing firmware also presents tremendous risk. The last thing you would want as a product creator is to break existing functionality for your customers, detracting from their experience with your product. Fear not! Specific safeguards are in place to help you avoid unintended regressions in firmware quality. Namely, **a firmware version must be successfully running on at least one device before it can be released to all devices.**
+
+![Unable to release firmware](/assets/images/unable-to-release.png)
+<p class="caption">Releasing a firmware version is diabled until it is running on at least one device</p>
+
+To get the firmware running on a device, head to your devices page by clicking on the devices icon in the sidebar (<i class="im-devices-icon"></i>).
 
 ### Managing Customers
 
