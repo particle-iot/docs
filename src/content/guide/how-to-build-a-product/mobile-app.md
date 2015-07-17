@@ -43,14 +43,16 @@ Particle provides native mobile SDKs for both iOS (Objective-C and Swift) and An
 
 ![](/assets/images/apple-android.png)
 
-### Mobile SDKs? As in plural?
+### Two-tier SDK
 
 There are two parts to the Particle Mobile SDK: the Cloud SDK and the Device Setup library.
 In a nutshell, the **Cloud SDK** is a library that enables your mobile app to interact with internet-connected hardware through the Particle Cloud. It serves the same purpose as [ParticleJS](http://docs.particle.io/photon/javascript/) — it’s an easy-to-use wrapper for our REST API, accessible from Objective-C and Swift. The **Device Setup library** allows you to create a setup wizard within your app for connecting your device to the internet with two lines of code. 
 
 ### How To Get Started?
 
-**iOS**
+Let's go through a basic step by step example on how to integrate and use the mobile SDKs into a basic app, for both platforms:
+
+#### iOS
 
 Both the Cloud SDK and Device Setup library are available through CocoaPods, the most widely used iOS dependency manager. If you don’t have it, you’ll need to start by installing the Cocoapods `ruby gem`; check out the CocoaPods site for more info. 
 
@@ -91,84 +93,114 @@ Or the Swift version:
 }
 ```
 
-If you're using Objective-C don't forget to import the file `SparkSetup.h` in your view controller implementation file. If you're using Swift be sure to complete all the required steps to integrate the Objective-C Cocoapod libraries in your project as described [here](http://swiftalicio.us/2014/11/using-cocoapods-from-swift/).
+If you're using Objective-C don't forget to import the file `SparkSetup.h` in your view controller implementation file. If you're using Swift be sure to complete all the required steps to integrate the Objective-C Cocoapod libraries in your project, mainly adding bridging header file to the project settings, as described [here](http://swiftalicio.us/2014/11/using-cocoapods-from-swift/). We've included a bridging header file in both the SDKs.
 
-That's it. Build and run your project on a device or a simulator, tap the "Start Setup" button you created and you should see the device setup wizard pop up ready for setting up a new Particle Device and claim it to your user account.
-Make sure you setup your new Photon, claim it to your account and name the device `myDevice`. If you already setup your device and just need to rename it you can do it from [Particle Build](https://build.particle.io/build) -> Devices.
+That's it. Build and run your project on a device or a simulator, tap the "Start Setup" button you created and you should see the device setup wizard pop up ready for authenticating with Particle Cloud and then setting up a new Particle Device.
+Make sure you setup your new Photon, and name the device `myDevice` at the last screen, you'll see why in a moment. If you already setup your device and just need to rename it you can do it from [Particle Build](https://build.particle.io/build) -> Devices. You can also rename the device from the Tinker app.
 
-Now, let's try to list your devices and read a variable from a certain device (using the Cloud SDK). Stop the app and go back to the split view of your view controller and code. Drag another button and name it "Read Variable", Ctrl-Drag it to your code and create another IBAction function. Call the function "readVariableButtonTapped" and fill in its body like so:
-
-TODO - finish code example
+Now, let's try to list your devices and read a variable from the device you just set up (by using the Cloud SDK). Stop the app and go back to the split view of your view controller and code. Drag another button and name it "Read Variable", Ctrl-Drag it to your code and create another IBAction function. Call the function "readVariableButtonTapped" and fill in its body like so:
 
 ```objc
 - (IBAction)readVariableButtonTapped:(id)sender {
-	__block SparkDevice *myPhoton;
-	[[SparkCloud sharedInstance] getDevices:^(NSArray *sparkDevices, NSError *error) {
-	    NSLog(@"%@",sparkDevices.description); // print all devices claimed to user
-
-	    for (SparkDevice *device in sparkDevices)
-	    {
-	        if ([device.name isEqualToString:@"myDevice"])
-	        {
-	            myPhoton = device;
-	        }
-	    }
-	}];
+	 // 1
+	 [[SparkCloud sharedInstance] getDevices:^(NSArray *sparkDevices, NSError *error) {
+            NSLog(@"%@",sparkDevices.description); 
+            // 2
+            if (!error)
+            {
+                // 3
+                for (SparkDevice *device in sparkDevices)
+                {
+                    if ([device.name isEqualToString:@"myDevice"])
+                    {
+                        SparkDevice *myPhoton = device;
+                        // 4
+                        [myPhoton callFunction:@"digitalwrite" withArguments:@[@"D7",@"HIGH"] completion:^(NSNumber *resultCode, NSError *error) {
+                            // 5
+                            if (!error)
+                            {
+                                NSLog(@"Called a function on myDevice");
+                            }
+                        }];
+                    }
+                }
+            }
+        }];
 }
 ```
 
 or the Swift version:
 
 ```swift
-@IBAction func startDeviceSetup(sender: AnyObject) {
-	var myPhoton : SparkDevice?
-	SparkCloud.sharedInstance().getDevices { (sparkDevices:[AnyObject]!, error:NSError!) -> Void in
-	    if let e = error {
-	        println("Check your internet connectivity")
-	    }
-	    else {
-	        if let devices = sparkDevices as? [SparkDevice] {
-	            for device in devices {
-	                if device.name == "myDevice" {
-	                    myPhoton = device
-	                }
-	            }
-	        }
-	    }
-	}
+@IBAction func readVariableButtonTapped(sender: AnyObject) {
+		// 1
+        SparkCloud.sharedInstance().getDevices { (sparkDevicesList : [AnyObject]!, error :NSError!) -> Void in
+        	// 2
+            if let sparkDevices = sparkDevicesList as? [SparkDevice]
+            {
+                println(sparkDevices)
+                // 3
+                for device in sparkDevices
+                {
+                    if device.name == "myDevice"
+                    {
+                    	// 4
+                        device.callFunction("digitalwrite", withArguments: ["D7","HIGH"], completion: { (resultCode :NSNumber!, error : NSError!) -> Void in
+                        	// 5
+                            println("Called a function on myDevice")
+                        })
+                    }
+                }
+            }
+        }
 }
 ```
 
 
-TODO: finish guide, full documentation reference
+**Step by step explanation**
+See `// 1,2,3..` comments in code and follow:
 
----
+1. here we are calling the SparkCloud to get a list of all the device the user owns (the device you just set up should appear here), we also print the list onto the console so you can check everything is in place
+2. If the cloud did not return an error (in Swift we are optionally downcasting the result list to an Array of `SparkDevice`s)
+3. Then lets iterate on the returned array searching for a `SparkDevice` with a `name` field which is `myDevice` (as we set it up)
+4. Once its found, call the function `digitalwrite` on *this* device with two arguments, which mean `D7=HIGH` which should cause the onboard LED (connected to pin D7) to light up
+5. And if there wasn't any error calling this function on the device (default Tinker firmware exposes this function always) then print to console that call was successful
+
+Go ahead and run the app, see everything works alright.
+Well Done! You've just created a mobile basic app that can: 
+1. Set up a Particle device interactively
+2. List the devices on the user's account
+3. Call a function on a device and report to the user
 
 **Modifying existing app**
 
-TODO: list of modifiable apps & suggestions
+If you prefer to have a point of reference you're more than welcome to modify an existing app. Ideas for modifiable apps include:
 
-- Example app
-- Particle Tinker open-source app
-- 3rd party apps
+- [Example app](https://github.com/spark/spark-setup-ios-example)
+- [Particle Tinker open-source app](https://github.com/spark/photon-tinker-ios)
+- Other users/3rd party apps, [ideas?](https://www.hackster.io/particle/projects)
 
-...
 There’s also an example app written in Swift that demonstrates the basic usage of invoking the setup wizard, customizing its UI and using the returned SparkDevice class instance once Device Setup wizard completes.
 
-The mobile SDKs use the Apache 2.0 open source license, so submitting issues and contributions through pull requests is most welcome! In addtion apps built with the SDK can be free distrubuted in the Apple App Store or Google's Play Store.
+You can find the source code for the Cloud SDK under our GitHub account:
 
-You can find the source code for the Cloud SDK in our GitHub:
-**iOS*
 [Repository of iOS Cloud SDK](https://github.com/spark/spark-sdk-ios)
+
 [Repository of iOS Device Setup library](https://github.com/spark/spark-setup-ios)
-*
 
 
-**Android**
+#### Android
 
 The overall process is very similar, but it’s a native Java experience so Android developers will feel right at home.
 One big difference in the user experience of setting up a Photon from an Android app vs. an iOS app is that on Android an app can control which Wi-Fi network the phone connects to, whereas on iOS the user has to leave the app, go to settings, and change the Wi-Fi network. We’ve made both flows as easy as possible, but it’s definitely smoother on Android since the user doesn’t have to do as much.
 
-The Cloud SDK and Device Setup library for Android will soon be available on our GitHub and through [JCenter](https://bintray.com/bintray/jcenter) as Apache Maven packages for easy integration as dependencies in an Android Studio project.
+The Cloud SDK and Device Setup library for Android are available on our GitHub and through [JCenter](https://bintray.com/bintray/jcenter) as Apache Maven packages for easy integration as dependencies in an Android Studio project.
 
-TODO
+Guide for how to create an Android app for Particle devices in Android studio coming soon.
+Meanawhile you can find the source code for the Android Cloud SDK and Device Setup under our GitHub account:
+
+[Repository of Android Cloud SDK](https://github.com/spark/spark-sdk-android)
+
+[Repository of Android Device Setup library](https://github.com/spark/spark-setup-android)
+
+
