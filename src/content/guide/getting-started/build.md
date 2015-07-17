@@ -1,5 +1,5 @@
 ---
-title: 6. Web IDE (Build)
+title: Web IDE (Build)
 template: guide.hbs
 columns: two
 devices: [ photon, core ]

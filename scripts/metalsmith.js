@@ -56,7 +56,7 @@ exports.metalsmith = function() {
       directory: '../templates/partials'
     }))
     .use(fileMetadata([
-      {pattern: "content/**/*.md", metadata: {"lunr": true}}
+      {pattern: "content/**/*.md", metadata: {"lunr": true, "assets": '/assets'}}
     ]))
     .use(precompile({
       directory: '../templates/precompile',
@@ -74,7 +74,12 @@ exports.metalsmith = function() {
     .use(collections({
       guide: {
         pattern: 'guide/:section/*.md',
-        sortBy: 'order'
+        sortBy: 'order',
+        orderDynamicCollections: [
+          'getting-started',
+          'tools-and-features',
+          'how-to-build-a-product'
+        ]
       },
       reference: {
         pattern: 'reference/*md',
@@ -130,7 +135,7 @@ exports.metalsmith = function() {
     }))
     .use(redirect({
       '/start': '/',
-      '/guide': '/',
+      '/guide': '/guide/getting-started/intro',
       '/guide/photon/': '/guide/photon/start',
       '/guide/core/': '/guide/core/start',
       '/reference': '/reference/firmware',

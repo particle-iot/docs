@@ -1,7 +1,7 @@
 ---
 word: Kits
 title: Particle Kits Overview
-order: 6
+order: 1
 columns: 3
 template: datasheet.hbs
 devices: [ photon, core ]

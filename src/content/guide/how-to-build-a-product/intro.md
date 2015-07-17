@@ -1,12 +1,11 @@
 ---
-title: How to build a product with Particle
+title: Introduction
 columns: two
 template: guide.hbs
 order: 1
 ---
 
-How to build a product with Particle
-===
+# {{title}}
 
 Particle is not just a development platform. In fact, our primary goal is to help product creators (engineers and entrepreneurs) bring new connected products to market.
 
