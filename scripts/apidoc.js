@@ -35,6 +35,10 @@ module.exports = function(options) {
     if (!fs.existsSync(options.src)) {
       return done();
     }
+    var dirFiles = fs.readdirSync(options.src);
+    if (!dirFiles.length) {
+      return done();
+    }
 
     options.lineEnding = 'LF';
     var apiReturn = apidoc.createDoc(options);
