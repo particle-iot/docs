@@ -1,6 +1,8 @@
 language: node_js
 node_js:
 - '0.12'
+before_install:
+- cd api-node && git fetch && git merge origin/master
 before_script: npm test
 script: npm run build
 deploy:
