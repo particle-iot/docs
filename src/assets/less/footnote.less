@@ -1,4 +1,4 @@
-@media screen and (min-width: @xlarge-size) {
+@media screen and (min-width: 1360px) {
 
 	.footnoteLink {
 		border-bottom: 1px solid #00adef;
@@ -7,8 +7,8 @@
 
 	.footnote {
 		background-color: #ffffff;
-		border-top: 2px solid #00adef;
-		border-bottom: 2px solid #00adef;
+    border-top: 2px solid #00adef;
+    border-bottom: 2px solid #00adef;
 		font-weight: normal;
 		height: auto;
 		left: -140px;
@@ -32,42 +32,43 @@
 
 }
 
-@media screen and (max-width: @large-size) and (mid-width: @medium-size) {
+@media screen and (max-width: 1360px) and (min-width: @small-size) {
   .footnoteLink {
     border-bottom: 1px solid #00adef;
     cursor: pointer;
   }
 
   .footnote {
-      background-color: @almost-black;
-      border-radius:5px;
-      border: 2px solid #00adef;
-      font-weight:normal;
-      left: 25%;
-      right: 50%;
-      opacity: 0;
-      visibility: hidden;
-      width: 100%;
-      z-index: 1;
-      -webkit-transition: opacity .25s, visibility .25s;
-      -moz-transition: opacity .25s, visibility .25s;
-      transition: opacity .25s, visibility .25s;
-      font-size: 12 px;
-      max-width: 320px;
-      max-height: 320 px;
-      position: absolute; 
-      transform: translateY(-50%);
-      display:block;
-    }
+    background-color: #ffffff;
+    border-top: 2px solid #00adef;
+    border-bottom: 2px solid #00adef;
+    font-weight: normal;
+    height: auto;
+    line-height: 1.4;
+    margin-top: -20px;
+    min-height: 20px;
+    opacity: 0;
+    position: absolute;
+    width: 320 px;
+    visibility: hidden;
+    z-index: 1;
+    transition: opacity .25s, visibility .25s;
+    font-size: 10 px;
+    transform: translateY(-50%);
+    padding: 15px;
+    border: 2px solid #00adef;
+    border-radius: 10px;
+    display: block;
+  }
 
-    .footnoteLink:hover .footnote {
-      visibility: visible;
-      opacity: 1;
-    }
+  .footnoteLink:hover .footnote {
+    visibility: visible;
+    opacity: 1;
+  }
 
 }
 
-@media screen and (max-width: @medium-size) and (min-width: 0) {
+@media screen and (max-width: @small-size) and (min-width: 0) {
     .footnoteLink {
       border-bottom: 1px solid #00adef;
       cursor: pointer;
@@ -75,7 +76,6 @@
 
     .footnote {
       background-color: #ffffff;
-      border-radius:2px;
       border: 2px solid #00adef;
       font-weight:normal;
       height: auto;
@@ -98,8 +98,6 @@
       visibility: visible;
       opacity: 1;
     }
-.footnote:after {content: "— release to close —";	color: #a0a0a0;	display: block; padding: 8px 0px 8px 0px; 
-font-size: 1.18rem; }
 }
 
 

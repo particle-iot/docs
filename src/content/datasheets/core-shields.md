@@ -2,17 +2,16 @@
 title: Core shields and kits
 template: datasheet.hbs
 columns: two
+order: 3
 ---
 
-Shields and accessories
-===
+# Shields and accessories
 
-Shield Shield
-====
+## Shield Shield
+
 This shield is essentially an adapter that allows the user to connect Arduino compatible shields to the Spark Core. There are two functions that this shield performs: pin mapping of the Spark Core to the Arduino pin layout and voltage translation of 3.3V to/from 5V.
 
-Operation
------
+### Operation
 
 ![Shield Shield](/assets/images/sshield-top.jpg)
 
@@ -22,8 +21,7 @@ Due to the limited number of pin to function combinations, we have only mapped t
 
 The shield has an onboard voltage regulator and can be powered from 7V to 15V DC. You could also power it via the USB plug on the Spark Core alone but the current would be limited to 500mA.
 
-Specifications
------
+### Specifications
 
 ![Shield Shield Setup](/assets/images/sshield-setup.jpg)
 
@@ -34,8 +32,8 @@ Specifications
 
 The pictures shows a robot shield interfaced with the Spark Core via the Shield Shield.
 
-Pin mapping
------
+### Pin mapping
+
 ```cpp
 Arduino | Spark Core | Peripherals
 0         RX           Serial1 RX
@@ -67,8 +65,7 @@ A2        A6           PWM*, ADC**
 [Shield Shield Hardware files >](https://github.com/spark/shields/tree/master/Shield%20Shield)
 
 
-Relay Shield
-====
+## Relay Shield
 
 ![Relay Shield Top](/assets/images/relay-shield-top.jpg)
 
@@ -76,8 +73,7 @@ The Relay Shield, in combination with the Spark Core, allows you to control high
 
 **IMPORTANT**: This shield provides **regulated power (5v)** to the seated Spark Core and relays. However, it does **not** support power to the devices controlled by the relays.
 
-Operation
------
+### Operation
 
 ![Relay Shield Setup](/assets/images/relay-shield-setup.jpg)
 
@@ -85,8 +81,8 @@ The schematic for the relay shield is simple and self explanatory. The shield ha
 
 The relays are SPDT (Single Pole Double Throw) type, which means they have three terminals at the output: COMMON (COMM), Normally Open (NO) and Normally Closed (NC). We can either connect the load in between the COMM and NO or COMM and NC terminals. When connected in between COMM and NO, the output remains open/disconnected when the relay is turned OFF and closes/connects when the relay is turned ON. In the later case, the output remains closed/connected when the relay is OFF and opens/disconnects when the relay is ON.
 
-Specifications
------
+### Specifications
+
 - Operating voltage: 7 to 15V DC
 - Current consumption: 150mA min to 290mA (at 9V DC)
 - Relay Max Voltage: 250V AC
@@ -96,8 +92,7 @@ Specifications
 - Weight: 100g
 
 
-Setting up the Relay Shield
------
+### Setting up the Relay Shield
 
 ![Relay Shield Connection](/assets/images/relay-shield-bulb.jpg)
 
@@ -181,21 +176,19 @@ Project Ideas
 ``ADD ILLUSTRAION OF FINGERS GETTIND ZAPPED``
 -->
 
-Programmer Shield (JTAG)
-====
+## Programmer Shield (JTAG)
 
 ![JTAG Shield Top](/assets/images/jtag-topview.jpg)
 
 The programmer shield is a simple adapter that lets you connect a JTAG programmer to the Spark Core. If you need complete control over your Core and are comfortable with the ARM development environment, you will need this shield as an interface between the JTAG programmer and the Core.
 
-Specifications
------
+### Specifications
+
 - Compatible JTAG programmers : STLink  V2 (the only one tested)
 - Dimensions: 2.2" x 1.55"
 - Weight: 20g
 
-Setting up the programmer
------
+### Setting up the programmer
 
 ![JTAG Setup](/assets/images/jtag-setup.jpg)
 
@@ -206,8 +199,7 @@ All of the hardware files for the JTAG shield are available for download.
 [JTAG Shield Hardware Files >](https://github.com/spark/shields/tree/master/Programmer%20Shield)
 
 
-Battery Shield
-====
+## Battery Shield
 
 ![Battery Shield Top](/assets/images/bshield-top.jpg)
 
@@ -219,16 +211,14 @@ The shield is built around  Microchip's MCP73871 battery charge management contr
 
 <!--TO DO ADD SYSTEM BLOCK DIAGRAM HERE -->
 
-Operation
------
+### Operation
 
 MCP73871 is an intelligent battery charge management controller that allows one to charge the battery and power the system simultaneously. There is also an under voltage lock out which protects the battery from draining completely. The TPS61200 converts the 3.7V to 4.1V battery output to a regulated 5V to power the Core or potentially any other hardware (cellphones?!)
 The charge current to the battery is set to 500mA.
 
 <!--Link to GitHub repo.-->
 
-Specifications
------
+### Specifications
 
 - Works with any 3.7V Lithium Polymer battery.
 - Simultaneously charge the battery and power the core
@@ -237,8 +227,7 @@ Specifications
 - Datasheet: [MCP73871](https://github.com/spark/shields/blob/master/Battery%20Shield/battery-shield-smallinductor/Datasheets/MCP73871.pdf) and [TPS61200](https://github.com/spark/shields/blob/master/Battery%20Shield/battery-shield-smallinductor/Datasheets/tps61200.pdf)
 
 
-Setting up the shield
------
+### Setting up the shield
 
 ![Battery Shield Charging](/assets/images/bshield-charging.jpg)
 
@@ -270,7 +259,7 @@ When powering the Core via the battery alone, the blue LED will NOT light up.
 
 [Battery Shield Hardware Files >](https://github.com/spark/shields/tree/master/Battery%20Shield)
 
-# Spark Maker Kit
+## Spark Maker Kit
 
 <!--
    TO DO
@@ -558,7 +547,7 @@ Your very own Spark Core, ready to take over the world, one byte at a time.
 32. Spark Core - u.FL or CA (1)
 -->
 
-# Spark RC Car Kit
+## Spark RC Car Kit
 
 ![Top View](/assets/images/rc-car-top-small.jpg)
 

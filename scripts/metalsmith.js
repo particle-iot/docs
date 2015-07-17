@@ -26,10 +26,7 @@ var lunr_ = require('lunr');
 var fileMetadata = require('metalsmith-filemetadata');
 var msIf = require('metalsmith-if');
 var precompile = require('./precompile');
-
-var marked = require('marked');
-var renderer = new marked.Renderer();
-
+var apidoc = require('./apidoc');
 
 var environment;
 
@@ -54,6 +51,12 @@ exports.metalsmith = function() {
     ]))
     .use(cleanCSS({
       files: '**/*.css'
+    }))
+    .use(apidoc({
+      src: '../api-node/',
+      config: '../api-node/',
+      destFile: 'content/reference/apigen.md',
+      includeFilters: '.*[vV]iews[^.]*\\.js$'
     }))
     .use(partials({
       directory: '../templates/partials'
@@ -179,6 +182,7 @@ exports.server = function(callback) {
         "../templates/reference.hbs": "content/reference/*.md",
         "../templates/guide.hbs": "content/guide/**/*.md",
         "../templates/datasheet.hbs": "content/datasheets/*.md",
+        "../templates/support.hbs": "content/support/*.md",
         "${source}/assets/js/*.js" : true
       },
       livereload: true

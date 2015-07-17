@@ -12,6 +12,7 @@
     "build": "node ./scripts/build.js"
   },
   "dependencies": {
+    "apidoc": "^0.13.1",
     "async": "^1.2.1",
     "cheerio": "^0.16.0",
     "handlebars": "^3.0.1",

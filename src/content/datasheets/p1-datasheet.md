@@ -2,10 +2,10 @@
 title: P1 datasheet
 template: datasheet.hbs
 columns: two
+order: 5
 ---
 
-P1 Datasheet <sup>(v003)</sup>
-===
+# P1 Datasheet <sup>(v003)</sup>
 
 <div align=center><img src="/assets/images/p1-vector.png" width=200></div>
 
@@ -15,13 +15,13 @@ void setup() {
 }
 ```
 
-# 1. Functional description
+## Functional description
 
-### 1.1 Overview
+### Overview
 
 The P1 is Particle's tiny Wi-Fi module that contains both the Broadcom Wi-Fi chip and a reprogrammable STM32 32-bit ARM Cortex-M3 microcontroller. The P1 comes preloaded with Particle firmware libraries, just like our dev kits, and it's designed to simplify your transition from prototype to production. The P1 is the PØ's big brother; it's a bit bigger and a tad more expensive, but it includes some extra flash and an antenna and u.FL connector on board.  Every P1 includes free cloud service.
 
-### 1.2 Features
+### Features
 
 - Particle P1 Wi-Fi module
 	- Broadcom BCM43362 Wi-Fi chip
@@ -40,13 +40,13 @@ The P1 is Particle's tiny Wi-Fi module that contains both the Broadcom Wi-Fi chi
 - Soft AP setup
 - FCC, CE and IC certified
 
-# 2. Interfaces
+## Interfaces
 
-### 2.1 Block Diagram
+### Block Diagram
 
 <div align=center><img src="/assets/images/p1-block-diagram.png" width=600></div>
 
-### 2.2 Power
+### Power
 
 Power to the P1 is supplied via 3 different inputs: VBAT_WL (pin 2 & 3), VDDIO_3V3_WL (pin 5), VDD_3V3 (pin 26 & 27).  Optionally +3.3V may be supplied to VBAT_MICRO (pin 38) for data retention in low power sleep modes. Each of these inputs also requires a 0.1uF and 10uF ceramic decoupling capacitor, located as close as possible to the pin (see Fig 1). The voltage should be regulated between 3.0VDC and 3.6VDC.
 
@@ -55,7 +55,7 @@ Typical current consumption is 80mA with a 3.3V input.  Deep sleep quiescent cur
 <div align=center><img src="/assets/images/p1-power-pins.png" width="500">
 <br><br><b>Fig. 1</b> Recommended power connections with decoupling capacitors.</div>
 
-### 2.3 RF
+### RF
 
 The RF section of the P1 includes an on-board PCB trace antenna and a u.FL connector which allows the user to connect an external antenna.  These two antenna outputs are selectable via a user API, made possible by an integrated RF switch.
 
@@ -63,7 +63,7 @@ The default selected antenna will be the PCB antenna.
 
 The area surrounding the PCB antenna on the carrier PCB should be free of ground planes and signal traces for maximum Wi-Fi performance.
 
-### 2.4 Peripherals and GPIO
+### Peripherals and GPIO
 
 The P1 module has ton of capability in a super small footprint, with analog, digital and communication interfaces.
 
@@ -92,7 +92,7 @@ The P1 module has ton of capability in a super small footprint, with analog, dig
 
 <sup>[4]</sup> There are 6 extra pins that have digital I/O capability.  There are other peripherals that are available on these pins as well, which will be implemented in firmware and documented in a future version of this document.
 
-### 2.5 JTAG
+### JTAG
 
 Pin D3 through D7 are JTAG interface pins.  These can be used to reprogram your P1 bootloader or user firmware image with standard JTAG tools such as the ST-Link v2, J-Link, R-Link, OLIMEX ARM-USB-TINI-H, and also the FTDI-based Particle JTAG Programmer.
 
@@ -114,7 +114,7 @@ A standard 20-pin 0.1" shrouded male JTAG interface connector should be wired as
 
 <div align=center><img src="/assets/images/photon-jtag.png" width=700></div>
 
-### 2.6 External Coexistence Interface
+### External Coexistence Interface
 
 The P1 supports coexistence with Bluetooth and other external radios via the three gold pads on the top side of the PCB near pin A3.  These pads are 0.035" square, spaced 0.049" apart.  This spacing supports the possibility of tacking on a small 1.25mm - 1.27mm pitch 3-pin male header to make it somewhat easier to interface with.
 
@@ -128,13 +128,13 @@ When two radios occupying the same frequency band are used in the same system, s
 ￼
 When these pads are programmed to be used as a Bluetooth coexistence interface, they're set as high impedance on power up and reset. Alternatively, they can be individually programmed to be used as GPIOs through software control. They can also be programmed to have an internal pull-up or pull-down resistor.
 
-# 3. Pin and button definition
+## Pin and button definition
 
-### 3.1 Pin markings
+### Pin markings
 
 <div align=center><img src="/assets/images/p1-pin-numbers.png" width=600></div>
 
-### 3.2 Pin description
+### Pin description
 
 | Pin | Description |
 |-----|-------------|
@@ -148,7 +148,7 @@ When these pads are programmed to be used as a Bluetooth coexistence interface, 
 | TX    | Primarily used as UART TX, but can also be used as a digital GPIO or PWM. |
 | Spare 1-6    | Primarily used as GPIO. There are other peripherals that are available on these pins as well, which will be implemented in firmware and documented in a future version of this document. |
 
-### 3.3 Pin out diagrams
+### Pin out diagrams
 
 <div align=left><img src="/assets/images/p1-pinout1.png"</div>
 
@@ -156,7 +156,7 @@ When these pads are programmed to be used as a Bluetooth coexistence interface, 
 
 <div align=left><img src="/assets/images/p1-pinout3.png"</div>
 
-### 3.4 Complete P1 Module Pin Listing
+### Complete P1 Module Pin Listing
 
 | P1 Pin # | P1 Pin Name	| Type / STM32 Port | Description |
 | :-|:-|:-:|:-|
@@ -222,9 +222,9 @@ When these pads are programmed to be used as a Bluetooth coexistence interface, 
 | 74	|	PAD1	|	NC	|	NC |
 | 75	|	PAD2	|	NC	|	NC |
 
-# 4. Technical specification
+## Technical specification
 
-### 4.1 Absolute maximum ratings <i class="icon-attention"></i>
+### Absolute maximum ratings <i class="icon-attention"></i>
 
 | Parameter | Symbol | Min | Typ | Max | Unit |
 |:-|:-|:-:|:-:|:-:|:-:|
@@ -232,7 +232,7 @@ When these pads are programmed to be used as a Bluetooth coexistence interface, 
 | Storage Temperature | T<sub>stg</sub> | -40 |  | +85 | °C |
 | ESD Susceptibility HBM (Human Body Mode) | V<sub>ESD</sub> |  |  | 2 | kV |
 
-### 4.2 Recommended operating conditions <i class="icon-check"></i>
+### Recommended operating conditions <i class="icon-check"></i>
 
 | Parameter | Symbol | Min | Typ | Max | Unit |
 |:-|:-|:-:|:-:|:-:|:-:|
@@ -311,9 +311,9 @@ These specifications are based on the STM32F205RG datasheet, with reference to P
 
 <sub>[5]</sub> Pull-up and pull-down resistors are designed with a true resistance in series with switchable PMOS/NMOS. This PMOS/NMOS contribution to the series resistance is minimum (~10% order).
 
-# 5. Mechanical specifications
+## Mechanical specifications
 
-### 5.1 Overall dimensions
+### Overall dimensions
 
 P1 module dimensions are: 0.787"(28mm) (W) x 1.102"(20mm) (L) x 0.0787"(2.0mm) (H) +/-0.0039"(0.1mm) (includes metal shielding)
 
@@ -322,47 +322,47 @@ P1 module dimensions are: 0.787"(28mm) (W) x 1.102"(20mm) (L) x 0.0787"(2.0mm) (
 <div align=center><img src="/assets/images/p1-vector.png" width=80>
 Actual size (so tiny!)</div>
 
-### 5.2 P1 Module Dimensions
+### P1 Module Dimensions
 
 These are the physical dimensions of the P1 module itself, including all pins:
 
 <div align=center><img src="/assets/images/p1-module-dimensions.png" width=600></div>
 
-### 5.3 P1 Module Recommended pcb land pattern
+### P1 Module Recommended pcb land pattern
 
 The P1 can be mounted directly on a carrier PCB with following PCB land pattern:
 
 <div align=center><img src="/assets/images/p1-land-pattern.png" width=600px></div>
 
-# 6. P1 Reference Design Schematic
+## P1 Reference Design Schematic
 
-### 6.1 Schematic - USB
+### Schematic - USB
 
 <div align=center><img src="/assets/images/p1-sch-usb.png" width=400></div>
 
-### 6.2 Schematic - Power
+### Schematic - Power
 
 <div align=center><img src="/assets/images/p1-sch-power.png" width=600></div>
 
-### 6.3 Schematic - User I/O
+### Schematic - User I/O
 
 <div align=center><img src="/assets/images/p1-sch-user-io.png" width=600></div>
 
-### 6.4 Schematic - P1 Wi-Fi Module
+### Schematic - P1 Wi-Fi Module
 
 <div align=center><img src="/assets/images/p1-sch-wifi-module.png" height=500></div>
 
-# 7. P1 Reference Design Layout
+## P1 Reference Design Layout
 
-### 7.1 P1 Reference Design Top Layer (GTL)
-
-To be added.
-
-### 7.2 P1 Reference Design Bottom Layer (GBL)
+### P1 Reference Design Top Layer (GTL)
 
 To be added.
 
-# 8. Recommended solder reflow profile
+### P1 Reference Design Bottom Layer (GBL)
+
+To be added.
+
+## Recommended solder reflow profile
 
 <div align=left><img src="/assets/images/photon-reflow-profile.png" width=600></div>
 
@@ -374,11 +374,11 @@ To be added.
 | D.   | Peak temp.: 235~245°C, Time above 220°C: 40~90 s |
 | D-E. | 245~220°C, Cooling rate: < 1°C/s |
 
-#9. Ordering information
+## Ordering information
 
 P1 modules are available from [store.particle.io](https://store.particle.io/) as cut tape in quantities of 10 each.
 
-#10. Qualification and approvals
+## Qualification and approvals
 
 <div align=left><img src="/assets/images/lead-free-fcc-ce.png" height=100></div>
 
@@ -387,23 +387,23 @@ P1 modules are available from [store.particle.io](https://store.particle.io/) as
 -	FCC ID: COFWMNBM11
 -	IC: 10293A-WMNBM11
 
-# 11. Product handling
+## Product handling
 
-### 11.1 Tape and Reel Info
+### Tape and Reel Info
 
 <div align=center><img src="/assets/images/p1-tape-and-reel.png" width=500></div>
 
-### 11.2 Moisture sensitivity levels
+### Moisture sensitivity levels
 
 <i class="icon-attention"></i> The Moisture Sensitivity Level (MSL) relates to the packaging and handling precautions required. The P1 module is rated level 3. In general, this precaution applies for Photons without headers.  When reflowing a P1 directly onto an application PCB, increased moisture levels prior to reflow can damage sensitive electronics on the P1.  A bake process to reduce moisture may be required. <i class="icon-attention"></i>
 
 <i class="icon-right-hand"></i>For more information regarding moisture sensitivity levels, labeling, storage and drying see the MSL standard see IPC/JEDEC J-STD-020 (can be downloaded from [www.jedec.org](http://www.jedec.org)).
 
-### 11.3 ESD Precautions
+### ESD Precautions
 
 <i class="icon-attention"></i> The P1 module contains highly sensitive electronic circuitry and is an Electrostatic Sensitive Device (ESD). Handling a P1 module without proper ESD protection may destroy or damage it permanently.  Proper ESD handling and packaging procedures must be applied throughout the processing, handling and operation of any application that incorporates P1 modules.  ESD precautions should be implemented on the application board where the P1 module is mounted. Failure to observe these precautions can result in severe damage to the P1 module! <i class="icon-attention"></i>
 
-# 12. Default settings
+## Default settings
 
 The P1 module comes preprogrammed with a bootloader and a user application called Tinker.  This application works with an iOS and Android app also named Tinker that allows you to very easily toggle digital pins, take analog and digital readings and drive variable PWM outputs.
 
@@ -411,7 +411,7 @@ The bootloader allows you to easily update the user application via several diff
 
 You may use the online Web IDE [Particle Build](https://www.particle.io/build) to code, compile and flash a user application OTA (Over The Air).  [Particle Dev](https://www.particle.io/dev) is a local tool that uses the Cloud to compile and flash OTA as well.  There is also a package `Spark DFU-UTIL` for Particle Dev that allows for Cloud compiling and local flashing via DFU over USB.  This requires `dfu-util` to be installed on your system.  'dfu-util' can also be used with [Particle CLI](https://github.com/spark/particle-cli) for Cloud compiling and local flashing via the command line.  Finally the lowest level of development is available via the [GNU GCC toolchain for ARM](https://github.com/spark/firmware), which offers local compile and flash via dfu-util.  This gives the user complete control of all source code and flashing methods.  This is an extensive list, however not exhaustive.
 
-# 13. Glossary
+## Glossary
 
 <div class="dictionary-wrapper">
 <dd>Radio Frequency</dd>
@@ -434,7 +434,7 @@ You may use the online Web IDE [Particle Build](https://www.particle.io/build) t
 </div>
 
 
-#14. Revision history
+## Revision history
 
 | Revision | Date | Author | Comments |
 |:---:|:---:|:---:|:----|
@@ -443,7 +443,7 @@ You may use the online Web IDE [Particle Build](https://www.particle.io/build) t
 | v003 | 1-June-2015 | BW | Updated VBAT_MICRO info |
 
 
-#15. Contact
+## Contact
 
 **Web**
 

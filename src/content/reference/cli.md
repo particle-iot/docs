@@ -101,7 +101,7 @@ Okay!
 
   Sends a firmware binary, a source file, or a directory of source files, or a known app to your device.
 
-##Flashing a directory
+###Flashing a directory
 
   You can setup a directory of source files and libraries for your project, and the CLI will use those when compiling remotely.  You can also create ```particle.include``` and / or a ```particle.ignore``` file in that directory that will tell the CLI specifically which files to use or ignore.
 
@@ -110,7 +110,7 @@ Okay!
 $ particle flash 0123456789ABCDEFGHI my_project
 ```
 
-##Flashing one or more source files
+###Flashing one or more source files
 
 ```sh
 # how to compile and flash a list of source files to your device
@@ -118,7 +118,7 @@ $ particle flash 0123456789ABCDEFGHI app.ino library1.cpp library1.h
 ```
 
 
-##Compiling remotely and Flashing locally
+###Compiling remotely and Flashing locally
 
 To work locally, but use the cloud compiler, simply use the compile command, and then the local flash command after.  Make sure you connect your device via USB and place it into [dfu mode](/photon/modes/#selecting-various-modes-dfu-mode-device-firmware-upgrade).
 
@@ -142,7 +142,7 @@ $ particle flash --usb firmware.bin
 
   **NOTE**: Remember that **\*.cpp** and **\*.ino** files behave differently. You can read more about it on our [support page](http://support.particle.io/hc/en-us/articles/204952620).
 
-##compiling a directory
+###compiling a directory
 
   You can setup a directory of source files and libraries for your project, and the CLI will use those when compiling remotely.  You can also create ```particle.include``` and / or a ```particle.ignore``` file in that directory that will tell the CLI specifically which files to use or ignore.  Those files are just plain text with one line per filename
 
@@ -151,7 +151,7 @@ $ particle flash --usb firmware.bin
 $ particle compile my_project_folder
 ```
 
-##example particle.include
+###example particle.include
 
   The particle.include and particle.ignore files are just regular text files with one filename per line.  If your directory has one of these files, the CLI will use it to try and determine what to include or ignore when compiling your app.
 
@@ -162,7 +162,7 @@ library1.h
 library1.cpp
 ```
 
-##example particle.ignore
+###example particle.ignore
 
 ```text
 # particle.ignore
@@ -172,7 +172,7 @@ old_version.cpp
 ```
 
 
-##Compiling one or more source files
+###Compiling one or more source files
 
 ```sh
 # how to compile a list of source files
