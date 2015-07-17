@@ -62,16 +62,12 @@
 	}
 }
 
-.content ul.api-request {
-	&::before {
-		content: 'Request Arguments';
-	}
+.content ul.api-attributes::before {
+	content: attr(data-title);	
 }
 
-.content ul.api-response {
-	&::before {
-		content: 'Response Attributes';
-	}
+.content pre.api-code::before {
+	content: attr(data-title);	
 }
 
 .api-code {
@@ -91,16 +87,11 @@
 	}
 }
 
-.api-response-example {
-	&::before {
-		content: 'Example Response';
-	}
-}
-
 .api-definition {
 	margin-top: -58px;
+}
 
-	&::before {
-		content: 'Definition';
-	}
+.api-op-footer {
+	margin-bottom: 20px;
+	clear: left;
 }

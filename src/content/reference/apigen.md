@@ -1,62 +1,29 @@
 ---
 title: Cloud API Gen
-template: reference.hbs
+template: api.hbs
 columns: three
 order: 6
 ---
 
 # Particle Cloud API
 
-<table></table>
+The Particle Cloud API is a [REST](http://en.wikipedia.org/wiki/Representational_State_Transfer) API.
+REST means a lot of things, but first and foremost it means that we use the URL in the way that it's intended:
+as a "Uniform Resource Locator".
 
-{{#each apiGroups}}
+In this case, the unique "resource" in question is your device (Spark Core, Photon, Electron).
+Every device has a URL, which can be used to `GET` variables, `POST` a function call, or `PUT` new firmware.
+The variables and functions that you have written in your firmware are exposed as *subresources* under the device.
 
-## {{@key}}
+All requests to the device come through our API server using TLS security.
 
-{{#each this}}
-### {{title}}
-<pre class='api-code api-definition'><code class='prettyprint lang-json'>{{uppercase type}} {{url}}</code></pre>
-{{{description}}}
+```
+PROTOCOL AND HOST
+"https://api.particle.io"
+```
 
-{{#each parameter.fields}}
-<ul class='api-attributes api-request'>
-{{#each this}}
-<li>
-<div class='api-field'>{{field}}{{#unless optional}}<span class='field-required'>REQUIRED</span>{{/unless}}<small>{{strip-html type}}</small></div>
-<div class='field-desc'>{{#if description}}{{strip-html description}}{{else}}&mdash;{{/if}}</div>
-</li>
-{{/each}}
-</ul>
-{{/each}}
+There are a number of API calls available, which are summarized here, and described in more detail below.
 
-{{#each success.fields}}
-<ul class='api-attributes api-response'>
-{{#each this}}
-<li>
-<div class='api-field'>{{field}}<small>{{strip-html type}}</small></div>
-<div class='field-desc'>{{#if description}}{{strip-html description}}{{else}}&mdash;{{/if}}</div>
-</li>
-
-{{#if this.nestedParams}}
-<li class='nested-wrapper'>
-<ul class='nested-params'>
-{{#each this.nestedParams}}
-<li class='nested-param'>
-<div class='api-field'>{{field}}<small>{{strip-html type}}</small></div>
-<div class='field-desc'>{{#if description}}{{strip-html description}}{{else}}&mdash;{{/if}}</div>
-</li>
-{{/each}}
-</ul></li>
-{{/if}}
-
-{{/each}}
-</ul>
-{{/each}}
-
-{{#each success.examples}}
-<pre class='api-code api-response-example'><code class='prettyprint lang-json'>{{{this.content}}}</code></pre>
-{{/each}}
-
-{{/each}}
-
-{{/each}}
+*Formatting note:* When we write something prefixed with a colon `:`, we mean you should substitute your own information.
+For example when you see something like `/v1/devices/:deviceId`
+you might code something like `/v1/devices/55ff8800beefcafe12345678`.
