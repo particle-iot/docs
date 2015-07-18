@@ -1,14 +1,15 @@
+{{#prettify condense='true' indent=0}}
 {{#each groups}}
 
 	<h2>{{@key}}</h2>
 
 	{{#each this}}
 		<h3>{{title}}</h3>
-		<pre class='api-code api-definition' data-title='Definition'><code class='prettyprint lang-json'>{{uppercase type}} {{url}}</code></pre>
+<pre class='api-code api-definition' data-title='Definition'><code class='prettyprint lang-json'>{{uppercase type}} {{url}}</code></pre>
 		{{{description}}}
 
-		{{#each parameter.examples}}
-			<pre class='api-code api-request-example' data-title={{#isnt title content}}{{title}}{{else}}'Example Request'{{/isnt}}><code class='prettyprint lang-{{this.type}}'>{{{this.content}}}</code></pre>
+		{{#each examples}}
+<pre class='api-code api-request-example' data-title='{{#isnt title content}}{{title}}{{else}}Example Request{{/isnt}}'><code class='prettyprint lang-{{this.type}}'>{{{this.content}}}</code></pre>
 		{{/each}}
 
 		{{#if parameter.fields}}
@@ -48,10 +49,11 @@
 		{{/each}}
 
 		{{#each success.examples}}
-			<pre class='api-code api-response-example' data-title='Example Response'><code class='prettyprint lang-{{this.type}}'>{{{this.content}}}</code></pre>
+<pre class='api-code api-response-example' data-title='{{#starts-with content title}}Example Response{{else}}{{title}}{{/starts-with}}'><code class='prettyprint lang-{{type}}'>{{{content}}}</code></pre>
 		{{/each}}
 
 		<div class='api-op-footer'></div>
 	{{/each}}
 
 {{/each}}
+{{/prettify}}

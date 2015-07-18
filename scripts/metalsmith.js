@@ -28,6 +28,10 @@ var msIf = require('metalsmith-if');
 var precompile = require('./precompile');
 var apidoc = require('./apidoc');
 
+var handlebars = require('handlebars');
+var prettify = require('prettify');
+prettify.register(handlebars);
+
 var environment;
 
 
@@ -36,7 +40,7 @@ exports.metalsmith = function() {
 
   var _removeEmptyTokens = function removeEmptyTokens(token) {
     if (token.length > 0) {return token};
-  }
+  };
   var metalsmith = Metalsmith(__dirname)
     .concurrency(100)
     .source("../src")

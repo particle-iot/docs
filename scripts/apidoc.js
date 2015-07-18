@@ -54,13 +54,13 @@ function breakOutAlternativeOperations(data) {
     var baseParams, baseSuccess;
     var examplesIndex = {};
     if (route.parameter) {
-      examplesIndex = _.groupBy(route.parameter.examples, 'title');
+      examplesIndex = _.groupBy(route.examples, 'title');
     }
 
     _.each(route.parameter.fields, function(params, title) {
       if (title === 'Parameter') {
         baseParams = params;
-        baseSuccess = route.success.fields['Success 200'] || [];
+        baseSuccess = (route.success.fields || {})['Success 200'] || [];
         return;
       }
 
@@ -84,22 +84,30 @@ function breakOutAlternativeOperations(data) {
 
       // copy over specific examples
       if (examplesIndex[groupKey] && examplesIndex[groupKey].length) {
-        newRoute.parameter.examples = examplesIndex[groupKey];
-        newRoute.parameter.examples.forEach(function (ex) {
+        newRoute.examples = examplesIndex[groupKey];
+        newRoute.examples.forEach(function (ex) {
           ex.title = ex.content;
         });
       } else {
-        newRoute.parameter.examples = null;
+        newRoute.examples = null;
       }
 
       // remove copied examples from base
-      route.parameter.examples = _.difference(route.parameter.examples, newRoute.parameter.examples);
+      route.examples = _.difference(route.examples, newRoute.examples);
 
       // add to list of all routes
       i++;
       data.splice(i, 0, newRoute);
     });
   }
+}
+
+function assignOrder(data) {
+  data.forEach(function (route) {
+    var groupParts = route.group.split('_');
+    route.group = groupParts[0];
+    route.order = +groupParts[1] || 99;
+  });
 }
 
 module.exports = function(options) {
@@ -114,7 +122,6 @@ module.exports = function(options) {
       return done();
     }
 
-    //options.lineEnding = 'CR';
     var apiReturn = apidoc.createDoc(options);
     if (!apiReturn) {
       return done(new Error('Error'));
@@ -122,8 +129,8 @@ module.exports = function(options) {
 
     //console.log(apiReturn.data);
     var goodData = JSON.parse(apiReturn.data);
+    assignOrder(goodData);
     breakOutAlternativeOperations(goodData);
-    //console.log(goodData);
 
     goodData.forEach(function (route) {
       if (route.parameter) {
@@ -135,7 +142,11 @@ module.exports = function(options) {
         nestParameters(route.success.fields);
       }
     });
+    goodData = _.sortBy(goodData, 'group');
     apiReturn.data = _.groupBy(goodData, 'group');
+    _.each(apiReturn.data, function (routes, name) {
+      apiReturn.data[name] = _.sortBy(routes, 'order');
+    });
 
     var destFile = files[options.destFile];
     if (destFile) {
