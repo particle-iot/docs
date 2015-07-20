@@ -292,17 +292,17 @@ The Internet Button is not only an easy way to get started on the Internet of Th
 ## Photon Kit
 
 ### 1. Photoresistor (1)
-![LDR](/assets/images/mk-ldr.bmp)
+![LDR](/assets/images/mk-ldr.jpg)
 
 A photo resistor is a light dependent resistor whose resistance decreases with the increase in the intensity of light striking it. You can use it to detect the ambient light in the surrounding, detect shadows or use it as a part of a burglar alarm system. One photoresistor comes in your Photon Kit.
 
 ### 2. LED (1)
-![LEDs](/assets/images/mk-led-3mm.bmp)
+![LEDs](/assets/images/mk-led-3mm.jpg)
 
 This general purpose 3mm red LED is great for getting started with your Photon. You can never have enough of them!
 
 ### 3. Resistors (2)
-![Resistors](/assets/images/mk-1k-resistor.bmp)
+![Resistors](/assets/images/mk-1k-resistor.jpg)
 
 You get two 220-Ohm resistors in your Photon Kit. They are rated at 5%, 1/4 Watt.
 
@@ -310,7 +310,7 @@ You get two 220-Ohm resistors in your Photon Kit. They are rated at 5%, 1/4 Watt
 
 ### 1. Ceramic Capacitors (10 each)
 
-![Ceramic Capacitors](/assets/images/mk-ceramic-capacitor-10nF.bmp)
+![Ceramic Capacitors](/assets/images/mk-ceramic-capacitor-10nF.jpg)
 
 These are standard [ceramic capacitors.](http://en.wikipedia.org/wiki/Ceramic_capacitor) They are widely used in analog circuits as bypass/ decoupling capacitors, in timers, filters, etc. The kit comes with:
 
@@ -321,7 +321,7 @@ These are standard [ceramic capacitors.](http://en.wikipedia.org/wiki/Ceramic_ca
 
 ### 2. Electrolytic Capacitor 100uF (5)
 
-![Electrolytic Capacitors](/assets/images/mk-electrolytic-capacitor.bmp)
+![Electrolytic Capacitors](/assets/images/mk-electrolytic-capacitor.jpg)
 
 [Electrolytic capacitors](http://en.wikipedia.org/wiki/Electrolytic_capacitor) offer larger values and are polar. These capacitors are ideal for decoupling power supplies, as transient suppressors, and in timing circuits.
 
@@ -329,7 +329,7 @@ These are standard [ceramic capacitors.](http://en.wikipedia.org/wiki/Ceramic_ca
 
 ### 3. Headers
 
-![Headers](/assets/images/mk-header-male.bmp)
+![Headers](/assets/images/mk-header-male.jpg)
 
 These are standard 0.1" pitch headers that can be cut to size. Very handy when building circuits on breadboard or PCBs alike.
 
@@ -338,7 +338,7 @@ These are standard 0.1" pitch headers that can be cut to size. Very handy when b
 
 ### 4. NPN Transistor (1)
 
-![NPN Transistor](/assets/images/mk-npn-transistor.bmp)
+![NPN Transistor](/assets/images/mk-npn-transistor.jpg)
 
 S9013 is a general purpose small signal NPN [transistor](http://en.wikipedia.org/wiki/Transistor) rated at 40V, 500mA.
 
@@ -348,7 +348,7 @@ You can use this transistor to switch small loads like relays, mini motors, buzz
 
 ### 5. LEDs
 
-![LEDs](/assets/images/mk-led-3mm.bmp)
+![LEDs](/assets/images/mk-led-3mm.jpg)
 
 These are general purpose 3mm LEDs. You can never have enough of them! Use a resistor in series when hooking them up to the Particle device. ( 220 ohms to 1K ohms)
 
@@ -359,7 +359,7 @@ These are general purpose 3mm LEDs. You can never have enough of them! Use a res
 
 ### 6. RGB LED (1)
 
-![RGB LED](/assets/images/mk-rgb-led.bmp)
+![RGB LED](/assets/images/mk-rgb-led.jpg)
 
 So, Red and Green aren't enough for you? Want to make bazzillion different colors? Then this RGB LED will do it for ya. You can mix colors by connecting each pin to an analogWrite compatible pin on the Core and feed them different values. Let the disco party begin!
 
@@ -369,7 +369,7 @@ This LED has four pins, one for each color and a common anode (+) pin.
 
 ### 7. Diode (6)
 
-![Diode](/assets/images/mk-diode.bmp)
+![Diode](/assets/images/mk-diode.jpg)
 
 [1N4004](http://en.wikipedia.org/wiki/1N4004) is a general purpose diode rated at 400V, 1000mA with a forward voltage drop of 1.1V. Excellent as a [fly-back diode](http://en.wikipedia.org/wiki/Flyback_diode) or as a general rectifying diode.
 
@@ -377,7 +377,7 @@ This LED has four pins, one for each color and a common anode (+) pin.
 
 ### 8. Micro Servo (1)
 
-![RC Servo](/assets/images/mk-micro-rc-servo.bmp)
+![RC Servo](/assets/images/mk-micro-rc-servo.jpg)
 
 Emax ES08A is a mini RC servo motor.
 
@@ -396,7 +396,7 @@ Note: The Ground pin may vary as Brown or Black, +5V pin may vary as Orange or R
 
 ### 9. Deluxe Jumper Wire Pack (1)
 
-![Jumper Cables](/assets/images/mk-jumper-cables.bmp)
+![Jumper Cables](/assets/images/mk-jumper-cables.jpg)
 
 Multi-colored and stripped. You can never have enough of these either.
 
@@ -405,7 +405,7 @@ A custom Particle USB cable for you Core! We were really excited to have our log
 
 ### 11. Pancake Vibration Motor (1)
 
-![Vibration Motor](/assets/images/mk-vibration-motor.bmp)
+![Vibration Motor](/assets/images/mk-vibration-motor.jpg)
 
 Wanna give your next Particle device project a tactile feedback? This vibration motor serves the purpose nicely. Use the NPN transistor to switch it.
 
@@ -413,7 +413,7 @@ Wanna give your next Particle device project a tactile feedback? This vibration 
 
 ### 12. Piezo Buzzer (1)
 
-![Buzzer](/assets/images/mk-buzzer.bmp)
+![Buzzer](/assets/images/mk-buzzer.jpg)
 
 Add an audible feedback to your project with this buzzer. The longer lead is positive and the shorter is negative. You will need a transistor to drive it.
 
@@ -428,13 +428,13 @@ Add an audible feedback to your project with this buzzer. The longer lead is pos
 
 ### 13. Mini Pushbuttons (3)
 
-![Push Buttons](/assets/images/mk-mini-pushbutton.bmp)
+![Push Buttons](/assets/images/mk-mini-pushbutton.jpg)
 
 These are nifty little switches that plug nicely into a breadboard or a proto-board. They are normally-open type and are rated at 12V, 50mA.
 
 ### 14. Photoresistors (2)
 
-![LDR](/assets/images/mk-ldr.bmp)
+![LDR](/assets/images/mk-ldr.jpg)
 
 A photo resistor is a light dependent resistor whose resistance decreases with the increase in the intensity of light striking it. You can use it to detect the ambient light in the surrounding, detect shadows or use it as a part of a burglar alarm system.
 
@@ -442,7 +442,7 @@ A photo resistor is a light dependent resistor whose resistance decreases with t
 
 ### 15. Resistors
 
-![Resistors](/assets/images/mk-1k-resistor.bmp)
+![Resistors](/assets/images/mk-1k-resistor.jpg)
 
 There are three different value resistor in this kit. All of them are rated at 5%, 1/4 Watt.
 
@@ -454,7 +454,7 @@ You can use this [online guide](http://www.digikey.com/en/resources/conversion-c
 
 ### 16. Proto-board (1)
 
-![PCB](/assets/images/mk-pcb.bmp)
+![PCB](/assets/images/mk-pcb.jpg)
 
 This is a 7" x 9" general purpose dot-matrix prototyping PCB.
 

@@ -6,7 +6,7 @@ var request = require('request');
 var cheerio = require('cheerio');
 var async = require('async');
 
-var crawler = new Crawler("localhost");
+var crawler = new Crawler("localhost", "/");
 var googleBody = "";
 var responses = [];
 
@@ -18,7 +18,7 @@ describe('Tests', function(){
 
 describe('Build', function() {
   it('should run without error', function(done){
-    this.timeout(5000);
+    this.timeout(20000);
     metalsmith.build(function(err, files) {
       should.not.exist(err);
       done();
@@ -28,7 +28,7 @@ describe('Build', function() {
 
 describe('Server', function() {
   it('should run without error', function(done){
-    this.timeout(5000);
+    this.timeout(20000);
     metalsmith.server(function(err, files) {
       should.not.exist(err);
       done();
@@ -38,14 +38,25 @@ describe('Server', function() {
 
 describe('Crawler', function() {
   crawler.initialPort = 8080;
+  crawler.parseScriptTags = false;
+  crawler.interval = 250; // One second
+  crawler.maxConcurrency = 1;
+
+  crawler.addFetchCondition(function(parsedURL) {
+    return !(parsedURL.port === '35729');
+  });;
 
   it('should complete without error', function(done) {
-    this.timeout(10000);
+    this.timeout(120000);
     crawler.start();
+    crawler.on("fetchstart", function(queueItem, requestOptions) {
+      console.log("Started fetching: " +queueItem.url);
+    });
     crawler.on("fetchcomplete", function(queueItem, responseBuffer, response) {
+      console.log("Successfully fetched! " + queueItem.url);
       responses.push(responseBuffer);
     });
-    crawler.on("complete", function(queueItem){
+    crawler.on("complete", function(){
       done();
     });
   });
