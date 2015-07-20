@@ -121,7 +121,7 @@ Created by Zach Supalla.
   };
 
   Docs.scrollToInternalLinks = function() {
-    var $internalLinks = $('a[href^="#"]');
+    var $internalLinks = $('.menubar a[href^="#"]');
     $internalLinks.click(function(e) {
       e.preventDefault();
       var dataHref = $(this).data('menu-href');
