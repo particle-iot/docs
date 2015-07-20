@@ -7,13 +7,17 @@ template: datasheet.hbs
 devices: [ photon, core ]
 ---
 
-# {{title}}
+{{#if core}}
+  # Spark Core Line
+{{/if}}
+
+{{#if photon}}
+  # Photon Line
+{{/if}}
 
 Here's a quick "what's in the box" for each of our offered kits. More detail is available in the shields and kits sections for the [Core](/datasheets/core-shields-and-kits) and [Photon](/datasheets/photon-shields-and-kits).
 
 {{#if core}}
-  ## Core Products
-
   ### Spark Core
   ![]({{assets}}/images/core-contents.jpg)
   - (1) Spark Core
@@ -21,6 +25,7 @@ Here's a quick "what's in the box" for each of our offered kits. More detail is 
   - (1) Breadboard
 
   ### Spark Core Maker Kit
+
   ![]({{assets}}/images/core-mkit.jpg)
   - Basics
     - (1) Spark Core - u.FL or CA
@@ -62,7 +67,6 @@ Here's a quick "what's in the box" for each of our offered kits. More detail is 
 {{/if}}
 
 {{#if photon}}
-  ## Photon Products
 
   ### Photon
   ![]({{assets}}/images/photon-matchbox.jpg)
