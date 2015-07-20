@@ -250,8 +250,10 @@ Created by Zach Supalla.
 
   Docs.checkIfGuideScrollbar = function() {
     var $contentInner = $('.content-inner')[0];
-    if($contentInner.scrollHeight > $contentInner.clientHeight) {
-      $('.arrow.next-arrow').css('margin-right', '15px');
+    if($contentInner) {
+      if($contentInner.scrollHeight > $contentInner.clientHeight) {
+        $('.arrow.next-arrow').css('margin-right', '15px');
+      }
     }
   };
 

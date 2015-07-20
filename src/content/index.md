@@ -3,7 +3,7 @@ title: Get started with Particle
 template: start.hbs
 ---
 
-<h1 class="choose-device-header">Which device would you like to setup?</h1>
+<h1 class="choose-device-header">Which device are you interested in?</h1>
 
 <ul class="devices">
   <a href="/guide/getting-started/start/photon">
