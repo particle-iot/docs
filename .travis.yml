@@ -34,8 +34,4 @@ deploy:
     cache_control: "max-age=300"
     on:
       repo: spark/docs
-<<<<<<< HEAD
       branch: feature/metalsmith
-=======
-      branch: staging
->>>>>>> Add slack integration to Travis
