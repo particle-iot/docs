@@ -67,7 +67,7 @@ Sending webhook request  { uri: 'https://api.particle.io/v1/webhooks',
   method: 'POST',
   json: true,
   form:
-   { event: 'slack-incoming-webhook',
+   { eventName: 'slack-incoming-webhook',
      url: 'https://hooks.slack.com/services/B1234567/C234567/345634563456345634563456',
      deviceid: undefined,
      access_token: '56785678567856785678567856785678',
@@ -320,7 +320,7 @@ Copy and save the librato access token for your webhook below.  Create a text fi
 ```json
 # copy-paste the stuff between the {}'s (including those brackets) into a file librato.json
 {
-    "event": "librato_",
+    "eventName": "librato_",
     "url": "https://metrics-api.librato.com/v1/metrics",
     "requestType": "POST",
     "auth": {
@@ -407,7 +407,7 @@ What's in a request?
 
 ```json
 {
-    "event": "Your event name",
+    "eventName": "Your event name",
     "data": "Your event contents",
     "published_at": "When it was published",
     "coreid": "Your device ID"
@@ -472,7 +472,7 @@ You can even customize the webhook to send custom headers, form fields, and more
 event
 ---
 
-The topic of your published event is sent as the 'event' property in webhook requests.  In your firmware it's this part:
+The topic of your published event is sent as the 'event' property in webhook requests. Note that the event name prefix filter rules from `Spark.subscribe()` apply here too. In your firmware it's this part:
 
 ```
 Spark.publish(event, data);

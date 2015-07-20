@@ -1349,6 +1349,32 @@ Serial1.flush();
 
 `flush()` neither takes a parameter nor returns anything
 
+### halfduplex()
+
+Puts Serial1 into half-duplex mode.  In this mode both the transmit and receive
+are on the TX pin.  This mode can be used for a single wire bus communications 
+scheme between microcontrollers.
+
+```C
+// SYNTAX
+Serial1.halfduplex(true);  // Enable half-duplex mode
+Serial1.halfduplex(false); // Disable half-duplex mode
+```
+
+```C
+// EXAMPLE
+// Initializes Serial1 at 9600 baud and enables half duplex mode
+
+Serial1.begin(9600);
+Serial1.halfduplex(true);
+
+```
+`halfduplex()` takes one argument: `true` enables half-duplex mode, `false` disables half-duplex mode
+
+`halfduplex()` returns nothing
+
+
+
 SPI
 ----
 This library allows you to communicate with SPI devices, with the Core/Photon as the master device.
@@ -2824,7 +2850,11 @@ void blink()
 External interrupts are supported on the following pins:
 
 - Core: D0, D1, D2, D3, D4, A0, A1, A3, A4, A5, A6, A7
-- Photon: all pins with the exception of D0
+- Photon: All pins with the exception of D0 and A5 (since at present Mode Button external interrupt(EXTI) line is shared with D0, A5). Also please note following are the pins for which EXTI lines are shared so only one can work at a time:
+    - D1, A4
+    - D2, A0, A3
+    - D3, DAC
+    - D4, A1
 
 `attachInterrupt(pin, function, mode);`
 
@@ -3237,6 +3267,55 @@ EEPROM.write(addr, val);
 ```
 
 ## System
+
+### System Threading
+
+On platforms that support multithreading (presently, the Photon), there are two
+separate threads of execution:
+
+- The system loop: this maintains the wifi and cloud connection state, performs
+  firmware updates and setup mode
+- The application loop: whatever the application code performs from within `loop()`.
+
+On non-threaded platforms, the system loop and the application loop are interleaved, which can lead to the application loop being delayed while the system loop is busy.  On threaded platforms, this does not occur since the application and system loops each run in a separate thread of execution.
+
+#### `SYSTEM_THREAD` macro
+
+System threading is enabled by default on platforms where it is supported. To enable it explicitly, add
+
+
+`SYSTEM_THREAD(ENABLED);`
+
+
+to your application code.
+
+
+To disable multithreading and revert to a single thread of execution, place the following code in your application:
+
+
+`SYSTEM_THREAD(DISABLED)`
+
+
+#### Effects of System Threading
+
+When system threading is enabled:
+
+- The application is not blocked by system code at all. setup() and loop() function independently of what the system is doing.
+- The application continues to run during WiFi setup mode. Application code can detect this by calling `WiFi.listening()`.
+- The application continues to run during over-the-air or over-the-wire firmware updates
+- Cloud functions registered with `Spark.function()` execute on the application thread in between calls to loop().
+- Calling `Spark.process()` has no affect.
+- The system mode does not influence application execution.
+
+When system threading is disabled:
+
+- The application may stop executing intermittently when the wifi or cloud connection goes offline
+- The application does not run during WiFi setup mode. This can be detected by checking the result of `WiFi.listening()` on a timer interrupt.
+- The application does not run during over-the-air or over-the-wire firmware updates
+- Cloud functions registered with `Spark.function()` execute in-between invocations of `loop()` or when the application calls `Spark.process()`.
+- The system mode influences when the application setup() and loop() function are called in relation to the cloud connection state.
+
+IN both cases, the system mode determines the initial cloud connection state - connected for AUTOMATIC mode, disconnected for SEMI_AUTOMATIC/MANUAL modes.
 
 ### System modes
 
