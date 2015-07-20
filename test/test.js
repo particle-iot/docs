@@ -18,7 +18,7 @@ describe('Tests', function(){
 
 describe('Build', function() {
   it('should run without error', function(done){
-    this.timeout(5000);
+    this.timeout(10000);
     metalsmith.build(function(err, files) {
       should.not.exist(err);
       done();
@@ -28,7 +28,7 @@ describe('Build', function() {
 
 describe('Server', function() {
   it('should run without error', function(done){
-    this.timeout(5000);
+    this.timeout(10000);
     metalsmith.server(function(err, files) {
       should.not.exist(err);
       done();
