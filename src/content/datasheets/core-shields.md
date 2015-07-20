@@ -269,7 +269,7 @@ When powering the Core via the battery alone, the blue LED will NOT light up.
 
 ### 1. Ceramic Capacitors (10 each)
 
-![Ceramic Capacitors](/assets/images/mk-ceramic-capacitor-10nF.bmp)
+![Ceramic Capacitors](/assets/images/mk-ceramic-capacitor-10nF.jpg)
 
 These are standard [ceramic capacitors.](http://en.wikipedia.org/wiki/Ceramic_capacitor) They are widely used in analog circuits as bypass/ decoupling capacitors, in timers, filters, etc. The kit comes with:
 
@@ -282,7 +282,7 @@ These are standard [ceramic capacitors.](http://en.wikipedia.org/wiki/Ceramic_ca
 
 ### 2. Electrolytic Capacitor 100uF (5)
 
-![Electrolytic Capacitors](/assets/images/mk-electrolytic-capacitor.bmp)
+![Electrolytic Capacitors](/assets/images/mk-electrolytic-capacitor.jpg)
 
 [Electrolytic capacitors](http://en.wikipedia.org/wiki/Electrolytic_capacitor) offer larger values and are polar. These capacitors are ideal for decoupling power supplies, as transient suppressors, and in timing circuits.
 
@@ -292,7 +292,7 @@ These are standard [ceramic capacitors.](http://en.wikipedia.org/wiki/Ceramic_ca
 
 ### 3. Headers
 
-![Headers](/assets/images/mk-header-male.bmp)
+![Headers](/assets/images/mk-header-male.jpg)
 
 These are standard 0.1" pitch headers that can be cut to size. Very handy when building circuits on breadboard or PCBs alike.
 
@@ -302,7 +302,7 @@ These are standard 0.1" pitch headers that can be cut to size. Very handy when b
 
 ### 4. LEDs
 
-![LEDs](/assets/images/mk-led-3mm.bmp)
+![LEDs](/assets/images/mk-led-3mm.jpg)
 
 These are general purpose 3mm LEDs. You can never have enough of them! Use a resistor in series when hooking them up to the Spark Core. ( 220 ohms to 1K ohms)
 
@@ -313,7 +313,7 @@ These are general purpose 3mm LEDs. You can never have enough of them! Use a res
 
 ### 5. RGB LED (1)
 
-![RGB LED](/assets/images/mk-rgb-led.bmp)
+![RGB LED](/assets/images/mk-rgb-led.jpg)
 
 So, Red and Green aren't enough for you? Want to make bazzillion different colors? Then this RGB LED will do it for ya. You can mix colors by connecting each pin to an analogWrite compatible pin on the Core and feed them different values. Let the disco party begin!
 
@@ -325,7 +325,7 @@ This LED has four pins, one for each color and a common anode (+) pin.
 
 ### 6. NPN Transistor (1)
 
-![NPN Transistor](/assets/images/mk-npn-transistor.bmp)
+![NPN Transistor](/assets/images/mk-npn-transistor.jpg)
 
 S9013 is a general purpose small signal NPN [transistor](http://en.wikipedia.org/wiki/Transistor) rated at 40V, 500mA.
 
@@ -335,7 +335,7 @@ You can use this transistor to switch small loads like relays, mini motors, buzz
 
 ### 7. Diode (6)
 
-![Diode](/assets/images/mk-diode.bmp)
+![Diode](/assets/images/mk-diode.jpg)
 
 [1N4004](http://en.wikipedia.org/wiki/1N4004) is a general purpose diode rated at 400V, 1000mA with a forward voltage drop of 1.1V. Excellent as a [fly-back diode](http://en.wikipedia.org/wiki/Flyback_diode) or as a general rectifying diode.
 
@@ -343,7 +343,7 @@ You can use this transistor to switch small loads like relays, mini motors, buzz
 
 ### 8. Micro Servo (1)
 
-![RC Servo](/assets/images/mk-micro-rc-servo.bmp)
+![RC Servo](/assets/images/mk-micro-rc-servo.jpg)
 
 Emax ES08A is a mini RC servo motor.
 
@@ -362,7 +362,7 @@ Note: The Ground pin may vary as Brown or Black, +5V pin may vary as Orange or R
 
 ### 9. Deluxe Jumper Wire Pack (1)
 
-![Jumper Cables](/assets/images/mk-jumper-cables.bmp)
+![Jumper Cables](/assets/images/mk-jumper-cables.jpg)
 
 Multi-colored and stripped. You can never have enough of these either.
 
@@ -371,7 +371,7 @@ A custom Spark USB cable for you Core! We were really excited to have our logo p
 
 ### 11. Mini DC Motor (1)
 
-![DC Motor](/assets/images/mk-mini-dc-motor.bmp)
+![DC Motor](/assets/images/mk-mini-dc-motor.jpg)
 
 This is a simple DC motor that you can switch using the NPN transistor provided in the kit.
 
@@ -384,7 +384,7 @@ This is a simple DC motor that you can switch using the NPN transistor provided 
 
 ### 12. Vibration Motor (1)
 
-![Vibration Motor](/assets/images/mk-vibration-motor.bmp)
+![Vibration Motor](/assets/images/mk-vibration-motor.jpg)
 
 Wanna give your next Spark Core project a tactile feedback? This vibration motor serves the purpose nicely. Use the NPN transistor to switch it.
 
@@ -397,7 +397,7 @@ Wanna give your next Spark Core project a tactile feedback? This vibration motor
 
 ### 13. Piezo Buzzer (1)
 
-![Buzzer](/assets/images/mk-buzzer.bmp)
+![Buzzer](/assets/images/mk-buzzer.jpg)
 
 Add an audible feedback to your project with this buzzer. The longer lead is positive and the shorter is negative. You will need a transistor to drive it.
 
@@ -412,19 +412,19 @@ Add an audible feedback to your project with this buzzer. The longer lead is pos
 
 ### 14. Mini Pushbuttons (3)
 
-![Push Buttons](/assets/images/mk-mini-pushbutton.bmp)
+![Push Buttons](/assets/images/mk-mini-pushbutton.jpg)
 
 These are nifty little switches that plug nicely into a breadboard or a proto-board. They are normally-open type and are rated at 12V, 50mA.
 
 ### 15. DPDT Switch (2)
 
-![DPDT Switch](/assets/images/mk-dpdt-switch.bmp)
+![DPDT Switch](/assets/images/mk-dpdt-switch.jpg)
 
 This is a tiny Double Pole Double Throw (DPDT) Switch with 6 legs.
 
 ### 16. Shift Register IC (1)
 
-![Shift Register](/assets/images/mk-shift-register.bmp)
+![Shift Register](/assets/images/mk-shift-register.jpg)
 
 74HC595 is an 8 bit serial-in parallel-out shift register commonly used as an output expander. You can drive of up to 8 outputs from only 3 lines (using one chip). You could potentially daisy chain multiple of these to get even more outputs.
 
@@ -434,7 +434,7 @@ This is a tiny Double Pole Double Throw (DPDT) Switch with 6 legs.
 
 ### 17. Tilt Sensor (2)
 
-![Tilt Sensor](/assets/images/mk-tilt-sensor.bmp)
+![Tilt Sensor](/assets/images/mk-tilt-sensor.jpg)
 
 SW-200D is a tiny tilt sensor that when tilted to more than 30 degrees will internally connects its two terminals together. The magic happens with the use of gravity and a tiny metal ball.
 
@@ -444,7 +444,7 @@ You can use to it detect tilt, orientation or vibrations.
 
 ### 18. Temperature Sensor (1)
 
-![Temp Sensor](/assets/images/mk-temp-sensor.bmp)
+![Temp Sensor](/assets/images/mk-temp-sensor.jpg)
 
 The TMP36 is a low voltage, precision centigrade temperature sensor. It provides a voltage output that is linearly proportional to the Celsius (centigrade) temperature. The TMP36 does not require any external calibration to provide typical accuracies of ±1°C at +25°C and ±2°C over the −40°C to +125°C temperature range.
 
@@ -456,7 +456,7 @@ The TMP36 is a low voltage, precision centigrade temperature sensor. It provides
 
 ### 19. Thermistor (2)
 
-![Thermistor](/assets/images/mk-thermistor.bmp)
+![Thermistor](/assets/images/mk-thermistor.jpg)
 
 A [thermistor](http://en.wikipedia.org/wiki/Thermistor) is a temperature dependent resistor. This one is a NTC type (Negative Temperature Coefficient), which means its resistance decreases with an increase in temperature.
 
@@ -466,7 +466,7 @@ Unlike the TMP36, you will need to use this as a part of a voltage divider circu
 
 ### 20. Force-Sensitive Resistor (1)
 
-![Force Sensor](/assets/images/mk-force-sensor.bmp)
+![Force Sensor](/assets/images/mk-force-sensor.jpg)
 
 Manufacturer Part Number: Interlink 30-81794
 This is a force sensitive resistor with a 0.5" diameter and an operating force from 10g to 1000g. Their resistance decreases with an increase in applied pressure.
@@ -477,7 +477,7 @@ This is a force sensitive resistor with a 0.5" diameter and an operating force f
 
 ### 21. Photo Resistors (2)
 
-![LDR](/assets/images/mk-ldr.bmp)
+![LDR](/assets/images/mk-ldr.jpg)
 
 A photo resistor is a light dependent resistor whose resistance decreases with the increase in the intensity of light striking it. You can use it to detect the ambient light in the surrounding, detect shadows or use it as a part of a burglar alarm system.
 
@@ -486,7 +486,7 @@ A photo resistor is a light dependent resistor whose resistance decreases with t
 
 ### 22. Resistors
 
-![Resistors](/assets/images/mk-1k-resistor.bmp)
+![Resistors](/assets/images/mk-1k-resistor.jpg)
 
 There are three different value resistor in this kit. All of them are rated at 5%, 1/4 Watt.
 
@@ -498,13 +498,13 @@ You can use this [online guide](http://www.digikey.com/en/resources/conversion-c
 
 ### 23. Rotary Potentiometer (1)
 
-![Pot](/assets/images/mk-potentiometer.bmp)
+![Pot](/assets/images/mk-potentiometer.jpg)
 
 This is a [variable resistor](http://en.wikipedia.org/wiki/Potentiometer) whose value can be changed by simply turning the knob.
 
 ### 24. Proto-board (1)
 
-![PCB](/assets/images/mk-pcb.bmp)
+![PCB](/assets/images/mk-pcb.jpg)
 
 This is a 7" x 9" general purpose dot-matrix prototyping PCB.
 <!-- TO DO ADD LINK TO EXAMPLE-->
