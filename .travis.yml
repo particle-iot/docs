@@ -8,6 +8,8 @@ before_install:
 - '[ "${TRAVIS_PULL_REQUEST}" = "false" ] && git submodule update --init --recursive && cd api-node && git fetch && git merge origin/master && cd .. || false'
 before_script: npm test
 script: npm run build
+notifications:
+  slack: s:1SUvEfTWrI5cPwufwTAkxFas
 deploy:
   - provider: s3
     access_key_id: "AKIAJ5RMM3264VMARJQQ"
@@ -32,4 +34,8 @@ deploy:
     cache_control: "max-age=300"
     on:
       repo: spark/docs
+<<<<<<< HEAD
       branch: feature/metalsmith
+=======
+      branch: staging
+>>>>>>> Add slack integration to Travis
