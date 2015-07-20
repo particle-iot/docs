@@ -2,6 +2,7 @@
 title: Account & Shipping Issues
 template: support.hbs
 columns: two
+order: 2
 ---
 
 Account & Shipping Issues
