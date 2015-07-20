@@ -51,7 +51,8 @@ exports.metalsmith = function() {
     }))
     .use(ignore([
       '**/less/*.less',
-      'content/languages/**/*'
+      'content/languages/**/*',
+      'assets/images/**/*.ai'
     ]))
     .use(cleanCSS({
       files: '**/*.css'
