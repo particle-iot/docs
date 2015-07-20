@@ -18,6 +18,17 @@ void setup() {
 
 ---
 
+We've found a number of errors in the Photon Datasheet, so we have removed it until it's completely fixed. If you have technical questions about the Photon, please email [hello@particle.io](mailto:hello@particle.io) or ask on the community at http://community.particle.io. Thank you for your patience!
+
+<!--
+# KNOWN ERRORS
+We are always looking to improve our documentation. We make an effort to keep everything as up to date and accurate as possible, but sometimes issues fall behind.
+
+Please check out the known errors [here](https://github.com/spark/docs/issues/19) before scanning the datasheet. (Checked boxes represent errors that have already been fixed).
+
+While we try to add to this list ourselves, we always appreciate help. If you find an error in these datasheets, please add to the list and let us know what's wrong at [hello@particle.io](mailto:hello@particle.io).
+
+
 
 # 1. Functional description
 
@@ -492,3 +503,4 @@ https://community.particle.io
 **Email**
 
 <mailto:hello@particle.io>
+-->

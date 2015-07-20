@@ -16,6 +16,9 @@ void setup() {
 }
 ```
 
+We've found a number of errors in the P1 Datasheet, so we have removed it until it's completely fixed. If you have technical questions about the P1, please email [hello@particle.io](mailto:hello@particle.io) or ask on the community at http://community.particle.io. Thank you for your patience!
+
+<!--
 # 1. Functional description
 
 ### 1.1 Overview
@@ -457,3 +460,5 @@ https://community.particle.io
 **Email**
 
 <mailto:hello@particle.io>
+
+-->
