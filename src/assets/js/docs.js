@@ -87,6 +87,16 @@ Created by Zach Supalla.
     }
   };
 
+  Docs.expandInPageTOC = function() {
+    var isExpanded = Docs.inPageTOCExpanded;
+    var isGuide = window.location.pathname.indexOf('/guide/') > -1;
+    if(!isExpanded && !isGuide) {
+      $('li.active').click();
+      Docs.inPageTOCExpanded = true;
+    }
+
+  }
+
   Docs.createH3Waypoints = function(h3s, noH2s) {
         h3s.each(function() {
           var element = $(this)[0];
@@ -97,12 +107,14 @@ Created by Zach Supalla.
                 if(direction === 'down') {
                   var elementDataHref = this.element.getAttribute('data-href');
                   Docs.handleH3ClassChanges(elementDataHref, noH2s);
+                  Docs.expandInPageTOC();
                 }
               },
               enter: function(direction) {
                 if(direction === 'up') {
                   var elementDataHref = this.element.getAttribute('data-href');
                   Docs.handleH3ClassChanges(elementDataHref, noH2s, true);
+                  Docs.expandInPageTOC();
                 }
               },
               context: $('.content-inner')[0],
@@ -140,7 +152,7 @@ Created by Zach Supalla.
     if (hash !== '' && window.location.pathname !== '/') {
       setTimeout(function() {
         Docs.scrollToElement(dataHref);
-      }, 100);
+      }, 500);
     }
 
     $(window).on('hashchange', function() {
@@ -169,6 +181,8 @@ Created by Zach Supalla.
     }
   };
 
+  Docs.inPageTOCExpanded = false;
+
   Docs.createScrollSpies = function() {
     var $h2s = $('.content h2');
     if($h2s.length === 0) {
@@ -189,6 +203,7 @@ Created by Zach Supalla.
                 Docs.createH3Waypoints($nextH3s);
                 h3WaypointsCreated = true;
               }
+              Docs.expandInPageTOC();
             }
           },
           enter: function(direction) {
@@ -202,6 +217,7 @@ Created by Zach Supalla.
                 Docs.createH3Waypoints($nextH3s);
                 h3WaypointsCreated = true;
               }
+              Docs.expandInPageTOC();
             }
           },
           context: $('.content-inner')[0]
