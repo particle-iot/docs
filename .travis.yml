@@ -32,4 +32,4 @@ deploy:
     cache_control: "max-age=300"
     on:
       repo: spark/docs
-      branch: staging
+      branch: feature/metalsmith
