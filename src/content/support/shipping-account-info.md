@@ -2,7 +2,8 @@
 title: Account & Shipping Issues
 template: support.hbs
 columns: two
-order: 2
+devices: [ photon, core ]
+order: 1
 ---
 
 Account & Shipping Issues
@@ -25,7 +26,7 @@ Once you are logged into the dashboard, click the **edit** button near your {{{s
 <a href="https://dashboard.trycelery.com/status" class="button">Update My Address</a>
 
 
-###Updating My Credit Card
+###Updating My Credit Card 
 
 Similar to updating you address, updating your **credit card information** is just a simple. Again, if your order is in the {{{support-popup '**payment = unpaid**' 'img' 'invoice_status_unpaid.png'}}} stage, you will be able to update the credit card on file using the same **OrderID #** and **email address** provided at checkout to sign into the dashboard.
 
