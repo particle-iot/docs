@@ -62,16 +62,12 @@
 	}
 }
 
-.content ul.api-request {
-	&::before {
-		content: 'Request Arguments';
-	}
+.content ul.api-attributes::before {
+	content: attr(data-title);	
 }
 
-.content ul.api-response {
-	&::before {
-		content: 'Response Attributes';
-	}
+.content pre.api-code::before {
+	content: attr(data-title);	
 }
 
 .api-code {
@@ -87,20 +83,15 @@
 	}
 
 	code {
-		margin: 20px 0 !important;
-	}
-}
-
-.api-response-example {
-	&::before {
-		content: 'Example Response';
+		margin: 15px 0 !important;
 	}
 }
 
 .api-definition {
 	margin-top: -58px;
+}
 
-	&::before {
-		content: 'Definition';
-	}
+.api-op-footer {
+	height: 40px;
+	clear: both;
 }

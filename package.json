@@ -47,6 +47,7 @@
     "metalsmith-watch": "^1.0.1",
     "minimatch": "^2.0.8",
     "mocha": "^2.2.5",
+    "prettify": "^0.1.7",
     "request": "^2.58.0",
     "should": "^7.0.1",
     "simplecrawler": "^0.5.2"
