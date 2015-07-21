@@ -448,7 +448,7 @@ curl -G https://api.particle.io/v1/devices/0123456789abcdef/analogvalue \
 
 You can see a JSON output of your Spark.variable() call by going to:
 
-https://api.particle.io/v1/devices/your-device-ID-goes-here/analogvalue?access_token=your-access-token-goes-here
+https&#58;//api.particle.io/v1/devices/your-device-ID-goes-here/analogvalue?access_token=your-access-token-goes-here
 
 (Be sure to replace `your-device-ID-goes-here` with your actual device ID and `your-access-token-goes-here` with your actual access token!)
 
