@@ -1,10 +1,10 @@
 {{#prettify condense='true' indent=0}}
 {{#each groups}}
 
-	<h2>{{@key}}</h2>
+	<h2 id='#{{sanitize @key}}' data-href={{anchor-id @key}}>{{@key}}</h2>
 
 	{{#each this}}
-		<h3>{{title}}</h3>
+		<h3 id='#{{sanitize title}}' data-href={{anchor-id title}}>{{title}}</h3>
 		<pre class='api-code api-definition' data-title='Definition'><code class='prettyprint lang-json'>{{uppercase type}} {{url}}</code></pre>
 		{{{description}}}
 
