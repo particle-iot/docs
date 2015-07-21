@@ -31,6 +31,12 @@ To run a locally hosted version of the documentation, follow the installation in
 
 This will set up a server running at `http://localhost:8080`. If you make changes to the source content, your browser should automatically refresh using `livereload`.
 
+### Testing
+
+To run the tests locally, run `npm test` from the root of the
+repository. This will tell you whether the build will pass on Travis or
+not.
+
 ### Deployment
 
 When updated documentation is pushed to the master branch, it is automatically pushed to Amazon S3 by Travis CI.

@@ -11,7 +11,7 @@ describe('Tests', function(){
 
 describe('Build', function() {
   it('should run without error', function(done){
-    this.timeout(20000);
+    this.timeout(30000);
     metalsmith.build(function(err, files) {
       done(err);
     });

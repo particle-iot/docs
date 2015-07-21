@@ -1,10 +1,6 @@
 /* ----------------------------------------------------------------------------
  * Content styling
  */
-#docs {
-  height: 100%;
-  width: 100%;
-}
 .content {
   position: relative;
 }
@@ -164,11 +160,8 @@
   left: 0;
   bottom: 0;
   overflow-y: auto;
+  overflow-x: hidden;
   -webkit-transform: translate3d(0,0,0);
-  @media(max-width: @xlarge-size) {
-    position: static;
-    min-height: calc(~"100% - 50px");
-  }
 }
 .content:before,
 .content:after {
@@ -285,7 +278,7 @@ body:not(.big-h3) .content h3 {
     height: 1px;
     background: @light-gray;
     position: absolute;
-    width: 90%;
+    width: 85%;
     bottom: 5px;
     left: 40px;
   }
@@ -439,15 +432,23 @@ h1 small.beta {
   -webkit-transform: translate3d(0,0,0);
 
   @media(max-width: @medium-size) {
-    position: relative;
-    left: inherit;
-    right: inherit;
-    bottom: inherit;
-    width: 100%;
+    left: 0;
   }
-
 }
 
+.mobile-arrows {
+  display: none;
+  .clearfix();
+  @media(max-width: @xlarge-size) {
+    display: block;
+  }
+}
+.desktop-arrows {
+  display: block;
+  @media(max-width: @xlarge-size) {
+    display: none;
+  }
+}
 
 .arrow {
   position: absolute;
@@ -462,16 +463,16 @@ h1 small.beta {
   cursor: pointer;
   text-align: center;
   @media(max-width: @xlarge-size) {
-   position: static;
    top: auto;
-   display: inline-block;
    float: left;
+   display: block;
    max-width: 50%;
    width: 50%;
-   height: 180px;
-   margin-top: 50px;
+   height: 50px;
+   background: rgba(255,255,255,0.9);
   }
-  &:hover {
+  &:hover, &:active {
+    color: @spark-blue;
     i {
       color: @spark-blue;
     }
@@ -493,8 +494,9 @@ h1 small.beta {
     font-style: normal;
     font-size: 2em;
     .transition(color 0.2s);
-    &:hover {
-      color: @spark-blue;
+    @media(max-width: @xlarge-size) {
+      font-size: 1.5em;
+      margin-top: 0;
     }
   }
 }
@@ -679,8 +681,11 @@ hr {
     &[alt="Create a New Organization"] {
       max-width: 300px;
     }
+    &[alt="Photon Reset Modes"] {
+      background: @dark-gray;
+    }
     @media(max-width: @medium-size) {
-      max-width: 300px;
+      max-width: 100%;
     }
   }
   .content h4:after, .content h5:after, .content .small-heading:after, body:not(.big-h3) .content h3:after {
