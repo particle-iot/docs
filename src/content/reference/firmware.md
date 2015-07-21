@@ -3266,9 +3266,7 @@ uint8_t val = 0x45;
 EEPROM.write(addr, val);
 ```
 
-## System
-
-### System Threading
+## System Threading
 
 _COMING SOON, NOT YET RELEASED_
 
@@ -3281,7 +3279,7 @@ separate threads of execution:
 
 On non-threaded platforms, the system loop and the application loop are interleaved, which can lead to the application loop being delayed while the system loop is busy.  On threaded platforms, this does not occur since the application and system loops each run in a separate thread of execution.
 
-#### `SYSTEM_THREAD` macro
+### `SYSTEM_THREAD` macro
 
 System threading is enabled by default on platforms where it is supported. To enable it explicitly, add
 
@@ -3298,7 +3296,7 @@ To disable multithreading and revert to a single thread of execution, place the 
 `SYSTEM_THREAD(DISABLED)`
 
 
-#### Effects of System Threading
+### Effects of System Threading
 
 When system threading is enabled:
 
