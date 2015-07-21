@@ -47,7 +47,7 @@ When your device is in Listening Mode, it is waiting for your input to connect t
   <iframe src="https://vine.co/v/eZUHUIjq7pO/embed/simple" width="320" height="320" frameborder="0"></iframe>
 </div>
 
-To put your device in Listening Mode, hold the `MODE` button for three seconds, until the RGB LED begins flashing blue.
+To put your device in Listening Mode, hold the `SETUP` button for three seconds, until the RGB LED begins flashing blue.
 
 
 ## Wifi Network Reset
@@ -56,7 +56,7 @@ To put your device in Listening Mode, hold the `MODE` button for three seconds, 
   <iframe src="https://vine.co/v/eZUwtJljYnK/embed/simple" width="320" height="320" frameborder="0"></iframe>
 </div>
 
-To erase the stored wifi networks on your device, hold the `MODE` button for about ten seconds, until the RGB LED flashes blue rapidly.
+To erase the stored wifi networks on your device, hold the `SETUP` button for about ten seconds, until the RGB LED flashes blue rapidly.
 
 ## Selecting various Modes
 
@@ -75,9 +75,9 @@ This mode is one of the most useful. If something goes wrong with the app you lo
 To put your device in Safe Mode:
 
 1. Hold down BOTH buttons
-2. Release only the RST button, while holding down the MODE button.
+2. Release only the RESET button, while holding down the SETUP button.
 3. Wait for the LED to start flashing magenta
-6. Release the MODE button
+6. Release the SETUP button
 
 
 ### DFU Mode (Device Firmware Upgrade)
@@ -93,9 +93,9 @@ Installation tutorial can be found [here.](/photon/cli/#upgrading-from-the-spark
 To enter DFU Mode:
 
 1. Hold down BOTH buttons
-2. Release only the RST button, while holding down the MODE button.
+2. Release only the RESET button, while holding down the SETUP button.
 3. Wait for the LED to start flashing yellow (it will flash magenta first)
-6. Release the MODE button
+6. Release the SETUP button
 
 <div class="iframe-wrapper">
   <iframe src="https://vine.co/v/eZUXM7ETevY/embed/simple" width="320" height="320" frameborder="0"></iframe>
@@ -115,9 +115,9 @@ This type of reset sets the firmware on your Photon back to factory settings wit
 To perform a firmware reset:
 
 1. Hold down BOTH buttons
-2. Release only the RST button, while holding down the MODE button.
+2. Release only the RESET button, while holding down the SETUP button.
 3. Wait for the LED to start flashing green (it will flash magenta and yellow first)
-6. Release the MODE button
+6. Release the SETUP button
 
 
 ### Factory Reset
@@ -130,16 +130,16 @@ A factory reset restores the firmware on the device to the default Tinker app an
 
 Procedure:
 
-The procedure is same as the one described above (DFU Mode), but in this case you should continue holding down the MODE button until you see the device change from flashing yellow to flashing white. Then release the button.  This will take about 10 seconds. The device should begin after the factory reset is complete.
+The procedure is same as the one described above (DFU Mode), but in this case you should continue holding down the SETUP button until you see the device change from flashing yellow to flashing white. Then release the button.  This will take about 10 seconds. The device should begin after the factory reset is complete.
 
 To perform a factory reset:
 
 1. Hold down BOTH buttons
-2. Release only the RST button, while holding down the MODE button.
-3. Wait for the LED to start flashing magenta, then yellow, then green (continue to hold the MODE button)
-4. The LED will turn solid white (continue to hold the MODE button)
+2. Release only the RESET button, while holding down the SETUP button.
+3. Wait for the LED to start flashing magenta, then yellow, then green (continue to hold the SETUP button)
+4. The LED will turn solid white (continue to hold the SETUP button)
 5. Finally, the LED will turn blink white rapidly
-6. Release the MODE button
+6. Release the SETUP button
 
 
 ````
