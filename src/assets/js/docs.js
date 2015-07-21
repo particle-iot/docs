@@ -315,6 +315,12 @@ Created by Zach Supalla.
     $('.search-results').append(html);
   };
 
+  Docs.toggleShowing = function() {
+    $("span").on('click', function() {
+      $(this).toggleClass("showing");
+    });
+  }
+
   // Ok, then let's do it!
   Docs.rememberDevices();
   Docs.transform();
@@ -324,6 +330,7 @@ Created by Zach Supalla.
   Docs.watchToggleSecondaryInPageNav();
   Docs.checkIfGuideScrollbar();
   Docs.buildSearch();
+  Docs.toggleShowing();
   prettyPrint();
 
 })(jQuery);

@@ -1,4 +1,4 @@
-@media screen and (min-width: @small-size) {
+@media screen and (min-width: 1360px) {
   .popupLink {
     border-bottom: 1px solid #00adef;
     cursor: pointer;
@@ -24,6 +24,7 @@
     position: absolute; 
     transform: translateY(-50%);
     display:block;
+    text-align: center;
   }
 
   .popupLink:hover .popup {
@@ -38,14 +39,14 @@
   }
 }
 
-@media screen and (max-width: @small-size) and (min-width: 0) {
+@media screen and (max-width: 1360px) and (min-width: 0) {
   .popupLink {
     border-bottom: 1px solid #00adef;
     cursor: pointer;
   }
 
   .popup {
-    background-color: @almost-black;
+    background-color: #00adef;
     border-radius:5px;
     border: 2px solid #00adef;
     font-weight:normal;
@@ -62,11 +63,18 @@
     position: absolute; 
     transform: translateY(-50%);
     display:block;
+    text-align: center;
   }
 
-  .popupLink:hover .popup {
+  .popupLink.showing .popup {
     visibility: visible;
     opacity: 1;
+  }
+
+  .popup:after {
+    content: "- tap here to close -";
+    padding-top: 5px;
+    padding-bottom: 5px;
   }
 
   .two-columns .content .img {
