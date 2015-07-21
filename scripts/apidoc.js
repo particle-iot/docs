@@ -53,8 +53,12 @@ function breakOutAlternativeOperations(data) {
 
     var baseParams, baseSuccess;
     var examplesIndex = {};
-    if (route.parameter) {
+    var successExamplesIndex = {};
+    if (route.examples) {
       examplesIndex = _.groupBy(route.examples, 'title');
+    }
+    if (route.success) {
+      successExamplesIndex = _.groupBy(route.success.examples, 'title');
     }
 
     _.each(route.parameter.fields, function(params, title) {
@@ -91,9 +95,18 @@ function breakOutAlternativeOperations(data) {
       } else {
         newRoute.examples = null;
       }
-
       // remove copied examples from base
       route.examples = _.difference(route.examples, newRoute.examples);
+
+      if (successExamplesIndex[groupKey] && successExamplesIndex[groupKey].length) {
+        newRoute.success.examples = successExamplesIndex[groupKey];
+        newRoute.success.examples.forEach(function (ex) {
+          ex.title = ex.content;
+        });
+      } else {
+        newRoute.success.examples = null;
+      }
+      route.success.examples = _.difference(route.success.examples, newRoute.success.examples);
 
       // add to list of all routes
       i++;

@@ -7,12 +7,10 @@ var less = require('metalsmith-less');
 var ignore = require('metalsmith-ignore');
 var permalinks = require('metalsmith-permalinks');
 var collections = require('metalsmith-collections');
-var blc = require('metalsmith-broken-link-checker');
 var cleanCSS = require('metalsmith-clean-css');
 var define = require('metalsmith-define');
 var compress = require('metalsmith-gzip');
 var paths = require('metalsmith-paths');
-var path = require('path');
 var partials = require('metalsmith-register-partials');
 var helpers = require('metalsmith-register-helpers');
 var redirect = require('metalsmith-redirect');
@@ -27,6 +25,7 @@ var fileMetadata = require('metalsmith-filemetadata');
 var msIf = require('metalsmith-if');
 var precompile = require('./precompile');
 var apidoc = require('./apidoc');
+var git = require('git-rev');
 
 var handlebars = require('handlebars');
 var prettify = require('prettify');
@@ -34,10 +33,9 @@ prettify.register(handlebars);
 
 var environment;
 
-
+var gitBranch;
 
 exports.metalsmith = function() {
-
   var _removeEmptyTokens = function removeEmptyTokens(token) {
     if (token.length > 0) {return token};
   };
@@ -61,13 +59,13 @@ exports.metalsmith = function() {
       src: '../api-node/',
       config: '../api-node/',
       destFile: 'content/reference/apigen.md',
-      includeFilters: '.*[vV]iews[^.]*\\.js$'
+      includeFilters: ['.*[vV]iews[^.]*\\.js$', 'lib/AccessTokenController.js']
     }))
     .use(partials({
       directory: '../templates/partials'
     }))
     .use(fileMetadata([
-      {pattern: "content/**/*.md", metadata: {"lunr": true, "assets": '/assets'}}
+      {pattern: "content/**/*.md", metadata: {"lunr": true, "assets": '/assets', "branch": gitBranch}}
     ]))
     .use(precompile({
       directory: '../templates/precompile',
@@ -224,39 +222,44 @@ exports.metalsmith = function() {
 
 
 exports.build = function(callback) {
-  exports.metalsmith().build(function(err, files) {
-    if (err) { throw err; }
-    if (callback) {
-      callback(err, files);
-    }
+  git.branch(function (str) {
+    gitBranch = process.env.TRAVIS_BRANCH || str;
+    exports.metalsmith().build(function(err, files) {
+      if (err) { throw err; }
+      if (callback) {
+        callback(err, files);
+      }
+    });
   });
 };
 
 exports.server = function(callback) {
   environment = 'development';
-  exports.metalsmith().use(serve())
-    .use(define({
-      development: true
-    }))
-    .use(watch({
-      paths: {
-        "${source}/content/**/*.md": true,
-        "${source}/assets/less/*.less": "assets/less/*.less",
-        "../templates/reference.hbs": "content/reference/*.md",
-        "../templates/guide.hbs": "content/guide/**/*.md",
-        "../templates/datasheet.hbs": "content/datasheets/*.md",
-        "../templates/support.hbs": "content/support/*.md",
-        "${source}/assets/js/*.js" : true
-      },
-      livereload: true
-    }))
-    .build(function(err, files) {
-      if (err) {
-        console.error(err, err.stack);
-      }
-      if (callback) {
-        callback(err, files);
-      }
-    });
-
+  git.branch(function (str) {
+    gitBranch = process.env.TRAVIS_BRANCH || str;
+    exports.metalsmith().use(serve())
+      .use(define({
+        development: true
+      }))
+      .use(watch({
+        paths: {
+          "${source}/content/**/*.md": true,
+          "${source}/assets/less/*.less": "assets/less/*.less",
+          "../templates/reference.hbs": "content/reference/*.md",
+          "../templates/guide.hbs": "content/guide/**/*.md",
+          "../templates/datasheet.hbs": "content/datasheets/*.md",
+          "../templates/support.hbs": "content/support/*.md",
+          "${source}/assets/js/*.js" : true
+        },
+        livereload: true
+      }))
+      .build(function(err, files) {
+        if (err) {
+          console.error(err, err.stack);
+        }
+        if (callback) {
+          callback(err, files);
+        }
+      });
+  });
 };

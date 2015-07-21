@@ -1,14 +1,7 @@
-var assert = require("assert");
 var should = require("should");
 var metalsmith = require('../scripts/metalsmith.js');
-var Crawler = require("simplecrawler");
-var request = require('request');
-var cheerio = require('cheerio');
-var async = require('async');
-
-var crawler = new Crawler("localhost", "/");
-var googleBody = "";
-var responses = [];
+var Crawler = require('crawler');
+var url = require('url');
 
 describe('Tests', function(){
   it('should run', function(){
@@ -20,8 +13,7 @@ describe('Build', function() {
   it('should run without error', function(done){
     this.timeout(20000);
     metalsmith.build(function(err, files) {
-      should.not.exist(err);
-      done();
+      done(err);
     });
   });
 });
@@ -30,158 +22,75 @@ describe('Server', function() {
   it('should run without error', function(done){
     this.timeout(20000);
     metalsmith.server(function(err, files) {
-      should.not.exist(err);
-      done();
+      done(err);
     });
   });
 });
+
+function shouldCrawl(qurl) {
+  if (qurl.indexOf('#') === 0 ||
+    qurl.indexOf('mailto:') === 0 ||
+    qurl.indexOf('http://localhost:35729') === 0) {
+    return false;
+  }
+  return true;
+}
 
 describe('Crawler', function() {
-  crawler.initialPort = 8080;
-  crawler.parseScriptTags = false;
-  crawler.interval = 250; // One second
-  crawler.maxConcurrency = 1;
-
-  crawler.addFetchCondition(function(parsedURL) {
-    return !(parsedURL.port === '35729');
-  });;
-
   it('should complete without error', function(done) {
     this.timeout(120000);
-    crawler.start();
-    crawler.on("fetchstart", function(queueItem, requestOptions) {
-      console.log("Started fetching: " +queueItem.url);
-    });
-    crawler.on("fetchcomplete", function(queueItem, responseBuffer, response) {
-      console.log("Successfully fetched! " + queueItem.url);
-      responses.push(responseBuffer);
-    });
-    crawler.on("complete", function(){
-      done();
-    });
-  });
-
-  it('should have a queue', function() {
-    crawler.queue.should.be.an.Object();
-  });
-
-  it('should succeed', function() {
-    crawler.queue[0].status.should.not.equal("failed");
-  });
-});
-
-describe('Docs', function() {
-  it('should exist', function() {
-    crawler.queue[0].status.should.not.equal("notfound");
-  });
-});
-
-describe('Internal links', function() {
-  it('should all succeed', function(done) {
-    var badLinks = [];
-    crawler.queue.getWithStatus("failed").forEach(function(queueItem) {
-      badLinks.push(queueItem.url);
-    });
-    var message = badLinks.join("\r\n");
-    if (message.length !== 0) {
-      var e = new Error("Bad internal links or assets:\r\n" + message);
-      done(e);
-    } else {
-      done();
-    }
-  });
-
-  it('should all return 200 OK', function(done) {
-    var badLinks = [];
-    crawler.queue.getWithStatus("notfound").forEach(function(queueItem) {
-      badLinks.push(queueItem.url);
-    });
-    var message = badLinks.join("\r\n");
-    if (message.length !== 0) {
-      var e = new Error("Bad internal links or assets:\r\n" + message);
-      done(e);
-    } else {
-      done();
-    }
-  });
-});
-
-describe('Request', function() {
-  it('should retrieve google.com', function(done) {
-    request('http://www.google.com', function(error, response, body) {
-      should.not.exist(error);
-      response.statusCode.should.equal(200);
-      googleBody = body;
-      done();
-    });
-  });
-
-  it('should retrieve links from the crawler', function(done) {
-    request(crawler.queue.get(0).url, function(error, response, body) {
-      should.not.exist(error);
-      response.statusCode.should.equal(200);
-      done();
-    });
-  });
-});
-
-describe('Cheerio', function() {
-  it('should parse Google', function(done) {
-    var $ = cheerio.load(googleBody);
-    var content = $('body').html();
-    content.should.be.a.String();
-    content.should.not.equal("");
-    done();
-  });
-
-  it('should find links on Google', function(done) {
-    var $ = cheerio.load(googleBody);
-    var links = [];
-    $('a').each(function() {
-      links.push($(this).attr('href'));
-    });
-    links.should.be.an.Array();
-    links.should.not.be.empty();
-    done();
-  });
-});
-
-describe('External links', function() {
-  var externalLinks = [];
-
-  it('should exist', function(done) {
-    responses.forEach(function(element, index, array){
-      var $ = cheerio.load(element.toString('utf8'));
-      $('a').each(function() {
-        var link = $(this).attr('href');
-        if (link.indexOf('http') != -1) {
-          externalLinks.push(link);
+    var errors = 0;
+    var host = 'http://localhost:8080';
+    var c = new Crawler({
+        maxConnections : 10,
+        skipDuplicates: true,
+        onDrain: function() {
+          if (errors > 0) {
+            return done(new Error('There are ' + errors + ' broken link(s)'));
+          }
+          return done();
         }
-      });
     });
-    externalLinks.should.be.an.Array();
-    externalLinks.should.not.be.empty();
-    done();
-  });
-
-  it('should return 200 OK', function(done) {
-    var badLinks = [];
-
-    async.each(externalLinks, function(link, callback) {
-      request(link, function(error, response, body) {
-        if (error || response.statusCode != 200) {
-          badLinks.push(link);
-        }
-        callback();
-      });
-    }, function(err) {
-      var message = badLinks.join("\r\n");
-      if (message.length !== 0) {
-        var e = new Error("Bad links:\r\n" + message);
-        done(e);
-      } else {
-        done();
+    function crawlCallback(fromUrl, toUrl, content, error, result, $) {
+      if (error || result.statusCode !== 200) {
+        console.error('%s ON %s CONTENT %s LINKS TO %s', error || result.statusCode, fromUrl, content, toUrl);
+        errors++;
+        return;
       }
-    });
+      var isRelative = toUrl.indexOf('http') === -1;
+      var isLocalhost = toUrl.indexOf('localhost') > 0;
+      if ($ && result && (isRelative || isLocalhost)) {
+        $('a').each(function(index, a) {
+          var toQueueUrl = $(a).attr('href');
+          var linkContent = $(a).text();
+          if (!toQueueUrl) return;
+
+          if (!shouldCrawl(toQueueUrl)) {
+            return;
+          }
+
+          toQueueUrl = url.resolve(toUrl, toQueueUrl);
+          c.queue([{
+            uri: toQueueUrl,
+            callback: crawlCallback.bind(null, toUrl, toQueueUrl, linkContent)
+          }]);
+        });
+        $('img').each(function (index, img) {
+          var toQueueUrl = $(img).attr('src');
+          if (!toQueueUrl) return;
+
+          if (!shouldCrawl(toQueueUrl)) {
+            return;
+          }
+
+          toQueueUrl = url.resolve(toUrl, toQueueUrl);
+          c.queue([{
+            uri: toQueueUrl,
+            callback: crawlCallback.bind(null, toUrl, toQueueUrl, 'image')
+          }]);
+        });
+      }
+    }
+    c.queue([{ uri: host, callback: crawlCallback.bind(null, '', host, 'initial page') }]);
   });
 });
