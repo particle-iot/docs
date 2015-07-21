@@ -426,7 +426,7 @@ Bare with me for these next steps! This is slightly complicated because of the g
 
 Congrats, you made it to the end! now your {{#if photon}}Photon{{/if}}{{#if core}}Core{{/if}} should be connected to the Cloud... or will be just as soon as we add your Key to the server.
 
-##Connection Troubles
+##Connection Issues
 
 ###Can't Get Connected
 
@@ -627,7 +627,7 @@ Feel free to contact [hello @ particle dot com] with **subject line: *"Hackathon
 
 
 {{#if core}}
-##Troubleshoot by LED on the Core
+##Troubleshoot LED Color on the Core
 
 Here is a [comprehensive community guide](https://community.particle.io/t/spark-core-troubleshooting-guide-spark-team/696) on this issue.
 {{/if}}
