@@ -147,7 +147,7 @@ We've taken the liberty of loading some firmware onto your device for you. It's 
 * `analogRead` reads the input of an analog pin, such as one connected to a temperature sensor. The input will be between 0 and 255.
 * `analogWrite` writes analog output to an analog pin, such as a dimmable LED. You can set this output from 0 to 255.
 
-We'll go over this more [later](../../tinker), so don't worry. For more documentation on Tinker, click [here](/reference/tinker).
+We'll go over this more [later](../../tinker), so don't worry. For more documentation on Tinker, click [here](../../tinker).
 </p> 
 
 As you can see on your smartphone, the circles represent different pins on your device. If you tap on these circles, you can see the Tinker functions available for the associated pins.
