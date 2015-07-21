@@ -50,6 +50,7 @@
     "should": "^7.0.1"
   },
   "devDependencies": {
-    "crawler": "^0.4.3"
+    "crawler": "^0.4.3",
+    "git-rev": "^0.2.1"
   }
 }
