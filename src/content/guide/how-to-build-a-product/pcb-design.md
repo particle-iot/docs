@@ -23,7 +23,7 @@ To work with Particle, your hardware must meet a small list of design requiremen
 - **Your device must expose JTAG programming pins**. All Particle development kits (Photon/Core) expose JTAG pins by default. Although the Particle platform has been optimized for over-the-air firmware updates, JTAG programming is required for advanced debugging and development, or modifications to the underlying Particle firmware libraries. All product creators working with the P0 or P1 should expose these pins on their PCB--the pins are identified in their corresponding datasheets [here](http://docs.particle.io/photon/photon-datasheet/) and [here](http://docs.particle.io/photon/p1-datasheet/).
 - **Serial Test Pads** (*Recommended*). Although it's not *absolutely* required, it's highly recommended that you expose one hardware serial peripheral via test pads or pins. As we'll discuss later in the [Manufacturing](manufacturing) section of this guide, exposing serial will make it easy to leverage Particle's open-source test firmware for capturing basic information about your device on the manufacturing line.
 
-Note that, for additional security and to minimize tampering by customers, you can expose JTAG and serial test pins on a perforated section of your PCB that can be broken off after successful testing. This is a better option than deciding not to expose either JTAG or serial, which is, once again, [a bad idea](http://media.giphy.com/media/bI5BEfwbdVPcA/giphy.gif).
+Note that, for additional security and to minimize tampering by customers, you can expose JTAG and serial test pins on a perforated section of your PCB that can be broken off after successful testing. This is a better option than deciding not to expose either JTAG or serial, which is, once again, {{{popup ‘a bad decision.' 'img’ ‘bad-decision.gif'}}}
 
 ### Transitioning from a dev kit to a module
 
@@ -64,6 +64,7 @@ If you don't have strong preferences, we would currently recommend using EAGLE, 
 
 **EAGLE Design Libraries** - *Coming soon!*. Instructions for including and integrating Particle's EAGLE open-source parts library into your PCB design.
 
+**Best practices for PCB design**.  There are a lot of resources on the web that establish best practices for designing PCBs. [This post](http://www.proto2prod.com/proto2prod/2015/3/18/your-first-prototype-fab-specs-and-gerber-files-13) from our blog, Proto2Prod, focuses specifically on the key fabrication specifications that have a significant impact on mass production. Designing your product with a strategy in mind for mass production is critical, and will save you development time, money, and headaches down the road.
 
 ### Prototyping early designs
 Before you manufacture thousands of units, it's best to start with just a handful. We've compiled a short list of resources you'll need to get going:
@@ -84,7 +85,7 @@ If you would like introductions to high-volume overseas PCB manufacturers, pleas
 - [Tempo Automation](http://tempoautomation.com/)
 - [Seeed Studio PCB Fusion](https://www.seeedstudio.com/service/)
 
-For tips and resources for prototyping PCBs by hand (our preferred prototyping method at Particle), please visit our blog, [Proto2Prod](http://www.proto2prod.com/proto2prod/2015/6/15/your-first-prototype-assembly-tips-and-techniques) for useful how-to's and tutorials.
+For tips and resources for prototyping PCBs by hand (our preferred prototyping method at Particle), please visit our blog, [Proto2Prod](http://www.proto2prod.com/proto2prod/2015/6/15/your-first-prototype-assembly-tips-and-techniques).
 
 **RF validation** - *Coming soon!*.  You have to validate your RF design with a professional shop and equipment you probably don't have access to. Here's strategies for dealing with that.
 
