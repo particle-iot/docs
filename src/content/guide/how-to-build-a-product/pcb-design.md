@@ -64,6 +64,7 @@ If you don't have strong preferences, we would currently recommend using EAGLE, 
 
 **EAGLE Design Libraries** - *Coming soon!*. Instructions for including and integrating Particle's EAGLE open-source parts library into your PCB design.
 
+**Best practices for PCB design**.  There are a lot of resources on the web that establish best practices for designing PCBs. [This post](http://www.proto2prod.com/proto2prod/2015/3/18/your-first-prototype-fab-specs-and-gerber-files-13) from our blog, Proto2Prod, focuses specifically on the key fabrication specifications that have a significant impact on mass production. Designing your product with a strategy in mind for mass production is critical, and will save you development time, money, and headaches down the road.
 
 ### Prototyping early designs
 Before you manufacture thousands of units, it's best to start with just a handful. We've compiled a short list of resources you'll need to get going:
@@ -84,7 +85,7 @@ If you would like introductions to high-volume overseas PCB manufacturers, pleas
 - [Tempo Automation](http://tempoautomation.com/)
 - [Seeed Studio PCB Fusion](https://www.seeedstudio.com/service/)
 
-For tips and resources for prototyping PCBs by hand (our preferred prototyping method at Particle), please visit our blog, [Proto2Prod](http://www.proto2prod.com/proto2prod/2015/6/15/your-first-prototype-assembly-tips-and-techniques) for useful how-to's and tutorials.
+For tips and resources for prototyping PCBs by hand (our preferred prototyping method at Particle), please visit our blog, [Proto2Prod](http://www.proto2prod.com/proto2prod/2015/6/15/your-first-prototype-assembly-tips-and-techniques).
 
 **RF validation** - *Coming soon!*.  You have to validate your RF design with a professional shop and equipment you probably don't have access to. Here's strategies for dealing with that.
 
