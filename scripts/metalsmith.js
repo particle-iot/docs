@@ -7,12 +7,10 @@ var less = require('metalsmith-less');
 var ignore = require('metalsmith-ignore');
 var permalinks = require('metalsmith-permalinks');
 var collections = require('metalsmith-collections');
-var blc = require('metalsmith-broken-link-checker');
 var cleanCSS = require('metalsmith-clean-css');
 var define = require('metalsmith-define');
 var compress = require('metalsmith-gzip');
 var paths = require('metalsmith-paths');
-var path = require('path');
 var partials = require('metalsmith-register-partials');
 var helpers = require('metalsmith-register-helpers');
 var redirect = require('metalsmith-redirect');
@@ -61,7 +59,7 @@ exports.metalsmith = function() {
       src: '../api-node/',
       config: '../api-node/',
       destFile: 'content/reference/apigen.md',
-      includeFilters: '.*[vV]iews[^.]*\\.js$'
+      includeFilters: ['.*[vV]iews[^.]*\\.js$', 'lib/AccessTokenController.js']
     }))
     .use(partials({
       directory: '../templates/partials'
