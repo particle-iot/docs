@@ -458,7 +458,7 @@ So, let's dig in. If your Core is not connecting to your Wi-Fi network, we recom
 
 On some networks, Smart Config does not work, but the Core can connect to the network just fine. We've implemented a back-up mechanism so you can set up your Core over USB. Don't forget that you'll need to claim your Core manually as well if you haven't already!
 
-[Setup with USB >](guide/getting-started/intro/core)
+[Setup with USB >](/guide/getting-started/intro/core)
 
 **STEP 2: Try another network**
 
