@@ -98,7 +98,7 @@ The Spark Core offers a total 18 I/O pins to the user: `D0 to D7`, `A0 to A7` an
 
 ### Digital pins
 
-Each pin on the Core can either be configured as input (with or without pull-up or pull-down) or as output (push-pull or open-drain) using the [pinMode()](/reference/firmware/#setup-) function.
+Each pin on the Core can either be configured as input (with or without pull-up or pull-down) or as output (push-pull or open-drain) using the [pinMode()](/reference/firmware/#pinmode-) function.
 
 
 After setting them up, the user can then write to or read from the pins using [digitalWrite()](/reference/firmware/#digitalwrite-) and [digitalRead()](/reference/firmware/#digitalread-) functions respectively.

@@ -5,53 +5,11 @@ template: guide.hbs
 order: 2
 ---
 
-OUTLINE
----
-####1. Hardware design requirements
-  - Use a supported hardware module
-  - RGB LED and button
-  - RF circuit and antenna
-  - **JTAG programming pins**. If you're building a product, you're probably going to flash it on the line, so these should be exposed. Even if you're not, it's still a good idea.
-  - **Expose serial pins test pads**. We can give you a little serial mode code to add to default firmware to help with testing, tracking, and serialization.
-
-####2. Transitioning from a dev kit to a module
-  - Photon in female headers
-  - Surface mounted Photon
-  - Transition to P0
-  - Transition to P1
-
-####3. PCB design resources
-  - Popular PCB design packages
-  - **EAGLE libraries**. Where to find our EAGLE libraries and how to use them.
-  - Popular PCB manufacturers
-  - Popular PCBA solutions
-
-####4. Prototyping early designs
-  - Purchasing modules for prototyping
-  - Prototyping assembly services
-  - **RF validation**.  You have to validate your RF design with a professional shop and equipment you probably don't have access to. Here's strategies for dealing with that.
-
-####5. Transitioning to mass production (customer success section)
-  - Reach out to us
-  - **Introductions to large PCB manufacturers and contract manufacturers**. We can intro our customer success program here and link to whatever we have, even if it's just the menu of options.
-  - Check out the manufacturing section of the guide
-
-####Open Questions:
-- [ ] Thing 1
-- [ ] Thing 2
-
-####Things we need to build:
-- [ ] Customer success menu and website
-
----
-
-
-
-
+# Designing your own PCB
 
 So you've got a prototype in a breadboard. It's probably a mess of wires, something like this:
 
-**PUT A PICTURE OF A BREADBOARDED PROTOTYPE HERE**
+![Project in a breadboard](/assets/images/breadboarded-core.jpg)
 
 Your first step towards a manufacturable product is to re-design this product into your own printed circuit board (PCB) using our modules (P0 or P1) rather than our development kits (Photon/Core).
 
@@ -61,8 +19,11 @@ To work with Particle, your hardware must meet a small list of design requiremen
 
 - **Your device should use a supported hardware module.** While the firmware stack can be run on a variety of connectivity modules, we provide our own modules (the P0 and P1) as an out-of-the-box solution, and we can support other Broadcom WICED modules easily. You may also choose to port our firmware libraries to another module by implementing our [Hardware Abstraction Layer (HAL)](https://www.github.com/spark/firmware); this is, however, a more involved process. Please contact our [sales team](mailto:sales@particle.io) if you are interested in engaging us to support another hardware solution.
 - **Your device must have an RGB LED and a button to enter 'setup mode'**. The RGB LED shows the user the connectivity status, while the 'setup' button lets your customer reconfigure the device. These components should be wired according to the [Photon reference design](https://www.github.com/spark/photon).
-- **Your device must have an RF circuit and an antenna.** If you use the Photon or P1, the antenna is included in the hardware. If you use the P0, you must connect your own antenna. Please use the [Photon](https://www.github.com/spark/photon) as a reference design; if you use an antenna of equal or lesser gain, you may use the Photon's FCC/CE/IC modular certification.
-- **Your device must expose JTAG programming pins**. All Particle development kits (Photon/Electron) expose JTAG pins by default. Although the Particle platform has been optimized for over-the-air firmware updates, JTAG programming is required for advanced debugging and development, or modifications to the underlying Particle firmware libraries. All product creators working with the P0 or P1 should expose these pins on their PCB--the pins are identified in their corresponding datasheets.
+- **Your device must have an RF circuit and an antenna.** If you use the Photon or P1, the antenna is included in the hardware. If you use the P0, you must connect your own antenna. Please use the [Photon](https://www.github.com/spark/photon) as a reference design; if you use an antenna of equal or lesser gain, you may leverage Particle's FCC/CE/IC modular certification for the Photon.
+- **Your device must expose JTAG programming pins**. All Particle development kits (Photon/Electron) expose JTAG pins by default. Although the Particle platform has been optimized for over-the-air firmware updates, JTAG programming is required for advanced debugging and development, or modifications to the underlying Particle firmware libraries. All product creators working with the P0 or P1 should expose these pins on their PCB--the pins are identified in their corresponding datasheets [here](http://docs.particle.io/photon/photon-datasheet/) and [here](http://docs.particle.io/photon/p1-datasheet/).
+- **Serial Test Pads** (*Recommended*). Although it's not critical, it's highly recommended that you expose one hardware serial peripheral via test pads or pins. As we'll discuss later in the [Manufacturing](manufacturing) section of this guide, exposing serial will make it easy to leverage Particle's open-source test firmware for capturing basic information about your device on the manufacturing line.
+
+Note that, for additional security and to minimize tampering, you can expose JTAG and serial test pins on a perforated section of your PCB that can be broken off after successful testing. This is a better option than deciding not to expose either JTAG or serial.
 
 ### Transitioning from a dev kit to a module
 
@@ -70,15 +31,19 @@ Your first prototype was most likely built with a Core or a Photon in a breadboa
 
 **Photon in female headers**. You may design female 0.1" headers into your product to provide a "slot" for the Photon. This is common for low-volume hand-soldered production. Please reference the [Photon design files](https://www.github.com/spark/photon) and the [Photon datasheet](#) for design guidelines.
 
-**Surface mounted Photon**. The Photon comes with castellated edges and can be purchased without headers; in this form it can be surface mounted to your PCB. Please reference the [Photon design files](https://www.github.com/spark/photon) and the [Photon datasheet](#) for design guidelines.
+**Surface mounted Photon**. The Photon comes with castellated edges and can be purchased without headers; in this form it can be surface mounted directly to your PCB like many other radio modules on the market. Please reference the [Photon design files](https://www.github.com/spark/photon) and the [Photon datasheet](#) for design guidelines, including recommended pad sizes and spacing on the host PCB and reflow requirements.
 
-**Transition to P0**. The P0 is the module on the Photon, which includes the microcontroller and Wi-Fi chip. The P0 can be purchased individually from our [online store](https://store.particle.io) or in bulk (contact [sales@particle.io](mailto:sales@particle.io)). When you transition from a Photon to the P0, you must reimplement on your board the following subsystems:
+![Surface mounted Photon](/assets/images/castellated-edges.png)
+
+**Transition to P0**. The P0 is the module on the Photon, which includes a microcontroller and Wi-Fi chip. The P0 can be purchased individually from our [online store](https://store.particle.io) or in bulk (contact [sales@particle.io](mailto:sales@particle.io)). When you transition from a Photon to the P0, you must reimplement on your board the following subsystems:
 
 - Voltage regulator (depending on your input voltage)
 - RGB LED and 'setup' button (see hardware requirements above)
 - Antenna and RF circuit (see hardware requirements above)
 
-**Transition to P1**. The P1 is a second module that is nearly identical to the P0 except that it's larger, includes 1MB of external flash, and includes an antenna and u.FL connector on-board. The P1 is slightly more expensive than the P0 ($2 in single units), but this may be a worthwhile trade-off as it helps you avoid any RF design work. When you transition from a Photon to the P0, you must reimplement on your board the following subsystems:
+Specifically, the RF circuit requires specialized testing in order to verify effectiveness. Please see the section on "RF Validation" in the "Prototyping early designs" section further down the page.
+
+**Transition to P1**. The P1 is a second module that is nearly identical to the P0 except that it's larger, includes 1MB of external flash, and includes an antenna and u.FL connector on-board. The P1 is slightly more expensive than the P0 ($2 more in single units), but this may be a worthwhile trade-off as it helps you avoid additional RF design work and validation. When you transition from a Photon to the P0, you must reimplement on your board the following subsystems:
 
 - Voltage regulator (depending on your input voltage)
 - RGB LED and 'setup' button (see hardware requirements above)
@@ -97,6 +62,14 @@ If you have never designed your own circuit boards, there is a wealth of knowled
 
 If you don't have strong preferences, we would currently recommend using EAGLE, since you'll be able to use our [parts libraries](https://www.github.com/spark/photon) and use the Photon board design as a reference for your own PCB.
 
+**EAGLE Design Libraries** - *Coming soon!*. Instructions for including and integrating Particle's EAGLE open-source parts library into your PCB design.
+
+
+### Prototyping early designs
+Before you manufacture thousands of units, it's best to start with just a handful. We've compiled a short list of resources you'll need to get going:
+
+**Purchasing Particle hardware for prototyping**.  The fastest way to get low-volume dev kits and modules for prototyping is to purchase them directly from our [online store](http://store.particle.io). Particle sells both our P0 and P1 modules in cut-tape strips of 10 modules that are perfect for low volume PCBA with a pick and place or hand assembly.
+
 **Popular PCB manufacturers:**
 
 - [Advanced Circuits](http://www.4pcb.com/)
@@ -109,7 +82,16 @@ If you would like introductions to high-volume overseas PCB manufacturers, pleas
 **Popular PCB assembly (PCBA) solutions:**
 
 - [Tempo Automation](http://tempoautomation.com/)
-- [Seeed Studio PCB Assembly](https://www.seeedstudio.com/service/)
+- [Seeed Studio PCB Fusion](https://www.seeedstudio.com/service/)
+
+For tips and resources for prototyping PCBs by hand (our preferred prototyping method at Particle), please visit our blog, [Proto2Prod](http://www.proto2prod.com/proto2prod/2015/6/15/your-first-prototype-assembly-tips-and-techniques) for useful how-to's and tutorials.
+
+**RF validation** - *Coming soon!*.  You have to validate your RF design with a professional shop and equipment you probably don't have access to. Here's strategies for dealing with that.
+
+### Thinking about mass production
+**Reach out to us!** Once you've validated your hardware design with a series of prototypes, it's time to start thinking about how to scale up for mass production.  If you haven't already, [let us know you're building a product on Particle!](mailto:sales@particle.io). Our team has lots of experience bringing Internet-connected devices to market, and can give valuable feedback on a wide variety of topics like manufacturing overseas, Kickstarter, VC funding, and everything in between. If we don't know you exist, it's much harder for us to help :-)
+
+**Prefferred Services Partners** - *Coming soon!* Our customer success team is hard at work assembling a broad menu of trusted, professional services partners for every step of the product development process. In the meantime, please [email us](mailto:sales@particle.io) for references and recommendations.
 
 #### Next step
 

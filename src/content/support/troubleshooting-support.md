@@ -178,7 +178,7 @@ Before you proceed, make sure you fired up ``particle-server`` [link to particle
 
 ``particle config profile_name apiUrl "http://DOMAIN_OR_IP"``
 
-For the local cloud, the port number 8080 needs to be added behind: http://domain_or_ip:8080
+For the local cloud, the port number 8080 needs to be added behind: http&#58;//domain_or_ip:8080
 
 This will create a new profile to point to your server and switching back to the Particle cloud is simply ``particle config`` spark and other profiles would be ``particle config profile_name``.
 
@@ -237,7 +237,7 @@ Example activity from CMD output:
 	
 	``particle keys server cloud_public.der``
 	
-	The Particle cloud public key file is here: [https://s3.amazonaws.com/spark-website/cloud_public.der](https://s3.amazonaws.com/spark-website/cloud_public.der
+	The Particle cloud public key file is here: [https://s3.amazonaws.com/spark-website/cloud_public.der](https://s3.amazonaws.com/spark-website/cloud_public.der)
 
 	For local Cloud: ``particle keys server your_local_cloud_public_key.der IP-ADDRESS``
 - Reset your {{#if photon}}photon{{/if}}{{#if core}}core{{/if}}
@@ -375,7 +375,7 @@ As Stan Lee once said: with great power comes great responsibility. Go forth and
 
 ##Installing Particle CLI
 
-For [installation instructions]((https://github.com/spark/particle-cli)) and to stay up-to-date on the most recent revisions of our Particle-cli, follow our repo
+For [installation instructions](https://github.com/spark/particle-cli) and to stay up-to-date on the most recent revisions of our Particle-cli, follow our repo
 [Particle CLI Repo](https://github.com/spark/particle-cli).
 
 ##Device Key Management
@@ -487,7 +487,7 @@ There are a million ways router settings could cause problems, but here's a few 
 
 **STEP 5: Search the forums**
 
-It's possible that other folks have encountered the same issues that you have. The best way to check and learn from others is to [search the forums](https://community.partcle.io/); search for your particular symptoms or for your Wi-Fi router make and model to find relevant posts.
+It's possible that other folks have encountered the same issues that you have. The best way to check and learn from others is to [search the forums](https://community.particle.io/); search for your particular symptoms or for your Wi-Fi router make and model to find relevant posts.
 
 **STEP 6: Post a report in the Forums**
 
