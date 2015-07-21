@@ -13,7 +13,6 @@
   },
   "dependencies": {
     "apidoc": "^0.13.1",
-    "async": "^1.2.1",
     "cheerio": "^0.16.0",
     "handlebars": "^3.0.1",
     "jade": "^1.11.0",
@@ -48,8 +47,9 @@
     "minimatch": "^2.0.8",
     "mocha": "^2.2.5",
     "prettify": "^0.1.7",
-    "request": "^2.58.0",
-    "should": "^7.0.1",
-    "simplecrawler": "^0.5.2"
+    "should": "^7.0.1"
+  },
+  "devDependencies": {
+    "crawler": "^0.4.3"
   }
 }
