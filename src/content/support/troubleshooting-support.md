@@ -8,7 +8,6 @@ order: 3
 
 #Common Troubleshooting Tips and References
 
-
 ## LED Colors (Explained)
 
 {{#if core}}
@@ -248,7 +247,7 @@ Example activity from CMD output:
 
 Example Output:
 
-	KENMBP:~ kennethlimcp$ spark config identify
+	KENMBP:~ kennethlimcp$ particle config identify
 	Current profile: local
 	Using API: http://192.168.1.68
 
@@ -373,10 +372,6 @@ Sounds kinda terrible, right? Except this can be really useful when you're writi
 
 As Stan Lee once said: with great power comes great responsibility. Go forth and control the connection. Be careful. Good luck.
 
-##Installing Particle CLI
-
-For [installation instructions](https://github.com/spark/particle-cli) and to stay up-to-date on the most recent revisions of our Particle-cli, follow our repo
-[Particle CLI Repo](https://github.com/spark/particle-cli).
 
 ##Device Key Management
 
@@ -431,7 +426,7 @@ Bare with me for these next steps! This is slightly complicated because of the g
 
 Congrats, you made it to the end! now your {{#if photon}}Photon{{/if}}{{#if core}}Core{{/if}} should be connected to the Cloud... or will be just as soon as we add your Key to the server.
 
-##Connection Troubles
+##Connection Issues
 
 ###Can't Get Connected
 
@@ -502,11 +497,146 @@ Please post issues with connectivity either as responses to this topic or, if th
 - Internet Service Provider
 - Any network settings that might diverge from the norm
 
-##Troubleshoot by color on the Core
 
-Here is a [comprehensive community guide](https://community.particle.io/t/spark-core-troubleshooting-guide-spark-team/696) on this issue.
+###Special Cases
+
+***Pulsing White***
+
+- **What's the Core Doing?** The main LED on my Core slowly pulses white, even if I reset it or [perform a factory reset](https://community.particle.io/t/how-to-do-a-factory-reset/2579).
+- **What's the problem?** The CC3000 on the COre is having trouble initializing due ot a potential hardware issue.
+- **How do I fix it?** In general, if the LED on your Core starts breathing white, the best thing to do is to reach out to the Particle team. Refer to this issue in your email, and Particle's Technical Support staff will help you resolve the problem directly.
+	
+
+***Main LED off, Small Blue LED dim***
+
+- **What’s the Core doing?** The main LED on my Core is off, but the small blue LED in the upper right corner is dimly glowing.
+- **What’s the problem?** Your Core is missing firmware.
+- **How do I fix it?** 
+
+1. Try a factory reset. Hold down both buttons, then release the RST button, while holding down the MODE button. The LED should begin flashing yellow. Continue holding down the MODE button until you see the Core change from flashing yellow to flashing white. Then release the button. The Core should begin after the factory reset is complete. [Here](http://docs.particle.io/core/connect/#appendix-factory-reset) is a video to illustrate it being done.
+
+2. If you see no flashing lights during factory reset, then your Core may be temporarily nonfunctional. If you have a JTAG shield, contact [hello @ particle dot io] so we can help walk you through re-installing the Core firmware. If you do not have a JTAG shield, please contact the Particle team to let us know, and we’ll help you take next steps.
+
+***Both LEDs off and Unresponsive***
+
+- **What's the Core doing?** My Core isn't showing any LED acitivity when I power it over USB.
+- **What's the problem?** Your core is not receiving power.
+- **How do I fix it?**
+
+Please complete the following steps:
+
+1. Try powering the Core with a different USB cable and power supply (different USB port on your computer, for example).
+
+2. If a different USB cable and power supply does not fix the issue, your Core may have a hardware short. Please contact the Particle team for further debugging.
+
+
+##Upgrades and Updates
+
+###Deep Update for the Core
+
+A **deep update** is a firmware update that reaches **deep** into the internals of a core and updates the firmware of peripheral modules like the CC3000. Periodically, as enhancements and bugfixes become available for components on the Core, we'll release new deep updates to keep your hardware always running the latest, greatest firmware within your application and the other underlying flashable components. Our first deep update release, **deep_update_2014_06** is the maiden voyage of this feature, designed to apply the CC3000 patch, fix the flashing cyan issue, and dramatically improve the stability and performance of the Core.
+
+***Overview***
+
+There are multiple ways to apply the CC3000 deep update described below. Regardless of which path you choose, all of them will invoke the same behaviors once the binary has been flashed to the Core. This firmware employs the following logic:
+
+1. Selectively apply the patch if needed, if the CC3000 firmware version is less than "1.28".
+
+2. Restart, reconnect to cloud, auto-upgrade to the latest Tinker via an over the air firmware update.
+
+3. Restart, reconnect to cloud, publish spark/cc3000-patch-version (latest Tinker does this).
+
+In step one, when the CC3000 firmware is being upgraded the LED will blink orange. It looks very similar to the bootloader mode's blinking yellow; if you look closely, it is in fact orange!
+
+Sometimes over air firmware updates can fail. If your Core freezes while blinking magenta, just reset it and try again.
+
+If you want to get a preview of what to expect, please checkout these **videos that illustrate what a deep update looks like on a Core.**
+
+- [This video](https://vimeo.com/99867395) illustrates what a deep update looks like when the OTA firmware update fails a couple of times, but ultimately succeeds.
+
+**Flash via Particle Build IDE**
+
+The easiest way to apply **deep_update_2014_06** is to simply log into the [Particle Build IDE](https://build.particle.io/build).
+When you login, you'll be prompted with instructions and links that will show you the way. Once all of your claimed cores have had the deep update applied to them, you'll no longer be prompted. Note: You'll need have a Core connected and breathing cyan for this to work.
+
+If you're on a noisy WiFi network you've had troubles flashing wirelessly in the past, you might want to consider using one of the alternate USB-based approaches described below.
+
+**Flash via Particle CLI**
+
+The [Particle CLI](https://github.com/spark/particle-cli) s a swiss army command line knife that can be used to do all kinds of cool things...like flash a deep update to your core. The README provides some nice documentation about how to install it and [how to do a deep update over USB](https://github.com/spark/spark-cli#performing-a-deep-update). The process is pretty simple:
+
+Install or Upgrade the CLI (requires Node.js):
+
+``npm install -g spark-cli``
+
+Connect a Core to your computer via USB and put it into [dfu-mode](/guide/getting-started/modes/core/#dfu-mode-device-firmware-upgrade-)
+
+Run the flash command:
+
+``particle flash --usb deep_update_2014_06``
+
+This installs the deep udate from a binary that is packaged with the Particle CLI, so you don't have to download it.
+
+
+###Full Firmware Upgrade
+
+If you are having intermittent connectivity issues, odd behavior or believe your firmware to be corrupted or out of date, you would benefit from performing a full firmware upgrade. This requires using dfu-util and installing the [Particle CLI](https://github.com/spark/particle-cli)
+, which provides an excellent local development and troubleshooting environment for your Spark development.
+
+Once the Particle CLI and dfu-util are installed, you have to enter DFU mode. Once that is done, please run the following commands through the Particle CLI:
+
+- particle flash --factory tinker
+- particle flash --usb cc3000
+- particle flash --usb tinker
+
+These commands replace the factory reset image, and re-patch the radio, bringing your Core to an upgraded factory state. Good luck!
 
 {{/if}}
+
+
+##Hardware Questions
+
+###Shields and Accessories
+
+For all hardware related questions in regards to all of our available shields, pinouts, and diagrams, and mini-tutorials
+feel free to visit our [Datasheets Section](/datasheets/photon-shields/#shield-shield on these topics.
+This includes:
+ 
+- Shield Shield
+- Relay Shield
+- Programmer Shield
+- Internet Button
+- Photon Kit
+- Photon Maker Kit Contents
+
+##Common Questions
+
+**Where can I get more firmware information, like a guide?**
+Most of our firmware solutions are now explained in depth, located in our new and improved {{#if photon}}[Photon Guide](guide/getting-started/intro/photon/){{/if}}{{#if core}}[Core Guide](/guide/getting-started/intro/core/){{/if}}.
+
+**Do Particle devices play well with IFTTT?**
+Yes, and that *how-to* is located in our [IFTTT features section](/guide/tools-and-features/ifttt/).
+
+**Webhooks and JS-Plugins?**
+Of course, if it's related to the internet, we probably support it. [Webhooks features section](/guide/tools-and-features/webhooks/).
+
+**Can I host or co-host a Hackathon/Program that is Powered by Particle?**
+Yup! [Here are our best practices](/guide/tools-and-features/hackathon/) about setting devices up for a Hackathon.
+
+Feel free to contact [hello @ particle dot com] with **subject line: *"Hackathon Inquiry for Particle"* **for any additional information about this.
+
+
+{{#if core}}
+##Troubleshoot LED Color on the Core
+
+Here is a [comprehensive community guide](https://community.particle.io/t/spark-core-troubleshooting-guide-spark-team/696) on this issue.
+{{/if}}
+
+##Installing Particle CLI
+
+For [installation instructions](https://github.com/spark/particle-cli) and to stay up-to-date on the most recent revisions of our Particle-cli, follow our repo
+[Particle CLI Repo](https://github.com/spark/particle-cli).
+
 
 ##{{#if photon}}Photon{{/if}} {{#if core}}Core{{/if}} Pinout Map & Datasheets
 

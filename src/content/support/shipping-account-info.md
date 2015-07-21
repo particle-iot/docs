@@ -11,11 +11,9 @@ Account & Shipping Issues
 
 ###Where is my order?
 
-If you'd like to track your order, please find your **OrderID #** that was given at checkout and in the order confirmation email. Also, provide the **email address** that was used to checkout at the [store.particle.io](https://store.particle.io/) or kickstarter site.
+If you'd like to track your order, please find your **OrderID #** that was given at checkout and in the order confirmation email. Also, provide the **email address** that was used to checkout at the [store.particle.io](https://store.particle.io/) or our kickstarter site.
 
-<!-- Then, use this --> <a href="https://dashboard.trycelery.com/status" class="button">Check My Order</a> <!--button and use the information to retrieve your [order invoice](https://dashboard.trycelery.com/status) and [cart information](https://dashboard.trycelery.com/status).-->
-
-
+<a href="https://dashboard.trycelery.com/status" class="button">Check My Order</a> 
 
 ###Updating My Address
 
@@ -44,4 +42,5 @@ If you feel as if you have good reason to cancel your purchase with us, please f
 <form>
 	<a> <input class="button" type="button" value="Cancel My Order" onClick="script: Zenbox.show(); return false;" /> </a>
 </form>
+
 
