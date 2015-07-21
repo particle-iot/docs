@@ -424,15 +424,29 @@ h1 small.beta {
 
 .page-body {
   position: absolute;
-  left: 280px;
   top: 0;
   bottom: 0;
   right: 0;
   overflow-y: auto;
   -webkit-transform: translate3d(0,0,0);
+  z-index: 1;
+  //.transition(left .33s);
+  background: @white;
 
-  @media(max-width: @medium-size) {
+  &.menu-hidden {
     left: 0;
+  }
+
+  &.menu-visible {
+    left: 281px;
+    @media(max-width: @medium-size) {
+      left: 0;
+      transform: translate3d(281px, 0, 0);
+      -moz-transform: translate3d(281px,0,0);
+      -o-transform: translate3d(281px,0,0);
+      -ms-transform: translate3d(281px,0,0);
+      -webkit-transform: translate3d(281px,0,0);
+    }
   }
 }
 
@@ -452,7 +466,7 @@ h1 small.beta {
 
 .arrow {
   position: absolute;
-  top: -100px;
+  top: 0;
   bottom: 0;
   max-width: 150px;
   min-width: 150px;

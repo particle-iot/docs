@@ -319,9 +319,26 @@ Created by Zach Supalla.
     $("span").on('click', function() {
       $(this).toggleClass("showing");
     });
-  }
+  };
+
+  Docs.toggleNav = function() {
+    $(".toggle-navigation").click(function(e) {
+      e.preventDefault();
+      $(".menubar, .page-body").toggleClass("menu-visible menu-hidden");
+    });
+  };
+
+  Docs.addMenubarClass = function() {
+    var width = $(window).width();
+    if(width > 768) {
+      $(".menubar, .page-body").addClass('menu-visible');
+    } else {
+      $(".menubar, .page-body").addClass('menu-hidden');
+    }
+  };
 
   // Ok, then let's do it!
+  Docs.addMenubarClass();
   Docs.rememberDevices();
   Docs.transform();
   Docs.createScrollSpies();
@@ -330,6 +347,7 @@ Created by Zach Supalla.
   Docs.watchToggleSecondaryInPageNav();
   Docs.checkIfGuideScrollbar();
   Docs.buildSearch();
+  Docs.toggleNav();
   Docs.toggleShowing();
   prettyPrint();
 
