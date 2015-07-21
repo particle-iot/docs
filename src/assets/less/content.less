@@ -164,11 +164,8 @@
   left: 0;
   bottom: 0;
   overflow-y: auto;
+  overflow-x: hidden;
   -webkit-transform: translate3d(0,0,0);
-  @media(max-width: @xlarge-size) {
-    position: static;
-    min-height: calc(~"100% - 50px");
-  }
 }
 .content:before,
 .content:after {
@@ -439,11 +436,7 @@ h1 small.beta {
   -webkit-transform: translate3d(0,0,0);
 
   @media(max-width: @medium-size) {
-    position: relative;
-    left: inherit;
-    right: inherit;
-    bottom: inherit;
-    width: 100%;
+    left: 0;
   }
 
 }
@@ -680,7 +673,7 @@ hr {
       max-width: 300px;
     }
     @media(max-width: @medium-size) {
-      max-width: 300px;
+      max-width: 100%;
     }
   }
   .content h4:after, .content h5:after, .content .small-heading:after, body:not(.big-h3) .content h3:after {
