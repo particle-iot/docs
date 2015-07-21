@@ -73,7 +73,7 @@ my name is particle
 
 ### Spark.function()
 
-Expose a *function* through the Cloud so that it can be called with `POST device/{FUNCTION}`.
+Expose a *function* through the Cloud so that it can be called with `POST /v1/devices/{DEVICE_ID}/{FUNCTION}`.
 
 ```cpp
 // SYNTAX TO REGISTER A CLOUD FUNCTION
@@ -3201,7 +3201,7 @@ whatever seed was previously set. In this case, the random seed will not be set
 from the cloud, and setting the seed is left to up you.
 
 
-### EEPROM
+## EEPROM
 
 The EEPROM emulator allocates a region of the device's built-in flash memory to act as EEPROM.
 Unlike "true" EEPROM, flash doesn't suffer from write "wear" with each write to
@@ -3270,6 +3270,8 @@ EEPROM.write(addr, val);
 
 ### System Threading
 
+_COMING SOON, NOT YET RELEASED_
+
 On platforms that support multithreading (presently, the Photon), there are two
 separate threads of execution:
 
@@ -3317,7 +3319,7 @@ When system threading is disabled:
 
 IN both cases, the system mode determines the initial cloud connection state - connected for AUTOMATIC mode, disconnected for SEMI_AUTOMATIC/MANUAL modes.
 
-### System modes
+## System modes
 
 System modes help you control how the device manages the connection with the cloud.
 
@@ -3408,6 +3410,8 @@ When using manual mode:
 - Once the device is connected to the Cloud ([`Spark.connected()`](#spark-connected)` == true`), the user must call `Spark.process()` regularly to handle incoming messages and keep the connection alive. The more frequently `Spark.process()` is called, the more responsive the device will be to incoming messages.
 - If `Spark.process()` is called less frequently than every 20 seconds, the connection with the Cloud will die. It may take a couple of additional calls of `Spark.process()` for the device to recognize that the connection has been lost.
 
+## System Calls
+
 ### System.factoryReset()
 
 This will perform a factory reset and do the following:
@@ -3420,9 +3424,7 @@ This will perform a factory reset and do the following:
 System.factoryReset()
 ```
 
-System.dfu()
-----
-
+### System.dfu()
 
 The device will enter DFU-mode to allow new user firmware to be refreshed. DFU mode is cancelled by
 - flashing firmware to the device using dfu-util, specifying the `:leave` option, or
@@ -3462,8 +3464,7 @@ void setup()
 void loop() {}
 ```
 
-System.sleep()
-----
+### System.sleep()
 
 `System.sleep()` can be used to dramatically improve the battery life of a Spark-powered project by temporarily deactivating the Wi-Fi module, which is by far the biggest power draw.
 
@@ -3574,8 +3575,7 @@ System.sleep(int millis, array peripherals);
 <!-- TO DO -->
 <!-- Add example implementation here -->
 
-System.reset()
-----
+### System.reset()
 
 Resets the device, just like hitting the reset button or powering down and back up.
 
@@ -3596,977 +3596,7 @@ void loop() {
 ```
 
 
-### Language Syntax
-The following documentation is based on the Arduino reference which can be found [here.](http://www.arduino.cc/en/Reference/HomePage)
-
-Structure
----
-### setup()
-The setup() function is called when an application starts. Use it to initialize variables, pin modes, start using libraries, etc. The setup function will only run once, after each powerup or device reset.
-
-```cpp
-// EXAMPLE USAGE
-
-int button = D0;
-int LED = D1;
-//setup initializes D0 as input and D1 as output
-void setup()
-{
-  pinMode(button, INPUT_PULLDOWN);
-  pinMode(LED, OUTPUT);
-}
-
-void loop()
-{
-  // ...
-}
-```
-
-### loop()
-After creating a setup() function, which initializes and sets the initial values, the loop() function does precisely what its name suggests, and loops consecutively, allowing your program to change and respond. Use it to actively control the device.
-
-```C++
-// EXAMPLE USAGE
-
-int button = D0;
-int LED = D1;
-//setup initializes D0 as input and D1 as output
-void setup()
-{
-  pinMode(button, INPUT_PULLDOWN);
-  pinMode(LED, OUTPUT);
-}
-
-//loops to check if button was pressed,
-//if it was, then it turns ON the LED,
-//else the LED remains OFF
-void loop()
-{
-  if (digitalRead(button) == HIGH)
-    digitalWrite(LED,HIGH);
-  else
-    digitalWrite(LED,LOW);
-}
-```
-
-Control structures
----
-
-### if
-
-`if`, which is used in conjunction with a comparison operator, tests whether a certain condition has been reached, such as an input being above a certain number.
-
-```C++
-// SYNTAX
-if (someVariable > 50)
-{
-  // do something here
-}
-```
-The program tests to see if someVariable is greater than 50. If it is, the program takes a particular action. Put another way, if the statement in parentheses is true, the statements inside the brackets are run. If not, the program skips over the code.
-
-The brackets may be omitted after an *if* statement. If this is done, the next line (defined by the semicolon) becomes the only conditional statement.
-
-```C++
-if (x > 120) digitalWrite(LEDpin, HIGH);
-
-if (x > 120)
-digitalWrite(LEDpin, HIGH);
-
-if (x > 120){ digitalWrite(LEDpin, HIGH); }
-
-if (x > 120)
-{
-  digitalWrite(LEDpin1, HIGH);
-  digitalWrite(LEDpin2, HIGH);
-}                                 // all are correct
-```
-The statements being evaluated inside the parentheses require the use of one or more operators:
-
-### Comparison Operators
-
-```C++
-x == y (x is equal to y)
-x != y (x is not equal to y)
-x <  y (x is less than y)
-x >  y (x is greater than y)
-x <= y (x is less than or equal to y)
-x >= y (x is greater than or equal to y)
-```
-
-**WARNING:**
-Beware of accidentally using the single equal sign (e.g. `if (x = 10)` ). The single equal sign is the assignment operator, and sets x to 10 (puts the value 10 into the variable x). Instead use the double equal sign (e.g. `if (x == 10)` ), which is the comparison operator, and tests whether x is equal to 10 or not. The latter statement is only true if x equals 10, but the former statement will always be true.
-
-This is because C evaluates the statement `if (x=10)` as follows: 10 is assigned to x (remember that the single equal sign is the assignment operator), so x now contains 10. Then the 'if' conditional evaluates 10, which always evaluates to TRUE, since any non-zero number evaluates to TRUE. Consequently, `if (x = 10)` will always evaluate to TRUE, which is not the desired result when using an 'if' statement. Additionally, the variable x will be set to 10, which is also not a desired action.
-
-`if` can also be part of a branching control structure using the `if...else`] construction.
-
-### if...else
-
-*if/else* allows greater control over the flow of code than the basic *if* statement, by allowing multiple tests to be grouped together. For example, an analog input could be tested and one action taken if the input was less than 500, and another action taken if the input was 500 or greater. The code would look like this:
-
-```C++
-// SYNTAX
-if (pinFiveInput < 500)
-{
-  // action A
-}
-else
-{
-  // action B
-}
-```
-`else` can proceed another `if` test, so that multiple, mutually exclusive tests can be run at the same time.
-
-Each test will proceed to the next one until a true test is encountered. When a true test is found, its associated block of code is run, and the program then skips to the line following the entire if/else construction. If no test proves to be true, the default else block is executed, if one is present, and sets the default behavior.
-
-Note that an *else if* block may be used with or without a terminating *else* block and vice versa. An unlimited number of such else if branches is allowed.
-
-```C++
-if (pinFiveInput < 500)
-{
-  // do Thing A
-}
-else if (pinFiveInput >= 1000)
-{
-  // do Thing B
-}
-else
-{
-  // do Thing C
-}
-```
-
-Another way to express branching, mutually exclusive tests, is with the [`switch case`](#control-structures-switch-case) statement.
-
-### for
-
-The `for` statement is used to repeat a block of statements enclosed in curly braces. An increment counter is usually used to increment and terminate the loop. The `for` statement is useful for any repetitive operation, and is often used in combination with arrays to operate on collections of data/pins.
-
-There are three parts to the for loop header:
-
-```C++
-// SYNTAX
-for (initialization; condition; increment)
-{
-  //statement(s);
-}
-```
-The *initialization* happens first and exactly once. Each time through the loop, the *condition* is tested; if it's true, the statement block, and the *increment* is executed, then the condition is tested again. When the *condition* becomes false, the loop ends.
-
-```C++
-// EXAMPLE USAGE
-
-// slowy make the LED glow brighter
-int ledPin = D1; // LED in series with 470 ohm resistor on pin D1
-
-void setup()
-{
-  // set ledPin as an output
-  pinMode(ledPin,OUTPUT);
-}
-
-void loop()
-{
-  for (int i=0; i <= 255; i++){
-    analogWrite(ledPin, i);
-    delay(10);
-  }
-}
-```
-The C `for` loop is much more flexible than for loops found in some other computer languages, including BASIC. Any or all of the three header elements may be omitted, although the semicolons are required. Also the statements for initialization, condition, and increment can be any valid C statements with unrelated variables, and use any C datatypes including floats. These types of unusual for statements may provide solutions to some rare programming problems.
-
-For example, using a multiplication in the increment line will generate a logarithmic progression:
-
-```C++
-for(int x = 2; x < 100; x = x * 1.5)
-{
-  Serial.print(x);
-}
-//Generates: 2,3,4,6,9,13,19,28,42,63,94
-```
-Another example, fade an LED up and down with one for loop:
-
-```C++
-// slowy make the LED glow brighter
-int ledPin = D1; // LED in series with 470 ohm resistor on pin D1
-
-void setup()
-{
-  // set ledPin as an output
-  pinMode(ledPin,OUTPUT);
-}
-
-void loop()
-{
-  int x = 1;
-  for (int i = 0; i > -1; i = i + x)
-  {
-    analogWrite(ledPin, i);
-    if (i == 255) x = -1;     // switch direction at peak
-    delay(10);
-  }
-}
-```
-
-### switch case
-
-Like `if` statements, `switch`...`case` controls the flow of programs by allowing programmers to specify different code that should be executed in various conditions. In particular, a switch statement compares the value of a variable to the values specified in case statements. When a case statement is found whose value matches that of the variable, the code in that case statement is run.
-
-The `break` keyword exits the switch statement, and is typically used at the end of each case. Without a break statement, the switch statement will continue executing the following expressions ("falling-through") until a break, or the end of the switch statement is reached.
-
-```C++
-// SYNTAX
-switch (var)
-{
-  case label:
-    // statements
-    break;
-  case label:
-    // statements
-    break;
-  default:
-    // statements
-}
-```
-`var` is the variable whose value to compare to the various cases
-`label` is a value to compare the variable to
-
-```C++
-// EXAMPLE USAGE
-
-switch (var)
-{
-  case 1:
-    // do something when var equals 1
-    break;
-  case 2:
-    // do something when var equals 2
-    break;
-  default:
-    // if nothing else matches, do the
-    // default (which is optional)
-}
-```
-
-### while
-
-`while` loops will loop continuously, and infinitely, until the expression inside the parenthesis, () becomes false. Something must change the tested variable, or the `while` loop will never exit. This could be in your code, such as an incremented variable, or an external condition, such as testing a sensor.
-
-```C++
-// SYNTAX
-while(expression)
-{
-  // statement(s)
-}
-```
-`expression` is a (boolean) C statement that evaluates to true or false.
-
-```C++
-// EXAMPLE USAGE
-
-var = 0;
-while(var < 200)
-{
-  // do something repetitive 200 times
-  var++;
-}
-```
-
-### do... while
-
-The `do` loop works in the same manner as the `while` loop, with the exception that the condition is tested at the end of the loop, so the do loop will *always* run at least once.
-
-```C++
-// SYNTAX
-do
-{
-  // statement block
-} while (test condition);
-```
-
-```C++
-// EXAMPLE USAGE
-
-do
-{
-  delay(50);          // wait for sensors to stabilize
-  x = readSensors();  // check the sensors
-
-} while (x < 100);
-```
-
-### break
-
-`break` is used to exit from a `do`, `for`, or `while` loop, bypassing the normal loop condition. It is also used to exit from a `switch` statement.
-
-```C++
-// EXAMPLE USAGE
-
-for (int x = 0; x < 255; x++)
-{
-  digitalWrite(ledPin, x);
-  sens = analogRead(sensorPin);
-  if (sens > threshold)
-  {
-    x = 0;
-    break;  // exit for() loop on sensor detect
-  }
-  delay(50);
-}
-```
-
-### continue
-
-The continue statement skips the rest of the current iteration of a loop (`do`, `for`, or `while`). It continues by checking the conditional expression of the loop, and proceeding with any subsequent iterations.
-
-```C++
-// EXAMPLE USAGE
-
-for (x = 0; x < 255; x++)
-{
-    if (x > 40 && x < 120) continue;  // create jump in values
-
-    digitalWrite(PWMpin, x);
-    delay(50);
-}
-```
-
-### return
-
-Terminate a function and return a value from a function to the calling function, if desired.
-
-```C++
-//EXAMPLE USAGE
-
-// A function to compare a sensor input to a threshold
- int checkSensor()
- {
-    if (analogRead(0) > 400) return 1;
-    else return 0;
-}
-```
-The return keyword is handy to test a section of code without having to "comment out" large sections of possibly buggy code.
-
-```C++
-void loop()
-{
-  // brilliant code idea to test here
-
-  return;
-
-  // the rest of a dysfunctional sketch here
-  // this code will never be executed
-}
-```
-
-### goto
-
-Transfers program flow to a labeled point in the program
-
-```C++
-// SYNTAX
-
-label:
-
-goto label; // sends program flow to the label
-
-```
-
-**TIP:**
-The use of `goto` is discouraged in C programming, and some authors of C programming books claim that the `goto` statement is never necessary, but used judiciously, it can simplify certain programs. The reason that many programmers frown upon the use of `goto` is that with the unrestrained use of `goto` statements, it is easy to create a program with undefined program flow, which can never be debugged.
-
-With that said, there are instances where a `goto` statement can come in handy, and simplify coding. One of these situations is to break out of deeply nested `for` loops, or `if` logic blocks, on a certain condition.
-
-```C++
-// EXAMPLE USAGE
-
-for(byte r = 0; r < 255; r++) {
-  for(byte g = 255; g > -1; g--) {
-    for(byte b = 0; b < 255; b++) {
-      if (analogRead(0) > 250) {
-        goto bailout;
-      }
-      // more statements ...
-    }
-  }
-}
-bailout:
-// Code execution jumps here from
-// goto bailout; statement
-```
-
-Further syntax
----
-
-### ; (semicolon)
-
-Used to end a statement.
-
-`int a = 13;`
-
-**Tip:**
-Forgetting to end a line in a semicolon will result in a compiler error. The error text may be obvious, and refer to a missing semicolon, or it may not. If an impenetrable or seemingly illogical compiler error comes up, one of the first things to check is a missing semicolon, in the immediate vicinity, preceding the line at which the compiler complained.
-
-### {} (curly braces)
-
-Curly braces (also referred to as just "braces" or as "curly brackets") are a major part of the C programming language. They are used in several different constructs, outlined below, and this can sometimes be confusing for beginners.
-
-```C++
-//The main uses of curly braces
-
-//Functions
-  void myfunction(datatype argument){
-    statements(s)
-  }
-
-//Loops
-  while (boolean expression)
-  {
-     statement(s)
-  }
-
-  do
-  {
-     statement(s)
-  } while (boolean expression);
-
-  for (initialisation; termination condition; incrementing expr)
-  {
-     statement(s)
-  }
-
-//Conditional statements
-  if (boolean expression)
-  {
-     statement(s)
-  }
-
-  else if (boolean expression)
-  {
-     statement(s)
-  }
-  else
-  {
-     statement(s)
-  }
-
-```
-
-An opening curly brace "{" must always be followed by a closing curly brace "}". This is a condition that is often referred to as the braces being balanced.
-
-Beginning programmers, and programmers coming to C from the BASIC language often find using braces confusing or daunting. After all, the same curly braces replace the RETURN statement in a subroutine (function), the ENDIF statement in a conditional and the NEXT statement in a FOR loop.
-
-Because the use of the curly brace is so varied, it is good programming practice to type the closing brace immediately after typing the opening brace when inserting a construct which requires curly braces. Then insert some carriage returns between your braces and begin inserting statements. Your braces, and your attitude, will never become unbalanced.
-
-Unbalanced braces can often lead to cryptic, impenetrable compiler errors that can sometimes be hard to track down in a large program. Because of their varied usages, braces are also incredibly important to the syntax of a program and moving a brace one or two lines will often dramatically affect the meaning of a program.
-
-
-### // (single line comment)
-### /\* \*/ (multi-line comment)
-
-Comments are lines in the program that are used to inform yourself or others about the way the program works. They are ignored by the compiler, and not exported to the processor, so they don't take up any space on the device.
-
-Comments only purpose are to help you understand (or remember) how your program works or to inform others how your program works. There are two different ways of marking a line as a comment:
-
-```C++
-// EXAMPLE USAGE
-
-x = 5;  // This is a single line comment. Anything after the slashes is a comment
-        // to the end of the line
-
-/* this is multiline comment - use it to comment out whole blocks of code
-
-if (gwb == 0) {   // single line comment is OK inside a multiline comment
-  x = 3;          /* but not another multiline comment - this is invalid */
-}
-// don't forget the "closing" comment - they have to be balanced!
-*/
-```
-
-**TIP:**
-When experimenting with code, "commenting out" parts of your program is a convenient way to remove lines that may be buggy. This leaves the lines in the code, but turns them into comments, so the compiler just ignores them. This can be especially useful when trying to locate a problem, or when a program refuses to compile and the compiler error is cryptic or unhelpful.
-
-
-### #define
-
-`#define` is a useful C component that allows the programmer to give a name to a constant value before the program is compiled. Defined constants don't take up any program memory space on the chip. The compiler will replace references to these constants with the defined value at compile time.
-
-`#define constantName value`
-Note that the # is necessary.
-
-This can have some unwanted side effects though, if for example, a constant name that had been `#defined` is included in some other constant or variable name. In that case the text would be replaced by the #defined number (or text).
-
-```C++
-// EXAMPLE USAGE
-
-#define ledPin 3
-// The compiler will replace any mention of ledPin with the value 3 at compile time.
-```
-
-In general, the [const]() keyword is preferred for defining constants and should be used instead of #define.
-
-**TIP:**
-There is no semicolon after the #define statement. If you include one, the compiler will throw cryptic errors further down the page.
-
-`#define ledPin 3;   // this is an error`
-
-Similarly, including an equal sign after the #define statement will also generate a cryptic compiler error further down the page.
-
-`#define ledPin = 3  // this is also an error`
-
-### #include
-
-`#include` is used to include outside libraries in your application code. This gives the programmer access to a large group of standard C libraries (groups of pre-made functions), and also libraries written especially for your device.
-
-Note that #include, similar to #define, has no semicolon terminator, and the compiler will yield cryptic error messages if you add one.
-
-Arithmetic operators
----
-
-### = (assignment operator)
-
-Stores the value to the right of the equal sign in the variable to the left of the equal sign.
-
-The single equal sign in the C programming language is called the assignment operator. It has a different meaning than in algebra class where it indicated an equation or equality. The assignment operator tells the microcontroller to evaluate whatever value or expression is on the right side of the equal sign, and store it in the variable to the left of the equal sign.
-
-```C++
-// EXAMPLE USAGE
-
-int sensVal;                // declare an integer variable named sensVal
-senVal = analogRead(A0);    // store the (digitized) input voltage at analog pin A0 in SensVal
-```
-**TIP:**
-The variable on the left side of the assignment operator ( = sign ) needs to be able to hold the value stored in it. If it is not large enough to hold a value, the value stored in the variable will be incorrect.
-
-Don't confuse the assignment operator `=` (single equal sign) with the comparison operator `==` (double equal signs), which evaluates whether two expressions are equal.
-
-### + - * / (additon subtraction multiplication division)
-
-These operators return the sum, difference, product, or quotient (respectively) of the two operands. The operation is conducted using the data type of the operands, so, for example,`9 / 4` gives 2 since 9 and 4 are ints. This also means that the operation can overflow if the result is larger than that which can be stored in the data type (e.g. adding 1 to an int with the value 2,147,483,647 gives -2,147,483,648). If the operands are of different types, the "larger" type is used for the calculation.
-
-If one of the numbers (operands) are of the type float or of type double, floating point math will be used for the calculation.
-
-```C++
-// EXAMPLE USAGES
-
-y = y + 3;
-x = x - 7;
-i = j * 6;
-r = r / 5;
-```
-
-```C++
-// SYNTAX
-result = value1 + value2;
-result = value1 - value2;
-result = value1 * value2;
-result = value1 / value2;
-```
-`value1` and `value2` can be any variable or constant.
-
-**TIPS:**
-
-  - Know that integer constants default to int, so some constant calculations may overflow (e.g. 50 * 50,000,000 will yield a negative result).
-  - Choose variable sizes that are large enough to hold the largest results from your calculations
-  - Know at what point your variable will "roll over" and also what happens in the other direction e.g. (0 - 1) OR (0 + 2147483648)
-  - For math that requires fractions, use float variables, but be aware of their drawbacks: large size, slow computation speeds
-  - Use the cast operator e.g. (int)myFloat to convert one variable type to another on the fly.
-
-### % (modulo)
-
-Calculates the remainder when one integer is divided by another. It is useful for keeping a variable within a particular range (e.g. the size of an array).  It is defined so that `a % b == a - ((a / b) * b)`.
-
-`result = dividend % divisor`
-
-`dividend` is the number to be divided and
-`divisor` is the number to divide by.
-
-`result` is the remainder
-
-The remainder function can have unexpected behavoir when some of the opperands are negative.  If the dividend is negative, then the result will be the smallest negative equivalency class.  In other words, when `a` is negative, `(a % b) == (a mod b) - b` where (a mod b) follows the standard mathematical definition of mod.  When the divisor is negative, the result is the same as it would be if it was positive.
-
-```C++
-// EXAMPLE USAGES
-
-x = 9 % 5;   // x now contains 4
-x = 5 % 5;   // x now contains 0
-x = 4 % 5;   // x now contains 4
-x = 7 % 5;   // x now contains 2
-x = -7 % 5;  // x now contains -2
-x = 7 % -5;  // x now contains 2
-x = -7 % -5; // x now contains -2
-```
-
-```C++
-EXAMPLE CODE
-//update one value in an array each time through a loop
-
-int values[10];
-int i = 0;
-
-void setup() {}
-
-void loop()
-{
-  values[i] = analogRead(A0);
-  i = (i + 1) % 10;   // modulo operator rolls over variable
-}
-```
-
-**TIP:**
-The modulo operator does not work on floats.  For floats, an equivalent expression to `a % b` is `a - (b * ((int)(a / b)))`
-
-Boolean operators
----
-
-These can be used inside the condition of an if statement.
-
-### && (and)
-
-True only if both operands are true, e.g.
-
-```C++
-if (digitalRead(D2) == HIGH  && digitalRead(D3) == HIGH)
-{
-  // read two switches
-  // ...
-}
-//is true only if both inputs are high.
-```
-
-### || (or)
-
-True if either operand is true, e.g.
-
-```C++
-if (x > 0 || y > 0)
-{
-  // ...
-}
-//is true if either x or y is greater than 0.
-```
-
-### ! (not)
-
-True if the operand is false, e.g.
-
-```C++
-if (!x)
-{
-  // ...
-}
-//is true if x is false (i.e. if x equals 0).
-```
-
-**WARNING:**
-Make sure you don't mistake the boolean AND operator, && (double ampersand) for the bitwise AND operator & (single ampersand). They are entirely different beasts.
-
-Similarly, do not confuse the boolean || (double pipe) operator with the bitwise OR operator | (single pipe).
-
-The bitwise not ~ (tilde) looks much different than the boolean not ! (exclamation point or "bang" as the programmers say) but you still have to be sure which one you want where.
-
-`if (a >= 10 && a <= 20){}   // true if a is between 10 and 20`
-
-Bitwise operators
----
-
-### & (bitwise and)
-
-The bitwise AND operator in C++ is a single ampersand, &, used between two other integer expressions. Bitwise AND operates on each bit position of the surrounding expressions independently, according to this rule: if both input bits are 1, the resulting output is 1, otherwise the output is 0. Another way of expressing this is:
-
-```
-    0  0  1  1    operand1
-    0  1  0  1    operand2
-    ----------
-    0  0  0  1    (operand1 & operand2) - returned result
-```
-
-```C++
-// EXAMPLE USAGE
-
-int a =  92;    // in binary: 0000000001011100
-int b = 101;    // in binary: 0000000001100101
-int c = a & b;  // result:    0000000001000100, or 68 in decimal.
-```
-One of the most common uses of bitwise AND is to select a particular bit (or bits) from an integer value, often called masking.
-
-### | (bitwise or)
-
-The bitwise OR operator in C++ is the vertical bar symbol, |. Like the & operator, | operates independently each bit in its two surrounding integer expressions, but what it does is different (of course). The bitwise OR of two bits is 1 if either or both of the input bits is 1, otherwise it is 0. In other words:
-
-```
-    0  0  1  1    operand1
-    0  1  0  1    operand2
-    ----------
-    0  1  1  1    (operand1 | operand2) - returned result
-```
-```C++
-// EXAMPLE USAGE
-
-int a =  92;    // in binary: 0000000001011100
-int b = 101;    // in binary: 0000000001100101
-int c = a | b;  // result:    0000000001111101, or 125 in decimal.
-```
-
-### ^ (bitwise xor)
-
-There is a somewhat unusual operator in C++ called bitwise EXCLUSIVE OR, also known as bitwise XOR. (In English this is usually pronounced "eks-or".) The bitwise XOR operator is written using the caret symbol ^. This operator is very similar to the bitwise OR operator |, only it evaluates to 0 for a given bit position when both of the input bits for that position are 1:
-
-```
-    0  0  1  1    operand1
-    0  1  0  1    operand2
-    ----------
-    0  1  1  0    (operand1 ^ operand2) - returned result
-```
-Another way to look at bitwise XOR is that each bit in the result is a 1 if the input bits are different, or 0 if they are the same.
-
-```C++
-// EXAMPLE USAGE
-
-int x = 12;     // binary: 1100
-int y = 10;     // binary: 1010
-int z = x ^ y;  // binary: 0110, or decimal 6
-```
-
-The ^ operator is often used to toggle (i.e. change from 0 to 1, or 1 to 0) some of the bits in an integer expression. In a bitwise OR operation if there is a 1 in the mask bit, that bit is inverted; if there is a 0, the bit is not inverted and stays the same.
-
-
-### ~ (bitwise not)
-
-The bitwise NOT operator in C++ is the tilde character ~. Unlike & and |, the bitwise NOT operator is applied to a single operand to its right. Bitwise NOT changes each bit to its opposite: 0 becomes 1, and 1 becomes 0. For example:
-
-```
-    0  1    operand1
-   ----------
-    1  0   ~ operand1
-
-int a = 103;    // binary:  0000000001100111
-int b = ~a;     // binary:  1111111110011000 = -104
-```
-You might be surprised to see a negative number like -104 as the result of this operation. This is because the highest bit in an int variable is the so-called sign bit. If the highest bit is 1, the number is interpreted as negative. This encoding of positive and negative numbers is referred to as two's complement. For more information, see the Wikipedia article on [two's complement.](http://en.wikipedia.org/wiki/Twos_complement)
-
-As an aside, it is interesting to note that for any integer x, ~x is the same as -x-1.
-
-At times, the sign bit in a signed integer expression can cause some unwanted surprises.
-
-### << (bitwise left shift), >> (bitwise right shift)
-
-There are two bit shift operators in C++: the left shift operator << and the right shift operator >>. These operators cause the bits in the left operand to be shifted left or right by the number of positions specified by the right operand.
-
-More on bitwise math may be found [here.](http://playground.arduino.cc/Code/BitMath)
-
-```
-variable << number_of_bits
-variable >> number_of_bits
-```
-
-`variable` can be `byte`, `int`, `long`
-`number_of_bits` and integer <= 32
-
-```C++
-// EXAMPLE USAGE
-
-int a = 5;        // binary: 0000000000000101
-int b = a << 3;   // binary: 0000000000101000, or 40 in decimal
-int c = b >> 3;   // binary: 0000000000000101, or back to 5 like we started with
-```
-When you shift a value x by y bits (x << y), the leftmost y bits in x are lost, literally shifted out of existence:
-
-```C++
-int a = 5;        // binary: 0000000000000101
-int b = a << 14;  // binary: 0100000000000000 - the first 1 in 101 was discarded
-```
-If you are certain that none of the ones in a value are being shifted into oblivion, a simple way to think of the left-shift operator is that it multiplies the left operand by 2 raised to the right operand power. For example, to generate powers of 2, the following expressions can be employed:
-
-```
-1 <<  0  ==    1
-1 <<  1  ==    2
-1 <<  2  ==    4
-1 <<  3  ==    8
-...
-1 <<  8  ==  256
-1 <<  9  ==  512
-1 << 10  == 1024
-...
-```
-When you shift x right by y bits (x >> y), and the highest bit in x is a 1, the behavior depends on the exact data type of x. If x is of type int, the highest bit is the sign bit, determining whether x is negative or not, as we have discussed above. In that case, the sign bit is copied into lower bits, for esoteric historical reasons:
-
-```C++
-int x = -16;     // binary: 1111111111110000
-int y = x >> 3;  // binary: 1111111111111110
-```
-This behavior, called sign extension, is often not the behavior you want. Instead, you may wish zeros to be shifted in from the left. It turns out that the right shift rules are different for unsigned int expressions, so you can use a typecast to suppress ones being copied from the left:
-
-```C++
-int x = -16;                   // binary: 1111111111110000
-int y = (unsigned int)x >> 3;  // binary: 0001111111111110
-```
-
-If you are careful to avoid sign extension, you can use the right-shift operator >> as a way to divide by powers of 2. For example:
-
-```C++
-int x = 1000;
-int y = x >> 3;   // integer division of 1000 by 8, causing y = 125
-```
-## Compound operators
-
-### ++ (increment), -- (decrement)
-
-Increment or decrement a variable
-
-```C++
-// SYNTAX
-x++;  // increment x by one and returns the old value of x
-++x;  // increment x by one and returns the new value of x
-
-x-- ;   // decrement x by one and returns the old value of x
---x ;   // decrement x by one and returns the new value of x
-```
-
-where `x` is an integer or long (possibly unsigned)
-
-```C++
-// EXAMPLE USAGE
-
-x = 2;
-y = ++x;      // x now contains 3, y contains 3
-y = x--;      // x contains 2 again, y still contains 3
-```
-
-### compound arithmetic
-
-- += (compound addition)
-- -= (compound subtraction)
-- *= (compound multiplication)
-- /= (compound division)
-
-Perform a mathematical operation on a variable with another constant or variable. The += (et al) operators are just a convenient shorthand for the expanded syntax.
-
-```C++
-// SYNTAX
-x += y;   // equivalent to the expression x = x + y;
-x -= y;   // equivalent to the expression x = x - y;
-x *= y;   // equivalent to the expression x = x * y;
-x /= y;   // equivalent to the expression x = x / y;
-```
-
-`x` can be any variable type
-`y` can be any variable type or constant
-
-```C++
-// EXAMPLE USAGE
-
-x = 2;
-x += 4;      // x now contains 6
-x -= 3;      // x now contains 3
-x *= 10;     // x now contains 30
-x /= 2;      // x now contains 15
-```
-
-### &= (compound bitwise and)
-
-The compound bitwise AND operator (&=) is often used with a variable and a constant to force particular bits in a variable to the LOW state (to 0). This is often referred to in programming guides as "clearing" or "resetting" bits.
-
-`x &= y;   // equivalent to x = x & y;`
-
-`x` can be a char, int or long variable
-`y` can be an integer constant, char, int, or long
-
-```
-   0  0  1  1    operand1
-   0  1  0  1    operand2
-   ----------
-   0  0  0  1    (operand1 & operand2) - returned result
-```
-Bits that are "bitwise ANDed" with 0 are cleared to 0 so, if myByte is a byte variable,
-`myByte & B00000000 = 0;`
-
-Bits that are "bitwise ANDed" with 1 are unchanged so,
-`myByte & B11111111 = myByte;`
-
-**Note:** because we are dealing with bits in a bitwise operator - it is convenient to use the binary formatter with constants. The numbers are still the same value in other representations, they are just not as easy to understand. Also, B00000000 is shown for clarity, but zero in any number format is zero (hmmm something philosophical there?)
-
-Consequently - to clear (set to zero) bits 0 & 1 of a variable, while leaving the rest of the variable unchanged, use the compound bitwise AND operator (&=) with the constant B11111100
-
-```
-   1  0  1  0  1  0  1  0    variable
-   1  1  1  1  1  1  0  0    mask
-   ----------------------
-   1  0  1  0  1  0  0  0
-
- variable unchanged
-                     bits cleared
-```
-Here is the same representation with the variable's bits replaced with the symbol x
-
-```
-   x  x  x  x  x  x  x  x    variable
-   1  1  1  1  1  1  0  0    mask
-   ----------------------
-   x  x  x  x  x  x  0  0
-
- variable unchanged
-                     bits cleared
-```
-
-So if:
-`myByte =  10101010;`
-`myByte &= B1111100 == B10101000;`
-
-
-### |= (compound bitwise or)
-
-The compound bitwise OR operator (|=) is often used with a variable and a constant to "set" (set to 1) particular bits in a variable.
-
-```C++
-// SYNTAX
-x |= y;   // equivalent to x = x | y;
-```
-`x` can be a char, int or long variable
-`y` can be an integer constant or char, int or long
-
-```
-   0  0  1  1    operand1
-   0  1  0  1    operand2
-   ----------
-   0  1  1  1    (operand1 | operand2) - returned result
-```
-Bits that are "bitwise ORed" with 0 are unchanged, so if myByte is a byte variable,
-`myByte | B00000000 = myByte;`
-
-Bits that are "bitwise ORed" with 1 are set to 1 so:
-`myByte | B11111111 = B11111111;`
-
-Consequently - to set bits 0 & 1 of a variable, while leaving the rest of the variable unchanged, use the compound bitwise OR operator (|=) with the constant B00000011
-
-```
-   1  0  1  0  1  0  1  0    variable
-   0  0  0  0  0  0  1  1    mask
-   ----------------------
-   1  0  1  0  1  0  1  1
-
- variable unchanged
-                     bits set
-```
-Here is the same representation with the variables bits replaced with the symbol x
-```
-   x  x  x  x  x  x  x  x    variable
-   0  0  0  0  0  0  1  1    mask
-   ----------------------
-   x  x  x  x  x  x  1  1
-
- variable unchanged
-                     bits set
-```
-So if:
-`myByte =  B10101010;`
-`myByte |= B00000011 == B10101011;`
-
-
-
-String Class
-----
+## String Class
 
 The String class allows you to use and manipulate strings of text in more complex ways than character arrays do. You can concatenate Strings, append to them, search for and replace substrings, and more. It takes more memory than a simple character array, but it is also more useful.
 
@@ -4983,9 +4013,973 @@ Parameters:
 Returns: None
 
 
-## Variables
+## Language Syntax
+The following documentation is based on the Arduino reference which can be found [here.](http://www.arduino.cc/en/Reference/HomePage)
 
-### HIGH | LOW
+### Structure
+
+#### setup()
+The setup() function is called when an application starts. Use it to initialize variables, pin modes, start using libraries, etc. The setup function will only run once, after each powerup or device reset.
+
+```cpp
+// EXAMPLE USAGE
+
+int button = D0;
+int LED = D1;
+//setup initializes D0 as input and D1 as output
+void setup()
+{
+  pinMode(button, INPUT_PULLDOWN);
+  pinMode(LED, OUTPUT);
+}
+
+void loop()
+{
+  // ...
+}
+```
+
+#### loop()
+After creating a setup() function, which initializes and sets the initial values, the loop() function does precisely what its name suggests, and loops consecutively, allowing your program to change and respond. Use it to actively control the device.
+
+```C++
+// EXAMPLE USAGE
+
+int button = D0;
+int LED = D1;
+//setup initializes D0 as input and D1 as output
+void setup()
+{
+  pinMode(button, INPUT_PULLDOWN);
+  pinMode(LED, OUTPUT);
+}
+
+//loops to check if button was pressed,
+//if it was, then it turns ON the LED,
+//else the LED remains OFF
+void loop()
+{
+  if (digitalRead(button) == HIGH)
+    digitalWrite(LED,HIGH);
+  else
+    digitalWrite(LED,LOW);
+}
+```
+
+### Control structures
+
+#### if
+
+`if`, which is used in conjunction with a comparison operator, tests whether a certain condition has been reached, such as an input being above a certain number.
+
+```C++
+// SYNTAX
+if (someVariable > 50)
+{
+  // do something here
+}
+```
+The program tests to see if someVariable is greater than 50. If it is, the program takes a particular action. Put another way, if the statement in parentheses is true, the statements inside the brackets are run. If not, the program skips over the code.
+
+The brackets may be omitted after an *if* statement. If this is done, the next line (defined by the semicolon) becomes the only conditional statement.
+
+```C++
+if (x > 120) digitalWrite(LEDpin, HIGH);
+
+if (x > 120)
+digitalWrite(LEDpin, HIGH);
+
+if (x > 120){ digitalWrite(LEDpin, HIGH); }
+
+if (x > 120)
+{
+  digitalWrite(LEDpin1, HIGH);
+  digitalWrite(LEDpin2, HIGH);
+}                                 // all are correct
+```
+The statements being evaluated inside the parentheses require the use of one or more operators:
+
+#### Comparison Operators
+
+```C++
+x == y (x is equal to y)
+x != y (x is not equal to y)
+x <  y (x is less than y)
+x >  y (x is greater than y)
+x <= y (x is less than or equal to y)
+x >= y (x is greater than or equal to y)
+```
+
+**WARNING:**
+Beware of accidentally using the single equal sign (e.g. `if (x = 10)` ). The single equal sign is the assignment operator, and sets x to 10 (puts the value 10 into the variable x). Instead use the double equal sign (e.g. `if (x == 10)` ), which is the comparison operator, and tests whether x is equal to 10 or not. The latter statement is only true if x equals 10, but the former statement will always be true.
+
+This is because C evaluates the statement `if (x=10)` as follows: 10 is assigned to x (remember that the single equal sign is the assignment operator), so x now contains 10. Then the 'if' conditional evaluates 10, which always evaluates to TRUE, since any non-zero number evaluates to TRUE. Consequently, `if (x = 10)` will always evaluate to TRUE, which is not the desired result when using an 'if' statement. Additionally, the variable x will be set to 10, which is also not a desired action.
+
+`if` can also be part of a branching control structure using the `if...else`] construction.
+
+#### if...else
+
+*if/else* allows greater control over the flow of code than the basic *if* statement, by allowing multiple tests to be grouped together. For example, an analog input could be tested and one action taken if the input was less than 500, and another action taken if the input was 500 or greater. The code would look like this:
+
+```C++
+// SYNTAX
+if (pinFiveInput < 500)
+{
+  // action A
+}
+else
+{
+  // action B
+}
+```
+`else` can proceed another `if` test, so that multiple, mutually exclusive tests can be run at the same time.
+
+Each test will proceed to the next one until a true test is encountered. When a true test is found, its associated block of code is run, and the program then skips to the line following the entire if/else construction. If no test proves to be true, the default else block is executed, if one is present, and sets the default behavior.
+
+Note that an *else if* block may be used with or without a terminating *else* block and vice versa. An unlimited number of such else if branches is allowed.
+
+```C++
+if (pinFiveInput < 500)
+{
+  // do Thing A
+}
+else if (pinFiveInput >= 1000)
+{
+  // do Thing B
+}
+else
+{
+  // do Thing C
+}
+```
+
+Another way to express branching, mutually exclusive tests, is with the [`switch case`](#control-structures-switch-case) statement.
+
+#### for
+
+The `for` statement is used to repeat a block of statements enclosed in curly braces. An increment counter is usually used to increment and terminate the loop. The `for` statement is useful for any repetitive operation, and is often used in combination with arrays to operate on collections of data/pins.
+
+There are three parts to the for loop header:
+
+```C++
+// SYNTAX
+for (initialization; condition; increment)
+{
+  //statement(s);
+}
+```
+The *initialization* happens first and exactly once. Each time through the loop, the *condition* is tested; if it's true, the statement block, and the *increment* is executed, then the condition is tested again. When the *condition* becomes false, the loop ends.
+
+```C++
+// EXAMPLE USAGE
+
+// slowy make the LED glow brighter
+int ledPin = D1; // LED in series with 470 ohm resistor on pin D1
+
+void setup()
+{
+  // set ledPin as an output
+  pinMode(ledPin,OUTPUT);
+}
+
+void loop()
+{
+  for (int i=0; i <= 255; i++){
+    analogWrite(ledPin, i);
+    delay(10);
+  }
+}
+```
+The C `for` loop is much more flexible than for loops found in some other computer languages, including BASIC. Any or all of the three header elements may be omitted, although the semicolons are required. Also the statements for initialization, condition, and increment can be any valid C statements with unrelated variables, and use any C datatypes including floats. These types of unusual for statements may provide solutions to some rare programming problems.
+
+For example, using a multiplication in the increment line will generate a logarithmic progression:
+
+```C++
+for(int x = 2; x < 100; x = x * 1.5)
+{
+  Serial.print(x);
+}
+//Generates: 2,3,4,6,9,13,19,28,42,63,94
+```
+Another example, fade an LED up and down with one for loop:
+
+```C++
+// slowy make the LED glow brighter
+int ledPin = D1; // LED in series with 470 ohm resistor on pin D1
+
+void setup()
+{
+  // set ledPin as an output
+  pinMode(ledPin,OUTPUT);
+}
+
+void loop()
+{
+  int x = 1;
+  for (int i = 0; i > -1; i = i + x)
+  {
+    analogWrite(ledPin, i);
+    if (i == 255) x = -1;     // switch direction at peak
+    delay(10);
+  }
+}
+```
+
+#### switch case
+
+Like `if` statements, `switch`...`case` controls the flow of programs by allowing programmers to specify different code that should be executed in various conditions. In particular, a switch statement compares the value of a variable to the values specified in case statements. When a case statement is found whose value matches that of the variable, the code in that case statement is run.
+
+The `break` keyword exits the switch statement, and is typically used at the end of each case. Without a break statement, the switch statement will continue executing the following expressions ("falling-through") until a break, or the end of the switch statement is reached.
+
+```C++
+// SYNTAX
+switch (var)
+{
+  case label:
+    // statements
+    break;
+  case label:
+    // statements
+    break;
+  default:
+    // statements
+}
+```
+`var` is the variable whose value to compare to the various cases
+`label` is a value to compare the variable to
+
+```C++
+// EXAMPLE USAGE
+
+switch (var)
+{
+  case 1:
+    // do something when var equals 1
+    break;
+  case 2:
+    // do something when var equals 2
+    break;
+  default:
+    // if nothing else matches, do the
+    // default (which is optional)
+}
+```
+
+#### while
+
+`while` loops will loop continuously, and infinitely, until the expression inside the parenthesis, () becomes false. Something must change the tested variable, or the `while` loop will never exit. This could be in your code, such as an incremented variable, or an external condition, such as testing a sensor.
+
+```C++
+// SYNTAX
+while(expression)
+{
+  // statement(s)
+}
+```
+`expression` is a (boolean) C statement that evaluates to true or false.
+
+```C++
+// EXAMPLE USAGE
+
+var = 0;
+while(var < 200)
+{
+  // do something repetitive 200 times
+  var++;
+}
+```
+
+#### do... while
+
+The `do` loop works in the same manner as the `while` loop, with the exception that the condition is tested at the end of the loop, so the do loop will *always* run at least once.
+
+```C++
+// SYNTAX
+do
+{
+  // statement block
+} while (test condition);
+```
+
+```C++
+// EXAMPLE USAGE
+
+do
+{
+  delay(50);          // wait for sensors to stabilize
+  x = readSensors();  // check the sensors
+
+} while (x < 100);
+```
+
+#### break
+
+`break` is used to exit from a `do`, `for`, or `while` loop, bypassing the normal loop condition. It is also used to exit from a `switch` statement.
+
+```C++
+// EXAMPLE USAGE
+
+for (int x = 0; x < 255; x++)
+{
+  digitalWrite(ledPin, x);
+  sens = analogRead(sensorPin);
+  if (sens > threshold)
+  {
+    x = 0;
+    break;  // exit for() loop on sensor detect
+  }
+  delay(50);
+}
+```
+
+#### continue
+
+The continue statement skips the rest of the current iteration of a loop (`do`, `for`, or `while`). It continues by checking the conditional expression of the loop, and proceeding with any subsequent iterations.
+
+```C++
+// EXAMPLE USAGE
+
+for (x = 0; x < 255; x++)
+{
+    if (x > 40 && x < 120) continue;  // create jump in values
+
+    digitalWrite(PWMpin, x);
+    delay(50);
+}
+```
+
+#### return
+
+Terminate a function and return a value from a function to the calling function, if desired.
+
+```C++
+//EXAMPLE USAGE
+
+// A function to compare a sensor input to a threshold
+ int checkSensor()
+ {
+    if (analogRead(0) > 400) return 1;
+    else return 0;
+}
+```
+The return keyword is handy to test a section of code without having to "comment out" large sections of possibly buggy code.
+
+```C++
+void loop()
+{
+  // brilliant code idea to test here
+
+  return;
+
+  // the rest of a dysfunctional sketch here
+  // this code will never be executed
+}
+```
+
+#### goto
+
+Transfers program flow to a labeled point in the program
+
+```C++
+// SYNTAX
+
+label:
+
+goto label; // sends program flow to the label
+
+```
+
+**TIP:**
+The use of `goto` is discouraged in C programming, and some authors of C programming books claim that the `goto` statement is never necessary, but used judiciously, it can simplify certain programs. The reason that many programmers frown upon the use of `goto` is that with the unrestrained use of `goto` statements, it is easy to create a program with undefined program flow, which can never be debugged.
+
+With that said, there are instances where a `goto` statement can come in handy, and simplify coding. One of these situations is to break out of deeply nested `for` loops, or `if` logic blocks, on a certain condition.
+
+```C++
+// EXAMPLE USAGE
+
+for(byte r = 0; r < 255; r++) {
+  for(byte g = 255; g > -1; g--) {
+    for(byte b = 0; b < 255; b++) {
+      if (analogRead(0) > 250) {
+        goto bailout;
+      }
+      // more statements ...
+    }
+  }
+}
+bailout:
+// Code execution jumps here from
+// goto bailout; statement
+```
+
+### Further syntax
+
+#### ; (semicolon)
+
+Used to end a statement.
+
+`int a = 13;`
+
+**Tip:**
+Forgetting to end a line in a semicolon will result in a compiler error. The error text may be obvious, and refer to a missing semicolon, or it may not. If an impenetrable or seemingly illogical compiler error comes up, one of the first things to check is a missing semicolon, in the immediate vicinity, preceding the line at which the compiler complained.
+
+#### {} (curly braces)
+
+Curly braces (also referred to as just "braces" or as "curly brackets") are a major part of the C programming language. They are used in several different constructs, outlined below, and this can sometimes be confusing for beginners.
+
+```C++
+//The main uses of curly braces
+
+//Functions
+  void myfunction(datatype argument){
+    statements(s)
+  }
+
+//Loops
+  while (boolean expression)
+  {
+     statement(s)
+  }
+
+  do
+  {
+     statement(s)
+  } while (boolean expression);
+
+  for (initialisation; termination condition; incrementing expr)
+  {
+     statement(s)
+  }
+
+//Conditional statements
+  if (boolean expression)
+  {
+     statement(s)
+  }
+
+  else if (boolean expression)
+  {
+     statement(s)
+  }
+  else
+  {
+     statement(s)
+  }
+
+```
+
+An opening curly brace "{" must always be followed by a closing curly brace "}". This is a condition that is often referred to as the braces being balanced.
+
+Beginning programmers, and programmers coming to C from the BASIC language often find using braces confusing or daunting. After all, the same curly braces replace the RETURN statement in a subroutine (function), the ENDIF statement in a conditional and the NEXT statement in a FOR loop.
+
+Because the use of the curly brace is so varied, it is good programming practice to type the closing brace immediately after typing the opening brace when inserting a construct which requires curly braces. Then insert some carriage returns between your braces and begin inserting statements. Your braces, and your attitude, will never become unbalanced.
+
+Unbalanced braces can often lead to cryptic, impenetrable compiler errors that can sometimes be hard to track down in a large program. Because of their varied usages, braces are also incredibly important to the syntax of a program and moving a brace one or two lines will often dramatically affect the meaning of a program.
+
+
+#### // (single line comment)
+#### /\* \*/ (multi-line comment)
+
+Comments are lines in the program that are used to inform yourself or others about the way the program works. They are ignored by the compiler, and not exported to the processor, so they don't take up any space on the device.
+
+Comments only purpose are to help you understand (or remember) how your program works or to inform others how your program works. There are two different ways of marking a line as a comment:
+
+```C++
+// EXAMPLE USAGE
+
+x = 5;  // This is a single line comment. Anything after the slashes is a comment
+        // to the end of the line
+
+/* this is multiline comment - use it to comment out whole blocks of code
+
+if (gwb == 0) {   // single line comment is OK inside a multiline comment
+  x = 3;          /* but not another multiline comment - this is invalid */
+}
+// don't forget the "closing" comment - they have to be balanced!
+*/
+```
+
+**TIP:**
+When experimenting with code, "commenting out" parts of your program is a convenient way to remove lines that may be buggy. This leaves the lines in the code, but turns them into comments, so the compiler just ignores them. This can be especially useful when trying to locate a problem, or when a program refuses to compile and the compiler error is cryptic or unhelpful.
+
+
+#### #define
+
+`#define` is a useful C component that allows the programmer to give a name to a constant value before the program is compiled. Defined constants don't take up any program memory space on the chip. The compiler will replace references to these constants with the defined value at compile time.
+
+`#define constantName value`
+Note that the # is necessary.
+
+This can have some unwanted side effects though, if for example, a constant name that had been `#defined` is included in some other constant or variable name. In that case the text would be replaced by the #defined number (or text).
+
+```C++
+// EXAMPLE USAGE
+
+#define ledPin 3
+// The compiler will replace any mention of ledPin with the value 3 at compile time.
+```
+
+In general, the [const]() keyword is preferred for defining constants and should be used instead of #define.
+
+**TIP:**
+There is no semicolon after the #define statement. If you include one, the compiler will throw cryptic errors further down the page.
+
+`#define ledPin 3;   // this is an error`
+
+Similarly, including an equal sign after the #define statement will also generate a cryptic compiler error further down the page.
+
+`#define ledPin = 3  // this is also an error`
+
+#### #include
+
+`#include` is used to include outside libraries in your application code. This gives the programmer access to a large group of standard C libraries (groups of pre-made functions), and also libraries written especially for your device.
+
+Note that #include, similar to #define, has no semicolon terminator, and the compiler will yield cryptic error messages if you add one.
+
+### Arithmetic operators
+
+#### = (assignment operator)
+
+Stores the value to the right of the equal sign in the variable to the left of the equal sign.
+
+The single equal sign in the C programming language is called the assignment operator. It has a different meaning than in algebra class where it indicated an equation or equality. The assignment operator tells the microcontroller to evaluate whatever value or expression is on the right side of the equal sign, and store it in the variable to the left of the equal sign.
+
+```C++
+// EXAMPLE USAGE
+
+int sensVal;                // declare an integer variable named sensVal
+senVal = analogRead(A0);    // store the (digitized) input voltage at analog pin A0 in SensVal
+```
+**TIP:**
+The variable on the left side of the assignment operator ( = sign ) needs to be able to hold the value stored in it. If it is not large enough to hold a value, the value stored in the variable will be incorrect.
+
+Don't confuse the assignment operator `=` (single equal sign) with the comparison operator `==` (double equal signs), which evaluates whether two expressions are equal.
+
+#### + - * / (additon subtraction multiplication division)
+
+These operators return the sum, difference, product, or quotient (respectively) of the two operands. The operation is conducted using the data type of the operands, so, for example,`9 / 4` gives 2 since 9 and 4 are ints. This also means that the operation can overflow if the result is larger than that which can be stored in the data type (e.g. adding 1 to an int with the value 2,147,483,647 gives -2,147,483,648). If the operands are of different types, the "larger" type is used for the calculation.
+
+If one of the numbers (operands) are of the type float or of type double, floating point math will be used for the calculation.
+
+```C++
+// EXAMPLE USAGES
+
+y = y + 3;
+x = x - 7;
+i = j * 6;
+r = r / 5;
+```
+
+```C++
+// SYNTAX
+result = value1 + value2;
+result = value1 - value2;
+result = value1 * value2;
+result = value1 / value2;
+```
+`value1` and `value2` can be any variable or constant.
+
+**TIPS:**
+
+  - Know that integer constants default to int, so some constant calculations may overflow (e.g. 50 * 50,000,000 will yield a negative result).
+  - Choose variable sizes that are large enough to hold the largest results from your calculations
+  - Know at what point your variable will "roll over" and also what happens in the other direction e.g. (0 - 1) OR (0 + 2147483648)
+  - For math that requires fractions, use float variables, but be aware of their drawbacks: large size, slow computation speeds
+  - Use the cast operator e.g. (int)myFloat to convert one variable type to another on the fly.
+
+#### % (modulo)
+
+Calculates the remainder when one integer is divided by another. It is useful for keeping a variable within a particular range (e.g. the size of an array).  It is defined so that `a % b == a - ((a / b) * b)`.
+
+`result = dividend % divisor`
+
+`dividend` is the number to be divided and
+`divisor` is the number to divide by.
+
+`result` is the remainder
+
+The remainder function can have unexpected behavoir when some of the opperands are negative.  If the dividend is negative, then the result will be the smallest negative equivalency class.  In other words, when `a` is negative, `(a % b) == (a mod b) - b` where (a mod b) follows the standard mathematical definition of mod.  When the divisor is negative, the result is the same as it would be if it was positive.
+
+```C++
+// EXAMPLE USAGES
+
+x = 9 % 5;   // x now contains 4
+x = 5 % 5;   // x now contains 0
+x = 4 % 5;   // x now contains 4
+x = 7 % 5;   // x now contains 2
+x = -7 % 5;  // x now contains -2
+x = 7 % -5;  // x now contains 2
+x = -7 % -5; // x now contains -2
+```
+
+```C++
+EXAMPLE CODE
+//update one value in an array each time through a loop
+
+int values[10];
+int i = 0;
+
+void setup() {}
+
+void loop()
+{
+  values[i] = analogRead(A0);
+  i = (i + 1) % 10;   // modulo operator rolls over variable
+}
+```
+
+**TIP:**
+The modulo operator does not work on floats.  For floats, an equivalent expression to `a % b` is `a - (b * ((int)(a / b)))`
+
+### Boolean operators
+
+These can be used inside the condition of an if statement.
+
+#### && (and)
+
+True only if both operands are true, e.g.
+
+```C++
+if (digitalRead(D2) == HIGH  && digitalRead(D3) == HIGH)
+{
+  // read two switches
+  // ...
+}
+//is true only if both inputs are high.
+```
+
+#### || (or)
+
+True if either operand is true, e.g.
+
+```C++
+if (x > 0 || y > 0)
+{
+  // ...
+}
+//is true if either x or y is greater than 0.
+```
+
+#### ! (not)
+
+True if the operand is false, e.g.
+
+```C++
+if (!x)
+{
+  // ...
+}
+//is true if x is false (i.e. if x equals 0).
+```
+
+**WARNING:**
+Make sure you don't mistake the boolean AND operator, && (double ampersand) for the bitwise AND operator & (single ampersand). They are entirely different beasts.
+
+Similarly, do not confuse the boolean || (double pipe) operator with the bitwise OR operator | (single pipe).
+
+The bitwise not ~ (tilde) looks much different than the boolean not ! (exclamation point or "bang" as the programmers say) but you still have to be sure which one you want where.
+
+`if (a >= 10 && a <= 20){}   // true if a is between 10 and 20`
+
+### Bitwise operators
+
+#### & (bitwise and)
+
+The bitwise AND operator in C++ is a single ampersand, &, used between two other integer expressions. Bitwise AND operates on each bit position of the surrounding expressions independently, according to this rule: if both input bits are 1, the resulting output is 1, otherwise the output is 0. Another way of expressing this is:
+
+```
+    0  0  1  1    operand1
+    0  1  0  1    operand2
+    ----------
+    0  0  0  1    (operand1 & operand2) - returned result
+```
+
+```C++
+// EXAMPLE USAGE
+
+int a =  92;    // in binary: 0000000001011100
+int b = 101;    // in binary: 0000000001100101
+int c = a & b;  // result:    0000000001000100, or 68 in decimal.
+```
+One of the most common uses of bitwise AND is to select a particular bit (or bits) from an integer value, often called masking.
+
+#### | (bitwise or)
+
+The bitwise OR operator in C++ is the vertical bar symbol, |. Like the & operator, | operates independently each bit in its two surrounding integer expressions, but what it does is different (of course). The bitwise OR of two bits is 1 if either or both of the input bits is 1, otherwise it is 0. In other words:
+
+```
+    0  0  1  1    operand1
+    0  1  0  1    operand2
+    ----------
+    0  1  1  1    (operand1 | operand2) - returned result
+```
+```C++
+// EXAMPLE USAGE
+
+int a =  92;    // in binary: 0000000001011100
+int b = 101;    // in binary: 0000000001100101
+int c = a | b;  // result:    0000000001111101, or 125 in decimal.
+```
+
+#### ^ (bitwise xor)
+
+There is a somewhat unusual operator in C++ called bitwise EXCLUSIVE OR, also known as bitwise XOR. (In English this is usually pronounced "eks-or".) The bitwise XOR operator is written using the caret symbol ^. This operator is very similar to the bitwise OR operator |, only it evaluates to 0 for a given bit position when both of the input bits for that position are 1:
+
+```
+    0  0  1  1    operand1
+    0  1  0  1    operand2
+    ----------
+    0  1  1  0    (operand1 ^ operand2) - returned result
+```
+Another way to look at bitwise XOR is that each bit in the result is a 1 if the input bits are different, or 0 if they are the same.
+
+```C++
+// EXAMPLE USAGE
+
+int x = 12;     // binary: 1100
+int y = 10;     // binary: 1010
+int z = x ^ y;  // binary: 0110, or decimal 6
+```
+
+The ^ operator is often used to toggle (i.e. change from 0 to 1, or 1 to 0) some of the bits in an integer expression. In a bitwise OR operation if there is a 1 in the mask bit, that bit is inverted; if there is a 0, the bit is not inverted and stays the same.
+
+
+#### ~ (bitwise not)
+
+The bitwise NOT operator in C++ is the tilde character ~. Unlike & and |, the bitwise NOT operator is applied to a single operand to its right. Bitwise NOT changes each bit to its opposite: 0 becomes 1, and 1 becomes 0. For example:
+
+```
+    0  1    operand1
+   ----------
+    1  0   ~ operand1
+
+int a = 103;    // binary:  0000000001100111
+int b = ~a;     // binary:  1111111110011000 = -104
+```
+You might be surprised to see a negative number like -104 as the result of this operation. This is because the highest bit in an int variable is the so-called sign bit. If the highest bit is 1, the number is interpreted as negative. This encoding of positive and negative numbers is referred to as two's complement. For more information, see the Wikipedia article on [two's complement.](http://en.wikipedia.org/wiki/Twos_complement)
+
+As an aside, it is interesting to note that for any integer x, ~x is the same as -x-1.
+
+At times, the sign bit in a signed integer expression can cause some unwanted surprises.
+
+#### << (bitwise left shift), >> (bitwise right shift)
+
+There are two bit shift operators in C++: the left shift operator << and the right shift operator >>. These operators cause the bits in the left operand to be shifted left or right by the number of positions specified by the right operand.
+
+More on bitwise math may be found [here.](http://playground.arduino.cc/Code/BitMath)
+
+```
+variable << number_of_bits
+variable >> number_of_bits
+```
+
+`variable` can be `byte`, `int`, `long`
+`number_of_bits` and integer <= 32
+
+```C++
+// EXAMPLE USAGE
+
+int a = 5;        // binary: 0000000000000101
+int b = a << 3;   // binary: 0000000000101000, or 40 in decimal
+int c = b >> 3;   // binary: 0000000000000101, or back to 5 like we started with
+```
+When you shift a value x by y bits (x << y), the leftmost y bits in x are lost, literally shifted out of existence:
+
+```C++
+int a = 5;        // binary: 0000000000000101
+int b = a << 14;  // binary: 0100000000000000 - the first 1 in 101 was discarded
+```
+If you are certain that none of the ones in a value are being shifted into oblivion, a simple way to think of the left-shift operator is that it multiplies the left operand by 2 raised to the right operand power. For example, to generate powers of 2, the following expressions can be employed:
+
+```
+1 <<  0  ==    1
+1 <<  1  ==    2
+1 <<  2  ==    4
+1 <<  3  ==    8
+...
+1 <<  8  ==  256
+1 <<  9  ==  512
+1 << 10  == 1024
+...
+```
+When you shift x right by y bits (x >> y), and the highest bit in x is a 1, the behavior depends on the exact data type of x. If x is of type int, the highest bit is the sign bit, determining whether x is negative or not, as we have discussed above. In that case, the sign bit is copied into lower bits, for esoteric historical reasons:
+
+```C++
+int x = -16;     // binary: 1111111111110000
+int y = x >> 3;  // binary: 1111111111111110
+```
+This behavior, called sign extension, is often not the behavior you want. Instead, you may wish zeros to be shifted in from the left. It turns out that the right shift rules are different for unsigned int expressions, so you can use a typecast to suppress ones being copied from the left:
+
+```C++
+int x = -16;                   // binary: 1111111111110000
+int y = (unsigned int)x >> 3;  // binary: 0001111111111110
+```
+
+If you are careful to avoid sign extension, you can use the right-shift operator >> as a way to divide by powers of 2. For example:
+
+```C++
+int x = 1000;
+int y = x >> 3;   // integer division of 1000 by 8, causing y = 125
+```
+### Compound operators
+
+#### ++ (increment), -- (decrement)
+
+Increment or decrement a variable
+
+```C++
+// SYNTAX
+x++;  // increment x by one and returns the old value of x
+++x;  // increment x by one and returns the new value of x
+
+x-- ;   // decrement x by one and returns the old value of x
+--x ;   // decrement x by one and returns the new value of x
+```
+
+where `x` is an integer or long (possibly unsigned)
+
+```C++
+// EXAMPLE USAGE
+
+x = 2;
+y = ++x;      // x now contains 3, y contains 3
+y = x--;      // x contains 2 again, y still contains 3
+```
+
+#### compound arithmetic
+
+- += (compound addition)
+- -= (compound subtraction)
+- *= (compound multiplication)
+- /= (compound division)
+
+Perform a mathematical operation on a variable with another constant or variable. The += (et al) operators are just a convenient shorthand for the expanded syntax.
+
+```C++
+// SYNTAX
+x += y;   // equivalent to the expression x = x + y;
+x -= y;   // equivalent to the expression x = x - y;
+x *= y;   // equivalent to the expression x = x * y;
+x /= y;   // equivalent to the expression x = x / y;
+```
+
+`x` can be any variable type
+`y` can be any variable type or constant
+
+```C++
+// EXAMPLE USAGE
+
+x = 2;
+x += 4;      // x now contains 6
+x -= 3;      // x now contains 3
+x *= 10;     // x now contains 30
+x /= 2;      // x now contains 15
+```
+
+#### &= (compound bitwise and)
+
+The compound bitwise AND operator (&=) is often used with a variable and a constant to force particular bits in a variable to the LOW state (to 0). This is often referred to in programming guides as "clearing" or "resetting" bits.
+
+`x &= y;   // equivalent to x = x & y;`
+
+`x` can be a char, int or long variable
+`y` can be an integer constant, char, int, or long
+
+```
+   0  0  1  1    operand1
+   0  1  0  1    operand2
+   ----------
+   0  0  0  1    (operand1 & operand2) - returned result
+```
+Bits that are "bitwise ANDed" with 0 are cleared to 0 so, if myByte is a byte variable,
+`myByte & B00000000 = 0;`
+
+Bits that are "bitwise ANDed" with 1 are unchanged so,
+`myByte & B11111111 = myByte;`
+
+**Note:** because we are dealing with bits in a bitwise operator - it is convenient to use the binary formatter with constants. The numbers are still the same value in other representations, they are just not as easy to understand. Also, B00000000 is shown for clarity, but zero in any number format is zero (hmmm something philosophical there?)
+
+Consequently - to clear (set to zero) bits 0 & 1 of a variable, while leaving the rest of the variable unchanged, use the compound bitwise AND operator (&=) with the constant B11111100
+
+```
+   1  0  1  0  1  0  1  0    variable
+   1  1  1  1  1  1  0  0    mask
+   ----------------------
+   1  0  1  0  1  0  0  0
+
+ variable unchanged
+                     bits cleared
+```
+Here is the same representation with the variable's bits replaced with the symbol x
+
+```
+   x  x  x  x  x  x  x  x    variable
+   1  1  1  1  1  1  0  0    mask
+   ----------------------
+   x  x  x  x  x  x  0  0
+
+ variable unchanged
+                     bits cleared
+```
+
+So if:
+`myByte =  10101010;`
+`myByte &= B1111100 == B10101000;`
+
+
+#### |= (compound bitwise or)
+
+The compound bitwise OR operator (|=) is often used with a variable and a constant to "set" (set to 1) particular bits in a variable.
+
+```C++
+// SYNTAX
+x |= y;   // equivalent to x = x | y;
+```
+`x` can be a char, int or long variable
+`y` can be an integer constant or char, int or long
+
+```
+   0  0  1  1    operand1
+   0  1  0  1    operand2
+   ----------
+   0  1  1  1    (operand1 | operand2) - returned result
+```
+Bits that are "bitwise ORed" with 0 are unchanged, so if myByte is a byte variable,
+`myByte | B00000000 = myByte;`
+
+Bits that are "bitwise ORed" with 1 are set to 1 so:
+`myByte | B11111111 = B11111111;`
+
+Consequently - to set bits 0 & 1 of a variable, while leaving the rest of the variable unchanged, use the compound bitwise OR operator (|=) with the constant B00000011
+
+```
+   1  0  1  0  1  0  1  0    variable
+   0  0  0  0  0  0  1  1    mask
+   ----------------------
+   1  0  1  0  1  0  1  1
+
+ variable unchanged
+                     bits set
+```
+Here is the same representation with the variables bits replaced with the symbol x
+```
+   x  x  x  x  x  x  x  x    variable
+   0  0  0  0  0  0  1  1    mask
+   ----------------------
+   x  x  x  x  x  x  1  1
+
+ variable unchanged
+                     bits set
+```
+So if:
+`myByte =  B10101010;`
+`myByte |= B00000011 == B10101011;`
+
+
+
+### Variables
+
+#### HIGH | LOW
 
 When reading or writing to a digital pin there are only two possible values a pin can take/be-set-to: HIGH and LOW.
 
@@ -5003,7 +4997,7 @@ The meaning of `LOW` also has a different meaning depending on whether a pin is 
 
 When a pin is configured to `OUTPUT` with `pinMode`, and set to `LOW` with digitalWrite, the pin is at 0 volts. In this state it can sink current, e.g. light an LED that is connected through a series resistor to, +3.3 volts, or to another pin configured as an output, and set to `HIGH.`
 
-### INPUT, OUTPUT, INPUT_PULLUP, INPUT_PULLDOWN
+#### INPUT, OUTPUT, INPUT_PULLUP, INPUT_PULLDOWN
 
 Digital pins can be used as INPUT, INPUT_PULLUP, INPUT_PULLDOWN or OUTPUT. Changing a pin with `pinMode()` changes the electrical behavior of the pin.
 
@@ -5021,7 +5015,7 @@ Pins Configured as `OUTPUT`
 
 Pins configured as `OUTPUT` with `pinMode()`` are said to be in a low-impedance state. This means that they can provide a substantial amount of current to other circuits. STM32 pins can source (provide positive current) or sink (provide negative current) up to 20 mA (milliamps) of current to other devices/circuits. This makes them useful for powering LED's but useless for reading sensors. Pins configured as outputs can also be damaged or destroyed if short circuited to either ground or 3.3 volt power rails. The amount of current provided by the pin is also not enough to power most relays or motors, and some interface circuitry will be required.
 
-### true | false
+#### true | false
 
 There are two constants used to represent truth and falsity in the Arduino language: true, and false.
 
@@ -5035,11 +5029,11 @@ There are two constants used to represent truth and falsity in the Arduino langu
 
 Note that the true and false constants are typed in lowercase unlike `HIGH, LOW, INPUT, & OUTPUT.`
 
-## Data Types
+### Data Types
 
 **Note:** The Core/Photon uses a 32-bit ARM based microcontroller and hence the datatype lengths are different from a standard 8-bit system (for eg. Arduino Uno).
 
-### void
+#### void
 
 The `void` keyword is used only in function declarations. It indicates that the function is expected to return no information to the function from which it was called.
 
@@ -5060,7 +5054,7 @@ void loop()
 }
 ```
 
-### boolean
+#### boolean
 
 A `boolean` holds one of two values, `true` or `false`. (Each boolean variable occupies one byte of memory.)
 
@@ -5090,7 +5084,7 @@ void loop()
 
 ```
 
-### char
+#### char
 
 A data type that takes up 1 byte of memory that stores a character value. Character literals are written in single quotes, like this: 'A' (for multiple characters - strings - use double quotes: "ABC").
 Characters are stored as numbers however. You can see the specific encoding in the ASCII chart. This means that it is possible to do arithmetic on characters, in which the ASCII value of the character is used (e.g. 'A' + 1 has the value 66, since the ASCII value of the capital letter A is 65). See Serial.println reference for more on how characters are translated to numbers.
@@ -5103,7 +5097,7 @@ char myChar = 'A';
 char myChar = 65;      // both are equivalent
 ```
 
-### unsigned char
+#### unsigned char
 
 An unsigned data type that occupies 1 byte of memory. Same as the `byte` datatype.
 The unsigned char datatype encodes numbers from 0 to 255.
@@ -5115,7 +5109,7 @@ For consistency of Arduino programming style, the `byte` data type is to be pref
 unsigned char myChar = 240;
 ```
 
-### byte
+#### byte
 
 A byte stores an 8-bit unsigned number, from 0 to 255.
 
@@ -5125,7 +5119,7 @@ A byte stores an 8-bit unsigned number, from 0 to 255.
 byte b = 0x11;
 ```
 
-### int
+#### int
 
 Integers are your primary data-type for number storage. On the Core/Photon, an int stores a 32-bit (4-byte) value. This yields a range of -2,147,483,648 to 2,147,483,647 (minimum value of -2^31 and a maximum value of (2^31) - 1).
 int's store negative numbers with a technique called 2's complement math. The highest bit, sometimes referred to as the "sign" bit, flags the number as a negative number. The rest of the bits are inverted and 1 is added.
@@ -5136,7 +5130,7 @@ Other variations:
   * `int16_t` : 16 bit signed integer
   * `int8_t`  : 8 bit signed integer
 
-### unsigned int
+#### unsigned int
 
 The Core/Photon stores a 4 byte (32-bit) value, ranging from 0 to 4,294,967,295 (2^32 - 1).
 The difference between unsigned ints and (signed) ints, lies in the way the highest bit, sometimes referred to as the "sign" bit, is interpreted.
@@ -5147,34 +5141,34 @@ Other variations:
   * `uint16_t`  : 16 bit unsigned integer
   * `uint8_t`   : 8 bit unsigned integer
 
-### word
+#### word
 
 `word` stores a 32-bit unsigned number, from 0 to 4,294,967,295.
 
-### long
+#### long
 
 Long variables are extended size variables for number storage, and store 32 bits (4 bytes), from -2,147,483,648 to 2,147,483,647.
 
-### unsigned long
+#### unsigned long
 
 Unsigned long variables are extended size variables for number storage, and store 32 bits (4 bytes). Unlike standard longs unsigned longs won't store negative numbers, making their range from 0 to 4,294,967,295 (2^32 - 1).
 
-### short
+#### short
 
 A short is a 16-bit data-type. This yields a range of -32,768 to 32,767 (minimum value of -2^15 and a maximum value of (2^15) - 1).
 
-### float
+#### float
 
 Datatype for floating-point numbers, a number that has a decimal point. Floating-point numbers are often used to approximate analog and continuous values because they have greater resolution than integers. Floating-point numbers can be as large as 3.4028235E+38 and as low as -3.4028235E+38. They are stored as 32 bits (4 bytes) of information.
 
 Floating point numbers are not exact, and may yield strange results when compared. For example 6.0 / 3.0 may not equal 2.0. You should instead check that the absolute value of the difference between the numbers is less than some small number.
 Floating point math is also much slower than integer math in performing calculations, so should be avoided if, for example, a loop has to run at top speed for a critical timing function. Programmers often go to some lengths to convert floating point calculations to integer math to increase speed.
 
-### double
+#### double
 
 Double precision floating point number. On the Core/Photon, doubles have 8-byte (64 bit) precision.
 
-### string - char array
+#### string - char array
 
 A string can be made out of an array of type `char` and null-terminated.
 
@@ -5240,11 +5234,11 @@ void loop(){
 
 ```
 
-### String - object
+#### String - object
 
-More info can be found [here.](#language-syntax-string-class)
+More info can be found [here.](#string-class)
 
-### array
+#### array
 
 An array is a collection of variables that are accessed with an index number.
 
