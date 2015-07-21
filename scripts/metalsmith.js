@@ -225,7 +225,7 @@ exports.metalsmith = function() {
 
 exports.build = function(callback) {
   git.branch(function (str) {
-    gitBranch = str;
+    gitBranch = process.env.TRAVIS_BRANCH || str;
     exports.metalsmith().build(function(err, files) {
       if (err) { throw err; }
       if (callback) {
@@ -238,7 +238,7 @@ exports.build = function(callback) {
 exports.server = function(callback) {
   environment = 'development';
   git.branch(function (str) {
-    gitBranch = str;
+    gitBranch = process.env.TRAVIS_BRANCH || str;
     exports.metalsmith().use(serve())
       .use(define({
         development: true
