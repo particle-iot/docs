@@ -609,6 +609,12 @@ This includes:
 - Photon Kit
 - Photon Maker Kit Contents
 
+{{#if photon}}
+##Avoid Factory Reset
+
+In-depth explanation of why you shouldn't do a Factory Reset on Photon [link here](https://community.particle.io/t/avoid-factory-reset-what-do-do-with-unexpected-led-behavior-on-a-photon/13358).
+{{/if}}
+
 ##Common Questions
 
 **Where can I get more firmware information, like a guide?**
