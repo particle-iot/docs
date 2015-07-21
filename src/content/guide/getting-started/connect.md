@@ -15,10 +15,7 @@ For all of the following methods, the device must be in [Listening Mode](/../../
 The Core and Photon both boot into listening mode by default, so if your device is brand new, it should go straight into listening mode. If your device is not blinking blue, {{#if photon}}{{{popup 'hold down the SETUP button.' 'vine' 'https://vine.co/v/eZUHUIjq7pO/embed/simple'}}}{{/if}}{{#if core}}{{{popup 'hold down the MODE button.' 'vine' 'https://vine.co/v/eZUgHYYrYgl/embed/simple'}}}{{/if}}
 
 
-There are a two ways to go about connecting your Photon over USB, depending on your OS. These links will take you to the right place:
-
-- [Windows](../#connecting-your-device-using-windows)
-- [Mac OSX](../#connecting-your-device-using-osx)
+There are a two ways to go about connecting your Photon over USB, depending on your OS.
 
 ##Using Windows
 
