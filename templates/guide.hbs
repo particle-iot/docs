@@ -54,14 +54,14 @@
         <div class='content-inner'>
           <div class="content" >
             {{{contents}}}
+            <div class="mobile-arrows">
+              {{> arrows}}
+            </div>
           </div>
         </div>
-        {{#if previous}}
-          <a href="{{previous.path.href}}{{previous.path.name}}" class="arrow previous-arrow"><i class="ion-chevron-left"></i></a>
-        {{/if}}
-        {{#if next}}
-          <a href="{{next.path.href}}{{next.path.name}}" class="arrow next-arrow"><i class="ion-chevron-right"></i></a>
-        {{/if}}
+        <div class="desktop-arrows">
+          {{> arrows}}
+        </div>
       </div>
     </div>
     {{> scripts}}
