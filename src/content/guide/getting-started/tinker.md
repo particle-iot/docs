@@ -26,13 +26,13 @@ To get started, you'll need the following things:
 * **Software**
   * Particle Mobile App - [iPhone](https://itunes.apple.com/us/app/particle-build-photon-electron/id991459054?ls=1&mt=8) | [Android](https://play.google.com/store/apps/details?id=io.particle.android.app)
 * **Experience**
-    * Connecting your Device [with your smartphone](../../start) or [over USB](../../connect)
+    * Connecting your Device [with your smartphone](/guide/getting-started/start) or [over USB](/guide/getting-started/connect)
 
 {{#if core}}**NOTE:** You may already have the Spark Core App for [iPhone](https://itunes.apple.com/us/app/spark-core/id760157884) or [Android](https://play.google.com/store/apps/details?id=io.spark.core.android). We recommend getting the newer Particle Mobile App anyway, since it's a very nice interface for Tinker that works across all devices. Sadly, the new Particle Mobile App will not connect your Core, though. If you don't feel like having two apps on your phone, the old Spark Core App will still work for these examples. However, the images in this tutorial will be from the newer and fancier Particle App.{{/if}}
 
 ## Step One: Select Your Device
 
-You've already connected your device, either with [your smartphone](../../start) or [over USB](../../connect). This means that when you open the Particle App, you'll see a screen like this:
+You've already connected your device, either with [your smartphone](/guide/getting-started/start) or [over USB](/guide/getting-started/connect). This means that when you open the Particle App, you'll see a screen like this:
 
 ![](/assets/images/tinker-device-screen.png)
 

@@ -21,7 +21,7 @@ Here are instrutions on setting up some tools that will help you hack around wit
 
 ### Installing the CLI
 
-First, get the [Particle CLI](../cli). Unless someone has already set it up for you, you're going to need it to connect your device.
+First, get the [Particle CLI](/guide/tools-and-features/cli). Unless someone has already set it up for you, you're going to need it to connect your device.
 
 If you already have node.js, you can download the CLI by opening a terminal window and typing:
 
@@ -120,7 +120,7 @@ Now you can compile and flash your first `.ino` file from Particle Dev. You are 
 
 ### Strings in Spark.Function
 
-In the [quintessential example](../firmware/#spark-function) for Spark Function, we are calling a brewCoffee function with the argument "coffee". This is nice if we have an array of choices we want to identify with strings, but what if we want to pass `int` data to our `Spark.function`?
+In the [quintessential example](/reference/firmware/#spark-function-) for Spark Function, we are calling a brewCoffee function with the argument "coffee". This is nice if we have an array of choices we want to identify with strings, but what if we want to pass `int` data to our `Spark.function`?
 
 If you want to use `int` data from a `String`, you can create a `char` array to hold the `String` command, then use `atoi` to change this into an `int` value. Check out this example for setting the brightness of an LED.
 

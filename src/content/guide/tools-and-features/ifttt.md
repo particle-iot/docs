@@ -389,7 +389,7 @@ You must have firmware on your Particle device, but nothing else is necessary. B
 
   This is very similar to using a Spark.function() as a trigger, only you won't be using any values it returns. The same setup on the firmware side, and the example code above for Spark.function() as trigger, will work for this as well.
 
-  Complete documentation on using [Spark.function() is here.](../firmware#spark-function)
+  Complete documentation on using [Spark.function() is here.](/reference/firmware/#spark-function-)
 
   #### Action fields
 

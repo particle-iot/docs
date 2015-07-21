@@ -16,7 +16,7 @@ You've built an amazing device, and a powerful application online, and now you w
 
 Webhooks are a simple and flexible way for your devices to make requests to almost anything on the Internet.  Webhooks listen for events from your devices.  When you send a matching event, the hook will send a request to your web application with all the details!
 
-If you're totally new to Particle, that's okay!  Check out our [Getting started guide here](../start), and come back when you're ready.
+If you're totally new to Particle, that's okay!  Check out our [Getting started guide here](/guide/getting-started/start), and come back when you're ready.
 
 Let's go!
 

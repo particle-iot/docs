@@ -161,7 +161,7 @@ Both of these pins run at 3.3V logic level but *are* tolerant to 5V inputs.
 
 In addition to having the ability to load new firmware over USB and WiFi, the users also have direct access to the STM32 chip via the JTAG channel. In order to do this, you will need a JTAG shield and a JTAG programmer. You could make your own JTAG shield or buy one from us. Currently we have only tested the [ST-LINK/V2](http://www.st.com/web/catalog/tools/FM146/CL1984/SC724/SS1677/PF251168) programmer successfully.
 
-The hardware files for the JTAG shield are available [here.](https://github.com/spark/shields/tree/master/Programmer%20Shield)
+The hardware files for the JTAG shield are available [here.](https://github.com/spark/shields/tree/master/core-shields/Programmer%20Shield)
 
 ## Memory mapping
 
