@@ -51,9 +51,9 @@ describe('Crawler', function() {
           return done();
         }
     });
-    function crawlCallback(fromUrl, toUrl, error, result, $) {
+    function crawlCallback(fromUrl, toUrl, content, error, result, $) {
       if (error || result.statusCode !== 200) {
-        console.error(error || result.statusCode, fromUrl + ' -> ' + toUrl);
+        console.error('%s ON %s CONTENT %s LINKS TO %s', error || result.statusCode, fromUrl, content, toUrl);
         errors++;
         return;
       }
@@ -62,6 +62,7 @@ describe('Crawler', function() {
       if ($ && result && (isRelative || isLocalhost)) {
         $('a').each(function(index, a) {
           var toQueueUrl = $(a).attr('href');
+          var linkContent = $(a).text();
           if (!toQueueUrl) return;
 
           if (!shouldCrawl(toQueueUrl)) {
@@ -71,7 +72,7 @@ describe('Crawler', function() {
           toQueueUrl = url.resolve(toUrl, toQueueUrl);
           c.queue([{
             uri: toQueueUrl,
-            callback: crawlCallback.bind(null, toUrl, toQueueUrl)
+            callback: crawlCallback.bind(null, toUrl, toQueueUrl, linkContent)
           }]);
         });
         $('img').each(function (index, img) {
@@ -85,11 +86,11 @@ describe('Crawler', function() {
           toQueueUrl = url.resolve(toUrl, toQueueUrl);
           c.queue([{
             uri: toQueueUrl,
-            callback: crawlCallback.bind(null, toUrl, toQueueUrl)
+            callback: crawlCallback.bind(null, toUrl, toQueueUrl, 'image')
           }]);
         });
       }
     }
-    c.queue([{ uri: host, callback: crawlCallback.bind(null, '', host) }]);
+    c.queue([{ uri: host, callback: crawlCallback.bind(null, '', host, 'initial page') }]);
   });
 });
