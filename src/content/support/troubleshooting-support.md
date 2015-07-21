@@ -247,7 +247,7 @@ Example activity from CMD output:
 
 Example Output:
 
-	KENMBP:~ kennethlimcp$ spark config identify
+	KENMBP:~ kennethlimcp$ particle config identify
 	Current profile: local
 	Using API: http://192.168.1.68
 
@@ -615,13 +615,13 @@ This includes:
 Most of our firmware solutions are now explained in depth, located in our new and improved {{#if photon}}[Photon Guide](guide/getting-started/intro/photon/){{/if}}{{#if core}}[Core Guide](/guide/getting-started/intro/core/){{/if}}.
 
 **Do Particle devices play well with IFTTT?**
-Yes, and that *how-to* is located in our [IFTTT features section](http://localhost:8080/guide/tools-and-features/ifttt/).
+Yes, and that *how-to* is located in our [IFTTT features section](/guide/tools-and-features/ifttt/).
 
 **Webhooks and JS-Plugins?**
-Of course, if it's related to the internet, we probably support it. [Webhooks features section](http://localhost:8080/guide/tools-and-features/webhooks/).
+Of course, if it's related to the internet, we probably support it. [Webhooks features section](/guide/tools-and-features/webhooks/).
 
 **Can I host or co-host a Hackathon/Program that is Powered by Particle?**
-Yup! [Here are our best practices](http://localhost:8080/guide/tools-and-features/hackathon/) about setting devices up for a Hackathon.
+Yup! [Here are our best practices](/guide/tools-and-features/hackathon/) about setting devices up for a Hackathon.
 
 Feel free to contact [hello @ particle dot com] with **subject line: *"Hackathon Inquiry for Particle"* **for any additional information about this.
 
