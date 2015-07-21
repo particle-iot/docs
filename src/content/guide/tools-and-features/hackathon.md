@@ -29,21 +29,21 @@ If you already have node.js, you can download the CLI by opening a terminal wind
 `npm install -g particle-cli`
 
 
-Otherwise, follow the instructions on how to [connect over USB](../connect/#connecting-your-device-connect-over-usb) **BUT BEFORE YOU DO THAT** please read on!
+Otherwise, follow the instructions on how to [connect over USB](/guide/getting-started/connect/photon/) **BUT BEFORE YOU DO THAT** please read on!
 
 
 ### Claiming your Device
 
 **If your devices have been pre-connected...**
 
-If someone from Particle came to your workshop or hackathon, there's a chance they already pre-programmed all your devices to connect to the local wifi. In that case, someone has probably written your device ID in or on the box for your Core or Photon. If this has happened, go to [this step](../hackathon/#setup-particle-dev) to download Particle Dev and claim the core to your account.
+If someone from Particle came to your workshop or hackathon, there's a chance they already pre-programmed all your devices to connect to the local wifi. In that case, someone has probably written your device ID in or on the box for your Core or Photon. If this has happened, go to [this step](/guide/tools-and-features/hackathon/#particle-dev) to download Particle Dev and claim the core to your account.
 
 
 **If devices have not been pre-connected...**
 
 When the CLI prompts you to log in or sign up, make sure you choose your login carefully. If you're working on a team, the team will need to have access to this account, so it would help if you made a password you could share with them. You can always change the password and access token later at [build.particle.io](http://build.particle.io) if you want the account to be yours only later.
 
-Now that you've read that, go ahead and [connect over USB](../connect/#connecting-your-device-connect-over-usb). When that's all done, you can go on to the next section.
+Now that you've read that, go ahead and [connect over USB](/guide/getting-started/connect). When that's all done, you can go on to the next section.
 
 
 ### Particle Dev
@@ -52,7 +52,7 @@ Although the [online IDE](http://build.particle.io) will allow you to flash code
 
 Download Particle Dev [here](https://www.particle.io/dev).
 
-Particle Dev has a lot of wonderful features. Namely, you can monitor cloud variables, cloud functions, and serial output from your devices via the Devices part of the menu bar. More on that in the [next section](../hackathon/#now-do-stuff).
+Particle Dev has a lot of wonderful features. Namely, you can monitor cloud variables, cloud functions, and serial output from your devices via the Devices part of the menu bar. More on that in the [next section](/guide/tools-and-features/hackathon/#now-do-stuff-).
 
 **My device was pre-connected. Can I claim it now?**
 
@@ -64,7 +64,7 @@ Enter your device ID and press enter. The device should claim to your account.
 
 If this does not work, double-check your entry to make sure that it is correct.
 
-If you're 100% sure you did it right but it's still not working, send us an email at hello@particle.io and go ahead and try it with the [CLI tools](../connect/#connecting-your-device-connect-over-usb).
+If you're 100% sure you did it right but it's still not working, send us an email at hello@particle.io and go ahead and try it with the [CLI tools](/guide/getting-started/connect).
 
 
 ### Github
@@ -76,7 +76,7 @@ Here's a [basic guide on how to git](http://rogerdudler.github.io/git-guide/) fo
 
 ### Mobile
 
-Building a mobile app to hook up with a Particle device? Check out our [Mobile SDK](../mobile/).
+Building a mobile app to hook up with a Particle device? Check out our [Mobile SDK](/reference/ios).
 
 It's still in beta right now, so hop on the [mobile section of the community](http://community.particle.io/c/mobile) for to ask for help and give feedback!
 
@@ -87,7 +87,7 @@ It's still in beta right now, so hop on the [mobile section of the community](ht
 ### Tinkering Around
 Open up Particle Dev and go to the Particle menu. Select your device with `Select device`. Then select `Show cloud functions`.
 
-A menu will appear on the lower half of the screen. It should have four functions: digitalwrite, digitalread, analogwrite, and analogread. These are the Tinker functions that are defaulted to your device before you flash your own code. Check out the [Tinker docs](../tinker) for more info. You should be able to send commands to your device by identifying the pin and, for write functions, any necessary info. For example:
+A menu will appear on the lower half of the screen. It should have four functions: digitalwrite, digitalread, analogwrite, and analogread. These are the Tinker functions that are defaulted to your device before you flash your own code. Check out the [Tinker docs](/guide/getting-started/tinker) for more info. You should be able to send commands to your device by identifying the pin and, for write functions, any necessary info. For example:
 
 - `D7,HIGH` for digitalwrite
 - `D7` for digitalread
@@ -100,9 +100,9 @@ Try it out!
 
 In addition to the `Show cloud function` ability, there are other elements of Particle Dev that you may find helpful:
 
-If you go to the Particle menu you will also see `Show cloud variables`. This will allow you to see any variables you register with [Spark.variable](../firmware/#spark-variable).
+If you go to the Particle menu you will also see `Show cloud variables`. This will allow you to see any variables you register with [Spark.variable](/reference/firmware/#spark-variable-).
 
-You can also monitor any [serial output](../firmware/#communication-serial) with the `Show serial monitor` command. Make sure the proper device is selected through `Particle` > `Select device` when you do this.
+You can also monitor any [serial output](/reference/firmware/#serial) with the `Show serial monitor` command. Make sure the proper device is selected through `Particle` > `Select device` when you do this.
 
 
 ### Flashing Your Own Code
@@ -113,7 +113,7 @@ For maximum sharability, make a [repo on github](https://help.github.com/article
 
 _Note that now that you are in a github repo, you can use some of the functions in Particle Dev's `Packages` menu, which play nicely with git._
 
-Now you can compile and flash your first `.ino` file from Particle Dev. You are welcome to take any of [these examples](../examples/) as a first try and flash it to your device by clicking the lightning bolt in the upper right corner. The examples explain how Variable, Function, Publish, and Subscribe are used, but documentation on coding these cloud-exposed elements is available [here](../firmware/#cloud-functions). Check out [Tips and Tricks](../hackathon/#tips-and-tricks) for some of the subtleties of coding these functions.
+Now you can compile and flash your first `.ino` file from Particle Dev. You are welcome to take any of [these examples](/guide/getting-started/examples/) as a first try and flash it to your device by clicking the lightning bolt in the upper right corner. The examples explain how Variable, Function, Publish, and Subscribe are used, but documentation on coding these cloud-exposed elements is available [here](/reference/firmware/#cloud-functions). Check out [Tips and Tricks](/guide/tools-and-features/hackathon/#tips-and-tricks) for some of the subtleties of coding these functions.
 
 
 ##Tips and Tricks

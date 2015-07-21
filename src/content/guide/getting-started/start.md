@@ -28,8 +28,8 @@ Congratulations on being the owner of a brand new Particle Device! Go ahead and 
 {{#if photon}}
 {{{popup '**Buttons**' 'img' 'photon-buttons.jpg'}}} **and** {{{popup '**LEDs.**' 'img' 'photon-leds.jpg'}}} There are several awesome buttons and LEDs on your Photon to make it easier to use.
 
-- The `SETUP` button is on the left and the `RESET` button is on the right. You can use these buttons to help you set your device's [mode](../../modes).
-- The RGB LED is in the center of your Photon, above the module. The color of the RGB LED tells you what [mode](/../../modes) your Photon is currently in.
+- The `SETUP` button is on the left and the `RESET` button is on the right. You can use these buttons to help you set your device's [mode](/guide/getting-started/modes).
+- The RGB LED is in the center of your Photon, above the module. The color of the RGB LED tells you what [mode](/guide/getting-started/modes) your Photon is currently in.
 - The D7 LED is next to the D7 pin on your Photon, on the upper right quadrant. This LED will turn on when the D7 pin is set to `HIGH`.
 
 {{/if}}
@@ -39,8 +39,8 @@ Congratulations on being the owner of a brand new Particle Device! Go ahead and 
 
 {{{popup '**Buttons**' 'img' 'core-buttons.jpg'}}} **and** {{{popup '**LEDs.**' 'img' 'core-leds.jpg'}}} There are several awesome buttons and LEDs on your Core to make it easier to use.
 
-- The `MODE` button is on the left and the `RESET` button is on the right. You can use these buttons to help you set your device's [mode](../../modes).
-- The **RGB LED** is in the center of your Core, above the module. The color of the RGB LED tells you what [mode](../../modes) your Core is currently in.
+- The `MODE` button is on the left and the `RESET` button is on the right. You can use these buttons to help you set your device's [mode](/guide/getting-started/modes).
+- The **RGB LED** is in the center of your Core, above the module. The color of the RGB LED tells you what [mode](/guide/getting-started/modes) your Core is currently in.
 - The **D7 LED** in the upper right side of your device. This LED will turn on when the D7 pin is set to `HIGH`.
 
 {{/if}}
@@ -52,7 +52,7 @@ For more technical details on what comes on your device, go [here](/datasheets).
 Good, me too! Let's get started.
 
 ##Hello World!
-In this example, we will connect your device to the internet for the very first time. Then, we will blink the D7 LED on your device by using your smartphone. If you don't have your smartphone with you, go ahead and move to the next lesson on [connecting over USB.](../../connect)
+In this example, we will connect your device to the internet for the very first time. Then, we will blink the D7 LED on your device by using your smartphone. If you don't have your smartphone with you, go ahead and move to the next lesson on [connecting over USB.](/guide/getting-started/connect)
 
 {{#if photon}}
 ### Materials
@@ -124,7 +124,7 @@ This may take a little while- but don't worry.
 
 {{#if photon}} If this is your Photon's first time connecting, it will blink purple for a few minutes as it downloads updates. This is perfectly normal. {{/if}}
 
-If you can't seem to get the Mobile App to connect your device, that's okay! Read over this example quickly, and then check out the [next lesson](../../connect) to connect your device using the USB cable.
+If you can't seem to get the Mobile App to connect your device, that's okay! Read over this example quickly, and then check out the [next lesson](content/guide/getting-started/connect) to connect your device using the USB cable.
 
 Once you have connected your device, it has learned that network. Your device can store up to seven networks. If you feel like your device has too many networks on it, you can wipe your device's memory of any wifi networks it has learned. You can do so by continuing to hold the MODE button for 10 seconds until the RGB LED flashes blue quickly, signaling that all profiles have been deleted.
 
@@ -147,7 +147,7 @@ We've taken the liberty of loading some firmware onto your device for you. It's 
 * `analogRead` reads the input of an analog pin, such as one connected to a temperature sensor. The input will be between 0 and 255.
 * `analogWrite` writes analog output to an analog pin, such as a dimmable LED. You can set this output from 0 to 255.
 
-We'll go over this more [later](../../tinker), so don't worry. For more documentation on Tinker, click [here](../../tinker).
+We'll go over this more [later](/guide/getting-started/tinker), so don't worry.
 </p> 
 
 As you can see on your smartphone, the circles represent different pins on your device. If you tap on these circles, you can see the Tinker functions available for the associated pins.
@@ -163,6 +163,6 @@ Tap `D7` then `digitalWrite` in the popup. Now when you tap the D7 circle the ti
 
 Keep in mind that with Tinker, you can communicate with any of the pins, not just with the D7 LED. You can wire things to the pins to run motors, read sensors, and much more. The real fun part comes when you write your own firmware, of course. We'll go over that in later sections.
 
-The next lesson is on [connecting over USB](../../connect). If you've successfully connected with your smartphone and you'd like to keep playing around with Tinker, skip ahead to learn [device modes](../../modes) and then do some [Tinker examples](../../tinker).
+The next lesson is on [connecting over USB](/guide/getting-started/connect). If you've successfully connected with your smartphone and you'd like to keep playing around with Tinker, skip ahead to learn [device modes](/guide/getting-started/modes) and then do some [Tinker examples](/guide/getting-started/tinker).
 
-Otherwise, go to the [next section](../../connect) to learn to connect over USB.
+Otherwise, go to the next section to learn to connect over USB.

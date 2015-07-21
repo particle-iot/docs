@@ -291,7 +291,7 @@ curl https://api.particle.io/v1/devices/0123456789abcdef/led \
 
 Note that the API endpoint is 'led', not 'ledToggle'. This is because the endpoint is defined by the first argument of [Spark.function() PLACEHOLDER], which is a string of characters, rather than the second argument, which is a function.
 
-To better understand the concept of making API calls to your device over the cloud checkout the [Cloud API reference.](../api)
+To better understand the concept of making API calls to your device over the cloud checkout the [Cloud API reference.](/reference/api)
 
 ##Read your Photoresistor: Function and Variable
 
@@ -475,7 +475,7 @@ For your convenience, we've set up a little calibrate function so that your devi
 
 You can check out the results on your dashboard at [dashboard.particle.io](https://dashboard.particle.io). As you put your finger in front of the beam, you'll see an event appear that says the beam was broken. When you remove your finger, the event says that the beam is now intact.
 
-You can also hook up publishes to IFTTT! More info [here](../ifttt).
+You can also hook up publishes to IFTTT! More info [here](/guide/tools-and-features/ifttt).
 
 ###Setup
 The setup is the same as in the last example. Set up your breadboard as follows:

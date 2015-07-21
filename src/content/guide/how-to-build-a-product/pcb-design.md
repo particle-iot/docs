@@ -115,4 +115,4 @@ If you would like introductions to high-volume overseas PCB manufacturers, pleas
 
 Once you've designed your hardware, the next step is to:
 
-[Set up your Particle dashboard >](build-dashboard)
+[Set up your Particle dashboard >](dashboard)

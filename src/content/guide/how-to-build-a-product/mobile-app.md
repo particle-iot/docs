@@ -33,7 +33,7 @@ Particle provides native mobile SDKs for both iOS (Objective-C and Swift) and An
 - [Google Play developer account](https://support.google.com/googleplay/android-developer/answer/6112435?hl=en)
 - Android device running Android v4.0 and up (Particle device setup process cannot run on simulator), micro-USB cable.
 - [Android Studio](https://developer.android.com/sdk/index.html) v1.2 and up, [Android SDK](https://developer.android.com/sdk/installing/index.html) 
-- Particle Android SDKs: [Cloud SDK](TODO) and [Device Setup library](TODO)
+- Particle Android SDKs: Cloud SDK (**coming soon**) and Device Setup library (**coming soon**)
 - Skills in object oriented programming. Knowledge in Java and Android SDKs. Here are few recommended free learning resources:
 	- Official [Google tutorials](https://developer.android.com/training/basics/firstapp/index.html)
 	- [Udemy Learn Android Programming From Scratch](https://www.udemy.com/learn-android-programming-from-scratch-beta/) free online video course

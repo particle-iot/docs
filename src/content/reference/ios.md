@@ -56,7 +56,7 @@ A new `.xcworkspace` file will be created for you to open by Cocoapods. Open tha
 
 ## Support and Contribution
 
-- If you **need help**, use the [mobile category](community.particle.io/c/mobile) in our [community forums](http://community.particle.io) for dicussing/troubleshooting iOS apps using the Particle iOS Cloud SDK.
+- If you **need help**, use the [mobile category](http://community.particle.io/c/mobile) in our [community forums](http://community.particle.io) for dicussing/troubleshooting iOS apps using the Particle iOS Cloud SDK.
 - If you are certain you **found a bug**, _and can provide steps to reliably reproduce it_, open an issue [on github](https://github.com/spark/?query=sdk), label it as `bug`.
 - If you **have a feature request**, open an issue [on github](https://github.com/spark/?query=sdk) and lavel it as `enhancement`
 - If you **want to contribute**, submit a pull request. Be sure to check out spark.github.io for our contribution guidelines, and please sign the [CLA](https://docs.google.com/a/particle.io/forms/d/1_2P-vRKGUFg5bmpcKLHO_qNZWGi5HKYnfrrkd-sbZoA/viewform).

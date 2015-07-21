@@ -15,7 +15,7 @@ devices: [ photon, core ]
   # Photon Line
 {{/if}}
 
-Here's a quick "what's in the box" for each of our offered kits. More detail is available in the shields and kits sections for the [Core](/datasheets/core-shields-and-kits) and [Photon](/datasheets/photon-shields-and-kits).
+Here's a quick "what's in the box" for each of our offered kits. More detail is available in the shields and kits shown in other parts of the datasheet section.
 
 {{#if core}}
   ### Spark Core

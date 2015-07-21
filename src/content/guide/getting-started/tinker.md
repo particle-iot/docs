@@ -70,7 +70,7 @@ In other words, Tinker lets you control and read the voltage of the pins on your
 
 <p class="boxedHead">Learning Note: These Function Names Look Familiar...</p>
 <p class="boxed">
-If you've ever programmed an Arduino microcontroller, you may recognize `digitalWrite`, `analogWrite`, `digitalRead`, `analogRead`, and their respective use-cases. When you use Tinker in the Particle App, the App sends info to the Tinker Firmware that is currently loaded onto your device. This firmware is a pipeline for calling these very familiar Wiring functions from the cloud. But more on this [later](../../examples).
+If you've ever programmed an Arduino microcontroller, you may recognize `digitalWrite`, `analogWrite`, `digitalRead`, `analogRead`, and their respective use-cases. When you use Tinker in the Particle App, the App sends info to the Tinker Firmware that is currently loaded onto your device. This firmware is a pipeline for calling these very familiar Wiring functions from the cloud. But more on this [later](/guide/getting-started/examples).
 </p>
 
 Now for some examples!
@@ -170,6 +170,6 @@ Hold your breadboard with the photoresistor on it up to a light source and tap A
 You can try testing different kinds of light, or you can even swap out your photoresistor for another kind of fluctuating resistor like a thermistor or a force sensitive resistor.
 
 
-When you're ready, let's move on to [putting your own firmware on your Particle device using the web IDE.](../../build)
+When you're ready, let's move on to [putting your own firmware on your Particle device using the web IDE.](/guide/getting-started/build)
 
 

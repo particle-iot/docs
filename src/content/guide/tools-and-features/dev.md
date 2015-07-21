@@ -43,7 +43,7 @@ To access most of features you need to log in using your Particle account (which
 
 Enter your email and password then click the "Log In" button. After a successful login, the dialog will hide and a link will appear at the bottom showing your current account email.
 
-**NOTE**: When using [Command Line](../cli) you'll notice that log-in status is shared between Particle Dev and CLI. So if you successfully ran `particle login`, you will be logged in within the Particle Dev.
+**NOTE**: When using [Command Line](/guide/tools-and-features/cli) you'll notice that log-in status is shared between Particle Dev and CLI. So if you successfully ran `particle login`, you will be logged in within the Particle Dev.
 
 ###Selecting Device
 
@@ -93,7 +93,7 @@ To access all registered variables and functions, go to **Particle** -> **Show c
 
 ![Getting variable]({{assets}}/images/ide-get-variable.gif)
 
-All variables declared with [Spark.variable()](../firmware/#spark-variable) are shown on the left side of panel. To poll latest variable value, click **Refresh** button for variable you want to update.
+All variables declared with [Spark.variable()](/reference/firmware/#spark-variable-) are shown on the left side of panel. To poll latest variable value, click **Refresh** button for variable you want to update.
 
 ![Watching variable]({{assets}}/images/ide-watch-variable.gif)
 
@@ -103,7 +103,7 @@ When you want to check variable value constantly, you can click **Watch** button
 
 ![Functions]({{assets}}/images/ide-functions.gif)
 
-To call an [exposed function](../firmware/#spark-function) simply click on the button with its name. You'll see any data the function returns on the right side.
+To call an [exposed function](/reference/firmware/#spark-function-) simply click on the button with its name. You'll see any data the function returns on the right side.
 
 You can also add parameters to the call by entering them to the right of button.
 
@@ -115,7 +115,7 @@ You can also add parameters to the call by entering them to the right of button.
 
 To setup device's WiFi, connect it via USB and click **Setup device's WiFi...** button on the toolbar.
 
-If your device isn't in [listening mode](../connect/#connecting-your-device-listening-mode) you'll see animation showing how to enter it.
+If your device isn't in {{#if photon}}{{{popup 'Listening Mode,' 'vine' 'https://vine.co/v/eZUH7WaWjMT/embed/simple'}}}{{/if}}{{#if core}}{{{popup 'Listening Mode,' 'vine' 'https://vine.co/v/eZU6YiK20Hl/embed/simple'}}}{{/if}} you'll see animation showing how to enter that state.
 
 Next you'll see all available networks. The one you are currently connected to will be listed first.
 
@@ -129,7 +129,7 @@ Now you need to fill missing information and click **Save**. Your device will go
 
 Currently community libraries aren't supported natively (but we're working on it). You can still use them, just follow these instructions:
 
-Find the [library you want to use](../build/#flash-apps-with-particle-build-using-libraries)
+Find the [library you want to use](/guide/getting-started/build/photon/#using-libraries)
 
 ![Link to GitHub repository]({{assets}}/images/build-libraries.jpg)
 

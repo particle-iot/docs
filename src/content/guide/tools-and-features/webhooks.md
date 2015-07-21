@@ -46,7 +46,7 @@ Success!
 
 We're still building the beautiful, intuitive web interface for creating and managing Webhooks, but you're determined, you are ready to use Webhooks now.  You're in luck!  With the Particle CLI and your terminal you can start using Webhooks right away.  You might need to install a few things, but it's going to be worth it.  First, make sure you have [Node.js](https://nodejs.org) installed if you don't already.
 
-For those of you who have used the Particle CLI in the past, you're all set! If you are a CLI newcomer, install it by following [these instructions](../cli/#installing).
+For those of you who have used the Particle CLI in the past, you're all set! If you are a CLI newcomer, install it by following [these instructions](/guide/tools-and-features/cli/#installing).
 
 You'll also need some basic knowledge of the terminal. Adafruit has a [lovely intro to the command line](https://learn.adafruit.com/what-is-the-command-line/overview) that beginners may find helpful.
 
@@ -416,7 +416,7 @@ What's in a request?
 
 Since your Webhook listens for events from your devices, it can send that event data along to whatever url you specify.  If you don't add any custom options, the hook will send a JSON type POST request with the following values:
 
-This is same data you'd see if you subscribed to your [event stream](../api/#reading-data-from-a-device-events)
+This is same data you'd see if you subscribed to your [event stream](/reference/api/#events)
 
 
 These properties will all be strings except for published_at, which is an ISO8601 date formatted string, which tends to be in the form YYYY-MM-DDTHH:mm:ssZ

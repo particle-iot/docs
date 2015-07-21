@@ -179,4 +179,4 @@ When you flash code onto your device, you are doing an *over-the-air firmware up
 
 For every device which version of our firmware you want to build against. In most cases you want to build with the latest firmware (which is used by default). If you need to target an older version (i.e. when newer version has some breaking changes) you can select it in dropdown located in device details.
 
-Feeling oriented? Let's move on to some more interesting [examples.](../../examples)
+Feeling oriented? Let's move on to some more interesting [examples.](/guide/getting-started/examples)

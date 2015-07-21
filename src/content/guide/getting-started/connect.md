@@ -8,9 +8,9 @@ order: 3
 
 #Connecting your Device over USB
 
-The easiest way to connect your device to Wi-Fi is using the mobile app as described in the [previous lesson](/guide/start). But in case that's not working for you or you don't have an iOS/Android phone, there are other methods as well.
+The easiest way to connect your device to Wi-Fi is using the mobile app as described in the [previous lesson](/guide/getting-started/start). But in case that's not working for you or you don't have an iOS/Android phone, there are other methods as well.
 
-For all of the following methods, the device must be in [Listening Mode](/../../modes), where the RGB LED is {{#if photon}}{{{popup 'blinking blue.' 'vine' 'https://vine.co/v/eZUH7WaWjMT/embed/simple'}}}{{/if}}{{#if core}}{{{popup 'blinking blue.' 'vine' 'https://vine.co/v/eZU6YiK20Hl/embed/simple'}}}{{/if}}
+For all of the following methods, the device must be in [Listening Mode](/guide/getting-started/modes), where the RGB LED is {{#if photon}}{{{popup 'blinking blue.' 'vine' 'https://vine.co/v/eZUH7WaWjMT/embed/simple'}}}{{/if}}{{#if core}}{{{popup 'blinking blue.' 'vine' 'https://vine.co/v/eZU6YiK20Hl/embed/simple'}}}{{/if}}
 
 The Core and Photon both boot into listening mode by default, so if your device is brand new, it should go straight into listening mode. If your device is not blinking blue, {{#if photon}}{{{popup 'hold down the SETUP button.' 'vine' 'https://vine.co/v/eZUHUIjq7pO/embed/simple'}}}{{/if}}{{#if core}}{{{popup 'hold down the MODE button.' 'vine' 'https://vine.co/v/eZUgHYYrYgl/embed/simple'}}}{{/if}}
 
@@ -92,7 +92,7 @@ More info on the CLI is available [here](/photon/cli).
 
 ##Using OSX
 
-We're going to install the Particle CLI on your computer. If you already have node.js installed, you can skip to [this step](../#install-the-particle-cli).
+We're going to install the Particle CLI on your computer. If you already have node.js installed, you can skip to [this step](/guide/getting-started/connect/#install-the-particle-cli).
 
 ###Installing Node.js
 The Particle CLI runs with Node.js. Grab the latest version from [the Node.js website](http://nodejs.org/download)
@@ -123,4 +123,4 @@ If you have already claimed your device and you want to connect it to wifi, type
 
 If your device is not connecting, try troubleshooting [here](http://support.particle.io/).
 
-Once you've finished connecting your device, head over to [the next section](/../../modes) to learn about the different modes for your device.
+Once you've finished connecting your device, head over to [the next section](/guide/getting-started/modes) to learn about the different modes for your device.
