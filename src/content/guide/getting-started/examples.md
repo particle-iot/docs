@@ -26,7 +26,7 @@ To complete all the examples, you will need the following materials:
   * A text editor such as [Sublime](http://www.sublimetext.com/) or [TextMate](https://macromates.com/)
   * The [online IDE](http://build.particle.io) or [Particle Dev](http://particle.io/dev)
 * **Experience**
-  * Connecting your Device [with your smartphone](../../start) or [over USB](../../connect)
+  * Connecting your Device [with your smartphone](/guide/getting-started/start) or [over USB](/guide/getting-started/connect)
 
 
 ##Blink an LED
