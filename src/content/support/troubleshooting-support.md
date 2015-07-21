@@ -458,7 +458,7 @@ So, let's dig in. If your Core is not connecting to your Wi-Fi network, we recom
 
 On some networks, Smart Config does not work, but the Core can connect to the network just fine. We've implemented a back-up mechanism so you can set up your Core over USB. Don't forget that you'll need to claim your Core manually as well if you haven't already!
 
-[Setup with USB >](/guide/getting-started/intro/core/)
+[Setup with USB >](guide/getting-started/intro/core)
 
 **STEP 2: Try another network**
 
@@ -612,16 +612,16 @@ This includes:
 ##Common Questions
 
 **Where can I get more firmware information, like a guide?**
-Most of our firmware solutions are now explained in depth, located in our new and improved {{#if photon}}[Photon Guide](guide/getting-started/intro/photon/){{/if}}{{#if core}}[Core Guide](/guide/getting-started/intro/core/){{/if}}.
+Most of our firmware solutions are now explained in depth, located in our new and improved {{#if photon}}[Photon Guide](/guide/getting-started/intro/photon){{/if}}{{#if core}}[Core Guide](/guide/getting-started/intro/core){{/if}}.
 
 **Do Particle devices play well with IFTTT?**
-Yes, and that *how-to* is located in our [IFTTT features section](/guide/tools-and-features/ifttt/).
+Yes, and that *how-to* is located in our [IFTTT features section](/guide/tools-and-features/ifttt).
 
 **Webhooks and JS-Plugins?**
-Of course, if it's related to the internet, we probably support it. [Webhooks features section](/guide/tools-and-features/webhooks/).
+Of course, if it's related to the internet, we probably support it. [Webhooks features section](/guide/tools-and-features/webhooks).
 
 **Can I host or co-host a Hackathon/Program that is Powered by Particle?**
-Yup! [Here are our best practices](/guide/tools-and-features/hackathon/) about setting devices up for a Hackathon.
+Yup! [Here are our best practices](/guide/tools-and-features/hackathon) about setting devices up for a Hackathon.
 
 Feel free to contact [hello @ particle dot com] with **subject line: *"Hackathon Inquiry for Particle"* **for any additional information about this.
 
