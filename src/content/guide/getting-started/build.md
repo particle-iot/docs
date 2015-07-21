@@ -169,8 +169,6 @@ Wait, what is firmware?
 
 An *embedded system* like the Core or Photon doesn't have an Operating System like a traditional computer. Instead, it runs a single application, often called *firmware*, which runs whenever the system is powered.
 
-![Firmware versions](/assets/images/ide-firmware-versions.png)
-
 *Firmware* is so-called because it's harder than software and softer than hardware. Hardware is fixed during manufacturing, and doesn't change. Software can be updated anytime, so it's very flexible. Firmware is somewhere in between; hardware companies do issue firmware updates, but they tend to be very infrequent, because upgrading firmware can be difficult.
 
 In our case, because the Cores and Photons are connected to the internet, updating firmware is quite trivial; we send it over the network, and we have put in place safeguards to keep you from "bricking" your device.
