@@ -1,6 +1,6 @@
 .search {
   display: inline-block;
-  width: 250px;
+  width: 290px;
   position: relative;
   border-left: 1px solid @light-gray;
   margin-top: 10px;
@@ -44,8 +44,8 @@
   .search-results {
     position: absolute;
     top: 35px;
-    left: 8px;
-    width: 100%;
+    left: -35px;
+    width: 400px;
     background: @white;
     border: 1px solid @light-gray;
     -webkit-border-radius: 4px;
@@ -106,9 +106,13 @@
         &.reference {
           border-left: 3px solid @emerald;
         }
+        &.support {
+          border-left: 3px solid @midnight-blue;
+        }
       }
       .left-result {
         float: left;
+        width: 280px;
       }
       span.title {
         display: block;

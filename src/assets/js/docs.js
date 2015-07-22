@@ -282,6 +282,13 @@ Created by Zach Supalla.
         }
       });
     });
+
+    $('body').click(function() {
+      $('.search-results').hide();
+    });
+    $('.search-results').click(function(e) {
+      e.stopPropagation();
+    });
   };
   Docs.emptyResults = function() {
     $('.search-results ul.results').empty();
