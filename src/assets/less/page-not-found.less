@@ -1,7 +1,25 @@
 .page-not-found {
+  width: 980px;
+  margin: 0 auto;
+  .wrapper {
+    padding: 40px;
+  }
+  @media(max-width: @large-size) {
+    width: 100%;
+    .wrapper {
+      padding: 15px;
+    }
+  }
+  .search {
+    padding-left: 0;
+    border-left: none;
+    display: block;
+    margin: 30px auto 0;
+  }
   h1 {
-    font-size: 46px;
+    font-size: 38px;
     margin-bottom: 40px;
+    text-align: center;
   }
   .image {
     width: 30%;
