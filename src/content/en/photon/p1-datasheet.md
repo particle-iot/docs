@@ -3,6 +3,7 @@ word: Datasheet
 title: P1 datasheet
 order: 13
 columns: 2
+core_link: hardware
 ---
 
 P1 Datasheet <sup>(v003)</sup>

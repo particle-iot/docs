@@ -2,7 +2,6 @@
 word: iOS
 title: iOS SDK
 order: 11
-shared: true
 ---
 
 iOS Cloud SDK

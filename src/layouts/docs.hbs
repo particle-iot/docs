@@ -41,9 +41,9 @@
           <img src="{{assets}}/images/particle-docs.png" id="logo">
         </a>
         <a class="toggle-button {{#contains dirname
-          'photon'}}active{{/contains}}" href="/photon/{{basename}}">Photon</a>
+          'photon'}}active{{/contains}}" href="/photon/{{#if page.photon_link}}{{page.photon_link}}{{else}}{{basename}}{{/if}}">Photon</a>
         <a class="toggle-button {{#contains dirname
-          'core'}}active{{/contains}}" href="/core/{{basename}}">Core</a>
+          'core'}}active{{/contains}}" href="/core/{{#if page.core_link}}{{page.core_link}}{{else}}{{basename}}{{/if}}">Core</a>
         <div class="search">
           <script src='{{assets}}/js/google-search.js'></script>
           <gcse:search></gcse:search>

@@ -3,6 +3,7 @@ word: Datasheet
 title: Photon datasheet
 order: 12
 columns: 2
+core_link: hardware
 ---
 
 Photon Datasheet <sup>(v010)</sup>
