@@ -14,14 +14,13 @@
 
 	.api-field {
 		text-align: right;
-		width: 18%;
+		min-width: 18%;
 		float: left;
 		color: @almost-black;
 	}
 
 	.field-desc {
-		float: left;
-		width: 75%;
+		overflow: hidden;
 	}
 
 	.field-required {
@@ -82,9 +81,11 @@
 		margin: 0 -40px;
 		padding: 10px 40px;
 	}
+}
 
-	code {
-		margin: 15px 0 !important;
+.api-docs {
+	pre > code {
+		margin: 15px 0;
 	}
 }
 
@@ -100,5 +101,30 @@
 .api-docs {
 	h3 {
 		margin-bottom: 0 !important;
+	}
+}
+
+@media (max-width: 1180px) {
+	.api-docs {
+		pre > code {
+			margin: 0;
+		}
+	}
+
+	.api-code {
+		background-color: transparent;
+		margin: 10px 0;
+
+		&::before {
+			background-color: transparent;
+			margin: 0;
+			color: @dark-gray;
+			padding: 0;
+		}
+	}
+
+	.api-attributes {
+		.api-field {
+		}
 	}
 }
