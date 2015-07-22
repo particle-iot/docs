@@ -331,11 +331,13 @@ Created by Zach Supalla.
   Docs.addMenubarClass = function() {
     var width = $(window).width();
     if(width > 768) {
-      $(".menubar, .page-body").addClass('menu-visible');
+      $(".menubar, .page-body").removeClass('menu-hidden').addClass('menu-visible');
     } else {
-      $(".menubar, .page-body").addClass('menu-hidden');
+      $(".menubar, .page-body").removeClass('menu-visible').addClass('menu-hidden');
     }
   };
+
+  $(window).resize(Docs.addMenubarClass);
 
   // Ok, then let's do it!
   Docs.addMenubarClass();
