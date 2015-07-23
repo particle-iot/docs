@@ -607,7 +607,7 @@ This includes:
 - Programmer Shield
 - Internet Button
 - Photon Kit
-- Photon Maker Kit Contents
+- Particle Maker Kit
 
 {{#if photon}}
 ##Avoid Factory Reset

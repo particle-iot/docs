@@ -7,7 +7,7 @@ order: 1
 
 # {{title}}
 
-Particle is not just a development platform. In fact, our primary goal is to help product creators (engineers and entrepreneurs) bring new connected products to market.
+Our primary goal at Particle is to help product creators (engineers and entrepreneurs) bring new connected products to market.
 
 This guide will teach you everything you need to transition from a breadboard prototype to a device manufactured at scale running on Particle's software platform. Many of the lessons within are broadly applicable to a wide range of products (whether they run on our platform or not). Other lessons are platform-specific. If you are an experienced engineer with manufacturing experience, some of these lessons will feel juvenile; if so, simply skip over the bits that you already know.
 

@@ -46,14 +46,14 @@ state of your fleet, and provide a centralized control panel to change how
 devices are functioning.
 
 The first step to get started is understanding the differences between your
-individual developer dashboard and the Fleet Management Dashboard.
+individual developer dashboard and the Device Management Dashboard.
 
 ## Organizations vs. Individuals
 
 Up until now, you've been an individual user of Particle. Your devices belong to
 you, and you can only act upon one device at a time.
 
-The Fleet Management Dashboard presents a new architecture designed to empower
+The Device Management Dashboard presents a new architecture designed to empower
 product creators, specifically by introducing **organizations**,
 **products**, **devices**, and **customers**.
 
@@ -79,7 +79,7 @@ It is important to note that *team members* and *customers* have different level
 
 ## Setting up an organization
 
-Currently the Fleet Management dashboard is in private beta. If you are interested
+Currently the Device Management Dashboard is in private beta. If you are interested
 in gaining access, please contact [hello@particle.io](mailto:hello@particle.io).
 The dashboard will be available to everyone in Fall 2015.
 
@@ -196,7 +196,7 @@ When you do a real manufacturing run and import those devices into the dashboard
 
 ## Rollout Firmware
 
-One of the most significant benefits of your fleet management dashboard is being able to rollout firmware to groups of devices, all from one place. This opens up tremendous possibilities for your IoT product: you now have the power to continuously improve how a customer's device operates after purchase. In addition, over-the-air (OTA) firmware updates can provide you additional flexibility in the manufacturing process. Specifically, you may continue to develop firmware between the time of manufacturing and shipping your product to customers, and send the latest firmware to your customers on setup of their device.
+One of the most significant benefits of your Device Management Dashboard is being able to rollout firmware to groups of devices, all from one place. This opens up tremendous possibilities for your IoT product: you now have the power to continuously improve how a customer's device operates after purchase. In addition, over-the-air (OTA) firmware updates can provide you additional flexibility in the manufacturing process. Specifically, you may continue to develop firmware between the time of manufacturing and shipping your product to customers, and send the latest firmware to your customers on setup of their device.
 
 ### Preparing a binary
 
@@ -230,7 +230,9 @@ void loop() {
 }
 ```
 
-If you are in the Web IDE, you can click on the download icon (<i class="ion-ios7-cloud-download"></i>) next to your application name to compile and download your current binary. In Particle Dev, clicking on the compile icon (<i class="ion-checkmark-circled"></i>) will automatically add a `.bin` file to your current working directory if the compilation is a success.
+For now, in order for the `PRODUCT_ID` and `PRODUCT_VERSION` to be included successfully in the binary, you will need to locally compile your firmware. You will need to clone the [Particle `firmware` repository](https://github.com/spark/firmware/tree/develop) onto your machine, and be sure to use the `develop` branch when locally compiling. For more detailed documentation on how to locally compile firmware, please [check here](https://github.com/spark/firmware/blob/develop/docs/build.md).
+
+(*Coming soon*) If you are in the Web IDE, you can click on the download icon (<i class="ion-ios7-cloud-download"></i>) next to your application name to compile and download your current binary. In Particle Dev, clicking on the compile icon (<i class="ion-checkmark-circled"></i>) will automatically add a `.bin` file to your current working directory if the compilation is a success.
 
 ### Uploading firmware
 
@@ -295,5 +297,5 @@ The logs page (<i class="icon-terminal"></i>) is also available to product creat
 
 ## What's next?
 
-Congratulations! You have a grasp on how to take advantage of the fleet management dashboard for your product. Next up, you will learn how to [build your own mobile app](/guide/how-to-build-a-product/mobile-app/) for your product.
+Congratulations! You have a grasp on how to take advantage of the Device Management Dashboard for your product. Next up, you will learn how to [build your own mobile app](/guide/how-to-build-a-product/mobile-app/) for your product.
 
