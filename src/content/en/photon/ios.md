@@ -20,28 +20,62 @@ Particle iOS Cloud SDK enables iOS apps to interact with Particle-powered connec
 All cloud operations take place asynchronously and use the well-known completion blocks (closures for swift) design pattern for reporting results allowing you to build beautiful responsive apps for your Particle products and projects.
 iOS Cloud SDK is implemented as an open-source Cocoapod library. See [Installation](#ios-cloud-sdk-installation) section for more details. It works well for both Objective-C and [Swift](#support-for-swift-projects) projects.
 
-**Rebranding notice**
+Particle iOS Cloud SDK is available under the Apache License 2.0. See the [LICENSE file](https://github.com/spark/spark-sdk-ios/blob/master/LICENSE) for more info.
+
+####Rebranding notice
 
 Spark has been recently rebranded as Particle.
 Code currently refers to `SparkCloud` and `SparkDevice`, this will soon be replaced with `ParticleCloud` and `ParticleDevice`. A new Cocoapod library will be published and current one will be depracated and point to the new one. This should not bother or affect your code.
 
-**Beta notice**
+## Installation
 
-This SDK is still under development and is currently released as Beta, although tested, bugs and issues may be present, some code might require cleanups.
+#### Install CocoaPods
 
-## Getting Started
+Particle iOS Cloud SDK is available through [CocoaPods](http://cocoapods.org). Cocoapods is an easy to use dependacy manager for iOS.
 
-- Perform the installation step described under the **Installation** section below for integrating in your own project
-- You can also [Download Particle iOS Cloud SDK](https://github.com/spark/spark-sdk-ios/archive/master.zip) and try out the included iOS example app
-- Be sure to check [Usage](#ios-cloud-sdk-usage) before you begin for some code examples
+If you do not yet have CocoaPods installed, go [here](https://guides.cocoapods.org/using/getting-started.html) to install it.
 
-## Usage
+#### Install Particle SDK
 
-Cloud SDK usage involves two basic classes: first is `SparkCloud` which is a singleton object that enables all basic cloud operations such as user authentication, device listing, claiming etc. Second class is `SparkDevice` which is an instance represnting a claimed device in the current user session. Each object enables device-specific operation such as: getting its info, invoking functions and reading variables from it.
+To install the iOS Cloud SDK, simply add the following line to your Podfile on main project folder:
 
-Here are few examples for the most common use cases to get your started:
+```ruby
+pod "Spark-SDK"
+```
 
-#### Logging in to Particle cloud
+and then run `pod update`.
+
+A new `.xcworkspace` file will be created for you to open by Cocoapods. Open that file workspace file in XCode and you can start interacting with Particle cloud and devices by adding `#import "Spark-SDK.h"`. (that is not required for swift projects)
+
+## Support and Contribution
+
+- If you **need help**, use the [mobile category](http://community.particle.io/c/mobile) in our [community forums](http://community.particle.io) for dicussing/troubleshooting iOS apps using the Particle iOS Cloud SDK.
+- If you are certain you **found a bug**, _and can provide steps to reliably reproduce it_, open an issue [on github](https://github.com/spark/?query=sdk), label it as `bug`.
+- If you **have a feature request**, open an issue [on github](https://github.com/spark/?query=sdk) and lavel it as `enhancement`
+- If you **want to contribute**, submit a pull request. Be sure to check out spark.github.io for our contribution guidelines, and please sign the [CLA](https://docs.google.com/a/particle.io/forms/d/1_2P-vRKGUFg5bmpcKLHO_qNZWGi5HKYnfrrkd-sbZoA/viewform).
+
+#### Support for Swift projects
+To use iOS Cloud SDK from within Swift based projects [read here](http://swiftalicio.us/2014/11/using-cocoapods-from-swift/).
+
+For a detailed step-by-step help on integrating the Cloud SDK within a Swift project check out this [Particle community posting](https://community.particle.io/t/mobile-sdk-building-the-bridge-from-swift-to-objective-c/12020/1).
+
+The [Apple documentation](https://developer.apple.com/library/ios/documentation/Swift/Conceptual/BuildingCocoaApps/InteractingWithObjective-CAPIs.html) is an important resource on mixing Objective-C and Swift code, be sure to read through that as well.
+
+_Notice_ that we've included the required bridging header file in the SDK, you just need to copy it to your project add it as the active bridging header file in the project settings as described in the links above.
+There's also an [example app](https://github.com/spark/spark-setup-ios-example), this app also demonstrates the Particle DeviceSetup library usage, as well as several Cloud SDK calls.
+
+## Cloud SDK Usage
+
+Cloud SDK usage involves two basic classes:
+
+- `SparkCloud`: a singleton object that enables all basic cloud operations such as user authentication, device listing, claiming etc.
+- `SparkDevice`: an instance represnting a claimed device in the current user session. Each object enables device-specific operation such as: getting its info, invoking functions and reading variables from it.
+
+###Common tasks
+
+Here are few examples for the most common use cases to get you started:
+
+### Cloud Login
 You don't need to worry about access tokens, SDK takes care of that for you
 
 **Objective-C**
@@ -68,8 +102,7 @@ SparkCloud.sharedInstance().loginWithUser("ido@particle.io", password: "userpass
 ```
 ---
 
-#### Get a list of all devices
-
+### List Devices
 
 List the devices that belong to currently logged in user and find a specific device by name:
 
@@ -109,7 +142,7 @@ SparkCloud.sharedInstance().getDevices { (sparkDevices:[AnyObject]!, error:NSErr
 ```
 ---
 
-#### Read a variable from a Particle device (Core/Photon)
+### Read Variable
 Assuming here that `myPhoton` is an active instance of `SparkDevice` class which represents a device claimed to current user:
 
 **Objective-C**
@@ -141,7 +174,8 @@ myPhoton!.getVariable("temperature", completion: { (result:AnyObject!, error:NSE
 ```
 ---
 
-#### Call a function on a Particle device (Core/Photon)
+### Call Function
+
 Invoke a function on the device and pass a list of parameters to it, `resultCode` on the completion block will represent the returned result code of the function on the device
 
 **Objective-C**
@@ -166,7 +200,7 @@ myPhoton!.callFunction("digitalwrite", withArguments: funcArgs) { (resultCode : 
 ```
 ---
 
-#### List device exposed functions and variables
+### List Variables and Functions
 Functions is just a list of names, variables is a dictionary in which keys are variable names and values are variable types:
 
 **Objective-C**
@@ -189,7 +223,7 @@ println("MyDevice first function is called \(myDeviceFunction!.first)")
 ```
 ---
 
-#### Get an instance of a device
+### Get Device Instance
 Get a device instance by its ID:
 
 **Objective-C**
@@ -214,7 +248,7 @@ var myOtherDevice : SparkDevice? = nil
 ```
 ---
 
-#### Rename a device
+### Rename a Device
 you can simply set the `.name` property or use -rename() method if you need a completion block to be called (for example updating a UI after renaming was done):
 
 **Objective-C**
@@ -245,7 +279,7 @@ myPhoton!.rename("myNewDeviceName", completion: { (error:NSError!) -> Void in
 ```
 ---
 
-#### Logout
+### Logout
 Also clears user session and access token
 
 **Objective-C**
@@ -259,42 +293,109 @@ SparkCloud.sharedInstance().logout()
 ```
 ---
 
+### Events sub-system
+
+You can make an API call that will open a stream of [Server-Sent Events (SSEs)](http://www.w3.org/TR/eventsource/). You will make one API call that opens a connection to the Particle Cloud. That connection will stay open, unlike normal HTTP calls which end quickly. Very little data will come to you across the connection unless your Particle device publishes an event, at which point you will be immediately notified. In each case, the event name filter is `eventNamePrefix` and is optional. When specifying an event name filter, published events will be limited to those events with names that begin with the specified string. For example, specifying an event name filter of 'temp' will return events with names 'temp' and 'temperature'.
+
+#### Subscribe to events
+
+Subscribe to the firehose of public events, plus private events published by devices one owns:
+
+```objc
+// The event handler:
+SparkEventHandler handler = ^(SparkEvent *event, NSError *error) {
+        if (!error)
+        {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                NSLog(@"Got Event %@ with data: %@",event.event,event.data);
+            });
+        }
+        else
+        {
+            NSLog(@"Error occured: %@",error.localizedDescription);
+        }
+        
+    };
+    
+// This line actually subscribes to the event stream:
+id eventListenerID = [[SparkCloud sharedInstance] subscribeToAllEventsWithPrefix:@"temp" handler:handler];
+```
+---
+
+*Note 1:* Specifying `nil` or empty string in the `eventNamePrefix` parameter will subscribe to ALL events (beware: lots of data!).
+
+*Note 2:* You can have multiple handlers per event name and/or same handler per multiple events names.
+
+Subscribe to all events, public and private, published by devices the user owns:
+
+```objc
+id eventListenerID = [[SparkCloud sharedInstance] subscribeToMyDevicesEventsWithPrefix:@"temp" handler:handler];
+```
+---
+
+Subscribe to events from one specific device (by deviceID, second parameter). If the API user owns the device, then he'll receive all events, public and private, published by that device. If the API user does not own the device he will only receive public events.
+
+```objc
+id eventListenerID = [[SparkCloud sharedInstance] subscribeToDeviceEventsWithPrefix:@"temp" deviceID:@"53ff6c065075535119511687" handler:handler];
+```
+---
+
+other option is calling same method via the `SparkDevice` instance:
+
+```objc
+id eventListenerID = [device subscribeToEventsWithPrefix:@"temp" handler:handler];
+```
+---
+
+this guarantees that private events will be received since having access device instance in your app signifies that the user has this device claimed.
+
+#### Unsubscribing from events
+
+Very straightforward. Keep the id object the subscribe method returned and use it as parameter to call the unsubscribe method:
+
+```objc
+[[SparkCloud sharedInstance] unsubscribeFromEventWithID:self.eventListenerID];
+```
+---
+
+or via the `SparkDevice` instance (if applicable):
+
+```objc
+[device unsubscribeFromEventWithID:self.eventListenerID];
+```
+---
+
+#### Publishing an event
+
+You can also publish an event from your app to the Particle Cloud:
+
+**Objective-C**
+
+```objc
+[[SparkCloud sharedInstance] publishEventWithName:@"event_from_app" data:@"event_payload" isPrivate:NO ttl:60 completion:^(NSError *error) {
+    if (error)
+    {
+        NSLog(@"Error publishing event: %@",error.localizedDescription);
+    }
+}];
+```
+---
+
+**Swift**
+
+```swift
+SparkCloud.sharedInstance().publishEventWithName("event_from_app", data: "event_payload", isPrivate: false, ttl: 60, completion: { (error:NSError!) -> Void in
+    if let e = error
+    {
+        println("Error publishing event" + e.localizedDescription)
+    }
+})
+```
+---
+
 ### Additional reference
 For additional reference check out the [Reference in Cocoadocs website](http://cocoadocs.org/docsets/Spark-SDK/) for full coverage of `SparkDevice` and `SparkCloud` functions and member variables. In addition you can consult the javadoc style comments in `SparkCloud.h` and `SparkDevice.h` for each public method. If Particle iOS Cloud SDK is integrated in your XCode project you should be able to press `Esc` to get an auto-complete hints for each cloud and device method.
 
-## Installation
-
-Particle iOS Cloud SDK is available through [CocoaPods](http://cocoapods.org). Cocoapods is an easy to use dependacy manager for iOS.
-You must have Cocoapods installed, if you don't then be sure to [Install Cocoapods](https://guides.cocoapods.org/using/getting-started.html) before you start:
-To install the iOS Cloud SDK, simply add the following line to your Podfile on main project folder:
-
-```ruby
-pod "Spark-SDK"
-```
-
-and then run `pod update`. A new `.xcworkspace` file will be created for you to open by Cocoapods, open that file workspace file in XCode and you can start interacting with Particle cloud and devices by
-adding `#import "Spark-SDK.h"`. (that is not required for swift projects)
-
-## Communication
-
-- If you **need help**, use [Our community website](http://community.particle.io), use the `Mobile` category for dicussion/troubleshooting iOS apps using the Particle iOS Cloud SDK.
-- If you are certain you **found a bug**, _and can provide steps to reliably reproduce it_, open an issue, label it as `bug`.
-- If you **have a feature request**, open an issue with an `enhancement` label on it
-- If you **want to contribute**, submit a pull request, be sure to check out spark.github.io for our contribution guidelines, and please sign the [CLA](https://docs.google.com/a/particle.io/forms/d/1_2P-vRKGUFg5bmpcKLHO_qNZWGi5HKYnfrrkd-sbZoA/viewform).
-
-
-#### Support for Swift projects
-To use iOS Cloud SDK from within Swift based projects [read here](http://swiftalicio.us/2014/11/using-cocoapods-from-swift/).
-For a detailed step-by-step help on integrating the Cloud SDK within a Swift project check out this [Particle community posting](https://community.particle.io/t/mobile-sdk-building-the-bridge-from-swift-to-objective-c/12020/1).
-
-The [Apple documentation](https://developer.apple.com/library/ios/documentation/Swift/Conceptual/BuildingCocoaApps/InteractingWithObjective-CAPIs.html) is an important resource on mixing Objective-C and Swift code, be sure to read through that as well.
-
-_Notice_ that we've included the required bridging header file in the SDK, you just need to copy it to your project add it as the active bridging header file in the project settings as described in the links above.
-There's also an [example app](https://github.com/spark/spark-setup-ios-example), this app also demonstrates the Particle DeviceSetup library usage, as well as several Cloud SDK calls.
-
-## License
-
-Particle iOS Cloud SDK is available under the Apache License 2.0. See the LICENSE file for more info.
 
 
 iOS Device Setup Library
@@ -309,9 +410,7 @@ As you may have heard, the wireless setup process for the Photon uses very diffe
 
 With the Device Setup library, you make one simple call from your app, for example when the user hits a “setup my device” button, and a whole series of screens then guides the user through the soft AP setup process. When the process finishes, the user is back on the screen where she hit the “setup my device” button, and your code has been passed an instance of the device she just setup and claimed.
 
-## Usage
-
-### Basic
+### Basic Use
 Import `SparkSetup.h` in your view controller implementation file, and invoke the device setup wizard by:
 
 ```objc
@@ -336,7 +435,7 @@ If an active user session already exists control will be returned immediately.
 Customize setup look and feel by accessing the SparkSetupCustomization singleton appearance proxy `[SparkSetupCustomization sharedInstance]`
 and modify its properties. All properties are optional.
 
-#### Product/brand info:
+**Product/brand info:**
 
 You can modify the brand and product related info/images by assigning to these properties:
 
@@ -345,14 +444,14 @@ You can modify the brand and product related info/images by assigning to these p
  UIImage *deviceImage;          // Device/product image
 
  NSString *brandName;           // Your brand name
- UIImage *brandImage;          	// Your brand logo to fit in header of setup wizard screens
+ UIImage *brandImage;           // Your brand logo to fit in header of setup wizard screens
  UIColor *brandImageBackgroundColor;    // brand logo background color
  NSString *welcomeVideoFilename;        // Welcome screen instructional video
  NSString *appName;                     // Your setup app name
 ```
 ---
 
-#### Technical info:
+**Technical info:**
 
 Modify product technical data by assigning to these properties:
 
@@ -364,7 +463,7 @@ Modify product technical data by assigning to these properties:
 ---
 
 
-#### Links for legal/technical stuff:
+**Links for legal/technical stuff:**
 
 You can edit links to your TOS and privacy policy as well as a troubleshooting page. Links will supersede static pages if supplied.
 
@@ -379,7 +478,7 @@ You can edit links to your TOS and privacy policy as well as a troubleshooting p
 ```
 ---
 
-#### Look & feel:
+**Look & feel:**
 
 Edit the looks of the setup wizard screens by assigning values to these properties:
 
@@ -397,7 +496,7 @@ Edit the looks of the setup wizard screens by assigning values to these properti
 ```
 ---
 
-#### Organization:
+**Organization:**
 
 Setting `organization=YES` will enable organization mode. You can modify organization name via the `organizationName` property.
 
@@ -409,17 +508,16 @@ Setting `organization=YES` will enable organization mode. You can modify organiz
 
 ### Advanced
 
-You can get an active instance of `SparkDevice` by making your viewcontroller conform to protocol `<SparkSetupMainControllerDelegate>` when setup wizard completes:
+You can get an active instance of `SparkDevice` by making your viewcontroller conform to protocol `<SparkSetupMainControllerDelegate>` when setup wizard completes.
 
 ```objc
 -(void)SparkSetupViewController:(SparkSetupMainController *)controller didFinishWithResult:(SparkSetupMainControllerResult)result device:(SparkDevice *)device;
 ```
 ---
 
-method will be called, if `(result == SparkSetupMainControllerResultSuccess)` the device parameter will contain an active `SparkDevice` instance you can interact with
-using the [Particle Cloud SDK](https://cocoapods.org/pods/Spark-SDK).
+This method will be called. If `(result == SparkSetupMainControllerResultSuccess)` the device parameter will contain an active `SparkDevice` instance you can interact with using the [Particle Cloud SDK](https://cocoapods.org/pods/Spark-SDK).
 
-#### Support for Swift projects
+### Support for Swift projects
 To use Particle DeviceSetup library from within Swift based projects [read here](http://swiftalicio.us/2014/11/using-cocoapods-from-swift/),
 also be sure the check out [Apple documentation](https://developer.apple.com/library/ios/documentation/Swift/Conceptual/BuildingCocoaApps/InteractingWithObjective-CAPIs.html) on this matter.
 
@@ -432,7 +530,7 @@ setup wizard completes (delegate). Feel free to contribute to the example by sub
 Check out the [Reference in Cocoadocs website](http://cocoadocs.org/docsets/SparkSetup/) or consult the javadoc style comments in `SparkSetupCustomization.h` and `SparkSetupMainController.h` for each public method or property.
 If Particle Device Setup library installation completed successfully - you should be able to press `Esc` to get an auto-complete hints from XCode for each public method or property in the library.
 
-## Requirements / limitations
+## Requirements / Limitations
 
 - iOS 7.1+ supported
 - Currently setup wizard displays on portait mode only.
@@ -454,8 +552,3 @@ pod "SparkSetup"
 - If you **found a bug**, _and can provide steps to reliably reproduce it_, open an issue.
 - If you **have a feature request**, open an issue.
 - If you **want to contribute**, submit a pull request.
-
-
-## License
-
-Particle Device Setup library is available under the Apache License 2.0. See the LICENSE file for more info.
