@@ -23,16 +23,10 @@ iOS Cloud SDK is implemented as an open-source Cocoapod library. See [Installati
 
 Particle iOS Cloud SDK is available under the Apache License 2.0. See the [LICENSE file](https://github.com/spark/spark-sdk-ios/blob/master/LICENSE) for more info.
 
-
 ####Rebranding notice
 
 Spark has been recently rebranded as Particle.
 Code currently refers to `SparkCloud` and `SparkDevice`, this will soon be replaced with `ParticleCloud` and `ParticleDevice`. A new Cocoapod library will be published and current one will be depracated and point to the new one. This should not bother or affect your code.
-
-####Beta notice
-
-This SDK is still under development and is currently released as Beta, although tested, bugs and issues may be present, some code might require cleanups.
-
 
 ## Installation
 
@@ -71,12 +65,14 @@ The [Apple documentation](https://developer.apple.com/library/ios/documentation/
 _Notice_ that we've included the required bridging header file in the SDK, you just need to copy it to your project add it as the active bridging header file in the project settings as described in the links above.
 There's also an [example app](https://github.com/spark/spark-setup-ios-example), this app also demonstrates the Particle DeviceSetup library usage, as well as several Cloud SDK calls.
 
-## Examples and Use
+## Usage examples
 
 Cloud SDK usage involves two basic classes:
 
 - `SparkCloud`: a singleton object that enables all basic cloud operations such as user authentication, device listing, claiming etc.
 - `SparkDevice`: an instance represnting a claimed device in the current user session. Each object enables device-specific operation such as: getting its info, invoking functions and reading variables from it.
+
+###Common tasks
 
 Here are few examples for the most common use cases to get you started:
 
@@ -295,6 +291,105 @@ Also clears user session and access token
 **Swift**
 ```swift
 SparkCloud.sharedInstance().logout()
+```
+---
+
+### Events sub-system
+
+You can make an API call that will open a stream of [Server-Sent Events (SSEs)](http://www.w3.org/TR/eventsource/). You will make one API call that opens a connection to the Particle Cloud. That connection will stay open, unlike normal HTTP calls which end quickly. Very little data will come to you across the connection unless your Particle device publishes an event, at which point you will be immediately notified. In each case, the event name filter is `eventNamePrefix` and is optional. When specifying an event name filter, published events will be limited to those events with names that begin with the specified string. For example, specifying an event name filter of 'temp' will return events with names 'temp' and 'temperature'.
+
+#### Subscribe to events
+
+Subscribe to the firehose of public events, plus private events published by devices one owns:
+
+```objc
+// The event handler:
+SparkEventHandler handler = ^(SparkEvent *event, NSError *error) {
+        if (!error)
+        {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                NSLog(@"Got Event %@ with data: %@",event.event,event.data);
+            });
+        }
+        else
+        {
+            NSLog(@"Error occured: %@",error.localizedDescription);
+        }
+        
+    };
+    
+// This line actually subscribes to the event stream:
+id eventListenerID = [[SparkCloud sharedInstance] subscribeToAllEventsWithPrefix:@"temp" handler:handler];
+```
+---
+
+*Note 1:* Specifying `nil` or empty string in the `eventNamePrefix` parameter will subscribe to ALL events (beware: lots of data!).
+*Note 2:* You can have multiple handlers per event name and/or same handler per multiple events names.
+
+Subscribe to all events, public and private, published by devices the user owns:
+
+```objc
+id eventListenerID = [[SparkCloud sharedInstance] subscribeToMyDevicesEventsWithPrefix:@"temp" handler:handler];
+```
+---
+
+Subscribe to events from one specific device (by deviceID, second parameter). If the API user owns the device, then he'll receive all events, public and private, published by that device. If the API user does not own the device he will only receive public events.
+
+```objc
+id eventListenerID = [[SparkCloud sharedInstance] subscribeToDeviceEventsWithPrefix:@"temp" deviceID:@"53ff6c065075535119511687" handler:handler];
+```
+---
+
+other option is calling same method via the `SparkDevice` instance:
+
+```objc
+id eventListenerID = [device subscribeToEventsWithPrefix:@"temp" handler:handler];
+```
+---
+
+this guarantees that private events will be received since having access device instance in your app signifies that the user has this device claimed.
+
+#### Unsubscribing from events
+
+Very straightforward. Keep the id object the subscribe method returned and use it as parameter to call the unsubscribe method:
+
+```objc
+[[SparkCloud sharedInstance] unsubscribeFromEventWithID:self.eventListenerID];
+```
+---
+
+or via the `SparkDevice` instance (if applicable):
+
+```objc
+[device unsubscribeFromEventWithID:self.eventListenerID];
+```
+---
+
+#### Publishing an event
+
+You can also publish an event from your app to the Particle Cloud:
+
+**Objective-C**
+
+```objc
+[[SparkCloud sharedInstance] publishEventWithName:@"event_from_app" data:@"event_payload" isPrivate:NO ttl:60 completion:^(NSError *error) {
+    if (error)
+    {
+        NSLog(@"Error publishing event: %@",error.localizedDescription);
+    }
+}];
+```
+---
+
+**Swift**
+
+```swift
+SparkCloud.sharedInstance().publishEventWithName("event_from_app", data: "event_payload", isPrivate: false, ttl: 60, completion: { (error:NSError!) -> Void in
+    if let e = error
+    {
+        println("Error publishing event" + e.localizedDescription)
+    }
+})
 ```
 ---
 
