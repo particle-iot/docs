@@ -65,7 +65,7 @@ The [Apple documentation](https://developer.apple.com/library/ios/documentation/
 _Notice_ that we've included the required bridging header file in the SDK, you just need to copy it to your project add it as the active bridging header file in the project settings as described in the links above.
 There's also an [example app](https://github.com/spark/spark-setup-ios-example), this app also demonstrates the Particle DeviceSetup library usage, as well as several Cloud SDK calls.
 
-## Usage examples
+## Cloud SDK Usage
 
 Cloud SDK usage involves two basic classes:
 
@@ -324,6 +324,7 @@ id eventListenerID = [[SparkCloud sharedInstance] subscribeToAllEventsWithPrefix
 ---
 
 *Note 1:* Specifying `nil` or empty string in the `eventNamePrefix` parameter will subscribe to ALL events (beware: lots of data!).
+
 *Note 2:* You can have multiple handlers per event name and/or same handler per multiple events names.
 
 Subscribe to all events, public and private, published by devices the user owns:
@@ -397,7 +398,7 @@ SparkCloud.sharedInstance().publishEventWithName("event_from_app", data: "event_
 For additional reference check out the [Reference in Cocoadocs website](http://cocoadocs.org/docsets/Spark-SDK/) for full coverage of `SparkDevice` and `SparkCloud` functions and member variables. In addition you can consult the javadoc style comments in `SparkCloud.h` and `SparkDevice.h` for each public method. If Particle iOS Cloud SDK is integrated in your XCode project you should be able to press `Esc` to get an auto-complete hints for each cloud and device method.
 
 
-##iOS Device Setup Library
+#iOS Device Setup Library
 
 The Particle Device Setup library is meant for integrating the initial setup process of Particle devices in your app.
 This library will enable you to easily invoke a standalone setup wizard UI for setting up internet-connect products
