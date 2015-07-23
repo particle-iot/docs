@@ -18,7 +18,7 @@ Tracking numbers for all Particle shipments will be emailed to the email address
 
 ###Shipping within the United States
 
-We use USPS First Class Mail for ground shipping, USPS Priority Mail for expedited shipping, and Fed-Ex for overnight shipping. Please note that USPS tracking might take up to 24 hours to register after you place your order. Transit times vary, but on average USPS First Class Mail delivers in 3-5 business days and USPS Priority Mail delivers in 2-3 business days.
+We use USPS First Class Mail for ground shipping, USPS Priority Mail for expedited shipping, and Fed-Ex for overnight shipping. Please note that USPS tracking might take up to 24 hours to register after you place your order. Transit times vary, but on average USPS First Class Mail delivers in 3-5 business days and USPS Priority Mail delivers in 2-3 business days. Any order over 10 oz is required to ship via USPS Priority Mail.  
 
 Fed-Ex overnight orders must be received by 12pm PST in order to arrive at your location in the continental United States by the next day. We'll do everything in our power to deliver your Particle goodies to your eager hands as scheduled, but please note that Fedex occasionally has weather or holiday related delays that we cannot avoid.
 
