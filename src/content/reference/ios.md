@@ -5,9 +5,13 @@ columns: three
 order: 5
 ---
 
-#iOS Cloud SDK
+#{{title}}
 
-##Introduction
+The iOS SDK consists of two parts: (1) the Cloud SDK and (2) the Device Setup library, the first is an API wrapper that enables your mobile app to interact with internet-connected hardware through the Particle Cloud while the latter is a library allows you to easily create a setup wizard for allowing your app users to setup their devices.
+
+##iOS Cloud SDK
+
+###Introduction
 
 Particle iOS Cloud SDK enables iOS apps to interact with Particle-powered connected products via the Particle Cloud. It’s an easy-to-use wrapper for Particle REST API. The Cloud SDK will allow you to:
 
@@ -28,7 +32,7 @@ Particle iOS Cloud SDK is available under the Apache License 2.0. See the [LICEN
 Spark has been recently rebranded as Particle.
 Code currently refers to `SparkCloud` and `SparkDevice`, this will soon be replaced with `ParticleCloud` and `ParticleDevice`. A new Cocoapod library will be published and current one will be depracated and point to the new one. This should not bother or affect your code.
 
-## Installation
+### Installation
 
 #### Install CocoaPods
 
@@ -48,7 +52,7 @@ and then run `pod update`.
 
 A new `.xcworkspace` file will be created for you to open by Cocoapods. Open that file workspace file in XCode and you can start interacting with Particle cloud and devices by adding `#import "Spark-SDK.h"`. (that is not required for swift projects)
 
-## Support and Contribution
+### Support and Contribution
 
 - If you **need help**, use the [mobile category](http://community.particle.io/c/mobile) in our [community forums](http://community.particle.io) for dicussing/troubleshooting iOS apps using the Particle iOS Cloud SDK.
 - If you are certain you **found a bug**, _and can provide steps to reliably reproduce it_, open an issue [on github](https://github.com/spark/?query=sdk), label it as `bug`.
@@ -65,7 +69,7 @@ The [Apple documentation](https://developer.apple.com/library/ios/documentation/
 _Notice_ that we've included the required bridging header file in the SDK, you just need to copy it to your project add it as the active bridging header file in the project settings as described in the links above.
 There's also an [example app](https://github.com/spark/spark-setup-ios-example), this app also demonstrates the Particle DeviceSetup library usage, as well as several Cloud SDK calls.
 
-## Cloud SDK Usage
+###Cloud SDK Usage
 
 Cloud SDK usage involves two basic classes:
 
@@ -298,7 +302,7 @@ SparkCloud.sharedInstance().logout()
 
 You can make an API call that will open a stream of [Server-Sent Events (SSEs)](http://www.w3.org/TR/eventsource/). You will make one API call that opens a connection to the Particle Cloud. That connection will stay open, unlike normal HTTP calls which end quickly. Very little data will come to you across the connection unless your Particle device publishes an event, at which point you will be immediately notified. In each case, the event name filter is `eventNamePrefix` and is optional. When specifying an event name filter, published events will be limited to those events with names that begin with the specified string. For example, specifying an event name filter of 'temp' will return events with names 'temp' and 'temperature'.
 
-#### Subscribe to events
+### Subscribe to events
 
 Subscribe to the firehose of public events, plus private events published by devices one owns:
 
@@ -366,7 +370,7 @@ or via the `SparkDevice` instance (if applicable):
 ```
 ---
 
-#### Publishing an event
+### Publishing an event
 
 You can also publish an event from your app to the Particle Cloud:
 
@@ -398,7 +402,7 @@ SparkCloud.sharedInstance().publishEventWithName("event_from_app", data: "event_
 For additional reference check out the [Reference in Cocoadocs website](http://cocoadocs.org/docsets/Spark-SDK/) for full coverage of `SparkDevice` and `SparkCloud` functions and member variables. In addition you can consult the javadoc style comments in `SparkCloud.h` and `SparkDevice.h` for each public method. If Particle iOS Cloud SDK is integrated in your XCode project you should be able to press `Esc` to get an auto-complete hints for each cloud and device method.
 
 
-#iOS Device Setup Library
+##iOS Device Setup Library
 
 The Particle Device Setup library is meant for integrating the initial setup process of Particle devices in your app.
 This library will enable you to easily invoke a standalone setup wizard UI for setting up internet-connect products
@@ -409,7 +413,7 @@ As you may have heard, the wireless setup process for the Photon uses very diffe
 
 With the Device Setup library, you make one simple call from your app, for example when the user hits a “setup my device” button, and a whole series of screens then guides the user through the soft AP setup process. When the process finishes, the user is back on the screen where she hit the “setup my device” button, and your code has been passed an instance of the device she just setup and claimed.
 
-### Basic Use
+### Basic Usage
 Import `SparkSetup.h` in your view controller implementation file, and invoke the device setup wizard by:
 
 ```objc
@@ -529,13 +533,13 @@ setup wizard completes (delegate). Feel free to contribute to the example by sub
 Check out the [Reference in Cocoadocs website](http://cocoadocs.org/docsets/SparkSetup/) or consult the javadoc style comments in `SparkSetupCustomization.h` and `SparkSetupMainController.h` for each public method or property.
 If Particle Device Setup library installation completed successfully - you should be able to press `Esc` to get an auto-complete hints from XCode for each public method or property in the library.
 
-## Requirements / Limitations
+### Requirements / Limitations
 
 - iOS 7.1+ supported
 - Currently setup wizard displays on portait mode only.
 - XCode 6.0 and up is required
 
-## Installation
+### Installation
 
 Particle-Setup is available through [CocoaPods](http://cocoapods.org). To install
 it, simply add the following line to your Podfile:
@@ -545,7 +549,7 @@ pod "SparkSetup"
 ```
 ---
 
-## Communication
+### Communication
 
 - If you **need help**, use [Our community website](http://community.particle.io)
 - If you **found a bug**, _and can provide steps to reliably reproduce it_, open an issue.
