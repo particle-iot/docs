@@ -93,10 +93,10 @@ Or the Swift version:
 }
 ```
 
-If you're using Objective-C don't forget to import the file `SparkSetup.h` in your view controller implementation file. If you're using Swift be sure to complete all the required steps to integrate the Objective-C Cocoapod libraries in your project, mainly adding bridging header file to the project settings, as described [here](http://swiftalicio.us/2014/11/using-cocoapods-from-swift/). We've included a bridging header file in both the SDKs.
+If you're using Objective-C, don't forget to import the file `SparkSetup.h` in your view controller implementation file. If you're using Swift, be sure to complete all the required steps to integrate the Objective-C Cocoapod libraries in your project, mainly adding bridging header file to the project settings, as described [here](http://swiftalicio.us/2014/11/using-cocoapods-from-swift/). We've included a bridging header file in both the SDKs.
 
 That's it. Build and run your project on a device or a simulator, tap the "Start Setup" button you created and you should see the device setup wizard pop up ready for authenticating with Particle Cloud and then setting up a new Particle Device.
-Make sure you setup your new Photon, and name the device `myDevice` at the last screen, you'll see why in a moment. If you already setup your device and just need to rename it you can do it from [Particle Build](https://build.particle.io/build) -> Devices. You can also rename the device from the Tinker app.
+Make sure you set up your new Photon, and name the device `myDevice` at the last screen, you'll see why in a moment. If you already setup your device and just need to rename it you can do it from [Particle Build](https://build.particle.io/build) -> Devices. You can also rename the device from the Tinker app.
 
 Now, let's try to list your devices and read a variable from the device you just set up (by using the Cloud SDK). Stop the app and go back to the split view of your view controller and code. Drag another button and name it "Read Variable", Ctrl-Drag it to your code and create another IBAction function. Call the function "readVariableButtonTapped" and fill in its body like so:
 
@@ -191,14 +191,20 @@ You can find the source code for the Cloud SDK under our GitHub account:
 
 #### Android
 
-The overall process is very similar, but it’s a native Java experience so Android developers will feel right at home.
-One big difference in the user experience of setting up a Photon from an Android app vs. an iOS app is that on Android an app can control which Wi-Fi network the phone connects to, whereas on iOS the user has to leave the app, go to settings, and change the Wi-Fi network. We’ve made both flows as easy as possible, but it’s definitely smoother on Android since the user doesn’t have to do as much.
+The overall process for building an Android app is very similar to that of building an iOS app, but with a native Java experience so Android developers will feel right at home.
+One major difference in the user experience of setting up a Photon from an Android app vs. an iOS app is that on Android an app can control which Wi-Fi network the phone connects to, whereas on iOS the user has to leave the app, go to settings, and change the Wi-Fi network. We’ve made both flows as easy as possible, but it’s definitely smoother on Android since the user doesn’t have to do as much.
 
 The Cloud SDK and Device Setup library for Android are available on our GitHub and through [JCenter](https://bintray.com/bintray/jcenter) as Apache Maven packages for easy integration as dependencies in an Android Studio project.
 
-Guide for how to create an Android app for Particle devices in Android studio coming soon.
-Meanawhile you can find the source code for the Android Cloud SDK and Device Setup under our GitHub account:
+The guide for how to create an Android app for Particle devices in Android studio is coming soon.
+Meanwhile you can find the source code for the Android Cloud SDK and Device Setup under our GitHub account:
 
 [Repository of Android Cloud SDK](https://github.com/spark/spark-sdk-android)
 
 [Repository of Android Device Setup library](https://github.com/spark/spark-setup-android)
+
+#### What's next?
+
+Well now you've written all of your software, so it's probably time to start:
+
+[Manufacturing >](../manufacturing).
