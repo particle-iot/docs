@@ -3,6 +3,7 @@ word: Datasheet
 title: Hardware datasheet
 order: 12
 columns: 2
+photon_link: photon-datasheet
 ---
 
 Spark Core Datasheet
