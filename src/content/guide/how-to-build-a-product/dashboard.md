@@ -7,19 +7,14 @@ order: 3
 
 # {{title}}
 
-Everything up to this point in the product creator guide has asked you to
-think about how you will scale your Internet of Things product from a single prototype to hundreds, thousands,
-or even millions of units.
-
-It's an exciting time: your idea is now coming
-to life at scale! However, you may quickly realize that managing a "fleet" of
+So you're building a product! It's an exciting time: your idea is now coming
+to life at scale. However, you may quickly realize that managing a "fleet" of
 devices brings a new set of challenges to the table requiring specialized
 tooling to help you provide the best possible experience for end-users of your
 product.
 
 Fear not! By setting up a dashboard for your organization, you will be equipped
-with everything you need to effectively oversee your fleet of devices and corresponding
-customers that makeup your IoT product.
+with everything you need to effectively oversee your fleet of devices that makeup your IoT product.
 
 <div class="dashboard-teaser">
   ![Particle Dashboard](/assets/images/dashboard-teaser.png)
@@ -46,32 +41,30 @@ state of your fleet, and provide a centralized control panel to change how
 devices are functioning.
 
 The first step to get started is understanding the differences between your
-individual developer dashboard and the Device Management Dashboard.
+individual developer dashboard and the organization dashboard.
 
 ## Organizations vs. Individuals
 
 Up until now, you've been an individual user of Particle. Your devices belong to
 you, and you can only act upon one device at a time.
 
-The Device Management Dashboard presents a new architecture designed to empower
-product creators, specifically by introducing **organizations**,
-**products**, **devices**, and **customers**.
+When you create an **organization**, you'll have a few additional important concepts available to you: **products**, **devices**, and **customers**.
 
 ![Organization architecture](/assets/images/organization-structure.png)
 
-In words, you set up an **organization**, the overarching group responsible for the
+First, you'll set up an **organization**, the overarching group responsible for the
 development of your Internet of Things products.
 
 Your organization can have multiple **products**. Defining a product is what unifies a
-group of devices together, and can be configured to function exactly how you
+group of devices together, and your product can be configured to function exactly how you
 envision.
 
 Each product has its own fleet of associated **devices**. Either a P0, P1,
-Photon, or eventually, an Electron, can be used inside of each device.
+Photon, or an Electron, could be used inside of each device.
 
 **Customers** own a device, and have permissions to control
-their device. The extent of their access to the device is defined by you when
-configuring your product.
+their device. You will define the extent of their access to the device when you
+configure your product.
 
 Your organization has **team members** with access to the dashboard.
 
@@ -79,9 +72,9 @@ It is important to note that *team members* and *customers* have different level
 
 ## Setting up an organization
 
-Currently the Device Management Dashboard is in private beta. If you are interested
+Currently the organization dashboard is in private beta. If you are interested
 in gaining access, please contact [hello@particle.io](mailto:hello@particle.io).
-The dashboard will be available to everyone in Fall 2015.
+The organization dashboard will be available to everyone in Fall 2015.
 
 Once you have access to create an organization from the Particle team, log into your dashboard at [dashboard.particle.io](https://dashboard.particle.io) and click on the "New Organization" button that appears in the navigation:
 
@@ -103,7 +96,7 @@ To do this, click on the *team icon* (<i class="ion-person-stalker"></i>) on the
 
 ![Team page](/assets/images/team-page.png)
 
-Clicking this button will open up a modal where you can invite a team member by email address. Before inviting a new team member, **make sure that they already have a Particle account with the email address you will be using to invite them to the organization**. Also, at this time, you are only allowed to belong to one organization. As such, the person you are trying to invite should not already belong to another organization.
+Clicking this button will open up a modal where you can invite a team member by email address. Before inviting a new team member, **make sure that they already have a Particle account with the email address you will be using to invite them to the organization**. At this time, you are only allowed to belong to one organization. As such, the person you are trying to invite should not already belong to another organization.
 
 ![Invite team member](/assets/images/invite-team-member.png)
 <p class="caption">The invite team member modal</p>
@@ -114,7 +107,7 @@ Nice! Now you have an organization with a team.
 
 ## Defining a product
 
-Our cloud platform thinks that all devices are *Photons* or *Cores* — unless it's told otherwise. Now's the time to define your own product within the platform and tell us a bit about how that product should behave.
+Our cloud platform thinks that all devices are *Photons*, *Electrons*, or *Cores* — unless it's told otherwise. Now's the time to define your own product within the platform and tell us a bit about how that product should behave.
 
 *Photons* are development kits. They're designed to be easy to reprogram and run a variety of software applications that you, our users, develop.
 
@@ -140,7 +133,7 @@ After successfully creating your product, you will be directed to your product's
 
 ## Configuring Your Product
 
-As a product creator, there are some key decisions you will need to make before devices are shipped to customers. Your configuration page will walk you through key questions that you should be thinking about during the development process. **You don't need to know the answers to all of these questions right now.** You are always able to return to your configuration page to answer outstanding questions, or change existing answers. However, you **must** answer all questions before you can start manufacturing.
+As a product creator, there are some key decisions you will need to make before devices are shipped to customers. Your configuration page will walk you through key questions that you should be thinking about during the development process. **You don't need to know the answers to all of these questions right now.** You are always able to return to your configuration page to answer outstanding questions, or change your answers. However, you **must** answer all questions before you can start manufacturing.
 
 It's also worth mentioning that some of the questions asked on the configuration page have tangible impacts on how your product will function within the Particle ecosystem, and others are simply educational to encourage you to be thinking strategically about what needs to happen before your product goes to manufacturing.
 
@@ -178,7 +171,7 @@ To import devices, click on the Devices icon in your product sidebar, then click
 
 ![Your product's devices](/assets/images/devices-page.png)
 
-To allow you to import devices in bulk, we allow you to upload a file containing multiple device IDs. Create a `.txt` file that contains all of the IDs of devices that you would like to import into your product, one on each line. [Not sure what your device ID is?](http://docs.particle.io/photon/cli/#running-from-source-advanced-particle-identify). *All devices included in this list must be owned by a team member of your organization*. The file should look something like this:
+To allow you to import devices in bulk, we allow you to upload a file containing multiple device IDs. Create a `.txt` file that contains all of the IDs of devices that you would like to import into your product, one on each line. [Not sure what your device ID is?](http://docs.particle.io/photon/cli/#running-from-source-advanced-particle-identify) *You cannot register devices that have already been 'claimed' by someone outside of your team; all of these devices must either belong to a team member or belong to no one*. The file should look something like this:
 
 ```
 55ff6d04498b49XXXXXXXXXX
