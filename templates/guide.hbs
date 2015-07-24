@@ -65,5 +65,24 @@
       </div>
     </div>
     {{> scripts}}
+    {{#contains path.href 'how-to-build-a-product'}}
+      <script type="text/javascript">
+        var userCookie = $.cookie('ember_simple_auth_session');
+
+        if(userCookie) {
+          var userJSON = JSON.parse(userCookie);
+          var username = userJSON.username;
+
+          analytics.identify(username, {
+            email: username,
+          });
+          analytics.track('Viewed How to Build a Product', {
+            page: '{{path.name}}',
+            fullUrl: window.location.href
+          });
+        }
+
+      </script>
+    {{/contains}}
 </body>
 </html>

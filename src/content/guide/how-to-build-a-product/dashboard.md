@@ -2,24 +2,19 @@
 title: Your Particle Dashboard
 columns: two
 template: guide.hbs
-order: 5
+order: 3
 ---
 
 # {{title}}
 
-Everything up to this point in the product creator guide has asked you to
-think about how you will scale your Internet of Things product from a single prototype to hundreds, thousands,
-or even millions of units.
-
-It's an exciting time: your idea is now coming
-to life at scale! However, you may quickly realize that managing a "fleet" of
+So you're building a product! It's an exciting time: your idea is now coming
+to life at scale. However, you may quickly realize that managing a "fleet" of
 devices brings a new set of challenges to the table requiring specialized
 tooling to help you provide the best possible experience for end-users of your
 product.
 
 Fear not! By setting up a dashboard for your organization, you will be equipped
-with everything you need to effectively oversee your fleet of devices and corresponding
-customers that makeup your IoT product.
+with everything you need to effectively oversee your fleet of devices that makeup your IoT product.
 
 <div class="dashboard-teaser">
   ![Particle Dashboard](/assets/images/dashboard-teaser.png)
@@ -46,32 +41,30 @@ state of your fleet, and provide a centralized control panel to change how
 devices are functioning.
 
 The first step to get started is understanding the differences between your
-individual developer dashboard and the Device Management Dashboard.
+individual developer dashboard and the organization dashboard.
 
 ## Organizations vs. Individuals
 
 Up until now, you've been an individual user of Particle. Your devices belong to
 you, and you can only act upon one device at a time.
 
-The Device Management Dashboard presents a new architecture designed to empower
-product creators, specifically by introducing **organizations**,
-**products**, **devices**, and **customers**.
+When you create an **organization**, you'll have a few additional important concepts available to you: **products**, **devices**, and **customers**.
 
 ![Organization architecture](/assets/images/organization-structure.png)
 
-In words, you set up an **organization**, the overarching group responsible for the
+First, you'll set up an **organization**, the overarching group responsible for the
 development of your Internet of Things products.
 
 Your organization can have multiple **products**. Defining a product is what unifies a
-group of devices together, and can be configured to function exactly how you
+group of devices together, and your product can be configured to function exactly how you
 envision.
 
 Each product has its own fleet of associated **devices**. Either a P0, P1,
-Photon, or eventually, an Electron, can be used inside of each device.
+Photon, or an Electron, could be used inside of each device.
 
 **Customers** own a device, and have permissions to control
-their device. The extent of their access to the device is defined by you when
-configuring your product.
+their device. You will define the extent of their access to the device when you
+configure your product.
 
 Your organization has **team members** with access to the dashboard.
 
@@ -79,9 +72,9 @@ It is important to note that *team members* and *customers* have different level
 
 ## Setting up an organization
 
-Currently the Device Management Dashboard is in private beta. If you are interested
+Currently the organization dashboard is in private beta. If you are interested
 in gaining access, please contact [hello@particle.io](mailto:hello@particle.io).
-The dashboard will be available to everyone in Fall 2015.
+The organization dashboard will be available to everyone in Fall 2015.
 
 Once you have access to create an organization from the Particle team, log into your dashboard at [dashboard.particle.io](https://dashboard.particle.io) and click on the "New Organization" button that appears in the navigation:
 
@@ -103,7 +96,7 @@ To do this, click on the *team icon* (<i class="ion-person-stalker"></i>) on the
 
 ![Team page](/assets/images/team-page.png)
 
-Clicking this button will open up a modal where you can invite a team member by email address. Before inviting a new team member, **make sure that they already have a Particle account with the email address you will be using to invite them to the organization**. Also, at this time, you are only allowed to belong to one organization. As such, the person you are trying to invite should not already belong to another organization.
+Clicking this button will open up a modal where you can invite a team member by email address. Before inviting a new team member, **make sure that they already have a Particle account with the email address you will be using to invite them to the organization**. At this time, you are only allowed to belong to one organization. As such, the person you are trying to invite should not already belong to another organization.
 
 ![Invite team member](/assets/images/invite-team-member.png)
 <p class="caption">The invite team member modal</p>
@@ -114,7 +107,7 @@ Nice! Now you have an organization with a team.
 
 ## Defining a product
 
-Our cloud platform thinks that all devices are *Photons* or *Cores* — unless it's told otherwise. Now's the time to define your own product within the platform and tell us a bit about how that product should behave.
+Our cloud platform thinks that all devices are *Photons*, *Electrons*, or *Cores* — unless it's told otherwise. Now's the time to define your own product within the platform and tell us a bit about how that product should behave.
 
 *Photons* are development kits. They're designed to be easy to reprogram and run a variety of software applications that you, our users, develop.
 
@@ -140,7 +133,7 @@ After successfully creating your product, you will be directed to your product's
 
 ## Configuring Your Product
 
-As a product creator, there are some key decisions you will need to make before devices are shipped to customers. Your configuration page will walk you through key questions that you should be thinking about during the development process. **You don't need to know the answers to all of these questions right now.** You are always able to return to your configuration page to answer outstanding questions, or change existing answers. However, you **must** answer all questions before you can start manufacturing.
+As a product creator, there are some key decisions you will need to make before devices are shipped to customers. Your configuration page will walk you through key questions that you should be thinking about during the development process. **You don't need to know the answers to all of these questions right now.** You are always able to return to your configuration page to answer outstanding questions, or change your answers. However, you **must** answer all questions before you can start manufacturing.
 
 It's also worth mentioning that some of the questions asked on the configuration page have tangible impacts on how your product will function within the Particle ecosystem, and others are simply educational to encourage you to be thinking strategically about what needs to happen before your product goes to manufacturing.
 
@@ -178,7 +171,7 @@ To import devices, click on the Devices icon in your product sidebar, then click
 
 ![Your product's devices](/assets/images/devices-page.png)
 
-To allow you to import devices in bulk, we allow you to upload a file containing multiple device IDs. Create a `.txt` file that contains all of the IDs of devices that you would like to import into your product, one on each line. [Not sure what your device ID is?](http://docs.particle.io/photon/cli/#running-from-source-advanced-particle-identify). *All devices included in this list must be owned by a team member of your organization*. The file should look something like this:
+To allow you to import devices in bulk, we allow you to upload a file containing multiple device IDs. Create a `.txt` file that contains all of the IDs of devices that you would like to import into your product, one on each line. [Not sure what your device ID is?](http://docs.particle.io/photon/cli/#running-from-source-advanced-particle-identify) *You cannot register devices that have already been 'claimed' by someone outside of your team; all of these devices must either belong to a team member or belong to no one*. The file should look something like this:
 
 ```
 55ff6d04498b49XXXXXXXXXX
@@ -194,9 +187,9 @@ Checking this checkbox will signal to the Particle cloud that regardless of whic
 
 When you do a real manufacturing run and import those devices into the dashboard, you will not need to check this box. This is because your devices will receive firmware with your product ID directly on the manufacturing line.
 
-## Rollout Firmware
+## Roll out Firmware
 
-One of the most significant benefits of your Device Management Dashboard is being able to rollout firmware to groups of devices, all from one place. This opens up tremendous possibilities for your IoT product: you now have the power to continuously improve how a customer's device operates after purchase. In addition, over-the-air (OTA) firmware updates can provide you additional flexibility in the manufacturing process. Specifically, you may continue to develop firmware between the time of manufacturing and shipping your product to customers, and send the latest firmware to your customers on setup of their device.
+One of the most significant benefits of your organization dashboard is being able to rollout firmware to groups of devices, all from one place. This opens up tremendous possibilities for your IoT product: you now have the power to continuously improve how a customer's device operates after purchase. In addition, over-the-air (OTA) firmware updates can provide you additional flexibility in the manufacturing process. Specifically, you may continue to develop firmware between the time of manufacturing and shipping your product to customers, and send the latest firmware to your customers on setup of their device.
 
 ### Preparing a binary
 
@@ -236,14 +229,14 @@ For now, in order for the `PRODUCT_ID` and `PRODUCT_VERSION` to be included succ
 
 ### Uploading firmware
 
-Now that you have a binary in-hand, it's now time to upload it to the dashboard. Back on the firmware page, click on the **Upload** button in the top-right corner of the page. This will launch the upload firmware modal:
+Now that you have a binary in hand, it's now time to upload it to the dashboard. Back on the firmware page, click on the **Upload** button in the top-right corner of the page. This will launch the upload firmware modal:
 
 ![Upload firmware](/assets/images/upload-firmware.png)
 
 A few things to keep in mind here:
 
 * The firmware version that you enter into this screen **must match** what you just compiled into your binary. Madness will ensue otherwise!
-* You should give your firmware a distict title that concisely describes how it differs from other versions of firmware. This name will be important in how firmware is rolled out to devices
+* You should give your firmware a distinct title that concisely describes how it differs from other versions of firmware. This name will be important in how firmware is rolled out to devices
 * Attach your newly compiled `.bin` file in the gray box
 
 Click upload. Congrats! You've uploaded your first version of product firmware! You should now see it appear in your list of firmware versions.
@@ -255,16 +248,16 @@ Click upload. Congrats! You've uploaded your first version of product firmware! 
 
 Time to flash that shiny new binary to some devices! Notice that when you hover over a version of firmware, you have the ability to **Release firmware** (<i class="ion-star"></i>). *Releasing* firmware sets that binary as the **preferred firmware version** for all devices reporting as your product. Unless set individually, any device that does not report this released version of firmware will **automatically download and run it** next time it comes online.
 
-Releasing firmware is the mechanism by which any number of devices can receive a single version of firmware without being individually targeted. This is incredibly valuable: imagine identifying a bug in your firmware and pushing out a fix to thousands of devices that are out in the field. Or, consider the possibility of continuing to build new features that can be introduced to customers, even after they have purchased your product and are acively using it. Amazing! This is the power of the Internet of Things.
+Releasing firmware is the mechanism by which any number of devices can receive a single version of firmware without being individually targeted. This is incredibly valuable: imagine identifying a bug in your firmware and pushing out a fix to thousands of devices that are out in the field. Or, consider the possibility of continuing to build new features that can be introduced to customers, even after they have purchased your product and are actively using it. Amazing! This is the power of the Internet of Things.
 
 However, releasing firmware also presents tremendous risk. The last thing you would want as a product creator is to break existing functionality for your customers, detracting from their experience with your product. Fear not! Specific safeguards are in place to help you avoid unintended regressions in firmware quality. Namely, **a firmware version must be successfully running on at least one device before it can be released to all devices.**
 
 ![Unable to release firmware](/assets/images/unable-to-release.png)
-<p class="caption">Releasing a firmware version is diabled until it is running on at least one device</p>
+<p class="caption">Releasing a firmware version is disabled until it is running on at least one device</p>
 
 ### Recommended development flow
 
-To get the firmware running on a device, head to your devices page by clicking on the devices icon in the sidebar (<i class="im-devices-icon"></i>). Before flashing your device, it's important to first understand the recommmended development flow for managing firmware for a product. This flow is designed to minimize risk when deploying new firmware to devices. As discussed earlier, you should start each cycle of firmware rollout by flashing them to your *test group* of devices. Your test devices should be physically available to you and/or your team for testing purposes. Once you have thoroughly tested the new firmware on your test group and fixed any bugs, you can then release the firmware to all other devices. This signals to the cloud that every device should be running the new firmware, and will trigger an auto-update to this version unless otherwise specified.
+To get the firmware running on a device, head to your devices page by clicking on the devices icon in the sidebar (<i class="im-devices-icon"></i>). Before flashing your device, it's important to first understand the recommended development flow for managing firmware for a product. This flow is designed to minimize risk when deploying new firmware to devices. As discussed earlier, you should start each cycle of firmware rollout by flashing your firmware to your *test group* of devices. Your test devices should be physically available to you and/or your team for testing purposes. Once you have thoroughly tested the new firmware on your test group and fixed any bugs, you can then release the firmware to all other devices. This signals to the cloud that every device should be running the new firmware, and will trigger an auto-update to this version unless otherwise specified.
 
 ![Release firmware flow](/assets/images/release-schedule.png)
 <p class="caption">The recommended flow for managing firmware</p>
@@ -284,8 +277,8 @@ Now that you have set up an organization, your customers will be able to create 
 There are three ways you can authenticate your customers:
 
 - **Simple authentication**. Your customers will create an account with Particle that is registered to your organization. You do not need to set up your own authentication system, and will hit the Particle API directly.
-- **Two-legged authentication**. Your customers will create an account on your servers using your own authentication system, and your web servers will create an account with Particle for each customer that is paired to that customer. Your servers will request a scoped access token for each customer to interact with their device. This is a completely whitelabeled solution.
-- **Login with Particle**. Your customers will create a Particle account and a separate account on your website, and link the two together using OAuth 2.0. Unlike the other authentication options, this option must showcase Particle branding. This is most useful when the customer is aware of Particle and may be using Particle's development tools with the product.
+- **Two-legged authentication**. Your customers will create an account on your servers using your own authentication system, and your web servers will create an account with Particle for each customer that is paired to that customer. Your servers will request a scoped access token for each customer to interact with their device. This is a completely white-labeled solution.
+- **Login with Particle**. Your customers will create a Particle account and a separate account on your website, and link the two together using OAuth 2.0. Unlike the other authentication options, this option will showcase Particle branding. This is most useful when the customer is aware of Particle and may be using Particle's development tools with the product.
 
 When you create your product in the dashboard, you will be asked which authentication method you want to use. Implementation of these methods are covered in detail in the [How to build a web app](/guide/how-to-build-a-product/web-app/) section of this guide.
 
@@ -297,5 +290,4 @@ The logs page (<i class="icon-terminal"></i>) is also available to product creat
 
 ## What's next?
 
-Congratulations! You have a grasp on how to take advantage of the Device Management Dashboard for your product. Next up, you will learn how to [build your own mobile app](/guide/how-to-build-a-product/mobile-app/) for your product.
-
+Congratulations! You have a grasp on how to take advantage of your organization's dashboard. Next up, you will learn how to [build your own web app](/guide/how-to-build-a-product/web-app/) for your product.

@@ -2,7 +2,7 @@
 title: Building your own mobile app (iOS and Android)
 columns: two
 template: guide.hbs
-order: 6
+order: 5
 ---
 
 While using your Photon, you've probably come across our Particle mobile apps (iOS and Android). You may have used these apps to set up your device and "tinker" with the GPIO pins.
@@ -22,7 +22,7 @@ Particle provides native mobile SDKs for both iOS (Objective-C and Swift) and An
 - Skills in object oriented programming. Knowledge in Objective-C / Swift and Cocoa Touch APIs. Here are few recommended free learning resources:
 	- Official [Apple tutorials](https://developer.apple.com/library/ios/referencelibrary/GettingStarted/RoadMapiOS/FirstTutorial.html#//apple_ref/doc/uid/TP40011343-CH3-SW1)
 	- [Developing iOS 8 Apps with Swift Stanford Universitry CS193p course](https://itunes.apple.com/us/course/developing-ios-8-apps-swift/id961180099) on iTunes U
-	- [Ray Wenderlich](http://www.raywenderlich.com/) - a great iOS-centric tutorials website 
+	- [Ray Wenderlich](http://www.raywenderlich.com/) - a great iOS-centric tutorials website
 	- [Try iOS](https://www.codeschool.com/courses/try-ios) - Free online iOS course from Codeschool
 	- and always: [Stack Overflow](http://stackoverflow.com/questions/tagged/ios) - best Q&A website for programmers. You can probably find an answer to ALL your how-do-I-do-that iOS questions there.
 
@@ -32,7 +32,7 @@ Particle provides native mobile SDKs for both iOS (Objective-C and Swift) and An
 - PC or Mac computer running OSX or Windows
 - [Google Play developer account](https://support.google.com/googleplay/android-developer/answer/6112435?hl=en)
 - Android device running Android v4.0 and up (Particle device setup process cannot run on simulator), micro-USB cable.
-- [Android Studio](https://developer.android.com/sdk/index.html) v1.2 and up, [Android SDK](https://developer.android.com/sdk/installing/index.html) 
+- [Android Studio](https://developer.android.com/sdk/index.html) v1.2 and up, [Android SDK](https://developer.android.com/sdk/installing/index.html)
 - Particle Android SDKs: Cloud SDK (**coming soon**) and Device Setup library (**coming soon**)
 - Skills in object oriented programming. Knowledge in Java and Android SDKs. Here are few recommended free learning resources:
 	- Official [Google tutorials](https://developer.android.com/training/basics/firstapp/index.html)
@@ -46,7 +46,7 @@ Particle provides native mobile SDKs for both iOS (Objective-C and Swift) and An
 ### Two-tier SDK
 
 There are two parts to the Particle Mobile SDK: the Cloud SDK and the Device Setup library.
-In a nutshell, the **Cloud SDK** is a library that enables your mobile app to interact with internet-connected hardware through the Particle Cloud. It serves the same purpose as [ParticleJS](http://docs.particle.io/photon/javascript/) — it’s an easy-to-use wrapper for our REST API, accessible from Objective-C and Swift. The **Device Setup library** allows you to create a setup wizard within your app for connecting your device to the internet with two lines of code. 
+In a nutshell, the **Cloud SDK** is a library that enables your mobile app to interact with internet-connected hardware through the Particle Cloud. It serves the same purpose as [ParticleJS](http://docs.particle.io/photon/javascript/) — it’s an easy-to-use wrapper for our REST API, accessible from Objective-C and Swift. The **Device Setup library** allows you to create a setup wizard within your app for connecting your device to the internet with two lines of code.
 
 ### How To Get Started?
 
@@ -54,7 +54,7 @@ Let's go through a basic step by step example on how to integrate and use the mo
 
 #### iOS
 
-Both the Cloud SDK and Device Setup library are available through CocoaPods, the most widely used iOS dependency manager. If you don’t have it, you’ll need to start by installing the Cocoapods `ruby gem`; check out the CocoaPods site for more info. 
+Both the Cloud SDK and Device Setup library are available through CocoaPods, the most widely used iOS dependency manager. If you don’t have it, you’ll need to start by installing the Cocoapods `ruby gem`; check out the CocoaPods site for more info.
 
 **Starting from scratch**
 
@@ -73,7 +73,7 @@ Now, from command line, while still in the project root directory type:
 
 `pod install`
 
-Go back to XCode, close the project and open the newly created `.xcworkspace` file - your project will now contain the Particle iOS SDKs ready to use. 
+Go back to XCode, close the project and open the newly created `.xcworkspace` file - your project will now contain the Particle iOS SDKs ready to use.
 
 Go to the project storyboard, drag a UIButton to your main ViewController. Double click it and type "Setup device", press the "Assistant editor" in XCode toolbar to show your viewcontroller code side by side to the storyboard. Ctrl-drag the button to your code to create a new IBAction, name the function "startDeviceSetup".
 In the function body add:
@@ -93,10 +93,10 @@ Or the Swift version:
 }
 ```
 
-If you're using Objective-C don't forget to import the file `SparkSetup.h` in your view controller implementation file. If you're using Swift be sure to complete all the required steps to integrate the Objective-C Cocoapod libraries in your project, mainly adding bridging header file to the project settings, as described [here](http://swiftalicio.us/2014/11/using-cocoapods-from-swift/). We've included a bridging header file in both the SDKs.
+If you're using Objective-C, don't forget to import the file `SparkSetup.h` in your view controller implementation file. If you're using Swift, be sure to complete all the required steps to integrate the Objective-C Cocoapod libraries in your project, mainly adding bridging header file to the project settings, as described [here](http://swiftalicio.us/2014/11/using-cocoapods-from-swift/). We've included a bridging header file in both the SDKs.
 
 That's it. Build and run your project on a device or a simulator, tap the "Start Setup" button you created and you should see the device setup wizard pop up ready for authenticating with Particle Cloud and then setting up a new Particle Device.
-Make sure you setup your new Photon, and name the device `myDevice` at the last screen, you'll see why in a moment. If you already setup your device and just need to rename it you can do it from [Particle Build](https://build.particle.io/build) -> Devices. You can also rename the device from the Tinker app.
+Make sure you set up your new Photon, and name the device `myDevice` at the last screen, you'll see why in a moment. If you already setup your device and just need to rename it you can do it from [Particle Build](https://build.particle.io/build) -> Devices. You can also rename the device from the Tinker app.
 
 Now, let's try to list your devices and read a variable from the device you just set up (by using the Cloud SDK). Stop the app and go back to the split view of your view controller and code. Drag another button and name it "Read Variable", Ctrl-Drag it to your code and create another IBAction function. Call the function "readVariableButtonTapped" and fill in its body like so:
 
@@ -104,7 +104,7 @@ Now, let's try to list your devices and read a variable from the device you just
 - (IBAction)readVariableButtonTapped:(id)sender {
 	 // 1
 	 [[SparkCloud sharedInstance] getDevices:^(NSArray *sparkDevices, NSError *error) {
-            NSLog(@"%@",sparkDevices.description); 
+            NSLog(@"%@",sparkDevices.description);
             // 2
             if (!error)
             {
@@ -167,7 +167,7 @@ See `// 1,2,3..` comments in code and follow:
 5. And if there wasn't any error calling this function on the device (default Tinker firmware exposes this function always) then print to console that call was successful
 
 Go ahead and run the app, see everything works alright.
-Well Done! You've just created a mobile basic app that can: 
+Well Done! You've just created a mobile basic app that can:
 1. Set up a Particle device interactively
 2. List the devices on the user's account
 3. Call a function on a device and report to the user
@@ -191,16 +191,20 @@ You can find the source code for the Cloud SDK under our GitHub account:
 
 #### Android
 
-The overall process is very similar, but it’s a native Java experience so Android developers will feel right at home.
-One big difference in the user experience of setting up a Photon from an Android app vs. an iOS app is that on Android an app can control which Wi-Fi network the phone connects to, whereas on iOS the user has to leave the app, go to settings, and change the Wi-Fi network. We’ve made both flows as easy as possible, but it’s definitely smoother on Android since the user doesn’t have to do as much.
+The overall process for building an Android app is very similar to that of building an iOS app, but with a native Java experience so Android developers will feel right at home.
+One major difference in the user experience of setting up a Photon from an Android app vs. an iOS app is that on Android an app can control which Wi-Fi network the phone connects to, whereas on iOS the user has to leave the app, go to settings, and change the Wi-Fi network. We’ve made both flows as easy as possible, but it’s definitely smoother on Android since the user doesn’t have to do as much.
 
 The Cloud SDK and Device Setup library for Android are available on our GitHub and through [JCenter](https://bintray.com/bintray/jcenter) as Apache Maven packages for easy integration as dependencies in an Android Studio project.
 
-Guide for how to create an Android app for Particle devices in Android studio coming soon.
-Meanawhile you can find the source code for the Android Cloud SDK and Device Setup under our GitHub account:
+The guide for how to create an Android app for Particle devices in Android studio is coming soon.
+Meanwhile you can find the source code for the Android Cloud SDK and Device Setup under our GitHub account:
 
 [Repository of Android Cloud SDK](https://github.com/spark/spark-sdk-android)
 
 [Repository of Android Device Setup library](https://github.com/spark/spark-setup-android)
 
+#### What's next?
 
+Well now you've written all of your software, so it's probably time to start:
+
+[Manufacturing >](../manufacturing).
