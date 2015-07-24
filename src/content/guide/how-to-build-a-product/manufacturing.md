@@ -117,3 +117,9 @@ Connected devices nearly always require certifications that ensure they operate 
   - FCC/CE/IC Certifications
   - RoHS Certification
   - PTCRB for cellular products (Electron)
+
+### What's next?
+
+Now that you've finished manufacturing, you're ready to ship! Let's talk about:
+
+[Further considerations >](../further-considerations).
