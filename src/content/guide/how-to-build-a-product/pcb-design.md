@@ -21,7 +21,7 @@ To work with Particle, your hardware must meet a small list of design requiremen
 - **Your device must have an RGB LED and a button to enter 'setup mode'**. The RGB LED shows the user the connectivity status, while the 'setup' button lets your customer reconfigure the device. These components should be wired according to the [Photon reference design](https://www.github.com/spark/photon).
 - **Your device must have an RF circuit and an antenna.** If you use the Photon or P1, the antenna is included in the hardware. If you use the P0, you must connect your own antenna. Please use the [Photon](https://www.github.com/spark/photon) as a reference design; if you use an antenna of equal or lesser gain, you may leverage Particle's FCC/CE/IC modular certification for the Photon.
 - **Your device must expose JTAG programming pins**. All Particle development kits (Photon/Core) expose JTAG pins by default. Although the Particle platform has been optimized for over-the-air firmware updates, JTAG programming is required for advanced debugging and development, or modifications to the underlying Particle firmware libraries. All product creators working with the P0 or P1 should expose these pins on their PCB; the pins are identified in their corresponding datasheets [here](http://docs.particle.io/photon/photon-datasheet/) and [here](http://docs.particle.io/photon/p1-datasheet/).
-- **Serial Test Pads** (*Recommended*). Although it's not *absolutely* required, it's highly recommended that you expose one hardware serial peripheral (UART) via test pads or pins. As we'll discuss later in the [Manufacturing](manufacturing) section of this guide, exposing serial will make it easy to leverage Particle's open-source test firmware for capturing basic information about your device on the manufacturing line.
+- **Serial Test Pads** (*Recommended*). Although it's not *absolutely* required, it's highly recommended that you expose one hardware serial peripheral (UART) via test pads or pins. As we'll discuss later in the [Manufacturing](../manufacturing) section of this guide, exposing serial will make it easy to leverage Particle's open-source test firmware for capturing basic information about your device on the manufacturing line.
 
 Note that, for additional security and to minimize tampering by customers, you can expose JTAG and serial test pins on a perforated section of your PCB that can be broken off after successful testing. This is a better option than deciding not to expose either JTAG or serial, which is, once again, {{{popup 'a bad decision.' 'img' 'bad-decision.gif'}}}
 
@@ -98,4 +98,4 @@ For tips and resources for prototyping PCBs by hand (our preferred prototyping m
 
 Once you've designed your hardware, the next step is to:
 
-[Set up your Particle dashboard >](dashboard)
+[Set up your Particle dashboard >](../dashboard)

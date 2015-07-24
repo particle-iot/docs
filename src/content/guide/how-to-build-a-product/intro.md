@@ -57,4 +57,4 @@ If you are interested in engaging us or our partners to help develop your produc
 
 Okay! First, let's start with:
 
-[Designing your own PCB >](pcb-design).
+[Designing your own PCB >](../pcb-design).
