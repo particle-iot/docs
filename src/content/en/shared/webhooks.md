@@ -66,7 +66,7 @@ Sending webhook request  { uri: 'https://api.particle.io/v1/webhooks',
   method: 'POST',
   json: true,
   form:
-   { event: 'slack-incoming-webhook',
+   { eventName: 'slack-incoming-webhook',
      url: 'https://hooks.slack.com/services/B1234567/C234567/345634563456345634563456',
      deviceid: undefined,
      access_token: '56785678567856785678567856785678',
@@ -319,7 +319,7 @@ Copy and save the librato access token for your webhook below.  Create a text fi
 ```json
 # copy-paste the stuff between the {}'s (including those brackets) into a file librato.json
 {
-    "event": "librato_",
+    "eventName": "librato_",
     "url": "https://metrics-api.librato.com/v1/metrics",
     "requestType": "POST",
     "auth": {
@@ -406,7 +406,7 @@ What's in a request?
 
 ```json
 {
-    "event": "Your event name",
+    "eventName": "Your event name",
     "data": "Your event contents",
     "published_at": "When it was published",
     "coreid": "Your device ID"
@@ -429,7 +429,7 @@ In order to help connect with many different services, you can move these publis
 
 ```json
 {
-    "event":  "\{{SPARK_EVENT_NAME}}",
+    "eventName":  "\{{SPARK_EVENT_NAME}}",
     "data": "\{{SPARK_EVENT_VALUE}}",
     "published_at": "\{{SPARK_PUBLISHED_AT}}",
     "coreid": "\{{SPARK_CORE_ID}}"
@@ -450,7 +450,7 @@ Spark.publish("custom_templates", "{ \"my-var\": \"foo\", \"my-temp\": \"98.6F\"
 An example hook that uses custom templates.  In this case the URL of the request will change as the value of "my-var" changes in your published event!
 ```json
 {
-    "event": "custom_templates",
+    "eventName": "custom_templates",
     "url": "http://my-awesome-website.particle/\{{my-var}}",
     "requestType": "POST",
     "json": {
