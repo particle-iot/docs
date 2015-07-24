@@ -68,6 +68,12 @@ exports.metalsmith = function() {
     .use(fileMetadata([
       {pattern: "content/**/*.md", metadata: {"lunr": true, "assets": '/assets', "branch": gitBranch}}
     ]))
+    .use(msIf(
+      environment === 'development',
+      fileMetadata([
+        {pattern: "content/**/*.md", metadata: {"development": true}}
+      ])
+    ))
     .use(precompile({
       directory: '../templates/precompile',
       dest: 'assets/js/precompiled.js',
@@ -239,9 +245,6 @@ exports.server = function(callback) {
   git.branch(function (str) {
     gitBranch = process.env.TRAVIS_BRANCH || str;
     exports.metalsmith().use(serve())
-      .use(define({
-        development: true
-      }))
       .use(watch({
         paths: {
           "${source}/content/**/*.md": true,
