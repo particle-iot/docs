@@ -187,9 +187,9 @@ Checking this checkbox will signal to the Particle cloud that regardless of whic
 
 When you do a real manufacturing run and import those devices into the dashboard, you will not need to check this box. This is because your devices will receive firmware with your product ID directly on the manufacturing line.
 
-## Rollout Firmware
+## Roll out Firmware
 
-One of the most significant benefits of your Device Management Dashboard is being able to rollout firmware to groups of devices, all from one place. This opens up tremendous possibilities for your IoT product: you now have the power to continuously improve how a customer's device operates after purchase. In addition, over-the-air (OTA) firmware updates can provide you additional flexibility in the manufacturing process. Specifically, you may continue to develop firmware between the time of manufacturing and shipping your product to customers, and send the latest firmware to your customers on setup of their device.
+One of the most significant benefits of your organization dashboard is being able to rollout firmware to groups of devices, all from one place. This opens up tremendous possibilities for your IoT product: you now have the power to continuously improve how a customer's device operates after purchase. In addition, over-the-air (OTA) firmware updates can provide you additional flexibility in the manufacturing process. Specifically, you may continue to develop firmware between the time of manufacturing and shipping your product to customers, and send the latest firmware to your customers on setup of their device.
 
 ### Preparing a binary
 
@@ -229,14 +229,14 @@ For now, in order for the `PRODUCT_ID` and `PRODUCT_VERSION` to be included succ
 
 ### Uploading firmware
 
-Now that you have a binary in-hand, it's now time to upload it to the dashboard. Back on the firmware page, click on the **Upload** button in the top-right corner of the page. This will launch the upload firmware modal:
+Now that you have a binary in hand, it's now time to upload it to the dashboard. Back on the firmware page, click on the **Upload** button in the top-right corner of the page. This will launch the upload firmware modal:
 
 ![Upload firmware](/assets/images/upload-firmware.png)
 
 A few things to keep in mind here:
 
 * The firmware version that you enter into this screen **must match** what you just compiled into your binary. Madness will ensue otherwise!
-* You should give your firmware a distict title that concisely describes how it differs from other versions of firmware. This name will be important in how firmware is rolled out to devices
+* You should give your firmware a distinct title that concisely describes how it differs from other versions of firmware. This name will be important in how firmware is rolled out to devices
 * Attach your newly compiled `.bin` file in the gray box
 
 Click upload. Congrats! You've uploaded your first version of product firmware! You should now see it appear in your list of firmware versions.
@@ -248,16 +248,16 @@ Click upload. Congrats! You've uploaded your first version of product firmware! 
 
 Time to flash that shiny new binary to some devices! Notice that when you hover over a version of firmware, you have the ability to **Release firmware** (<i class="ion-star"></i>). *Releasing* firmware sets that binary as the **preferred firmware version** for all devices reporting as your product. Unless set individually, any device that does not report this released version of firmware will **automatically download and run it** next time it comes online.
 
-Releasing firmware is the mechanism by which any number of devices can receive a single version of firmware without being individually targeted. This is incredibly valuable: imagine identifying a bug in your firmware and pushing out a fix to thousands of devices that are out in the field. Or, consider the possibility of continuing to build new features that can be introduced to customers, even after they have purchased your product and are acively using it. Amazing! This is the power of the Internet of Things.
+Releasing firmware is the mechanism by which any number of devices can receive a single version of firmware without being individually targeted. This is incredibly valuable: imagine identifying a bug in your firmware and pushing out a fix to thousands of devices that are out in the field. Or, consider the possibility of continuing to build new features that can be introduced to customers, even after they have purchased your product and are actively using it. Amazing! This is the power of the Internet of Things.
 
 However, releasing firmware also presents tremendous risk. The last thing you would want as a product creator is to break existing functionality for your customers, detracting from their experience with your product. Fear not! Specific safeguards are in place to help you avoid unintended regressions in firmware quality. Namely, **a firmware version must be successfully running on at least one device before it can be released to all devices.**
 
 ![Unable to release firmware](/assets/images/unable-to-release.png)
-<p class="caption">Releasing a firmware version is diabled until it is running on at least one device</p>
+<p class="caption">Releasing a firmware version is disabled until it is running on at least one device</p>
 
 ### Recommended development flow
 
-To get the firmware running on a device, head to your devices page by clicking on the devices icon in the sidebar (<i class="im-devices-icon"></i>). Before flashing your device, it's important to first understand the recommmended development flow for managing firmware for a product. This flow is designed to minimize risk when deploying new firmware to devices. As discussed earlier, you should start each cycle of firmware rollout by flashing them to your *test group* of devices. Your test devices should be physically available to you and/or your team for testing purposes. Once you have thoroughly tested the new firmware on your test group and fixed any bugs, you can then release the firmware to all other devices. This signals to the cloud that every device should be running the new firmware, and will trigger an auto-update to this version unless otherwise specified.
+To get the firmware running on a device, head to your devices page by clicking on the devices icon in the sidebar (<i class="im-devices-icon"></i>). Before flashing your device, it's important to first understand the recommended development flow for managing firmware for a product. This flow is designed to minimize risk when deploying new firmware to devices. As discussed earlier, you should start each cycle of firmware rollout by flashing your firmware to your *test group* of devices. Your test devices should be physically available to you and/or your team for testing purposes. Once you have thoroughly tested the new firmware on your test group and fixed any bugs, you can then release the firmware to all other devices. This signals to the cloud that every device should be running the new firmware, and will trigger an auto-update to this version unless otherwise specified.
 
 ![Release firmware flow](/assets/images/release-schedule.png)
 <p class="caption">The recommended flow for managing firmware</p>
@@ -277,8 +277,8 @@ Now that you have set up an organization, your customers will be able to create 
 There are three ways you can authenticate your customers:
 
 - **Simple authentication**. Your customers will create an account with Particle that is registered to your organization. You do not need to set up your own authentication system, and will hit the Particle API directly.
-- **Two-legged authentication**. Your customers will create an account on your servers using your own authentication system, and your web servers will create an account with Particle for each customer that is paired to that customer. Your servers will request a scoped access token for each customer to interact with their device. This is a completely whitelabeled solution.
-- **Login with Particle**. Your customers will create a Particle account and a separate account on your website, and link the two together using OAuth 2.0. Unlike the other authentication options, this option must showcase Particle branding. This is most useful when the customer is aware of Particle and may be using Particle's development tools with the product.
+- **Two-legged authentication**. Your customers will create an account on your servers using your own authentication system, and your web servers will create an account with Particle for each customer that is paired to that customer. Your servers will request a scoped access token for each customer to interact with their device. This is a completely white-labeled solution.
+- **Login with Particle**. Your customers will create a Particle account and a separate account on your website, and link the two together using OAuth 2.0. Unlike the other authentication options, this option will showcase Particle branding. This is most useful when the customer is aware of Particle and may be using Particle's development tools with the product.
 
 When you create your product in the dashboard, you will be asked which authentication method you want to use. Implementation of these methods are covered in detail in the [How to build a web app](/guide/how-to-build-a-product/web-app/) section of this guide.
 
@@ -290,4 +290,4 @@ The logs page (<i class="icon-terminal"></i>) is also available to product creat
 
 ## What's next?
 
-Congratulations! You have a grasp on how to take advantage of the Device Management Dashboard for your product. Next up, you will learn how to [build your own mobile app](/guide/how-to-build-a-product/mobile-app/) for your product.
+Congratulations! You have a grasp on how to take advantage of your organization's dashboard. Next up, you will learn how to [build your own web app](/guide/how-to-build-a-product/web-app/) for your product.
