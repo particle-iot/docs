@@ -88,7 +88,8 @@ Created by Zach Supalla.
   };
 
   Docs.expandInPageTOC = function() {
-    var isExpanded = Docs.inPageTOCExpanded;
+    var inPageTOC = $('ul.in-page-toc');
+    var isExpanded = Docs.inPageTOCExpanded || inPageTOC.hasClass('show');
     var isGuide = window.location.pathname.indexOf('/guide/') > -1;
     if(!isExpanded && !isGuide) {
       $('li.active').click();
