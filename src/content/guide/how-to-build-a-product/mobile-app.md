@@ -2,7 +2,7 @@
 title: Building your own mobile app (iOS and Android)
 columns: two
 template: guide.hbs
-order: 6
+order: 5
 ---
 
 While using your Photon, you've probably come across our Particle mobile apps (iOS and Android). You may have used these apps to set up your device and "tinker" with the GPIO pins.
@@ -22,7 +22,7 @@ Particle provides native mobile SDKs for both iOS (Objective-C and Swift) and An
 - Skills in object oriented programming. Knowledge in Objective-C / Swift and Cocoa Touch APIs. Here are few recommended free learning resources:
 	- Official [Apple tutorials](https://developer.apple.com/library/ios/referencelibrary/GettingStarted/RoadMapiOS/FirstTutorial.html#//apple_ref/doc/uid/TP40011343-CH3-SW1)
 	- [Developing iOS 8 Apps with Swift Stanford Universitry CS193p course](https://itunes.apple.com/us/course/developing-ios-8-apps-swift/id961180099) on iTunes U
-	- [Ray Wenderlich](http://www.raywenderlich.com/) - a great iOS-centric tutorials website 
+	- [Ray Wenderlich](http://www.raywenderlich.com/) - a great iOS-centric tutorials website
 	- [Try iOS](https://www.codeschool.com/courses/try-ios) - Free online iOS course from Codeschool
 	- and always: [Stack Overflow](http://stackoverflow.com/questions/tagged/ios) - best Q&A website for programmers. You can probably find an answer to ALL your how-do-I-do-that iOS questions there.
 
@@ -32,7 +32,7 @@ Particle provides native mobile SDKs for both iOS (Objective-C and Swift) and An
 - PC or Mac computer running OSX or Windows
 - [Google Play developer account](https://support.google.com/googleplay/android-developer/answer/6112435?hl=en)
 - Android device running Android v4.0 and up (Particle device setup process cannot run on simulator), micro-USB cable.
-- [Android Studio](https://developer.android.com/sdk/index.html) v1.2 and up, [Android SDK](https://developer.android.com/sdk/installing/index.html) 
+- [Android Studio](https://developer.android.com/sdk/index.html) v1.2 and up, [Android SDK](https://developer.android.com/sdk/installing/index.html)
 - Particle Android SDKs: Cloud SDK (**coming soon**) and Device Setup library (**coming soon**)
 - Skills in object oriented programming. Knowledge in Java and Android SDKs. Here are few recommended free learning resources:
 	- Official [Google tutorials](https://developer.android.com/training/basics/firstapp/index.html)
@@ -46,7 +46,7 @@ Particle provides native mobile SDKs for both iOS (Objective-C and Swift) and An
 ### Two-tier SDK
 
 There are two parts to the Particle Mobile SDK: the Cloud SDK and the Device Setup library.
-In a nutshell, the **Cloud SDK** is a library that enables your mobile app to interact with internet-connected hardware through the Particle Cloud. It serves the same purpose as [ParticleJS](http://docs.particle.io/photon/javascript/) — it’s an easy-to-use wrapper for our REST API, accessible from Objective-C and Swift. The **Device Setup library** allows you to create a setup wizard within your app for connecting your device to the internet with two lines of code. 
+In a nutshell, the **Cloud SDK** is a library that enables your mobile app to interact with internet-connected hardware through the Particle Cloud. It serves the same purpose as [ParticleJS](http://docs.particle.io/photon/javascript/) — it’s an easy-to-use wrapper for our REST API, accessible from Objective-C and Swift. The **Device Setup library** allows you to create a setup wizard within your app for connecting your device to the internet with two lines of code.
 
 ### How To Get Started?
 
@@ -54,7 +54,7 @@ Let's go through a basic step by step example on how to integrate and use the mo
 
 #### iOS
 
-Both the Cloud SDK and Device Setup library are available through CocoaPods, the most widely used iOS dependency manager. If you don’t have it, you’ll need to start by installing the Cocoapods `ruby gem`; check out the CocoaPods site for more info. 
+Both the Cloud SDK and Device Setup library are available through CocoaPods, the most widely used iOS dependency manager. If you don’t have it, you’ll need to start by installing the Cocoapods `ruby gem`; check out the CocoaPods site for more info.
 
 **Starting from scratch**
 
@@ -73,7 +73,7 @@ Now, from command line, while still in the project root directory type:
 
 `pod install`
 
-Go back to XCode, close the project and open the newly created `.xcworkspace` file - your project will now contain the Particle iOS SDKs ready to use. 
+Go back to XCode, close the project and open the newly created `.xcworkspace` file - your project will now contain the Particle iOS SDKs ready to use.
 
 Go to the project storyboard, drag a UIButton to your main ViewController. Double click it and type "Setup device", press the "Assistant editor" in XCode toolbar to show your viewcontroller code side by side to the storyboard. Ctrl-drag the button to your code to create a new IBAction, name the function "startDeviceSetup".
 In the function body add:
@@ -104,7 +104,7 @@ Now, let's try to list your devices and read a variable from the device you just
 - (IBAction)readVariableButtonTapped:(id)sender {
 	 // 1
 	 [[SparkCloud sharedInstance] getDevices:^(NSArray *sparkDevices, NSError *error) {
-            NSLog(@"%@",sparkDevices.description); 
+            NSLog(@"%@",sparkDevices.description);
             // 2
             if (!error)
             {
@@ -167,7 +167,7 @@ See `// 1,2,3..` comments in code and follow:
 5. And if there wasn't any error calling this function on the device (default Tinker firmware exposes this function always) then print to console that call was successful
 
 Go ahead and run the app, see everything works alright.
-Well Done! You've just created a mobile basic app that can: 
+Well Done! You've just created a mobile basic app that can:
 1. Set up a Particle device interactively
 2. List the devices on the user's account
 3. Call a function on a device and report to the user
@@ -202,5 +202,3 @@ Meanawhile you can find the source code for the Android Cloud SDK and Device Set
 [Repository of Android Cloud SDK](https://github.com/spark/spark-sdk-android)
 
 [Repository of Android Device Setup library](https://github.com/spark/spark-setup-android)
-
-

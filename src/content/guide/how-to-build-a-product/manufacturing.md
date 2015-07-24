@@ -2,7 +2,7 @@
 title: Manufacturing, programming, and testing
 columns: two
 template: guide.hbs
-order: 4
+order: 6
 ---
 
 # Manufacturing, Programming, and Testing

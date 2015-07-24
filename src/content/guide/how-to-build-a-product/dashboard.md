@@ -2,7 +2,7 @@
 title: Your Particle Dashboard
 columns: two
 template: guide.hbs
-order: 5
+order: 3
 ---
 
 # {{title}}
@@ -298,4 +298,3 @@ The logs page (<i class="icon-terminal"></i>) is also available to product creat
 ## What's next?
 
 Congratulations! You have a grasp on how to take advantage of the Device Management Dashboard for your product. Next up, you will learn how to [build your own mobile app](/guide/how-to-build-a-product/mobile-app/) for your product.
-
