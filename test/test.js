@@ -40,7 +40,7 @@ describe('Crawler', function() {
   it('should complete without error', function(done) {
     this.timeout(120000);
     var errors = 0;
-    var host = 'http://localhost:8080';
+    var host = 'http://localhost:8080/';
     var c = new Crawler({
         userAgent: 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.134 Safari/537.36',
         maxConnections: 10,
@@ -71,10 +71,16 @@ describe('Crawler', function() {
             return;
           }
 
-          toQueueUrl = url.resolve(toUrl, toQueueUrl);
+          var parsedUrl = url.parse(toUrl);
+          if (parsedUrl.pathname.slice(-1) !== '/') {
+            parsedUrl.pathname += '/';
+            toUrl = url.format(parsedUrl);
+          }
+          var absolutePath = url.resolve(toUrl, toQueueUrl);
+          //console.log(toUrl, toQueueUrl, absolutePath);
           c.queue([{
-            uri: toQueueUrl,
-            callback: crawlCallback.bind(null, toUrl, toQueueUrl, linkContent)
+            uri: absolutePath,
+            callback: crawlCallback.bind(null, toUrl, absolutePath, linkContent)
           }]);
         });
         $('img').each(function (index, img) {
