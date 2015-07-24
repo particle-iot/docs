@@ -323,7 +323,7 @@ Created by Zach Supalla.
   };
 
   Docs.toggleShowing = function() {
-    $("span").on('click', function() {
+    $("span.popupLink, span.footnoteLink").on('click', function() {
       $(this).toggleClass("showing");
     });
   };
