@@ -93,7 +93,7 @@ The P1 module has ton of capability in a super small footprint, with analog, dig
 
 **Notes:**
 
-<sup>[1]</sup> FT = 5.0V tolerant pins.  All pins except A3 and DAC are 5V tolerant (when not in analog mode). If used as a 5V input the pull-up/pull-down resistor must be disabled.  
+<sup>[1]</sup> FT = 5.0V tolerant pins.  All pins except A3 and DAC are 5V tolerant (when not in analog mode). If used as a 5V input the pull-up/pull-down resistor must be disabled.
 
 <sup>[2]</sup> 3V3 = 3.3V max pins.
 
@@ -448,43 +448,43 @@ You may use the online Web IDE [Particle Build](https://www.particle.io/build) t
 
 ## FCC IC CE Warnings and End Product Labeling Requirements
 
-**Federal Communication Commission Interference Statement** 
-This equipment has been tested and found to comply with the limits for a Class B digital device, pursuant to Part 15 of the FCC Rules. These limits are designed to provide reasonable protection against harmful interference in a residential installation. This equipment generates, uses and can radiate radio frequency energy and, if not installed and used in accordance with the instructions, may cause harmful interference to radio communications. However, there is no guarantee that interference will not occur in a particular installation. If this equipment does cause harmful interference to radio or television reception, which can be determined by turning the equipment off and on, the user is encouraged to try to correct the interference by one of the following measures: 
+**Federal Communication Commission Interference Statement**
+This equipment has been tested and found to comply with the limits for a Class B digital device, pursuant to Part 15 of the FCC Rules. These limits are designed to provide reasonable protection against harmful interference in a residential installation. This equipment generates, uses and can radiate radio frequency energy and, if not installed and used in accordance with the instructions, may cause harmful interference to radio communications. However, there is no guarantee that interference will not occur in a particular installation. If this equipment does cause harmful interference to radio or television reception, which can be determined by turning the equipment off and on, the user is encouraged to try to correct the interference by one of the following measures:
 
-- Reorient or relocate the receiving antenna. 
-- Increase the separation between the equipment and receiver. 
-- Connect the equipment into an outlet on a circuit different from that to which the receiver is connected. 
-- Consult the dealer or an experienced radio/TV technician for help. 
+- Reorient or relocate the receiving antenna.
+- Increase the separation between the equipment and receiver.
+- Connect the equipment into an outlet on a circuit different from that to which the receiver is connected.
+- Consult the dealer or an experienced radio/TV technician for help.
 
-**FCC Caution:** 
-Any changes or modifications not expressly approved by the party responsible for compliance could void the user's authority to operate this equipment. 
-This device complies with Part 15 of the FCC Rules. Operation is subject to the following two conditions: 
+**FCC Caution:**
+Any changes or modifications not expressly approved by the party responsible for compliance could void the user's authority to operate this equipment.
+This device complies with Part 15 of the FCC Rules. Operation is subject to the following two conditions:
 
 1. This device may not cause harmful interference, and
-2. This device must accept any interference received, including interference that may cause undesired operation. 
+2. This device must accept any interference received, including interference that may cause undesired operation.
 
-**FCC Radiation Exposure Statement:**  
+**FCC Radiation Exposure Statement:**
 This equipment complies with FCC radiation exposure limits set forth for an uncontrolled environment. This transmitter module must not be co-located or operating in conjunction with any other antenna or transmitter. This End equipment should be installed and operated with a minimum distance of 20 centimeters between the radiator and your body.
 
-**IMPORTANT NOTE:** 
-In the event that these conditions can not be met (for example certain laptop configurations or co-location with another transmitter), then the FCC authorization is no longer considered valid and the FCC ID can not be used on the final product. In these circumstances, the OEM integrator will be responsible for re-evaluating the end product (including the transmitter) and obtaining a separate FCC authorization.  
+**IMPORTANT NOTE:**
+In the event that these conditions can not be met (for example certain laptop configurations or co-location with another transmitter), then the FCC authorization is no longer considered valid and the FCC ID can not be used on the final product. In these circumstances, the OEM integrator will be responsible for re-evaluating the end product (including the transmitter) and obtaining a separate FCC authorization.
 
-**End Product Labeling**  
-The final end product must be labeled in a visible area with the following:     
+**End Product Labeling**
+The final end product must be labeled in a visible area with the following:
 > Contains FCC ID: 2AEMI-PHOTON
 
-**Manual Information to the End User**  
-The OEM integrator has to be aware not to provide information to the end user regarding how to install or remove this RF module in the user’s manual of the end product which integrates this module.  
+**Manual Information to the End User**
+The OEM integrator has to be aware not to provide information to the end user regarding how to install or remove this RF module in the user’s manual of the end product which integrates this module.
 
 ---
 
-**Canada Statement**  
+**Canada Statement**
 This device complies with Industry Canada’s licence-exempt RSSs. Operation is subject to the following two conditions:
 
 1. This device may not cause interference; and
 2. This device must accept any interference, including interference that may cause undesired operation of the device.
 
-Le présent appareil est conforme aux CNR d’Industrie Canada applicables aux appareils radio exempts de licence. 
+Le présent appareil est conforme aux CNR d’Industrie Canada applicables aux appareils radio exempts de licence.
 
 **L’exploitation est autorisée aux deux conditions suivantes:**
 
@@ -495,8 +495,8 @@ Le présent appareil est conforme aux CNR d’Industrie Canada applicables aux a
 This device meets the exemption from the routine evaluation limits in section 2.5 of RSS102 and users can obtain Canadian information on RF exposure and compliance.
 Le dispositif répond à l'exemption des limites d'évaluation de routine dans la section 2.5 de RSS102 et les utilisateurs peuvent obtenir des renseignements canadiens sur l'exposition aux RF et le respect.
 
-**The final end product must be labelled in a visible area with the following:**       
-The Industry Canada certification label of a module shall be clearly visible at all times when installed in the host device, otherwise the host device must be labelled to display the Industry Canada certification number of the module, preceded by the words “Contains transmitter module”, or the word “Contains”, or similar wording expressing the same meaning, as follows:   
+**The final end product must be labelled in a visible area with the following:**
+The Industry Canada certification label of a module shall be clearly visible at all times when installed in the host device, otherwise the host device must be labelled to display the Industry Canada certification number of the module, preceded by the words “Contains transmitter module”, or the word “Contains”, or similar wording expressing the same meaning, as follows:
 > Contains transmitter module IC: 20127-PHOTON
 
 This End equipment should be installed and operated with a minimum distance of 20 centimeters between the radiator and your body.

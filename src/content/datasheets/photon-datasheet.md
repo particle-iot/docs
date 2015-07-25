@@ -58,17 +58,17 @@ The Photon comes in two physical forms: with headers and without. Prototyping is
 
 ### Power
 
-Power to the Photon is supplied via the on-board USB Micro B connector or directly via the VIN pin.  If power is supplied directly to the VIN pin, the voltage should be regulated between 3.6VDC and 5.5VDC.  When the Photon is powered via the USB port, VIN will output a voltage of approximately 4.8VDC due to a reverse polarity protection series schottky diode between V+ of USB and VIN. When used as an output, the max load on VIN is 1A.  
+Power to the Photon is supplied via the on-board USB Micro B connector or directly via the VIN pin.  If power is supplied directly to the VIN pin, the voltage should be regulated between 3.6VDC and 5.5VDC.  When the Photon is powered via the USB port, VIN will output a voltage of approximately 4.8VDC due to a reverse polarity protection series schottky diode between V+ of USB and VIN. When used as an output, the max load on VIN is 1A.
 
 Typical current consumption is 80mA with a 5V input.  Deep sleep quiescent current is 160uA.  When powering the Photon from the USB connector, make sure to use a quality cable to minimize IR drops (current x resistance = voltage) in the wiring.  If a high resistance cable (i.e., low current) is used, peak currents drawn from the Photon when transmitting and receiving will result in voltage sag at the input which may cause a system brown out or intermittent operation.  Likewise, the power source should be sufficient enough to source 1A of current to be on the safe side.
 
 ### RF
 
-The RF section of the Photon is a finely tuned impedance controlled network of components that optimize the efficiency and sensitivity of the Wi-Fi communications.  
+The RF section of the Photon is a finely tuned impedance controlled network of components that optimize the efficiency and sensitivity of the Wi-Fi communications.
 
-An RF feed line runs from the PØ module into a SPDT RF-switch.  Logic level control lines on the PØ module select which of the two ports of the RF-switch is connected to the RF feed line. A 100pF decoupling capacitor is located on each control line. One port is connected to a PCB ceramic chip antenna, and the other is connected to a u.FL connector for external antenna adaptation.  The default port will be set to the chip antenna.  
+An RF feed line runs from the PØ module into a SPDT RF-switch.  Logic level control lines on the PØ module select which of the two ports of the RF-switch is connected to the RF feed line. A 100pF decoupling capacitor is located on each control line. One port is connected to a PCB ceramic chip antenna, and the other is connected to a u.FL connector for external antenna adaptation.  The default port will be set to the chip antenna.
 
-Additionally, a user API is available to switch between internal, external and even an automatic mode which continuously switches between each antenna and selects the best signal.  All three RF ports on the RF-switch have a 10pF RF quality DC-blocking capacitor in series with them.  These effectively pass 2.4GHz frequencies freely while blocking unwanted DC voltages from damaging the RF-switch.  All RF traces are considered as tiny transmission lines that have a controlled 50 ohm impedance.  
+Additionally, a user API is available to switch between internal, external and even an automatic mode which continuously switches between each antenna and selects the best signal.  All three RF ports on the RF-switch have a 10pF RF quality DC-blocking capacitor in series with them.  These effectively pass 2.4GHz frequencies freely while blocking unwanted DC voltages from damaging the RF-switch.  All RF traces are considered as tiny transmission lines that have a controlled 50 ohm impedance.
 
 The chip antenna is impedance matched to the 50 ohm RF feed line via a Pi network comprised of three RF inductors (1 series, 2 shunt).  These values are quite specific to the Photon due to the PCB construction and layout of the RF section.  Even if the Photon's layout design is copied exactly, to achieve the best performance it would be worth re-examining the Pi network values on actual samples of the PCB in question.
 
@@ -101,7 +101,7 @@ The Photon has ton of capability in a small footprint, with analog, digital and 
 
 **Notes:**
 
-<sup>[1]</sup> FT = 5.0V tolerant pins.  All pins except A3 and DAC are 5V tolerant (when not in analog mode). If used as a 5V input the pull-up/pull-down resistor must be disabled.  
+<sup>[1]</sup> FT = 5.0V tolerant pins.  All pins except A3 and DAC are 5V tolerant (when not in analog mode). If used as a 5V input the pull-up/pull-down resistor must be disabled.
 
 <sup>[2]</sup> 3V3 = 3.3V max pins.
 
@@ -292,7 +292,7 @@ These specifications are based on the STM32F205RG datasheet, with reference to P
 
 ### Mating connectors
 
-The Photon (with headers) can be mounted with (qty 2) 12-pin single row 0.1" female headers.  Typically these are 0.335" (8.5mm) tall, but you may pick a taller one if desired.  When you search for parts like these it can be difficult to navigate the thousands of parts available.  
+The Photon (with headers) can be mounted with (qty 2) 12-pin single row 0.1" female headers.  Typically these are 0.335" (8.5mm) tall, but you may pick a taller one if desired.  When you search for parts like these it can be difficult to navigate the thousands of parts available.
 
 On [Digikey.com](http://www.digikey.com), this section [Rectangular Connectors - Headers, Receptacles, Female Sockets](http://www.digikey.com/product-search/en/connectors-interconnects/rectangular-connectors-headers-receptacles-female-sockets/1442548)
  contains 36,000 of them.  Narrow the search with: 12 positions, 1 row, 0.1" (2.54mm) pitch, Through Hole mounting types (unless you want SMT), and sort by Price Ascending.  You may find something like this:
@@ -477,43 +477,43 @@ You may use the online Web IDE [Particle Build](https://build.particle.io) to co
 
 ## FCC IC CE Warnings and End Product Labeling Requirements
 
-**Federal Communication Commission Interference Statement** 
-This equipment has been tested and found to comply with the limits for a Class B digital device, pursuant to Part 15 of the FCC Rules. These limits are designed to provide reasonable protection against harmful interference in a residential installation. This equipment generates, uses and can radiate radio frequency energy and, if not installed and used in accordance with the instructions, may cause harmful interference to radio communications. However, there is no guarantee that interference will not occur in a particular installation. If this equipment does cause harmful interference to radio or television reception, which can be determined by turning the equipment off and on, the user is encouraged to try to correct the interference by one of the following measures: 
+**Federal Communication Commission Interference Statement**
+This equipment has been tested and found to comply with the limits for a Class B digital device, pursuant to Part 15 of the FCC Rules. These limits are designed to provide reasonable protection against harmful interference in a residential installation. This equipment generates, uses and can radiate radio frequency energy and, if not installed and used in accordance with the instructions, may cause harmful interference to radio communications. However, there is no guarantee that interference will not occur in a particular installation. If this equipment does cause harmful interference to radio or television reception, which can be determined by turning the equipment off and on, the user is encouraged to try to correct the interference by one of the following measures:
 
-- Reorient or relocate the receiving antenna. 
-- Increase the separation between the equipment and receiver. 
-- Connect the equipment into an outlet on a circuit different from that to which the receiver is connected. 
-- Consult the dealer or an experienced radio/TV technician for help. 
+- Reorient or relocate the receiving antenna.
+- Increase the separation between the equipment and receiver.
+- Connect the equipment into an outlet on a circuit different from that to which the receiver is connected.
+- Consult the dealer or an experienced radio/TV technician for help.
 
-**FCC Caution:** 
-Any changes or modifications not expressly approved by the party responsible for compliance could void the user's authority to operate this equipment. 
-This device complies with Part 15 of the FCC Rules. Operation is subject to the following two conditions: 
+**FCC Caution:**
+Any changes or modifications not expressly approved by the party responsible for compliance could void the user's authority to operate this equipment.
+This device complies with Part 15 of the FCC Rules. Operation is subject to the following two conditions:
 
 1. This device may not cause harmful interference, and
-2. This device must accept any interference received, including interference that may cause undesired operation. 
+2. This device must accept any interference received, including interference that may cause undesired operation.
 
-**FCC Radiation Exposure Statement:**  
+**FCC Radiation Exposure Statement:**
 This equipment complies with FCC radiation exposure limits set forth for an uncontrolled environment. This transmitter module must not be co-located or operating in conjunction with any other antenna or transmitter. This End equipment should be installed and operated with a minimum distance of 20 centimeters between the radiator and your body.
 
-**IMPORTANT NOTE:** 
-In the event that these conditions can not be met (for example certain laptop configurations or co-location with another transmitter), then the FCC authorization is no longer considered valid and the FCC ID can not be used on the final product. In these circumstances, the OEM integrator will be responsible for re-evaluating the end product (including the transmitter) and obtaining a separate FCC authorization.  
+**IMPORTANT NOTE:**
+In the event that these conditions can not be met (for example certain laptop configurations or co-location with another transmitter), then the FCC authorization is no longer considered valid and the FCC ID can not be used on the final product. In these circumstances, the OEM integrator will be responsible for re-evaluating the end product (including the transmitter) and obtaining a separate FCC authorization.
 
-**End Product Labeling**  
-The final end product must be labeled in a visible area with the following:     
+**End Product Labeling**
+The final end product must be labeled in a visible area with the following:
 > Contains FCC ID: 2AEMI-PHOTON
 
-**Manual Information to the End User**  
-The OEM integrator has to be aware not to provide information to the end user regarding how to install or remove this RF module in the user’s manual of the end product which integrates this module.  
+**Manual Information to the End User**
+The OEM integrator has to be aware not to provide information to the end user regarding how to install or remove this RF module in the user’s manual of the end product which integrates this module.
 
 ---
 
-**Canada Statement**  
+**Canada Statement**
 This device complies with Industry Canada’s licence-exempt RSSs. Operation is subject to the following two conditions:
 
 1. This device may not cause interference; and
 2. This device must accept any interference, including interference that may cause undesired operation of the device.
 
-Le présent appareil est conforme aux CNR d’Industrie Canada applicables aux appareils radio exempts de licence. 
+Le présent appareil est conforme aux CNR d’Industrie Canada applicables aux appareils radio exempts de licence.
 
 **L’exploitation est autorisée aux deux conditions suivantes:**
 
@@ -524,8 +524,8 @@ Le présent appareil est conforme aux CNR d’Industrie Canada applicables aux a
 This device meets the exemption from the routine evaluation limits in section 2.5 of RSS102 and users can obtain Canadian information on RF exposure and compliance.
 Le dispositif répond à l'exemption des limites d'évaluation de routine dans la section 2.5 de RSS102 et les utilisateurs peuvent obtenir des renseignements canadiens sur l'exposition aux RF et le respect.
 
-**The final end product must be labelled in a visible area with the following:**       
-The Industry Canada certification label of a module shall be clearly visible at all times when installed in the host device, otherwise the host device must be labelled to display the Industry Canada certification number of the module, preceded by the words “Contains transmitter module”, or the word “Contains”, or similar wording expressing the same meaning, as follows:   
+**The final end product must be labelled in a visible area with the following:**
+The Industry Canada certification label of a module shall be clearly visible at all times when installed in the host device, otherwise the host device must be labelled to display the Industry Canada certification number of the module, preceded by the words “Contains transmitter module”, or the word “Contains”, or similar wording expressing the same meaning, as follows:
 > Contains transmitter module IC: 20127-PHOTON
 
 This End equipment should be installed and operated with a minimum distance of 20 centimeters between the radiator and your body.
