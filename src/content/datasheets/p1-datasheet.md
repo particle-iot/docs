@@ -5,7 +5,7 @@ columns: two
 order: 5
 ---
 
-# P1 Datasheet <sup>(v003)</sup>
+# P1 Datasheet <sup>(v004)</sup>
 
 <div align=center><img src="/assets/images/p1-vector.png" width=200></div>
 
@@ -32,8 +32,6 @@ The P1 is Particle's tiny Wi-Fi module that contains both the Broadcom Wi-Fi chi
 	- Integrated PCB antenna
 	- Integrated u.FL connector for external antenna
 	- Integrated RF switch
-	- RF avg. output power (max)
-	  - b / g / n, 16.5dBm / 15.0dBm / 14.5dBm (+/-1.5dBm)
 - 25 Mixed-signal GPIO and advanced peripherals
 - Open source design
 - Real-time operating system (FreeRTOS)
@@ -62,6 +60,17 @@ The RF section of the P1 includes an on-board PCB trace antenna and a u.FL conne
 The default selected antenna will be the PCB antenna.
 
 The area surrounding the PCB antenna on the carrier PCB should be free of ground planes and signal traces for maximum Wi-Fi performance.
+
+---
+
+### FCC Approved Antennas
+
+| Antenna Type | Manufacturer | MFG. Part # | Gain |
+|-|-|-|-|
+| Dipole antenna | LumenRadio | 104-1001 | 2.15dBi |
+| PCB Antenna | Included | - | - |
+
+---
 
 ### Peripherals and GPIO
 
@@ -92,6 +101,10 @@ The P1 module has ton of capability in a super small footprint, with analog, dig
 
 <sup>[4]</sup> There are 6 extra pins that have digital I/O capability.  There are other peripherals that are available on these pins as well, which will be implemented in firmware and documented in a future version of this document.
 
+### RGB LED, SETUP and RESET button
+
+When using the P1 module, it is very important to remember that your device must have an RGB LED to show the user the connectivity status.  Also required is a SETUP and RESET button to enter various [Device Modes](/guide/getting-started/modes). By default the RGB LED outputs are configured for a Common Anode type of LED. These components should be wired according to the [P1 Reference Design - User I/O](#schematic-user-i-o).
+
 ### JTAG
 
 Pin D3 through D7 are JTAG interface pins.  These can be used to reprogram your P1 bootloader or user firmware image with standard JTAG tools such as the ST-Link v2, J-Link, R-Link, OLIMEX ARM-USB-TINI-H, and also the FTDI-based Particle JTAG Programmer.
@@ -108,11 +121,11 @@ Pin D3 through D7 are JTAG interface pins.  These can be used to reprogram your 
 | RST | Reset | | | | |
 
 **Notes:**
-<sup>[1]</sup> Default state after reset for a short period of time before these pins are restored to GPIO (if JTAG debugging is not required, i.e. `USE_SWD_JTAG=y` is not specified on the command line.
+<sup>[1]</sup> Default state after reset for a short period of time before these pins are restored to GPIO (if JTAG debugging is not required, i.e. `USE_SWD_JTAG=y` is not specified on the command line.)
 
 A standard 20-pin 0.1" shrouded male JTAG interface connector should be wired as follows:
 
-<div align=center><img src="/assets/images/photon-jtag.png" width=700></div>
+<div align=center><a href="/assets/images/p1-jtag.png"><img src="/assets/images/p1-jtag.png" height=500>(click to stop squinting)</a></div>
 
 ### External Coexistence Interface
 
@@ -122,9 +135,9 @@ When two radios occupying the same frequency band are used in the same system, s
 
 | P1 Pin Name | P1 Pin # | I/O | Description |
 |:-|:-:|:-:|:-|
-| BTCX_RF_ACTIVE | 9 | I | Coexistence signal: Bluetooth is active |
-| BTCX_STATUS | 10 | I | Coexistence signal: Bluetooth priority status and TX/RX direction |
-| BTCX_TXCONF | 11 | O | Output giving Bluetooth permission to TX |
+| BTCX_RF_ACTIVE | 57 | I | Coexistence signal: Bluetooth is active |
+| BTCX_STATUS | 56 | I | Coexistence signal: Bluetooth priority status and TX/RX direction |
+| BTCX_TXCONF | 58 | O | Output giving Bluetooth permission to TX |
 ￼
 When these pads are programmed to be used as a Bluetooth coexistence interface, they're set as high impedance on power up and reset. Alternatively, they can be individually programmed to be used as GPIOs through software control. They can also be programmed to have an internal pull-up or pull-down resistor.
 
@@ -142,9 +155,8 @@ When these pads are programmed to be used as a Bluetooth coexistence interface, 
 | VBAT | Supply to the internal RTC, backup registers and SRAM when 3V3 not present (1.65 to 3.6VDC). |
 | 3V3  | This pin represents the regulated +3.3V DC power to the P1 module.  In reality, +3.3V must be supplied to 3 different inputs: VBAT_WL (pin 2 & 3), VDDIO_3V3_WL (pin 5), VDD_3V3 (pin 26 & 27). Optionally +3.3V may be supplied to VBAT_MICRO (pin 38) for data retention in low power sleep modes. Each of these inputs also requires a 0.1uF and 10uF ceramic decoupling capacitor, located as close as possible to the pin. |
 | D0~D7 | Digital only GPIO pins. |
-| A0~A7 | 12-bit Analog-to-Digital (A/D) inputs (0-4095), and also digital GPIOs. A6 and A7 are code convenience mappings, which means pins are not actually labeled as such but you may use code like `analogRead(A7)`.  A6 maps to DAC pin and A7 maps to the WKP pin. |
-| DAC   | 12-bit Digital-to-Analog (D/A) output (0-4095), and also a digital GPIO. DAC is used as `DAC1` in software, and A5 is a second DAC output used as `DAC2` in software. |
-| RX    | Primarily used as UART RX, but can also be used as a digital GPIO or PWM. |
+| A0~A7 | 12-bit Analog-to-Digital (A/D) inputs (0-4095), and also digital GPIOs. `A6` and `A7` are code convenience mappings, which means pins are not actually labeled as such but you may use code like `analogRead(A7)`.  `A6` maps to the DAC pin and `A7` maps to the WKP pin. |
+| DAC   | 12-bit Digital-to-Analog (D/A) output (0-4095), and also a digital GPIO. DAC is used as `DAC` or `DAC1` in software, and A3 is a second DAC output used as `DAC2` in software. || RX    | Primarily used as UART RX, but can also be used as a digital GPIO or PWM. |
 | TX    | Primarily used as UART TX, but can also be used as a digital GPIO or PWM. |
 | Spare 1-6    | Primarily used as GPIO. There are other peripherals that are available on these pins as well, which will be implemented in firmware and documented in a future version of this document. |
 
@@ -265,19 +277,20 @@ When these pads are programmed to be used as a Bluetooth coexistence interface, 
 | :-|:-|:-: |
 | WLAN Standards | IEEE 802 11b/g/n |
 | Antenna Port | Single Antenna |
-| Frequency Band | 2.400 GHz – 2.484 GHz |
-| Sub Channels | 1 ~ 14 |
-| Modulation | DSSS, CCK, OFDM, BPSK, QPSK,16QAM, 64QAM |
-
+| Frequency Band | 2.412GHz -- 2.462GHz (United States of America and Canada) |
+| <sub></sub> | 2.412GHz -- 2.472GHz (EU) |
+| Sub Channels | 1 -- 11 (United States of America and Canada) |
+| <sub></sub> | 1 -- 13 (EU) |
+| Modulation | DSSS, CCK, OFDM, BPSK, QPSK, 16QAM, 64QAM |
 
 | P1 module Wi-Fi output power | | Typ. | Tol. | Unit |
 | :-|:-|:-:|:-:|:-: |
-| RF Average Output Power, 802.11b CCK Mode | 1M | 16.5 | +/- 1.5 | dBm |
-| <sub></sub> | 11M | 16.5 | +/- 1.5 | dBm |
-| RF Average Output Power, 802.11g OFDM Mode | 6M | 15 | +/- 1.5 | dBm |
-| <sub></sub> | 54M | 13 | +/- 1.5 | dBm |
-| RF Average Output Power, 802.11n OFDM Mode | MCS0 | 14.5 | +/- 1.5 | dBm |
-| <sub></sub> | MCS7 | 12 | +/- 1.5 | dBm |
+| RF Average Output Power, 802.11b CCK Mode | 1M | Avail. upon request | +/- 1.5 | dBm |
+| <sub></sub> | 11M | - | +/- 1.5 | dBm |
+| RF Average Output Power, 802.11g OFDM Mode | 6M | - | +/- 1.5 | dBm |
+| <sub></sub> | 54M | - | +/- 1.5 | dBm |
+| RF Average Output Power, 802.11n OFDM Mode | MCS0 | - | +/- 1.5 | dBm |
+| <sub></sub> | MCS7 | - | +/- 1.5 | dBm |
 
 
 ### 4.4 I/O Characteristics
@@ -433,6 +446,63 @@ You may use the online Web IDE [Particle Build](https://www.particle.io/build) t
 <dd>Over The Air; describing how firmware is transferred to the device.</dd>
 </div>
 
+## FCC IC CE Warnings and End Product Labeling Requirements
+
+**Federal Communication Commission Interference Statement** 
+This equipment has been tested and found to comply with the limits for a Class B digital device, pursuant to Part 15 of the FCC Rules. These limits are designed to provide reasonable protection against harmful interference in a residential installation. This equipment generates, uses and can radiate radio frequency energy and, if not installed and used in accordance with the instructions, may cause harmful interference to radio communications. However, there is no guarantee that interference will not occur in a particular installation. If this equipment does cause harmful interference to radio or television reception, which can be determined by turning the equipment off and on, the user is encouraged to try to correct the interference by one of the following measures: 
+
+- Reorient or relocate the receiving antenna. 
+- Increase the separation between the equipment and receiver. 
+- Connect the equipment into an outlet on a circuit different from that to which the receiver is connected. 
+- Consult the dealer or an experienced radio/TV technician for help. 
+
+**FCC Caution:** 
+Any changes or modifications not expressly approved by the party responsible for compliance could void the user's authority to operate this equipment. 
+This device complies with Part 15 of the FCC Rules. Operation is subject to the following two conditions: 
+
+1. This device may not cause harmful interference, and
+2. This device must accept any interference received, including interference that may cause undesired operation. 
+
+**FCC Radiation Exposure Statement:**  
+This equipment complies with FCC radiation exposure limits set forth for an uncontrolled environment. This transmitter module must not be co-located or operating in conjunction with any other antenna or transmitter. This End equipment should be installed and operated with a minimum distance of 20 centimeters between the radiator and your body.
+
+**IMPORTANT NOTE:** 
+In the event that these conditions can not be met (for example certain laptop configurations or co-location with another transmitter), then the FCC authorization is no longer considered valid and the FCC ID can not be used on the final product. In these circumstances, the OEM integrator will be responsible for re-evaluating the end product (including the transmitter) and obtaining a separate FCC authorization.  
+
+**End Product Labeling**  
+The final end product must be labeled in a visible area with the following:     
+> Contains FCC ID: 2AEMI-PHOTON
+
+**Manual Information to the End User**  
+The OEM integrator has to be aware not to provide information to the end user regarding how to install or remove this RF module in the user’s manual of the end product which integrates this module.  
+
+---
+
+**Canada Statement**  
+This device complies with Industry Canada’s licence-exempt RSSs. Operation is subject to the following two conditions:
+
+1. This device may not cause interference; and
+2. This device must accept any interference, including interference that may cause undesired operation of the device.
+
+Le présent appareil est conforme aux CNR d’Industrie Canada applicables aux appareils radio exempts de licence. 
+
+**L’exploitation est autorisée aux deux conditions suivantes:**
+
+1. l’appareil ne doit pas produire de brouillage;
+2. l’utilisateur de l’appareil doit accepter tout brouillage radioélectrique subi, même si le brouillage est susceptible d’en compromettre le fonctionnement.
+
+**Caution Exposure:**
+This device meets the exemption from the routine evaluation limits in section 2.5 of RSS102 and users can obtain Canadian information on RF exposure and compliance.
+Le dispositif répond à l'exemption des limites d'évaluation de routine dans la section 2.5 de RSS102 et les utilisateurs peuvent obtenir des renseignements canadiens sur l'exposition aux RF et le respect.
+
+**The final end product must be labelled in a visible area with the following:**       
+The Industry Canada certification label of a module shall be clearly visible at all times when installed in the host device, otherwise the host device must be labelled to display the Industry Canada certification number of the module, preceded by the words “Contains transmitter module”, or the word “Contains”, or similar wording expressing the same meaning, as follows:   
+> Contains transmitter module IC: 20127-PHOTON
+
+This End equipment should be installed and operated with a minimum distance of 20 centimeters between the radiator and your body.
+Cet équipement devrait être installé et actionné avec une distance minimum de 20 centimètres entre le radiateur et votre corps.
+
+> The end user manual shall include all required regulatory information/warning as shown in this manual.
 
 ## Revision history
 
@@ -441,6 +511,7 @@ You may use the online Web IDE [Particle Build](https://www.particle.io/build) t
 | v001 | 4-May-2015 | BW | Initial release |
 | v002 | 31-May-2015 | BW | Update assets |
 | v003 | 1-June-2015 | BW | Updated VBAT_MICRO info |
+| v004 | 24-July-2015 | BW | Added FCC IC CE Warnings and End Product Labeling Requirements, Updated power output, added approved antennas, Corrected DAC2 as A3, Corrected A0 as pin 50, Corrected External Coexistence Interface pin numbers, Added RGB LED, SETUP and RESET button section. |
 
 
 ## Contact
