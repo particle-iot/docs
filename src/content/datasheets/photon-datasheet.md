@@ -5,7 +5,9 @@ columns: two
 order: 4
 ---
 
-# Photon Datasheet <sup>(v010)</sup>
+# Photon Datasheet <sup>(v011)</sup>
+
+**Model number:** PHOTONH
 
 <div align=center><img src="/assets/images/photon_vector2_600.png" width=200></div>
 
@@ -35,8 +37,6 @@ The Photon comes in two physical forms: with headers and without. Prototyping is
 	* 802.11b/g/n Wi-Fi
     * STM32F205 120Mhz ARM Cortex M3
 	* 1MB flash, 128KB RAM
-	* RF avg. output power (max)
-		* b / g / n, 16.5dBm / 15.0dBm / 14.5dBm (+/-1.5dBm)
 * On-board RGB status LED (ext. drive provided)
 * 18 Mixed-signal GPIO and advanced peripherals
 * Open source design
@@ -74,6 +74,14 @@ The chip antenna is impedance matched to the 50 ohm RF feed line via a Pi networ
 
 ---
 
+### FCC Approved Antennas
+
+| Antenna Type | Manufacturer | MFG. Part # | Gain |
+|-|-|-|-|
+| Dipole antenna | LumenRadio | 104-1001 | 2.15dBi |
+| Chip antenna | Advanced Ceramic X | AT7020-E3R0HBA | 1.3dBi |
+
+---
 
 ### Peripherals and GPIO
 
@@ -118,7 +126,7 @@ Pin D3 through D7 are JTAG interface pins.  These can be used to reprogram your 
 | RST | Reset | | | | |
 
 **Notes:**
-<sup>[1]</sup> Default state after reset for a short period of time before these pins are restored to GPIO (if JTAG debugging is not required, i.e. `USE_SWD_JTAG=y` is not specified on the command line.
+<sup>[1]</sup> Default state after reset for a short period of time before these pins are restored to GPIO (if JTAG debugging is not required, i.e. `USE_SWD_JTAG=y` is not specified on the command line.)
 
 A standard 20-pin 0.1" shrouded male JTAG interface connector should be wired as follows:
 
@@ -165,8 +173,8 @@ When these pads are programmed to be used as a Bluetooth coexistence interface, 
 | 3V3 | This pin is the output of the on-board regulator and is internally connected to the VDD of the WiFi module. When powering the Photon via VIN or the USB port, this pin will output a voltage of 3.3VDC. This pin can also be used to power the Photon directly (max input 3.3VDC). When used as an output, the max load on 3V3 is 100mA. NOTE: When powering the Photon via this pin, ensure power is disconnected from VIN and USB. |
 | WKP | Active-high wakeup pin, wakes the module from sleep/standby modes. When not used as a WAKEUP, this pin can also be used as a digital GPIO, ADC input or PWM. |
 | D0~D7 | Digital only GPIO pins. |
-| A0~A9 | 12-bit Analog-to-Digital (A/D) inputs (0-4095), and also digital GPIOs. A6 and A7 are code convenience mappings, which means pins are not actually labeled as such but you may use code like `analogRead(A7)`.  A6 maps to the DAC pin and A7 maps to the WKP pin. |
-| DAC   | 12-bit Digital-to-Analog (D/A) output (0-4095), and also a digital GPIO. DAC is used as `DAC1` in software, and A5 is a second DAC output used as `DAC2` in software. |
+| A0~A7 | 12-bit Analog-to-Digital (A/D) inputs (0-4095), and also digital GPIOs. `A6` and `A7` are code convenience mappings, which means pins are not actually labeled as such but you may use code like `analogRead(A7)`.  `A6` maps to the DAC pin and `A7` maps to the WKP pin. |
+| DAC   | 12-bit Digital-to-Analog (D/A) output (0-4095), and also a digital GPIO. DAC is used as `DAC` or `DAC1` in software, and A3 is a second DAC output used as `DAC2` in software. |
 | RX    | Primarily used as UART RX, but can also be used as a digital GPIO or PWM. |
 | TX    | Primarily used as UART TX, but can also be used as a digital GPIO or PWM. |
 
@@ -225,19 +233,21 @@ When these pads are programmed to be used as a Bluetooth coexistence interface, 
 | :-|:-|:-: |
 | WLAN Standards | IEEE 802 11b/g/n |
 | Antenna Port | Single Antenna |
-| Frequency Band | 2.400 GHz – 2.484 GHz |
-| Sub Channels | 1 ~ 14 |
-| Modulation | DSSS, CCK, OFDM, BPSK, QPSK,16QAM, 64QAM |
+| Frequency Band | 2.412GHz -- 2.462GHz (United States of America and Canada) |
+| <sub></sub> | 2.412GHz -- 2.472GHz (EU) |
+| Sub Channels | 1 -- 11 (United States of America and Canada) |
+| <sub></sub> | 1 -- 13 (EU) |
+| Modulation | DSSS, CCK, OFDM, BPSK, QPSK, 16QAM, 64QAM |
 
 
 | PØ module Wi-Fi output power | | Typ. | Tol. | Unit |
 | :-|:-|:-:|:-:|:-: |
-| RF Average Output Power, 802.11b CCK Mode | 1M | 16.5 | +/- 1.5 | dBm |
-| <sub></sub> | 11M | 16.5 | +/- 1.5 | dBm |
-| RF Average Output Power, 802.11g OFDM Mode | 6M | 15 | +/- 1.5 | dBm |
-| <sub></sub> | 54M | 13 | +/- 1.5 | dBm |
-| RF Average Output Power, 802.11n OFDM Mode | MCS0 | 14.5 | +/- 1.5 | dBm |
-| <sub></sub> | MCS7 | 12 | +/- 1.5 | dBm |
+| RF Average Output Power, 802.11b CCK Mode | 1M | Avail. upon request | +/- 1.5 | dBm |
+| <sub></sub> | 11M | - | +/- 1.5 | dBm |
+| RF Average Output Power, 802.11g OFDM Mode | 6M | - | +/- 1.5 | dBm |
+| <sub></sub> | 54M | - | +/- 1.5 | dBm |
+| RF Average Output Power, 802.11n OFDM Mode | MCS0 | - | +/- 1.5 | dBm |
+| <sub></sub> | MCS7 | - | +/- 1.5 | dBm |
 
 
 ### I/O Characteristics
@@ -308,6 +318,8 @@ The Photon (without headers) can be surface mounted directly in an end applicati
 
 <div align=left><img src="/assets/images/photon_land_pattern_without_headers.png" width=600></div>
 
+Photon Pin #25-31 are described in the [Pin Out Diagrams](#pin-out-diagrams).
+
 Solder mask around exposed copper pads should be 0.1mm (4 mils) larger in all directions.  E.g., a 0.08" x 0.10" pad would have a 0.088" x 0.108" solder mask.
 
 This land pattern can be found in the [Spark.lbr Eagle library](https://github.com/spark/photon/blob/master/libraries/Spark.lbr), as a Device named `PHOTON_SMD`.  **Note: Clone or Download the complete repository as a ZIP file to avoid corrupted data in Eagle files.**
@@ -377,7 +389,7 @@ This land pattern can be found in the [Spark.lbr Eagle library](https://github.c
 |2|HEADER|Single String 1.2" Mating Length|0.1" 12-pin|JP1,JP2|Kaweei|CP25411-12G-S116-A|
 |1|DIODE|Diode Schottky 30V 3A|DO-220AA|D1|Vishay|SS3P3-M3/84A|
 |1|DIODE (LED)|Blue|SMD 0603|LED1|Everlight|19-217/BHC-ZL1M2RY/3T|
-|1|DIODE (LED)|LED RGB Common Anode Diffused SMD|4-PLCC (2.0mm x 2.0mm)|LED2|Cree|CLVBA-FKA-CAEDH8BBB7A363|
+|1|DIODE (LED)|LED RGB Common Anode Diffused SMD|4-PLCC (2.0mm x 2.0mm)|LED2|Cree|CLMVB-FKA-CFHEHLCBB7A363|
 |1|INDUCTOR|2.2uH 1.5A|3mm x 3mm|L4|Taiyo Yuden|NR3015T2R2M|
 |1|INDUCTOR (RF)|3.9nH RF inductor|0402|L3|Johanson|L-07C3N9SV6T|
 |1|INDUCTOR (RF)|4.7nH RF inductor|0402|L1|Johanson|L-07C4N7SV6T|
@@ -399,6 +411,7 @@ Photons are available from [store.particle.io](https://store.particle.io/) in si
 
 <div align=left><img src="/assets/images/lead-free-fcc-ce.png" height=100></div>
 
+-	**Model number:** PHOTONH
 -	RoHS
 -	CE
 -	FCC ID: 2AEMI-PHOTON
@@ -462,6 +475,63 @@ You may use the online Web IDE [Particle Build](https://build.particle.io) to co
 <dd>Over The Air; describing how firmware is transferred to the device.</dd>
 </div>
 
+## FCC IC CE Warnings and End Product Labeling Requirements
+
+**Federal Communication Commission Interference Statement** 
+This equipment has been tested and found to comply with the limits for a Class B digital device, pursuant to Part 15 of the FCC Rules. These limits are designed to provide reasonable protection against harmful interference in a residential installation. This equipment generates, uses and can radiate radio frequency energy and, if not installed and used in accordance with the instructions, may cause harmful interference to radio communications. However, there is no guarantee that interference will not occur in a particular installation. If this equipment does cause harmful interference to radio or television reception, which can be determined by turning the equipment off and on, the user is encouraged to try to correct the interference by one of the following measures: 
+
+- Reorient or relocate the receiving antenna. 
+- Increase the separation between the equipment and receiver. 
+- Connect the equipment into an outlet on a circuit different from that to which the receiver is connected. 
+- Consult the dealer or an experienced radio/TV technician for help. 
+
+**FCC Caution:** 
+Any changes or modifications not expressly approved by the party responsible for compliance could void the user's authority to operate this equipment. 
+This device complies with Part 15 of the FCC Rules. Operation is subject to the following two conditions: 
+
+1. This device may not cause harmful interference, and
+2. This device must accept any interference received, including interference that may cause undesired operation. 
+
+**FCC Radiation Exposure Statement:**  
+This equipment complies with FCC radiation exposure limits set forth for an uncontrolled environment. This transmitter module must not be co-located or operating in conjunction with any other antenna or transmitter. This End equipment should be installed and operated with a minimum distance of 20 centimeters between the radiator and your body.
+
+**IMPORTANT NOTE:** 
+In the event that these conditions can not be met (for example certain laptop configurations or co-location with another transmitter), then the FCC authorization is no longer considered valid and the FCC ID can not be used on the final product. In these circumstances, the OEM integrator will be responsible for re-evaluating the end product (including the transmitter) and obtaining a separate FCC authorization.  
+
+**End Product Labeling**  
+The final end product must be labeled in a visible area with the following:     
+> Contains FCC ID: 2AEMI-PHOTON
+
+**Manual Information to the End User**  
+The OEM integrator has to be aware not to provide information to the end user regarding how to install or remove this RF module in the user’s manual of the end product which integrates this module.  
+
+---
+
+**Canada Statement**  
+This device complies with Industry Canada’s licence-exempt RSSs. Operation is subject to the following two conditions:
+
+1. This device may not cause interference; and
+2. This device must accept any interference, including interference that may cause undesired operation of the device.
+
+Le présent appareil est conforme aux CNR d’Industrie Canada applicables aux appareils radio exempts de licence. 
+
+**L’exploitation est autorisée aux deux conditions suivantes:**
+
+1. l’appareil ne doit pas produire de brouillage;
+2. l’utilisateur de l’appareil doit accepter tout brouillage radioélectrique subi, même si le brouillage est susceptible d’en compromettre le fonctionnement.
+
+**Caution Exposure:**
+This device meets the exemption from the routine evaluation limits in section 2.5 of RSS102 and users can obtain Canadian information on RF exposure and compliance.
+Le dispositif répond à l'exemption des limites d'évaluation de routine dans la section 2.5 de RSS102 et les utilisateurs peuvent obtenir des renseignements canadiens sur l'exposition aux RF et le respect.
+
+**The final end product must be labelled in a visible area with the following:**       
+The Industry Canada certification label of a module shall be clearly visible at all times when installed in the host device, otherwise the host device must be labelled to display the Industry Canada certification number of the module, preceded by the words “Contains transmitter module”, or the word “Contains”, or similar wording expressing the same meaning, as follows:   
+> Contains transmitter module IC: 20127-PHOTON
+
+This End equipment should be installed and operated with a minimum distance of 20 centimeters between the radiator and your body.
+Cet équipement devrait être installé et actionné avec une distance minimum de 20 centimètres entre le radiateur et votre corps.
+
+> The end user manual shall include all required regulatory information/warning as shown in this manual.
 
 ## Revision history
 
@@ -476,7 +546,7 @@ You may use the online Web IDE [Particle Build](https://build.particle.io) to co
 | v008 | 11-May-2015 | BW | Updated BT CO-EX, PWM info, Qualifications |
 | v009 | 31-May-2015 | BW | Updated Pinouts, DAC info, Height dimensions, Solder mask info, Recommended operating conditions |
 | v010 | 1-June-2015 | BW | Updated VBAT info |
-
+| v011 | 24-July-2015 | BW | Added FCC IC CE Warnings and End Product Labeling Requirements, Updated power output, added approved antennas, Corrected DAC2 as A3, Added pin numbers to PCB Land Pattern for Photon without headers. |
 
 ## Contact
 
