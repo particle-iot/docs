@@ -31,6 +31,12 @@ var handlebars = require('handlebars');
 var prettify = require('prettify');
 prettify.register(handlebars);
 
+//disable autolinking
+function noop() {}
+noop.exec = noop;
+var marked = require('marked');
+marked.InlineLexer.rules.gfm.url = noop;
+
 var environment;
 
 var gitBranch;
