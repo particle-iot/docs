@@ -156,7 +156,8 @@ When these pins are programmed to be used as a Bluetooth coexistence interface, 
 | 3V3  | This pin represents the regulated +3.3V DC power to the P1 module.  In reality, +3.3V must be supplied to 3 different inputs: VBAT_WL (pin 2 & 3), VDDIO_3V3_WL (pin 5), VDD_3V3 (pin 26 & 27). Optionally +3.3V may be supplied to VBAT_MICRO (pin 38) for data retention in low power sleep modes. Each of these inputs also requires a 0.1uF and 10uF ceramic decoupling capacitor, located as close as possible to the pin. |
 | D0~D7 | Digital only GPIO pins. |
 | A0~A7 | 12-bit Analog-to-Digital (A/D) inputs (0-4095), and also digital GPIOs. `A6` and `A7` are code convenience mappings, which means pins are not actually labeled as such but you may use code like `analogRead(A7)`.  `A6` maps to the DAC pin and `A7` maps to the WKP pin. |
-| DAC   | 12-bit Digital-to-Analog (D/A) output (0-4095), and also a digital GPIO. DAC is used as `DAC` or `DAC1` in software, and A3 is a second DAC output used as `DAC2` in software. || RX    | Primarily used as UART RX, but can also be used as a digital GPIO or PWM. |
+| DAC   | 12-bit Digital-to-Analog (D/A) output (0-4095), and also a digital GPIO. DAC is used as `DAC` or `DAC1` in software, and A3 is a second DAC output used as `DAC2` in software. |
+| RX    | Primarily used as UART RX, but can also be used as a digital GPIO or PWM. |
 | TX    | Primarily used as UART TX, but can also be used as a digital GPIO or PWM. |
 | Spare 1-6    | Primarily used as GPIO. There are other peripherals that are available on these pins as well, which will be implemented in firmware and documented in a future version of this document. |
 
