@@ -51,7 +51,7 @@ exports.metalsmith = function() {
       '**/less/*.less',
       'content/languages/**/*',
       'assets/images/**/*.ai',
-      'content/reference/apigen.md'
+      // 'content/reference/apigen.md'
     ]))
     .use(cleanCSS({
       files: '**/*.css'
