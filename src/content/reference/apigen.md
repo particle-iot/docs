@@ -121,8 +121,7 @@ codes in the 500 range indicate failure within Particle's server infrastructure.
 ```html
 200 OK - API call successfully delivered to the device and executed.
 
-400 Bad Request - Your request is not understood by the device,
-    or the requested subresource (variable/function) has not been exposed.
+400 Bad Request - Your request is not understood by the device, or the requested subresource (variable/function) has not been exposed.
 
 401 Unauthorized - Your access token is not valid.
 

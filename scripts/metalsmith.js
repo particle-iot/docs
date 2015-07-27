@@ -56,12 +56,12 @@ exports.metalsmith = function() {
     .use(cleanCSS({
       files: '**/*.css'
     }))
-    // .use(apidoc({
-    //   src: '../api-node/',
-    //   config: '../api-node/',
-    //   destFile: 'content/reference/apigen.md',
-    //   includeFilters: ['.*[vV]iews[^.]*\\.js$', 'lib/AccessTokenController.js']
-    // }))
+    .use(apidoc({
+      src: '../api-node/',
+      config: '../api-node/',
+      destFile: 'content/reference/apigen.md',
+      includeFilters: ['.*[vV]iews[^.]*\\.js$', 'lib/AccessTokenController.js']
+    }))
     .use(partials({
       directory: '../templates/partials'
     }))
