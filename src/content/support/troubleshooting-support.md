@@ -599,7 +599,7 @@ These commands replace the factory reset image, and re-patch the radio, bringing
 ###Shields and Accessories
 
 For all hardware related questions in regards to all of our available shields, pinouts, and diagrams, and mini-tutorials
-feel free to visit our [Datasheets Section](/datasheets/photon-shields/#shield-shield on these topics.
+feel free to visit our [Datasheets Section](/datasheets/photon-shields/#shield-shield) on these topics.
 This includes:
  
 - Shield Shield
