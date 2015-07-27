@@ -129,7 +129,7 @@ A standard 20-pin 0.1" shrouded male JTAG interface connector should be wired as
 
 ### External Coexistence Interface
 
-The P1 supports coexistence with Bluetooth and other external radios via the three gold pads on the top side of the PCB near pin A3.  These pads are 0.035" square, spaced 0.049" apart.  This spacing supports the possibility of tacking on a small 1.25mm - 1.27mm pitch 3-pin male header to make it somewhat easier to interface with.
+The P1 supports coexistence with Bluetooth and other external radios via three pins available on the P1 module.
 
 When two radios occupying the same frequency band are used in the same system, such as Wi-Fi and Bluetooth, a coexistence interface can be used to coordinate transmit activity, to ensure optimal performance by arbitrating conflicts between the two radios.
 
@@ -139,7 +139,7 @@ When two radios occupying the same frequency band are used in the same system, s
 | BTCX_STATUS | 56 | I | Coexistence signal: Bluetooth priority status and TX/RX direction |
 | BTCX_TXCONF | 58 | O | Output giving Bluetooth permission to TX |
 ￼
-When these pads are programmed to be used as a Bluetooth coexistence interface, they're set as high impedance on power up and reset. Alternatively, they can be individually programmed to be used as GPIOs through software control. They can also be programmed to have an internal pull-up or pull-down resistor.
+When these pins are programmed to be used as a Bluetooth coexistence interface, they're set as high impedance on power up and reset. Alternatively, they can be individually programmed to be used as GPIOs through software control. They can also be programmed to have an internal pull-up or pull-down resistor.
 
 ## Pin and button definition
 
