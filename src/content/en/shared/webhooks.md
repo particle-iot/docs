@@ -471,7 +471,7 @@ You can even customize the webhook to send custom headers, form fields, and more
 event
 ---
 
-The topic of your published event is sent as the 'event' property in webhook requests.  In your firmware it's this part:
+The topic of your published event is sent as the 'event' property in webhook requests. Mind that the event name prefix filter rules from [Spark.subscribe()](../firmware/#spark-subscribe) apply here too.  In your firmware it's this part:
 
 ```
 Spark.publish(event, data);
