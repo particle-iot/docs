@@ -109,6 +109,8 @@ curl -d access_token=38bb7b318cc6898c80317decb34525844bc9db55
   https://...
 ```
 
+{{> api group=apiGroups.Authentication}}
+
 ## Errors
 
 The Particle Cloud uses traditional HTTP response codes to provide feedback from the device regarding the validity
@@ -142,4 +144,15 @@ If in the future we make backwards-incompatible changes to the API, the new endp
 something different, probably `/v2`.  If we decide to deprecate any `/v1` endpoints,
 we'll give you lots of notice and a clear upgrade path.
 
-{{> api groups=apiGroups}}
+## Devices
+{{> api group=apiGroups.Devices}}
+## Events
+{{> api group=apiGroups.Events}}
+## Firmware
+{{> api group=apiGroups.Firmware}}
+## Organizations
+{{> api group=apiGroups.Organizations}}
+## Products
+{{> api group=apiGroups.Products}}
+## Customers
+{{> api group=apiGroups.Customers}}

@@ -1,7 +1,5 @@
 {{#prettify condense='true' indent=0}}
-{{#each groups}}
-
-	<h2 id='#{{sanitize @key}}' data-href={{anchor-id @key}}>{{@key}}</h2>
+{{#with group}}
 
 	{{#each this}}
 		<h3 id='#{{sanitize title}}' data-href={{anchor-id title}}>{{title}}</h3>
@@ -55,5 +53,5 @@
 		<div class='api-op-footer'></div>
 	{{/each}}
 
-{{/each}}
+{{/with}}
 {{/prettify}}
