@@ -272,7 +272,7 @@ When these pins are programmed to be used as a Bluetooth coexistence interface, 
 
 <sup>[3]</sup> These are very short average current bursts when transmitting and receiving.  On average if minimizing frequency of TX/RX events, current consumption in powersave mode will be 18mA
 
-### 4.3 Wi-Fi Specifications <i class="icon-signal"></i>
+### Wi-Fi Specifications <i class="icon-signal"></i>
 
 | Feature | Description| |
 | :-|:-|:-: |
@@ -294,7 +294,7 @@ When these pins are programmed to be used as a Bluetooth coexistence interface, 
 | <sub></sub> | MCS7 | - | +/- 1.5 | dBm |
 
 
-### 4.4 I/O Characteristics
+### I/O Characteristics
 
 These specifications are based on the STM32F205RG datasheet, with reference to Photon pin nomenclature.
 
