@@ -57,7 +57,7 @@ exports.metalsmith = function() {
       '**/less/*.less',
       'content/languages/**/*',
       'assets/images/**/*.ai',
-      // 'content/reference/apigen.md'
+      'content/reference/api_old.md'
     ]))
     .use(cleanCSS({
       files: '**/*.css'
@@ -65,7 +65,7 @@ exports.metalsmith = function() {
     .use(apidoc({
       src: '../api-node/',
       config: '../api-node/',
-      destFile: 'content/reference/apigen.md',
+      destFile: 'content/reference/api.md',
       includeFilters: ['.*[vV]iews[^.]*\\.js$', 'lib/AccessTokenController.js']
     }))
     .use(partials({
