@@ -10,6 +10,6 @@ function makeid()
 }
 
 module.exports = function (str) {
-	var sanitized = str.replace(/[^a-z0-9]/gi, '-');
+	var sanitized = str.replace(/[^a-z0-9]/gi, '-').toLowerCase();
 	return sanitized + '-' + makeid();
 };

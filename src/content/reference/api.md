@@ -206,12 +206,15 @@ curl -d access_token=38bb7b318cc6898c80317decb34525844bc9db55
 
 ### Generate a new access token
 
+When creating a new access token, you need to specify several pieces of info.
+
 ``` bash
 POST /oauth/token
 
 # Using curl in your terminal
-curl https://api.particle.io/oauth/token -u particle:particle \
-     -d grant_type=password -d username=joe@example.com -d password=SuperSecret
+curl https://api.particle.io/oauth/token \
+  -u particle:particle -d grant_type=password \
+  -d username=joe@example.com -d password=SuperSecret
 
 # A typical JSON response will look like this
 {
@@ -221,10 +224,9 @@ curl https://api.particle.io/oauth/token -u particle:particle \
 }
 ```
 
-When creating a new access token, you need to specify several additional pieces of info.
-
 You must give a valid client ID and password in HTTP Basic Auth.
-Any client ID will work right now, so we suggest `particle:particle`.
+For controlling your own developer account, you can use `particle:particle`,
+otherwise wee the [OAuth Clients](#oauth-clients) section below.
 In the POST body, you need three parameters:
 
 * grant_type=password
@@ -233,7 +235,32 @@ In the POST body, you need three parameters:
 
 For now, Particle Build will list the single most recently created token.
 
+*Coming soon, around August 1, 2015!*
+Using an organization-specific client, you can create an access token scoped to
+only control the devices of one of your organization's customers by additionally
+passing `scope=customer=jane@example.com`. This customer will generally not have
+a password in Particle's systems; you will use `grant_type=client_credentials`.
 
+```
+# Coming soon!
+
+# Do this from your web app back end
+curl -u my-org-client-1234:long-client-secret \
+  -d grant_type=client_credentials \
+  -d scope=customer=jane@example.com \
+  -X POST https://api.particle.io/oauth/token
+
+# Typical response
+{
+  "token_type": "bearer",
+  "access_token": "91491f289c4d2afec324216f08b0cf2f4430d87a",
+  "expires_in": 7776000,
+  "refresh_token": "043d7051570f4dd40356a420eeeacbf3b954e100"
+}
+
+# The access token may then be passed to a customer's
+# mobile app for directly hitting the Particle API.
+```
 
 
 ### Configure when your token expires
@@ -242,7 +269,7 @@ You can control when your access token will expire, or set it to not expire at a
 There are two ways to specify how / when your token should expire.
 
 
-####expires_in - Optional
+#### expires_in - Optional
 
 How many seconds should the token last for?  Setting this to 0 seconds will create a token that never expires.
 
@@ -263,11 +290,7 @@ curl https://api.particle.io/oauth/token -u particle:particle \
 ```
 
 
-```
-
-```
-
-####expires_at - Optional
+#### expires_at - Optional
 
 At what date and time should the token expire?  This should be an ISO8601 style date string, or null for never
 
@@ -288,10 +311,10 @@ curl https://api.particle.io/oauth/token -u particle:particle \
 ```
 
 
-
-
-
 ### List all your tokens
+
+You can list all your access tokens by passing your email address and password
+in an HTTP Basic Auth header to `/v1/access_tokens`.
 
 ``` bash
 GET /v1/access_tokens
@@ -314,11 +337,10 @@ curl https://api.particle.io/v1/access_tokens -u joe@example.com:SuperSecret
 ]
 ```
 
-You can list all your access tokens by passing your email address and password
-in an HTTP Basic Auth header to `/v1/access_tokens`.
-
 
 ### Deleting an access token
+
+If you have a bunch of unused tokens and want to clean up, you can delete tokens.
 
 ```bash
 DELETE /v1/access_tokens/:token
@@ -333,9 +355,86 @@ curl https://api.particle.io/v1/access_tokens/b5b901e8760164e134199bc2c3dd1d228a
 }
 ```
 
-If you have a bunch of unused tokens and want to clean up, you can delete tokens.
-
 Just as for listing them, send your username and password in an HTTP Basic Auth header.
+
+
+## OAuth Clients
+
+An OAuth client generally represents an app.
+The Particle CLI is a client, as are Particle Build, the Particle iOS app, and
+the Particle Android app. You too can create your own clients.
+You should create separate clients for each of your web and mobile apps that hit
+the Particle API.
+
+Some requests, like generating an access token, require you to specify an OAuth
+client ID and secret using HTTP Basic authentication. Normally, when calling the
+Particle API as a single developer user to access your own account, you can use
+`particle` for both the client ID and secret as in the example above for
+[generating an access token](#generate-a-new-access-token).
+
+```
+curl -u particle:particle https://...
+```
+
+However, especially when you are *creating a product* on the Particle platform
+and your web app needs to hit our API on behalf of your customers, you need to
+create your own client.
+
+*NEVER expose the client secret to a browser.*
+If, for example, you have a client that controls all your organization's
+products, and you use the client secret in front-end javascript, then a
+tech-savvy customer using your website can read the secret in her developer
+console and hack all your customers' devices.
+
+
+### Create an OAuth Client
+
+Create a client by sending a POST request to `/v1/clients`.
+The two required parameters, most of the time, are a human readable `name`
+(spaces and mixed case are fine), and a `type`.
+
+```
+# Example request
+POST /v1/clients
+
+name=MyApp&type=installed
+
+
+# Example response
+{
+  "ok": true,
+  "client": {
+    "name": "MyApp",
+    "type": "installed",
+    "id": "myapp-2416",
+    "secret": "615c620d647b6e1dab13bef1695c120b0293c342"
+  }
+}
+```
+
+Use `type=installed` for most web and mobile apps.
+If you want to have Particle users login to their account on Particle
+in order to give your app access to their devices, then you can go through the
+full OAuth authorization code grant flow using `type=web`.
+This is the same way you authorize the Particle IFTTT channel,
+and it is similar to the way you give any app access to your Facebook or Twitter
+account.
+
+Your client secret will never be displayed again! Save it in a safe place.
+
+If you use `type=web` then you will also need to pass a `redirect_uri` parameter
+in the POST body. This is the URL where users will be redirected after telling
+Particle they are willing to give your app access to their devices.
+
+```
+POST /v1/clients
+
+name=MyApp&type=web&redirect_uri=https://api.example.com/go/here/when/finished
+```
+
+*Coming soon: around August 1, 2015!*
+You will be able to associate clients with organizations by
+passing the org slug as an `organization` parameter in the body.
 
 
 Errors
@@ -349,8 +448,7 @@ codes in the 500 range indicate failure within Particle's server infrastructure.
 ```
 200 OK - API call successfully delivered to the device and executed.
 
-400 Bad Request - Your request is not understood by the device,
-    or the requested subresource (variable/function) has not been exposed.
+400 Bad Request - Your request is not understood by the device, or the requested subresource (variable/function) has not been exposed.
 
 401 Unauthorized - Your access token is not valid.
 

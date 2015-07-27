@@ -54,7 +54,7 @@ Your access token can be found in the Particle Build web IDE on the 'Settings' p
 When you connect your Particle device to the Cloud for the first time, it will be associated with your account,
 and only you will have permission to control your Particle device—using your access token.
 
-If you need to transfer ownership of the device to another user, the easiest way is to simply log into the [Particle build site](https://build.particle.io), click on the 'Devices' drawer on the bottom left, and then click the small 'right arrow' by the device you want to release, then click "Remove Device". This will make it possible for the other person you are transferring the device to, to go through the normal [claiming process](../start).
+If you need to transfer ownership of the device to another user, the easiest way is to simply log into the [Particle build site](https://build.particle.io), click on the 'Devices' drawer on the bottom left, and then click the small 'right arrow' by the device you want to release, then click "Remove Device". This will make it possible for the other person you are transferring the device to, to go through the normal [claiming process](/guide/getting-started/start).
 
 In the future, you will be able to provision access to your Particle device to other accounts
 and to third-party app developers; however, these features are not yet available.
@@ -109,6 +109,8 @@ curl -d access_token=38bb7b318cc6898c80317decb34525844bc9db55
   https://...
 ```
 
+{{> api group=apiGroups.Authentication}}
+
 ## Errors
 
 The Particle Cloud uses traditional HTTP response codes to provide feedback from the device regarding the validity
@@ -119,8 +121,7 @@ codes in the 500 range indicate failure within Particle's server infrastructure.
 ```html
 200 OK - API call successfully delivered to the device and executed.
 
-400 Bad Request - Your request is not understood by the device,
-    or the requested subresource (variable/function) has not been exposed.
+400 Bad Request - Your request is not understood by the device, or the requested subresource (variable/function) has not been exposed.
 
 401 Unauthorized - Your access token is not valid.
 
@@ -142,4 +143,15 @@ If in the future we make backwards-incompatible changes to the API, the new endp
 something different, probably `/v2`.  If we decide to deprecate any `/v1` endpoints,
 we'll give you lots of notice and a clear upgrade path.
 
-{{> api groups=apiGroups}}
+## Devices
+{{> api group=apiGroups.Devices}}
+## Events
+{{> api group=apiGroups.Events}}
+## Firmware
+{{> api group=apiGroups.Firmware}}
+## Organizations
+{{> api group=apiGroups.Organizations}}
+## Products
+{{> api group=apiGroups.Products}}
+## Customers
+{{> api group=apiGroups.Customers}}

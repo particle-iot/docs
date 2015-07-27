@@ -599,7 +599,7 @@ These commands replace the factory reset image, and re-patch the radio, bringing
 ###Shields and Accessories
 
 For all hardware related questions in regards to all of our available shields, pinouts, and diagrams, and mini-tutorials
-feel free to visit our [Datasheets Section](/datasheets/photon-shields/#shield-shield on these topics.
+feel free to visit our [Datasheets Section](/datasheets/photon-shields/#shield-shield) on these topics.
 This includes:
  
 - Shield Shield
@@ -612,7 +612,8 @@ This includes:
 {{#if photon}}
 ##Avoid Factory Reset
 
-In-depth explanation of why you shouldn't do a Factory Reset on Photon [link here](https://community.particle.io/t/avoid-factory-reset-what-do-do-with-unexpected-led-behavior-on-a-photon/13358).
+It’s best to avoid doing a Factory Reset on your Photon. Here’s an in-depth explanation and some ways to avoid it
+[link here](https://community.particle.io/t/avoid-factory-reset-what-do-do-with-unexpected-led-behavior-on-a-photon/13358).
 {{/if}}
 
 ##Common Questions
@@ -623,13 +624,14 @@ Most of our firmware solutions are now explained in depth, located in our new an
 **Do Particle devices play well with IFTTT?**
 Yes, and that *how-to* is located in our [IFTTT features section](/guide/tools-and-features/ifttt).
 
-**Webhooks and JS-Plugins?**
-Of course, if it's related to the internet, we probably support it. [Webhooks features section](/guide/tools-and-features/webhooks).
+**Do you have Webhooks and JS-Plugins?**
+Yes, you can find more information on both of these at [Webhooks features section](/guide/tools-and-features/webhooks).
 
-**Can I host or co-host a Hackathon/Program that is Powered by Particle?**
+**I am hosting a Hackathon/Program that includes Particle - do you have any suggestions?**
 Yup! [Here are our best practices](/guide/tools-and-features/hackathon) about setting devices up for a Hackathon.
 
-Feel free to contact [hello @ particle dot com] with **subject line: *"Hackathon Inquiry for Particle"* **for any additional information about this.
+Feel free to contact [hello @ particle dot com] with **subject line: *"Sponsorship Inquiry for Particle"* **for any additional information about this. Please include as many details about your event and what sort of participation you’re interested in from Particle and allow a week for response.
+
 
 
 {{#if core}}

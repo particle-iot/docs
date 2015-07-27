@@ -31,6 +31,12 @@ var handlebars = require('handlebars');
 var prettify = require('prettify');
 prettify.register(handlebars);
 
+//disable autolinking
+function noop() {}
+noop.exec = noop;
+var marked = require('marked');
+marked.InlineLexer.rules.gfm.url = noop;
+
 var environment;
 
 var gitBranch;
@@ -51,17 +57,17 @@ exports.metalsmith = function() {
       '**/less/*.less',
       'content/languages/**/*',
       'assets/images/**/*.ai',
-      'content/reference/apigen.md'
+      // 'content/reference/apigen.md'
     ]))
     .use(cleanCSS({
       files: '**/*.css'
     }))
-    // .use(apidoc({
-    //   src: '../api-node/',
-    //   config: '../api-node/',
-    //   destFile: 'content/reference/apigen.md',
-    //   includeFilters: ['.*[vV]iews[^.]*\\.js$', 'lib/AccessTokenController.js']
-    // }))
+    .use(apidoc({
+      src: '../api-node/',
+      config: '../api-node/',
+      destFile: 'content/reference/apigen.md',
+      includeFilters: ['.*[vV]iews[^.]*\\.js$', 'lib/AccessTokenController.js']
+    }))
     .use(partials({
       directory: '../templates/partials'
     }))
