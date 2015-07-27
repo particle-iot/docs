@@ -203,3 +203,18 @@ Procedure:
 The device now is in the DFU mode.
 
 {{/if}}
+
+### SOS
+
+Is your device flashing red? Oh no!
+
+A pattern of more than 10 red flashes is caused by the firmware crashing. The pattern is 3 short flashes, 3 long flashes, 3 short flashes (SOS pattern), followed by a number of flashes that depend on the error, then the SOS pattern again.
+
+{{#if photon}}
+[Enter safe mode](#safe-mode), tweak your firmware and try again!
+{{else}}
+[Perform a factory reset](#factory-reset), tweak your firmware and try again!
+{{/if}}
+ 
+
+Don't forget that the [community forum is always there to help](https://community.particle.io).
