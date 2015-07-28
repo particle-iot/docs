@@ -2,7 +2,7 @@
 title: Firmware
 template: reference.hbs
 columns: three
-device: [photon, core]
+devices: ['photon', 'core']
 order: 1
 ---
 
@@ -566,7 +566,8 @@ WiFi.ready();
 
 ### WiFi.listen()
 
-This will enter listening mode, which opens a Serial connection to get Wi-Fi credentials over USB, and also listens for credentials over Smart Config.
+This will enter listening mode, which opens a Serial connection to get Wi-Fi credentials over USB, and also listens for credentials over
+{{#if core}}Smart Config{{/if}}{{#if photon}}Soft AP{{/if}}.
 
 ```cpp
 // SYNTAX
@@ -575,12 +576,28 @@ WiFi.listen();
 
 ### WiFi.listening()
 
-This will return `true` once `WiFi.listen()` has been called and will return `false` once the device has been given some Wi-Fi credentials to try, either over USB or Smart Config.
-
 ```cpp
 // SYNTAX
 WiFi.listening();
 ```
+
+{{#if core}}
+Because listening mode blocks your application code on the Core, this command is not useful on the Core.
+It will always return `false`.
+{{/if}}
+{{#if photon}}
+Right now, this command is not useful, always returning `false`, because listening mode blocks application code.
+
+This command becomes useful on the Photon when system code runs as a separate RTOS task from application code.
+We estimate that firmware feature will be released for the Photon in September 2015.
+
+Once system code does not block application code,
+`WiFi.listening()` will return `true` once `WiFi.listen()` has been called
+or the setup button has been held for 3 seconds,
+when the RGB LED should be blinking blue.
+It will return `false` when the device is not in listening mode.
+{{/if}}
+
 
 ### WiFi.setCredentials()
 
