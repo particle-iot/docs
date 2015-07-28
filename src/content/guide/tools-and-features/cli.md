@@ -34,7 +34,7 @@ Once this is done, then run `npm install -g particle-cli` to install the Particl
 
 ###Advanced Install
 
-To use the local flash and key features you'll also need to install [dfu-util](http://dfu-util.sourceforge.net/), and [openssl](http://www.openssl.org/).  They are freely available and open-source, and there are installers and binaries for most major platforms.
+To use the local flash and key features you'll also need to install [dfu-util](https://s3.amazonaws.com/spark-assets/dfu-util-0.8-binaries.tar.xz), and [openssl](http://www.openssl.org/).  They are freely available and open-source, and there are installers and binaries for most major platforms.
 
 Here are some great tutorials on the community for full installs:
 

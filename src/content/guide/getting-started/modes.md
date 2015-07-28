@@ -77,7 +77,7 @@ The device will itself automatically enter safe mode if there is no application 
 
 {{{vine "https://vine.co/v/eZUHnhaUD9Y/embed/simple"}}}
 
-If you wish to program a device with a custom firmware via USB, you'll need to use this mode. This mode triggers the on-board bootloader that accepts firmware binary files via the [dfu-utility.](http://dfu-util.sourceforge.net/)
+If you wish to program a device with a custom firmware via USB, you'll need to use this mode. This mode triggers the on-board bootloader that accepts firmware binary files via the [dfu-utility.](https://s3.amazonaws.com/spark-assets/dfu-util-0.8-binaries.tar.xz)
 
 Installation tutorial can be found [here.](/photon/cli/#upgrading-from-the-spark-cli-advanced-install)
 
@@ -192,7 +192,7 @@ The procedure is same as the one described above (DFU Mode), but in this case yo
 
 {{{vine "https://vine.co/v/eZUgeu0r639/embed/simple"}}}
 
-If you wish to program a device with a custom firmware via USB, you'll need to use this mode. This mode triggers the on-board bootloader that accepts firmware binary files via the [dfu-utility.](http://dfu-util.sourceforge.net/)
+If you wish to program a device with a custom firmware via USB, you'll need to use this mode. This mode triggers the on-board bootloader that accepts firmware binary files via the [dfu-utility.](https://s3.amazonaws.com/spark-assets/dfu-util-0.8-binaries.tar.xz)
 
 Installation tutorial can be found [here.](/core/cli/#installing-advanced-install)
 
