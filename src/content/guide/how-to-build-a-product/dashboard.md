@@ -223,13 +223,23 @@ void loop() {
 }
 ```
 
-For now, in order for the `PRODUCT_ID` and `PRODUCT_VERSION` to be included successfully in the binary, you will need to locally compile your firmware. You will need to clone the [Particle `firmware` repository](https://github.com/spark/firmware/tree/develop) onto your machine, and be sure to use the `develop` branch when locally compiling. For more detailed documentation on how to locally compile firmware, please [check here](https://github.com/spark/firmware/blob/develop/docs/build.md).
+### Compiling Binaries
 
-(*Coming soon*) If you are in the Web IDE, you can click on the download icon (<i class="ion-ios7-cloud-download"></i>) next to your application name to compile and download your current binary. In Particle Dev, clicking on the compile icon (<i class="ion-checkmark-circled"></i>) will automatically add a `.bin` file to your current working directory if the compilation is a success.
+If you are in the Web IDE, you can easily download a compiled binary by clicking the Code icon (<i class="ion-code"></i>) in your sidebar. You will see the name of your app in the pane, along with a download icon (<i class="ion-ios7-cloud-download"></i>). Click the download icon to compile and download your current binary.
+
+![Compile firmware](/assets/images/ide-compile.png)
+<p class="caption">Compile and download a product binary from the web IDE</p>
+
+If you are using Particle Dev, clicking on the compile icon (<i class="ion-checkmark-circled"></i>) will automatically add a `.bin` file to your current working directory if the compilation is a success.
+
+![Compile firmware](/assets/images/particle-dev-icon.png)
+<p class="caption">Particle Dev will automatically add a compiled binary to your working directory after you compile</p>
+
+Once you have a binary ready to go, it's time to upload it to the dashboard!
 
 ### Uploading firmware
 
-Now that you have a binary in hand, it's now time to upload it to the dashboard. Back on the firmware page, click on the **Upload** button in the top-right corner of the page. This will launch the upload firmware modal:
+Back on the firmware page, click on the **Upload** button in the top-right corner of the page. This will launch the upload firmware modal:
 
 ![Upload firmware](/assets/images/upload-firmware.png)
 
