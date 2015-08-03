@@ -153,7 +153,7 @@ Created by Zach Supalla.
     if (hash !== '' && window.location.pathname !== '/') {
       setTimeout(function() {
         Docs.scrollToElement(dataHref);
-      }, 500);
+      }, 1000);
     }
 
     $(window).on('hashchange', function() {
