@@ -109,7 +109,6 @@ The Photon has ton of capability in a small footprint, with analog, digital and 
 
 ---
 
-
 ### JTAG
 
 Pin D3 through D7 are JTAG interface pins.  These can be used to reprogram your Photon bootloader or user firmware image with standard JTAG tools such as the ST-Link v2, J-Link, R-Link, OLIMEX ARM-USB-TINI-H, and also the FTDI-based Particle JTAG Programmer.
@@ -133,7 +132,6 @@ A standard 20-pin 0.1" shrouded male JTAG interface connector should be wired as
 <div align=center><img src="/assets/images/photon-jtag.png" width=700></div>
 
 ---
-
 
 ### External Coexistence Interface
 
@@ -319,6 +317,8 @@ The Photon (without headers) can be surface mounted directly in an end applicati
 <div align=left><img src="/assets/images/photon_land_pattern_without_headers.png" width=600></div>
 
 Photon Pin #25-31 are described in the [Pin Out Diagrams](#pin-out-diagrams).
+
+Photon Pin #25-31 are described in the [Pin Out Diagrams](#3-3-pin-out-diagrams).
 
 Solder mask around exposed copper pads should be 0.1mm (4 mils) larger in all directions.  E.g., a 0.08" x 0.10" pad would have a 0.088" x 0.108" solder mask.
 

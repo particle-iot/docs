@@ -122,12 +122,21 @@ $ particle flash 0123456789ABCDEFGHI app.ino library1.cpp library1.h
 
 To work locally, but use the cloud compiler, simply use the compile command, and then the local flash command after.  Make sure you connect your device via USB and place it into [dfu mode](/photon/modes/#selecting-various-modes-dfu-mode-device-firmware-upgrade).
 
+This is device specific and must be passed as an argument during compilation.
+
+The devices available are:
+
+- photon (alias is 'p')
+- core (alias is 'c')
+
+eg. `particle compile photon xxx` OR `particle compile p xxxx` both targets the photon
+
 ```sh
 # how to compile a directory of source code and tell the CLI where to save the results
-$ particle compile my_project_folder --saveTo firmware.bin
+$ particle compile photon my_project_folder --saveTo firmware.bin
 OR
 # how to compile a list of source files
-$ particle compile app.ino library1.cpp library1.h --saveTo firmware.bin
+$ particle compile photon app.ino library1.cpp library1.h --saveTo firmware.bin
 
 # how to flash a pre-compiled binary over usb to your device
 # make sure your device is flashing yellow and connected via USB
@@ -148,7 +157,7 @@ $ particle flash --usb firmware.bin
 
 ```sh
 # how to compile a directory of source code
-$ particle compile my_project_folder
+$ particle compile photon my_project_folder
 ```
 
 ###example particle.include
@@ -176,7 +185,7 @@ old_version.cpp
 
 ```sh
 # how to compile a list of source files
-$ particle compile app.ino library1.cpp library1.h
+$ particle compile photon app.ino library1.cpp library1.h
 ```
 
 
