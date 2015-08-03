@@ -145,7 +145,11 @@ a.nav:hover {
   border: 1px solid rgba(0, 0, 0, .15);
   border-radius: 4px;
   -webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, .175);
-          box-shadow: 0 6px 12px rgba(0, 0, 0, .175);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, .175);
+  li {
+    overflow-x: hidden;
+  }
+
 }
 .dropdown:hover .dropdown-menu, .dropdown:active .dropdown-menu {
   display: block;
@@ -168,6 +172,7 @@ a.nav:hover {
   line-height: 1.42857143;
   color: #333;
   white-space: nowrap;
+  width: 100%;
 }
 .dropdown-menu > li > a:hover,
 .dropdown-menu > li > a:focus {
