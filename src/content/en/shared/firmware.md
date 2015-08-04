@@ -740,6 +740,50 @@ void setup() {
 }
 ```
 
+### WiFi.setIPAddressSource()
+
+Determines how the device obtains it's IP Address.
+
+`WiFi.selectAddress(*type*)` where *type* is one of:
+
+- `DYNAMIC_IP`: the device obtains an IP address from a DHCP server. This is the default.
+- `STATIC_IP`: the device uses the statically-configured IP address
+
+The setting is remembered after reset. Changing this setting does not take affect
+immediately. It takes affect from the next time the WiFi module connects to an access point.
+
+Calling this function with the same value as already configured (such as on each restart) does not cause additional wear
+on the system flash storage. The value is stored to flash only if it is different from what is already configured.
+
+
+### WiFi.setIPAddress()
+
+Defines the IP Address for this device when using `STATIC_IP` mode.
+
+SYSTEM_MODE(SEMI_AUTOMATIC);
+
+```cpp
+void setup() {
+    // define the static addresses to use
+    IPAddress deviceIP(192,168,1,234);
+    IPAddress subnetMask(255,255,255,0);
+    IPAddress gatewayIP(192,168,1,1);
+    IPAddress dns1(192,168,1,1);
+    // set these addresses
+    WiFi.setIPAddress(deviceIP, subnetMask, gatewayIP, dns1);
+    WiFi.setIPAddressSource(STATIC_IP);
+    Spark.connect();
+}
+```
+
+The configured addresses are remembered after a reset. Setting the addresses
+does not automatically cause the device to use these configured addresses. They
+take affect next time the WiFi module connects to an Access Point, and `WiFi.setIPAddressSource(STATIC_IP)` has been called.
+
+Calling this function with the same values as already configured (such as on each restart) does not cause additional wear
+on the system flash storage. The values are stored to flash only if it is different from what is already configured.
+
+
 Input/Output
 =====
 
