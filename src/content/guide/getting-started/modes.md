@@ -79,7 +79,7 @@ The next four modes are all selected using the same process, but by releasing th
 
 {{{vine "https://vine.co/v/eZUF2ilvLxJ/embed/simple"}}}
 
-Safe mode connects the device to the cloud, but does not run any application firmware. This mode is one of the most useful for development or for troubleshooting. If something goes wrong with the app you loaded onto your device, you can set your device to Safe Mode. This runs the device's system firmware but doesn't execute any application code, which can be useful if the applicaiton code contains bugs that stop the device from connecting to the cloud.
+Safe mode connects the device to the cloud, but does not run any application firmware. This mode is one of the most useful for development or for troubleshooting. If something goes wrong with the app you loaded onto your device, you can set your device to Safe Mode. This runs the device's system firmware but doesn't execute any application code, which can be useful if the application code contains bugs that stop the device from connecting to the cloud.
 
 **The device indicates that it is in Safe Mode with the LED, which breathes magenta.**
 
