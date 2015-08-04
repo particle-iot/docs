@@ -134,7 +134,7 @@ Created by Zach Supalla.
   };
 
   Docs.scrollToInternalLinks = function() {
-    var $internalLinks = $('.menubar a[href^="#"]');
+    var $internalLinks = $('.menubar a[href^="#"], a.header-permalinks');
     $internalLinks.click(function(e) {
       e.preventDefault();
       var dataHref = $(this).data('menu-href');
@@ -153,7 +153,7 @@ Created by Zach Supalla.
     if (hash !== '' && window.location.pathname !== '/') {
       setTimeout(function() {
         Docs.scrollToElement(dataHref);
-      }, 500);
+      }, 1000);
     }
 
     $(window).on('hashchange', function() {

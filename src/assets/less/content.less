@@ -27,6 +27,12 @@
 .content h5,
 .content h6 {
   font-weight: bold;
+  position: relative;
+  &:hover {
+    .header-permalinks {
+      opacity: 1;
+    }
+  }
 }
 .content pre {
   white-space: pre-wrap;
@@ -138,6 +144,29 @@
 /* ----------------------------------------------------------------------------
  * Content
  */
+h1 .header-permalinks {
+  display: none;
+}
+.two-columns {
+  .header-permalinks {
+    left: -25px;
+  }
+}
+.header-permalinks {
+  position: absolute;
+  left: 15px;
+  opacity: 0;
+  cursor: pointer;
+  i {
+    color: @light-gray;
+    font-size: 20px;
+  }
+  &:hover {
+    i {
+      color: @gray;
+    }
+  }
+}
 .content-root {
   position: absolute;
   top: 53px;

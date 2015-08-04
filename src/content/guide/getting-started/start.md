@@ -10,7 +10,10 @@ order: 2
 
 ## Getting to Know You
 
-{{#if photon}}![](/assets/images/phokit-box.jpg){{/if}}
+{{#if photon}}
+![](/assets/images/photon-kit-new.jpg)
+<p class="caption">Your new Photon! Note that many components pictured will only be included if you purchased a Photon Kit</p>
+{{/if}}
 {{#if core}}![](/assets/images/core-box.jpg){{/if}}
 
 Congratulations on being the owner of a brand new Particle Device! Go ahead and open the box. You can see the different [contents](/datasheets/kits) and check out their [hardware datasheets](/datasheets) if you like! Let's quickly go over what you see.

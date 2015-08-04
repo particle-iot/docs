@@ -20,7 +20,7 @@ Particle iOS Cloud SDK enables iOS apps to interact with Particle-powered connec
 - Get a list of instances of user's Particle devices
 - Read variables from devices
 - Invoke functions on devices
-- Publish events from the mobile app and subscribe to events coming from devices *(Coming Soon)*
+- Publish events from the mobile app and subscribe to events coming from devices
 
 All cloud operations take place asynchronously and use the well-known completion blocks (closures for swift) design pattern for reporting results allowing you to build beautiful responsive apps for your Particle products and projects.
 iOS Cloud SDK is implemented as an open-source Cocoapod library. See [Installation](#ios-cloud-sdk-installation) section for more details. It works well for both Objective-C and [Swift](#support-for-swift-projects) projects.
@@ -414,6 +414,7 @@ As you may have heard, the wireless setup process for the Photon uses very diffe
 With the Device Setup library, you make one simple call from your app, for example when the user hits a “setup my device” button, and a whole series of screens then guides the user through the soft AP setup process. When the process finishes, the user is back on the screen where she hit the “setup my device” button, and your code has been passed an instance of the device she just setup and claimed.
 
 ### Basic Usage
+
 Import `SparkSetup.h` in your view controller implementation file, and invoke the device setup wizard by:
 
 ```objc
@@ -447,7 +448,7 @@ You can modify the brand and product related info/images by assigning to these p
  UIImage *deviceImage;          // Device/product image
 
  NSString *brandName;           // Your brand name
- UIImage *brandImage;          	// Your brand logo to fit in header of setup wizard screens
+ UIImage *brandImage;           // Your brand logo to fit in header of setup wizard screens
  UIColor *brandImageBackgroundColor;    // brand logo background color
  NSString *welcomeVideoFilename;        // Welcome screen instructional video
  NSString *appName;                     // Your setup app name
