@@ -179,4 +179,4 @@ Troubleshooting
 
 ![Clear cache]({{assets}}/images/ide-clear-cache.png)
 
-Particle Build uses a local cache to improve its performance. In some cases this may cause errors or outdated information about libraries. If you encounter similar symptoms try clearing the cache by going to **Settings** and clicking **Clear cache* button.
+Particle Build uses a local cache to improve its performance. In some cases this may cause errors or outdated information about libraries. If you encounter similar symptoms try clearing the cache by going to **Settings** and clicking **Clear cache** button.
