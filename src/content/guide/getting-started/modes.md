@@ -12,17 +12,24 @@ Now that we've gone over connecting your device, we're going to review the diffe
 
 {{#if photon}}
 
+## Standard Modes
+
+These modes are the typical behaviors you will see from your Photon on a regular basis. They are the light patterns of a healthy photon.
+
 ### Connected
 
 {{{vine "https://vine.co/v/eZUg2ZjVpn7/embed/simple"}}}
 
 When it is breathing cyan, your device is happily connected to the internet. When it is in this mode, you can call functions and flash code.
 
-### Flashing
+
+### OTA Firmware Update
 
 {{{vine "https://vine.co/v/eZUX322TaU2/embed/simple"}}}
 
-If your device is flashing magenta, it is currently loading an app or updating its firmware. This state is triggered by a firmware update or by flashing code from Particle Dev or Particle Build.
+If your device is flashing magenta, it is currently loading an app or updating its firmware. This state is triggered by a firmware update or by flashing code from Particle Dev or Particle Build. You will often see this mode when you connect your Photon to the cloud for the first time.
+
+Note that, if you enter this mode by holding `SETUP` on boot, flashing magenta indicates that letting go of the `SETUP` button will enter safe mode to connect to the cloud and not run application firmware.
 
 
 ### Looking For Internet
@@ -30,6 +37,19 @@ If your device is flashing magenta, it is currently loading an app or updating i
 {{{vine "https://vine.co/v/eZUX7KJQnbX/embed/simple"}}}
 
 If your device is flashing green, it is trying to connect to the internet. If you already entered your wifi credentials, give your device a few seconds to connect and start breathing cyan. If you haven't yet connected your device to wifi, then set your device to [Listening Mode](#photon-modes-listening-mode).
+
+
+### Connecting to the Cloud
+
+When the device is in the process of connecting to the cloud, it will rapidly flash cyan. You often see this mode when you first connect your Photon to a network, after it has just flashed green.
+
+
+### Wi-Fi Off
+
+If your device is breathing white, the Wi-Fi module is off. You might see this mode if:
+
+- You have set your module to `MANUAL` or `SEMI_AUTOMATIC` in your user firmware
+- You have called `WiFi.off()` in your user firmware
 
 
 ### Listening Mode
@@ -72,6 +92,8 @@ To put your device in Safe Mode:
 6. Release the SETUP button
 
 The device will itself automatically enter safe mode if there is no application code flashed to the device or when the application is not valid. 
+
+**Once set to this mode, your device will breathe magenta to indicate that it is in Safe Mode.**
 
 ### DFU Mode (Device Firmware Upgrade)
 
@@ -127,6 +149,36 @@ To perform a factory reset:
 4. The LED will turn solid white (continue to hold the SETUP button)
 5. Finally, the LED will turn blink white rapidly
 6. Release the SETUP button
+
+## Troubleshooting Modes
+
+These modes let you know about more atypical issues your photon might be exhibiting. Use this section to troubleshoot strange colors you might see from your Photon.
+
+
+### Wi-Fi Module Not Connected
+
+If the Wi-Fi module is on but not connected to a network, your Photon will breathe blue. Note that this will be dark blue and not cyan.
+
+
+### Cloud Not Connected
+
+When the device is connected to a Wi-Fi network but not to the cloud, it will breathe green.
+
+
+### Bad Public Key
+
+When the server public key is bad, the device will flash alternately cyan and red.
+
+
+### Red Flash Basic Errors
+
+Flashing red indicates various errors.
+
+- 2 red flashes: Could not reach the internet.
+- 3 red flashes: Connected to the internet, but could not reach the Particle Cloud.
+- Flashing "orange": This sometimes is misdiagnosed as yellow or red and indicates bad device keys.
+
+
 {{/if}}
 
 {{#if core}}
@@ -208,7 +260,7 @@ The device now is in the DFU mode.
 
 {{/if}}
 
-### SOS
+### Red Flash SOS
 
 Is your device flashing red? Oh no!
 
