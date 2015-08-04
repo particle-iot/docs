@@ -230,7 +230,7 @@ If you are in the Web IDE, you can easily download a compiled binary by clicking
 ![Compile firmware](/assets/images/ide-compile.png)
 <p class="caption">Compile and download a product binary from the web IDE</p>
 
-If you are using Particle Dev, clicking on the compile icon (<i class="ion-checkmark-circled"></i>) will automatically add a `.bin` file to your current working directory if the compilation is a success.
+If you are using Particle Dev, clicking on the compile icon (<i class="ion-checkmark-circled"></i>) will automatically add a `.bin` file to your current working directory if the compilation is a success. **Note**: Make sure that you have a device selected in Particle Dev before compiling.
 
 ![Compile firmware](/assets/images/particle-dev-icon.png)
 <p class="caption">Particle Dev will automatically add a compiled binary to your working directory after you compile</p>
