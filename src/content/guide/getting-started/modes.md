@@ -81,7 +81,7 @@ The next four modes are all selected using the same process, but by releasing th
 
 Safe mode connects the device to the cloud, but does not run any application firmware. This mode is one of the most useful for development or for troubleshooting. If something goes wrong with the app you loaded onto your device, you can set your device to Safe Mode. This runs the device's system firmware but doesn't execute any application code, which can be useful if the applicaiton code contains bugs that stop the device from connecting to the cloud.
 
-The device indicates that it is in Safe Mode with the LED, which breathes magenta.
+**The device indicates that it is in Safe Mode with the LED, which breathes magenta.**
 
 
 To put your device in Safe Mode:
@@ -92,8 +92,6 @@ To put your device in Safe Mode:
 6. Release the SETUP button
 
 The device will itself automatically enter safe mode if there is no application code flashed to the device or when the application is not valid. 
-
-**Once set to this mode, your device will breathe magenta to indicate that it is in Safe Mode.**
 
 ### DFU Mode (Device Firmware Upgrade)
 
