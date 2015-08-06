@@ -175,6 +175,13 @@ In our case, because the Cores and Photons are connected to the internet, updati
 
 When you flash code onto your device, you are doing an *over-the-air firmware update*. This firmware update overwrites almost all of the software on the device; the only piece that is untouched is the bootloader, which manages the process of loading new firmware and ensures you can always update the firmware over USB or through a factory reset.
 
-For every device which version of our firmware you want to build against. In most cases you want to build with the latest firmware (which is used by default). If you need to target an older version (i.e. when newer version has some breaking changes) you can select it in dropdown located in device details.
+In most cases you want to build against Particle's latest system firmware (which is used by default). If you need to target an older version (i.e. when newer version has some breaking changes) you can select it in dropdown located in device details.
+
+Troubleshooting
+---
+
+![Clear cache]({{assets}}/images/ide-clear-cache.png)
+
+Particle Build uses a local cache to improve its performance. In some cases this may cause errors or outdated information about libraries. If you encounter similar symptoms try clearing the cache by going to **Settings** and clicking **Clear cache** button.
 
 Feeling oriented? Let's move on to some more interesting [examples.](/guide/getting-started/examples)
