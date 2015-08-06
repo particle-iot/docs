@@ -6,7 +6,7 @@ devices: [ photon, core ]
 order: 3
 ---
 
-#Connecting your Device over USB
+# Connecting your Device over USB
 
 The easiest way to connect your device to Wi-Fi is using the mobile app as described in the [previous lesson](/guide/getting-started/start). But in case that's not working for you or you don't have an iOS/Android phone, there are other methods as well.
 
@@ -17,12 +17,12 @@ The Core and Photon both boot into listening mode by default, so if your device 
 
 There are a two ways to go about connecting your Photon over USB, depending on your OS.
 
-##Using Windows
+## Using Windows
 
 To connect and interact with a Particle Device over USB from a Windows machine, the easiest route is to use the Particle command line interface.
 The following describes how to install the Particle CLI on your computer. If you already have Node.js installed, you can skip to [this step](#installing-the-particle-cli).
 
-###Installing Node.js
+### Installing Node.js
 The Particle CLI runs with Node.js. Grab the latest version from [the Node.js website](http://nodejs.org/download)
 
 **If you do not know if you are running 32-bit or 64-bit, checking is easy!**
@@ -36,7 +36,7 @@ _(You can do this by mousing over the upper right hand corner of the screen, the
 
 Node should now be installed! In the next step we will test it and install the CLI.
 
-###Installing the Particle Driver
+### Installing the Particle Driver
 You'll also need to install the Windows driver. [Download it here.](https://s3.amazonaws.com/spark-website/Spark.zip)
 
 Unzip the file. It is fine to unzip this as a default into your Downloads folder.
@@ -52,7 +52,7 @@ Navigate to your Downloads folder, or wherever you unzipped the drivers.
 
 If you have a problem installing, you may have to temporarily disable the digitally signed driver enforcement policy. (We're sorry.) There are good instructions on how to do that [here](http://www.howtogeek.com/167723/how-to-disable-driver-signature-verification-on-64-bit-windows-8.1-so-that-you-can-install-unsigned-drivers/).
 
-###Opening the Command Prompt
+### Opening the Command Prompt
 You'll need to open the command prompt for this next part. You can also use Powershell or a similar command line tool if that is what you are used to.
 
 To open the command prompt:
@@ -62,7 +62,7 @@ To open the command prompt:
 
 Now your Command Prompt, is open for use.
 
-###Installing the Particle CLI
+### Installing the Particle CLI
 In the Command Prompt window, type:
 `npm install -g particle-cli`
 
@@ -71,7 +71,7 @@ and press enter.
 Now let's try using the CLI!
 
 
-###Connecting Your Device
+### Connecting Your Device
 
 Make sure your device is plugged in via USB and in [Listening Mode](#connecting-your-device-listening-mode) (blinking blue). Then type:
 `particle setup`
@@ -90,18 +90,18 @@ If your device is not connecting, try troubleshooting [here](http://support.part
 More info on the CLI is available [here](/photon/cli).
 
 
-##Using OSX
+## Using OSX
 
 We're going to install the Particle CLI on your computer. If you already have node.js installed, you can skip to [this step](/guide/getting-started/connect/#install-the-particle-cli).
 
-###Installing Node.js
+### Installing Node.js
 The Particle CLI runs with Node.js. Grab the latest version from [the Node.js website](http://nodejs.org/download)
 
 Launch the installer and follow the instructions to install node.js.
 
 Next, open your terminal, or preferred terminal program.
 
-###Install the Particle CLI
+### Install the Particle CLI
 
 Type:
 `npm install -g particle-cli`
@@ -109,7 +109,7 @@ Type:
 _Note:_ You may need to update xcode at this time.
 
 
-###Connecting Your Device
+### Connecting Your Device
 Make sure your device is plugged in via USB and in [Listening Mode](#connecting-your-device-listening-mode) (blinking blue). Open the terminal and type:
 `particle setup`
 

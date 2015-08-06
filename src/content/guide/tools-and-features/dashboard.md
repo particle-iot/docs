@@ -8,7 +8,7 @@ template: guide.hbs
 ---
 
 
-#Dashboard <small class="beta">(alpha)</small>
+# Dashboard <small class="beta">(alpha)</small>
 
 The [Dashboard](https://dashboard.particle.io) is a new feature we're working on to improve the developer experience of building connected products with Particle. It's currently in alpha, which means we'll be working on it and releasing frequent updates.
 

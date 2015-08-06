@@ -5,7 +5,7 @@ columns: two
 order: 2
 ---
 
-#Spark Core Datasheet
+# Spark Core Datasheet
 
 
 ## Subsystems
@@ -165,7 +165,7 @@ The hardware files for the JTAG shield are available [here.](https://github.com/
 
 ## Memory mapping
 
-###Internal Flash Memory Map
+### Internal Flash Memory Map
 
 The STM32 has a total of 128KB internal flash memory which is divided into three main regions by us. Beginning at the top of the memory space is where the bootloader is saved and locked. The second region is reserved for storing system flags and the third region holds the actual user firmware.
 
@@ -192,7 +192,7 @@ The STM32 has a total of 128KB internal flash memory which is divided into three
    </tr>
 </table>
 
-###External Flash Memory Map
+### External Flash Memory Map
 
 The external flash memory gives us an additional 2MB of storage space. This space is used to store the public and private keys, the factory reset firmware, a back-up firmware and a copy of the firmware sent Over The Air (OTA). The rest of the memory space is available to the user.
 

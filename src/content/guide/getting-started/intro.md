@@ -6,7 +6,7 @@ devices: [ photon, core ]
 order: 1
 ---
 
-#Introduction to THE GUIDE
+# Introduction to THE GUIDE
 This guide will show you how to use Particle to make a connected device, from the first time you connect to the cloud to the day you manufacture and ship your connected product.
 
 The guide is broken down into three parts:

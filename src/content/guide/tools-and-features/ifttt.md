@@ -7,9 +7,9 @@ columns: two
 template: guide.hbs
 ---
 
-#Particle Channel on IFTTT
+# Particle Channel on IFTTT
 
-##Introduction
+## Introduction
 
 Anything you build with Particle is now easily available on IFTTT! IFTTT is a service that lets you create powerful connections with one simple statement: "If this then that."  There is a great introduction to their ecosystem [on IFTTT's website](https://ifttt.com/wtf). Go check it out if you haven't already, it's super helpful.
 
@@ -19,26 +19,26 @@ If you're totally new to Particle, that's okay! Before you get going on the Part
 
 Lets go!
 
-##Parts of an IFTTT Recipe
+## Parts of an IFTTT Recipe
 
-###What are triggers?
+### What are triggers?
 
 Triggers are the _this_ part of a Recipe. Triggers are how IFTTT knows when to run your recipe. A trigger can be as conceptually simple as "is x greater than 5?" or "did I get new email?", and they frequently are!
 
-###What are actions?
+### What are actions?
 
 Actions are what IFTTT does when the answer to your trigger question is "yes!" When set up, you can have IFTTT email you, post for you, save info to Dropbox, or many other useful functions.
 
-###What are Recipes?
+### What are Recipes?
 A combination of a Trigger and an Action. IFTTT lets you connect triggers to actions.  Did someone tweet something interesting (that's a trigger), then turn my disco ball on (that's an action).
 
-###What are ingredients?
+### What are ingredients?
 
 Ingredients are pieces of data from a Trigger. Ingredient values are automatically found by IFTTT using certain aspects of your device and/or firmware. These pieces of data can be used when setting up the Action that goes with your created Trigger. For Particle, ingredients will often include the name you've given your Core or Photon, the time that the trigger occurred, and any data that trigger returned.
 
 Other IFTTT channels will provide (and sometimes automatically insert) their own ingredients. If ingredients are available, they can be found in the blue Erlenmeyer flask icon next to the relevant input box.
 
-###Before you build with Particle + IFTTT
+### Before you build with Particle + IFTTT
 
 **Firmware is key**: IFTTT will pull directly from the firmware that is currently flashed to your devices. It will only show functions,variables,etc from firmware that is currently flashed to one of your devices. That means that if, for example, you're trying to use the "Monitor a Function" Trigger you'll need to have flashed firmware to your board that includes spark.function().
 
@@ -46,9 +46,9 @@ Other IFTTT channels will provide (and sometimes automatically insert) their own
 
 **Okay, I'm ready to build my own firmware. Where do I start?** Get to know [the web IDE](http://build.particle.io/) and explore the Particle [community site](http://community.particle.io/) for great tutorials, examples and advice on projects.
 
-##Triggers
+## Triggers
 
-###New Event Published
+### New Event Published
 
 ```C++
 // SIMPLEST SYNTAX
@@ -116,7 +116,7 @@ MyDevice
 January 12, 2015 at 6:59pm
 ```
 
-###Monitor a variable
+### Monitor a variable
 
 
 #### Firmware requirements
@@ -197,7 +197,7 @@ MyDevice
 January 17, 2015 at 7:52am
 ```
 
-###Monitor a function result
+### Monitor a function result
 
 ```cpp
 // SYNTAX TO REGISTER A SPARK FUNCTION
@@ -289,7 +289,7 @@ MyDevice
 May 2, 2013 at 9:02am
 ```
 
-###Monitor your device status
+### Monitor your device status
 
 #### Firmware requirements
 You must have firmware on your Particle device, but nothing else is necessary. Basically, you're fine unless you've actively wiped your device.

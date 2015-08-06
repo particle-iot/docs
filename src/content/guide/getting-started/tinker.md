@@ -6,7 +6,7 @@ devices: [ photon, core ]
 order: 5
 ---
 
-#Tinkering with "Tinker"
+# Tinkering with "Tinker"
 
 ![Tinker selection](/assets/images/tinker.png)
 
@@ -14,7 +14,7 @@ The Tinker section of the Particle mobile app makes it very easy to start playin
 
 To get started, you'll need the following things:
 
-####Materials
+#### Materials
 * **Hardware**
   * Your Particle device, brand new and out of the box!
   * USB to micro USB cable {{#if photon}}(included with Photon Kit and Maker Kit){{/if}}
@@ -53,7 +53,7 @@ When you tap on one of these devices, it will give you the option to reflash the
 To do the following examples, you'll want to reflash the Tinker firmware. Go ahead and do this.
 </p>
 
-##Step Two: Explore the Tinker App
+## Step Two: Explore the Tinker App
 
 The app consists of 16 pins in vertical rows - 8 analog pins on the left, 8 digital pins on the right. These pins represent the 16 GPIO (General Purpose Input and Output) pins on your device.
 
@@ -76,7 +76,7 @@ If you've ever programmed an Arduino microcontroller, you may recognize `digital
 Now for some examples!
 
 
-##Step Three: digitalWrite
+## Step Three: digitalWrite
 
 The simplest thing we can do with Tinker is to turn the D7 LED on and off.
 
@@ -97,7 +97,7 @@ It will change its status to `HIGH` and your device's D7 LED will turn on. Tappi
 `digitalWrite` only has two options: `HIGH` and `LOW`. When we speak to our pins digitally, we can only send the maximum voltage or no voltage. That's great for when you only need two settings-- like if you had a light switch that could only go on and off, or locks that could only be open or closed. For everything in between, we use `analogWrite`.
 
 
-##Step Four: analogWrite
+## Step Four: analogWrite
 
 In this example, we'll plug an LED into D0 and change its brightness with analogWrite. (D0 is a {{{popup 'PWM pin.' 'note' 'A <a href = "https://en.wikipedia.org/wiki/Pulse-width_modulation">Pulse Width Modulation (PWM)</a> output is a digital output that can be filtered through various means to create a pseudo analog output. It is possible to analogWrite to `D0` through its PWM functionality.'}}}
 
@@ -122,7 +122,7 @@ By sliding and releasing the slider, you should be able to see the LED dim and g
 If we wanted to, we could also switch modes and `digitalWrite` this LED to turn it on or off. To change the function of the pin, simply tap and hold on the pin, and the function select menu will come back up.
 
 
-##Step Five: digitalRead
+## Step Five: digitalRead
 
 We can also use Tinker to check to see if a pin is on or off. `digitalRead` is great for checking things that only have two states-- switches and buttons for example.
 
@@ -141,7 +141,7 @@ If your wire is plugged in, you'll see the word `HIGH` next to the `D0` pin. Now
 ![](/assets/images/tinker-d0-high.png)
 ![](/assets/images/tinker-d0-low.png)
 
-##Step Six: analogRead
+## Step Six: analogRead
 
 If we want to read a sensor, like a temperature or light sensor, we will need our device to give us more details than than just "It's on!" or "It's off!" When you want to read a value between `LOW` and `HIGH`, use `analogRead`.
 

@@ -5,13 +5,13 @@ columns: three
 order: 5
 ---
 
-#{{title}}
+# {{title}}
 
 The iOS SDK consists of two parts: (1) the Cloud SDK and (2) the Device Setup library, the first is an API wrapper that enables your mobile app to interact with internet-connected hardware through the Particle Cloud while the latter is a library allows you to easily create a setup wizard for allowing your app users to setup their devices.
 
-##iOS Cloud SDK
+## iOS Cloud SDK
 
-###Introduction
+### Introduction
 
 Particle iOS Cloud SDK enables iOS apps to interact with Particle-powered connected products via the Particle Cloud. It’s an easy-to-use wrapper for Particle REST API. The Cloud SDK will allow you to:
 
@@ -27,7 +27,7 @@ iOS Cloud SDK is implemented as an open-source Cocoapod library. See [Installati
 
 Particle iOS Cloud SDK is available under the Apache License 2.0. See the [LICENSE file](https://github.com/spark/spark-sdk-ios/blob/master/LICENSE) for more info.
 
-####Rebranding notice
+#### Rebranding notice
 
 Spark has been recently rebranded as Particle.
 Code currently refers to `SparkCloud` and `SparkDevice`, this will soon be replaced with `ParticleCloud` and `ParticleDevice`. A new Cocoapod library will be published and current one will be depracated and point to the new one. This should not bother or affect your code.
@@ -69,14 +69,14 @@ The [Apple documentation](https://developer.apple.com/library/ios/documentation/
 _Notice_ that we've included the required bridging header file in the SDK, you just need to copy it to your project add it as the active bridging header file in the project settings as described in the links above.
 There's also an [example app](https://github.com/spark/spark-setup-ios-example), this app also demonstrates the Particle DeviceSetup library usage, as well as several Cloud SDK calls.
 
-###Cloud SDK Usage
+### Cloud SDK Usage
 
 Cloud SDK usage involves two basic classes:
 
 - `SparkCloud`: a singleton object that enables all basic cloud operations such as user authentication, device listing, claiming etc.
 - `SparkDevice`: an instance represnting a claimed device in the current user session. Each object enables device-specific operation such as: getting its info, invoking functions and reading variables from it.
 
-###Common tasks
+### Common tasks
 
 Here are few examples for the most common use cases to get you started:
 
@@ -402,7 +402,7 @@ SparkCloud.sharedInstance().publishEventWithName("event_from_app", data: "event_
 For additional reference check out the [Reference in Cocoadocs website](http://cocoadocs.org/docsets/Spark-SDK/) for full coverage of `SparkDevice` and `SparkCloud` functions and member variables. In addition you can consult the javadoc style comments in `SparkCloud.h` and `SparkDevice.h` for each public method. If Particle iOS Cloud SDK is integrated in your XCode project you should be able to press `Esc` to get an auto-complete hints for each cloud and device method.
 
 
-##iOS Device Setup Library
+## iOS Device Setup Library
 
 The Particle Device Setup library is meant for integrating the initial setup process of Particle devices in your app.
 This library will enable you to easily invoke a standalone setup wizard UI for setting up internet-connect products

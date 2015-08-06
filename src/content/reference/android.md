@@ -5,11 +5,11 @@ columns: three
 order: 6
 ---
 
-#{{title}}
+# {{title}}
 
 The Android SDK consists of two parts: (1) the Cloud SDK and (2) the Device Setup library, the first is an API wrapper that enables your mobile app to interact with internet-connected hardware through the Particle Cloud while the latter is a library allows you to easily create a setup wizard for allowing your app users to setup their devices.
 
-##Android Cloud SDK
+## Android Cloud SDK
 
 The Particle Android Cloud SDK enables Android apps to interact with Particle-powered connected products using the Particle Cloud. It’s an easy-to-use wrapper for Particle REST API. The Cloud SDK will allow you to:
 
@@ -282,7 +282,7 @@ The Particle Android Cloud SDK is available under the Apache License 2.0.  See t
 This license provides flexibility and is a good fit for consuming the SDK in your developed app and being able to distrubute it in Google's Play Store without license violations.
 
 
-##Android Device Setup library 
+## Android Device Setup library 
 
 The Particle Device Setup library provides everything you need to offer your
 users a simple initial setup process for Particle-powered devices.  This includes

@@ -6,7 +6,7 @@ devices: [ photon, core ]
 order: 7
 ---
 
-#Annotated examples
+# Annotated examples
 
 Here you will find a bunch of examples to get you started with your new Particle device! The diagrams here show the Photon, but these examples will work with either the Photon or the Core.
 
@@ -14,7 +14,7 @@ These examples are also listed in the online IDE in the Code menu.
 
 To complete all the examples, you will need the following materials:
 
-####Materials
+#### Materials
 * **Hardware**
   * Your Particle device
   * USB to micro USB cable {{#if photon}}(included with Photon Kit and Maker Kit){{/if}}
@@ -29,13 +29,13 @@ To complete all the examples, you will need the following materials:
   * Connecting your Device [with your smartphone](/guide/getting-started/start) or [over USB](/guide/getting-started/connect)
 
 
-##Blink an LED
+## Blink an LED
 
-###Intro
+### Intro
 
 Blinking an LED is the ["Hello World"](http://en.wikipedia.org/wiki/Hello_world_program) example of the microcontroller universe. It's a nice way to warm up and start your journey into the land of embedded hardware.
 
-###Setup
+### Setup
 
 Connect everything together as shown in the image below. The negative (shorter) pin of the LED is connected to ground via a resistor and the positive (longer) pin is connected to D0.
 
@@ -45,7 +45,7 @@ Next, we're going to load code onto your core. Copy and paste this code into a n
 
 Go ahead and save this application, then flash it to your Core or Photon. You should be able to see that LED blinking away!
 
-###Code
+### Code
 
 
 ```cpp
@@ -123,9 +123,9 @@ void loop() {
 ```
 
 
-##Control LEDs over the 'net
+## Control LEDs over the 'net
 
-###Intro
+### Intro
 
 Now that we know how to blink an LED, how about we control it over the Internet? This is where the fun begins.
 
@@ -135,13 +135,13 @@ We've heavily commented the code below so that you can see what's going on. Basi
 - Create and register a Spark function (this gets called automagically when you make an API request to it)
 - Parse the incoming command and take appropriate actions
 
-###Setup
+### Setup
 
 As in the previous example, connect everything together as shown in the image below. The negative (shorter) pin of the LED is connected to ground via a resistor and the positive (longer) pin is connected to D0.
 
 ![One LED illustration](/assets/images/photon-led-fritzing.png)
 
-###Code
+### Code
 
 
 ```cpp
@@ -216,7 +216,7 @@ int ledToggle(String command) {
 
 ```
 
-###Use
+### Use
 
 When we register a function or variable, we're basically making a space for it on the internet, similar to the way there's a space for a website you'd navigate to with your browser. Thanks to the REST API, there's a specific address that identifies you and your device. You can send requests, like `GET` and `POST` requests, to this URL just like you would with any webpage in a browser.
 
@@ -293,9 +293,9 @@ Note that the API endpoint is 'led', not 'ledToggle'. This is because the endpoi
 
 To better understand the concept of making API calls to your device over the cloud checkout the [Cloud API reference.](/reference/api)
 
-##Read your Photoresistor: Function and Variable
+## Read your Photoresistor: Function and Variable
 
-###Intro
+### Intro
 
 This example uses the same setup as the LED control example to make a `Spark.function`. This time, though, we're going to add a sensor.
 
@@ -303,7 +303,7 @@ We will get a value from a photoresistor and store it in the cloud.
 
 Paste the following code into your IDE, or just access the examples on the left hand menu bar in the online IDE.
 
-###Setup
+### Setup
 
 Set up your breadboard as shown in the image below:
 ![Fritzing Diagram](/assets/images/photon-photoresistor-fritzing.png)
@@ -312,7 +312,7 @@ Make sure that the short leg of the LED is plugged into `GND`. The other orienta
 
 Bend the LED and the PHotoresistor so that they are pointing at each other. (You want the LED, when turned on, to shine its beam of light directly at the photoresistor.)
 
-###Code
+### Code
 
 Copy and paste the following code into your [online IDE](http://build.particle.io) or [Particle Dev](http://particle.io/dev) environment.
 
@@ -389,7 +389,7 @@ int ledToggle(String command) {
 
 ```
 
-###Use
+### Use
 
 Just like with our earlier example, we can toggle our LED on and off by creating an HTML page:
 
@@ -461,9 +461,9 @@ and make sure you replace `device_name` with either your device ID or the casual
 Now you can turn your LED on and off and see the values at A0 change based on the photoresistor!
 
 
-##Make a Motion Detector: Publish and the Dashboard
+## Make a Motion Detector: Publish and the Dashboard
 
-###Intro
+### Intro
 
 What if we simply want to know that something has happened, without all the information of a variable or all the action of a fuction? We might have a security system that tells us, "motion was detected!" or a smart washing machine that tells us "your laundry is done!" In that case, we might want to use `Spark.publish`.
 
@@ -477,7 +477,7 @@ You can check out the results on your dashboard at [dashboard.particle.io](https
 
 You can also hook up publishes to IFTTT! More info [here](/guide/tools-and-features/ifttt).
 
-###Setup
+### Setup
 The setup is the same as in the last example. Set up your breadboard as follows:
 
 ![Fritzing Diagram](/assets/images/photon-photoresistor-fritzing.png)
@@ -485,7 +485,7 @@ The setup is the same as in the last example. Set up your breadboard as follows:
 Ensure that the short end of the LED is plugged into `GND` and that the LED and Photoresistor are bent to face each other. (You want the LED, when turned on, to shine its beam of light directly at the photoresistor.) Try to leave enough space between the LED and the Photoresistor for your finger or a piece of paper.
 
 
-###Code
+### Code
 
 
 ```cpp
@@ -651,9 +651,9 @@ void loop() {
 }
 ```
 
-##The Buddy System: Publish and Subscribe
+## The Buddy System: Publish and Subscribe
 
-###Intro
+### Intro
 
 In the previous example, we sent a private publish. This publish went to you alone; it was just for you and your own apps, programs, integrations, and devices. We can also send a public publish, though, which allows anyone anywhere to see and subscribe to our event in the cloud. All they need is our event name.
 
@@ -669,14 +669,14 @@ Flash the firmware to your devices. Calibrate your device when it comes online (
 
 When the beam is broken on your device, the D7 LED on your buddy's device will light up! Now you can send little messages to each other in morse code.
 
-###Setup
+### Setup
 The setup is the same as in the last example. Set up your breadboard as follows:
 
 ![Fritzing Diagram](/assets/images/photon-photoresistor-fritzing.png)
 
 Ensure that the short end of the LED is plugged into `GND` and that the LED and Photoresistor are bent to face each other. (You want the LED, when turned on, to shine its beam of light directly at the photoresistor.) Try to leave enough space between the LED and the Photoresistor for your finger or a piece of paper.
 
-###Code
+### Code
 
 ```cpp
 // -----------------------------------------
@@ -856,7 +856,7 @@ void myHandler(const char *event, const char *data)
 
 ```
 
-##Tinker
+## Tinker
 
 Remember back when we were blinking lights and reading sensors with Tinker on the mobile app?
 

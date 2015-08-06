@@ -6,7 +6,7 @@ devices: [ photon, core ]
 order: 4
 ---
 
-#Device Modes
+# Device Modes
 
 Now that we've gone over connecting your device, we're going to review the different modes for your Core or Photon. We suggest that you loop through this section, putting your device in the different listed modes to familiarize yourself with them.
 

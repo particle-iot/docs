@@ -29,7 +29,7 @@ To show the palette press `Command`+`Shift`+`P` keys together on a Mac or `Contr
 
 There's also a toolbar on left side of IDE which contains shortcuts to the most frequently used commands like compiling and flashing (looks a lot like the one from [Web IDE (Build)](https://build.particle.io/), doesn't it?).
 
-###Logging In
+### Logging In
 
 If you want to work on more advanced projects, Particle Dev could be the choice for you. Head over and download latest release:
 
@@ -45,7 +45,7 @@ Enter your email and password then click the "Log In" button. After a successful
 
 **NOTE**: When using [Command Line](/guide/tools-and-features/cli) you'll notice that log-in status is shared between Particle Dev and CLI. So if you successfully ran `particle login`, you will be logged in within the Particle Dev.
 
-###Selecting Device
+### Selecting Device
 
 ![Selecting device]({{assets}}/images/ide-select-core.jpg)
 
@@ -59,7 +59,7 @@ There are three ways to select core:
 
 Then you will see list of all your devices along with an indicator of online status and platform. You can search for a specific one by typing its name. Clicking on the device or pressing `Enter` when a device is selected will select it.
 
-###Compiling Code
+### Compiling Code
 
 Before compiling your project, make sure your project files are in a dedicated directory.
 
@@ -79,17 +79,17 @@ Different devices usually require separate binaries (i.e. you can't flash Core w
 
 If there are some errors, you'll see a list of them allowing you to quickly jump to relevant line in code. You can show this list by clicking red error icon on the bottom of the window.
 
-###Flashing device
+### Flashing device
 
 ![Flash button]({{assets}}/images/ide-flash.jpg)
 
 When you're sure that your code is correct it's time to flash it to the device. To do this, click **Flash using cloud** button. Your code will be sent wirelessly to your device. If the request was successful, the LED on your device will begin flashing magenta as code is downloaded to it. The process is complete when the magenta is replaced by your online status indication patterns.
 
-##Cloud variables & functions
+## Cloud variables & functions
 
 To access all registered variables and functions, go to **Particle** -> **Show cloud functions**/**Show cloud functions** menus.
 
-###Variables
+### Variables
 
 ![Getting variable]({{assets}}/images/ide-get-variable.gif)
 
@@ -99,7 +99,7 @@ All variables declared with [Spark.variable()](/reference/firmware/#spark-variab
 
 When you want to check variable value constantly, you can click **Watch** button. When a variable is watched, Particle Dev will fetch latest value every 5 seconds.
 
-###Functions
+### Functions
 
 ![Functions]({{assets}}/images/ide-functions.gif)
 
@@ -107,9 +107,9 @@ To call an [exposed function](/reference/firmware/#spark-function-) simply click
 
 You can also add parameters to the call by entering them to the right of button.
 
-##Managing Your Device
+## Managing Your Device
 
-###Setting up WiFi
+### Setting up WiFi
 
 ![WiFi list]({{assets}}/images/ide-wifi-list.jpg)
 
@@ -125,7 +125,7 @@ Select the one you want your device to use or choose **Enter SSID manually** (li
 
 Now you need to fill missing information and click **Save**. Your device will go dark for a second and then try to connect to the WiFi.
 
-##Using Community Libraries
+## Using Community Libraries
 
 Currently community libraries aren't supported natively (but we're working on it). You can still use them, just follow these instructions:
 

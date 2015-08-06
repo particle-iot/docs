@@ -6,12 +6,12 @@ columns: two
 template: guide.hbs
 ---
 
-#Particle CLI
+# Particle CLI
 
 
 The Particle CLI is a powerful tool for interacting with your devices and the Particle Cloud.  The CLI uses [node.js](http://nodejs.org/) and can easily run on Windows, Mac OS X, and Linux.  It's also [open source](https://github.com/spark/particle-cli) so you can edit and change it, and even send in your changes as [pull requests](https://help.github.com/articles/using-pull-requests/) if you want to share!
 
-##Installing
+## Installing
 
   First, make sure you have [node.js](http://nodejs.org/) installed!
 
@@ -25,14 +25,14 @@ $ particle login
 
 For more advanced install instructions, see below.
 
-###Upgrading from the Spark CLI
+### Upgrading from the Spark CLI
 
 
 If you have already installed `spark-cli`, please uninstall it before installing the Particle CLI. Simply type: `npm uninstall -g spark-cli` into the command line.
 
 Once this is done, then run `npm install -g particle-cli` to install the Particle CLI.
 
-###Advanced Install
+### Advanced Install
 
 To use the local flash and key features you'll also need to install [dfu-util](https://s3.amazonaws.com/spark-assets/dfu-util-0.8-binaries.tar.xz), and [openssl](http://www.openssl.org/).  They are freely available and open-source, and there are installers and binaries for most major platforms.
 
@@ -45,7 +45,7 @@ Here are some great tutorials on the community for full installs:
 [Installing on Windows](https://community.particle.io/t/tutorial-spark-cli-on-windows-06-may-2014/3112)
 
 
-###Upgrading to the latest version
+### Upgrading to the latest version
 
 To upgrade Particle-CLI, enter the following command:
 
@@ -55,7 +55,7 @@ $ npm update -g particle-cli
 ```
 
 
-###Running from source (advanced)
+### Running from source (advanced)
 
 To grab the CLI source and play with it locally
 
@@ -71,12 +71,12 @@ $ node app.js help
 
 
 
-##Getting Started
+## Getting Started
 
   These next two commands are all you need to get started setting up an account, claiming a device, and discovering new features.
 
 
-###particle setup
+### particle setup
 
   This command will guide you through logging in or creating a new account as well as claiming your device!
 
@@ -87,7 +87,7 @@ $ particle setup
 ```
 
 
-###particle help
+### particle help
 
   Shows you what commands are available and how to use them.  You can also give the name of a command for detailed help.
 
@@ -99,7 +99,7 @@ $ particle help keys
 
 
 
-##Blink an LED with Tinker
+## Blink an LED with Tinker
 
 If you're just opening a new device, chances are it's already loaded with Tinker, the app we load at the factory.  If you don't have Tinker, or if you've been using the build IDE already, let's load it quickly by typing:
 
@@ -144,7 +144,7 @@ Nice!  You should have seen the small blue LED turn on, and then off.
 
 
 
-##Update your device remotely
+## Update your device remotely
 
 You can write whole apps and flash them remotely from the command line just as you would from the build IDE.  Let's write a small blink sketch to try it out.
 
@@ -202,5 +202,5 @@ attempting to flash firmware to your device my_device_name
 flash device said  {"id":"01234567890ABCDEFGH","status":"Update started"}
 ```
 
-##Reference
+## Reference
 For more info on CLI commands, go [here](../../../../reference/cli).

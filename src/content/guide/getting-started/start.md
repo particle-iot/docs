@@ -50,11 +50,11 @@ Congratulations on being the owner of a brand new Particle Device! Go ahead and 
 
 For more technical details on what comes on your device, go [here](/datasheets).
 
-###Okay great, I want to play with it I want to make it do a thing right now!
+### Okay great, I want to play with it I want to make it do a thing right now!
 
 Good, me too! Let's get started.
 
-##Hello World!
+## Hello World!
 In this example, we will connect your device to the internet for the very first time. Then, we will blink the D7 LED on your device by using your smartphone. If you don't have your smartphone with you, go ahead and move to the next lesson on [connecting over USB.](/guide/getting-started/connect)
 
 {{#if photon}}
@@ -72,7 +72,7 @@ In this example, we will connect your device to the internet for the very first 
 {{/if}}
 
 {{#if core}}
-###Materials
+### Materials
 * **Hardware**
   * Your Particle device, brand new and out of the box!
   * USB to micro USB cable {{#if photon}}(included with Photon Kit and Maker Kit){{/if}}
@@ -85,7 +85,7 @@ In this example, we will connect your device to the internet for the very first 
 
 {{/if}}
 
-###Step 1: Power On Your Device
+### Step 1: Power On Your Device
 {{#if photon}}![plug in your device!](/assets/images/photon-plugged-in.jpg){{/if}}
 {{#if core}}![plug in your device!](/assets/images/core-front.jpg){{/if}}
 
@@ -98,7 +98,7 @@ If your device is not blinking blue, {{#if photon}}{{{popup 'hold down the SETUP
 
 If your device is not blinking at all, or if the LED is burning a dull orange color, it may not be getting enough power. Try changing your power source or USB cable.
 
-###Step 2: Connect With Your Smartphone
+### Step 2: Connect With Your Smartphone
 
 <p class="boxedHead">Learning Note: What happens when my device wants to talk to the Internet?</p>
 
@@ -131,7 +131,7 @@ If you can't seem to get the Mobile App to connect your device, that's okay! Rea
 
 Once you have connected your device, it has learned that network. Your device can store up to seven networks. If you feel like your device has too many networks on it, you can wipe your device's memory of any wifi networks it has learned. You can do so by continuing to hold the MODE button for 10 seconds until the RGB LED flashes blue quickly, signaling that all profiles have been deleted.
 
-###Step 3: Blink an LED!
+### Step 3: Blink an LED!
 {{#if core}}The Spark Core App should now be on the Tinker screen, as shown below.
 
 ![Tinker on your Phone!](/assets/images/tinker-core.png)
