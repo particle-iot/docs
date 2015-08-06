@@ -6,7 +6,7 @@ devices: [ photon, core ]
 order: 3
 ---
 
-#Common Troubleshooting Tips and References
+# Common Troubleshooting Tips and References
 
 ## LED Colors (Explained)
 
@@ -42,9 +42,9 @@ Hopefully, you never see these colors but here are the error LED color codes:
 - **Flashing yellow:** Bootloader mode, waiting for code over USB or JTAG
 
 
-##Device Management
+## Device Management
 
-###How do if find my device ID?
+### How do if find my device ID?
 
 There are several ways to **find your {{#if photon}}Photon's{{/if}} {{#if core}}Core's{{/if}} device ID**, but the best method depends on whether or not your {{#if photon}}Photon{{/if}} {{#if core}}Core{{/if}} has already been claimed to your account.  We'll cover both scenarios in the section below.
 
@@ -90,7 +90,7 @@ Follow these simple steps:
 Great! Go forth with your **{{#if photon}}Photon{{/if}} {{#if core}}Core{{/if}} device ID** and prosper.
 
 
-###How do I transfer my {{#if photon}}Photon?{{/if}} {{#if core}}Core?{{/if}}
+### How do I transfer my {{#if photon}}Photon?{{/if}} {{#if core}}Core?{{/if}}
 
 **1. Remove the {{#if photon}}Photon{{/if}} {{#if core}}Core{{/if}}.**
 
@@ -114,7 +114,7 @@ We take **security** extremely seriously at Particle, and that means being very 
 
 If you really are the owner of your {{#if photon}}Photon{{/if}} {{#if core}}Core{{/if}}, and are having trouble logging into your Particle account or configuring your {{#if photon}}Photon{{/if}} {{#if core}}Core{{/if}}, send us an email at [hello @ particle dot io], and our Troubleshooting staff would be happy to help you resolve the issue.
 
-###How do I unclaim a {{#if photon}}Photon{{/if}} {{#if core}}Core{{/if}} ?
+### How do I unclaim a {{#if photon}}Photon{{/if}} {{#if core}}Core{{/if}} ?
 
 There are two primary ways to remove a Core from your account--using the Particle Build Web IDE, or using the Particle Command Line Interface (CLI).
 
@@ -163,9 +163,9 @@ where [{{#if photon}}PHOTON{{/if}}{{#if core}}CORE{{/if}}] is either the familia
 
 **That's it!** The {{#if photon}}Photon{{/if}} {{#if core}}Core{{/if}} has now been disassociated with your account, and is once again available to be claimed.
 
-##Cloud Solutions
+## Cloud Solutions
 
-###Building a Local Cloud for Devices
+### Building a Local Cloud for Devices
 
 This will guide you through on how to Setup the Local cloud and use it with Particle-cli after a successful installation.
 
@@ -227,7 +227,7 @@ Example activity from CMD output:
 	Core online!
 
 
-###Cloud Switching (Local vs Particle)
+### Cloud Switching (Local vs Particle)
 
 **1. You will need to flash the respective cloud Public Key to the core which you are connecting to.
 
@@ -256,7 +256,7 @@ This will ensure that you are pointing to your own cloud!
 *Thanks to [Kenneth Lim](http://community.particle.io/users/kennethlimcp/activity) for writing this local cloud solution.*
 
 
-##Device Mode Switching
+## Device Mode Switching
 
 One of our goals with the Particle {{#if photon}}photon{{/if}}{{#if core}}core{{/if}} and Particle OS was to abstract away the connectivity layer. When you're running a distributed OS where some of your software runs on the device and some of your software runs in the cloud, you want the connection between the two to "just work".
 
@@ -264,7 +264,7 @@ However, sometimes you don't want everything to be automatic; you want to take c
 
 As of today, the {{#if photon}}photon{{/if}}{{#if core}}core{{/if}} has three modes: **AUTOMATIC, SEMI_AUTOMATIC, and MANUAL**. Let's go through each of them in turn.
 
-###Automatic Mode
+### Automatic Mode
 
 The default mode of the {{#if photon}}photon{{/if}}{{#if core}}core{{/if}} is "automatic mode". This means that the {{#if photon}}photon{{/if}}{{#if core}}core{{/if}} will attempt to connect to Wi-Fi automatically. If you don't explicitly define the connection mode, the {{#if photon}}photon{{/if}}{{#if core}}core{{/if}} will be running in automatic mode. This is identical to how the {{#if photon}}photon{{/if}}{{#if core}}core{{/if}} has always worked up until now.
 
@@ -307,7 +307,7 @@ What's actually happening is that first we're calling **Spark.connect()**, which
 
 Ok, that's all well and good, but what if I don't know whether my {{#if photon}}Photon{{/if}}{{#if core}}Core{{/if}} will have an internet connection? I still want my LED to blink. So now we've got:
 
-###Semi-automatic mode
+### Semi-automatic mode
 
 	// Insert firearm metaphor here
 	SYSTEM_MODE(SEMI_AUTOMATIC);
@@ -334,7 +334,7 @@ In this version of the code, when the {{#if photon}}Photon{{/if}}{{#if core}}Cor
 
 The only main difference between **SEMI_AUTOMATIC** mode and **AUTOMATIC** mode is that **Spark.connect()** is not called at the beginning of your code; you have to do that yourself. Let's go deeper down the rabbit hole with:
 
-###Manual Mode
+### Manual Mode
 
 The {{#if photon}}Photon{{/if}}{{#if core}}Core{{/if}}'s manual mode puts everything in your hands. This mode gives you a lot of rope to hang yourself with, so tread cautiously.
 
@@ -373,7 +373,7 @@ Sounds kinda terrible, right? Except this can be really useful when you're writi
 As Stan Lee once said: with great power comes great responsibility. Go forth and control the connection. Be careful. Good luck.
 
 
-##Device Key Management
+## Device Key Management
 
 An easy step-by-step walkthrough of Particle CLI commands to BACKUP, RESTORE and CHANGE Keys.
 
@@ -386,19 +386,19 @@ More detailed info:
 https://community.particle.io/t/troubleshooting-my-core-is-flashing-yellow-red-lights-after-it-connects-to-wifi/627
 {{/if}}
 
-###How to Backup/Save your Key:
+### How to Backup/Save your Key:
 
 1. Place your {{#if photon}}Photon{{/if}}{{#if core}}Core{{/if}} into DFU mode by holding Mode and tapping Reset, then continue holding Mode for about 3 seconds until the LED starts flashing Yellow.
 
 2.Run the ``particle keys save mykey.der`` command. This will backup the key on your {{#if photon}}Photon{{/if}}{{#if core}}Core{{/if}} to the Home folder on your computer.  You can substitute your own naming convention for the *.der file if you wish.
 
-###How to Restore/Load your Key:
+### How to Restore/Load your Key:
 
 1. Place your {{#if photon}}Photon{{/if}}{{#if core}}Core{{/if}} into DFU mode by holding Mode and tapping Reset, then continue holding Mode for about 3 seconds until the LED starts flashing Yellow.
 
 2. Run the ``particle keys load mykey.der`` command. This will restore the key you saved previously to your Home directory to your {{#if photon}}Photon{{/if}}{{#if core}}Core{{/if}}.  The file may not necessarily be named mykey.der, substitute whatever you backed it up as previously with the ``particle keys save`` command. 
 
-###How to Change your Key:
+### How to Change your Key:
 
 If you have physical access to the {{#if photon}}Photon{{/if}}{{#if core}}Core{{/if}} in question, here's how to change the Key on it. Once you do that you can share the Public key with us and we'll get you up and running again on that {{#if photon}}Photon{{/if}}{{#if core}}Core{{/if}}.  You may not even need to share the key with us if it your {{#if photon}}Photon{{/if}}{{#if core}}Core{{/if}} connects to the Cloud after following this procedure.
 
@@ -426,9 +426,9 @@ Bare with me for these next steps! This is slightly complicated because of the g
 
 Congrats, you made it to the end! now your {{#if photon}}Photon{{/if}}{{#if core}}Core{{/if}} should be connected to the Cloud... or will be just as soon as we add your Key to the server.
 
-##Connection Issues
+## Connection Issues
 
-###Can't Get Connected
+### Can't Get Connected
 
 {{#if core}}
 There are many reasons that your Particle Core might not be able to connect to your network. There are many types of Wi-Fi networks, and the Core and the CC3000 do not support all of them. We consider it an important goal of ours to connect easily and painlessly to as many networks as possible, and your feedback is extremely valuable so that we can get better.
@@ -498,7 +498,7 @@ Please post issues with connectivity either as responses to this topic or, if th
 - Any network settings that might diverge from the norm
 
 
-###Special Cases
+### Special Cases
 
 ***Pulsing White***
 
@@ -530,9 +530,9 @@ Please complete the following steps:
 2. If a different USB cable and power supply does not fix the issue, your Core may have a hardware short. Please contact the Particle team for further debugging.
 
 
-##Upgrades and Updates
+## Upgrades and Updates
 
-###Deep Update for the Core
+### Deep Update for the Core
 
 A **deep update** is a firmware update that reaches **deep** into the internals of a core and updates the firmware of peripheral modules like the CC3000. Periodically, as enhancements and bugfixes become available for components on the Core, we'll release new deep updates to keep your hardware always running the latest, greatest firmware within your application and the other underlying flashable components. Our first deep update release, **deep_update_2014_06** is the maiden voyage of this feature, designed to apply the CC3000 patch, fix the flashing cyan issue, and dramatically improve the stability and performance of the Core.
 
@@ -578,7 +578,7 @@ Run the flash command:
 This installs the deep udate from a binary that is packaged with the Particle CLI, so you don't have to download it.
 
 
-###Full Firmware Upgrade
+### Full Firmware Upgrade
 
 If you are having intermittent connectivity issues, odd behavior or believe your firmware to be corrupted or out of date, you would benefit from performing a full firmware upgrade. This requires using dfu-util and installing the [Particle CLI](https://github.com/spark/particle-cli)
 , which provides an excellent local development and troubleshooting environment for your Spark development.
@@ -594,9 +594,9 @@ These commands replace the factory reset image, and re-patch the radio, bringing
 {{/if}}
 
 
-##Hardware Questions
+## Hardware Questions
 
-###Shields and Accessories
+### Shields and Accessories
 
 For all hardware related questions in regards to all of our available shields, pinouts, and diagrams, and mini-tutorials
 feel free to visit our [Datasheets Section](/datasheets/photon-shields/#shield-shield) on these topics.
@@ -610,13 +610,13 @@ This includes:
 - Particle Maker Kit
 
 {{#if photon}}
-##Avoid Factory Reset
+## Avoid Factory Reset
 
 It’s best to avoid doing a Factory Reset on your Photon. Here’s an in-depth explanation and some ways to avoid it
 [link here](https://community.particle.io/t/avoid-factory-reset-what-do-do-with-unexpected-led-behavior-on-a-photon/13358).
 {{/if}}
 
-##Common Questions
+## Common Questions
 
 **Where can I get more firmware information, like a guide?**
 Most of our firmware solutions are now explained in depth, located in our new and improved {{#if photon}}[Photon Guide](/guide/getting-started/intro/photon){{/if}}{{#if core}}[Core Guide](/guide/getting-started/intro/core){{/if}}.
@@ -635,18 +635,18 @@ Feel free to contact [hello @ particle dot com] with **subject line: *"Sponsorsh
 
 
 {{#if core}}
-##Troubleshoot LED Color on the Core
+## Troubleshoot LED Color on the Core
 
 Here is a [comprehensive community guide](https://community.particle.io/t/spark-core-troubleshooting-guide-spark-team/696) on this issue.
 {{/if}}
 
-##Installing Particle CLI
+## Installing Particle CLI
 
 For [installation instructions](https://github.com/spark/particle-cli) and to stay up-to-date on the most recent revisions of our Particle-cli, follow our repo
 [Particle CLI Repo](https://github.com/spark/particle-cli).
 
 
-##{{#if photon}}Photon{{/if}} {{#if core}}Core{{/if}} Pinout Map & Datasheets
+## {{#if photon}}Photon{{/if}} {{#if core}}Core{{/if}} Pinout Map & Datasheets
 
 {{#if photon}}
 Go to our Photon datasheets [collection](/datasheets/photon-datasheet/) to get an in-depth view of the Photon pinouts.

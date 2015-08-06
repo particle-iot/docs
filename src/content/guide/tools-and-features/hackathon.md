@@ -7,7 +7,7 @@ columns: two
 template: guide.hbs
 ---
 
-#Hackathoning with Particle
+# Hackathoning with Particle
 
 If you're at a hackathon, you'll want to get started with Particle, and fast! Here's some quick tips to get you up and running ASAP.
 
@@ -15,7 +15,7 @@ If you're at a hackathon, you'll want to get started with Particle, and fast! He
 It gets very chaotic with everyone's Photons broadcasting networks, or everyone's Cores asking to be claimed at once. We'll show you how to maximize your hackathoning in the sections below.
 
 
-##Setup
+## Setup
 
 Here are instrutions on setting up some tools that will help you hack around with Particle in the limited time you have.
 
@@ -82,7 +82,7 @@ It's still in beta right now, so hop on the [mobile section of the community](ht
 
 
 
-##Now Do Stuff!
+## Now Do Stuff!
 
 ### Tinkering Around
 Open up Particle Dev and go to the Particle menu. Select your device with `Select device`. Then select `Show cloud functions`.
@@ -116,7 +116,7 @@ _Note that now that you are in a github repo, you can use some of the functions 
 Now you can compile and flash your first `.ino` file from Particle Dev. You are welcome to take any of [these examples](/guide/getting-started/examples/) as a first try and flash it to your device by clicking the lightning bolt in the upper right corner. The examples explain how Variable, Function, Publish, and Subscribe are used, but documentation on coding these cloud-exposed elements is available [here](/reference/firmware/#cloud-functions). Check out [Tips and Tricks](/guide/tools-and-features/hackathon/#tips-and-tricks) for some of the subtleties of coding these functions.
 
 
-##Tips and Tricks
+## Tips and Tricks
 
 ### Strings in Spark.Function
 
