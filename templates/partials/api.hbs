@@ -2,7 +2,7 @@
 {{#with group}}
 
 	{{#each this}}
-		<h3 id='#{{sanitize title}}' data-href={{anchor-id title}}>{{title}}</h3>
+		<h3 id='#{{sanitize title}}' data-href={{anchor-id title}}>{{title}}<a href="#{{sanitize title}}" class="header-permalinks" data-menu-href={{anchor-id title}}><i class="ion-link"></i></a></h3>
 		<pre class='api-code api-definition' data-title='Definition'><code class='prettyprint lang-json'>{{uppercase type}} {{url}}</code></pre>
 		{{{description}}}
 
