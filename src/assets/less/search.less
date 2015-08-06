@@ -1,0 +1,171 @@
+.search {
+  display: inline-block;
+  width: 290px;
+  position: relative;
+  border-left: 1px solid @light-gray;
+  margin-top: 10px;
+  vertical-align: top;
+  padding-left: 22px;
+  @media(max-width: @medium-size) {
+    display: none;
+  }
+  i.ion-search {
+    position: absolute;
+    top: 9px;
+    left: 9px;
+    color: @light-gray;
+  }
+  .search-input-wrapper {
+    position: relative;
+  }
+  input {
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    -webkit-highlight-color: none;
+    border-radius: 4px;
+    border: 1px solid @light-gray;
+    height: 29px;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    -ms-appearance: none;
+    -o-appearance: none;
+    appearance: none;
+    padding: 0 15px 0 25px;
+    width: 250px;
+    .transition(border 0.2s);
+    &:hover, &:active {
+      border: 1px solid @spark-blue;
+    }
+    &:focus {
+      outline: none;
+      border: 1px solid @spark-blue;
+    }
+  }
+  .search-results {
+    position: absolute;
+    top: 35px;
+    left: -35px;
+    width: 400px;
+    background: @white;
+    border: 1px solid @light-gray;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+    display: none;
+    p.no-results {
+      text-align: center;
+      padding: 15px;
+      color: @gray;
+      font-weight: 500;
+    }
+    a {
+      float: none;
+      display: block;
+      padding: 12px 10px;
+      font-weight: 500;
+      border-bottom: 1px solid @light-gray;
+      &:hover {
+        background: @almost-white;
+        color: @spark-blue;
+      }
+      &:first-of-type {
+        border-top-left-radius: 4px;
+        border-top-right-radius: 4px;
+        -webkit-border-top-left-radius: 4px;
+        -moz-border-top-left-radius: 4px;
+        -webkit-border-top-right-radius: 4px;
+        -moz-border-top-right-radius: 4px;
+      }
+      &:last-of-type {
+        border-bottom-left-radius: 4px;
+        border-bottom-right-radius: 4px;
+        -webkit-border-bottom-left-radius: 4px;
+        -moz-border-bottom-left-radius: 4px;
+        -webkit-border-bottom-right-radius: 4px;
+        -moz-border-bottom-right-radius: 4px;
+        border-bottom: none;
+      }
+    }
+    li {
+      clear: both;
+      font-size: 12px;
+      .clearfix;
+      span.tag {
+        float: right;
+        padding-left: 4px;
+        color: @gray;
+        font-weight: 700;
+        width: 70px;
+        margin-top: 10px;
+        &.guide {
+          border-left: 3px solid @carrot;
+        }
+        &.datasheet {
+          border-left: 3px solid @wisteria;
+        }
+        &.reference {
+          border-left: 3px solid @emerald;
+        }
+        &.support {
+          border-left: 3px solid @midnight-blue;
+        }
+      }
+      .left-result {
+        float: left;
+        width: 280px;
+      }
+      span.title {
+        display: block;
+        font-weight: 500;
+        color: @spark-blue;
+      }
+      span.device {
+        display: inline-block;
+        font-weight: 300;
+        color: @gray;
+        line-height: 1;
+        padding-left: 7px;
+        border-left: 1px solid @light-gray;
+        span, i {
+          display: inline-block;
+          vertical-align: middle;
+          line-height: 1;
+        }
+        i {
+          display: inline-block;
+          vertical-align: middle;
+          margin-right: 4px;
+          color: @light-gray;
+        }
+      }
+      span.page-title {
+        display: inline-block;
+        font-weight: 300;
+        color: @gray;
+        margin-right: 7px;
+      }
+    }
+    &:after, &:before {
+      bottom: 100%;
+      left: 50%;
+      border: solid transparent;
+      content: " ";
+      height: 0;
+      width: 0;
+      position: absolute;
+      pointer-events: none;
+    }
+    &:after {
+      border-color: rgba(255, 255, 255, 0);
+      border-bottom-color: #ffffff;
+      border-width: 7px;
+      margin-left: -7px;
+    }
+    &:before {
+      border-color: rgba(199, 199, 199, 0);
+      border-bottom-color: #c7c7c7;
+      border-width: 8px;
+      margin-left: -8px;
+    }
+  }
+}

@@ -1,0 +1,57 @@
+<div class='header'>
+  <div class='left'>
+    <div class="toggle-nav">
+      <a href="#" class="subnav-link toggle-navigation">
+        <i class="ion-navicon" title="show/hide the navigation"></i>
+      </a>
+    </div>
+    <a href="https://www.particle.io">
+      <img src="/assets/images/particle-docs.png" id="logo">
+    </a>
+    <div class="sections">
+      <a class="nav {{#contains path.href 'guide'}}active{{/contains}}" href="/guide">Guide</a>
+      <a class="nav {{#contains path.href 'reference'}}active{{/contains}}" href="/reference">Reference</a>
+      <a class="nav {{#contains path.href 'datasheets'}}active{{/contains}}" href="/datasheets">Datasheets</a>
+      <a class="nav {{#contains path.href 'support'}}active{{/contains}}" href="/support">Support</a>
+    </div>
+    <div class="dropdown mobile-only">
+      <a id="dLabel" data-target="#" class="nav" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+        {{first-word-in-relative-url path.href}}
+        <i class="icon ion-chevron-down"></i>
+      </a>
+      <ul class="dropdown-menu" aria-labelledby="dLabel">
+        <li><a href="/guide">Guide</a></li>
+        <li><a href="/reference">Reference</a></li>
+        <li><a href="/datasheets">Datasheets</a></li>
+        <li><a href="/support">Support</a></li>
+      </ul>
+    </div>
+    <div class="search">
+      <div class="search-input-wrapper">
+        <i class="ion-search"></i>
+        <input class="search-box" type="text" placeholder="Search" value=""/>
+      </div>
+      <div class="search-results">
+      </div>
+    </div>
+  </div>
+  <div class='right'>
+    {{#if devices}}
+      <div class="dropdown">
+        <a id="dLabel" data-target="#" class="nav" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+          <i class="im-devices-icon"></i>
+          {{#if photon}}
+            Photon
+          {{else}}
+            Core
+          {{/if}}
+        </a>
+        <ul class="dropdown-menu" aria-labelledby="dLabel">
+          <li><a href="{{path.href}}{{path.name}}/photon/">Photon</a></li>
+          <li><a href="{{path.href}}{{path.name}}/core/">Core</a></li>
+        </ul>
+      </div>
+    {{/if}}
+    <a href='https://www.github.com/spark/docs/tree/{{branch}}/src/content/{{path.href}}{{path.name}}.md' class="nav" target="_blank"><i class="ion-edit"></i>Edit</a>
+  </div>
+</div>

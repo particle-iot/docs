@@ -1,0 +1,3 @@
+[submodule "api-node"]
+	path = api-node
+	url = https://github.com/spark/api-node
