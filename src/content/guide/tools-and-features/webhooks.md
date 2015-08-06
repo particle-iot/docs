@@ -7,10 +7,9 @@ columns: two
 template: guide.hbs
 ---
 
-#Webhooks
+# Webhooks
 
-Introduction
-===
+## Introduction
 
 You've built an amazing device, and a powerful application online, and now you want to connect them.  You're in the right place!
 
@@ -22,8 +21,7 @@ Let's go!
 
 
 
-What's a web request?
-====
+## What's a web request?
 
 When you surf the internet, you are riding a continuous wave of web requests. Browsers make requests to web servers, which send information back that allow you to view, point, click, and interact. When you loaded this page, your browser sent a "GET" request to our web server to ask to display the site. Our server recognized the information in that "GET" request, and it sent the page back to your browser.
 
@@ -32,8 +30,7 @@ There are many different kinds of web requests. Most of your average requests to
 Your Particle powered device can now easily make these requests!  You could grab or send values to any web service or site with something as simple as ```Spark.publish("lets go!");``` That's what we are going to teach you how to do with Webhooks.
 
 
-Installing the CLI
-===
+## Installing the CLI
 
 ```
 # if you haven't already, open a command prompt / terminal, and login to the CLI
@@ -51,10 +48,9 @@ For those of you who have used the Particle CLI in the past, you're all set! If 
 You'll also need some basic knowledge of the terminal. Adafruit has a [lovely intro to the command line](https://learn.adafruit.com/what-is-the-command-line/overview) that beginners may find helpful.
 
 
-CLI Command Reference
-================
+## CLI Command Reference
 
-###particle webhook create
+### particle webhook create
 
   Registers your Webhook with the Particle Cloud.  Creates a postback to the given url when your event is sent.  See [Webhook Options](#Webhook-options) for JSON formatting requirements and parameters.
 
@@ -84,7 +80,7 @@ Sending webhook request  { uri: 'https://api.particle.io/v1/webhooks',
 ```
 
 
-###particle webhook list
+### particle webhook list
 
 Generates a list of what Webhooks you own, including their ID numbers and registered event names.
 
@@ -103,7 +99,7 @@ Found 2 hooks registered
         created at 2015-02-28T04:31:47.133Z
 ```
 
-###particle webhook delete
+### particle webhook delete
 
   Delete a webhook using your registered webhook ID number.  Use `particle webhook list` to find the WEBHOOK_ID you wish to delete, then copy/paste it into the `particle webhook delete WEBHOOK_ID` command.
 
@@ -117,12 +113,10 @@ Successfully deleted webhook!
 ```
 
 
-Your first Webhook
-===
+## Your first Webhook
 
 
-Getting the weather in the US
----
+### Getting the weather in the US
 
 ```
 # If you're in the United States, you can use weather.gov, pick your state here:
@@ -142,8 +136,7 @@ Lets grab and display some weather data, that's fun!
 If you're in the US, pick your state and area from [Weather.gov here](http://w1.weather.gov/xml/current_obs/), if you're somewhere else, try to find a weather service site that is open to being accessed from your device, and can send a simple text report.
 
 
-Getting the weather Globally
----
+### Getting the weather Globally
 
 ```
 # Details about OpenWeatherMap's api is here:
@@ -159,8 +152,7 @@ There are a ton of weather data services spread around the world!
 One we found with lots of great international data, and a developer program is [OpenWeatherMap](http://openweathermap.org/)
 
 
-Creating the Webhook
------
+### Creating the Webhook
 
 ```sh
 # creating a GET hook with the Particle CLI
@@ -179,8 +171,7 @@ Hop on the terminal, make sure you have the Particle CLI, and make sure you've l
 This Webhook will now be triggered when we publish "get_weather" from any of our devices.
 
 
-The weather firmware
------
+### The weather firmware
 
 ```cpp
 // called once on startup
@@ -298,11 +289,9 @@ The wind is: from the Northwest at 19.6 gusting to 28.8 MPH (17 gusting to 25 KT
 
 
 
-Lets make some graphs
-===
+## Lets make some graphs
 
-Logging to Librato
----
+### Logging to Librato
 
 Librato is great service that lets you quickly track and graph any data over time.  This example requires you have an account with them first, [signup for librato here](https://metrics.librato.com)
 
@@ -312,8 +301,7 @@ When you first login you'll see a screen like this:
 
 
 
-An example librato Webhook
----
+### An example librato Webhook
 
 Copy and save the librato access token for your webhook below.  Create a text file somewhere named librato.json, and paste in this example.  Make sure you replace the librato username, and librato access token as well.
 
@@ -352,8 +340,7 @@ Use the `particle webhook create` command in your terminal to create the Webhook
 
 
 
-The example data logging code!
----
+### The example data logging code!
 
 Here's the fun part, hook anything up to your device!  A motion sensor, temperature sensor, a switch, anything that generates some data that you're interested in tracking over time.  You can also leave the pins floating and measure the floating pin too!  Our example code will assume you have something interesting happening on A0.  This firmware waits 10 seconds, reads pin A0, and then publishes the value to your Webhook.
 
@@ -402,8 +389,7 @@ Open up that metric, and congrats!  Your sensor data is now readily available to
 
 
 
-What's in a request?
-===
+## What's in a request?
 
 ```json
 {
@@ -422,8 +408,7 @@ This is same data you'd see if you subscribed to your [event stream](/reference/
 These properties will all be strings except for published_at, which is an ISO8601 date formatted string, which tends to be in the form YYYY-MM-DDTHH:mm:ssZ
 
 
-Templates
-===
+## Templates
 
 In order to help connect with many different services, you can move these published event values around in your request using simple templates.  You can picture the example above as the following template:
 
@@ -438,8 +423,7 @@ In order to help connect with many different services, you can move these publis
 ```
 
 
-Custom template variables
----
+### Custom template variables
 
 
 You can also add custom template values by formatting your publish event data as JSON!
@@ -464,13 +448,11 @@ An example hook that uses custom templates.  In this case the URL of the request
 
 
 
-Webhook Options
-===
+## Webhook Options
 
 You can even customize the webhook to send custom headers, form fields, and more. This section explains what's available and how to use them all!
 
-event
----
+### event
 
 The topic of your published event is sent as the 'event' property in webhook requests. Note that the event name prefix filter rules from `Spark.subscribe()` apply here too. In your firmware it's this part:
 
@@ -479,8 +461,7 @@ Spark.publish(event, data);
 #  This part  ^^^^^
 ```
 
-data
----
+### data
 
 The contents of your published event is sent as the 'data' property in webhook requests.  In your firmware it's this part:
 
@@ -490,8 +471,7 @@ Spark.publish(event, data);
 ```
 
 
-url
----
+### url
 
 The address of the resource you want to contact.  Make sure you have permission to be sending requests to this server.  This field is required.
 
@@ -501,8 +481,7 @@ Hooks that result in a high error count or cause that server to go over our limi
 Usually something like: https://<some-website-name-here.com>/<some-cool-api>
 ```
 
-requestType
----
+### requestType
 
 Optionally specify a standard web request method (GET, POST, PUT, DELETE).  This defaults to POST if not supplied.
 
@@ -510,14 +489,12 @@ Optionally specify a standard web request method (GET, POST, PUT, DELETE).  This
 Usually one of GET, POST, PUT, DELETE
 ```
 
-deviceID
----
+### deviceID
 
 Provide a full id of one of your devices, and the webhook will only respond to events from that device.
 
 
-mydevices
----
+### mydevices
 
 Expects true or false, and will optionally filter to only events coming from devices owned by you.
 
@@ -525,8 +502,7 @@ Expects true or false, and will optionally filter to only events coming from dev
 One of true, false
 ```
 
-headers
----
+### headers
 
 Optionally provide a JSON object with key / value pairs specifying custom headers.  This can be useful for authorization codes or custom headers required by some services.
 
@@ -538,8 +514,7 @@ Optionally provide a JSON object with key / value pairs specifying custom header
 ```
 
 
-form
----
+### form
 
 Optionally include custom fields and values as if submitting a form with your request.  This parameter will change the content-type header to `application/x-www-form-urlencoded`
 
@@ -550,8 +525,7 @@ Optionally include custom fields and values as if submitting a form with your re
 }
 ```
 
-json
----
+### json
 
 Optionally include custom fields and values as JSON with your request.  This parameter will change the content-type header to `application/json`.
 
@@ -563,8 +537,7 @@ Optionally include custom fields and values as JSON with your request.  This par
 ```
 
 
-query
----
+### query
 
 Optionally include extra parameters in the URL of the request encoded as normal query params.
 
@@ -579,8 +552,7 @@ Optionally include extra parameters in the URL of the request encoded as normal 
 http://<the url>/?q=how+much+can+an+unladen+swallow+carry&p=2
 ```
 
-auth
----
+### auth
 
 Optionally include an object with username/password set to include a properly encoded HTTP basic auth header.
 
@@ -592,8 +564,7 @@ Optionally include an object with username/password set to include a properly en
 }
 ```
 
-noDefaults
----
+### noDefaults
 
 By default, your webhook will inject the data from your Spark.publish call into your request.
   These four parameters, "name", "data", "coreid", and "published_at" might cause issues for some servers.  By setting
@@ -606,8 +577,7 @@ By default, your webhook will inject the data from your Spark.publish call into 
 
 
 
-Limits
-===
+## Limits
 
 ```
 Please make sure you have permission from the site first!
@@ -619,8 +589,7 @@ In being responsible members of the Internet community, we want to make sure we'
 
 We also have a handful of rate limits that we hope will provide you a ton of usability, while also protecting against accidental abuse, they fall into 3 categories:
 
-Limits by Host
----
+### Limits by Host
 
 ```
 Any host will be limited to 120 requests per minute
@@ -630,8 +599,7 @@ unless we're contacted by the site administrator
 Particle webhooks will not contact any host more often than 120 times per minute, despite any number of configured webhooks from any number of users.  Requests over this limit for the moment will be dropped.  We intend to add a proper queuing system so this is done more fairly, but for the moment we've opted to protect sites against abuse first.  If you're a site owner / operator and you want to allow more traffic, please email us at hello@particle.io.
 
 
-Limits by User
----
+### Limits by User
 
 ```
 You can create up to 20 webhooks,
@@ -643,8 +611,7 @@ A user by default may trigger a hook up to 10 times per minute for every device 
 Note: This means you must have at least one device registered to your account to trigger a webhook.
 
 
-Limits by Hook
----
+### Limits by Hook
 
 ```
 The hook will be disabled if the server responds
@@ -654,8 +621,7 @@ with errors 10 times in a row.
 Any hook that results in an error code from the server (above a 400), 10 consecutive times in a row will be automatically disabled.  We'll be adding notifications, and the ability to pause/unpause when this happens, but for the moment you might notice that your hook stops working for this reason.  
 
 
-Handling Web Responses
-===
+## Handling Web Responses
 
 Responses from hooks are sent in the following format:
 
@@ -690,8 +656,7 @@ hook-response/get_weather/4
 
 
 
-Errors
-===
+## Errors
 
 Error responses from the target url will also be sent back in the response event.  If you have 10 consecutive errors, the hook will send you a "Too many errors, webhook disabled" message.  Make sure you're watching the responses when developing your hook!  You can monitor these with the particle cli by running:
 
