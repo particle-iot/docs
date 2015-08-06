@@ -11,7 +11,7 @@ template: guide.hbs
 
 If you're at a hackathon, you'll want to get started with Particle, and fast! Here's some quick tips to get you up and running ASAP.
 
-####If you're at a conference or a hackathon, _DO NOT_ set up your Particle device using your phone!
+#### If you're at a conference or a hackathon, _DO NOT_ set up your Particle device using your phone!
 It gets very chaotic with everyone's Photons broadcasting networks, or everyone's Cores asking to be claimed at once. We'll show you how to maximize your hackathoning in the sections below.
 
 

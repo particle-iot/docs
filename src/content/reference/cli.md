@@ -101,7 +101,7 @@ Okay!
 
   Sends a firmware binary, a source file, or a directory of source files, or a known app to your device.
 
-###Flashing a directory
+### Flashing a directory
 
   You can setup a directory of source files and libraries for your project, and the CLI will use those when compiling remotely.  You can also create ```particle.include``` and / or a ```particle.ignore``` file in that directory that will tell the CLI specifically which files to use or ignore.
 
@@ -151,7 +151,7 @@ $ particle flash --usb firmware.bin
 
   **NOTE**: Remember that **\*.cpp** and **\*.ino** files behave differently. You can read more about it on our [support page](http://support.particle.io/hc/en-us/articles/204952620).
 
-###compiling a directory
+### compiling a directory
 
   You can setup a directory of source files and libraries for your project, and the CLI will use those when compiling remotely.  You can also create ```particle.include``` and / or a ```particle.ignore``` file in that directory that will tell the CLI specifically which files to use or ignore.  Those files are just plain text with one line per filename
 
