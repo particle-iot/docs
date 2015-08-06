@@ -6,10 +6,10 @@ columns: three
 order: 3
 ---
 
-#CLI Command Reference
+# CLI Command Reference
 
 
-##particle setup wifi
+## particle setup wifi
 
   Helpful shortcut for adding another wifi network to a device connected over USB.  Make sure your device is connected via a USB cable, and is slow blinking blue [listening mode](/photon/connect/#connecting-your-device-listening-mode)
 
@@ -20,7 +20,7 @@ $ particle setup wifi
 ```
 
 
-##particle login
+## particle login
 
   Login and save an access token for interacting with your account on the Particle Cloud.
 
@@ -30,7 +30,7 @@ $ particle login
 ```
 
 
-##particle logout
+## particle logout
 
   Logout and optionally revoke the access token for your CLI session.
 
@@ -40,7 +40,7 @@ $ particle logout
 ```
 
 
-##particle list
+## particle list
 
 Generates a list of what devices you own, and displays information about their status, including what variables and functions are available
 
@@ -60,7 +60,7 @@ my_device_name (0123456789ABCDEFGHI) 0 variables, and 4 functions
 
 ```
 
-##particle device claim
+## particle device claim
 
   Adds a new device to your account
 
@@ -72,7 +72,7 @@ Successfully claimed device 0123456789ABCDEFGHI
 ```
 
 
-##particle device rename
+## particle device rename
 
   Assigns a new name to a device you've claimed
 
@@ -83,7 +83,7 @@ $ particle device rename 0123456789ABCDEFGHI "pirate frosting"
 
 
 
-##particle device remove
+## particle device remove
 
   Removes a device from your account so someone else can claim it.
 
@@ -97,7 +97,7 @@ Okay!
 ```
 
 
-##particle flash
+## particle flash
 
   Sends a firmware binary, a source file, or a directory of source files, or a known app to your device.
 
@@ -110,7 +110,7 @@ Okay!
 $ particle flash 0123456789ABCDEFGHI my_project
 ```
 
-###Flashing one or more source files
+### Flashing one or more source files
 
 ```sh
 # how to compile and flash a list of source files to your device
@@ -118,7 +118,7 @@ $ particle flash 0123456789ABCDEFGHI app.ino library1.cpp library1.h
 ```
 
 
-###Compiling remotely and Flashing locally
+### Compiling remotely and Flashing locally
 
 To work locally, but use the cloud compiler, simply use the compile command, and then the local flash command after.  Make sure you connect your device via USB and place it into [dfu mode](/photon/modes/#selecting-various-modes-dfu-mode-device-firmware-upgrade).
 
@@ -145,7 +145,7 @@ $ particle flash --usb firmware.bin
 ```
 
 
-##particle compile
+## particle compile
 
   Compiles one or more source file, or a directory of source files, and downloads a firmware binary.
 
@@ -160,7 +160,7 @@ $ particle flash --usb firmware.bin
 $ particle compile photon my_project_folder
 ```
 
-###example particle.include
+### example particle.include
 
   The particle.include and particle.ignore files are just regular text files with one filename per line.  If your directory has one of these files, the CLI will use it to try and determine what to include or ignore when compiling your app.
 
@@ -171,7 +171,7 @@ library1.h
 library1.cpp
 ```
 
-###example particle.ignore
+### example particle.ignore
 
 ```text
 # particle.ignore
@@ -181,7 +181,7 @@ old_version.cpp
 ```
 
 
-###Compiling one or more source files
+### Compiling one or more source files
 
 ```sh
 # how to compile a list of source files
@@ -191,7 +191,7 @@ $ particle compile photon app.ino library1.cpp library1.h
 
 
 
-##particle call
+## particle call
 
   Calls a function on one of your devices, use ```particle list``` to see which devices are online, and what functions are available.
 
@@ -203,7 +203,7 @@ $ particle call 0123456789ABCDEFGHI digitalWrite "D7,HIGH"
 
 
 
-##particle get
+## particle get
 
   Retrieves a variable value from one of your devices, use ```particle list``` to see which devices are online, and what variables are available.
 
@@ -215,7 +215,7 @@ $ particle get 0123456789ABCDEFGHI temperature
 
 
 
-##particle monitor
+## particle monitor
 
   Pulls the value of a variable at a set interval, and optionally display a timestamp
 
@@ -232,7 +232,7 @@ $ particle monitor all temperature 5000 --time > my_temperatures.csv
 ```
 
 
-##particle identify
+## particle identify
 
   Retrieves your device id when the device is connected via USB and in listening mode (flashing blue).
 
@@ -248,7 +248,7 @@ $ particle identify
 0123456789ABCDEFGHI
 ```
 
-##particle subscribe
+## particle subscribe
 
   Subscribes to published events on the cloud, and pipes them to the console.  Special device name "mine" will subscribe to events from just your devices.
 
@@ -266,7 +266,7 @@ $ particle subscribe eventName 0123456789ABCDEFGHI
 
 
 
-##particle serial list
+## particle serial list
 
   Shows currently connected Particle Core's acting as serial devices over USB
 
@@ -276,7 +276,7 @@ $ particle serial list
 ```
 
 
-##particle serial monitor
+## particle serial monitor
 
   Starts listening to the specified serial device, and echoes to the terminal
 
@@ -289,7 +289,7 @@ $ particle serial monitor /dev/cu.usbmodem12345
 ```
 
 
-##particle keys doctor
+## particle keys doctor
 
 Helps you update your keys, or recover your device when the keys on the server are out of sync with the keys on your device.  The ```particle keys``` tools requires both dfu-util, and openssl to be installed.
 
@@ -301,7 +301,7 @@ $ particle keys doctor 0123456789ABCDEFGHI
 ```
 
 
-##particle keys new
+## particle keys new
 
 Generates a new public / private keypair that can be used on a device.
 
@@ -321,7 +321,7 @@ running openssl rsa -in mykey.pem -outform DER -out mykey.der
 New Key Created!
 ```
 
-##particle keys load
+## particle keys load
 
 Copies a ```.DER``` formatted private key onto your device's external flash.  Make sure your device is connected and in [dfu mode](/photon/modes/#selecting-various-modes-dfu-mode-device-firmware-upgrade).  The ```particle keys``` tools requires both dfu-util, and openssl to be installed.  Make sure any key you load is sent to the cloud with ```particle keys send device.pub.pem```
 
@@ -334,7 +334,7 @@ $ particle keys load device.der
 Saved!
 ```
 
-##particle keys save
+## particle keys save
 
 Copies a ```.DER``` formatted private key from your device's external flash to your computer.  Make sure your device is connected and in [dfu mode](/photon/modes/#selecting-various-modes-dfu-mode-device-firmware-upgrade).  The ```particle keys``` tools requires both dfu-util, and openssl to be installed.
 
@@ -346,7 +346,7 @@ $ particle keys save device.der
 Saved!
 ```
 
-##particle keys send
+## particle keys send
 
 Sends a device's public key to the cloud for use in opening an encrypted session with your device.  Please make sure your device has the corresponding private key loaded using the ```particle keys load``` command.
 
@@ -356,7 +356,7 @@ $ particle keys send 0123456789ABCDEFGHI device.pub.pem
 submitting public key succeeded!
 ```
 
-##particle keys server
+## particle keys server
 
 Switches the server public key stored on the device's external flash.  This command is important when changing which server your device is connecting to, and the server public key helps protect your connection.   Your device will stay in DFU mode after this command, so that you can load new firmware to connect to your server.
 
