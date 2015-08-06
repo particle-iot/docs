@@ -9,11 +9,11 @@ order: 2
 Kickstarter Account & Electron Information
 ===
 
-###When will the Electron Ship?
+### When will the Electron Ship?
 
 The Electron is estimated to begin shipping to Kickstarter backers in **October 2015**. Pre-orders for the Electron are scheduled to ship in **November 2015**. 
 
-###Can I update my shipping details?
+### Can I update my shipping details?
 
 Yes! You can update your shipping address up until the shipping "lockdown date". The final lockdown date has not been decided but we're estimating it will be around September 20. We will let you know the final date when it is decided.
 
@@ -26,18 +26,18 @@ access your BackerKit account and update your details for Electron delivery:
 
 <a href="https://spark-electron-cellular-dev-kit-with-a-simple-data.backerkit.com/" target=_blank class="button">Login to BackerKit</a>
 
-###Can I upgrade my Kickstarter Pledge Package?
+### Can I upgrade my Kickstarter Pledge Package?
 
 You can! Once you're logged into your BackerKit account, you will be able to see your current pledge amount and package. You can either update your entire pledge by clicking the small upgrade button. If you'd like to just add to your current pledge, the add-ons page will appear after you have completed the question portion of the survey. You’ll be able to add on Electrons, Kits, and T-Shirts!
 
 Feel free to the link below to jump straight to your cart for more Add-Ons!
 <a href="https://spark-electron-cellular-dev-kit-with-a-simple-data.backerkit.com/backer/addons" target=_blank class="button">Get Add-Ons</a>
 
-###I upgraded my pledge or added add-ons - when will my credit card be charged for these additions?
+### I upgraded my pledge or added add-ons - when will my credit card be charged for these additions?
 
 Your credit will not be charged until your package is ready and scheduled to ship. If you added Photons or a Photon Kit to your order that means your add-ons will be charged in August when those boards ship out.
 
-###Other common Kickstarter issues
+### Other common Kickstarter issues
 
 **I pledged extra for additional items.**
 BackerKit automatically pulls in the amount you pledged and allows you to specify which items you want to get with your additional credits. If you have any issues please do not hesitate to contact us with questions.

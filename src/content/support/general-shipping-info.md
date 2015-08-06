@@ -9,20 +9,20 @@ order: 4
 Particle Shipping & Return Policies
 ===
 
-###General Info
+### General Info
 
 Particle will refund your purchase at any time if you are dissatisfied with our products. We will also refund or replace anything that arrives in a defective state. However, since Particle products are prototyping tools intended for novices and experts alike, we cannot replace units that break during use outside of the specifications described in Particle documentation.
 
 Tracking numbers for all Particle shipments will be emailed to the email address you used to place your oder.
 
 
-###Shipping within the United States
+### Shipping within the United States
 
 We use USPS First Class Mail for ground shipping, USPS Priority Mail for expedited shipping, and Fed-Ex for overnight shipping. Please note that USPS tracking might take up to 24 hours to register after you place your order. Transit times vary, but on average USPS First Class Mail delivers in 3-5 business days and USPS Priority Mail delivers in 2-3 business days. Any order over 10 oz is required to ship via USPS Priority Mail and your shipping rates will be reflected as such. 
 
 Fed-Ex overnight orders must be received by 12pm PST in order to arrive at your location in the continental United States by the next day. We'll do everything in our power to deliver your Particle goodies to your eager hands as scheduled, but please note that Fedex occasionally has weather or holiday related delays that we cannot avoid.
 
-###International Shipping
+### International Shipping
 
 We ship all orders out of California in the US. We offer USPS International for international ground shipping and DHL Express for expedited shipping. For USPS, the packages are handed off to your country's postal service for ‘door-to-door’ delivery. Unfortunately, once your package is delivered to your local postal service, USPS does not have any visibility to your package. USPS also does not offer expedited customs brokerage, so your package might stay in customs for up to 6 weeks. We want to make sure we offer you this cheaper shipping option, but please be aware of the risks with this method. DHL Express provides faster service, tracking door to door, and faster customs clearance.  For all international shipments, we recommend shipping with DHL Express. 
 
@@ -42,11 +42,11 @@ We also offer our products in a few international distributors for your convenie
 
 We are constantly adding international distributors, so check back soon to see updates!
 
-###Cancellations
+### Cancellations
 
 If you would like to cancel your order, Particle will make every effort to do so before final shipment. However, there is no guarantee of cancellation, as we ship all orders on regular business hours, and work with third party distribution and fulfillment centers whose hours differ from our own. If you return the unopened, undamaged goods to us, we will issue a refund for the items, minus postage. If you're interested in returning Particle merchandise, please first send an email to <shipping@particle.io>.
 
-###Exchanges for Damaged Goods
+### Exchanges for Damaged Goods
 
 Sometimes, bad things happen to good packages while they’re trotting across the globe. If your Particle Gear arrives damaged, we’ll be happy to send you a replacement unit that has been hand inspected by a human member of the Particle Team. Please write us at <shipping@particle.io>
  using the same e-mail you ordered with, and include the following:
@@ -57,7 +57,7 @@ Sometimes, bad things happen to good packages while they’re trotting across th
 
 Once we have all that put together, we’ll get your new package on its way!
 
-###Itemed Returned to Sender - what happened?!
+### Itemed Returned to Sender - what happened?!
 
 Many things can happen in the delivery process, and packages can get held up for reasons beyond our control. If your package gets returned to us, we can issue a refund, or take steps to issue a new package. Before issuing a new package or refund, we must:
 

@@ -9,7 +9,7 @@ order: 1
 Particle Device Firmware
 ==========
 
-##Cloud Functions
+## Cloud Functions
 
 ### Spark.variable()
 
