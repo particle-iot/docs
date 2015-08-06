@@ -2749,7 +2749,7 @@ The parameter for millis is an unsigned long, errors may be generated if a progr
 
 ### micros()
 
-Returns the number of microseconds since the device began running the current program. This number will overflow (go back to zero), after exactly 59,652,323 microseconds (0 .. 59,652,322). Note: This number is different for the Photon.
+Returns the number of microseconds since the device began running the current program. This number will overflow (go back to zero), after exactly 59,652,323 microseconds (0 .. 59,652,322) on the Core and after exactly 35,791,394 microseconds (0 .. 35,791,394) on the Photon.
 
 `unsigned long time = micros();`
 
