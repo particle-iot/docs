@@ -38,7 +38,7 @@ function shouldCrawl(qurl) {
 
 describe('Crawler', function() {
   it('should complete without error', function(done) {
-    this.timeout(120000);
+    this.timeout(180000);
     var errors = 0;
     var host = 'http://localhost:8080/';
     var c = new Crawler({
