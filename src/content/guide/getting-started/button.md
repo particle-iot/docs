@@ -15,7 +15,15 @@ order: 8
 
 ## Unboxing
 
-Your Internet Button comes in a {{{popup 'helpful carrying tin.' 'img' 'internet-button-in-box.jpg'}}} It has a {{{popup 'USB cable,' 'img' 'usb-cable.jpg'}}} a {{{popup 'clear plastic module cover,' 'img' 'internet-button-cover.jpg'}}} and an {{{popup 'opaque plastic shield cover,' 'img' 'internet-button-no-cover.jpg'}}} Your Photon is resting between these two covers, which are both removable.
+Your Internet Button comes in a {{{popup 'helpful carrying tin' 'img' 'internet-button-in-box.jpg'}}}.
+
+Inside the tin, you will find:
+
+   - (1) {{{popup 'USB cable' 'img' 'usb-cable.jpg'}}}
+   - (1) {{{popup 'clear plastic module cover' 'img' 'internet-button-cover.jpg'}}} to prevent damage to your Photon
+   - (1) {{{popup 'opaque plastic shield cover' 'img' 'internet-button-no-cover.jpg'}}} to help diffuse the light from the LEDs
+   - (1) {{{popup 'Photon' 'img' 'photon-loose-top.jpg'}}} resting between the two removeable covers
+
 </br>
 </br>
 If you {{{popup 'turn your internet button over' 'img' 'internet-button-bottom.jpg'}}}, you can see some of the components. There are four buttons, a buzzer, and a space for a JST connector if you prefer battery power to USB power.
@@ -23,6 +31,7 @@ If you {{{popup 'turn your internet button over' 'img' 'internet-button-bottom.j
 </br>
 You can also remove the module cover and Photon, then the shield cover, to expose the {{{popup 'top of the shield' 'img' 'internet-button-uncovered.jpg'}}}. Here, you can see the exposed LEDs and and the accelerometer.
 
+For more information, check out the [Internet Button datasheet](/datasheets/photon-shields/#internet-button).
 
 ## Connecting
 
