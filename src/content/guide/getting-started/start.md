@@ -18,8 +18,6 @@ order: 2
 
 Congratulations on being the owner of a brand new Particle Device! Go ahead and open the box. You can see the different [contents](/datasheets/kits) and check out their [hardware datasheets](/datasheets) if you like!
 
-If you have an [Internet Button](/datasheets/photon-shields/#internet-button), then start here and connect your Photon to the Internet as you would do even if you didn't have a button. Then, check out the examples in the [official Internet Button library](https://github.com/spark/InternetButton), also available under the Libraries tab on [Particle Build](http://build.particle.io).
-
 Let's quickly go over what you see.
 
 ### What's on it?
