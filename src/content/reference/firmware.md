@@ -2879,7 +2879,7 @@ External interrupts are supported on the following pins:
 
 - `pin`: the pin number
 - `function`: the function to call when the interrupt occurs; this function must take no parameters and return nothing. This function is sometimes referred to as an *interrupt service routine* (ISR).
-- `mode`: defines when the interrupt should be triggered. Four constants are predefined as valid values:
+- `mode`: defines when the interrupt should be triggered. Three constants are predefined as valid values:
     - CHANGE to trigger the interrupt whenever the pin changes value,
     - RISING to trigger when the pin goes from low to high,
     - FALLING for when the pin goes from high to low.
