@@ -3320,7 +3320,7 @@ To disable multithreading and revert to a single thread of execution, place the 
 When system threading is enabled:
 
 - The application is not blocked by system code at all. setup() and loop() function independently of what the system is doing.
-- The application continues to run during WiFi setup mode. Application code can detect this by calling `WiFi.listening()`.
+- The application continues to run during WiFi setup mode. Application code can detect that the system is in WiFi setup mode by calling `WiFi.listening()`.
 - The application continues to run during over-the-air or over-the-wire firmware updates
 - Cloud functions registered with `Spark.function()` execute on the application thread in between calls to loop().
 - Calling `Spark.process()` has no affect.
@@ -3329,7 +3329,7 @@ When system threading is enabled:
 When system threading is disabled:
 
 - The application may stop executing intermittently when the wifi or cloud connection goes offline
-- The application does not run during WiFi setup mode. This can be detected by checking the result of `WiFi.listening()` on a timer interrupt.
+- The application does not run during WiFi setup mode. That the system is in WiFi setup mode can be detected by checking the result of `WiFi.listening()` on a timer interrupt.
 - The application does not run during over-the-air or over-the-wire firmware updates
 - Cloud functions registered with `Spark.function()` execute in-between invocations of `loop()` or when the application calls `Spark.process()`.
 - The system mode influences when the application setup() and loop() function are called in relation to the cloud connection state.
