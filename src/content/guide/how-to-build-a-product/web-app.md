@@ -118,11 +118,54 @@ function on one device to cause it to dance rainbows.
 
 ## Handling authentication and device setup
 
-There are several ways to manage authentication for your customers.
-When you're prototyping, it will probably be easiest to let Particle handle
-authentication entirely. We even have a system for letting you customize the
+As described
+[earlier](/guide/how-to-build-a-product/dashboard/#organizations-vs-individuals),
+end-users of your product are referred to as *customers* in the Particle
+ecosystem. As a product creator, you will need to make a strategic decision
+about how you will want to handle authentication for your customers. Your choice
+will likely be influenced by how much you would like to hide Particle from your
+customers, as well as how you would like your product to function.
+
+There are three ways to manage authentication for your customers.
+  * **Simple Authentication**: Customers are created and managed directly by Particle
+  * **Two-legged Authentication**: You create and manage accounts for your customers yourself, and request scoped access to control customers' devices from Particle
+  * **Login with Particle**: Your customers will create a Particle account and a separate account on your website, and link the two together using OAuth 2.0.
+
+You will also need to choose what *medium* your customers will use to
+authenticate and setup their devices. This will likely depend on how you
+envision your customers interacting with their connected product.
+  * **Mobile**: Use an iOS or Android mobile app to allow your customers to authenticate, setup their devices, and interact with their product. [More info](/guide/how-to-build-a-product/mobile-app/)
+  * **Web**: Use a web browser and HTTP to allow your customers to authenticate, setup their devices, and interact with their product (*Coming soon*).
+
+### Simple Authentication
+
+Simple authentication involves letting Particle handle the heavy lifting of
+customer authentication of device setup. It is the easiest and most
+straight-forward method of the three options to implement.
+
+It is important to note that even though Particle is handling authentication in
+the background, *it is still possible to hide Particle from your customers*.
+This is because all interactions with Particle will happen at the API level. Because
+of this, you can still build a whitelabeled front-end to your web or mobile app that will make your interaction
+with Particle invisible to your customers.  We even have a system for letting you customize the
 password reset page your customers see with your logo, entirely white labeling
 Particle's presence behind the scenes.
+
+Using this option, you will not need to implement any custom logic if you are
+using Particle's [mobile
+SDKs](/guide/how-to-build-a-product/mobile-app/). The SDKs will handle hitting
+the correct API endpoints to create customers and claim devices on behalf of
+your customers.
+
+Specifically, the *Device Setup Library* is what will handle all logic relating to
+claiming devices. The Cloud SDK wraps all session management functionality,
+including customer login, logout, and including customer access tokens with API
+requests. Mobile SDKs are available for both [iOS](/reference/ios/) and
+[Android](/reference/android/).
+
+[PLACEHOLDER FOR WEB APP DOCS]
+
+### Two-legged Authentication
 
 However, it's likely that as you start building a web app, you'll want to have
 customers login to your site with accounts that you manage completely.
@@ -137,7 +180,15 @@ on your site, the customers in Particle's systems do not need a password. Only
 members of your organization will be able to access and manage the customer
 models.
 
-*Coming soon:* API documentation for creating the customer of an organization.
+The API endpoint that you will use to create customers is `POST
+/v1/orgs/:orgSlug/customers`. This endpoint is [fully documented
+here](/reference/api/#create-a-customer).
+
+### Login with Particle
+
+(Coming soon)
+
+
 
 Before the customer can setup her device using the mobile app (which you'll
 create in the next section of this guide), you need to create an access token
