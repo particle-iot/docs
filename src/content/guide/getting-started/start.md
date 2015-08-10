@@ -16,7 +16,7 @@ order: 2
 {{/if}}
 {{#if core}}![](/assets/images/core-box.jpg){{/if}}
 
-Congratulations on being the owner of a brand new Particle Device! Go ahead and open the box. You can see the different [contents](/datasheets/kits) and check out their [hardware datasheets](/datasheets) if you like!
+Congratulations on being the owner of a brand new Particle Device! Go ahead and open the box. You can see the different [contents](/datasheets/kits) and check out their [hardware datasheets](/datasheets) if you like! If you have an Internet Button, read through this section to get started and connect your device, then hop over to the [Internet Button Guide](/guide/button) for more detailed info.
 
 Let's quickly go over what you see.
 

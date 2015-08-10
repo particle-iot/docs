@@ -40,9 +40,11 @@ Plug in your Photon and go through the setup process as seen in either the [star
 
 ## Examples
 
-You can find examples on how to use your Internet Button in the [official Internet Button library](https://github.com/spark/InternetButton/tree/master/firmware/examples), also available under the Libraries tab on [Particle Build](https://build.particle.io/build#libraries). The examples are also listed below. You can copy and paste this code (or fork it from the Internet Button Library in Particle Build) and flash it to your Photon. We recommend doing them in order for the best understanding of how the Internet Button works.
+You can find examples on how to use your Internet Button in the [official Internet Button library under the Libraries tab on Particle Build](https://build.particle.io/libs/55bfd80bcaf78dbf5e000f48/tab/1_Blink_An_LED.cpp). You can also access them via [this Github repo](https://github.com/spark/InternetButton/tree/master/firmware/examples), or by checking out the text below.
 
-**If you copy these examples, make sure that you include the official Internet Button library before flashing the code.** Instructions on how to include a library can be found [here](/guide/getting-started/build/photon/#using-libraries).
+You should be able to fork the examples from Particle Build or copy and paste the code from the Github repo or from this page. We recommend going through these examples in order for the best understanding of how the Internet Button works.
+
+**If you copy and paste these examples, make sure that you include the official Internet Button library before flashing the code.** Instructions on how to include a library can be found [here](/guide/getting-started/build/photon/#using-libraries).
 
 ### Blink an LED
 
