@@ -257,7 +257,7 @@ dependencies {
 }
 ```
 
-Also note that the SDK is hosted on JCenter, but not Maven Central.
+Also note that the SDK is hosted on JCenter, but not Maven Central. You need a Gradle Version higher than 1.7.
 Make sure your top-level Gradle file contains the following:
 
 ```gradle
