@@ -12,7 +12,7 @@ order: 2
 
 {{#if photon}}
 ![](/assets/images/photon-kit-new.jpg)
-<p class="caption">Your new Photon! Note that many components pictured will only be included if you purchased a Photon Kit</p>
+<p class="caption">Your new Photon. Note that many components pictured will only be included if you purchased a Photon Kit</p>
 {{/if}}
 {{#if core}}![](/assets/images/core-box.jpg){{/if}}
 
