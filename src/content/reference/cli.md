@@ -60,13 +60,13 @@ my_device_name (0123456789ABCDEFGHI) 0 variables, and 4 functions
 
 ```
 
-## particle device claim
+## particle device add
 
   Adds a new device to your account
 
 ```sh
 # how to add a new device to your account
-$ particle device claim 0123456789ABCDEFGHI
+$ particle device add 0123456789ABCDEFGHI
 Claiming device 0123456789ABCDEFGHI
 Successfully claimed device 0123456789ABCDEFGHI
 ```
@@ -122,15 +122,6 @@ $ particle flash 0123456789ABCDEFGHI app.ino library1.cpp library1.h
 
 To work locally, but use the cloud compiler, simply use the compile command, and then the local flash command after.  Make sure you connect your device via USB and place it into [dfu mode](/photon/modes/#selecting-various-modes-dfu-mode-device-firmware-upgrade).
 
-This is device specific and must be passed as an argument during compilation.
-
-The devices available are:
-
-- photon (alias is 'p')
-- core (alias is 'c')
-
-eg. `particle compile photon xxx` OR `particle compile p xxxx` both targets the photon
-
 ```sh
 # how to compile a directory of source code and tell the CLI where to save the results
 $ particle compile photon my_project_folder --saveTo firmware.bin
@@ -150,6 +141,17 @@ $ particle flash --usb firmware.bin
   Compiles one or more source file, or a directory of source files, and downloads a firmware binary.
 
   **NOTE**: Remember that **\*.cpp** and **\*.ino** files behave differently. You can read more about it on our [support page](http://support.particle.io/hc/en-us/articles/204952620).
+
+```text
+This is device specific and must be passed as an argument during compilation.
+
+The devices available are:
+
+- photon (alias is 'p')
+- core (alias is 'c')
+
+eg. `particle compile photon xxx` OR `particle compile p xxxx` both targets the photon
+```
 
 ### compiling a directory
 
