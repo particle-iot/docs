@@ -124,6 +124,8 @@ int brewCoffee(String command)
 }
 ```
 
+---
+
 The API request will be routed to the device and will run your brew function. The response will have a return_value key containing the integer returned by brew.
 
 ```json
@@ -136,6 +138,44 @@ curl https://api.particle.io/v1/devices/0123456789abcdef/brew \
      -d "args=coffee"
 ```
 
+---
+
+To expose a method on an object through the Cloud, use a C++ function wrapper.
+For more details, research `std::function`.
+
+```C++
+// EXAMPLE USAGE WITH C++ OBJECT
+
+class CoffeeMaker {
+  public:
+    int brew(String command);
+    void registerCloud();
+};
+
+int CoffeeMaker::brew(String command) {
+  // do stuff
+  return 1;
+}
+
+void CoffeeMaker::registerCloud() {
+  // create a function wrapper to call brew on this instance of CoffeeMaker
+  // auto tells the compiler to determine the function wrapper type automatically
+  // std::placeholders::_1 is necessary because brew takes 1 argument
+  auto brewHandler = std::bind(&CoffeeMaker::brew, this, std::placeholders::_1);
+
+  Spark.function("brew", brewHandler);
+}
+
+CoffeeMaker myCoffeeMaker;
+
+void setup() {
+  myCoffeeMaker.registerCloud();
+}
+
+void loop() {
+  // this loops forever
+}
+```
 
 ### Spark.publish()
 
