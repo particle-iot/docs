@@ -601,7 +601,11 @@ It will return `false` when the device is not in listening mode.
 
 ### WiFi.setCredentials()
 
-Allows the user to set credentials for the Wi-Fi network from within the code. These credentials will be added to the device's memory, and the device will automatically attempt to connect to this network in the future.
+Allows the application to set credentials for the Wi-Fi network from within the code. These credentials will be added to the device's memory, and the device will automatically attempt to connect to this network in the future.
+
+Your device can remember more than one set of credentials:
+- Core: remembers the 7 most recently set credentials
+- Photon: remembers the 5 most recently set credentials
 
 ```cpp
 // Connects to an unsecured network.
@@ -1140,6 +1144,8 @@ To use the TX/RX (Serial1) or D1/D0 (Serial2) pins to communicate with your pers
 ### begin()
 
 Sets the data rate in bits per second (baud) for serial data transmission. For communicating with the computer, use one of these rates: 300, 600, 1200, 2400, 4800, 9600, 14400, 19200, 28800, 38400, 57600, or 115200. You can, however, specify other rates - for example, to communicate over pins TX and RX with a component that requires a particular baud rate.
+
+**NOTE:** The data rate for the USB device `Serial` is ignored, as USB has its own negotiated speed. Setting speed to 9600 is safe for the USB device. Setting the port to 14400 baud will cause the Photon to go into DFU mode while 28800 will allow a YMODEM download of firmware. 
 
 ```C++
 // SYNTAX
@@ -2749,7 +2755,7 @@ The parameter for millis is an unsigned long, errors may be generated if a progr
 
 ### micros()
 
-Returns the number of microseconds since the device began running the current program. This number will overflow (go back to zero), after approximately 59.65 seconds.
+Returns the number of microseconds since the device began running the current program. This number will overflow (go back to zero), after exactly 59,652,323 microseconds (0 .. 59,652,322) on the Core and after exactly 35,791,394 microseconds (0 .. 35,791,394) on the Photon.
 
 `unsigned long time = micros();`
 
@@ -2879,7 +2885,7 @@ External interrupts are supported on the following pins:
 
 - `pin`: the pin number
 - `function`: the function to call when the interrupt occurs; this function must take no parameters and return nothing. This function is sometimes referred to as an *interrupt service routine* (ISR).
-- `mode`: defines when the interrupt should be triggered. Four constants are predefined as valid values:
+- `mode`: defines when the interrupt should be triggered. Three constants are predefined as valid values:
     - CHANGE to trigger the interrupt whenever the pin changes value,
     - RISING to trigger when the pin goes from low to high,
     - FALLING for when the pin goes from high to low.
@@ -3320,7 +3326,7 @@ To disable multithreading and revert to a single thread of execution, place the 
 When system threading is enabled:
 
 - The application is not blocked by system code at all. setup() and loop() function independently of what the system is doing.
-- The application continues to run during WiFi setup mode. Application code can detect this by calling `WiFi.listening()`.
+- The application continues to run during WiFi setup mode. Application code can detect that the system is in WiFi setup mode by calling `WiFi.listening()`.
 - The application continues to run during over-the-air or over-the-wire firmware updates
 - Cloud functions registered with `Spark.function()` execute on the application thread in between calls to loop().
 - Calling `Spark.process()` has no affect.
@@ -3329,7 +3335,7 @@ When system threading is enabled:
 When system threading is disabled:
 
 - The application may stop executing intermittently when the wifi or cloud connection goes offline
-- The application does not run during WiFi setup mode. This can be detected by checking the result of `WiFi.listening()` on a timer interrupt.
+- The application does not run during WiFi setup mode. That the system is in WiFi setup mode can be detected by checking the result of `WiFi.listening()` on a timer interrupt.
 - The application does not run during over-the-air or over-the-wire firmware updates
 - Cloud functions registered with `Spark.function()` execute in-between invocations of `loop()` or when the application calls `Spark.process()`.
 - The system mode influences when the application setup() and loop() function are called in relation to the cloud connection state.
