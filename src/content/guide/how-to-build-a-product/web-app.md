@@ -2,7 +2,7 @@
 title: Building your own web app
 columns: two
 template: guide.hbs
-order: 4
+order: 5
 ---
 
 # Building your own web app
