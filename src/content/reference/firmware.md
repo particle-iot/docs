@@ -1141,6 +1141,8 @@ To use the TX/RX (Serial1) or D1/D0 (Serial2) pins to communicate with your pers
 
 Sets the data rate in bits per second (baud) for serial data transmission. For communicating with the computer, use one of these rates: 300, 600, 1200, 2400, 4800, 9600, 14400, 19200, 28800, 38400, 57600, or 115200. You can, however, specify other rates - for example, to communicate over pins TX and RX with a component that requires a particular baud rate.
 
+**NOTE:** The data rate for the USB device `Serial` is ignored, as USB has its own negotiated speed. Setting speed to 9600 is safe for the USB device. Setting the port to 14400 baud will cause the Photon to go into DFU mode while 28800 will allow a YMODEM download of firmware. 
+
 ```C++
 // SYNTAX
 Serial.begin(speed);    // serial via USB port
