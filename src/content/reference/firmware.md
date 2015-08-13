@@ -601,7 +601,11 @@ It will return `false` when the device is not in listening mode.
 
 ### WiFi.setCredentials()
 
-Allows the user to set credentials for the Wi-Fi network from within the code. These credentials will be added to the device's memory, and the device will automatically attempt to connect to this network in the future.
+Allows the application to set credentials for the Wi-Fi network from within the code. These credentials will be added to the device's memory, and the device will automatically attempt to connect to this network in the future.
+
+Your device can remember more than one set of credentials:
+- Core: remembers the 7 most recently set credentials
+- Photon: remembers the 5 most recently set credentials
 
 ```cpp
 // Connects to an unsecured network.
