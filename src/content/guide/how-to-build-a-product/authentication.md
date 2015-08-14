@@ -304,11 +304,105 @@ Examining what's different, you'll find:
 * `redirect_uri` is now set as an argument. When creating a `web` client type, you must include a `redirect_uri`. This should be set to the URL of the first page of device setup for your product. The redirect will be triggered once a customer is created successfully, and the next step in the process is setting up their device.
 
 [Reference documentation on creating OAuth
-clients](/reference/api/#create-an-oauth-client).
+clients](/reference/api/#create-an-oauth-client)
 
+With either request, you will receive an OAuth client ID and secret back in the response, like this:
 
+```
+{
+    "ok": true,
+    "client": {
+        "name": "MyApp",
+        "type": [web or installed],
+        "id": "myapp-2146",
+        "secret": "615c620d647b6e1dab13bef1695c120b0293c342"
+    }
+}
+```
+
+#### 2. Add OAuth Credentials to SDK
+
+For both the mobile & JavaScript SDKs, you will need to add your client credentials to a configuration file. The client application will need the client credentials that you just generated when creating new customers. Without these credentials, calls to `POST /v1/orgs/:orgSlug/customers` will fail.
+
+If you are creating a mobile application, you will need to include **both** the client ID and secret in your configuration file. If you are creating a web application, you **only should include your client ID**.
+
+*Specific implementation details coming soon*
+
+#### 3. Create a customer
+
+You have now moved from the one-time configuration steps to a process that will occur for each new customer that uses your web or mobile app. As mentioned earlier in this section, much of what will be discussed in the next four steps will be magically handled by the Particle SDKs, with no custom code needed from you. 
+
+After navigating to your application, one of the first things your customer will need to do is create an account. Because you are not running your own web server, the customer will be created in the Particle system. They will provide a username and password in the form, that will serve as their login credentials to the app.
+
+Specifically, the SDK will grab the customer's username and password, and hit the `POST /v1/orgs/:orgSlug/customers` API endpoint, passing along the customer's credentials *as well as* the OAuth client credentials you added to the config file in the previous step.
+
+![creating a customer](/assets/images/create_customers.png)
+<p class="caption">The create customer endpoint requires your OAuth client credentials,</br> and returns an access token for the newly created customer</p>
+
+For a mobile app, the SDK will require both the client ID and the secret to successfully authenticate. For a web app, the endpoint will only pass the client ID.
+
+The `POST` customers endpoint both creates the customer as well as logs them in. As a result, an access token will be available to your application after successful customer creation. Remember that it is this access token that will allow the app to do things like claim the device, and interact with it.
+
+*Specific implementation details coming soon*
+
+#### 4. Create Claim Code & Send to Device
+
+This step actually comprises a lot of things that happen behind the scenes, but has been combined for simplicity and ease of communication. A **claim code** is what is used to associate a device with a person. In your case, the claim code will associate a device with a customer.
+
+In order for a device to be setup successfully, your application must retrieve a claim code on behalf of the customer setting up their device and send that claim code to the device. When the device receives proper Wi-Fi credentials and is able to connect to the Internet, it sends the claim code to the Particle cloud. The Particle cloud then links the device to the customer, and grants the customer access over that device.
+
+The first thing that must happen is retreiving a claim code from the Particle cloud for the customer. A special endpoint exists for organizations to use to generate claim codes on behalf of their customers. 
+
+This endpoint is `POST /v1/orgs/:orgSlug/products/:productSlug/device_claims`. The customer's access token is required, and is used to generate a claim code that will allow for the link between the device and the customer.
+
+Once your mobile/web app has a claim code, it then must then send it to the device.
+
+![Claim codes](/assets/images/claim-code-setup.png)
+<p class="caption">Your app will use the customer access token to generate a device claim code and send it to the device</p>
+
+This happens by connecting the customer's device to the *device's Wi-Fi access point*. When the photon is in [listening mode](/guide/getting-started/modes/core/#listening-mode), it is broadcasting a Wi-Fi network that the customer's computer or phone can connect to.
+
+Once the customer's device is connected to the Particle device's network, your mobile app then will send the claim code generated in the last step to the Particle device.
+
+Again, this will all be part of the boilerplate code of the SDKs, meaning that you will not need to worry much about the nitty-gritty details about how this works.
+
+*Specific implementation details coming soon*
+
+#### 5. Connect device to Wi-Fi
+
+Now that your app is connected directly to the customer's Particle-powered device, it can provide the device with Wi-Fi credentials to allow it to connect to the Internet.
+
+![Connect to Wi-Fi](/assets/images/connect-to-wifi-setup.png)
+<p class="caption">Your app will send the customer's device Wi-Fi credentials</p>
+
+Through your mobile or web app, your customer will choose from a list of available Wi-Fi networks, and provide a password (if necessary) to be able to connect. The app sends these credentials to the device. Once received, the device resets and uses these credentials to connect to the Internet.
+
+*Specific implementation details coming soon*
+
+#### 6. Associate device with customer
+
+![Associating a device to a customer](/assets/images/device-customer-link.png)
+<p class="caption">The device sends the claim code to the cloud, which is used to link the device to the customer</p>
+
+The device uses the Wi-Fi credentials to connect to the Internet, and immediately sends the claim code to the Particle cloud. At that point, the device is considered "claimed" by the customer. This means that any access token generated by that customer can be used to read data from or interact with the device.
+
+#### 7. Interact with Customer's Device
+
+Congratulations! You've now successfully created a customer, gotten the device online, and tied the device to the new customer. You have everything you need to make your product's magic happen.
+
+![Interact with your customer's device](/assets/images/interact-with-device.png)
+<p class="caption">Use your customer's access token to call functions, check variables, and more!</p>
+
+Your application, armed with the customer's access token, can now successfully authenticate with any device-specific Particle API endpoint, giving it full access and control over the device. Some of the things you can do include:
+* Call functions on the device
+* Read variable values from the device
+* See if the device is online or not
+* Much more!
+
+Note that now, your app will never communicate directly to the device. The customer will trigger a call to the Particle API, which then communicates with the device to carry out the desired action. 
 
 ## Two-Legged Authentication
+*(Coming Soon)*
 
 ## Login with Particle
 *(Coming Soon)*
