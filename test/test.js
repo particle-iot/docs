@@ -2,6 +2,7 @@ var should = require("should");
 var metalsmith = require('../scripts/metalsmith.js');
 var Crawler = require('crawler');
 var url = require('url');
+var util = require('util');
 
 describe('Tests', function(){
   it('should run', function(){
@@ -53,15 +54,23 @@ describe('Crawler', function() {
         }
     });
     function crawlCallback(fromUrl, toUrl, content, error, result, $) {
+      var isRelative = toUrl.indexOf('http') === -1;
+      var isLocalhost = toUrl.indexOf('localhost') > 0;
+      var isExternal = !(isRelative || isLocalhost);
       // allow 429 for now
       if (error || (result.statusCode !== 200 && result.statusCode !== 429)) {
-        console.error('%s ON %s CONTENT %s LINKS TO %s', error || result.statusCode, fromUrl, content, toUrl);
+        var msg = util.format('%s ON %s CONTENT %s LINKS TO %s', error || result.statusCode, fromUrl, content, toUrl);
+        if (isExternal && Math.floor(result.statusCode / 100) === 5) {
+          // allow 5XX status codes on external links
+          console.log('WARN: ' + msg);
+          return;
+        }
+        console.error('ERROR: ' + msg);
         errors++;
         return;
       }
-      var isRelative = toUrl.indexOf('http') === -1;
-      var isLocalhost = toUrl.indexOf('localhost') > 0;
-      if ($ && result && (isRelative || isLocalhost)) {
+
+      if ($ && result && !isExternal) {
         $('a').each(function(index, a) {
           var toQueueUrl = $(a).attr('href');
           var linkContent = $(a).text();

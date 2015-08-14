@@ -239,7 +239,7 @@ This is a FT2232H based JTAG programmer shield that is compatible with OpenOCD a
 
 ![Programmer Shield Dimensions](/assets/images/shields/prog-shield/prog-shield-dimensions.png)
 
-# Power Shield
+## Power Shield
 
 The Power Shield, as the name implies, allows the Particle device to be powered from different types of power sources. The shield has an intelligent battery charger and power management unit along with a wide input voltage regulator and an I2C based fuel-gauge. You can power a Particle device with either a USB plug or a DC supply of anywhere from 7 to 20VDC and charge a 3.7V LiPo battery all at the same time.
 
@@ -291,24 +291,79 @@ The Internet Button is not only an easy way to get started on the Internet of Th
 
 ## Photon Kit
 
-### 1. Photoresistor (1)
+### Photoresistor (1)
 ![LDR](/assets/images/mk-ldr.jpg)
 
 A photo resistor is a light dependent resistor whose resistance decreases with the increase in the intensity of light striking it. You can use it to detect the ambient light in the surrounding, detect shadows or use it as a part of a burglar alarm system. One photoresistor comes in your Photon Kit.
 
-### 2. LED (1)
+### LED (1)
 ![LEDs](/assets/images/mk-led-3mm.jpg)
 
 This general purpose 3mm red LED is great for getting started with your Photon. You can never have enough of them!
 
-### 3. Resistors (2)
+### Resistors (2)
 ![Resistors](/assets/images/mk-1k-resistor.jpg)
 
 You get two 220-Ohm resistors in your Photon Kit. They are rated at 5%, 1/4 Watt.
 
+
+
 ## Photon Maker Kit Contents
 
-### 1. Ceramic Capacitors (10 each)
+![Photon Maker Kit](/assets/images/maker-kit-photon.jpg)
+
+### Photon with Headers (1)
+
+![Photon with Headers](/assets/images/photon-loose-top.jpg)
+
+### USB Micro B Cable (1)
+
+![USB Cable](/assets/images/usb-cable.jpg)
+
+A custom Particle USB cable for you Core! We were really excited to have our logo printed on them.
+
+### Flex antenna (1)
+
+![Flex Antenna](/assets/images/flex-antenna.jpg)
+
+### Mini Breadboard (1)
+
+![Photon in Breadboard](/assets/images/photon-in-breadboard.jpg)
+
+<p class="caption">This breadboard is pictured with a Photon in it.</p>
+
+### Proto-board (1)
+
+![PCB](/assets/images/mk-pcb.jpg)
+
+This is a 7" x 9" general purpose dot-matrix prototyping PCB.
+
+### Deluxe Jumper Wire Pack (1)
+
+![Jumper Cables](/assets/images/mk-jumper-cables.jpg)
+
+Multi-colored and stripped. You can never have enough of these either.
+
+### Male to Female Jumper Wires (10)
+
+![Jumper Wires](/assets/images/mk-mf-jumper.jpg)
+
+### Battery holder - 4xAA (1)
+
+![Battery Holder](/assets/images/mk-battery-holder.jpg)
+
+
+### Headers (7)
+
+![Headers](/assets/images/mk-header-male.jpg)
+
+These are standard 0.1" pitch headers that can be cut to size. Very handy when building circuits on breadboard or PCBs alike.
+
+- 12-Pin Female Headers (5)
+- 40-Pin Male Breakaway Headers (2)
+
+
+### Ceramic Capacitors (10 each)
 
 ![Ceramic Capacitors](/assets/images/mk-ceramic-capacitor-10nF.jpg)
 
@@ -319,7 +374,7 @@ These are standard [ceramic capacitors.](http://en.wikipedia.org/wiki/Ceramic_ca
 
 *Note:* These are non-polar capacitors which means they can be oriented both ways.
 
-### 2. Electrolytic Capacitor 100uF (5)
+### Electrolytic Capacitor 100uF (5)
 
 ![Electrolytic Capacitors](/assets/images/mk-electrolytic-capacitor.jpg)
 
@@ -327,26 +382,8 @@ These are standard [ceramic capacitors.](http://en.wikipedia.org/wiki/Ceramic_ca
 
 *Note:* These are polar capacitors. The longer lead denotes positive while the shorter one denotes negative. These are also know to "pop" when subjected to voltages higher than their ratings.
 
-### 3. Headers
 
-![Headers](/assets/images/mk-header-male.jpg)
-
-These are standard 0.1" pitch headers that can be cut to size. Very handy when building circuits on breadboard or PCBs alike.
-
-- 12-Pin Female Headers (5)
-- 40-Pin Male Breakaway Headers (2)
-
-### 4. NPN Transistor (1)
-
-![NPN Transistor](/assets/images/mk-npn-transistor.jpg)
-
-S9013 is a general purpose small signal NPN [transistor](http://en.wikipedia.org/wiki/Transistor) rated at 40V, 500mA.
-
-You can use this transistor to switch small loads like relays, mini motors, buzzers, etc.
-
-[Datasheet >](https://www.fairchildsemi.com/datasheets/SS/SS9013.pdf)
-
-### 5. LEDs
+### LEDs (10)
 
 ![LEDs](/assets/images/mk-led-3mm.jpg)
 
@@ -357,7 +394,7 @@ These are general purpose 3mm LEDs. You can never have enough of them! Use a res
 
 *Note:* The longer lead is positive (anode) while the shorter one is negative (cathode).
 
-### 6. RGB LED (1)
+### RGB LED (1)
 
 ![RGB LED](/assets/images/mk-rgb-led.jpg)
 
@@ -367,7 +404,7 @@ This LED has four pins, one for each color and a common anode (+) pin.
 
 [Datasheet >](/assets/datasheets/makerkit/rgb-led.pdf)
 
-### 7. Diode (6)
+### Diode (6)
 
 ![Diode](/assets/images/mk-diode.jpg)
 
@@ -375,7 +412,125 @@ This LED has four pins, one for each color and a common anode (+) pin.
 
 [Datasheet >](http://www.diodes.com/datasheets/ds28002.pdf)
 
-### 8. Micro Servo (1)
+### IR LED (1)
+
+![IR LED](/assets/images/mk-ir-led.jpg)
+
+You can take control of your television, air-conditioner or any other IR remote controlled devices with this IR LED. Simply connect it to the Particle device with a series 220 ohm resistor, use the appropriate IR code library, and control things over the Internet!
+
+**Specifications:**
+- Continuous forward current: 100mA (1A peak)
+- Power dissipation: 150mW
+- Peak wavelength: 940nm
+- View angle: 20 deg
+
+[Datasheet >](/assets/datasheets/makerkit/ir333-a.pdf)
+
+
+### Resistors (30)
+
+![Resistors](/assets/images/mk-1k-resistor.jpg)
+
+There are three different value resistor in this kit. All of them are rated at 5%, 1/4 Watt.
+
+- 220-Ohm (10)
+- 1K-Ohm (10)
+- 10K-Ohm (10)
+
+You can use this [online guide](http://www.digikey.com/en/resources/conversion-calculators/conversion-calculator-resistor-color-code-4-band) to help identify which resistor is which value.
+
+### Photoresistors (2)
+
+![LDR](/assets/images/mk-ldr.jpg)
+
+A photo resistor is a light dependent resistor whose resistance decreases with the increase in the intensity of light striking it. You can use it to detect the ambient light in the surrounding, detect shadows or use it as a part of a burglar alarm system.
+
+[Datasheet >](/assets/datasheets/makerkit/photoresistor.pdf)
+
+### 10K Rotary Potentiometer (1)
+[Datasheet >](/assets/datasheets/makerkit/10k-pot.pdf)
+
+
+### Temperature Sensor (1)
+
+![Unsealed Temp Sensor](/assets/images/mk-temperature-unsealed.jpg)
+
+The DS18B20 is an easy to use one wire digital thermometer with upto 12-bit measuring resolution.
+
+- Supply Voltage: 3.0V to 5.5V DC
+- Current consumption: 4mA max
+- Measuring temperature range: -55°C to +125°C
+- Accuracy: ±0.5°C (from -10°C to +85°C)
+- Package: TO-92
+
+[Datasheet >](/assets/datasheets/makerkit/DS18B20.pdf)
+
+
+### Temperature Sensor - Sealed (1)
+
+![Sealed Temp Sensor](/assets/images/mk-temperature-sealed.jpg)
+
+This is the sealed, water proof version of the DS18B20 temperature sensor with wires.
+
+
+### Piezo Buzzer (1)
+
+![Buzzer](/assets/images/mk-buzzer.jpg)
+
+Add an audible feedback to your project with this buzzer. The longer lead is positive and the shorter is negative. You will need a transistor to drive it.
+
+*Note:* The sound gets annoying after a while. Use it sparingly!
+
+- Operating Voltage: 4.0 to 7.0 V DC
+- Oscillation Frequency: 2.3KHz
+- Current: 30mA
+- Sound Pressure: 85dB
+
+[Datasheet >](/assets/datasheets/makerkit/buzzer.pdf)
+
+### Mini Pushbuttons (3)
+
+![Push Buttons](/assets/images/mk-mini-pushbutton.jpg)
+
+These are nifty little switches that plug nicely into a breadboard or a proto-board. They are normally-open type and are rated at 12V, 50mA.
+
+### SPDT Switch (2)
+
+![SPDT Switch](/assets/images/mk-spdt-switch.jpg)
+
+[Datasheet >](/assets/datasheets/makerkit/spdt-switch.pdf)
+
+### SPDT Relay (1)
+
+![SPDT Relay](/assets/images/mk-spdt-relay.jpg)
+
+[Datasheet >](/assets/datasheets/makerkit/spdt-relay.pdf)
+
+### NPN Transistor (1)
+
+![NPN Transistor](/assets/images/mk-npn-transistor.jpg)
+
+S9013 is a general purpose small signal NPN [transistor](http://en.wikipedia.org/wiki/Transistor) rated at 40V, 500mA.
+
+You can use this transistor to switch small loads like relays, mini motors, buzzers, etc.
+
+[Datasheet >](https://www.fairchildsemi.com/datasheets/SS/SS9013.pdf)
+
+### PIR sensor (1)
+
+![PIR](/assets/images/mk-pir.jpg)
+
+[Datasheet >](/assets/datasheets/makerkit/pir-sensor.pdf)
+
+### Pancake Vibration Motor (1)
+
+![Pancake Motor](/assets/images/mk-vibration.jpg)
+
+Wanna give your next Particle device project a tactile feedback? This vibration motor serves the purpose nicely. Use the NPN transistor to switch it.
+
+[Datasheet >](/assets/datasheets/makerkit/pancake-motor.pdf)
+
+### Micro Servo (1)
 
 ![RC Servo](/assets/images/mk-micro-rc-servo.jpg)
 
@@ -394,82 +549,11 @@ Wiring:
 
 Note: The Ground pin may vary as Brown or Black, +5V pin may vary as Orange or Red and Signal pin may vary as Yellow or White and sometimes Orange if there is already a Red and Black wire.
 
-### 9. Deluxe Jumper Wire Pack (1)
-
-![Jumper Cables](/assets/images/mk-jumper-cables.jpg)
-
-Multi-colored and stripped. You can never have enough of these either.
-
-### 10. USB Micro B Cable (1)
-A custom Particle USB cable for you Core! We were really excited to have our logo printed on them.
-
-### 11. Pancake Vibration Motor (1)
-
-![Vibration Motor](/assets/images/mk-vibration-motor.jpg)
-
-Wanna give your next Particle device project a tactile feedback? This vibration motor serves the purpose nicely. Use the NPN transistor to switch it.
-
-[Datasheet >](/assets/datasheets/makerkit/pancake-motor.pdf)
-
-### 12. Piezo Buzzer (1)
-
-![Buzzer](/assets/images/mk-buzzer.jpg)
-
-Add an audible feedback to your project with this buzzer. The longer lead is positive and the shorter is negative. You will need a transistor to drive it.
-
-*Note:* The sound gets annoying after a while. Use it sparingly!
-
-- Operating Voltage: 4.0 to 7.0 V DC
-- Oscillation Frequency: 2.3KHz
-- Current: 30mA
-- Sound Pressure: 85dB
-
-[Datasheet >](/assets/datasheets/makerkit/buzzer.pdf)
-
-### 13. Mini Pushbuttons (3)
-
-![Push Buttons](/assets/images/mk-mini-pushbutton.jpg)
-
-These are nifty little switches that plug nicely into a breadboard or a proto-board. They are normally-open type and are rated at 12V, 50mA.
-
-### 14. Photoresistors (2)
-
-![LDR](/assets/images/mk-ldr.jpg)
-
-A photo resistor is a light dependent resistor whose resistance decreases with the increase in the intensity of light striking it. You can use it to detect the ambient light in the surrounding, detect shadows or use it as a part of a burglar alarm system.
-
-[Datasheet >](/assets/datasheets/makerkit/photoresistor.pdf)
-
-### 15. Resistors
-
-![Resistors](/assets/images/mk-1k-resistor.jpg)
-
-There are three different value resistor in this kit. All of them are rated at 5%, 1/4 Watt.
-
-- 220-Ohm (10)
-- 1K-Ohm (10)
-- 10K-Ohm (10)
-
-You can use this [online guide](http://www.digikey.com/en/resources/conversion-calculators/conversion-calculator-resistor-color-code-4-band) to help identify which resistor is which value.
-
-### 16. Proto-board (1)
-
-![PCB](/assets/images/mk-pcb.jpg)
-
-This is a 7" x 9" general purpose dot-matrix prototyping PCB.
-
-### 17. IR LED (1)
-You can take control of your television, air-conditioner or any other IR remote controlled devices with this IR LED. Simply connect it to the Particle device with a series 220 ohm resistor, use the appropriate IR code library, and control things over the Internet!
-
-**Specifications:**
-- Continuous forward current: 100mA (1A peak)
-- Power dissipation: 150mW
-- Peak wavelength: 940nm
-- View angle: 20 deg
-
-[Datasheet >](/assets/datasheets/makerkit/ir333-a.pdf)
 
 ### Serial OLED Screen,0.96"(1)
+
+![OLED](/assets/images/mk-oled.jpg)
+
 This is a 128x64 pixel graphic OLED screen that can be either controlled via the SPI (default) or I2C.
 
 **Specifications:**
@@ -479,41 +563,10 @@ This is a 128x64 pixel graphic OLED screen that can be either controlled via the
 
 [Datasheet >](/assets/datasheets/makerkit/oled.pdf)
 
-### Flex antenna (1)
 
-### Male to Female Jumper Wires (10)
 
-### Battery holder - 4xAA (1)
 
-### SPDT Switch (2)
-[Datasheet >](/assets/datasheets/makerkit/spdt-switch.pdf)
 
-### Temperature Sensor (1)
-The DS18B20 is an easy to use one wire digital thermometer with upto 12-bit measuring resolution.
-
-- Supply Voltage: 3.0V to 5.5V DC
-- Current consumption: 4mA max
-- Measuring temperature range: -55°C to +125°C
-- Accuracy: ±0.5°C (from -10°C to +85°C)
-- Package: TO-92
-
-[Datasheet >](/assets/datasheets/makerkit/DS18B20.pdf)
-
-### Temperature Sensor - Sealed (1)
-This is the sealed, water proof version of the DS18B20 temperature sensor with wires.
-
-### SPDT Relay (1)
-[Datasheet >](/assets/datasheets/makerkit/spdt-relay.pdf)
-
-### PIR sensor (1)
-[Datasheet >](/assets/datasheets/makerkit/pir-sensor.pdf)
-
-### 10K Rotary Potentiometer (1)
-[Datasheet >](/assets/datasheets/makerkit/10k-pot.pdf)
-
-### Mini Breadboard (1)
-
-### Photon with Headers (1)
 
 
 

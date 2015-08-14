@@ -16,7 +16,9 @@ order: 2
 {{/if}}
 {{#if core}}![](/assets/images/core-box.jpg){{/if}}
 
-Congratulations on being the owner of a brand new Particle Device! Go ahead and open the box. You can see the different [contents](/datasheets/kits) and check out their [hardware datasheets](/datasheets) if you like! Let's quickly go over what you see.
+Congratulations on being the owner of a brand new Particle Device! Go ahead and open the box. You can see the different [contents](/datasheets/kits) and check out their [hardware datasheets](/datasheets) if you like! If you have an Internet Button, read through this section to get started and connect your device, then hop over to the [Internet Button Guide](/guide/getting-started/button) for more detailed info.
+
+Let's quickly go over what you see.
 
 ### What's on it?
 
@@ -26,7 +28,7 @@ Congratulations on being the owner of a brand new Particle Device! Go ahead and 
 {{#if photon}}{{{popup '**The Microcontroller.**' 'img' 'photon-module.jpg'}}}{{/if}}{{#if core}}{{{popup '**The Microcontroller.**' 'img' 'core-stm32.jpg'}}}{{/if}} The microcontroller is the brain of your device. It runs your software and tells your prototype what to do. Unlike your computer, it can only run one application (often called *firmware* or an *embedded application*). This application can be simple (just a few lines of code), or very complex, depending on what you want to do. The microcontroller interacts with the outside world using pins.
 
 
-{{#if photon}}{{{popup '**The Pins.**' 'img' 'photon-pinout.png'}}}{{/if}} {{#if core}} **The Pins.** {{/if}} Pins are the input and output parts of the microcontroller that are exposed on the sides of your device. GPIO pins can be hooked to sensors or buttons to listen to the world, or they can be hooked to lights and buzzers to act upon the world. There are also pins to allow you to power your device, or power motors and outputs outside of your device. There are pins for Serial/UART communication, and a pin for resetting your device.
+{{#if photon}}{{{popup '**The Pins.**' 'img' 'photon-pinout.png'}}}{{/if}} {{#if core}} {{{popup '**The Pins.**' 'img' 'core-pinout.png'}}} {{/if}} Pins are the input and output parts of the microcontroller that are exposed on the sides of your device. GPIO pins can be hooked to sensors or buttons to listen to the world, or they can be hooked to lights and buzzers to act upon the world. There are also pins to allow you to power your device, or power motors and outputs outside of your device. There are pins for Serial/UART communication, and a pin for resetting your device.
 
 {{#if photon}}
 {{{popup '**Buttons**' 'img' 'photon-buttons.jpg'}}} **and** {{{popup '**LEDs.**' 'img' 'photon-leds.jpg'}}} There are several awesome buttons and LEDs on your Photon to make it easier to use.
