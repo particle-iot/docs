@@ -62,12 +62,15 @@ exports.metalsmith = function() {
     .use(cleanCSS({
       files: '**/*.css'
     }))
-    .use(apidoc({
-      src: '../api-node/',
-      config: '../api-node/',
-      destFile: 'content/reference/api.md',
-      includeFilters: ['.*[vV]iews[^.]*\\.js$', 'lib/AccessTokenController.js']
-    }))
+    .use(msIf(
+      process.env.TRAVIS_PULL_REQUEST !== 'true',
+      apidoc({
+        src: '../api-node/',
+        config: '../api-node/',
+        destFile: 'content/reference/api.md',
+        includeFilters: ['.*[vV]iews[^.]*\\.js$', 'lib/AccessTokenController.js']
+      })
+    ))
     .use(partials({
       directory: '../templates/partials'
     }))
