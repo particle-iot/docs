@@ -1479,13 +1479,12 @@ SPI.transfer(val);
 ```
 Where the parameter `val`, can is the byte to send out over the SPI bus.
 
-Wire
+Wire (I2C)
 ----
 
 ![I2C](/assets/images/core-pin-i2c.jpg)
 
-This library allows you to communicate with I2C / TWI devices. On the Core/Photon, D0 is the Serial Data Line (SDA) and D1 is the Serial Clock (SCL). Both of these pins runs at 3.3V logic but are tolerant to 5V.
-Connect a pull-up resistor(1.5K to 10K) on SDA line. Connect a pull-up resistor(1.5K to 10K) on SCL line.
+This library allows you to communicate with I2C / TWI devices. On the Core/Photon, D0 is the Serial Data Line (SDA) and D1 is the Serial Clock (SCL). Both of these pins runs at 3.3V logic but are tolerant to 5V. Connect a pull-up resistor(1.5k to 10k) on SDA line. Connect a pull-up resistor(1.5k to 10k) on SCL line.
 
 ### setSpeed()
 
@@ -1499,7 +1498,7 @@ Wire.begin();
 
 Parameters:
 
-- `clockSpeed`: CLOCK_SPEED_100KHZ, CLOCK_SPEED_400KHZ or user specified speeds.
+- `clockSpeed`: CLOCK_SPEED_100KHZ, CLOCK_SPEED_400KHZ or a user specified speed in hertz (e.g. `Wire.setSpeed(20000)` for 20kHz)
 
 ### stretchClock()
 
@@ -1513,7 +1512,7 @@ Wire.begin();
 
 Parameters:
 
-- `stretch`: boolean. true will enable clock stretching. false will disable clock stretching.
+- `stretch`: boolean. `true` will enable clock stretching. `false` will disable clock stretching.
 
 
 ### begin()
@@ -1526,17 +1525,31 @@ Wire.begin();
 Wire.begin(address);
 ```
 
-Parameters: `address`: the 7-bit slave address (optional); if not specified, join the bus as a master.
+Parameters: `address`: the 7-bit slave address (optional); if not specified, join the bus as an I2C master.  If address is specified, join the bus as an I2C slave.
+
+### isEnabled()
+
+Used to check if the Wire library is enabled already.  Useful if using multiple slave devices on the same I2C bus.  Check if enabled before calling Wire.begin() again.
+
+```C++
+// SYNTAX
+Wire.isEnabled();
+```
+
+Returns: boolean `true` if I2C enabled, `false` if I2C disabled.
+
+```C++
+// EXAMPLE USAGE
+
+// Initialize the I2C bus if not already enabled
+if ( !Wire.isEnabled() ) {
+    Wire.begin();
+}
+```
 
 ### requestFrom()
 
 Used by the master to request bytes from a slave device. The bytes may then be retrieved with the `available()` and `read()` functions.
-
-If true, requestFrom() sends a stop message after the request, releasing the I2C bus.
-
-If false, requestFrom() sends a restart message after the request. The bus will not be released, which prevents another master device from requesting between messages. This allows one master device to send multiple requests while in control.
-
-The default value is true.
 
 ```C++
 // SYNTAX
@@ -1547,10 +1560,10 @@ Wire.requestFrom(address, quantity, stop) ;
 Parameters:
 
 - `address`: the 7-bit address of the device to request bytes from
-- `quantity`: the number of bytes to request
-- `stop`: boolean. true will send a stop message after the request, releasing the bus. false will continually send a restart after the request, keeping the connection active.
+- `quantity`: the number of bytes to request (Max. 32)
+- `stop`: boolean. `true` will send a stop message after the request, releasing the bus. `false` will continually send a restart after the request, keeping the connection active. The bus will not be released, which prevents another master device from transmitting between messages. This allows one master device to send multiple transmissions while in control.  If no argument is specified, the default value is `true`.
 
-Returns: `byte` : the number of bytes returned from the slave device.
+Returns: `byte` : the number of bytes returned from the slave device.  If a timeout occurs, will return `0`.
 
 ### beginTransmission()
 
@@ -1567,31 +1580,28 @@ Parameters: `address`: the 7-bit address of the device to transmit to.
 
 Ends a transmission to a slave device that was begun by `beginTransmission()` and transmits the bytes that were queued by `write()`.
 
-If true, `endTransmission()` sends a stop message after transmission, releasing the I2C bus.
-
-If false, `endTransmission()` sends a restart message after transmission. The bus will not be released, which prevents another master device from transmitting between messages. This allows one master device to send multiple transmissions while in control.
-
-The default value is true.
 
 ```C++
+// SYNTAX
 Wire.endTransmission();
 Wire.endTransmission(stop);
 ```
 
 Parameters: `stop` : boolean.
-`true` will send a stop message, releasing the bus after transmission. `false` will send a restart, keeping the connection active.
+`true` will send a stop message after the last byte, releasing the bus after transmission. `false` will send a restart, keeping the connection active. The bus will not be released, which prevents another master device from transmitting between messages. This allows one master device to send multiple transmissions while in control.  If no argument is specified, the default value is `true`.
 
 Returns: `byte`, which indicates the status of the transmission:
 
 - 0: success
-- 1: data too long to fit in transmit buffer
-- 2: received NACK on transmit of address
-- 3: received NACK on transmit of data
-- 4: other error
+- 1: busy timeout upon entering endTransmission()
+- 2: START bit generation timeout
+- 3: end of address transmission timeout
+- 4: data byte transfer timeout
+- 5: data byte transfer succeeded, busy timeout immediately after
 
 ### write()
 
-Writes data from a slave device in response to a request from a master, or queues bytes for transmission from a master to slave device (in-between calls to `beginTransmission()` and `endTransmission()`).
+Writes data from a slave device in response to a request from a master, or queues bytes for transmission from a master to slave device (in-between calls to `beginTransmission()` and `endTransmission()`). Buffer size is truncated to 32 bytes; writing bytes beyond 32 before calling endTransmission() will be ignored.
 
 ```C++
 // SYNTAX
@@ -1604,7 +1614,7 @@ Parameters:
 - `value`: a value to send as a single byte
 - `string`: a string to send as a series of bytes
 - `data`: an array of data to send as bytes
-- `length`: the number of bytes to transmit
+- `length`: the number of bytes to transmit (Max. 32)
 
 Returns:  `byte`
 
@@ -1679,6 +1689,17 @@ void loop()
   delay(500);
 }
 ```
+
+### peek()
+
+Similar in use to read(). Reads (but does not remove from the buffer) a byte that was transmitted from a slave device to a master after a call to `requestFrom()` or was transmitted from a master to a slave. `read()` inherits from the `Stream` utility class. Useful for peeking at the next byte to be read.
+
+```C++
+// SYNTAX
+Wire.peek();
+```
+
+Returns: The next byte received (without removing it from the buffer)
 
 ### onReceive()
 
