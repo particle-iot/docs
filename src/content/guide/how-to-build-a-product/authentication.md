@@ -190,7 +190,126 @@ envision your customers interacting with their connected product.
 
 ## Simple Authentication
 
+As the title suggests, Simple Authentication is the simplest and most straightforward to implement.
+This is because in this method, your application will not have its own
+server/back-end architecture. Instead, your web or mobile app will hit
+the Particle API directly for both session management and device
+interactions. Below is a diagram communicating how simple authentication
+works at a high level:
+
+![Simple authentication with Particle](/assets/images/simple-auth-high-level.png)
+<p class="caption">Your application interacts directly with the Particle
+API using Simple Authentication</p>
+
+Let's take a simple example. Imagine you are the creator of a smart
+lightbulb that can be controlled via a smartphone app. The *customer*,
+or the end-user of the product, uses the mobile app to create an
+account. Behind the scenes, your mobile app hits the Particle API
+directly to create a customer. Then the customer goes through the setup
+process and links their device to their customer account. Again, your
+mobile app uses the Particle API to successfully claim the device to the customer
+account. After the device is setup, the customer can toggle a light on
+and off with the mobile app. This works as your app is able to call
+functions on the customers device using the customer's access token.
+
+All of this is able to happen without the need to have your own server.
+All communiation flows from the mobile client to the Particle cloud,
+then down to the customer's device.
+
+### Advantages of Simple Auth
+
+Simple auth is ideal for getting a Particle product working quickly and
+efficiently. With the lack of your own back-end, development time to
+creating an app to work with a Particle device is shortened. In
+addition, Particle's [mobile SDKs](/reference/ios/) and [JavaScript
+SDK](/reference/javascript/) will handle much of
+the heavy lifting for you when it comes to session management and device
+interaction. In short, simple auth is...simple.
+
+Another advantage of simple authentication is the ability to hide
+Particle from your customers. The SDKs allow for [front-end skinning and
+customization](/reference/ios/#customization) that will allow you to
+create your own brand experience for customers of your app. All
+interaction with Particle will happen behind the scenes, hidden from
+your customers (unless they are tech savvy enough to monitor the network
+traffic to and from your app).
+
+### Disadvantages of Simple Auth
+
+Without your own server, you lose some level of control
+and customization over your application. For instance, if you wanted to
+store custom information about your customer specific to your
+application like their name or their favorite pizza topping, this would
+not be possible currently with simple auth.
+
+In addition, using simple auth would make it more difficult to capture
+and use historical data about devices and customers. With your own
+server and database, you could store data about what time a customer
+turns on their lights, for example. Using simple auth, this would not be
+possible.
+
+### Simple Auth Implementation
+
+If you choose to go with simple authentication for your web or mobile
+application, you should get to know the diagram below very well. While a
+majority of the steps are wrapped by the mobile and JavaScript SDKs, it is still
+important to grasp how customer authentication, device setup, and device
+interaction work.
+
+Each one of the steps will be covered in detail below. Note that the first two
+steps are a one-time configuration process, whereas product setup will occur for
+each new customer that sets up a device.
+
+![Simple Auth Flow](/assets/images/simple-auth-visual-vertical.png)
+<p class="caption">The full authorization flow. <a href="/assets/images/simple-auth-visual-vertical.png" target="_blank">See here</a> for full size diagram</p>
+
+#### 1. Creating OAuth Client Credentials
+
+The first thing you will need to do is ensure that you have created proper OAuth
+client credentials for your organization. In simple authentication,
+communication will be direct from a client application (web or mobile app) to
+the Particle API. This is much less secure than server to server communication.
+As a result, you will create *scoped* client credentials that will be able to do
+one thing and one thing only: **create new customers for your organization**.
+
+You will create your OAuth client using the Particle dashboard *(Coming soon)*.
+
+For now, you will need to use a cURL request to hit the API from your command
+line to create the client. Creating OAuth clients was introduced
+[earlier](#creating-an-oauth-client), but this section will give you specific
+instructions on how to create clients specific for simple authentication.
+
+If you are building a **mobile app** for your Particle product, the cURL command to
+create your client should look like this:
+
+```bash
+curl -d name=MyApp -d type=installed -d organization=my-org -d
+scope=create_customer -d access_token=1234 https://api.particle.io/v1/clients
+```
+Breaking this down:
+* `name` is the name of your OAuth client. Call this whatever you want, like SpunkyDonut!
+* `type` should be set to `installed`. This means that this client is installed natively on a device like a mobile phone or tablet.
+* `organization` should be set to your organization's **slug**. See [above](#creating-an-oauth-client) for how to find your slug.
+* `scope` <span class="red">**MUST BE SET TO `create_customer`**! Omitting this scope is a serious security vulnerability for your product.</span>
+* `access_token` is *your Particle user's* token. This user must be a team member of the organization that you are creating the client for.
+
+If you are building a **web app** instead, the cURL command will look different:
+
+```bash
+curl -d name=MyApp -d type=web -d redirect_uri=http://www.particle.io/setup -d organization=my-org -d scope=create_customer -d access_token=1234 https://api.particle.io/v1/clients
+```
+
+Examining what's different, you'll find:
+* `type` is now set to `web`. This is because your client will be running in a web browser
+* `redirect_uri` is now set as an argument. When creating a `web` client type, you must include a `redirect_uri`. This should be set to the URL of the first page of device setup for your product. The redirect will be triggered once a customer is created successfully, and the next step in the process is setting up their device.
+
+[Reference documentation on creating OAuth
+clients](/reference/api/#create-an-oauth-client).
+
+
+
 ## Two-Legged Authentication
 
 ## Login with Particle
+*(Coming Soon)*
 
