@@ -63,7 +63,7 @@ exports.metalsmith = function() {
       files: '**/*.css'
     }))
     .use(msIf(
-      process.env.TRAVIS_PULL_REQUEST !== 'true',
+      (!process.env.TRAVIS_PULL_REQUEST || process.env.TRAVIS_PULL_REQUEST === 'false'),
       apidoc({
         src: '../api-node/',
         config: '../api-node/',
