@@ -149,6 +149,8 @@ make sure that the user who created the access token is the owner of the
 device included in the request, and will only continue if the token has
 the proper permissions to call the function.
 
+For security purposes, most access tokens will expire after 90 days. Certain access tokens can be specifically set to *never expire*, like the one you can find in the settings pane of `build.particle.io`.
+
 ### Customer access tokens
 
 Similarly, *your customers* will have access tokens that provide
@@ -272,7 +274,10 @@ the Particle API. This is much less secure than server to server communication.
 As a result, you will create *scoped* client credentials that will be able to do
 one thing and one thing only: **create new customers for your organization**.
 
-You will create your OAuth client using the Particle dashboard *(Coming soon)*.
+You will create your OAuth client using the Particle dashboard *(Coming Soon)*.
+
+![Creating OAuth Clients via the Particle Dashboard](/assets/images/creating-oauth-clients.png)
+<p class="caption">You can use the Particle Dashboard to create OAuth clients <em>(Coming Soon)</em></p>
 
 For now, you will need to use a cURL request to hit the API from your command
 line to create the client. Creating OAuth clients was introduced
@@ -323,6 +328,9 @@ With either request, you will receive an OAuth client ID and secret back in the 
 #### 2. Add OAuth Credentials to SDK
 
 For both the mobile & JavaScript SDKs, you will need to add your client credentials to a configuration file. The client application will need the client credentials that you just generated when creating new customers. Without these credentials, calls to `POST /v1/orgs/:orgSlug/customers` will fail.
+
+![Adding OAuth credentials to your app](/assets/images/adding-oauth-credentials.png)
+<p class="caption">You will need to add your OAuth credentials to your web or mobile application</p>
 
 If you are creating a mobile application, you will need to include **both** the client ID and secret in your configuration file. If you are creating a web application, you **only should include your client ID**.
 
@@ -399,7 +407,13 @@ Your application, armed with the customer's access token, can now successfully a
 * See if the device is online or not
 * Much more!
 
-Note that now, your app will never communicate directly to the device. The customer will trigger a call to the Particle API, which then communicates with the device to carry out the desired action. 
+Note that now, your app will never communicate directly to the device. The customer will trigger a call to the Particle API, which then communicates with the device to carry out the desired action.
+
+#### Further Considerations
+
+Signup and device claiming only will happen one time for each customer. After this has been completed, subsequent visits to your application will continue to use customer access tokens to interact with the device via the Particle API.
+
+If a customer's access token expires, the customer will be asked to log in again, generating a fresh access token to interact with the device. 
 
 ## Two-Legged Authentication
 *(Coming Soon)*
