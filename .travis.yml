@@ -9,7 +9,7 @@ cache:
   - node_modules
 before_install:
 - echo -e "machine github.com\n  login $CI_USER_TOKEN" >> ~/.netrc
-- '[ "${TRAVIS_PULL_REQUEST}" = "false" ] && git submodule update --init --recursive && cd api-node && git fetch && git merge origin/production && cd .. || false'
+- '[ "${TRAVIS_PULL_REQUEST}" = "false" ] && git submodule update --init --recursive && cd api-node && git fetch && git merge origin/production && cd .. || true'
 install:
 - npm install
 - npm prune
@@ -41,16 +41,4 @@ deploy:
     cache_control: "max-age=300"
     on:
       repo: spark/docs
-      branch: feature/authentication
-  - provider: s3
-    access_key_id: "AKIAJ5RMM3264VMARJQQ"
-    secret_access_key:
-      secure: "Yp3DejZxlSN6JP4IDqEJH5Sh+STcLx3d9fIeqVc6g64MnqDQ/moYHDxg/JO9wkt9pRQ98GPuF7B/KjMLHftU2GkKVLNasJf4CySx9n8OVsCZCo/7OlzLBmDP7PWj+liROaGMcm7OOWGvXNGF4gd6vDUtC2kboRosw3FucWtO+tgdRFea7efvkTqB8QHe0p1kBrTWHWWG55NzXokOOo2Sl+PUTxberPN8h8fraWWmcI5IQ7IHHckXEy9YRlSCUszJO9HLHXEHa8Q0oLsgv8MTamDBGgQkfHj+CBfiO/CDcNaOquYM2B+tFfqCaT+M8dYy/bONlQsA/78XG1qnsblqTwvn4/d+IPmRFMRkYF1cszuBxWwgVJ9iJem5C57hzYhsjLgfNBuoKdSIL1z1EuSbyvPmO3k6U3r4CaFoClI9dY3Y8XUTYKq5+6uUJnwoRJr7KCoCABIUG96tLpm5aKaoSxsMbttrD0h71egndffXB6es9OKFTkDwXZDg+v9eg0bRoT5Xpq7EEdqZk9unPHBY2bdISUlhdLU8x3IUSy0p3YZ+mqUjCf0j7YqRbFYeMphUdtUQHL7ejKUgy3FZ8guoUjNSV4ZNQfJe9HJ7wzZYtfwK/1vAs/pLdsXdgs6Xo4YZBYbVJpGW8QrjbXLVIDaqSDGIcPybko82rFo4jumDrLI="
-    bucket: docs-beta.particle.io
-    detect_encoding: true
-    skip_cleanup: true
-    local_dir: build
-    cache_control: "max-age=300"
-    on:
-      repo: spark/docs
-      branch: feature/metalsmith
+      branch: staging

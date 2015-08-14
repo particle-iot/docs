@@ -124,6 +124,8 @@ int brewCoffee(String command)
 }
 ```
 
+---
+
 The API request will be routed to the device and will run your brew function. The response will have a return_value key containing the integer returned by brew.
 
 ```json
@@ -136,6 +138,44 @@ curl https://api.particle.io/v1/devices/0123456789abcdef/brew \
      -d "args=coffee"
 ```
 
+---
+
+To expose a method on an object through the Cloud, use a C++ function wrapper.
+For more details, research `std::function`.
+
+```C++
+// EXAMPLE USAGE WITH C++ OBJECT
+
+class CoffeeMaker {
+  public:
+    int brew(String command);
+    void registerCloud();
+};
+
+int CoffeeMaker::brew(String command) {
+  // do stuff
+  return 1;
+}
+
+void CoffeeMaker::registerCloud() {
+  // create a function wrapper to call brew on this instance of CoffeeMaker
+  // auto tells the compiler to determine the function wrapper type automatically
+  // std::placeholders::_1 is necessary because brew takes 1 argument
+  auto brewHandler = std::bind(&CoffeeMaker::brew, this, std::placeholders::_1);
+
+  Spark.function("brew", brewHandler);
+}
+
+CoffeeMaker myCoffeeMaker;
+
+void setup() {
+  myCoffeeMaker.registerCloud();
+}
+
+void loop() {
+  // this loops forever
+}
+```
 
 ### Spark.publish()
 
@@ -601,7 +641,11 @@ It will return `false` when the device is not in listening mode.
 
 ### WiFi.setCredentials()
 
-Allows the user to set credentials for the Wi-Fi network from within the code. These credentials will be added to the device's memory, and the device will automatically attempt to connect to this network in the future.
+Allows the application to set credentials for the Wi-Fi network from within the code. These credentials will be added to the device's memory, and the device will automatically attempt to connect to this network in the future.
+
+Your device can remember more than one set of credentials:
+- Core: remembers the 7 most recently set credentials
+- Photon: remembers the 5 most recently set credentials
 
 ```cpp
 // Connects to an unsecured network.
@@ -1141,6 +1185,8 @@ To use the TX/RX (Serial1) or D1/D0 (Serial2) pins to communicate with your pers
 
 Sets the data rate in bits per second (baud) for serial data transmission. For communicating with the computer, use one of these rates: 300, 600, 1200, 2400, 4800, 9600, 14400, 19200, 28800, 38400, 57600, or 115200. You can, however, specify other rates - for example, to communicate over pins TX and RX with a component that requires a particular baud rate.
 
+**NOTE:** The data rate for the USB device `Serial` is ignored, as USB has its own negotiated speed. Setting speed to 9600 is safe for the USB device. Setting the port to 14400 baud will cause the Photon to go into DFU mode while 28800 will allow a YMODEM download of firmware. 
+
 ```C++
 // SYNTAX
 Serial.begin(speed);    // serial via USB port
@@ -1473,13 +1519,12 @@ SPI.transfer(val);
 ```
 Where the parameter `val`, can is the byte to send out over the SPI bus.
 
-Wire
+Wire (I2C)
 ----
 
 ![I2C](/assets/images/core-pin-i2c.jpg)
 
-This library allows you to communicate with I2C / TWI devices. On the Core/Photon, D0 is the Serial Data Line (SDA) and D1 is the Serial Clock (SCL). Both of these pins runs at 3.3V logic but are tolerant to 5V.
-Connect a pull-up resistor(1.5K to 10K) on SDA line. Connect a pull-up resistor(1.5K to 10K) on SCL line.
+This library allows you to communicate with I2C / TWI devices. On the Core/Photon, D0 is the Serial Data Line (SDA) and D1 is the Serial Clock (SCL). Both of these pins runs at 3.3V logic but are tolerant to 5V. Connect a pull-up resistor(1.5k to 10k) on SDA line. Connect a pull-up resistor(1.5k to 10k) on SCL line.
 
 ### setSpeed()
 
@@ -1493,7 +1538,7 @@ Wire.begin();
 
 Parameters:
 
-- `clockSpeed`: CLOCK_SPEED_100KHZ, CLOCK_SPEED_400KHZ or user specified speeds.
+- `clockSpeed`: CLOCK_SPEED_100KHZ, CLOCK_SPEED_400KHZ or a user specified speed in hertz (e.g. `Wire.setSpeed(20000)` for 20kHz)
 
 ### stretchClock()
 
@@ -1507,7 +1552,7 @@ Wire.begin();
 
 Parameters:
 
-- `stretch`: boolean. true will enable clock stretching. false will disable clock stretching.
+- `stretch`: boolean. `true` will enable clock stretching. `false` will disable clock stretching.
 
 
 ### begin()
@@ -1520,17 +1565,31 @@ Wire.begin();
 Wire.begin(address);
 ```
 
-Parameters: `address`: the 7-bit slave address (optional); if not specified, join the bus as a master.
+Parameters: `address`: the 7-bit slave address (optional); if not specified, join the bus as an I2C master.  If address is specified, join the bus as an I2C slave.
+
+### isEnabled()
+
+Used to check if the Wire library is enabled already.  Useful if using multiple slave devices on the same I2C bus.  Check if enabled before calling Wire.begin() again.
+
+```C++
+// SYNTAX
+Wire.isEnabled();
+```
+
+Returns: boolean `true` if I2C enabled, `false` if I2C disabled.
+
+```C++
+// EXAMPLE USAGE
+
+// Initialize the I2C bus if not already enabled
+if ( !Wire.isEnabled() ) {
+    Wire.begin();
+}
+```
 
 ### requestFrom()
 
 Used by the master to request bytes from a slave device. The bytes may then be retrieved with the `available()` and `read()` functions.
-
-If true, requestFrom() sends a stop message after the request, releasing the I2C bus.
-
-If false, requestFrom() sends a restart message after the request. The bus will not be released, which prevents another master device from requesting between messages. This allows one master device to send multiple requests while in control.
-
-The default value is true.
 
 ```C++
 // SYNTAX
@@ -1541,10 +1600,10 @@ Wire.requestFrom(address, quantity, stop) ;
 Parameters:
 
 - `address`: the 7-bit address of the device to request bytes from
-- `quantity`: the number of bytes to request
-- `stop`: boolean. true will send a stop message after the request, releasing the bus. false will continually send a restart after the request, keeping the connection active.
+- `quantity`: the number of bytes to request (Max. 32)
+- `stop`: boolean. `true` will send a stop message after the request, releasing the bus. `false` will continually send a restart after the request, keeping the connection active. The bus will not be released, which prevents another master device from transmitting between messages. This allows one master device to send multiple transmissions while in control.  If no argument is specified, the default value is `true`.
 
-Returns: `byte` : the number of bytes returned from the slave device.
+Returns: `byte` : the number of bytes returned from the slave device.  If a timeout occurs, will return `0`.
 
 ### beginTransmission()
 
@@ -1561,31 +1620,28 @@ Parameters: `address`: the 7-bit address of the device to transmit to.
 
 Ends a transmission to a slave device that was begun by `beginTransmission()` and transmits the bytes that were queued by `write()`.
 
-If true, `endTransmission()` sends a stop message after transmission, releasing the I2C bus.
-
-If false, `endTransmission()` sends a restart message after transmission. The bus will not be released, which prevents another master device from transmitting between messages. This allows one master device to send multiple transmissions while in control.
-
-The default value is true.
 
 ```C++
+// SYNTAX
 Wire.endTransmission();
 Wire.endTransmission(stop);
 ```
 
 Parameters: `stop` : boolean.
-`true` will send a stop message, releasing the bus after transmission. `false` will send a restart, keeping the connection active.
+`true` will send a stop message after the last byte, releasing the bus after transmission. `false` will send a restart, keeping the connection active. The bus will not be released, which prevents another master device from transmitting between messages. This allows one master device to send multiple transmissions while in control.  If no argument is specified, the default value is `true`.
 
 Returns: `byte`, which indicates the status of the transmission:
 
 - 0: success
-- 1: data too long to fit in transmit buffer
-- 2: received NACK on transmit of address
-- 3: received NACK on transmit of data
-- 4: other error
+- 1: busy timeout upon entering endTransmission()
+- 2: START bit generation timeout
+- 3: end of address transmission timeout
+- 4: data byte transfer timeout
+- 5: data byte transfer succeeded, busy timeout immediately after
 
 ### write()
 
-Writes data from a slave device in response to a request from a master, or queues bytes for transmission from a master to slave device (in-between calls to `beginTransmission()` and `endTransmission()`).
+Writes data from a slave device in response to a request from a master, or queues bytes for transmission from a master to slave device (in-between calls to `beginTransmission()` and `endTransmission()`). Buffer size is truncated to 32 bytes; writing bytes beyond 32 before calling endTransmission() will be ignored.
 
 ```C++
 // SYNTAX
@@ -1598,7 +1654,7 @@ Parameters:
 - `value`: a value to send as a single byte
 - `string`: a string to send as a series of bytes
 - `data`: an array of data to send as bytes
-- `length`: the number of bytes to transmit
+- `length`: the number of bytes to transmit (Max. 32)
 
 Returns:  `byte`
 
@@ -1673,6 +1729,17 @@ void loop()
   delay(500);
 }
 ```
+
+### peek()
+
+Similar in use to read(). Reads (but does not remove from the buffer) a byte that was transmitted from a slave device to a master after a call to `requestFrom()` or was transmitted from a master to a slave. `read()` inherits from the `Stream` utility class. Useful for peeking at the next byte to be read.
+
+```C++
+// SYNTAX
+Wire.peek();
+```
+
+Returns: The next byte received (without removing it from the buffer)
 
 ### onReceive()
 
@@ -2749,7 +2816,7 @@ The parameter for millis is an unsigned long, errors may be generated if a progr
 
 ### micros()
 
-Returns the number of microseconds since the device began running the current program. This number will overflow (go back to zero), after approximately 59.65 seconds.
+Returns the number of microseconds since the device began running the current program. This number will overflow (go back to zero), after exactly 59,652,323 microseconds (0 .. 59,652,322) on the Core and after exactly 35,791,394 microseconds (0 .. 35,791,394) on the Photon.
 
 `unsigned long time = micros();`
 
@@ -2879,7 +2946,7 @@ External interrupts are supported on the following pins:
 
 - `pin`: the pin number
 - `function`: the function to call when the interrupt occurs; this function must take no parameters and return nothing. This function is sometimes referred to as an *interrupt service routine* (ISR).
-- `mode`: defines when the interrupt should be triggered. Four constants are predefined as valid values:
+- `mode`: defines when the interrupt should be triggered. Three constants are predefined as valid values:
     - CHANGE to trigger the interrupt whenever the pin changes value,
     - RISING to trigger when the pin goes from low to high,
     - FALLING for when the pin goes from high to low.
@@ -3320,7 +3387,7 @@ To disable multithreading and revert to a single thread of execution, place the 
 When system threading is enabled:
 
 - The application is not blocked by system code at all. setup() and loop() function independently of what the system is doing.
-- The application continues to run during WiFi setup mode. Application code can detect this by calling `WiFi.listening()`.
+- The application continues to run during WiFi setup mode. Application code can detect that the system is in WiFi setup mode by calling `WiFi.listening()`.
 - The application continues to run during over-the-air or over-the-wire firmware updates
 - Cloud functions registered with `Spark.function()` execute on the application thread in between calls to loop().
 - Calling `Spark.process()` has no affect.
@@ -3329,7 +3396,7 @@ When system threading is enabled:
 When system threading is disabled:
 
 - The application may stop executing intermittently when the wifi or cloud connection goes offline
-- The application does not run during WiFi setup mode. This can be detected by checking the result of `WiFi.listening()` on a timer interrupt.
+- The application does not run during WiFi setup mode. That the system is in WiFi setup mode can be detected by checking the result of `WiFi.listening()` on a timer interrupt.
 - The application does not run during over-the-air or over-the-wire firmware updates
 - Cloud functions registered with `Spark.function()` execute in-between invocations of `loop()` or when the application calls `Spark.process()`.
 - The system mode influences when the application setup() and loop() function are called in relation to the cloud connection state.
