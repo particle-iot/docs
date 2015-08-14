@@ -41,7 +41,7 @@ deploy:
     cache_control: "max-age=300"
     on:
       repo: spark/docs
-      branch: feature/metalsmith
+      branch: feature/authentication
   - provider: s3
     access_key_id: "AKIAJ5RMM3264VMARJQQ"
     secret_access_key:
