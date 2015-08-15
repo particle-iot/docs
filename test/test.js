@@ -4,6 +4,8 @@ var Crawler = require('crawler');
 var url = require('url');
 var util = require('util');
 
+var isPullRequest = process.env.TRAVIS_PULL_REQUEST && process.env.TRAVIS_PULL_REQUEST !== 'false';
+
 describe('Tests', function(){
   it('should run', function(){
     should(true).ok();
@@ -57,10 +59,14 @@ describe('Crawler', function() {
       var isRelative = toUrl.indexOf('http') === -1;
       var isLocalhost = toUrl.indexOf('localhost') > 0;
       var isExternal = !(isRelative || isLocalhost);
+
       // allow 429 for now
       if (error || (result.statusCode !== 200 && result.statusCode !== 429)) {
         var msg = util.format('%s ON %s CONTENT %s LINKS TO %s', error || result.statusCode, fromUrl, content, toUrl);
-        if (isExternal && Math.floor(result.statusCode / 100) === 5) {
+
+        var isGithubEditLink = isExternal && toUrl.indexOf('https://github.com/spark/docs/tree/master/src/content') === 0;
+        if ((isExternal && Math.floor(result.statusCode / 100) === 5) ||
+            (isPullRequest && isGithubEditLink && result.statusCode === 404)) {
           // allow 5XX status codes on external links
           console.log('WARN: ' + msg);
           return;
