@@ -416,7 +416,20 @@ Signup and device claiming only will happen one time for each customer. After th
 If a customer's access token expires, the customer will be asked to log in again, generating a fresh access token to interact with the device. 
 
 ## Two-Legged Authentication
-*(Coming Soon)*
+
+The main difference between two-legged and simple authentication is the presence of a back-end architecture to compliment your mobile or web application. Your application would communicate with both your server as well as the Particle cloud.
+
+The most common reason to use two-legged authentication is the desire to store & manage customer accounts yourself in your own database.
+
+![Two legged authentication](/assets/images/two-legged-auth-high-level.png) 
+
+### Advantages of Two-Legged
+
+Two-legged authentication is the ideal choice for a product creator looking for maximum visibility, control, and flexibility of their web or mobile application.
+
+
+
+### Disadvantages of Two-Legged
 
 ## Login with Particle
 *(Coming Soon)*
