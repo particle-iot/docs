@@ -59,7 +59,7 @@ The app consists of 16 pins in vertical rows - 8 analog pins on the left, 8 digi
 
 ![](/assets/images/tinker.png)
 
-To begin, tap any of the pins. A menu will pop up showing the functions that pin has available, tap a function name to select the pin functionality. You can reset the pin function by long-pressing it. Each pin can have up to four possible functions:
+To begin, tap any of the pins. A menu will pop up showing the functions that pin has available, tap a function name to select the pin functionality. You can reset the pin function by long-pressing it. Each pin can have up to {{{ 'popup' 'four possible functions' 'note' "If you've ever programmed an Arduino microcontroller, you may recognize `digitalWrite`, `analogWrite`, `digitalRead`, `analogRead`, and their respective use-cases. The Tinker firmware is a pipeline for calling these very familiar Wiring functions from the cloud. More on this [later](/guide/getting-started/examples)."}}}:
 
 - **digitalWrite**: Sets the pin to HIGH or LOW, which either connects it to 3.3V (the maximum voltage of the system) or to GND (ground). Pin D7 is connected to an on-board LED; if you set pin D7 to HIGH, the LED will turn on, and if you set it to LOW, it will turn off.
 - **analogWrite**: Sets the pin to a value between 0 and 255, where 0 is the same as LOW and 255 is the same as HIGH. This is sort of like sending a voltage between 0 and 3.3V, but since this is a digital system, it uses a mechanism called Pulse Width Modulation, or PWM. You could use *analogWrite* to dim an LED, as an example. {{#if photon}}The Photon has two DACs (Digital to Analog converters) onboard connected to pin DAC (A6) and A3, when you select **analogWrite** on those two pins you can set a value between 0 to 4095 (12bit resolution) and continous analog voltage will be applied at the pin output (not PWM), you can use it for controlling electronic devices that require precision analog voltage setting. Those two pins will be marked in orange color when activated in analogWrite mode (instead of yellow color for the rest of the PWM-enabled pins).{{/if}}
@@ -67,11 +67,6 @@ To begin, tap any of the pins. A menu will pop up showing the functions that pin
 - **analogRead**: This will read the analog value of a pin, which is a value from 0 to 4095, where 0 is LOW (GND) and 4095 is HIGH (3.3V). All of the analog pins (A0 to A7) can handle this. *analogRead* is great for reading data from sensors.
 
 In other words, Tinker lets you control and read the voltage of the pins on your device. You can choose to send a lot of voltage to an LED to light it up, or read the voltage at a sensor.
-
-<p class="boxedHead">Learning Note: These Function Names Look Familiar...</p>
-<p class="boxed">
-If you've ever programmed an Arduino microcontroller, you may recognize `digitalWrite`, `analogWrite`, `digitalRead`, `analogRead`, and their respective use-cases. When you use Tinker in the Particle App, the App sends info to the Tinker Firmware that is currently loaded onto your device. This firmware is a pipeline for calling these very familiar Wiring functions from the cloud. But more on this [later](/guide/getting-started/examples).
-</p>
 
 Now for some examples!
 

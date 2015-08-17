@@ -211,6 +211,7 @@ exports.metalsmith = function() {
       "/cli" : "/reference/cli",
       "/javascript" : "/reference/javascript",
       "/ios" : "/reference/ios",
+      "/mobile" : "/reference/ios",
       "/start" : "/guide/getting-started/start",
       "/connect" : "/guide/getting-started/connect",
       "/modes" : "/guide/getting-started/modes",
@@ -222,12 +223,16 @@ exports.metalsmith = function() {
       "/cli" : "/guide/tools-and-features/cli",
       "/monitor" : "/guide/tools-and-features/monitor",
       "/ifttt" : "/guide/tools-and-features/ifttt",
+      "/firmware" : "/reference/firmware",
       "/webhooks" : "/guide/tools-and-features/webhooks",
       "/hackathon" : "/guide/tools-and-features/hackathon",
       "/photon-datasheet" : "/datasheets/photon-datasheet",
       "/p1-datasheet" : "/datasheets/p1-datasheet",
       "/hardware" : "/datasheets/core-datasheet",
-      "/photon/hardware" : "/datasheets/photon-datasheet"
+      "/photon-shields" : "/datasheets/photon-shields",
+      "/shields" : "/datasheets/photon-shields",
+      "/photon/hardware" : "/datasheets/photon-datasheet",
+      "/troubleshooting" : "/support/troubleshooting-support"
     }))
     .use(msIf(
       environment !== 'development',

@@ -56,7 +56,13 @@ For more technical details on what comes on your device, go [here](/datasheets).
 
 Good, me too! Let's get started.
 
-## Hello World!
+{{#if photon}}
+## Connect Your Photon
+{{/if}}
+{{#if core}}
+## Connect Your Core
+{{/if}}
+
 In this example, we will connect your device to the internet for the very first time. Then, we will blink the D7 LED on your device by using your smartphone. If you don't have your smartphone with you, go ahead and move to the next lesson on [connecting over USB.](/guide/getting-started/connect)
 
 {{#if photon}}
@@ -102,17 +108,9 @@ If your device is not blinking at all, or if the LED is burning a dull orange co
 
 ### Step 2: Connect With Your Smartphone
 
-<p class="boxedHead">Learning Note: What happens when my device wants to talk to the Internet?</p>
-
-<p class="boxed"> 
-When your device comes to life for the first time, it has a specific set of objectives: Find Wi-Fi, Connect to Wi-Fi, and Execute Firmware. Unless you tell it not to, your device will run through these commands every time you power it on. You can teach it different wifi networks using your phone or computer. It remembers up to 7 wifi networks, and it will connect to these automatically if it can find them.
-
-When you power on your device for the very first time, though, it doesn't know any networks. It blinks blue, which is its way of saying, "Hey, I'm ready to find some wifi." Let's help it out.
-</p>
-
 Open the app on your phone. Log in or sign up for an account with Particle if you don't have one.
 
-Follow the instructions on the screen to connect your Core or Photon. Remember that to connect the Core, you need the older Spark Core app and to connect the Photon you need the new Particle App.
+Follow the instructions on the screen to {{{ popup 'connect your device to Wi-Fi.' 'note' 'Your device remembers up to 7 wifi networks, and it will connect to these automatically if it can find them.'}}} Remember that to connect the Core, you need the older Spark Core app and to connect the Photon you need the new Particle App.
 
 This may take a little while- but don't worry.
 
@@ -134,26 +132,14 @@ If you can't seem to get the Mobile App to connect your device, that's okay! Rea
 Once you have connected your device, it has learned that network. Your device can store up to seven networks. If you feel like your device has too many networks on it, you can wipe your device's memory of any wifi networks it has learned. You can do so by continuing to hold the MODE button for 10 seconds until the RGB LED flashes blue quickly, signaling that all profiles have been deleted.
 
 ### Step 3: Blink an LED!
-{{#if core}}The Spark Core App should now be on the Tinker screen, as shown below.
+{{#if core}}The Spark Core App should now be on the {{{ popup 'Tinker' 'note' 'We have taken the liberty of loading some firmware onto your device for you. It is called Tinker, and it helps you talk to your device by sending power to the pins and reading power levels from the pins. More info about Tinker is available [here](/guide/getting-started/tinker/core).'}}} screen, as shown below.
 
 ![Tinker on your Phone!](/assets/images/tinker-core.png)
 {{/if}}
-{{#if photon}}The Particle App should now be on the Tinker screen, as shown below.
+{{#if photon}}The Particle App should now be on the {{{ popup 'Tinker' 'note' 'We have taken the liberty of loading some firmware onto your device for you. It is called Tinker, and it helps you talk to your device by sending power to the pins and reading power levels from the pins. More info about Tinker is available [here](/guide/getting-started/tinker/photon).'}}} screen, as shown below.
 
 ![Tinker on your Phone!](/assets/images/tinker.png)
 {{/if}}
-
-
-<p class="boxedHead">**Learning Note: What is Tinker?**</p>
-<p class = "boxed"> 
-We've taken the liberty of loading some firmware onto your device for you. It's called Tinker, and it helps you talk to your device by sending power to the pins and reading power levels from the pins. Tinker's functions include:
-* `digitalRead` reads the input of a digital pin, such as one connected to a button or motion sensor. The input will be either HIGH (powered at 3.3 V) or LOW (not powered).
-* `digitalWrite` sends digital output to a digital pin, such as one connected to a signal light. You can set this output to HIGH (powered at 3.3 V) or LOW (not powered).
-* `analogRead` reads the input of an analog pin, such as one connected to a temperature sensor. The input will be between 0 and 255.
-* `analogWrite` writes analog output to an analog pin, such as a dimmable LED. You can set this output from 0 to 255.
-
-We'll go over this more [later](/guide/getting-started/tinker), so don't worry.
-</p> 
 
 As you can see on your smartphone, the circles represent different pins on your device. If you tap on these circles, you can see the Tinker functions available for the associated pins.
 
