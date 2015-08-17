@@ -24,11 +24,11 @@ To get started, you'll need the following things:
   * (1) LED, any color {{#if photon}}(Red LED included with Photon Kit and Maker Kit){{/if}}
   * (1) Photoresistor or other resistance-based sensor, such as a Thermistor or Force-Sensitive Resistor {{#if photon}}(Photoresistor included with Photon Kit and Maker Kit){{/if}}
 * **Software**
-  * Particle Mobile App - [iPhone](https://itunes.apple.com/us/app/particle-build-photon-electron/id991459054?ls=1&mt=8) | [Android](https://play.google.com/store/apps/details?id=io.particle.android.app)
+  * Particle Mobile App - [iPhone](https://itunes.apple.com/us/app/particle-build-photon-electron/id991459054?ls=1&mt=8) | [Android](https://play.google.com/store/apps/details?id=io.particle.android.app) (requires Android 4.0.3 or higher)
 * **Experience**
     * Connecting your Device [with your smartphone](/guide/getting-started/start) or [over USB](/guide/getting-started/connect)
 
-{{#if core}}**NOTE:** You may already have the Spark Core App for [iPhone](https://itunes.apple.com/us/app/spark-core/id760157884) or [Android](https://play.google.com/store/apps/details?id=io.spark.core.android). We recommend getting the newer Particle Mobile App anyway, since it's a very nice interface for Tinker that works across all devices. Sadly, the new Particle Mobile App will not connect your Core, though. If you don't feel like having two apps on your phone, the old Spark Core App will still work for these examples. However, the images in this tutorial will be from the newer and fancier Particle App.{{/if}}
+{{#if core}}**NOTE:** You may already have the Spark Core App for [iPhone](https://itunes.apple.com/us/app/spark-core/id760157884) or [Android](https://play.google.com/store/apps/details?id=io.spark.core.android) (requires Android 4.0 or higher). We recommend getting the newer Particle Mobile App anyway, since it's a very nice interface for Tinker that works across all devices. Sadly, the new Particle Mobile App will not connect your Core, though. If you don't feel like having two apps on your phone, the old Spark Core App will still work for these examples. However, the images in this tutorial will be from the newer and fancier Particle App.{{/if}}
 
 ## Step One: Select Your Device
 
