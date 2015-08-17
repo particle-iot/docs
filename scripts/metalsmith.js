@@ -183,7 +183,7 @@ exports.metalsmith = function() {
       "/photon/ios" : "/reference/ios",
       "/photon/photon-datasheet" : "/datasheets/photon-datasheet",
       "/photon/p1-datasheet" : "/datasheets/p1-datasheet",
-      "/photon/shields" : "/reference/shields",
+      "/photon/shields" : "/datasheets/photon-shields",
       "/photon/cli" : "/reference/cli",
       "/photon/ifttt" : "/guide/tools-and-features/ifttt",
       "/photon/webhooks" : "/guide/tools-and-features/webhooks",
@@ -201,7 +201,7 @@ exports.metalsmith = function() {
       "/core/javascript" : "/reference/javascript",
       "/core/ios" : "/reference/ios",
       "/core/hardware" : "/datasheets/core-datasheet",
-      "/core/shields" : "/reference/shields",
+      "/core/shields" : "/datasheets/core-shields",
       "/core/cli" : "/reference/cli",
       "/core/ifttt" : "/guide/tools-and-features/ifttt/core",
       "/core/webhooks" : "/guide/tools-and-features/webhooks/core",
@@ -226,7 +226,8 @@ exports.metalsmith = function() {
       "/hackathon" : "/guide/tools-and-features/hackathon",
       "/photon-datasheet" : "/datasheets/photon-datasheet",
       "/p1-datasheet" : "/datasheets/p1-datasheet",
-      "/hardware" : "/datasheets/core-datasheet"
+      "/hardware" : "/datasheets/core-datasheet",
+      "/photon/hardware" : "/datasheets/photon-datasheet"
     }))
     .use(msIf(
       environment !== 'development',
