@@ -10,7 +10,7 @@ order: 3
 
 The easiest way to connect your device to Wi-Fi is using the mobile app as described in the [previous lesson](/guide/getting-started/start). But in case that's not working for you or you don't have an iOS/Android phone, there are other methods as well.
 
-For all of the following methods, the device must be in [Listening Mode](/guide/getting-started/modes), where the RGB LED is {{#if photon}}{{{popup 'blinking blue.' 'vine' 'https://vine.co/v/eZUH7WaWjMT/embed/simple'}}}{{/if}}{{#if core}}{{{popup 'blinking blue.' 'vine' 'https://vine.co/v/eZU6YiK20Hl/embed/simple'}}}{{/if}}
+For all of the following methods, the device must be in [Listening Mode](/guide/getting-started/modes/photon/#listening-mode), where the RGB LED is {{#if photon}}{{{popup 'blinking blue.' 'vine' 'https://vine.co/v/eZUH7WaWjMT/embed/simple'}}}{{/if}}{{#if core}}{{{popup 'blinking blue.' 'vine' 'https://vine.co/v/eZU6YiK20Hl/embed/simple'}}}{{/if}}
 
 The Core and Photon both boot into listening mode by default, so if your device is brand new, it should go straight into listening mode. If your device is not blinking blue, {{#if photon}}{{{popup 'hold down the SETUP button.' 'vine' 'https://vine.co/v/eZUHUIjq7pO/embed/simple'}}}{{/if}}{{#if core}}{{{popup 'hold down the MODE button.' 'vine' 'https://vine.co/v/eZUgHYYrYgl/embed/simple'}}}{{/if}}
 
