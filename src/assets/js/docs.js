@@ -157,7 +157,10 @@ Created by Zach Supalla.
     }
 
     $(window).on('hashchange', function() {
-      Docs.scrollToHashOnLoad();
+      hash = window.location.hash;
+      $headersWithHash = $('[id="'+hash+'"]');
+      dataHref = $headersWithHash.data('href');
+      Docs.scrollToElement(dataHref);
     });
   };
 

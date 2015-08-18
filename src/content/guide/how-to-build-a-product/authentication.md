@@ -28,6 +28,8 @@ The results of these decisions will impact where and how data is
 stored as well as the ways in which your organization's applications
 interact with Particle to control devices and manage customers.
 
+**Note:** *Many of the implementation details discussed in this document are still under development. We will add specific code examples and context as they become available in the mobile and JavaScript SDKs.*
+
 
 ## OAuth
 Particle tightly adheres to OAuth specifications to ensure secure and
@@ -39,8 +41,8 @@ access" to server resources on behalf of a resource owner
 Integral to OAuth is the concept of *clients*, and *client credentials*.
 An OAuth client generally represents an application, like a native iOS
 application running on an iPhone or a web app running in a browser. As
-part of the setup process for your product, you will need to create an
-OAuth client for your organization.
+part of the setup process for your product, you will need to create one or more
+OAuth clients for your organization.
 
 Your organization's OAuth client will be needed when hitting the
 Particle API to perform actions that only your organization's team
@@ -94,8 +96,9 @@ The API request to create client credentials scoped to your organization
 will look like this:
 
 ```bash
-$ curl -d name=MyApp -d type=installed -d organization:my-org -d access_token=1234
-https://api.particle.io/v1/clients
+$ curl -H "Authorization: Bearer 1234" -d name=MyApp -d type=installed \ 
+-d organization=my-org \
+-X POST https://api.particle.io/v1/clients
 ```
 
 The `type` of the OAuth client will depend on your authentication method
@@ -136,9 +139,9 @@ devices (with device ID `0123456789abcdef01234567`), you want to call the `light
 do this using the API:
 
 ```bash
-curl
+curl -H "Authorization: Bearer 1234"
 https://api.particle.io/v1/devices/0123456789abcdef01234567/lightsOn -d
-arg=livingRoom -d access_token=1234
+arg=livingRoom
 ```
 
 In order for the API to call the function on your device, you *must*
@@ -171,6 +174,8 @@ needed from you or your engineers.
 
 ## Choosing an Authentication Method
 
+Take a deep breath. We've covered a lot so far and you're picking things up quick! This section will help you determine the best place for you to go next.
+
 As described
 [earlier](/guide/how-to-build-a-product/dashboard/#organizations-vs-individuals),
 end-users of your product are referred to as *customers* in the Particle
@@ -180,15 +185,17 @@ will likely be influenced by how much you would like to hide Particle from your
 customers, as well as how you would like your product to function.
 
 There are three ways to manage authentication for your customers.
-  * **Simple Authentication**: Customers are created and managed directly by Particle
-  * **Two-legged Authentication**: You create and manage accounts for your customers yourself, and request scoped access to control customers' devices from Particle
-  * **Login with Particle**: Your customers will create a Particle account and a separate account on your website, and link the two together using OAuth 2.0 *(Coming soon)*.
+  * [**Simple Authentication**](#simple-authentication): Customers are created and managed directly by Particle. This is the simplest and fastest way to get your connected product app working.
+  * [**Two-legged Authentication**](#two-legged-authentication): You create and manage accounts for your customers yourself, and request scoped access to control customers' devices from Particle. This provides the maximum amount of flexibility and security for your application.
+  * [**Login with Particle**](#login-with-particle): Your customers will create a Particle account and a separate account on your website, and link the two together using OAuth 2.0 *(Coming soon)*.
 
 You will also need to choose what *medium* your customers will use to
 authenticate and setup their devices. This will likely depend on how you
 envision your customers interacting with their connected product.
   * **Mobile**: Use an iOS or Android mobile app to allow your customers to authenticate, setup their devices, and interact with their product. [More info](/guide/how-to-build-a-product/mobile-app/)
   * **Web**: Use a web browser and HTTP to allow your customers to authenticate, setup their devices, and interact with their product (*Coming soon*).
+
+When you're ready, click on the authenticaiton method that makes most sense to you.
 
 ## Simple Authentication
 
@@ -263,7 +270,7 @@ steps are a one-time configuration process, whereas product setup will occur for
 each new customer that sets up a device.
 
 ![Simple Auth Flow](/assets/images/simple-auth-visual-vertical.png)
-<p class="caption">The full authorization flow. <a href="/assets/images/simple-auth-visual-vertical.png" target="_blank">See here</a> for full size diagram</p>
+<p class="caption">The full simple authorization flow. <a href="/assets/images/simple-auth-visual-vertical.png" target="_blank"> See here</a> for full size diagram</p>
 
 #### 1. Creating OAuth Client Credentials
 
@@ -288,20 +295,21 @@ If you are building a **mobile app** for your Particle product, the cURL command
 create your client should look like this:
 
 ```bash
-curl -d name=MyApp -d type=installed -d organization=my-org -d
-scope=create_customer -d access_token=1234 https://api.particle.io/v1/clients
+curl -H "Authorization: Bearer 1234" -d name=MyApp -d type=installed -d organization=my-org -d
+scope=create_customer https://api.particle.io/v1/clients
 ```
 Breaking this down:
+* The Authorization header includes *your Particle user's* access token. This user must be a team member of the organization that you are creating the client for.
 * `name` is the name of your OAuth client. Call this whatever you want, like SpunkyDonut!
 * `type` should be set to `installed`. This means that this client is installed natively on a device like a mobile phone or tablet.
 * `organization` should be set to your organization's **slug**. See [above](#creating-an-oauth-client) for how to find your slug.
 * `scope` <span class="red">**MUST BE SET TO `create_customer`**! Omitting this scope is a serious security vulnerability for your product.</span>
-* `access_token` is *your Particle user's* token. This user must be a team member of the organization that you are creating the client for.
+
 
 If you are building a **web app** instead, the cURL command will look different:
 
 ```bash
-curl -d name=MyApp -d type=web -d redirect_uri=http://www.particle.io/setup -d organization=my-org -d scope=create_customer -d access_token=1234 https://api.particle.io/v1/clients
+curl -H "Authorization: Bearer 1234" -d name=MyApp -d type=web -d redirect_uri=http://www.particle.io/setup -d organization=my-org -d scope=create_customer https://api.particle.io/v1/clients
 ```
 
 Examining what's different, you'll find:
@@ -421,15 +429,174 @@ The main difference between two-legged and simple authentication is the presence
 
 The most common reason to use two-legged authentication is the desire to store & manage customer accounts yourself in your own database.
 
-![Two legged authentication](/assets/images/two-legged-auth-high-level.png) 
+![Two legged authentication](/assets/images/two-legged-auth-high-level.png)
+<p class="caption">Two-legged authentication involves the presence of your own server</p> 
 
 ### Advantages of Two-Legged
 
-Two-legged authentication is the ideal choice for a product creator looking for maximum visibility, control, and flexibility of their web or mobile application.
+Two-legged authentication is the ideal choice for a product creator looking for maximum visibility, control, and flexibility of their web or mobile application. With two-legged, you gain the ability to implement custom logic, integrations with third-party services, and store application-specific data that are not currently part of the Particle platform. 
 
+For example, if you were building a connected hot tub, you could use your own web server and database to allow a customer to set their desired water temperature, then use that piece of data to set the temperature when the hot tub is turned on.
+
+Another advantage of two-legged authentication is beefed-up security. Server-to-server communication (your server to the Particle API) is much more secure than client-to-server communication (your mobile/web application to the Particle API). For sensitive transactions like passing OAuth credentials to get customer access tokens, using your server to talk to the Particle API over HTTPS is safe and protected.
 
 
 ### Disadvantages of Two-Legged
+
+Because of the introduction of your own web server, implementing two-legged authentication adds complexity to the architecture of your application and the flow of data. There are simply more pieces of the puzzle that must all fit together.
+
+This will likely result in more development time than choosing Simple Authentication, and can introduce more points of failure for your application.
+
+### Two-Legged Implementation
+
+Below is a diagram of the entire setup and authentication flow for the two-legged option. If you choose this authentication method, it is important that you understand the diagram very well. When comparing to the [simple auth implementation](#simple-auth-implementation), you'll notice that many of the steps are similar, with the exception of steps involving interaction with your web server.
+
+Each one of the steps will be covered in detail below. Note that the first two steps are a one-time configuration process, whereas product setup will occur for each new customer that sets up a device.
+
+![Two-legged auth flow](/assets/images/two-legged-auth-visual-vertical.png)
+<p class="caption">The full two-legged authorization flow. <a href="/assets/images/two-legged-auth-visual-vertical.png" target="_blank"> See here</a> for full size diagram</p>
+
+#### 1. Creating OAuth Client Credentials
+
+Like Simple Authentication, you will need to create valid OAuth client credentials for your organization. Unlike simple authentication, your OAuth client credentials will be sent to the Particle API from your server, not directly from your mobile/web application. The client credentials will be used for two purposes:
+
+* Creating new customers 
+* Creating *scoped access tokens* for customers
+
+Because the communication is server-to-server, you do not need to specify a scope. Without a scope, your client credentials can be successfully used for both of the purposes listed above.
+
+In addition, no matter if you are building a web or mobile app, the `type` of client credentials you are generating will always be `installed` for two-legged authentication. This is because the credentials will be stored on your server.
+
+You will create your OAuth client using the Particle dashboard *(Coming Soon)*.
+
+![Creating OAuth Clients via the Particle Dashboard](/assets/images/creating-oauth-clients.png)
+<p class="caption">You can use the Particle Dashboard to create OAuth clients <em>(Coming Soon)</em></p>
+
+For now, you'll need to create your client by hitting the Particle API directly. Your cURL request should look something like this:
+
+```bash
+curl -H "Authorization: Bearer 1234" -d name=MyApp -d type=installed -d organization=my-org https://api.particle.io/v1/clients
+```
+
+Breaking this down:
+* The Authorization header includes *your Particle user's* access token. This user must be a team member of the organization that you are creating the client for.
+* `name` is the name of your OAuth client. Call this whatever you want, like SpunkyDonut!
+* `type` should be set to `installed`. This means that this client is installed natively on a device, or on a server.
+* `organization` should be set to your organization's **slug**. See [above](#creating-an-oauth-client) for how to find your slug.
+
+
+The response will look like this:
+
+```
+{
+    "ok": true,
+    "client": {
+        "name": "MyApp",
+        "type": "installed",
+        "id": "myapp-2146",
+        "secret": "615c620d647b6e1dab13bef1695c120b0293c342"
+    }
+}
+```
+
+[Reference documentation on creating OAuth
+clients](/reference/api/#create-an-oauth-client)
+
+#### 2. Add OAuth Credentials to your server
+
+Your *server* will need access to your newly created OAuth client ID and secret. Unlike simple authentication, **both** client ID and secret will be needed for two-legged authentication. Your server should have access to the client credentials anytime it needs to make an API call to Particle.
+
+![Adding OAuth credentials to your server](/assets/images/two-legged-add-oauth-creds.png)
+<p class="caption">You must add your OAuth client credentials to your server</p>
+
+Because of the presence of your server, you should not need to add these credentials to your web or mobile application.
+
+**Do not share your client ID and secret publically**. These credentials provide the ability to fully control your product's devices, and access sensitive information about your organization. We recommend never publishing the client ID and secret to a GitHub repository. 
+
+*Coming soon: example implementation of client credentials*
+
+
+#### 3. Create a customer
+
+When using two-legged authentication, you will likely be managing customers on your own database *(Note: We realize that you may not call end-users of your product "customers" like we do. You may simply refer to them as users internally. However, we will continue calling them customers here to avoid confusion)*.
+
+An important thing to understand is that even though you will be creating customers yourself, you will also need to create a *shadow customer* on the Particle cloud. That is, for every customer you create on your back-end, an mirroring customer record must be created using the Particle API. 
+
+![Creating a customer two-legged authorization](/assets/images/create-customer-two-legged.png)
+<p class="caption">You will create a Particle <em>shadow customer</em> in addition to creating the customer on your own back-end.</p>
+
+A Particle shadow customer is **required** to interact with Particle devices when using two-legged auth. Specifically, the customer must exist in the Particle system so that your server can generate *access tokens* on behalf of the customer. This allows your mobile or web application to interact with the customer's device.
+
+The Particle shadow customer should be created at the exact time that the customer is created in your system. As you will be managing customer credentials on your own server/database, a shadow customer **should not have a password** when they are created. You will still be able to generate access tokens for the customer using your OAuth client ID and secret instead of passing a username/password for that customer.
+
+The API endpoint to create a customer is `POST /v1/orgs/:orgSlug/customers`. A request to create a customer could look something like:
+
+```bash
+curl -H "Authorization: Bearer 1234" https://api.particle.io/v1/orgs/particle/customers -d email=abu@agrabahmonkeys.com
+```
+Note that the only data passed in the body is `email`. An email address is the only piece of information required to create a customer in the Particle system, and **must be collected by your application during signup**. 
+
+
+As the diagram above suggests, you will receive an access token in the response of the `POST` to creating of the customer. You will use this access token during the device claiming process as well as to interact with the device once it's set up.
+
+[Reference docs on creating a customer](/reference/api/#create-a-customer)
+
+
+#### Device Setup (Steps 4, 5 & 6)
+
+Now that you have created the customer, and received a valid access token for that customer, it is now time to start the device setup process. This process will occur in exactly the same fashion as with Simple Authentication, and will not involve your server.
+
+It is important to note that the device setup process will not involve your server. All communication will be between your web/mobile application, the customer's device, and the Particle cloud. These steps will also be handled by the mobile & JavaScript SDKs, involving extra work from you.
+
+Because these steps are the same as for Simple Authentication, documentation will not be duplicated here. Instead, you can check out:
+
+Step 4. [Create claim code and send to device](#4-create-claim-code-amp-send-to-device)
+
+Step 5. [Connect device to Wi-Fi](#5-connect-device-to-wi-fi)
+
+Step 6. [Associate device with customer](#6-associate-device-with-customer)
+
+
+#### 7. Interact with Customer's Device
+
+Once the device has been setup, and the customer created, you're now ready to interact with the device! Hooray! It's important to understand that while you do have your own server, **we recommend hitting the Particle API directly from your application client for any device-related actions**. This includes:
+
+* Calling functions on the device
+* Reading variables on the device
+* Listing devices for a customer
+
+This should be straightforward, as using the SDKs will provide helper methods for these actions.
+
+![Interact with a device with two-legged auth](/assets/images/two-legged-interact-with-device.png)
+<p class="caption">For all direct interactions with the device, hit the Particle API from your application client</p>
+
+The alternative would be telling your application client hit your back-end server, which would then trigger a call to the Particle API. This introduces an extra intermediary in communication, and involves needing to unnecessarily "wrap" Particle API endpoints.
+
+The *only* reason for your server to hit the Particle API is to generate new scoped access tokens for your customers. You should generate a fresh access token each time the customer logs into your application.
+
+To do this, you will use the `POST /oauth/token` endpoint, but in a [special way](/reference/api/#generate-a-customer-scoped-access-token). The request will look like this:
+
+```bash
+curl -u my-org-client-1234:long-secret -d grant_type=client_credentials -d scope=customer=jane@example.com https://api.particle.io/v1/oauth/token
+``` 
+
+Breaking this down:
+* The `-u` is a HTTP Basic Auth header, where you will pass your OAuth client ID and secret. This allows you to generate access tokens for customers that belong to your organization
+* `grant_type` is the OAuth grant type, which in this case is `client_credentials`
+* `scope` is set to customer, and what allows you to specify the customer you'd like an access token for. The value of `customer` should be set to the `email` you passed when creating the customer.
+
+The response should look like this:
+
+```
+{
+  "access_token": "254406f79c1999af65a7df4388971354f85cfee9",
+  "token_type": "bearer",
+  "expires_in": 7776000,
+  "refresh_token": "b5b901e8760164e134199bc2c3dd1d228acf2d90"
+}
+```
+
+The response includes an `access_token` for the customer, that should be included for all subsequent API calls for the session. In addition, there's a `refresh_token` that you could use to generate a new access token in the event that the token expires.
 
 ## Login with Particle
 *(Coming Soon)*

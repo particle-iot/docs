@@ -66,7 +66,7 @@ exports.metalsmith = function() {
       (!process.env.TRAVIS_PULL_REQUEST || process.env.TRAVIS_PULL_REQUEST === 'false'),
       apidoc({
         src: '../api-node/',
-        config: '../api-node/',
+        config: '../apis/api-node/',
         destFile: 'content/reference/api.md',
         includeFilters: ['.*[vV]iews[^.]*\\.js$', 'lib/AccessTokenController.js']
       })
