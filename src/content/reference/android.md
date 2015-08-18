@@ -233,7 +233,7 @@ SparkCloud.get(someContext).logOut()
 ---
 
 ### Additional reference
-For more complete interface information, check out the [source code of SparkCloud](https://github.com/spark/spark-sdk-android/blob/master/cloudsdk/src/main/java/io/particle/android/sdk/cloud/ParticelCloud.java) and [SparkDevice](https://github.com/spark/spark-sdk-android/blob/master/cloudsdk/src/main/java/io/particle/android/sdk/cloud/ParticleDevice.java).
+For more complete interface information, check out the [source code of SparkCloud](https://github.com/spark/spark-sdk-android/blob/master/cloudsdk/src/main/java/io/particle/android/sdk/cloud/ParticleCloud.java) and [SparkDevice](https://github.com/spark/spark-sdk-android/blob/master/cloudsdk/src/main/java/io/particle/android/sdk/cloud/ParticleDevice.java).
 
 If you're working from Android Studio on OS X, you can get the Javadoc for each method or class by putting the cursor over it and hitting `F1`.
 
