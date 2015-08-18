@@ -159,7 +159,7 @@ exports.metalsmith = function() {
       relative: false
     }))
     .use(redirect({
-      '/start': '/',
+      '/start': '/guide/getting-started/intro',
       '/guide': '/guide/getting-started/intro',
       '/guide/photon/': '/guide/photon/start',
       '/guide/core/': '/guide/core/start',
