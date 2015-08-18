@@ -11,7 +11,16 @@ So you've got a prototype in a breadboard. It's probably a mess of wires, someth
 
 ![Project in a breadboard](/assets/images/breadboarded-core.jpg)
 
-Your first step towards a manufacturable product is to re-design this product into your own printed circuit board (PCB) using our modules (P0 or P1) rather than our development kits (Photon/Core).
+Your first step towards a manufacturable product is to re-design your printed circuit board (PCB) using our modules (P0 or P1) rather than our development kits (Photon/Core).  Before you dive in, make sure you read the manual! Hardware datasheets for the Photon (P0) and P1 are located at the links below:
+
+- [Photon (P0) Datasheet](https://docs.particle.io/datasheets/photon-datasheet/)  
+- [P1 Datasheet](https://docs.particle.io/datasheets/p1-datasheet/)
+
+Great! Did you actually read them? No? Don't worry--we'll wait for you.
+
+...
+
+Yes? OK--let's move forward on good faith, then :-)
 
 ### Hardware Design Requirements
 
@@ -20,7 +29,7 @@ To work with Particle, your hardware must meet a small list of design requiremen
 - **Your device should use a supported hardware module.** While the firmware stack can be run on a variety of connectivity modules, we provide our own modules (the P0 and P1) as an out-of-the-box solution, and we can support other Broadcom WICED modules easily. You may also choose to port our firmware libraries to another module by implementing our [Hardware Abstraction Layer (HAL)](https://www.github.com/spark/firmware); this is, however, a more involved process. Please contact our [sales team](mailto:sales@particle.io) if you are interested in engaging us to support another hardware solution.
 - **Your device must have an RGB LED and a button to enter 'setup mode'**. The RGB LED shows the user the connectivity status, while the 'setup' button lets your customer reconfigure the device. These components should be wired according to the [Photon reference design](https://www.github.com/spark/photon).
 - **Your device must have an RF circuit and an antenna.** If you use the Photon or P1, the antenna is included in the hardware. If you use the P0, you must connect your own antenna. Please use the [Photon](https://www.github.com/spark/photon) as a reference design; if you use an antenna of equal or lesser gain, you may leverage Particle's FCC/CE/IC modular certification for the Photon.
-- **Your device must expose JTAG programming pins**. All Particle development kits (Photon/Core) expose JTAG pins by default. Although the Particle platform has been optimized for over-the-air firmware updates, JTAG programming is required for advanced debugging and development, or modifications to the underlying Particle firmware libraries. All product creators working with the P0 or P1 should expose these pins on their PCB; the pins are identified in their corresponding datasheets [here](http://docs.particle.io/photon/photon-datasheet/) and [here](http://docs.particle.io/photon/p1-datasheet/).
+- **Your device must expose JTAG programming pins**. All Particle development kits (Photon/Core) expose JTAG pins by default. Although the Particle platform has been optimized for over-the-air firmware updates, JTAG programming is required for advanced debugging and development, or modifications to the underlying Particle firmware libraries. All product creators working with the P0 or P1 should expose these pins on their PCB. To be specific, if you're integrating the Photon, your test fixture needs to be able to make an electrical connection to the male JTAG pins on the Photon, a female socket connected to those male headers, or to test pads that are electrically connected to those headers on your PCB.  If you're integrating the P0 or P1, you'll need to expose test pads that are routed to the appropriate JTAG solder pads on the P0/P1 module. These pins/pads are identified in the corresponding datasheets for the P0 and P1, [here](http://docs.particle.io/photon/photon-datasheet/) and [here](http://docs.particle.io/photon/p1-datasheet/).
 - **Serial Test Pads** (*Recommended*). Although it's not *absolutely* required, it's highly recommended that you expose one hardware serial peripheral (UART) via test pads or pins. As we'll discuss later in the [Manufacturing](../manufacturing) section of this guide, exposing serial will make it easy to leverage Particle's open-source test firmware for capturing basic information about your device on the manufacturing line.
 
 Note that, for additional security and to minimize tampering by customers, you can expose JTAG and serial test pins on a perforated section of your PCB that can be broken off after successful testing. This is a better option than deciding not to expose either JTAG or serial, which is, once again, {{{popup 'a bad decision.' 'img' 'bad-decision.gif'}}}
@@ -47,6 +56,10 @@ Specifically, the RF circuit requires specialized testing in order to verify eff
 
 - Voltage regulator (depending on your input voltage)
 - RGB LED and 'setup' button (see hardware requirements above)
+
+**NOTE: RF Keepouts.  
+Transitioning from a dev kit to a module requires that you observe the RF keepouts documented in the datasheets for the Photon (P0) and P1. If you do not observe these keepouts, the RF performance of the Particle hardware and your product may be negatively affected.**
+
 
 ### PCB design resources
 
@@ -94,7 +107,7 @@ For tips and resources for prototyping PCBs by hand (our preferred prototyping m
 
 **Preferred Services Partners** *Coming soon!* Our customer success team is hard at work assembling a broad menu of trusted, professional services partners for every step of the product development process. In the meantime, please [email us](mailto:sales@particle.io) for references and recommendations.
 
-#### Next step
+### Next step
 
 Once you've designed your hardware, the next step is to:
 
