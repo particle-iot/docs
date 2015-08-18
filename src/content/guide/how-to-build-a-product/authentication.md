@@ -96,9 +96,9 @@ The API request to create client credentials scoped to your organization
 will look like this:
 
 ```bash
-$ curl -H "Authorization: Bearer 1234" -d name=MyApp -d type=installed \ 
+$ curl -X POST -H "Authorization: Bearer 1234" -d name=MyApp -d type=installed \
 -d organization=my-org \
--X POST https://api.particle.io/v1/clients
+https://api.particle.io/v1/clients
 ```
 
 The `type` of the OAuth client will depend on your authentication method
@@ -139,9 +139,9 @@ devices (with device ID `0123456789abcdef01234567`), you want to call the `light
 do this using the API:
 
 ```bash
-curl -H "Authorization: Bearer 1234"
-https://api.particle.io/v1/devices/0123456789abcdef01234567/lightsOn -d
-arg=livingRoom
+curl -X POST -H "Authorization: Bearer 1234" \
+https://api.particle.io/v1/devices/0123456789abcdef01234567/lightsOn \
+-d arg=livingRoom
 ```
 
 In order for the API to call the function on your device, you *must*
@@ -293,8 +293,9 @@ If you are building a **mobile app** for your Particle product, the cURL command
 create your client should look like this:
 
 ```bash
-curl -H "Authorization: Bearer 1234" -d name=MyApp -d type=installed -d organization=my-org -d
-scope=create_customer https://api.particle.io/v1/clients
+curl -X POST -H "Authorization: Bearer 1234" -d name=MyApp \
+-d type=installed -d organization=my-org -d scope=create_customer \
+https://api.particle.io/v1/clients
 ```
 Breaking this down:
 * The Authorization header includes *your Particle user's* access token. This user must be a team member of the organization that you are creating the client for.
@@ -307,7 +308,9 @@ Breaking this down:
 If you are building a **web app** instead, the cURL command will look different:
 
 ```bash
-curl -H "Authorization: Bearer 1234" -d name=MyApp -d type=web -d redirect_uri=http://www.particle.io/setup -d organization=my-org -d scope=create_customer https://api.particle.io/v1/clients
+curl -X POST -H "Authorization: Bearer 1234" -d name=MyApp -d type=web \
+-d redirect_uri=http://www.particle.io/setup -d organization=my-org \
+-d scope=create_customer https://api.particle.io/v1/clients
 ```
 
 Examining what's different, you'll find:
@@ -475,7 +478,8 @@ You will create your OAuth client using the Particle dashboard *(Coming Soon)*.
 For now, you'll need to create your client by hitting the Particle API directly. Your cURL request should look something like this:
 
 ```bash
-curl -H "Authorization: Bearer 1234" -d name=MyApp -d type=installed -d organization=my-org https://api.particle.io/v1/clients
+curl -X POST -H "Authorization: Bearer 1234" -d name=MyApp -d type=installed \
+-d organization=my-org https://api.particle.io/v1/clients
 ```
 
 Breaking this down:
@@ -532,7 +536,8 @@ The Particle shadow customer should be created at the exact time that the custom
 The API endpoint to create a customer is `POST /v1/orgs/:orgSlug/customers`. A request to create a customer could look something like:
 
 ```bash
-curl -H "Authorization: Bearer 1234" https://api.particle.io/v1/orgs/particle/customers -d email=abu@agrabahmonkeys.com
+curl -X POST -H "Authorization: Bearer 1234" -d email=abu@agrabahmonkeys.com \
+https://api.particle.io/v1/orgs/particle/customers
 ```
 Note that the only data passed in the body is `email`. An email address is the only piece of information required to create a customer in the Particle system, and **must be collected by your application during signup**. 
 
@@ -577,8 +582,9 @@ The *only* reason for your server to hit the Particle API is to generate new sco
 To do this, you will use the `POST /oauth/token` endpoint, but in a [special way](/reference/api/#generate-a-customer-scoped-access-token). The request will look like this:
 
 ```bash
-curl -u my-org-client-1234:long-secret -d grant_type=client_credentials -d scope=customer=jane@example.com https://api.particle.io/v1/oauth/token
-``` 
+curl -u my-org-client-1234:long-secret -d grant_type=client_credentials \
+-d scope=customer=jane@example.com https://api.particle.io/v1/oauth/token
+```
 
 Breaking this down:
 * The `-u` is a HTTP Basic Auth header, where you will pass your OAuth client ID and secret. This allows you to generate access tokens for customers that belong to your organization
@@ -587,7 +593,7 @@ Breaking this down:
 
 The response should look like this:
 
-```
+```bash
 {
   "access_token": "254406f79c1999af65a7df4388971354f85cfee9",
   "token_type": "bearer",
@@ -596,7 +602,15 @@ The response should look like this:
 }
 ```
 
-The response includes an `access_token` for the customer, that should be included for all subsequent API calls for the session. In addition, there's a `refresh_token` that you could use to generate a new access token in the event that the token expires.
+The response includes an `access_token` for the customer, that should be included for all subsequent API calls for the session. In addition, there's a `refresh_token` that you could use to generate a new access token in the event that the token expires. Here's how to use your refresh token to get a new access token:
+
+```bash
+curl -X -POST -u client-id-1234:secret \
+-d grant_type=refresh_token -d refresh_token=b5b901e8760164e134199bc2c3dd1d228acf2d90 \
+https://api.particle.io/oauth/token
+```
+
+The response will be identical to the new access token creation endpoint above.
 
 ## Login with Particle
 *(Coming Soon)*
