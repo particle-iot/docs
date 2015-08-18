@@ -219,7 +219,7 @@ process and links their device to their customer account. Again, your
 mobile app uses the Particle API to successfully claim the device to the customer
 account. After the device is setup, the customer can toggle a light on
 and off with the mobile app. This works as your app is able to call
-functions on the customers device using the customer's access token.
+functions on the customer's device using the customer's access token.
 
 All of this is able to happen without the need to have your own server.
 All communiation flows from the mobile client to the Particle cloud,
@@ -227,9 +227,8 @@ then down to the customer's device.
 
 ### Advantages of Simple Auth
 
-Simple auth is ideal for getting a Particle product working quickly and
-efficiently. With the lack of your own back-end, development time to
-creating an app to work with a Particle device is shortened. In
+Simple auth is ideal for getting a Particle product up-and-running quickly. Without needing to build your own back-end, development time to
+creating an app to work with a Particle device is greatly reduced. There are less moving parts and opportunities to introduce bugs. In
 addition, Particle's [mobile SDKs](/reference/ios/) and [JavaScript
 SDK](/reference/javascript/) will handle much of
 the heavy lifting for you when it comes to session management and device
@@ -245,17 +244,16 @@ traffic to and from your app).
 
 ### Disadvantages of Simple Auth
 
-Without your own server, you lose some level of control
-and customization over your application. For instance, if you wanted to
+Without your own server, you lose some level of flexibility and ability to customize in your application. For instance, if you wanted to
 store custom information about your customer specific to your
 application like their name or their favorite pizza topping, this would
-not be possible currently with simple auth.
+not be currently supported with simple auth.
 
 In addition, using simple auth would make it more difficult to capture
-and use historical data about devices and customers. With your own
+and use historical data about devices and customers' behavior. With your own
 server and database, you could store data about what time a customer
 turns on their lights, for example. Using simple auth, this would not be
-possible.
+supported.
 
 ### Simple Auth Implementation
 
@@ -342,7 +340,9 @@ For both the mobile & JavaScript SDKs, you will need to add your client credenti
 
 If you are creating a mobile application, you will need to include **both** the client ID and secret in your configuration file. If you are creating a web application, you **only should include your client ID**.
 
-*Specific implementation details coming soon*
+For instructions on how to add client credentials to your iOS app, please see [iOS OAuth client configuration](/reference/ios/#oauth-client-configuration).
+
+*Specific implementation details for Android & JS coming soon*
 
 #### 3. Create a customer
 
