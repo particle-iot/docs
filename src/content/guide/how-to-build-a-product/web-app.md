@@ -2,7 +2,7 @@
 title: Building your own web app
 columns: two
 template: guide.hbs
-order: 4
+order: 5
 ---
 
 # Building your own web app
@@ -32,30 +32,10 @@ SDK. If you are interested in libraries for interacting with our API in other
 programming languages, please [search our forum](https://community.particle.io)
 for community-generated libraries.
 
-
-## Creating an OAuth Client
-
-Soon (Late August 2015) you will be able to go to the
-[Particle dashboard](https://dashboard.particle.io/) and click
-“Create app” to create a client ID and secret.
-(Ping @zachary in the [forum](http://community.particle.io/)
-if we fall behind on this estimate or you just want to say how much
-you want this feature!)
-
-Right now you can make an API call to create an create an OAuth client using the
-instructions in our [API reference](/reference/api/#create-an-oauth-client)
-Your web app will use the generated client ID and secret  when you hit the
-Particle API on behalf of your organization and your customers to manage all the
-devices in your product fleet.
-
-As it says in the API reference, two items are coming soon, approximately August
-1st, 2015, that you will want to use when building your product:
-
-- creating an OAuth client that is associated with your organization
-- using that org client to create scoped access tokens for your customers
-
-(As above, ping @zachary in the forum with questions about this feature.)
-
+You have already learned a lot about what you'll need to do to build your web
+application in the last section on [Authentication &
+Security](/guide/how-to-build-a-product/authentication/). This section will
+focus more specifically on building web applications.
 
 ## Collecting data through webhooks or an event stream
 
@@ -115,47 +95,11 @@ Now imagine you want a customer's device to dance rainbows when someone likes a
 picture they've posted. The web app will need to hit the Particle API to call a
 function on one device to cause it to dance rainbows.
 
-
-## Handling authentication and device setup
-
-There are several ways to manage authentication for your customers.
-When you're prototyping, it will probably be easiest to let Particle handle
-authentication entirely. We even have a system for letting you customize the
-password reset page your customers see with your logo, entirely white labeling
-Particle's presence behind the scenes.
-
-However, it's likely that as you start building a web app, you'll want to have
-customers login to your site with accounts that you manage completely.
-That allows you to fully customize every aspect of the user experience of your
-product, including account creation. Particle has you covered in this scenario
-as well. Here's what you do.
-
-When a customer signs up on your website, you create a corresponding customer in
-Particle's systems. This also enables the full capabilities of the Particle
-dashboard to manage customers and devices. If you manage authentication entirely
-on your site, the customers in Particle's systems do not need a password. Only
-members of your organization will be able to access and manage the customer
-models.
-
-*Coming soon:* API documentation for creating the customer of an organization.
-
-Before the customer can setup her device using the mobile app (which you'll
-create in the next section of this guide), you need to create an access token
-scoped to the customer and give it to her mobile phone or tablet. That way she
-can make API calls against the Particle API like getting a claim code as part of
-the device setup process.
-
-*Coming soon:* As mentioned in the API reference for
-[generating an access token](/reference/api/#generate-a-new-access-token),
-around August 1, 2015, you will be able to create access tokens scoped to a
-single customer, using an OAuth client attached to your organization.
-
-
 ## What's next?
 
 Expect significant updates to this page in August 2015. We can't wait to show
 you how just how easy it is to build a web app for your product on Particle!
 
-After you've got your own web app deployed, you'll want to
+If your product is better suited for a mobile app, you will wantto
 [build your iOS and Android mobile apps](/guide/how-to-build-a-product/mobile-app/)
 using our mobile SDKs.

@@ -144,6 +144,10 @@
 /* ----------------------------------------------------------------------------
  * Content
  */
+span.red {
+  color: @red;
+  background: @white;
+}
 h1 .header-permalinks {
   display: none;
 }
@@ -741,6 +745,11 @@ hr {
     }
     &[alt="Photon Reset Modes"] {
       background: @dark-gray;
+    }
+    &[alt="Simple Auth Flow"], &[alt="Two-legged auth flow"] {
+      max-width: 100%;
+      border: none;
+      max-height: none;
     }
     @media(max-width: @medium-size) {
       max-width: 100%;
