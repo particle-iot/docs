@@ -266,6 +266,16 @@ The shield is setup so that when powered from the USB port as well as from a DC 
 
 The Internet Button is not only an easy way to get started on the Internet of Things, it's also a clean and simple way to start building your own prototypes. Quickly start playing with LEDs, multiple buttons, an accelerometer and more without any wires or soldering.
 
+**NOTE:** There is a known issue with the current release of the Internet Button. On the PCB, the silkscreen labels are incorrect. The correct mapping is, from **right** to **left**, "1-2-3-4", *not* "4-3-2-1" as annotated on the PCB. For super double extra clarity, please see the following pin mapping label table:</span>
+
+|Photon Pin | Correct Mapping | Incorrect Mapping |
+|--------|--------|-------------------------|
+|D4 | Button 1   | Button 4 |
+|D5 | Button 2   | Button 3 |
+|D6 | Button 3   | Button 2 |
+|D7 | Button 4   | Button 1 |
+
+
 ![Internet Button](/assets/images/shields/internet-button/button.png)
 
 ### Internet Button - Top
