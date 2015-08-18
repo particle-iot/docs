@@ -126,6 +126,29 @@ int brewCoffee(String command)
 
 ---
 
+You can expose a method on a C++ object to the Cloud.
+
+```C++
+// EXAMPLE USAGE WITH C++ OBJECT
+
+class CoffeeMaker {
+  public:
+    CoffeeMaker() {
+      Spark.function("brew", &CoffeeMaker::brew, this);
+    }
+
+    int brew(String command) {
+      // do stuff
+      return 1;
+    }
+};
+
+CoffeeMaker myCoffeeMaker;
+// nothing else needed in setup() or loop()
+```
+
+---
+
 The API request will be routed to the device and will run your brew function. The response will have a return_value key containing the integer returned by brew.
 
 ```json
@@ -136,45 +159,6 @@ POST /v1/devices/{DEVICE_ID}/{FUNCTION}
 curl https://api.particle.io/v1/devices/0123456789abcdef/brew \
      -d access_token=123412341234 \
      -d "args=coffee"
-```
-
----
-
-To expose a method on an object through the Cloud, use a C++ function wrapper.
-For more details, research `std::function`.
-
-```C++
-// EXAMPLE USAGE WITH C++ OBJECT
-
-class CoffeeMaker {
-  public:
-    int brew(String command);
-    void registerCloud();
-};
-
-int CoffeeMaker::brew(String command) {
-  // do stuff
-  return 1;
-}
-
-void CoffeeMaker::registerCloud() {
-  // create a function wrapper to call brew on this instance of CoffeeMaker
-  // auto tells the compiler to determine the function wrapper type automatically
-  // std::placeholders::_1 is necessary because brew takes 1 argument
-  auto brewHandler = std::bind(&CoffeeMaker::brew, this, std::placeholders::_1);
-
-  Spark.function("brew", brewHandler);
-}
-
-CoffeeMaker myCoffeeMaker;
-
-void setup() {
-  myCoffeeMaker.registerCloud();
-}
-
-void loop() {
-  // this loops forever
-}
 ```
 
 ### Spark.publish()
@@ -330,6 +314,25 @@ You are also able to subscribe to events from a single device by specifying the 
 ```cpp
 // Subscribe to events published from a specific device
 Spark.subscribe("motion/front-door", motionHandler, "55ff70064989495339432587");
+```
+
+---
+
+You can register a method in a C++ object as a subscription handler.
+
+```cpp
+class Subscriber {
+  public:
+    void subscribe() {
+      Particle.subscribe("some_event", &Subscriber::handler, this);
+    }
+    void handler(const char *eventName, const char *data) {
+      Serial.println(data);
+    }
+};
+
+Subscriber mySubscriber;
+// nothing else needed in setup() or loop()
 ```
 
 ---
@@ -2930,6 +2933,25 @@ void blink()
   state = !state;
 }
 ```
+
+You can attach a method in a C++ object as an interrupt handler.
+
+```cpp
+class Robot {
+  public:
+    Robot() {
+      attachInterrupt(D2, &Robot::handler, this, CHANGE);
+    }
+    void handler() {
+      // do something on interrupt
+    }
+};
+
+Robot myRobot;
+// nothing else needed in setup() or loop()
+```
+
+---
 
 External interrupts are supported on the following pins:
 
