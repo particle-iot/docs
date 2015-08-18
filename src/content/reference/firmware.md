@@ -214,8 +214,15 @@ Publish a public event with the given name, no data, and the default TTL of 60 s
 Spark.publish(const char *eventName);
 Spark.publish(String eventName);
 
+RETURNS
+boolean (true or false)
+
 // EXAMPLE USAGE
-Spark.publish("motion-detected");
+bool success;
+success = Spark.publish("motion-detected");
+if (!success) {
+  // get here if event publish did not work
+}
 ```
 
 ---
