@@ -1,0 +1,26 @@
+<!doctype html>
+<html>
+<head>
+  <!-- REDIRECT SCRIPT -->
+  <script src='/assets/js/redirect.js'></script>
+  {{> head sectionTitle='Start'}}
+</head>
+<body>
+
+  <div id="docs">
+    <div class='header'>
+      <div class='left'>
+        <a href="https://www.particle.io">
+          <img src="/assets/images/particle-docs.png" id="logo">
+        </a>
+      </div>
+    </div>
+
+    <div class='getting-started'>
+      {{{contents}}}
+    </div>
+  </div>
+
+  {{> scripts}}
+</body>
+</html>
