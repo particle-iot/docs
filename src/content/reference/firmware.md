@@ -2573,6 +2573,60 @@ RGB.brightness(128);
 RGB.brightness(255);
 ```
 
+### onChange(handler)
+
+Specifies a function to call when the color of the RGB LED changes. It can be used to implement an external RGB LED.
+
+```cpp
+// EXAMPLE USAGE
+
+void ledChangeHandler(uint8_t r, uint8_t g, uint8_t b) {
+  // Duplicate the green color to an external LED
+  analogWrite(D0, g);
+}
+
+void setup()
+{
+  pinMode(D0, OUTPUT);
+  RGB.onChange(ledChangeHandler);
+}
+
+```
+
+---
+
+`onChange` can also call a method on an object.
+
+```
+// Automatically mirror the onboard RGB LED to an external RGB LED
+// No additional code needed in setup() or loop()
+
+class ExternalRGB {
+  public:
+    ExternalRGB(pin_t r, pin_t g, pin_t b) : pin_r(r), pin_g(g), pin_b(b) {
+      pinMode(pin_r, OUTPUT);
+      pinMode(pin_g, OUTPUT);
+      pinMode(pin_b, OUTPUT);
+      RGB.onChange(&ExternalRGB::handler, this);
+    }
+
+    void handler(uint8_t r, uint8_t g, uint8_t b) {
+      analogWrite(pin_r, 255 - r);
+      analogWrite(pin_g, 255 - g);
+      analogWrite(pin_b, 255 - b);
+    }
+
+    private:
+      pin_t pin_r;
+      pin_t pin_g;
+      pin_t pin_b;
+};
+
+// Connect an external RGB LED to D0, D1 and D2 (R, G, and B)
+ExternalRGB myRGB(D0, D1, D2);
+```
+
+
 ### Time
 
 The device synchronizes time with the Particle Cloud during the handshake.
