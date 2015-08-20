@@ -537,9 +537,9 @@ The API endpoint to create a customer is `POST /v1/orgs/:orgSlug/customers`. A r
 
 ```bash
 curl -X POST -H "Authorization: Bearer 1234" -d email=abu@agrabahmonkeys.com \
-https://api.particle.io/v1/orgs/particle/customers
+-d no_password=true https://api.particle.io/v1/orgs/particle/customers
 ```
-Note that the only data passed in the body is `email`. An email address is the only piece of information required to create a customer in the Particle system, and **must be collected by your application during signup**. 
+Note that there is no password for the customer. An email address is the only piece of information required to create a customer in the Particle system, and **must be collected by your application during signup**. As a result,  you must pass the `no_password=true` flag to create the customer with no password.
 
 
 As the diagram above suggests, you will receive an access token in the response of the `POST` to creating of the customer. You will use this access token during the device claiming process as well as to interact with the device once it's set up.
