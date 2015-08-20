@@ -611,6 +611,34 @@ This function will return `true` once the device is connected to the network and
 WiFi.ready();
 ```
 
+### WiFi.selectAntenna()
+
+```cpp
+// SYNTAX
+WiFi.selectAntenna(ANT_INTERNAL); // selects the CHIP antenna
+WiFi.selectAntenna(ANT_EXTERNAL); // selects the u.FL antenna
+WiFi.selectAntenna(ANT_AUTO); // continually switches at high speed between antennas
+```
+
+`WiFi.selectAntenna()` selects one of three antenna modes on your Photon or P1.  It takes one argument: `ANT_AUTO`, `ANT_INTERNAL` or `ANT_EXTERNAL`. You may specify in code which antenna to use as the default at boot time using the STARTUP() macro.  If you don't specify which antenna to use, the ANT_INTERNAL antenna will be chosen by default.
+
+`WiFi.selectAntenna()` returns 0 on success, or -1005 if the antenna choice was not found.  Other errors that may appear will all be negative values.
+
+```cpp
+// Use the STARTUP() macro to set the default antenna
+// to use system boot time.
+// In this case it would be set to the chip antenna
+STARTUP(WiFi.selectAntenna(ANT_INTERNAL));
+
+void setup() {
+  // your setup code
+}
+
+void loop() {
+  // your loop code
+}
+```
+
 ### WiFi.listen()
 
 This will enter listening mode, which opens a Serial connection to get Wi-Fi credentials over USB, and also listens for credentials over
