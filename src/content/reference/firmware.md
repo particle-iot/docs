@@ -1055,6 +1055,143 @@ On Core, this parameter can be one of the following values:
  * ADC_SampleTime_144Cycles: Sample time equal to 144 cycles
  * ADC_SampleTime_480Cycles: Sample time equal to 480 cycles
 
+## Low Level Input/Output
+
+The Input/Ouput functions include safety checks such as making sure a pin is set to OUTPUT when doing a digitalWrite() or that the pin is not being used for a timer function.  These safety measures represent good coding and system design practice.
+
+There are times when the fastest possible input/output operations are crucial to an applications performance. The SPI, UART (Serial) or I2C hardware are examples of low level performance-oriented devices.  There are, however, times when these devices may not be suitable or available.  For example, One-wire support is done in software, not hardware.
+
+In order to provide the fastest possible bit-oriented I/O, the normal safety checks must be skipped.  As such, please be aware that the programmer is responsible for proper planning and use of the low level I/O functions.
+
+Prior to using the following low-level functions, pinMode() must be used to configure the target pin.
+
+
+### pinSetFast()
+
+Write a `HIGH` value to a digital pin.
+
+```C++
+// SYNTAX
+pinSetFast(pin);
+```
+
+`pinSetFast()` takes one argument, `pin`: the number of the pin whose value you wish to set `HIGH`.
+
+`pinSetFast()` does not return anything.
+
+```C++
+// EXAMPLE USAGE
+int LED = D7;              // LED connected to D7
+
+void setup()
+{
+  pinMode(LED, OUTPUT);    // sets pin as output
+}
+
+void loop()
+{
+  pinSetFast(LED);		   // set the LED on
+  delay(500);
+  pinResetFast(LED);	   // set the LED off
+  delay(500);
+}
+```
+
+### pinResetFast()
+
+Write a `LOW` value to a digital pin.
+
+```C++
+// SYNTAX
+pinResetFast(pin);
+```
+
+`pinResetFast()` takes one argument, `pin`: the number of the pin whose value you wish to set `LOW`.
+
+`pinResetFast()` does not return anything.
+
+```C++
+// EXAMPLE USAGE
+int LED = D7;              // LED connected to D7
+
+void setup()
+{
+  pinMode(LED, OUTPUT);    // sets pin as output
+}
+
+void loop()
+{
+  pinSetFast(LED);		   // set the LED on
+  delay(500);
+  pinResetFast(LED);	   // set the LED off
+  delay(500);
+}
+```
+
+### digitalWriteFast()
+
+Write a `HIGH` or `LOW` value to a digital pin.  This function will call pinSetFast() or pinResetFast() based on `value` and is useful when `value` is calculated. As such, this imposes a slight time overhead.
+
+```C++
+// SYNTAX
+digitalWriteFast(pin, value);
+```
+
+`digitalWriteFast()` `pin`: the number of the pin whose value you wish to set and `value`: `HIGH` or `LOW`.
+
+`digitalWriteFast()` does not return anything.
+
+```C++
+// EXAMPLE USAGE
+int LED = D7;              // LED connected to D7
+
+void setup()
+{
+  pinMode(LED, OUTPUT);    // sets pin as output
+}
+
+void loop()
+{
+  digitalWriteFast(LED, HIGH);		   // set the LED on
+  delay(500);
+  digitalWriteFast(LED, LOW);	      // set the LED off
+  delay(500);
+}
+```
+
+### pinReadFast()
+
+Reads the value from a specified digital `pin`, either `HIGH` or `LOW`.
+
+```C++
+// SYNTAX
+pinReadFast(pin);
+```
+
+`pinReadFast()` takes one argument, `pin`: the number of the digital pin you want to read.
+
+`pinReadFast()` returns `HIGH` or `LOW`.
+
+```C++
+// EXAMPLE USAGE
+int button = D0;                   // button is connected to D0
+int LED = D1;                      // LED is connected to D1
+int val = 0;                       // variable to store the read value
+
+void setup()
+{
+  pinMode(LED, OUTPUT);            // sets pin as output
+  pinMode(button, INPUT_PULLDOWN); // sets pin as input
+}
+
+void loop()
+{
+  val = pinReadFast(button);       // read the input pin
+  digitalWriteFast(LED, val);      // sets the LED to the button's value
+}
+
+```
+
 ## Advanced I/O
 
 ### tone()
