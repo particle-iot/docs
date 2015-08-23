@@ -52,7 +52,7 @@ You'll also need some basic knowledge of the terminal. Adafruit has a [lovely in
 
 ### particle webhook create
 
-  Registers your Webhook with the Particle Cloud.  Creates a postback to the given url when your event is sent.  See [Webhook Options](#Webhook-options) for JSON formatting requirements and parameters.
+  Registers your Webhook with the Particle Cloud.  Creates a postback to the given url when your event is sent.  See [Webhook Options](#webhook-options) for JSON formatting requirements and parameters.
 
 ```sh
 # how to create a webhook with json data using the CLI
