@@ -7,6 +7,9 @@ order: 1
 ---
 
 # Introduction to THE GUIDE
+
+![](/assets/images/family_portrait_outlines.png)
+
 This guide will show you how to use Particle to make a connected device, from the first time you connect to the cloud to the day you manufacture and ship your connected product.
 
 Anxious to connect right away?
