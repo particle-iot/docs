@@ -19,7 +19,7 @@ like to add to this page, please submit a pull request.
 
 See [the official Javascript client](/reference/javascript/).
 
-* [Cylon.js robotics framework adapter by The Hybrid Group](http://cylonjs.com/documentation/platforms/spark/)
+* [Cylon.js robotics framework adapter by The Hybrid Group](http://cylonjs.com/documentation/platforms/particle/)
 
 ## Ruby
 
