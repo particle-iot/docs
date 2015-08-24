@@ -1593,13 +1593,13 @@ Puts Serial1 into half-duplex mode.  In this mode both the transmit and receive
 are on the TX pin.  This mode can be used for a single wire bus communications 
 scheme between microcontrollers.
 
-```C
+```C++
 // SYNTAX
 Serial1.halfduplex(true);  // Enable half-duplex mode
 Serial1.halfduplex(false); // Disable half-duplex mode
 ```
 
-```C
+```C++
 // EXAMPLE
 // Initializes Serial1 at 9600 baud and enables half duplex mode
 
