@@ -228,6 +228,11 @@ This is a FT2232H based JTAG programmer shield that is compatible with OpenOCD a
 
 ![Programmer Shield Description](/assets/images/shields/prog-shield/prog-shield-description.png)
 
+For more instructions on setting up OpenOCD and using the Programmer Shield, please read through the README at the landing page of the Programmer Shield repository on GitHub, linked below:
+
+https://github.com/spark/photon-shields/blob/master/programmer-shield/
+
+
 ### Programmer Shield - Specifications
  - Operating supply: USB
  - Current consumption:
