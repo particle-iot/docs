@@ -3753,7 +3753,7 @@ When using manual mode:
 
 *Since v0.4.4.*
 
-Retrieves the amount of memory guaranteed to be available. The the actual amount of free memory will be at least as large as the value returned. 
+Retrieves the amount of memory guaranteed to be available. The actual amount of free memory will be at least as large as the value returned. 
 
 ```cpp
 uint32_t freemem = System.freeMemory();
