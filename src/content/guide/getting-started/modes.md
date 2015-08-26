@@ -145,7 +145,7 @@ To perform a factory reset:
 2. Release only the RESET button, while holding down the SETUP button.
 3. Wait for the LED to start flashing magenta, then yellow, then green (continue to hold the SETUP button)
 4. The LED will turn solid white (continue to hold the SETUP button)
-5. Finally, the LED will turn blink white rapidly
+5. Finally, the LED will blink white rapidly
 6. Release the SETUP button
 
 ## Troubleshooting Modes
