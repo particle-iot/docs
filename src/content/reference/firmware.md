@@ -4301,6 +4301,21 @@ Parameters:
 
 Returns: None
 
+### toFloat()
+
+Converts a valid String to a float. The input string should start with digit. If the string contains non-integral numbers, the function will stop performing the conversion.
+
+```C++
+// SYNTAX
+string.toFloat()
+```
+
+Parameters:
+
+  * string: a variable of type String
+
+Returns: float (If no valid conversion could be performed because the string doesn't start with a digit, a zero is returned.)
+
 ### toInt()
 
 Converts a valid String to an integer. The input string should start with an integral number. If the string contains non-integral numbers, the function will stop performing the conversion.
