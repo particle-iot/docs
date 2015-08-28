@@ -91,7 +91,7 @@ To put your device in Safe Mode:
 3. Wait for the LED to start flashing magenta
 6. Release the SETUP button
 
-The device will itself automatically enter safe mode if there is no application code flashed to the device or when the application is not valid. 
+The device will itself automatically enter safe mode if there is no application code flashed to the device or when the application is not valid.
 
 ### DFU Mode (Device Firmware Upgrade)
 
@@ -115,13 +115,13 @@ The device now is in the DFU mode.
 
 ### Firmware Reset
 
-Firmware reset is not available on the Photon/P1. If you are experiencing problems with your application firmware, use [Safe Mode](#safe-mode) to recover. 
+Firmware reset is not available on the Photon/P1, but not to worry! If you are experiencing problems with your application firmware, you can use [Safe Mode](#safe-mode) to recover.
 
 ### Factory Reset
 
-Factory reset is not available on the Photon/P1. If you are experiencing problems with your application firmware, you can use [Safe Mode](#safe-mode) to recover. 
+Factory reset is not available on the Photon/P1, but not to worry! If you are experiencing problems with your application firmware, you can use [Safe Mode](#safe-mode) to recover.
 
-Wi-Fi credentials are reset by performing a [WiFi Network Reset](wifi-network-reset).  
+You can reset Wi-Fi credentials by performing a [WiFi Network Reset](#wifi-network-reset).
 
 ## Troubleshooting Modes
 
@@ -244,7 +244,7 @@ A pattern of more than 10 red flashes is caused by the firmware crashing. The pa
 {{else}}
 [Perform a factory reset](#factory-reset), tweak your firmware and try again!
 {{/if}}
- 
+
 There are a number of other red flash codes that may be expressed after the SOS blinks:
 
 #1 Hard fault
@@ -259,6 +259,6 @@ There are a number of other red flash codes that may be expressed after the SOS 
 #10 Assertion failure
 #11 Invalid case
 #12 Pure virtual call
- 
+
 
 Don't forget that the [community forum is always there to help](https://community.particle.io).
