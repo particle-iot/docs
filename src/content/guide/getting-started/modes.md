@@ -115,38 +115,13 @@ The device now is in the DFU mode.
 
 ### Firmware Reset
 
-{{{vine "https://vine.co/v/eZUwv3Za6Lq/embed/simple"}}}
-
-This type of reset sets the firmware on your Photon back to factory settings without deleting your saved wifi networks.
-
-To perform a firmware reset:
-
-1. Hold down BOTH buttons
-2. Release only the RESET button, while holding down the SETUP button.
-3. Wait for the LED to start flashing green (it will flash magenta and yellow first)
-6. Release the SETUP button
-
+Firmware reset is not available on the Photon/P1. If you are experiencing problems with your application firmware, use [Safe Mode](#safe-mode) to recover. 
 
 ### Factory Reset
 
-{{{vine "https://vine.co/v/eZUXpd2hUqa/embed/simple"}}}
+Factory reset is not available on the Photon/P1. If you are experiencing problems with your application firmware, you can use [Safe Mode](#safe-mode) to recover. 
 
-_The above video is at 2x speed._
-
-A factory reset restores the firmware on the device to the default Tinker app and clears all your Wi-Fi credentials.
-
-Procedure:
-
-The procedure is same as the one described above (DFU Mode), but in this case you should continue holding down the SETUP button until you see the device change from flashing yellow to flashing white. Then release the button.  This will take about 10 seconds. The device should begin after the factory reset is complete.
-
-To perform a factory reset:
-
-1. Hold down BOTH buttons
-2. Release only the RESET button, while holding down the SETUP button.
-3. Wait for the LED to start flashing magenta, then yellow, then green (continue to hold the SETUP button)
-4. The LED will turn solid white (continue to hold the SETUP button)
-5. Finally, the LED will blink white rapidly
-6. Release the SETUP button
+Wi-Fi credentials are reset by performing a [WiFi Network Reset](wifi-network-reset).  
 
 ## Troubleshooting Modes
 
