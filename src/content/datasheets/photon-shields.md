@@ -58,7 +58,7 @@ The new version of the Shield Shield (v3.x.x) uses dedicated mosfet based voltag
 |A4      | D0     |     SDA,PWM*            |
 |A5      | D1     |     SCL,PWM*,CAN_TX     |
 
-\* Note: These pins can also function as 3.3V PWM outputs or 3.3V Servo outputs.  
+\* Note: These pins can also function as 3.3V PWM outputs or 3.3V Servo outputs.
 \*\* Note: ADC inputs are 3.3V max.
 
 **IMPORTANT:** The Shield Shield does not map the Particle device's pins to like-numbered pins on the Arduino. In other words, D0 on the Particle device is not the same as D0 on the Arduino. Please review the pin mapping table to the right and plan accordingly.
@@ -425,7 +425,7 @@ This LED has four pins, one for each color and a common anode (+) pin.
 
 [1N4004](http://en.wikipedia.org/wiki/1N4004) is a general purpose diode rated at 400V, 1000mA with a forward voltage drop of 1.1V. Excellent as a [fly-back diode](http://en.wikipedia.org/wiki/Flyback_diode) or as a general rectifying diode.
 
-[Datasheet >](http://www.diodes.com/datasheets/ds28002.pdf)
+[Datasheet >](https://web.archive.org/web/20150321142351/http://www.diodes.com/datasheets/ds28002.pdf)
 
 ### IR LED (1)
 
