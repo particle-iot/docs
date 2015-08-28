@@ -425,7 +425,7 @@ This LED has four pins, one for each color and a common anode (+) pin.
 
 [1N4004](http://en.wikipedia.org/wiki/1N4004) is a general purpose diode rated at 400V, 1000mA with a forward voltage drop of 1.1V. Excellent as a [fly-back diode](http://en.wikipedia.org/wiki/Flyback_diode) or as a general rectifying diode.
 
-[Datasheet >](http://www.diodes.com/datasheets/ds28002.pdf)
+[Datasheet >](http://www.diodes.com/_files/datasheets/ds28002.pdf)
 
 ### IR LED (1)
 
