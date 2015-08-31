@@ -63,17 +63,13 @@ When your device is in Listening Mode, it is waiting for your input to connect t
 To put your device in Listening Mode, hold the `SETUP` button for three seconds, until the RGB LED begins flashing blue.
 
 
-### Wifi Network Reset
+### Wi-Fi Network Reset
 
 {{{vine "https://vine.co/v/eZUwtJljYnK/embed/simple"}}}
 
 To erase the stored wifi networks on your device, hold the `SETUP` button for about ten seconds, until the RGB LED flashes blue rapidly.
 
-### Selecting various Modes
-
-![Photon Reset Modes](/assets/images/photon-reset-modes.png)
-
-The next four modes are all selected using the same process, but by releasing the `SETUP` button at different times. The diagram to the right details the order, LED codes you'll see, and a little bit about what each does.
+You can also reset the Wi-Fi networks by holding the `SETUP` button and tapping `RESET`, then continuing to hold `SETUP` until the light on the Photon turns white. (This differs from the Core. Doing this action on the Core will result in a factory reset.)
 
 ### Safe Mode
 
@@ -111,7 +107,6 @@ To enter DFU Mode:
 {{{vine "https://vine.co/v/eZUXM7ETevY/embed/simple"}}}
 
 The device now is in the DFU mode.
-
 
 ### Firmware Reset
 
