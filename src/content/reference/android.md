@@ -239,6 +239,7 @@ If you're working from Android Studio on OS X, you can get the Javadoc for each 
 
 
 ### Logging
+
 HTTP logging can be configured by setting the `http_log_level` string resource.  Valid values follow Retrofit's `LogLevel` enum : `NONE`, `BASIC`, `HEADERS`, `HEADERS_AND_ARGS`, or `FULL`.
 
 For example, to set logging to `BASIC`, you would add the following to your `strings.xml`:

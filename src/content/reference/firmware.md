@@ -3805,7 +3805,7 @@ void setup()
   // Now open your Serial Terminal, and hit any key to continue!
   while(!Serial.available()) Spark.process();
 
-  String myID = Spark.deviceID();
+  String myID = System.deviceID();
   // Prints out the device ID over Serial
   Serial.println(myID);
 }
