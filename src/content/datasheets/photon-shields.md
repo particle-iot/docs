@@ -23,13 +23,16 @@ We use Texas Instruments TXB0108PWR to do the voltage translation in between the
 
 The new version of the Shield Shield (v3.x.x) uses dedicated mosfet based voltage translation on the I2C lines. We also decided to add a prototyping area in empty space in the middle of the shield.
 
+#### Notes
+
+1. One drawback of using the TXB0108PWR as a voltage translator is that it is only capable of driving loads at short distances. Long length wires will introduce excessive capacitive loading and cause the auto direction detection to fail. To overcome this drawback, the shield shield also has an optional on-board 74ABT125 buffer that is capable of driving heavier loads in *one* direction. A user can jumper wire to whichever IO pin they would like to be translated to 5V.
+2. If a pull-up on a particular pin is required the firmware MUST set the pin type to `INPUT` and then use an external pull-up resistor (between 1k and 10k ohms). Setting the pin type to `INPUT_PULLUP` will no longer work with the Shield Shield
+
 ### Shield Shield Schematic - MOSFET I2C
 
 ![Shield Shield I2C](/assets/images/shields/shield-shield/mosfet-i2c-schematic.png)
 
 ![Shield Shield Description](/assets/images/shields/shield-shield/shield-shield-description.png)
-
-**Note:** One drawback of using the TXB0108PWR as a voltage translator is that it is only capable of driving loads at short distances. Long length wires will introduce excessive capacitive loading and cause the auto direction detection to fail. To overcome this drawback, the shield shield also has an optional on-board 74ABT125 buffer that is capable of driving heavier loads in *one* direction. A user can jumper wire to whichever IO pin they would like to be translated to 5V.
 
 ### Shield Shield - Pin Mapping
 
