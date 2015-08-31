@@ -239,7 +239,7 @@ If you're working from Android Studio on OS X, you can get the Javadoc for each 
 
 
 ### Logging
-HTTP logging can be configured by setting the `http_log_level` string resource.  Valid values follow Retrofit's [`LogLevel` enum](http://square.github.io/retrofit/javadoc/retrofit/RestAdapter.LogLevel.html) : `NONE`, `BASIC`, `HEADERS`, `HEADERS_AND_ARGS`, or `FULL`.
+HTTP logging can be configured by setting the `http_log_level` string resource.  Valid values follow Retrofit's [`LogLevel` enum](http://webcache.googleusercontent.com/search?q=cache:uZMB4hbxh90J:square.github.io/retrofit/javadoc/retrofit/RestAdapter.LogLevel.html+&cd=1&hl=en&ct=clnk&gl=us) : `NONE`, `BASIC`, `HEADERS`, `HEADERS_AND_ARGS`, or `FULL`. See the [Retrofit JavaDoc](http://square.github.io/retrofit/javadoc/index.html) for more information.
 
 For example, to set logging to `BASIC`, you would add the following to your `strings.xml`:
 ```xml
