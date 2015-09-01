@@ -514,8 +514,6 @@ publishEventPr.then(
   }
 );
 ```
-**This feature is in a limited beta, and is not yet generally available**
-
 
 ## Working with code
 
