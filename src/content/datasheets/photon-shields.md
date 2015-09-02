@@ -110,7 +110,7 @@ The relays are SPDT (Single Pole Double Throw) type, which means they have three
 
 ![Relay Shield Power Supply](/assets/images/shields/relay-shield/relay-shield-schematic-2.png)
 
-The Relay Shield uses a high efficiency [RT8259](http://www.richtek.com/download_ds.jsp?p=RT8259) switch mode voltage regulator that provides a constant 5V to the Particle device and the relays. The regulator is rated at 1.2A max output current which is ample enough to power the Particle device, the four relays and still have left over for other things you may decided to connect later. You can power the shield via the 5.5mm barrel jack or through the screw terminal. There is a reverse polarity protection diode in place so that you don't fry the electronics buy plugging in the wires in reverse!
+The Relay Shield uses a high efficiency [RT8259](http://www.richtek.com/download_ds.jsp?p=RT8259) switch mode voltage regulator that provides a constant 5V to the Particle device and the relays. The regulator is rated at 1.2A max output current which is ample enough to power the Particle device, the four relays and still have left over for other things you may decided to connect later. You can power the shield via the 5.5mm barrel jack or through the screw terminal. There is a reverse polarity protection diode in place so that you don't fry the electronics by plugging in the wires in reverse!
 
 Here is an example setup to control a light bulb. The relay acts like a switch which is normally open and when pin D3 on the Particle device is turned HIGH, it activates Relay 1 thereby closing the circuit on the light bulb and turning it ON. Ta dah!
 
