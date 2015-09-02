@@ -583,7 +583,7 @@ To do this, you will use the `POST /oauth/token` endpoint, but in a [special way
 
 ```bash
 curl -u my-org-client-1234:long-secret -d grant_type=client_credentials \
--d scope=customer=jane@example.com https://api.particle.io/v1/oauth/token
+-d scope=customer=jane@example.com https://api.particle.io/oauth/token
 ```
 
 Breaking this down:
