@@ -265,9 +265,14 @@ $ particle subscribe eventName CoreName
 $ particle subscribe eventName 0123456789ABCDEFGHI
 ```
 
+## particle publish
 
-
-
+  Publishes events to the cloud via API, similar to running Spark.publish() (deprecated) or Particle.publish() on a Particle Device.
+  
+```sh
+$ particle publish eventName data
+```
+ 
 ## particle serial list
 
   Shows currently connected Particle Core's acting as serial devices over USB
