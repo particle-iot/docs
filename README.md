@@ -1,4 +1,4 @@
-## Particle Documentation [![Build Status](https://travis-ci.org/spark/docs.svg?branch=feature/server-side-rendering)](https://travis-ci.org/spark/docs)
+## Particle Documentation [![Build Status](https://travis-ci.org/spark/docs.svg?branch=master)](https://travis-ci.org/spark/docs)
 =======
 
 Here you'll find the documentation for the Particle platform, including the Particle Cloud, Photon, and Spark Core.
@@ -6,7 +6,7 @@ Here you'll find the documentation for the Particle platform, including the Part
 To view this documentation, visit [our website](http://docs.particle.io), where the documentation is hosted.
 
 **Note**: This is a new public repository as of May 18, 2015. All
-outsdanding pull requests from the old docs repository have been closed.
+outstanding pull requests from the old docs repository have been closed.
 Please re-open them in this repo.
 
 ### Installation
@@ -15,33 +15,33 @@ To host this documentation locally, you'll need Node.js and npm:
 
     brew install nodejs
 
-If you don't already have Grunt installed, you'll need that too:
-
-    npm install -g grunt-cli
-
-Once you have the dependencies, navigate to this repository's directory on your machine, and then:
+Once you have Node.js set up, navigate to this repository's directory on your machine, and then:
 
     npm install
 
-to install any other necessary dependencies:
+to install any other necessary dependencies.
 
 ### Hosting locally
 
-This documentation uses Grunt and Assemble to build and push documentation updates. Once everything's installed, to build the documentation, type:
+This documentation uses a fabulous tool from the folks at Segment called [Metalsmith](http://www.metalsmith.io). Metalsmith is a static site generator that builds static HTML sites from source material in other formats; in this case, Markdown and Handlebars.
 
-`grunt build`
+To run a locally hosted version of the documentation, follow the installation instructions above, and then within the 'docs' directory type in your terminal:
 
-The documentation will be located in the `build` directory. If you would like to host this documentation locally, try:
+`npm start`
 
-`grunt server`
+This will set up a server running at `http://localhost:8080`. If you make changes to the source content, your browser should automatically refresh using `livereload`.
 
-This will set up a Connect server and load the local documentation in a web browser. If you make changes, the browser should automatically refresh.
+### Testing
+
+To run the tests locally, run `npm test` from the root of the
+repository. This will tell you whether the build will pass on Travis or
+not.
 
 ### Deployment
 
 When updated documentation is pushed to the master branch, it is automatically pushed to Amazon S3 by Travis CI.
 
-Travis calls `grunt deploy`, which is the same as `grunt build`, except that it also zips up the docs for downloading.
+TODO: FURTHER INSTRUCTIONS FOR DEPLOYMENT
 
 To see the latest build, visit the [Travis CI page](https://travis-ci.org/spark/docs).
 
@@ -67,6 +67,45 @@ order: 4
 shared: true
 ---
 ```
+
+### Structuring your content
+
+The docs dynamically generate a table of contents for navigation purposes based on the headers (i.e. `###`) that you use on each page. It is important to note that _order and heirarchy matters_ when you are designing the organization of content on your page. Your page should include the following:
+
+* 1 `h1` at the top of the page that will serve as the title of the page. You can even copy the `title` directly from the front-matter of the markdown file like this: `# {{title}}`
+
+* As many `h2`s (`##`) as you'd like to serve as the section headers for the page.
+
+* Underneath every `h2`, if applicable, as many `h3`s (`###`) as you'd like to serve as sub-sections within the section. These will appear as nested within the navigation on the left.
+
+Note that there are only 2 levels of navigation that will appear in the table of contents. *`h4`s and below will not appear in the table of contents*.
+
+### Device Specific Content
+
+If you are working on a page that has device-specific content, the
+first thing you need to do is add the relevant device names to the
+front-matter of the MD file, like this:
+
+```
+devices: ['photon', 'core']
+```
+Where Photon and Core are the relevant devices to this page. Then, in
+the body of the page, you can specify device-specific content by
+using a special helper, like this:
+
+```
+{{#if photon}}
+  PHOTON SPECIFIC STUFFZ
+{{/if}}
+
+{{#if core}}
+  CORE SPECIFIC STUFFZ
+{{/if}}
+```
+
+### Tests
+
+To run the test scripts, run `npm test`.
 
 ### Attributions
 

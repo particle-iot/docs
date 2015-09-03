@@ -1,0 +1,21 @@
+<ul class="results">
+  {{#each results}}
+    <a href="/{{link}}">
+      <li>
+        <div class="left-result">
+          <span class="title">{{title}}</span>
+          <span class="page-title">{{pageTitle}}</span>
+          {{#if device}}
+            <span class="device">
+              <i class="im-devices-icon"></i>
+              <span>{{device}}</span>
+            </span>
+          {{/if}}
+        </div>
+        <span class="tag {{collectionClass}}">{{collection}}</span>
+      </li>
+    </a>
+  {{else}}
+    <p class="no-results">No results found :(</p>
+  {{/each}}
+</ul>

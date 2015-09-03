@@ -1,0 +1,187 @@
+.menubar {
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  background: @white;
+  font-size: 12px;
+  padding-top: 30px;
+  padding-bottom: 75px;
+  overflow-y: auto;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 280px;
+  border-right: solid 1px #dfe2e7;
+  z-index: 0;
+  .transition(opacity 0);
+  pointer-events: none;
+  opacity: 0;
+
+  &.menu-hidden {
+    left: 0;
+    //transition-delay: .33s;
+  }
+
+  &.menu-visible {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  > ul {
+    padding: 10px 20px;
+
+   p {
+     font-weight: 700;
+     text-transform: uppercase;
+     margin-top: 10px;
+   }
+
+   > li > ul > li {
+     padding-left: 10px;
+   }
+
+
+  }
+}
+.menubar .section {
+  padding: 0 10px;
+  overflow: hidden;
+  box-sizing: border-box;
+  width: 100%;
+}
+
+.menubar .sections {
+  padding: 20px 0 30px;
+}
+.menubar .section.no-line {
+  border-top: 0;
+  padding-top: 0;
+}
+.menubar ol {
+  list-style: inherit;
+  list-style-position: inside;
+  list-style-type: decimal;
+  li {
+    color: @gray;
+  }
+}
+
+
+h3.guide-section-titles {
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: .7px;
+  font-weight: 700;
+  margin-bottom: 5px;
+}
+
+
+/* GUIDE SPECIFIC MENU */
+ul.guide-menu {
+  ul.in-page-toc {
+    margin-left: 20px;
+  }
+  li.active-section {
+    overflow-x: visible;
+    li.active.top-level {
+      overflow-x: hidden;
+      padding-left: 20px;
+    }
+  }
+}
+/* END GUIDE SPEFIFIC MENU */
+
+/* REFERENCE SPECIFIC MENU */
+.reference {
+  ul.in-page-toc {
+    display: none;
+  }
+}
+/* END REFERENCE SPECIFIC MENU */
+#toggle-in-page-nav {
+  color: @gray;
+  cursor: pointer;
+  position: absolute;
+  top: 11px;
+  right: 15px;
+  .transition(color 0.2s);
+}
+
+.menubar li a,
+.menubar li a:visited {
+  font-size: 14px;
+  font-weight: 400;
+  color: @gray;
+  margin: 2px 0;
+  &:hover {
+    color: @spark-blue;
+  }
+}
+.menubar li {
+  text-overflow: ellipsis;
+  overflow-x: hidden;
+  white-space: nowrap;
+  padding: 2px 0;
+}
+
+ul.in-page-toc {
+  margin: 5px 0 10px 10px;
+  &.hide {
+    display: none;
+  }
+  &.show {
+    display: block;
+  }
+  li {
+    text-overflow: ellipsis;
+    overflow-x: hidden;
+    padding: 2px 0;
+    i.toggle-secondary-toc {
+      color: @gray;
+      margin-right: 5px;
+      cursor: pointer;
+      .transition(color 0.2s);
+      &:hover {
+        color: @spark-blue;
+      }
+    }
+    &.active {
+      a {
+        font-weight: 700;
+        color: @spark-blue;
+      }
+    }
+    a {
+      font-size: 12px;
+    }
+  }
+  .secondary-in-page-toc {
+    padding-left: 10px;
+    display: none;
+  }
+}
+
+.menubar li.active {
+  &.top-level {
+    padding: 5px;
+    background: @almost-white;
+    position: relative;
+    cursor: pointer;
+    margin: 0 -20px;
+    padding-left: 20px;
+    overflow-x: auto;
+    &:hover {
+      #toggle-in-page-nav {
+        color: @spark-blue;
+      }
+    }
+  }
+  span {
+    font-weight: 700;
+    color: @gray;
+    font-size: 14px;
+  }
+}
+.guide-section {
+  margin-bottom: 15px;
+}
+

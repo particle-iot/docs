@@ -1,0 +1,110 @@
+@media screen and (min-width: 1360px) {
+
+	.footnoteLink {
+		border-bottom: 1px solid #00adef;
+		cursor: pointer;
+	}
+
+	.footnote {
+		background-color: #ffffff;
+    border-top: 2px solid #00adef;
+    border-bottom: 2px solid #00adef;
+		font-weight: normal;
+		height: auto;
+		left: -140px;
+		line-height: 1.4;
+		margin-top: -20px;
+		min-height: 20px;
+		opacity: 0;
+		padding: .85rem 0;
+		position: absolute;
+		width: 120px;
+		visibility: hidden;
+		z-index: 1;
+		transition: opacity .25s, visibility .25s;
+    font-size: 10 px;
+	}
+
+    .footnoteLink:hover .footnote {
+      visibility: visible;
+      opacity: 1;
+    }
+
+}
+
+@media screen and (max-width: 1360px) and (min-width: @small-size) {
+  .footnoteLink {
+    border-bottom: 1px solid #00adef;
+    cursor: pointer;
+  }
+
+  .footnote {
+    background-color: #ffffff;
+    border-top: 2px solid #00adef;
+    border-bottom: 2px solid #00adef;
+    font-weight: normal;
+    height: auto;
+    line-height: 1.4;
+    margin-top: -20px;
+    min-height: 20px;
+    opacity: 0;
+    position: absolute;
+    width: 320 px;
+    visibility: hidden;
+    z-index: 1;
+    transition: opacity .25s, visibility .25s;
+    font-size: 10 px;
+    transform: translateY(-50%);
+    padding: 15px;
+    border: 2px solid #00adef;
+    border-radius: 10px;
+    display: block;
+  }
+
+  .footnoteLink.showing .footnote {
+    visibility: visible;
+    opacity: 1;
+  }
+
+}
+
+@media screen and (max-width: @small-size) and (min-width: 0) {
+    .footnoteLink {
+      border-bottom: 1px solid #00adef;
+      cursor: pointer;
+    }
+
+    .footnote {
+      background-color: #ffffff;
+      border: 2px solid #00adef;
+      font-weight:normal;
+      height: auto;
+      left:0;
+      line-height: 1.5;
+      margin-top:-30px;
+      min-height: 50px;
+      opacity: 0;
+      padding: .85rem 1rem;
+      position: absolute;
+      visibility: hidden;
+      width: 100%;
+      z-index: 1;
+      -webkit-transition: opacity .25s, visibility .25s;
+      -moz-transition: opacity .25s, visibility .25s;
+      transition: opacity .25s, visibility .25s;
+      font-size: 12 px;
+    }
+    .footnoteLink.showing .footnote {
+      visibility: visible;
+      opacity: 1;
+    }
+}
+
+
+@media print
+{    
+    .footnoteLink
+    {
+        display: none !important;
+    }
+}

@@ -1,0 +1,57 @@
+{{#prettify condense='true' indent=0}}
+{{#with group}}
+
+	{{#each this}}
+		{{permalink-header title}}
+		<pre class='api-code api-definition' data-title='Definition'><code class='prettyprint lang-json'>{{uppercase type}} {{url}}</code></pre>
+		{{{description}}}
+
+		{{#each examples}}
+<pre class='api-code api-request-example' data-title='{{#isnt title content}}{{title}}{{else}}Example Request{{/isnt}}'><code class='prettyprint lang-{{this.type}}'>{{{this.content}}}</code></pre>
+		{{/each}}
+
+		{{#if parameter.fields}}
+			<ul class='api-attributes api-request' data-title='Request Arguments'>
+				{{#each parameter.fields.Parameter}}
+					<li>
+						<div class='api-field'>{{field}}{{#unless optional}}<span class='field-required'>REQUIRED</span>{{/unless}}
+						<small>{{#if allowedValues}}{{join allowedValues ','}}{{else}}{{type}}{{/if}}</small></div>
+						<div class='field-desc'>{{#if description}}{{{description}}}{{else}}&mdash;{{/if}}</div>
+					</li>
+				{{/each}}
+			</ul>
+		{{/if}}
+
+		{{#each success.fields}}
+			<ul class='api-attributes api-response' data-title='Response Attributes'>
+				{{#each this}}
+					<li>
+						<div class='api-field'>{{field}}<small>{{type}}</small></div>
+						<div class='field-desc'>{{#if description}}{{{description}}}{{else}}&mdash;{{/if}}</div>
+					</li>
+
+					{{#if this.nestedParams}}
+						<li class='nested-wrapper'>
+							<ul class='nested-params'>
+								{{#each this.nestedParams}}
+								<li class='nested-param'>
+								<div class='api-field'>{{field}}<small>{{type}}</small></div>
+								<div class='field-desc'>{{#if description}}{{{description}}}{{else}}&mdash;{{/if}}</div>
+								</li>
+								{{/each}}
+							</ul>
+						</li>
+					{{/if}}
+				{{/each}}
+			</ul>
+		{{/each}}
+
+		{{#each success.examples}}
+<pre class='api-code api-response-example' data-title='{{#starts-with content title}}Example Response{{else}}{{title}}{{/starts-with}}'><code class='prettyprint lang-{{type}}'>{{{content}}}</code></pre>
+		{{/each}}
+
+		<div class='api-op-footer'></div>
+	{{/each}}
+
+{{/with}}
+{{/prettify}}
