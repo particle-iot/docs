@@ -267,7 +267,7 @@ $ particle subscribe eventName 0123456789ABCDEFGHI
 
 ## particle publish
 
-  Publishes events to the cloud as if they came from the Particle Core/Photon via Spark.publish (deprecated) or Particle.publish.
+  Publishes events to the cloud via API, similar to running Spark.publish() (deprecated) or Particle.publish() on a Particle Device.
   
 ```sh
 $ particle publish eventName data
