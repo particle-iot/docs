@@ -621,9 +621,15 @@ WiFi.ready();
 WiFi.selectAntenna(ANT_INTERNAL); // selects the CHIP antenna
 WiFi.selectAntenna(ANT_EXTERNAL); // selects the u.FL antenna
 WiFi.selectAntenna(ANT_AUTO); // continually switches at high speed between antennas
+
+setup(){
+  WiFi.selectAntenna(ANT_EXTERNAL);
+}
 ```
 
-`WiFi.selectAntenna()` selects one of three antenna modes on your Photon or P1.  It takes one argument: `ANT_AUTO`, `ANT_INTERNAL` or `ANT_EXTERNAL`. You may specify in code which antenna to use as the default at boot time using the STARTUP() macro.  If you don't specify which antenna to use, the ANT_INTERNAL antenna will be chosen by default.
+`WiFi.selectAntenna()` selects one of three antenna modes on your Photon or P1.  It takes one argument: `ANT_AUTO`, `ANT_INTERNAL` or `ANT_EXTERNAL`. `WiFi.selectAntenna()` must be used inside another function like STARTUP(), setup(), or loop() to compile.
+
+You may specify in code which antenna to use as the default at boot time using the STARTUP() macro.  If you don't specify which antenna to use, the ANT_INTERNAL antenna will be chosen by default.
 
 `WiFi.selectAntenna()` returns 0 on success, or -1005 if the antenna choice was not found.  Other errors that may appear will all be negative values.
 
