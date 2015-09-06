@@ -1627,14 +1627,16 @@ This library allows you to communicate with SPI devices, with the Core/Photon as
 
 ### begin()
 
-Initializes the SPI bus by setting SCK, MOSI, and SS to outputs, pulling SCK and MOSI low, and SS high.
+Initializes the SPI bus by setting SCK, MOSI, and a user-specified slave-select pin (default is SS) to outputs, MISO to input and pulling SCK and MOSI low, and slave-select high.
 
-Note that once the pin is configured, you can't use it anymore as a general I/O, unless you call the SPI.end() method on the same pin.
+NOTE:  The SPI firmware ONLY  initializes the user-specified slave-select pin.  The user's code must control the slave-select pin before and after each SPI transfter for the desired spi slave device. Calling SPI.end() does NOT reset the pin mode of the SPI pins.
 
 ```C++
 // SYNTAX
-SPI.begin();
+SPI.begin(ss);
 ```
+
+Where, the parameter `ss` is the SPI device slave-select pin to initialize.  The default pin is `SS (A2)` if no pin is specified.
 
 ### end()
 
