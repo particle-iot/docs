@@ -1366,7 +1366,7 @@ To use the TX/RX (Serial1) or D1/D0 (Serial2) pins to communicate with your pers
 
 Sets the data rate in bits per second (baud) for serial data transmission. For communicating with the computer, use one of these rates: 300, 600, 1200, 2400, 4800, 9600, 14400, 19200, 28800, 38400, 57600, or 115200. You can, however, specify other rates - for example, to communicate over pins TX and RX with a component that requires a particular baud rate.
 
-**NOTE:** The data rate for the USB device `Serial` is ignored, as USB has its own negotiated speed. Setting speed to 9600 is safe for the USB device. Setting the port to 14400 baud will cause the Photon to go into DFU mode while 28800 will allow a YMODEM download of firmware.
+**NOTE:** The data rate for the USB device `Serial` is ignored, as USB has its own negotiated speed. Setting speed to 9600 is safe for the USB device. Setting the port to 14400 baud will cause the Photon to go into DFU mode while 28800 will allow a YMODEM download of firmware. 
 
 ```C++
 // SYNTAX
@@ -1596,7 +1596,7 @@ Serial1.flush();
 ### halfduplex()
 
 Puts Serial1 into half-duplex mode.  In this mode both the transmit and receive
-are on the TX pin.  This mode can be used for a single wire bus communications
+are on the TX pin.  This mode can be used for a single wire bus communications 
 scheme between microcontrollers.
 
 ```C++
@@ -3053,7 +3053,7 @@ The parameter for millis is an unsigned long, errors may be generated if a progr
 
 ### micros()
 
-Returns the number of microseconds since the device began running the current program.
+Returns the number of microseconds since the device began running the current program. 
 
 Firmware v0.4.3 and earlier:
 - This number will overflow (go back to zero), after exactly 59,652,323 microseconds (0 .. 59,652,322) on the Core and after exactly 35,791,394 microseconds (0 .. 35,791,394) on the Photon.
@@ -3613,6 +3613,41 @@ uint8_t val = 0x45;
 EEPROM.write(addr, val);
 ```
 
+## STARTUP()
+
+_Since 0.4.5_
+
+Typically an application will haves it's initialization code in the `setup()` function.
+This works well if a delay of a few seconds from power on/reset is acceptable.
+
+In other cases, the application wants to have code run as early as possible, before the cloud or network connection
+are initialized. The `STARTUP()` function instructs the system to execute the code early on in startup.
+
+```cpp
+void setup_the_fundulating_conbobulator()
+{
+   pinMode(D3, OUTPUT);
+   digitalWrite(D3, HIGH);
+}
+
+// The STARTUP call is placed outside of any other function
+// What goes inside is any valid code that can be executed. Here, we use a function call.
+// Using a single function is preferable to having several `STARTUP()` calls.
+STARTUP( setup_the_fundulating_conbobulator() );
+
+```
+
+The code referenced by `STARTUP()` is executed very early in the startup sequence, so it's best suited
+to initializing digital I/O and peripherals. Networking setup code should still be placed in `setup()`.
+{{#if photon}}
+Although there is one notable exception - `WiFi.selectAntenna()` should be called from `STARTUP()` to select the default antenna before the Wi-Fi connection is made.
+{{/if}}
+
+_Note that when startup code performs digital I/O, there will still be a period of at least few hundred milliseconds
+where the I/O pins are in their default power-on state, namely `INPUT`. Circuits should be designed with this
+in mind, using pullup/pulldown resistors as appropriate._
+
+
 ## System modes
 
 System modes help you control how the device manages the connection with the cloud.
@@ -3710,7 +3745,7 @@ When using manual mode:
 
 *Since v0.4.4.*
 
-Retrieves the amount of memory guaranteed to be available. The actual amount of free memory will be at least as large as the value returned.
+Retrieves the amount of memory guaranteed to be available. The actual amount of free memory will be at least as large as the value returned. 
 
 ```cpp
 uint32_t freemem = System.freeMemory();
