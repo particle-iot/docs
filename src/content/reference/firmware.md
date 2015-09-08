@@ -2397,7 +2397,25 @@ client.stop();
 
 This class enables UDP messages to be sent and received.
 
+_Note that UDP does not guarantee that messages are always delivered, or that
+they are delivered in the order supplied. In cases where your application
+requires a reliable connection, `TCPClient` is a simpler alternative._
+
+{{#if core}}
 The UDP protocol implementation has known issues that will require extra consideration when programming with it. Please refer to the Known Issues category of the Community for details. The are also numerous working examples and workarounds in the searchable Community topics.
+{{/if}}
+
+There are two primary ways of working with UDP - buffered operation and unbuffered operation.
+
+1. buffered operation allows you to read and write packets in small pieces, since the system takes care of allocating the required buffer to hold the entire packet.
+ - to read a buffered packet, call `parsePacket`, then use `available` and `read` to retrieve the packet received
+ - to write a buffered packet, optionally call `setBuffer` to set the maximum size of the packet (the default is 512 bytes), followed by
+  `beginPacket`, then as many calls to `write`/`print` as necessary to build the packet contents, followed finally by `end` to send the packet over the network.
+
+2. unbuffered operation allows you to read and write entire packets in a single operation - your application is responsible for allocating the buffer to contain the packet to be sent or received over the network.
+ - to read an unbuffered packet, call `receivePacket` with a buffer to hold the received packet.
+ - to write an unbuffered packet,  call `sendPacket` with the packet buffer to send, and the destination address.
+
 
 <!-- TO DO -->
 <!-- Add more examples-->
@@ -2479,7 +2497,9 @@ It returns nothing.
 
 ### endPacket()
 
-Called after writing UDP data to the remote connection.
+Called after writing buffered UDP data using `write()` or `print()`. The buffered data is then sent to the
+remote UDP peer.
+
 
 ```cpp
 // SYNTAX
@@ -2490,7 +2510,7 @@ Parameters: NONE
 
 ### write()
 
-Writes UDP data to the remote connection. Must be wrapped between `beginPacket()` and `endPacket()`. `beginPacket()` initializes the packet of data, it is not sent until `endPacket()` is called.
+Writes UDP data to the buffe - no data is actually sent. Must be wrapped between `beginPacket()` and `endPacket()`. `beginPacket()` initializes the packet of data, it is not sent until `endPacket()` is called.
 
 ```cpp
 // SYNTAX
@@ -2557,7 +2577,7 @@ Parameters: NONE
 
 ### remoteIP()
 
-Returns the IP address of sender of the packet parsed by `UDP.parsePacket()`.
+Returns the IP address of sender of the packet parsed by `UDP.parsePacket()`/`UDP.receivePacket()`.
 
 ```cpp
 // SYNTAX
@@ -2567,12 +2587,12 @@ Parameters: NONE
 
 Returns:
 
- - 4 bytes : the IP address of the sender of the packet parsed by `UDP.parsePacket()`.
+ - IPAddress : the IP address of the sender of the packet parsed by `UDP.parsePacket()`/`UDP.receivePacket()`.
 
 
 ### remotePort()
 
-Returns the port from which the UDP packet was sent. The packet is the one most recently processed by  UDP.parsePacket()`.
+Returns the port from which the UDP packet was sent. The packet is the one most recently processed by `UDP.parsePacket()`/`UDP.receivePacket()`.
 
 ```cpp
 // SYNTAX
@@ -2582,7 +2602,102 @@ Parameters: NONE
 
 Returns:
 
-- `int`: the port from which the packet parsed by `UDP.parsePacket()` was sent.
+- `int`: the port from which the packet parsed by `UDP.parsePacket()`/`UDP.receivePacket()` was sent.
+
+
+### setBuffer()
+
+_Since 0.4.5_
+
+Initializes the buffer used by a `UDP` instance for buffered reads/writes. The buffer
+is used when your application calls `beginPacket()` and `parsePacket()`.  If `setBuffer()` isn't called,
+the buffer size defaults to 512 bytes, and is allocated when buffered operation is initialized via `beginPacket()` or `parsePacket()`.
+
+```cpp
+// SYNTAX - dynamically allocated buffer
+
+UDP udp;
+
+// uses a dynamically allocated buffer that is 1024 bytes in size
+if (!udp.setBuffer(1024))
+{
+    // on no, couldn't allocate the buffer
+}
+else
+{
+    // 'tis good!
+}
+
+```
+
+```cpp
+// SYNTAX - application-provided buffer
+
+UDP udp;
+
+char appBuffer[800];
+udp.setBuffer(800, appBuffer);
+```
+
+Parameters:
+
+- unsigned int: the size of the buffer
+- pointer:  the buffer. If not provided, or `NULL` the system will attempt to
+ allocate a buffer of the size requested.
+
+Returns:
+- `true` when the buffer was successfully allocated, `false` if there was insufficient memory. (For application-provided buffers
+the function always returns `true`.)
+
+### releaseBuffer()
+
+_Since 0.4.5_
+
+Releases the buffer previously set by a call to `setBuffer()`.
+
+_This is typically required only when performing advanced memory management and the UDP instance is
+not scoped to the lifetime of the application._
+
+### sendPacket()
+
+_Since 0.4.5_
+
+Sends a packet, unbuffered, to a remote UDP peer.
+
+```cpp
+
+// SYNTAX
+
+UDP udp;
+
+const size_t bufferSize = 1024;
+char buffer[bufferSize];
+
+// which address and port to send the data to
+IPAddress remoteIP(192,168,10,234);
+int remotePort = 22;
+
+// fill the buffer with goodness
+// ...
+
+// now send the buffer as a packet
+
+if (udp.sendPacket(buffer, bufferSize, remoteIP, remotePort)<0) {
+    // opps, packet not sent
+}
+
+```
+
+Parameters:
+- pointer (buffer): the buffer of data to send
+- int (bufferSize): the number of bytes of data to send
+- IPAddress (remoteIP): the destination address of the remote peer
+- port (remotePort): the destination port of the remote peer
+
+Returns:
+- The number of bytes written. Negative value on error.
+
+
 
 ## Libraries
 
