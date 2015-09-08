@@ -2757,6 +2757,41 @@ Parameters:
 Returns:
 - The number of bytes written. Negative value on error.
 
+{{#if photon}}
+### joinMulticast()
+
+_Since 0.4.5_
+
+Join a multicast address for all UDP sockets which are on the same network interface as this one.
+
+```cpp
+// SYNTAX
+
+UDP udp;
+
+udp.begin();
+udp.joinMulticast(224,0,0,0);
+```
+
+This will allow reception of multicast packets sent to the given address for UDP sockets
+which have bound the port to which the multicast packet was sent.
+Must be called only after `begin()` so that the network interface is established.
+
+### leaveMulticast()
+
+_Since 0.4.5_
+
+Leaves a multicast address on all UDP sockets that are on the same network interface as this one.
+
+```cpp
+// SYNTAX
+
+UDP udp;
+
+udp.leaveMulticast();
+```
+
+{{/if}}
 
 
 ## Libraries
