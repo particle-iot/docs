@@ -859,6 +859,51 @@ void setup() {
 }
 ```
 
+{{#if photon}}
+
+### WiFi.setStaticIP()
+
+Defines the static IP addresses used by the system to connect to the network when static IP is activated.
+
+```cpp
+// SYNTAX
+
+void setup() {
+    IPAddress myAddress(192,168,1,100);
+    IPAddress netmask(255,255,255,0);
+    IPAddress gateway(192,168,1,1);
+    IPAddress dns(192,168,1,1);
+    WiFi.setStaticIP(myAddress, netmask, gateway, dns);
+
+    // now let's use the configured IP
+    WiFi.useStaticIP();
+}
+
+```
+
+The addresses are stored persistently so that they are available in all subsequent
+application and also in safe mode.
+
+
+### WiFi.useStaticIP()
+
+Instructs the system to connect to the network using the IP addresses provided to
+`WiFi.setStaticIP()`
+
+The setting is persistent and is remembered until `WiFi.useDynamicIP()` is called.
+
+### WiFi.useDynamicIP()
+
+Instructs the system to connect to the network using a dynamically allocated IP
+address from the router.
+
+A note on switching between static and dynamic IP. If static IP addresses have been previously configured using `WiFi.setStaticIP()`, they continue to be remembered
+by the system after calling `WiFi.useDynamicIP()`, and so are available for use next time `WiFi.useStaticIP()`
+is called, without needing to be reconfigured using `WiFi.setStaticIP()`
+
+{{/if}}
+
+
 ## Input/Output
 
 ### pinMode()
