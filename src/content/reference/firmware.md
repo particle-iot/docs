@@ -2330,6 +2330,59 @@ Discard any bytes that have been written to the client but not yet read.
 client.flush();
 ```
 
+### remoteIP()
+
+_Since 0.4.5_
+
+Retrieves the remote `IPAddress` of a connected `TCPClient`. When the `TCPClient` is retrieved
+from `TCPServer.available()` (where the client is a remote client connecting to a local server) the
+`IPAddress` gives the remote address of the connecting client.
+
+When `TCPClient` was created directly via `TCPClient.connect()`, then `remoteIP`
+returns the remote server the client is connected to.
+
+```C++
+
+// EXAMPLE - TCPClient from TCPServer
+
+TCPServer server(80);
+// ...
+
+void setup()
+{
+    Serial.begin(9600);
+    server.begin(80);
+}
+
+void loop()
+{
+    // check for a new client to our server
+    TCPClient client = server.available();
+    if (client.connected())
+    {
+        // we got a new client
+        // find where the client's remote address
+        IPAddress clientIP = client.remoteIP();
+        // print the address to Serial
+        Serial.println(clientIP);
+    }
+}
+```
+
+```C++
+// EXAMPLE - TCPClient.connect()
+
+TCPClient client;
+client.connect("www.google.com", 80);
+if (client.connected())
+{
+    IPAddress clientIP = client.remoteIP();
+    // IPAddress equals whatever www.google.com resolves to
+}
+
+```
+
+
 ### stop()
 
 Disconnect from the server.
