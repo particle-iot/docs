@@ -3298,6 +3298,60 @@ Serial.print(Time.timeStr()); // Wed May 21 01:08:47 2014
 
 Returns: String
 
+_NB: In 0.3.4 and earlier, this function included a newline at the end of the returned string. This has been removed in 0.4.0._
+
+### format()
+
+Formats a time string using a configurable format.
+
+```cpp
+// EXAMPLE
+
+time_t time = Time.now();
+Time.format(time, TIME_FORMAT_DEFAULT); // Sat Jan 10 08:22:04 2004 , same as Time.timeStr()
+
+Time.zone(-5.25);  // setup a time zone, which is part of the ISO6801 format
+Time.format(time, TIME_FORMAT_ISO8601_FULL) // 2004-01-10T08:22:04-05:15
+
+```
+
+The formats available are:
+
+- `TIME_FORMAT_DEFAULT`
+- `TIME_FORMAT_ISO8601_FULL`
+- custom format based on `strftime()`
+
+{{#if core}}
+Note that the format function is implemented using `strftime()` which adds several kilobytes to the size of firmware.
+Application firmware that has limited space available may want to consider using simpler alternatives that consume less firmware space, such as `sprintf()`.
+{{/if}}
+
+### setFormat()
+
+Sets the format string that is the default value used by `format()`.
+
+```cpp
+
+Time.setFormat(TIME_FORMAT_ISO8601_FULL);
+
+```
+
+In more advanced cases, you can set the format to a static string that follows
+the same syntax as the `strftime()` function.
+
+```
+// custom formatting
+
+Time.format(Time.now(), "Now it's %I:%M%p.");
+// Now it's 03:21AM.
+
+```
+
+### getFormat()
+
+Retrieves the currently configured format string for time formatting with `format()`.
+
+
 ## Other Functions
 
 Note that most of the functions in newlib described at https://sourceware.org/newlib/libc.html are available for use in addition to the functions outlined below.
