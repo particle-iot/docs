@@ -614,6 +614,7 @@ This function will return `true` once the device is connected to the network and
 WiFi.ready();
 ```
 
+{{#if photon}}
 ### WiFi.selectAntenna()
 
 ```cpp
@@ -647,16 +648,30 @@ void loop() {
   // your loop code
 }
 ```
+{{/if}}
 
 ### WiFi.listen()
 
-This will enter listening mode, which opens a Serial connection to get Wi-Fi credentials over USB, and also listens for credentials over
+This will enter or exit listening mode, which opens a Serial connection to get Wi-Fi credentials over USB, and also listens for credentials over
 {{#if core}}Smart Config{{/if}}{{#if photon}}Soft AP{{/if}}.
 
 ```cpp
-// SYNTAX
+// SYNTAX - enter listening mode
 WiFi.listen();
 ```
+
+Listening mode blocks application code. Advanced cases that use multithreading, interrupts, or system events
+have the ability to continue to execute application code while in listening mode, and may wish to then exit listening
+mode, such as after a timeout. Listning mode is stopped using this syntax:
+
+```cpp
+
+// SYNTAX - exit listening mode
+WiFi.listen(false);
+
+```
+
+
 
 ### WiFi.listening()
 
