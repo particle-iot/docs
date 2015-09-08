@@ -2859,6 +2859,25 @@ Detach the Servo variable from its pin.
 servo.detach()
 ```
 
+### setTrim()
+
+Sets a trim value that allows minute timing adjustments to correctly
+calibrate 90 as the stationary point.
+
+```cpp
+// SYNTAX
+
+// shortens the pulses sent to the servo
+servo.setTrim(-3);
+
+// a larger trim value
+servo.setTrim(30);
+
+// removes any previously configured trim
+servo.setTrim(0);
+```
+
+
 ### RGB
 
 This library allows the user to control the RGB LED on the front of the device.
