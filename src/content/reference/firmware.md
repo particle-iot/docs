@@ -1847,9 +1847,60 @@ SPI.setBitOrder(order);
 
 Where, the parameter `order` can either be `LSBFIRST` or `MSBFIRST`.
 
+### setClockSpeed
+
+Sets the SPI clock speed. The value can be specified as a direct value, or as
+as a value plus a multiplier.
+
+
+```
+// EXAMPLE
+
+// set the clock speed as close (but not over) to 15 MHz
+SPI.setClockSpeed(15, MHZ));
+SPI.setClockSpeed(15000000));
+```
+
+The clock speed cannot be set to any arbitrary value, but is set internally by using a
+divider (see `SPI.setClockDivider()`) that gives the highest clock speed not greater
+than the one specified.
+
+This method can make writing portable code easier, since it specifies the clock speed
+absolutely, giving comparable results across devices. In contrast, specifying
+the clock speed using dividers is typically not portable since is dependent upon the system clock speed.
+
+### setClockDividerReference
+
+This function aims to ease porting code from other platforms by setting the clock speed that
+`SPI.setClockDivider` is relative to.
+
+For example, when porting an Arduino SPI library, each to `SPI.setClockDivider()` would
+need to be changed to reflect the system clock speed of the device being used.
+
+This can be avoided by placing a call to `SPI.setClockDividerReference()` before the other SPI calls.
+
+```cpp
+
+// setting divider reference
+
+// place this early in the library code
+SPI.setClockDividerReference(SPI_CLK_ARDUINO);
+
+// then all following calls to setClockDivider() will give comparable clock speeds
+// to running on the Arduino Uno
+
+// sets the clock to as close to 4MHz without going over.
+SPI.setClockDivider(SPI_CLK_DIV4);
+```
+
+The default clock divider reference is the system clock.  {{#if core}}On the Core, this is 72 MHz.{{/if}} {{#if photon}}On the Photon, the system clock speeds are:
+- SPI - 60 MHz
+- SPI1 - 30 MHz
+{{/if}}
+
 ### setClockDivider()
 
-Sets the SPI clock divider relative to the system clock. The available dividers  are 2, 4, 8, 16, 32, 64, 128 or 256. The default setting is SPI_CLOCK_DIV4, which sets the SPI clock to one-quarter the frequency of the system clock.
+Sets the SPI clock divider relative to the selected clock reference. The available dividers  are 2, 4, 8, 16, 32, 64, 128 or 256. The default setting is SPI_CLOCK_DIV4, which sets the SPI clock to one-quarter the frequency of the system clock.
 
 ```C++
 // SYNTAX
