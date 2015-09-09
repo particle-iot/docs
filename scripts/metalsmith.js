@@ -168,7 +168,7 @@ exports.metalsmith = function() {
       '/guide/getting-started': '/guide/getting-started/intro',
       '/guide/how-to-build-a-product': '/guide/how-to-build-a-product/intro/',
       '/guide/tools-and-features': '/guide/tools-and-features/intro',
-      '/support': '/support/shipping-account-info',
+      '/support': '/support/troubleshooting-support',
       "/photon" : "/",
       "/photon/start" : "/guide/getting-started/start",
       "/photon/connect" : "/guide/getting-started/connect",

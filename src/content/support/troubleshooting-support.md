@@ -3,7 +3,7 @@ title: Troubleshooting
 template: support.hbs
 columns: two
 devices: [ photon, core ]
-order: 3
+order: 1
 ---
 
 # Common Troubleshooting Tips and References
