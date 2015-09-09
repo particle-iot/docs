@@ -1071,6 +1071,18 @@ void loop()
 }
 ```
 
+### getPinMode(pin)
+
+Retrieves the current pin mode.
+
+```cpp
+// EXAMPLE
+
+if (getPinMode(D0)==INPUT) {
+  // D0 is an input pin
+}
+```
+
 ### digitalWrite()
 
 Write a `HIGH` or a `LOW` value to a digital pin.
