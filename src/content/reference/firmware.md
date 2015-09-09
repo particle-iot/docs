@@ -823,6 +823,113 @@ WiFi.RSSI();
 
 `WiFi.ping(IPAddress remoteIP, uint8_t nTries)` and pings that address a specified number of times.
 
+### WiFi.scan()
+
+Returns information about access points within range of the device.
+
+The first form is the simplest, but also least flexible. You provide a
+array of `WiFiAccessPoint` instances, and the call to `WiFi.scan()` fills out the array.
+If there are more APs detected than will fit in the array, they are dropped.
+
+```cpp
+// EXAMPLE - retrieve up to 20 WiFI APs
+
+WiFiAccessPoint aps[20];
+int found = WiFi.scan(aps, 20);
+for (int i=0; i<found; i++) {
+    WiFiAccessPoint& ap = aps[i];
+    Serial.print("SSID: ");
+    Serial.println(ap.ssid);
+    Serial.print("Security: ");
+    Serial.println(ap.security);
+    Serial.print("Channel: ");
+    Serial.println(ap.channel);
+    Serial.print("RSSI: ");
+    Serial.println(ap.rssi);
+}
+```
+
+The more advanced call to `WiFi.scan()` uses a callback function that receives
+each scanned access point.
+
+```
+// EXAMPLE using a callback
+void wifi_scan_callback(WiFiAccessPoint* wap, void* data)
+{
+    WiFiAccessPoint& ap = *wap;
+    Serial.print("SSID: ");
+    Serial.println(ap.ssid);
+    Serial.print("Security: ");
+    Serial.println(ap.security);
+    Serial.print("Channel: ");
+    Serial.println(ap.channel);
+    Serial.print("RSSI: ");
+    Serial.println(ap.rssi);
+}
+
+void loop()
+{
+    int result_count = WiFi.scan(wifi_scan_callback);
+    Serial.print(result_count);
+    Serial.println(" APs scanned.");
+}
+```
+
+The main reason for doing this is that you gain access to all access points available
+without having to know in advance how many there might be.
+
+You can also pass a 2nd parameter to `WiFi.scan()` after the callback, which allows
+object-oriented code to be used.
+
+```
+// EXAMPLE - class to find the strongest AP
+
+class FindStrongestSSID
+{
+    char strongest_ssid[33];
+    int strongest_rssi;
+
+    // This is the callback passed to WiFi.scan()
+    // It makes the call on the `self` instance - to go from a static
+    // member function to an instance member function.
+    static void handle_ap(WiFiAccessPoint* wap, FindStrongestSSID* self)
+    {
+        self->next(*wap);
+    }
+
+    // determine if this AP is stronger than the strongest seen so far
+    void next(WiFiAccessPoint& ap)
+    {
+        if ((ap.rssi < 0) && (ap.rssi > strongest_rssi)) {
+            strongest_rssi = ap.rssi;
+            strcpy(strongest_ssid, ap.ssid);
+        }
+    }
+
+public:
+
+    /**
+     * Scan WiFi Access Points and retrieve the strongest one.
+     */
+    const char* scan()
+    {
+        // initialize data
+        strongest_rssi = 0;
+        strongest_ssid[0] = 0;
+        // perform the scan
+        WiFi.scan(handle_ap, this);
+        return strongest_ssid;
+    }
+};
+
+// Now use the class
+FindStrongestSSID strongestFinder;
+const char* ssid = strongestFinder.scan();
+
+}
+```
+
+
 ### WiFi.localIP()
 
 `WiFi.localIP()` returns the local IP address assigned to the device as an `IPAddress`.
