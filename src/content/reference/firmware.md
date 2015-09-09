@@ -358,6 +358,15 @@ with the cloud next time the device connects.
 
 NOTE: A device can register up to 4 event handlers. This means you can call `Spark.subscribe()` a maximum of 4 times; after that it will return `false`.
 
+### Spark.unsubscribe()
+
+Removes all subscription handlers previously registered with `Spark.subscribe()`.
+
+```cpp
+// SYNTAX
+Spark.unsubscribe();
+```
+
 ### Spark.connect()
 
 `Spark.connect()` connects the device to the Cloud. This will automatically activate the Wi-Fi module and attempt to connect to a Wi-Fi network if the device is not already connected to a network.
