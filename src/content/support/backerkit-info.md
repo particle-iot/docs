@@ -3,7 +3,7 @@ title: Kickstarter Questions
 template: support.hbs
 columns: two
 devices: [ photon, core ]
-order: 2
+order: 3
 ---
 
 Kickstarter Account & Electron Information
