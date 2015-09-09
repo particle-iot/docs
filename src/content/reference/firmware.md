@@ -4323,7 +4323,7 @@ void loop() {}
 
 ### System.sleep()
 
-`System.sleep()` can be used to dramatically improve the battery life of a Spark-powered project by temporarily deactivating the Wi-Fi module, which is by far the biggest power draw.
+`System.sleep()` can be used to dramatically improve the battery life of a Particle-powered project by temporarily deactivating the Wi-Fi module, which is by far the biggest power draw.
 
 ```C++
 // SYNTAX
@@ -4335,11 +4335,18 @@ System.sleep(long seconds);
 
 // Put the Wi-Fi module in standby (low power) for 5 seconds
 System.sleep(5);
-// The device LED will flash green during sleep
+// The device LED will breathe white during sleep
 ```
-`System.sleep(long seconds)` does NOT stop the execution of user code (non-blocking call).  User code will continue running while the Wi-Fi module is in standby mode.
 
-`System.sleep(SLEEP_MODE_DEEP, long seconds)` can be used to put the entire device into a *deep sleep* mode. In this particular mode, the device shuts down the network subsystem and puts the microcontroller in a stand-by mode.  When the device awakens from deep sleep, it will reset and run all user code from the beginning with no values being maintained in memory from before the deep sleep.
+_Since 0.4.5._ The state of WiFi and Cloud connections is restored when the system wakes up from sleep.
+So if the device was connected to the cloud before sleeping, then the cloud connection
+is automatically resumed on waking up.
+
+`System.sleep(long seconds)` does NOT stop the execution of application code (non-blocking call).  Application code will continue running while the Wi-Fi module is in standby mode.
+
+`System.sleep(SLEEP_MODE_DEEP, long seconds)` can be used to put the entire device into a *deep sleep* mode.
+In this particular mode, the device shuts down the network subsystem and puts the microcontroller in a stand-by mode.
+When the device awakens from deep sleep, it will reset and run all user code from the beginning with no values being maintained in memory from before the deep sleep.
 
 As such, it is recommended that deep sleep be called only after all user code has completed. The Standby mode is used to achieve the lowest power consumption.  After entering Standby mode, the SRAM and register contents are lost except for registers in the backup domain.
 
