@@ -1366,7 +1366,7 @@ To use the TX/RX (Serial1) or D1/D0 (Serial2) pins to communicate with your pers
 
 Sets the data rate in bits per second (baud) for serial data transmission. For communicating with the computer, use one of these rates: 300, 600, 1200, 2400, 4800, 9600, 14400, 19200, 28800, 38400, 57600, or 115200. You can, however, specify other rates - for example, to communicate over pins TX and RX with a component that requires a particular baud rate.
 
-**NOTE:** The data rate for the USB device `Serial` is ignored, as USB has its own negotiated speed. Setting speed to 9600 is safe for the USB device. Setting the port to 14400 baud will cause the Photon to go into DFU mode while 28800 will allow a YMODEM download of firmware. 
+**NOTE:** The data rate for the USB device `Serial` is ignored, as USB has its own negotiated speed. Setting speed to 9600 is safe for the USB device. Setting the port to 14400 baud will cause the Photon to go into DFU mode while 28800 will allow a YMODEM download of firmware.
 
 ```C++
 // SYNTAX
@@ -1596,7 +1596,7 @@ Serial1.flush();
 ### halfduplex()
 
 Puts Serial1 into half-duplex mode.  In this mode both the transmit and receive
-are on the TX pin.  This mode can be used for a single wire bus communications 
+are on the TX pin.  This mode can be used for a single wire bus communications
 scheme between microcontrollers.
 
 ```C++
@@ -3053,7 +3053,7 @@ The parameter for millis is an unsigned long, errors may be generated if a progr
 
 ### micros()
 
-Returns the number of microseconds since the device began running the current program. 
+Returns the number of microseconds since the device began running the current program.
 
 Firmware v0.4.3 and earlier:
 - This number will overflow (go back to zero), after exactly 59,652,323 microseconds (0 .. 59,652,322) on the Core and after exactly 35,791,394 microseconds (0 .. 35,791,394) on the Photon.
@@ -3613,57 +3613,6 @@ uint8_t val = 0x45;
 EEPROM.write(addr, val);
 ```
 
-## System Threading
-
-_COMING SOON, NOT YET RELEASED_
-
-On platforms that support multithreading (presently, the Photon), there are two
-separate threads of execution:
-
-- The system loop: this maintains the wifi and cloud connection state, performs
-  firmware updates and setup mode
-- The application loop: whatever the application code performs from within `loop()`.
-
-On non-threaded platforms, the system loop and the application loop are interleaved, which can lead to the application loop being delayed while the system loop is busy.  On threaded platforms, this does not occur since the application and system loops each run in a separate thread of execution.
-
-### `SYSTEM_THREAD` macro
-
-System threading is enabled by default on platforms where it is supported. To enable it explicitly, add
-
-
-`SYSTEM_THREAD(ENABLED);`
-
-
-to your application code.
-
-
-To disable multithreading and revert to a single thread of execution, place the following code in your application:
-
-
-`SYSTEM_THREAD(DISABLED)`
-
-
-### Effects of System Threading
-
-When system threading is enabled:
-
-- The application is not blocked by system code at all. setup() and loop() function independently of what the system is doing.
-- The application continues to run during WiFi setup mode. Application code can detect that the system is in WiFi setup mode by calling `WiFi.listening()`.
-- The application continues to run during over-the-air or over-the-wire firmware updates
-- Cloud functions registered with `Spark.function()` execute on the application thread in between calls to loop().
-- Calling `Spark.process()` has no affect.
-- The system mode does not influence application execution.
-
-When system threading is disabled:
-
-- The application may stop executing intermittently when the wifi or cloud connection goes offline
-- The application does not run during WiFi setup mode. That the system is in WiFi setup mode can be detected by checking the result of `WiFi.listening()` on a timer interrupt.
-- The application does not run during over-the-air or over-the-wire firmware updates
-- Cloud functions registered with `Spark.function()` execute in-between invocations of `loop()` or when the application calls `Spark.process()`.
-- The system mode influences when the application setup() and loop() function are called in relation to the cloud connection state.
-
-IN both cases, the system mode determines the initial cloud connection state - connected for AUTOMATIC mode, disconnected for SEMI_AUTOMATIC/MANUAL modes.
-
 ## System modes
 
 System modes help you control how the device manages the connection with the cloud.
@@ -3761,7 +3710,7 @@ When using manual mode:
 
 *Since v0.4.4.*
 
-Retrieves the amount of memory guaranteed to be available. The actual amount of free memory will be at least as large as the value returned. 
+Retrieves the amount of memory guaranteed to be available. The actual amount of free memory will be at least as large as the value returned.
 
 ```cpp
 uint32_t freemem = System.freeMemory();
