@@ -728,7 +728,20 @@ WiFi.setCredentials("My_Router", "mypasswordishuge");
 // Options are WPA2, WPA, or WEP.
 WiFi.setCredentials(SSID, PASSWORD, AUTH);
 WiFi.setCredentials("My_Router", "wepistheworst", WEP);
+
 ```
+
+{{#if photon}}
+When the Photon used with hidden or offline networks, the security cipher is also required.
+
+```cpp
+
+// for hidden and offline networks on the Photon, the security cipher is also needed
+// Cipher options are WLAN_CIPHER_AES, WLAN_CIPHER_TKIP and WLAN_CIPHER_AES_TKIP
+WiFi.setCredentials("SSID", "PASSWORD", WPA2, WLAN_CIPHER_AES));
+```
+{{/if}}
+
 
 ### WiFi.clearCredentials()
 
