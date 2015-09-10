@@ -100,6 +100,8 @@ We have even provided a small prototyping area around the shield for you to add 
 
 The schematic for the relay shield is simple and self explanatory. The shield has four relays that are controlled by pins D3, D4, D5 and D6 on the Particle device. Each relay is triggered via a NPN transistor that takes a control signal from the Particle device and switches the relay coil ON and OFF, which in turn makes or breaks the electrical contact on the output. There is also a fly-back diode connected across the coil to help protect the transistor from high voltage transients caused during switching.
 
+**NOTE:** On the under side of the relay shield (top center), you will see 4 solder pads that are by default bridged via traces. You can scratch off the trace to disconnect the control pin from the preassigned ones (D3 to D6) and wire up based on your project requirement.
+
 ### Relay Shield Schematic - Control
 
 ![Relay Shield Interface](/assets/images/shields/relay-shield/relay-shield-schematic-1.png)
