@@ -1584,6 +1584,7 @@ void loop() {
 ### flush()
 
 Waits for the transmission of outgoing serial data to complete.
+NOTE: Since Serial uses the USB port, `Serial.flush()` is an empty function at this time.
 
 ```C++
 // SYNTAX
