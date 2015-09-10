@@ -241,7 +241,7 @@ Example activity from CMD output:
 	For local Cloud: ``particle keys server your_local_cloud_public_key.der IP-ADDRESS``
 - Reset your {{#if photon}}photon{{/if}}{{#if core}}core{{/if}}
 
-**2.Changing of probile back to the default particle cloud on the Particle-cli must be performed using:
+**2.Changing of profile back to the default particle cloud on the Particle-cli must be performed using:
 
 ``particle config identify``
 
