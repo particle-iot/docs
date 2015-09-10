@@ -61,7 +61,7 @@ Prima di tutto dovrete scaricare un'applicazione di terminale seriale.
 Per utenti __Windows__ , raccomandiamo [PuTTY](http://www.chiark.greenend.org.uk/~sgtatham/putty/).
 Dovrete pure installare il driver per Windows:
 
-[< Driver Windows per lo Spark Core >](https://s3.amazonaws.com/spark-website/Spark.zip)
+[< Driver Windows per lo Spark Core >](https://s3.amazonaws.com/spark-website/Particle.zip)
 
 [CoolTerm](http://freeware.the-meiers.org/) fornisce una bella interfaccia GUI.
 ![CoolTerm settings](/assets/images/coolterm-settings.png)

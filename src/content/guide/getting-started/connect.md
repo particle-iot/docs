@@ -37,7 +37,7 @@ _(You can do this by mousing over the upper right hand corner of the screen, the
 Node should now be installed! In the next step we will test it and install the CLI.
 
 ### Installing the Particle Driver
-You'll also need to install the Windows driver. [Download it here.](https://s3.amazonaws.com/spark-website/Spark.zip)
+You'll also need to install the Windows driver. [Download it here.](https://s3.amazonaws.com/spark-website/Particle.zip)
 
 Unzip the file. It is fine to unzip this as a default into your Downloads folder.
 
