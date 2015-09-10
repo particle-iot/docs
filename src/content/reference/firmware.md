@@ -4133,6 +4133,24 @@ Parameters:
 
 Returns: The length of the String in characters.
 
+### remove()
+
+The String `remvove()` function modifies a string, in place, removing chars from the provided index to the end of the string or from the provided index to index plus count.
+
+```C++
+// SYNTAX
+string.remove(index)
+string.remove(index,count)
+```
+
+Parameters:
+
+  * string: the string which will be modified - a variable of type String
+  * index: a variable of type unsigned int
+  * count: a variable of type unsigned int
+
+Returns: None
+
 ### replace()
 
 The String `replace()` function allows you to replace all instances of a given character with another character. You can also use replace to replace substrings of a string with a different substring.
@@ -4258,6 +4276,21 @@ Parameters:
   * len: the size of the buffer (unsigned int)
 
 Returns: None
+
+### toFloat()
+
+Converts a valid String to a float. The input string should start with a digit. If the string contains non-digit characters, the function will stop performing the conversion. For example, the strings "123.45", "123", and "123fish" are converted to 123.45, 123.00, and 123.00 respectively. Note that "123.456" is approximated with 123.46. Note too that floats have only 6-7 decimal digits of precision and that longer strings might be truncated.
+
+```C++
+// SYNTAX
+string.toFloat()
+```
+
+Parameters:
+
+  * string: a variable of type String
+
+Returns: float (If no valid conversion could be performed because the string doesn't start with a digit, a zero is returned.)
 
 ### toInt()
 
