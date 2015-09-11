@@ -995,6 +995,7 @@ When used with these pins, the analogWrite function has nothing to do with the a
 The Photon supports true analog output on pins DAC (`DAC1` or `A6` in code) and A3 (`DAC2` or `A3` in code). Using `analogWrite(pin, value)`
 with these pins, the output of the pin is set to an analog voltage from 0V to 3.3V that corresponds to values
 from 0-4095.
+NOTE: While for PWM pins one single call to `pinMode(pin, OUTPUT);` sets the pin mode for multiple `analogWrite(pin, value);` calls, for DAC pins you need to set `pinMode(DAC, OUTPUT);` each time anew you want to perform an `analogWrite()`.
 
 ```C++
 // SYNTAX
