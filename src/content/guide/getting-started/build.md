@@ -119,6 +119,7 @@ As your codebase grows, you will naturally create libraries to better manage you
 
 ![Particle Build](/assets/images/ide-add-files.png)
 
+This will create two new tabs, one with `.h` and one with `.cpp` extension. You can read more about why we need both in [this C++ tutorial](http://www.learncpp.com/cpp-tutorial/19-header-files/).
 
 Account Information
 ---
