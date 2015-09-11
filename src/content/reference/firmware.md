@@ -356,7 +356,7 @@ A _subscription handler_ (like `myHandler` above) must return `void` and take tw
 the device is not connected to the cloud - the subscription is automatically registered
 with the cloud next time the device connects.
 
-NOTE: A device can register up to 4 event handlers. This means you can call `Spark.subscribe()` a maximum of 4 times; after that it will return `false`.
+**NOTE:** A device can register up to 4 event handlers. This means you can call `Spark.subscribe()` a maximum of 4 times; after that it will return `false`.
 
 ### Spark.connect()
 
@@ -421,7 +421,7 @@ void loop() {
 
 While this function will disconnect from the Cloud, it will keep the connection to the Wi-Fi network. If you would like to completely deactivate the Wi-Fi module, use [`WiFi.off()`](#wifi-off).
 
-NOTE: When the device is disconnected, many features are not possible, including over-the-air updates, reading Spark.variables, and calling Spark.functions.
+**NOTE:* When the device is disconnected, many features are not possible, including over-the-air updates, reading Spark.variables, and calling Spark.functions.
 
 *If you disconnect from the Cloud, you will NOT BE ABLE to flash new firmware over the air. A factory reset should resolve the issue.*
 
@@ -985,7 +985,8 @@ When used with these pins, the analogWrite function has nothing to do with the a
 
 
 `analogWrite()` takes two arguments, `pin`: the number of the pin whose value you wish to set and `value`: the duty cycle: between 0 (always off) and 255 (always on).  
-> NOTE: `pinMode(pin, OUTPUT);` is required before calling `analogWrite(pin, value);` or else the `pin` will not be initialized as a PWM output and set to the desired duty cycle.
+
+**NOTE:** `pinMode(pin, OUTPUT);` is required before calling `analogWrite(pin, value);` or else the `pin` will not be initialized as a PWM output and set to the desired duty cycle.
 
 `analogWrite()` does not return anything.
 
@@ -996,7 +997,8 @@ When used with these pins, the analogWrite function has nothing to do with the a
 The Photon supports true analog output on pins DAC (`DAC1` or `A6` in code) and A3 (`DAC2` or `A3` in code). Using `analogWrite(pin, value)`
 with these pins, the output of the pin is set to an analog voltage from 0V to 3.3V that corresponds to values
 from 0-4095.
-> NOTE: While for PWM pins one single call to `pinMode(pin, OUTPUT);` sets the pin mode for multiple `analogWrite(pin, value);` calls, for DAC pins you need to set `pinMode(DAC, OUTPUT);` each time anew you want to perform an `analogWrite()`.
+
+**NOTE:** While for PWM pins one single call to `pinMode(pin, OUTPUT);` sets the pin mode for multiple `analogWrite(pin, value);` calls, for DAC pins you need to set `pinMode(DAC, OUTPUT);` each time anew you want to perform an `analogWrite()`.
 
 ```C++
 // SYNTAX
@@ -1071,7 +1073,7 @@ There are times when the fastest possible input/output operations are crucial to
 
 In order to provide the fastest possible bit-oriented I/O, the normal safety checks must be skipped.  As such, please be aware that the programmer is responsible for proper planning and use of the low level I/O functions.
 
-Prior to using the following low-level functions, pinMode() must be used to configure the target pin.
+Prior to using the following low-level functions, `pinMode()` must be used to configure the target pin.
 
 
 ### pinSetFast()
@@ -1268,7 +1270,9 @@ noTone(pin)
 ### shiftOut()
 
 Shifts out a byte of data one bit at a time on a specified pin. Starts from either the most (i.e. the leftmost) or least (rightmost) significant bit. Each bit is written in turn to a data pin, after which a clock pin is pulsed (taken high, then low) to indicate that the bit is available.
-Note: if you're interfacing with a device that's clocked by rising edges, you'll need to make sure that the clock pin is low before the call to shiftOut(), e.g. with a call to digitalWrite(clockPin, LOW).
+
+**NOTE:** if you're interfacing with a device that's clocked by rising edges, you'll need to make sure that the clock pin is low before the call to `shiftOut()`, e.g. with a call to `digitalWrite(clockPin, LOW)`.
+
 This is a software implementation; see also the SPI function, which provides a hardware implementation that is faster but works only on specific pins.
 
 
@@ -1311,7 +1315,9 @@ loop() {
 ### shiftIn()
 
 Shifts in a byte of data one bit at a time. Starts from either the most (i.e. the leftmost) or least (rightmost) significant bit. For each bit, the clock pin is pulled high, the next bit is read from the data line, and then the clock pin is taken low.
-Note: if you're interfacing with a device that's clocked by rising edges, you'll need to make sure that the clock pin is low before the call to shiftOut(), e.g. with a call to digitalWrite(clockPin, LOW).
+
+**NOTE:** if you're interfacing with a device that's clocked by rising edges, you'll need to make sure that the clock pin is low before the call to shiftOut(), e.g. with a call to `digitalWrite(clockPin, LOW)`.
+
 This is a software implementation; see also the SPI function, which provides a hardware implementation that is faster but works only on specific pins.
 
 
@@ -1586,7 +1592,8 @@ void loop() {
 ### flush()
 
 Waits for the transmission of outgoing serial data to complete.
-NOTE: Since Serial uses the USB port, `Serial.flush()` is an empty function at this time.
+
+**NOTE:** Since Serial uses the USB port, `Serial.flush()` is an empty function at this time.
 
 ```C++
 // SYNTAX
@@ -1632,7 +1639,7 @@ This library allows you to communicate with SPI devices, with the Core/Photon as
 
 Initializes the SPI bus by setting SCK, MOSI, and a user-specified slave-select pin (default is SS) to outputs, MISO to input. SCK and MOSI are pulled low, and slave-select high.
 
-NOTE:  The SPI firmware ONLY initializes the user-specified slave-select pin. The user's code must control the slave-select pin before and after each SPI transfer for the desired SPI slave device. Calling `SPI.end()` does NOT reset the pin mode of the SPI pins.
+**NOTE:**  The SPI firmware ONLY initializes the user-specified slave-select pin. The user's code must control the slave-select pin before and after each SPI transfer for the desired SPI slave device. Calling `SPI.end()` does NOT reset the pin mode of the SPI pins.
 
 ```C++
 // SYNTAX
@@ -2569,7 +2576,7 @@ void loop()
 }
 ```
 
-NOTE: Unlike Arduino, you do not need to include `Servo.h`; it is included automatically.
+**NOTE:** Unlike Arduino, you do not need to include `Servo.h`; it is included automatically.
 
 
 ### attach()
