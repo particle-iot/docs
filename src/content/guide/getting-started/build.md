@@ -112,7 +112,14 @@ void loop() {
 
 - **Edit**: Try changing the values in the delay() function from 1000 to 250, which changes the timing interval from 1000 milliseconds to only 250 milliseconds.  Click the Verify button, then the Flash button.  Is your device's LED blinking faster?  Well done :)
 
+Adding files to your app
+---
 
+As your codebase grows, you will naturally create libraries to better manage your firmware development. To add a file to your app, simply hit the "+" button located at the top right hand corner.
+
+![Particle Build](/assets/images/ide-add-files.png)
+
+This will create two new tabs, one with `.h` and one with `.cpp` extension. You can read more about why we need both in [this C++ tutorial](http://www.learncpp.com/cpp-tutorial/19-header-files/).
 
 Account Information
 ---
