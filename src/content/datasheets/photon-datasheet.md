@@ -318,8 +318,6 @@ The Photon (without headers) can be surface mounted directly in an end applicati
 
 Photon Pin #25-31 are described in the [Pin Out Diagrams](#pin-out-diagrams).
 
-Photon Pin #25-31 are described in the [Pin Out Diagrams](#3-3-pin-out-diagrams).
-
 Solder mask around exposed copper pads should be 0.1mm (4 mils) larger in all directions.  E.g., a 0.08" x 0.10" pad would have a 0.088" x 0.108" solder mask.
 
 This land pattern can be found in the [Spark.lbr Eagle library](https://github.com/spark/photon/blob/master/libraries/Spark.lbr), as a Device named `PHOTON_SMD`.  **Note: Clone or Download the complete repository as a ZIP file to avoid corrupted data in Eagle files.**
