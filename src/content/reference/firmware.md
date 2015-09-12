@@ -78,9 +78,9 @@ Expose a *function* through the Cloud so that it can be called with `POST /v1/de
 ```cpp
 // SYNTAX TO REGISTER A CLOUD FUNCTION
 bool success = Spark.function("funcKey", funcName);
-//                               ^
-//                               |
-//                  (max of 12 characters long)
+//                ^
+//                |
+//     (max of 12 characters long)
 ```
 
 Currently the application supports the creation of up to 4 different cloud functions.
@@ -358,6 +358,15 @@ with the cloud next time the device connects.
 
 **NOTE:** A device can register up to 4 event handlers. This means you can call `Spark.subscribe()` a maximum of 4 times; after that it will return `false`.
 
+### Spark.unsubscribe()
+
+Removes all subscription handlers previously registered with `Spark.subscribe()`.
+
+```cpp
+// SYNTAX
+Spark.unsubscribe();
+```
+
 ### Spark.connect()
 
 `Spark.connect()` connects the device to the Cloud. This will automatically activate the Wi-Fi module and attempt to connect to a Wi-Fi network if the device is not already connected to a network.
@@ -614,6 +623,7 @@ This function will return `true` once the device is connected to the network and
 WiFi.ready();
 ```
 
+{{#if photon}}
 ### WiFi.selectAntenna()
 
 ```cpp
@@ -647,16 +657,30 @@ void loop() {
   // your loop code
 }
 ```
+{{/if}}
 
 ### WiFi.listen()
 
-This will enter listening mode, which opens a Serial connection to get Wi-Fi credentials over USB, and also listens for credentials over
+This will enter or exit listening mode, which opens a Serial connection to get Wi-Fi credentials over USB, and also listens for credentials over
 {{#if core}}Smart Config{{/if}}{{#if photon}}Soft AP{{/if}}.
 
 ```cpp
-// SYNTAX
+// SYNTAX - enter listening mode
 WiFi.listen();
 ```
+
+Listening mode blocks application code. Advanced cases that use multithreading, interrupts, or system events
+have the ability to continue to execute application code while in listening mode, and may wish to then exit listening
+mode, such as after a timeout. Listning mode is stopped using this syntax:
+
+```cpp
+
+// SYNTAX - exit listening mode
+WiFi.listen(false);
+
+```
+
+
 
 ### WiFi.listening()
 
@@ -704,7 +728,20 @@ WiFi.setCredentials("My_Router", "mypasswordishuge");
 // Options are WPA2, WPA, or WEP.
 WiFi.setCredentials(SSID, PASSWORD, AUTH);
 WiFi.setCredentials("My_Router", "wepistheworst", WEP);
+
 ```
+
+{{#if photon}}
+When the Photon used with hidden or offline networks, the security cipher is also required.
+
+```cpp
+
+// for hidden and offline networks on the Photon, the security cipher is also needed
+// Cipher options are WLAN_CIPHER_AES, WLAN_CIPHER_TKIP and WLAN_CIPHER_AES_TKIP
+WiFi.setCredentials("SSID", "PASSWORD", WPA2, WLAN_CIPHER_AES));
+```
+{{/if}}
+
 
 ### WiFi.clearCredentials()
 
@@ -784,7 +821,7 @@ void loop() {}
 
 ### WiFi.RSSI()
 
-`WiFi.RSSI()` returns the signal strength of a Wifi network from from -127 to -1dB as an `int`. Positive return values indicate an error with 1 indicating a WiFi chip error and 2 indicating a time-out error.
+`WiFi.RSSI()` returns the signal strength of a Wifi network from from -127 to -1dB as an `int`. Positive return values indicate an error with 1 indicating a WiFi chip error and 2 indicating a time-out error. 
 
 ```cpp
 // SYNTAX
@@ -798,6 +835,113 @@ WiFi.RSSI();
 `WiFi.ping(IPAddress remoteIP)` takes an `IPAddress` and pings that address.
 
 `WiFi.ping(IPAddress remoteIP, uint8_t nTries)` and pings that address a specified number of times.
+
+### WiFi.scan()
+
+Returns information about access points within range of the device.
+
+The first form is the simplest, but also least flexible. You provide a
+array of `WiFiAccessPoint` instances, and the call to `WiFi.scan()` fills out the array.
+If there are more APs detected than will fit in the array, they are dropped.
+
+```cpp
+// EXAMPLE - retrieve up to 20 WiFI APs
+
+WiFiAccessPoint aps[20];
+int found = WiFi.scan(aps, 20);
+for (int i=0; i<found; i++) {
+    WiFiAccessPoint& ap = aps[i];
+    Serial.print("SSID: ");
+    Serial.println(ap.ssid);
+    Serial.print("Security: ");
+    Serial.println(ap.security);
+    Serial.print("Channel: ");
+    Serial.println(ap.channel);
+    Serial.print("RSSI: ");
+    Serial.println(ap.rssi);
+}
+```
+
+The more advanced call to `WiFi.scan()` uses a callback function that receives
+each scanned access point.
+
+```
+// EXAMPLE using a callback
+void wifi_scan_callback(WiFiAccessPoint* wap, void* data)
+{
+    WiFiAccessPoint& ap = *wap;
+    Serial.print("SSID: ");
+    Serial.println(ap.ssid);
+    Serial.print("Security: ");
+    Serial.println(ap.security);
+    Serial.print("Channel: ");
+    Serial.println(ap.channel);
+    Serial.print("RSSI: ");
+    Serial.println(ap.rssi);
+}
+
+void loop()
+{
+    int result_count = WiFi.scan(wifi_scan_callback);
+    Serial.print(result_count);
+    Serial.println(" APs scanned.");
+}
+```
+
+The main reason for doing this is that you gain access to all access points available
+without having to know in advance how many there might be.
+
+You can also pass a 2nd parameter to `WiFi.scan()` after the callback, which allows
+object-oriented code to be used.
+
+```
+// EXAMPLE - class to find the strongest AP
+
+class FindStrongestSSID
+{
+    char strongest_ssid[33];
+    int strongest_rssi;
+
+    // This is the callback passed to WiFi.scan()
+    // It makes the call on the `self` instance - to go from a static
+    // member function to an instance member function.
+    static void handle_ap(WiFiAccessPoint* wap, FindStrongestSSID* self)
+    {
+        self->next(*wap);
+    }
+
+    // determine if this AP is stronger than the strongest seen so far
+    void next(WiFiAccessPoint& ap)
+    {
+        if ((ap.rssi < 0) && (ap.rssi > strongest_rssi)) {
+            strongest_rssi = ap.rssi;
+            strcpy(strongest_ssid, ap.ssid);
+        }
+    }
+
+public:
+
+    /**
+     * Scan WiFi Access Points and retrieve the strongest one.
+     */
+    const char* scan()
+    {
+        // initialize data
+        strongest_rssi = 0;
+        strongest_ssid[0] = 0;
+        // perform the scan
+        WiFi.scan(handle_ap, this);
+        return strongest_ssid;
+    }
+};
+
+// Now use the class
+FindStrongestSSID strongestFinder;
+const char* ssid = strongestFinder.scan();
+
+}
+```
+
 
 ### WiFi.localIP()
 
@@ -844,6 +988,51 @@ void setup() {
 }
 ```
 
+{{#if photon}}
+
+### WiFi.setStaticIP()
+
+Defines the static IP addresses used by the system to connect to the network when static IP is activated.
+
+```cpp
+// SYNTAX
+
+void setup() {
+    IPAddress myAddress(192,168,1,100);
+    IPAddress netmask(255,255,255,0);
+    IPAddress gateway(192,168,1,1);
+    IPAddress dns(192,168,1,1);
+    WiFi.setStaticIP(myAddress, netmask, gateway, dns);
+
+    // now let's use the configured IP
+    WiFi.useStaticIP();
+}
+
+```
+
+The addresses are stored persistently so that they are available in all subsequent
+application and also in safe mode.
+
+
+### WiFi.useStaticIP()
+
+Instructs the system to connect to the network using the IP addresses provided to
+`WiFi.setStaticIP()`
+
+The setting is persistent and is remembered until `WiFi.useDynamicIP()` is called.
+
+### WiFi.useDynamicIP()
+
+Instructs the system to connect to the network using a dynamically allocated IP
+address from the router.
+
+A note on switching between static and dynamic IP. If static IP addresses have been previously configured using `WiFi.setStaticIP()`, they continue to be remembered
+by the system after calling `WiFi.useDynamicIP()`, and so are available for use next time `WiFi.useStaticIP()`
+is called, without needing to be reconfigured using `WiFi.setStaticIP()`
+
+{{/if}}
+
+
 ## Input/Output
 
 ### pinMode()
@@ -879,6 +1068,18 @@ void loop()
     digitalWrite(LED, LOW);           // sets the LED off
     delay(200);                       // waits for 200mS
   }
+}
+```
+
+### getPinMode(pin)
+
+Retrieves the current pin mode.
+
+```cpp
+// EXAMPLE
+
+if (getPinMode(D0)==INPUT) {
+  // D0 is an input pin
 }
 ```
 
@@ -1233,7 +1434,7 @@ void setup() {
   // iterate over the notes of the melody:
   for (int thisNote = 0; thisNote < 8; thisNote++) {
 
-    // to calculate the note duration, take one second
+    // to calculate the note duration, take one second 
     // divided by the note type.
     //e.g. quarter note = 1000 / 4, eighth note = 1000/8, etc.
     int noteDuration = 1000/noteDurations[thisNote];
@@ -1293,12 +1494,12 @@ setup() {
 	// Set data and clock pins as OUTPUT pins before using shiftOut()
 	pinMode(dataPin, OUTPUT);
 	pinMode(clock, OUTPUT);
-
+	
 	// shift out data using MSB first
 	shiftOut(dataPin, clock, MSBFIRST, data);
 
 	// Or do this for LSBFIRST serial
-	shiftOut(dataPin, clock, LSBFIRST, data);
+	shiftOut(dataPin, clock, LSBFIRST, data);  
 }
 
 loop() {
@@ -1338,12 +1539,12 @@ setup() {
 	// Set data as INPUT and clock pin as OUTPUT before using shiftIn()
 	pinMode(dataPin, INPUT);
 	pinMode(clock, OUTPUT);
-
+	
 	// shift in data using MSB first
 	data = shiftIn(dataPin, clock, MSBFIRST);
 
 	// Or do this for LSBFIRST serial
-	data = shiftIn(dataPin, clock, LSBFIRST);
+	data = shiftIn(dataPin, clock, LSBFIRST);  
 }
 
 loop() {
@@ -1668,9 +1869,60 @@ SPI.setBitOrder(order);
 
 Where, the parameter `order` can either be `LSBFIRST` or `MSBFIRST`.
 
+### setClockSpeed
+
+Sets the SPI clock speed. The value can be specified as a direct value, or as
+as a value plus a multiplier.
+
+
+```
+// EXAMPLE
+
+// set the clock speed as close (but not over) to 15 MHz
+SPI.setClockSpeed(15, MHZ));
+SPI.setClockSpeed(15000000));
+```
+
+The clock speed cannot be set to any arbitrary value, but is set internally by using a
+divider (see `SPI.setClockDivider()`) that gives the highest clock speed not greater
+than the one specified.
+
+This method can make writing portable code easier, since it specifies the clock speed
+absolutely, giving comparable results across devices. In contrast, specifying
+the clock speed using dividers is typically not portable since is dependent upon the system clock speed.
+
+### setClockDividerReference
+
+This function aims to ease porting code from other platforms by setting the clock speed that
+`SPI.setClockDivider` is relative to.
+
+For example, when porting an Arduino SPI library, each to `SPI.setClockDivider()` would
+need to be changed to reflect the system clock speed of the device being used.
+
+This can be avoided by placing a call to `SPI.setClockDividerReference()` before the other SPI calls.
+
+```cpp
+
+// setting divider reference
+
+// place this early in the library code
+SPI.setClockDividerReference(SPI_CLK_ARDUINO);
+
+// then all following calls to setClockDivider() will give comparable clock speeds
+// to running on the Arduino Uno
+
+// sets the clock to as close to 4MHz without going over.
+SPI.setClockDivider(SPI_CLK_DIV4);
+```
+
+The default clock divider reference is the system clock.  {{#if core}}On the Core, this is 72 MHz.{{/if}} {{#if photon}}On the Photon, the system clock speeds are:
+- SPI - 60 MHz
+- SPI1 - 30 MHz
+{{/if}}
+
 ### setClockDivider()
 
-Sets the SPI clock divider relative to the system clock. The available dividers  are 2, 4, 8, 16, 32, 64, 128 or 256. The default setting is SPI_CLOCK_DIV4, which sets the SPI clock to one-quarter the frequency of the system clock.
+Sets the SPI clock divider relative to the selected clock reference. The available dividers  are 2, 4, 8, 16, 32, 64, 128 or 256. The default setting is SPI_CLOCK_DIV4, which sets the SPI clock to one-quarter the frequency of the system clock.
 
 ```C++
 // SYNTAX
@@ -1712,6 +1964,22 @@ SPI.transfer(val);
 ```
 Where the parameter `val`, can is the byte to send out over the SPI bus.
 
+### transfer(void*, void*, size_t, std::function)
+
+For transferring large bytes of transfer the above function uses DMA to speed up SPI data transfer and at the same time allows you to run code in parallel of the data transmission. The function initialises, configures and enables the DMA peripheral’s channel and stream for the selected SPI peripheral for both TX(Output) and RX(Input) and initiates the data transfer. If a user callback function is passed then the same would be called after completion of DMA transfer. This results in asynchronous filling up of RX buffer after which the DMA transfer is disabled till the transfer function is called again. If NULL is passed as a callback then the result is synchronous i.e. transfer function would wait till the receipt of response from the slave.
+
+```C++
+// SYNTAX
+SPI.transfer(tx_buffer, rx_buffer, length, myFunction)
+```
+
+Parameters: 
+
+- `tx_buffer`: array of Tx bytes that needs to be filled by the user before starting the spi transfer
+- `rx_buffer`: array of Rx bytes that would be filled by the slave using the DMA scheme.
+- `length`: size of data bytes that needs to be transferred
+- `myFunction`: user specified function callback that would be called after completion of spi dma transfer.
+
 Wire (I2C)
 ----
 
@@ -1729,7 +1997,7 @@ Wire.setSpeed(clockSpeed);
 Wire.begin();
 ```
 
-Parameters:
+Parameters: 
 
 - `clockSpeed`: CLOCK_SPEED_100KHZ, CLOCK_SPEED_400KHZ or a user specified speed in hertz (e.g. `Wire.setSpeed(20000)` for 20kHz)
 
@@ -1743,7 +2011,7 @@ Wire.stretchClock(stretch);
 Wire.begin();
 ```
 
-Parameters:
+Parameters: 
 
 - `stretch`: boolean. `true` will enable clock stretching. `false` will disable clock stretching.
 
@@ -1869,7 +2137,7 @@ void loop()
 {
   Wire.beginTransmission(4); // transmit to slave device #4
   Wire.write("x is ");       // sends five bytes
-  Wire.write(x);             // sends one byte
+  Wire.write(x);             // sends one byte  
   Wire.endTransmission();    // stop transmitting
 
   x++;
@@ -1893,7 +2161,7 @@ Reads a byte that was transmitted from a slave device to a master after a call t
 
 ```C++
 // SYNTAX
-Wire.read();
+Wire.read() ;
 ```
 
 Returns: The next byte received
@@ -1914,7 +2182,7 @@ void loop()
   Wire.requestFrom(2, 6);    // request 6 bytes from slave device #2
 
   while(Wire.available())    // slave may send less than requested
-  {
+  { 
     char c = Wire.read();    // receive a byte as character
     Serial.print(c);         // print the character
   }
@@ -2340,6 +2608,59 @@ Discard any bytes that have been written to the client but not yet read.
 client.flush();
 ```
 
+### remoteIP()
+
+_Since 0.4.5_
+
+Retrieves the remote `IPAddress` of a connected `TCPClient`. When the `TCPClient` is retrieved
+from `TCPServer.available()` (where the client is a remote client connecting to a local server) the
+`IPAddress` gives the remote address of the connecting client.
+
+When `TCPClient` was created directly via `TCPClient.connect()`, then `remoteIP`
+returns the remote server the client is connected to.
+
+```C++
+
+// EXAMPLE - TCPClient from TCPServer
+
+TCPServer server(80);
+// ...
+
+void setup()
+{
+    Serial.begin(9600);
+    server.begin(80);
+}
+
+void loop()
+{
+    // check for a new client to our server
+    TCPClient client = server.available();
+    if (client.connected())
+    {
+        // we got a new client
+        // find where the client's remote address
+        IPAddress clientIP = client.remoteIP();
+        // print the address to Serial
+        Serial.println(clientIP);
+    }
+}
+```
+
+```C++
+// EXAMPLE - TCPClient.connect()
+
+TCPClient client;
+client.connect("www.google.com", 80);
+if (client.connected())
+{
+    IPAddress clientIP = client.remoteIP();
+    // IPAddress equals whatever www.google.com resolves to
+}
+
+```
+
+
 ### stop()
 
 Disconnect from the server.
@@ -2354,7 +2675,25 @@ client.stop();
 
 This class enables UDP messages to be sent and received.
 
+_Note that UDP does not guarantee that messages are always delivered, or that
+they are delivered in the order supplied. In cases where your application
+requires a reliable connection, `TCPClient` is a simpler alternative._
+
+{{#if core}}
 The UDP protocol implementation has known issues that will require extra consideration when programming with it. Please refer to the Known Issues category of the Community for details. The are also numerous working examples and workarounds in the searchable Community topics.
+{{/if}}
+
+There are two primary ways of working with UDP - buffered operation and unbuffered operation.
+
+1. buffered operation allows you to read and write packets in small pieces, since the system takes care of allocating the required buffer to hold the entire packet.
+ - to read a buffered packet, call `parsePacket`, then use `available` and `read` to retrieve the packet received
+ - to write a buffered packet, optionally call `setBuffer` to set the maximum size of the packet (the default is 512 bytes), followed by
+  `beginPacket`, then as many calls to `write`/`print` as necessary to build the packet contents, followed finally by `end` to send the packet over the network.
+
+2. unbuffered operation allows you to read and write entire packets in a single operation - your application is responsible for allocating the buffer to contain the packet to be sent or received over the network.
+ - to read an unbuffered packet, call `receivePacket` with a buffer to hold the received packet.
+ - to write an unbuffered packet,  call `sendPacket` with the packet buffer to send, and the destination address.
+
 
 <!-- TO DO -->
 <!-- Add more examples-->
@@ -2436,7 +2775,9 @@ It returns nothing.
 
 ### endPacket()
 
-Called after writing UDP data to the remote connection.
+Called after writing buffered UDP data using `write()` or `print()`. The buffered data is then sent to the
+remote UDP peer.
+
 
 ```cpp
 // SYNTAX
@@ -2447,7 +2788,7 @@ Parameters: NONE
 
 ### write()
 
-Writes UDP data to the remote connection. Must be wrapped between `beginPacket()` and `endPacket()`. `beginPacket()` initializes the packet of data, it is not sent until `endPacket()` is called.
+Writes UDP data to the buffe - no data is actually sent. Must be wrapped between `beginPacket()` and `endPacket()`. `beginPacket()` initializes the packet of data, it is not sent until `endPacket()` is called.
 
 ```cpp
 // SYNTAX
@@ -2514,7 +2855,7 @@ Parameters: NONE
 
 ### remoteIP()
 
-Returns the IP address of sender of the packet parsed by `UDP.parsePacket()`.
+Returns the IP address of sender of the packet parsed by `UDP.parsePacket()`/`UDP.receivePacket()`.
 
 ```cpp
 // SYNTAX
@@ -2524,12 +2865,12 @@ Parameters: NONE
 
 Returns:
 
- - 4 bytes : the IP address of the sender of the packet parsed by `UDP.parsePacket()`.
+ - IPAddress : the IP address of the sender of the packet parsed by `UDP.parsePacket()`/`UDP.receivePacket()`.
 
 
 ### remotePort()
 
-Returns the port from which the UDP packet was sent. The packet is the one most recently processed by  UDP.parsePacket()`.
+Returns the port from which the UDP packet was sent. The packet is the one most recently processed by `UDP.parsePacket()`/`UDP.receivePacket()`.
 
 ```cpp
 // SYNTAX
@@ -2539,7 +2880,137 @@ Parameters: NONE
 
 Returns:
 
-- `int`: the port from which the packet parsed by `UDP.parsePacket()` was sent.
+- `int`: the port from which the packet parsed by `UDP.parsePacket()`/`UDP.receivePacket()` was sent.
+
+
+### setBuffer()
+
+_Since 0.4.5_
+
+Initializes the buffer used by a `UDP` instance for buffered reads/writes. The buffer
+is used when your application calls `beginPacket()` and `parsePacket()`.  If `setBuffer()` isn't called,
+the buffer size defaults to 512 bytes, and is allocated when buffered operation is initialized via `beginPacket()` or `parsePacket()`.
+
+```cpp
+// SYNTAX - dynamically allocated buffer
+
+UDP udp;
+
+// uses a dynamically allocated buffer that is 1024 bytes in size
+if (!udp.setBuffer(1024))
+{
+    // on no, couldn't allocate the buffer
+}
+else
+{
+    // 'tis good!
+}
+
+```
+
+```cpp
+// SYNTAX - application-provided buffer
+
+UDP udp;
+
+char appBuffer[800];
+udp.setBuffer(800, appBuffer);
+```
+
+Parameters:
+
+- unsigned int: the size of the buffer
+- pointer:  the buffer. If not provided, or `NULL` the system will attempt to
+ allocate a buffer of the size requested.
+
+Returns:
+- `true` when the buffer was successfully allocated, `false` if there was insufficient memory. (For application-provided buffers
+the function always returns `true`.)
+
+### releaseBuffer()
+
+_Since 0.4.5_
+
+Releases the buffer previously set by a call to `setBuffer()`.
+
+_This is typically required only when performing advanced memory management and the UDP instance is
+not scoped to the lifetime of the application._
+
+### sendPacket()
+
+_Since 0.4.5_
+
+Sends a packet, unbuffered, to a remote UDP peer.
+
+```cpp
+
+// SYNTAX
+
+UDP udp;
+
+const size_t bufferSize = 1024;
+char buffer[bufferSize];
+
+// which address and port to send the data to
+IPAddress remoteIP(192,168,10,234);
+int remotePort = 22;
+
+// fill the buffer with goodness
+// ...
+
+// now send the buffer as a packet
+
+if (udp.sendPacket(buffer, bufferSize, remoteIP, remotePort)<0) {
+    // opps, packet not sent
+}
+
+```
+
+Parameters:
+- pointer (buffer): the buffer of data to send
+- int (bufferSize): the number of bytes of data to send
+- IPAddress (remoteIP): the destination address of the remote peer
+- port (remotePort): the destination port of the remote peer
+
+Returns:
+- The number of bytes written. Negative value on error.
+
+{{#if photon}}
+### joinMulticast()
+
+_Since 0.4.5_
+
+Join a multicast address for all UDP sockets which are on the same network interface as this one.
+
+```cpp
+// SYNTAX
+
+UDP udp;
+
+udp.begin();
+udp.joinMulticast(224,0,0,0);
+```
+
+This will allow reception of multicast packets sent to the given address for UDP sockets
+which have bound the port to which the multicast packet was sent.
+Must be called only after `begin()` so that the network interface is established.
+
+### leaveMulticast()
+
+_Since 0.4.5_
+
+Leaves a multicast address on all UDP sockets that are on the same network interface as this one.
+
+```cpp
+// SYNTAX
+
+UDP udp;
+
+udp.leaveMulticast();
+```
+
+{{/if}}
+
 
 ## Libraries
 
@@ -2640,6 +3111,25 @@ Detach the Servo variable from its pin.
 // SYNTAX
 servo.detach()
 ```
+
+### setTrim()
+
+Sets a trim value that allows minute timing adjustments to correctly
+calibrate 90 as the stationary point.
+
+```cpp
+// SYNTAX
+
+// shortens the pulses sent to the servo
+servo.setTrim(-3);
+
+// a larger trim value
+servo.setTrim(30);
+
+// removes any previously configured trim
+servo.setTrim(0);
+```
+
 
 ### RGB
 
@@ -3025,6 +3515,60 @@ Serial.print(Time.timeStr()); // Wed May 21 01:08:47 2014
 ```
 
 Returns: String
+
+_NB: In 0.3.4 and earlier, this function included a newline at the end of the returned string. This has been removed in 0.4.0._
+
+### format()
+
+Formats a time string using a configurable format.
+
+```cpp
+// EXAMPLE
+
+time_t time = Time.now();
+Time.format(time, TIME_FORMAT_DEFAULT); // Sat Jan 10 08:22:04 2004 , same as Time.timeStr()
+
+Time.zone(-5.25);  // setup a time zone, which is part of the ISO6801 format
+Time.format(time, TIME_FORMAT_ISO8601_FULL) // 2004-01-10T08:22:04-05:15
+
+```
+
+The formats available are:
+
+- `TIME_FORMAT_DEFAULT`
+- `TIME_FORMAT_ISO8601_FULL`
+- custom format based on `strftime()`
+
+{{#if core}}
+Note that the format function is implemented using `strftime()` which adds several kilobytes to the size of firmware.
+Application firmware that has limited space available may want to consider using simpler alternatives that consume less firmware space, such as `sprintf()`.
+{{/if}}
+
+### setFormat()
+
+Sets the format string that is the default value used by `format()`.
+
+```cpp
+
+Time.setFormat(TIME_FORMAT_ISO8601_FULL);
+
+```
+
+In more advanced cases, you can set the format to a static string that follows
+the same syntax as the `strftime()` function.
+
+```
+// custom formatting
+
+Time.format(Time.now(), "Now it's %I:%M%p.");
+// Now it's 03:21AM.
+
+```
+
+### getFormat()
+
+Retrieves the currently configured format string for time formatting with `format()`.
+
 
 ## Other Functions
 
@@ -3468,11 +4012,11 @@ The function returns the number's square root *(double)*
 
 ## Random Numbers
 
-The firmware incorporates a pseudo-random number generator.
+The firmware incorporates a pseudo-random number generator. 
 
 ### random()
 
-Retrieves the next random value, restricted to a given range.
+Retrieves the next random value, restricted to a given range. 
 
  `random(max);`
 
@@ -3480,7 +4024,7 @@ Parameters
 
 - `max` - the upper limit of the random number to retrieve.
 
-Returns: a random value between 0 and up to, but not including `max`.
+Returns: a random value between 0 and up to, but not including `max`. 
 
 ```c++
 int r = random(10);
@@ -3495,14 +4039,14 @@ int r = random(10);
 
 `random(min,max);`
 
-Parameters:
+Parameters: 
 
  - `min` - the lower limit (inclusive) of the random number to retrieve.
  - `max` - the upper limit (exclusive) of the random number to retrieve.
 
-Returns: a random value from `min` and up to, but not including `max`.
+Returns: a random value from `min` and up to, but not including `max`. 
 
-
+  
 ```c++
 int r = random(10, 100);
 // r is >= 10 and < 100
@@ -3510,25 +4054,25 @@ int r = random(10, 100);
 // The largest value returned is 99
 ```
 
-  NB: If `min` is greater or equal to `max`, the result is always 0.
+  NB: If `min` is greater or equal to `max`, the result is always 0. 
 
 ### randomSeed()
 
 `randomSeed(newSeed);`
 
 Parameters:
-
+ 
  - `newSeed` - the new random seed
 
-The pseudorandom numbers produced by the firmware are derived from a single value - the random seed.
+The pseudorandom numbers produced by the firmware are derived from a single value - the random seed. 
 The value of this seed fully determines the sequence of random numbers produced by successive
 calls to `random()`. Using the same seed on two separate runs will produce
-the same sequence of random numbers, and in contrast, using different seeds
+the same sequence of random numbers, and in contrast, using different seeds 
 will produce a different sequence of random numbers.
 
 On startup, the default random seed is [set by the system](http://www.cplusplus.com/reference/cstdlib/srand/) to 1.
 Unless the seed is modified, the same sequence of random numbers would be produced each time
-the system starts.
+the system starts. 
 
 Fortunately, when the device connects to the cloud, it receives a very randomized seed value,
 which is used as the random seed. So you can be sure the random numbers produced
@@ -3544,7 +4088,7 @@ void random_seed_from_cloud(unsigned int seed);
 ```
 
 The system implementation of this function calls `randomSeed()` to set
-the new seed value. If you don't wish to use random seed values from the cloud,
+the new seed value. If you don't wish to use random seed values from the cloud, 
 you can take control of the ransom seeds set by adding this code to your app:
 
 ```cpp
@@ -3554,7 +4098,7 @@ void random_seed_from_cloud(unsigned int seed) {
 ```
 
 In the example, the seed is simply ignored, so the system will continue using
-whatever seed was previously set. In this case, the random seed will not be set
+whatever seed was previously set. In this case, the random seed will not be set 
 from the cloud, and setting the seed is left to up you.
 
 
@@ -3622,6 +4166,106 @@ int addr = 1;
 uint8_t val = 0x45;
 EEPROM.write(addr, val);
 ```
+
+### update()
+This method is similar to `EEPROM.write()` however this method will only write data if the cell contents pointed to by `address` is different to `value`. This method can help prevent unnecessary wear on the EEPROM cells.
+
+`update(address, value)`
+
+`address` is the address (int) of the EERPOM location that needs to be updated
+`value` is the byte data (uint8_t) to write
+
+```C++
+// EXAMPLE USAGE
+// Update a byte value to the second byte of EEPROM
+int addr = 1;
+uint8_t val = 0x45;
+EEPROM.update(addr, val);
+```
+
+### get()
+This function will retrieve any object from the EEPROM. Two parameters are needed to call this function. The first is an int containing the address from where the object needs to be read, and the second is the object you would like to read.
+
+`get(address, object)`
+
+`address` is the address (int) of the EERPOM location
+`object` is the object data that would be read
+
+```C++
+// EXAMPLE USAGE
+// Read a custom object from EEPROM addres
+int addr = 10;
+float fValue = 0.00f;
+EEPROM.get(addr, fValue);
+
+struct MyObject{
+float field1;
+byte field2;
+char name[10];
+};
+MyObject myObj;
+EEPROM.get(addr, myObj);
+```
+
+### put()
+This function will write any object to the EEPROM. Two parameters are needed to call this function. The first is an int containing the address that is to be written, and the second is the object you would like to write.
+
+`put(address, object)`
+
+`address` is the address (int) of the EERPOM location to write to
+`object` is the object data to write
+
+```C++
+// EXAMPLE USAGE
+// Write a object value to the EEPROM address
+int addr = 10;
+float fValue = 123.456f;
+EEPROM.put(addr, fValue);
+
+struct MyObject{
+float field1;
+byte field2;
+char name[10];
+};
+MyObject myObj = {12.34f, 25, "Test!"}
+EEPROM.put(addr, myObj);
+```
+
+
+## STARTUP()
+
+_Since 0.4.5_
+
+Typically an application will haves it's initialization code in the `setup()` function.
+This works well if a delay of a few seconds from power on/reset is acceptable.
+
+In other cases, the application wants to have code run as early as possible, before the cloud or network connection
+are initialized. The `STARTUP()` function instructs the system to execute the code early on in startup.
+
+```cpp
+void setup_the_fundulating_conbobulator()
+{
+   pinMode(D3, OUTPUT);
+   digitalWrite(D3, HIGH);
+}
+
+// The STARTUP call is placed outside of any other function
+// What goes inside is any valid code that can be executed. Here, we use a function call.
+// Using a single function is preferable to having several `STARTUP()` calls.
+STARTUP( setup_the_fundulating_conbobulator() );
+
+```
+
+The code referenced by `STARTUP()` is executed very early in the startup sequence, so it's best suited
+to initializing digital I/O and peripherals. Networking setup code should still be placed in `setup()`.
+{{#if photon}}
+Although there is one notable exception - `WiFi.selectAntenna()` should be called from `STARTUP()` to select the default antenna before the Wi-Fi connection is made.
+{{/if}}
+
+_Note that when startup code performs digital I/O, there will still be a period of at least few hundred milliseconds
+where the I/O pins are in their default power-on state, namely `INPUT`. Circuits should be designed with this
+in mind, using pullup/pulldown resistors as appropriate._
+
 
 ## System modes
 
@@ -3782,7 +4426,7 @@ void loop() {}
 
 ### System.sleep()
 
-`System.sleep()` can be used to dramatically improve the battery life of a Spark-powered project by temporarily deactivating the Wi-Fi module, which is by far the biggest power draw.
+`System.sleep()` can be used to dramatically improve the battery life of a Particle-powered project by temporarily deactivating the Wi-Fi module, which is by far the biggest power draw.
 
 ```C++
 // SYNTAX
@@ -3794,11 +4438,18 @@ System.sleep(long seconds);
 
 // Put the Wi-Fi module in standby (low power) for 5 seconds
 System.sleep(5);
-// The device LED will flash green during sleep
+// The device LED will breathe white during sleep
 ```
-`System.sleep(long seconds)` does NOT stop the execution of user code (non-blocking call).  User code will continue running while the Wi-Fi module is in standby mode.
 
-`System.sleep(SLEEP_MODE_DEEP, long seconds)` can be used to put the entire device into a *deep sleep* mode. In this particular mode, the device shuts down the network subsystem and puts the microcontroller in a stand-by mode.  When the device awakens from deep sleep, it will reset and run all user code from the beginning with no values being maintained in memory from before the deep sleep.
+_Since 0.4.5._ The state of WiFi and Cloud connections is restored when the system wakes up from sleep.
+So if the device was connected to the cloud before sleeping, then the cloud connection
+is automatically resumed on waking up.
+
+`System.sleep(long seconds)` does NOT stop the execution of application code (non-blocking call).  Application code will continue running while the Wi-Fi module is in standby mode.
+
+`System.sleep(SLEEP_MODE_DEEP, long seconds)` can be used to put the entire device into a *deep sleep* mode.
+In this particular mode, the device shuts down the network subsystem and puts the microcontroller in a stand-by mode.
+When the device awakens from deep sleep, it will reset and run all user code from the beginning with no values being maintained in memory from before the deep sleep.
 
 As such, it is recommended that deep sleep be called only after all user code has completed. The Standby mode is used to achieve the lowest power consumption.  After entering Standby mode, the SRAM and register contents are lost except for registers in the backup domain.
 
