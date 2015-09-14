@@ -262,6 +262,16 @@ The shield is setup so that when powered from the USB port as well as from a DC 
 
 ![Power Shield Supply](/assets/images/shields/power-shield/power-shield-powersupply.png)
 
+There are two status led located on the left of the JST battery connector labeled `STAT1` and `STAT2`. Here is a table of the led behavior depending on which state the battery charger is in:
+
+|STAT1 (Blue)  | STAT2 (Red) | Charge State |
+|--------|--------|-------------------------|
+|ON      | ON     | Precharge in progress   |
+|ON      | OFF    | Fast charge in progress |
+|OFF     | ON     | Charge done             |
+|OFF     | OFF    | Charge suspend (temperature), timer fault, and sleep mode |
+
+
 ### Power Shield - Specifications
  - Operating voltage: USB or External DC of 7 to 20V
  - Current consumption: 500mA max (USB) & 1.2A max (other DC sources)
