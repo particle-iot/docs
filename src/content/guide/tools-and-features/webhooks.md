@@ -320,7 +320,7 @@ Copy and save the librato access token for your webhook below.  Create a text fi
             {
                 "name": "\{{SPARK_EVENT_NAME}}",
                 "value": "\{{SPARK_EVENT_VALUE}}",
-                "source": "\{{SPARK_DEVICE_ID}}"
+                "source": "\{{SPARK_CORE_ID}}"
             }
         ]
     },
