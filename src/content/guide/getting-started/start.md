@@ -52,9 +52,41 @@ Let's quickly go over what you see.
 
 For more technical details on what comes on your device, go [here](/datasheets).
 
-### Okay great, I want to play with it I want to make it do a thing right now!
+## Prerequisites for Setup
+{{#if photon}}
+* **Software**
+  * Particle Mobile App - [iPhone](https://itunes.apple.com/us/app/particle-build-photon-electron/id991459054?ls=1&mt=8) | [Android](https://play.google.com/store/apps/details?id=io.particle.android.app)
+  * *Note: We highly recommend using the mobile app for first time setup.*
+* **Hardware**
+  * Your Particle device, brand new and out of the box!
+  * USB to micro USB cable {{#if photon}}(included with Photon Kit and Maker Kit){{/if}}
+  * Power source for USB cable (such as your computer, USB battery, or power brick)
+  * Your iPhone or Android smartphone
+* **Wifi Settings**
+  * 2.4GHz 
+  * Channels 1-11
+  * WPA/WPA2 encryption
+  * On a broadcasted SSID network
+  * Not behind a hard firewall or Enterprise network
+  * *Note: We do not recommend using WEP wifi settings, for security reasons.*
+* **Experience**
+    * None! This is your first project.
 
-Good, me too! Let's get started.
+{{/if}}
+
+{{#if core}}
+* **Software**
+  * Spark Core Mobile App - [iPhone](https://itunes.apple.com/us/app/spark-core/id760157884) | [Android](https://play.google.com/store/apps/details?id=io.spark.core.android)
+  * *Note: We highly recommend using the mobile app for first time setup.*
+* **Hardware**
+  * Your Particle device, brand new and out of the box!
+  * USB to micro USB cable {{#if photon}}(included with Photon Kit and Maker Kit){{/if}}
+  * Power source for USB cable (such as your computer, USB battery, or power brick)
+  * Your iPhone or Android smartphone
+* **Experience**
+    * None! This is your first project.
+
+{{/if}}
 
 {{#if photon}}
 ## Connect Your Photon
@@ -63,35 +95,9 @@ Good, me too! Let's get started.
 ## Connect Your Core
 {{/if}}
 
-In this example, we will connect your device to the internet for the very first time. Then, we will blink the D7 LED on your device by using your smartphone. If you don't have your smartphone with you, go ahead and move to the next lesson on [connecting over USB.](/guide/getting-started/connect)
+In this example, we will connect your device to the internet for the very first time. Then, we will blink the D7 LED on your device by using your smartphone. 
 
-{{#if photon}}
-### Materials
-* **Hardware**
-  * Your Particle device, brand new and out of the box!
-  * USB to micro USB cable {{#if photon}}(included with Photon Kit and Maker Kit){{/if}}
-  * Power source for USB cable (such as your computer, USB battery, or power brick)
-  * Your iPhone or Android smartphone
-* **Software**
-  * Particle Mobile App - [iPhone](https://itunes.apple.com/us/app/particle-build-photon-electron/id991459054?ls=1&mt=8) | [Android](https://play.google.com/store/apps/details?id=io.particle.android.app)
-* **Experience**
-    * None! This is your first project.
 
-{{/if}}
-
-{{#if core}}
-### Materials
-* **Hardware**
-  * Your Particle device, brand new and out of the box!
-  * USB to micro USB cable {{#if photon}}(included with Photon Kit and Maker Kit){{/if}}
-  * Power source for USB cable (such as your computer, USB battery, or power brick)
-  * Your iPhone or Android smartphone
-* **Software**
-  * Spark Core Mobile App - [iPhone](https://itunes.apple.com/us/app/spark-core/id760157884) | [Android](https://play.google.com/store/apps/details?id=io.spark.core.android)
-* **Experience**
-    * None! This is your first project.
-
-{{/if}}
 
 ### Step 1: Power On Your Device
 {{#if photon}}![plug in your device!](/assets/images/photon-plugged-in.jpg){{/if}}
@@ -154,6 +160,6 @@ Tap `D7` then `digitalWrite` in the popup. Now when you tap the D7 circle the ti
 
 Keep in mind that with Tinker, you can communicate with any of the pins, not just with the D7 LED. You can wire things to the pins to run motors, read sensors, and much more. The real fun part comes when you write your own firmware, of course. We'll go over that in later sections.
 
-The next lesson is on [connecting over USB](/guide/getting-started/connect). If you've successfully connected with your smartphone and you'd like to keep playing around with Tinker, skip ahead to learn [device modes](/guide/getting-started/modes) and then do some [Tinker examples](/guide/getting-started/tinker).
+If you don't have your smartphone with you, go ahead and move to the next lesson on [connecting over USB.](/guide/getting-started/connect). If you've successfully connected with your smartphone and you'd like to keep playing around with Tinker, skip ahead to learn [device modes](/guide/getting-started/modes) and then do some [Tinker examples](/guide/getting-started/tinker).
 
 Otherwise, go to the next section to learn to connect over USB.
