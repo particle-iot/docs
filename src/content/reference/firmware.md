@@ -1967,7 +1967,7 @@ Where the parameter `val`, can is the byte to send out over the SPI bus.
 {{#if photon}}
 ### transfer(void*, void*, size_t, std::function)
 
-For transferring a large number of bytes, this form of transfer() uses DMA to speed up SPI data transfer and at the same time allows you to run code in parallel to the data transmission. The function initialises, configures and enables the DMA peripheral’s channel and stream for the selected SPI peripheral for both outgoing and incoming data and initiates the data transfer. If a user callback function is passed then it will be called after completion of the DMA transfer. This results in asynchronous filling of RX buffer after which the DMA transfer is disabled till the transfer function is called again. If NULL is passed as a callback then the result is synchronous i.e. the transfer function will wait until the receipt of response from the slave.
+For transferring a large number of bytes, this form of transfer() uses DMA to speed up SPI data transfer and at the same time allows you to run code in parallel to the data transmission. The function initialises, configures and enables the DMA peripheral’s channel and stream for the selected SPI peripheral for both outgoing and incoming data and initiates the data transfer. If a user callback function is passed then it will be called after completion of the DMA transfer. This results in asynchronous filling of RX buffer after which the DMA transfer is disabled till the transfer function is called again. If NULL is passed as a callback then the result is synchronous i.e. the function will only return once the DMA transfer is complete.
 
 NOTE: The SPI protocol is based on a one byte OUT / one byte IN inteface. For every byte expected to be received, one (dummy, typicall 0x00 or 0xFF) byte must be sent.
 
@@ -1982,6 +1982,8 @@ Parameters:
 - `rx_buffer`: array of Rx bytes that will be filled by the slave during the SPI transfer
 - `length`: number of data bytes that are to be transferred
 - `myFunction`: user specified function callback to be called after completion of the SPI DMA transfer
+
+NOTE: `tx_buffer` and `rx_buffer` sizes MUST be identical (of size `length`)
 
 {{/if}}
 
