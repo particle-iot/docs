@@ -63,7 +63,7 @@ For more technical details on what comes on your device, go [here](/datasheets).
   * Power source for USB cable (such as your computer, USB battery, or power brick)
   * Your iPhone or Android smartphone
 * **Wifi Settings**
-  * 2.4GHz 
+  * 2.4GHz Capable Router
   * Channels 1-11
   * WPA/WPA2 encryption
   * On a broadcasted SSID network
@@ -83,6 +83,13 @@ For more technical details on what comes on your device, go [here](/datasheets).
   * USB to micro USB cable {{#if photon}}(included with Photon Kit and Maker Kit){{/if}}
   * Power source for USB cable (such as your computer, USB battery, or power brick)
   * Your iPhone or Android smartphone
+* **Wifi Settings**
+  * 2.4GHz Capable Router
+  * Channels 1-11
+  * WPA/WPA2 encryption
+  * On a broadcasted SSID network
+  * Not behind a hard firewall or Enterprise network
+  * *Note: We do not recommend using WEP wifi settings, for security reasons.*
 * **Experience**
     * None! This is your first project.
 
