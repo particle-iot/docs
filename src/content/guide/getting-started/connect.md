@@ -23,21 +23,16 @@ To connect and interact with a Particle Device over USB from a Windows machine, 
 The following describes how to install the Particle CLI on your computer. If you already have Node.js installed, you can skip to [this step](#installing-the-particle-cli).
 
 ### Installing Node.js
-The Particle CLI runs with Node.js. Grab the latest version from [the Node.js website](http://nodejs.org/download)
-
-**If you do not know if you are running 32-bit or 64-bit, checking is easy!**
-- __On Windows 8__ Mouse over the upper right hand corner of your screen and nagivate to Settings. Then click "PC info" to display basic information about your computer.
-- __On Windows 7__ Open System by clicking the Start button Picture of the Start button, right-clicking Computer, and then clicking Properties. Under System, you can view the system type.
+The Particle CLI runs with Node.js. Grab version 0.10.40 from [the Node.js website](https://nodejs.org/dist/v0.10.40)
 
 Run the installer you downloaded. Follow the prompts. The default file locations should be fine for this.
 
 Restart your computer.
-_(You can do this by mousing over the upper right hand corner of the screen, then going to Settings > Power > Restart)_
 
 Node should now be installed! In the next step we will test it and install the CLI.
 
 ### Installing the Particle Driver
-You'll also need to install the Windows driver. [Download it here.](https://s3.amazonaws.com/spark-website/Spark.zip)
+You'll also need to install the Windows driver. [Download it here.](https://s3.amazonaws.com/spark-website/Particle.zip)
 
 Unzip the file. It is fine to unzip this as a default into your Downloads folder.
 

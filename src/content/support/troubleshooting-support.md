@@ -10,7 +10,6 @@ order: 1
 
 ## LED Colors (Explained)
 
-{{#if core}}
 ### Setup Process
 
 During initial setup of a device these are the usual LED specifications:
@@ -23,8 +22,8 @@ During initial setup of a device these are the usual LED specifications:
 - **High-speed flashing cyan:** Particle Cloud handshake
 - **Breathing cyan:** Connected to Particle Cloud
 - **Flashing magenta:** Receiving new firmware update over-the-air (OTA)
+- **Breathing magenta** Safe mode, connected to Particle Cloud but user firmware not running
 
-{{/if}}
 
 ### Errors
 
@@ -55,13 +54,13 @@ There are several ways to **find your {{#if photon}}Photon's{{/if}} {{#if core}}
 If you haven't claimed your {{#if photon}}Photon{{/if}} {{#if core}}Core{{/if}} yet, there are two ways for you to figure out your {{#if photon}}Photon{{/if}} {{#if core}}Core{{/if}} device ID:
 
   1a. **Get your {{#if photon}}Photon{{/if}} {{#if core}}Core{{/if}} ID using the Particle CLI** Make sure that you've got the Particle Command Line Interface (CLI) installed by typing ``particle``
-into your terminal. 
+into your terminal.
 You should see a help message that displays the various commands available to you.  Please make sure your {{#if photon}}Photon{{/if}} {{#if core}}Core{{/if}} is in [Listening Mode](https://mtc.cdn.vine.co/r/videos/B75AACF6B91015398617940668416_154e6c92f81.4.3.1608668747173494282_V_AMvRCF0NS2Y_i_y0FdDV9ABtESHh9GR_VFKEu8Pn8Q3ZHYx9l32NfspugyWKJh.mp4?versionId=l_G0UVaqFXFSdJVxAeJ3.56M1HhVfO9S) (flashing blue), and type ``particle serial identify``.
 
 Your {{#if photon}}Photon{{/if}} {{#if core}}Core{{/if}} should respond with it's {{#if photon}}Photon{{/if}} {{#if core}}Core{{/if}} device ID!
 
   1b. **Get your {{#if photon}}Photon{{/if}} {{#if core}}Core{{/if}} device ID using CoolTerm, PuTTY, or screen** CoolTerm and PuTTY are programs for Mac and Windows, respectively, that allow you to communicate with your {{#if photon}}Photon{{/if}} {{#if core}}Core{{/if}} using the exposed serial lines.  You can find the download links for CoolTerm and PuTTY at the links attached--
-  [CoolTerm](http://freeware.the-meiers.org/) & [PuTTy](http://the.earth.li/~sgtatham/putty/latest/x86/putty.exe). 
+  [CoolTerm](http://freeware.the-meiers.org/) & [PuTTy](http://the.earth.li/~sgtatham/putty/latest/x86/putty.exe).
 
 Plug your {{#if photon}}Photon{{/if}} {{#if core}}Core{{/if}} into your computer over USB. When the {{#if photon}}Photon{{/if}} {{#if core}}Core{{/if}} is in Listening Mode (flashing blue), open a serial port over USB using the standard settings, which should be:
 
@@ -85,7 +84,7 @@ Follow these simple steps:
 - Click on the "{{#if photon}}Photon{{/if}} {{#if core}}Core{{/if}}" icon in the bottom of the navigation pane
 - Find the {{#if photon}}Photon{{/if}} {{#if core}}Core{{/if}} whose device ID you'd like to know, and click on the dropdown arrow on it's right
 - The {{#if photon}}Photon{{/if}} {{#if core}}Core{{/if}} ID will be displayed in a box that reads, "device ID"
- 
+
 
 Great! Go forth with your **{{#if photon}}Photon{{/if}} {{#if core}}Core{{/if}} device ID** and prosper.
 
@@ -124,7 +123,7 @@ There are two primary ways to remove a Core from your account--using the Particl
 
 2. Click on the "Devices" icon in the bottom left-hand panel
 
-3. Identify the {{#if photon}}Photon{{/if}} {{#if core}}Core{{/if}} that you'd like to remove from your account, either by the familiar name you gave it when you added it to your account, or it's device ID. 
+3. Identify the {{#if photon}}Photon{{/if}} {{#if core}}Core{{/if}} that you'd like to remove from your account, either by the familiar name you gave it when you added it to your account, or it's device ID.
 
 4. Click on the arrow next to the device you'd like to remove, and click the blue "REMOVE DEVICE" button
 
@@ -204,7 +203,7 @@ place {{#if photon}}photon{{/if}} {{#if core}}core{{/if}} in DFU-mode
 particle keys save INPUT_{{#if photon}}PHOTON{{/if}}{{#if core}}CORE{{/if}}_ID_HERE
 NOTE: make sure you use the {{#if photon}}PHOTON{{/if}} {{#if core}}CORE{{/if}} ID when saving the keys!
 
-Reset the {{#if photon}}photon{{/if}} {{#if core}}core{{/if}} manually by hitting the RST button 
+Reset the {{#if photon}}photon{{/if}} {{#if core}}core{{/if}} manually by hitting the RST button
 
 **8. Check for connection**
 
@@ -232,16 +231,16 @@ Example activity from CMD output:
 **1. You will need to flash the respective cloud Public Key to the core which you are connecting to.
 
 - Place your {{#if photon}}photon{{/if}}{{#if core}}core{{/if}} in DFU-mode (flashing yellow)
-- On the command line (to switch to Particle Cloud): 
-	
+- On the command line (to switch to Particle Cloud):
+
 	``particle keys server cloud_public.der``
-	
+
 	The Particle cloud public key file is here: [https://s3.amazonaws.com/spark-website/cloud_public.der](https://s3.amazonaws.com/spark-website/cloud_public.der)
 
 	For local Cloud: ``particle keys server your_local_cloud_public_key.der IP-ADDRESS``
 - Reset your {{#if photon}}photon{{/if}}{{#if core}}core{{/if}}
 
-**2.Changing of probile back to the default particle cloud on the Particle-cli must be performed using:
+**2.Changing of profile back to the default particle cloud on the Particle-cli must be performed using:
 
 ``particle config identify``
 
@@ -396,7 +395,7 @@ https://community.particle.io/t/troubleshooting-my-core-is-flashing-yellow-red-l
 
 1. Place your {{#if photon}}Photon{{/if}}{{#if core}}Core{{/if}} into DFU mode by holding Mode and tapping Reset, then continue holding Mode for about 3 seconds until the LED starts flashing Yellow.
 
-2. Run the ``particle keys load mykey.der`` command. This will restore the key you saved previously to your Home directory to your {{#if photon}}Photon{{/if}}{{#if core}}Core{{/if}}.  The file may not necessarily be named mykey.der, substitute whatever you backed it up as previously with the ``particle keys save`` command. 
+2. Run the ``particle keys load mykey.der`` command. This will restore the key you saved previously to your Home directory to your {{#if photon}}Photon{{/if}}{{#if core}}Core{{/if}}.  The file may not necessarily be named mykey.der, substitute whatever you backed it up as previously with the ``particle keys save`` command.
 
 ### How to Change your Key:
 
@@ -507,13 +506,13 @@ Please post issues with connectivity either as responses to this topic or, if th
 - **What's the Core Doing?** The main LED on my Core slowly pulses white, even if I reset it or [perform a factory reset](https://community.particle.io/t/how-to-do-a-factory-reset/2579).
 - **What's the problem?** The CC3000 on the COre is having trouble initializing due ot a potential hardware issue.
 - **How do I fix it?** In general, if the LED on your Core starts breathing white, the best thing to do is to reach out to the Particle team. Refer to this issue in your email, and Particle's Technical Support staff will help you resolve the problem directly.
-	
+
 
 ***Main LED off, Small Blue LED dim***
 
 - **What’s the Core doing?** The main LED on my Core is off, but the small blue LED in the upper right corner is dimly glowing.
 - **What’s the problem?** Your Core is missing firmware.
-- **How do I fix it?** 
+- **How do I fix it?**
 
 1. Try a factory reset. Hold down both buttons, then release the RST button, while holding down the MODE button. The LED should begin flashing yellow. Continue holding down the MODE button until you see the Core change from flashing yellow to flashing white. Then release the button. The Core should begin after the factory reset is complete. [Here](http://docs.particle.io/core/connect/#appendix-factory-reset) is a video to illustrate it being done.
 
@@ -603,7 +602,7 @@ These commands replace the factory reset image, and re-patch the radio, bringing
 For all hardware related questions in regards to all of our available shields, pinouts, and diagrams, and mini-tutorials
 feel free to visit our [Datasheets Section](/datasheets/photon-shields/#shield-shield) on these topics.
 This includes:
- 
+
 - Shield Shield
 - Relay Shield
 - Programmer Shield

@@ -62,7 +62,7 @@ Pour les utilisateurs de __Windows__, nous vous recommandons [PuTTY](http://www.
 Vous devez aussi installer les pilotes Windows :
 
 
-[Pilotes Windows pour Spark Core >](https://s3.amazonaws.com/spark-website/Spark.zip)
+[Pilotes Windows pour Spark Core >](https://s3.amazonaws.com/spark-website/Particle.zip)
 
 [CoolTerm](http://freeware.the-meiers.org/) fourni aussi une interface graphique agréable.
 ![Paramétrages CoolTerm](/assets/images/coolterm-settings.png)
