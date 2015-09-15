@@ -1954,7 +1954,6 @@ Where the parameter, `mode` can be:
  - `SPI_MODE2`
  - `SPI_MODE3`
 
-{{#if photon}}
 ### transfer()
 
 Transfers one byte over the SPI bus, both sending and receiving.
@@ -1965,6 +1964,7 @@ SPI.transfer(val);
 ```
 Where the parameter `val`, can is the byte to send out over the SPI bus.
 
+{{#if photon}}
 ### transfer(void*, void*, size_t, std::function)
 
 For transferring large bytes of transfer the above function uses DMA to speed up SPI data transfer and at the same time allows you to run code in parallel of the data transmission. The function initialises, configures and enables the DMA peripheral’s channel and stream for the selected SPI peripheral for both TX(Output) and RX(Input) and initiates the data transfer. If a user callback function is passed then the same would be called after completion of DMA transfer. This results in asynchronous filling up of RX buffer after which the DMA transfer is disabled till the transfer function is called again. If NULL is passed as a callback then the result is synchronous i.e. transfer function would wait till the receipt of response from the slave.
