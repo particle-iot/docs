@@ -125,7 +125,7 @@ Open the app on your phone. Log in or sign up for an account with Particle if yo
 
 Follow the instructions on the screen to {{{ popup 'connect your device to Wi-Fi.' 'note' 'Your device remembers up to 7 wifi networks, and it will connect to these automatically if it can find them.'}}} Remember that to connect the Core, you need the older Spark Core app and to connect the Photon you need the new Particle App.
 
-This may take a little while- but don't worry.
+This may take a little while - but don't worry.
 
 {{#if core}}While you're waiting, your Core will go through the following colors:
 
