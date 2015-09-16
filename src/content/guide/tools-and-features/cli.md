@@ -44,6 +44,8 @@ Here are some great tutorials on the community for full installs:
 
 [Installing on Windows](https://community.particle.io/t/tutorial-spark-cli-on-windows-06-may-2014/3112)
 
+[Installing on Mac](http://community.particle.io/t/tutorial-particle-cli-on-mac-osx-07-jun-2015/5225)
+
 
 ### Upgrading to the latest version
 
