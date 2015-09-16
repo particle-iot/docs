@@ -63,7 +63,7 @@ For more technical details on what comes on your device, go [here](/datasheets).
   * Power source for USB cable (such as your computer, USB battery, or power brick)
   * Your iPhone or Android smartphone
 * **Wifi Settings**
-  * 2.4GHz Capable Router
+  * 2.4GHz capable router
   * Channels 1-11
   * WPA/WPA2 encryption
   * On a broadcasted SSID network
@@ -84,7 +84,7 @@ For more technical details on what comes on your device, go [here](/datasheets).
   * Power source for USB cable (such as your computer, USB battery, or power brick)
   * Your iPhone or Android smartphone
 * **Wifi Settings**
-  * 2.4GHz Capable Router
+  * 2.4GHz capable router
   * Channels 1-11
   * WPA/WPA2 encryption
   * On a broadcasted SSID network
