@@ -1866,8 +1866,7 @@ SPI.begin(ss);
 SPI1.begin(D5);
 ```{{/if}}
 
-Where, the parameter `ss` is the SPI device slave-select pin to initialize.  
-If no pin is specified, the default pin is `SS (A2)`.
+Where, the parameter `ss` is the SPI device slave-select pin to initialize.  If no pin is specified, the default pin is `SS (A2)`.
 
 ### end()
 
