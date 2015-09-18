@@ -1867,8 +1867,7 @@ SPI1.begin(D5);
 ```{{/if}}
 
 Where, the parameter `ss` is the SPI device slave-select pin to initialize.  
-If no pin is specified, the default pin is `SS (A2)`{{#if photon}} for
-`SPI`, or `SS3 (D5)` for `SPI1`{{/if}}.
+If no pin is specified, the default pin is `SS (A2)`.
 
 ### end()
 
