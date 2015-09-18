@@ -1836,9 +1836,24 @@ This library allows you to communicate with SPI devices, with the Core/Photon as
 
 ![SPI](/assets/images/core-pin-spi.jpg)
 
+The hardware SPI pin functions are mapped as follows:
+* `SCK` => `A3`
+* `MISO` => `A4`
+* `MOSI` => `A5`
+* `SS` => `A2` (default)
+{{#if photon}}
+
+On the Photon, there is a second hardware SPI interface available, which can
+be used via the `SPI1` object. This second port is mapped like so:
+* `SCK` => `D4`
+* `MISO` => `D3`
+* `MOSI` => `D2`
+* `SS` => `A2` (default)
+ {{/if}}
+
 ### begin()
 
-Initializes the SPI bus by setting SCK, MOSI, and a user-specified slave-select pin (default is SS) to outputs, MISO to input. SCK and MOSI are pulled low, and slave-select high.
+Initializes the SPI bus by setting SCK, MOSI, and a user-specified slave-select pin to outputs, MISO to input. SCK and MOSI are pulled low, and slave-select high.
 
 **NOTE:**  The SPI firmware ONLY initializes the user-specified slave-select pin. The user's code must control the slave-select pin before and after each SPI transfer for the desired SPI slave device. Calling `SPI.end()` does NOT reset the pin mode of the SPI pins.
 
@@ -1846,8 +1861,12 @@ Initializes the SPI bus by setting SCK, MOSI, and a user-specified slave-select 
 // SYNTAX
 SPI.begin(ss);
 ```
+{{#if photon}}```C++
+// Example of using second port on Photon, with alternate SS pin:
+SPI1.begin(D5);
+```{{/if}}
 
-Where, the parameter `ss` is the SPI device slave-select pin to initialize.  The default pin is `SS (A2)` if no pin is specified.
+Where, the parameter `ss` is the SPI device slave-select pin to initialize.  If no pin is specified, the default pin is `SS (A2)`.
 
 ### end()
 
