@@ -1844,7 +1844,7 @@ The hardware SPI pin functions are mapped as follows:
 {{#if photon}}
 
 On the Photon, there is a second hardware SPI interface available, which can
-be used via the `SPI1` object. This second port is mapped like so:
+be used via the `SPI1` object. This second port is mapped as follows:
 * `SCK` => `D4`
 * `MISO` => `D3`
 * `MOSI` => `D2`
@@ -1861,12 +1861,15 @@ Initializes the SPI bus by setting SCK, MOSI, and a user-specified slave-select 
 // SYNTAX
 SPI.begin(ss);
 ```
-{{#if photon}}```C++
-// Example of using second port on Photon, with alternate SS pin:
-SPI1.begin(D5);
-```{{/if}}
 
 Where, the parameter `ss` is the SPI device slave-select pin to initialize.  If no pin is specified, the default pin is `SS (A2)`.
+
+{{#if photon}}
+```C++
+// Example of using SPI1 on the Photon, with D3 as the SS pin:
+SPI1.begin(D3);
+```
+{{/if}}
 
 ### end()
 
