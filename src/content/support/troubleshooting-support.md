@@ -630,7 +630,7 @@ Yes, and that *how-to* is located in our [IFTTT features section](/guide/tools-a
 Yes, you can find more information on both of these at [Webhooks features section](/guide/tools-and-features/webhooks).
 
 **I am hosting a Hackathon/Program that includes Particle - do you have any suggestions?**
-Yup! [Here are our best practices](/guide/tools-and-features/hackathon) about setting devices up for a Hackathon.
+Yup! [Here are our best practices](/guide/getting-started/hackathon) about setting devices up for a Hackathon.
 
 Feel free to contact [hello @ particle dot com] with **subject line: *"Sponsorship Inquiry for Particle"* **for any additional information about this. Please include as many details about your event and what sort of participation you’re interested in from Particle and allow a week for response.
 
