@@ -1151,12 +1151,23 @@ void loop()
 
 ### analogWrite()
 
-Writes an analog value (PWM wave) to a pin. Can be used to light a LED at varying brightnesses or drive a motor at various speeds. After a call to analogWrite(), the pin will generate a steady square wave of the specified duty cycle until the next call to analogWrite() (or a call to digitalRead() or digitalWrite() on the same pin). The frequency of the PWM signal is approximately 500 Hz.
+Writes an analog value (PWM wave) to a pin. The frequency of the PWM signal is approximately 500 Hz.
+
+Can be used to light a LED at varying brightnesses or drive a motor at various speeds. After a call to analogWrite(), the pin will generate a steady square wave of the specified duty cycle until the next call to `analogWrite()` (or a call to `digitalRead()` or `digitalWrite()` on the same pin).
 
 ```C++
 // SYNTAX
 analogWrite(pin, value);
 ```
+
+`analogWrite()` takes two arguments:
+
+- `pin`: the number of the pin whose value you wish to set
+- `value`: the duty cycle: between 0 (always off) and 255 (always on).
+
+**NOTE:** `pinMode(pin, OUTPUT);` is required before calling `analogWrite(pin, value);` or else the `pin` will not be initialized as a PWM output and set to the desired duty cycle.
+
+`analogWrite()` does not return anything.
 
 ```C++
 // EXAMPLE USAGE
@@ -1182,14 +1193,9 @@ void loop()
 - On the Core, this function works on pins A0, A1, A4, A5, A6, A7, D0 and D1.
 - On the Photon, this function works on pins D0, D1, D2, D3, A4, A5, WKP, RX and TX with a caveat: PWM timer peripheral is duplicated on two pins (A5/D2) and (A4/D3) for 7 total independent PWM outputs. For example: PWM may be used on A5 while D2 is used as a GPIO, or D2 as a PWM while A5 is used as an analog input. However A5 and D2 cannot be used as independently controlled PWM outputs at the same time.
 
-When used with these pins, the analogWrite function has nothing to do with the analog pins or the analogRead function.
+When used with these pins, the `analogWrite()` function has nothing to do with the analog pins or the `analogRead()` function.
 
 
-`analogWrite()` takes two arguments, `pin`: the number of the pin whose value you wish to set and `value`: the duty cycle: between 0 (always off) and 255 (always on).
-
-**NOTE:** `pinMode(pin, OUTPUT);` is required before calling `analogWrite(pin, value);` or else the `pin` will not be initialized as a PWM output and set to the desired duty cycle.
-
-`analogWrite()` does not return anything.
 
 
 
