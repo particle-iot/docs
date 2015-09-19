@@ -76,7 +76,6 @@ When the CLI prompts you to log in or sign up, make sure you choose your login c
 
 Now that you've read that, go ahead and [connect over USB](/guide/getting-started/connect). When that's all done, you can go on to the next section.
 
-
 {{/if}}
 
 ### Particle Dev
@@ -227,4 +226,3 @@ Happy hacking! If you get stuck, try out:
 - [The Particle Support Page](http://support.particle.io)
 
 Best of luck!
-
