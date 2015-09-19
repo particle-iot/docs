@@ -52,7 +52,7 @@ Here are instrutions on setting up some tools that will help you hack around wit
 
 ### Installing the CLI
 
-First, get the [Particle CLI](/guide/tools-and-features/cli). Unless someone has already set it up for you, you're going to need it to connect your device.
+First, get the [Particle CLI](/guide/getting-started/cli). Unless someone has already set it up for you, you're going to need it to connect your device.
 
 If you already have node.js, you can download the CLI by opening a terminal window and typing:
 
@@ -67,7 +67,7 @@ Otherwise, follow the instructions on how to [connect over USB](/guide/getting-s
 
 **If your devices have been pre-connected...**
 
-If someone from Particle came to your workshop or hackathon, there's a chance they already pre-programmed all your devices to connect to the local wifi. In that case, someone has probably written your device ID in or on the box for your Core or Photon. If this has happened, go to [this step](/guide/tools-and-features/hackathon/#particle-dev) to download Particle Dev and claim the core to your account.
+If someone from Particle came to your workshop or hackathon, there's a chance they already pre-programmed all your devices to connect to the local wifi. In that case, someone has probably written your device ID in or on the box for your Core or Photon. If this has happened, go to [this step](/guide/getting-started/hackathon/#particle-dev) to download Particle Dev and claim the core to your account.
 
 
 **If devices have not been pre-connected...**
@@ -81,11 +81,11 @@ Now that you've read that, go ahead and [connect over USB](/guide/getting-starte
 
 ### Particle Dev
 
-Although the [online IDE](http://build.particle.io) will allow you to flash code to your devices, we also suggest getting [Particle Dev](/guide/tools-and-features/dev), the local IDE, for hackathons. It has a nice interface for monitoring Spark.variables and running Spark.functions without the CLI, which means you can develop faster.
+Although the [online IDE](http://build.particle.io) will allow you to flash code to your devices, we also suggest getting [Particle Dev](/guide/getting-started/dev), the local IDE, for hackathons. It has a nice interface for monitoring Spark.variables and running Spark.functions without the CLI, which means you can develop faster.
 
 Download Particle Dev [here](https://www.particle.io/dev).
 
-Particle Dev has a lot of wonderful features. Namely, you can monitor cloud variables, cloud functions, and serial output from your devices via the Devices part of the menu bar. More on that in the [next section](/guide/tools-and-features/hackathon/#now-do-stuff-).
+Particle Dev has a lot of wonderful features. Namely, you can monitor cloud variables, cloud functions, and serial output from your devices via the Devices part of the menu bar. More on that in the [next section](/guide/getting-started/hackathon/#now-do-stuff-).
 
 {{#if core}}
 **My device was pre-connected. Can I claim it now?**
@@ -149,9 +149,11 @@ Although Tinker can be really useful in early stages, we're sure you'll want to 
 
 For maximum sharability, make a [repo on github](https://help.github.com/articles/create-a-repo/) for your shared code. Hook up to this repo by using `git clone` on the clone URL. Open Particle Dev and navigate to the repo you just cloned. Make sure you have a single folder that will hold all of your .ino files and libraries-- the current version of Particle Dev gets confused when libraries are placed in subdirectories.
 
-_Note that now that you are in a GitHub repo, you can use some of the functions in Particle Dev's `Packages` menu, which play nicely with git._
+Note that now that you are in a GitHub repo, you can use some of the functions in Particle Dev that play nicely with git. Access these in the `Packages` menu:
 
-Now you can compile and flash your first `.ino` file from Particle Dev. You are welcome to take any of [these examples](/guide/getting-started/examples/) as a first try and flash it to your device by clicking the lightning bolt in the upper right corner. The examples explain how Variable, Function, Publish, and Subscribe are used, but documentation on coding these cloud-exposed elements is available [here](/reference/firmware/#cloud-functions). Check out [Tips and Tricks](/guide/tools-and-features/hackathon/#tips-and-tricks) for some of the subtleties of coding these functions.
+![Particle Dev Github Packages]({{assets}}/images/dev-packages-github.png)
+
+Now you can compile and flash your first `.ino` file from Particle Dev. You are welcome to take any of [these examples](/guide/getting-started/examples/) as a first try and flash it to your device by clicking the lightning bolt in the upper right corner. The examples explain how Variable, Function, Publish, and Subscribe are used, but documentation on coding these cloud-exposed elements is available [here](/reference/firmware/#cloud-functions). Check out [Tips and Tricks](/guide/getting-started/hackathon/#tips-and-tricks) for some of the subtleties of coding these functions.
 
 
 ### Pass Strings
