@@ -23,6 +23,8 @@ Anxious to connect right away?
 [CONNECT MY CORE >](/guide/getting-started/start/core/#step-1-power-on-your-device)
 {{/if}}
 
+[I'M AT A HACKATHON >](/guide/getting-started/hackathon)
+
 Or read on!
 
 
