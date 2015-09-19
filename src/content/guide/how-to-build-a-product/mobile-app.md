@@ -27,7 +27,7 @@ focus more specifically on building mobile applications.
 - [Cocoapods](https://cocoapods.org/) installed
 - Particle iOS SDKs: [Cloud SDK](http://docs.particle.io/photon/ios/#ios-cloud-sdk) and [Device setup library](http://docs.particle.io/photon/ios/#ios-device-setup-library)
 - Skills in object oriented programming. Knowledge in Objective-C / Swift and Cocoa Touch APIs. Here are few recommended free learning resources:
-	- Official [Apple tutorials](https://developer.apple.com/library/ios/referencelibrary/GettingStarted/RoadMapiOS/FirstTutorial.html#//apple_ref/doc/uid/TP40011343-CH3-SW1)
+	- Official Apple tutorials
 	- [Developing iOS 8 Apps with Swift Stanford Universitry CS193p course](https://itunes.apple.com/us/course/developing-ios-8-apps-swift/id961180099) on iTunes U
 	- [Ray Wenderlich](http://www.raywenderlich.com/) - a great iOS-centric tutorials website
 	- [Try iOS](https://www.codeschool.com/courses/try-ios) - Free online iOS course from Codeschool

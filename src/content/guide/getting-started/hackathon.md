@@ -112,7 +112,9 @@ You can develop code, test it on your device, and push it to your repo. You and 
 
 ### Mobile
 
-Building a mobile app to hook up with a Particle device? Check out our Mobile SDK for [iOS](/reference/ios) or [Android](/reference/android). You can also check out the [mobile section of the community](http://community.particle.io/c/mobile) to ask for help and give feedback!
+Building a mobile app to hook up with a Particle device? Check out our guide on [building mobile apps](/guide/how-to-build-a-product/mobile-app).
+
+You can also read the reference for [iOS](/reference/ios) and [Android](/reference/android) SDKs, and check out the [mobile section of the community](http://community.particle.io/c/mobile) to ask for help and give feedback!
 
 ### Connecting to Other Services
 
