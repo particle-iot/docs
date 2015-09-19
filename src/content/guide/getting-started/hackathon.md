@@ -16,13 +16,14 @@ If you're at a hackathon, you'll want to get started with Particle, and fast! He
 
 We'll go over how to set up your Photon, then go into some other tools you should install and features you should be aware of to get the most out of your hackathoning.
 
-##Setup
 
-###Making an Account
+## Setup
+
+### Making an Account
 
 The first step, if you don't already have one, is to [make an account](http://build.particle.io/login). If you are the only one working on the firmware for this project, you can make an account with your personal email and a personal password. If you are working on a team and multiple people need to access the device, it may be a good idea to claim the device with a shared team email and password.
 
-###Claiming and Connecting
+### Claiming and Connecting
 
 Once you have your account, it is time to claim your Photon to your account and get started coding. You'll be doing this with your iOS or Android device. Before you get started, examine the packaging that your Photon, Photon Kit, or Internet Button came in. You'll see a barcode like the one below. The barcode has a four-digit code (outlined in blue below) in the third part of the alphanumeric sequence.
 
@@ -121,6 +122,7 @@ You can also read the reference for [iOS](/reference/ios) and [Android](/referen
 If you want to hook up different platforms quickly and without much code, try using [our IFTTT integration](/guide/tools-and-features/ifttt/). It's a simple way to connect your Particle device to email, text message, phone location, Twitter, Facebook, and more.
 
 If you're looking to hit an API not listed in IFTTT and you have a little more experience with coding, try [webhooks](/guide/tools-and-features/webhooks) instead.
+
 
 ## Now Do Stuff!
 
