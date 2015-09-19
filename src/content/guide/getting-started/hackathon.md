@@ -52,7 +52,7 @@ Here are instrutions on setting up some tools that will help you hack around wit
 
 ### Installing the CLI
 
-First, get the [Particle CLI](/guide/getting-started/cli). Unless someone has already set it up for you, you're going to need it to connect your device.
+First, get the [Particle CLI](/guide/tools-and-features/cli). Unless someone has already set it up for you, you're going to need it to connect your device.
 
 If you already have node.js, you can download the CLI by opening a terminal window and typing:
 
@@ -81,7 +81,7 @@ Now that you've read that, go ahead and [connect over USB](/guide/getting-starte
 
 ### Particle Dev
 
-Although the [online IDE](http://build.particle.io) will allow you to flash code to your devices, we also suggest getting [Particle Dev](/guide/getting-started/dev), the local IDE, for hackathons. It has a nice interface for monitoring Spark.variables and running Spark.functions without the CLI, which means you can develop faster.
+Although the [online IDE](http://build.particle.io) will allow you to flash code to your devices, we also suggest getting [Particle Dev](/guide/tools-and-features/dev), the local IDE, for hackathons. It has a nice interface for monitoring Spark.variables and running Spark.functions without the CLI, which means you can develop faster.
 
 Download Particle Dev [here](https://www.particle.io/dev).
 
