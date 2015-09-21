@@ -4271,7 +4271,7 @@ EEPROM.put(addr, myObj);
 
 _Since 0.4.5_
 
-Typically an application will have it's initialization code in the `setup()` function.
+Typically an application will have its initialization code in the `setup()` function.
 This works well if a delay of a few seconds from power on/reset is acceptable.
 
 In other cases, the application wants to have code run as early as possible, before the cloud or network connection
