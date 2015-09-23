@@ -3063,7 +3063,8 @@ int pos = 0;    // variable to store the servo position
 
 void setup()
 {
-  myservo.attach(A0);  // attaches the servo on the A0 pin to the servo object
+  myservo.attach(D0);  // attaches the servo on the D0 pin to the servo object
+  // Use the pins that has PWM on the Photon : D0, D1, D2, D3, A4, A5, WKP, RX, and TX
 }
 
 
