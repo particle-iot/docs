@@ -9,7 +9,7 @@ order: 1
 Troubleshooting Common LED Codes
 ===
 
-### LED Colors [(Explained)](guide/getting-started/modes/photon/)
+### LED Colors [(Explained)](guide/getting-started/modes/{{#if photon}}photon/{{/if}} {{#if core}}core/{{/if}})
 
 During initial setup of a device these are the usual LED specifications:
 
