@@ -9,7 +9,7 @@ order: 1
 Troubleshooting Common LED Codes
 ===
 
-### LED Colors [(Explained)](guide/getting-started/modes/{{#if photon}}photon/{{/if}} {{#if core}}core/{{/if}})
+### LED Colors [(Explained)](/guide/getting-started/modes)
 
 During initial setup of a device these are the usual LED specifications:
 
@@ -23,7 +23,7 @@ During initial setup of a device these are the usual LED specifications:
 - **Flashing magenta:** Receiving new firmware update over-the-air (OTA)
 - **Breathing magenta** Safe mode, connected to Particle Cloud but user firmware not running
 
-Further explained in our [Device Modes section](guide/getting-started/modes/photon/).
+Further explained in our [Device Modes section](../../../../guide/getting-started/modes).
 
 ### Error Codes
 
