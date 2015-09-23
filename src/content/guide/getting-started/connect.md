@@ -90,7 +90,7 @@ More info on the CLI is available [here](/photon/cli).
 We're going to install the Particle CLI on your computer. If you already have node.js installed, you can skip to [this step](/guide/getting-started/connect/#install-the-particle-cli).
 
 ### Installing Node.js
-The Particle CLI runs with Node.js. Grab the latest version from [the Node.js website](http://nodejs.org/download)
+The Particle CLI runs with Node.js versions 0.10 - 0.12. Grab the latest 0.12.* version from [the Node.js website](http://nodejs.org/download).
 
 Launch the installer and follow the instructions to install node.js.
 
