@@ -1,5 +1,5 @@
 ---
-title: General Shipping Information
+title: General Shipping Info
 template: support.hbs
 columns: two
 devices: [ photon, core ]
