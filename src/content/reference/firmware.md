@@ -1151,12 +1151,23 @@ void loop()
 
 ### analogWrite()
 
-Writes an analog value (PWM wave) to a pin. Can be used to light a LED at varying brightnesses or drive a motor at various speeds. After a call to analogWrite(), the pin will generate a steady square wave of the specified duty cycle until the next call to analogWrite() (or a call to digitalRead() or digitalWrite() on the same pin). The frequency of the PWM signal is approximately 500 Hz.
+Writes an analog value (PWM wave) to a pin. The frequency of the PWM signal is approximately 500 Hz.
+
+Can be used to light a LED at varying brightnesses or drive a motor at various speeds. After a call to analogWrite(), the pin will generate a steady square wave of the specified duty cycle until the next call to `analogWrite()` (or a call to `digitalRead()` or `digitalWrite()` on the same pin).
 
 ```C++
 // SYNTAX
 analogWrite(pin, value);
 ```
+
+`analogWrite()` takes two arguments:
+
+- `pin`: the number of the pin whose value you wish to set
+- `value`: the duty cycle: between 0 (always off) and 255 (always on).
+
+**NOTE:** `pinMode(pin, OUTPUT);` is required before calling `analogWrite(pin, value);` or else the `pin` will not be initialized as a PWM output and set to the desired duty cycle.
+
+`analogWrite()` does not return anything.
 
 ```C++
 // EXAMPLE USAGE
@@ -1182,14 +1193,9 @@ void loop()
 - On the Core, this function works on pins A0, A1, A4, A5, A6, A7, D0 and D1.
 - On the Photon, this function works on pins D0, D1, D2, D3, A4, A5, WKP, RX and TX with a caveat: PWM timer peripheral is duplicated on two pins (A5/D2) and (A4/D3) for 7 total independent PWM outputs. For example: PWM may be used on A5 while D2 is used as a GPIO, or D2 as a PWM while A5 is used as an analog input. However A5 and D2 cannot be used as independently controlled PWM outputs at the same time.
 
-When used with these pins, the analogWrite function has nothing to do with the analog pins or the analogRead function.
+When used with these pins, the `analogWrite()` function has nothing to do with the analog pins or the `analogRead()` function.
 
 
-`analogWrite()` takes two arguments, `pin`: the number of the pin whose value you wish to set and `value`: the duty cycle: between 0 (always off) and 255 (always on).
-
-**NOTE:** `pinMode(pin, OUTPUT);` is required before calling `analogWrite(pin, value);` or else the `pin` will not be initialized as a PWM output and set to the desired duty cycle.
-
-`analogWrite()` does not return anything.
 
 
 
@@ -1836,9 +1842,24 @@ This library allows you to communicate with SPI devices, with the Core/Photon as
 
 ![SPI](/assets/images/core-pin-spi.jpg)
 
+The hardware SPI pin functions are mapped as follows:
+* `SCK` => `A3`
+* `MISO` => `A4`
+* `MOSI` => `A5`
+* `SS` => `A2` (default)
+{{#if photon}}
+
+On the Photon, there is a second hardware SPI interface available, which can
+be used via the `SPI1` object. This second port is mapped as follows:
+* `SCK` => `D4`
+* `MISO` => `D3`
+* `MOSI` => `D2`
+* `SS` => `A2` (default)
+ {{/if}}
+
 ### begin()
 
-Initializes the SPI bus by setting SCK, MOSI, and a user-specified slave-select pin (default is SS) to outputs, MISO to input. SCK and MOSI are pulled low, and slave-select high.
+Initializes the SPI bus by setting SCK, MOSI, and a user-specified slave-select pin to outputs, MISO to input. SCK and MOSI are pulled low, and slave-select high.
 
 **NOTE:**  The SPI firmware ONLY initializes the user-specified slave-select pin. The user's code must control the slave-select pin before and after each SPI transfer for the desired SPI slave device. Calling `SPI.end()` does NOT reset the pin mode of the SPI pins.
 
@@ -1847,7 +1868,14 @@ Initializes the SPI bus by setting SCK, MOSI, and a user-specified slave-select 
 SPI.begin(ss);
 ```
 
-Where, the parameter `ss` is the SPI device slave-select pin to initialize.  The default pin is `SS (A2)` if no pin is specified.
+Where, the parameter `ss` is the SPI device slave-select pin to initialize.  If no pin is specified, the default pin is `SS (A2)`.
+
+{{#if photon}}
+```C++
+// Example of using SPI1 on the Photon, with D3 as the SS pin:
+SPI1.begin(D3);
+```
+{{/if}}
 
 ### end()
 
@@ -1954,7 +1982,6 @@ Where the parameter, `mode` can be:
  - `SPI_MODE2`
  - `SPI_MODE3`
 
-{{#if photon}}
 ### transfer()
 
 Transfers one byte over the SPI bus, both sending and receiving.
@@ -1965,9 +1992,12 @@ SPI.transfer(val);
 ```
 Where the parameter `val`, can is the byte to send out over the SPI bus.
 
+{{#if photon}}
 ### transfer(void*, void*, size_t, std::function)
 
-For transferring large bytes of transfer the above function uses DMA to speed up SPI data transfer and at the same time allows you to run code in parallel of the data transmission. The function initialises, configures and enables the DMA peripheral’s channel and stream for the selected SPI peripheral for both TX(Output) and RX(Input) and initiates the data transfer. If a user callback function is passed then the same would be called after completion of DMA transfer. This results in asynchronous filling up of RX buffer after which the DMA transfer is disabled till the transfer function is called again. If NULL is passed as a callback then the result is synchronous i.e. transfer function would wait till the receipt of response from the slave.
+For transferring a large number of bytes, this form of transfer() uses DMA to speed up SPI data transfer and at the same time allows you to run code in parallel to the data transmission. The function initialises, configures and enables the DMA peripheral’s channel and stream for the selected SPI peripheral for both outgoing and incoming data and initiates the data transfer. If a user callback function is passed then it will be called after completion of the DMA transfer. This results in asynchronous filling of RX buffer after which the DMA transfer is disabled till the transfer function is called again. If NULL is passed as a callback then the result is synchronous i.e. the function will only return once the DMA transfer is complete.
+
+NOTE: The SPI protocol is based on a one byte OUT / one byte IN inteface. For every byte expected to be received, one (dummy, typicall 0x00 or 0xFF) byte must be sent.
 
 ```C++
 // SYNTAX
@@ -1976,10 +2006,12 @@ SPI.transfer(tx_buffer, rx_buffer, length, myFunction)
 
 Parameters:
 
-- `tx_buffer`: array of Tx bytes that needs to be filled by the user before starting the spi transfer
-- `rx_buffer`: array of Rx bytes that would be filled by the slave using the DMA scheme.
-- `length`: size of data bytes that needs to be transferred
-- `myFunction`: user specified function callback that would be called after completion of spi dma transfer.
+- `tx_buffer`: array of Tx bytes that is filled by the user before starting the SPI transfer
+- `rx_buffer`: array of Rx bytes that will be filled by the slave during the SPI transfer
+- `length`: number of data bytes that are to be transferred
+- `myFunction`: user specified function callback to be called after completion of the SPI DMA transfer
+
+NOTE: `tx_buffer` and `rx_buffer` sizes MUST be identical (of size `length`)
 
 {{/if}}
 
@@ -4239,7 +4271,7 @@ EEPROM.put(addr, myObj);
 
 _Since 0.4.5_
 
-Typically an application will haves it's initialization code in the `setup()` function.
+Typically an application will have its initialization code in the `setup()` function.
 This works well if a delay of a few seconds from power on/reset is acceptable.
 
 In other cases, the application wants to have code run as early as possible, before the cloud or network connection
