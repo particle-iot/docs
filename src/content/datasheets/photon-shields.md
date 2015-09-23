@@ -100,6 +100,8 @@ We have even provided a small prototyping area around the shield for you to add 
 
 The schematic for the relay shield is simple and self explanatory. The shield has four relays that are controlled by pins D3, D4, D5 and D6 on the Particle device. Each relay is triggered via a NPN transistor that takes a control signal from the Particle device and switches the relay coil ON and OFF, which in turn makes or breaks the electrical contact on the output. There is also a fly-back diode connected across the coil to help protect the transistor from high voltage transients caused during switching.
 
+**NOTE:** On the under side of the relay shield (top center), you will see 4 solder pads that are by default bridged via traces. You can scratch off the trace to disconnect the control pin from the preassigned ones (D3 to D6) and wire up based on your project requirement.
+
 ### Relay Shield Schematic - Control
 
 ![Relay Shield Interface](/assets/images/shields/relay-shield/relay-shield-schematic-1.png)
@@ -226,6 +228,8 @@ Do you want to gain complete control over your Particle device right down to its
 
 This is a FT2232H based JTAG programmer shield that is compatible with OpenOCD and Broadcom's WICED IDE. The FT2232 chip is setup to provide an USB-JTAG and USB-UART interface simultaneously. The FT2232 can be also reconfigured by the user by reprogramming the on-board config EEPROM. The unused pins are clearly marked and broken out into easy to access header holes.
 
+The USB-UART interface is connected to the TX and RX of a Particle device and communicates via [Serial1](https://docs.particle.io/reference/firmware/photon/#serial)
+
 ![Programmer Shield Description](/assets/images/shields/prog-shield/prog-shield-description.png)
 
 For more instructions on setting up OpenOCD and using the Programmer Shield, please read through the README at the landing page of the Programmer Shield repository on GitHub, linked below:
@@ -246,7 +250,7 @@ For more instructions on setting up OpenOCD and using the Programmer Shield, ple
 
 ## Power Shield
 
-The Power Shield, as the name implies, allows the Particle device to be powered from different types of power sources. The shield has an intelligent battery charger and power management unit along with a wide input voltage regulator and an I2C based fuel-gauge. You can power a Particle device with either a USB plug or a DC supply of anywhere from 7 to 20VDC and charge a 3.7V LiPo battery all at the same time.
+The Power Shield, as the name implies, allows the Particle device to be powered from different types of power sources. The shield has an intelligent battery charger and power management unit along with a wide input voltage regulator and an I2C based fuel-gauge. You can power a Particle device with either a USB plug or a DC supply of anywhere from 7 to 20VDC and charge a [3.7V LiPo battery](https://www.sparkfun.com/products/8483) all at the same time.
 
 ![Power Shield](/assets/images/shields/power-shield/power-shield.png)
 
@@ -257,6 +261,16 @@ The system switches in between the different power sources automatically, reduci
 The shield is setup so that when powered from the USB port as well as from a DC supply, it chooses the DC source over USB. The charge current is set to 500mA when charging from USB and set to 1A when charging from a DC source.
 
 ![Power Shield Supply](/assets/images/shields/power-shield/power-shield-powersupply.png)
+
+There are two status led located on the left of the JST battery connector labeled `STAT1` and `STAT2`. Here is a table of the led behavior depending on which state the battery charger is in:
+
+|STAT1 (Blue)  | STAT2 (Red) | Charge State |
+|--------|--------|-------------------------|
+|ON      | ON     | Precharge in progress   |
+|ON      | OFF    | Fast charge in progress |
+|OFF     | ON     | Charge done             |
+|OFF     | OFF    | Charge suspend (temperature), timer fault, and sleep mode |
+
 
 ### Power Shield - Specifications
  - Operating voltage: USB or External DC of 7 to 20V

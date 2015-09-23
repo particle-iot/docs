@@ -52,9 +52,48 @@ Let's quickly go over what you see.
 
 For more technical details on what comes on your device, go [here](/datasheets).
 
-### Okay great, I want to play with it I want to make it do a thing right now!
+## Prerequisites for Setup
+{{#if photon}}
+* **Software**
+  * Particle Mobile App - [iPhone](https://itunes.apple.com/us/app/particle-build-photon-electron/id991459054?ls=1&mt=8) | [Android](https://play.google.com/store/apps/details?id=io.particle.android.app)
+  * *Note: We highly recommend using the mobile app for first time setup.*
+* **Hardware**
+  * Your Particle device, brand new and out of the box!
+  * USB to micro USB cable {{#if photon}}(included with Photon Kit and Maker Kit){{/if}}
+  * Power source for USB cable (such as your computer, USB battery, or power brick)
+  * Your iPhone or Android smartphone
+* **Wifi Settings**
+  * 2.4GHz capable router
+  * Channels 1-11
+  * WPA/WPA2 encryption
+  * On a broadcasted SSID network
+  * Not behind a hard firewall or Enterprise network
+  * *Note: We do not recommend using WEP wifi settings, for security reasons.*
+* **Experience**
+    * None! This is your first project.
 
-Good, me too! Let's get started.
+{{/if}}
+
+{{#if core}}
+* **Software**
+  * Spark Core Mobile App - [iPhone](https://itunes.apple.com/us/app/spark-core/id760157884) | [Android](https://play.google.com/store/apps/details?id=io.spark.core.android)
+  * *Note: We highly recommend using the mobile app for first time setup.*
+* **Hardware**
+  * Your Particle device, brand new and out of the box!
+  * USB to micro USB cable {{#if photon}}(included with Photon Kit and Maker Kit){{/if}}
+  * Power source for USB cable (such as your computer, USB battery, or power brick)
+  * Your iPhone or Android smartphone
+* **Wifi Settings**
+  * 2.4GHz capable router
+  * Channels 1-11
+  * WPA/WPA2 encryption
+  * On a broadcasted SSID network
+  * Not behind a hard firewall or Enterprise network
+  * *Note: We do not recommend using WEP wifi settings, for security reasons.*
+* **Experience**
+    * None! This is your first project.
+
+{{/if}}
 
 {{#if photon}}
 ## Connect Your Photon
@@ -63,35 +102,9 @@ Good, me too! Let's get started.
 ## Connect Your Core
 {{/if}}
 
-In this example, we will connect your device to the internet for the very first time. Then, we will blink the D7 LED on your device by using your smartphone. If you don't have your smartphone with you, go ahead and move to the next lesson on [connecting over USB.](/guide/getting-started/connect)
+In this example, we will connect your device to the internet for the very first time. Then, we will blink the D7 LED on your device by using your smartphone.
 
-{{#if photon}}
-### Materials
-* **Hardware**
-  * Your Particle device, brand new and out of the box!
-  * USB to micro USB cable {{#if photon}}(included with Photon Kit and Maker Kit){{/if}}
-  * Power source for USB cable (such as your computer, USB battery, or power brick)
-  * Your iPhone or Android smartphone
-* **Software**
-  * Particle Mobile App - [iPhone](https://itunes.apple.com/us/app/particle-build-photon-electron/id991459054?ls=1&mt=8) | [Android](https://play.google.com/store/apps/details?id=io.particle.android.app)
-* **Experience**
-    * None! This is your first project.
 
-{{/if}}
-
-{{#if core}}
-### Materials
-* **Hardware**
-  * Your Particle device, brand new and out of the box!
-  * USB to micro USB cable {{#if photon}}(included with Photon Kit and Maker Kit){{/if}}
-  * Power source for USB cable (such as your computer, USB battery, or power brick)
-  * Your iPhone or Android smartphone
-* **Software**
-  * Spark Core Mobile App - [iPhone](https://itunes.apple.com/us/app/spark-core/id760157884) | [Android](https://play.google.com/store/apps/details?id=io.spark.core.android)
-* **Experience**
-    * None! This is your first project.
-
-{{/if}}
 
 ### Step 1: Power On Your Device
 {{#if photon}}![plug in your device!](/assets/images/photon-plugged-in.jpg){{/if}}
@@ -110,9 +123,9 @@ If your device is not blinking at all, or if the LED is burning a dull orange co
 
 Open the app on your phone. Log in or sign up for an account with Particle if you don't have one.
 
-Follow the instructions on the screen to {{{ popup 'connect your device to Wi-Fi.' 'note' 'Your device remembers up to 7 wifi networks, and it will connect to these automatically if it can find them.'}}} Remember that to connect the Core, you need the older Spark Core app and to connect the Photon you need the new Particle App.
+Follow the instructions on the screen to {{#if photon}}{{{ popup 'connect your device to Wi-Fi.' 'note' 'Your device remembers up to 5 wifi networks, and it will connect to these automatically if it can find them.'}}}{{/if}} {{#if core}}{{{ popup 'connect your device to Wi-Fi.' 'note' 'Your device remembers up to 7 wifi networks, and it will connect to these automatically if it can find them.'}}}{{/if}} Remember that to connect the Core, you need the older Spark Core app and to connect the Photon you need the new Particle App.
 
-This may take a little while- but don't worry.
+This may take a little while - but don't worry.
 
 {{#if core}}While you're waiting, your Core will go through the following colors:
 
@@ -129,7 +142,7 @@ This may take a little while- but don't worry.
 
 If you can't seem to get the Mobile App to connect your device, that's okay! Read over this example quickly, and then check out the [next lesson](/guide/getting-started/connect) to connect your device using the USB cable.
 
-Once you have connected your device, it has learned that network. Your device can store up to seven networks. If you feel like your device has too many networks on it, you can wipe your device's memory of any wifi networks it has learned. You can do so by continuing to hold the MODE button for 10 seconds until the RGB LED flashes blue quickly, signaling that all profiles have been deleted.
+Once you have connected your device, it has learned that network. Your device can store up to {{#if core}}seven{{/if}} {{#if photon}}five{{/if}} networks. If you feel like your device has too many networks on it, you can wipe your device's memory of any wifi networks it has learned. You can do so by continuing to hold the MODE button for 10 seconds until the RGB LED flashes blue quickly, signaling that all profiles have been deleted.
 
 ### Step 3: Blink an LED!
 {{#if core}}The Spark Core App should now be on the {{{ popup 'Tinker' 'note' 'We have taken the liberty of loading some firmware onto your device for you. It is called Tinker, and it helps you talk to your device by sending power to the pins and reading power levels from the pins. More info about Tinker is available [here](/guide/getting-started/tinker/core).'}}} screen, as shown below.
@@ -154,6 +167,6 @@ Tap `D7` then `digitalWrite` in the popup. Now when you tap the D7 circle the ti
 
 Keep in mind that with Tinker, you can communicate with any of the pins, not just with the D7 LED. You can wire things to the pins to run motors, read sensors, and much more. The real fun part comes when you write your own firmware, of course. We'll go over that in later sections.
 
-The next lesson is on [connecting over USB](/guide/getting-started/connect). If you've successfully connected with your smartphone and you'd like to keep playing around with Tinker, skip ahead to learn [device modes](/guide/getting-started/modes) and then do some [Tinker examples](/guide/getting-started/tinker).
+If you don't have your smartphone with you, go ahead and move to the next lesson on [connecting over USB.](/guide/getting-started/connect). If you've successfully connected with your smartphone and you'd like to keep playing around with Tinker, skip ahead to learn [device modes](/guide/getting-started/modes) and then do some [Tinker examples](/guide/getting-started/tinker).
 
 Otherwise, go to the next section to learn to connect over USB.

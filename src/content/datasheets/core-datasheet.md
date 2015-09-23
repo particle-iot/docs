@@ -313,22 +313,27 @@ Mechanical drawings of the Core are available [here.](https://github.com/spark/c
 <table border = '1'>
    <tr>
       <th>Parameter</th>
-      <th>Value</th>
+			<th>Value (imperial)</th>
+			<th>Value (metric)</th>
    </tr>
    <tr>
       <td>Length</td>
       <td>1.47"</td>
+			<td>37.34 mm</td>
    </tr>
    <tr>
       <td>Width</td>
       <td>0.8"</td>
+			<td>20.32 mm</td>
    </tr>
    <tr>
       <td>Height</td>
       <td>0.5"</td>
+			<td>12.7 mm</td>
    </tr>
    <tr>
       <td>Weight</td>
-      <td>14 grams</td>
+			<td>0.49 ounces</td>
+			<td>14 grams</td>
    </tr>
 </table>
