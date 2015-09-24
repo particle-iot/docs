@@ -1,66 +1,74 @@
 <!doctype html>
 <html class="two-columns">
 <head>
-
   {{> head sectionTitle='Support'}}
-  <!-- Zendesk Support -->
-  <!-- Start of particle Zendesk Widget script -->
-  <script>/*<![CDATA[*/window.zEmbed||function(e,t){var n,o,d,i,s,a=[],r=document.createElement("iframe");window.zEmbed=function(){a.push(arguments)},window.zE=window.zE||window.zEmbed,r.src="javascript:false",r.title="",r.role="presentation",(r.frameElement||r).style.cssText="display: none",d=document.getElementsByTagName("script"),d=d[d.length-1],d.parentNode.insertBefore(r,d),i=r.contentWindow,s=i.document;try{o=s}catch(c){n=document.domain,r.src='javascript:var d=document.open();d.domain="'+n+'";void(0);',o=s}o.open()._l=function(){var o=this.createElement("script");n&&(this.domain=n),o.id="js-iframe-async",o.src=e,this.t=+new Date,this.zendeskHost=t,this.zEQueue=a,this.body.appendChild(o)},o.write('<body onload="document._l();">'),o.close()}("https://assets.zendesk.com/embeddable_framework/main.js","particle.zendesk.com");/*]]>*/
-  </script>
-  <!-- End of particle Zendesk Widget script -->
+
+  {{> customHead}}
 
 </head>
-<body role='flatdoc'>
-  <div id="docs" data-level>
+
+<body>
+
+<div id="docs" data-level>
     {{> header}}
 
     <div class='content-root'>
       <div class='menubar'>
 
-      <ul class="nav reference">
+      <ul class="nav guide-menu">
         {{#each support}}
-            <ul>
-              <li class="top-level {{#page-equal ../path.href ../path.name path.href path.name}}active{{/page-equal}}">
-                {{#page-equal ../path.href ../path.name path.href path.name}}
-                  <span>{{{title}}}</span>
-                  {{#if ../../toc}}
-                    <i id="toggle-in-page-nav" class="ion-plus"></i>
-                  {{/if}}
-                {{else}}
-                  <a href="{{path.href}}{{path.name}}">{{{title}}}</a>
-                {{/page-equal}}
-              </li>
-                {{#page-equal ../path.href ../path.name path.href path.name}}
-                  {{#if ../../toc}}
+        <li data-level="{{inc @index}}" class="guide-section {{#contains ../path.href section}}active-section{{/contains}}">
+          <h3 class="guide-section-titles" >{{{titelize section}}}</h3>
+            <ol type="1">
+              {{#each this}}
+                <li class="top-level {{#page-equal ../../path.href ../../path.name path.href path.name}}active{{/page-equal}}" data-level="{{inc @../index}}.{{inc @index}}">
+                  {{#page-equal ../../path.href ../../path.name path.href path.name}}
+                    <span>{{{title}}}</span>
+                    {{#if ../../../toc}}
+                      <i id="toggle-in-page-nav" class="ion-minus"></i>
+                    {{/if}}
+                  {{else}}
+                    <a href="{{path.href}}{{path.name}}">{{title}}</a>
+                  {{/page-equal}}
+                </li>
+                {{#page-equal ../../path.href ../../path.name path.href path.name}}
+                  {{#if ../../../toc}}
                     <div class="in-page-toc-container">
-                      <ul class="nav in-page-toc hide">
-                        {{#each ../../../toc}}
+                      <ul class="nav in-page-toc show">
+                        {{#each ../../../../toc}}
                         <li class="middle-level" data-nav="{{dataHref}}">{{#if children}}<i class="toggle-secondary-toc ion-arrow-right-b"></i>{{/if}}<a href="{{id}}" data-menu-href="{{dataHref}}">{{{text}}}</a></li>
-                        {{#if children}}
-                          <ul class="nav secondary-in-page-toc">
-                            {{#each children}}
-                              <li data-secondary-nav="{{dataHref}}"><a href="{{id}}" data-menu-href="{{dataHref}}">{{{text}}}</a></li>
-                            {{/each}}
-                          </ul>
-                        {{/if}}
+                          {{#if children}}
+                            <ul class="nav secondary-in-page-toc">
+                              {{#each children}}
+                                <li data-secondary-nav="{{dataHref}}"><a href="{{id}}" data-menu-href="{{dataHref}}">{{{text}}}</a></li>
+                              {{/each}}
+                            </ul>
+                          {{/if}}
                         {{/each}}
                       </ul>
                     </div>
                   {{/if}}
                 {{/page-equal}}
-            </ul>
+              {{/each}}
+            </ol>
+          </li>
         {{/each}}
       </ul>
       </div>
       <div class="page-body">
         <div class='content-inner'>
           <div class="content" >
-            {{{contents}}}
+            {{> supportBody}}
+            <div class="mobile-arrows">
+              {{> arrows}}
+            </div>
           </div>
+        </div>
+        <div class="desktop-arrows">
+          {{> arrows}}
         </div>
       </div>
     </div>
-
     {{> scripts}}
 
     <!--Zendesk Support button -->
@@ -82,7 +90,5 @@
       });
     }
     </script>
-
-
 </body>
 </html>
