@@ -3063,7 +3063,8 @@ int pos = 0;    // variable to store the servo position
 
 void setup()
 {
-  myservo.attach(A0);  // attaches the servo on the A0 pin to the servo object
+  myservo.attach(D0);  // attaches the servo on the D0 pin to the servo object
+  // Use the pins that has PWM on the Photon : D0, D1, D2, D3, A4, A5, WKP, RX, and TX
 }
 
 
@@ -6321,3 +6322,40 @@ for (int i = 0; i < arraySize(myPins); i++) {
   Serial.println(myPins[i]);
 }
 ```
+
+## Preprocessor
+
+`#pragma SPARK_NO_PREPROCESSOR`
+
+```cpp
+//Example
+class ABC
+{
+   int abc;    
+};
+
+void doSomethingWithABC(const ABC& abc)
+{
+}
+
+/*
+//Compiler error
+
+/spark/compile_service/shared/workspace/6_hal_12_0/firmware-privatest.cpp:6:31: error: 'ABC' does not name a type
+void doSomethingWithABC(const ABC& abc);
+^
+/spark/compile_service/shared/workspace/6_hal_12_0/firmware-privatest.cpp:6:36: error: ISO C++ forbids declaration of 'abc' with no type [-fpermissive]
+void doSomethingWithABC(const ABC& abc);
+^
+make[1]: *** [../build/target/user/platform-6test.o] Error 1
+make: *** [user] Error 2
+*/
+```
+
+When you are using the Particle Cloud to compile your `.ino` source code, a preprocessor comes in to modfify the code into C++ requirements before producing the binary file used to flash onto your devices.
+
+However, there might be instances where the preprocessor causes issues in your code. One example is the use of class/structs in your function parameters.
+
+
+
+So when you see the `ABC does not name a type` error, yet you know the type is defined, consider disabling the preprocessor using `#pragma SPARK_NO_PREPROCESSOR` at the top of your code.
