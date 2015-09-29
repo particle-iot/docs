@@ -138,7 +138,7 @@ This may take a little while - but don't worry.
 
 {{/if}}
 
-{{#if photon}} If this is your Photon's first time connecting, it will blink purple for a few minutes as it downloads updates. This is perfectly normal. {{/if}}
+{{#if photon}} If this is your Photon's first time connecting, it will blink purple for a few minutes as it downloads updates. **This is perfectly normal.** It may take 6-12 minutes for the updates to complete, depending on your internet connection, with the Photon restarting a few times in the process. **Please do not restart or unplug your Photon during this time.** If you do, you may need to follow [this guide](http://community.particle.io/t/photon-troubleshooting-guide-as-of-firmware-v0-4-5/16042) to fix your device. {{/if}}
 
 If you can't seem to get the Mobile App to connect your device, that's okay! Read over this example quickly, and then check out the [next lesson](/guide/getting-started/connect) to connect your device using the USB cable.
 
