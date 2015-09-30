@@ -3,7 +3,7 @@ title: Online Store Questions
 template: support.hbs
 columns: two
 devices: [ photon, core ]
-order: 3
+order: 1
 ---
 
 Online Store & Shipping Questions

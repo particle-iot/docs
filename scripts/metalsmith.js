@@ -173,7 +173,7 @@ exports.metalsmith = function() {
       '/guide/getting-started': '/guide/getting-started/intro',
       '/guide/how-to-build-a-product': '/guide/how-to-build-a-product/intro/',
       '/guide/tools-and-features': '/guide/tools-and-features/intro',
-      '/support': '/support/account-and-shipping/support-menu',
+      '/support': '/support/account-and-shipping/shipping-account-info',
       "/photon" : "/",
       "/photon/start" : "/guide/getting-started/start",
       "/photon/connect" : "/guide/getting-started/connect",
@@ -237,7 +237,8 @@ exports.metalsmith = function() {
       "/photon-shields" : "/datasheets/photon-shields",
       "/shields" : "/datasheets/photon-shields",
       "/photon/hardware" : "/datasheets/photon-datasheet",
-      "/troubleshooting" : "/support/troubleshooting/troubleshooting-support"
+      "/troubleshooting" : "/support/troubleshooting/troubleshooting-support",
+      "/help" : "/support/troubleshooting/connection-help"
     }))
     .use(msIf(
       environment !== 'development',
