@@ -115,8 +115,13 @@ exports.metalsmith = function() {
         sortBy: 'order'
       },
       support: {
-        pattern: 'support/*.md',
-        sortBy: 'order'
+        pattern: 'support/:section/*.md',
+        sortBy: 'order',
+        orderDynamicCollections: [
+          'account-and-shipping',
+          'troubleshooting',
+          'inquiries'
+        ]
       }
     }))
     .use(fork({
@@ -168,7 +173,7 @@ exports.metalsmith = function() {
       '/guide/getting-started': '/guide/getting-started/intro',
       '/guide/how-to-build-a-product': '/guide/how-to-build-a-product/intro/',
       '/guide/tools-and-features': '/guide/tools-and-features/intro',
-      '/support': '/support/troubleshooting-support',
+      '/support': '/support/account-and-shipping/shipping-account-info',
       "/photon" : "/",
       "/photon/start" : "/guide/getting-started/start",
       "/photon/connect" : "/guide/getting-started/connect",
@@ -232,7 +237,8 @@ exports.metalsmith = function() {
       "/photon-shields" : "/datasheets/photon-shields",
       "/shields" : "/datasheets/photon-shields",
       "/photon/hardware" : "/datasheets/photon-datasheet",
-      "/troubleshooting" : "/support/troubleshooting-support"
+      "/troubleshooting" : "/support/troubleshooting/troubleshooting-support",
+      "/help" : "/support/troubleshooting/connection-help"
     }))
     .use(msIf(
       environment !== 'development',
@@ -267,7 +273,7 @@ exports.server = function(callback) {
           "../templates/reference.hbs": "content/reference/*.md",
           "../templates/guide.hbs": "content/guide/**/*.md",
           "../templates/datasheet.hbs": "content/datasheets/*.md",
-          "../templates/support.hbs": "content/support/*.md",
+          "../templates/support.hbs": "content/support/**/*.md",
           "${source}/assets/js/*.js" : true
         },
         livereload: true
