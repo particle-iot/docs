@@ -237,8 +237,8 @@ exports.metalsmith = function() {
       "/photon-shields" : "/datasheets/photon-shields",
       "/shields" : "/datasheets/photon-shields",
       "/photon/hardware" : "/datasheets/photon-datasheet",
-      "/troubleshooting" : "/support/troubleshooting/troubleshooting-support",
-      "/help" : "/support/troubleshooting/connection-help"
+      "/troubleshooting" : "/support/troubleshooting/common-issues",
+      "/help" : "/support/troubleshooting/common-issues"
     }))
     .use(msIf(
       environment !== 'development',
