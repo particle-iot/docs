@@ -4716,8 +4716,9 @@ delays.
 
 ```
 
-The system code has been written such that the compiler can compute these values
-at compile time and inline the function calls, redusing overhead to a minimum.
+The system code has been written such that the compiler can compute the number
+of ticks to delay
+at compile time and inline the function calls, reducing overhead to a minimum.
 
 
 
@@ -4784,6 +4785,13 @@ void setup()
 
 void loop() {}
 ```
+
+### System.enterSafeMode()
+
+_Since 0.4.6_
+
+Resets the device and restarts in safe mode.
+
 
 ### System.sleep()
 
