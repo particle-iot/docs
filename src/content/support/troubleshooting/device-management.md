@@ -35,7 +35,7 @@ Plug your {{#if photon}}Photon{{/if}} {{#if core}}Core{{/if}} into your computer
 - Parity: none
 - Stop Bits: 1
 
-Once you've opened a serial connection, you have two commands at your disposal by hitting either w or i on the keyboard. Here's what they do:
+Once you've successfully opened a serial connection, you have two commands at your disposal by hitting either w or i on the keyboard. Here's what they do:
 
 - **w:** Set up your Wi-Fi SSID and password
 - **i:** ("i" as in identify) Read out the {{#if photon}}Photon{{/if}} {{#if core}}Core{{/if}} device ID
