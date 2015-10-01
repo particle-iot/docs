@@ -9,7 +9,7 @@ order: 2
 Device Management & Ownership
 ===
 
-### How do i find my device ID?
+### How do I find my device ID?
 
 There are several ways to **find your {{#if photon}}Photon's{{/if}} {{#if core}}Core's{{/if}} device ID**, but the best method depends on whether or not your {{#if photon}}Photon{{/if}} {{#if core}}Core{{/if}} has already been claimed to your account.  We'll cover both scenarios in the section below.
 
