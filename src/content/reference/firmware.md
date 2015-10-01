@@ -532,6 +532,7 @@ void setup() {
 }
 ```
 
+
 ### Get Device name
 
 This gives you the device name that is stored in the cloud,
@@ -626,22 +627,32 @@ WiFi.ready();
 {{#if photon}}
 ### WiFi.selectAntenna()
 
+Selects which antenna the device should connect to WiFi with and remembers that
+setting until it is changed.
+
 ```cpp
 // SYNTAX
-WiFi.selectAntenna(ANT_INTERNAL); // selects the CHIP antenna
-WiFi.selectAntenna(ANT_EXTERNAL); // selects the u.FL antenna
-WiFi.selectAntenna(ANT_AUTO); // continually switches at high speed between antennas
-
-setup(){
-  WiFi.selectAntenna(ANT_EXTERNAL);
-}
+STARTUP(WiFi.selectAntenna(ANT_INTERNAL)); // selects the CHIP antenna
+STARTUP(WiFi.selectAntenna(ANT_EXTERNAL)); // selects the u.FL antenna
+STARTUP(WiFi.selectAntenna(ANT_AUTO)); // continually switches at high speed between antennas
 ```
 
-`WiFi.selectAntenna()` selects one of three antenna modes on your Photon or P1.  It takes one argument: `ANT_AUTO`, `ANT_INTERNAL` or `ANT_EXTERNAL`. `WiFi.selectAntenna()` must be used inside another function like STARTUP(), setup(), or loop() to compile.
+`WiFi.selectAntenna()` selects one of three antenna modes on your Photon or P1.  It takes one argument: `ANT_AUTO`, `ANT_INTERNAL` or `ANT_EXTERNAL`.
+`WiFi.selectAntenna()` must be used inside another function like STARTUP(), setup(), or loop() to compile.
 
-You may specify in code which antenna to use as the default at boot time using the STARTUP() macro.  If you don't specify which antenna to use, the ANT_INTERNAL antenna will be chosen by default.
+You may specify in code which antenna to use as the default at boot time using the STARTUP() macro.
 
-`WiFi.selectAntenna()` returns 0 on success, or -1005 if the antenna choice was not found.  Other errors that may appear will all be negative values.
+> Note that the antenna selection is remembered even after power off or when entering safe mode.
+This is to allow your device to be configured once and then continue to function with the
+selected antenna when applications are flashed that don't specify which antenna to use.
+
+This ensures that devices which must use the external antenna continue to use the external
+antenna in all cases even when the application code isn't being executed (e.g. safe mode.)
+
+If no antenna has been previously selected, the `ANT_INTERNAL` antenna will be chosen by default.
+
+`WiFi.selectAntenna()` returns 0 on success, or -1005 if the antenna choice was not found.
+Other errors that may appear will all be negative values.
 
 ```cpp
 // Use the STARTUP() macro to set the default antenna
@@ -657,6 +668,10 @@ void loop() {
   // your loop code
 }
 ```
+
+
+
+
 {{/if}}
 
 ### WiFi.listen()
@@ -1732,7 +1747,8 @@ void loop() {
 ```
 ### print()
 
-Prints data to the serial port as human-readable ASCII text. This command can take many forms. Numbers are printed using an ASCII character for each digit. Floats are similarly printed as ASCII digits, defaulting to two decimal places. Bytes are sent as a single character. Characters and strings are sent as is. For example:
+Prints data to the serial port as human-readable ASCII text.
+This command can take many forms. Numbers are printed using an ASCII character for each digit. Floats are similarly printed as ASCII digits, defaulting to two decimal places. Bytes are sent as a single character. Characters and strings are sent as is. For example:
 
 - Serial.print(78) gives "78"
 - Serial.print(1.23456) gives "1.23"
@@ -1796,11 +1812,46 @@ void loop() {
 }
 ```
 
+### printf()
+
+*Since 0.4.6.*
+
+Provides [printf](http://www.cplusplus.com/reference/cstdio/printf/)-style formatting over serial.
+
+`printf` allows strings to be built by combining a number of values with text.
+
+```C++
+Serial.printf("Reading temperature sensor at %s...", Time.timeStr());
+float temp = readTemp();
+Serial.printf("the temperature today is %f Kelvin", temp);
+Serial.println();
+```
+
+Running this code prints:
+
+```
+Reading temperature sensor at Thu 01 Oct 2015 12:34...the temperature today is 293.1 Kelvin.
+```
+
+The last `printf()` call could be changed to `printlnf()` to avoid a separate call to `println()`.
+
+
+### printlnf()
+
+*Since 0.4.6.*
+
+formatted output followed by a newline.
+Produces the same output as [printf](#printf-) which is then followed by a newline character,
+so to that subsequent output appears on the next line.
+
+
 ### flush()
 
 Waits for the transmission of outgoing serial data to complete.
 
-**NOTE:** Since Serial uses the USB port, `Serial.flush()` is an empty function at this time.
+**NOTE:** That this function does nothing at present, in particular it doesn't
+wait for the data to be sent, since this causes the application to wait indefinitely
+when there is no serial monitor connected.
 
 ```C++
 // SYNTAX
@@ -2063,6 +2114,13 @@ Wire.begin(address);
 
 Parameters: `address`: the 7-bit slave address (optional); if not specified, join the bus as an I2C master.  If address is specified, join the bus as an I2C slave.
 
+
+### end()
+
+*Since 0.4.6.*
+
+Releases the I2C bus so that the pins used by the I2C bus are available for general purpose I/O.
+
 ### isEnabled()
 
 Used to check if the Wire library is enabled already.  Useful if using multiple slave devices on the same I2C bus.  Check if enabled before calling Wire.begin() again.
@@ -2100,6 +2158,14 @@ Parameters:
 - `stop`: boolean. `true` will send a stop message after the request, releasing the bus. `false` will continually send a restart after the request, keeping the connection active. The bus will not be released, which prevents another master device from transmitting between messages. This allows one master device to send multiple transmissions while in control.  If no argument is specified, the default value is `true`.
 
 Returns: `byte` : the number of bytes returned from the slave device.  If a timeout occurs, will return `0`.
+
+### reset()
+
+*Since 0.4.6.*
+
+Attempts to reset the I2C bus. This should be called only if the I2C bus has
+has hung. In 0.4.6 additional rework was done for the I2C bus on the Photon, so
+we hope this function isn't required, and it's provided for completeness.
 
 ### beginTransmission()
 
@@ -4267,6 +4333,99 @@ MyObject myObj = {12.34f, 25, "Test!"}
 EEPROM.put(addr, myObj);
 ```
 
+{{#if photon}}
+## Backup RAM
+
+The STM32F2xx features 4KB of backup RAM. Unlike the regular RAM memory, the backup
+ram is retained so long as power is provided to VIN or to VBAT. In particular this means that
+the data in backup RAM is retained when:
+
+- the device goes into deep sleep mode
+- the device is reset (while maintaining power)
+
+Note that _as soon as power is lost then the contents of the backup RAM are also lost - for data to be
+retained the device needs to be powered._ For persistent storage of data through power loss, please use the [EEPROM](#eeprom) library.
+
+
+### Storing data in backup RAM
+
+With regular RAM, data is stored in RAM by declaring variables.
+
+```C++
+    // regular variables stored in RAM
+    float lastTemperature;
+    int numberOfPresses;
+    int numberOfTriesRemaining = 10;
+```
+
+This tells the system to store these values in RAM so they can be changed. The
+system takes care of giving them initial values. Before
+they are set, they will have the initial value 0 if an intiial value isn't specified.
+
+Variables stored in backup RAM follow a similar scheme but use an additional keyword `retained`:
+
+```C++
+    // retained variables stored in backup RAM
+    retained float lastTemperature;
+    retained int numberOfPresses;
+    retained int numberOfTriesRemaining = 10;
+```
+
+A `retained` variable is similar to a regular variable, with some key differences:
+
+- it is stored in backup RAM - no space is used in regular RAM
+- instead of being initialized on each program start, retained variables are initialized
+when the device is first powered on (from being powered off.) When the device is  powered on, the system takes care of setting these
+ variables to their initial values.  `lastTemperature` and `numberOfPresses` would be initialized to 0, while
+`nmberOfTriesRemaining` would be initialized to 10.
+- the last value set on the variable is retained *as long as the device is powered*. When power is removed, the variables
+are reset to their initial values.
+
+Retained variables can be updated freely just as with regular RAM variables and operate
+just as fast as regular RAM variables.
+
+Here's some typical use cases for retained variables:
+
+- storing data for use after waking up from deep sleep
+- storing data for use after a powered system reset
+
+Finally, if you don't need the persistence of retained variables, you
+can consider them simply as 4KB of extra RAM to use.
+
+### Making changes to the layout or types of retained variables
+
+When adding new retained variables to an existing set of retained variables,
+it's a good idea to add them after the existing variables. this ensures the
+existing retained data is still valid even with the new code.
+
+For example, if we wanted to add a new variable `char name[50]` we should add this after
+the existing retained variables:
+
+```
+    retained float lastTemperature;
+    retained int numberOfPresses;
+    retained int numberOfTriesRemaining = 10;
+    retained char name[50];
+```
+
+This is necessary that the existing variables keep the values they had.
+This would not be the case if we added `name` to the beginning or middle of the
+block of variables -
+program would end up reading the stored values of other variables since the new code
+is expecting to find the variables in a different location to where they were originally
+stored.
+
+Similarly, you should avoid changing the type of
+
+This caveat is particularly important when updating firmware without power-cycling
+the device.   During development, a simpler alternative is to make any changes you need, and to
+ power down the device whenever changes are made to retained variables.
+
+It's perfectly fine to mix regular and retained variables, but for clarity we recommend
+keeping the retained variables in their own separate block so that you can be sure
+new retained variables are added to the end of the list.
+
+{{/if}}
 
 ## STARTUP()
 
@@ -4394,7 +4553,173 @@ When using manual mode:
 - Once the device is connected to the Cloud ([`Spark.connected()`](#spark-connected)` == true`), the user must call `Spark.process()` regularly to handle incoming messages and keep the connection alive. The more frequently `Spark.process()` is called, the more responsive the device will be to incoming messages.
 - If `Spark.process()` is called less frequently than every 20 seconds, the connection with the Cloud will die. It may take a couple of additional calls of `Spark.process()` for the device to recognize that the connection has been lost.
 
+
+{{#if photon}}
+## System Thread
+
+*Since 0.4.6.*
+
+> Please note that the System Thread feature is in Beta - we advise only using this
+in production after extensive testing.
+
+System Thread is a system configuration that helps ensure the application loop
+is not interrupted by the System background processing and network management.
+It does this by running the application loop and the system loop on separate threads,
+so they execute in parallel rather than sequentially.
+
+At present, System Thread is an opt-in change. To enable system threading for your application, add
+
+```
+SYSTEM_THREAD(ENABLED);
+```
+
+to the top of your application code.
+
+
+### System Threading Behavior
+
+When the system thread is enabled, application execution changes compared to
+non-threaded execution:
+
+- `setup()` is executed immediately regardless of the system mode, which means
+setup typically execute before the Network or Cloud is connected. Calls to
+`Particle.function()`, `Particle.variable()` and `Particle.subscribe()` will work
+as intended whether the cloud is connected or not. `Particle.publish()` will return
+`false` when the cloud is not available and the event will not be published.
+
+- after `setup()` is called, `loop()` is called repeatedly, independent from the current state of the
+network or cloud connection. The system does not block  `loop()` waiting
+for the network or cloud to be available, nor during while connecting to Wi-Fi.
+
+- System modes `SEMI_AUTOMATIC` and `MANUAL` behave identically - either of these
+modes results in the system not automatically starting Networking or a Cloud
+connection. while `AUTOMATIC` mode connects to the cloud as soon as possible.
+Neither has an affect on when the application `setup()` function is run - it is run
+as soon as possible, independently from the system network activities, as described above.
+
+- In `MANUAL` mode there is no need to call `Particle.process()` (but calling Particle.process()
+does no harm if you want to keep the code in place.) The system thread takes care of calling `Particle.process()` itself.
+
+- It is no longer necessary to inject `delay()` into code in order to keep the system background
+processing active. The application loop is free to block indefinitely without affecting the cloud connection.
+
+- Cloud functions registered with `Particle.function()` and event handlers
+registered with `Particle.subscribe()` execute on the application
+thread in between calls to `loop()`. (This is also the case in non-threaded mode.)
+A long running cloud function will block the application loop (since it is application code)
+but not the system code, so cloud connectivity is maintained.
+
+
+
+### Waiting for the system
+
+The [waitUntil](#waituntil) function can be used to wait for something that the system is doing,
+such as waiting for WiFi to be ready or the cloud to be connected.
+
+
+{{/if}}
+
+## `waitUntil`
+
+Sometimes you want your application  to wait until the system is in a given state.
+
+For example, you want to publish a critical event. this can be done using the `waitUntil` function:
+
+```cpp
+    // wait for the cloud to be connected
+    waitUntil(Particle.connected);
+    bool sent = Particle.publish("weather", "sunny");
+```
+
+This will delay the application indefinitely until the cloud is connected. To delay the application
+only for a period of time, we can use `waitFor`
+
+```cpp
+    // wait for the cloud connection to be connected or timeout after 10 seconds
+    if (waitFor(Particle.connected, 10000)) {
+        bool sent = Particle.publish("weather", "sunny");
+    }
+```
+
+`WiFi.ready` is another common event to wait for.
+
+```cpp
+    // wait until WiFi is ready
+    waitUntil(WiFi.ready);
+```
+
 ## System Calls
+
+### System Cycle Counter
+
+_Since 0.4.6._
+
+The system cycle counter is incremented for each instruction executed. It functions
+in normal code and during interrupts. Since it operates at the clock frequency
+of the device, it can be used for accurately measuring small periods of time.
+
+```cpp
+    // overview of System tick functions
+    uint32_t now = System.ticks();
+
+    // for converting an the unknown system tick frequency into microseconds
+    uint32_t scale = System.ticksPerMicrosecond();
+
+    // delay a given number of ticks.
+    System.ticksDelay(10);
+```
+
+The system ticks are intended for measuring times from less than a microsecond up
+to a second. For longer time periods, using [micros()](#micros-) or [millis()](#millis-) would
+be more suitable.
+
+
+#### System.ticks()
+
+Returns the current value of the system tick count. One tick corresponds to
+one cpu cycle.
+
+```cpp
+    // measure a precise time whens something start
+    uint32_t ticks = System.ticks();
+
+```
+
+#### System.ticksPerMicrosecond();
+
+Retrieves the number of ticks per microsecond for this device. This is useful
+when converting between a number of ticks and time in microseconds.
+
+```cpp
+
+    uint32_t start = System.ticks();
+    startTheFrobnicator();
+    uint32_t end = System.ticks();
+    uint32_t duration = (end-start)/System.ticksPerMicrosecond();
+
+    Serial.printlnf("The frobnicator took %d microseconds to start", duration);
+
+```
+
+#### System.ticksDelay()
+
+Pause execution a given number of ticks. This can be used to implement precise
+delays.
+
+```cpp
+    // delay 10 ticks. How long this is actually depends upon the clock speed of the
+    // device.
+    System.ticksDelay(10);
+
+    // to delay for 3 microseconds on any device:
+    System.ticksDelay(3*System.ticksPerMicrosecond());
+
+```
+
+The system code has been written such that the compiler can compute these values
+at compile time and inline the function calls, redusing overhead to a minimum.
+
+
 
 ### System.freeMemory()
 
@@ -4761,6 +5086,19 @@ Returns:
 
   * true: if string equals string2 (ignoring case)
   * false: otherwise
+
+### format()
+
+*Since 0.4.6.*
+
+Provides printf-style formatting for strings.
+
+```C++
+
+Particle.publish("startup", String.format("frobnicator started at %s", Time.timeStr()));
+
+```
+
 
 ### getBytes()
 
@@ -6331,7 +6669,7 @@ for (int i = 0; i < arraySize(myPins); i++) {
 //Example
 class ABC
 {
-   int abc;    
+   int abc;
 };
 
 void doSomethingWithABC(const ABC& abc)
