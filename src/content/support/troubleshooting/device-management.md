@@ -9,7 +9,7 @@ order: 2
 Device Management & Ownership
 ===
 
-### How do i find my device ID?
+### How do I find my device ID?
 
 There are several ways to **find your {{#if photon}}Photon's{{/if}} {{#if core}}Core's{{/if}} device ID**, but the best method depends on whether or not your {{#if photon}}Photon{{/if}} {{#if core}}Core{{/if}} has already been claimed to your account.  We'll cover both scenarios in the section below.
 
@@ -35,7 +35,7 @@ Plug your {{#if photon}}Photon{{/if}} {{#if core}}Core{{/if}} into your computer
 - Parity: none
 - Stop Bits: 1
 
-Once you've opened a serial connection, you have two commands at your disposal by hitting either w or i on the keyboard. Here's what they do:
+Once you've successfully opened a serial connection, you have two commands at your disposal by hitting either w or i on the keyboard. Here's what they do:
 
 - **w:** Set up your Wi-Fi SSID and password
 - **i:** ("i" as in identify) Read out the {{#if photon}}Photon{{/if}} {{#if core}}Core{{/if}} device ID
