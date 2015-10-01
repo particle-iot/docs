@@ -3,7 +3,7 @@ title: Device Keys
 template: support.hbs
 columns: two
 devices: [ photon, core ]
-order: 6
+order: 7
 ---
 
 Device Key Management

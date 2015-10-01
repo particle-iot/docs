@@ -3,7 +3,7 @@ title: Cloud Solutions
 template: support.hbs
 columns: two
 devices: [ photon, core ]
-order: 3
+order: 4
 ---
 
 Cloud Solutions
