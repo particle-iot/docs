@@ -3,7 +3,7 @@ title: Device LED Codes
 template: support.hbs
 columns: two
 devices: [ photon, core ]
-order: 1
+order: 2
 ---
 
 Troubleshooting Common LED Codes

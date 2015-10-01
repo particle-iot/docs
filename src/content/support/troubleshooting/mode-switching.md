@@ -3,7 +3,7 @@ title: System Modes
 template: support.hbs
 columns: two
 devices: [ photon, core ]
-order: 5
+order: 6
 ---
 
 
