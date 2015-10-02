@@ -4344,8 +4344,8 @@ the data in backup RAM is retained when:
 - the device is reset (while maintaining power)
 - power is removed from VIN but retained on VBAT (which will retain both the backup RAM and the RTC)
 
-Note that _as soon as power to both VIN and VBAT is lost then the contents of the backup RAM are also lost - for data to be
-retained the device needs a power source._ For persistent storage of data through a total power loss, please use the [EEPROM](#eeprom) library.
+Note that _if neither VIN or VBAT is powered then the contents of the backup RAM will be lost; for data to be
+retained, the device needs a power source._ For persistent storage of data through a total power loss, please use the [EEPROM](#eeprom) library.
 
 
 ### Storing data in backup RAM
