@@ -15,7 +15,7 @@ The Particle CLI is a powerful tool for interacting with your devices and the Pa
 
   First, make sure you have [node.js](http://nodejs.org/) installed!
 
-  Next, open a command prompt or terminal, and install by typing:
+  Next, open a command prompt or terminal, and install by typing, as root or using sudo:
 
 ```sh
 # how to install the particle-cli
@@ -49,7 +49,7 @@ Here are some great tutorials on the community for full installs:
 
 ### Upgrading to the latest version
 
-To upgrade Particle-CLI, enter the following command:
+To upgrade Particle-CLI, enter the following command as root or using sudo:
 
 ```sh
 # how to update the particle-cli
