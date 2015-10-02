@@ -4562,7 +4562,7 @@ When using manual mode:
 > Please note that the System Thread feature is in Beta - we advise only using this
 in production after extensive testing.
 
-System Thread is a system configuration that helps ensure the application loop
+The System Thread is a system configuration that helps ensure the application loop
 is not interrupted by the System background processing and network management.
 It does this by running the application loop and the system loop on separate threads,
 so they execute in parallel rather than sequentially.
@@ -4582,18 +4582,19 @@ When the system thread is enabled, application execution changes compared to
 non-threaded execution:
 
 - `setup()` is executed immediately regardless of the system mode, which means
-setup typically execute before the Network or Cloud is connected. Calls to
+setup typically executes before the Network or Cloud is connected. Calls to
 `Particle.function()`, `Particle.variable()` and `Particle.subscribe()` will work
 as intended whether the cloud is connected or not. `Particle.publish()` will return
-`false` when the cloud is not available and the event will not be published.
+`false` when the cloud is not available and the event will not be published. see `waitUntil` below
+for details on waiting for the network or cloud connection.
 
 - after `setup()` is called, `loop()` is called repeatedly, independent from the current state of the
-network or cloud connection. The system does not block  `loop()` waiting
-for the network or cloud to be available, nor during while connecting to Wi-Fi.
+network or cloud connection. The system does not block `loop()` waiting
+for the network or cloud to be available, nor while connecting to Wi-Fi.
 
-- System modes `SEMI_AUTOMATIC` and `MANUAL` behave identically - either of these
-modes results in the system not automatically starting Networking or a Cloud
-connection. while `AUTOMATIC` mode connects to the cloud as soon as possible.
+- System modes `SEMI_AUTOMATIC` and `MANUAL` behave identically - both of these
+modes do not not start the Networking or a Cloud
+connection automatically. while `AUTOMATIC` mode connects to the cloud as soon as possible.
 Neither has an affect on when the application `setup()` function is run - it is run
 as soon as possible, independently from the system network activities, as described above.
 
@@ -4610,10 +4611,10 @@ A long running cloud function will block the application loop (since it is appli
 but not the system code, so cloud connectivity is maintained.
 
 
-
 ### Waiting for the system
 
-The [waitUntil](#waituntil) function can be used to wait for something that the system is doing,
+The [waitUntil](#waituntil) function can be used to wait for soemthing to happen.
+Typically this is waiting for something that the system is doing,
 such as waiting for WiFi to be ready or the cloud to be connected.
 
 
