@@ -4341,11 +4341,12 @@ RAM is retained so long as power is provided to VIN or to VBAT. In particular th
 the data in backup RAM is retained when:
 
 - the device goes into deep sleep mode
-- the device is reset (while maintaining power)
+- the device is software reset (while maintaining power)
 - power is removed from VIN but retained on VBAT (which will retain both the backup RAM and the RTC)
 
 Note that _if neither VIN or VBAT is powered then the contents of the backup RAM will be lost; for data to be
-retained, the device needs a power source._ For persistent storage of data through a total power loss, please use the [EEPROM](#eeprom) library.
+retained, the device needs a power source. Backup RAM is also not retained if the processor is hard reset, i.e. pressing
+the reset button._  For persistent storage of data through a total power loss or hard reset, please use the [EEPROM](#eeprom) library.
 
 
 ### Storing data in backup RAM
@@ -4353,52 +4354,83 @@ retained, the device needs a power source._ For persistent storage of data throu
 With regular RAM, data is stored in RAM by declaring variables.
 
 ```C++
-    // regular variables stored in RAM
-    float lastTemperature;
-    int numberOfPresses;
-    int numberOfTriesRemaining = 10;
+// regular variables stored in RAM
+float lastTemperature;
+int numberOfPresses;
+int numberOfTriesRemaining = 10;
 ```
 
 This tells the system to store these values in RAM so they can be changed. The
 system takes care of giving them initial values. Before
-they are set, they will have the initial value 0 if an intiial value isn't specified.
+they are set, they will have the initial value 0 if an intial value isn't specified.
 
 Variables stored in backup RAM follow a similar scheme but use an additional keyword `retained`:
 
 ```C++
-    // retained variables stored in backup RAM
-    retained float lastTemperature;
-    retained int numberOfPresses;
-    retained int numberOfTriesRemaining = 10;
+// retained variables stored in backup RAM
+retained float lastTemperature;
+retained int numberOfPresses;
+retained int numberOfTriesRemaining = 10;
 ```
 
 A `retained` variable is similar to a regular variable, with some key differences:
 
 - it is stored in backup RAM - no space is used in regular RAM
-- instead of being initialized on each program start, retained variables are initialized
-when the device is first powered on (from being powered off.) When the device is  powered on, the system takes care of setting these
+- instead of being initialized on each program start, `retained` variables are initialized
+when the device is first powered on (from being powered off.) When the device is powered on, the system takes care of setting these
  variables to their initial values.  `lastTemperature` and `numberOfPresses` would be initialized to 0, while
 `nmberOfTriesRemaining` would be initialized to 10.
-- the last value set on the variable is retained *as long as the device is powered*. When power is removed, the variables
-are reset to their initial values.
+- the last value set on the variable is retained *as long as the device is powered from VIN or VBAT and is not hard reset*.
 
 Retained variables can be updated freely just as with regular RAM variables and operate
 just as fast as regular RAM variables.
 
-Here's some typical use cases for retained variables:
+Here's some typical use cases for `retained` variables:
 
 - storing data for use after waking up from deep sleep
-- storing data for use after a powered system reset
+- storing data for use after a powered software reset
 
-Finally, if you don't need the persistence of retained variables, you
+Finally, if you don't need the persistence of `retained` variables, you
 can consider them simply as 4KB of extra RAM to use.
+
+```C++
+// EXAMPLE USAGE
+STARTUP(System.enableFeature(FEATURE_RETAINED_MEMORY));
+
+retained int value = 10;
+
+void setup() {
+    Serial.begin(9600);
+}
+
+void loop() {
+    Serial.println(value);
+    value = 20;
+    Serial.println(value);
+    delay(100); // Give the serial TX buffer a chance to empty
+    System.sleep(SLEEP_MODE_DEEP, 10);
+    // Or try a software reset
+    // System.reset();
+}
+
+/* OUTPUT
+ *
+ * 10
+ * 20
+ * DEEP SLEEP for 10 seconds
+ * 20 (value is retained as 20)
+ * 20
+ *
+ */
+```
 
 ### Enabling Backup RAM
 
 The backup RAM is disabled by default, since it does require some power to maintain
-which may not be desired on some low-powered projects.
+which may not be desired on some low-powered projects.  The difference in power consumption
+is roughly 5uA or less on VIN and 9uA or less on VBAT.
 
-The backup RAM is enabled with this code
+The backup RAM is enabled with this code (to be placed at the top of your code outside of any functions):
 
 ```cpp
 
@@ -4406,41 +4438,42 @@ STARTUP(System.enableFeature(FEATURE_RETAINED_MEMORY));
 
 ```
 
-Place that at the top of your code outside of any functions.
-
-
 ### Making changes to the layout or types of retained variables
 
-When adding new retained variables to an existing set of retained variables,
+When adding new `retained` variables to an existing set of `retained` variables,
 it's a good idea to add them after the existing variables. this ensures the
 existing retained data is still valid even with the new code.
 
 For example, if we wanted to add a new variable `char name[50]` we should add this after
-the existing retained variables:
+the existing `retained` variables:
 
 ```
-    retained float lastTemperature;
-    retained int numberOfPresses;
-    retained int numberOfTriesRemaining = 10;
-    retained char name[50];
+retained float lastTemperature;
+retained int numberOfPresses;
+retained int numberOfTriesRemaining = 10;
+retained char name[50];
 ```
 
-This is necessary that the existing variables keep the values they had.
-This would not be the case if we added `name` to the beginning or middle of the
-block of variables -
-program would end up reading the stored values of other variables since the new code
-is expecting to find the variables in a different location to where they were originally
-stored.
+If instead we added `name` to the beginning or middle of the block of variables,
+the program would end up reading the stored values of the wrong variables.  This is
+because the new code would be expecting to find the variables in a different memory location.
 
-Similarly, you should avoid changing the type of
+Similarly, you should avoid changing the type of your variables as this will also
+alter the memory size and location of data in memory.
 
 This caveat is particularly important when updating firmware without power-cycling
-the device.   During development, a simpler alternative is to make any changes you need, and to
- power down the device whenever changes are made to retained variables.
+the device, which uses a software reset to reboot the device.  This will allow previously
+`retained` variables to persist.
 
-It's perfectly fine to mix regular and retained variables, but for clarity we recommend
-keeping the retained variables in their own separate block so that you can be sure
-new retained variables are added to the end of the list.
+During development, a good suggestion to avoid confusion is to design your application to work
+correctly when power is being applied for the first time, and all `retained` variables are
+initialized.  If you must rearrange variables, simply power down the device after changes are made
+to allow reinitialization of `retained` variables on the next power up of the device.
+Note: If using VBAT, ensure to completely remove its power source as well.
+
+It's perfectly fine to mix regular and `retained` variables, but for clarity we recommend
+keeping the `retained` variables in their own separate block. In this way it's easier to recognize
+when new `retained` variables are added to the end of the list, or when they are rearranged.
 
 
 {{/if}}
