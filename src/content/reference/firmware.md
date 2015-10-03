@@ -4337,14 +4337,15 @@ EEPROM.put(addr, myObj);
 ## Backup RAM
 
 The STM32F2xx features 4KB of backup RAM. Unlike the regular RAM memory, the backup
-ram is retained so long as power is provided to VIN or to VBAT. In particular this means that
+RAM is retained so long as power is provided to VIN or to VBAT. In particular this means that
 the data in backup RAM is retained when:
 
 - the device goes into deep sleep mode
 - the device is reset (while maintaining power)
+- power is removed from VIN but retained on VBAT (which will retain both the backup RAM and the RTC)
 
-Note that _as soon as power is lost then the contents of the backup RAM are also lost - for data to be
-retained the device needs to be powered._ For persistent storage of data through power loss, please use the [EEPROM](#eeprom) library.
+Note that _if neither VIN or VBAT is powered then the contents of the backup RAM will be lost; for data to be
+retained, the device needs a power source._ For persistent storage of data through a total power loss, please use the [EEPROM](#eeprom) library.
 
 
 ### Storing data in backup RAM
