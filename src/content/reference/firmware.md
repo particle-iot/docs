@@ -4392,6 +4392,22 @@ Here's some typical use cases for retained variables:
 Finally, if you don't need the persistence of retained variables, you
 can consider them simply as 4KB of extra RAM to use.
 
+### Enabling Backup RAM
+
+The backup RAM is disabled by default, since it does require some power to maintain
+which may not be desired on some low-powered projects.
+
+The backup RAM is enabled with this code
+
+```cpp
+
+STARTUP(System.enableFeature(FEATURE_RETAINED_MEMORY));
+
+```
+
+Place that at the top of your code outside of any functions.
+
+
 ### Making changes to the layout or types of retained variables
 
 When adding new retained variables to an existing set of retained variables,
@@ -4424,6 +4440,7 @@ the device.   During development, a simpler alternative is to make any changes y
 It's perfectly fine to mix regular and retained variables, but for clarity we recommend
 keeping the retained variables in their own separate block so that you can be sure
 new retained variables are added to the end of the list.
+
 
 {{/if}}
 
