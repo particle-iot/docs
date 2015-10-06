@@ -23,7 +23,7 @@ To connect and interact with a Particle Device over USB from a Windows machine, 
 The following describes how to install the Particle CLI on your computer. If you already have Node.js installed, you can skip to [this step](#installing-the-particle-cli).
 
 ### Installing Node.js
-The Particle CLI runs with Node.js. Grab version 0.10.40 from [the Node.js website](https://nodejs.org/)
+The Particle CLI runs with Node.js. Do not download the latest version of Node.js. Instead, get the build labelled 'Node.js v0.12.7' from [the previous downloads section of the Node.js website](https://nodejs.org/en/download/releases/)
 
 Run the installer you downloaded. Follow the prompts. The default file locations should be fine for this.
 
@@ -36,7 +36,7 @@ You'll also need to install the Windows driver. [Download it here.](https://s3.a
 
 Unzip the file. It is fine to unzip this as a default into your Downloads folder.
 
-Go to the Device Manager and double-click on your Particle device under `Other Devices`.
+Go to the Device Manager and double-click on your Particle device under `Other Devices`(on Windows 10 your Particle device may be listed under `Ports`).
 
 Click `Update Driver`, and select `Browse for driver software on your computer`.
 
