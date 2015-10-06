@@ -3,7 +3,7 @@ title: Common Questions
 template: support.hbs
 columns: two
 devices: [ photon, core ]
-order: 4
+order: 5
 ---
 
 Common Questions

@@ -3,7 +3,7 @@ title: Device Ownership
 template: support.hbs
 columns: two
 devices: [ photon, core ]
-order: 2
+order: 3
 ---
 
 Device Management & Ownership

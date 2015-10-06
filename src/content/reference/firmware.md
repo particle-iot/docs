@@ -11,7 +11,7 @@ Particle Device Firmware
 
 ## Cloud Functions
 
-### Spark.variable()
+### Particle.variable()
 
 Expose a *variable* through the Cloud so that it can be called with `GET /v1/devices/{DEVICE_ID}/{VARIABLE}`.
 Returns a success value - `true` when the variable was registered.
@@ -29,9 +29,9 @@ char *message = "my name is particle";
 void setup()
 {
   // variable name max length is 12 characters long
-  Spark.variable("analogvalue", &analogvalue, INT);
-  Spark.variable("temp", &tempC, DOUBLE);
-  if (Spark.variable("mess", message, STRING)==false)
+  Particle.variable("analogvalue", &analogvalue, INT);
+  Particle.variable("temp", &tempC, DOUBLE);
+  if (Particle.variable("mess", message, STRING)==false)
       // variable not registered!
   pinMode(A0, INPUT);
 }
@@ -71,13 +71,13 @@ my name is particle
 
 ```
 
-### Spark.function()
+### Particle.function()
 
 Expose a *function* through the Cloud so that it can be called with `POST /v1/devices/{DEVICE_ID}/{FUNCTION}`.
 
 ```cpp
 // SYNTAX TO REGISTER A CLOUD FUNCTION
-bool success = Spark.function("funcKey", funcName);
+bool success = Particle.function("funcKey", funcName);
 //                ^
 //                |
 //     (max of 12 characters long)
@@ -89,7 +89,7 @@ In order to register a cloud  function, the user provides the `funcKey`, which i
 
 The length of the `funcKey` is limited to a max of 12 characters. If you declare a function name longer than 12 characters the function will not be registered.
 
-Example: Spark.function("someFunction1", ...); exposes a function called someFunction and not someFunction1
+Example: Particle.function("someFunction1", ...); exposes a function called someFunction and not someFunction1
 
 A cloud function is set up to take one argument of the [String](#language-syntax-string-class) datatype. This argument length is limited to a max of 63 characters.
 
@@ -101,7 +101,7 @@ int brewCoffee(String command);
 void setup()
 {
   // register the cloud function
-  Spark.function("brew", brewCoffee);
+  Particle.function("brew", brewCoffee);
 }
 
 void loop()
@@ -134,7 +134,7 @@ You can expose a method on a C++ object to the Cloud.
 class CoffeeMaker {
   public:
     CoffeeMaker() {
-      Spark.function("brew", &CoffeeMaker::brew, this);
+      Particle.function("brew", &CoffeeMaker::brew, this);
     }
 
     int brew(String command) {
@@ -161,9 +161,9 @@ curl https://api.particle.io/v1/devices/0123456789abcdef/brew \
      -d "args=coffee"
 ```
 
-### Spark.publish()
+### Particle.publish()
 
-Publish an *event* through the Particle Cloud that will be forwarded to all registered callbacks, subscribed streams of Server-Sent Events, and other devices listening via `Spark.subscribe()`.
+Publish an *event* through the Particle Cloud that will be forwarded to all registered callbacks, subscribed streams of Server-Sent Events, and other devices listening via `Particle.subscribe()`.
 
 This feature allows the device to generate an event based on a condition. For example, you could connect a motion sensor to the device and have the device generate an event whenever motion is detected.
 
@@ -181,7 +181,7 @@ Only the owner of the device will be able to subscribe to private events.
 A device may not publish events beginning with a case-insensitive match for "spark".
 Such events are reserved for officially curated data originating from the Cloud.
 
-Calling `Spark.publish()` when the device is not connected to the cloud will not
+Calling `Particle.publish()` when the device is not connected to the cloud will not
 result in an event being published. This is indicated by the return success code
 of `false`.
 
@@ -195,15 +195,15 @@ Publish a public event with the given name, no data, and the default TTL of 60 s
 
 ```C++
 // SYNTAX
-Spark.publish(const char *eventName);
-Spark.publish(String eventName);
+Particle.publish(const char *eventName);
+Particle.publish(String eventName);
 
 RETURNS
 boolean (true or false)
 
 // EXAMPLE USAGE
 bool success;
-success = Spark.publish("motion-detected");
+success = Particle.publish("motion-detected");
 if (!success) {
   // get here if event publish did not work
 }
@@ -215,11 +215,11 @@ Publish a public event with the given name and data, with the default TTL of 60 
 
 ```C++
 // SYNTAX
-Spark.publish(const char *eventName, const char *data);
-Spark.publish(String eventName, String data);
+Particle.publish(const char *eventName, const char *data);
+Particle.publish(String eventName, String data);
 
 // EXAMPLE USAGE
-Spark.publish("temperature", "19 F");
+Particle.publish("temperature", "19 F");
 ```
 
 ---
@@ -228,11 +228,11 @@ Publish a public event with the given name, data, and TTL.
 
 ```C++
 // SYNTAX
-Spark.publish(const char *eventName, const char *data, int ttl);
-Spark.publish(String eventName, String data, int ttl);
+Particle.publish(const char *eventName, const char *data, int ttl);
+Particle.publish(String eventName, String data, int ttl);
 
 // EXAMPLE USAGE
-Spark.publish("lake-depth/1", "28m", 21600);
+Particle.publish("lake-depth/1", "28m", 21600);
 ```
 
 ---
@@ -242,22 +242,22 @@ In order to publish a private event, you must pass all four parameters.
 
 ```C++
 // SYNTAX
-Spark.publish(const char *eventName, const char *data, int ttl, PRIVATE);
-Spark.publish(String eventName, String data, int ttl, PRIVATE);
+Particle.publish(const char *eventName, const char *data, int ttl, PRIVATE);
+Particle.publish(String eventName, String data, int ttl, PRIVATE);
 
 // EXAMPLE USAGE
-Spark.publish("front-door-unlocked", NULL, 60, PRIVATE);
+Particle.publish("front-door-unlocked", NULL, 60, PRIVATE);
 ```
 
 Publish a private event with the given name.
 
 ```C++
 // SYNTAX
-Spark.publish(const char *eventName, PRIVATE);
-Spark.publish(String eventName, PRIVATE);
+Particle.publish(const char *eventName, PRIVATE);
+Particle.publish(String eventName, PRIVATE);
 
 // EXAMPLE USAGE
-Spark.publish("front-door-unlocked", PRIVATE);
+Particle.publish("front-door-unlocked", PRIVATE);
 ```
 
 
@@ -274,7 +274,7 @@ event: motion-detected
 data: {"data":"23:23:44","ttl":"60","published_at":"2014-05-28T19:20:34.638Z","deviceid":"0123456789abcdef"}
 ```
 
-### Spark.subscribe()
+### Particle.subscribe()
 
 Subscribe to events published by devices.
 
@@ -297,12 +297,12 @@ void myHandler(const char *event, const char *data)
 
 void setup()
 {
-  Spark.subscribe("temperature", myHandler);
+  Particle.subscribe("temperature", myHandler);
   Serial.begin(9600);
 }
 ```
 
-To use `Spark.subscribe()`, define a handler function and register it in `setup()`.
+To use `Particle.subscribe()`, define a handler function and register it in `setup()`.
 
 
 ---
@@ -311,7 +311,7 @@ You can listen to events published only by your own devices by adding a `MY_DEVI
 
 ```cpp
 // only events from my devices
-Spark.subscribe("the_event_prefix", theHandler, MY_DEVICES);
+Particle.subscribe("the_event_prefix", theHandler, MY_DEVICES);
 ```
 
 ---
@@ -320,7 +320,7 @@ You are also able to subscribe to events from a single device by specifying the 
 
 ```cpp
 // Subscribe to events published from a specific device
-Spark.subscribe("motion/front-door", motionHandler, "55ff70064989495339432587");
+Particle.subscribe("motion/front-door", motionHandler, "55ff70064989495339432587");
 ```
 
 ---
@@ -346,49 +346,49 @@ Subscriber mySubscriber;
 
 A subscription works like a prefix filter.  If you subscribe to "foo", you will receive any event whose name begins with "foo", including "foo", "fool", "foobar", and "food/indian/sweet-curry-beans".
 
-Received events will be passed to a handler function similar to `Spark.function()`.
+Received events will be passed to a handler function similar to `Particle.function()`.
 A _subscription handler_ (like `myHandler` above) must return `void` and take two arguments, both of which are C strings (`const char *`).
 
 - The first argument is the full name of the published event.
 - The second argument (which may be NULL) is any data that came along with the event.
 
-`Spark.subscribe()` returns a `bool` indicating success. It is ok to register a subscription when
+`Particle.subscribe()` returns a `bool` indicating success. It is ok to register a subscription when
 the device is not connected to the cloud - the subscription is automatically registered
 with the cloud next time the device connects.
 
-**NOTE:** A device can register up to 4 event handlers. This means you can call `Spark.subscribe()` a maximum of 4 times; after that it will return `false`.
+**NOTE:** A device can register up to 4 event handlers. This means you can call `Particle.subscribe()` a maximum of 4 times; after that it will return `false`.
 
-### Spark.unsubscribe()
+### Particle.unsubscribe()
 
-Removes all subscription handlers previously registered with `Spark.subscribe()`.
+Removes all subscription handlers previously registered with `Particle.subscribe()`.
 
 ```cpp
 // SYNTAX
-Spark.unsubscribe();
+Particle.unsubscribe();
 ```
 
-### Spark.connect()
+### Particle.connect()
 
-`Spark.connect()` connects the device to the Cloud. This will automatically activate the Wi-Fi module and attempt to connect to a Wi-Fi network if the device is not already connected to a network.
+`Particle.connect()` connects the device to the Cloud. This will automatically activate the Wi-Fi module and attempt to connect to a Wi-Fi network if the device is not already connected to a network.
 
 ```cpp
 void setup() {}
 
 void loop() {
-  if (Spark.connected() == false) {
-    Spark.connect();
+  if (Particle.connected() == false) {
+    Particle.connect();
   }
 }
 ```
 
-After you call `Spark.connect()`, your loop will not be called again until the device finishes connecting to the Cloud. Typically, you can expect a delay of approximately one second.
+After you call `Particle.connect()`, your loop will not be called again until the device finishes connecting to the Cloud. Typically, you can expect a delay of approximately one second.
 
-In most cases, you do not need to call `Spark.connect()`; it is called automatically when the device turns on. Typically you only need to call `Spark.connect()` after disconnecting with [`Spark.disconnect()`](#spark-disconnect) or when you change the [system mode](#system-system-modes).
+In most cases, you do not need to call `Particle.connect()`; it is called automatically when the device turns on. Typically you only need to call `Particle.connect()` after disconnecting with [`Particle.disconnect()`](#particle-disconnect) or when you change the [system mode](#system-system-modes).
 
 
-### Spark.disconnect()
+### Particle.disconnect()
 
-`Spark.disconnect()` disconnects the device from the Cloud.
+`Particle.disconnect()` disconnects the device from the Cloud.
 
 ```C++
 int counter = 10000;
@@ -417,12 +417,12 @@ void setup() {
 
 void loop() {
   if (needConnection()) {
-    if (!Spark.connected())
-      Spark.connect();
+    if (!Particle.connected())
+      Particle.connect();
     doConnectedWork();
   } else {
-    if (Spark.connected())
-      Spark.disconnect();
+    if (Particle.connected())
+      Particle.disconnect();
     doOfflineWork();
   }
 }
@@ -430,17 +430,17 @@ void loop() {
 
 While this function will disconnect from the Cloud, it will keep the connection to the Wi-Fi network. If you would like to completely deactivate the Wi-Fi module, use [`WiFi.off()`](#wifi-off).
 
-**NOTE:* When the device is disconnected, many features are not possible, including over-the-air updates, reading Spark.variables, and calling Spark.functions.
+**NOTE:* When the device is disconnected, many features are not possible, including over-the-air updates, reading Particle.variables, and calling Particle.functions.
 
 *If you disconnect from the Cloud, you will NOT BE ABLE to flash new firmware over the air. A factory reset should resolve the issue.*
 
-### Spark.connected()
+### Particle.connected()
 
 Returns `true` when connected to the Cloud, and `false` when disconnected from the Cloud.
 
 ```C++
 // SYNTAX
-Spark.connected();
+Particle.connected();
 
 RETURNS
 boolean (true or false)
@@ -451,19 +451,19 @@ void setup() {
 }
 
 void loop() {
-  if (Spark.connected()) {
+  if (Particle.connected()) {
     Serial.println("Connected!");
   }
   delay(1000);
 }
 ```
 
-### Spark.process()
+### Particle.process()
 
 Runs the background loop. This is the public API for the former internal function
 `SPARK_WLAN_Loop()`.
 
-`Spark.process()` checks the Wi-Fi module for incoming messages from the Cloud,
+`Particle.process()` checks the Wi-Fi module for incoming messages from the Cloud,
 and processes any messages that have come in. It also sends keep-alive pings to the Cloud,
 so if it's not called frequently, the connection to the Cloud may be lost.
 
@@ -474,7 +474,7 @@ void setup() {
 
 void loop() {
   while (1) {
-    Spark.process();
+    Particle.process();
     redundantLoop();
   }
 }
@@ -484,9 +484,9 @@ void redundantLoop() {
 }
 ```
 
-`Spark.process()` is a blocking call, and blocks for a few milliseconds. `Spark.process()` is called automatically after every `loop()` and during delays. Typically you will not need to call `Spark.process()` unless you block in some other way and need to maintain the connection to the Cloud, or you change the [system mode](#system-system-modes). If the user puts the device into `MANUAL` mode, the user is responsible for calling `Spark.process()`. The more frequently this function is called, the more responsive the device will be to incoming messages, the more likely the Cloud connection will stay open, and the less likely that the WiFi module's buffer will overrun.
+`Particle.process()` is a blocking call, and blocks for a few milliseconds. `Particle.process()` is called automatically after every `loop()` and during delays. Typically you will not need to call `Particle.process()` unless you block in some other way and need to maintain the connection to the Cloud, or you change the [system mode](#system-system-modes). If the user puts the device into `MANUAL` mode, the user is responsible for calling `Particle.process()`. The more frequently this function is called, the more responsive the device will be to incoming messages, the more likely the Cloud connection will stay open, and the less likely that the WiFi module's buffer will overrun.
 
-### Spark.syncTime()
+### Particle.syncTime()
 
 Synchronize the time with the Particle Cloud.
 This happens automatically when the device connects to the Cloud.
@@ -500,7 +500,7 @@ unsigned long lastSync = millis();
 void loop() {
   if (millis() - lastSync > ONE_DAY_MILLIS) {
     // Request time synchronization from the Particle Cloud
-    Spark.syncTime();
+    Particle.syncTime();
     lastSync = millis();
   }
 }
@@ -527,10 +527,11 @@ void setup() {
         delay(1000);
     }
 
-    Spark.subscribe("spark/", handler);
-    Spark.publish("spark/device/ip");
+    Particle.subscribe("spark/", handler);
+    Particle.publish("spark/device/ip");
 }
 ```
+
 
 ### Get Device name
 
@@ -549,8 +550,8 @@ void setup() {
         delay(1000);
     }
 
-    Spark.subscribe("spark/", handler);
-    Spark.publish("spark/device/name");
+    Particle.subscribe("spark/", handler);
+    Particle.publish("spark/device/name");
 }
 ```
 
@@ -570,8 +571,8 @@ void setup() {
         delay(1000);
     }
 
-    Spark.subscribe("spark/", handler);
-    Spark.publish("spark/device/random");
+    Particle.subscribe("spark/", handler);
+    Particle.publish("spark/device/random");
 }
 ```
 
@@ -626,22 +627,32 @@ WiFi.ready();
 {{#if photon}}
 ### WiFi.selectAntenna()
 
+Selects which antenna the device should connect to WiFi with and remembers that
+setting until it is changed.
+
 ```cpp
 // SYNTAX
-WiFi.selectAntenna(ANT_INTERNAL); // selects the CHIP antenna
-WiFi.selectAntenna(ANT_EXTERNAL); // selects the u.FL antenna
-WiFi.selectAntenna(ANT_AUTO); // continually switches at high speed between antennas
-
-setup(){
-  WiFi.selectAntenna(ANT_EXTERNAL);
-}
+STARTUP(WiFi.selectAntenna(ANT_INTERNAL)); // selects the CHIP antenna
+STARTUP(WiFi.selectAntenna(ANT_EXTERNAL)); // selects the u.FL antenna
+STARTUP(WiFi.selectAntenna(ANT_AUTO)); // continually switches at high speed between antennas
 ```
 
-`WiFi.selectAntenna()` selects one of three antenna modes on your Photon or P1.  It takes one argument: `ANT_AUTO`, `ANT_INTERNAL` or `ANT_EXTERNAL`. `WiFi.selectAntenna()` must be used inside another function like STARTUP(), setup(), or loop() to compile.
+`WiFi.selectAntenna()` selects one of three antenna modes on your Photon or P1.  It takes one argument: `ANT_AUTO`, `ANT_INTERNAL` or `ANT_EXTERNAL`.
+`WiFi.selectAntenna()` must be used inside another function like STARTUP(), setup(), or loop() to compile.
 
-You may specify in code which antenna to use as the default at boot time using the STARTUP() macro.  If you don't specify which antenna to use, the ANT_INTERNAL antenna will be chosen by default.
+You may specify in code which antenna to use as the default at boot time using the STARTUP() macro.
 
-`WiFi.selectAntenna()` returns 0 on success, or -1005 if the antenna choice was not found.  Other errors that may appear will all be negative values.
+> Note that the antenna selection is remembered even after power off or when entering safe mode.
+This is to allow your device to be configured once and then continue to function with the
+selected antenna when applications are flashed that don't specify which antenna to use.
+
+This ensures that devices which must use the external antenna continue to use the external
+antenna in all cases even when the application code isn't being executed (e.g. safe mode.)
+
+If no antenna has been previously selected, the `ANT_INTERNAL` antenna will be chosen by default.
+
+`WiFi.selectAntenna()` returns 0 on success, or -1005 if the antenna choice was not found.
+Other errors that may appear will all be negative values.
 
 ```cpp
 // Use the STARTUP() macro to set the default antenna
@@ -657,6 +668,10 @@ void loop() {
   // your loop code
 }
 ```
+
+
+
+
 {{/if}}
 
 ### WiFi.listen()
@@ -773,7 +788,7 @@ byte mac[6];
 void setup() {
   WiFi.on();
   Serial.begin(9600);
-  while (!Serial.available()) Spark.process();
+  while (!Serial.available()) Particle.process();
 
   WiFi.macAddress(mac);
 
@@ -795,7 +810,7 @@ byte mac[6];
 
 void setup() {
   Serial.begin(9600);
-  while (!Serial.available()) Spark.process();
+  while (!Serial.available()) Particle.process();
 
   WiFi.macAddress(mac);
 
@@ -951,7 +966,7 @@ const char* ssid = strongestFinder.scan();
 
 void setup() {
   Serial.begin(9600);
-  while(!Serial.available()) Spark.process();
+  while(!Serial.available()) Particle.process();
 
   // Prints out the local IP over Serial.
   Serial.println(WiFi.localIP());
@@ -966,7 +981,7 @@ void setup() {
 
 void setup() {
   Serial.begin(9600);
-  while(!Serial.available()) Spark.process();
+  while(!Serial.available()) Particle.process();
 
   // Prints out the subnet mask over Serial.
   Serial.println(WiFi.subnetMask());
@@ -981,7 +996,7 @@ void setup() {
 
 void setup() {
   Serial.begin(9600);
-  while(!Serial.available()) Spark.process();
+  while(!Serial.available()) Particle.process();
 
   // Prints out the gateway IP over Serial.
   Serial.println(WiFi.gatewayIP());
@@ -1601,7 +1616,7 @@ void setup()
   // On Windows it will be necessary to implement the following line:
   // Make sure your Serial Terminal app is closed before powering your device
   // Now open your Serial Terminal, and hit any key to continue!
-  while(!Serial.available()) SPARK_WLAN_Loop();
+  while(!Serial.available()) Particle.process();
 
   Serial1.begin(9600);  // open serial over TX and RX pins
 
@@ -1732,7 +1747,8 @@ void loop() {
 ```
 ### print()
 
-Prints data to the serial port as human-readable ASCII text. This command can take many forms. Numbers are printed using an ASCII character for each digit. Floats are similarly printed as ASCII digits, defaulting to two decimal places. Bytes are sent as a single character. Characters and strings are sent as is. For example:
+Prints data to the serial port as human-readable ASCII text.
+This command can take many forms. Numbers are printed using an ASCII character for each digit. Floats are similarly printed as ASCII digits, defaulting to two decimal places. Bytes are sent as a single character. Characters and strings are sent as is. For example:
 
 - Serial.print(78) gives "78"
 - Serial.print(1.23456) gives "1.23"
@@ -1777,7 +1793,7 @@ void setup()
   // Make sure your Serial Terminal app is closed before powering your device
   Serial.begin(9600);
   // Now open your Serial Terminal, and hit any key to continue!
-  while(!Serial.available()) SPARK_WLAN_Loop();
+  while(!Serial.available()) Particle.process();
 }
 
 void loop() {
@@ -1796,11 +1812,46 @@ void loop() {
 }
 ```
 
+### printf()
+
+*Since 0.4.6.*
+
+Provides [printf](http://www.cplusplus.com/reference/cstdio/printf/)-style formatting over serial.
+
+`printf` allows strings to be built by combining a number of values with text.
+
+```C++
+Serial.printf("Reading temperature sensor at %s...", Time.timeStr());
+float temp = readTemp();
+Serial.printf("the temperature today is %f Kelvin", temp);
+Serial.println();
+```
+
+Running this code prints:
+
+```
+Reading temperature sensor at Thu 01 Oct 2015 12:34...the temperature today is 293.1 Kelvin.
+```
+
+The last `printf()` call could be changed to `printlnf()` to avoid a separate call to `println()`.
+
+
+### printlnf()
+
+*Since 0.4.6.*
+
+formatted output followed by a newline.
+Produces the same output as [printf](#printf-) which is then followed by a newline character,
+so to that subsequent output appears on the next line.
+
+
 ### flush()
 
 Waits for the transmission of outgoing serial data to complete.
 
-**NOTE:** Since Serial uses the USB port, `Serial.flush()` is an empty function at this time.
+**NOTE:** That this function does nothing at present, in particular it doesn't
+wait for the data to be sent, since this causes the application to wait indefinitely
+when there is no serial monitor connected.
 
 ```C++
 // SYNTAX
@@ -2063,6 +2114,13 @@ Wire.begin(address);
 
 Parameters: `address`: the 7-bit slave address (optional); if not specified, join the bus as an I2C master.  If address is specified, join the bus as an I2C slave.
 
+
+### end()
+
+*Since 0.4.6.*
+
+Releases the I2C bus so that the pins used by the I2C bus are available for general purpose I/O.
+
 ### isEnabled()
 
 Used to check if the Wire library is enabled already.  Useful if using multiple slave devices on the same I2C bus.  Check if enabled before calling Wire.begin() again.
@@ -2100,6 +2158,14 @@ Parameters:
 - `stop`: boolean. `true` will send a stop message after the request, releasing the bus. `false` will continually send a restart after the request, keeping the connection active. The bus will not be released, which prevents another master device from transmitting between messages. This allows one master device to send multiple transmissions while in control.  If no argument is specified, the default value is `true`.
 
 Returns: `byte` : the number of bytes returned from the slave device.  If a timeout occurs, will return `0`.
+
+### reset()
+
+*Since 0.4.6.*
+
+Attempts to reset the I2C bus. This should be called only if the I2C bus has
+has hung. In 0.4.6 additional rework was done for the I2C bus on the Photon, so
+we hope this function isn't required, and it's provided for completeness.
 
 ### beginTransmission()
 
@@ -2388,7 +2454,7 @@ void setup()
   // Make sure your Serial Terminal app is closed before powering your device
   Serial.begin(9600);
   // Now open your Serial Terminal, and hit any key to continue!
-  while(!Serial.available()) SPARK_WLAN_Loop();
+  while(!Serial.available()) Particle.process();
 
   Serial.println(WiFi.localIP());
   Serial.println(WiFi.subnetMask());
@@ -2496,7 +2562,7 @@ void setup()
   // Make sure your Serial Terminal app is closed before powering your device
   Serial.begin(9600);
   // Now open your Serial Terminal, and hit any key to continue!
-  while(!Serial.available()) SPARK_WLAN_Loop();
+  while(!Serial.available()) Particle.process();
 
   Serial.println("connecting...");
 
@@ -3533,7 +3599,7 @@ Set the system time to the given timestamp.
 *NOTE*: This will override the time set by the Particle Cloud.
 If the cloud connection drops, the reconnection handshake will set the time again
 
-Also see: [`Spark.syncTime()`](#spark-synctime)
+Also see: [`Particle.syncTime()`](#particle-synctime)
 
 ```cpp
 // Set the time to 2014-10-11 13:37:42
@@ -3565,7 +3631,7 @@ time_t time = Time.now();
 Time.format(time, TIME_FORMAT_DEFAULT); // Sat Jan 10 08:22:04 2004 , same as Time.timeStr()
 
 Time.zone(-5.25);  // setup a time zone, which is part of the ISO6801 format
-Time.format(time, TIME_FORMAT_ISO8601_FULL) // 2004-01-10T08:22:04-05:15
+Time.format(time, TIME_FORMAT_ISO8601_FULL); // 2004-01-10T08:22:04-05:15
 
 ```
 
@@ -4267,6 +4333,150 @@ MyObject myObj = {12.34f, 25, "Test!"}
 EEPROM.put(addr, myObj);
 ```
 
+{{#if photon}}
+## Backup RAM
+
+The STM32F2xx features 4KB of backup RAM. Unlike the regular RAM memory, the backup
+RAM is retained so long as power is provided to VIN or to VBAT. In particular this means that
+the data in backup RAM is retained when:
+
+- the device goes into deep sleep mode
+- the device is software reset (while maintaining power)
+- power is removed from VIN but retained on VBAT (which will retain both the backup RAM and the RTC)
+
+Note that _if neither VIN or VBAT is powered then the contents of the backup RAM will be lost; for data to be
+retained, the device needs a power source. Backup RAM is also not retained if the processor is hard reset, i.e. pressing
+the reset button._  For persistent storage of data through a total power loss or hard reset, please use the [EEPROM](#eeprom) library.
+
+
+### Storing data in backup RAM
+
+With regular RAM, data is stored in RAM by declaring variables.
+
+```C++
+// regular variables stored in RAM
+float lastTemperature;
+int numberOfPresses;
+int numberOfTriesRemaining = 10;
+```
+
+This tells the system to store these values in RAM so they can be changed. The
+system takes care of giving them initial values. Before
+they are set, they will have the initial value 0 if an intial value isn't specified.
+
+Variables stored in backup RAM follow a similar scheme but use an additional keyword `retained`:
+
+```C++
+// retained variables stored in backup RAM
+retained float lastTemperature;
+retained int numberOfPresses;
+retained int numberOfTriesRemaining = 10;
+```
+
+A `retained` variable is similar to a regular variable, with some key differences:
+
+- it is stored in backup RAM - no space is used in regular RAM
+- instead of being initialized on each program start, `retained` variables are initialized
+when the device is first powered on (from being powered off.) When the device is powered on, the system takes care of setting these
+ variables to their initial values.  `lastTemperature` and `numberOfPresses` would be initialized to 0, while
+`nmberOfTriesRemaining` would be initialized to 10.
+- the last value set on the variable is retained *as long as the device is powered from VIN or VBAT and is not hard reset*.
+
+Retained variables can be updated freely just as with regular RAM variables and operate
+just as fast as regular RAM variables.
+
+Here's some typical use cases for `retained` variables:
+
+- storing data for use after waking up from deep sleep
+- storing data for use after a powered software reset
+
+Finally, if you don't need the persistence of `retained` variables, you
+can consider them simply as 4KB of extra RAM to use.
+
+```C++
+// EXAMPLE USAGE
+STARTUP(System.enableFeature(FEATURE_RETAINED_MEMORY));
+
+retained int value = 10;
+
+void setup() {
+    Serial.begin(9600);
+}
+
+void loop() {
+    Serial.println(value);
+    value = 20;
+    Serial.println(value);
+    delay(100); // Give the serial TX buffer a chance to empty
+    System.sleep(SLEEP_MODE_DEEP, 10);
+    // Or try a software reset
+    // System.reset();
+}
+
+/* OUTPUT
+ *
+ * 10
+ * 20
+ * DEEP SLEEP for 10 seconds
+ * 20 (value is retained as 20)
+ * 20
+ *
+ */
+```
+
+### Enabling Backup RAM
+
+The backup RAM is disabled by default, since it does require some power to maintain
+which may not be desired on some low-powered projects.  The difference in power consumption
+is roughly 5uA or less on VIN and 9uA or less on VBAT.
+
+The backup RAM is enabled with this code (to be placed at the top of your code outside of any functions):
+
+```cpp
+
+STARTUP(System.enableFeature(FEATURE_RETAINED_MEMORY));
+
+```
+
+### Making changes to the layout or types of retained variables
+
+When adding new `retained` variables to an existing set of `retained` variables,
+it's a good idea to add them after the existing variables. this ensures the
+existing retained data is still valid even with the new code.
+
+For example, if we wanted to add a new variable `char name[50]` we should add this after
+the existing `retained` variables:
+
+```
+retained float lastTemperature;
+retained int numberOfPresses;
+retained int numberOfTriesRemaining = 10;
+retained char name[50];
+```
+
+If instead we added `name` to the beginning or middle of the block of variables,
+the program would end up reading the stored values of the wrong variables.  This is
+because the new code would be expecting to find the variables in a different memory location.
+
+Similarly, you should avoid changing the type of your variables as this will also
+alter the memory size and location of data in memory.
+
+This caveat is particularly important when updating firmware without power-cycling
+the device, which uses a software reset to reboot the device.  This will allow previously
+`retained` variables to persist.
+
+During development, a good suggestion to avoid confusion is to design your application to work
+correctly when power is being applied for the first time, and all `retained` variables are
+initialized.  If you must rearrange variables, simply power down the device after changes are made
+to allow reinitialization of `retained` variables on the next power up of the device.
+Note: If using VBAT, ensure to completely remove its power source as well.
+
+It's perfectly fine to mix regular and `retained` variables, but for clarity we recommend
+keeping the `retained` variables in their own separate block. In this way it's easier to recognize
+when new `retained` variables are added to the end of the list, or when they are rearranged.
+
+
+{{/if}}
 
 ## STARTUP()
 
@@ -4330,13 +4540,13 @@ void loop() {
 
 - When the device starts up, it automatically tries to connect to Wi-Fi and the Particle Cloud.
 - Once a connection with the Particle Cloud has been established, the user code starts running.
-- Messages to and from the Cloud are handled in between runs of the user loop; the user loop automatically alternates with [`Spark.process()`](#spark-process).
-- `Spark.process()` is also called during any delay() of at least 1 second.
-- If the user loop blocks for more than about 20 seconds, the connection to the Cloud will be lost. To prevent this from happening, the user can call `Spark.process()` manually.
+- Messages to and from the Cloud are handled in between runs of the user loop; the user loop automatically alternates with [`Particle.process()`](#particle-process).
+- `Particle.process()` is also called during any delay() of at least 1 second.
+- If the user loop blocks for more than about 20 seconds, the connection to the Cloud will be lost. To prevent this from happening, the user can call `Particle.process()` manually.
 - If the connection to the Cloud is ever lost, the device will automatically attempt to reconnect. This re-connection will block from a few milliseconds up to 8 seconds.
 - `SYSTEM_MODE(AUTOMATIC)` does not need to be called, because it is the default state; however the user can invoke this method to make the mode explicit.
 
-In automatic mode, the user can still call `Spark.disconnect()` to disconnect from the Cloud, but is then responsible for re-connecting to the Cloud by calling `Spark.connect()`.
+In automatic mode, the user can still call `Particle.disconnect()` to disconnect from the Cloud, but is then responsible for re-connecting to the Cloud by calling `Particle.connect()`.
 
 ### Semi-automatic mode
 
@@ -4352,7 +4562,7 @@ void setup() {
 
 void loop() {
   if (buttonIsPressed()) {
-    Spark.connect();
+    Particle.connect();
   } else {
     doOfflineStuff();
   }
@@ -4362,12 +4572,12 @@ void loop() {
 The semi-automatic mode is therefore much like the automatic mode, except:
 
 - When the device boots up, the user code will begin running immediately.
-- When the user calls [`Spark.connect()`](#spark-connect), the user code will be blocked, and the device will attempt to negotiate a connection. This connection will block until either the device connects to the Cloud or an interrupt is fired that calls [`Spark.disconnect()`](#spark-disconnect).
+- When the user calls [`Particle.connect()`](#particle-connect), the user code will be blocked, and the device will attempt to negotiate a connection. This connection will block until either the device connects to the Cloud or an interrupt is fired that calls [`Particle.disconnect()`](#particle-disconnect).
 
 ### Manual mode
 
 
-The "manual" mode puts the device's connectivity completely in the user's control. This means that the user is responsible for both establishing a connection to the Particle Cloud and handling communications with the Cloud by calling [`Spark.process()`](#spark-process) on a regular basis.
+The "manual" mode puts the device's connectivity completely in the user's control. This means that the user is responsible for both establishing a connection to the Particle Cloud and handling communications with the Cloud by calling [`Particle.process()`](#particle-process) on a regular basis.
 
 ```cpp
 SYSTEM_MODE(MANUAL);
@@ -4378,10 +4588,10 @@ void setup() {
 
 void loop() {
   if (buttonIsPressed()) {
-    Spark.connect();
+    Particle.connect();
   }
-  if (Spark.connected()) {
-    Spark.process();
+  if (Particle.connected()) {
+    Particle.process();
     doOtherStuff();
   }
 }
@@ -4390,11 +4600,179 @@ void loop() {
 When using manual mode:
 
 - The user code will run immediately when the device is powered on.
-- Once the user calls [`Spark.connect()`](#spark-connect), the device will attempt to begin the connection process.
-- Once the device is connected to the Cloud ([`Spark.connected()`](#spark-connected)` == true`), the user must call `Spark.process()` regularly to handle incoming messages and keep the connection alive. The more frequently `Spark.process()` is called, the more responsive the device will be to incoming messages.
-- If `Spark.process()` is called less frequently than every 20 seconds, the connection with the Cloud will die. It may take a couple of additional calls of `Spark.process()` for the device to recognize that the connection has been lost.
+- Once the user calls [`Particle.connect()`](#particle-connect), the device will attempt to begin the connection process.
+- Once the device is connected to the Cloud ([`Particle.connected()`](#particle-connected)` == true`), the user must call `Particle.process()` regularly to handle incoming messages and keep the connection alive. The more frequently `Particle.process()` is called, the more responsive the device will be to incoming messages.
+- If `Particle.process()` is called less frequently than every 20 seconds, the connection with the Cloud will die. It may take a couple of additional calls of `Particle.process()` for the device to recognize that the connection has been lost.
+
+
+{{#if photon}}
+## System Thread
+
+*Since 0.4.6.*
+
+> Please note that the System Thread feature is in Beta - we advise only using this
+in production after extensive testing.
+
+The System Thread is a system configuration that helps ensure the application loop
+is not interrupted by the System background processing and network management.
+It does this by running the application loop and the system loop on separate threads,
+so they execute in parallel rather than sequentially.
+
+At present, System Thread is an opt-in change. To enable system threading for your application, add
+
+```
+SYSTEM_THREAD(ENABLED);
+```
+
+to the top of your application code.
+
+
+### System Threading Behavior
+
+When the system thread is enabled, application execution changes compared to
+non-threaded execution:
+
+- `setup()` is executed immediately regardless of the system mode, which means
+setup typically executes before the Network or Cloud is connected. Calls to
+`Particle.function()`, `Particle.variable()` and `Particle.subscribe()` will work
+as intended whether the cloud is connected or not. `Particle.publish()` will return
+`false` when the cloud is not available and the event will not be published. see `waitUntil` below
+for details on waiting for the network or cloud connection.
+
+- after `setup()` is called, `loop()` is called repeatedly, independent from the current state of the
+network or cloud connection. The system does not block `loop()` waiting
+for the network or cloud to be available, nor while connecting to Wi-Fi.
+
+- System modes `SEMI_AUTOMATIC` and `MANUAL` behave identically - both of these
+modes do not not start the Networking or a Cloud
+connection automatically. while `AUTOMATIC` mode connects to the cloud as soon as possible.
+Neither has an affect on when the application `setup()` function is run - it is run
+as soon as possible, independently from the system network activities, as described above.
+
+- In `MANUAL` mode there is no need to call `Particle.process()` (but calling Particle.process()
+does no harm if you want to keep the code in place.) The system thread takes care of calling `Particle.process()` itself.
+
+- It is no longer necessary to inject `delay()` into code in order to keep the system background
+processing active. The application loop is free to block indefinitely without affecting the cloud connection.
+
+- Cloud functions registered with `Particle.function()` and event handlers
+registered with `Particle.subscribe()` execute on the application
+thread in between calls to `loop()`. (This is also the case in non-threaded mode.)
+A long running cloud function will block the application loop (since it is application code)
+but not the system code, so cloud connectivity is maintained.
+
+
+### Waiting for the system
+
+The [waitUntil](#waituntil) function can be used to wait for something to happen.
+Typically this is waiting for something that the system is doing,
+such as waiting for WiFi to be ready or the cloud to be connected.
+
+
+{{/if}}
+
+## `waitUntil`
+
+Sometimes you want your application  to wait until the system is in a given state.
+
+For example, you want to publish a critical event. this can be done using the `waitUntil` function:
+
+```cpp
+    // wait for the cloud to be connected
+    waitUntil(Particle.connected);
+    bool sent = Particle.publish("weather", "sunny");
+```
+
+This will delay the application indefinitely until the cloud is connected. To delay the application
+only for a period of time, we can use `waitFor`
+
+```cpp
+    // wait for the cloud connection to be connected or timeout after 10 seconds
+    if (waitFor(Particle.connected, 10000)) {
+        bool sent = Particle.publish("weather", "sunny");
+    }
+```
+
+`WiFi.ready` is another common event to wait for.
+
+```cpp
+    // wait until WiFi is ready
+    waitUntil(WiFi.ready);
+```
 
 ## System Calls
+
+### System Cycle Counter
+
+_Since 0.4.6._
+
+The system cycle counter is incremented for each instruction executed. It functions
+in normal code and during interrupts. Since it operates at the clock frequency
+of the device, it can be used for accurately measuring small periods of time.
+
+```cpp
+    // overview of System tick functions
+    uint32_t now = System.ticks();
+
+    // for converting an the unknown system tick frequency into microseconds
+    uint32_t scale = System.ticksPerMicrosecond();
+
+    // delay a given number of ticks.
+    System.ticksDelay(10);
+```
+
+The system ticks are intended for measuring times from less than a microsecond up
+to a second. For longer time periods, using [micros()](#micros-) or [millis()](#millis-) would
+be more suitable.
+
+
+#### System.ticks()
+
+Returns the current value of the system tick count. One tick corresponds to
+one cpu cycle.
+
+```cpp
+    // measure a precise time whens something start
+    uint32_t ticks = System.ticks();
+
+```
+
+#### System.ticksPerMicrosecond();
+
+Retrieves the number of ticks per microsecond for this device. This is useful
+when converting between a number of ticks and time in microseconds.
+
+```cpp
+
+    uint32_t start = System.ticks();
+    startTheFrobnicator();
+    uint32_t end = System.ticks();
+    uint32_t duration = (end-start)/System.ticksPerMicrosecond();
+
+    Serial.printlnf("The frobnicator took %d microseconds to start", duration);
+
+```
+
+#### System.ticksDelay()
+
+Pause execution a given number of ticks. This can be used to implement precise
+delays.
+
+```cpp
+    // delay 10 ticks. How long this is actually depends upon the clock speed of the
+    // device.
+    System.ticksDelay(10);
+
+    // to delay for 3 microseconds on any device:
+    System.ticksDelay(3*System.ticksPerMicrosecond());
+
+```
+
+The system code has been written such that the compiler can compute the number
+of ticks to delay
+at compile time and inline the function calls, reducing overhead to a minimum.
+
+
 
 ### System.freeMemory()
 
@@ -4450,7 +4828,7 @@ void setup()
   // Make sure your Serial Terminal app is closed before powering your device
   Serial.begin(9600);
   // Now open your Serial Terminal, and hit any key to continue!
-  while(!Serial.available()) Spark.process();
+  while(!Serial.available()) Particle.process();
 
   String myID = System.deviceID();
   // Prints out the device ID over Serial
@@ -4459,6 +4837,13 @@ void setup()
 
 void loop() {}
 ```
+
+### System.enterSafeMode()
+
+_Since 0.4.6_
+
+Resets the device and restarts in safe mode.
+
 
 ### System.sleep()
 
@@ -4761,6 +5146,19 @@ Returns:
 
   * true: if string equals string2 (ignoring case)
   * false: otherwise
+
+### format()
+
+*Since 0.4.6.*
+
+Provides printf-style formatting for strings.
+
+```C++
+
+Particle.publish("startup", String.format("frobnicator started at %s", Time.timeStr()));
+
+```
+
 
 ### getBytes()
 
@@ -6331,7 +6729,7 @@ for (int i = 0; i < arraySize(myPins); i++) {
 //Example
 class ABC
 {
-   int abc;    
+   int abc;
 };
 
 void doSomethingWithABC(const ABC& abc)
