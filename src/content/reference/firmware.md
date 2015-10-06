@@ -4664,7 +4664,7 @@ but not the system code, so cloud connectivity is maintained.
 
 ### Waiting for the system
 
-The [waitUntil](#waituntil) function can be used to wait for soemthing to happen.
+The [waitUntil](#waituntil) function can be used to wait for something to happen.
 Typically this is waiting for something that the system is doing,
 such as waiting for WiFi to be ready or the cloud to be connected.
 
