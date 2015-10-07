@@ -69,3 +69,13 @@ This includes:
 It’s best to avoid doing a Factory Reset on your Photon. Here’s an in-depth explanation and some ways to avoid it
 [link here](https://community.particle.io/t/avoid-factory-reset-what-do-do-with-unexpected-led-behavior-on-a-photon/13358).
 {{/if}}
+
+**Also**, check out and join our [community forums](http://community.particle.io/) for advanced help, tutorials, and troubleshooting.
+
+{{#if photon}}
+[Go to Community Forums >](http://community.particle.io/c/troubleshooting)
+{{/if}}
+
+{{#if core}}
+[Go to Community Forums >](http://community.particle.io/c/troubleshooting)
+{{/if}}

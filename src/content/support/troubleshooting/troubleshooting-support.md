@@ -40,6 +40,18 @@ Hopefully, you never see these colors but here are the error LED color codes:
 - **High-speed flashing white:** Flashing code from factory reset memory
 - **Flashing yellow:** Bootloader mode, waiting for code over USB or JTAG
 
+**Also**, check out and join our [community forums](http://community.particle.io/) for advanced help, tutorials, and troubleshooting.
+
+{{#if photon}}
+[Go to Community Forums >](http://community.particle.io/c/troubleshooting)
+{{/if}}
+
+{{#if core}}
+[Go to Community Forums >](http://community.particle.io/c/troubleshooting)
+{{/if}}
+
+
+
 
 
 

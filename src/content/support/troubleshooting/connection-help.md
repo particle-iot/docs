@@ -175,3 +175,15 @@ Once the Particle CLI and dfu-util are installed, you have to enter DFU mode. On
 These commands replace the factory reset image, and re-patch the radio, bringing your Core to an upgraded factory state. Good luck!
 
 {{/if}}
+
+**Also**, check out and join our [community forums](http://community.particle.io/) for advanced help, tutorials, and troubleshooting.
+
+{{#if photon}}
+[Go to Community Forums >](http://community.particle.io/c/troubleshooting)
+{{/if}}
+
+{{#if core}}
+[Go to Community Forums >](http://community.particle.io/c/troubleshooting)
+{{/if}}
+
+

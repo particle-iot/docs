@@ -133,3 +133,15 @@ These commands replace the factory reset image, and re-patch the radio, bringing
 {{/if}}
 
 Check out [connection help](/support/troubleshooting/connection-help) for more info.
+
+
+**Also**, check out and join our [community forums](http://community.particle.io/) for advanced help, tutorials, and troubleshooting.
+
+{{#if photon}}
+[Go to Community Forums >](http://community.particle.io/c/troubleshooting)
+{{/if}}
+
+{{#if core}}
+[Go to Community Forums >](http://community.particle.io/c/troubleshooting)
+{{/if}}
+

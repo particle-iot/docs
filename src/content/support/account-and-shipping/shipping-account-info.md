@@ -3,7 +3,7 @@ title: Online Store Questions
 template: support.hbs
 columns: two
 devices: [ photon, core ]
-order: 1
+order: 2
 ---
 
 Online Store & Shipping Questions
@@ -39,6 +39,9 @@ Once you are logged into the dashboard, click the **edit** button near your {{{s
 
 
 ### Can I Cancel My Order?
+
+If you have placed an order with us that has not yet been fulfilled you can cancel your order as long as your
+<a>Fulfillment</a> status is not already in the {{{support-popup '**processing**' 'img' 'invoice_status_processing.png'}}} or {{{support-popup '**fulfilled**' 'img' 'invoice_status.png'}}} stages. 
 
 Order cancellations occur on a case by case basis as certain orders may be harder to cancel than others. *For example,* if you want to cancel your order but the order has already been paid and shipped out to you, then cancelling the order would be a little difficult, given the circumstance.
 
