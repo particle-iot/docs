@@ -150,7 +150,7 @@ The [Particle CLI](https://github.com/spark/particle-cli) s a swiss army command
 
 Install or Upgrade the CLI (requires Node.js):
 
-``npm install -g spark-cli``
+``npm install -g particle-cli``
 
 Connect a Core to your computer via USB and put it into [dfu-mode](/guide/getting-started/modes/core/#dfu-mode-device-firmware-upgrade-)
 
@@ -185,5 +185,6 @@ These commands replace the factory reset image, and re-patch the radio, bringing
 {{#if core}}
 [Go to Community Forums >](http://community.particle.io/c/troubleshooting)
 {{/if}}
+
 
 
