@@ -5155,7 +5155,7 @@ Provides printf-style formatting for strings.
 
 ```C++
 
-Particle.publish("startup", String.format("frobnicator started at %s", Time.timeStr()));
+Particle.publish("startup", String::format("frobnicator started at %s", Time.timeStr()));
 
 ```
 
