@@ -1,23 +1,61 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-  <!-- Zendesk Support -->
-  <!-- Start of particle Zendesk Widget script -->
-  <script>/*<![CDATA[*/window.zEmbed||function(e,t){var n,o,d,i,s,a=[],r=document.createElement("iframe");window.zEmbed=function(){a.push(arguments)},window.zE=window.zE||window.zEmbed,r.src="javascript:false",r.title="",r.role="presentation",(r.frameElement||r).style.cssText="display: none",d=document.getElementsByTagName("script"),d=d[d.length-1],d.parentNode.insertBefore(r,d),i=r.contentWindow,s=i.document;try{o=s}catch(c){n=document.domain,r.src='javascript:var d=document.open();d.domain="'+n+'";void(0);',o=s}o.open()._l=function(){var o=this.createElement("script");n&&(this.domain=n),o.id="js-iframe-async",o.src=e,this.t=+new Date,this.zendeskHost=t,this.zEQueue=a,this.body.appendChild(o)},o.write('<body onload="document._l();">'),o.close()}("https://assets.zendesk.com/embeddable_framework/main.js","particle.zendesk.com");/*]]>*/
-  </script>
-  <!-- End of particle Zendesk Widget script -->
 
 <script>
+
+
+$(document).ready(function() {
+  // Pull in status page
+  $.ajax({
+    url: "https://8d849mp6fy12.statuspage.io/api/v1/status.json",
+    success: function(data) { updateStatus(data.status) },
+    error: function(xhr, ajaxOptions, thrownError) {
+        console.log(xhr);
+        console.log(ajaxOptions);
+        console.log(thrownError);
+    }
+  });
+  
+});
+
+updateStatus = function(status) {
+  var icon = $('.status .icon');
+  switch (status.indicator) {
+    case "none":
+      icon.removeClass('ion-looping');
+      icon.addClass('ion-checkmark');
+      icon.css('color', '#27ae60');
+      break;
+    case "minor":
+      icon.removeClass('ion-looping');
+      icon.addClass('ion-alert');
+      icon.css('color', '#f1c40f');
+      break;
+    default:
+      icon.removeClass('ion-looping');
+      icon.addClass('ion-close');
+      icon.css('color', '#e74c3c');
+  }
+  $('.status span').text(status.description);
+}
+
 jQuery(function() {
     jQuery('.ss_button').on('click',function() {
         jQuery('.ss_content').slideUp('fast');
         jQuery(this).next('.ss_content').slideDown('fast');
     });
 });
+
+
+
 </script>
 
 <style type="text/css">
 #ss_menu { 
-    width: 60%; 
-    padding-left: 20%;
+    width: 100%; 
+    padding-top: 2%;
+    padding-bottom: 5%;
+    /*padding-left: 20%;*/
+    /*margin: 0 auto;   aligns with rest of content now*/
     }
 
 .ss_button { 
@@ -25,14 +63,20 @@ jQuery(function() {
     border-bottom: 1px solid #1a1a1a;
     cursor: pointer;
     padding: 15px;
-    padding-left: 20%;
+    padding-left: 2%;
     color: #1a1a1a;
     }
     
 .ss_content {
     background-color: #F7F7F7;
     display: none;
-    padding: 10px;
-    padding-left: 20%;
+    padding: 15px;
+    padding-left: 5%;
     }
+.content li>:last-child {
+    padding-bottom: 0;
+    padding-left: 6%;
+}
+
 </style>
+

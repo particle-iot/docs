@@ -98,3 +98,17 @@ Example Output:
 This will ensure that you are pointing to your own cloud!
 
 *Thanks to [Kenneth Lim](http://community.particle.io/users/kennethlimcp/activity) for writing this local cloud solution.*
+
+
+**Also**, check out and join our [community forums](http://community.particle.io/) for advanced help, tutorials, and troubleshooting.
+
+{{#if photon}}
+[Go to Community Forums >](http://community.particle.io/c/troubleshooting)
+{{/if}}
+
+{{#if core}}
+[Go to Community Forums >](http://community.particle.io/c/troubleshooting)
+{{/if}}
+
+
+

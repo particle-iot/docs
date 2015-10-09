@@ -127,3 +127,17 @@ where [{{#if photon}}PHOTON{{/if}}{{#if core}}CORE{{/if}}] is either the familia
 ---
 
 **That's it!** The {{#if photon}}Photon{{/if}} {{#if core}}Core{{/if}} has now been disassociated with your account, and is once again available to be claimed.
+
+**Also**, check out and join our [community forums](http://community.particle.io/) for advanced help, tutorials, and troubleshooting.
+
+{{#if photon}}
+[Go to Community Forums >](http://community.particle.io/c/troubleshooting)
+{{/if}}
+
+{{#if core}}
+[Go to Community Forums >](http://community.particle.io/c/troubleshooting)
+{{/if}}
+
+
+
+

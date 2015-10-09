@@ -35,7 +35,7 @@ To upgrade your Photon, follow the instructions below:
 -  Install dfu-util on your Mac using: ```brew install dfu-util```
 If you don't have brew or homebrew installed, install it here: http://brew.sh/
 
--  Put photon into DFU MODE, instructions [here](https://docs.particle.io/guide/getting-started/modes/photon/#dfu-mode-device-firmware-upgrade-).
+-  Put photon into DFU MODE, instructions [here](/guide/getting-started/modes/photon/#dfu-mode-device-firmware-upgrade-).
 
 -  Flash part1:
 ```dfu-util -d 2b04:d006 -a 0 -s 0x8020000 -D system-part1-0.4.6-photon.bin```
@@ -49,34 +49,6 @@ If you don't have brew or homebrew installed, install it here: http://brew.sh/
 ## Flashing Cyan
 
 If your Photon is flashing cyan and sometimes orange/red without connecting, it is helpful to first try to manually update your firmware, in the same way as listed as above. If this does not work, then move on to a key reset.
-
-### Manual Firmware Update
-
-If you do not have a Mac/Apple computer then you should not read the instructions below for a firmware upgrade. These are specifically for users who have MAC machines.
-
-*For Windows* If you have a Windows machine, please follow [these instructions](http://blog.jongallant.com/2015/08/particle-photon-firmware-flash-windows.html).
-
-Since your device is offline, I recommend using our dfu-util method. If you want more info on this, the local DFU-UTIL method is roughly explained [here](https://github.com/spark/firmware/releases).
-
-To upgrade your Photon, follow the instructions below:
-
--  Download the proper firmware binaries for the Photon linked below:
-      - [Part1](https://github.com/spark/firmware/releases/download/v0.4.6.1/system-part1-0.4.6-photon.bin)
-      - [Part2](https://github.com/spark/firmware/releases/download/v0.4.6.1/system-part2-0.4.6-photon.bin)
-
--  Install dfu-util on your Mac using: ```brew install dfu-util```
-If you don't have brew or homebrew installed, install it here: http://brew.sh/
-
--  Put photon into DFU MODE, instructions [here](https://docs.particle.io/guide/getting-started/modes/photon/#dfu-mode-device-firmware-upgrade-).
-
--  Flash part1:
-```dfu-util -d 2b04:d006 -a 0 -s 0x8020000 -D system-part1-0.4.6-photon.bin```
-
--  Flash part2, unit should still be blinking yellow:
-```dfu-util -d 2b04:d006 -a 0 -s 0x8060000:leave -D system-part2-0.4.6-photon.bin```
-
--  Wait... Your device should eventually restart and start blinking blue, breathing cyan, or flashing green -- all dependent on if you've setup the device before.
-
 
 ###Public Key Reset
 
@@ -115,6 +87,50 @@ There are known issues with the following types of networks:
 - **Complex Networks**. Networks with multiple routers, with non-standard firewalls, and with non-standard settings.
 - **Channels above 11**. This is in particular an international issue; if you are outside the U.S., your Wi-Fi router might run at channels 12, 13, or 14, which the CC3000 does not support. Please use channels numbered 11 or lower.
 
+
+**Prerequisites for Setup**
+{{#if photon}}
+* **Software**
+  * Particle Mobile App - [iPhone](https://itunes.apple.com/us/app/particle-build-photon-electron/id991459054?ls=1&mt=8) | [Android](https://play.google.com/store/apps/details?id=io.particle.android.app)
+  * *Note: We highly recommend using the mobile app for first time setup.*
+* **Hardware**
+  * Your Particle device, brand new and out of the box!
+  * USB to micro USB cable {{#if photon}}(included with Photon Kit and Maker Kit){{/if}}
+  * Power source for USB cable (such as your computer, USB battery, or power brick)
+  * Your iPhone or Android smartphone
+* **Wifi Settings**
+  * 2.4GHz capable router
+  * Channels 1-11
+  * WPA/WPA2 encryption
+  * On a broadcasted SSID network
+  * Not behind a hard firewall or Enterprise network
+  * *Note: We do not recommend using WEP wifi settings, for security reasons.*
+* **Experience**
+    * None! This is your first project.
+
+{{/if}}
+
+{{#if core}}
+* **Software**
+  * Spark Core Mobile App - [iPhone](https://itunes.apple.com/us/app/spark-core/id760157884) | [Android](https://play.google.com/store/apps/details?id=io.spark.core.android)
+  * *Note: We highly recommend using the mobile app for first time setup.*
+* **Hardware**
+  * Your Particle device, brand new and out of the box!
+  * USB to micro USB cable {{#if photon}}(included with Photon Kit and Maker Kit){{/if}}
+  * Power source for USB cable (such as your computer, USB battery, or power brick)
+  * Your iPhone or Android smartphone
+* **Wifi Settings**
+  * 2.4GHz capable router
+  * Channels 1-11
+  * WPA/WPA2 encryption
+  * On a broadcasted SSID network
+  * Not behind a hard firewall or Enterprise network
+  * *Note: We do not recommend using WEP wifi settings, for security reasons.*
+* **Experience**
+    * None! This is your first project.
+
+{{/if}}
+
 {{#if core}}
 
 ### Full Firmware Upgrade
@@ -133,3 +149,15 @@ These commands replace the factory reset image, and re-patch the radio, bringing
 {{/if}}
 
 Check out [connection help](/support/troubleshooting/connection-help) for more info.
+
+
+**Also**, check out and join our [community forums](http://community.particle.io/) for advanced help, tutorials, and troubleshooting.
+
+{{#if photon}}
+[Go to Community Forums >](http://community.particle.io/c/troubleshooting)
+{{/if}}
+
+{{#if core}}
+[Go to Community Forums >](http://community.particle.io/c/troubleshooting)
+{{/if}}
+

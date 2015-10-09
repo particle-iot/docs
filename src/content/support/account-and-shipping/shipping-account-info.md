@@ -3,7 +3,7 @@ title: Online Store Questions
 template: support.hbs
 columns: two
 devices: [ photon, core ]
-order: 1
+order: 2
 ---
 
 Online Store & Shipping Questions
@@ -14,7 +14,7 @@ Online Store & Shipping Questions
 If you ordered directly from our store and would like to check the status of your order
 please click on the “Check My Order” link below. You'll need your **OrderID #** (given at checkout and in the order confirmation email) and the **email address** that was used to checkout.
 
-<a href="https://dashboard.trycelery.com/status" class="button">Check My Order</a> 
+<a href="https://dashboard.trycelery.com/status" target="_blank" class="button">Check My Order</a> 
 
 ### How can I update my address?
 
@@ -25,7 +25,7 @@ If your order is in the {{{support-popup '**payment = unpaid**' 'img' 'invoice_s
 
 Once you are logged into your order dashboard, click the **edit** button near your {{{support-popup '**shipping**' 'img' 'invoice_shipping.png'}}} section and update your mailing address.
 
-<a href="https://dashboard.trycelery.com/status" class="button">Update My Address</a>
+<a href="https://dashboard.trycelery.com/status" target="_blank" class="button">Update My Address</a>
 
 
 ### How can I update my credit card information?
@@ -39,6 +39,9 @@ Once you are logged into the dashboard, click the **edit** button near your {{{s
 
 
 ### Can I Cancel My Order?
+
+If you have placed an order with us that has not yet been fulfilled you can cancel your order as long as your
+<a>Fulfillment</a> status is not already in the {{{support-popup '**processing**' 'img' 'invoice_status_processing.png'}}} or {{{support-popup '**fulfilled**' 'img' 'invoice_status.png'}}} stages. 
 
 Order cancellations occur on a case by case basis as certain orders may be harder to cancel than others. *For example,* if you want to cancel your order but the order has already been paid and shipped out to you, then cancelling the order would be a little difficult, given the circumstance.
 

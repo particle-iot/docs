@@ -58,17 +58,16 @@
       <div class="page-body">
         <div class='content-inner'>
           <div class="content" >
-            {{> supportBody}}
-            <div class="mobile-arrows">
-              {{> arrows}}
-            </div>
+          <!-- custom body -->
+            {{{contents}}}
+            <!-- custom body -->
+            
           </div>
-        </div>
-        <div class="desktop-arrows">
-          {{> arrows}}
         </div>
       </div>
     </div>
+
+    <!-- Scripts section before end of body -->
     {{> scripts}}
 
     <!--Zendesk Support button -->
