@@ -52,7 +52,7 @@ You'll also need some basic knowledge of the terminal. Adafruit has a [lovely in
 
 ### particle webhook create
 
-  Registers your Webhook with the Particle Cloud.  Creates a postback to the given url when your event is sent.  See [Webhook Options](#Webhook-options) for JSON formatting requirements and parameters.
+  Registers your Webhook with the Particle Cloud.  Creates a postback to the given url when your event is sent.  See [Webhook Options](#webhook-options) for JSON formatting requirements and parameters.
 
 ```sh
 # how to create a webhook with json data using the CLI
@@ -320,7 +320,7 @@ Copy and save the librato access token for your webhook below.  Create a text fi
             {
                 "name": "\{{SPARK_EVENT_NAME}}",
                 "value": "\{{SPARK_EVENT_VALUE}}",
-                "source": "\{{SPARK_DEVICE_ID}}"
+                "source": "\{{SPARK_CORE_ID}}"
             }
         ]
     },
@@ -663,3 +663,11 @@ Error responses from the target url will also be sent back in the response event
 ```
 particle subscribe mine
 ```
+
+## Community Webhook Examples
+Below are a few community-written webhook examples. They have been sorted by what they do. These examples were not written by Particle but instead members of our community. Got your own webhook example? Post on the [community forums](https://community.particle.io/) and then issue a pull request to our [docs repo](https://github.com/spark/docs/compare)
+
+### Sending SMS (Text Messages)
+
+- [Twilio - Sending a text message using Twilio](https://community.particle.io/t/webhooks-sending-a-text-message/10560) by [hoxworth](https://community.particle.io/users/hoxworth/activity)
+- [Tropo - Sending a text message (or voice call) using Tropo](https://community.particle.io/t/webhook-tutorial-send-a-sms/11431) by [harrisonhjones](https://community.particle.io/users/harrisonhjones/activity)

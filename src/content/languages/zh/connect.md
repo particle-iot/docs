@@ -61,7 +61,7 @@ Texas Instruments(德州仪器) CC3000手机应用程序的智能配置过程与
  __Windows__ 用户, 我们推荐 [PuTTY](http://www.chiark.greenend.org.uk/~sgtatham/putty/).
 您还需要安装 Windows 驱动程序：
 
-[Spark Core Windows 驱动程序 >](https://s3.amazonaws.com/spark-website/Spark.zip)
+[Spark Core Windows 驱动程序 >](https://s3.amazonaws.com/spark-website/Particle.zip)
 
 [CoolTerm](http://freeware.the-meiers.org/) 提供一个很好的图形用户界面（GUI）.
 ![CoolTerm 设置](/assets/images/coolterm-settings.png)

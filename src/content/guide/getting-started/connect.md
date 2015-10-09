@@ -10,7 +10,7 @@ order: 3
 
 The easiest way to connect your device to Wi-Fi is using the mobile app as described in the [previous lesson](/guide/getting-started/start). But in case that's not working for you or you don't have an iOS/Android phone, there are other methods as well.
 
-For all of the following methods, the device must be in [Listening Mode](/guide/getting-started/modes), where the RGB LED is {{#if photon}}{{{popup 'blinking blue.' 'vine' 'https://vine.co/v/eZUH7WaWjMT/embed/simple'}}}{{/if}}{{#if core}}{{{popup 'blinking blue.' 'vine' 'https://vine.co/v/eZU6YiK20Hl/embed/simple'}}}{{/if}}
+For all of the following methods, the device must be in [Listening Mode](/guide/getting-started/modes/photon/#listening-mode), where the RGB LED is {{#if photon}}{{{popup 'blinking blue.' 'vine' 'https://vine.co/v/eZUH7WaWjMT/embed/simple'}}}{{/if}}{{#if core}}{{{popup 'blinking blue.' 'vine' 'https://vine.co/v/eZU6YiK20Hl/embed/simple'}}}{{/if}}
 
 The Core and Photon both boot into listening mode by default, so if your device is brand new, it should go straight into listening mode. If your device is not blinking blue, {{#if photon}}{{{popup 'hold down the SETUP button.' 'vine' 'https://vine.co/v/eZUHUIjq7pO/embed/simple'}}}{{/if}}{{#if core}}{{{popup 'hold down the MODE button.' 'vine' 'https://vine.co/v/eZUgHYYrYgl/embed/simple'}}}{{/if}}
 
@@ -23,21 +23,16 @@ To connect and interact with a Particle Device over USB from a Windows machine, 
 The following describes how to install the Particle CLI on your computer. If you already have Node.js installed, you can skip to [this step](#installing-the-particle-cli).
 
 ### Installing Node.js
-The Particle CLI runs with Node.js. Grab the latest version from [the Node.js website](http://nodejs.org/download)
-
-**If you do not know if you are running 32-bit or 64-bit, checking is easy!**
-- __On Windows 8__ Mouse over the upper right hand corner of your screen and nagivate to Settings. Then click "PC info" to display basic information about your computer.
-- __On Windows 7__ Open System by clicking the Start button Picture of the Start button, right-clicking Computer, and then clicking Properties. Under System, you can view the system type.
+The Particle CLI runs with Node.js. Grab version 0.10.40 from [the Node.js website](https://nodejs.org/)
 
 Run the installer you downloaded. Follow the prompts. The default file locations should be fine for this.
 
 Restart your computer.
-_(You can do this by mousing over the upper right hand corner of the screen, then going to Settings > Power > Restart)_
 
 Node should now be installed! In the next step we will test it and install the CLI.
 
 ### Installing the Particle Driver
-You'll also need to install the Windows driver. [Download it here.](https://s3.amazonaws.com/spark-website/Spark.zip)
+You'll also need to install the Windows driver. [Download it here.](https://s3.amazonaws.com/spark-website/Particle.zip)
 
 Unzip the file. It is fine to unzip this as a default into your Downloads folder.
 

@@ -44,4 +44,4 @@ BackerKit automatically pulls in the amount you pledged and allows you to specif
 
 **I think I might be moving before Fall 2015.** That’s okay! As mentioned above, you will always have access to your BackerKit profile and will be able to update your shipping address yourself prior to lockdown. When we get close to address lockdown date we’ll send you some reminders so you can make any last minute changes. In the meantime, feel free to use this [link](https://spark-electron-cellular-dev-kit-with-a-simple-data.backerkit.com/) to change your address and other account information.
 
-**I have not received a survey.** We have already emailed these out so please email us at [ particle@io dot com] if you haven’t received the survey in your inbox.
+**I have not received a survey.** We have already emailed these out so please email us at [ particle@io dot io] if you haven’t received the survey in your inbox.

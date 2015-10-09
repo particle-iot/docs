@@ -115,8 +115,13 @@ exports.metalsmith = function() {
         sortBy: 'order'
       },
       support: {
-        pattern: 'support/*.md',
-        sortBy: 'order'
+        pattern: 'support/:section/*.md',
+        sortBy: 'order',
+        orderDynamicCollections: [
+          'account-and-shipping',
+          'troubleshooting',
+          'inquiries'
+        ]
       }
     }))
     .use(fork({
@@ -159,7 +164,7 @@ exports.metalsmith = function() {
       relative: false
     }))
     .use(redirect({
-      '/start': '/',
+      '/start': '/guide/getting-started/intro',
       '/guide': '/guide/getting-started/intro',
       '/guide/photon/': '/guide/photon/start',
       '/guide/core/': '/guide/core/start',
@@ -168,7 +173,7 @@ exports.metalsmith = function() {
       '/guide/getting-started': '/guide/getting-started/intro',
       '/guide/how-to-build-a-product': '/guide/how-to-build-a-product/intro/',
       '/guide/tools-and-features': '/guide/tools-and-features/intro',
-      '/support': '/support/shipping-account-info',
+      '/support': '/support/account-and-shipping/shipping-account-info',
       "/photon" : "/",
       "/photon/start" : "/guide/getting-started/start",
       "/photon/connect" : "/guide/getting-started/connect",
@@ -183,7 +188,7 @@ exports.metalsmith = function() {
       "/photon/ios" : "/reference/ios",
       "/photon/photon-datasheet" : "/datasheets/photon-datasheet",
       "/photon/p1-datasheet" : "/datasheets/p1-datasheet",
-      "/photon/shields" : "/reference/shields",
+      "/photon/shields" : "/datasheets/photon-shields",
       "/photon/cli" : "/reference/cli",
       "/photon/ifttt" : "/guide/tools-and-features/ifttt",
       "/photon/webhooks" : "/guide/tools-and-features/webhooks",
@@ -201,16 +206,17 @@ exports.metalsmith = function() {
       "/core/javascript" : "/reference/javascript",
       "/core/ios" : "/reference/ios",
       "/core/hardware" : "/datasheets/core-datasheet",
-      "/core/shields" : "/reference/shields",
+      "/core/shields" : "/datasheets/core-shields",
       "/core/cli" : "/reference/cli",
       "/core/ifttt" : "/guide/tools-and-features/ifttt/core",
       "/core/webhooks" : "/guide/tools-and-features/webhooks/core",
-      "/core/hackathon" : "/guide/tools-and-features/hackathon/core",
+      "/core/hackathon" : "/guide/getting-started/hackathon/core",
       "/firmware" : "/reference/firmware",
       "/api" : "/reference/api",
       "/cli" : "/reference/cli",
       "/javascript" : "/reference/javascript",
       "/ios" : "/reference/ios",
+      "/mobile" : "/reference/ios",
       "/start" : "/guide/getting-started/start",
       "/connect" : "/guide/getting-started/connect",
       "/modes" : "/guide/getting-started/modes",
@@ -222,11 +228,17 @@ exports.metalsmith = function() {
       "/cli" : "/guide/tools-and-features/cli",
       "/monitor" : "/guide/tools-and-features/monitor",
       "/ifttt" : "/guide/tools-and-features/ifttt",
+      "/firmware" : "/reference/firmware",
       "/webhooks" : "/guide/tools-and-features/webhooks",
-      "/hackathon" : "/guide/tools-and-features/hackathon",
+      "/hackathon" : "/guide/getting-started/hackathon",
       "/photon-datasheet" : "/datasheets/photon-datasheet",
       "/p1-datasheet" : "/datasheets/p1-datasheet",
-      "/hardware" : "/datasheets/core-datasheet"
+      "/hardware" : "/datasheets/core-datasheet",
+      "/photon-shields" : "/datasheets/photon-shields",
+      "/shields" : "/datasheets/photon-shields",
+      "/photon/hardware" : "/datasheets/photon-datasheet",
+      "/troubleshooting" : "/support/troubleshooting/common-issues",
+      "/help" : "/support/troubleshooting/common-issues"
     }))
     .use(msIf(
       environment !== 'development',
@@ -261,7 +273,7 @@ exports.server = function(callback) {
           "../templates/reference.hbs": "content/reference/*.md",
           "../templates/guide.hbs": "content/guide/**/*.md",
           "../templates/datasheet.hbs": "content/datasheets/*.md",
-          "../templates/support.hbs": "content/support/*.md",
+          "../templates/support.hbs": "content/support/**/*.md",
           "${source}/assets/js/*.js" : true
         },
         livereload: true

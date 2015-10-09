@@ -112,7 +112,14 @@ void loop() {
 
 - **Edit**: Try changing the values in the delay() function from 1000 to 250, which changes the timing interval from 1000 milliseconds to only 250 milliseconds.  Click the Verify button, then the Flash button.  Is your device's LED blinking faster?  Well done :)
 
+Adding files to your app
+---
 
+As your codebase grows, you will naturally create libraries to better manage your firmware development. To add a file to your app, simply hit the "+" button located at the top right hand corner.
+
+![Particle Build](/assets/images/ide-add-files.png)
+
+This will create two new tabs, one with `.h` and one with `.cpp` extension. You can read more about why we need both in [this C++ tutorial](http://www.learncpp.com/cpp-tutorial/19-header-files/).
 
 Account Information
 ---
@@ -146,7 +153,7 @@ Contribute a library
 ![Validate library](/assets/images/validate-library.png)
 
 Adding a library to the IDE starts by creating an open source GitHub repository where your code will live.
-At minimum, this repository needs a `particle.json` file, some documentation, some example firmware files, and some Arduino/C++ files.
+At minimum, this repository needs a `spark.json` file, some documentation, some example firmware files, and some Arduino/C++ files.
 The import and validation process is designed to be forgiving and easy to interpret, so don't be scared; the IDE will walk you through what is required to get your library set to go.
 
 The easiest way to generate library boilerplate code is to follow the instructions on the [getting started section](https://github.com/spark/uber-library-example#getting-started) of the `uber-library-example`, a project designed to illustrate and document what a library is supposed to look like.
@@ -169,11 +176,16 @@ Wait, what is firmware?
 
 An *embedded system* like the Core or Photon doesn't have an Operating System like a traditional computer. Instead, it runs a single application, often called *firmware*, which runs whenever the system is powered.
 
+
+![Firmware versions]({{assets}}/images/ide-firmware-versions.png)
+
 *Firmware* is so-called because it's harder than software and softer than hardware. Hardware is fixed during manufacturing, and doesn't change. Software can be updated anytime, so it's very flexible. Firmware is somewhere in between; hardware companies do issue firmware updates, but they tend to be very infrequent, because upgrading firmware can be difficult.
 
 In our case, because the Cores and Photons are connected to the internet, updating firmware is quite trivial; we send it over the network, and we have put in place safeguards to keep you from "bricking" your device.
 
 When you flash code onto your device, you are doing an *over-the-air firmware update*. This firmware update overwrites almost all of the software on the device; the only piece that is untouched is the bootloader, which manages the process of loading new firmware and ensures you can always update the firmware over USB or through a factory reset.
+
+For every device which version of our firmware you want to build against. In most cases you want to build with the latest firmware (which is used by default). If you need to target an older version (i.e. when newer version has some breaking changes) you can select it in dropdown located in device details.
 
 In most cases you want to build against Particle's latest system firmware (which is used by default). If you need to target an older version (i.e. when newer version has some breaking changes) you can select it in dropdown located in device details.
 

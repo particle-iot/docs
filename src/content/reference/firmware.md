@@ -11,7 +11,7 @@ Particle Device Firmware
 
 ## Cloud Functions
 
-### Spark.variable()
+### Particle.variable()
 
 Expose a *variable* through the Cloud so that it can be called with `GET /v1/devices/{DEVICE_ID}/{VARIABLE}`.
 Returns a success value - `true` when the variable was registered.
@@ -29,9 +29,9 @@ char *message = "my name is particle";
 void setup()
 {
   // variable name max length is 12 characters long
-  Spark.variable("analogvalue", &analogvalue, INT);
-  Spark.variable("temp", &tempC, DOUBLE);
-  if (Spark.variable("mess", message, STRING)==false)
+  Particle.variable("analogvalue", &analogvalue, INT);
+  Particle.variable("temp", &tempC, DOUBLE);
+  if (Particle.variable("mess", message, STRING)==false)
       // variable not registered!
   pinMode(A0, INPUT);
 }
@@ -71,16 +71,16 @@ my name is particle
 
 ```
 
-### Spark.function()
+### Particle.function()
 
 Expose a *function* through the Cloud so that it can be called with `POST /v1/devices/{DEVICE_ID}/{FUNCTION}`.
 
 ```cpp
 // SYNTAX TO REGISTER A CLOUD FUNCTION
-bool success = Spark.function("funcKey", funcName);
-//                               ^
-//                               |
-//                  (max of 12 characters long)
+bool success = Particle.function("funcKey", funcName);
+//                ^
+//                |
+//     (max of 12 characters long)
 ```
 
 Currently the application supports the creation of up to 4 different cloud functions.
@@ -89,7 +89,7 @@ In order to register a cloud  function, the user provides the `funcKey`, which i
 
 The length of the `funcKey` is limited to a max of 12 characters. If you declare a function name longer than 12 characters the function will not be registered.
 
-Example: Spark.function("someFunction1", ...); exposes a function called someFunction and not someFunction1
+Example: Particle.function("someFunction1", ...); exposes a function called someFunction and not someFunction1
 
 A cloud function is set up to take one argument of the [String](#language-syntax-string-class) datatype. This argument length is limited to a max of 63 characters.
 
@@ -101,7 +101,7 @@ int brewCoffee(String command);
 void setup()
 {
   // register the cloud function
-  Spark.function("brew", brewCoffee);
+  Particle.function("brew", brewCoffee);
 }
 
 void loop()
@@ -126,6 +126,29 @@ int brewCoffee(String command)
 
 ---
 
+You can expose a method on a C++ object to the Cloud.
+
+```C++
+// EXAMPLE USAGE WITH C++ OBJECT
+
+class CoffeeMaker {
+  public:
+    CoffeeMaker() {
+      Particle.function("brew", &CoffeeMaker::brew, this);
+    }
+
+    int brew(String command) {
+      // do stuff
+      return 1;
+    }
+};
+
+CoffeeMaker myCoffeeMaker;
+// nothing else needed in setup() or loop()
+```
+
+---
+
 The API request will be routed to the device and will run your brew function. The response will have a return_value key containing the integer returned by brew.
 
 ```json
@@ -138,48 +161,9 @@ curl https://api.particle.io/v1/devices/0123456789abcdef/brew \
      -d "args=coffee"
 ```
 
----
+### Particle.publish()
 
-To expose a method on an object through the Cloud, use a C++ function wrapper.
-For more details, research `std::function`.
-
-```C++
-// EXAMPLE USAGE WITH C++ OBJECT
-
-class CoffeeMaker {
-  public:
-    int brew(String command);
-    void registerCloud();
-};
-
-int CoffeeMaker::brew(String command) {
-  // do stuff
-  return 1;
-}
-
-void CoffeeMaker::registerCloud() {
-  // create a function wrapper to call brew on this instance of CoffeeMaker
-  // auto tells the compiler to determine the function wrapper type automatically
-  // std::placeholders::_1 is necessary because brew takes 1 argument
-  auto brewHandler = std::bind(&CoffeeMaker::brew, this, std::placeholders::_1);
-
-  Spark.function("brew", brewHandler);
-}
-
-CoffeeMaker myCoffeeMaker;
-
-void setup() {
-  myCoffeeMaker.registerCloud();
-}
-
-void loop() {
-  // this loops forever
-}
-```
-
-### Spark.publish()
-
-Publish an *event* through the Particle Cloud that will be forwarded to all registered callbacks, subscribed streams of Server-Sent Events, and other devices listening via `Spark.subscribe()`.
+Publish an *event* through the Particle Cloud that will be forwarded to all registered callbacks, subscribed streams of Server-Sent Events, and other devices listening via `Particle.subscribe()`.
 
 This feature allows the device to generate an event based on a condition. For example, you could connect a motion sensor to the device and have the device generate an event whenever motion is detected.
 
@@ -197,7 +181,7 @@ Only the owner of the device will be able to subscribe to private events.
 A device may not publish events beginning with a case-insensitive match for "spark".
 Such events are reserved for officially curated data originating from the Cloud.
 
-Calling `Spark.publish()` when the device is not connected to the cloud will not
+Calling `Particle.publish()` when the device is not connected to the cloud will not
 result in an event being published. This is indicated by the return success code
 of `false`.
 
@@ -211,11 +195,18 @@ Publish a public event with the given name, no data, and the default TTL of 60 s
 
 ```C++
 // SYNTAX
-Spark.publish(const char *eventName);
-Spark.publish(String eventName);
+Particle.publish(const char *eventName);
+Particle.publish(String eventName);
+
+RETURNS
+boolean (true or false)
 
 // EXAMPLE USAGE
-Spark.publish("motion-detected");
+bool success;
+success = Particle.publish("motion-detected");
+if (!success) {
+  // get here if event publish did not work
+}
 ```
 
 ---
@@ -224,11 +215,11 @@ Publish a public event with the given name and data, with the default TTL of 60 
 
 ```C++
 // SYNTAX
-Spark.publish(const char *eventName, const char *data);
-Spark.publish(String eventName, String data);
+Particle.publish(const char *eventName, const char *data);
+Particle.publish(String eventName, String data);
 
 // EXAMPLE USAGE
-Spark.publish("temperature", "19 F");
+Particle.publish("temperature", "19 F");
 ```
 
 ---
@@ -237,11 +228,11 @@ Publish a public event with the given name, data, and TTL.
 
 ```C++
 // SYNTAX
-Spark.publish(const char *eventName, const char *data, int ttl);
-Spark.publish(String eventName, String data, int ttl);
+Particle.publish(const char *eventName, const char *data, int ttl);
+Particle.publish(String eventName, String data, int ttl);
 
 // EXAMPLE USAGE
-Spark.publish("lake-depth/1", "28m", 21600);
+Particle.publish("lake-depth/1", "28m", 21600);
 ```
 
 ---
@@ -251,22 +242,22 @@ In order to publish a private event, you must pass all four parameters.
 
 ```C++
 // SYNTAX
-Spark.publish(const char *eventName, const char *data, int ttl, PRIVATE);
-Spark.publish(String eventName, String data, int ttl, PRIVATE);
+Particle.publish(const char *eventName, const char *data, int ttl, PRIVATE);
+Particle.publish(String eventName, String data, int ttl, PRIVATE);
 
 // EXAMPLE USAGE
-Spark.publish("front-door-unlocked", NULL, 60, PRIVATE);
+Particle.publish("front-door-unlocked", NULL, 60, PRIVATE);
 ```
 
 Publish a private event with the given name.
 
 ```C++
 // SYNTAX
-Spark.publish(const char *eventName, PRIVATE);
-Spark.publish(String eventName, PRIVATE);
+Particle.publish(const char *eventName, PRIVATE);
+Particle.publish(String eventName, PRIVATE);
 
 // EXAMPLE USAGE
-Spark.publish("front-door-unlocked", PRIVATE);
+Particle.publish("front-door-unlocked", PRIVATE);
 ```
 
 
@@ -283,7 +274,7 @@ event: motion-detected
 data: {"data":"23:23:44","ttl":"60","published_at":"2014-05-28T19:20:34.638Z","deviceid":"0123456789abcdef"}
 ```
 
-### Spark.subscribe()
+### Particle.subscribe()
 
 Subscribe to events published by devices.
 
@@ -306,12 +297,12 @@ void myHandler(const char *event, const char *data)
 
 void setup()
 {
-  Spark.subscribe("temperature", myHandler);
+  Particle.subscribe("temperature", myHandler);
   Serial.begin(9600);
 }
 ```
 
-To use `Spark.subscribe()`, define a handler function and register it in `setup()`.
+To use `Particle.subscribe()`, define a handler function and register it in `setup()`.
 
 
 ---
@@ -320,7 +311,7 @@ You can listen to events published only by your own devices by adding a `MY_DEVI
 
 ```cpp
 // only events from my devices
-Spark.subscribe("the_event_prefix", theHandler, MY_DEVICES);
+Particle.subscribe("the_event_prefix", theHandler, MY_DEVICES);
 ```
 
 ---
@@ -329,47 +320,75 @@ You are also able to subscribe to events from a single device by specifying the 
 
 ```cpp
 // Subscribe to events published from a specific device
-Spark.subscribe("motion/front-door", motionHandler, "55ff70064989495339432587");
+Particle.subscribe("motion/front-door", motionHandler, "55ff70064989495339432587");
+```
+
+---
+
+You can register a method in a C++ object as a subscription handler.
+
+```cpp
+class Subscriber {
+  public:
+    void subscribe() {
+      Particle.subscribe("some_event", &Subscriber::handler, this);
+    }
+    void handler(const char *eventName, const char *data) {
+      Serial.println(data);
+    }
+};
+
+Subscriber mySubscriber;
+// nothing else needed in setup() or loop()
 ```
 
 ---
 
 A subscription works like a prefix filter.  If you subscribe to "foo", you will receive any event whose name begins with "foo", including "foo", "fool", "foobar", and "food/indian/sweet-curry-beans".
 
-Received events will be passed to a handler function similar to `Spark.function()`.
+Received events will be passed to a handler function similar to `Particle.function()`.
 A _subscription handler_ (like `myHandler` above) must return `void` and take two arguments, both of which are C strings (`const char *`).
 
 - The first argument is the full name of the published event.
 - The second argument (which may be NULL) is any data that came along with the event.
 
-`Spark.subscribe()` returns a `bool` indicating success. It is ok to register a subscription when
+`Particle.subscribe()` returns a `bool` indicating success. It is ok to register a subscription when
 the device is not connected to the cloud - the subscription is automatically registered
 with the cloud next time the device connects.
 
-NOTE: A device can register up to 4 event handlers. This means you can call `Spark.subscribe()` a maximum of 4 times; after that it will return `false`.
+**NOTE:** A device can register up to 4 event handlers. This means you can call `Particle.subscribe()` a maximum of 4 times; after that it will return `false`.
 
-### Spark.connect()
+### Particle.unsubscribe()
 
-`Spark.connect()` connects the device to the Cloud. This will automatically activate the Wi-Fi module and attempt to connect to a Wi-Fi network if the device is not already connected to a network.
+Removes all subscription handlers previously registered with `Particle.subscribe()`.
+
+```cpp
+// SYNTAX
+Particle.unsubscribe();
+```
+
+### Particle.connect()
+
+`Particle.connect()` connects the device to the Cloud. This will automatically activate the Wi-Fi module and attempt to connect to a Wi-Fi network if the device is not already connected to a network.
 
 ```cpp
 void setup() {}
 
 void loop() {
-  if (Spark.connected() == false) {
-    Spark.connect();
+  if (Particle.connected() == false) {
+    Particle.connect();
   }
 }
 ```
 
-After you call `Spark.connect()`, your loop will not be called again until the device finishes connecting to the Cloud. Typically, you can expect a delay of approximately one second.
+After you call `Particle.connect()`, your loop will not be called again until the device finishes connecting to the Cloud. Typically, you can expect a delay of approximately one second.
 
-In most cases, you do not need to call `Spark.connect()`; it is called automatically when the device turns on. Typically you only need to call `Spark.connect()` after disconnecting with [`Spark.disconnect()`](#spark-disconnect) or when you change the [system mode](#system-system-modes).
+In most cases, you do not need to call `Particle.connect()`; it is called automatically when the device turns on. Typically you only need to call `Particle.connect()` after disconnecting with [`Particle.disconnect()`](#particle-disconnect) or when you change the [system mode](#system-system-modes).
 
 
-### Spark.disconnect()
+### Particle.disconnect()
 
-`Spark.disconnect()` disconnects the device from the Cloud.
+`Particle.disconnect()` disconnects the device from the Cloud.
 
 ```C++
 int counter = 10000;
@@ -398,12 +417,12 @@ void setup() {
 
 void loop() {
   if (needConnection()) {
-    if (!Spark.connected())
-      Spark.connect();
+    if (!Particle.connected())
+      Particle.connect();
     doConnectedWork();
   } else {
-    if (Spark.connected())
-      Spark.disconnect();
+    if (Particle.connected())
+      Particle.disconnect();
     doOfflineWork();
   }
 }
@@ -411,17 +430,17 @@ void loop() {
 
 While this function will disconnect from the Cloud, it will keep the connection to the Wi-Fi network. If you would like to completely deactivate the Wi-Fi module, use [`WiFi.off()`](#wifi-off).
 
-NOTE: When the device is disconnected, many features are not possible, including over-the-air updates, reading Spark.variables, and calling Spark.functions.
+**NOTE:* When the device is disconnected, many features are not possible, including over-the-air updates, reading Particle.variables, and calling Particle.functions.
 
 *If you disconnect from the Cloud, you will NOT BE ABLE to flash new firmware over the air. A factory reset should resolve the issue.*
 
-### Spark.connected()
+### Particle.connected()
 
 Returns `true` when connected to the Cloud, and `false` when disconnected from the Cloud.
 
 ```C++
 // SYNTAX
-Spark.connected();
+Particle.connected();
 
 RETURNS
 boolean (true or false)
@@ -432,19 +451,19 @@ void setup() {
 }
 
 void loop() {
-  if (Spark.connected()) {
+  if (Particle.connected()) {
     Serial.println("Connected!");
   }
   delay(1000);
 }
 ```
 
-### Spark.process()
+### Particle.process()
 
 Runs the background loop. This is the public API for the former internal function
 `SPARK_WLAN_Loop()`.
 
-`Spark.process()` checks the Wi-Fi module for incoming messages from the Cloud,
+`Particle.process()` checks the Wi-Fi module for incoming messages from the Cloud,
 and processes any messages that have come in. It also sends keep-alive pings to the Cloud,
 so if it's not called frequently, the connection to the Cloud may be lost.
 
@@ -455,7 +474,7 @@ void setup() {
 
 void loop() {
   while (1) {
-    Spark.process();
+    Particle.process();
     redundantLoop();
   }
 }
@@ -465,9 +484,9 @@ void redundantLoop() {
 }
 ```
 
-`Spark.process()` is a blocking call, and blocks for a few milliseconds. `Spark.process()` is called automatically after every `loop()` and during delays. Typically you will not need to call `Spark.process()` unless you block in some other way and need to maintain the connection to the Cloud, or you change the [system mode](#system-system-modes). If the user puts the device into `MANUAL` mode, the user is responsible for calling `Spark.process()`. The more frequently this function is called, the more responsive the device will be to incoming messages, the more likely the Cloud connection will stay open, and the less likely that the WiFi module's buffer will overrun.
+`Particle.process()` is a blocking call, and blocks for a few milliseconds. `Particle.process()` is called automatically after every `loop()` and during delays. Typically you will not need to call `Particle.process()` unless you block in some other way and need to maintain the connection to the Cloud, or you change the [system mode](#system-system-modes). If the user puts the device into `MANUAL` mode, the user is responsible for calling `Particle.process()`. The more frequently this function is called, the more responsive the device will be to incoming messages, the more likely the Cloud connection will stay open, and the less likely that the WiFi module's buffer will overrun.
 
-### Spark.syncTime()
+### Particle.syncTime()
 
 Synchronize the time with the Particle Cloud.
 This happens automatically when the device connects to the Cloud.
@@ -481,7 +500,7 @@ unsigned long lastSync = millis();
 void loop() {
   if (millis() - lastSync > ONE_DAY_MILLIS) {
     // Request time synchronization from the Particle Cloud
-    Spark.syncTime();
+    Particle.syncTime();
     lastSync = millis();
   }
 }
@@ -508,10 +527,11 @@ void setup() {
         delay(1000);
     }
 
-    Spark.subscribe("spark/", handler);
-    Spark.publish("spark/device/ip");
+    Particle.subscribe("spark/", handler);
+    Particle.publish("spark/device/ip");
 }
 ```
+
 
 ### Get Device name
 
@@ -530,8 +550,8 @@ void setup() {
         delay(1000);
     }
 
-    Spark.subscribe("spark/", handler);
-    Spark.publish("spark/device/name");
+    Particle.subscribe("spark/", handler);
+    Particle.publish("spark/device/name");
 }
 ```
 
@@ -551,8 +571,8 @@ void setup() {
         delay(1000);
     }
 
-    Spark.subscribe("spark/", handler);
-    Spark.publish("spark/device/random");
+    Particle.subscribe("spark/", handler);
+    Particle.publish("spark/device/random");
 }
 ```
 
@@ -604,15 +624,78 @@ This function will return `true` once the device is connected to the network and
 WiFi.ready();
 ```
 
-### WiFi.listen()
+{{#if photon}}
+### WiFi.selectAntenna()
 
-This will enter listening mode, which opens a Serial connection to get Wi-Fi credentials over USB, and also listens for credentials over
-{{#if core}}Smart Config{{/if}}{{#if photon}}Soft AP{{/if}}.
+Selects which antenna the device should connect to WiFi with and remembers that
+setting until it is changed.
 
 ```cpp
 // SYNTAX
+STARTUP(WiFi.selectAntenna(ANT_INTERNAL)); // selects the CHIP antenna
+STARTUP(WiFi.selectAntenna(ANT_EXTERNAL)); // selects the u.FL antenna
+STARTUP(WiFi.selectAntenna(ANT_AUTO)); // continually switches at high speed between antennas
+```
+
+`WiFi.selectAntenna()` selects one of three antenna modes on your Photon or P1.  It takes one argument: `ANT_AUTO`, `ANT_INTERNAL` or `ANT_EXTERNAL`.
+`WiFi.selectAntenna()` must be used inside another function like STARTUP(), setup(), or loop() to compile.
+
+You may specify in code which antenna to use as the default at boot time using the STARTUP() macro.
+
+> Note that the antenna selection is remembered even after power off or when entering safe mode.
+This is to allow your device to be configured once and then continue to function with the
+selected antenna when applications are flashed that don't specify which antenna to use.
+
+This ensures that devices which must use the external antenna continue to use the external
+antenna in all cases even when the application code isn't being executed (e.g. safe mode.)
+
+If no antenna has been previously selected, the `ANT_INTERNAL` antenna will be chosen by default.
+
+`WiFi.selectAntenna()` returns 0 on success, or -1005 if the antenna choice was not found.
+Other errors that may appear will all be negative values.
+
+```cpp
+// Use the STARTUP() macro to set the default antenna
+// to use system boot time.
+// In this case it would be set to the chip antenna
+STARTUP(WiFi.selectAntenna(ANT_INTERNAL));
+
+void setup() {
+  // your setup code
+}
+
+void loop() {
+  // your loop code
+}
+```
+
+
+
+
+{{/if}}
+
+### WiFi.listen()
+
+This will enter or exit listening mode, which opens a Serial connection to get Wi-Fi credentials over USB, and also listens for credentials over
+{{#if core}}Smart Config{{/if}}{{#if photon}}Soft AP{{/if}}.
+
+```cpp
+// SYNTAX - enter listening mode
 WiFi.listen();
 ```
+
+Listening mode blocks application code. Advanced cases that use multithreading, interrupts, or system events
+have the ability to continue to execute application code while in listening mode, and may wish to then exit listening
+mode, such as after a timeout. Listning mode is stopped using this syntax:
+
+```cpp
+
+// SYNTAX - exit listening mode
+WiFi.listen(false);
+
+```
+
+
 
 ### WiFi.listening()
 
@@ -660,7 +743,20 @@ WiFi.setCredentials("My_Router", "mypasswordishuge");
 // Options are WPA2, WPA, or WEP.
 WiFi.setCredentials(SSID, PASSWORD, AUTH);
 WiFi.setCredentials("My_Router", "wepistheworst", WEP);
+
 ```
+
+{{#if photon}}
+When the Photon used with hidden or offline networks, the security cipher is also required.
+
+```cpp
+
+// for hidden and offline networks on the Photon, the security cipher is also needed
+// Cipher options are WLAN_CIPHER_AES, WLAN_CIPHER_TKIP and WLAN_CIPHER_AES_TKIP
+WiFi.setCredentials("SSID", "PASSWORD", WPA2, WLAN_CIPHER_AES));
+```
+{{/if}}
+
 
 ### WiFi.clearCredentials()
 
@@ -692,7 +788,7 @@ byte mac[6];
 void setup() {
   WiFi.on();
   Serial.begin(9600);
-  while (!Serial.available()) Spark.process();
+  while (!Serial.available()) Particle.process();
 
   WiFi.macAddress(mac);
 
@@ -714,7 +810,7 @@ byte mac[6];
 
 void setup() {
   Serial.begin(9600);
-  while (!Serial.available()) Spark.process();
+  while (!Serial.available()) Particle.process();
 
   WiFi.macAddress(mac);
 
@@ -755,6 +851,113 @@ WiFi.RSSI();
 
 `WiFi.ping(IPAddress remoteIP, uint8_t nTries)` and pings that address a specified number of times.
 
+### WiFi.scan()
+
+Returns information about access points within range of the device.
+
+The first form is the simplest, but also least flexible. You provide a
+array of `WiFiAccessPoint` instances, and the call to `WiFi.scan()` fills out the array.
+If there are more APs detected than will fit in the array, they are dropped.
+
+```cpp
+// EXAMPLE - retrieve up to 20 WiFI APs
+
+WiFiAccessPoint aps[20];
+int found = WiFi.scan(aps, 20);
+for (int i=0; i<found; i++) {
+    WiFiAccessPoint& ap = aps[i];
+    Serial.print("SSID: ");
+    Serial.println(ap.ssid);
+    Serial.print("Security: ");
+    Serial.println(ap.security);
+    Serial.print("Channel: ");
+    Serial.println(ap.channel);
+    Serial.print("RSSI: ");
+    Serial.println(ap.rssi);
+}
+```
+
+The more advanced call to `WiFi.scan()` uses a callback function that receives
+each scanned access point.
+
+```
+// EXAMPLE using a callback
+void wifi_scan_callback(WiFiAccessPoint* wap, void* data)
+{
+    WiFiAccessPoint& ap = *wap;
+    Serial.print("SSID: ");
+    Serial.println(ap.ssid);
+    Serial.print("Security: ");
+    Serial.println(ap.security);
+    Serial.print("Channel: ");
+    Serial.println(ap.channel);
+    Serial.print("RSSI: ");
+    Serial.println(ap.rssi);
+}
+
+void loop()
+{
+    int result_count = WiFi.scan(wifi_scan_callback);
+    Serial.print(result_count);
+    Serial.println(" APs scanned.");
+}
+```
+
+The main reason for doing this is that you gain access to all access points available
+without having to know in advance how many there might be.
+
+You can also pass a 2nd parameter to `WiFi.scan()` after the callback, which allows
+object-oriented code to be used.
+
+```
+// EXAMPLE - class to find the strongest AP
+
+class FindStrongestSSID
+{
+    char strongest_ssid[33];
+    int strongest_rssi;
+
+    // This is the callback passed to WiFi.scan()
+    // It makes the call on the `self` instance - to go from a static
+    // member function to an instance member function.
+    static void handle_ap(WiFiAccessPoint* wap, FindStrongestSSID* self)
+    {
+        self->next(*wap);
+    }
+
+    // determine if this AP is stronger than the strongest seen so far
+    void next(WiFiAccessPoint& ap)
+    {
+        if ((ap.rssi < 0) && (ap.rssi > strongest_rssi)) {
+            strongest_rssi = ap.rssi;
+            strcpy(strongest_ssid, ap.ssid);
+        }
+    }
+
+public:
+
+    /**
+     * Scan WiFi Access Points and retrieve the strongest one.
+     */
+    const char* scan()
+    {
+        // initialize data
+        strongest_rssi = 0;
+        strongest_ssid[0] = 0;
+        // perform the scan
+        WiFi.scan(handle_ap, this);
+        return strongest_ssid;
+    }
+};
+
+// Now use the class
+FindStrongestSSID strongestFinder;
+const char* ssid = strongestFinder.scan();
+
+}
+```
+
+
 ### WiFi.localIP()
 
 `WiFi.localIP()` returns the local IP address assigned to the device as an `IPAddress`.
@@ -763,7 +966,7 @@ WiFi.RSSI();
 
 void setup() {
   Serial.begin(9600);
-  while(!Serial.available()) Spark.process();
+  while(!Serial.available()) Particle.process();
 
   // Prints out the local IP over Serial.
   Serial.println(WiFi.localIP());
@@ -778,7 +981,7 @@ void setup() {
 
 void setup() {
   Serial.begin(9600);
-  while(!Serial.available()) Spark.process();
+  while(!Serial.available()) Particle.process();
 
   // Prints out the subnet mask over Serial.
   Serial.println(WiFi.subnetMask());
@@ -793,12 +996,57 @@ void setup() {
 
 void setup() {
   Serial.begin(9600);
-  while(!Serial.available()) Spark.process();
+  while(!Serial.available()) Particle.process();
 
   // Prints out the gateway IP over Serial.
   Serial.println(WiFi.gatewayIP());
 }
 ```
+
+{{#if photon}}
+
+### WiFi.setStaticIP()
+
+Defines the static IP addresses used by the system to connect to the network when static IP is activated.
+
+```cpp
+// SYNTAX
+
+void setup() {
+    IPAddress myAddress(192,168,1,100);
+    IPAddress netmask(255,255,255,0);
+    IPAddress gateway(192,168,1,1);
+    IPAddress dns(192,168,1,1);
+    WiFi.setStaticIP(myAddress, netmask, gateway, dns);
+
+    // now let's use the configured IP
+    WiFi.useStaticIP();
+}
+
+```
+
+The addresses are stored persistently so that they are available in all subsequent
+application and also in safe mode.
+
+
+### WiFi.useStaticIP()
+
+Instructs the system to connect to the network using the IP addresses provided to
+`WiFi.setStaticIP()`
+
+The setting is persistent and is remembered until `WiFi.useDynamicIP()` is called.
+
+### WiFi.useDynamicIP()
+
+Instructs the system to connect to the network using a dynamically allocated IP
+address from the router.
+
+A note on switching between static and dynamic IP. If static IP addresses have been previously configured using `WiFi.setStaticIP()`, they continue to be remembered
+by the system after calling `WiFi.useDynamicIP()`, and so are available for use next time `WiFi.useStaticIP()`
+is called, without needing to be reconfigured using `WiFi.setStaticIP()`
+
+{{/if}}
+
 
 ## Input/Output
 
@@ -835,6 +1083,18 @@ void loop()
     digitalWrite(LED, LOW);           // sets the LED off
     delay(200);                       // waits for 200mS
   }
+}
+```
+
+### getPinMode(pin)
+
+Retrieves the current pin mode.
+
+```cpp
+// EXAMPLE
+
+if (getPinMode(D0)==INPUT) {
+  // D0 is an input pin
 }
 ```
 
@@ -906,12 +1166,23 @@ void loop()
 
 ### analogWrite()
 
-Writes an analog value (PWM wave) to a pin. Can be used to light a LED at varying brightnesses or drive a motor at various speeds. After a call to analogWrite(), the pin will generate a steady square wave of the specified duty cycle until the next call to analogWrite() (or a call to digitalRead() or digitalWrite() on the same pin). The frequency of the PWM signal is approximately 500 Hz.
+Writes an analog value (PWM wave) to a pin. The frequency of the PWM signal is approximately 500 Hz.
+
+Can be used to light a LED at varying brightnesses or drive a motor at various speeds. After a call to analogWrite(), the pin will generate a steady square wave of the specified duty cycle until the next call to `analogWrite()` (or a call to `digitalRead()` or `digitalWrite()` on the same pin).
 
 ```C++
 // SYNTAX
 analogWrite(pin, value);
 ```
+
+`analogWrite()` takes two arguments:
+
+- `pin`: the number of the pin whose value you wish to set
+- `value`: the duty cycle: between 0 (always off) and 255 (always on).
+
+**NOTE:** `pinMode(pin, OUTPUT);` is required before calling `analogWrite(pin, value);` or else the `pin` will not be initialized as a PWM output and set to the desired duty cycle.
+
+`analogWrite()` does not return anything.
 
 ```C++
 // EXAMPLE USAGE
@@ -937,12 +1208,9 @@ void loop()
 - On the Core, this function works on pins A0, A1, A4, A5, A6, A7, D0 and D1.
 - On the Photon, this function works on pins D0, D1, D2, D3, A4, A5, WKP, RX and TX with a caveat: PWM timer peripheral is duplicated on two pins (A5/D2) and (A4/D3) for 7 total independent PWM outputs. For example: PWM may be used on A5 while D2 is used as a GPIO, or D2 as a PWM while A5 is used as an analog input. However A5 and D2 cannot be used as independently controlled PWM outputs at the same time.
 
-When used with these pins, the analogWrite function has nothing to do with the analog pins or the analogRead function.
+When used with these pins, the `analogWrite()` function has nothing to do with the analog pins or the `analogRead()` function.
 
 
-`analogWrite()` takes two arguments, `pin`: the number of the pin whose value you wish to set and `value`: the duty cycle: between 0 (always off) and 255 (always on).  NOTE: `pinMode(pin, OUTPUT);` is required before calling `analogWrite(pin, value);` or else the `pin` will not be initialized as a PWM output and set to the desired duty cycle.
-
-`analogWrite()` does not return anything.
 
 
 
@@ -951,6 +1219,8 @@ When used with these pins, the analogWrite function has nothing to do with the a
 The Photon supports true analog output on pins DAC (`DAC1` or `A6` in code) and A3 (`DAC2` or `A3` in code). Using `analogWrite(pin, value)`
 with these pins, the output of the pin is set to an analog voltage from 0V to 3.3V that corresponds to values
 from 0-4095.
+
+**NOTE:** While for PWM pins one single call to `pinMode(pin, OUTPUT);` sets the pin mode for multiple `analogWrite(pin, value);` calls, for DAC pins you need to set `pinMode(DAC, OUTPUT);` each time anew you want to perform an `analogWrite()`.
 
 ```C++
 // SYNTAX
@@ -1016,6 +1286,143 @@ On Core, this parameter can be one of the following values:
  * ADC_SampleTime_112Cycles: Sample time equal to 112 cycles
  * ADC_SampleTime_144Cycles: Sample time equal to 144 cycles
  * ADC_SampleTime_480Cycles: Sample time equal to 480 cycles
+
+## Low Level Input/Output
+
+The Input/Ouput functions include safety checks such as making sure a pin is set to OUTPUT when doing a digitalWrite() or that the pin is not being used for a timer function.  These safety measures represent good coding and system design practice.
+
+There are times when the fastest possible input/output operations are crucial to an applications performance. The SPI, UART (Serial) or I2C hardware are examples of low level performance-oriented devices.  There are, however, times when these devices may not be suitable or available.  For example, One-wire support is done in software, not hardware.
+
+In order to provide the fastest possible bit-oriented I/O, the normal safety checks must be skipped.  As such, please be aware that the programmer is responsible for proper planning and use of the low level I/O functions.
+
+Prior to using the following low-level functions, `pinMode()` must be used to configure the target pin.
+
+
+### pinSetFast()
+
+Write a `HIGH` value to a digital pin.
+
+```C++
+// SYNTAX
+pinSetFast(pin);
+```
+
+`pinSetFast()` takes one argument, `pin`: the number of the pin whose value you wish to set `HIGH`.
+
+`pinSetFast()` does not return anything.
+
+```C++
+// EXAMPLE USAGE
+int LED = D7;              // LED connected to D7
+
+void setup()
+{
+  pinMode(LED, OUTPUT);    // sets pin as output
+}
+
+void loop()
+{
+  pinSetFast(LED);		   // set the LED on
+  delay(500);
+  pinResetFast(LED);	   // set the LED off
+  delay(500);
+}
+```
+
+### pinResetFast()
+
+Write a `LOW` value to a digital pin.
+
+```C++
+// SYNTAX
+pinResetFast(pin);
+```
+
+`pinResetFast()` takes one argument, `pin`: the number of the pin whose value you wish to set `LOW`.
+
+`pinResetFast()` does not return anything.
+
+```C++
+// EXAMPLE USAGE
+int LED = D7;              // LED connected to D7
+
+void setup()
+{
+  pinMode(LED, OUTPUT);    // sets pin as output
+}
+
+void loop()
+{
+  pinSetFast(LED);		   // set the LED on
+  delay(500);
+  pinResetFast(LED);	   // set the LED off
+  delay(500);
+}
+```
+
+### digitalWriteFast()
+
+Write a `HIGH` or `LOW` value to a digital pin.  This function will call pinSetFast() or pinResetFast() based on `value` and is useful when `value` is calculated. As such, this imposes a slight time overhead.
+
+```C++
+// SYNTAX
+digitalWriteFast(pin, value);
+```
+
+`digitalWriteFast()` `pin`: the number of the pin whose value you wish to set and `value`: `HIGH` or `LOW`.
+
+`digitalWriteFast()` does not return anything.
+
+```C++
+// EXAMPLE USAGE
+int LED = D7;              // LED connected to D7
+
+void setup()
+{
+  pinMode(LED, OUTPUT);    // sets pin as output
+}
+
+void loop()
+{
+  digitalWriteFast(LED, HIGH);		   // set the LED on
+  delay(500);
+  digitalWriteFast(LED, LOW);	      // set the LED off
+  delay(500);
+}
+```
+
+### pinReadFast()
+
+Reads the value from a specified digital `pin`, either `HIGH` or `LOW`.
+
+```C++
+// SYNTAX
+pinReadFast(pin);
+```
+
+`pinReadFast()` takes one argument, `pin`: the number of the digital pin you want to read.
+
+`pinReadFast()` returns `HIGH` or `LOW`.
+
+```C++
+// EXAMPLE USAGE
+int button = D0;                   // button is connected to D0
+int LED = D1;                      // LED is connected to D1
+int val = 0;                       // variable to store the read value
+
+void setup()
+{
+  pinMode(LED, OUTPUT);            // sets pin as output
+  pinMode(button, INPUT_PULLDOWN); // sets pin as input
+}
+
+void loop()
+{
+  val = pinReadFast(button);       // read the input pin
+  digitalWriteFast(LED, val);      // sets the LED to the button's value
+}
+
+```
 
 ## Advanced I/O
 
@@ -1085,7 +1492,9 @@ noTone(pin)
 ### shiftOut()
 
 Shifts out a byte of data one bit at a time on a specified pin. Starts from either the most (i.e. the leftmost) or least (rightmost) significant bit. Each bit is written in turn to a data pin, after which a clock pin is pulsed (taken high, then low) to indicate that the bit is available.
-Note: if you're interfacing with a device that's clocked by rising edges, you'll need to make sure that the clock pin is low before the call to shiftOut(), e.g. with a call to digitalWrite(clockPin, LOW).
+
+**NOTE:** if you're interfacing with a device that's clocked by rising edges, you'll need to make sure that the clock pin is low before the call to `shiftOut()`, e.g. with a call to `digitalWrite(clockPin, LOW)`.
+
 This is a software implementation; see also the SPI function, which provides a hardware implementation that is faster but works only on specific pins.
 
 
@@ -1128,7 +1537,9 @@ loop() {
 ### shiftIn()
 
 Shifts in a byte of data one bit at a time. Starts from either the most (i.e. the leftmost) or least (rightmost) significant bit. For each bit, the clock pin is pulled high, the next bit is read from the data line, and then the clock pin is taken low.
-Note: if you're interfacing with a device that's clocked by rising edges, you'll need to make sure that the clock pin is low before the call to shiftOut(), e.g. with a call to digitalWrite(clockPin, LOW).
+
+**NOTE:** if you're interfacing with a device that's clocked by rising edges, you'll need to make sure that the clock pin is low before the call to shiftOut(), e.g. with a call to `digitalWrite(clockPin, LOW)`.
+
 This is a software implementation; see also the SPI function, which provides a hardware implementation that is faster but works only on specific pins.
 
 
@@ -1185,7 +1596,7 @@ To use the TX/RX (Serial1) or D1/D0 (Serial2) pins to communicate with your pers
 
 Sets the data rate in bits per second (baud) for serial data transmission. For communicating with the computer, use one of these rates: 300, 600, 1200, 2400, 4800, 9600, 14400, 19200, 28800, 38400, 57600, or 115200. You can, however, specify other rates - for example, to communicate over pins TX and RX with a component that requires a particular baud rate.
 
-**NOTE:** The data rate for the USB device `Serial` is ignored, as USB has its own negotiated speed. Setting speed to 9600 is safe for the USB device. Setting the port to 14400 baud will cause the Photon to go into DFU mode while 28800 will allow a YMODEM download of firmware. 
+**NOTE:** The data rate for the USB device `Serial` is ignored, as USB has its own negotiated speed. Setting speed to 9600 is safe for the USB device. Setting the port to 14400 baud will cause the Photon to go into DFU mode while 28800 will allow a YMODEM download of firmware.
 
 ```C++
 // SYNTAX
@@ -1205,7 +1616,7 @@ void setup()
   // On Windows it will be necessary to implement the following line:
   // Make sure your Serial Terminal app is closed before powering your device
   // Now open your Serial Terminal, and hit any key to continue!
-  while(!Serial.available()) SPARK_WLAN_Loop();
+  while(!Serial.available()) Particle.process();
 
   Serial1.begin(9600);  // open serial over TX and RX pins
 
@@ -1336,7 +1747,8 @@ void loop() {
 ```
 ### print()
 
-Prints data to the serial port as human-readable ASCII text. This command can take many forms. Numbers are printed using an ASCII character for each digit. Floats are similarly printed as ASCII digits, defaulting to two decimal places. Bytes are sent as a single character. Characters and strings are sent as is. For example:
+Prints data to the serial port as human-readable ASCII text.
+This command can take many forms. Numbers are printed using an ASCII character for each digit. Floats are similarly printed as ASCII digits, defaulting to two decimal places. Bytes are sent as a single character. Characters and strings are sent as is. For example:
 
 - Serial.print(78) gives "78"
 - Serial.print(1.23456) gives "1.23"
@@ -1381,7 +1793,7 @@ void setup()
   // Make sure your Serial Terminal app is closed before powering your device
   Serial.begin(9600);
   // Now open your Serial Terminal, and hit any key to continue!
-  while(!Serial.available()) SPARK_WLAN_Loop();
+  while(!Serial.available()) Particle.process();
 }
 
 void loop() {
@@ -1400,9 +1812,46 @@ void loop() {
 }
 ```
 
+### printf()
+
+*Since 0.4.6.*
+
+Provides [printf](http://www.cplusplus.com/reference/cstdio/printf/)-style formatting over serial.
+
+`printf` allows strings to be built by combining a number of values with text.
+
+```C++
+Serial.printf("Reading temperature sensor at %s...", Time.timeStr());
+float temp = readTemp();
+Serial.printf("the temperature today is %f Kelvin", temp);
+Serial.println();
+```
+
+Running this code prints:
+
+```
+Reading temperature sensor at Thu 01 Oct 2015 12:34...the temperature today is 293.1 Kelvin.
+```
+
+The last `printf()` call could be changed to `printlnf()` to avoid a separate call to `println()`.
+
+
+### printlnf()
+
+*Since 0.4.6.*
+
+formatted output followed by a newline.
+Produces the same output as [printf](#printf-) which is then followed by a newline character,
+so to that subsequent output appears on the next line.
+
+
 ### flush()
 
 Waits for the transmission of outgoing serial data to complete.
+
+**NOTE:** That this function does nothing at present, in particular it doesn't
+wait for the data to be sent, since this causes the application to wait indefinitely
+when there is no serial monitor connected.
 
 ```C++
 // SYNTAX
@@ -1415,16 +1864,16 @@ Serial1.flush();
 ### halfduplex()
 
 Puts Serial1 into half-duplex mode.  In this mode both the transmit and receive
-are on the TX pin.  This mode can be used for a single wire bus communications 
+are on the TX pin.  This mode can be used for a single wire bus communications
 scheme between microcontrollers.
 
-```C
+```C++
 // SYNTAX
 Serial1.halfduplex(true);  // Enable half-duplex mode
 Serial1.halfduplex(false); // Disable half-duplex mode
 ```
 
-```C
+```C++
 // EXAMPLE
 // Initializes Serial1 at 9600 baud and enables half duplex mode
 
@@ -1444,16 +1893,40 @@ This library allows you to communicate with SPI devices, with the Core/Photon as
 
 ![SPI](/assets/images/core-pin-spi.jpg)
 
+The hardware SPI pin functions are mapped as follows:
+* `SCK` => `A3`
+* `MISO` => `A4`
+* `MOSI` => `A5`
+* `SS` => `A2` (default)
+{{#if photon}}
+
+On the Photon, there is a second hardware SPI interface available, which can
+be used via the `SPI1` object. This second port is mapped as follows:
+* `SCK` => `D4`
+* `MISO` => `D3`
+* `MOSI` => `D2`
+* `SS` => `A2` (default)
+ {{/if}}
+
 ### begin()
 
-Initializes the SPI bus by setting SCK, MOSI, and SS to outputs, pulling SCK and MOSI low, and SS high.
+Initializes the SPI bus by setting SCK, MOSI, and a user-specified slave-select pin to outputs, MISO to input. SCK and MOSI are pulled low, and slave-select high.
 
-Note that once the pin is configured, you can't use it anymore as a general I/O, unless you call the SPI.end() method on the same pin.
+**NOTE:**  The SPI firmware ONLY initializes the user-specified slave-select pin. The user's code must control the slave-select pin before and after each SPI transfer for the desired SPI slave device. Calling `SPI.end()` does NOT reset the pin mode of the SPI pins.
 
 ```C++
 // SYNTAX
-SPI.begin();
+SPI.begin(ss);
 ```
+
+Where, the parameter `ss` is the SPI device slave-select pin to initialize.  If no pin is specified, the default pin is `SS (A2)`.
+
+{{#if photon}}
+```C++
+// Example of using SPI1 on the Photon, with D3 as the SS pin:
+SPI1.begin(D3);
+```
+{{/if}}
 
 ### end()
 
@@ -1475,9 +1948,60 @@ SPI.setBitOrder(order);
 
 Where, the parameter `order` can either be `LSBFIRST` or `MSBFIRST`.
 
+### setClockSpeed
+
+Sets the SPI clock speed. The value can be specified as a direct value, or as
+as a value plus a multiplier.
+
+
+```
+// EXAMPLE
+
+// set the clock speed as close (but not over) to 15 MHz
+SPI.setClockSpeed(15, MHZ));
+SPI.setClockSpeed(15000000));
+```
+
+The clock speed cannot be set to any arbitrary value, but is set internally by using a
+divider (see `SPI.setClockDivider()`) that gives the highest clock speed not greater
+than the one specified.
+
+This method can make writing portable code easier, since it specifies the clock speed
+absolutely, giving comparable results across devices. In contrast, specifying
+the clock speed using dividers is typically not portable since is dependent upon the system clock speed.
+
+### setClockDividerReference
+
+This function aims to ease porting code from other platforms by setting the clock speed that
+`SPI.setClockDivider` is relative to.
+
+For example, when porting an Arduino SPI library, each to `SPI.setClockDivider()` would
+need to be changed to reflect the system clock speed of the device being used.
+
+This can be avoided by placing a call to `SPI.setClockDividerReference()` before the other SPI calls.
+
+```cpp
+
+// setting divider reference
+
+// place this early in the library code
+SPI.setClockDividerReference(SPI_CLK_ARDUINO);
+
+// then all following calls to setClockDivider() will give comparable clock speeds
+// to running on the Arduino Uno
+
+// sets the clock to as close to 4MHz without going over.
+SPI.setClockDivider(SPI_CLK_DIV4);
+```
+
+The default clock divider reference is the system clock.  {{#if core}}On the Core, this is 72 MHz.{{/if}} {{#if photon}}On the Photon, the system clock speeds are:
+- SPI - 60 MHz
+- SPI1 - 30 MHz
+{{/if}}
+
 ### setClockDivider()
 
-Sets the SPI clock divider relative to the system clock. The available dividers  are 2, 4, 8, 16, 32, 64, 128 or 256. The default setting is SPI_CLOCK_DIV4, which sets the SPI clock to one-quarter the frequency of the system clock.
+Sets the SPI clock divider relative to the selected clock reference. The available dividers  are 2, 4, 8, 16, 32, 64, 128 or 256. The default setting is SPI_CLOCK_DIV4, which sets the SPI clock to one-quarter the frequency of the system clock.
 
 ```C++
 // SYNTAX
@@ -1518,6 +2042,29 @@ Transfers one byte over the SPI bus, both sending and receiving.
 SPI.transfer(val);
 ```
 Where the parameter `val`, can is the byte to send out over the SPI bus.
+
+{{#if photon}}
+### transfer(void*, void*, size_t, std::function)
+
+For transferring a large number of bytes, this form of transfer() uses DMA to speed up SPI data transfer and at the same time allows you to run code in parallel to the data transmission. The function initialises, configures and enables the DMA peripheral’s channel and stream for the selected SPI peripheral for both outgoing and incoming data and initiates the data transfer. If a user callback function is passed then it will be called after completion of the DMA transfer. This results in asynchronous filling of RX buffer after which the DMA transfer is disabled till the transfer function is called again. If NULL is passed as a callback then the result is synchronous i.e. the function will only return once the DMA transfer is complete.
+
+NOTE: The SPI protocol is based on a one byte OUT / one byte IN inteface. For every byte expected to be received, one (dummy, typicall 0x00 or 0xFF) byte must be sent.
+
+```C++
+// SYNTAX
+SPI.transfer(tx_buffer, rx_buffer, length, myFunction)
+```
+
+Parameters:
+
+- `tx_buffer`: array of Tx bytes that is filled by the user before starting the SPI transfer
+- `rx_buffer`: array of Rx bytes that will be filled by the slave during the SPI transfer
+- `length`: number of data bytes that are to be transferred
+- `myFunction`: user specified function callback to be called after completion of the SPI DMA transfer
+
+NOTE: `tx_buffer` and `rx_buffer` sizes MUST be identical (of size `length`)
+
+{{/if}}
 
 Wire (I2C)
 ----
@@ -1567,6 +2114,13 @@ Wire.begin(address);
 
 Parameters: `address`: the 7-bit slave address (optional); if not specified, join the bus as an I2C master.  If address is specified, join the bus as an I2C slave.
 
+
+### end()
+
+*Since 0.4.6.*
+
+Releases the I2C bus so that the pins used by the I2C bus are available for general purpose I/O.
+
 ### isEnabled()
 
 Used to check if the Wire library is enabled already.  Useful if using multiple slave devices on the same I2C bus.  Check if enabled before calling Wire.begin() again.
@@ -1604,6 +2158,14 @@ Parameters:
 - `stop`: boolean. `true` will send a stop message after the request, releasing the bus. `false` will continually send a restart after the request, keeping the connection active. The bus will not be released, which prevents another master device from transmitting between messages. This allows one master device to send multiple transmissions while in control.  If no argument is specified, the default value is `true`.
 
 Returns: `byte` : the number of bytes returned from the slave device.  If a timeout occurs, will return `0`.
+
+### reset()
+
+*Since 0.4.6.*
+
+Attempts to reset the I2C bus. This should be called only if the I2C bus has
+has hung. In 0.4.6 additional rework was done for the I2C bus on the Photon, so
+we hope this function isn't required, and it's provided for completeness.
 
 ### beginTransmission()
 
@@ -1700,7 +2262,7 @@ Reads a byte that was transmitted from a slave device to a master after a call t
 
 ```C++
 // SYNTAX
-Wire.read();
+Wire.read() ;
 ```
 
 Returns: The next byte received
@@ -1892,7 +2454,7 @@ void setup()
   // Make sure your Serial Terminal app is closed before powering your device
   Serial.begin(9600);
   // Now open your Serial Terminal, and hit any key to continue!
-  while(!Serial.available()) SPARK_WLAN_Loop();
+  while(!Serial.available()) Particle.process();
 
   Serial.println(WiFi.localIP());
   Serial.println(WiFi.subnetMask());
@@ -2000,7 +2562,7 @@ void setup()
   // Make sure your Serial Terminal app is closed before powering your device
   Serial.begin(9600);
   // Now open your Serial Terminal, and hit any key to continue!
-  while(!Serial.available()) SPARK_WLAN_Loop();
+  while(!Serial.available()) Particle.process();
 
   Serial.println("connecting...");
 
@@ -2147,6 +2709,59 @@ Discard any bytes that have been written to the client but not yet read.
 client.flush();
 ```
 
+### remoteIP()
+
+_Since 0.4.5_
+
+Retrieves the remote `IPAddress` of a connected `TCPClient`. When the `TCPClient` is retrieved
+from `TCPServer.available()` (where the client is a remote client connecting to a local server) the
+`IPAddress` gives the remote address of the connecting client.
+
+When `TCPClient` was created directly via `TCPClient.connect()`, then `remoteIP`
+returns the remote server the client is connected to.
+
+```C++
+
+// EXAMPLE - TCPClient from TCPServer
+
+TCPServer server(80);
+// ...
+
+void setup()
+{
+    Serial.begin(9600);
+    server.begin(80);
+}
+
+void loop()
+{
+    // check for a new client to our server
+    TCPClient client = server.available();
+    if (client.connected())
+    {
+        // we got a new client
+        // find where the client's remote address
+        IPAddress clientIP = client.remoteIP();
+        // print the address to Serial
+        Serial.println(clientIP);
+    }
+}
+```
+
+```C++
+// EXAMPLE - TCPClient.connect()
+
+TCPClient client;
+client.connect("www.google.com", 80);
+if (client.connected())
+{
+    IPAddress clientIP = client.remoteIP();
+    // IPAddress equals whatever www.google.com resolves to
+}
+
+```
+
+
 ### stop()
 
 Disconnect from the server.
@@ -2161,7 +2776,25 @@ client.stop();
 
 This class enables UDP messages to be sent and received.
 
+_Note that UDP does not guarantee that messages are always delivered, or that
+they are delivered in the order supplied. In cases where your application
+requires a reliable connection, `TCPClient` is a simpler alternative._
+
+{{#if core}}
 The UDP protocol implementation has known issues that will require extra consideration when programming with it. Please refer to the Known Issues category of the Community for details. The are also numerous working examples and workarounds in the searchable Community topics.
+{{/if}}
+
+There are two primary ways of working with UDP - buffered operation and unbuffered operation.
+
+1. buffered operation allows you to read and write packets in small pieces, since the system takes care of allocating the required buffer to hold the entire packet.
+ - to read a buffered packet, call `parsePacket`, then use `available` and `read` to retrieve the packet received
+ - to write a buffered packet, optionally call `setBuffer` to set the maximum size of the packet (the default is 512 bytes), followed by
+  `beginPacket`, then as many calls to `write`/`print` as necessary to build the packet contents, followed finally by `end` to send the packet over the network.
+
+2. unbuffered operation allows you to read and write entire packets in a single operation - your application is responsible for allocating the buffer to contain the packet to be sent or received over the network.
+ - to read an unbuffered packet, call `receivePacket` with a buffer to hold the received packet.
+ - to write an unbuffered packet,  call `sendPacket` with the packet buffer to send, and the destination address.
+
 
 <!-- TO DO -->
 <!-- Add more examples-->
@@ -2243,7 +2876,9 @@ It returns nothing.
 
 ### endPacket()
 
-Called after writing UDP data to the remote connection.
+Called after writing buffered UDP data using `write()` or `print()`. The buffered data is then sent to the
+remote UDP peer.
+
 
 ```cpp
 // SYNTAX
@@ -2254,7 +2889,7 @@ Parameters: NONE
 
 ### write()
 
-Writes UDP data to the remote connection. Must be wrapped between `beginPacket()` and `endPacket()`. `beginPacket()` initializes the packet of data, it is not sent until `endPacket()` is called.
+Writes UDP data to the buffe - no data is actually sent. Must be wrapped between `beginPacket()` and `endPacket()`. `beginPacket()` initializes the packet of data, it is not sent until `endPacket()` is called.
 
 ```cpp
 // SYNTAX
@@ -2321,7 +2956,7 @@ Parameters: NONE
 
 ### remoteIP()
 
-Returns the IP address of sender of the packet parsed by `UDP.parsePacket()`.
+Returns the IP address of sender of the packet parsed by `UDP.parsePacket()`/`UDP.receivePacket()`.
 
 ```cpp
 // SYNTAX
@@ -2331,12 +2966,12 @@ Parameters: NONE
 
 Returns:
 
- - 4 bytes : the IP address of the sender of the packet parsed by `UDP.parsePacket()`.
+ - IPAddress : the IP address of the sender of the packet parsed by `UDP.parsePacket()`/`UDP.receivePacket()`.
 
 
 ### remotePort()
 
-Returns the port from which the UDP packet was sent. The packet is the one most recently processed by  UDP.parsePacket()`.
+Returns the port from which the UDP packet was sent. The packet is the one most recently processed by `UDP.parsePacket()`/`UDP.receivePacket()`.
 
 ```cpp
 // SYNTAX
@@ -2346,7 +2981,137 @@ Parameters: NONE
 
 Returns:
 
-- `int`: the port from which the packet parsed by `UDP.parsePacket()` was sent.
+- `int`: the port from which the packet parsed by `UDP.parsePacket()`/`UDP.receivePacket()` was sent.
+
+
+### setBuffer()
+
+_Since 0.4.5_
+
+Initializes the buffer used by a `UDP` instance for buffered reads/writes. The buffer
+is used when your application calls `beginPacket()` and `parsePacket()`.  If `setBuffer()` isn't called,
+the buffer size defaults to 512 bytes, and is allocated when buffered operation is initialized via `beginPacket()` or `parsePacket()`.
+
+```cpp
+// SYNTAX - dynamically allocated buffer
+
+UDP udp;
+
+// uses a dynamically allocated buffer that is 1024 bytes in size
+if (!udp.setBuffer(1024))
+{
+    // on no, couldn't allocate the buffer
+}
+else
+{
+    // 'tis good!
+}
+
+```
+
+```cpp
+// SYNTAX - application-provided buffer
+
+UDP udp;
+
+char appBuffer[800];
+udp.setBuffer(800, appBuffer);
+```
+
+Parameters:
+
+- unsigned int: the size of the buffer
+- pointer:  the buffer. If not provided, or `NULL` the system will attempt to
+ allocate a buffer of the size requested.
+
+Returns:
+- `true` when the buffer was successfully allocated, `false` if there was insufficient memory. (For application-provided buffers
+the function always returns `true`.)
+
+### releaseBuffer()
+
+_Since 0.4.5_
+
+Releases the buffer previously set by a call to `setBuffer()`.
+
+_This is typically required only when performing advanced memory management and the UDP instance is
+not scoped to the lifetime of the application._
+
+### sendPacket()
+
+_Since 0.4.5_
+
+Sends a packet, unbuffered, to a remote UDP peer.
+
+```cpp
+
+// SYNTAX
+
+UDP udp;
+
+const size_t bufferSize = 1024;
+char buffer[bufferSize];
+
+// which address and port to send the data to
+IPAddress remoteIP(192,168,10,234);
+int remotePort = 22;
+
+// fill the buffer with goodness
+// ...
+
+// now send the buffer as a packet
+
+if (udp.sendPacket(buffer, bufferSize, remoteIP, remotePort)<0) {
+    // opps, packet not sent
+}
+
+```
+
+Parameters:
+- pointer (buffer): the buffer of data to send
+- int (bufferSize): the number of bytes of data to send
+- IPAddress (remoteIP): the destination address of the remote peer
+- port (remotePort): the destination port of the remote peer
+
+Returns:
+- The number of bytes written. Negative value on error.
+
+{{#if photon}}
+### joinMulticast()
+
+_Since 0.4.5_
+
+Join a multicast address for all UDP sockets which are on the same network interface as this one.
+
+```cpp
+// SYNTAX
+
+UDP udp;
+
+udp.begin();
+udp.joinMulticast(224,0,0,0);
+```
+
+This will allow reception of multicast packets sent to the given address for UDP sockets
+which have bound the port to which the multicast packet was sent.
+Must be called only after `begin()` so that the network interface is established.
+
+### leaveMulticast()
+
+_Since 0.4.5_
+
+Leaves a multicast address on all UDP sockets that are on the same network interface as this one.
+
+```cpp
+// SYNTAX
+
+UDP udp;
+
+udp.leaveMulticast();
+```
+
+{{/if}}
+
 
 ## Libraries
 
@@ -2364,7 +3129,8 @@ int pos = 0;    // variable to store the servo position
 
 void setup()
 {
-  myservo.attach(A0);  // attaches the servo on the A0 pin to the servo object
+  myservo.attach(D0);  // attaches the servo on the D0 pin to the servo object
+  // Use the pins that has PWM on the Photon : D0, D1, D2, D3, A4, A5, WKP, RX, and TX
 }
 
 
@@ -2383,7 +3149,7 @@ void loop()
 }
 ```
 
-NOTE: Unlike Arduino, you do not need to include `Servo.h`; it is included automatically.
+**NOTE:** Unlike Arduino, you do not need to include `Servo.h`; it is included automatically.
 
 
 ### attach()
@@ -2447,6 +3213,25 @@ Detach the Servo variable from its pin.
 // SYNTAX
 servo.detach()
 ```
+
+### setTrim()
+
+Sets a trim value that allows minute timing adjustments to correctly
+calibrate 90 as the stationary point.
+
+```cpp
+// SYNTAX
+
+// shortens the pulses sent to the servo
+servo.setTrim(-3);
+
+// a larger trim value
+servo.setTrim(30);
+
+// removes any previously configured trim
+servo.setTrim(0);
+```
+
 
 ### RGB
 
@@ -2534,6 +3319,60 @@ RGB.brightness(128);
 // Scale the RGB LED brightness to 100%
 RGB.brightness(255);
 ```
+
+### onChange(handler)
+
+Specifies a function to call when the color of the RGB LED changes. It can be used to implement an external RGB LED.
+
+```cpp
+// EXAMPLE USAGE
+
+void ledChangeHandler(uint8_t r, uint8_t g, uint8_t b) {
+  // Duplicate the green color to an external LED
+  analogWrite(D0, g);
+}
+
+void setup()
+{
+  pinMode(D0, OUTPUT);
+  RGB.onChange(ledChangeHandler);
+}
+
+```
+
+---
+
+`onChange` can also call a method on an object.
+
+```
+// Automatically mirror the onboard RGB LED to an external RGB LED
+// No additional code needed in setup() or loop()
+
+class ExternalRGB {
+  public:
+    ExternalRGB(pin_t r, pin_t g, pin_t b) : pin_r(r), pin_g(g), pin_b(b) {
+      pinMode(pin_r, OUTPUT);
+      pinMode(pin_g, OUTPUT);
+      pinMode(pin_b, OUTPUT);
+      RGB.onChange(&ExternalRGB::handler, this);
+    }
+
+    void handler(uint8_t r, uint8_t g, uint8_t b) {
+      analogWrite(pin_r, 255 - r);
+      analogWrite(pin_g, 255 - g);
+      analogWrite(pin_b, 255 - b);
+    }
+
+    private:
+      pin_t pin_r;
+      pin_t pin_g;
+      pin_t pin_b;
+};
+
+// Connect an external RGB LED to D0, D1 and D2 (R, G, and B)
+ExternalRGB myRGB(D0, D1, D2);
+```
+
 
 ### Time
 
@@ -2760,7 +3599,7 @@ Set the system time to the given timestamp.
 *NOTE*: This will override the time set by the Particle Cloud.
 If the cloud connection drops, the reconnection handshake will set the time again
 
-Also see: [`Spark.syncTime()`](#spark-synctime)
+Also see: [`Particle.syncTime()`](#particle-synctime)
 
 ```cpp
 // Set the time to 2014-10-11 13:37:42
@@ -2778,6 +3617,60 @@ Serial.print(Time.timeStr()); // Wed May 21 01:08:47 2014
 ```
 
 Returns: String
+
+_NB: In 0.3.4 and earlier, this function included a newline at the end of the returned string. This has been removed in 0.4.0._
+
+### format()
+
+Formats a time string using a configurable format.
+
+```cpp
+// EXAMPLE
+
+time_t time = Time.now();
+Time.format(time, TIME_FORMAT_DEFAULT); // Sat Jan 10 08:22:04 2004 , same as Time.timeStr()
+
+Time.zone(-5.25);  // setup a time zone, which is part of the ISO6801 format
+Time.format(time, TIME_FORMAT_ISO8601_FULL); // 2004-01-10T08:22:04-05:15
+
+```
+
+The formats available are:
+
+- `TIME_FORMAT_DEFAULT`
+- `TIME_FORMAT_ISO8601_FULL`
+- custom format based on `strftime()`
+
+{{#if core}}
+Note that the format function is implemented using `strftime()` which adds several kilobytes to the size of firmware.
+Application firmware that has limited space available may want to consider using simpler alternatives that consume less firmware space, such as `sprintf()`.
+{{/if}}
+
+### setFormat()
+
+Sets the format string that is the default value used by `format()`.
+
+```cpp
+
+Time.setFormat(TIME_FORMAT_ISO8601_FULL);
+
+```
+
+In more advanced cases, you can set the format to a static string that follows
+the same syntax as the `strftime()` function.
+
+```
+// custom formatting
+
+Time.format(Time.now(), "Now it's %I:%M%p.");
+// Now it's 03:21AM.
+
+```
+
+### getFormat()
+
+Retrieves the currently configured format string for time formatting with `format()`.
+
 
 ## Other Functions
 
@@ -2816,7 +3709,12 @@ The parameter for millis is an unsigned long, errors may be generated if a progr
 
 ### micros()
 
-Returns the number of microseconds since the device began running the current program. This number will overflow (go back to zero), after exactly 59,652,323 microseconds (0 .. 59,652,322) on the Core and after exactly 35,791,394 microseconds (0 .. 35,791,394) on the Photon.
+Returns the number of microseconds since the device began running the current program.
+
+Firmware v0.4.3 and earlier:
+- This number will overflow (go back to zero), after exactly 59,652,323 microseconds (0 .. 59,652,322) on the Core and after exactly 35,791,394 microseconds (0 .. 35,791,394) on the Photon.
+
+
 
 `unsigned long time = micros();`
 
@@ -2931,6 +3829,25 @@ void blink()
 }
 ```
 
+You can attach a method in a C++ object as an interrupt handler.
+
+```cpp
+class Robot {
+  public:
+    Robot() {
+      attachInterrupt(D2, &Robot::handler, this, CHANGE);
+    }
+    void handler() {
+      // do something on interrupt
+    }
+};
+
+Robot myRobot;
+// nothing else needed in setup() or loop()
+```
+
+---
+
 External interrupts are supported on the following pins:
 
 - Core: D0, D1, D2, D3, D4, A0, A1, A3, A4, A5, A6, A7
@@ -2962,7 +3879,7 @@ Interrupts are useful for making things happen automatically in microcontroller 
 If you wanted to insure that a program always caught the pulses from a rotary encoder, so that it never misses a pulse, it would make it very tricky to write a program to do anything else, because the program would need to constantly poll the sensor lines for the encoder, in order to catch pulses when they occurred. Other sensors have a similar interface dynamic too, such as trying to read a sound sensor that is trying to catch a click, or an infrared slot sensor (photo-interrupter) trying to catch a coin drop. In all of these situations, using an interrupt can free the microcontroller to get some other work done while not missing the input.
 
 
-### detatchInterrupt()
+### detachInterrupt()
 
 Turns off the given interrupt.
 
@@ -3352,56 +4269,249 @@ uint8_t val = 0x45;
 EEPROM.write(addr, val);
 ```
 
-## System Threading
+### update()
+This method is similar to `EEPROM.write()` however this method will only write data if the cell contents pointed to by `address` is different to `value`. This method can help prevent unnecessary wear on the EEPROM cells.
 
-_COMING SOON, NOT YET RELEASED_
+`update(address, value)`
 
-On platforms that support multithreading (presently, the Photon), there are two
-separate threads of execution:
+`address` is the address (int) of the EERPOM location that needs to be updated
+`value` is the byte data (uint8_t) to write
 
-- The system loop: this maintains the wifi and cloud connection state, performs
-  firmware updates and setup mode
-- The application loop: whatever the application code performs from within `loop()`.
+```C++
+// EXAMPLE USAGE
+// Update a byte value to the second byte of EEPROM
+int addr = 1;
+uint8_t val = 0x45;
+EEPROM.update(addr, val);
+```
 
-On non-threaded platforms, the system loop and the application loop are interleaved, which can lead to the application loop being delayed while the system loop is busy.  On threaded platforms, this does not occur since the application and system loops each run in a separate thread of execution.
+### get()
+This function will retrieve any object from the EEPROM. Two parameters are needed to call this function. The first is an int containing the address from where the object needs to be read, and the second is the object you would like to read.
 
-### `SYSTEM_THREAD` macro
+`get(address, object)`
 
-System threading is enabled by default on platforms where it is supported. To enable it explicitly, add
+`address` is the address (int) of the EERPOM location
+`object` is the object data that would be read
+
+```C++
+// EXAMPLE USAGE
+// Read a custom object from EEPROM addres
+int addr = 10;
+float fValue = 0.00f;
+EEPROM.get(addr, fValue);
+
+struct MyObject{
+float field1;
+byte field2;
+char name[10];
+};
+MyObject myObj;
+EEPROM.get(addr, myObj);
+```
+
+### put()
+This function will write any object to the EEPROM. Two parameters are needed to call this function. The first is an int containing the address that is to be written, and the second is the object you would like to write.
+
+`put(address, object)`
+
+`address` is the address (int) of the EERPOM location to write to
+`object` is the object data to write
+
+```C++
+// EXAMPLE USAGE
+// Write a object value to the EEPROM address
+int addr = 10;
+float fValue = 123.456f;
+EEPROM.put(addr, fValue);
+
+struct MyObject{
+float field1;
+byte field2;
+char name[10];
+};
+MyObject myObj = {12.34f, 25, "Test!"}
+EEPROM.put(addr, myObj);
+```
+
+{{#if photon}}
+## Backup RAM
+
+The STM32F2xx features 4KB of backup RAM. Unlike the regular RAM memory, the backup
+RAM is retained so long as power is provided to VIN or to VBAT. In particular this means that
+the data in backup RAM is retained when:
+
+- the device goes into deep sleep mode
+- the device is software reset (while maintaining power)
+- power is removed from VIN but retained on VBAT (which will retain both the backup RAM and the RTC)
+
+Note that _if neither VIN or VBAT is powered then the contents of the backup RAM will be lost; for data to be
+retained, the device needs a power source. Backup RAM is also not retained if the processor is hard reset, i.e. pressing
+the reset button._  For persistent storage of data through a total power loss or hard reset, please use the [EEPROM](#eeprom) library.
 
 
-`SYSTEM_THREAD(ENABLED);`
+### Storing data in backup RAM
+
+With regular RAM, data is stored in RAM by declaring variables.
+
+```C++
+// regular variables stored in RAM
+float lastTemperature;
+int numberOfPresses;
+int numberOfTriesRemaining = 10;
+```
+
+This tells the system to store these values in RAM so they can be changed. The
+system takes care of giving them initial values. Before
+they are set, they will have the initial value 0 if an intial value isn't specified.
+
+Variables stored in backup RAM follow a similar scheme but use an additional keyword `retained`:
+
+```C++
+// retained variables stored in backup RAM
+retained float lastTemperature;
+retained int numberOfPresses;
+retained int numberOfTriesRemaining = 10;
+```
+
+A `retained` variable is similar to a regular variable, with some key differences:
+
+- it is stored in backup RAM - no space is used in regular RAM
+- instead of being initialized on each program start, `retained` variables are initialized
+when the device is first powered on (from being powered off.) When the device is powered on, the system takes care of setting these
+ variables to their initial values.  `lastTemperature` and `numberOfPresses` would be initialized to 0, while
+`nmberOfTriesRemaining` would be initialized to 10.
+- the last value set on the variable is retained *as long as the device is powered from VIN or VBAT and is not hard reset*.
+
+Retained variables can be updated freely just as with regular RAM variables and operate
+just as fast as regular RAM variables.
+
+Here's some typical use cases for `retained` variables:
+
+- storing data for use after waking up from deep sleep
+- storing data for use after a powered software reset
+
+Finally, if you don't need the persistence of `retained` variables, you
+can consider them simply as 4KB of extra RAM to use.
+
+```C++
+// EXAMPLE USAGE
+STARTUP(System.enableFeature(FEATURE_RETAINED_MEMORY));
+
+retained int value = 10;
+
+void setup() {
+    Serial.begin(9600);
+}
+
+void loop() {
+    Serial.println(value);
+    value = 20;
+    Serial.println(value);
+    delay(100); // Give the serial TX buffer a chance to empty
+    System.sleep(SLEEP_MODE_DEEP, 10);
+    // Or try a software reset
+    // System.reset();
+}
+
+/* OUTPUT
+ *
+ * 10
+ * 20
+ * DEEP SLEEP for 10 seconds
+ * 20 (value is retained as 20)
+ * 20
+ *
+ */
+```
+
+### Enabling Backup RAM
+
+The backup RAM is disabled by default, since it does require some power to maintain
+which may not be desired on some low-powered projects.  The difference in power consumption
+is roughly 5uA or less on VIN and 9uA or less on VBAT.
+
+The backup RAM is enabled with this code (to be placed at the top of your code outside of any functions):
+
+```cpp
+
+STARTUP(System.enableFeature(FEATURE_RETAINED_MEMORY));
+
+```
+
+### Making changes to the layout or types of retained variables
+
+When adding new `retained` variables to an existing set of `retained` variables,
+it's a good idea to add them after the existing variables. this ensures the
+existing retained data is still valid even with the new code.
+
+For example, if we wanted to add a new variable `char name[50]` we should add this after
+the existing `retained` variables:
+
+```
+retained float lastTemperature;
+retained int numberOfPresses;
+retained int numberOfTriesRemaining = 10;
+retained char name[50];
+```
+
+If instead we added `name` to the beginning or middle of the block of variables,
+the program would end up reading the stored values of the wrong variables.  This is
+because the new code would be expecting to find the variables in a different memory location.
+
+Similarly, you should avoid changing the type of your variables as this will also
+alter the memory size and location of data in memory.
+
+This caveat is particularly important when updating firmware without power-cycling
+the device, which uses a software reset to reboot the device.  This will allow previously
+`retained` variables to persist.
+
+During development, a good suggestion to avoid confusion is to design your application to work
+correctly when power is being applied for the first time, and all `retained` variables are
+initialized.  If you must rearrange variables, simply power down the device after changes are made
+to allow reinitialization of `retained` variables on the next power up of the device.
+Note: If using VBAT, ensure to completely remove its power source as well.
+
+It's perfectly fine to mix regular and `retained` variables, but for clarity we recommend
+keeping the `retained` variables in their own separate block. In this way it's easier to recognize
+when new `retained` variables are added to the end of the list, or when they are rearranged.
 
 
-to your application code.
+{{/if}}
 
+## STARTUP()
 
-To disable multithreading and revert to a single thread of execution, place the following code in your application:
+_Since 0.4.5_
 
+Typically an application will have its initialization code in the `setup()` function.
+This works well if a delay of a few seconds from power on/reset is acceptable.
 
-`SYSTEM_THREAD(DISABLED)`
+In other cases, the application wants to have code run as early as possible, before the cloud or network connection
+are initialized. The `STARTUP()` function instructs the system to execute the code early on in startup.
 
+```cpp
+void setup_the_fundulating_conbobulator()
+{
+   pinMode(D3, OUTPUT);
+   digitalWrite(D3, HIGH);
+}
 
-### Effects of System Threading
+// The STARTUP call is placed outside of any other function
+// What goes inside is any valid code that can be executed. Here, we use a function call.
+// Using a single function is preferable to having several `STARTUP()` calls.
+STARTUP( setup_the_fundulating_conbobulator() );
 
-When system threading is enabled:
+```
 
-- The application is not blocked by system code at all. setup() and loop() function independently of what the system is doing.
-- The application continues to run during WiFi setup mode. Application code can detect that the system is in WiFi setup mode by calling `WiFi.listening()`.
-- The application continues to run during over-the-air or over-the-wire firmware updates
-- Cloud functions registered with `Spark.function()` execute on the application thread in between calls to loop().
-- Calling `Spark.process()` has no affect.
-- The system mode does not influence application execution.
+The code referenced by `STARTUP()` is executed very early in the startup sequence, so it's best suited
+to initializing digital I/O and peripherals. Networking setup code should still be placed in `setup()`.
+{{#if photon}}
+Although there is one notable exception - `WiFi.selectAntenna()` should be called from `STARTUP()` to select the default antenna before the Wi-Fi connection is made.
+{{/if}}
 
-When system threading is disabled:
+_Note that when startup code performs digital I/O, there will still be a period of at least few hundred milliseconds
+where the I/O pins are in their default power-on state, namely `INPUT`. Circuits should be designed with this
+in mind, using pullup/pulldown resistors as appropriate._
 
-- The application may stop executing intermittently when the wifi or cloud connection goes offline
-- The application does not run during WiFi setup mode. That the system is in WiFi setup mode can be detected by checking the result of `WiFi.listening()` on a timer interrupt.
-- The application does not run during over-the-air or over-the-wire firmware updates
-- Cloud functions registered with `Spark.function()` execute in-between invocations of `loop()` or when the application calls `Spark.process()`.
-- The system mode influences when the application setup() and loop() function are called in relation to the cloud connection state.
-
-IN both cases, the system mode determines the initial cloud connection state - connected for AUTOMATIC mode, disconnected for SEMI_AUTOMATIC/MANUAL modes.
 
 ## System modes
 
@@ -3430,13 +4540,13 @@ void loop() {
 
 - When the device starts up, it automatically tries to connect to Wi-Fi and the Particle Cloud.
 - Once a connection with the Particle Cloud has been established, the user code starts running.
-- Messages to and from the Cloud are handled in between runs of the user loop; the user loop automatically alternates with [`Spark.process()`](#spark-process).
-- `Spark.process()` is also called during any delay() of at least 1 second.
-- If the user loop blocks for more than about 20 seconds, the connection to the Cloud will be lost. To prevent this from happening, the user can call `Spark.process()` manually.
+- Messages to and from the Cloud are handled in between runs of the user loop; the user loop automatically alternates with [`Particle.process()`](#particle-process).
+- `Particle.process()` is also called during any delay() of at least 1 second.
+- If the user loop blocks for more than about 20 seconds, the connection to the Cloud will be lost. To prevent this from happening, the user can call `Particle.process()` manually.
 - If the connection to the Cloud is ever lost, the device will automatically attempt to reconnect. This re-connection will block from a few milliseconds up to 8 seconds.
 - `SYSTEM_MODE(AUTOMATIC)` does not need to be called, because it is the default state; however the user can invoke this method to make the mode explicit.
 
-In automatic mode, the user can still call `Spark.disconnect()` to disconnect from the Cloud, but is then responsible for re-connecting to the Cloud by calling `Spark.connect()`.
+In automatic mode, the user can still call `Particle.disconnect()` to disconnect from the Cloud, but is then responsible for re-connecting to the Cloud by calling `Particle.connect()`.
 
 ### Semi-automatic mode
 
@@ -3452,7 +4562,7 @@ void setup() {
 
 void loop() {
   if (buttonIsPressed()) {
-    Spark.connect();
+    Particle.connect();
   } else {
     doOfflineStuff();
   }
@@ -3462,12 +4572,12 @@ void loop() {
 The semi-automatic mode is therefore much like the automatic mode, except:
 
 - When the device boots up, the user code will begin running immediately.
-- When the user calls [`Spark.connect()`](#spark-connect), the user code will be blocked, and the device will attempt to negotiate a connection. This connection will block until either the device connects to the Cloud or an interrupt is fired that calls [`Spark.disconnect()`](#spark-disconnect).
+- When the user calls [`Particle.connect()`](#particle-connect), the user code will be blocked, and the device will attempt to negotiate a connection. This connection will block until either the device connects to the Cloud or an interrupt is fired that calls [`Particle.disconnect()`](#particle-disconnect).
 
 ### Manual mode
 
 
-The "manual" mode puts the device's connectivity completely in the user's control. This means that the user is responsible for both establishing a connection to the Particle Cloud and handling communications with the Cloud by calling [`Spark.process()`](#spark-process) on a regular basis.
+The "manual" mode puts the device's connectivity completely in the user's control. This means that the user is responsible for both establishing a connection to the Particle Cloud and handling communications with the Cloud by calling [`Particle.process()`](#particle-process) on a regular basis.
 
 ```cpp
 SYSTEM_MODE(MANUAL);
@@ -3478,10 +4588,10 @@ void setup() {
 
 void loop() {
   if (buttonIsPressed()) {
-    Spark.connect();
+    Particle.connect();
   }
-  if (Spark.connected()) {
-    Spark.process();
+  if (Particle.connected()) {
+    Particle.process();
     doOtherStuff();
   }
 }
@@ -3490,11 +4600,191 @@ void loop() {
 When using manual mode:
 
 - The user code will run immediately when the device is powered on.
-- Once the user calls [`Spark.connect()`](#spark-connect), the device will attempt to begin the connection process.
-- Once the device is connected to the Cloud ([`Spark.connected()`](#spark-connected)` == true`), the user must call `Spark.process()` regularly to handle incoming messages and keep the connection alive. The more frequently `Spark.process()` is called, the more responsive the device will be to incoming messages.
-- If `Spark.process()` is called less frequently than every 20 seconds, the connection with the Cloud will die. It may take a couple of additional calls of `Spark.process()` for the device to recognize that the connection has been lost.
+- Once the user calls [`Particle.connect()`](#particle-connect), the device will attempt to begin the connection process.
+- Once the device is connected to the Cloud ([`Particle.connected()`](#particle-connected)` == true`), the user must call `Particle.process()` regularly to handle incoming messages and keep the connection alive. The more frequently `Particle.process()` is called, the more responsive the device will be to incoming messages.
+- If `Particle.process()` is called less frequently than every 20 seconds, the connection with the Cloud will die. It may take a couple of additional calls of `Particle.process()` for the device to recognize that the connection has been lost.
+
+
+{{#if photon}}
+## System Thread
+
+*Since 0.4.6.*
+
+> Please note that the System Thread feature is in Beta - we advise only using this
+in production after extensive testing.
+
+The System Thread is a system configuration that helps ensure the application loop
+is not interrupted by the System background processing and network management.
+It does this by running the application loop and the system loop on separate threads,
+so they execute in parallel rather than sequentially.
+
+At present, System Thread is an opt-in change. To enable system threading for your application, add
+
+```
+SYSTEM_THREAD(ENABLED);
+```
+
+to the top of your application code.
+
+
+### System Threading Behavior
+
+When the system thread is enabled, application execution changes compared to
+non-threaded execution:
+
+- `setup()` is executed immediately regardless of the system mode, which means
+setup typically executes before the Network or Cloud is connected. Calls to
+`Particle.function()`, `Particle.variable()` and `Particle.subscribe()` will work
+as intended whether the cloud is connected or not. `Particle.publish()` will return
+`false` when the cloud is not available and the event will not be published. see `waitUntil` below
+for details on waiting for the network or cloud connection.
+
+- after `setup()` is called, `loop()` is called repeatedly, independent from the current state of the
+network or cloud connection. The system does not block `loop()` waiting
+for the network or cloud to be available, nor while connecting to Wi-Fi.
+
+- System modes `SEMI_AUTOMATIC` and `MANUAL` behave identically - both of these
+modes do not not start the Networking or a Cloud
+connection automatically. while `AUTOMATIC` mode connects to the cloud as soon as possible.
+Neither has an affect on when the application `setup()` function is run - it is run
+as soon as possible, independently from the system network activities, as described above.
+
+- In `MANUAL` mode there is no need to call `Particle.process()` (but calling Particle.process()
+does no harm if you want to keep the code in place.) The system thread takes care of calling `Particle.process()` itself.
+
+- It is no longer necessary to inject `delay()` into code in order to keep the system background
+processing active. The application loop is free to block indefinitely without affecting the cloud connection.
+
+- Cloud functions registered with `Particle.function()` and event handlers
+registered with `Particle.subscribe()` execute on the application
+thread in between calls to `loop()`. (This is also the case in non-threaded mode.)
+A long running cloud function will block the application loop (since it is application code)
+but not the system code, so cloud connectivity is maintained.
+
+
+### Waiting for the system
+
+The [waitUntil](#waituntil) function can be used to wait for something to happen.
+Typically this is waiting for something that the system is doing,
+such as waiting for WiFi to be ready or the cloud to be connected.
+
+
+{{/if}}
+
+## `waitUntil`
+
+Sometimes you want your application  to wait until the system is in a given state.
+
+For example, you want to publish a critical event. this can be done using the `waitUntil` function:
+
+```cpp
+    // wait for the cloud to be connected
+    waitUntil(Particle.connected);
+    bool sent = Particle.publish("weather", "sunny");
+```
+
+This will delay the application indefinitely until the cloud is connected. To delay the application
+only for a period of time, we can use `waitFor`
+
+```cpp
+    // wait for the cloud connection to be connected or timeout after 10 seconds
+    if (waitFor(Particle.connected, 10000)) {
+        bool sent = Particle.publish("weather", "sunny");
+    }
+```
+
+`WiFi.ready` is another common event to wait for.
+
+```cpp
+    // wait until WiFi is ready
+    waitUntil(WiFi.ready);
+```
 
 ## System Calls
+
+### System Cycle Counter
+
+_Since 0.4.6._
+
+The system cycle counter is incremented for each instruction executed. It functions
+in normal code and during interrupts. Since it operates at the clock frequency
+of the device, it can be used for accurately measuring small periods of time.
+
+```cpp
+    // overview of System tick functions
+    uint32_t now = System.ticks();
+
+    // for converting an the unknown system tick frequency into microseconds
+    uint32_t scale = System.ticksPerMicrosecond();
+
+    // delay a given number of ticks.
+    System.ticksDelay(10);
+```
+
+The system ticks are intended for measuring times from less than a microsecond up
+to a second. For longer time periods, using [micros()](#micros-) or [millis()](#millis-) would
+be more suitable.
+
+
+#### System.ticks()
+
+Returns the current value of the system tick count. One tick corresponds to
+one cpu cycle.
+
+```cpp
+    // measure a precise time whens something start
+    uint32_t ticks = System.ticks();
+
+```
+
+#### System.ticksPerMicrosecond();
+
+Retrieves the number of ticks per microsecond for this device. This is useful
+when converting between a number of ticks and time in microseconds.
+
+```cpp
+
+    uint32_t start = System.ticks();
+    startTheFrobnicator();
+    uint32_t end = System.ticks();
+    uint32_t duration = (end-start)/System.ticksPerMicrosecond();
+
+    Serial.printlnf("The frobnicator took %d microseconds to start", duration);
+
+```
+
+#### System.ticksDelay()
+
+Pause execution a given number of ticks. This can be used to implement precise
+delays.
+
+```cpp
+    // delay 10 ticks. How long this is actually depends upon the clock speed of the
+    // device.
+    System.ticksDelay(10);
+
+    // to delay for 3 microseconds on any device:
+    System.ticksDelay(3*System.ticksPerMicrosecond());
+
+```
+
+The system code has been written such that the compiler can compute the number
+of ticks to delay
+at compile time and inline the function calls, reducing overhead to a minimum.
+
+
+
+### System.freeMemory()
+
+*Since v0.4.4.*
+
+Retrieves the amount of memory guaranteed to be available. The actual amount of free memory will be at least as large as the value returned.
+
+```cpp
+uint32_t freemem = System.freeMemory();
+Serial.print("free memory: ");
+Serial.println(freemem);
+```
 
 ### System.factoryReset()
 
@@ -3538,9 +4828,9 @@ void setup()
   // Make sure your Serial Terminal app is closed before powering your device
   Serial.begin(9600);
   // Now open your Serial Terminal, and hit any key to continue!
-  while(!Serial.available()) Spark.process();
+  while(!Serial.available()) Particle.process();
 
-  String myID = Spark.deviceID();
+  String myID = System.deviceID();
   // Prints out the device ID over Serial
   Serial.println(myID);
 }
@@ -3548,9 +4838,16 @@ void setup()
 void loop() {}
 ```
 
+### System.enterSafeMode()
+
+_Since 0.4.6_
+
+Resets the device and restarts in safe mode.
+
+
 ### System.sleep()
 
-`System.sleep()` can be used to dramatically improve the battery life of a Spark-powered project by temporarily deactivating the Wi-Fi module, which is by far the biggest power draw.
+`System.sleep()` can be used to dramatically improve the battery life of a Particle-powered project by temporarily deactivating the Wi-Fi module, which is by far the biggest power draw.
 
 ```C++
 // SYNTAX
@@ -3562,11 +4859,18 @@ System.sleep(long seconds);
 
 // Put the Wi-Fi module in standby (low power) for 5 seconds
 System.sleep(5);
-// The device LED will flash green during sleep
+// The device LED will breathe white during sleep
 ```
-`System.sleep(long seconds)` does NOT stop the execution of user code (non-blocking call).  User code will continue running while the Wi-Fi module is in standby mode.
 
-`System.sleep(SLEEP_MODE_DEEP, long seconds)` can be used to put the entire device into a *deep sleep* mode. In this particular mode, the device shuts down the network subsystem and puts the microcontroller in a stand-by mode.  When the device awakens from deep sleep, it will reset and run all user code from the beginning with no values being maintained in memory from before the deep sleep.
+_Since 0.4.5._ The state of WiFi and Cloud connections is restored when the system wakes up from sleep.
+So if the device was connected to the cloud before sleeping, then the cloud connection
+is automatically resumed on waking up.
+
+`System.sleep(long seconds)` does NOT stop the execution of application code (non-blocking call).  Application code will continue running while the Wi-Fi module is in standby mode.
+
+`System.sleep(SLEEP_MODE_DEEP, long seconds)` can be used to put the entire device into a *deep sleep* mode.
+In this particular mode, the device shuts down the network subsystem and puts the microcontroller in a stand-by mode.
+When the device awakens from deep sleep, it will reset and run all user code from the beginning with no values being maintained in memory from before the deep sleep.
 
 As such, it is recommended that deep sleep be called only after all user code has completed. The Standby mode is used to achieve the lowest power consumption.  After entering Standby mode, the SRAM and register contents are lost except for registers in the backup domain.
 
@@ -3843,6 +5147,19 @@ Returns:
   * true: if string equals string2 (ignoring case)
   * false: otherwise
 
+### format()
+
+*Since 0.4.6.*
+
+Provides printf-style formatting for strings.
+
+```C++
+
+Particle.publish("startup", String::format("frobnicator started at %s", Time.timeStr()));
+
+```
+
+
 ### getBytes()
 
 Copies the string's characters to the supplied buffer.
@@ -3909,6 +5226,24 @@ Parameters:
   * string: a variable of type String
 
 Returns: The length of the String in characters.
+
+### remove()
+
+The String `remvove()` function modifies a string, in place, removing chars from the provided index to the end of the string or from the provided index to index plus count.
+
+```C++
+// SYNTAX
+string.remove(index)
+string.remove(index,count)
+```
+
+Parameters:
+
+  * string: the string which will be modified - a variable of type String
+  * index: a variable of type unsigned int
+  * count: a variable of type unsigned int
+
+Returns: None
 
 ### replace()
 
@@ -4035,6 +5370,21 @@ Parameters:
   * len: the size of the buffer (unsigned int)
 
 Returns: None
+
+### toFloat()
+
+Converts a valid String to a float. The input string should start with a digit. If the string contains non-digit characters, the function will stop performing the conversion. For example, the strings "123.45", "123", and "123fish" are converted to 123.45, 123.00, and 123.00 respectively. Note that "123.456" is approximated with 123.46. Note too that floats have only 6-7 decimal digits of precision and that longer strings might be truncated.
+
+```C++
+// SYNTAX
+string.toFloat()
+```
+
+Parameters:
+
+  * string: a variable of type String
+
+Returns: float (If no valid conversion could be performed because the string doesn't start with a digit, a zero is returned.)
 
 ### toInt()
 
@@ -5370,3 +6720,40 @@ for (int i = 0; i < arraySize(myPins); i++) {
   Serial.println(myPins[i]);
 }
 ```
+
+## Preprocessor
+
+`#pragma SPARK_NO_PREPROCESSOR`
+
+```cpp
+//Example
+class ABC
+{
+   int abc;
+};
+
+void doSomethingWithABC(const ABC& abc)
+{
+}
+
+/*
+//Compiler error
+
+/spark/compile_service/shared/workspace/6_hal_12_0/firmware-privatest.cpp:6:31: error: 'ABC' does not name a type
+void doSomethingWithABC(const ABC& abc);
+^
+/spark/compile_service/shared/workspace/6_hal_12_0/firmware-privatest.cpp:6:36: error: ISO C++ forbids declaration of 'abc' with no type [-fpermissive]
+void doSomethingWithABC(const ABC& abc);
+^
+make[1]: *** [../build/target/user/platform-6test.o] Error 1
+make: *** [user] Error 2
+*/
+```
+
+When you are using the Particle Cloud to compile your `.ino` source code, a preprocessor comes in to modfify the code into C++ requirements before producing the binary file used to flash onto your devices.
+
+However, there might be instances where the preprocessor causes issues in your code. One example is the use of class/structs in your function parameters.
+
+
+
+So when you see the `ABC does not name a type` error, yet you know the type is defined, consider disabling the preprocessor using `#pragma SPARK_NO_PREPROCESSOR` at the top of your code.

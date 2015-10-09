@@ -19,7 +19,7 @@ like to add to this page, please submit a pull request.
 
 See [the official Javascript client](/reference/javascript/).
 
-* [Cylon.js robotics framework adapter by The Hybrid Group](http://cylonjs.com/documentation/platforms/spark/)
+* [Cylon.js robotics framework adapter by The Hybrid Group](http://cylonjs.com/documentation/platforms/particle/)
 
 ## Ruby
 
@@ -30,3 +30,7 @@ See [the official Javascript client](/reference/javascript/).
 
 * [Gobot robotics framework adapter by The Hybrid Group](http://gobot.io/documentation/platforms/spark/)
 
+## PHP
+
+* [phpSpark by Harrison Jones (and others)](https://github.com/harrisonhjones/phpSpark/) - A simple PHP wrapper library for the Particle Cloud API
+* [phpSparkDashboard by Harrison Jones (and others)](https://github.com/harrisonhjones/phpSparkDashboard/) - A basic dashboard for interacting with the Particle Cloud API

@@ -1,4 +1,4 @@
-## Particle Documentation [![Build Status](https://travis-ci.org/spark/docs.svg?branch=feature/server-side-rendering)](https://travis-ci.org/spark/docs)
+## Particle Documentation [![Build Status](https://travis-ci.org/spark/docs.svg?branch=master)](https://travis-ci.org/spark/docs)
 =======
 
 Here you'll find the documentation for the Particle platform, including the Particle Cloud, Photon, and Spark Core.

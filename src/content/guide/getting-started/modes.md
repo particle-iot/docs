@@ -63,17 +63,13 @@ When your device is in Listening Mode, it is waiting for your input to connect t
 To put your device in Listening Mode, hold the `SETUP` button for three seconds, until the RGB LED begins flashing blue.
 
 
-### Wifi Network Reset
+### Wi-Fi Network Reset
 
 {{{vine "https://vine.co/v/eZUwtJljYnK/embed/simple"}}}
 
 To erase the stored wifi networks on your device, hold the `SETUP` button for about ten seconds, until the RGB LED flashes blue rapidly.
 
-### Selecting various Modes
-
-![Photon Reset Modes](/assets/images/photon-reset-modes.png)
-
-The next four modes are all selected using the same process, but by releasing the `SETUP` button at different times. The diagram to the right details the order, LED codes you'll see, and a little bit about what each does.
+You can also reset the Wi-Fi networks by holding the `SETUP` button and tapping `RESET`, then continuing to hold `SETUP` until the light on the Photon turns white. (This differs from the Core. Doing this action on the Core will result in a factory reset.)
 
 ### Safe Mode
 
@@ -91,7 +87,7 @@ To put your device in Safe Mode:
 3. Wait for the LED to start flashing magenta
 6. Release the SETUP button
 
-The device will itself automatically enter safe mode if there is no application code flashed to the device or when the application is not valid. 
+The device will itself automatically enter safe mode if there is no application code flashed to the device or when the application is not valid.
 
 ### DFU Mode (Device Firmware Upgrade)
 
@@ -112,41 +108,15 @@ To enter DFU Mode:
 
 The device now is in the DFU mode.
 
-
 ### Firmware Reset
 
-{{{vine "https://vine.co/v/eZUwv3Za6Lq/embed/simple"}}}
-
-This type of reset sets the firmware on your Photon back to factory settings without deleting your saved wifi networks.
-
-To perform a firmware reset:
-
-1. Hold down BOTH buttons
-2. Release only the RESET button, while holding down the SETUP button.
-3. Wait for the LED to start flashing green (it will flash magenta and yellow first)
-6. Release the SETUP button
-
+Firmware reset is not available on the Photon/P1, but not to worry! If you are experiencing problems with your application firmware, you can use [Safe Mode](#safe-mode) to recover.
 
 ### Factory Reset
 
-{{{vine "https://vine.co/v/eZUXpd2hUqa/embed/simple"}}}
+Factory reset is not available on the Photon/P1, but not to worry! If you are experiencing problems with your application firmware, you can use [Safe Mode](#safe-mode) to recover.
 
-_The above video is at 2x speed._
-
-A factory reset restores the firmware on the device to the default Tinker app and clears all your Wi-Fi credentials.
-
-Procedure:
-
-The procedure is same as the one described above (DFU Mode), but in this case you should continue holding down the SETUP button until you see the device change from flashing yellow to flashing white. Then release the button.  This will take about 10 seconds. The device should begin after the factory reset is complete.
-
-To perform a factory reset:
-
-1. Hold down BOTH buttons
-2. Release only the RESET button, while holding down the SETUP button.
-3. Wait for the LED to start flashing magenta, then yellow, then green (continue to hold the SETUP button)
-4. The LED will turn solid white (continue to hold the SETUP button)
-5. Finally, the LED will turn blink white rapidly
-6. Release the SETUP button
+You can reset Wi-Fi credentials by performing a [WiFi Network Reset](#wifi-network-reset).
 
 ## Troubleshooting Modes
 
@@ -269,6 +239,21 @@ A pattern of more than 10 red flashes is caused by the firmware crashing. The pa
 {{else}}
 [Perform a factory reset](#factory-reset), tweak your firmware and try again!
 {{/if}}
- 
+
+There are a number of other red flash codes that may be expressed after the SOS blinks:
+
+#1 Hard fault
+#2 Non-maskable interrupt fault
+#3 Memory Manager fault
+#4 Bus fault
+#5 Usage fault
+#6 Invalid length
+#7 Exit
+#8 Out of heap memory
+#9 SPI over-run
+#10 Assertion failure
+#11 Invalid case
+#12 Pure virtual call
+
 
 Don't forget that the [community forum is always there to help](https://community.particle.io).

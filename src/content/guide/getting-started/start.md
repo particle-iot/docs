@@ -22,7 +22,7 @@ Let's quickly go over what you see.
 
 ### What's on it?
 
-{{#if photon}}{{{popup '**The Wi-Fi Module.**' 'img' 'photon-module.jpg'}}}{{/if}}{{#if core}}{{{popup '**The Wi-Fi Module.**' 'img' 'core-cc3000.jpg'}}}{{/if}} This is probably why you bought your device-- the Wi-Fi module allows your Core or Photon to communicate with the internet. It connects your device to the internet in the same way that your smartphone might connect to a wifi network.
+{{#if photon}}{{{popup '**The Wi-Fi Module.**' 'img' 'photon-module.jpg'}}}{{/if}}{{#if core}}{{{popup '**The Wi-Fi Module.**' 'img' 'core-cc3000.jpg'}}}{{/if}} This is probably why you bought your device-- the Wi-Fi module allows your Core or Photon to communicate with the internet. It connects your device to the internet in the same way that your smartphone might connect to a wifi network. {{#if photon}} **Do not press down on the Photon's module.** Doing so triggers a reset and is generally not good for the Photon. {{/if}}
 
 
 {{#if photon}}{{{popup '**The Microcontroller.**' 'img' 'photon-module.jpg'}}}{{/if}}{{#if core}}{{{popup '**The Microcontroller.**' 'img' 'core-stm32.jpg'}}}{{/if}} The microcontroller is the brain of your device. It runs your software and tells your prototype what to do. Unlike your computer, it can only run one application (often called *firmware* or an *embedded application*). This application can be simple (just a few lines of code), or very complex, depending on what you want to do. The microcontroller interacts with the outside world using pins.
@@ -52,40 +52,59 @@ Let's quickly go over what you see.
 
 For more technical details on what comes on your device, go [here](/datasheets).
 
-### Okay great, I want to play with it I want to make it do a thing right now!
-
-Good, me too! Let's get started.
-
-## Hello World!
-In this example, we will connect your device to the internet for the very first time. Then, we will blink the D7 LED on your device by using your smartphone. If you don't have your smartphone with you, go ahead and move to the next lesson on [connecting over USB.](/guide/getting-started/connect)
-
+## Prerequisites for Setup
 {{#if photon}}
-### Materials
+* **Software**
+  * Particle Mobile App - [iPhone](https://itunes.apple.com/us/app/particle-build-photon-electron/id991459054?ls=1&mt=8) | [Android](https://play.google.com/store/apps/details?id=io.particle.android.app)
+  * *Note: We highly recommend using the mobile app for first time setup.*
 * **Hardware**
   * Your Particle device, brand new and out of the box!
   * USB to micro USB cable {{#if photon}}(included with Photon Kit and Maker Kit){{/if}}
   * Power source for USB cable (such as your computer, USB battery, or power brick)
   * Your iPhone or Android smartphone
-* **Software**
-  * Particle Mobile App - [iPhone](https://itunes.apple.com/us/app/particle-build-photon-electron/id991459054?ls=1&mt=8) | [Android](https://play.google.com/store/apps/details?id=io.particle.android.app)
+* **Wifi Settings**
+  * 2.4GHz capable router
+  * Channels 1-11
+  * WPA/WPA2 encryption
+  * On a broadcasted SSID network
+  * Not behind a hard firewall or Enterprise network
+  * *Note: We do not recommend using WEP wifi settings, for security reasons.*
 * **Experience**
     * None! This is your first project.
 
 {{/if}}
 
 {{#if core}}
-### Materials
+* **Software**
+  * Spark Core Mobile App - [iPhone](https://itunes.apple.com/us/app/spark-core/id760157884) | [Android](https://play.google.com/store/apps/details?id=io.spark.core.android)
+  * *Note: We highly recommend using the mobile app for first time setup.*
 * **Hardware**
   * Your Particle device, brand new and out of the box!
   * USB to micro USB cable {{#if photon}}(included with Photon Kit and Maker Kit){{/if}}
   * Power source for USB cable (such as your computer, USB battery, or power brick)
   * Your iPhone or Android smartphone
-* **Software**
-  * Spark Core Mobile App - [iPhone](https://itunes.apple.com/us/app/spark-core/id760157884) | [Android](https://play.google.com/store/apps/details?id=io.spark.core.android)
+* **Wifi Settings**
+  * 2.4GHz capable router
+  * Channels 1-11
+  * WPA/WPA2 encryption
+  * On a broadcasted SSID network
+  * Not behind a hard firewall or Enterprise network
+  * *Note: We do not recommend using WEP wifi settings, for security reasons.*
 * **Experience**
     * None! This is your first project.
 
 {{/if}}
+
+{{#if photon}}
+## Connect Your Photon
+{{/if}}
+{{#if core}}
+## Connect Your Core
+{{/if}}
+
+In this example, we will connect your device to the internet for the very first time. Then, we will blink the D7 LED on your device by using your smartphone.
+
+
 
 ### Step 1: Power On Your Device
 {{#if photon}}![plug in your device!](/assets/images/photon-plugged-in.jpg){{/if}}
@@ -102,19 +121,11 @@ If your device is not blinking at all, or if the LED is burning a dull orange co
 
 ### Step 2: Connect With Your Smartphone
 
-<p class="boxedHead">Learning Note: What happens when my device wants to talk to the Internet?</p>
-
-<p class="boxed"> 
-When your device comes to life for the first time, it has a specific set of objectives: Find Wi-Fi, Connect to Wi-Fi, and Execute Firmware. Unless you tell it not to, your device will run through these commands every time you power it on. You can teach it different wifi networks using your phone or computer. It remembers up to 7 wifi networks, and it will connect to these automatically if it can find them.
-
-When you power on your device for the very first time, though, it doesn't know any networks. It blinks blue, which is its way of saying, "Hey, I'm ready to find some wifi." Let's help it out.
-</p>
-
 Open the app on your phone. Log in or sign up for an account with Particle if you don't have one.
 
-Follow the instructions on the screen to connect your Core or Photon. Remember that to connect the Core, you need the older Spark Core app and to connect the Photon you need the new Particle App.
+Follow the instructions on the screen to {{#if photon}}{{{ popup 'connect your device to Wi-Fi.' 'note' 'Your device remembers up to 5 wifi networks, and it will connect to these automatically if it can find them.'}}}{{/if}} {{#if core}}{{{ popup 'connect your device to Wi-Fi.' 'note' 'Your device remembers up to 7 wifi networks, and it will connect to these automatically if it can find them.'}}}{{/if}} Remember that to connect the Core, you need the older Spark Core app and to connect the Photon you need the new Particle App.
 
-This may take a little while- but don't worry.
+This may take a little while - but don't worry.
 
 {{#if core}}While you're waiting, your Core will go through the following colors:
 
@@ -127,33 +138,21 @@ This may take a little while- but don't worry.
 
 {{/if}}
 
-{{#if photon}} If this is your Photon's first time connecting, it will blink purple for a few minutes as it downloads updates. This is perfectly normal. {{/if}}
+{{#if photon}} If this is your Photon's first time connecting, it will blink purple for a few minutes as it downloads updates. **This is perfectly normal.** It may take 6-12 minutes for the updates to complete, depending on your internet connection, with the Photon restarting a few times in the process. **Please do not restart or unplug your Photon during this time.** If you do, you may need to follow [this guide](http://community.particle.io/t/photon-troubleshooting-guide-as-of-firmware-v0-4-5/16042) to fix your device. {{/if}}
 
 If you can't seem to get the Mobile App to connect your device, that's okay! Read over this example quickly, and then check out the [next lesson](/guide/getting-started/connect) to connect your device using the USB cable.
 
-Once you have connected your device, it has learned that network. Your device can store up to seven networks. If you feel like your device has too many networks on it, you can wipe your device's memory of any wifi networks it has learned. You can do so by continuing to hold the MODE button for 10 seconds until the RGB LED flashes blue quickly, signaling that all profiles have been deleted.
+Once you have connected your device, it has learned that network. Your device can store up to {{#if core}}seven{{/if}} {{#if photon}}five{{/if}} networks. If you feel like your device has too many networks on it, you can wipe your device's memory of any wifi networks it has learned. You can do so by continuing to hold the MODE button for 10 seconds until the RGB LED flashes blue quickly, signaling that all profiles have been deleted.
 
 ### Step 3: Blink an LED!
-{{#if core}}The Spark Core App should now be on the Tinker screen, as shown below.
+{{#if core}}The Spark Core App should now be on the {{{ popup 'Tinker' 'note' 'We have taken the liberty of loading some firmware onto your device for you. It is called Tinker, and it helps you talk to your device by sending power to the pins and reading power levels from the pins. More info about Tinker is available [here](/guide/getting-started/tinker/core).'}}} screen, as shown below.
 
 ![Tinker on your Phone!](/assets/images/tinker-core.png)
 {{/if}}
-{{#if photon}}The Particle App should now be on the Tinker screen, as shown below.
+{{#if photon}}The Particle App should now be on the {{{ popup 'Tinker' 'note' 'We have taken the liberty of loading some firmware onto your device for you. It is called Tinker, and it helps you talk to your device by sending power to the pins and reading power levels from the pins. More info about Tinker is available [here](/guide/getting-started/tinker/photon).'}}} screen, as shown below.
 
 ![Tinker on your Phone!](/assets/images/tinker.png)
 {{/if}}
-
-
-<p class="boxedHead">**Learning Note: What is Tinker?**</p>
-<p class = "boxed"> 
-We've taken the liberty of loading some firmware onto your device for you. It's called Tinker, and it helps you talk to your device by sending power to the pins and reading power levels from the pins. Tinker's functions include:
-* `digitalRead` reads the input of a digital pin, such as one connected to a button or motion sensor. The input will be either HIGH (powered at 3.3 V) or LOW (not powered).
-* `digitalWrite` sends digital output to a digital pin, such as one connected to a signal light. You can set this output to HIGH (powered at 3.3 V) or LOW (not powered).
-* `analogRead` reads the input of an analog pin, such as one connected to a temperature sensor. The input will be between 0 and 255.
-* `analogWrite` writes analog output to an analog pin, such as a dimmable LED. You can set this output from 0 to 255.
-
-We'll go over this more [later](/guide/getting-started/tinker), so don't worry.
-</p> 
 
 As you can see on your smartphone, the circles represent different pins on your device. If you tap on these circles, you can see the Tinker functions available for the associated pins.
 
@@ -168,6 +167,6 @@ Tap `D7` then `digitalWrite` in the popup. Now when you tap the D7 circle the ti
 
 Keep in mind that with Tinker, you can communicate with any of the pins, not just with the D7 LED. You can wire things to the pins to run motors, read sensors, and much more. The real fun part comes when you write your own firmware, of course. We'll go over that in later sections.
 
-The next lesson is on [connecting over USB](/guide/getting-started/connect). If you've successfully connected with your smartphone and you'd like to keep playing around with Tinker, skip ahead to learn [device modes](/guide/getting-started/modes) and then do some [Tinker examples](/guide/getting-started/tinker).
+If you don't have your smartphone with you, go ahead and move to the next lesson on [connecting over USB.](/guide/getting-started/connect). If you've successfully connected with your smartphone and you'd like to keep playing around with Tinker, skip ahead to learn [device modes](/guide/getting-started/modes) and then do some [Tinker examples](/guide/getting-started/tinker).
 
 Otherwise, go to the next section to learn to connect over USB.

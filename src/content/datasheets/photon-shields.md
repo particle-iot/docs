@@ -100,6 +100,8 @@ We have even provided a small prototyping area around the shield for you to add 
 
 The schematic for the relay shield is simple and self explanatory. The shield has four relays that are controlled by pins D3, D4, D5 and D6 on the Particle device. Each relay is triggered via a NPN transistor that takes a control signal from the Particle device and switches the relay coil ON and OFF, which in turn makes or breaks the electrical contact on the output. There is also a fly-back diode connected across the coil to help protect the transistor from high voltage transients caused during switching.
 
+**NOTE:** On the under side of the relay shield (top center), you will see 4 solder pads that are by default bridged via traces. You can scratch off the trace to disconnect the control pin from the preassigned ones (D3 to D6) and wire up based on your project requirement.
+
 ### Relay Shield Schematic - Control
 
 ![Relay Shield Interface](/assets/images/shields/relay-shield/relay-shield-schematic-1.png)
@@ -110,7 +112,7 @@ The relays are SPDT (Single Pole Double Throw) type, which means they have three
 
 ![Relay Shield Power Supply](/assets/images/shields/relay-shield/relay-shield-schematic-2.png)
 
-The Relay Shield uses a high efficiency [RT8259](http://www.richtek.com/download_ds.jsp?p=RT8259) switch mode voltage regulator that provides a constant 5V to the Particle device and the relays. The regulator is rated at 1.2A max output current which is ample enough to power the Particle device, the four relays and still have left over for other things you may decided to connect later. You can power the shield via the 5.5mm barrel jack or through the screw terminal. There is a reverse polarity protection diode in place so that you don't fry the electronics buy plugging in the wires in reverse!
+The Relay Shield uses a high efficiency [RT8259](http://www.richtek.com/download_ds.jsp?p=RT8259) switch mode voltage regulator that provides a constant 5V to the Particle device and the relays. The regulator is rated at 1.2A max output current which is ample enough to power the Particle device, the four relays and still have left over for other things you may decided to connect later. You can power the shield via the 5.5mm barrel jack or through the screw terminal. There is a reverse polarity protection diode in place so that you don't fry the electronics by plugging in the wires in reverse!
 
 Here is an example setup to control a light bulb. The relay acts like a switch which is normally open and when pin D3 on the Particle device is turned HIGH, it activates Relay 1 thereby closing the circuit on the light bulb and turning it ON. Ta dah!
 
@@ -226,7 +228,14 @@ Do you want to gain complete control over your Particle device right down to its
 
 This is a FT2232H based JTAG programmer shield that is compatible with OpenOCD and Broadcom's WICED IDE. The FT2232 chip is setup to provide an USB-JTAG and USB-UART interface simultaneously. The FT2232 can be also reconfigured by the user by reprogramming the on-board config EEPROM. The unused pins are clearly marked and broken out into easy to access header holes.
 
+The USB-UART interface is connected to the TX and RX of a Particle device and communicates via [Serial1](https://docs.particle.io/reference/firmware/photon/#serial)
+
 ![Programmer Shield Description](/assets/images/shields/prog-shield/prog-shield-description.png)
+
+For more instructions on setting up OpenOCD and using the Programmer Shield, please read through the README at the landing page of the Programmer Shield repository on GitHub, linked below:
+
+[https://github.com/spark/shields/tree/master/photon-shields/programmer-shield](https://github.com/spark/shields/tree/master/photon-shields/programmer-shield)
+
 
 ### Programmer Shield - Specifications
  - Operating supply: USB
@@ -241,7 +250,7 @@ This is a FT2232H based JTAG programmer shield that is compatible with OpenOCD a
 
 ## Power Shield
 
-The Power Shield, as the name implies, allows the Particle device to be powered from different types of power sources. The shield has an intelligent battery charger and power management unit along with a wide input voltage regulator and an I2C based fuel-gauge. You can power a Particle device with either a USB plug or a DC supply of anywhere from 7 to 20VDC and charge a 3.7V LiPo battery all at the same time.
+The Power Shield, as the name implies, allows the Particle device to be powered from different types of power sources. The shield has an intelligent battery charger and power management unit along with a wide input voltage regulator and an I2C based fuel-gauge. You can power a Particle device with either a USB plug or a DC supply of anywhere from 7 to 20VDC and charge a [3.7V LiPo battery](https://www.sparkfun.com/products/8483) all at the same time.
 
 ![Power Shield](/assets/images/shields/power-shield/power-shield.png)
 
@@ -252,6 +261,16 @@ The system switches in between the different power sources automatically, reduci
 The shield is setup so that when powered from the USB port as well as from a DC supply, it chooses the DC source over USB. The charge current is set to 500mA when charging from USB and set to 1A when charging from a DC source.
 
 ![Power Shield Supply](/assets/images/shields/power-shield/power-shield-powersupply.png)
+
+There are two status led located on the left of the JST battery connector labeled `STAT1` and `STAT2`. Here is a table of the led behavior depending on which state the battery charger is in:
+
+|STAT1 (Blue)  | STAT2 (Red) | Charge State |
+|--------|--------|-------------------------|
+|ON      | ON     | Precharge in progress   |
+|ON      | OFF    | Fast charge in progress |
+|OFF     | ON     | Charge done             |
+|OFF     | OFF    | Charge suspend (temperature), timer fault, and sleep mode |
+
 
 ### Power Shield - Specifications
  - Operating voltage: USB or External DC of 7 to 20V
@@ -265,6 +284,16 @@ The shield is setup so that when powered from the USB port as well as from a DC 
 ## Internet Button
 
 The Internet Button is not only an easy way to get started on the Internet of Things, it's also a clean and simple way to start building your own prototypes. Quickly start playing with LEDs, multiple buttons, an accelerometer and more without any wires or soldering.
+
+**NOTE:** There is a known issue with the current release of the Internet Button. On the PCB, the silkscreen labels are incorrect. The correct mapping is, from **right** to **left**, "1-2-3-4", *not* "4-3-2-1" as annotated on the PCB. For super double extra clarity, please see the following pin mapping label table:</span>
+
+|Photon Pin | Correct Mapping | Incorrect Mapping |
+|--------|--------|-------------------------|
+|D4 | Button 1   | Button 4 |
+|D5 | Button 2   | Button 3 |
+|D6 | Button 3   | Button 2 |
+|D7 | Button 4   | Button 1 |
+
 
 ![Internet Button](/assets/images/shields/internet-button/button.png)
 
@@ -410,7 +439,7 @@ This LED has four pins, one for each color and a common anode (+) pin.
 
 [1N4004](http://en.wikipedia.org/wiki/1N4004) is a general purpose diode rated at 400V, 1000mA with a forward voltage drop of 1.1V. Excellent as a [fly-back diode](http://en.wikipedia.org/wiki/Flyback_diode) or as a general rectifying diode.
 
-[Datasheet >](http://www.diodes.com/datasheets/ds28002.pdf)
+[Datasheet >](http://www.diodes.com/_files/datasheets/ds28002.pdf)
 
 ### IR LED (1)
 
