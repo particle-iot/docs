@@ -14,7 +14,7 @@ Online Store & Shipping Questions
 If you ordered directly from our store and would like to check the status of your order
 please click on the “Check My Order” link below. You'll need your **OrderID #** (given at checkout and in the order confirmation email) and the **email address** that was used to checkout.
 
-<a href="https://dashboard.trycelery.com/status" class="button">Check My Order</a> 
+<a href="https://dashboard.trycelery.com/status" target="_blank" class="button">Check My Order</a> 
 
 ### How can I update my address?
 
@@ -25,7 +25,7 @@ If your order is in the {{{support-popup '**payment = unpaid**' 'img' 'invoice_s
 
 Once you are logged into your order dashboard, click the **edit** button near your {{{support-popup '**shipping**' 'img' 'invoice_shipping.png'}}} section and update your mailing address.
 
-<a href="https://dashboard.trycelery.com/status" class="button">Update My Address</a>
+<a href="https://dashboard.trycelery.com/status" target="_blank" class="button">Update My Address</a>
 
 
 ### How can I update my credit card information?
