@@ -324,13 +324,27 @@ After we have unsuccessfully tried to charge your card 3 times, your Device Mana
 
 ### Cancelling a subscription
 
-You can cancel your subscription by clicking on the "Cancel subscription" link on your organization's billing page. After cancellation, you and your team are still able to access Device Management until the end of the current billing period. 
+You can cancel your subscription by clicking on the "Cancel subscription" link on your organization's billing page, under the "Manage subscription" header. After cancellation, you and your team are still able to access Device Management until the end of the current billing period.
 
-After the current billing period has ended, your account will be put in an inacive state. You can re-activate your subscription at any time.
+It is important to note that after cancellation, <strong>your data is not deleted</strong>. Existing devices and products that encompass your organization will still function as normal. After the current billing period has ended, your account will be put in an inacive state. You can re-activate your subscription at any time to resume access to Device Management.
 
 ### Re-activate a subscription
 
-PLACEHOLDER
+If you have cancelled your subscription but are interested in re-activation, fear not! The process is very simple and will have you building again in no time. As discussed in the previous section, your organization's data is not destroyed when you cancel your subscription.
+
+There are two slightly different ways to re-activate, depending on the status of your subscription. If you have cancelled your subscription but are still within the current billing period, you will still have access to your dashboard and can re-activate from your organization's billing page. The manage subscription section should now be replaced with information about your subscription cancellation, and will have a button allowing you to re-activate.
+
+![Reactivate subscription](/assets/images/reactivate-subscription.png)
+<p class="caption">You can easily re-activate your subscription from your billing page</p>
+
+If re-activating a subscription that has not been fully cancelled yet, you will remain on the same billing cycle and will be charged at the beginning of the next billing period.
+
+If your subscription has already been marked as inactive (three failed charge attempts, or after the end of the current billing period when cancelled), re-activation is slightly different. Upon login to the dashboard, your team will be directed to an "Inactive Subscription" page, letting you know that you no longer have access to your organization's Device Management dashboard. On this page, there is also a "re-activate subscription" button. In this case, you will need to provide a valid credit card to resume your subscription.
+
+![Inactive subscription](/assets/images/inactive-subscription.png)
+<p class="caption">Re-activate your subscription after it has been marked as inactive</p>
+
+If re-activating a subscription that is currently inactive, you will be re-enrolled in the plan you had signed up for. Your credit card will be charged immediately for the next billing period, and will begin a new billing cycle based on the day that you re-activated.
 
 ## What's next?
 
