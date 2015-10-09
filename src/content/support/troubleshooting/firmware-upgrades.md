@@ -29,7 +29,7 @@ If you are using the [particle-cli](https://github.com/spark/particle-cli) and h
 
 ### Manual Firmware Update 
 
-*Note:* This allows you to flash custom versions of firmware.
+*Note:* This will allow you to flash custom versions of firmware.
 
 If you do not have a Mac/Apple computer then you should not read the instructions below for a firmware upgrade. These are specifically for users who have MAC machines.
 
