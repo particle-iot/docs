@@ -9,6 +9,8 @@ order: 8
 Connection Issues
 ===
 
+##Steps to Success
+
 ### Can't Get Connected
 
 {{#if core}}

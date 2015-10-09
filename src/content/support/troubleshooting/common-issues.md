@@ -35,7 +35,7 @@ To upgrade your Photon, follow the instructions below:
 -  Install dfu-util on your Mac using: ```brew install dfu-util```
 If you don't have brew or homebrew installed, install it here: http://brew.sh/
 
--  Put photon into DFU MODE, instructions [here](https://docs.particle.io/guide/getting-started/modes/photon/#dfu-mode-device-firmware-upgrade-).
+-  Put photon into DFU MODE, instructions [here](/guide/getting-started/modes/photon/#dfu-mode-device-firmware-upgrade-).
 
 -  Flash part1:
 ```dfu-util -d 2b04:d006 -a 0 -s 0x8020000 -D system-part1-0.4.6-photon.bin```
@@ -49,34 +49,6 @@ If you don't have brew or homebrew installed, install it here: http://brew.sh/
 ## Flashing Cyan
 
 If your Photon is flashing cyan and sometimes orange/red without connecting, it is helpful to first try to manually update your firmware, in the same way as listed as above. If this does not work, then move on to a key reset.
-
-### Manual Firmware Update
-
-If you do not have a Mac/Apple computer then you should not read the instructions below for a firmware upgrade. These are specifically for users who have MAC machines.
-
-*For Windows* If you have a Windows machine, please follow [these instructions](http://blog.jongallant.com/2015/08/particle-photon-firmware-flash-windows.html).
-
-Since your device is offline, I recommend using our dfu-util method. If you want more info on this, the local DFU-UTIL method is roughly explained [here](https://github.com/spark/firmware/releases).
-
-To upgrade your Photon, follow the instructions below:
-
--  Download the proper firmware binaries for the Photon linked below:
-      - [Part1](https://github.com/spark/firmware/releases/download/v0.4.6.1/system-part1-0.4.6-photon.bin)
-      - [Part2](https://github.com/spark/firmware/releases/download/v0.4.6.1/system-part2-0.4.6-photon.bin)
-
--  Install dfu-util on your Mac using: ```brew install dfu-util```
-If you don't have brew or homebrew installed, install it here: http://brew.sh/
-
--  Put photon into DFU MODE, instructions [here](https://docs.particle.io/guide/getting-started/modes/photon/#dfu-mode-device-firmware-upgrade-).
-
--  Flash part1:
-```dfu-util -d 2b04:d006 -a 0 -s 0x8020000 -D system-part1-0.4.6-photon.bin```
-
--  Flash part2, unit should still be blinking yellow:
-```dfu-util -d 2b04:d006 -a 0 -s 0x8060000:leave -D system-part2-0.4.6-photon.bin```
-
--  Wait... Your device should eventually restart and start blinking blue, breathing cyan, or flashing green -- all dependent on if you've setup the device before.
-
 
 ###Public Key Reset
 
