@@ -36,7 +36,7 @@ You'll also need to install the Windows driver. [Download it here.](https://s3.a
 
 Unzip the file. It is fine to unzip this as a default into your Downloads folder.
 
-Go to the Device Manager and double-click on your Particle device under `Other Devices`.
+Go to the Device Manager and double-click on your Particle device under `Other Devices` (on Windows 10 your Particle device may be listed under `Ports`).
 
 Click `Update Driver`, and select `Browse for driver software on your computer`.
 

@@ -77,7 +77,7 @@ Async.executeAsync(SparkCloud.get(myView.getContext()), new Async.ApiWork<SparkC
         @Override
         public void onFailure(SparkCloudException e) {
             Log.e("SOME_TAG", e);
-            Toaster.l(myActicity.this, "Wrong credentials or no internet connectivity, please try again");
+            Toaster.l(myActivity.this, "Wrong credentials or no internet connectivity, please try again");
         }
 });
 
