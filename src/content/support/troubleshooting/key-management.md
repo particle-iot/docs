@@ -60,6 +60,7 @@ Bare with me for these next steps! This is slightly complicated because of the g
 
 Congrats, you made it to the end! now your {{#if photon}}Photon{{/if}}{{#if core}}Core{{/if}} should be connected to the Cloud... or will be just as soon as we add your Key to the server.
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 
 **Also**, check out and join our [community forums](http://community.particle.io/) for advanced help, tutorials, and troubleshooting.
@@ -73,5 +74,7 @@ Congrats, you made it to the end! now your {{#if photon}}Photon{{/if}}{{#if core
 {{/if}}
 
 
+=======
+>>>>>>> master
 =======
 >>>>>>> master
