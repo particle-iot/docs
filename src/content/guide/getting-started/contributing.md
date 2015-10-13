@@ -97,3 +97,13 @@ If you're already a Github expert, no need to watch. Otherwise, go [here](https:
 If you prefer the command line, here's an [extra fast tutorial](http://rogerdudler.github.io/git-guide/) on how to get started. Just make sure you [fork a repo to your Github account](https://help.github.com/articles/fork-a-repo/) before cloning your fork to edit on your local machine.
 
 If you have your own favorite tutorials on how to `git`, make a pull request on this documentation to add them!
+
+**Also**, check out and join our [community forums](http://community.particle.io/) for advanced help, tutorials, and troubleshooting.
+
+{{#if photon}}
+[Go to Community Forums >](http://community.particle.io/c/troubleshooting)
+{{/if}}
+
+{{#if core}}
+[Go to Community Forums >](http://community.particle.io/c/troubleshooting)
+{{/if}}

@@ -671,3 +671,14 @@ Below are a few community-written webhook examples. They have been sorted by wha
 
 - [Twilio - Sending a text message using Twilio](https://community.particle.io/t/webhooks-sending-a-text-message/10560) by [hoxworth](https://community.particle.io/users/hoxworth/activity)
 - [Tropo - Sending a text message (or voice call) using Tropo](https://community.particle.io/t/webhook-tutorial-send-a-sms/11431) by [harrisonhjones](https://community.particle.io/users/harrisonhjones/activity)
+
+
+**Also**, check out and join our [community forums](http://community.particle.io/) for advanced help, tutorials, and troubleshooting.
+
+{{#if photon}}
+[Go to Community Forums >](http://community.particle.io/c/troubleshooting)
+{{/if}}
+
+{{#if core}}
+[Go to Community Forums >](http://community.particle.io/c/troubleshooting)
+{{/if}}

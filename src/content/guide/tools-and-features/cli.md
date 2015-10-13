@@ -206,3 +206,14 @@ flash device said  {"id":"01234567890ABCDEFGH","status":"Update started"}
 
 ## Reference
 For more info on CLI commands, go [here](../../../../reference/cli).
+
+
+**Also**, check out and join our [community forums](http://community.particle.io/) for advanced help, tutorials, and troubleshooting.
+
+{{#if photon}}
+[Go to Community Forums >](http://community.particle.io/c/troubleshooting)
+{{/if}}
+
+{{#if core}}
+[Go to Community Forums >](http://community.particle.io/c/troubleshooting)
+{{/if}}
