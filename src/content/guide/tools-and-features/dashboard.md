@@ -62,3 +62,14 @@ Errors is where you’ll go to track alert messages that you’ve defined in you
 ### Settings (Coming Soon)
 
 Settings is where to find all the account things you’d expect, plus access token management.
+
+
+**Also**, check out and join our [community forums](http://community.particle.io/) for advanced help, tutorials, and troubleshooting.
+
+{{#if photon}}
+[Go to Community Forums >](http://community.particle.io/c/troubleshooting)
+{{/if}}
+
+{{#if core}}
+[Go to Community Forums >](http://community.particle.io/c/troubleshooting)
+{{/if}}
