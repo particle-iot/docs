@@ -34,3 +34,6 @@ See [the official Javascript client](/reference/javascript/).
 
 * [phpSpark by Harrison Jones (and others)](https://github.com/harrisonhjones/phpSpark/) - A simple PHP wrapper library for the Particle Cloud API
 * [phpSparkDashboard by Harrison Jones (and others)](https://github.com/harrisonhjones/phpSparkDashboard/) - A basic dashboard for interacting with the Particle Cloud API
+
+## .NET
+* [ParticleSDK for .NET](https://github.com/ParticleNET/ParticleSDK/) - A wrapper around the Particle cloud api.
