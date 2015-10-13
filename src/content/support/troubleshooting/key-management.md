@@ -24,7 +24,7 @@ https://community.particle.io/t/troubleshooting-my-core-is-flashing-yellow-red-l
 
 1. Place your {{#if photon}}Photon{{/if}}{{#if core}}Core{{/if}} into DFU mode by holding Mode and tapping Reset, then continue holding Mode for about 3 seconds until the LED starts flashing Yellow.
 
-2.Run the ``particle keys save mykey.der`` command. This will backup the key on your {{#if photon}}Photon{{/if}}{{#if core}}Core{{/if}} to the Home folder on your computer.  You can substitute your own naming convention for the *.der file if you wish.
+2. Run the ``particle keys save mykey.der`` command. This will backup the key on your {{#if photon}}Photon{{/if}}{{#if core}}Core{{/if}} to the Home folder on your computer.  You can substitute your own naming convention for the *.der file if you wish.
 
 ### How to Restore/Load your Key:
 
@@ -59,6 +59,7 @@ Bare with me for these next steps! This is slightly complicated because of the g
 10. Please email us a copy of your new Public key file (skip this if it connects to the Cloud already). It should be called xxxxx_new.pub.pem, where you guessed it...xxxxx is the device ID from before ;) You should be able to search your system hard drive for it pretty easily but it is typically found in your Home directory.
 
 Congrats, you made it to the end! now your {{#if photon}}Photon{{/if}}{{#if core}}Core{{/if}} should be connected to the Cloud... or will be just as soon as we add your Key to the server.
+<<<<<<< HEAD
 
 
 **Also**, check out and join our [community forums](http://community.particle.io/) for advanced help, tutorials, and troubleshooting.
@@ -72,3 +73,5 @@ Congrats, you made it to the end! now your {{#if photon}}Photon{{/if}}{{#if core
 {{/if}}
 
 
+=======
+>>>>>>> master
