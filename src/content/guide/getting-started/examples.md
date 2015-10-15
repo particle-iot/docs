@@ -28,7 +28,7 @@ To complete all the examples, you will need the following materials:
 * **Experience**
   * Connecting your Device [with your smartphone](/guide/getting-started/start) or [over USB](/guide/getting-started/connect)
 
-<a id="blink-an-led" data-firmware-example-url="https://docs.particle.io/guide/getting-started/examples/photon/#blink-an-led" data-firmware-example-title="Blink an LED" data-firmware-example-description="Blink an LED">
+<div style="display: none;" id="blink-an-led" data-firmware-example-url="https://docs.particle.io/guide/getting-started/examples/photon/#blink-an-led" data-firmware-example-title="Blink an LED" data-firmware-example-description="Blink an LED"></div>
 
 ## Blink an LED
 
@@ -48,9 +48,7 @@ Go ahead and save this application, then flash it to your Core or Photon. You sh
 
 ### Code
 
-<a data-firmware-example-code-block=true>
-
-```cpp
+<pre><code class="lang-cpp" data-firmware-example-code-block=true>
 // ------------
 // Blink an LED
 // ------------
@@ -122,9 +120,9 @@ void loop() {
   // And repeat!
 }
 
-```
+</code></pre>
 
-<a id="control-led-over-the-net" data-firmware-example-url="https://docs.particle.io/guide/getting-started/examples/photon/#control-leds-over-the-39-net" data-firmware-example-title="Web-Connected LED" data-firmware-example-description="Control an LED over the Internet">
+<div style="display: none;" id="control-led-over-the-net" data-firmware-example-url="https://docs.particle.io/guide/getting-started/examples/photon/#control-leds-over-the-39-net" data-firmware-example-title="Web-Connected LED" data-firmware-example-description="Control an LED over the Internet"></div>
 
 ## Control LEDs over the 'net
 
@@ -144,12 +142,10 @@ As in the previous example, connect everything together as shown in the image be
 
 ![One LED illustration](/assets/images/photon-led-fritzing.png)
 
-<a data-firmware-example-code-block=true>
-
 ### Code
 
 
-```cpp
+<pre><code class="lang-cpp" data-firmware-example-code-block=true>
 // -----------------------------------
 // Controlling LEDs over the Internet
 // -----------------------------------
@@ -219,7 +215,7 @@ int ledToggle(String command) {
     }
 }
 
-```
+</code></pre>
 
 ### Use
 
@@ -298,7 +294,7 @@ Note that the API endpoint is 'led', not 'ledToggle'. This is because the endpoi
 
 To better understand the concept of making API calls to your device over the cloud checkout the [Cloud API reference.](/reference/api)
 
-<a id="variables-and-functions-with-photoresistors" data-firmware-example-url="https://docs.particle.io/guide/getting-started/examples/photon/#read-your-photoresistor-function-and-variable" data-firmware-example-title="Function Variable" data-firmware-example-description="Learn about Variables and Functions using Photoresistors">
+<div style="display: none;" id="variables-and-functions-with-photoresistors" data-firmware-example-url="https://docs.particle.io/guide/getting-started/examples/photon/#read-your-photoresistor-function-and-variable" data-firmware-example-title="Function Variable" data-firmware-example-description="Learn about Variables and Functions using Photoresistors"></div>
 
 ## Read your Photoresistor: Function and Variable
 
@@ -323,9 +319,7 @@ Bend the LED and the PHotoresistor so that they are pointing at each other. (You
 
 Copy and paste the following code into your [online IDE](http://build.particle.io) or [Particle Dev](http://particle.io/dev) environment.
 
-<a data-firmware-example-code-block=true>
-
-```cpp
+<pre><code class="lang-cpp" data-firmware-example-code-block=true>
 // -----------------------------------------
 // Function and Variable with Photoresistors
 // -----------------------------------------
@@ -396,7 +390,7 @@ int ledToggle(String command) {
 
 }
 
-```
+</code></pre>
 
 ### Use
 
@@ -469,7 +463,7 @@ and make sure you replace `device_name` with either your device ID or the casual
 
 Now you can turn your LED on and off and see the values at A0 change based on the photoresistor!
 
-<a id="publish-and-the-dashboard" data-firmware-example-url="https://docs.particle.io/guide/getting-started/examples/photon/#make-a-motion-detector-publish-and-the-dashboard" data-firmware-example-title="Publish" data-firmware-example-description="Publish and the Dashboard">
+<div style="display: none;" id="publish-and-the-dashboard" data-firmware-example-url="https://docs.particle.io/guide/getting-started/examples/photon/#make-a-motion-detector-publish-and-the-dashboard" data-firmware-example-title="Publish" data-firmware-example-description="Publish and the Dashboard"></div>
 
 ## Make a Motion Detector: Publish and the Dashboard
 
@@ -497,9 +491,7 @@ Ensure that the short end of the LED is plugged into `GND` and that the LED and 
 
 ### Code
 
-<a data-firmware-example-code-block=true>
-
-```cpp
+<pre><code class="lang-cpp" data-firmware-example-code-block=true>
 // -----------------------------------------
 // Publish and Dashboard with Photoresistors
 // -----------------------------------------
@@ -660,9 +652,9 @@ void loop() {
   }
 
 }
-```
+</code></pre>
 
-<a id="publish-and-subscribe-with-photoresistors" data-firmware-example-url="https://docs.particle.io/guide/getting-started/examples/photon/#the-buddy-system-publish-and-subscribe" data-firmware-example-title="Subscribe" data-firmware-example-description="Learn about Publish and Subscribe using Photoresistors">
+<div style="display: none;" id="publish-and-subscribe-with-photoresistors" data-firmware-example-url="https://docs.particle.io/guide/getting-started/examples/photon/#the-buddy-system-publish-and-subscribe" data-firmware-example-title="Subscribe" data-firmware-example-description="Learn about Publish and Subscribe using Photoresistors"></div>
 
 ## The Buddy System: Publish and Subscribe
 
@@ -691,9 +683,7 @@ Ensure that the short end of the LED is plugged into `GND` and that the LED and 
 
 ### Code
 
-<a data-firmware-example-code-block=true>
-
-```cpp
+<pre><code class="lang-cpp" data-firmware-example-code-block=true>
 // -----------------------------------------
 // Publish and Subscribe with Photoresistors
 /* -----------------------------------------
@@ -869,9 +859,9 @@ void myHandler(const char *event, const char *data)
   }
 }
 
-```
+</code></pre>
 
-<a id="annotated-tinker-firmware" data-firmware-example-url="http://docs.particle.io/photon/tinker/#annotated-tinker-firmware" data-firmware-example-title="Tinker" data-firmware-example-description="The factory default firmware that mobile apps interact with">
+<div style="display: none;" id="annotated-tinker-firmware" data-firmware-example-url="http://docs.particle.io/photon/tinker/#annotated-tinker-firmware" data-firmware-example-title="Tinker" data-firmware-example-description="The factory default firmware that mobile apps interact with"></div>
 
 ## Tinker
 
@@ -894,9 +884,7 @@ I know what you're thinking: this is amazing, but I really want to use Tinker *w
 
 Combine your code with this framework, flash it to your device, and Tinker away. You can also access Tinker code by clicking on the last example in the online IDE's code menu.
 
-<a data-firmware-example-code-block=true>
-
-```cpp
+<pre><code class="lang-cpp" data-firmware-example-code-block=true>
 /* Function prototypes -------------------------------------------------------*/
 int tinkerDigitalRead(String pin);
 int tinkerDigitalWrite(String command);
@@ -1041,5 +1029,5 @@ int tinkerAnalogWrite(String command)
   }
   else return -2;
 }
-```
+</code></pre>
 
