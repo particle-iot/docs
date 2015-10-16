@@ -28,6 +28,7 @@ To complete all the examples, you will need the following materials:
 * **Experience**
   * Connecting your Device [with your smartphone](/guide/getting-started/start) or [over USB](/guide/getting-started/connect)
 
+<div style="display: none;" id="blink-an-led" data-firmware-example-url="https://docs.particle.io/guide/getting-started/examples/photon/#blink-an-led" data-firmware-example-title="Blink an LED" data-firmware-example-description="Blink an LED"></div>
 
 ## Blink an LED
 
@@ -47,8 +48,7 @@ Go ahead and save this application, then flash it to your Core or Photon. You sh
 
 ### Code
 
-
-```cpp
+<pre><code class="lang-cpp" data-firmware-example-code-block=true>
 // ------------
 // Blink an LED
 // ------------
@@ -120,8 +120,9 @@ void loop() {
   // And repeat!
 }
 
-```
+</code></pre>
 
+<div style="display: none;" id="control-led-over-the-net" data-firmware-example-url="https://docs.particle.io/guide/getting-started/examples/photon/#control-leds-over-the-39-net" data-firmware-example-title="Web-Connected LED" data-firmware-example-description="Control an LED over the Internet"></div>
 
 ## Control LEDs over the 'net
 
@@ -144,7 +145,7 @@ As in the previous example, connect everything together as shown in the image be
 ### Code
 
 
-```cpp
+<pre><code class="lang-cpp" data-firmware-example-code-block=true>
 // -----------------------------------
 // Controlling LEDs over the Internet
 // -----------------------------------
@@ -214,7 +215,7 @@ int ledToggle(String command) {
     }
 }
 
-```
+</code></pre>
 
 ### Use
 
@@ -293,6 +294,8 @@ Note that the API endpoint is 'led', not 'ledToggle'. This is because the endpoi
 
 To better understand the concept of making API calls to your device over the cloud checkout the [Cloud API reference.](/reference/api)
 
+<div style="display: none;" id="variables-and-functions-with-photoresistors" data-firmware-example-url="https://docs.particle.io/guide/getting-started/examples/photon/#read-your-photoresistor-function-and-variable" data-firmware-example-title="Function Variable" data-firmware-example-description="Learn about Variables and Functions using Photoresistors"></div>
+
 ## Read your Photoresistor: Function and Variable
 
 ### Intro
@@ -316,7 +319,7 @@ Bend the LED and the PHotoresistor so that they are pointing at each other. (You
 
 Copy and paste the following code into your [online IDE](http://build.particle.io) or [Particle Dev](http://particle.io/dev) environment.
 
-```cpp
+<pre><code class="lang-cpp" data-firmware-example-code-block=true>
 // -----------------------------------------
 // Function and Variable with Photoresistors
 // -----------------------------------------
@@ -387,7 +390,7 @@ int ledToggle(String command) {
 
 }
 
-```
+</code></pre>
 
 ### Use
 
@@ -460,6 +463,7 @@ and make sure you replace `device_name` with either your device ID or the casual
 
 Now you can turn your LED on and off and see the values at A0 change based on the photoresistor!
 
+<div style="display: none;" id="publish-and-the-dashboard" data-firmware-example-url="https://docs.particle.io/guide/getting-started/examples/photon/#make-a-motion-detector-publish-and-the-dashboard" data-firmware-example-title="Publish" data-firmware-example-description="Publish and the Dashboard"></div>
 
 ## Make a Motion Detector: Publish and the Dashboard
 
@@ -487,8 +491,7 @@ Ensure that the short end of the LED is plugged into `GND` and that the LED and 
 
 ### Code
 
-
-```cpp
+<pre><code class="lang-cpp" data-firmware-example-code-block=true>
 // -----------------------------------------
 // Publish and Dashboard with Photoresistors
 // -----------------------------------------
@@ -649,7 +652,9 @@ void loop() {
   }
 
 }
-```
+</code></pre>
+
+<div style="display: none;" id="publish-and-subscribe-with-photoresistors" data-firmware-example-url="https://docs.particle.io/guide/getting-started/examples/photon/#the-buddy-system-publish-and-subscribe" data-firmware-example-title="Subscribe" data-firmware-example-description="Learn about Publish and Subscribe using Photoresistors"></div>
 
 ## The Buddy System: Publish and Subscribe
 
@@ -678,7 +683,7 @@ Ensure that the short end of the LED is plugged into `GND` and that the LED and 
 
 ### Code
 
-```cpp
+<pre><code class="lang-cpp" data-firmware-example-code-block=true>
 // -----------------------------------------
 // Publish and Subscribe with Photoresistors
 /* -----------------------------------------
@@ -854,7 +859,9 @@ void myHandler(const char *event, const char *data)
   }
 }
 
-```
+</code></pre>
+
+<div style="display: none;" id="annotated-tinker-firmware" data-firmware-example-url="http://docs.particle.io/photon/tinker/#annotated-tinker-firmware" data-firmware-example-title="Tinker" data-firmware-example-description="The factory default firmware that mobile apps interact with"></div>
 
 ## Tinker
 
@@ -877,8 +884,7 @@ I know what you're thinking: this is amazing, but I really want to use Tinker *w
 
 Combine your code with this framework, flash it to your device, and Tinker away. You can also access Tinker code by clicking on the last example in the online IDE's code menu.
 
-
-```cpp
+<pre><code class="lang-cpp" data-firmware-example-code-block=true>
 /* Function prototypes -------------------------------------------------------*/
 int tinkerDigitalRead(String pin);
 int tinkerDigitalWrite(String command);
@@ -888,49 +894,48 @@ int tinkerAnalogWrite(String command);
 /* This function is called once at start up ----------------------------------*/
 void setup()
 {
-  //Setup the Tinker application here
+	//Setup the Tinker application here
 
-  //Register all the Tinker functions
-  Spark.function("digitalread", tinkerDigitalRead);
-  Spark.function("digitalwrite", tinkerDigitalWrite);
-
-  Spark.function("analogread", tinkerAnalogRead);
-  Spark.function("analogwrite", tinkerAnalogWrite);
+	//Register all the Tinker functions
+	Spark.function("digitalread", tinkerDigitalRead);
+	Spark.function("digitalwrite", tinkerDigitalWrite);
+	Spark.function("analogread", tinkerAnalogRead);
+	Spark.function("analogwrite", tinkerAnalogWrite);
 
 }
 
 /* This function loops forever --------------------------------------------*/
 void loop()
 {
-  //This will run in a loop
+	//This will run in a loop
 }
 
 /*******************************************************************************
  * Function Name  : tinkerDigitalRead
  * Description    : Reads the digital value of a given pin
- * Input          : Pin 
+ * Input          : Pin
  * Output         : None.
  * Return         : Value of the pin (0 or 1) in INT type
                     Returns a negative number on failure
  *******************************************************************************/
 int tinkerDigitalRead(String pin)
 {
-  //convert ascii to integer
-  int pinNumber = pin.charAt(1) - '0';
-  //Sanity check to see if the pin numbers are within limits
-  if (pinNumber< 0 || pinNumber >7) return -1;
+	//convert ascii to integer
+	int pinNumber = pin.charAt(1) - '0';
+	//Sanity check to see if the pin numbers are within limits
+	if (pinNumber< 0 || pinNumber >7) return -1;
 
-  if(pin.startsWith("D"))
-  {
-    pinMode(pinNumber, INPUT_PULLDOWN);
-    return digitalRead(pinNumber);
-  }
-  else if (pin.startsWith("A"))
-  {
-    pinMode(pinNumber+10, INPUT_PULLDOWN);
-    return digitalRead(pinNumber+10);
-  }
-  return -2;
+	if(pin.startsWith("D"))
+	{
+		pinMode(pinNumber, INPUT_PULLDOWN);
+		return digitalRead(pinNumber);
+	}
+	else if (pin.startsWith("A"))
+	{
+		pinMode(pinNumber+10, INPUT_PULLDOWN);
+		return digitalRead(pinNumber+10);
+	}
+	return -2;
 }
 
 /*******************************************************************************
@@ -942,55 +947,55 @@ int tinkerDigitalRead(String pin)
  *******************************************************************************/
 int tinkerDigitalWrite(String command)
 {
-  bool value = 0;
-  //convert ascii to integer
-  int pinNumber = command.charAt(1) - '0';
-  //Sanity check to see if the pin numbers are within limits
-  if (pinNumber< 0 || pinNumber >7) return -1;
+	bool value = 0;
+	//convert ascii to integer
+	int pinNumber = command.charAt(1) - '0';
+	//Sanity check to see if the pin numbers are within limits
+	if (pinNumber< 0 || pinNumber >7) return -1;
 
-  if(command.substring(3,7) == "HIGH") value = 1;
-  else if(command.substring(3,6) == "LOW") value = 0;
-  else return -2;
+	if(command.substring(3,7) == "HIGH") value = 1;
+	else if(command.substring(3,6) == "LOW") value = 0;
+	else return -2;
 
-  if(command.startsWith("D"))
-  {
-    pinMode(pinNumber, OUTPUT);
-    digitalWrite(pinNumber, value);
-    return 1;
-  }
-  else if(command.startsWith("A"))
-  {
-    pinMode(pinNumber+10, OUTPUT);
-    digitalWrite(pinNumber+10, value);
-    return 1;
-  }
-  else return -3;
+	if(command.startsWith("D"))
+	{
+		pinMode(pinNumber, OUTPUT);
+		digitalWrite(pinNumber, value);
+		return 1;
+	}
+	else if(command.startsWith("A"))
+	{
+		pinMode(pinNumber+10, OUTPUT);
+		digitalWrite(pinNumber+10, value);
+		return 1;
+	}
+	else return -3;
 }
 
 /*******************************************************************************
  * Function Name  : tinkerAnalogRead
  * Description    : Reads the analog value of a pin
- * Input          : Pin 
+ * Input          : Pin
  * Output         : None.
  * Return         : Returns the analog value in INT type (0 to 4095)
                     Returns a negative number on failure
  *******************************************************************************/
 int tinkerAnalogRead(String pin)
 {
-  //convert ascii to integer
-  int pinNumber = pin.charAt(1) - '0';
-  //Sanity check to see if the pin numbers are within limits
-  if (pinNumber< 0 || pinNumber >7) return -1;
+	//convert ascii to integer
+	int pinNumber = pin.charAt(1) - '0';
+	//Sanity check to see if the pin numbers are within limits
+	if (pinNumber< 0 || pinNumber >7) return -1;
 
-  if(pin.startsWith("D"))
-  {
-    return -3;
-  }
-  else if (pin.startsWith("A"))
-  {
-    return analogRead(pinNumber+10);
-  }
-  return -2;
+	if(pin.startsWith("D"))
+	{
+		return -3;
+	}
+	else if (pin.startsWith("A"))
+	{
+		return analogRead(pinNumber+10);
+	}
+	return -2;
 }
 
 /*******************************************************************************
@@ -1002,26 +1007,25 @@ int tinkerAnalogRead(String pin)
  *******************************************************************************/
 int tinkerAnalogWrite(String command)
 {
-  //convert ascii to integer
-  int pinNumber = command.charAt(1) - '0';
-  //Sanity check to see if the pin numbers are within limits
-  if (pinNumber< 0 || pinNumber >7) return -1;
+	//convert ascii to integer
+	int pinNumber = command.charAt(1) - '0';
+	//Sanity check to see if the pin numbers are within limits
+	if (pinNumber< 0 || pinNumber >7) return -1;
 
-  String value = command.substring(3);
+	String value = command.substring(3);
 
-  if(command.startsWith("D"))
-  {
-    pinMode(pinNumber, OUTPUT);
-    analogWrite(pinNumber, value.toInt());
-    return 1;
-  }
-  else if(command.startsWith("A"))
-  {
-    pinMode(pinNumber+10, OUTPUT);
-    analogWrite(pinNumber+10, value.toInt());
-    return 1;
-  }
-  else return -2;
+	if(command.startsWith("D"))
+	{
+		pinMode(pinNumber, OUTPUT);
+		analogWrite(pinNumber, value.toInt());
+		return 1;
+	}
+	else if(command.startsWith("A"))
+	{
+		pinMode(pinNumber+10, OUTPUT);
+		analogWrite(pinNumber+10, value.toInt());
+		return 1;
+	}
+	else return -2;
 }
-```
-
+</code></pre>
