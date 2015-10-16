@@ -900,8 +900,7 @@ void setup()
 
 	//Register all the Tinker functions
 	Particle.function("digitalread", tinkerDigitalRead);
-        Particle.function("digitalwrite", tinkerDigitalWrite);
-
+	Particle.function("digitalwrite", tinkerDigitalWrite);
 	Particle.function("analogread", tinkerAnalogRead);
 	Particle.function("analogwrite", tinkerAnalogWrite);
 
