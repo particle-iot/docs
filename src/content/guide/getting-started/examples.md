@@ -891,18 +891,16 @@ int tinkerDigitalWrite(String command);
 int tinkerAnalogRead(String pin);
 int tinkerAnalogWrite(String command);
 
-SYSTEM_MODE(AUTOMATIC);
-
 /* This function is called once at start up ----------------------------------*/
 void setup()
 {
 	//Setup the Tinker application here
 
 	//Register all the Tinker functions
-	Particle.function("digitalread", tinkerDigitalRead);
-	Particle.function("digitalwrite", tinkerDigitalWrite);
-	Particle.function("analogread", tinkerAnalogRead);
-	Particle.function("analogwrite", tinkerAnalogWrite);
+	Spark.function("digitalread", tinkerDigitalRead);
+	Spark.function("digitalwrite", tinkerDigitalWrite);
+	Spark.function("analogread", tinkerAnalogRead);
+	Spark.function("analogwrite", tinkerAnalogWrite);
 
 }
 
