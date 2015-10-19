@@ -61,12 +61,15 @@ on, events matching your webhook will trigger our servers to call your web app.
 Check out our [Webhooks Guide](/guide/tools-and-features/webhooks/) for more
 information.
 
-While easy to understand and set up, webhooks are not scalable. If you imagine
-having a small beta run of 1000 devices in customers' hands, each publishing on
-average once per minute, then your servers will have to handle, _on average_ 17
-requests per second. The load will not be smooth either. There will be rapid
-spikes of hundreds of requests within a few seconds. Scale up your deployment
-and the situation only gets worse.
+While easy to understand and set up, webhooks at scale might require some considerations.
+Each triggering of a webhook causes a request to be sent, so make sure your
+app can handle the traffic.  For example, a small beta run of 1000 devices,
+each publishing once a minute might cause anywhere from 17 to 1000 requests 
+in a given second, depending on how the publishes line up.  Webhooks will
+support some basic queuing and smoothing to help address bursts like this, and a number
+of cloud hosting providers offer data ingestion services that can handle continuous
+heavy streams and bursts of requests (Azure, AWS).
+
 
 ### Event streams
 
