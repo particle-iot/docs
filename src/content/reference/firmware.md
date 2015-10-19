@@ -1821,7 +1821,7 @@ Provides [printf](http://www.cplusplus.com/reference/cstdio/printf/)-style forma
 `printf` allows strings to be built by combining a number of values with text.
 
 ```C++
-Serial.printf("Reading temperature sensor at %s...", Time.timeStr());
+Serial.printf("Reading temperature sensor at %s...", Time.timeStr().c_str());
 float temp = readTemp();
 Serial.printf("the temperature today is %f Kelvin", temp);
 Serial.println();
