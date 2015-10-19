@@ -672,6 +672,6 @@ Below are a few community-written webhook examples. They have been sorted by wha
 - [Twilio - Sending a text message using Twilio](https://community.particle.io/t/webhooks-sending-a-text-message/10560) by [hoxworth](https://community.particle.io/users/hoxworth/activity)
 - [Tropo - Sending a text message (or voice call) using Tropo](https://community.particle.io/t/webhook-tutorial-send-a-sms/11431) by [harrisonhjones](https://community.particle.io/users/harrisonhjones/activity)
 
-### Sending Instant Notifications
+### Sending Push Notifications
 
-- [Pushbullet - Sending an instant notification to your devices (phone and computers) using Pushbullet](https://www.hackster.io/gusgonnet/water-detection-system-227b08) by [Gustavo](https://community.particle.io/users/gusgonnet)
+- [Pushbullet - Sending a push notification to your devices (phone and computers) using Pushbullet](https://www.hackster.io/gusgonnet/water-detection-system-227b08) by [Gustavo](https://community.particle.io/users/gusgonnet)
