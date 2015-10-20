@@ -4748,6 +4748,48 @@ only for a period of time, we can use `waitFor`
 
 ## System Calls
 
+### System.version()
+
+_Since 0.4.7_
+
+Determine the version of system firmware available. Returns a version string
+of the format:
+
+> MAJOR.MINOR.PATCH
+
+Such as "0.4.7".
+
+For example
+
+```
+
+void setup()
+{
+   Serial.printlnf("System version: %s", System.version());
+   // prints
+   // System versio: 0.4.7
+}
+
+```
+
+### System.versionNumber()
+
+Determines the version of system firmware available. Returns the version encoded
+as a number:
+
+> 0xAABBCCDD
+
+ - `AA` is the major release
+ - `BB` is the minor release
+ - `CC` is the patch number
+ - `DD` is 0
+
+Firmware 0.4.7 has a version number 0x00040700
+
+
+Note that
+
+
 ### System Cycle Counter
 
 _Since 0.4.6._
