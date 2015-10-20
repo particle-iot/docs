@@ -16,12 +16,50 @@ Particle Device Firmware
 Expose a *variable* through the Cloud so that it can be called with `GET /v1/devices/{DEVICE_ID}/{VARIABLE}`.
 Returns a success value - `true` when the variable was registered.
 
-It is fine to call this function when the cloud is disconnected - the variable
-will be registered next time the cloud is connected.
 
 ```C++
 // EXAMPLE USAGE
 
+int analogvalue = 0;
+double tempC = 0;
+char *message = "my name is particle";
+String aString;
+
+void setup()
+{
+  // variable name max length is 12 characters long
+  Particle.variable("analogvalue", analogvalue);
+  Particle.variable("temp", tempC);
+  if (Particle.variable("mess", message)==false)
+      // variable not registered!
+ Particle.variable("mess2", aString);
+
+ pinMode(A0, INPUT);
+}
+
+void loop()
+{
+  // Read the analog value of the sensor (TMP36)
+  analogvalue = analogRead(A0);
+  //Convert the reading into degree celcius
+  tempC = (((analogvalue * 3.3)/4095) - 0.5) * 100;
+  delay(200);
+}
+```
+
+Currently, up to 10 cloud variables may be defined and each variable name is limited to a maximum of 12 characters.
+
+It is fine to call this function when the cloud is disconnected - the variable
+will be registered next time the cloud is connected.
+
+Prior to 0.4.7 firmware, variables were defined with an additional 3rd parameter
+to specify the data type of the variable. From 0.4.7 onwards, the system can
+infer the type from the actual variable. Additionally, the variable address
+was passed via the address-of operator (`&`). With 0.4.7 and newer, this is no longer required.
+
+This is the pre-0.4.7 syntax:
+
+```
 int analogvalue = 0;
 double tempC = 0;
 char *message = "my name is particle";
@@ -35,23 +73,13 @@ void setup()
       // variable not registered!
   pinMode(A0, INPUT);
 }
-
-void loop()
-{
-  // Read the analog value of the sensor (TMP36)
-  analogvalue = analogRead(A0);
-  //Convert the reading into degree celcius
-  tempC = (((analogvalue * 3.3)/4095) - 0.5) * 100;
-  delay(200);
-}
 ```
-Currently, up to 10 cloud variables may be defined and each variable name is limited to a max of 12 characters.
 
 There are three supported data types:
 
  * `INT`
  * `DOUBLE`
- * `STRING`   (maximum string size is 622 bytes)
+ * `STRING`   (maximum string length is 622 bytes)
 
 
 
