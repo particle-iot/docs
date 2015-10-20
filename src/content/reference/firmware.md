@@ -5185,6 +5185,31 @@ void loop() {
 ```
 
 
+## OTA Updates
+
+Application firmware can use these functions to turn on or off OTA updates.
+
+TODO: document system events when an update is received but not yet applied
+
+### System.enableUpdates()
+
+Enables OTA updates. Updates are enabled by default.
+
+### System.disableUpdates()
+
+Disables OTA updates. An attempt to start an OTA update will fail.
+
+### System.updatesEnabled()
+
+Determine if OTA updates are presently enabled or disabled.
+
+### System.updatesPending()
+
+Indicates if there are OTA updates pending.
+
+
+
+
 ## String Class
 
 The String class allows you to use and manipulate strings of text in more complex ways than character arrays do. You can concatenate Strings, append to them, search for and replace substrings, and more. It takes more memory than a simple character array, but it is also more useful.
