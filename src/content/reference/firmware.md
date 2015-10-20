@@ -1031,6 +1031,24 @@ void setup() {
 }
 ```
 
+### WiFi.dnsServerIP()
+
+`WiFi.dnsServerIP()` retrieves the IP address of the DNS server that resolves
+DNS requests for the device's network connection.
+
+Note that for this value to be available requires calling `Particle.process()` after Wi-Fi
+has connected.
+
+
+### WiFi.dhcpServerIP()
+
+`WiFi.dhcpServerIP()` retrieves the IP address of the DHCP server that manages
+the IP address used by the device's network connection.
+
+Note that for this value to be available requires calling `Particle.process()` after Wi-Fi
+has connected.
+
+
 {{#if photon}}
 
 ### WiFi.setStaticIP()
