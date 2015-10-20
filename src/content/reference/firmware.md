@@ -3847,6 +3847,12 @@ void loop()
 
 ## Interrupts
 
+Interrupts are a way to write code that is run when an external event occurs.
+As a general rule, interrupt code should be very fast, and non-blocking. This means
+performing transfers, such as I2C, Serial, TCP should not be done as part of the
+interrupt handler. Rather, the interrupt handleer can set a variable which instructs
+the main loop that the event has occurred.
+
 ### attachInterrupt()
 
 Specifies a function to call when an external interrupt occurs. Replaces any previous function that was attached to the interrupt.
@@ -3969,6 +3975,36 @@ Disables interrupts (you can re-enable them with `interrupts()`). Interrupts all
 noInterrupts();
 
 `noInterrupts()` neither accepts a parameter nor returns anything.
+
+## Software Timers
+
+_Since 0.4.7. This feature is available on the Photon and P1 out the box. On the Core, the
+`freertos4core` library should be used to add FreeRTOS to the core._
+
+Software Timers provide a way to have timed actions in your program.
+
+```cpp
+// EXAMPLE
+
+void print_every_second()
+{
+    static int count = 0;
+    Serial.println(count++);
+}
+
+Timer timer(1000, print_every_second);
+
+void setup()
+{
+    Serial.begin(9600);
+    timer.start();
+}
+```
+
+The timer callback is similar to an interrupt - it shouldn't ideally block. But it is
+less restrictive than an interrupt. If the code does block, the system will not crash - the only
+cause is that other software timers that should have triggered will be delayed until
+your timer handler returns.
 
 
 ## Math
