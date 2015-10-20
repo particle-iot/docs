@@ -1712,6 +1712,34 @@ void loop()
 }
 ```
 
+### serialEvent()
+
+A family of application-defined functions that are called whenever there is data to be read
+from a serial peripheral.
+
+- serialEvent: called when there is data available from `Serial`
+- serialEvent1: called when there is data available from `Serial1`
+- serialEvent2: called when there is data available from `Serial2`
+
+The `serialEvent` functions are called by the system as part of the application loop. Since these is an
+extension of the application loop, it is ok to call any functions at you would also call from loop().
+
+```cpp
+// EXAMPLE - echo all characters typed over serial
+
+void setup()
+{
+   Serial.begin(9600);
+}
+
+void serialEvent()
+{
+    char c = Serial.read();
+    Serial.print(c);
+}
+
+```
+
 ### peek()
 
 Returns the next byte (character) of incoming serial data without removing it from the internal serial buffer. That is, successive calls to peek() will return the same character, as will the next call to `read()`.
