@@ -349,7 +349,7 @@ You get two 220-Ohm resistors in your Photon Kit. They are rated at 5%, 1/4 Watt
 
 ![USB Cable](/assets/images/usb-cable.jpg)
 
-A custom Particle USB cable for you Core! We were really excited to have our logo printed on them.
+A custom Particle USB cable for your Photon! We were really excited to have our logo printed on them :)
 
 ### Flex antenna (1)
 
