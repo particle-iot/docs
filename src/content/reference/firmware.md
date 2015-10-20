@@ -4058,7 +4058,7 @@ noInterrupts();
 _Since 0.4.7. This feature is available on the Photon and P1 out the box. On the Core, the
 `freertos4core` library should be used to add FreeRTOS to the core._
 
-Software Timers provide a way to have timed actions in your program.
+Software Timers provide a way to have timed actions in your program.  FreeRTOS provides the ability to have up to 10 Software Timers at a time with a minimum resolution of 1.  It is common to use millis() based "timers" though exact timing is not always possible (due to other program delays).  Software timers are maintained by FreeRTOS and provide a more reliable method for running timed actions using callback functions.
 
 ```cpp
 // EXAMPLE
@@ -4078,11 +4078,83 @@ void setup()
 }
 ```
 
-The timer callback is similar to an interrupt - it shouldn't ideally block. But it is
-less restrictive than an interrupt. If the code does block, the system will not crash - the only
-cause is that other software timers that should have triggered will be delayed until
-your timer handler returns.
+Timers may be started, stopped, reset within a user program or an ISR.  They may also be "disposed", removing them from the (max. 10) active timer list.
 
+The timer callback is similar to an interrupt - it shouldn't block. However, it is less restrictive than an interrupt. If the code does block, the system will not crash - the only consequence is that other software timers that should have triggered will be delayed until the blocking timer callback function returns.
+
+// SYNTAX
+
+`Timer timer(period, callback)`
+
+`period` is the period of the timer in milliseconds  (unsigned int)
+`callback` is the callback function which gets called when the timer expires
+
+## start()
+
+Starts a stopped timer (a newly created timer is stopped). If `start()` is called for a running timer, it will be reset.
+
+`start()`
+
+```C++
+// EXAMPLE USAGE
+timer.start(); // starts timer if stopped or resets it if started.
+
+```
+
+## stop()
+
+Stops a running timer.
+
+`stop()`
+
+```C++
+// EXAMPLE USAGE
+timer.stop(); // stops a running timer.
+
+```
+
+## reset()
+
+Resets a timer.  If a timer is running, it will reset to "zero".  If a timer is stoppep, it will be started.
+
+`reset()`
+
+```C++
+// EXAMPLE USAGE
+timer.reset(); // reset timer if running, or start timer if stopped.
+
+```
+
+## startFromISR()
+## stopFromISR()
+## resetFromISR()
+
+`startFromISR()`
+`stopFromISR()`
+`resetFromISR()`
+
+Start, stop and reset a timer (as above) BUT from within an ISR.  These functions MUST be called when doing timer operations within an ISR.
+
+```C++
+// EXAMPLE USAGE
+timer.startFromISR(); // WITHIN an ISR, starts timer if stopped or resets it if started.
+
+timer.stopFromISR(); // WITHIN an ISR,stops a running timer.
+
+timer.resetFromISR(); // WITHIN an ISR, reset timer if running, or start timer if stopped.
+```
+
+## dispose()
+
+`dispose()`
+
+Stop and remove a timer from the (max. 10) timer list, freeing a timer "slot" in the list.
+
+```C++
+// EXAMPLE USAGE
+timer.dispose(); // stop and delete timer from timer list.
+
+```
 
 ## Math
 
