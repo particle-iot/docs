@@ -1624,6 +1624,55 @@ loop() {
 `shiftIn()` returns the byte value read.
 
 
+### pulseIn()
+
+*Since 0.4.7.*
+
+Reads a pulse (either HIGH or LOW) on a pin. For example, if value is HIGH, pulseIn() waits for the pin to go HIGH, starts timing, then waits for the pin to go LOW and stops timing. Returns the length of the pulse in microseconds or 0 if no complete pulse was received within the timeout.
+
+The timing of this function is based on an internal hardware counter derived from the system tick clock.  Resolution is 1/Fosc (1/72MHz for Core, 1/120MHz for Photon/P1/Electron). Works on pulses from 10 microseconds to 3 seconds in length. Please note that if the pin is already reading the desired `value` when the function is called, it will wait for the pin to be the opposite state of the desired `value`, and then finally mesaure the duration of the desired `value`. This routine is blocking and does not use interrupts.  The pulseIn() routine will time out and return 0 after 3 seconds.
+
+```C++
+// SYNTAX
+pulseIn(pin, value)
+```
+
+`pulseIn()` takes two arguments, `pin`: the pin on which you want to read the pulse (this can be any GPIO, e.g. D1, A2, C0, B3, etc..), `value`: type of pulse to read: either HIGH or LOW. `pin` should be set to one of three [pinMode()](#pinmode-)'s prior to using pulseIn(), `INPUT`, `INPUT_PULLUP` or `INPUT_PULLDOWN`.
+
+`pulseIn()` returns the length of the pulse (in microseconds) or 0 if no pulse is completed before the 3 second timeout (unsigned long)
+
+```C++
+// EXAMPLE
+unsigned long duration;
+
+void setup()
+{
+    Serial.begin(9600);
+    pinMode(D0, INPUT);
+
+    // Pulse generator, connect D1 to D0 with a jumper
+    // PWM output is 500Hz at 50% duty cycle
+    // 1000us HIGH, 1000us LOW
+    pinMode(D1, OUTPUT);
+    analogWrite(D1, 128);
+}
+
+void loop()
+{
+    duration = pulseIn(D0, HIGH);
+    Serial.printlnf("%d us", duration);
+    delay(1000);
+}
+
+/* OUTPUT
+ * 1003 us
+ * 1003 us
+ * 1003 us
+ * 1003 us
+ */
+```
+
+
 ## Serial
 
 Used for communication between the device and a computer or other devices. The device has two serial channels:
