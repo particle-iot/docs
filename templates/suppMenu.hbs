@@ -1,8 +1,9 @@
 <!doctype html>
 <html class="two-columns">
 <head>
-
+  {{> head}}
   {{> suppHead}} 
+
 
 </head>
 
@@ -10,7 +11,119 @@
 
 <div id="docs" data-level>
   {{> header}}
+  {{> suppBody}}
 
+  <div class="content-root">
+
+    <div>
+      <div>
+        <div>
+          <h2>Resources</h2>
+          <p>Need something? We've probably got it. It must be somewhere around here...</p>
+        </div>
+        <div class='container' id='resources'>
+          <div class='row'>
+            <div class='col-md-3 col-sm-3'>
+              <a class='resource' href='/start'>
+                <i class='icon ion-location'></i>
+                <h5>Getting started</h5>
+                <p>If your Particle device just arrived, click here to get started.</p>
+              </a>
+            </div>
+            <div class='col-md-3 col-sm-3'>
+              <a class='resource' href='http://docs.particle.io/'>
+                <i class='icon ion-document-text'></i>
+                <h5>Documentation</h5>
+                <p>Level up on Particle and learn how to make amazing connected products.</p>
+              </a>
+            </div>
+            <div class='col-md-3 col-sm-3'>
+              <a class='resource' href='http://spark.github.io/'>
+                <i class='icon ion-wrench'></i>
+                <h5>Open source</h5>
+                <p>Download, fork, and contribute to Particle's open source hardware and software.</p>
+              </a>
+            </div>
+            <div class='col-md-3 col-sm-3'>
+              <a class='resource' href='http://support.particle.io'>
+                <i class='icon ion-help-buoy'></i>
+                <h5>Support</h5>
+                <p>Something's wrong? Let's fix it.</p>
+              </a>
+            </div>
+          </div>
+          <div class='row'>
+            <div class='col-md-3 col-sm-3'>
+              <a class='resource' href='http://particle.hackster.io/'>
+                <i class='icon ion-hammer'></i>
+                <h5>Projects</h5>
+                <p>Share your projects, or find inspiration. Powered by Hackster.io.</p>
+              </a>
+            </div>
+            <div class='col-md-3 col-sm-3'>
+              <a class='resource' href='https://community.particle.io/'>
+                <i class='icon ion-person-stalker'></i>
+                <h5>Forum</h5>
+                <p>Ask questions, share ideas, and participate in Particle's community of product creators.</p>
+              </a>
+            </div>
+            <div class='col-md-3 col-sm-3'>
+              <a class='resource' href='http://blog.particle.io/'>
+                <i class='icon ion-social-rss'></i>
+                <h5>Blog</h5>
+                <p>Follow the latest from the Particle team, like new features, bug fixes, and example projects.</p>
+              </a>
+            </div>
+            <div class='col-md-3 col-sm-3'>
+              <a class='resource' href='http://status.particle.io/'>
+                <i class='icon ion-alert-circled'></i>
+                <h5>Status</h5>
+                <p>Check the status of the Particle Cloud to make sure everything's hunky dory.</p>
+              </a>
+            </div>
+          </div>
+          <div class='row'>
+            <div class='col-md-2 col-md-offset-1 col-sm-2 col-sm-offset-1'>
+              <a class='btn talk talk-irc' href='https://webchat.freenode.net/?channels=%23particle'>
+                <i class='icon ion-pound'></i>
+                <h5>IRC</h5>
+                <p>#particle</p>
+              </a>
+            </div>
+            <div class='col-md-2 col-sm-2'>
+              <a class='btn talk talk-twitter' href='https://twitter.com/particle'>
+                <i class='icon ion-social-twitter'></i>
+                <h5>Twitter</h5>
+                <p>@particle</p>
+              </a>
+            </div>
+            <div class='col-md-2 col-sm-2'>
+              <a class='btn talk talk-facebook' href='http://www.facebook.com/particle'>
+                <i class='icon ion-social-facebook'></i>
+                <h5>Facebook</h5>
+                <p>particle</p>
+              </a>
+            </div>
+            <div class='col-md-2 col-sm-2'>
+              <a class='btn talk talk-github' href='http://www.github.com/spark'>
+                <i class='icon ion-social-github'></i>
+                <h5>Github</h5>
+                <p>@spark</p>
+              </a>
+            </div>
+            <div class='col-md-2 col-sm-2'>
+              <a class='btn talk talk-email' href='mailto:hello@particle.io'>
+                <i class='icon ion-at'></i>
+                <h5>Email</h5>
+                <p>hello@particle.io</p>
+              </a>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 
 
 
