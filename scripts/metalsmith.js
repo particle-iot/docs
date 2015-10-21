@@ -270,7 +270,6 @@ exports.server = function(callback) {
         paths: {
           "${source}/content/**/*.md": true,
           "${source}/assets/less/*.less": "assets/less/*.less",
-          "${source}/assets/*.css": "assets/*.css",
           "../templates/reference.hbs": "content/reference/*.md",
           "../templates/guide.hbs": "content/guide/**/*.md",
           "../templates/datasheet.hbs": "content/datasheets/*.md",
