@@ -4089,7 +4089,7 @@ The timer callback is similar to an interrupt - it shouldn't block. However, it 
 `period` is the period of the timer in milliseconds  (unsigned int)
 `callback` is the callback function which gets called when the timer expires
 
-## start()
+### start()
 
 Starts a stopped timer (a newly created timer is stopped). If `start()` is called for a running timer, it will be reset.
 
@@ -4101,7 +4101,7 @@ timer.start(); // starts timer if stopped or resets it if started.
 
 ```
 
-## stop()
+### stop()
 
 Stops a running timer.
 
@@ -4113,7 +4113,7 @@ timer.stop(); // stops a running timer.
 
 ```
 
-## reset()
+### reset()
 
 Resets a timer.  If a timer is running, it will reset to "zero".  If a timer is stoppep, it will be started.
 
@@ -4125,9 +4125,9 @@ timer.reset(); // reset timer if running, or start timer if stopped.
 
 ```
 
-## startFromISR()
-## stopFromISR()
-## resetFromISR()
+### startFromISR()
+### stopFromISR()
+### resetFromISR()
 
 `startFromISR()`
 `stopFromISR()`
@@ -4144,7 +4144,7 @@ timer.stopFromISR(); // WITHIN an ISR,stops a running timer.
 timer.resetFromISR(); // WITHIN an ISR, reset timer if running, or start timer if stopped.
 ```
 
-## dispose()
+### dispose()
 
 `dispose()`
 
