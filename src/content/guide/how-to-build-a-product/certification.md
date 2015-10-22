@@ -117,7 +117,7 @@ Industry Canada follows the same testing and rules as the FCC in regards to cert
 ### Description
  - **Website**: [http://ec.europa.eu/growth/single-market/ce-marking/index_en.htm](http://ec.europa.eu/growth/single-market/ce-marking/index_en.htm)
  - **Wikipedia**: [http://en.wikipedia.org/wiki/CE_marking](http://en.wikipedia.org/wiki/CE_marking)
- - **Domain**: European Union
+ - **Domain**: Europe
 
 The CE mark is a manditory conformity marking for certain products sold within the European Economic Area (EEA). It is analogous in that sense to the FCC marking used on devices sold within in the United States.
 
