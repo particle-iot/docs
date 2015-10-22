@@ -72,14 +72,14 @@ Particle's certifications will help you decrease the time and cost associated wi
 ####Photon/P0
 - FCC ID: [2AEMI-PHOTON](https://apps.fcc.gov/oetcf/eas/reports/ViewExhibitReport.cfm?mode=Exhibits&RequestTimeout=500&calledFromFrame=N&application_id=o2hW1PEmrUZn19QwwX8hCA%3D%3D&fcc_id=2AEMI-PHOTON)
 - [Certificate of Conformity](https://www.dropbox.com/s/vo81zoaty7v78xw/PHOTONH%20FCC%20ID%20Grant.pdf?dl=0)
-- [Test Report](https://apps.fcc.gov/oetcf/eas/reports/ViewExhibitReport.cfm?mode=Exhibits&RequestTimeout=500&calledFromFrame=N&application_id=o2hW1PEmrUZn19QwwX8hCA%3D%3D&fcc_id=2AEMI-PHOTON)
+- [Test Reports](https://apps.fcc.gov/oetcf/eas/reports/ViewExhibitReport.cfm?mode=Exhibits&RequestTimeout=500&calledFromFrame=N&application_id=o2hW1PEmrUZn19QwwX8hCA%3D%3D&fcc_id=2AEMI-PHOTON)
 
 
 
 ####P1 Module
 - FCC ID: [XR2WIZFI250](https://apps.fcc.gov/oetcf/eas/reports/ViewExhibitReport.cfm?mode=Exhibits&RequestTimeout=500&calledFromFrame=N&application_id=ug625xSKTLocEEah0xLMFw%3D%3D&fcc_id=XR2WIZFI250)  
 - Certificate of Conformity
-- [Test Report](https://apps.fcc.gov/eas/GetApplicationAttachment.html?id=2227268)
+- [Test Reports](https://apps.fcc.gov/oetcf/eas/reports/ViewExhibitReport.cfm?mode=Exhibits&RequestTimeout=500&calledFromFrame=N&application_id=ug625xSKTLocEEah0xLMFw%3D%3D&fcc_id=XR2WIZFI250)
 
 ## IC <img class="inline-header-image" src="/assets/images/logo-ic.png"/>
 
@@ -88,7 +88,7 @@ Particle's certifications will help you decrease the time and cost associated wi
  - **Wikipedia**: [http://en.wikipedia.org/wiki/Industry_Canada](http://en.wikipedia.org/wiki/Industry_Canada)
  - **Domain**: Canada
 
- IC (Industry Canada) is a department of the Government of China that, among many other things, issues Technical Acceptance Certificats (TACs) for Category I radio and broadcasting equipment.
+ IC (Industry Canada) is a department of the Government of China that, among many other things, issues Technical Acceptance Certificates (TACs) for Category I radio and broadcasting equipment.
 
 ### Integration
 
@@ -115,7 +115,7 @@ Industry Canada follows the same testing and rules as the FCC in regards to cert
 ## CE <img class="inline-header-image" src="/assets/images/logo-ce.png"/>
 
 ### Description
- - **Website**: [http://ec.europa.eu/enterprise/policies/single-market-goods/cemarking/](http://ec.europa.eu/enterprise/policies/single-market-goods/cemarking/)
+ - **Website**: [http://ec.europa.eu/growth/single-market/ce-marking/index_en.htm](http://ec.europa.eu/growth/single-market/ce-marking/index_en.htm)
  - **Wikipedia**: [http://en.wikipedia.org/wiki/CE_marking](http://en.wikipedia.org/wiki/CE_marking)
  - **Domain**: European Union
 
@@ -167,7 +167,7 @@ More information coming soon.
 
 ### Description
  - **Website**: [http://ul.com/](http://ul.com/)
- - **Wikipedia**: [https://en.wikipedia.org/wiki/UL_(safety_organization)](https://en.wikipedia.org/wiki/UL_(safety_organization)
+ - **Wikipedia**: <a target="_blank" href="https://en.wikipedia.org/wiki/UL_(safety_organization)#UL_Standards">https://en.wikipedia.org/wiki/UL_(safety_organization)#UL_Standards</a>
  - **Domain**: Worldwide
 
 UL (Underwriters Laboritories) is an American worldwide safety consulting and certification company. UL provides safety-related certification, validation, testing, inspection, auditing, advising, and training services to manufactures, retailers, policymakers, regulators, service companies, and consumers.
