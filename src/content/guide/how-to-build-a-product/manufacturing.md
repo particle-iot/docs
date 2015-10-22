@@ -12,7 +12,7 @@ You've finished your hardware and software development. Your PCB is designed and
 In most cases, manufacturing with Particle hardware is the same as manufacturing with any other electrical component. However there are some things to keep in mind when you program and test your products, and some opportunities to consider since your product is connected to the Internet.
 
 
-### 1. Purchasing Particle hardware at volume
+### Purchasing Particle hardware at volume
 You have two options when it comes to purchasing Particle hardware--purchasing from Particle, and purchasing directly from our module manufacturer. Let's run through the pros and cons of each:
 
 - **Purchasing from Particle** means that you're buying either Photons or PØ/P1 modules through our [online store](http://store.particle.io), or purchasing larger volumes by contacting us at [sales@particle.io](mailto:sales@particle.io).  They'll be shipped to you from our warehouses in cut tape strips of ten (10) units, or as complete reels. There are several advantages to purchasing directly from Particle. In general, we try to keep hardware in stock so that we can provide quick lead times and prompt delivery timelines. We've already established relationships with our module manufacturer, so you can leverage our order volumes to get better pricing. Working with large silicon manufacturers can be difficult and slow, and we strive to be friendly, communicative, and easy to deal with. Additionally, when you buy hardware from Particle, it includes all the necessary firmware libraries and system firmware for connecting to the Particle Cloud by default, simplifying your manufacturing process.  This option is best for low to medium volume product deployments (<50K units).
@@ -25,7 +25,7 @@ You have two options when it comes to purchasing Particle hardware--purchasing f
 
 **Duties/Taxes**. As the end customer, you are responsible for any VAT charges or taxes associated with importing the modules to their final destination. If you are shipping into mainland China, our prices are reflective of FOB Hong Kong, and do not include import. Although we do not provide direct delivery to mainland China, we have plenty of experience that you can leverage; contact us at [sales@particle.io](mailto:sales@particle.io) if you have questions about importing raw materials, freight forwarders, import licenses, VAT rebates, or anything in between.
 
-### 2. Testing
+### Testing
 Before you can begin manufacturing, you need to consider how your product is going to be tested on the manufacturing line. The firmware that runs the functional evaluation of your PCB is called "test firmware". If you're using a Photon, PØ, or P1, there is a very basic set of test routines built into the default firmware that you are free to use, however they may not provide sufficient test coverage for your product.
 
 A good functional evaluation has many parts, but includes robust, targeted testing of the power supply, microcontroller, critical ICs, and user-exposed peripherals. Specifically, if you are building a product with Particle hardware, you should carefully consider testing the following:
@@ -65,7 +65,7 @@ These are all useful functions during manufacturing, so we highly encourage expo
  - Resources and references for test jig fabrication
 
 
-### 3. Programming the device
+### Programming the device
 Now that your product has successfully completed functional testing, you need to think about how the default firmware for your product is going to be programmed onto the device.
 
 All Particle hardware comes off the manufacturing line loaded with [Tinker](http://docs.particle.io/photon/tinker/), application firmware designed for use with Particle's mobile app of the same name.  The Tinker app makes it easy to start playing and experimenting with your Particle device without writing any code. It's great for early development, but isn't suitable for a standalone product.  
@@ -88,7 +88,7 @@ Have questions about which programming strategy is right for your product?  Ask 
  - Detailed instruction for flashing over JTAG and DFU using Particle's bootloader
 
 
-### 4. Provisioning your device
+### Provisioning your device
 If you've decided that you want to purchase your wireless hardware direct from our module manufacturer, there are some additional steps you'll need to complete in order for your product to successfully connect to the Particle Cloud.  
 
  - **Licensing fee.** If you buy Particle hardware directly from us, the licensing fee for accessing the Cloud is built into the cost of the hardware. If you're buying hardware directly from our module manufacturer, their quoted cost will *not* include this licensing fee, and your devices will be unable to access the Cloud until you pay it.  Generally, it's a one-time cost of ~$2 per device.  To get detailed pricing, please contact [sales@particle.io](mailto:sales@particle.io).
@@ -103,7 +103,7 @@ If you've decided that you want to purchase your wireless hardware direct from o
  - Instructions and resources for flashing Particle system firmware to your device on the manufacturing line
 
 
-### 5. Device tracking and serialization -  *Coming soon!*
+### Device tracking and serialization -  *Coming soon!*
 Connected devices provide the opportunity to compare customer behavior across distribution channels *if* you track your hardware properly. Consider adding a unique serial number for each device and tracking the mapping between these serial numbers and the device IDs.
 
   - Recording device IDs for customer support and record-keeping
@@ -111,15 +111,9 @@ Connected devices provide the opportunity to compare customer behavior across di
   - Creating trackable barcodes
   - UUIDs on the Particle platform
 
-### 6. Product Certification - *Coming soon!*
-Connected devices nearly always require certifications that ensure they operate within the predetermined functional specifications set by international regulatory bodies like the FCC and CE. Look here for more information on how to leverage Particle's existing certifications to reduce the cost, complexity, and time associated with demonstrating regulatory compliance.
-
-  - FCC/CE/IC Certifications
-  - RoHS Certification
-  - PTCRB for cellular products (Electron)
 
 ### What's next?
 
 Now that you've finished manufacturing, you're ready to ship! Let's talk about:
 
-[Further considerations >](../further-considerations).
+[Certification >](../certification).
