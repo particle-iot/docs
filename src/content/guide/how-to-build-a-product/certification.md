@@ -69,14 +69,14 @@ Particle's certifications will help you decrease the time and cost associated wi
 
 ### Documentation
 
-####Photon/P0
+#### Photon/P0
 - FCC ID: [2AEMI-PHOTON](https://apps.fcc.gov/oetcf/eas/reports/ViewExhibitReport.cfm?mode=Exhibits&RequestTimeout=500&calledFromFrame=N&application_id=o2hW1PEmrUZn19QwwX8hCA%3D%3D&fcc_id=2AEMI-PHOTON)
 - [Certificate of Conformity](https://www.dropbox.com/s/vo81zoaty7v78xw/PHOTONH%20FCC%20ID%20Grant.pdf?dl=0)
 - [Test Reports](https://apps.fcc.gov/oetcf/eas/reports/ViewExhibitReport.cfm?mode=Exhibits&RequestTimeout=500&calledFromFrame=N&application_id=o2hW1PEmrUZn19QwwX8hCA%3D%3D&fcc_id=2AEMI-PHOTON)
 
 
 
-####P1 Module
+#### P1 Module
 - FCC ID: [XR2WIZFI250](https://apps.fcc.gov/oetcf/eas/reports/ViewExhibitReport.cfm?mode=Exhibits&RequestTimeout=500&calledFromFrame=N&application_id=ug625xSKTLocEEah0xLMFw%3D%3D&fcc_id=XR2WIZFI250)  
 - Certificate of Conformity
 - [Test Reports](https://apps.fcc.gov/oetcf/eas/reports/ViewExhibitReport.cfm?mode=Exhibits&RequestTimeout=500&calledFromFrame=N&application_id=ug625xSKTLocEEah0xLMFw%3D%3D&fcc_id=XR2WIZFI250)
@@ -102,12 +102,12 @@ Industry Canada follows the same testing and rules as the FCC in regards to cert
 
 ### Documentation
 
-####Photon/P0
+#### Photon/P0
 - IC ID: **20127-PHOTON**. Search [here](https://sms-sgs.ic.gc.ca/search/radioEquipmentPortal) under "Radio Equipment List (REL) > Certification Number".
 - [Certificate of Conformity](https://www.dropbox.com/s/jh7ofn3aj2lqp8z/PHOTONH%20IC%20ID%20Certificate.pdf?dl=0)
 - [Test Report](https://apps.fcc.gov/oetcf/eas/reports/ViewExhibitReport.cfm?mode=Exhibits&RequestTimeout=500&calledFromFrame=N&application_id=o2hW1PEmrUZn19QwwX8hCA%3D%3D&fcc_id=2AEMI-PHOTON)
 
-####P1 Module
+#### P1 Module
 - IC ID: **2056-WIZFI250**. Search [here](https://sms-sgs.ic.gc.ca/search/radioEquipmentPortal) under "Radio Equipment List (REL) > Certification Number".  
 - Certificate of Conformity
 - Test Report
@@ -133,7 +133,7 @@ The Photon/P0 and P1 Modules are certified with ETSI radio tests which can be ac
 ### Customer Responsibilities
 If a product has adhered to the integration guidelines and has minimal risk, it can be self-certified where manufacturers complete a Declaration of Conformity and affix the CE marking to their own product.
 
-####Please note that Particle is not responsible in any way for issues arising from inappropriately self-certified products and devices using Particle hardware. EMC testing obligations may still be required as determined by the specific end product requirements.
+#### Please note that Particle is not responsible in any way for issues arising from inappropriately self-certified products and devices using Particle hardware. EMC testing obligations may still be required as determined by the specific end product requirements.
 
 
 - The end product will still need to be filed in each country for certification using the FCC/ETSI radio reports.
@@ -142,11 +142,11 @@ If a product has adhered to the integration guidelines and has minimal risk, it 
 
 ### Documentation
 
-####Photon/P0
+#### Photon/P0
 - [Certificate of Conformity](https://www.dropbox.com/s/ea0apyc6893sry6/1504C213-CER%20CE.pdf?dl=0)
 - [Test Reports](https://www.dropbox.com/s/ukx8aludj85zwh7/CE-test-reports.zip?dl=0)
 
-####P1 Module
+#### P1 Module
 - Certificate of Conformity
 - Test Reports
 
