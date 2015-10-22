@@ -24,7 +24,15 @@ It is possible to put your Core in [Listening Mode](/guide/getting-started/modes
 
 #### For Windows
 
-For Windows users, we recommend downloading [PuTTY](http://www.putty.org/).
+For Windows users, we recommend downloading [PuTTY](http://www.putty.org/). You will also need to download and install the [Particle driver](https://s3.amazonaws.com/spark-website/Particle.zip). 
+
+Plug your device into your computer over USB. When the Core is in [Listening Mode](/guide/getting-started/modes/#listening-mode), open a serial port over USB using the standard settings, which should be:
+
+- Baudrate: 9600
+- Data Bits: 8
+- Parity: none
+- Stop Bits: 1
+
 
 #### For OS X or Linux
 
