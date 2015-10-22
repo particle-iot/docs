@@ -103,12 +103,12 @@ Industry Canada follows the same testing and rules as the FCC in regards to cert
 ### Documentation
 
 ####Photon/P0
-- IC ID: **20127-PHOTON**. Search [here](https://sms-sgs.ic.gc.ca/equipmentSearch/searchRadioEquipments?execution=e1s1) under Certification Number".
+- IC ID: **20127-PHOTON**. Search [here](https://sms-sgs.ic.gc.ca/search/radioEquipmentPortal) under "Radio Equipment List (REL) > Certification Number".
 - [Certificate of Conformity](https://www.dropbox.com/s/jh7ofn3aj2lqp8z/PHOTONH%20IC%20ID%20Certificate.pdf?dl=0)
 - [Test Report](https://apps.fcc.gov/oetcf/eas/reports/ViewExhibitReport.cfm?mode=Exhibits&RequestTimeout=500&calledFromFrame=N&application_id=o2hW1PEmrUZn19QwwX8hCA%3D%3D&fcc_id=2AEMI-PHOTON)
 
 ####P1 Module
-- IC ID: **2056-WIZFI250**. Search [here](https://sms-sgs.ic.gc.ca/equipmentSearch/searchRadioEquipments?execution=e1s1) under Certification Number".  
+- IC ID: **2056-WIZFI250**. Search [here](https://sms-sgs.ic.gc.ca/search/radioEquipmentPortal) under "Radio Equipment List (REL) > Certification Number".  
 - Certificate of Conformity
 - Test Report
 
