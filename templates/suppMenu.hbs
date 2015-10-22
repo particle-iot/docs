@@ -13,117 +13,114 @@
   {{> header}}
   {{> suppBody}}
 
-  <div class="content-root resources-wrapper">
-
-    <div>
-      <div id='static'>
-        <div>
-          <h2>Resources</h2>
-          <p>Need something? We've probably got it. It must be somewhere around here...</p>
+<div class="content-root resources-wrapper">
+  <div> {{!-- Outer Static Div --}}
+    <div id="res-title">
+      <h2>How can we help you today?</h2>
+      <h4>We've probably got the answer somewhere around here...</h4>
+    </div>
+    <div class='container' id='resources'>
+      <div class='row'>{{!-- Help Buttons --}}
+        <div class='tile'>
+          <a class='resource-tile' href='/guide/getting-started/intro'>
+            <i class='icon ion-location'></i>
+            <h5>Getting started</h5>
+            <p>If your Particle device just arrived, click here to get started.</p>
+          </a>
         </div>
-        <div class='container' id='resources'>
-          <div class='row'>
-            <div class='tile'>
-              <a class='resource' href='/start'>
-                <i class='icon ion-location'></i>
-                <h5>Getting started</h5>
-                <p>If your Particle device just arrived, click here to get started.</p>
-              </a>
-            </div>
-            <div class='tile'>
-              <a class='resource' href='http://docs.particle.io/'>
-                <i class='icon ion-document-text'></i>
-                <h5>Documentation</h5>
-                <p>Level up on Particle and learn how to make amazing connected products.</p>
-              </a>
-            </div>
-            <div class='tile'>
-              <a class='resource' href='http://spark.github.io/'>
-                <i class='icon ion-wrench'></i>
-                <h5>Open source</h5>
-                <p>Download, fork, and contribute to Particle's open source hardware and software.</p>
-              </a>
-            </div>
-            <div class='tile'>
-              <a class='resource' href='http://support.particle.io'>
-                <i class='icon ion-help-buoy'></i>
-                <h5>Support</h5>
-                <p>Something's wrong? Let's fix it.</p>
-              </a>
-            </div>
-          </div>
-          <div class='row'>
-            <div class='tile'>
-              <a class='resource' href='http://particle.hackster.io/'>
-                <i class='icon ion-hammer'></i>
-                <h5>Projects</h5>
-                <p>Share your projects, or find inspiration. Powered by Hackster.io.</p>
-              </a>
-            </div>
-            <div class='tile'>
-              <a class='resource' href='https://community.particle.io/'>
-                <i class='icon ion-person-stalker'></i>
-                <h5>Forum</h5>
-                <p>Ask questions, share ideas, and participate in Particle's community of product creators.</p>
-              </a>
-            </div>
-            <div class='tile'>
-              <a class='resource' href='http://blog.particle.io/'>
-                <i class='icon ion-social-rss'></i>
-                <h5>Blog</h5>
-                <p>Follow the latest from the Particle team, like new features, bug fixes, and example projects.</p>
-              </a>
-            </div>
-            <div class='tile'>
-              <a class='resource' href='http://status.particle.io/'>
-                <i class='icon ion-alert-circled'></i>
-                <h5>Status</h5>
-                <p>Check the status of the Particle Cloud to make sure everything's hunky dory.</p>
-              </a>
-            </div>
-          </div>
-          <div class='row'>
-            <div class='col-md-2 col-md-offset-1 col-sm-2 col-sm-offset-1'>
-              <a class='btn talk talk-irc' href='https://webchat.freenode.net/?channels=%23particle'>
-                <i class='icon ion-pound'></i>
-                <h5>IRC</h5>
-                <p>#particle</p>
-              </a>
-            </div>
-            <div class='col-md-2 col-sm-2'>
-              <a class='btn talk talk-twitter' href='https://twitter.com/particle'>
-                <i class='icon ion-social-twitter'></i>
-                <h5>Twitter</h5>
-                <p>@particle</p>
-              </a>
-            </div>
-            <div class='col-md-2 col-sm-2'>
-              <a class='btn talk talk-facebook' href='http://www.facebook.com/particle'>
-                <i class='icon ion-social-facebook'></i>
-                <h5>Facebook</h5>
-                <p>particle</p>
-              </a>
-            </div>
-            <div class='col-md-2 col-sm-2'>
-              <a class='btn talk talk-github' href='http://www.github.com/spark'>
-                <i class='icon ion-social-github'></i>
-                <h5>Github</h5>
-                <p>@spark</p>
-              </a>
-            </div>
-            <div class='col-md-2 col-sm-2'>
-              <a class='btn talk talk-email' href='mailto:hello@particle.io'>
-                <i class='icon ion-at'></i>
-                <h5>Email</h5>
-                <p>hello@particle.io</p>
-              </a>
-            </div>
-
-          </div>
+        <div class='tile'>
+          <a class='resource-tile' href='/guide/getting-started/start'>
+            <i class='icon ion-document-text'></i>
+            <h5>Documentation</h5>
+            <p>Level up on Particle and learn how to make amazing connected products.</p>
+          </a>
+        </div>
+        <div class='tile'>
+          <a class='resource-tile' href='http://spark.github.io/' target="_blank">
+            <i class='icon ion-wrench'></i>
+            <h5>Open source</h5>
+            <p>Download, fork, and contribute to Particle's open source hardware and software.</p>
+          </a>
+        </div>
+        <div class='tile'>
+          <a class='resource-tile' href='/support/account-and-shipping/shipping-account-info/'>
+            <i class='icon ion-help-buoy'></i>
+            <h5>Support</h5>
+            <p>Something's wrong? Let's fix it.</p>
+          </a>
         </div>
       </div>
-    </div>
-  </div>
+      <div class='row'>
+        <div class='tile'>
+          <a class='resource-tile' href='http://particle.hackster.io/' target="_blank">
+            <i class='icon ion-hammer'></i>
+            <h5>Projects & Tutorials</h5>
+            <p>Share your projects, or find inspiration. Powered by Hackster.io.</p>
+          </a>
+        </div>
+        <div class='tile'>
+          <a class='resource-tile' href='https://community.particle.io/' target="_blank">
+            <i class='icon ion-person-stalker'></i>
+            <h5>Community forums</h5>
+            <p>Ask questions, share ideas, and participate in Particle's community of product creators.</p>
+          </a>
+        </div>
+        <div class='tile'>
+          <a class='resource-tile' href='http://blog.particle.io/' target="_blank">
+            <i class='icon ion-social-rss'></i>
+            <h5>Blog</h5>
+            <p>Follow the latest from the Particle team, like new features, bug fixes, and example projects.</p>
+          </a>
+        </div>
+        <div class='tile'>
+          <a class='resource-tile' href='http://status.particle.io/' target="_blank">
+            <i class='icon ion-alert-circled'></i>
+            <h5>Status</h5>
+            <p>Check the status of the Particle Cloud to make sure everything's running smoothly.</p>
+          </a>
+        </div>
+      </div> {{!-- Help Buttons --}}
+
+      <div class='row'> {{!-- Social Media Row --}}
+        <div class='tilde-row'>
+          <a class='social-tile' href='https://webchat.freenode.net/?channels=%23particle'  target="_blank">
+            <i class='icon-sm ion-pound'></i>
+            <h5>IRC</h5>
+            <p>##Particle</p>
+          </a>
+        </div>
+        <div class='tilde-row'>
+          <a class='social-tile' href='https://twitter.com/particle'  target="_blank">
+            <i class='icon-sm ion-social-twitter'></i>
+            <h5>Twitter</h5>
+            <p>@Particle</p>
+          </a>
+        </div>
+        <div class='tilde-row'>
+          <a class='social-tile' href='http://www.facebook.com/particle'  target="_blank">
+            <i class='icon-sm ion-social-facebook'></i>
+            <h5>Facebook</h5>
+            <p>Particle</p>
+          </a>
+        </div>
+        <div class='tilde-row'>
+          <a class='social-tile' href='http://www.github.com/spark'  target="_blank">
+            <i class='icon-sm ion-social-github'></i>
+            <h5>Github</h5>
+            <p>@Spark</p>
+          </a>
+        </div>
+        <div class='tilde-row'>
+          <a class='social-tile' href='https://www.youtube.com/channel/UCYMzCwo0oBpX5RXaRfwod-w'  target="_blank">
+            <i class='icon-sm ion-social-youtube'></i>
+            <h5>Youtube</h5>
+            <p>Particle</p>
+          </a>
+        </div>
+      </div> {{!-- Social Media Row --}}
+    </div> {{!-- Container Closing --}}
+  </div> {{!-- Outer Static Div --}}
+</div>
 
 
 
