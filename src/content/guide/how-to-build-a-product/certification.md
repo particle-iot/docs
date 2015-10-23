@@ -13,8 +13,8 @@ Connected devices nearly always require certifications that ensure they operate 
 
 Here is a graphical representation of the current state of certification across Particle's hardware portfolio:
 
-![particle certifications table](/assets/images/particle-certifications-DRAFT-v3.png)
-<p class="caption">It's important to understand which certifications apply to your end product. <a target="_blank" href="/assets/images/particle-certifications-DRAFT-v3.png">Click here</a> for a full size image.</p>
+![particle certifications table](/assets/images/particle-certifications-v4.png)
+<p class="caption">It's important to understand which certifications apply to your end product. <a target="_blank" href="/assets/images/particle-certifications-v4.png">Click here</a> for a full size image. Updated 10/23/15.</p>
 
 
 ## FCC <img class="inline-header-image" src="/assets/images/logo-fcc.png"/>
@@ -109,7 +109,7 @@ Industry Canada follows the same testing and rules as the FCC in regards to cert
 
 #### P1 Module
 - IC ID: **2056-WIZFI250**. Search [here](https://sms-sgs.ic.gc.ca/search/radioEquipmentPortal) under "Radio Equipment List (REL) > Certification Number".  
-- Certificate of Conformity
+- [Certificate of Conformity](https://www.dropbox.com/s/gen8wxox4ns3slo/IC_Cert%2C_10293-WMNBM11.pdf?dl=0)
 - Test Report
 
 ## CE <img class="inline-header-image" src="/assets/images/logo-ce.png"/>
@@ -147,7 +147,7 @@ If a product has adhered to the integration guidelines and has minimal risk, it 
 - [Test Reports](https://www.dropbox.com/s/ukx8aludj85zwh7/CE-test-reports.zip?dl=0)
 
 #### P1 Module
-- Certificate of Conformity
+- [Certificate of Conformity](https://www.dropbox.com/s/z2t5wg86rokyf7l/13214124_CE_Cert_201306271421.pdf?dl=0)
 - Test Reports
 
 ## TELEC <img class="inline-header-image" src="/assets/images/logo-telec.png"/>
