@@ -4960,7 +4960,7 @@ For example
 
 void setup()
 {
-   Serial.printlnf("System version: %s", System.version());
+   Serial.printlnf("System version: %s", System.version().c_str());
    // prints
    // System versio: 0.4.7
 }
