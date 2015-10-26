@@ -4575,22 +4575,31 @@ EEPROM.put(addr, myObj);
 ```
 
 {{#if photon}}
-## Backup RAM
+## Backup RAM (SRAM)
 
 The STM32F2xx features 4KB of backup RAM. Unlike the regular RAM memory, the backup
 RAM is retained so long as power is provided to VIN or to VBAT. In particular this means that
 the data in backup RAM is retained when:
 
 - the device goes into deep sleep mode
-- the device is software reset (while maintaining power)
+- the device is hardware or software reset (while maintaining power)
 - power is removed from VIN but retained on VBAT (which will retain both the backup RAM and the RTC)
 
 Note that _if neither VIN or VBAT is powered then the contents of the backup RAM will be lost; for data to be
-retained, the device needs a power source. Backup RAM is also not retained if the processor is hard reset, i.e. pressing
-the reset button._  For persistent storage of data through a total power loss or hard reset, please use the [EEPROM](#eeprom) library.
+retained, the device needs a power source._  For persistent storage of data through a total power loss, please use the [EEPROM](#eeprom) library.
 
+Power Conditions and how they relate to Backup RAM initilization and data retention:
 
-### Storing data in backup RAM
+| Power Down Method | Power Up Method | When VIN Powered | When VBAT Powered | SRAM Initialized | SRAM Retained |
+| -: | :- | :-: | :-: | :-: | :-: |
+| Power removed on VIN and VBAT | Power applied on VIN | - | - | Yes | No |
+| Power removed on VIN | Power applied on VIN | - | Yes | No | Yes |
+| System.sleep(SLEEP_MODE_DEEP) | Rising edge on WKP pin, or Hard Reset | Yes | Yes/No | No | Yes |
+| System.sleep(SLEEP_MODE_DEEP,10) | RTC alarm after 10 seconds | Yes | Yes/No | No | Yes |
+| System.reset() | Boot after software reset | Yes | Yes/No | No | Yes |
+| Hard reset | Boot after hard reset | Yes | Yes/No | No | Yes |
+
+### Storing data in Backup RAM (SRAM)
 
 With regular RAM, data is stored in RAM by declaring variables.
 
@@ -4602,8 +4611,8 @@ int numberOfTriesRemaining = 10;
 ```
 
 This tells the system to store these values in RAM so they can be changed. The
-system takes care of giving them initial values. Before
-they are set, they will have the initial value 0 if an intial value isn't specified.
+system takes care of giving them initial values. Before they are set,
+they will have the initial value 0 if an intial value isn't specified.
 
 Variables stored in backup RAM follow a similar scheme but use an additional keyword `retained`:
 
@@ -4618,18 +4627,19 @@ A `retained` variable is similar to a regular variable, with some key difference
 
 - it is stored in backup RAM - no space is used in regular RAM
 - instead of being initialized on each program start, `retained` variables are initialized
-when the device is first powered on (from being powered off.) When the device is powered on, the system takes care of setting these
- variables to their initial values.  `lastTemperature` and `numberOfPresses` would be initialized to 0, while
-`nmberOfTriesRemaining` would be initialized to 10.
+when the device is first powered on (with VIN, from being powered off with VIN and VBAT completely removed).
+When the device is powered on, the system takes care of setting these variables to their initial values.
+`lastTemperature` and `numberOfPresses` would be initialized to 0, while `nmberOfTriesRemaining` would be initialized to 10.
 - the last value set on the variable is retained *as long as the device is powered from VIN or VBAT and is not hard reset*.
 
-Retained variables can be updated freely just as with regular RAM variables and operate
+`retained` variables can be updated freely just as with regular RAM variables and operate
 just as fast as regular RAM variables.
 
 Here's some typical use cases for `retained` variables:
 
 - storing data for use after waking up from deep sleep
-- storing data for use after a powered software reset
+- storing data for use after power is removed on VIN, while power is still applied to VBAT (with coin cell battery or super capacitor)
+- storing data for use after a hardware or software reset
 
 Finally, if you don't need the persistence of `retained` variables, you
 can consider them simply as 4KB of extra RAM to use.
@@ -4665,13 +4675,13 @@ void loop() {
  */
 ```
 
-### Enabling Backup RAM
+### Enabling Backup RAM (SRAM)
 
-The backup RAM is disabled by default, since it does require some power to maintain
-which may not be desired on some low-powered projects.  The difference in power consumption
-is roughly 5uA or less on VIN and 9uA or less on VBAT.
+Backup RAM is disabled by default, since it does require some maintenance power
+which may not be desired on some low-powered projects.  Backup RAM consumes roughly
+5uA or less on VIN and 9uA or less on VBAT.
 
-The backup RAM is enabled with this code (to be placed at the top of your code outside of any functions):
+Backup RAM is enabled with this code (to be placed at the top of your application outside of any functions):
 
 ```cpp
 
@@ -4708,9 +4718,9 @@ the device, which uses a software reset to reboot the device.  This will allow p
 
 During development, a good suggestion to avoid confusion is to design your application to work
 correctly when power is being applied for the first time, and all `retained` variables are
-initialized.  If you must rearrange variables, simply power down the device after changes are made
-to allow reinitialization of `retained` variables on the next power up of the device.
-Note: If using VBAT, ensure to completely remove its power source as well.
+initialized.  If you must rearrange variables, simply power down the device (VIN and VBAT)
+after changes are made to allow reinitialization of `retained` variables on the next power
+up of the device.
 
 It's perfectly fine to mix regular and `retained` variables, but for clarity we recommend
 keeping the `retained` variables in their own separate block. In this way it's easier to recognize
