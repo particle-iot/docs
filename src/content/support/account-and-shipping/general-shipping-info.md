@@ -32,13 +32,17 @@ You are responsible for any VAT, duties, customs charges, etc. required by your 
 
 We also offer our products in a few international distributors for your convenience:
 
-- Seeed Studio - China
-- MC Hobby - Belgium
-- Cool Components - UK
-- CPC - UK
-- Flikto Electronics - Germany
-- Watterott Electronic - Germany
-- Robotshop - Canada
+- [MC Hobby](http://shop.mchobby.be/54-particleio) - Belgium
+- [Robotshop](http://www.robotshop.com/en/spark.html) - Canada
+- [ABRA Electronics](https://abra-electronics.com/) - Canada
+- [Seeed Studio](http://www.seeedstudio.com/depot/Particle-Photon-p-2527.html) - China
+- [EXP Tech](http://www.exp-tech.de/expcatalog/manufacturer/view/id/90/) - Germany
+- [Flikto Electronics](http://www.flikto.de/collections/photon) - Germany
+- [Watterott Electronic](http://www.watterott.com/de/Boards-/-Kits/ARM/Spark-Core) - Germany
+- [Melopero](http://www.melopero.com/tag-prodotto/particle/) - Italy
+- [Cool Components](https://www.coolcomponents.co.uk/photon) - UK
+- [CPC](http://cpc.farnell.com/particle) - UK
+
 
 We are constantly adding international distributors, so check back soon to see updates!
 
