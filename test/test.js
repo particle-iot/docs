@@ -14,7 +14,7 @@ describe('Tests', function(){
 
 describe('Build', function() {
   it('should run without error', function(done){
-    this.timeout(30000);
+    this.timeout(60000);
     metalsmith.build(function(err, files) {
       done(err);
     });
@@ -23,7 +23,7 @@ describe('Build', function() {
 
 describe('Server', function() {
   it('should run without error', function(done){
-    this.timeout(30000);
+    this.timeout(60000);
     metalsmith.server(function(err, files) {
       done(err);
     });
