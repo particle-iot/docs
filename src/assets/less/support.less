@@ -36,18 +36,19 @@
 
 .tilde-row {
 	padding-top: 15px;
-	.make-column(1);
-	.make-column-offset(1);
+	.make-column(2);
 
 	a {
 		color: #34495e;
 	}
+}
 
-
+.offset-1 {
+	.make-column-offset(1);
 }
 
 .resource-tile {
-	transition: all 0.5s ease;
+	transition: all 0.25s ease;
 	display: block;
   max-width: 240px;
   text-decoration: none;
@@ -83,9 +84,16 @@
 	font-size: 20px;
 }
 
+.web-form-mail {
+	max-width: 1000px;
+	.center-block();
+	text-align: center;
+}
+
 .form-horizontal {
 	.make-column(1);
-	max-width: 800px;
-	width: 50%;
+	.make-column-offset(5);
+	width: 90%;
+	text-align: center;
 }
 
