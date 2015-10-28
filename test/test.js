@@ -48,6 +48,7 @@ describe('Crawler', function() {
         userAgent: 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.134 Safari/537.36',
         maxConnections: 10,
         skipDuplicates: true,
+        timeout: 3000,
         onDrain: function() {
           if (errors > 0) {
             return done(new Error('There are ' + errors + ' broken link(s)'));
@@ -65,8 +66,10 @@ describe('Crawler', function() {
       if (error || (statusCode !== 200 && statusCode !== 429)) {
         var msg = util.format('%s ON %s CONTENT %s LINKS TO %s', error || statusCode, fromUrl, content, toUrl);
 
+        var timedOut = error && error.code === 'ETIMEDOUT';
         var isGithubEditLink = isExternal && toUrl.indexOf('https://github.com/spark/docs/tree/master/src/content') === 0;
         if ((isExternal && Math.floor(statusCode / 100) === 5) ||
+            (isExternal && timedOut) ||
             (isPullRequest && isGithubEditLink && statusCode === 404)) {
           // allow 5XX status codes on external links
           console.log('WARN: ' + msg);
