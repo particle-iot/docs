@@ -121,14 +121,15 @@
 
       <div class="row" id='web-form-mail'> {{!-- Web form section --}}
         <span class="row" id='form-horizontal'>
-          <form>
+          <form id="form-wrapper">
             <fieldset>
             <!-- Form Name -->
-            <legend>I think I have a different question...</legend>
+            <legend>Do you have another question?</legend>
             <!-- Select Basic -->
             <div class="form-group">
-              <label class="control-label" for="category">Category</label>
+              
               <div class="control-label-2">
+              <label class="control-label" for="category">Topic: </label>
                 <select id="category" name="category" class="form-control">
                   <option value="1">Option one</option>
                   <option value="2">Option two</option>
@@ -143,7 +144,7 @@
             </div>
             <!-- Textarea -->
             <div class="form-group">
-              <label class="col-md-4 control-label" for="complaint">Body</label>
+              {{!-- <label class="col-md-4 control-label" for="complaint">Body</label> --}}
               <div class="col-md-4">                     
                 <textarea class="form-control" id="complaint" name="complaint">My issue is...</textarea>
               </div>
@@ -152,7 +153,7 @@
             <div class="form-group">
               <label class="col-md-4 control-label" for="singlebutton"></label>
               <div class="col-md-4">
-                <button id="singlebutton" name="singlebutton" class="btn btn-primary">Submit</button>
+                <button id="singlebutton" type="submit" name="singlebutton">Submit</button>
               </div>
             </div>
             </fieldset>

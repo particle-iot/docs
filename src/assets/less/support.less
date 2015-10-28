@@ -88,12 +88,49 @@
 	max-width: 1000px;
 	.center-block();
 	text-align: center;
+
+	button {
+		background-color: black;
+	}
 }
 
 .form-horizontal {
 	.make-column(1);
 	.make-column-offset(5);
-	width: 90%;
 	text-align: center;
 }
+
+textarea {
+	width: 50%;
+	height: 150px;
+}
+
+legend {
+	font-size: 24px;
+}
+
+@media (max-width: 450px) {
+  textarea {
+  	width: 100%;
+  	height: 150px;
+  	font-size: 12px;
+  }
+}
+
+.form-wrapper input[type="submit"] {
+  display: block;
+  background: #0dd39d;
+  color: #0dd39d;
+  border: none;
+  padding: 10px 20px;
+  -moz-border-radius: 2px;
+  border-radius: 2px;
+  cursor: pointer;
+}
+
+
+
+
+
+
 
