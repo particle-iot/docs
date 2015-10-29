@@ -1,34 +1,25 @@
 @import url(http://fonts.googleapis.com/css?family=Montserrat:400,700);
 
-html{    background:url(http://thekitemap.com/images/feedback-img.jpg) no-repeat;
-  background-size: cover;
-  height:100%;
-}
-
-#feedback-page{
-	text-align:center;
-}
-
-#form-main{
+#form-main{	
 	width:100%;
-	float:left;
-	padding-top:0px;
+	text-align: center;
+	// float:left;
+	padding-top:20px;
+	padding-bottom: 20px;
 }
 
 #form-div {
-	background-color:rgba(72,72,72,0.4);
-	padding-left:35px;
-	padding-right:35px;
-	padding-top:35px;
-	padding-bottom:50px;
-	width: 450px;
-	float: left;
-	left: 50%;
-	position: absolute;
-  margin-top:30px;
-	margin-left: -260px;
-  -moz-border-radius: 7px;
-  -webkit-border-radius: 7px;
+	display: inline-block;
+	// background-color:rgba(72,72,72,0.4);
+	padding: 12px;
+	width: 50%;
+	// float: left;
+	// left: 50%;
+  	margin-top:30px;
+  	margin-bottom: 70px;
+	// margin-left: -260px;
+  // -moz-border-radius: 7px;
+  // -webkit-border-radius: 7px;
 }
 
 .feedback-input {
@@ -46,7 +37,7 @@ html{    background:url(http://thekitemap.com/images/feedback-img.jpg) no-repeat
 	-moz-box-sizing: border-box;
 	-ms-box-sizing: border-box;
 	box-sizing: border-box;
-  border: 3px solid rgba(0,0,0,0);
+  border: 2px solid rgba(0,0,0,0);
 }
 
 .feedback-input:focus{
@@ -58,10 +49,10 @@ html{    background:url(http://thekitemap.com/images/feedback-img.jpg) no-repeat
   padding: 13px 13px 13px 54px;
 }
 
-.focused{
-	color:#30aed6;
-	border:#30aed6 solid 3px;
-}
+// .focused{
+// 	color:#30aed6;
+// 	border:#30aed6 solid 3px;
+// }
 
 /* Icons ---------------------------------- */
 #name{
@@ -113,7 +104,7 @@ input:focus, textarea:focus {
 }
 
 #button-blue{
-	font-family: 'Montserrat', Arial, Helvetica, sans-serif;
+	font-family: @base-font-family;
 	float:left;
 	width: 100%;
 	border: #fbfbfb solid 4px;
@@ -127,17 +118,18 @@ input:focus, textarea:focus {
 	-moz-transition: all 0.3s;
 	transition: all 0.3s;
   margin-top:-4px;
+  
   font-weight:700;
 }
 
 #button-blue:hover{
-	background-color: rgba(0,0,0,0);
+	background-color: @clouds;
 	color: #0493bd;
+
+	padding-top:22px;
+	padding-bottom:22px;
 }
 	
-.submit:hover {
-	color: #3498db;
-}
 	
 .ease {
 	width: 0px;
@@ -148,19 +140,14 @@ input:focus, textarea:focus {
 	-o-transition: .3s ease;
 	-ms-transition: .3s ease;
 	transition: .3s ease;
+
 }
 
-.submit:hover .ease{
-  width:100%;
-  background-color:white;
-}
 
-@media only screen and (max-width: 580px) {
+@media (max-width: @small-size) {
 	#form-div{
-		left: 3%;
-		margin-right: 3%;
 		width: 88%;
-		margin-left: 0;
+		margin-right: -3%;
 		padding-left: 3%;
 		padding-right: 3%;
 	}
