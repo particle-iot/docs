@@ -130,7 +130,7 @@
               <div class="control-label-2">
                 <label class="control-label" for="category">Topic: </label>
                   <select id="category" name="category" class="form-control">
-                    <option value="1">Option one</option>
+                    <option value="1">Option onefsaeoifasepofiarpfihjefpiaowfhj</option>
                     <option value="2">Option two</option>
                     <option value="3">Option three</option>
                     <option value="4">Option four</option>
@@ -159,12 +159,36 @@
           </form>
         </span>
       </div> {{!-- Web form section --}}
+
+
+<div id="form-main">
+  <div id="form-div">
+    <form class="form" id="form1">
+      
+      <p class="name">
+        <input name="name" type="text" class="validate[required,custom[onlyLetter],length[0,100]] feedback-input" placeholder="Name" id="name" />
+      </p>
+      
+      <p class="email">
+        <input name="email" type="text" class="validate[required,custom[email]] feedback-input" id="email" placeholder="Email" />
+      </p>
+      
+      <p class="text">
+        <textarea name="text" class="validate[required,length[6,300]] feedback-input" id="comment" placeholder="Comment"></textarea>
+      </p>
+      
+      
+      <div class="submit">
+        <input type="submit" value="SEND" id="button-blue"/>
+        <div class="ease"></div>
+      </div>
+    </form>
+  </div>
+</div>
+
     </div> {{!-- Container Closing --}}
   </div> {{!-- Outer Static Div --}}
 </div>
-
-
-
 
 
 
