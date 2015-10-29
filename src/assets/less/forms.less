@@ -1,0 +1,125 @@
+.form-control {
+  display: block;
+  position: relative;
+  width: 50%;
+  height: 34px;
+  padding: 6px 12px;
+  font-size: @base-font-size;
+  background-image: none;
+  vertical-align: middle;
+  background-color: @white;
+  border: 1px solid @light-gray;
+  // transition(border-color .15s);
+  // &:focus {
+  //   border-color: @spark-blue;
+  //   outline: 0;
+  // }
+}
+.form-group {
+  position: relative;
+  label {
+    position: absolute;
+    top: 4px;
+    left: 8px;
+    font-size: 12px;
+  }
+  div.form-control {
+    height: 50px;
+    border-radius: @form-border-radius;
+    padding: 0;
+    margin-bottom: @base-spacing;
+  }
+}
+fieldset {
+  background: lighten(@base-border-color, 10);
+  border: @base-border;
+  margin: 0 0 (@base-spacing / 2) 0;
+  padding: @base-spacing;
+}
+
+input,
+label,
+select {
+  display: block;
+  font-family: @base-font-family;
+  font-size: @base-font-size;
+}
+
+.radio-label {
+  margin-right: 20px;
+  display: inline-block;
+  color: @dark-gray;
+  margin-bottom: @base-spacing;
+  cursor: pointer;
+}
+
+label {
+  font-weight: 500;
+  margin-bottom: @base-spacing / 4;
+  color: @gray;
+
+  &.required:after {
+    content: "*";
+  }
+
+  abbr {
+    display: none;
+  }
+}
+
+
+
+input[type="search"] {
+ 
+}
+input[type="text"],
+input[type="submit"],
+input[type="email"],
+input[type="tel"],
+input:-webkit-autofill,
+select:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+  -webkit-box-shadow: 0 0 0px 1000px white inset !important;
+}
+
+input[type="checkbox"],
+input[type="radio"] {
+  display: inline;
+  margin-right: @base-spacing / 4;
+  cursor: pointer;
+}
+
+input[type="file"] {
+  padding-bottom: @base-spacing / 2;
+  width: 100%;
+}
+
+select {
+  margin-bottom: @base-spacing;
+  max-width: 100%;
+
+}
+input:focus, textarea:focus {
+  outline: none;
+}
+
+.fieldWithErrors input, .fieldWithErrors .select, .fieltWithErrors textarea  {
+  border: 1px solid @red;
+  margin-bottom: 2px;
+}
+.fieldWithErrors div.form-control {
+  margin-bottom: 2px;
+}
+
+span.error {
+  font-size: 12px;
+  font-style: italic;
+  color: @red;
+  margin-bottom: 1em;
+  margin-top: 5px;
+  display: block;
+  line-height: 1.2em;
+}
