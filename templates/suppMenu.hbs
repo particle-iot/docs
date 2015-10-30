@@ -4,7 +4,7 @@
   
   {{> suppHead}} 
 
-
+<script src='/assets/js/checkform.js'></script>
 </head>
 
 <body>
@@ -131,6 +131,17 @@
               <p class="email">
                 <input name="email" type="text" class="validate[required,custom[email]] feedback-input" id="email" placeholder="Email" />
               </p>
+
+              <select id="category" name="category" class="feedback-input">
+                <option value="1">Option one</option>
+                <option value="2">Option two</option>
+                <option value="3">Option three</option>
+                <option value="4">Option four</option>
+                <option value="5">Option five</option>
+                <option value="6">Option six</option>
+                <option value="7">Option seven</option>
+                <option value="8">Option eight</option>
+              </select>              
               
               <p class="text">
                 <textarea name="text" class="validate[required,length[6,300]] feedback-input" id="comment" placeholder="Comment"></textarea>
