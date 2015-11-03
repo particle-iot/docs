@@ -122,7 +122,7 @@
       {{!-- <div id="row row-form"> --}}
         <div id="form-main"> {{!-- New webform section --}}
           <div id="form-div">
-            <form class="form" method="post" action="http://localhost:8081"  id="form1">
+            <form class="form" id="form1">
               
               <fieldset>
               <legend>Do you have a different question?</legend>
@@ -142,9 +142,12 @@
               </p>
               
               <p class="email">
-                <input name="email" type="text" class="validate[required,custom[email]] feedback-input" id="email" placeholder="Email" />
+                <input name="EMAIL_1" type="text" class="validate[required,custom[email]] feedback-input" id="email" placeholder="Email" />
               </p>
 
+              <p class="email">
+                <input name="EMAIL_2" type="text" class="validate[required,custom[email]] feedback-input" id="email2" placeholder="Verify Email" />
+              </p>
               
               <p class="text">
                 <textarea name="text" class="validate[required,length[6,300]] feedback-input" id="comment" placeholder="Comment"></textarea>
