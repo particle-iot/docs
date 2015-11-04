@@ -35,20 +35,20 @@ $(document).ready(function() {
     }
 
     //Object to send
-    ddx = { name: datax.name, 
+    var ddx = { name: datax.name, 
 		  				email: datax.email ,
 		  				subject: datax.subj,
 		  				comments: datax.comments
 						};//object
 
-		var dobject = JSON.stringify(ddx);
+		//var dobject = JSON.stringify(ddx);
 
 		//Post to Heroku App
 		$.ajax({
 		  method: "POST",
 		  url: "http://localhost:8081",
-		  data: dobject,
-		  contentType: 'application/x-www-form-urlencoded; charset=UTF-8'
+		  dataType: 'json',
+		  data: JSON.stringify(ddx)
 		})//post function
 		
     
