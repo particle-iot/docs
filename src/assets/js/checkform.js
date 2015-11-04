@@ -6,7 +6,6 @@ $(document).ready(function() {
 		console.log("Handling the submit");
 		//add error handling here
 		//gather the form data
-
 		var datax = {};
 		datax.name = $("#name").val();
 		//data.cat = $("#category").val();
@@ -14,7 +13,6 @@ $(document).ready(function() {
 		datax.email2 = $("#email2").val();
 		datax.subj = $("#category option:selected").val();
 		datax.comments = $("#comment").val();
-
 
 		//Validations
 		var regex = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/; 
@@ -36,21 +34,27 @@ $(document).ready(function() {
     	return false;
     }
 
+    //Object to send
+    ddx = { name: datax.name, 
+		  				email: datax.email ,
+		  				subject: datax.subj,
+		  				comments: datax.comments
+						};//object
+
+		var dobject = JSON.stringify(ddx);
 
 		//Post to Heroku App
 		$.ajax({
 		  method: "POST",
 		  url: "http://localhost:8081",
-		  data: { name: datax.name, 
-		  				email: datax.email ,
-		  				subject: datax.subj,
-		  				comments: datax.comments
-						}
+		  data: dobject,
+		  contentType: 'application/x-www-form-urlencoded; charset=UTF-8'
 		})//post function
-		  .done(function( msg ) {
-		    alert( "Data Saved: " + msg );
-		  });
-
+		
+    
 	});//onSubmit Form end
 	
 });
+
+
+
