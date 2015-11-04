@@ -48,10 +48,11 @@ $(document).ready(function() {
 		  method: "POST",
 		  url: "http://localhost:8081",
 		  dataType: 'json',
-		  data: JSON.stringify(ddx)
+		  data: ddx
 		})//post function
 		
-    
+
+
 	});//onSubmit Form end
 	
 });
