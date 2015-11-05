@@ -40,28 +40,15 @@ $(document).ready(function() {
 		  				subject: datax.subj,
 		  				comments: datax.comments
 						};//object
-		// // console.log("uuuu\t" + JSON.stringify(datax));
-		// // console.log(typeof datax);
 
-		// var col = JSON.stringify(ddx);
-		// var himp = jQuery.parseJSON( col );
-		
-		serialize = function(obj) {
-	  var str = [];
-	  for(var p in obj)
-	    if (obj.hasOwnProperty(p)) {
-	      str.push(encodeURIComponent(p) + "=" + encodeURIComponent(obj[p]));
-	    }
-	  return str.join("&");
-	}
-
-
-
-	// console.log("godl" + JSON.stringify(serialize(himp)));
-	// console.log("yyyyy" + typeof serialize(himp));
-	
-
-		//var dobject = JSON.stringify(ddx);
+	// 	serialize = function(obj) {
+	//   var str = [];
+	//   for(var p in obj)
+	//     if (obj.hasOwnProperty(p)) {
+	//       str.push(encodeURIComponent(p) + "=" + encodeURIComponent(obj[p]));
+	//     }
+	//   return str.join("&");
+	// }
 
 		//Post to Heroku App
 		$.ajax({
@@ -70,12 +57,10 @@ $(document).ready(function() {
 		  dataType: 'json',
 		  data: JSON.stringify(ddx)
 		})//post function
-		
-
 
 	});//onSubmit Form end
 	
-});
+});//end of ready Function
 
 
 
