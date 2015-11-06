@@ -36,17 +36,16 @@ focus more specifically on building mobile applications.
 
 **Android**
 
-- PC or Mac computer running OSX or Windows
+- PC or Mac computer running OS X, Windows, or Linux (i.e.: anything that can run Android Studio)
 - [Google Play developer account](https://support.google.com/googleplay/android-developer/answer/6112435?hl=en)
-- Android device running Android v4.0 and up (Particle device setup process cannot run on simulator), micro-USB cable.
-- [Android Studio](https://developer.android.com/sdk/index.html) v1.2 and up, [Android SDK](https://developer.android.com/sdk/installing/index.html)
-- Particle Android SDKs: Cloud SDK (**coming soon**) and Device Setup library (**coming soon**)
-- Skills in object oriented programming. Knowledge in Java and Android SDKs. Here are few recommended free learning resources:
+- An Android device running Android v4.0 and up (the Particle device setup process isn't supported via emulators), and a USB cable to connect the device to your computer
+- [Android Studio](https://developer.android.com/sdk/index.html) v1.4 and up
+- Particle Android SDKs: [Cloud SDK] (https://docs.particle.io/reference/android/#android-cloud-sdk) and the [Device Setup library] (https://docs.particle.io/reference/android/#android-device-setup-library)
+- Basic familiarity with Android development using Java and the Gradle build system.  Here are few recommended free resources to get you started:
 	- Official [Google tutorials](https://developer.android.com/training/basics/firstapp/index.html)
 	- [Udemy Learn Android Programming From Scratch](https://www.udemy.com/learn-android-programming-from-scratch-beta/) free online video course
 	- [Udacity Developing Android apps course](https://www.udacity.com/course/developing-android-apps--ud853)
-	- TODO
-	- and always: [Stack Overflow](http://stackoverflow.com/questions/tagged/android) - best Q&A website for programmers. You can probably find an answer to ALL your how-do-I-do-that Android questions there.
+	- and as always: [Stack Overflow](http://stackoverflow.com/questions/tagged/android) - best Q&A website for programmers. You can find good answers to almost _any_ how-do-I-do-that Android questions there.
 
 ![](/assets/images/apple-android.png)
 
