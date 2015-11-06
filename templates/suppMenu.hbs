@@ -23,28 +23,28 @@
       <div class='row'>{{!-- Help Buttons --}}
         <div class='tile'>
           <a class='resource-tile' href='/guide/getting-started/start'>
-            <i class='icon ion-document-text'></i>
+            <i class='icon-iHelp ion-document-text'></i>
             <h5>Documentation</h5>
             <p>Level up on Particle and learn how to make amazing connected products.</p>
           </a>
         </div>
         <div class='tile'>
           <a class='resource-tile' href='/support/troubleshooting/common-issues'>
-            <i class='icon ion-wrench'></i>
+            <i class='icon-iHelp ion-wrench'></i>
             <h5>Troubleshooting</h5>
             <p>Need help fixing an issue with your device? This is definitely the place to start.</p>
           </a>
         </div>
         <div class='tile'>
           <a class='resource-tile' href='/support/account-and-shipping/shipping-account-info/photon/'>
-            <i class='icon ion-bag'></i>
+            <i class='icon-iHelp ion-bag'></i>
             <h5>Order Information</h5>
             <p>Shipping question, address change, or Kickstarter question? Let's start here.</p>
           </a>
         </div>
         <div class='tile'>
           <a class='resource-tile' href='/page-not-found/'>
-            <i class='icon ion-gear-a'></i>
+            <i class='icon-iHelp ion-gear-a'></i>
             <h5>Account</h5>
             <p>Having issues with your Build IDE login, Mobile App, or Fleet Dashboard? This is your place.</p>
           </a>
@@ -53,28 +53,28 @@
       <div class='row'>
         <div class='tile'>
           <a class='resource-tile' href='http://particle.hackster.io/' target="_blank">
-            <i class='icon ion-hammer'></i>
+            <i class='icon-iHelp ion-hammer'></i>
             <h5>Projects & Tutorials</h5>
             <p>Share your projects, or find inspiration. Powered by Hackster.io.</p>
           </a>
         </div>
         <div class='tile'>
           <a class='resource-tile' href='https://community.particle.io/' target="_blank">
-            <i class='icon ion-person-stalker'></i>
+            <i class='icon-iHelp ion-person-stalker'></i>
             <h5>Community forums</h5>
             <p>Ask questions, share ideas, and participate in Particle's community of product creators.</p>
           </a>
         </div>
         <div class='tile'>
           <a class='resource-tile' href='http://blog.particle.io/' target="_blank">
-            <i class='icon ion-social-rss'></i>
+            <i class='icon-iHelp ion-social-rss'></i>
             <h5>Blog</h5>
             <p>Follow the latest from the Particle team, like new features, bug fixes, and example projects.</p>
           </a>
         </div>
         <div class='tile'>
           <a class='resource-tile' href='http://status.particle.io/' target="_blank">
-            <i class='icon ion-alert-circled'></i>
+            <i class='icon-iHelp ion-alert-circled'></i>
             <h5>Status</h5>
             <p>Check the status of the Particle Cloud to make sure everything's running smoothly.</p>
           </a>
@@ -84,35 +84,35 @@
       <div class='row'> {{!-- Social Media Row --}}
         <div class='tilde-row offset-1'>
           <a class='social-tile' href='https://webchat.freenode.net/?channels=%23particle'  target="_blank">
-            <i class='icon-sm ion-pound'></i>
+            <i class='icon-smHelp ion-pound'></i>
             <h5>IRC</h5>
             <p>##Particle</p>
           </a>
         </div>
         <div class='tilde-row'>
           <a class='social-tile' href='https://twitter.com/particle'  target="_blank">
-            <i class='icon-sm ion-social-twitter'></i>
+            <i class='icon-smHelp ion-social-twitter'></i>
             <h5>Twitter</h5>
             <p>@Particle</p>
           </a>
         </div>
         <div class='tilde-row'>
           <a class='social-tile' href='http://www.facebook.com/particle'  target="_blank">
-            <i class='icon-sm ion-social-facebook'></i>
+            <i class='icon-smHelp ion-social-facebook'></i>
             <h5>Facebook</h5>
             <p>Particle</p>
           </a>
         </div>
         <div class='tilde-row'>
           <a class='social-tile' href='http://www.github.com/spark'  target="_blank">
-            <i class='icon-sm ion-social-github'></i>
+            <i class='icon-smHelp ion-social-github'></i>
             <h5>Github</h5>
             <p>@Spark</p>
           </a>
         </div>
         <div class='tilde-row'>
           <a class='social-tile' href='https://www.youtube.com/channel/UCYMzCwo0oBpX5RXaRfwod-w'  target="_blank">
-            <i class='icon-sm ion-social-youtube'></i>
+            <i class='icon-smHelp ion-social-youtube'></i>
             <h5>Youtube</h5>
             <p>Particle</p>
           </a>
@@ -166,8 +166,11 @@
     </div> {{!-- Container Closing --}}
   </div> {{!-- Outer Static Div --}}
 </div>
-
-
+{{!-- Extract for external JS file --}}
+<div class="help-button-wrapper">
+    <a href="/support/account-and-shipping/menu-base/" id="buttonParticle" class="buttonTextHelp" target="_blank"><i class="icon-xxHelp ion-help"></i></a>
+</div>
+{{!-- Extract for external JS file --}}
 
   <!-- Scripts section before end of body -->
   {{> scripts}}
