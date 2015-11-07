@@ -30,11 +30,12 @@ void setup()
   // variable name max length is 12 characters long
   Particle.variable("analogvalue", analogvalue);
   Particle.variable("temp", tempC);
-  if (Particle.variable("mess", message)==false)
+  if (Particle.variable("mess", message)==false) {
       // variable not registered!
- Particle.variable("mess2", aString);
+  }
+  Particle.variable("mess2", aString);
 
- pinMode(A0, INPUT);
+  pinMode(A0, INPUT);
 }
 
 void loop()
