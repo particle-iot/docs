@@ -1707,12 +1707,13 @@ Sets the data rate in bits per second (baud) for serial data transmission. For c
 
 ```C++
 // SYNTAX
-Serial.begin(speed);    // serial via USB port
-Serial1.begin(speed);   // serial via TX and RX pins
-Serial2.begin(speed);   // serial via 
-                        // D1(TX) and D0(RX) pins on Core
+Serial.begin(speed);    // via USB port
+Serial1.begin(speed);   // via TX/RX pins
+Serial2.begin(speed);   // on Core via
+                        // D1(TX) and D0(RX) pins
+                        // on Photon via
                         // RGB-LED green(TX) and 
-                        // RGB-LED blue (RX) pins on Photon
+                        // RGB-LED blue (RX) pins
 ```    
 `speed`: parameter that specifies the baud rate *(long)*
 
