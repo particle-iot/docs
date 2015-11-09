@@ -38,17 +38,11 @@ $(document).ready(function() {
     var ddx = { name: datax.name, 
 		  				email: datax.email ,
 		  				subject: datax.subj,
-		  				comments: datax.comments
+		  				comments: datax.comments,
+		  				urlFrom: window.location.pathname
 						};//object
 
-	// 	serialize = function(obj) {
-	//   var str = [];
-	//   for(var p in obj)
-	//     if (obj.hasOwnProperty(p)) {
-	//       str.push(encodeURIComponent(p) + "=" + encodeURIComponent(obj[p]));
-	//     }
-	//   return str.join("&");
-	// }
+
 
 		//Post to Heroku App
 		$.ajax({
