@@ -49,12 +49,21 @@ $(document).ready(function() {
 		  method: "POST",
 		  url: "http://localhost:8081",
 		  dataType: 'json',
-		  data: JSON.stringify(ddx)
-		})//post function
+		  cache: false,
+		  data: JSON.stringify(ddx),
+	    success: function(data) {
+	      if (data.ok == true) {
+	          alert('success :  user logged in');
+	      }
+	    },
+	    error: function(){
+	      alert("failure");
+	    }
+		});//post function
 
 	});//onSubmit Form end
 	
-});//end of ready Function
+});//end of document.ready Function
 
 
 
