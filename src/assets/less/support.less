@@ -5,22 +5,22 @@
 	text-align: center;
 
 	h2 {
-		font-size: 36px;
+		font-size: 40px;
 	}
 
 	h4 {
 		margin: 10px auto;
-    font-size: 20px;
+    font-size: 18px;
     line-height: 28px;
     max-width: 860px;
 	}
 
-	h5 {
-		font-size: 18px;
+	h3 {
+		font-size: 24px;
 	}
 
 	p {
-		font-size: @base-font-size;
+		font-size: 12px;
 	}
 
 }
@@ -31,21 +31,10 @@
 }
 
 .tile {
-	.make-column(3);
+	.make-column(4);
+	padding-left: 5%;
 }
 
-.tilde-row {
-	padding-top: 15px;
-	.make-column(2);
-
-	a {
-		color: #34495e;
-	}
-}
-
-.offset-1 {
-	.make-column-offset(1);
-}
 
 .resource-tile {
 	transition: all 0.25s ease;
@@ -76,39 +65,121 @@
 
 }
 
-.social-tile {
-	transition: all 0.25s ease;
-	display: block;
-	text-decoration: none;
-  border: 5px solid transparent;
-  border-radius: 5px;
-  text-align: center;
-  color: #34495e;
-  padding: 10px;
-  //margin-top: 5px;
-}
-
-.social-tile:hover {
-	display: block;
-  text-decoration: none;
-  border: 5px solid transparent;
-  border-radius: 5px;
-  text-align: center;
-	-webkit-box-shadow: 7px 10px 25px 1px rgba(0,0,0,0.47);
-	-moz-box-shadow: 7px 10px 25px 1px rgba(0,0,0,0.47);
-	box-shadow: 7px 10px 25px 1px rgba(0,0,0,0.47);
-}
-
 .icon-iHelp {
 	font-size: 36px;
 }
+//end of Regular sizing
+
+@media (max-width: @medium-size) {
+	.resource-tile {
+		transition: all 0.25s ease;
+		display: block;
+	  max-width: 200px;
+	  text-decoration: none;
+	  border: 2px solid transparent;
+	  border-radius: 5px;
+	  text-align: center;
+	  color: #34495e;
+	  padding: 5px;
+	  margin-top: 10px;
+	}
+
+	.resource-tile:hover {
+		display: block;
+	  max-width: 200px;
+	  text-decoration: none;
+	  border: 2px solid transparent;
+	  border-radius: 5px;
+	  text-align: center;
+	  color: #34495e;
+	  padding: 5px;
+	  margin-top: 10px;
+		// -webkit-box-shadow: 7px 10px 25px 1px rgba(0,0,0,0.47);
+		// -moz-box-shadow: 7px 10px 25px 1px rgba(0,0,0,0.47);
+		// box-shadow: 7px 10px 25px 1px rgba(0,0,0,0.47);
+
+	}
+
+	.icon-iHelp {
+		font-size: 22px;
+	}
+
+	.resources-wrapper {
+		padding: 5px 5px;
+
+		h3 {
+			font-size: 20px;
+		}
+
+		p {
+			font-size: 10px;
+		}
+	}
+
+	.tile {
+		padding-right: 5%;
+	}
 
 
-.icon-smHelp {
-	padding-top: 10px;
-	font-size: 20px;
 }
 
+@media (max-width: 539px) {
+
+	.resource-tile {
+		transition: all 0.25s ease;
+		display: block;
+	  max-width: 240px;
+	  text-decoration: none;
+	  border: 2px solid transparent;
+	  border-radius: 5px;
+	  text-align: center;
+	  color: #34495e;
+	  padding: 5px;
+	  margin-top: 10px;
+	}
+
+	.resource-tile:hover {
+		display: block;
+	  max-width: 240px;
+	  text-decoration: none;
+	  border: 2px solid transparent;
+	  border-radius: 5px;
+	  text-align: center;
+	  color: #34495e;
+	  padding: 5px;
+	  margin-top: 10px;
+		// -webkit-box-shadow: 7px 10px 25px 1px rgba(0,0,0,0.47);
+		// -moz-box-shadow: 7px 10px 25px 1px rgba(0,0,0,0.47);
+		// box-shadow: 7px 10px 25px 1px rgba(0,0,0,0.47);
+
+	}
+
+	.icon-iHelp {
+		font-size: 22px;
+	}
+
+	.resources-wrapper {
+		padding: 5px 5px;
+
+		h3 {
+			font-size: 24px;
+		}
+
+		p {
+			font-size: 12px;
+		}
+	}
+
+	// .tile {
+	// 	left: %;
+	// }
+
+
+}
+
+
+
+/////////////////////////////////////
 //Extract this to external JS file
 
 .icon-xxHelp {
