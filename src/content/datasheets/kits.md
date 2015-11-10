@@ -70,14 +70,14 @@ Here's a quick "what's in the box" for each of our offered kits. More detail is 
 
 {{#if photon}}
 ### Photon
-![]({{assets}}/images/photon-matchbox.jpg)
+![]({{assets}}/images/photon-matchbox-new.jpg)
 
 - (1) Photon
 - (1) Protective disposable paper strip with photon joke
 
 ### Photon Kit
 
-![]({{assets}}/images/phokit-contents.jpg)
+![]({{assets}}/images/photon-kit-new.jpg)
 
 - (1) Photon
 - (1) USB Micro B Cable
