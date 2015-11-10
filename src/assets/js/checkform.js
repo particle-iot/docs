@@ -54,6 +54,12 @@ $(document).ready(function() {
 	    success: function(data) {
 	      if (data.ok == true) {
 	          alert('success :  Messaged received');
+						$("#name").val('');
+						$("#email").val('');
+						$("#email2").val('');
+						$("#category option:selected").val();
+						$("#comment").val('');
+						$("#form-main").hide();
 	      }
 	    },
 	    error: function(){

@@ -143,7 +143,7 @@ input:focus, textarea:focus {
 	width: 100%;
 	border: #fbfbfb solid 4px;
 	cursor:pointer;
-	background-color: #3498db;
+	background-color: @spark-blue;
 	color:white;
 	font-size:24px;
 	padding-top:22px;
@@ -157,16 +157,22 @@ input:focus, textarea:focus {
 }
 
 #button-blue:hover{
-	background-color: @clouds;
-	color: #0493bd;
-
+	background-color: @spark-blue-dark;
+	color: white;
 	padding-top:22px;
 	padding-bottom:22px;
 }
+
+#button-blue:focus {
+  background-color: @clouds;
+}
 	
-	
-.submit:hover {
-	color: #3498db;
+// .submit:hover {
+// 	color: @clouds;
+// }
+
+.submit:focus {
+  background-color: @clouds;
 }
 	
 .ease {
