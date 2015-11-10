@@ -47,17 +47,17 @@ $(document).ready(function() {
 		//Post to Heroku App
 		$.ajax({
 		  method: "POST",
-		  url: "http://localhost:8081",
+		  url: "http://localhost:5000",
 		  dataType: 'json',
 		  cache: false,
 		  data: JSON.stringify(ddx),
 	    success: function(data) {
 	      if (data.ok == true) {
-	          alert('success :  user logged in');
+	          alert('success :  Messaged received');
 	      }
 	    },
 	    error: function(){
-	      alert("failure");
+	      alert("failure: please email us");
 	    }
 		});//post function
 
