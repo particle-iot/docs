@@ -1,0 +1,121 @@
+<!doctype html>
+<html class="two-columns">
+<head>
+  
+  {{> suppHead}} 
+
+<script src='/assets/js/checkform.js'></script>
+</head>
+
+<body>
+
+<div id="docs" data-level>
+  {{> header}}
+
+
+<div class="content-root resources-wrapper">
+  <div> {{!-- Outer Static Div --}}
+    <div id="res-title">
+      <h2>How can we help you today?</h2>
+      <h4>We probably have the answer somewhere around here...</h4>
+    </div>
+    <div class='container' id='resources'> {{!-- Container Closing --}}
+      <div class='row'>{{!-- Help Buttons --}}
+        <div class='tile'>
+          <a class='resource-tile' href='/guide/getting-started/start'>
+            <i class='icon-iHelp ion-document-text'></i>
+            <h3>Documentation</h3>
+            <p>Level up on the Particle platform.</p>
+          </a>
+        </div>
+        <div class='tile'>
+          <a class='resource-tile' href='/support/troubleshooting/common-issues'>
+            <i class='icon-iHelp ion-wrench'></i>
+            <h3>Help</h3>
+            <p>Having an issue with your device? This is definitely the place to start.</p>
+          </a>
+        </div>
+        <div class='tile'>
+          <a class='resource-tile' href='/support/account-and-shipping/shipping-account-info/photon/'>
+            <i class='icon-iHelp ion-gear-a'></i>
+            <h3>Account Information</h3>
+            <p>Shipping, orders, password resets. Let's start here.</p>
+          </a>
+        </div>
+      </div>
+      <div class='row'>
+        <div class='tile'>
+          <a class='resource-tile' href='https://community.particle.io/' target="_blank">
+            <i class='icon-iHelp ion-person-stalker'></i>
+            <h3>Community Forums</h3>
+            <p>Questions, answers, ideas. Join the Particle alliance, today.</p>
+          </a>
+        </div>
+        <div class='tile'>
+          <a class='resource-tile' href='/support/troubleshooting/common-questions/photon/' target="_blank">
+            <i class='icon-iHelp ion-social-rss'></i>
+            <h3>FAQ</h3>
+            <p>All things Particle, answered.</p>
+          </a>
+        </div>
+        <div class='tile'>
+          <a class='resource-tile' href='http://status.particle.io/' target="_blank">
+            <i class='icon-iHelp ion-alert-circled'></i>
+            <h3>Status</h3>
+            <p>Check the Particle Cloud to make sure everything's running smoothly.</p>
+          </a>
+        </div>
+      </div> {{!-- Help Buttons --}}
+
+      {{!-- <div id="row row-form"> --}}
+        <div href="#" id="form-main"> {{!-- New webform section --}}
+          <div id="form-div">
+            <form class="form" id="form1">
+              
+              <fieldset>
+              <legend>Do you have a different question?</legend>
+
+              <select id="category" name="category" class="feedback-input">
+                <option value="1">My device isn't powering up. What now?</option>
+                <option value="2">Option two</option>
+                <option value="3">Option three</option>
+                <option value="4">Option four</option>
+                <option value="5">Option five</option>
+                <option value="6">Option six</option>
+                <option value="7">Option seven</option>
+                <option value="8">Option eight</option>
+              </select>  
+              <p class="name">
+                <input name="name" type="text" class="validate[required,custom[onlyLetter],length[0,100]] feedback-input" placeholder="Name" id="name" />
+              </p>
+              
+              <p class="email">
+                <input name="EMAIL_1" type="text" class="validate[required,custom[email]] feedback-input" id="email" placeholder="Email" />
+              </p>
+
+              <p class="email">
+                <input name="EMAIL_2" type="text" class="validate[required,custom[email]] feedback-input" id="email2" placeholder="Verify Email" />
+              </p>
+              
+              <p class="text">
+                <textarea name="text" class="validate[required,length[6,300]] feedback-input" id="comment" placeholder="Message"></textarea>
+              </p>
+              
+              <div class="submit">
+                <input type="submit" value="SEND" id="button-blue"/>
+                <div class="ease"></div>
+              </div>
+              </fieldset>
+            </form>
+          </div>
+        </div>
+      {{!-- </div> --}} {{!-- New webform section --}}
+    </div> {{!-- Container Closing --}}
+  </div> {{!-- Outer Static Div --}}
+</div>
+  <!-- Scripts section before end of body -->
+  {{> scripts}}
+
+    
+</body>
+</html>

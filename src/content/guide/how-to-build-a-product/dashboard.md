@@ -298,6 +298,54 @@ As customers are created for your product, they will begin to appear on your Cus
 
 The logs page (<i class="icon-terminal"></i>) is also available to product creators! Featuring the same interface as what you are used to with the [developer version of the dashboard](/guide/tools-and-features/dashboard/), the logs will now include events from any device identifying as your product. Use this page to get a real-time look into what is happening with your devices. In order to take full advantage of the logs page, be sure to use `Spark.publish()` in your firmware.
 
+## Managing your subscription
+
+To see all billing related information, you can click on the billing icon in your organization's sidebar (<i class="ion-card"></i>). This is the hub for all billing-related information and actions.
+
+### How billing works
+
+When you signed up for Device Management, you selected a plan. Which plan you selected determines the amount and frequency at which you are billed. For instance, selecting the Team Plan (annually) enrolls you for a $49.00 per team member per month plan, paid annually. This means if you have 1 team member, you will be billed $588 once a year.
+
+It is important to note that charges made to your account are for <em>future billing periods</em>, not <em>previous billing periods</em>. In other words, getting charged extends your organization's access to the end of the <em>upcoming</em> billing period. When that billing period ends, a new charge will occur, once again extending your team's access.
+
+If you update your subscription (i.e adding or removing team members, switching plans) in the middle of the month, we will automatically calculate the proper adjustments to be made, and apply them to your next payment.
+
+### Updating your credit card
+
+You can update your credit card from the billing page by clicking on the "EDIT" button next to the credit card on file. Whenever your credit card on file expires or no longer is valid, be sure to update your credit card info here to avoid any disruptions in your service.
+
+![Update your credit card](/assets/images/edit-card.png)
+
+### Failed Payments
+
+If we attempt to charge your credit card and it fails, we do not immediately prevent you or your team from accessing your Device Management dashboard. We will continue to retry charging your card once every few days <strong>for a maximum of 3 retries</strong>. You will receive an email notification each time an attempt is made and fails. When you receive this notification, the best thing to avoid any interruption in service is to <a href="#updating-your-credit-card">update your credit card</a>.
+
+After we have unsuccessfully tried to charge your card 3 times, your Device Management account will be locked. <strong>Your organization, products, and all data will not be deleted</strong>. After re-activating your subscription, you will be able to access your Organization's dashboard once again.
+
+### Cancelling a subscription
+
+You can cancel your subscription by clicking on the "Cancel subscription" link on your organization's billing page, under the "Manage subscription" header. After cancellation, you and your team are still able to access Device Management until the end of the current billing period.
+
+It is important to note that after cancellation, <strong>your data is not deleted</strong>. Existing devices and products that encompass your organization will still function as normal. After the current billing period has ended, your account will be put in an inacive state. You can re-activate your subscription at any time to resume access to Device Management.
+
+### Re-activate a subscription
+
+If you have cancelled your subscription but are interested in re-activation, fear not! The process is very simple and will have you building again in no time. As discussed in the previous section, your organization's data is not destroyed when you cancel your subscription.
+
+There are two slightly different ways to re-activate, depending on the status of your subscription. If you have cancelled your subscription but are still within the current billing period, you will still have access to your dashboard and can re-activate from your organization's billing page. The manage subscription section should now be replaced with information about your subscription cancellation, and will have a button allowing you to re-activate.
+
+![Reactivate subscription](/assets/images/reactivate-subscription.png)
+<p class="caption">You can easily re-activate your subscription from your billing page</p>
+
+If re-activating a subscription that has not been fully cancelled yet, you will remain on the same billing cycle and will be charged at the beginning of the next billing period.
+
+If your subscription has already been marked as inactive (three failed charge attempts, or after the end of the current billing period when cancelled), re-activation is slightly different. Upon login to the dashboard, your team will be directed to an "Inactive Subscription" page, letting you know that you no longer have access to your organization's Device Management dashboard. On this page, there is also a "re-activate subscription" button. In this case, you will need to provide a valid credit card to resume your subscription.
+
+![Inactive subscription](/assets/images/inactive-subscription.png)
+<p class="caption">Re-activate your subscription after it has been marked as inactive</p>
+
+If re-activating a subscription that is currently inactive, you will be re-enrolled in the plan you had signed up for. Your credit card will be charged immediately for the next billing period, and will begin a new billing cycle based on the day that you re-activated.
+
 ## What's next?
 
 Congratulations! You have a grasp on how to take advantage of your organization's dashboard. Next up, you will learn how to [build your own web app](/guide/how-to-build-a-product/web-app/) for your product.

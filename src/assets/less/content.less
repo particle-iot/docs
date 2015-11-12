@@ -1,6 +1,18 @@
 /* ----------------------------------------------------------------------------
  * Content styling
  */
+ i {
+   line-height: 1;
+ }
+ .two-columns body:not(.no-literate) .content .inline-header-image {
+   display: inline-block;
+  vertical-align: middle;
+  width: 40px;
+  margin-left: 10px;
+  margin-bottom: 0;
+  margin-top: -5px;
+  border: none;
+ }
 .content {
   position: relative;
 }
@@ -515,7 +527,7 @@ h1 small.beta {
   display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */
   display: -ms-flexbox;      /* TWEENER - IE 10 */
   display: -webkit-flex;     /* NEW - Chrome */
-  display: flex; 
+  display: flex;
   justify-content: center;
   -webkit-justify-content: center;
   align-content: center;

@@ -16,12 +16,52 @@ Particle Device Firmware
 Expose a *variable* through the Cloud so that it can be called with `GET /v1/devices/{DEVICE_ID}/{VARIABLE}`.
 Returns a success value - `true` when the variable was registered.
 
-It is fine to call this function when the cloud is disconnected - the variable
-will be registered next time the cloud is connected.
 
 ```C++
 // EXAMPLE USAGE
 
+int analogvalue = 0;
+double tempC = 0;
+char *message = "my name is particle";
+String aString;
+
+void setup()
+{
+  // variable name max length is 12 characters long
+  Particle.variable("analogvalue", analogvalue);
+  Particle.variable("temp", tempC);
+  if (Particle.variable("mess", message)==false) 
+  {
+      // variable not registered!
+  }
+  Particle.variable("mess2", aString);
+
+  pinMode(A0, INPUT);
+}
+
+void loop()
+{
+  // Read the analog value of the sensor (TMP36)
+  analogvalue = analogRead(A0);
+  //Convert the reading into degree celcius
+  tempC = (((analogvalue * 3.3)/4095) - 0.5) * 100;
+  delay(200);
+}
+```
+
+Currently, up to 10 cloud variables may be defined and each variable name is limited to a maximum of 12 characters.
+
+It is fine to call this function when the cloud is disconnected - the variable
+will be registered next time the cloud is connected.
+
+Prior to 0.4.7 firmware, variables were defined with an additional 3rd parameter
+to specify the data type of the variable. From 0.4.7 onwards, the system can
+infer the type from the actual variable. Additionally, the variable address
+was passed via the address-of operator (`&`). With 0.4.7 and newer, this is no longer required.
+
+This is the pre-0.4.7 syntax:
+
+```
 int analogvalue = 0;
 double tempC = 0;
 char *message = "my name is particle";
@@ -35,23 +75,13 @@ void setup()
       // variable not registered!
   pinMode(A0, INPUT);
 }
-
-void loop()
-{
-  // Read the analog value of the sensor (TMP36)
-  analogvalue = analogRead(A0);
-  //Convert the reading into degree celcius
-  tempC = (((analogvalue * 3.3)/4095) - 0.5) * 100;
-  delay(200);
-}
 ```
-Currently, up to 10 cloud variables may be defined and each variable name is limited to a max of 12 characters.
 
 There are three supported data types:
 
  * `INT`
  * `DOUBLE`
- * `STRING`   (maximum string size is 622 bytes)
+ * `STRING`   (maximum string length is 622 bytes)
 
 
 
@@ -1003,6 +1033,24 @@ void setup() {
 }
 ```
 
+### WiFi.dnsServerIP()
+
+`WiFi.dnsServerIP()` retrieves the IP address of the DNS server that resolves
+DNS requests for the device's network connection.
+
+Note that for this value to be available requires calling `Particle.process()` after Wi-Fi
+has connected.
+
+
+### WiFi.dhcpServerIP()
+
+`WiFi.dhcpServerIP()` retrieves the IP address of the DHCP server that manages
+the IP address used by the device's network connection.
+
+Note that for this value to be available requires calling `Particle.process()` after Wi-Fi
+has connected.
+
+
 {{#if photon}}
 
 ### WiFi.setStaticIP()
@@ -1578,6 +1626,55 @@ loop() {
 `shiftIn()` returns the byte value read.
 
 
+### pulseIn()
+
+*Since 0.4.7.*
+
+Reads a pulse (either HIGH or LOW) on a pin. For example, if value is HIGH, pulseIn() waits for the pin to go HIGH, starts timing, then waits for the pin to go LOW and stops timing. Returns the length of the pulse in microseconds or 0 if no complete pulse was received within the timeout.
+
+The timing of this function is based on an internal hardware counter derived from the system tick clock.  Resolution is 1/Fosc (1/72MHz for Core, 1/120MHz for Photon/P1/Electron). Works on pulses from 10 microseconds to 3 seconds in length. Please note that if the pin is already reading the desired `value` when the function is called, it will wait for the pin to be the opposite state of the desired `value`, and then finally mesaure the duration of the desired `value`. This routine is blocking and does not use interrupts.  The pulseIn() routine will time out and return 0 after 3 seconds.
+
+```C++
+// SYNTAX
+pulseIn(pin, value)
+```
+
+`pulseIn()` takes two arguments, `pin`: the pin on which you want to read the pulse (this can be any GPIO, e.g. D1, A2, C0, B3, etc..), `value`: type of pulse to read: either HIGH or LOW. `pin` should be set to one of three [pinMode()](#pinmode-)'s prior to using pulseIn(), `INPUT`, `INPUT_PULLUP` or `INPUT_PULLDOWN`.
+
+`pulseIn()` returns the length of the pulse (in microseconds) or 0 if no pulse is completed before the 3 second timeout (unsigned long)
+
+```C++
+// EXAMPLE
+unsigned long duration;
+
+void setup()
+{
+    Serial.begin(9600);
+    pinMode(D0, INPUT);
+
+    // Pulse generator, connect D1 to D0 with a jumper
+    // PWM output is 500Hz at 50% duty cycle
+    // 1000us HIGH, 1000us LOW
+    pinMode(D1, OUTPUT);
+    analogWrite(D1, 128);
+}
+
+void loop()
+{
+    duration = pulseIn(D0, HIGH);
+    Serial.printlnf("%d us", duration);
+    delay(1000);
+}
+
+/* OUTPUT
+ * 1003 us
+ * 1003 us
+ * 1003 us
+ * 1003 us
+ */
+```
+
+
 ## Serial
 
 Used for communication between the device and a computer or other devices. The device has two serial channels:
@@ -1586,11 +1683,21 @@ Used for communication between the device and a computer or other devices. The d
 
 `Serial1:` This channel is available via the device's TX and RX pins.
 
+{{#if core}}
 `Serial2:` This channel is optionally available via the device's D1(TX) and D0(RX) pins. To use Serial2, add `#include "Serial2/Serial2.h"` near the top of your app's main code file.
 
 To use the TX/RX (Serial1) or D1/D0 (Serial2) pins to communicate with your personal computer, you will need an additional USB-to-serial adapter. To use them to communicate with an external TTL serial device, connect the TX pin to your device's RX pin, the RX to your device's TX pin, and the ground of your Core/Photon to your device's ground.
+{{/if}}
 
-**NOTE:** Please take into account that the voltage levels on these pins runs at 0V to 3.3V and should not be connected directly to a computer's RS232 serial port which operates at +/- 12V and can damage the Core/Photon.
+{{#if photon}}
+`Serial2:` This channel is optionally available via the device's RGB Green (TX) and Blue (RX) LED pins. The Blue and Green current limiting resistors should be removed.  To use Serial2, add #include "Serial2/Serial2.h" near the top of your app's main code file.
+
+If the user enables Serial2, they should also consider using RGB.onChange() to move the RGB functionality to an external RGB LED on some PWM pins.
+
+To use the TX/RX (Serial1) or RGB Green (TX)/Blue (RX) LED (Serial2) pins to communicate with your personal computer, you will need an additional USB-to-serial adapter. To use them to communicate with an external TTL serial device, connect the TX pin to your device's RX pin, the RX to your device's TX pin, and the ground of your Core/Photon to your device's ground.
+{{/if}}
+
+**NOTE:** Please take into account that the voltage levels on these pins runs at 0V to 3.3V and should not be connected directly to a computer's RS232 serial port which operates at +/- 12V and will damage the Core/Photon.
 
 ### begin()
 
@@ -1600,10 +1707,14 @@ Sets the data rate in bits per second (baud) for serial data transmission. For c
 
 ```C++
 // SYNTAX
-Serial.begin(speed);    // serial via USB port
-Serial1.begin(speed);   // serial via TX and RX pins
-Serial2.begin(speed);   // serial via D1(TX) and D0(RX) pins
-```
+Serial.begin(speed);    // via USB port
+Serial1.begin(speed);   // via TX/RX pins
+Serial2.begin(speed);   // on Core via
+                        // D1(TX) and D0(RX) pins
+                        // on Photon via
+                        // RGB-LED green(TX) and 
+                        // RGB-LED blue (RX) pins
+```    
 `speed`: parameter that specifies the baud rate *(long)*
 
 `begin()` does not return anything
@@ -1664,6 +1775,34 @@ void loop()
     Serial.write(inByte);
   }
 }
+```
+
+### serialEvent()
+
+A family of application-defined functions that are called whenever there is data to be read
+from a serial peripheral.
+
+- serialEvent: called when there is data available from `Serial`
+- serialEvent1: called when there is data available from `Serial1`
+- serialEvent2: called when there is data available from `Serial2`
+
+The `serialEvent` functions are called by the system as part of the application loop. Since these is an
+extension of the application loop, it is ok to call any functions at you would also call from loop().
+
+```cpp
+// EXAMPLE - echo all characters typed over serial
+
+void setup()
+{
+   Serial.begin(9600);
+}
+
+void serialEvent()
+{
+    char c = Serial.read();
+    Serial.print(c);
+}
+
 ```
 
 ### peek()
@@ -3801,6 +3940,12 @@ void loop()
 
 ## Interrupts
 
+Interrupts are a way to write code that is run when an external event occurs.
+As a general rule, interrupt code should be very fast, and non-blocking. This means
+performing transfers, such as I2C, Serial, TCP should not be done as part of the
+interrupt handler. Rather, the interrupt handleer can set a variable which instructs
+the main loop that the event has occurred.
+
 ### attachInterrupt()
 
 Specifies a function to call when an external interrupt occurs. Replaces any previous function that was attached to the interrupt.
@@ -3924,6 +4069,108 @@ noInterrupts();
 
 `noInterrupts()` neither accepts a parameter nor returns anything.
 
+## Software Timers
+
+_Since 0.4.7. This feature is available on the Photon and P1 out the box. On the Core, the
+`freertos4core` library should be used to add FreeRTOS to the core._
+
+Software Timers provide a way to have timed actions in your program.  FreeRTOS provides the ability to have up to 10 Software Timers at a time with a minimum resolution of 1 millisecond.  It is common to use millis() based "timers" though exact timing is not always possible (due to other program delays).  Software timers are maintained by FreeRTOS and provide a more reliable method for running timed actions using callback functions.  Please note that Software Timers are "chained" and will be serviced sequencially when several timers trigger simultaneously, thus requiring special consideration when writing callback functions.
+
+```cpp
+// EXAMPLE
+
+void print_every_second()
+{
+    static int count = 0;
+    Serial.println(count++);
+}
+
+Timer timer(1000, print_every_second);
+
+void setup()
+{
+    Serial.begin(9600);
+    timer.start();
+}
+```
+
+Timers may be started, stopped, reset within a user program or an ISR.  They may also be "disposed", removing them from the (max. 10) active timer list.
+
+The timer callback is similar to an interrupt - it shouldn't block. However, it is less restrictive than an interrupt. If the code does block, the system will not crash - the only consequence is that other software timers that should have triggered will be delayed until the blocking timer callback function returns.
+
+// SYNTAX
+
+`Timer timer(period, callback)`
+
+`period` is the period of the timer in milliseconds  (unsigned int)
+`callback` is the callback function which gets called when the timer expires
+
+### start()
+
+Starts a stopped timer (a newly created timer is stopped). If `start()` is called for a running timer, it will be reset.
+
+`start()`
+
+```C++
+// EXAMPLE USAGE
+timer.start(); // starts timer if stopped or resets it if started.
+
+```
+
+### stop()
+
+Stops a running timer.
+
+`stop()`
+
+```C++
+// EXAMPLE USAGE
+timer.stop(); // stops a running timer.
+
+```
+
+### reset()
+
+Resets a timer.  If a timer is running, it will reset to "zero".  If a timer is stoppep, it will be started.
+
+`reset()`
+
+```C++
+// EXAMPLE USAGE
+timer.reset(); // reset timer if running, or start timer if stopped.
+
+```
+
+### startFromISR()
+### stopFromISR()
+### resetFromISR()
+
+`startFromISR()`
+`stopFromISR()`
+`resetFromISR()`
+
+Start, stop and reset a timer (as above) BUT from within an ISR.  These functions MUST be called when doing timer operations within an ISR.
+
+```C++
+// EXAMPLE USAGE
+timer.startFromISR(); // WITHIN an ISR, starts timer if stopped or resets it if started.
+
+timer.stopFromISR(); // WITHIN an ISR,stops a running timer.
+
+timer.resetFromISR(); // WITHIN an ISR, reset timer if running, or start timer if stopped.
+```
+
+### dispose()
+
+`dispose()`
+
+Stop and remove a timer from the (max. 10) timer list, freeing a timer "slot" in the list.
+
+```C++
+// EXAMPLE USAGE
+timer.dispose(); // stop and delete timer from timer list.
+
+```
 
 ## Math
 
@@ -4334,22 +4581,31 @@ EEPROM.put(addr, myObj);
 ```
 
 {{#if photon}}
-## Backup RAM
+## Backup RAM (SRAM)
 
 The STM32F2xx features 4KB of backup RAM. Unlike the regular RAM memory, the backup
 RAM is retained so long as power is provided to VIN or to VBAT. In particular this means that
 the data in backup RAM is retained when:
 
 - the device goes into deep sleep mode
-- the device is software reset (while maintaining power)
+- the device is hardware or software reset (while maintaining power)
 - power is removed from VIN but retained on VBAT (which will retain both the backup RAM and the RTC)
 
 Note that _if neither VIN or VBAT is powered then the contents of the backup RAM will be lost; for data to be
-retained, the device needs a power source. Backup RAM is also not retained if the processor is hard reset, i.e. pressing
-the reset button._  For persistent storage of data through a total power loss or hard reset, please use the [EEPROM](#eeprom) library.
+retained, the device needs a power source._  For persistent storage of data through a total power loss, please use the [EEPROM](#eeprom) library.
 
+Power Conditions and how they relate to Backup RAM initilization and data retention:
 
-### Storing data in backup RAM
+| Power Down Method | Power Up Method | When VIN Powered | When VBAT Powered | SRAM Initialized | SRAM Retained |
+| -: | :- | :-: | :-: | :-: | :-: |
+| Power removed on VIN and VBAT | Power applied on VIN | - | - | Yes | No |
+| Power removed on VIN | Power applied on VIN | - | Yes | No | Yes |
+| System.sleep(SLEEP_MODE_DEEP) | Rising edge on WKP pin, or Hard Reset | Yes | Yes/No | No | Yes |
+| System.sleep(SLEEP_MODE_DEEP,10) | RTC alarm after 10 seconds | Yes | Yes/No | No | Yes |
+| System.reset() | Boot after software reset | Yes | Yes/No | No | Yes |
+| Hard reset | Boot after hard reset | Yes | Yes/No | No | Yes |
+
+### Storing data in Backup RAM (SRAM)
 
 With regular RAM, data is stored in RAM by declaring variables.
 
@@ -4361,8 +4617,8 @@ int numberOfTriesRemaining = 10;
 ```
 
 This tells the system to store these values in RAM so they can be changed. The
-system takes care of giving them initial values. Before
-they are set, they will have the initial value 0 if an intial value isn't specified.
+system takes care of giving them initial values. Before they are set,
+they will have the initial value 0 if an intial value isn't specified.
 
 Variables stored in backup RAM follow a similar scheme but use an additional keyword `retained`:
 
@@ -4377,18 +4633,19 @@ A `retained` variable is similar to a regular variable, with some key difference
 
 - it is stored in backup RAM - no space is used in regular RAM
 - instead of being initialized on each program start, `retained` variables are initialized
-when the device is first powered on (from being powered off.) When the device is powered on, the system takes care of setting these
- variables to their initial values.  `lastTemperature` and `numberOfPresses` would be initialized to 0, while
-`nmberOfTriesRemaining` would be initialized to 10.
+when the device is first powered on (with VIN, from being powered off with VIN and VBAT completely removed).
+When the device is powered on, the system takes care of setting these variables to their initial values.
+`lastTemperature` and `numberOfPresses` would be initialized to 0, while `nmberOfTriesRemaining` would be initialized to 10.
 - the last value set on the variable is retained *as long as the device is powered from VIN or VBAT and is not hard reset*.
 
-Retained variables can be updated freely just as with regular RAM variables and operate
+`retained` variables can be updated freely just as with regular RAM variables and operate
 just as fast as regular RAM variables.
 
 Here's some typical use cases for `retained` variables:
 
 - storing data for use after waking up from deep sleep
-- storing data for use after a powered software reset
+- storing data for use after power is removed on VIN, while power is still applied to VBAT (with coin cell battery or super capacitor)
+- storing data for use after a hardware or software reset
 
 Finally, if you don't need the persistence of `retained` variables, you
 can consider them simply as 4KB of extra RAM to use.
@@ -4424,13 +4681,13 @@ void loop() {
  */
 ```
 
-### Enabling Backup RAM
+### Enabling Backup RAM (SRAM)
 
-The backup RAM is disabled by default, since it does require some power to maintain
-which may not be desired on some low-powered projects.  The difference in power consumption
-is roughly 5uA or less on VIN and 9uA or less on VBAT.
+Backup RAM is disabled by default, since it does require some maintenance power
+which may not be desired on some low-powered projects.  Backup RAM consumes roughly
+5uA or less on VIN and 9uA or less on VBAT.
 
-The backup RAM is enabled with this code (to be placed at the top of your code outside of any functions):
+Backup RAM is enabled with this code (to be placed at the top of your application outside of any functions):
 
 ```cpp
 
@@ -4467,9 +4724,9 @@ the device, which uses a software reset to reboot the device.  This will allow p
 
 During development, a good suggestion to avoid confusion is to design your application to work
 correctly when power is being applied for the first time, and all `retained` variables are
-initialized.  If you must rearrange variables, simply power down the device after changes are made
-to allow reinitialization of `retained` variables on the next power up of the device.
-Note: If using VBAT, ensure to completely remove its power source as well.
+initialized.  If you must rearrange variables, simply power down the device (VIN and VBAT)
+after changes are made to allow reinitialization of `retained` variables on the next power
+up of the device.
 
 It's perfectly fine to mix regular and `retained` variables, but for clarity we recommend
 keeping the `retained` variables in their own separate block. In this way it's easier to recognize
@@ -4701,6 +4958,48 @@ only for a period of time, we can use `waitFor`
 ```
 
 ## System Calls
+
+### System.version()
+
+_Since 0.4.7_
+
+Determine the version of system firmware available. Returns a version string
+of the format:
+
+> MAJOR.MINOR.PATCH
+
+Such as "0.4.7".
+
+For example
+
+```
+
+void setup()
+{
+   Serial.printlnf("System version: %s", System.version().c_str());
+   // prints
+   // System version: 0.4.7
+}
+
+```
+
+### System.versionNumber()
+
+Determines the version of system firmware available. Returns the version encoded
+as a number:
+
+> 0xAABBCCDD
+
+ - `AA` is the major release
+ - `BB` is the minor release
+ - `CC` is the patch number
+ - `DD` is 0
+
+Firmware 0.4.7 has a version number 0x00040700
+
+
+Note that
+
 
 ### System Cycle Counter
 
@@ -4984,6 +5283,31 @@ void loop() {
 ```
 
 
+## OTA Updates
+
+Application firmware can use these functions to turn on or off OTA updates.
+
+TODO: document system events when an update is received but not yet applied
+
+### System.enableUpdates()
+
+Enables OTA updates. Updates are enabled by default.
+
+### System.disableUpdates()
+
+Disables OTA updates. An attempt to start an OTA update will fail.
+
+### System.updatesEnabled()
+
+Determine if OTA updates are presently enabled or disabled.
+
+### System.updatesPending()
+
+Indicates if there are OTA updates pending.
+
+
+
+
 ## String Class
 
 The String class allows you to use and manipulate strings of text in more complex ways than character arrays do. You can concatenate Strings, append to them, search for and replace substrings, and more. It takes more memory than a simple character array, but it is also more useful.
@@ -5155,7 +5479,7 @@ Provides printf-style formatting for strings.
 
 ```C++
 
-Particle.publish("startup", String::format("frobnicator started at %s", Time.timeStr()));
+Particle.publish("startup", String::format("frobnicator started at %s", Time.timeStr().c_str()));
 
 ```
 

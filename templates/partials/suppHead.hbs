@@ -1,8 +1,10 @@
+  {{> head}}
+
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 
+
 <script>
-
-
+//All for status page io update
 $(document).ready(function() {
   // Pull in status page
   $.ajax({
@@ -36,47 +38,8 @@ updateStatus = function(status) {
       icon.css('color', '#e74c3c');
   }
   $('.status span').text(status.description);
-}
-
-jQuery(function() {
-    jQuery('.ss_button').on('click',function() {
-        jQuery('.ss_content').slideUp('fast');
-        jQuery(this).next('.ss_content').slideDown('fast');
-    });
-});
+}//All for status page io update
+</script> 
 
 
-
-</script>
-
-<style type="text/css">
-#ss_menu { 
-    width: 100%; 
-    padding-top: 2%;
-    padding-bottom: 5%;
-    /*padding-left: 20%;*/
-    /*margin: 0 auto;   aligns with rest of content now*/
-    }
-
-.ss_button { 
-    background-color: #C7C7C7;
-    border-bottom: 1px solid #1a1a1a;
-    cursor: pointer;
-    padding: 15px;
-    padding-left: 2%;
-    color: #1a1a1a;
-    }
-    
-.ss_content {
-    background-color: #F7F7F7;
-    display: none;
-    padding: 15px;
-    padding-left: 5%;
-    }
-.content li>:last-child {
-    padding-bottom: 0;
-    padding-left: 6%;
-}
-
-</style>
 
