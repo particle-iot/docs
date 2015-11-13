@@ -1,14 +1,37 @@
 $(document).ready(function() {
+
+	// $("#email").on('blur', function() {
+ //    var re = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/; 
+   
+	// 	if(re.test(document.getElementById("email").value)){
+	// 	  document.getElementById("email").style.background ='#3c3c3c;';
+	//     return true; 
+	// 	}else{
+	// 	  document.getElementById("email").style.color ='#e35152';
+	// 	  test();
+	// 	}
+	// });
+
+	// $("#email2").on('blur', function() {
+ //    var re = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/; 
+   
+	// 	if(re.test(document.getElementById("email2").value)){
+	// 	  document.getElementById("email2").style.background ='#3c3c3c;';
+	//     return true; 
+	// 	}else{
+	// 	  document.getElementById("email2").style.color ='#e35152';
+	// 	  test();
+	// 	}
+	// });
+		//inline validation onType end
 	
 	$("#form1").on("submit", function(e) {
 		e.preventDefault();
 
 		console.log("Handling the submit");
-		//add error handling here
 		//gather the form data
 		var datax = {};
 		datax.name = $("#name").val();
-		//data.cat = $("#category").val();
 		datax.email = $("#email").val();
 		datax.email2 = $("#email2").val();
 		datax.subj = $("#category option:selected").val();
@@ -42,12 +65,10 @@ $(document).ready(function() {
 		  				urlFrom: window.location.pathname
 						};//object
 
-
-
 		//Post to Heroku App
 		$.ajax({
 		  method: "POST",
-		  url: "https://staging-supportal.herokuapp.com",
+		  url: "http://staging-supportal.herokuapp.com",
 		  dataType: 'json',
 		  cache: false,
 		  data: JSON.stringify(ddx),
