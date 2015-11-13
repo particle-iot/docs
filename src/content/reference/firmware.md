@@ -1179,6 +1179,8 @@ void loop()
 }
 ```
 
+**Note:** All GPIO pins (`D0`..`D7`, `A0`..`A7`, `DAC`, `WKP`, `RX`, `TX`) can be used as long they are not used otherwise (e.g. as `Serial1` `RX`/`TX`).
+
 ### digitalRead()
 
 Reads the value from a specified digital `pin`, either `HIGH` or `LOW`.
@@ -1211,6 +1213,7 @@ void loop()
 }
 
 ```
+**Note:** All GPIO pins (`D0`..`D7`, `A0`..`A7`, `DAC`, `WKP`, `RX`, `TX`) can be used as long they are not used otherwise (e.g. as `Serial1` `RX`/`TX`).
 
 ### analogWrite()
 
