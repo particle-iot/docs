@@ -514,7 +514,7 @@ int intactValue; // This is the average value that the photoresistor reads when 
 int brokenValue; // This is the average value that the photoresistor reads when the beam is broken.
 int beamThreshold; // This is a value halfway between ledOnValue and ledOffValue, above which we will assume the led is on and below which we will assume it is off.
 
-bool beamBroken = false; // This flag will be used to mark if we have a new status or now. We will use it in the loop.
+bool beamBroken = false; // This flag will be used to mark if we have a new status or not. We will use it in the loop.
 
 // We start with the setup function.
 
