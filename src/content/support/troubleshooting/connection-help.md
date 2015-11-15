@@ -164,7 +164,7 @@ This installs the deep udate from a binary that is packaged with the Particle CL
 ### Full Firmware Upgrade
 
 If you are having intermittent connectivity issues, odd behavior or believe your firmware to be corrupted or out of date, you would benefit from performing a full firmware upgrade. This requires using dfu-util and installing the [Particle CLI](https://github.com/spark/particle-cli)
-, which provides an excellent local development and troubleshooting environment for your Particle development.
+, which provides an excellent local development and troubleshooting environment for your Particle development. On Windows you also need to run the Zadig tool to provide a virtual usb port for the flash to work.
 
 Once the Particle CLI and dfu-util are installed, you have to enter DFU mode. Once that is done, please run the following commands through the Particle CLI:
 
