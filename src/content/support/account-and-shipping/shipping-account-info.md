@@ -3,7 +3,7 @@ title: Online Store Questions
 template: support.hbs
 columns: two
 devices: [ photon, core ]
-order: 2
+order: 3
 ---
 
 Online Store & Shipping Questions
@@ -14,7 +14,9 @@ Online Store & Shipping Questions
 If you ordered directly from our store and would like to check the status of your order
 please click on the “Check My Order” link below. You'll need your **OrderID #** (given at checkout and in the order confirmation email) and the **email address** that was used to checkout.
 
-<a href="https://dashboard.trycelery.com/status" target="_blank" class="button">Check My Order</a> 
+<a href="https://dashboard.trycelery.com/status" target="_blank" class="button">Check My Pre-Order</a> 
+<a href="http://particle.aftership.com/" target="_blank" class="button">Check My Order</a> 
+
 
 ### How can I update my address?
 

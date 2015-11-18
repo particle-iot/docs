@@ -39,18 +39,18 @@ $(document).ready(function() {
 
 		//Validations
 		var regex = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/; 
-		if( !regex.test(datax.email)) { alert('enter a valid email'); }
+		//if( !regex.test(datax.email)) { alert('enter a valid email'); }
 
-    if (datax.email != datax.email2)
-    {
-      alert('Those emails don\'t match!');
-      return false;
-    } 
+    // if (datax.email != datax.email2)
+    // {
+    //   alert('Those emails don\'t match!');
+    //   return false;
+    // } 
 
-    if (datax.name == '') {
-    	swal("Here's a message!")
-    	return false;
-    }
+    // if (datax.name == '') {
+    // 	alert("Please insert a name we can call you")
+    // 	return false;
+    // }
 
     if (datax.comments == ''){
     	alert('Please leave a comment');
@@ -72,7 +72,7 @@ $(document).ready(function() {
 		  dataType: 'json',
 		  cache: false,
 		  data: JSON.stringify(ddx),
-	    success: function(data) {
+	      success: function(data) {
 	      if (data.ok == true) {
 	          alert('success :  Messaged received');
 						$("#name").val('');

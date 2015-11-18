@@ -29,17 +29,17 @@
           </a>
         </div>
         <div class='tile'>
-          <a class='resource-tile' href='/support/troubleshooting/common-issues'>
-            <i class='icon-iHelp ion-wrench'></i>
-            <h3>Help</h3>
-            <p>Having an issue with your device? This is definitely the place to start.</p>
+          <a class='resource-tile' href='/support/account-and-shipping/faq/' target="_blank">
+            <i class='icon-iHelp ion-social-rss'></i>
+            <h3>FAQ</h3>
+            <p>All things Particle, answered.</p>
           </a>
         </div>
         <div class='tile'>
-          <a class='resource-tile' href='/support/account-and-shipping/shipping-account-info/photon/'>
-            <i class='icon-iHelp ion-gear-a'></i>
-            <h3>Account Information</h3>
-            <p>Shipping, orders, password resets. Let's start here.</p>
+          <a class='resource-tile' href='/support/troubleshooting/common-issues/'>
+            <i class='icon-iHelp ion-wrench'></i>
+            <h3>Help</h3>
+            <p>Having an issue with your device?</p>
           </a>
         </div>
       </div>
@@ -52,16 +52,16 @@
           </a>
         </div>
         <div class='tile'>
-          <a class='resource-tile' href='/support/troubleshooting/common-questions/photon/' target="_blank">
-            <i class='icon-iHelp ion-social-rss'></i>
-            <h3>FAQ</h3>
-            <p>All things Particle, answered.</p>
+          <a class='resource-tile' href='/support/account-and-shipping/shipping-account-info/'>
+            <i class='icon-iHelp ion-gear-a'></i>
+            <h3>Order Information</h3>
+            <p>Shipping, orders, password resets. Let's start here.</p>
           </a>
         </div>
         <div class='tile'>
           <a class='resource-tile' href='http://status.particle.io/' target="_blank">
             <i class='icon-iHelp ion-alert-circled'></i>
-            <h3>Status</h3>
+            <h3>System Status</h3>
             <p>Check the Particle Cloud to make sure everything's running smoothly.</p>
           </a>
         </div>
@@ -76,29 +76,33 @@
               <legend>Do you have a different question?</legend>
 
               <select id="category" name="category" class="feedback-input">
-                <option value="1">My device isn't powering up. What now?</option>
-                <option value="2">Option two</option>
-                <option value="3">Option three</option>
-                <option value="4">Option four</option>
-                <option value="5">Option five</option>
-                <option value="6">Option six</option>
-                <option value="7">Option seven</option>
-                <option value="8">Option eight</option>
+                <option value="500"disabled selected> Please select an option</option>
+                <option disabled>-- Support Question About --</option>
+                <option value="1">Store and checkout</option>
+                <option value="2">Order status</option>
+                <option value="3">Shipping status</option>
+                <option value="4">Business, distributor, or partnership inquiry</option>
+                <option value="5">Question about the Electron (Shipping early 2016!)</option>
+                <option value="6">Non-technical question that isn't listed above</option>
+                <option disabled >-- Technical Question About --</option>
+                <option value="7">My Photon / P1 / P0</option>
+                <option value="8">My Core</option>
+                <option value="9">Claiming my device</option>
+                <option value="9">The Particle Cloud Service</option>
+                <option value="10">A product I'm building on Particle</option>
+                <option value="11">A Particle shield, kit, or accessory</option>
+                <option value="12">Technical question that isn't listed above</option>
               </select>  
               <p class="name">
-                <input name="name" type="text" class="validate[required,custom[onlyLetter],length[0,100]] feedback-input" placeholder="Name" id="name"/>
+                <input name="name" type="text" class="validate[required,custom[onlyLetter],length[0,100]] feedback-input" onclick="validateSelect(value)" placeholder="Name" id="name" required="required"/>
               </p>
               
               <p class="email">
-                <input name="EMAIL_1" type="text" class="validate[required,custom[email]] feedback-input" id="email" placeholder="Email"  onblur="validateEmail(value)" />
-              </p>
-
-              <p class="email2">
-                <input name="EMAIL_2" type="text" class="validate[required,custom[email]] feedback-input" id="email2" placeholder="Verify Email"  onblur="validateEmail2(value)" />
+                <input name="EMAIL_1" type="text" class="validate[required,custom[email]] feedback-input" id="email" placeholder="Email"  onblur="validateEmail(value)" required="required"/>
               </p>
 
               <p class="text">
-                <textarea name="text" class="validate[required,length[6,300]] feedback-input" id="comment" placeholder="Message" ></textarea>
+                <textarea name="text" class="validate[required,length[6,300]] feedback-input" id="comment" placeholder="Message" required="required"></textarea>
               </p>
               
               <div class="submit">
@@ -108,41 +112,32 @@
               </fieldset>
             </form>
             <script>
+
+            //validate Select option
+              function validateSelect(value){
+               var ddl = document.getElementById("category");
+               var selectedValue = ddl.options[ddl.selectedIndex].value;
+               if (selectedValue == "500"){
+                  document.getElementById('category').style.color ='red';
+                  return false;
+               }else{
+                  document.getElementById('category').style.color ='black';
+                  return true;
+               }
+              }
              // Validate email
               function validateEmail(email){ 
                 var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
                 if(re.test(email)){
                   document.getElementById('email').style.color ='black';
+                  //document.getElementById('email').style.background ='none';
                   //document.getElementById('emailError').style.display = "none";
                   return true;
                 }else{
-                  document.getElementById('email').style.color ='#e35152';
+                  document.getElementById('email').style.color ='red';
                   return false;
                 }
               }
-              function validateEmail2(email){ 
-                var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-                if(re.test(email)){
-                  document.getElementById('email2').style.color ='black';
-                  //document.getElementById('emailError').style.display = "none";
-                  return true;
-                }
-                else{
-                  document.getElementById('email2').style.color ='#e35152';
-                  return false;
-                }
-              }
-              // function checkEmail(){
-              //   var x = document.getElementById('email');
-              //   var y = document.getElementById('email2');
-              //   if(x != y)
-              //   {
-              //     document.getElementById('email2').style.color ='#e35152';
-              //     return;
-              //   }else{
-              //     return true;
-              //   }
-              // }
 
             </script>
           </div>
