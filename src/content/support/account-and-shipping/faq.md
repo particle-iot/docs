@@ -13,7 +13,6 @@ Frequently Asked Questions (FAQ)
 - [How do I know my order was received?](/support/account-and-shipping/faq/photon/#q-how-do-i-make-a-return-)
 - [I want to change something in my order. Can I do that?](/support/account-and-shipping/faq/photon/#q-i-want-to-change-something-in-my-order-can-i-do-that-)
 - [How do I make a return?](/support/account-and-shipping/faq/photon/#q-how-do-i-make-a-return-)
-- [I need to cancel my order?](/support/account-and-shipping/faq/photon/#q-can-i-cancel-my-order-)
 - [I didn't receive what I ordered, what now?](/support/account-and-shipping/faq/photon/#q-i-didn-t-receive-what-i-ordered-)
 
 **Invoices**
@@ -53,9 +52,6 @@ If you’d like to return an order you just received, please see the [section on
 
 If you’re not satisfied with your Particle product, please [let us know](/support/account-and-shipping/menu-base/photon/#form-main) what could be improved!
 
-###Q: Can I cancel my order?
-**A:** [Waiting to hear back from RO on their preferred timeline for cancellations]
-
 ###Q: I didn’t receive what I ordered.
 
 **A:** If you did not receive everything you ordered, please [let us know](/support/account-and-shipping/menu-base/photon/#form-main) your order number, the items you were expecting to receive in your order, and what you actually received so we can get you sorted! 
@@ -77,9 +73,13 @@ Remember, Electron and Electron-related products ship in January 2016. ;)
 
 **A:** When your order ships, we will send you a shipping confirmation email. If you choose a shipping method that supports tracking, the shipping confirmation email will include your tracking number. You can visit the shipping provider’s website to track your package.
 
-[USPS](https://tools.usps.com/go/TrackConfirmAction_input - link directly to tracking web)
+[USPS - United States Postal Service](https://tools.usps.com/go/TrackConfirmAction_input - link directly to tracking web)
 
-[UPS](https://www.ups.com/WebTracking/track?loc=en_US&WT.svl=PriNav - link direct to tracking)
+[UPS - United Parcel Service](https://www.ups.com/WebTracking/track?loc=en_US&WT.svl=PriNav - link direct to tracking)
+
+For additional information on your order, grab you tracking number from the confirmation email and go here:
+
+<a href="http://particle.aftership.com/" target="_blank" class="button">Check My Order</a>
 
 
 If it’s been over 3 business days, and you have received your purchase confirmation email but not your shipping confirmation email, [let us know](/support/account-and-shipping/menu-base/photon/#form-main) your order number and email address so we can help track it down!
@@ -92,8 +92,9 @@ You can find more information on Particle’s shipping policies, look [here](/su
 
 **A:** Make sure you are checking the correct shipping provider’s website:
 
-[USPS](https://tools.usps.com/go/TrackConfirmAction_input - link directly to tracking web)
-[UPS](https://www.ups.com/WebTracking/track?loc=en_US&WT.svl=PriNav - link direct to tracking)
+You can view the status of your order and its shipping status here:
+
+<a href="http://particle.aftership.com/" target="_blank" class="button">Check My Order</a>
 
 If you still can’t track your package, [let us know](/support/account-and-shipping/menu-base/photon/#form-main) your order number and email address so we can help!
 
