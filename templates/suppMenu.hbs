@@ -29,7 +29,7 @@
           </a>
         </div>
         <div class='tile'>
-          <a class='resource-tile' href='/support/account-and-shipping/faq/' target="_blank">
+          <a class='resource-tile' href='/support/support-and-fulfillment/faq/' target="_blank">
             <i class='icon-iHelp ion-social-rss'></i>
             <h3>FAQ</h3>
             <p>All things Particle, answered.</p>
@@ -52,7 +52,7 @@
           </a>
         </div>
         <div class='tile'>
-          <a class='resource-tile' href='/support/account-and-shipping/shipping-account-info/'>
+          <a class='resource-tile' href='/support/support-and-fulfillment/shipping-account-info/'>
             <i class='icon-iHelp ion-gear-a'></i>
             <h3>Order Information</h3>
             <p>Shipping, orders, password resets. Let's start here.</p>
@@ -75,8 +75,8 @@
               <fieldset>
               <legend>Do you have a different question?</legend>
 
-              <select id="category" name="category" class="feedback-input">
-                <option value="500"disabled selected> Please select an option</option>
+              <select id="category" name="category" class="feedback-input" required="required">
+                <option value="" disabled selected> Please select an option</option>
                 <option disabled>-- Support Question About --</option>
                 <option value="1">Store and checkout</option>
                 <option value="2">Order status</option>
@@ -88,58 +88,29 @@
                 <option value="7">My Photon / P1 / P0</option>
                 <option value="8">My Core</option>
                 <option value="9">Claiming my device</option>
-                <option value="9">The Particle Cloud Service</option>
-                <option value="10">A product I'm building on Particle</option>
-                <option value="11">A Particle shield, kit, or accessory</option>
-                <option value="12">Technical question that isn't listed above</option>
+                <option value="10">The Particle Cloud Service</option>
+                <option value="11">A product I'm building on Particle</option>
+                <option value="12">A Particle shield, kit, or accessory</option>
+                <option value="13">Technical question that isn't listed above</option>
               </select>  
               <p class="name">
-                <input name="name" type="text" class="validate[required,custom[onlyLetter],length[0,100]] feedback-input" onclick="validateSelect(value)" placeholder="Name" id="name" required="required"/>
+                <input type="text" name="name" type="text" class="validate[required,custom[onlyLetter],length[0,100]] feedback-input"  placeholder="Name" id="name" required="required"/>
               </p>
               
               <p class="email">
-                <input name="EMAIL_1" type="text" class="validate[required,custom[email]] feedback-input" id="email" placeholder="Email"  onblur="validateEmail(value)" required="required"/>
+                <input type="email" name="EMAIL_1" type="text" class="validate[required,custom[email]] feedback-input" id="email" placeholder="Email"  required="required"/>
               </p>
 
               <p class="text">
-                <textarea name="text" class="validate[required,length[6,300]] feedback-input" id="comment" placeholder="Message" required="required"></textarea>
+                <textarea type="text" name="text" class="validate[required,length[6,300]] feedback-input" id="comment" placeholder="Message" required="required"></textarea>
               </p>
               
               <div class="submit">
                 <input type="submit" value="SEND" id="button-blue"/>
-                <div class="ease"></div>
               </div>
+
               </fieldset>
             </form>
-            <script>
-
-            //validate Select option
-              function validateSelect(value){
-               var ddl = document.getElementById("category");
-               var selectedValue = ddl.options[ddl.selectedIndex].value;
-               if (selectedValue == "500"){
-                  document.getElementById('category').style.color ='red';
-                  return false;
-               }else{
-                  document.getElementById('category').style.color ='black';
-                  return true;
-               }
-              }
-             // Validate email
-              function validateEmail(email){ 
-                var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-                if(re.test(email)){
-                  document.getElementById('email').style.color ='black';
-                  //document.getElementById('email').style.background ='none';
-                  //document.getElementById('emailError').style.display = "none";
-                  return true;
-                }else{
-                  document.getElementById('email').style.color ='red';
-                  return false;
-                }
-              }
-
-            </script>
           </div>
         </div>
       {{!-- </div> --}} {{!-- New webform section --}}
