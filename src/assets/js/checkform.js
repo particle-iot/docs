@@ -1,14 +1,11 @@
-$(document).ready(function() {
-	
+$(document).ready(function() {	
 	$("#form1").on("submit", function(e) {
 		e.preventDefault();
 
 		console.log("Handling the submit");
-		//add error handling here
 		//gather the form data
 		var datax = {};
 		datax.name = $("#name").val();
-		//data.cat = $("#category").val();
 		datax.email = $("#email").val();
 		datax.email2 = $("#email2").val();
 		datax.subj = $("#category option:selected").val();
@@ -16,23 +13,7 @@ $(document).ready(function() {
 
 		//Validations
 		var regex = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/; 
-		if( !regex.test(datax.email)) { alert('enter a valid email'); }
-
-    if (datax.email != datax.email2)
-    {
-      alert('Those emails don\'t match!');
-      return false;
-    } 
-
-    if (datax.name == '') {
-    	swal("Here's a message!")
-    	return false;
-    }
-
-    if (datax.comments == ''){
-    	alert('Please leave a comment');
-    	return false;
-    }
+		//if( !regex.test(datax.email)) { alert('enter a valid email'); }
 
     //Object to send
     var ddx = { name: datax.name, 
@@ -42,29 +23,28 @@ $(document).ready(function() {
 		  				urlFrom: window.location.pathname
 						};//object
 
-
-
 		//Post to Heroku App
 		$.ajax({
 		  method: "POST",
-		  url: "https://staging-supportal.herokuapp.com",
+		  url: "http://staging-supportal.herokuapp.com",
 		  dataType: 'json',
 		  cache: false,
 		  data: JSON.stringify(ddx),
-	    success: function(data) {
+	      success: function(data) {
 	      if (data.ok == true) {
-	          alert('success :  Messaged received');
-						$("#name").val('');
-						$("#email").val('');
-						$("#email2").val('');
-						$("#category option:selected").val();
-						$("#comment").val('');
-						$("#form-main").hide();
-	      }
-	    },
-	    error: function(){
-	      alert("failure: please email us");
-	    }
+					$("#name").val('');
+					$("#email").val('');
+					$("#email2").val('');
+					$("#category option:selected").val();
+					$("#comment").val('');
+					$("#button-blue").css('background-color', 'green');
+					$("#button-blue").attr('value', 'Message Received!');
+			      }
+	    	},
+		    error: function(){
+		      $("#button-blue").css('background-color', 'red');
+					$("#button-blue").attr('value', 'Please email hello@particle.io');
+		    }
 		});//post function
 
 	});//onSubmit Form end
