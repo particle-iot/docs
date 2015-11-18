@@ -26,7 +26,7 @@ $(document).ready(function() {
 		//Post to Heroku App
 		$.ajax({
 		  method: "POST",
-		  url: "http://localhost:5000",
+		  url: "http://staging-supportal.herokuapp.com",
 		  dataType: 'json',
 		  cache: false,
 		  data: JSON.stringify(ddx),
