@@ -11,7 +11,7 @@ Device Key Management
 
 An easy step-by-step walkthrough of Particle CLI commands to BACKUP, RESTORE and CHANGE Keys.
 
-https://github.com/spark/particle-cli#particle-keys-doctor
+[https://github.com/spark/particle-cli#particle-keys-doctor](https://github.com/spark/particle-cli#particle-keys-doctor)
 
 {{#if core}}
 You may need to use this guide if you suffer from: "My Core is flashing yellow/red (orange) lights after it connects to Wi-Fi (Decryption Error)"
@@ -59,3 +59,22 @@ Bare with me for these next steps! This is slightly complicated because of the g
 10. Please email us a copy of your new Public key file (skip this if it connects to the Cloud already). It should be called xxxxx_new.pub.pem, where you guessed it...xxxxx is the device ID from before ;) You should be able to search your system hard drive for it pretty easily but it is typically found in your Home directory.
 
 Congrats, you made it to the end! now your {{#if photon}}Photon{{/if}}{{#if core}}Core{{/if}} should be connected to the Cloud... or will be just as soon as we add your Key to the server.
+<<<<<<< HEAD
+<<<<<<< HEAD
+
+
+**Also**, check out and join our [community forums](http://community.particle.io/) for advanced help, tutorials, and troubleshooting.
+
+{{#if photon}}
+[Go to Community Forums >](http://community.particle.io/c/troubleshooting)
+{{/if}}
+
+{{#if core}}
+[Go to Community Forums >](http://community.particle.io/c/troubleshooting)
+{{/if}}
+
+
+=======
+>>>>>>> master
+=======
+>>>>>>> master

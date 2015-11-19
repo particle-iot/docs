@@ -148,3 +148,14 @@ Copy files from `firmware` directory **without** `examples` to your project dire
 Include library adding `#include "LIBRARY.h"` to your code
 
 ![include-library]({{assets}}/images/ide-include-library.jpg)
+
+
+**Also**, check out and join our [community forums](http://community.particle.io/) for advanced help, tutorials, and troubleshooting.
+
+{{#if photon}}
+[Go to Community Forums >](http://community.particle.io/c/troubleshooting)
+{{/if}}
+
+{{#if core}}
+[Go to Community Forums >](http://community.particle.io/c/troubleshooting)
+{{/if}}

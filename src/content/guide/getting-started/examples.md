@@ -998,6 +998,17 @@ int tinkerAnalogRead(String pin)
 	return -2;
 }
 
+<<<<<<< HEAD
+**Also**, check out and join our [community forums](http://community.particle.io/) for advanced help, tutorials, and troubleshooting.
+
+{{#if photon}}
+[Go to Community Forums >](http://community.particle.io/c/troubleshooting)
+{{/if}}
+
+{{#if core}}
+[Go to Community Forums >](http://community.particle.io/c/troubleshooting)
+{{/if}}
+=======
 /*******************************************************************************
  * Function Name  : tinkerAnalogWrite
  * Description    : Writes an analog value (PWM) to the specified pin
@@ -1029,3 +1040,4 @@ int tinkerAnalogWrite(String command)
 	else return -2;
 }
 </code></pre>
+>>>>>>> master

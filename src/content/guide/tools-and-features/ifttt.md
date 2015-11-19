@@ -419,3 +419,14 @@ You must have firmware on your Particle device, but nothing else is necessary. B
   - Why can I log in on build.particle.io, but I can't log in on IFTTT?
 
   Try just once more, and make sure that you're typing your username and password exactly how you entered it when creating your account.  The build site is a little more forgiving than others at the moment.
+
+
+**Also**, check out and join our [community forums](http://community.particle.io/) for advanced help, tutorials, and troubleshooting.
+
+{{#if photon}}
+[Go to Community Forums >](http://community.particle.io/c/troubleshooting)
+{{/if}}
+
+{{#if core}}
+[Go to Community Forums >](http://community.particle.io/c/troubleshooting)
+{{/if}}

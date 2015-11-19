@@ -3,7 +3,7 @@ title: General Shipping Info
 template: support.hbs
 columns: two
 devices: [ photon, core ]
-order: 3
+order: 4
 ---
 
 Particle Shipping & Return Policies

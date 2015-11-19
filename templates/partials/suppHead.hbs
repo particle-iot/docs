@@ -1,0 +1,44 @@
+  {{> head}}
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+
+<script>
+//All for status page io update
+$(document).ready(function() {
+  // Pull in status page
+  $.ajax({
+    url: "https://8d849mp6fy12.statuspage.io/api/v1/status.json",
+    success: function(data) { updateStatus(data.status) },
+    error: function(xhr, ajaxOptions, thrownError) {
+        console.log(xhr);
+        console.log(ajaxOptions);
+        console.log(thrownError);
+    }
+  });
+  
+});
+
+updateStatus = function(status) {
+  var icon = $('.status .icon');
+  switch (status.indicator) {
+    case "none":
+      icon.removeClass('ion-looping');
+      icon.addClass('ion-checkmark');
+      icon.css('color', '#27ae60');
+      break;
+    case "minor":
+      icon.removeClass('ion-looping');
+      icon.addClass('ion-alert');
+      icon.css('color', '#f1c40f');
+      break;
+    default:
+      icon.removeClass('ion-looping');
+      icon.addClass('ion-close');
+      icon.css('color', '#e74c3c');
+  }
+  $('.status span').text(status.description);
+}//All for status page io update
+</script> 
+
+
+

@@ -123,3 +123,16 @@ Like **SEMI_AUTOMATIC** mode, in **MANUAL** mode you need to connect to the Clou
 Sounds kinda terrible, right? Except this can be really useful when you're writing code that is very sensitive to exact timing, and the **Spark.process()** call might interrupt your sensitive code. By turning on **MANUAL** mode, you can make sure that **Spark.process()** is called when you want, and not when the processor is busy with a time-sensitive task.
 
 As Stan Lee once said: with great power comes great responsibility. Go forth and control the connection. Be careful. Good luck.
+
+
+**Also**, check out and join our [community forums](http://community.particle.io/) for advanced help, tutorials, and troubleshooting.
+
+{{#if photon}}
+[Go to Community Forums >](http://community.particle.io/c/troubleshooting)
+{{/if}}
+
+{{#if core}}
+[Go to Community Forums >](http://community.particle.io/c/troubleshooting)
+{{/if}}
+
+
