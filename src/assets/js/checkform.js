@@ -43,7 +43,7 @@ $(document).ready(function() {
 	    	},
 		    error: function(){
 		      $("#button-blue").css('background-color', 'red');
-					$("#button-blue").attr('value', 'Please email hello@particle.io');
+			  $("#button-blue").attr('value', 'Please email hello@particle.io');
 		    }
 		});//post function
 
