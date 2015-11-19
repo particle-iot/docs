@@ -1,11 +1,9 @@
-@import url(https://fonts.googleapis.com/css?family=Montserrat:400,700);
-
 #form-main{	
 	width:100%;
 	text-align: center;
 	// float:left;
-	padding-top: 10px;
-	padding-bottom: 10px;
+	padding-top: 30px;
+	padding-bottom: 30px;
 }
 
 #form-div {
@@ -24,8 +22,8 @@
 
 .feedback-input {
 	color:#3c3c3c;
-	font-family: Helvetica, Arial, sans-serif;
-  	font-weight:500;
+	font-family: @base-font-family;
+  	//font-weight:500;
 	font-size: 18px;
 	border-radius: 0;
 	line-height: 22px;
@@ -37,22 +35,21 @@
 	-moz-box-sizing: border-box;
 	-ms-box-sizing: border-box;
 	box-sizing: border-box;
-  border: 2px solid rgba(0,0,0,0);
+    border: 2px solid rgba(0,0,0,0);
 }
 
 .feedback-input:focus{
 	background: #fff;
 	box-shadow: 0;
-	border: 3px solid #3498db;
+	border: 1px solid @spark-blue;
 	color: #3498db;
 	outline: none;
-  padding: 13px 13px 13px 54px;
+    padding: 13px 13px 13px 54px;
 }
 
-// .focused{
-// 	color:#30aed6;
-// 	border:#30aed6 solid 3px;
-// }
+select {
+	height: 50px;
+}
 
 /* Icons ---------------------------------- */
 #name{
@@ -117,11 +114,11 @@ fieldset {
 	legend {
 		font-size: 24px;
 		text-align: center;
-		color: #34495e;
+		//color: @dark-gray;
 	}
 
 	select {
-		color: #34495e;
+		color: @gray;
 	}
 
 }
@@ -166,6 +163,7 @@ input:focus, textarea:focus {
 
 #button-blue:focus {
   background-color: @clouds;
+  outline: none;
 }
 	
 // .submit:hover {
