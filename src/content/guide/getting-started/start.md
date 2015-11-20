@@ -14,7 +14,7 @@ order: 2
 ![](/assets/images/photon-kit-new.jpg)
 <p class="caption">Your new Photon! Note that many components pictured will only be included if you purchased a Photon Kit</p>
 {{/if}}
-{{#if core}}![](/assets/images/core-box.jpg){{/if}}
+{{#if core}}![](/assets/images/core-box.jpg){{/if}}p
 
 Congratulations on being the owner of a brand new Particle Device! Go ahead and open the box. You can see the different [contents](/datasheets/kits) and check out their [hardware datasheets](/datasheets) if you like! If you have an Internet Button, read through this section to get started and connect your device, then hop over to the [Internet Button Guide](/guide/getting-started/button) for more detailed info.
 
@@ -142,7 +142,7 @@ This may take a little while - but don't worry.
 
 If you can't seem to get the Mobile App to connect your device, that's okay! Read over this example quickly, and then check out the [next lesson](/guide/getting-started/connect) to connect your device using the USB cable.
 
-Once you have connected your device, it has learned that network. Your device can store up to {{#if core}}seven{{/if}} {{#if photon}}five{{/if}} networks. To add a new network after your initial setup, you'd put your device into Listening Mode again and proceede as above (the claiming part can be skipped). If you feel like your device has too many networks on it, you can wipe your device's memory of any wifi networks it has learned. You can do so by continuing to hold the {{#if photon}}SETUP{{/if}}{{#if core}}MODE{{/if}} button for 10 seconds until the RGB LED flashes blue quickly, signaling that all profiles have been deleted.
+Once you have connected your device, it has learned that network. Your device can store up to {{#if core}}seven{{/if}} {{#if photon}}five{{/if}} networks. To add a new network after your initial setup, you'd put your device into {{#if photon}}{{{popup 'Listening Mode' 'vine' 'https://vine.co/v/eZUH7WaWjMT/embed/simple'}}}{{/if}}{{#if core}}{{{popup 'Listening Mode' 'vine' 'https://vine.co/v/eZU6YiK20Hl/embed/simple'}}}{{/if}} again and proceede as above (the claiming part can be skipped). If you feel like your device has too many networks on it, you can wipe your device's memory of any wifi networks it has learned. You can do so by continuing to hold the {{#if photon}}SETUP{{/if}}{{#if core}}MODE{{/if}} button for 10 seconds until the RGB LED flashes blue quickly, signaling that all profiles have been deleted.
 
 ### Step 3: Blink an LED!
 {{#if core}}The Spark Core App should now be on the {{{ popup 'Tinker' 'note' 'We have taken the liberty of loading some firmware onto your device for you. It is called Tinker, and it helps you talk to your device by sending power to the pins and reading power levels from the pins. More info about Tinker is available [here](/guide/getting-started/tinker/core).'}}} screen, as shown below.
