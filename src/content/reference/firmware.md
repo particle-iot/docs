@@ -3227,11 +3227,17 @@ Join a multicast address for all UDP sockets which are on the same network inter
 
 ```cpp
 // SYNTAX
+UDP.joinMulticast(IPAddress& ip);
+
+// Example Usage
 
 UDP udp;
 
-udp.begin();
-udp.joinMulticast(224,0,0,0);
+int remotePort = 1024;
+IPAddress multicastAddress(224,0,0,0);
+
+udp.begin(remotePort);
+udp.joinMulticast(multicastAddress);
 ```
 
 This will allow reception of multicast packets sent to the given address for UDP sockets
