@@ -3847,7 +3847,7 @@ void loop()
 }
 ```
 **Note:**
-The parameter for millis is an unsigned long, errors may be generated if a programmer tries to do math with other datatypes such as ints.
+The return value for millis is an unsigned long, errors may be generated if a programmer tries to do math with other datatypes such as ints.
 
 ### micros()
 
@@ -4134,7 +4134,7 @@ timer.stop(); // stops a running timer.
 
 ### reset()
 
-Resets a timer.  If a timer is running, it will reset to "zero".  If a timer is stoppep, it will be started.
+Resets a timer.  If a timer is running, it will reset to "zero".  If a timer is stopped, it will be started.
 
 `reset()`
 
@@ -4441,7 +4441,7 @@ void random_seed_from_cloud(unsigned int seed);
 
 The system implementation of this function calls `randomSeed()` to set
 the new seed value. If you don't wish to use random seed values from the cloud,
-you can take control of the ransom seeds set by adding this code to your app:
+you can take control of the random seeds set by adding this code to your app:
 
 ```cpp
 void random_seed_from_cloud(unsigned int seed) {
@@ -4470,7 +4470,7 @@ Returns the total number of bytes of emulated EEPROM.
 `size_t length()`
 
 - The Core has 100 bytes of emulated EEPROM.
-- The photon has 2048 bytes of emulated EEPROM.
+- The Photon has 2048 bytes of emulated EEPROM.
 
 ```c++
 // EXAMPLE USAGE
@@ -4621,7 +4621,7 @@ int numberOfTriesRemaining = 10;
 
 This tells the system to store these values in RAM so they can be changed. The
 system takes care of giving them initial values. Before they are set,
-they will have the initial value 0 if an intial value isn't specified.
+they will have the initial value 0 if an initial value isn't specified.
 
 Variables stored in backup RAM follow a similar scheme but use an additional keyword `retained`:
 
@@ -4638,7 +4638,7 @@ A `retained` variable is similar to a regular variable, with some key difference
 - instead of being initialized on each program start, `retained` variables are initialized
 when the device is first powered on (with VIN, from being powered off with VIN and VBAT completely removed).
 When the device is powered on, the system takes care of setting these variables to their initial values.
-`lastTemperature` and `numberOfPresses` would be initialized to 0, while `nmberOfTriesRemaining` would be initialized to 10.
+`lastTemperature` and `numberOfPresses` would be initialized to 0, while `numberOfTriesRemaining` would be initialized to 10.
 - the last value set on the variable is retained *as long as the device is powered from VIN or VBAT and is not hard reset*.
 
 `retained` variables can be updated freely just as with regular RAM variables and operate
@@ -4896,7 +4896,7 @@ non-threaded execution:
 setup typically executes before the Network or Cloud is connected. Calls to
 `Particle.function()`, `Particle.variable()` and `Particle.subscribe()` will work
 as intended whether the cloud is connected or not. `Particle.publish()` will return
-`false` when the cloud is not available and the event will not be published. see `waitUntil` below
+`false` when the cloud is not available and the event will not be published. See `waitUntil` below
 for details on waiting for the network or cloud connection.
 
 - after `setup()` is called, `loop()` is called repeatedly, independent from the current state of the
@@ -5556,7 +5556,7 @@ Returns: The length of the String in characters.
 
 ### remove()
 
-The String `remvove()` function modifies a string, in place, removing chars from the provided index to the end of the string or from the provided index to index plus count.
+The String `remove()` function modifies a string, in place, removing chars from the provided index to the end of the string or from the provided index to index plus count.
 
 ```C++
 // SYNTAX
@@ -6764,7 +6764,7 @@ Digital pins can be used as INPUT, INPUT_PULLUP, INPUT_PULLDOWN or OUTPUT. Chang
 
 Pins Configured as `INPUT`
 
-The device's pins configured as `INPUT` with `pinMode()`` are said to be in a high-impedance state. Pins configured as `INPUT` make extremely small demands on the circuit that they are sampling, equivalent to a series resistor of 100 Megohms in front of the pin. This makes them useful for reading a sensor, but not powering an LED.
+The device's pins configured as `INPUT` with `pinMode()` are said to be in a high-impedance state. Pins configured as `INPUT` make extremely small demands on the circuit that they are sampling, equivalent to a series resistor of 100 Megohms in front of the pin. This makes them useful for reading a sensor, but not powering an LED.
 
 If you have your pin configured as an `INPUT`, you will want the pin to have a reference to ground, often accomplished with a pull-down resistor (a resistor going to ground).
 
@@ -6774,7 +6774,7 @@ The STM32 microcontroller has internal pull-up resistors (resistors that connect
 
 Pins Configured as `OUTPUT`
 
-Pins configured as `OUTPUT` with `pinMode()`` are said to be in a low-impedance state. This means that they can provide a substantial amount of current to other circuits. STM32 pins can source (provide positive current) or sink (provide negative current) up to 20 mA (milliamps) of current to other devices/circuits. This makes them useful for powering LED's but useless for reading sensors. Pins configured as outputs can also be damaged or destroyed if short circuited to either ground or 3.3 volt power rails. The amount of current provided by the pin is also not enough to power most relays or motors, and some interface circuitry will be required.
+Pins configured as `OUTPUT` with `pinMode()` are said to be in a low-impedance state. This means that they can provide a substantial amount of current to other circuits. STM32 pins can source (provide positive current) or sink (provide negative current) up to 20 mA (milliamps) of current to other devices/circuits. This makes them useful for powering LED's but useless for reading sensors. Pins configured as outputs can also be damaged or destroyed if short circuited to either ground or 3.3 volt power rails. The amount of current provided by the pin is also not enough to power most relays or motors, and some interface circuitry will be required.
 
 #### true | false
 
@@ -6792,7 +6792,7 @@ Note that the true and false constants are typed in lowercase unlike `HIGH, LOW,
 
 ### Data Types
 
-**Note:** The Core/Photon uses a 32-bit ARM based microcontroller and hence the datatype lengths are different from a standard 8-bit system (for eg. Arduino Uno).
+**Note:** The Core/Photon uses a 32-bit ARM based microcontroller and hence the datatype lengths are different from a standard 8-bit system (for e.g. Arduino Uno).
 
 #### void
 
@@ -7077,7 +7077,7 @@ make: *** [user] Error 2
 */
 ```
 
-When you are using the Particle Cloud to compile your `.ino` source code, a preprocessor comes in to modfify the code into C++ requirements before producing the binary file used to flash onto your devices.
+When you are using the Particle Cloud to compile your `.ino` source code, a preprocessor comes in to modify the code into C++ requirements before producing the binary file used to flash onto your devices.
 
 However, there might be instances where the preprocessor causes issues in your code. One example is the use of class/structs in your function parameters.
 
