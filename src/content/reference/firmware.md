@@ -496,6 +496,7 @@ Runs the background loop. This is the public API for the former internal functio
 `Particle.process()` checks the Wi-Fi module for incoming messages from the Cloud,
 and processes any messages that have come in. It also sends keep-alive pings to the Cloud,
 so if it's not called frequently, the connection to the Cloud may be lost.
+Even in non-cloud-bound applications it can still be advisable to call `Particle.process()` to explicitly provide some processor time to the WiFi module (e.g. immediately after `WiFi.ready()` to update system variables).
 
 ```cpp
 void setup() {
