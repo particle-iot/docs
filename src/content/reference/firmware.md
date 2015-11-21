@@ -30,7 +30,7 @@ void setup()
   // variable name max length is 12 characters long
   Particle.variable("analogvalue", analogvalue);
   Particle.variable("temp", tempC);
-  if (Particle.variable("mess", message)==false)
+  if (Particle.variable("mess", message)==false) 
   {
       // variable not registered!
   }
@@ -1635,7 +1635,7 @@ loop() {
 
 Reads a pulse (either HIGH or LOW) on a pin. For example, if value is HIGH, pulseIn() waits for the pin to go HIGH, starts timing, then waits for the pin to go LOW and stops timing. Returns the length of the pulse in microseconds or 0 if no complete pulse was received within the timeout.
 
-The timing of this function is based on an internal hardware counter derived from the system tick clock.  Resolution is 1/Fosc (1/72MHz for Core, 1/120MHz for Photon/P1/Electron). Works on pulses from 10 microseconds to 3 seconds in length. Please note that if the pin is already reading the desired `value` when the function is called, it will wait for the pin to be the opposite state of the desired `value`, and then finally measure the duration of the desired `value`. This routine is blocking and does not use interrupts.  The `pulseIn()` routine will time out and return 0 after 3 seconds.
+The timing of this function is based on an internal hardware counter derived from the system tick clock.  Resolution is 1/Fosc (1/72MHz for Core, 1/120MHz for Photon/P1/Electron). Works on pulses from 10 microseconds to 3 seconds in length. Please note that if the pin is already reading the desired `value` when the function is called, it will wait for the pin to be the opposite state of the desired `value`, and then finally measure the duration of the desired `value`. This routine is blocking and does not use interrupts.  The pulseIn() routine will time out and return 0 after 3 seconds.
 
 ```C++
 // SYNTAX
@@ -1715,7 +1715,7 @@ Serial1.begin(speed);   // via TX/RX pins
 Serial2.begin(speed);   // on Core via
                         // D1(TX) and D0(RX) pins
                         // on Photon via
-                        // RGB-LED green(TX) and
+                        // RGB-LED green(TX) and 
                         // RGB-LED blue (RX) pins
 ```    
 `speed`: parameter that specifies the baud rate *(long)*
@@ -2197,7 +2197,7 @@ NOTE: The SPI protocol is based on a one byte OUT / one byte IN inteface. For ev
 SPI.transfer(tx_buffer, rx_buffer, length, myFunction)
 ```
 
-Parameters:
+*Parameters:*
 
 - `tx_buffer`: array of Tx bytes that is filled by the user before starting the SPI transfer
 - `rx_buffer`: array of Rx bytes that will be filled by the slave during the SPI transfer
@@ -2225,7 +2225,7 @@ Wire.setSpeed(clockSpeed);
 Wire.begin();
 ```
 
-Parameters:
+*Parameters:*
 
 - `clockSpeed`: CLOCK_SPEED_100KHZ, CLOCK_SPEED_400KHZ or a user specified speed in hertz (e.g. `Wire.setSpeed(20000)` for 20kHz)
 
@@ -2239,7 +2239,7 @@ Wire.stretchClock(stretch);
 Wire.begin();
 ```
 
-Parameters:
+*Parameters:*
 
 - `stretch`: boolean. `true` will enable clock stretching. `false` will disable clock stretching.
 
@@ -2254,7 +2254,9 @@ Wire.begin();
 Wire.begin(address);
 ```
 
-Parameters: `address`: the 7-bit slave address (optional); if not specified, join the bus as an I2C master.  If address is specified, join the bus as an I2C slave.
+*Parameters:*
+
+- `address`: the 7-bit slave address (optional); if not specified, join the bus as an I2C master.  If address is specified, join the bus as an I2C slave.
 
 
 ### end()
@@ -2293,7 +2295,7 @@ Wire.requestFrom(address, quantity);
 Wire.requestFrom(address, quantity, stop) ;
 ```
 
-Parameters:
+*Parameters:*
 
 - `address`: the 7-bit address of the device to request bytes from
 - `quantity`: the number of bytes to request (Max. 32)
@@ -2318,7 +2320,9 @@ Begin a transmission to the I2C slave device with the given address. Subsequentl
 Wire.beginTransmission(address);
 ```
 
-Parameters: `address`: the 7-bit address of the device to transmit to.
+*Parameters:*
+
+- `address`: the 7-bit address of the device to transmit to.
 
 ### endTransmission()
 
@@ -2331,8 +2335,9 @@ Wire.endTransmission();
 Wire.endTransmission(stop);
 ```
 
-Parameters: `stop` : boolean.
-`true` will send a stop message after the last byte, releasing the bus after transmission. `false` will send a restart, keeping the connection active. The bus will not be released, which prevents another master device from transmitting between messages. This allows one master device to send multiple transmissions while in control.  If no argument is specified, the default value is `true`.
+*Parameters:* 
+- `stop` : boolean.
+  `true` will send a stop message after the last byte, releasing the bus after transmission. `false` will send a restart, keeping the connection active. The bus will not be released, which prevents another master device from transmitting between messages. This allows one master device to send multiple transmissions while in control.  If no argument is specified, the default value is `true`.
 
 Returns: `byte`, which indicates the status of the transmission:
 
@@ -2353,7 +2358,7 @@ Wire.write(value);
 Wire.write(string);
 Wire.write(data, length);
 ```
-Parameters:
+*Parameters:*
 
 - `value`: a value to send as a single byte
 - `string`: a string to send as a series of bytes
@@ -2449,7 +2454,9 @@ Returns: The next byte received (without removing it from the buffer)
 
 Registers a function to be called when a slave device receives a transmission from a master.
 
-Parameters: `handler`: the function to be called when the slave receives data; this should take a single int parameter (the number of bytes read from the master) and return nothing, e.g.: `void myHandler(int numBytes) `
+*Parameters:* 
+
+- `handler`: the function to be called when the slave receives data; this should take a single int parameter (the number of bytes read from the master) and return nothing, e.g.: `void myHandler(int numBytes) `
 
 ```C++
 // EXAMPLE USAGE
@@ -2486,7 +2493,9 @@ void loop()
 
 Register a function to be called when a master requests data from this slave device.
 
-Parameters: `handler`: the function to be called, takes no parameters and returns nothing, e.g.: `void myHandler() `
+*Parameters:*
+
+- `handler`: the function to be called, takes no parameters and returns nothing, e.g.: `void myHandler() `
 
 ```C++
 // EXAMPLE USAGE
@@ -2579,7 +2588,9 @@ Create a server that listens for incoming connections on the specified port.
 TCPServer server = TCPServer(port);
 ```
 
-Parameters: `port`: the port to listen on (`int`)
+*Parameters:* 
+
+- `port`: the port to listen on (`int`)
 
 ```C++
 // EXAMPLE USAGE
@@ -2643,7 +2654,7 @@ server.write(val);
 server.write(buf, len);
 ```
 
-Parameters:
+*Parameters:*
 
 - `val`: a value to send as a single byte (byte or char)
 - `buf`: an array to send as a series of bytes (byte or char)
@@ -2661,10 +2672,10 @@ server.print(data);
 server.print(data, BASE) ;
 ```
 
-Parameters:
+*Parameters:*
 
 - `data`: the data to print (char, byte, int, long, or string)
-- `BASE`(optional): the base in which to print numbers: BIN for binary (base 2), DEC for decimal (base 10), OCT for octal (base 8), HEX for hexadecimal (base 16).
+- `BASE` (optional): the base in which to print numbers: BIN for binary (base 2), DEC for decimal (base 10), OCT for octal (base 8), HEX for hexadecimal (base 16).
 
 Returns:  `byte`:  `print()` will return the number of bytes written, though reading that number is optional
 
@@ -2679,7 +2690,7 @@ server.println(data);
 server.println(data, BASE) ;
 ```
 
-Parameters:
+*Parameters:*
 
 - `data` (optional): the data to print (char, byte, int, long, or string)
 - `BASE` (optional): the base in which to print numbers: BIN for binary (base 2), DEC for decimal (base 10), OCT for octal (base 8), HEX for hexadecimal (base 16).
@@ -2762,7 +2773,7 @@ client.connect(ip, port);
 client.connect(URL, port);
 ```
 
-Parameters:
+*Parameters:*
 
 - `ip`: the IP address that the client will connect to (array of 4 bytes)
 - `URL`: the domain name the client will connect to (string, ex.:"particle.io")
@@ -2780,7 +2791,7 @@ client.write(val);
 client.write(buf, len);
 ```
 
-Parameters:
+*Parameters:*
 
 - `val`: a value to send as a single byte (byte or char)
 - `buf`: an array to send as a series of bytes (byte or char)
@@ -2798,10 +2809,10 @@ client.print(data);
 client.print(data, BASE) ;
 ```
 
-Parameters:
+*Parameters:*
 
 - `data`: the data to print (char, byte, int, long, or string)
-- `BASE`(optional): the base in which to print numbers: BIN for binary (base 2), DEC for decimal (base 10), OCT for octal (base 8), HEX for hexadecimal (base 16).
+- `BASE` (optional): the base in which to print numbers: BIN for binary (base 2), DEC for decimal (base 10), OCT for octal (base 8), HEX for hexadecimal (base 16).
 
 Returns:  `byte`:  `print()` will return the number of bytes written, though reading that number is optional
 
@@ -2816,7 +2827,7 @@ client.println(data);
 client.println(data, BASE) ;
 ```
 
-Parameters:
+*Parameters:*
 
 - `data` (optional): the data to print (char, byte, int, long, or string)
 - `BASE` (optional): the base in which to print numbers: BIN for binary (base 2), DEC for decimal (base 10), OCT for octal (base 8), HEX for hexadecimal (base 16).
@@ -3009,7 +3020,7 @@ Starts a connection to write UDP data to the remote connection.
 UDP.beginPacket(remoteIP, remotePort);
 ```
 
-Parameters:
+*Parameters:*
 
  - `remoteIP`: the IP address of the remote connection (4 bytes)
  - `remotePort`: the port of the remote connection (int)
@@ -3039,7 +3050,7 @@ UDP.write(message);
 UDP.write(buffer, size);
 ```
 
-Parameters:
+*Parameters:*
 
  - `message`: the outgoing message (char)
  - `buffer`: an array to send as a series of bytes (byte or char)
@@ -3076,7 +3087,7 @@ This function can only be successfully called after `UDP.parsePacket()`.
 UDP.read();
 UDP.read(packetBuffer, MaxSize);
 ```
-Parameters:
+*Parameters:*
 
  - `packetBuffer`: buffer to hold incoming packets (char)
  - `MaxSize`: maximum size of the buffer (int)
@@ -3136,6 +3147,9 @@ the buffer size defaults to 512 bytes, and is allocated when buffered operation 
 
 ```cpp
 // SYNTAX - dynamically allocated buffer
+UDP.setBuffer(size_t bufferSize);
+
+// EXAMPLE USAGE
 
 UDP udp;
 
@@ -3153,6 +3167,9 @@ else
 
 ```cpp
 // SYNTAX - application-provided buffer
+UDP.setBuffer(size_t bufferSize, uint8_t* pointer);
+
+// EXAMPLE USAGE
 
 UDP udp;
 
@@ -3160,10 +3177,10 @@ char appBuffer[800];
 udp.setBuffer(800, appBuffer);
 ```
 
-Parameters:
+*Parameters:*
 
-- unsigned int: the size of the buffer
-- pointer:  the buffer. If not provided, or `NULL` the system will attempt to
+- `buffserSize`: the size of the buffer
+- `pointer`:  the buffer. If not provided, or `NULL` the system will attempt to
  allocate a buffer of the size requested.
 
 Returns:
@@ -3188,6 +3205,9 @@ Sends a packet, unbuffered, to a remote UDP peer.
 ```cpp
 
 // SYNTAX
+UDP.sendPacket(buffer, bufferSize, remoteIP, remotePort);
+
+// EXAMPLE USAGE
 
 UDP udp;
 
@@ -3209,11 +3229,12 @@ if (udp.sendPacket(buffer, bufferSize, remoteIP, remotePort)<0) {
 
 ```
 
-Parameters:
-- pointer (buffer): the buffer of data to send
-- int (bufferSize): the number of bytes of data to send
-- IPAddress (remoteIP): the destination address of the remote peer
-- port (remotePort): the destination port of the remote peer
+*Parameters:*
+
+- `buffer (pointer)`: the buffer of data to send
+- `bufferSize (integer)`: the number of bytes of data to send
+- `remoteIP (IPAddress)`: the destination address of the remote peer
+- `port (remotePort)`: the destination port of the remote peer
 
 Returns:
 - The number of bytes written. Negative value on error.
@@ -3227,12 +3248,22 @@ Join a multicast address for all UDP sockets which are on the same network inter
 
 ```cpp
 // SYNTAX
+UDP.joinMulticast(IPAddress& ip);
+
+// EXAMPLE USAGE
 
 UDP udp;
 
-udp.begin();
-udp.joinMulticast(224,0,0,0);
+IPAddress multicastAddress(224,0,0,0);
+int remotePort = 1024;
+
+udp.begin(remotePort);
+udp.joinMulticast(multicastAddress);
 ```
+
+*Parameters:*
+
+- `ip (IPAddress)`: The multicast IP address
 
 This will allow reception of multicast packets sent to the given address for UDP sockets
 which have bound the port to which the multicast packet was sent.
@@ -3529,16 +3560,26 @@ Retrieve the hour for the current or given time.
 Integer is returned without a leading zero.
 
 ```cpp
+// SYNTAX
+Time.hour();
+Time.hour(int timestamp);
+```
+
+*Parameters*:
+
+- `timestamp`: Unix timestamp, integer
+
+Returns: Integer 0-23
+
+```cpp
+// EXAMPLE USAGE
+
 // Print the hour for the current time
 Serial.print(Time.hour());
 
 // Print the hour for the given time, in this case: 4
 Serial.print(Time.hour(1400647897));
 ```
-
-Optional parameters: Integer (Unix timestamp)
-
-Returns: Integer 0-23
 
 
 ### hourFormat12()
@@ -3547,6 +3588,12 @@ Retrieve the hour in 12-hour format for the current or given time.
 Integer is returned without a leading zero.
 
 ```cpp
+// SYNTAX
+Time.hourFormat12();
+Time.hourFormat12(int timestamp);
+
+// EXAMPLE USAGE
+
 // Print the hour in 12-hour format for the current time
 Serial.print(Time.hourFormat12());
 
@@ -3554,7 +3601,9 @@ Serial.print(Time.hourFormat12());
 Serial.print(Time.hourFormat12(1400684400));
 ```
 
-Optional parameters: Integer (Unix timestamp)
+*Parameters*:
+
+- `timestamp`: Unix timestamp, integer
 
 Returns: Integer 1-12
 
@@ -3564,6 +3613,12 @@ Returns: Integer 1-12
 Returns true if the current or given time is AM.
 
 ```cpp
+// SYNTAX
+Time.isAM();
+Time.isAM(int timestamp);
+
+// EXAMPLE USAGE
+
 // Print true or false depending on whether the current time is AM
 Serial.print(Time.isAM());
 
@@ -3571,7 +3626,9 @@ Serial.print(Time.isAM());
 Serial.print(Time.isAM(1400647897));
 ```
 
-Optional parameters: Integer (Unix timestamp)
+*Parameters*:
+
+- `timestamp`: Unix timestamp, integer
 
 Returns: Unsigned 8-bit integer: 0 = false, 1 = true
 
@@ -3581,6 +3638,12 @@ Returns: Unsigned 8-bit integer: 0 = false, 1 = true
 Returns true if the current or given time is PM.
 
 ```cpp
+// SYNTAX
+Time.isPM();
+Time.isPM(int timestamp);
+
+// EXAMPLE USAGE
+
 // Print true or false depending on whether the current time is PM
 Serial.print(Time.isPM());
 
@@ -3588,7 +3651,9 @@ Serial.print(Time.isPM());
 Serial.print(Time.isPM(1400647897));
 ```
 
-Optional parameters: Integer (Unix timestamp)
+*Parameters*:
+
+- `timestamp`: Unix timestamp, integer
 
 Returns: Unsigned 8-bit integer: 0 = false, 1 = true
 
@@ -3599,6 +3664,12 @@ Retrieve the minute for the current or given time.
 Integer is returned without a leading zero.
 
 ```cpp
+// SYNTAX
+Time.minute();
+Time.minute(int timestamp);
+
+// EXAMPLE USAGE
+
 // Print the minute for the current time
 Serial.print(Time.minute());
 
@@ -3606,7 +3677,9 @@ Serial.print(Time.minute());
 Serial.print(Time.minute(1400647897));
 ```
 
-Optional parameters: Integer (Unix timestamp)
+*Parameters*:
+
+- `timestamp`: Unix timestamp, integer
 
 Returns: Integer 0-59
 
@@ -3617,6 +3690,12 @@ Retrieve the seconds for the current or given time.
 Integer is returned without a leading zero.
 
 ```cpp
+// SYNTAX
+Time.second();
+Time.second(int timestamp);
+
+// EXAMPLE USAGE
+
 // Print the second for the current time
 Serial.print(Time.second());
 
@@ -3624,7 +3703,9 @@ Serial.print(Time.second());
 Serial.print(Time.second(1400647897));
 ```
 
-Optional parameters: Integer (Unix timestamp)
+*Parameters*:
+
+- `timestamp`: Unix timestamp, integer
 
 Returns: Integer 0-59
 
@@ -3635,6 +3716,12 @@ Retrieve the day for the current or given time.
 Integer is returned without a leading zero.
 
 ```cpp
+// SYNTAX
+Time.day();
+Time.day(int timestamp);
+
+// EXAMPLE USAGE
+
 // Print the day for the current time
 Serial.print(Time.day());
 
@@ -3642,7 +3729,9 @@ Serial.print(Time.day());
 Serial.print(Time.day(1400647897));
 ```
 
-Optional parameters: Integer (Unix timestamp)
+*Parameters*:
+
+- `timestamp`: Unix timestamp, integer
 
 Returns: Integer 1-31
 
@@ -3660,6 +3749,12 @@ Retrieve the weekday for the current or given time.
  - 7 = Saturday
 
 ```cpp
+// SYNTAX
+Time.weekday();
+Time.weekday(int timestamp);
+
+// EXAMPLE USAGE
+
 // Print the weekday number for the current time
 Serial.print(Time.weekday());
 
@@ -3667,7 +3762,9 @@ Serial.print(Time.weekday());
 Serial.print(Time.weekday(1400647897));
 ```
 
-Optional parameters: Integer (Unix timestamp)
+*Parameters*:
+
+- `timestamp`: Unix timestamp, integer
 
 Returns: Integer 1-7
 
@@ -3678,6 +3775,12 @@ Retrieve the month for the current or given time.
 Integer is returned without a leading zero.
 
 ```cpp
+// SYNTAX
+Time.month();
+Time.month(int timestamp);
+
+// EXAMPLE USAGE
+
 // Print the month number for the current time
 Serial.print(Time.month());
 
@@ -3695,6 +3798,12 @@ Returns: Integer 1-12
 Retrieve the 4-digit year for the current or given time.
 
 ```cpp
+// SYNTAX
+Time.year();
+Time.year(int timestamp);
+
+// EXAMPLE USAGE
+
 // Print the current year
 Serial.print(Time.year());
 
@@ -3702,7 +3811,9 @@ Serial.print(Time.year());
 Serial.print(Time.year(1400647897));
 ```
 
-Optional parameters: Integer (Unix timestamp)
+*Parameters:*
+
+- `timestamp`: Unix timestamp, integer
 
 Returns: Integer
 
@@ -3712,6 +3823,11 @@ Returns: Integer
 Retrieve the current time as seconds since January 1, 1970 (commonly known as "Unix time" or "epoch time")
 
 ```cpp
+// SYNTAX
+Time.now();
+
+// EXAMPLE USAGE
+
 // Print the current Unix timestamp
 Serial.print(Time.now()); // 1400647897
 ```
@@ -3727,11 +3843,18 @@ The device will remember this offset until reboot.
 *NOTE*: This function does not observe daylight savings time.
 
 ```cpp
+// SYNTAX
+Time.zone(float offset);
+
+// EXAMPLE USAGE
+
 // Set time zone to Eastern USA daylight saving time
 Time.zone(-4);
 ```
 
-Parameters: floating point offset from UTC in hours, from -12.0 to 13.0
+*Parameters:* 
+
+- `offset`: floating point offset from UTC in hours, from -12.0 to 13.0
 
 
 ### setTime()
@@ -3744,11 +3867,17 @@ If the cloud connection drops, the reconnection handshake will set the time agai
 Also see: [`Particle.syncTime()`](#particle-synctime)
 
 ```cpp
+// SYNTAX
+Time.setTime(unsigned int timestamp);
+
+// EXAMPLE USAGE
 // Set the time to 2014-10-11 13:37:42
 Time.setTime(1413034662);
 ```
 
-Parameters: Unix timestamp (integer)
+*Parameters:* 
+
+- `timestamp`: Unix timestamp (integer)
 
 
 ### timeStr()
@@ -3825,6 +3954,11 @@ Time
 
 Returns the number of milliseconds since the device began running the current program. This number will overflow (go back to zero), after approximately 49 days.
 
+```C++
+// SYNTAX
+millis();
+```
+
 `unsigned long time = millis();`
 
 ```C++
@@ -3847,7 +3981,7 @@ void loop()
 }
 ```
 **Note:**
-The parameter for millis is an unsigned long, errors may be generated if a programmer tries to do math with other datatypes such as ints.
+The return value for millis is an unsigned long, errors may be generated if a programmer tries to do math with other datatypes such as ints.
 
 ### micros()
 
@@ -3861,6 +3995,9 @@ Firmware v0.4.3 and earlier:
 `unsigned long time = micros();`
 
 ```C++
+// SYNTAX
+micros();
+
 // EXAMPLE USAGE
 
 unsigned long time;
@@ -3889,7 +4026,9 @@ Pauses the program for the amount of time (in miliseconds) specified as paramete
 delay(ms);
 ```
 
-`ms` is the number of milliseconds to pause *(unsigned long)*
+*Parameters:*
+
+- `ms` is the number of milliseconds to pause *(unsigned long)*
 
 ```C++
 // EXAMPLE USAGE
@@ -3920,7 +4059,10 @@ Pauses the program for the amount of time (in microseconds) specified as paramet
 // SYNTAX
 delayMicroseconds(us);
 ```
-`us` is the number of microseconds to pause *(unsigned int)*
+
+*Parameters:*
+
+- `us` is the number of microseconds to pause *(unsigned int)*
 
 ```C++
 // EXAMPLE USAGE
@@ -4036,7 +4178,9 @@ Turns off the given interrupt.
 detachInterrupt(pin);
 ```
 
-`pin` is the pin number of the interrupt to disable.
+*Parameters:*
+
+- `pin` is the pin number of the interrupt to disable.
 
 
 ### interrupts()
@@ -4067,8 +4211,10 @@ void loop()
 
 Disables interrupts (you can re-enable them with `interrupts()`). Interrupts allow certain important tasks to happen in the background and are enabled by default. Some functions will not work while interrupts are disabled, and incoming communication may be ignored. Interrupts can slightly disrupt the timing of code, however, and may be disabled for particularly critical sections of code.
 
+```cppp
 // SYNTAX
 noInterrupts();
+```
 
 `noInterrupts()` neither accepts a parameter nor returns anything.
 
@@ -4101,18 +4247,24 @@ Timers may be started, stopped, reset within a user program or an ISR.  They may
 
 The timer callback is similar to an interrupt - it shouldn't block. However, it is less restrictive than an interrupt. If the code does block, the system will not crash - the only consequence is that other software timers that should have triggered will be delayed until the blocking timer callback function returns.
 
+```cppp
 // SYNTAX
+Timer timer(unsigned int period, callback);
+```
 
-`Timer timer(period, callback)`
+*Parameters:*
 
-`period` is the period of the timer in milliseconds  (unsigned int)
-`callback` is the callback function which gets called when the timer expires
+- `period` is the period of the timer in milliseconds  (unsigned int)
+- `callback` is the callback function which gets called when the timer expires
 
 ### start()
 
 Starts a stopped timer (a newly created timer is stopped). If `start()` is called for a running timer, it will be reset.
 
-`start()`
+```C++
+// SYNTAX
+timer.start();
+```
 
 ```C++
 // EXAMPLE USAGE
@@ -4124,7 +4276,10 @@ timer.start(); // starts timer if stopped or resets it if started.
 
 Stops a running timer.
 
-`stop()`
+```C++
+// SYNTAX
+timer.stop();
+```
 
 ```C++
 // EXAMPLE USAGE
@@ -4134,7 +4289,7 @@ timer.stop(); // stops a running timer.
 
 ### reset()
 
-Resets a timer.  If a timer is running, it will reset to "zero".  If a timer is stoppep, it will be started.
+Resets a timer.  If a timer is running, it will reset to "zero".  If a timer is stopped, it will be started.
 
 `reset()`
 
@@ -4187,8 +4342,10 @@ Calculates the minimum of two numbers.
 
 `min(x, y)`
 
-`x` is the first number, any data type
-`y` is the second number, any data type
+*Parameters:*
+
+- `x`: the first number, any data type
+- `y`: the second number, any data type
 
 The functions returns the smaller of the two numbers.
 
@@ -4217,8 +4374,10 @@ Calculates the maximum of two numbers.
 
 `max(x, y)`
 
-`x` is the first number, any data type
-`y` is the second number, any data type
+*Parameters:*
+
+- `x`: the first number, any data type
+- `y`: the second number, any data type
 
 The functions returns the larger of the two numbers.
 
@@ -4232,7 +4391,7 @@ sensVal = max(senVal, 20); // assigns sensVal to the larger of sensVal or 20
 Perhaps counter-intuitively, max() is often used to constrain the lower end of a variable's range, while min() is used to constrain the upper end of the range.
 
 **WARNING:**
-Because of the way the max() function is implemented, avoid using other functions inside the brackets, it may lead to incorrect results
+Because of the way the max() function is implemented, avoid using other functions inside the brackets, it may lead to incorrect results.
 
 ```C++
 max(a--, 0);   // avoid this - yields incorrect results
@@ -4441,7 +4600,7 @@ void random_seed_from_cloud(unsigned int seed);
 
 The system implementation of this function calls `randomSeed()` to set
 the new seed value. If you don't wish to use random seed values from the cloud,
-you can take control of the ransom seeds set by adding this code to your app:
+you can take control of the random seeds set by adding this code to your app:
 
 ```cpp
 void random_seed_from_cloud(unsigned int seed) {
@@ -4470,7 +4629,7 @@ Returns the total number of bytes of emulated EEPROM.
 `size_t length()`
 
 - The Core has 100 bytes of emulated EEPROM.
-- The photon has 2048 bytes of emulated EEPROM.
+- The Photon has 2048 bytes of emulated EEPROM.
 
 ```c++
 // EXAMPLE USAGE
@@ -4621,7 +4780,7 @@ int numberOfTriesRemaining = 10;
 
 This tells the system to store these values in RAM so they can be changed. The
 system takes care of giving them initial values. Before they are set,
-they will have the initial value 0 if an intial value isn't specified.
+they will have the initial value 0 if an initial value isn't specified.
 
 Variables stored in backup RAM follow a similar scheme but use an additional keyword `retained`:
 
@@ -4638,7 +4797,7 @@ A `retained` variable is similar to a regular variable, with some key difference
 - instead of being initialized on each program start, `retained` variables are initialized
 when the device is first powered on (with VIN, from being powered off with VIN and VBAT completely removed).
 When the device is powered on, the system takes care of setting these variables to their initial values.
-`lastTemperature` and `numberOfPresses` would be initialized to 0, while `nmberOfTriesRemaining` would be initialized to 10.
+`lastTemperature` and `numberOfPresses` would be initialized to 0, while `numberOfTriesRemaining` would be initialized to 10.
 - the last value set on the variable is retained *as long as the device is powered from VIN or VBAT and is not hard reset*.
 
 `retained` variables can be updated freely just as with regular RAM variables and operate
@@ -4688,7 +4847,7 @@ void loop() {
 
 Backup RAM is disabled by default, since it does require some maintenance power
 which may not be desired on some low-powered projects.  Backup RAM consumes roughly
-5uA or less on VIN and 9uA or less on VBAT.
+5 μA or less on VIN and 9 μA or less on VBAT.
 
 Backup RAM is enabled with this code (to be placed at the top of your application outside of any functions):
 
@@ -4896,7 +5055,7 @@ non-threaded execution:
 setup typically executes before the Network or Cloud is connected. Calls to
 `Particle.function()`, `Particle.variable()` and `Particle.subscribe()` will work
 as intended whether the cloud is connected or not. `Particle.publish()` will return
-`false` when the cloud is not available and the event will not be published. see `waitUntil` below
+`false` when the cloud is not available and the event will not be published. See `waitUntil` below
 for details on waiting for the network or cloud connection.
 
 - after `setup()` is called, `loop()` is called repeatedly, independent from the current state of the
@@ -5359,10 +5518,10 @@ gives you the String "1101", which is the binary representation of 13.
 
 
 
-Parameters:
+*Parameters:*
 
-  * val: a variable to format as a String - string, char, byte, int, long, unsigned int, unsigned long
-  * base (optional) - the base in which to format an integral value
+  * `val`: a variable to format as a String - string, char, byte, int, long, unsigned int, unsigned long
+  * `base` (optional) - the base in which to format an integral value
 
 Returns: an instance of the String class
 
@@ -5376,7 +5535,7 @@ Access a particular character of the String.
 // SYNTAX
 string.charAt(n)
 ```
-Parameters:
+*Parameters:*
 
   * `string`: a variable of type String
   * `n`: the character to access
@@ -5394,10 +5553,10 @@ Compares two Strings, testing whether one comes before or after the other, or wh
 string.compareTo(string2)
 ```
 
-Parameters:
+*Parameters:*
 
-  * string: a variable of type String
-  * string2: another variable of type String
+- `string`: a variable of type String
+- `string2`: another variable of type String
 
 Returns:
 
@@ -5414,9 +5573,9 @@ Combines, or *concatenates* two strings into one string. The second string is ap
 string.concat(string2)
 ```
 
-Parameters:
+*Parameters:*
 
-  * string, string2: variables of type String
+- `string`, `string2`: variables of type String
 
 Returns: None
 
@@ -5429,10 +5588,10 @@ Tests whether or not a String ends with the characters of another String.
 string.endsWith(string2)
 ```
 
-Parameters:
+*Parameters:*
 
-  * string: a variable of type String
-  * string2: another variable of type String
+- `string`: a variable of type String
+- `string2`: another variable of type String
 
 Returns:
 
@@ -5448,9 +5607,9 @@ Compares two strings for equality. The comparison is case-sensitive, meaning the
 // SYNTAX
 string.equals(string2)
 ```
-Parameters:
+*Parameters:*
 
-  * string, string2: variables of type String
+- `string`, `string2`: variables of type String
 
 Returns:
 
@@ -5465,9 +5624,9 @@ Compares two strings for equality. The comparison is not case-sensitive, meaning
 // SYNTAX
 string.equalsIgnoreCase(string2)
 ```
-Parameters:
+*Parameters:*
 
-  * string, string2: variables of type String
+- `string`, `string2`: variables of type String
 
 Returns:
 
@@ -5495,11 +5654,11 @@ Copies the string's characters to the supplied buffer.
 // SYNTAX
 string.getBytes(buf, len)
 ```
-Parameters:
+*Parameters:*
 
-  * string: a variable of type String
-  * buf: the buffer to copy the characters into (byte [])
-  * len: the size of the buffer (unsigned int)
+- `string`: a variable of type String
+- `buf`: the buffer to copy the characters into (byte [])
+- `len`: the size of the buffer (unsigned int)
 
 Returns: None
 
@@ -5513,11 +5672,11 @@ string.indexOf(val)
 string.indexOf(val, from)
 ```
 
-Parameters:
+*Parameters:*
 
-  * string: a variable of type String
-  * val: the value to search for - char or String
-  * from: the index to start the search from
+- `string`: a variable of type String
+- `val`: the value to search for - char or String
+- `from`: the index to start the search from
 
 Returns: The index of val within the String, or -1 if not found.
 
@@ -5531,11 +5690,11 @@ string.lastIndexOf(val)
 string.lastIndexOf(val, from)
 ```
 
-Parameters:
+*Parameters:*
 
-  * string: a variable of type String
-  * val: the value to search for - char or String
-  * from: the index to work backwards from
+- `string`: a variable of type String
+- `val`: the value to search for - char or String
+- `from`: the index to work backwards from
 
 Returns: The index of val within the String, or -1 if not found.
 
@@ -5548,15 +5707,15 @@ Returns the length of the String, in characters. (Note that this doesn't include
 string.length()
 ```
 
-Parameters:
+*Parameters:*
 
-  * string: a variable of type String
+- `string`: a variable of type String
 
 Returns: The length of the String in characters.
 
 ### remove()
 
-The String `remvove()` function modifies a string, in place, removing chars from the provided index to the end of the string or from the provided index to index plus count.
+The String `remove()` function modifies a string, in place, removing chars from the provided index to the end of the string or from the provided index to index plus count.
 
 ```C++
 // SYNTAX
@@ -5564,11 +5723,11 @@ string.remove(index)
 string.remove(index,count)
 ```
 
-Parameters:
+*Parameters:*
 
-  * string: the string which will be modified - a variable of type String
-  * index: a variable of type unsigned int
-  * count: a variable of type unsigned int
+- `string`: the string which will be modified - a variable of type String
+- `index`: a variable of type unsigned int
+- `count`: a variable of type unsigned int
 
 Returns: None
 
@@ -5581,11 +5740,11 @@ The String `replace()` function allows you to replace all instances of a given c
 string.replace(substring1, substring2)
 ```
 
-Parameters:
+*Parameters:*
 
-  * string: the string which will be modified - a variable of type String
-  * substring1: searched for - another variable of type String (single or multi-character), char or const char (single character only)
-  * substring2: replaced with - another variable of type String (signle or multi-character), char or const char (single character only)
+- `string`: the string which will be modified - a variable of type String
+- `substring1`: searched for - another variable of type String (single or multi-character), char or const char (single character only)
+- `substring2`: replaced with - another variable of type String (signle or multi-character), char or const char (single character only)
 
 Returns: None
 
@@ -5597,9 +5756,9 @@ The String reserve() function allows you to allocate a buffer in memory for mani
 // SYNTAX
 string.reserve(size)
 ```
-Parameters:
+*Parameters:*
 
-  * size: unsigned int declaring the number of bytes in memory to save for string manipulation
+- `size`: unsigned int declaring the number of bytes in memory to save for string manipulation
 
 Returns: None
 
@@ -5637,11 +5796,11 @@ Sets a character of the String. Has no effect on indices outside the existing le
 // SYNTAX
 string.setCharAt(index, c)
 ```
-Parameters:
+*Parameters:*
 
-  * string: a variable of type String
-  * index: the index to set the character at
-  * c: the character to store to the given location
+- `string`: a variable of type String
+- `index`: the index to set the character at
+- `c`: the character to store to the given location
 
 Returns: None
 
@@ -5654,9 +5813,9 @@ Tests whether or not a String starts with the characters of another String.
 string.startsWith(string2)
 ```
 
-Parameters:
+*Parameters:*
 
-  * string, string2: variable2 of type String
+- `string`, `string2`: variable2 of type String
 
 Returns:
 
@@ -5674,11 +5833,11 @@ string.substring(from)
 string.substring(from, to)
 ```
 
-Parameters:
+*Parameters:*
 
-  * string: a variable of type String
-  * from: the index to start the substring at
-  * to (optional): the index to end the substring before
+ - `string`: a variable of type String
+ - `from`: the index to start the substring at
+ - `to` (optional): the index to end the substring before
 
 Returns: the substring
 
@@ -5690,11 +5849,11 @@ Copies the string's characters to the supplied buffer.
 // SYNTAX
 string.toCharArray(buf, len)
 ```
-Parameters:
+*Parameters:*
 
-  * string: a variable of type String
-  * buf: the buffer to copy the characters into (char [])
-  * len: the size of the buffer (unsigned int)
+ - `string`: a variable of type String
+ - `buf`: the buffer to copy the characters into (char [])
+ - `len`: the size of the buffer (unsigned int)
 
 Returns: None
 
@@ -5707,9 +5866,9 @@ Converts a valid String to a float. The input string should start with a digit. 
 string.toFloat()
 ```
 
-Parameters:
+*Parameters:*
 
-  * string: a variable of type String
+ - `string`: a variable of type String
 
 Returns: float (If no valid conversion could be performed because the string doesn't start with a digit, a zero is returned.)
 
@@ -5722,9 +5881,9 @@ Converts a valid String to an integer. The input string should start with an int
 string.toInt()
 ```
 
-Parameters:
+*Parameters:*
 
-  * string: a variable of type String
+ - `string`: a variable of type String
 
 Returns: long (If no valid conversion could be performed because the string doesn't start with a integral number, a zero is returned.)
 
@@ -5737,9 +5896,9 @@ Get a lower-case version of a String. `toLowerCase()` modifies the string in pla
 string.toLowerCase()
 ```
 
-Parameters:
+*Parameters:*
 
-  * string: a variable of type String
+ - `string`: a variable of type String
 
 Returns: None
 
@@ -5752,9 +5911,9 @@ Get an upper-case version of a String. `toUpperCase()` modifies the string in pl
 string.toUpperCase()
 ```
 
-Parameters:
+*Parameters:*
 
-  * string: a variable of type String
+ - `string`: a variable of type String
 
 Returns: None
 
@@ -5767,9 +5926,9 @@ Get a version of the String with any leading and trailing whitespace removed.
 string.trim()
 ```
 
-Parameters:
+*Parameters:*
 
-  * string: a variable of type String
+- `string`: a variable of type String
 
 Returns: None
 
@@ -6764,7 +6923,7 @@ Digital pins can be used as INPUT, INPUT_PULLUP, INPUT_PULLDOWN or OUTPUT. Chang
 
 Pins Configured as `INPUT`
 
-The device's pins configured as `INPUT` with `pinMode()`` are said to be in a high-impedance state. Pins configured as `INPUT` make extremely small demands on the circuit that they are sampling, equivalent to a series resistor of 100 Megohms in front of the pin. This makes them useful for reading a sensor, but not powering an LED.
+The device's pins configured as `INPUT` with `pinMode()` are said to be in a high-impedance state. Pins configured as `INPUT` make extremely small demands on the circuit that they are sampling, equivalent to a series resistor of 100 Megohms in front of the pin. This makes them useful for reading a sensor, but not powering an LED.
 
 If you have your pin configured as an `INPUT`, you will want the pin to have a reference to ground, often accomplished with a pull-down resistor (a resistor going to ground).
 
@@ -6792,7 +6951,7 @@ Note that the true and false constants are typed in lowercase unlike `HIGH, LOW,
 
 ### Data Types
 
-**Note:** The Core/Photon uses a 32-bit ARM based microcontroller and hence the datatype lengths are different from a standard 8-bit system (for eg. Arduino Uno).
+**Note:** The Core/Photon uses a 32-bit ARM based microcontroller and hence the datatype lengths are different from a standard 8-bit system (for e.g. Arduino Uno).
 
 #### void
 
@@ -7077,7 +7236,7 @@ make: *** [user] Error 2
 */
 ```
 
-When you are using the Particle Cloud to compile your `.ino` source code, a preprocessor comes in to modfify the code into C++ requirements before producing the binary file used to flash onto your devices.
+When you are using the Particle Cloud to compile your `.ino` source code, a preprocessor comes in to modify the code into C++ requirements before producing the binary file used to flash onto your devices.
 
 However, there might be instances where the preprocessor causes issues in your code. One example is the use of class/structs in your function parameters.
 
