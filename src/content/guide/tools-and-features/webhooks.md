@@ -179,7 +179,8 @@ void setup() {
     // For simplicity, we'll format our weather data as text, and pipe it to serial.
     // but you could just as easily display it in a webpage or pass the data to another system.
 
-    // Learn more about the serial commands here http://docs.particle.io/firmware/#communication-serial
+    // Learn more about the serial commands at https://docs.particle.io/reference/firmware/photon/#serial
+    //  for the Photon, or https://docs.particle.io/reference/firmware/core/#serial for the Core
     // You can also watch what's sent over serial with the particle cli with
     //  particle serial monitor
     Serial.begin(115200);
