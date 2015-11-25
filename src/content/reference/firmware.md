@@ -2219,7 +2219,7 @@ This library allows you to communicate with I2C / TWI devices. On the Core/Photo
 
 ### setSpeed()
 
-Sets the I2C clock speed. This is an optional call (not from the original Arduino specs.) and must be called once before calling begin().  The default I2C clock speed is 100KHz.
+Sets the I2C clock speed. This is an optional call (not from the original Arduino specs.) and must be called once before calling begin().  The default I2C clock speed is 100KHz and the maximum clock speed is 400KHz.
 
 ```C++
 // SYNTAX
