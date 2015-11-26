@@ -324,9 +324,9 @@ You must have firmware on your Particle device, but nothing else is necessary. B
   November 13, 2015 at 6:02pm
   ```
 
-  ##Actions
+  ## Actions
 
-  ###Publish an event
+  ### Publish an event
 
   #### Firmware requirements
 
@@ -381,7 +381,7 @@ You must have firmware on your Particle device, but nothing else is necessary. B
   **is this a public or private event?** Select either private or public.
 
 
-  ###Call a function
+  ### Call a function
 
   It's important to note that if you turn off the board that is attached to this action while your recipe is still live, the IFTTT servers may disable your recipe. This is easy to fix, just turn it back on again. Your default IFTTT settings are set up to send you an email when your recipe encounters a serious issue (like not having a device to run the requested function). You can always change these by clicking on your username at the top of the IFTTT menu and selecting "Preferences".
 
@@ -402,7 +402,7 @@ You must have firmware on your Particle device, but nothing else is necessary. B
 
   **with input (Function Input):** This is an optional field. It may be automatically populated with ingredients from the trigger that you chose (i.e. Twitter may put in something like "Favorite tweet: TweetEmbedCode"). If you don't have specific code in your function() to use this data, it's best to delete it. There will be cases when you'll want to send some specific input.
 
-  ##FAQs
+  ## FAQs
 
   - How often should I expect IFTTT to check my triggers?
 
