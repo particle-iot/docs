@@ -3971,6 +3971,7 @@ volatile int state = LOW;
 void setup()
 {
   pinMode(ledPin, OUTPUT);
+  pinMode(D2, INPUT);
   attachInterrupt(D2, blink, CHANGE);
 }
 
