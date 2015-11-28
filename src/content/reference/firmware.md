@@ -4840,7 +4840,7 @@ void loop() {
 The semi-automatic mode is therefore much like the automatic mode, except:
 
 - When the device boots up, the user code will begin running immediately.
-- When the user calls [`Particle.connect()`](#particle-connect), the user code will be blocked, and the device will attempt to negotiate a connection. This connection will block until either the device connects to the Cloud or an interrupt is fired that calls [`Particle.disconnect()`](#particle-disconnect).
+- When the user calls [`Particle.connect()`](#particle-connect) the device will attempt to negotiate a connection. This call does not block untill a connection is made, if blocking is desired  [`Particle.waitUntil(Particle.connected)`](#waituntil) may be used together with Particle.connect.
 
 ### Manual mode
 
