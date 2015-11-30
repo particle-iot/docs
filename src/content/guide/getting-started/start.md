@@ -14,7 +14,7 @@ order: 2
 ![](/assets/images/photon-kit-new.jpg)
 <p class="caption">Your new Photon! Note that many components pictured will only be included if you purchased a Photon Kit</p>
 {{/if}}
-{{#if core}}![](/assets/images/core-box.jpg){{/if}}p
+{{#if core}}![](/assets/images/core-box.jpg){{/if}}
 
 Congratulations on being the owner of a brand new Particle Device! Go ahead and open the box. You can see the different [contents](/datasheets/kits) and check out their [hardware datasheets](/datasheets) if you like! If you have an Internet Button, read through this section to get started and connect your device, then hop over to the [Internet Button Guide](/guide/getting-started/button) for more detailed info.
 
