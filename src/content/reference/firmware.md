@@ -5155,7 +5155,7 @@ _Since 0.4.6_
 Resets the device and restarts in safe mode.
 
 
-### System.sleep()
+### System.sleep() [ Sleep ]
 
 `System.sleep()` can be used to dramatically improve the battery life of a Particle-powered project by temporarily deactivating the Wi-Fi module, which is by far the biggest power draw.
 
