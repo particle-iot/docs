@@ -324,11 +324,11 @@ You must have firmware on your Particle device, but nothing else is necessary. B
   November 13, 2015 at 6:02pm
   ```
 
-  ## Actions
+## Actions
 
-  ### Publish an event
+### Publish an event
 
-  #### Firmware requirements
+#### Firmware requirements
 
   This action has IFTTT publishing an event, so your Particle device needs to subscribe to that event. These are complementary; a Spark.subscribe("myEventName") watches for a publish("myEventName") and runs a function when it sees this matching event name. This means that even though this action is called *Publish* an event, your firmware needs to include Spark.subscribe().
 
@@ -367,7 +367,7 @@ You must have firmware on your Particle device, but nothing else is necessary. B
 
   Complete documentation on using [Spark.subscribe() is here.](/reference/firmware/#spark-subscribe-)
 
-  #### Action fields
+#### Action fields
 
   **Then publish (Event Name):** This may be autopopulated by the Trigger you have chosen, however you'll want to delete that and write in the Event Name that you have defined in your firmware. Also known as topic, event name, or channel.
 
@@ -381,17 +381,17 @@ You must have firmware on your Particle device, but nothing else is necessary. B
   **is this a public or private event?** Select either private or public.
 
 
-  ### Call a function
+### Call a function
 
   It's important to note that if you turn off the board that is attached to this action while your recipe is still live, the IFTTT servers may disable your recipe. This is easy to fix, just turn it back on again. Your default IFTTT settings are set up to send you an email when your recipe encounters a serious issue (like not having a device to run the requested function). You can always change these by clicking on your username at the top of the IFTTT menu and selecting "Preferences".
 
-  #### Firmware requirements
+#### Firmware requirements
 
   This is very similar to using a Spark.function() as a trigger, only you won't be using any values it returns. The same setup on the firmware side, and the example code above for Spark.function() as trigger, will work for this as well.
 
   Complete documentation on using [Spark.function() is here.](/reference/firmware/#spark-function-)
 
-  #### Action fields
+#### Action fields
 
   **Then call (Function Name):** Select the function you'd like to use from the options in a dropdown menu. These options will be pulled from the Spark.function()s that are in the firmware flashed to any of your claimed Cores or Photons. IFTTT will list the first 4 function()s defined in your firmware.
 
@@ -402,7 +402,7 @@ You must have firmware on your Particle device, but nothing else is necessary. B
 
   **with input (Function Input):** This is an optional field. It may be automatically populated with ingredients from the trigger that you chose (i.e. Twitter may put in something like "Favorite tweet: TweetEmbedCode"). If you don't have specific code in your function() to use this data, it's best to delete it. There will be cases when you'll want to send some specific input.
 
-  ## FAQs
+## FAQs
 
   - How often should I expect IFTTT to check my triggers?
 
