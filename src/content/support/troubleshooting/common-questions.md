@@ -25,7 +25,7 @@ Yup! [Here are our best practices](/guide/getting-started/hackathon) about setti
 Feel free to contact [hello @ particle dot io] with **subject line: *"Sponsorship Inquiry for Particle"* **for any additional information about this. Please include as many details about your event and what sort of participation you’re interested in from Particle and allow a week for response.
 
 ## How do I get my deviceID [device ID] ?
-* Put your device into [Listening Mode](/guide/getting-started/modes/photon/#listening-mode) mode while being plugged into a computer via USB
+* Put the device into [Listening Mode](/guide/getting-started/modes/photon/#listening-mode) mode while being plugged into a computer via USB
 * Issue `particle serial identify` from the [particle CLI](https://github.com/spark/particle-cli)
 	and it should return the deviceID.
 
