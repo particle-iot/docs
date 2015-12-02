@@ -3954,12 +3954,16 @@ void loop()
 Interrupts are a way to write code that is run when an external event occurs.
 As a general rule, interrupt code should be very fast, and non-blocking. This means
 performing transfers, such as I2C, Serial, TCP should not be done as part of the
-interrupt handler. Rather, the interrupt handleer can set a variable which instructs
+interrupt handler. Rather, the interrupt handler can set a variable which instructs
 the main loop that the event has occurred.
 
 ### attachInterrupt()
 
 Specifies a function to call when an external interrupt occurs. Replaces any previous function that was attached to the interrupt.
+
+**NOTE:**
+`pinMode()` MUST be called prior to calling attachInterrupt() to set the desired mode for the interrupt pin (INPUT, INPUT_PULLUP or INPUT_PULLDOWN).
+
 
 ```C++
 // EXAMPLE USAGE
@@ -3971,6 +3975,7 @@ volatile int state = LOW;
 void setup()
 {
   pinMode(ledPin, OUTPUT);
+  pinMode(D2, INPUT_PULLUP);
   attachInterrupt(D2, blink, CHANGE);
 }
 
@@ -3991,6 +3996,7 @@ You can attach a method in a C++ object as an interrupt handler.
 class Robot {
   public:
     Robot() {
+      pinMode(D2, INPUT_PULLUP);
       attachInterrupt(D2, &Robot::handler, this, CHANGE);
     }
     void handler() {
@@ -4026,13 +4032,17 @@ External interrupts are supported on the following pins:
 
 The function does not return anything.
 
-**NOTE:**
-Inside the attached function, `delay()` won't work and the value returned by `millis()` will not increment. Serial data received while in the function may be lost. You should declare as `volatile` any variables that you modify within the attached function.
-
-*Using Interrupts:*
+**Using Interrupts:**
 Interrupts are useful for making things happen automatically in microcontroller programs, and can help solve timing problems. Good tasks for using an interrupt may include reading a rotary encoder, or monitoring user input.
 
 If you wanted to insure that a program always caught the pulses from a rotary encoder, so that it never misses a pulse, it would make it very tricky to write a program to do anything else, because the program would need to constantly poll the sensor lines for the encoder, in order to catch pulses when they occurred. Other sensors have a similar interface dynamic too, such as trying to read a sound sensor that is trying to catch a click, or an infrared slot sensor (photo-interrupter) trying to catch a coin drop. In all of these situations, using an interrupt can free the microcontroller to get some other work done while not missing the input.
+
+**About Interrupt Service Routines:**
+ISRs are special kinds of functions that have some unique limitations most other functions do not have. An ISR cannot have any parameters, and they shouldn't return anything.
+
+Generally, an ISR should be as short and fast as possible. If your sketch uses multiple ISRs, only one can run at a time, other interrupts will be executed after the current one finishes in an order that depends on the priority they have. `millis()` relies on interrupts to count, so it will never increment inside an ISR. Since `delay()` requires interrupts to work, it will not work if called inside an ISR. Using `delayMicroseconds()` will work as normal.
+
+Typically global variables are used to pass data between an ISR and the main program. To make sure variables shared between an ISR and the main program are updated correctly, declare them as `volatile`.
 
 
 ### detachInterrupt()
