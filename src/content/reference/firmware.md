@@ -5152,6 +5152,12 @@ void loop() {}
 
 _Since 0.4.6_
 
+```C++
+// SYNTAX
+System.enterSafeMode();
+```
+
+
 Resets the device and restarts in safe mode.
 
 
