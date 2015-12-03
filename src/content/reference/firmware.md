@@ -4150,6 +4150,21 @@ timer.stop(); // stops a running timer.
 
 ```
 
+### changePeriod()
+
+Changes the period of a previously created timer. It can be called to change the period of an running or stopped timer.
+
+`changePeriod(newPeriod)`
+
+`newPeriod` is the new timer period (unsigned int)
+
+```C++
+// EXAMPLE USAGE
+timer.changePeriod(1000); // Reset period of timer to 1000ms.
+
+```
+
+
 ### reset()
 
 Resets a timer.  If a timer is running, it will reset to "zero".  If a timer is stopped, it will be started.
@@ -4165,12 +4180,14 @@ timer.reset(); // reset timer if running, or start timer if stopped.
 ### startFromISR()
 ### stopFromISR()
 ### resetFromISR()
+### changePeriodFromISR()
 
 `startFromISR()`
 `stopFromISR()`
 `resetFromISR()`
+`changePeriodFromISR()`
 
-Start, stop and reset a timer (as above) BUT from within an ISR.  These functions MUST be called when doing timer operations within an ISR.
+Start, stop and reset a timer or change a timer's period (as above) BUT from within an ISR.  These functions MUST be called when doing timer operations within an ISR.
 
 ```C++
 // EXAMPLE USAGE
@@ -4179,6 +4196,8 @@ timer.startFromISR(); // WITHIN an ISR, starts timer if stopped or resets it if 
 timer.stopFromISR(); // WITHIN an ISR,stops a running timer.
 
 timer.resetFromISR(); // WITHIN an ISR, reset timer if running, or start timer if stopped.
+
+timer.changePeriodFromISR(newPeriod);  // WITHIN an ISR, change the timer period.
 ```
 
 ### dispose()
