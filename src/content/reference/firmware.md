@@ -5817,6 +5817,166 @@ Parameters:
 Returns: None
 
 
+## Stream Class
+Stream is the base class for character and binary based streams. It is not called directly, but invoked whenever you use a function that relies on it.  The Particle Stream Class is based on the Aduino Stream Class.
+
+Stream defines the reading functions in Particle. When using any core functionality that uses a read() or similar method, you can safely assume it calls on the Stream class. For functions like print(), Stream inherits from the Print class.
+
+Some of the Particle classes that rely on Stream include :
+`Serial`
+`Wire`
+`TCPClient`
+`UDP`
+
+### setTimeout()
+`setTimeout()` sets the maximum milliseconds to wait for stream data, it defaults to 1000 milliseconds.
+
+```C++
+// SYNTAX
+stream.setTimeout(time);
+```
+
+Parameters:
+
+  * stream: an instance of a class that inherits from Stream
+  * time: timeout duration in milliseconds (unsigned int)
+
+Returns: None
+
+### find()
+`find()` reads data from the stream until the target string of given length is found.
+
+```C++
+// SYNTAX
+stream.find(target);		// reads data from the stream until the target string is found
+stream.find(target, length);	// reads data from the stream until the target string of given length is found
+```
+
+Parameters:
+
+  * stream : an instance of a class that inherits from Stream
+  * target : pointer to the string to search for (char *)
+  * length : length of target string to search for (size_t)
+
+Returns: returns true if target string is found, false if timed out
+
+### findUntil()
+`findUntil()` reads data from the stream until the target string or terminator string is found.
+
+```C++
+// SYNTAX
+stream.findUntil(target, terminal);		// reads data from the stream until the target string or terminator is found
+stream.findUntil(target, terminal, length);	// reads data from the stream until the target string of given length or terminator is found
+```
+
+Parameters:
+
+  * stream : an instance of a class that inherits from Stream
+  * target : pointer to the string to search (char *)
+  * terminal : pointer to the terminal string to search for (char *)
+  * length : length of target string to search for (size_t)
+
+Returns: returns true if target string or terminator string is found, false if timed out
+
+### readBytes()
+`readBytes()` read characters from a stream into a buffer. The function terminates if the determined length has been read, or it times out.
+
+```C++
+// SYNTAX
+stream.readBytes(buffer, length);
+```
+
+Parameters:
+
+  * stream : an instance of a class that inherits from Stream
+  * buffer : pointer to the buffer to store the bytes in (char *)
+  * length : the number of bytes to read (size_t)
+
+Returns: returns the number of characters placed in the buffer (0 means no valid data found)
+
+### readBytesUntil()
+`readBytesUntil()` reads characters from a stream into a buffer. The function terminates if the terminator character is detected, the determined length has been read, or it times out.
+
+```C++
+// SYNTAX
+stream.readBytesUntil(terminator, buffer, length);
+```
+
+Parameters:
+
+  * stream : an instance of a class that inherits from Stream
+  * terminator : the character to search for (char)
+  * buffer : pointer to the buffer to store the bytes in (char *)
+  * length : the number of bytes to read (size_t)
+
+Returns: returns the number of characters placed in the buffer (0 means no valid data found)
+
+### readString()
+`readString()` reads characters from a stream into a string. The function terminates if it times out.
+
+```C++
+// SYNTAX
+stream.readString();
+```
+
+Parameters:
+
+  * stream : an instance of a class that inherits from Stream
+
+Returns: the entire string read from stream (String)
+
+### readStringUntil()
+`readStringUntil()` reads characters from a stream into a string until a terminator character is detected. The function terminates if it times out.
+
+```C++
+// SYNTAX
+stream.readStringUntil(terminator);
+```
+
+Parameters:
+
+  * stream : an instance of a class that inherits from Stream
+  * terminator : the character to search for (char)
+
+Returns: the entire string read from stream, until the terminator character is detected
+
+### parseInt()
+`parseInt()` returns the first valid (long) integer value from the current position under the following conditions:
+
+ - Initial characters that are not digits or a minus sign, are skipped;
+ - Parsing stops when no characters have been read for a configurable time-out value, or a non-digit is read;
+
+```C++
+// SYNTAX
+stream.parseInt();
+stream.parseInt(skipChar);	// allows format characters (typically commas) in values to be ignored
+```
+
+Parameters:
+
+  * stream : an instance of a class that inherits from Stream
+  * skipChar : the character to ignore while parsing (char).
+
+Returns: parsed int value (long). If no valid digits were read when the time-out occurs, 0 is returned.
+
+### parseFloat()
+`parseFloat()` as `parseInt()` but returns the first valid floating point value from the current position.
+
+```C++
+// SYNTAX
+stream.parsetFloat();
+stream.parsetFloat(skipChar);	// allows format characters (typically commas) in values to be ignored
+```
+
+Parameters:
+
+  * stream : an instance of a class that inherits from Stream
+  * skipChar : the character to ignore while parsing (char).
+
+Returns: parsed float value (float). If no valid digits were read when the time-out occurs, 0 is returned.
+
+
+
 ## Language Syntax
 The following documentation is based on the Arduino reference which can be found [here.](http://www.arduino.cc/en/Reference/HomePage)
 
