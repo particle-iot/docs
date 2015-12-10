@@ -4544,9 +4544,6 @@ Write a byte of data to the emulated EEPROM.
 
 - On the Core, this must be a value between 0 and 99
 - On the Photon, this must be a value between 0 and 2047
-
-The function returns `0xFF` when an invalid address is used.
-
 ```C++
 // EXAMPLE USAGE
 
