@@ -25,6 +25,39 @@ You have two options when it comes to purchasing Particle hardware--purchasing f
 
 **Duties/Taxes**. As the end customer, you are responsible for any VAT charges or taxes associated with importing the modules to their final destination. If you are shipping into mainland China, our prices are reflective of FOB Hong Kong, and do not include import. Although we do not provide direct delivery to mainland China, we have plenty of experience that you can leverage; contact us at [sales@particle.io](mailto:sales@particle.io) if you have questions about importing raw materials, freight forwarders, import licenses, VAT rebates, or anything in between.
 
+### Material import (China only)
+If you are purchasing P0s, P1s, Photons, or Electrons for manufacturing in mainland China, you will need to consider China's VAT (value added tax) on electrical components.  This tax (typically 17-23%) applies to *all* electrical goods purchased from international distributors, and not just to Particle hardware.
+
+*NOTE*: The industry standard for the fulfillment of electrical components is to support delivery to Hong Kong, but not to locations in mainland China. This is due to the wide variety of options available for importing materials, and the varying complexity and costs associated with those options. Particle abides by this industry standard and does not currently accept orders with final delivery to mainland China.
+
+There are a number of ways to import goods into China for manufacturing--here's a quick overview of the two most popular options. Others exist, and it is highly recommended to ask your contract manufacturer which import method they prefer and support. Each of these methods will likely require the services of a freight forwarder to physically move the goods between Hong Kong and mainland China--your contract manufacturer probably has a preferred forwarder that you can leverage for this purpose.
+
+**1. Pay the VAT**  
+ - **Cost**: ~20% value of goods
+ - **Complexity**: Low
+ - **Reliability**: High
+ - **Flexibility**: High
+
+The simplest method is to pay the VAT in full.  This will add roughly 20% to the cost of your raw materials, but will ensure reliable and expedient transport of your components.  There is paperwork that has to be completed, but it is relatively simple, and your contract manufacturer or freight forwarder should be familiar with this process. This is the most expensive option, but allows for the most flexibility with respect to your BOM and manufacturing timelines, as the paperwork is resubmitted each time you bring goods into the country, and no prior arrangements have to be made.
+
+**2. File for an import license**
+  - **Cost**: ~$5,000 single time fee, small fixed fee per import/export event
+  - **Complexity**: High
+  - **Reliability**: High
+  - **Flexibility**: Low
+
+The best way to eliminate the additional burden of the VAT is to file for an import license for your product. Here's how it works--you (more likely your contract manufacturer) submit an application to the government that includes a final version of your BOM and samples of your product. You can then be granted a license to import goods for the manufacturing of the product without the necessity of paying the 20% VAT.  Here's the key--*all of the materials used in the manufacturing of that product must first be imported into China under the license, and then exported out of China under the same license*.  It's all an exercise in accounting--the government wants to see that all of the goods that were brought into the country were converted into finished goods using the "recipe" (BOM) you provided to them in advance, which guarantees that excess materials aren't being sold into local markets.  Even the parts that are manufactured domestically within mainland China have to first be *exported* to Hong Kong so they can be *reimported*, used in manufacturing, and then *re-exported* out of the country. Import licenses take about 3-6 weeks to receive, and can be very slightly modified (adding cross parts) but not drastically changed (adding new packaging elements or electrical components) without resubmission. They have a ~$5,000 price tag, so they have a negative ROI for small batch runs or product designs that are likely to change.
+
+**3. Reimbursement**
+  - **Cost**: 1-5% value of goods
+  - **Complexity**: High
+  - **Reliability**: Medium
+  - **Flexibility**: High
+
+I third and final option, which we have found to be less common than the other two, is to work with a manufacturer that is able to participate in VAT reimbursement. Reimbursement works a lot like an import license, but the accounting is done in retrospect instead of in advance. In this scenario, your contract manufacturer would pay the full VAT, and file for reimbursement of the tax once they can demonstrate that the goods they imported were used in manufacturing and then exported as finished goods. Reimbursement of the VAT can take anywhere from 3-6 months, though, so it would be typical for a manufacturer to charge interest on the capital that was leveraged to pay the VAT up front. This might be anything from an additional 1-5% on top of the value of the goods being imported, depending on the manufacturer. Not all manufacturers are able or will be interested in this kind of importing because it adds significant burden and risk to their sourcing and purchasing processes.  
+
+
+
 ### Testing
 Before you can begin manufacturing, you need to consider how your product is going to be tested on the manufacturing line. The firmware that runs the functional evaluation of your PCB is called "test firmware". If you're using a Photon, PØ, or P1, there is a very basic set of test routines built into the default firmware that you are free to use, however they may not provide sufficient test coverage for your product.
 
