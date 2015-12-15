@@ -3262,16 +3262,52 @@ udp.leaveMulticast();
 
 ### isValid()
 
-Check if the previusly bind UDP socket is valid.
+UDP reading APIs do not check for socket validity. On typical listening loop isValid() can be used to avoid waiting for ever for data no more coming.
 
 ```cpp
 
-// SYNTAX
+// EXAMPLE USAGE
 
-if (udp.isValid()) {
-   // seek available data ...
-} else {
-  // udp socket not valid	
+// UDP Port used for two way communication
+unsigned int localPort = 8888;
+
+// An UDP instance to let us send and receive packets over UDP
+UDP Udp;
+
+void setup() {
+  // start the UDP
+  Udp.begin(localPort);
+
+  // Print your device IP Address via serial
+  Serial.begin(9600);
+  Serial.println(WiFi.localIP());
+}
+
+void loop() {
+  if (Udp.isValid()) {
+		// Check if data has been received
+		if (Udp.parsePacket() > 0) {
+		
+			// Read first char of data received
+			char c = Udp.read();
+			
+			// Ignore other chars
+			Udp.flush();
+			
+			// Store sender ip and port
+			IPAddress ipAddress = Udp.remoteIP();
+			int port = Udp.remotePort();
+			
+			// Echo back data to sender
+			Udp.beginPacket(ipAddress, port);
+			Udp.write(c);
+			Udp.endPacket();
+		}
+  }
+  else { // UDP Sockect not valid, restart it 
+  	Udp.Stop();
+  	Udp.begin(localPort);
+  }
 }
 
 ```
