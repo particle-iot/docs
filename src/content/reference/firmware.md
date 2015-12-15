@@ -3260,6 +3260,22 @@ UDP udp;
 udp.leaveMulticast();
 ```
 
+### isValid()
+
+Check if the previusly bind UDP socket is valid.
+
+```cpp
+
+// SYNTAX
+
+if (udp.isValid()) {
+   // seek available data ...
+} else {
+  // udp socket not valid	
+}
+
+```
+
 {{/if}}
 
 
