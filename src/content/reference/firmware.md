@@ -3262,7 +3262,7 @@ udp.leaveMulticast();
 
 ### isValid()
 
-UDP reading APIs do not check for socket validity. On typical listening loop isValid() can be used to avoid waiting for ever for data no more coming.
+UDP reading APIs do not check for socket validity. On typical listening loop isValid() can be used to avoid waiting for ever for data will never come.
 
 ```cpp
 
