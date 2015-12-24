@@ -3250,14 +3250,15 @@ Must be called only after `begin()` so that the network interface is established
 
 _Since 0.4.5_
 
-Leaves a multicast address on all UDP sockets that are on the same network interface as this one.
+Leaves a multicast group previously joined on a specific multicast address.
 
 ```cpp
 // SYNTAX
 
 UDP udp;
+IPAddress multicastAddress(224,0,0,0);
 
-udp.leaveMulticast();
+udp.leaveMulticast(multicastAddress);
 ```
 
 {{/if}}
