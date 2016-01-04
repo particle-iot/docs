@@ -11,13 +11,11 @@ Kickstarter Account & Electron Information
 
 ### When will the Electron Ship?
 
-The Electron is estimated to begin shipping to Kickstarter backers in **October 2015**. Pre-orders for the Electron are scheduled to ship in **November 2015**. 
+The Electron is estimated to begin shipping to Kickstarter backers in **late January 2016**. Pre-orders for the Electron are scheduled to ship in **early February 2016**. 
 
 ### Can I update my shipping details?
 
-Yes! You can update your shipping address up until the shipping "lockdown date". The final lockdown date has not been decided but we're estimating it will be around September 20. We will let you know the final date when it is decided.
-
-If you've moved since completing your backer survey you can access your account to update your **shipping address** via BackerKit. Follow the link that you received in the email inviting you to complete your Electron survey:
+You have a few more days to update your address. No requested changes will be accepted after January 15, 2016.
 
 <img src="https://ksr-ugc.imgix.net/assets/004/070/696/7c6faf2f5bade9b7d675551f6139e7e7_original.png?v=1435682538&w=639&fit=max&auto=format&lossless=true&s=d8220be169bfe80516dcafcc35500a31" alt="backerkit email">
 
@@ -35,13 +33,13 @@ Feel free to the link below to jump straight to your cart for more Add-Ons!
 
 ### I upgraded my pledge or added add-ons - when will my credit card be charged for these additions?
 
-Your credit will not be charged until your package is ready and scheduled to ship. If you added Photons or a Photon Kit to your order that means your add-ons will be charged in August when those boards ship out.
+Your credit will not be charged until your package is ready and scheduled to ship. If you added Photons or a Photon Kit to your order that means your add-ons have already been charged and your Photon have shipped.
 
 ### Other common Kickstarter issues
 
 **I pledged extra for additional items.**
 BackerKit automatically pulls in the amount you pledged and allows you to specify which items you want to get with your additional credits. If you have any issues please do not hesitate to contact us with questions.
 
-**I think I might be moving before Fall 2015.** That’s okay! As mentioned above, you will always have access to your BackerKit profile and will be able to update your shipping address yourself prior to lockdown. When we get close to address lockdown date we’ll send you some reminders so you can make any last minute changes. In the meantime, feel free to use this [link](https://spark-electron-cellular-dev-kit-with-a-simple-data.backerkit.com/) to change your address and other account information.
+**I think I might be moving before early February 2016.** As mentioned above, you will always have access to your BackerKit profile and will be able to update your shipping address yourself prior to lockdown. Prior to January 15 feel free to use this [link](https://spark-electron-cellular-dev-kit-with-a-simple-data.backerkit.com/) to change your address and other account information.
 
 **I have not received a survey.** We have already emailed these out so please email us at [ particle@io dot io] if you haven’t received the survey in your inbox.
