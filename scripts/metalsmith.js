@@ -123,7 +123,7 @@ exports.metalsmith = function() {
           'inquiries'
         ]
       }
-    }))
+    }))//end of collections/sections
     .use(fork({
       key: 'devices',
       redirectTemplate: './templates/redirector.jade'
