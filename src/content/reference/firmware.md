@@ -30,7 +30,7 @@ void setup()
   // variable name max length is 12 characters long
   Particle.variable("analogvalue", analogvalue);
   Particle.variable("temp", tempC);
-  if (Particle.variable("mess", message)==false) 
+  if (Particle.variable("mess", message)==false)
   {
       // variable not registered!
   }
@@ -496,6 +496,8 @@ Runs the background loop. This is the public API for the former internal functio
 `Particle.process()` checks the Wi-Fi module for incoming messages from the Cloud,
 and processes any messages that have come in. It also sends keep-alive pings to the Cloud,
 so if it's not called frequently, the connection to the Cloud may be lost.
+
+Even in non-cloud-bound applications it can still be advisable to call `Particle.process()` to explicitly provide some processor time to the WiFi module (e.g. immediately after `WiFi.ready()` to update system variables).
 
 ```cpp
 void setup() {
@@ -1635,7 +1637,7 @@ loop() {
 
 Reads a pulse (either HIGH or LOW) on a pin. For example, if value is HIGH, pulseIn() waits for the pin to go HIGH, starts timing, then waits for the pin to go LOW and stops timing. Returns the length of the pulse in microseconds or 0 if no complete pulse was received within the timeout.
 
-The timing of this function is based on an internal hardware counter derived from the system tick clock.  Resolution is 1/Fosc (1/72MHz for Core, 1/120MHz for Photon/P1/Electron). Works on pulses from 10 microseconds to 3 seconds in length. Please note that if the pin is already reading the desired `value` when the function is called, it will wait for the pin to be the opposite state of the desired `value`, and then finally mesaure the duration of the desired `value`. This routine is blocking and does not use interrupts.  The pulseIn() routine will time out and return 0 after 3 seconds.
+The timing of this function is based on an internal hardware counter derived from the system tick clock.  Resolution is 1/Fosc (1/72MHz for Core, 1/120MHz for Photon/P1/Electron). Works on pulses from 10 microseconds to 3 seconds in length. Please note that if the pin is already reading the desired `value` when the function is called, it will wait for the pin to be the opposite state of the desired `value`, and then finally measure the duration of the desired `value`. This routine is blocking and does not use interrupts.  The `pulseIn()` routine will time out and return 0 after 3 seconds.
 
 ```C++
 // SYNTAX
@@ -1715,7 +1717,7 @@ Serial1.begin(speed);   // via TX/RX pins
 Serial2.begin(speed);   // on Core via
                         // D1(TX) and D0(RX) pins
                         // on Photon via
-                        // RGB-LED green(TX) and 
+                        // RGB-LED green(TX) and
                         // RGB-LED blue (RX) pins
 ```    
 `speed`: parameter that specifies the baud rate *(long)*
@@ -2217,7 +2219,7 @@ This library allows you to communicate with I2C / TWI devices. On the Core/Photo
 
 ### setSpeed()
 
-Sets the I2C clock speed. This is an optional call (not from the original Arduino specs.) and must be called once before calling begin().  The default I2C clock speed is 100KHz.
+Sets the I2C clock speed. This is an optional call (not from the original Arduino specs.) and must be called once before calling begin().  The default I2C clock speed is 100KHz and the maximum clock speed is 400KHz.
 
 ```C++
 // SYNTAX
@@ -3227,11 +3229,17 @@ Join a multicast address for all UDP sockets which are on the same network inter
 
 ```cpp
 // SYNTAX
+UDP.joinMulticast(IPAddress& ip);
+
+// Example Usage
 
 UDP udp;
 
-udp.begin();
-udp.joinMulticast(224,0,0,0);
+int remotePort = 1024;
+IPAddress multicastAddress(224,0,0,0);
+
+udp.begin(remotePort);
+udp.joinMulticast(multicastAddress);
 ```
 
 This will allow reception of multicast packets sent to the given address for UDP sockets
@@ -3242,14 +3250,15 @@ Must be called only after `begin()` so that the network interface is established
 
 _Since 0.4.5_
 
-Leaves a multicast address on all UDP sockets that are on the same network interface as this one.
+Leaves a multicast group previously joined on a specific multicast address.
 
 ```cpp
 // SYNTAX
 
 UDP udp;
+IPAddress multicastAddress(224,0,0,0);
 
-udp.leaveMulticast();
+udp.leaveMulticast(multicastAddress);
 ```
 
 {{/if}}
@@ -3847,7 +3856,7 @@ void loop()
 }
 ```
 **Note:**
-The parameter for millis is an unsigned long, errors may be generated if a programmer tries to do math with other datatypes such as ints.
+The return value for millis is an unsigned long, errors may be generated if a programmer tries to do math with other datatypes such as ints.
 
 ### micros()
 
@@ -3946,12 +3955,16 @@ void loop()
 Interrupts are a way to write code that is run when an external event occurs.
 As a general rule, interrupt code should be very fast, and non-blocking. This means
 performing transfers, such as I2C, Serial, TCP should not be done as part of the
-interrupt handler. Rather, the interrupt handleer can set a variable which instructs
+interrupt handler. Rather, the interrupt handler can set a variable which instructs
 the main loop that the event has occurred.
 
 ### attachInterrupt()
 
 Specifies a function to call when an external interrupt occurs. Replaces any previous function that was attached to the interrupt.
+
+**NOTE:**
+`pinMode()` MUST be called prior to calling attachInterrupt() to set the desired mode for the interrupt pin (INPUT, INPUT_PULLUP or INPUT_PULLDOWN).
+
 
 ```C++
 // EXAMPLE USAGE
@@ -3963,6 +3976,7 @@ volatile int state = LOW;
 void setup()
 {
   pinMode(ledPin, OUTPUT);
+  pinMode(D2, INPUT_PULLUP);
   attachInterrupt(D2, blink, CHANGE);
 }
 
@@ -3983,6 +3997,7 @@ You can attach a method in a C++ object as an interrupt handler.
 class Robot {
   public:
     Robot() {
+      pinMode(D2, INPUT_PULLUP);
       attachInterrupt(D2, &Robot::handler, this, CHANGE);
     }
     void handler() {
@@ -4018,13 +4033,17 @@ External interrupts are supported on the following pins:
 
 The function does not return anything.
 
-**NOTE:**
-Inside the attached function, `delay()` won't work and the value returned by `millis()` will not increment. Serial data received while in the function may be lost. You should declare as `volatile` any variables that you modify within the attached function.
-
-*Using Interrupts:*
+**Using Interrupts:**
 Interrupts are useful for making things happen automatically in microcontroller programs, and can help solve timing problems. Good tasks for using an interrupt may include reading a rotary encoder, or monitoring user input.
 
 If you wanted to insure that a program always caught the pulses from a rotary encoder, so that it never misses a pulse, it would make it very tricky to write a program to do anything else, because the program would need to constantly poll the sensor lines for the encoder, in order to catch pulses when they occurred. Other sensors have a similar interface dynamic too, such as trying to read a sound sensor that is trying to catch a click, or an infrared slot sensor (photo-interrupter) trying to catch a coin drop. In all of these situations, using an interrupt can free the microcontroller to get some other work done while not missing the input.
+
+**About Interrupt Service Routines:**
+ISRs are special kinds of functions that have some unique limitations most other functions do not have. An ISR cannot have any parameters, and they shouldn't return anything.
+
+Generally, an ISR should be as short and fast as possible. If your sketch uses multiple ISRs, only one can run at a time, other interrupts will be executed after the current one finishes in an order that depends on the priority they have. `millis()` relies on interrupts to count, so it will never increment inside an ISR. Since `delay()` requires interrupts to work, it will not work if called inside an ISR. Using `delayMicroseconds()` will work as normal.
+
+Typically global variables are used to pass data between an ISR and the main program. To make sure variables shared between an ISR and the main program are updated correctly, declare them as `volatile`.
 
 
 ### detachInterrupt()
@@ -4132,9 +4151,24 @@ timer.stop(); // stops a running timer.
 
 ```
 
+### changePeriod()
+
+Changes the period of a previously created timer. It can be called to change the period of an running or stopped timer.
+
+`changePeriod(newPeriod)`
+
+`newPeriod` is the new timer period (unsigned int)
+
+```C++
+// EXAMPLE USAGE
+timer.changePeriod(1000); // Reset period of timer to 1000ms.
+
+```
+
+
 ### reset()
 
-Resets a timer.  If a timer is running, it will reset to "zero".  If a timer is stoppep, it will be started.
+Resets a timer.  If a timer is running, it will reset to "zero".  If a timer is stopped, it will be started.
 
 `reset()`
 
@@ -4147,12 +4181,14 @@ timer.reset(); // reset timer if running, or start timer if stopped.
 ### startFromISR()
 ### stopFromISR()
 ### resetFromISR()
+### changePeriodFromISR()
 
 `startFromISR()`
 `stopFromISR()`
 `resetFromISR()`
+`changePeriodFromISR()`
 
-Start, stop and reset a timer (as above) BUT from within an ISR.  These functions MUST be called when doing timer operations within an ISR.
+Start, stop and reset a timer or change a timer's period (as above) BUT from within an ISR.  These functions MUST be called when doing timer operations within an ISR.
 
 ```C++
 // EXAMPLE USAGE
@@ -4161,6 +4197,8 @@ timer.startFromISR(); // WITHIN an ISR, starts timer if stopped or resets it if 
 timer.stopFromISR(); // WITHIN an ISR,stops a running timer.
 
 timer.resetFromISR(); // WITHIN an ISR, reset timer if running, or start timer if stopped.
+
+timer.changePeriodFromISR(newPeriod);  // WITHIN an ISR, change the timer period.
 ```
 
 ### dispose()
@@ -4441,7 +4479,7 @@ void random_seed_from_cloud(unsigned int seed);
 
 The system implementation of this function calls `randomSeed()` to set
 the new seed value. If you don't wish to use random seed values from the cloud,
-you can take control of the ransom seeds set by adding this code to your app:
+you can take control of the random seeds set by adding this code to your app:
 
 ```cpp
 void random_seed_from_cloud(unsigned int seed) {
@@ -4470,7 +4508,7 @@ Returns the total number of bytes of emulated EEPROM.
 `size_t length()`
 
 - The Core has 100 bytes of emulated EEPROM.
-- The photon has 2048 bytes of emulated EEPROM.
+- The Photon has 2048 bytes of emulated EEPROM.
 
 ```c++
 // EXAMPLE USAGE
@@ -4507,9 +4545,6 @@ Write a byte of data to the emulated EEPROM.
 
 - On the Core, this must be a value between 0 and 99
 - On the Photon, this must be a value between 0 and 2047
-
-The function returns `0xFF` when an invalid address is used.
-
 ```C++
 // EXAMPLE USAGE
 
@@ -4621,7 +4656,7 @@ int numberOfTriesRemaining = 10;
 
 This tells the system to store these values in RAM so they can be changed. The
 system takes care of giving them initial values. Before they are set,
-they will have the initial value 0 if an intial value isn't specified.
+they will have the initial value 0 if an initial value isn't specified.
 
 Variables stored in backup RAM follow a similar scheme but use an additional keyword `retained`:
 
@@ -4638,7 +4673,7 @@ A `retained` variable is similar to a regular variable, with some key difference
 - instead of being initialized on each program start, `retained` variables are initialized
 when the device is first powered on (with VIN, from being powered off with VIN and VBAT completely removed).
 When the device is powered on, the system takes care of setting these variables to their initial values.
-`lastTemperature` and `numberOfPresses` would be initialized to 0, while `nmberOfTriesRemaining` would be initialized to 10.
+`lastTemperature` and `numberOfPresses` would be initialized to 0, while `numberOfTriesRemaining` would be initialized to 10.
 - the last value set on the variable is retained *as long as the device is powered from VIN or VBAT and is not hard reset*.
 
 `retained` variables can be updated freely just as with regular RAM variables and operate
@@ -4896,7 +4931,7 @@ non-threaded execution:
 setup typically executes before the Network or Cloud is connected. Calls to
 `Particle.function()`, `Particle.variable()` and `Particle.subscribe()` will work
 as intended whether the cloud is connected or not. `Particle.publish()` will return
-`false` when the cloud is not available and the event will not be published. see `waitUntil` below
+`false` when the cloud is not available and the event will not be published. See `waitUntil` below
 for details on waiting for the network or cloud connection.
 
 - after `setup()` is called, `loop()` is called repeatedly, independent from the current state of the
@@ -5144,10 +5179,16 @@ void loop() {}
 
 _Since 0.4.6_
 
+```C++
+// SYNTAX
+System.enterSafeMode();
+```
+
+
 Resets the device and restarts in safe mode.
 
 
-### System.sleep()
+### System.sleep() [ Sleep ]
 
 `System.sleep()` can be used to dramatically improve the battery life of a Particle-powered project by temporarily deactivating the Wi-Fi module, which is by far the biggest power draw.
 
@@ -5556,7 +5597,7 @@ Returns: The length of the String in characters.
 
 ### remove()
 
-The String `remvove()` function modifies a string, in place, removing chars from the provided index to the end of the string or from the provided index to index plus count.
+The String `remove()` function modifies a string, in place, removing chars from the provided index to the end of the string or from the provided index to index plus count.
 
 ```C++
 // SYNTAX
@@ -5772,6 +5813,166 @@ Parameters:
   * string: a variable of type String
 
 Returns: None
+
+
+## Stream Class
+Stream is the base class for character and binary based streams. It is not called directly, but invoked whenever you use a function that relies on it.  The Particle Stream Class is based on the Aduino Stream Class.
+
+Stream defines the reading functions in Particle. When using any core functionality that uses a read() or similar method, you can safely assume it calls on the Stream class. For functions like print(), Stream inherits from the Print class.
+
+Some of the Particle classes that rely on Stream include :
+`Serial`
+`Wire`
+`TCPClient`
+`UDP`
+
+### setTimeout()
+`setTimeout()` sets the maximum milliseconds to wait for stream data, it defaults to 1000 milliseconds.
+
+```C++
+// SYNTAX
+stream.setTimeout(time);
+```
+
+Parameters:
+
+  * stream: an instance of a class that inherits from Stream
+  * time: timeout duration in milliseconds (unsigned int)
+
+Returns: None
+
+### find()
+`find()` reads data from the stream until the target string of given length is found.
+
+```C++
+// SYNTAX
+stream.find(target);		// reads data from the stream until the target string is found
+stream.find(target, length);	// reads data from the stream until the target string of given length is found
+```
+
+Parameters:
+
+  * stream : an instance of a class that inherits from Stream
+  * target : pointer to the string to search for (char *)
+  * length : length of target string to search for (size_t)
+
+Returns: returns true if target string is found, false if timed out
+
+### findUntil()
+`findUntil()` reads data from the stream until the target string or terminator string is found.
+
+```C++
+// SYNTAX
+stream.findUntil(target, terminal);		// reads data from the stream until the target string or terminator is found
+stream.findUntil(target, terminal, length);	// reads data from the stream until the target string of given length or terminator is found
+```
+
+Parameters:
+
+  * stream : an instance of a class that inherits from Stream
+  * target : pointer to the string to search (char *)
+  * terminal : pointer to the terminal string to search for (char *)
+  * length : length of target string to search for (size_t)
+
+Returns: returns true if target string or terminator string is found, false if timed out
+
+### readBytes()
+`readBytes()` read characters from a stream into a buffer. The function terminates if the determined length has been read, or it times out.
+
+```C++
+// SYNTAX
+stream.readBytes(buffer, length);
+```
+
+Parameters:
+
+  * stream : an instance of a class that inherits from Stream
+  * buffer : pointer to the buffer to store the bytes in (char *)
+  * length : the number of bytes to read (size_t)
+
+Returns: returns the number of characters placed in the buffer (0 means no valid data found)
+
+### readBytesUntil()
+`readBytesUntil()` reads characters from a stream into a buffer. The function terminates if the terminator character is detected, the determined length has been read, or it times out.
+
+```C++
+// SYNTAX
+stream.readBytesUntil(terminator, buffer, length);
+```
+
+Parameters:
+
+  * stream : an instance of a class that inherits from Stream
+  * terminator : the character to search for (char)
+  * buffer : pointer to the buffer to store the bytes in (char *)
+  * length : the number of bytes to read (size_t)
+
+Returns: returns the number of characters placed in the buffer (0 means no valid data found)
+
+### readString()
+`readString()` reads characters from a stream into a string. The function terminates if it times out.
+
+```C++
+// SYNTAX
+stream.readString();
+```
+
+Parameters:
+
+  * stream : an instance of a class that inherits from Stream
+
+Returns: the entire string read from stream (String)
+
+### readStringUntil()
+`readStringUntil()` reads characters from a stream into a string until a terminator character is detected. The function terminates if it times out.
+
+```C++
+// SYNTAX
+stream.readStringUntil(terminator);
+```
+
+Parameters:
+
+  * stream : an instance of a class that inherits from Stream
+  * terminator : the character to search for (char)
+
+Returns: the entire string read from stream, until the terminator character is detected
+
+### parseInt()
+`parseInt()` returns the first valid (long) integer value from the current position under the following conditions:
+
+ - Initial characters that are not digits or a minus sign, are skipped;
+ - Parsing stops when no characters have been read for a configurable time-out value, or a non-digit is read;
+
+```C++
+// SYNTAX
+stream.parseInt();
+stream.parseInt(skipChar);	// allows format characters (typically commas) in values to be ignored
+```
+
+Parameters:
+
+  * stream : an instance of a class that inherits from Stream
+  * skipChar : the character to ignore while parsing (char).
+
+Returns: parsed int value (long). If no valid digits were read when the time-out occurs, 0 is returned.
+
+### parseFloat()
+`parseFloat()` as `parseInt()` but returns the first valid floating point value from the current position.
+
+```C++
+// SYNTAX
+stream.parsetFloat();
+stream.parsetFloat(skipChar);	// allows format characters (typically commas) in values to be ignored
+```
+
+Parameters:
+
+  * stream : an instance of a class that inherits from Stream
+  * skipChar : the character to ignore while parsing (char).
+
+Returns: parsed float value (float). If no valid digits were read when the time-out occurs, 0 is returned.
+
 
 
 ## Language Syntax
@@ -6764,7 +6965,7 @@ Digital pins can be used as INPUT, INPUT_PULLUP, INPUT_PULLDOWN or OUTPUT. Chang
 
 Pins Configured as `INPUT`
 
-The device's pins configured as `INPUT` with `pinMode()`` are said to be in a high-impedance state. Pins configured as `INPUT` make extremely small demands on the circuit that they are sampling, equivalent to a series resistor of 100 Megohms in front of the pin. This makes them useful for reading a sensor, but not powering an LED.
+The device's pins configured as `INPUT` with `pinMode()` are said to be in a high-impedance state. Pins configured as `INPUT` make extremely small demands on the circuit that they are sampling, equivalent to a series resistor of 100 Megohms in front of the pin. This makes them useful for reading a sensor, but not powering an LED.
 
 If you have your pin configured as an `INPUT`, you will want the pin to have a reference to ground, often accomplished with a pull-down resistor (a resistor going to ground).
 
@@ -6774,7 +6975,7 @@ The STM32 microcontroller has internal pull-up resistors (resistors that connect
 
 Pins Configured as `OUTPUT`
 
-Pins configured as `OUTPUT` with `pinMode()`` are said to be in a low-impedance state. This means that they can provide a substantial amount of current to other circuits. STM32 pins can source (provide positive current) or sink (provide negative current) up to 20 mA (milliamps) of current to other devices/circuits. This makes them useful for powering LED's but useless for reading sensors. Pins configured as outputs can also be damaged or destroyed if short circuited to either ground or 3.3 volt power rails. The amount of current provided by the pin is also not enough to power most relays or motors, and some interface circuitry will be required.
+Pins configured as `OUTPUT` with `pinMode()` are said to be in a low-impedance state. This means that they can provide a substantial amount of current to other circuits. STM32 pins can source (provide positive current) or sink (provide negative current) up to 20 mA (milliamps) of current to other devices/circuits. This makes them useful for powering LED's but useless for reading sensors. Pins configured as outputs can also be damaged or destroyed if short circuited to either ground or 3.3 volt power rails. The amount of current provided by the pin is also not enough to power most relays or motors, and some interface circuitry will be required.
 
 #### true | false
 
@@ -6792,7 +6993,7 @@ Note that the true and false constants are typed in lowercase unlike `HIGH, LOW,
 
 ### Data Types
 
-**Note:** The Core/Photon uses a 32-bit ARM based microcontroller and hence the datatype lengths are different from a standard 8-bit system (for eg. Arduino Uno).
+**Note:** The Core/Photon uses a 32-bit ARM based microcontroller and hence the datatype lengths are different from a standard 8-bit system (for e.g. Arduino Uno).
 
 #### void
 
@@ -7077,7 +7278,7 @@ make: *** [user] Error 2
 */
 ```
 
-When you are using the Particle Cloud to compile your `.ino` source code, a preprocessor comes in to modfify the code into C++ requirements before producing the binary file used to flash onto your devices.
+When you are using the Particle Cloud to compile your `.ino` source code, a preprocessor comes in to modify the code into C++ requirements before producing the binary file used to flash onto your devices.
 
 However, there might be instances where the preprocessor causes issues in your code. One example is the use of class/structs in your function parameters.
 

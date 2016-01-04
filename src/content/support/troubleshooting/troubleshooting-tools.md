@@ -26,7 +26,7 @@ It is possible to put your Core in [Listening Mode](/guide/getting-started/modes
 
 For Windows users, we recommend downloading [PuTTY](http://www.putty.org/). You will also need to download and install the [Particle driver](https://s3.amazonaws.com/spark-website/Particle.zip). 
 
-Plug your device into your computer over USB. When the Core is in [Listening Mode](/guide/getting-started/modes/#listening-mode), open a serial port over USB using the standard settings, which should be:
+Plug your device into your computer over USB. When the {{#if photon}}Photon{{/if}}{{#if core}}Core{{/if}} is in [Listening Mode]({{#if photon}}/guide/getting-started/modes/photon/#listening-mode{{/if}}{{#if core}}/guide/getting-started/modes/core/#listening-mode{{/if}}), open a serial port over USB using the standard settings, which should be:
 
 - Baudrate: 9600
 - Data Bits: 8
@@ -66,6 +66,12 @@ Your device MAC address is
 ```
 
 Note that this does not work on unboxed photons unless they have firmware updated manually (e.g. via `particle update`)
+
+### Get Device ID [deviceID] CLI method
+_Using the Particle CLI_
+* Put your device into [Listening Mode](/guide/getting-started/modes/photon/#listening-mode) mode while being plugged into a computer via USB
+* Issue `particle serial identify` from the [particle CLI](https://github.com/spark/particle-cli)
+	and it should return the deviceID.
 
 ### Get Device ID
 
@@ -134,7 +140,7 @@ For a better illustrated version of these instructions, check out steps 1-5 of [
 
 Now you are ready for DFU commands!
 
-###Core DFU commands:
+### Core DFU commands:
 
 **User firmware**
 
@@ -178,7 +184,7 @@ dfu-util works from the command line with OS X, but to use dfu-util on Windows, 
 
 For a better illustrated version of these instructions, check out steps 1-5 of [Jon Gallant's tutorial](http://blog.jongallant.com/2015/08/particle-photon-firmware-flash-windows.html).
 
-###Photon DFU commands:
+### Photon DFU commands:
 
 **System Part 1**
 
@@ -205,7 +211,7 @@ For a better illustrated version of these instructions, check out steps 1-5 of [
 `dfu-util -d 2b04:d006 -a 1 -s 34 -D device-private.der`
 
 
-###P1 DFU commands:
+### P1 DFU commands:
 
 ***
 

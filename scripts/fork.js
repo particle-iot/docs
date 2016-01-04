@@ -3,9 +3,11 @@
 var cloneDeep = require('lodash').cloneDeep;
 var path = require('path');
 var fs = require('fs');
+var titleize = require('../templates/helpers/titleize');
 
 module.exports = function(options) {
 	var key = options.key;
+	var keySingular = key.replace(/s$/, "");
 	var redirectTemplate = fs.readFileSync(path.resolve(options.redirectTemplate));
 
 	return function(files, metalsmith, done) {
@@ -28,6 +30,7 @@ module.exports = function(options) {
 				});
 
 				newFile[value] = true;
+				newFile[keySingular] = titleize(value);
 				files[newName] = newFile;
 				forkLocations[value] = '/' + newName.replace(extension, '');
 			});
