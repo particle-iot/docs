@@ -3,7 +3,7 @@ word: Hackathon
 title: Hackathon
 template: guide.hbs
 columns: two
-devices: [ photon, core ]
+devices: [ photon,electron,core ]
 order: 10
 ---
 

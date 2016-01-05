@@ -2,7 +2,7 @@
 title: Introduction
 template: guide.hbs
 columns: two
-devices: [ photon, electron, core ]
+devices: [ photon,electron,core ]
 order: 1
 ---
 
@@ -22,6 +22,11 @@ Anxious to connect right away?
 {{#if core}}
 [CONNECT MY CORE >](/guide/getting-started/start/core/#step-1-power-on-your-device)
 {{/if}}
+
+{{#if electron}}
+[Not yet :( )]
+{{/if}}
+
 
 [I'M AT A HACKATHON >](/guide/getting-started/hackathon)
 

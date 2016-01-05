@@ -36,6 +36,7 @@
 	"/core/ifttt" : "/guide/tools-and-features/ifttt/core",
 	"/core/webhooks" : "/guide/tools-and-features/webhooks/core",
 	"/core/hackathon" : "/guide/tools-and-features/hackathon/core",
+	"/electron" : "/guide/getting-started/intro/electron",
 	"/firmware" : "/reference/firmware",
 	"/api" : "/reference/api",
 	"/cli" : "/reference/cli",

@@ -2,7 +2,7 @@
 title: Device LED Codes
 template: support.hbs
 columns: two
-devices: [ photon, core ]
+devices: [ photon,electron,core ]
 order: 2
 ---
 

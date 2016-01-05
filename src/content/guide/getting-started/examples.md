@@ -2,7 +2,7 @@
 title: Code Examples
 template: guide.hbs
 columns: two
-devices: [ photon, core ]
+devices: [ photon,electron,core ]
 order: 7
 ---
 

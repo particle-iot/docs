@@ -2,7 +2,7 @@
 title: Firmware
 template: reference.hbs
 columns: three
-devices: ['photon', 'core']
+devices: ['photon','electron','core']
 order: 1
 ---
 
