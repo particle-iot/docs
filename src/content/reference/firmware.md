@@ -4867,7 +4867,7 @@ void loop() {
 The semi-automatic mode is therefore much like the automatic mode, except:
 
 - When the device boots up, the user code will begin running immediately.
-- When the user calls [`Particle.connect()`](#particle-connect), the user code will be blocked, and the device will attempt to negotiate a connection. This connection will block until either the device connects to the Cloud or an interrupt is fired that calls [`Particle.disconnect()`](#particle-disconnect).
+- When the user calls [`Particle.connect()`](#particle-connect-), the user code will be blocked, and the device will attempt to negotiate a connection. This connection will block until either the device connects to the Cloud or an interrupt is fired that calls [`Particle.disconnect()`](#particle-disconnect).
 
 ### Manual mode
 
@@ -4895,7 +4895,7 @@ void loop() {
 When using manual mode:
 
 - The user code will run immediately when the device is powered on.
-- Once the user calls [`Particle.connect()`](#particle-connect), the device will attempt to begin the connection process.
+- Once the user calls [`Particle.connect()`](#particle-connect-), the device will attempt to begin the connection process.
 - Once the device is connected to the Cloud ([`Particle.connected()`](#particle-connected)` == true`), the user must call `Particle.process()` regularly to handle incoming messages and keep the connection alive. The more frequently `Particle.process()` is called, the more responsive the device will be to incoming messages.
 - If `Particle.process()` is called less frequently than every 20 seconds, the connection with the Cloud will die. It may take a couple of additional calls of `Particle.process()` for the device to recognize that the connection has been lost.
 
