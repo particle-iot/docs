@@ -234,7 +234,7 @@ The procedure is same as the one described above (DFU Mode), but in this case yo
 
 {{/if}}
 
-You can reset Wi-Fi credentials by performing a [WiFi Network Reset](#wifi-network-reset).
+You can reset Wi-Fi credentials by performing a [WiFi Network Reset](#wi-fi-network-reset).
 
 ## Troubleshooting Modes
 
