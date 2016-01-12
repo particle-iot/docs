@@ -1219,19 +1219,21 @@ void loop()
 
 ### analogWrite()
 
-Writes an analog value (PWM wave) to a pin. The frequency of the PWM signal is approximately 500 Hz.
+Writes an analog value to a pin as a digital PWM (pulse-width modulated) signal. The default frequency of the PWM signal is 500 Hz.
 
 Can be used to light a LED at varying brightnesses or drive a motor at various speeds. After a call to analogWrite(), the pin will generate a steady square wave of the specified duty cycle until the next call to `analogWrite()` (or a call to `digitalRead()` or `digitalWrite()` on the same pin).
 
 ```C++
 // SYNTAX
 analogWrite(pin, value);
+analogWrite(pin, value, frequency);
 ```
 
-`analogWrite()` takes two arguments:
+`analogWrite()` takes two or three arguments:
 
 - `pin`: the number of the pin whose value you wish to set
 - `value`: the duty cycle: between 0 (always off) and 255 (always on).
+- `frequency`: the PWM frequency: between 1 Hz and 65535 Hz (default 500 Hz).
 
 **NOTE:** `pinMode(pin, OUTPUT);` is required before calling `analogWrite(pin, value);` or else the `pin` will not be initialized as a PWM output and set to the desired duty cycle.
 
@@ -1258,13 +1260,17 @@ void loop()
 }
 ```
 
-- On the Core, this function works on pins A0, A1, A4, A5, A6, A7, D0 and D1.
+- On the Core, this function works on pins D0, D1, A0, A1, A4, A5, A6, A7, RX and TX.
 - On the Photon, this function works on pins D0, D1, D2, D3, A4, A5, WKP, RX and TX with a caveat: PWM timer peripheral is duplicated on two pins (A5/D2) and (A4/D3) for 7 total independent PWM outputs. For example: PWM may be used on A5 while D2 is used as a GPIO, or D2 as a PWM while A5 is used as an analog input. However A5 and D2 cannot be used as independently controlled PWM outputs at the same time.
 
+The PWM frequency must be the same for pins in the same timer group.
+
+- On the Core, the timer groups are D0/D1, A0/A1/RX/TX, A4/A5/A6/A7.
+- On the Photon, the timer groups are D0/D1/C4/C5, D2/D3/A4/A5, WKP, RX/TX.
+- On the P1, the timer groups are D0/D1/C4/C5, D2/D3/A4/A5/P1S0/P1S1, WKP, RX/TX.
+- On the Electron, the timer groups are D0/D1/C4/C5, D2/D3/A4/A5/B2/B3, WKP, RX/TX, B0/B1.
+
 When used with these pins, the `analogWrite()` function has nothing to do with the analog pins or the `analogRead()` function.
-
-
-
 
 
 ### Analog Output (Photon)
