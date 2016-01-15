@@ -5,9 +5,9 @@ columns: two
 order: 4
 ---
 
-# Photon Datasheet <sup>(v011)</sup>
+# Photon Datasheet <sup>(v012)</sup>
 
-**Model number:** PHOTONH
+**Model number:** PHOTONH, PHOTONNOH
 
 <div align=center><img src="/assets/images/photon_vector2_600.png" width=200></div>
 
