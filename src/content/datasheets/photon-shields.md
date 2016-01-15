@@ -228,7 +228,7 @@ Here is how to perform that surgery:
 
 Do you want to gain complete control over your Particle device right down to its every bit of memory space? or watch as your code gets executed and debug it? Then this shield should be able to pacify that control freak inside of you.
 
-Programmer Shield base Github library [here](https://github.com/spark/particle-programmer-shield).
+Programmer Shield Github library [here](https://github.com/spark/particle-programmer-shield).
 
 ![Programmer Shield](/assets/images/shields/prog-shield/prog-shield.png)
 
@@ -240,7 +240,7 @@ The USB-UART interface is connected to the TX and RX of a Particle device and co
 
 For more instructions on setting up OpenOCD and using the Programmer Shield, please read through the README at the landing page of the Programmer Shield repository on GitHub, linked below:
 
-[https://github.com/spark/shields/tree/master/photon-shields/programmer-shield](https://github.com/spark/shields/tree/master/photon-shields/programmer-shield)
+[Installing OpenOCD for Particle Programmer Shield](https://github.com/spark/shields/tree/master/photon-shields/programmer-shield)
 
 
 ### Programmer Shield - Specifications
