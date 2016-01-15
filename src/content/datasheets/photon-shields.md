@@ -11,7 +11,7 @@ order: 6
 
 Sometimes life can be a little difficult in the land of electronics when two systems talk a different voltage language. How do you make them talk to each other without making one of them _burn out_? The Shield Shield is the answer. This shield performs all the necessary voltage translation and provides an Arduino-compatible footprint to make it easier for you to plug in your existing Arduino shields or talk to other 5V hardware.
 
-EagleCad files and additional datasheets for Shield Shield [here](https://github.com/spark/shields/tree/master/photon-shields/shield-shield).
+EagleCad files and additional datasheets for Shield Shield referenced [here](https://github.com/spark/shields/tree/master/photon-shields/shield-shield).
 
 ![Shield Shield](/assets/images/shields/shield-shield/shield-shield.png)
 
@@ -90,7 +90,7 @@ add PDF template for holes
 ## Relay Shield
 The Relay Shield allows you to take over the world, one electric appliance at a time. Want to control a lamp, fan, coffee machine, aquarium pumps or garden sprinklers? Then this is a solution for you!
 
-Relay Shield Github library [here](https://github.com/spark/relayshield).
+Relay Shield Github library referenced [here](https://github.com/spark/relayshield).
 
 The shield comes with four relays that are rated at a max of 220V @10Amp allowing you to control any electric appliance rated at under 2000 Watts. You are not just limited to an appliance though; any gadget that requires high voltage and/or a lot of current can be controlled with this shield.
 
@@ -228,7 +228,7 @@ Here is how to perform that surgery:
 
 Do you want to gain complete control over your Particle device right down to its every bit of memory space? or watch as your code gets executed and debug it? Then this shield should be able to pacify that control freak inside of you.
 
-Programmer Shield Github library [here](https://github.com/spark/particle-programmer-shield).
+Programmer Shield Github library referenced [here](https://github.com/spark/particle-programmer-shield).
 
 ![Programmer Shield](/assets/images/shields/prog-shield/prog-shield.png)
 
@@ -238,9 +238,8 @@ The USB-UART interface is connected to the TX and RX of a Particle device and co
 
 ![Programmer Shield Description](/assets/images/shields/prog-shield/prog-shield-description.png)
 
-For more instructions on setting up OpenOCD and using the Programmer Shield, please read through the README at the landing page of the Programmer Shield repository on GitHub, linked below:
-
-[Installing OpenOCD for Particle Programmer Shield](https://github.com/spark/shields/tree/master/photon-shields/programmer-shield)
+For more instructions on setting up OpenOCD and using the Programmer Shield, please read through the README at the landing page of the Programmer Shield repository on GitHub, it is
+[referenced here](https://github.com/spark/shields/tree/master/photon-shields/programmer-shield).
 
 
 ### Programmer Shield - Specifications
@@ -258,7 +257,7 @@ For more instructions on setting up OpenOCD and using the Programmer Shield, ple
 
 The Power Shield, as the name implies, allows the Particle device to be powered from different types of power sources. The shield has an intelligent battery charger and power management unit along with a wide input voltage regulator and an I2C based fuel-gauge. You can power a Particle device with either a USB plug or a DC supply of anywhere from 7 to 20VDC and charge a [3.7V LiPo battery](https://www.sparkfun.com/products/8483) all at the same time. 
 
-Power Shield Github library [here](https://github.com/spark/PowerShield).
+Power Shield Github library referenced [here](https://github.com/spark/PowerShield).
 
 ![Power Shield](/assets/images/shields/power-shield/power-shield.png)
 
@@ -293,7 +292,7 @@ There are two status led located on the left of the JST battery connector labele
 
 The Internet Button is not only an easy way to get started on the Internet of Things, it's also a clean and simple way to start building your own prototypes. Quickly start playing with LEDs, multiple buttons, an accelerometer and more without any wires or soldering.
 
-Internet Button Github library [here](https://github.com/spark/internetbutton).
+Internet Button Github library referenced [here](https://github.com/spark/internetbutton).
 
 **NOTE:** There is a known issue with the current release of the Internet Button. On the PCB, the silkscreen labels are incorrect. The correct mapping is, from **right** to **left**, "1-2-3-4", *not* "4-3-2-1" as annotated on the PCB. For super double extra clarity, please see the following pin mapping label table:</span>
 
