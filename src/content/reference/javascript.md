@@ -36,7 +36,7 @@ $ bower install spark
 Alternately, you can pull in ParticleJS from the JSDelivr and simply include the script in your HTML.
 
 ```html
-<script type="text/javascript" src="//cdn.jsdelivr.net/sparkjs/0.5.9/spark.min.js">
+<script type="text/javascript" src="//cdn.jsdelivr.net/sparkjs/1/spark.min.js">
 </script>
 ```
 
@@ -59,7 +59,7 @@ Add an empty div with "spark-login" id where you want the "Login to Spark" butto
 Add this script tag to your page to include ParticleJS
 
 ```javascript
-<script src="//cdn.jsdelivr.net/sparkjs/0.5.9/spark.min.js"></script>
+<script src="//cdn.jsdelivr.net/sparkjs/1/spark.min.js"></script>
 ```
 
 Call `sparkLogin` function with a callback function that will be called on successful login:
@@ -603,9 +603,25 @@ We'll use promises to check the result of the login process
 });
 ```
 
-### Removing access token
+### List access tokens
 
-Removes accessToken from the Particle cloud for the specified user
+Lists access tokens from the Particle cloud for the specified user.
+
+```javascript
+var callback = function(err, data) {
+  if (err) {
+    console.log('error on listing access tokens: ', err);
+  } else {
+    console.log('data on listing access tokens: ', data);
+  }
+};
+
+spark.listAccessTokens('u@m.com', 'pass', callback);
+```
+
+### Remove access token
+
+Removes an access token from the Particle cloud for the specified user.
 
 ```javascript
 
