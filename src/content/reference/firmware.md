@@ -895,6 +895,21 @@ void loop() {}
 
 `WiFi.SSID()` returns the SSID of the network the device is currently connected to as a `char*`.
 
+### WiFi.BSSID()
+
+`WiFi.BSSID()` retrives the 6-byte MAC address of the access point the device is currently connected to.
+
+byte bssid[6];
+
+void setup() {
+  Serial.begin(9600);
+  while (!Serial.available()) Particle.process();
+
+  WiFi.BSSID(bssid);
+  Serial.printlnf("%02X:%02X:%02X:%02X:%02X:%02X", bssid[0], bssid[1], bssid[2], bssid[3], bssid[4], bssid[5]);
+}
+
+
 ### WiFi.RSSI()
 
 `WiFi.RSSI()` returns the signal strength of a Wifi network from from -127 to -1dB as an `int`. Positive return values indicate an error with 1 indicating a WiFi chip error and 2 indicating a time-out error.
