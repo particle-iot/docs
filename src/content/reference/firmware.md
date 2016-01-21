@@ -4863,8 +4863,104 @@ _Note that when startup code performs digital I/O, there will still be a period 
 where the I/O pins are in their default power-on state, namely `INPUT`. Circuits should be designed with this
 in mind, using pullup/pulldown resistors as appropriate._
 
+## System Events
 
-## System modes
+*Since 0.4.9*
+
+### System Events Overview
+
+System events are messages sent by the system and received by application code. They inform the application about changes in the system, such as when the system has entered setup mode, or when an Over-the-Air (OTA) update starts, or when the system is about to reset. 
+
+System events are recieved by the application by registering a handler. The handler has this general format:
+
+```
+void handler(system_event_t event, int data, void* moredata);
+```
+
+Unused parameters can be removed from right to left, giving these additional function signatures:
+
+```
+void handler(system_event_t event, int data);
+void handler(system_event_t event);
+void handler();
+``` 
+
+Here's an example of an application that listens for `reset` events so that the application is notified the device is about to reset. The application publishes a reset message to the cloud and turns off connected equipment before returning from the handler, allowing the device to reset. 
+
+```
+void reset_handler()
+{
+	// turn off the crankenspitzen
+	digitalWrite(D6, LOW);
+	// tell the world what we are doing
+	Particle.publish("reset", "going down for reboot NOW!");	
+}
+
+void setup()
+{
+	// register the reset handler
+	System.on(reset, reset_handler);
+}
+```
+
+Some event types provide additional information. For example the `button_click` event provides a parameter with the number of button clicks:
+
+```
+void button_clicked(system_event_t event, int param)
+{
+	int times = system_button_clicks(param);
+	Serial.printlnf("button was clicked %d times", times);
+}
+```
+
+#### Registering multiple events with the same handler
+
+It's possible to subscribe to multiple events with the same handler in cases where you want the same handler to be notified for all the events. For example:
+
+```
+void handle_all_the_events(system_event_t event, int param)
+{
+	Serial.printlnf("got event %d with value %d");
+}
+
+void setup()
+{
+	// listen for network events and firmware update events
+	System.on(network_status+firmware_update, handle_all_the_events);
+}
+```
+
+To subscribe to all events, there is the placeholder `all_events`:
+
+```
+void setup()
+{
+	// listen for network events and firmware update events
+	System.on(all_events, handle_all_the_events);
+}
+```
+
+### System Events Reference
+
+These are the system events produced by the system, their numeric value (what you will see when printing the system event to Serial) and details of how to handle the parameter value. 
+
+| Event Name | ID | Description | Parameter |
+|------------|----------|-----------|
+| setup_begin | 2 | signals the device has entered setup mode |  not used |
+| setup_update | 4 | periodic event signalling the device is still in setup mode. | milliseconds since setup mode was started |
+| setup_end | 8 | signals setup mode was exited | time in ms since setup mode was started |
+| network_credentials | 16 | network credentials were changed | `network_credentials_added` or `network_credentials_cleared` |
+| network_status | 32 | network connection state changes | one of `network_status_powering_off` `network_status_off` `network_status_powering_on` `network_status_on` `network_status_conneecting` `network_status_connected`       `network_status_preparing`       `network_status_ready`           `network_status_disconnecting` |
+ | button_status | 128 | button pressed or releasesed | the duration in ms the button was pressed: 0 when pressed, >0 on release. |
+ | firmware_update | 256 | firmwarwe update status | one of `firmware_update_begin`, `firmware_update_progress`, `firmware_update_complete`, `firmware_update_failed` |
+ | firmware_update_pending | 512 | notifies the application that a firmware update is available. This event is sent even when updates are disabled, giving the application chance to re-enable firmware updates with `System.enableUpdates()` | not used |
+ | reset_pending | 1024 | notifies the application that the system would like to reset. This event is sent even when resets are disabled, giving the application chance to re-enable resets with `System.enableReset()` | not used |
+ | reset | 2048 | notifies that the system will reset once the application has completed handling this event | not used |
+ | button_click | 4096 | event sent each time setup button is clicked. | `int clicks = system_button_clicks(param); ` retrieves the number of clicks so far. |
+| button_final_click | 8192 | sent after a run of one or more clicks not followed by additional clicks. Unlike the `button_click` event, the `button_final_click` event is sent once, at the end of a series of clicks. | `int clicks = system_button_clicks(param); ` retrieves the number of times the button was pushed. | 
+
+
+## System Modes
 
 System modes help you control how the device manages the connection with the cloud.
 
