@@ -4030,6 +4030,8 @@ External interrupts are supported on the following pins:
     - CHANGE to trigger the interrupt whenever the pin changes value,
     - RISING to trigger when the pin goes from low to high,
     - FALLING for when the pin goes from high to low.
+- `priority` (optional): the priority of this interrupt. Deafult priority is 13. Lower values increase the priority of the interrupt. 
+- `subpriority` (optional): the subpriority of this interrupt. Default subpriority is 0.
 
 The function does not return anything.
 
