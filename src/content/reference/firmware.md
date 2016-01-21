@@ -5251,13 +5251,15 @@ at compile time and inline the function calls, reducing overhead to a minimum.
 
 *Since v0.4.4.*
 
-Retrieves the amount of memory guaranteed to be available. The actual amount of free memory will be at least as large as the value returned.
+Retrieves the amount of free memory in the system in bytes.
 
 ```cpp
 uint32_t freemem = System.freeMemory();
 Serial.print("free memory: ");
 Serial.println(freemem);
 ```
+
+
 
 ### System.factoryReset()
 
