@@ -789,6 +789,35 @@ WiFi.setCredentials("SSID", "PASSWORD", WPA2, WLAN_CIPHER_AES));
 ```
 {{/if}}
 
+### WiFi.getCredentials()
+
+Lists the Wi-Fi credentials stored on the device. Returns the number of stored credentials.
+
+{{#if core}}
+
+*Core: always returns 0 since Wi-Fi credentials cannot be read back from the CC3000 Wi-Fi module.*
+
+{{else}}
+
+```cpp
+// EXAMPLE
+WiFiAccessPoint ap[5];
+int found = WiFi.getCredentials(ap, 5);
+for (int i = 0; i < found; i++) {
+    Serial.print("ssid: ");
+    Serial.println(ap[i].ssid);
+    Serial.print("bssid: ");
+    Serial.println(ap[i].bssid);
+    // security is one of WLAN_SEC_UNSEC, WLAN_SEC_WEP, WLAN_SEC_WPA, WLAN_SEC_WPA2
+    Serial.println(ap[i].security);
+    // cipher is one of WLAN_CIPHER_AES, WLAN_CIPHER_TKIP
+    Serial.println(ap[i].cipher);
+    Serial.println(ap[i].rssi);
+    Serial.println(ap[i].channel);
+}
+```
+
+{{/if}}
 
 ### WiFi.clearCredentials()
 
