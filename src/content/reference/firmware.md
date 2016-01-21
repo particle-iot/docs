@@ -4909,7 +4909,7 @@ When using manual mode:
 in production after extensive testing.
 
 The System Thread is a system configuration that helps ensure the application loop
-is not interrupted by the System background processing and network management.
+is not interrupted by the system background processing and network management.
 It does this by running the application loop and the system loop on separate threads,
 so they execute in parallel rather than sequentially.
 
@@ -4929,8 +4929,8 @@ non-threaded execution:
 
 - `setup()` is executed immediately regardless of the system mode, which means
 setup typically executes before the Network or Cloud is connected. Calls to
-`Particle.function()`, `Particle.variable()` and `Particle.subscribe()` will work
-as intended whether the cloud is connected or not. `Particle.publish()` will return
+`Particle.function()`, `Particle.variable()` and `Particle.subscribe()` will function
+as intended whether the cloud is connected or not.  `Particle.publish()` will return
 `false` when the cloud is not available and the event will not be published. See `waitUntil` below
 for details on waiting for the network or cloud connection.
 
@@ -4944,18 +4944,104 @@ connection automatically. while `AUTOMATIC` mode connects to the cloud as soon a
 Neither has an affect on when the application `setup()` function is run - it is run
 as soon as possible, independently from the system network activities, as described above.
 
-- In `MANUAL` mode there is no need to call `Particle.process()` (but calling Particle.process()
-does no harm if you want to keep the code in place.) The system thread takes care of calling `Particle.process()` itself.
-
-- It is no longer necessary to inject `delay()` into code in order to keep the system background
-processing active. The application loop is free to block indefinitely without affecting the cloud connection.
+- `Particle.process()` and `delay()` are not needed to keep the background tasks active - they run independently. These functions have a new role in keeping the application events serviced. Application events are:
+ - cloud function calls
+ - cloud events
+ - system events
 
 - Cloud functions registered with `Particle.function()` and event handlers
-registered with `Particle.subscribe()` execute on the application
-thread in between calls to `loop()`. (This is also the case in non-threaded mode.)
+registered with `Particle.subscribe()` continue to execute on the application
+thread in between calls to `loop()`, or when `Particle.process()` or `delay()` is called.
 A long running cloud function will block the application loop (since it is application code)
 but not the system code, so cloud connectivity is maintained.
 
+ - the application continues to execute during listening mode
+ - the application continues to execute during OTA updates 
+
+### System Functions
+
+With system threading enabled, the majority of the Particle API continues to run on the calling thread, as it does for non-threaded mode. For example, when a function, such as `Time.now()`, is called, it is processed entirely on the calling thread (typically the application thread when calling from `loop()`.) 
+
+There are a small number of API functions that are system functions. These functions execute on the system thread regardless of which thread they are called from. 
+
+There are two types of system functions:
+
+- asynchronous system functions: these functions do not return a result to the caller and do not block the caller
+- synchronous system functions: these functions return a result to the caller, and block the caller until the function completes
+
+Asynchornous system functions do not block the application thread, even when the system thread is busy, so these can be used liberally without causing unexpected delays in the application.  (Exception: when more than 20 asynchornous system functions are invoked, but not yet serviced by the application thread, the application will block for 5 seconds while attempting to put the function on the system thread queue.)
+
+Synchronous system functions always block the caller until the system has performed the requested operation. These are the synchornous system functions:
+
+- `WiFi.hasCredentials()`, `WiFi.setCredentials()`, `WiFi.clearCredentials()`
+- `Particle.function()`
+- `Particle.variable()`
+- `Particle.subscribe()`
+- `Particle.publish()` 
+
+For example, when the system is busy connecting to WiFi or establishing the cloud connection and the application calls `Particle.variable()` then the application will be blocked until the system finished connecting to the cloud (or gives up) so that it is free to service the `Particle.variable()` function call. 
+
+This presents itself typically in automatic mode and where `setup()` registers functions, variables or subscriptions. Even though the application thread is running `setup()` independently of the system thread, calling synchronous functions will cause the application to block until the system thread has finished connecting to the cloud. This can be avoided by delaying the cloud connection until after the synchronous functions have been called.
+
+```
+SYSTEM_THREAD(ENABLED);
+SYSTEM_MODE(SEMI_AUTOMATIC);
+
+void setup()
+{
+	// the system thread isn't busy so these synchronous functions execute quickly
+    Particle.subscribe("event", handler);
+	Partible.publish("myvar", myvar);
+	Particle.connect();    // <-- now connect to the cloud, which ties up the system thread
+}
+```
+
+### Task Switching
+
+The system firmware includes an RTOS (Real Time Operating System). The RTOS is responsible for switching between the application thread and the system thread, which it does automatically every millisecond. This has 2 main consequences:
+
+- delays close to 1ms are typically much longer
+- application code may be stopped at any time when the RTOS switches to the system thread
+
+When executing timing-critical sections of code, the task switching needs to be momentarily disabled.
+
+### SINGLE_THREADED_SECTION()
+
+`SINGLE_THREADED_SECTION()` declares that the current code block shoudl be executed in single threaded mode. Task switching is disabled until the end of the block and automatically re-enabled when the block exits.
+
+```
+void so_timing_sensitive()
+{
+    if (ready_to_send) {
+   		SINGLE_THREADED_SECTION(); // single threaded execution starts now
+    		digitalWrite(D0, LOW);		// timing critical GPIO
+    		delayMicroseconds(1500);
+    		digitalWrite(D0, HIGH);
+    }  // single threaded execution stops now
+}
+```
+
+Interrupts remain enabled, so the thread may be interrupted for small periods of time. 
+
+
+### ATOMIC_SECTION()
+
+`ATOMIC_SECTION()` is similar to `SINGLE_THREADED_SECTION()` in that it prevents other threads executing during a sectino of code. In addition, interrupts are also disabled. 
+
+WARNING: Disabling interrupts prevents normal system operation. Consequently, `ATOMIC_SECTION()` should be used only for brief periods where atomicity is essential. 
+
+
+```
+void so_timing_sensitive_and_no_interrupts()
+{
+    if (ready_to_send) {
+   		ATOMIC_SECTION(); // only this code runs from here on - no other threads or interrupts
+    		digitalWrite(D0, LOW);		// timing critical GPIO
+    		delayMicroseconds(1500);
+    		digitalWrite(D0, HIGH);
+    }  // other threads and interrupts can run from here
+}
+```
 
 ### Waiting for the system
 
