@@ -2564,7 +2564,57 @@ void loop()
 }
 ```
 
-## IPAddress
+{{#unless core}}
+### CANBus
+
+The Photon supports communicating with CAN devices via the CAN bus. 
+
+```
+CANChannel can(CAN_D1_D2);
+
+void setup() {
+    can.begin(125000); // pick the baud rate for your network
+    // accept one message. If no filter added by user then accept all messages
+    can.addFilter(0x100, 0x7FF);
+}
+
+void loop() {
+    CANMessage Message;
+
+    Message.id = 0x100;
+    can.transmit(Message);
+
+    delay(10);
+
+    if(can.receive(Message)) {
+        // message received
+    }
+}
+```
+
+#### CANMessage
+
+The CAN message struct has these members:
+
+```
+struct CANMessage
+{
+   uint32_t id;
+   bool     extended;
+   bool     rtr;
+   uint8_t  len;
+   uint8_t  data[8];
+}
+```
+
+#### CAN.begin()
+
+Joins the bus at the given tranmission rate. 
+
+
+{{/unless}}
+
+### IPAddress
 
 Creates an IP address that can be used with TCPServer, TCPClient, and UDP objects.
 
