@@ -3762,7 +3762,7 @@ Returns: Integer
 
 ### now()
 
-Retrieve the current time as seconds since January 1, 1970 (commonly known as "Unix time" or "epoch time")
+Retrieve the current time as seconds since January 1, 1970 (commonly known as "Unix time" or "epoch time"). This time is not affected by the timezone setting. 
 
 ```cpp
 // Print the current Unix timestamp
@@ -3770,6 +3770,10 @@ Serial.print(Time.now()); // 1400647897
 ```
 
 Returns: Integer
+
+### local()
+
+Retrieve the current time in the configured timezone as seconds since January 1, 1970 (commonly known as "Unix time" or "epoch time"). This time is affected by the timezone setting. 
 
 
 ### zone()
