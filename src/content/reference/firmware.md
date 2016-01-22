@@ -1319,7 +1319,7 @@ The PWM frequency must be the same for pins in the same timer group.
 {{#unless core}}
 ### Analog Output (DAC)
 
-The Photon and Electron support true analog output on pins DAC (`DAC1` or `A6` in code) and A3 (`DAC2` or `A3` in code). Using `analogWrite(pin, value)`
+The Photon supports true analog output on pins DAC (`DAC1` or `A6` in code) and A3 (`DAC2` or `A3` in code). Using `analogWrite(pin, value)`
 with these pins, the output of the pin is set to an analog voltage from 0V to 3.3V that corresponds to values
 from 0-4095.
 
@@ -2594,7 +2594,7 @@ void loop()
 {{#unless core}}
 ## CAN (CANbus)
 
-The Photon and Electron support communicating with CAN devices via the CAN bus.
+The Photon supports communicating with CAN devices via the CAN bus.
 
 ```
 CANChannel can(CAN_D1_D2);
