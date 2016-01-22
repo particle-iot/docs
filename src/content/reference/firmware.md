@@ -2592,11 +2592,23 @@ void loop()
 ```
 
 {{#unless core}}
+
 ## CAN (CANbus)
+
+![CAN bus](/assets/images/can.png)
+
+*Since 0.4.9*
+
+[Controller area network (CAN bus)](https://en.wikipedia.org/wiki/CAN_bus) is a bus used in most cars and trucks, as well as some industrial equipment, for communication between different microcontrollers.
 
 The Photon supports communicating with CAN devices via the CAN bus.
 
+Note that an additional CAN transceiver integrated circuit is needed to convert the logic-level voltages of the Photon to the voltage levels of the CAN bus.
+
+Connect pin D1 to the TX pin of the CAN transceiver and pin D2 to the RX pin.
+
 ```
+// EXAMPLE USAGE
 CANChannel can(CAN_D1_D2);
 
 void setup() {
@@ -2606,14 +2618,14 @@ void setup() {
 }
 
 void loop() {
-    CANMessage Message;
+    CANMessage message;
 
     Message.id = 0x100;
-    can.transmit(Message);
+    can.transmit(message);
 
     delay(10);
 
-    if(can.receive(Message)) {
+    if(can.receive(message)) {
         // message received
     }
 }
@@ -2634,14 +2646,205 @@ struct CANMessage
 }
 ```
 
+### CANChannel
+
+Create a `CANChannel` global object to connect to a CAN bus on the specified pins.
+
+```C++
+// SYNTAX
+CANChannel can(pins, rxQueueSize, txQueueSize);
+```
+
+Parameters:
+
+- `pins`: the Photon only supports pins `CAN_D1_D2`
+- `rxQueueSize` (optional): the receive queue size (default 32 message)
+- `txQueueSize` (optional): the transmit queue size (default 32 message)
+
+```C++
+// EXAMPLE
+CANChannel can(CAN_D1_D2);
+// Buffer 10 received messages and 5 transmitted messages
+CANChannel can(CAN_D1_D2, 10, 5);
+```
+
 ### CAN.begin()
 
-Joins the bus at the given tranmission rate. 
+Joins the bus at a given baud rate.
 
+```C++
+// SYNTAX
+can.begin(baud, flags);
+```
+
+Parameters:
+
+- `baud`: common baud rates are 50000, 100000, 125000, 250000, 500000, 1000000
+- `flags` (optional): `CAN_TEST_MODE` to run the CAN bus in test mode where every transmitted message will be received back
+
+```C++
+// EXAMPLE
+can.begin(500000);
+// Use for testing without a CAN transceiver
+can.begin(500000, CAN_TEST_MODE);
+```
+
+### CAN.end()
+
+Disconnect from the bus.
+
+```
+// SYNTAX
+can.end();
+```
+
+### CAN.available()
+
+The number of received messages waiting in the receive queue.
+
+Returns: `uint8_t` : the number of messages.
+
+```
+// SYNTAX
+uint8_t count = can.available();
+```
+
+```
+// EXAMPLE
+if(can.available() > 0) {
+  // there are messages waiting
+}
+```
+
+### CAN.receive()
+
+Take a received message from the receive queue. This function does not wait for a message to arrive.
+
+```
+// SYNTAX
+can.receive(message);
+```
+
+Parameters:
+
+- `message`: where the received message will be copied
+
+Returns: boolean `true` if a message was received, `false` if the receive queue was empty.
+
+```
+// EXAMPLE
+CANMessage message;
+if(can.receive(message)) {
+  Serial.println(message.id);
+  Serial.println(message.len);
+}
+```
+
+### CAN.transmit()
+
+Add a message to the queue to be transmitted to the CAN bus as soon as possible.
+
+```
+// SYNTAX
+can.transmit(message);
+```
+
+Parameters:
+
+- `message`: the message to be transmitted
+
+Returns: boolean `true` if the message was added to the queue, `false` if the transmit queue was full.
+
+```
+// EXAMPLE
+CANMessage message;
+message.id = 0x100;
+message.length = 1;
+message.data[0] = 42;
+can.transmit(message);
+```
+
+*Note: Since the CAN bus requires at least one other CAN node to acknowledge transmitted messages if the Photon is alone on the bus (such as when using a CAN shield with no other CAN node connected) then messages will never be transmitted and the transmit queue will fill up.*
+
+### CAN.addFilter()
+
+Filter which messages will be added to the receive queue.
+
+```
+// SYNTAX
+can.addFilter(id, mask);
+can.addFilter(id, mask, type);
+```
+
+By default all messages are received. When filters are added, only messages matching the filters will be received. Others will be discarded.
+
+Parameters:
+
+- `id`: the id pattern to match
+- `mask`: the mask pattern to match
+- `type` (optional): `CAN_FILTER_STANDARD` (default) or `CAN_FILTER_EXTENDED`
+
+Returns: boolean `true` if the filter was added, `false` if there are too many filters (14 filters max).
+
+```
+// EXAMPLES
+// Match only message ID 0x100
+can.addFilter(0x100, 0x7FF);
+// Match any message with the highest ID bit set
+can.addFilter(0x400, 0x400);
+// Match any message with the higest ID bit cleared
+can.addFilter(0x0, 0x400);
+// Match only messages with extended IDs
+can.addFilter(0, 0, CAN_FILTER_EXTENDED);
+```
+
+### CAN.clearFilters()
+
+Clear filters and accept all messages.
+
+```
+// SYNTAX
+can.clearFilters();
+```
+
+### CAN.isEnabled()
+
+Used to check if the CAN bus is enabled already.  Check if enabled before calling can.begin() again.
+
+```
+// SYNTAX
+can.isEnabled();
+```
+
+Returns: boolean `true` if the CAN bus is enabled, `false` if the CAN bus is disabled.
+
+### CAN.errorStatus()
+
+Get the current error status of the CAN bus.
+
+```
+// SYNTAX
+int status = can.errorStatus();
+```
+
+Returns: int `CAN_NO_ERROR` when everything is ok, `CAN_ERROR_PASSIVE` when not attempting to transmit messages but still acknowledging messages, `CAN_BUS_OFF` when not transmitting or acknowledging messages.
+
+```
+// EXAMPLE
+if(can.errorStatus() == CAN_BUS_OFF) {
+  Serial.println("Not properly connected to CAN bus");
+}
+```
+
+This value is only updated when attempting to transmit messages.
+
+The two most common causes of error are: being alone on the bus (such as when using a CAN shield not connected to anything) or using the wrong baud rate. Attempting to transmit in those situations will result in `CAN_BUS_OFF`.
+
+Errors heal automatically when properly communicating with other microcontrollers on the CAN bus.
 
 {{/unless}}
 
-### IPAddress
+## IPAddress
 
 Creates an IP address that can be used with TCPServer, TCPClient, and UDP objects.
 
