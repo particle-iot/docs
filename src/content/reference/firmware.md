@@ -1314,12 +1314,12 @@ The PWM frequency must be the same for pins in the same timer group.
 - On the P1, the timer groups are D0/D1/C4/C5, D2/D3/A4/A5/P1S0/P1S1, WKP, RX/TX.
 - On the Electron, the timer groups are D0/D1/C4/C5, D2/D3/A4/A5/B2/B3, WKP, RX/TX, B0/B1.
 
-**NOTE:** When used with PWM capable pins, the `analogWrite()` function sets up these pins as PWM only.  {{#if photon}}This function operates differently when used with the [`Analog Output (DAC)`](#analog-output-dac-) pins.{{/if}}
+**NOTE:** When used with PWM capable pins, the `analogWrite()` function sets up these pins as PWM only.  {{#unless core}}This function operates differently when used with the [`Analog Output (DAC)`](#analog-output-dac-) pins.{{/unless}}
 
-{{#if photon}}
+{{#unless core}}
 ### Analog Output (DAC)
 
-The Photon supports true analog output on pins DAC (`DAC1` or `A6` in code) and A3 (`DAC2` or `A3` in code). Using `analogWrite(pin, value)`
+The Photon and Electron support true analog output on pins DAC (`DAC1` or `A6` in code) and A3 (`DAC2` or `A3` in code). Using `analogWrite(pin, value)`
 with these pins, the output of the pin is set to an analog voltage from 0V to 3.3V that corresponds to values
 from 0-4095.
 
@@ -1333,7 +1333,7 @@ pinMode(DAC1, OUTPUT);
 analogWrite(DAC1, 1024);
 // sets DAC pin to an output voltage of 1024/4095 * 3.3V = 0.825V.
 ```
-{{/if}}
+{{/unless}}
 
 ### analogRead() (ADC)
 
@@ -2592,9 +2592,9 @@ void loop()
 ```
 
 {{#unless core}}
-## CAN
+## CAN (CANbus)
 
-The Photon supports communicating with CAN devices via the CAN bus. 
+The Photon and Electron support communicating with CAN devices via the CAN bus.
 
 ```
 CANChannel can(CAN_D1_D2);
