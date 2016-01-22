@@ -1832,6 +1832,30 @@ void loop()
 }
 ```
 
+### availableForWrite()
+
+_Since 0.4.9. Available on Serial1, Serial2, etc.. This function will support USB Serial with the next release._
+
+Retrieves the number of bytes (characters) that can be written to this serial port without blocking. 
+
+If `blockOnOverrun(false)` has been called, the method returns the number of bytes that can be written to the buffer without causing buffer overrun, which would cause old data to be discarded and overwritten.
+
+### blockOnOverrun()
+
+_Since 0.4.9. Available on Serial1, Serial2, etc.. This function will support USB Serial with the next release._
+
+Defines what should happen when calls to `write()` that would overflow the buffer.  
+
+- `blockOnOverrun(true)` -  this is the default setting.  When there is no room in the buffer for the data to be written, the program waits until there is room. This avoids buffer overflow, where data that has not yet been sent over serial is overwritten by new data. 
+
+- `blockOnOverrun(false)` - when there is no room in the buffer for data to be written, the data is written anyway, causing the new data to replace the old data. This option is provided when perofrmance is more important than data integrity. 
+ 
+```
+// example - fast and furious over Serial1
+Serial1.blockOnOverrun(false);
+Serial1.begin(115200);
+```
+
 ### serialEvent()
 
 A family of application-defined functions that are called whenever there is data to be read
@@ -2565,7 +2589,7 @@ void loop()
 ```
 
 {{#unless core}}
-### CANBus
+## CAN
 
 The Photon supports communicating with CAN devices via the CAN bus. 
 
@@ -2592,7 +2616,7 @@ void loop() {
 }
 ```
 
-#### CANMessage
+### CANMessage
 
 The CAN message struct has these members:
 
@@ -2607,7 +2631,7 @@ struct CANMessage
 }
 ```
 
-#### CAN.begin()
+### CAN.begin()
 
 Joins the bus at the given tranmission rate. 
 
