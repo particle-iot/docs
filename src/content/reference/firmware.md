@@ -4096,6 +4096,34 @@ Specifies a function to call when an external interrupt occurs. Replaces any pre
 **NOTE:**
 `pinMode()` MUST be called prior to calling attachInterrupt() to set the desired mode for the interrupt pin (INPUT, INPUT_PULLUP or INPUT_PULLDOWN).
 
+External interrupts are supported on the following pins:
+
+- Core: D0, D1, D2, D3, D4, A0, A1, A3, A4, A5, A6, A7
+- Photon: All pins with the exception of D0 and A5 (since at present Mode Button external interrupt(EXTI) line is shared with D0, A5). Also please note following are the pins for which EXTI lines are shared so only one can work at a time:
+    - D1, A4
+    - D2, A0, A3
+    - D3, DAC
+    - D4, A1
+
+```
+// SYNTAX
+attachInterrupt(pin, function, mode);
+attachInterrupt(pin, function, mode, priority);
+attachInterrupt(pin, function, mode, priority, subpriority);
+```
+
+*Parameters:*
+
+- `pin`: the pin number
+- `function`: the function to call when the interrupt occurs; this function must take no parameters and return nothing. This function is sometimes referred to as an *interrupt service routine* (ISR).
+- `mode`: defines when the interrupt should be triggered. Three constants are predefined as valid values:
+    - CHANGE to trigger the interrupt whenever the pin changes value,
+    - RISING to trigger when the pin goes from low to high,
+    - FALLING for when the pin goes from high to low.
+- `priority` (optional): the priority of this interrupt. Default priority is 13. Lower values increase the priority of the interrupt.
+- `subpriority` (optional): the subpriority of this interrupt. Default subpriority is 0.
+
+The function does not return anything.
 
 ```C++
 // EXAMPLE USAGE
@@ -4139,32 +4167,6 @@ class Robot {
 Robot myRobot;
 // nothing else needed in setup() or loop()
 ```
-
----
-
-External interrupts are supported on the following pins:
-
-- Core: D0, D1, D2, D3, D4, A0, A1, A3, A4, A5, A6, A7
-- Photon: All pins with the exception of D0 and A5 (since at present Mode Button external interrupt(EXTI) line is shared with D0, A5). Also please note following are the pins for which EXTI lines are shared so only one can work at a time:
-    - D1, A4
-    - D2, A0, A3
-    - D3, DAC
-    - D4, A1
-
-`attachInterrupt(pin, function, mode);`
-
-*Parameters:*
-
-- `pin`: the pin number
-- `function`: the function to call when the interrupt occurs; this function must take no parameters and return nothing. This function is sometimes referred to as an *interrupt service routine* (ISR).
-- `mode`: defines when the interrupt should be triggered. Three constants are predefined as valid values:
-    - CHANGE to trigger the interrupt whenever the pin changes value,
-    - RISING to trigger when the pin goes from low to high,
-    - FALLING for when the pin goes from high to low.
-- `priority` (optional): the priority of this interrupt. Deafult priority is 13. Lower values increase the priority of the interrupt. 
-- `subpriority` (optional): the subpriority of this interrupt. Default subpriority is 0.
-
-The function does not return anything.
 
 **Using Interrupts:**
 Interrupts are useful for making things happen automatically in microcontroller programs, and can help solve timing problems. Good tasks for using an interrupt may include reading a rotary encoder, or monitoring user input.
