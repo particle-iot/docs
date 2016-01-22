@@ -5200,17 +5200,17 @@ There are two types of system functions:
 - asynchronous system functions: these functions do not return a result to the caller and do not block the caller
 - synchronous system functions: these functions return a result to the caller, and block the caller until the function completes
 
-Asynchornous system functions do not block the application thread, even when the system thread is busy, so these can be used liberally without causing unexpected delays in the application.  (Exception: when more than 20 asynchornous system functions are invoked, but not yet serviced by the application thread, the application will block for 5 seconds while attempting to put the function on the system thread queue.)
+Asynchronous system functions do not block the application thread, even when the system thread is busy, so these can be used liberally without causing unexpected delays in the application.  (Exception: when more than 20 asynchronous system functions are invoked, but not yet serviced by the application thread, the application will block for 5 seconds while attempting to put the function on the system thread queue.)
 
-Synchronous system functions always block the caller until the system has performed the requested operation. These are the synchornous system functions:
+Synchronous system functions always block the caller until the system has performed the requested operation. These are the synchronous system functions:
 
 - `WiFi.hasCredentials()`, `WiFi.setCredentials()`, `WiFi.clearCredentials()`
 - `Particle.function()`
 - `Particle.variable()`
 - `Particle.subscribe()`
-- `Particle.publish()` 
+- `Particle.publish()`
 
-For example, when the system is busy connecting to WiFi or establishing the cloud connection and the application calls `Particle.variable()` then the application will be blocked until the system finished connecting to the cloud (or gives up) so that it is free to service the `Particle.variable()` function call. 
+For example, when the system is busy connecting to WiFi or establishing the cloud connection and the application calls `Particle.variable()` then the application will be blocked until the system finished connecting to the cloud (or gives up) so that it is free to service the `Particle.variable()` function call.
 
 This presents itself typically in automatic mode and where `setup()` registers functions, variables or subscriptions. Even though the application thread is running `setup()` independently of the system thread, calling synchronous functions will cause the application to block until the system thread has finished connecting to the cloud. This can be avoided by delaying the cloud connection until after the synchronous functions have been called.
 
