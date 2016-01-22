@@ -1847,14 +1847,14 @@ If `blockOnOverrun(false)` has been called, the method returns the number of byt
 
 _Since 0.4.9. Available on Serial1, Serial2, etc.. This function will support USB Serial with the next release._
 
-Defines what should happen when calls to `write()` that would overflow the buffer.  
+Defines what should happen when calls to `write()/print()/println()/printlnf()` that would overrun the buffer.
 
-- `blockOnOverrun(true)` -  this is the default setting.  When there is no room in the buffer for the data to be written, the program waits until there is room. This avoids buffer overflow, where data that has not yet been sent over serial is overwritten by new data. 
+- `blockOnOverrun(true)` -  this is the default setting.  When there is no room in the buffer for the data to be written, the program waits/blocks until there is room. This avoids buffer overrun, where data that has not yet been sent over serial is overwritten by new data. Use this option for increased data integrity at the cost of slowing down realtime code execution when lots of serial data is sent at once.
 
-- `blockOnOverrun(false)` - when there is no room in the buffer for data to be written, the data is written anyway, causing the new data to replace the old data. This option is provided when perofrmance is more important than data integrity. 
- 
-```
-// example - fast and furious over Serial1
+- `blockOnOverrun(false)` - when there is no room in the buffer for data to be written, the data is written anyway, causing the new data to replace the old data. This option is provided when performance is more important than data integrity.
+
+```cpp
+// EXAMPLE - fast and furious over Serial1
 Serial1.blockOnOverrun(false);
 Serial1.begin(115200);
 ```
