@@ -11,14 +11,14 @@ order: 4
 
 ## Functional description
 
-### Overview 
+### Overview
 
 The Electron is a tiny development kit for creating cellular-connected electronics projects and products. It comes with a SIM card and an affordable data plan for low-bandwidth things. Plus it's available for more than 100 countries worldwide!
 
 It also comes with Particle's development tools and cloud platform for managing and interacting with your new connected hardware.
 
 ### Features
- 
+
  * U-blox SARA-U260/U270 (3G) and G350 (2G) cellular module
  * STM32F205 120MHz ARM Cortex M3 microcontroller
  * 1MB flash, 128KB RAM
@@ -29,7 +29,7 @@ It also comes with Particle's development tools and cloud platform for managing 
  * Open source design
  * Real-time operation system (RTOS)
  * FCC, CE and IC certified
- 
+
 
 ## Interfaces
 
@@ -83,11 +83,11 @@ Pin D3 through D7 are JTAG interface pins. These can be used to reprogram your E
 | D5 | JTAG_TDI | PA15 | ~40k pull-up |
 | D4 | JTAG_TDO | PB3 | Floating |
 | D3 | JTAG_TRST | PB4 | ~40k pull-up |
-| 3V3 | Power | | | 
-| GND | Ground| | | 
+| 3V3 | Power | | |
+| GND | Ground| | |
 | RST | Reset | | ||
 
-**Notes:** 
+**Notes:**
 [1] Default state after reset for a short period of time before these pins are restored to GPIO (if JTAG debugging is not required, i.e. `USE_SWD_JTAG=y` is not specified on the command line.)
 
 ## Pin and button definition
@@ -113,7 +113,7 @@ Pin D3 through D7 are JTAG interface pins. These can be used to reprogram your E
 | B0-B5 | B0 and B1 are digital only while B2, B3, B4, B5 are 12-bit A/D inputs as well as digital GPIOs|
 | C0-C5 | Digital only GPIO |
 | VUSB | This pin internally connected to USB supply pin and will output 5V when the Electron is plugged into an USB port.|
-| Li+ | This pin is internally connected to the positive terminal of the LiPo battery. | 
+| Li+ | This pin is internally connected to the positive terminal of the LiPo battery. |
 
 ### LED Status
 
@@ -128,7 +128,7 @@ Charge status LED
 
 **Notes:**
 
-<sup>[1]</sup> A fault condition can occur due to several reasons, for example, battery over/under voltage, temperature fault or safety timer fault. You can find the root cause by reading the fault register of the power management IC. 
+<sup>[1]</sup> A fault condition can occur due to several reasons, for example, battery over/under voltage, temperature fault or safety timer fault. You can find the root cause by reading the fault register of the power management IC.
 
 <sup>[2]</sup> You can stop this behavior by either plugging in the LiPo battery or by disabling the charging using the appropriate firmware command.
 
@@ -136,7 +136,7 @@ RGB LED
 
 <add animations here>
 
-    
+
 ### Pinout diagram
 
 <div align=center><img src="/assets/images/electron/illustrations/electron_pinout.png"></div>
@@ -253,7 +253,7 @@ You may also search for other types, such as reverse mounted (bottom side SMT) f
 
 ### Recommended PCB land pattern
 
-The Electron can be mounted with 0.1" 18-pin female header receptacles using the following PCB land pattern: 
+The Electron can be mounted with 0.1" 18-pin female header receptacles using the following PCB land pattern:
 
 ![Electron Landing Pattern](/assets/images/electron/illustrations/landing-pattern.png)
 
@@ -283,7 +283,7 @@ The microcontroller communicates with the PMIC via an I2C interface (pins PC9 an
 
 ![STM32](/assets/images/electron/schematics/stm32.png)
 
-The Electron uses ST Microelectronics's [STM32F205RGT6TR](http://www.st.com/web/en/resource/technical/document/datasheet/CD00237391.pdf) ARM Cortex M3 microcontroller running at  120MHz. 
+The Electron uses ST Microelectronics's [STM32F205RGT6TR](http://www.st.com/web/en/resource/technical/document/datasheet/CD00237391.pdf) ARM Cortex M3 microcontroller running at  120MHz.
 
 ### U-blox cellular module
 
@@ -383,11 +383,11 @@ There are three connectors on the Electron that will get damaged with improper u
 
 <add pic here>
 
-The micro B USB connector on the electron is soldered on the PCB with large surface pads as well as couple of through hole anchor points. Despite this reinforcement, it is very easy to rip out the connector if too much stress is put on in the vertical direction. 
+The micro B USB connector on the electron is soldered on the PCB with large surface pads as well as couple of through hole anchor points. Despite this reinforcement, it is very easy to rip out the connector if too much stress is put on in the vertical direction.
 
 <add pic here>
 
-The u.FL antenna connector is a very fragile piece of hardware ( and is fancy too with all the gold plating). The connector was not designed to be constantly plugged and unplugged. Care must be taken not to put stress on it at any time (yes, swinging the Electron by the antenna is a very bad idea, this is not your cat). The antenna pin is also the most static sensitive and you can destroy the radio with improper handling. If you are feeling adventurous, we highly recommend putting a tiny dab of glue (epoxy, rubber cement, liquid tape or hotglue) on the connector to securely hold the plug in place. 
+The u.FL antenna connector is a very fragile piece of hardware ( and is fancy too with all the gold plating). The connector was not designed to be constantly plugged and unplugged. Care must be taken not to put stress on it at any time (yes, swinging the Electron by the antenna is a very bad idea, this is not your cat). The antenna pin is also the most static sensitive and you can destroy the radio with improper handling. If you are feeling adventurous, we highly recommend putting a tiny dab of glue (epoxy, rubber cement, liquid tape or hotglue) on the connector to securely hold the plug in place.
 
 <add pic here>
 
@@ -431,5 +431,4 @@ https://community.particle.io
 
 **Email**
 
-<mailto:hello@particle.io>
-
+https://support.particle.io
