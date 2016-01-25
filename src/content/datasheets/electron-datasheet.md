@@ -1,3 +1,11 @@
+---
+title: Electron datasheet
+template: datasheet.hbs
+columns: two
+order: 4
+---
+
+# Electron Datasheet <sup>(v001)</sup>
 ## Functional description
 
 ### Overview 
@@ -24,7 +32,7 @@ It also comes with Particle's development tools and cloud platform for managing 
 
 ### Block diagram
 
-![Block Diagram](/assets/images/electron/illustrations/electron-blockdiagram.png)
+<div align=center><img src="/assets/images/electron/illustrations/electron-blockdiagram.png" width=700></div>
 
 ### Power
 The Electron can be powered via the VIN (3.9V-12VDC) pin, the USB Micro B connector or the LiPo battery. Most USB ports can supply only a maximum of 500mA, but the uBlox GSM module on the Electron alone can consume a peak of 800mA to 1800mA of current during transmission. In order to compensate of this deficit, one must connect the LiPo battery at all times when powering from a traditional USB port. The Electron will intelligently source power from the USB most of the time and keep the battery charged. During peak current requirements, the additional power will be sourced from the battery. This reduces the charge-discharge cycle load on the battery, thus improving its longevity. When powering from the VIN pin alone, make sure that the power supply can source a minimum of 2A at 5VDC. If the power source is unable to meet this requirement, you'll need connect the LiPo battery as well.
@@ -39,9 +47,10 @@ Typical current consumption is around 180mA and upto 1.8A transients at 5VDC. In
 
 
 
-###Peripherals and GPIO
+### Peripherals and GPIO
+
 | Peripheral Type | Qty | Input(I) / Output(O) | FT<sup>[1]</sup> / 3V3<sup>[2]</sup> |
-| :-:|:-:|:-:|:-: |
+| :---:|:---:|:---:|:---: |
 | Digital | 30 | I/O | FT/3V3 |
 | Analog (ADC) | 12 | I | 3V3 |
 | Analog (DAC) | 2 | O | 3V3 |
@@ -61,7 +70,7 @@ Typical current consumption is around 180mA and upto 1.8A transients at 5VDC. In
 [3] PWM is available on D0, D1, D2, D3, B0, B1, B2, B3, A4, A5, WKP, RX, TX with a caveat: PWM timer peripheral is duplicated on two pins (A5/D2) and (A4/D3) for 11 total independent PWM outputs. For example: PWM may be used on A5 while D2 is used as a GPIO, or D2 as a PWM while A5 is used as an analog input. However A5 and D2 cannot be used as independently controlled PWM outputs at the same time.
 
 
-###JTAG
+### JTAG
 Pin D3 through D7 are JTAG interface pins. These can be used to reprogram your Electron bootloader or user firmware image with standard JTAG tools such as the ST-Link v2, J-Link, R-Link, OLIMEX ARM-USB-TINI-H, and also the FTDI-based Particle JTAG Programmer.
 
 | Electron Pin | Description | STM32 Pin | Default Internal<sup>[1]</sup> |
@@ -82,7 +91,7 @@ Pin D3 through D7 are JTAG interface pins. These can be used to reprogram your E
 
 ### Pin markings:
 
-![Pin Markings](/assets/images/electron/illustrations/electron_pin_markings.png)
+<div align=center><img src="/assets/images/electron/illustrations/electron_pin_markings.png"></div>
 
 ### Pin description
 
@@ -127,7 +136,7 @@ RGB LED
     
 ### Pinout diagram
 
-![Pinout](/assets/images/electron/illustrations/electron_pinout.png)
+<div align=center><img src="/assets/images/electron/illustrations/electron_pinout.png"></div>
 
 ## Technical Specifications
 
@@ -164,15 +173,14 @@ RGB LED
 
 The Electron is available in three different versions: A 2G version based on u-blox G350 cellular module, and two 3G versions based on U260 and U270 modules. The difference between the 3G versions is their operating frequency band which is differs based on the country. All of these cellular modules are GSM only and do not support CDMA networks.
 
-|Electron 3G Module | Compatible Countries |
-|:---|:---|
+| Electron 3G Module  | Compatible Countries |
+| :------------------ |:---|
 | U260 | United States, Argentina, Brazil, Canada, Chile, Colombia, Costa Rica, Dominican Republic, El Salvador, Guatemala, Honduras, Mexico, Nicaragua, Panama, Paraguay, Peru, Venezuela |
 | U270 | Australia, Austria, Bahrain, Belarus, Belgium, Bulgaria, China, Congo, Croatia, Cyprus, Czech Republic, Denmark, Ecuador, Egypt, Estonia, Finland, France, Germany, Ghana, Gibraltar, Greece, Hong Kong, Hungary, Iceland, India, Indonesia, Ireland, Israel, Italy, Japan, Jersey, Kenya, Republic of Korea, Latvia, Lithuania, Luxembourg, Republic of Macedonia, Malaysia, Republic of Moldova, Republic of Montenegro, Netherlands, New Zealand, Nigeria, Norway, Pakistan, Philippines, Poland, Portugal, Qatar, Reunion, Romania, Russian Federation, Rwanda, Saudi Arabia, Republic of Serbia, Seychelles, Sierra Leone, Singapore, Slovakia, Slovenia, South Africa, Spain, Sri Lanka, Swaziland, Sweden, Switzerland, Taiwan, United Republic of Tanzania, Thailand, Turkey, Uganda, Ukraine, United Arab Emirates, United Kingdom, Uruguay, Zambia |
 
 Please be sure to order a board that works in the country where you want to deploy your project.
 
-2G cellular characteristics for G350, U260, and U270 modules:
-
+#### 2G cellular characteristics for G350, U260, and U270 modules:
 |Parameter | SARA-U260 | SARA-U270 | SARA-G350 |
 |:---|:---|:---|:---|
 |Protocol stack| 3GPP Release 7 | 3GPP Release 7 | 3GPP Release 99 |
@@ -180,8 +188,7 @@ Please be sure to order a board that works in the country where you want to depl
 |Bands | GSM 850 MHz PCS 1900 MHz | E-GSM 900 MHz DCS 1800 MHz| GSM 850 MHz E-GSM 900 MHz DCS 1800 MHz PCS 1900 MHz|
 |Power Class | Class 4 (33 dBm) for 850 band Class 1 (30 dBm) for 1900 band|Class 4 (33 dBm) for 900 band Class 1 (30 dBm) for 1800 band|Class 4 (33 dBm) for 850/900 bands Class 1 (30 dBm) for 1800/1900 bands|
 
-3G cellular characteristics for U260, and U270 modules:
-
+#### 3G cellular characteristics for U260, and U270 modules:
 |Parameter | SARA-U260 | SARA-U270 |
 |:---|:---|:---|
 |Protocol stack| 3GPP Release 7 | 3GPP Release 7 |
@@ -234,7 +241,7 @@ The Electron can be mounted with (qty 2) 18-pin single row 0.1" female headers. 
 
 On Digikey.com, under section Rectangular Connectors - narrow the search with: 18 positions, 1 row, 0.1" (2.54mm) pitch, Through Hole mounting types (unless you want SMT), and sort by Price Ascending. You may find something like this:
 
-Description | MFG | MFG Part Number
+|Description | MFG | MFG Part Number |
 |:---|:---|:---|
 |18 Position 0.100" (2.54mm) Gold Through Hole | TE Connectivity | 6-535541-6|
 |18 Position 0.100" (2.54mm) Tin Through Hole | 3M | 929974-01-18-RK|
@@ -314,12 +321,12 @@ The Electron uses a four layer circuit board. Top layer consists of a signal lay
 | 2   | CAPACITOR  | 1uF, 6.3V, 10% |0402| C37, C39| Fenghua| 0402X105K6R3NT|
 | 1   | CAPACITOR  | 1uF, 25V, 10% | 0603| C4| Yageo| CC0603KRX5R8BB105|
 | 2   | CAPACITOR  | 2.2uF, 6.3V, 10%| 0402| C32, C35| Yageo| CC0402KRX5R5BB225|
-| 2   | CAPACITOR  | 20pF, 6.3V, 10%| 0402 C26, C28| Fenghua| 0402CG200J500NT|
+| 2   | CAPACITOR  | 20pF, 6.3V, 10%| 0402 |C26, C28| Fenghua| 0402CG200J500NT|
 | 1   | CAPACITOR  | 22uF, 6.3V, 10%| 0603| C5| Samsung| CL10A226KQ8NRNE|
 | 1   | CAPACITOR  | 220uF, 6.3V, 10% | 2312 (6032 metric)| C3| AVX| TAJC227K006|
 | 1   | CAPACITOR  | 4.7uF, 6.3V, 10%| 0402| C36| Samsung | CL05A475KQ5NRNC|
 | 1   | CAPACITOR  | 4.7uF, 6.3V, 10%| 0603| C25| Yageo| CC0603KRX5R5BB475|
-| 1   | CAPACITOR  | 47nF, 6.3V, 10%| 0402 C7| Fenghua| 0402B473K160NT|
+| 1   | CAPACITOR  | 47nF, 6.3V, 10%| 0402 |C7| Fenghua| 0402B473K160NT|
 | 4   | CAPACITOR  | 47pF, 6.3V, 10%| 0402| C10, C11, C12, C13| Fenghua| 0402CG470J500NT|
 | 1   | CAPACITOR  | 68pF, 6.3V, 10%| 0402| C15| Fenghua| 0402CG680J500NT|
 | 1   | CONNECTOR  | 2-pin| SMD, 2-pin, Vertical| JP4| Kaweei| CW2001-02T-M01-D|
@@ -328,8 +335,8 @@ The Electron uses a four layer circuit board. Top layer consists of a signal lay
 | 1   | CONNECTOR  |         | USB-MICROB-SLOT-HOLE| X1| Kaweei| CMCUSB-5BFM2G-01-D|
 | 1   | CONNECTOR  |         | SMD| J2| Kaweei| P1163-0140R|
 | 1   | CONNECTOR  |          | 10mm x 12.3mm| J1| Kaweei| CSIM2545-06S-D|
-| 1   | CRYSTAL    | 26MHz, <±20ppm | 4-SMD, 5.0 x 3.2mm| Y2| Song Ji| SJSMD5026M00018F20|
-| 1   | CRYSTAL    | 32.768KHz, <±20ppm | 2-SMD, 1.5 x 3.2mm| Y1| Song Ji| SJ FC1332K012F520P|
+| 1   | CRYSTAL    | 26MHz,  <±20ppm | 4-SMD, 5.0 x 3.2mm| Y2| Song Ji| SJSMD5026M00018F20|
+| 1   | CRYSTAL    | 32.768KHz,  <±20ppm | 2-SMD, 1.5 x 3.2mm| Y1| Song Ji| SJ FC1332K012F520P|
 | 1   | DIODE      |30V, 3A| DO-220AA| U$3| Vishay| SS3P3-M3/84A|
 | 2   | IC - Buffer|         | SC-70-5| U5, U6| Texas Instruments| SN74LVC1G07DCKR|
 | 1   | IC - Fuel Gauge|         | TDFN-8| U4| Maxim| MAX17043G+T|
@@ -355,7 +362,7 @@ The Electron uses a four layer circuit board. Top layer consists of a signal lay
 | 1   | RESISTOR   | 330R, 1/16W, 1%| 0402| R2| Fenghua| RC-02W3300FT|
 | 2   | RESISTOR   | 4K7, 1/16W, 5%| 0402| R13, R14| Fenghua| RC-02W472JT|
 | 1   | RESISTOR   | 5.49K, 1/16W, 1%| 0402| R18| Fenghua| RC-02W5491FT|
-| 2   | SWITCH     | 160gF|| 3.6mm x 3.1mm| MODE, RESET| Haoyu| TS-1185A-C|
+| 2   | SWITCH     | 160gF|3.6mm x 3.1mm| MODE, RESET| Haoyu| TS-1185A-C|
 
 ## Ordering information
 
