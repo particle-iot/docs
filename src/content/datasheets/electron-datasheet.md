@@ -423,11 +423,11 @@ You may use the online Web IDE [Particle Build](https://build.particle.io) to co
 
 **Web**
 
-https://www.particle.io
+[https://www.particle.io](https://www.particle.io)
 
 **Community Forums**
 
-https://community.particle.io
+[https://community.particle.io](https://community.particle.io)
 
 **Email**
 
