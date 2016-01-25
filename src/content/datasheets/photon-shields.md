@@ -240,8 +240,13 @@ The USB-UART interface is connected to the TX and RX of a Particle device and co
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 For more instructions on setting up OpenOCD and using the Programmer Shield, please read through the README at the landing page of the Programmer Shield repository on GitHub, it is
 [referenced here](https://github.com/spark/shields/tree/master/photon-shields/programmer-shield).
+=======
+For more instructions on setting up OpenOCD and using the Programmer Shield, please read through the README at the landing page of the Programmer Shield repository on GitHub, referenced 
+[here](https://github.com/spark/shields/tree/master/photon-shields/programmer-shield).
+>>>>>>> master
 =======
 For more instructions on setting up OpenOCD and using the Programmer Shield, please read through the README at the landing page of the Programmer Shield repository on GitHub, referenced 
 [here](https://github.com/spark/shields/tree/master/photon-shields/programmer-shield).
