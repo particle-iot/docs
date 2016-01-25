@@ -88,7 +88,7 @@ Particle's certifications will help you decrease the time and cost associated wi
  - **Wikipedia**: [http://en.wikipedia.org/wiki/Industry_Canada](http://en.wikipedia.org/wiki/Industry_Canada)
  - **Domain**: Canada
 
- IC (Industry Canada) is a department of the Government of China that, among many other things, issues Technical Acceptance Certificates (TACs) for Category I radio and broadcasting equipment.
+ IC (Industry Canada) is a department of the Government of Canada that, among many other things, issues Technical Acceptance Certificates (TACs) for Category I radio and broadcasting equipment.
 
 ### Integration
 
