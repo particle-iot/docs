@@ -35,7 +35,7 @@ Frequently Asked Questions (FAQ)
 - [I'm an educator or student, do you offer education discounts?](/support/support-and-fulfillment/faq/photon/#q-i-m-an-educator-or-student-do-you-offer-education-discounts-)
 
 **Product**
-- [Where do I buy this thing called the'spark core'?](/support/support-and-fulfillment/faq/photon/#q-where-do-i-buy-this-thing-called-39-spark-core-39-)
+- [Where do I buy this thing called the 'spark core'?](/support/support-and-fulfillment/faq/photon/#q-where-do-i-buy-this-thing-called-39-spark-core-39-)
 
 
 ## Orders
