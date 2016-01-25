@@ -6,6 +6,9 @@ order: 4
 ---
 
 # Electron Datasheet <sup>(v001)</sup>
+
+<div align=center><img src="/assets/images/electron/illustrations/electron-v20.png" ></div>
+
 ## Functional description
 
 ### Overview 
