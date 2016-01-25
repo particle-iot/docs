@@ -4257,10 +4257,41 @@ The timer callback is similar to an interrupt - it shouldn't block. However, it 
 
 // SYNTAX
 
-`Timer timer(period, callback)`
+`Timer timer(period, callback, one_shot)`
 
-`period` is the period of the timer in milliseconds  (unsigned int)
-`callback` is the callback function which gets called when the timer expires
+- `period` is the period of the timer in milliseconds  (unsigned int)
+- `callback` is the callback function which gets called when the timer expires. 
+- `one_shot` (optional, since 0.4.9) when `true`, the timer is fired once and then stopped automatically.  The default is `false` - a repeating timer. 
+
+
+### Class member callbacks
+
+_Since 0.4.9_
+
+A class member function can be used as a callback using this syntax to create the timer:
+
+`Timer timer(period, callback, instance, one_shot)`
+
+- `period` is the period of the timer in milliseconds  (unsigned int)
+- `callback` is the class member function which gets called when the timer expires. 
+- `instance` the instance of the class to call the callback function on.
+- `one_shot` (optional, since 0.4.9) when `true`, the timer is fired once and then stopped automatically.  The default is `false` - a repeating timer. 
+
+
+```
+// Class member function callback example
+
+class CallbackClass
+{
+public:
+     void onTimeout();
+}
+
+CallbackClass callback;
+Timer t(1000, &CallbackClass::onTimeout, callback);
+
+```
+
 
 ### start()
 
