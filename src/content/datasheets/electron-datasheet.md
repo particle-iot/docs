@@ -141,6 +141,8 @@ RGB LED
 
 <div align=center><img src="/assets/images/electron/illustrations/electron_pinout.png"></div>
 
+You can download a high resolution pinout diagram in PDF format [here.](/assets/images/electron/illustrations/electron_pinout.pdf)
+
 ## Technical Specifications
 
 ### Absolute maximum ratings <i class="icon-attention"></i>
