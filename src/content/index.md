@@ -18,10 +18,10 @@ template: start.hbs
       <img src="assets/images/electron.svg"/>
     </li>
   </a>
-  <!-- <a href="/guide/getting-started/intro/core">
+  <a href="/guide/getting-started/intro/core">
     <li class="device">
       <h3>Core</h3>
-      <img src="assets/images/core.png"/>
+      <img src="assets/images/core.svg"/>
     </li>
-  </a> -->
+  </a>
 </ul>

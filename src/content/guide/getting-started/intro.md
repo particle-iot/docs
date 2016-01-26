@@ -28,7 +28,7 @@ order: 1
 {{/if}}
 
 {{#if electron}}
-![](/assets/images/electronangle.jpg)
+![](/assets/images/electrontall.jpg)
 {{/if}}
 
 
