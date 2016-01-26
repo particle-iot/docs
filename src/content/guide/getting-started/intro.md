@@ -31,26 +31,28 @@ order: 1
 ![](/assets/images/electrontall.jpg)
 {{/if}}
 
-
+{{#if photon}}
 This guide will show you how to use Particle to make a connected device, from the first time you connect to the cloud to the day you manufacture and ship your connected product.
 
 Anxious to connect right away?
 
+[SETUP MY PHOTON >](/guide/getting-started/start/photon/#step-1-power-on-your-device)
+{{/if}}
 
-{{#if photon}}
+{{#if core}}
+This guide will show you how to use Particle to make a connected device, from the first time you connect to the cloud to the day you manufacture and ship your connected product.
+
+Anxious to connect right away?
+
 [SETUP MY PHOTON >](/guide/getting-started/start/photon/#step-1-power-on-your-device)
 {{/if}}
 
 {{#if electron}}
+This guide will show the proper methods to setup the Particle Electron, a cellular IoT connected development board. It's similar to our Photon in some ways, but very different in terms of applications, data consumption, and app architecture. We will unravel all of these new concepts in this Electron guide.
+
 [SETUP MY Electron >](https://setup.particle.io/)
 {{/if}}
 
-{{#if core}}
-[SETUP MY CORE >](/guide/getting-started/start/core/#step-1-power-on-your-device)
-{{/if}}
-
-
-<!-- [I'M AT A HACKATHON >](/guide/getting-started/hackathon) -->
 
 The guide is broken down into three parts:
 - **Getting Started** goes over how to connect your device and then dives into some examples to get you used to the connected platform. If you've never played with connected hardware before, Getting Started is the section for you! It's filled with small {{{ popup 'footnotes' 'note' 'When you hover over or click these, you will get more info on the underlined word.'}}} that you can hover over or (on smaller screens and mobile) click or tap for more info. If you're an expert, you may want to take the first few chapters to connect your device, then move on to Tools and Features.
@@ -61,6 +63,6 @@ We'll fill in more parts of the guide in the {{{popup 'coming months' 'note' 'Th
 - Go through _Getting Started_
 - Review _Tools and Features_
 - Search _[the community](http://community.particle.io)_ for cool examples and advice relevant to your exact project
-- Check out _How to Build a Product_ for final advice
+- Check out _How to Build a Product_ for final advice on the production stage.
 
 Ready to get started? Click the arrow to the right of the screen to read on.
