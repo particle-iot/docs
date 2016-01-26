@@ -789,6 +789,35 @@ WiFi.setCredentials("SSID", "PASSWORD", WPA2, WLAN_CIPHER_AES));
 ```
 {{/if}}
 
+### WiFi.getCredentials()
+
+Lists the Wi-Fi credentials stored on the device. Returns the number of stored credentials.
+
+{{#if core}}
+
+*Core: always returns 0 since Wi-Fi credentials cannot be read back from the CC3000 Wi-Fi module.*
+
+{{else}}
+
+```cpp
+// EXAMPLE
+WiFiAccessPoint ap[5];
+int found = WiFi.getCredentials(ap, 5);
+for (int i = 0; i < found; i++) {
+    Serial.print("ssid: ");
+    Serial.println(ap[i].ssid);
+    Serial.print("bssid: ");
+    Serial.println(ap[i].bssid);
+    // security is one of WLAN_SEC_UNSEC, WLAN_SEC_WEP, WLAN_SEC_WPA, WLAN_SEC_WPA2
+    Serial.println(ap[i].security);
+    // cipher is one of WLAN_CIPHER_AES, WLAN_CIPHER_TKIP
+    Serial.println(ap[i].cipher);
+    Serial.println(ap[i].rssi);
+    Serial.println(ap[i].channel);
+}
+```
+
+{{/if}}
 
 ### WiFi.clearCredentials()
 
@@ -865,6 +894,21 @@ void loop() {}
 ### WiFi.SSID()
 
 `WiFi.SSID()` returns the SSID of the network the device is currently connected to as a `char*`.
+
+### WiFi.BSSID()
+
+`WiFi.BSSID()` retrives the 6-byte MAC address of the access point the device is currently connected to.
+
+byte bssid[6];
+
+void setup() {
+  Serial.begin(9600);
+  while (!Serial.available()) Particle.process();
+
+  WiFi.BSSID(bssid);
+  Serial.printlnf("%02X:%02X:%02X:%02X:%02X:%02X", bssid[0], bssid[1], bssid[2], bssid[3], bssid[4], bssid[5]);
+}
+
 
 ### WiFi.RSSI()
 
@@ -1217,21 +1261,23 @@ void loop()
 ```
 **Note:** All GPIO pins (`D0`..`D7`, `A0`..`A7`, `DAC`, `WKP`, `RX`, `TX`) can be used as long they are not used otherwise (e.g. as `Serial1` `RX`/`TX`).
 
-### analogWrite()
+### analogWrite() (PWM)
 
-Writes an analog value (PWM wave) to a pin. The frequency of the PWM signal is approximately 500 Hz.
+Writes an analog value to a pin as a digital PWM (pulse-width modulated) signal. The default frequency of the PWM signal is 500 Hz.
 
 Can be used to light a LED at varying brightnesses or drive a motor at various speeds. After a call to analogWrite(), the pin will generate a steady square wave of the specified duty cycle until the next call to `analogWrite()` (or a call to `digitalRead()` or `digitalWrite()` on the same pin).
 
 ```C++
 // SYNTAX
 analogWrite(pin, value);
+analogWrite(pin, value, frequency);
 ```
 
-`analogWrite()` takes two arguments:
+`analogWrite()` takes two or three arguments:
 
 - `pin`: the number of the pin whose value you wish to set
 - `value`: the duty cycle: between 0 (always off) and 255 (always on).
+- `frequency`: the PWM frequency: between 1 Hz and 65535 Hz (default 500 Hz).
 
 **NOTE:** `pinMode(pin, OUTPUT);` is required before calling `analogWrite(pin, value);` or else the `pin` will not be initialized as a PWM output and set to the desired duty cycle.
 
@@ -1258,22 +1304,28 @@ void loop()
 }
 ```
 
-- On the Core, this function works on pins A0, A1, A4, A5, A6, A7, D0 and D1.
+- On the Core, this function works on pins D0, D1, A0, A1, A4, A5, A6, A7, RX and TX.
 - On the Photon, this function works on pins D0, D1, D2, D3, A4, A5, WKP, RX and TX with a caveat: PWM timer peripheral is duplicated on two pins (A5/D2) and (A4/D3) for 7 total independent PWM outputs. For example: PWM may be used on A5 while D2 is used as a GPIO, or D2 as a PWM while A5 is used as an analog input. However A5 and D2 cannot be used as independently controlled PWM outputs at the same time.
 
-When used with these pins, the `analogWrite()` function has nothing to do with the analog pins or the `analogRead()` function.
+The PWM frequency must be the same for pins in the same timer group.
 
+- On the Core, the timer groups are D0/D1, A0/A1/RX/TX, A4/A5/A6/A7.
+- On the Photon, the timer groups are D0/D1/C4/C5, D2/D3/A4/A5, WKP, RX/TX.
+- On the P1, the timer groups are D0/D1/C4/C5, D2/D3/A4/A5/P1S0/P1S1, WKP, RX/TX.
+- On the Electron, the timer groups are D0/D1/C4/C5, D2/D3/A4/A5/B2/B3, WKP, RX/TX, B0/B1.
 
+**NOTE:** When used with PWM capable pins, the `analogWrite()` function sets up these pins as PWM only.  {{#unless core}}This function operates differently when used with the [`Analog Output (DAC)`](#analog-output-dac-) pins.{{/unless}}
 
-
-
-### Analog Output (Photon)
+{{#unless core}}
+### Analog Output (DAC)
 
 The Photon supports true analog output on pins DAC (`DAC1` or `A6` in code) and A3 (`DAC2` or `A3` in code). Using `analogWrite(pin, value)`
 with these pins, the output of the pin is set to an analog voltage from 0V to 3.3V that corresponds to values
 from 0-4095.
 
-**NOTE:** While for PWM pins one single call to `pinMode(pin, OUTPUT);` sets the pin mode for multiple `analogWrite(pin, value);` calls, for DAC pins you need to set `pinMode(DAC, OUTPUT);` each time anew you want to perform an `analogWrite()`.
+**NOTE:** This output is buffered inside the STM32 to allow for more output current at the cost of not being able to acheive rail-to-rail performance, i.e., the output will be about 50mV when the DAC is set to 0, and approx 50mV less than the 3V3 voltage when DAC output is set to 4095.
+
+**NOTE:** System firmware version 0.4.6 and 0.4.7 only - not applicable to versions from 0.4.9 onwards: While for PWM pins one single call to `pinMode(pin, OUTPUT);` sets the pin mode for multiple `analogWrite(pin, value);` calls, for DAC pins you need to set `pinMode(DAC, OUTPUT);` each time you want to perform an `analogWrite()`.
 
 ```C++
 // SYNTAX
@@ -1281,8 +1333,9 @@ pinMode(DAC1, OUTPUT);
 analogWrite(DAC1, 1024);
 // sets DAC pin to an output voltage of 1024/4095 * 3.3V = 0.825V.
 ```
+{{/unless}}
 
-### analogRead()
+### analogRead() (ADC)
 
 Reads the value from the specified analog pin. The device has 8 channels (A0 to A7) with a 12-bit resolution. This means that it will map input voltages between 0 and 3.3 volts into integer values between 0 and 4095. This yields a resolution between readings of: 3.3 volts / 4096 units or, 0.0008 volts (0.8 mV) per unit.
 
@@ -1780,6 +1833,30 @@ void loop()
     Serial.write(inByte);
   }
 }
+```
+
+### availableForWrite()
+
+_Since 0.4.9. Available on Serial1, Serial2, etc.. This function will support USB Serial with the next release._
+
+Retrieves the number of bytes (characters) that can be written to this serial port without blocking. 
+
+If `blockOnOverrun(false)` has been called, the method returns the number of bytes that can be written to the buffer without causing buffer overrun, which would cause old data to be discarded and overwritten.
+
+### blockOnOverrun()
+
+_Since 0.4.9. Available on Serial1, Serial2, etc.. This function will support USB Serial with the next release._
+
+Defines what should happen when calls to `write()/print()/println()/printlnf()` that would overrun the buffer.
+
+- `blockOnOverrun(true)` -  this is the default setting.  When there is no room in the buffer for the data to be written, the program waits/blocks until there is room. This avoids buffer overrun, where data that has not yet been sent over serial is overwritten by new data. Use this option for increased data integrity at the cost of slowing down realtime code execution when lots of serial data is sent at once.
+
+- `blockOnOverrun(false)` - when there is no room in the buffer for data to be written, the data is written anyway, causing the new data to replace the old data. This option is provided when performance is more important than data integrity.
+
+```cpp
+// EXAMPLE - fast and furious over Serial1
+Serial1.blockOnOverrun(false);
+Serial1.begin(115200);
 ```
 
 ### serialEvent()
@@ -2514,7 +2591,57 @@ void loop()
 }
 ```
 
-## IPAddress
+{{#unless core}}
+## CAN (CANbus)
+
+The Photon supports communicating with CAN devices via the CAN bus.
+
+```
+CANChannel can(CAN_D1_D2);
+
+void setup() {
+    can.begin(125000); // pick the baud rate for your network
+    // accept one message. If no filter added by user then accept all messages
+    can.addFilter(0x100, 0x7FF);
+}
+
+void loop() {
+    CANMessage Message;
+
+    Message.id = 0x100;
+    can.transmit(Message);
+
+    delay(10);
+
+    if(can.receive(Message)) {
+        // message received
+    }
+}
+```
+
+### CANMessage
+
+The CAN message struct has these members:
+
+```
+struct CANMessage
+{
+   uint32_t id;
+   bool     extended;
+   bool     rtr;
+   uint8_t  len;
+   uint8_t  data[8];
+}
+```
+
+### CAN.begin()
+
+Joins the bus at the given tranmission rate. 
+
+
+{{/unless}}
+
+### IPAddress
 
 Creates an IP address that can be used with TCPServer, TCPClient, and UDP objects.
 
@@ -3718,7 +3845,7 @@ Returns: Integer
 
 ### now()
 
-Retrieve the current time as seconds since January 1, 1970 (commonly known as "Unix time" or "epoch time")
+Retrieve the current time as seconds since January 1, 1970 (commonly known as "Unix time" or "epoch time"). This time is not affected by the timezone setting. 
 
 ```cpp
 // Print the current Unix timestamp
@@ -3726,6 +3853,10 @@ Serial.print(Time.now()); // 1400647897
 ```
 
 Returns: Integer
+
+### local()
+
+Retrieve the current time in the configured timezone as seconds since January 1, 1970 (commonly known as "Unix time" or "epoch time"). This time is affected by the timezone setting. 
 
 
 ### zone()
@@ -3965,6 +4096,34 @@ Specifies a function to call when an external interrupt occurs. Replaces any pre
 **NOTE:**
 `pinMode()` MUST be called prior to calling attachInterrupt() to set the desired mode for the interrupt pin (INPUT, INPUT_PULLUP or INPUT_PULLDOWN).
 
+External interrupts are supported on the following pins:
+
+- Core: D0, D1, D2, D3, D4, A0, A1, A3, A4, A5, A6, A7
+- Photon: All pins with the exception of D0 and A5 (since at present Mode Button external interrupt(EXTI) line is shared with D0, A5). Also please note following are the pins for which EXTI lines are shared so only one can work at a time:
+    - D1, A4
+    - D2, A0, A3
+    - D3, DAC
+    - D4, A1
+
+```
+// SYNTAX
+attachInterrupt(pin, function, mode);
+attachInterrupt(pin, function, mode, priority);
+attachInterrupt(pin, function, mode, priority, subpriority);
+```
+
+*Parameters:*
+
+- `pin`: the pin number
+- `function`: the function to call when the interrupt occurs; this function must take no parameters and return nothing. This function is sometimes referred to as an *interrupt service routine* (ISR).
+- `mode`: defines when the interrupt should be triggered. Three constants are predefined as valid values:
+    - CHANGE to trigger the interrupt whenever the pin changes value,
+    - RISING to trigger when the pin goes from low to high,
+    - FALLING for when the pin goes from high to low.
+- `priority` (optional): the priority of this interrupt. Default priority is 13. Lower values increase the priority of the interrupt.
+- `subpriority` (optional): the subpriority of this interrupt. Default subpriority is 0.
+
+The function does not return anything.
 
 ```C++
 // EXAMPLE USAGE
@@ -4008,30 +4167,6 @@ class Robot {
 Robot myRobot;
 // nothing else needed in setup() or loop()
 ```
-
----
-
-External interrupts are supported on the following pins:
-
-- Core: D0, D1, D2, D3, D4, A0, A1, A3, A4, A5, A6, A7
-- Photon: All pins with the exception of D0 and A5 (since at present Mode Button external interrupt(EXTI) line is shared with D0, A5). Also please note following are the pins for which EXTI lines are shared so only one can work at a time:
-    - D1, A4
-    - D2, A0, A3
-    - D3, DAC
-    - D4, A1
-
-`attachInterrupt(pin, function, mode);`
-
-*Parameters:*
-
-- `pin`: the pin number
-- `function`: the function to call when the interrupt occurs; this function must take no parameters and return nothing. This function is sometimes referred to as an *interrupt service routine* (ISR).
-- `mode`: defines when the interrupt should be triggered. Three constants are predefined as valid values:
-    - CHANGE to trigger the interrupt whenever the pin changes value,
-    - RISING to trigger when the pin goes from low to high,
-    - FALLING for when the pin goes from high to low.
-
-The function does not return anything.
 
 **Using Interrupts:**
 Interrupts are useful for making things happen automatically in microcontroller programs, and can help solve timing problems. Good tasks for using an interrupt may include reading a rotary encoder, or monitoring user input.
@@ -4122,10 +4257,41 @@ The timer callback is similar to an interrupt - it shouldn't block. However, it 
 
 // SYNTAX
 
-`Timer timer(period, callback)`
+`Timer timer(period, callback, one_shot)`
 
-`period` is the period of the timer in milliseconds  (unsigned int)
-`callback` is the callback function which gets called when the timer expires
+- `period` is the period of the timer in milliseconds  (unsigned int)
+- `callback` is the callback function which gets called when the timer expires. 
+- `one_shot` (optional, since 0.4.9) when `true`, the timer is fired once and then stopped automatically.  The default is `false` - a repeating timer. 
+
+
+### Class member callbacks
+
+_Since 0.4.9_
+
+A class member function can be used as a callback using this syntax to create the timer:
+
+`Timer timer(period, callback, instance, one_shot)`
+
+- `period` is the period of the timer in milliseconds  (unsigned int)
+- `callback` is the class member function which gets called when the timer expires. 
+- `instance` the instance of the class to call the callback function on.
+- `one_shot` (optional, since 0.4.9) when `true`, the timer is fired once and then stopped automatically.  The default is `false` - a repeating timer. 
+
+
+```
+// Class member function callback example
+
+class CallbackClass
+{
+public:
+     void onTimeout();
+}
+
+CallbackClass callback;
+Timer t(1000, &CallbackClass::onTimeout, callback);
+
+```
+
 
 ### start()
 
@@ -4807,8 +4973,104 @@ _Note that when startup code performs digital I/O, there will still be a period 
 where the I/O pins are in their default power-on state, namely `INPUT`. Circuits should be designed with this
 in mind, using pullup/pulldown resistors as appropriate._
 
+## System Events
 
-## System modes
+*Since 0.4.9*
+
+### System Events Overview
+
+System events are messages sent by the system and received by application code. They inform the application about changes in the system, such as when the system has entered setup mode, or when an Over-the-Air (OTA) update starts, or when the system is about to reset. 
+
+System events are recieved by the application by registering a handler. The handler has this general format:
+
+```
+void handler(system_event_t event, int data, void* moredata);
+```
+
+Unused parameters can be removed from right to left, giving these additional function signatures:
+
+```
+void handler(system_event_t event, int data);
+void handler(system_event_t event);
+void handler();
+``` 
+
+Here's an example of an application that listens for `reset` events so that the application is notified the device is about to reset. The application publishes a reset message to the cloud and turns off connected equipment before returning from the handler, allowing the device to reset. 
+
+```
+void reset_handler()
+{
+	// turn off the crankenspitzen
+	digitalWrite(D6, LOW);
+	// tell the world what we are doing
+	Particle.publish("reset", "going down for reboot NOW!");	
+}
+
+void setup()
+{
+	// register the reset handler
+	System.on(reset, reset_handler);
+}
+```
+
+Some event types provide additional information. For example the `button_click` event provides a parameter with the number of button clicks:
+
+```
+void button_clicked(system_event_t event, int param)
+{
+	int times = system_button_clicks(param);
+	Serial.printlnf("button was clicked %d times", times);
+}
+```
+
+#### Registering multiple events with the same handler
+
+It's possible to subscribe to multiple events with the same handler in cases where you want the same handler to be notified for all the events. For example:
+
+```
+void handle_all_the_events(system_event_t event, int param)
+{
+	Serial.printlnf("got event %d with value %d");
+}
+
+void setup()
+{
+	// listen for network events and firmware update events
+	System.on(network_status+firmware_update, handle_all_the_events);
+}
+```
+
+To subscribe to all events, there is the placeholder `all_events`:
+
+```
+void setup()
+{
+	// listen for network events and firmware update events
+	System.on(all_events, handle_all_the_events);
+}
+```
+
+### System Events Reference
+
+These are the system events produced by the system, their numeric value (what you will see when printing the system event to Serial) and details of how to handle the parameter value. 
+
+| Event Name | ID | Description | Parameter |
+|------------|----------|-----------|
+| setup_begin | 2 | signals the device has entered setup mode |  not used |
+| setup_update | 4 | periodic event signalling the device is still in setup mode. | milliseconds since setup mode was started |
+| setup_end | 8 | signals setup mode was exited | time in ms since setup mode was started |
+| network_credentials | 16 | network credentials were changed | `network_credentials_added` or `network_credentials_cleared` |
+| network_status | 32 | network connection state changes | one of `network_status_powering_off` `network_status_off` `network_status_powering_on` `network_status_on` `network_status_conneecting` `network_status_connected`       `network_status_preparing`       `network_status_ready`           `network_status_disconnecting` |
+ | button_status | 128 | button pressed or releasesed | the duration in ms the button was pressed: 0 when pressed, >0 on release. |
+ | firmware_update | 256 | firmwarwe update status | one of `firmware_update_begin`, `firmware_update_progress`, `firmware_update_complete`, `firmware_update_failed` |
+ | firmware_update_pending | 512 | notifies the application that a firmware update is available. This event is sent even when updates are disabled, giving the application chance to re-enable firmware updates with `System.enableUpdates()` | not used |
+ | reset_pending | 1024 | notifies the application that the system would like to reset. This event is sent even when resets are disabled, giving the application chance to re-enable resets with `System.enableReset()` | not used |
+ | reset | 2048 | notifies that the system will reset once the application has completed handling this event | not used |
+ | button_click | 4096 | event sent each time setup button is clicked. | `int clicks = system_button_clicks(param); ` retrieves the number of clicks so far. |
+| button_final_click | 8192 | sent after a run of one or more clicks not followed by additional clicks. Unlike the `button_click` event, the `button_final_click` event is sent once, at the end of a series of clicks. | `int clicks = system_button_clicks(param); ` retrieves the number of times the button was pushed. | 
+
+
+## System Modes
 
 System modes help you control how the device manages the connection with the cloud.
 
@@ -4909,7 +5171,7 @@ When using manual mode:
 in production after extensive testing.
 
 The System Thread is a system configuration that helps ensure the application loop
-is not interrupted by the System background processing and network management.
+is not interrupted by the system background processing and network management.
 It does this by running the application loop and the system loop on separate threads,
 so they execute in parallel rather than sequentially.
 
@@ -4929,8 +5191,8 @@ non-threaded execution:
 
 - `setup()` is executed immediately regardless of the system mode, which means
 setup typically executes before the Network or Cloud is connected. Calls to
-`Particle.function()`, `Particle.variable()` and `Particle.subscribe()` will work
-as intended whether the cloud is connected or not. `Particle.publish()` will return
+`Particle.function()`, `Particle.variable()` and `Particle.subscribe()` will function
+as intended whether the cloud is connected or not.  `Particle.publish()` will return
 `false` when the cloud is not available and the event will not be published. See `waitUntil` below
 for details on waiting for the network or cloud connection.
 
@@ -4944,17 +5206,160 @@ connection automatically. while `AUTOMATIC` mode connects to the cloud as soon a
 Neither has an affect on when the application `setup()` function is run - it is run
 as soon as possible, independently from the system network activities, as described above.
 
-- In `MANUAL` mode there is no need to call `Particle.process()` (but calling Particle.process()
-does no harm if you want to keep the code in place.) The system thread takes care of calling `Particle.process()` itself.
-
-- It is no longer necessary to inject `delay()` into code in order to keep the system background
-processing active. The application loop is free to block indefinitely without affecting the cloud connection.
+- `Particle.process()` and `delay()` are not needed to keep the background tasks active - they run independently. These functions have a new role in keeping the application events serviced. Application events are:
+ - cloud function calls
+ - cloud events
+ - system events
 
 - Cloud functions registered with `Particle.function()` and event handlers
-registered with `Particle.subscribe()` execute on the application
-thread in between calls to `loop()`. (This is also the case in non-threaded mode.)
+registered with `Particle.subscribe()` continue to execute on the application
+thread in between calls to `loop()`, or when `Particle.process()` or `delay()` is called.
 A long running cloud function will block the application loop (since it is application code)
 but not the system code, so cloud connectivity is maintained.
+
+ - the application continues to execute during listening mode
+ - the application continues to execute during OTA updates 
+
+### System Functions
+
+With system threading enabled, the majority of the Particle API continues to run on the calling thread, as it does for non-threaded mode. For example, when a function, such as `Time.now()`, is called, it is processed entirely on the calling thread (typically the application thread when calling from `loop()`.) 
+
+There are a small number of API functions that are system functions. These functions execute on the system thread regardless of which thread they are called from. 
+
+There are two types of system functions:
+
+- asynchronous system functions: these functions do not return a result to the caller and do not block the caller
+- synchronous system functions: these functions return a result to the caller, and block the caller until the function completes
+
+Asynchronous system functions do not block the application thread, even when the system thread is busy, so these can be used liberally without causing unexpected delays in the application.  (Exception: when more than 20 asynchronous system functions are invoked, but not yet serviced by the application thread, the application will block for 5 seconds while attempting to put the function on the system thread queue.)
+
+Synchronous system functions always block the caller until the system has performed the requested operation. These are the synchronous system functions:
+
+- `WiFi.hasCredentials()`, `WiFi.setCredentials()`, `WiFi.clearCredentials()`
+- `Particle.function()`
+- `Particle.variable()`
+- `Particle.subscribe()`
+- `Particle.publish()`
+
+For example, when the system is busy connecting to WiFi or establishing the cloud connection and the application calls `Particle.variable()` then the application will be blocked until the system finished connecting to the cloud (or gives up) so that it is free to service the `Particle.variable()` function call.
+
+This presents itself typically in automatic mode and where `setup()` registers functions, variables or subscriptions. Even though the application thread is running `setup()` independently of the system thread, calling synchronous functions will cause the application to block until the system thread has finished connecting to the cloud. This can be avoided by delaying the cloud connection until after the synchronous functions have been called.
+
+```
+SYSTEM_THREAD(ENABLED);
+SYSTEM_MODE(SEMI_AUTOMATIC);
+
+void setup()
+{
+	// the system thread isn't busy so these synchronous functions execute quickly
+    Particle.subscribe("event", handler);
+	Partible.publish("myvar", myvar);
+	Particle.connect();    // <-- now connect to the cloud, which ties up the system thread
+}
+```
+
+### Task Switching
+
+The system firmware includes an RTOS (Real Time Operating System). The RTOS is responsible for switching between the application thread and the system thread, which it does automatically every millisecond. This has 2 main consequences:
+
+- delays close to 1ms are typically much longer
+- application code may be stopped at any time when the RTOS switches to the system thread
+
+When executing timing-critical sections of code, the task switching needs to be momentarily disabled.
+
+### SINGLE_THREADED_BLOCK()
+
+`SINGLE_THREADED_BLOCK()` declares that the next code block is executed in single threaded mode. Task switching is disabled until the end of the block and automatically re-enabled when the block exits. Interrupts remain enabled, so the thread may be interrupted for small periods of time, such as by interrupts from peripherals. 
+
+```
+// SYNTAX
+SINGLE_THREADED_BLOCK() {
+   // code here is executed atomically, without task switching
+   // or interrupts
+}
+```
+
+Here's an example:
+
+```
+void so_timing_sensitive()
+{
+    if (ready_to_send) {
+   		SINGLE_THREADED_BLOCK() { // single threaded execution starts now
+	    		digitalWrite(D0, LOW);		// timing critical GPIO
+    			delayMicroseconds(1500);
+    			digitalWrite(D0, HIGH);
+		}
+    }  // single threaded execution stops now
+}
+```
+
+
+### ATOMIC_BLOCK()
+
+`ATOMIC_BLOCK()` is similar to `SINGLE_THREADED_BLOCK()` in that it prevents other threads executing during a block of code. In addition, interrupts are also disabled. 
+
+WARNING: Disabling interrupts prevents normal system operation. Consequently, `ATOMIC_BLOCK()` should be used only for brief periods where atomicity is essential. 
+
+```
+// SYNTAX
+ATOMIC_BLOCK() {
+   // code here is executed atomically, without task switching
+   // or interrupts
+}
+```
+
+Here's an example:
+
+```
+void so_timing_sensitive_and_no_interrupts()
+{
+    if (ready_to_send) {
+   		ATOMIC_BLOCK() { // only this code runs from here on - no other threads or interrupts
+    		digitalWrite(D0, LOW);		// timing critical GPIO
+    		delayMicroseconds(1500);
+    		digitalWrite(D0, HIGH);
+    		}
+    }  // other threads and interrupts can run from here
+}
+```
+
+### Synchronizing Access to Shared System Resources
+
+With system threading enabled, the system thread and the application thread run in parallel. When both attempt to use the same resource, such as writing a message to `Serial`, there is no guaranteed order - the message printed by the system and the message printed by the application are arbitrarily interleaved as the RTOS rapidly switches between running a small part of the system code and then the application code. This results in both messages being intermixed.
+
+This can be avoided by acquiring exclusive access to a resource. To get exclusive access to a resource, we can use locks. A lock
+ensures that only the thread owning the lock can access the resource. Any other thread that tries to use the resource via the lock will not be granted access until the first thread eventually unlocks the resource when it is done. 
+
+At present there is only one shared resource that is used by the system and the application - `Serial`. The system makes use of `Serial` during listening mode. If the application also makes use of serial during listening mode, then it should be locked before use. 
+
+```
+void print_status()
+{
+    WITH_LOCK(Serial) {
+	    Serial.print("Current status is:");
+    		Serial.println(status);
+	}
+}
+```
+
+The primary difference compared to using Serial without a lock is the `WITH_LOCK` declaration. This does several things:
+
+- attempts to acquire the lock for `Serial`. If the lock isn't available, the thread blocks indefinitely until it is available.
+ 
+- once `Serial` has been locked, the code in the following block is executed.
+
+- when the block has finished executing, the lock is released, allowing other threads to use the resource.   
+ 
+It's also possible to attempt to lock a resource, but not block when the resource isn't available.
+
+```
+TRY_LOCK(Serial) {
+    // this code is only run when no other thread is using Serial
+}
+```
+
+The `TRY_LOCK()` statement functions similarly to `WITH_LOCK()` but it does not block the current thread if the lock isn't available. Instead, the entire block is skipped over.
 
 
 ### Waiting for the system
@@ -5115,13 +5520,15 @@ at compile time and inline the function calls, reducing overhead to a minimum.
 
 *Since v0.4.4.*
 
-Retrieves the amount of memory guaranteed to be available. The actual amount of free memory will be at least as large as the value returned.
+Retrieves the amount of free memory in the system in bytes.
 
 ```cpp
 uint32_t freemem = System.freeMemory();
 Serial.print("free memory: ");
 Serial.println(freemem);
 ```
+
+
 
 ### System.factoryReset()
 
