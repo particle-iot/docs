@@ -5267,43 +5267,100 @@ The system firmware includes an RTOS (Real Time Operating System). The RTOS is r
 
 When executing timing-critical sections of code, the task switching needs to be momentarily disabled.
 
-### SINGLE_THREADED_SECTION()
+### SINGLE_THREADED_BLOCK()
 
-`SINGLE_THREADED_SECTION()` declares that the current code block shoudl be executed in single threaded mode. Task switching is disabled until the end of the block and automatically re-enabled when the block exits.
+`SINGLE_THREADED_BLOCK()` declares that the next code block is executed in single threaded mode. Task switching is disabled until the end of the block and automatically re-enabled when the block exits. Interrupts remain enabled, so the thread may be interrupted for small periods of time, such as by interrupts from peripherals. 
+
+```
+// SYNTAX
+SINGLE_THREADED_BLOCK() {
+   // code here is executed atomically, without task switching
+   // or interrupts
+}
+```
+
+Here's an example:
 
 ```
 void so_timing_sensitive()
 {
     if (ready_to_send) {
-   		SINGLE_THREADED_SECTION(); // single threaded execution starts now
-    		digitalWrite(D0, LOW);		// timing critical GPIO
-    		delayMicroseconds(1500);
-    		digitalWrite(D0, HIGH);
+   		SINGLE_THREADED_BLOCK() { // single threaded execution starts now
+	    		digitalWrite(D0, LOW);		// timing critical GPIO
+    			delayMicroseconds(1500);
+    			digitalWrite(D0, HIGH);
+		}
     }  // single threaded execution stops now
 }
 ```
 
-Interrupts remain enabled, so the thread may be interrupted for small periods of time. 
 
+### ATOMIC_BLOCK()
 
-### ATOMIC_SECTION()
+`ATOMIC_BLOCK()` is similar to `SINGLE_THREADED_BLOCK()` in that it prevents other threads executing during a block of code. In addition, interrupts are also disabled. 
 
-`ATOMIC_SECTION()` is similar to `SINGLE_THREADED_SECTION()` in that it prevents other threads executing during a sectino of code. In addition, interrupts are also disabled. 
+WARNING: Disabling interrupts prevents normal system operation. Consequently, `ATOMIC_BLOCK()` should be used only for brief periods where atomicity is essential. 
 
-WARNING: Disabling interrupts prevents normal system operation. Consequently, `ATOMIC_SECTION()` should be used only for brief periods where atomicity is essential. 
+```
+// SYNTAX
+ATOMIC_BLOCK() {
+   // code here is executed atomically, without task switching
+   // or interrupts
+}
+```
 
+Here's an example:
 
 ```
 void so_timing_sensitive_and_no_interrupts()
 {
     if (ready_to_send) {
-   		ATOMIC_SECTION(); // only this code runs from here on - no other threads or interrupts
+   		ATOMIC_BLOCK() { // only this code runs from here on - no other threads or interrupts
     		digitalWrite(D0, LOW);		// timing critical GPIO
     		delayMicroseconds(1500);
     		digitalWrite(D0, HIGH);
+    		}
     }  // other threads and interrupts can run from here
 }
 ```
+
+### Synchronizing Access to Shared System Resources
+
+With system threading enabled, the system thread and the application thread run in parallel. When both attempt to use the same resource, such as writing a message to `Serial`, there is no guaranteed order - the message printed by the system and the message printed by the application are arbitrarily interleaved as the RTOS rapidly switches between running a small part of the system code and then the application code. This results in both messages being intermixed.
+
+This can be avoided by acquiring exclusive access to a resource. To get exclusive access to a resource, we can use locks. A lock
+ensures that only the thread owning the lock can access the resource. Any other thread that tries to use the resource via the lock will not be granted access until the first thread eventually unlocks the resource when it is done. 
+
+At present there is only one shared resource that is used by the system and the application - `Serial`. The system makes use of `Serial` during listening mode. If the application also makes use of serial during listening mode, then it should be locked before use. 
+
+```
+void print_status()
+{
+    WITH_LOCK(Serial) {
+	    Serial.print("Current status is:");
+    		Serial.println(status);
+	}
+}
+```
+
+The primary difference compared to using Serial without a lock is the `WITH_LOCK` declaration. This does several things:
+
+- attempts to acquire the lock for `Serial`. If the lock isn't available, the thread blocks indefinitely until it is available.
+ 
+- once `Serial` has been locked, the code in the following block is executed.
+
+- when the block has finished executing, the lock is released, allowing other threads to use the resource.   
+ 
+It's also possible to attempt to lock a resource, but not block when the resource isn't available.
+
+```
+TRY_LOCK(Serial) {
+    // this code is only run when no other thread is using Serial
+}
+```
+
+The `TRY_LOCK()` statement functions similarly to `WITH_LOCK()` but it does not block the current thread if the lock isn't available. Instead, the entire block is skipped over.
+
 
 ### Waiting for the system
 
