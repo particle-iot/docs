@@ -40,7 +40,9 @@ It also comes with Particle's development tools and cloud platform for managing 
 ### Power
 The Electron can be powered via the VIN (3.9V-12VDC) pin, the USB Micro B connector or the LiPo battery. Most USB ports can supply only a maximum of 500mA, but the uBlox GSM module on the Electron alone can consume a peak of 800mA to 1800mA of current during transmission. In order to compensate of this deficit, one must connect the LiPo battery at all times when powering from a traditional USB port. The Electron will intelligently source power from the USB most of the time and keep the battery charged. During peak current requirements, the additional power will be sourced from the battery. This reduces the charge-discharge cycle load on the battery, thus improving its longevity. When powering from the VIN pin alone, make sure that the power supply can source a minimum of 2A at 5VDC. If the power source is unable to meet this requirement, you'll need connect the LiPo battery as well.
 
-Typical current consumption is around 180mA and upto 1.8A transients at 5VDC. In deep sleep mode, the quiescent current is 130uA.
+When powered from a LiPo battery alone, the power management IC switches off the internal regulator and supplies power to the system directly from the battery. This reduces the any conduction losses and maximizes battery run time. 
+
+Typical current consumption is around 180mA and upto 1.8A transients at 5VDC. In deep sleep mode, the quiescent current is 130uA (powered from the battery alone).
 
 ### FCC approved antennas
 
@@ -96,6 +98,8 @@ Pin D3 through D7 are JTAG interface pins. These can be used to reprogram your E
 
 <div align=center><img src="/assets/images/electron/illustrations/electron_pin_markings.png"></div>
 
+<div align=center><img src="/assets/images/electron/illustrations/electron_pin_markings_bottom.png"></div>
+
 ### Pin description
 
 |   Pin | Description |
@@ -132,16 +136,14 @@ Charge status LED
 
 <sup>[2]</sup> You can stop this behavior by either plugging in the LiPo battery or by disabling the charging using the appropriate firmware command.
 
-RGB LED
-
-<add animations here>
+<add RGB LED animations here>
 
 
 ### Pinout diagram
 
 <div align=center><img src="/assets/images/electron/illustrations/electron_pinout.png"></div>
 
-You can download a high resolution pinout diagram in PDF format [here.](/assets/images/electron/illustrations/electron_pinout.pdf)
+You can download a high resolution pinout diagram in a PDF version [here.](/assets/images/electron/illustrations/electron_pinout.pdf)
 
 ## Technical Specifications
 
