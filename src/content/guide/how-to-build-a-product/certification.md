@@ -11,6 +11,16 @@ order: 8
 
 Connected devices nearly always require certifications that ensure they operate within the wireless transmission specifications determined by international regulatory bodies like the FCC and CE. This part of the guide will provide you with more information on how to leverage Particle's existing certifications to reduce the cost, complexity, and time associated with demonstrating regulatory compliance with your end product.
 
+### Table of Contents
+ - [FCC]() - United States
+ - [IC]() - Canada
+ - [CE]() - Europe
+ - [TELEC]() - Japan
+ - [RoHS]() - Europe
+ - [UL]() - World
+ - [Cellular]() - World
+
+
 Here is a graphical representation of the current state of certification across Particle's hardware portfolio:
 
 ![particle certifications table](/assets/images/particle-certifications-v4.png)
@@ -71,14 +81,11 @@ Particle's certifications will help you decrease the time and cost associated wi
 
 #### Photon/P0
 - FCC ID: [2AEMI-PHOTON](https://apps.fcc.gov/oetcf/eas/reports/ViewExhibitReport.cfm?mode=Exhibits&RequestTimeout=500&calledFromFrame=N&application_id=o2hW1PEmrUZn19QwwX8hCA%3D%3D&fcc_id=2AEMI-PHOTON)
-- [Certificate of Conformity](https://www.dropbox.com/s/vo81zoaty7v78xw/PHOTONH%20FCC%20ID%20Grant.pdf?dl=0)
-- [Test Reports](https://apps.fcc.gov/oetcf/eas/reports/ViewExhibitReport.cfm?mode=Exhibits&RequestTimeout=500&calledFromFrame=N&application_id=o2hW1PEmrUZn19QwwX8hCA%3D%3D&fcc_id=2AEMI-PHOTON)
-
-
+- [Certificate of Conformity](/assets/pdfs/p0-fcc-certificate.pdf)
+- [Test Reports](/assets/pdfs/p0-fcc-ic-test-reports.zip)
 
 #### P1 Module
 - FCC ID: [XR2WIZFI250](https://apps.fcc.gov/oetcf/eas/reports/ViewExhibitReport.cfm?mode=Exhibits&RequestTimeout=500&calledFromFrame=N&application_id=ug625xSKTLocEEah0xLMFw%3D%3D&fcc_id=XR2WIZFI250)  
-- Certificate of Conformity
 - [Test Reports](https://apps.fcc.gov/oetcf/eas/reports/ViewExhibitReport.cfm?mode=Exhibits&RequestTimeout=500&calledFromFrame=N&application_id=ug625xSKTLocEEah0xLMFw%3D%3D&fcc_id=XR2WIZFI250)
 
 ## IC <img class="inline-header-image" src="/assets/images/logo-ic.png"/>
@@ -104,13 +111,13 @@ Industry Canada follows the same testing and rules as the FCC in regards to cert
 
 #### Photon/P0
 - IC ID: **20127-PHOTON**. Search [here](https://sms-sgs.ic.gc.ca/search/radioEquipmentPortal) under "Radio Equipment List (REL) > Certification Number".
-- [Certificate of Conformity](https://www.dropbox.com/s/jh7ofn3aj2lqp8z/PHOTONH%20IC%20ID%20Certificate.pdf?dl=0)
-- [Test Report](https://apps.fcc.gov/oetcf/eas/reports/ViewExhibitReport.cfm?mode=Exhibits&RequestTimeout=500&calledFromFrame=N&application_id=o2hW1PEmrUZn19QwwX8hCA%3D%3D&fcc_id=2AEMI-PHOTON)
+- [Certificate of Conformity](/assets/pdfs/p0-ic-certificate.pdf)
+- [Test Report](/assets/pdfs/p0-fcc-ic-test-reports.zip)
 
 #### P1 Module
 - IC ID: **2056-WIZFI250**. Search [here](https://sms-sgs.ic.gc.ca/search/radioEquipmentPortal) under "Radio Equipment List (REL) > Certification Number".  
-- [Certificate of Conformity](https://www.dropbox.com/s/gen8wxox4ns3slo/IC_Cert%2C_10293-WMNBM11.pdf?dl=0)
-- Test Report
+- [Certificate of Conformity](/assets/pdfs/p1-ic-certificate.pdf)
+- [Test Report](/assets/pdfs/p1-ic-test-report.pdf)
 
 ## CE <img class="inline-header-image" src="/assets/images/logo-ce.png"/>
 
@@ -119,7 +126,7 @@ Industry Canada follows the same testing and rules as the FCC in regards to cert
  - **Wikipedia**: [http://en.wikipedia.org/wiki/CE_marking](http://en.wikipedia.org/wiki/CE_marking)
  - **Domain**: Europe
 
-The CE mark is a manditory conformity marking for certain products sold within the European Economic Area (EEA). It is analogous in that sense to the FCC marking used on devices sold within in the United States.
+The CE mark is a mandatory conformity marking for certain products sold within the European Economic Area (EEA). It is analogous in that sense to the FCC marking used on devices sold within in the United States.
 
 ### Integration
 Both the Photon/P0 and P1 are certified and carry the CE marking. Section 1.3.1 of the [Guide to the R&TTE Directive 1999/5/EC](http://ec.europa.eu/growth/sectors/electrical-engineering/rtte-directive/) states the following regarding the attachment of antennas to a module that already has documentation of conformance:
@@ -143,12 +150,11 @@ If a product has adhered to the integration guidelines and has minimal risk, it 
 ### Documentation
 
 #### Photon/P0
-- [Certificate of Conformity](https://www.dropbox.com/s/ea0apyc6893sry6/1504C213-CER%20CE.pdf?dl=0)
-- [Test Reports](https://www.dropbox.com/s/ukx8aludj85zwh7/CE-test-reports.zip?dl=0)
+- [Certificate of Conformity](/assets/pdfs/p0-ce-certificate.pdf)
+- [Test Reports](/assets/pdfs/p0-ce-test-reports.zip)
 
 #### P1 Module
-- [Certificate of Conformity](https://www.dropbox.com/s/z2t5wg86rokyf7l/13214124_CE_Cert_201306271421.pdf?dl=0)
-- Test Reports
+- [Certificate of Conformity](/assets/pdfs/p1-ce-certificate.pdf)
 
 ## TELEC <img class="inline-header-image" src="/assets/images/logo-telec.png"/>
 
@@ -157,11 +163,41 @@ If a product has adhered to the integration guidelines and has minimal risk, it 
  - **Documentation**: [http://www.tele.soumu.go.jp/e/index.htm](http://www.tele.soumu.go.jp/e/index.htm)
  - **Domain**: Japan
 
-Particle is currently pursuing TELEC certification to achieve compliance with Japanese Radio Law.  More information and certification results expected Q4 2015.
+Particle has completed TELEC certification to achieve compliance with Japanese Radio Law. If you are seeking to distribute your product in Japan, please [contact Particle](maito:will@particle.io) for more information about compiling TELEC-compliant firmware.
+
+### Documentation
+
+#### Photon/P0
+- [Certificate of Conformity](/assets/pdfs/p0-telec-certificate.pdf)
+- [Test Report](/assets/pdfs/p0-telec-test-report.pdf)
 
 ## RoHS <img class="inline-header-image" src="/assets/images/logo-rohs.png"/>
 
-More information coming soon.
+### Description
+- **Website**: http://ec.europa.eu/environment/waste/rohs_eee/index_en.htm
+- **Wikipedia**: https://en.wikipedia.org/wiki/Restriction_of_Hazardous_Substances_Directive
+- **Domain**: Europe
+
+RoHS stands for the "Restriction of Hazardous Substances Directive" adopted by the European Union in 2003 and effective as of 2006. It restricts the import and distribution of electronic and electrical equipment with six hazardous materials within the EU. Those hazardous materials are listed below:
+
+| Substance Name  | Allowable Limit |
+| ------------- | ------------- |
+| Lead (Pb)  | less than 1000ppm  |
+| Mercury (Hg)  | less than 100ppm |
+| Cadmium (Cd) | less than 100ppm |
+| Hexavalent chromium (Cr6+) | less than 1000ppm |
+| Polybrominated biphenyls (PBB) | less than 1000ppm |
+| Polybrominated diphenyl ether (PBDE) | less than 1000ppm |
+
+There are also a short list of [exemptions](https://en.wikipedia.org/wiki/Restriction_of_Hazardous_Substances_Directive#Restriction_exemptions) to RoHS regulation that are worthy of note.
+
+RoHS compliance is self-declared and there is no certification body that governs compliance, unlike the FCC. Particle has submitted its hardware to RoHS compliance testing and the test reports are available below.
+
+### Documentation
+
+#### Photon/P0
+
+- [Test Reports](/assets/pdfs/p0-rohs-test-reports.zip)
 
 ## UL <img class="inline-header-image" src="/assets/images/logo-ul.png"/>
 
