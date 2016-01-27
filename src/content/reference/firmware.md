@@ -5035,8 +5035,8 @@ void handle_all_the_events(system_event_t event, int param)
 
 void setup()
 {
-	// listen for network events and firmware update events
-	System.on(network_status+firmware_update, handle_all_the_events);
+	// listen for wifi listen events and firmware update events
+	System.on(wifi_listen+firmware_update, handle_all_the_events);
 }
 ```
 
@@ -5060,7 +5060,6 @@ These are the system events produced by the system, their numeric value (what yo
 | setup_update | 4 | periodic event signalling the device is still in setup mode. | milliseconds since setup mode was started |
 | setup_end | 8 | signals setup mode was exited | time in ms since setup mode was started |
 | network_credentials | 16 | network credentials were changed | `network_credentials_added` or `network_credentials_cleared` |
-| network_status | 32 | network connection state changes | one of `network_status_powering_off` `network_status_off` `network_status_powering_on` `network_status_on` `network_status_conneecting` `network_status_connected`       `network_status_preparing`       `network_status_ready`           `network_status_disconnecting` |
  | button_status | 128 | button pressed or releasesed | the duration in ms the button was pressed: 0 when pressed, >0 on release. |
  | firmware_update | 256 | firmwarwe update status | one of `firmware_update_begin`, `firmware_update_progress`, `firmware_update_complete`, `firmware_update_failed` |
  | firmware_update_pending | 512 | notifies the application that a firmware update is available. This event is sent even when updates are disabled, giving the application chance to re-enable firmware updates with `System.enableUpdates()` | not used |
