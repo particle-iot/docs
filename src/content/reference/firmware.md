@@ -3391,9 +3391,7 @@ udp.leaveMulticast(multicastAddress);
 {{/if}}
 
 
-## Libraries
-
-### Servo
+## Servo
 
 This library allows your device to control RC (hobby) servo motors. Servos have integrated gears and a shaft that can be precisely controlled. Standard servos allow the shaft to be positioned at various angles, usually between 0 and 180 degrees. Continuous rotation servos allow the rotation of the shaft to be set to various speeds.
 
@@ -3511,7 +3509,7 @@ servo.setTrim(0);
 ```
 
 
-### RGB
+## RGB
 
 This library allows the user to control the RGB LED on the front of the device.
 
@@ -3652,7 +3650,7 @@ ExternalRGB myRGB(D0, D1, D2);
 ```
 
 
-### Time
+## Time
 
 The device synchronizes time with the Particle Cloud during the handshake.
 From then, the time is continually updated on the device.
@@ -3953,9 +3951,6 @@ Time.format(Time.now(), "Now it's %I:%M%p.");
 
 Retrieves the currently configured format string for time formatting with `format()`.
 
-
-Time
----
 
 ### millis()
 
