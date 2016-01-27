@@ -3954,10 +3954,6 @@ Time.format(Time.now(), "Now it's %I:%M%p.");
 Retrieves the currently configured format string for time formatting with `format()`.
 
 
-## Other Functions
-
-Note that most of the functions in newlib described at [https://sourceware.org/newlib/libc.html](https://sourceware.org/newlib/libc.html) are available for use in addition to the functions outlined below.
-
 Time
 ---
 
@@ -7654,6 +7650,10 @@ for (int i = 0; i < arraySize(myPins); i++) {
   Serial.println(myPins[i]);
 }
 ```
+
+## Other Functions
+
+Note that most of the functions in newlib described at [https://sourceware.org/newlib/libc.html](https://sourceware.org/newlib/libc.html) are available for use in addition to the functions outlined above.
 
 ## Preprocessor
 
