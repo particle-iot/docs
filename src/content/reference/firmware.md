@@ -4935,7 +4935,9 @@ when new `retained` variables are added to the end of the list, or when they are
 
 {{/if}}
 
-## STARTUP()
+## Macros
+
+### STARTUP()
 
 _Since 0.4.5_
 
