@@ -3956,7 +3956,7 @@ Retrieves the currently configured format string for time formatting with `forma
 
 ## Other Functions
 
-Note that most of the functions in newlib described at https://sourceware.org/newlib/libc.html are available for use in addition to the functions outlined below.
+Note that most of the functions in newlib described at [https://sourceware.org/newlib/libc.html](https://sourceware.org/newlib/libc.html) are available for use in addition to the functions outlined below.
 
 Time
 ---
