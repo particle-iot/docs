@@ -5368,8 +5368,6 @@ Typically this is waiting for something that the system is doing,
 such as waiting for WiFi to be ready or the cloud to be connected.
 
 
-{{/if}}
-
 ## `waitUntil`
 
 Sometimes you want your application  to wait until the system is in a given state.
@@ -5398,6 +5396,8 @@ only for a period of time, we can use `waitFor`
     // wait until WiFi is ready
     waitUntil(WiFi.ready);
 ```
+
+{{/if}}
 
 ## System Calls
 
