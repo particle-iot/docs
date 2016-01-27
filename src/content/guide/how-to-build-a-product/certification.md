@@ -163,7 +163,7 @@ If a product has adhered to the integration guidelines and has minimal risk, it 
  - **Documentation**: [http://www.tele.soumu.go.jp/e/index.htm](http://www.tele.soumu.go.jp/e/index.htm)
  - **Domain**: Japan
 
-Particle has completed TELEC certification to achieve compliance with Japanese Radio Law. If you are seeking to distribute your product in Japan, please [contact Particle](maito:will@particle.io) for more information about compiling TELEC-compliant firmware.
+Particle has completed TELEC certification to achieve compliance with Japanese Radio Law. If you are seeking to distribute your product in Japan, please [contact Particle](mailto:will@particle.io) for more information about compiling TELEC-compliant firmware.
 
 ### Documentation
 
