@@ -38,9 +38,16 @@ It also comes with Particle's development tools and cloud platform for managing 
 <div align=center><img src="/assets/images/electron/illustrations/electron-blockdiagram.png" width=700></div>
 
 ### Power
-The Electron can be powered via the VIN (3.9V-12VDC) pin, the USB Micro B connector or the LiPo battery. Most USB ports can supply only a maximum of 500mA, but the uBlox GSM module on the Electron alone can consume a peak of 800mA to 1800mA of current during transmission. In order to compensate of this deficit, one must connect the LiPo battery at all times when powering from a traditional USB port. The Electron will intelligently source power from the USB most of the time and keep the battery charged. During peak current requirements, the additional power will be sourced from the battery. This reduces the charge-discharge cycle load on the battery, thus improving its longevity. When powering from the VIN pin alone, make sure that the power supply can source a minimum of 2A at 5VDC. If the power source is unable to meet this requirement, you'll need connect the LiPo battery as well.
+The Electron can be powered via the VIN (3.9V-12VDC) pin, the USB Micro B connector or a LiPo battery. 
 
-When powered from a LiPo battery alone, the power management IC switches off the internal regulator and supplies power to the system directly from the battery. This reduces the any conduction losses and maximizes battery run time. 
+#### USB
+Most USB ports can supply only a maximum of 500mA, but the u-Blox GSM module on the Electron alone can consume a peak of 800mA to 1800mA of current during transmission. In order to compensate of this deficit, one must connect the LiPo battery at all times when powering from a traditional USB port. The Electron will intelligently source power from the USB most of the time and keep the battery charged. During peak current requirements, the additional power will be sourced from the battery. This reduces the charge-discharge cycle load on the battery, thus improving its longevity. 
+
+#### VIN
+The input voltage range on VIN pin is 3.9VDC to 12VDC. When powering from the VIN pin alone, make sure that the power supply is rated at 10W (for example 5VDC at 2Amp). If the power source is unable to meet this requirement, you'll need connect the LiPo battery as well.
+
+#### LiPo Battery
+When powered from a LiPo battery alone, the power management IC switches off the internal regulator and supplies power to the system directly from the battery. This reduces the conduction losses and maximizes battery run time. The battery provided with the Electron is a Lithium-Ion Polymer battery rated at 3.7VDC 1900mAh. You can substitute this battery with another 3.7V LiPo with higher current rating. Remember to never exceed this voltage rating and alway pay attention to the polarity of the connector.
 
 Typical current consumption is around 180mA and upto 1.8A transients at 5VDC. In deep sleep mode, the quiescent current is 130uA (powered from the battery alone).
 
@@ -116,8 +123,8 @@ Pin D3 through D7 are JTAG interface pins. These can be used to reprogram your E
 | A0-A1 | 12-bit Analog-to-Digital (A/D) inputs (0-4095), and also digital GPIOs. A6 and A7 are code convenience mappings, which means pins are not actually labeled as such but you may use code like `analogRead(A7)`. A6 maps to the DAC pin and A7 maps to the WKP pin.|
 | B0-B5 | B0 and B1 are digital only while B2, B3, B4, B5 are 12-bit A/D inputs as well as digital GPIOs|
 | C0-C5 | Digital only GPIO |
-| VUSB | This pin internally connected to USB supply pin and will output 5V when the Electron is plugged into an USB port.|
-| Li+ | This pin is internally connected to the positive terminal of the LiPo battery. |
+| VUSB | This pin is internally connected to USB supply and will output 5V when the Electron is plugged into an USB port. It is intentionally left unpopulated. |
+| Li+ | This pin is internally connected to the positive terminal of the LiPo battery. It is intentionally left unpopulated. |
 
 ### LED Status
 
@@ -132,7 +139,7 @@ Charge status LED
 
 **Notes:**
 
-<sup>[1]</sup> A fault condition can occur due to several reasons, for example, battery over/under voltage, temperature fault or safety timer fault. You can find the root cause by reading the fault register of the power management IC.
+<sup>[1]</sup> A fault condition can occur due to several reasons, for example, battery over/under voltage, temperature fault or safety timer fault. You can find the root cause by reading the fault register of the power management IC in firmware.
 
 <sup>[2]</sup> You can stop this behavior by either plugging in the LiPo battery or by disabling the charging using the appropriate firmware command.
 
@@ -147,15 +154,20 @@ You can download a high resolution pinout diagram in a PDF version [here.](/asse
 
 ## Technical Specifications
 
-### Absolute maximum ratings <i class="icon-attention"></i>
+### Absolute maximum ratings <sup>[1]</sup> <i class="icon-attention"></i>
 
 | Parameter | Symbol | Min | Typ | Max | Unit |
 |:---|:---|:---:|:---:|:---:|:---:|
 | Supply Input Voltage | V<sub>IN-MAX</sub> |  |  | +17 | V |
 | Supply Output Current | I<sub>IN-MAX-L</sub> |  |  | 1 | A |
+| Battery Input Voltage | V<sub>LiPO</sub> |  |  | +6 | V |
 | Supply Output Current | I<sub>3V3-MAX-L</sub> |  |  | 800 | mA |
 | Storage Temperature | T<sub>stg</sub> | -30 |  | +75 | °C |
 | ESD Susceptibility HBM (Human Body Mode) | V<sub>ESD</sub> |  |  | 2 | kV |
+
+<sup>[1]</sup> Stresses beyond those listed under absolute maximum ratings may cause permanent damage to the device. These are stress ratings
+only, and functional operation of the device at these or any other conditions beyond those indicated under recommended operating
+conditions is not implied. Exposure to absolute-maximum-rated conditions for extended periods may affect device reliability.
 
 ### Recommended operating conditions <i class="icon-check"></i>
 
@@ -164,6 +176,7 @@ You can download a high resolution pinout diagram in a PDF version [here.](/asse
 | Supply Input Voltage | V<sub>IN</sub> | +3.9 |  | +12 | V |
 | Supply Output Voltage | V<sub>IN</sub> |  | +4.8 |  | V |
 | Supply Output Voltage | V<sub>3V3</sub> |  | +3.3 |  | V |
+| LiPo Battery Voltage | V<sub>LiPo</sub> |  |  | +4.4 | V |
 | Supply Input Voltage | V<sub>VBAT</sub> | +1.65 |  | +3.6 | V |
 | Supply Input Current (VBAT) | I<sub>VBAT</sub> |  |  | 19 | uA |
 | Operating Current (Cellular ON) | I<sub>IN avg</sub> |  | xx | xx | mA |
@@ -178,7 +191,7 @@ You can download a high resolution pinout diagram in a PDF version [here.](/asse
 
 ### Radio specifications
 
-The Electron is available in three different versions: A 2G version based on u-blox G350 cellular module, and two 3G versions based on U260 and U270 modules. The difference between the 3G versions is their operating frequency band which is differs based on the country. All of these cellular modules are GSM only and do not support CDMA networks.
+The Electron is available in three different versions: A 2G version based on u-blox G350 cellular module, and two 3G versions based on U260 and U270 modules. The difference between the 3G versions is their operating frequency band which differs based on the country. All of these cellular modules are GSM only and do not support CDMA networks.
 
 | Electron 3G Module  | Compatible Countries |
 | :------------------ |:---|
@@ -394,6 +407,10 @@ The micro B USB connector on the electron is soldered on the PCB with large surf
 The u.FL antenna connector is a very fragile piece of hardware ( and is fancy too with all the gold plating). The connector was not designed to be constantly plugged and unplugged. Care must be taken not to put stress on it at any time (yes, swinging the Electron by the antenna is a very bad idea, this is not your cat). The antenna pin is also the most static sensitive and you can destroy the radio with improper handling. If you are feeling adventurous, we highly recommend putting a tiny dab of glue (epoxy, rubber cement, liquid tape or hotglue) on the connector to securely hold the plug in place.
 
 <add pic here>
+
+### Breadboarding 
+
+The breadboard provided with the Electron is specifically designed to require low insertion force. This makes it easy to plug the Electron in and out of the breadboard. If you end up using a different breadboard, remember that it may require more force. In this case, always remember to pinch-hold your precious Electron by the sides (along the header pins) when plugging-unplugging and **not** by the USB connector (don't be this person).
 
 ## Default settings
 
