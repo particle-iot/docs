@@ -12,19 +12,19 @@ order: 8
 Connected devices nearly always require certifications that ensure they operate within the wireless transmission specifications determined by international regulatory bodies like the FCC and CE. This part of the guide will provide you with more information on how to leverage Particle's existing certifications to reduce the cost, complexity, and time associated with demonstrating regulatory compliance with your end product.
 
 ### Table of Contents
- - [FCC]() - United States
- - [IC]() - Canada
- - [CE]() - Europe
- - [TELEC]() - Japan
- - [RoHS]() - Europe
- - [UL]() - World
- - [Cellular]() - World
+ - [FCC](https://docs.particle.io/guide/how-to-build-a-product/certification/#fcc-img-class-inline-header-image-src-assets-images-logo-fcc-png-) - United States
+ - [IC](https://docs.particle.io/guide/how-to-build-a-product/certification/#ic-img-class-inline-header-image-src-assets-images-logo-ic-png-) - Canada
+ - [CE](https://docs.particle.io/guide/how-to-build-a-product/certification/#ce-img-class-inline-header-image-src-assets-images-logo-ce-png-) - Europe
+ - [TELEC](https://docs.particle.io/guide/how-to-build-a-product/certification/#telec-img-class-inline-header-image-src-assets-images-logo-telec-png-) - Japan
+ - [RoHS](https://docs.particle.io/guide/how-to-build-a-product/certification/#rohs-img-class-inline-header-image-src-assets-images-logo-rohs-png-) - Europe
+ - [UL](https://docs.particle.io/guide/how-to-build-a-product/certification/#ul-img-class-inline-header-image-src-assets-images-logo-ul-png-) - World
+ - [Cellular Certifications](https://docs.particle.io/guide/how-to-build-a-product/certification/#cellular-certifications) - World
 
 
 Here is a graphical representation of the current state of certification across Particle's hardware portfolio:
 
-![particle certifications table](/assets/images/particle-certifications-v4.png)
-<p class="caption">It's important to understand which certifications apply to your end product. <a target="_blank" href="/assets/images/particle-certifications-v4.png">Click here</a> for a full size image. Updated 10/23/15.</p>
+![particle certifications table](/assets/images/particle-certifications-160127.png)
+<p class="caption">It's important to understand which certifications apply to your end product. <a target="_blank" href="/assets/images/particle-certifications-160127.png">Click here</a> for a full size image. Updated 1/27/16.</p>
 
 
 ## FCC <img class="inline-header-image" src="/assets/images/logo-fcc.png"/>
