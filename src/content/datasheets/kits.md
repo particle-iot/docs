@@ -4,7 +4,7 @@ title: Particle Kits Overview
 order: 1
 columns: 3
 template: datasheet.hbs
-devices: [ photon, core ]
+devices: [ photon,electron,core ]
 ---
 
 {{#if core}}

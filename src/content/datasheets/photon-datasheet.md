@@ -5,9 +5,9 @@ columns: two
 order: 4
 ---
 
-# Photon Datasheet <sup>(v011)</sup>
+# Photon Datasheet <sup>(v012)</sup>
 
-**Model number:** PHOTONH
+**Model number:** PHOTONH, PHOTONNOH
 
 <div align=center><img src="/assets/images/photon_vector2_600.png" width=200></div>
 
@@ -232,9 +232,9 @@ When these pads are programmed to be used as a Bluetooth coexistence interface, 
 | WLAN Standards | IEEE 802 11b/g/n |
 | Antenna Port | Single Antenna |
 | Frequency Band | 2.412GHz -- 2.462GHz (United States of America and Canada) |
-| <sub></sub> | 2.412GHz -- 2.472GHz (EU) |
+| <sub></sub> | 2.412GHz -- 2.472GHz (EU/Japan) |
 | Sub Channels | 1 -- 11 (United States of America and Canada) |
-| <sub></sub> | 1 -- 13 (EU) |
+| <sub></sub> | 1 -- 13 (EU/Japan) |
 | Modulation | DSSS, CCK, OFDM, BPSK, QPSK, 16QAM, 64QAM |
 
 
@@ -409,21 +409,30 @@ Photons are available from [store.particle.io](https://store.particle.io/) in si
 
 <div align=left><img src="/assets/images/lead-free-fcc-ce.png" height=100></div>
 
--	**Model number:** PHOTONH
+**Photon with Headers**
+-	Model Number: PHOTONH
 -	RoHS
 -	CE
 -	FCC ID: 2AEMI-PHOTON
 -	IC: 20127-PHOTON
 
+**Photon without Headers**
+- Model Number: PHOTONNOH
+- RoHS
+- CE
+-	FCC ID: 2AEMI-PHOTON
+-	IC: 20127-PHOTON
+
+
 ## Product handling
 
 ### Packaging
 
-The Photon comes in two primary styles of packaging: Matchbox and Kit Box.  The Matchbox contains the bare essentials to get you started, while the kit box contains a breadboard, Micro B USB cable, sticker, prototyping card and a couple sensors to build your first internet connected project!
+The Photon comes in two primary styles of packaging: Matchbox and Kit Box.  The matchbox packaging contains the bare essentials to get you started, while the Photon Kit contains a breadboard, Micro B USB cable, sticker, prototyping card and a couple sensors to build your first Internet connected project!
 
 ![photon-packaging](https://lh3.googleusercontent.com/-E7B5bPuCIvU/VVOs6bdsAmI/AAAAAAAAA_c/5NQ5v6Rnhm0/s0/photon-packaging.png)
 
-Photons without headers are also available in JEDEC style trays for automated pick and place machines.  Request more details from us on this in the Contact section below.
+Photons without headers in matchbox packaging are also available in JEDEC style trays for automated pick and place machines.  Request more details from us on this in the Contact section below.
 
 ### Moisture sensitivity levels
 
@@ -545,6 +554,7 @@ Cet équipement devrait être installé et actionné avec une distance minimum d
 | v009 | 31-May-2015 | BW | Updated Pinouts, DAC info, Height dimensions, Solder mask info, Recommended operating conditions |
 | v010 | 1-June-2015 | BW | Updated VBAT info |
 | v011 | 24-July-2015 | BW | Added FCC IC CE Warnings and End Product Labeling Requirements, Updated power output, added approved antennas, Corrected DAC2 as A3, Added pin numbers to PCB Land Pattern for Photon without headers. |
+| v012 | 15-January-2016 | WH | Added TELEC Certification information and expanded explanation of explanation of Photons with and without headers.
 
 ## Contact
 

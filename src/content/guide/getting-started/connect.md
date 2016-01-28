@@ -2,7 +2,7 @@
 title: Connecting Your Device
 template: guide.hbs
 columns: two
-devices: [ photon, core ]
+devices: [ photon,electron,core ]
 order: 3
 ---
 
@@ -18,6 +18,8 @@ The Core and Photon both boot into listening mode by default, so if your device 
 There are a two ways to go about connecting your Photon over USB, depending on your OS.
 
 ## Using Windows
+
+An official, updated tutorial on CLI, DFU, and driver tools installation is referenced [here](http://community.particle.io/t/particle-official-windows-10-full-cli-and-dfu-setup/18309).
 
 To connect and interact with a Particle Device over USB from a Windows machine, the easiest route is to use the Particle command line interface.
 The following describes how to install the Particle CLI on your computer. If you already have Node.js installed, you can skip to [this step](#installing-the-particle-cli).

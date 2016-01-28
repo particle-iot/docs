@@ -63,6 +63,8 @@ Created by Zach Supalla.
         localStorage.setItem("lastDevice", "photon");
       } else if (currentPath.indexOf("core") > -1) {
         localStorage.setItem("lastDevice", "core");
+      } else if (currentPath.indexOf("electron") > -1) {
+        localStorage.setItem("lastDevice", "electron");
       }
     }
   };
@@ -268,6 +270,9 @@ Created by Zach Supalla.
   Docs.resultsAdded = 0;
 
   Docs.buildSearch = function() {
+    if (typeof lunr === 'undefined') {
+      return;
+    }
     lunr.Pipeline.registerFunction(Docs._removeEmptyTokens, 'removeEmptyTokens');
 
     $.getJSON('/search-index.json', function(data) {

@@ -23,6 +23,8 @@ $ npm install -g particle-cli
 $ particle login
 ```
 
+If you experience permission errors, you have two options: change the permission to npm's default directory or change npm's default directory to another directory (preferred choice on a multiuser environment). Both options are documented [here](https://docs.npmjs.com/getting-started/fixing-npm-permissions).
+
 For more advanced install instructions, see below.
 
 ### Upgrading from the Spark CLI

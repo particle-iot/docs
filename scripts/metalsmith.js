@@ -123,7 +123,7 @@ exports.metalsmith = function() {
           'inquiries'
         ]
       }
-    }))
+    }))//end of collections/sections
     .use(fork({
       key: 'devices',
       redirectTemplate: './templates/redirector.jade'
@@ -211,6 +211,7 @@ exports.metalsmith = function() {
       "/core/ifttt" : "/guide/tools-and-features/ifttt/core",
       "/core/webhooks" : "/guide/tools-and-features/webhooks/core",
       "/core/hackathon" : "/guide/getting-started/hackathon/core",
+      "/electron" : "/guide/getting-started/intro/electron",
       "/firmware" : "/reference/firmware",
       "/api" : "/reference/api",
       "/cli" : "/reference/cli",

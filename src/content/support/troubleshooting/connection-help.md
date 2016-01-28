@@ -2,7 +2,7 @@
 title: Connectivity Help
 template: support.hbs
 columns: two
-devices: [ photon, core ]
+devices: [ photon,electron,core ]
 order: 8
 ---
 

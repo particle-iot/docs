@@ -2,25 +2,41 @@
 title: Getting started
 template: guide.hbs
 columns: two
-devices: [ photon, core ]
+devices: [ photon,electron,core ]
 order: 2
 ---
 
 # Getting Started
 
-## Getting to Know You
-
 {{#if photon}}
 ![](/assets/images/photon-kit-new.jpg)
 <p class="caption">Your new Photon! Note that many components pictured will only be included if you purchased a Photon Kit</p>
 {{/if}}
-{{#if core}}![](/assets/images/core-box.jpg){{/if}}p
 
-Congratulations on being the owner of a brand new Particle Device! Go ahead and open the box. You can see the different [contents](/datasheets/kits) and check out their [hardware datasheets](/datasheets) if you like! If you have an Internet Button, read through this section to get started and connect your device, then hop over to the [Internet Button Guide](/guide/getting-started/button) for more detailed info.
+{{#if core}}
+![](/assets/images/core-box.jpg)
+{{/if}}
+
+{{#if electron}}
+![](/assets/images/electrondown.jpg)
+<p class="caption">This is a PLACEHOLDER IMAGE. NOT FINAL COPY</p>
+{{/if}}
+
+Congratulations on being the owner of a brand new Particle Device! Go ahead and open the box. You can see the different [kit add-ons](/datasheets/kits) and check out their {{#if photon}}[Photon datasheet](/datasheets/photon-datasheet/){{/if}}{{#if core}}[Core datasheet](/datasheets/core-datasheet/){{/if}}{{#if electron}}[Electron datasheet](/datasheets/electron-datasheet/){{/if}} if you like!
+
+{{#if photon}}
+If you have an Internet Button, read through this section to get started and connect your device, then hop over to the [Internet Button Guide](/guide/getting-started/button) for more detailed info.
+{{/if}}
+
+{{#if core}}
+If you have an Internet Button, read through this section to get started and connect your device, then hop over to the [Internet Button Guide](/guide/getting-started/button) for more detailed info.
+{{/if}}
 
 Let's quickly go over what you see.
 
 ### What's on it?
+
+{{#if electron}}{{{popup '**The Cellular Module.**' 'img' '/electron/schematics/ublox.png'}}}{{/if}}
 
 {{#if photon}}{{{popup '**The Wi-Fi Module.**' 'img' 'photon-module.jpg'}}}{{/if}}{{#if core}}{{{popup '**The Wi-Fi Module.**' 'img' 'core-cc3000.jpg'}}}{{/if}} This is probably why you bought your device-- the Wi-Fi module allows your Core or Photon to communicate with the internet. It connects your device to the internet in the same way that your smartphone might connect to a wifi network. {{#if photon}} **Do not press down on the Photon's module.** Doing so triggers a reset and is generally not good for the Photon. {{/if}}
 

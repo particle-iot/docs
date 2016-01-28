@@ -9,13 +9,19 @@ template: start.hbs
   <a href="/guide/getting-started/intro/photon">
     <li class="device" id="photon">
       <h3>Photon</h3>
-      <img src="assets/images/photon-new.jpg"/>
+      <img src="assets/images/photon.svg"/>
+    </li>
+  </a>
+  <a href="/guide/getting-started/intro/electron">
+    <li class="device" id="electron">
+      <h3>Electron</h3>
+      <img src="assets/images/electron.svg"/>
     </li>
   </a>
   <a href="/guide/getting-started/intro/core">
     <li class="device">
       <h3>Core</h3>
-      <img src="assets/images/core.png"/>
+      <img src="assets/images/core.svg"/>
     </li>
   </a>
 </ul>
