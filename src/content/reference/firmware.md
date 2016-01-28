@@ -610,17 +610,17 @@ void setup() {
 
 ## WiFi
 
-### WiFi.on()
+### on()
 
 `WiFi.on()` turns on the Wi-Fi module. Useful when you've turned it off, and you changed your mind.
 
 Note that `WiFi.on()` does not need to be called unless you have changed the [system mode](#system-system-modes) or you have previously turned the Wi-Fi module off.
 
-### WiFi.off()
+### off()
 
 `WiFi.off()` turns off the Wi-Fi module. Useful for saving power, since most of the power draw of the device is the Wi-Fi module.
 
-### WiFi.connect()
+### connect()
 
 Attempts to connect to the Wi-Fi network. If there are no credentials stored, this will enter listening mode. If there are credentials stored, this will try the available credentials until connection is successful. When this function returns, the device may not have an IP address on the LAN; use `WiFi.ready()` to determine the connection status.
 
@@ -629,7 +629,7 @@ Attempts to connect to the Wi-Fi network. If there are no credentials stored, th
 WiFi.connect();
 ```
 
-### WiFi.disconnect()
+### disconnect()
 
 Disconnects from the Wi-Fi network, but leaves the Wi-Fi module on.
 
@@ -638,7 +638,7 @@ Disconnects from the Wi-Fi network, but leaves the Wi-Fi module on.
 WiFi.disconnect();
 ```
 
-### WiFi.connecting()
+### connecting()
 
 This function will return `true` once the device is attempting to connect using stored Wi-Fi credentials, and will return `false` once the device has successfully connected to the Wi-Fi network.
 
@@ -647,7 +647,7 @@ This function will return `true` once the device is attempting to connect using 
 WiFi.connecting();
 ```
 
-### WiFi.ready()
+### ready()
 
 This function will return `true` once the device is connected to the network and has been assigned an IP address, which means that it's ready to open TCP sockets and send UDP datagrams. Otherwise it will return `false`.
 
@@ -657,7 +657,7 @@ WiFi.ready();
 ```
 
 {{#if photon}}
-### WiFi.selectAntenna()
+### selectAntenna()
 
 Selects which antenna the device should connect to WiFi with and remembers that
 setting until it is changed.
@@ -706,7 +706,7 @@ void loop() {
 
 {{/if}}
 
-### WiFi.listen()
+### listen()
 
 This will enter or exit listening mode, which opens a Serial connection to get Wi-Fi credentials over USB, and also listens for credentials over
 {{#if core}}Smart Config{{/if}}{{#if photon}}Soft AP{{/if}}.
@@ -729,7 +729,7 @@ WiFi.listen(false);
 
 
 
-### WiFi.listening()
+### listening()
 
 ```cpp
 // SYNTAX
@@ -754,7 +754,7 @@ It will return `false` when the device is not in listening mode.
 {{/if}}
 
 
-### WiFi.setCredentials()
+### setCredentials()
 
 Allows the application to set credentials for the Wi-Fi network from within the code. These credentials will be added to the device's memory, and the device will automatically attempt to connect to this network in the future.
 
@@ -789,7 +789,7 @@ WiFi.setCredentials("SSID", "PASSWORD", WPA2, WLAN_CIPHER_AES));
 ```
 {{/if}}
 
-### WiFi.getCredentials()
+### getCredentials()
 
 Lists the Wi-Fi credentials stored on the device. Returns the number of stored credentials.
 
@@ -819,7 +819,7 @@ for (int i = 0; i < found; i++) {
 
 {{/if}}
 
-### WiFi.clearCredentials()
+### clearCredentials()
 
 This will clear all saved credentials from the WiFi module's memory. This will return `true` on success and `false` if the WiFi module has an error.
 
@@ -828,7 +828,7 @@ This will clear all saved credentials from the WiFi module's memory. This will r
 WiFi.clearCredentials();
 ```
 
-### WiFi.hasCredentials()
+### hasCredentials()
 
 Will return `true` if there are Wi-Fi credentials stored in the WiFi module's memory.
 
@@ -837,7 +837,7 @@ Will return `true` if there are Wi-Fi credentials stored in the WiFi module's me
 WiFi.hasCredentials();
 ```
 
-### WiFi.macAddress()
+### macAddress()
 
 `WiFi.macAddress()` returns the MAC address of the device.
 
@@ -891,11 +891,11 @@ void setup() {
 void loop() {}
 ```
 
-### WiFi.SSID()
+### SSID()
 
 `WiFi.SSID()` returns the SSID of the network the device is currently connected to as a `char*`.
 
-### WiFi.BSSID()
+### BSSID()
 
 `WiFi.BSSID()` retrives the 6-byte MAC address of the access point the device is currently connected to.
 
@@ -910,7 +910,7 @@ void setup() {
 }
 
 
-### WiFi.RSSI()
+### RSSI()
 
 `WiFi.RSSI()` returns the signal strength of a Wifi network from from -127 to -1dB as an `int`. Positive return values indicate an error with 1 indicating a WiFi chip error and 2 indicating a time-out error.
 
@@ -919,7 +919,7 @@ void setup() {
 WiFi.RSSI();
 ```
 
-### WiFi.ping()
+### ping()
 
 `WiFi.ping()` allows you to ping an IP address and returns the number of packets received as an `int`. It takes two forms:
 
@@ -927,7 +927,7 @@ WiFi.RSSI();
 
 `WiFi.ping(IPAddress remoteIP, uint8_t nTries)` and pings that address a specified number of times.
 
-### WiFi.scan()
+### scan()
 
 Returns information about access points within range of the device.
 
@@ -1034,7 +1034,7 @@ const char* ssid = strongestFinder.scan();
 ```
 
 
-### WiFi.localIP()
+### localIP()
 
 `WiFi.localIP()` returns the local IP address assigned to the device as an `IPAddress`.
 
@@ -1049,7 +1049,7 @@ void setup() {
 }
 ```
 
-### WiFi.subnetMask()
+### subnetMask()
 
 `WiFi.subnetMask()` returns the subnet mask of the network as an `IPAddress`.
 
@@ -1064,7 +1064,7 @@ void setup() {
 }
 ```
 
-### WiFi.gatewayIP()
+### gatewayIP()
 
 `WiFi.gatewayIP()` returns the gateway IP address of the network as an `IPAddress`.
 
@@ -1079,7 +1079,7 @@ void setup() {
 }
 ```
 
-### WiFi.dnsServerIP()
+### dnsServerIP()
 
 `WiFi.dnsServerIP()` retrieves the IP address of the DNS server that resolves
 DNS requests for the device's network connection.
@@ -1088,7 +1088,7 @@ Note that for this value to be available requires calling `Particle.process()` a
 has connected.
 
 
-### WiFi.dhcpServerIP()
+### dhcpServerIP()
 
 `WiFi.dhcpServerIP()` retrieves the IP address of the DHCP server that manages
 the IP address used by the device's network connection.
@@ -1099,7 +1099,7 @@ has connected.
 
 {{#if photon}}
 
-### WiFi.setStaticIP()
+### setStaticIP()
 
 Defines the static IP addresses used by the system to connect to the network when static IP is activated.
 
@@ -1123,14 +1123,14 @@ The addresses are stored persistently so that they are available in all subseque
 application and also in safe mode.
 
 
-### WiFi.useStaticIP()
+### useStaticIP()
 
 Instructs the system to connect to the network using the IP addresses provided to
 `WiFi.setStaticIP()`
 
 The setting is persistent and is remembered until `WiFi.useDynamicIP()` is called.
 
-### WiFi.useDynamicIP()
+### useDynamicIP()
 
 Instructs the system to connect to the network using a dynamically allocated IP
 address from the router.
@@ -3391,9 +3391,7 @@ udp.leaveMulticast(multicastAddress);
 {{/if}}
 
 
-## Libraries
-
-### Servo
+## Servo
 
 This library allows your device to control RC (hobby) servo motors. Servos have integrated gears and a shaft that can be precisely controlled. Standard servos allow the shaft to be positioned at various angles, usually between 0 and 180 degrees. Continuous rotation servos allow the rotation of the shaft to be set to various speeds.
 
@@ -3511,7 +3509,7 @@ servo.setTrim(0);
 ```
 
 
-### RGB
+## RGB
 
 This library allows the user to control the RGB LED on the front of the device.
 
@@ -3652,7 +3650,7 @@ ExternalRGB myRGB(D0, D1, D2);
 ```
 
 
-### Time
+## Time
 
 The device synchronizes time with the Particle Cloud during the handshake.
 From then, the time is continually updated on the device.
@@ -3953,13 +3951,6 @@ Time.format(Time.now(), "Now it's %I:%M%p.");
 
 Retrieves the currently configured format string for time formatting with `format()`.
 
-
-## Other Functions
-
-Note that most of the functions in newlib described at https://sourceware.org/newlib/libc.html are available for use in addition to the functions outlined below.
-
-Time
----
 
 ### millis()
 
@@ -4939,7 +4930,9 @@ when new `retained` variables are added to the end of the list, or when they are
 
 {{/if}}
 
-## STARTUP()
+## Macros
+
+### STARTUP()
 
 _Since 0.4.5_
 
@@ -5035,8 +5028,8 @@ void handle_all_the_events(system_event_t event, int param)
 
 void setup()
 {
-	// listen for network events and firmware update events
-	System.on(network_status+firmware_update, handle_all_the_events);
+	// listen for wifi listen events and firmware update events
+	System.on(wifi_listen+firmware_update, handle_all_the_events);
 }
 ```
 
@@ -5060,7 +5053,6 @@ These are the system events produced by the system, their numeric value (what yo
 | setup_update | 4 | periodic event signalling the device is still in setup mode. | milliseconds since setup mode was started |
 | setup_end | 8 | signals setup mode was exited | time in ms since setup mode was started |
 | network_credentials | 16 | network credentials were changed | `network_credentials_added` or `network_credentials_cleared` |
-| network_status | 32 | network connection state changes | one of `network_status_powering_off` `network_status_off` `network_status_powering_on` `network_status_on` `network_status_conneecting` `network_status_connected`       `network_status_preparing`       `network_status_ready`           `network_status_disconnecting` |
  | button_status | 128 | button pressed or releasesed | the duration in ms the button was pressed: 0 when pressed, >0 on release. |
  | firmware_update | 256 | firmwarwe update status | one of `firmware_update_begin`, `firmware_update_progress`, `firmware_update_complete`, `firmware_update_failed` |
  | firmware_update_pending | 512 | notifies the application that a firmware update is available. This event is sent even when updates are disabled, giving the application chance to re-enable firmware updates with `System.enableUpdates()` | not used |
@@ -5369,9 +5361,7 @@ Typically this is waiting for something that the system is doing,
 such as waiting for WiFi to be ready or the cloud to be connected.
 
 
-{{/if}}
-
-## `waitUntil`
+#### `waitUntil`
 
 Sometimes you want your application  to wait until the system is in a given state.
 
@@ -5400,9 +5390,11 @@ only for a period of time, we can use `waitFor`
     waitUntil(WiFi.ready);
 ```
 
+{{/if}}
+
 ## System Calls
 
-### System.version()
+### version()
 
 _Since 0.4.7_
 
@@ -5426,7 +5418,7 @@ void setup()
 
 ```
 
-### System.versionNumber()
+### versionNumber()
 
 Determines the version of system firmware available. Returns the version encoded
 as a number:
@@ -5468,7 +5460,7 @@ to a second. For longer time periods, using [micros()](#micros-) or [millis()](#
 be more suitable.
 
 
-#### System.ticks()
+#### ticks()
 
 Returns the current value of the system tick count. One tick corresponds to
 one cpu cycle.
@@ -5479,7 +5471,7 @@ one cpu cycle.
 
 ```
 
-#### System.ticksPerMicrosecond();
+#### ticksPerMicrosecond();
 
 Retrieves the number of ticks per microsecond for this device. This is useful
 when converting between a number of ticks and time in microseconds.
@@ -5495,7 +5487,7 @@ when converting between a number of ticks and time in microseconds.
 
 ```
 
-#### System.ticksDelay()
+#### ticksDelay()
 
 Pause execution a given number of ticks. This can be used to implement precise
 delays.
@@ -5516,7 +5508,7 @@ at compile time and inline the function calls, reducing overhead to a minimum.
 
 
 
-### System.freeMemory()
+### freeMemory()
 
 *Since v0.4.4.*
 
@@ -5530,7 +5522,7 @@ Serial.println(freemem);
 
 
 
-### System.factoryReset()
+### factoryReset()
 
 This will perform a factory reset and do the following:
 
@@ -5542,7 +5534,7 @@ This will perform a factory reset and do the following:
 System.factoryReset()
 ```
 
-### System.dfu()
+### dfu()
 
 The device will enter DFU-mode to allow new user firmware to be refreshed. DFU mode is cancelled by
 - flashing firmware to the device using dfu-util, specifying the `:leave` option, or
@@ -5560,7 +5552,7 @@ System.dfu(true);   // persistent DFU mode - will enter DFU after a reset until 
 ```
 
 
-### System.deviceID()
+### deviceID()
 
 `System.deviceID()` provides an easy way to extract the device ID of your device. It returns a [String object](#data-types-string-object) of the device ID, which is used to identify your device.
 
@@ -5582,7 +5574,7 @@ void setup()
 void loop() {}
 ```
 
-### System.enterSafeMode()
+### enterSafeMode()
 
 _Since 0.4.6_
 
@@ -5595,7 +5587,7 @@ System.enterSafeMode();
 Resets the device and restarts in safe mode.
 
 
-### System.sleep() [ Sleep ]
+### sleep() [ Sleep ]
 
 `System.sleep()` can be used to dramatically improve the battery life of a Particle-powered project by temporarily deactivating the Wi-Fi module, which is by far the biggest power draw.
 
@@ -5713,7 +5705,7 @@ System.sleep(int millis, array peripherals);
 <!-- TO DO -->
 <!-- Add example implementation here -->
 
-### System.reset()
+### reset()
 
 Resets the device, just like hitting the reset button or powering down and back up.
 
@@ -7655,6 +7647,10 @@ for (int i = 0; i < arraySize(myPins); i++) {
   Serial.println(myPins[i]);
 }
 ```
+
+## Other Functions
+
+Note that most of the functions in newlib described at [https://sourceware.org/newlib/libc.html](https://sourceware.org/newlib/libc.html) are available for use in addition to the functions outlined above.
 
 ## Preprocessor
 
