@@ -6,31 +6,21 @@ window.onload = function() {
 
 function ha (e,id){
 	var indexValue = e.target.options[e.target.selectedIndex].value;
-	console.log(index);
+	//console.log(index);
 	// if (e.target.selectedIndex == ""
-// 	document.getElementById(id).selectedIndex = index;
+	//document.getElementById(secondmenu).selectedIndex = index;
 
 	switch(indexValue) {
-		case "1":
-			indexValue = subjOptions.op1;
+		case "AA":
 			break;
-		case "2":
-			indexValue = subjOptions.op2;
+		case "BB":
+			//indexValue = "BB";
 			break;
-		case "3":
-			indexValue = subjOptions.op3;
+		case "CC":
+			//indexValue = "CC";
 			break;
-		case "4":
-			indexValue = subjOptions.op4;
-			break;
-		case "5":
-			indexValue = subjOptions.op5;
-			break;
-		case "6":
-			indexValue = subjOptions.op6;
-			break;
-		case "7":
-			indexValue = subjOptions.op7;
+		case "DD":
+			//indexValue = "DD";
 			break;
 	}//end of Switch case statement
 }
@@ -61,7 +51,7 @@ $(document).ready(function() {
 		  				comments: datax.comments,
 		  				urlFrom: window.location.pathname
 						};//object
-						
+
 ///TEST VERSION IN LOCAL HOST
 		//Post to Heroku App TEST VERSION IN LOCAL HOST
 		$.ajax({
