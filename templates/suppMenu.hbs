@@ -76,48 +76,49 @@
               <legend>Do you have a different question?</legend>
 
               <select id="category" name="category" class="feedback-input" required="required">
-                <option value="" disabled selected> Please select a Category</option>
-                <option value="AA">Logistics</option>
-                <option value="BB">Technical Help</option>
-                <option value="CC">Service</option>
-                <option value="DD">Billing</option>
+                <option disabled selected> Please select a Category</option>
+                <option>Logistics</option>
+                <option>Technical Help</option>
+                <option>Service</option>
+                <option>Billing</option>
               </select>
-              
-              <select id="secondmenu" name="subOptions">
-                <option value="--">--</option>
-                <option value="1">Something wrong with shopping cart</option>
-                <option value="2">Where is my order?</option>
-                <option value="3">Where is my Electron?</option>
-                <option value="4">Update my Address</option>
-                <option value="5">I may need a refund</option>
-                <option value="6">Business Inquiry</option>
 
-                <option value="7">Help claiming a device</option>
-                <option value="8">Troubleshooting the P0/P1</option>
-                <option value="9">Troubleshooting the Photon</option>
-                <option value="10">Troubleshooting the Electron</option>
-                <option value="11">Troubleshooting the CORE</option>
-                <option value="12">Building a product on Particle</option>
-                <option value="13">A particle shield/kit/accessory</option>
-                <option value="14">Particle Dashboard</option>
-                <option value="15">Other technical question</option>
+              <select id="secondmenu" name="subOptions" class="feedback-input" required="required"></select>
 
-                <option value="16">What is the cellular coverage?</option>
-                <option value="17">What is my data cap?</option>
-                <option value="18">Is there a cellular outage?</option>
-                <option value="19">Using a non-Particle SIM card</option>
-                <option value="20">Can I cancel my SIM card/account?</option>
-                <option value="21">Is the Particle Cloud down?</option>
-                <option value="22">A Particle shield, kit, or accessory</option>
+              <script>
+              jQuery(function($) {
+                  var secondmenus = {
+                      'Logistics': ['Something wrong with shopping cart', 'Where is my order?', 'Where is my Electron?',
+                                  'Update my Address', 'I may need a refund', 'Business Inquiry'],
+                      'Technical Help': ['Help claiming a device', 'Troubleshooting the P0/P1', 'Troubleshooting the Photon',
+                                        'Troubleshooting the Electron', 'Troubleshooting the Core', 'Building a product on Particle',
+                                        'A particle shield/kit/accessory', 'Particle Dashboard', 'Other technical question'],
+                      'Service': ['What is the cellular coverage?', 'What is my data cap?', 'Is there a cellular outage?',
+                                  'Using a non-Particle SIM card', 'Is the Particle Cloud down?'],
+                      'Billing': ['What am I being charged for?', 'Why am I being charged monthly?', 'What is my data limit + cost?',
+                                  'How do I update my credit card?', 'I may need a refund on my data', 'I may need a refund on the dashboard',
+                                  'Other billing questions']
+                  }
 
-                <option value="23">What am I being charged for?</option>
-                <option value="24">Why am I being charged monthly</option>
-                <option value="25">What is my data limit + cost?</option>
-                <option value="26">How do I update my credit card?</option>
-                <option value="27">I may need a refund on my data</option>
-                <option value="28">I may need a refund on the dashboard</option>
-                <option value="29">Other billing question</option>
-              </select>
+                  var $secondmenus = $('#secondmenu');
+                  $('#category').change(function () {
+                      var category = $(this).val(), lcns = secondmenus[category] || [];
+
+                      var html = $.map(lcns, function(lcn){
+                          return '<option value="' + lcn + '">' + lcn + '</option>'
+                      }).join('');
+                      $secondmenus.html(html)
+                  });
+
+                  $('#secondmenu').change(function () {
+                    var ggo = $(this).val();
+                    console.log(ggo);
+                  });
+
+              })
+              </script>
+
+
               <br/>
 
               <p class="name">

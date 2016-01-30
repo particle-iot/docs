@@ -1,32 +1,3 @@
-window.onload = function() {
-
-	document.getElementById("category").addEventListener('change',function(e) {ha(e,'secondmenu');}, false);
-	//document.getElementById("secondmenu").addEventListener('change',function(e) {ha(e,'category');}, false);
-};
-
-function ha (e,id){
-	var indexValue = e.target.options[e.target.selectedIndex].value;
-	//console.log(index);
-	// if (e.target.selectedIndex == ""
-	//document.getElementById(secondmenu).selectedIndex = index;
-
-	switch(indexValue) {
-		case "AA":
-			break;
-		case "BB":
-			//indexValue = "BB";
-			break;
-		case "CC":
-			//indexValue = "CC";
-			break;
-		case "DD":
-			//indexValue = "DD";
-			break;
-	}//end of Switch case statement
-}
-
-
-
 $(document).ready(function() {
 	$("#form1").on("submit", function(e) {
 		e.preventDefault();
