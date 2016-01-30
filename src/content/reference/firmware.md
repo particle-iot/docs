@@ -791,6 +791,8 @@ WiFi.setCredentials("SSID", "PASSWORD", WPA2, WLAN_CIPHER_AES));
 
 ### getCredentials()
 
+*Since 0.4.9.*
+
 Lists the Wi-Fi credentials stored on the device. Returns the number of stored credentials.
 
 {{#if core}}
