@@ -67,6 +67,12 @@ Your device MAC address is
 
 Note that this does not work on unboxed photons unless they have firmware updated manually (e.g. via `particle update`)
 
+### Get Device ID [deviceID] CLI method
+_Using the Particle CLI_
+* Put your device into [Listening Mode](/guide/getting-started/modes/photon/#listening-mode) mode while being plugged into a computer via USB
+* Issue `particle serial identify` from the [particle CLI](https://github.com/spark/particle-cli)
+	and it should return the deviceID.
+
 ### Get Device ID
 
 To display the device ID of your Core or Photon, type `i`

@@ -66,7 +66,7 @@ describe('Crawler', function() {
       if (error || (statusCode !== 200 && statusCode !== 429)) {
         var msg = util.format('%s ON %s CONTENT %s LINKS TO %s', error || statusCode, fromUrl, content, toUrl);
 
-        var timedOut = error && error.code === 'ETIMEDOUT';
+        var timedOut = error && (error.code === 'ETIMEDOUT' || error.code === 'ESOCKETTIMEDOUT');
         var isGithubEditLink = isExternal && toUrl.indexOf('https://github.com/spark/docs/tree/master/src/content') === 0;
         if ((isExternal && Math.floor(statusCode / 100) === 5) ||
             (isExternal && timedOut) ||
