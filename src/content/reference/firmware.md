@@ -5247,7 +5247,7 @@ void setup()
 {
 	// the system thread isn't busy so these synchronous functions execute quickly
     Particle.subscribe("event", handler);
-	Partible.publish("myvar", myvar);
+	Particle.publish("myvar", myvar);
 	Particle.connect();    // <-- now connect to the cloud, which ties up the system thread
 }
 ```
