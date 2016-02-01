@@ -38,13 +38,14 @@ Blinking an LED is the ["Hello World"](http://en.wikipedia.org/wiki/Hello_world_
 
 ### Setup
 
-Connect everything together as shown in the image below. The negative (shorter) pin of the LED is connected to ground via a resistor and the positive (longer) pin is connected to D0.
+Connect everything together as shown in the image below. The negative (shorter) pin of the LED is connected to ground via a resistor and the positive (longer) pin is connected to {{#unless electron}}D0.{{/unless}}{{#if electron}}D6.{{/if}}
 
-![One LED illustration](/assets/images/photon-led-fritzing.png)
+{{#unless electron}}![One LED illustration](/assets/images/photon-led-fritzing.png){{/unless}}
+{{#if electron}}![One LED illustration](/assets/images/electron/illustrations/electron-blink-led.png){{/if}}
 
 Next, we're going to load code onto your core. Copy and paste this code into a new application on http://build.particle.io or on Particle Dev. We've heavily commented this code so that you can see what is going on in each line.
 
-Go ahead and save this application, then flash it to your Core or Photon. You should be able to see that LED blinking away!
+Go ahead and save this application, then flash it to your {{#unless electron}}Core or Photon{{/unless}}{{#if electron}}Electron{{/if}}. You should be able to see that LED blinking away!
 
 ### Code
 
@@ -68,7 +69,7 @@ loop - runs continuously over and over
 You'll see how we use these in a second. 
 
 This program will blink an led on and off every second.
-It blinks the D7 LED on your Particle device. If you have an LED wired to D0, it will blink that LED as well.
+It blinks the D7 LED on your Particle device. If you have an LED wired to {{#unless electron}}D0{{/unless}}{{#if electron}}D6{{/if}}, it will blink that LED as well.
 
 -------------*/
 
@@ -76,7 +77,7 @@ It blinks the D7 LED on your Particle device. If you have an LED wired to D0, it
 // First, we're going to make some variables.
 // This is our "shorthand" that we'll use throughout the program:
 
-int led1 = D0; // Instead of writing D0 over and over again, we'll write led1
+int led1 = {{#unless electron}}D0{{/unless}}{{#if electron}}D6{{/if}}; // Instead of writing {{#unless electron}}D0{{/unless}}{{#if electron}}D6{{/if}} over and over again, we'll write led1
 // You'll need to wire an LED to this one to see it blink.
 
 int led2 = D7; // Instead of writing D7 over and over again, we'll write led2
@@ -88,7 +89,7 @@ int led2 = D7; // Instead of writing D7 over and over again, we'll write led2
 
 void setup() {
 
-  // We are going to tell our device that D0 and D7 (which we named led1 and led2 respectively) are going to be output
+  // We are going to tell our device that {{#unless electron}}D0{{/unless}}{{#if electron}}D6{{/if}} and D7 (which we named led1 and led2 respectively) are going to be output
   // (That means that we will be sending voltage to them, rather than monitoring voltage that comes from them)
 
   // It's important you do this here, inside the setup() function rather than outside it or in the loop function.
@@ -138,9 +139,10 @@ We've heavily commented the code below so that you can see what's going on. Basi
 
 ### Setup
 
-As in the previous example, connect everything together as shown in the image below. The negative (shorter) pin of the LED is connected to ground via a resistor and the positive (longer) pin is connected to D0.
+As in the previous example, connect everything together as shown in the image below. The negative (shorter) pin of the LED is connected to ground via a resistor and the positive (longer) pin is connected to {{#unless electron}}D0{{/unless}}{{#if electron}}D6{{/if}}.
 
-![One LED illustration](/assets/images/photon-led-fritzing.png)
+{{#unless electron}}![One LED illustration](/assets/images/photon-led-fritzing.png){{/unless}}
+{{#if electron}}![One LED illustration](/assets/images/electron/illustrations/electron-blink-led.png){{/if}}
 
 ### Code
 
@@ -152,9 +154,9 @@ As in the previous example, connect everything together as shown in the image be
 
 // First, let's create our "shorthand" for the pins
 // Same as in the Blink an LED example:
-// led1 is D0, led2 is D7
+// led1 is {{#unless electron}}D0{{/unless}}{{#if electron}}D6{{/if}}, led2 is D7
 
-int led1 = D0;
+int led1 = {{#unless electron}}D0{{/unless}}{{#if electron}}D6{{/if}};
 int led2 = D7;
 
 // Last time, we only needed to declare pins in the setup function.
@@ -328,7 +330,7 @@ Copy and paste the following code into your [online IDE](http://build.particle.i
 
 // We're going to start by declaring which pins everything is plugged into.
 
-int led = D0; // This is where your LED is plugged in. The other side goes to a resistor connected to GND.
+int led = {{#unless electron}}D0{{/unless}}{{#if electron}}D6{{/if}}; // This is where your LED is plugged in. The other side goes to a resistor connected to GND.
 
 int photoresistor = A0; // This is where your photoresistor is plugged in. The other side goes to the "power" pin (below).
 
@@ -500,7 +502,7 @@ Ensure that the short end of the LED is plugged into `GND` and that the LED and 
 
 // Just like before, we're going to start by declaring which pins everything is plugged into.
 
-int led = D0; // This is where your LED is plugged in. The other side goes to a resistor connected to GND.
+int led = {{#unless electron}}D0{{/unless}}{{#if electron}}D6{{/if}}; // This is where your LED is plugged in. The other side goes to a resistor connected to GND.
 int boardLed = D7; // This is the LED that is already on your device.
 // On the Core, it's the LED in the upper right hand corner.
 // On the Photon, it's next to the D7 pin.
@@ -714,7 +716,7 @@ You and your buddy will both publish an event, and listen for each others events
 ------------------------------------------*/
 
 
-int led = D0;
+int led = {{#unless electron}}D0{{/unless}}{{#if electron}}D6{{/if}};
 int boardLed = D7;
 int photoresistor = A0;
 int power = A5;
