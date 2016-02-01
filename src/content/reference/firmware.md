@@ -458,7 +458,7 @@ void loop() {
 }
 ```
 
-While this function will disconnect from the Cloud, it will keep the connection to the Wi-Fi network. If you would like to completely deactivate the Wi-Fi module, use [`WiFi.off()`](#wifi-off).
+While this function will disconnect from the Cloud, it will keep the connection to the {{#unless electron}}Wi-Fi network. If you would like to completely deactivate the Wi-Fi module, use [`WiFi.off()`](#wifi-off).{{/unless}}{{#if electron}}Cellular network. If you would like to completely deactivate the Cellular module, use [`Cellular.off()`](#cellular-off).{{/if}}
 
 **NOTE:* When the device is disconnected, many features are not possible, including over-the-air updates, reading Particle.variables, and calling Particle.functions.
 
@@ -497,7 +497,7 @@ Runs the background loop. This is the public API for the former internal functio
 and processes any messages that have come in. It also sends keep-alive pings to the Cloud,
 so if it's not called frequently, the connection to the Cloud may be lost.
 
-Even in non-cloud-bound applications it can still be advisable to call `Particle.process()` to explicitly provide some processor time to the WiFi module (e.g. immediately after `WiFi.ready()` to update system variables).
+Even in non-cloud-bound applications it can still be advisable to call `Particle.process()` to explicitly provide some processor time to the {{#unless electron}}Wi-Fi module (e.g. immediately after `WiFi.ready()` to update system variables).{{/unless}}{{#if electron}}Cellular module (e.g. immediately after `Cellular.ready()` to update system variables).{{/if}}
 
 ```cpp
 void setup() {
@@ -516,7 +516,7 @@ void redundantLoop() {
 }
 ```
 
-`Particle.process()` is a blocking call, and blocks for a few milliseconds. `Particle.process()` is called automatically after every `loop()` and during delays. Typically you will not need to call `Particle.process()` unless you block in some other way and need to maintain the connection to the Cloud, or you change the [system mode](#system-system-modes). If the user puts the device into `MANUAL` mode, the user is responsible for calling `Particle.process()`. The more frequently this function is called, the more responsive the device will be to incoming messages, the more likely the Cloud connection will stay open, and the less likely that the WiFi module's buffer will overrun.
+`Particle.process()` is a blocking call, and blocks for a few milliseconds. `Particle.process()` is called automatically after every `loop()` and during delays. Typically you will not need to call `Particle.process()` unless you block in some other way and need to maintain the connection to the Cloud, or you change the [system mode](#system-system-modes). If the user puts the device into `MANUAL` mode, the user is responsible for calling `Particle.process()`. The more frequently this function is called, the more responsive the device will be to incoming messages, the more likely the Cloud connection will stay open, and the less likely that the Wi-Fi module's buffer will overrun.
 
 ### Particle.syncTime()
 
@@ -608,6 +608,7 @@ void setup() {
 }
 ```
 
+{{#unless electron}}
 ## WiFi
 
 ### on()
@@ -659,7 +660,7 @@ WiFi.ready();
 {{#if photon}}
 ### selectAntenna()
 
-Selects which antenna the device should connect to WiFi with and remembers that
+Selects which antenna the device should connect to Wi-Fi with and remembers that
 setting until it is changed.
 
 ```cpp
@@ -821,7 +822,7 @@ for (int i = 0; i < found; i++) {
 
 ### clearCredentials()
 
-This will clear all saved credentials from the WiFi module's memory. This will return `true` on success and `false` if the WiFi module has an error.
+This will clear all saved credentials from the Wi-Fi module's memory. This will return `true` on success and `false` if the Wi-Fi module has an error.
 
 ```cpp
 // SYNTAX
@@ -830,7 +831,7 @@ WiFi.clearCredentials();
 
 ### hasCredentials()
 
-Will return `true` if there are Wi-Fi credentials stored in the WiFi module's memory.
+Will return `true` if there are Wi-Fi credentials stored in the Wi-Fi module's memory.
 
 ```cpp
 // SYNTAX
@@ -912,7 +913,7 @@ void setup() {
 
 ### RSSI()
 
-`WiFi.RSSI()` returns the signal strength of a Wifi network from from -127 to -1dB as an `int`. Positive return values indicate an error with 1 indicating a WiFi chip error and 2 indicating a time-out error.
+`WiFi.RSSI()` returns the signal strength of a Wi-Fi network from from -127 to -1dB as an `int`. Positive return values indicate an error with 1 indicating a Wi-Fi chip error and 2 indicating a time-out error.
 
 ```cpp
 // SYNTAX
@@ -936,7 +937,7 @@ array of `WiFiAccessPoint` instances, and the call to `WiFi.scan()` fills out th
 If there are more APs detected than will fit in the array, they are dropped.
 
 ```cpp
-// EXAMPLE - retrieve up to 20 WiFI APs
+// EXAMPLE - retrieve up to 20 Wi-Fi APs
 
 WiFiAccessPoint aps[20];
 int found = WiFi.scan(aps, 20);
@@ -1013,7 +1014,7 @@ class FindStrongestSSID
 public:
 
     /**
-     * Scan WiFi Access Points and retrieve the strongest one.
+     * Scan Wi-Fi Access Points and retrieve the strongest one.
      */
     const char* scan()
     {
@@ -1140,7 +1141,11 @@ by the system after calling `WiFi.useDynamicIP()`, and so are available for use 
 is called, without needing to be reconfigured using `WiFi.setStaticIP()`
 
 {{/if}}
+{{/unless}}
 
+{{#if electron}}
+## Cellular
+{{/if}}
 
 ## Input/Output
 
@@ -5028,7 +5033,7 @@ void handle_all_the_events(system_event_t event, int param)
 
 void setup()
 {
-	// listen for wifi listen events and firmware update events
+	// listen for Wi-Fi Listen events and Firmware Update events
 	System.on(wifi_listen+firmware_update, handle_all_the_events);
 }
 ```
@@ -5233,7 +5238,7 @@ Synchronous system functions always block the caller until the system has perfor
 - `Particle.subscribe()`
 - `Particle.publish()`
 
-For example, when the system is busy connecting to WiFi or establishing the cloud connection and the application calls `Particle.variable()` then the application will be blocked until the system finished connecting to the cloud (or gives up) so that it is free to service the `Particle.variable()` function call.
+For example, when the system is busy connecting to Wi-Fi or establishing the cloud connection and the application calls `Particle.variable()` then the application will be blocked until the system finished connecting to the cloud (or gives up) so that it is free to service the `Particle.variable()` function call.
 
 This presents itself typically in automatic mode and where `setup()` registers functions, variables or subscriptions. Even though the application thread is running `setup()` independently of the system thread, calling synchronous functions will cause the application to block until the system thread has finished connecting to the cloud. This can be avoided by delaying the cloud connection until after the synchronous functions have been called.
 
@@ -5358,7 +5363,7 @@ The `TRY_LOCK()` statement functions similarly to `WITH_LOCK()` but it does not 
 
 The [waitUntil](#waituntil) function can be used to wait for something to happen.
 Typically this is waiting for something that the system is doing,
-such as waiting for WiFi to be ready or the cloud to be connected.
+such as waiting for Wi-Fi to be ready or the cloud to be connected.
 
 
 #### `waitUntil`
@@ -5386,7 +5391,7 @@ only for a period of time, we can use `waitFor`
 `WiFi.ready` is another common event to wait for.
 
 ```cpp
-    // wait until WiFi is ready
+    // wait until Wi-Fi is ready
     waitUntil(WiFi.ready);
 ```
 
@@ -5527,7 +5532,7 @@ Serial.println(freemem);
 This will perform a factory reset and do the following:
 
 - Restore factory reset firmware from external flash (tinker)
-- Erase WiFi profiles
+- Erase Wi-Fi profiles
 - Enter Listening mode upon completion
 
 ```cpp
@@ -5604,7 +5609,7 @@ System.sleep(5);
 // The device LED will breathe white during sleep
 ```
 
-_Since 0.4.5._ The state of WiFi and Cloud connections is restored when the system wakes up from sleep.
+_Since 0.4.5._ The state of Wi-Fi and Cloud connections is restored when the system wakes up from sleep.
 So if the device was connected to the cloud before sleeping, then the cloud connection
 is automatically resumed on waking up.
 
@@ -5628,7 +5633,7 @@ System.sleep(SLEEP_MODE_DEEP, long seconds);
 System.sleep(SLEEP_MODE_DEEP,60);
 // The device LED will shut off during deep sleep
 ```
-The device will automatically *wake up* and reestablish the WiFi connection after the specified number of seconds.
+The device will automatically *wake up* and reestablish the Wi-Fi connection after the specified number of seconds.
 
 `System.sleep(uint16_t wakeUpPin, uint16_t edgeTriggerMode)` can be used to put the entire device into a *stop* mode with *wakeup on interrupt*. In this particular mode, the device shuts down the Wi-Fi chipset and puts the microcontroller in a stop mode with configurable wakeup pin and edge triggered interrupt. When the specific interrupt arrives, the device awakens from stop mode, it will behave as if the device is reset and run all user code from the beginning with no values being maintained in memory from before the stop mode.
 
