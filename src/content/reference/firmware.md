@@ -743,7 +743,7 @@ It will always return `false`.
 {{#if photon}}
 Right now, this command is not useful, always returning `false`, because listening mode blocks application code.
 
-This command becomes useful on the Photon when system code runs as a separate RTOS task from application code.
+This command becomes useful on the Photon and Electron when system code runs as a separate RTOS task from application code.
 We estimate that firmware feature will be released for the Photon in September 2015.
 
 Once system code does not block application code,
@@ -1319,7 +1319,7 @@ The PWM frequency must be the same for pins in the same timer group.
 {{#unless core}}
 ### Analog Output (DAC)
 
-The Photon supports true analog output on pins DAC (`DAC1` or `A6` in code) and A3 (`DAC2` or `A3` in code). Using `analogWrite(pin, value)`
+The Photon and Electron support true analog output on pins DAC (`DAC1` or `A6` in code) and A3 (`DAC2` or `A3` in code). Using `analogWrite(pin, value)`
 with these pins, the output of the pin is set to an analog voltage from 0V to 3.3V that corresponds to values
 from 0-4095.
 
@@ -1371,7 +1371,7 @@ void loop()
 
 The function `setADCSampleTime(duration)` is used to change the default sample time for `analogRead()`.
 
-On Core, this parameter can be one of the following values:
+On the Core, this parameter can be one of the following values:
 
  * ADC_SampleTime_1Cycles5: Sample time equal to 1.5 cycles
  * ADC_SampleTime_7Cycles5: Sample time equal to 7.5 cycles
@@ -1382,7 +1382,7 @@ On Core, this parameter can be one of the following values:
  * ADC_SampleTime_71Cycles5: Sample time equal to 71.5 cycles
  * ADC_SampleTime_239Cycles5: Sample time equal to 239.5 cycles
 
- On Photon, this parameter can be one of the following values:
+ On the Photon and Electron, this parameter can be one of the following values:
 
  * ADC_SampleTime_3Cycles: Sample time equal to 3 cycles
  * ADC_SampleTime_15Cycles: Sample time equal to 15 cycles
@@ -1744,24 +1744,24 @@ Used for communication between the device and a computer or other devices. The d
 {{#if core}}
 `Serial2:` This channel is optionally available via the device's D1(TX) and D0(RX) pins. To use Serial2, add `#include "Serial2/Serial2.h"` near the top of your app's main code file.
 
-To use the TX/RX (Serial1) or D1/D0 (Serial2) pins to communicate with your personal computer, you will need an additional USB-to-serial adapter. To use them to communicate with an external TTL serial device, connect the TX pin to your device's RX pin, the RX to your device's TX pin, and the ground of your Core/Photon to your device's ground.
+To use the TX/RX (Serial1) or D1/D0 (Serial2) pins to communicate with your personal computer, you will need an additional USB-to-serial adapter. To use them to communicate with an external TTL serial device, connect the TX pin to your device's RX pin, the RX to your device's TX pin, and the ground of your Core to your device's ground.
 {{/if}}
 
-{{#if photon}}
+{{#unless core}}
 `Serial2:` This channel is optionally available via the device's RGB Green (TX) and Blue (RX) LED pins. The Blue and Green current limiting resistors should be removed.  To use Serial2, add #include "Serial2/Serial2.h" near the top of your app's main code file.
 
 If the user enables Serial2, they should also consider using RGB.onChange() to move the RGB functionality to an external RGB LED on some PWM pins.
 
-To use the TX/RX (Serial1) or RGB Green (TX)/Blue (RX) LED (Serial2) pins to communicate with your personal computer, you will need an additional USB-to-serial adapter. To use them to communicate with an external TTL serial device, connect the TX pin to your device's RX pin, the RX to your device's TX pin, and the ground of your Core/Photon to your device's ground.
-{{/if}}
+To use the TX/RX (Serial1) or RGB Green (TX)/Blue (RX) LED (Serial2) pins to communicate with your personal computer, you will need an additional USB-to-serial adapter. To use them to communicate with an external TTL serial device, connect the TX pin to your device's RX pin, the RX to your device's TX pin, and the ground of your Photon/Electron to your device's ground.
+{{/unless}}
 
-**NOTE:** Please take into account that the voltage levels on these pins runs at 0V to 3.3V and should not be connected directly to a computer's RS232 serial port which operates at +/- 12V and will damage the Core/Photon.
+**NOTE:** Please take into account that the voltage levels on these pins runs at 0V to 3.3V and should not be connected directly to a computer's RS232 serial port which operates at +/- 12V and will damage the Core/Photon/Electron.
 
 ### begin()
 
 Sets the data rate in bits per second (baud) for serial data transmission. For communicating with the computer, use one of these rates: 300, 600, 1200, 2400, 4800, 9600, 14400, 19200, 28800, 38400, 57600, or 115200. You can, however, specify other rates - for example, to communicate over pins TX and RX with a component that requires a particular baud rate.
 
-**NOTE:** The data rate for the USB device `Serial` is ignored, as USB has its own negotiated speed. Setting speed to 9600 is safe for the USB device. Setting the port to 14400 baud will cause the Photon to go into DFU mode while 28800 will allow a YMODEM download of firmware.
+**NOTE:** The data rate for the USB device `Serial` is ignored, as USB has its own negotiated speed. Setting speed to 9600 is safe for the USB device. Setting the port to 14400 baud will cause the Photon or Electron to go into DFU mode while 28800 will allow a YMODEM download of firmware.
 
 ```C++
 // SYNTAX
@@ -1769,7 +1769,7 @@ Serial.begin(speed);    // via USB port
 Serial1.begin(speed);   // via TX/RX pins
 Serial2.begin(speed);   // on Core via
                         // D1(TX) and D0(RX) pins
-                        // on Photon via
+                        // on Photon/Electron via
                         // RGB-LED green(TX) and
                         // RGB-LED blue (RX) pins
 ```    
@@ -2110,7 +2110,7 @@ Serial1.halfduplex(true);
 
 SPI
 ----
-This library allows you to communicate with SPI devices, with the Core/Photon as the master device.
+This library allows you to communicate with SPI devices, with the Core/Photon/Electron as the master device.
 
 ![SPI](/assets/images/core-pin-spi.jpg)
 
@@ -2119,15 +2119,15 @@ The hardware SPI pin functions are mapped as follows:
 * `MISO` => `A4`
 * `MOSI` => `A5`
 * `SS` => `A2` (default)
-{{#if photon}}
+{{#unless core}}
 
-On the Photon, there is a second hardware SPI interface available, which can
+On the Photon and Electron, there is a second hardware SPI interface available, which can
 be used via the `SPI1` object. This second port is mapped as follows:
 * `SCK` => `D4`
 * `MISO` => `D3`
 * `MOSI` => `D2`
 * `SS` => `A2` (default)
- {{/if}}
+{{/unless}}
 
 ### begin()
 
@@ -2142,12 +2142,12 @@ SPI.begin(ss);
 
 Where, the parameter `ss` is the SPI device slave-select pin to initialize.  If no pin is specified, the default pin is `SS (A2)`.
 
-{{#if photon}}
+{{#unless core}}
 ```C++
-// Example of using SPI1 on the Photon, with D3 as the SS pin:
+// Example of using SPI1 on the Photon and Electron, with D3 as the SS pin:
 SPI1.begin(D3);
 ```
-{{/if}}
+{{/unless}}
 
 ### end()
 
@@ -2215,10 +2215,10 @@ SPI.setClockDividerReference(SPI_CLK_ARDUINO);
 SPI.setClockDivider(SPI_CLK_DIV4);
 ```
 
-The default clock divider reference is the system clock.  {{#if core}}On the Core, this is 72 MHz.{{/if}} {{#if photon}}On the Photon, the system clock speeds are:
+The default clock divider reference is the system clock.  {{#if core}}On the Core, this is 72 MHz.{{/if}} {{#unless core}}On the Photon and Electron, the system clock speeds are:
 - SPI - 60 MHz
 - SPI1 - 30 MHz
-{{/if}}
+{{/unless}}
 
 ### setClockDivider()
 
@@ -2264,12 +2264,12 @@ SPI.transfer(val);
 ```
 Where the parameter `val`, can is the byte to send out over the SPI bus.
 
-{{#if photon}}
+{{#unless core}}
 ### transfer(void*, void*, size_t, std::function)
 
 For transferring a large number of bytes, this form of transfer() uses DMA to speed up SPI data transfer and at the same time allows you to run code in parallel to the data transmission. The function initialises, configures and enables the DMA peripheral’s channel and stream for the selected SPI peripheral for both outgoing and incoming data and initiates the data transfer. If a user callback function is passed then it will be called after completion of the DMA transfer. This results in asynchronous filling of RX buffer after which the DMA transfer is disabled till the transfer function is called again. If NULL is passed as a callback then the result is synchronous i.e. the function will only return once the DMA transfer is complete.
 
-NOTE: The SPI protocol is based on a one byte OUT / one byte IN inteface. For every byte expected to be received, one (dummy, typicall 0x00 or 0xFF) byte must be sent.
+NOTE: The SPI protocol is based on a one byte OUT / one byte IN inteface. For every byte expected to be received, one (dummy, typically 0x00 or 0xFF) byte must be sent.
 
 ```C++
 // SYNTAX
@@ -2285,14 +2285,14 @@ Parameters:
 
 NOTE: `tx_buffer` and `rx_buffer` sizes MUST be identical (of size `length`)
 
-{{/if}}
+{{/unless}}
 
 Wire (I2C)
 ----
 
 ![I2C](/assets/images/core-pin-i2c.jpg)
 
-This library allows you to communicate with I2C / TWI devices. On the Core/Photon, D0 is the Serial Data Line (SDA) and D1 is the Serial Clock (SCL). Both of these pins runs at 3.3V logic but are tolerant to 5V. Connect a pull-up resistor(1.5k to 10k) on SDA line. Connect a pull-up resistor(1.5k to 10k) on SCL line.
+This library allows you to communicate with I2C / TWI devices. On the Core/Photon/Electron, D0 is the Serial Data Line (SDA) and D1 is the Serial Clock (SCL). Both of these pins runs at 3.3V logic but are tolerant to 5V. Connect a pull-up resistor(1.5k to 10k) on SDA line. Connect a pull-up resistor(1.5k to 10k) on SCL line.
 
 ### setSpeed()
 
@@ -2385,7 +2385,7 @@ Returns: `byte` : the number of bytes returned from the slave device.  If a time
 *Since 0.4.6.*
 
 Attempts to reset the I2C bus. This should be called only if the I2C bus has
-has hung. In 0.4.6 additional rework was done for the I2C bus on the Photon, so
+has hung. In 0.4.6 additional rework was done for the I2C bus on the Photon and Electron, so
 we hope this function isn't required, and it's provided for completeness.
 
 ### beginTransmission()
@@ -2594,7 +2594,7 @@ void loop()
 {{#unless core}}
 ## CAN (CANbus)
 
-The Photon supports communicating with CAN devices via the CAN bus.
+The Photon and Electron support communicating with CAN devices via the CAN bus.
 
 ```
 CANChannel can(CAN_D1_D2);
@@ -3406,7 +3406,7 @@ int pos = 0;    // variable to store the servo position
 void setup()
 {
   myservo.attach(D0);  // attaches the servo on the D0 pin to the servo object
-  // Use the pins that has PWM on the Photon : D0, D1, D2, D3, A4, A5, WKP, RX, and TX
+  // Only supported on pins that have PWM
 }
 
 
@@ -3985,7 +3985,7 @@ The return value for millis is an unsigned long, errors may be generated if a pr
 Returns the number of microseconds since the device began running the current program.
 
 Firmware v0.4.3 and earlier:
-- This number will overflow (go back to zero), after exactly 59,652,323 microseconds (0 .. 59,652,322) on the Core and after exactly 35,791,394 microseconds (0 .. 35,791,394) on the Photon.
+- This number will overflow (go back to zero), after exactly 59,652,323 microseconds (0 .. 59,652,322) on the Core and after exactly 35,791,394 microseconds (0 .. 35,791,394) on the Photon and Electron.
 
 
 
@@ -4219,7 +4219,7 @@ noInterrupts();
 
 ## Software Timers
 
-_Since 0.4.7. This feature is available on the Photon and P1 out the box. On the Core, the
+_Since 0.4.7. This feature is available on the Photon, P1 and Electron out the box. On the Core, the
 `freertos4core` library should be used to add FreeRTOS to the core._
 
 Software Timers provide a way to have timed actions in your program.  FreeRTOS provides the ability to have up to 10 Software Timers at a time with a minimum resolution of 1 millisecond.  It is common to use millis() based "timers" though exact timing is not always possible (due to other program delays).  Software timers are maintained by FreeRTOS and provide a more reliable method for running timed actions using callback functions.  Please note that Software Timers are "chained" and will be serviced sequencially when several timers trigger simultaneously, thus requiring special consideration when writing callback functions.
@@ -4665,7 +4665,7 @@ Returns the total number of bytes of emulated EEPROM.
 `size_t length()`
 
 - The Core has 100 bytes of emulated EEPROM.
-- The Photon has 2048 bytes of emulated EEPROM.
+- The Photon and Electron have 2048 bytes of emulated EEPROM.
 
 ```c++
 // EXAMPLE USAGE
@@ -4682,7 +4682,7 @@ Read a byte of data from the emulated EEPROM.
 `address` is the address (int) of the EERPOM location to read
 
 - On the Core, this must be a value between 0 and 99
-- On the Photon, this must be a value between 0 and 2047
+- On the Photon/Electron, this must be a value between 0 and 2047
 
 ```C++
 // EXAMPLE USAGE
@@ -4701,7 +4701,7 @@ Write a byte of data to the emulated EEPROM.
 `value` is the byte data (uint8_t) to write
 
 - On the Core, this must be a value between 0 and 99
-- On the Photon, this must be a value between 0 and 2047
+- On the Photon/Electron, this must be a value between 0 and 2047
 ```C++
 // EXAMPLE USAGE
 
@@ -4775,7 +4775,7 @@ MyObject myObj = {12.34f, 25, "Test!"}
 EEPROM.put(addr, myObj);
 ```
 
-{{#if photon}}
+{{#unless core}}
 ## Backup RAM (SRAM)
 
 The STM32F2xx features 4KB of backup RAM. Unlike the regular RAM memory, the backup
@@ -4928,7 +4928,7 @@ keeping the `retained` variables in their own separate block. In this way it's e
 when new `retained` variables are added to the end of the list, or when they are rearranged.
 
 
-{{/if}}
+{{/unless}}
 
 ## Macros
 
@@ -5154,7 +5154,7 @@ When using manual mode:
 - If `Particle.process()` is called less frequently than every 20 seconds, the connection with the Cloud will die. It may take a couple of additional calls of `Particle.process()` for the device to recognize that the connection has been lost.
 
 
-{{#if photon}}
+{{#unless core}}
 ## System Thread
 
 *Since 0.4.6.*
@@ -5390,7 +5390,7 @@ only for a period of time, we can use `waitFor`
     waitUntil(WiFi.ready);
 ```
 
-{{/if}}
+{{/unless}}
 
 ## System Calls
 
@@ -5632,7 +5632,7 @@ The device will automatically *wake up* and reestablish the WiFi connection afte
 
 `System.sleep(uint16_t wakeUpPin, uint16_t edgeTriggerMode)` can be used to put the entire device into a *stop* mode with *wakeup on interrupt*. In this particular mode, the device shuts down the Wi-Fi chipset and puts the microcontroller in a stop mode with configurable wakeup pin and edge triggered interrupt. When the specific interrupt arrives, the device awakens from stop mode, it will behave as if the device is reset and run all user code from the beginning with no values being maintained in memory from before the stop mode.
 
-As such, it is recommended that stop mode be called only after all user code has completed. (Note: The new Particle Photon firmware will not reset before going into stop mode so all the application variables are preserved after waking up from this mode. The voltage regulator is put in low-power mode. This mode achieves the lowest power consumption while retaining the contents of SRAM and registers.)
+As such, it is recommended that stop mode be called only after all user code has completed. (Note: The Photon and Electron will not reset before going into stop mode so all the application variables are preserved after waking up from this mode. The voltage regulator is put in low-power mode. This mode achieves the lowest power consumption while retaining the contents of SRAM and registers.)
 
 It is mandatory to update the *bootloader* (https://github.com/spark/firmware/tree/bootloader-patch-update) for proper functioning of this mode (valid only for Core).
 
@@ -5658,7 +5658,7 @@ System.sleep(D0,RISING);
     - RISING to trigger when the pin goes from low to high,
     - FALLING for when the pin goes from high to low.
 
-`System.sleep(uint16_t wakeUpPin, uint16_t edgeTriggerMode, long seconds)` can be used to put the entire device into a *stop* mode with *wakeup on interrupt* or *wakeup after specified seconds*. In this particular mode, the Core shuts down the Wi-Fi chipset (CC3000) and puts the microcontroller in a stop mode with configurable wakeup pin and edge triggered interrupt or wakeup after the specified seconds . When the specific interrupt arrives or upon reaching configured seconds, the Core awakens from stop mode, it will behave as if the Core is reset and run all user code from the beginning with no values being maintained in memory from before the stop mode. As such, it is recommended that stop mode be called only after all user code has completed. (Note: The new Particle Photon firmware will not reset before going into stop mode so all the application variables are preserved after waking up from this mode. The voltage regulator is put in low-power mode. This mode achieves the lowest power consumption while retaining the contents of SRAM and registers.)
+`System.sleep(uint16_t wakeUpPin, uint16_t edgeTriggerMode, long seconds)` can be used to put the entire device into a *stop* mode with *wakeup on interrupt* or *wakeup after specified seconds*. In this particular mode, the Core shuts down the Wi-Fi chipset (CC3000) and puts the microcontroller in a stop mode with configurable wakeup pin and edge triggered interrupt or wakeup after the specified seconds . When the specific interrupt arrives or upon reaching configured seconds, the Core awakens from stop mode, it will behave as if the Core is reset and run all user code from the beginning with no values being maintained in memory from before the stop mode. As such, it is recommended that stop mode be called only after all user code has completed. (Note: The Photon and Electron will not reset before going into stop mode so all the application variables are preserved after waking up from this mode. The voltage regulator is put in low-power mode. This mode achieves the lowest power consumption while retaining the contents of SRAM and registers.)
 
 ```C++
 // SYNTAX
@@ -7392,7 +7392,7 @@ Note that the true and false constants are typed in lowercase unlike `HIGH, LOW,
 
 ### Data Types
 
-**Note:** The Core/Photon uses a 32-bit ARM based microcontroller and hence the datatype lengths are different from a standard 8-bit system (for e.g. Arduino Uno).
+**Note:** The Core/Photon/Electron uses a 32-bit ARM based microcontroller and hence the datatype lengths are different from a standard 8-bit system (for e.g. Arduino Uno).
 
 #### void
 
@@ -7482,7 +7482,7 @@ byte b = 0x11;
 
 #### int
 
-Integers are your primary data-type for number storage. On the Core/Photon, an int stores a 32-bit (4-byte) value. This yields a range of -2,147,483,648 to 2,147,483,647 (minimum value of -2^31 and a maximum value of (2^31) - 1).
+Integers are your primary data-type for number storage. On the Core/Photon/Electron, an int stores a 32-bit (4-byte) value. This yields a range of -2,147,483,648 to 2,147,483,647 (minimum value of -2^31 and a maximum value of (2^31) - 1).
 int's store negative numbers with a technique called 2's complement math. The highest bit, sometimes referred to as the "sign" bit, flags the number as a negative number. The rest of the bits are inverted and 1 is added.
 
 Other variations:
@@ -7493,7 +7493,7 @@ Other variations:
 
 #### unsigned int
 
-The Core/Photon stores a 4 byte (32-bit) value, ranging from 0 to 4,294,967,295 (2^32 - 1).
+The Core/Photon/Electron stores a 4 byte (32-bit) value, ranging from 0 to 4,294,967,295 (2^32 - 1).
 The difference between unsigned ints and (signed) ints, lies in the way the highest bit, sometimes referred to as the "sign" bit, is interpreted.
 
 Other variations:
@@ -7527,7 +7527,7 @@ Floating point math is also much slower than integer math in performing calculat
 
 #### double
 
-Double precision floating point number. On the Core/Photon, doubles have 8-byte (64 bit) precision.
+Double precision floating point number. On the Core/Photon/Electron, doubles have 8-byte (64 bit) precision.
 
 #### string - char array
 
