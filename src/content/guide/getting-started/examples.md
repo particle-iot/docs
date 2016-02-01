@@ -311,7 +311,9 @@ Paste the following code into your IDE, or just access the examples on the left 
 ### Setup
 
 Set up your breadboard as shown in the image below:
-![Fritzing Diagram](/assets/images/photon-photoresistor-fritzing.png)
+{{#unless electron}}![Fritzing Diagram](/assets/images/photon-photoresistor-fritzing.png){{/unless}}
+{{#if electron}}![Electron Diagram](/assets/images/electron/illustrations/electron-example.png){{/if}}
+
 
 Make sure that the short leg of the LED is plugged into `GND`. The other orientations do not matter.
 
@@ -486,7 +488,8 @@ You can also hook up publishes to IFTTT! More info [here](/guide/tools-and-featu
 ### Setup
 The setup is the same as in the last example. Set up your breadboard as follows:
 
-![Fritzing Diagram](/assets/images/photon-photoresistor-fritzing.png)
+{{#unless electron}}![Fritzing Diagram](/assets/images/photon-photoresistor-fritzing.png){{/unless}}
+{{#if electron}}![Electron Diagram](/assets/images/electron/illustrations/electron-example.png){{/if}}
 
 Ensure that the short end of the LED is plugged into `GND` and that the LED and Photoresistor are bent to face each other. (You want the LED, when turned on, to shine its beam of light directly at the photoresistor.) Try to leave enough space between the LED and the Photoresistor for your finger or a piece of paper.
 
@@ -679,7 +682,8 @@ When the beam is broken on your device, the D7 LED on your buddy's device will l
 ### Setup
 The setup is the same as in the last example. Set up your breadboard as follows:
 
-![Fritzing Diagram](/assets/images/photon-photoresistor-fritzing.png)
+{{#unless electron}}![Fritzing Diagram](/assets/images/photon-photoresistor-fritzing.png){{/unless}}
+{{#if electron}}![Electron Diagram](/assets/images/electron/illustrations/electron-example.png){{/if}}
 
 Ensure that the short end of the LED is plugged into `GND` and that the LED and Photoresistor are bent to face each other. (You want the LED, when turned on, to shine its beam of light directly at the photoresistor.) Try to leave enough space between the LED and the Photoresistor for your finger or a piece of paper.
 
