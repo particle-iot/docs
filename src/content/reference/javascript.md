@@ -301,6 +301,17 @@ device and registered to the Particle cloud.
 
 You pass along the name of the function and the params.
 
+`data` is an object with the following properties:
+
+```js
+{
+  id: String, // the Particle device id
+  last_app: String,
+  connected: Boolean,
+  return_value: Number, // The value that the function call on the Particle device returned
+}
+```
+
 ### claim
 
 Claims device and adds it to the user currently logged in
@@ -355,6 +366,24 @@ device.getVariable('temp', function(err, data) {
 ```
 
 The variable needs to be defined in your device's code.
+
+`data` is an object with the following properties:
+
+```js
+  {
+    cmd: 'VarReturn',
+    name: 'temp', // the name of the variable that was asked for
+    result: '76.1', // the result you seek
+    coreInfo: {
+      last_app: '',
+      last_heard: '2016-02-01T20:37:23.316Z',
+      connected: true,
+      last_handshake_at: '2016-02-01T20:16:08.893Z',
+      deviceID: 'anActualParticleDeviceId',
+      product_id: 6,
+   },
+  }
+```
 
 ### remove
 
@@ -486,9 +515,9 @@ spark.getEventStream('test', 'DEVICE_ID', function(data) {
 });
 ```
 
-data is an object with the following properties
+`data` is an object with the following properties
 
-```
+```js
 {
   "name":"Uptime",
   "data":"5:28:54",
