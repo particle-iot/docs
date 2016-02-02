@@ -47,7 +47,7 @@ Most USB ports can supply only a maximum of 500mA, but the u-Blox GSM module on 
 The input voltage range on VIN pin is 3.9VDC to 12VDC. When powering from the VIN pin alone, make sure that the power supply is rated at 10W (for example 5VDC at 2Amp). If the power source is unable to meet this requirement, you'll need connect the LiPo battery as well.
 
 #### LiPo Battery
-When powered from a LiPo battery alone, the power management IC switches off the internal regulator and supplies power to the system directly from the battery. This reduces the conduction losses and maximizes battery run time. The battery provided with the Electron is a Lithium-Ion Polymer battery rated at 3.7VDC 1900mAh. You can substitute this battery with another 3.7V LiPo with higher current rating. Remember to never exceed this voltage rating and alway pay attention to the polarity of the connector.
+When powered from a LiPo battery alone, the power management IC switches off the internal regulator and supplies power to the system directly from the battery. This reduces the conduction losses and maximizes battery run time. The battery provided with the Electron is a Lithium-Ion Polymer battery rated at 3.7VDC 2000mAh. You can substitute this battery with another 3.7V LiPo with higher current rating. Remember to never exceed this voltage rating and alway pay attention to the polarity of the connector.
 
 Typical current consumption is around 180mA and upto 1.8A transients at 5VDC. In deep sleep mode, the quiescent current is 130uA (powered from the battery alone).
 
@@ -128,7 +128,7 @@ Pin D3 through D7 are JTAG interface pins. These can be used to reprogram your E
 
 ### LED Status
 
-Charge status LED
+#### Charge status LED
 
 |State | Description |
 |:---|:---|
@@ -143,8 +143,9 @@ Charge status LED
 
 <sup>[2]</sup> You can stop this behavior by either plugging in the LiPo battery or by disabling the charging using the appropriate firmware command.
 
-<add RGB LED animations here>
+#### System RGB LED
 
+For a detailed explanation of different color codes of the RGB system LED, please take a look [here.](/guide/getting-started/modes/electron/)
 
 ### Pinout diagram
 

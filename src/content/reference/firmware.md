@@ -719,7 +719,7 @@ WiFi.listen();
 
 Listening mode blocks application code. Advanced cases that use multithreading, interrupts, or system events
 have the ability to continue to execute application code while in listening mode, and may wish to then exit listening
-mode, such as after a timeout. Listning mode is stopped using this syntax:
+mode, such as after a timeout. Listening mode is stopped using this syntax:
 
 ```cpp
 
@@ -1147,6 +1147,306 @@ is called, without needing to be reconfigured using `WiFi.setStaticIP()`
 
 {{#if electron}}
 ## Cellular
+
+### on()
+
+`Cellular.on()` turns on the Cellular module. Useful when you've turned it off, and you changed your mind.
+
+Note that `Cellular.on()` does not need to be called unless you have changed the [system mode](#system-system-modes) or you have previously turned the Cellular module off.  When turning on the Cellular module, it will go through a full re-connect to the Cellular network which will take anywhere from 30 to 60 seconds in most situations.
+
+```cpp
+// SYNTAX
+Cellular.on();
+```
+
+### off()
+
+`Cellular.off()` turns off the Cellular module. Useful for saving power, since most of the power draw of the device is the Cellular module.  Note: turning off the Cellular module will force it to go through a full re-connect to the Cellular network the next time it is turned on.
+
+```cpp
+// SYNTAX
+Cellular.off();
+```
+
+### connect()
+
+Attempts to connect to the Cellular network. If there are no credentials entered, the default Particle APN for Particle SIM cards will be used.  If no SIM card is inserted, the Electron will enter listening mode. If a 3rd party APN is set, these credentials must match the inserted SIM card for the Electron to connect to the cellular network. When this function returns, the device may not have a local (private) IP address; use `Cellular.ready()` to determine the connection status.
+
+```cpp
+// SYNTAX
+Cellular.connect();
+```
+
+### disconnect()
+
+Disconnects from the Cellular network, but leaves the Cellular module on.
+
+```cpp
+// SYNTAX
+Cellular.disconnect();
+```
+
+### connecting()
+
+This function will return `true` once the device is attempting to connect using the default Particle APN or 3rd party APN cellular credentials, and will return `false` once the device has successfully connected to the cellular network.
+
+```cpp
+// SYNTAX
+Cellular.connecting();
+```
+
+### ready()
+
+This function will return `true` once the device is connected to the cellular network and has been assigned an IP address, which means it has an activated PDP context and is ready to open TCP/UDP sockets. Otherwise it will return `false`.
+
+```cpp
+// SYNTAX
+Cellular.ready();
+```
+
+### listen()
+
+This will enter or exit listening mode, which opens a Serial connection to get Cellular information such as the IMEI or CCID over USB.
+
+```cpp
+// SYNTAX - enter listening mode
+Cellular.listen();
+```
+
+Listening mode blocks application code. Advanced cases that use multithreading, interrupts, or system events
+have the ability to continue to execute application code while in listening mode, and may wish to then exit listening
+mode, such as after a timeout. Listening mode is stopped using this syntax:
+
+```cpp
+
+// SYNTAX - exit listening mode
+Cellular.listen(false);
+
+```
+
+### listening()
+
+```cpp
+// SYNTAX
+Cellular.listening();
+```
+
+Without multithreading enabled, this command is not useful (always returning `false`) because listening mode blocks application code.
+
+This command becomes useful on the Electron when system code runs as a separate RTOS task from application code.
+
+Once system code does not block application code,
+`Cellular.listening()` will return `true` once `Cellular.listen()` has been called
+or the setup button has been held for 3 seconds, when the RGB LED should be blinking blue.
+It will return `false` when the device is not in listening mode.
+
+
+### setCredentials()
+
+Sets 3rd party credentials for the Cellular network from within the user application. These credentials are currently not added to the device's non-volatile memory and need to be set every time from the user application.
+
+```C++
+// SYNTAX
+// Connects to a cellular network by APN only
+STARTUP(Cellular.setCredentials(APN));
+
+// Connects to a cellular network with USERNAME and PASSWORD only
+STARTUP(Cellular.setCredentials(USERNAME, PASSWORD));
+
+// Connects to a cellular network with a specified APN, USERNAME and PASSWORD
+#include “cellular_hal.h”
+STARTUP(cellular_credentials_set(APN, USERNAME, PASSWORD, NULL));
+
+// EXAMPLE with an AT&T APN with no username or password in AUTOMATIC mode
+STARTUP(Cellular.setCredentials("broadband"));
+
+void setup() {
+  // your setup code
+}
+
+void loop() {
+  // your loop code
+}
+```
+
+```C++
+// EXAMPLE with username and password in SEMI_AUTOMATIC mode
+SYSTEM_MODE(SEMI_AUTOMATIC);
+
+void setup() {
+  Cellular.setCredentials("my_username", "12345678");
+  Particle.connect();
+}
+
+void loop() {
+  // your loop code
+}
+```
+
+**Note**: Your Electron only uses one set of credentials, and they must be correctly matched to the SIM card that's used.  If using a Particle SIM, using `setCredentials()` is not necessary as the default APN of "spark.telefonica.com" with no username or password will be used by system firmware.
+
+**Note**: When using the default `SYSTEM_MODE(AUTOMATIC)` connection behavior, it is necessary to call `setCredentials()` with the `STARTUP()` macro outside of `setup()` and `loop()` so that the system will have the correct credentials before it tries to connect to the cellular network.  If using `SYSTEM_MODE(SEMI_AUTOMATIC|MANUAL)` be sure to call `setCredentials()` with your 3rd party information before calling `Particle.connect()`
+
+### RSSI()
+
+`Cellular.RSSI()` returns a struct of type `CellularSignal` that contains two integers: the signal strength (`rssi`) and signal quality (`qual`) of the currently connected Cellular network.
+
+`CellularSignal`
+- `rssi`: (`int`) is the signal strength with range -113dBm to -51dBm (in 2dBm steps). This variable also doubles as an error response for the entire struct; positive return values indicate an error with:
+    - 1: indicating a Cellular module or time-out error
+    - 2: the module responded that the rssi value is not known, not detectable or currently not available.
+- `qual`: (`int`) is a number in UMTS RAT indicating the Energy per Chip/Noise ratio in dB levels of the current cell. This value ranges from 0 to 49, higher numbers indicate higher signal quality.
+
+**Note**: `qual` is not supported on 2G Electrons (Model G350) and will return 0.
+
+```C++
+// SYNTAX
+
+CellularSignal sig = Cellular.RSSI();
+Serial.println(sig.rssi);
+Serial.println(sig.qual);
+Serial.println(sig); // Complete structure also printable
+
+// Output
+-95    // RSSI (-dBm)
+19     // QUAL (dB)
+-95,19 // RSSI,QUAL
+
+// EXAMPLE
+uint32_t lastUpdate;
+#define now millis()
+
+void setup()
+{
+  Serial.begin(9600);
+  lastUpdate = now;
+}
+
+void loop()
+{
+  // Print two methods of signal strength and signal quality every 20 seconds
+  if (now - lastUpdate > 20000UL) {
+    lastUpdate = now;
+    CellularSignal sig = Cellular.RSSI();
+    String s = String(sig.rssi) + String(",") + String(sig.qual);
+    Serial.print(s);
+    Serial.print(" is the same as ");
+    Serial.println(sig);
+  }
+}
+```
+
+### localIP()
+*Coming in 0.5.0.*
+
+`Cellular.localIP()` returns the local (private) IP address assigned to the device as an `IPAddress`.
+
+```C++
+// EXAMPLE
+void setup() {
+  Serial.begin(9600);
+
+  // Prints out the local (private) IP over Serial
+  Serial.println(Cellular.localIP());
+}
+```
+
+### command()
+
+`Cellular.command()` is a powerful API that allows users access to directly send AT commands to, and parse responses returned from, the Cellular module.  Commands may be sent with and without printf style formatting. The API also includes the ability pass a callback function pointer which is used to parse the response returned from the cellular module.
+
+The prototype definition is as follows:
+
+`int Cellular.command(_CALLBACKPTR_MDM cb, void* param, system_tick_t timeout, const char* format, ...);`
+
+`Cellular.command()` takes one or more arguments in 4 basic types of signatures.
+
+```C++
+// SYNTAX (4 basic signatures with/without printf style formatting)
+int ret = Cellular.command(cb, param, timeout, format, ...);
+int ret = Cellular.command(cb, param, timeout, format);
+int ret = Cellular.command(cb, param, format, ...);
+int ret = Cellular.command(cb, param, format);
+int ret = Cellular.command(timeout, format, ...);
+int ret = Cellular.command(timeout, format);
+int ret = Cellular.command(format, ...)
+int ret = Cellular.command(format);
+```
+
+- `cb`: callback function pointer to a user specified function that parses the results of the AT command response.
+- `param`: (`void*`) a pointer to the variable that will be updated by the callback function.
+- `timeout`: (`system_tick_t`) the timeout value specified in milliseconds (default is 10000 milliseconds).
+- `format`: (`const char*`) contains your AT command and any desired [format specifiers](http://www.cplusplus.com/reference/cstdio/printf/), followed by `\r\n`.
+- `...`: additional arguments optionally required as input to their respective `format` string format specifiers.
+
+`Cellular.command()` returns an `int` with one of the following 6 enumerated AT command responses:
+
+- `NOT_FOUND`    =  0
+- `WAIT`         = -1 // TIMEOUT
+- `RESP_OK`      = -2
+- `RESP_ERROR`   = -3
+- `RESP_PROMPT`  = -4
+- `RESP_ABORTED` = -5
+
+```C++
+// EXAMPLE - Get the ICCID number of the inserted SIM card
+int callbackICCID(int type, const char* buf, int len, char* iccid)
+{
+  if ((type == TYPE_PLUS) && iccid) {
+    if (sscanf(buf, "\r\n+CCID: %[^\r]\r\n", iccid) == 1)
+      /*nothing*/;
+  }
+  return WAIT;
+}
+
+void setup()
+{
+  Serial.begin(9600);
+  char iccid[32] = "";
+  if ((RESP_OK == Cellular.command(callbackICCID, iccid, 10000, "AT+CCID\r\n"))
+    && (strcmp(iccid,"") != 0))
+  {
+    Serial.printlnf("SIM ICCID = %s\r\n", iccid);
+  }
+  else
+  {
+    Serial.println("SIM ICCID NOT FOUND!");
+  }
+}
+
+void loop()
+{
+  // your loop code
+}
+```
+The `cb` function prototype is defined as:
+
+`int callback(int type, const char* buf, int len, void* param);`
+
+The four Cellular.command() callback arguments are defined as follows:
+
+- `type`: (`int`) one of 13 different enumerated AT command response types.
+- `buf`: (`const char*`) a pointer to the character array containing the AT command response.
+- `len`: (`int`) length of the AT command response `buf`.
+- `param`: (`void*`) a pointer to the variable or structure being updated by the callback function.
+- returns an `int` - user specified callback return value, default is `return WAIT;` which keeps the system invoking the callback again as more of the AT command response is received.  Optionally any one of the 6 enumerated AT command responses previously described can be used as a return type which will force the Cellular.command() to return the same value. All AT commands typically end with an `OK` response, so even after a response is parsed, it is recommended to wait for the final `OK` response to be parsed and returned by the system. Then after testing `if(Cellular.command() == RESP_OK)` and any other optional qualifiers, should you act upon the results contained in the variable/structure passed into the callback.
+
+There are 13 different enumerated AT command responses passed by the system into the Cellular.command() callback as `type`. These are used to help qualify which type of response has already been parsed by the system.
+
+- `TYPE_UNKNOWN`    = 0x000000
+- `TYPE_OK`         = 0x110000
+- `TYPE_ERROR`      = 0x120000
+- `TYPE_RING`       = 0x210000
+- `TYPE_CONNECT`    = 0x220000
+- `TYPE_NOCARRIER`  = 0x230000
+- `TYPE_NODIALTONE` = 0x240000
+- `TYPE_BUSY`       = 0x250000
+- `TYPE_NOANSWER`   = 0x260000
+- `TYPE_PROMPT`     = 0x300000
+- `TYPE_PLUS`       = 0x400000
+- `TYPE_TEXT`       = 0x500000
+- `TYPE_ABORTED`    = 0x600000
+
 {{/if}}
 
 ## Input/Output
@@ -1312,13 +1612,14 @@ void loop()
 ```
 
 - On the Core, this function works on pins D0, D1, A0, A1, A4, A5, A6, A7, RX and TX.
-- On the Photon, this function works on pins D0, D1, D2, D3, A4, A5, WKP, RX and TX with a caveat: PWM timer peripheral is duplicated on two pins (A5/D2) and (A4/D3) for 7 total independent PWM outputs. For example: PWM may be used on A5 while D2 is used as a GPIO, or D2 as a PWM while A5 is used as an analog input. However A5 and D2 cannot be used as independently controlled PWM outputs at the same time.
+- On the Photon and Electron, this function works on pins D0, D1, D2, D3, A4, A5, WKP, RX and TX with a caveat: PWM timer peripheral is duplicated on two pins (A5/D2) and (A4/D3) for 7 total independent PWM outputs. For example: PWM may be used on A5 while D2 is used as a GPIO, or D2 as a PWM while A5 is used as an analog input. However A5 and D2 cannot be used as independently controlled PWM outputs at the same time.
+- Additionally on the Electron, this function works on pins B0, B1, B2, B3, C4, C5.
 
 The PWM frequency must be the same for pins in the same timer group.
 
 - On the Core, the timer groups are D0/D1, A0/A1/RX/TX, A4/A5/A6/A7.
-- On the Photon, the timer groups are D0/D1/C4/C5, D2/D3/A4/A5, WKP, RX/TX.
-- On the P1, the timer groups are D0/D1/C4/C5, D2/D3/A4/A5/P1S0/P1S1, WKP, RX/TX.
+- On the Photon, the timer groups are D0/D1, D2/D3/A4/A5, WKP, RX/TX.
+- On the P1, the timer groups are D0/D1, D2/D3/A4/A5/P1S0/P1S1, WKP, RX/TX.
 - On the Electron, the timer groups are D0/D1/C4/C5, D2/D3/A4/A5/B2/B3, WKP, RX/TX, B0/B1.
 
 **NOTE:** When used with PWM capable pins, the `analogWrite()` function sets up these pins as PWM only.  {{#unless core}}This function operates differently when used with the [`Analog Output (DAC)`](#analog-output-dac-) pins.{{/unless}}
@@ -1779,7 +2080,7 @@ Serial2.begin(speed);   // on Core via
                         // on Photon/Electron via
                         // RGB-LED green(TX) and
                         // RGB-LED blue (RX) pins
-```    
+```
 `speed`: parameter that specifies the baud rate *(long)*
 
 `begin()` does not return anything
@@ -1846,7 +2147,7 @@ void loop()
 
 _Since 0.4.9. Available on Serial1, Serial2, etc.. This function will support USB Serial with the next release._
 
-Retrieves the number of bytes (characters) that can be written to this serial port without blocking. 
+Retrieves the number of bytes (characters) that can be written to this serial port without blocking.
 
 If `blockOnOverrun(false)` has been called, the method returns the number of bytes that can be written to the buffer without causing buffer overrun, which would cause old data to be discarded and overwritten.
 
@@ -2603,7 +2904,18 @@ void loop()
 
 The Photon and Electron support communicating with CAN devices via the CAN bus.
 
-```
+- The Photon and Electron have a CANbus on pins D1 (CAN2_TX) and D2 (CAN2_RX).
+- The Electron only has a second CANbus on pins C4 (CAN1_TX) and C5 (CAN1_TX).
+
+
+```c++
+// SYNTAX
+// Photon and Electron
+CANChannel can(CAN_D1_D2);
+// Electron only has a second CANbus
+CANChannel can(CAN_C4_C5);
+
+// EXAMPLE on pins D1 & D2
 CANChannel can(CAN_D1_D2);
 
 void setup() {
@@ -2643,9 +2955,12 @@ struct CANMessage
 
 ### CAN.begin()
 
-Joins the bus at the given tranmission rate. 
-
-
+Joins the bus at the given `baud` rate.
+```C++
+// SYNTAX
+CANChannel can(CAN_D1_D2);
+can.begin(baud);
+```
 {{/unless}}
 
 ### IPAddress
@@ -3850,7 +4165,7 @@ Returns: Integer
 
 ### now()
 
-Retrieve the current time as seconds since January 1, 1970 (commonly known as "Unix time" or "epoch time"). This time is not affected by the timezone setting. 
+Retrieve the current time as seconds since January 1, 1970 (commonly known as "Unix time" or "epoch time"). This time is not affected by the timezone setting.
 
 ```cpp
 // Print the current Unix timestamp
@@ -3861,7 +4176,7 @@ Returns: Integer
 
 ### local()
 
-Retrieve the current time in the configured timezone as seconds since January 1, 1970 (commonly known as "Unix time" or "epoch time"). This time is affected by the timezone setting. 
+Retrieve the current time in the configured timezone as seconds since January 1, 1970 (commonly known as "Unix time" or "epoch time"). This time is affected by the timezone setting.
 
 
 ### zone()
@@ -4258,8 +4573,8 @@ The timer callback is similar to an interrupt - it shouldn't block. However, it 
 `Timer timer(period, callback, one_shot)`
 
 - `period` is the period of the timer in milliseconds  (unsigned int)
-- `callback` is the callback function which gets called when the timer expires. 
-- `one_shot` (optional, since 0.4.9) when `true`, the timer is fired once and then stopped automatically.  The default is `false` - a repeating timer. 
+- `callback` is the callback function which gets called when the timer expires.
+- `one_shot` (optional, since 0.4.9) when `true`, the timer is fired once and then stopped automatically.  The default is `false` - a repeating timer.
 
 
 ### Class member callbacks
@@ -4271,9 +4586,9 @@ A class member function can be used as a callback using this syntax to create th
 `Timer timer(period, callback, instance, one_shot)`
 
 - `period` is the period of the timer in milliseconds  (unsigned int)
-- `callback` is the class member function which gets called when the timer expires. 
+- `callback` is the class member function which gets called when the timer expires.
 - `instance` the instance of the class to call the callback function on.
-- `one_shot` (optional, since 0.4.9) when `true`, the timer is fired once and then stopped automatically.  The default is `false` - a repeating timer. 
+- `one_shot` (optional, since 0.4.9) when `true`, the timer is fired once and then stopped automatically.  The default is `false` - a repeating timer.
 
 
 ```
@@ -4979,7 +5294,7 @@ in mind, using pullup/pulldown resistors as appropriate._
 
 ### System Events Overview
 
-System events are messages sent by the system and received by application code. They inform the application about changes in the system, such as when the system has entered setup mode, or when an Over-the-Air (OTA) update starts, or when the system is about to reset. 
+System events are messages sent by the system and received by application code. They inform the application about changes in the system, such as when the system has entered setup mode, or when an Over-the-Air (OTA) update starts, or when the system is about to reset.
 
 System events are recieved by the application by registering a handler. The handler has this general format:
 
@@ -4993,9 +5308,9 @@ Unused parameters can be removed from right to left, giving these additional fun
 void handler(system_event_t event, int data);
 void handler(system_event_t event);
 void handler();
-``` 
+```
 
-Here's an example of an application that listens for `reset` events so that the application is notified the device is about to reset. The application publishes a reset message to the cloud and turns off connected equipment before returning from the handler, allowing the device to reset. 
+Here's an example of an application that listens for `reset` events so that the application is notified the device is about to reset. The application publishes a reset message to the cloud and turns off connected equipment before returning from the handler, allowing the device to reset.
 
 ```
 void reset_handler()
@@ -5003,7 +5318,7 @@ void reset_handler()
 	// turn off the crankenspitzen
 	digitalWrite(D6, LOW);
 	// tell the world what we are doing
-	Particle.publish("reset", "going down for reboot NOW!");	
+	Particle.publish("reset", "going down for reboot NOW!");
 }
 
 void setup()
@@ -5052,7 +5367,7 @@ void setup()
 
 ### System Events Reference
 
-These are the system events produced by the system, their numeric value (what you will see when printing the system event to Serial) and details of how to handle the parameter value. 
+These are the system events produced by the system, their numeric value (what you will see when printing the system event to Serial) and details of how to handle the parameter value.
 
 | Event Name | ID | Description | Parameter |
 |------------|----------|-----------|
@@ -5066,7 +5381,7 @@ These are the system events produced by the system, their numeric value (what yo
  | reset_pending | 1024 | notifies the application that the system would like to reset. This event is sent even when resets are disabled, giving the application chance to re-enable resets with `System.enableReset()` | not used |
  | reset | 2048 | notifies that the system will reset once the application has completed handling this event | not used |
  | button_click | 4096 | event sent each time setup button is clicked. | `int clicks = system_button_clicks(param); ` retrieves the number of clicks so far. |
-| button_final_click | 8192 | sent after a run of one or more clicks not followed by additional clicks. Unlike the `button_click` event, the `button_final_click` event is sent once, at the end of a series of clicks. | `int clicks = system_button_clicks(param); ` retrieves the number of times the button was pushed. | 
+| button_final_click | 8192 | sent after a run of one or more clicks not followed by additional clicks. Unlike the `button_click` event, the `button_final_click` event is sent once, at the end of a series of clicks. | `int clicks = system_button_clicks(param); ` retrieves the number of times the button was pushed. |
 
 
 ## System Modes
@@ -5217,13 +5532,13 @@ A long running cloud function will block the application loop (since it is appli
 but not the system code, so cloud connectivity is maintained.
 
  - the application continues to execute during listening mode
- - the application continues to execute during OTA updates 
+ - the application continues to execute during OTA updates
 
 ### System Functions
 
-With system threading enabled, the majority of the Particle API continues to run on the calling thread, as it does for non-threaded mode. For example, when a function, such as `Time.now()`, is called, it is processed entirely on the calling thread (typically the application thread when calling from `loop()`.) 
+With system threading enabled, the majority of the Particle API continues to run on the calling thread, as it does for non-threaded mode. For example, when a function, such as `Time.now()`, is called, it is processed entirely on the calling thread (typically the application thread when calling from `loop()`.)
 
-There are a small number of API functions that are system functions. These functions execute on the system thread regardless of which thread they are called from. 
+There are a small number of API functions that are system functions. These functions execute on the system thread regardless of which thread they are called from.
 
 There are two types of system functions:
 
@@ -5268,7 +5583,7 @@ When executing timing-critical sections of code, the task switching needs to be 
 
 ### SINGLE_THREADED_BLOCK()
 
-`SINGLE_THREADED_BLOCK()` declares that the next code block is executed in single threaded mode. Task switching is disabled until the end of the block and automatically re-enabled when the block exits. Interrupts remain enabled, so the thread may be interrupted for small periods of time, such as by interrupts from peripherals. 
+`SINGLE_THREADED_BLOCK()` declares that the next code block is executed in single threaded mode. Task switching is disabled until the end of the block and automatically re-enabled when the block exits. Interrupts remain enabled, so the thread may be interrupted for small periods of time, such as by interrupts from peripherals.
 
 ```
 // SYNTAX
@@ -5296,9 +5611,9 @@ void so_timing_sensitive()
 
 ### ATOMIC_BLOCK()
 
-`ATOMIC_BLOCK()` is similar to `SINGLE_THREADED_BLOCK()` in that it prevents other threads executing during a block of code. In addition, interrupts are also disabled. 
+`ATOMIC_BLOCK()` is similar to `SINGLE_THREADED_BLOCK()` in that it prevents other threads executing during a block of code. In addition, interrupts are also disabled.
 
-WARNING: Disabling interrupts prevents normal system operation. Consequently, `ATOMIC_BLOCK()` should be used only for brief periods where atomicity is essential. 
+WARNING: Disabling interrupts prevents normal system operation. Consequently, `ATOMIC_BLOCK()` should be used only for brief periods where atomicity is essential.
 
 ```
 // SYNTAX
@@ -5328,9 +5643,9 @@ void so_timing_sensitive_and_no_interrupts()
 With system threading enabled, the system thread and the application thread run in parallel. When both attempt to use the same resource, such as writing a message to `Serial`, there is no guaranteed order - the message printed by the system and the message printed by the application are arbitrarily interleaved as the RTOS rapidly switches between running a small part of the system code and then the application code. This results in both messages being intermixed.
 
 This can be avoided by acquiring exclusive access to a resource. To get exclusive access to a resource, we can use locks. A lock
-ensures that only the thread owning the lock can access the resource. Any other thread that tries to use the resource via the lock will not be granted access until the first thread eventually unlocks the resource when it is done. 
+ensures that only the thread owning the lock can access the resource. Any other thread that tries to use the resource via the lock will not be granted access until the first thread eventually unlocks the resource when it is done.
 
-At present there is only one shared resource that is used by the system and the application - `Serial`. The system makes use of `Serial` during listening mode. If the application also makes use of serial during listening mode, then it should be locked before use. 
+At present there is only one shared resource that is used by the system and the application - `Serial`. The system makes use of `Serial` during listening mode. If the application also makes use of serial during listening mode, then it should be locked before use.
 
 ```
 void print_status()
@@ -5345,11 +5660,11 @@ void print_status()
 The primary difference compared to using Serial without a lock is the `WITH_LOCK` declaration. This does several things:
 
 - attempts to acquire the lock for `Serial`. If the lock isn't available, the thread blocks indefinitely until it is available.
- 
+
 - once `Serial` has been locked, the code in the following block is executed.
 
-- when the block has finished executing, the lock is released, allowing other threads to use the resource.   
- 
+- when the block has finished executing, the lock is released, allowing other threads to use the resource.
+
 It's also possible to attempt to lock a resource, but not block when the resource isn't available.
 
 ```
