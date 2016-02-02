@@ -719,7 +719,7 @@ WiFi.listen();
 
 Listening mode blocks application code. Advanced cases that use multithreading, interrupts, or system events
 have the ability to continue to execute application code while in listening mode, and may wish to then exit listening
-mode, such as after a timeout. Listning mode is stopped using this syntax:
+mode, such as after a timeout. Listening mode is stopped using this syntax:
 
 ```cpp
 
@@ -1215,7 +1215,7 @@ Cellular.listen();
 
 Listening mode blocks application code. Advanced cases that use multithreading, interrupts, or system events
 have the ability to continue to execute application code while in listening mode, and may wish to then exit listening
-mode, such as after a timeout. Listning mode is stopped using this syntax:
+mode, such as after a timeout. Listening mode is stopped using this syntax:
 
 ```cpp
 
