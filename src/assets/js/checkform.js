@@ -9,6 +9,7 @@ $(document).ready(function() {
 		datax.email = $("#email").val();
 		datax.email2 = $("#email2").val();
 		datax.subj = $("#category option:selected").val();
+		datax.topic = $("#secondmenu option:selected").val();
 		datax.comments = $("#comment").val();
 
 		//Validations
@@ -19,6 +20,7 @@ $(document).ready(function() {
     var ddx = { name: datax.name,
 		  				email: datax.email ,
 		  				subject: datax.subj,
+							topic: datax.topic,
 		  				comments: datax.comments,
 		  				urlFrom: window.location.pathname
 						};//object
@@ -37,6 +39,7 @@ $(document).ready(function() {
 					$("#email").val('');
 					$("#email2").val('');
 					$("#category option:selected").val();
+					$("#secondmenu option:selected").val();
 					$("#comment").val('');
 					$("#button-blue").css('background-color', 'green');
 					$("#button-blue").attr('value', 'Message Received!');
