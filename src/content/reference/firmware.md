@@ -1618,8 +1618,8 @@ void loop()
 The PWM frequency must be the same for pins in the same timer group.
 
 - On the Core, the timer groups are D0/D1, A0/A1/RX/TX, A4/A5/A6/A7.
-- On the Photon, the timer groups are D0/D1/C4/C5, D2/D3/A4/A5, WKP, RX/TX.
-- On the P1, the timer groups are D0/D1/C4/C5, D2/D3/A4/A5/P1S0/P1S1, WKP, RX/TX.
+- On the Photon, the timer groups are D0/D1, D2/D3/A4/A5, WKP, RX/TX.
+- On the P1, the timer groups are D0/D1, D2/D3/A4/A5/P1S0/P1S1, WKP, RX/TX.
 - On the Electron, the timer groups are D0/D1/C4/C5, D2/D3/A4/A5/B2/B3, WKP, RX/TX, B0/B1.
 
 **NOTE:** When used with PWM capable pins, the `analogWrite()` function sets up these pins as PWM only.  {{#unless core}}This function operates differently when used with the [`Analog Output (DAC)`](#analog-output-dac-) pins.{{/unless}}
