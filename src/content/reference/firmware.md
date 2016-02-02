@@ -2904,7 +2904,18 @@ void loop()
 
 The Photon and Electron support communicating with CAN devices via the CAN bus.
 
-```
+- The Photon and Electron have a CANbus on pins D1 (CAN2_TX) and D2 (CAN2_RX).
+- The Electron only has a second CANbus on pins C4 (CAN1_TX) and C5 (CAN1_TX).
+
+
+```c++
+// SYNTAX
+// Photon and Electron
+CANChannel can(CAN_D1_D2);
+// Electron only has a second CANbus
+CANChannel can(CAN_C4_C5);
+
+// EXAMPLE on pins D1 & D2
 CANChannel can(CAN_D1_D2);
 
 void setup() {
@@ -2944,9 +2955,12 @@ struct CANMessage
 
 ### CAN.begin()
 
-Joins the bus at the given tranmission rate.
-
-
+Joins the bus at the given `baud` rate.
+```C++
+// SYNTAX
+CANChannel can(CAN_D1_D2);
+can.begin(baud);
+```
 {{/unless}}
 
 ### IPAddress
