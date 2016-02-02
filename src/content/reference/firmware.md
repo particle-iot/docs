@@ -2,7 +2,7 @@
 title: Firmware
 template: reference.hbs
 columns: three
-devices: ['photon','electron','core']
+devices: [photon,electron,core]
 order: 1
 ---
 
@@ -2418,44 +2418,84 @@ Serial1.halfduplex(true);
 
 SPI
 ----
-This library allows you to communicate with SPI devices, with the Core/Photon/Electron as the master device.
+This library allows you to communicate with SPI devices, with the {{device}} as the master device.
 
+{{#if core}}
 ![SPI](/assets/images/core-pin-spi.jpg)
+{{/if}}
 
-The hardware SPI pin functions are mapped as follows:
+The hardware SPI pin functions, which can
+be used via the `SPI` object, are mapped as follows:
+* `SS` => `A2` (default)
 * `SCK` => `A3`
 * `MISO` => `A4`
 * `MOSI` => `A5`
-* `SS` => `A2` (default)
-{{#unless core}}
 
-On the Photon and Electron, there is a second hardware SPI interface available, which can
+{{#unless core}}
+There is a second hardware SPI interface available, which can
 be used via the `SPI1` object. This second port is mapped as follows:
+* `SS` => `D5` (default)
 * `SCK` => `D4`
 * `MISO` => `D3`
 * `MOSI` => `D2`
-* `SS` => `A2` (default)
+{{/unless}}
+
+{{#if electron}}
+Additionally on the Electron, there is an alternate pin location for the second SPI interface, which can
+be used via the `SPI2` object. This alternate location is mapped as follows:
+* `SS` => `D5` (default)
+* `SCK` => `C3`
+* `MISO` => `C2`
+* `MOSI` => `C1`
+{{/if}}
+
+{{#unless core}}
+**Note**: Because there are multiple SPI peripherals available, be sure to use the same `SPI`,`SPI1`{{#if electron}},`SPI2`{{/if}} object with all associated functions. I.e.,
+
+Do **NOT** use **SPI**.begin() with **SPI1**.transfer();
+
+**Do** use **SPI**.begin() with **SPI**.transfer();
 {{/unless}}
 
 ### begin()
 
 Initializes the SPI bus by setting SCK, MOSI, and a user-specified slave-select pin to outputs, MISO to input. SCK and MOSI are pulled low, and slave-select high.
 
-**NOTE:**  The SPI firmware ONLY initializes the user-specified slave-select pin. The user's code must control the slave-select pin before and after each SPI transfer for the desired SPI slave device. Calling `SPI.end()` does NOT reset the pin mode of the SPI pins.
+**Note:**  The SPI firmware ONLY initializes the user-specified slave-select pin as an `OUTPUT`. The user's code must control the slave-select pin with `digitalWrite()` before and after each SPI transfer for the desired SPI slave device. Calling `SPI.end()` does NOT reset the pin mode of the SPI pins.
 
 ```C++
 // SYNTAX
 SPI.begin(ss);
+{{#unless core}}
+SPI1.begin(ss);
+{{/unless}}
+{{#if electron}}
+SPI2.begin(ss);
+{{/if}}
 ```
 
-Where, the parameter `ss` is the SPI device slave-select pin to initialize.  If no pin is specified, the default pin is `SS (A2)`.
+Where, the parameter `ss` is the `SPI` device slave-select pin to initialize.  If no pin is specified, the default pin is `SS (A2)`.
+{{#unless core}}
+For `SPI1`, the default `ss` pin is `SS (D5)`.
+{{/unless}}
+{{#if electron}}
+For `SPI2`, the default `ss` pin is also `SS (D5)`.
+{{/if}}
 
 {{#unless core}}
 ```C++
-// Example of using SPI1 on the Photon and Electron, with D3 as the SS pin:
-SPI1.begin(D3);
+// Example using SPI1, with D5 as the SS pin:
+SPI1.begin();
+// or
+SPI1.begin(D5);
 ```
 {{/unless}}
+{{#if electron}}
+```C++
+// Example using SPI2, with C0 as the SS pin:
+SPI2.begin(C0);
+```
+{{/if}}
 
 ### end()
 
@@ -2464,6 +2504,12 @@ Disables the SPI bus (leaving pin modes unchanged).
 ```C++
 // SYNTAX
 SPI.end();
+{{#unless core}}
+SPI1.end();
+{{/unless}}
+{{#if electron}}
+SPI2.end();
+{{/if}}
 ```
 
 ### setBitOrder()
@@ -2473,6 +2519,12 @@ Sets the order of the bits shifted out of and into the SPI bus, either LSBFIRST 
 ```C++
 // SYNTAX
 SPI.setBitOrder(order);
+{{#unless core}}
+SPI1.setBitOrder(order);
+{{/unless}}
+{{#if electron}}
+SPI2.setBitOrder(order);
+{{/if}}
 ```
 
 Where, the parameter `order` can either be `LSBFIRST` or `MSBFIRST`.
@@ -2483,10 +2535,23 @@ Sets the SPI clock speed. The value can be specified as a direct value, or as
 as a value plus a multiplier.
 
 
+```C++
+// SYNTAX
+SPI.setClockSpeed(value, scale));
+SPI.setClockSpeed(frequency));
+{{#unless core}}
+SPI1.setClockSpeed(value, scale));
+SPI1.setClockSpeed(frequency));
+{{/unless}}
+{{#if electron}}
+SPI2.setClockSpeed(value, scale));
+SPI2.setClockSpeed(frequency));
+{{/if}}
+```
+
 ```
 // EXAMPLE
-
-// set the clock speed as close (but not over) to 15 MHz
+// Set the clock speed as close to 15MHz (but not over)
 SPI.setClockSpeed(15, MHZ));
 SPI.setClockSpeed(15000000));
 ```
@@ -2534,7 +2599,13 @@ Sets the SPI clock divider relative to the selected clock reference. The availab
 
 ```C++
 // SYNTAX
-SPI.setClockDivider(divider) ;
+SPI.setClockDivider(divider);
+{{#unless core}}
+SPI1.setClockDivider(divider);
+{{/unless}}
+{{#if electron}}
+SPI2.setClockDivider(divider);
+{{/if}}
 ```
 Where the parameter, `divider` can be:
 
@@ -2553,7 +2624,13 @@ Sets the SPI data mode: that is, clock polarity and phase. See the [Wikipedia ar
 
 ```C++
 // SYNTAX
-SPI.setDataMode(mode) ;
+SPI.setDataMode(mode);
+{{#unless core}}
+SPI1.setDataMode(mode);
+{{/unless}}
+{{#if electron}}
+SPI2.setDataMode(mode);
+{{/if}}
 ```
 Where the parameter, `mode` can be:
 
@@ -2569,6 +2646,12 @@ Transfers one byte over the SPI bus, both sending and receiving.
 ```C++
 // SYNTAX
 SPI.transfer(val);
+{{#unless core}}
+SPI1.transfer(val);
+{{/unless}}
+{{#if electron}}
+SPI2.transfer(val);
+{{/if}}
 ```
 Where the parameter `val`, can is the byte to send out over the SPI bus.
 
@@ -2577,11 +2660,17 @@ Where the parameter `val`, can is the byte to send out over the SPI bus.
 
 For transferring a large number of bytes, this form of transfer() uses DMA to speed up SPI data transfer and at the same time allows you to run code in parallel to the data transmission. The function initialises, configures and enables the DMA peripheral’s channel and stream for the selected SPI peripheral for both outgoing and incoming data and initiates the data transfer. If a user callback function is passed then it will be called after completion of the DMA transfer. This results in asynchronous filling of RX buffer after which the DMA transfer is disabled till the transfer function is called again. If NULL is passed as a callback then the result is synchronous i.e. the function will only return once the DMA transfer is complete.
 
-NOTE: The SPI protocol is based on a one byte OUT / one byte IN inteface. For every byte expected to be received, one (dummy, typically 0x00 or 0xFF) byte must be sent.
+**Note**: The SPI protocol is based on a one byte OUT / one byte IN inteface. For every byte expected to be received, one (dummy, typically 0x00 or 0xFF) byte must be sent.
 
 ```C++
 // SYNTAX
-SPI.transfer(tx_buffer, rx_buffer, length, myFunction)
+SPI.transfer(tx_buffer, rx_buffer, length, myFunction);
+{{#unless core}}
+SPI1.transfer(tx_buffer, rx_buffer, length, myFunction);
+{{/unless}}
+{{#if electron}}
+SPI2.transfer(tx_buffer, rx_buffer, length, myFunction);
+{{/if}}
 ```
 
 Parameters:
