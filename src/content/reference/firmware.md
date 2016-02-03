@@ -1152,7 +1152,7 @@ is called, without needing to be reconfigured using `WiFi.setStaticIP()`
 
 `Cellular.on()` turns on the Cellular module. Useful when you've turned it off, and you changed your mind.
 
-Note that `Cellular.on()` does not need to be called unless you have changed the [system mode](#system-system-modes) or you have previously turned the Cellular module off.  When turning on the Cellular module, it will go through a full re-connect to the Cellular network which will take anywhere from 30 to 60 seconds in most situations.
+Note that `Cellular.on()` does not need to be called unless you have changed the [system mode](#system-modes) or you have previously turned the Cellular module off.  When turning on the Cellular module, it will go through a full re-connect to the Cellular network which will take anywhere from 30 to 60 seconds in most situations.
 
 ```cpp
 // SYNTAX
@@ -1243,22 +1243,40 @@ It will return `false` when the device is not in listening mode.
 
 ### setCredentials()
 
-Sets 3rd party credentials for the Cellular network from within the user application. These credentials are currently not added to the device's non-volatile memory and need to be set every time from the user application.
+**Note**: `Cellular.setCredentials()` is not currently enabled, however read on to find out how to use the cellular_hal to do the same thing with `cellular_credentials_set()`.
+
+Sets 3rd party credentials for the Cellular network from within the user application. These credentials are currently not added to the device's non-volatile memory and need to be set every time from the user application.  You may set credentials in 3 different ways:
+
+- APN only
+- USERNAME & PASSWORD only
+- APN, USERNAME & PASSWARD
+
+**Note**: When using the default `SYSTEM_MODE(AUTOMATIC)` connection behavior, it is necessary to call `cellular_credentials_set()` with the `STARTUP()` macro outside of `setup()` and `loop()` so that the system will have the correct credentials before it tries to connect to the cellular network (see EXAMPLE).
+
+The following examples can be copied to a file called `setcreds.ino` and compiled and flashed to your Electron over USB via the [Particle CLI](/guide/tools-and-features/cli).  With your Electron in [DFU mode](/guide/getting-started/modes/electron/#dfu-mode-device-firmware-upgrade-), the command for this is:
+
+`particle compile electron setcreds.ino --saveTo firmware.bin && particle flash --usb firmware.bin`
+
+**Note**: Your Electron only uses one set of credentials, and they must be correctly matched to the SIM card that's used.  If using a Particle SIM, using `cellular_credentials_set()` is not necessary as the default APN of "spark.telefonica.com" with no username or password will be used by system firmware.
 
 ```C++
 // SYNTAX
 // Connects to a cellular network by APN only
-STARTUP(Cellular.setCredentials(APN));
+STARTUP(cellular_credentials_set(APN, "", "", NULL));
 
 // Connects to a cellular network with USERNAME and PASSWORD only
-STARTUP(Cellular.setCredentials(USERNAME, PASSWORD));
+STARTUP(cellular_credentials_set("", USERNAME, PASSWORD, NULL));
 
 // Connects to a cellular network with a specified APN, USERNAME and PASSWORD
 #include “cellular_hal.h”
 STARTUP(cellular_credentials_set(APN, USERNAME, PASSWORD, NULL));
+```
 
-// EXAMPLE with an AT&T APN with no username or password in AUTOMATIC mode
-STARTUP(Cellular.setCredentials("broadband"));
+```C++
+// EXAMPLE - an AT&T APN with no username or password in AUTOMATIC mode
+
+#include "cellular_hal.h"
+STARTUP(cellular_credentials_set("broadband", "", "", NULL));
 
 void setup() {
   // your setup code
@@ -1268,24 +1286,6 @@ void loop() {
   // your loop code
 }
 ```
-
-```C++
-// EXAMPLE with username and password in SEMI_AUTOMATIC mode
-SYSTEM_MODE(SEMI_AUTOMATIC);
-
-void setup() {
-  Cellular.setCredentials("my_username", "12345678");
-  Particle.connect();
-}
-
-void loop() {
-  // your loop code
-}
-```
-
-**Note**: Your Electron only uses one set of credentials, and they must be correctly matched to the SIM card that's used.  If using a Particle SIM, using `setCredentials()` is not necessary as the default APN of "spark.telefonica.com" with no username or password will be used by system firmware.
-
-**Note**: When using the default `SYSTEM_MODE(AUTOMATIC)` connection behavior, it is necessary to call `setCredentials()` with the `STARTUP()` macro outside of `setup()` and `loop()` so that the system will have the correct credentials before it tries to connect to the cellular network.  If using `SYSTEM_MODE(SEMI_AUTOMATIC|MANUAL)` be sure to call `setCredentials()` with your 3rd party information before calling `Particle.connect()`
 
 ### RSSI()
 
