@@ -1449,6 +1449,265 @@ There are 13 different enumerated AT command responses passed by the system into
 
 {{/if}}
 
+{{#if electron}}
+## PMIC (Power Managment IC)
+
+### begin()
+`bool begin();`
+
+### getVersion()
+`byte getVersion();`
+
+### getSystemStatus()
+`byte getSystemStatus();`
+
+### getFault()
+`byte getFault();`
+
+---
+
+### Input source control register
+
+#### readInputSourceRegister()
+`byte readInputSourceRegister(void);`
+
+#### enableBuck()
+`bool enableBuck(void);`
+
+#### disableBuck()
+`bool disableBuck(void);`
+
+#### setInputCurrentLimit()
+`bool setInputCurrentLimit(uint16_t current);`
+
+#### getInputCurrentLimit()
+`byte getInputCurrentLimit(void);`
+
+#### setInputVoltageLimit()
+`bool setInputVoltageLimit(uint16_t voltage);`
+
+#### getInputVoltageLimit()
+`byte getInputVoltageLimit(void);`
+
+---
+
+### Power ON Configuration Reg
+
+#### enableCharging()
+`bool enableCharging(void);`
+
+#### disableCharging()
+`bool disableCharging(void);`
+
+#### enableOTG()
+`bool enableOTG(void);`
+
+#### disableOTG()
+`bool disableOTG(void);`
+
+#### resetWatchdog()
+`bool resetWatchdog(void);`
+
+#### setMinimumSystemVoltage()
+`bool setMinimumSystemVoltage(uint16_t voltage);`
+
+#### getMinimumSystemVoltage()
+`uint16_t getMinimumSystemVoltage();`
+
+#### readPowerONRegister()
+`byte readPowerONRegister(void);`
+
+---
+
+### Charge Current Control Reg
+
+#### setChargeCurrent()
+`bool setChargeCurrent(bool bit7, bool bit6, bool bit5, bool bit4, bool bit3, bool bit2);`
+
+#### getChargeCurrent()
+`byte getChargeCurrent(void);`
+
+---
+
+### PreCharge/Termination Current Control Reg
+
+#### setPreChargeCurrent()
+`bool setPreChargeCurrent();`
+
+#### getPreChargeCurrent()
+`byte getPreChargeCurrent();`
+
+#### setTermChargeCurrent()
+`bool setTermChargeCurrent();`
+
+#### getTermChargeCurrent()
+`byte getTermChargeCurrent();`
+
+---
+
+### Charge Voltage Control Reg
+
+#### setChargeVoltage()
+`bool setChargeVoltage(uint16_t voltage);`
+
+#### getChargeVoltage()
+`byte getChargeVoltage();`
+
+---
+
+### Charge Timer Control Reg
+
+#### readChargeTermRegister()
+`byte readChargeTermRegister();`
+
+#### disableWatchdog()
+`bool disableWatchdog(void);`
+
+#### setWatchdog()
+`bool setWatchdog(byte time);`
+
+---
+
+### Thermal Regulation Control Reg
+
+#### setThermalRegulation()
+`bool setThermalRegulation();`
+
+#### getThermalRegulation()
+`byte getThermalRegulation();`
+
+---
+
+### Misc Operation Control Reg
+
+#### readOpControlRegister()
+`byte readOpControlRegister();`
+
+#### enableDPDM()
+`bool enableDPDM(void);`
+
+#### disableDPDM()
+`bool disableDPDM(void);`
+
+#### enableBATFET()
+`bool enableBATFET(void);`
+
+#### disableBATFET()
+`bool disableBATFET(void);`
+
+#### safetyTimer()
+`bool safetyTimer();`
+
+#### enableChargeFaultINT()
+`bool enableChargeFaultINT();`
+
+#### disableChargeFaultINT()
+`bool disableChargeFaultINT();`
+
+#### enableBatFaultINT()
+`bool enableBatFaultINT();`
+
+#### disableBatFaultINT()
+`bool disableBatFaultINT();`
+
+---
+
+### System Status Register
+
+#### getVbusStat()
+`byte getVbusStat();`
+
+#### getChargingStat()
+`byte getChargingStat();`
+
+#### getDPMStat()
+`bool getDPMStat();`
+
+#### isPowerGood()
+`bool isPowerGood(void);`
+
+#### isHot()
+`bool isHot(void);`
+
+#### getVsysStat()
+`bool getVsysStat();`
+
+---
+
+### Fault Register
+
+#### isWatchdogFault()
+`bool isWatchdogFault();`
+
+#### getChargeFault()
+`byte getChargeFault();`
+
+#### isBatFault()
+`bool isBatFault();`
+
+#### getNTCFault()
+`byte getNTCFault();`
+
+{{/if}}
+
+{{#if electron}}
+## FuelGauge
+The on-board Fuel Gauge allows you to monitor the battery voltage, state of charge and set low voltage battery thresholds. Use an instance of the `FuelGauge` library to call the various fuel gauge functions.
+
+```C++
+// EXAMPLE
+FuelGauge fuel;
+```
+
+### getVCell()
+Returns the battery voltage as a `float`.
+
+```C++
+// EXAMPLE
+FuelGauge fuel;
+Serial.println( fuel.getVCell() );
+```
+
+### getSoC()
+Returns the State of Charge in percentage from 0-100% as a `float`.
+
+```C++
+// EXAMPLE
+FuelGauge fuel;
+Serial.println( fuel.getSoC() );
+```
+
+### getVersion()
+`int getVersion();`
+
+### getCompensateValue()
+`byte getCompensateValue();`
+
+### getAlertThreshold()
+`byte getAlertThreshold();`
+
+### setAlertThreshold()
+`void setAlertThreshold(byte threshold);`
+
+### getAlert()
+`boolean getAlert();`
+
+### clearAlert()
+`void clearAlert();`
+
+### reset()
+`void reset();`
+
+### quickStart()
+`void quickStart();`
+
+### sleep()
+`void sleep();`
+
+### wakeup()
+`void wakeup();`
+{{/if}}
+
 ## Input/Output
 
 ### pinMode()
