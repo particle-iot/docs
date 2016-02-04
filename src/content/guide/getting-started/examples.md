@@ -8,7 +8,7 @@ order: 7
 
 # Annotated examples
 
-Here you will find a bunch of examples to get you started with your new Particle device! The diagrams here show the Photon, but these examples will work with either the Photon or the Core.
+Here you will find a bunch of examples to get you started with your new Particle device! {{#unless electron}}The diagrams here show the Photon, but these examples will work with either the Photon or the Core.{{/unless}}
 
 These examples are also listed in the online IDE in the Code menu.
 
@@ -22,11 +22,21 @@ To complete all the examples, you will need the following materials:
   * (2) Resistors between 220 Ohms and 1000 Ohms {{#if photon}}(220 Ohm Resistors included with Photon Kit and Maker Kit){{/if}}
   * (1) LED, any color {{#if photon}}(Red LED included with Photon Kit and Maker Kit){{/if}}
   * (1) Photoresistor {{#if photon}}(Included with Photon Kit and Maker Kit){{/if}}
+  {{#if electron}}* LiPo Battery (included in the Electron kit){{/if}}
 * **Software**
   * A text editor such as [Sublime](http://www.sublimetext.com/) or [TextMate](https://macromates.com/)
   * The [online IDE](http://build.particle.io) or [Particle Dev](http://particle.io/dev)
 * **Experience**
   * Connecting your Device [with your smartphone](/guide/getting-started/start) or [over USB](/guide/getting-started/connect)
+
+{{#if electron}}
+**NOTE:** 
+
+Since Electron is a cellular device and you are paying for the data in an ongoing basis, it's important for us to  to be conscious and conservative about the data usage. Every time you update your firmware over the air, push data to the device or remain connected to the network, you are consuming data. In the development phase of your project, it is advised that you limit your firmware updates to happen over USB, instead of the cellular network.
+
+{{/if}}
+
+
 
 <div style="display: none;" id="blink-an-led" data-firmware-example-url="https://docs.particle.io/guide/getting-started/examples/photon/#blink-an-led" data-firmware-example-title="Blink an LED" data-firmware-example-description="Blink an LED"></div>
 
