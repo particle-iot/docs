@@ -164,7 +164,6 @@ exports.metalsmith = function() {
       relative: false
     }))
     .use(redirect({
-      '/start': '/guide/getting-started/intro',
       '/guide': '/guide/getting-started/intro',
       '/guide/photon/': '/guide/photon/start',
       '/guide/core/': '/guide/core/start',
@@ -218,7 +217,6 @@ exports.metalsmith = function() {
       "/javascript" : "/reference/javascript",
       "/ios" : "/reference/ios",
       "/mobile" : "/reference/ios",
-      "/start" : "/guide/getting-started/start",
       "/connect" : "/guide/getting-started/connect",
       "/modes" : "/guide/getting-started/modes",
       "/tinker" : "/guide/getting-started/tinker",
