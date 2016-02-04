@@ -2,7 +2,9 @@
 title: Get started with Particle
 template: start.hbs
 ---
+<script src='/assets/js/redirect.js'></script>
 
+<<<<<<< HEAD
 <h1 class="choose-device-header">Which device are you interested in?</h1>
 
 <ul class="devices">
@@ -25,3 +27,5 @@ template: start.hbs
     </li>
   </a>
 </ul>
+=======
+>>>>>>> master
