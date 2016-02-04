@@ -2,7 +2,7 @@
 <html>
 <head>
   <!-- REDIRECT SCRIPT -->
-  <script src='/assets/js/redirect.js'></script>
+  {{{contents}}}
   {{> head sectionTitle='Start'}}
 </head>
 <body>
@@ -17,7 +17,22 @@
     </div>
 
     <div class='getting-started'>
-      {{{contents}}}
+      <h1 class="choose-device-header">Which device are you interested in?</h1>
+
+      <div class="devices">
+        <a href="/guide/getting-started/intro/photon" class="device" id="photon">
+          <h3>Photon</h3>
+          <img src="/assets/images/photonx.svg"/>
+        </a>
+        <a href="https://setup.particle.io" class="device" id="electron">
+          <h3>Electron</h3>
+          <img src="/assets/images/electronx.svg"/>
+        </a>
+        <a href="/guide/getting-started/intro/core" class="device" id="core">
+          <h3>Core</h3>
+          <img src="/assets/images/corex.svg"/>
+        </a>
+      </ul>
     </div>
   </div>
   {{> scripts}}
