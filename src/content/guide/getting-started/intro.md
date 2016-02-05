@@ -7,17 +7,7 @@ order: 1
 ---
 
 
-{{#if photon}}
-# Introducing to the Guide
-{{/if}}
-
-{{#if core}}
-# Introducing to the Guide
-{{/if}}
-
-{{#if electron}}
-# Introducing to the Guide
-{{/if}}
+#Introduction to the Guide
 
 {{#if photon}}
 ![](/assets/images/family_portrait_outlines.png)
