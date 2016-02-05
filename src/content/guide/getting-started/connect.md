@@ -1,5 +1,5 @@
 ---
-title: Connecting Your Device
+title: Connecting over USB
 template: guide.hbs
 columns: two
 devices: [ photon,electron,core ]

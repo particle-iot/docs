@@ -16,7 +16,7 @@ order: 1
 {{/if}}
 
 {{#if electron}}
-# Introducing the future, the Electron
+# Introducing to the Guide
 {{/if}}
 
 {{#if photon}}

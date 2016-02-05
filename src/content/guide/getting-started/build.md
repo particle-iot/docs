@@ -102,7 +102,17 @@ void loop() {
     delay(1000);
 }
 ```
+{{#if electron}}
+![Particle Build](/assets/images/enew-ide.png)
+{{/if}}
+
+{{#if photon}}
 ![Particle Build](/assets/images/ide-devices.png)
+{{/if}}
+
+{{#if core}}
+![Particle Build](/assets/images/ide-devices.png)
+{{/if}}
 
 - **Select Your Device**: If you have more than one device you have to make sure that you've selected which of your devices to flash code to.  Click on the "Devices" icon at the bottom left side of the navigation pane, then when you hover over device name the star will appear on the left. Click on it to set the device you'd like to update (it won't be visible if you have only one device). Once you've selected a device, the star associated with it will turn yellow. (If you only have one device, there is no need to select it, you can continue on to the next step).
 
