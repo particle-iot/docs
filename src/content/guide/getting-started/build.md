@@ -2,7 +2,7 @@
 title: Web IDE (Build)
 template: guide.hbs
 columns: two
-devices: [ photon, core ]
+devices: [ photon,electron,core ]
 order: 6
 ---
 
@@ -83,6 +83,10 @@ The best way to get started with the IDE is to start writing code:
 - **Connect**: Make sure your device is powered and "breathing" Cyan, which indicates that it's connected to the Particle Cloud and ready to be updated.
 - **Get Code**: Try clicking on the "Blink an LED" example under the "Example apps" header.  The Particle Build editor should display the code for the example application in an active tab.  Alternatively, you can copy and paste this snippet of code into a new application in the Build IDE.
 
+{{#if electron}}
+**NOTE**: Each over *over-the-air firmware update* on Electron counts towards your data allowance. You can also flash the Electron locally [using our CLI](https://github.com/spark/particle-cli#compiling-remotely-and-flashing-locally).
+{{/if}}
+
 ```
 //D7 LED Flash Example
 int LED = D7;
@@ -98,7 +102,17 @@ void loop() {
     delay(1000);
 }
 ```
+{{#if electron}}
+![Particle Build](/assets/images/enew-ide.png)
+{{/if}}
+
+{{#if photon}}
 ![Particle Build](/assets/images/ide-devices.png)
+{{/if}}
+
+{{#if core}}
+![Particle Build](/assets/images/ide-devices.png)
+{{/if}}
 
 - **Select Your Device**: If you have more than one device you have to make sure that you've selected which of your devices to flash code to.  Click on the "Devices" icon at the bottom left side of the navigation pane, then when you hover over device name the star will appear on the left. Click on it to set the device you'd like to update (it won't be visible if you have only one device). Once you've selected a device, the star associated with it will turn yellow. (If you only have one device, there is no need to select it, you can continue on to the next step).
 
@@ -174,14 +188,14 @@ _If there are no code changes and you **verify** code for the second time, the "
 Wait, what is firmware?
 ---
 
-An *embedded system* like the Core or Photon doesn't have an Operating System like a traditional computer. Instead, it runs a single application, often called *firmware*, which runs whenever the system is powered.
+An *embedded system* like the Core, Photon or Electron doesn't have an Operating System like a traditional computer. Instead, it runs a single application, often called *firmware*, which runs whenever the system is powered.
 
 
 ![Firmware versions]({{assets}}/images/ide-firmware-versions.png)
 
 *Firmware* is so-called because it's harder than software and softer than hardware. Hardware is fixed during manufacturing, and doesn't change. Software can be updated anytime, so it's very flexible. Firmware is somewhere in between; hardware companies do issue firmware updates, but they tend to be very infrequent, because upgrading firmware can be difficult.
 
-In our case, because the Cores and Photons are connected to the internet, updating firmware is quite trivial; we send it over the network, and we have put in place safeguards to keep you from "bricking" your device.
+In our case, because the Cores, Photons and Electrons are connected to the internet, updating firmware is quite trivial; we send it over the network, and we have put in place safeguards to keep you from "bricking" your device.
 
 When you flash code onto your device, you are doing an *over-the-air firmware update*. This firmware update overwrites almost all of the software on the device; the only piece that is untouched is the bootloader, which manages the process of loading new firmware and ensures you can always update the firmware over USB or through a factory reset.
 
@@ -200,6 +214,10 @@ Feeling oriented? Let's move on to some more interesting [examples.](/guide/gett
 
 
 **Also**, check out and join our [community forums](http://community.particle.io/) for advanced help, tutorials, and troubleshooting.
+
+{{#if electron}}
+[Go to Community Forums >](http://community.particle.io/c/troubleshooting)
+{{/if}}
 
 {{#if photon}}
 [Go to Community Forums >](http://community.particle.io/c/troubleshooting)

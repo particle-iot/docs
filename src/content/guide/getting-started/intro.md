@@ -2,30 +2,56 @@
 title: Introduction
 template: guide.hbs
 columns: two
-devices: [ photon, core ]
+devices: [ photon,electron,core ]
 order: 1
 ---
 
-# Introduction to THE GUIDE
 
+{{#if photon}}
+# Introducing to the Guide
+{{/if}}
+
+{{#if core}}
+# Introducing to the Guide
+{{/if}}
+
+{{#if electron}}
+# Introducing to the Guide
+{{/if}}
+
+{{#if photon}}
 ![](/assets/images/family_portrait_outlines.png)
+{{/if}}
 
+{{#if core}}
+![](/assets/images/family_portrait_outlines.png)
+{{/if}}
+
+{{#if electron}}
+![](/assets/images/electrontall.jpg)
+{{/if}}
+
+{{#if photon}}
 This guide will show you how to use Particle to make a connected device, from the first time you connect to the cloud to the day you manufacture and ship your connected product.
 
 Anxious to connect right away?
 
-
-{{#if photon}}
-[CONNECT MY PHOTON >](/guide/getting-started/start/photon/#step-1-power-on-your-device)
+[SETUP MY PHOTON >](/guide/getting-started/start/photon/#step-1-power-on-your-device)
 {{/if}}
 
 {{#if core}}
-[CONNECT MY CORE >](/guide/getting-started/start/core/#step-1-power-on-your-device)
+This guide will show you how to use Particle to make a connected device, from the first time you connect to the cloud to the day you manufacture and ship your connected product.
+
+Anxious to connect right away?
+
+[SETUP MY PHOTON >](/guide/getting-started/start/photon/#step-1-power-on-your-device)
 {{/if}}
 
-[I'M AT A HACKATHON >](/guide/getting-started/hackathon)
+{{#if electron}}
+This guide will show the proper methods to setup the Particle Electron, a cellular IoT connected development board. It's similar to our Photon in some ways, but very different in terms of applications, data consumption, and app architecture. We will unravel all of these new concepts in this Electron guide.
 
-Or read on!
+[SETUP MY Electron >](https://setup.particle.io/)
+{{/if}}
 
 
 The guide is broken down into three parts:
@@ -37,11 +63,6 @@ We'll fill in more parts of the guide in the {{{popup 'coming months' 'note' 'Th
 - Go through _Getting Started_
 - Review _Tools and Features_
 - Search _[the community](http://community.particle.io)_ for cool examples and advice relevant to your exact project
-- Check out _How to Build a Product_ for final advice
+- Check out _How to Build a Product_ for final advice on the production stage.
 
 Ready to get started? Click the arrow to the right of the screen to read on.
-
-
-
-
-

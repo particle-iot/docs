@@ -2,7 +2,7 @@
 title: Tinker & Mobile App
 template: guide.hbs
 columns: two
-devices: [ photon, core ]
+devices: [ photon,electron,core ]
 order: 5
 ---
 

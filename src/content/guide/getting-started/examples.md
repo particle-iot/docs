@@ -2,13 +2,13 @@
 title: Code Examples
 template: guide.hbs
 columns: two
-devices: [ photon, core ]
+devices: [ photon,electron,core ]
 order: 7
 ---
 
 # Annotated examples
 
-Here you will find a bunch of examples to get you started with your new Particle device! The diagrams here show the Photon, but these examples will work with either the Photon or the Core.
+Here you will find a bunch of examples to get you started with your new Particle device! {{#unless electron}}The diagrams here show the Photon, but these examples will work with either the Photon or the Core.{{/unless}}
 
 These examples are also listed in the online IDE in the Code menu.
 
@@ -22,11 +22,21 @@ To complete all the examples, you will need the following materials:
   * (2) Resistors between 220 Ohms and 1000 Ohms {{#if photon}}(220 Ohm Resistors included with Photon Kit and Maker Kit){{/if}}
   * (1) LED, any color {{#if photon}}(Red LED included with Photon Kit and Maker Kit){{/if}}
   * (1) Photoresistor {{#if photon}}(Included with Photon Kit and Maker Kit){{/if}}
+  {{#if electron}}* LiPo Battery (included in the Electron kit){{/if}}
 * **Software**
   * A text editor such as [Sublime](http://www.sublimetext.com/) or [TextMate](https://macromates.com/)
   * The [online IDE](http://build.particle.io) or [Particle Dev](http://particle.io/dev)
 * **Experience**
   * Connecting your Device [with your smartphone](/guide/getting-started/start) or [over USB](/guide/getting-started/connect)
+
+{{#if electron}}
+**NOTE:**
+
+Since Electron is a cellular device and you are paying for the data in an ongoing basis, it's important for us to  to be conscious and conservative about the data usage. Every time you update your firmware over the air, push data to the device or remain connected to the network, you are consuming data. In the development phase of your project, it is advised that you limit your firmware updates to happen over USB, instead of the cellular network.
+
+{{/if}}
+
+
 
 <div style="display: none;" id="blink-an-led" data-firmware-example-url="https://docs.particle.io/guide/getting-started/examples/photon/#blink-an-led" data-firmware-example-title="Blink an LED" data-firmware-example-description="Blink an LED"></div>
 
@@ -38,13 +48,14 @@ Blinking an LED is the ["Hello World"](http://en.wikipedia.org/wiki/Hello_world_
 
 ### Setup
 
-Connect everything together as shown in the image below. The negative (shorter) pin of the LED is connected to ground via a resistor and the positive (longer) pin is connected to D0.
+Connect everything together as shown in the image below. The negative (shorter) pin of the LED is connected to ground via a resistor and the positive (longer) pin is connected to {{#unless electron}}D0.{{/unless}}{{#if electron}}D6.{{/if}}
 
-![One LED illustration](/assets/images/photon-led-fritzing.png)
+{{#unless electron}}![One LED illustration](/assets/images/photon-led-fritzing.png){{/unless}}
+{{#if electron}}![One LED illustration](/assets/images/electron/illustrations/electron-blink-led.png){{/if}}
 
 Next, we're going to load code onto your core. Copy and paste this code into a new application on http://build.particle.io or on Particle Dev. We've heavily commented this code so that you can see what is going on in each line.
 
-Go ahead and save this application, then flash it to your Core or Photon. You should be able to see that LED blinking away!
+Go ahead and save this application, then flash it to your {{#unless electron}}Core or Photon{{/unless}}{{#if electron}}Electron{{/if}}. You should be able to see that LED blinking away!
 
 ### Code
 
@@ -65,10 +76,10 @@ Every program based on Wiring (programming language used by Arduino, and Particl
 setup - runs once at the beginning of your program
 loop - runs continuously over and over
 
-You'll see how we use these in a second. 
+You'll see how we use these in a second.
 
 This program will blink an led on and off every second.
-It blinks the D7 LED on your Particle device. If you have an LED wired to D0, it will blink that LED as well.
+It blinks the D7 LED on your Particle device. If you have an LED wired to {{#unless electron}}D0{{/unless}}{{#if electron}}D6{{/if}}, it will blink that LED as well.
 
 -------------*/
 
@@ -76,7 +87,7 @@ It blinks the D7 LED on your Particle device. If you have an LED wired to D0, it
 // First, we're going to make some variables.
 // This is our "shorthand" that we'll use throughout the program:
 
-int led1 = D0; // Instead of writing D0 over and over again, we'll write led1
+int led1 = {{#unless electron}}D0{{/unless}}{{#if electron}}D6{{/if}}; // Instead of writing {{#unless electron}}D0{{/unless}}{{#if electron}}D6{{/if}} over and over again, we'll write led1
 // You'll need to wire an LED to this one to see it blink.
 
 int led2 = D7; // Instead of writing D7 over and over again, we'll write led2
@@ -88,7 +99,7 @@ int led2 = D7; // Instead of writing D7 over and over again, we'll write led2
 
 void setup() {
 
-  // We are going to tell our device that D0 and D7 (which we named led1 and led2 respectively) are going to be output
+  // We are going to tell our device that {{#unless electron}}D0{{/unless}}{{#if electron}}D6{{/if}} and D7 (which we named led1 and led2 respectively) are going to be output
   // (That means that we will be sending voltage to them, rather than monitoring voltage that comes from them)
 
   // It's important you do this here, inside the setup() function rather than outside it or in the loop function.
@@ -138,9 +149,10 @@ We've heavily commented the code below so that you can see what's going on. Basi
 
 ### Setup
 
-As in the previous example, connect everything together as shown in the image below. The negative (shorter) pin of the LED is connected to ground via a resistor and the positive (longer) pin is connected to D0.
+As in the previous example, connect everything together as shown in the image below. The negative (shorter) pin of the LED is connected to ground via a resistor and the positive (longer) pin is connected to {{#unless electron}}D0{{/unless}}{{#if electron}}D6{{/if}}.
 
-![One LED illustration](/assets/images/photon-led-fritzing.png)
+{{#unless electron}}![One LED illustration](/assets/images/photon-led-fritzing.png){{/unless}}
+{{#if electron}}![One LED illustration](/assets/images/electron/illustrations/electron-blink-led.png){{/if}}
 
 ### Code
 
@@ -152,9 +164,9 @@ As in the previous example, connect everything together as shown in the image be
 
 // First, let's create our "shorthand" for the pins
 // Same as in the Blink an LED example:
-// led1 is D0, led2 is D7
+// led1 is {{#unless electron}}D0{{/unless}}{{#if electron}}D6{{/if}}, led2 is D7
 
-int led1 = D0;
+int led1 = {{#unless electron}}D0{{/unless}}{{#if electron}}D6{{/if}};
 int led2 = D7;
 
 // Last time, we only needed to declare pins in the setup function.
@@ -167,8 +179,8 @@ void setup()
    pinMode(led1, OUTPUT);
    pinMode(led2, OUTPUT);
 
-   // We are also going to declare a Spark.function so that we can turn the LED on and off from the cloud.
-   Spark.function("led",ledToggle);
+   // We are also going to declare a Particle.function so that we can turn the LED on and off from the cloud.
+   Particle.function("led",ledToggle);
    // This is saying that when we ask the cloud for the function "led", it will employ the function ledToggle() from this app.
 
    // For good measure, let's also make sure both LEDs are off when we start:
@@ -188,11 +200,11 @@ void loop()
 }
 
 // We're going to have a super cool function now that gets called when a matching API request is sent
-// This is the ledToggle function we registered to the "led" Spark.function earlier.
+// This is the ledToggle function we registered to the "led" Particle.function earlier.
 
 
 int ledToggle(String command) {
-    /* Spark.functions always take a string as an argument and return an integer.
+    /* Particle.functions always take a string as an argument and return an integer.
     Since we can pass a string, it means that we can give the program commands on how the function should be used.
     In this case, telling the function "on" will turn the LED on and telling it "off" will turn the LED off.
     Then, the function returns a value to us to let us know what happened.
@@ -259,7 +271,7 @@ Edit the code in your text file so that "your-device-ID-goes-here" is your actua
 
 Open that `.html` file in a browser. You'll see a very simple HTML form that allows you to select whether you'd like to turn the LED on or off.
 
-When you click "Do it!" you are posting information to the URL `https://api.particle.io/v1/devices/your-device-ID-goes-here/led?access_token=your-access-token-goes-here`. The information you give is the `args`, or argument value, of `on` or `off`. This hooks up to your `Spark.function` that we registered with the cloud in our firmware, which in turn sends info to your device to turn the LED on or off.
+When you click "Do it!" you are posting information to the URL `https://api.particle.io/v1/devices/your-device-ID-goes-here/led?access_token=your-access-token-goes-here`. The information you give is the `args`, or argument value, of `on` or `off`. This hooks up to your `Particle.function` that we registered with the cloud in our firmware, which in turn sends info to your device to turn the LED on or off.
 
 You'll get some info back after you submit the page that gives the status of your device and lets you know that it was indeed able to post to the URL. If you want to go back, just click "back" on your browser.
 
@@ -290,7 +302,7 @@ curl https://api.particle.io/v1/devices/0123456789abcdef/led \
   -d params=on
 ```
 
-Note that the API endpoint is 'led', not 'ledToggle'. This is because the endpoint is defined by the first argument of [Spark.function() PLACEHOLDER], which is a string of characters, rather than the second argument, which is a function.
+Note that the API endpoint is 'led', not 'ledToggle'. This is because the endpoint is defined by the first argument of [Particle.function() PLACEHOLDER], which is a string of characters, rather than the second argument, which is a function.
 
 To better understand the concept of making API calls to your device over the cloud checkout the [Cloud API reference.](/reference/api)
 
@@ -300,7 +312,7 @@ To better understand the concept of making API calls to your device over the clo
 
 ### Intro
 
-This example uses the same setup as the LED control example to make a `Spark.function`. This time, though, we're going to add a sensor.
+This example uses the same setup as the LED control example to make a `Particle.function`. This time, though, we're going to add a sensor.
 
 We will get a value from a photoresistor and store it in the cloud.
 
@@ -309,7 +321,9 @@ Paste the following code into your IDE, or just access the examples on the left 
 ### Setup
 
 Set up your breadboard as shown in the image below:
-![Fritzing Diagram](/assets/images/photon-photoresistor-fritzing.png)
+{{#unless electron}}![Fritzing Diagram](/assets/images/photon-photoresistor-fritzing.png){{/unless}}
+{{#if electron}}![Electron Diagram](/assets/images/electron/illustrations/electron-example.png){{/if}}
+
 
 Make sure that the short leg of the LED is plugged into `GND`. The other orientations do not matter.
 
@@ -323,12 +337,12 @@ Copy and paste the following code into your [online IDE](http://build.particle.i
 // -----------------------------------------
 // Function and Variable with Photoresistors
 // -----------------------------------------
-// In this example, we're going to register a Spark.variable() with the cloud so that we can read brightness levels from the photoresistor.
-// We'll also register a Spark.function so that we can turn the LED on and off remotely.
+// In this example, we're going to register a Particle.variable() with the cloud so that we can read brightness levels from the photoresistor.
+// We'll also register a Particle.function so that we can turn the LED on and off remotely.
 
 // We're going to start by declaring which pins everything is plugged into.
 
-int led = D0; // This is where your LED is plugged in. The other side goes to a resistor connected to GND.
+int led = {{#unless electron}}D0{{/unless}}{{#if electron}}D6{{/if}}; // This is where your LED is plugged in. The other side goes to a resistor connected to GND.
 
 int photoresistor = A0; // This is where your photoresistor is plugged in. The other side goes to the "power" pin (below).
 
@@ -351,12 +365,12 @@ void setup() {
     // Next, write the power of the photoresistor to be the maximum possible, so that we can use this for power.
     digitalWrite(power,HIGH);
 
-    // We are going to declare a Spark.variable() here so that we can access the value of the photoresistor from the cloud.
-    Spark.variable("analogvalue", &analogvalue, INT);
+    // We are going to declare a Particle.variable() here so that we can access the value of the photoresistor from the cloud.
+    Particle.variable("analogvalue", &analogvalue, INT);
     // This is saying that when we ask the cloud for "analogvalue", this will reference the variable analogvalue in this app, which is an integer variable.
 
-    // We are also going to declare a Spark.function so that we can turn the LED on and off from the cloud.
-    Spark.function("led",ledToggle);
+    // We are also going to declare a Particle.function so that we can turn the LED on and off from the cloud.
+    Particle.function("led",ledToggle);
     // This is saying that when we ask the cloud for the function "led", it will employ the function ledToggle() from this app.
 
 }
@@ -372,7 +386,7 @@ void loop() {
 }
 
 
-// Finally, we will write out our ledToggle function, which is referenced by the Spark.function() called "led"
+// Finally, we will write out our ledToggle function, which is referenced by the Particle.function() called "led"
 
 int ledToggle(String command) {
 
@@ -437,7 +451,7 @@ and
 where device_name is your device ID or device name.
 
 
-As for your Spark.variable, the API request will look something like this:
+As for your Particle.variable, the API request will look something like this:
 
 ```json
 GET /v1/devices/{DEVICE_ID}/analogvalue
@@ -449,7 +463,7 @@ curl -G https://api.particle.io/v1/devices/0123456789abcdef/analogvalue \
   -d access_token=123412341234
 ```
 
-You can see a JSON output of your Spark.variable() call by going to:
+You can see a JSON output of your Particle.variable() call by going to:
 
 https&#58;//api.particle.io/v1/devices/your-device-ID-goes-here/analogvalue?access_token=your-access-token-goes-here
 
@@ -469,11 +483,11 @@ Now you can turn your LED on and off and see the values at A0 change based on th
 
 ### Intro
 
-What if we simply want to know that something has happened, without all the information of a variable or all the action of a fuction? We might have a security system that tells us, "motion was detected!" or a smart washing machine that tells us "your laundry is done!" In that case, we might want to use `Spark.publish`.
+What if we simply want to know that something has happened, without all the information of a variable or all the action of a fuction? We might have a security system that tells us, "motion was detected!" or a smart washing machine that tells us "your laundry is done!" In that case, we might want to use `Particle.publish`.
 
-`Spark.publish` sends a message to the cloud saying that some event has occured. We're allowed to name that event, set the privacy of that event, and add a little bit of info to go along with the event.
+`Particle.publish` sends a message to the cloud saying that some event has occured. We're allowed to name that event, set the privacy of that event, and add a little bit of info to go along with the event.
 
-In this example, we've created a system where you turn your LED and photoresistor to face each other, making a beam of light that can be broken by the motion of your finger. Every time the beam is broken or reconnected, your device will send a `Spark.publish` to the cloud letting it know the state of the beam. Basically, a tripwire!
+In this example, we've created a system where you turn your LED and photoresistor to face each other, making a beam of light that can be broken by the motion of your finger. Every time the beam is broken or reconnected, your device will send a `Particle.publish` to the cloud letting it know the state of the beam. Basically, a tripwire!
 
 For your convenience, we've set up a little calibrate function so that your device will work no matter how bright your LED is, or how bright the ambient light may be. Put your finger in the beam when the D7 LED goes on, and hold it in the beam until you see two flashes from the D7 LED. Then take your finger out of the beam. If you mess up, don't worry-- you can just hit "reset" on your device and do it again!
 
@@ -484,7 +498,8 @@ You can also hook up publishes to IFTTT! More info [here](/guide/tools-and-featu
 ### Setup
 The setup is the same as in the last example. Set up your breadboard as follows:
 
-![Fritzing Diagram](/assets/images/photon-photoresistor-fritzing.png)
+{{#unless electron}}![Fritzing Diagram](/assets/images/photon-photoresistor-fritzing.png){{/unless}}
+{{#if electron}}![Electron Diagram](/assets/images/electron/illustrations/electron-example.png){{/if}}
 
 Ensure that the short end of the LED is plugged into `GND` and that the LED and Photoresistor are bent to face each other. (You want the LED, when turned on, to shine its beam of light directly at the photoresistor.) Try to leave enough space between the LED and the Photoresistor for your finger or a piece of paper.
 
@@ -500,7 +515,7 @@ Ensure that the short end of the LED is plugged into `GND` and that the LED and 
 
 // Just like before, we're going to start by declaring which pins everything is plugged into.
 
-int led = D0; // This is where your LED is plugged in. The other side goes to a resistor connected to GND.
+int led = {{#unless electron}}D0{{/unless}}{{#if electron}}D6{{/if}}; // This is where your LED is plugged in. The other side goes to a resistor connected to GND.
 int boardLed = D7; // This is the LED that is already on your device.
 // On the Core, it's the LED in the upper right hand corner.
 // On the Photon, it's next to the D7 pin.
@@ -597,7 +612,7 @@ void setup() {
 
 void loop() {
   /* In this loop function, we're going to check to see if the beam has been broken.
-  When the status of the beam changes, we'll send a Spark.publish() to the cloud
+  When the status of the beam changes, we'll send a Particle.publish() to the cloud
   so that if we want to, we can check from other devices when the LED is on or off.
 
   We'll also turn the D7 LED on when the Photoresistor detects a beam breakagse.
@@ -618,7 +633,7 @@ void loop() {
         // We will send a publish to the cloud and turn the LED on.
 
         // Send a publish to your devices...
-        Spark.publish("beamStatus","intact",60,PRIVATE);
+        Particle.publish("beamStatus","intact",60,PRIVATE);
         // And flash the on-board LED on and off.
         digitalWrite(boardLed,HIGH);
         delay(500);
@@ -637,7 +652,7 @@ void loop() {
       if (beamBroken==false) {
 
         // Send a publish...
-        Spark.publish("beamStatus","broken",60,PRIVATE);
+        Particle.publish("beamStatus","broken",60,PRIVATE);
         // And flash the on-board LED on and off.
         digitalWrite(boardLed,HIGH);
         delay(500);
@@ -677,7 +692,8 @@ When the beam is broken on your device, the D7 LED on your buddy's device will l
 ### Setup
 The setup is the same as in the last example. Set up your breadboard as follows:
 
-![Fritzing Diagram](/assets/images/photon-photoresistor-fritzing.png)
+{{#unless electron}}![Fritzing Diagram](/assets/images/photon-photoresistor-fritzing.png){{/unless}}
+{{#if electron}}![Electron Diagram](/assets/images/electron/illustrations/electron-example.png){{/if}}
 
 Ensure that the short end of the LED is plugged into `GND` and that the LED and Photoresistor are bent to face each other. (You want the LED, when turned on, to shine its beam of light directly at the photoresistor.) Try to leave enough space between the LED and the Photoresistor for your finger or a piece of paper.
 
@@ -707,14 +723,14 @@ Now you can send each other morse code messages!
 
 But how does this magic work? Through the miracle of publish and subscribe.
 
-We are going to Spark.publish a public event to the cloud.
+We are going to Particle.publish a public event to the cloud.
 That means that everyone can see you event and anyone can subscribe to it.
 You and your buddy will both publish an event, and listen for each others events.
 
 ------------------------------------------*/
 
 
-int led = D0;
+int led = {{#unless electron}}D0{{/unless}}{{#if electron}}D6{{/if}};
 int boardLed = D7;
 int photoresistor = A0;
 int power = A5;
@@ -734,8 +750,8 @@ void setup() {
   pinMode(photoresistor,INPUT);  // Our photoresistor pin is input (reading the photoresistor)
   pinMode(power,OUTPUT); // The pin powering the photoresistor is output (sending out consistent power)
 
-  // Here we are going to subscribe to your buddy's event using Spark.subscribe
-  Spark.subscribe("buddy_unique_event_name", myHandler);
+  // Here we are going to subscribe to your buddy's event using Particle.subscribe
+  Particle.subscribe("buddy_unique_event_name", myHandler);
   // Subscribe will listen for the event buddy_unique_event_name and, when it finds it, will run the function myHandler()
   // (Remember to replace buddy_unique_event_name with your buddy's actual unique event name that they have in their firmware.)
   // myHandler() is declared later in this app.
@@ -809,7 +825,7 @@ void loop() {
   // This loop sends a publish when the beam is broken.
   if (analogRead(photoresistor)>beamThreshold) {
     if (beamBroken==true) {
-        Spark.publish("your_unique_event_name","intact");
+        Particle.publish("your_unique_event_name","intact");
         // publish this public event
         // rename your_unique_event_name with your actual unique event name. No spaces, 63 ASCII characters.
         // give your event name to your buddy and have them put it in their app.
@@ -822,7 +838,7 @@ void loop() {
   else {
       if (beamBroken==false) {
         // Same deal as before...
-        Spark.publish("your_unique_event_name","broken");
+        Particle.publish("your_unique_event_name","broken");
         beamBroken=true;
       }
   }
@@ -832,7 +848,7 @@ void loop() {
 // Now for the myHandler function, which is called when the cloud tells us that our buddy's event is published.
 void myHandler(const char *event, const char *data)
 {
-  /* Spark.subscribe handlers are void functions, which means they don't return anything.
+  /* Particle.subscribe handlers are void functions, which means they don't return anything.
   They take two variables-- the name of your event, and any data that goes along with your event.
   In this case, the event will be "buddy_unique_event_name" and the data will be "intact" or "broken"
 
@@ -869,7 +885,7 @@ Remember back when we were blinking lights and reading sensors with Tinker on th
 
 When you tap a pin on the mobile app, it sends a message up to the cloud. Your device is always listening to the cloud and waiting for instructions-- like "write D7 HIGH" or "read the voltage at A0".
 
-Your device already knew how to communicate with the mobile app because of the firmware loaded onto your device as a default. We call this the Tinker firmware. It's just like the user firmware you've been loading onto your device in these examples. It's just that with the Tinker firmware, we've specified special `Spark.function`s that the mobile app knows and understands.
+Your device already knew how to communicate with the mobile app because of the firmware loaded onto your device as a default. We call this the Tinker firmware. It's just like the user firmware you've been loading onto your device in these examples. It's just that with the Tinker firmware, we've specified special `Particle.function`s that the mobile app knows and understands.
 
 If your device is new, it already has the Tinker firmware on it. It's the default firmware stored on your device right from the factory. When you put your own user firmware on your device, you'll rewrite the Tinker firmware. (That means that your device will no longer understand commands from the Particle mobile app.) However, you can always get the Tinker firmware back on your device by putting it in [factory reset mode](/photon/modes/#selecting-various-modes-factory-reset), or by re-flashing your device with Tinker in the Particle app.
 
@@ -897,10 +913,10 @@ void setup()
 	//Setup the Tinker application here
 
 	//Register all the Tinker functions
-	Spark.function("digitalread", tinkerDigitalRead);
-	Spark.function("digitalwrite", tinkerDigitalWrite);
-	Spark.function("analogread", tinkerAnalogRead);
-	Spark.function("analogwrite", tinkerAnalogWrite);
+	Particle.function("digitalread", tinkerDigitalRead);
+	Particle.function("digitalwrite", tinkerDigitalWrite);
+	Particle.function("analogread", tinkerAnalogRead);
+	Particle.function("analogwrite", tinkerAnalogWrite);
 
 }
 

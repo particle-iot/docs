@@ -87,9 +87,9 @@ first thing you need to do is add the relevant device names to the
 front-matter of the MD file, like this:
 
 ```
-devices: ['photon', 'core']
+devices: [ photon, electron, core ]
 ```
-Where Photon and Core are the relevant devices to this page. Then, in
+Where Photon, Electron and Core are the relevant devices to this page. Then, in
 the body of the page, you can specify device-specific content by
 using a special helper, like this:
 
@@ -101,6 +101,23 @@ using a special helper, like this:
 {{#if core}}
   CORE SPECIFIC STUFFZ
 {{/if}}
+
+{{#if electron}}
+  ELECTRON SPECIFIC STUFFZ
+{{/if}}
+
+{{#unless core}}
+  STM32F205 SPECIFIC STUFFZ (Photon, P1, Electron)
+{{/unless}}
+
+{{#unless electron}}
+  Wi-Fi SPECIFIC STUFFZ (Core, Photon, P1)
+{{/unless}}
+```
+
+You can also insert the selected device name into text like this:
+```
+Without a doubt, the {{device}} rocks!
 ```
 
 ### Tests
@@ -129,4 +146,4 @@ Making a contribution is as simple as forking this repository, making edits to y
 
 These files have been made available online through a [Creative Commons Attribution-ShareAlike 3.0 license](http://creativecommons.org/licenses/by-sa/3.0/us/).
 
-You are welcome to distribute, remix, and use these files for commercial purposes. If you do so, please attribute the original design to Spark Labs, Inc. both on the website and on the physical packaging of the product or in the instruction manual. All derivative works must be published under the same or a similar license.
+You are welcome to distribute, remix, and use these files for commercial purposes. If you do so, please attribute the original design to Particle both on the website and on the physical packaging of the product or in the instruction manual. All derivative works must be published under the same or a similar license.

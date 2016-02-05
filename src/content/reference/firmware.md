@@ -2,7 +2,7 @@
 title: Firmware
 template: reference.hbs
 columns: three
-devices: ['photon', 'core']
+devices: [photon,electron,core]
 order: 1
 ---
 
@@ -458,7 +458,7 @@ void loop() {
 }
 ```
 
-While this function will disconnect from the Cloud, it will keep the connection to the Wi-Fi network. If you would like to completely deactivate the Wi-Fi module, use [`WiFi.off()`](#wifi-off).
+While this function will disconnect from the Cloud, it will keep the connection to the {{#unless electron}}Wi-Fi network. If you would like to completely deactivate the Wi-Fi module, use [`WiFi.off()`](#wifi-off).{{/unless}}{{#if electron}}Cellular network. If you would like to completely deactivate the Cellular module, use [`Cellular.off()`](#cellular-off).{{/if}}
 
 **NOTE:* When the device is disconnected, many features are not possible, including over-the-air updates, reading Particle.variables, and calling Particle.functions.
 
@@ -497,7 +497,7 @@ Runs the background loop. This is the public API for the former internal functio
 and processes any messages that have come in. It also sends keep-alive pings to the Cloud,
 so if it's not called frequently, the connection to the Cloud may be lost.
 
-Even in non-cloud-bound applications it can still be advisable to call `Particle.process()` to explicitly provide some processor time to the WiFi module (e.g. immediately after `WiFi.ready()` to update system variables).
+Even in non-cloud-bound applications it can still be advisable to call `Particle.process()` to explicitly provide some processor time to the {{#unless electron}}Wi-Fi module (e.g. immediately after `WiFi.ready()` to update system variables).{{/unless}}{{#if electron}}Cellular module (e.g. immediately after `Cellular.ready()` to update system variables).{{/if}}
 
 ```cpp
 void setup() {
@@ -516,7 +516,7 @@ void redundantLoop() {
 }
 ```
 
-`Particle.process()` is a blocking call, and blocks for a few milliseconds. `Particle.process()` is called automatically after every `loop()` and during delays. Typically you will not need to call `Particle.process()` unless you block in some other way and need to maintain the connection to the Cloud, or you change the [system mode](#system-system-modes). If the user puts the device into `MANUAL` mode, the user is responsible for calling `Particle.process()`. The more frequently this function is called, the more responsive the device will be to incoming messages, the more likely the Cloud connection will stay open, and the less likely that the WiFi module's buffer will overrun.
+`Particle.process()` is a blocking call, and blocks for a few milliseconds. `Particle.process()` is called automatically after every `loop()` and during delays. Typically you will not need to call `Particle.process()` unless you block in some other way and need to maintain the connection to the Cloud, or you change the [system mode](#system-system-modes). If the user puts the device into `MANUAL` mode, the user is responsible for calling `Particle.process()`. The more frequently this function is called, the more responsive the device will be to incoming messages, the more likely the Cloud connection will stay open, and the less likely that the Wi-Fi module's buffer will overrun.
 
 ### Particle.syncTime()
 
@@ -608,6 +608,7 @@ void setup() {
 }
 ```
 
+{{#unless electron}}
 ## WiFi
 
 ### on()
@@ -659,7 +660,7 @@ WiFi.ready();
 {{#if photon}}
 ### selectAntenna()
 
-Selects which antenna the device should connect to WiFi with and remembers that
+Selects which antenna the device should connect to Wi-Fi with and remembers that
 setting until it is changed.
 
 ```cpp
@@ -718,7 +719,7 @@ WiFi.listen();
 
 Listening mode blocks application code. Advanced cases that use multithreading, interrupts, or system events
 have the ability to continue to execute application code while in listening mode, and may wish to then exit listening
-mode, such as after a timeout. Listning mode is stopped using this syntax:
+mode, such as after a timeout. Listening mode is stopped using this syntax:
 
 ```cpp
 
@@ -743,7 +744,7 @@ It will always return `false`.
 {{#if photon}}
 Right now, this command is not useful, always returning `false`, because listening mode blocks application code.
 
-This command becomes useful on the Photon when system code runs as a separate RTOS task from application code.
+This command becomes useful on the Photon and Electron when system code runs as a separate RTOS task from application code.
 We estimate that firmware feature will be released for the Photon in September 2015.
 
 Once system code does not block application code,
@@ -823,7 +824,7 @@ for (int i = 0; i < found; i++) {
 
 ### clearCredentials()
 
-This will clear all saved credentials from the WiFi module's memory. This will return `true` on success and `false` if the WiFi module has an error.
+This will clear all saved credentials from the Wi-Fi module's memory. This will return `true` on success and `false` if the Wi-Fi module has an error.
 
 ```cpp
 // SYNTAX
@@ -832,7 +833,7 @@ WiFi.clearCredentials();
 
 ### hasCredentials()
 
-Will return `true` if there are Wi-Fi credentials stored in the WiFi module's memory.
+Will return `true` if there are Wi-Fi credentials stored in the Wi-Fi module's memory.
 
 ```cpp
 // SYNTAX
@@ -914,7 +915,7 @@ void setup() {
 
 ### RSSI()
 
-`WiFi.RSSI()` returns the signal strength of a Wifi network from from -127 to -1dB as an `int`. Positive return values indicate an error with 1 indicating a WiFi chip error and 2 indicating a time-out error.
+`WiFi.RSSI()` returns the signal strength of a Wi-Fi network from from -127 to -1dB as an `int`. Positive return values indicate an error with 1 indicating a Wi-Fi chip error and 2 indicating a time-out error.
 
 ```cpp
 // SYNTAX
@@ -938,7 +939,7 @@ array of `WiFiAccessPoint` instances, and the call to `WiFi.scan()` fills out th
 If there are more APs detected than will fit in the array, they are dropped.
 
 ```cpp
-// EXAMPLE - retrieve up to 20 WiFI APs
+// EXAMPLE - retrieve up to 20 Wi-Fi APs
 
 WiFiAccessPoint aps[20];
 int found = WiFi.scan(aps, 20);
@@ -1015,7 +1016,7 @@ class FindStrongestSSID
 public:
 
     /**
-     * Scan WiFi Access Points and retrieve the strongest one.
+     * Scan Wi-Fi Access Points and retrieve the strongest one.
      */
     const char* scan()
     {
@@ -1142,7 +1143,370 @@ by the system after calling `WiFi.useDynamicIP()`, and so are available for use 
 is called, without needing to be reconfigured using `WiFi.setStaticIP()`
 
 {{/if}}
+{{/unless}}
 
+{{#if electron}}
+## Cellular
+
+### on()
+
+`Cellular.on()` turns on the Cellular module. Useful when you've turned it off, and you changed your mind.
+
+Note that `Cellular.on()` does not need to be called unless you have changed the [system mode](#system-modes) or you have previously turned the Cellular module off.  When turning on the Cellular module, it will go through a full re-connect to the Cellular network which will take anywhere from 30 to 60 seconds in most situations.
+
+```cpp
+// SYNTAX
+Cellular.on();
+```
+
+### off()
+
+`Cellular.off()` turns off the Cellular module. Useful for saving power, since most of the power draw of the device is the Cellular module.  Note: turning off the Cellular module will force it to go through a full re-connect to the Cellular network the next time it is turned on.
+
+```cpp
+// SYNTAX
+Cellular.off();
+```
+
+### connect()
+
+Attempts to connect to the Cellular network. If there are no credentials entered, the default Particle APN for Particle SIM cards will be used.  If no SIM card is inserted, the Electron will enter listening mode. If a 3rd party APN is set, these credentials must match the inserted SIM card for the Electron to connect to the cellular network. When this function returns, the device may not have a local (private) IP address; use `Cellular.ready()` to determine the connection status.
+
+```cpp
+// SYNTAX
+Cellular.connect();
+```
+
+### disconnect()
+
+Disconnects from the Cellular network, but leaves the Cellular module on.
+
+```cpp
+// SYNTAX
+Cellular.disconnect();
+```
+
+### connecting()
+
+This function will return `true` once the device is attempting to connect using the default Particle APN or 3rd party APN cellular credentials, and will return `false` once the device has successfully connected to the cellular network.
+
+```cpp
+// SYNTAX
+Cellular.connecting();
+```
+
+### ready()
+
+This function will return `true` once the device is connected to the cellular network and has been assigned an IP address, which means it has an activated PDP context and is ready to open TCP/UDP sockets. Otherwise it will return `false`.
+
+```cpp
+// SYNTAX
+Cellular.ready();
+```
+
+### listen()
+
+This will enter or exit listening mode, which opens a Serial connection to get Cellular information such as the IMEI or CCID over USB.
+
+```cpp
+// SYNTAX - enter listening mode
+Cellular.listen();
+```
+
+Listening mode blocks application code. Advanced cases that use multithreading, interrupts, or system events
+have the ability to continue to execute application code while in listening mode, and may wish to then exit listening
+mode, such as after a timeout. Listening mode is stopped using this syntax:
+
+```cpp
+
+// SYNTAX - exit listening mode
+Cellular.listen(false);
+
+```
+
+### listening()
+
+```cpp
+// SYNTAX
+Cellular.listening();
+```
+
+Without multithreading enabled, this command is not useful (always returning `false`) because listening mode blocks application code.
+
+This command becomes useful on the Electron when system code runs as a separate RTOS task from application code.
+
+Once system code does not block application code,
+`Cellular.listening()` will return `true` once `Cellular.listen()` has been called
+or the setup button has been held for 3 seconds, when the RGB LED should be blinking blue.
+It will return `false` when the device is not in listening mode.
+
+
+### setCredentials()
+
+**Note**: `Cellular.setCredentials()` is not currently enabled, however read on to find out how to use the cellular_hal to do the same thing with `cellular_credentials_set()`.
+
+Sets 3rd party credentials for the Cellular network from within the user application. These credentials are currently not added to the device's non-volatile memory and need to be set every time from the user application.  You may set credentials in 3 different ways:
+
+- APN only
+- USERNAME & PASSWORD only
+- APN, USERNAME & PASSWORD
+
+**Note**: When using the default `SYSTEM_MODE(AUTOMATIC)` connection behavior, it is necessary to call `cellular_credentials_set()` with the `STARTUP()` macro outside of `setup()` and `loop()` so that the system will have the correct credentials before it tries to connect to the cellular network (see EXAMPLE).
+
+The following examples can be copied to a file called `setcreds.ino` and compiled and flashed to your Electron over USB via the [Particle CLI](/guide/tools-and-features/cli).  With your Electron in [DFU mode](/guide/getting-started/modes/electron/#dfu-mode-device-firmware-upgrade-), the command for this is:
+
+`particle compile electron setcreds.ino --saveTo firmware.bin && particle flash --usb firmware.bin`
+
+**Note**: Your Electron only uses one set of credentials, and they must be correctly matched to the SIM card that's used.  If using a Particle SIM, using `cellular_credentials_set()` is not necessary as the default APN of "spark.telefonica.com" with no username or password will be used by system firmware.
+
+```C++
+// SYNTAX
+// Connects to a cellular network by APN only
+STARTUP(cellular_credentials_set(APN, "", "", NULL));
+
+// Connects to a cellular network with USERNAME and PASSWORD only
+STARTUP(cellular_credentials_set("", USERNAME, PASSWORD, NULL));
+
+// Connects to a cellular network with a specified APN, USERNAME and PASSWORD
+#include “cellular_hal.h”
+STARTUP(cellular_credentials_set(APN, USERNAME, PASSWORD, NULL));
+```
+
+```C++
+// EXAMPLE - an AT&T APN with no username or password in AUTOMATIC mode
+
+#include "cellular_hal.h"
+STARTUP(cellular_credentials_set("broadband", "", "", NULL));
+
+void setup() {
+  // your setup code
+}
+
+void loop() {
+  // your loop code
+}
+```
+
+### RSSI()
+
+`Cellular.RSSI()` returns a struct of type `CellularSignal` that contains two integers: the signal strength (`rssi`) and signal quality (`qual`) of the currently connected Cellular network.
+
+`CellularSignal`
+- `rssi`: (`int`) is the signal strength with range -113dBm to -51dBm (in 2dBm steps). This variable also doubles as an error response for the entire struct; positive return values indicate an error with:
+    - 1: indicating a Cellular module or time-out error
+    - 2: the module responded that the rssi value is not known, not detectable or currently not available.
+- `qual`: (`int`) is a number in UMTS RAT indicating the Energy per Chip/Noise ratio in dB levels of the current cell. This value ranges from 0 to 49, higher numbers indicate higher signal quality.
+
+**Note**: `qual` is not supported on 2G Electrons (Model G350) and will return 0.
+
+```C++
+// SYNTAX
+
+CellularSignal sig = Cellular.RSSI();
+Serial.println(sig.rssi);
+Serial.println(sig.qual);
+Serial.println(sig); // Complete structure also printable
+
+// Output
+-95    // RSSI (-dBm)
+19     // QUAL (dB)
+-95,19 // RSSI,QUAL
+
+// EXAMPLE
+uint32_t lastUpdate;
+#define now millis()
+
+void setup()
+{
+  Serial.begin(9600);
+  lastUpdate = now;
+}
+
+void loop()
+{
+  // Print two methods of signal strength and signal quality every 20 seconds
+  if (now - lastUpdate > 20000UL) {
+    lastUpdate = now;
+    CellularSignal sig = Cellular.RSSI();
+    String s = String(sig.rssi) + String(",") + String(sig.qual);
+    Serial.print(s);
+    Serial.print(" is the same as ");
+    Serial.println(sig);
+  }
+}
+```
+
+### localIP()
+*Coming in 0.5.0.*
+
+`Cellular.localIP()` returns the local (private) IP address assigned to the device as an `IPAddress`.
+
+```C++
+// EXAMPLE
+void setup() {
+  Serial.begin(9600);
+
+  // Prints out the local (private) IP over Serial
+  Serial.println(Cellular.localIP());
+}
+```
+
+### command()
+
+`Cellular.command()` is a powerful API that allows users access to directly send AT commands to, and parse responses returned from, the Cellular module.  Commands may be sent with and without printf style formatting. The API also includes the ability pass a callback function pointer which is used to parse the response returned from the cellular module.
+
+The prototype definition is as follows:
+
+`int Cellular.command(_CALLBACKPTR_MDM cb, void* param, system_tick_t timeout, const char* format, ...);`
+
+`Cellular.command()` takes one or more arguments in 4 basic types of signatures.
+
+```C++
+// SYNTAX (4 basic signatures with/without printf style formatting)
+int ret = Cellular.command(cb, param, timeout, format, ...);
+int ret = Cellular.command(cb, param, timeout, format);
+int ret = Cellular.command(cb, param, format, ...);
+int ret = Cellular.command(cb, param, format);
+int ret = Cellular.command(timeout, format, ...);
+int ret = Cellular.command(timeout, format);
+int ret = Cellular.command(format, ...)
+int ret = Cellular.command(format);
+```
+
+- `cb`: callback function pointer to a user specified function that parses the results of the AT command response.
+- `param`: (`void*`) a pointer to the variable that will be updated by the callback function.
+- `timeout`: (`system_tick_t`) the timeout value specified in milliseconds (default is 10000 milliseconds).
+- `format`: (`const char*`) contains your AT command and any desired [format specifiers](http://www.cplusplus.com/reference/cstdio/printf/), followed by `\r\n`.
+- `...`: additional arguments optionally required as input to their respective `format` string format specifiers.
+
+`Cellular.command()` returns an `int` with one of the following 6 enumerated AT command responses:
+
+- `NOT_FOUND`    =  0
+- `WAIT`         = -1 // TIMEOUT
+- `RESP_OK`      = -2
+- `RESP_ERROR`   = -3
+- `RESP_PROMPT`  = -4
+- `RESP_ABORTED` = -5
+
+```C++
+// EXAMPLE - Get the ICCID number of the inserted SIM card
+int callbackICCID(int type, const char* buf, int len, char* iccid)
+{
+  if ((type == TYPE_PLUS) && iccid) {
+    if (sscanf(buf, "\r\n+CCID: %[^\r]\r\n", iccid) == 1)
+      /*nothing*/;
+  }
+  return WAIT;
+}
+
+void setup()
+{
+  Serial.begin(9600);
+  char iccid[32] = "";
+  if ((RESP_OK == Cellular.command(callbackICCID, iccid, 10000, "AT+CCID\r\n"))
+    && (strcmp(iccid,"") != 0))
+  {
+    Serial.printlnf("SIM ICCID = %s\r\n", iccid);
+  }
+  else
+  {
+    Serial.println("SIM ICCID NOT FOUND!");
+  }
+}
+
+void loop()
+{
+  // your loop code
+}
+```
+The `cb` function prototype is defined as:
+
+`int callback(int type, const char* buf, int len, void* param);`
+
+The four Cellular.command() callback arguments are defined as follows:
+
+- `type`: (`int`) one of 13 different enumerated AT command response types.
+- `buf`: (`const char*`) a pointer to the character array containing the AT command response.
+- `len`: (`int`) length of the AT command response `buf`.
+- `param`: (`void*`) a pointer to the variable or structure being updated by the callback function.
+- returns an `int` - user specified callback return value, default is `return WAIT;` which keeps the system invoking the callback again as more of the AT command response is received.  Optionally any one of the 6 enumerated AT command responses previously described can be used as a return type which will force the Cellular.command() to return the same value. All AT commands typically end with an `OK` response, so even after a response is parsed, it is recommended to wait for the final `OK` response to be parsed and returned by the system. Then after testing `if(Cellular.command() == RESP_OK)` and any other optional qualifiers, should you act upon the results contained in the variable/structure passed into the callback.
+
+There are 13 different enumerated AT command responses passed by the system into the Cellular.command() callback as `type`. These are used to help qualify which type of response has already been parsed by the system.
+
+- `TYPE_UNKNOWN`    = 0x000000
+- `TYPE_OK`         = 0x110000
+- `TYPE_ERROR`      = 0x120000
+- `TYPE_RING`       = 0x210000
+- `TYPE_CONNECT`    = 0x220000
+- `TYPE_NOCARRIER`  = 0x230000
+- `TYPE_NODIALTONE` = 0x240000
+- `TYPE_BUSY`       = 0x250000
+- `TYPE_NOANSWER`   = 0x260000
+- `TYPE_PROMPT`     = 0x300000
+- `TYPE_PLUS`       = 0x400000
+- `TYPE_TEXT`       = 0x500000
+- `TYPE_ABORTED`    = 0x600000
+
+{{/if}}
+
+
+{{#if electron}}
+## FuelGauge
+The on-board Fuel Gauge allows you to monitor the battery voltage, state of charge and set low voltage battery thresholds. Use an instance of the `FuelGauge` library to call the various fuel gauge functions.
+
+```C++
+// EXAMPLE
+FuelGauge fuel;
+```
+
+### getVCell()
+Returns the battery voltage as a `float`.
+
+```C++
+// EXAMPLE
+FuelGauge fuel;
+Serial.println( fuel.getVCell() );
+```
+
+### getSoC()
+Returns the State of Charge in percentage from 0-100% as a `float`.
+
+```C++
+// EXAMPLE
+FuelGauge fuel;
+Serial.println( fuel.getSoC() );
+```
+
+### getVersion()
+`int getVersion();`
+
+### getCompensateValue()
+`byte getCompensateValue();`
+
+### getAlertThreshold()
+`byte getAlertThreshold();`
+
+### setAlertThreshold()
+`void setAlertThreshold(byte threshold);`
+
+### getAlert()
+`boolean getAlert();`
+
+### clearAlert()
+`void clearAlert();`
+
+### reset()
+`void reset();`
+
+### quickStart()
+`void quickStart();`
+
+### sleep()
+`void sleep();`
+
+### wakeup()
+`void wakeup();`
+{{/if}}
 
 ## Input/Output
 
@@ -1307,7 +1671,8 @@ void loop()
 ```
 
 - On the Core, this function works on pins D0, D1, A0, A1, A4, A5, A6, A7, RX and TX.
-- On the Photon, this function works on pins D0, D1, D2, D3, A4, A5, WKP, RX and TX with a caveat: PWM timer peripheral is duplicated on two pins (A5/D2) and (A4/D3) for 7 total independent PWM outputs. For example: PWM may be used on A5 while D2 is used as a GPIO, or D2 as a PWM while A5 is used as an analog input. However A5 and D2 cannot be used as independently controlled PWM outputs at the same time.
+- On the Photon and Electron, this function works on pins D0, D1, D2, D3, A4, A5, WKP, RX and TX with a caveat: PWM timer peripheral is duplicated on two pins (A5/D2) and (A4/D3) for 7 total independent PWM outputs. For example: PWM may be used on A5 while D2 is used as a GPIO, or D2 as a PWM while A5 is used as an analog input. However A5 and D2 cannot be used as independently controlled PWM outputs at the same time.
+- Additionally on the Electron, this function works on pins B0, B1, B2, B3, C4, C5.
 
 The PWM frequency must be the same for pins in the same timer group.
 
@@ -1321,7 +1686,7 @@ The PWM frequency must be the same for pins in the same timer group.
 {{#unless core}}
 ### Analog Output (DAC)
 
-The Photon supports true analog output on pins DAC (`DAC1` or `A6` in code) and A3 (`DAC2` or `A3` in code). Using `analogWrite(pin, value)`
+The Photon and Electron support true analog output on pins DAC (`DAC1` or `A6` in code) and A3 (`DAC2` or `A3` in code). Using `analogWrite(pin, value)`
 with these pins, the output of the pin is set to an analog voltage from 0V to 3.3V that corresponds to values
 from 0-4095.
 
@@ -1373,7 +1738,7 @@ void loop()
 
 The function `setADCSampleTime(duration)` is used to change the default sample time for `analogRead()`.
 
-On Core, this parameter can be one of the following values:
+On the Core, this parameter can be one of the following values:
 
  * ADC_SampleTime_1Cycles5: Sample time equal to 1.5 cycles
  * ADC_SampleTime_7Cycles5: Sample time equal to 7.5 cycles
@@ -1384,7 +1749,7 @@ On Core, this parameter can be one of the following values:
  * ADC_SampleTime_71Cycles5: Sample time equal to 71.5 cycles
  * ADC_SampleTime_239Cycles5: Sample time equal to 239.5 cycles
 
- On Photon, this parameter can be one of the following values:
+ On the Photon and Electron, this parameter can be one of the following values:
 
  * ADC_SampleTime_3Cycles: Sample time equal to 3 cycles
  * ADC_SampleTime_15Cycles: Sample time equal to 15 cycles
@@ -1734,6 +2099,210 @@ void loop()
  */
 ```
 
+{{#if electron}}
+## PMIC (Power Managment IC)
+
+*Note*: This is advanced IO and for experienced users. This
+controls the LiPo battery management system and is handled automatically
+by the system firmware.
+
+### begin()
+`bool begin();`
+
+### getVersion()
+`byte getVersion();`
+
+### getSystemStatus()
+`byte getSystemStatus();`
+
+### getFault()
+`byte getFault();`
+
+---
+
+### Input source control register
+
+#### readInputSourceRegister()
+`byte readInputSourceRegister(void);`
+
+#### enableBuck()
+`bool enableBuck(void);`
+
+#### disableBuck()
+`bool disableBuck(void);`
+
+#### setInputCurrentLimit()
+`bool setInputCurrentLimit(uint16_t current);`
+
+#### getInputCurrentLimit()
+`byte getInputCurrentLimit(void);`
+
+#### setInputVoltageLimit()
+`bool setInputVoltageLimit(uint16_t voltage);`
+
+#### getInputVoltageLimit()
+`byte getInputVoltageLimit(void);`
+
+---
+
+### Power ON Configuration Reg
+
+#### enableCharging()
+`bool enableCharging(void);`
+
+#### disableCharging()
+`bool disableCharging(void);`
+
+#### enableOTG()
+`bool enableOTG(void);`
+
+#### disableOTG()
+`bool disableOTG(void);`
+
+#### resetWatchdog()
+`bool resetWatchdog(void);`
+
+#### setMinimumSystemVoltage()
+`bool setMinimumSystemVoltage(uint16_t voltage);`
+
+#### getMinimumSystemVoltage()
+`uint16_t getMinimumSystemVoltage();`
+
+#### readPowerONRegister()
+`byte readPowerONRegister(void);`
+
+---
+
+### Charge Current Control Reg
+
+#### setChargeCurrent()
+`bool setChargeCurrent(bool bit7, bool bit6, bool bit5, bool bit4, bool bit3, bool bit2);`
+
+#### getChargeCurrent()
+`byte getChargeCurrent(void);`
+
+---
+
+### PreCharge/Termination Current Control Reg
+
+#### setPreChargeCurrent()
+`bool setPreChargeCurrent();`
+
+#### getPreChargeCurrent()
+`byte getPreChargeCurrent();`
+
+#### setTermChargeCurrent()
+`bool setTermChargeCurrent();`
+
+#### getTermChargeCurrent()
+`byte getTermChargeCurrent();`
+
+---
+
+### Charge Voltage Control Reg
+
+#### setChargeVoltage()
+`bool setChargeVoltage(uint16_t voltage);`
+
+#### getChargeVoltage()
+`byte getChargeVoltage();`
+
+---
+
+### Charge Timer Control Reg
+
+#### readChargeTermRegister()
+`byte readChargeTermRegister();`
+
+#### disableWatchdog()
+`bool disableWatchdog(void);`
+
+#### setWatchdog()
+`bool setWatchdog(byte time);`
+
+---
+
+### Thermal Regulation Control Reg
+
+#### setThermalRegulation()
+`bool setThermalRegulation();`
+
+#### getThermalRegulation()
+`byte getThermalRegulation();`
+
+---
+
+### Misc Operation Control Reg
+
+#### readOpControlRegister()
+`byte readOpControlRegister();`
+
+#### enableDPDM()
+`bool enableDPDM(void);`
+
+#### disableDPDM()
+`bool disableDPDM(void);`
+
+#### enableBATFET()
+`bool enableBATFET(void);`
+
+#### disableBATFET()
+`bool disableBATFET(void);`
+
+#### safetyTimer()
+`bool safetyTimer();`
+
+#### enableChargeFaultINT()
+`bool enableChargeFaultINT();`
+
+#### disableChargeFaultINT()
+`bool disableChargeFaultINT();`
+
+#### enableBatFaultINT()
+`bool enableBatFaultINT();`
+
+#### disableBatFaultINT()
+`bool disableBatFaultINT();`
+
+---
+
+### System Status Register
+
+#### getVbusStat()
+`byte getVbusStat();`
+
+#### getChargingStat()
+`byte getChargingStat();`
+
+#### getDPMStat()
+`bool getDPMStat();`
+
+#### isPowerGood()
+`bool isPowerGood(void);`
+
+#### isHot()
+`bool isHot(void);`
+
+#### getVsysStat()
+`bool getVsysStat();`
+
+---
+
+### Fault Register
+
+#### isWatchdogFault()
+`bool isWatchdogFault();`
+
+#### getChargeFault()
+`byte getChargeFault();`
+
+#### isBatFault()
+`bool isBatFault();`
+
+#### getNTCFault()
+`byte getNTCFault();`
+
+{{/if}}
 
 ## Serial
 
@@ -1746,24 +2315,24 @@ Used for communication between the device and a computer or other devices. The d
 {{#if core}}
 `Serial2:` This channel is optionally available via the device's D1(TX) and D0(RX) pins. To use Serial2, add `#include "Serial2/Serial2.h"` near the top of your app's main code file.
 
-To use the TX/RX (Serial1) or D1/D0 (Serial2) pins to communicate with your personal computer, you will need an additional USB-to-serial adapter. To use them to communicate with an external TTL serial device, connect the TX pin to your device's RX pin, the RX to your device's TX pin, and the ground of your Core/Photon to your device's ground.
+To use the TX/RX (Serial1) or D1/D0 (Serial2) pins to communicate with your personal computer, you will need an additional USB-to-serial adapter. To use them to communicate with an external TTL serial device, connect the TX pin to your device's RX pin, the RX to your device's TX pin, and the ground of your Core to your device's ground.
 {{/if}}
 
-{{#if photon}}
+{{#unless core}}
 `Serial2:` This channel is optionally available via the device's RGB Green (TX) and Blue (RX) LED pins. The Blue and Green current limiting resistors should be removed.  To use Serial2, add #include "Serial2/Serial2.h" near the top of your app's main code file.
 
 If the user enables Serial2, they should also consider using RGB.onChange() to move the RGB functionality to an external RGB LED on some PWM pins.
 
-To use the TX/RX (Serial1) or RGB Green (TX)/Blue (RX) LED (Serial2) pins to communicate with your personal computer, you will need an additional USB-to-serial adapter. To use them to communicate with an external TTL serial device, connect the TX pin to your device's RX pin, the RX to your device's TX pin, and the ground of your Core/Photon to your device's ground.
-{{/if}}
+To use the TX/RX (Serial1) or RGB Green (TX)/Blue (RX) LED (Serial2) pins to communicate with your personal computer, you will need an additional USB-to-serial adapter. To use them to communicate with an external TTL serial device, connect the TX pin to your device's RX pin, the RX to your device's TX pin, and the ground of your Photon/Electron to your device's ground.
+{{/unless}}
 
-**NOTE:** Please take into account that the voltage levels on these pins runs at 0V to 3.3V and should not be connected directly to a computer's RS232 serial port which operates at +/- 12V and will damage the Core/Photon.
+**NOTE:** Please take into account that the voltage levels on these pins runs at 0V to 3.3V and should not be connected directly to a computer's RS232 serial port which operates at +/- 12V and will damage the Core/Photon/Electron.
 
 ### begin()
 
 Sets the data rate in bits per second (baud) for serial data transmission. For communicating with the computer, use one of these rates: 300, 600, 1200, 2400, 4800, 9600, 14400, 19200, 28800, 38400, 57600, or 115200. You can, however, specify other rates - for example, to communicate over pins TX and RX with a component that requires a particular baud rate.
 
-**NOTE:** The data rate for the USB device `Serial` is ignored, as USB has its own negotiated speed. Setting speed to 9600 is safe for the USB device. Setting the port to 14400 baud will cause the Photon to go into DFU mode while 28800 will allow a YMODEM download of firmware.
+**NOTE:** The data rate for the USB device `Serial` is ignored, as USB has its own negotiated speed. Setting speed to 9600 is safe for the USB device. Setting the port to 14400 baud will cause the Photon or Electron to go into DFU mode while 28800 will allow a YMODEM download of firmware.
 
 ```C++
 // SYNTAX
@@ -1771,10 +2340,10 @@ Serial.begin(speed);    // via USB port
 Serial1.begin(speed);   // via TX/RX pins
 Serial2.begin(speed);   // on Core via
                         // D1(TX) and D0(RX) pins
-                        // on Photon via
+                        // on Photon/Electron via
                         // RGB-LED green(TX) and
                         // RGB-LED blue (RX) pins
-```    
+```
 `speed`: parameter that specifies the baud rate *(long)*
 
 `begin()` does not return anything
@@ -1841,7 +2410,7 @@ void loop()
 
 _Since 0.4.9. Available on Serial1, Serial2, etc.. This function will support USB Serial with the next release._
 
-Retrieves the number of bytes (characters) that can be written to this serial port without blocking. 
+Retrieves the number of bytes (characters) that can be written to this serial port without blocking.
 
 If `blockOnOverrun(false)` has been called, the method returns the number of bytes that can be written to the buffer without causing buffer overrun, which would cause old data to be discarded and overwritten.
 
@@ -2112,42 +2681,82 @@ Serial1.halfduplex(true);
 
 SPI
 ----
-This library allows you to communicate with SPI devices, with the Core/Photon as the master device.
+This library allows you to communicate with SPI devices, with the {{device}} as the master device.
 
+{{#if core}}
 ![SPI](/assets/images/core-pin-spi.jpg)
+{{/if}}
 
-The hardware SPI pin functions are mapped as follows:
+The hardware SPI pin functions, which can
+be used via the `SPI` object, are mapped as follows:
+* `SS` => `A2` (default)
 * `SCK` => `A3`
 * `MISO` => `A4`
 * `MOSI` => `A5`
-* `SS` => `A2` (default)
-{{#if photon}}
 
-On the Photon, there is a second hardware SPI interface available, which can
+{{#unless core}}
+There is a second hardware SPI interface available, which can
 be used via the `SPI1` object. This second port is mapped as follows:
+* `SS` => `D5` (default)
 * `SCK` => `D4`
 * `MISO` => `D3`
 * `MOSI` => `D2`
-* `SS` => `A2` (default)
- {{/if}}
+{{/unless}}
+
+{{#if electron}}
+Additionally on the Electron, there is an alternate pin location for the second SPI interface, which can
+be used via the `SPI2` object. This alternate location is mapped as follows:
+* `SS` => `D5` (default)
+* `SCK` => `C3`
+* `MISO` => `C2`
+* `MOSI` => `C1`
+{{/if}}
+
+{{#unless core}}
+**Note**: Because there are multiple SPI peripherals available, be sure to use the same `SPI`,`SPI1`{{#if electron}},`SPI2`{{/if}} object with all associated functions. I.e.,
+
+Do **NOT** use **SPI**.begin() with **SPI1**.transfer();
+
+**Do** use **SPI**.begin() with **SPI**.transfer();
+{{/unless}}
 
 ### begin()
 
 Initializes the SPI bus by setting SCK, MOSI, and a user-specified slave-select pin to outputs, MISO to input. SCK and MOSI are pulled low, and slave-select high.
 
-**NOTE:**  The SPI firmware ONLY initializes the user-specified slave-select pin. The user's code must control the slave-select pin before and after each SPI transfer for the desired SPI slave device. Calling `SPI.end()` does NOT reset the pin mode of the SPI pins.
+**Note:**  The SPI firmware ONLY initializes the user-specified slave-select pin as an `OUTPUT`. The user's code must control the slave-select pin with `digitalWrite()` before and after each SPI transfer for the desired SPI slave device. Calling `SPI.end()` does NOT reset the pin mode of the SPI pins.
 
 ```C++
 // SYNTAX
 SPI.begin(ss);
+{{#unless core}}
+SPI1.begin(ss);
+{{/unless}}
+{{#if electron}}
+SPI2.begin(ss);
+{{/if}}
 ```
 
-Where, the parameter `ss` is the SPI device slave-select pin to initialize.  If no pin is specified, the default pin is `SS (A2)`.
+Where, the parameter `ss` is the `SPI` device slave-select pin to initialize.  If no pin is specified, the default pin is `SS (A2)`.
+{{#unless core}}
+For `SPI1`, the default `ss` pin is `SS (D5)`.
+{{/unless}}
+{{#if electron}}
+For `SPI2`, the default `ss` pin is also `SS (D5)`.
+{{/if}}
 
-{{#if photon}}
+{{#unless core}}
 ```C++
-// Example of using SPI1 on the Photon, with D3 as the SS pin:
-SPI1.begin(D3);
+// Example using SPI1, with D5 as the SS pin:
+SPI1.begin();
+// or
+SPI1.begin(D5);
+```
+{{/unless}}
+{{#if electron}}
+```C++
+// Example using SPI2, with C0 as the SS pin:
+SPI2.begin(C0);
 ```
 {{/if}}
 
@@ -2158,6 +2767,12 @@ Disables the SPI bus (leaving pin modes unchanged).
 ```C++
 // SYNTAX
 SPI.end();
+{{#unless core}}
+SPI1.end();
+{{/unless}}
+{{#if electron}}
+SPI2.end();
+{{/if}}
 ```
 
 ### setBitOrder()
@@ -2167,6 +2782,12 @@ Sets the order of the bits shifted out of and into the SPI bus, either LSBFIRST 
 ```C++
 // SYNTAX
 SPI.setBitOrder(order);
+{{#unless core}}
+SPI1.setBitOrder(order);
+{{/unless}}
+{{#if electron}}
+SPI2.setBitOrder(order);
+{{/if}}
 ```
 
 Where, the parameter `order` can either be `LSBFIRST` or `MSBFIRST`.
@@ -2177,10 +2798,23 @@ Sets the SPI clock speed. The value can be specified as a direct value, or as
 as a value plus a multiplier.
 
 
+```C++
+// SYNTAX
+SPI.setClockSpeed(value, scale));
+SPI.setClockSpeed(frequency));
+{{#unless core}}
+SPI1.setClockSpeed(value, scale));
+SPI1.setClockSpeed(frequency));
+{{/unless}}
+{{#if electron}}
+SPI2.setClockSpeed(value, scale));
+SPI2.setClockSpeed(frequency));
+{{/if}}
+```
+
 ```
 // EXAMPLE
-
-// set the clock speed as close (but not over) to 15 MHz
+// Set the clock speed as close to 15MHz (but not over)
 SPI.setClockSpeed(15, MHZ));
 SPI.setClockSpeed(15000000));
 ```
@@ -2217,10 +2851,10 @@ SPI.setClockDividerReference(SPI_CLK_ARDUINO);
 SPI.setClockDivider(SPI_CLK_DIV4);
 ```
 
-The default clock divider reference is the system clock.  {{#if core}}On the Core, this is 72 MHz.{{/if}} {{#if photon}}On the Photon, the system clock speeds are:
+The default clock divider reference is the system clock.  {{#if core}}On the Core, this is 72 MHz.{{/if}} {{#unless core}}On the Photon and Electron, the system clock speeds are:
 - SPI - 60 MHz
 - SPI1 - 30 MHz
-{{/if}}
+{{/unless}}
 
 ### setClockDivider()
 
@@ -2228,7 +2862,13 @@ Sets the SPI clock divider relative to the selected clock reference. The availab
 
 ```C++
 // SYNTAX
-SPI.setClockDivider(divider) ;
+SPI.setClockDivider(divider);
+{{#unless core}}
+SPI1.setClockDivider(divider);
+{{/unless}}
+{{#if electron}}
+SPI2.setClockDivider(divider);
+{{/if}}
 ```
 Where the parameter, `divider` can be:
 
@@ -2247,7 +2887,13 @@ Sets the SPI data mode: that is, clock polarity and phase. See the [Wikipedia ar
 
 ```C++
 // SYNTAX
-SPI.setDataMode(mode) ;
+SPI.setDataMode(mode);
+{{#unless core}}
+SPI1.setDataMode(mode);
+{{/unless}}
+{{#if electron}}
+SPI2.setDataMode(mode);
+{{/if}}
 ```
 Where the parameter, `mode` can be:
 
@@ -2263,19 +2909,31 @@ Transfers one byte over the SPI bus, both sending and receiving.
 ```C++
 // SYNTAX
 SPI.transfer(val);
+{{#unless core}}
+SPI1.transfer(val);
+{{/unless}}
+{{#if electron}}
+SPI2.transfer(val);
+{{/if}}
 ```
 Where the parameter `val`, can is the byte to send out over the SPI bus.
 
-{{#if photon}}
+{{#unless core}}
 ### transfer(void*, void*, size_t, std::function)
 
 For transferring a large number of bytes, this form of transfer() uses DMA to speed up SPI data transfer and at the same time allows you to run code in parallel to the data transmission. The function initialises, configures and enables the DMA peripheral’s channel and stream for the selected SPI peripheral for both outgoing and incoming data and initiates the data transfer. If a user callback function is passed then it will be called after completion of the DMA transfer. This results in asynchronous filling of RX buffer after which the DMA transfer is disabled till the transfer function is called again. If NULL is passed as a callback then the result is synchronous i.e. the function will only return once the DMA transfer is complete.
 
-NOTE: The SPI protocol is based on a one byte OUT / one byte IN inteface. For every byte expected to be received, one (dummy, typicall 0x00 or 0xFF) byte must be sent.
+**Note**: The SPI protocol is based on a one byte OUT / one byte IN inteface. For every byte expected to be received, one (dummy, typically 0x00 or 0xFF) byte must be sent.
 
 ```C++
 // SYNTAX
-SPI.transfer(tx_buffer, rx_buffer, length, myFunction)
+SPI.transfer(tx_buffer, rx_buffer, length, myFunction);
+{{#unless core}}
+SPI1.transfer(tx_buffer, rx_buffer, length, myFunction);
+{{/unless}}
+{{#if electron}}
+SPI2.transfer(tx_buffer, rx_buffer, length, myFunction);
+{{/if}}
 ```
 
 Parameters:
@@ -2287,14 +2945,14 @@ Parameters:
 
 NOTE: `tx_buffer` and `rx_buffer` sizes MUST be identical (of size `length`)
 
-{{/if}}
+{{/unless}}
 
 Wire (I2C)
 ----
 
 ![I2C](/assets/images/core-pin-i2c.jpg)
 
-This library allows you to communicate with I2C / TWI devices. On the Core/Photon, D0 is the Serial Data Line (SDA) and D1 is the Serial Clock (SCL). Both of these pins runs at 3.3V logic but are tolerant to 5V. Connect a pull-up resistor(1.5k to 10k) on SDA line. Connect a pull-up resistor(1.5k to 10k) on SCL line.
+This library allows you to communicate with I2C / TWI devices. On the Core/Photon/Electron, D0 is the Serial Data Line (SDA) and D1 is the Serial Clock (SCL). Both of these pins runs at 3.3V logic but are tolerant to 5V. Connect a pull-up resistor(1.5k to 10k) on SDA line. Connect a pull-up resistor(1.5k to 10k) on SCL line.
 
 ### setSpeed()
 
@@ -2387,7 +3045,7 @@ Returns: `byte` : the number of bytes returned from the slave device.  If a time
 *Since 0.4.6.*
 
 Attempts to reset the I2C bus. This should be called only if the I2C bus has
-has hung. In 0.4.6 additional rework was done for the I2C bus on the Photon, so
+has hung. In 0.4.6 additional rework was done for the I2C bus on the Photon and Electron, so
 we hope this function isn't required, and it's provided for completeness.
 
 ### beginTransmission()
@@ -2596,9 +3254,20 @@ void loop()
 {{#unless core}}
 ## CAN (CANbus)
 
-The Photon supports communicating with CAN devices via the CAN bus.
+The Photon and Electron support communicating with CAN devices via the CAN bus.
 
-```
+- The Photon and Electron have a CANbus on pins D1 (CAN2_TX) and D2 (CAN2_RX).
+- The Electron only has a second CANbus on pins C4 (CAN1_TX) and C5 (CAN1_TX).
+
+
+```c++
+// SYNTAX
+// Photon and Electron
+CANChannel can(CAN_D1_D2);
+// Electron only has a second CANbus
+CANChannel can(CAN_C4_C5);
+
+// EXAMPLE on pins D1 & D2
 CANChannel can(CAN_D1_D2);
 
 void setup() {
@@ -2638,9 +3307,12 @@ struct CANMessage
 
 ### CAN.begin()
 
-Joins the bus at the given tranmission rate. 
-
-
+Joins the bus at the given `baud` rate.
+```C++
+// SYNTAX
+CANChannel can(CAN_D1_D2);
+can.begin(baud);
+```
 {{/unless}}
 
 ### IPAddress
@@ -3408,7 +4080,7 @@ int pos = 0;    // variable to store the servo position
 void setup()
 {
   myservo.attach(D0);  // attaches the servo on the D0 pin to the servo object
-  // Use the pins that has PWM on the Photon : D0, D1, D2, D3, A4, A5, WKP, RX, and TX
+  // Only supported on pins that have PWM
 }
 
 
@@ -3845,7 +4517,7 @@ Returns: Integer
 
 ### now()
 
-Retrieve the current time as seconds since January 1, 1970 (commonly known as "Unix time" or "epoch time"). This time is not affected by the timezone setting. 
+Retrieve the current time as seconds since January 1, 1970 (commonly known as "Unix time" or "epoch time"). This time is not affected by the timezone setting.
 
 ```cpp
 // Print the current Unix timestamp
@@ -3856,7 +4528,7 @@ Returns: Integer
 
 ### local()
 
-Retrieve the current time in the configured timezone as seconds since January 1, 1970 (commonly known as "Unix time" or "epoch time"). This time is affected by the timezone setting. 
+Retrieve the current time in the configured timezone as seconds since January 1, 1970 (commonly known as "Unix time" or "epoch time"). This time is affected by the timezone setting.
 
 
 ### zone()
@@ -3987,7 +4659,7 @@ The return value for millis is an unsigned long, errors may be generated if a pr
 Returns the number of microseconds since the device began running the current program.
 
 Firmware v0.4.3 and earlier:
-- This number will overflow (go back to zero), after exactly 59,652,323 microseconds (0 .. 59,652,322) on the Core and after exactly 35,791,394 microseconds (0 .. 35,791,394) on the Photon.
+- This number will overflow (go back to zero), after exactly 59,652,323 microseconds (0 .. 59,652,322) on the Core and after exactly 35,791,394 microseconds (0 .. 35,791,394) on the Photon and Electron.
 
 
 
@@ -4221,7 +4893,7 @@ noInterrupts();
 
 ## Software Timers
 
-_Since 0.4.7. This feature is available on the Photon and P1 out the box. On the Core, the
+_Since 0.4.7. This feature is available on the Photon, P1 and Electron out the box. On the Core, the
 `freertos4core` library should be used to add FreeRTOS to the core._
 
 Software Timers provide a way to have timed actions in your program.  FreeRTOS provides the ability to have up to 10 Software Timers at a time with a minimum resolution of 1 millisecond.  It is common to use millis() based "timers" though exact timing is not always possible (due to other program delays).  Software timers are maintained by FreeRTOS and provide a more reliable method for running timed actions using callback functions.  Please note that Software Timers are "chained" and will be serviced sequencially when several timers trigger simultaneously, thus requiring special consideration when writing callback functions.
@@ -4253,8 +4925,8 @@ The timer callback is similar to an interrupt - it shouldn't block. However, it 
 `Timer timer(period, callback, one_shot)`
 
 - `period` is the period of the timer in milliseconds  (unsigned int)
-- `callback` is the callback function which gets called when the timer expires. 
-- `one_shot` (optional, since 0.4.9) when `true`, the timer is fired once and then stopped automatically.  The default is `false` - a repeating timer. 
+- `callback` is the callback function which gets called when the timer expires.
+- `one_shot` (optional, since 0.4.9) when `true`, the timer is fired once and then stopped automatically.  The default is `false` - a repeating timer.
 
 
 ### Class member callbacks
@@ -4266,9 +4938,9 @@ A class member function can be used as a callback using this syntax to create th
 `Timer timer(period, callback, instance, one_shot)`
 
 - `period` is the period of the timer in milliseconds  (unsigned int)
-- `callback` is the class member function which gets called when the timer expires. 
+- `callback` is the class member function which gets called when the timer expires.
 - `instance` the instance of the class to call the callback function on.
-- `one_shot` (optional, since 0.4.9) when `true`, the timer is fired once and then stopped automatically.  The default is `false` - a repeating timer. 
+- `one_shot` (optional, since 0.4.9) when `true`, the timer is fired once and then stopped automatically.  The default is `false` - a repeating timer.
 
 
 ```
@@ -4667,7 +5339,7 @@ Returns the total number of bytes of emulated EEPROM.
 `size_t length()`
 
 - The Core has 100 bytes of emulated EEPROM.
-- The Photon has 2048 bytes of emulated EEPROM.
+- The Photon and Electron have 2048 bytes of emulated EEPROM.
 
 ```c++
 // EXAMPLE USAGE
@@ -4684,7 +5356,7 @@ Read a byte of data from the emulated EEPROM.
 `address` is the address (int) of the EERPOM location to read
 
 - On the Core, this must be a value between 0 and 99
-- On the Photon, this must be a value between 0 and 2047
+- On the Photon/Electron, this must be a value between 0 and 2047
 
 ```C++
 // EXAMPLE USAGE
@@ -4703,7 +5375,7 @@ Write a byte of data to the emulated EEPROM.
 `value` is the byte data (uint8_t) to write
 
 - On the Core, this must be a value between 0 and 99
-- On the Photon, this must be a value between 0 and 2047
+- On the Photon/Electron, this must be a value between 0 and 2047
 ```C++
 // EXAMPLE USAGE
 
@@ -4777,7 +5449,7 @@ MyObject myObj = {12.34f, 25, "Test!"}
 EEPROM.put(addr, myObj);
 ```
 
-{{#if photon}}
+{{#unless core}}
 ## Backup RAM (SRAM)
 
 The STM32F2xx features 4KB of backup RAM. Unlike the regular RAM memory, the backup
@@ -4930,7 +5602,7 @@ keeping the `retained` variables in their own separate block. In this way it's e
 when new `retained` variables are added to the end of the list, or when they are rearranged.
 
 
-{{/if}}
+{{/unless}}
 
 ## Macros
 
@@ -4974,7 +5646,7 @@ in mind, using pullup/pulldown resistors as appropriate._
 
 ### System Events Overview
 
-System events are messages sent by the system and received by application code. They inform the application about changes in the system, such as when the system has entered setup mode, or when an Over-the-Air (OTA) update starts, or when the system is about to reset. 
+System events are messages sent by the system and received by application code. They inform the application about changes in the system, such as when the system has entered setup mode, or when an Over-the-Air (OTA) update starts, or when the system is about to reset.
 
 System events are recieved by the application by registering a handler. The handler has this general format:
 
@@ -4988,9 +5660,9 @@ Unused parameters can be removed from right to left, giving these additional fun
 void handler(system_event_t event, int data);
 void handler(system_event_t event);
 void handler();
-``` 
+```
 
-Here's an example of an application that listens for `reset` events so that the application is notified the device is about to reset. The application publishes a reset message to the cloud and turns off connected equipment before returning from the handler, allowing the device to reset. 
+Here's an example of an application that listens for `reset` events so that the application is notified the device is about to reset. The application publishes a reset message to the cloud and turns off connected equipment before returning from the handler, allowing the device to reset.
 
 ```
 void reset_handler()
@@ -4998,7 +5670,7 @@ void reset_handler()
 	// turn off the crankenspitzen
 	digitalWrite(D6, LOW);
 	// tell the world what we are doing
-	Particle.publish("reset", "going down for reboot NOW!");	
+	Particle.publish("reset", "going down for reboot NOW!");
 }
 
 void setup()
@@ -5030,7 +5702,7 @@ void handle_all_the_events(system_event_t event, int param)
 
 void setup()
 {
-	// listen for wifi listen events and firmware update events
+	// listen for Wi-Fi Listen events and Firmware Update events
 	System.on(wifi_listen+firmware_update, handle_all_the_events);
 }
 ```
@@ -5047,7 +5719,7 @@ void setup()
 
 ### System Events Reference
 
-These are the system events produced by the system, their numeric value (what you will see when printing the system event to Serial) and details of how to handle the parameter value. 
+These are the system events produced by the system, their numeric value (what you will see when printing the system event to Serial) and details of how to handle the parameter value.
 
 | Event Name | ID | Description | Parameter |
 |------------|----------|-----------|
@@ -5061,7 +5733,7 @@ These are the system events produced by the system, their numeric value (what yo
  | reset_pending | 1024 | notifies the application that the system would like to reset. This event is sent even when resets are disabled, giving the application chance to re-enable resets with `System.enableReset()` | not used |
  | reset | 2048 | notifies that the system will reset once the application has completed handling this event | not used |
  | button_click | 4096 | event sent each time setup button is clicked. | `int clicks = system_button_clicks(param); ` retrieves the number of clicks so far. |
-| button_final_click | 8192 | sent after a run of one or more clicks not followed by additional clicks. Unlike the `button_click` event, the `button_final_click` event is sent once, at the end of a series of clicks. | `int clicks = system_button_clicks(param); ` retrieves the number of times the button was pushed. | 
+| button_final_click | 8192 | sent after a run of one or more clicks not followed by additional clicks. Unlike the `button_click` event, the `button_final_click` event is sent once, at the end of a series of clicks. | `int clicks = system_button_clicks(param); ` retrieves the number of times the button was pushed. |
 
 
 ## System Modes
@@ -5156,7 +5828,7 @@ When using manual mode:
 - If `Particle.process()` is called less frequently than every 20 seconds, the connection with the Cloud will die. It may take a couple of additional calls of `Particle.process()` for the device to recognize that the connection has been lost.
 
 
-{{#if photon}}
+{{#unless core}}
 ## System Thread
 
 *Since 0.4.6.*
@@ -5212,13 +5884,13 @@ A long running cloud function will block the application loop (since it is appli
 but not the system code, so cloud connectivity is maintained.
 
  - the application continues to execute during listening mode
- - the application continues to execute during OTA updates 
+ - the application continues to execute during OTA updates
 
 ### System Functions
 
-With system threading enabled, the majority of the Particle API continues to run on the calling thread, as it does for non-threaded mode. For example, when a function, such as `Time.now()`, is called, it is processed entirely on the calling thread (typically the application thread when calling from `loop()`.) 
+With system threading enabled, the majority of the Particle API continues to run on the calling thread, as it does for non-threaded mode. For example, when a function, such as `Time.now()`, is called, it is processed entirely on the calling thread (typically the application thread when calling from `loop()`.)
 
-There are a small number of API functions that are system functions. These functions execute on the system thread regardless of which thread they are called from. 
+There are a small number of API functions that are system functions. These functions execute on the system thread regardless of which thread they are called from.
 
 There are two types of system functions:
 
@@ -5235,7 +5907,7 @@ Synchronous system functions always block the caller until the system has perfor
 - `Particle.subscribe()`
 - `Particle.publish()`
 
-For example, when the system is busy connecting to WiFi or establishing the cloud connection and the application calls `Particle.variable()` then the application will be blocked until the system finished connecting to the cloud (or gives up) so that it is free to service the `Particle.variable()` function call.
+For example, when the system is busy connecting to Wi-Fi or establishing the cloud connection and the application calls `Particle.variable()` then the application will be blocked until the system finished connecting to the cloud (or gives up) so that it is free to service the `Particle.variable()` function call.
 
 This presents itself typically in automatic mode and where `setup()` registers functions, variables or subscriptions. Even though the application thread is running `setup()` independently of the system thread, calling synchronous functions will cause the application to block until the system thread has finished connecting to the cloud. This can be avoided by delaying the cloud connection until after the synchronous functions have been called.
 
@@ -5263,7 +5935,7 @@ When executing timing-critical sections of code, the task switching needs to be 
 
 ### SINGLE_THREADED_BLOCK()
 
-`SINGLE_THREADED_BLOCK()` declares that the next code block is executed in single threaded mode. Task switching is disabled until the end of the block and automatically re-enabled when the block exits. Interrupts remain enabled, so the thread may be interrupted for small periods of time, such as by interrupts from peripherals. 
+`SINGLE_THREADED_BLOCK()` declares that the next code block is executed in single threaded mode. Task switching is disabled until the end of the block and automatically re-enabled when the block exits. Interrupts remain enabled, so the thread may be interrupted for small periods of time, such as by interrupts from peripherals.
 
 ```
 // SYNTAX
@@ -5291,9 +5963,9 @@ void so_timing_sensitive()
 
 ### ATOMIC_BLOCK()
 
-`ATOMIC_BLOCK()` is similar to `SINGLE_THREADED_BLOCK()` in that it prevents other threads executing during a block of code. In addition, interrupts are also disabled. 
+`ATOMIC_BLOCK()` is similar to `SINGLE_THREADED_BLOCK()` in that it prevents other threads executing during a block of code. In addition, interrupts are also disabled.
 
-WARNING: Disabling interrupts prevents normal system operation. Consequently, `ATOMIC_BLOCK()` should be used only for brief periods where atomicity is essential. 
+WARNING: Disabling interrupts prevents normal system operation. Consequently, `ATOMIC_BLOCK()` should be used only for brief periods where atomicity is essential.
 
 ```
 // SYNTAX
@@ -5323,9 +5995,9 @@ void so_timing_sensitive_and_no_interrupts()
 With system threading enabled, the system thread and the application thread run in parallel. When both attempt to use the same resource, such as writing a message to `Serial`, there is no guaranteed order - the message printed by the system and the message printed by the application are arbitrarily interleaved as the RTOS rapidly switches between running a small part of the system code and then the application code. This results in both messages being intermixed.
 
 This can be avoided by acquiring exclusive access to a resource. To get exclusive access to a resource, we can use locks. A lock
-ensures that only the thread owning the lock can access the resource. Any other thread that tries to use the resource via the lock will not be granted access until the first thread eventually unlocks the resource when it is done. 
+ensures that only the thread owning the lock can access the resource. Any other thread that tries to use the resource via the lock will not be granted access until the first thread eventually unlocks the resource when it is done.
 
-At present there is only one shared resource that is used by the system and the application - `Serial`. The system makes use of `Serial` during listening mode. If the application also makes use of serial during listening mode, then it should be locked before use. 
+At present there is only one shared resource that is used by the system and the application - `Serial`. The system makes use of `Serial` during listening mode. If the application also makes use of serial during listening mode, then it should be locked before use.
 
 ```
 void print_status()
@@ -5340,11 +6012,11 @@ void print_status()
 The primary difference compared to using Serial without a lock is the `WITH_LOCK` declaration. This does several things:
 
 - attempts to acquire the lock for `Serial`. If the lock isn't available, the thread blocks indefinitely until it is available.
- 
+
 - once `Serial` has been locked, the code in the following block is executed.
 
-- when the block has finished executing, the lock is released, allowing other threads to use the resource.   
- 
+- when the block has finished executing, the lock is released, allowing other threads to use the resource.
+
 It's also possible to attempt to lock a resource, but not block when the resource isn't available.
 
 ```
@@ -5360,7 +6032,7 @@ The `TRY_LOCK()` statement functions similarly to `WITH_LOCK()` but it does not 
 
 The [waitUntil](#waituntil) function can be used to wait for something to happen.
 Typically this is waiting for something that the system is doing,
-such as waiting for WiFi to be ready or the cloud to be connected.
+such as waiting for Wi-Fi to be ready or the cloud to be connected.
 
 
 #### `waitUntil`
@@ -5388,11 +6060,11 @@ only for a period of time, we can use `waitFor`
 `WiFi.ready` is another common event to wait for.
 
 ```cpp
-    // wait until WiFi is ready
+    // wait until Wi-Fi is ready
     waitUntil(WiFi.ready);
 ```
 
-{{/if}}
+{{/unless}}
 
 ## System Calls
 
@@ -5529,7 +6201,7 @@ Serial.println(freemem);
 This will perform a factory reset and do the following:
 
 - Restore factory reset firmware from external flash (tinker)
-- Erase WiFi profiles
+- Erase Wi-Fi profiles
 - Enter Listening mode upon completion
 
 ```cpp
@@ -5606,7 +6278,7 @@ System.sleep(5);
 // The device LED will breathe white during sleep
 ```
 
-_Since 0.4.5._ The state of WiFi and Cloud connections is restored when the system wakes up from sleep.
+_Since 0.4.5._ The state of Wi-Fi and Cloud connections is restored when the system wakes up from sleep.
 So if the device was connected to the cloud before sleeping, then the cloud connection
 is automatically resumed on waking up.
 
@@ -5630,11 +6302,11 @@ System.sleep(SLEEP_MODE_DEEP, long seconds);
 System.sleep(SLEEP_MODE_DEEP,60);
 // The device LED will shut off during deep sleep
 ```
-The device will automatically *wake up* and reestablish the WiFi connection after the specified number of seconds.
+The device will automatically *wake up* and reestablish the Wi-Fi connection after the specified number of seconds.
 
 `System.sleep(uint16_t wakeUpPin, uint16_t edgeTriggerMode)` can be used to put the entire device into a *stop* mode with *wakeup on interrupt*. In this particular mode, the device shuts down the Wi-Fi chipset and puts the microcontroller in a stop mode with configurable wakeup pin and edge triggered interrupt. When the specific interrupt arrives, the device awakens from stop mode, it will behave as if the device is reset and run all user code from the beginning with no values being maintained in memory from before the stop mode.
 
-As such, it is recommended that stop mode be called only after all user code has completed. (Note: The new Particle Photon firmware will not reset before going into stop mode so all the application variables are preserved after waking up from this mode. The voltage regulator is put in low-power mode. This mode achieves the lowest power consumption while retaining the contents of SRAM and registers.)
+As such, it is recommended that stop mode be called only after all user code has completed. (Note: The Photon and Electron will not reset before going into stop mode so all the application variables are preserved after waking up from this mode. The voltage regulator is put in low-power mode. This mode achieves the lowest power consumption while retaining the contents of SRAM and registers.)
 
 It is mandatory to update the *bootloader* (https://github.com/spark/firmware/tree/bootloader-patch-update) for proper functioning of this mode (valid only for Core).
 
@@ -5660,7 +6332,7 @@ System.sleep(D0,RISING);
     - RISING to trigger when the pin goes from low to high,
     - FALLING for when the pin goes from high to low.
 
-`System.sleep(uint16_t wakeUpPin, uint16_t edgeTriggerMode, long seconds)` can be used to put the entire device into a *stop* mode with *wakeup on interrupt* or *wakeup after specified seconds*. In this particular mode, the Core shuts down the Wi-Fi chipset (CC3000) and puts the microcontroller in a stop mode with configurable wakeup pin and edge triggered interrupt or wakeup after the specified seconds . When the specific interrupt arrives or upon reaching configured seconds, the Core awakens from stop mode, it will behave as if the Core is reset and run all user code from the beginning with no values being maintained in memory from before the stop mode. As such, it is recommended that stop mode be called only after all user code has completed. (Note: The new Particle Photon firmware will not reset before going into stop mode so all the application variables are preserved after waking up from this mode. The voltage regulator is put in low-power mode. This mode achieves the lowest power consumption while retaining the contents of SRAM and registers.)
+`System.sleep(uint16_t wakeUpPin, uint16_t edgeTriggerMode, long seconds)` can be used to put the entire device into a *stop* mode with *wakeup on interrupt* or *wakeup after specified seconds*. In this particular mode, the Core shuts down the Wi-Fi chipset (CC3000) and puts the microcontroller in a stop mode with configurable wakeup pin and edge triggered interrupt or wakeup after the specified seconds . When the specific interrupt arrives or upon reaching configured seconds, the Core awakens from stop mode, it will behave as if the Core is reset and run all user code from the beginning with no values being maintained in memory from before the stop mode. As such, it is recommended that stop mode be called only after all user code has completed. (Note: The Photon and Electron will not reset before going into stop mode so all the application variables are preserved after waking up from this mode. The voltage regulator is put in low-power mode. This mode achieves the lowest power consumption while retaining the contents of SRAM and registers.)
 
 ```C++
 // SYNTAX
@@ -7394,7 +8066,7 @@ Note that the true and false constants are typed in lowercase unlike `HIGH, LOW,
 
 ### Data Types
 
-**Note:** The Core/Photon uses a 32-bit ARM based microcontroller and hence the datatype lengths are different from a standard 8-bit system (for e.g. Arduino Uno).
+**Note:** The Core/Photon/Electron uses a 32-bit ARM based microcontroller and hence the datatype lengths are different from a standard 8-bit system (for e.g. Arduino Uno).
 
 #### void
 
@@ -7484,7 +8156,7 @@ byte b = 0x11;
 
 #### int
 
-Integers are your primary data-type for number storage. On the Core/Photon, an int stores a 32-bit (4-byte) value. This yields a range of -2,147,483,648 to 2,147,483,647 (minimum value of -2^31 and a maximum value of (2^31) - 1).
+Integers are your primary data-type for number storage. On the Core/Photon/Electron, an int stores a 32-bit (4-byte) value. This yields a range of -2,147,483,648 to 2,147,483,647 (minimum value of -2^31 and a maximum value of (2^31) - 1).
 int's store negative numbers with a technique called 2's complement math. The highest bit, sometimes referred to as the "sign" bit, flags the number as a negative number. The rest of the bits are inverted and 1 is added.
 
 Other variations:
@@ -7495,7 +8167,7 @@ Other variations:
 
 #### unsigned int
 
-The Core/Photon stores a 4 byte (32-bit) value, ranging from 0 to 4,294,967,295 (2^32 - 1).
+The Core/Photon/Electron stores a 4 byte (32-bit) value, ranging from 0 to 4,294,967,295 (2^32 - 1).
 The difference between unsigned ints and (signed) ints, lies in the way the highest bit, sometimes referred to as the "sign" bit, is interpreted.
 
 Other variations:
@@ -7529,7 +8201,7 @@ Floating point math is also much slower than integer math in performing calculat
 
 #### double
 
-Double precision floating point number. On the Core/Photon, doubles have 8-byte (64 bit) precision.
+Double precision floating point number. On the Core/Photon/Electron, doubles have 8-byte (64 bit) precision.
 
 #### string - char array
 
