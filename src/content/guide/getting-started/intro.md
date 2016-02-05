@@ -7,7 +7,7 @@ order: 1
 ---
 
 
-#Introduction to the Guide
+# Introduction to the Guide
 
 {{#if photon}}
 ![](/assets/images/family_portrait_outlines.png)
