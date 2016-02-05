@@ -47,7 +47,7 @@ Still having issues? Write us an email at [hello@particle.io](mailto:hello@parti
 
 Electrons that are flashing green have successfully read the APN data from the inserted SIM card and are attempting to connect to a cellular tower. There are many different reasons that your Electron might fail to connect to your nearby cellular network. Here are a few things you can check if you find your device in an endless loop (5 minutes+) of flashing green:
 
-### 1\. Is your Electron compatible with your local cellular network?
+### 1) Is your Electron compatible with your local cellular network?
 There are three different variants of the Electron, and they each work in different parts of the world:
 
 
@@ -63,25 +63,25 @@ Make sure that your device is compatible with the cellular infrastructure in you
 
 If your device is not compatible with the cellular infrastructure in your country, **it will be unable to connect to the Internet using a Particle SIM or any other SIM.**
 
-### 2\. Is your antenna connected?
+### 2) Is your antenna connected?
 Your Electron cannot connect without the included external cellular antenna. Please make sure it is connected as depicted below:
 
 ![Attach the antenna](/assets/images/antenna_attach.jpg)
 
-### 3\. Is your battery connected?
+### 3) Is your battery connected?
 Your Electron *requires a Li-Po battery or high current power source to communicate wirelessly*. Make sure your battery is connected as depicted below:
 
 ![Connect the battery](/assets/images/attach_batt.jpg)
 
 While the Electron does not *require* that you attach the USB cable, this will ensure that your battery does not run out of charge during the connection process.
 
-### 4\. Is your SIM activated?
+### 4) Is your SIM activated?
 In order for your Particle SIM card to connect to the cellular network, it needs to be activated. The *only* way to do this is to go through SIM activation and setup at [https://setup.particle.io](https://setup.particle.io). Follow the on-screen prompts to complete device setup and SIM activation.
 
-### 5\. Are you using a 3rd party (non-Particle) SIM?
-If you're not using a Particle SIM, you will have to change the cellular APN on the Electron before it can connect. You can do this in firmware using the `setCredentials()` function, or by opening up a serial terminal with the Electron, typing `a`, and configuring the new APN settings for your SIM. You can find more details on changing your APN [here](LINKEDYLINKLINK).
+### 5) Are you using a 3rd party (non-Particle) SIM?
+If you're not using a Particle SIM, you will have to change the cellular APN on the Electron before it can connect. You can do this in firmware using the `setCredentials()` function, or by opening up a serial terminal with the Electron, typing `a`, and configuring the new APN settings for your SIM. You can find more details on changing your APN [here]().
 
-### 6\. Check the cellular coverage in your area
+### 6) Check the cellular coverage in your area
 The Electron leverages a number of cellular carriers to provide excellent coverage, but it *is* possible that you are outside GSM coverage in your country. Fortunately, it's relatively simple to check:
 
 - Go to http://particle.io/cellular and select your country from the dropdown at the bottom of the page. Note the cellular provider in your country. In the US, for example, service is provided by `T-Mobile and AT&T`.
@@ -92,7 +92,7 @@ The Electron leverages a number of cellular carriers to provide excellent covera
 If you are outside of the coverage map, it's possible that the Particle SIM does not have coverage in your area, and your device will be unable to connect. We are always looking to expand our coverage network, and hope to provide coverage in your area soon!
 
 
-### 7\. Check the cellular reception in your location
+### 7) Check the cellular reception in your location
 Cellular *coverage* and cellular *reception* are slightly different.  Coverage is determined by the location and availability of cellular towers in your neighborhood. Even if there is coverage, your device might not have *reception*. Things like RF interference, being in a basement, or a damaged antenna might affect your device's ability to get a good signal from the cell tower nearby.
 
 There are a bunch of things that you can do to improve your cellular reception:
@@ -101,15 +101,15 @@ There are a bunch of things that you can do to improve your cellular reception:
 - Try going outside, or by a window, to confirm that your device can connect
 
 
-### 8\. Check your data limit
+### 8) Check your data limit
 If you've been using your Electron successfully for a while and it's now just started flashing green, you might have hit your data limit, and your SIM might be paused. You can check your data usage and update your data limits by visiting the SIM dashboard at the following link:
 
 [https://dashboard.particle.io/user/billing](https://dashboard.particle.io/user/billing)
 
-### 9\. Cold boot your device
+### 9) Cold boot your device
 If all else fails, try restarting it! Remove *both* the USB cable and Li-Po battery from the Electron, so that the RGB LED fully powers off. Then, reconnect the Li-Po battery and USB cable--the Electron should reboot and retry the connection sequence.
 
-### 10\. Contact Particle
+### 10) Contact Particle
 Still having issues? Write us an email at [hello@particle.io](mailto:hello@particle.io) and include the following to help us with troubleshooting:
 - Your Device ID
 - Your ICCID (SIM Number)
