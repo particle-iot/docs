@@ -121,6 +121,53 @@ For more technical details on what comes on your device, go {{#if core}}[here](/
   * A computer for the [setup process](https://setup.particle.io).
 * **Experience**
     * None! This is your first project.
+
+## Billing for Electron
+
+### Overview
+- You will be billed per Particle SIM card, not per device
+- Base rate up to 1.0MB, +1MB up to 2.0MB
+  - e.g. We bill in 1MB increments (1MB = 1,000,000 bytes, not 2^20 bytes)
+- We bill your base subscription rate at beginning of a period, overages at end of a period.
+- What the heck is a zone and why is it important?
+- Base rate is based on [Country Zone]() and it covers your first MB.
+- Overage rates are based on [Country Zone]() and pricing data for your given plan.
+- You can use the [dashboard](https://dashboard.particle.io) as the place to manage SIMs, billing, and see data usage.
+
+### Billing Periods
+**How it's determined**
+- The day of the month you activated your first SIM is when your billing period starts.
+- If it's on a day that not all months have, the new period will start the last day of the month. 
+  - **i.e. if you sign up January 30th, your next billing period starts on February 28th.**
+
+## Data Guide for Electron
+### Data Limits
+- Data limits are cutoffs, not the amount you're going to be billed for- we only bill for the amount used
+- Your data cutoff is your Hard limit
+  - Soft (warning) limit is 90% of hard limit
+- What if I go over?
+  - You will be notified via email and your SIM usage will be put on hold until you verify that you are aware of the overages.
+- You will be Pro-rated charges on overages
+- Your data plan will be automatically resumed at the start of the next billing period
+
+### Activation, Deactivation, Reactivation, Pausing
+- Unpausing is when your SIM is activated after you manually reactivate it in the dashboard or a new billing period begins.
+- Automatic unpausing happens at the beginning of the next billing period.
+- Deactivation is more permanent than pausing. 
+  - A user can deactivate a SIM at any time from their [dashboard](https://dashboard.particle.io). This will turn it off indefinitely and they’ll stop getting billed for for that SIM.
+- Deactivation from billing failure
+  - Q: Will it come back online automatically?
+  - A: Yes after a few minutes, your device will come back online.
+  - Q: How will I know if/when the device comes back online?
+  - A: [subscribe to event stream](/guide/getting-started/examples/electron/#the-buddy-system-publish-and-subscribe) and look for an online event.
+- Reactivation will reenable the SIM and reenroll the user on the monthly data plan.
+- What if my credit card gets declined?
+  - We send you an email and give you a short grace period. If the charge doesn't go through (after 4 attempts) we deactivate your SIM(s) until you update your billing information.
+- I bought an Electron through Kickstarter, but I didn't get free data. 
+  - *What do I do?*
+[Contact support](/support/support-and-fulfillment/menu-base/photon/#form-main) and give us your [device id](/support/troubleshooting/common-questions/electron/#how-do-i-get-my-deviceid-device-id-), SIM ICC ID, and your kickstarter order # and we'll give you a refund/credit and get you on the right plan.
+
+Go to the next section to learn to [connect over USB](/guide/getting-started/connect/electron/).    
 {{/if}}
 
 {{#if photon}}
