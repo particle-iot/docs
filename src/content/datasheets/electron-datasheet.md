@@ -180,18 +180,18 @@ conditions is not implied. Exposure to absolute-maximum-rated conditions for ext
 | LiPo Battery Voltage | V<sub>LiPo</sub> | +3.6 |  | +4.4 | V |
 | Supply Input Voltage | V<sub>VBAT</sub> | +1.65 |  | +3.6 | V |
 | Supply Input Current (VBAT) | I<sub>VBAT</sub> |  |  | 19 | uA |
-| Operating Current (Cellular ON) | I<sub>IN avg</sub> |  | xx | xx | mA |
-| Operating Current (Cellular ON) | I<sub>IN pk</sub> | xx<sup>[2]</sup> |  | xx<sup>[3]</sup> | mA |
-| Operating Current (Cellular ON, w/powersave) | I<sub>IN avg</sub> |  | xx | xx<sup>[4]</sup> | mA |
-| Operating Current (Cellular OFF) | I<sub>IN avg</sub> |  | xx | xx | mA |
-| Sleep Current (4.2V LiPo)| I<sub>Qs</sub> |  | xx | xx | mA |
+| Operating Current (Cellular ON) | I<sub>IN avg</sub> |  | 180 | 250 | mA |
+| Operating Current (Cellular ON) | I<sub>IN pk</sub> | 800<sup>[2]</sup> |  | 1800<sup>[3]</sup> | mA |
+| Operating Current (Cellular ON, w/powersave) | I<sub>IN avg</sub> |  | 50 | 80<sup>[4]</sup> | mA |
+| Operating Current (Cellular OFF) | I<sub>IN avg</sub> |  | 2 | 15 | mA |
+| Sleep Current (4.2V LiPo)| I<sub>Qs</sub> |  | 0.8 | 2 | mA |
 | Deep Sleep Current (4.2V LiPo) | I<sub>Qds</sub> |  | 110 | 130 | uA |
 | Operating Temperature | T<sub>op</sub> | -20 |  | +60 | °C |
 | Humidity Range Non condensing, relative humidity | | | | 95 | % |
 
 **Notes:**
 
-<sup>[1]</sup> The minimum input voltage is software defined with a user selectable range of 3.88V to 5.08V with 80mV increments. Out of the box, the minimum input voltage is set to 4.36V in order for the LiPo battery to be able to properly charge.
+<sup>[1]</sup> The minimum input voltage is software defined with a user selectable range of 3.88V to 5.08V in 80mV increments. Out of the box, the minimum input voltage is set to 4.36V in order for the LiPo battery to be able to properly charge.
 
 
 ### Radio specifications
