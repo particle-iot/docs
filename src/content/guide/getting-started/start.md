@@ -49,22 +49,22 @@ Let's quickly go over what you see.
 {{/if}}
 
 {{#if electron}}{{{popup '**The Cellular Module.**' 'img' 'electronUblox.png'}}}
-This is probably why you bought your device-- the cellular module allows your Electron to communicate with the internet in over 120 countries! 
+This is probably why you bought your device-- the cellular module allows your Electron to communicate with the internet in over 120 countries!
 The cellular module is also accompanied with a Particle SIM card.
 
 It connects your device to the internet in the same way that your smartphone might connect to its cellular network.
-See our coverage map [here - update this link](https://www.particle.io/cellular). 
+See our coverage map [here - update this link](https://www.particle.io/cellular).
 {{/if}}
 
 {{#if photon}}{{{popup '**The Wi-Fi Module.**' 'img' 'photon-module.jpg'}}}{{/if}}
-{{#if core}}{{{popup '**The Wi-Fi Module.**' 'img' 'core-cc3000.jpg'}}}{{/if}} 
+{{#if core}}{{{popup '**The Wi-Fi Module.**' 'img' 'core-cc3000.jpg'}}}{{/if}}
 {{#if photon}}This is probably why you bought your device-- the Wi-Fi module allows your Core or Photon to communicate with the internet. It connects your device to the internet in the same way that your smartphone might connect to a wifi network.{{/if}}
 {{#if core}}This is probably why you bought your device-- the Wi-Fi module allows your Core or Photon to communicate with the internet. It connects your device to the internet in the same way that your smartphone might connect to a wifi network.{{/if}}
 {{#if photon}} **Do not press down on the Photon's module.** Doing so triggers a reset and is generally not good for the Photon. {{/if}}
 
 
 {{#if photon}}{{{popup '**The Microcontroller.**' 'img' 'photon-module.jpg'}}}{{/if}}
-{{#if core}}{{{popup '**The Microcontroller.**' 'img' 'core-stm32.jpg'}}}{{/if}} 
+{{#if core}}{{{popup '**The Microcontroller.**' 'img' 'core-stm32.jpg'}}}{{/if}}
 {{#if electron}}{{{popup '**The Microcontroller.**' 'img' 'electronMCU.png'}}}{{/if}}
 The microcontroller is the brain of your device. It runs your software and tells your prototype what to do. Unlike your computer, it can only run one application (often called *firmware* or an *embedded application*). This application can be simple (just a few lines of code), or very complex, depending on what you want to do. The microcontroller interacts with the outside world using pins.
 
@@ -104,7 +104,7 @@ to wired power source. Consider this battery your electron's best friend!
 
 {{/if}}
 
-For more technical details on what comes on your device, go {{#if core}}[here](/datasheets/core-shields/){{/if}}{{#if photon}}[here](/datasheets/kits/photon/){{/if}}{{#if electron}}[here -stubbb](/datasheets/photon-shields/){{/if}}.
+For more technical details on what comes on your device, go {{#if core}}[here](/datasheets/core-datasheet/){{/if}}{{#if photon}}[here](/datasheets/kits/photon/){{/if}}{{#if electron}}[here](/datasheets/kits/electron/){{/if}}.
 
 ## Prerequisites for Setup
 {{#if electron}}
@@ -137,7 +137,7 @@ For more technical details on what comes on your device, go {{#if core}}[here](/
 ### Billing Periods
 **How it's determined**
 - The day of the month you activated your first SIM is when your billing period starts.
-- If it's on a day that not all months have, the new period will start the last day of the month. 
+- If it's on a day that not all months have, the new period will start the last day of the month.
   - **i.e. if you sign up January 30th, your next billing period starts on February 28th.**
 
 ## Data Guide for Electron
@@ -153,7 +153,7 @@ For more technical details on what comes on your device, go {{#if core}}[here](/
 ### Activation, Deactivation, Reactivation, Pausing
 - Unpausing is when your SIM is activated after you manually reactivate it in the dashboard or a new billing period begins.
 - Automatic unpausing happens at the beginning of the next billing period.
-- Deactivation is more permanent than pausing. 
+- Deactivation is more permanent than pausing.
   - A user can deactivate a SIM at any time from their [dashboard](https://dashboard.particle.io). This will turn it off indefinitely and they’ll stop getting billed for for that SIM.
 - Deactivation from billing failure
   - Q: Will it come back online automatically?
@@ -163,7 +163,7 @@ For more technical details on what comes on your device, go {{#if core}}[here](/
 - Reactivation will reenable the SIM and reenroll the user on the monthly data plan.
 - What if my credit card gets declined?
   - We send you an email and give you a short grace period. If the charge doesn't go through (after 4 attempts) we deactivate your SIM(s) until you update your billing information.
-- I bought an Electron through Kickstarter, but I didn't get free data. 
+- I bought an Electron through Kickstarter, but I didn't get free data.
   - *What do I do?*
 [Contact support](/support/support-and-fulfillment/menu-base/photon/#form-main) and give us your [device id](/support/troubleshooting/common-questions/electron/#how-do-i-get-my-deviceid-device-id-), SIM ICC ID, and your kickstarter order # and we'll give you a refund/credit and get you on the right plan.
 
