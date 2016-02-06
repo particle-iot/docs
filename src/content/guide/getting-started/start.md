@@ -141,6 +141,7 @@ For more technical details on what comes on your device, go {{#if core}}[here](/
   - **i.e. if you sign up January 30th, your next billing period starts on February 28th.**
 
 ## Data Guide for Electron
+
 ### Data Limits
 - Data limits are cutoffs, not the amount you're going to be billed for- we only bill for the amount used
 - Your data cutoff is your Hard limit
@@ -148,7 +149,7 @@ For more technical details on what comes on your device, go {{#if core}}[here](/
 - What if I go over?
   - You will be notified via email and your SIM usage will be put on hold until you verify that you are aware of the overages.
 - You will be Pro-rated charges on overages
-- Your data plan will be automatically resumed at the start of the next billing period
+- Your data plan will be automatically resume at the start of the next billing period
 
 ### Activation, Deactivation, Reactivation, Pausing
 - Unpausing is when your SIM is activated after you manually reactivate it in the dashboard or a new billing period begins.
