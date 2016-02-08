@@ -177,6 +177,53 @@ we'll give you lots of notice and a clear upgrade path.
 {{> api group=apiGroups.Devices}}
 ## Events
 {{> api group=apiGroups.Events}}
+## Special Events
+
+If you watch your event stream, you may notice your devices publishing events that don't appear in your firmware.  The
+cloud will automatically publish events in special situations that would be hard to monitor without an event.
+
+### Special Device Events
+
+#### Connection Status
+
+```
+    spark/status, online
+```
+    spark/status, offline
+    spark/status, auto-update
+    
+    
+    spark/status/safe-mode
+    spark/device/app-hash
+
+
+
+#### Flashing
+
+    spark/flash/
+    
+    spark/flash/available
+    
+    spark/flash/status, started + filename
+    spark/flash/status, success + filename 
+    spark/flash/status, failed + filename
+    
+    spark/flash/progress,   sent,total,seconds
+    
+
+#### Safe-Mode
+
+
+
+### Special Webhook Events
+
+hook-sent
+hook-error
+hook-response
+
+### Special IFTTT Events
+
+
 ## Firmware
 {{> api group=apiGroups.Firmware}}
 ## Organizations
