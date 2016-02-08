@@ -23,6 +23,8 @@ To complete all the examples, you will need the following materials:
   * (1) LED, any color {{#if photon}}(Red LED included with Photon Kit and Maker Kit){{/if}}
   * (1) Photoresistor {{#if photon}}(Included with Photon Kit and Maker Kit){{/if}}
   {{#if electron}}* LiPo Battery (included in the Electron kit){{/if}}
+
+{{#if electron}}All of the example circuits are based on the reference card that came along with your Electron kit. If you have misplaced yours, download it [here!](/assets/images/electron/illustrations/electron-card.pdf){{/if}}
 * **Software**
   * A text editor such as [Sublime](http://www.sublimetext.com/) or [TextMate](https://macromates.com/)
   * The [online IDE](http://build.particle.io) or [Particle Dev](http://particle.io/dev)
