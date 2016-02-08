@@ -20,7 +20,7 @@ $(document).ready(function() {
     var ddx = { name: datax.name,
 		  				email: datax.email ,
 		  				subject: datax.subj,
-							topic: datax.topic,
+						topic: datax.topic,
 		  				comments: datax.comments,
 		  				urlFrom: window.location.pathname
 						};//object

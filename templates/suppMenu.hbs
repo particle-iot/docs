@@ -77,10 +77,12 @@
 
               <select id="category" name="category" class="feedback-input" required="required">
                 <option disabled selected> Please select a Category</option>
-                <option>Logistics</option>
+                <option>Orders</option>
+                <option>Shipping</option>
+                <option>Cellular Service</option>
                 <option>Technical Help</option>
-                <option>Service</option>
                 <option>Billing</option>
+                <option>Business Questions</option>
               </select>
 
               <select id="secondmenu" name="subOptions" class="feedback-input" required="required"></select>
@@ -88,16 +90,20 @@
               <script>
               jQuery(function($) {
                   var secondmenus = {
-                      'Logistics': ['--Select a Topic--','Something wrong with shopping cart', 'Where is my order?', 'Where is my Electron?',
-                                  'Update my Address', 'I may need a refund', 'Business Inquiry'],
+                      'Orders': ['--Select a Topic--','Order Status','Something wrong with shopping cart',
+                                  'Update my Address', 'I may need a refund', 'I am tax exempt, what should I do?', 'Do you offer student discounts?'],
+                      'Shipping': ['--Select a Topic--','Where is my package?', 'What is my tracking number?','Where is my Electron?',
+                                  'I need an invoice'],
+                      'Cellular Service': ['--Select a Topic--','What is the cellular coverage?', 'What is my data cap?', 'Is there a cellular outage?',
+                                  'I am using a non-Particle SIM card', 'Is the Particle Cloud down?', 'Can I travel to other countries and my Electron still work?'],
                       'Technical Help': ['--Select a Topic--','Help claiming a device', 'Troubleshooting the P0/P1', 'Troubleshooting the Photon',
                                         'Troubleshooting the Electron', 'Troubleshooting the Core', 'Building a product on Particle',
                                         'A particle shield/kit/accessory', 'Particle Dashboard', 'Other technical question'],
-                      'Service': ['--Select a Topic--','What is the cellular coverage?', 'What is my data cap?', 'Is there a cellular outage?',
-                                  'Using a non-Particle SIM card', 'Is the Particle Cloud down?'],
                       'Billing': ['--Select a Topic--','What am I being charged for?', 'Why am I being charged monthly?', 'What is my data limit + cost?',
                                   'How do I update my credit card?', 'I may need a refund on my data', 'I may need a refund on the dashboard',
-                                  'Other billing questions']
+                                  'Other billing questions'],
+                      'Business Questions': ['--Select a Topic--','I am interested in selling Particle products', 'I would like to write about you!',
+                                  'Can you sponsor my event?', 'You are awesome and I just want to tell you that!']
                   }
 
                   var $secondmenus = $('#secondmenu');
