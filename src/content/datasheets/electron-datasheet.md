@@ -503,6 +503,12 @@ Cet équipement devrait être installé et actionné avec une distance minimum d
 > 
 > For an in-depth review on certifications, please click [here.](/guide/how-to-build-a-product/certification/)
 
+## Revision history
+
+| Revision | Date | Author | Comments |
+|:-:|:-:|:-:|:-|
+| v001 | 20-Jan-2016 | MB | Initial release |
+
 ## Contact
 
 **Web**
