@@ -468,7 +468,11 @@ In the event that these conditions can not be met (for example certain laptop co
 
 **End Product Labeling**
 The final end product must be labeled in a visible area with the following:
-> Contains FCC ID: <add number here>
+> Contains FCC ID: 
+
+ * XPYSARAG350 (For 2G Electron using the G350 module)
+ * XPYSARAU260 (For 3G Electron using the U260 module)
+ * XPYSARAU270 (For 3G Electron using the U270 module)
 
 **Manual Information to the End User**
 The OEM integrator has to be aware not to provide information to the end user regarding how to install or remove this RF module in the user’s manual of the end product which integrates this module.
@@ -494,7 +498,11 @@ Le dispositif répond à l'exemption des limites d'évaluation de routine dans l
 
 **The final end product must be labelled in a visible area with the following:**
 The Industry Canada certification label of a module shall be clearly visible at all times when installed in the host device, otherwise the host device must be labelled to display the Industry Canada certification number of the module, preceded by the words “Contains transmitter module”, or the word “Contains”, or similar wording expressing the same meaning, as follows:
-> Contains transmitter module IC: <add number here>
+> Contains transmitter module IC:
+
+ * 8595A-SARAG350 (For 2G Electron using the G350 module)
+ * 8595A-SARAU260 (For 3G Electron using the U260 module)
+ * 8595A-SARAU270 (For 3G Electron using the U270 module)
 
 This End equipment should be installed and operated with a minimum distance of 20 centimeters between the radiator and your body.
 Cet équipement devrait être installé et actionné avec une distance minimum de 20 centimètres entre le radiateur et votre corps.
