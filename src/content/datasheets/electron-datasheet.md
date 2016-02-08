@@ -500,6 +500,8 @@ This End equipment should be installed and operated with a minimum distance of 2
 Cet équipement devrait être installé et actionné avec une distance minimum de 20 centimètres entre le radiateur et votre corps.
 
 > The end user manual shall include all required regulatory information/warning as shown in this manual.
+> 
+> For an in-depth review on certifications, please click [here.](/guide/how-to-build-a-product/certification/)
 
 ## Contact
 
