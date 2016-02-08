@@ -32,9 +32,12 @@ To complete all the examples, you will need the following materials:
   * Connecting your Device [with your smartphone](/guide/getting-started/start) or [over USB](/guide/getting-started/connect)
 
 {{#if electron}}
-**NOTE:**
+<p class = "boxedHead">NOTE:</p>
+<p class = "boxed">
 
 Since Electron is a cellular device and you are paying for the data in an ongoing basis, it's important for us to  to be conscious and conservative about the data usage. Every time you update your firmware over the air, push data to the device or remain connected to the network, you are consuming data. In the development phase of your project, it is advised that you limit your firmware updates to [happen over USB](/reference/cli/#compiling-remotely-and-flashing-locally), instead of the cellular network. You'll first need to install the [Particle Command Line Interface](/guide/tools-and-features/cli/) on your computer.
+
+</p>
 
 {{/if}}
 
