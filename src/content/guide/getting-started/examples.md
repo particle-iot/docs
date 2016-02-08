@@ -32,7 +32,7 @@ To complete all the examples, you will need the following materials:
 {{#if electron}}
 **NOTE:**
 
-Since Electron is a cellular device and you are paying for the data in an ongoing basis, it's important for us to  to be conscious and conservative about the data usage. Every time you update your firmware over the air, push data to the device or remain connected to the network, you are consuming data. In the development phase of your project, it is advised that you limit your firmware updates to happen over USB, instead of the cellular network.
+Since Electron is a cellular device and you are paying for the data in an ongoing basis, it's important for us to  to be conscious and conservative about the data usage. Every time you update your firmware over the air, push data to the device or remain connected to the network, you are consuming data. In the development phase of your project, it is advised that you limit your firmware updates to [happen over USB](/reference/cli/#compiling-remotely-and-flashing-locally), instead of the cellular network. You'll first need to install the [Particle Command Line Interface](/guide/tools-and-features/cli/) on your computer.
 
 {{/if}}
 
@@ -327,7 +327,7 @@ Set up your breadboard as shown in the image below:
 
 Make sure that the short leg of the LED is plugged into `GND`. The other orientations do not matter.
 
-Bend the LED and the PHotoresistor so that they are pointing at each other. (You want the LED, when turned on, to shine its beam of light directly at the photoresistor.)
+Bend the LED and the Photoresistor so that they are pointing at each other. (You want the LED, when turned on, to shine its beam of light directly at the photoresistor.)
 
 ### Code
 
