@@ -149,7 +149,7 @@ For a detailed explanation of different color codes of the RGB system LED, pleas
 
 ### Pinout diagram
 
-<div align=center><img src="/assets/images/electron/illustrations/electron_pinout.png"></div>
+<div align=center> <a href="/assets/images/electron/illustrations/electron_pinout.pdf"> <img src="/assets/images/electron/illustrations/electron_pinout.png"> </a></div>
 
 You can download a high resolution pinout diagram in a PDF version [here.](/assets/images/electron/illustrations/electron_pinout.pdf)
 
@@ -180,18 +180,18 @@ conditions is not implied. Exposure to absolute-maximum-rated conditions for ext
 | LiPo Battery Voltage | V<sub>LiPo</sub> | +3.6 |  | +4.4 | V |
 | Supply Input Voltage | V<sub>VBAT</sub> | +1.65 |  | +3.6 | V |
 | Supply Input Current (VBAT) | I<sub>VBAT</sub> |  |  | 19 | uA |
-| Operating Current (Cellular ON) | I<sub>IN avg</sub> |  | xx | xx | mA |
-| Operating Current (Cellular ON) | I<sub>IN pk</sub> | xx<sup>[2]</sup> |  | xx<sup>[3]</sup> | mA |
-| Operating Current (Cellular ON, w/powersave) | I<sub>IN avg</sub> |  | xx | xx<sup>[4]</sup> | mA |
-| Operating Current (Cellular OFF) | I<sub>IN avg</sub> |  | xx | xx | mA |
-| Sleep Current (4.2V LiPo)| I<sub>Qs</sub> |  | xx | xx | mA |
+| Operating Current (Cellular ON) | I<sub>IN avg</sub> |  | 180 | 250 | mA |
+| Operating Current (Cellular ON) | I<sub>IN pk</sub> | 800<sup>[2]</sup> |  | 1800<sup>[3]</sup> | mA |
+| Operating Current (Cellular ON, w/powersave) | I<sub>IN avg</sub> |  | 50 | 80<sup>[4]</sup> | mA |
+| Operating Current (Cellular OFF) | I<sub>IN avg</sub> |  | 2 | 15 | mA |
+| Sleep Current (4.2V LiPo)| I<sub>Qs</sub> |  | 0.8 | 2 | mA |
 | Deep Sleep Current (4.2V LiPo) | I<sub>Qds</sub> |  | 110 | 130 | uA |
 | Operating Temperature | T<sub>op</sub> | -20 |  | +60 | °C |
 | Humidity Range Non condensing, relative humidity | | | | 95 | % |
 
 **Notes:**
 
-<sup>[1]</sup> The minimum input voltage is software defined with a user selectable range of 3.88V to 5.08V with 80mV increments. Out of the box, the minimum input voltage is set to 4.36V in order for the LiPo battery to be able to properly charge.
+<sup>[1]</sup> The minimum input voltage is software defined with a user selectable range of 3.88V to 5.08V in 80mV increments. Out of the box, the minimum input voltage is set to 4.36V in order for the LiPo battery to be able to properly charge.
 
 
 ### Radio specifications
@@ -403,11 +403,11 @@ Electrons are available from [store.particle.io](https://store.particle.io/) in 
 
 There are three connectors on the Electron that will get damaged with improper usage. The JST connector on the circuit board, where you plug in the LiPo battery, is very durable but the connector on the battery itself is not. When unplugging the battery, take extra precaution to **NOT** pull the connector using the wires, but instead hold the plug at its base to avoid putting stress on the wires. This can be tricky with bare hands - nose pliers are your friend here.
 
-<add pic here>
+![Unplugging LiPo connector](/assets/images/electron/illustrations/electron-lipo-conn.png)
 
 The micro B USB connector on the electron is soldered on the PCB with large surface pads as well as couple of through hole anchor points. Despite this reinforcement, it is very easy to rip out the connector if too much stress is put on in the vertical direction.
 
-<add pic here>
+![Unplugging USB connector](/assets/images/electron/illustrations/usb-conn-unplug.png)
 
 The u.FL antenna connector is a very fragile piece of hardware ( and is fancy too with all the gold plating). The connector was not designed to be constantly plugged and unplugged. Care must be taken not to put stress on it at any time (yes, swinging the Electron by the antenna is a very bad idea, this is not your cat). The antenna pin is also the most static sensitive and you can destroy the radio with improper handling. If you are feeling adventurous, we highly recommend putting a tiny dab of glue (epoxy, rubber cement, liquid tape or hotglue) on the connector to securely hold the plug in place.
 
@@ -443,7 +443,79 @@ You may use the online Web IDE [Particle Build](https://build.particle.io) to co
 |CDMA| Code Division Multiple Access |
 |OTA | Over The Air; describing how firmware is transferred to the device. |
 
+## FCC IC CE Warnings and End Product Labeling Requirements
 
+**Federal Communication Commission Interference Statement**
+This equipment has been tested and found to comply with the limits for a Class B digital device, pursuant to Part 15 of the FCC Rules. These limits are designed to provide reasonable protection against harmful interference in a residential installation. This equipment generates, uses and can radiate radio frequency energy and, if not installed and used in accordance with the instructions, may cause harmful interference to radio communications. However, there is no guarantee that interference will not occur in a particular installation. If this equipment does cause harmful interference to radio or television reception, which can be determined by turning the equipment off and on, the user is encouraged to try to correct the interference by one of the following measures:
+
+- Reorient or relocate the receiving antenna.
+- Increase the separation between the equipment and receiver.
+- Connect the equipment into an outlet on a circuit different from that to which the receiver is connected.
+- Consult the dealer or an experienced radio/TV technician for help.
+
+**FCC Caution:**
+Any changes or modifications not expressly approved by the party responsible for compliance could void the user's authority to operate this equipment.
+This device complies with Part 15 of the FCC Rules. Operation is subject to the following two conditions:
+
+1. This device may not cause harmful interference, and
+2. This device must accept any interference received, including interference that may cause undesired operation.
+
+**FCC Radiation Exposure Statement:**
+This equipment complies with FCC radiation exposure limits set forth for an uncontrolled environment. This transmitter module must not be co-located or operating in conjunction with any other antenna or transmitter. This End equipment should be installed and operated with a minimum distance of 20 centimeters between the radiator and your body.
+
+**IMPORTANT NOTE:**
+In the event that these conditions can not be met (for example certain laptop configurations or co-location with another transmitter), then the FCC authorization is no longer considered valid and the FCC ID can not be used on the final product. In these circumstances, the OEM integrator will be responsible for re-evaluating the end product (including the transmitter) and obtaining a separate FCC authorization.
+
+**End Product Labeling**
+The final end product must be labeled in a visible area with the following:
+> Contains FCC ID: 
+
+ * XPYSARAG350 (For 2G Electron using the G350 module)
+ * XPYSARAU260 (For 3G Electron using the U260 module)
+ * XPYSARAU270 (For 3G Electron using the U270 module)
+
+**Manual Information to the End User**
+The OEM integrator has to be aware not to provide information to the end user regarding how to install or remove this RF module in the user’s manual of the end product which integrates this module.
+
+---
+
+**Canada Statement**
+This device complies with Industry Canada’s licence-exempt RSSs. Operation is subject to the following two conditions:
+
+1. This device may not cause interference; and
+2. This device must accept any interference, including interference that may cause undesired operation of the device.
+
+Le présent appareil est conforme aux CNR d’Industrie Canada applicables aux appareils radio exempts de licence.
+
+**L’exploitation est autorisée aux deux conditions suivantes:**
+
+1. l’appareil ne doit pas produire de brouillage;
+2. l’utilisateur de l’appareil doit accepter tout brouillage radioélectrique subi, même si le brouillage est susceptible d’en compromettre le fonctionnement.
+
+**Caution Exposure:**
+This device meets the exemption from the routine evaluation limits in section 2.5 of RSS102 and users can obtain Canadian information on RF exposure and compliance.
+Le dispositif répond à l'exemption des limites d'évaluation de routine dans la section 2.5 de RSS102 et les utilisateurs peuvent obtenir des renseignements canadiens sur l'exposition aux RF et le respect.
+
+**The final end product must be labelled in a visible area with the following:**
+The Industry Canada certification label of a module shall be clearly visible at all times when installed in the host device, otherwise the host device must be labelled to display the Industry Canada certification number of the module, preceded by the words “Contains transmitter module”, or the word “Contains”, or similar wording expressing the same meaning, as follows:
+> Contains transmitter module IC:
+
+ * 8595A-SARAG350 (For 2G Electron using the G350 module)
+ * 8595A-SARAU260 (For 3G Electron using the U260 module)
+ * 8595A-SARAU270 (For 3G Electron using the U270 module)
+
+This End equipment should be installed and operated with a minimum distance of 20 centimeters between the radiator and your body.
+Cet équipement devrait être installé et actionné avec une distance minimum de 20 centimètres entre le radiateur et votre corps.
+
+> The end user manual shall include all required regulatory information/warning as shown in this manual.
+> 
+> For an in-depth review on certifications, please click [here.](/guide/how-to-build-a-product/certification/)
+
+## Revision history
+
+| Revision | Date | Author | Comments |
+|:-:|:-:|:-:|:-|
+| v001 | 20-Jan-2016 | MB | Initial release |
 
 ## Contact
 
@@ -457,4 +529,4 @@ You may use the online Web IDE [Particle Build](https://build.particle.io) to co
 
 **Email**
 
-https://support.particle.io
+[https://support.particle.io](https://support.particle.io)

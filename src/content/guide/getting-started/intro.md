@@ -18,7 +18,7 @@ order: 1
 {{/if}}
 
 {{#if electron}}
-![](/assets/images/electrontall.jpg)
+![](/assets/images/family_portrait_outlines.png)
 {{/if}}
 
 {{#if photon}}
@@ -34,13 +34,13 @@ This guide will show you how to use Particle to make a connected device, from th
 
 Anxious to connect right away?
 
-[SETUP MY PHOTON >](/guide/getting-started/start/photon/#step-1-power-on-your-device)
+[SETUP MY CORE >](/guide/getting-started/start/photon/#step-1-power-on-your-device)
 {{/if}}
 
 {{#if electron}}
-This guide will show the proper methods to setup the Particle Electron, a cellular IoT connected development board. It's similar to our Photon in some ways, but very different in terms of applications, data consumption, and app architecture. We will unravel all of these new concepts in this Electron guide.
+This guide will show you how to use Particle to make a connected device, from the first time you connect to the cloud to the day you manufacture and ship your connected product.
 
-[SETUP MY Electron >](https://setup.particle.io/)
+[SETUP MY ELECTRON >](https://setup.particle.io/)
 {{/if}}
 
 
