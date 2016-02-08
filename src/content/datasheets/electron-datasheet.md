@@ -403,7 +403,7 @@ Electrons are available from [store.particle.io](https://store.particle.io/) in 
 
 There are three connectors on the Electron that will get damaged with improper usage. The JST connector on the circuit board, where you plug in the LiPo battery, is very durable but the connector on the battery itself is not. When unplugging the battery, take extra precaution to **NOT** pull the connector using the wires, but instead hold the plug at its base to avoid putting stress on the wires. This can be tricky with bare hands - nose pliers are your friend here.
 
-<add pic here>
+![Unplugging LiPo connector](/assets/images/electron/illustrations/electron-lipo-conn.png)
 
 The micro B USB connector on the electron is soldered on the PCB with large surface pads as well as couple of through hole anchor points. Despite this reinforcement, it is very easy to rip out the connector if too much stress is put on in the vertical direction.
 
