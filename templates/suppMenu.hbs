@@ -54,7 +54,7 @@
         <div class='tile'>
           <a class='resource-tile' href='/support/support-and-fulfillment/faq/photon/#orders'>
             <i class='icon-iHelp ion-gear-a'></i>
-            <h3>Order Information</h3>
+            <h3>Account & Billing</h3>
             <p>Shipping, orders, password resets. Let's start here.</p>
           </a>
         </div>
@@ -90,19 +90,19 @@
               <script>
               jQuery(function($) {
                   var secondmenus = {
-                      'Orders': ['--Select a Topic--','Order Status','Something wrong with shopping cart',
+                      'Orders': ['--Select a Order Topic--','Order Status','Something wrong with shopping cart',
                                   'Update my Address', 'I may need a refund', 'I am tax exempt, what should I do?', 'Do you offer student discounts?'],
-                      'Shipping': ['--Select a Topic--','Where is my package?', 'What is my tracking number?','Where is my Electron?',
+                      'Shipping': ['--Select a Shipping Topic--','Where is my package?', 'What is my tracking number?','Where is my Electron?',
                                   'I need an invoice'],
-                      'Cellular Service': ['--Select a Topic--','What is the cellular coverage?', 'What is my data cap?', 'Is there a cellular outage?',
+                      'Cellular Service': ['--Select a Cellular Service Topic--','What is the cellular coverage?', 'What is my data cap?', 'Is there a cellular outage?',
                                   'I am using a non-Particle SIM card', 'Is the Particle Cloud down?', 'Can I travel to other countries and my Electron still work?'],
-                      'Technical Help': ['--Select a Topic--','Help claiming a device', 'Troubleshooting the P0/P1', 'Troubleshooting the Photon',
+                      'Technical Help': ['--Select a Technical Topic--','Help claiming a device', 'Troubleshooting the P0/P1', 'Troubleshooting the Photon',
                                         'Troubleshooting the Electron', 'Troubleshooting the Core', 'Building a product on Particle',
-                                        'A particle shield/kit/accessory', 'Particle Dashboard', 'Other technical question'],
-                      'Billing': ['--Select a Topic--','What am I being charged for?', 'Why am I being charged monthly?', 'What is my data limit + cost?',
+                                        'A particle shield/kit/accessory', 'Particle Dashboard','Is the Particle Cloud down?', 'Other technical question'],
+                      'Billing': ['--Select a Billing Topic--','What am I being charged for?', 'Why am I being charged monthly?', 'What is my data limit + cost?',
                                   'How do I update my credit card?', 'I may need a refund on my data', 'I may need a refund on the dashboard',
                                   'Other billing questions'],
-                      'Business Questions': ['--Select a Topic--','I am interested in selling Particle products', 'I would like to write about you!',
+                      'Business Questions': ['--Select a Business Topic--','I am interested in selling Particle products', 'I would like to write about you!',
                                   'Can you sponsor my event?', 'You are awesome and I just want to tell you that!']
                   }
 
@@ -113,12 +113,7 @@
                       var html = $.map(lcns, function(lcn){
                           return '<option value="' + lcn + '">' + lcn + '</option>'
                       }).join('');
-                      $secondmenus.html(html)
-                  });
-
-                  $('#secondmenu').change(function () {
-                    var ggo = $(this).val();
-                    console.log(ggo);
+                      $secondmenus.html(html);
                   });
 
               })
@@ -138,6 +133,35 @@
               <p class="text">
                 <textarea type="text" name="text" class="validate[required,length[6,300]] feedback-input" id="comment" placeholder="Message" required="required"></textarea>
               </p>
+
+              <script>
+              jQuery(function($) {
+                $('#name').change(function () {
+                 var ggo = $('#secondmenu').val();
+                 if (ggo.indexOf('--') >= 0){
+                    alert("Please select a valid sub-topic.");
+                  }
+                  console.log(ggo[0]);
+                });
+
+                $('#email').change(function () {
+                 var ggo = $('#secondmenu').val();
+                 if (ggo.indexOf('--') >= 0){
+                    alert("Please select a valid sub-topic.");
+                  }
+                  console.log(ggo[0]);
+                });
+
+                $('#comment').change(function () {
+                 var ggo = $('#secondmenu').val();
+                 if (ggo.indexOf('--') >= 0){
+                    alert("Please select a valid sub-topic.");
+                  }
+                  console.log(ggo[0]);
+                });
+
+              })
+              </script>
 
               <div class="submit">
                 <input type="submit" value="SEND" id="button-blue"/>
