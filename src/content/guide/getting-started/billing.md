@@ -75,12 +75,12 @@ You can reduce your monthly cost in two main ways. One is by setting your data l
 
 The lighter approach is to reduce the amount of data consumed by the device itself via firmware optimization. We have a whole guide for that! <insert link to data guide>
 
-#### How to Update Billing Info
+### How to Update Billing Info
 If there's ever a need to update your billing information, or add a new credit card, you can do this easily from the Dashboard. If a payment attempt ever fails, we'll ask you to go and edit your billing information before we try and charge your card again. To do this, simply visit the [Edit Card](https://dashboard.particle.io/billing/edit-card) screen on the billing page of your Dashboard.
 
 <Add a screenshot of the Edit Card modal>
 
-### Example Billing Cases
+### Example Billing Cases **coming soon**
 - typical single-device that stays under 1MB
 - single device that goes over 1MB
 - month where second device is added
