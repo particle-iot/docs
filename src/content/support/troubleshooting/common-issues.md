@@ -15,6 +15,9 @@ Sometimes your device can get into an unexpected state and it won't behave the w
 {{#if electron}}
 
 ## Flashing Blue
+
+{{{device-animation device "blink" "blue" 300 300 }}}
+
 Electrons that are flashing blue are in listening mode. When an Electron boots up, it will attempt to read information from the its SIM card to connect to the cellular network. Electrons that do not have a SIM card, or that have an improperly configured SIM card will be unable to connect to a cell tower and will default back to listening mode. If you're in listening mode and don't want to be, try the steps listed below:
 
 ### 1\. Is your SIM card inserted?
@@ -31,19 +34,21 @@ Remove *both* the USB cable and Li-Po battery from the Electron, so that the RGB
 ### 4\. Check the integrity of your SIM card holder
 Visually inspect the SIM card holder. Are all of the contacts soldered down? Does the holder lie flush against the Electron PCB (printed circuit board)? Are any of the pins bent or depressed downwards?
 
-Try using your hands to press down on the SIM card to improve contact between the SIM and the metal pins underneath--while pressing on the SIM card, press the `RESET` button on the Electron. If you see the device begin to connect to the cellular network (flash green), you may have a damaged SIM card holder and should [contact Particle](mailto:hello@particle.io).
+Try using your hands to press down on the SIM card to improve contact between the SIM and the metal pins underneath--while pressing on the SIM card, press the `RESET` button on the Electron. If you see the device begin to connect to the cellular network (flash green), you may have a damaged SIM card holder and should [contact Particle](/support/support-and-fulfillment/menu-base/electron/).
 
 ### 5\. Is your SIM card damaged or defective?
-Try using the SIM card from your cell phone, if you have one. If the RGB LED on the Electron begins to flash green when your phone's SIM is inserted, your Particle SIM may need to be replaced, and you should [contact Particle](mailto:hello@particle.io).
+Try using the SIM card from your cell phone, if you have one. If the RGB LED on the Electron begins to flash green when your phone's SIM is inserted, your Particle SIM may need to be replaced, and you should [contact Particle](/support/support-and-fulfillment/menu-base/electron/).
 
 ### 6\. Contact Particle
-Still having issues? Write us an email at [hello@particle.io](mailto:hello@particle.io) and include the following to help us with troubleshooting:
+Still having issues? [Write us an email](/support/support-and-fulfillment/menu-base/electron/) and include the following to help us with troubleshooting:
 - Your Device ID
 - Your ICCID (SIM Number)
 - A photo of your device setup to help with troubleshooting.
 
 
 ## Flashing Green
+
+{{{device-animation device "blink" "lime" }}}
 
 Electrons that are flashing green have successfully read the APN data from the inserted SIM card and are attempting to connect to a cellular tower. There are many different reasons that your Electron might fail to connect to your nearby cellular network. Here are a few things you can check if you find your device in an endless loop (5 minutes+) of flashing green:
 
@@ -110,12 +115,14 @@ If you've been using your Electron successfully for a while and it's now just st
 If all else fails, try restarting it! Remove *both* the USB cable and Li-Po battery from the Electron, so that the RGB LED fully powers off. Then, reconnect the Li-Po battery and USB cable--the Electron should reboot and retry the connection sequence.
 
 ### 10) Contact Particle
-Still having issues? Write us an email at [hello@particle.io](mailto:hello@particle.io) and include the following to help us with troubleshooting:
+Still having issues? [Write us an email](/support/support-and-fulfillment/menu-base/electron/) and include the following to help us with troubleshooting:
 - Your Device ID
 - Your ICCID (SIM Number)
 - A photo of your device setup to help with troubleshooting.
 
 ## Breathing Magenta
+
+{{{device-animation device "breathe" "magenta" }}}
 
 If your Electron is breathing magenta, it is in Safe Mode. This means that, although it is connected to the Cloud, it is not running your user firmware. Your device can end up in Safe Mode if the user app that you programmed became corrupted, or the compile target of the user app is newer than the system firmware modules on your device. There are two ways that you can resolve this issue:
 
@@ -134,6 +141,8 @@ Something something dark side
 {{#if photon}}
 
 ## Breathing Magenta
+
+{{{device-animation device "breathe" "magenta" }}}
 
 Photons that have been interrupted mid-firmware update often breathe magenta (defaulting to Safe Mode) to avoid running faulty firmware. To solve this issue, you can update your firmware manually.
 
@@ -167,6 +176,8 @@ If you don't have brew or homebrew installed, install it here: http://brew.sh/
 
 ## Flashing Cyan
 
+{{{device-animation device "blink" "cyan" }}}
+
 If your Photon is flashing cyan and sometimes orange/red without connecting, it is helpful to first try to manually update your firmware, in the same way as listed as above. If this does not work, then move on to a key reset.
 
 ###Public Key Reset
@@ -190,6 +201,8 @@ This should reset your public key.
 
 
 ## Flashing Green
+
+{{{device-animation device "blink" "lime" }}}
 
 If your device is flashing green without connecting, there are a few things to check immediately.
 
@@ -253,7 +266,7 @@ There are known issues with the following types of networks:
 
 {{#if core}}
 
-### Full Firmware Upgrade
+## Full Firmware Upgrade
 
 If you are having intermittent connectivity issues, odd behavior or believe your firmware to be corrupted or out of date, you would benefit from performing a full firmware upgrade. This requires using [dfu-util](http://dfu-util.sourceforge.net/) and installing the [Particle CLI](/guide/tools-and-features/cli)
 , which provides an excellent local development and troubleshooting environment for your Particle development.

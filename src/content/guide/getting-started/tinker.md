@@ -96,7 +96,7 @@ It will change its status to `HIGH` and your device's D7 LED will turn on. Tappi
 
 In this example, we'll plug an LED into D0 and change its brightness with analogWrite. (D0 is a {{{popup 'PWM pin.' 'note' 'A <a href = "https://en.wikipedia.org/wiki/Pulse-width_modulation">Pulse Width Modulation (PWM)</a> output is a digital output that can be filtered through various means to create a pseudo analog output. It is possible to analogWrite to `D0` through its PWM functionality.'}}}
 
-Wire up your LED with one of your resistors as follows:
+Wire up your LED with one of your resistors as shown below. Connect the longer (anode) leg of the LED to pin D0 and the shorter (cathode) leg to GND via a resistor.
 
 {{#unless electron}}![One LED illustration](/assets/images/photon-led-fritzing.png){{/unless}}
 {{#if electron}}![One LED illustration](/assets/images/electron/illustrations/electron-blink-led-d0.png){{/if}}

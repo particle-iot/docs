@@ -1,7 +1,7 @@
 ---
 word: Webhooks
 title: Webhooks
-order: 7
+order: 6
 shared: true
 columns: two
 template: guide.hbs
