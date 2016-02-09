@@ -186,15 +186,52 @@ cloud will automatically publish events in special situations that would be hard
 
 #### Connection Status
 
+When your device starts ("online") or stops ("offline") a session with the cloud, you'll see an 'spark/status' event.
+
 ```
-    spark/status, online
+# spark/status, online
+    {"name":"spark/status","data":"online","ttl":"60","published_at":"2015-01-01T14:29:49.787Z","coreid":"0123456789abcdef01234567"}
+    
+# spark/status, offline
+    {"name":"spark/status","data":"offline","ttl":"60","published_at":"2015-01-01T14:31:49.787Z","coreid":"0123456789abcdef01234567"}
 ```
-    spark/status, offline
-    spark/status, auto-update
+
+If your device is a packaged product, you may see an "auto-update" event from time to time.  This is the cloud 
+signalling that a new version of firmware is available for your product from your manufacturer, and an update is 
+about to be delivered over the air.
+
+```
+#  spark/status, auto-update
+    {"name":"spark/status","data":"auto-update","ttl":"60","published_at":"2015-01-01T14:35:0.000Z","coreid":"0123456789abcdef01234567"}
+```
     
     
-    spark/status/safe-mode
-    spark/device/app-hash
+If your device is running an app that needs a particular version of system firmware, your device may come online and
+report that it's in Safe Mode.  In this case, your device is waiting to run your app until it has received an update.
+Some products can receive system updates automatically while in safe mode, but others like the Electron prevent this to
+save you costs on bandwidth.
+
+```
+#  spark/status/safe-mode
+    {"name":"spark/status/safe-mode","data":"{ .. a bunch of data from your device about the system parts ...","ttl":"60","published_at":"2015-01-01T14:40:0.000Z","coreid":"0123456789abcdef01234567"}
+
+{"name":"spark/status/safe-mode","data":"{\"f\":[],\"v\":{},\"p\":6,\"m\":[{\"s\":16384,\"l\":\"m\",\"vc\":30,\"vv\":30,\"f\":\"b\",\"n\":\"0\",\"v\":4,\"d\":[]},{\"s\":262144,\"l\":\"m\",\"vc\":30,\"vv\":30,\"f\":\"s\",\"n\":\"1\",\"v\":11,\"d\":[]},{\"s\":262144,\"l\":\"m\",\"vc\":30,\"vv\":30,\"f\":\"s\",\"n\":\"2\",\"v\":7,\"d\":[{\"f\":\"s\",\"n\":\"1\",\"v\":7,\"_\":\"\"}]},{\"s\":131072,\"l\":\"m\",\"vc\":30,\"vv\":26,\"u\":\"F3380CF3018C104BA3BD9438EA921A1ABF315E8063318FDDDCDBE10FED044BEB\",\"f\":\"u\",\"n\":\"1\",\"v\":3,\"d\":[{\"f\":\"s\",\"n\":\"2\",\"v\":11,\"_\":\"\"}]},{\"s\":131072,\"l\":\"f\",\"vc\":30,\"vv\":0,\"d\":[]}]}","ttl":"60","published_at":"2016-02-09T14:41:04.582Z","coreid":"2e0041000447343232363230"}
+
+
+# 
+{"name":"spark/safe-mode-updater/updating","data":"2","ttl":"60","published_at":"2016-02-09T14:41:07.044Z","coreid":"particle-internal"}
+```
+
+After you've flashed a new app to your device, you may see an "app-hash" event.  This is a unique hash corresponding
+to that exact app binary.  This hash can help confirm a flash succeeded and your new app is running, and also help you
+track exactly which version of which app is running on your device.  This is only published when it is different from
+the previous session.
+  
+    
+```
+#  spark/device/app-hash
+{"name":"spark/device/app-hash","data":"2BA4E71E840F596B812003882AAE7CA6496F1590CA4A049310AF76EAF11C943A","ttl":"60","published_at":"2016-02-09T14:43:13.040Z","coreid":"2e0041000447343232363230"}
+```
 
 
 
@@ -206,10 +243,19 @@ cloud will automatically publish events in special situations that would be hard
     
     spark/flash/status, started + filename
     spark/flash/status, success + filename 
+    {"name":"spark/flash/status","data":"success ","ttl":"60","published_at":"2016-02-09T14:38:18.978Z","coreid":"53ff74065075535119181787"}
+
+    
     spark/flash/status, failed + filename
+    {"name":"spark/flash/status","data":"failed ","ttl":"60","published_at":"2016-02-09T14:41:21.570Z","coreid":"2e0041000447343232363230"}
+
     
     spark/flash/progress,   sent,total,seconds
-    
+
+{"name":"spark/flash/status","data":"started ","ttl":"60","published_at":"2016-02-09T14:43:05.606Z","coreid":"2e0041000447343232363230"}
+{"name":"spark/flash/status","data":"failed ","ttl":"60","published_at":"2016-02-09T14:43:11.732Z","coreid":"2e0041000447343232363230"}
+{"name":"spark/status","data":"online","ttl":"60","published_at":"2016-02-09T14:43:11.741Z","coreid":"2e0041000447343232363230"}
+
 
 #### Safe-Mode
 
@@ -220,6 +266,10 @@ cloud will automatically publish events in special situations that would be hard
 hook-sent
 hook-error
 hook-response
+
+{"name":"hook-sent/Temperature/Deck/Outside","data":"undefined","ttl":"60","published_at":"2016-02-09T14:42:19.876Z","coreid":"particle-internal"}
+{"name":"hook-response/Temperature/Deck/Outside/0","data":"<|\"Message\" -> \"The data was successfully added.\", \"Bin\" -> \"DD7126c8c03e7-9f44-4cdc-b568-688567edebba\", \"Data\" -> <|\"temperature\" -> \"22.262695\", \"coreid\" -> \"50ff6f065067545637390387\"|>, \"Timestamp\" -> {2016, 2, 9, 14, 42, 20.047704`8.054639625138504}, \"DataID\" -> \"data73f99eb0-c783-43af-952a-ad99d42d7e13\", \"Information\" -> {\"EntryCount\" -> 204641, \"LatestTimestamp\" -> 3664017740, \"Size\" -> 98227680}|>","ttl":"60","published_at":"2016-02-09T14:42:20.079Z","coreid":"particle-internal"}
+
 
 ### Special IFTTT Events
 
