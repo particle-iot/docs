@@ -3,7 +3,7 @@ title: Internet Button
 template: guide.hbs
 columns: two
 devices: [ photon,electron,core ]
-order: 8
+order: 7
 ---
 
 # The Internet Button

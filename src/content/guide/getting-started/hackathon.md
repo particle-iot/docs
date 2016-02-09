@@ -4,13 +4,17 @@ title: Hackathon
 template: guide.hbs
 columns: two
 devices: [ photon,electron,core ]
-order: 10
+order: 11
 ---
 
 
 # Hackathoning with Particle
 
 If you're at a hackathon, you'll want to get started with Particle, and fast! Here's some quick tips to get you up and running ASAP.
+
+{{#if electron}}
+## Setup
+{{/if}}
 
 {{#if photon}}
 
@@ -81,7 +85,7 @@ Now that you've read that, go ahead and [connect over USB](/guide/getting-starte
 
 ### Particle Dev
 
-Although the [online IDE](http://build.particle.io) will allow you to flash code to your devices, we also suggest getting [Particle Dev](/guide/tools-and-features/dev), the local IDE, for hackathons. It has a nice interface for monitoring Spark.variables and running Spark.functions without the CLI, which means you can develop faster.
+Although the [online IDE](http://build.particle.io) will allow you to flash code to your devices, we also suggest getting [Particle Dev](/guide/tools-and-features/dev), the local IDE, for hackathons. It has a nice interface for monitoring Particle.variables and running Particle.functions without the CLI, which means you can develop faster.
 
 Download Particle Dev [here](https://www.particle.io/dev).
 
@@ -142,7 +146,7 @@ Try it out!
 
 In addition to the `Show cloud function` ability, there are other elements of Particle Dev that you may find helpful:
 
-If you go to the Particle menu you will also see `Show cloud variables`. This will allow you to see any variables you register with [Spark.variable](/reference/firmware/#spark-variable-).
+If you go to the Particle menu you will also see `Show cloud variables`. This will allow you to see any variables you register with [Particle.variable](/reference/firmware/#Particle-variable-).
 
 You can also monitor any [serial output](/reference/firmware/#serial) with the `Show serial monitor` command. Make sure the proper device is selected through `Particle` > `Select device` when you do this.
 
@@ -161,13 +165,13 @@ Now you can compile and flash your first `.ino` file from Particle Dev. You are 
 
 ### Pass Strings
 
-In the [quintessential example](/reference/firmware/#spark-function-) for Spark Function, we are calling a brewCoffee function with the argument "coffee". This is nice if we have an array of choices we want to identify with strings, but what if we want to pass `int` data to our `Spark.function`?
+In the [quintessential example](/reference/firmware/#Particle-function-) for Particle Function, we are calling a brewCoffee function with the argument "coffee". This is nice if we have an array of choices we want to identify with strings, but what if we want to pass `int` data to our `Particle.function`?
 
 If you want to use `int` data from a `String`, you can create a `char` array to hold the `String` command, then use `atoi` to change this into an `int` value. Check out this example for setting the brightness of an LED.
 
 ```
 void setup() {
-    Spark.function("brightness", setBrightness);
+    Particle.function("brightness", setBrightness);
 }
 
 int setBrightness(String command) {
@@ -184,12 +188,12 @@ int setBrightness(String command) {
 }
 ```
 
-Sometimes you want to send multiple values through a `Spark.function`. If you want to do that, use `strtok`. Here's an example of a `Spark.function` you could use to set the color of an RGB LED.
+Sometimes you want to send multiple values through a `Particle.function`. If you want to do that, use `strtok`. Here's an example of a `Particle.function` you could use to set the color of an RGB LED.
 
 
 ```
 void setup() {
-    Spark.function("color", setColor);
+    Particle.function("color", setColor);
 }
 
 int setColor(String command) {
@@ -225,7 +229,7 @@ Note that some libraries may not yet be updated for the Photon.
 
 Happy hacking! If you get stuck, try out:
 
-- [These docs](http://docs.particle.io), specifically the ones referring to the kit you have ([standard examples](/guide/getting-started/examples) or [Internet Button docs](/guide/getting-started/button))
+- [These docs](http://docs.particle.io), specifically the ones referring to the kit you have ([standard examples](/guide/getting-started/examples) or [Internet Button docs](/guide/tools-and-features/button/))
 - [The Particle Community](http://community.particle.io)
 - [The Particle Support Page](http://support.particle.io)
 
