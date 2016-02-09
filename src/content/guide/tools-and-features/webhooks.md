@@ -578,6 +578,64 @@ By default, your webhook will inject the data from your Spark.publish call into 
 
 
 
+### rejectUnauthorized
+
+By default, if your URL targets a url with a HTTPS prefix (SSL encrypted), the hook will validate the certificate
+against its certificate authority chain.  If you're using a self-signed certificate, or are otherwise having certificate
+issues, you can tell the hook to ignore the validation process by setting rejectUnauthorized to false.
+
+```json
+# ignore any issues with the SSL certificate (not especially secure to do this)
+"rejectUnauthorized": false
+```
+
+### azure_sas_token
+
+Some cloud providers like Azure require a dynamically generated access token.  To help keep the requests secure and
+flowing freely, you can specify this parameter to have your webhook generate these tokens for you!
+
+```json
+# Specify the azure_sas_token for the webhook to generate an authorization header with the appropriate token
+"azure_sas_token": {
+  "key_name": "your_azure_token_key_name",
+  "key": "your_azure_token_key"
+}
+```
+
+### responseTemplate
+
+You can use the responseTemplate parameter to let the webhook dynamically render a new event response down to your
+devices!  This is just like the custom template variables above, but it applies to what your devices see, instead of
+what your server sees.
+
+```json
+# If your server returned JSON, use the responseTemplate to parse and render a more clear response and send less data!
+"responseTemplate": "Temperature: {{temperature}}, Outlook: {{conditions}}"
+```
+
+### responseTopic
+
+You can also set the topic the webhook will use to help your devices filter and subscribe to the appropriate response!
+If you have a hook that services hundreds of devices, you can, for example include the device id in the topic, and have
+your device subscribe to events that only apply to it:
+
+```json
+# If your server returned JSON, use the responseTopic to parse and render a custom event topic!
+"responseTopic": "weather_for_{{SPARK_CORE_ID}}"
+```
+
+
+### errorResponseTopic
+
+You can also include custom processing of the topic for error responses, in case you want to pre-process these before
+saving them or acting on them.
+
+```json
+# If your server returned JSON, use the errorResponseTopic to set a custom event topic for errors!
+"errorResponseTopic": "save_failed_for_{{SPARK_CORE_ID}}"
+```
+
+
 ## Limits
 
 ```
