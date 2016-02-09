@@ -180,7 +180,7 @@ If you don't have brew or homebrew installed, install it here: http://brew.sh/
 
 If your Photon is flashing cyan and sometimes orange/red without connecting, it is helpful to first try to manually update your firmware, in the same way as listed as above. If this does not work, then move on to a key reset.
 
-###Public Key Reset
+### Public Key Reset
 
 Sometimes, a firmware upgrade will not be enough to solve your Photon's problem. If your are still having an issue, and particularly **if your photon is flashing cyan and sometimes orange/red without connecting**, It's time to try resetting the public key.
 
