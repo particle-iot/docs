@@ -3,7 +3,7 @@ title: Open Source
 template: guide.hbs
 columns: two
 devices: [ photon,electron,core ]
-order: 9
+order: 10
 ---
 
 # How to Contribute to Particle's Open Source Repositories

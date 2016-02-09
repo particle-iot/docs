@@ -27,11 +27,11 @@ order: 2
 Congratulations on being the owner of a brand new Particle Device! Go ahead and open the box. You can see the different [kit add-ons](/datasheets/kits) and check out the {{#if photon}}[Photon datasheet](/datasheets/photon-datasheet/){{/if}}{{#if core}}[Core datasheet](/datasheets/core-datasheet/){{/if}}{{#if electron}}[Electron datasheet](/datasheets/electron-datasheet/){{/if}} if you like!
 
 {{#if photon}}
-If you have an Internet Button, read through this section to get started and connect your device, then hop over to the [Internet Button Guide](/guide/getting-started/button) for more detailed info.
+If you have an Internet Button, read through this section to get started and connect your device, then hop over to the [Internet Button Guide](/guide/tools-and-features/button/) for more detailed info.
 {{/if}}
 
 {{#if core}}
-If you have an Internet Button, read through this section to get started and connect your device, then hop over to the [Internet Button Guide](/guide/getting-started/button) for more detailed info.
+If you have an Internet Button, read through this section to get started and connect your device, then hop over to the [Internet Button Guide](/guide/tools-and-features/button/) for more detailed info.
 {{/if}}
 
 Let's quickly go over what you see.
