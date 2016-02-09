@@ -80,7 +80,7 @@ We’ll help find your order.
 ### Q: I want to change something in my order. Can I do that?
 **A:** Unfortunately, once your order has been placed, we’re unable to change any part of the order.
 
-If you’d like to return an order you just received, please see the [section on returns]() below.
+If you’d like to return an order you just received, please see the section on returns below.
 
 ### Q: How do I make a return?
 **A:** Please refer to our [Shipping and Returns Policy](/support/support-and-fulfillment/general-shipping-info/photon/) for information on exchanges, returns, and refunds.
@@ -91,7 +91,7 @@ If you’re not satisfied with your Particle product, please [let us know](/supp
 
 **A:** If you did not receive everything you ordered, please [let us know](/support/support-and-fulfillment/menu-base/photon/#form-main) your order number, the items you were expecting to receive in your order, and what you actually received so we can get you sorted!
 
-Remember, Electron and Electron-related products ship in January 2016. ;)
+Remember, Electron and Electron-related products ship in February 2016. ;)
 
 
 ## Kickstarter Backers
@@ -108,7 +108,7 @@ Sometimes things get delayed with shipping, so please be patient. If you do not 
 **A:** Unfortunately it’s too late to change your address. We’ve already sent a list of all the orders to our warehouse to expedite the process of getting your electrons to you as soon as possible. If you realize that your order is going to your old address, make sure mail forwarding is set up with the postal service and it should be re-directed to you. This usually adds more time to the shipping, so please be patient and wait till February 29th to email us if you haven’t received your order. 
 
 ### Q: What comes in the kits I ordered?
-**A:** You can find a list of the electron kits [here](insert link here) which have a full list of all the components that come in each of the kits.
+**A:** You can find a list of the electron kits [here](/datasheets/kits/) which have a full list of all the components that come in each of the kits.
 
 ### Q: Can I change or add to my order?
 **A:** Unfortunately, it’s too late to change or add to what’s in your pledge. All rewards have been locked down and submitted to our warehouses. If you want to purchase different items, please visit our [store](https://store.particle.io/). The Electron line of products will be available for immediate shipping starting March 8th. 
