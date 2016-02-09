@@ -7,7 +7,7 @@ order: 8
 ---
 
 ## Cellular Service with Particle
-Welcome to the wonderful world of inexpensive cellular for your devices! Monthly services always come with some complexity, and we're here to clear up as much of that as we can. If you have specific questions, you may want to use the navigation on the left to jump to a likely section, check out the examples, or look at the FAQ. There's also glossary at the bottom in case we gloss (ha!) over some acronym.
+Welcome to the wonderful world of inexpensive cellular for your devices! Monthly services always come with some complexity, and we're here to clear up as much of that as we can. If you have specific questions, you may want to use the navigation on the left to jump to the relevant section.
 
 ### Overview
 Electrons need data to get online, so we created the Particle SIM and service. Particle plans work very similarly to prepaid plans for cellphones. **At the beginning of a monthly billing period you're charged for the "base rate"**, which is the cost of having the SIM card live on the network. The base rate includes the first megabyte (MB). If you go over the first MB, then we'll add another MB to your service plan at a lower cost than the base rate. In the US, for instance, the base rate is $2.99 and additional MBs are $0.99. These **additional MBs are added to the next month's bill**.

@@ -25,11 +25,9 @@ $(document).ready(function() {
 		  				urlFrom: window.location.pathname
 						};//object
 
-///TEST VERSION IN LOCAL HOST
-		//Post to Heroku App TEST VERSION IN LOCAL HOST
 		$.ajax({
 		  method: "POST",
-		  url: "http://localhost:5000",
+		  url: "https://staging-supportal.herokuapp.com",
 		  dataType: 'json',
 		  cache: false,
 		  data: JSON.stringify(ddx),
