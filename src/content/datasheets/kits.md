@@ -42,12 +42,12 @@ Here's a quick "what's in the box" for each of our offered kits. More detail is 
 - (1) USB Micro B Cable
 - (1) Particle SIM Card
 - (1) Cellular Antenna
-- (1) Breadboard
-- (1) Photoresistor
-- (1) Basic LED - White
 - (1) 2000mAh LiPo Battery
 - (1) Particle Sticker
 - (2) Resistor 220-Ohm
+- (1) Breadboard
+- (1) Photoresistor
+- (1) Bright LED - White
 
 
 ### Electron Sensor Kit
