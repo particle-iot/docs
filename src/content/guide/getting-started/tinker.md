@@ -2,13 +2,17 @@
 title: Tinker & Mobile App
 template: guide.hbs
 columns: two
-devices: [ photon, core ]
+devices: [ photon,electron,core ]
 order: 5
 ---
 
 # Tinkering with "Tinker"
 
 ![Tinker selection](/assets/images/tinker.png)
+
+{{#if electron}}
+**Note: Tinker on the Electron uses data and should be used sparingly.**
+{{/if}}
 
 The Tinker section of the Particle mobile app makes it very easy to start playing with your Particle device without writing any code. It's great for early development, learning, and prototyping. We'll learn to use it in the next few examples.
 
@@ -96,9 +100,10 @@ It will change its status to `HIGH` and your device's D7 LED will turn on. Tappi
 
 In this example, we'll plug an LED into D0 and change its brightness with analogWrite. (D0 is a {{{popup 'PWM pin.' 'note' 'A <a href = "https://en.wikipedia.org/wiki/Pulse-width_modulation">Pulse Width Modulation (PWM)</a> output is a digital output that can be filtered through various means to create a pseudo analog output. It is possible to analogWrite to `D0` through its PWM functionality.'}}}
 
-Wire up your LED with one of your resistors as follows:
+Wire up your LED with one of your resistors as shown below. Connect the longer (anode) leg of the LED to pin D0 and the shorter (cathode) leg to GND via a resistor.
 
-![LED fritzing](/assets/images/photon-led-fritzing.png)
+{{#unless electron}}![One LED illustration](/assets/images/photon-led-fritzing.png){{/unless}}
+{{#if electron}}![One LED illustration](/assets/images/electron/illustrations/electron-blink-led-d0.png){{/if}}
 
 Then, pull up your mobile app and select D0 this time. Instead of `digitalWrite`, select `analogWrite`.
 
@@ -123,7 +128,9 @@ We can also use Tinker to check to see if a pin is on or off. `digitalRead` is g
 
 In this case, we're going to do the simplest thing possible and simply use one wire to change the voltage of the D0 pin. Plug a wire or resistor to connect `D0` and `3V3`, as shown below.
 
-![One Wire Fritzing](/assets/images/photon-onewire-fritzing.png)
+{{#unless electron}}![One LED illustration](/assets/images/photon-onewire-fritzing.png){{/unless}}
+{{#if electron}}![One LED illustration](/assets/images/electron/illustrations/electron-wire.png){{/if}}
+
 
 As you can see, one side of the wire is plugged into `3V3` and the other is plugged into `D0`. `3V3` sends the maximum voltage out. We've plugged it into `D0`, so `D0` is receiving the maximum voltage.
 
@@ -144,7 +151,8 @@ Plug in a sensor. In this example, we'll use a photoresistor.
 
 Wire it up as pictured below. You can use any resistor for this; a larger resistor (like 10K Ohms) will give you a wider range of values whereas a smaller resistor (like 330 Ohms) will give you lower range of values.
 
-![Photoresistor Only Fritzing](/assets/images/photon-photores-only-fritzing.png)
+{{#unless electron}}![Fritzing Diagram](/assets/images/photon-photores-only-fritzing.png){{/unless}}
+{{#if electron}}![Electron Diagram](/assets/images/electron/illustrations/electron-photoresistor.png){{/if}}
 
 Tap the A5 pin and set it to `digitalWrite` and `HIGH`.
 

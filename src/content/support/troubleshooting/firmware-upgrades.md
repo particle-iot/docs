@@ -2,7 +2,7 @@
 title: Firmware Upgrades
 template: support.hbs
 columns: two
-devices: [ photon, core]
+devices: [ photon,electron,core ]
 order: 9
 ---
 

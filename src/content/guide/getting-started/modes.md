@@ -2,7 +2,7 @@
 title: Device Modes
 template: guide.hbs
 columns: two
-devices: [ photon, core ]
+devices: [ photon,electron,core ]
 order: 4
 ---
 
@@ -10,10 +10,9 @@ order: 4
 
 Now that we've gone over connecting your device, we're going to review the different modes for your Core or Photon. We suggest that you loop through this section, putting your device in the different listed modes to familiarize yourself with them.
 
-{{#if photon}}
 
 ## Standard Modes
-
+{{#if photon}}
 These modes are the typical behaviors you will see from your {{device}} on a regular basis. They are the light patterns of a healthy {{device}}.
 
 Here's the typical pattern of a {{device}} after power up.
@@ -67,7 +66,7 @@ Note that, if you enter this mode by holding `SETUP` on boot, flashing magenta i
 
 {{{device-animation device "blink" "lime" }}}
 
-If your {{device}} is flashing green, it is trying to connect to the internet. If you already entered your Wi-Fi credentials, give your device a few seconds to connect and start breathing cyan.
+If your {{device}} is flashing green, it is trying to connect to the internet. If you already entered your {{#if electron}}cellular{{/if}}{{#if photon}}Wi-Fi{{/if}}{{#if core}}Wi-Fi{{/if}} credentials, give your device a few seconds to connect and start breathing cyan.
 
 {{#if photon}}
 If you haven't yet connected your {{device}} to Wi-Fi, then set your device to [Listening Mode](#photon-modes-listening-mode).
@@ -75,6 +74,11 @@ If you haven't yet connected your {{device}} to Wi-Fi, then set your device to [
 
 {{#if core}}
 If you haven't yet connected your {{device}} to Wi-Fi, then set your device to [Listening Mode](/core/modes/#core-modes-listening-mode). If your {{device}} continuously flashes green and won't stop, then try doing a [full firmware update](https://community.particle.io/t/spark-core-common-issues/12383).
+{{/if}}
+
+{{#if electron}}
+If you haven't connected your {{device}} to a cellular tower yet, please wait up to ten minutes. If it takes longer than that, refer to [cellular troubleshooting section](/support/troubleshooting/common-issues/electron/#flashing-green).
+
 {{/if}}
 
 {{#if photon}}
@@ -87,21 +91,26 @@ When the {{device}} is in the process of connecting to the cloud, it will rapidl
 
 {{/if}}
 
-### Wi-Fi Off
+{{#if electron}}### Cellular Off{{/if}}
+{{#if photon}}### Wi-Fi Off
+{{/if}}
+{{#if core}}### Wi-Fi Off
+{{/if}}
+
 
 {{{device-animation device "breathe" "white" }}}
 
-If your {{device}} is breathing white, the Wi-Fi module is off. You might see this mode if:
+If your {{device}} is breathing white, the {{#if electron}}cellular{{/if}}{{#if photon}}Wi-Fi{{/if}}{{#if core}}Wi-Fi{{/if}} module is off. You might see this mode if:
 
 - You have set your module to `MANUAL` or `SEMI_AUTOMATIC` in your user firmware
-- You have called `WiFi.off()` in your user firmware
+- You have called {{#if electron}}`Cellular.off()`{{/if}}{{#if photon}}`Wifi.off()`{{/if}}{{#if core}}`Wifi.off()`{{/if}} in your user firmware
 
 
 ### Listening Mode
 
 {{{device-animation device "blink" "blue" 300 300 }}}
 
-When your {{device}} is in Listening Mode, it is waiting for your input to connect to the wifi. Your {{device}} needs to be in Listening Mode in order to begin connecting with the Mobile App or over USB.
+When your {{device}} is in Listening Mode, it is waiting for your input to connect to {{#if electron}}a cellular tower{{/if}}{{#if photon}}Wi-Fi{{/if}}{{#if core}}Wi-Fi{{/if}}. Your {{device}} needs to be in Listening Mode in order to begin connecting with the Mobile App or over USB.
 
 {{#if photon}}
 
@@ -119,7 +128,7 @@ To put your {{device}} in Listening Mode, hold the `MODE` button for three secon
 
 {{/if}}
 
-
+{{#if photon}}
 ### Wi-Fi Network Reset
 
 {{#if photon}}
@@ -138,6 +147,29 @@ You can also reset the Wi-Fi networks by holding the `SETUP` button and tapping 
 
 To erase the stored wifi networks on your {{device}}, hold the `MODE` button for about ten seconds, until the RGB LED flashes blue rapidly.
 
+{{/if}}
+{{/if}}
+
+{{#if core}}
+### Wi-Fi Network Reset
+
+{{#if photon}}
+
+{{{vine "https://vine.co/v/eZUwtJljYnK/embed/simple"}}}
+
+To erase the stored wifi networks on your {{device}}, hold the `SETUP` button for about ten seconds, until the RGB LED flashes blue rapidly.
+
+You can also reset the Wi-Fi networks by holding the `SETUP` button and tapping `RESET`, then continuing to hold `SETUP` until the light on the {{device}} turns white. (This differs from the Core. Doing this action on the Core will result in a factory reset.)
+
+{{/if}}
+
+{{#if core}}
+
+{{{vine "https://vine.co/v/eZU6expA5bA/embed/simple"}}}
+
+To erase the stored wifi networks on your {{device}}, hold the `MODE` button for about ten seconds, until the RGB LED flashes blue rapidly.
+
+{{/if}}
 {{/if}}
 
 {{#if photon}}
@@ -160,6 +192,28 @@ To put your device in Safe Mode:
 The device will itself automatically enter safe mode if there is no application code flashed to the device or when the application is not valid.
 
 {{{vine "https://vine.co/v/eZUF2ilvLxJ/embed/simple"}}}
+
+{{/if}}
+
+{{#if electron}}
+
+### Safe Mode
+
+{{{device-animation device "breathe" "magenta" }}}
+
+Safe mode connects the {{device}} to the cloud, but does not run any application firmware. This mode is one of the most useful for development or for troubleshooting. If something goes wrong with the app you loaded onto your device, you can set your device to Safe Mode. This runs the device's system firmware but doesn't execute any application code, which can be useful if the application code contains bugs that stop the device from connecting to the cloud.
+
+**The {{device}} indicates that it is in Safe Mode with the LED, which breathes magenta.**
+
+To put your device in Safe Mode:
+
+1. Hold down BOTH buttons
+2. Release only the RESET button, while holding down the SETUP button.
+3. Wait for the LED to start flashing magenta
+6. Release the SETUP button
+
+The device will itself automatically enter safe mode if there is no application code flashed to the device or when the application is not valid.
+
 
 {{/if}}
 
@@ -207,12 +261,19 @@ Firmware reset is not available on the Photon/P1, but not to worry! If you are e
 
 {{/if}}
 
+{{#if photon}}
 ### Factory Reset
+{{/if}}
+
+{{#if core}}
+### Factory Reset
+{{/if}}
 
 {{#if photon}}
 
 Factory reset is not available on the Photon/P1, but not to worry! If you are experiencing problems with your application firmware, you can use [Safe Mode](#safe-mode) to recover.
 
+You can reset Wi-Fi credentials by performing a [WiFi Network Reset](#wifi-network-reset).
 {{/if}}
 
 {{#if core}}
@@ -232,27 +293,45 @@ The procedure is same as the one described above (DFU Mode), but in this case yo
 5. Finally, the LED will turn blink white rapidly
 6. Release the MODE button
 
-{{/if}}
 
 You can reset Wi-Fi credentials by performing a [WiFi Network Reset](#wifi-network-reset).
+{{/if}}
+
+
 
 ## Troubleshooting Modes
 
 These modes let you know about more atypical issues your {{device}} might be exhibiting. Use this section to troubleshoot strange colors you might see from your {{device}}.
 
+{{#if electron}}
+### Cellular Module Not Connected
 
+{{{device-animation device "breathe" "blue" }}}
+
+If the Cellular module is on but not connected to a cellular tower, your {{device}} will breathe blue. Note that this will be dark blue and not cyan.
+{{/if}}
+
+{{#if photon}}
 ### Wi-Fi Module Not Connected
 
 {{{device-animation device "breathe" "blue" }}}
 
 If the Wi-Fi module is on but not connected to a network, your {{device}} will breathe blue. Note that this will be dark blue and not cyan.
+{{/if}}
 
+{{#if core}}
+### Wi-Fi Module Not Connected
+
+{{{device-animation device "breathe" "blue" }}}
+
+If the Wi-Fi module is on but not connected to a network, your {{device}} will breathe blue. Note that this will be dark blue and not cyan.
+{{/if}}
 
 ### Cloud Not Connected
 
 {{{device-animation device "breathe" "lime" }}}
 
-When the {{device}} is connected to a Wi-Fi network but not to the cloud, it will breathe green.
+When the {{device}} is connected to a {{#if electron}}cellular{{/if}}{{#if photon}}Wi-Fi{{/if}}{{#if core}}Wi-Fi{{/if}} network but not to the cloud, it will breathe green.
 
 
 ### Bad Public Key

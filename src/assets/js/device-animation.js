@@ -1,7 +1,7 @@
 var DeviceAnimation = function(element, deviceType) {
   var deviceSpecs = {
     "Photon": {
-      image: "/assets/images/photon.svg",
+      image: "/assets/images/photon-horizontal.svg",
       zoom: 2,
       width: 144,
       height: 77,
@@ -12,12 +12,23 @@ var DeviceAnimation = function(element, deviceType) {
       }
     },
     "Core": {
-      image: "/assets/images/core.svg",
+      image: "/assets/images/core-horizontal.svg",
       zoom: 2,
       width: 143,
       height: 77,
       led: {
         x: 104,
+        y: 38.5,
+        radius: 30
+      }
+    },
+    "Electron": {
+      image: "/assets/images/electron-horizontal.svg",
+      zoom: 2,
+      width: 197,
+      height: 77,
+      led: {
+        x: 127,
         y: 38.5,
         radius: 30
       }

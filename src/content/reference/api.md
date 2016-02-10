@@ -29,7 +29,7 @@ you might code something like `/v1/devices/55ff8800beefcafe12345678`.
 ## Authentication
 
 Just because you've connected your Particle device to the internet doesn't mean anyone else should have access to it.
-Permissions for controlling and communicating with your Particle device are managed with OAuth2.
+Permissions for controlling and communciating with your Particle device are managed with OAuth2.
 
 ```bash
 # You type in your terminal

@@ -2,15 +2,21 @@
 title: Internet Button
 template: guide.hbs
 columns: two
-devices: [ photon, core ]
-order: 8
+devices: [ photon,electron,core ]
+order: 7
 ---
 
 # The Internet Button
 
+{{#if electron}}
+**_Note_**: The internet button is not currently available for the Electron. 
+{{/if}}
+
 ![](/assets/images/internet-button-cover.jpg)
 
 **Congratulations on receiving your brand new Internet Button!** This part of the guide will help you start working with your Internet Button so that you can connect to the Internet in an entirely new way.
+
+
 
 
 ## Unboxing

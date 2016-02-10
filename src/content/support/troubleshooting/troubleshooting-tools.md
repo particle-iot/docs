@@ -2,8 +2,8 @@
 title: Troubleshooting Tools
 template: support.hbs
 columns: two
-devices: [ photon, core ]
-order: 9
+devices: [ photon,electron,core ]
+order: 10
 ---
 
 # Troubleshooting Tools

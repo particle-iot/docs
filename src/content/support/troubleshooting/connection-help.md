@@ -2,14 +2,20 @@
 title: Connectivity Help
 template: support.hbs
 columns: two
-devices: [ photon, core ]
+devices: [ photon,electron,core ]
 order: 8
 ---
 
 Connection Issues
 ===
 
-##Steps to Success
+## Using non Particle SIM card
+### Steps for using non Particle SIM card for Electron
+*This section is coming soon!*
+
+
+
+## Steps to Success
 
 ### Can't Get Connected
 

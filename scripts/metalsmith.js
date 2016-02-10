@@ -123,7 +123,7 @@ exports.metalsmith = function() {
           'inquiries'
         ]
       }
-    }))
+    }))//end of collections/sections
     .use(fork({
       key: 'devices',
       redirectTemplate: './templates/redirector.jade'
@@ -168,7 +168,7 @@ exports.metalsmith = function() {
       '/guide/photon/': '/guide/photon/start',
       '/guide/core/': '/guide/core/start',
       '/reference': '/reference/firmware',
-      '/datasheets': '/datasheets/kits/photon/',
+      '/datasheets': '/datasheets/kits/',
       '/guide/getting-started': '/guide/getting-started/intro',
       '/guide/how-to-build-a-product': '/guide/how-to-build-a-product/intro/',
       '/guide/tools-and-features': '/guide/tools-and-features/intro',
@@ -210,6 +210,7 @@ exports.metalsmith = function() {
       "/core/ifttt" : "/guide/tools-and-features/ifttt/core",
       "/core/webhooks" : "/guide/tools-and-features/webhooks/core",
       "/core/hackathon" : "/guide/getting-started/hackathon/core",
+      "/electron" : "/guide/getting-started/intro/electron",
       "/firmware" : "/reference/firmware",
       "/api" : "/reference/api",
       "/cli" : "/reference/cli",
@@ -233,7 +234,7 @@ exports.metalsmith = function() {
       "/p1-datasheet" : "/datasheets/p1-datasheet",
       "/hardware" : "/datasheets/core-datasheet",
       "/photon-shields" : "/datasheets/photon-shields",
-      "/shields" : "/datasheets/photon-shields",
+      "/shields" : "/datasheets/kits/",
       "/photon/hardware" : "/datasheets/photon-datasheet",
       "/troubleshooting" : "/support/troubleshooting/common-issues",
       "/help" : "/support/troubleshooting/common-issues",

@@ -2,7 +2,7 @@
 title: Device Keys
 template: support.hbs
 columns: two
-devices: [ photon, core ]
+devices: [ photon,electron,core ]
 order: 7
 ---
 
