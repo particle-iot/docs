@@ -35,7 +35,7 @@ Here's a quick "what's in the box" for each of our offered kits. More detail is 
 
 ## Electron
 ### Electron
-![]({{assets}}/images/electronItemBox.png)
+![]({{assets}}/images/electronItemBox.jpg)
 [More Info >](/datasheets/electron-datasheet/)
 
 - (1) Electron
@@ -51,7 +51,9 @@ Here's a quick "what's in the box" for each of our offered kits. More detail is 
 - (1) Hard plastic box
 
 ### Electron Solar Kit
+![]({{assets}}/images/solarShield.jpg)
 The Solar Kit comes with everything you need to make a solar powered cellular project! Super efficient power design so you can go off-the-grid with no need of wires.
+[More Info >](/datasheets/photon-shields/#electron-solar-kit)
 - (1) Electron
 - (1) USB Micro B Cable
 - (1) Particle SIM Card
@@ -74,7 +76,9 @@ AND
 - (1) Waterproof box!
 
 ### Electron Asset Tracker
+![]({{assets}}/images/assetTracker.jpg)
 The Asset Tracker is a GPS shield that also includes and accelerometer and waterproof box. Designed by Adafruit!
+[More Info >](/datasheets/photon-shields/#electron-asset-tracker)
 - (1) Electron
 - (1) USB Micro B Cable
 - (1) Particle SIM Card
@@ -96,6 +100,7 @@ AND
 
 ### Electron Sensor Kit
 This is the big one! A fantastic collection of premium and versatile sensors.
+[More Info >](/datasheets/photon-shields/#electron-sensor-kit)
 - (1) Electron
 - (1) USB Micro B Cable
 - (1) Particle SIM Card
