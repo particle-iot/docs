@@ -106,6 +106,19 @@ to wired power source. Consider this battery your Electron's best friend!
 
 For more technical details on what comes on your device, go {{#if core}}[here](/datasheets/core-datasheet/){{/if}}{{#if photon}}[here](/datasheets/kits/photon/){{/if}}{{#if electron}}[here](/datasheets/kits/electron/){{/if}}.
 
+{{#if electron}}
+## New User Features On the Electron
+### Display signal strength!
+- Press MODE once quickly when the Electron is breathing cyan
+- The signal strength (RSSI) will be shown in a 0-5 green blinks, 5 being the strongest
+
+### Soft Power Down
+- Tap MODE twice quickly, then the LED will show white, and then it will turn off in a few seconds
+- To turn it back on tap RESET once
+- You can use use soft power down instead of unplugging the battery or power
+- This uses a deep sleep mode for the Electron, and will still use 0.13mA
+{{/if}}
+
 ## Prerequisites for Setup
 {{#if electron}}
 * **Software**
@@ -125,61 +138,24 @@ For more technical details on what comes on your device, go {{#if core}}[here](/
 ## Billing for Electron
 See the full [Electron Billing Guide](/guide/getting-started/billing/)
 ### Overview
-- You will be billed per Particle SIM card, not per device
-- Base rate up to 1.0MB, +1MB up to 2.0MB
-  - e.g. We bill in 1MB increments (1MB = 1,000,000 bytes, not 2^20 bytes)
-- We bill your base subscription rate at beginning of a period, overages at end of a period.
-- What the heck is a zone and why is it important?
-- Base rate is based on [Country Zone]() and it covers your first MB.
-- Overage rates are based on [Country Zone]() and pricing data for your given plan.
-- You can use the [dashboard](https://dashboard.particle.io) as the place to manage SIMs, billing, and see data usage.
+- Each SIM card will be billed a *base rate* which includes 1 MB of data
+- The base rate covers you up to 1.0MB, additional MB are billed at a cheaper rate than the base
+- We bill your base rate at beginning of a period, additional MB at the end, so you'll often see both
+- Base and additional MB rates are based on your [country and Zone](/guide/getting-started/billing/electron/#roaming-zones-) 
+- You can set a data limit for each SIM. It defaults to 5MB on new SIMs, but you can change it in the [Dashboard](https://dashboard.particle.io/user/billing)
+- Data limits are soft maximums; we only charge you for the number of MB used, rounded up, and we'll cut off usage as quickly as we have updated metering from your carrier
+- If a SIM goes over the limit, it'll be paused and won't be able to use more data until the beginning of the next period or you raise the data limit
+- You can use the [Dashboard](https://dashboard.particle.io/user/billing) to manage SIMs, billing, and see data usage
 
-### Billing Periods
-**How it's determined**
-- The day of the month you activated your first SIM is when your billing period starts.
-- If it's on a day that not all months have, the new period will start the last day of the month.
-  - **i.e. if you sign up January 30th, your next billing period starts on February 28th.**
-
-## Data Guide for Electron
+## Data Use on the Electron
 See the full [Electron Data Guide](/guide/getting-started/data/)
-### Data Limits
-- Data limits are cutoffs, not the amount you're going to be billed for- we only bill for the amount used
-- Your data cutoff is your Hard limit
-  - Soft (warning) limit is 90% of hard limit
-- What if I go over?
-  - You will be notified via email and your SIM usage will be put on hold until you verify that you are aware of the overages.
-- You will be Pro-rated charges on overages
-- Your data plan will be automatically resume at the start of the next billing period
-
-### Activation, Deactivation, Reactivation, Pausing
-- Unpausing is when your SIM is activated after you manually reactivate it in the dashboard or a new billing period begins.
-- Automatic unpausing happens at the beginning of the next billing period.
-- Deactivation is more permanent than pausing.
-  - A user can deactivate a SIM at any time from their [dashboard](https://dashboard.particle.io). This will turn it off indefinitely and they’ll stop getting billed for for that SIM.
-- Deactivation from billing failure
-  - Q: Will it come back online automatically?
-  - A: Yes after a few minutes, your device will come back online.
-  - Q: How will I know if/when the device comes back online?
-  - A: [subscribe to event stream](/guide/getting-started/examples/electron/#the-buddy-system-publish-and-subscribe) and look for an online event.
-- Reactivation will reenable the SIM and reenroll the user on the monthly data plan.
-- What if my credit card gets declined?
-  - We send you an email and give you a short grace period. If the charge doesn't go through (after 4 attempts) we deactivate your SIM(s) until you update your billing information.
-- I bought an Electron through Kickstarter, but I didn't get free data.
-  - *What do I do?*
-[Contact support](/support/support-and-fulfillment/menu-base/photon/#form-main) and give us your [device id](/support/troubleshooting/common-questions/electron/#how-do-i-get-my-deviceid-device-id-), SIM ICC ID, and your kickstarter order # and we'll give you a refund/credit and get you on the right plan.
-
-## New Features
-### How to display signal strenth
-- This will show you the signal strength in a number of green blinks (0-5), with 5 being the strongest. 
-- Tap MODE *once* when the device is breathing cyan.
-
-
-### Soft Power Down
-- This can be considered as an alternative to unplugging the battery.
-- This is also deep sleep for the Electron. 
-- Simply done by *tapping* MODE twice.
-- To turn it back on *tap* RESET.
-- The Electron will consume 0.13mA in this mode.
+### Overview
+- Any cellular communication to or from the Electron uses data, since it goes through the cell network
+- Maintaining a connection also uses a small amount of data, to keep the device active on the network
+- Some actions are very data efficient, like `Particle.publish` 
+- Others, like flashing your code over the air, will use much more data
+- We've done a ton of work to save you data and warn you if an action will use lots of data
+- You can save even more data by optimizing your code behavior
 
 Go to the next section to learn to [connect over USB](/guide/getting-started/connect/electron/).    
 {{/if}}
