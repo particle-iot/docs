@@ -8,10 +8,9 @@ order: 9
 
 ## Cellular Data Service with Particle
 
-### Overview
 The Electron introduces a whole new kind of connectivity with cellular, and with that comes a new resource to optimize: data. While data over Wi-Fi has been boundless and free, you may find yourself counting bytes with cellular. There are some necessary consumers of data Here's what consumes data, why and how it does, and what you can do to use less.
 
-### How we've saved you data
+## How we've saved you data
 We've worked very hard to optimize everything out of the gate and save you a great big pile o' data. Here are some of the improvements we've made specifically for the Electron.
 
 **Changed to UDP from TCP**
@@ -33,12 +32,12 @@ With TCP on the Photon, a handshake must happen for every newly opened connectio
 
 On the Electron we use UDP, which is connectionless. An Electron can go to sleep, wake up sometime later, and talk to the Particle cloud without performing a handshake, continuing to use the DTLS session credentials it previously established. We currently require an Electron to handshake at least once per week, and this is subject to change. The data usage of handshakes is thus dramatically reduced from hundreds of KB per week for sleepy Photons to a few KB per week for sleepy Electrons.
 
-### The structure of data transmission
+## The structure of data transmission
 When data is sent to or from the device, it comes with a fixed overhead. This includes the [User Datagram Protocol (UDP)](https://en.wikipedia.org/wiki/User_Datagram_Protocol#Packet_structure) header, the Datagram Transport Layer Security (DTLS) header, and an acknowledgement message (ACK). The UDP header is necessary because specifies where the packet came from and where it's going, and that adds 26 bytes to a message. Without the DTLS header we couldn't encrypt your data, and that's an additional 27 bytes. Finally, the ACK is a very short message back from the Cloud with its own UDP and DTLS headers which acts as a receipt and confirms that a message was received, and adds around 61 bytes. For a very short Particle.publish you're looking at a total of nearly 128 bytes, mostly comprised of infrastructure.
 
 - Bar chart showing normal packet
 
-### What consumes data?
+## What consumes data?
 Any time the Electron talks to the Internet or the Internet talks back, that data travels though the cellular network and is metered. There's also unavoidable overhead on all communications because of the structure of the Internet and the necessity of security and reliability. Many of these communications are intentional and obvious, like calling Particle.publish() or flashing code over the air. There are other communications that you may not even be aware of. For instance, when an Electron turns on or is reset it has to register with the cell towers and the Particle Cloud, and this set of messages can use as much as 6KB! The following all use data:
 
 **Functions from or registered by firmware:**
@@ -69,12 +68,12 @@ Our friend Tinker also consumes data! Calling digital and analog read/writes use
 Whenever you control the connection directly you'll use data. A lot of data. We highly recommend that you do **NOT** use these with the Electron, as they will use data much more quickly than Particle publishes and functions.
 
 
-### What if I run out?
+## What if I run out?
 If you reach your data limit and want to keep your device online, just hop over to the [Dashboard](https://dashboard.particle.io/) and increase the limit. It will automatically unpause and you'll be back online in a few minutes. We highly recommend that you set a high limit for critical applications.
 
 Your application will be stuck in a connecting loop if you haven't written code specifically for offline behavior, so plan ahead! You can use System Modes like `MANUAL` and `SEMIAUTOMATIC` to directly control connection activity. In later versions of Electron firmware you can also enable multithreading so that connection attempts will not block your application code.
 
-### Ways to reduce data use
+## Ways to reduce data use
 There are lots of things you can do to save data! We'll go through these in order of increasing complexity.
 
 **Use Shorter Names** This applies to Particle.publish, .variable, and .function. Those longer names have to be sent to/from the cloud, so you're much better off using `Particle.publish("x")` than `Particle.publish("xylophone_is_now_playing_a_song")`.
