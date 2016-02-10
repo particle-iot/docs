@@ -31,7 +31,7 @@ template: datasheet.hbs
 - [Spark Core](#spark-core)
 - [Spark Core Maker Kit](#spark-core-maker-kit)
 
-Here's a quick "what's in the box" for each of our offered kits. More detail is available in the shields and kits shown in other parts of the datasheet section.
+Here's a quick "what's in the box" for each of our offered kits. More detail is available by clicking on their links to the shields and kits page.
 
 ## Electron
 ### Electron
@@ -48,19 +48,77 @@ Here's a quick "what's in the box" for each of our offered kits. More detail is 
 - (1) Breadboard
 - (1) Photoresistor
 - (1) Bright LED - White
+- (1) Hard plastic box
+
+### Electron Solar Kit
+The Solar Kit comes with everything you need to make a solar powered cellular project! Super efficient power design so you can go off-the-grid with no need of wires.
+- (1) Electron
+- (1) USB Micro B Cable
+- (1) Particle SIM Card
+- (1) Cellular Antenna
+- (1) 2000mAh LiPo Battery
+- (1) Particle Sticker
+- (2) Resistor 220-Ohm
+- (1) Breadboard
+- (1) Photoresistor
+- (1) Bright LED - White
+
+AND
+
+- (1) Solar Shield
+- (1) 6W Solar Panel from Voltaic
+- (1) Barrel jack cable
+- (1) Cable gland
+- (1) Adhesive foam
+- (2) Screws
+- (1) Waterproof box!
+
+### Electron Asset Tracker
+The Asset Tracker is a GPS shield that also includes and accelerometer and waterproof box. Designed by Adafruit!
+- (1) Electron
+- (1) USB Micro B Cable
+- (1) Particle SIM Card
+- (1) Cellular Antenna
+- (1) 2000mAh LiPo Battery
+- (1) Particle Sticker
+- (2) Resistor 220-Ohm
+- (1) Breadboard
+- (1) Photoresistor
+- (1) Bright LED - White
+
+AND
+
+- (1) Asset Tracker Shield
+- (1) Adhesive foam
+- (2) Screws
+- (1) Waterproof box!
 
 
 ### Electron Sensor Kit
-*Coming soon!*
+This is the big one! A fantastic collection of premium and versatile sensors.
+- (1) Electron
+- (1) USB Micro B Cable
+- (1) Particle SIM Card
+- (1) Cellular Antenna
+- (1) 2000mAh LiPo Battery
+- (1) Particle Sticker
+- (2) Resistor 220-Ohm
+- (1) Breadboard
+- (1) Photoresistor
+- (1) Bright LED - White
 
-### Electron Solar Kit
-*Coming soon!*
+AND
 
-### Electron Asset Tracker
-*Coming soon!*
-
-
-
+- (1) ADXL362 accelerometer
+- (1) GP2Y0A710K0F 100-500cm IR Distance sensor
+- (1) LM2904 audio sensor
+- (1) MQ2 gas sensor
+- (1) SHT10 soil humidity and temperature sensor
+- (1) HC-SR501 PIR motion sensor
+- (1) LM393 soil moisture sensor
+- (1) DS18B20 waterproof temperature sensor
+- (1) SW18020P vibration sensor
+- Various jumper wires, resistors, capacitors, LEDs, and pushbuttons
 
 ## Photon
 ### Photon
@@ -68,7 +126,8 @@ Here's a quick "what's in the box" for each of our offered kits. More detail is 
 [More Info >](/datasheets/photon-datasheet/)
 
 - (1) Photon
-- (1) Protective disposable paper strip with photon joke
+- (1) Protective disposable paper strip
+- (1) Reusable box
 
 ### Photon Kit
 ![]({{assets}}/images/photon-kit-new.jpg)
