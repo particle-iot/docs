@@ -40,6 +40,8 @@ Anxious to connect right away?
 {{#if electron}}
 This guide will show you how to use Particle to make a connected device, from the first time you connect to the cloud to the day you manufacture and ship your connected product.
 
+Anxious to connect right away?
+
 [SETUP MY ELECTRON >](https://setup.particle.io/)
 {{/if}}
 
@@ -50,9 +52,9 @@ The guide is broken down into three parts:
 - [**How to Build a Product**](/guide/how-to-build-a-product/intro/) is the final section. It reviews everything you need to do to take the connected device you've prototyped and take it to production.
 
 We'll fill in more parts of the guide in the {{{popup 'coming months' 'note' 'Thanks for your patience, friend.'}}}, but for now the best way to use the guide is:
-- Go through _Getting Started_
-- Review _Tools and Features_
-- Search _[the community](http://community.particle.io)_ for cool examples and advice relevant to your exact project
-- Check out _How to Build a Product_ for final advice on the production stage.
+- Go through [**Getting Started**](/guide/getting-started/start/electron/)
+- Review [**Tools and Features**](/guide/tools-and-features/intro/)
+- Search _[the Community](http://community.particle.io)_ for cool examples and advice relevant to your exact project
+- Check out [**How to Build a Product**](/guide/how-to-build-a-product/intro/) for final advice on the production stage.
 
 Ready to get started? Click the arrow to the right of the screen to read on.
