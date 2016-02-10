@@ -359,7 +359,8 @@ A pattern of more than 10 red flashes is caused by the firmware crashing. The pa
 
 {{#if photon}}
 [Enter safe mode](#safe-mode), tweak your firmware and try again!
-{{else}}
+{{/if}}
+{{#if core}}
 [Perform a factory reset](#factory-reset), tweak your firmware and try again!
 {{/if}}
 
