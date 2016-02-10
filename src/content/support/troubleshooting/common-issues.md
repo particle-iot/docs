@@ -62,7 +62,7 @@ There are three different variants of the Electron, and they each work in differ
 | Electron U260  | 3G with 2G fallback | North and South America | 850/1900
 | Electron U270 | 3G with 2G fallback | Europe, Asia, Africa, Australia | 900/1800/2100 |
 
-Make sure that your device is compatible with the cellular infrastructure in your country. Small country-by-country variations from the generalized table above may apply. For a detailed list of 3G service country by country, [please visit the following link](https://www.kickstarter.com/projects/sparkdevices/spark-electron-cellular-dev-kit-with-a-simple-data/description).
+Make sure that your device is compatible with the cellular infrastructure in your country. Small country-by-country variations from the generalized table above may apply. For a detailed list of 3G service country by country, <a href="https://www.kickstarter.com/projects/sparkdevices/spark-electron-cellular-dev-kit-with-a-simple-data/description" target="_blank">please visit the following link</a>.
 
 If your device is not compatible with the cellular infrastructure in your country, **it will be unable to connect to the Internet using a Particle SIM or any other SIM.**
 
@@ -82,13 +82,13 @@ While the Electron does not *require* that you attach the USB cable, this will e
 In order for your Particle SIM card to connect to the cellular network, it needs to be activated. The *only* way to do this is to go through SIM activation and setup at [https://setup.particle.io](https://setup.particle.io). Follow the on-screen prompts to complete device setup and SIM activation.
 
 ### 5) Are you using a 3rd party (non-Particle) SIM?
-If you're not using a Particle SIM, you will have to change the cellular APN on the Electron before it can connect. You can do this in firmware using the `setCredentials()` function, or by opening up a serial terminal with the Electron, typing `a`, and configuring the new APN settings for your SIM. You can find more details on changing your APN [here]().
+If you're not using a Particle SIM, you will have to change the cellular APN on the Electron before it can connect. A Username and Password may also be required.  Ask your cellular provider for these credentials and head over to [setCredentials()](/reference/firmware/electron/#setcredentials-) for more details on how to set these.
 
 ### 6) Check the cellular coverage in your area
 The Electron leverages a number of cellular carriers to provide excellent coverage, but it *is* possible that you are outside GSM coverage in your country. Fortunately, it's relatively simple to check:
 
 - Go to http://particle.io/cellular and select your country from the dropdown at the bottom of the page. Note the cellular provider in your country. In the US, for example, service is provided by `T-Mobile and AT&T`.
-- Navigate to [http://opensignal.com](http://opensignal.com) in your browser
+- Navigate to <a href="http://opensignal.com" target="_blank">http://opensignal.com</a> in your browser
 - If you have an Electron G350, select "2G" and unselect "3G" and "4G" options. If you have an Electron U260 or U270, select both "2G" and "3G" and unselect the "4G" option. Limit the coverage map to the carrier providing service to your Particle SIM in your country (`T-Mobile and AT&T` in the US, for example).
 - Check the coverage map to ensure that you have coverage in your area.
 
@@ -148,7 +148,7 @@ Photons that have been interrupted mid-firmware update often breathe magenta (de
 
 If you do not have a Mac/Apple computer then you should not read the instructions below for a firmware upgrade. These are specifically for users who have MAC machines.
 
-*For Windows* If you have a Windows machine, please follow [these instructions](http://blog.jongallant.com/2015/08/particle-photon-firmware-flash-windows.html).
+*For Windows* If you have a Windows machine, please follow <a href="http://blog.jongallant.com/2015/08/particle-photon-firmware-flash-windows.html" target="_blank">these instructions</a>.
 
 Since your device is offline, I recommend using our dfu-util method. If you want more info on this, the local DFU-UTIL method is roughly explained [here](https://github.com/spark/firmware/releases).
 
@@ -159,7 +159,7 @@ To upgrade your Photon, follow the instructions below:
       - [Part2](https://github.com/spark/firmware/releases/download/v0.4.6.1/system-part2-0.4.6-photon.bin)
 
 -  Install dfu-util on your Mac using: ```brew install dfu-util```
-If you don't have brew or homebrew installed, install it here: http://brew.sh/
+If you don't have brew or homebrew installed, install it here: <a href="http://brew.sh/" target="_blank">http://brew.sh/</a>
 
 -  Put photon into DFU MODE, instructions [here](/guide/getting-started/modes/photon/#dfu-mode-device-firmware-upgrade-).
 
@@ -183,7 +183,7 @@ If your Photon is flashing cyan and sometimes orange/red without connecting, it 
 Sometimes, a firmware upgrade will not be enough to solve your Photon's problem. If your are still having an issue, and particularly **if your photon is flashing cyan and sometimes orange/red without connecting**, It's time to try resetting the public key.
 
 - **If you haven't ever claimed the device before:**
-You will need [dfu-util](http://dfu-util.sourceforge.net/). Install it, then download the [this file](https://s3.amazonaws.com/spark-website/cloud_public.der).
+You will need <a href="http://dfu-util.sourceforge.net/" target="_blank">dfu-util</a>. Install it, then download the [this file](https://s3.amazonaws.com/spark-website/cloud_public.der).
 Use the command line to navigate to that file.
 Run the following command:
 `dfu-util -d 2b04:d006 -a 1 -s 2082 -D cloud_public.der`
@@ -211,7 +211,7 @@ Your device works best with a traditional home network: simple networks with WPA
 There are known issues with the following types of networks:
 
 - **802.11n-only networks**. The Core is 802.11b/g. Most 802.11n networks are backwards compatible with 802.11b/g, but if yours is not, the device will not connect.
-- **Networks with ["captive portal"](http://en.wikipedia.org/wiki/Captive_portal) security**. A captive portal is the little website that comes up to ask you to sign in to a network or sign an agreement, like at a Starbucks. The device can't navigate these portals.
+- **Networks with <a href="http://en.wikipedia.org/wiki/Captive_portal" target="_blank">"captive portal"</a> security**. A captive portal is the little website that comes up to ask you to sign in to a network or sign an agreement, like at a Starbucks. The device can't navigate these portals.
 - **Enterprise networks**. We have had mixed results connecting the devices to enterprise networks, although we don't yet have a great understanding of what's causing the issue. This is something that we are working to improve.
 - **Complex Networks**. Networks with multiple routers, with non-standard firewalls, and with non-standard settings.
 - **Channels above 11**. This is in particular an international issue; if you are outside the U.S., your Wi-Fi router might run at channels 12, 13, or 14, which the CC3000 does not support. Please use channels numbered 11 or lower.
@@ -221,7 +221,7 @@ There are known issues with the following types of networks:
 {{#if photon}}
 **Prerequisites for Setup**
 * **Software**
-  * Particle Mobile App - [iPhone](https://itunes.apple.com/us/app/particle-build-photon-electron/id991459054?ls=1&mt=8) | [Android](https://play.google.com/store/apps/details?id=io.particle.android.app)
+  * Particle Mobile App - <a href="https://itunes.apple.com/us/app/particle-build-photon-electron/id991459054?ls=1&mt=8" target="_blank">iPhone</a> | <a href="https://play.google.com/store/apps/details?id=io.particle.android.app" target="_blank">Android</a>
   * *Note: We highly recommend using the mobile app for first time setup.*
 * **Hardware**
   * Your Particle device, brand new and out of the box!
@@ -243,7 +243,7 @@ There are known issues with the following types of networks:
 {{#if core}}
 **Prerequisites for Setup**
 * **Software**
-  * Spark Core Mobile App - [iPhone](https://itunes.apple.com/us/app/spark-core/id760157884) | [Android](https://play.google.com/store/apps/details?id=io.spark.core.android)
+  * Spark Core Mobile App - <a href="https://itunes.apple.com/us/app/spark-core/id760157884" target="_blank">iPhone</a> | <a href="https://play.google.com/store/apps/details?id=io.spark.core.android" target="_blank">Android</a>
   * *Note: We highly recommend using the mobile app for first time setup.*
 * **Hardware**
   * Your Particle device, brand new and out of the box!
@@ -266,7 +266,7 @@ There are known issues with the following types of networks:
 
 ## Full Firmware Upgrade
 
-If you are having intermittent connectivity issues, odd behavior or believe your firmware to be corrupted or out of date, you would benefit from performing a full firmware upgrade. This requires using [dfu-util](http://dfu-util.sourceforge.net/) and installing the [Particle CLI](/guide/tools-and-features/cli)
+If you are having intermittent connectivity issues, odd behavior or believe your firmware to be corrupted or out of date, you would benefit from performing a full firmware upgrade. This requires using <a href="http://dfu-util.sourceforge.net/" target="_blank">dfu-util</a> and installing the [Particle CLI](/guide/tools-and-features/cli)
 , which provides an excellent local development and troubleshooting environment for your Particle development.
 
 Once the Particle CLI and dfu-util are installed, you have to enter DFU mode. Once that is done, please run the following commands through the Particle CLI:
