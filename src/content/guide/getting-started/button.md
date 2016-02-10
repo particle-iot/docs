@@ -37,12 +37,11 @@ For more information, check out the [Internet Button datasheet](/datasheets/phot
 
 Plug in your Photon and go through the setup process as seen in either the [start](/guide/getting-started/start/) (smartphone connection) or [connect](/guide/getting-started/connect/) (USB serial connection) sections.
 
-
 ## Examples
 
-You can find examples on how to use your Internet Button in the [official Internet Button library under the Libraries tab on Particle Build](https://build.particle.io/libs/55bfd80bcaf78dbf5e000f48/tab/1_Blink_An_LED.cpp). You can also access them via [this Github repo](https://github.com/spark/InternetButton/tree/master/firmware/examples), or by checking out the text below.
+We recommend going through the below examples to get the best understanding of how the Internet Button works. You can fork these examples from the [Official Internet Button Library](https://build.particle.io/libs/55bfd80bcaf78dbf5e000f48/tab/1_Blink_An_LED.cpp) under the Libraries tab on Particle Build. If you haven't used Particle Build before, read the [Particle Build guide](/guide/getting-started/build/photon/).
 
-You should be able to fork the examples from Particle Build or copy and paste the code from the Github repo or from this page. We recommend going through these examples in order for the best understanding of how the Internet Button works.
+You can also access these examples via [this Github repo](https://github.com/spark/InternetButton/tree/master/firmware/examples), or by checking out the text below.
 
 **If you copy and paste these examples, make sure that you include the official Internet Button library before flashing the code.** Instructions on how to include a library can be found [here](/guide/getting-started/build/photon/#using-libraries).
 
