@@ -195,6 +195,28 @@ The device will itself automatically enter safe mode if there is no application 
 
 {{/if}}
 
+{{#if electron}}
+
+### Safe Mode
+
+{{{device-animation device "breathe" "magenta" }}}
+
+Safe mode connects the {{device}} to the cloud, but does not run any application firmware. This mode is one of the most useful for development or for troubleshooting. If something goes wrong with the app you loaded onto your device, you can set your device to Safe Mode. This runs the device's system firmware but doesn't execute any application code, which can be useful if the application code contains bugs that stop the device from connecting to the cloud.
+
+**The {{device}} indicates that it is in Safe Mode with the LED, which breathes magenta.**
+
+To put your device in Safe Mode:
+
+1. Hold down BOTH buttons
+2. Release only the RESET button, while holding down the SETUP button.
+3. Wait for the LED to start flashing magenta
+6. Release the SETUP button
+
+The device will itself automatically enter safe mode if there is no application code flashed to the device or when the application is not valid.
+
+
+{{/if}}
+
 ### DFU Mode (Device Firmware Upgrade)
 
 {{{device-animation device "blink" "yellow" }}}
@@ -239,12 +261,12 @@ Firmware reset is not available on the Photon/P1, but not to worry! If you are e
 
 {{/if}}
 
-
+{{#if photon}}
 ### Factory Reset
+{{/if}}
 
-{{#if electron}}
-Factory reset for the Electron is a process that happens via dfu and firmware re-flashing, locally. Put your device into [DFU Mode](#dfu-mode-device-firmware-upgrade-) and using the
-[Particle CLI](https://github.com/spark/particle-cli) issue `particle update` to reset the Electron.
+{{#if core}}
+### Factory Reset
 {{/if}}
 
 {{#if photon}}

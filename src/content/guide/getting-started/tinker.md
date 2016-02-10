@@ -10,6 +10,10 @@ order: 5
 
 ![Tinker selection](/assets/images/tinker.png)
 
+{{#if electron}}
+**Note: Tinker on the Electron uses data and should be used sparingly.**
+{{/if}}
+
 The Tinker section of the Particle mobile app makes it very easy to start playing with your Particle device without writing any code. It's great for early development, learning, and prototyping. We'll learn to use it in the next few examples.
 
 To get started, you'll need the following things:

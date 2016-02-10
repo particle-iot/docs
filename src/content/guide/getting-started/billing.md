@@ -2,11 +2,11 @@
 title: Electron Billing Guide
 template: guide.hbs
 columns: two
-devices: [ photon,electron,core ]
+devices: [ electron,photon,core ]
 order: 8
 ---
 
-## Cellular Service with Particle
+## Billing Service with Particle
 Welcome to the wonderful world of inexpensive cellular for your devices! Monthly services always come with some complexity, and we're here to clear up as much of that as we can. If you have specific questions, you may want to use the navigation on the left to jump to the relevant section.
 
 ### Overview
