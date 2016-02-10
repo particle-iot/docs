@@ -3,7 +3,7 @@ title: Troubleshooting Tools
 template: support.hbs
 columns: two
 devices: [ photon,electron,core ]
-order: 9
+order: 10
 ---
 
 # Troubleshooting Tools

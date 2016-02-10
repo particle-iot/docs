@@ -1,5 +1,5 @@
 ---
-title: Photon shields and kits
+title: Particle shields and kits
 template: datasheet.hbs
 columns: two
 order: 6
@@ -592,7 +592,15 @@ This is a 128x64 pixel graphic OLED screen that can be either controlled via the
 
 [Datasheet >](/assets/datasheets/makerkit/oled.pdf)
 
+## Electron Shields + Kits
+### Electron Sensor Kit
+*Coming soon!*
 
+### Electron Solar Kit
+*Coming soon!*
+
+### Electron Asset Tracker
+*Coming soon!*
 
 
 

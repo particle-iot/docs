@@ -3,6 +3,7 @@ word: CLI
 title: Command Line
 order: 4
 columns: two
+devices: [electron,photon,core]
 template: guide.hbs
 ---
 
@@ -101,7 +102,33 @@ $ particle help
 $ particle help keys
 ```
 
+## Flashing over Serial for the Electron
 
+If you're wanting to save data on your Electron you should definitely consider flashing your Electron over
+serial instead of OTA (over-the-air).
+
+Assuming you've compiled and downloaded the firmware binary from [Build IDE](https://build.particle.io) by clicking the cloud button next to the file name, you should 
+be able to use the Particle CLI, mentioned above, to flash your application firmware to your Electron *without using data.*
+
+Steps:
+- **1:** Put the Electron in to [listening mode](/guide/getting-started/modes/electron/#listening-mode)
+- **2:** Open Particle CLI from your machine
+- **3:** Navigate to the folder where you've downloaded the `firmware.bin` file.
+- **4:** From the CLI issue `particle flash --serial firmware.bin`
+
+```sh
+# How to flash an Electron over serial
+$ particle flash --serial firmware.bin
+
+! PROTIP: Hold the SETUP button on your device until it blinks blue!
+? Press ENTER when your device is blinking BLUE 
+sending file: firmware.bin
+
+Flash success!
+```
+
+*Note*: If your Electron goes into [safe mode](/guide/getting-started/modes/electron/#safe-mode), this is okay, just make sure that the system firmware you on the device matches the dependency of the system firmware 
+built into the firmware application.
 
 ## Blink an LED with Tinker
 
@@ -115,7 +142,6 @@ Including:
 attempting to flash firmware to your device my_new_device_name
 flash device said  {"id":"0123456789ABCDEFGHI","status":"Update started"}
 ```
-
 
 Let's make sure your device is online and loaded with Tinker.  We should see the four characteristic functions exposed by Tinker, "digitalwrite", "digitalread", "analogwrite", and "analogread".
 

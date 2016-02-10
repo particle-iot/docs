@@ -1,4 +1,4 @@
-$(document).ready(function() {	
+$(document).ready(function() {
 	$("#form1").on("submit", function(e) {
 		e.preventDefault();
 
@@ -9,21 +9,22 @@ $(document).ready(function() {
 		datax.email = $("#email").val();
 		datax.email2 = $("#email2").val();
 		datax.subj = $("#category option:selected").val();
+		datax.topic = $("#secondmenu option:selected").val();
 		datax.comments = $("#comment").val();
 
 		//Validations
-		var regex = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/; 
+		var regex = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;
 		//if( !regex.test(datax.email)) { alert('enter a valid email'); }
 
     //Object to send
-    var ddx = { name: datax.name, 
+    var ddx = { name: datax.name,
 		  				email: datax.email ,
 		  				subject: datax.subj,
+						topic: datax.topic,
 		  				comments: datax.comments,
 		  				urlFrom: window.location.pathname
 						};//object
 
-		//Post to Heroku App
 		$.ajax({
 		  method: "POST",
 		  url: "https://staging-supportal.herokuapp.com",
@@ -36,6 +37,7 @@ $(document).ready(function() {
 					$("#email").val('');
 					$("#email2").val('');
 					$("#category option:selected").val();
+					$("#secondmenu option:selected").val();
 					$("#comment").val('');
 					$("#button-blue").css('background-color', 'green');
 					$("#button-blue").attr('value', 'Message Received!');
@@ -48,8 +50,5 @@ $(document).ready(function() {
 		});//post function
 
 	});//onSubmit Form end
-	
+
 });//end of document.ready Function
-
-
-

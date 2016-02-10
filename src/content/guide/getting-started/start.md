@@ -53,7 +53,7 @@ This is probably why you bought your device-- the cellular module allows your El
 The cellular module is also accompanied with a Particle SIM card.
 
 It connects your device to the internet in the same way that your smartphone might connect to its cellular network.
-See our coverage map [here - update this link](https://www.particle.io/cellular).
+[See our coverage map](/support/troubleshooting/common-issues/electron/#6-check-the-cellular-coverage-in-your-area).
 {{/if}}
 
 {{#if photon}}{{{popup '**The Wi-Fi Module.**' 'img' 'photon-module.jpg'}}}{{/if}}
@@ -73,14 +73,14 @@ The microcontroller is the brain of your device. It runs your software and tells
 
 
 {{#if electron}}{{{popup '**The Antenna & USB Cable.**' 'img' 'electronAntenna.jpg'}}}
-The cellular antenna is imperative for the electron to reach connection to a cellular tower. It will operate for all 2G/3G frequencies that your
-electron needs, depending on the version you have. The USB cable provides a means to charge your electron as well as send serial and dfu commands to your device.
+The cellular antenna is imperative for the Electron to reach connection to a cellular tower. It will operate for all 2G/3G frequencies that your
+Electron needs, depending on the version you have. The USB cable provides a means to charge your Electron as well as send serial and dfu commands to your device.
 {{/if}}
 
 
 {{#if electron}}{{{popup '**The Battery.**' 'img' 'electronBattery.jpg'}}}
-The electron comes with a standard 3.7V LiPo battery (rechargeable) which allows the electron to be powered over long periods of time without needing a connection
-to wired power source. Consider this battery your electron's best friend!
+The Electron comes with a standard 2000mAh 3.7V LiPo battery (rechargeable) which allows the Electron to be powered over long periods of time without needing a connection
+to wired power source. Consider this battery your Electron's best friend!
 {{/if}}
 
 
@@ -109,8 +109,8 @@ For more technical details on what comes on your device, go {{#if core}}[here](/
 ## Prerequisites for Setup
 {{#if electron}}
 * **Software**
-  * Particle Mobile App - [iPhone](https://itunes.apple.com/us/app/particle-build-photon-electron/id991459054?ls=1&mt=8) | [Android](https://play.google.com/store/apps/details?id=io.particle.android.app)
-  * *Note: We highly recommend using [online web setup](https://setup.particle.io) for the electron.*
+  * We highly recommend using our [online web setup](https://setup.particle.io) for the Electron.
+  * You can also use the Particle Mobile App - [iPhone](https://itunes.apple.com/us/app/particle-build-photon-electron/id991459054?ls=1&mt=8) | [Android](https://play.google.com/store/apps/details?id=io.particle.android.app)
 * **Hardware**
   * Your Particle Electron, brand new and out of the box!
   * USB to micro USB cable (included)
@@ -123,7 +123,7 @@ For more technical details on what comes on your device, go {{#if core}}[here](/
     * None! This is your first project.
 
 ## Billing for Electron
-
+See the full [Electron Billing Guide](/guide/getting-started/billing/)
 ### Overview
 - You will be billed per Particle SIM card, not per device
 - Base rate up to 1.0MB, +1MB up to 2.0MB
@@ -141,7 +141,7 @@ For more technical details on what comes on your device, go {{#if core}}[here](/
   - **i.e. if you sign up January 30th, your next billing period starts on February 28th.**
 
 ## Data Guide for Electron
-
+See the full [Electron Data Guide](/guide/getting-started/data/)
 ### Data Limits
 - Data limits are cutoffs, not the amount you're going to be billed for- we only bill for the amount used
 - Your data cutoff is your Hard limit
@@ -167,6 +167,19 @@ For more technical details on what comes on your device, go {{#if core}}[here](/
 - I bought an Electron through Kickstarter, but I didn't get free data.
   - *What do I do?*
 [Contact support](/support/support-and-fulfillment/menu-base/photon/#form-main) and give us your [device id](/support/troubleshooting/common-questions/electron/#how-do-i-get-my-deviceid-device-id-), SIM ICC ID, and your kickstarter order # and we'll give you a refund/credit and get you on the right plan.
+
+## New Features
+### How to display signal strenth
+- This will show you the signal strength in a number of green blinks (0-5), with 5 being the strongest. 
+- Tap MODE *once* when the device is breathing cyan.
+
+
+### Soft Power Down
+- This can be considered as an alternative to unplugging the battery.
+- This is also deep sleep for the Electron. 
+- Simply done by *tapping* MODE twice.
+- To turn it back on *tap* RESET.
+- The Electron will consume 0.13mA in this mode.
 
 Go to the next section to learn to [connect over USB](/guide/getting-started/connect/electron/).    
 {{/if}}

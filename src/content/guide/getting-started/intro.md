@@ -45,9 +45,9 @@ This guide will show you how to use Particle to make a connected device, from th
 
 
 The guide is broken down into three parts:
-- **Getting Started** goes over how to connect your device and then dives into some examples to get you used to the connected platform. If you've never played with connected hardware before, Getting Started is the section for you! It's filled with small {{{ popup 'footnotes' 'note' 'When you hover over or click these, you will get more info on the underlined word.'}}} that you can hover over or (on smaller screens and mobile) click or tap for more info. If you're an expert, you may want to take the first few chapters to connect your device, then move on to Tools and Features.
-- **Tools and Features** details the different parts of the Particle platform that come in handy as you build a connected product. It includes using Particle Dev, the Dashboard, the Command Line Interface (CLI) and more.
-- **How to Build a Product** is the final section. It reviews everything you need to do to take the connected device you've prototyped and take it to production.
+- [**Getting Started**](/guide/getting-started/start/) goes over how to connect your device and then dives into some examples to get you used to the connected platform. If you've never played with connected hardware before, Getting Started is the section for you! It's filled with small {{{ popup 'footnotes' 'note' 'When you hover over or click these, you will get more info on the underlined word.'}}} that you can hover over or (on smaller screens and mobile) click or tap for more info. If you're an expert, you may want to take the first few chapters to connect your device, then move on to Tools and Features.
+- [**Tools and Features**](/guide/tools-and-features/intro/) details the different parts of the Particle platform that come in handy as you build a connected product. It includes using Particle Dev, the Dashboard, the Command Line Interface (CLI) and more.
+- [**How to Build a Product**](/guide/how-to-build-a-product/intro/) is the final section. It reviews everything you need to do to take the connected device you've prototyped and take it to production.
 
 We'll fill in more parts of the guide in the {{{popup 'coming months' 'note' 'Thanks for your patience, friend.'}}}, but for now the best way to use the guide is:
 - Go through _Getting Started_
