@@ -63,7 +63,7 @@ We're also providing low cast data plans specifically for IoT devices that you c
 We've created a [SIM Management and Billing Dashboard](https://dashboard.particle.io/user/billing) that allows you to visualize your data usage over time, set usage alerts to notify you when you're reaching your limit, and pause service to your SIM at configurable thresholds to avoid overages.
 
 ### Cellular coverage
-The Particle SIM leverages cellular agreements with most of the major GSM carriers throughout the entire world. Curious if you've got coverage in your neighborhood? Check out [http://opensignal.com](http://opensignal.com) and select the service type (2G or 2G+3G)/carrier that corresponds to your device/country. Have questions about cellular coverage? Don't hesitate to reach out to us at [hello@particle.io](mailto:hello@particle.io).
+The Particle SIM leverages cellular agreements with most of the major GSM carriers throughout the entire world. Curious if you've got coverage in your neighborhood? Check out [http://opensignal.com](http://opensignal.com) and select the service type (2G or 2G+3G)/carrier that corresponds to your device/country. Have questions about cellular coverage? Don't hesitate to [reach out to us.](/support/support-and-fulfillment/menu-base/electron/#form-main
 
 
 
