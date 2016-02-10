@@ -62,9 +62,7 @@ There are three different variants of the Electron, and they each work in differ
 | Electron U260  | 3G with 2G fallback | North and South America | 850/1900
 | Electron U270 | 3G with 2G fallback | Europe, Asia, Africa, Australia | 900/1800/2100 |
 
-Make sure that your device is compatible with the cellular infrastructure in your country. Small country-by-country variations from the generalized table above may apply. For a detailed list of 3G service country by country, please visit the following link:
-
-**LINKY LINK LINK**
+Make sure that your device is compatible with the cellular infrastructure in your country. Small country-by-country variations from the generalized table above may apply. For a detailed list of 3G service country by country, [please visit the following link](https://www.kickstarter.com/projects/sparkdevices/spark-electron-cellular-dev-kit-with-a-simple-data/description).
 
 If your device is not compatible with the cellular infrastructure in your country, **it will be unable to connect to the Internet using a Particle SIM or any other SIM.**
 
