@@ -245,15 +245,6 @@ Created by Zach Supalla.
     });
   };
 
-  Docs.checkIfGuideScrollbar = function() {
-    var $contentInner = $('.content-inner')[0];
-    if($contentInner) {
-      if($contentInner.scrollHeight > $contentInner.clientHeight) {
-        $('.arrow.next-arrow').css('margin-right', '15px');
-      }
-    }
-  };
-
   Docs._removeEmptyTokens = function removeEmptyTokens(token) {
     if (token.length > 0) {return token};
   };
@@ -350,6 +341,5 @@ Created by Zach Supalla.
   Docs.toggleNav();
   Docs.toggleShowing();
   prettyPrint();
-  Docs.checkIfGuideScrollbar();
 
 })(jQuery);
