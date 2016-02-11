@@ -20,7 +20,7 @@ order: 2
 {{/if}}
 
 {{#if electron}}
-![](/assets/images/electronItemBox.png)
+![](/assets/images/electronItemBox.jpg)
 <p class="caption">Introducing the future, the Electron.</p>
 {{/if}}
 

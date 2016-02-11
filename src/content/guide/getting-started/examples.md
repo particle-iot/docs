@@ -17,25 +17,26 @@ To complete all the examples, you will need the following materials:
 #### Materials
 * **Hardware**
   * Your Particle device
-  * USB to micro USB cable {{#if photon}}(included with Photon Kit and Maker Kit){{/if}}
+  * USB to micro USB cable {{#if photon}}(included with Photon Kit and Maker Kit){{/if}}{{#if electron}}(included with the Electron){{/if}}
   * Power source for USB cable (such as your computer, USB battery, or power brick)
-  * (2) Resistors between 220 Ohms and 1000 Ohms {{#if photon}}(220 Ohm Resistors included with Photon Kit and Maker Kit){{/if}}
-  * (1) LED, any color {{#if photon}}(Red LED included with Photon Kit and Maker Kit){{/if}}
-  * (1) Photoresistor {{#if photon}}(Included with Photon Kit and Maker Kit){{/if}}
-  {{#if electron}}* LiPo Battery (included in the Electron kit){{/if}}
+  * (2) Resistors between 220 Ohms and 1000 Ohms {{#if photon}}(220 Ohm Resistors included with Photon Kit and Maker Kit){{/if}}{{#if electron}}(included with the Electron){{/if}}
+  * (1) LED, any color {{#if photon}}(Red LED included with Photon Kit and Maker Kit){{/if}}{{#if electron}}(included with the Electron){{/if}}
+  * (1) Photoresistor {{#if photon}}(Included with Photon Kit and Maker Kit){{/if}}{{#if electron}}(included with the Electron){{/if}}
+  {{#if electron}}* LiPo Battery (included with the Electron){{/if}}
 
 {{#if electron}}All of the example circuits are based on the reference card that came along with your Electron kit. If you have misplaced yours, download it [here!](/assets/images/electron/illustrations/electron-card.pdf){{/if}}
 * **Software**
-  * A text editor such as [Sublime](http://www.sublimetext.com/) or [TextMate](https://macromates.com/)
-  * The [online IDE](http://build.particle.io) or [Particle Dev](http://particle.io/dev)
+  * The [online IDE](http://build.particle.io) 
+  * or the local [Particle Dev](http://particle.io/dev)
 * **Experience**
-  * Connecting your Device [with your smartphone](/guide/getting-started/start) or [over USB](/guide/getting-started/connect)
+  {{#unless electron}}* Connecting your Device [with your smartphone](/guide/getting-started/start/) or [over USB](/guide/getting-started/connect){{/unless}}
+  {{#if electron}}* Connecting your Device [with your browser or smartphone](/guide/getting-started/start/electron/){{/if}}
 
 {{#if electron}}
 <p class = "boxedHead">NOTE:</p>
 <p class = "boxed">
 
-Since Electron is a cellular device and you are paying for the data in an ongoing basis, it's important for us to  to be conscious and conservative about the data usage. Every time you update your firmware over the air, push data to the device or remain connected to the network, you are consuming data. In the development phase of your project, it is advised that you limit your firmware updates to [happen over USB](/reference/cli/#compiling-remotely-and-flashing-locally), instead of the cellular network. You'll first need to install the [Particle Command Line Interface](/guide/tools-and-features/cli/) on your computer.
+Since Electron is a cellular device and OTA usage consumes data, it's important for us to think about conserving data. Every time you update your firmware over the air, push data to the device or remain connected to the network, you are consuming data. In the development phase of your project, it is suggested that you [update firmware happen over USB](/guide/tools-and-features/cli/electron/#flashing-over-serial-for-the-electron), instead of the cellular network. You'll first need to install the [Particle Command Line Interface](/guide/tools-and-features/cli/) on your computer.
 
 </p>
 
@@ -58,7 +59,7 @@ Connect everything together as shown in the image below. The negative (shorter) 
 {{#unless electron}}![One LED illustration](/assets/images/photon-led-fritzing.png){{/unless}}
 {{#if electron}}![One LED illustration](/assets/images/electron/illustrations/electron-blink-led.png){{/if}}
 
-Next, we're going to load code onto your core. Copy and paste this code into a new application on http://build.particle.io or on Particle Dev. We've heavily commented this code so that you can see what is going on in each line.
+Next, we're going to load code onto your device. Copy and paste this code into a new application on http://build.particle.io or on Particle Dev. We've heavily commented this code so that you can see what is going on in each line.
 
 Go ahead and save this application, then flash it to your {{#unless electron}}Core or Photon{{/unless}}{{#if electron}}Electron{{/if}}. You should be able to see that LED blinking away!
 
@@ -149,7 +150,7 @@ Now that we know how to blink an LED, how about we control it over the Internet?
 We've heavily commented the code below so that you can see what's going on. Basically, we are going to:
 
 - Set up the pins as outputs that have LEDs connected to them
-- Create and register a Spark function (this gets called automagically when you make an API request to it)
+- Create and register a Particle function (this gets called automagically when you make an API request to it)
 - Parse the incoming command and take appropriate actions
 
 ### Setup
@@ -167,15 +168,15 @@ As in the previous example, connect everything together as shown in the image be
 // Controlling LEDs over the Internet
 // -----------------------------------
 
-// First, let's create our "shorthand" for the pins
-// Same as in the Blink an LED example:
-// led1 is {{#unless electron}}D0{{/unless}}{{#if electron}}D6{{/if}}, led2 is D7
+/* First, let's create our "shorthand" for the pins
+Same as in the Blink an LED example:
+led1 is {{#unless electron}}D0{{/unless}}{{#if electron}}D6{{/if}}, led2 is D7 */
 
 int led1 = {{#unless electron}}D0{{/unless}}{{#if electron}}D6{{/if}};
 int led2 = D7;
 
 // Last time, we only needed to declare pins in the setup function.
-// This time, we are also going to register our Spark function
+// This time, we are also going to register our Particle function
 
 void setup()
 {
@@ -195,9 +196,9 @@ void setup()
 }
 
 
-// Last time, we wanted to continously blink the LED on and off
-// Since we're waiting for input through the cloud this time,
-// we don't actually need to put anything in the loop
+/* Last time, we wanted to continously blink the LED on and off
+Since we're waiting for input through the cloud this time,
+we don't actually need to put anything in the loop */
 
 void loop()
 {
@@ -206,7 +207,6 @@ void loop()
 
 // We're going to have a super cool function now that gets called when a matching API request is sent
 // This is the ledToggle function we registered to the "led" Particle.function earlier.
-
 
 int ledToggle(String command) {
     /* Particle.functions always take a string as an argument and return an integer.
@@ -289,7 +289,7 @@ and
 
 `particle call device_name led off`
 
-Remember to replace `device_name` with either your device ID or the casual nickname you made for your device when you set it up.
+Remember to replace `device_name` with either your device ID or the nickname you made for your device when you set it up.
 
 This does the same thing as our HTML page, but with a more slick interface.
 
@@ -367,7 +367,7 @@ void setup() {
     pinMode(photoresistor,INPUT);  // Our photoresistor pin is input (reading the photoresistor)
     pinMode(power,OUTPUT); // The pin powering the photoresistor is output (sending out consistent power)
 
-    // Next, write the power of the photoresistor to be the maximum possible, so that we can use this for power.
+    // Next, write one pin of the photoresistor to be the maximum possible, so that we can use this for power.
     digitalWrite(power,HIGH);
 
     // We are going to declare a Particle.variable() here so that we can access the value of the photoresistor from the cloud.
@@ -387,6 +387,7 @@ void loop() {
 
     // check to see what the value of the photoresistor is and store it in the int variable analogvalue
     analogvalue = analogRead(photoresistor);
+    delay(100);
 
 }
 
@@ -470,7 +471,7 @@ curl -G https://api.particle.io/v1/devices/0123456789abcdef/analogvalue \
 
 You can see a JSON output of your Particle.variable() call by going to:
 
-https&#58;//api.particle.io/v1/devices/your-device-ID-goes-here/analogvalue?access_token=your-access-token-goes-here
+https://api.particle.io/v1/devices/your-device-ID-goes-here/analogvalue?access_token=your-access-token-goes-here
 
 (Be sure to replace `your-device-ID-goes-here` with your actual device ID and `your-access-token-goes-here` with your actual access token!)
 
@@ -620,7 +621,7 @@ void loop() {
   When the status of the beam changes, we'll send a Particle.publish() to the cloud
   so that if we want to, we can check from other devices when the LED is on or off.
 
-  We'll also turn the D7 LED on when the Photoresistor detects a beam breakagse.
+  We'll also turn the D7 LED on when the Photoresistor detects a beam breakage.
   */
 
   if (analogRead(photoresistor)>beamThreshold) {
@@ -682,9 +683,9 @@ void loop() {
 
 In the previous example, we sent a private publish. This publish went to you alone; it was just for you and your own apps, programs, integrations, and devices. We can also send a public publish, though, which allows anyone anywhere to see and subscribe to our event in the cloud. All they need is our event name.
 
-Go find a buddy who has a Core or Photon. Your buddy does not have to be next to you-- he or she can be across the world if you like! All you need is Wi-Fi.
+Go find a buddy who has a Core, Photon, or Electron. Your buddy does not have to be next to you--she or he can be across the world if you like! All you need is a connection.
 
-Connect your device and copy the firmware on the right into a new app. Pick a weird name for your event. If your core were named `starfish` for example, you could make your event name something like `starfish_special_event_20150515`. Have your buddy pick a name for their event as well. No more than 63 ASCII characters, and no spaces!
+Connect your device and copy the firmware on the right into a new app. Pick a weird name for your event. {{#unless electron}}If your device were named `starfish` for example, you could make your event name something like `starfish_special_event_20150515`. Have your buddy pick a name for their event as well. No more than 63 ASCII characters, and no spaces!{{/unless}}{{#if electron}}Keep it short for data efficiency, but unique so no one else will be using it.{{/if}}
 
 Now replace `your_unique_event_name` with your actual event name and `buddy_unique_event_name` with your buddy's unique event name.
 
@@ -692,7 +693,7 @@ Have your buddy do the same thing, only with their event name and yours (swap 'e
 
 Flash the firmware to your devices. Calibrate your device when it comes online (same as in the previous example).
 
-When the beam is broken on your device, the D7 LED on your buddy's device will light up! Now you can send little messages to each other in morse code.
+When the beam is broken on your device, the D7 LED on your buddy's device will light up! Now you can send little messages to each other in morse code... though if one of you is using an Electron, you should be restrained.
 
 ### Setup
 The setup is the same as in the last example. Set up your breadboard as follows:
@@ -709,7 +710,7 @@ Ensure that the short end of the LED is plugged into `GND` and that the LED and 
 // Publish and Subscribe with Photoresistors
 /* -----------------------------------------
 
-Go find a buddy who also has a Spark device.
+Go find a buddy who also has a Particle device.
 Each of you will pick a unique event name
    (make it weird so that no one else will have it)
    (no more that 63 ASCII characters, and no spaces)
@@ -722,9 +723,6 @@ Have your buddy do the same on his or her IDE.
 Then, each of you should flash the code to your device.
 
 Breaking the beam on one device will turn on the D7 LED on the second device.
-
-Now you can send each other morse code messages!
-
 
 But how does this magic work? Through the miracle of publish and subscribe.
 
@@ -881,6 +879,85 @@ void myHandler(const char *event, const char *data)
 }
 
 </code></pre>
+
+
+{{#if electron}}
+<div style="display: none;" id="electron-combined-publish" data-firmware-example-url="https://docs.particle.io/guide/getting-started/examples/photon/#electron-combined-publish" data-firmware-example-title="Electron Combined Publishes" data-firmware-example-description="Learn how to send many data points in a single Publish to save data"></div>
+
+## Electron Combined Publish
+
+### Intro
+Every message the Electron sends to or from the Cloud has a certain fixed overhead, so we try to minimize the number of messages that are sent. You can do some optimization in your code, too. If you combine many data points in a single publish message, you'll use less data. We combine the data points into a single string, with commas in between them for easy parsing later.
+
+
+### Setup
+You can use the previous circuit, with the photoresistor connected to A0.
+
+
+### Code
+
+<pre><code class="lang-cpp" data-firmware-example-code-block=true>
+// --------------------------------------------
+// Combining many data points into one Publish
+/* --------------------------------------------
+
+This short bit of code samples an analog sensor connected to A0
+every 10 minutes (600,000 milliseconds) and publishes 5 readings
+at a time to the cloud. Combining what could be several publishes
+into a single publish message saves lots of data, and this example
+can easily be modified to send more data points at once, change the
+sampling rate, or read a different sensor.
+
+------------------------------------------*/
+
+// Create an array with 5 locations to store values in
+int light[5];
+
+// The variable we'll use to keep track of where we are in the array
+int i = 0;
+
+// This is where we'll store the last time a measurement was taken
+long lastMeasurement = 0;
+
+void setup() {
+    
+}
+
+void loop() {
+    
+    /* This statement is incredibly useful. 
+    millis() tells us what the current time is in milliseconds
+    lastMeasurement will be when we recorded last; it starts out as 0 because we've never measured
+    If the difference in milliseconds between the current time and the last time we've measured 
+    is more than 600,000 milliseconds (ten minutes) then... do all the things!
+    */
+    if(millis()-lastMeasurement > 60000){
+        // Measure the value on the photoresistor, and put it into the array
+        light[i] = analogRead(A0);
+        
+        // Keep track of when last measurement was taken
+        lastMeasurement = millis();
+    
+        // If we've taken 5 measurements (0-4, inclusive) then we should send that data
+        if(i == 4){
+            /* We're using a short event name "T" to reduce data transmitted
+            String::format will create a single string for us out of many data points
+            Each %d means to put an integer there. %s is used for strings.
+            To learn more, read https://en.wikipedia.org/wiki/Printf_format_string 
+            Since this will only happen every 5 measurements, we can assume these publishes will be 50 minutes apart*/
+            Particle.publish("L", String::format("%d,%d,%d,%d,%d", light[0],light[1],light[2],light[3],light[4]));
+            // Reset index to beginning
+            i = 0;
+        }
+        else {
+            // If it wasn't the 5th measurement, increase the index by 1
+            i++;
+        }
+    }
+}
+
+</code></pre>
+{{/if}}
 
 <div style="display: none;" id="annotated-tinker-firmware" data-firmware-example-url="http://docs.particle.io/photon/tinker/#annotated-tinker-firmware" data-firmware-example-title="Tinker" data-firmware-example-description="The factory default firmware that mobile apps interact with"></div>
 
@@ -1138,7 +1215,9 @@ int tinkerAnalogWrite(String command)
 {{#if photon}}
 [Go to Community Forums >](http://community.particle.io/c/troubleshooting)
 {{/if}}
-
 {{#if core}}
+[Go to Community Forums >](http://community.particle.io/c/troubleshooting)
+{{/if}}
+{{#if electron}}
 [Go to Community Forums >](http://community.particle.io/c/troubleshooting)
 {{/if}}
