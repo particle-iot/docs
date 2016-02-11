@@ -8,9 +8,7 @@ order: 1
 
 # Common Issues
 
-This section goes over the most common issues we've seen recently with device setup. We expect that many of these issues will be resolved in upcoming releases, but for now here his some info.
-
-Sometimes your device can get into an unexpected state and it won't behave the way you expect. Here's what you might be able to do to resolve your issue!
+This section will help walk you through the diagnosis and resolution of the most common roadblocks that our users run into. Some of these roadblocks are caused by issues or bugs in the platform, but many are more innocuous than that, and few are permanent. We'll help you identify exactly why your device is `insert_issue_here` and help you get it back to happily connected.
 
 {{#if electron}}
 
@@ -82,7 +80,9 @@ While the Electron does not *require* that you attach the USB cable, this will e
 In order for your Particle SIM card to connect to the cellular network, it needs to be activated. The *only* way to do this is to go through SIM activation and setup at [https://setup.particle.io](https://setup.particle.io). Follow the on-screen prompts to complete device setup and SIM activation.
 
 ### 5) Are you using a 3rd party (non-Particle) SIM?
-If you're not using a Particle SIM, you will have to change the cellular APN on the Electron before it can connect. A Username and Password may also be required.  Ask your cellular provider for these credentials and head over to [setCredentials()](/reference/firmware/electron/#setcredentials-) for more details on how to set these.
+If you're not using a Particle SIM, you will have to change the cellular APN on the Electron before it can connect. A Username and Password may also be required.  To connect the Electron with a 3rd party SIM, visit our [setup page](http://setup.particle.io) and follow the on screen instructions to set your APN, download a new firmware binary, and flash it to your device.
+
+> **NOTE**: Until you have done this, your device _will not_ be able to connect to the Internet.
 
 ### 6) Check the cellular coverage in your area
 The Electron leverages a number of cellular carriers to provide excellent coverage, but it *is* possible that you are outside GSM coverage in your country. Fortunately, it's relatively simple to check:
@@ -122,15 +122,48 @@ Still having issues? [Write us an email](/support/support-and-fulfillment/menu-b
 
 {{{device-animation device "breathe" "magenta" }}}
 
-If your Electron is breathing magenta, it is in Safe Mode. This means that, although it is connected to the Cloud, it is not running your user firmware. Your device can end up in Safe Mode if the user app that you programmed became corrupted, or the compile target of the user app is newer than the system firmware modules on your device. There are two ways that you can resolve this issue:
+If your Electron is breathing magenta, it is in Safe Mode. This means that, although it is connected to the Cloud, it is not running your user firmware. Your device can end up in Safe Mode if the user app that you programmed became corrupted, or the compile target of the user app is newer than the firmware version of the system modules on your device.
 
-### Recompile your user app for your existing system firmware.
+There are two primary ways that you can resolve this issue:
 
-If you are developing in the Build IDE, the compiler should automatically target the version of system firmware running on the selected device.
+### 1) Recompile your user app for your existing system firmware.
 
-### Update the system firmware on your Electron
+If you are developing in the Build IDE, the compiler should automatically target the version of system firmware running on the selected device. The Build IDE will also give you a warning if you select a firmware version build target for your device that is newer than the system modules running on it. To confirm that you're building with the right version of firmware, follow these steps:
 
-Something something dark side
+- Go to https://build.particle.io
+- Click on the `Devices` icon on the left-most navigation pane
+- Select the dropdown arrow next to the device that is in safe mode
+- Click the `Building with firmware` dropdown and make sure that it is set to `Default`
+- Try flashing the application to your device again over the air, or download the binary and flash it to your device using the CLI
+
+### 2) Update the system firmware on your Electron
+
+The other option to resolve a mismatch between system and user firmware versions is to update the system firmware on your Electron to match the newer user firmware version. You can do this one of two ways:
+
+**Using the Build IDE**  
+More details coming soon.
+
+**Using the Particle Device Updater**  
+More details coming soon.
+
+### 3) Check your application for issues
+
+If you are confident that there is a version match between the system and user compile targets of firmware on your device or you see the LED on your device flash [red or orange](http://docs.particle.io/support/troubleshooting/troubleshooting-support/electron/#error-codes) after startup, it is likely that there is an issue with the user firmware running on your device. To return your device to a stable condition, reflash the Tinker app to your device in one of two ways:
+
+**Using the CLI** - Uses _no_ data
+- Attach the Electron to your computer using a USB cable
+- Put your Electron in DFU mode
+- Type the following command: `particle flash --usb tinker`
+
+**Using the Build IDE** - Uses data
+- Go to https://build.particle.io
+- Click on the `Devices` icon on the left-most navigation pane
+- Select the dropdown arrow next to the device that is in safe mode
+- Click the `Building with firmware` dropdown and make sure that it is set to `Default`
+- Click the `Code` icon on the left-most navigation pane
+- Click the `Tinker` application from the list of "Example Apps" section at the bottom of your applications pane
+- Click the `Flash` button
+
 
 
 
