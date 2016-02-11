@@ -153,7 +153,7 @@ If you're using an Electron, please follow the instructions at [https://setup.pa
 
 If your device is not connecting, try troubleshooting [here](http://support.particle.io/hc/en-us/articles/204357684-Can-t-Get-Connected-).
 
-[More info on the CLI is available ](/photon/cli).
+[More info on the CLI is available ](/guide/getting-started/cli).
 
 
 If your device is not connecting, try [troubleshooting](/support).
