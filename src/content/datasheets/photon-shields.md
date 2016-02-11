@@ -592,17 +592,91 @@ This is a 128x64 pixel graphic OLED screen that can be either controlled via the
 
 [Datasheet >](/assets/datasheets/makerkit/oled.pdf)
 
-## Electron Shields + Kits
-### Electron Sensor Kit
-*Coming soon!*
+## Electron Solar Kit
+The Solar Kit comes with everything you need to make a solar powered cellular project! Super efficient power design so you can go off-the-grid with no need of wires. It has a big 6W solar panel, waterproof enclosure with cable gland for connecting the panel, and a super low-power timing circuit so the Electron can sleep in between readings. It's an ideal solution for field sensing that needs to go on for months or years.
 
-### Electron Solar Kit
-*Coming soon!*
+### Using the Solar Kit
+Assembly:
+1. Mount the cable gland in the side of the box. 
+2. Screw the Solar Shield down inside the box using the included M4 screws. 
+3. Pass the barrel jack wire through the cable gland, leaving the bare wires inside the box and the connector outside. 
+4. Put the red wire into the terminal block marked "+" and the black wire into "GND" and tighten them down firmly with a small screwdriver. 
+5. Tighten the cable gland around the barrel jack wire, 
+6. Plug the Electron into the shield with the USB pointing inward
+7. Connect the male JST wire from the shield to the female JST on the Electron
+8. Plug the battery into the Solar Shield's female JST
+9. Finally, connect the solar panel to the barrel jack. This may take a little force to get secure.
 
-### Electron Asset Tracker
-*Coming soon!*
+### Recommended operating conditions
+| Parameter | Symbol | Min | Typ | Max | Unit |
+| :---|:---|:---:|:---:|:---:|:---:|
+| Solar Input Voltage | V<sub>IN</sub> | +4.95<sup>[1]</sup> |  | +32 | V |
+| Supply Output Voltage | V<sub>3V3</sub> |  | +3.3 |  | V |
+| LiPo Battery Voltage | V<sub>LiPo</sub> | +3.6 |  | +4.4 | V |
+| Deep Sleep Current (4.2V LiPo) | I<sub>Qds</sub> | 5 |  | 10 | uA |
+| Operating Temperature | T<sub>op</sub> | -20 |  | +60 | °C |
+| Humidity Range Non condensing, relative humidity | | | | 95 | % |
 
+*Library and photos coming soon!*
 
+## Electron Asset Tracker
+The Asset Tracker is a cellular solution for tracking the location of just about anything! The included shield has a GPS module and an accelerometer, so you can make projects that use location, orientation, and movement. Report vibration as you drive around, save power by keeping the cell modem and GPS off if the device isn't moving, or track boxes. Also has a barrel jack connector for adding another power source and a connector for adding an external GPS antenna if it's going to be inside something. Designed by Adafruit!
+
+### Using the Asset Tracker
+**GPS**
+The shield has the same GPS module as the [Adafruit Ultimate GPS](https://learn.adafruit.com/adafruit-ultimate-gps/) so all of their specs and usage notes apply here, too. The primary bit to know is that the GPS module can take several minutes to get a lock, and may not get a lock at all if it doesn't have a clear view of the sky- sorry, no indoors projects. If this is proving a problem for you, an [external antenna](https://www.adafruit.com/products/960) may help (don't forget an SMA to uFL adapter!).
+
+The GPS is connected to the Serial1 UART on the Electron, and we've also provided a MOSFET to completely shut off power to it for major power savings. Pin D6 controls the GPS power, with inverted logic. This means that the GPS will only be ON when D6 is LOW, which should keep it off even if you put the Electron to sleep.
+
+There's a backup battery holder for the GPS, to reduce subsequent fix acquisition times, but it's not required.
+
+**Accelerometer**
+Also onboard is an accelerometer, the [LIS3DH](http://www.adafruit.com/datasheets/LIS3DH.pdf). It's extremely low power so won't chew up your energy budget. The accel communicates over SPI, so it takes up A2, A3, A4, and A5 as marked on the silkscreen of the shield. A configurable interrupt from the LIS3DH is connected to the Electron's "wake" (WKP) pin, so you should be able to make a project where the Electron and GPS stay in deep sleep until it's hit hard enough to cross a threshold you set on the accelerometer.
+
+**Enclosure**
+The waterproof box includes two M4 screws for mounting the shield securely into the box. Screw the shield down in the enclosure, then plug the Electron into the shield with the USB connector facing inward. You can also look at the silkscreen Electron outline on the board for the correct orientation. The battery and antenna can be fixed in the box using the foam adhesive tape if you want to keep them from moving around.
+
+### Recommended operating conditions
+| Parameter | Symbol | Min | Typ | Max | Unit |
+| :---|:---|:---:|:---:|:---:|:---:|
+| Supply Input Voltage | V<sub>IN</sub> | +5.0<sup>[1]</sup> |  | +12 | V |
+| Supply Output Voltage | V<sub>3V3</sub> |  | +3.3 |  | V |
+| LiPo Battery Voltage | V<sub>LiPo</sub> | +3.6 |  | +4.4 | V |
+| Backup power consumption at 3V (GPS only) | I<sub>Qs</sub> |  | 7 |  | uA |
+| Deep Sleep Current (4.2V LiPo) | I<sub>Qds</sub> |  | 120 | 140 | uA |
+| Operating Temperature | T<sub>op</sub> | -20 |  | +60 | °C |
+| Humidity Range Non condensing, relative humidity | | | | 95 | % |
+
+*Library and photos coming soon!*
+
+## Electron Sensor Kit
+This is the big one! A fantastic collection of premium and versatile sensors.
+### Sensor Kit Includes
+- (1) Electron
+- (1) USB Micro B Cable
+- (1) Particle SIM Card
+- (1) Cellular Antenna
+- (1) 2000mAh LiPo Battery
+- (1) Particle Sticker
+- (2) Resistor 220-Ohm
+- (1) Breadboard
+- (1) Photoresistor
+- (1) Bright LED - White
+
+AND
+
+- (1) ADXL362 accelerometer
+- (1) GP2Y0A710K0F 100-500cm IR Distance sensor
+- (1) LM2904 audio sensor
+- (1) MQ2 gas sensor
+- (1) SHT10 soil humidity and temperature sensor
+- (1) HC-SR501 PIR motion sensor
+- (1) LM393 soil moisture sensor
+- (1) DS18B20 waterproof temperature sensor
+- (1) SW18020P vibration sensor
+- Various jumper wires, resistors, capacitors, LEDs, and pushbuttons
+
+*Library and photos coming soon!*
 
 
 
