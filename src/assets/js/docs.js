@@ -331,33 +331,25 @@ Created by Zach Supalla.
   Docs.toggleNav = function() {
     $(".toggle-navigation").click(function(e) {
       e.preventDefault();
-      $(".menubar, .page-body").toggleClass("menu-visible menu-hidden");
+      if($(".menubar").css("opacity") === "1") {
+        $(".menubar, .page-body").addClass("menu-hidden").removeClass("menu-visible");
+      } else {
+        $(".menubar, .page-body").addClass("menu-visible").removeClass("menu-hidden");
+      }
     });
   };
 
-  Docs.addMenubarClass = function() {
-    var width = $(window).width();
-    if(width > 768) {
-      $(".menubar, .page-body").removeClass('menu-hidden').addClass('menu-visible');
-    } else {
-      $(".menubar, .page-body").removeClass('menu-visible').addClass('menu-hidden');
-    }
-  };
-
-  $(window).resize(Docs.addMenubarClass);
-
   // Ok, then let's do it!
-  Docs.addMenubarClass();
   Docs.rememberDevices();
   Docs.transform();
   Docs.setupTOCScrollSpy();
   Docs.scrollToInternalLinks();
   Docs.watchToggleInPageNav();
   Docs.watchToggleSecondaryInPageNav();
-  Docs.checkIfGuideScrollbar();
   Docs.buildSearch();
   Docs.toggleNav();
   Docs.toggleShowing();
   prettyPrint();
+  Docs.checkIfGuideScrollbar();
 
 })(jQuery);
