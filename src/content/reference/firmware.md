@@ -5841,8 +5841,8 @@ When using manual mode:
 
 *Since 0.4.6.*
 
-> Please note that the System Thread feature is in Beta - we advise only using this
-in production after extensive testing.
+{{#if electron}}**Please note:** The System Thread feature is in Beta - we advise only using this
+in production after extensive testing.{{/if}}
 
 The System Thread is a system configuration that helps ensure the application loop
 is not interrupted by the system background processing and network management.
