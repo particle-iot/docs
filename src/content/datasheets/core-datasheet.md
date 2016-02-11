@@ -2,7 +2,7 @@
 title: Core datasheet
 template: datasheet.hbs
 columns: two
-order: 2
+order: 7
 ---
 
 # Spark Core Datasheet
