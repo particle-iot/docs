@@ -2,7 +2,7 @@
 title: Particle shields and kits
 template: datasheet.hbs
 columns: two
-order: 6
+order: 2
 ---
 
 # Shields and accessories
