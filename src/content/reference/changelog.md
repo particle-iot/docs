@@ -78,7 +78,7 @@ Need a more powerful antenna for your product? The Electron is compatible with a
 ![](/assets/images/electron-simcard.jpg)
 <p class="caption">The Particle SIM provides wordwide coverage for cellular IOT devices.</p>
 
-Particle is now an MVNO (Mobile virtual network operator)! Every Electron comes with a Particle SIM that is pre-provisioned for Internet access in over 100 countries. For a full list of supported countries and associated carriers, find your country in the dropdown menu [here](http://particle.io/cellular?utm_source=medium&utm_medium=blog&utm_campaign=electronlaunch).
+Particle is now an MVNO (Mobile virtual network operator)! Every Electron comes with a Particle SIM that is pre-provisioned for Internet access in over 100 countries. For a full list of supported countries and associated carriers, find your country in the dropdown menu [here](http://particle.io/cellular).
 
 
 ### Low Cost Data Plan
@@ -90,11 +90,11 @@ We’re also providing low cost data plans specifically for IoT devices that you
 ![](/assets/images/electron-dashboard.png)
 <p class="caption">The Particle SIM dashboard lets you monitor and manage data usage.</p>
 
-We’ve created a SIM management and billing [dashboard](https://dashboard.particle.io/user/billing?utm_source=medium&utm_medium=blog&utm_campaign=electronlaunch) that allows you to visualize your data usage over time, set usage alerts to notify you when you’ve reached your data limit, and pause service to your SIM at configurable thresholds to avoid overages.
+We’ve created a SIM management and billing [dashboard](https://dashboard.particle.io/user/billing) that allows you to visualize your data usage over time, set usage alerts to notify you when you’ve reached your data limit, and pause service to your SIM at configurable thresholds to avoid overages.
 
 ### Worldwide Coverage
 
-The Particle SIM leverages cellular agreements with most of the major GSM carriers throughout the world. Want to know who’s providing service in your neighborhood? Head over [here](http://particle.io/cellular?utm_source=medium&utm_medium=blog&utm_campaign=electronlaunch) and find your country in the dropdown menu.
+The Particle SIM leverages cellular agreements with most of the major GSM carriers throughout the world. Want to know who’s providing service in your neighborhood? Head over [here](http://particle.io/cellular) and find your country in the dropdown menu.
 
 
 
@@ -111,7 +111,7 @@ We’ve made it easier than ever to check the cellular signal of your device. Wh
 
 ### Sleep Modes
 
-The Electron is the perfect tool for untethered and remote projects. We’ve worked hard to minimize current consumption of the Electron in deep sleep modes to provide you the tools to significantly extend the battery life of your project. Check out the technical documentation for our [sleep() function](https://docs.particle.io/reference/firmware/photon/?utm_source=medium&utm_medium=blog&utm_campaign=electronlaunch#sleep-sleep-) to learn more.
+The Electron is the perfect tool for untethered and remote projects. We’ve worked hard to minimize current consumption of the Electron in deep sleep modes to provide you the tools to significantly extend the battery life of your project. Check out the technical documentation for our [sleep() function](https://docs.particle.io/reference/firmware/photon/#sleep-sleep-) to learn more.
 
 ### New Peripherals
 
@@ -129,7 +129,7 @@ Because UDP is a connectionless protocol, the concept of a device being “onlin
 ![](/assets/images/electron-setup.png)
 <p class="caption">The Electron features a powerful new web-based setup process.</p>
 
-Along with the new hardware, we’ve shipped a super neat web-based setup process for activating your Particle SIM card and claiming Electrons to your Particle account. This setup flow can be completed on any device with a browser including phones, tablets, and computers! Check it out at our new [setup page](http://setup.particle.io/?utm_source=medium&utm_medium=blog&utm_campaign=electronlaunch).
+Along with the new hardware, we’ve shipped a super neat web-based setup process for activating your Particle SIM card and claiming Electrons to your Particle account. This setup flow can be completed on any device with a browser including phones, tablets, and computers! Check it out at our new [setup page](http://setup.particle.io/).
 
 ### Smarter Dev Tools
 
@@ -145,10 +145,10 @@ In order to help you monitor your data usage, we’ll present you with a confirm
 
 Because the Electron is so different from the Photon and Core, we’ve built out a bunch of new example code and technical documentation for beginners, product creators, and everyone in between. Here are some of the highlights:
 
-- [Electron Hardware Datasheet](https://docs.particle.io/datasheets/electron-datasheet/?utm_source=medium&utm_medium=blog&utm_campaign=electronlaunch)
-- [Electron Billing Guide](https://docs.particle.io/guide/getting-started/billing/?utm_source=medium&utm_medium=blog&utm_campaign=electronlaunch)
-- [Electron Data Guide](https://docs.particle.io/guide/getting-started/data/?utm_source=medium&utm_medium=blog&utm_campaign=electronlaunch)
-- [Electron Code Examples](https://docs.particle.io/guide/getting-started/examples/electron/?utm_source=medium&utm_medium=blog&utm_campaign=electronlaunch)
+- [Electron Hardware Datasheet](https://docs.particle.io/datasheets/electron-datasheet/)
+- [Electron Billing Guide](https://docs.particle.io/guide/getting-started/billing/)
+- [Electron Data Guide](https://docs.particle.io/guide/getting-started/data/)
+- [Electron Code Examples](https://docs.particle.io/guide/getting-started/examples/electron/)
 
 We’ll be building integration guides and more detailed application notes for product creators in the near future.
 
@@ -160,7 +160,7 @@ If you want more details on certification, visit the [Certification](https://doc
 
 ## More to Come
 
-We’ve still got a lot of great features planned for the Electron and the rest of the Particle platform. Like every new product, we expect the Electron to undergo rapid improvement in the upcoming months as we identify improvements to be made to our firmware and developer tools. We’re eager for your feedback — if you encounter bugs or want to request new features when you receive your Electron join our [online community](http://community.particle.io/?utm_source=medium&utm_medium=blog&utm_campaign=electronlaunch) to learn how to create a Github issue or [contribute](http://community.particle.io/t/how-to-contribute-to-docs-spark-io/4976?utm_source=medium&utm_medium=blog&utm_campaign=electronlaunch) a Pull Request. If you’re working on a project, post it on [Hackster](https://www.hackster.io/particle?utm_source=medium&utm_medium=blog&utm_campaign=electronlaunch)--we often share our favorite projects with our community.
+We’ve still got a lot of great features planned for the Electron and the rest of the Particle platform. Like every new product, we expect the Electron to undergo rapid improvement in the upcoming months as we identify improvements to be made to our firmware and developer tools. We’re eager for your feedback — if you encounter bugs or want to request new features when you receive your Electron join our [online community](http://community.particle.io/) to learn how to create a Github issue or [contribute](http://community.particle.io/t/how-to-contribute-to-docs-spark-io/4976) a Pull Request. If you’re working on a project, post it on [Hackster](https://www.hackster.io/particle)--we often share our favorite projects with our community.
 
 Happy hacking--we'll see you online!
 
