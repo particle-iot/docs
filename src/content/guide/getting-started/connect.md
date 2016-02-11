@@ -8,14 +8,13 @@ order: 3
 
 # Connecting your Device over USB
 
-The easiest way to connect your device to {{#if electron}}cellular{{/if}}{{#if photon}}Wi-Fi{{/if}}{{#if core}}Wi-Fi{{/if}} is using the mobile app as described in the [previous lesson](/guide/getting-started/start). But in case that's not working for you or you don't have an iOS/Android phone, there are other methods as well.
+The easiest way to connect your device to {{#if electron}}cellular{{/if}}{{#if photon}}Wi-Fi{{/if}}{{#if core}}Wi-Fi{{/if}} is using the {{#unless electron}}mobile app{{/unless}}{{#if electron}}browser{{/if}} as described in the [previous lesson](/guide/getting-started/start). {{#unless electron}}But in case that's not working for you, there are other methods as well.{{/unless}}{{#if electron}}It's worth noting here that you currently cannot set up an Electron from the command line (CLI) because we require that a credit card number be entered, but the CLI will be extremely useful for other things. Please use [setup.particle.io](https://setup.particle.io/) or the mobile apps.{{/if}}
 
-For all of the following methods, the device must be in [Listening Mode](/guide/getting-started/modes/photon/#listening-mode), where the RGB LED is {{#if photon}}{{{popup 'blinking blue.' 'vine' 'https://vine.co/v/eZUH7WaWjMT/embed/simple'}}}{{/if}}{{#if core}}{{{popup 'blinking blue.' 'vine' 'https://vine.co/v/eZU6YiK20Hl/embed/simple'}}}{{/if}}
+For all of the following methods, the device must be in [Listening Mode](/guide/getting-started/modes/photon/#listening-mode), where the RGB LED is {{#unless core}}{{{popup 'blinking blue.' 'vine' 'https://vine.co/v/eZUH7WaWjMT/embed/simple'}}}{{/unless}}{{#if core}}{{{popup 'blinking blue.' 'vine' 'https://vine.co/v/eZU6YiK20Hl/embed/simple'}}}{{/if}}
 
-Particle devices boot into listening mode by default, so if your device is brand new, it should go straight into listening mode. If your device is not blinking blue, {{#if photon}}{{{popup 'hold down the SETUP button.' 'vine' 'https://vine.co/v/eZUHUIjq7pO/embed/simple'}}}{{/if}}{{#if core}}{{{popup 'hold down the MODE button.' 'vine' 'https://vine.co/v/eZUgHYYrYgl/embed/simple'}}}{{/if}}
+Particle devices boot into listening mode by default, so if your device is brand new, it should go straight into listening mode. If your device is not blinking blue, {{#if photon}}{{{popup 'hold down the SETUP button.' 'vine' 'https://vine.co/v/eZUHUIjq7pO/embed/simple'}}}{{/if}}{{#if electron}}{{{popup 'hold down the MODE button.' 'vine' 'https://vine.co/v/eZUHUIjq7pO/embed/simple'}}}{{/if}}{{#if core}}{{{popup 'hold down the MODE button.' 'vine' 'https://vine.co/v/eZUgHYYrYgl/embed/simple'}}}{{/if}}
 
-
-There are a two ways to go about connecting your Photon over USB, depending on your OS.
+There are a two ways to go about connecting your device over USB, depending on your OS.
 
 ## Using OSX
 
@@ -154,9 +153,9 @@ If you're using an Electron, please follow the instructions at [https://setup.pa
 
 If your device is not connecting, try troubleshooting [here](http://support.particle.io/hc/en-us/articles/204357684-Can-t-Get-Connected-).
 
-More info on the CLI is available [here](/photon/cli).
+[More info on the CLI is available ](/guide/tools-and-features/cli/).
 
 
-If your device is not connecting, try troubleshooting [here](/support).
+If your device is not connecting, try [troubleshooting](/support).
 
 Once you've finished connecting your device, head over to [the next section](/guide/getting-started/modes) to learn about the different modes for your device.

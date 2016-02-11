@@ -2,7 +2,7 @@
 title: Core shields and kits
 template: datasheet.hbs
 columns: two
-order: 3
+order: 8
 ---
 
 # Shields and accessories
