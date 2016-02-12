@@ -32,7 +32,7 @@
     "metalsmith-ignore": "^0.1.2",
     "metalsmith-in-place": "^1.0.1",
     "metalsmith-less": "^2.0.0",
-    "metalsmith-lunr": "git://github.com/spark/metalsmith-lunr",
+    "metalsmith-lunr": "spark/metalsmith-lunr#0.2.2",
     "metalsmith-markdown": "git://github.com/spark/metalsmith-markdown",
     "metalsmith-move-up": "^1.0.0",
     "metalsmith-paths": "^2.0.0",
