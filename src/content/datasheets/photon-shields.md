@@ -597,7 +597,7 @@ The Solar Kit comes with everything you need to make a solar powered cellular pr
 
 ### Using the Solar Kit
 Assembly:
-1. Mount the cable gland in the side of the box. 
+1. Screw the cable gland into the side of the box. If you want it to be truly water-tight, you should add some silicone caulk. Also, the inner nut may not have enough clearance to fit, but that's fine with caulking.
 2. Screw the Solar Shield down inside the box using the included M4 screws. 
 3. Pass the barrel jack wire through the cable gland, leaving the bare wires inside the box and the connector outside. 
 4. Put the red wire into the terminal block marked "+" and the black wire into "GND" and tighten them down firmly with a small screwdriver. 
@@ -605,7 +605,9 @@ Assembly:
 6. Plug the Electron into the shield with the USB pointing inward
 7. Connect the male JST wire from the shield to the female JST on the Electron
 8. Plug the battery into the Solar Shield's female JST
-9. Finally, connect the solar panel to the barrel jack. This may take a little force to get secure.
+9. Connect the solar panel to the barrel jack. This may take a little force to get secure.
+
+*Note: The lid has small plastic "keys" that will only allow it to be screwed down securely in one orientation. Look for them at the outer corners right next to the screw holes*
 
 ### Recommended operating conditions
 | Parameter | Symbol | Min | Typ | Max | Unit |
