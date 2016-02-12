@@ -31,6 +31,7 @@ module.exports = function(options) {
 
 				newFile[value] = true;
 				newFile[keySingular] = titleize(value);
+				newFile[keySingular + 'Value'] = value;
 				files[newName] = newFile;
 				forkLocations[value] = '/' + newName.replace(extension, '');
 			});

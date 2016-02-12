@@ -16,34 +16,36 @@
           <h3 class="guide-section-titles" >{{{titleize section}}}</h3>
             <ol type="1">
               {{#each this}}
-                <li class="top-level {{#page-equal ../../path.href ../../path.name path.href path.name}}active{{/page-equal}}" data-level="{{inc @../index}}.{{inc @index}}">
-                  {{#page-equal ../../path.href ../../path.name path.href path.name}}
-                    <span>{{{title}}}</span>
-                    {{#if ../../../toc}}
-                      <i id="toggle-in-page-nav" class="ion-minus"></i>
+                {{#empty-or-contains devices @root.deviceValue}}
+                  <li class="top-level {{#page-equal @root.path.href @root.path.name path.href path.name}}active{{/page-equal}}" data-level="{{inc @../index}}.{{inc @index}}">
+                    {{#page-equal @root.path.href @root.path.name path.href path.name}}
+                      <span>{{{title}}}</span>
+                      {{#if @root.toc}}
+                        <i id="toggle-in-page-nav" class="ion-minus"></i>
+                      {{/if}}
+                    {{else}}
+                      <a href="{{path.href}}{{path.name}}">{{title}}</a>
+                    {{/page-equal}}
+                  </li>
+                  {{#page-equal @root.path.href @root.path.name path.href path.name}}
+                    {{#if @root.toc}}
+                      <div class="in-page-toc-container">
+                        <ul class="nav in-page-toc show">
+                          {{#each @root.toc}}
+                          <li class="middle-level" data-nav="{{dataHref}}">{{#if children}}<i class="toggle-secondary-toc ion-arrow-right-b"></i>{{/if}}<a href="{{id}}" data-menu-href="{{dataHref}}">{{{text}}}</a></li>
+                            {{#if children}}
+                              <ul class="nav secondary-in-page-toc">
+                                {{#each children}}
+                                  <li data-secondary-nav="{{dataHref}}"><a href="{{id}}" data-menu-href="{{dataHref}}">{{{text}}}</a></li>
+                                {{/each}}
+                              </ul>
+                            {{/if}}
+                          {{/each}}
+                        </ul>
+                      </div>
                     {{/if}}
-                  {{else}}
-                    <a href="{{path.href}}{{path.name}}">{{title}}</a>
                   {{/page-equal}}
-                </li>
-                {{#page-equal ../../path.href ../../path.name path.href path.name}}
-                  {{#if ../../../toc}}
-                    <div class="in-page-toc-container">
-                      <ul class="nav in-page-toc show">
-                        {{#each ../../../../toc}}
-                        <li class="middle-level" data-nav="{{dataHref}}">{{#if children}}<i class="toggle-secondary-toc ion-arrow-right-b"></i>{{/if}}<a href="{{id}}" data-menu-href="{{dataHref}}">{{{text}}}</a></li>
-                          {{#if children}}
-                            <ul class="nav secondary-in-page-toc">
-                              {{#each children}}
-                                <li data-secondary-nav="{{dataHref}}"><a href="{{id}}" data-menu-href="{{dataHref}}">{{{text}}}</a></li>
-                              {{/each}}
-                            </ul>
-                          {{/if}}
-                        {{/each}}
-                      </ul>
-                    </div>
-                  {{/if}}
-                {{/page-equal}}
+                {{/empty-or-contains}}
               {{/each}}
             </ol>
           </li>
