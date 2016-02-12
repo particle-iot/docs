@@ -413,7 +413,7 @@ void loop() {
 
 After you call `Particle.connect()`, your loop will not be called again until the device finishes connecting to the Cloud. Typically, you can expect a delay of approximately one second.
 
-In most cases, you do not need to call `Particle.connect()`; it is called automatically when the device turns on. Typically you only need to call `Particle.connect()` after disconnecting with [`Particle.disconnect()`](#particle-disconnect) or when you change the [system mode](#system-modes).
+In most cases, you do not need to call `Particle.connect()`; it is called automatically when the device turns on. Typically you only need to call `Particle.connect()` after disconnecting with [`Particle.disconnect()`](#particle-disconnect-) or when you change the [system mode](#system-modes).
 
 
 ### Particle.disconnect()
@@ -4558,7 +4558,7 @@ Set the system time to the given timestamp.
 *NOTE*: This will override the time set by the Particle Cloud.
 If the cloud connection drops, the reconnection handshake will set the time again
 
-Also see: [`Particle.syncTime()`](#particle-synctime)
+Also see: [`Particle.syncTime()`](#particle-synctime-)
 
 ```cpp
 // Set the time to 2014-10-11 13:37:42
@@ -5768,7 +5768,7 @@ void loop() {
 
 - When the device starts up, it automatically tries to connect to Wi-Fi and the Particle Cloud.
 - Once a connection with the Particle Cloud has been established, the user code starts running.
-- Messages to and from the Cloud are handled in between runs of the user loop; the user loop automatically alternates with [`Particle.process()`](#particle-process).
+- Messages to and from the Cloud are handled in between runs of the user loop; the user loop automatically alternates with [`Particle.process()`](#particle-process-).
 - `Particle.process()` is also called during any delay() of at least 1 second.
 - If the user loop blocks for more than about 20 seconds, the connection to the Cloud will be lost. To prevent this from happening, the user can call `Particle.process()` manually.
 - If the connection to the Cloud is ever lost, the device will automatically attempt to reconnect. This re-connection will block from a few milliseconds up to 8 seconds.
@@ -5800,12 +5800,12 @@ void loop() {
 The semi-automatic mode is therefore much like the automatic mode, except:
 
 - When the device boots up, the user code will begin running immediately.
-- When the user calls [`Particle.connect()`](#particle-connect-), the user code will be blocked, and the device will attempt to negotiate a connection. This connection will block until either the device connects to the Cloud or an interrupt is fired that calls [`Particle.disconnect()`](#particle-disconnect).
+- When the user calls [`Particle.connect()`](#particle-connect-), the user code will be blocked, and the device will attempt to negotiate a connection. This connection will block until either the device connects to the Cloud or an interrupt is fired that calls [`Particle.disconnect()`](#particle-disconnect-).
 
 ### Manual mode
 
 
-The "manual" mode puts the device's connectivity completely in the user's control. This means that the user is responsible for both establishing a connection to the Particle Cloud and handling communications with the Cloud by calling [`Particle.process()`](#particle-process) on a regular basis.
+The "manual" mode puts the device's connectivity completely in the user's control. This means that the user is responsible for both establishing a connection to the Particle Cloud and handling communications with the Cloud by calling [`Particle.process()`](#particle-process-) on a regular basis.
 
 ```cpp
 SYSTEM_MODE(MANUAL);
@@ -5829,7 +5829,7 @@ When using manual mode:
 
 - The user code will run immediately when the device is powered on.
 - Once the user calls [`Particle.connect()`](#particle-connect-), the device will attempt to begin the connection process.
-- Once the device is connected to the Cloud ([`Particle.connected()`](#particle-connected)` == true`), the user must call `Particle.process()` regularly to handle incoming messages and keep the connection alive. The more frequently `Particle.process()` is called, the more responsive the device will be to incoming messages.
+- Once the device is connected to the Cloud ([`Particle.connected()`](#particle-connected-)` == true`), the user must call `Particle.process()` regularly to handle incoming messages and keep the connection alive. The more frequently `Particle.process()` is called, the more responsive the device will be to incoming messages.
 - If `Particle.process()` is called less frequently than every 20 seconds, the connection with the Cloud will die. It may take a couple of additional calls of `Particle.process()` for the device to recognize that the connection has been lost.
 
 
