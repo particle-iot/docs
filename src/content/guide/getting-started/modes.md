@@ -110,18 +110,25 @@ When your {{device}} is in Listening Mode, it is waiting for your input to conne
 
 {{#if photon}}
 {{{vine "https://vine.co/v/eZUHUIjq7pO/embed/simple"}}}
+
 To put your {{device}} in Listening Mode, hold the `SETUP` button for three seconds, until the RGB LED begins flashing blue.
 {{/if}}
+
 {{#if electron}}
 {{{vine "https://vine.co/v/eZUHUIjq7pO/embed/simple"}}}
+
 To put your {{device}} in Listening Mode, hold the `MODE` button for three seconds, until the RGB LED begins flashing blue.
 {{/if}}
+
 {{#if core}}
 {{{vine "https://vine.co/v/eZUgHYYrYgl/embed/simple"}}}
+
 To put your {{device}} in Listening Mode, hold the `MODE` button for three seconds, until the RGB LED begins flashing blue.
 {{/if}}
 
+
 {{#if photon}}
+
 ### Wi-Fi Network Reset
 
 {{{vine "https://vine.co/v/eZUwtJljYnK/embed/simple"}}}
@@ -133,34 +140,13 @@ You can also reset the Wi-Fi networks by holding the `SETUP` button and tapping 
 {{/if}}
 
 {{#if core}}
+
 ### Wi-Fi Network Reset
 
 {{{vine "https://vine.co/v/eZU6expA5bA/embed/simple"}}}
 
 To erase the stored wifi networks on your {{device}}, hold the `MODE` button for about ten seconds, until the RGB LED flashes blue rapidly.
 
-{{/if}}
-
-{{#if core}}
-### Wi-Fi Network Reset
-
-{{#if photon}}
-
-{{{vine "https://vine.co/v/eZUwtJljYnK/embed/simple"}}}
-
-To erase the stored wifi networks on your {{device}}, hold the `SETUP` button for about ten seconds, until the RGB LED flashes blue rapidly.
-
-You can also reset the Wi-Fi networks by holding the `SETUP` button and tapping `RESET`, then continuing to hold `SETUP` until the light on the {{device}} turns white. (This differs from the Core. Doing this action on the Core will result in a factory reset.)
-
-{{/if}}
-
-{{#if core}}
-
-{{{vine "https://vine.co/v/eZU6expA5bA/embed/simple"}}}
-
-To erase the stored wifi networks on your {{device}}, hold the `MODE` button for about ten seconds, until the RGB LED flashes blue rapidly.
-
-{{/if}}
 {{/if}}
 
 {{#if photon}}
@@ -285,7 +271,7 @@ The procedure is same as the one described above (DFU Mode), but in this case yo
 6. Release the `MODE` button
 
 
-You can reset Wi-Fi credentials by performing a [WiFi Network Reset](#wifi-network-reset).
+You can reset Wi-Fi credentials by performing a [WiFi Network Reset](#wi-fi-network-reset).
 {{/if}}
 
 
