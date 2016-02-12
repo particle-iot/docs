@@ -9,27 +9,6 @@ template: datasheet.hbs
 
 # Particle Kits Overview
 
-**Electron Line**
-- [Electron](#electron)
-- [Electron Sensor Kit](#electron-sensor-kit)
-- [Electron Solar Kit](#electron-solar-kit)
-- [Electron Asset Tracker](#electron-asset-tracker)
-
-**Photon Line**
-- [Photon](#photon)
-- [Photon Kit](#photon-kit)
-- [Photon Maker Kit](#photon-maker-kit)
-- [Shield Shield](#shield-shield)
-- [Relay Shield](#relay-shield)
-- [Programmer Shield](#programmer-shield)
-- [Power Shield](#power-shield)
-- [Internet Button](#internet-button)
-
-
-**Core Line**
-- [Spark Core](#spark-core)
-- [Spark Core Maker Kit](#spark-core-maker-kit)
-
 Here's a quick "what's in the box" for each of our offered kits. More detail is available by clicking on their links to the shields and kits page.
 
 ## Electron
