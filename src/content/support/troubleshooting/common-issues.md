@@ -32,6 +32,10 @@ Remove *both* the USB cable and Li-Po battery from the Electron, so that the RGB
 ### 4\. Check the integrity of your SIM card holder
 Visually inspect the SIM card holder. Are all of the contacts soldered down? Does the holder lie flush against the Electron PCB (printed circuit board)? Are any of the pins bent or depressed downwards?
 
+The easiest way to identify a bad contact in the holder is by removing the SIM card and looking at the marks on the contacts. If there are any contacts without marks, then one of the spring pins in the holder may be bent down. You can try to fix this yourself by gently bending the pin upward until it lines up with the others using a pair of fine tweezers or an exacto knife.
+
+![Identifying and fixing SIM holder](/assets/images/bad-sim-socket.png)
+
 Try using your hands to press down on the SIM card to improve contact between the SIM and the metal pins underneath--while pressing on the SIM card, press the `RESET` button on the Electron. If you see the device begin to connect to the cellular network (flash green), you may have a damaged SIM card holder and should [contact Particle](/support/support-and-fulfillment/menu-base/electron/).
 
 ### 5\. Is your SIM card damaged or defective?
