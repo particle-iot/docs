@@ -345,18 +345,18 @@ A pattern of more than 10 red flashes is caused by the firmware crashing. The pa
 
 There are a number of other red flash codes that may be expressed after the SOS blinks:
 
-#1 Hard fault
-#2 Non-maskable interrupt fault
-#3 Memory Manager fault
-#4 Bus fault
-#5 Usage fault
-#6 Invalid length
-#7 Exit
-#8 Out of heap memory
-#9 SPI over-run
-#10 Assertion failure
-#11 Invalid case
-#12 Pure virtual call
+1. Hard fault
+2. Non-maskable interrupt fault
+3. Memory Manager fault
+4. Bus fault
+5. Usage fault
+6. Invalid length
+7. Exit
+8. Out of heap memory
+9. SPI over-run
+10. Assertion failure
+11. Invalid case
+12. Pure virtual call
 
 The two most common ones are:
 
