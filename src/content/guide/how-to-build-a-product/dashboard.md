@@ -296,7 +296,7 @@ As customers are created for your product, they will begin to appear on your Cus
 
 ## Monitoring Product Logs
 
-The logs page (<i class="icon-terminal"></i>) is also available to product creators! Featuring the same interface as what you are used to with the [developer version of the dashboard](/guide/tools-and-features/dashboard/), the logs will now include events from any device identifying as your product. Use this page to get a real-time look into what is happening with your devices. In order to take full advantage of the logs page, be sure to use `Spark.publish()` in your firmware.
+The logs page (<i class="icon-terminal"></i>) is also available to product creators! Featuring the same interface as what you are used to with the [developer version of the dashboard](/guide/tools-and-features/dashboard/), the logs will now include events from any device identifying as your product. Use this page to get a real-time look into what is happening with your devices. In order to take full advantage of the logs page, be sure to use `Particle.publish()` in your firmware.
 
 ## Managing your subscription
 

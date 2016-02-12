@@ -225,13 +225,13 @@ The good news is that the firmware on the CC3000 module can be updated and the S
 
 So far TI has supplied a couple of firmware patches to the Spark Team to test, but at this time, the issue doesn't seem to have been fully resolved. TI has been very helpful during this process and we're hopeful to have a fix soon. When the fix is ready and fully tested, we will provide instructions on how to update the CC3000 firmware.
 
-## Spark.publish() breaks inside of Spark.function()
+## Particle.publish() breaks inside of Particle.function()
 * Status: **Acknowledged**
 * Forum Thread: https://community.particle.io/t/spark-publish-crashing-core/3463
 
 #### Description
 
-If `Spark.publish()` is called within a function declared in `Spark.function()`, the Core may become unresponsive for a short period of time and return a 408 timed out error in the cloud API call.
+If `Particle.publish()` is called within a function declared in `Particle.function()`, the Core may become unresponsive for a short period of time and return a 408 timed out error in the cloud API call.
 
 A fix can be applied in the user code that will work around this issue.  A simple explanation can be found in [post #10 of the forum thread](https://community.particle.io/t/spark-publish-crashing-core/3463/10).
 

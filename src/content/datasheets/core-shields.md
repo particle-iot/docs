@@ -119,8 +119,8 @@ void setup()
    digitalWrite(RELAY3, LOW);
    digitalWrite(RELAY4, LOW);
 
-   //register the Spark function
-   Spark.function("relay", relayControl);
+   //register the Particle function
+   Particle.function("relay", relayControl);
 }
 
 void loop()
@@ -604,8 +604,8 @@ int rightMotorDir   = D4;
 
 void setup()
 {
-  //Register Spark function
-  Spark.function("rccar", rcCarControl);
+  //Register Particle function
+  Particle.function("rccar", rcCarControl);
 
   pinMode(leftMotorDir, OUTPUT);
   pinMode(leftMotorEnable, OUTPUT);

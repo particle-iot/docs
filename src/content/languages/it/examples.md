@@ -89,8 +89,8 @@ int led2 = D1;
 // Questa routine gira una sola volta dopo il reset
 void setup()
 {
-   //Registrare la funzione Spark
-   Spark.function("led", ledControl);
+   //Registrare la funzione Particle
+   Particle.function("led", ledControl);
 
    // Configurare i pins come output
    pinMode(led1, OUTPUT);
@@ -148,7 +148,7 @@ curl https://api.particle.io/v1/devices/0123456789abcdef01234567/led \
   -d params=l1,HIGH
 ```
 
-Notate che la fine della chiamata API è 'led' e non 'ledControl'. Questo perchè il punto finale è definito dal primo argomento di Spark.function(), che è una stringa di caratteri piuttosto che il secondo parametro che è invece una funzione.
+Notate che la fine della chiamata API è 'led' e non 'ledControl'. Questo perchè il punto finale è definito dal primo argomento di Particle.function(), che è una stringa di caratteri piuttosto che il secondo parametro che è invece una funzione.
 
 Per comprendere meglio il concetto delle chiamate API al Core via cloud controllate la [referenza Cloud API.](#api)
 
@@ -178,7 +178,7 @@ int temperature = 0;
 void setup()
 {
   // Registrare una variabile Spark
-  Spark.variable("temperature", &temperature, INT);
+  Particle.variable("temperature", &temperature, INT);
 
   // Connettere il sensore di temperatura a A0 e configurarlo
   // come inputt
@@ -283,7 +283,7 @@ Molto semplice!
 
 ```C++
 void setup() {
-  Spark.function("connect", connectToMyServer);
+  Particle.function("connect", connectToMyServer);
 
   for (int pin = D0; pin <= D7; ++pin) {
     pinMode(pin, OUTPUT);

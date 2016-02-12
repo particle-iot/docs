@@ -71,7 +71,7 @@ void setup() {
 }
 
 /* loop(), in contrast to setup(), runs all the time. Over and over again.
-Remember this particularly if there are things you DON'T want to run a lot. Like Spark.publish() */
+Remember this particularly if there are things you DON'T want to run a lot. Like Particle.publish() */
 void loop() {
     // Let's turn an LED on. How about #6, which is at the 6 o'clock position? Let's make it blue and bright.
     b.ledOn(6, 0, 0, 255);
@@ -174,7 +174,7 @@ void loop(){
     // If this calls for a full spectrum situation, let's go rainbow!
     if(b.allButtonsOn()) {
         // Publish the event "allbuttons" for other services like IFTTT to use
-        Spark.publish("allbuttons",NULL, 60, PRIVATE);
+        Particle.publish("allbuttons",NULL, 60, PRIVATE);
         b.rainbow(5);
         rainbow_mode = true;
 
@@ -193,7 +193,7 @@ void loop(){
     if (b.buttonOn(1)) {
         b.ledOn(12, 255, 0, 0); // Red
         // Publish the event "button1" for other services like IFTTT to use
-        Spark.publish("button1",NULL, 60, PRIVATE);
+        Particle.publish("button1",NULL, 60, PRIVATE);
         delay(500);
     }
     else {
@@ -203,7 +203,7 @@ void loop(){
     if (b.buttonOn(2)) {
         b.ledOn(3, 0, 255, 0); // Green
         // Publish the event "button2" for other services like IFTTT to use
-        Spark.publish("button2",NULL, 60, PRIVATE);
+        Particle.publish("button2",NULL, 60, PRIVATE);
         delay(500);
     }
     else {
@@ -213,7 +213,7 @@ void loop(){
     if (b.buttonOn(3)) {
         b.ledOn(6, 0, 0, 255); // Blue
         // Publish the event "button3" for other services like IFTTT to use
-        Spark.publish("button3",NULL, 60, PRIVATE);
+        Particle.publish("button3",NULL, 60, PRIVATE);
         delay(500);
     }
     else {
@@ -223,7 +223,7 @@ void loop(){
     if (b.buttonOn(4)) {
         b.ledOn(9, 255, 0, 255); // Magenta
         // Publish the event "button4" for other services like IFTTT to use
-        Spark.publish("button4",NULL, 60, PRIVATE);
+        Particle.publish("button4",NULL, 60, PRIVATE);
         delay(500);
     }
     else {
@@ -319,7 +319,7 @@ void loop(){
 
 /* Let me show you how easy it is to put the Button on the Internet.
 Useful info, like how to access the data from your browser, can be
-found here: http://docs.particle.io/photon/firmware/#spark-function
+found here: http://docs.particle.io/photon/firmware/#particle-function
 The code to control the number of illuminated LEDs is here:
 https://github.com/spark/InternetButton/blob/master/controlKnob.html
 Try naming one of your devices "InternetButton" and running controlKnob in your browser or on your phone!
@@ -340,7 +340,7 @@ void setup() {
 
     //This is all you need to make the function controller() available to the internet
     //The API name and the local name don't need to be the same; just my style
-    Spark.function("controller", controller);
+    Particle.function("controller", controller);
 
     //This function figures out what combination color, brightness and LEDs to display
     makeColors();
@@ -379,7 +379,7 @@ void loop(){
         }
     }
 
-    //If anything's been altered by clicking or the Spark.function, update the LEDs
+    //If anything's been altered by clicking or the Particle.function, update the LEDs
     if(changed){
         delay(10);
         makeColors();

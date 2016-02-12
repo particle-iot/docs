@@ -2,7 +2,7 @@
 
 Documentation middleware.
 Created by Zach Supalla.
-(c) 2014 Spark Labs, Inc. MIT licensed.
+(c) 2016 Particle Industries, Inc. MIT licensed.
 
 */
 

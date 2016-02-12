@@ -93,7 +93,7 @@ To access all registered variables and functions, go to **Particle** -> **Show c
 
 ![Getting variable]({{assets}}/images/ide-get-variable.gif)
 
-All variables declared with [Spark.variable()](/reference/firmware/#spark-variable-) are shown on the left side of panel. To poll latest variable value, click **Refresh** button for variable you want to update.
+All variables declared with [Particle.variable()](/reference/firmware/#particle-variable-) are shown on the left side of panel. To poll latest variable value, click **Refresh** button for variable you want to update.
 
 ![Watching variable]({{assets}}/images/ide-watch-variable.gif)
 
@@ -103,7 +103,7 @@ When you want to check variable value constantly, you can click **Watch** button
 
 ![Functions]({{assets}}/images/ide-functions.gif)
 
-To call an [exposed function](/reference/firmware/#spark-function-) simply click on the button with its name. You'll see any data the function returns on the right side.
+To call an [exposed function](/reference/firmware/#particle-function-) simply click on the button with its name. You'll see any data the function returns on the right side.
 
 You can also add parameters to the call by entering them to the right of button.
 

@@ -244,7 +244,7 @@ This may take a little while - but don't worry.
 * *Blinking blue:* Listening for Wi-Fi credentials
 * *Solid blue:* Getting Wi-Fi info from app
 * *Blinking green:* Connecting to the Wi-Fi network
-* *Blinking cyan:* Connecting to the Spark Cloud
+* *Blinking cyan:* Connecting to the Particle Cloud
 * *Blinking magenta:* Updating to the newest firmware
 * *Breathing cyan:* Connected!
 
@@ -311,7 +311,7 @@ This may take a little while - but don't worry.
 * *Blinking blue:* Listening for Wi-Fi credentials
 * *Solid blue:* Getting Wi-Fi info from app
 * *Blinking green:* Connecting to the Wi-Fi network
-* *Blinking cyan:* Connecting to the Spark Cloud
+* *Blinking cyan:* Connecting to the Particle Cloud
 * *Blinking magenta:* Updating to the newest firmware
 * *Breathing cyan:* Connected!
 

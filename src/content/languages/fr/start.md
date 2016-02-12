@@ -208,7 +208,7 @@ Pour changer la fonction d'une broche, laissez le doigt sur la broche, et le men
 Le firmware Tinker
 ---
 
-Le firmware Tinker est l'application stockée par défaut quand le Spark Core quitte les lignes d'assemblages à l'usine. Vous pouvez le retrouver en mettant le Core en mode [restauration des réglages d'usine](#boutons), ou bien en reflashant votre Core avec Tinker depuis l'application mobile Spark.
+Le firmware Tinker est l'application stockée par défaut quand le Spark Core quitte les lignes d'assemblages à l'usine. Vous pouvez le retrouver en mettant le Core en mode [restauration des réglages d'usine](#boutons), ou bien en reflashant votre Core avec Tinker depuis l'application mobile Particle.
 
 L'application Tinker est un bon exemple de comment construire une application puissante avec peu de code. Vous pouvez jeter un œil sur la dernière version disponible [ici.](https://github.com/spark/core-firmware/blob/master/src/application.cpp)
 
@@ -401,7 +401,7 @@ Il y a aussi quelques autres trucs utiles dans Spark Build. L'IDE Spark Build es
 
 - **Core ID** : Vous pouvez voir les Device ID de vos Cores en cliquant sur l'icône « Cores » en bas du panneau de navigation, puis en cliquant sur la flèche à côté du Core qui vous intéresse.
 
-- **Unclaim** : Vous pouvez « déréclamer » un Core en cliquant sur le bouton « Remove Core » qui est affiché en cliquant sur la flèche à côté du Core correspondant. Une fois qu'un Core a été supprimé, il peut être associé à nouveau à n'importe quel compte utilisateur Spark.
+- **Unclaim** : Vous pouvez « déréclamer » un Core en cliquant sur le bouton « Remove Core » qui est affiché en cliquant sur la flèche à côté du Core correspondant. Une fois qu'un Core a été supprimé, il peut être associé à nouveau à n'importe quel compte utilisateur Particle.
 
 ![Spark Build](/assets/images/access-token.png)
 

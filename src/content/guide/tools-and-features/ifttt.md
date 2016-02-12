@@ -52,44 +52,44 @@ Other IFTTT channels will provide (and sometimes automatically insert) their own
 
 ```C++
 // SIMPLEST SYNTAX
-Spark.publish(String eventName);
+Particle.publish(String eventName);
 
 // EXAMPLE DEVICE CODE
-Spark.publish("Boiling!");
+Particle.publish("Boiling!");
 
 
 // SYNTAX FOR SENDING DATA
-Spark.publish(String eventName, String data);
+Particle.publish(String eventName, String data);
 
 // EXAMPLE DEVICE CODE
-Spark.publish("Boiling!", "212");
+Particle.publish("Boiling!", "212");
 
 
 // THE COMPLETE VERSION, useful for making events private
-Spark.publish(String eventName, String data, int ttl, PRIVATE);
+Particle.publish(String eventName, String data, int ttl, PRIVATE);
 
 // EXAMPLE DEVICE CODE
-Spark.publish("Boiling!", "212", 60, PRIVATE);
+Particle.publish("Boiling!", "212", 60, PRIVATE);
 
 ```
 
 #### Firmware requirements
 
-To use this Trigger, firmware must include spark.publish(). Complete documentation on using [Spark.publish() is here.](/reference/firmware/#spark-publish-)
+To use this Trigger, firmware must include spark.publish(). Complete documentation on using [Particle.publish() is here.](/reference/firmware/#particle-publish-)
 
 A word of caution - firmware loops quickly, so it's very easy to run publish() too frequently. You'll trigger your IFTTT recipe 100 times in a blink, and if you publish() more than once a second then the Particle Cloud will briefly disable further publishes. Make sure to think through the logic of your code so that it only publishes when you actually want it to.
 
 ### Trigger fields
 
-**If (Event Name):** The name you gave to Spark.publish() in your firmware. Also referred to as topic, name or channel.
+**If (Event Name):** The name you gave to Particle.publish() in your firmware. Also referred to as topic, name or channel.
 
-**is (Event Contents): ** *Optional* Any data you included with your Spark.publish call from firmware.
+**is (Event Contents): ** *Optional* Any data you included with your Particle.publish call from firmware.
 
 **Device Name or ID:** This dropdown menu will be automatically populated with the names of Particle devices that are claimed to your account and are loaded with firmware.
 
 #### Ingredients
 
-**EventName:** The name you gave to Spark.publish("name") in your firmware.
+**EventName:** The name you gave to Particle.publish("name") in your firmware.
 
 ```
 // EXAMPLE EVENT NAME
@@ -120,9 +120,9 @@ January 12, 2015 at 6:59pm
 
 
 #### Firmware requirements
-Monitoring variables is also a simple way to get going. You'll need to create a variable at the top of your code, call Spark.variable() using the format to the right in the setup() function, and then you're good to go.
+Monitoring variables is also a simple way to get going. You'll need to create a variable at the top of your code, call Particle.variable() using the format to the right in the setup() function, and then you're good to go.
 
-Complete documentation on using [Spark.variable() is here.](/reference/firmware/#spark-variable-)
+Complete documentation on using [Particle.variable() is here.](/reference/firmware/#particle-variable-)
 
 ```C++
 // EXAMPLE SHOWING THREE DATA TYPES
@@ -133,9 +133,9 @@ char *message = "my name is particle";
 void setup()
 {
   // variable name max length is 12 characters long
-  Spark.variable("analogvalue", &analogvalue, INT);
-  Spark.variable("temp", &tempC, DOUBLE);
-  Spark.variable("mess", message, STRING);
+  Particle.variable("analogvalue", &analogvalue, INT);
+  Particle.variable("temp", &tempC, DOUBLE);
+  Particle.variable("mess", message, STRING);
   pinMode(A0, INPUT);
 }
 
@@ -151,7 +151,7 @@ void loop()
 
 #### Trigger fields
 
-**If (Variable Name):** Select the Spark.variable you'd like to use from an automatically populated dropdown menu. These options will be pulled from the firmware flashed to your claimed devices. No options will be displayed if your devices don't have Spark.variable()s defined, so check your code and reflash your firmware if it's empty.
+**If (Variable Name):** Select the Particle.variable you'd like to use from an automatically populated dropdown menu. These options will be pulled from the firmware flashed to your claimed devices. No options will be displayed if your devices don't have Particle.variable()s defined, so check your code and reflash your firmware if it's empty.
 
 ```
 // EXAMPLE VARIABLE NAME
@@ -161,7 +161,7 @@ temperature
 **is (Test Operation):** Select a comparison based on a dropdown menu with options: greater, less than, equals, greater or equal, less or equal
 
 
-**Comparison Value (Value to Test Against):** The value that you are comparing with your Spark.variable().
+**Comparison Value (Value to Test Against):** The value that you are comparing with your Particle.variable().
 ```
 // EXAMPLE VALUE
 90
@@ -176,7 +176,7 @@ temperature
 72
 ```
 
-**Variable:** The name of the Spark.variable that you are measuring.
+**Variable:** The name of the Particle.variable that you are measuring.
 
 ```
 // EXAMPLE VARIABLE NAME
@@ -201,7 +201,7 @@ January 17, 2015 at 7:52am
 
 ```cpp
 // SYNTAX TO REGISTER A SPARK FUNCTION
-Spark.function("cloudNickname", firmwareFunctionName);
+Particle.function("cloudNickname", firmwareFunctionName);
 //                ^
 //                |
 //     (max of 12 characters long)
@@ -211,8 +211,8 @@ int brewCoffee(String command);
 
 void setup()
 {
-  // register the Spark function
-  Spark.function("brew", brewCoffee);
+  // register the Particle function
+  Particle.function("brew", brewCoffee);
 }
 
 void loop()
@@ -236,12 +236,12 @@ int brewCoffee(String command)
   else return -1;
 }
 ```
-Your Spark.function()s can be used in several ways with IFTTT. You can send a value to your function to look up data, perform behaviors before taking a measurement, or ask for something to happen and get a response when it's successful.
+Your Particle.function()s can be used in several ways with IFTTT. You can send a value to your function to look up data, perform behaviors before taking a measurement, or ask for something to happen and get a response when it's successful.
 
 #### Firmware requirements
-All of the details are covered in the example to the right. Just remember to declare a function at the top of your code, make it Spark.function() in setup(), and then declare what the function does down below. Currently, only the first 4 Spark.function()s that you register will show up in IFTTT.
+All of the details are covered in the example to the right. Just remember to declare a function at the top of your code, make it Particle.function() in setup(), and then declare what the function does down below. Currently, only the first 4 Particle.function()s that you register will show up in IFTTT.
 
-Complete documentation on using [Spark.function() is here.](/reference/firmware/#spark-function-)
+Complete documentation on using [Particle.function() is here.](/reference/firmware/#particle-function-)
 
 
 #### Trigger fields
@@ -252,7 +252,7 @@ Complete documentation on using [Spark.function() is here.](/reference/firmware/
 allLedsOn()
 ```
 
-**when you send it (Value):** *Optional* This is the data you're giving to the Spark.function() in your firmware.
+**when you send it (Value):** *Optional* This is the data you're giving to the Particle.function() in your firmware.
 ```
 // EXAMPLE USAGE, RGB VALUES FOR COLOR
 100,100,100
@@ -260,7 +260,7 @@ allLedsOn()
 
 **is (Test Operation):** Select a comparison based on a dropdown menu with options: greater, less than, equals, greater or equal, less or equal
 
-**Comparison Value:** The value that you are comparing with your Spark.function result.
+**Comparison Value:** The value that you are comparing with your Particle.function result.
 
 #### Ingredients
 
@@ -330,7 +330,7 @@ You must have firmware on your Particle device, but nothing else is necessary. B
 
 #### Firmware requirements
 
-  This action has IFTTT publishing an event, so your Particle device needs to subscribe to that event. These are complementary; a Spark.subscribe("myEventName") watches for a publish("myEventName") and runs a function when it sees this matching event name. This means that even though this action is called *Publish* an event, your firmware needs to include Spark.subscribe().
+  This action has IFTTT publishing an event, so your Particle device needs to subscribe to that event. These are complementary; a Particle.subscribe("myEventName") watches for a publish("myEventName") and runs a function when it sees this matching event name. This means that even though this action is called *Publish* an event, your firmware needs to include Particle.subscribe().
 
   ```cpp
   int i = 0;
@@ -349,12 +349,12 @@ You must have firmware on your Particle device, but nothing else is necessary. B
 
   void setup()
   {
-    Spark.subscribe("temperature", myHandler);
+    Particle.subscribe("temperature", myHandler);
     Serial.begin(9600);
   }
   ```
 
-  To use `Spark.subscribe()`, define a handler function and register it in `setup()`.
+  To use `Particle.subscribe()`, define a handler function and register it in `setup()`.
 
   ---
 
@@ -362,10 +362,10 @@ You must have firmware on your Particle device, but nothing else is necessary. B
 
   ```cpp
   // only events from my Cores
-  Spark.subscribe("the_event_prefix", theHandler, MY_DEVICES);
+  Particle.subscribe("the_event_prefix", theHandler, MY_DEVICES);
   ```
 
-  Complete documentation on using [Spark.subscribe() is here.](/reference/firmware/#spark-subscribe-)
+  Complete documentation on using [Particle.subscribe() is here.](/reference/firmware/#particle-subscribe-)
 
 #### Action fields
 
@@ -387,13 +387,13 @@ You must have firmware on your Particle device, but nothing else is necessary. B
 
 #### Firmware requirements
 
-  This is very similar to using a Spark.function() as a trigger, only you won't be using any values it returns. The same setup on the firmware side, and the example code above for Spark.function() as trigger, will work for this as well.
+  This is very similar to using a Particle.function() as a trigger, only you won't be using any values it returns. The same setup on the firmware side, and the example code above for Particle.function() as trigger, will work for this as well.
 
-  Complete documentation on using [Spark.function() is here.](/reference/firmware/#spark-function-)
+  Complete documentation on using [Particle.function() is here.](/reference/firmware/#particle-function-)
 
 #### Action fields
 
-  **Then call (Function Name):** Select the function you'd like to use from the options in a dropdown menu. These options will be pulled from the Spark.function()s that are in the firmware flashed to any of your claimed Cores or Photons. IFTTT will list the first 4 function()s defined in your firmware.
+  **Then call (Function Name):** Select the function you'd like to use from the options in a dropdown menu. These options will be pulled from the Particle.function()s that are in the firmware flashed to any of your claimed Cores or Photons. IFTTT will list the first 4 function()s defined in your firmware.
 
   ```C++
   // EXAMPLE USAGE
