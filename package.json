@@ -2,6 +2,7 @@
   "name": "particle-docs",
   "version": "0.3.0",
   "private": false,
+  "license": "CC-BY-SA-3.0",
   "repository": {
     "type": "git",
     "url": "git://github.com/spark/docs.git"
