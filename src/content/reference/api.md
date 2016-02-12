@@ -177,6 +177,141 @@ we'll give you lots of notice and a clear upgrade path.
 {{> api group=apiGroups.Devices}}
 ## Events
 {{> api group=apiGroups.Events}}
+## Special Events
+
+If you watch your event stream, you may notice your devices publishing events that don't appear in your firmware.  The
+cloud will automatically publish events in special situations that would be hard to monitor without an event.
+
+### Special Device Events
+
+#### Connection Status
+
+When your device starts ("online") or stops ("offline") a session with the cloud, you'll see a 'spark/status' event.
+
+```
+# spark/status, online
+{"name":"spark/status","data":"online","ttl":"60","published_at":"2015-01-01T14:29:49.787Z","coreid":"0123456789abcdef01234567"}
+    
+# spark/status, offline
+{"name":"spark/status","data":"offline","ttl":"60","published_at":"2015-01-01T14:31:49.787Z","coreid":"0123456789abcdef01234567"}
+```
+
+If your device is a packaged product, you may see an "auto-update" event from time to time.  This is the cloud 
+signalling that a new version of firmware is available for your product from your manufacturer, and an update is 
+about to be delivered over the air.
+
+```
+#  spark/status, auto-update
+{"name":"spark/status","data":"auto-update","ttl":"60","published_at":"2015-01-01T14:35:0.000Z","coreid":"0123456789abcdef01234567"}
+```
+    
+    
+#### Safe-Mode
+
+If your device is running an app that needs a particular version of system firmware, your device may come online and
+report that it's in Safe Mode.  In this case, your device is waiting to run your app until it has received an update.
+Some products can receive system updates automatically while in safe mode, but others like the Electron prevent this to
+save you costs on bandwidth.  If you do get an automatic update, you may see a "spark/safe-mode-updater/updating" event.
+
+```
+#  spark/status/safe-mode
+{"name":"spark/status/safe-mode","data":"{ .. a bunch of data from your device about the system parts ...","ttl":"60","published_at":"2016-01-01T14:40:0.000Z","coreid":"0123456789abcdef01234567"}
+{"name":"spark/status/safe-mode","data":"{\"f\":[],\"v\":{},\"p\":6,\"m\":[{\"s\":16384,\"l\":\"m\",\"vc\":30,\"vv\":30,\"f\":\"b\",\"n\":\"0\",\"v\":4,\"d\":[]},{\"s\":262144,\"l\":\"m\",\"vc\":30,\"vv\":30,\"f\":\"s\",\"n\":\"1\",\"v\":11,\"d\":[]},{\"s\":262144,\"l\":\"m\",\"vc\":30,\"vv\":30,\"f\":\"s\",\"n\":\"2\",\"v\":7,\"d\":[{\"f\":\"s\",\"n\":\"1\",\"v\":7,\"_\":\"\"}]},{\"s\":131072,\"l\":\"m\",\"vc\":30,\"vv\":26,\"u\":\"F3380CF3018C104BA3BD9438EA921A1ABF315E8063318FDDDCDBE10FED044BEB\",\"f\":\"u\",\"n\":\"1\",\"v\":3,\"d\":[{\"f\":\"s\",\"n\":\"2\",\"v\":11,\"_\":\"\"}]},{\"s\":131072,\"l\":\"f\",\"vc\":30,\"vv\":0,\"d\":[]}]}","ttl":"60","published_at":"2015-01-01T14:40:0.000Z","coreid":"0123456789abcdef01234567"}
+
+#  spark/safe-mode-updater/updating
+{"name":"spark/safe-mode-updater/updating","data":"2","ttl":"60","published_at":"2016-01-01T14:41:0.000Z","coreid":"particle-internal"}
+```
+
+
+#### Flashing
+
+As updates are being delivered via the cloud to your device, you may see some events published by the cloud to help
+you monitor the update.  These may include an optional filename after the status type if available.
+
+
+```
+#spark/flash/status, started + [filename]
+{"name":"spark/flash/status","data":"started ","ttl":"60","published_at":"2016-02-09T14:43:05.606Z","coreid":"0123456789abcdef01234567"}
+
+#spark/flash/status, success + [filename]
+{"name":"spark/flash/status","data":"success ","ttl":"60","published_at":"2016-02-09T14:38:18.978Z","coreid":"0123456789abcdef01234567"}
+   
+#spark/flash/status, failed + [filename]
+{"name":"spark/flash/status","data":"failed ","ttl":"60","published_at":"2016-02-09T14:43:11.732Z","coreid":"0123456789abcdef01234567"}
+```
+
+#### app-hash
+
+After you've flashed a new app to your device, you may see an "app-hash" event.  This is a unique hash corresponding
+to that exact app binary.  This hash can help confirm a flash succeeded and your new app is running, and also help you
+track exactly which version of which app is running on your device.  This is only published when it is different from
+the previous session.
+
+```
+#  spark/device/app-hash
+{"name":"spark/device/app-hash","data":"2BA4E71E840F596B812003882AAE7CA6496F1590CA4A049310AF76EAF11C943A","ttl":"60","published_at":"2016-02-09T14:43:13.040Z","coreid":"2e0041000447343232363230"}
+```
+
+
+
+#### future reserved events
+
+These events are planned, but not yet available.
+
+If an update is available from the cloud, but isn't sent automatically, the cloud may publish
+an "flash/available" event to let the firmware know it can ask to have the update delivered.
+
+```
+#  spark/flash/available
+{ reserved / not yet implemented}
+```
+
+If the cloud detects than an update is very large, or the update is taking a very long time,
+it might decide to publish periodic flash progress events.  These are meant to help you track the progress of a slow
+update.
+
+```
+# spark/flash/progress,   sent,total,seconds
+{ reserved / not yet implemented }
+```
+
+
+
+### Special Webhook Events
+
+Webhooks are a powerful way to connect events from your devices to other services online.
+
+When the webhook detects your event, it'll publish back a hook-sent event to let you know it's processing the event and
+has sent a request to your server.
+
+```
+# hook-sent
+{"name":"hook-sent/your_published_event_topic","data":"undefined","ttl":"60","published_at":"2016-02-09T14:42:19.876Z","coreid":"particle-internal"}
+
+```
+
+
+If the hook got an error back from your server, it'll publish a hook-error event with the contents of the error. See
+
+```
+# hook-error
+
+{"name":"hook-error/your_published_event_topic/0","data":"Message ...","ttl":"60","published_at":"2016-02-09T15:23:23.047Z","coreid":"particle-internal"}
+
+```
+
+If the hook got a good response back, it'll break the response into 512 byte chunks and publish up to the first 100KB
+of the response back to your devices. 
+
+```
+# hook-response
+{"name":"hook-response/your_published_event_topic/0","data":"your server response...","ttl":"60","published_at":"2016-02-09T15:23:23.047Z","coreid":"particle-internal"}
+```
+
+
+### Special IFTTT Events
+
+
 ## Firmware
 {{> api group=apiGroups.Firmware}}
 ## Organizations
