@@ -7,18 +7,23 @@
   padding-bottom: 75px;
   overflow-y: auto;
   position: absolute;
+  left: 0;
   top: 0;
   bottom: 0;
   width: 280px;
   border-right: solid 1px #dfe2e7;
   z-index: 0;
   .transition(opacity 0);
-  pointer-events: none;
-  opacity: 0;
+
+  // Start with menu hidden on mobile
+  @media(max-width: @medium-size) {
+    opacity: 0;
+    pointer-events: none;
+  }
 
   &.menu-hidden {
-    left: 0;
-    //transition-delay: .33s;
+    opacity: 0;
+    pointer-events: none;
   }
 
   &.menu-visible {
