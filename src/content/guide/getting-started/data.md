@@ -2,7 +2,7 @@
 title: Electron Data Guide
 template: guide.hbs
 columns: two
-devices: [ electron,photon,core ]
+devices: [ electron ]
 order: 9
 ---
 
