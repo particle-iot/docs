@@ -164,7 +164,7 @@ There are three ways to send your access token in a request.
 * In the request body (only works for POST & PUT when body is URL-encoded)
 
 In these docs, you'll see example calls written using a terminal program called
-[curl](http://curl.haxx.se/)
+[curl](https://curl.haxx.se/)
 which may already be available on your machine.
 
 Example commands will always start with `curl`.

@@ -51,9 +51,15 @@
           {{/if}}
         </a>
         <ul class="dropdown-menu" aria-labelledby="dLabel">
-          <li><a href="{{path.href}}{{path.name}}/photon/">Photon</a></li>
-          <li><a href="{{path.href}}{{path.name}}/electron/">Electron</a></li>
-          <li><a href="{{path.href}}{{path.name}}/core/">Core</a></li>
+          {{#contains devices electron}}
+            <li><a href="{{path.href}}{{path.name}}/electron/">Electron</a></li>
+          {{/contains}}
+          {{#contains devices photon}}
+            <li><a href="{{path.href}}{{path.name}}/photon/">Photon</a></li>
+          {{/contains}}
+          {{#contains devices core}}
+            <li><a href="{{path.href}}{{path.name}}/core/">Core</a></li>
+          {{/contains}}
         </ul>
       </div>
     {{/if}}

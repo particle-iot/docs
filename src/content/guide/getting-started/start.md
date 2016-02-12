@@ -104,7 +104,7 @@ to wired power source. Consider this battery your Electron's best friend!
 
 {{/if}}
 
-For more technical details on what comes on your device, go {{#if core}}[here](/datasheets/core-datasheet/){{/if}}{{#if photon}}[here](/datasheets/kits/photon/){{/if}}{{#if electron}}[here](/datasheets/kits/electron/){{/if}}.
+For more technical details on what comes on your device, go {{#if core}}[here](/datasheets/core-datasheet/){{/if}}{{#if photon}}[here](/datasheets/kits/#photon){{/if}}{{#if electron}}[here](/datasheets/kits/#electron){{/if}}.
 
 {{#if electron}}
 ## New User Features On the Electron

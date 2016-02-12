@@ -2,7 +2,6 @@
 title: FAQ
 template: support.hbs
 columns: two
-devices: [ photon, electron, core ]
 order: 2
 ---
 
@@ -51,11 +50,11 @@ Frequently Asked Questions (FAQ)
 **Product**
 - [How is the Electron different from the Photon?](#q-how-is-the-electron-different-from-the-photon-)
 - [How does Billing and Data work for the Electron?](#q-how-does-billing-and-data-work-for-the-electron-)
-- [Where do I buy this thing called the 'spark core'?](/support/support-and-fulfillment/faq/photon/#q-where-do-i-buy-this-thing-called-39-spark-core-39-)
+- [Where do I buy this thing called the 'spark core'?](#q-where-do-i-buy-this-thing-called-39-spark-core-39-)
 
 **Invoices**
-- [How can I get an invoice for my order?](/support/support-and-fulfillment/faq/photon/#q-how-can-i-get-an-invoice-for-my-order-)
-- [How can I update information on my invoice?](/support/support-and-fulfillment/faq/photon/#q-how-can-i-update-information-on-my-invoice-)
+- [How can I get an invoice for my order?](#q-how-can-i-get-an-invoice-for-my-order-)
+- [How can I update information on my invoice?](#q-how-can-i-update-information-on-my-invoice-)
 
 **Business Inquiry**
 - [How do I become a distributor for Particle products?](#q-how-do-i-become-a-distributor-for-particle-products-)
@@ -145,7 +144,7 @@ Sometimes things get delayed with shipping, so please be patient. If you do not 
 **A:** Unfortunately it’s too late to change your address. We’ve already sent a list of all the orders to our warehouse to expedite the process of getting your Electrons to you as soon as possible. If you realize that your order is going to your old address, make sure mail forwarding is set up with the postal service and it should be re-directed to you. This usually adds more time to the shipping, so please be patient and wait till March 15th to email us if you haven’t received your order. 
 
 ### Q: What comes in the kits I ordered?
-**A:** You can the components of the Electron kits [here](/datasheets/kits/photon/#electron).
+**A:** You can the components of the Electron kits [here](/datasheets/kits/#electron).
 
 ### Q: Can I change or add to my order?
 **A:** Unfortunately, it’s too late to change anything on your order. We’ve already sent a list of all the orders to our warehouse to expedite the process of getting your Electrons to you as soon as possible. If you want to purchase different items, please visit our [store](https://store.particle.io/). The Electron line of products will be available for immediate shipping starting March 8th. 
