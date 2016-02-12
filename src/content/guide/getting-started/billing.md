@@ -2,7 +2,7 @@
 title: Electron Billing Guide
 template: guide.hbs
 columns: two
-devices: [ electron ]
+devices: [ electron,photon,core ]
 order: 8
 ---
 
