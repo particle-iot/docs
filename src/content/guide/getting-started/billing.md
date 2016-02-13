@@ -38,18 +38,21 @@ With this shiny new cellular service we've introduced some new terminology! Paus
 
 **Reactivation** is when you restore service to a SIM or group of SIMs. If you fix your billing info on a deactivated account or individually reactivate a SIM, data service comes back on! Your Electron should automatically get back online within ten minutes, and often much less than that. If you watch the Logs view in the Dashboard then you'll see when it comes back.
 
-**Pausing** is most commonly caused by a SIM exceeding the data limit. When paused a SIM cannot consume data until either the monthly anniversary happens and it receives a sparkly fresh MB and automatically unpauses or the data limit is raised. 
+**Pausing** is most commonly caused by a SIM exceeding the data limit. When paused a SIM cannot consume data until either the monthly anniversary happens and it receives a sparkly fresh MB and automatically unpauses or the data limit is raised.
 
 **Unpausing** occurs when a SIM reaches its data cap during a billing period, and the next billing period begins. Particle will automatically unpause your SIM at this time, allowing cellular data transfer to resume. You are also able to manually unpause a SIM card during the billing period in which it was paused by raising the data limit. If you raise the data limit one month, it will stay at that selection in subsequent months until it is changed again.
-    
+
 ## Roaming (Zones)
 SIMs have a home country, and this is determined during the Electron setup process. Countries are sorted into Zones, and each Zone has both a base rate and an additional MB rate. In the US this is $2.99/$0.99, and other countries that are also in Zone 2 like Turkey and South Africa share this rate. If you consume data on a SIM within countries of the same Zone, then everything works as if you're still in the same country. If you use the SIM in a new country, outside of the SIM's home country's Zone, then an additional MB at the new country's rate will be added so that you can get online!
 
 If you do travel the world with your SIM, your monthly receipt will show MB use grouped by Zone for easy calculation.
 
-You may notice that Zones aren't always the same in countries that share borders. We're doing what we can to simplify cellular, but this is driven by carrier deals on a country-by-country basis. This causes occasional odd places, like Canada being in a different Zone than the US and Mexico. Sorry Canada.
+You may notice that Zones aren't always the same in countries that share borders. We're doing what we can to simplify cellular, but this is driven by carrier deals on a country-by-country basis. The result is that there are countries like Canada that are in a different Zone than nearby or bordering countries like the US and Mexico. Sorry Canada!
 
-<insert image of zones map, link to table of data?>
+![](/assets/images/Coverage-Map-V3.png)
+<p class="caption">A map indicating Zone grouping under Particle's cellular data plan. <a target="_blank" href="/assets/images/Coverage-Map-V3.png">Click here</a> for a full size image.</p>
+
+More more information about pricing and carriers in each Zone/Country, please visit [http://particle.io/cellular](http://particle.io/cellular) and inspect the dropdown menu of country names at the bottom of the page.
 
 ## Kickstarter Promo Codes
 First, thank you for being a backer! You should have received a unique promo code via email for each Electron you ordered during the campaign, and you'll need to enter one of those codes during the setup process as you activate each SIM (*Haven't gotten your promo code? Let us know by visiting our [support portal](https://docs.particle.io/support)).
@@ -62,7 +65,7 @@ If you add another SIM using a promo code on a later date, the equation gets sli
 
 Unlike a Wi-Fi development kit, you're likely going to want to keep an eye on how much data your SIM card has used. Although Particle has automated mechanisms in place to avoid exorbitant data costs (i.e. data limits), **close monitoring of data usage will ensure that there are no surprises when you receive your monthly bill**.
 
-Luckily, the [Dashboard](https://dashboard.particle.io/billing) makes it easy to get up-to-date information on data usage for each one of your SIMs. Visiting your Dashboard will reveal a visualization of how much data your SIM has consumed over time during the current billing period, as well as an estimated cost of that data. 
+Luckily, the [Dashboard](https://dashboard.particle.io/billing) makes it easy to get up-to-date information on data usage for each one of your SIMs. Visiting your Dashboard will reveal a visualization of how much data your SIM has consumed over time during the current billing period, as well as an estimated cost of that data.
 
 <Add a screenshot of the data usage sparkline>
 
@@ -87,4 +90,3 @@ If there's ever a need to update your billing information, or add a new credit c
 - pausing a device partway through the month
 - devices deactivated
 - roaming
-
