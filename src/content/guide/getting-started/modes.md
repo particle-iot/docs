@@ -65,11 +65,11 @@ Note that, if you enter this mode by holding {{#if photon}}`SETUP`{{/if}}{{#unle
 If your {{device}} is flashing green, it is trying to connect to the internet. If you already entered your {{#if electron}}cellular{{/if}}{{#if photon}}Wi-Fi{{/if}}{{#if core}}Wi-Fi{{/if}} credentials, give your device a few seconds to connect and start breathing cyan.
 
 {{#if photon}}
-If you haven't yet connected your {{device}} to Wi-Fi, then set your device to [Listening Mode](#photon-modes-listening-mode).
+If you haven't yet connected your {{device}} to Wi-Fi, then set your device to [Listening Mode](#listening-mode).
 {{/if}}
 
 {{#if core}}
-If you haven't yet connected your {{device}} to Wi-Fi, then set your device to [Listening Mode](/core/modes/#core-modes-listening-mode). If your {{device}} continuously flashes green and won't stop, then try doing a [full firmware update](https://community.particle.io/t/spark-core-common-issues/12383).
+If you haven't yet connected your {{device}} to Wi-Fi, then set your device to [Listening Mode](#listening-mode). If your {{device}} continuously flashes green and won't stop, then try doing a [full firmware update](https://community.particle.io/t/spark-core-common-issues/12383).
 {{/if}}
 
 {{#if electron}}
@@ -250,7 +250,7 @@ Firmware reset is not available on the Photon/P1, but not to worry! If you are e
 
 Factory reset is not available on the Photon/P1, but not to worry! If you are experiencing problems with your application firmware, you can use [Safe Mode](#safe-mode) to recover.
 
-You can reset Wi-Fi credentials by performing a [WiFi Network Reset](#wifi-network-reset).
+You can reset Wi-Fi credentials by performing a [WiFi Network Reset](#wi-fi-network-reset).
 {{/if}}
 
 {{#if core}}

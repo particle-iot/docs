@@ -146,7 +146,7 @@ Try it out!
 
 In addition to the `Show cloud function` ability, there are other elements of Particle Dev that you may find helpful:
 
-If you go to the Particle menu you will also see `Show cloud variables`. This will allow you to see any variables you register with [Particle.variable](/reference/firmware/#Particle-variable-).
+If you go to the Particle menu you will also see `Show cloud variables`. This will allow you to see any variables you register with [Particle.variable](/reference/firmware/#particle-variable-).
 
 You can also monitor any [serial output](/reference/firmware/#serial) with the `Show serial monitor` command. Make sure the proper device is selected through `Particle` > `Select device` when you do this.
 
@@ -160,12 +160,12 @@ Note that now that you are in a GitHub repo, you can use some of the functions i
 
 ![Particle Dev Github Packages]({{assets}}/images/dev-packages-github.png)
 
-Now you can compile and flash your first `.ino` file from Particle Dev. You are welcome to take any of [these examples](/guide/getting-started/examples/) as a first try and flash it to your device by clicking the lightning bolt in the upper right corner. The examples explain how Variable, Function, Publish, and Subscribe are used, but documentation on coding these cloud-exposed elements is available [here](/reference/firmware/#cloud-functions). Check out [Tips and Tricks](/guide/getting-started/hackathon/#tips-and-tricks) for some of the subtleties of coding these functions.
+Now you can compile and flash your first `.ino` file from Particle Dev. You are welcome to take any of [these examples](/guide/getting-started/examples/) as a first try and flash it to your device by clicking the lightning bolt in the upper right corner. The examples explain how Variable, Function, Publish, and Subscribe are used, but documentation on coding these cloud-exposed elements is available [here](/reference/firmware/#cloud-functions).
 
 
 ### Pass Strings
 
-In the [quintessential example](/reference/firmware/#Particle-function-) for Particle Function, we are calling a brewCoffee function with the argument "coffee". This is nice if we have an array of choices we want to identify with strings, but what if we want to pass `int` data to our `Particle.function`?
+In the [quintessential example](/reference/firmware/#particle-function-) for Particle Function, we are calling a brewCoffee function with the argument "coffee". This is nice if we have an array of choices we want to identify with strings, but what if we want to pass `int` data to our `Particle.function`?
 
 If you want to use `int` data from a `String`, you can create a `char` array to hold the `String` command, then use `atoi` to change this into an `int` value. Check out this example for setting the brightness of an LED.
 

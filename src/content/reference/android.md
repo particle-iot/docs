@@ -82,7 +82,7 @@ Cloud SDK usage mostly revolves around two main classes:
 
 All the SDK's methods have been very intentionally implemented as synchronous, blocking calls, _including calls which hit the network_.  Using blocking APIs avoids the tangled, nested logic of callbacks and other complexity, making it easy to make a synchronous call, get its return value, and use it as input to further calls, all in the same simple block of code.
 
-As with all network programming, making async calls and returning their results to the UI thread can be clumsy and verbose, especially when using plain `AsyncTask`s. To spare you some of this awkwardness, the SDK includes the [`Async`]({{asyncclasslink}}) and `ApiWork` convenience classes.  These form a simple, purpose-built wrapper around `AsyncTask`, with the boilerplate kept to a minimum.  There's [an example](#calling-the-sdk-from-the-ui-thread) of using this class further below.
+As with all network programming, making async calls and returning their results to the UI thread can be clumsy and verbose, especially when using plain `AsyncTask`s. To spare you some of this awkwardness, the SDK includes the [`Async`]({{asyncclasslink}}) and `ApiWork` convenience classes.  These form a simple, purpose-built wrapper around `AsyncTask`, with the boilerplate kept to a minimum.  There's [an example](#sdk-calls-from-the-ui-thread) of using this class further below.
 
 **Note:** the `Async` class itself is an *entirely optional* convenience. The SDK is perfectly useable from an `IntentService`, `Executor`, plain vanilla `AsyncTask`, or whatever other async mechanism you like.
 

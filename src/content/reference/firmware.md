@@ -121,7 +121,7 @@ The length of the `funcKey` is limited to a max of 12 characters. If you declare
 
 Example: Particle.function("someFunction1", ...); exposes a function called someFunction and not someFunction1
 
-A cloud function is set up to take one argument of the [String](#language-syntax-string-class) datatype. This argument length is limited to a max of 63 characters.
+A cloud function is set up to take one argument of the [String](#string-class) datatype. This argument length is limited to a max of 63 characters.
 
 ```cpp
 // EXAMPLE USAGE
@@ -458,7 +458,7 @@ void loop() {
 }
 ```
 
-While this function will disconnect from the Cloud, it will keep the connection to the {{#unless electron}}Wi-Fi network. If you would like to completely deactivate the Wi-Fi module, use [`WiFi.off()`](#wifi-off).{{/unless}}{{#if electron}}Cellular network. If you would like to completely deactivate the Cellular module, use [`Cellular.off()`](#cellular-off).{{/if}}
+While this function will disconnect from the Cloud, it will keep the connection to the {{#unless electron}}Wi-Fi network. If you would like to completely deactivate the Wi-Fi module, use [`WiFi.off()`](#off-).{{/unless}}{{#if electron}}Cellular network. If you would like to completely deactivate the Cellular module, use [`Cellular.off()`](#off-).{{/if}}
 
 
 **NOTE:* When the device is disconnected, many features are not possible, including over-the-air updates, reading Particle.variables, and calling Particle.functions.
@@ -6035,12 +6035,12 @@ The `TRY_LOCK()` statement functions similarly to `WITH_LOCK()` but it does not 
 
 ### Waiting for the system
 
-The [waitUntil](#waituntil) function can be used to wait for something to happen.
+The [waitUntil](#waituntil-) function can be used to wait for something to happen.
 Typically this is waiting for something that the system is doing,
 such as waiting for Wi-Fi to be ready or the cloud to be connected.
 
 
-#### `waitUntil`
+#### waitUntil()
 
 Sometimes you want your application  to wait until the system is in a given state.
 
@@ -6233,7 +6233,7 @@ System.dfu(true);   // persistent DFU mode - will enter DFU after a reset until 
 
 ### deviceID()
 
-`System.deviceID()` provides an easy way to extract the device ID of your device. It returns a [String object](#data-types-string-object) of the device ID, which is used to identify your device.
+`System.deviceID()` provides an easy way to extract the device ID of your device. It returns a [String object](#string-class) of the device ID, which is used to identify your device.
 
 ```cpp
 // EXAMPLE USAGE
@@ -6371,7 +6371,7 @@ It is mandatory to update the *bootloader* (https://github.com/spark/firmware/tr
  - In *standard sleep mode*, the device current consumption is in the range of: **30mA to 38mA**
  - In *deep sleep mode*, the current consumption is around: **3.2 μA**
 - Photon
- - Please see the [Photon datasheet](/photon/photon-datasheet/#4-2-recommended-operating-conditions)
+ - Please see the [Photon datasheet](/datasheets/photon-datasheet/#recommended-operating-conditions)
 
 <!--
 System.sleep(int millis, array peripherals);
@@ -7193,7 +7193,7 @@ else
 }
 ```
 
-Another way to express branching, mutually exclusive tests, is with the [`switch case`](#control-structures-switch-case) statement.
+Another way to express branching, mutually exclusive tests, is with the [`switch case`](#switch-case) statement.
 
 #### for
 

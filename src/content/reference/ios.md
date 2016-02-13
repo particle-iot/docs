@@ -23,7 +23,7 @@ Particle iOS Cloud SDK enables iOS apps to interact with Particle-powered connec
 - Publish events from the mobile app and subscribe to events coming from devices
 
 All cloud operations take place asynchronously and use the well-known completion blocks (closures for swift) design pattern for reporting results allowing you to build beautiful responsive apps for your Particle products and projects.
-iOS Cloud SDK is implemented as an open-source Cocoapod library. See [Installation](#ios-cloud-sdk-installation) section for more details. It works well for both Objective-C and [Swift](#support-for-swift-projects) projects.
+iOS Cloud SDK is implemented as an open-source Cocoapod library. See [Installation](#installation) section for more details. It works well for both Objective-C and [Swift](#support-for-swift-projects) projects.
 
 Particle iOS Cloud SDK is available under the Apache License 2.0. See the [LICENSE file](https://github.com/spark/spark-sdk-ios/blob/master/LICENSE) for more info.
 

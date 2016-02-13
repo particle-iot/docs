@@ -10,7 +10,7 @@ order: 3
 
 The easiest way to connect your device to {{#if electron}}cellular{{/if}}{{#if photon}}Wi-Fi{{/if}}{{#if core}}Wi-Fi{{/if}} is using the {{#unless electron}}mobile app{{/unless}}{{#if electron}}browser{{/if}} as described in the [previous lesson](/guide/getting-started/start). {{#unless electron}}But in case that's not working for you, there are other methods as well.{{/unless}}{{#if electron}}It's worth noting here that you currently cannot set up an Electron from the command line (CLI) because we require that a credit card number be entered, but the CLI will be extremely useful for other things. Please use [setup.particle.io](https://setup.particle.io/) or the mobile apps.{{/if}}
 
-For all of the following methods, the device must be in [Listening Mode](/guide/getting-started/modes/photon/#listening-mode), where the RGB LED is {{#unless core}}{{{popup 'blinking blue.' 'vine' 'https://vine.co/v/eZUH7WaWjMT/embed/simple'}}}{{/unless}}{{#if core}}{{{popup 'blinking blue.' 'vine' 'https://vine.co/v/eZU6YiK20Hl/embed/simple'}}}{{/if}}
+For all of the following methods, the device must be in [Listening Mode](/guide/getting-started/modes/#listening-mode), where the RGB LED is {{#unless core}}{{{popup 'blinking blue.' 'vine' 'https://vine.co/v/eZUH7WaWjMT/embed/simple'}}}{{/unless}}{{#if core}}{{{popup 'blinking blue.' 'vine' 'https://vine.co/v/eZU6YiK20Hl/embed/simple'}}}{{/if}}
 
 Particle devices boot into listening mode by default, so if your device is brand new, it should go straight into listening mode. If your device is not blinking blue, {{#if photon}}{{{popup 'hold down the SETUP button.' 'vine' 'https://vine.co/v/eZUHUIjq7pO/embed/simple'}}}{{/if}}{{#if electron}}{{{popup 'hold down the MODE button.' 'vine' 'https://vine.co/v/eZUHUIjq7pO/embed/simple'}}}{{/if}}{{#if core}}{{{popup 'hold down the MODE button.' 'vine' 'https://vine.co/v/eZUgHYYrYgl/embed/simple'}}}{{/if}}
 
@@ -36,7 +36,7 @@ _Note:_ You may need to update xcode at this time.
 
 {{#if photon}}
 ### Connecting Your Device
-Make sure your device is plugged in via USB and in [Listening Mode](#connecting-your-device-listening-mode) (blinking blue). Open the terminal and type:
+Make sure your device is plugged in via USB and in [Listening Mode](/guide/getting-started/modes/#listening-mode) (blinking blue). Open the terminal and type:
 `particle setup`
 
 Log in with your Particle account and follow the prompts to set up your device.
@@ -50,7 +50,7 @@ If you have already claimed your device and you want to connect it to wifi, type
 
 {{#if core}}
 ### Connecting Your Device
-Make sure your device is plugged in via USB and in [Listening Mode](#connecting-your-device-listening-mode) (blinking blue). Open the terminal and type:
+Make sure your device is plugged in via USB and in [Listening Mode](/guide/getting-started/modes/#listening-mode) (blinking blue). Open the terminal and type:
 `particle setup`
 
 Log in with your Particle account and follow the prompts to set up your device.
@@ -120,7 +120,7 @@ Now let's try using the CLI!
 
 {{#if photon}}
 ### Connecting Your Device
-Make sure your device is plugged in via USB and in [Listening Mode](#connecting-your-device-listening-mode) (blinking blue). Open the terminal and type:
+Make sure your device is plugged in via USB and in [Listening Mode](/guide/getting-started/modes/#listening-mode) (blinking blue). Open the terminal and type:
 `particle setup`
 
 Log in with your Particle account and follow the prompts to set up your device.
@@ -134,7 +134,7 @@ If you have already claimed your device and you want to connect it to wifi, type
 
 {{#if core}}
 ### Connecting Your Device
-Make sure your device is plugged in via USB and in [Listening Mode](#connecting-your-device-listening-mode) (blinking blue). Open the terminal and type:
+Make sure your device is plugged in via USB and in [Listening Mode](/guide/getting-started/modes/#listening-mode) (blinking blue). Open the terminal and type:
 `particle setup`
 
 Log in with your Particle account and follow the prompts to set up your device.

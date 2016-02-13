@@ -79,7 +79,7 @@ stream of server-sent events that will efficiently transport all the data your
 products can publish without all the HTTP overhead for every event.
 
 Check out our API reference on
-[subscribing to event streams](/reference/api/#subscribing-to-events)
+[subscribing to event streams](/reference/api/#get-a-stream-of-events)
 for more information.
 
 When deploying on Heroku, you'll need to create worker process to listen to the
