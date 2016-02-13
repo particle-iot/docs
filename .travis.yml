@@ -15,7 +15,6 @@ install:
 - npm install -g npm
 - npm install
 - npm prune
-#script: npm test
 notifications:
   slack:
     rooms:
