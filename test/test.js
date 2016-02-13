@@ -9,7 +9,7 @@ var devices = ['photon', 'electron', 'core'];
 var isPullRequest = process.env.TRAVIS_PULL_REQUEST && process.env.TRAVIS_PULL_REQUEST !== 'false';
 
 function shouldCrawl(qurl) {
-  if (qurl.indexOf('#') === 0 ||
+  if (true || qurl.indexOf('#') === 0 ||
     qurl.indexOf('mailto:') === 0 ||
     qurl.indexOf('http://localhost:35729') === 0) {
     return false;
