@@ -458,10 +458,7 @@ void loop() {
 }
 ```
 
-
 While this function will disconnect from the Cloud, it will keep the connection to the {{#unless electron}}Wi-Fi network. If you would like to completely deactivate the Wi-Fi module, use [`WiFi.off()`](#wifi-off).{{/unless}}{{#if electron}}Cellular network. If you would like to completely deactivate the Cellular module, use [`Cellular.off()`](#cellular-off).{{/if}}
-=======
-While this function will disconnect from the Cloud, it will keep the connection to the Wi-Fi network. If you would like to completely deactivate the Wi-Fi module, use [`WiFi.off()`](#off-).
 
 
 **NOTE:* When the device is disconnected, many features are not possible, including over-the-air updates, reading Particle.variables, and calling Particle.functions.
