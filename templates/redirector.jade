@@ -29,13 +29,12 @@ html
 	body
 		script(src='/assets/js/docs.js')
 		script(src='/assets/js/ga.js')
-		script(src="http://localhost:35729/livereload.js")
 		#docs
 			.header
 				.left
 					a(href="https://www.particle.io")
 					img(src="/assets/images/particle-docs.png" id="logo")
-			.getting-started
+			#device-redirector.getting-started
 				h1.choose-device-header Which device are you interested in?
 				ul.devices
 					each path, device in forkLocations

@@ -10,7 +10,8 @@
   "scripts": {
     "start": "node ./scripts/server.js",
     "test": "node ./node_modules/mocha/bin/mocha ./test/test.js --reporter dot",
-    "build": "node ./scripts/build.js"
+    "build": "node ./scripts/build.js",
+    "update-api": "git submodule update --init --recursive && cd api-node && git fetch && git merge origin/production && cd .."
   },
   "dependencies": {
     "apidoc": "^0.13.1",
@@ -34,14 +35,14 @@
     "metalsmith-in-place": "^1.0.1",
     "metalsmith-less": "^2.0.0",
     "metalsmith-lunr": "spark/metalsmith-lunr#0.2.2",
-    "metalsmith-markdown": "git://github.com/spark/metalsmith-markdown",
+    "metalsmith-markdown": "spark/metalsmith-markdown#0.2.2",
     "metalsmith-move-up": "^1.0.0",
     "metalsmith-paths": "^2.0.0",
     "metalsmith-permalinks": "^0.4.0",
     "metalsmith-redirect": "^1.0.2",
     "metalsmith-register-helpers": "git://github.com/brycekahle/metalsmith-register-helpers",
     "metalsmith-register-partials": "git://github.com/spark/metalsmith-register-partials",
-    "metalsmith-serve": "0.0.3",
+    "metalsmith-serve": "0.0.7",
     "metalsmith-simplewatch": "git://github.com/spark/metalsmith-simplewatch",
     "metalsmith-templates": "^0.6.1",
     "metalsmith-watch": "^1.0.1",

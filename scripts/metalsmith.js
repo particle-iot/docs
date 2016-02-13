@@ -239,26 +239,51 @@ exports.metalsmith = function() {
       "/troubleshooting" : "/support/troubleshooting/common-issues",
       "/help" : "/support/troubleshooting/common-issues",
       "/faq" : "/support/support-and-fulfillment/faq"
-    }))
-    .use(msIf(
-      environment !== 'development',
-      compress({overwrite: true})
-    ));
+    }));    
 
   return metalsmith;
 };
 
+exports.compress = function(callback) {
+  Metalsmith(__dirname)
+    .clean(false)
+    .concurrency(100)
+    .source("../build")
+    .destination("../build")
+    .use(compress({overwrite: true}))
+    .build(callback);
+};
 
 exports.build = function(callback) {
   git.branch(function (str) {
     gitBranch = process.env.TRAVIS_BRANCH || str;
-    exports.metalsmith().build(function(err, files) {
-      if (err) { throw err; }
-      if (callback) {
-        callback(err, files);
-      }
-    });
+    exports.metalsmith()
+      .use(compress({overwrite: true}))
+      .build(function(err, files) {
+        if (err) { throw err; }
+        if (callback) {
+          callback(err, files);
+        }
+      });
   });
+};
+
+exports.test = function(callback) {
+  var server = serve();
+  git.branch(function (str) {
+    gitBranch = process.env.TRAVIS_BRANCH || str;
+    exports.metalsmith()
+      .use(server)
+      .build(function(err, files) {
+        if (err) {
+          console.error(err, err.stack);
+        }
+        if (callback) {
+          callback(err, files);
+        }
+      });
+  });
+  return server;
 };
 
 exports.server = function(callback) {

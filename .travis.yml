@@ -14,8 +14,7 @@ install:
 - npm install -g npm
 - npm install
 - npm prune
-before_script: npm test
-script: npm run build
+script: npm test
 notifications:
   slack:
     rooms:

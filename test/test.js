@@ -1,34 +1,12 @@
 var should = require("should");
-var metalsmith = require('../scripts/metalsmith.js');
+var metalsmith = require('../scripts/metalsmith');
 var Crawler = require('crawler');
 var url = require('url');
 var util = require('util');
+var _ = require('lodash');
 
+var devices = ['photon', 'electron', 'core'];
 var isPullRequest = process.env.TRAVIS_PULL_REQUEST && process.env.TRAVIS_PULL_REQUEST !== 'false';
-
-describe('Tests', function(){
-  it('should run', function(){
-    should(true).ok();
-  });
-});
-
-describe('Build', function() {
-  it('should run without error', function(done){
-    this.timeout(60000);
-    metalsmith.build(function(err, files) {
-      done(err);
-    });
-  });
-});
-
-describe('Server', function() {
-  it('should run without error', function(done){
-    this.timeout(60000);
-    metalsmith.server(function(err, files) {
-      done(err);
-    });
-  });
-});
 
 function shouldCrawl(qurl) {
   if (qurl.indexOf('#') === 0 ||
@@ -39,7 +17,21 @@ function shouldCrawl(qurl) {
   return true;
 }
 
+var server;
 describe('Crawler', function() {
+  before(function(done) {
+    this.timeout(60000);
+    console.log('Building...');
+    server = metalsmith.test(done);
+  });
+
+  after(function(done) {
+    server.shutdown(function(err) {
+      console.log('Compressing...');
+      metalsmith.compress(done);
+    });
+  });
+
   it('should complete without error', function(done) {
     this.timeout(500000);
     var errors = 0;
@@ -81,19 +73,63 @@ describe('Crawler', function() {
       }
 
       if ($ && result && !isExternal) {
+        var parsedUrl = url.parse(toUrl);
+        if (parsedUrl.pathname.slice(-1) !== '/') {
+          parsedUrl.pathname += '/';
+          toUrl = url.format(parsedUrl);
+        }
+
+        // is this the redirector page? follow device tree from here
+        // this might make the crawl take ALOT longer
+        if ($('#device-redirector').length === 1) {
+          // determine if fromUrl was device specific
+          var selectDevice;
+          var parsedFromUrl = url.parse(fromUrl);
+          var devicePath = _.intersection(parsedFromUrl.pathname.split('/'), devices);
+          if (devicePath.length > 0) {
+            selectDevice = devicePath[0];
+          }
+
+          $('ul.devices').find('a').each(function(index, a) {
+            // if we come from a device-specific page, only choose that device link forward
+            if (selectDevice && $(a).attr('id') !== (selectDevice + '-link')) {
+              return;
+            }
+
+            var toQueueUrl = $(a).attr('href');
+
+            // include hash used to access redirector
+            var absolutePath = url.resolve(toUrl, toQueueUrl) + (parsedUrl.hash || '');
+            // preserve original fromUrl and content
+            c.queue([{
+              uri: absolutePath,
+              callback: crawlCallback.bind(null, fromUrl, absolutePath, content)
+            }]);
+          });
+          return;
+        }
+
+        if (parsedUrl.hash) {
+          if ($(parsedUrl.hash).length === 0) {
+            console.error(util.format('ERROR: 404 (missing hash) ON %s CONTENT %s LINKS TO %s', fromUrl, content, toUrl));
+            errors++;
+          }
+        }
+
         $('a').each(function(index, a) {
           var toQueueUrl = $(a).attr('href');
           var linkContent = $(a).text();
           if (!toQueueUrl) return;
 
-          if (!shouldCrawl(toQueueUrl)) {
-            return;
+          if (toQueueUrl.indexOf('#') === 0 && toQueueUrl.length > 1) {
+            if ($(toQueueUrl).length === 0) {
+              console.error(util.format('ERROR: 404 relative link ON %s CONTENT %s LINKS TO %s', toUrl, linkContent, toQueueUrl));
+              errors++;
+            }
           }
 
-          var parsedUrl = url.parse(toUrl);
-          if (parsedUrl.pathname.slice(-1) !== '/') {
-            parsedUrl.pathname += '/';
-            toUrl = url.format(parsedUrl);
+          if (!shouldCrawl(toQueueUrl)) {
+            return;
           }
           var absolutePath = url.resolve(toUrl, toQueueUrl);
           //console.log(toUrl, toQueueUrl, absolutePath);
