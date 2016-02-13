@@ -5381,6 +5381,7 @@ Write a byte of data to the emulated EEPROM.
 
 - On the Core, this must be a value between 0 and 99
 - On the Photon/Electron, this must be a value between 0 and 2047
+
 ```C++
 // EXAMPLE USAGE
 
