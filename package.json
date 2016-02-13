@@ -52,6 +52,7 @@
     "should": "^7.0.1"
   },
   "devDependencies": {
+    "chalk": "^1.1.1",
     "crawler": "^0.4.3",
     "git-rev": "^0.2.1"
   }

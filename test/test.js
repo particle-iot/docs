@@ -5,6 +5,7 @@ var url = require('url');
 var util = require('util');
 var _ = require('lodash');
 
+var CHECK_HASH_LINKS = false;
 var devices = ['photon', 'electron', 'core'];
 var isPullRequest = process.env.TRAVIS_PULL_REQUEST && process.env.TRAVIS_PULL_REQUEST !== 'false';
 
@@ -69,7 +70,7 @@ describe('Crawler', function() {
           console.log('WARN: ' + msg);
           return;
         }
-        console.error('ERROR: ' + msg);
+        console.error(chalk.red('ERROR: ' + msg));
         errors++;
         return;
       }
@@ -81,40 +82,45 @@ describe('Crawler', function() {
           toUrl = url.format(parsedUrl);
         }
 
-        // is this the redirector page? follow device tree from here
-        // this might make the crawl take ALOT longer
-        if ($('#device-redirector').length === 1) {
-          // determine if fromUrl was device specific
-          var selectDevice;
-          var parsedFromUrl = url.parse(fromUrl);
-          var devicePath = _.intersection(parsedFromUrl.pathname.split('/'), devices);
-          if (devicePath.length > 0) {
-            selectDevice = devicePath[0];
-          }
-
-          $('ul.devices').find('a').each(function(index, a) {
-            // if we come from a device-specific page, only choose that device link forward
-            if (selectDevice && $(a).attr('id') !== (selectDevice + '-link')) {
-              return;
+        if (CHECK_HASH_LINKS) {
+          // is this the redirector page? follow device tree from here
+          // this might make the crawl take ALOT longer
+          if ($('#device-redirector').length === 1) {
+            // determine if fromUrl was device specific
+            var selectDevice;
+            var parsedFromUrl = url.parse(fromUrl);
+            var devicePath = _.intersection(parsedFromUrl.pathname.split('/'), devices);
+            if (devicePath.length > 0) {
+              selectDevice = devicePath[0];
             }
 
-            var toQueueUrl = $(a).attr('href');
+            $('ul.devices').find('a').each(function(index, a) {
+              // if we come from a device-specific page, only choose that device link forward
+              if (selectDevice && $(a).attr('id') !== (selectDevice + '-link')) {
+                return;
+              }
 
-            // include hash used to access redirector
-            var absolutePath = url.resolve(toUrl, toQueueUrl) + (parsedUrl.hash || '');
-            // preserve original fromUrl and content
-            c.queue([{
-              uri: absolutePath,
-              callback: crawlCallback.bind(null, fromUrl, absolutePath, content)
-            }]);
-          });
-          return;
-        }
+              var toQueueUrl = $(a).attr('href');
 
-        if (parsedUrl.hash) {
-          if ($(parsedUrl.hash).length === 0) {
-            console.error(util.format('ERROR: 404 (missing hash) ON %s CONTENT %s LINKS TO %s', fromUrl, content, toUrl));
-            errors++;
+              // include hash used to access redirector
+              var absolutePath = url.resolve(toUrl, toQueueUrl) + (parsedUrl.hash || '');
+              // preserve original fromUrl and content
+              c.queue([{
+                uri: absolutePath,
+                callback: crawlCallback.bind(null, fromUrl, absolutePath, content)
+              }]);
+            });
+            return;
+          }
+
+          if (parsedUrl.hash) {
+            if ($(parsedUrl.hash).length === 0) {
+              console.error(chalk.red(util.format('ERROR: 404 (missing hash) ON %s CONTENT %s LINKS TO %s', fromUrl, content, toUrl)));
+              errors++;
+            }
+            // only check the hash here
+            // let the non-hash version crawl the rest of the tree
+            return;
           }
         }
 
@@ -123,10 +129,12 @@ describe('Crawler', function() {
           var linkContent = $(a).text();
           if (!toQueueUrl) return;
 
-          if (toQueueUrl.indexOf('#') === 0 && toQueueUrl.length > 1) {
-            if ($(toQueueUrl).length === 0) {
-              console.error(util.format('ERROR: 404 relative link ON %s CONTENT %s LINKS TO %s', toUrl, linkContent, toQueueUrl));
-              errors++;
+          if (CHECK_HASH_LINKS) {
+            if (toQueueUrl.indexOf('#') === 0 && toQueueUrl.length > 1) {
+              if ($(toQueueUrl).length === 0) {
+                console.error(chalk.red(util.format('ERROR: 404 relative link ON %s CONTENT %s LINKS TO %s', toUrl, linkContent, toQueueUrl)));
+                errors++;
+              }
             }
           }
 
