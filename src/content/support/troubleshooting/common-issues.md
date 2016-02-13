@@ -37,13 +37,13 @@ The easiest way to identify a bad contact in the holder is by removing the SIM c
 ![Identifying and fixing SIM holder](/assets/images/bad-sim-socket.png)
 ([View this image larger](https://docs.particle.io/assets/images/bad-sim-socket.png))
 
-Try using your hands to press down on the SIM card to improve contact between the SIM and the metal pins underneath--while pressing on the SIM card, press the `RESET` button on the Electron. If you see the device begin to connect to the cellular network (flash green), you may have a damaged SIM card holder and should [contact Particle](/support/support-and-fulfillment/menu-base/electron/).
+Try using your hands to press down on the SIM card to improve contact between the SIM and the metal pins underneath--while pressing on the SIM card, press the `RESET` button on the Electron. If you see the device begin to connect to the cellular network (flash green), you may have a damaged SIM card holder and should [contact Particle](/support/support-and-fulfillment/menu-base/).
 
 ### 5\. Is your SIM card damaged or defective?
-Try using the SIM card from your cell phone, if you have one. If the RGB LED on the Electron begins to flash green when your phone's SIM is inserted, your Particle SIM may need to be replaced, and you should [contact Particle](/support/support-and-fulfillment/menu-base/electron/).
+Try using the SIM card from your cell phone, if you have one. If the RGB LED on the Electron begins to flash green when your phone's SIM is inserted, your Particle SIM may need to be replaced, and you should [contact Particle](/support/support-and-fulfillment/menu-base/).
 
 ### 6\. Contact Particle
-Still having issues? [Write us an email](/support/support-and-fulfillment/menu-base/electron/) and include the following to help us with troubleshooting:
+Still having issues? [Write us an email](/support/support-and-fulfillment/menu-base/) and include the following to help us with troubleshooting:
 - Your Device ID
 - Your ICCID (SIM Number)
 - A photo of your device setup to help with troubleshooting.
@@ -118,7 +118,7 @@ If you've been using your Electron successfully for a while and it's now just st
 If all else fails, try restarting it! Remove *both* the USB cable and Li-Po battery from the Electron, so that the RGB LED fully powers off. Then, reconnect the Li-Po battery and USB cable--the Electron should reboot and retry the connection sequence.
 
 ### 10) Contact Particle
-Still having issues? [Write us an email](/support/support-and-fulfillment/menu-base/electron/) and include the following to help us with troubleshooting:
+Still having issues? [Write us an email](/support/support-and-fulfillment/menu-base/) and include the following to help us with troubleshooting:
 - Your Device ID
 - Your ICCID (SIM Number)
 - A photo of your device setup to help with troubleshooting.

@@ -82,7 +82,7 @@ Current hardware design repos include:
 - [`electron`](https://github.com/spark/electron) 
 - [`photon`](https://github.com/spark/photon) 
 - [`core`](https://github.com/spark/core) 
-- [Official Libraries](/guide/getting-started/contributing/photon/#official-libraries) such as the [`InternetButton`](https://github.com/spark/InternetButton), [`RelayShield`](https://github.com/spark/RelayShield), and [`PowerShield`](https://github.com/spark/PowerShield)
+- [Official Libraries](#official-libraries) such as the [`InternetButton`](https://github.com/spark/InternetButton), [`RelayShield`](https://github.com/spark/RelayShield), and [`PowerShield`](https://github.com/spark/PowerShield)
 - [`eagle-libraries`](https://github.com/spark/eagle-libraries)
 
 

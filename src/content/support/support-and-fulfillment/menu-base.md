@@ -2,7 +2,6 @@
 title: Support Menu
 template: suppMenu.hbs
 columns: two
-devices: [ photon, electron, core ]
 order: 1
 ---
 

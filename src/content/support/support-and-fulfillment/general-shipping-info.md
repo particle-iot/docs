@@ -2,7 +2,6 @@
 title: General Shipping Info
 template: support.hbs
 columns: two
-devices: [ photon, electron, core ]
 order: 4
 ---
 
