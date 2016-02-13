@@ -4,6 +4,7 @@ node_js:
 - '0.12'
 git:
   submodules: false
+  depth: 2
 cache:
   directories:
   - node_modules

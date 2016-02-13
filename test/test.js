@@ -26,6 +26,7 @@ describe('Crawler', function() {
   });
 
   after(function(done) {
+    this.timeout(60000);
     server.shutdown(function(err) {
       console.log('Compressing...');
       metalsmith.compress(done);
