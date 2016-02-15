@@ -164,7 +164,9 @@ Connect a Core to your computer via USB and put it into [dfu-mode](/guide/gettin
 
 Run the flash command:
 
-``particle flash --usb deep_update_2014_06``
+- `particle flash --usb deep_update_2014_06` **(v1.28)**
+- `particle flash --usb cc3000` **(v1.29 stable - recommended)**
+- `particle flash --usb cc3000_1_14` **(v1.32 latest - not recommended without testing)**
 
 This installs the deep udate from a binary that is packaged with the Particle CLI, so you don't have to download it.
 
