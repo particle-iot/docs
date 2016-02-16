@@ -11,7 +11,7 @@ order: 5
 
 ```c++
 void setup() {
-    Spark.publish("my-event","The internet just got smarter!");
+    Particle.publish("my-event","The internet just got smarter!");
 }
 ```
 

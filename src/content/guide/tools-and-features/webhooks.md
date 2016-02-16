@@ -27,7 +27,7 @@ When you surf the internet, you are riding a continuous wave of web requests. Br
 
 There are many different kinds of web requests. Most of your average requests to view a page or browse around online are "GET" requests.  This is all part of that hypertext ```http://``` thing that is at the front of the address in your browser.  When you fill out and submit a form, your browser tends to send "POST" requests.  POST requests are usually for sending data to a server.  You can read more about all the [different kinds of web requests here](http://en.wikipedia.org/wiki/Hypertext_Transfer_Protocol#Request_methods).
 
-Your Particle powered device can now easily make these requests!  You could grab or send values to any web service or site with something as simple as ```Spark.publish("lets go!");``` That's what we are going to teach you how to do with Webhooks.
+Your Particle powered device can now easily make these requests!  You could grab or send values to any web service or site with something as simple as ```Particle.publish("lets go!");``` That's what we are going to teach you how to do with Webhooks.
 
 
 ## Installing the CLI
@@ -186,7 +186,7 @@ void setup() {
     Serial.begin(115200);
 
     // Lets listen for the hook response
-    Spark.subscribe("hook-response/get_weather", gotWeatherData, MY_DEVICES);
+    Particle.subscribe("hook-response/get_weather", gotWeatherData, MY_DEVICES);
 
     // Lets give ourselves 10 seconds before we actually start the program.
     // That will just give us a chance to open the serial monitor before the program sends the request
@@ -204,7 +204,7 @@ void loop() {
     Serial.println("Requesting Weather!");
 
     // publish the event that will trigger our Webhook
-    Spark.publish("get_weather");
+    Particle.publish("get_weather");
 
     // and wait at least 60 seconds before doing it again
     delay(60000);
@@ -362,7 +362,7 @@ void loop() {
     }
 
     int value = analogRead(A0);
-    Spark.publish("librato_A0", String(value), 60, PRIVATE);
+    Particle.publish("librato_A0", String(value), 60, PRIVATE);
 
     lastPublish = now;
 }
@@ -430,7 +430,7 @@ In order to help connect with many different services, you can move these publis
 You can also add custom template values by formatting your publish event data as JSON!
 
 ```
-Spark.publish("custom_templates", "{ \"my-var\": \"foo\", \"my-temp\": \"98.6F\" }", 60, PRIVATE);
+Particle.publish("custom_templates", "{ \"my-var\": \"foo\", \"my-temp\": \"98.6F\" }", 60, PRIVATE);
 ```
 
 An example hook that uses custom templates.  In this case the URL of the request will change as the value of "my-var" changes in your published event!
@@ -455,10 +455,10 @@ You can even customize the webhook to send custom headers, form fields, and more
 
 ### event
 
-The topic of your published event is sent as the 'event' property in webhook requests. Note that the event name prefix filter rules from `Spark.subscribe()` apply here too. In your firmware it's this part:
+The topic of your published event is sent as the 'event' property in webhook requests. Note that the event name prefix filter rules from `Particle.subscribe()` apply here too. In your firmware it's this part:
 
 ```
-Spark.publish(event, data);
+Particle.publish(event, data);
 #  This part  ^^^^^
 ```
 
@@ -467,7 +467,7 @@ Spark.publish(event, data);
 The contents of your published event is sent as the 'data' property in webhook requests.  In your firmware it's this part:
 
 ```
-Spark.publish(event, data);
+Particle.publish(event, data);
 #  This part         ^^^^
 ```
 
@@ -567,7 +567,7 @@ Optionally include an object with username/password set to include a properly en
 
 ### noDefaults
 
-By default, your webhook will inject the data from your Spark.publish call into your request.
+By default, your webhook will inject the data from your Particle.publish call into your request.
   These four parameters, "name", "data", "coreid", and "published_at" might cause issues for some servers.  By setting
   noDefaults to true, it will not add these parameters.
 

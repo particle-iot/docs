@@ -79,7 +79,7 @@ stream of server-sent events that will efficiently transport all the data your
 products can publish without all the HTTP overhead for every event.
 
 Check out our API reference on
-[subscribing to event streams](/reference/api/#subscribing-to-events)
+[subscribing to event streams](/reference/api/#get-a-stream-of-events)
 for more information.
 
 When deploying on Heroku, you'll need to create worker process to listen to the
@@ -100,7 +100,7 @@ function on one device to cause it to dance rainbows.
 
 ## What's next?
 
-Expect significant updates to this page in August 2015. We can't wait to show
+We can't wait to show
 you how just how easy it is to build a web app for your product on Particle!
 
 If your product is better suited for a mobile app, you will wantto

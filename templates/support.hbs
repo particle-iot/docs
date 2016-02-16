@@ -30,11 +30,11 @@
                     <div class="in-page-toc-container">
                       <ul class="nav in-page-toc show">
                         {{#each ../../../../toc}}
-                        <li class="middle-level" data-nav="{{dataHref}}">{{#if children}}<i class="toggle-secondary-toc ion-arrow-right-b"></i>{{/if}}<a href="{{id}}" data-menu-href="{{dataHref}}">{{{text}}}</a></li>
+                        <li class="middle-level" data-nav="{{dataHref}}">{{#if children}}<i class="toggle-secondary-toc ion-arrow-right-b"></i>{{/if}}<a href="#{{id}}" data-menu-href="{{dataHref}}">{{{text}}}</a></li>
                           {{#if children}}
                             <ul class="nav secondary-in-page-toc">
                               {{#each children}}
-                                <li data-secondary-nav="{{dataHref}}"><a href="{{id}}" data-menu-href="{{dataHref}}">{{{text}}}</a></li>
+                                <li data-secondary-nav="{{dataHref}}"><a href="#{{id}}" data-menu-href="{{dataHref}}">{{{text}}}</a></li>
                               {{/each}}
                             </ul>
                           {{/if}}
@@ -65,7 +65,7 @@
     </div>
     {{!-- Extract for external JS file --}}
     <div class="help-button-wrapper">
-      <a href="/support/support-and-fulfillment/menu-base/photon/#form-main" id="buttonParticle" class="buttonTextHelp" target="_blank"><i class="icon-xxHelp ion-help"></i></a>
+      <a href="/support/support-and-fulfillment/menu-base/#form-main" id="buttonParticle" class="buttonTextHelp" target="_blank"><i class="icon-xxHelp ion-help"></i></a>
     </div>
     {{!-- Extract for external JS file --}}
     {{> scripts}}

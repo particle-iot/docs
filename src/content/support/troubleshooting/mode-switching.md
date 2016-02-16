@@ -24,14 +24,14 @@ Behind the scenes, what's running on the {{#if photon}}photon{{/if}}{{#if core}}
 
 	void main() {
 	  // First, connect to the internet
-	  Spark.connect();
+	  Particle.connect();
 
 	  // Then run the user-defined setup function
 	  setup();
 
 	  while (1) {
 	    // Then alternate between processing messages to and from the Cloud...
-	    Spark.process();
+	    Particle.process();
 
 	    // ...and running the user-defined loop function
 	    loop();
@@ -55,7 +55,7 @@ But the whole point of the automatic mode is you don't really need to know that.
 	  delay(500);
 	}
 
-What's actually happening is that first we're calling **Spark.connect()**, which will connect the device to the Cloud. Once it's connected, then your code will run, and your **loop()** will alternate with **Spark.process()** so that we can process incoming messages in something that resembles a background process. (Side note: **Spark.process()** also runs during delays).
+What's actually happening is that first we're calling **Particle.connect()**, which will connect the device to the Cloud. Once it's connected, then your code will run, and your **loop()** will alternate with **Particle.process()** so that we can process incoming messages in something that resembles a background process. (Side note: **Particle.process()** also runs during delays).
 
 Ok, that's all well and good, but what if I don't know whether my {{#if photon}}Photon{{/if}}{{#if core}}Core{{/if}} will have an internet connection? I still want my LED to blink. So now we've got:
 
@@ -77,20 +77,20 @@ Ok, that's all well and good, but what if I don't know whether my {{#if photon}}
 	}
 
 	void connect() {
-	  if (Spark.connected() == false) {
-	    Spark.connect();
+	  if (Particle.connected() == false) {
+	    Particle.connect();
 	  }
 	}
 
-In this version of the code, when the {{#if photon}}Photon{{/if}}{{#if core}}Core{{/if}} is plugged in, the LED will immediately start blinking. When a button attached to D0 is depressed (bringing DO to **LOW**), **Spark.connect()** will be called. If the {{#if photon}}Photon{{/if}}{{#if core}}Core{{/if}} already has Wi-Fi credentials in memory, it will attempt to connect; otherwise, it will enter listening mode, and wait for your network name and password through the Particle mobile app or over USB.
+In this version of the code, when the {{#if photon}}Photon{{/if}}{{#if core}}Core{{/if}} is plugged in, the LED will immediately start blinking. When a button attached to D0 is depressed (bringing DO to **LOW**), **Particle.connect()** will be called. If the {{#if photon}}Photon{{/if}}{{#if core}}Core{{/if}} already has Wi-Fi credentials in memory, it will attempt to connect; otherwise, it will enter listening mode, and wait for your network name and password through the Particle mobile app or over USB.
 
-The only main difference between **SEMI_AUTOMATIC** mode and **AUTOMATIC** mode is that **Spark.connect()** is not called at the beginning of your code; you have to do that yourself. Let's go deeper down the rabbit hole with:
+The only main difference between **SEMI_AUTOMATIC** mode and **AUTOMATIC** mode is that **Particle.connect()** is not called at the beginning of your code; you have to do that yourself. Let's go deeper down the rabbit hole with:
 
 ### Manual Mode
 
 The {{#if photon}}Photon{{/if}}{{#if core}}Core{{/if}}'s manual mode puts everything in your hands. This mode gives you a lot of rope to hang yourself with, so tread cautiously.
 
-Like **SEMI_AUTOMATIC** mode, in **MANUAL** mode you need to connect to the Cloud using **Spark.connect()** yourself. However, in manual mode, the {{#if photon}}Photon{{/if}}{{#if core}}Core{{/if}} will not call **Spark.process()** automatically; you have to call it yourself. So your code might look like this:
+Like **SEMI_AUTOMATIC** mode, in **MANUAL** mode you need to connect to the Cloud using **Particle.connect()** yourself. However, in manual mode, the {{#if photon}}Photon{{/if}}{{#if core}}Core{{/if}} will not call **Particle.process()** automatically; you have to call it yourself. So your code might look like this:
 
 	SYSTEM_MODE(MANUAL);
 
@@ -101,26 +101,26 @@ Like **SEMI_AUTOMATIC** mode, in **MANUAL** mode you need to connect to the Clou
 
 	void loop() {
 	  digitalWrite(D7, HIGH);
-	  Spark.process();
+	  Particle.process();
 	  delay(500);
 	  digitalWrite(D7, LOW);
-	  Spark.process();
+	  Particle.process();
 	  delay(500);
 	}
 
 	void connect() {
-	  if (Spark.connected() == false) {
-	    Spark.connect();
+	  if (Particle.connected() == false) {
+	    Particle.connect();
 	  }
 	}
 
-**You must call Spark.process() as frequently as possible to process messages from the Wi-Fi module.** If you do not do so, you will encounter erratic behavior, such as:
+**You must call Particle.process() as frequently as possible to process messages from the Wi-Fi module.** If you do not do so, you will encounter erratic behavior, such as:
 
 - The Core losing its connection to the Cloud
 - The Core breathing cyan when in fact it is not connected
 - Long delays when a request is sent to the Core because the Core won't respond until it's processed the message
 
-Sounds kinda terrible, right? Except this can be really useful when you're writing code that is very sensitive to exact timing, and the **Spark.process()** call might interrupt your sensitive code. By turning on **MANUAL** mode, you can make sure that **Spark.process()** is called when you want, and not when the processor is busy with a time-sensitive task.
+Sounds kinda terrible, right? Except this can be really useful when you're writing code that is very sensitive to exact timing, and the **Particle.process()** call might interrupt your sensitive code. By turning on **MANUAL** mode, you can make sure that **Particle.process()** is called when you want, and not when the processor is busy with a time-sensitive task.
 
 As Stan Lee once said: with great power comes great responsibility. Go forth and control the connection. Be careful. Good luck.
 

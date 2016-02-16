@@ -2,7 +2,7 @@
 
 Documentation middleware.
 Created by Zach Supalla.
-(c) 2014 Spark Labs, Inc. MIT licensed.
+(c) 2016 Particle Industries, Inc. MIT licensed.
 
 */
 
@@ -69,24 +69,107 @@ Created by Zach Supalla.
     }
   };
 
+  /**
+   * Synchronize table of contents with page scroll position
+   */
 
-  Docs.handleH3ClassChanges = function(elementId, noH2s, enter) {
-    var dataSelector = noH2s ? 'data-nav' : 'data-secondary-nav';
+  Docs.setupTOCScrollSpy = function() {
+    var content = $(".content-inner");
+    var headers = content.find("h2, h3");
+
+    if(headers.length == 0) {
+      return;
+    }
+
+    var twoLevelTOC = content.find("h2").length > 0;
+
+    var currentHeader = -1;
+
+    // When scrolling, find the closest header and synchronize which TOC
+    // entry is active
+    content.on("scroll", function() {
+      var scrollPosition = content.scrollTop();
+      var done = false;
+
+      var oldHeader = currentHeader;
+      while(!done) {
+        if(currentHeader < headers.length - 2 &&
+           scrollPosition > $(headers[currentHeader + 1]).position().top) {
+          currentHeader += 1;
+        } else if(currentHeader > 0 &&
+                  scrollPosition < $(headers[currentHeader]).position().top) {
+          currentHeader -= 1;
+        } else {
+          done = true;
+        }
+      }
+
+      if(oldHeader != currentHeader) {
+        Docs.updateTOC($(headers[currentHeader]), twoLevelTOC);
+      }
+    });
+
+    // Scroll to the current hash if there is one
+    Docs.scrollToHashOnLoad();
+  };
+
+  Docs.updateTOC = function($currentHeader, twoLevelTOC) {
+    var elementDataHref = $currentHeader.data('href');
+
+    if($currentHeader.prop("tagName") == "H3") {
+      Docs.updateTOCforH3(elementDataHref, twoLevelTOC);
+    } else {
+      Docs.updateTOCforH2(elementDataHref);
+    }
+
+    Docs.expandInPageTOC();
+  };
+
+  Docs.updateTOCforH2 = function(elementId) {
+    // This is the menu li that corresponds to the h2 that was scrolled to
+    var $correspondingNavElement = $('li[data-nav="'+ elementId+'"]');
+    Docs.expandPrimaryTOC($correspondingNavElement);
+  }
+
+  Docs.expandPrimaryTOC = function($correspondingNavElement) {
+    // Remove active class
+    $('ul.in-page-toc li[data-nav]').removeClass('active')
+       // Show the secondary nav as collapsed
+      .find('.toggle-secondary-toc').removeClass('ion-arrow-down-b').addClass('ion-arrow-right-b');
+    // Make the current nav element active
+    $correspondingNavElement.addClass('active')
+       // Show the secondary nav as expanded
+      .find('.toggle-secondary-toc').removeClass('ion-arrow-right-b').addClass(' ion-arrow-down-b');
+
+    // Hide all the other secondary in page tocs
+    $('ul.secondary-in-page-toc').hide()
+        // Make all secondary pages inactive
+        .find('li').removeClass('active');
+
+    // Show the secondary in page toc for this section
+    var $secondaryNav = $correspondingNavElement.next('.secondary-in-page-toc');
+    if($secondaryNav.length > 0) {
+      $secondaryNav.show();
+    }
+  };
+
+  Docs.updateTOCforH3 = function(elementId, twoLevelTOC) {
+    var dataSelector = twoLevelTOC ? 'data-secondary-nav' : 'data-nav';
+    // This is the menu li that corresponds to the h3 that was scrolled to
     var $correspondingNavElement = $('li['+dataSelector+'="'+elementId+ '"]');
-    $('li['+dataSelector+']').removeClass('active');
-    $correspondingNavElement.addClass('active');
-    if(!noH2s && enter) {
+
+    if(twoLevelTOC) {
+      // Make sure primary section is visible
       var $parentli = $correspondingNavElement.parent().prev('li[data-nav]');
-      var $nextli = $correspondingNavElement.parent().next('li[data-nav]');
       if(!$parentli.hasClass('active')) {
-        $parentli.addClass('active')
-          .find('.toggle-secondary-toc').removeClass('ion-arrow-right-b').addClass('ion-arrow-down-b');
-        $nextli.removeClass('active')
-          .find('.toggle-secondary-toc').removeClass('ion-arrow-down-b').addClass('ion-arrow-right-b');
-        $correspondingNavElement.parent().show();
-        $nextli.next('.secondary-in-page-toc').hide();
+        Docs.expandPrimaryTOC($parentli);
       }
     }
+
+    // Remove active class
+    $('li['+dataSelector+']').removeClass('active');
+    // Make the current nav element active
+    $correspondingNavElement.addClass('active');
   };
 
   Docs.expandInPageTOC = function() {
@@ -99,33 +182,6 @@ Created by Zach Supalla.
     }
 
   }
-
-  Docs.createH3Waypoints = function(h3s, noH2s) {
-        h3s.each(function() {
-          var element = $(this)[0];
-          setTimeout(function() {
-            var waypoint = new Waypoint.Inview({
-              element: element,
-              exit: function(direction) {
-                if(direction === 'down') {
-                  var elementDataHref = this.element.getAttribute('data-href');
-                  Docs.handleH3ClassChanges(elementDataHref, noH2s);
-                  Docs.expandInPageTOC();
-                }
-              },
-              enter: function(direction) {
-                if(direction === 'up') {
-                  var elementDataHref = this.element.getAttribute('data-href');
-                  Docs.handleH3ClassChanges(elementDataHref, noH2s, true);
-                  Docs.expandInPageTOC();
-                }
-              },
-              context: $('.content-inner')[0],
-              continuous: false
-            });
-          }, 0);
-       });
-  };
 
   Docs.scrollToElement = function(element) {
     var $element = $('[data-href="'+element+'"]');
@@ -166,73 +222,7 @@ Created by Zach Supalla.
     });
   };
 
-  Docs.handleClassChanges = function(elementId, $h2, h3WaypointsCreated) {
-    // This is the menu li that corresponds to the h2 that was scrolled to
-    var $correspondingNavElement = $('li[data-nav="'+ elementId+'"]');
-    // Remove active class
-    $('ul.in-page-toc li[data-nav]').removeClass('active')
-       // Show the secondary nav as collapsed
-      .find('.toggle-secondary-toc').removeClass('ion-arrow-down-b').addClass('ion-arrow-right-b');
-    // Make the current nav element active
-    $correspondingNavElement.addClass('active')
-       // Show the secondary nav as expanded
-      .find('.toggle-secondary-toc').removeClass('ion-arrow-right-b').addClass(' ion-arrow-down-b');
-
-    // Hide all the other secondary in page tocs
-    $('ul.secondary-in-page-toc').hide();
-    // Show the secondary in page toc for this section
-    var $secondaryNav = $correspondingNavElement.next('.secondary-in-page-toc');
-    if($secondaryNav.length > 0) {
-      $secondaryNav.show();
-    }
-  };
-
   Docs.inPageTOCExpanded = false;
-
-  Docs.createScrollSpies = function() {
-    var $h2s = $('.content h2');
-    if($h2s.length === 0) {
-      Docs.createH3Waypoints($('.content h3'), true);
-    } else {
-      $h2s.each(function() {
-        var h3WaypointsCreated = false;
-        var waypoint = new Waypoint.Inview({
-          element: $(this)[0],
-          exit: function(direction) {
-            var $h2 = $(this.element);
-            if(direction === 'down') {
-              var elementDataHref = this.element.getAttribute('data-href');
-              Docs.handleClassChanges(elementDataHref, $h2, h3WaypointsCreated);
-              // Create the waypoints for h3s intelligently
-              var $nextH3s = $h2.nextUntil('h2', 'h3');
-              if(!h3WaypointsCreated) {
-                Docs.createH3Waypoints($nextH3s);
-                h3WaypointsCreated = true;
-              }
-              Docs.expandInPageTOC();
-            }
-          },
-          enter: function(direction) {
-            var $h2 = $(this.element);
-            if(direction === 'up') {
-              var elementDataHref = this.element.getAttribute('data-href');
-              Docs.handleClassChanges(elementDataHref, $h2, h3WaypointsCreated);
-              // Create the waypoints for h3s intelligently
-              var $nextH3s = $h2.nextUntil('h2', 'h3');
-              if(!h3WaypointsCreated) {
-                Docs.createH3Waypoints($nextH3s);
-                h3WaypointsCreated = true;
-              }
-              Docs.expandInPageTOC();
-            }
-          },
-          context: $('.content-inner')[0]
-        });
-      });
-    }
-    // Scroll to the current hash if there is one
-    Docs.scrollToHashOnLoad();
-  };
 
   Docs.watchToggleInPageNav = function() {
     $('li.top-level.active').click(function() {
@@ -240,6 +230,7 @@ Created by Zach Supalla.
       $(this).find('#toggle-in-page-nav').toggleClass("ion-plus ion-minus");
     });
   };
+
   Docs.watchToggleSecondaryInPageNav = function() {
     $('.toggle-secondary-toc').click(function() {
       var $this = $(this);
@@ -252,15 +243,6 @@ Created by Zach Supalla.
         $parent.next('.secondary-in-page-toc').show();
       }
     });
-  };
-
-  Docs.checkIfGuideScrollbar = function() {
-    var $contentInner = $('.content-inner')[0];
-    if($contentInner) {
-      if($contentInner.scrollHeight > $contentInner.clientHeight) {
-        $('.arrow.next-arrow').css('margin-right', '15px');
-      }
-    }
   };
 
   Docs._removeEmptyTokens = function removeEmptyTokens(token) {
@@ -340,30 +322,21 @@ Created by Zach Supalla.
   Docs.toggleNav = function() {
     $(".toggle-navigation").click(function(e) {
       e.preventDefault();
-      $(".menubar, .page-body").toggleClass("menu-visible menu-hidden");
+      if($(".menubar").css("opacity") === "1") {
+        $(".menubar, .page-body").addClass("menu-hidden").removeClass("menu-visible");
+      } else {
+        $(".menubar, .page-body").addClass("menu-visible").removeClass("menu-hidden");
+      }
     });
   };
 
-  Docs.addMenubarClass = function() {
-    var width = $(window).width();
-    if(width > 768) {
-      $(".menubar, .page-body").removeClass('menu-hidden').addClass('menu-visible');
-    } else {
-      $(".menubar, .page-body").removeClass('menu-visible').addClass('menu-hidden');
-    }
-  };
-
-  $(window).resize(Docs.addMenubarClass);
-
   // Ok, then let's do it!
-  Docs.addMenubarClass();
   Docs.rememberDevices();
   Docs.transform();
-  Docs.createScrollSpies();
+  Docs.setupTOCScrollSpy();
   Docs.scrollToInternalLinks();
   Docs.watchToggleInPageNav();
   Docs.watchToggleSecondaryInPageNav();
-  Docs.checkIfGuideScrollbar();
   Docs.buildSearch();
   Docs.toggleNav();
   Docs.toggleShowing();

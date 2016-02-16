@@ -154,7 +154,7 @@ If you're on a noisy WiFi network you've had troubles flashing wirelessly in the
 
 **Flash via Particle CLI**
 
-The [Particle CLI](https://github.com/spark/particle-cli) s a swiss army command line knife that can be used to do all kinds of cool things...like flash a deep update to your core. The README provides some nice documentation about how to install it and [how to do a deep update over USB](https://github.com/spark/spark-cli#performing-a-deep-update). The process is pretty simple:
+The [Particle CLI](https://github.com/spark/particle-cli) s a swiss army command line knife that can be used to do all kinds of cool things...like flash a deep update to your core. The README provides some nice documentation about how to install it and [how to do a deep update over USB](https://github.com/spark/particle-cli#performing-a-deep-update). The process is pretty simple:
 
 Install or Upgrade the CLI (requires Node.js):
 
@@ -164,7 +164,9 @@ Connect a Core to your computer via USB and put it into [dfu-mode](/guide/gettin
 
 Run the flash command:
 
-``particle flash --usb deep_update_2014_06``
+- `particle flash --usb deep_update_2014_06` **(v1.28)**
+- `particle flash --usb cc3000` **(v1.29 stable - recommended)**
+- `particle flash --usb cc3000_1_14` **(v1.32 latest - not recommended without testing)**
 
 This installs the deep udate from a binary that is packaged with the Particle CLI, so you don't have to download it.
 

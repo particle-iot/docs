@@ -316,7 +316,7 @@ Spark Build parte con la barra di navigazione sulla sinistra. In alto ci sono tr
 In basso a sinistra ci sono altri quattro bottoni per navigare nella IDE:
 
 - **Code**: Mostra una lista delle vostre applicazioni e vi lascia scegliere quale modificare/caricare.
-- **Docs**: Vi porta alla documentazione per lo Spark.
+- **Docs**: Vi porta alla documentazione per lo Particle.
 - **Cores**: Mostra una lista dei vostri Spark Cores in modo da scegliere quale aggiornare e vi da più informazioni su ogni Core.
 - **Settings**: Per cambiare la password, fare log out o creare il token di accesso per le chiamate API.
 
@@ -332,7 +332,7 @@ Da questo pannello avete a disposizione un sacco di bottoni e azioni che vi potr
 
 - **Create**: Potete creare nuove applicazioni premendo il bottone "Create New App". Date un nome e premete invio! La vostra applicazione è salvata nel vostro account e pronta per essere modificata.
 
-- **Delete**: Premete il bottone "Remove App" per cancellare definitivamente l'applicazione dalla vostra libreria Spark.
+- **Delete**: Premete il bottone "Remove App" per cancellare definitivamente l'applicazione dalla vostra libreria Particle.
 
 - **Rename**: Potete rinominare la vostra applicazione Spark semplicemente facendo doppio click sul titolo della vostra applicazione sotto "Current App".  Potete modificare il campo descrizione "Optional description" nello stesso modo.
 - **My Apps**: Stanchi di lavorare al vostro progetto attuale? Selezionate il nome di un'altra applicazione sotto "My apps" per aprirla in una cartella dell'editor dello Spark Build.
@@ -388,7 +388,7 @@ Ci sono diversi altri sviluppi e miglioramenti nello Spark Build. La Spark Build
 
 - **Core ID**: Potete visualizzare il Device ID del vostro Core cliccando sull'icona "Cores" in basso al pannello di navigazione e poi sulla freccina verso il basso vicino al Core di vostro interesse.  
 
-- **Unclaim**: Potete dissociare un Core premendo il bottone "Remove Core" che si presenta dopo aver cliccato la freccia verso il basso. Una volta che un Core è stato dissociato è a disposizione per riassociarlo con un qualsiasi altro account di un utente Spark.
+- **Unclaim**: Potete dissociare un Core premendo il bottone "Remove Core" che si presenta dopo aver cliccato la freccia verso il basso. Una volta che un Core è stato dissociato è a disposizione per riassociarlo con un qualsiasi altro account di un utente Particle.
 
 ![Spark Build](/assets/images/access-token.png)
 

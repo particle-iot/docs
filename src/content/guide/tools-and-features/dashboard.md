@@ -22,13 +22,13 @@ The Dashboard will show you an overview of your devices and their activity. It�
 
 ### Logs
 
-You can watch events published from your devices with `Spark.publish()` come in, in realtime.
+You can watch events published from your devices with `Particle.publish()` come in, in realtime.
 
 [![Logs App]({{assets}}/images/dashboard/logs-big-picture.png)]({{assets}}/images/dashboard/logs-big-picture.png)
 
 
 
-The Logs feature provides a clean interface to view event information in real-time, just from your devices. We're hoping that this is handy both while debugging code during development, and checking out recent activity on your device once you power-on your finished project. Here’s a snapshot of a Spark device monitoring the health of a theoretical aquarium.
+The Logs feature provides a clean interface to view event information in real-time, just from your devices. We're hoping that this is handy both while debugging code during development, and checking out recent activity on your device once you power-on your finished project. Here’s a snapshot of a Particle device monitoring the health of a theoretical aquarium.
 
 Let's look at it starting at the top.
 

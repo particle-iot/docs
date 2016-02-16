@@ -544,7 +544,7 @@ Note that there is no password for the customer. An email address is the only pi
 
 As the diagram above suggests, you will receive an access token in the response of the `POST` to creating of the customer. You will use this access token during the device claiming process as well as to interact with the device once it's set up.
 
-[Reference docs on creating a customer](/reference/api/#create-a-customer)
+[Reference docs on creating a customer](/reference/api/#customers)
 
 
 #### Device Setup (Steps 4, 5 & 6)

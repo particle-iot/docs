@@ -2,7 +2,6 @@
 title: Kickstarter Questions
 template: support.hbs
 columns: two
-devices: [ photon, electron, core ]
 order: 3
 ---
 

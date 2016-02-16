@@ -13,7 +13,7 @@ order: 4
 
 ```c++
 void setup() {
-    Spark.publish("my-event","The internet just got smarter!");
+    Particle.publish("my-event","The internet just got smarter!");
 }
 ```
 
@@ -189,7 +189,7 @@ When these pads are programmed to be used as a Bluetooth coexistence interface, 
 
 ## Technical specification
 
-### Absolute maximum ratings <i class="icon-attention"></i>
+### Absolute maximum ratings
 
 | Parameter | Symbol | Min | Typ | Max | Unit |
 |:-|:-|:-:|:-:|:-:|:-:|
@@ -200,7 +200,7 @@ When these pads are programmed to be used as a Bluetooth coexistence interface, 
 | Enable Voltage | V<sub>EN</sub> |  |  | V<sub>IN</sub>+0.6 | V |
 | ESD Susceptibility HBM (Human Body Mode) | V<sub>ESD</sub> |  |  | 2 | kV |
 
-### Recommended operating conditions <i class="icon-check"></i>
+### Recommended operating conditions
 
 | Parameter | Symbol | Min | Typ | Max | Unit |
 | :-|:-|:-:|:-:|:-:|:-:

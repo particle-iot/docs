@@ -2,7 +2,7 @@
 title: Core shields and kits
 template: datasheet.hbs
 columns: two
-order: 3
+order: 8
 ---
 
 # Shields and accessories
@@ -119,8 +119,8 @@ void setup()
    digitalWrite(RELAY3, LOW);
    digitalWrite(RELAY4, LOW);
 
-   //register the Spark function
-   Spark.function("relay", relayControl);
+   //register the Particle function
+   Particle.function("relay", relayControl);
 }
 
 void loop()
@@ -448,8 +448,6 @@ You can use to it detect tilt, orientation or vibrations.
 
 The TMP36 is a low voltage, precision centigrade temperature sensor. It provides a voltage output that is linearly proportional to the Celsius (centigrade) temperature. The TMP36 does not require any external calibration to provide typical accuracies of ±1°C at +25°C and ±2°C over the −40°C to +125°C temperature range.
 
-[Here is an example](/core/examples/#measuring-the-temperature) of how you could use it the Core.
-
 [Datasheet >](http://www.analog.com/static/imported-files/data_sheets/TMP35_36_37.pdf)
 
 <!-- TO DO ADD LINK TO EXAMPLE-->
@@ -604,8 +602,8 @@ int rightMotorDir   = D4;
 
 void setup()
 {
-  //Register Spark function
-  Spark.function("rccar", rcCarControl);
+  //Register Particle function
+  Particle.function("rccar", rcCarControl);
 
   pinMode(leftMotorDir, OUTPUT);
   pinMode(leftMotorEnable, OUTPUT);

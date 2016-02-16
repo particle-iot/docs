@@ -20,8 +20,8 @@ order: 2
 {{/if}}
 
 {{#if electron}}
-![](/assets/images/electronItemBox.jpg)
-<p class="caption">Introducing the future, the Electron.</p>
+![](/assets/images/electronItemBox.png)
+<p class="caption">Introducing the Electron.</p>
 {{/if}}
 
 Congratulations on being the owner of a brand new Particle Device! Go ahead and open the box. You can see the different [kit add-ons](/datasheets/kits) and check out the {{#if photon}}[Photon datasheet](/datasheets/photon-datasheet/){{/if}}{{#if core}}[Core datasheet](/datasheets/core-datasheet/){{/if}}{{#if electron}}[Electron datasheet](/datasheets/electron-datasheet/){{/if}} if you like!
@@ -104,7 +104,7 @@ to wired power source. Consider this battery your Electron's best friend!
 
 {{/if}}
 
-For more technical details on what comes on your device, go {{#if core}}[here](/datasheets/core-datasheet/){{/if}}{{#if photon}}[here](/datasheets/kits/photon/){{/if}}{{#if electron}}[here](/datasheets/kits/electron/){{/if}}.
+For more technical details on what comes on your device, go {{#if core}}[here](/datasheets/core-datasheet/){{/if}}{{#if photon}}[here](/datasheets/kits/#photon){{/if}}{{#if electron}}[here](/datasheets/kits/#electron){{/if}}.
 
 {{#if electron}}
 ## New User Features On the Electron
@@ -141,7 +141,7 @@ See the full [Electron Billing Guide](/guide/getting-started/billing/)
 - Each SIM card will be billed a *base rate* which includes 1 MB of data
 - The base rate covers you up to 1.0MB, additional MB are billed at a cheaper rate than the base
 - We bill your base rate at beginning of a period, additional MB at the end, so you'll often see both
-- Base and additional MB rates are based on your [country and Zone](/guide/getting-started/billing/electron/#roaming-zones-) 
+- Base and additional MB rates are based on your [country and Zone](/guide/getting-started/billing/electron/#roaming-zones-)
 - You can set a data limit for each SIM. It defaults to 5MB on new SIMs, but you can change it in the [Dashboard](https://dashboard.particle.io/user/billing)
 - Data limits are soft maximums; we only charge you for the number of MB used, rounded up, and we'll cut off usage as quickly as we have updated metering from your carrier
 - If a SIM goes over the limit, it'll be paused and won't be able to use more data until the beginning of the next period or you raise the data limit
@@ -152,7 +152,7 @@ See the full [Electron Data Guide](/guide/getting-started/data/)
 ### Overview
 - Any cellular communication to or from the Electron uses data, since it goes through the cell network
 - Maintaining a connection also uses a small amount of data, to keep the device active on the network
-- Some actions are very data efficient, like `Particle.publish` 
+- Some actions are very data efficient, like `Particle.publish`
 - Others, like flashing your code over the air, will use much more data
 - We've done a ton of work to save you data and warn you if an action will use lots of data
 - You can save even more data by optimizing your code behavior
@@ -244,7 +244,7 @@ This may take a little while - but don't worry.
 * *Blinking blue:* Listening for Wi-Fi credentials
 * *Solid blue:* Getting Wi-Fi info from app
 * *Blinking green:* Connecting to the Wi-Fi network
-* *Blinking cyan:* Connecting to the Spark Cloud
+* *Blinking cyan:* Connecting to the Particle Cloud
 * *Blinking magenta:* Updating to the newest firmware
 * *Breathing cyan:* Connected!
 
@@ -311,7 +311,7 @@ This may take a little while - but don't worry.
 * *Blinking blue:* Listening for Wi-Fi credentials
 * *Solid blue:* Getting Wi-Fi info from app
 * *Blinking green:* Connecting to the Wi-Fi network
-* *Blinking cyan:* Connecting to the Spark Cloud
+* *Blinking cyan:* Connecting to the Particle Cloud
 * *Blinking magenta:* Updating to the newest firmware
 * *Breathing cyan:* Connected!
 

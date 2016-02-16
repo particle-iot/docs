@@ -19,12 +19,13 @@ Connected devices nearly always require certifications that ensure they operate 
  - [RoHS](https://docs.particle.io/guide/how-to-build-a-product/certification/#rohs-img-class-inline-header-image-src-assets-images-logo-rohs-png-) - Europe
  - [UL](https://docs.particle.io/guide/how-to-build-a-product/certification/#ul-img-class-inline-header-image-src-assets-images-logo-ul-png-) - World
  - [Cellular Certifications](https://docs.particle.io/guide/how-to-build-a-product/certification/#cellular-certifications) - World
+ - [Battery Certifications](https://docs.particle.io/guide/how-to-build-a-product/certification/#battery-certifications) - World
 
 
 Here is a graphical representation of the current state of certification across Particle's hardware portfolio:
 
-![particle certifications table](/assets/images/particle-certifications-160127.png)
-<p class="caption">It's important to understand which certifications apply to your end product. <a target="_blank" href="/assets/images/particle-certifications-160127.png">Click here</a> for a full size image. Updated 1/27/16.</p>
+![particle certifications table](/assets/images/particle-certifications-160210.png)
+<p class="caption">It's important to understand which certifications apply to your end product. <a target="_blank" href="/assets/images/particle-certifications-160210.png">Click here</a> for a full size image. Updated 2/10/16.</p>
 
 
 ## FCC <img class="inline-header-image" src="/assets/images/logo-fcc.png"/>
@@ -88,6 +89,16 @@ Particle's certifications will help you decrease the time and cost associated wi
 - FCC ID: [XR2WIZFI250](https://apps.fcc.gov/oetcf/eas/reports/ViewExhibitReport.cfm?mode=Exhibits&RequestTimeout=500&calledFromFrame=N&application_id=ug625xSKTLocEEah0xLMFw%3D%3D&fcc_id=XR2WIZFI250)  
 - [Test Reports](https://apps.fcc.gov/oetcf/eas/reports/ViewExhibitReport.cfm?mode=Exhibits&RequestTimeout=500&calledFromFrame=N&application_id=ug625xSKTLocEEah0xLMFw%3D%3D&fcc_id=XR2WIZFI250)
 
+#### Electron U260
+- FCC ID: [XPYSARAU260](https://apps.fcc.gov/oetcf/eas/reports/ViewExhibitReport.cfm?mode=Exhibits&RequestTimeout=500&calledFromFrame=N&application_id=o2hW1PEmrUZn19QwwX8hCA%3D%3D&fcc_id=XPYSARAU260)
+- [Certificate of Conformity - U260](/assets/pdfs/electron/fcc-u260-certificate.pdf)
+- [Test Reports - U260](/assets/pdfs/electron/fcc-u260-test-report.pdf)
+
+#### Electron G350
+- FCC ID: [XPYSARAG350](https://apps.fcc.gov/oetcf/eas/reports/ViewExhibitReport.cfm?mode=Exhibits&RequestTimeout=500&calledFromFrame=N&application_id=o2hW1PEmrUZn19QwwX8hCA%3D%3D&fcc_id=XPYSARAG350)
+- [Certificate of Conformity - G350](/assets/pdfs/electron/fcc-g350-certificate.pdf)
+- [Test Reports - G350](/assets/pdfs/electron/fcc-g350-test-report.pdf)
+
 ## IC <img class="inline-header-image" src="/assets/images/logo-ic.png"/>
 
 ### Description
@@ -108,16 +119,25 @@ The Photon/P0 and P1 Modules are IC certified as single-modular transmitters. Ju
 Industry Canada follows the same testing and rules as the FCC in regards to certified modules in authorized equipment.
 
 ### Documentation
+For certificates of conformity, search [here](https://sms-sgs.ic.gc.ca/search/radioEquipmentPortal) under "Radio Equipment List (REL) > Certification Number" using IC ID for each Particle device, respectively.
 
 #### Photon/P0
-- IC ID: **20127-PHOTON**. Search [here](https://sms-sgs.ic.gc.ca/search/radioEquipmentPortal) under "Radio Equipment List (REL) > Certification Number".
+- IC ID: **20127-PHOTON**.
 - [Certificate of Conformity](/assets/pdfs/p0-ic-certificate.pdf)
 - [Test Report](/assets/pdfs/p0-fcc-ic-test-reports.zip)
 
 #### P1 Module
-- IC ID: **2056-WIZFI250**. Search [here](https://sms-sgs.ic.gc.ca/search/radioEquipmentPortal) under "Radio Equipment List (REL) > Certification Number".  
+- IC ID: **2056-WIZFI250**.
 - [Certificate of Conformity](/assets/pdfs/p1-ic-certificate.pdf)
 - [Test Report](/assets/pdfs/p1-ic-test-report.pdf)
+
+#### Electron U260
+- IC ID: **8595A-SARAU260**.
+- [Test Report](/assets/pdfs/electron/ic-u260-test-report.pdf)
+
+#### Electron G350
+- IC ID: **8595A-SARAG350**.
+- [Test Report](/assets/pdfs/electron/ic-g350-test-report.pdf)
 
 ## CE <img class="inline-header-image" src="/assets/images/logo-ce.png"/>
 
@@ -155,6 +175,15 @@ If a product has adhered to the integration guidelines and has minimal risk, it 
 
 #### P1 Module
 - [Certificate of Conformity](/assets/pdfs/p1-ce-certificate.pdf)
+
+#### Electron U270
+- [Certificate of Conformity](/assets/pdfs/electron/ce-u270-certificate.pdf)
+- [Test Reports](/assets/pdfs/electron/ce-u270-test-reports.zip)
+
+#### Electron G350
+- [Certificate of Conformity](/assets/pdfs/electron/ce-g350-certificate.pdf)
+- [Test Reports](/assets/pdfs/electron/ce-g350-test-reports.zip)
+
 
 ## TELEC <img class="inline-header-image" src="/assets/images/logo-telec.png"/>
 
@@ -223,6 +252,21 @@ More information coming soon.
 ### GCF
 
 ### Carrier Certifications
+
+## Battery Certifications
+
+The 2,000mAh lithium-polymer (Li-Po) battery included with the Electron and other Particle accessories is compliant with all international safety and transportation standards. Test reports below.
+
+**Model Number**: LP103450  
+**Ratings**: 3.7V DC, 2000mAh, 7.4Wh  
+**Manufacturer**: PKCELL (Shenzhen, China)  
+**Test Reports**:
+- [IEC62133](/assets/pdfs/electron/battery/IEC62133.pdf)
+- [UN Section 38.3](/assets/pdfs/electron/battery/UN-section-38.3-report.pdf)
+- [MSDS Test Report](/assets/pdfs/electron/battery/msds-report.pdf)
+- [1.2m Drop Test](/assets/pdfs/electron/battery/1.2m-drop-test.pdf)
+- [Air Freight Transport](/assets/pdfs/electron/battery/air-freight-transport.pdf)
+- [Sea Freight Transport](/assets/pdfs/electron/battery/sea-freight-transport.pdf)
 
 ## What's next?
 

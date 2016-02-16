@@ -52,7 +52,7 @@ The guide is broken down into three parts:
 - [**How to Build a Product**](/guide/how-to-build-a-product/intro/) is the final section. It reviews everything you need to do to take the connected device you've prototyped and take it to production.
 
 We'll fill in more parts of the guide in the {{{popup 'coming months' 'note' 'Thanks for your patience, friend.'}}}, but for now the best way to use the guide is:
-- Go through [**Getting Started**](/guide/getting-started/start/electron/)
+- Go through [**Getting Started**](/guide/getting-started/start/)
 - Review [**Tools and Features**](/guide/tools-and-features/intro/)
 - Search _[the Community](http://community.particle.io)_ for cool examples and advice relevant to your exact project
 - Check out [**How to Build a Product**](/guide/how-to-build-a-product/intro/) for final advice on the production stage.

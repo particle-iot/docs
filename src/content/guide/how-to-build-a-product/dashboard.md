@@ -187,7 +187,7 @@ Checking this checkbox will signal to the Particle cloud that regardless of whic
 
 When you do a real manufacturing run and import those devices into the dashboard, you will not need to check this box. This is because your devices will receive firmware with your product ID directly on the manufacturing line.
 
-## Roll out Firmware
+## Rollout Firmware
 
 One of the most significant benefits of your organization dashboard is being able to rollout firmware to groups of devices, all from one place. This opens up tremendous possibilities for your IoT product: you now have the power to continuously improve how a customer's device operates after purchase. In addition, over-the-air (OTA) firmware updates can provide you additional flexibility in the manufacturing process. Specifically, you may continue to develop firmware between the time of manufacturing and shipping your product to customers, and send the latest firmware to your customers on setup of their device.
 
@@ -296,7 +296,7 @@ As customers are created for your product, they will begin to appear on your Cus
 
 ## Monitoring Product Logs
 
-The logs page (<i class="icon-terminal"></i>) is also available to product creators! Featuring the same interface as what you are used to with the [developer version of the dashboard](/guide/tools-and-features/dashboard/), the logs will now include events from any device identifying as your product. Use this page to get a real-time look into what is happening with your devices. In order to take full advantage of the logs page, be sure to use `Spark.publish()` in your firmware.
+The logs page (<i class="icon-terminal"></i>) is also available to product creators! Featuring the same interface as what you are used to with the [developer version of the dashboard](/guide/tools-and-features/dashboard/), the logs will now include events from any device identifying as your product. Use this page to get a real-time look into what is happening with your devices. In order to take full advantage of the logs page, be sure to use `Particle.publish()` in your firmware.
 
 ## Managing your subscription
 

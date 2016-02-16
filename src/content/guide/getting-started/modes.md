@@ -65,11 +65,11 @@ Note that, if you enter this mode by holding {{#if photon}}`SETUP`{{/if}}{{#unle
 If your {{device}} is flashing green, it is trying to connect to the internet. If you already entered your {{#if electron}}cellular{{/if}}{{#if photon}}Wi-Fi{{/if}}{{#if core}}Wi-Fi{{/if}} credentials, give your device a few seconds to connect and start breathing cyan.
 
 {{#if photon}}
-If you haven't yet connected your {{device}} to Wi-Fi, then set your device to [Listening Mode](#photon-modes-listening-mode).
+If you haven't yet connected your {{device}} to Wi-Fi, then set your device to [Listening Mode](#listening-mode).
 {{/if}}
 
 {{#if core}}
-If you haven't yet connected your {{device}} to Wi-Fi, then set your device to [Listening Mode](/core/modes/#core-modes-listening-mode). If your {{device}} continuously flashes green and won't stop, then try doing a [full firmware update](https://community.particle.io/t/spark-core-common-issues/12383).
+If you haven't yet connected your {{device}} to Wi-Fi, then set your device to [Listening Mode](#listening-mode). If your {{device}} continuously flashes green and won't stop, then try doing a [full firmware update](https://community.particle.io/t/spark-core-common-issues/12383).
 {{/if}}
 
 {{#if electron}}
@@ -110,18 +110,25 @@ When your {{device}} is in Listening Mode, it is waiting for your input to conne
 
 {{#if photon}}
 {{{vine "https://vine.co/v/eZUHUIjq7pO/embed/simple"}}}
+
 To put your {{device}} in Listening Mode, hold the `SETUP` button for three seconds, until the RGB LED begins flashing blue.
 {{/if}}
+
 {{#if electron}}
 {{{vine "https://vine.co/v/eZUHUIjq7pO/embed/simple"}}}
+
 To put your {{device}} in Listening Mode, hold the `MODE` button for three seconds, until the RGB LED begins flashing blue.
 {{/if}}
+
 {{#if core}}
 {{{vine "https://vine.co/v/eZUgHYYrYgl/embed/simple"}}}
+
 To put your {{device}} in Listening Mode, hold the `MODE` button for three seconds, until the RGB LED begins flashing blue.
 {{/if}}
 
+
 {{#if photon}}
+
 ### Wi-Fi Network Reset
 
 {{{vine "https://vine.co/v/eZUwtJljYnK/embed/simple"}}}
@@ -133,34 +140,13 @@ You can also reset the Wi-Fi networks by holding the `SETUP` button and tapping 
 {{/if}}
 
 {{#if core}}
+
 ### Wi-Fi Network Reset
 
 {{{vine "https://vine.co/v/eZU6expA5bA/embed/simple"}}}
 
 To erase the stored wifi networks on your {{device}}, hold the `MODE` button for about ten seconds, until the RGB LED flashes blue rapidly.
 
-{{/if}}
-
-{{#if core}}
-### Wi-Fi Network Reset
-
-{{#if photon}}
-
-{{{vine "https://vine.co/v/eZUwtJljYnK/embed/simple"}}}
-
-To erase the stored wifi networks on your {{device}}, hold the `SETUP` button for about ten seconds, until the RGB LED flashes blue rapidly.
-
-You can also reset the Wi-Fi networks by holding the `SETUP` button and tapping `RESET`, then continuing to hold `SETUP` until the light on the {{device}} turns white. (This differs from the Core. Doing this action on the Core will result in a factory reset.)
-
-{{/if}}
-
-{{#if core}}
-
-{{{vine "https://vine.co/v/eZU6expA5bA/embed/simple"}}}
-
-To erase the stored wifi networks on your {{device}}, hold the `MODE` button for about ten seconds, until the RGB LED flashes blue rapidly.
-
-{{/if}}
 {{/if}}
 
 {{#if photon}}
@@ -264,7 +250,7 @@ Firmware reset is not available on the Photon/P1, but not to worry! If you are e
 
 Factory reset is not available on the Photon/P1, but not to worry! If you are experiencing problems with your application firmware, you can use [Safe Mode](#safe-mode) to recover.
 
-You can reset Wi-Fi credentials by performing a [WiFi Network Reset](#wifi-network-reset).
+You can reset Wi-Fi credentials by performing a [WiFi Network Reset](#wi-fi-network-reset).
 {{/if}}
 
 {{#if core}}
@@ -285,7 +271,7 @@ The procedure is same as the one described above (DFU Mode), but in this case yo
 6. Release the `MODE` button
 
 
-You can reset Wi-Fi credentials by performing a [WiFi Network Reset](#wifi-network-reset).
+You can reset Wi-Fi credentials by performing a [WiFi Network Reset](#wi-fi-network-reset).
 {{/if}}
 
 
@@ -359,18 +345,18 @@ A pattern of more than 10 red flashes is caused by the firmware crashing. The pa
 
 There are a number of other red flash codes that may be expressed after the SOS blinks:
 
-#1 Hard fault
-#2 Non-maskable interrupt fault
-#3 Memory Manager fault
-#4 Bus fault
-#5 Usage fault
-#6 Invalid length
-#7 Exit
-#8 Out of heap memory
-#9 SPI over-run
-#10 Assertion failure
-#11 Invalid case
-#12 Pure virtual call
+1. Hard fault
+2. Non-maskable interrupt fault
+3. Memory Manager fault
+4. Bus fault
+5. Usage fault
+6. Invalid length
+7. Exit
+8. Out of heap memory
+9. SPI over-run
+10. Assertion failure
+11. Invalid case
+12. Pure virtual call
 
 The two most common ones are:
 

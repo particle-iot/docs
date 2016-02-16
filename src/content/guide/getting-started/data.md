@@ -2,7 +2,7 @@
 title: Electron Data Guide
 template: guide.hbs
 columns: two
-devices: [ electron,photon,core ]
+devices: [ electron ]
 order: 9
 ---
 
@@ -74,6 +74,8 @@ Your application will be stuck in a connecting loop if you haven't written code 
 There are lots of things you can do to save data! We'll go through these in order of increasing complexity.
 
 **Use Shorter Names** This applies to Particle.publish, .variable, and .function. Those longer names have to be sent to/from the cloud, so you're much better off using `Particle.publish("x")` than `Particle.publish("xylophone_is_now_playing_a_song")`.
+
+**Use Serial() for Development** When you're first testing and debugging your code, you can avoid costly and embarrassing runaway data publishing scenarios by sending sensor readings, alerts, etc over a USB cable. Comment out your `Particle.publish()` line, add `Serial.begin(9600);` to `setup()` and instead use `Serial.println(your_data_here")` to log data out to a serial terminal. You can use [Particle Dev](https://www.particle.io/dev), the Arduino IDE, `screen` or any other terminal program. Find out more in the [Serial reference](/reference/firmware/electron/#serial)
 
 **Event-Driven Publishing** One of the very common structures we see in code is a loop() with a sensor reading, then a publish and delay. This calls the publish (and uses data) at some regular interval, but the data being reported may not have changed! Picture a temperature sensor in your yard- the temperature is unlikely to have changed much after 1 second, 1 minute, or even 10 minutes. The data-efficient thing to do is to save the temperature you last published and compare the current reading to that previous one. If it's more than a few degrees different, then publish the new one.
 

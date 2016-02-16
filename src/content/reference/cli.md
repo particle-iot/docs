@@ -11,7 +11,7 @@ order: 3
 
 ## particle setup wifi
 
-  Helpful shortcut for adding another wifi network to a device connected over USB.  Make sure your device is connected via a USB cable, and is slow blinking blue [listening mode](/photon/connect/#connecting-your-device-listening-mode)
+  Helpful shortcut for adding another wifi network to a device connected over USB.  Make sure your device is connected via a USB cable, and is slow blinking blue [listening mode](/guide/getting-started/modes/#listening-mode)
 
 ```sh
 # how to just update your wifi settings.
@@ -120,7 +120,7 @@ $ particle flash 0123456789ABCDEFGHI app.ino library1.cpp library1.h
 
 ### Compiling remotely and Flashing locally
 
-To work locally, but use the cloud compiler, simply use the compile command, and then the local flash command after.  Make sure you connect your device via USB and place it into [dfu mode](/photon/modes/#selecting-various-modes-dfu-mode-device-firmware-upgrade).
+To work locally, but use the cloud compiler, simply use the compile command, and then the local flash command after.  Make sure you connect your device via USB and place it into [dfu mode](/guide/getting-started/modes/#dfu-mode-device-firmware-upgrade-).
 
 ```sh
 # how to compile a directory of source code and tell the CLI where to save the results
@@ -267,7 +267,7 @@ $ particle subscribe eventName 0123456789ABCDEFGHI
 
 ## particle publish
 
-  Publishes events to the cloud via API, similar to running Spark.publish() (deprecated) or Particle.publish() on a Particle Device.
+  Publishes events to the cloud via API, similar to running Particle.publish() on a Particle Device.
   
 ```sh
 $ particle publish eventName data
@@ -300,7 +300,7 @@ $ particle serial monitor /dev/cu.usbmodem12345
 
 Helps you update your keys, or recover your device when the keys on the server are out of sync with the keys on your device.  The ```particle keys``` tools requires both dfu-util, and openssl to be installed.
 
-Connect your device in [dfu mode](/photon/modes/#selecting-various-modes-dfu-mode-device-firmware-upgrade), and run this command to replace the unique cryptographic keys on your device.  Automatically attempts to send the new public key to the cloud as well.
+Connect your device in [dfu mode](/guide/getting-started/modes/#dfu-mode-device-firmware-upgrade-), and run this command to replace the unique cryptographic keys on your device.  Automatically attempts to send the new public key to the cloud as well.
 
 ```sh
 # helps repair key issues on a device
@@ -330,7 +330,7 @@ New Key Created!
 
 ## particle keys load
 
-Copies a ```.DER``` formatted private key onto your device's external flash.  Make sure your device is connected and in [dfu mode](/photon/modes/#selecting-various-modes-dfu-mode-device-firmware-upgrade).  The ```particle keys``` tools requires both dfu-util, and openssl to be installed.  Make sure any key you load is sent to the cloud with ```particle keys send device.pub.pem```
+Copies a ```.DER``` formatted private key onto your device's external flash.  Make sure your device is connected and in [dfu mode](/guide/getting-started/modes/#dfu-mode-device-firmware-upgrade-).  The ```particle keys``` tools requires both dfu-util, and openssl to be installed.  Make sure any key you load is sent to the cloud with ```particle keys send device.pub.pem```
 
 ```sh
 # loads a key to your device via USB
@@ -343,7 +343,7 @@ Saved!
 
 ## particle keys save
 
-Copies a ```.DER``` formatted private key from your device's external flash to your computer.  Make sure your device is connected and in [dfu mode](/photon/modes/#selecting-various-modes-dfu-mode-device-firmware-upgrade).  The ```particle keys``` tools requires both dfu-util, and openssl to be installed.
+Copies a ```.DER``` formatted private key from your device's external flash to your computer.  Make sure your device is connected and in [dfu mode](/guide/getting-started/modes/#dfu-mode-device-firmware-upgrade-).  The ```particle keys``` tools requires both dfu-util, and openssl to be installed.
 
 ```sh
 # creates a backup of the private key from your device to a file

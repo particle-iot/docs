@@ -180,8 +180,8 @@ void setup()
    digitalWrite(RELAY3, LOW);
    digitalWrite(RELAY4, LOW);
 
-   //register the Spark function
-   Spark.function("relay", relayControl);
+   //register the Particle function
+   Particle.function("relay", relayControl);
 }
 
 void loop()

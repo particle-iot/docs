@@ -16,5 +16,5 @@ module.exports = function (str) {
 	var anchorId = sanitized + '-' + makeid();
 	var title = Handlebars.Utils.escapeExpression(str);
 
-	return new Handlebars.SafeString("<h3 id='#" + sanitized + "' data-href='" + anchorId + "'>" + title + "<a href='#" + sanitized + "' class='header-permalinks' data-menu-href='" + anchorId + "'><i class='ion-link'></i></a></h3>");
+	return new Handlebars.SafeString("<h3 id='" + sanitized + "' data-href='" + anchorId + "'>" + title + "<a href='#" + sanitized + "' class='header-permalinks' data-menu-href='" + anchorId + "'><i class='ion-link'></i></a></h3>");
 };

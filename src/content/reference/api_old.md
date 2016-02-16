@@ -164,7 +164,7 @@ There are three ways to send your access token in a request.
 * In the request body (only works for POST & PUT when body is URL-encoded)
 
 In these docs, you'll see example calls written using a terminal program called
-[curl](http://curl.haxx.se/)
+[curl](https://curl.haxx.se/)
 which may already be available on your machine.
 
 Example commands will always start with `curl`.
@@ -480,7 +480,7 @@ Controlling a Device
 To control a Particle device, you must first define and expose *functions* in the device firmware.
 You then call these functions remotely using the Particle Cloud API.
 
-Note: If you have declared a function name longer than 12 characters it *will be truncated* to 12 characters. Example: Spark.function("someFunction1", ...); exposes a function called **someFunction** and *not* **someFunction1**
+Note: If you have declared a function name longer than 12 characters it *will be truncated* to 12 characters. Example: Particle.function("someFunction1", ...); exposes a function called **someFunction** and *not* **someFunction1**
 
 ``` cpp
 /* FIRMWARE */
@@ -506,13 +506,13 @@ Within the firmware, we might expect to see something like this brew function.
 /* FIRMWARE */
 void setup()
 {
-  Spark.function("brew", brew);
+  Particle.function("brew", brew);
 }
 ```
 
 In a normal coffeemaker, `brew` might be called when a button on the front of the coffeemaker is pressed.
 
-To make this function available through the Particle Cloud, simply add a `Spark.function` call to your `setup()`.
+To make this function available through the Particle Cloud, simply add a `Particle.function` call to your `setup()`.
 
 
 
@@ -562,7 +562,7 @@ int temperature = 0;
 
 void setup()
 {
-  Spark.variable("temperature", &temperature, INT);
+  Particle.variable("temperature", &temperature, INT);
   pinMode(A0, INPUT);
 }
 
