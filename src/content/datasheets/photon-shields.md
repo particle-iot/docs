@@ -96,6 +96,14 @@ We have even provided a small prototyping area around the shield for you to add 
 
 **IMPORTANT:** This shield provides regulated power (5V) to the seated Particle device and relays. However, it does not support power to the devices controlled by the relays.
 
+### Relay Shield - Library
+If you're already logged into Build.particle.io then you can [jump directly to the library](https://build.particle.io/libs/55e0a4256b6e3275580009ce/tab/1_Blink_An_LED.cpp) to get going quickly and easily with the RelayShield library, which wraps all the features in easy-to-use functions.
+
+Examples include:
+1. __Blink a Relay__ - How to turn a relay on and off
+2. __Blink all the Relays__ - An extension on the simplest case
+3. __Internet Relays__ - Creating Particle.function()s so that you can turn relays on and off over the Internet
+
 ### Relay Shield - Operation
 
 The schematic for the relay shield is simple and self explanatory. The shield has four relays that are controlled by pins D3, D4, D5 and D6 on the Particle device. Each relay is triggered via a NPN transistor that takes a control signal from the Particle device and switches the relay coil ON and OFF, which in turn makes or breaks the electrical contact on the output. There is also a fly-back diode connected across the coil to help protect the transistor from high voltage transients caused during switching.
@@ -285,7 +293,7 @@ There are two status led located on the left of the JST battery connector labele
 
 The Internet Button is not only an easy way to get started on the Internet of Things, it's also a clean and simple way to start building your own prototypes. Quickly start playing with LEDs, multiple buttons, an accelerometer and more without any wires or soldering.
 
-**NOTE:** There is a known issue with the current release of the Internet Button. On the PCB, the silkscreen labels are incorrect. The correct mapping is, from **right** to **left**, "1-2-3-4", *not* "4-3-2-1" as annotated on the PCB. For super double extra clarity, please see the following pin mapping label table:</span>
+**NOTE:** There is a silkscreen issue with the current release of the Internet Button. On the PCB, the silkscreen labels are incorrect. The correct mapping is, from **right** to **left**, "1-2-3-4", *not* "4-3-2-1" as annotated on the PCB. For super double extra clarity, please see the following pin mapping label table:</span>
 
 |Photon Pin | Correct Mapping | Incorrect Mapping |
 |--------|--------|-------------------------|
@@ -293,6 +301,20 @@ The Internet Button is not only an easy way to get started on the Internet of Th
 |D5 | Button 2   | Button 3 |
 |D6 | Button 3   | Button 2 |
 |D7 | Button 4   | Button 1 |
+
+### Internet Button - Library
+If you're already logged into Build.particle.io then you can [jump directly to the library](https://build.particle.io/libs/55e0a4256b6e3275580009ce/tab/1_Blink_An_LED.cpp) to get going quickly and easily with the InternetButton library, which wraps all the features in easy-to-use functions.
+
+Examples include:
+1. __Blink an LED__ - How to control the smart LEDs on this board
+2. __Blink all the LEDs__ - An extension on the simplest case
+3. __LEDs and Buttons__ - How to read the buttons on the Button, and make LEDs blink with them
+4. __Good Combination__ - A set of button and LED conditionals that I happen to like and use frequently
+5. __Motion__ - The Internet Button also has an accelerometer on it to measure motion- this shows how the related functions work
+6. __Orientation__ - How to use the accelerometer functions to determine the orientation
+7. __Internet__ - Send that data out to the world!
+8. __Making Music__ - Learn how to play notes and songs with your Button
+9. __Release Firmware__ - Big, complicated set of epic.
 
 
 ![Internet Button](/assets/images/shields/internet-button/button.png)
