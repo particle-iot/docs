@@ -667,20 +667,18 @@ This is the big one! A fantastic collection of premium and versatile sensors.
 
 AND
 
-- (1) ADXL362 accelerometer
-- (1) GP2Y0A710K0F 100-500cm IR Distance sensor
-- (1) LM2904 audio sensor
-- (1) MQ2 gas sensor
-- (1) SHT10 soil humidity and temperature sensor
-- (1) HC-SR501 PIR motion sensor
-- (1) LM393 soil moisture sensor
-- (1) DS18B20 waterproof temperature sensor
-- (1) SW18020P vibration sensor
+- (1) [ADXL362](http://www.analog.com/media/en/technical-documentation/data-sheets/ADXL362.pdf) accelerometer
+- (1) [GP2Y0A710K0F](https://acroname.com/sites/default/files/assets/sharp_gp2y0a710yk0f_datasheet.pdf) 100-550cm IR Distance sensor
+- (1) Audio sensor with LM2904 opamp
+- (1) [MQ2 gas sensor](https://www.seeedstudio.com/depot/datasheet/MQ-2.pdf) for LPG, i-butane, propane, methane ,alcohol, Hydrogen, smoke
+- (1) [SHT10](https://www.adafruit.com/products/1298) soil humidity and temperature sensor
+- (1) [HC-SR501](https://www.mpja.com/download/31227sc.pdf) PIR motion sensor
+- (1) Soil moisture sensor with LM393 (similar to [this one](http://seeedstudio.com/wiki/Grove_-_Moisture_Sensor))
+- (1) [DS18B20](https://www.adafruit.com/products/381) waterproof temperature sensor
+- (1) [SW18020P](http://www.electrodragon.com/product/vibration-switch-sensor-sw-18020p/) vibration sensor
 - Various jumper wires, resistors, capacitors, LEDs, and pushbuttons
 
 *Library and photos coming soon!*
-
-
 
 
 <!--
