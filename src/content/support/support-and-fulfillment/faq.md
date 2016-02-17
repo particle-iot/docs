@@ -225,8 +225,6 @@ You can find more information on Particle’s shipping policies [here](/support/
 ### Q: Where do I buy this thing called 'spark core'?
 **A:**  The Spark Core is no longer being produced. The Photon is the direct successor to the Spark Core and most Spark Core code works on the Photon. You can find out all the difference between the Photon and the Core [here](https://community.particle.io/t/the-photon-changelog-whats-new-and-different-from-the-core/11823).
 
-For a limited time, you may be able to find Spark Cores at select [Microcenter](http://www.microcenter.com/product/436906/Maker_Kit_with_Chip_Antenna_Core) locations.
-
 ## Invoices
 ### Q: How can I get an invoice for my order?
 
