@@ -411,8 +411,6 @@ void loop() {
 }
 ```
 
-After you call `Particle.connect()`, your loop will not be called again until the device finishes connecting to the Cloud. Typically, you can expect a delay of approximately one second.
-
 In most cases, you do not need to call `Particle.connect()`; it is called automatically when the device turns on. Typically you only need to call `Particle.connect()` after disconnecting with [`Particle.disconnect()`](#particle-disconnect-) or when you change the [system mode](#system-modes).
 
 
@@ -6003,7 +6001,7 @@ void loop() {
 The semi-automatic mode is therefore much like the automatic mode, except:
 
 - When the device boots up, the user code will begin running immediately.
-- When the user calls [`Particle.connect()`](#particle-connect-), the user code will be blocked, and the device will attempt to negotiate a connection. This connection will block until either the device connects to the Cloud or an interrupt is fired that calls [`Particle.disconnect()`](#particle-disconnect-).
+- When the user calls [`Particle.connect()`](#particle-connect-) the device will attempt to negotiate a connection while user code continues to run.
 
 ### Manual mode
 
