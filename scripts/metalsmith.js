@@ -269,7 +269,7 @@ exports.build = function(callback) {
 };
 
 exports.test = function(callback) {
-  var server = serve();
+  var server = serve({ cache: 300 });
   git.branch(function (str) {
     gitBranch = process.env.TRAVIS_BRANCH || str;
     exports.metalsmith()

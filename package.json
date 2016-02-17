@@ -9,7 +9,7 @@
   },
   "scripts": {
     "start": "node ./scripts/server.js",
-    "test": "node ./node_modules/mocha/bin/mocha ./test/test.js --reporter dot",
+    "test": "node ./node_modules/mocha/bin/mocha ./test/crawler.js --reporter dot",
     "build": "node ./scripts/build.js",
     "update-api": "git submodule update --init --recursive && cd api-node && git fetch && git merge origin/production && cd .."
   },
@@ -53,7 +53,8 @@
   },
   "devDependencies": {
     "chalk": "^1.1.1",
-    "crawler": "^0.4.3",
-    "git-rev": "^0.2.1"
+    "cheerio": "^0.16.0",
+    "git-rev": "^0.2.1",
+    "simplecrawler": "spark/node-simplecrawler#v0.6.3"
   }
 }
