@@ -12,11 +12,11 @@ This section will help walk you through the diagnosis and resolution of the most
 
 {{#if electron}}
 
-## Flashing Green
+## Blinking Green
 
 {{{device-animation device "blink" "lime" }}}
 
-Electrons that are flashing green have successfully read the APN data from the inserted SIM card and are attempting to connect to a cellular tower. There are many different reasons that your Electron might fail to connect to your nearby cellular network. Here are a few things you can check if you find your device in an endless loop (5 minutes+) of flashing green:
+Electrons that are blinking green have successfully read the APN data from the inserted SIM card and are attempting to connect to a cellular tower. There are many different reasons that your Electron might fail to connect to your nearby cellular network. Here are a few things you can check if you find your device in an endless loop (5 minutes+) of blinking green:
 
 ### 1) Is your Electron compatible with your local cellular network?
 There are three different variants of the Electron, and they each work in different parts of the world:
@@ -89,11 +89,11 @@ Still having issues? [Write us an email](/support/support-and-fulfillment/menu-b
 - Your ICCID (SIM Number)
 - A photo of your device setup to help with troubleshooting.
 
-## Flashing Blue
+## Blinking Blue
 
 {{{device-animation device "blink" "blue" 300 300 }}}
 
-Electrons that are flashing blue are in listening mode. When an Electron boots up, it will attempt to read information from the its SIM card to connect to the cellular network. Electrons that do not have a SIM card, or that have an improperly configured SIM card will be unable to connect to a cell tower and will default back to listening mode. If you're in listening mode and don't want to be, try the steps listed below:
+Electrons that are blinking blue are in listening mode. When an Electron boots up, it will attempt to read information from the its SIM card to connect to the cellular network. Electrons that do not have a SIM card, or that have an improperly configured SIM card will be unable to connect to a cell tower and will default back to listening mode. If you're in listening mode and don't want to be, try the steps listed below:
 
 ### 1\. Is your SIM card inserted?
 Your device cannot exit listening mode and connect to a cellular tower if your SIM is not inserted. Please make sure your SIM is inserted as demonstrated below:
@@ -116,7 +116,7 @@ The easiest way to identify a bad contact in the holder is by removing the SIM c
 Try using your hands to press down on the SIM card to improve contact between the SIM and the metal pins underneath--while pressing on the SIM card, press the `RESET` button on the Electron. If you see the device begin to connect to the cellular network (flash green), you may have a damaged SIM card holder and should [contact Particle](/support/support-and-fulfillment/menu-base/electron/).
 
 ### 5\. Is your SIM card damaged or defective?
-Try using the SIM card from your cell phone, if you have one. If the RGB LED on the Electron begins to flash green when your phone's SIM is inserted, your Particle SIM may need to be replaced, and you should [contact Particle](/support/support-and-fulfillment/menu-base/electron/).
+Try using the SIM card from your cell phone, if you have one. If the RGB LED on the Electron begins to blink green when your phone's SIM is inserted, your Particle SIM may need to be replaced, and you should [contact Particle](/support/support-and-fulfillment/menu-base/electron/).
 
 ### 6\. Contact Particle
 Still having issues? [Write us an email](/support/support-and-fulfillment/menu-base/electron/) and include the following to help us with troubleshooting:
@@ -212,15 +212,15 @@ If you don't have brew or homebrew installed, install it here: <a href="http://b
 -  Wait... Your device should eventually restart and start blinking blue, breathing cyan, or flashing green -- all dependent on if you've setup the device before.
 
 
-## Flashing Cyan
+## Blinking Cyan
 
 {{{device-animation device "blink" "cyan" }}}
 
-If your Photon is flashing cyan and sometimes orange/red without connecting, it is helpful to first try to manually update your firmware, in the same way as listed as above. If this does not work, then move on to a key reset.
+If your Photon is blinking cyan and sometimes orange/red without connecting, it is helpful to first try to manually update your firmware, in the same way as listed as above. If this does not work, then move on to a key reset.
 
 ### Public Key Reset
 
-Sometimes, a firmware upgrade will not be enough to solve your Photon's problem. If your are still having an issue, and particularly **if your photon is flashing cyan and sometimes orange/red without connecting**, It's time to try resetting the public key.
+Sometimes, a firmware upgrade will not be enough to solve your Photon's problem. If your are still having an issue, and particularly **if your Photon is blinking cyan and sometimes orange/red without connecting**, It's time to try resetting the public key.
 
 - **If you haven't ever claimed the device before:**
 You will need <a href="http://dfu-util.sourceforge.net/" target="_blank">dfu-util</a>. Install it, then download the [this file](https://s3.amazonaws.com/spark-website/cloud_public.der).
@@ -238,11 +238,11 @@ You need the [CLI](https://docs.particle.io/guide/tools-and-features/cli/). Once
 This should reset your public key.
 
 
-## Flashing Green
+## Blinking Green
 
 {{{device-animation device "blink" "lime" }}}
 
-If your device is flashing green without connecting, there are a few things to check immediately.
+If your device is blinking green without connecting, there are a few things to check immediately.
 
 ### Wi-Fi network requirements
 
