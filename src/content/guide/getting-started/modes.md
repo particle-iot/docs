@@ -73,7 +73,7 @@ If you haven't yet connected your {{device}} to Wi-Fi, then set your device to [
 {{/if}}
 
 {{#if electron}}
-If you haven't connected your {{device}} to a cellular tower yet, please wait up to ten minutes. If it takes longer than that, refer to [cellular troubleshooting section](/support/troubleshooting/common-issues/electron/#flashing-green).
+If you haven't connected your {{device}} to a cellular tower yet, please wait up to ten minutes. If it takes longer than that, refer to [cellular troubleshooting section](/support/troubleshooting/common-issues/electron/#blinking-green).
 
 {{/if}}
 
