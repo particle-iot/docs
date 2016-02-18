@@ -941,7 +941,7 @@ void loop() {
     If the difference in milliseconds between the current time and the last time we've measured 
     is more than 600,000 milliseconds (ten minutes) then... do all the things!
     */
-    if(millis()-lastMeasurement > 60000){
+    if(millis()-lastMeasurement > 600000){
         // Measure the value on the photoresistor, and put it into the array
         light[i] = analogRead(A0);
         
