@@ -194,9 +194,7 @@ Since your device is offline, I recommend using our dfu-util method. If you want
 
 To upgrade your Photon, follow the instructions below:
 
--  Download the proper firmware binaries for the Photon linked below:
-      - [Part1](https://github.com/spark/firmware/releases/download/v0.4.6.1/system-part1-0.4.6-photon.bin)
-      - [Part2](https://github.com/spark/firmware/releases/download/v0.4.6.1/system-part2-0.4.6-photon.bin)
+-  Download the latest system Part-1 and Part-2 firmware binaries for the Photon linked here: [latest release](https://github.com/spark/firmware/releases/latest)
 
 -  Install dfu-util on your Mac using: ```brew install dfu-util```
 If you don't have brew or homebrew installed, install it here: <a href="http://brew.sh/" target="_blank">http://brew.sh/</a>
@@ -204,10 +202,10 @@ If you don't have brew or homebrew installed, install it here: <a href="http://b
 -  Put photon into DFU MODE, instructions [here](/guide/getting-started/modes/photon/#dfu-mode-device-firmware-upgrade-).
 
 -  Flash part1:
-```dfu-util -d 2b04:d006 -a 0 -s 0x8020000 -D system-part1-0.4.6-photon.bin```
+```dfu-util -d 2b04:d006 -a 0 -s 0x8020000 -D system-part1-x.x.x-photon.bin``` (replace x.x.x with actual version number)
 
 -  Flash part2, unit should still be blinking yellow:
-```dfu-util -d 2b04:d006 -a 0 -s 0x8060000:leave -D system-part2-0.4.6-photon.bin```
+```dfu-util -d 2b04:d006 -a 0 -s 0x8060000:leave -D system-part2-x.x.x-photon.bin``` (replace x.x.x with actual version number)
 
 -  Wait... Your device should eventually restart and start blinking blue, breathing cyan, or flashing green -- all dependent on if you've setup the device before.
 
