@@ -1711,6 +1711,8 @@ analogWrite(DAC1, 1024);
 
 Reads the value from the specified analog pin. The device has 8 channels (A0 to A7) with a 12-bit resolution. This means that it will map input voltages between 0 and 3.3 volts into integer values between 0 and 4095. This yields a resolution between readings of: 3.3 volts / 4096 units or, 0.0008 volts (0.8 mV) per unit.
 
+**Note**: `analogRead()` does not require you to set the pinMode() to INPUT or even AN_INPUT explicitly. It will be automatically set to AN_INPUT the first time you call analogRead(). If you set it as an INPUT, that means you want the pin to be a digital input, which it will happily do as well. If starting as a digital input, every time you call analogRead() it determines that the pin is in digital INPUT mode and has to switch to AN_INPUT, take a reading, then switch back to INPUT so you can do a `digitalRead()` on the same pin again elsewhere in your code. This is simply a background multi-use convienece of these functions, but this may cause inaccuracies in your analog readings. To avoid this, do not set the pinMode() at all when using analogRead().
+
 ```C++
 // SYNTAX
 analogRead(pin);
@@ -1728,12 +1730,14 @@ int val = 0;                    // variable to store the read value
 
 void setup()
 {
-  pinMode(ledPin, OUTPUT);      // sets the pin as output
+  // Note: analogPin pin does not require pinMode()
+
+  pinMode(ledPin, OUTPUT);      // sets the ledPin as output
 }
 
 void loop()
 {
-  val = analogRead(analogPin);  // read the input pin
+  val = analogRead(analogPin);  // read the analogPin
   analogWrite(ledPin, val/16);  // analogRead values go from 0 to 4095, analogWrite values from 0 to 255
   delay(10);
 }
