@@ -795,7 +795,9 @@ WiFi.setCredentials("SSID", "PASSWORD", WPA2, WLAN_CIPHER_AES));
 
 *Since 0.4.9.*
 
-Lists the Wi-Fi credentials stored on the device. Returns the number of stored credentials.
+Lists the Wi-Fi networks with credentials stored on the device. Returns the number of stored networks.
+
+Note that this returns details about the Wi-Fi networks, but not the actual password.
 
 {{#if core}}
 
@@ -810,14 +812,12 @@ int found = WiFi.getCredentials(ap, 5);
 for (int i = 0; i < found; i++) {
     Serial.print("ssid: ");
     Serial.println(ap[i].ssid);
-    Serial.print("bssid: ");
-    Serial.println(ap[i].bssid);
     // security is one of WLAN_SEC_UNSEC, WLAN_SEC_WEP, WLAN_SEC_WPA, WLAN_SEC_WPA2
+    Serial.print("security: ");
     Serial.println(ap[i].security);
     // cipher is one of WLAN_CIPHER_AES, WLAN_CIPHER_TKIP
+    Serial.print("cipher: ");
     Serial.println(ap[i].cipher);
-    Serial.println(ap[i].rssi);
-    Serial.println(ap[i].channel);
 }
 ```
 
