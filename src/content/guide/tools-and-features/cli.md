@@ -107,7 +107,7 @@ $ particle help keys
 If you're wanting to save data on your Electron you should definitely consider flashing your Electron over
 serial instead of OTA (over-the-air).
 
-Assuming you've compiled and downloaded the firmware binary from [Build IDE](https://build.particle.io) by clicking the cloud button next to the file name, you should 
+Assuming you've compiled and downloaded the firmware binary from [Build IDE](https://build.particle.io) by clicking the cloud button next to the file name, you should
 be able to use the Particle CLI, mentioned above, to flash your application firmware to your Electron *without using data.*
 
 Steps:
@@ -121,13 +121,13 @@ Steps:
 $ particle flash --serial firmware.bin
 
 ! PROTIP: Hold the SETUP button on your device until it blinks blue!
-? Press ENTER when your device is blinking BLUE 
+? Press ENTER when your device is blinking BLUE
 sending file: firmware.bin
 
 Flash success!
 ```
 
-*Note*: If your Electron goes into [safe mode](/guide/getting-started/modes/electron/#safe-mode), this is okay, just make sure that the system firmware you on the device matches the dependency of the system firmware 
+*Note*: If your Electron goes into [safe mode](/guide/getting-started/modes/electron/#safe-mode), this is okay, just make sure that the system firmware you on the device matches the dependency of the system firmware
 built into the firmware application.
 
 ## Blink an LED with Tinker
@@ -207,7 +207,7 @@ Then let's compile that program to make sure it's valid code.  The CLI will auto
 
 ```sh
 # how to compile a program without flashing to your device
-$ particle compile blinky.ino
+$ particle compile {{#if photon}}photon{{/if}}{{#if core}}core{{/if}}{{#if electron}}electron{{/if}} blinky.ino
 Including:
 blinky.ino
 attempting to compile firmware
