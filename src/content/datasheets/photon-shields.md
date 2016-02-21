@@ -660,6 +660,13 @@ Also onboard is an accelerometer, the [LIS3DH](http://www.adafruit.com/datasheet
 **Enclosure**
 The waterproof box includes two M4 screws for mounting the shield securely into the box. Screw the shield down in the enclosure, then plug the Electron into the shield with the USB connector facing inward. You can also look at the silkscreen Electron outline on the board for the correct orientation. The battery and antenna can be fixed in the box using the foam adhesive tape if you want to keep them from moving around.
 
+**Library**
+We've put together a great library for you to start building from! If you're already logged into Build then you can just click on [AssetTracker library](https://build.particle.io/libs/56ca184fd7e949613400086f/tab/1_GPS_Features.cpp) and you can always open the "Libraries" view in Build, and AssetTracker will show up under the Official Libraries. This library is especially good for learning about the Electron because it implements a couple of useful features, like a Particle.function for checking the battery level!
+
+Examples:
+1. __GPS Features__ - How to use the GPS efficiently, and some nice Electron functions
+2. __Accelerometer__ - Using the accelerometer with some cute tricks
+
 ### Recommended operating conditions
 | Parameter | Symbol | Min | Typ | Max | Unit |
 | :---|:---|:---:|:---:|:---:|:---:|
@@ -671,7 +678,7 @@ The waterproof box includes two M4 screws for mounting the shield securely into 
 | Operating Temperature | T<sub>op</sub> | -20 |  | +60 | °C |
 | Humidity Range Non condensing, relative humidity | | | | 95 | % |
 
-*Library and photos coming soon!*
+*Photos coming soon!*
 
 ## Electron Sensor Kit
 This is the big one! A fantastic collection of premium and versatile sensors.
