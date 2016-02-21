@@ -56,14 +56,14 @@ Go to our Core datasheets [collection](/datasheets/core-datasheet/) to get an in
 ### Shields and Accessories
 
 For all hardware related questions in regards to all of our available shields, pinouts, and diagrams, and mini-tutorials
-feel free to visit our [Datasheets Section](/datasheets/photon-shields/#shield-shield) on these topics.
+feel free to visit our [Datasheets Section](/datasheets/) on these topics.
 This includes:
 
 - Shield Shield
 - Relay Shield
 - Programmer Shield
 - Internet Button
-- Photon Kit
+- Particle Dev (Electron, Photon, Core) Kit
 - Particle Maker Kit
 
 {{#if photon}}
