@@ -111,7 +111,7 @@ We’ve made it easier than ever to check the cellular signal of your device. Wh
 
 ### Sleep Modes
 
-The Electron is the perfect tool for untethered and remote projects. We’ve worked hard to minimize current consumption of the Electron in deep sleep modes to provide you the tools to significantly extend the battery life of your project. Check out the technical documentation for our [sleep() function](https://docs.particle.io/reference/firmware/photon/#sleep-sleep-) to learn more.
+The Electron is the perfect tool for untethered and remote projects. We’ve worked hard to minimize current consumption of the Electron in deep sleep modes to provide you the tools to significantly extend the battery life of your project. Check out the technical documentation for our [sleep() function](https://docs.particle.io/reference/firmware/#sleep-sleep-) to learn more.
 
 ### New Peripherals
 
