@@ -154,6 +154,11 @@ More details coming soon.
 **Using the Particle Device Updater**  
 More details coming soon.
 
+**Using the Particle CLI**
+- Put your device into DFU mode by holding the `MODE` and `RESET` buttons, then releasing the `RESET` button while continuing to hold the `MODE` button. The LED on your Electron will begin flashing yellow.
+- Open up a terminal session and type `particle update`
+- Your device will download the most recent version of system firmware and will reboot successfully.
+
 ### 3) Check your application for issues
 
 If you are confident that there is a version match between the system and user compile targets of firmware on your device or you see the LED on your device flash [red or orange](http://docs.particle.io/support/troubleshooting/troubleshooting-support/electron/#error-codes) after startup, it is likely that there is an issue with the user firmware running on your device. To return your device to a stable condition, reflash the Tinker app to your device in one of two ways:
