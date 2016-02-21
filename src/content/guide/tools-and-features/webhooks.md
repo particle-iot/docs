@@ -451,7 +451,7 @@ The topic of your published event is sent as the 'event' property in webhook req
 
 ```
 Particle.publish(event, data);
-#  This part  ^^^^^
+#  This part     ^^^^^
 ```
 
 ### data
@@ -460,7 +460,7 @@ The contents of your published event is sent as the 'data' property in webhook r
 
 ```
 Particle.publish(event, data);
-#  This part         ^^^^
+#  This part            ^^^^
 ```
 
 
