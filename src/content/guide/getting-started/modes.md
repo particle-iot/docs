@@ -284,7 +284,6 @@ You can reset Wi-Fi credentials by performing a [WiFi Network Reset](#wi-fi-netw
 {{/if}}
 
 
-d
 ## Troubleshooting Modes
 
 These modes let you know about more atypical issues your {{device}} might be exhibiting. Use this section to troubleshoot strange colors you might see from your {{device}}.
