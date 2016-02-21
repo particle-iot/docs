@@ -149,7 +149,7 @@ http://api.openweathermap.org/data/2.5/weather?q=London&mode=xml
 
 There are a ton of weather data services spread around the world!
 
-One we found with lots of great international data, and a developer program is [OpenWeatherMap](http://openweathermap.org/)
+One we found with lots of great international data, and a developer program is [OpenWeatherMap](http://openweathermap.org/).
 
 
 ### Creating the Webhook
@@ -294,7 +294,7 @@ The wind is: from the Northwest at 19.6 gusting to 28.8 MPH (17 gusting to 25 KT
 
 ### Logging to Librato
 
-Librato is great service that lets you quickly track and graph any data over time.  This example requires you have an account with them first, [signup for librato here](https://metrics.librato.com)
+Librato is great service that lets you quickly track and graph any data over time.  This example requires you have an account with them first, [signup for librato here](https://metrics.librato.com).
 
 When you first login you'll see a screen like this:
 
@@ -395,10 +395,10 @@ Since your Webhook listens for events from your devices, it can send that event 
 }
 ```
 
-This is same data you'd see if you subscribed to your [event stream](/reference/api/#events)
+This is same data you'd see if you subscribed to your [event stream](/reference/api/#events).
 
 
-These properties will all be strings except for published_at, which is an ISO8601 date formatted string, which tends to be in the form YYYY-MM-DDTHH:mm:ssZ
+These properties will all be strings except for `published_at`, which is an ISO8601 date formatted string, which tends to be in the form `YYYY-MM-DDTHH:mm:ssZ`.
 
 
 ## Templates
@@ -509,7 +509,7 @@ Optionally provide a JSON object with key / value pairs specifying custom header
 
 ### form
 
-Optionally include custom fields and values as if submitting a form with your request.  This parameter will change the content-type header to `application/x-www-form-urlencoded`
+Optionally include custom fields and values as if submitting a form with your request.  This parameter will change the content-type header to `application/x-www-form-urlencoded`.
 
 ```json
 # example form usage
@@ -716,7 +716,7 @@ particle subscribe mine
 ```
 
 ## Community Webhook Examples
-Below are a few community-written webhook examples. They have been sorted by what they do. These examples were not written by Particle but instead members of our community. Got your own webhook example? Post on the [community forums](https://community.particle.io/) and then issue a pull request to our [docs repo](https://github.com/spark/docs/compare)
+Below are a few community-written webhook examples. They have been sorted by what they do. These examples were not written by Particle but instead members of our community. Got your own webhook example? Post on the [community forums](https://community.particle.io/) and then issue a pull request to our [docs repo](https://github.com/spark/docs/compare).
 
 ### Sending SMS (Text Messages)
 
