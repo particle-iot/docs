@@ -138,7 +138,7 @@ There are two primary ways that you can resolve this issue:
 
 If you are developing in the Build IDE, the compiler should automatically target the version of system firmware running on the selected device. The Build IDE will also give you a warning if you select a firmware version build target for your device that is newer than the system modules running on it. To confirm that you're building with the right version of firmware, follow these steps:
 
-- Go to https://build.particle.io
+- Go to [https://build.particle.io](https://build.particle.io)
 - Click on the `Devices` icon on the left-most navigation pane
 - Select the dropdown arrow next to the device that is in safe mode
 - Click the `Building with firmware` dropdown and make sure that it is set to `Default`
