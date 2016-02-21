@@ -2,17 +2,18 @@
 title: Connectivity Help
 template: support.hbs
 columns: two
-devices: [ photon,electron,core ]
+devices: [ photon,core ]
 order: 8
 ---
 
 Connection Issues
 ===
 
+{{#if electron}}
 ## Using non Particle SIM card
 ### Steps for using non Particle SIM card for Electron
 *This section is coming soon!*
-
+{{/if}}
 
 
 ## Steps to Success
@@ -27,7 +28,7 @@ The {{#if photon}}Photon{{/if}}{{#if core}}Core{{/if}} works best with a traditi
 
 There are known issues with the following types of networks:
 
-- **802.11n-only networks**. The Core is 802.11b/g. Most 802.11n networks are backwards compatible with 802.11b/g, but if yours is not, the {{#if photon}}Photon{{/if}}{{#if core}}Core{{/if}} will not connect.
+- **802.11n-only networks**. The {{#if photon}}Photon{{/if}}{{#if core}}Core{{/if}} is 802.11b/g. Most 802.11n networks are backwards compatible with 802.11b/g, but if yours is not, the {{#if photon}}Photon{{/if}}{{#if core}}Core{{/if}} will not connect.
 - **Networks with ["captive portal"](http://en.wikipedia.org/wiki/Captive_portal) security**. A captive portal is the little website that comes up to ask you to sign in to a network or sign an agreement, like at a Starbucks. The {{#if photon}}Photon{{/if}}{{#if core}}Core{{/if}} can't navigate these portals.
 - **Enterprise networks**. We have had mixed results connecting the devices to enterprise networks, although we don't yet have a great understanding of what's causing the issue. This is something that we are working to improve.
 - **Complex Networks**. Networks with multiple routers, with non-standard firewalls, and with non-standard settings.
@@ -195,6 +196,3 @@ These commands replace the factory reset image, and re-patch the radio, bringing
 {{#if core}}
 [Go to Community Forums >](http://community.particle.io/c/troubleshooting)
 {{/if}}
-
-
-
