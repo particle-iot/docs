@@ -206,7 +206,7 @@ And a usage guide [here.](/reference/cli/)
 
 To enter DFU Mode:
 
-{{#if photon}}
+{{#unless core}}
 
 1. Hold down BOTH buttons
 2. Release only the `RESET` button, while holding down the `SETUP` button.
@@ -215,7 +215,7 @@ To enter DFU Mode:
 
 {{{vine "https://vine.co/v/eZUHnhaUD9Y/embed/simple"}}}
 
-{{/if}}
+{{/unless}}
 
 {{#if core}}
 
