@@ -368,29 +368,23 @@ void loop() {
 }
 ```
 
-[![Testing the events first]({{assets}}/images/webhooks-librato-cli-example.png)]({{assets}}/images/webhooks-librato-cli-example.png)
-
-
 After you flash the firmware to your device, open up the Particle CLI, and subscribe to your events with `particle subscribe mine`, you should see something like:
 
-[![Librato Metrics Screen]({{assets}}/images/webhooks-librato-metrics-screen1.png)]({{assets}}/images/webhooks-librato-metrics-screen1.png)
-
+[![Testing the events first]({{assets}}/images/webhooks-librato-cli-example.png)]({{assets}}/images/webhooks-librato-cli-example.png)
 
 Once you've created the Webhook, and some events are coming through successfully, your metric should show up in your metrics list:
 
+[![Librato Metrics Screen]({{assets}}/images/webhooks-librato-metrics-screen1.png)]({{assets}}/images/webhooks-librato-metrics-screen1.png)
+
+Open up that metric, and congrats!  Your sensor data is now readily available to you in Librato!
 
 [![Librato Sample Graph]({{assets}}/images/webhooks-librato-metric-sample.png)]({{assets}}/images/webhooks-librato-metric-sample.png)
 
 
-Open up that metric, and congrats!  Your sensor data is now readily available to you in Librato!
-
-
-
-
-
-
 
 ## What's in a request?
+
+Since your Webhook listens for events from your devices, it can send that event data along to whatever url you specify.  If you don't add any custom options, the hook will send a JSON type POST request with the following values:
 
 ```json
 {
@@ -400,8 +394,6 @@ Open up that metric, and congrats!  Your sensor data is now readily available to
     "coreid": "Your device ID"
 }
 ```
-
-Since your Webhook listens for events from your devices, it can send that event data along to whatever url you specify.  If you don't add any custom options, the hook will send a JSON type POST request with the following values:
 
 This is same data you'd see if you subscribed to your [event stream](/reference/api/#events)
 
