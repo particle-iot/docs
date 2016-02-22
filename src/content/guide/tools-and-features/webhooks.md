@@ -560,7 +560,7 @@ Optionally include an object with username/password set to include a properly en
 
 ### noDefaults
 
-By default, your webhook will inject the data from your Particle.publish call into your request. These four parameters, "name", "data", "coreid", and "published_at" might cause issues for some servers.  By setting `noDefaults` to true, it will not add these parameters.
+By default, your webhook will inject the data from your `Particle.publish()` call into your request. These four parameters, "name", "data", "coreid", and "published_at" might cause issues for some servers.  By setting `noDefaults` to true, it will not add these parameters.
 
 ```json
 # don't inject name, data, coreid, and published_at
