@@ -209,9 +209,9 @@ To enter DFU Mode:
 {{#unless core}}
 
 1. Hold down BOTH buttons
-2. Release only the `RESET` button, while holding down the `SETUP` button.
+2. Release only the `RESET` button, while holding down the {{#if photon}}`SETUP`{{/if}}{{#if electron}}`MODE`{{/if}} button.
 3. Wait for the LED to start flashing yellow (it will flash magenta first)
-4. Release the `SETUP` button
+4. Release the {{#if photon}}`SETUP`{{/if}}{{#if electron}}`MODE`{{/if}} button
 
 {{{vine "https://vine.co/v/eZUHnhaUD9Y/embed/simple"}}}
 
