@@ -25,9 +25,9 @@ Let's go!
 
 When you surf the internet, you are riding a continuous wave of web requests. Browsers make requests to web servers, which send information back that allow you to view, point, click, and interact. When you loaded this page, your browser sent a "GET" request to our web server to ask to display the site. Our server recognized the information in that "GET" request, and it sent the page back to your browser.
 
-There are many different kinds of web requests. Most of your average requests to view a page or browse around online are "GET" requests.  This is all part of that hypertext ```http://``` thing that is at the front of the address in your browser.  When you fill out and submit a form, your browser tends to send "POST" requests.  POST requests are usually for sending data to a server.  You can read more about all the [different kinds of web requests here](http://en.wikipedia.org/wiki/Hypertext_Transfer_Protocol#Request_methods).
+There are many different kinds of web requests. Most of your average requests to view a page or browse around online are "GET" requests.  This is all part of that hypertext `http://` thing that is at the front of the address in your browser.  When you fill out and submit a form, your browser tends to send "POST" requests.  POST requests are usually for sending data to a server.  You can read more about all the [different kinds of web requests here](http://en.wikipedia.org/wiki/Hypertext_Transfer_Protocol#Request_methods).
 
-Your Particle powered device can now easily make these requests!  You could grab or send values to any web service or site with something as simple as ```Particle.publish("lets go!");``` That's what we are going to teach you how to do with Webhooks.
+Your Particle powered device can now easily make these requests!  You could grab or send values to any web service or site with something as simple as `Particle.publish("lets go!");` That's what we are going to teach you how to do with Webhooks.
 
 
 ## Installing the CLI
@@ -52,7 +52,7 @@ You'll also need some basic knowledge of the terminal. Adafruit has a [lovely in
 
 ### particle webhook create
 
-  Registers your Webhook with the Particle Cloud.  Creates a postback to the given url when your event is sent.  See [Webhook Options](#webhook-options) for JSON formatting requirements and parameters.
+Registers your Webhook with the Particle Cloud.  Creates a postback to the given url when your event is sent.  See [Webhook Options](#webhook-options) for JSON formatting requirements and parameters.
 
 ```sh
 # how to create a webhook with json data using the CLI
@@ -101,7 +101,7 @@ Found 2 hooks registered
 
 ### particle webhook delete
 
-  Delete a webhook using your registered webhook ID number.  Use `particle webhook list` to find the WEBHOOK_ID you wish to delete, then copy/paste it into the `particle webhook delete WEBHOOK_ID` command.
+Delete a webhook using your registered webhook ID number.  Use `particle webhook list` to find the WEBHOOK_ID you wish to delete, then copy/paste it into the `particle webhook delete WEBHOOK_ID` command.
 
 ```sh
 # how to delete your previously registered webhook
@@ -149,7 +149,7 @@ http://api.openweathermap.org/data/2.5/weather?q=London&mode=xml
 
 There are a ton of weather data services spread around the world!
 
-One we found with lots of great international data, and a developer program is [OpenWeatherMap](http://openweathermap.org/)
+One we found with lots of great international data, and a developer program is [OpenWeatherMap](http://openweathermap.org/).
 
 
 ### Creating the Webhook
@@ -212,7 +212,7 @@ void loop() {
 
 // This function will get called when weather data comes in
 void gotWeatherData(const char *name, const char *data) {
-    // Important note!  -- Right now the response comes in 512 byte chunks.  
+    // Important note!  -- Right now the response comes in 512 byte chunks.
     //  This code assumes we're getting the response in large chunks, and this
     //  assumption breaks down if a line happens to be split across response chunks.
     //
@@ -294,7 +294,7 @@ The wind is: from the Northwest at 19.6 gusting to 28.8 MPH (17 gusting to 25 KT
 
 ### Logging to Librato
 
-Librato is great service that lets you quickly track and graph any data over time.  This example requires you have an account with them first, [signup for librato here](https://metrics.librato.com)
+Librato is great service that lets you quickly track and graph any data over time.  This example requires you have an account with them first, [signup for librato here](https://metrics.librato.com).
 
 When you first login you'll see a screen like this:
 
@@ -368,29 +368,23 @@ void loop() {
 }
 ```
 
-[![Testing the events first]({{assets}}/images/webhooks-librato-cli-example.png)]({{assets}}/images/webhooks-librato-cli-example.png)
-
-
 After you flash the firmware to your device, open up the Particle CLI, and subscribe to your events with `particle subscribe mine`, you should see something like:
 
-[![Librato Metrics Screen]({{assets}}/images/webhooks-librato-metrics-screen1.png)]({{assets}}/images/webhooks-librato-metrics-screen1.png)
-
+[![Testing the events first]({{assets}}/images/webhooks-librato-cli-example.png)]({{assets}}/images/webhooks-librato-cli-example.png)
 
 Once you've created the Webhook, and some events are coming through successfully, your metric should show up in your metrics list:
 
+[![Librato Metrics Screen]({{assets}}/images/webhooks-librato-metrics-screen1.png)]({{assets}}/images/webhooks-librato-metrics-screen1.png)
+
+Open up that metric, and congrats!  Your sensor data is now readily available to you in Librato!
 
 [![Librato Sample Graph]({{assets}}/images/webhooks-librato-metric-sample.png)]({{assets}}/images/webhooks-librato-metric-sample.png)
 
 
-Open up that metric, and congrats!  Your sensor data is now readily available to you in Librato!
-
-
-
-
-
-
 
 ## What's in a request?
+
+Since your Webhook listens for events from your devices, it can send that event data along to whatever url you specify.  If you don't add any custom options, the hook will send a JSON type POST request with the following values:
 
 ```json
 {
@@ -401,12 +395,10 @@ Open up that metric, and congrats!  Your sensor data is now readily available to
 }
 ```
 
-Since your Webhook listens for events from your devices, it can send that event data along to whatever url you specify.  If you don't add any custom options, the hook will send a JSON type POST request with the following values:
-
-This is same data you'd see if you subscribed to your [event stream](/reference/api/#events)
+This is same data you'd see if you subscribed to your [event stream](/reference/api/#events).
 
 
-These properties will all be strings except for published_at, which is an ISO8601 date formatted string, which tends to be in the form YYYY-MM-DDTHH:mm:ssZ
+These properties will all be strings except for `published_at`, which is an ISO8601 date formatted string, which tends to be in the form `YYYY-MM-DDTHH:mm:ssZ`.
 
 
 ## Templates
@@ -434,6 +426,7 @@ Particle.publish("custom_templates", "{ \"my-var\": \"foo\", \"my-temp\": \"98.6
 ```
 
 An example hook that uses custom templates.  In this case the URL of the request will change as the value of "my-var" changes in your published event!
+
 ```json
 {
     "event": "custom_templates",
@@ -459,7 +452,7 @@ The topic of your published event is sent as the 'event' property in webhook req
 
 ```
 Particle.publish(event, data);
-#  This part  ^^^^^
+#  This part     ^^^^^
 ```
 
 ### data
@@ -468,7 +461,7 @@ The contents of your published event is sent as the 'data' property in webhook r
 
 ```
 Particle.publish(event, data);
-#  This part         ^^^^
+#  This part            ^^^^
 ```
 
 
@@ -517,7 +510,7 @@ Optionally provide a JSON object with key / value pairs specifying custom header
 
 ### form
 
-Optionally include custom fields and values as if submitting a form with your request.  This parameter will change the content-type header to `application/x-www-form-urlencoded`
+Optionally include custom fields and values as if submitting a form with your request.  This parameter will change the content-type header to `application/x-www-form-urlencoded`.
 
 ```json
 # example form usage
@@ -567,9 +560,7 @@ Optionally include an object with username/password set to include a properly en
 
 ### noDefaults
 
-By default, your webhook will inject the data from your Particle.publish call into your request.
-  These four parameters, "name", "data", "coreid", and "published_at" might cause issues for some servers.  By setting
-  noDefaults to true, it will not add these parameters.
+By default, your webhook will inject the data from your Particle.publish call into your request. These four parameters, "name", "data", "coreid", and "published_at" might cause issues for some servers.  By setting `noDefaults` to true, it will not add these parameters.
 
 ```json
 # don't inject name, data, coreid, and published_at
@@ -580,9 +571,7 @@ By default, your webhook will inject the data from your Particle.publish call in
 
 ### rejectUnauthorized
 
-By default, if your URL targets a url with a HTTPS prefix (SSL encrypted), the hook will validate the certificate
-against its certificate authority chain.  If you're using a self-signed certificate, or are otherwise having certificate
-issues, you can tell the hook to ignore the validation process by setting rejectUnauthorized to false.
+By default, if your URL targets a url with a HTTPS prefix (SSL encrypted), the hook will validate the certificate against its certificate authority chain.  If you're using a self-signed certificate, or are otherwise having certificate issues, you can tell the hook to ignore the validation process by setting rejectUnauthorized to false.
 
 ```json
 # ignore any issues with the SSL certificate (not especially secure to do this)
@@ -591,8 +580,7 @@ issues, you can tell the hook to ignore the validation process by setting reject
 
 ### azure_sas_token
 
-Some cloud providers like Azure require a dynamically generated access token.  To help keep the requests secure and
-flowing freely, you can specify this parameter to have your webhook generate these tokens for you!
+Some cloud providers like Azure require a dynamically generated access token.  To help keep the requests secure and flowing freely, you can specify this parameter to have your webhook generate these tokens for you!
 
 ```json
 # Specify the azure_sas_token for the webhook to generate an authorization header with the appropriate token
@@ -604,9 +592,7 @@ flowing freely, you can specify this parameter to have your webhook generate the
 
 ### responseTemplate
 
-You can use the responseTemplate parameter to let the webhook dynamically render a new event response down to your
-devices!  This is just like the custom template variables above, but it applies to what your devices see, instead of
-what your server sees.
+You can use the responseTemplate parameter to let the webhook dynamically render a new event response down to your devices!  This is just like the custom template variables above, but it applies to what your devices see, instead of what your server sees.
 
 ```json
 # If your server returned JSON, use the responseTemplate to parse and render a more clear response and send less data!
@@ -615,9 +601,7 @@ what your server sees.
 
 ### responseTopic
 
-You can also set the topic the webhook will use to help your devices filter and subscribe to the appropriate response!
-If you have a hook that services hundreds of devices, you can, for example include the device id in the topic, and have
-your device subscribe to events that only apply to it:
+You can also set the topic the webhook will use to help your devices filter and subscribe to the appropriate response! If you have a hook that services hundreds of devices, you can, for example include the device id in the topic, and have your device subscribe to events that only apply to it:
 
 ```json
 # If your server returned JSON, use the responseTopic to parse and render a custom event topic!
@@ -627,8 +611,7 @@ your device subscribe to events that only apply to it:
 
 ### errorResponseTopic
 
-You can also include custom processing of the topic for error responses, in case you want to pre-process these before
-saving them or acting on them.
+You can also include custom processing of the topic for error responses, in case you want to pre-process these before saving them or acting on them.
 
 ```json
 # If your server returned JSON, use the errorResponseTopic to set a custom event topic for errors!
@@ -677,7 +660,7 @@ The hook will be disabled if the server responds
 with errors 10 times in a row.
 ```
 
-Any hook that results in an error code from the server (above a 400), 10 consecutive times in a row will be automatically disabled.  We'll be adding notifications, and the ability to pause/unpause when this happens, but for the moment you might notice that your hook stops working for this reason.  
+Any hook that results in an error code from the server (above a 400), 10 consecutive times in a row will be automatically disabled.  We'll be adding notifications, and the ability to pause/unpause when this happens, but for the moment you might notice that your hook stops working for this reason.
 
 
 ## Handling Web Responses
@@ -724,7 +707,8 @@ particle subscribe mine
 ```
 
 ## Community Webhook Examples
-Below are a few community-written webhook examples. They have been sorted by what they do. These examples were not written by Particle but instead members of our community. Got your own webhook example? Post on the [community forums](https://community.particle.io/) and then issue a pull request to our [docs repo](https://github.com/spark/docs/compare)
+
+Below are a few community-written webhook examples. They have been sorted by what they do. These examples were not written by Particle but instead members of our community. Got your own webhook example? Post on the [community forums](https://community.particle.io/) and then issue a pull request to our [docs repo](https://github.com/spark/docs/compare).
 
 ### Sending SMS (Text Messages)
 
