@@ -795,7 +795,9 @@ WiFi.setCredentials("SSID", "PASSWORD", WPA2, WLAN_CIPHER_AES));
 
 *Since 0.4.9.*
 
-Lists the Wi-Fi credentials stored on the device. Returns the number of stored credentials.
+Lists the Wi-Fi networks with credentials stored on the device. Returns the number of stored networks.
+
+Note that this returns details about the Wi-Fi networks, but not the actual password.
 
 {{#if core}}
 
@@ -810,14 +812,12 @@ int found = WiFi.getCredentials(ap, 5);
 for (int i = 0; i < found; i++) {
     Serial.print("ssid: ");
     Serial.println(ap[i].ssid);
-    Serial.print("bssid: ");
-    Serial.println(ap[i].bssid);
     // security is one of WLAN_SEC_UNSEC, WLAN_SEC_WEP, WLAN_SEC_WPA, WLAN_SEC_WPA2
+    Serial.print("security: ");
     Serial.println(ap[i].security);
     // cipher is one of WLAN_CIPHER_AES, WLAN_CIPHER_TKIP
+    Serial.print("cipher: ");
     Serial.println(ap[i].cipher);
-    Serial.println(ap[i].rssi);
-    Serial.println(ap[i].channel);
 }
 ```
 
@@ -1711,6 +1711,8 @@ analogWrite(DAC1, 1024);
 
 Reads the value from the specified analog pin. The device has 8 channels (A0 to A7) with a 12-bit resolution. This means that it will map input voltages between 0 and 3.3 volts into integer values between 0 and 4095. This yields a resolution between readings of: 3.3 volts / 4096 units or, 0.0008 volts (0.8 mV) per unit.
 
+**Note**: do *not* set the pinMode() with `analogRead()`. The pinMode() is automatically set to AN_INPUT the first time analogRead() is called for a particular analog pin. If you explicitly set a pin to INPUT or OUTPUT after that first use of analogRead(), it will not attempt to switch it back to AN_INPUT the next time you call analogRead() for the same analog pin. This will create incorrect analog readings.
+
 ```C++
 // SYNTAX
 analogRead(pin);
@@ -1728,12 +1730,14 @@ int val = 0;                    // variable to store the read value
 
 void setup()
 {
-  pinMode(ledPin, OUTPUT);      // sets the pin as output
+  // Note: analogPin pin does not require pinMode()
+
+  pinMode(ledPin, OUTPUT);      // sets the ledPin as output
 }
 
 void loop()
 {
-  val = analogRead(analogPin);  // read the input pin
+  val = analogRead(analogPin);  // read the analogPin
   analogWrite(ledPin, val/16);  // analogRead values go from 0 to 4095, analogWrite values from 0 to 255
   delay(10);
 }
@@ -6127,7 +6131,7 @@ void setup()
 {
 	// the system thread isn't busy so these synchronous functions execute quickly
     Particle.subscribe("event", handler);
-	Partible.publish("myvar", myvar);
+	Particle.publish("myvar", myvar);
 	Particle.connect();    // <-- now connect to the cloud, which ties up the system thread
 }
 ```

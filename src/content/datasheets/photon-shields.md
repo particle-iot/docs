@@ -96,6 +96,14 @@ We have even provided a small prototyping area around the shield for you to add 
 
 **IMPORTANT:** This shield provides regulated power (5V) to the seated Particle device and relays. However, it does not support power to the devices controlled by the relays.
 
+### Relay Shield - Library
+If you're already logged into Build.particle.io then you can [jump directly to the library](https://build.particle.io/libs/55e0a4256b6e3275580009ce/tab/1_Blink_An_LED.cpp) to get going quickly and easily with the RelayShield library, which wraps all the features in easy-to-use functions.
+
+Examples include:
+1. __Blink a Relay__ - How to turn a relay on and off
+2. __Blink all the Relays__ - An extension on the simplest case
+3. __Internet Relays__ - Creating Particle.function()s so that you can turn relays on and off over the Internet
+
 ### Relay Shield - Operation
 
 The schematic for the relay shield is simple and self explanatory. The shield has four relays that are controlled by pins D3, D4, D5 and D6 on the Particle device. Each relay is triggered via a NPN transistor that takes a control signal from the Particle device and switches the relay coil ON and OFF, which in turn makes or breaks the electrical contact on the output. There is also a fly-back diode connected across the coil to help protect the transistor from high voltage transients caused during switching.
@@ -285,7 +293,7 @@ There are two status led located on the left of the JST battery connector labele
 
 The Internet Button is not only an easy way to get started on the Internet of Things, it's also a clean and simple way to start building your own prototypes. Quickly start playing with LEDs, multiple buttons, an accelerometer and more without any wires or soldering.
 
-**NOTE:** There is a known issue with the current release of the Internet Button. On the PCB, the silkscreen labels are incorrect. The correct mapping is, from **right** to **left**, "1-2-3-4", *not* "4-3-2-1" as annotated on the PCB. For super double extra clarity, please see the following pin mapping label table:</span>
+**NOTE:** There is a silkscreen issue with the current release of the Internet Button. On the PCB, the silkscreen labels are incorrect. The correct mapping is, from **right** to **left**, "1-2-3-4", *not* "4-3-2-1" as annotated on the PCB. For super double extra clarity, please see the following pin mapping label table:</span>
 
 |Photon Pin | Correct Mapping | Incorrect Mapping |
 |--------|--------|-------------------------|
@@ -293,6 +301,20 @@ The Internet Button is not only an easy way to get started on the Internet of Th
 |D5 | Button 2   | Button 3 |
 |D6 | Button 3   | Button 2 |
 |D7 | Button 4   | Button 1 |
+
+### Internet Button - Library
+If you're already logged into Build.particle.io then you can [jump directly to the library](https://build.particle.io/libs/55e0a4256b6e3275580009ce/tab/1_Blink_An_LED.cpp) to get going quickly and easily with the InternetButton library, which wraps all the features in easy-to-use functions.
+
+Examples include:
+1. __Blink an LED__ - How to control the smart LEDs on this board
+2. __Blink all the LEDs__ - An extension on the simplest case
+3. __LEDs and Buttons__ - How to read the buttons on the Button, and make LEDs blink with them
+4. __Good Combination__ - A set of button and LED conditionals that I happen to like and use frequently
+5. __Motion__ - The Internet Button also has an accelerometer on it to measure motion- this shows how the related functions work
+6. __Orientation__ - How to use the accelerometer functions to determine the orientation
+7. __Internet__ - Send that data out to the world!
+8. __Making Music__ - Learn how to play notes and songs with your Button
+9. __Release Firmware__ - Big, complicated set of epic.
 
 
 ![Internet Button](/assets/images/shields/internet-button/button.png)
@@ -638,6 +660,13 @@ Also onboard is an accelerometer, the [LIS3DH](http://www.adafruit.com/datasheet
 **Enclosure**
 The waterproof box includes two M4 screws for mounting the shield securely into the box. Screw the shield down in the enclosure, then plug the Electron into the shield with the USB connector facing inward. You can also look at the silkscreen Electron outline on the board for the correct orientation. The battery and antenna can be fixed in the box using the foam adhesive tape if you want to keep them from moving around.
 
+**Library**
+We've put together a great library for you to start building from! If you're already logged into Build then you can just click on [AssetTracker library](https://build.particle.io/libs/56ca184fd7e949613400086f/tab/1_GPS_Features.cpp) and you can always open the "Libraries" view in Build, and AssetTracker will show up under the Official Libraries. This library is especially good for learning about the Electron because it implements a couple of useful features, like a Particle.function for checking the battery level!
+
+Examples:
+1. __GPS Features__ - How to use the GPS efficiently, and some nice Electron functions
+2. __Accelerometer__ - Using the accelerometer with some cute tricks
+
 ### Recommended operating conditions
 | Parameter | Symbol | Min | Typ | Max | Unit |
 | :---|:---|:---:|:---:|:---:|:---:|
@@ -649,7 +678,7 @@ The waterproof box includes two M4 screws for mounting the shield securely into 
 | Operating Temperature | T<sub>op</sub> | -20 |  | +60 | °C |
 | Humidity Range Non condensing, relative humidity | | | | 95 | % |
 
-*Library and photos coming soon!*
+*Photos coming soon!*
 
 ## Electron Sensor Kit
 This is the big one! A fantastic collection of premium and versatile sensors.
@@ -667,20 +696,18 @@ This is the big one! A fantastic collection of premium and versatile sensors.
 
 AND
 
-- (1) ADXL362 accelerometer
-- (1) GP2Y0A710K0F 100-500cm IR Distance sensor
-- (1) LM2904 audio sensor
-- (1) MQ2 gas sensor
-- (1) SHT10 soil humidity and temperature sensor
-- (1) HC-SR501 PIR motion sensor
-- (1) LM393 soil moisture sensor
-- (1) DS18B20 waterproof temperature sensor
-- (1) SW18020P vibration sensor
+- (1) [ADXL362](http://www.analog.com/media/en/technical-documentation/data-sheets/ADXL362.pdf) accelerometer
+- (1) [GP2Y0A710K0F](https://acroname.com/sites/default/files/assets/sharp_gp2y0a710yk0f_datasheet.pdf) 100-550cm IR Distance sensor
+- (1) [Loudness sensor](http://www.seeedstudio.com/wiki/Grove_-_Loudness_Sensor) with LM2904 opamp
+- (1) [MQ2 gas sensor](https://www.seeedstudio.com/depot/datasheet/MQ-2.pdf) for LPG, i-butane, propane, methane ,alcohol, Hydrogen, smoke
+- (1) [SHT10](https://www.adafruit.com/products/1298) soil humidity and temperature sensor
+- (1) [HC-SR501](https://www.mpja.com/download/31227sc.pdf) PIR motion sensor
+- (1) Soil moisture sensor with LM393 (similar to [this one](http://seeedstudio.com/wiki/Grove_-_Moisture_Sensor))
+- (1) [DS18B20](https://www.adafruit.com/products/381) waterproof temperature sensor
+- (1) [SW18020P](http://www.electrodragon.com/product/vibration-switch-sensor-sw-18020p/) vibration sensor
 - Various jumper wires, resistors, capacitors, LEDs, and pushbuttons
 
 *Library and photos coming soon!*
-
-
 
 
 <!--

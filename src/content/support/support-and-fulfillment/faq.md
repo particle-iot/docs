@@ -157,7 +157,7 @@ Sometimes things get delayed with shipping, so please be patient. If you do not 
 
 
 ### Q: When will I get charged for my products?
-**A:** If you just ordered from the Electron line of products (no Photons or shields) then your order hasn’t been charged yet. We’re going to lock down payment information on February 16th and charge them on February 17th-18th to prepare to ship them out on February 22nd. If your credit card or PayPal information is incorrect please visit our [support portal](https://docs.particle.io/support/support-and-fulfillment/menu-base/) and let us know ASAP so we can help get that fixed for you.
+**A:** If you just ordered from the Electron line of products (no Photons or shields) prior to February 16 then your your order was charged on February 17 to prepare to ship them out on February 22nd. If your payment failed you should have received an email alerting you to the issue. We will charge your order again every day for 3 days before cancelling it. If you've received this note and have trouble updating payment details please visit [support portal](https://docs.particle.io/support/support-and-fulfillment/menu-base/) and let us know ASAP so we can help get that fixed for you.
 Please note: If your PayPal information has changed, we are unable to switch PayPal accounts for payment, you’ll have to add funds or a new card to the account you used to place the order as they don’t allow us to change accounts. So please check with PayPal first if you’re experiencing issues.  
 
 If you ordered other items that have been shipped out to you, then your order has already been charged. If you want to give us more money for more cool stuff, you can visit our [store](https://store.particle.io/)! The Electron line of products will be available for regular shipping starting March 8th. 
@@ -224,8 +224,6 @@ You can find more information on Particle’s shipping policies [here](/support/
 
 ### Q: Where do I buy this thing called 'spark core'?
 **A:**  The Spark Core is no longer being produced. The Photon is the direct successor to the Spark Core and most Spark Core code works on the Photon. You can find out all the difference between the Photon and the Core [here](https://community.particle.io/t/the-photon-changelog-whats-new-and-different-from-the-core/11823).
-
-For a limited time, you may be able to find Spark Cores at select [Microcenter](http://www.microcenter.com/product/436906/Maker_Kit_with_Chip_Antenna_Core) locations.
 
 ## Invoices
 ### Q: How can I get an invoice for my order?

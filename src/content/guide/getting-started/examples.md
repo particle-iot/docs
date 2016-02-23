@@ -315,6 +315,16 @@ To better understand the concept of making API calls to your device over the clo
 
 ## Read your Photoresistor: Function and Variable
 
+{{#if electron}}
+<p class = "boxedHead">NOTE:</p>
+<p class = "boxed">
+
+There is a known issue with the first revision of the product card included with your Electron. 
+The holes marked "A5" and "A0" are misaligned with the headers of the Electron, and _actually_ align with pins "A4" and "B5", respectively. This issue will be corrected in later revisions of the project card. In the meantime, please ensure that the resistor and photoresistor included with your kit are connected to the correct pins (A5 and A0, _not_ A4 and B5).
+</p>
+
+{{/if}}
+
 ### Intro
 
 This example uses the same setup as the LED control example to make a `Particle.function`. This time, though, we're going to add a sensor.
@@ -931,7 +941,7 @@ void loop() {
     If the difference in milliseconds between the current time and the last time we've measured 
     is more than 600,000 milliseconds (ten minutes) then... do all the things!
     */
-    if(millis()-lastMeasurement > 60000){
+    if(millis()-lastMeasurement > 600000){
         // Measure the value on the photoresistor, and put it into the array
         light[i] = analogRead(A0);
         

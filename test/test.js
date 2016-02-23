@@ -4,6 +4,7 @@ var Crawler = require('crawler');
 var url = require('url');
 var util = require('util');
 var _ = require('lodash');
+var chalk = require('chalk');
 
 var CHECK_HASH_LINKS = false;
 var devices = ['photon', 'electron', 'core'];
@@ -67,7 +68,7 @@ describe('Crawler', function() {
             (isExternal && timedOut) ||
             (isPullRequest && isGithubEditLink && statusCode === 404)) {
           // allow 5XX status codes on external links
-          console.log('WARN: ' + msg);
+          console.log(chalk.yellow('WARN: ' + msg));
           return;
         }
         console.error(chalk.red('ERROR: ' + msg));

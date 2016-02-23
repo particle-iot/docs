@@ -75,7 +75,7 @@ It's important to note that the estimated cost represents data used *up to that 
 ## How to Reduce Your Bill
 You can reduce your monthly cost in two main ways. One is by setting your data limit lower. This will make sure that your bill will never be much higher than you expect (allowing for taxes, fees, and slight overshoots). It's also a bit abrupt. Your device will lose connection and the behavior will change unless you've written in offline behavior.
 
-The lighter approach is to reduce the amount of data consumed by the device itself via firmware optimization. We have a whole guide for that! <insert link to data guide>
+The lighter approach is to reduce the amount of data consumed by the device itself via firmware optimization. We have a whole guide for that! [Data Usage Guide](/guide/getting-started/data)
 
 ## How to Update Billing Info
 If there's ever a need to update your billing information, or add a new credit card, you can do this easily from the Dashboard. If a payment attempt ever fails, we'll ask you to go and edit your billing information before we try and charge your card again. To do this, simply visit the [Edit Card](https://dashboard.particle.io/billing/edit-card) screen on the billing page of your Dashboard.
