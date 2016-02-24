@@ -517,6 +517,10 @@ Cet équipement devrait être installé et actionné avec une distance minimum d
 |:-:|:-:|:-:|:-|
 | v001 | 20-Jan-2016 | MB | Initial release |
 
+## Known Errata
+
+We are tracking [known errata with this datasheet here](https://github.com/spark/docs/issues/19).  These issues/errors in the datasheet will be resolved in subsequent revisions.
+
 ## Contact
 
 **Web**
