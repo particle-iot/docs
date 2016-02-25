@@ -1910,7 +1910,13 @@ void loop()
 
 ### tone()
 
-Generates a square wave of the specified frequency and duration (and 50% duty cycle) on a timer channel pin (D0, D1, A0, A1, A4, A5, A6, A7, RX, TX). Use of the tone() function will interfere with PWM output on the selected pin.
+Generates a square wave of the specified frequency and duration (and 50% duty cycle) on a timer channel pin which supports PWM. Use of the tone() function will interfere with PWM output on the selected pin.
+
+- On the Core, this function works on pins D0, D1, A0, A1, A4, A5, A6, A7, RX and TX.
+
+- On the Photon and Electron, this function works on pins D0, D1, D2, D3, A4, A5, WKP, RX and TX with a caveat: Tone timer peripheral is duplicated on two pins (A5/D2) and (A4/D3) for 7 total independent Tone outputs. For example: Tone may be used on A5 while D2 is used as a GPIO, or D2 for Tone while A5 is used as an analog input. However A5 and D2 cannot be used as independent Tone outputs at the same time.
+
+- Additionally on the Electron, this function works on pins B0, B1, B2, B3, C4, C5.
 
 ```C++
 // SYNTAX
