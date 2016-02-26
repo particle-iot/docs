@@ -73,9 +73,6 @@ $ node app.js help
 ```
 
 
-
-
-
 ## Getting Started
 
   These next two commands are all you need to get started setting up an account, claiming a device, and discovering new features.
@@ -112,7 +109,7 @@ be able to use the Particle CLI, mentioned above, to flash your application firm
 
 Steps:
 - **1:** Put the Electron in to [listening mode](/guide/getting-started/modes/electron/#listening-mode)
-- **2:** Open Particle CLI from your machine
+- **2:** Open Particle CLI from your machine (make sure you've [installed it first](/guide/tools-and-features/cli/electron/#installing))
 - **3:** Navigate to the folder where you've downloaded the `firmware.bin` file.
 - **4:** From the CLI issue `particle flash --serial firmware.bin`
 
