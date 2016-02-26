@@ -108,6 +108,11 @@ For more technical details on what comes on your device, go {{#if core}}[here](/
 
 {{#if electron}}
 ## New User Features On the Electron
+### Onboard power management
+- The Electron charges its own battery!
+- If the small red LED is on, the battery is charging
+- When the LED turns off, the battery is fully charged
+
 ### Display signal strength!
 - Press MODE once quickly when the Electron is breathing cyan
 - The signal strength (RSSI) will be shown in a 0-5 green blinks, 5 being the strongest
@@ -136,7 +141,6 @@ For more technical details on what comes on your device, go {{#if core}}[here](/
     * None! This is your first project.
 
 ## Billing for Electron
-See the full [Electron Billing Guide](/guide/getting-started/billing/)
 ### Overview
 - Each SIM card will be billed a *base rate* which includes 1 MB of data
 - The base rate covers you up to 1.0MB, additional MB are billed at a cheaper rate than the base
@@ -146,9 +150,9 @@ See the full [Electron Billing Guide](/guide/getting-started/billing/)
 - Data limits are soft maximums; we only charge you for the number of MB used, rounded up, and we'll cut off usage as quickly as we have updated metering from your carrier
 - If a SIM goes over the limit, it'll be paused and won't be able to use more data until the beginning of the next period or you raise the data limit
 - You can use the [Dashboard](https://dashboard.particle.io/user/billing) to manage SIMs, billing, and see data usage
+- See the full [Electron Billing Guide](/guide/getting-started/billing/)
 
 ## Data Use on the Electron
-See the full [Electron Data Guide](/guide/getting-started/data/)
 ### Overview
 - Any cellular communication to or from the Electron uses data, since it goes through the cell network
 - Maintaining a connection also uses a small amount of data, to keep the device active on the network
@@ -156,6 +160,7 @@ See the full [Electron Data Guide](/guide/getting-started/data/)
 - Others, like flashing your code over the air, will use much more data
 - We've done a ton of work to save you data and warn you if an action will use lots of data
 - You can save even more data by optimizing your code behavior
+- See the full [Electron Data Guide](/guide/getting-started/data/)
 
 Go to the next section to learn to [connect over USB](/guide/getting-started/connect/electron/).    
 {{/if}}
