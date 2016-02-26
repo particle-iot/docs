@@ -231,18 +231,24 @@ Get event listener to an stream in the Particle cloud
 
 ```javascript
 //Get all events
-particle.getEventStream({ auth: token}).then(function(data) {
-  console.log("Event: " + data);
+particle.getEventStream({ auth: token}).then(function(stream) {
+  stream.on('event', function(data) {
+    console.log("Event: " + data);
+  });
 });
 
 //Get your devices events
-particle.getEventStream({ deviceId: 'mine', auth: token }).then(function(data) {
-  console.log("Event: " + data);
+particle.getEventStream({ deviceId: 'mine', auth: token }).then(function(stream) {
+  stream.on('event', function(data) {
+    console.log("Event: " + data);
+  });
 });
 
 //Get test event for specific device
-particle.getEventStream({ deviceId: 'DEVICE_ID', name: 'test', auth: token }).then(function(data) {
-  console.log("Event: " + data);
+particle.getEventStream({ deviceId: 'DEVICE_ID', name: 'test', auth: token }).then(function(stream) {
+  stream.on('event', function(data) {
+    console.log("Event: " + data);
+  });
 });
 ```
 
