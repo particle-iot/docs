@@ -1925,6 +1925,8 @@ tone(pin, frequency, duration)
 
 `tone()` takes three arguments, `pin`: the pin on which to generate the tone, `frequency`: the frequency of the tone in hertz and `duration`: the duration of the tone in milliseconds (a zero value = continuous tone).
 
+The frequency range is from 20Hz to 20kHz. Frequencies outside this range will not be played.
+
 `tone()` does not return anything.
 
 ```C++
