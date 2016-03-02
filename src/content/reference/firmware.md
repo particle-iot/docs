@@ -624,12 +624,23 @@ Note that `WiFi.on()` does not need to be called unless you have changed the [sy
 
 ### connect()
 
-Attempts to connect to the Wi-Fi network. If there are no credentials stored, this will enter listening mode. If there are credentials stored, this will try the available credentials until connection is successful. When this function returns, the device may not have an IP address on the LAN; use `WiFi.ready()` to determine the connection status.
+Attempts to connect to the Wi-Fi network. If there are no credentials stored, this will enter listening mode (see below for how to avoid this.). If there are credentials stored, this will try the available credentials until connection is successful. When this function returns, the device may not have an IP address on the LAN; use `WiFi.ready()` to determine the connection status.
 
 ```cpp
 // SYNTAX
 WiFi.connect();
 ```
+
+_Since 0.4.5_
+It's possible to call `WiFi.connect()` without entering listening mode in the case where no credentials are stored:
+
+```cpp
+// SYNTAX
+WiFi.connect(WIFI_CONNECT_NO_LISTEN);
+```
+
+If there are no credentials then the call does nothing other than turn on the WiFi module. 
+
 
 ### disconnect()
 
