@@ -5018,7 +5018,7 @@ attachInterrupt(pin, function, mode, priority, subpriority);
 - `priority` (optional): the priority of this interrupt. Default priority is 13. Lower values increase the priority of the interrupt.
 - `subpriority` (optional): the subpriority of this interrupt. Default subpriority is 0.
 
-The function does not return anything.
+The function returns a boolaen if the ISR was attached (true) or not (false).
 
 ```C++
 // EXAMPLE USAGE
