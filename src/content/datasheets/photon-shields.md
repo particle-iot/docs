@@ -648,11 +648,13 @@ The Asset Tracker is a cellular solution for tracking the location of just about
 
 ### Using the Asset Tracker
 **GPS**
-The shield has the same GPS module as the [Adafruit Ultimate GPS](https://learn.adafruit.com/adafruit-ultimate-gps/) so all of their specs and usage notes apply here, too. The primary bit to know is that the GPS module can take several minutes to get a lock, and may not get a lock at all if it doesn't have a clear view of the sky- sorry, no indoors projects. If this is proving a problem for you, an [external antenna](https://www.adafruit.com/products/960) may help (don't forget an SMA to uFL adapter!).
+The shield has the same GPS module as the [Adafruit Ultimate GPS](https://learn.adafruit.com/adafruit-ultimate-gps/) so all of their specs and usage notes apply here, too. The primary bit to know is that the GPS module can take _several minutes_ to get a lock, and may not get a lock at all if it doesn't have a *clear view* of the sky- sorry, no indoors projects. If this is proving a problem for you, an [external antenna](https://www.adafruit.com/products/960) may help (don't forget an SMA to uFL adapter!).
+
+When the `GPS Fix` LED is blinking once per second (1Hz) then it is trying to get a fix but does not yet have one. It will blink once per 15 seconds when it actively has a fix, and you can check that from code using the `.gpsFix()` function.
 
 The GPS is connected to the Serial1 UART on the Electron, and we've also provided a MOSFET to completely shut off power to it for major power savings. Pin D6 controls the GPS power, with inverted logic. This means that the GPS will only be ON when D6 is LOW, which should keep it off even if you put the Electron to sleep.
 
-There's a backup battery holder for the GPS, to reduce subsequent fix acquisition times, but it's not required.
+There's a backup battery holder for the GPS to reduce subsequent fix acquisition times, but it's *not required*. This is the small coin cell (sometimes called a watch battery) holder slot.
 
 **Accelerometer**
 Also onboard is an accelerometer, the [LIS3DH](http://www.adafruit.com/datasheets/LIS3DH.pdf). It's extremely low power so won't chew up your energy budget. The accel communicates over SPI, so it takes up A2, A3, A4, and A5 as marked on the silkscreen of the shield. A configurable interrupt from the LIS3DH is connected to the Electron's "wake" (WKP) pin, so you should be able to make a project where the Electron and GPS stay in deep sleep until it's hit hard enough to cross a threshold you set on the accelerometer.
@@ -660,7 +662,7 @@ Also onboard is an accelerometer, the [LIS3DH](http://www.adafruit.com/datasheet
 **Enclosure**
 The waterproof box includes two M4 screws for mounting the shield securely into the box. Screw the shield down in the enclosure, then plug the Electron into the shield with the USB connector facing inward. You can also look at the silkscreen Electron outline on the board for the correct orientation. The battery and antenna can be fixed in the box using the foam adhesive tape if you want to keep them from moving around.
 
-**Library**
+### Library
 We've put together a great library for you to start building from! If you're already logged into Build then you can just click on [AssetTracker library](https://build.particle.io/libs/56ca184fd7e949613400086f/tab/1_GPS_Features.cpp) and you can always open the "Libraries" view in Build, and AssetTracker will show up under the Official Libraries. This library is especially good for learning about the Electron because it implements a couple of useful features, like a Particle.function for checking the battery level!
 
 Examples:

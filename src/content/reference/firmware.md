@@ -624,12 +624,23 @@ Note that `WiFi.on()` does not need to be called unless you have changed the [sy
 
 ### connect()
 
-Attempts to connect to the Wi-Fi network. If there are no credentials stored, this will enter listening mode. If there are credentials stored, this will try the available credentials until connection is successful. When this function returns, the device may not have an IP address on the LAN; use `WiFi.ready()` to determine the connection status.
+Attempts to connect to the Wi-Fi network. If there are no credentials stored, this will enter listening mode (see below for how to avoid this.). If there are credentials stored, this will try the available credentials until connection is successful. When this function returns, the device may not have an IP address on the LAN; use `WiFi.ready()` to determine the connection status.
 
 ```cpp
 // SYNTAX
 WiFi.connect();
 ```
+
+_Since 0.4.5_
+It's possible to call `WiFi.connect()` without entering listening mode in the case where no credentials are stored:
+
+```cpp
+// SYNTAX
+WiFi.connect(WIFI_CONNECT_NO_LISTEN);
+```
+
+If there are no credentials then the call does nothing other than turn on the WiFi module. 
+
 
 ### disconnect()
 
@@ -1910,7 +1921,13 @@ void loop()
 
 ### tone()
 
-Generates a square wave of the specified frequency and duration (and 50% duty cycle) on a timer channel pin (D0, D1, A0, A1, A4, A5, A6, A7, RX, TX). Use of the tone() function will interfere with PWM output on the selected pin.
+Generates a square wave of the specified frequency and duration (and 50% duty cycle) on a timer channel pin which supports PWM. Use of the tone() function will interfere with PWM output on the selected pin.
+
+- On the Core, this function works on pins D0, D1, A0, A1, A4, A5, A6, A7, RX and TX.
+
+- On the Photon and Electron, this function works on pins D0, D1, D2, D3, A4, A5, WKP, RX and TX with a caveat: Tone timer peripheral is duplicated on two pins (A5/D2) and (A4/D3) for 7 total independent Tone outputs. For example: Tone may be used on A5 while D2 is used as a GPIO, or D2 for Tone while A5 is used as an analog input. However A5 and D2 cannot be used as independent Tone outputs at the same time.
+
+- Additionally on the Electron, this function works on pins B0, B1, B2, B3, C4, C5.
 
 ```C++
 // SYNTAX
@@ -1918,6 +1935,8 @@ tone(pin, frequency, duration)
 ```
 
 `tone()` takes three arguments, `pin`: the pin on which to generate the tone, `frequency`: the frequency of the tone in hertz and `duration`: the duration of the tone in milliseconds (a zero value = continuous tone).
+
+The frequency range is from 20Hz to 20kHz. Frequencies outside this range will not be played.
 
 `tone()` does not return anything.
 
@@ -4045,7 +4064,7 @@ Parameters: NONE
 
 ### write()
 
-Writes UDP data to the buffe - no data is actually sent. Must be wrapped between `beginPacket()` and `endPacket()`. `beginPacket()` initializes the packet of data, it is not sent until `endPacket()` is called.
+Writes UDP data to the buffer - no data is actually sent. Must be wrapped between `beginPacket()` and `endPacket()`. `beginPacket()` initializes the packet of data, it is not sent until `endPacket()` is called.
 
 ```cpp
 // SYNTAX
@@ -4999,7 +5018,7 @@ attachInterrupt(pin, function, mode, priority, subpriority);
 - `priority` (optional): the priority of this interrupt. Default priority is 13. Lower values increase the priority of the interrupt.
 - `subpriority` (optional): the subpriority of this interrupt. Default subpriority is 0.
 
-The function does not return anything.
+The function returns a boolaen whether the ISR was successfully attached (true) or not (false).
 
 ```C++
 // EXAMPLE USAGE

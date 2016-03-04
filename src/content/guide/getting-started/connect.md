@@ -21,7 +21,7 @@ There are a two ways to go about connecting your device over USB, depending on y
 We're going to install the Particle CLI on your computer. If you already have node.js installed, you can skip to [this step](/guide/getting-started/connect/#install-the-particle-cli).
 
 ### Installing Node.js
-The Particle CLI runs with Node.js. Grab the latest version from [the Node.js website](http://nodejs.org/download)
+The Particle CLI runs with Node.js. Grab the latest version from [the Node.js website](https://nodejs.org/en/download/)
 
 Launch the installer and follow the instructions to install node.js.
 
@@ -75,7 +75,7 @@ To connect and interact with a Particle Device over USB from a Windows machine, 
 The following describes how to install the Particle CLI on your computer. If you already have Node.js installed, you can skip to [this step](#installing-the-particle-cli).
 
 ### Installing Node.js
-The Particle CLI runs with Node.js. Grab version 0.10.40 from [the Node.js website](https://nodejs.org/)
+The Particle CLI runs with Node.js. Grab the latest version from [the Node.js website](https://nodejs.org/en/download/)
 
 Run the installer you downloaded. Follow the prompts. The default file locations should be fine for this.
 

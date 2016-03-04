@@ -115,7 +115,9 @@ To put your {{device}} in Listening Mode, hold the `SETUP` button for three seco
 {{/if}}
 
 {{#if electron}}
+{{#if photon}}
 {{{vine "https://vine.co/v/eZUHUIjq7pO/embed/simple"}}}
+{{/if}}
 
 To put your {{device}} in Listening Mode, hold the `MODE` button for three seconds, until the RGB LED begins blinking blue.
 {{/if}}
@@ -213,7 +215,9 @@ To enter DFU Mode:
 3. Wait for the LED to start flashing yellow (it will flash magenta first)
 4. Release the {{#if photon}}`SETUP`{{/if}}{{#if electron}}`MODE`{{/if}} button
 
+{{#if photon}}
 {{{vine "https://vine.co/v/eZUHnhaUD9Y/embed/simple"}}}
+{{/if}}
 
 {{/unless}}
 

@@ -337,3 +337,8 @@ Mechanical drawings of the Core are available [here.](https://github.com/spark/c
 			<td>14 grams</td>
    </tr>
 </table>
+
+## Known Errata
+
+We are tracking [known errata with this datasheet here](https://github.com/spark/docs/issues/19).  These issues/errors in the datasheet will be resolved in subsequent revisions.
+

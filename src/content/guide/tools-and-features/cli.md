@@ -9,7 +9,6 @@ template: guide.hbs
 
 # Particle CLI
 
-
 The Particle CLI is a powerful tool for interacting with your devices and the Particle Cloud.  The CLI uses [node.js](http://nodejs.org/) and can easily run on Windows, Mac OS X, and Linux.  It's also [open source](https://github.com/spark/particle-cli) so you can edit and change it, and even send in your changes as [pull requests](https://help.github.com/articles/using-pull-requests/) if you want to share!
 
 ## Installing
@@ -26,14 +25,7 @@ $ particle login
 
 If you experience permission errors, you have two options: change the permission to npm's default directory or change npm's default directory to another directory (preferred choice on a multiuser environment). Both options are documented [here](https://docs.npmjs.com/getting-started/fixing-npm-permissions).
 
-For more advanced install instructions, see below.
-
-### Upgrading from the Spark CLI
-
-
-If you have already installed `spark-cli`, please uninstall it before installing the Particle CLI. Simply type: `npm uninstall -g spark-cli` into the command line.
-
-Once this is done, then run `npm install -g particle-cli` to install the Particle CLI.
+For more OS-specific install instructions, see below.
 
 ### Advanced Install
 
@@ -41,11 +33,12 @@ To use the local flash and key features you'll also need to install [dfu-util](h
 
 Here are some great tutorials on the community for full installs:
 
+[Windows Installer](https://community.particle.io/t/toolchain-for-windows-installer/13217/82)
+[or Install Separate Components for Windows](https://community.particle.io/t/tutorial-spark-cli-on-windows-06-may-2014/3112)
+
 [Installing on Ubuntu 12.04](https://community.particle.io/t/how-to-install-spark-cli-on-ubuntu-12-04/3474)
 
 [Installing on Ubuntu 14.04](https://community.particle.io/t/how-to-install-the-spark-toolchain-in-ubuntu-14-04/4139)
-
-[Installing on Windows](https://community.particle.io/t/tutorial-spark-cli-on-windows-06-may-2014/3112)
 
 [Installing on Mac](http://community.particle.io/t/tutorial-particle-cli-on-mac-osx-07-jun-2015/5225)
 
@@ -59,6 +52,11 @@ To upgrade Particle-CLI, enter the following command:
 $ npm update -g particle-cli
 ```
 
+### Upgrading from the Spark CLI
+
+If you have already installed `spark-cli`, please uninstall it before installing the Particle CLI. Simply type: `npm uninstall -g spark-cli` into the command line.
+
+Once this is done, then run `npm install -g particle-cli` to install the Particle CLI.
 
 ### Running from source (advanced)
 
@@ -71,9 +69,6 @@ $ cd particle-cli
 $ npm install
 $ node app.js help
 ```
-
-
-
 
 
 ## Getting Started
@@ -112,7 +107,7 @@ be able to use the Particle CLI, mentioned above, to flash your application firm
 
 Steps:
 - **1:** Put the Electron in to [listening mode](/guide/getting-started/modes/electron/#listening-mode)
-- **2:** Open Particle CLI from your machine
+- **2:** Open Particle CLI from your machine (make sure you've [installed it first](/guide/tools-and-features/cli/electron/#installing))
 - **3:** Navigate to the folder where you've downloaded the `firmware.bin` file.
 - **4:** From the CLI issue `particle flash --serial firmware.bin`
 

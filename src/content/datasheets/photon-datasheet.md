@@ -554,7 +554,11 @@ Cet équipement devrait être installé et actionné avec une distance minimum d
 | v009 | 31-May-2015 | BW | Updated Pinouts, DAC info, Height dimensions, Solder mask info, Recommended operating conditions |
 | v010 | 1-June-2015 | BW | Updated VBAT info |
 | v011 | 24-July-2015 | BW | Added FCC IC CE Warnings and End Product Labeling Requirements, Updated power output, added approved antennas, Corrected DAC2 as A3, Added pin numbers to PCB Land Pattern for Photon without headers. |
-| v012 | 15-January-2016 | WH | Added TELEC Certification information and expanded explanation of explanation of Photons with and without headers.
+| v012 | 15-January-2016 | WH | Added TELEC Certification information and expanded explanation of Photons with and without headers.
+
+## Known Errata
+
+We are tracking [known errata with this datasheet here](https://github.com/spark/docs/issues/19).  These issues/errors in the datasheet will be resolved in subsequent revisions.
 
 ## Contact
 

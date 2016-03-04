@@ -83,7 +83,7 @@ Particle is now an MVNO (Mobile virtual network operator)! Every Electron comes 
 
 ### Low Cost Data Plan
 
-We’re also providing low cost data plans specifically for IoT devices that you can pause or cancel at any time without a contract. Data plans start as low as $2.99 a month for 1MB of data — enough to send 20,000 messages on our extremely data-efficient messaging platform.
+We’re also providing low cost data plans specifically for IoT devices that you can pause or cancel at any time without a contract. Data plans start as low as $2.99 a month for 1MB of data — enough to send a few thousand messages on our extremely data-efficient messaging platform.
 
 ### SIM Dashboard
 
@@ -120,9 +120,9 @@ The Electron’s firmware helps you take full advantage of the all the additiona
 ---
 
 ## Cloud/IDE Changes
-
+<!--
 ### "Last Heard"
-Because UDP is a connectionless protocol, the concept of a device being “online” or “offline” is fundamentally different for the Electron than for the Photon and Core. If you inquire your devices’ status in Particle Build/Dev or by issuing a `particle list` command in the CLI, you’ll be presented with the “last heard” status of each device, which represents the last time the Cloud successfully received communications from your device.
+Because UDP is a connectionless protocol, the concept of a device being “online” or “offline” is fundamentally different for the Electron than for the Photon and Core. If you inquire your devices’ status in Particle Build/Dev or by issuing a `particle list` command in the CLI, you’ll be presented with the “last heard” status of each device, which represents the last time the Cloud successfully received communications from your device. -->
 
 ### Setup
 

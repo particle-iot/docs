@@ -64,7 +64,7 @@ information.
 While easy to understand and set up, webhooks at scale might require some considerations.
 Each triggering of a webhook causes a request to be sent, so make sure your
 app can handle the traffic.  For example, a small beta run of 1000 devices,
-each publishing once a minute might cause anywhere from 17 to 1000 requests 
+each publishing once a minute might cause anywhere from 17 to 1000 requests
 in a given second, depending on how the publishes line up.  Webhooks will
 support some basic queuing and smoothing to help address bursts like this, and a number
 of cloud hosting providers offer data ingestion services that can handle continuous
@@ -103,6 +103,6 @@ function on one device to cause it to dance rainbows.
 We can't wait to show
 you how just how easy it is to build a web app for your product on Particle!
 
-If your product is better suited for a mobile app, you will wantto
+If your product is better suited for a mobile app, you will want to
 [build your iOS and Android mobile apps](/guide/how-to-build-a-product/mobile-app/)
 using our mobile SDKs.
