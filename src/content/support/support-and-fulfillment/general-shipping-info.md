@@ -56,7 +56,7 @@ If you would like to cancel your order, Particle will make every effort to do so
 
 ### Exchanges for Damaged Goods
 
-Sometimes, bad things happen to good packages while they’re trotting across the globe. If your Particle Gear arrives damaged, we’ll be happy to send you a replacement unit that has been hand inspected by a human member of the Particle Team. Please write us at our [Support Portal](https://docs.particle.io/support/support-and-fulfillment/menu-base/photon/)and include the following:
+Sometimes, bad things happen to good packages while they’re trotting across the globe. If your Particle Gear arrives damaged, we’ll be happy to send you a replacement unit that has been hand inspected by a human member of the Particle Team. Please write us at our [Support Portal](https://docs.particle.io/support/support-and-fulfillment/menu-base/photon/) and include the following:
 
 - A couple of photos from your phone of the damaged product and package
 - Your OrderID
