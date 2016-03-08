@@ -927,7 +927,7 @@ void setup() {
 
 ### RSSI()
 
-`WiFi.RSSI()` returns the signal strength of a Wi-Fi network from from -127 to -1dB as an `int`. Positive return values indicate an error with 1 indicating a Wi-Fi chip error and 2 indicating a time-out error.
+`WiFi.RSSI()` returns the signal strength of a Wi-Fi network from from -127 (weak) to -1dB (strong) as an `int`. Positive return values indicate an error with 1 indicating a Wi-Fi chip error and 2 indicating a time-out error.
 
 ```cpp
 // SYNTAX
