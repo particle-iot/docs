@@ -17,7 +17,7 @@ Tracking numbers for all Particle shipments will be emailed to the email address
 
 ### Shipping within the United States
 
-We use USPS First Class Mail for ground shipping, USPS Priority Mail for expedited shipping, and UPS for overnight shipping. Please note that USPS tracking might take up to 24 hours to register after you place your order. Transit times vary, but on average USPS First Class Mail delivers in 3-5 business days and USPS Priority Mail delivers in 2-3 business days. Any order over 10 oz is required to ship via USPS Priority Mail and your shipping rates will be reflected as such. 
+We use USPS First Class Mail for ground shipping, USPS Priority Mail for expedited shipping, and UPS for overnight shipping. Please note that USPS tracking might take up to 24 hours to register after you place your order. Transit times vary, but on average USPS First Class Mail delivers in 3-5 business days and USPS Priority Mail delivers in 2-3 business days. Any order over 10 oz is required to ship via USPS Priority Mail and your shipping rates will be reflected as such.
 
 Overnight orders must be received by 12pm PST in order to arrive at your location in the continental United States by the next day. We'll do everything in our power to deliver your Particle goodies to your eager hands as scheduled, but please note that Fedex occasionally has weather or holiday related delays that we cannot avoid.
 
@@ -44,7 +44,7 @@ We also offer our products in a few international distributors for your convenie
 - [CrazyPi](https://www.crazypi.com/iot-india) - India
 - [Lawicel](http://www.lawicel-shop.se/dept/Particle-IO_102526/SWE/SEK) - Sweden
 - [M.nu](https://www.m.nu/particle-photon-with-headers-p-2512.html) - Sweden
-- [Robot Kutusu](http://www.robotkutusu.com/Particle,LA_185-2.html#labels=185-2) - Turkey
+- [Robot Kutusu](http://www.robotkutusu.com/Particle,LA_185-2.html) - Turkey
 - [Cool Components](https://www.coolcomponents.co.uk/photon) - UK
 - [CPC](http://cpc.farnell.com/particle) - UK
 
@@ -73,5 +73,5 @@ Many things can happen in the delivery process, and packages can get held up for
 - If fault lies with our fulfillment provider, Particle will issue a new shipment immediately
 - Confirm via tracking information that the item(s) in question are in the process of being returned to our facility.
 - Confirm that there are no additional Customs charges, fees, or burdens associated with the return of the goods to sender.
- 
+
 Thanks so much for your support and understanding. If you have any questions that were not answered here, please contact us at our [Support Portal](https://docs.particle.io/support/support-and-fulfillment/menu-base/photon/).
