@@ -122,11 +122,7 @@ exports.metalsmith = function() {
           'troubleshooting',
           'inquiries'
         ]
-      },
-      faq: {
-        pattern: 'faq/*.md',
-        sortBy: 'order'
-      }     
+      }
     }))//end of collections/sections
     .use(fork({
       key: 'devices',
@@ -242,7 +238,7 @@ exports.metalsmith = function() {
       "/photon/hardware" : "/datasheets/photon-datasheet",
       "/troubleshooting" : "/support/troubleshooting/common-issues",
       "/help" : "/support/troubleshooting/common-issues",
-      "/faq" : "/faq/faq"
+      "/faq" : "/support/support-and-fulfillment/faq"
     }));    
 
   return metalsmith;

@@ -5,7 +5,6 @@ columns: two
 order: 2
 ---
 
-
 Frequently Asked Questions (FAQ)
 ===
 
@@ -46,6 +45,7 @@ Frequently Asked Questions (FAQ)
 - [How can I enter a non-standard shipping address?](#q-can-i-enter-a-non-standard-shipping-address-)
 - [How are shipping prices calculated?](#q-how-are-shipping-prices-calculated-)
 - [My order is stuck in customs, why?](#q-my-order-is-stuck-in-customs)
+- [Where is my Electron?](#q-where-is-my-electron-)
 
 **Product**
 - [How is the Electron different from the Photon?](#q-how-is-the-electron-different-from-the-photon-)
@@ -95,7 +95,8 @@ Remember, Electron and Electron-related products ship in February 2016. ;)
 
 ## Kickstarter Backers
 ### Q: When will I get my Electron?
-**A:** We sent out most Kickstarter pledges the week of February 10th. If you haven't received your package yet, you may not have confirmed your pledge. Once you confirm your pledge (by signing into [Backerkit](https://www.backerkit.com/)) we can send your pledge out in the next batch on March 8th. If you have confirmed your pledge and still haven't gotten your rewards, visit our support portal [here] to let us know, but if you confirmed your pledge after that date, they will *begin shipping* out on March 8th. You will receive your tracking information via an email from hello @ particle.io so keep an eye out and make sure hello @ particle.io is one of your contacts . If you do not receive any shipping/tracking information by March 29th, then visit our [support portal](https://support.particle.io) and let us know. Sometimes things get delayed with shipping, so please be patient. If you do not receive your package by April 11th then visit our [support portal](https://support.particle.io) and let us know. We'll be happy to help get you your package if we can, but until then, your package is most likely on its way to your loving arms.
+**A:** Shipping will begin on February 10th! Hooray! You will receive your tracking information via an email from hello @ particle.io so keep an eye out and make sure hello @ particle.io is one of your contacts . If you do not receive any shipping/tracking information by February 23rd, then visit our [support portal](https://docs.particle.io/support/support-and-fulfillment/menu-base/) and let us know. 
+Sometimes things get delayed with shipping, so please be patient. If you do not receive your package by February 29th (Happy Leap Year!) then visit our [support portal](https://docs.particle.io/support/support-and-fulfillment/menu-base/) and let us know. We’ll be happy to help get you your package if we can, but until then, your package is most likely on its way to your loving arms. 
 
 
 ### Q: What reward did I choose?
@@ -103,22 +104,22 @@ Remember, Electron and Electron-related products ship in February 2016. ;)
 
 
 ### Q: Can I change my address?
-**A:** Unfortunately it’s too late to change your address. We’ve already sent a list of all the orders to our warehouse to expedite the process of getting your electrons to you as soon as possible. If you realize that your order is going to your old address, make sure mail forwarding is set up with the postal service and it should be re-directed to you. This usually adds more time to the shipping, so please be patient and wait till April 11th to email us if you haven’t received your order. 
+**A:** Unfortunately it’s too late to change your address. We’ve already sent a list of all the orders to our warehouse to expedite the process of getting your electrons to you as soon as possible. If you realize that your order is going to your old address, make sure mail forwarding is set up with the postal service and it should be re-directed to you. This usually adds more time to the shipping, so please be patient and wait till February 29th to email us if you haven’t received your order. 
 
 ### Q: What comes in the kits I ordered?
 **A:** You can find a list of the electron kits [here](/datasheets/kits/) which have a full list of all the components that come in each of the kits.
 
 ### Q: Can I change or add to my order?
-**A:** Unfortunately, it’s too late to change or add to what’s in your pledge. All rewards have been locked down and submitted to our warehouses. If you want to purchase different items, please visit our [store](https://store.particle.io/). The Electron line of products will be available for immediate shipping starting March 29th. 
+**A:** Unfortunately, it’s too late to change or add to what’s in your pledge. All rewards have been locked down and submitted to our warehouses. If you want to purchase different items, please visit our [store](https://store.particle.io/). The Electron line of products will be available for immediate shipping starting March 8th. 
 
 ### Q: I can’t find my tracking information. Help!
-**A:** If you’ve received emails from us in the past verifying your address and whatnot, then your email is correct, which is great! That means your order most likely hasn’t shipped out yet.  If you do not receive any shipping/tracking information by March 29th, then visit our [support portal](https://docs.particle.io/support/support-and-fulfillment/menu-base/) and let us know. If you do not receive your package by April 11th (Happy Leap Year!) then visit our [support portal](https://docs.particle.io/support/support-and-fulfillment/menu-base/) and let us know. We’ll be happy to help get you your package, but until then, your package is most likely on its way to your loving arms
+**A:** If you’ve received emails from us in the past verifying your address and whatnot, then your email is correct, which is great! That means your order most likely hasn’t shipped out yet.  If you do not receive any shipping/tracking information by February 23rd, then visit our [support portal](https://docs.particle.io/support/support-and-fulfillment/menu-base/) and let us know. If you do not receive your package by February 29th (Happy Leap Year!) then visit our [support portal](https://docs.particle.io/support/support-and-fulfillment/menu-base/) and let us know. We’ll be happy to help get you your package, but until then, your package is most likely on its way to your loving arms
 
 ### Q: When will they be available for regular delivery, not pre-order?
-**A:** We’re having a big release called Electron Day, which is March 29th. The Electron line of items will be available that day for purchase, not on pre-order! Woohoo!
+**A:** We’re having a big release called Electron Day, which is March 8th. The Electron line of items will be available that day for purchase, not on pre-order! Woohoo!
 
 ### Q: When will I get charged for my products?
-**A:** Since you backed us on Kickstarter, you’ve already paid for your items! If you want to give us more money for more cool stuff, you can visit our [store](https://store.particle.io/)! The Electron line of products will be available for regular shipping starting March 15th. 
+**A:** Since you backed us on Kickstarter, you’ve already paid for your items! If you want to give us more money for more cool stuff, you can visit our [store](https://store.particle.io/)! The Electron line of products will be available for regular shipping starting March 8th. 
 
 
 ### Q: I never filled out my backerkit information.
@@ -134,41 +135,30 @@ Remember, Electron and Electron-related products ship in February 2016. ;)
 
 ## Pre-Orders
 ### Q: When will I get my Electrons?
-**A:** Pre Orders are going out in a few batches, please see the chart below to determine all the dates corresponding to your order. 
-
-![](/assets/images/shippingtable.png)
+**A:** Shipping will begin on February 22nd. Woohoo! You’ll receive your tracking information from hello@particle.io when your package ships out. Sometimes things get delayed with shipping, so please be patient. If you do not receive any shipping/tracking information by March 7th, then visit our [support portal](https://docs.particle.io/support/support-and-fulfillment/menu-base/) and let us know. If you do not receive your package by March 15th, then visit our [support portal](https://docs.particle.io/support/support-and-fulfillment/menu-base/) and let us know. We’ll be happy to help get you your package, but until then, your package is most likely on its way to your loving arms. 
 
 ### Q: What did I order?
 **A:** If you don’t remember what you selected when you placed the order, check your email! You should have received a confirmation email when you finished checking out or you could visit the order status page [here](https://dashboard.trycelery.com/status) and input your order number and email to check the status of your order. If you can’t find that email, then visit our [support portal](https://docs.particle.io/support/support-and-fulfillment/menu-base/) and let us know. Please include the email address and name that you used to back us so we can quickly pull up your order.
 
 ### Q: Can I change my address?
-**A:** Unfortunately it’s too late to change your address. We’ve already sent a list of all the orders to our warehouse to expedite the process of getting your Electrons to you as soon as possible. If you realize that your order is going to your old address, make sure mail forwarding is set up with the postal service and it should be re-directed to you. This usually adds more time to the shipping, so please be patient and wait till 3 weeks after you placed your order to email us if you haven’t received your order. 
+**A:** Unfortunately it’s too late to change your address. We’ve already sent a list of all the orders to our warehouse to expedite the process of getting your Electrons to you as soon as possible. If you realize that your order is going to your old address, make sure mail forwarding is set up with the postal service and it should be re-directed to you. This usually adds more time to the shipping, so please be patient and wait till March 15th to email us if you haven’t received your order. 
 
 ### Q: What comes in the kits I ordered?
 **A:** You can the components of the Electron kits [here](/datasheets/kits/#electron).
 
 ### Q: Can I change or add to my order?
-**A:** Unfortunately, it’s too late to change anything on your order. We’ve already sent a list of all the orders to our warehouse to expedite the process of getting your Electrons to you as soon as possible. If you want to purchase different items, please visit our [store](https://store.particle.io/). The Electron line of products will be available for immediate shipping starting March 15th. 
-Please see the chart below for the corresponding dates for your pre-order.
-
+**A:** Unfortunately, it’s too late to change anything on your order. We’ve already sent a list of all the orders to our warehouse to expedite the process of getting your Electrons to you as soon as possible. If you want to purchase different items, please visit our [store](https://store.particle.io/). The Electron line of products will be available for immediate shipping starting March 8th. 
 
 ### Q: I can’t find my tracking information. Help!
 **A:** If you’ve received emails from us in the past verifying your address and whatnot, then your email is correct, which is great! That means you haven’t gotten your tracking details so your order hasn’t shipped out yet.  If you do not receive any shipping/tracking information by March 7th, then visit our [support portal](https://docs.particle.io/support/support-and-fulfillment/menu-base/) and let us know. If you do not receive your package by March 15th then visit our [support portal](https://docs.particle.io/support/support-and-fulfillment/menu-base/) and let us know. We’ll be happy to help get you your package, but until then, your package is most likely on its way to your loving arms. 
 
-![](/assets/images/shippingtable.png)
-
-
 ### Q: When will they be available for regular delivery, not pre-order?
-**A:** We’re having a big release called Electron Day, which is March 29th. The Electron line of items will be available that day for purchase, not on pre-order! Woohoo!
+**A:** We’re having a big release called the Electron Day, which is March 8th. The Electron line of items will be available that day for purchase, not on pre-order! Woohoo!
+
 
 ### Q: When will I get charged for my products?
-**A:** If you just ordered from the Electron line of products (no Photons or shields) prior to February 16 then your your order was charged on February 17 to prepare to ship them out on February 22nd. If your payment failed you should have received an email alerting you to the issue. We will charge your order again every day for 3 days before cancelling it. If you've received this note and have trouble updating payment details please visit [support portal](https://docs.particle.io/support/support-and-fulfillment/menu-base/) and let us know ASAP so we can help get that fixed for you. 
-
-If you’re in the later batches of Pre Orders (after February 17th) then your order will charge roughly a week before your order is supposed to ship. Please use the above charts for those corresponding dates. 
-
-Please note: If your PayPal information has changed, we are unable to switch PayPal accounts for payment, you’ll have to add funds or a new card to the account you used to place the order as they don’t allow us to change accounts. So please check with PayPal first if you’re experiencing issues.
-
-If you ordered other items that have been shipped out to you, then your order has already been charged. If you want to give us more money for more cool stuff, you can visit our store! The Electron line of products will be available for regular shipping starting March 15th. If you’re unsure if your order has been charged or not, visit the order status page here and input your order number and email to check the status of your order. It will either say fulfilled (for already charged) or unfulfilled (for not charged). 
+**A:** If you just ordered from the Electron line of products (no Photons or shields) prior to February 16 then your your order was charged on February 17 to prepare to ship them out on February 22nd. If your payment failed you should have received an email alerting you to the issue. We will charge your order again every day for 3 days before cancelling it. If you've received this note and have trouble updating payment details please visit [support portal](https://docs.particle.io/support/support-and-fulfillment/menu-base/) and let us know ASAP so we can help get that fixed for you.
+Please note: If your PayPal information has changed, we are unable to switch PayPal accounts for payment, you’ll have to add funds or a new card to the account you used to place the order as they don’t allow us to change accounts. So please check with PayPal first if you’re experiencing issues.  
 
 If you ordered other items that have been shipped out to you, then your order has already been charged. If you want to give us more money for more cool stuff, you can visit our [store](https://store.particle.io/)! The Electron line of products will be available for regular shipping starting March 8th. 
 If you’re unsure if your order has been charged or not, visit the order status page [here](https://dashboard.trycelery.com/status) and input your order number and email to check the status of your order. It will either say fulfilled (for already charged) or unfulfilled (for not charged).
@@ -221,6 +211,9 @@ APO and FPO boxes are standard and not restricted.
 Please remember that you are responsible for any VAT, customs charges, or other duties as required by your country when importing consumer goods. For information on duties and taxes for your shipment, you can use this Duty-Tax Calculator.
 
 You can find more information on Particle’s shipping policies [here](/support/support-and-fulfillment/general-shipping-info/).
+
+### Q: Where is my Electron?
+**A:** The Electron and Electron-related items are scheduled to ship in January 2016. You can find more information and updates about the Electron [here](https://www.kickstarter.com/projects/sparkdevices/spark-electron-cellular-dev-kit-with-a-simple-data/updates).
 
 ## Product
 ### Q: How is the Electron different from the Photon?
