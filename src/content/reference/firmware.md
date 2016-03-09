@@ -346,15 +346,6 @@ Particle.subscribe("the_event_prefix", theHandler, MY_DEVICES);
 
 ---
 
-You are also able to subscribe to events from a single device by specifying the device's ID.
-
-```cpp
-// Subscribe to events published from a specific device
-Particle.subscribe("motion/front-door", motionHandler, "55ff70064989495339432587");
-```
-
----
-
 You can register a method in a C++ object as a subscription handler.
 
 ```cpp
