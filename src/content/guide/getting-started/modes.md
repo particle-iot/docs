@@ -361,6 +361,7 @@ There are a number of other red blink codes that may be expressed after the SOS 
 10. Assertion failure
 11. Invalid case
 12. Pure virtual call
+13. Stack overflow
 
 The two most common ones are:
 
