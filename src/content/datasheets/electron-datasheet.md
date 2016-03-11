@@ -38,10 +38,10 @@ It also comes with Particle's development tools and cloud platform for managing 
 <div align=center><img src="/assets/images/electron/illustrations/electron-blockdiagram.png" width=700></div>
 
 ### Power
-The Electron can be powered via the VIN (3.9V-12VDC) pin, the USB Micro B connector or a LiPo battery. 
+The Electron can be powered via the VIN (3.9V-12VDC) pin, the USB Micro B connector or a LiPo battery.
 
 #### USB
-Most USB ports can supply only a maximum of 500mA, but the u-Blox GSM module on the Electron alone can consume a peak of 800mA to 1800mA of current during transmission. In order to compensate of this deficit, one must connect the LiPo battery at all times when powering from a traditional USB port. The Electron will intelligently source power from the USB most of the time and keep the battery charged. During peak current requirements, the additional power will be sourced from the battery. This reduces the charge-discharge cycle load on the battery, thus improving its longevity. 
+Most USB ports can supply only a maximum of 500mA, but the u-Blox GSM module on the Electron alone can consume a peak of 800mA to 1800mA of current during transmission. In order to compensate of this deficit, one must connect the LiPo battery at all times when powering from a traditional USB port. The Electron will intelligently source power from the USB most of the time and keep the battery charged. During peak current requirements, the additional power will be sourced from the battery. This reduces the charge-discharge cycle load on the battery, thus improving its longevity.
 
 #### VIN
 The input voltage range on VIN pin is 3.9VDC to 12VDC. When powering from the VIN pin alone, make sure that the power supply is rated at 10W (for example 5VDC at 2Amp). If the power source is unable to meet this requirement, you'll need connect the LiPo battery as well.
@@ -146,12 +146,12 @@ Pin D3 through D7 are JTAG interface pins. These can be used to reprogram your E
 #### System RGB LED
 
 For a detailed explanation of different color codes of the RGB system LED, please take a look [here.](/guide/getting-started/modes/electron/)
-
+<!--
 ### Pinout diagram
 
 <div align=center> <a href="/assets/images/electron/illustrations/electron_pinout.pdf"> <img src="/assets/images/electron/illustrations/electron_pinout.png"> </a></div>
 
-You can download a high resolution pinout diagram in a PDF version [here.](/assets/images/electron/illustrations/electron_pinout.pdf)
+You can download a high resolution pinout diagram in a PDF version [here.](/assets/images/electron/illustrations/electron_pinout.pdf) -->
 
 ## Technical Specifications
 
@@ -413,7 +413,7 @@ The u.FL antenna connector is a very fragile piece of hardware ( and is fancy to
 
 <add pic here>
 
-### Breadboarding 
+### Breadboarding
 
 The breadboard provided with the Electron is specifically designed to require low insertion force. This makes it easy to plug the Electron in and out of the breadboard. If you end up using a different breadboard, remember that it may require more force. In this case, always remember to pinch-hold your precious Electron by the sides (along the header pins) when plugging-unplugging and **not** by the USB connector (don't be this person).
 
@@ -468,7 +468,7 @@ In the event that these conditions can not be met (for example certain laptop co
 
 **End Product Labeling**
 The final end product must be labeled in a visible area with the following:
-> Contains FCC ID: 
+> Contains FCC ID:
 
  * XPYSARAG350 (For 2G Electron using the G350 module)
  * XPYSARAU260 (For 3G Electron using the U260 module)
@@ -508,7 +508,7 @@ This End equipment should be installed and operated with a minimum distance of 2
 Cet équipement devrait être installé et actionné avec une distance minimum de 20 centimètres entre le radiateur et votre corps.
 
 > The end user manual shall include all required regulatory information/warning as shown in this manual.
-> 
+>
 > For an in-depth review on certifications, please click [here.](/guide/how-to-build-a-product/certification/)
 
 ## Revision history
