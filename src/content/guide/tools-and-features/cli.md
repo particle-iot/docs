@@ -115,7 +115,7 @@ Steps:
 # How to flash an Electron over serial
 $ particle flash --serial firmware.bin
 
-! PROTIP: Hold the SETUP button on your device until it blinks blue!
+! PROTIP: Hold the MODE button on your device until it blinks blue!
 ? Press ENTER when your device is blinking BLUE
 sending file: firmware.bin
 
