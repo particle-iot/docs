@@ -124,6 +124,9 @@ The Electron’s firmware helps you take full advantage of the all the additiona
 ### "Last Heard"
 Because UDP is a connectionless protocol, the concept of a device being “online” or “offline” is fundamentally different for the Electron than for the Photon and Core. If you inquire your devices’ status in Particle Build/Dev or by issuing a `particle list` command in the CLI, you’ll be presented with the “last heard” status of each device, which represents the last time the Cloud successfully received communications from your device. -->
 
+### "Online vs Offline"
+Because UDP is a connectionless protocol, the concept of a device being “online” or “offline” is fundamentally different for the Electron than for the Photon and Core. There are no frequent pings like with TCP that can be used to update Online status.  Currently, if you inquire about your devices’ status in Particle Build/Dev or by issuing a `particle list` command in the CLI, any Electron that has successfully been Online in the past will continue to show as Online.  We are working through possible alternatives for this Online status, to indicate something like Last Heard with a time and date.
+
 ### Setup
 
 ![](/assets/images/electron-setup.png)
