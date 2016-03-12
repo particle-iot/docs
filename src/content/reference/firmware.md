@@ -2969,9 +2969,29 @@ NOTE: `tx_buffer` and `rx_buffer` sizes MUST be identical (of size `length`)
 Wire (I2C)
 ----
 
+{{#unless electron}}
 ![I2C](/assets/images/core-pin-i2c.jpg)
+{{/unless}}
 
-This library allows you to communicate with I2C / TWI devices. On the Core/Photon/Electron, D0 is the Serial Data Line (SDA) and D1 is the Serial Clock (SCL). Both of these pins runs at 3.3V logic but are tolerant to 5V. Connect a pull-up resistor(1.5k to 10k) on SDA line. Connect a pull-up resistor(1.5k to 10k) on SCL line.
+This library allows you to communicate with I2C / TWI(Two Wire Interface) devices. On the Core/Photon/Electron, D0 is the Serial Data Line (SDA) and D1 is the Serial Clock (SCL). {{#if electron}}Additionally on the Electron, there is an alternate pin location for the I2C interface: C4 is the Serial Data Line (SDA) and C5 is the Serial Clock (SCL).{{/if}} Both SCL and SDA pins are open-drain outputs that only pull LOW and typically operate with 3.3V logic, but are tolerant to 5V. Connect a pull-up resistor(1.5k to 10k) on the SDA line to 3V3. Connect a pull-up resistor(1.5k to 10k) on the SCL line to 3V3.  If you are using a breakout board with an I2C peripheral, check to see if it already incorporates pull-up resistors.
+
+These pins are used via the `Wire` object.
+
+* `SCL` => `D1`
+* `SDA` => `D0`
+
+{{#if electron}}
+Additionally on the Electron, there is an alternate pin location for the I2C interface, which can
+be used via the `Wire1` object. This alternate location is mapped as follows:
+* `SCL` => `C5`
+* `SDA` => `C4`
+
+**Note**: Because there are multiple I2C locations available, be sure to use the same `Wire` or `Wire1` object with all associated functions. I.e.,
+
+Do **NOT** use **Wire**.begin() with **Wire1**.write();
+
+**Do** use **Wire1**.begin() with **Wire1**.transfer();
+{{/if}}
 
 ### setSpeed()
 
