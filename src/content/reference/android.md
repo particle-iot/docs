@@ -294,7 +294,9 @@ Also, if you're working from Android Studio, you can get the Javadoc for each me
 
 ### OAuth client configuration
 
-If you're distributing your own app, you're required to provide the cloud SDK with an OAuth client ID and secret. These are used to identify users coming from your specific app to the Particle Cloud.  To create these credentials, follow the procedure decribed [in our guide](https://docs.particle.io/guide/how-to-build-a-product/web-app/#creating-an-oauth-client).
+If you're distributing your own app, you're required to provide the cloud SDK with an OAuth client ID and secret. These are used to identify users coming from your specific app to the Particle Cloud.  You need only create one pair of these credentials for each app that you plan to release.  i.e. If you plan to release two different apps, then you'll need one set of credentials for each app.  They will persist forever and do not need to be refreshed.  
+
+To create these credentials, follow the procedure decribed [in our guide](https://docs.particle.io/guide/how-to-build-a-product/web-app/#creating-an-oauth-client).
 
 Once you've created your OAuth credentials, you can supply them to the SDK in one of two ways.
 
@@ -304,7 +306,7 @@ The first way is to provide them as string resources, using the names `oauth_cli
 <string name="oauth_client_secret">(client secret 40-char hex string goes here)</string>
 ```
 
-If you would prefer not to ship these OAuth strings as Android string resources, you can use an alternate SDK init method, `ParticleCloudSDK.initWithOauthCredentialsProvider()`.  For this option, you'll need to create a custom `OauthBasicAuthCredentialsProvider` implementation, and pass it to the init method, as seen here:
+The second way, if you would prefer not to ship these OAuth strings as Android string resources, is to use an alternate SDK init method, `ParticleCloudSDK.initWithOauthCredentialsProvider()`.  For this option, you'll need to create a custom `OauthBasicAuthCredentialsProvider` implementation, and pass it to the init method, as seen here:
 ```java
 ParticleCloudSDK.initWithOauthCredentialsProvider(someContext, 
     new OauthBasicAuthCredentialsProvider() {
