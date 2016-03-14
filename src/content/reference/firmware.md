@@ -2341,11 +2341,42 @@ To use the TX/RX (Serial1) or D1/D0 (Serial2) pins to communicate with your pers
 `Serial2:` This channel is optionally available via the device's RGB Green (TX) and Blue (RX) LED pins. The Blue and Green current limiting resistors should be removed.  To use Serial2, add #include "Serial2/Serial2.h" near the top of your app's main code file.
 
 If the user enables Serial2, they should also consider using RGB.onChange() to move the RGB functionality to an external RGB LED on some PWM pins.
-
-To use the TX/RX (Serial1) or RGB Green (TX)/Blue (RX) LED (Serial2) pins to communicate with your personal computer, you will need an additional USB-to-serial adapter. To use them to communicate with an external TTL serial device, connect the TX pin to your device's RX pin, the RX to your device's TX pin, and the ground of your Photon/Electron to your device's ground.
 {{/unless}}
 
-**NOTE:** Please take into account that the voltage levels on these pins runs at 0V to 3.3V and should not be connected directly to a computer's RS232 serial port which operates at +/- 12V and will damage the Core/Photon/Electron.
+{{#if electron}}
+`Serial4:` This channel is optionally available via the Electron's C3(TX) and C2(RX) pins. To use Serial4, add `#include "Serial4/Serial4.h"` near the top of your app's main code file.
+
+`Serial5:` This channel is optionally available via the Electron's C1(TX) and C0(RX) pins. To use Serial5, add `#include "Serial5/Serial5.h"` near the top of your app's main code file.
+{{/if}}
+
+```C++
+// EXAMPLE USAGE
+// Include the appropriate header file for Serial2{{#if electron}}, Serial4, or Serial5{{/if}}
+#include "Serial2/Serial2.h"
+{{#if electron}}
+#include "Serial4/Serial4.h"
+#include "Serial5/Serial5.h"
+{{/if}}
+
+void setup()
+{
+  Serial2.begin(9600);
+{{#if electron}}
+  Serial4.begin(9600);
+  Serial5.begin(9600);
+{{/if}}
+
+  Serial2.println("Hello World!");
+{{#if electron}}
+  Serial4.println("Hello World!");
+  Serial5.println("Hello World!");
+{{/if}}
+}
+```
+
+To use the hardware serial pins of (Serial1/2{{#if electron}}/4/5{{/if}}) to communicate with your personal computer, you will need an additional USB-to-serial adapter. To use them to communicate with an external TTL serial device, connect the TX pin to your device's RX pin, the RX to your device's TX pin, and the ground of your Core/Photon/Electron to your device's ground.
+
+**NOTE:** Please take into account that the voltage levels on these pins operate at 0V to 3.3V and should not be connected directly to a computer's RS232 serial port which operates at +/- 12V and will damage the Core/Photon/Electron.
 
 ### begin()
 
@@ -2362,6 +2393,10 @@ Serial2.begin(speed);   // on Core via
                         // on Photon/Electron via
                         // RGB-LED green(TX) and
                         // RGB-LED blue (RX) pins
+{{#if electron}}
+Serial4.begin(speed);   // via C3(TX)/C2(RX) pins
+Serial5.begin(speed);   // via C1(TX)/C0(RX) pins
+{{/if}}
 ```
 `speed`: parameter that specifies the baud rate *(long)*
 
@@ -2457,6 +2492,10 @@ from a serial peripheral.
 - serialEvent: called when there is data available from `Serial`
 - serialEvent1: called when there is data available from `Serial1`
 - serialEvent2: called when there is data available from `Serial2`
+{{#if electron}}
+- serialEvent4: called when there is data available from `Serial4`
+- serialEvent5: called when there is data available from `Serial5`
+{{/if}}
 
 The `serialEvent` functions are called by the system as part of the application loop. Since these is an
 extension of the application loop, it is ok to call any functions at you would also call from loop().
