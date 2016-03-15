@@ -8608,11 +8608,11 @@ for (int i = 0; i < arraySize(myPins); i++) {
 Note that most of the functions in newlib described at [https://sourceware.org/newlib/libc.html](https://sourceware.org/newlib/libc.html) are available for use in addition to the functions outlined above.
 
 ## Preprocessor
+`#pragma PARTICLE_NO_PREPROCESSOR`
 
-`#pragma SPARK_NO_PREPROCESSOR`
 
 ```cpp
-//Example
+//Example Error
 class ABC
 {
    int abc;
@@ -8642,4 +8642,7 @@ However, there might be instances where the preprocessor causes issues in your c
 
 
 
-So when you see the `ABC does not name a type` error, yet you know the type is defined, consider disabling the preprocessor using `#pragma SPARK_NO_PREPROCESSOR` at the top of your code.
+So when you see the `ABC does not name a type` error, yet you know the type is defined, consider disabling the preprocessor using `#pragma PARTICLE_NO_PREPROCESSOR` at the top of your code.
+
+
+**Note:** This was changed from `SPARK_NO_PREPROCESSOR` to `PARTICLE_NO_PREPROCESSOR` in firmware version 0.4.7
