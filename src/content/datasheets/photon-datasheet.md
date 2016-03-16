@@ -35,7 +35,7 @@ The Photon comes in two physical forms: with headers and without. Prototyping is
 * Particle PØ Wi-Fi module
 	* Broadcom BCM43362 Wi-Fi chip
 	* 802.11b/g/n Wi-Fi
-    * STM32F205 120Mhz ARM Cortex M3
+    * STM32F205RGY6 120Mhz ARM Cortex M3
 	* 1MB flash, 128KB RAM
 * On-board RGB status LED (ext. drive provided)
 * 18 Mixed-signal GPIO and advanced peripherals
@@ -113,7 +113,7 @@ The Photon has ton of capability in a small footprint, with analog, digital and 
 
 Pin D3 through D7 are JTAG interface pins.  These can be used to reprogram your Photon bootloader or user firmware image with standard JTAG tools such as the ST-Link v2, J-Link, R-Link, OLIMEX ARM-USB-TINI-H, and also the FTDI-based Particle JTAG Programmer.
 
-| Photon Pin | Description | STM32 Pin | PØ Pin # | PØ Pin Name | Default Internal<sup>[1]</sup> |
+| Photon Pin | Description | STM32F205RGY6 Pin | PØ Pin # | PØ Pin Name | Default Internal<sup>[1]</sup> |
 | :-:|:-:|:-:|:-:|:-:|:- |
 | D7 | JTAG_TMS | PA13 | 44 | MICRO_JTAG_TMS | ~40k pull-up |
 | D6 | JTAG_TCK | PA14 | 40 | MICRO_JTAG_TCK | ~40k pull-down |
@@ -250,7 +250,7 @@ When these pads are programmed to be used as a Bluetooth coexistence interface, 
 
 ### I/O Characteristics
 
-These specifications are based on the STM32F205RG datasheet, with reference to Photon pin nomenclature.
+These specifications are based on the STM32F205RGY6 datasheet, with reference to Photon pin nomenclature.
 
 | Parameter | Symbol | Conditions | Min | Typ | Max | Unit |
 | :-|:-|:-:|:-:|:-:|:-:|:-: |
@@ -392,7 +392,7 @@ This land pattern can be found in the [Spark.lbr Eagle library](https://github.c
 |1|INDUCTOR (RF)|3.9nH RF inductor|0402|L3|Johanson|L-07C3N9SV6T|
 |1|INDUCTOR (RF)|4.7nH RF inductor|0402|L1|Johanson|L-07C4N7SV6T|
 |1|INDUCTOR (RF)|6.8nH RF inductor|0402|L2|Johanson|L-07C6N8JV6T|
-|1|WI-FI + MCU|Broadcom Wi-FI + STM32 MCU|Custom USI SMD|U1|USI|WM-N-BM-09-S|
+|1|WI-FI + MCU|Broadcom Wi-FI + STM32F205RGY6 MCU|Custom USI SMD|U1|USI|WM-N-BM-09-S|
 |1|RF SWITCH|RF Switch SPDT|UQFN-6 (1x1mm)|U3|Skyworks|SKY13350-385LF|
 |1|POWER REGULATOR|3.3V 1.5MHz  600mA High Efficiency PWM Step-Down DC/DC Converter|SOT23-5|U2|Richtek|RT8008-33GB|
 |1|RESISTOR|100k 5%|0402|R4|Fenghua|RC-02W104FT|
