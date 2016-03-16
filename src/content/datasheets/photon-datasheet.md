@@ -193,27 +193,27 @@ When these pads are programmed to be used as a Bluetooth coexistence interface, 
 
 | Parameter | Symbol | Min | Typ | Max | Unit |
 |:-|:-|:-:|:-:|:-:|:-:|
-| Supply Input Voltage | V<sub>IN-MAX</sub> |  |  | +6.5 | V |
-| Supply Output Current | I<sub>IN-MAX-L</sub> |  |  | 1 | A |
+| Supply Input Voltage | V<sub>VIN-MAX</sub> |  |  | +6.5 | V |
+| Supply Output Current | I<sub>VIN-MAX-L</sub> |  |  | 1 | A |
 | Supply Output Current | I<sub>3V3-MAX-L</sub> |  |  | 100 | mA |
 | Storage Temperature | T<sub>stg</sub> | -40 |  | +85 | °C |
-| Enable Voltage | V<sub>EN</sub> |  |  | V<sub>IN</sub>+0.6 | V |
+| Enable Voltage | V<sub>EN</sub> |  |  | V<sub>VIN</sub>+0.6 | V |
 | ESD Susceptibility HBM (Human Body Mode) | V<sub>ESD</sub> |  |  | 2 | kV |
 
 ### Recommended operating conditions
 
 | Parameter | Symbol | Min | Typ | Max | Unit |
 | :-|:-|:-:|:-:|:-:|:-:
-| Supply Input Voltage | V<sub>IN</sub> | +3.6 |  | +5.5 | V |
+| Supply Input Voltage | V<sub>VIN</sub> | +3.6 |  | +5.5 | V |
 | Supply Input Voltage | V<sub>3V3</sub> | +3.0 | +3.3 | +3.6 | V |
-| Supply Output Voltage | V<sub>IN</sub> |  | +4.8 |  | V |
+| Supply Output Voltage | V<sub>VIN</sub> |  | +4.8 |  | V |
 | Supply Output Voltage | V<sub>3V3</sub> |  | +3.3 |  | V |
 | Supply Input Voltage | V<sub>VBAT</sub> | +1.65 |  | +3.6 | V |
 | Supply Input Current (VBAT) | I<sub>VBAT</sub> |  |  | 19 | uA |
-| Operating Current (Wi-Fi on) | I<sub>IN avg</sub> |  | 80 | 100 | mA |
-| Operating Current (Wi-Fi on) | I<sub>IN pk</sub> | 235<sup>[1]</sup> |  | 430<sup>[1]</sup> | mA |
-| Operating Current (Wi-Fi on, w/powersave) | I<sub>IN avg</sub> |  | 18 | 100<sup>[2]</sup> | mA |
-| Operating Current (Wi-Fi off) | I<sub>IN avg</sub> |  | 30 | 40 | mA |
+| Operating Current (Wi-Fi on) | I<sub>VIN avg</sub> |  | 80 | 100 | mA |
+| Operating Current (Wi-Fi on) | I<sub>VIN pk</sub> | 235<sup>[1]</sup> |  | 430<sup>[1]</sup> | mA |
+| Operating Current (Wi-Fi on, w/powersave) | I<sub>VIN avg</sub> |  | 18 | 100<sup>[2]</sup> | mA |
+| Operating Current (Wi-Fi off) | I<sub>VIN avg</sub> |  | 30 | 40 | mA |
 | Sleep Current (5V @ VIN)| I<sub>Qs</sub> |  | 1 | 2 | mA |
 | Deep Sleep Current (5V @ VIN) | I<sub>Qds</sub> |  | 80 | 100 | uA |
 | Operating Temperature | T<sub>op</sub> | -20 |  | +60 | °C |
