@@ -502,6 +502,26 @@ void loop() {
 }
 ```
 
+{{#if electron}}
+### Particle.keepAlive()
+
+Sets the duration between keep alive messages used to maintain the connection to the cloud.
+
+```C++
+// SYNTAX
+Particle.keepAlive(10*60);	// send a ping every 10 minutes
+```
+
+A keep alive is used to implement "UDP hole punching" which helps maintain the connection from the cloud to the device.
+Should a device becomes unreachable from the cloud (such as a timed out function call or variable get), 
+one possible cause of this is that the keep alives have not been sent often enough.
+
+The keep alive duration varies by mobile network operator. The default keepalive is set to 23 minutes, which is sufficient to maintain the connection on Particle SIM cards. 3rd party SIM cards will need to determine the appropriate keep alive value.
+
+
+{{/if}}
+
+
 ### Particle.process()
 
 Runs the background loop. This is the public API for the former internal function
