@@ -5748,12 +5748,15 @@ Power Conditions and how they relate to Backup RAM initilization and data retent
 
 | Power Down Method | Power Up Method | When VIN Powered | When VBAT Powered | SRAM Initialized | SRAM Retained |
 | -: | :- | :-: | :-: | :-: | :-: |
-| Power removed on VIN and VBAT | Power applied on VIN | - | - | Yes | No |
+| Power removed on VIN and VBAT | Power applied on VIN | - | No<sup>[1]</sup> | Yes | No |
+| Power removed on VIN and VBAT | Power applied on VIN | - | Yes | Yes | No |
 | Power removed on VIN | Power applied on VIN | - | Yes | No | Yes |
 | System.sleep(SLEEP_MODE_DEEP) | Rising edge on WKP pin, or Hard Reset | Yes | Yes/No | No | Yes |
 | System.sleep(SLEEP_MODE_DEEP,10) | RTC alarm after 10 seconds | Yes | Yes/No | No | Yes |
 | System.reset() | Boot after software reset | Yes | Yes/No | No | Yes |
 | Hard reset | Boot after hard reset | Yes | Yes/No | No | Yes |
+
+<sup>[1]</sup> Note: If VBAT is floating when powering up for the first time, SRAM remains uninitialized.  When using this feature for Backup RAM, it is recommended to have VBAT connected to a 3V3 or a known good power source on system first boot.  When using this feature for Extra RAM, it is recommended to jumper VBAT to GND to ensure it always initializes on system first boot.
 
 ### Storing data in Backup RAM (SRAM)
 
