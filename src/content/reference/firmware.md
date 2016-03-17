@@ -193,7 +193,7 @@ curl https://api.particle.io/v1/devices/0123456789abcdef/brew \
 
 ### Particle.publish()
 
-Publish an *event* through the Particle Cloud that will be forwarded to all registered callbacks, subscribed streams of Server-Sent Events, and other devices listening via `Particle.subscribe()`.
+Publish an *event* through the Particle Cloud that will be forwarded to all registered listeners, such as callbacks, subscribed streams of Server-Sent Events, and other devices listening via `Particle.subscribe()`.
 
 This feature allows the device to generate an event based on a condition. For example, you could connect a motion sensor to the device and have the device generate an event whenever motion is detected.
 
@@ -303,6 +303,28 @@ curl -H "Authorization: Bearer {ACCESS_TOKEN_GOES_HERE}" \
 event: motion-detected
 data: {"data":"23:23:44","ttl":"60","published_at":"2014-05-28T19:20:34.638Z","deviceid":"0123456789abcdef"}
 ```
+
+{{#if electron}}
+*`NO_ACK` flag*
+
+Unless specified otherwise, events sent to the cloud are sent as a reliable message. The Electoron waits for
+acknowledgement from the cloud that the event has been recieved, resending the event in the background up to 3 times before giving up.
+
+The `NO_ACK` flag disables this acknoweldge/retry behavior and sends the event only once.  This reduces data consumption per event, with the possibility that the event may not reach the cloud. 
+
+For example, the `NO_ACK` flag could be useful when many events are sent (such as sensor readings) and the occaisonal lost event can be tolerated. 
+
+```C++
+// SYNTAX
+
+int temperature = sensor.readTemperature();  // by way of example, not part of the API 
+Particle.publish("t", temperature, NO_ACK);
+Particle.publish("t", temperature, PRIVATE, NO_ACK);
+Particle.publish("t", temperature, ttl, PRIVATE, NO_ACK);
+```
+
+{{/if}}
+
 
 ### Particle.subscribe()
 
