@@ -41,7 +41,7 @@ Spark Core 与传统家庭网络的效果最佳：设用 WPA/WPA2 或 WEP 安全
 
 - 关闭您的移动应用程序，并重新打开它
 - 拔开 Spark Core USB 然后把它插回
-- 按住 MODE 按钮 10 秒钟清除 Spark Core 内存的 Wi-Fi 网络. 3秒钟后，指示灯应开始闪烁蓝色; 10秒后，它应该做一个快速的蓝色闪烁. 这意味着记忆已被清除.
+- 按住 `{{system-button}}` 按钮 10 秒钟清除 Spark Core 内存的 Wi-Fi 网络. 3秒钟后，指示灯应开始闪烁蓝色; 10秒后，它应该做一个快速的蓝色闪烁. 这意味着记忆已被清除.
 - 恢复 Spark Core 的固件到出厂默认值状态. [此视频](https://community.particle.io/t/how-to-do-a-factory-reset/2579) 作说明.
 
 ## 步骤 4: 请检查您的路由器设置
@@ -110,7 +110,7 @@ Spark Core 有一个 RGB LED 定位在的前部,显示 core 的连接状态.此�
 2. 尝试新的点源适配器. 您所用的电源应能够提 core，为 500mA 的电流. 我们建议使用通常用于手机充电的 5V/1A 电源适配器.
 3. 如果您的网络有一个登陆页面，核心将无法进行连接;尝试将其配置到不同的网络.
 4. 尝试 [重新启动 core 和清除它的内存](/#/connect/troubleshooting-step-3-reboot-and-clear-memory).
-5. 尝试恢复出厂设置.按住两个按键，然后只松开RST键. LED应开始闪烁黄色.  继续按住 MODE 键直到您看到闪烁的黄色变化成闪烁的白色, 然后松开按钮. Core 恢复出厂设置完成后应该开始 [闪烁蓝色](https://v.cdn.vine.co/r/videos/E465A8959B1015390893882101760_178fcfd2b3c.4.3.11510817618992331600_MIW9HE1mtZ9H_SpBlKdK1lv2UfmniExCFQHrgJ7iqiFDUiDb0E31bR7GwvB_7wz0.mp4?versionId=eS01KUZ6NaUZgEipSDeVi0rxZENByp1N)
+5. 尝试恢复出厂设置.按住两个按键，然后只松开RST键. LED应开始闪烁黄色.  继续按住 `{{system-button}}` 键直到您看到闪烁的黄色变化成闪烁的白色, 然后松开按钮. Core 恢复出厂设置完成后应该开始 [闪烁蓝色](https://v.cdn.vine.co/r/videos/E465A8959B1015390893882101760_178fcfd2b3c.4.3.11510817618992331600_MIW9HE1mtZ9H_SpBlKdK1lv2UfmniExCFQHrgJ7iqiFDUiDb0E31bR7GwvB_7wz0.mp4?versionId=eS01KUZ6NaUZgEipSDeVi0rxZENByp1N)
 6. 尝试通过 USB 运行,重新补丁程序员,更新 CC3000 的固件. 您可以在 [这里](https://community.sparkdevices.com/t/failed-connecting-to-wifi/648/53) 找到详细的说明.
 7. 如果以上都不成功，请 [联系 Spark Team]（邮寄地址：hello@sparkdevices.com），并为我们提供路由器的品牌和型号.
 
@@ -125,7 +125,7 @@ Spark Core 有一个 RGB LED 定位在的前部,显示 core 的连接状态.此�
 请完成以下步骤：
   
 1. 尝试打 RST 键，以确保您没不小心设定您的核心进入 DFU 模式.
-2. 尝试恢复出厂设置.按住两个按键，然后只松开RST键. LED应开始闪烁黄色.  继续按住 MODE 键直到您看到闪烁的黄色变化成闪烁的白色, 然后松开按钮. Core 后恢复出厂设置完成后应该开始 [闪烁蓝色](https://v.cdn.vine.co/r/videos/E465A8959B1015390893882101760_178fcfd2b3c.4.3.11510817618992331600_MIW9HE1mtZ9H_SpBlKdK1lv2UfmniExCFQHrgJ7iqiFDUiDb0E31bR7GwvB_7wz0.mp4?versionId=eS01KUZ6NaUZgEipSDeVi0rxZENByp1N)
+2. 尝试恢复出厂设置.按住两个按键，然后只松开RST键. LED应开始闪烁黄色.  继续按住 `{{system-button}}` 键直到您看到闪烁的黄色变化成闪烁的白色, 然后松开按钮. Core 后恢复出厂设置完成后应该开始 [闪烁蓝色](https://v.cdn.vine.co/r/videos/E465A8959B1015390893882101760_178fcfd2b3c.4.3.11510817618992331600_MIW9HE1mtZ9H_SpBlKdK1lv2UfmniExCFQHrgJ7iqiFDUiDb0E31bR7GwvB_7wz0.mp4?versionId=eS01KUZ6NaUZgEipSDeVi0rxZENByp1N)
 3. 如果恢复出厂设置不成功，那么我们就通过 DFU 更新固件. 您可以按照以下的步骤做：
 
 Mac 使用自制软件， Windows 需要到 http://dfu-util.gnumonks.org 下载，或者您也可以从源代码在Linux上构建，安装 DFU-util：
@@ -192,7 +192,7 @@ Mac 使用自制软件， Windows 需要到 http://dfu-util.gnumonks.org 下载�
 - *问题是什么?* 您的 core 缺失的固件.
 - *我如何修复它?*
 
-1. 尝试恢复出厂设置.按住两个按键，然后只松开RST键. LED应开始闪烁黄色.  继续按住 MODE 键直到您看到闪烁的黄色变化成闪烁的白色, 然后松开按钮. Core 恢复出厂设置完成后应该开始.
+1. 尝试恢复出厂设置.按住两个按键，然后只松开RST键. LED应开始闪烁黄色.  继续按住 `{{system-button}}` 键直到您看到闪烁的黄色变化成闪烁的白色, 然后松开按钮. Core 恢复出厂设置完成后应该开始.
 2. 如果您在恢复出厂设置后没有看到闪灯，那么您的 core 可能暂时不起作用.  如果你有一个 JTAG shield, [联系 Spark Team ](邮寄地址：hello@spark.io)这样我们就可以帮您完成重新安装内核固件.  如果你没有一个 JTAG shield, 请 [联系 Spark Team ](邮寄地址：hello@spark.io) 让我们知道，我们会帮助您采取下一步措施.
 
 ## LED 灯关闭，反应迟钝

@@ -62,7 +62,7 @@ So often, electronics start behaving after you shut them off and turn them back 
 
 - Closing your mobile app and re-opening it
 - Un-plugging the Core and plugging it back in
-- Clear the Core's memory of Wi-Fi networks by holding the MODE button for 10 seconds. After 3 seconds, the light should start flashing blue; after 10 seconds, it should do a quick burst of blue flashes. That means the memory has been cleared.
+- Clear the Core's memory of Wi-Fi networks by holding the `{{system-button}}` button for 10 seconds. After 3 seconds, the light should start flashing blue; after 10 seconds, it should do a quick burst of blue flashes. That means the memory has been cleared.
 - Restoring the Core's firmware to the factory default. Getting this right can be tricky, see [this video](https://community.particle.io/t/how-to-do-a-factory-reset/2579) for illustration.
 
 **STEP 4: Check your router settings**
@@ -105,7 +105,7 @@ Please post issues with connectivity either as responses to this topic or, if th
 - **What’s the problem?** Your Core is missing firmware.
 - **How do I fix it?**
 
-1. Try a factory reset. Hold down both buttons, then release the RST button, while holding down the MODE button. The LED should begin flashing yellow. Continue holding down the MODE button until you see the Core change from flashing yellow to flashing white. Then release the button. The Core should begin after the factory reset is complete. [Here](http://docs.particle.io/core/connect/#appendix-factory-reset) is a video to illustrate it being done.
+1. Try a factory reset. Hold down both buttons, then release the RST button, while holding down the `{{system-button}}` button. The LED should begin flashing yellow. Continue holding down the `{{system-button}}` button until you see the Core change from flashing yellow to flashing white. Then release the button. The Core should begin after the factory reset is complete. [Here](http://docs.particle.io/core/connect/#appendix-factory-reset) is a video to illustrate it being done.
 
 2. If you see no flashing lights during factory reset, then your Core may be temporarily nonfunctional. If you have a JTAG shield, contact [hello @ particle dot io] so we can help walk you through re-installing the Core firmware. If you do not have a JTAG shield, please contact the Particle team to let us know, and we’ll help you take next steps.
 

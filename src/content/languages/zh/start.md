@@ -100,16 +100,16 @@ Spark Core 还具有Wi-Fi模块，它连接到您的本地 Wi-Fi 网络，像您
 
 ### 按钮
 
-Spark Core 上有两个按钮：按RESET按钮（右侧）和MODE按钮（左侧).
+Spark Core 上有两个按钮：按`{{reset-button}}`按钮（右侧）和`{{system-button}}`按钮（左侧).
 
-RESET按钮将会把 Spark Core 硬复位，有效切除微控制器的电源和重新通电。这是重新启动，您已经下载到核心的应用程序的好方.
+`{{reset-button}}`按钮将会把 Spark Core 硬复位，有效切除微控制器的电源和重新通电。这是重新启动，您已经下载到核心的应用程序的好方.
 
-MODE 按钮有三个功能:
+`{{system-button}}` 按钮有三个功能:
 
-- 按住 MODE 键三秒钟把 Spark Core 进入 *Smart Config*（聪明配置) 模式，将它连接到您的本地 Wi-Fi 网络. LED应开始蓝色闪烁.
-- 按住 MODE 按钮十秒钟以清除 Spark Core 内存的 Wi-Fi 网络.
-- 按住 MODE 键，点击RESET按钮，等待*3秒* 进入 *Bootloader* (引导程序)的模式. 当您看到LED闪烁黄色, 松开MODE按钮.在这里您可以通过 USB 或 JTAG 重新编程 Spark Core.  如果你不小心这样做，只需点击 RESET 按钮就能离开 *Bootloader* 的模式.
-- 按住 MODE 键，点击 RESET 按钮，等待 *10秒* 做 *出厂重置*， 将 Spark Core 重新编程，回到工厂安装的Spark软件 (Tinker 小应用程序). LED应该变成白色三秒钟，然后开始快速闪烁; 当 LED 切换到另一种颜色的核心已被重置. 如果遇到固件错误, 或者如果你只是想回 Tinker 小应用程序匠,这是有用的.
+- 按住 `{{system-button}}` 键三秒钟把 Spark Core 进入 *Smart Config*（聪明配置) 模式，将它连接到您的本地 Wi-Fi 网络. LED应开始蓝色闪烁.
+- 按住 `{{system-button}}` 按钮十秒钟以清除 Spark Core 内存的 Wi-Fi 网络.
+- 按住 `{{system-button}}` 键，点击`{{reset-button}}`按钮，等待*3秒* 进入 *Bootloader* (引导程序)的模式. 当您看到LED闪烁黄色, 松开`{{system-button}}`按钮.在这里您可以通过 USB 或 JTAG 重新编程 Spark Core.  如果你不小心这样做，只需点击 `{{reset-button}}` 按钮就能离开 *Bootloader* 的模式.
+- 按住 `{{system-button}}` 键，点击 `{{reset-button}}` 按钮，等待 *10秒* 做 *出厂重置*， 将 Spark Core 重新编程，回到工厂安装的Spark软件 (Tinker 小应用程序). LED应该变成白色三秒钟，然后开始快速闪烁; 当 LED 切换到另一种颜色的核心已被重置. 如果遇到固件错误, 或者如果你只是想回 Tinker 小应用程序匠,这是有用的.
 
 
 ### LEDs
@@ -143,7 +143,7 @@ Spark Core 具有 24 可以将电路连接的管脚，这些管脚是:
 - _VIN_: 这里连接一个不受管制的电源与3.6V至6V的电压来驱动 Spark Core. 如果您通过 USB 供电到 Spark Core，该引脚应*不*使用。
 - _3V3_: 该引脚将输出一个稳定的 3.3V 电源轨，可用于 Spark Core之外的任何组件提供电力. (此外，如果你有自己的 3.3V 稳压电源，您可以将其插入这里驱动 Spark Core）.
 - _3V3*_: 这是一个单独的低噪声稳定的 3.3V 电轨设计用于可能容易受到数字元件噪声影响的模拟电路。 如果您正在使用任何敏 感的模拟传感器，请用_3V3*_ 电源，而不是从_3V3_.
-- _!RST_: 把该引脚连接到GND， 您可以重置 Spark Core (就像是按 RESET 按钮)
+- _!RST_: 把该引脚连接到GND， 您可以重置 Spark Core (就像是按 `{{reset-button}}` 按钮)
 - _GND_: 这些引脚是您的电气接地引脚。
 - _D0 to D7_: 这些都是 Spark Core 的基础: 8 GPIO (通用输入/输出) 管脚. 它们标有“D” 因为它们是“数字”管脚, 这意味着它们无法读取模拟���感器的值. 有些管脚可有额外的外设（SPI，JTAG，等). 请继续阅读以了解更多信息.
 - _A0 to A7_:这些是多 8 个 GPIO 管脚, 把总数拉到 16. 这些管脚就像D0到D7，但它们是“模拟”管脚， 这意味着它们可以读取模拟传感器的值(从技术上来说，它们有一个ADC外设).和“数���”管脚一样，其中的一些管脚有额外的可用外设

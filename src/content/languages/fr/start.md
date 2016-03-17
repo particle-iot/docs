@@ -95,16 +95,16 @@ Quand le Core de connecte à Internet, il crée une connexion au *Spark Cloud*. 
 
 ### Boutons
 
-Il y a deux boutons sur le Core : le bouton RESET (sur la droite) et le bouton MODE (sur la gauche).
+Il y a deux boutons sur le Core : le bouton `{{reset-button}}` (sur la droite) et le bouton `{{system-button}}` (sur la gauche).
 
-Le bouton RESET va effectuer un redémarrage matériel du Core, en coupant et réactivant son alimentation. C'est une bonne manière pour redémarrer une application que vous avez téléchargé sur le Core.
+Le bouton `{{reset-button}}` va effectuer un redémarrage matériel du Core, en coupant et réactivant son alimentation. C'est une bonne manière pour redémarrer une application que vous avez téléchargé sur le Core.
 
-Le bouton MODE a trois fonctions :
+Le bouton `{{system-button}}` a trois fonctions :
 
-- Tenez le bouton MODE enfoncé pendant trois secondes pour mettre le Core en mode *Smart Config* afin de le connecter à votre réseau Wi-Fi local. La LED devrait commencer à clignoter en bleu.
-- Tenez le bouton MODE enfoncé pendant dix secondes pour effacer de la mémoire du Core les informations sur les réseaux Wi-Fi
-- Tenez le bouton MODE enfoncé, appuyez un coup sur le bouton RESET, et patientez *trois secondes* pour entrer dans le mode *Bootloader*, d'où vous pouvez reprogrammer le Core via USB ou JTAG. Relâchez le bouton MODE quand la LED commence à clignoter en jaune. Si vous le faites accidentellement, appuyez juste un coup sur le bouton RESET pour quitter le mode *Bootloader*
-- Tenez le bouton MODE enfoncé, appuyez un coup sur le bouton RESET, et patientez *dix secondes* pour effectuer une *restauration des paramètres d'usine* où le Core est reprogrammé avec l'application qui y était installée à l'usine (l'application Tinker). La LED devrait clignoter en blanc pendant trois secondes puis se mettre à clignoter rapidement. Quand la LED clignote d'une autre couleur, le Core a été remis aux valeurs par défaut. C'est très utile quand vous avez un bug dans votre firmware ou bien que vous souhaitez réinstaller l'application Tinker.
+- Tenez le bouton `{{system-button}}` enfoncé pendant trois secondes pour mettre le Core en mode *Smart Config* afin de le connecter à votre réseau Wi-Fi local. La LED devrait commencer à clignoter en bleu.
+- Tenez le bouton `{{system-button}}` enfoncé pendant dix secondes pour effacer de la mémoire du Core les informations sur les réseaux Wi-Fi
+- Tenez le bouton `{{system-button}}` enfoncé, appuyez un coup sur le bouton `{{reset-button}}`, et patientez *trois secondes* pour entrer dans le mode *Bootloader*, d'où vous pouvez reprogrammer le Core via USB ou JTAG. Relâchez le bouton `{{system-button}}` quand la LED commence à clignoter en jaune. Si vous le faites accidentellement, appuyez juste un coup sur le bouton `{{reset-button}}` pour quitter le mode *Bootloader*
+- Tenez le bouton `{{system-button}}` enfoncé, appuyez un coup sur le bouton `{{reset-button}}`, et patientez *dix secondes* pour effectuer une *restauration des paramètres d'usine* où le Core est reprogrammé avec l'application qui y était installée à l'usine (l'application Tinker). La LED devrait clignoter en blanc pendant trois secondes puis se mettre à clignoter rapidement. Quand la LED clignote d'une autre couleur, le Core a été remis aux valeurs par défaut. C'est très utile quand vous avez un bug dans votre firmware ou bien que vous souhaitez réinstaller l'application Tinker.
 
 
 ### LEDs
@@ -139,7 +139,7 @@ Le Core possède 24 broches que vous pouvez connecter à un circuit. Ces broches
 - _VIN_ : Connectez à cette broche une alimentation non régulée d'une tension comprise entre 3,6V et 6V pour alimenter le Core. Si vous alimentez le Core via USB, cette broche *ne doit pas* être utilisée.
 - _3V3_ : Cette broche fournie une tension régulée de 3,3V que vous pouvez utiliser pour alimenter d'autres composants en dehors du Core. (De même, si vous possédez votre propre alimentation régulée de 3,3V, vous pouvez la brancher ici pour alimenter le Core).
 - _3V3*_ : Cette broche fournie une autre tension régulée de 3,3V, mais filtrée. Elle est destinée à alimenter des circuits sensibles au bruit provenant des composants électroniques. Si vous utilisez des capteurs analogiques sensibles, alimentez les via la broche _3V3*_ plutôt que la broche _3V3_.
-- _!RST_ : Vous pouvez redémarrer le Core (de la même manière qu'en appuyant sur le bouton RESET) en connectant cette broche à GND.
+- _!RST_ : Vous pouvez redémarrer le Core (de la même manière qu'en appuyant sur le bouton `{{reset-button}}`) en connectant cette broche à GND.
 - _GND_ : Ces broches sont les broches de mise à la masse.
 - _D0 à D7_ : Ces broches sont les broches à tout faire du Spark Core : 8 broches GPIO (General Purpose Input/Output). Elles sont libellées « D » parce que ce sont des broches « numériques » (Digital), ce qui signifie qu'elles ne peuvent pas lire les valeurs des capteurs analogiques. Certaines de ces broches possèdent des périphériques additionnels (SPI, JTAG, etc.), plus d'infos plus loin.
 - _A0 à A7_ : Ces broches sont 8 broches GPIO supplémentaires, pour un total de 16. Elles sont identiques à D0 à D7, si ce n'est qu'elles sont des broches « analogiques », ce qui signifie qu'elles peuvent lire les valeurs de capteurs analogiques (techniquement, elles possèdent un périphérique de conversion analogique vers numérique). Tout comme les broches numériques, certaines de ces broches possèdent des périphériques additionnels
