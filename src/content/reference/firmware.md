@@ -6391,12 +6391,46 @@ as a number:
 Firmware 0.4.7 has a version number 0x00040700
 
 
-Note that
+### buttonPushed()
+
+_Since 0.4.6_
+
+Can be used to determine how long the System button (MODE on Core/Electron, SETUP on Photon) has been pushed.
+
+Returns `uint16_t` as duration button has been held down in milliseconds.
+
+```C++
+// EXAMPLE USAGE
+void button_handler(system_event_t event, int duration, void* )
+{
+    if (!duration) { // just pressed
+        RGB.control(true);
+        RGB.color(255, 0, 255); // MAGENTA
+    }
+    else { // just released
+        RGB.control(false);
+    }
+}
+
+void setup()
+{
+    System.on(button_status, button_handler);
+}
+
+void loop()
+{
+    // it would be nice to fire routine events while
+    // the button is being pushed, rather than rely upon loop
+    if (System.buttonPushed() > 1000) {
+        RGB.color(255, 255, 0); // YELLOW
+    }
+}
+```
 
 
 ### System Cycle Counter
 
-_Since 0.4.6._
+_Since 0.4.6_
 
 The system cycle counter is incremented for each instruction executed. It functions
 in normal code and during interrupts. Since it operates at the clock frequency
