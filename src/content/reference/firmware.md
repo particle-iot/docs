@@ -6596,10 +6596,6 @@ System.sleep(5);
 // The device LED will breathe white during sleep
 ```
 
-_Since 0.4.5._ The state of Wi-Fi and Cloud connections is restored when the system wakes up from sleep.
-So if the device was connected to the cloud before sleeping, then the cloud connection
-is automatically resumed on waking up.
-
 `System.sleep(long seconds)` does NOT stop the execution of application code (non-blocking call).  Application code will continue running while the Wi-Fi module is in standby mode.
 
 `System.sleep(SLEEP_MODE_DEEP, long seconds)` can be used to put the entire device into a *deep sleep* mode.
@@ -6698,16 +6694,11 @@ System.sleep(D0,RISING,60);
 - Photon
  - Please see the [Photon datasheet](/datasheets/photon-datasheet/#recommended-operating-conditions)
 
-<!--
-System.sleep(int millis, array peripherals);
--->
 
-<!--
-`System.sleep()` can also take an optional second argument, an `array` of other peripherals to deactivate. Deactivating unused peripherals on the micro-controller can take its power consumption into the micro-amps.
--->
+_Since 0.4.5._ The state of the {{#unless electron}}Wi-Fi{{/unless}}{{#if electron}}Cellular{{/if}} and Cloud connections is restored when the system wakes up from sleep. So if the device was connected to the cloud before sleeping, then the cloud connection
+is automatically resumed on waking up.
+_Since 0.5.0._ In automatic modes, the `sleep()` function doesn't return until the cloud connection has been established. This means that application code can use the cloud connection as soon as  `sleep()` returns. In previous versions, it was necessary to call `Particle.process()` to have the cloud reconnected by the system in the background.  
 
-<!-- TO DO -->
-<!-- Add example implementation here -->
 
 ### reset()
 
