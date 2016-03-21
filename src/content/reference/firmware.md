@@ -5613,10 +5613,6 @@ will add more data to the page until it is full, causing a page erase.
 The EEPROM functions can be used to store small amounts of data in Flash that
 will persist even after the device resets after a deep sleep or is powered off.
 
-On the Photon/Electron, Flash pages are rated for 10,000 erases and it takes 20,000 byte writes to
-fill the EEPROM pages, so expect to be able to write 200,000,000 bytes to the EEPROM in the lifetime
-of the Photon/Electron.
-
 ### length()
 Returns the total number of bytes available in the emulated EEPROM.
 
@@ -5691,7 +5687,7 @@ from the type of object.
 // EXAMPLE USAGE
 // Read a value from EEPROM addres
 int addr = 10;
-uint16_t value
+uint16_t value;
 EEPROM.get(addr, value);
 if(value == 0xFFFF) {
   // EEPROM was empty -> initialize value
@@ -5759,7 +5755,7 @@ uint8_t val = 0x45;
 EEPROM.write(addr, val);
 ```
 
-When writing more than 1 byte, prefer `put()` over multiple `write()` since it's fater and it ensures
+When writing more than 1 byte, prefer `put()` over multiple `write()` since it's faster and it ensures
 consistent data even when power is lost while writing.
 
 ### clear()
@@ -5777,14 +5773,16 @@ pages.
 
 ### hasPendingErase()
 ### performPendingErase()
-*These are optional functions for advanced use cases*
+
+*Automatic page erase is the default behavior. This section describes optional functions the
+application can call to manually control page erase for advanced use cases.*
 
 After enough data has been written to fill the first page, the EEPROM emulation will write new data
 to a second page. The first page must be erased before being written again.
 
 Erasing a page of Flash pauses processor execution (including code running in interrupts) for 500ms since
 no instructions can be fetched from Flash while the Flash controller is busy erasing the EEPROM
-page.
+page. This could cause issues in applications that use EEPROM but rely on precise interrupt timing.
 
 `hasPendingErase()` lets the application developer check if a full EEPROM page needs to be erased.
 When the application determines it is safe to pause processor execution to erase EEPROM it calls
@@ -5794,7 +5792,7 @@ run without rebooting for a long time.
 ```
 // EXAMPLE USAGE
 void setup() {
-  // Erase full EEPROM page at boot if necessary
+  // Erase full EEPROM page at boot when necessary
   if(EEPROM.hasPendingErase()) {
     EEPROM.performPendingErase();
   }
