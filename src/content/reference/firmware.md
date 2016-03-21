@@ -938,6 +938,7 @@ Returns information about access points within range of the device.
 The first form is the simplest, but also least flexible. You provide a
 array of `WiFiAccessPoint` instances, and the call to `WiFi.scan()` fills out the array.
 If there are more APs detected than will fit in the array, they are dropped.
+Returns the number of access points written to the array.
 
 ```cpp
 // EXAMPLE - retrieve up to 20 Wi-Fi APs
