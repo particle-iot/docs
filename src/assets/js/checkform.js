@@ -10,6 +10,8 @@ $(document).ready(function() {
 		datax.email2 = $("#email2").val();
 		datax.subj = $("#category option:selected").val();
 		datax.topic = $("#secondmenu option:selected").val();
+		datax.browserType = browserType;
+		datax.ostype = ostype;
 		datax.comments = $("#comment").val();
 
 		//Validations
@@ -22,9 +24,11 @@ $(document).ready(function() {
 		  				subject: datax.subj,
 						topic: datax.topic,
 		  				comments: datax.comments,
+		  				browserType: datax.browserType,
+		  				osType: datax.ostype,
 		  				urlFrom: window.location.pathname
 						};//object
-
+		
 		$.ajax({
 		  method: "POST",
 		  url: "https://staging-supportal.herokuapp.com",
@@ -39,6 +43,7 @@ $(document).ready(function() {
 					$("#category option:selected").val();
 					$("#secondmenu option:selected").val();
 					$("#comment").val('');
+					$("#fileUp").val();
 					$("#button-blue").css('background-color', 'green');
 					$("#button-blue").attr('value', 'Message Received!');
 			      }
