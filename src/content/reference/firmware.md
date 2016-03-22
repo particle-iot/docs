@@ -119,8 +119,6 @@ In order to register a cloud  function, the user provides the `funcKey`, which i
 
 The length of the `funcKey` is limited to a max of 12 characters. If you declare a function name longer than 12 characters the function will not be registered.
 
-Example: Particle.function("someFunction1", ...); exposes a function called someFunction and not someFunction1
-
 A cloud function is set up to take one argument of the [String](#string-class) datatype. This argument length is limited to a max of 63 characters.
 
 ```cpp

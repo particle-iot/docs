@@ -25,8 +25,8 @@ There are three different variants of the Electron, and they each work in differ
 | Electron Name  | Service | Service Location | Bands (MHz) |
 | ------------- | :-------------: | :----: | :----: |
 | Electron G350  | 2G only | Worldwide | 850/900/1800/1900
-| Electron U260  | 3G with 2G fallback | North and South America | 850/1900
-| Electron U270 | 3G with 2G fallback | Europe, Asia, Africa, Australia | 900/1800/2100 |
+| Electron U260  | 3G with 2G fallback | North and South America, Australia | 850/1900
+| Electron U270 | 3G with 2G fallback | Europe, Asia, Africa | 900/1800/2100 |
 
 Make sure that your device is compatible with the cellular infrastructure in your country. Small country-by-country variations from the generalized table above may apply. For a detailed list of 3G service country by country, <a href="https://www.kickstarter.com/projects/sparkdevices/spark-electron-cellular-dev-kit-with-a-simple-data/description" target="_blank">please visit the following link</a>.
 
