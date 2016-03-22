@@ -151,6 +151,88 @@ When these pads are programmed to be used as a Bluetooth coexistence interface, 
 
 ---
 
+## Memory Map
+
+### STM32F205RGY6 Flash Layout Overview
+
+- Bootloader (16 KB)
+- DCT1 (16 KB), stores Wi-Fi credentials, keys, mfg info, system flags, etc..
+- DCT2 (16 KB), swap area for DCT1
+- EEPROM emulation bank 1 (16 KB)
+- EEPROM emulation bank 2 (64 KB) [only 16k used]
+- System firmware (512 KB) [256 KB Wi-Fi/comms + 256 KB hal/platform/services]
+- Factory backup, OTA backup and user application (384 KB) [3 x 128 KB]
+
+### DCT Layout
+
+The DCT area of flash memory has been mapped to a separate DFU media device so that we can incrementally update the application data. This allows one item (say, server public key) to be updated without erasing the other items.
+
+_DCT layout as of v0.4.9_ [found here in firmware](https://github.com/spark/firmware/blob/develop/platform/MCU/STM32F2xx/SPARK_Firmware_Driver/inc/dct.h)
+
+| Region | Offset | Size |
+|:---|---|---|
+| system flags | 0 | 32 |
+| version | 32 | 2 |
+| device private key | 34 | 1216 |
+| device public key | 1250 | 384 |
+| ip config | 1634 | 128 |
+| claim code | 1762 | 63 |
+| claimed | 1825 | 1 |
+| ssid prefix | 1826 | 26 |
+| device id | 1852 | 6 |
+| version string | 1858 | 32 |
+| dns resolve | 1890 | 128 |
+| reserved1 | 2018 | 64 |
+| server public key | 2082 | 768 |
+| padding | 2850 | 2 |
+| flash modules | 2852 | 100 |
+| product store | 2952 | 24 |
+| antenna selection | 2976 | 1 |
+| cloud transport | 2977 | 1 |
+| alt device public key | 2978 | 128 |
+| alt device private key | 3106 | 192 |
+| alt server public key | 3298 | 192 |
+| alt server address | 3490 | 128 |
+| reserved2 | 3618 | 1280 |
+
+**Note:** Writing 0xFF to offset 34 (DEFAULT) or 3106 (ALTERNATE) will cause the device to re-generate a new private key on the next boot. Alternate keys are currently unsupported on the Photon but are used on the Electron as UDP/ECC keys.  You should not need to use this feature unless your keys are corrupted.
+
+```
+// Regenerate Default Keys
+echo -e "\xFF" > fillbyte && dfu-util -d 2b04:d00a -a 1 -s 34 -D fillbyte
+// Regenerate Alternate Keys
+echo -e "\xFF" > fillbyte && dfu-util -d 2b04:d00a -a 1 -s 3106 -D fillbyte
+```
+
+### Memory Map (Common)
+
+| Region | Start Address | End Address | Size |
+|:---|---|---|---|
+| Bootloader | 0x8000000 | 0x8004000 | 16 KB |
+| DCT1 | 0x8004000 | 0x8008000 | 16 KB |
+| DCT2 | 0x8008000 | 0x800C000 | 16 KB |
+| EEPROM1 | 0x800C000 | 0x8010000 | 16 KB |
+| EEPROM2 | 0x8010000 | 0x8020000 | 64 KB |
+
+### Memory Map (Modular Firmware - default)
+
+| Region | Start Address | End Address | Size |
+|:---|---|---|---|
+| System Part 1 | 0x8020000 | 0x8060000 | 256 KB |
+| System Part 2 | 0x8060000 | 0x80A0000 | 256 KB |
+| User Part | 0x80A0000 | 0x80C0000 | 128 KB |
+| OTA Backup | 0x80C0000 | 0x80E0000 | 128 KB |
+| Factory Backup | 0x80E0000 | 0x8100000 | 128 KB |
+
+### Memory Map (Monolithic Firmware - optional)
+
+| Region | Start Address | End Address | Size |
+|:---|---|---|---|
+| Firmware | 0x8020000 | 0x8080000 | 384 KB |
+| Factory Reset | 0x8080000 | 0x80E0000 | 384 KB |
+| Unused (factory reset modular) | 0x80E0000 | 0x8100000 | 128 KB |
+
+---
 
 ## Pin and button definition
 
