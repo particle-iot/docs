@@ -509,7 +509,7 @@ Sets the duration between keep alive messages used to maintain the connection to
 
 ```C++
 // SYNTAX
-Particle.keepAlive(10*60);	// send a ping every 10 minutes
+Particle.keepAlive(23 * 60);	// send a ping every 23 minutes
 ```
 
 A keep alive is used to implement "UDP hole punching" which helps maintain the connection from the cloud to the device.
