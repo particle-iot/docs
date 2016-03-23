@@ -273,7 +273,7 @@ var publishEventPr = particle.publishEvent({ name: 'test', data: {}, auth: token
 
 publishEventPr.then(
   function(data) {
-    if (data.ok) { console.log("Event published succesfully") }
+    if (data.body.ok) { console.log("Event published succesfully") }
   },
   function(err) {
     console.log("Failed to publish event: " + err)
