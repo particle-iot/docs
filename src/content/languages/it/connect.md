@@ -9,7 +9,7 @@ Per tutti i metodi seguenti lo Spark Core deve essere in modalità "ascolto", ri
 
 <iframe class="vine-embed" src="https://vine.co/v/hFHlpBDELeU/embed/simple" width="320" height="320" frameborder="0"></iframe>
 
-Il Core parte in modo ascolto per default quindi, se il vostro Core è nuovo, dovrebbe partire direttamente in modalità ascolto. Altrimenti tenete premuto il bottone MODE per tre secondi.
+Il Core parte in modo ascolto per default quindi, se il vostro Core è nuovo, dovrebbe partire direttamente in modalità ascolto. Altrimenti tenete premuto il bottone `{{system-button}}` per tre secondi.
 
 ## Configurazione smart con l'app Spark
 
@@ -155,7 +155,7 @@ Spesso gli apparecchi elettronici cominciano a comportarsi in modo corretto dopo
 
 - Chiudere la vostra applicazione mobile e riaprirla
 - Scollegare e ricollegare lo Spark Core
-- Pulire la memoria delle reti Wi-Fi dello Spark Core tenendo premuto il bottone MODE per 10 secondi. Dopo 3 secondi la luce dovrebbe cominciare a lampeggiare blu; dopo 10 secondi dovrebbe emettere dei veloci flashes blu. Questo significa che la memoria è stata liberata.
+- Pulire la memoria delle reti Wi-Fi dello Spark Core tenendo premuto il bottone `{{system-button}}` per 10 secondi. Dopo 3 secondi la luce dovrebbe cominciare a lampeggiare blu; dopo 10 secondi dovrebbe emettere dei veloci flashes blu. Questo significa che la memoria è stata liberata.
 - Impostare il firmware dello Spark Core ai valori predefiniti di fabbrica. Fare questo in modo giusto può essere un po' complicato, si veda [questo video](https://community.particle.io/t/how-to-do-a-factory-reset/2579) per un'illustrazione.
 
 ## PASSO 4: Controllare i valori del router
@@ -225,5 +225,5 @@ Completate i seguenti passi:
 2. Provate un'altro alimentatore. Dovreste alimentare il vostro Core con un alimentatore capace di fornire almeno 500mA di corrente. Raccomandiamo l'utilizzo di un alimentatore 5V/1A come quelli usati per caricare i cellulari.
 3. Se la vostra rete ha una pagina di benvenuto o simili, il Core non riuscirà a connettersi; provate a configurarlo su un'altra rete.
 4. Provate [reboot e liberare la memoria](/#/connect/troubleshooting-step-3-reboot-e-liberare-la-memoria).
-5. Provate un factory reset.  Premete entrambi i bottoni, rilasciate il bottone RST tenendo premuto il bottone MODE. Il LED dovrebbe cominciare a lampeggiare in giallo. Continuate a tenere premuto il bottone MODE fino a quando vedete il Core che cambia da giallo a bianco lampeggiante. A questo punto lasciate il bottone. Il Core dovrebbe iniziare a [lampeggiare blu](https://v.cdn.vine.co/r/videos/E465A8959B1015390893882101760_178fcfd2b3c.4.3.11510817618992331600_MIW9HE1mtZ9H_SpBlKdK1lv2UfmniExCFQHrgJ7iqiFDUiDb0E31bR7GwvB_7wz0.mp4?versionId=eS01KUZ6NaUZgEipSDeVi0rxZENByp1N) dopo che l'inizializzazione è completata.
+5. Provate un factory reset.  Premete entrambi i bottoni, rilasciate il bottone RST tenendo premuto il bottone `{{system-button}}`. Il LED dovrebbe cominciare a lampeggiare in giallo. Continuate a tenere premuto il bottone `{{system-button}}` fino a quando vedete il Core che cambia da giallo a bianco lampeggiante. A questo punto lasciate il bottone. Il Core dovrebbe iniziare a [lampeggiare blu](https://v.cdn.vine.co/r/videos/E465A8959B1015390893882101760_178fcfd2b3c.4.3.11510817618992331600_MIW9HE1mtZ9H_SpBlKdK1lv2UfmniExCFQHrgJ7iqiFDUiDb0E31bR7GwvB_7wz0.mp4?versionId=eS01KUZ6NaUZgEipSDeVi0rxZENByp1N) dopo che l'inizializzazione è completata.
 6. Provate a far di nuovo girare il patch pro
