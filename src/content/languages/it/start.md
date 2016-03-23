@@ -94,16 +94,16 @@ Quando il Core si connette a internet, stabilisce una connessione con lo *Spark 
 
 ### Bottoni
 
-Ci sono due bottoni sul Core: il bottone RESET (sulla destra) e il bottone MODE (sulla sinistra). 
+Ci sono due bottoni sul Core: il bottone `{{reset-button}}` (sulla destra) e il bottone `{{system-button}}` (sulla sinistra). 
 
-Con il bottone RESET si esegue un hard reset, proprio togliendo e rimettendo l'alimentazione al microprocessore. Questo è il modo migliore per far ripartire l'applicazione che avete caricato nel Core. Questo è il modo migliore per far ripartire l'applicazione che avete scaricato sul Core.
+Con il bottone `{{reset-button}}` si esegue un hard reset, proprio togliendo e rimettendo l'alimentazione al microprocessore. Questo è il modo migliore per far ripartire l'applicazione che avete caricato nel Core. Questo è il modo migliore per far ripartire l'applicazione che avete scaricato sul Core.
 
-Il bottone MODE serve ha tre funzioni:
+Il bottone `{{system-button}}` serve ha tre funzioni:
 
-- Tenendo premuto il bottone MODE per tre secondi il Core entra in modalità *Smart Config* per connetterlo alla vostra rete Wi-Fi locale. Il LED dovrebbe cominciare a lampeggiare blu.
-- Tenere premuto il bottone MODE per dieci secondi permette di cancellare la memoria delle reti Wi-Fi del Core.
-- Tenendo premuto il bottone MODE e premendo una volta il bottone RESET e aspettando per *tre secondi* il Core entra in modalità *Bootloader*, dove potete riprogrammare il Core via USB o JTAG. Lasciare il bottone quando il LED lampeggia giallo. Se avete fatto tutto questo per errore, semplicemente premere il bottone RESET per lasciare la modalità *Bootloader*.
-- Tenendo premuto il bottone MODE e premendo una volta il bottone RESET e aspettando per *dieci secondi* si effettua un *Factory Reset*, dove il Core viene riprogrammato con il software caricato in fabbrica (l'applicazione Tinker). Il LED dovrebbe diventare bianco per tre secondi e poi lampeggiare velocemente; quando il LED cambia su un altro colore il Core è stato inizializzato. Questa operazione è utile se avete problemi col il vostro firmware o se semplicemente volete tornare a Tinker.
+- Tenendo premuto il bottone `{{system-button}}` per tre secondi il Core entra in modalità *Smart Config* per connetterlo alla vostra rete Wi-Fi locale. Il LED dovrebbe cominciare a lampeggiare blu.
+- Tenere premuto il bottone `{{system-button}}` per dieci secondi permette di cancellare la memoria delle reti Wi-Fi del Core.
+- Tenendo premuto il bottone `{{system-button}}` e premendo una volta il bottone `{{reset-button}}` e aspettando per *tre secondi* il Core entra in modalità *Bootloader*, dove potete riprogrammare il Core via USB o JTAG. Lasciare il bottone quando il LED lampeggia giallo. Se avete fatto tutto questo per errore, semplicemente premere il bottone `{{reset-button}}` per lasciare la modalità *Bootloader*.
+- Tenendo premuto il bottone `{{system-button}}` e premendo una volta il bottone `{{reset-button}}` e aspettando per *dieci secondi* si effettua un *Factory Reset*, dove il Core viene riprogrammato con il software caricato in fabbrica (l'applicazione Tinker). Il LED dovrebbe diventare bianco per tre secondi e poi lampeggiare velocemente; quando il LED cambia su un altro colore il Core è stato inizializzato. Questa operazione è utile se avete problemi col il vostro firmware o se semplicemente volete tornare a Tinker.
 
 
 ### LEDs
@@ -135,7 +135,7 @@ Il Core ha 24 pins a cui si può collegare un circuito. Questi pins sono:
 - _VIN_: Collegate qui un'alimentazione non regolata tra 3.6V e 6V per alimentare il Core. Se si alimenta il Core via USB, questo pin *non* deve essere usato.
 - _3V3_: Questo pin fornisce una tensione regolata di 3.3V che può essere usata per alimentare delle componenti esterne al Core (Se avete la vostra alimentazione regolata di 3.3V la potete collegare qui per alimentare il Core).
 - _3V3*_: Questa è una alimentazione regolata a basso disturbo di 3.3V da usare per circuiti analogici che potrebbero essere sensibili ai disturbi delle componenti digitali. Se usate dei sensori analogici sensibili alimentateli dal pin _3V3*_ invece che dal _3V3_.
-- _!RST_: Potete inizializzare il Core (come premendo il tasto RESET) connettendo questo pin a massa (GND).
+- _!RST_: Potete inizializzare il Core (come premendo il tasto `{{reset-button}}`) connettendo questo pin a massa (GND).
 - _GND_: Questi pins sono collegati a massa.
 - _D0 a D7_: Questi sono il pane e il burro dello Spark Core: 8 GPIO (General Purpose Input/Output) pins. Sono indicati con "D" perchè sono pins digitali, cioè non possono leggere i valori di sensori analogici. Alcuni di questi mettono a disposizione delle periferiche aggiuntive (SPI, JTAG, etc.), vedi più avanti per maggiori informazioni.
 - _A0 a A7_: Questi pins sono 8 GPIO in più che portano il totale a 16. Questi pins sono come quelli da D0 a D7, ma sono "Analogici", cioè possono leggere i dati dai sensori analogici (tecnicamente hanno una periferica ADC). Come per i pins digitali anche questi hanno delle periferiche aggiuntive.

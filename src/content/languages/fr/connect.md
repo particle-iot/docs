@@ -122,7 +122,7 @@ Si vous souhaitez programmer un Core avec un firmware personnalisé via USB, vou
 
 Procédure:
 
-Enfoncez les deux boutons, puis relâchez le bouton RST, tout en laissant enfoncé le bouton MODE. Relâchez le bouton MODE dès que la LED commence à clignoter en jaune. Le Core est maintenant en mode DFU.
+Enfoncez les deux boutons, puis relâchez le bouton RST, tout en laissant enfoncé le bouton `{{system-button}}`. Relâchez le bouton `{{system-button}}` dès que la LED commence à clignoter en jaune. Le Core est maintenant en mode DFU.
 
 
 <iframe class="vine-embed" src="https://vine.co/v/MahhI1Fg7O6/embed/simple" width="320" height="320" frameborder="0"></iframe>
@@ -134,7 +134,7 @@ Une remise au paramètres d'usine restaure le firmware sur le Core avec l'applic
 
 Procédure: 
 
-La procédure est la même que celle décrite ci-dessus (mode DFU), mais dans ce cas vous devez continuer d'appuyer sur le bouton MODE jusqu'à ce que le Core passe du clignotement en jaune au clignotement en blanc. Puis relâchez le bouton. Le Core devrait commencer à clignoter en bleu une fois la remise aux paramètres d'usine terminée.
+La procédure est la même que celle décrite ci-dessus (mode DFU), mais dans ce cas vous devez continuer d'appuyer sur le bouton `{{system-button}}` jusqu'à ce que le Core passe du clignotement en jaune au clignotement en blanc. Puis relâchez le bouton. Le Core devrait commencer à clignoter en bleu une fois la remise aux paramètres d'usine terminée.
 
 **Note :** La vidéo ci-dessous est la suite de la vidéo précédente (mode DFU).
 
