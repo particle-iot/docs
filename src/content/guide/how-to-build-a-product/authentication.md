@@ -605,7 +605,7 @@ The response should look like this:
 The response includes an `access_token` for the customer, that should be included for all subsequent API calls for the session. In addition, there's a `refresh_token` that you could use to generate a new access token in the event that the token expires. Here's how to use your refresh token to get a new access token:
 
 ```bash
-curl -X -POST -u client-id-1234:secret \
+curl -X POST -u client-id-1234:secret \
 -d grant_type=refresh_token -d refresh_token=b5b901e8760164e134199bc2c3dd1d228acf2d90 \
 https://api.particle.io/oauth/token
 ```
