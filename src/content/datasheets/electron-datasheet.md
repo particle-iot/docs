@@ -5,7 +5,7 @@ columns: two
 order: 4
 ---
 
-# Electron Datasheet <sup>(v001)</sup>
+# Electron Datasheet <sup>(v002)</sup>
 
 <div align=center><img src="/assets/images/electron/illustrations/electron-v20.png" ></div>
 
@@ -100,22 +100,107 @@ This is a very interesting pin (or rather a pad ) and often confusing.
 [3] PWM is available on D0, D1, D2, D3, B0, B1, B2, B3, A4, A5, WKP, RX, TX with a caveat: PWM timer peripheral is duplicated on two pins (A5/D2) and (A4/D3) for 11 total independent PWM outputs. For example: PWM may be used on A5 while D2 is used as a GPIO, or D2 as a PWM while A5 is used as an analog input. However A5 and D2 cannot be used as independently controlled PWM outputs at the same time.
 
 
-### JTAG
-Pin D3 through D7 are JTAG interface pins. These can be used to reprogram your Electron bootloader or user firmware image with standard JTAG tools such as the ST-Link v2, J-Link, R-Link, OLIMEX ARM-USB-TINI-H, and also the FTDI-based Particle JTAG Programmer.
+### JTAG AND SWD
+Pin D3 through D7 are JTAG interface pins. These can be used to reprogram your Electron bootloader or user firmware image with standard JTAG tools such as the ST-Link v2, J-Link, R-Link, OLIMEX ARM-USB-TINI-H, and also the FTDI-based Particle JTAG Programmer. If you are short on available pins, you may also use SWD mode which requires less connections.
 
-| Electron Pin | Description | STM32 Pin | Default Internal<sup>[1]</sup> |
+| Electron Pin | JTAG | SWD | STM32 Pin | Default Internal<sup>[1]</sup> |
 | :-:|:-:|:-:|:-:|
-| D7 | JTAG_TMS | PA13 | ~40k pull-up |
-| D6 | JTAG_TCK | PA14 | ~40k pull-down |
-| D5 | JTAG_TDI | PA15 | ~40k pull-up |
-| D4 | JTAG_TDO | PB3 | Floating |
-| D3 | JTAG_TRST | PB4 | ~40k pull-up |
-| 3V3 | Power | | |
-| GND | Ground| | |
-| RST | Reset | | ||
+| D7 | JTAG_TMS | SWD/SWDIO| PA13 | ~40k pull-up |
+| D6 | JTAG_TCK | CLK/SWCLK| PA14 | ~40k pull-down |
+| D5 | JTAG_TDI | |PA15 | ~40k pull-up |
+| D4 | JTAG_TDO | |PB3 | Floating |
+| D3 | JTAG_TRST | |PB4 | ~40k pull-up |
+| 3V3 | Power | || |
+| GND | Ground| || |
+| RST | Reset | || ||
+
 
 **Notes:**
 [1] Default state after reset for a short period of time before these pins are restored to GPIO (if JTAG debugging is not required, i.e. `USE_SWD_JTAG=y` is not specified on the command line.)
+
+## Memory Map
+
+### STM32F205RGY6 Flash Layout Overview
+
+- Bootloader (16 KB)
+- DCD1 (16 KB), stores keys, mfg info, system flags, etc..
+- DCD2 (16 KB), swap area for DCD1
+- EEPROM emulation bank 1 (16 KB)
+- EEPROM emulation bank 2 (64 KB) [only 16k used]
+- System firmware (512 KB) [256 KB comms + 256 KB hal/platform/services]
+- Factory backup, OTA backup and user application (384 KB) [3 x 128 KB]
+
+### DCD Layout
+
+The DCD area of flash memory has been mapped to a separate DFU media device so that we can incrementally update the application data. This allows one item (say, server public key) to be updated without erasing the other items.
+
+_DCD layout as of v0.4.9_ [found here in firmware](https://github.com/spark/firmware/blob/develop/platform/MCU/STM32F2xx/SPARK_Firmware_Driver/inc/dct.h)
+
+| Region | Offset | Size |
+|:---|---|---|
+| system flags | 0 | 32 |
+| version | 32 | 2 |
+| device private key | 34 | 1216 |
+| device public key | 1250 | 384 |
+| ip config | 1634 | 128 |
+| claim code | 1762 | 63 |
+| claimed | 1825 | 1 |
+| device id | 1852 | 6 |
+| version string | 1858 | 32 |
+| dns resolve | 1890 | 128 |
+| reserved1 | 2018 | 64 |
+| server public key | 2082 | 768 |
+| padding | 2850 | 2 |
+| flash modules | 2852 | 100 |
+| product store | 2952 | 24 |
+| cloud transport | 2977 | 1 |
+| alt device public key | 2978 | 128 |
+| alt device private key | 3106 | 192 |
+| alt server public key | 3298 | 192 |
+| alt server address | 3490 | 128 |
+| reserved2 | 3618 | 1280 |
+
+**Note:** Writing 0xFF to offset 3106 (DEFAULT key used on Electron) will cause the device to re-generate a new private UDP/ECC key on the next boot. TCP keys are currently unsupported on the Electron but would be located at offset 34.  You should not need to use this feature unless your keys are corrupted.
+
+```
+// Regenerate Alternate Keys (Default)
+echo -e "\xFF" > fillbyte && dfu-util -d 2b04:d00a -a 1 -s 3106 -D fillbyte
+// Regenerate TCP Keys (Unsupported)
+echo -e "\xFF" > fillbyte && dfu-util -d 2b04:d00a -a 1 -s 34 -D fillbyte
+```
+
+### Memory Map (Common)
+
+| Region | Start Address | End Address | Size |
+|:---|---|---|---|
+| Bootloader | 0x8000000 | 0x8004000 | 16 KB |
+| DCD1 | 0x8004000 | 0x8008000 | 16 KB |
+| DCD2 | 0x8008000 | 0x800C000 | 16 KB |
+| EEPROM1 | 0x800C000 | 0x8010000 | 16 KB |
+| EEPROM2 | 0x8010000 | 0x8020000 | 64 KB |
+
+### Memory Map (Modular Firmware - default)
+
+| Region | Start Address | End Address | Size |
+|:---|---|---|---|
+| System Part 1 | 0x8020000 | 0x8040000 | 128 KB |
+| System Part 2 | 0x8040000 | 0x8060000 | 128 KB |
+| Application | 0x8080000 | 0x80A0000 | 128 KB |
+| Factory Reset/Extended Application | 0x80A0000 | 0x80C0000 | 128 KB |
+| OTA Backup | 0x80C0000 | 0x80E0000 | 128 KB |
+| Decompress region | 0x80E0000 | 0x8100000 | 128 KB |
+
+<add later |System Part 3| 0x8060000| 0x8080000 |128 KB|>
+
+### Memory Map (Monolithic Firmware - optional)
+
+| Region | Start Address | End Address | Size |
+|:---|---|---|---|
+| Firmware | 0x8020000 | 0x8080000 | 384 KB |
+| Factory Reset | 0x8080000 | 0x80E0000 | 384 KB |
+| Unused (factory reset modular) | 0x80E0000 | 0x8100000 | 128 KB |
+
+---
 
 ## Pin and button definition
 
@@ -258,6 +343,9 @@ These specifications are based on the STM32F205RG datasheet, with reference to E
 | Weak pull-up equivalent resistor<sup>[5]</sup> | R<sub>PU</sub>| V<sub>io</sub> = GND | 30 | 40 | 50 | k Ω |
 | Weak pull-down equivalent resistor<sup>[5]</sup> | R<sub>PD</sub>| V<sub>io</sub> = V<sub>3V3</sub> | 30 | 40 | 50 | k Ω |
 | I/O pin capacitance | C<sub>IO</sub> | | | 5 | | pF |
+| DAC output voltage (buffers enabled by default) | V<sub>DAC</sub> | | 0.2 | | V<sub>3V3</sub>-0.2 | V |
+| DAC output resistive load (buffers enabled by default) | R<sub>DAC</sub> | | 5 | | | k Ω |
+| DAC output capacitive load (buffers enabled by default) | C<sub>DAC</sub> | | | | 50 | pF |
 
 **Notes:**
 
