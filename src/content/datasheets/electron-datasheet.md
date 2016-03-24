@@ -13,7 +13,7 @@ order: 4
 
 ### Overview
 
-The Electron is a tiny development kit for creating cellular-connected electronics projects and products. It comes with a SIM card and an affordable data plan for low-bandwidth things. Plus it's available for more than 100 countries worldwide!
+The Electron is a tiny development kit for creating cellular-connected electronics projects and products. It comes with a SIM card (Nano 4FF) and an affordable data plan for low-bandwidth things. Plus it's available for more than 100 countries worldwide!
 
 It also comes with Particle's development tools and cloud platform for managing and interacting with your new connected hardware.
 
@@ -50,6 +50,24 @@ The input voltage range on VIN pin is 3.9VDC to 12VDC. When powering from the VI
 When powered from a LiPo battery alone, the power management IC switches off the internal regulator and supplies power to the system directly from the battery. This reduces the conduction losses and maximizes battery run time. The battery provided with the Electron is a Lithium-Ion Polymer battery rated at 3.7VDC 2000mAh. You can substitute this battery with another 3.7V LiPo with higher current rating. Remember to never exceed this voltage rating and alway pay attention to the polarity of the connector.
 
 Typical current consumption is around 180mA and upto 1.8A transients at 5VDC. In deep sleep mode, the quiescent current is 130uA (powered from the battery alone).
+
+#### Li+
+This pin is internally tied to the positive terminal of the LiPo battery connector. It is intentionally left unpopulated. Please note that an incorrect usage of this pin can render the Electron unusable. 
+
+Li+ pin serves two purposes. You can use this pin to connect a LiPo battery directly without having to use a JST connector or it can be used to connect an external DC power source and this is where one needs to take extra precautions. When powering it from an external regulated DC source, the  recommended input voltage range on this pin is between 3.6V to 4.4VDC. Make sure that the supply can handle currents of at least 3Amp. 
+
+#### VUSB
+This pin is internally connected to USB supply rail and will output 5V when the Electron is plugged into an USB port. It is intentionally left unpopulated. This pin will _NOT_ output any voltage when the Electron is powered via VIN and/or the LiPo battery.
+
+#### 3V3 Pin
+This pin is the output of the on-board 3.3V switching regulator that powers the microcontroller and the peripherals. This pin can be used as a 3.3V power source
+
+#### PMID
+This is a very interesting pin (or rather a pad ) and often confusing.
+<add photo here>
+
+
+### Powering the Electron without a battery
 
 ### FCC approved antennas
 
@@ -311,7 +329,7 @@ The Electron uses ST Microelectronics's [STM32F205RGT6TR](http://www.st.com/web/
 
 ![ublox](/assets/images/electron/schematics/ublox.png)
 
-The u-blox cellular module talks to the microcontroller over a full-duplex USART interface using a standard set of AT commands. The SIM card is directly connected to the u-blox. The power to the SIM card is also provided by the cellular module.
+The u-blox cellular module talks to the microcontroller over a full-duplex USART interface using a standard set of AT commands. The SIM (Nano 4FF) card is directly connected to the u-blox. The power to the SIM card is also provided by the cellular module.
 
 
 ### Buffers
@@ -429,6 +447,7 @@ You may use the online Web IDE [Particle Build](https://build.particle.io) to co
 |Term|Definition |
 |:---|:---|
 |SMPS| Switch Mode Power Supply |
+|SIM| Subscriber Identity Module ([Size: Nano 4FF](https://en.wikipedia.org/wiki/Subscriber_identity_module#Formats))
 |RF  | Radio Frequency |
 |SMT | Surface Mount Technology (often associated with SMD which is a surface mount device). |
 |LED | Light Emitting Diode |
