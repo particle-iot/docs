@@ -199,9 +199,9 @@ _DCT layout as of v0.4.9_ [found here in firmware](https://github.com/spark/firm
 
 ```
 // Regenerate Default Keys
-echo -e "\xFF" > fillbyte && dfu-util -d 2b04:d00a -a 1 -s 34 -D fillbyte
+echo -e "\xFF" > fillbyte && dfu-util -d 2b04:d006 -a 1 -s 34 -D fillbyte
 // Regenerate Alternate Keys
-echo -e "\xFF" > fillbyte && dfu-util -d 2b04:d00a -a 1 -s 3106 -D fillbyte
+echo -e "\xFF" > fillbyte && dfu-util -d 2b04:d006 -a 1 -s 3106 -D fillbyte
 ```
 
 ### Memory Map (Common)
