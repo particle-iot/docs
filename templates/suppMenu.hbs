@@ -7,7 +7,7 @@
 <script src='/assets/js/checkform.js'></script>
 </head>
 
-<body>
+<body onload="myFunction()">
 
 <div id="docs" data-level>
   {{> header}}
@@ -123,7 +123,7 @@
               <br/>
 
               <p class="name">
-                <input type="text" name="name" type="text" class="validate[required,custom[onlyLetter],length[0,100]] feedback-input"  placeholder="Name" id="name" required="required"/>
+                <input type="text" name="name" type="text" class="validate[required,custom[onlyLetter],length[0,100]] feedback-input" placeholder="Name" id="name" required="required"/>
               </p>
 
               <p class="email">
@@ -133,6 +133,7 @@
               <p class="text">
                 <textarea type="text" name="text" class="validate[required,length[6,300]] feedback-input" id="comment" placeholder="Message" required="required"></textarea>
               </p>
+
 
               <script>
               jQuery(function($) {
@@ -162,6 +163,43 @@
 
               })
               </script>
+              <script>
+
+              function myFunction() { 
+                //console.log(navigator);
+               if((navigator.userAgent.indexOf("Opera") || navigator.userAgent.indexOf('OPR')) != -1 ) 
+              {
+                  browserType = 'Opera';
+                  ostype = navigator.appVersion;
+              }
+              else if(navigator.userAgent.indexOf("Chrome") != -1 )
+              {
+                  browserType = 'Chrome';
+                  ostype = navigator.appVersion;
+              }
+              else if(navigator.userAgent.indexOf("Safari") != -1)
+              {
+                  browserType = 'Safari';
+                  ostype = navigator.appVersion;
+              }
+              else if(navigator.userAgent.indexOf("Firefox") != -1 ) 
+              {
+                  browserType = 'Firefox';
+                  ostype = navigator.appVersion;
+              }
+              else if((navigator.userAgent.indexOf("MSIE") != -1 ) || (!!document.documentMode == true )) //IF IE > 10
+              {
+                  browserType = 'IE';
+                  ostype = navigator.appVersion;
+              }  
+              else 
+              {
+                  browserType = 'Unknown browser'
+                  ostype = navigator.appVersion;
+              }
+              }
+              </script>
+
 
               <div class="submit">
                 <input type="submit" value="SEND" id="button-blue"/>

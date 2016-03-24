@@ -119,8 +119,6 @@ In order to register a cloud  function, the user provides the `funcKey`, which i
 
 The length of the `funcKey` is limited to a max of 12 characters. If you declare a function name longer than 12 characters the function will not be registered.
 
-Example: Particle.function("someFunction1", ...); exposes a function called someFunction and not someFunction1
-
 A cloud function is set up to take one argument of the [String](#string-class) datatype. This argument length is limited to a max of 63 characters.
 
 ```cpp
@@ -940,6 +938,7 @@ Returns information about access points within range of the device.
 The first form is the simplest, but also least flexible. You provide a
 array of `WiFiAccessPoint` instances, and the call to `WiFi.scan()` fills out the array.
 If there are more APs detected than will fit in the array, they are dropped.
+Returns the number of access points written to the array.
 
 ```cpp
 // EXAMPLE - retrieve up to 20 Wi-Fi APs

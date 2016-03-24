@@ -33,8 +33,7 @@ To use the local flash and key features you'll also need to install [dfu-util](h
 
 Here are some great tutorials on the community for full installs:
 
-[Windows Installer](https://community.particle.io/t/toolchain-for-windows-installer/13217/82)
-[or Install Separate Components for Windows](https://community.particle.io/t/tutorial-spark-cli-on-windows-06-may-2014/3112)
+[Windows Installer](https://community.particle.io/t/toolchain-for-windows-installer/13217/82) *or* [Install Separate Components for Windows](https://community.particle.io/t/tutorial-spark-cli-on-windows-06-may-2014/3112)
 
 [Installing on Ubuntu 12.04](https://community.particle.io/t/how-to-install-spark-cli-on-ubuntu-12-04/3474)
 
