@@ -54,20 +54,26 @@ Typical current consumption is around 180mA and upto 1.8A transients at 5VDC. In
 #### Li+
 This pin is internally tied to the positive terminal of the LiPo battery connector. It is intentionally left unpopulated. Please note that an incorrect usage of this pin can render the Electron unusable. 
 
-Li+ pin serves two purposes. You can use this pin to connect a LiPo battery directly without having to use a JST connector or it can be used to connect an external DC power source and this is where one needs to take extra precautions. When powering it from an external regulated DC source, the  recommended input voltage range on this pin is between 3.6V to 4.4VDC. Make sure that the supply can handle currents of at least 3Amp. 
+Li+ pin serves two purposes. You can use this pin to connect a LiPo battery directly without having to use a JST connector or it can be used to connect an external DC power source (and this is where one needs to take extra precautions). When powering it from an external regulated DC source, the  recommended input voltage range on this pin is between 3.6V to 4.4VDC. Make sure that the supply can handle currents of at least 3Amp. 
+
+This is the most efficient way of powering the Electron since the PMIC by-passes the regulator and supplies power to the Electron via an internal FET leading to lower quiescent current.
 
 #### VUSB
 This pin is internally connected to USB supply rail and will output 5V when the Electron is plugged into an USB port. It is intentionally left unpopulated. This pin will _NOT_ output any voltage when the Electron is powered via VIN and/or the LiPo battery.
 
 #### 3V3 Pin
-This pin is the output of the on-board 3.3V switching regulator that powers the microcontroller and the peripherals. This pin can be used as a 3.3V power source
+This pin is the output of the on-board 3.3V switching regulator that powers the microcontroller and the peripherals. This pin can be used as a 3.3V power source with a max load of 800mA. Unlike the Photon or the Core, this pin _CANNOT_ be used as an input to power the Electron.
 
+
+<!---
 #### PMID
-This is a very interesting pin (or rather a pad ) and often confusing.
+This is a very interesting pin (or rather a pad ) and it's usage is often confusing. This pin is the output of an internal boost regulator of the PMIC that can source 5.1VDC from the battery in OTG (On The Go) mode. This feature is useful when your circuitry needs a 5V source from the Electron when powered by the battery alone. 
+
+The confusing bit about this pin is that it will continue to provide 5.1VDC but only when the input voltage (VIN) is between 3.6V to 5.1VDC. As soon as the input voltage exceeds this limit, the PMID starts tracking _that_ voltage. For example if VIN = 9VDC, the PMID will be 9VDC and _NOT_ 5.1VDC. So you need to be careful when using it as a source for powering your external circuitry. The max current draw on this pin is 2.1A but is not recommended due to thermal limitations of the circuit board.
 <add photo here>
 
-
 ### Powering the Electron without a battery
+-->
 
 ### FCC approved antennas
 
@@ -217,7 +223,7 @@ echo -e "\xFF" > fillbyte && dfu-util -d 2b04:d00a -a 1 -s 34 -D fillbyte
 | VIN | This pin can be used as an input or output. As an input, supply 5VDC to 12VDC to power the Electron. When the Electron is powered via the USB port, this pin will output a voltage of approximately 4.8VDC due to a reverse polarity protection series schottky diode between VUSB and VIN. When used as an output, the max load on VIN is 1Amp. |
 | RST | Active-low reset input. On-board circuitry contains a 10k ohm pull-up resistor between RST and 3V3, and 0.1uF capacitor between RST and GND. |
 | VBAT |Supply to the internal RTC, backup registers and SRAM when 3V3 is not present (1.65 to 3.6VDC). The Pin is internally connected to 3V3 supply via a 0 ohm resistor. If you wish to power is via an external supply, you'll need to remove this resistor. Instructions to remove this resistor can be found here <add link here> |
-| 3V3 |This pin is the output of the on-board regulator. When powering the Electron via VIN or the USB port, this pin will output a voltage of 3.3VDC. When used as an output, the max load on 3V3 is 800mA. |
+| 3V3 |This pin is the output of the on-board regulator. When powering the Electron via VIN or the USB port, this pin will output a voltage of 3.3VDC. The max load on 3V3 is 800mA. It should not be used as an input to power the Electron. |
 | WKP |Active-high wakeup pin, wakes the module from sleep/standby modes. When not used as a WAKEUP, this pin can also be used as a digital GPIO, ADC input or PWM.|
 | DAC |12-bit Digital-to-Analog (D/A) output (0-4095), and also a digital GPIO. DAC is used as DAC or DAC1 in software, and A3 is a second DAC output used as DAC2 in software. |
 | RX |Primarily used as UART RX, but can also be used as a digital GPIO or PWM.|
