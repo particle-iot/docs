@@ -632,6 +632,7 @@ Cet équipement devrait être installé et actionné avec une distance minimum d
 | Revision | Date | Author | Comments |
 |:-:|:-:|:-:|:-|
 | v001 | 20-Jan-2016 | MB | Initial release |
+| v002 | 24-March-2016 | MB | Added: Memory map, DAC limits, SIM card size, SWD pin locations. Updated: Power section, pin diagram, block diagram, operating conditions. |
 
 ## Known Errata
 
