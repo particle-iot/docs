@@ -2857,23 +2857,23 @@ as a value plus a multiplier.
 
 ```C++
 // SYNTAX
-SPI.setClockSpeed(value, scale));
-SPI.setClockSpeed(frequency));
+SPI.setClockSpeed(value, scale);
+SPI.setClockSpeed(frequency);
 {{#unless core}}
-SPI1.setClockSpeed(value, scale));
-SPI1.setClockSpeed(frequency));
+SPI1.setClockSpeed(value, scale);
+SPI1.setClockSpeed(frequency);
 {{/unless}}
 {{#if electron}}
-SPI2.setClockSpeed(value, scale));
-SPI2.setClockSpeed(frequency));
+SPI2.setClockSpeed(value, scale);
+SPI2.setClockSpeed(frequency);
 {{/if}}
 ```
 
 ```
 // EXAMPLE
 // Set the clock speed as close to 15MHz (but not over)
-SPI.setClockSpeed(15, MHZ));
-SPI.setClockSpeed(15000000));
+SPI.setClockSpeed(15, MHZ);
+SPI.setClockSpeed(15000000);
 ```
 
 The clock speed cannot be set to any arbitrary value, but is set internally by using a
