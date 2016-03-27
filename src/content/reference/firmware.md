@@ -2504,7 +2504,9 @@ void loop()
 
 ### availableForWrite()
 
-_Since 0.4.9. Available on Serial1, Serial2, etc.. This function will support USB Serial with the next release._
+_Since 0.4.9. Available on Serial1, Serial2, etc._
+
+_Since 0.5.0. Available on USB Serial (Serial)_
 
 Retrieves the number of bytes (characters) that can be written to this serial port without blocking.
 
@@ -2512,7 +2514,9 @@ If `blockOnOverrun(false)` has been called, the method returns the number of byt
 
 ### blockOnOverrun()
 
-_Since 0.4.9. Available on Serial1, Serial2, etc.. This function will support USB Serial with the next release._
+_Since 0.4.9. Available on Serial1, Serial2, etc._
+
+_Since 0.5.0. Available on USB Serial (Serial)_
 
 Defines what should happen when calls to `write()/print()/println()/printlnf()` that would overrun the buffer.
 
