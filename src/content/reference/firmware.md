@@ -2783,6 +2783,10 @@ SPI
 ----
 This library allows you to communicate with SPI devices, with the {{device}} as the master device.
 
+{{#unless core}}
+_Since 0.5.0_ the {{device}} can function as a slave.
+{{/unless}}
+
 {{#if core}}
 ![SPI](/assets/images/core-pin-spi.jpg)
 {{/if}}
@@ -2822,7 +2826,7 @@ Do **NOT** use **SPI**.begin() with **SPI1**.transfer();
 
 ### begin()
 
-Initializes the SPI bus by setting SCK, MOSI, and a user-specified slave-select pin to outputs, MISO to input. SCK and MOSI are pulled low, and slave-select high.
+Initializes the SPI bus by setting SCK, MOSI, and a user-specified slave-select pin to outputs, MISO to input. SCK is pulled either high or low depending on the configured SPI data mode (default high for `SPI_MODE3`). Slave-select is pulled high.
 
 **Note:**  The SPI firmware ONLY initializes the user-specified slave-select pin as an `OUTPUT`. The user's code must control the slave-select pin with `digitalWrite()` before and after each SPI transfer for the desired SPI slave device. Calling `SPI.end()` does NOT reset the pin mode of the SPI pins.
 
@@ -2859,6 +2863,32 @@ SPI1.begin(D5);
 SPI2.begin(C0);
 ```
 {{/if}}
+
+{{#unless core}}
+
+### begin(SPI_Mode, uint16_t)
+
+_Since 0.5.0_
+
+Initializes the {{device}} SPI peripheral in master or slave mode.
+
+**Note:** MISO, MOSI and SCK idle in high-impedance state when SPI peripheral is configured in slave mode and the device is not selected.
+
+Parameters:
+
+- `mode`: `SPI_MODE_MASTER` or `SPI_MODE_SLAVE`
+- `ss_pin`: slave-select pin to initialize. If no pin is specified, the default pin is `SS (A2)`. For `SPI1`, the default pin is `SS (D5)`. {{#if electron}}For `SPI2`, the default pin is also `SS (D5)`.{{/if}}
+
+```C++
+// Example using SPI in master mode, with A2 (default) as the SS pin:
+SPI.begin(SPI_MODE_MASTER);
+// Example using SPI1 in slave mode, with D5 as the SS pin
+SPI1.begin(SPI_MODE_SLAVE, D5);
+// Example using SPI2 in slave mode, with C0 as the SS pin
+SPI2.begin(SPI_MODE_SLAVE, C0);
+```
+
+{{/unless}}
 
 ### end()
 
@@ -3019,7 +3049,7 @@ SPI2.transfer(val);
 Where the parameter `val`, can is the byte to send out over the SPI bus.
 
 {{#unless core}}
-### transfer(void*, void*, size_t, std::function)
+### transfer(void\*, void\*, size_t, std::function)
 
 For transferring a large number of bytes, this form of transfer() uses DMA to speed up SPI data transfer and at the same time allows you to run code in parallel to the data transmission. The function initialises, configures and enables the DMA peripheral’s channel and stream for the selected SPI peripheral for both outgoing and incoming data and initiates the data transfer. If a user callback function is passed then it will be called after completion of the DMA transfer. This results in asynchronous filling of RX buffer after which the DMA transfer is disabled till the transfer function is called again. If NULL is passed as a callback then the result is synchronous i.e. the function will only return once the DMA transfer is complete.
 
@@ -3038,12 +3068,89 @@ SPI2.transfer(tx_buffer, rx_buffer, length, myFunction);
 
 Parameters:
 
-- `tx_buffer`: array of Tx bytes that is filled by the user before starting the SPI transfer
-- `rx_buffer`: array of Rx bytes that will be filled by the slave during the SPI transfer
+- `tx_buffer`: array of Tx bytes that is filled by the user before starting the SPI transfer. If `NULL`, default dummy 0xFF bytes will be clocked out.
+- `rx_buffer`: array of Rx bytes that will be filled by the slave during the SPI transfer. If `NULL`, the received data will be discarded.
 - `length`: number of data bytes that are to be transferred
 - `myFunction`: user specified function callback to be called after completion of the SPI DMA transfer
 
 NOTE: `tx_buffer` and `rx_buffer` sizes MUST be identical (of size `length`)
+
+_Since 0.5.0_ When SPI peripheral is configured in slave mode, the transfer will be canceled when the master deselects this slave device. The user application can check the actual number of bytes received/transmitted by calling `available()`.
+
+### transferCancel()
+
+_Since 0.5.0_
+
+Aborts the configured DMA transfer and disables the DMA peripheral’s channel and stream for the selected SPI peripheral for both outgoing and incoming data.
+
+**Note**: The user specified SPI DMA transfer completion function will still be called to indicate the end of DMA transfer. The user application can check the actual number of bytes received/transmitted by calling `available()`.
+
+### onSelect()
+
+_Since 0.5.0_
+
+Registers a function to be called when the SPI master selects or deselects this slave device by pulling configured slave-select pin low (selected) or high (deselected).
+
+Parameters: `handler`: the function to be called when the slave is selected or deselected; this should take a single uint8_t parameter (the current state: `1` - selected, `0` - deselected) and return nothing, e.g.: `void myHandler(uint8_t state)`
+
+```C++
+// SPI slave example
+static uint8_t rx_buffer[64];
+static uint8_t tx_buffer[64];
+static uint32_t select_state = 0x00;
+static uint32_t transfer_state = 0x00;
+
+void onTransferFinished() {
+    transfer_state = 1;
+}
+
+void onSelect(uint8_t state) {
+    if (state)
+        select_state = state;
+}
+
+/* executes once at startup */
+void setup() {
+    Serial.begin(9600);
+    for (int i = 0; i < sizeof(tx_buffer); i++)
+      tx_buffer[i] = (uint8_t)i;
+    SPI.onSelect(onSelect);
+    SPI.begin(SPI_MODE_SLAVE, A2);
+}
+
+/* executes continuously after setup() runs */
+void loop() {
+    while (1) {
+        while(select_state == 0);
+        select_state = 0;
+
+        transfer_state = 0;
+        SPI.transfer(tx_buffer, rx_buffer, sizeof(rx_buffer), onTransferFinished);
+        while(transfer_state == 0);
+        if (SPI.available() > 0) {
+            Serial.printf("Received %d bytes", SPI.available());
+            Serial.println();
+            for (int i = 0; i < SPI.available(); i++) {
+                Serial.printf("%02x ", rx_buffer[i]);
+            }
+            Serial.println();
+        }
+    }
+}
+```
+
+### available()
+
+_Since 0.5.0_
+
+Returns the number of bytes available for reading in the `rx_buffer` supplied in `transfer()`. In general, returns the actual number of bytes received/transmitted during the ongoing or finished DMA transfer.
+
+```C++
+// SYNTAX
+SPI.available();
+```
+
+Returns the number of bytes available.
 
 {{/unless}}
 
