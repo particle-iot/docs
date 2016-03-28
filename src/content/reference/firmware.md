@@ -4271,22 +4271,24 @@ Sends a packet, unbuffered, to a remote UDP peer.
 
 // SYNTAX
 
-UDP udp;
+UDP Udp;
 
-const size_t bufferSize = 1024;
-char buffer[bufferSize];
+char buffer[21] = "Particle is the best";
 
-// which address and port to send the data to
-IPAddress remoteIP(192,168,10,234);
-int remotePort = 22;
+IPAddress remoteIP(192, 168, 1, 100);
+int port = 1337;
 
-// fill the buffer with goodness
-// ...
+void setup() {
 
-// now send the buffer as a packet
+    // Requierd for two way communication 
+    Udp.begin(8888);
 
-if (udp.sendPacket(buffer, bufferSize, remoteIP, remotePort)<0) {
-    // opps, packet not sent
+    if (Udp.sendPacket(buffer, 21, remoteIP, port) < 0) {
+
+        Particle.publish("Error");
+
+    }
+
 }
 
 ```
