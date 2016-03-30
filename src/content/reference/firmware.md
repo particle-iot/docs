@@ -4008,6 +4008,12 @@ requires a reliable connection, `TCPClient` is a simpler alternative._
 The UDP protocol implementation has known issues that will require extra consideration when programming with it. Please refer to the Known Issues category of the Community for details. The are also numerous working examples and workarounds in the searchable Community topics.
 {{/if}}
 
+{{#if photon}}
+*since 0.4.6*
+
+If [SYSTEM_THREAD](#system-thread) is *ENABLED*, `waitUntil(WiFi.ready)` or `waitUntil(Particle.connected)` must be added before initialising the UDP class.
+{{/if}}
+
 There are two primary ways of working with UDP - buffered operation and unbuffered operation.
 
 1. buffered operation allows you to read and write packets in small pieces, since the system takes care of allocating the required buffer to hold the entire packet.
