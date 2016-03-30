@@ -31,7 +31,7 @@ Here's a quick "what's in the box" for each of our offered kits. More detail is 
 ### Electron Solar Kit
 ![]({{assets}}/images/solarShield.jpg)
 The Solar Kit comes with everything you need to make a solar powered cellular project! Super efficient power design so you can go off-the-grid with no need of wires.
-[More Info >](/datasheets/photon-shields/#electron-solar-kit)
+[More Info >](/datasheets/particle-shields/#electron-solar-kit)
 - (1) Electron
 - (1) USB Micro B Cable
 - (1) Particle SIM Card
@@ -56,7 +56,7 @@ AND
 ### Electron Asset Tracker
 ![]({{assets}}/images/assetTracker.jpg)
 The Asset Tracker is a GPS shield that also includes and accelerometer and waterproof box. Designed by Adafruit!
-[More Info >](/datasheets/photon-shields/#electron-asset-tracker)
+[More Info >](/datasheets/particle-shields/#electron-asset-tracker)
 - (1) Electron
 - (1) USB Micro B Cable
 - (1) Particle SIM Card
@@ -78,7 +78,7 @@ AND
 
 ### Electron Sensor Kit
 This is the big one! A fantastic collection of premium and versatile sensors.
-[More Info >](/datasheets/photon-shields/#electron-sensor-kit)
+[More Info >](/datasheets/particle-shields/#electron-sensor-kit)
 - (1) Electron
 - (1) USB Micro B Cable
 - (1) Particle SIM Card
@@ -114,7 +114,7 @@ AND
 
 ### Photon Kit
 ![]({{assets}}/images/photon-kit-new.jpg)
-[More Info >](/datasheets/photon-shields/#photon-kit)
+[More Info >](/datasheets/particle-shields/#photon-kit)
 
 - (1) Photon
 - (1) USB Micro B Cable
@@ -125,7 +125,7 @@ AND
 
 ### Photon Maker Kit
 ![]({{assets}}/images/photon-mkit-grey.png)
-[More Info >](/datasheets/photon-shields/#photon-maker-kit-contents)
+[More Info >](/datasheets/particle-shields/#photon-maker-kit-contents)
 
 - Basics
   - (1) Photon with Headers
@@ -173,7 +173,7 @@ AND
 ![Shield Shield](/assets/images/shields/shield-shield/shield-shield.png)
 Sometimes life can be a little difficult in the land of electronics when two systems talk a different voltage language. How do you make them talk to each other without making one of them _burn out_? The Shield Shield is the answer. This shield performs all the necessary voltage translation and provides an Arduino-compatible footprint to make it easier for you to plug in your existing Arduino shields or talk to other 5V hardware.
 
-[More Info >](/datasheets/photon-shields/#shield-shield)
+[More Info >](/datasheets/particle-shields/#shield-shield)
 
 ### Relay Shield
 
@@ -182,28 +182,28 @@ The Relay Shield allows you to take over the world, one electric appliance at a 
 
 The shield comes with four relays that are rated at a max of 220V @10Amp allowing you to control any electric appliance rated at under 2000 Watts. You are not just limited to an appliance though; any gadget that requires high voltage and/or a lot of current can be controlled with this shield.
 
-[More Info >](/datasheets/photon-shields/#relay-shield)
+[More Info >](/datasheets/particle-shields/#relay-shield)
 
 ### Programmer Shield
 
 ![Programmer Shield](/assets/images/shields/prog-shield/prog-shield.png)
 This is a FT2232H based JTAG programmer shield that is compatible with OpenOCD and Broadcom's WICED IDE. The FT2232 chip is setup to provide an USB-JTAG and USB-UART interface simultaneously. The FT2232 can be also reconfigured by the user by reprogramming the on-board config EEPROM. The unused pins are clearly marked and broken out into easy to access header holes.
 
-[More Info >](/datasheets/photon-shields/#programmer-shield)
+[More Info >](/datasheets/particle-shields/#programmer-shield)
 
 ### Power Shield
 
 ![Power Shield](/assets/images/shields/power-shield/power-shield.png)
 The Power Shield, as the name implies, allows the Particle device to be powered from different types of power sources. The shield has an intelligent battery charger and power management unit along with a wide input voltage regulator and an I2C based fuel-gauge. You can power a Particle device with either a USB plug or a DC supply of anywhere from 7 to 20VDC and charge a [3.7V LiPo battery](https://www.sparkfun.com/products/8483) all at the same time.
 
-[More Info >](/datasheets/photon-shields/#power-shield)
+[More Info >](/datasheets/particle-shields/#power-shield)
 
 ### Internet Button
 
 ![Internet Button](/assets/images/shields/internet-button/button.png)
 The Internet Button is not only an easy way to get started on the Internet of Things, it's also a clean and simple way to start building your own prototypes. Quickly start playing with LEDs, multiple buttons, an accelerometer and more without any wires or soldering.
 
-[More Info >](/datasheets/photon-shields/#internet-button)
+[More Info >](/datasheets/particle-shields/#internet-button)
 
 
 
@@ -258,7 +258,3 @@ The Internet Button is not only an easy way to get started on the Internet of Th
   - (1) NPN Transistor
   - (6) Diode
   - (1) Shift Register IC
-
-
-
-
