@@ -52,6 +52,10 @@ API. Only those with a valid OAuth client will be able to perform this
 action, protecting your organization from fake or erroneous new customer
 accounts.
 
+![Create OAuth Client](/assets/images/create-oauth-client.png)
+<p class="caption">Your OAuth Client will ensure secure communication between
+your devices and the Particle cloud</p>
+
 *Client credentials* are comprised of two pieces of information: A
 **client ID**, and a **secret**. Passing these two pieces of data to
 the Particle API will allow you to create **access tokens**, which are
@@ -68,50 +72,37 @@ scopes](http://tools.ietf.org/html/rfc6749#section-3.3).
 
 ### Creating an OAuth Client
 
-Soon (Late August 2015) you will be able to go to the
-[Particle dashboard](https://dashboard.particle.io/) and click
-“Create app” to create a client ID and secret.
-(Ping @zachary in the [forum](http://community.particle.io/)
-if we fall behind on this estimate or you just want to say how much
-you want this feature!)
+You can now use the [Particle dashboard](https://dashboard.particle.io) to
+create and manage your OAuth clients. The new "Authentication" view is your hub
+for creating, and managing your organization's clients.
 
-![Create OAuth Client](/assets/images/create-oauth-client.png)
-<p class="caption">Use the dashboard to create your OAuth client
-credentials</p>
+You can find the Authentication view by clicking on the thumbprint icon in the
+menubar of your organization's dashboard:
 
-Right now you can make an API call to create an create an OAuth client using the
-instructions in our [API reference](/reference/api/#create-an-oauth-client)
-Your web app will use the generated client ID and secret  when you hit the
-Particle API on behalf of your organization and your customers to manage all the
-devices in your product fleet.
+ ![Auth Icon](/assets/images/auth-icon.png)
 
-In the API reference, note how there is an optional parameter called
-`organization`. In order to create client credentials for your
-organization, you should pass the **slug** of your organization as this
-parameter. The easiest way to find the slug of your organization is in
-the URL address when viewing your organization's dashboard, just after
-the `/` in `dashboard.particle.io/`. Example:
-`dashboard.particle.io/my-org`, where `my-org` is the organization slug.
-The API request to create client credentials scoped to your organization
-will look like this:
+When you visit the Authentication page, you will see a list of any OAuth clients
+that already have been created for your organization. To create a new client,
+click the "+ New Client" button in the top right corner of the screen.
 
-```bash
-$ curl -X POST -H "Authorization: Bearer 1234" -d name=MyApp -d type=installed \
--d organization=my-org \
-https://api.particle.io/v1/clients
-```
+This will launch a modal allowing you to configure an OAuth client that suits
+your needs. The configuration of your OAuth client will depend both on what
+_medium_ your customers will use to interact with their Particle devices (i.e.
+mobile vs. web app) in addition to what _authentication method_ you choose for
+your organization. You can [skip to choosing an authentication
+method](#choosing-an-authentication-method) if you'd like to create an OAuth
+client now.
 
-The `type` of the OAuth client will depend on your authentication method
-and application medium (web or mobile). More on this
-[later](#choosing-an-authentication-method).
+ ![Create client](/assets/images/create-client.png)
+ <p class="caption">The dashboard provides an easy way to create OAuth
+ clients</p>
 
-There is also an optional `scope` parameter, which can be set to
-`create_customer`. This option will scope the client to only be able
-to create customers for your organization. Pass this parameter if you
-are using [simple authentication](#simple-authentication).
+The dashboard will provide you client ID and secret in once you configure
+your client correctly. **Your client secret will only be shown once for security
+purposes**. Ensure that you copy it for your records to be used in your mobile
+or web app.
 
-If successful, the API will return your client ID and secret in the
-response to the request. **Never expose your client credentials,
+**Never expose your client credentials,
 especially if they are unscoped**. Credentials are sensitive pieces of
 information that, if exposed, could allow unauthorized people or
 applications to interact with your organization's data and devices. [More
@@ -279,60 +270,46 @@ the Particle API. This is much less secure than server to server communication.
 As a result, you will create *scoped* client credentials that will be able to do
 one thing and one thing only: **create new customers for your organization**.
 
-You will create your OAuth client using the Particle dashboard *(Coming Soon)*.
+You will create your OAuth client using the Authentication view in your
+organization's Particle dashboard. For info on how to find the Authentication
+page and create a client, [check out the earlier
+discussion](#creating-an-oauth-client).
 
-![Creating OAuth Clients via the Particle Dashboard](/assets/images/creating-oauth-clients.png)
-<p class="caption">You can use the Particle Dashboard to create OAuth clients <em>(Coming Soon)</em></p>
+If you are building a **mobile app** for your Particle product, you should
+choose **Simple Auth (Mobile App)** from the client type options when creating a
+new OAuth client. This will provide the recommended client configuration, and
+only requires you to provide a name for your new client.
 
-For now, you will need to use a cURL request to hit the API from your command
-line to create the client. Creating OAuth clients was introduced
-[earlier](#creating-an-oauth-client), but this section will give you specific
-instructions on how to create clients specific for simple authentication.
-
-If you are building a **mobile app** for your Particle product, the cURL command to
-create your client should look like this:
-
-```bash
-curl -X POST -H "Authorization: Bearer 1234" -d name=MyApp \
--d type=installed -d organization=my-org -d scope=create_customer \
-https://api.particle.io/v1/clients
-```
-Breaking this down:
-* The Authorization header includes *your Particle user's* access token. This user must be a team member of the organization that you are creating the client for.
-* `name` is the name of your OAuth client. Call this whatever you want, like SpunkyDonut!
-* `type` should be set to `installed`. This means that this client is installed natively on a device like a mobile phone or tablet.
-* `organization` should be set to your organization's **slug**. See [above](#creating-an-oauth-client) for how to find your slug.
-* `scope` <span class="red">**MUST BE SET TO `create_customer`**! Omitting this scope is a serious security vulnerability for your product.</span>
+![Create Mobile OAuth Client](/assets/images/simple-auth-mobile.png)
+<p class="caption">Creating an OAuth client for a mobile app using Simple Auth</p>
 
 
-If you are building a **web app** instead, the cURL command will look different:
+If you are building a **web app** instead, select **Simple Auth (Web App)**.
+You'll notice that you have to provide both a name and a _redirect URI_. A
+redirect URI is required for any web browser-based OAuth flows, and should be
+set to the URL of the first page of device setup for your product. The redirect
+will be triggered once a customer is created successfully, and the next step
+in the process is setting up their device.
 
-```bash
-curl -X POST -H "Authorization: Bearer 1234" -d name=MyApp -d type=web \
--d redirect_uri=http://www.particle.io/setup -d organization=my-org \
--d scope=create_customer https://api.particle.io/v1/clients
-```
 
-Examining what's different, you'll find:
-* `type` is now set to `web`. This is because your client will be running in a web browser
-* `redirect_uri` is now set as an argument. When creating a `web` client type, you must include a `redirect_uri`. This should be set to the URL of the first page of device setup for your product. The redirect will be triggered once a customer is created successfully, and the next step in the process is setting up their device.
+Regardless of your app medium, you will receive an OAuth client ID and secret
+upon successful creation of a client that will look like this:
 
-[Reference documentation on creating OAuth
-clients](/reference/api/#create-an-oauth-client)
+![Create Mobile OAuth Client](/assets/images/client-created-successfully.png)
+<p class="caption">Your client secret will only be shown once, so be sure to
+capture it for your records</p>
 
-With either request, you will receive an OAuth client ID and secret back in the response, like this:
+This client ID and secret will be added to your application in the next step
+below. Note that clients created using the default Simple Auth configurations
+will be scoped for _customer creation only_. This is for security purposes.
+In Simple Auth, client credentials can be uncovered relatively easily with some
+basic scraping techniques. Scoping the client will prevent unintended access to
+your organization's devices or data.
 
-```
-{
-    "ok": true,
-    "client": {
-        "name": "MyApp",
-        "type": [web or installed],
-        "id": "myapp-2146",
-        "secret": "615c620d647b6e1dab13bef1695c120b0293c342"
-    }
-}
-```
+Creating OAuth client can still be done directly against the Particle API. For
+info on this, see [reference documentation on creating OAuth
+clients](/reference/api/#create-an-oauth-client).
+
 
 #### 2. Add OAuth Credentials to SDK
 
@@ -466,45 +443,34 @@ Like Simple Authentication, you will need to create valid OAuth client credentia
 * Creating new customers 
 * Creating *scoped access tokens* for customers
 
+You will create your OAuth client using the Authentication view in your
+organization's Particle dashboard. For info on how to find the Authentication
+page and create a client, [check out the earlier
+discussion](#creating-an-oauth-client).
+
+For two-legged authentication, you should choose **Two-Legged Auth (Server)**
+from the client type options when creating a new OAuth client. This will provide
+the recommended client configuration, and only requires you to provide a name
+for your new client.
+
+![Create Two Legged OAuth Client](/assets/images/create-two-legged-client.png)
+<p class="caption">The recommended client configuration for Two-Legged
+Authentication</p>
+
+You will receive an OAuth client ID and secret
+upon successful creation of a client that will look like this:
+
+![Create Mobile OAuth Client](/assets/images/client-created-successfully.png)
+<p class="caption">Your client secret will only be shown once, so be sure to
+capture it for your records</p>
+
+This client ID and secret will be added to your server in the next step
+below.
+
+Creating OAuth client can still be done directly against the Particle API. For
+info on this, see [reference documentation on creating OAuth
+clients](/reference/api/#create-an-oauth-client).
 Because the communication is server-to-server, you do not need to specify a scope. Without a scope, your client credentials can be successfully used for both of the purposes listed above.
-
-In addition, no matter if you are building a web or mobile app, the `type` of client credentials you are generating will always be `installed` for two-legged authentication. This is because the credentials will be stored on your server.
-
-You will create your OAuth client using the Particle dashboard *(Coming Soon)*.
-
-![Creating OAuth Clients via the Particle Dashboard](/assets/images/creating-oauth-clients.png)
-<p class="caption">You can use the Particle Dashboard to create OAuth clients <em>(Coming Soon)</em></p>
-
-For now, you'll need to create your client by hitting the Particle API directly. Your cURL request should look something like this:
-
-```bash
-curl -X POST -H "Authorization: Bearer 1234" -d name=MyApp -d type=installed \
--d organization=my-org https://api.particle.io/v1/clients
-```
-
-Breaking this down:
-* The Authorization header includes *your Particle user's* access token. This user must be a team member of the organization that you are creating the client for.
-* `name` is the name of your OAuth client. Call this whatever you want, like SpunkyDonut!
-* `type` should be set to `installed`. This means that this client is installed natively on a device, or on a server.
-* `organization` should be set to your organization's **slug**. See [above](#creating-an-oauth-client) for how to find your slug.
-
-
-The response will look like this:
-
-```
-{
-    "ok": true,
-    "client": {
-        "name": "MyApp",
-        "type": "installed",
-        "id": "myapp-2146",
-        "secret": "615c620d647b6e1dab13bef1695c120b0293c342"
-    }
-}
-```
-
-[Reference documentation on creating OAuth
-clients](/reference/api/#create-an-oauth-client)
 
 #### 2. Add OAuth Credentials to your server
 
