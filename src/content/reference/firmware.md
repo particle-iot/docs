@@ -4271,6 +4271,10 @@ Sends a packet, unbuffered, to a remote UDP peer.
 
 // SYNTAX
 
+UDP.sendPacket(buffer, bufferSize, remoteIP, remotePort)
+
+// Example Usage
+
 UDP Udp;
 
 char buffer[21] = "Particle is the best";
@@ -4280,7 +4284,7 @@ int port = 1337;
 
 void setup() {
 
-    // Requierd for two way communication 
+    // Required for two way communication 
     Udp.begin(8888);
 
     if (Udp.sendPacket(buffer, 21, remoteIP, port) < 0) {
