@@ -4000,33 +4000,6 @@ client.stop();
 
 This class enables UDP messages to be sent and received.
 
-_Note that UDP does not guarantee that messages are always delivered, or that
-they are delivered in the order supplied. In cases where your application
-requires a reliable connection, `TCPClient` is a simpler alternative._
-
-{{#if core}}
-The UDP protocol implementation has known issues that will require extra consideration when programming with it. Please refer to the Known Issues category of the Community for details. The are also numerous working examples and workarounds in the searchable Community topics.
-{{/if}}
-
-There are two primary ways of working with UDP - buffered operation and unbuffered operation.
-
-1. buffered operation allows you to read and write packets in small pieces, since the system takes care of allocating the required buffer to hold the entire packet.
- - to read a buffered packet, call `parsePacket`, then use `available` and `read` to retrieve the packet received
- - to write a buffered packet, optionally call `setBuffer` to set the maximum size of the packet (the default is 512 bytes), followed by
-  `beginPacket`, then as many calls to `write`/`print` as necessary to build the packet contents, followed finally by `end` to send the packet over the network.
-
-2. unbuffered operation allows you to read and write entire packets in a single operation - your application is responsible for allocating the buffer to contain the packet to be sent or received over the network.
- - to read an unbuffered packet, call `receivePacket` with a buffer to hold the received packet.
- - to write an unbuffered packet,  call `sendPacket` with the packet buffer to send, and the destination address.
-
-
-<!-- TO DO -->
-<!-- Add more examples-->
-
-### begin()
-
-Initializes the UDP library and network settings.
-
 ```cpp
 // EXAMPLE USAGE
 
@@ -4067,18 +4040,50 @@ void loop() {
 }
 ```
 
+_Note that UDP does not guarantee that messages are always delivered, or that
+they are delivered in the order supplied. In cases where your application
+requires a reliable connection, `TCPClient` is a simpler alternative._
+
+{{#if core}}
+The UDP protocol implementation has known issues that will require extra consideration when programming with it. Please refer to the Known Issues category of the Community for details. The are also numerous working examples and workarounds in the searchable Community topics.
+{{/if}}
+
+There are two primary ways of working with UDP - buffered operation and unbuffered operation.
+
+1. buffered operation allows you to read and write packets in small pieces, since the system takes care of allocating the required buffer to hold the entire packet.
+ - to read a buffered packet, call `parsePacket`, then use `available` and `read` to retrieve the packet received
+ - to write a buffered packet, optionally call `setBuffer` to set the maximum size of the packet (the default is 512 bytes), followed by
+  `beginPacket`, then as many calls to `write`/`print` as necessary to build the packet contents, followed finally by `end` to send the packet over the network.
+
+2. unbuffered operation allows you to read and write entire packets in a single operation - your application is responsible for allocating the buffer to contain the packet to be sent or received over the network.
+ - to read an unbuffered packet, call `receivePacket` with a buffer to hold the received packet.
+ - to write an unbuffered packet,  call `sendPacket` with the packet buffer to send, and the destination address.
+
+
+<!-- TO DO -->
+<!-- Add more examples-->
+
+### begin()
+
+Initializes the UDP library and network settings.
+
+```cpp
+// SYNTAX
+Udp.begin(port);
+```
+
 ### available()
 
 Get the number of bytes (characters) available for reading from the buffer. This is data that's already arrived.
 
+```cpp
+// SYNTAX
+int count = Udp.available();
+```
+
 This function can only be successfully called after `UDP.parsePacket()`.
 
 `available()` inherits from the `Stream` utility class.
-
-```cpp
-// SYNTAX
-UDP.available()
-```
 
 Returns the number of bytes available to read.
 
@@ -4088,7 +4093,7 @@ Starts a connection to write UDP data to the remote connection.
 
 ```cpp
 // SYNTAX
-UDP.beginPacket(remoteIP, remotePort);
+Udp.beginPacket(remoteIP, remotePort);
 ```
 
 Parameters:
@@ -4106,7 +4111,7 @@ remote UDP peer.
 
 ```cpp
 // SYNTAX
-UDP.endPacket();
+Udp.endPacket();
 ```
 
 Parameters: NONE
@@ -4117,8 +4122,8 @@ Writes UDP data to the buffer - no data is actually sent. Must be wrapped betwee
 
 ```cpp
 // SYNTAX
-UDP.write(message);
-UDP.write(buffer, size);
+Udp.write(message);
+Udp.write(buffer, size);
 ```
 
 Parameters:
@@ -4138,7 +4143,7 @@ Checks for the presence of a UDP packet, and reports the size. `parsePacket()` m
 
 ```cpp
 // SYNTAX
-UDP.parsePacket();
+size = Udp.parsePacket();
 ```
 
 Parameters: NONE
@@ -4155,8 +4160,8 @@ This function can only be successfully called after `UDP.parsePacket()`.
 
 ```cpp
 // SYNTAX
-UDP.read();
-UDP.read(packetBuffer, MaxSize);
+count = Udp.read();
+count = Udp.read(packetBuffer, MaxSize);
 ```
 Parameters:
 
@@ -4165,7 +4170,7 @@ Parameters:
 
 Returns:
 
- - `char`: returns the characters in the buffer
+ - `int`: returns the character in the buffer or -1 if no character is available
 
 
 ### stop()
@@ -4174,38 +4179,40 @@ Disconnect from the server. Release any resource being used during the UDP sessi
 
 ```cpp
 // SYNTAX
-UDP.stop();
+Udp.stop();
 ```
+
 Parameters: NONE
 
 ### remoteIP()
 
-Returns the IP address of sender of the packet parsed by `UDP.parsePacket()`/`UDP.receivePacket()`.
+Returns the IP address of sender of the packet parsed by `Udp.parsePacket()`/`Udp.receivePacket()`.
 
 ```cpp
 // SYNTAX
-UDP.remoteIP();
+ip = Udp.remoteIP();
 ```
+
 Parameters: NONE
 
 Returns:
 
- - IPAddress : the IP address of the sender of the packet parsed by `UDP.parsePacket()`/`UDP.receivePacket()`.
-
+ - IPAddress : the IP address of the sender of the packet parsed by `Udp.parsePacket()`/`Udp.receivePacket()`.
 
 ### remotePort()
 
-Returns the port from which the UDP packet was sent. The packet is the one most recently processed by `UDP.parsePacket()`/`UDP.receivePacket()`.
+Returns the port from which the UDP packet was sent. The packet is the one most recently processed by `Udp.parsePacket()`/`Udp.receivePacket()`.
 
 ```cpp
 // SYNTAX
-UDP.remotePort();
+int port = Udp.remotePort();
 ```
+
 Parameters: NONE
 
 Returns:
 
-- `int`: the port from which the packet parsed by `UDP.parsePacket()`/`UDP.receivePacket()` was sent.
+- `int`: the port from which the packet parsed by `Udp.parsePacket()`/`Udp.receivePacket()` was sent.
 
 
 ### setBuffer()
@@ -4217,12 +4224,15 @@ is used when your application calls `beginPacket()` and `parsePacket()`.  If `se
 the buffer size defaults to 512 bytes, and is allocated when buffered operation is initialized via `beginPacket()` or `parsePacket()`.
 
 ```cpp
-// SYNTAX - dynamically allocated buffer
+// SYNTAX
+Udp.setBuffer(size); // dynamically allocated buffer
+Udp.setBuffer(size, buffer); // application provided buffer
 
-UDP udp;
+// EXAMPLE USAGE - dynamically allocated buffer
+UDP Udp;
 
 // uses a dynamically allocated buffer that is 1024 bytes in size
-if (!udp.setBuffer(1024))
+if (!Udp.setBuffer(1024))
 {
     // on no, couldn't allocate the buffer
 }
@@ -4230,22 +4240,20 @@ else
 {
     // 'tis good!
 }
-
 ```
 
 ```cpp
-// SYNTAX - application-provided buffer
-
-UDP udp;
+// EXAMPLE USAGE - application-provided buffer
+UDP Udp;
 
 char appBuffer[800];
-udp.setBuffer(800, appBuffer);
+Udp.setBuffer(800, appBuffer);
 ```
 
 Parameters:
 
-- unsigned int: the size of the buffer
-- pointer:  the buffer. If not provided, or `NULL` the system will attempt to
+- `unsigned int`: the size of the buffer
+- `pointer`:  the buffer. If not provided, or `NULL` the system will attempt to
  allocate a buffer of the size requested.
 
 Returns:
@@ -4258,6 +4266,11 @@ _Since 0.4.5_
 
 Releases the buffer previously set by a call to `setBuffer()`.
 
+```cpp
+// SYNTAX
+Udp.releaseBuffer();
+```
+
 _This is typically required only when performing advanced memory management and the UDP instance is
 not scoped to the lifetime of the application._
 
@@ -4268,43 +4281,35 @@ _Since 0.4.5_
 Sends a packet, unbuffered, to a remote UDP peer.
 
 ```cpp
-
 // SYNTAX
+Udp.sendPacket(buffer, bufferSize, remoteIP, remotePort);
 
-UDP.sendPacket(buffer, bufferSize, remoteIP, remotePort)
-
-// Example Usage
-
+// EXAMPLE USAGE
 UDP Udp;
 
-char buffer[21] = "Particle is the best";
+char buffer[] = "Particle powered";
 
 IPAddress remoteIP(192, 168, 1, 100);
 int port = 1337;
 
 void setup() {
+  // Required for two way communication 
+  Udp.begin(8888);
 
-    // Required for two way communication 
-    Udp.begin(8888);
-
-    if (Udp.sendPacket(buffer, 21, remoteIP, port) < 0) {
-
-        Particle.publish("Error");
-
-    }
-
+  if (Udp.sendPacket(buffer, sizeof(buffer), remoteIP, port) < 0) {
+    Particle.publish("Error");
+  }
 }
-
 ```
 
 Parameters:
-- pointer (buffer): the buffer of data to send
-- int (bufferSize): the number of bytes of data to send
-- IPAddress (remoteIP): the destination address of the remote peer
-- port (remotePort): the destination port of the remote peer
+- `pointer` (buffer): the buffer of data to send
+- `int` (bufferSize): the number of bytes of data to send
+- `IPAddress` (remoteIP): the destination address of the remote peer
+- `int` (remotePort): the destination port of the remote peer
 
 Returns:
-- The number of bytes written. Negative value on error.
+- `int`: The number of bytes written. Negative value on error.
 
 {{#if photon}}
 ### joinMulticast()
@@ -4315,17 +4320,16 @@ Join a multicast address for all UDP sockets which are on the same network inter
 
 ```cpp
 // SYNTAX
-UDP.joinMulticast(IPAddress& ip);
+Udp.joinMulticast(IPAddress& ip);
 
-// Example Usage
-
-UDP udp;
+// EXAMPLE USAGE
+UDP Udp;
 
 int remotePort = 1024;
 IPAddress multicastAddress(224,0,0,0);
 
-udp.begin(remotePort);
-udp.joinMulticast(multicastAddress);
+Udp.begin(remotePort);
+Udp.joinMulticast(multicastAddress);
 ```
 
 This will allow reception of multicast packets sent to the given address for UDP sockets
@@ -4340,15 +4344,15 @@ Leaves a multicast group previously joined on a specific multicast address.
 
 ```cpp
 // SYNTAX
+Udp.leaveMulticast(multicastAddress);
 
-UDP udp;
+// EXAMPLE USAGE
+UDP Udp;
 IPAddress multicastAddress(224,0,0,0);
-
-udp.leaveMulticast(multicastAddress);
+Udp.leaveMulticast(multicastAddress);
 ```
 
 {{/if}}
-
 
 ## Servo
 
