@@ -9,7 +9,7 @@ order: 7
 # The Internet Button
 
 {{#if electron}}
-**_Note_**: The internet button is not currently available for the Electron. 
+**_Note_**: The internet button is not currently available for the Electron.
 {{/if}}
 
 ![](/assets/images/internet-button-cover.jpg)
@@ -37,7 +37,7 @@ If you {{{popup 'turn your internet button over' 'img' 'internet-button-bottom.j
 </br>
 You can also remove the module cover and Photon, then the shield cover, to expose the {{{popup 'top of the shield' 'img' 'internet-button-uncovered.jpg'}}}. Here, you can see the exposed LEDs and and the accelerometer.
 
-For more information, check out the [Internet Button datasheet](/datasheets/photon-shields/#internet-button).
+For more information, check out the [Internet Button datasheet](/datasheets/particle-shields/#internet-button).
 
 ## Connecting
 

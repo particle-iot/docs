@@ -236,7 +236,7 @@ Do you want to gain complete control over your Particle device right down to its
 
 This is a FT2232H based JTAG programmer shield that is compatible with OpenOCD and Broadcom's WICED IDE. The FT2232 chip is setup to provide an USB-JTAG and USB-UART interface simultaneously. The FT2232 can be also reconfigured by the user by reprogramming the on-board config EEPROM. The unused pins are clearly marked and broken out into easy to access header holes.
 
-The USB-UART interface is connected to the TX and RX of a Particle device and communicates via [Serial1](https://docs.particle.io/reference/firmware/photon/#serial)
+The USB-UART interface is connected to the TX and RX of a Particle device and communicates via [Serial1](https://docs.particle.io/reference/firmware#serial)
 
 ![Programmer Shield Description](/assets/images/shields/prog-shield/prog-shield-description.png)
 
@@ -620,10 +620,10 @@ The Solar Kit comes with everything you need to make a solar powered cellular pr
 ### Using the Solar Kit
 Assembly:
 1. Screw the cable gland into the side of the box. If you want it to be truly water-tight, you should add some silicone caulk. Also, the inner nut may not have enough clearance to fit, but that's fine with caulking.
-2. Screw the Solar Shield down inside the box using the included M4 screws. 
-3. Pass the barrel jack wire through the cable gland, leaving the bare wires inside the box and the connector outside. 
-4. Put the red wire into the terminal block marked "+" and the black wire into "GND" and tighten them down firmly with a small screwdriver. 
-5. Tighten the cable gland around the barrel jack wire, 
+2. Screw the Solar Shield down inside the box using the included M4 screws.
+3. Pass the barrel jack wire through the cable gland, leaving the bare wires inside the box and the connector outside.
+4. Put the red wire into the terminal block marked "+" and the black wire into "GND" and tighten them down firmly with a small screwdriver.
+5. Tighten the cable gland around the barrel jack wire,
 6. Plug the Electron into the shield with the USB pointing inward
 7. Connect the male JST wire from the shield to the female JST on the Electron
 8. Plug the battery into the Solar Shield's female JST
