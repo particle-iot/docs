@@ -84,10 +84,12 @@ Particle's certifications will help you decrease the time and cost associated wi
 - FCC ID: [2AEMI-PHOTON](https://apps.fcc.gov/oetcf/eas/reports/ViewExhibitReport.cfm?mode=Exhibits&RequestTimeout=500&calledFromFrame=N&application_id=o2hW1PEmrUZn19QwwX8hCA%3D%3D&fcc_id=2AEMI-PHOTON)
 - [Certificate of Conformity](/assets/pdfs/p0-fcc-certificate.pdf)
 - [Test Reports](/assets/pdfs/p0-fcc-ic-test-reports.zip)
+- [Test Firmware and Instructions](/assets/files/P0_P1_FCC_Firmware.zip)
 
 #### P1 Module
 - FCC ID: [XR2WIZFI250](https://apps.fcc.gov/oetcf/eas/reports/ViewExhibitReport.cfm?mode=Exhibits&RequestTimeout=500&calledFromFrame=N&application_id=ug625xSKTLocEEah0xLMFw%3D%3D&fcc_id=XR2WIZFI250)  
 - [Test Reports](https://apps.fcc.gov/oetcf/eas/reports/ViewExhibitReport.cfm?mode=Exhibits&RequestTimeout=500&calledFromFrame=N&application_id=ug625xSKTLocEEah0xLMFw%3D%3D&fcc_id=XR2WIZFI250)
+- [Test Firmware and Instructions](/assets/files/P0_P1_FCC_Firmware.zip)
 
 #### Electron U260
 - FCC ID: [XPYSARAU260](https://apps.fcc.gov/oetcf/eas/reports/ViewExhibitReport.cfm?mode=Exhibits&RequestTimeout=500&calledFromFrame=N&application_id=o2hW1PEmrUZn19QwwX8hCA%3D%3D&fcc_id=XPYSARAU260)
