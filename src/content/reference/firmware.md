@@ -2381,6 +2381,8 @@ To use the hardware serial pins of (Serial1/2{{#if electron}}/4/5{{/if}}) to com
 
 Sets the data rate in bits per second (baud) for serial data transmission. For communicating with the computer, use one of these rates: 300, 600, 1200, 2400, 4800, 9600, 14400, 19200, 28800, 38400, 57600, or 115200. You can, however, specify other rates - for example, to communicate over pins TX and RX with a component that requires a particular baud rate.
 
+An optional second parameter specifies the serial configuration to use.  This can be useful when communicating with external devices that talk in a configuration that isn't the default `SERIAL_8N1` (8 data bits, no parity, 1 stop bit).
+
 **NOTE:** The data rate for the USB device `Serial` is ignored, as USB has its own negotiated speed. Setting speed to 9600 is safe for the USB device. Setting the port to 14400 baud will cause the Photon or Electron to go into DFU mode while 28800 will allow a YMODEM download of firmware.
 
 ```C++
@@ -2396,10 +2398,37 @@ Serial2.begin(speed);   // on Core via
 Serial4.begin(speed);   // via C3(TX)/C2(RX) pins
 Serial5.begin(speed);   // via C1(TX)/C0(RX) pins
 {{/if}}
+
+Serial.begin(speed, config);    // via USB port with specified config
+Serial1.begin(speed, config);   // via TX/RX pins with specified config
+Serial2.begin(speed, config);   // on Core via
+                                // D1(TX) and D0(RX) pins with specified config
+                                // on Photon/Electron via
+                                // RGB-LED green(TX) and with specified config
+                                // RGB-LED blue (RX) pinswith specified config
+{{#if electron}}
+Serial4.begin(speed, config);   // via C3(TX)/C2(RX) pins with specified config
+Serial5.begin(speed, config);   // via C1(TX)/C0(RX) pins with specified config
+{{/if}}
 ```
+
+*Parameters:*
 `speed`: parameter that specifies the baud rate *(long)*
 
+`config`: parameter that specifies the serial configuration
+
 `begin()` does not return anything
+
+*Serial configuration options:*
+
+- `SERIAL_8N1`: 8 data bits, no parity, 1 stop bit
+- `SERIAL_8N2`: 8 data bits, no parity, 2 stop bits
+- `SERIAL_8E1`: 8 data bits, even parity, 1 stop bit
+- `SERIAL_8E2`: 8 data bits, even parity, 2 stop bits
+- `SERIAL_8O1`: 8 data bits, odd parity, 1 stop bit
+- `SERIAL_8O2`: 8 data bits, odd parity, 2 stop bits
+- `SERIAL_9N1`: 9 data bits, no parity, 1 stop bit
+- `SERIAL_9N2`: 9 data bits, no parity, 2 stop bits
 
 ```C++
 // EXAMPLE USAGE
@@ -2418,6 +2447,11 @@ void setup()
 }
 
 void loop() {}
+
+// OR call begin() with serial config options
+Serial.begin(9600, SERIAL_8N2);   // 8 bits, no parity, 2 stop bits
+Serial1.begin(9600, SERIAL_8O2);   // 8 bits, odd parity, 2 stop bits
+Serial2.begin(9600, SERIAL_9N2);   // 9 bits, no parity, 2 stop bits
 ```
 
 ### end()
