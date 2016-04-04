@@ -40,4 +40,4 @@ See [the official Javascript client](/reference/javascript/).
 
 ## LabVIEW
 
-* [Particle API for LabVIEW] (https://github.com/freddiepingpong/labview-particle-api) - A set of LabVIEW VIs to connect to the Particle Cloud API.
+* [Particle API for LabVIEW](https://github.com/freddiepingpong/labview-particle-api) - A set of LabVIEW VIs to connect to the Particle Cloud API.
