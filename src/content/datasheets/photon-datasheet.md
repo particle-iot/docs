@@ -258,6 +258,8 @@ echo -e "\xFF" > fillbyte && dfu-util -d 2b04:d006 -a 1 -s 3106 -D fillbyte
 | RX    | Primarily used as UART RX, but can also be used as a digital GPIO or PWM. |
 | TX    | Primarily used as UART TX, but can also be used as a digital GPIO or PWM. |
 
+In addition to the 24 pins around the outside of the Photon, there are 7 pads on the bottom the Photon PCB that can be used to connect to extra signals: RGB LED outputs, SETUP button, SMPS enable line and USB D+/D-. Photon Pins #25-31 are described in the [Pin out diagrams](#pin-out-diagrams). Also refer to the [Recommended PCB land pattern photon without headers](#recommended-pcb-land-pattern-photon-without-headers-) section for their location on the bottom of the Photon.
+
 ---
 
 
@@ -403,7 +405,7 @@ The Photon (without headers) can be surface mounted directly in an end applicati
 
 <div align=left><img src="/assets/images/photon_land_pattern_without_headers.png" width=600></div>
 
-Photon Pin #25-31 are described in the [Pin Out Diagrams](#pin-out-diagrams).
+In addition to the 24 pins around the outside of the Photon, there are 7 pads on the bottom the Photon PCB that can be used to connect to extra signals: RGB LED outputs, SETUP button, SMPS enable line and USB D+/D-. Photon Pins #25-31 are described in the [Pin out diagrams](#pin-out-diagrams).
 
 Solder mask around exposed copper pads should be 0.1mm (4 mils) larger in all directions.  E.g., a 0.08" x 0.10" pad would have a 0.088" x 0.108" solder mask.
 
