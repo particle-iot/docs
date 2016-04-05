@@ -48,15 +48,17 @@ Here's the typical pattern of a {{device}} after power up.
 
 When it is breathing cyan, your {{device}} is happily connected to the Internet. When it is in this mode, you can call functions and flash code.
 
-
 ### OTA Firmware Update
 
 {{{device-animation device "blink" "magenta" }}}
 
 If your {{device}} is blinking magenta, it is currently loading an app or updating its firmware. This state is triggered by a firmware update or by flashing code from Particle Dev or Particle Build. You will often see this mode when you connect your {{device}} to the cloud for the first time.
 
+### Safe mode
 
-Note that, if you enter this mode by holding {{#if photon}}`SETUP`{{/if}}{{#unless photon}}`MODE`{{/unless}} on boot, blinking magenta indicates that letting go of the {{#if photon}}`SETUP`{{/if}}{{#unless photon}}`MODE`{{/unless}} button will enter safe mode to connect to the cloud and not run application firmware.
+{{{device-animation device "blink" "magenta" }}}
+
+If your latest code is crashing your Particle, this mode is for you! Hold down the {{#if photon}}`SETUP`{{/if}}{{#unless photon}}`MODE`{{/unless}}, then click the reset button once. When your Particle starts blinking in magenta, imediatly release the {{#if photon}}`SETUP`{{/if}}{{#unless photon}}`MODE`{{/unless}} button. If you do this step correctly, the device will enter in safe mode, and won't execute your old code.
 
 ### Looking For Internet
 
