@@ -64,9 +64,9 @@ The [`docs`](https://github.com/spark/docs) repo contains Particle's open source
 
 Particle maintains several open source libraries to be used with official Particle shields. They include:
 
-- [`InternetButton`](https://github.com/spark/InternetButton): the library intended for use with the [Internet Button](/datasheets/photon-shields/#internet-button).
-- [`RelayShield`](https://github.com/spark/RelayShield): the library intended for use with the [Photon Relay Shield](/datasheets/photon-shields/#relay-shield)
-- [`PowerShield`](https://github.com/spark/PowerShield): the library intended for use with the [Photon Power Shield](/datasheets/photon-shields/#power-shield)
+- [`InternetButton`](https://github.com/spark/InternetButton): the library intended for use with the [Internet Button](/datasheets/particle-shields/#internet-button).
+- [`RelayShield`](https://github.com/spark/RelayShield): the library intended for use with the [Photon Relay Shield](/datasheets/particle-shields/#relay-shield)
+- [`PowerShield`](https://github.com/spark/PowerShield): the library intended for use with the [Photon Power Shield](/datasheets/particle-shields/#power-shield)
 
 
 ### Local Cloud
@@ -79,9 +79,9 @@ The [`spark-server`](https://github.com/spark/spark-server) repo is an API compa
 We share some hardware design files for each of our dev boards. These open source repos are designed mostly to give you a sense of what we are working on, but you are welcome to make contributions here as well if you have interest and expertise.
 
 Current hardware design repos include:
-- [`electron`](https://github.com/spark/electron) 
-- [`photon`](https://github.com/spark/photon) 
-- [`core`](https://github.com/spark/core) 
+- [`electron`](https://github.com/spark/electron)
+- [`photon`](https://github.com/spark/photon)
+- [`core`](https://github.com/spark/core)
 - [Official Libraries](#official-libraries) such as the [`InternetButton`](https://github.com/spark/InternetButton), [`RelayShield`](https://github.com/spark/RelayShield), and [`PowerShield`](https://github.com/spark/PowerShield)
 - [`eagle-libraries`](https://github.com/spark/eagle-libraries)
 

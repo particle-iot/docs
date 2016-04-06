@@ -62,7 +62,9 @@ my_device_name (0123456789ABCDEFGHI) 0 variables, and 4 functions
 
 ## particle device add
 
-  Adds a new device to your account
+  Adds a new device to your account.
+  
+  Your device will need to be connected to the Internet (onboard LED breathing cyan) for this process to work.
 
 ```sh
 # how to add a new device to your account

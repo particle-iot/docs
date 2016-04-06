@@ -37,3 +37,7 @@ See [the official Javascript client](/reference/javascript/).
 
 ## .NET
 * [ParticleSDK for .NET](https://github.com/ParticleNET/ParticleSDK/) - A wrapper around the Particle cloud api.
+
+## LabVIEW
+
+* [Particle API for LabVIEW](https://github.com/freddiepingpong/labview-particle-api) - A set of LabVIEW VIs to connect to the Particle Cloud API.
