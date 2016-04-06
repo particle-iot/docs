@@ -1301,7 +1301,7 @@ The following examples can be copied to a file called `setcreds.ino` and compile
 
 `particle compile electron setcreds.ino --saveTo firmware.bin && particle flash --usb firmware.bin`
 
-**Note**: Your Electron only uses one set of credentials, and they must be correctly matched to the SIM card that's used.  If using a Particle SIM, using `cellular_credentials_set()` is not necessary as the default APN of "spark.telefonica.com" with no username or password will be used by system firmware.
+**Note**: Your Electron only uses one set of credentials, and they must be correctly matched to the SIM card that's used.  If using a Particle SIM, using `cellular_credentials_set()` is not necessary as the default APN of "spark.telefonica.com" with no username or password will be used by system firmware. To switch back to using a Particle SIM after successfully connecting with a 3rd Party SIM, just flash any app that does not include cellular_credentials_set().  Then ensure you completely power cycle the Electron to remove the settings from the modem’s volatile memory.
 
 ```C++
 // SYNTAX
