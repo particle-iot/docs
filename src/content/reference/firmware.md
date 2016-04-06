@@ -1367,10 +1367,10 @@ Cellular.getDataUsage(data);
 
 ```c++
 // EXAMPLE
-SerialDebugOutput debugOutput(9600, ALL_LEVEL);
 
 void setup()
 {
+  Serial.begin(9600);
 }
 
 void loop()
