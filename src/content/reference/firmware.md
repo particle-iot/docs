@@ -1332,6 +1332,125 @@ void loop() {
 }
 ```
 
+### getDataUsage()
+
+A software implementation of Data Usage that pulls sent and received session and total bytes from the cellular modem's internal counters.  The sent / received bytes are the gross payload evaluated by the protocol stack, therefore they comprise the TCP and IP header bytes and the packets used to open and close the TCP connection.  I.e., these counters account for all overhead in cellular communications.
+
+**Note**: Cellular.getDataUsage() should only be used for relative measurements on data at runtime.  Do not rely upon these figures for absolute and total data usage of your SIM card.
+
+**Note**: There is a known issue with Sara U260/U270 modem firmware not being able to set/reset the internal counters (which does work on the Sara G350).  Because of this limitation, the set/reset function is implemented in software, using the modem's current count as the baseline.
+
+**Note**: The internal modem counters are typically reset when the modem is powered cycled (complete power removal, soft power down or Cellular.off()) or if the PDP context is deactiaved and reactivated which can happen asynchronously during runtime. If the Cellular.getDataUsage() API has been read, reset or set, and then the modem's counters are reset for any reason, the next call to Cellular.getDataUsage() for a read will detect that the new reading would be less than the previous reading.  When this is detected, the current reading will remain the same, and the now lower modem count will be used as the new baseline.  Because of this mechanism, it is generally more accurate to read the getDataUsage() count often. This catches the instances when the modem count is reset, before the count starts to increase again.
+
+To use the data usage API, an instance of the `CellularData` type needs to be created to read or set counters.  All data usage API functions and the CellularData object itself return `bool` - `true` indicating the last operation was successful and the CellularData object was updated. For set and get functions, `CellularData` is passed by reference `Cellular.dataUsage(CellularData&);` and updated by the function.  There are 5 integers and 1 boolean within the CellularData object:
+
+- **ok**: (bool) a boolean value `false` when the CellularData object is initially created, and `true` after the object has been successfully updated by the API. If the last reading failed and the counters were not changed from their previous value, this value is set to `false`.
+- **cid**: (int) a value from 0-255 that is the index of the current PDP context that the data usage counters are valid for.  If this number is -1, the data usage counters have either never been initially set, or the last reading failed and the counters were not changed from their previous value.
+- **tx_session**: (int) number of bytes sent for the current session
+- **rx_session**: (int) number of bytes sent for the current session
+- **tx_total**: (int) number of bytes sent total (typical equals the session numbers)
+- **rx_total**: (int) number of bytes sent total (typical equals the session numbers)
+
+CellularData is a Printable object, so using it directly with `Serial.println(data);` will be output as follows:
+
+```
+cid,tx_session,rx_session,tx_total,rx_total
+31,1000,300,1000,300
+```
+
+```c++
+// SYNTAX
+// Read Data Usage
+CellularData data;
+Cellular.getDataUsage(data);
+```
+
+```c++
+// EXAMPLE
+SerialDebugOutput debugOutput(9600, ALL_LEVEL);
+
+void setup()
+{
+}
+
+void loop()
+{
+    if (Serial.available() > 0)
+    {
+        char c = Serial.read();
+        if (c == '1') {
+            Serial.println("Read counters of sent or received PSD data!");
+            CellularData data;
+            if (!Cellular.getDataUsage(data)) {
+                Serial.print("Error! Not able to get data.");
+            }
+            else {
+                Serial.printlnf("CID: %d SESSION TX: %d RX: %d TOTAL TX: %d RX: %d",
+                    data.cid,
+                    data.tx_session, data.rx_session,
+                    data.tx_total, data.rx_total);
+                Serial.println(data); // Printable
+            }
+        }
+        else if (c == '2') {
+            Serial.println("Set all sent/received PSD data counters to 1000!");
+            CellularData data;
+            data.tx_session = 1000;
+            data.rx_session = 1000;
+            data.tx_total = 1000;
+            data.rx_total = 1000;
+            if (!Cellular.setDataUsage(data)) {
+                Serial.print("Error! Not able to set data.");
+            }
+            else {
+                Serial.printlnf("CID: %d SESSION TX: %d RX: %d TOTAL TX: %d RX: %d",
+                    data.cid,
+                    data.tx_session, data.rx_session,
+                    data.tx_total, data.rx_total);
+                Serial.println(data); // Printable
+            }
+        }
+        else if (c == '3') {
+            Serial.println("Reset counter of sent/received PSD data!");
+            if (!Cellular.resetDataUsage()) {
+                Serial.print("Error! Not able to reset data.");
+            }
+        }
+        else if (c == 'p') {
+            Serial.println("Publish some data!");
+            Particle.publish("1","a");
+        }
+        while (Serial.available()) Serial.read(); // Flush the input buffer
+    }
+
+}
+```
+
+### setDataUsage()
+
+Sets the Data Usage counters to the values indicated in the supplied CellularData object.
+
+Returns `bool` - `true` indicating this operation was successful and the CellularData object was updated.
+
+```c++
+// SYNTAX
+// Set Data Usage
+CellularData data;
+Cellular.setDataUsage(data);
+```
+
+### resetDataUsage()
+
+Resets the Data Usage counters to all zero.  No CellularData object is required.  This is handy to call just before an operation where you'd like to measure data usage.
+
+Returns `bool` - `true` indicating this operation was successful and the internally stored software offset has been reset to zero. If getDataUsage() was called immediately after without any data being used, the CellularData object would indicate zero data used.
+
+```c++
+// SYNTAX
+// Reset Data Usage
+Cellular.dataUsageReset();
+```
+
 ### RSSI()
 
 `Cellular.RSSI()` returns a struct of type `CellularSignal` that contains two integers: the signal strength (`rssi`) and signal quality (`qual`) of the currently connected Cellular network.
