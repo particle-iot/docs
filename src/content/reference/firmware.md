@@ -1500,8 +1500,171 @@ void loop()
 }
 ```
 
+
+bool Cellular.getBandSelect(CellularBand &data_get);
+
+### getBandAvailable()
+*Since 0.5.0.*
+
+Gets the cellular bands currently available in the modem.  `Bands` are the carrier frequncies used to communicate with the cellular network.  Some modems have 2 bands available (U260/U270) and others have 4 bands (G350).
+
+To use the band select API, an instance of the `CellularBand` type needs to be created to read or set bands.  All band select API functions and the CellularBand object itself return `bool` - `true` indicating the last operation was successful and the CellularBand object was updated. For set and get functions, `CellularBand` is passed by reference `Cellular.getBandSelect(CellularBand&);` and updated by the function.  There is 1 array, 1 integer, 1 boolean and 1 helper function within the CellularBand object:
+
+- **ok**: (bool) a boolean value `false` when the CellularBand object is initially created, and `true` after the object has been successfully updated by the API. If the last reading failed and the bands were not changed from their previous value, this value is set to `false`.
+- **count**: (int) a value from 0-5 that is the number of currently selected bands retrieved from the modem after getBandAvailble() or getBandSelect() is called successfully.
+- **band[5]**: (MDM_Band[]) array of up to 5 MDM_Band enumerated types.  Available enums are: `BAND_DEFAULT, BAND_0, BAND_700, BAND_800, BAND_850, BAND_900, BAND_1500, BAND_1700, BAND_1800, BAND_1900, BAND_2100, BAND_2600`.  All elements set to 0 when CellularBand object is first created, but after getBandSelect() is called successfully the currently selected bands will be populated started with index 0, i.e., (`.band[0]`). Can be 5 values when getBandAvailable() is called on a G350 modem, as it will return factory default value of 0 as an available option, i.e., `0,850,900,1800,1900`.
+- **bool isBand(int)**: helper function built into the CellularBand type that can be used to check if an integer is a valid band.  This is helpful if you would like to test a value before manually setting a band in the .band[] array.
+
+CellularBand is a Printable object, so using it directly with `Serial.println(CellularBand);` will print the number of bands that are retreived from the modem.  This will be output as follows:
+
+```
+// EXAMPLE PRINTABLE
+CellularBand band_sel;
+// populate band object with fake data
+band_sel.band[0] = BAND_850;
+band_sel.band[1] = BAND_1900;
+band_sel.count = 2;
+Serial.println(band_sel);
+
+// OUTPUT: band[0],band[1]
+850,1900
+```
+
+Here's a full example using all of the functions in the <a href="https://gist.github.com/technobly/b0e2f160b9d969d978337c0561999998" target="_blank">Cellular Band Select API</a>
+
+There is one supported function for getting available bands using the CellularBand object:
+
+`bool Cellular.getBandAvailable(CellularBand &band_avail);`
+
+**Note:** getBandAvailable() always sets the first band array element `.band[0]` as 0 which indicates the first option available is to set the bands back to factory defaults, which includes all bands.
+
+```
+// SYNTAX
+CellularBand band_avail;
+Cellular.getBandAvailable(band_avail);
+```
+
+```
+// EXAMPLE
+CellularBand band_avail;
+if (Cellular.getBandSelect(band_avail)) {
+    Serial.print("Available bands: ");
+    for (int x=0; x<band_avail.count; x++) {
+        Serial.printf("%d", band_avail.band[x]);
+        if (x+1 < band_avail.count) Serial.printf(",");
+    }
+    Serial.println();
+}
+else {
+    Serial.printlnf("Bands available not retrieved from the modem!");
+}
+```
+
+### getBandSelect()
+*Since 0.5.0.*
+
+Gets the cellular bands currently set in the modem.  `Bands` are the carrier frequncies used to communicate with the cellular network.
+
+There is one supported function for getting selected bands using the CellularBand object:
+
+`bool Cellular.getBandSelect(CellularBand &band_sel);`
+
+```
+// SYNTAX
+CellularBand band_sel;
+Cellular.getBandSelect(band_sel);
+```
+
+```
+// EXAMPLE
+CellularBand band_sel;
+if (Cellular.getBandSelect(band_sel)) {
+    Serial.print("Selected bands: ");
+    for (int x=0; x<band_sel.count; x++) {
+        Serial.printf("%d", band_sel.band[x]);
+        if (x+1 < band_sel.count) Serial.printf(",");
+    }
+    Serial.println();
+}
+else {
+    Serial.printlnf("Bands selected not retrieved from the modem!");
+}
+```
+
+### setBandSelect()
+*Since 0.5.0.*
+
+Sets the cellular bands currently set in the modem.  `Bands` are the carrier frequncies used to communicate with the cellular network.
+
+**Caution:** The Band Select API is an advanced feature designed to give users selective frequency control over their Electrons. When changing location or between cell towers, you may experience connectivity issues if you have only set one specific frequency for use. Because these settings are permanently saved in non-volatile memory, it is recommended to keep the factory default value of including all frequencies with mobile applications.  Only use the selective frequency control for stationary applications, or for special use cases.
+
+- Make sure to set the `count` to the appropriate number of bands set in the CellularBand object before calling `setBandSelect()`.
+- Use the `.isBand(int)` helper function to determine if an integer value is a valid band.  It still may not be valid for the particular modem you are using, in which case `setBandSelect()` will return `false` and `.ok` will also be set to `false`.
+- When trying to set bands that are already set, they will not be written to Non-Volatile Memory (NVM) again.
+- When updating the bands in the modem, they will be saved to NVM and will be remain as set when the modem power cycles.
+- Setting `.band[0]` to `BAND_0` or `BAND_DEFAULT` and `.count` to 1 will restore factory defaults.
+
+There are two supported functions for setting bands, one uses the CellularBand object, and the second allow you to pass in a comma delimited string of bands:
+
+`bool Cellular.setBandSelect(const char* band_set);`
+
+`bool Cellular.setBandSelect(CellularBand &band_set);`
+
+```
+// SYNTAX
+CellularBand band_set;
+Cellular.setBandSelect(band_set);
+
+// or
+
+Cellular.setBandSelect("850,1900"); // set two bands
+Cellular.setBandSelect("0"); // factory defaults
+```
+
+```
+// EXAMPLE
+Serial.println("Setting bands to 850 only");
+CellularBand band_set;
+band_set.band[0] = BAND_850;
+band_set.band[1] = BAND_1900;
+band_set.count = 2;
+if (Cellular.setBandSelect(band_set)) {
+    Serial.print(band_set);
+    Serial.println(" band(s) set! Value will be saved in NVM when powering off modem.");
+}
+else {
+    Serial.print(band_set);
+    Serial.println(" band(s) not valid! Use getBandAvailable() to query for valid bands.");
+}
+```
+
+```
+// EXAMPLE
+Serial.println("Restoring factory defaults with the CellularBand object");
+CellularBand band_set;
+band_set.band[0] = BAND_DEFAULT;
+band_set.count = 1;
+if (Cellular.setBandSelect(band_set)) {
+    Serial.println("Factory defaults set! Value will be saved in NVM when powering off modem.");
+}
+else {
+    Serial.println("Restoring factory defaults failed!");
+}
+```
+
+```
+// EXAMPLE
+Serial.println("Restoring factory defaults with strings");
+if (Cellular.setBandSelect("0")) {
+    Serial.println("Factory defaults set! Value will be saved in NVM when powering off modem.");
+}
+else {
+    Serial.println("Restoring factory defaults failed!");
+}
+```
+
 ### localIP()
-*Coming in 0.5.0.*
+*Since 0.5.0.*
 
 `Cellular.localIP()` returns the local (private) IP address assigned to the device as an `IPAddress`.
 
