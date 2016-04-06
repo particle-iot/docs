@@ -56,7 +56,7 @@ When it is breathing cyan, your {{device}} is happily connected to the Internet.
 If your {{device}} is blinking magenta, it is currently loading an app or updating its firmware. This state is triggered by a firmware update or by flashing code from Particle Dev or Particle Build. You will often see this mode when you connect your {{device}} to the cloud for the first time.
 
 
-Note that, if you enter this mode by holding {{#if photon}}`SETUP`{{/if}}{{#unless photon}}`MODE`{{/unless}} on boot, blinking magenta indicates that letting go of the {{#if photon}}`SETUP`{{/if}}{{#unless photon}}`MODE`{{/unless}} button will enter safe mode to connect to the cloud and not run application firmware.
+Note that, if you enter this mode by holding `{{system-button}}` on boot, blinking magenta indicates that letting go of the `{{system-button}}` button will enter safe mode to connect to the cloud and not run application firmware.
 
 ### Looking For Internet
 
@@ -111,7 +111,7 @@ When your {{device}} is in Listening Mode, it is waiting for your input to conne
 {{#if photon}}
 {{{vine "https://vine.co/v/eZUHUIjq7pO/embed/simple"}}}
 
-To put your {{device}} in Listening Mode, hold the `SETUP` button for three seconds, until the RGB LED begins blinking blue.
+To put your {{device}} in Listening Mode, hold the `{{system-button}}` button for three seconds, until the RGB LED begins blinking blue.
 {{/if}}
 
 {{#if electron}}
@@ -119,13 +119,13 @@ To put your {{device}} in Listening Mode, hold the `SETUP` button for three seco
 {{{vine "https://vine.co/v/eZUHUIjq7pO/embed/simple"}}}
 {{/if}}
 
-To put your {{device}} in Listening Mode, hold the `MODE` button for three seconds, until the RGB LED begins blinking blue.
+To put your {{device}} in Listening Mode, hold the `{{system-button}}` button for three seconds, until the RGB LED begins blinking blue.
 {{/if}}
 
 {{#if core}}
 {{{vine "https://vine.co/v/eZUgHYYrYgl/embed/simple"}}}
 
-To put your {{device}} in Listening Mode, hold the `MODE` button for three seconds, until the RGB LED begins blinking blue.
+To put your {{device}} in Listening Mode, hold the `{{system-button}}` button for three seconds, until the RGB LED begins blinking blue.
 {{/if}}
 
 
@@ -135,9 +135,9 @@ To put your {{device}} in Listening Mode, hold the `MODE` button for three secon
 
 {{{vine "https://vine.co/v/eZUwtJljYnK/embed/simple"}}}
 
-To erase the stored wifi networks on your {{device}}, hold the `SETUP` button for about ten seconds, until the RGB LED blinks blue rapidly.
+To erase the stored wifi networks on your {{device}}, hold the `{{system-button}}` button for about ten seconds, until the RGB LED blinks blue rapidly.
 
-You can also reset the Wi-Fi networks by holding the `SETUP` button and tapping `RESET`, then continuing to hold `SETUP` until the light on the {{device}} turns white. (This differs from the Core. Doing this action on the Core will result in a factory reset.)
+You can also reset the Wi-Fi networks by holding the `{{system-button}}` button and tapping `{{reset-button}}`, then continuing to hold `{{system-button}}` until the light on the {{device}} turns white. (This differs from the Core. Doing this action on the Core will result in a factory reset.)
 
 {{/if}}
 
@@ -147,7 +147,7 @@ You can also reset the Wi-Fi networks by holding the `SETUP` button and tapping 
 
 {{{vine "https://vine.co/v/eZU6expA5bA/embed/simple"}}}
 
-To erase the stored wifi networks on your {{device}}, hold the `MODE` button for about ten seconds, until the RGB LED blinks blue rapidly.
+To erase the stored wifi networks on your {{device}}, hold the `{{system-button}}` button for about ten seconds, until the RGB LED blinks blue rapidly.
 
 {{/if}}
 
@@ -164,9 +164,9 @@ Safe mode connects the {{device}} to the cloud, but does not run any application
 To put your device in Safe Mode:
 
 1. Hold down BOTH buttons
-2. Release only the `RESET` button, while holding down the `SETUP` button.
+2. Release only the `{{reset-button}}` button, while holding down the `{{system-button}}` button.
 3. Wait for the LED to start blinking magenta
-6. Release the `SETUP` button
+6. Release the `{{system-button}}` button
 
 The device will itself automatically enter safe mode if there is no application code flashed to the device or when the application is not valid.
 
@@ -187,9 +187,9 @@ Safe mode connects the {{device}} to the cloud, but does not run any application
 To put your device in Safe Mode:
 
 1. Hold down BOTH buttons
-2. Release only the `RESET` button, while holding down the `MODE` button.
+2. Release only the `{{reset-button}}` button, while holding down the `{{system-button}}` button.
 3. Wait for the LED to start blinking magenta
-6. Release the `MODE` button
+6. Release the `{{system-button}}` button
 
 The device will itself automatically enter safe mode if there is no application code flashed to the device or when the application is not valid.
 
@@ -211,9 +211,9 @@ To enter DFU Mode:
 {{#unless core}}
 
 1. Hold down BOTH buttons
-2. Release only the `RESET` button, while holding down the {{#if photon}}`SETUP`{{/if}}{{#if electron}}`MODE`{{/if}} button.
+2. Release only the `{{reset-button}}` button, while holding down the `{{system-button}}` button.
 3. Wait for the LED to start flashing yellow (it will flash magenta first)
-4. Release the {{#if photon}}`SETUP`{{/if}}{{#if electron}}`MODE`{{/if}} button
+4. Release the `{{system-button}}` button
 
 {{#if photon}}
 {{{vine "https://vine.co/v/eZUHnhaUD9Y/embed/simple"}}}
@@ -224,9 +224,9 @@ To enter DFU Mode:
 {{#if core}}
 
 1. Hold down BOTH buttons
-2. Release only the `RST` button, while holding down the `MODE` button.
+2. Release only the `RST` button, while holding down the `{{system-button}}` button.
 3. Wait for the LED to start flashing yellow
-4. Release the `MODE` button
+4. Release the `{{system-button}}` button
 
 {{{vine "https://vine.co/v/eZUgeu0r639/embed/simple"}}}
 
@@ -265,14 +265,14 @@ A factory reset restores the firmware on the {{device}} to the default Tinker ap
 
 Procedure:
 
-The procedure is same as the one described above (DFU Mode), but in this case you should continue holding down the MODE button until you see the {{device}} change from blinking yellow to blinking white. Then release the button.  The {{device}} should begin after the factory reset is complete.
+The procedure is same as the one described above (DFU Mode), but in this case you should continue holding down the `{{system-button}}` button until you see the {{device}} change from blinking yellow to blinking white. Then release the button.  The {{device}} should begin after the factory reset is complete.
 
 1. Hold down BOTH buttons
-2. Release only the `RST` button, while holding down the `MODE` button.
-3. Wait for the LED to start blinking yellow (continue to hold the `MODE` button)
-4. The LED will turn solid white (continue to hold the `MODE` button)
+2. Release only the `RST` button, while holding down the `{{system-button}}` button.
+3. Wait for the LED to start blinking yellow (continue to hold the `{{system-button}}` button)
+4. The LED will turn solid white (continue to hold the `{{system-button}}` button)
 5. Finally, the LED will turn blink white rapidly
-6. Release the `MODE` button
+6. Release the `{{system-button}}` button
 
 
 You can reset Wi-Fi credentials by performing a [WiFi Network Reset](#wi-fi-network-reset).

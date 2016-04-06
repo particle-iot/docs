@@ -191,7 +191,7 @@ curl https://api.particle.io/v1/devices/0123456789abcdef/brew \
 
 ### Particle.publish()
 
-Publish an *event* through the Particle Cloud that will be forwarded to all registered callbacks, subscribed streams of Server-Sent Events, and other devices listening via `Particle.subscribe()`.
+Publish an *event* through the Particle Cloud that will be forwarded to all registered listeners, such as callbacks, subscribed streams of Server-Sent Events, and other devices listening via `Particle.subscribe()`.
 
 This feature allows the device to generate an event based on a condition. For example, you could connect a motion sensor to the device and have the device generate an event whenever motion is detected.
 
@@ -301,6 +301,28 @@ curl -H "Authorization: Bearer {ACCESS_TOKEN_GOES_HERE}" \
 event: motion-detected
 data: {"data":"23:23:44","ttl":"60","published_at":"2014-05-28T19:20:34.638Z","deviceid":"0123456789abcdef"}
 ```
+
+{{#if electron}}
+*`NO_ACK` flag*
+
+Unless specified otherwise, events sent to the cloud are sent as a reliable message. The Electoron waits for
+acknowledgement from the cloud that the event has been recieved, resending the event in the background up to 3 times before giving up.
+
+The `NO_ACK` flag disables this acknoweldge/retry behavior and sends the event only once.  This reduces data consumption per event, with the possibility that the event may not reach the cloud. 
+
+For example, the `NO_ACK` flag could be useful when many events are sent (such as sensor readings) and the occaisonal lost event can be tolerated. 
+
+```C++
+// SYNTAX
+
+int temperature = sensor.readTemperature();  // by way of example, not part of the API 
+Particle.publish("t", temperature, NO_ACK);
+Particle.publish("t", temperature, PRIVATE, NO_ACK);
+Particle.publish("t", temperature, ttl, PRIVATE, NO_ACK);
+```
+
+{{/if}}
+
 
 ### Particle.subscribe()
 
@@ -477,6 +499,26 @@ void loop() {
   delay(1000);
 }
 ```
+
+{{#if electron}}
+### Particle.keepAlive()
+
+Sets the duration between keep alive messages used to maintain the connection to the cloud.
+
+```C++
+// SYNTAX
+Particle.keepAlive(23 * 60);	// send a ping every 23 minutes
+```
+
+A keep alive is used to implement "UDP hole punching" which helps maintain the connection from the cloud to the device.
+Should a device becomes unreachable from the cloud (such as a timed out function call or variable get), 
+one possible cause of this is that the keep alives have not been sent often enough.
+
+The keep alive duration varies by mobile network operator. The default keepalive is set to 23 minutes, which is sufficient to maintain the connection on Particle SIM cards. 3rd party SIM cards will need to determine the appropriate keep alive value.
+
+
+{{/if}}
+
 
 ### Particle.process()
 
@@ -1289,6 +1331,125 @@ void loop() {
 }
 ```
 
+### getDataUsage()
+
+A software implementation of Data Usage that pulls sent and received session and total bytes from the cellular modem's internal counters.  The sent / received bytes are the gross payload evaluated by the protocol stack, therefore they comprise the TCP and IP header bytes and the packets used to open and close the TCP connection.  I.e., these counters account for all overhead in cellular communications.
+
+**Note**: Cellular.getDataUsage() should only be used for relative measurements on data at runtime.  Do not rely upon these figures for absolute and total data usage of your SIM card.
+
+**Note**: There is a known issue with Sara U260/U270 modem firmware not being able to set/reset the internal counters (which does work on the Sara G350).  Because of this limitation, the set/reset function is implemented in software, using the modem's current count as the baseline.
+
+**Note**: The internal modem counters are typically reset when the modem is powered cycled (complete power removal, soft power down or Cellular.off()) or if the PDP context is deactiaved and reactivated which can happen asynchronously during runtime. If the Cellular.getDataUsage() API has been read, reset or set, and then the modem's counters are reset for any reason, the next call to Cellular.getDataUsage() for a read will detect that the new reading would be less than the previous reading.  When this is detected, the current reading will remain the same, and the now lower modem count will be used as the new baseline.  Because of this mechanism, it is generally more accurate to read the getDataUsage() count often. This catches the instances when the modem count is reset, before the count starts to increase again.
+
+To use the data usage API, an instance of the `CellularData` type needs to be created to read or set counters.  All data usage API functions and the CellularData object itself return `bool` - `true` indicating the last operation was successful and the CellularData object was updated. For set and get functions, `CellularData` is passed by reference `Cellular.dataUsage(CellularData&);` and updated by the function.  There are 5 integers and 1 boolean within the CellularData object:
+
+- **ok**: (bool) a boolean value `false` when the CellularData object is initially created, and `true` after the object has been successfully updated by the API. If the last reading failed and the counters were not changed from their previous value, this value is set to `false`.
+- **cid**: (int) a value from 0-255 that is the index of the current PDP context that the data usage counters are valid for.  If this number is -1, the data usage counters have either never been initially set, or the last reading failed and the counters were not changed from their previous value.
+- **tx_session**: (int) number of bytes sent for the current session
+- **rx_session**: (int) number of bytes sent for the current session
+- **tx_total**: (int) number of bytes sent total (typical equals the session numbers)
+- **rx_total**: (int) number of bytes sent total (typical equals the session numbers)
+
+CellularData is a Printable object, so using it directly with `Serial.println(data);` will be output as follows:
+
+```
+cid,tx_session,rx_session,tx_total,rx_total
+31,1000,300,1000,300
+```
+
+```c++
+// SYNTAX
+// Read Data Usage
+CellularData data;
+Cellular.getDataUsage(data);
+```
+
+```c++
+// EXAMPLE
+
+void setup()
+{
+  Serial.begin(9600);
+}
+
+void loop()
+{
+    if (Serial.available() > 0)
+    {
+        char c = Serial.read();
+        if (c == '1') {
+            Serial.println("Read counters of sent or received PSD data!");
+            CellularData data;
+            if (!Cellular.getDataUsage(data)) {
+                Serial.print("Error! Not able to get data.");
+            }
+            else {
+                Serial.printlnf("CID: %d SESSION TX: %d RX: %d TOTAL TX: %d RX: %d",
+                    data.cid,
+                    data.tx_session, data.rx_session,
+                    data.tx_total, data.rx_total);
+                Serial.println(data); // Printable
+            }
+        }
+        else if (c == '2') {
+            Serial.println("Set all sent/received PSD data counters to 1000!");
+            CellularData data;
+            data.tx_session = 1000;
+            data.rx_session = 1000;
+            data.tx_total = 1000;
+            data.rx_total = 1000;
+            if (!Cellular.setDataUsage(data)) {
+                Serial.print("Error! Not able to set data.");
+            }
+            else {
+                Serial.printlnf("CID: %d SESSION TX: %d RX: %d TOTAL TX: %d RX: %d",
+                    data.cid,
+                    data.tx_session, data.rx_session,
+                    data.tx_total, data.rx_total);
+                Serial.println(data); // Printable
+            }
+        }
+        else if (c == '3') {
+            Serial.println("Reset counter of sent/received PSD data!");
+            if (!Cellular.resetDataUsage()) {
+                Serial.print("Error! Not able to reset data.");
+            }
+        }
+        else if (c == 'p') {
+            Serial.println("Publish some data!");
+            Particle.publish("1","a");
+        }
+        while (Serial.available()) Serial.read(); // Flush the input buffer
+    }
+
+}
+```
+
+### setDataUsage()
+
+Sets the Data Usage counters to the values indicated in the supplied CellularData object.
+
+Returns `bool` - `true` indicating this operation was successful and the CellularData object was updated.
+
+```c++
+// SYNTAX
+// Set Data Usage
+CellularData data;
+Cellular.setDataUsage(data);
+```
+
+### resetDataUsage()
+
+Resets the Data Usage counters to all zero.  No CellularData object is required.  This is handy to call just before an operation where you'd like to measure data usage.
+
+Returns `bool` - `true` indicating this operation was successful and the internally stored software offset has been reset to zero. If getDataUsage() was called immediately after without any data being used, the CellularData object would indicate zero data used.
+
+```c++
+// SYNTAX
+// Reset Data Usage
+Cellular.dataUsageReset();
+```
+
 ### RSSI()
 
 `Cellular.RSSI()` returns a struct of type `CellularSignal` that contains two integers: the signal strength (`rssi`) and signal quality (`qual`) of the currently connected Cellular network.
@@ -1338,8 +1499,171 @@ void loop()
 }
 ```
 
+
+bool Cellular.getBandSelect(CellularBand &data_get);
+
+### getBandAvailable()
+*Since 0.5.0.*
+
+Gets the cellular bands currently available in the modem.  `Bands` are the carrier frequncies used to communicate with the cellular network.  Some modems have 2 bands available (U260/U270) and others have 4 bands (G350).
+
+To use the band select API, an instance of the `CellularBand` type needs to be created to read or set bands.  All band select API functions and the CellularBand object itself return `bool` - `true` indicating the last operation was successful and the CellularBand object was updated. For set and get functions, `CellularBand` is passed by reference `Cellular.getBandSelect(CellularBand&);` and updated by the function.  There is 1 array, 1 integer, 1 boolean and 1 helper function within the CellularBand object:
+
+- **ok**: (bool) a boolean value `false` when the CellularBand object is initially created, and `true` after the object has been successfully updated by the API. If the last reading failed and the bands were not changed from their previous value, this value is set to `false`.
+- **count**: (int) a value from 0-5 that is the number of currently selected bands retrieved from the modem after getBandAvailble() or getBandSelect() is called successfully.
+- **band[5]**: (MDM_Band[]) array of up to 5 MDM_Band enumerated types.  Available enums are: `BAND_DEFAULT, BAND_0, BAND_700, BAND_800, BAND_850, BAND_900, BAND_1500, BAND_1700, BAND_1800, BAND_1900, BAND_2100, BAND_2600`.  All elements set to 0 when CellularBand object is first created, but after getBandSelect() is called successfully the currently selected bands will be populated started with index 0, i.e., (`.band[0]`). Can be 5 values when getBandAvailable() is called on a G350 modem, as it will return factory default value of 0 as an available option, i.e., `0,850,900,1800,1900`.
+- **bool isBand(int)**: helper function built into the CellularBand type that can be used to check if an integer is a valid band.  This is helpful if you would like to test a value before manually setting a band in the .band[] array.
+
+CellularBand is a Printable object, so using it directly with `Serial.println(CellularBand);` will print the number of bands that are retreived from the modem.  This will be output as follows:
+
+```
+// EXAMPLE PRINTABLE
+CellularBand band_sel;
+// populate band object with fake data
+band_sel.band[0] = BAND_850;
+band_sel.band[1] = BAND_1900;
+band_sel.count = 2;
+Serial.println(band_sel);
+
+// OUTPUT: band[0],band[1]
+850,1900
+```
+
+Here's a full example using all of the functions in the <a href="https://gist.github.com/technobly/b0e2f160b9d969d978337c0561999998" target="_blank">Cellular Band Select API</a>
+
+There is one supported function for getting available bands using the CellularBand object:
+
+`bool Cellular.getBandAvailable(CellularBand &band_avail);`
+
+**Note:** getBandAvailable() always sets the first band array element `.band[0]` as 0 which indicates the first option available is to set the bands back to factory defaults, which includes all bands.
+
+```
+// SYNTAX
+CellularBand band_avail;
+Cellular.getBandAvailable(band_avail);
+```
+
+```
+// EXAMPLE
+CellularBand band_avail;
+if (Cellular.getBandSelect(band_avail)) {
+    Serial.print("Available bands: ");
+    for (int x=0; x<band_avail.count; x++) {
+        Serial.printf("%d", band_avail.band[x]);
+        if (x+1 < band_avail.count) Serial.printf(",");
+    }
+    Serial.println();
+}
+else {
+    Serial.printlnf("Bands available not retrieved from the modem!");
+}
+```
+
+### getBandSelect()
+*Since 0.5.0.*
+
+Gets the cellular bands currently set in the modem.  `Bands` are the carrier frequncies used to communicate with the cellular network.
+
+There is one supported function for getting selected bands using the CellularBand object:
+
+`bool Cellular.getBandSelect(CellularBand &band_sel);`
+
+```
+// SYNTAX
+CellularBand band_sel;
+Cellular.getBandSelect(band_sel);
+```
+
+```
+// EXAMPLE
+CellularBand band_sel;
+if (Cellular.getBandSelect(band_sel)) {
+    Serial.print("Selected bands: ");
+    for (int x=0; x<band_sel.count; x++) {
+        Serial.printf("%d", band_sel.band[x]);
+        if (x+1 < band_sel.count) Serial.printf(",");
+    }
+    Serial.println();
+}
+else {
+    Serial.printlnf("Bands selected not retrieved from the modem!");
+}
+```
+
+### setBandSelect()
+*Since 0.5.0.*
+
+Sets the cellular bands currently set in the modem.  `Bands` are the carrier frequncies used to communicate with the cellular network.
+
+**Caution:** The Band Select API is an advanced feature designed to give users selective frequency control over their Electrons. When changing location or between cell towers, you may experience connectivity issues if you have only set one specific frequency for use. Because these settings are permanently saved in non-volatile memory, it is recommended to keep the factory default value of including all frequencies with mobile applications.  Only use the selective frequency control for stationary applications, or for special use cases.
+
+- Make sure to set the `count` to the appropriate number of bands set in the CellularBand object before calling `setBandSelect()`.
+- Use the `.isBand(int)` helper function to determine if an integer value is a valid band.  It still may not be valid for the particular modem you are using, in which case `setBandSelect()` will return `false` and `.ok` will also be set to `false`.
+- When trying to set bands that are already set, they will not be written to Non-Volatile Memory (NVM) again.
+- When updating the bands in the modem, they will be saved to NVM and will be remain as set when the modem power cycles.
+- Setting `.band[0]` to `BAND_0` or `BAND_DEFAULT` and `.count` to 1 will restore factory defaults.
+
+There are two supported functions for setting bands, one uses the CellularBand object, and the second allow you to pass in a comma delimited string of bands:
+
+`bool Cellular.setBandSelect(const char* band_set);`
+
+`bool Cellular.setBandSelect(CellularBand &band_set);`
+
+```
+// SYNTAX
+CellularBand band_set;
+Cellular.setBandSelect(band_set);
+
+// or
+
+Cellular.setBandSelect("850,1900"); // set two bands
+Cellular.setBandSelect("0"); // factory defaults
+```
+
+```
+// EXAMPLE
+Serial.println("Setting bands to 850 only");
+CellularBand band_set;
+band_set.band[0] = BAND_850;
+band_set.band[1] = BAND_1900;
+band_set.count = 2;
+if (Cellular.setBandSelect(band_set)) {
+    Serial.print(band_set);
+    Serial.println(" band(s) set! Value will be saved in NVM when powering off modem.");
+}
+else {
+    Serial.print(band_set);
+    Serial.println(" band(s) not valid! Use getBandAvailable() to query for valid bands.");
+}
+```
+
+```
+// EXAMPLE
+Serial.println("Restoring factory defaults with the CellularBand object");
+CellularBand band_set;
+band_set.band[0] = BAND_DEFAULT;
+band_set.count = 1;
+if (Cellular.setBandSelect(band_set)) {
+    Serial.println("Factory defaults set! Value will be saved in NVM when powering off modem.");
+}
+else {
+    Serial.println("Restoring factory defaults failed!");
+}
+```
+
+```
+// EXAMPLE
+Serial.println("Restoring factory defaults with strings");
+if (Cellular.setBandSelect("0")) {
+    Serial.println("Factory defaults set! Value will be saved in NVM when powering off modem.");
+}
+else {
+    Serial.println("Restoring factory defaults failed!");
+}
+```
+
 ### localIP()
-*Coming in 0.5.0.*
+*Since 0.5.0.*
 
 `Cellular.localIP()` returns the local (private) IP address assigned to the device as an `IPAddress`.
 
@@ -2461,7 +2785,9 @@ void loop()
 
 ### availableForWrite()
 
-_Since 0.4.9. Available on Serial1, Serial2, etc.. This function will support USB Serial with the next release._
+_Since 0.4.9. Available on Serial1, Serial2, etc._
+
+_Since 0.5.0. Available on USB Serial (Serial)_
 
 Retrieves the number of bytes (characters) that can be written to this serial port without blocking.
 
@@ -2469,7 +2795,9 @@ If `blockOnOverrun(false)` has been called, the method returns the number of byt
 
 ### blockOnOverrun()
 
-_Since 0.4.9. Available on Serial1, Serial2, etc.. This function will support USB Serial with the next release._
+_Since 0.4.9. Available on Serial1, Serial2, etc._
+
+_Since 0.5.0. Available on USB Serial (Serial)_
 
 Defines what should happen when calls to `write()/print()/println()/printlnf()` that would overrun the buffer.
 
@@ -2740,6 +3068,10 @@ SPI
 ----
 This library allows you to communicate with SPI devices, with the {{device}} as the master device.
 
+{{#unless core}}
+_Since 0.5.0_ the {{device}} can function as a slave.
+{{/unless}}
+
 {{#if core}}
 ![SPI](/assets/images/core-pin-spi.jpg)
 {{/if}}
@@ -2779,7 +3111,7 @@ Do **NOT** use **SPI**.begin() with **SPI1**.transfer();
 
 ### begin()
 
-Initializes the SPI bus by setting SCK, MOSI, and a user-specified slave-select pin to outputs, MISO to input. SCK and MOSI are pulled low, and slave-select high.
+Initializes the SPI bus by setting SCK, MOSI, and a user-specified slave-select pin to outputs, MISO to input. SCK is pulled either high or low depending on the configured SPI data mode (default high for `SPI_MODE3`). Slave-select is pulled high.
 
 **Note:**  The SPI firmware ONLY initializes the user-specified slave-select pin as an `OUTPUT`. The user's code must control the slave-select pin with `digitalWrite()` before and after each SPI transfer for the desired SPI slave device. Calling `SPI.end()` does NOT reset the pin mode of the SPI pins.
 
@@ -2816,6 +3148,32 @@ SPI1.begin(D5);
 SPI2.begin(C0);
 ```
 {{/if}}
+
+{{#unless core}}
+
+### begin(SPI_Mode, uint16_t)
+
+_Since 0.5.0_
+
+Initializes the {{device}} SPI peripheral in master or slave mode.
+
+**Note:** MISO, MOSI and SCK idle in high-impedance state when SPI peripheral is configured in slave mode and the device is not selected.
+
+Parameters:
+
+- `mode`: `SPI_MODE_MASTER` or `SPI_MODE_SLAVE`
+- `ss_pin`: slave-select pin to initialize. If no pin is specified, the default pin is `SS (A2)`. For `SPI1`, the default pin is `SS (D5)`. {{#if electron}}For `SPI2`, the default pin is also `SS (D5)`.{{/if}}
+
+```C++
+// Example using SPI in master mode, with A2 (default) as the SS pin:
+SPI.begin(SPI_MODE_MASTER);
+// Example using SPI1 in slave mode, with D5 as the SS pin
+SPI1.begin(SPI_MODE_SLAVE, D5);
+// Example using SPI2 in slave mode, with C0 as the SS pin
+SPI2.begin(SPI_MODE_SLAVE, C0);
+```
+
+{{/unless}}
 
 ### end()
 
@@ -2976,7 +3334,7 @@ SPI2.transfer(val);
 Where the parameter `val`, can is the byte to send out over the SPI bus.
 
 {{#unless core}}
-### transfer(void*, void*, size_t, std::function)
+### transfer(void\*, void\*, size_t, std::function)
 
 For transferring a large number of bytes, this form of transfer() uses DMA to speed up SPI data transfer and at the same time allows you to run code in parallel to the data transmission. The function initialises, configures and enables the DMA peripheral’s channel and stream for the selected SPI peripheral for both outgoing and incoming data and initiates the data transfer. If a user callback function is passed then it will be called after completion of the DMA transfer. This results in asynchronous filling of RX buffer after which the DMA transfer is disabled till the transfer function is called again. If NULL is passed as a callback then the result is synchronous i.e. the function will only return once the DMA transfer is complete.
 
@@ -2995,12 +3353,89 @@ SPI2.transfer(tx_buffer, rx_buffer, length, myFunction);
 
 Parameters:
 
-- `tx_buffer`: array of Tx bytes that is filled by the user before starting the SPI transfer
-- `rx_buffer`: array of Rx bytes that will be filled by the slave during the SPI transfer
+- `tx_buffer`: array of Tx bytes that is filled by the user before starting the SPI transfer. If `NULL`, default dummy 0xFF bytes will be clocked out.
+- `rx_buffer`: array of Rx bytes that will be filled by the slave during the SPI transfer. If `NULL`, the received data will be discarded.
 - `length`: number of data bytes that are to be transferred
 - `myFunction`: user specified function callback to be called after completion of the SPI DMA transfer
 
 NOTE: `tx_buffer` and `rx_buffer` sizes MUST be identical (of size `length`)
+
+_Since 0.5.0_ When SPI peripheral is configured in slave mode, the transfer will be canceled when the master deselects this slave device. The user application can check the actual number of bytes received/transmitted by calling `available()`.
+
+### transferCancel()
+
+_Since 0.5.0_
+
+Aborts the configured DMA transfer and disables the DMA peripheral’s channel and stream for the selected SPI peripheral for both outgoing and incoming data.
+
+**Note**: The user specified SPI DMA transfer completion function will still be called to indicate the end of DMA transfer. The user application can check the actual number of bytes received/transmitted by calling `available()`.
+
+### onSelect()
+
+_Since 0.5.0_
+
+Registers a function to be called when the SPI master selects or deselects this slave device by pulling configured slave-select pin low (selected) or high (deselected).
+
+Parameters: `handler`: the function to be called when the slave is selected or deselected; this should take a single uint8_t parameter (the current state: `1` - selected, `0` - deselected) and return nothing, e.g.: `void myHandler(uint8_t state)`
+
+```C++
+// SPI slave example
+static uint8_t rx_buffer[64];
+static uint8_t tx_buffer[64];
+static uint32_t select_state = 0x00;
+static uint32_t transfer_state = 0x00;
+
+void onTransferFinished() {
+    transfer_state = 1;
+}
+
+void onSelect(uint8_t state) {
+    if (state)
+        select_state = state;
+}
+
+/* executes once at startup */
+void setup() {
+    Serial.begin(9600);
+    for (int i = 0; i < sizeof(tx_buffer); i++)
+      tx_buffer[i] = (uint8_t)i;
+    SPI.onSelect(onSelect);
+    SPI.begin(SPI_MODE_SLAVE, A2);
+}
+
+/* executes continuously after setup() runs */
+void loop() {
+    while (1) {
+        while(select_state == 0);
+        select_state = 0;
+
+        transfer_state = 0;
+        SPI.transfer(tx_buffer, rx_buffer, sizeof(rx_buffer), onTransferFinished);
+        while(transfer_state == 0);
+        if (SPI.available() > 0) {
+            Serial.printf("Received %d bytes", SPI.available());
+            Serial.println();
+            for (int i = 0; i < SPI.available(); i++) {
+                Serial.printf("%02x ", rx_buffer[i]);
+            }
+            Serial.println();
+        }
+    }
+}
+```
+
+### available()
+
+_Since 0.5.0_
+
+Returns the number of bytes available for reading in the `rx_buffer` supplied in `transfer()`. In general, returns the actual number of bytes received/transmitted during the ongoing or finished DMA transfer.
+
+```C++
+// SYNTAX
+SPI.available();
+```
+
+Returns the number of bytes available.
 
 {{/unless}}
 
@@ -5614,38 +6049,125 @@ from the cloud, and setting the seed is left to up you.
 
 ## EEPROM
 
-The EEPROM emulator allocates a region of the device's built-in flash memory to act as EEPROM.
+EEPROM emulation allocates a region of the device's built-in Flash memory to act as EEPROM.
 Unlike "true" EEPROM, flash doesn't suffer from write "wear" with each write to
 each individual address. Instead, the page suffers wear when it is filled. Each write
 will add more data to the page until it is full, causing a page erase.
 
-The EEPROM functions can be used to store small amounts of data in flash that
+The EEPROM functions can be used to store small amounts of data in Flash that
 will persist even after the device resets after a deep sleep or is powered off.
 
 ### length()
-Returns the total number of bytes of emulated EEPROM.
-
-`size_t length()`
-
-- The Core has 100 bytes of emulated EEPROM.
-- The Photon and Electron have 2048 bytes of emulated EEPROM.
+Returns the total number of bytes available in the emulated EEPROM.
 
 ```c++
-// EXAMPLE USAGE
-
-// Find out the size of the emulated eeprom
+// SYNTAX
 size_t length = EEPROM.length();
 ```
 
-### read()
-Read a byte of data from the emulated EEPROM.
+- The Core has 127 bytes of emulated EEPROM.
+- The Photon and Electron have 2047 bytes of emulated EEPROM.
 
-`read(address)`
+### put()
+This function will write an object to the EEPROM. You can write single values like `int` and
+`float` or group multiple values together using `struct` to ensure that all values of the struct are
+updated together.
+
+```
+// SYNTAX
+EEPROM.put(int address, object)
+```
+
+`address` is the start address (int) of the EERPOM locations to write. It must be a value between 0
+and `EEPROM.length()-1`
+
+`object` is the object data to write. The number of bytes to write is automatically determined from
+the type of object.
+
+```C++
+// EXAMPLE USAGE
+// Write a value to the EEPROM address
+int addr = 10;
+uint16_t value = 12345;
+EEPROM.put(addr, value);
+
+// Write an object to the EEPROM address
+addr = 20;
+struct MyObject {
+  uint8_t version;
+  float field1;
+  uint16_t field2;
+  char name[10];
+};
+MyObject myObj = { 0, 12.34f, 25, "Test!" };
+EEPROM.put(addr, myObj);
+```
+
+The object data is first compared to the data written in the EEPROM to avoid writing values that
+haven't changed.
+
+If the {{device}} loses power before the write finishes, the partially written data will be ignored.
+
+If you write several objects to EEPROM, make sure they don't overlap: the address of the second
+object must be larger than the address of the first object plus the size of the first object. You
+can leave empty room between objects in case you need to make the first object bigger later.
+
+### get()
+This function will retrieve an object from the EEPROM. Use the same type of object you used in the
+`put` call.
+
+```
+// SYNTAX
+EEPROM.get(int address, object)
+```
+
+`address` is the start address (int) of the EERPOM locations to read. It must be a value between 0
+and `EEPROM.length()-1`
+
+`object` is the object data that would be read. The number of bytes read is automatically determined
+from the type of object.
+
+```C++
+// EXAMPLE USAGE
+// Read a value from EEPROM addres
+int addr = 10;
+uint16_t value;
+EEPROM.get(addr, value);
+if(value == 0xFFFF) {
+  // EEPROM was empty -> initialize value
+  value = 25;
+}
+
+// Read an object from the EEPROM addres
+addr = 20;
+struct MyObject {
+  uint8_t version;
+  float field1;
+  uint16_t field2;
+  char name[10];
+};
+MyObject myObj;
+EEPROM.get(addr, myObj);
+if(myObj.version != 0) {
+  // EEPROM was empty -> initialize myObj
+  MyObject defaultObj = { 0, 12.34f, 25, "Test!" };
+  myObj = defaultObj;
+}
+```
+
+The default value of bytes in the EEPROM is 255 (hexadecimal 0xFF) so reading an object on a new
+{{device}} will return an object filled with 0xFF. One trick to deal with default data is to include
+a version field that you can check to see if there was valid data written in the EEPROM.
+
+### read()
+Read a single byte of data from the emulated EEPROM.
+
+```
+// SYNTAX
+uint8_t value = EEPROM.read(int address);
+```
 
 `address` is the address (int) of the EERPOM location to read
-
-- On the Core, this must be a value between 0 and 99
-- On the Photon/Electron, this must be a value between 0 and 2047
 
 ```C++
 // EXAMPLE USAGE
@@ -5655,16 +6177,18 @@ int addr = 1;
 uint8_t value = EEPROM.read(addr);
 ```
 
-### write()
-Write a byte of data to the emulated EEPROM.
+When reading more than 1 byte, prefer `get()` over multiple `read()` since it's faster.
 
-`write(address, value)`
+### write()
+Write a single byte of data to the emulated EEPROM.
+
+```
+// SYNTAX
+write(int address, uint8_t value);
+```
 
 `address` is the address (int) of the EERPOM location to write to
 `value` is the byte data (uint8_t) to write
-
-- On the Core, this must be a value between 0 and 99
-- On the Photon/Electron, this must be a value between 0 and 2047
 
 ```C++
 // EXAMPLE USAGE
@@ -5675,69 +6199,58 @@ uint8_t val = 0x45;
 EEPROM.write(addr, val);
 ```
 
-### update()
-This method is similar to `EEPROM.write()` however this method will only write data if the cell contents pointed to by `address` is different to `value`. This method can help prevent unnecessary wear on the EEPROM cells.
+When writing more than 1 byte, prefer `put()` over multiple `write()` since it's faster and it ensures
+consistent data even when power is lost while writing.
 
-`update(address, value)`
-
-`address` is the address (int) of the EERPOM location that needs to be updated
-`value` is the byte data (uint8_t) to write
+### clear()
+Erase all the EEPROM so that all reads will return 255 (hexadecimal 0xFF).
 
 ```C++
 // EXAMPLE USAGE
-// Update a byte value to the second byte of EEPROM
-int addr = 1;
-uint8_t val = 0x45;
-EEPROM.update(addr, val);
+// Reset all EEPROM locations to 0xFF
+EEPROM.clear();
 ```
 
-### get()
-This function will retrieve any object from the EEPROM. Two parameters are needed to call this function. The first is an int containing the address from where the object needs to be read, and the second is the object you would like to read.
+Calling this function pauses processor execution (including code running in interrupts) for 800ms since
+no instructions can be fetched from Flash while the Flash controller is busy erasing both EEPROM
+pages.
 
-`get(address, object)`
+### hasPendingErase()
+### performPendingErase()
 
-`address` is the address (int) of the EERPOM location
-`object` is the object data that would be read
+*Automatic page erase is the default behavior. This section describes optional functions the
+application can call to manually control page erase for advanced use cases.*
 
-```C++
+After enough data has been written to fill the first page, the EEPROM emulation will write new data
+to a second page. The first page must be erased before being written again.
+
+Erasing a page of Flash pauses processor execution (including code running in interrupts) for 500ms since
+no instructions can be fetched from Flash while the Flash controller is busy erasing the EEPROM
+page. This could cause issues in applications that use EEPROM but rely on precise interrupt timing.
+
+`hasPendingErase()` lets the application developer check if a full EEPROM page needs to be erased.
+When the application determines it is safe to pause processor execution to erase EEPROM it calls
+`performPendingErase()`. You can call this at boot, or when your device is idle if you expect it to
+run without rebooting for a long time.
+
+```
 // EXAMPLE USAGE
-// Read a custom object from EEPROM addres
-int addr = 10;
-float fValue = 0.00f;
-EEPROM.get(addr, fValue);
-
-struct MyObject{
-float field1;
-byte field2;
-char name[10];
-};
-MyObject myObj;
-EEPROM.get(addr, myObj);
+void setup() {
+  // Erase full EEPROM page at boot when necessary
+  if(EEPROM.hasPendingErase()) {
+    EEPROM.performPendingErase();
+  }
+}
 ```
 
-### put()
-This function will write any object to the EEPROM. Two parameters are needed to call this function. The first is an int containing the address that is to be written, and the second is the object you would like to write.
+To estimate how often page erases will be necessary in your application, assume that it takes
+`2*EEPROM.length()` byte writes to fill a page (it will usually be more because not all bytes will always be
+updated with different values).
 
-`put(address, object)`
-
-`address` is the address (int) of the EERPOM location to write to
-`object` is the object data to write
-
-```C++
-// EXAMPLE USAGE
-// Write a object value to the EEPROM address
-int addr = 10;
-float fValue = 123.456f;
-EEPROM.put(addr, fValue);
-
-struct MyObject{
-float field1;
-byte field2;
-char name[10];
-};
-MyObject myObj = {12.34f, 25, "Test!"}
-EEPROM.put(addr, myObj);
-```
+If the application never calls `performPendingErase()` then the pending page erase will be performed
+when data is written using `put()` or `write()` and both pages are full. So calling
+`performPendingErase()` is optional and provided to avoid the uncertainty of a potential processor
+pause any time `put()` or `write()` is called.
 
 {{#unless core}}
 ## Backup RAM (SRAM)
@@ -6605,10 +7118,6 @@ System.sleep(5);
 // The device LED will breathe white during sleep
 ```
 
-_Since 0.4.5._ The state of Wi-Fi and Cloud connections is restored when the system wakes up from sleep.
-So if the device was connected to the cloud before sleeping, then the cloud connection
-is automatically resumed on waking up.
-
 `System.sleep(long seconds)` does NOT stop the execution of application code (non-blocking call).  Application code will continue running while the Wi-Fi module is in standby mode.
 
 `System.sleep(SLEEP_MODE_DEEP, long seconds)` can be used to put the entire device into a *deep sleep* mode.
@@ -6631,15 +7140,24 @@ System.sleep(SLEEP_MODE_DEEP,60);
 ```
 The device will automatically *wake up* and reestablish the Wi-Fi connection after the specified number of seconds.
 
-`System.sleep(uint16_t wakeUpPin, uint16_t edgeTriggerMode)` can be used to put the entire device into a *stop* mode with *wakeup on interrupt*. In this particular mode, the device shuts down the Wi-Fi chipset and puts the microcontroller in a stop mode with configurable wakeup pin and edge triggered interrupt. When the specific interrupt arrives, the device awakens from stop mode, it will behave as if the device is reset and run all user code from the beginning with no values being maintained in memory from before the stop mode.
+`System.sleep(uint16_t wakeUpPin, uint16_t edgeTriggerMode)` can be used to put the entire device into a *stop* mode with *wakeup on interrupt*. In this particular mode, the device shuts down the network and puts the microcontroller in a stop mode with configurable wakeup pin and edge triggered interrupt. When the specific interrupt arrives, the device awakens from stop mode, it will behave as if the device is reset and run all user code from the beginning with no values being maintained in memory from before the stop mode.
 
 As such, it is recommended that stop mode be called only after all user code has completed. (Note: The Photon and Electron will not reset before going into stop mode so all the application variables are preserved after waking up from this mode. The voltage regulator is put in low-power mode. This mode achieves the lowest power consumption while retaining the contents of SRAM and registers.)
 
-It is mandatory to update the *bootloader* (https://github.com/spark/firmware/tree/bootloader-patch-update) for proper functioning of this mode (valid only for Core).
+{{#if core}}
+It is mandatory to update the *bootloader* (https://github.com/spark/firmware/tree/bootloader-patch-update) for proper functioning of this mode.
+{{/if}}
+
+{{#if electron}}
+The Electron maintains the cellular connection for the duration of the sleep when  `SLEEP_NETWORK_STANDBY` is given as the last parameter value. On wakeup, the device is able to reconnect to the cloud much quicker, at the expense of increased power consumption.
+{{/if}}
 
 ```C++
 // SYNTAX
 System.sleep(uint16_t wakeUpPin, uint16_t edgeTriggerMode);
+{{#if electron}}
+System.sleep(uint16_t wakeUpPin, uint16_t edgeTriggerMode, SLEEP_NETWORK_STANDBY);
+{{/if}}
 ```
 
 ```C++
@@ -6659,11 +7177,11 @@ System.sleep(D0,RISING);
     - RISING to trigger when the pin goes from low to high,
     - FALLING for when the pin goes from high to low.
 
-`System.sleep(uint16_t wakeUpPin, uint16_t edgeTriggerMode, long seconds)` can be used to put the entire device into a *stop* mode with *wakeup on interrupt* or *wakeup after specified seconds*. In this particular mode, the Core shuts down the Wi-Fi chipset (CC3000) and puts the microcontroller in a stop mode with configurable wakeup pin and edge triggered interrupt or wakeup after the specified seconds . When the specific interrupt arrives or upon reaching configured seconds, the Core awakens from stop mode, it will behave as if the Core is reset and run all user code from the beginning with no values being maintained in memory from before the stop mode. As such, it is recommended that stop mode be called only after all user code has completed. (Note: The Photon and Electron will not reset before going into stop mode so all the application variables are preserved after waking up from this mode. The voltage regulator is put in low-power mode. This mode achieves the lowest power consumption while retaining the contents of SRAM and registers.)
+`System.sleep(uint16_t wakeUpPin, uint16_t edgeTriggerMode, long seconds)` can be used to put the entire device into a *stop* mode with *wakeup on interrupt* or *wakeup after specified seconds*. In this particular mode, the device shuts network subsystem and puts the microcontroller in a stop mode with configurable wakeup pin and edge triggered interrupt or wakeup after the specified seconds. When the specific interrupt arrives or upon reaching the configured timeout, the device awakens from stop mode. {{#if core}} On the Core, the Core is reset on entering stop mode and runs all user code from the beginning with no values being maintained in memory from before the stop mode. As such, it is recommended that stop mode be called only after all user code has completed.{{/if}} {{#unless core}}The device will not reset before going into stop mode so all the application variables are preserved after waking up from this mode. The voltage regulator is put in low-power mode. This mode achieves the lowest power consumption while retaining the contents of SRAM and registers.{{/unless}}
 
 ```C++
 // SYNTAX
-System.sleep(uint16_t wakeUpPin, uint16_t edgeTriggerMode, long seconds);
+System.sleep(uint16_t wakeUpPin, uint16_t edgeTriggerMode, long seconds{{#if electron}},[SLEEP_NETWORK_STANDBY]{{/if}});
 ```
 
 ```C++
@@ -6674,7 +7192,7 @@ System.sleep(D0,RISING,60);
 // The device LED will shut off during sleep
 ```
 
-It is mandatory to update the *bootloader* (https://github.com/spark/firmware/tree/bootloader-patch-update) for proper functioning of this mode(valid only for Core).
+{{#if core}}On the Core, it is necessary to update the *bootloader* (https://github.com/spark/firmware/tree/bootloader-patch-update) for proper functioning of this mode.{{/if}}
 
 
 *Parameters:*
@@ -6686,6 +7204,9 @@ It is mandatory to update the *bootloader* (https://github.com/spark/firmware/tr
     - RISING to trigger when the pin goes from low to high,
     - FALLING for when the pin goes from high to low.
 - `seconds`: wakeup after the specified number of seconds
+{{#if electron}}
+- `SLEEP_NETWORK_STANDBY`: optional - keeps the cellular modem in a standby state while the device is sleeping.. 
+{{/if}}
 
 *Power consumption:*
 
@@ -6695,16 +7216,11 @@ It is mandatory to update the *bootloader* (https://github.com/spark/firmware/tr
 - Photon
  - Please see the [Photon datasheet](/datasheets/photon-datasheet/#recommended-operating-conditions)
 
-<!--
-System.sleep(int millis, array peripherals);
--->
 
-<!--
-`System.sleep()` can also take an optional second argument, an `array` of other peripherals to deactivate. Deactivating unused peripherals on the micro-controller can take its power consumption into the micro-amps.
--->
+_Since 0.4.5._ The state of the {{#unless electron}}Wi-Fi{{/unless}}{{#if electron}}Cellular{{/if}} and Cloud connections is restored when the system wakes up from sleep. So if the device was connected to the cloud before sleeping, then the cloud connection
+is automatically resumed on waking up.
+_Since 0.5.0._ In automatic modes, the `sleep()` function doesn't return until the cloud connection has been established. This means that application code can use the cloud connection as soon as  `sleep()` returns. In previous versions, it was necessary to call `Particle.process()` to have the cloud reconnected by the system in the background.  
 
-<!-- TO DO -->
-<!-- Add example implementation here -->
 
 ### reset()
 

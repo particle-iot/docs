@@ -114,7 +114,7 @@ The easiest way to identify a bad contact in the holder is by removing the SIM c
 ![Identifying and fixing SIM holder](/assets/images/bad-sim-socket.png)
 <p class="caption"> <a target="_blank" href="/assets/images/bad-sim-socket.png">Click here</a> for a larger image.</p>
 
-Try using your hands to press down on the SIM card to improve contact between the SIM and the metal pins underneath--while pressing on the SIM card, press the `RESET` button on the Electron. If you see the device begin to connect to the cellular network (flash green), you may have a damaged SIM card holder and should [contact Particle](/support/support-and-fulfillment/menu-base/).
+Try using your hands to press down on the SIM card to improve contact between the SIM and the metal pins underneath--while pressing on the SIM card, press the `{{reset-button}}` button on the Electron. If you see the device begin to connect to the cellular network (flash green), you may have a damaged SIM card holder and should [contact Particle](/support/support-and-fulfillment/menu-base/).
 
 ### 5\. Is your SIM card damaged or defective?
 Try using the SIM card from your cell phone, if you have one. If the RGB LED on the Electron begins to blink green when your phone's SIM is inserted, your Particle SIM may need to be replaced, and you should [contact Particle](/support/support-and-fulfillment/menu-base/).
@@ -155,7 +155,7 @@ More details coming soon.
 More details coming soon.
 
 **Using the Particle CLI**
-- Put your device into DFU mode by holding the `MODE` and `RESET` buttons, then releasing the `RESET` button while continuing to hold the `MODE` button. The LED on your Electron will begin flashing yellow.
+- Put your device into DFU mode by holding the `{{system-button}}` and `{{reset-button}}` buttons, then releasing the `{{reset-button}}` button while continuing to hold the `{{system-button}}` button. The LED on your Electron will begin flashing yellow.
 - Open up a terminal session and type `particle update`
 - Your device will download the most recent version of system firmware and will reboot successfully.
 

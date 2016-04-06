@@ -87,7 +87,7 @@ to wired power source. Consider this battery your Electron's best friend!
 {{#if photon}}
 {{{popup '**Buttons**' 'img' 'photon-buttons.jpg'}}} **and** {{{popup '**LEDs.**' 'img' 'photon-leds.jpg'}}} There are several awesome buttons and LEDs on your Photon to make it easier to use.
 
-- The `SETUP` button is on the left and the `RESET` button is on the right. You can use these buttons to help you set your device's [mode](/guide/getting-started/modes).
+- The `{{system-button}}` button is on the left and the `{{reset-button}}` button is on the right. You can use these buttons to help you set your device's [mode](/guide/getting-started/modes).
 - The RGB LED is in the center of your Photon, above the module. The color of the RGB LED tells you what [mode](/guide/getting-started/modes) your Photon is currently in.
 - The D7 LED is next to the D7 pin on your Photon, on the upper right quadrant. This LED will turn on when the D7 pin is set to `HIGH`.
 
@@ -98,7 +98,7 @@ to wired power source. Consider this battery your Electron's best friend!
 
 {{{popup '**Buttons**' 'img' 'core-buttons.jpg'}}} **and** {{{popup '**LEDs.**' 'img' 'core-leds.jpg'}}} There are several awesome buttons and LEDs on your Core to make it easier to use.
 
-- The `MODE` button is on the left and the `RESET` button is on the right. You can use these buttons to help you set your device's [mode](/guide/getting-started/modes).
+- The `{{system-button}}` button is on the left and the `{{reset-button}}` button is on the right. You can use these buttons to help you set your device's [mode](/guide/getting-started/modes).
 - The **RGB LED** is in the center of your Core, above the module. The color of the RGB LED tells you what [mode](/guide/getting-started/modes) your Core is currently in.
 - The **D7 LED** in the upper right side of your device. This LED will turn on when the D7 pin is set to `HIGH`.
 
@@ -114,12 +114,12 @@ For more technical details on what comes on your device, go {{#if core}}[here](/
 - When the LED turns off, the battery is fully charged
 
 ### Display signal strength!
-- Press MODE once quickly when the Electron is breathing cyan
+- Press `{{system-button}}` once quickly when the Electron is breathing cyan
 - The signal strength (RSSI) will be shown in a 0-5 green blinks, 5 being the strongest
 
 ### Soft Power Down
-- Tap MODE twice quickly, then the LED will show white, and then it will turn off in a few seconds
-- To turn it back on tap RESET once
+- Tap `{{system-button}}` twice quickly, then the LED will show white, and then it will turn off in a few seconds
+- To turn it back on tap `{{reset-button}}` once
 - You can use use soft power down instead of unplugging the battery or power
 - This uses a deep sleep mode for the Electron, and will still use 0.13mA
 {{/if}}
@@ -259,7 +259,7 @@ This may take a little while - but don't worry.
 
 If you can't seem to get the Mobile App to connect your device, that's okay! Read over this example quickly, and then check out the [next lesson](/guide/getting-started/connect) to connect your device using the USB cable.
 
-Once you have connected your device, it has learned that network. Your device can store up to {{#if core}}seven{{/if}} {{#if photon}}five{{/if}} networks. To add a new network after your initial setup, you'd put your device into {{#if photon}}{{{popup 'Listening Mode' 'vine' 'https://vine.co/v/eZUH7WaWjMT/embed/simple'}}}{{/if}}{{#if core}}{{{popup 'Listening Mode' 'vine' 'https://vine.co/v/eZU6YiK20Hl/embed/simple'}}}{{/if}} again and proceede as above (the claiming part can be skipped). If you feel like your device has too many networks on it, you can wipe your device's memory of any wifi networks it has learned. You can do so by continuing to hold the {{#if photon}}SETUP{{/if}}{{#if core}}MODE{{/if}} button for 10 seconds until the RGB LED flashes blue quickly, signaling that all profiles have been deleted.
+Once you have connected your device, it has learned that network. Your device can store up to {{#if core}}seven{{/if}} {{#if photon}}five{{/if}} networks. To add a new network after your initial setup, you'd put your device into {{#if photon}}{{{popup 'Listening Mode' 'vine' 'https://vine.co/v/eZUH7WaWjMT/embed/simple'}}}{{/if}}{{#if core}}{{{popup 'Listening Mode' 'vine' 'https://vine.co/v/eZU6YiK20Hl/embed/simple'}}}{{/if}} again and proceede as above (the claiming part can be skipped). If you feel like your device has too many networks on it, you can wipe your device's memory of any wifi networks it has learned. You can do so by continuing to hold the `{{system-button}}` button for 10 seconds until the RGB LED flashes blue quickly, signaling that all profiles have been deleted.
 
 ### Step 3: Blink an LED!
 {{#if core}}The Spark Core App should now be on the {{{ popup 'Tinker' 'note' 'We have taken the liberty of loading some firmware onto your device for you. It is called Tinker, and it helps you talk to your device by sending power to the pins and reading power levels from the pins. More info about Tinker is available [here](/guide/getting-started/tinker/core).'}}} screen, as shown below.
@@ -326,7 +326,7 @@ This may take a little while - but don't worry.
 
 If you can't seem to get the Mobile App to connect your device, that's okay! Read over this example quickly, and then check out the [next lesson](/guide/getting-started/connect) to connect your device using the USB cable.
 
-Once you have connected your device, it has learned that network. Your device can store up to {{#if core}}seven{{/if}} {{#if photon}}five{{/if}} networks. To add a new network after your initial setup, you'd put your device into {{#if photon}}{{{popup 'Listening Mode' 'vine' 'https://vine.co/v/eZUH7WaWjMT/embed/simple'}}}{{/if}}{{#if core}}{{{popup 'Listening Mode' 'vine' 'https://vine.co/v/eZU6YiK20Hl/embed/simple'}}}{{/if}} again and proceede as above (the claiming part can be skipped). If you feel like your device has too many networks on it, you can wipe your device's memory of any wifi networks it has learned. You can do so by continuing to hold the {{#if photon}}SETUP{{/if}}{{#if core}}MODE{{/if}} button for 10 seconds until the RGB LED flashes blue quickly, signaling that all profiles have been deleted.
+Once you have connected your device, it has learned that network. Your device can store up to {{#if core}}seven{{/if}} {{#if photon}}five{{/if}} networks. To add a new network after your initial setup, you'd put your device into {{#if photon}}{{{popup 'Listening Mode' 'vine' 'https://vine.co/v/eZUH7WaWjMT/embed/simple'}}}{{/if}}{{#if core}}{{{popup 'Listening Mode' 'vine' 'https://vine.co/v/eZU6YiK20Hl/embed/simple'}}}{{/if}} again and proceede as above (the claiming part can be skipped). If you feel like your device has too many networks on it, you can wipe your device's memory of any wifi networks it has learned. You can do so by continuing to hold the `{{system-button}}` button for 10 seconds until the RGB LED flashes blue quickly, signaling that all profiles have been deleted.
 
 ### Step 3: Blink an LED!
 {{#if core}}The Spark Core App should now be on the {{{ popup 'Tinker' 'note' 'We have taken the liberty of loading some firmware onto your device for you. It is called Tinker, and it helps you talk to your device by sending power to the pins and reading power levels from the pins. More info about Tinker is available [here](/guide/getting-started/tinker/core).'}}} screen, as shown below.
