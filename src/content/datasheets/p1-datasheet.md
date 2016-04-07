@@ -314,6 +314,9 @@ These specifications are based on the STM32F205RGY6 datasheet, with reference to
 | Weak pull-up equivalent resistor<sup>[5]</sup> | R<sub>PU</sub>| V<sub>io</sub> = GND | 30 | 40 | 50 | kΩ |
 | Weak pull-down equivalent resistor<sup>[5]</sup> | R<sub>PD</sub>| V<sub>io</sub> = V<sub>3V3</sub> | 30 | 40 | 50 | kΩ |
 | I/O pin capacitance | C<sub>IO</sub> | | | 5 | | pF |
+| DAC output voltage (buffers enabled by default) | V<sub>DAC</sub> | | 0.2 | | V<sub>3V3</sub>-0.2 | V |
+| DAC output resistive load (buffers enabled by default) | R<sub>DAC</sub> | | 5 | | | k Ω |
+| DAC output capacitive load (buffers enabled by default) | C<sub>DAC</sub> | | | | 50 | pF |
 
 **Notes:**
 
