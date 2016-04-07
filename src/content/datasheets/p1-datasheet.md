@@ -19,14 +19,14 @@ void setup() {
 
 ### Overview
 
-The P1 is Particle's tiny Wi-Fi module that contains both the Broadcom Wi-Fi chip and a reprogrammable STM32 32-bit ARM Cortex-M3 microcontroller. The P1 comes preloaded with Particle firmware libraries, just like our dev kits, and it's designed to simplify your transition from prototype to production. The P1 is the PØ's big brother; it's a bit bigger and a tad more expensive, but it includes some extra flash and an antenna and u.FL connector on board.  Every P1 includes free cloud service.
+The P1 is Particle's tiny Wi-Fi module that contains both the Broadcom Wi-Fi chip and a reprogrammable STM32F205RGY6 32-bit ARM Cortex-M3 microcontroller. The P1 comes preloaded with Particle firmware libraries, just like our dev kits, and it's designed to simplify your transition from prototype to production. The P1 is the PØ's big brother; it's a bit bigger and a tad more expensive, but it includes some extra flash and an antenna and u.FL connector on board.  Every P1 includes free cloud service.
 
 ### Features
 
 - Particle P1 Wi-Fi module
 	- Broadcom BCM43362 Wi-Fi chip
 	- 802.11b/g/n Wi-Fi
-    - STM32F205 120Mhz ARM Cortex M3
+    - STM32F205RGY6 120Mhz ARM Cortex M3
 	- 1MB flash, 128KB RAM
 	- 1MB external SPI flash
 	- Integrated PCB antenna
@@ -109,7 +109,7 @@ When using the P1 module, it is very important to remember that your device must
 
 Pin D3 through D7 are JTAG interface pins.  These can be used to reprogram your P1 bootloader or user firmware image with standard JTAG tools such as the ST-Link v2, J-Link, R-Link, OLIMEX ARM-USB-TINI-H, and also the FTDI-based Particle JTAG Programmer.
 
-| Photon Pin | Description | STM32 Pin | P1 Pin # | P1 Pin Name | Default Internal<sup>[1]</sup> |
+| Photon Pin | Description | STM32F205RGY6 Pin | P1 Pin # | P1 Pin Name | Default Internal<sup>[1]</sup> |
 | :-:|:-:|:-:|:-:|:-:|:- |
 | D7 | JTAG_TMS | PA13 | 54 | MICRO_JTAG_TMS | ~40k pull-up |
 | D6 | JTAG_TCK | PA14 | 55 | MICRO_JTAG_TCK | ~40k pull-down |
@@ -171,7 +171,7 @@ When these pins are programmed to be used as a Bluetooth coexistence interface, 
 
 ### Complete P1 Module Pin Listing
 
-| P1 Pin # | P1 Pin Name	| Type / STM32 Port | Description |
+| P1 Pin # | P1 Pin Name	| Type / STM32F205RGY6 Port | Description |
 | :-|:-|:-:|:-|
 | 1	| GND	|	PWR	|	Ground |
 | 2~3 |	VBAT_WL	|	PWR	|	+3.3V |
@@ -199,7 +199,7 @@ When these pins are programmed to be used as a Bluetooth coexistence interface, 
 | 30	|	MICRO_UART2_CTS	|	PA0	|	WKP |
 | 31	|	MICRO_UART2_RXD	|	PA3	|	RGB_LED_BLUE |
 | 32	|	MICRO_UART2_TXD	|	PA2	|	RGB_LED_GREEN |
-| 33	|	TESTMODE	|	PA8	| GPIO (see STM32F205 datasheet) |
+| 33	|	TESTMODE	|	PA8	| GPIO (see STM32F205RGY6 datasheet) |
 | 34	|	MICRO_RST_N	|	I	|	/RESET, Active low MCU reset |
 | 35	|	MICRO_I2C1_SCL	|	PB6	|	D1, I2C SCL |
 | 36	|	MICRO_I2C1_SDA	|	PB7	|	D0, I2C SDA |
@@ -296,7 +296,7 @@ When these pins are programmed to be used as a Bluetooth coexistence interface, 
 
 ### I/O Characteristics
 
-These specifications are based on the STM32F205RG datasheet, with reference to Photon pin nomenclature.
+These specifications are based on the STM32F205RGY6 datasheet, with reference to Photon pin nomenclature.
 
 | Parameter | Symbol | Conditions | Min | Typ | Max | Unit |
 | :-|:-|:-:|:-:|:-:|:-:|:-: |
