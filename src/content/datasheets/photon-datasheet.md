@@ -5,7 +5,7 @@ columns: two
 order: 4
 ---
 
-# Photon Datasheet <sup>(v012)</sup>
+# Photon Datasheet <sup>(v013)</sup>
 
 **Model number:** PHOTONH, PHOTONNOH
 
@@ -644,6 +644,7 @@ Cet équipement devrait être installé et actionné avec une distance minimum d
 | v010 | 1-June-2015 | BW | Updated VBAT info |
 | v011 | 24-July-2015 | BW | Added FCC IC CE Warnings and End Product Labeling Requirements, Updated power output, added approved antennas, Corrected DAC2 as A3, Added pin numbers to PCB Land Pattern for Photon without headers. |
 | v012 | 15-January-2016 | WH | Added TELEC Certification information and expanded explanation of Photons with and without headers.
+| v013 | 7-April-2016 | BW | Added: full STM32 part number, Memory map, DAC limits, SWD pin locations, max source/sink current, more descriptive info about bottom side pads, known errata URL. Updated: BT COEX info, pin diagram, block diagram, operating conditions.
 
 ## Known Errata
 
