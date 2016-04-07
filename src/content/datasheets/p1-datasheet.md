@@ -105,20 +105,20 @@ The P1 module has ton of capability in a super small footprint, with analog, dig
 
 When using the P1 module, it is very important to remember that your device must have an RGB LED to show the user the connectivity status.  Also required is a SETUP and RESET button to enter various [Device Modes](/guide/getting-started/modes). By default the RGB LED outputs are configured for a Common Anode type of LED. These components should be wired according to the [P1 Reference Design - User I/O](#schematic-user-i-o).
 
-### JTAG
+### JTAG and SWD
 
-Pin D3 through D7 are JTAG interface pins.  These can be used to reprogram your P1 bootloader or user firmware image with standard JTAG tools such as the ST-Link v2, J-Link, R-Link, OLIMEX ARM-USB-TINI-H, and also the FTDI-based Particle JTAG Programmer.
+Pin D3 through D7 are JTAG interface pins.  These can be used to reprogram your P1 bootloader or user firmware image with standard JTAG tools such as the ST-Link v2, J-Link, R-Link, OLIMEX ARM-USB-TINI-H, and also the FTDI-based Particle JTAG Programmer. If you are short on available pins, you may also use SWD mode which requires less connections.
 
-| Photon Pin | Description | STM32F205RGY6 Pin | P1 Pin # | P1 Pin Name | Default Internal<sup>[1]</sup> |
-| :-:|:-:|:-:|:-:|:-:|:- |
-| D7 | JTAG_TMS | PA13 | 54 | MICRO_JTAG_TMS | ~40k pull-up |
-| D6 | JTAG_TCK | PA14 | 55 | MICRO_JTAG_TCK | ~40k pull-down |
-| D5 | JTAG_TDI | PA15 | 53 | MICRO_JTAG_TDI | ~40k pull-up |
-| D4 | JTAG_TDO | PB3 | 52 | MICRO_JTAG_TDO | Floating |
-| D3 | JTAG_TRST | PB4 | 51 | MICRO_JTAG_TRSTN | ~40k pull-up |
-| 3V3 | Power | | | | |
-| GND | Ground | | | | |
-| RST | Reset | | | | |
+| Photon Pin | JTAG | SWD | STM32F205RGY6 Pin | P1 Pin # | P1 Pin Name | Default Internal<sup>[1]</sup> |
+| :-:|:-:|:-:|:-:|:-:|:-:|:- |
+| D7 | JTAG_TMS | SWD/SWDIO | PA13 | 54 | MICRO_JTAG_TMS | ~40k pull-up |
+| D6 | JTAG_TCK | CLK/SWCLK | PA14 | 55 | MICRO_JTAG_TCK | ~40k pull-down |
+| D5 | JTAG_TDI | | PA15 | 53 | MICRO_JTAG_TDI | ~40k pull-up |
+| D4 | JTAG_TDO | | PB3 | 54 | MICRO_JTAG_TDO | Floating |
+| D3 | JTAG_TRST | | PB4 | 51 | MICRO_JTAG_TRSTN | ~40k pull-up |
+| 3V3 | Power | Power | | | | |
+| GND | Ground | Ground | | | | |
+| RST | Reset | Reset | | | | |
 
 **Notes:**
 <sup>[1]</sup> Default state after reset for a short period of time before these pins are restored to GPIO (if JTAG debugging is not required, i.e. `USE_SWD_JTAG=y` is not specified on the command line.)
