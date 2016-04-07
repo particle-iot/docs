@@ -139,7 +139,7 @@ When two radios occupying the same frequency band are used in the same system, s
 | BTCX_STATUS | 56 | I | Coexistence signal: Bluetooth priority status and TX/RX direction |
 | BTCX_TXCONF | 58 | O | Output giving Bluetooth permission to TX |
 ￼
-When these pins are programmed to be used as a Bluetooth coexistence interface, they're set as high impedance on power up and reset. Alternatively, they can be individually programmed to be used as GPIOs through software control. They can also be programmed to have an internal pull-up or pull-down resistor.
+When these pins are programmed to be used as a Bluetooth coexistence interface, they're set as high impedance on power up and reset.
 
 ## Pin and button definition
 
