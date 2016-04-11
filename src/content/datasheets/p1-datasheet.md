@@ -5,7 +5,7 @@ columns: two
 order: 5
 ---
 
-# P1 Datasheet <sup>(v004)</sup>
+# P1 Datasheet <sup>(v005)</sup>
 
 <div align=center><img src="/assets/images/p1-vector.png" width=200></div>
 
@@ -19,14 +19,14 @@ void setup() {
 
 ### Overview
 
-The P1 is Particle's tiny Wi-Fi module that contains both the Broadcom Wi-Fi chip and a reprogrammable STM32 32-bit ARM Cortex-M3 microcontroller. The P1 comes preloaded with Particle firmware libraries, just like our dev kits, and it's designed to simplify your transition from prototype to production. The P1 is the PØ's big brother; it's a bit bigger and a tad more expensive, but it includes some extra flash and an antenna and u.FL connector on board.  Every P1 includes free cloud service.
+The P1 is Particle's tiny Wi-Fi module that contains both the Broadcom Wi-Fi chip and a reprogrammable STM32F205RGY6 32-bit ARM Cortex-M3 microcontroller. The P1 comes preloaded with Particle firmware libraries, just like our dev kits, and it's designed to simplify your transition from prototype to production. The P1 is the PØ's big brother; it's a bit bigger and a tad more expensive, but it includes some extra flash and an antenna and u.FL connector on board.  Every P1 includes free cloud service.
 
 ### Features
 
 - Particle P1 Wi-Fi module
 	- Broadcom BCM43362 Wi-Fi chip
 	- 802.11b/g/n Wi-Fi
-    - STM32F205 120Mhz ARM Cortex M3
+    - STM32F205RGY6 120Mhz ARM Cortex M3
 	- 1MB flash, 128KB RAM
 	- 1MB external SPI flash
 	- Integrated PCB antenna
@@ -48,7 +48,7 @@ The P1 is Particle's tiny Wi-Fi module that contains both the Broadcom Wi-Fi chi
 
 Power to the P1 is supplied via 3 different inputs: VBAT_WL (pin 2 & 3), VDDIO_3V3_WL (pin 5), VDD_3V3 (pin 26 & 27).  Optionally +3.3V may be supplied to VBAT_MICRO (pin 38) for data retention in low power sleep modes. Each of these inputs also requires a 0.1uF and 10uF ceramic decoupling capacitor, located as close as possible to the pin (see Fig 1). The voltage should be regulated between 3.0VDC and 3.6VDC.
 
-Typical current consumption is 80mA with a 3.3V input.  Deep sleep quiescent current is 160uA.  When powering the P1 make sure the power supply can handle 600mA continuous. If a lesser power supply is provided, peak currents drawn from the P1 when transmitting and receiving will result in voltage sag at the input which may cause a system brown out or intermittent operation.  Likewise, the power source should be sufficient enough to source 1A of current to be on the safe side.
+Typical average current consumption is 80mA with 5V @ input of the recommended SMPS power supply with Wi-Fi on. Deep sleep quiescent current is typically 80uA (Please refer to [Recommended Operating Conditions](#recommended-operating-conditions) for more info).  When powering the P1 make sure the power supply can handle 600mA continuous. If a lesser power supply is provided, peak currents drawn from the P1 when transmitting and receiving will result in voltage sag at the input which may cause a system brown out or intermittent operation.  Likewise, the power source should be sufficient enough to source 1A of current to be on the safe side.
 
 <div align=center><img src="/assets/images/p1-power-pins.png" width="500">
 <br><br><b>Fig. 1</b> Recommended power connections with decoupling capacitors.</div>
@@ -80,16 +80,15 @@ The P1 module has ton of capability in a super small footprint, with analog, dig
 
 | Peripheral Type | Qty | Input(I) / Output(O) | FT<sup>[1]</sup> / 3V3<sup>[2]</sup> |
 | :-:|:-:|:-:|:-: |
-| Digital | 18 | I/O | FT/3V3 |
-| Analog (ADC) | 8 | I | 3V3 |
+| Digital | 24 | I/O | FT/3V3 |
+| Analog (ADC) | 13 | I | 3V3 |
 | Analog (DAC) | 2 | O | 3V3 |
 | SPI | 2 | I/O | 3V3 |
 | I2S | 1 | I/O | 3V3 |
 | I2C | 1 | I/O | FT |
 | CAN | 1 | I/O | FT |
 | USB | 1 | I/O | 3V3 |
-| PWM | 9<sup>3</sup> | O | 3V3 |
-| Spare<sup>[4]</sup> | 6 | I/O | FT/3V3 |
+| PWM | 11<sup>3</sup> | O | 3V3 |
 
 **Notes:**
 
@@ -97,28 +96,26 @@ The P1 module has ton of capability in a super small footprint, with analog, dig
 
 <sup>[2]</sup> 3V3 = 3.3V max pins.
 
-<sup>[3]</sup> PWM is available on D0, D1, D2, D3, A4, A5, WKP, RX, TX with a caveat: PWM timer peripheral is duplicated on two pins (A5/D2) and (A4/D3) for 7 total independent PWM outputs. For example: PWM may be used on A5 while D2 is used as a GPIO, or D2 as a PWM while A5 is used as an analog input. However A5 and D2 cannot be used as independently controlled PWM outputs at the same time.
-
-<sup>[4]</sup> There are 6 extra pins that have digital I/O capability.  There are other peripherals that are available on these pins as well, which will be implemented in firmware and documented in a future version of this document.
+<sup>[3]</sup> PWM is available on D0, D1, D2, D3, A4, A5, WKP, RX, TX, P1S0, P1S1 with a caveat: PWM timer peripheral is duplicated on two pins (A5/D2) and (A4/D3) for 7 total independent PWM outputs. For example: PWM may be used on A5 while D2 is used as a GPIO, or D2 as a PWM while A5 is used as an analog input. However A5 and D2 cannot be used as independently controlled PWM outputs at the same time.
 
 ### RGB LED, SETUP and RESET button
 
-When using the P1 module, it is very important to remember that your device must have an RGB LED to show the user the connectivity status.  Also required is a SETUP and RESET button to enter various [Device Modes](/guide/getting-started/modes). By default the RGB LED outputs are configured for a Common Anode type of LED. These components should be wired according to the [P1 Reference Design - User I/O](#schematic-user-i-o).
+When using the P1 module, it is very important to remember that your device must have an RGB LED to show the user the connectivity status.  Also required is a SETUP and RESET button to enter various [Device Modes](/guide/getting-started/modes). By default the RGB LED outputs are configured for a Common Anode type of LED. These components should be wired according to the [P1 Reference Design - User I/O](#schematic-user-i-o).  RGB pins may be accessed in code as: RGBR, RGBG and RGBB.
 
-### JTAG
+### JTAG and SWD
 
-Pin D3 through D7 are JTAG interface pins.  These can be used to reprogram your P1 bootloader or user firmware image with standard JTAG tools such as the ST-Link v2, J-Link, R-Link, OLIMEX ARM-USB-TINI-H, and also the FTDI-based Particle JTAG Programmer.
+Pin D3 through D7 are JTAG interface pins.  These can be used to reprogram your P1 bootloader or user firmware image with standard JTAG tools such as the ST-Link v2, J-Link, R-Link, OLIMEX ARM-USB-TINI-H, and also the FTDI-based Particle JTAG Programmer. If you are short on available pins, you may also use SWD mode which requires less connections.
 
-| Photon Pin | Description | STM32 Pin | P1 Pin # | P1 Pin Name | Default Internal<sup>[1]</sup> |
-| :-:|:-:|:-:|:-:|:-:|:- |
-| D7 | JTAG_TMS | PA13 | 54 | MICRO_JTAG_TMS | ~40k pull-up |
-| D6 | JTAG_TCK | PA14 | 55 | MICRO_JTAG_TCK | ~40k pull-down |
-| D5 | JTAG_TDI | PA15 | 53 | MICRO_JTAG_TDI | ~40k pull-up |
-| D4 | JTAG_TDO | PB3 | 52 | MICRO_JTAG_TDO | Floating |
-| D3 | JTAG_TRST | PB4 | 51 | MICRO_JTAG_TRSTN | ~40k pull-up |
-| 3V3 | Power | | | | |
-| GND | Ground | | | | |
-| RST | Reset | | | | |
+| Photon Pin | JTAG | SWD | STM32F205RGY6 Pin | P1 Pin # | P1 Pin Name | Default Internal<sup>[1]</sup> |
+| :-:|:-:|:-:|:-:|:-:|:-:|:- |
+| D7 | JTAG_TMS | SWD/SWDIO | PA13 | 54 | MICRO_JTAG_TMS | ~40k pull-up |
+| D6 | JTAG_TCK | CLK/SWCLK | PA14 | 55 | MICRO_JTAG_TCK | ~40k pull-down |
+| D5 | JTAG_TDI | | PA15 | 53 | MICRO_JTAG_TDI | ~40k pull-up |
+| D4 | JTAG_TDO | | PB3 | 54 | MICRO_JTAG_TDO | Floating |
+| D3 | JTAG_TRST | | PB4 | 51 | MICRO_JTAG_TRSTN | ~40k pull-up |
+| 3V3 | Power | Power | | | | |
+| GND | Ground | Ground | | | | |
+| RST | Reset | Reset | | | | |
 
 **Notes:**
 <sup>[1]</sup> Default state after reset for a short period of time before these pins are restored to GPIO (if JTAG debugging is not required, i.e. `USE_SWD_JTAG=y` is not specified on the command line.)
@@ -139,7 +136,92 @@ When two radios occupying the same frequency band are used in the same system, s
 | BTCX_STATUS | 56 | I | Coexistence signal: Bluetooth priority status and TX/RX direction |
 | BTCX_TXCONF | 58 | O | Output giving Bluetooth permission to TX |
 ￼
-When these pins are programmed to be used as a Bluetooth coexistence interface, they're set as high impedance on power up and reset. Alternatively, they can be individually programmed to be used as GPIOs through software control. They can also be programmed to have an internal pull-up or pull-down resistor.
+When these pins are programmed to be used as a Bluetooth coexistence interface, they're set as high impedance on power up and reset.
+
+---
+
+## Memory Map
+
+### STM32F205RGY6 Flash Layout Overview
+
+- Bootloader (16 KB)
+- DCT1 (16 KB), stores Wi-Fi credentials, keys, mfg info, system flags, etc..
+- DCT2 (16 KB), swap area for DCT1
+- EEPROM emulation bank 1 (16 KB)
+- EEPROM emulation bank 2 (64 KB) [only 16k used]
+- System firmware (512 KB) [256 KB Wi-Fi/comms + 256 KB hal/platform/services]
+- Factory backup, OTA backup and user application (384 KB) [3 x 128 KB]
+
+### DCT Layout
+
+The DCT area of flash memory has been mapped to a separate DFU media device so that we can incrementally update the application data. This allows one item (say, server public key) to be updated without erasing the other items.
+
+_DCT layout as of v0.4.9_ [found here in firmware](https://github.com/spark/firmware/blob/develop/platform/MCU/STM32F2xx/SPARK_Firmware_Driver/inc/dct.h)
+
+| Region | Offset | Size |
+|:---|---|---|
+| system flags | 0 | 32 |
+| version | 32 | 2 |
+| device private key | 34 | 1216 |
+| device public key | 1250 | 384 |
+| ip config | 1634 | 128 |
+| claim code | 1762 | 63 |
+| claimed | 1825 | 1 |
+| ssid prefix | 1826 | 26 |
+| device id | 1852 | 6 |
+| version string | 1858 | 32 |
+| dns resolve | 1890 | 128 |
+| reserved1 | 2018 | 64 |
+| server public key | 2082 | 768 |
+| padding | 2850 | 2 |
+| flash modules | 2852 | 100 |
+| product store | 2952 | 24 |
+| antenna selection | 2976 | 1 |
+| cloud transport | 2977 | 1 |
+| alt device public key | 2978 | 128 |
+| alt device private key | 3106 | 192 |
+| alt server public key | 3298 | 192 |
+| alt server address | 3490 | 128 |
+| reserved2 | 3618 | 1280 |
+
+**Note:** Writing 0xFF to offset 34 (DEFAULT) or 3106 (ALTERNATE) will cause the device to re-generate a new private key on the next boot. Alternate keys are currently unsupported on the P1 but are used on the Electron as UDP/ECC keys.  You should not need to use this feature unless your keys are corrupted.
+
+```
+// Regenerate Default Keys
+echo -e "\xFF" > fillbyte && dfu-util -d 2b04:d00a -a 1 -s 34 -D fillbyte
+// Regenerate Alternate Keys
+echo -e "\xFF" > fillbyte && dfu-util -d 2b04:d00a -a 1 -s 3106 -D fillbyte
+```
+
+### Memory Map (Common)
+
+| Region | Start Address | End Address | Size |
+|:---|---|---|---|
+| Bootloader | 0x8000000 | 0x8004000 | 16 KB |
+| DCT1 | 0x8004000 | 0x8008000 | 16 KB |
+| DCT2 | 0x8008000 | 0x800C000 | 16 KB |
+| EEPROM1 | 0x800C000 | 0x8010000 | 16 KB |
+| EEPROM2 | 0x8010000 | 0x8020000 | 64 KB |
+
+### Memory Map (Modular Firmware - default)
+
+| Region | Start Address | End Address | Size |
+|:---|---|---|---|
+| System Part 1 | 0x8020000 | 0x8060000 | 256 KB |
+| System Part 2 | 0x8060000 | 0x80A0000 | 256 KB |
+| User Part | 0x80A0000 | 0x80C0000 | 128 KB |
+| OTA Backup | 0x80C0000 | 0x80E0000 | 128 KB |
+| Factory Backup | 0x80E0000 | 0x8100000 | 128 KB |
+
+### Memory Map (Monolithic Firmware - optional)
+
+| Region | Start Address | End Address | Size |
+|:---|---|---|---|
+| Firmware | 0x8020000 | 0x8080000 | 384 KB |
+| Factory Reset | 0x8080000 | 0x80E0000 | 384 KB |
+| Unused (factory reset modular) | 0x80E0000 | 0x8100000 | 128 KB |
+
+---
 
 ## Pin and button definition
 
@@ -154,12 +236,17 @@ When these pins are programmed to be used as a Bluetooth coexistence interface, 
 | RST | Active-low reset input. On-board circuitry contains a 1k ohm pull-up resistor between RST and 3V3, and 0.1uF capacitor between RST and GND. |
 | VBAT | Supply to the internal RTC, backup registers and SRAM when 3V3 not present (1.65 to 3.6VDC). |
 | 3V3  | This pin represents the regulated +3.3V DC power to the P1 module.  In reality, +3.3V must be supplied to 3 different inputs: VBAT_WL (pin 2 & 3), VDDIO_3V3_WL (pin 5), VDD_3V3 (pin 26 & 27). Optionally +3.3V may be supplied to VBAT_MICRO (pin 38) for data retention in low power sleep modes. Each of these inputs also requires a 0.1uF and 10uF ceramic decoupling capacitor, located as close as possible to the pin. |
-| D0~D7 | Digital only GPIO pins. |
-| A0~A7 | 12-bit Analog-to-Digital (A/D) inputs (0-4095), and also digital GPIOs. `A6` and `A7` are code convenience mappings, which means pins are not actually labeled as such but you may use code like `analogRead(A7)`.  `A6` maps to the DAC pin and `A7` maps to the WKP pin. |
+| D0~D7 | Digital only GPIO pins. D0~D3 may also be used as a PWM output. |
+| A0~A7 | 12-bit Analog-to-Digital (A/D) inputs (0-4095), and also digital GPIOs. `A6` and `A7` are code convenience mappings, which means pins are not actually labeled as such but you may use code like `analogRead(A7)`.  `A6` maps to the DAC pin and `A7` maps to the WKP pin. A4,A5,A7 may also be used as a PWM output. |
 | DAC   | 12-bit Digital-to-Analog (D/A) output (0-4095), and also a digital GPIO. DAC is used as `DAC` or `DAC1` in software, and A3 is a second DAC output used as `DAC2` in software. |
 | RX    | Primarily used as UART RX, but can also be used as a digital GPIO or PWM. |
 | TX    | Primarily used as UART TX, but can also be used as a digital GPIO or PWM. |
-| Spare 1-6    | Primarily used as GPIO. There are other peripherals that are available on these pins as well, which will be implemented in firmware and documented in a future version of this document. |
+| P1S0 | 12-bit Analog-to-Digital (A/D) inputs (0-4095), and also can be used as a digital GPIO or PWM. |
+| P1S1 | 12-bit Analog-to-Digital (A/D) inputs (0-4095), and also can be used as a digital GPIO or PWM. |
+| P1S2 | 12-bit Analog-to-Digital (A/D) inputs (0-4095), and also can be used as a digital GPIO. |
+| P1S3 | 12-bit Analog-to-Digital (A/D) inputs (0-4095), and also can be used as a digital GPIO. |
+| P1S4 | Primarily used as a digital GPIO. |
+| P1S5 | 12-bit Analog-to-Digital (A/D) inputs (0-4095), and also can be used as a digital GPIO. |
 
 ### Pin out diagrams
 
@@ -171,7 +258,7 @@ When these pins are programmed to be used as a Bluetooth coexistence interface, 
 
 ### Complete P1 Module Pin Listing
 
-| P1 Pin # | P1 Pin Name	| Type / STM32 Port | Description |
+| P1 Pin # | P1 Pin Name	| Type / STM32F205RGY6 Port | Description |
 | :-|:-|:-:|:-|
 | 1	| GND	|	PWR	|	Ground |
 | 2~3 |	VBAT_WL	|	PWR	|	+3.3V |
@@ -188,38 +275,38 @@ When these pins are programmed to be used as a Bluetooth coexistence interface, 
 | 18	|	WL_JTAG_TRSTN	|	DEBUG	|	BCM43362 Debugging Pin |
 | 19	|	WL_JTAG_TMS	|	DEBUG	|	BCM43362 Debugging Pin |
 | 20	|	WL_JTAG_TDO	|	DEBUG	|	BCM43362 Debugging Pin |
-| 21	|	MICRO_SPI1_MISO	|	PA6	|	A4, SPI MISO |
-| 22	|	MICRO_SPI1_SCK	|	PA5	|	A3, SPI SCK |
-| 23	|	MICRO_SPI1_MOSI	|	PA7	|	A5, SPI MOSI |
-| 24	|	MICRO_SPI1_SS	|	PA4	|	DAC,  SPI SS |
+| 21	|	MICRO_SPI1_MISO	|	PA6	|	A4 (SPI MISO) |
+| 22	|	MICRO_SPI1_SCK	|	PA5	|	A3 (SPI SCK) |
+| 23	|	MICRO_SPI1_MOSI	|	PA7	|	A5 (SPI MOSI) |
+| 24	|	MICRO_SPI1_SS	|	PA4	|	DAC (SPI SS) |
 | 25	|	GND	|	PWR	|	Ground |
 | 26~27	|	VDD_3V3	|	PWR	|	+3.3V |
 | 28	|	GND	|	PWR	|	Ground |
-| 29	|	MICRO_UART2_RTS	|	PA1	|	RGB_LED_RED |
+| 29	|	MICRO_UART2_RTS	|	PA1	|	RGBR (RGB LED RED) |
 | 30	|	MICRO_UART2_CTS	|	PA0	|	WKP |
-| 31	|	MICRO_UART2_RXD	|	PA3	|	RGB_LED_BLUE |
-| 32	|	MICRO_UART2_TXD	|	PA2	|	RGB_LED_GREEN |
-| 33	|	TESTMODE	|	PA8	| GPIO (see STM32F205 datasheet) |
-| 34	|	MICRO_RST_N	|	I	|	/RESET, Active low MCU reset |
-| 35	|	MICRO_I2C1_SCL	|	PB6	|	D1, I2C SCL |
-| 36	|	MICRO_I2C1_SDA	|	PB7	|	D0, I2C SDA |
+| 31	|	MICRO_UART2_RXD	|	PA3	|	RGBB (RGB LED BLUE) |
+| 32	|	MICRO_UART2_TXD	|	PA2	|	RGBG (RGB LED GREEN) |
+| 33	|	TESTMODE	|	PA8	| GPIO (see STM32F205RGY6 datasheet) |
+| 34	|	MICRO_RST_N	|	I	|	/RESET (Active low MCU reset) |
+| 35	|	MICRO_I2C1_SCL	|	PB6	|	D1 (I2C SCL) |
+| 36	|	MICRO_I2C1_SDA	|	PB7	|	D0 (I2C SDA) |
 | 37	|	GND	|	PWR	|	Ground |
 | 38	|	VBAT_MICRO	|	PWR	|	Supply to the internal RTC, backup registers and SRAM when 3V3 not present (1.65 to 3.6VDC) |
 | 39	|	GND	|	PWR	|	Ground |
-| 40	|	MICRO_GPIO_1	|	PB0	|	SPARE1 |
-| 41	|	MICRO_GPIO_2	|	PB1	|	SPARE2 |
-| 42	|	MICRO_GPIO_3	|	PC0	|	SPARE3 |
+| 40	|	MICRO_GPIO_1	|	PB0	|	P1S0 |
+| 41	|	MICRO_GPIO_2	|	PB1	|	P1S1 |
+| 42	|	MICRO_GPIO_3	|	PC0	|	P1S2 |
 | 43	|	MICRO_GPIO_5	|	PC3	|	A1 |
-| 44	|	MICRO_GPIO_6	|	PC4	|	SPARE4 |
-| 45	|	MICRO_GPIO_7	|	PB5	|	D2, I2S SD |
-| 46	|	MICRO_GPIO_8	|	PC7	|	/SETUP, I2S MCK |
-| 47	|	MICRO_GPIO_9	|	PC13	|	SPARE5 |
-| 48	|	MICRO_GPIO_12	|	PC1	|	SPARE6 |
+| 44	|	MICRO_GPIO_6	|	PC4	|	P1S3 |
+| 45	|	MICRO_GPIO_7	|	PB5	|	D2 (I2S SD) |
+| 46	|	MICRO_GPIO_8	|	PC7	|	/SETUP (I2S MCK) |
+| 47	|	MICRO_GPIO_9	|	PC13	|	P1S4 |
+| 48	|	MICRO_GPIO_12	|	PC1	|	P1S5 |
 | 49	|	MICRO_GPIO_13	|	PC2	|	A2 |
 | 50	|	MICRO_GPIO_14	|	PC5	|	A0 |
 | 51	|	MICRO_JTAG_TRSTN	|	PB4	|	D3 |
-| 52	|	MICRO_JTAG_TDO	|	PB3	|	D4, I2S SCK |
-| 53	|	MICRO_JTAG_TDI	|	PA15	|	D5, I2S WS |
+| 52	|	MICRO_JTAG_TDO	|	PB3	|	D4 (I2S SCK) |
+| 53	|	MICRO_JTAG_TDI	|	PA15	|	D5 (I2S WS) |
 | 54	|	MICRO_JTAG_TMS	|	PA13	|	D7 |
 | 55	|	MICRO_JTAG_TCK	|	PA14	|	D6 |
 | 56	|	BTCX_STATUS	|	I	|	Coexistence signal: Bluetooth status and TX/RX direction |
@@ -237,7 +324,7 @@ When these pins are programmed to be used as a Bluetooth coexistence interface, 
 
 ## Technical specification
 
-### Absolute maximum ratings <i class="icon-attention"></i>
+### Absolute maximum ratings
 
 | Parameter | Symbol | Min | Typ | Max | Unit |
 |:-|:-|:-:|:-:|:-:|:-:|
@@ -245,7 +332,7 @@ When these pins are programmed to be used as a Bluetooth coexistence interface, 
 | Storage Temperature | T<sub>stg</sub> | -40 |  | +85 | °C |
 | ESD Susceptibility HBM (Human Body Mode) | V<sub>ESD</sub> |  |  | 2 | kV |
 
-### Recommended operating conditions <i class="icon-check"></i>
+### Recommended operating conditions
 
 | Parameter | Symbol | Min | Typ | Max | Unit |
 |:-|:-|:-:|:-:|:-:|:-:|
@@ -272,7 +359,7 @@ When these pins are programmed to be used as a Bluetooth coexistence interface, 
 
 <sup>[3]</sup> These are very short average current bursts when transmitting and receiving.  On average if minimizing frequency of TX/RX events, current consumption in powersave mode will be 18mA
 
-### Wi-Fi Specifications <i class="icon-signal"></i>
+### Wi-Fi Specifications
 
 | Feature | Description| |
 | :-|:-|:-: |
@@ -296,7 +383,7 @@ When these pins are programmed to be used as a Bluetooth coexistence interface, 
 
 ### I/O Characteristics
 
-These specifications are based on the STM32F205RG datasheet, with reference to Photon pin nomenclature.
+These specifications are based on the STM32F205RGY6 datasheet, with reference to Photon pin nomenclature.
 
 | Parameter | Symbol | Conditions | Min | Typ | Max | Unit |
 | :-|:-|:-:|:-:|:-:|:-:|:-: |
@@ -307,11 +394,16 @@ These specifications are based on the STM32F205RG datasheet, with reference to P
 | <sup></sup> | V<sub>IH</sub> | V<sub>3V3</sub> ≤ 2V | 0.42*(V<sub>3V3</sub>-2)+1 | | 5.2 | V |
 | Standard I/O Schmitt trigger voltage hysteresis<sup>[2]</sup> | V<sub>hys</sub> | | 200 | | | mV |
 | I/O FT Schmitt trigger voltage hysteresis<sup>[2]</sup> | V<sub>hys</sub> | | 5% V<sub>3V3</sub><sup>[3]</sup> | | | mV |
+| Input/Output current max | I<sub>io</sub> | | | | ±25 | mA |
+| Input/Output current total | I<sub>io total</sub> | | | | ±120 | mA |
 | Input leakage current<sup>[4]</sup> | I<sub>lkg</sub> | GND ≤ V<sub>io</sub> ≤ V<sub>3V3</sub> GPIOs | | | ±1 | µA |
 | Input leakage current<sup>[4]</sup> | I<sub>lkg</sub> | R<sub>PU</sub> | V<sub>io</sub> = 5V, I/O FT | | 3 | µA |
 | Weak pull-up equivalent resistor<sup>[5]</sup> | R<sub>PU</sub>| V<sub>io</sub> = GND | 30 | 40 | 50 | kΩ |
 | Weak pull-down equivalent resistor<sup>[5]</sup> | R<sub>PD</sub>| V<sub>io</sub> = V<sub>3V3</sub> | 30 | 40 | 50 | kΩ |
 | I/O pin capacitance | C<sub>IO</sub> | | | 5 | | pF |
+| DAC output voltage (buffers enabled by default) | V<sub>DAC</sub> | | 0.2 | | V<sub>3V3</sub>-0.2 | V |
+| DAC output resistive load (buffers enabled by default) | R<sub>DAC</sub> | | 5 | | | k Ω |
+| DAC output capacitive load (buffers enabled by default) | C<sub>DAC</sub> | | | | 50 | pF |
 
 **Notes:**
 
@@ -405,7 +497,7 @@ P1 modules are available from [store.particle.io](https://store.particle.io/) as
 
 ### Tape and Reel Info
 
-<div align=center><img src="/assets/images/p1-tape-and-reel.png" width=500></div>
+<div align=center><img src="/assets/images/p1-tape-and-reel.png" width=600></div>
 
 ### Moisture sensitivity levels
 
@@ -513,6 +605,7 @@ Cet équipement devrait être installé et actionné avec une distance minimum d
 | v002 | 31-May-2015 | BW | Update assets |
 | v003 | 1-June-2015 | BW | Updated VBAT_MICRO info |
 | v004 | 24-July-2015 | BW | Added FCC IC CE Warnings and End Product Labeling Requirements, Updated power output, added approved antennas, Corrected DAC2 as A3, Corrected A0 as pin 50, Corrected External Coexistence Interface pin numbers, Added RGB LED, SETUP and RESET button section. |
+| v005 | 11-April-2016 | BW | Added: full STM32 part number, Memory map, DAC limits, SWD pin locations, max source/sink current, known errata URL and tape-and-reel dimensions. Updated: BT COEX info, pinout diagrams (fixed RESET pin number error), operating conditions, pin descriptions (P1S0~P1S5 pins), land-pattern image signal keepout note.
 
 ## Known Errata
 
