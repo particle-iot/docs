@@ -5,7 +5,7 @@ columns: two
 order: 4
 ---
 
-# Photon Datasheet <sup>(v012)</sup>
+# Photon Datasheet <sup>(v013)</sup>
 
 **Model number:** PHOTONH, PHOTONNOH
 
@@ -35,7 +35,7 @@ The Photon comes in two physical forms: with headers and without. Prototyping is
 * Particle PØ Wi-Fi module
 	* Broadcom BCM43362 Wi-Fi chip
 	* 802.11b/g/n Wi-Fi
-    * STM32F205 120Mhz ARM Cortex M3
+    * STM32F205RGY6 120Mhz ARM Cortex M3
 	* 1MB flash, 128KB RAM
 * On-board RGB status LED (ext. drive provided)
 * 18 Mixed-signal GPIO and advanced peripherals
@@ -60,7 +60,7 @@ The Photon comes in two physical forms: with headers and without. Prototyping is
 
 Power to the Photon is supplied via the on-board USB Micro B connector or directly via the VIN pin.  If power is supplied directly to the VIN pin, the voltage should be regulated between 3.6VDC and 5.5VDC.  When the Photon is powered via the USB port, VIN will output a voltage of approximately 4.8VDC due to a reverse polarity protection series schottky diode between V+ of USB and VIN. When used as an output, the max load on VIN is 1A.
 
-Typical current consumption is 80mA with a 5V input.  Deep sleep quiescent current is 160uA.  When powering the Photon from the USB connector, make sure to use a quality cable to minimize IR drops (current x resistance = voltage) in the wiring.  If a high resistance cable (i.e., low current) is used, peak currents drawn from the Photon when transmitting and receiving will result in voltage sag at the input which may cause a system brown out or intermittent operation.  Likewise, the power source should be sufficient enough to source 1A of current to be on the safe side.
+Typical average current consumption is 80mA with 5V @ VIN with Wi-Fi on. Deep sleep quiescent current is typically 80uA (Please refer to [Recommended Operating Conditions](#recommended-operating-conditions) for more info).  When powering the Photon from the USB connector, make sure to use a quality cable to minimize IR drops (current x resistance = voltage) in the wiring.  If a high resistance cable (i.e., low current) is used, peak currents drawn from the Photon when transmitting and receiving will result in voltage sag at the input which may cause a system brown out or intermittent operation.  Likewise, the power source should be sufficient enough to source 1A of current to be on the safe side.
 
 ### RF
 
@@ -109,20 +109,20 @@ The Photon has ton of capability in a small footprint, with analog, digital and 
 
 ---
 
-### JTAG
+### JTAG and SWD
 
-Pin D3 through D7 are JTAG interface pins.  These can be used to reprogram your Photon bootloader or user firmware image with standard JTAG tools such as the ST-Link v2, J-Link, R-Link, OLIMEX ARM-USB-TINI-H, and also the FTDI-based Particle JTAG Programmer.
+Pin D3 through D7 are JTAG interface pins.  These can be used to reprogram your Photon bootloader or user firmware image with standard JTAG tools such as the ST-Link v2, J-Link, R-Link, OLIMEX ARM-USB-TINI-H, and also the FTDI-based Particle JTAG Programmer. If you are short on available pins, you may also use SWD mode which requires less connections.
 
-| Photon Pin | Description | STM32 Pin | PØ Pin # | PØ Pin Name | Default Internal<sup>[1]</sup> |
-| :-:|:-:|:-:|:-:|:-:|:- |
-| D7 | JTAG_TMS | PA13 | 44 | MICRO_JTAG_TMS | ~40k pull-up |
-| D6 | JTAG_TCK | PA14 | 40 | MICRO_JTAG_TCK | ~40k pull-down |
-| D5 | JTAG_TDI | PA15 | 43 | MICRO_JTAG_TDI | ~40k pull-up |
-| D4 | JTAG_TDO | PB3 | 41 | MICRO_JTAG_TDO | Floating |
-| D3 | JTAG_TRST | PB4 | 42 | MICRO_JTAG_TRSTN | ~40k pull-up |
-| 3V3 | Power | | | | |
-| GND | Ground | | | | |
-| RST | Reset | | | | |
+| Photon Pin | JTAG | SWD | STM32F205RGY6 Pin | PØ Pin # | PØ Pin Name | Default Internal<sup>[1]</sup> |
+| :-:|:-:|:-:|:-:|:-:|:-:|:- |
+| D7 | JTAG_TMS | SWD/SWDIO | PA13 | 44 | MICRO_JTAG_TMS | ~40k pull-up |
+| D6 | JTAG_TCK | CLK/SWCLK | PA14 | 40 | MICRO_JTAG_TCK | ~40k pull-down |
+| D5 | JTAG_TDI | | PA15 | 43 | MICRO_JTAG_TDI | ~40k pull-up |
+| D4 | JTAG_TDO | | PB3 | 41 | MICRO_JTAG_TDO | Floating |
+| D3 | JTAG_TRST | | PB4 | 42 | MICRO_JTAG_TRSTN | ~40k pull-up |
+| 3V3 | Power | Power | | | | |
+| GND | Ground | Ground | | | | |
+| RST | Reset | Reset | | | | |
 
 **Notes:**
 <sup>[1]</sup> Default state after reset for a short period of time before these pins are restored to GPIO (if JTAG debugging is not required, i.e. `USE_SWD_JTAG=y` is not specified on the command line.)
@@ -147,10 +147,92 @@ When two radios occupying the same frequency band are used in the same system, s
 | 2 | BTCX_STATUS | 10 | I | Signals Bluetooth priority status and TX/RX direction |
 | 3 | BTCX_TXCONF | 11 | O | Output giving Bluetooth permission to TX |
 
-When these pads are programmed to be used as a Bluetooth coexistence interface, they're set as high impedance on power up and reset. Alternatively, they can be individually programmed to be used as GPIOs through software control. They can also be programmed to have an internal pull-up or pull-down resistor.
+When these pads are programmed to be used as a Bluetooth coexistence interface, they're set as high impedance on power up and reset.
 
 ---
 
+## Memory Map
+
+### STM32F205RGY6 Flash Layout Overview
+
+- Bootloader (16 KB)
+- DCT1 (16 KB), stores Wi-Fi credentials, keys, mfg info, system flags, etc..
+- DCT2 (16 KB), swap area for DCT1
+- EEPROM emulation bank 1 (16 KB)
+- EEPROM emulation bank 2 (64 KB) [only 16k used]
+- System firmware (512 KB) [256 KB Wi-Fi/comms + 256 KB hal/platform/services]
+- Factory backup, OTA backup and user application (384 KB) [3 x 128 KB]
+
+### DCT Layout
+
+The DCT area of flash memory has been mapped to a separate DFU media device so that we can incrementally update the application data. This allows one item (say, server public key) to be updated without erasing the other items.
+
+_DCT layout as of v0.4.9_ [found here in firmware](https://github.com/spark/firmware/blob/develop/platform/MCU/STM32F2xx/SPARK_Firmware_Driver/inc/dct.h)
+
+| Region | Offset | Size |
+|:---|---|---|
+| system flags | 0 | 32 |
+| version | 32 | 2 |
+| device private key | 34 | 1216 |
+| device public key | 1250 | 384 |
+| ip config | 1634 | 128 |
+| claim code | 1762 | 63 |
+| claimed | 1825 | 1 |
+| ssid prefix | 1826 | 26 |
+| device id | 1852 | 6 |
+| version string | 1858 | 32 |
+| dns resolve | 1890 | 128 |
+| reserved1 | 2018 | 64 |
+| server public key | 2082 | 768 |
+| padding | 2850 | 2 |
+| flash modules | 2852 | 100 |
+| product store | 2952 | 24 |
+| antenna selection | 2976 | 1 |
+| cloud transport | 2977 | 1 |
+| alt device public key | 2978 | 128 |
+| alt device private key | 3106 | 192 |
+| alt server public key | 3298 | 192 |
+| alt server address | 3490 | 128 |
+| reserved2 | 3618 | 1280 |
+
+**Note:** Writing 0xFF to offset 34 (DEFAULT) or 3106 (ALTERNATE) will cause the device to re-generate a new private key on the next boot. Alternate keys are currently unsupported on the Photon but are used on the Electron as UDP/ECC keys.  You should not need to use this feature unless your keys are corrupted.
+
+```
+// Regenerate Default Keys
+echo -e "\xFF" > fillbyte && dfu-util -d 2b04:d006 -a 1 -s 34 -D fillbyte
+// Regenerate Alternate Keys
+echo -e "\xFF" > fillbyte && dfu-util -d 2b04:d006 -a 1 -s 3106 -D fillbyte
+```
+
+### Memory Map (Common)
+
+| Region | Start Address | End Address | Size |
+|:---|---|---|---|
+| Bootloader | 0x8000000 | 0x8004000 | 16 KB |
+| DCT1 | 0x8004000 | 0x8008000 | 16 KB |
+| DCT2 | 0x8008000 | 0x800C000 | 16 KB |
+| EEPROM1 | 0x800C000 | 0x8010000 | 16 KB |
+| EEPROM2 | 0x8010000 | 0x8020000 | 64 KB |
+
+### Memory Map (Modular Firmware - default)
+
+| Region | Start Address | End Address | Size |
+|:---|---|---|---|
+| System Part 1 | 0x8020000 | 0x8060000 | 256 KB |
+| System Part 2 | 0x8060000 | 0x80A0000 | 256 KB |
+| User Part | 0x80A0000 | 0x80C0000 | 128 KB |
+| OTA Backup | 0x80C0000 | 0x80E0000 | 128 KB |
+| Factory Backup | 0x80E0000 | 0x8100000 | 128 KB |
+
+### Memory Map (Monolithic Firmware - optional)
+
+| Region | Start Address | End Address | Size |
+|:---|---|---|---|
+| Firmware | 0x8020000 | 0x8080000 | 384 KB |
+| Factory Reset | 0x8080000 | 0x80E0000 | 384 KB |
+| Unused (factory reset modular) | 0x80E0000 | 0x8100000 | 128 KB |
+
+---
 
 ## Pin and button definition
 
@@ -170,11 +252,13 @@ When these pads are programmed to be used as a Bluetooth coexistence interface, 
 | VBAT | Supply to the internal RTC, backup registers and SRAM when 3V3 is not present (1.65 to 3.6VDC). |
 | 3V3 | This pin is the output of the on-board regulator and is internally connected to the VDD of the WiFi module. When powering the Photon via VIN or the USB port, this pin will output a voltage of 3.3VDC. This pin can also be used to power the Photon directly (max input 3.3VDC). When used as an output, the max load on 3V3 is 100mA. NOTE: When powering the Photon via this pin, ensure power is disconnected from VIN and USB. |
 | WKP | Active-high wakeup pin, wakes the module from sleep/standby modes. When not used as a WAKEUP, this pin can also be used as a digital GPIO, ADC input or PWM. |
-| D0~D7 | Digital only GPIO pins. |
-| A0~A7 | 12-bit Analog-to-Digital (A/D) inputs (0-4095), and also digital GPIOs. `A6` and `A7` are code convenience mappings, which means pins are not actually labeled as such but you may use code like `analogRead(A7)`.  `A6` maps to the DAC pin and `A7` maps to the WKP pin. |
+| D0~D7 | Digital only GPIO pins. D0~D3 may also be used as a PWM output. |
+| A0~A7 | 12-bit Analog-to-Digital (A/D) inputs (0-4095), and also digital GPIOs. `A6` and `A7` are code convenience mappings, which means pins are not actually labeled as such but you may use code like `analogRead(A7)`.  `A6` maps to the DAC pin and `A7` maps to the WKP pin. A4,A5,A7 may also be used as a PWM output. |
 | DAC   | 12-bit Digital-to-Analog (D/A) output (0-4095), and also a digital GPIO. DAC is used as `DAC` or `DAC1` in software, and A3 is a second DAC output used as `DAC2` in software. |
 | RX    | Primarily used as UART RX, but can also be used as a digital GPIO or PWM. |
 | TX    | Primarily used as UART TX, but can also be used as a digital GPIO or PWM. |
+
+In addition to the 24 pins around the outside of the Photon, there are 7 pads on the bottom the Photon PCB that can be used to connect to extra signals: RGB LED outputs, SETUP button, SMPS enable line and USB D+/D-. Photon Pins #25-31 are described in the [Pin out diagrams](#pin-out-diagrams). Also refer to the [Recommended PCB land pattern photon without headers](#recommended-pcb-land-pattern-photon-without-headers-) section for their location on the bottom of the Photon.
 
 ---
 
@@ -193,27 +277,27 @@ When these pads are programmed to be used as a Bluetooth coexistence interface, 
 
 | Parameter | Symbol | Min | Typ | Max | Unit |
 |:-|:-|:-:|:-:|:-:|:-:|
-| Supply Input Voltage | V<sub>IN-MAX</sub> |  |  | +6.5 | V |
-| Supply Output Current | I<sub>IN-MAX-L</sub> |  |  | 1 | A |
+| Supply Input Voltage | V<sub>VIN-MAX</sub> |  |  | +6.5 | V |
+| Supply Output Current | I<sub>VIN-MAX-L</sub> |  |  | 1 | A |
 | Supply Output Current | I<sub>3V3-MAX-L</sub> |  |  | 100 | mA |
 | Storage Temperature | T<sub>stg</sub> | -40 |  | +85 | °C |
-| Enable Voltage | V<sub>EN</sub> |  |  | V<sub>IN</sub>+0.6 | V |
+| Enable Voltage | V<sub>EN</sub> |  |  | V<sub>VIN</sub>+0.6 | V |
 | ESD Susceptibility HBM (Human Body Mode) | V<sub>ESD</sub> |  |  | 2 | kV |
 
 ### Recommended operating conditions
 
 | Parameter | Symbol | Min | Typ | Max | Unit |
 | :-|:-|:-:|:-:|:-:|:-:
-| Supply Input Voltage | V<sub>IN</sub> | +3.6 |  | +5.5 | V |
+| Supply Input Voltage | V<sub>VIN</sub> | +3.6 |  | +5.5 | V |
 | Supply Input Voltage | V<sub>3V3</sub> | +3.0 | +3.3 | +3.6 | V |
-| Supply Output Voltage | V<sub>IN</sub> |  | +4.8 |  | V |
+| Supply Output Voltage | V<sub>VIN</sub> |  | +4.8 |  | V |
 | Supply Output Voltage | V<sub>3V3</sub> |  | +3.3 |  | V |
 | Supply Input Voltage | V<sub>VBAT</sub> | +1.65 |  | +3.6 | V |
 | Supply Input Current (VBAT) | I<sub>VBAT</sub> |  |  | 19 | uA |
-| Operating Current (Wi-Fi on) | I<sub>IN avg</sub> |  | 80 | 100 | mA |
-| Operating Current (Wi-Fi on) | I<sub>IN pk</sub> | 235<sup>[1]</sup> |  | 430<sup>[1]</sup> | mA |
-| Operating Current (Wi-Fi on, w/powersave) | I<sub>IN avg</sub> |  | 18 | 100<sup>[2]</sup> | mA |
-| Operating Current (Wi-Fi off) | I<sub>IN avg</sub> |  | 30 | 40 | mA |
+| Operating Current (Wi-Fi on) | I<sub>VIN avg</sub> |  | 80 | 100 | mA |
+| Operating Current (Wi-Fi on) | I<sub>VIN pk</sub> | 235<sup>[1]</sup> |  | 430<sup>[1]</sup> | mA |
+| Operating Current (Wi-Fi on, w/powersave) | I<sub>VIN avg</sub> |  | 18 | 100<sup>[2]</sup> | mA |
+| Operating Current (Wi-Fi off) | I<sub>VIN avg</sub> |  | 30 | 40 | mA |
 | Sleep Current (5V @ VIN)| I<sub>Qs</sub> |  | 1 | 2 | mA |
 | Deep Sleep Current (5V @ VIN) | I<sub>Qds</sub> |  | 80 | 100 | uA |
 | Operating Temperature | T<sub>op</sub> | -20 |  | +60 | °C |
@@ -250,7 +334,7 @@ When these pads are programmed to be used as a Bluetooth coexistence interface, 
 
 ### I/O Characteristics
 
-These specifications are based on the STM32F205RG datasheet, with reference to Photon pin nomenclature.
+These specifications are based on the STM32F205RGY6 datasheet, with reference to Photon pin nomenclature.
 
 | Parameter | Symbol | Conditions | Min | Typ | Max | Unit |
 | :-|:-|:-:|:-:|:-:|:-:|:-: |
@@ -261,11 +345,16 @@ These specifications are based on the STM32F205RG datasheet, with reference to P
 | <sup></sup> | V<sub>IH</sub> | V<sub>3V3</sub> ≤ 2V | 0.42*(V<sub>3V3</sub>-2)+1 | | 5.2 | V |
 | Standard I/O Schmitt trigger voltage hysteresis<sup>[2]</sup> | V<sub>hys</sub> | | 200 | | | mV |
 | I/O FT Schmitt trigger voltage hysteresis<sup>[2]</sup> | V<sub>hys</sub> | | 5% V<sub>3V3</sub><sup>[3]</sup> | | | mV |
+| Input/Output current max | I<sub>io</sub> | | | | ±25 | mA |
+| Input/Output current total | I<sub>io total</sub> | | | | ±120 | mA |
 | Input leakage current<sup>[4]</sup> | I<sub>lkg</sub> | GND ≤ V<sub>io</sub> ≤ V<sub>3V3</sub> GPIOs | | | ±1 | µA |
 | Input leakage current<sup>[4]</sup> | I<sub>lkg</sub> | R<sub>PU</sub> | V<sub>io</sub> = 5V, I/O FT | | 3 | µA |
 | Weak pull-up equivalent resistor<sup>[5]</sup> | R<sub>PU</sub>| V<sub>io</sub> = GND | 30 | 40 | 50 | k Ω |
 | Weak pull-down equivalent resistor<sup>[5]</sup> | R<sub>PD</sub>| V<sub>io</sub> = V<sub>3V3</sub> | 30 | 40 | 50 | k Ω |
 | I/O pin capacitance | C<sub>IO</sub> | | | 5 | | pF |
+| DAC output voltage (buffers enabled by default) | V<sub>DAC</sub> | | 0.2 | | V<sub>3V3</sub>-0.2 | V |
+| DAC output resistive load (buffers enabled by default) | R<sub>DAC</sub> | | 5 | | | k Ω |
+| DAC output capacitive load (buffers enabled by default) | C<sub>DAC</sub> | | | | 50 | pF |
 
 **Notes:**
 
@@ -316,7 +405,7 @@ The Photon (without headers) can be surface mounted directly in an end applicati
 
 <div align=left><img src="/assets/images/photon_land_pattern_without_headers.png" width=600></div>
 
-Photon Pin #25-31 are described in the [Pin Out Diagrams](#pin-out-diagrams).
+In addition to the 24 pins around the outside of the Photon, there are 7 pads on the bottom the Photon PCB that can be used to connect to extra signals: RGB LED outputs, SETUP button, SMPS enable line and USB D+/D-. Photon Pins #25-31 are described in the [Pin out diagrams](#pin-out-diagrams).
 
 Solder mask around exposed copper pads should be 0.1mm (4 mils) larger in all directions.  E.g., a 0.08" x 0.10" pad would have a 0.088" x 0.108" solder mask.
 
@@ -392,7 +481,7 @@ This land pattern can be found in the [Spark.lbr Eagle library](https://github.c
 |1|INDUCTOR (RF)|3.9nH RF inductor|0402|L3|Johanson|L-07C3N9SV6T|
 |1|INDUCTOR (RF)|4.7nH RF inductor|0402|L1|Johanson|L-07C4N7SV6T|
 |1|INDUCTOR (RF)|6.8nH RF inductor|0402|L2|Johanson|L-07C6N8JV6T|
-|1|WI-FI + MCU|Broadcom Wi-FI + STM32 MCU|Custom USI SMD|U1|USI|WM-N-BM-09-S|
+|1|WI-FI + MCU|Broadcom Wi-FI + STM32F205RGY6 MCU|Custom USI SMD|U1|USI|WM-N-BM-09-S|
 |1|RF SWITCH|RF Switch SPDT|UQFN-6 (1x1mm)|U3|Skyworks|SKY13350-385LF|
 |1|POWER REGULATOR|3.3V 1.5MHz  600mA High Efficiency PWM Step-Down DC/DC Converter|SOT23-5|U2|Richtek|RT8008-33GB|
 |1|RESISTOR|100k 5%|0402|R4|Fenghua|RC-02W104FT|
@@ -555,6 +644,7 @@ Cet équipement devrait être installé et actionné avec une distance minimum d
 | v010 | 1-June-2015 | BW | Updated VBAT info |
 | v011 | 24-July-2015 | BW | Added FCC IC CE Warnings and End Product Labeling Requirements, Updated power output, added approved antennas, Corrected DAC2 as A3, Added pin numbers to PCB Land Pattern for Photon without headers. |
 | v012 | 15-January-2016 | WH | Added TELEC Certification information and expanded explanation of Photons with and without headers.
+| v013 | 7-April-2016 | BW | Added: full STM32 part number, Memory map, DAC limits, SWD pin locations, max source/sink current, more descriptive info about bottom side pads, known errata URL. Updated: BT COEX info, pin diagram, block diagram, operating conditions, pin descriptions, land-pattern image signal keepout note.
 
 ## Known Errata
 
