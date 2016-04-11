@@ -80,16 +80,15 @@ The P1 module has ton of capability in a super small footprint, with analog, dig
 
 | Peripheral Type | Qty | Input(I) / Output(O) | FT<sup>[1]</sup> / 3V3<sup>[2]</sup> |
 | :-:|:-:|:-:|:-: |
-| Digital | 18 | I/O | FT/3V3 |
-| Analog (ADC) | 8 | I | 3V3 |
+| Digital | 24 | I/O | FT/3V3 |
+| Analog (ADC) | 13 | I | 3V3 |
 | Analog (DAC) | 2 | O | 3V3 |
 | SPI | 2 | I/O | 3V3 |
 | I2S | 1 | I/O | 3V3 |
 | I2C | 1 | I/O | FT |
 | CAN | 1 | I/O | FT |
 | USB | 1 | I/O | 3V3 |
-| PWM | 9<sup>3</sup> | O | 3V3 |
-| Spare<sup>[4]</sup> | 6 | I/O | FT/3V3 |
+| PWM | 11<sup>3</sup> | O | 3V3 |
 
 **Notes:**
 
@@ -97,13 +96,11 @@ The P1 module has ton of capability in a super small footprint, with analog, dig
 
 <sup>[2]</sup> 3V3 = 3.3V max pins.
 
-<sup>[3]</sup> PWM is available on D0, D1, D2, D3, A4, A5, WKP, RX, TX with a caveat: PWM timer peripheral is duplicated on two pins (A5/D2) and (A4/D3) for 7 total independent PWM outputs. For example: PWM may be used on A5 while D2 is used as a GPIO, or D2 as a PWM while A5 is used as an analog input. However A5 and D2 cannot be used as independently controlled PWM outputs at the same time.
-
-<sup>[4]</sup> There are 6 extra pins that have digital I/O capability.  There are other peripherals that are available on these pins as well, which will be implemented in firmware and documented in a future version of this document.
+<sup>[3]</sup> PWM is available on D0, D1, D2, D3, A4, A5, WKP, RX, TX, P1S0, P1S1 with a caveat: PWM timer peripheral is duplicated on two pins (A5/D2) and (A4/D3) for 7 total independent PWM outputs. For example: PWM may be used on A5 while D2 is used as a GPIO, or D2 as a PWM while A5 is used as an analog input. However A5 and D2 cannot be used as independently controlled PWM outputs at the same time.
 
 ### RGB LED, SETUP and RESET button
 
-When using the P1 module, it is very important to remember that your device must have an RGB LED to show the user the connectivity status.  Also required is a SETUP and RESET button to enter various [Device Modes](/guide/getting-started/modes). By default the RGB LED outputs are configured for a Common Anode type of LED. These components should be wired according to the [P1 Reference Design - User I/O](#schematic-user-i-o).
+When using the P1 module, it is very important to remember that your device must have an RGB LED to show the user the connectivity status.  Also required is a SETUP and RESET button to enter various [Device Modes](/guide/getting-started/modes). By default the RGB LED outputs are configured for a Common Anode type of LED. These components should be wired according to the [P1 Reference Design - User I/O](#schematic-user-i-o).  RGB pins may be accessed in code as: RGBR, RGBG and RGBB.
 
 ### JTAG and SWD
 
@@ -239,12 +236,17 @@ echo -e "\xFF" > fillbyte && dfu-util -d 2b04:d00a -a 1 -s 3106 -D fillbyte
 | RST | Active-low reset input. On-board circuitry contains a 1k ohm pull-up resistor between RST and 3V3, and 0.1uF capacitor between RST and GND. |
 | VBAT | Supply to the internal RTC, backup registers and SRAM when 3V3 not present (1.65 to 3.6VDC). |
 | 3V3  | This pin represents the regulated +3.3V DC power to the P1 module.  In reality, +3.3V must be supplied to 3 different inputs: VBAT_WL (pin 2 & 3), VDDIO_3V3_WL (pin 5), VDD_3V3 (pin 26 & 27). Optionally +3.3V may be supplied to VBAT_MICRO (pin 38) for data retention in low power sleep modes. Each of these inputs also requires a 0.1uF and 10uF ceramic decoupling capacitor, located as close as possible to the pin. |
-| D0~D7 | Digital only GPIO pins. |
-| A0~A7 | 12-bit Analog-to-Digital (A/D) inputs (0-4095), and also digital GPIOs. `A6` and `A7` are code convenience mappings, which means pins are not actually labeled as such but you may use code like `analogRead(A7)`.  `A6` maps to the DAC pin and `A7` maps to the WKP pin. |
+| D0~D7 | Digital only GPIO pins. D0~D3 may also be used as a PWM output. |
+| A0~A7 | 12-bit Analog-to-Digital (A/D) inputs (0-4095), and also digital GPIOs. `A6` and `A7` are code convenience mappings, which means pins are not actually labeled as such but you may use code like `analogRead(A7)`.  `A6` maps to the DAC pin and `A7` maps to the WKP pin. A4,A5,A7 may also be used as a PWM output. |
 | DAC   | 12-bit Digital-to-Analog (D/A) output (0-4095), and also a digital GPIO. DAC is used as `DAC` or `DAC1` in software, and A3 is a second DAC output used as `DAC2` in software. |
 | RX    | Primarily used as UART RX, but can also be used as a digital GPIO or PWM. |
 | TX    | Primarily used as UART TX, but can also be used as a digital GPIO or PWM. |
-| Spare 1-6    | Primarily used as GPIO. There are other peripherals that are available on these pins as well, which will be implemented in firmware and documented in a future version of this document. |
+| P1S0 | 12-bit Analog-to-Digital (A/D) inputs (0-4095), and also can be used as a digital GPIO or PWM. |
+| P1S1 | 12-bit Analog-to-Digital (A/D) inputs (0-4095), and also can be used as a digital GPIO or PWM. |
+| P1S2 | 12-bit Analog-to-Digital (A/D) inputs (0-4095), and also can be used as a digital GPIO. |
+| P1S3 | 12-bit Analog-to-Digital (A/D) inputs (0-4095), and also can be used as a digital GPIO. |
+| P1S4 | Primarily used as a digital GPIO. |
+| P1S5 | 12-bit Analog-to-Digital (A/D) inputs (0-4095), and also can be used as a digital GPIO. |
 
 ### Pin out diagrams
 
@@ -273,38 +275,38 @@ echo -e "\xFF" > fillbyte && dfu-util -d 2b04:d00a -a 1 -s 3106 -D fillbyte
 | 18	|	WL_JTAG_TRSTN	|	DEBUG	|	BCM43362 Debugging Pin |
 | 19	|	WL_JTAG_TMS	|	DEBUG	|	BCM43362 Debugging Pin |
 | 20	|	WL_JTAG_TDO	|	DEBUG	|	BCM43362 Debugging Pin |
-| 21	|	MICRO_SPI1_MISO	|	PA6	|	A4, SPI MISO |
-| 22	|	MICRO_SPI1_SCK	|	PA5	|	A3, SPI SCK |
-| 23	|	MICRO_SPI1_MOSI	|	PA7	|	A5, SPI MOSI |
-| 24	|	MICRO_SPI1_SS	|	PA4	|	DAC,  SPI SS |
+| 21	|	MICRO_SPI1_MISO	|	PA6	|	A4 (SPI MISO) |
+| 22	|	MICRO_SPI1_SCK	|	PA5	|	A3 (SPI SCK) |
+| 23	|	MICRO_SPI1_MOSI	|	PA7	|	A5 (SPI MOSI) |
+| 24	|	MICRO_SPI1_SS	|	PA4	|	DAC (SPI SS) |
 | 25	|	GND	|	PWR	|	Ground |
 | 26~27	|	VDD_3V3	|	PWR	|	+3.3V |
 | 28	|	GND	|	PWR	|	Ground |
-| 29	|	MICRO_UART2_RTS	|	PA1	|	RGB_LED_RED |
+| 29	|	MICRO_UART2_RTS	|	PA1	|	RGBR (RGB LED RED) |
 | 30	|	MICRO_UART2_CTS	|	PA0	|	WKP |
-| 31	|	MICRO_UART2_RXD	|	PA3	|	RGB_LED_BLUE |
-| 32	|	MICRO_UART2_TXD	|	PA2	|	RGB_LED_GREEN |
+| 31	|	MICRO_UART2_RXD	|	PA3	|	RGBB (RGB LED BLUE) |
+| 32	|	MICRO_UART2_TXD	|	PA2	|	RGBG (RGB LED GREEN) |
 | 33	|	TESTMODE	|	PA8	| GPIO (see STM32F205RGY6 datasheet) |
-| 34	|	MICRO_RST_N	|	I	|	/RESET, Active low MCU reset |
-| 35	|	MICRO_I2C1_SCL	|	PB6	|	D1, I2C SCL |
-| 36	|	MICRO_I2C1_SDA	|	PB7	|	D0, I2C SDA |
+| 34	|	MICRO_RST_N	|	I	|	/RESET (Active low MCU reset) |
+| 35	|	MICRO_I2C1_SCL	|	PB6	|	D1 (I2C SCL) |
+| 36	|	MICRO_I2C1_SDA	|	PB7	|	D0 (I2C SDA) |
 | 37	|	GND	|	PWR	|	Ground |
 | 38	|	VBAT_MICRO	|	PWR	|	Supply to the internal RTC, backup registers and SRAM when 3V3 not present (1.65 to 3.6VDC) |
 | 39	|	GND	|	PWR	|	Ground |
-| 40	|	MICRO_GPIO_1	|	PB0	|	SPARE1 |
-| 41	|	MICRO_GPIO_2	|	PB1	|	SPARE2 |
-| 42	|	MICRO_GPIO_3	|	PC0	|	SPARE3 |
+| 40	|	MICRO_GPIO_1	|	PB0	|	P1S0 |
+| 41	|	MICRO_GPIO_2	|	PB1	|	P1S1 |
+| 42	|	MICRO_GPIO_3	|	PC0	|	P1S2 |
 | 43	|	MICRO_GPIO_5	|	PC3	|	A1 |
-| 44	|	MICRO_GPIO_6	|	PC4	|	SPARE4 |
-| 45	|	MICRO_GPIO_7	|	PB5	|	D2, I2S SD |
-| 46	|	MICRO_GPIO_8	|	PC7	|	/SETUP, I2S MCK |
-| 47	|	MICRO_GPIO_9	|	PC13	|	SPARE5 |
-| 48	|	MICRO_GPIO_12	|	PC1	|	SPARE6 |
+| 44	|	MICRO_GPIO_6	|	PC4	|	P1S3 |
+| 45	|	MICRO_GPIO_7	|	PB5	|	D2 (I2S SD) |
+| 46	|	MICRO_GPIO_8	|	PC7	|	/SETUP (I2S MCK) |
+| 47	|	MICRO_GPIO_9	|	PC13	|	P1S4 |
+| 48	|	MICRO_GPIO_12	|	PC1	|	P1S5 |
 | 49	|	MICRO_GPIO_13	|	PC2	|	A2 |
 | 50	|	MICRO_GPIO_14	|	PC5	|	A0 |
 | 51	|	MICRO_JTAG_TRSTN	|	PB4	|	D3 |
-| 52	|	MICRO_JTAG_TDO	|	PB3	|	D4, I2S SCK |
-| 53	|	MICRO_JTAG_TDI	|	PA15	|	D5, I2S WS |
+| 52	|	MICRO_JTAG_TDO	|	PB3	|	D4 (I2S SCK) |
+| 53	|	MICRO_JTAG_TDI	|	PA15	|	D5 (I2S WS) |
 | 54	|	MICRO_JTAG_TMS	|	PA13	|	D7 |
 | 55	|	MICRO_JTAG_TCK	|	PA14	|	D6 |
 | 56	|	BTCX_STATUS	|	I	|	Coexistence signal: Bluetooth status and TX/RX direction |
