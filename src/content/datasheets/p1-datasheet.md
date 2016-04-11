@@ -324,7 +324,7 @@ echo -e "\xFF" > fillbyte && dfu-util -d 2b04:d00a -a 1 -s 3106 -D fillbyte
 
 ## Technical specification
 
-### Absolute maximum ratings <i class="icon-attention"></i>
+### Absolute maximum ratings
 
 | Parameter | Symbol | Min | Typ | Max | Unit |
 |:-|:-|:-:|:-:|:-:|:-:|
@@ -332,7 +332,7 @@ echo -e "\xFF" > fillbyte && dfu-util -d 2b04:d00a -a 1 -s 3106 -D fillbyte
 | Storage Temperature | T<sub>stg</sub> | -40 |  | +85 | °C |
 | ESD Susceptibility HBM (Human Body Mode) | V<sub>ESD</sub> |  |  | 2 | kV |
 
-### Recommended operating conditions <i class="icon-check"></i>
+### Recommended operating conditions
 
 | Parameter | Symbol | Min | Typ | Max | Unit |
 |:-|:-|:-:|:-:|:-:|:-:|
@@ -359,7 +359,7 @@ echo -e "\xFF" > fillbyte && dfu-util -d 2b04:d00a -a 1 -s 3106 -D fillbyte
 
 <sup>[3]</sup> These are very short average current bursts when transmitting and receiving.  On average if minimizing frequency of TX/RX events, current consumption in powersave mode will be 18mA
 
-### Wi-Fi Specifications <i class="icon-signal"></i>
+### Wi-Fi Specifications
 
 | Feature | Description| |
 | :-|:-|:-: |
