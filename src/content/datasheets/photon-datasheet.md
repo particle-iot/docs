@@ -225,7 +225,7 @@ When these pads are programmed to be used as a Bluetooth coexistence interface, 
 
 <sup>[2]</sup> These are very short average current bursts when transmitting and receiving.  On average if minimizing frequency of TX/RX events, current consumption in powersave mode will be 18mA
 
-### Wi-Fi Specifications <i class="icon-signal"></i>
+### Wi-Fi Specifications
 
 | Feature | Description| |
 | :-|:-|:-: |
