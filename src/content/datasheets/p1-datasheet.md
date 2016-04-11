@@ -497,7 +497,7 @@ P1 modules are available from [store.particle.io](https://store.particle.io/) as
 
 ### Tape and Reel Info
 
-<div align=center><img src="/assets/images/p1-tape-and-reel.png" width=500></div>
+<div align=center><img src="/assets/images/p1-tape-and-reel.png" width=600></div>
 
 ### Moisture sensitivity levels
 
