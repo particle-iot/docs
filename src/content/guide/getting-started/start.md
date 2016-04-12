@@ -142,7 +142,7 @@ For more technical details on what comes on your device, go {{#if core}}[here](/
 
 ## Billing for Electron
 ### Overview
-- Each SIM card will be billed a *base rate* which includes 1 MB of data
+- Each SIM card will be billed a *base rate* which includes 1 MB of data (1 MB = 1,000,000 bytes)
 - The base rate covers you up to 1.0MB, additional MB are billed at a cheaper rate than the base
 - We bill your base rate at beginning of a period, additional MB at the end, so you'll often see both
 - Base and additional MB rates are based on your [country and Zone](/guide/getting-started/billing/electron/#roaming-zones-)
