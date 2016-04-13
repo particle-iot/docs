@@ -19,8 +19,7 @@ script: npm test
 notifications:
   slack:
     rooms:
-      - s:9jAk3EOFmCSRc3LKXG5u3dGY#documentation
-      - s:9jAk3EOFmCSRc3LKXG5u3dGY#support-ops
+      - s:1SUvEfTWrI5cPwufwTAkxFas#documentation
 deploy:
   - provider: s3
     access_key_id: "AKIAJ5RMM3264VMARJQQ"
