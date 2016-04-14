@@ -205,8 +205,8 @@ Particle has completed TELEC certification to achieve compliance with Japanese R
 ## RoHS <img class="inline-header-image" src="/assets/images/logo-rohs.png"/>
 
 ### Description
-- **Website**: http://ec.europa.eu/environment/waste/rohs_eee/index_en.htm
-- **Wikipedia**: https://en.wikipedia.org/wiki/Restriction_of_Hazardous_Substances_Directive
+- **Website**: [http://ec.europa.eu/environment/waste/rohs_eee/index_en.htm](http://ec.europa.eu/environment/waste/rohs_eee/index_en.htm)
+- **Wikipedia**: [https://en.wikipedia.org/wiki/Restriction_of_Hazardous_Substances_Directive](https://en.wikipedia.org/wiki/Restriction_of_Hazardous_Substances_Directive)
 - **Domain**: Europe
 
 RoHS stands for the "Restriction of Hazardous Substances Directive" adopted by the European Union in 2003 and effective as of 2006. It restricts the import and distribution of electronic and electrical equipment with six hazardous materials within the EU. Those hazardous materials are listed below:
