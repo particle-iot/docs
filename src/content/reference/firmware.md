@@ -4180,7 +4180,7 @@ Gets a client that is connected to the server and has data available for reading
 
 ### write()
 
-Write data to all the clients connected to a server. This data is sent as a byte or series of bytes.
+Write data to the last client that connected to a server. This data is sent as a byte or series of bytes.
 
 ```C++
 // SYNTAX
@@ -4198,7 +4198,7 @@ Returns: `byte`: `write()` returns the number of bytes written. It is not necess
 
 ### print()
 
-Print data to all the clients connected to a server. Prints numbers as a sequence of digits, each an ASCII character (e.g. the number 123 is sent as the three characters '1', '2', '3').
+Print data to the last client connected to a server. Prints numbers as a sequence of digits, each an ASCII character (e.g. the number 123 is sent as the three characters '1', '2', '3').
 
 ```C++
 // SYNTAX
@@ -4215,7 +4215,7 @@ Returns:  `byte`:  `print()` will return the number of bytes written, though rea
 
 ### println()
 
-Print data, followed by a newline, to all the clients connected to a server. Prints numbers as a sequence of digits, each an ASCII character (e.g. the number 123 is sent as the three characters '1', '2', '3').
+Print data, followed by a newline, to the last client connected to a server. Prints numbers as a sequence of digits, each an ASCII character (e.g. the number 123 is sent as the three characters '1', '2', '3').
 
 ```C++
 // SYNTAX
