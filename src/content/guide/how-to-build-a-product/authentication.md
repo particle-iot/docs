@@ -309,7 +309,7 @@ If you are building a **web app** instead, the cURL command will look different:
 
 ```bash
 curl -X POST -H "Authorization: Bearer 1234" -d name=MyApp -d type=web \
--d redirect_uri=http://www.particle.io/setup -d organization=my-org \
+-d redirect_uri=https://www.particle.io/setup -d organization=my-org \
 -d scope=create_customer https://api.particle.io/v1/clients
 ```
 
@@ -349,7 +349,7 @@ For instructions on how to add client credentials to your iOS app, please see [i
 
 #### 3. Create a customer
 
-You have now moved from the one-time configuration steps to a process that will occur for each new customer that uses your web or mobile app. As mentioned earlier in this section, much of what will be discussed in the next four steps will be magically handled by the Particle SDKs, with no custom code needed from you. 
+You have now moved from the one-time configuration steps to a process that will occur for each new customer that uses your web or mobile app. As mentioned earlier in this section, much of what will be discussed in the next four steps will be magically handled by the Particle SDKs, with no custom code needed from you.
 
 After navigating to your application, one of the first things your customer will need to do is create an account. Because you are not running your own web server, the customer will be created in the Particle system. They will provide a username and password in the form, that will serve as their login credentials to the app.
 
@@ -370,7 +370,7 @@ This step actually comprises a lot of things that happen behind the scenes, but 
 
 In order for a device to be setup successfully, your application must retrieve a claim code on behalf of the customer setting up their device and send that claim code to the device. When the device receives proper Wi-Fi credentials and is able to connect to the Internet, it sends the claim code to the Particle cloud. The Particle cloud then links the device to the customer, and grants the customer access over that device.
 
-The first thing that must happen is retreiving a claim code from the Particle cloud for the customer. A special endpoint exists for organizations to use to generate claim codes on behalf of their customers. 
+The first thing that must happen is retreiving a claim code from the Particle cloud for the customer. A special endpoint exists for organizations to use to generate claim codes on behalf of their customers.
 
 This endpoint is `POST /v1/orgs/:orgSlug/products/:productSlug/device_claims`. The customer's access token is required, and is used to generate a claim code that will allow for the link between the device and the customer.
 
@@ -424,7 +424,7 @@ Note that now, your app will never communicate directly to the device. The custo
 
 Signup and device claiming only will happen one time for each customer. After this has been completed, subsequent visits to your application will continue to use customer access tokens to interact with the device via the Particle API.
 
-If a customer's access token expires, the customer will be asked to log in again, generating a fresh access token to interact with the device. 
+If a customer's access token expires, the customer will be asked to log in again, generating a fresh access token to interact with the device.
 
 ## Two-Legged Authentication
 
@@ -433,11 +433,11 @@ The main difference between two-legged and simple authentication is the presence
 The most common reason to use two-legged authentication is the desire to store & manage customer accounts yourself in your own database.
 
 ![Two legged authentication](/assets/images/two-legged-auth-high-level.png)
-<p class="caption">Two-legged authentication involves the presence of your own server</p> 
+<p class="caption">Two-legged authentication involves the presence of your own server</p>
 
 ### Advantages of Two-Legged
 
-Two-legged authentication is the ideal choice for a product creator looking for maximum visibility, control, and flexibility of their web or mobile application. With two-legged, you gain the ability to implement custom logic, integrations with third-party services, and store application-specific data that are not currently part of the Particle platform. 
+Two-legged authentication is the ideal choice for a product creator looking for maximum visibility, control, and flexibility of their web or mobile application. With two-legged, you gain the ability to implement custom logic, integrations with third-party services, and store application-specific data that are not currently part of the Particle platform.
 
 For example, if you were building a connected hot tub, you could use your own web server and database to allow a customer to set their desired water temperature, then use that piece of data to set the temperature when the hot tub is turned on.
 
@@ -463,7 +463,7 @@ Each one of the steps will be covered in detail below. Note that the first two s
 
 Like Simple Authentication, you will need to create valid OAuth client credentials for your organization. Unlike simple authentication, your OAuth client credentials will be sent to the Particle API from your server, not directly from your mobile/web application. The client credentials will be used for two purposes:
 
-* Creating new customers 
+* Creating new customers
 * Creating *scoped access tokens* for customers
 
 Because the communication is server-to-server, you do not need to specify a scope. Without a scope, your client credentials can be successfully used for both of the purposes listed above.
@@ -515,7 +515,7 @@ Your *server* will need access to your newly created OAuth client ID and secret.
 
 Because of the presence of your server, you should not need to add these credentials to your web or mobile application.
 
-**Do not share your client ID and secret publically**. These credentials provide the ability to fully control your product's devices, and access sensitive information about your organization. We recommend never publishing the client ID and secret to a GitHub repository. 
+**Do not share your client ID and secret publically**. These credentials provide the ability to fully control your product's devices, and access sensitive information about your organization. We recommend never publishing the client ID and secret to a GitHub repository.
 
 *Coming soon: example implementation of client credentials*
 
@@ -524,7 +524,7 @@ Because of the presence of your server, you should not need to add these credent
 
 When using two-legged authentication, you will likely be managing customers on your own database *(Note: We realize that you may not call end-users of your product "customers" like we do. You may simply refer to them as users internally. However, we will continue calling them customers here to avoid confusion)*.
 
-An important thing to understand is that even though you will be creating customers yourself, you will also need to create a *shadow customer* on the Particle cloud. That is, for every customer you create on your back-end, an mirroring customer record must be created using the Particle API. 
+An important thing to understand is that even though you will be creating customers yourself, you will also need to create a *shadow customer* on the Particle cloud. That is, for every customer you create on your back-end, an mirroring customer record must be created using the Particle API.
 
 ![Creating a customer two-legged authorization](/assets/images/create-customer-two-legged.png)
 <p class="caption">You will create a Particle <em>shadow customer</em> in addition to creating the customer on your own back-end.</p>
@@ -614,4 +614,3 @@ The response will be identical to the new access token creation endpoint above.
 
 ## Login with Particle
 *(Coming Soon)*
-
