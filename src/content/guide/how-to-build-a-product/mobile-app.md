@@ -9,7 +9,7 @@ order: 6
 
 While using your Photon, you've probably come across our Particle mobile apps (iOS and Android). You may have used these apps to set up your device and "tinker" with the GPIO pins.
 
-Particle provides native mobile SDKs for both iOS (Objective-C and Swift) and Android (Java) that allow you to build your own branded app for setting up and interacting with your product. If all you need is the set-up process, you can build your own branded app by editing a 15-line configuration file (no software development necessary). If you want to build a complete mobile interface, our iOS and Android SDKs provide native access to our API for interfacing with the product.
+Particle provides native mobile SDKs for both iOS (Objective-C and Swift) and Android (Java) that allow you to build your own branded app for setting up and interacting with your product. If all you need is the set-up process, you can build your own branded app by editing a 15-line configuration file in the **Device setup library** (no software development necessary). If you want to build a complete mobile interface, our iOS and Android **Cloud SDKs** provide native access to our API for interfacing with the product.
 
 You have already learned a lot about what you'll need to do to build your web
 application in the last section on [Authentication &
@@ -40,7 +40,7 @@ focus more specifically on building mobile applications.
 - [Google Play developer account](https://support.google.com/googleplay/android-developer/answer/6112435?hl=en)
 - An Android device running Android v4.0 and up (the Particle device setup process isn't supported via emulators), and a USB cable to connect the device to your computer
 - [Android Studio](https://developer.android.com/sdk/index.html) v1.4 and up
-- Particle Android SDKs: [Cloud SDK] (https://docs.particle.io/reference/android/#android-cloud-sdk) and the [Device Setup library] (https://docs.particle.io/reference/android/#android-device-setup-library)
+- Particle Android SDKs: [Cloud SDK](https://docs.particle.io/reference/android/#android-cloud-sdk) and the [Device Setup library](https://docs.particle.io/reference/android/#android-device-setup-library)
 - Basic familiarity with Android development using Java and the Gradle build system.  Here are few recommended free resources to get you started:
 	- Official [Google tutorials](https://developer.android.com/training/basics/firstapp/index.html)
 	- [Udemy Learn Android Programming From Scratch](https://www.udemy.com/learn-android-programming-from-scratch-beta/) free online video course

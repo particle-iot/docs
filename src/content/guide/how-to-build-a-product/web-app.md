@@ -101,7 +101,7 @@ function on one device to cause it to dance rainbows.
 ## What's next?
 
 We can't wait to show
-you how just how easy it is to build a web app for your product on Particle!
+you just how easy it is to build a web app for your product on Particle!
 
 If your product is better suited for a mobile app, you will want to
 [build your iOS and Android mobile apps](/guide/how-to-build-a-product/mobile-app/)
