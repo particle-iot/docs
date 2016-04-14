@@ -58,7 +58,9 @@ If your {{device}} is blinking magenta, it is currently loading an app or updati
 
 {{{device-animation device "blink" "magenta" }}}
 
-If your latest code is crashing your Particle, this mode is for you! Hold down the {{#if photon}}`SETUP`{{/if}}{{#unless photon}}`MODE`{{/unless}}, then click the reset button once. When your Particle starts blinking in magenta, imediatly release the {{#if photon}}`SETUP`{{/if}}{{#unless photon}}`MODE`{{/unless}} button. If you do this step correctly, the device will enter in safe mode, and won't execute your old code.
+You should put your Particle in safe mode when you want to perform a safe OTA (no code is running on the device), or when your latest code is crashing the device.
+
+Hold down the {{#if photon}}`SETUP`{{/if}}{{#unless photon}}`MODE`{{/unless}}, then click the reset button once. When your Particle starts blinking in magenta, immediately release the {{#if photon}}`SETUP`{{/if}}{{#unless photon}}`MODE`{{/unless}} button. If you do this step correctly, the device will enter in safe mode, and won't run your code.
 
 ### Looking For Internet
 
