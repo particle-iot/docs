@@ -48,7 +48,7 @@ The Photon as well as the P0/P1 Modules are covered under certifications from th
 
 Any host product incorporating the Photon/P0 or P1 modules does not require additional testing or authorization for the Wi-Fi transmitter as long as:
 - An antenna of the same type **and** equal or lesser gain to the antenna used for certification is used on the product.  
-- Any restrictions found in the grands are followed in the OEM's end product integration of Particle hardware.
+- Any restrictions found in the grants are followed in the OEM's end product integration of Particle hardware.
 
 The Photon/P0 and P1 modules were certified with antennas of the following gain:
 - **Photon/P0 Module**: Chip antenna (1.3dBi), external antenna (2.15dBi)
@@ -114,7 +114,7 @@ Particle's certifications will help you decrease the time and cost associated wi
 
 The Photon/P0 and P1 Modules are IC certified as single-modular transmitters. Just like with FCC Certification, any host product incorporating the Photon/P0 or P1 modules does not require additional testing or authorization for the Wi-Fi transmitter by IC as long as:
 - An antenna of the same type **and** equal or lesser gain to the antenna used for certification is used on the product.  
-- Any restrictions found in the grands are followed in the OEM's end product integration of Particle hardware.
+- Any restrictions found in the grants are followed in the OEM's end product integration of Particle hardware.
 
 ### Customer Responsibilities
 
