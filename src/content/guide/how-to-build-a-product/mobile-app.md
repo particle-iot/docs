@@ -40,7 +40,7 @@ focus more specifically on building mobile applications.
 - [Google Play developer account](https://support.google.com/googleplay/android-developer/answer/6112435?hl=en)
 - An Android device running Android v4.0 and up (the Particle device setup process isn't supported via emulators), and a USB cable to connect the device to your computer
 - [Android Studio](https://developer.android.com/sdk/index.html) v1.4 and up
-- Particle Android SDKs: [Cloud SDK] (https://docs.particle.io/reference/android/#android-cloud-sdk) and the [Device Setup library] (https://docs.particle.io/reference/android/#android-device-setup-library)
+- Particle Android SDKs: [Cloud SDK](https://docs.particle.io/reference/android/#android-cloud-sdk) and the [Device Setup library](https://docs.particle.io/reference/android/#android-device-setup-library)
 - Basic familiarity with Android development using Java and the Gradle build system.  Here are few recommended free resources to get you started:
 	- Official [Google tutorials](https://developer.android.com/training/basics/firstapp/index.html)
 	- [Udemy Learn Android Programming From Scratch](https://www.udemy.com/learn-android-programming-from-scratch-beta/) free online video course
