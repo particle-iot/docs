@@ -17,4 +17,5 @@ fi
 
 set -e
 sudo pip install s3cmd
-s3cmd sync --acl-public --delete-removed --no-mime-magic --guess-mime-type --add-header="Cache-Control:max-age=300" build/ "s3://${BUCKET}/"
+s3cmd sync --acl-public --delete-removed --no-mime-magic --guess-mime-type --add-header="Cache-Control:max-age=300" --exclude='search-index.json' build/ "s3://${BUCKET}/"
+s3cmd sync --acl-public --no-mime-magic --guess-mime-type --add-header="Cache-Control:max-age=300" --add-header="Content-Encoding:gzip" build/search-index.json "s3://${BUCKET}/"

@@ -36,7 +36,13 @@ describe('Crawler', function() {
 
   after(function(done) {
     this.timeout(60000);
-    server.shutdown(done);
+    server.shutdown(function(err) {
+      if (err) {
+        return done(err);
+      }
+      console.log('Compressing...');
+      metalsmith.compress(done);
+    });
   });
 
   it('should complete without error', function(done) {
