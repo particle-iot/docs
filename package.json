@@ -37,7 +37,7 @@
     "metalsmith-lunr": "git://github.com/spark/metalsmith-lunr#0.2.3",
     "metalsmith-markdown": "spark/metalsmith-markdown#0.2.2",
     "metalsmith-move-up": "^1.0.0",
-    "metalsmith-paths": "^2.0.0",
+    "metalsmith-paths": "2.1.1",
     "metalsmith-permalinks": "^0.4.0",
     "metalsmith-redirect": "^1.0.2",
     "metalsmith-register-helpers": "git://github.com/brycekahle/metalsmith-register-helpers",
