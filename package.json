@@ -25,7 +25,6 @@
     "metalsmith-clean-css": "^2.0.0",
     "metalsmith-collections": "git://github.com/spark/metalsmith-collections#dynamic-collections",
     "metalsmith-copy": "^0.2.1",
-    "metalsmith-define": "^1.0.0",
     "metalsmith-filemetadata": "0.0.4",
     "metalsmith-gzip": "^1.1.0",
     "metalsmith-if": "0.0.1",
@@ -45,12 +44,13 @@
     "metalsmith-watch": "^1.0.1",
     "minimatch": "^2.0.8",
     "mocha": "^2.2.5",
-    "prettify": "^0.1.7",
-    "should": "^7.0.1"
+    "prettify": "^0.1.7"
   },
   "devDependencies": {
     "chalk": "^1.1.1",
     "cheerio": "^0.16.0",
+    "eslint": "^2.8.0",
+    "eslint-config-particle": "^1.0.2",
     "git-rev": "^0.2.1",
     "simplecrawler": "spark/node-simplecrawler#v0.6.3"
   }
