@@ -9,7 +9,6 @@ var permalinks = require('metalsmith-permalinks');
 var collections = require('metalsmith-collections');
 var cleanCSS = require('metalsmith-clean-css');
 var define = require('metalsmith-define');
-var compress = require('metalsmith-gzip');
 var paths = require('metalsmith-paths');
 var partials = require('metalsmith-register-partials');
 var helpers = require('metalsmith-register-helpers');
@@ -245,21 +244,10 @@ exports.metalsmith = function() {
   return metalsmith;
 };
 
-exports.compress = function(callback) {
-  Metalsmith(__dirname)
-    .clean(false)
-    .concurrency(100)
-    .source("../build")
-    .destination("../build")
-    .use(compress({overwrite: true}))
-    .build(callback);
-};
-
 exports.build = function(callback) {
   git.branch(function (str) {
     gitBranch = process.env.TRAVIS_BRANCH || str;
     exports.metalsmith()
-      .use(compress({overwrite: true}))
       .build(function(err, files) {
         if (err) { throw err; }
         if (callback) {
