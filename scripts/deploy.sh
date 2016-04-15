@@ -17,4 +17,4 @@ fi
 
 set -e
 sudo pip install s3cmd
-s3cmd sync -v -d --dry-run --acl-public --delete-removed --no-mime-magic --guess-mime-type --add-header="Cache-Control:max-age=300" build/ "s3://${BUCKET}/"
+s3cmd sync --acl-public --delete-removed --no-mime-magic --guess-mime-type --add-header="Cache-Control:max-age=300" build/ "s3://${BUCKET}/"
