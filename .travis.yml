@@ -16,32 +16,12 @@ install:
 - npm install
 - npm prune
 script: npm test
+after_success: ./scripts/deploy.sh
 notifications:
   slack:
     rooms:
       - s:1SUvEfTWrI5cPwufwTAkxFas#documentation
-deploy:
-  - provider: s3
-    access_key_id: "AKIAJ5RMM3264VMARJQQ"
-    secret_access_key:
-      secure: "Yp3DejZxlSN6JP4IDqEJH5Sh+STcLx3d9fIeqVc6g64MnqDQ/moYHDxg/JO9wkt9pRQ98GPuF7B/KjMLHftU2GkKVLNasJf4CySx9n8OVsCZCo/7OlzLBmDP7PWj+liROaGMcm7OOWGvXNGF4gd6vDUtC2kboRosw3FucWtO+tgdRFea7efvkTqB8QHe0p1kBrTWHWWG55NzXokOOo2Sl+PUTxberPN8h8fraWWmcI5IQ7IHHckXEy9YRlSCUszJO9HLHXEHa8Q0oLsgv8MTamDBGgQkfHj+CBfiO/CDcNaOquYM2B+tFfqCaT+M8dYy/bONlQsA/78XG1qnsblqTwvn4/d+IPmRFMRkYF1cszuBxWwgVJ9iJem5C57hzYhsjLgfNBuoKdSIL1z1EuSbyvPmO3k6U3r4CaFoClI9dY3Y8XUTYKq5+6uUJnwoRJr7KCoCABIUG96tLpm5aKaoSxsMbttrD0h71egndffXB6es9OKFTkDwXZDg+v9eg0bRoT5Xpq7EEdqZk9unPHBY2bdISUlhdLU8x3IUSy0p3YZ+mqUjCf0j7YqRbFYeMphUdtUQHL7ejKUgy3FZ8guoUjNSV4ZNQfJe9HJ7wzZYtfwK/1vAs/pLdsXdgs6Xo4YZBYbVJpGW8QrjbXLVIDaqSDGIcPybko82rFo4jumDrLI="
-    bucket: docs.particle.io
-    detect_encoding: true
-    skip_cleanup: true
-    local_dir: build
-    cache_control: "max-age=300"
-    on:
-      repo: spark/docs
-      branch: master
-  - provider: s3
-    access_key_id: "AKIAJ5RMM3264VMARJQQ"
-    secret_access_key:
-      secure: "Yp3DejZxlSN6JP4IDqEJH5Sh+STcLx3d9fIeqVc6g64MnqDQ/moYHDxg/JO9wkt9pRQ98GPuF7B/KjMLHftU2GkKVLNasJf4CySx9n8OVsCZCo/7OlzLBmDP7PWj+liROaGMcm7OOWGvXNGF4gd6vDUtC2kboRosw3FucWtO+tgdRFea7efvkTqB8QHe0p1kBrTWHWWG55NzXokOOo2Sl+PUTxberPN8h8fraWWmcI5IQ7IHHckXEy9YRlSCUszJO9HLHXEHa8Q0oLsgv8MTamDBGgQkfHj+CBfiO/CDcNaOquYM2B+tFfqCaT+M8dYy/bONlQsA/78XG1qnsblqTwvn4/d+IPmRFMRkYF1cszuBxWwgVJ9iJem5C57hzYhsjLgfNBuoKdSIL1z1EuSbyvPmO3k6U3r4CaFoClI9dY3Y8XUTYKq5+6uUJnwoRJr7KCoCABIUG96tLpm5aKaoSxsMbttrD0h71egndffXB6es9OKFTkDwXZDg+v9eg0bRoT5Xpq7EEdqZk9unPHBY2bdISUlhdLU8x3IUSy0p3YZ+mqUjCf0j7YqRbFYeMphUdtUQHL7ejKUgy3FZ8guoUjNSV4ZNQfJe9HJ7wzZYtfwK/1vAs/pLdsXdgs6Xo4YZBYbVJpGW8QrjbXLVIDaqSDGIcPybko82rFo4jumDrLI="
-    bucket: docs.staging.particle.io
-    detect_encoding: true
-    skip_cleanup: true
-    local_dir: build
-    cache_control: "max-age=300"
-    on:
-      repo: spark/docs
-      branch: staging
+env:
+  global:
+  - secure: IG50gM5ll3BpqYuCSOV+EztEeXpCURnyJ3fcXoi/eGD9gcvR3T5BLRBRSQb1t53/E+WdvqRbBDn4W+vEAtaquYRywtm6XAEH7++phwjS3dRdSFsnB62x9Bfn98+/TDjOxDrEGI/pwoNjOBmjfGQh0uBXGWqUOdnYQ2vYrklcQwS5ihC+AoK37YXy6hRfg7Jn2LnmBi72CMmcmt9he2Rr0v5lq/bwCaUCIzzpWeZZYcHCyMA7ylZUtI+a991Wn7QMgn0p7V/kbQ5Nbc/qNEjsPSqhxUdb0d0vxSycxTUvciZJddJhLcvVPeNP46+xS/1q7ZC0ipfw8NbL5RfsYBxzRPDdp+MtJTZy4sY7d+v8Dxc9U/BQtRS7pvH+NF8l0940ThiDBrWjZwtOkrrmaCDEVPcagosJsUcdnLnwMp2FdVxKOt/lDFRvOzTPqFSRP/3RmWaIbR5qZMuOd7BIKAr2h/htmf+R1J07ZIJSW96pVXvayxQMCWaYKmwDzKDyJeAYq1A+SEkuuFfO4chFGdVrdQDLPEkczpuCX1Jgrh3PPj0yVRy/v4MzDxdiZI1PH6W12xomVAkFA7tXgvne6+hZ1s7dEgTrh6hdYD5gizXTFPTbmlWf16OFGKUtcAhPDG2tB3pSy2/j1V+gAdUb23iPaJx3bDkF2sACD1SrTaj2bYE=
+  - secure: EaTjiPku5SRK+UlBkEJ0ApSlPTjXvoYfZUfnDTXh4N4wmO8XyRX5nB3Sddy2rMtiJX8B8yXOxR8BBXsSc5G9TAnhPCWWxeJGRICQpH5yr4Z9nZRONU/otA3H4NT5BP9s502M8QHOUs/zP4jYjA1a3FrU0aJRhWyMCtXxBaWuPOcOcDWX+/5No0Vg4/bpgrXV7MCbSsfGnKEyUw5uXwWDwrcw4KVVwfgZveCu9vAIX9PP7FO0uMmkfHoyYhGyq0QSlyPMg9hRdkj0OVKzE5X+RuWRRjIjg9SE+QWGFSv2LWPc1t/hVV/Mt8tMxHsVBUilvANxM2o/IZDwJuKCqhQ0/2Rsdt3bN9iBH0nRv5wXsgXqUdK/KsdmWu+1uSlfu4i9su4tssGdKajugPJh/eMQGEsUX/eAgVGupLSbWKP2MFuzPRSDSu6bMJSINMGRSb7Ni/mAVGDrxhTz/N6rbJqKz/xJW2HLiSO5hAWiw0+VMqJYcWT+zPMyeUeTYI98EIGFS9d9LObEmkyR3LzY0pR0sobFvUVuUuX9p2YDFUAZTSI6Ouw8bNphu1dkzUR5PW0D49Y+w2lQkHnWdMImPvmUo7Hvx5MdBiH1my//23qyHZGBVMBDRgd+Q5zZyh3R3MpzUyJ6QhPGrIfL2cPDPodGs+v5aUz0+RVdK3kR42rN93A=
