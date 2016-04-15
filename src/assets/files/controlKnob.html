@@ -1,0 +1,104 @@
+<!DOCTYPE HTML PUBLIC>
+<HTML>
+	<HEAD>
+	   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+	   <script src="http://anthonyterrien.com/js/jquery.knob.js"></script>
+       <meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, width=device-width">
+
+	</HEAD>
+	<BODY>
+
+
+
+    <div style="text-align:center">
+        <input type="text" class="dial" data-min="0" data-max="11" data-fgColor="#00ADEF" data-angleOffset=30 data-angleArc=300 data-linecap=round data-displayInput=false data-width=300 data-height=300>
+    </div>
+
+
+
+    <div id="spark-login" />
+
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/sparkjs/0.2.0/spark.min.js"></script>
+
+    <script>
+      sparkLogin(function(data) {
+        console.log(data);
+        document.getElementById("spark-login").style.visibility = "hidden";
+        var devicesPr = spark.listDevices();
+        devicesPr.then(
+          function(devices){
+            console.log('Devices: ', devices);
+
+            var deviceID = devices[0].id;
+            var foundButtonName = 0;
+
+            //Look for a Particle device named "InternetButton"
+            for(var i = 0; i < devices.length; i++){
+                if(devices[i].name == "InternetButton"){
+                    deviceID = devices[i].id;
+                    foundButtonName = 1;
+                    break;
+                }
+            }
+            // If you didn't find one named InternetButton, hope that they have one device and this is it
+            if(foundButtonName == 0){
+            	deviceId = devices[0].id;
+            }
+
+            //
+            //  jQuery KNOB stuff
+            //
+            var callback = function(err, data) {
+                if (err) {
+                  console.log('An error occurred while getting core attrs:', err);
+                } else {
+                  console.log('Core attr retrieved successfully:', data);
+                }
+              };
+
+            //Call the Particle.function!
+            var sendApiRequest = function (v) {
+                console.log('setting lamp to ' + v);
+                spark.callFunction(deviceID, 'controller', v, callback);
+            };
+            var _timer = null,
+                lastValue = 0,
+                minDelta = 10;
+
+            //Called when the knob changes
+            var onChange = function (v) {
+                if (_timer) {
+                    clearTimeout(_timer);
+                }
+                if (Math.abs(v - lastValue) > minDelta) {
+                    lastValue = v;
+                    sendApiRequest(v);
+                    return;
+                }
+                _timer = setTimeout(function () {
+                    lastValue = v;
+                    sendApiRequest(v)
+                }, 50);
+            };
+
+            var bindPageEvents = function () {
+                $(".dial").knob({'change': onChange });
+            };
+
+            //
+            // on page startup
+            //
+            $(function () {
+
+                bindPageEvents();
+
+            });
+
+          },
+          function(err) {
+            console.log('List devices call failed: ', err);
+          }
+        );});
+    </script>
+	</BODY>
+</HTML>
