@@ -16,6 +16,5 @@ fi
 : ${AWS_SECRET_ACCESS_KEY:?"REQUIRED"}
 
 set -e
-pip install --upgrade pip
-pip install s3cmd
+sudo pip install s3cmd
 s3cmd sync -v -d --dry-run --acl-public --delete-removed --no-mime-magic --guess-mime-type --add-header="Cache-Control:max-age=300" build/ "s3://${BUCKET}/"
