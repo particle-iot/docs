@@ -94,10 +94,10 @@ Created by Zach Supalla.
       var oldHeader = currentHeader;
       while(!done) {
         if(currentHeader < headers.length - 2 &&
-           scrollPosition > $(headers[currentHeader + 1]).position().top) {
+           scrollPosition >= Math.floor($(headers[currentHeader + 1]).position().top)) {
           currentHeader += 1;
         } else if(currentHeader > 0 &&
-                  scrollPosition < $(headers[currentHeader]).position().top) {
+                  scrollPosition < Math.floor($(headers[currentHeader]).position().top)) {
           currentHeader -= 1;
         } else {
           done = true;
@@ -108,18 +108,15 @@ Created by Zach Supalla.
         Docs.updateTOC($(headers[currentHeader]), twoLevelTOC);
       }
     });
-
-    // Scroll to the current hash if there is one
-    Docs.scrollToHashOnLoad();
   };
 
   Docs.updateTOC = function($currentHeader, twoLevelTOC) {
-    var elementDataHref = $currentHeader.data('href');
+    var elementId = $currentHeader.attr('id');
 
     if($currentHeader.prop("tagName") == "H3") {
-      Docs.updateTOCforH3(elementDataHref, twoLevelTOC);
+      Docs.updateTOCforH3(elementId, twoLevelTOC);
     } else {
-      Docs.updateTOCforH2(elementDataHref);
+      Docs.updateTOCforH2(elementId);
     }
 
     Docs.expandInPageTOC();
@@ -127,7 +124,7 @@ Created by Zach Supalla.
 
   Docs.updateTOCforH2 = function(elementId) {
     // This is the menu li that corresponds to the h2 that was scrolled to
-    var $correspondingNavElement = $('li[data-nav="'+ elementId+'"]');
+    var $correspondingNavElement = $('ul.in-page-toc li[data-nav] a[href="#'+ elementId+'"]').parent('li');
     Docs.expandPrimaryTOC($correspondingNavElement);
   }
 
@@ -156,7 +153,7 @@ Created by Zach Supalla.
   Docs.updateTOCforH3 = function(elementId, twoLevelTOC) {
     var dataSelector = twoLevelTOC ? 'data-secondary-nav' : 'data-nav';
     // This is the menu li that corresponds to the h3 that was scrolled to
-    var $correspondingNavElement = $('li['+dataSelector+'="'+elementId+ '"]');
+    var $correspondingNavElement = $('li['+dataSelector+'] a[href="#'+elementId+ '"]').parent('li');
 
     if(twoLevelTOC) {
       // Make sure primary section is visible
@@ -180,46 +177,6 @@ Created by Zach Supalla.
       $('li.active').click();
       Docs.inPageTOCExpanded = true;
     }
-
-  }
-
-  Docs.scrollToElement = function(element) {
-    var $element = $('[data-href="'+element+'"]');
-    if($element.length === 1) {
-      var position = $element.position().top + 10;
-      $('.content-inner').scrollTop(position);
-    }
-  };
-
-  Docs.scrollToInternalLinks = function() {
-    var $internalLinks = $('.menubar a[href^="#"], a.header-permalinks');
-    $internalLinks.click(function(e) {
-      e.preventDefault();
-      var dataHref = $(this).data('menu-href');
-      var href = $(this).attr('href');
-      Docs.scrollToElement(dataHref);
-      if(window.history) {
-        history.pushState({hash: href}, "New Hash", href);
-      }
-    });
-  };
-
-  Docs.scrollToHashOnLoad = function() {
-    var hash = window.location.hash;
-    var $headersWithHash = $('[id="'+hash+'"]');
-    var dataHref = $headersWithHash.data('href');
-    if (hash !== '' && window.location.pathname !== '/') {
-      setTimeout(function() {
-        Docs.scrollToElement(dataHref);
-      }, 1000);
-    }
-
-    $(window).on('hashchange', function() {
-      hash = window.location.hash;
-      $headersWithHash = $('[id="'+hash+'"]');
-      dataHref = $headersWithHash.data('href');
-      Docs.scrollToElement(dataHref);
-    });
   };
 
   Docs.inPageTOCExpanded = false;
@@ -334,12 +291,9 @@ Created by Zach Supalla.
   Docs.rememberDevices();
   Docs.transform();
   Docs.setupTOCScrollSpy();
-  Docs.scrollToInternalLinks();
   Docs.watchToggleInPageNav();
   Docs.watchToggleSecondaryInPageNav();
   Docs.buildSearch();
   Docs.toggleNav();
   Docs.toggleShowing();
-  prettyPrint();
-
 })(jQuery);
