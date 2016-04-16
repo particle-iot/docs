@@ -166,6 +166,30 @@ Created by Zach Supalla.
     }
   };
 
+  Docs.scrollToElement = function(element) {
+    var $element = $(element);
+    if ($element.length === 1) {
+      var position = $element.position().top + 10;
+      $('.content-inner').scrollTop(position);
+    }
+  };
+
+  Docs.scrollToInternalLinks = function() {
+    var $internalLinks = $('.menubar a[href^="#"], a.header-permalinks');
+    $internalLinks.click(function() {
+      var href = $(this).attr('href');
+      if (window.history) {
+        history.pushState({hash: href}, 'New Hash', href);
+      }
+    });
+
+    window.onpopstate = function(e) {
+      if (e.state && e.state.hash) {
+        Docs.scrollToElement(e.state.hash);
+      }
+    };
+  };
+
   Docs.inPageTOCExpanded = false;
 
   Docs.watchToggleInPageNav = function() {
@@ -279,6 +303,7 @@ Created by Zach Supalla.
   Docs.rememberDevices();
   Docs.transform();
   Docs.setupTOCScrollSpy();
+  Docs.scrollToInternalLinks();
   Docs.watchToggleInPageNav();
   Docs.watchToggleSecondaryInPageNav();
   Docs.buildSearch();
