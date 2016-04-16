@@ -1,3 +1,5 @@
+/* eslint-env browser */
+/* global jQuery, lunr, Handlebars */
 /*!
 
 Documentation middleware.
@@ -17,7 +19,6 @@ Created by Zach Supalla.
 
   Docs.transform = function() {
     this.tagImages();
-    this.buttonize();
     this.prettifyCode();
   };
 
@@ -33,38 +34,25 @@ Created by Zach Supalla.
   };
 
   /**
-   * Changes "button >" text to buttons.
-   */
-
-  Docs.buttonize = function() {
-    $('.content').find('a').each(function() {
-      var $a = $(this);
-
-      var m = $a.text().match(/^(.*) >$/);
-      if (m) $a.text(m[1]).addClass('button');
-    });
-  };
-
-  /**
    * Make code prettier
    */
 
   Docs.prettifyCode = function() {
     $('.content').find('pre code').each(function() {
-      $(this).addClass("prettyprint");
+      $(this).addClass('prettyprint');
     });
   };
 
 
   Docs.rememberDevices = function() {
-    if(typeof(Storage) !== "undefined") {
+    if (typeof Storage !== 'undefined') {
       var currentPath = window.location.pathname;
-      if(currentPath.indexOf("photon") > -1) {
-        localStorage.setItem("lastDevice", "photon");
-      } else if (currentPath.indexOf("core") > -1) {
-        localStorage.setItem("lastDevice", "core");
-      } else if (currentPath.indexOf("electron") > -1) {
-        localStorage.setItem("lastDevice", "electron");
+      if (currentPath.indexOf('photon') > -1) {
+        localStorage.setItem('lastDevice', 'photon');
+      } else if (currentPath.indexOf('core') > -1) {
+        localStorage.setItem('lastDevice', 'core');
+      } else if (currentPath.indexOf('electron') > -1) {
+        localStorage.setItem('lastDevice', 'electron');
       }
     }
   };
@@ -74,29 +62,28 @@ Created by Zach Supalla.
    */
 
   Docs.setupTOCScrollSpy = function() {
-    var content = $(".content-inner");
-    var headers = content.find("h2, h3");
+    var content = $('.content-inner');
+    var headers = content.find('h2, h3');
 
-    if(headers.length == 0) {
+    if (headers.length === 0) {
       return;
     }
 
-    var twoLevelTOC = content.find("h2").length > 0;
-
+    var twoLevelTOC = content.find('h2').length > 0;
     var currentHeader = -1;
 
     // When scrolling, find the closest header and synchronize which TOC
     // entry is active
-    content.on("scroll", function() {
+    content.on('scroll', function() {
       var scrollPosition = content.scrollTop();
       var done = false;
 
       var oldHeader = currentHeader;
-      while(!done) {
-        if(currentHeader < headers.length - 2 &&
+      while (!done) {
+        if (currentHeader < headers.length - 2 &&
            scrollPosition >= Math.floor($(headers[currentHeader + 1]).position().top)) {
           currentHeader += 1;
-        } else if(currentHeader > 0 &&
+        } else if (currentHeader > 0 &&
                   scrollPosition < Math.floor($(headers[currentHeader]).position().top)) {
           currentHeader -= 1;
         } else {
@@ -104,7 +91,7 @@ Created by Zach Supalla.
         }
       }
 
-      if(oldHeader != currentHeader) {
+      if (oldHeader !== currentHeader) {
         Docs.updateTOC($(headers[currentHeader]), twoLevelTOC);
       }
     });
@@ -113,7 +100,7 @@ Created by Zach Supalla.
   Docs.updateTOC = function($currentHeader, twoLevelTOC) {
     var elementId = $currentHeader.attr('id');
 
-    if($currentHeader.prop("tagName") == "H3") {
+    if ($currentHeader.prop('tagName') === 'H3') {
       Docs.updateTOCforH3(elementId, twoLevelTOC);
     } else {
       Docs.updateTOCforH2(elementId);
@@ -126,7 +113,7 @@ Created by Zach Supalla.
     // This is the menu li that corresponds to the h2 that was scrolled to
     var $correspondingNavElement = $('ul.in-page-toc li[data-nav] a[href="#'+ elementId+'"]').parent('li');
     Docs.expandPrimaryTOC($correspondingNavElement);
-  }
+  };
 
   Docs.expandPrimaryTOC = function($correspondingNavElement) {
     // Remove active class
@@ -145,7 +132,7 @@ Created by Zach Supalla.
 
     // Show the secondary in page toc for this section
     var $secondaryNav = $correspondingNavElement.next('.secondary-in-page-toc');
-    if($secondaryNav.length > 0) {
+    if ($secondaryNav.length > 0) {
       $secondaryNav.show();
     }
   };
@@ -155,10 +142,10 @@ Created by Zach Supalla.
     // This is the menu li that corresponds to the h3 that was scrolled to
     var $correspondingNavElement = $('li['+dataSelector+'] a[href="#'+elementId+ '"]').parent('li');
 
-    if(twoLevelTOC) {
+    if (twoLevelTOC) {
       // Make sure primary section is visible
       var $parentli = $correspondingNavElement.parent().prev('li[data-nav]');
-      if(!$parentli.hasClass('active')) {
+      if (!$parentli.hasClass('active')) {
         Docs.expandPrimaryTOC($parentli);
       }
     }
@@ -173,7 +160,7 @@ Created by Zach Supalla.
     var inPageTOC = $('ul.in-page-toc');
     var isExpanded = Docs.inPageTOCExpanded || inPageTOC.hasClass('show');
     var isGuide = window.location.pathname.indexOf('/guide/') > -1;
-    if(!isExpanded && !isGuide) {
+    if (!isExpanded && !isGuide) {
       $('li.active').click();
       Docs.inPageTOCExpanded = true;
     }
@@ -184,7 +171,7 @@ Created by Zach Supalla.
   Docs.watchToggleInPageNav = function() {
     $('li.top-level.active').click(function() {
       $('ul.in-page-toc').toggleClass('show hide');
-      $(this).find('#toggle-in-page-nav').toggleClass("ion-plus ion-minus");
+      $(this).find('#toggle-in-page-nav').toggleClass('ion-plus ion-minus');
     });
   };
 
@@ -192,7 +179,7 @@ Created by Zach Supalla.
     $('.toggle-secondary-toc').click(function() {
       var $this = $(this);
       var $parent = $this.parent();
-      if($this.hasClass('ion-arrow-down-b')) {
+      if ($this.hasClass('ion-arrow-down-b')) {
         $this.removeClass('ion-arrow-down-b').addClass('ion-arrow-right-b');
         $parent.next('.secondary-in-page-toc').hide();
       } else {
@@ -203,7 +190,9 @@ Created by Zach Supalla.
   };
 
   Docs._removeEmptyTokens = function removeEmptyTokens(token) {
-    if (token.length > 0) {return token};
+    if (token.length > 0) {
+      return token;
+    };
   };
 
   Docs.resultsAdded = 0;
@@ -220,10 +209,9 @@ Created by Zach Supalla.
       $('input.search-box').keyup(function() {
         var searchQuery = this.value;
         Docs.emptyResults();
-        if(searchQuery === '' || searchQuery.length < 3) {
+        if (searchQuery === '' || searchQuery.length < 3) {
           $('.search-results').hide();
-        }
-        else {
+        } else {
           $('.search-results').show();
           var results = idx.search(searchQuery);
           Docs.buildSearchResults(results, store);
@@ -245,18 +233,18 @@ Created by Zach Supalla.
 
   Docs.titleize = function(string) {
     var stringNoDashes = string.replace(/-/g, ' ');
-    var stringToTitleCase = stringNoDashes.replace(/\w\S*/g, function(txt){return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();});
+    var stringToTitleCase = stringNoDashes.replace(/\w\S*/g, function(txt){
+      return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
+    });
     return stringToTitleCase;
-  }
+  };
 
   Docs.buildSearchResults = function(results, store) {
-    var htmlToAppend = '';
-
     var fiveResults = results.slice(0,5);
 
     var niceResults = fiveResults.map(function(r) {
       var resultInfo = store[r.ref];
-      var nr = {}
+      var nr = {};
       nr.link = r.ref;
       nr.title = resultInfo.title;
       nr.device = resultInfo.device;
@@ -271,18 +259,18 @@ Created by Zach Supalla.
   };
 
   Docs.toggleShowing = function() {
-    $("span.popupLink, span.footnoteLink").on('click', function() {
-      $(this).toggleClass("showing");
+    $('span.popupLink, span.footnoteLink').on('click', function() {
+      $(this).toggleClass('showing');
     });
   };
 
   Docs.toggleNav = function() {
-    $(".toggle-navigation").click(function(e) {
+    $('.toggle-navigation').click(function(e) {
       e.preventDefault();
-      if($(".menubar").css("opacity") === "1") {
-        $(".menubar, .page-body").addClass("menu-hidden").removeClass("menu-visible");
+      if ($('.menubar').css('opacity') === '1') {
+        $('.menubar, .page-body').addClass('menu-hidden').removeClass('menu-visible');
       } else {
-        $(".menubar, .page-body").addClass("menu-visible").removeClass("menu-hidden");
+        $('.menubar, .page-body').addClass('menu-visible').removeClass('menu-hidden');
       }
     });
   };
