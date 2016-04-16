@@ -1,5 +1,5 @@
 /* eslint-env browser */
-/* global jQuery, lunr, Handlebars */
+/* global jQuery, lunr, Handlebars, prettyPrint */
 /*!
 
 Documentation middleware.
@@ -309,4 +309,5 @@ Created by Zach Supalla.
   Docs.buildSearch();
   Docs.toggleNav();
   Docs.toggleShowing();
+  prettyPrint();
 })(jQuery);
