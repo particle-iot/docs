@@ -8161,9 +8161,11 @@ class MySerialLogger: public Logger {
 public:
     MySerialLogger(LogLevel level, const Filters& filters) : Logger(level, filters) {
         Serial.begin(9600);
+        install(this); // Register logger
     }
 
     virtual ~MySerialLogger() {
+        uninstall(this); // Unregister logger
         Serial.end();
     }
 
@@ -8221,6 +8223,42 @@ Parameters:
 
   * data : characters buffer
   * size : size of the buffer in bytes
+
+`LogLevel categoryLevel(const char* category) const`
+
+Returns logging level for specified category.
+
+Parameters:
+
+  * category : category name
+
+`LogLevel defaultLevel() const`
+
+Returns default logging level.
+
+`static const char* levelName(LogLevel level)`
+
+Returns level name.
+
+Parameters:
+
+  * level : logging level
+
+`static void install(Logger* logger)`
+
+Registers logger globally.
+
+Parameters:
+
+  * logger : logger instance
+
+`static void uninstall(Logger* logger)`
+
+Unregisters logger.
+
+Parameters:
+
+  * logger : logger instance
 
 
 
