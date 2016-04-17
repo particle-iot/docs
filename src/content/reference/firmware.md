@@ -308,14 +308,14 @@ data: {"data":"23:23:44","ttl":"60","published_at":"2014-05-28T19:20:34.638Z","d
 Unless specified otherwise, events sent to the cloud are sent as a reliable message. The Electoron waits for
 acknowledgement from the cloud that the event has been recieved, resending the event in the background up to 3 times before giving up.
 
-The `NO_ACK` flag disables this acknoweldge/retry behavior and sends the event only once.  This reduces data consumption per event, with the possibility that the event may not reach the cloud. 
+The `NO_ACK` flag disables this acknoweldge/retry behavior and sends the event only once.  This reduces data consumption per event, with the possibility that the event may not reach the cloud.
 
-For example, the `NO_ACK` flag could be useful when many events are sent (such as sensor readings) and the occaisonal lost event can be tolerated. 
+For example, the `NO_ACK` flag could be useful when many events are sent (such as sensor readings) and the occaisonal lost event can be tolerated.
 
 ```C++
 // SYNTAX
 
-int temperature = sensor.readTemperature();  // by way of example, not part of the API 
+int temperature = sensor.readTemperature();  // by way of example, not part of the API
 Particle.publish("t", temperature, NO_ACK);
 Particle.publish("t", temperature, PRIVATE, NO_ACK);
 Particle.publish("t", temperature, ttl, PRIVATE, NO_ACK);
@@ -511,7 +511,7 @@ Particle.keepAlive(23 * 60);	// send a ping every 23 minutes
 ```
 
 A keep alive is used to implement "UDP hole punching" which helps maintain the connection from the cloud to the device.
-Should a device becomes unreachable from the cloud (such as a timed out function call or variable get), 
+Should a device becomes unreachable from the cloud (such as a timed out function call or variable get),
 one possible cause of this is that the keep alives have not been sent often enough.
 
 The keep alive duration varies by mobile network operator. The default keepalive is set to 23 minutes, which is sufficient to maintain the connection on Particle SIM cards. 3rd party SIM cards will need to determine the appropriate keep alive value.
@@ -670,7 +670,7 @@ It's possible to call `WiFi.connect()` without entering listening mode in the ca
 WiFi.connect(WIFI_CONNECT_NO_LISTEN);
 ```
 
-If there are no credentials then the call does nothing other than turn on the WiFi module. 
+If there are no credentials then the call does nothing other than turn on the WiFi module.
 
 
 ### disconnect()
@@ -4756,7 +4756,7 @@ IPAddress remoteIP(192, 168, 1, 100);
 int port = 1337;
 
 void setup() {
-  // Required for two way communication 
+  // Required for two way communication
   Udp.begin(8888);
 
   if (Udp.sendPacket(buffer, sizeof(buffer), remoteIP, port) < 0) {
@@ -7233,7 +7233,7 @@ System.sleep(D0,RISING,60);
     - FALLING for when the pin goes from high to low.
 - `seconds`: wakeup after the specified number of seconds
 {{#if electron}}
-- `SLEEP_NETWORK_STANDBY`: optional - keeps the cellular modem in a standby state while the device is sleeping.. 
+- `SLEEP_NETWORK_STANDBY`: optional - keeps the cellular modem in a standby state while the device is sleeping..
 {{/if}}
 
 *Power consumption:*
@@ -7247,7 +7247,7 @@ System.sleep(D0,RISING,60);
 
 _Since 0.4.5._ The state of the {{#unless electron}}Wi-Fi{{/unless}}{{#if electron}}Cellular{{/if}} and Cloud connections is restored when the system wakes up from sleep. So if the device was connected to the cloud before sleeping, then the cloud connection
 is automatically resumed on waking up.
-_Since 0.5.0._ In automatic modes, the `sleep()` function doesn't return until the cloud connection has been established. This means that application code can use the cloud connection as soon as  `sleep()` returns. In previous versions, it was necessary to call `Particle.process()` to have the cloud reconnected by the system in the background.  
+_Since 0.5.0._ In automatic modes, the `sleep()` function doesn't return until the cloud connection has been established. This means that application code can use the cloud connection as soon as  `sleep()` returns. In previous versions, it was necessary to call `Particle.process()` to have the cloud reconnected by the system in the background.
 
 
 ### reset()
@@ -7916,6 +7916,311 @@ Parameters:
   * skipChar : the character to ignore while parsing (char).
 
 Returns: parsed float value (float). If no valid digits were read when the time-out occurs, 0 is returned.
+
+
+
+## Logging
+
+_Since 0.6.0_
+
+```cpp
+// EXAMPLE
+// Use primary serial over USB interface to log info messages as well as messages with higher logging level (warnings, errors, etc).
+SerialLogger logger(9600, LOG_LEVEL_INFO);
+
+void setup() {
+    LOG(INFO, "My device ID: %s", (const char*)System.deviceID());
+}
+
+void loop() {
+}
+```
+
+This library provides various classes, functions and macros for logging.
+
+Typically, applications generate log messages via [LOG() macro](#logging-macros) and use one of the [built-in loggers](#built-in-loggers) to perform filtering and further processing of the logging output.
+
+Every log message generated by system or application modules is always associated with some logging level that describes severity of the message. Supported logging levels are defined by the [LogLevel](#loglevel-enum) enum.
+
+### Built-in Loggers
+
+The library provides following loggers:
+
+```cpp
+// EXAMPLE
+// Use primary serial over USB interface to log error messages
+SerialLogger logger1(9600, /* Baud rate */ LOG_LEVEL_ERROR);
+
+// Use UART interface to log all messages regardless of logging level
+Serial1Logger logger2(9600, /* Baud rate */ LOG_LEVEL_ALL);
+```
+
+* `SerialLogger` uses primary serial over USB interface as output for logging
+* `Serial1Logger` uses UART interface as output for logging
+
+Loggers are typically instantiated globally in application code. It is possible to have different types of loggers instantiated at the same time.
+
+Custom loggers can be implemented by subclassing the [Logger](#logger-class) class.
+
+### Logging Categories
+
+In addition to logging level, log messages can also be associated with category name. Categories allow to organize system and application modules into namespaces and apply category-specific filtering to generated logging output.
+
+```cpp
+// EXAMPLE
+// Use primary serial over USB interface to log all error messages
+SerialLogger logger1(9600, LOG_LEVEL_ERROR);
+
+// Use UART interface to log only application-specific messages
+Serial1Logger logger2(LOG_LEVEL_NONE, { // Do not log any messages by default
+    { "app", LOG_LEVEL_ALL } // Log all application-specific messages
+});
+
+LOG_SOURCE_CATEGORY("app") // Defines global category
+
+void test() {
+    LOG_CATEGORY("app.test"); // Defines scoped category
+    LOG(INFO, "Hello from test()"); // Uses scoped "app.test" category
+}
+
+void setup() {
+    LOG(INFO, "Hello from setup()"); // Uses global "app" category
+}
+
+void loop() {
+}
+```
+
+Category names and pattern strings for category filtering are written in all lower case and may contain arbitrary number of subcategories separated by period character. For example:
+
+  * `a` – matches `a`, `a.b`, `a.b.c` but not `aaa` or `aaa.b`
+  * `b.c` – matches `b.c`, `b.c.d` but not `a.b.c` or `b.ccc`
+
+If some category name matches multiple filters, most specific filter is used.
+
+By default, `app` category is used for all messages generated by application code.
+
+### Logging Macros
+
+`LOG(level, format, ...)`
+
+```cpp
+// EXAMPLE
+const char* user = "John D.";
+LOG(INFO, "Hello %s!", user);
+```
+
+Generates log message according to printf-alike format string.
+
+Parameters:
+
+  * level : logging level (`TRACE`, `INFO`, `WARN`, `ERROR`)
+  * format : format string
+
+This macro adds several attributes to all generated messages: timestamp (number of milliseconds elapsed since startup), source file name, line number, function name (debug builds only).
+
+`LOG_WRITE(level, data, size)`
+
+```cpp
+// EXAMPLE
+char buf[] = ['H', 'e', 'l', 'l', 'o', '!'];
+LOG_WRITE(INFO, buf, sizeof(buf));
+```
+
+Primary macro for direct logging. Provided buffer is forwarded to backend logger as is.
+
+Parameters:
+
+  * level : logging level (`TRACE`, `INFO`, `WARN`, `ERROR`)
+  * data : pointer to characters buffer
+  * size : size of the buffer in bytes
+
+`LOG_PRINT(level, str)`
+
+```cpp
+// EXAMPLE
+LOG_PRINT(INFO, "Hello!");
+```
+
+Convenience equivalent to `LOG_WRITE(level, str, strlen(str))`.
+
+Parameters:
+
+  * level : logging level (`TRACE`, `INFO`, `WARN`, `ERROR`)
+  * str : null-terminated string
+
+`LOG_FORMAT(level, format, ...)`
+
+```cpp
+// EXAMPLE
+unsigned int value = 1;
+LOG_FORMAT(INFO, "%08x", value);
+```
+
+Performs printf-alike formatting and writes resulting string to backend logger. Similarly to `LOG_WRITE()`, this macro is used for direct logging, i.e. resulting string is written to destination log as is, without any additional formatting such as adding of new line characters.
+
+Parameters:
+
+  * level : logging level (`TRACE`, `INFO`, `WARN`, `ERROR`)
+  * format : format string
+
+`LOG_DUMP(level, data, size)`
+
+```cpp
+// EXAMPLE
+extern struct Packet packet;
+LOG_DUMP(TRACE, &packet, sizeof(packet));
+```
+
+Encodes data buffer in hex and writes resulting string to backend logger.
+
+Parameters:
+
+  * level : logging level (`TRACE`, `INFO`, `WARN`, `ERROR`)
+  * data : pointer to data buffer
+  * size : size of the buffer in bytes
+
+`LOG_ENABLED(level)`
+
+```cpp
+// EXAMPLE
+if (LOG_ENABLED(TRACE)) {
+    // Do some heavy logging
+}
+```
+
+Checks whether specified logging level is enabled at run time.
+
+Parameters:
+
+  * level : logging level (`TRACE`, `INFO`, `WARN`, `ERROR`)
+
+`LOG_SOURCE_CATEGORY(category)`
+
+```cpp
+// EXAMPLE
+LOG_SOURCE_CATEGORY("app.test")
+
+void test() {
+    LOG(INFO, "Hello from test()"); // Uses "app.test" category
+}
+```
+
+Defines global logging category for a source file (.c, .cpp).
+
+Parameters:
+
+  * category : category name
+
+`LOG_CATEGORY(category)`
+
+```cpp
+// EXAMPLE
+class Clazz {
+public:
+    Clazz() {
+        LOG(INFO, "Hello from Clazz()"); // Uses "app.clazz" category
+    }
+
+private:
+    LOG_CATEGORY("app.clazz");
+}
+
+void func() {
+    LOG_CATEGORY("app.func");
+    LOG(INFO, "Hello from func()"); // Uses "app.func" category
+}
+```
+
+Defines logging category specific to particular scope, such as function body or class declaration. Scoped category
+overrides any other global or currently visible category.
+
+Parameters:
+
+  * category : category name
+
+### LogLevel Enum
+
+`LogLevel` defines following logging levels:
+
+  * `LOG_LEVEL_ALL` : special value allowing to enable logging of all messages
+  * `LOG_LEVEL_TRACE` : verbose output for debugging purposes
+  * `LOG_LEVEL_INFO` : regular informational messages
+  * `LOG_LEVEL_WARN` : warnings and non-critical errors
+  * `LOG_LEVEL_ERROR` : error messages
+  * `LOG_LEVEL_PANIC` : fatal errors, such as hard faults. This level should not be used for application-specific logging
+  * `LOG_LEVEL_NONE` : special value allowing to disable logging of any messages
+
+### Logger Class
+
+This class can be subclassed to implement custom loggers.
+
+```cpp
+// EXAMPLE
+class MySerialLogger: public Logger {
+public:
+    MySerialLogger(LogLevel level, const Filters& filters) : Logger(level, filters) {
+        Serial.begin(9600);
+    }
+
+    virtual ~MySerialLogger() {
+        Serial.end();
+    }
+
+protected:
+    virtual void formatMessage(const char* msg, LogLevel level, const char* category, uint32_t time, const char* file, int line, const char* func) {
+        // Print level name ("INFO", "WARN", etc).
+        write(levelName(level));
+        write(": ");
+        // Print text message
+        write(message);
+        write("\r\n");
+    }
+
+    virtual void write(const char* data, size_t size) {
+        Serial.write((const uint8_t*)data, size);
+    }
+};
+```
+
+Typically, custom logger classes only need to implement `write()` method that will write data to some output stream. Optionally, `formatMessage()` method can be reimplemented to customize format of the generated messages.
+
+`Logger(LogLevel level, const Filters& filters)`
+
+Constructs logger instance.
+
+Parameters:
+
+  * level : default logging level
+  * filters : category filters
+
+Category filters are optional and can be specified via C++11 initializer list syntax (see [Logging Categories](#logging-categories) section for usage examples).
+
+`virtual void formatMessage(const char* message, LogLevel level, const char* category, uint32_t time, const char* file, int line, const char* function)`
+
+Formats log message and writes it to output stream.
+
+Parameters:
+
+  * message : text message
+  * level : logging level
+  * category : category name (can be null)
+  * time : timestamp (number of milliseconds elapsed since startup)
+  * file : source file name (can be null)
+  * line : line number
+  * function : function name (can be null)
+
+Default implementation generates messages in the following format:
+`<time>: [category]: [file]:[line], [function]: <level>: <message>`
+
+`virtual void write(const char* data, size_t size)`
+
+Writes buffer to output stream. This method should be implemented by all subclasses.
+
+Parameters:
+
+  * data : characters buffer
+  * size : size of the buffer in bytes
 
 
 
