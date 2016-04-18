@@ -16,8 +16,7 @@ install:
 - npm install
 - npm prune
 script:
-  - npm test
-  - ./scripts/deploy.sh
+  - npm test && ./scripts/deploy.sh
 notifications:
   slack:
     rooms:
