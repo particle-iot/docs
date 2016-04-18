@@ -61,6 +61,17 @@ First, thank you for being a backer! You should have received a unique promo cod
 
 If you add another SIM using a promo code on a later date, the equation gets slightly more complicated. The TL;DR is that we're making sure you get the full value of your months, but read on for more detail. We don't want you to miss out on the full discount on a month's base rate, so instead of counting your first partial month leading up to your billing anniversary as one month, we're prorating a credit of your base rate against the percentage of the month remaining. This remainder will show up on your receipt four months later as a credit towards your first non-promo-discounted month.
 
+## Forgot to apply your promo code?
+
+If you have a promo code for free cellular data, but forgot to add it during SIM activation, fear not! There is a way to retroactively apply a promo code to your SIM card's data plan.
+
+To apply a promo code to a SIM after setup, visit your [billing hub](https://dashboard.particle.io/user/billing) on the Particle dashboard. There, you'll see a list of your SIM cards. Find the SIM that you'd like to apply the promo code to, and click on the "more" icon (<i class="ion-more"></i>) for you SIM, then click "<strong>Apply Promo Code</strong>." This will display a field for you to add your promo code and apply it to the SIM.
+
+If a valid promo code is added, your SIM will be immediately transitioned to the data plan associated with the promo code, and you will be credited for any amount you have been incorrectly charged up to now. The credit will be applied to your next invoice at the beginning of the next billing cycle. In addition, your SIM will receive the benefits of its new data plan for all invoices moving forward.
+
+For instance, if you activated your SIM in the US without the promo code on April 15, you were charged $2.99 for the SIM's 1st MB of data for the first month of service. If you then retroactively applied your promo code on April 18, you would receive a credit of $2.99 applied to your May 15 invoice. Assuming that the promo code was good for 3 free months of the 1MB data plan for a SIM, your next invoice would include a $0.00 line item for the SIM's monthly data plan (May would be the second of three months of the free data promotion).
+
+
 ## Monitoring your Data Usage
 
 Unlike a Wi-Fi development kit, you're likely going to want to keep an eye on how much data your SIM card has used. Although Particle has automated mechanisms in place to avoid exorbitant data costs (i.e. data limits), **close monitoring of data usage will ensure that there are no surprises when you receive your monthly bill**.
@@ -70,7 +81,6 @@ Luckily, the [Console](https://console.particle.io/billing) makes it easy to get
 <Add a screenshot of the data usage sparkline>
 
 It's important to note that the estimated cost represents data used *up to that point in time*, as opposed to a projection until the end of the billing period. In addition, reported data usage may be up to 1 hour behind, so don't expect to see the data used by an over-the-air flash right away.
-
 
 ## How to Reduce Your Bill
 You can reduce your monthly cost in two main ways. One is by setting your data limit lower. This will make sure that your bill will never be much higher than you expect (allowing for taxes, fees, and slight overshoots). It's also a bit abrupt. Your device will lose connection and the behavior will change unless you've written in offline behavior.
