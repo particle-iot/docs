@@ -6114,7 +6114,7 @@ the type of object.
 
 ```C++
 // EXAMPLE USAGE
-// Write a value to the EEPROM address
+// Write a value (2 bytes in this case) to the EEPROM address
 int addr = 10;
 uint16_t value = 12345;
 EEPROM.put(addr, value);
@@ -6157,7 +6157,7 @@ from the type of object.
 
 ```C++
 // EXAMPLE USAGE
-// Read a value from EEPROM addres
+// Read a value (2 bytes in this case) from EEPROM addres
 int addr = 10;
 uint16_t value;
 EEPROM.get(addr, value);
