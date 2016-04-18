@@ -6161,7 +6161,7 @@ from the type of object.
 int addr = 10;
 uint16_t value;
 EEPROM.get(addr, value);
-if(value == 0xFFFF) {
+if(value == 0xFF) {
   // EEPROM was empty -> initialize value
   value = 25;
 }
