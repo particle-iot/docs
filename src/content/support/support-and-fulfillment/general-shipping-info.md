@@ -52,11 +52,11 @@ We are constantly adding international distributors, so check back soon to see u
 
 ### Cancellations
 
-If you would like to cancel your order, Particle will make every effort to do so before final shipment. However, there is no guarantee of cancellation, as we ship all orders on regular business hours, and work with third party distribution and fulfillment centers whose hours differ from our own. If you return the unopened, undamaged goods to us, we will issue a refund for the items, minus postage. If you're interested in returning Particle merchandise, please first visit us at our [Support Portal](https://docs.particle.io/support/support-and-fulfillment/menu-base/photon/).
+If you would like to cancel your order, Particle will make every effort to do so before final shipment. However, there is no guarantee of cancellation, as we ship all orders on regular business hours, and work with third party distribution and fulfillment centers whose hours differ from our own. If you return the unopened, undamaged goods to us, we will issue a refund for the items, minus postage. If you're interested in returning Particle merchandise, please first visit us at our [Support Portal](https://docs.particle.io/support/support-and-fulfillment/menu-base/).
 
 ### Exchanges for Damaged Goods
 
-Sometimes, bad things happen to good packages while they’re trotting across the globe. If your Particle Gear arrives damaged, we’ll be happy to send you a replacement unit that has been hand inspected by a human member of the Particle Team. Please write us at our [Support Portal](https://docs.particle.io/support/support-and-fulfillment/menu-base/photon/) and include the following:
+Sometimes, bad things happen to good packages while they’re trotting across the globe. If your Particle Gear arrives damaged, we’ll be happy to send you a replacement unit that has been hand inspected by a human member of the Particle Team. Please write us at our [Support Portal](https://docs.particle.io/support/support-and-fulfillment/menu-base/) and include the following:
 
 - A couple of photos from your phone of the damaged product and package
 - Your OrderID
@@ -74,4 +74,4 @@ Many things can happen in the delivery process, and packages can get held up for
 - Confirm via tracking information that the item(s) in question are in the process of being returned to our facility.
 - Confirm that there are no additional Customs charges, fees, or burdens associated with the return of the goods to sender.
 
-Thanks so much for your support and understanding. If you have any questions that were not answered here, please contact us at our [Support Portal](https://docs.particle.io/support/support-and-fulfillment/menu-base/photon/).
+Thanks so much for your support and understanding. If you have any questions that were not answered here, please contact us at our [Support Portal](https://docs.particle.io/support/support-and-fulfillment/menu-base/).
