@@ -5826,6 +5826,21 @@ timer.dispose(); // stop and delete timer from timer list.
 
 ```
 
+### isActive()
+
+_Since 0.5.0_
+
+`bool isActive()`
+
+Returns `true` if the timer is in active state (pending), or `false` otherwise.
+
+```C++
+// EXAMPLE USAGE
+if (timer.isActive()) {
+    // ...
+}
+```
+
 {{#unless core}}
 
 ## Application Watchdog
