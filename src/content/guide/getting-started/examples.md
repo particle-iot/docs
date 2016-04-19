@@ -786,10 +786,10 @@ void setup() {
   delay(500);
 
   // Now we'll take some readings...
-  int on_1 = analogRead(photoresistor); // read photoresistor
+  int off_1 = analogRead(photoresistor); // read photoresistor
   delay(200); // wait 200 milliseconds
-  int on_2 = analogRead(photoresistor); // read photoresistor
-  delay(300); // wait 300 milliseconds
+  int off_2 = analogRead(photoresistor); // read photoresistor
+  delay(1000); // wait 1 second
 
   // Now flash to let us know that you've taken the readings...
   digitalWrite(boardLed,HIGH);
@@ -809,10 +809,10 @@ void setup() {
   digitalWrite(boardLed,LOW);
 
   // ...And we will take two more readings.
-  int off_1 = analogRead(photoresistor); // read photoresistor
+  int on_1 = analogRead(photoresistor); // read photoresistor
   delay(200); // wait 200 milliseconds
-  int off_2 = analogRead(photoresistor); // read photoresistor
-  delay(1000); // wait 1 second
+  int on_2 = analogRead(photoresistor); // read photoresistor
+  delay(300); // wait 300 milliseconds
 
   // Now flash the D7 LED on and off three times to let us know that we're ready to go!
   digitalWrite(boardLed,HIGH);
