@@ -5310,6 +5310,8 @@ Returns: Integer
 
 Retrieve the current time in the configured timezone as seconds since January 1, 1970 (commonly known as "Unix time" or "epoch time"). This time is affected by the timezone setting.
 
+Note that the functions in the `Time` class expect times in UTC time, so the result from this should be used carefully.
+
 
 ### zone()
 
