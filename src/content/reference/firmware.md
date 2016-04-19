@@ -5759,6 +5759,8 @@ timer.dispose(); // stop and delete timer from timer list.
 
 ```
 
+{{#unless core}}
+
 ## Application Watchdog
 
 _Since 0.5.0_
@@ -5784,6 +5786,8 @@ ApplicationWatchdog wd(60000, System.reset);
 
 ```
 The application watchdog requires interrupts to be active in order to function.  Enabling the hardware watchdog in combination with this is recommended, so that the system resets in the event that interrupts are not firing. 
+
+{{/unless}}
 
 ## Math
 
