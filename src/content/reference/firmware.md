@@ -5826,6 +5826,21 @@ timer.dispose(); // stop and delete timer from timer list.
 
 ```
 
+### isActive()
+
+_Since 0.5.0_
+
+`bool isActive()`
+
+Returns `true` if the timer is in active state (pending), or `false` otherwise.
+
+```C++
+// EXAMPLE USAGE
+if (timer.isActive()) {
+    // ...
+}
+```
+
 ## Math
 
 Note that in addition to functions outlined below all of the newlib math functions described at [sourceware.org](https://sourceware.org/newlib/libm.html) are also available for use by simply including the math.h header file thus:
