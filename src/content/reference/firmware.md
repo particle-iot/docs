@@ -5759,6 +5759,32 @@ timer.dispose(); // stop and delete timer from timer list.
 
 ```
 
+## Application Watchdog
+
+_Since 0.5.0_
+
+The Application Watchdog is a software-implemented watchdog using a critical-priority thread that wakes up at a given timeout interval to see if the application has checked in. When the application hasn't checked in, the handler is invoked, which is typically `System.reset`. 
+
+
+Here's the API:
+
+```cpp
+
+// declare a global watchdog instance
+ApplicationWatchdog wd(timeout_milli_seconds, timeout_function_to_call, stack_size=512);
+```
+- if the application has not exited loop, or called Particle.process() within the given timeout, or called ApplicationWatchdog.checkin()`, the watchdog calls the given timeout function.
+- A default stack size of 512 is used for the thread. The stack can be made larger or smaller as needed.
+
+Example:
+
+```
+ApplicationWatchdog wd(60000, System.reset);
+// reset the system after 60 seconds if the application is unresponsive
+
+```
+The application watchdog requires interrupts to be active in order to function.  Enabling the hardware watchdog in combination with this is recommended, so that the system resets in the event that interrupts are not firing. 
+
 ## Math
 
 Note that in addition to functions outlined below all of the newlib math functions described at [sourceware.org](https://sourceware.org/newlib/libm.html) are also available for use by simply including the math.h header file thus:
