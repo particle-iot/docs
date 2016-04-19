@@ -371,7 +371,7 @@ You can register a method in a C++ object as a subscription handler.
 ```cpp
 class Subscriber {
   public:
-    void subscribe() {
+   Subscriber() {
       Particle.subscribe("some_event", &Subscriber::handler, this);
     }
     void handler(const char *eventName, const char *data) {
@@ -380,7 +380,7 @@ class Subscriber {
 };
 
 Subscriber mySubscriber;
-// nothing else needed in setup() or loop()
+// now nothing else is needed in setup() or loop()
 ```
 
 ---
