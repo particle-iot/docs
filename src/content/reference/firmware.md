@@ -5765,26 +5765,23 @@ timer.dispose(); // stop and delete timer from timer list.
 
 _Since 0.5.0_
 
-The Application Watchdog is a software-implemented watchdog using a critical-priority thread that wakes up at a given timeout interval to see if the application has checked in. When the application hasn't checked in, the handler is invoked, which is typically `System.reset`. 
+The Application Watchdog is a software-implemented watchdog using a critical-priority thread that wakes up at a given timeout interval to see if the application has checked in.
 
+If the application has not exited loop, or called Particle.process() within the given timeout, or called `ApplicationWatchdog.checkin()`, the watchdog calls the given timeout function, which is typically `System.reset`.
 
-Here's the API:
 
 ```cpp
-
+// SYNTAX
 // declare a global watchdog instance
 ApplicationWatchdog wd(timeout_milli_seconds, timeout_function_to_call, stack_size=512);
-```
-- if the application has not exited loop, or called Particle.process() within the given timeout, or called ApplicationWatchdog.checkin()`, the watchdog calls the given timeout function.
-- A default stack size of 512 is used for the thread. The stack can be made larger or smaller as needed.
 
-Example:
-
-```
-ApplicationWatchdog wd(60000, System.reset);
+// EXAMPLE USAGE
 // reset the system after 60 seconds if the application is unresponsive
-
+ApplicationWatchdog wd(60000, System.reset);
 ```
+
+A default stack size of 512 is used for the thread. The stack can be made larger or smaller as needed.
+
 The application watchdog requires interrupts to be active in order to function.  Enabling the hardware watchdog in combination with this is recommended, so that the system resets in the event that interrupts are not firing. 
 
 {{/unless}}
