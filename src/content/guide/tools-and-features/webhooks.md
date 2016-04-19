@@ -696,7 +696,21 @@ hook-response/get_weather/4
 
 ```
 
+## Confirming That The Webhook Successed
 
+You will know that your webhook succeeded if you see the following pattern on your event stream, using the [Dashboard](https://dashboard.particle.io/user/logs) or the Particle CLI command `particle subscribe mine`:
+
+```
+{"name":"name_of_my_event","data":"data_sent_with_event","ttl":"60","published_at":"2016-04-16T13:37:08.728Z","coreid":"1234567890987654321"}
+{"hook-sent/name":"name_of_my_event","data":"undefined","ttl":"60","published_at":"2016-04-16T13:37:08.743Z","coreid":"particle-internal"}
+{"name":"hook-response/name_of_my_event/0","data":"ok","ttl":"60","published_at":"2016-04-16T13:37:08.755Z","coreid":"particle-internal"}
+```
+
+Explanation:
+
+- The first line is when your device events reaches the Particle cloud.
+- The second line (`hook-sent`) acknowledges that the Particle cloud forwarded your event to your webhook URL.
+- The third line (`hook-response`) contains the response received from your webhook URL. Your device can subscribe to this event with `Particle.subscribe()` to receive the data.
 
 ## Errors
 
