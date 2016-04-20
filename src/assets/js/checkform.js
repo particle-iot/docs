@@ -28,10 +28,10 @@ $(document).ready(function() {
 		  				osType: datax.ostype,
 		  				urlFrom: window.location.pathname
 						};//object
-		
+
 		$.ajax({
 		  method: "POST",
-		  url: "https://staging-supportal.herokuapp.com",
+		  url: "https://particle-support-portal.herokuapp.com",
 		  dataType: 'json',
 		  cache: false,
 		  data: JSON.stringify(ddx),
