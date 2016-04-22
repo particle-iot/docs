@@ -341,7 +341,3 @@ If your subscription has already been marked as inactive (three failed charge at
 <p class="caption">Re-activate your subscription after it has been marked as inactive</p>
 
 If re-activating a subscription that is currently inactive, you will be re-enrolled in the plan you had signed up for. Your credit card will be charged immediately for the next billing period, and will begin a new billing cycle based on the day that you re-activated.
-
-## What's next?
-
-Congratulations! You have a grasp on how to take advantage of your organization's dashboard. Next up, you will learn how to [build your own web app](/guide/how-to-build-a-product/web-app/) for your product.
