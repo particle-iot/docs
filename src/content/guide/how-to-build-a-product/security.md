@@ -82,8 +82,7 @@ privileges. These privileges include (but are not limited to):
 - events that will appear in this product's event stream Claiming by a customer
 - of your organization Triggering product webhooks
 
-These privileges are only guaranteed when there are [no mismatches](#mismatched-
-product-ids) between the Product ID of the device in the cloud and the Product
+These privileges are only guaranteed when there are [no mismatches](#mismatched-product-ids) between the Product ID of the device in the cloud and the Product
 ID reported by the device in firmware.
 
 ## Mismatched Product IDs
@@ -103,8 +102,7 @@ handled in the case of mismatched product IDs. There are two choices for
 handling these kinds of devices: *Quarantining*, or *Auto Approval*.
 
 Ideally mismatches in Product IDs never happen, because you or a member of your
-team has taken the steps to [add the device to your product](#adding-devices-
-to-a-product) before the device comes online with your product's firmware
+team has taken the steps to [add the device to your product](/guide/how-to-build-a-product/dashboard/#adding-devices) before the device comes online with your product's firmware
 binary.
 
 ## Quarantining Devices
@@ -117,7 +115,7 @@ A device will be put into a quarantined state when it comes online and reports a
 Product ID in its firmware that is different from the product ID saved in the
 cloud for that device. This happens when a device was flashed firmware
 containing a given product ID, but that device hasn't been properly [added to
-the product](#adding-devices-to-a-product) via the dashboard.
+the product](/guide/how-to-build-a-product/dashboard/#adding-devices) via the dashboard.
 
 When this happens, the device will temporarily lose all [product privileges
 ](#product-privileges). This is done to protect against malicious actions from
