@@ -72,16 +72,12 @@ It is important to note that *team members* and *customers* have different level
 
 ## Setting up an organization
 
-Currently the organization dashboard is in private beta. If you are interested
-in gaining access, please contact [hello@particle.io](mailto:hello@particle.io).
-The organization dashboard will be available to everyone in Fall 2015.
-
-Once you have access to create an organization from the Particle team, log into your dashboard at [dashboard.particle.io](https://dashboard.particle.io) and click on the "New Organization" button that appears in the navigation:
+Log into your dashboard at [dashboard.particle.io](https://dashboard.particle.io) and click on the "New Organization" button that appears in the navigation:
 
 ![Create a New Organization](/assets/images/new-organization-button.png)
 <p class="caption">Click the new organization button to start the process of setting up your organization</p>
 
-If you have been granted access into the private beta, you should see a modal appear asking you to give us some basic information about your organization. You'll notice that this modal includes fields for adding a credit card. Don't worry! **Your card will not be charged**. Members of the private beta will have a 30-day trial period to use your organization dashboard. When your trial is up, we will begin charging $49 per team member per month.
+You should see a modal appear asking you to give us some basic information about your organization. You'll notice that this modal includes fields for adding a credit card. Don't worry! **Your card will not be charged**. Members of the private beta will have a 30-day trial period to use your organization dashboard. When your trial is up, we will begin charging $49 per team member per month.
 
 ![Create Organization Modal](/assets/images/new-organization-modal.png)
 <p class="caption">Setting up your organization. Your credit card won't be charged until the end of your free trial</p>

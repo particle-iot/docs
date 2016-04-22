@@ -2,7 +2,7 @@
 title: Certification
 columns: two
 template: guide.hbs
-order: 8
+order: 9
 ---
 
 # Certification
