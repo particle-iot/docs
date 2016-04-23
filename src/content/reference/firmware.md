@@ -806,8 +806,6 @@ Your device can remember more than one set of credentials:
 - Core: remembers the 7 most recently set credentials
 - Photon: remembers the 5 most recently set credentials
 
-> Note: In order for `WiFi.setCredentials()` to work, the WiFi module needs to be on (if switched off or disabled via non_AUTOMATIC SYSTEM_MODEs call `WiFi.on()`).
-
 ```cppnon-AUTOMATIC
 // Connects to an unsecured network.
 WiFi.setCredentials(SSID);
@@ -833,7 +831,9 @@ When the Photon used with hidden or offline networks, the security cipher is als
 // Cipher options are WLAN_CIPHER_AES, WLAN_CIPHER_TKIP and WLAN_CIPHER_AES_TKIP
 WiFi.setCredentials("SSID", "PASSWORD", WPA2, WLAN_CIPHER_AES));
 ```
+
 {{/if}}
+> **Note:** In order for `WiFi.setCredentials()` to work, the WiFi module needs to be on (if switched off or disabled via non_AUTOMATIC SYSTEM_MODEs call `WiFi.on()`).
 
 ### getCredentials()
 
