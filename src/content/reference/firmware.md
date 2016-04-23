@@ -6791,11 +6791,14 @@ When the system thread is enabled, application execution changes compared to
 non-threaded execution:
 
 - `setup()` is executed immediately regardless of the system mode, which means
-setup typically executes before the Network or Cloud is connected. Calls to
+setup typically executes before the Network or Cloud is connected.
+Calls to network-related code will be impacted and may fail because the network is not up yet.
 `Particle.function()`, `Particle.variable()` and `Particle.subscribe()` will function
 as intended whether the cloud is connected or not.  `Particle.publish()` will return
-`false` when the cloud is not available and the event will not be published. See `waitUntil` below
-for details on waiting for the network or cloud connection.
+`false` when the cloud is not available and the event will not be published.
+Other network initialisation (such as those in `UDP`, `TCPServer` and `TCPClient`)
+may not function yet.
+See `waitUntil` below for details on waiting for the network or cloud connection.
 
 - after `setup()` is called, `loop()` is called repeatedly, independent from the current state of the
 network or cloud connection. The system does not block `loop()` waiting
