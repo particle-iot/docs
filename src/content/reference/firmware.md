@@ -2282,6 +2282,19 @@ The frequency range is from 20Hz to 20kHz. Frequencies outside this range will n
 
 `tone()` does not return anything.
 
+**NOTE:** the Photon's PWM pins / timer channels are allocated as per the following table. If multiple, simultaneous tone() calls are needed (for example, to generate DTMF tones), use pins allocated to separate timers to avoid stuttering on the output:
+
+Pin  | TMR3 | TMR4 | TMR5
+:--- | :--: | :--: | :--:
+D0   |      |  x   |  
+D1   |      |  x   |  
+D2   |  x   |      |  
+D3   |  x   |      |  
+A4   |  x   |      |  
+A5   |  x   |      |  
+WKP  |      |      |  x
+
+
 ```C++
 // EXAMPLE USAGE
 // Plays a melody - Connect small speaker to analog pin A0
