@@ -806,9 +806,9 @@ Your device can remember more than one set of credentials:
 - Core: remembers the 7 most recently set credentials
 - Photon: remembers the 5 most recently set credentials
 
-> Note: In order for `WiFi.setCredentials()` to work, the WiFi module needs to be on (if switched off call `WiFi.on()`).
+> Note: In order for `WiFi.setCredentials()` to work, the WiFi module needs to be on (if switched off or disabled via non_AUTOMATIC SYSTEM_MODEs call `WiFi.on()`).
 
-```cpp
+```cppnon-AUTOMATIC
 // Connects to an unsecured network.
 WiFi.setCredentials(SSID);
 WiFi.setCredentials("My_Router_Is_Big");
