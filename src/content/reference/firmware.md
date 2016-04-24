@@ -834,7 +834,7 @@ WiFi.setCredentials("SSID", "PASSWORD", WPA2, WLAN_CIPHER_AES));
 
 {{/if}}
 
-> **Note:** In order for `WiFi.setCredentials()` to work, the WiFi module needs to be on (if switched off or disabled via non_AUTOMATIC SYSTEM_MODEs call `WiFi.on()`).
+**Note:** In order for `WiFi.setCredentials()` to work, the WiFi module needs to be on (if switched off or disabled via non_AUTOMATIC SYSTEM_MODEs call `WiFi.on()`).
 
 ### getCredentials()
 
