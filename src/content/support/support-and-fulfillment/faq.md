@@ -2,7 +2,7 @@
 title: FAQ
 template: support.hbs
 columns: two
-order: 2
+order: 4
 ---
 
 Frequently Asked Questions (FAQ)
