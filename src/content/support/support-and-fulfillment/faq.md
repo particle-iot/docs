@@ -5,7 +5,7 @@ columns: two
 order: 4
 ---
 
-Other Frequently Asked Questions (FAQ)
+Other Frequently Asked Questions
 ===
 
 **Orders**
