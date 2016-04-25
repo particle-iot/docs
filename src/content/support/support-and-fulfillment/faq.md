@@ -82,7 +82,7 @@ We’ll help find your order.
 If you’d like to return an order you just received, please see the section on returns below.
 
 ### Q: How do I make a return?
-**A:** Please refer to our [Shipping and Returns Policy](/support/support-and-fulfillment/general-shipping-info/) for information on exchanges, returns, and refunds.
+**A:** Please refer to our [Returns Policy](/support/support-and-fulfillment/returns/) for information on exchanges, returns, and refunds.
 
 If you’re not satisfied with your Particle product, please [let us know](/support/support-and-fulfillment/menu-base/#form-main) what could be improved!
 
@@ -185,7 +185,7 @@ If it’s been over 3 business days, and you have received your purchase confirm
 
 Note, Electron and Electron-related items ship in January 2016.  ;)
 
-You can find more information on Particle’s shipping policies, look [here](/support/support-and-fulfillment/general-shipping-info/).
+You can find more information on Particle’s shipping policies, look [here](/support/support-and-fulfillment/shipping/).
 
 ### Q: My tracking number doesn’t work.
 
@@ -210,7 +210,7 @@ APO and FPO boxes are standard and not restricted.
 
 Please remember that you are responsible for any VAT, customs charges, or other duties as required by your country when importing consumer goods. For information on duties and taxes for your shipment, you can use this Duty-Tax Calculator.
 
-You can find more information on Particle’s shipping policies [here](/support/support-and-fulfillment/general-shipping-info/).
+You can find more information on Particle’s shipping policies [here](/support/support-and-fulfillment/shipping/).
 
 ### Q: Where is my Electron?
 **A:** The Electron and Electron-related items are scheduled to ship in January 2016. You can find more information and updates about the Electron [here](https://www.kickstarter.com/projects/sparkdevices/spark-electron-cellular-dev-kit-with-a-simple-data/updates).
