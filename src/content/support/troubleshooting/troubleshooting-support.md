@@ -14,8 +14,7 @@ Troubleshooting Common LED Codes
 During initial setup of a device these are the usual LED specifications:
 
 - **White pulse:** Start-up (happens when the {{#if photon}}Photon{{/if}} {{#if core}}Core{{/if}} is first powered on or when it's reset)
-- **Flashing blue:** Smart Config, waiting for Wi-Fi credentials
-- **Solid blue:** Smart Config, received Wi-Fi credentials
+- **Flashing blue:** Listening Mode, waiting for Wi-Fi credentials
 - **Flashing green:** Connecting to local Wi-Fi network
 - **Flashing cyan:** Connecting to Particle Cloud
 - **High-speed flashing cyan:** Particle Cloud handshake
