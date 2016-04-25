@@ -1,77 +1,87 @@
 ---
-title: General Shipping Info
+title: Shipping
 template: support.hbs
 columns: two
-order: 4
+order: 2
 ---
 
-Particle Shipping & Return Policies
+Particle Shipping
 ===
 
-### General Info
+### Particle shipping
 
-Particle will refund your purchase within 60 days if you are dissatisfied with our products. We will also refund or replace anything that arrives in a defective state at any time. However, since Particle products are prototyping tools intended for novices and experts alike, we cannot replace units that break during use outside of the specifications described in Particle documentation.
+If you're here, a Particle product must be on it's way to you! Congratulations! 
 
-Tracking numbers for all Particle shipments will be emailed to the email address you used to place your oder.
+
+#### Shipping timing
+
+All packages ship out within 2 business days of the order being placed. Our shipping partner is closed in the beginning of the month, every month. Usually they open back up on the 2nd or 3rd, so please keep these dates in mind when placing orders. Please see below to understand the timing of our shipping methods. 
+
+#### Tracking your package
+
+Your order confirmation and tracking information will be sent to the email address you used to place the order. If you are having trouble finding your order, please visit our [Support Portal](https://support.particle.io) and let us know. For order changes and cancellations, please also visit our [Support Portal](https://support.particle.io) and let us know as soon as possible. We will do our best to change your order before it is shipped out
 
 
 ### Shipping within the United States
 
-We use USPS First Class Mail for ground shipping, USPS Priority Mail for expedited shipping, and UPS for overnight shipping. Please note that USPS tracking might take up to 24 hours to register after you place your order. Transit times vary, but on average USPS First Class Mail delivers in 3-5 business days and USPS Priority Mail delivers in 2-3 business days. Any order over 10 oz is required to ship via USPS Priority Mail and your shipping rates will be reflected as such.
+#### Domestic Shipping Methods
 
-Overnight orders must be received by 12pm PST in order to arrive at your location in the continental United States by the next day. We'll do everything in our power to deliver your Particle goodies to your eager hands as scheduled, but please note that Fedex occasionally has weather or holiday related delays that we cannot avoid.
+For domestic orders we use both UPS and USPS. A brief description of the differences can be seen below:
+- USPS First-Class Mail Parcel - Usually delivered in 5 to 10 days
+- USPS Priority Mail - Usually delivered in 3 days
+- UPS Ground - Usually ships in 1-5 Business Days, depending on the distance from California
+- UPS Three-Day Select - Usually delivered in 3 business days if placed before 12pm PST
+- UPS Second Day Air - Usually delivered in 2 business days if placed before 12pm PST
+
+Did you know orders over $200 ship for free? Well they do! You’ll see a free First Class shipping option when your basket size is over $200. 
+
+#### PO Boxes
+
+If your order is going to a PO Box, you MUST use USPS as UPS does not deliver to PO Boxes. If you choose UPS and your delivery address is to a PO box, you will be charged to reship once the order is returned to our warehouse. 
+
 
 ### International Shipping
 
-We ship all orders out of California in the US. We offer UPS International for international ground shipping and DHL Express for expedited shipping.
+Unless you live in Iran, North Korea, Sudan, Cuba, Syria, or any country that is embargoed by the US Government, we do ship to your country! 
 
-Shipping times for both carriers are an estimate and vary by exact destination (i.e. major city vs small town). Please be sure to include a correct phone number along with your address. Your phone number is used for purposes of fulfillment only, and will not be used for solicitation, sale, malicious exploitation, or otherwise.
+#### International Shipping Methods
 
-You are responsible for any VAT, duties, customs charges, etc. required by your country for importing consumer goods. For information on duties and taxes for your shipment, you can use this [Duty-Tax Calculator.](http://www.dutycalculator.com/new-import-duty-and-tax-calculation)
+For international orders we use both UPS and USPS. A brief description of the differences can be seen below:
+- USPS First-Class Package International Service - Delivery varies by destination. Can take up to 20 business days. 
+- UPS Worldwide Expedited - Usually is delivered in 2- 5 Business days. 
+- UPS Saver- Usually is delivered in 1- 3 Business days if placed before 12pm PST. 
 
-We also offer our products in a few international distributors for your convenience:
+We ship all our products from California, but we have many distributors around the world (you can find a list of some our international distributors [here](https://www.particle.io/distributors))
 
-- [MC Hobby](http://shop.mchobby.be/54-particleio) - Belgium
-- [ABRA Electronics](https://abra-electronics.com/) - Canada
-- [BuyaPi](https://www.buyapi.ca/product-category/vendors-and-brands/particle/) - Canada
-- [Robotshop](http://www.robotshop.com/en/spark.html) - Canada
-- [DF Robot](http://www.dfrobot.com/index.php?route=product/product&path=156_52&product_id=1324#.VmdWzuMrI3E) - China
-- [Seeed Studio](http://www.seeedstudio.com/depot/Particle-Photon-p-2527.html) - China
-- [EXP Tech](http://www.exp-tech.de/expcatalog/manufacturer/view/id/90/) - Germany
-- [Flikto Electronics](http://www.flikto.de/collections/photon) - Germany
-- [Watterott Electronic](http://www.watterott.com/de/Boards-/-Kits/ARM/Spark-Core) - Germany
-- [Melopero](http://www.melopero.com/tag-prodotto/particle/) - Italy
-- [CrazyPi](https://www.crazypi.com/iot-india) - India
-- [Lawicel](http://www.lawicel-shop.se/dept/Particle-IO_102526/SWE/SEK) - Sweden
-- [M.nu](https://www.m.nu/particle-photon-with-headers-p-2512.html) - Sweden
-- [Robot Kutusu](http://www.robotkutusu.com/Particle,LA_185-2.html) - Turkey
-- [Cool Components](https://www.coolcomponents.co.uk/photon) - UK
-- [CPC](http://cpc.farnell.com/particle) - UK
+#### Duties and Taxes
 
-We are constantly adding international distributors, so check back soon to see updates!
+Additional fees such as VAT, import costs, duties, and taxes for international shipments are your responsibility and are not included in shipping and handling costs. Particle is not responsible for any extra charges once the original package has been shipped. We can’t tell you exactly what the charges will be, but here’s a duty calculator to help with estimation. If you refuse to pay these extra charges, the return shipping and any additional fees will be taken out of the cost of the order with any remaining funds being refunded to you. In the event that the extra charges exceed the value of the order, we may charge those amounts to the credit card originally used for the order.
 
-### Cancellations
+### Return to Sender
 
-If you would like to cancel your order, Particle will make every effort to do so before final shipment. However, there is no guarantee of cancellation, as we ship all orders on regular business hours, and work with third party distribution and fulfillment centers whose hours differ from our own. If you return the unopened, undamaged goods to us, we will issue a refund for the items, minus postage. If you're interested in returning Particle merchandise, please first visit us at our [Support Portal](https://docs.particle.io/support/support-and-fulfillment/menu-base/).
+There are lots of things that can happen in the delivery process, and packages can get held up for reasons that are outside of our control. If your order gets returned to us in Gilroy, CA, we can issue you a refund or take the appropriate actions to get you a new package. 
 
-### Exchanges for Damaged Goods
+Before you get a new package or refund, we'll need to determine the following:
+- What shipping address was entered when you placed the order
+- The current status of the package (for example, if it is heading back to us)
+- Whether there are unpaid custom charges, fees, or burdens
 
-Sometimes, bad things happen to good packages while they’re trotting across the globe. If your Particle Gear arrives damaged, we’ll be happy to send you a replacement unit that has been hand inspected by a human member of the Particle Team. Please write us at our [Support Portal](https://docs.particle.io/support/support-and-fulfillment/menu-base/) and include the following:
+If the fault lies with us or our warehouse, Particle will issue the replacement shipment as soon as possible. If you entered the wrong address, you will be responsible for reshipment costs. 
 
-- A couple of photos from your phone of the damaged product and package
-- Your OrderID
-- Confirmation of mailing address
+#### Invoices
 
-Once we have all that put together, we’ll get your new package on its way!
+We include an invoice with international orders, but sometimes packages do get held up. The customs office should contact you about this, so let us know on [support.particle.io](https://support.particle.io) if you do require any additional documentation. 
 
-### Itemed Returned to Sender - what happened?!
+### Shipping cost
 
-Many things can happen in the delivery process, and packages can get held up for reasons beyond our control. If your package gets returned to us, we can issue a refund, or take steps to issue a new package. Before issuing a new package or refund, we must:
+We work hard to lower the shipping rates you see. If they are higher than you expected though, there are some things you can do: 
+- Use a slower method
+- Consolidate shipments. It costs the same to ship 1 and 5 Photons.
+- Use one of our [international distributors](https://www.particle.io/distributors))
 
-- Determine that the shipping address was entered correctly when the order was originally placed
-- If fault lies with the Customer, we will need to charge you for extra shipping costs
-- If fault lies with our fulfillment provider, Particle will issue a new shipment immediately
-- Confirm via tracking information that the item(s) in question are in the process of being returned to our facility.
-- Confirm that there are no additional Customs charges, fees, or burdens associated with the return of the goods to sender.
+All shipping prices include a handling fee. 
 
-Thanks so much for your support and understanding. If you have any questions that were not answered here, please contact us at our [Support Portal](https://docs.particle.io/support/support-and-fulfillment/menu-base/).
+
+### Any Other Questions
+
+If you have any additional questions that aren’t answered here, please let us know at [support.particle.io](https://support.particle.io).
