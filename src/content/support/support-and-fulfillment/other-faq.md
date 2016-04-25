@@ -1,11 +1,11 @@
 ---
-title: FAQ
+title: Other FAQ
 template: support.hbs
 columns: two
 order: 4
 ---
 
-Frequently Asked Questions (FAQ)
+Other Frequently Asked Questions (FAQ)
 ===
 
 **Orders**

@@ -21,7 +21,7 @@ All packages ship out within 2 business days of the order being placed. Our ship
 
 #### Tracking your package
 
-Your order confirmation and tracking information will be sent to the email address you used to place the order. If you are having trouble finding your order, please visit our [Support Portal](https://support.particle.io) and let us know. For order changes and cancellations, please also visit our [Support Portal](https://support.particle.io) and let us know as soon as possible. We will do our best to change your order before it is shipped out
+Your order confirmation and tracking information will be sent to the email address you used to place the order. If you are having trouble finding your order, please visit our [support portal](https://support.particle.io) and let us know. For order changes and cancellations, please also visit our [support portal](https://support.particle.io) and let us know as soon as possible. We will do our best to change your order before it is shipped out
 
 
 ### Domestic Shipping
@@ -53,7 +53,7 @@ For international orders we use both UPS and USPS. A brief description of the di
 - UPS Worldwide Expedited - Usually is delivered in 2- 5 Business days
 - UPS Saver- Usually is delivered in 1- 3 Business days if placed before 12pm PST
 
-We ship all our products from California, but we have many distributors around the world (you can find a list of some our international distributors [here](https://www.particle.io/distributors)
+We ship all our products from California, but we have many distributors around the world (you can find a list of some our international distributors [here](https://www.particle.io/distributors).
 
 #### Duties and Taxes
 
@@ -77,8 +77,8 @@ We include an invoice with international orders, but sometimes packages do get h
 ### Shipping Cost
 
 We work hard to lower the shipping rates you see. If they are higher than you expected though, there are some things you can do: 
-- Use a slower method
 - Consolidate shipments. It costs the same to ship 1 and 5 Photons.
+- Use a slower shipping method
 - Use one of our [international distributors](https://www.particle.io/distributors))
 
 All shipping prices include a handling fee. 
@@ -86,4 +86,4 @@ All shipping prices include a handling fee.
 
 ### Any Other Questions
 
-If you have any additional questions that aren’t answered here, please let us know at our [Support Portal](https://support.particle.io).
+If you have any additional questions that aren’t answered here, please let us know at our [support portal](https://support.particle.io).
