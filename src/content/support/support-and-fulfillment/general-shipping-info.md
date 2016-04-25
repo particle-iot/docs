@@ -8,9 +8,11 @@ order: 2
 Particle Shipping
 ===
 
-### Particle shipping
+
 
 If you're here, a Particle product must be on it's way to you! Congratulations! 
+
+### Shipping Timing and Tracking
 
 
 #### Shipping timing
@@ -22,7 +24,7 @@ All packages ship out within 2 business days of the order being placed. Our ship
 Your order confirmation and tracking information will be sent to the email address you used to place the order. If you are having trouble finding your order, please visit our [Support Portal](https://support.particle.io) and let us know. For order changes and cancellations, please also visit our [Support Portal](https://support.particle.io) and let us know as soon as possible. We will do our best to change your order before it is shipped out
 
 
-### Shipping within the United States
+### Domestic Shipping
 
 #### Domestic Shipping Methods
 
@@ -42,16 +44,16 @@ If your order is going to a PO Box, you MUST use USPS as UPS does not deliver to
 
 ### International Shipping
 
-Unless you live in Iran, North Korea, Sudan, Cuba, Syria, or any country that is embargoed by the US Government, we do ship to your country! 
+We ship to your country! (Unless you live in Iran, North Korea, Sudan, Cuba, Syria, or any country that is embargoed by the US Government)
 
 #### International Shipping Methods
 
 For international orders we use both UPS and USPS. A brief description of the differences can be seen below:
-- USPS First-Class Package International Service - Delivery varies by destination. Can take up to 20 business days. 
-- UPS Worldwide Expedited - Usually is delivered in 2- 5 Business days. 
-- UPS Saver- Usually is delivered in 1- 3 Business days if placed before 12pm PST. 
+- USPS First-Class Package International Service - Delivery varies by destination. Can take up to 20 business days
+- UPS Worldwide Expedited - Usually is delivered in 2- 5 Business days
+- UPS Saver- Usually is delivered in 1- 3 Business days if placed before 12pm PST
 
-We ship all our products from California, but we have many distributors around the world (you can find a list of some our international distributors [here](https://www.particle.io/distributors))
+We ship all our products from California, but we have many distributors around the world (you can find a list of some our international distributors [here](https://www.particle.io/distributors)
 
 #### Duties and Taxes
 
@@ -72,7 +74,7 @@ If the fault lies with us or our warehouse, Particle will issue the replacement 
 
 We include an invoice with international orders, but sometimes packages do get held up. The customs office should contact you about this, so let us know on [support.particle.io](https://support.particle.io) if you do require any additional documentation. 
 
-### Shipping cost
+### Shipping Cost
 
 We work hard to lower the shipping rates you see. If they are higher than you expected though, there are some things you can do: 
 - Use a slower method
@@ -84,4 +86,4 @@ All shipping prices include a handling fee.
 
 ### Any Other Questions
 
-If you have any additional questions that aren’t answered here, please let us know at [support.particle.io](https://support.particle.io).
+If you have any additional questions that aren’t answered here, please let us know at our [Support Portal](https://support.particle.io).
