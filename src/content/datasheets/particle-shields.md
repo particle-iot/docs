@@ -646,6 +646,8 @@ Assembly:
 ## Electron Asset Tracker
 The Asset Tracker is a cellular solution for tracking the location of just about anything! The included shield has a GPS module and an accelerometer, so you can make projects that use location, orientation, and movement. Report vibration as you drive around, save power by keeping the cell modem and GPS off if the device isn't moving, or track boxes. Also has a barrel jack connector for adding another power source and a connector for adding an external GPS antenna if it's going to be inside something. Designed by Adafruit!
 
+![Asset Tracker Description](/assets/images/shields/asset-tracker-shield/asset-tracker-v002-descriptions.png)
+
 ### Using the Asset Tracker
 **GPS**
 The shield has the same GPS module as the [Adafruit Ultimate GPS](https://learn.adafruit.com/adafruit-ultimate-gps/) so all of their specs and usage notes apply here, too. The primary bit to know is that the GPS module can take _several minutes_ to get a lock, and may not get a lock at all if it doesn't have a *clear view* of the sky- sorry, no indoors projects. If this is proving a problem for you, an [external antenna](https://www.adafruit.com/products/960) may help (don't forget an SMA to uFL adapter!).
@@ -655,6 +657,8 @@ When the `GPS Fix` LED is blinking once per second (1Hz) then it is trying to ge
 The GPS is connected to the Serial1 UART on the Electron, and we've also provided a MOSFET to completely shut off power to it for major power savings. Pin D6 controls the GPS power, with inverted logic. This means that the GPS will only be ON when D6 is LOW, which should keep it off even if you put the Electron to sleep.
 
 There's a backup battery holder for the GPS to reduce subsequent fix acquisition times, but it's *not required*. This is the small coin cell (sometimes called a watch battery) holder slot.
+
+![Asset Tracker with Electron](/assets/images/shields/asset-tracker-shield/asset-tracker-v002-electron.png)
 
 **Accelerometer**
 Also onboard is an accelerometer, the <a href="http://www2.st.com/content/ccc/resource/technical/document/datasheet/3c/ae/50/85/d6/b1/46/fe/CD00274221.pdf/files/CD00274221.pdf/jcr:content/translations/en.CD00274221.pdf" target="_blank">LIS3DH</a>. It's extremely low power so won't chew up your energy budget. The accel communicates over SPI, so it takes up A2, A3, A4, and A5 as marked on the silkscreen of the shield. A configurable interrupt from the LIS3DH is connected to the Electron's "wake" (WKP) pin, so you should be able to make a project where the Electron and GPS stay in deep sleep until it's hit hard enough to cross a threshold you set on the accelerometer.
@@ -680,7 +684,7 @@ Examples:
 | Operating Temperature | T<sub>op</sub> | -20 |  | +60 | °C |
 | Humidity Range Non condensing, relative humidity | | | | 95 | % |
 
-*Photos coming soon!*
+![Asset Tracker Dimensions](/assets/images/shields/asset-tracker-shield/asset-tracker-v002-dimensions.png)
 
 ## Electron Sensor Kit
 This is the big one! A fantastic collection of premium and versatile sensors.
