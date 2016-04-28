@@ -217,6 +217,70 @@ $ particle get 0123456789ABCDEFGHI temperature
 72.1
 ```
 
+## particle webhook create
+
+Create a webhook that will trigger an HTTP request when a Particle event is published to the cloud. You can pass in an `eventName`, `url`, and `deviceID`
+as arguments to the CLI command. Optionally, you can create your own custom JSON file that includes webhook params. For a full list of available
+webhook parameters, see the [REST API documentation](/reference/api/#create-a-webhook). This command is only available for user webhooks.
+
+```sh
+$ particle webhook create temperature https://mysite.com
+$ particle webhook create temperature https://mysite.com 0123456789ABCDEFGHI
+$ particle webhook create webhook.json
+```
+
+```sh
+# An example custom webhook JSON file that will target Librato, webhook.json
+{
+    "event": "librato_",
+    "url": "https://metrics-api.librato.com/v1/metrics",
+    "requestType": "POST",
+    "auth": {
+        "username": "YOUR_LIBRATO_USERNAME",
+        "password": "YOUR_LIBRATO_ACCESS_TOKEN"
+    },
+    "json": {
+        "gauges": [
+            {
+                "name": "\{{PARTICLE_EVENT_NAME}}",
+                "value": "\{{PARTICLE_EVENT_VALUE}}",
+                "source": "\{{PARTICLE_DEVICE_ID}}"
+            }
+        ]
+    },
+    "mydevices": true
+}
+
+```
+## particle webhook list
+
+List all webhooks belonging to the authenticated user. This command is only available for user webhooks.
+
+```sh
+$ particle webhook list
+
+Found 2 hooks registered
+
+    1.) Hook ID 57223d27ffedc82b02697efb is watching for "temp"
+        and sending to: http://google.com
+        for device 53ff73066678505550292167
+        created at 2016-04-28T16:41:11.687Z
+
+    2.) Hook ID 57228c5e4b112b4f2f51cfc2 is watching for "hello"
+        and sending to: https://google.com
+        created at 2016-04-28T22:19:10.726Z
+```
+
+
+
+## particle webhook delete
+
+Delete a webhook and immediately stop it from triggering. This command is only available for user webhooks.
+
+```sh
+$ particle webhook delete 234523452345234523452345
+Successfully deleted webhook!
+```
 
 
 ## particle monitor
