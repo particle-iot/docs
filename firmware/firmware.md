@@ -511,10 +511,12 @@ Particle.keepAlive(23 * 60);	// send a ping every 23 minutes
 ```
 
 A keep alive is used to implement "UDP hole punching" which helps maintain the connection from the cloud to the device.
-Should a device becomes unreachable from the cloud (such as a timed out function call or variable get), 
+Should a device becomes unreachable from the cloud (such as a timed out function call or variable get),
 one possible cause of this is that the keep alives have not been sent often enough.
 
 The keep alive duration varies by mobile network operator. The default keepalive is set to 23 minutes, which is sufficient to maintain the connection on Particle SIM cards. 3rd party SIM cards will need to determine the appropriate keep alive value.
+
+**Note:** Each keep alive ping consumes 122 bytes of data (61 bytes sent, 61 bytes received).
 
 
 {{/if}}
@@ -3755,17 +3757,17 @@ Parameters:
 
 ### stretchClock()
 
-Enables or Disables I2C clock stretching. This is an optional call (not from the original Arduino specs.) and must be called once before calling begin(). The default I2C stretch mode is disabled.
+Enables or Disables I2C clock stretching. This is an optional call (not from the original Arduino specs.) and must be called once before calling begin(). I2C clock stretching is only used with I2C Slave mode. The default I2C clock stretching mode is enabled.
 
 ```C++
 // SYNTAX
 Wire.stretchClock(stretch);
-Wire.begin();
+Wire.begin(4); // I2C Slave mode, address #4
 ```
 
 Parameters:
 
-- `stretch`: boolean. `true` will enable clock stretching. `false` will disable clock stretching.
+- `stretch`: boolean. `true` will enable clock stretching (default). `false` will disable clock stretching.
 
 
 ### begin()
