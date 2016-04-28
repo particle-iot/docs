@@ -511,10 +511,12 @@ Particle.keepAlive(23 * 60);	// send a ping every 23 minutes
 ```
 
 A keep alive is used to implement "UDP hole punching" which helps maintain the connection from the cloud to the device.
-Should a device becomes unreachable from the cloud (such as a timed out function call or variable get), 
+Should a device becomes unreachable from the cloud (such as a timed out function call or variable get),
 one possible cause of this is that the keep alives have not been sent often enough.
 
 The keep alive duration varies by mobile network operator. The default keepalive is set to 23 minutes, which is sufficient to maintain the connection on Particle SIM cards. 3rd party SIM cards will need to determine the appropriate keep alive value.
+
+**Note:** Each keep alive ping consumes 122 bytes of data (61 bytes sent, 61 bytes received).
 
 
 {{/if}}
