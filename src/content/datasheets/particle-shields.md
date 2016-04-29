@@ -644,30 +644,70 @@ Assembly:
 *Library and photos coming soon!*
 
 ## Electron Asset Tracker
-The Asset Tracker is a cellular solution for tracking the location of just about anything! The included shield has a GPS module and an accelerometer, so you can make projects that use location, orientation, and movement. Report vibration as you drive around, save power by keeping the cell modem and GPS off if the device isn't moving, or track boxes. Also has a barrel jack connector for adding another power source and a connector for adding an external GPS antenna if it's going to be inside something. Designed by Adafruit!
 
-### Using the Asset Tracker
+![Asset Tracker with Electron](/assets/images/shields/asset-tracker-shield/asset-tracker-v002-electron.png)
+
+The Asset Tracker is a cellular solution for tracking the location of just about anything! The included shield has a GPS module and an accelerometer, so you can make projects that use location, orientation, and movement. Report vibration as you drive around, save power by keeping the cell modem and GPS off if the device isn't moving, or track boxes. Also has a screw terminal for adding another power source and a connector for adding an external GPS antenna if it's going to be inside something. Designed by Adafruit!
+
+### Using the Asset Tracker 
+
+![Asset Tracker Description](/assets/images/shields/asset-tracker-shield/asset-tracker-v002-descriptions.png)
+
+**Power**
+
+There are a couple of different ways that you can power this shield. You can power it via the screw terminal from a 5V to 12V DC supply (make sure it can support at least 2 Amp current peaks) or you can simply power it via the LiPo battery that came with the Electron. You can also use the two sources together. We do not recommend powering it from a USB source, as the USB cable will block the GPS module leading to a poor or no satellite reception. If you HAVE to use the USB power, then make sure to use an external GPS antenna.
+
+Say if you want to put the asset tracker inside a car, you can use the car's battery as the main power source and use the LiPo battery as a backup when the car is turned off. Remember that in order for the battery to last a long time, it's ideal that you put the Electron in deep sleep mode and turn off the GPS when not needed. This is described in greater detail under the library section.
+
+![Asset Tracker Emotions](/assets/images/shields/asset-tracker-shield/asset-emotions.gif)
+
+Your asset tracker has emotions too. Don't make it sad. Don't be that guy.
+
 **GPS**
-The shield has the same GPS module as the [Adafruit Ultimate GPS](https://learn.adafruit.com/adafruit-ultimate-gps/) so all of their specs and usage notes apply here, too. The primary bit to know is that the GPS module can take _several minutes_ to get a lock, and may not get a lock at all if it doesn't have a *clear view* of the sky- sorry, no indoors projects. If this is proving a problem for you, an [external antenna](https://www.adafruit.com/products/960) may help (don't forget an SMA to uFL adapter!).
 
-When the `GPS Fix` LED is blinking once per second (1Hz) then it is trying to get a fix but does not yet have one. It will blink once per 15 seconds when it actively has a fix, and you can check that from code using the `.gpsFix()` function.
+The shield has the same GPS module as the [Adafruit Ultimate GPS](https://learn.adafruit.com/adafruit-ultimate-gps/) so all of their specs and usage notes apply here, too. It's the PA6H module based around the Mediatek's MT3339 GPS receiver.  
+
+The primary bit to know is that the GPS module can take _several minutes_ to get a lock, and may not get a lock at all if it doesn't have a *clear view* of the sky- sorry, no indoors projects. If this is proving a problem for you, an [external antenna](https://www.adafruit.com/products/960) may help (don't forget an SMA to uFL adapter!).
+
+When the `GPS Fix` LED is blinking once per second (1Hz) then it is trying to get a fix but does not yet have one. It will **turn OFF** when it actively has a fix, and you can check that from code using the `.gpsFix()` function.
+
+![Asset Tracker Fix](/assets/images/shields/asset-tracker-shield/asset-fix-animation.gif)
 
 The GPS is connected to the Serial1 UART on the Electron, and we've also provided a MOSFET to completely shut off power to it for major power savings. Pin D6 controls the GPS power, with inverted logic. This means that the GPS will only be ON when D6 is LOW, which should keep it off even if you put the Electron to sleep.
 
-There's a backup battery holder for the GPS to reduce subsequent fix acquisition times, but it's *not required*. This is the small coin cell (sometimes called a watch battery) holder slot.
+**Backup battery** 
+
+There's a backup battery holder for the GPS to reduce subsequent fix acquisition times, but it's *not required*. This is the small coin cell (part number CR1220) holder slot. Inserting the coin cell powers up the internal RTC of the GPS module and also help retain the satellite data in its volatile RAM. It is highly recommended that you have this battery plugged in at all times to bring down fix times.
 
 **Accelerometer**
-Also onboard is an accelerometer, the <a href="http://www2.st.com/content/ccc/resource/technical/document/datasheet/3c/ae/50/85/d6/b1/46/fe/CD00274221.pdf/files/CD00274221.pdf/jcr:content/translations/en.CD00274221.pdf" target="_blank">LIS3DH</a>. It's extremely low power so won't chew up your energy budget. The accel communicates over SPI, so it takes up A2, A3, A4, and A5 as marked on the silkscreen of the shield. A configurable interrupt from the LIS3DH is connected to the Electron's "wake" (WKP) pin, so you should be able to make a project where the Electron and GPS stay in deep sleep until it's hit hard enough to cross a threshold you set on the accelerometer.
+
+The shield also has an on-board accelerometer, the <a href="http://www2.st.com/content/ccc/resource/technical/document/datasheet/3c/ae/50/85/d6/b1/46/fe/CD00274221.pdf/files/CD00274221.pdf/jcr:content/translations/en.CD00274221.pdf" target="_blank">LIS3DH</a>. It's extremely low power so won't chew up your energy budget. The accel communicates over SPI, so it takes up A2, A3, A4, and A5 as marked on the silkscreen of the shield. A configurable interrupt from the LIS3DH is connected to the Electron's "wake" (WKP) pin, so you should be able to make a project where the Electron and GPS stay in deep sleep until it's hit hard enough to cross a threshold you set on the accelerometer.
 
 **Enclosure**
+
 The waterproof box includes two M4 screws for mounting the shield securely into the box. Screw the shield down in the enclosure, then plug the Electron into the shield with the USB connector facing inward. You can also look at the silkscreen Electron outline on the board for the correct orientation. The battery and antenna can be fixed in the box using the foam adhesive tape if you want to keep them from moving around.
 
-### Library
+### Asset tracker library
 We've put together a great library for you to start building from! If you're already logged into Build then you can just click on [AssetTracker library](https://build.particle.io/libs/56ca184fd7e949613400086f/tab/1_GPS_Features.cpp) and you can always open the "Libraries" view in Build, and AssetTracker will show up under the Official Libraries. This library is especially good for learning about the Electron because it implements a couple of useful features, like a Particle.function for checking the battery level!
 
 Examples:
 1. __GPS Features__ - How to use the GPS efficiently, and some nice Electron functions
 2. __Accelerometer__ - Using the accelerometer with some cute tricks
+
+### GPS module specifications
+
+ - 22 Tracking/ 66 acquisition channels
+ - Update rate: 1Hz (default), 10Hz (max)
+ - Position accuracy: 2.5 to 3.0 meters
+ - Altitude: 18000 (max)
+ - Velocity: 515m/s (max)
+ - Velocity accuracy: 0.05 to 0.1m/s
+ - Acceleration: 4G (max)
+ - Frequency: L1, 1575.42MHz
+ - Supports upto 210 PRN channels
+ - Supports multi-GNSS incl. QZSS, SBAS ranging
+ - Supports WAAS/EGNOS/MSAS/GAGAN
+ - NMEA 0183 standard v3.01 and backwards compatible
 
 ### Recommended operating conditions
 | Parameter | Symbol | Min | Typ | Max | Unit |
@@ -680,7 +720,24 @@ Examples:
 | Operating Temperature | T<sub>op</sub> | -20 |  | +60 | °C |
 | Humidity Range Non condensing, relative humidity | | | | 95 | % |
 
-*Photos coming soon!*
+### Shield Specifications
+
+![Asset Tracker Dimensions](/assets/images/shields/asset-tracker-shield/asset-tracker-v002-dimensions.png)
+
+### Hardware revision history
+
+| Revision | Date | Author | Comments |
+|:-:|:-:|:-:|:-|
+| v001 | 20-Jan-2016 | MB | Initial release |
+| v002 | TBD | TBD | TBD  |
+| | | | | |
+
+### Know hardware issues
+
+| Revision | Date | Author | Comments |
+|:-:|:-:|:-:|:-|
+| v001 | 20-Jan-2016 | MB | The TX and RX labels are flipped on the PCB. USB cable blocks the GPS antenna when powering over USB.  |
+| | | | | |
 
 ## Electron Sensor Kit
 This is the big one! A fantastic collection of premium and versatile sensors.
