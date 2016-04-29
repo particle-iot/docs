@@ -669,7 +669,9 @@ The shield has the same GPS module as the [Adafruit Ultimate GPS](https://learn.
 
 The primary bit to know is that the GPS module can take _several minutes_ to get a lock, and may not get a lock at all if it doesn't have a *clear view* of the sky- sorry, no indoors projects. If this is proving a problem for you, an [external antenna](https://www.adafruit.com/products/960) may help (don't forget an SMA to uFL adapter!).
 
-When the `GPS Fix` LED is blinking once per second (1Hz) then it is trying to get a fix but does not yet have one. It will turn off when it actively has a fix, and you can check that from code using the `.gpsFix()` function.
+When the `GPS Fix` LED is blinking once per second (1Hz) then it is trying to get a fix but does not yet have one. It will **turn OFF** when it actively has a fix, and you can check that from code using the `.gpsFix()` function.
+
+![Asset Tracker Fix](/assets/images/shields/asset-tracker-shield/asset-fix-animation.gif)
 
 The GPS is connected to the Serial1 UART on the Electron, and we've also provided a MOSFET to completely shut off power to it for major power savings. Pin D6 controls the GPS power, with inverted logic. This means that the GPS will only be ON when D6 is LOW, which should keep it off even if you put the Electron to sleep.
 
@@ -685,7 +687,7 @@ The shield also has an on-board accelerometer, the <a href="http://www2.st.com/c
 
 The waterproof box includes two M4 screws for mounting the shield securely into the box. Screw the shield down in the enclosure, then plug the Electron into the shield with the USB connector facing inward. You can also look at the silkscreen Electron outline on the board for the correct orientation. The battery and antenna can be fixed in the box using the foam adhesive tape if you want to keep them from moving around.
 
-### Library
+### Asset tracker library
 We've put together a great library for you to start building from! If you're already logged into Build then you can just click on [AssetTracker library](https://build.particle.io/libs/56ca184fd7e949613400086f/tab/1_GPS_Features.cpp) and you can always open the "Libraries" view in Build, and AssetTracker will show up under the Official Libraries. This library is especially good for learning about the Electron because it implements a couple of useful features, like a Particle.function for checking the battery level!
 
 Examples:
@@ -700,8 +702,8 @@ Examples:
  - Altitude: 18000 (max)
  - Velocity: 515m/s (max)
  - Velocity accuracy: 0.05 to 0.1m/s
- - Acceleration: 4G
- - Frequency L1, 1575.42MHz
+ - Acceleration: 4G (max)
+ - Frequency: L1, 1575.42MHz
  - Supports upto 210 PRN channels
  - Supports multi-GNSS incl. QZSS, SBAS ranging
  - Supports WAAS/EGNOS/MSAS/GAGAN
