@@ -9,380 +9,150 @@ template: guide.hbs
 
 # Webhooks
 
-## Introduction
+Webhooks are a simple and flexible way to send data from your Particle devices to other apps and services around the Internet. Webhooks bridge the gap between the physical and the digital world, helping you get your data where you need it to be.
 
-You've built an amazing device, and a powerful application online, and now you want to connect them.  You're in the right place!
-
-Webhooks are a simple and flexible way for your devices to make requests to almost anything on the Internet.  Webhooks listen for events from your devices.  When you send a matching event, the hook will send a request to your web application with all the details!
-
-If you're totally new to Particle, that's okay!  Check out our [Getting started guide here](/guide/getting-started/start), and come back when you're ready.
-
-Let's go!
+You could use a webhook to save valuable information in a database, visualize data being read from a sensor, send the latest weather report to your device, trigger a payment, send a text message, and so much more!   
 
 
 
-## What's a web request?
+<img src="/assets/images/webhooks-overview.png" alt="Webhooks with Particle"/>
+<p class="caption">Webhooks allow you to send data from your connected device anywhere on the Internet</p>
 
-When you surf the internet, you are riding a continuous wave of web requests. Browsers make requests to web servers, which send information back that allow you to view, point, click, and interact. When you loaded this page, your browser sent a "GET" request to our web server to ask to display the site. Our server recognized the information in that "GET" request, and it sent the page back to your browser.
-
-There are many different kinds of web requests. Most of your average requests to view a page or browse around online are "GET" requests.  This is all part of that hypertext `http://` thing that is at the front of the address in your browser.  When you fill out and submit a form, your browser tends to send "POST" requests.  POST requests are usually for sending data to a server.  You can read more about all the [different kinds of web requests here](http://en.wikipedia.org/wiki/Hypertext_Transfer_Protocol#Request_methods).
-
-Your Particle powered device can now easily make these requests!  You could grab or send values to any web service or site with something as simple as `Particle.publish("lets go!");` That's what we are going to teach you how to do with Webhooks.
+In this guide, we'll provide an overview of how you can use webhooks in your connected products, and walk you through a few examples to get you started.
 
 
-## Installing the CLI
+## How webhooks work
 
-```
-# if you haven't already, open a command prompt / terminal, and login to the CLI
-particle login
-> Could I please have an email address?:  cheddar_robot@particle.io
-> and a password?: **********
-...
-Success!
-```
+Webhooks are tightly integrated with Particle's event system. Devices have the ability to both [publish events](/reference/firmware/#particle-publish-) to the Particle cloud, as well as [subscribe to events](/reference/firmware/electron/#particle-subscribe-) from the cloud.
 
-We're still building the beautiful, intuitive web interface for creating and managing Webhooks, but you're determined, you are ready to use Webhooks now.  You're in luck!  With the Particle CLI and your terminal you can start using Webhooks right away.  You might need to install a few things, but it's going to be worth it.  First, make sure you have [Node.js](https://nodejs.org) installed if you don't already.
+A webhook listens for a specific event published by a device. When this event is published, the webhook triggers a [web request](http://rve.org.uk/dumprequest) to a URL on the web. The request sent by the webhook can include information about the event, such as its name as well as any data included when the event was published.
 
-For those of you who have used the Particle CLI in the past, you're all set! If you are a CLI newcomer, install it by following [these instructions](/guide/tools-and-features/cli/#installing).
+You can configure a webhook to make different types of web requests. The most common type of webhook request is a `POST`, which is a method of _sending data_ to another web server. In the case of Particle webhooks, this would mean sending data from your devices to a third-party web service. Other types of web requests, like `GET` and `PUT` can also be made with webhooks.
 
-You'll also need some basic knowledge of the terminal. Adafruit has a [lovely intro to the command line](https://learn.adafruit.com/what-is-the-command-line/overview) that beginners may find helpful.
+Often times, a web server you hit with a webhook will return data to you as a result of the request made. When this happens, your devices can subscribe to a specific event name to receive the response from the web server and use it in your firmware logic.
 
+The combination of webhooks with the Particle cloud's pub/sub event system creates a very efficient way for you to leverage online tools and services and integrate them into your connected product.
 
-## CLI Command Reference
+Webhooks is one piece of a larger puzzle of Particle Integrations. We want to make it incredibly easy to send data from your devices wherever you need it. In the near future, Particle will offer branded integrations will further simplify the process of sending your data to useful web services.
 
-### particle webhook create
+## Your first webhook
 
-Registers your Webhook with the Particle Cloud.  Creates a postback to the given url when your event is sent.  See [Webhook Options](#webhook-options) for JSON formatting requirements and parameters.
+Let's get started! For your first webhook, let's try to send some data from your Particle device to a graphing tool. For this example, we'll use [ThingSpeak](https://thingspeak.com/).
 
-```sh
-# how to create a webhook with json data using the CLI
-$ particle webhook create slack.json
+### Configure ThingSpeak
 
-Using settings from the file slack.json
-Sending webhook request  { uri: 'https://api.particle.io/v1/webhooks',
-  method: 'POST',
-  json: true,
-  form:
-   { event: 'slack-incoming-webhook',
-     url: 'https://hooks.slack.com/services/B1234567/C234567/345634563456345634563456',
-     deviceid: undefined,
-     access_token: '56785678567856785678567856785678',
-     requestType: 'POST',
-     headers: undefined,
-     json:
-      { channel: '#random',
-        username: 'ParticleBot',
-        text: '{{SPARK_EVENT_VALUE}}',
-        icon_emoji: ':spark:' },
-     query: undefined,
-     auth: undefined,
-     mydevices: true } }
-```
+[Create a ThingSpeak account](https://thingspeak.com/users/sign_up) if you don't already have one. Next, create a [channel](https://www.mathworks.com/help/thingspeak/channels-and-charts.html?requestedDomain=www.mathworks.com) by clicking the "New Channel" button on your ThingSpeak dashboard.
 
+Name your channel "Temperature," add one field called "temp" and create the channel.
 
-### particle webhook list
+![Particle ThingSpeak channel](/assets/images/thingspeak-channel.png)
 
-Generates a list of what Webhooks you own, including their ID numbers and registered event names.
+Once you've created the channel, you will need to note the Channel ID as well as your Write API key to use for creating the Particle webhook.
 
-```sh
-# how to show your currently registered webhooks using the CLI
-$ particle webhook list
+![Particle ThingSpeak API Key](/assets/images/thingspeak-api-key.png)
 
-Found 2 hooks registered
+Great! We have what we need from ThingSpeak. Now let's go and create the webhook.
 
-    1.) Hook #123412341234123412341234 is watching for "Librato_"
-        and posting to: https://metrics-api.librato.com/v1/metrics
-        created at 2015-02-28T03:32:41.412Z
+### Create the webhook
 
-    2.) Hook #234523452345234523452345 is watching for "slack-incoming-webhook"
-        and posting to: https://hooks.slack.com/services/B1234567/C234567/345634563456345634563456
-        created at 2015-02-28T04:31:47.133Z
-```
+The hub for managing your webhooks is the [Particle Dashboard](https://dashboard.particle.io). Log into your dashboard and click on the Integrations tab. If you have created any webhooks in the past, they will appear here. Click on "New Integration" -> "Webhook" to get started.
 
-### particle webhook delete
+![Integrations Hub](/assets/images/integrations-hub.png)
+<p class="caption">Your Integrations Hub is where you can view and manage Particle webhooks</p>
 
-Delete a webhook using your registered webhook ID number.  Use `particle webhook list` to find the WEBHOOK_ID you wish to delete, then copy/paste it into the `particle webhook delete WEBHOOK_ID` command.
+Let's configure our webhook:
+- Set the event name to `temp` to match the field in ThingSpeak
+- Set the URL to `https://api.thingspeak.com/update`
+- Make sure the request type is set to `POST` (it should be already)
+- If you'd like to limit the webhook triggering to a single one of your devices, choose it from the device dropdown
 
-```sh
-# how to delete your previously registered webhook
-# from the Particle Cloud using the CLI
-$ particle webhook delete WEBHOOK_ID
+Next, click on "Advanced Settings," and find "Send Custom Data." Choose "form" from the available options. Drop in the following key/value pairs:
 
-$ particle webhook delete 234523452345234523452345
-Successfully deleted webhook!
-```
+- `api_key`: `YOUR_API_KEY`<br/>
+- `field1`: `\{{PARTICLE_EVENT_VALUE}}}`
 
+The form should look something like this:
 
-## Your first Webhook
+![Thingspeak Webhook](/assets/images/thingspeak-webhook.png)
 
+Click the "Create Webhook" button, and boom! You've created your first webhook.
 
-### Getting the weather in the US
+Taking a step back, we now have a webhook listening for the `temp` event from a Particle device, that will publish temperature data to your ThingSpeak channel. Once the data reaches ThingSpeak, it will be displayed as a line graph.
+
+The last step is getting your Particle device to publish the `temp` event with some temperature information. For this demo, we'll assume that you don't necessarily have a real temperature sensor, so we'll just generate some random data.
+
+### Webhook firmware
+
+To get started, go to [Particle Build](https://build.particle.io). Create a new app called "TempWebhook."
+
+Copy/paste the following into your application's code:
 
 ```
-# If you're in the United States, you can use weather.gov, pick your state here:
-http://w1.weather.gov/xml/current_obs/
-
-
-# Once you've picked your state and local station, pick your url
-http://w1.weather.gov/xml/current_obs/<your_local_weather_station_here>.xml
-
-
-# For KMSP in Minnesota, the url would be:
-http://w1.weather.gov/xml/current_obs/KMSP.xml
-```
-
-Lets grab and display some weather data, that's fun!
-
-If you're in the US, pick your state and area from [Weather.gov here](http://w1.weather.gov/xml/current_obs/), if you're somewhere else, try to find a weather service site that is open to being accessed from your device, and can send a simple text report.
-
-
-### Getting the weather Globally
-
-```
-# Details about OpenWeatherMap's api is here:
-http://openweathermap.org/api
-
-# To use OpenWeatherMap, make sure you sign up for an API key from them before using their data
-# Sample request for London weather
-http://api.openweathermap.org/data/2.5/weather?q=London&mode=xml
-```
-
-There are a ton of weather data services spread around the world!
-
-One we found with lots of great international data, and a developer program is [OpenWeatherMap](http://openweathermap.org/).
-
-
-### Creating the Webhook
-
-```sh
-# creating a GET hook with the Particle CLI
-# particle webhook GET <your_event_name> http://<website.you.are.trying.to.contact>
-
-# create a webhook to send a "GET" request to our weather URL when we publish "get_weather"
-particle webhook GET get_weather http://w1.weather.gov/xml/current_obs/KMSP.xml
-> ...
-> Successfully created webhook!
-```
-
-Webhooks listen for events from your devices and will make requests based on those events. For this example, lets setup a hook to listen for a `get_weather` event from our devices, and then have it make a GET request to our weather data url.
-
-Hop on the terminal, make sure you have the Particle CLI, and make sure you've logged in (`particle login`).
-
-This Webhook will now be triggered when we publish "get_weather" from any of our devices.
-
-
-### The weather firmware
-
-```cpp
-// called once on startup
-void setup() {
-    // For simplicity, we'll format our weather data as text, and pipe it to serial.
-    // but you could just as easily display it in a webpage or pass the data to another system.
-
-    // Learn more about the serial commands at https://docs.particle.io/reference/firmware/photon/#serial
-    //  for the Photon, or https://docs.particle.io/reference/firmware/core/#serial for the Core
-    // You can also watch what's sent over serial with the particle cli with
-    //  particle serial monitor
-    Serial.begin(115200);
-
-    // Lets listen for the hook response
-    Particle.subscribe("hook-response/get_weather", gotWeatherData, MY_DEVICES);
-
-    // Lets give ourselves 10 seconds before we actually start the program.
-    // That will just give us a chance to open the serial monitor before the program sends the request
-    for(int i=0;i<10;i++) {
-        Serial.println("waiting " + String(10-i) + " seconds before we publish");
-        delay(1000);
-    }
-}
-
-
-// called forever really fast
-void loop() {
-
-    // Let's request the weather, but no more than once every 60 seconds.
-    Serial.println("Requesting Weather!");
-
-    // publish the event that will trigger our Webhook
-    Particle.publish("get_weather");
-
-    // and wait at least 60 seconds before doing it again
-    delay(60000);
-}
-
-// This function will get called when weather data comes in
-void gotWeatherData(const char *name, const char *data) {
-    // Important note!  -- Right now the response comes in 512 byte chunks.
-    //  This code assumes we're getting the response in large chunks, and this
-    //  assumption breaks down if a line happens to be split across response chunks.
-    //
-    // Sample data:
-    //  <location>Minneapolis, Minneapolis-St. Paul International Airport, MN</location>
-    //  <weather>Overcast</weather>
-    //  <temperature_string>26.0 F (-3.3 C)</temperature_string>
-    //  <temp_f>26.0</temp_f>
-
-
-    String str = String(data);
-    String locationStr = tryExtractString(str, "<location>", "</location>");
-    String weatherStr = tryExtractString(str, "<weather>", "</weather>");
-    String tempStr = tryExtractString(str, "<temp_f>", "</temp_f>");
-    String windStr = tryExtractString(str, "<wind_string>", "</wind_string>");
-
-    if (locationStr != NULL) {
-        Serial.println("At location: " + locationStr);
-    }
-
-    if (weatherStr != NULL) {
-        Serial.println("The weather is: " + weatherStr);
-    }
-
-    if (tempStr != NULL) {
-        Serial.println("The temp is: " + tempStr + String(" *F"));
-    }
-
-    if (windStr != NULL) {
-        Serial.println("The wind is: " + windStr);
-    }
-}
-
-// Returns any text found between a start and end string inside 'str'
-// example: startfooend  -> returns foo
-String tryExtractString(String str, const char* start, const char* end) {
-    if (str == NULL) {
-        return NULL;
-    }
-
-    int idx = str.indexOf(start);
-    if (idx < 0) {
-        return NULL;
-    }
-
-    int endIdx = str.indexOf(end);
-    if (endIdx < 0) {
-        return NULL;
-    }
-
-    return str.substring(idx + strlen(start), endIdx);
-}
-```
-
-
-Even if you're already familiar with writing firmware, that's great!, there are some great details here to catch.  First when we want to capture a reponse from a Webhook, make sure you're subscribing to "hook-response/" + ( your published event name ).  That means if your hook captures everything starting with "my-hooks", but you published "my-hooks/get_weather", then your response event name would be "hook-response/my-hooks/get_weather".
-
-The other important detail from this example is that Webhooks right now assumes you're using an embedded device without a lot of ram.  Large web responses are cut into 512 byte pieces, and are sent at a fixed rate of about 4 per second.  This is to make it easier for these low power devices to parse and process responses that otherwise wouldn't fit in ram.
-
-Now, let's write some firmware!
-
-
-
-Sample output:
-
-```
-# Sample Output over serial
-Requesting Weather!
-At location: Minneapolis, Minneapolis-St. Paul International Airport, MN
-The weather is: A Few Clouds
-The temp is: 15.0 *F
-The wind is: from the Northwest at 19.6 gusting to 28.8 MPH (17 gusting to 25 KT)
-```
-
-
-
-
-## Lets make some graphs
-
-### Logging to Librato
-
-Librato is great service that lets you quickly track and graph any data over time.  This example requires you have an account with them first, [signup for librato here](https://metrics.librato.com).
-
-When you first login you'll see a screen like this:
-
-[![Librato Welcome Screen]({{assets}}/images/webhooks_librato_example_1.png)]({{assets}}/images/webhooks_librato_example_1.png)
-
-
-
-### An example librato Webhook
-
-Copy and save the librato access token for your webhook below.  Create a text file somewhere named librato.json, and paste in this example.  Make sure you replace the librato username, and librato access token as well.
-
-```json
-# copy-paste the stuff between the {}'s (including those brackets) into a file librato.json
-{
-    "event": "librato_",
-    "url": "https://metrics-api.librato.com/v1/metrics",
-    "requestType": "POST",
-    "auth": {
-        "username": "YOUR_LIBRATO_USERNAME",
-        "password": "YOUR_LIBRATO_ACCESS_TOKEN"
-    },
-    "json": {
-        "gauges": [
-            {
-                "name": "\{{SPARK_EVENT_NAME}}",
-                "value": "\{{SPARK_EVENT_VALUE}}",
-                "source": "\{{SPARK_CORE_ID}}"
-            }
-        ]
-    },
-    "mydevices": true
-}
-```
-
-
-```sh
-# example of creating the hook
-particle webhook create librato.json
-> ...
-> Successfully created webhook!
-```
-
-Use the `particle webhook create` command in your terminal to create the Webhook.  Make sure you're in the same folder as where you created the file.  The Webhook will see the special template keywords, and replace them with the values from your published event.
-
-
-
-### The example data logging code!
-
-Here's the fun part, hook anything up to your device!  A motion sensor, temperature sensor, a switch, anything that generates some data that you're interested in tracking over time.  You can also leave the pins floating and measure the floating pin too!  Our example code will assume you have something interesting happening on A0.  This firmware waits 10 seconds, reads pin A0, and then publishes the value to your Webhook.
-
-```cpp
-#define publish_delay 10000
-unsigned int lastPublish = 0;
+int led = D7;  // The on-board LED
 
 void setup() {
-
+  pinMode(led, OUTPUT);
 }
 
 void loop() {
-    unsigned long now = millis();
+  digitalWrite(led, HIGH);   // Turn ON the LED
+  
+  String temp = String(random(60, 80));
+  Particle.publish("temp", temp, PRIVATE);
+  delay(30000);               // Wait for 30 seconds
 
-    if ((now - lastPublish) < publish_delay) {
-        // it hasn't been 10 seconds yet...
-        return;
-    }
-
-    int value = analogRead(A0);
-    Particle.publish("librato_A0", String(value), 60, PRIVATE);
-
-    lastPublish = now;
+  digitalWrite(led, LOW);    // Turn OFF the LED
+  delay(30000);               // Wait for 30 seconds
 }
 ```
 
-After you flash the firmware to your device, open up the Particle CLI, and subscribe to your events with `particle subscribe mine`, you should see something like:
+This code will toggle the on-board LED on and off every 30 seconds. When the LED turns on, the device will generate a random temperature value between 60 and 80 degrees and publish it to the cloud with the event `temp`. The temperature value is what will be passed on to ThingSpeak and graphed.
 
-[![Testing the events first]({{assets}}/images/webhooks-librato-cli-example.png)]({{assets}}/images/webhooks-librato-cli-example.png)
+Make sure your [device is connected](/guide/getting-started/start/) and selected in the IDE (Ensure that the <i class="ion-star"></i> appears next to your device in the Devices pane). Flash the code to your device (Click the <i class="ion-flash"></i> icon in the sidebar).
 
-Once you've created the Webhook, and some events are coming through successfully, your metric should show up in your metrics list:
+Your device should now restart and start publishing the event that will trigger the webhook.
 
-[![Librato Metrics Screen]({{assets}}/images/webhooks-librato-metrics-screen1.png)]({{assets}}/images/webhooks-librato-metrics-screen1.png)
+To ensure that everything is working properly, head over to your logs hub on the dashboard (<i class="icon-terminal"></i>). Every time your webhook triggers, a `hook-sent` event will appear in your user event stream. If the webhook receives a response from the targeted web server with something in the `body`, a `hook-response` event will also appear in your event stream containing the response.
 
-Open up that metric, and congrats!  Your sensor data is now readily available to you in Librato!
+![Webhook Logs](/assets/images/webhook-logs.png)
+<p class="caption">`hook-sent` and `hook-response` events will appear in your event stream for an active webhook</p>
 
-[![Librato Sample Graph]({{assets}}/images/webhooks-librato-metric-sample.png)]({{assets}}/images/webhooks-librato-metric-sample.png)
+You should see three types of events appearing in your stream:
+- `temp`: The original event that your device published that contains the temperature data.
+- `hook-sent/temp`: Confirmation that the webhook was sent to ThingSpeak's servers.
+- `hook-response/temp/0`: The response that the webhook received from ThingSpeak. According to [ThingSpeak's docs](https://www.mathworks.com/help/thingspeak/update-channel-feed.html), the response is the entry ID of the update. If the update fails, the response is `0`.
 
+Sweet! Things appear to be working properly. Let's check out ThingSpeak and see how our data looks.
 
+### See the results
 
-## What's in a request?
+Back on ThingSpeak, navigate back to your channel. You should see temperature data being graphed over time. Your random temperature graph should look something like this:
+
+![ThingSpeak Graph](/assets/images/thingspeak-graph.png)
+<p class="caption">Temperature data from your device being graphed in real-time!</p>
+
+Congratulations! You've created a webhook successfully and gotten data from your connected device into another service. Awesome!
+
+## Product webhooks
+
+If you are building a product using Particle, you now have the ability to create webhooks at the product-level. This will allow you as a product creator to define a single webhook than any of the devices in the product's fleet can trigger.
+
+### Create a product webhook (beta)
+
+If you don't have one already, you'll need to [create an organization](/guide/how-to-build-a-product/dashboard/#setting-up-an-organization) and [define a product](/guide/how-to-build-a-product/dashboard/#defining-a-product) before you will be able to create product webhooks. Currently, webhooks for products are in beta and will evolve over the coming months.
+
+Product webhook management can also be done from the [Particle Dashboard](https://dashboard.particle.io). To create a webhook, navigate to your product's hub on the dashboard and click on the Integrations tab (<i class="im-integrations-icon"></i>). You'll see a very similar view to the Integrations hub as a developer.
+
+![Product Integrations Hub](/assets/images/product-integrations-hub.png)
+<p class="caption">Product integrations are currently in public beta</p>
+
+Click on "New Integration" -> "Webhook." Again, the view will be very similar to what you would see in your developer dashboard.
+
+## Advanced Topics
+
+### Other ways to manage webhooks
+
+### What's in a request?
 
 Since your Webhook listens for events from your devices, it can send that event data along to whatever url you specify.  If you don't add any custom options, the hook will send a JSON type POST request with the following values:
 
@@ -401,7 +171,7 @@ This is same data you'd see if you subscribed to your [event stream](/reference/
 These properties will all be strings except for `published_at`, which is an ISO8601 date formatted string, which tends to be in the form `YYYY-MM-DDTHH:mm:ssZ`.
 
 
-## Templates
+### Templates
 
 In order to help connect with many different services, you can move these published event values around in your request using simple templates.  You can picture the example above as the following template:
 
@@ -440,186 +210,7 @@ An example hook that uses custom templates.  In this case the URL of the request
 }
 ```
 
-
-
-## Webhook Options
-
-You can even customize the webhook to send custom headers, form fields, and more. This section explains what's available and how to use them all!
-
-### event
-
-The topic of your published event is sent as the `event` property in webhook requests. Note that the event name prefix filter rules from `Particle.subscribe()` apply here too. In your firmware it's this part:
-
-```
-Particle.publish(event, data);
-#  This part     ^^^^^
-```
-
-### data
-
-The contents of your published event is sent as the `data` property in webhook requests.  In your firmware it's this part:
-
-```
-Particle.publish(event, data);
-#  This part            ^^^^
-```
-
-
-### url
-
-The address of the resource you want to contact.  Make sure you have permission to be sending requests to this server.  This field is required.
-
-Hooks that result in a high error count or cause that server to go over our limit will be muted for a time to make sure no sites are being abused.  If you're a site operator and you believe you're being spammed by webhooks, please email us at hello@particle.io.
-
-```
-Usually something like: https://<some-website-name-here.com>/<some-cool-api>
-```
-
-### requestType
-
-Optionally specify a standard web request method (GET, POST, PUT, DELETE).  This defaults to POST if not supplied.
-
-```
-Usually one of GET, POST, PUT, DELETE
-```
-
-### deviceID
-
-Provide a full id of one of your devices, and the webhook will only respond to events from that device.
-
-
-### mydevices
-
-Expects true or false, and will optionally filter to only events coming from devices owned by you.
-
-```
-One of true, false
-```
-
-### headers
-
-Optionally provide a JSON object with key / value pairs specifying custom headers.  This can be useful for authorization codes or custom headers required by some services.
-
-```json
-# example headers usage
-"headers": {
-    "Authorization": "Bearer 12345"
-}
-```
-
-
-### form
-
-Optionally include custom fields and values as if submitting a form with your request.  This parameter will change the content-type header to `application/x-www-form-urlencoded`.
-
-```json
-# example form usage
-"form": {
-    "custom-field": "reindeer counts"
-}
-```
-
-### json
-
-Optionally include custom fields and values as JSON with your request.  This parameter will change the content-type header to `application/json`.
-
-```json
-# example json usage
-"json": {
-    "table-name": "racetrack_times"
-}
-```
-
-
-### query
-
-Optionally include extra parameters in the URL of the request encoded as normal query params.
-
-```json
-# example query usage
-"query": {
-    "q": "how much can an unladen swallow carry",
-    "p": 2
-}
-
-# would cause the hook to include those query parameters
-http://<the url>/?q=how+much+can+an+unladen+swallow+carry&p=2
-```
-
-### auth
-
-Optionally include an object with username/password set to include a properly encoded HTTP basic auth header.
-
-```json
-# example auth usage
-"auth": {
-    "username": "dancy_pants",
-    "password": "speak friend and enter"
-}
-```
-
-### noDefaults
-
-By default, your webhook will inject the data from your `Particle.publish()` call into your request. These four parameters, "name", "data", "coreid", and "published_at" might cause issues for some servers.  By setting `noDefaults` to true, it will not add these parameters.
-
-```json
-# don't inject name, data, coreid, and published_at
-"noDefaults": true
-```
-
-
-
-### rejectUnauthorized
-
-By default, if your URL targets a url with a HTTPS prefix (SSL encrypted), the hook will validate the certificate against its certificate authority chain.  If you're using a self-signed certificate, or are otherwise having certificate issues, you can tell the hook to ignore the validation process by setting rejectUnauthorized to false.
-
-```json
-# ignore any issues with the SSL certificate (not especially secure to do this)
-"rejectUnauthorized": false
-```
-
-### azure_sas_token
-
-Some cloud providers like Azure require a dynamically generated access token.  To help keep the requests secure and flowing freely, you can specify this parameter to have your webhook generate these tokens for you!
-
-```json
-# Specify the azure_sas_token for the webhook to generate an authorization header with the appropriate token
-"azure_sas_token": {
-  "key_name": "your_azure_token_key_name",
-  "key": "your_azure_token_key"
-}
-```
-
-### responseTemplate
-
-You can use the responseTemplate parameter to let the webhook dynamically render a new event response down to your devices!  This is just like the custom template variables above, but it applies to what your devices see, instead of what your server sees.
-
-```json
-# If your server returned JSON, use the responseTemplate to parse and render a more clear response and send less data!
-"responseTemplate": "Temperature: {{temperature}}, Outlook: {{conditions}}"
-```
-
-### responseTopic
-
-You can also set the topic the webhook will use to help your devices filter and subscribe to the appropriate response! If you have a hook that services hundreds of devices, you can, for example include the device id in the topic, and have your device subscribe to events that only apply to it:
-
-```json
-# If your server returned JSON, use the responseTopic to parse and render a custom event topic!
-"responseTopic": "weather_for_{{SPARK_CORE_ID}}"
-```
-
-
-### errorResponseTopic
-
-You can also include custom processing of the topic for error responses, in case you want to pre-process these before saving them or acting on them.
-
-```json
-# If your server returned JSON, use the errorResponseTopic to set a custom event topic for errors!
-"errorResponseTopic": "save_failed_for_{{SPARK_CORE_ID}}"
-```
-
-
-## Limits
+### Limits
 
 ```
 Please make sure you have permission from the site first!
@@ -663,7 +254,7 @@ with errors 10 times in a row.
 Any hook that results in an error code from the server (above a 400), 10 consecutive times in a row will be automatically disabled.  We'll be adding notifications, and the ability to pause/unpause when this happens, but for the moment you might notice that your hook stops working for this reason.
 
 
-## Handling Web Responses
+### Handling Web Responses
 
 Responses from hooks are sent in the following format:
 
@@ -696,7 +287,7 @@ hook-response/get_weather/4
 
 ```
 
-## Confirming That The Webhook Successed
+### Confirming That The Webhook Successed
 
 You will know that your webhook succeeded if you see the following pattern on your event stream, using the [Dashboard](https://dashboard.particle.io/user/logs) or the Particle CLI command `particle subscribe mine`:
 
@@ -712,7 +303,7 @@ Explanation:
 - The second line (`hook-sent`) acknowledges that the Particle cloud forwarded your event to your webhook URL.
 - The third line (`hook-response`) contains the response received from your webhook URL. Your device can subscribe to this event with `Particle.subscribe()` to receive the data.
 
-## Errors
+### Errors
 
 Error responses from the target url will also be sent back in the response event.  If you have 10 consecutive errors, the hook will send you a "Too many errors, webhook disabled" message.  Make sure you're watching the responses when developing your hook!  You can monitor these with the particle cli by running:
 
