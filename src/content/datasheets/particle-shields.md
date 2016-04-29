@@ -657,8 +657,11 @@ The Asset Tracker is a cellular solution for tracking the location of just about
 
 There are a couple of different ways that you can power this shield. You can power it via the screw terminal from a 5V to 12V DC supply (make sure it can support at least 2 Amp current peaks) or you can simply power it via the LiPo battery that came with the Electron. You can also use the two sources together. We do not recommend powering it from a USB source, as the USB cable will block the GPS module leading to a poor or no satellite reception. If you HAVE to use the USB power, then make sure to use an external GPS antenna.
 
-Say if you want to put the asset tracker inside a car, you can use the car's battery as the main power source and use the LiPo battery as a backup when the car is turned off. Remember that in order for the battery to last a long time, it's ideal that you put the Electron in deep sleep mode and turn off the GPS when not needed. This is descried in greater detail under the library section.
+Say if you want to put the asset tracker inside a car, you can use the car's battery as the main power source and use the LiPo battery as a backup when the car is turned off. Remember that in order for the battery to last a long time, it's ideal that you put the Electron in deep sleep mode and turn off the GPS when not needed. This is described in greater detail under the library section.
 
+![Asset Tracker Emotions](/assets/images/shields/asset-tracker-shield/asset-emotions.gif)
+
+Your asset tracker has emotions too. Don't make it sad. Don't be that guy.
 
 **GPS**
 
@@ -691,7 +694,7 @@ Examples:
 
 ### GPS module specifications
 
- - 22 Tracking/ 66 acquisistion channels
+ - 22 Tracking/ 66 acquisition channels
  - Update rate: 1Hz (default), 10Hz (max)
  - Position accuracy: 2.5 to 3.0 meters
  - Altitude: 18000 (max)
