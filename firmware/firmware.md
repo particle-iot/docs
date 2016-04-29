@@ -1249,7 +1249,7 @@ STARTUP(softap_set_application_page_handler(myPages, nullptr));
 The `softap_set_application_page_handler` is set during startup. When the system is in setup mode, and a request is made for an unknown URL, the system
 calls the page handler function provided by the application (here, `myPages`.)
 
-The page handler function is called whenver an unknown URL is requested. It is called with these parameters:
+The page handler function is called whenever an unknown URL is requested. It is called with these parameters:
 
 - `url`: the path of the file requested by the client. It doesn't include the server name or port. Examples: `/index`,  `/someimage.jpg`.
 - `cb`: a response callback - this is used by the application to indicate the type of HTTP response, such as 200 (OK) or 404 (not found). More on this below.
