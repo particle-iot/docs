@@ -113,6 +113,15 @@ bool success = Particle.function("funcKey", funcName);
 //                     (max of 12 characters long)
 ```
 
+```
+// FORMAT OF THE CLOUD FUNCTION
+// int funcName(String extra) { }
+//  ^                ^
+//  |                |
+// (must return int) |
+//                  (must take exactly one string)
+```
+
 Currently the application supports the creation of up to 4 different cloud functions.
 
 In order to register a cloud  function, the user provides the `funcKey`, which is the string name used to make a POST request and a `funcName`, which is the actual name of the function that gets called in your app. The cloud function can return any integer; `-1` is commonly used for a failed function call.
