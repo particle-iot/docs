@@ -420,7 +420,7 @@ The microcontroller communicates with the PMIC via an I2C interface (pins PC9 an
 
 ![STM32](/assets/images/electron/schematics/stm32.png)
 
-The Electron uses ST Microelectronics's [STM32F205RGT6TR](http://www.st.com/web/en/resource/technical/document/datasheet/CD00237391.pdf) ARM Cortex M3 microcontroller running at  120MHz.
+The Electron uses ST Microelectronics's [STM32F205RGT6TR](http://www2.st.com/content/ccc/resource/technical/document/datasheet/bc/21/42/43/b0/f3/4d/d3/CD00237391.pdf/files/CD00237391.pdf/jcr:content/translations/en.CD00237391.pdf) ARM Cortex M3 microcontroller running at  120MHz.
 
 ### U-blox cellular module
 
