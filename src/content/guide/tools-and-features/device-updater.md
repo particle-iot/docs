@@ -3,6 +3,7 @@ word: Updater
 title: Device Updater
 order: 4
 columns: two
+devices: [ photon,electron,core ]
 template: guide.hbs
 ---
 
