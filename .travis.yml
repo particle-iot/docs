@@ -10,14 +10,7 @@ cache:
   - node_modules
 before_install:
 - echo -e "machine github.com\n  login $CI_USER_TOKEN" >> ~/.netrc
-- if[ "$TRAVIS_BRANCH" == "staging"]; then
-  '[ "${TRAVIS_PULL_REQUEST}" = "false" ] && git submodule update --init --recursive && cd api-node && git fetch && git merge origin/staging && cd .. || true';
-  fi
-- if[ "$TRAVIS_BRANCH" != "staging"]; then
-  '[ "${TRAVIS_PULL_REQUEST}" = "false" ] && git submodule update --init --recursive && cd api-node && git fetch && git merge origin/production && cd .. || true';
-  fi
-
-
+- '[ "${TRAVIS_PULL_REQUEST}" = "false" ] && git submodule update --init --recursive && cd api-node && git fetch && git merge origin/staging && cd .. || true'
 install:
 - npm install -g npm
 - npm install
