@@ -296,6 +296,9 @@ If you prefer the command line:
 
 1) The [Particle CLI](/reference/cli/) has commands for [creating](/reference/cli/#particle-webhook-create), [listing](/reference/cli/#particle-webhook-list), and [deleting](/reference/cli/#particle-webhook-delete) webhooks.
 
+If you prefer to manage webhooks programatically:
+
+2) The [Particle API](/reference/api/) has endpoints for [creating](/reference/api/#create-a-webhook), [listing](/reference/api/#list-all-webhooks), [retrieving](/reference/api/#get-a-webhook) and [deleting](/reference/api/#delete-a-webhook) webhooks.
 
 ### Webhook variables
 
