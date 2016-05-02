@@ -137,6 +137,15 @@ Congratulations! You've created a webhook successfully and gotten data from your
 
 If you are building a product using Particle, you now have the ability to create webhooks at the product-level. This will allow you as a product creator to define a single webhook than any of the devices in the product's fleet can trigger.
 
+![Product Webhooks](/assets/images/product-webhooks-overview.png)
+<p class="caption">Create a single webhook that any of your product devices can trigger</p>
+
+As devices in your product's fleet will be running the same firmware, product webhooks are a scalable way to integrate with third-party web services. Trigger a product webhook when you'd like to do thing like: 
+- Sending information about how a customer's device is behaving to an analytics service
+- Make an API call to your servers to send personalized content to a device
+- Save data to a hosted database in the cloud
+
+
 ### Create a product webhook (beta)
 
 If you don't have one already, you'll need to [create an organization](/guide/how-to-build-a-product/dashboard/#setting-up-an-organization) and [define a product](/guide/how-to-build-a-product/dashboard/#defining-a-product) before you will be able to create product webhooks. Currently, webhooks for products are in beta and will evolve over the coming months.
@@ -146,7 +155,42 @@ Product webhook management can also be done from the [Particle Dashboard](https:
 ![Product Integrations Hub](/assets/images/product-integrations-hub.png)
 <p class="caption">Product integrations are currently in public beta</p>
 
-Click on "New Integration" -> "Webhook." Again, the view will be very similar to what you would see in your developer dashboard.
+Click on "New Integration" -> "Webhook." Again, the view will be very similar to what you would see in your developer dashboard. However, you will notice that the "Devices" dropdown has been replaced by a checkbox. This has to do with responses to product webhooks, which we'll cover in the next section.
+
+![Create product webhook](/assets/images/create-product-webhook.png)
+<p class="caption">Create a product webhook from the Particle Dashboard</p>
+
+### Product webhook responses
+
+When using webhooks, it's very common that the targeted web service will return a useful response from the HTTP request containing data that should be sent back to a device. An example of this is triggering a `GET` request to a weather API, and sending the current weather information back to the device that triggered the webhook.
+
+For product webhooks, because _any_ device in the fleet can trigger the webhook, how can we ensure that _only_ the device that triggers the webhook will receive its response? After all, we wouldn't want a device in Phoenix receiving weather data that another device asked for in Chicago.
+
+This is where the checkbox discussed in the previous section comes into play. The one that says: "Only the device that triggers the webhook should receive its response." This setting (enabled by default) will individualize the webhook response so that it can be routed correctly to the triggering device.
+
+As discussed [earlier](#webhook-firmware), any response from a webhook will result in a `hook-response/[event_name]` event in the event stream. Normally, if you wanted to get that response on your device, you would add something like this to your firmware: `Particle.subscribe("hook-response/weather/", myHandler);`
+
+
+If you used this line of code in product firmware, however, a given device listening for a webhook response could receive it from _any device in the fleet_, not just the webhook that it triggered. 
+
+Ensuring that the "Only the device that triggers the webhook should receive its response" checkbox is checked will prepend the device ID of the triggering webhook to the `hook-response` event. This will allow you to write firmware that will listen to only webhook responses for that particular device, like this:
+
+```
+
+void setup() {
+  // Subscribe to the response event, scoped to webhooks triggered by this device
+  Particle.subscribe(System.deviceID() + "/hook-response/weather/", myHandler);
+}
+
+void myHandler(const char *event, const char *data) {
+  // Handle the webhook response
+}
+
+```
+
+At any time, you can see some sample firmware for both triggering and getting responses from webhooks on your Particle Dashboard. To do this, simply click on one of your product webhooks and scroll down to "Example Device Firmware."
+
+
 
 ## Advanced Topics
 
