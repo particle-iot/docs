@@ -112,7 +112,7 @@ Make sure your [device is connected](/guide/getting-started/start/) and selected
 
 Your device should now restart and start publishing the event that will trigger the webhook.
 
-To ensure that everything is working properly, head over to your logs hub on the dashboard (<i class="icon-terminal"></i>). Every time your webhook triggers, a `hook-sent` event will appear in your user event stream. If the webhook receives a response from the targeted web server with something in the `body`, a `hook-response` event will also appear in your event stream containing the response.
+To ensure that everything is working properly, head over to your Logs hub on the dashboard. Every time your webhook triggers, a `hook-sent` event will appear in your user event stream. If the webhook receives a response from the targeted web server with something in the `body`, a `hook-response` event will also appear in your event stream containing the response.
 
 ![Webhook Logs](/assets/images/webhook-logs.png)
 <p class="caption">`hook-sent` and `hook-response` events will appear in your event stream for an active webhook</p>
@@ -133,7 +133,100 @@ Back on ThingSpeak, navigate back to your channel. You should see temperature da
 
 Congratulations! You've created a webhook successfully and gotten data from your connected device into another service. Awesome!
 
-## Product webhooks
+## Triggering a webhook
+
+In order to signal to the Particle cloud that the webhook should be triggered, your device must publish an event in its firmware. A webhook that has been configured with the even name `temp` would trigger with the following firmware:
+
+```
+void loop() {
+  // Get some data
+  String data = String(10);
+  // Trigger the webhook
+  Particle.publish("temp", data, PRIVATE);
+  // Wait 60 seconds
+  delay(60000);
+}
+```
+
+Breaking this down:
+- `Particle.publish()` is the general command for publishing events to the cloud
+- `temp` is the name of the event that will trigger the webhook
+- `data` is sent along with the event, which will be included with the webhook's HTTP request
+- `PRIVATE` ensures that the event will only appear on your private event stream     
+
+
+## Getting the response
+
+When using webhooks, it's very common that the targeted web service will return a useful response from the HTTP request containing data that should be sent back to a device. An example of this is triggering a `GET` request to a weather API, and sending the current weather information back to the device that triggered the webhook.
+
+When a web service target by a webhook returns a response with a body, an event is published back to the event stream in the following format:
+
+```sh
+# format for hook response events
+hook-response/[triggering-event-name]/[index]
+```
+
+Breaking this down:
+- All webhook response event names will begin with `hook-response/`,
+- Followed by the name of the event that triggered the webhook,
+- And finally a numeric index, as the response body is broken into chunks depending on its size before being published to the event stream
+
+You can then subscribe to this event in firmware, if you'd like a device to have access to the webhook response. A snippet of firmware to get a webhook response can look something like this:
+
+```
+void setup() {
+  // Subscribe to the webhook response event
+  Particle.subscribe("hook-response/get_temp", myHandler);
+}
+
+void myHandler(const char *event, const char *data) {
+  // Handle the webhook response
+}
+            
+
+```
+
+In this example, the event that triggered the webhook, `get_temp`, would result in a webhook response event name of `hook-response/get_temp`. You don't need to worry about the index when subscribing, as the device will receive all events beginning with `hook-response/get_temp`. You'll also notice that you'll need a function that will handle the `hook-response` event. This function will receive the event and its data as arguments.
+
+It is worth mentioning that you can override the default response event name if you'd like. This is useful for product webhooks when you'd like to ensure that only the device that triggered the webhook receives its response. [More on that here](#product-webhook-responses).
+
+
+## What data gets sent?
+
+When a webhook gets triggered, some data will be sent to the third-party web service by default along with the HTTP request. The default data is:
+
+```json
+{
+    "event": [event-name],
+    "data": [event-data],
+    "published_at": [timestamp],
+    "coreid": [device-id]
+}
+```
+
+This is same data you'd see if you subscribed to your [event stream](/reference/api/#events).
+
+
+These properties will all be strings except for `published_at`, which is an ISO8601 date formatted string, which tends to be in the form `YYYY-MM-DDTHH:mm:ssZ`.
+
+You can customize both the type and the structure of data that gets sent with a webhook. To do this, check out the "Send Custom Data" section of the advanced settings when creating a webhook via the dashboard.
+
+_Note:_ Even if you send custom JSON or form data with the webhook, the default data above will still be included in the request. If you do not want this, select "No" under "Include default data" in the advanced settings when creating a webhook.
+
+### Monitoring your webhooks
+
+The easiest way to observe webhook activity is on the Logs hub of your Particle Dashboard. Every time your webhook triggers, a `hook-sent` event will appear in your user event stream. This is confirmation that the Particle cloud successfully forwarded your event to your webhook's target URL.
+
+If the webhook receives a response from the targeted web server with something in the body, a `hook-response` event will also appear in your event stream containing the response. This event will _only_ appear in your event stream if the web service returned something in the `body` of its response to the Particle cloud.
+
+![Webhook Logs](/assets/images/webhook-logs.png)
+<p class="caption">`hook-sent` and `hook-response` events will appear in your event stream for an active webhook</p>
+
+It is also possible that you can see errors appear in your Logs from unsuccessful attempts to contact the third-party server. You can read more about those [here](#error-limits).
+
+*Note*: This method of monitoring activity is not enabled for product-level webhooks. A method for monitoring product-level webhooks is coming soon.
+
+## Product webhooks (beta)
 
 If you are building a product using Particle, you now have the ability to create webhooks at the product-level. This will allow you as a product creator to define a single webhook than any of the devices in the product's fleet can trigger.
 
@@ -146,7 +239,7 @@ As devices in your product's fleet will be running the same firmware, product we
 - Save data to a hosted database in the cloud
 
 
-### Create a product webhook (beta)
+### Create a product webhook 
 
 If you don't have one already, you'll need to [create an organization](/guide/how-to-build-a-product/dashboard/#setting-up-an-organization) and [define a product](/guide/how-to-build-a-product/dashboard/#defining-a-product) before you will be able to create product webhooks. Currently, webhooks for products are in beta and will evolve over the coming months.
 
@@ -161,8 +254,6 @@ Click on "New Integration" -> "Webhook." Again, the view will be very similar to
 <p class="caption">Create a product webhook from the Particle Dashboard</p>
 
 ### Product webhook responses
-
-When using webhooks, it's very common that the targeted web service will return a useful response from the HTTP request containing data that should be sent back to a device. An example of this is triggering a `GET` request to a weather API, and sending the current weather information back to the device that triggered the webhook.
 
 For product webhooks, because _any_ device in the fleet can trigger the webhook, how can we ensure that _only_ the device that triggers the webhook will receive its response? After all, we wouldn't want a device in Phoenix receiving weather data that another device asked for in Chicago.
 
@@ -190,170 +281,84 @@ void myHandler(const char *event, const char *data) {
 
 At any time, you can see some sample firmware for both triggering and getting responses from webhooks on your Particle Dashboard. To do this, simply click on one of your product webhooks and scroll down to "Example Device Firmware."
 
+### Monitoring Product Webhooks
+[Coming Soon]
+
 
 
 ## Advanced Topics
 
 ### Other ways to manage webhooks
 
-### What's in a request?
+If you prefer not to use the Particle Dashboard, there are other tools you can use to manage webhooks.
 
-Since your Webhook listens for events from your devices, it can send that event data along to whatever url you specify.  If you don't add any custom options, the hook will send a JSON type POST request with the following values:
+If you prefer the command line: 
 
-```json
+1) The [Particle CLI](/reference/cli/) has commands for [creating](/reference/cli/#particle-webhook-create), [listing](/reference/cli/#particle-webhook-list), and [deleting](/reference/cli/#particle-webhook-delete) webhooks.
+
+If you prefer to manage webhooks programatically:
+
+2) The [Particle API](/reference/api/) has endpoints for [creating](/reference/api/#create-a-webhook), [listing](/reference/api/#list-all-webhooks), [retrieving](/reference/api/#get-a-webhook) and [deleting](/reference/api/#delete-a-webhook) webhooks.
+
+### Webhook variables
+
+A webhook can be configured to inject dynamic data at runtime. The following webhook variables are available for you to use:
+
+- `\{{PARTICLE_DEVICE_ID}}`: The ID of the device that triggered the webhook
+- `\{{PARTICLE_EVENT_NAME}}`: The name of the event that triggers the webhook
+- `\{{PARTICLE_EVENT_VALUE}}`: The data associated with the webhook event
+- `\{{PARTICLE_PUBLISHED_AT}}`: When the webhook was sent
+
+You can use these variables in a variety of different places when configuring a webhook, such as:
+- Custom JSON or form data sent with the request. This is most commonly used when the web server you are interacting with expects structured data in a specific way. Here's what custom JSON could look like with some webhook variables included:
+
+```
 {
-    "event": "Your event name",
-    "data": "Your event contents",
-    "published_at": "When it was published",
-    "coreid": "Your device ID"
+  "source": "\{{PARTICLE_DEVICE_ID}}",
+  "published_at": "\{{PARTICLE_PUBLISHED_AT}}"
 }
 ```
 
-This is same data you'd see if you subscribed to your [event stream](/reference/api/#events).
+- The _response topic_, or the name of the event that gets sent back to the device with the results of the webhook. You'd want to use webhook variables if you were creating a product webhook that should only return a response to the device that triggered it. [Read here](#product-webhook-responses) for more details.
 
+- The _response template_, or the body of data that gets sent back to the device after the webhook has successfully been returned.
 
-These properties will all be strings except for `published_at`, which is an ISO8601 date formatted string, which tends to be in the form `YYYY-MM-DDTHH:mm:ssZ`.
+## Limits
 
+### Be a good citizen
 
-### Templates
-
-In order to help connect with many different services, you can move these published event values around in your request using simple templates.  You can picture the example above as the following template:
-
-
-```json
-{
-    "event":  "\{{SPARK_EVENT_NAME}}",
-    "data": "\{{SPARK_EVENT_VALUE}}",
-    "published_at": "\{{SPARK_PUBLISHED_AT}}",
-    "coreid": "\{{SPARK_CORE_ID}}"
-}
-```
-
-
-### Custom template variables
-
-
-You can also add custom template values by formatting your publish event data as JSON!
-
-```
-Particle.publish("custom_templates", "{ \"my-var\": \"foo\", \"my-temp\": \"98.6F\" }", 60, PRIVATE);
-```
-
-An example hook that uses custom templates.  In this case the URL of the request will change as the value of "my-var" changes in your published event!
-
-```json
-{
-    "event": "custom_templates",
-    "url": "http://my-awesome-website.particle/\{{my-var}}",
-    "requestType": "POST",
-    "json": {
-        "my-temp": "\{{my-temp}}",
-        "source": "\{{SPARK_CORE_ID}}"
-    },
-    "mydevices": true
-}
-```
-
-### Limits
-
-```
-Please make sure you have permission from the site first!
-```
+**Please make sure you have permission from the target site!**
 
 Web requests via webhooks can go almost anywhere on the internet, and to almost any service, which is awesome!
 
-In being responsible members of the Internet community, we want to make sure we're not sending unwanted requests to sites, or sending too much traffic, or causing errors.  For this reason we ask that you make sure you have permission to make requests to any sites you configure hooks for, and that you're sending those requests within their usage policies.  We will generally disable any hooks, or adjust rate limiting if we hear from site administrators that contact us about issues.
+In being responsible members of the Internet community, we want to make sure we're not sending unwanted requests to sites, or sending too much traffic, or causing errors.  For this reason we ask that you make sure you have permission to make requests to any sites you configure webhooks for, and that you're sending those requests within their usage policies.  We will generally disable any hooks, or adjust rate limiting if we hear from site administrators that contact us about issues.
 
-We also have a handful of rate limits that we hope will provide you a ton of usability, while also protecting against accidental abuse, they fall into 3 categories:
 
 ### Limits by Host
 
-```
-Any host will be limited to 120 requests per minute
-unless we're contacted by the site administrator
-```
+**Any host will be limited to 120 requests per minute
+unless we're contacted by the site administrator**
 
 Particle webhooks will not contact any host more often than 120 times per minute, despite any number of configured webhooks from any number of users.  Requests over this limit for the moment will be dropped.  We intend to add a proper queuing system so this is done more fairly, but for the moment we've opted to protect sites against abuse first.  If you're a site owner / operator and you want to allow more traffic, please email us at hello@particle.io.
 
 
 ### Limits by User
 
-```
-You can create up to 20 webhooks,
-you can send 10 hooks per minute per device
-```
+**You can create up to 20 webhooks,
+you can send 10 webhooks per minute per device**
 
-A user by default may trigger a hook up to 10 times per minute for every device that is registered to their account.  A user may create up to 20 webhooks in total.
+A user by default may trigger a webook up to 10 times per minute for every device that is registered to their account.  A user may create up to 20 webhooks in total.
 
 Note: This means you must have at least one device registered to your account to trigger a webhook.
 
 
-### Limits by Hook
+### Error Limits
 
-```
-The hook will be disabled if the server responds
-with errors 10 times in a row.
-```
+**A webhook will be disabled if the server responds with errors 10 times in a row.**
 
-Any hook that results in an error code from the server (above a 400), 10 consecutive times in a row will be automatically disabled.  We'll be adding notifications, and the ability to pause/unpause when this happens, but for the moment you might notice that your hook stops working for this reason.
+Any webhook that results in an error code from the server (above a 400), 10 consecutive times in a row will be automatically disabled.  We'll be adding notifications, and the ability to pause/unpause when this happens, but for the moment you might notice that your webhook stops working for this reason.
 
-
-### Handling Web Responses
-
-Responses from hooks are sent in the following format:
-
-```
-# format for hook response events
-hook-response/<triggering-event-name>/<index>
-```
-
-Where the response is cut into some number of chunks of about 512 bytes, and sent back to your device at a rate of one per 250ms, or about 4 per second.  The event name will use the triggering event, and not the registered hook name filter.  If your hook captures everything starting with "my-hooks", but you published "my-hooks/get_weather", then your response event name would be "hook-response/my-hooks/get_weather".  Each packet event name includes the index of the packet in the response.  For example, a large response might appear as:
-
-```
-# website responses are cut into chunks of 512 bytes
-# they're sent at a rate of up to 4 per second.
-# The first 100KB of the request will be sent, and the rest will be dropped.
-
-hook-response/get_weather/0
-    "<?xml version=\"1.0\" encoding=\"ISO-8859-1\"?> \r\n<?xml-stylesheet href=\"latest_ob.xsl\" type=\"text/xsl\"?>\r\n<current_observation version=\"1.0\"\r\n\t xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\"\r\n\t xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\r\n\t xsi:noNamespaceSchemaLocation=\"http://www.weather.gov/view/current_observation.xsd\">\r\n\t<credit>NOAA's National Weather Service</credit>\r\n\t<credit_URL>http://weather.gov/</credit_URL>\r\n\t<image>\r\n\t\t<url>http://weather.gov/images/xml_logo.gif</url>\r\n\t\t<title>NOAA's Nat"
-
-hook-response/get_weather/1
-    "ional Weather Service</title>\r\n\t\t<link>http://weather.gov</link>\r\n\t</image>\r\n\t<suggested_pickup>15 minutes after the hour</suggested_pickup>\r\n\t<suggested_pickup_period>60</suggested_pickup_period>\n\t<location>Minneapolis, Minneapolis-St. Paul International Airport, MN</location>\n\t<station_id>KMSP</station_id>\n\t<latitude>44.88306</latitude>\n\t<longitude>-93.22889</longitude>\n\t<observation_time>Last Updated on Feb 27 2015, 4:53 pm CST</observation_time>\r\n        <observation_time_rfc822>Fri, 27 Feb 2015 16:53:0"
-
-hook-response/get_weather/2
-    "0 -0600</observation_time_rfc822>\n\t<weather>Fair</weather>\n\t<temperature_string>14.0 F (-10.0 C)</temperature_string>\r\n\t<temp_f>14.0</temp_f>\r\n\t<temp_c>-10.0</temp_c>\n\t<relative_humidity>49</relative_humidity>\n\t<wind_string>Southwest at 8.1 MPH (7 KT)</wind_string>\n\t<wind_dir>Southwest</wind_dir>\n\t<wind_degrees>240</wind_degrees>\n\t<wind_mph>8.1</wind_mph>\n\t<wind_kt>7</wind_kt>\n\t<pressure_string>1035.2 mb</pressure_string>\n\t<pressure_mb>1035.2</pressure_mb>\n\t<pressure_in>30.50</pressure_in>\n\t<dewpoint_string"
-
-hook-response/get_weather/3
-    ">-2.0 F (-18.9 C)</dewpoint_string>\r\n\t<dewpoint_f>-2.0</dewpoint_f>\r\n\t<dewpoint_c>-18.9</dewpoint_c>\n\t<windchill_string>3 F (-16 C)</windchill_string>\r\n      \t<windchill_f>3</windchill_f>\r\n      \t<windchill_c>-16</windchill_c>\n\t<visibility_mi>10.00</visibility_mi>\n \t<icon_url_base>http://forecast.weather.gov/images/wtf/small/</icon_url_base>\n\t<two_day_history_url>http://www.weather.gov/data/obhistory/KMSP.html</two_day_history_url>\n\t<icon_url_name>skc.png</icon_url_name>\n\t<ob_url>http://www.weather.gov/data"
-
-hook-response/get_weather/4
-    "/METAR/KMSP.1.txt</ob_url>\n\t<disclaimer_url>http://weather.gov/disclaimer.html</disclaimer_url>\r\n\t<copyright_url>http://weather.gov/disclaimer.html</copyright_url>\r\n\t<privacy_policy_url>http://weather.gov/notice.html</privacy_policy_url>\r\n</current_observation>\n"
-
-```
-
-### Confirming That The Webhook Successed
-
-You will know that your webhook succeeded if you see the following pattern on your event stream, using the [Dashboard](https://dashboard.particle.io/user/logs) or the Particle CLI command `particle subscribe mine`:
-
-```
-{"name":"name_of_my_event","data":"data_sent_with_event","ttl":"60","published_at":"2016-04-16T13:37:08.728Z","coreid":"1234567890987654321"}
-{"hook-sent/name":"name_of_my_event","data":"undefined","ttl":"60","published_at":"2016-04-16T13:37:08.743Z","coreid":"particle-internal"}
-{"name":"hook-response/name_of_my_event/0","data":"ok","ttl":"60","published_at":"2016-04-16T13:37:08.755Z","coreid":"particle-internal"}
-```
-
-Explanation:
-
-- The first line is when your device events reaches the Particle cloud.
-- The second line (`hook-sent`) acknowledges that the Particle cloud forwarded your event to your webhook URL.
-- The third line (`hook-response`) contains the response received from your webhook URL. Your device can subscribe to this event with `Particle.subscribe()` to receive the data.
-
-### Errors
-
-Error responses from the target url will also be sent back in the response event.  If you have 10 consecutive errors, the hook will send you a "Too many errors, webhook disabled" message.  Make sure you're watching the responses when developing your hook!  You can monitor these with the particle cli by running:
-
-```
-particle subscribe mine
-```
+Error responses from the target url will also be sent back in the response event.  If you have 10 consecutive errors, the hook will send you a "Too many errors, webhook disabled" message.  Make sure you're watching the responses when developing your webhook!
 
 ## Community Webhook Examples
 
