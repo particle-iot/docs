@@ -3,13 +3,12 @@ word: Updater
 title: Device Updater
 order: 4
 columns: two
-devices: [electron]
 template: guide.hbs
 ---
 
 # Device Updater
 
-The device updater is a desktop app that upgrades your Electron to latest system firmware. It provides an easy way to update system firmware on your Electron. that is also free from cellular data charges.
+The device updater is a desktop application that upgrades your Electron to latest system firmware. It provides an easy way to update system firmware while avoiding cellular data charges.
 
 ## Getting Started
 
@@ -17,7 +16,7 @@ The device updater is available for Windows and OS X.
 
 ### <img style="margin:0; block:inline" src="{{assets}}/images/updater-windows-logo.png"> Windows
 
-Click [Device Updater for Windows](https://github.com/spark/device-updater/releases/download/v0.5.0/particle_system_firmware_0.5.0.exe) to download the app to your downloads folder. The file name will begin with "particle_system_firmware".
+Click [Device Updater for Windows](https://github.com/spark/device-updater/releases/download/v0.5.0/particle_system_firmware_0.5.0.exe) to download the application to your downloads folder. The file name will begin with "particle_system_firmware".
 
 Once the download is complete, double-click the downloaded file to run.
 
@@ -26,9 +25,9 @@ The first time the updater is run, you will be prompted to enable administrator 
  
 ### <img style="margin:0; block:inline" src="{{assets}}/images/updater-apple-logo.png"> OS X
 
-Click [Device Updater for OS X](https://github.com/spark/device-updater/releases/download/v0.5.0/particle_system_firmware_0.5.0.zip) to download the app to your downloads folder.
+Click [Device Updater for OS X](https://github.com/spark/device-updater/releases/download/v0.5.0/particle_system_firmware_0.5.0.zip) to download the application to your downloads folder.
 
-The updater is provided as a Zip file. Once the file has downloaded, double-click the file to start unpacking the app. This will take just a few seconds and you'll then see a folder named "Particle system firmware" with a Particle icon.  
+The updater is provided as a Zip file. Once the file has downloaded, double-click the file to start unpacking the application. This will take just a few seconds and you'll then see a folder named "Particle system firmware" with a Particle icon.  
 
 Double-click the "Particle system firmware" folder to launch the updater application.
 
@@ -36,15 +35,15 @@ Double-click the "Particle system firmware" folder to launch the updater applica
 
 Using the updater follows these steps:
 
-- launching the app
-- connecting your device
-- updating your device
-- update complete!
+1. Launching the device updater
+2. Connecting your device
+3. Updating your device
+4. Update complete!
 
 
 ### Opening Screen
 
-When the app starts, you'll see a screen like this:
+When the device updater starts, you'll see a screen like this:
 
 ![Updater Start Screen]({{assets}}/images/updater-start.png)
 
@@ -76,7 +75,7 @@ When the update is complete you'll see this screen
 
 ![Update complete]({{assets}}/images/updater-complete.png)
 
-Congratulations! You've updated the firmware on your Electron.
+Congratulations! You've updated the system firmware on your Electron.
 
 Your device will automatically reboot and will run your app using the updated system firmware.
 
@@ -85,15 +84,15 @@ Your device will automatically reboot and will run your app using the updated sy
 
 ### Device not detected
 
-If the updater doesn't detect your device. Try disconnecting and reconnecting the device. This is especially true on Windows after installing the USB drivers - Windows will not detect the device using the newly installed drivers until the device has been reconnected.
+If the updater doesn't detect your device, try disconnecting and reconnecting the device. This is especially true on Windows after installing the USB drivers - Windows will not detect the device using the newly installed drivers until the device has been reconnected.
 
 ### Update stops halfway
 
 If the update gets stuck or you see an error message, try starting the process with the device in safe mode.
 
-- restart the device in [Safe Mode](/guide/getting-started/modes/electron/#safe-mode)
-- close the updater app if it's already open
-- launch the updater app and proceed with the update
+- Restart the device in [Safe Mode](/guide/getting-started/modes/electron/#safe-mode)
+- Close the device updater if it's already open
+- Launch the device updater and proceed with the update
 
 We hope that fixes it for you, but if you are still experiencing problems, please check our
 [GitHub Issues](https://github.com/spark/device-updater/issues) and file a new issue.
