@@ -129,7 +129,7 @@ particle.claimDevice({ deviceId: 'DEVICE_ID', auth: token }).then(function(data)
 Flash firmware to device
 
 ```javascript
-particle.flashDevice({ deviceId: 'DEVICE_ID', files: { file1: './path/file1', file2: './path/file2' }, auth: token }).then(function(data) {
+particle.flashDevice({ deviceId: 'DEVICE_ID', files: { file1: './path/file1' }, auth: token }).then(function(data) {
   console.log('Device flashing started successfully:', data);
 }, function(err) {
   console.log('An error occurred while flashing the device:', err);
@@ -304,7 +304,7 @@ Flash firmware to a device
 
 ```javascript
 var flashPr = particle.flashDevice({ deviceId: 'DEVICE_ID',
-  files: { file1: './path/to/your/file1', file2: './path/to/your/file2' },
+  files: { file1: './path/to/your/file1' },
   auth: token });
   
 flashPr.then(
