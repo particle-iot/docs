@@ -213,7 +213,7 @@ You can customize both the type and the structure of data that gets sent with a 
 
 _Note:_ Even if you send custom JSON or form data with the webhook, the default data above will still be included in the request. If you do not want this, select "No" under "Include default data" in the advanced settings when creating a webhook.
 
-### Monitoring your webhooks
+## Monitoring your webhooks
 
 The easiest way to observe webhook activity is on the Logs hub of your Particle Dashboard. Every time your webhook triggers, a `hook-sent` event will appear in your user event stream. This is confirmation that the Particle cloud successfully forwarded your event to your webhook's target URL.
 
