@@ -2,7 +2,7 @@
 title: Electron Product Changelog
 template: reference.hbs
 columns: two
-order: 8
+order: 9
 ---
 
 # Electron Changelog
