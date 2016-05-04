@@ -2895,9 +2895,18 @@ by the system firmware.
 
 ## Serial
 
-Used for communication between the device and a computer or other devices. The device has two serial channels:
+Used for communication between the device and a computer or other devices. The device has {{#if electron}}four{{else}}two{{/if}} serial channels:
 
 `Serial:` This channel communicates through the USB port and when connected to a computer, will show up as a virtual COM port.
+
+```C++
+// EXAMPLE USAGE
+void setup()
+{
+  Serial.begin(9600);
+  Serial.println("Hello World!");
+}
+```
 
 `Serial1:` This channel is available via the device's TX and RX pins.
 
@@ -2950,6 +2959,8 @@ To use the hardware serial pins of (Serial1/2{{#if electron}}/4/5{{/if}}) to com
 
 ### begin()
 
+_Available on Serial, Serial1, Serial2{{#if electron}}, Serial4, Serial5{{/if}}._
+
 Sets the data rate in bits per second (baud) for serial data transmission. For communicating with the computer, use one of these rates: 300, 600, 1200, 2400, 4800, 9600, 14400, 19200, 28800, 38400, 57600, or 115200. You can, however, specify other rates - for example, to communicate over pins TX and RX with a component that requires a particular baud rate.
 
 **NOTE:** The data rate for the USB device `Serial` is ignored, as USB has its own negotiated speed. Setting speed to 9600 is safe for the USB device. Setting the port on the Host computer to 14400 baud will cause the Photon or Electron to go into DFU mode while 28800 will allow a YMODEM download of firmware.
@@ -2979,17 +2990,16 @@ Serial.begin(speed, config);  //  "
 Serial1.begin(speed);         // via TX/RX pins
 Serial1.begin(speed, config); //  "
 
-Serial2.begin(speed);         // on Core via
-                              // D1(TX) and D0(RX) pins
-                              // on Photon/Electron via
-                              // RGB-LED green(TX) and
-                              // RGB-LED blue (RX) pins
+#include "Serial2/Serial2.h"
+Serial2.begin(speed);         {{#if core}}// D1(TX) and D0(RX) pins{{/if}}{{#unless core}}// RGB-LED green(TX) and blue (RX) pins{{/unless}}
 Serial2.begin(speed, config); //  "
 {{#if electron}}
 
+#include "Serial4/Serial4.h"
 Serial4.begin(speed);         // via C3(TX)/C2(RX) pins
 Serial4.begin(speed, config); //  "
 
+#include "Serial5/Serial5.h"
 Serial5.begin(speed);         // via C1(TX)/C0(RX) pins
 Serial5.begin(speed, config); //  "
 {{/if}}
@@ -3021,6 +3031,8 @@ void loop() {}
 
 ### end()
 
+_Available on Serial, Serial1, Serial2{{#if electron}}, Serial4, Serial5{{/if}}._
+
 Disables serial communication, allowing the RX and TX pins to be used for general input and output. To re-enable serial communication, call `Serial1.begin()`.
 
 ```C++
@@ -3029,6 +3041,8 @@ Serial1.end();
 ```
 
 ### available()
+
+_Available on Serial, Serial1, Serial2{{#if electron}}, Serial4, Serial5{{/if}}._
 
 Get the number of bytes (characters) available for reading from the serial port. This is data that's already arrived and stored in the serial receive buffer (which holds 64 bytes).
 
@@ -3060,7 +3074,7 @@ void loop()
 
 ### availableForWrite()
 
-_Since 0.4.9. Available on Serial1, Serial2, etc._
+_Since 0.4.9. Available on Serial1, Serial2{{#if electron}}, Serial4, Serial5{{/if}}._
 
 _Since 0.5.0. Available on USB Serial (Serial)_
 
@@ -3070,7 +3084,7 @@ If `blockOnOverrun(false)` has been called, the method returns the number of byt
 
 ### blockOnOverrun()
 
-_Since 0.4.9. Available on Serial1, Serial2, etc._
+_Since 0.4.9. Available on Serial1, Serial2{{#if electron}}, Serial4, Serial5{{/if}}._
 
 _Since 0.5.0. Available on USB Serial (Serial)_
 
@@ -3120,6 +3134,8 @@ void serialEvent()
 
 ### peek()
 
+_Available on Serial, Serial1, Serial2{{#if electron}}, Serial4, Serial5{{/if}}._
+
 Returns the next byte (character) of incoming serial data without removing it from the internal serial buffer. That is, successive calls to peek() will return the same character, as will the next call to `read()`.
 
 ```C++
@@ -3130,6 +3146,8 @@ Serial1.peek();
 `peek()` returns the first byte of incoming serial data available (or `-1` if no data is available) - *int*
 
 ### write()
+
+_Available on Serial, Serial1, Serial2{{#if electron}}, Serial4, Serial5{{/if}}._
 
 Writes binary data to the serial port. This data is sent as a byte or series of bytes; to send the characters representing the digits of a number use the `print()` function instead.
 
@@ -3168,6 +3186,8 @@ void loop()
 
 ### read()
 
+_Available on Serial, Serial1, Serial2{{#if electron}}, Serial4, Serial5{{/if}}._
+
 Reads incoming serial data.
 
 ```C++
@@ -3199,6 +3219,8 @@ void loop() {
 ```
 ### print()
 
+_Available on Serial, Serial1, Serial2{{#if electron}}, Serial4, Serial5{{/if}}._
+
 Prints data to the serial port as human-readable ASCII text.
 This command can take many forms. Numbers are printed using an ASCII character for each digit. Floats are similarly printed as ASCII digits, defaulting to two decimal places. Bytes are sent as a single character. Characters and strings are sent as is. For example:
 
@@ -3218,6 +3240,8 @@ An optional second parameter specifies the base (format) to use; permitted value
 - Serial.println(1.23456, 4) gives "1.2346"
 
 ### println()
+
+_Available on Serial, Serial1, Serial2{{#if electron}}, Serial4, Serial5{{/if}}._
 
 Prints data to the serial port as human-readable ASCII text followed by a carriage return character (ASCII 13, or '\r') and a newline character (ASCII 10, or '\n'). This command takes the same forms as `Serial.print()`.
 
@@ -3268,6 +3292,8 @@ void loop() {
 
 *Since 0.4.6.*
 
+_Available on Serial, Serial1, Serial2{{#if electron}}, Serial4, Serial5{{/if}}._
+
 Provides [printf](http://www.cplusplus.com/reference/cstdio/printf/)-style formatting over serial.
 
 `printf` allows strings to be built by combining a number of values with text.
@@ -3292,6 +3318,8 @@ The last `printf()` call could be changed to `printlnf()` to avoid a separate ca
 
 *Since 0.4.6.*
 
+_Available on Serial, Serial1, Serial2{{#if electron}}, Serial4, Serial5{{/if}}._
+
 formatted output followed by a newline.
 Produces the same output as [printf](#printf-) which is then followed by a newline character,
 so to that subsequent output appears on the next line.
@@ -3314,6 +3342,8 @@ Serial1.flush();
 `flush()` neither takes a parameter nor returns anything
 
 ### halfduplex()
+
+_Available on Serial1, Serial2{{#if electron}}, Serial4, Serial5{{/if}}._
 
 Puts Serial1 into half-duplex mode.  In this mode both the transmit and receive
 are on the TX pin.  This mode can be used for a single wire bus communications
