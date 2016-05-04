@@ -260,7 +260,7 @@ data is an object with the following properties
   "data":"5:28:54",
   "ttl":"60",
   "published_at":"2014-MM-DDTHH:mm:ss.000Z",
-  "deviceid":"012345678901234567890123"
+  "coreid":"012345678901234567890123"
 }
 ```
 
