@@ -2,7 +2,7 @@
 title: Further considerations
 columns: two
 template: guide.hbs
-order: 9
+order: 10
 ---
 
 You did it!

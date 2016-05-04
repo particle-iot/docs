@@ -1,11 +1,11 @@
 ---
-title: Authentication & Security
+title: Authentication
 columns: two
 template: guide.hbs
 order: 4
 ---
 
-# {{title}}
+# Authentication
 
 ## Introduction
 
@@ -585,4 +585,5 @@ The response will be identical to the new access token creation endpoint above.
 
 ## Login with Particle
 *(Coming Soon)*
+
 
