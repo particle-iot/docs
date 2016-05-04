@@ -440,6 +440,8 @@ The P1 can be mounted directly on a carrier PCB with following PCB land pattern:
 
 <div align=center><img src="/assets/images/p1-land-pattern.png" width=600px></div>
 
+A P1 part for EAGLE can be found in the [Particle EAGLE library](https://github.com/spark/hardware-libraries#pcb-footprints-land-pattern)
+
 ## P1 Reference Design Schematic
 
 ### Schematic - USB

@@ -59,9 +59,12 @@ Connect everything together as shown in the image below. The negative (shorter) 
 {{#unless electron}}![One LED illustration](/assets/images/photon-led-fritzing.png){{/unless}}
 {{#if electron}}![One LED illustration](/assets/images/electron/illustrations/electron-blink-led.png){{/if}}
 
+
 Next, we're going to load code onto your device. Copy and paste this code into a new application on http://build.particle.io or on Particle Dev. We've heavily commented this code so that you can see what is going on in each line.
 
 Go ahead and save this application, then flash it to your {{#unless electron}}Core or Photon{{/unless}}{{#if electron}}Electron{{/if}}. You should be able to see that LED blinking away!
+
+_(In case you wonder how the pretty wiring diagram above was made, check out [Fritzing](http://fritzing.org/) and the [Particle Fritzing parts library](https://github.com/spark/hardware-libraries))_
 
 ### Code
 

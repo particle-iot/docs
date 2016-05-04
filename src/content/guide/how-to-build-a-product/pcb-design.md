@@ -73,9 +73,9 @@ If you have never designed your own circuit boards, there is a wealth of knowled
 - [KiCad](https://en.wikipedia.org/wiki/KiCad) gets a special mention for being open source. If you're all about FOSS (Free and Open Source Software), KiCad is for you.
 - [Fritzing](http://fritzing.org/home/) is a beautiful tool for prototyping. It's not necessarily suitable for complex designs, but it's extremely easy to use.
 
-If you don't have strong preferences, we would currently recommend using EAGLE, since you'll be able to use our [parts libraries](https://www.github.com/spark/photon) and use the Photon board design as a reference for your own PCB.
+If you don't have strong preferences, we would currently recommend using EAGLE, since you'll be able to use our [Photon board design](https://www.github.com/spark/photon) as a reference for your own PCB.
 
-**EAGLE Design Libraries** - *Coming soon!* Instructions for including and integrating Particle's EAGLE open-source parts library into your PCB design.
+**[Particle Fritzing and EAGLE parts](https://github.com/spark/hardware-libraries)** - Libraries for Fritzing and EAGLE to include Particle parts into your PCB design.
 
 **Best practices for PCB design**.  There are a lot of resources on the web that establish best practices for designing PCBs. [This post](http://www.proto2prod.com/proto2prod/2015/3/18/your-first-prototype-fab-specs-and-gerber-files-13) from our blog, Proto2Prod, focuses specifically on the key fabrication specifications that have a significant impact on mass production. Designing your product with a strategy in mind for mass production is critical, and will save you development time, money, and headaches down the road.
 

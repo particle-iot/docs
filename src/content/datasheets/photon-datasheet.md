@@ -397,7 +397,7 @@ The Photon (with headers) can be mounted with 0.1" 12-pin female header receptac
 
 <div align=left><img src="/assets/images/photon_land_pattern_with_headers.png" width=300></div>
 
-This land pattern can be found in the [Spark.lbr Eagle library](https://github.com/spark/photon/blob/master/libraries/Spark.lbr), as a Device named `PHOTON`.  **Note: Clone or Download the complete repository as a ZIP file to avoid corrupted data in Eagle files.**
+A Photon with headers part for EAGLE can be found in the [Particle EAGLE library](https://github.com/spark/hardware-libraries#pcb-footprints-land-pattern)
 
 ### Recommended pcb land pattern (Photon without headers)
 
@@ -409,7 +409,7 @@ In addition to the 24 pins around the outside of the Photon, there are 7 pads on
 
 Solder mask around exposed copper pads should be 0.1mm (4 mils) larger in all directions.  E.g., a 0.08" x 0.10" pad would have a 0.088" x 0.108" solder mask.
 
-This land pattern can be found in the [Spark.lbr Eagle library](https://github.com/spark/photon/blob/master/libraries/Spark.lbr), as a Device named `PHOTON_SMD`.  **Note: Clone or Download the complete repository as a ZIP file to avoid corrupted data in Eagle files.**
+A Photon without headers part for EAGLE can be found in the [Particle EAGLE library](https://github.com/spark/hardware-libraries#pcb-footprints-land-pattern)
 
 ## Schematic
 

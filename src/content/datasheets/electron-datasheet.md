@@ -394,9 +394,11 @@ The Electron can be mounted with 0.1" 18-pin female header receptacles using the
 
 ![Electron Landing Pattern](/assets/images/electron/illustrations/landing-pattern.png)
 
+An Electron part for EAGLE can be found in the [Particle EAGLE library](https://github.com/spark/hardware-libraries#pcb-footprints-land-pattern)
+
 ## Schematic
 
-All of the Electron hardware design files are open source and available under a Creative Commons Public License. The schematic and PCB designs were made using Eagle CAD. You can access these files [here.](https://github.com/spark/electron/tree/master/eagle)
+All of the Electron hardware design files are open source and available under a Creative Commons Public License. The schematic and PCB designs were made using EAGLE CAD. You can access these files [here.](https://github.com/spark/electron/tree/master/eagle)
 
 **Note:** Clone or Download the complete repository as a ZIP file to avoid corrupted data in Eagle files.
 

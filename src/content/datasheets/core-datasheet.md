@@ -308,6 +308,8 @@ If you want to improve the signal strength of the Core, you can connect an exter
 
 The header pins on the Core are spaced at an interval of 0.1", which is the standard pitch size for proto-boards and breadboards. The physical layout of the Core was inspired from the [Arduino Pro Mini](http://arduino.cc/en/Main/ArduinoBoardProMini) board.
 
+A Core part for EAGLE can be found in the [Particle EAGLE library](https://github.com/spark/hardware-libraries#pcb-footprints-land-pattern)
+
 Mechanical drawings of the Core are available [here.](https://github.com/spark/core/blob/master/PDFs/core-mechanical-drawing-v1.pdf)
 
 <table border = '1'>
