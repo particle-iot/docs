@@ -2961,26 +2961,7 @@ To use the hardware serial pins of (Serial1/2{{#if electron}}/4/5{{/if}}) to com
 
 _Available on Serial, Serial1, Serial2{{#if electron}}, Serial4, Serial5{{/if}}._
 
-Sets the data rate in bits per second (baud) for serial data transmission. For communicating with the computer, use one of these rates: 300, 600, 1200, 2400, 4800, 9600, 14400, 19200, 28800, 38400, 57600, or 115200. You can, however, specify other rates - for example, to communicate over pins TX and RX with a component that requires a particular baud rate.
-
-**NOTE:** The data rate for the USB device `Serial` is ignored, as USB has its own negotiated speed. Setting speed to 9600 is safe for the USB device. Setting the port on the Host computer to 14400 baud will cause the Photon or Electron to go into DFU mode while 28800 will allow a YMODEM download of firmware.
-
-_Since 0.5.0_
-
-As of 0.5.0 firmware, 28800 baud set on the Host will put the device in Listening Mode, where a YMODEM download can be started by additionally sending an `f` character.
-
-The configuration of the serial channel may also specify the number of data bits, stop bits and parity. The default is SERIAL_8N1 (8 data bits, no parity and 1 stop bit) and does not need to be specified to achieve this configuration.  To specify one of the following configurations, add one of these defines as the second parameter in the `begin()` function, e.g. `Serial.begin(9600, SERIAL_8E1);` for 8 data bits, even parity and 1 stop bit.
-
-Serial configurations available:
-
-`SERIAL_8N1` - 8 data bits, no parity, 1 stop bit (default)
-`SERIAL_8N2` - 8 data bits, no parity, 2 stop bits
-`SERIAL_8E1` - 8 data bits, even parity, 1 stop bit
-`SERIAL_8E2` - 8 data bits, even parity, 2 stop bits
-`SERIAL_8O1` - 8 data bits, odd parity, 1 stop bit
-`SERIAL_8O2` - 8 data bits, odd parity, 2 stop bits
-`SERIAL_9N1` - 9 data bits, no parity, 1 stop bit
-`SERIAL_9N2` - 9 data bits, no parity, 2 stop bits
+Sets the data rate in bits per second (baud) for serial data transmission.
 
 ```C++
 // SYNTAX
@@ -3005,10 +2986,33 @@ Serial5.begin(speed, config); //  "
 {{/if}}
 ```
 
-`speed`: parameter that specifies the baud rate *(long)*
-`config`: parameter that specifies the number of data bits used, parity and stop bits *(long)*
+The parameters are:
+- `speed`: parameter that specifies the baud rate *(long)*
+- `config`: parameter that specifies the number of data bits used, parity and stop bits *(long)*
 
-`begin()` does not return anything
+`begin()` does not return anything.
+
+For communicating with the computer, use one of these baud rates: 300, 600, 1200, 2400, 4800, 9600, 14400, 19200, 28800, 38400, 57600, or 115200. You can, however, specify other rates - for example, to communicate over pins TX and RX with a component that requires a particular baud rate.
+
+**NOTE:** The data rate for the USB device `Serial` is ignored, as USB has its own negotiated speed. Setting speed to 9600 is safe for the USB device. Setting the port on the Host computer to 14400 baud will cause the Photon or Electron to go into DFU mode while 28800 will allow a YMODEM download of firmware.
+
+_Since 0.5.0_
+
+As of 0.5.0 firmware, 28800 baud set on the Host will put the device in Listening Mode, where a YMODEM download can be started by additionally sending an `f` character.
+
+The default data bits, stop bits and parity configuration is `SERIAL_8N1` (8 data bits, no parity and 1 stop bit). Specify a different configuration like this: `Serial1.begin(9600, SERIAL_8E1);`
+
+Serial configurations available:
+
+- `SERIAL_8N1` - 8 data bits, no parity, 1 stop bit (default)
+- `SERIAL_8N2` - 8 data bits, no parity, 2 stop bits
+- `SERIAL_8E1` - 8 data bits, even parity, 1 stop bit
+- `SERIAL_8E2` - 8 data bits, even parity, 2 stop bits
+- `SERIAL_8O1` - 8 data bits, odd parity, 1 stop bit
+- `SERIAL_8O2` - 8 data bits, odd parity, 2 stop bits
+- `SERIAL_9N1` - 9 data bits, no parity, 1 stop bit
+- `SERIAL_9N2` - 9 data bits, no parity, 2 stop bits
+
 
 ```C++
 // EXAMPLE USAGE
