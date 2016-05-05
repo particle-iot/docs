@@ -24,6 +24,8 @@ Particle Windows Cloud SDK enables Windows apps to interact with Particle-powere
 
 All cloud operations take place asynchronously and return a *System.Threading.Tasks.Task* allowing you to build beautiful responsive apps for your Particle products and projects. Windows Cloud SDK is implemented as an open-source .NET Portable Class Library. See [Installation](#installation) section for more details. It works well for both C# and VB projects.
 
+[The code for the Windows Cloud SDK is available on GitHub.](https://github.com/spark/particle-windows-sdk)
+
 ### Beta notice
 
 This SDK is still under development and is currently released as Beta and over the next few months may go under considerable changes. Although tested, bugs and issues may be present. Some code might require cleanup. In addition, until version 1.0 is released, we cannot guarantee that API calls will not break from one Cloud SDK version to the next. Be sure to consult the [Change Log](https://github.com/spark/particle-windows-sdk/blob/master/CHANGELOG.md) for any breaking changes / additions to the SDK.
@@ -39,7 +41,7 @@ Cloud SDK usage involves two basic classes: first is [`ParticleCloud`](https://g
 
 ### SDK calls from the UI thread
 
-Some calls from the SDK can both update properties or run callbacks on a non UI thread (e.g. Events). If your application has a UI thread make sure to set the `SynchronizationContext`:
+Some calls from the SDK can both update properties or run callbacks on a non UI thread (e.g. Events). If your application has a UI thread make sure to set the `SynchronizationContext`.
 
 ```cs
 ParticleCloud.SharedCloud.SynchronizationContext = System.Threading.SynchronizationContext.Current;
@@ -88,7 +90,7 @@ foreach (ParticleDevice device in devices)
 ```
 ---
 
-#### Get device instance by it's ID
+#### Get device instance by its ID or name
 
 ```cs
 ParticleDevice device = ParticleCloud.SharedCloud.GetDeviceAsync("e9eb56e90e703f602d67ceb3");
@@ -97,7 +99,7 @@ ParticleDevice device = ParticleCloud.SharedCloud.GetDeviceAsync("e9eb56e90e703f
 
 #### Read a variable from a Particle device
 
-Assuming here that `myDevice` is an active instance of `ParticleDevice` class which represents a device claimed to current user:
+Assuming here that `myDevice` is an active instance of `ParticleDevice` class which represents a device claimed to current user.
 
 ```cs
 var variableResponse = myDevice.GetVariableAsync("temperature");
@@ -151,7 +153,7 @@ myDevice.RefreshAsync();
 Log out the user, clearing their session and access token:
 
 ```cs
-ParticleCloud.SharedCloud.LogOut()
+ParticleCloud.SharedCloud.LogOut();
 ```
 ---
 
@@ -181,7 +183,7 @@ Guid eventListenerID = ParticleCloud.SharedCloud.SubscribeToDevicesEventsWithPre
 ```
 ---
 
-Subscribe to events from one specific device (by `PaticleDevice' or deviceId second parameter). If the API user owns the device, then he'll receive all events, public and private, published by that device. If the API user does not own the device he will only receive public events.
+Subscribe to events from one specific device. Pass a `PaticleDevice` or `deviceId` string as a second parameter. If the API user owns the device, then all events, public and private, published by that device will be received. If the API user does not own the device only public events will be received.
 
 ```cs
 Guid eventListenerID = ParticleCloud.SharedCloud.SubscribeToDeviceEventsWithPrefixAsync(handler, myDevice);
@@ -192,14 +194,12 @@ Guid eventListenerID = ParticleCloud.SharedCloud.SubscribeToDeviceEventsWithPref
 ```
 ---
 
-other option is calling same method via the `ParticleDevice` instance:
+The method `SubscribeToDeviceEventsWithPrefixAsync` can also be called on a `ParticleDevice` instance, guaranteeing that private events will be received since having access device instance in your app signifies that the user has this device claimed.
 
 ```cs
 Guid eventListenerID = myDevice.SubscribeToDeviceEventsWithPrefixAsync(handler, "temp");
 ```
 ---
-
-this guarantees that private events will be received since having access device instance in your app signifies that the user has this device claimed.
 
 #### Unsubscribing from events
 
@@ -221,7 +221,7 @@ myDevice.UnsubscribeFromEvent(eventListenerID);
 You can also publish an event from your app to the Particle Cloud:
 
 ```cs
-ParticleCloud.SharedCloud().PublishEventAsync("event_from_app", "event_payload", true, 60);
+ParticleCloud.SharedCloud.PublishEventAsync("event_from_app", "event_payload", true, 60);
 ```
 ---
 
@@ -254,13 +254,13 @@ You can either [download Particle Windows Cloud SDK](https://github.com/spark/pa
 ### Communication
 
 - If you **need help**, use [Our community website](http://community.particle.io), use the `Mobile` category for dicussion/troubleshooting Windows apps using the Particle Windows Cloud SDK.
-- If you are certain you **found a bug**, _and can provide steps to reliably reproduce it_, open an issue, label it as `bug`.
-- If you **have a feature request**, open an issue with an `enhancement` label on it
+- If you are certain you **found a bug**, _and can provide steps to reliably reproduce it_, [open an issue on GitHub](https://github.com/spark/particle-windows-sdk/labels/bug).
+- If you **have a feature request**, [open an issue on GitHub](https://github.com/spark/particle-windows-sdk/labels/enhancement).
 - If you **want to contribute**, submit a pull request, be sure to check out spark.github.io for our contribution guidelines, and please sign the [CLA](https://docs.google.com/a/particle.io/forms/d/1_2P-vRKGUFg5bmpcKLHO_qNZWGi5HKYnfrrkd-sbZoA/viewform).
 
 ### License
 
-Particle Windows Cloud SDK is available under the Apache License 2.0. See the LICENSE file for more info.
+Particle Windows Cloud SDK is available under the Apache License 2.0. See the [LICENSE file](https://github.com/spark/particle-windows-sdk/blob/master/LICENSE) for more info.
 
 ## Particle Device Setup library *(Alpha)*
 
@@ -271,6 +271,8 @@ The Particle Device Setup library *(Alpha)* is meant for integrating the initial
 The wireless setup process for the Photon uses very different underlying technology from the Core. Where the Core used TI SmartConfig, the Photon uses what we call "soft AP" - i.e.: the Photon advertises a Wi-Fi network, you join that network from your mobile app to exchange credentials, and then the Photon connects using the Wi-Fi credentials you supplied.
 
 With the Device Setup library, you make one simple call from your app, for example when the user hits a "Setup my device" button, and a whole series of screens then guide the user through the setup process. When the process finishes, the app user is back on the screen where she hit the "Setup my device" button, and your code has been passed an instance of the device she just setup and claimed. Windows Device setup library is implemented as an open-source .NET Portable Class Library. It works well for both C# and VB projects.
+
+[The code for the Windows Device Setup library is available on GitHub.](https://github.com/spark/particle-windows-devicesetup)
 
 ### Alpha notice
 
@@ -286,7 +288,9 @@ This Library is still under development and is currently released as Alpha and o
 Due to limitations on how string resources are handled in a PCL (Portable Class Library) you will need to inject the resources from the setup library into your app:
 
 ```cs
-UI.WindowsRuntimeResourceManager.InjectIntoResxGeneratedApplicationResourcesClass(typeof(Particle.Setup.SetupResources));
+UI.WindowsRuntimeResourceManager.InjectIntoResxGeneratedApplicationResourcesClass(
+  typeof(Particle.Setup.SetupResources)
+);
 ```
 ---
 
@@ -428,10 +432,10 @@ You can either [download Particle Device Setup library](https://github.com/spark
 ### Communication
 
 - If you **need help**, use [Our community website](http://community.particle.io), use the `Mobile` category for dicussion/troubleshooting Windows apps using the Particle Windows Cloud SDK.
-- If you are certain you **found a bug**, _and can provide steps to reliably reproduce it_, open an issue, label it as `bug`.
-- If you **have a feature request**, open an issue with an `enhancement` label on it
+- If you are certain you **found a bug**, _and can provide steps to reliably reproduce it_, [open an issue on GitHub](https://github.com/spark/particle-windows-devicesetup/labels/bug).
+- If you **have a feature request**, [open an issue on GitHub](https://github.com/spark/particle-windows-devicesetup/labels/enhancement).
 - If you **want to contribute**, submit a pull request, be sure to check out spark.github.io for our contribution guidelines, and please sign the [CLA](https://docs.google.com/a/particle.io/forms/d/1_2P-vRKGUFg5bmpcKLHO_qNZWGi5HKYnfrrkd-sbZoA/viewform).
 
 ### License
 
-Particle Device Setup library is available under the Apache License 2.0. See the LICENSE file for more info.
+Particle Device Setup library is available under the Apache License 2.0. See the [LICENSE file](https://github.com/spark/particle-windows-devicesetup/blob/master/LICENSE) for more info.
