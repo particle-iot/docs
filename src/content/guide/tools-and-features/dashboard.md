@@ -16,6 +16,8 @@ Being in alpha also means we're trying to get your feedback as we build it. Head
 
 [Talk to us on the Community!](http://community.particle.io/t/fleet-management-dashboard-alpha-run-feedback/11118)
 
+**Note:** The dashboard does not yet work in Microsoft Internet Explorer including Edge. Please use another browser, such as Chrome or Firefox, to access the Dashboard
+
 ### Home (Coming Soon)
 
 The Dashboard will show you an overview of your devices and their activity. It’ll let you easily monitor which devices are online, what code they’re running, and what data they’re sending back.
