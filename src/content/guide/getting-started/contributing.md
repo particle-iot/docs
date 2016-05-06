@@ -30,9 +30,9 @@ The [`firmware`](https://github.com/spark/firmware) repo contains the [system fi
 The [`particle-cli`](https://github.com/spark/particle-cli) repo contains the code used to run the [Command Line Interface](/guide/tools-and-features/cli).
 
 
-### ParticleJS
+### Particle API JS
 
-The [`sparkjs`](https://github.com/spark/sparkjs) repo contains the code used to run [ParticleJS](/reference/javascript), the official Particle javascript wrapper.
+The [`particle-api-js`](https://github.com/spark/particle-api-js) repo contains the code used to run [Particle API JS](/reference/javascript), the official Particle JavaScript wrapper.
 
 
 ### Mobile
