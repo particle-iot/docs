@@ -6811,6 +6811,18 @@ _Note that when startup code performs digital I/O, there will still be a period 
 where the I/O pins are in their default power-on state, namely `INPUT`. Circuits should be designed with this
 in mind, using pullup/pulldown resistors as appropriate._
 
+### PRODUCT_ID()
+
+When preparing software for your product, it is essential to include your product ID and version at the top of the firmware source code.
+
+```cpp
+// EXAMPLE
+PRODUCT_ID(94); // replace by your product ID
+PRODUCT_VERSION(1); // increment each time you upload to the dashboard
+```
+
+You can find more details about the product ID and how to get yours in the [_How to build a product_ guide.](https://docs.particle.io/guide/how-to-build-a-product/dashboard/#your-product-id)
+
 ## System Events
 
 *Since 0.4.9*
