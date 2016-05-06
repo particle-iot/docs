@@ -176,7 +176,7 @@ You can then subscribe to this event in firmware, if you'd like a device to have
 ```
 void setup() {
   // Subscribe to the webhook response event
-  Particle.subscribe("hook-response/get_temp", myHandler);
+  Particle.subscribe("hook-response/get_temp", myHandler, MY_DEVICES);
 }
 
 void myHandler(const char *event, const char *data) {
@@ -259,7 +259,7 @@ For product webhooks, because _any_ device in the fleet can trigger the webhook,
 
 This is where the checkbox discussed in the previous section comes into play. The one that says: "Only the device that triggers the webhook should receive its response." This setting (enabled by default) will individualize the webhook response so that it can be routed correctly to the triggering device.
 
-As discussed [earlier](#webhook-firmware), any response from a webhook will result in a `hook-response/[event_name]` event in the event stream. Normally, if you wanted to get that response on your device, you would add something like this to your firmware: `Particle.subscribe("hook-response/weather/", myHandler);`
+As discussed [earlier](#webhook-firmware), any response from a webhook will result in a `hook-response/[event_name]` event in the event stream. Normally, if you wanted to get that response on your device, you would add something like this to your firmware: `Particle.subscribe("hook-response/weather/", myHandler, MY_DEVICES);`
 
 
 If you used this line of code in product firmware, however, a given device listening for a webhook response could receive it from _any device in the fleet_, not just the webhook that it triggered. 
@@ -270,7 +270,7 @@ Ensuring that the "Only the device that triggers the webhook should receive its 
 
 void setup() {
   // Subscribe to the response event, scoped to webhooks triggered by this device
-  Particle.subscribe(System.deviceID() + "/hook-response/weather/", myHandler);
+  Particle.subscribe(System.deviceID() + "/hook-response/weather/", myHandler, MY_DEVICES);
 }
 
 void myHandler(const char *event, const char *data) {
