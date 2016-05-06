@@ -106,11 +106,13 @@ my name is particle
 Expose a *function* through the Cloud so that it can be called with `POST /v1/devices/{DEVICE_ID}/{FUNCTION}`.
 
 ```cpp
-// SYNTAX TO REGISTER A CLOUD FUNCTION
+// SYNTAX
 bool success = Particle.function("funcKey", funcName);
-//                                  ^
-//                                  |
-//                     (max of 12 characters long)
+
+// Cloud functions must return int and take one String
+int funcName(String extra) {
+  return 0;
+}
 ```
 
 Currently the application supports the creation of up to 4 different cloud functions.
