@@ -119,8 +119,18 @@ $ particle flash 0123456789ABCDEFGHI my_project
 $ particle flash 0123456789ABCDEFGHI app.ino library1.cpp library1.h
 ```
 
+### Target a specific firmware version for flashing
 
-### Compiling remotely and Flashing locally
+You can compile and flash your application against a specific firmware version use the `--target` flag. If you don't specific `target` your code will compile against the latest released firmware.
+
+This is useful if you are not ready to upgrade to the latest system firmware on your device.
+
+```sh
+# compile your application with the 0.5.0 system firmware and flash it
+$ particle flash --target 0.5.0 0123456789ABCDEFGHI my_project
+```
+
+### Compiling remotely and flashing locally
 
 To work locally, but use the cloud compiler, simply use the compile command, and then the local flash command after.  Make sure you connect your device via USB and place it into [dfu mode](/guide/getting-started/modes/#dfu-mode-device-firmware-upgrade-).
 
@@ -192,7 +202,16 @@ old_version.cpp
 $ particle compile photon app.ino library1.cpp library1.h
 ```
 
+### Target a specific firmware version for compiling
 
+You can compile your application against a specific firmware version use the `--target` flag. If you don't specific `target` your code will compile against the latest released firmware.
+
+This is useful if you are not ready to upgrade to the latest system firmware on your device.
+
+```sh
+# compile your application with the 0.5.0 system firmware
+$ particle compile photon --target 0.5.0 my_project
+```
 
 
 ## particle call
