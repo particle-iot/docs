@@ -228,8 +228,8 @@ echo -e "\xFF" > fillbyte && dfu-util -d 2b04:d00a -a 1 -s 34 -D fillbyte
 | DAC |12-bit Digital-to-Analog (D/A) output (0-4095), and also a digital GPIO. DAC is used as DAC or DAC1 in software, and A3 is a second DAC output used as DAC2 in software. |
 | RX |Primarily used as UART RX, but can also be used as a digital GPIO or PWM.|
 | TX |Primarily used as UART TX, but can also be used as a digital GPIO or PWM.|
-| D0-D1 | Digital only GPIO |
-| A0-A1 | 12-bit Analog-to-Digital (A/D) inputs (0-4095), and also digital GPIOs. A6 and A7 are code convenience mappings, which means pins are not actually labeled as such but you may use code like `analogRead(A7)`. A6 maps to the DAC pin and A7 maps to the WKP pin.|
+| D0-D7 | Digital only GPIO |
+| A0-A5 | 12-bit Analog-to-Digital (A/D) inputs (0-4095), and also digital GPIOs. A6 and A7 are code convenience mappings, which means pins are not actually labeled as such but you may use code like `analogRead(A7)`. A6 maps to the DAC pin and A7 maps to the WKP pin.|
 | B0-B5 | B0 and B1 are digital only while B2, B3, B4, B5 are 12-bit A/D inputs as well as digital GPIOs|
 | C0-C5 | Digital only GPIO |
 | VUSB | This pin is internally connected to USB supply and will output 5V when the Electron is plugged into an USB port. It is intentionally left unpopulated. |
