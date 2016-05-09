@@ -10,43 +10,61 @@
   left: 0;
   top: 0;
   bottom: 0;
-  width: 280px;
+  width: @menubarWidth;
+  box-sizing: border-box;
   border-right: solid 1px #dfe2e7;
-  z-index: 0;
-  .transition(opacity 0);
+  z-index: @menuZindex;
+  transition: all @menuTransitionTime;
 
   // Start with menu hidden on mobile
   @media(max-width: @medium-size) {
-    opacity: 0;
-    pointer-events: none;
-  }
-
-  &.menu-hidden {
-    opacity: 0;
-    pointer-events: none;
-  }
-
-  &.menu-visible {
-    opacity: 1;
-    pointer-events: auto;
+    left: -@menubarWidth;
   }
 
   > ul {
     padding: 10px 20px;
 
-   p {
-     font-weight: 700;
-     text-transform: uppercase;
-     margin-top: 10px;
-   }
+    p {
+      font-weight: 700;
+      text-transform: uppercase;
+      margin-top: 10px;
+    }
 
-   > li > ul > li {
-     padding-left: 10px;
-   }
-
-
+    > li > ul > li {
+      padding-left: 10px;
+    }
   }
 }
+
+.page-body {
+  transition: all @menuTransitionTime;
+}
+
+@media(max-width: @medium-size) {
+  .menubar-show {
+    .content-root {
+      overflow-x: hidden;
+    }
+
+    .menubar {
+      left: 0;
+    }
+
+    .page-body {
+      margin-left: @menubarWidth;
+    }
+  }
+
+  .menubar-backdrop {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: @headerHeight;
+    z-index: @menuBackdropZindex;
+  }
+}
+
 .menubar .section {
   padding: 0 10px;
   overflow: hidden;

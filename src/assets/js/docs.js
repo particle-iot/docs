@@ -291,12 +291,31 @@ Created by Zach Supalla.
   Docs.toggleNav = function() {
     $('.toggle-navigation').click(function(e) {
       e.preventDefault();
-      if ($('.menubar').css('opacity') === '1') {
-        $('.menubar, .page-body').addClass('menu-hidden').removeClass('menu-visible');
-      } else {
-        $('.menubar, .page-body').addClass('menu-visible').removeClass('menu-hidden');
-      }
+      toggleNav();
+      updateBackdrop();
     });
+
+    $(document).on('click', '.menubar-backdrop', function(e) {
+      e.preventDefault();
+      closeNav();
+      updateBackdrop();
+    });
+
+    function toggleNav() {
+      $('body').toggleClass('menubar-show');
+    }
+
+    function closeNav() {
+      $('body').removeClass('menubar-show');
+    }
+
+    function updateBackdrop() {
+      if($('body').hasClass('menubar-show')) {
+        $('body').append('<div class="menubar-backdrop"></div>');
+      } else {
+        $('.menubar-backdrop').remove();
+      }
+    }
   };
 
   // Ok, then let's do it!
