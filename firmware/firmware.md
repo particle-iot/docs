@@ -49,7 +49,7 @@ void loop()
 }
 ```
 
-Currently, up to 10 cloud variables may be defined and each variable name is limited to a maximum of 12 characters.
+Up to 20 cloud variables may be registered and each variable name is limited to a maximum of 12 characters.
 
 It is fine to call this function when the cloud is disconnected - the variable
 will be registered next time the cloud is connected.
@@ -115,11 +115,9 @@ int funcName(String extra) {
 }
 ```
 
-Currently the application supports the creation of up to 4 different cloud functions.
+Up to 15 cloud functions may be registered and each function name is limited to a maximum of 12 characters.
 
 In order to register a cloud  function, the user provides the `funcKey`, which is the string name used to make a POST request and a `funcName`, which is the actual name of the function that gets called in your app. The cloud function can return any integer; `-1` is commonly used for a failed function call.
-
-The length of the `funcKey` is limited to a max of 12 characters. If you declare a function name longer than 12 characters the function will not be registered.
 
 A cloud function is set up to take one argument of the [String](#string-class) datatype. This argument length is limited to a max of 63 characters.
 
