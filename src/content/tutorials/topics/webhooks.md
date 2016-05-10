@@ -11,6 +11,109 @@ This page will include a series of examples of how you can use Particle
 webhooks. For an overview of what webhooks are and how they work, check
 out our [webhooks guide](/guide/tools-and-features/webhooks/).
 
+## Send a text message
+
+This example will show you how you can send a text message triggered by a Particle device. Imagine receiving a text when your doorbell is rung, or perhaps receiving a warning message when the moisture level of the soil for your outdoor garden falls below a certain threshold.
+
+### Getting set up with Twilio
+
+[Twilio](https://www.twilio.com/) provides a simple REST API that we can use to send a text message via a webhook. To get started, [create a Twilio account](https://www.twilio.com/try-twilio) if you don't already have one. 
+
+First, you'll need your _Account SID_ and your _Auth Token_ from Twilio, which you can find in your [Twilio Account Settings](https://www.twilio.com/user/account/settings).
+
+Next, you'll need a [Twilio phone number](https://www.twilio.com/user/account/voice/phone-numbers) that you can use send text messages from. If you don't already have a Twilio phone number, click the "Buy a Number" button and follow the steps to purchase one. Be sure that you select "SMS" as one of the capabilities of the number. You won't need Voice or MMS, but you might want them in case you're using this same phone number for other applications.
+
+![Buy a Twilio Number](/assets/images/buy-twilio-number.png)
+<p class="caption">You'll need a Twilio number to send text messages</p>
+
+### Creating the Webhook
+
+We'll use the Particle Dashboard to create this webhook. [Visit your Integrations Hub](https://dashboard.particle.io/user/integrations/webhooks/create) to create a new webhook.
+
+Set the following properties for your webhook:
+
+- Event Name: `twilio`
+- URL: <strong>https://api.twilio.com/2010-04-01/Accounts/{YOUR_ACCOUNT_SID}/Messages</strong>
+- Request Type: `POST`
+- Device: <strong>Any</strong>
+
+
+Next, click on "Advanced Settings," and find "Send Custom Data." Choose "form" from the available options. Drop in the following key/value pairs:
+
+- `From`: `{YOUR_TWILIO_NUMBER}`
+- `To`: `{YOUR_DESTINATION_PHONE_NUMBER}`
+- `Body`: `\{{PARTICLE_EVENT_VALUE}}`
+
+Finally, find "HTTP Basic Auth" and enter the following:
+
+- `Username`: `{YOUR_ACCOUNT_SID}`
+- `Password`: `{YOUR_AUTH_TOKEN}`
+
+Your completed form should look something like this:
+
+<img src="/assets/images/twilio-form.png" style="width: 90%; max-height: none;"/>
+
+Breaking this down:
+
+The `Event Name` is the event prefix that this webhook will listen to and fire on. Since we're listening for `twilio`, any event that my device fires that begins with `twilio` will cause this webhook to be triggered.
+
+The `URL` is the HTTP endpoint that we want our webhook to hit. In this case, you will need to replace `YOUR_ACCOUNT_SID` with your Twilio Account SID, which you should have captured in the previous step.
+
+The `Request Type` defines the HTTP method invoked when executing the webhook, which in this case is `POST`.
+
+The `Form` section defines any form parameters that should be sent with your webhook. When set, the request is made with the `Content-Type: application/x-www-form-urlencoded` header. 
+
+For this example, `{YOUR_TWILIO_NUMBER}` is your Twilio number you want to send from, `{YOUR_DESTINATION_PHONE_NUMBER}` is the phone number you want to send the message to, and Body is the body of the text message. The {{PARTICLE_EVENT_VALUE}} is a template placeholder, and the value of this is replaced by data sent from your Particle device.
+
+Lastly, the `HTTP Basic Auth` section defines headers that will be required to access the URL. For this example, you will need to replace `{YOUR_ACCOUNT_SID}` and `{YOUR_AUTH_TOKEN}` with your Twilio credentials.
+
+### The Firmware
+
+Now that we have the webhook completed, let's write some basic code for our Particle device to create an event that will trigger the text message to sent. We'll write a simple Particle function that can be called from the Cloud API for easy testing; in a real world setting, we more than likely would trigger events on sensor readings, periodic functions, or some other real world event.
+
+Head over to the [Particle Web
+IDE](https://build.particle.io). Create a new App called "twilio"
+and paste in the following code:
+
+```cpp
+int sendMessage(String command);
+
+void setup()
+{
+    Particle.function("sendMessage", sendMessage);
+}
+
+int sendMessage(String command)
+{
+    Particle.publish("twilio", "Ahoy there! This is a message sent from your Particle device!", 60, PRIVATE);
+}
+```
+
+When you're ready, flash the firmware to your device by clicking the <i
+class="ion-flash"></i> icon.
+
+### Send the message
+
+We can trigger the function to send the message using the [Particle CLI](/guide/tools-and-features/cli/).
+
+Fire up your Terminal and run the following command:
+
+```sh
+particle list
+```
+
+This will output a list of your owned devices. Find the one that has the Twilio firmware on it, and copy its device ID.
+
+Now, let's actually trigger the text. Run the following command:
+
+```sh
+particle call {YOUR_DEVICE_ID} sendMessage
+```
+
+Voila! Check your phone, you got a text!
+
+![Twilio Text](/assets/images/twilio-text.png)
+
 ## What's the weather like?
 
 This example will show you how to get weather data from the Internet and
@@ -36,10 +139,10 @@ to create a new webhook via the dashboard.
 
 Set the following properties for your new webhook:
 
-- Event Name: <strong>get_weather</strong>
-- URL: <strong>http://w1.weather.gov/xml/current_obs/\{{YOUR STATION
-  ID}}.xml</strong>
-- Request Type: <strong>GET</strong>
+- Event Name: `get_weather`
+- URL: <strong>http://w1.weather.gov/xml/current_obs/{YOUR STATION
+  ID}.xml</strong>
+- Request Type: `GET`
 - Device: <strong>Any</strong>
 
 Your completed form should look something like this:
@@ -274,3 +377,4 @@ Once you've created the Webhook, and some events are coming through successfully
 Click on that metric, and congrats!  Your sensor data is now readily available to you in Librato!
 
 ![Librato Metric Result]({{assets}}/images/librato-metric-result.png)
+
