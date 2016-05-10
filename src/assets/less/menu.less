@@ -17,7 +17,7 @@
 
   // Start with menu hidden on mobile
   @media(max-width: @medium-size) {
-    transition: left @menuTransitionTime;
+    transition: all @menuTransitionTime;
     left: -@menubarWidth;
   }
 
@@ -39,7 +39,12 @@
 @media(max-width: @medium-size) {
   .menubar-show {
     .menubar {
-      left: 0;
+      transform: translate(@menubarWidth, 0);
+      -ms-transform: translate(@menubarWidth, 0);
+    }
+
+    .page-body {
+      -webkit-filter: blur(5px);
     }
   }
 
