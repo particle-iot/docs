@@ -14,10 +14,10 @@
   box-sizing: border-box;
   border-right: solid 1px #dfe2e7;
   z-index: @menuZindex;
-  transition: all @menuTransitionTime;
 
   // Start with menu hidden on mobile
   @media(max-width: @medium-size) {
+    transition: left @menuTransitionTime;
     left: -@menubarWidth;
   }
 
@@ -36,22 +36,10 @@
   }
 }
 
-.page-body {
-  transition: all @menuTransitionTime;
-}
-
 @media(max-width: @medium-size) {
   .menubar-show {
-    .content-root {
-      overflow-x: hidden;
-    }
-
     .menubar {
       left: 0;
-    }
-
-    .page-body {
-      margin-left: @menubarWidth;
     }
   }
 
@@ -62,6 +50,7 @@
     bottom: 0;
     top: @headerHeight;
     z-index: @menuBackdropZindex;
+    background-color: rgba(255,255,255,0.5);
   }
 }
 
