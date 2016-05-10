@@ -10,7 +10,7 @@ cache:
   - node_modules
 before_install:
 - echo -e "machine github.com\n  login $CI_USER_TOKEN" >> ~/.netrc
-- '[ "${TRAVIS_PULL_REQUEST}" = "false" ] && git submodule update --init --recursive && cd api-node && git fetch && git merge origin/production && cd .. || true'
+- ./scripts/before_install.sh
 install:
 - npm install -g npm
 - npm install
