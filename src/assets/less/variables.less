@@ -51,13 +51,24 @@
 @pomegranate: #c0392b;
 @champaign: #E9DDCC;
 
-@sidebarWidth: 60px;
-@drawerWidth: 300px;
+@headerHeight: 52px;
+
 @consoleHeight: 300px;
 @hiddenConsoleHeight: 250px;
 @inactiveConsoleHeight: @consoleHeight - @hiddenConsoleHeight;
-@realDrawerWidth: @drawerWidth - @sidebarWidth;
 @tabHeight: 36px;
+
+@menubarWidth: 280px;
+@menuTransitionTime: 0.3s;
+
+/* Z-index */
+@popupZindex: 1;
+@pageBodyZindex: 1;
+@menuBackdropZindex: 90;
+@menuZindex: 100;
+@headerZindex: 200;
+@dropdownBackdropZindex: 990;
+@dropdownZindex: 1000;
 
 /* Media Queries */
 @xsmall-size: 320px;

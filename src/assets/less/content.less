@@ -482,21 +482,13 @@ h1 small.beta {
   right: 0;
   overflow-y: auto;
   -webkit-transform: translate3d(0,0,0);
-  z-index: 1;
+  z-index: @pageBodyZindex;
   background: @white;
-  left: 281px;
+  left: @menubarWidth;
 
   // Start with menu hidden on mobile
   @media(max-width: @medium-size) {
     left: 0;
-  }
-
-  &.menu-hidden {
-    left: 0;
-  }
-
-  &.menu-visible {
-    left: 281px;
   }
 }
 

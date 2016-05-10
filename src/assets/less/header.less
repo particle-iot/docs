@@ -26,6 +26,7 @@
 .toggle-nav {
   float: left;
   margin: 10px 10px 0 15px;
+  display: none;
   a {
     color: @light-gray;
     .transition(color 0.2s);
@@ -35,6 +36,9 @@
   }
   i {
     font-size: 2em;
+  }
+  @media(max-width: @medium-size) {
+    display: block;
   }
 }
 
@@ -74,13 +78,13 @@ a.nav-device {
 .header {
   background: @almost-white;
   zoom: 1;
-  height: 52px;
+  height: @headerHeight;
   border-bottom: solid 1px #dfe2e7;
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
-  z-index: 2;
+  z-index: @headerZindex;
 }
 
 .header .right {
@@ -133,7 +137,7 @@ a.nav-device {
   position: absolute;
   top: 100%;
   left: 0;
-  z-index: 1000;
+  z-index: @dropdownZindex;
   display: none;
   float: left;
   min-width: 70px;
@@ -233,7 +237,7 @@ a.nav-device {
   right: 0;
   bottom: 0;
   left: 0;
-  z-index: 990;
+  z-index: @dropdownBackdropZindex;
 }
 .pull-right > .dropdown-menu {
   right: 0;
