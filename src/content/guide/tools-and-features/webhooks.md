@@ -69,7 +69,7 @@ Let's configure our webhook:
 Next, click on "Advanced Settings," and find "Send Custom Data." Choose "form" from the available options. Drop in the following key/value pairs:
 
 - `api_key`: `YOUR_API_KEY`<br/>
-- `field1`: `\{{PARTICLE_EVENT_VALUE}}}`
+- `field1`: `\{{PARTICLE_EVENT_VALUE}}`
 
 The form should look something like this:
 
