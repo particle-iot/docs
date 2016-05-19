@@ -669,7 +669,7 @@ It's possible to call `WiFi.connect()` without entering listening mode in the ca
 
 ```cpp
 // SYNTAX
-WiFi.connect(WIFI_CONNECT_NO_LISTEN);
+WiFi.connect(WIFI_CONNECT_SKIP_LISTEN);
 ```
 
 If there are no credentials then the call does nothing other than turn on the WiFi module. 
