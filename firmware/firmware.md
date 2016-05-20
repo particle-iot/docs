@@ -7419,7 +7419,7 @@ Serial.println(freemem);
 ```
 
 
-{{if core}}
+{{#if core}}
 ### factoryReset()
 
 This will perform a factory reset and do the following:
