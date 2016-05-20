@@ -7419,11 +7419,10 @@ Serial.println(freemem);
 ```
 
 
-
+{{if core}}
 ### factoryReset()
 
 This will perform a factory reset and do the following:
-
 - Restore factory reset firmware from external flash (tinker)
 - Erase Wi-Fi profiles
 - Enter Listening mode upon completion
@@ -7431,7 +7430,7 @@ This will perform a factory reset and do the following:
 ```cpp
 System.factoryReset()
 ```
-
+{{/if}}
 ### dfu()
 
 The device will enter DFU-mode to allow new user firmware to be refreshed. DFU mode is cancelled by
