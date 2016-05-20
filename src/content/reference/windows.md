@@ -37,7 +37,7 @@ This SDK is still under development and is currently released as Beta and over t
 
 ### Usage
 
-Cloud SDK usage involves two basic classes: first is [`ParticleCloud`](https://github.com/spark/particle-windows-sdk/blob/master/ParticleCloud.cs) which is an object that enables all basic cloud operations such as user authentication, device listing, claiming etc. Second class is [`ParticleDevice`](https://github.com/spark/particle-windows-sdk/blob/master/ParticleDevice.cs) which is an instance representing a claimed device in the current user session. Each object enables device-specific operation such as: getting its info, invoking functions and reading variables from it.
+Cloud SDK usage involves two basic classes: first is [`ParticleCloud`](https://github.com/spark/particle-windows-sdk/blob/master/ParticleSDK/ParticleCloud.cs) which is an object that enables all basic cloud operations such as user authentication, device listing, claiming etc. Second class is [`ParticleDevice`](https://github.com/spark/particle-windows-sdk/blob/master/ParticleSDK/ParticleDevice.cs) which is an instance representing a claimed device in the current user session. Each object enables device-specific operation such as: getting its info, invoking functions and reading variables from it.
 
 ### SDK calls from the UI thread
 
@@ -359,7 +359,7 @@ Possible result values:
 
 ### Internally used direct soft AP commands
 
-The Device Setup library currently also has the internally used class: [`SoftAPConfig`](https://github.com/spark/particle-windows-devicesetup/blob/master/SoftAPConfig.cs) which is an object that enables all basic soft AP commands.
+The Device Setup library currently also has the internally used class: [`SoftAPConfig`](https://github.com/spark/particle-windows-devicesetup/blob/master/ParticleSetup/SoftAPConfig.cs) which is an object that enables all basic soft AP commands.
 
 #### Get device ID
 
