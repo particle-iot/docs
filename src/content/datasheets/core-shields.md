@@ -719,5 +719,5 @@ Project ideas.
 
 ### Datasheets
 
-- [L298 datasheet >](http://www.st.com/st-web-ui/static/active/en/resource/technical/document/datasheet/CD00000240.pdf)
+- [L298 datasheet >](http://www.st.com/content/ccc/resource/technical/document/datasheet/82/cc/3f/39/0a/29/4d/f0/CD00000240.pdf/files/CD00000240.pdf/jcr:content/translations/en.CD00000240.pdf)
 - [Motor Driver Shield Manual >](http://www.dfrobot.com/wiki/index.php?title=Arduino_Motor_Shield_%28L298N%29_%28SKU:DRI0009%29)
