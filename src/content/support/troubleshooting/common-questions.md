@@ -10,7 +10,7 @@ Common Questions
 ===
 
 **Where can I get more firmware information, like a guide?**
-Most of our firmware solutions are now explained in depth, located in our new and improved {{#if photon}}[Photon Guide](/guide/getting-started/intro/photon){{/if}}{{#if core}}[Core Guide](/guide/getting-started/intro/core){{/if}}.
+Most of our firmware solutions are now explained in depth, located in our new and improved {{#if photon}}[Photon Guide](/guide/getting-started/intro/photon){{/if}}{{#if core}}[Core Guide](/guide/getting-started/intro/core){{/if}}{{#if electron}}[Electron Guide](/guide/getting-started/intro/electron){{/if}}.
 
 **Do Particle devices play well with IFTTT?**
 Yes, and that *how-to* is located in our [IFTTT features section](/guide/tools-and-features/ifttt).
@@ -25,7 +25,7 @@ Yup! [Here are our best practices](/guide/getting-started/hackathon) about setti
 Feel free to contact [hello @ particle dot io] with **subject line: *"Sponsorship Inquiry for Particle"* **for any additional information about this. Please include as many details about your event and what sort of participation you’re interested in from Particle and allow a week for response.
 
 ## How do I get my deviceID [device ID] ?
-* Put the device into [Listening Mode](/guide/getting-started/modes/photon/#listening-mode) mode while being plugged into a computer via USB
+* Put the device into {{#if photon}}[Listening Mode](/guide/getting-started/modes/photon/#listening-mode){{/if}}{{#if core}}[Listening Mode](/guide/getting-started/modes/core/#listening-mode){{/if}}{{#if electron}}[Listening Mode](/guide/getting-started/modes/electron/#listening-mode){{/if}} while being plugged into a computer via USB
 * Issue `particle serial identify` from the [particle CLI](https://github.com/spark/particle-cli)
 	and it should return the deviceID.
 
