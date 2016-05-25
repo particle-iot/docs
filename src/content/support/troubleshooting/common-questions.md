@@ -10,7 +10,7 @@ Common Questions
 ===
 
 **Where can I get more firmware information, like a guide?**
-Most of our firmware solutions are now explained in depth, located in our new and improved {{#if photon}}[Photon Guide](/guide/getting-started/intro/photon){{/if}}{{#if core}}[Core Guide](/guide/getting-started/intro/core){{/if}}.
+Most of our firmware solutions are now explained in depth, located in our new and improved [{{device}} Guide](/guide/getting-started/intro).
 
 **Do Particle devices play well with IFTTT?**
 Yes, and that *how-to* is located in our [IFTTT features section](/guide/tools-and-features/ifttt).
@@ -25,7 +25,7 @@ Yup! [Here are our best practices](/guide/getting-started/hackathon) about setti
 Feel free to contact [hello @ particle dot io] with **subject line: *"Sponsorship Inquiry for Particle"* **for any additional information about this. Please include as many details about your event and what sort of participation you’re interested in from Particle and allow a week for response.
 
 ## How do I get my deviceID [device ID] ?
-* Put the device into [Listening Mode](/guide/getting-started/modes/photon/#listening-mode) mode while being plugged into a computer via USB
+* Put the device into [Listening Mode](/guide/getting-started/modes/#listening-mode) mode while being plugged into a computer via USB
 * Issue `particle serial identify` from the [particle CLI](https://github.com/spark/particle-cli)
 	and it should return the deviceID.
 
@@ -41,7 +41,7 @@ For [installation instructions](https://github.com/spark/particle-cli) and to st
 [Particle CLI Repo](https://github.com/spark/particle-cli).
 
 
-## {{#if photon}}Photon{{/if}} {{#if core}}Core{{/if}} Pinout Map & Datasheets
+## {{device}} Pinout Map & Datasheets
 
 {{#if photon}}
 Go to our Photon datasheets [collection](/datasheets/photon-datasheet/) to get an in-depth view of the Photon pinouts.
@@ -49,6 +49,10 @@ Go to our Photon datasheets [collection](/datasheets/photon-datasheet/) to get a
 
 {{#if core}}
 Go to our Core datasheets [collection](/datasheets/core-datasheet/) to get an in-depth view of the Core's pinouts.
+{{/if}}
+
+{{#if electron}}
+Go to our Electron datasheets [collection](/datasheets/electron-datasheet/) to get an in-depth view of the Electron pinouts.
 {{/if}}
 
 ## Hardware Questions
@@ -75,10 +79,4 @@ It’s best to avoid doing a Factory Reset on your Photon. Here’s an in-depth 
 
 **Also**, check out and join our [community forums](http://community.particle.io/) for advanced help, tutorials, and troubleshooting.
 
-{{#if photon}}
 [Go to Community Forums >](http://community.particle.io/c/troubleshooting)
-{{/if}}
-
-{{#if core}}
-[Go to Community Forums >](http://community.particle.io/c/troubleshooting)
-{{/if}}
