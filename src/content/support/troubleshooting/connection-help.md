@@ -36,41 +36,40 @@ There are known issues with the following types of networks:
 - **Channels above 11**. This is in particular an international issue; if you are outside the U.S., your Wi-Fi router might run at channels 12, 13, or 14, which the CC3000 does not support. Please use channels numbered 11 or lower.
 {{/if}}
 
-{{#if core}}
-So, let's dig in. If your Core is not connecting to your Wi-Fi network, we recommend following these steps:
+So, let's dig in. If your {{#if photon}}Photon{{/if}}{{#if core}}Core{{/if}} is not connecting to your Wi-Fi network, we recommend following these steps:
 
 **STEP 0: Check the basics**
 
 - Check your Wi-Fi credentials (SSID and password) to make sure you typed them correctly.
 - Make sure you're in range of your Wi-Fi network. If your phone or computer has a poor connection in the same location, try moving closer to your Wi-Fi access point.
-- If you're using a u.FL Core, make sure you have an antenna attached, and that it's firmly connected.
-- Make sure your Core has enough power to transmit Wi-Fi signals (300mA in bursts). Try a different power source, or unplug components that draw a lot of power.
+- If you're using a u.FL {{#if photon}}antenna{{/if}}{{#if core}}Core{{/if}}, make sure you have an antenna attached, and that it's firmly connected.
+- Make sure your {{#if photon}}Photon{{/if}}{{#if core}}Core{{/if}} has enough power to transmit Wi-Fi signals (300mA in bursts). Try a different power source, or unplug components that draw a lot of power.
 
-**STEP 1: Set up your Core over USB**
+**STEP 1: Set up your {{#if photon}}Photon{{/if}}{{#if core}}Core{{/if}} over USB**
 
-On some networks, Smart Config does not work, but the Core can connect to the network just fine. We've implemented a back-up mechanism so you can set up your Core over USB. Don't forget that you'll need to claim your Core manually as well if you haven't already!
+On some networks, {{#if photon}}the mobile app won't work{{/if}}{{#if core}}Smart Config does not work{{/if}}, but the {{#if photon}}Photon{{/if}}{{#if core}}Core{{/if}} can connect to the network just fine. We've implemented a back-up mechanism so you can set up your {{#if photon}}Photon{{/if}}{{#if core}}Core{{/if}} over USB. Don't forget that you'll need to claim your {{#if photon}}Photon{{/if}}{{#if core}}Core{{/if}} manually as well if you haven't already!
 
-[Setup with USB >](/guide/getting-started/intro/core)
+[Setup with USB >]{{#if photon}}[Setup with USB >](/guide/getting-started/intro/photon){{/if}}{{#if core}}[Setup with USB >](/guide/getting-started/intro/core){{/if}}
 
 **STEP 2: Try another network**
 
-There are many reasons that your Core might not connect; some of them have to do with the Core; some have to do with your mobile device sending the Wi-Fi credentials; some have to do with the network. If your Core doesn't connect, try another Wi-Fi network. This will quickly help you figure out which type of issue you might be seeing.
+There are many reasons that your {{#if photon}}Photon{{/if}}{{#if core}}Core{{/if}} might not connect; some of them have to do with the {{#if photon}}Photon{{/if}}{{#if core}}Core{{/if}}; some have to do with your mobile device sending the Wi-Fi credentials; some have to do with the network. If your {{#if photon}}Photon{{/if}}{{#if core}}Core{{/if}} doesn't connect, try another Wi-Fi network. This will quickly help you figure out which type of issue you might be seeing.
 
 **STEP 3: Reboot and clear memory**
 
 So often, electronics start behaving after you shut them off and turn them back on. Try:
 
 - Closing your mobile app and re-opening it
-- Un-plugging the Core and plugging it back in
-- Clear the Core's memory of Wi-Fi networks by holding the `{{system-button}}` button for 10 seconds. After 3 seconds, the light should start flashing blue; after 10 seconds, it should do a quick burst of blue flashes. That means the memory has been cleared.
-- Restoring the Core's firmware to the factory default. Getting this right can be tricky, see [this video](https://community.particle.io/t/how-to-do-a-factory-reset/2579) for illustration.
+- Un-plugging the {{#if photon}}Photon{{/if}}{{#if core}}Core{{/if}} and plugging it back in
+- Clear the {{#if photon}}Photon's{{/if}}{{#if core}}Core's{{/if}} memory of Wi-Fi networks by holding the `{{system-button}}` button for 10 seconds. After 3 seconds, the light should start flashing blue; after 10 seconds, it should do a quick burst of blue flashes. That means the memory has been cleared.
+{{#if core}}- Restoring the Core's firmware to the factory default. Getting this right can be tricky, see [this video](https://community.particle.io/t/how-to-do-a-factory-reset/2579) for illustration.{{/if}}
 
 **STEP 4: Check your router settings**
 
 There are a million ways router settings could cause problems, but here's a few things to look out for:
 
-- **Use DHCP**. Although the Core can handle static IP addresses, it's not configured for it out of the box, so you'll have to dig into the source code.
-- **Turn off access control and firewalls**. Not permanently, but temporarily, to see if it resolves the issue. If it does, you can hopefully just tweak your settings to accommodate the Core rather than taking down your security. The only change you may need to make to your router is to open up outgoing port 5683, the default [CoAP](http://en.wikipedia.org/wiki/Constrained_Application_Protocol) port the  Core uses to connect to the Particle Cloud. If your core flashes cyan and occasionally flashes red, router issues are likely the culprit.
+- **Use DHCP**. Although the {{#if photon}}Photon{{/if}}{{#if core}}Core{{/if}} can handle static IP addresses, it's not configured for it out of the box, so you'll have to dig into the source code.
+- **Turn off access control and firewalls**. Not permanently, but temporarily, to see if it resolves the issue. If it does, you can hopefully just tweak your settings to accommodate the {{#if photon}}Photon{{/if}}{{#if core}}Core{{/if}} rather than taking down your security. The only change you may need to make to your router is to open up outgoing port 5683, the default [CoAP](http://en.wikipedia.org/wiki/Constrained_Application_Protocol) port the {{#if photon}}Photon{{/if}}{{#if core}}Core{{/if}} uses to connect to the Particle Cloud. If your {{#if photon}}Photon{{/if}}{{#if core}}Core{{/if}} flashes cyan and occasionally flashes red, router issues are likely the culprit.
 
 **STEP 5: Search the forums**
 
@@ -89,7 +88,7 @@ Please post issues with connectivity either as responses to this topic or, if th
 - Internet Service Provider
 - Any network settings that might diverge from the norm
 
-
+{{#if core}}
 ### Special Cases
 
 ***Pulsing White***
@@ -120,7 +119,6 @@ Please complete the following steps:
 1. Try powering the Core with a different USB cable and power supply (different USB port on your computer, for example).
 
 2. If a different USB cable and power supply does not fix the issue, your Core may have a hardware short. Please contact the Particle team for further debugging.
-
 
 ## Upgrades and Updates
 
