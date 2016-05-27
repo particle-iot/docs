@@ -49,7 +49,7 @@ So, let's dig in. If your {{#if photon}}Photon{{/if}}{{#if core}}Core{{/if}} is 
 
 On some networks, {{#if photon}}the mobile app won't work{{/if}}{{#if core}}Smart Config does not work{{/if}}, but the {{#if photon}}Photon{{/if}}{{#if core}}Core{{/if}} can connect to the network just fine. We've implemented a back-up mechanism so you can set up your {{#if photon}}Photon{{/if}}{{#if core}}Core{{/if}} over USB. Don't forget that you'll need to claim your {{#if photon}}Photon{{/if}}{{#if core}}Core{{/if}} manually as well if you haven't already!
 
-[Setup with USB >]{{#if photon}}[Setup with USB >](/guide/getting-started/intro/photon){{/if}}{{#if core}}[Setup with USB >](/guide/getting-started/intro/core){{/if}}
+{{#if photon}}[Setup with USB >](/guide/getting-started/intro/photon){{/if}}{{#if core}}[Setup with USB >](/guide/getting-started/intro/core){{/if}}
 
 **STEP 2: Try another network**
 
