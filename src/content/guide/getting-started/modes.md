@@ -375,7 +375,6 @@ If your {{device}} is stuck in Hard fault, try putting your {{device}} into DFU 
 particle flash --usb tinker
 ```
 
-
 **Out of heap memory (8 blinks between 2 SOS patterns)**
 
 {{{device-animation device "sos" 8 }}}
