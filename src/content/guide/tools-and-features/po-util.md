@@ -32,7 +32,7 @@ order: 8
 You can download **po-util** from [GitHub](https://github.com/nrobinson2000/po-util), or install the latest version with:
 
 ```
-curl po-util.com/download
+curl po-util.com/download | bash
 ```
 
 ## Examples
@@ -99,7 +99,7 @@ po electron ota YOUR_DEVICE_NAME
 ```
 {{/if}}
 
-# Support
+## Support
 
 Nathan Robinson can be contacted on the [Particle Forums](https://community.particle.io/users/nrobinson2000).
 
