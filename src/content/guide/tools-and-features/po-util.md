@@ -17,7 +17,7 @@ order: 8
 
 **Po-util** features commands for:
 
-* Installing the [ARM toolchain](https://launchpad.net/gcc-arm-embedded), [dfu-util](http://dfu-util.sourceforge.net/), [nodejs](https://nodejs.org/en/), [particle-cli](https://github.com/spark/particle-cli) and the [Particle firmware source code](https://github.com/spark/firmware)
+* Installing the [ARM toolchain](https://launchpad.net/gcc-arm-embedded), [dfu-util](http://dfu-util.sourceforge.net/), [nodejs](https://nodejs.org/en/), [particle-cli](https://github.com/spark/particle-cli) and the [Particle firmware](https://github.com/spark/firmware)
 * Building firmware and saving as a binary
 * Building firmware and Flashing over USB using dfu-util
 * Initializing a directory into a project folder
@@ -98,43 +98,6 @@ po photon ota YOUR_DEVICE_NAME
 po electron ota YOUR_DEVICE_NAME
 ```
 {{/if}}
-
-# All commands
-
-```BASH
-
-po-util Copyright (GPL) 2016  Nathan Robinson
-This program comes with ABSOLUTELY NO WARRANTY.
-Read more at http://po-util.com
-
-Usage: po DEVICE_TYPE COMMAND DEVICE_NAME
-       po DFU_COMMAND
-       po install [full_install_path]
-
-Commands:
-  install      Download all of the tools needed for development.
-               Requires sudo. You can optionally install to an
-               alternate location by specifying [full_install_path].
-               Ex.:
-                   po install ~/particle
-
-               By default, Firmware is installed in ~/github.
-
-  build        Compile code in "firmware" subdirectory
-  flash        Compile code and flash to device using dfu-util
-  clean        Refresh all code (Run after switching device or directory)
-  init         Initialize a new po-util project
-  patch        Apply system firmware patch to change baud rate
-  update       Update Particle firmware, particle-cli and po-util
-  upgrade      Upgrade system firmware on device
-  ota          Upload code Over The Air using particle-cli
-  serial       Monitor a device's serial output (Close with CRTL-A +D)
-
-DFU Commands:
-  dfu         Quickly flash pre-compiled code
-  dfu-open    Put device into DFU mode
-  dfu-close   Get device out of DFU mode
-```
 
 # Support
 
