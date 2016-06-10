@@ -233,7 +233,8 @@ RoHS compliance is self-declared and there is no certification body that governs
 ## UL <img class="inline-header-image" src="/assets/images/logo-ul.png"/>
 
 ### Description
- - **Website**: [http://ul.com/](http://ul.com/)
+<!-- remove for now because their website is broken, preventing pushing docs updates -->
+<!-- - **Website**: [http://ul.com/](http://ul.com/) -->
  - **Wikipedia**: <a target="_blank" href="https://en.wikipedia.org/wiki/UL_(safety_organization)#UL_Standards">https://en.wikipedia.org/wiki/UL_(safety_organization)#UL_Standards</a>
  - **Domain**: Worldwide
 
