@@ -1,42 +1,42 @@
 ---
-word: Updater
-title: Device Updater
+word: Firmware Manager
+title: Firmware Manager
 order: 4
 columns: two
 devices: [ photon,electron,core ]
 template: guide.hbs
 ---
 
-# Device Updater
+# Firmware Manager
 
-The device updater is a desktop application that upgrades your Electron to latest system firmware. It provides an easy way to update system firmware while avoiding cellular data charges.
+The Firmware Manager is a desktop application that upgrades your Electron to latest system firmware. It provides an easy way to update system firmware while avoiding cellular data charges.
 
 ## Getting Started
 
-The device updater is available for Windows and OS X. 
+The Firmware Manager is available for Windows and OS X. 
 
 ### <img style="margin:0; block:inline" src="{{assets}}/images/updater-windows-logo.png"> Windows
 
-Click [Device Updater for Windows](https://github.com/spark/device-updater/releases/download/v0.5.0/particle_system_firmware_0.5.0.exe) to download the application to your downloads folder. The file name will begin with "particle_system_firmware".
+Click [Firmware Manager for Windows](https://github.com/spark/device-updater/releases/download/v0.5.1d/particle_firmware_manager-v0.5.1d-windows.exe) to download the application to your downloads folder. The file name will begin with "particle_firmware_manager".
 
 Once the download is complete, double-click the downloaded file to run.
 
-The first time the updater is run, you will be prompted to enable administrator access.  This is so the updater can install the Particle USB Drivers to your machine.
+The first time the utility is run, you will be prompted to enable administrator access.  This is so it can install the Particle USB Drivers to your machine.
 
  
 ### <img style="margin:0; block:inline" src="{{assets}}/images/updater-apple-logo.png"> OS X
 
-Click [Device Updater for OS X](https://github.com/spark/device-updater/releases/download/v0.5.0/particle_system_firmware_0.5.0.zip) to download the application to your downloads folder.
+Click [Firmware Manager for OS X](https://github.com/spark/device-updater/releases/download/v0.5.0/particle_firmware_manager-v0.5.1d-osx.zip) to download the application to your downloads folder.
 
-The updater is provided as a Zip file. Once the file has downloaded, double-click the file to start unpacking the application. This will take just a few seconds and you'll then see a folder named "Particle system firmware" with a Particle icon.  
+The application is provided as a Zip file. Once the file has downloaded, double-click the file to start unpacking the application. This will take just a few seconds and you'll then see a folder named "Particle firmware manager" with a Particle icon.  
 
-Double-click the "Particle system firmware" folder to launch the updater application.
+Double-click the "Particle firmware manager" folder to launch the application.
 
 ## Usage overview
 
-Using the updater follows these steps:
+Using the firmware manager follows these steps:
 
-1. Launching the device updater
+1. Launching the application
 2. Connecting your device
 3. Updating your device
 4. Update complete!
@@ -44,7 +44,7 @@ Using the updater follows these steps:
 
 ### Opening Screen
 
-When the device updater starts, you'll see a screen like this:
+When the application starts, you'll see a screen like this:
 
 ![Updater Start Screen]({{assets}}/images/updater-start.png)
 
@@ -76,7 +76,7 @@ When the update is complete you'll see this screen
 
 ![Update complete]({{assets}}/images/updater-complete.png)
 
-Congratulations! You've updated the system firmware on your Electron.
+Congratulations! You've updated the system firmware on your device.
 
 Your device will automatically reboot and will run your app using the updated system firmware.
 
@@ -85,7 +85,7 @@ Your device will automatically reboot and will run your app using the updated sy
 
 ### Device not detected
 
-If the updater doesn't detect your device, try disconnecting and reconnecting the device. This is especially true on Windows after installing the USB drivers - Windows will not detect the device using the newly installed drivers until the device has been reconnected.
+If the application doesn't detect your device, try disconnecting and reconnecting the device. This is especially true on Windows after installing the USB drivers - Windows will not detect the device using the newly installed drivers until the device has been disconnected and reconnected.
 
 ### Update stops halfway
 
