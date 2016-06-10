@@ -18,7 +18,7 @@ If you are not 100% satisfied with your order, we will be happy to arrange a ret
 
 Sometimes you can’t tell a product is not for you until you take it for a test drive. Not a problem, we’ve got your back. We can offer advice, troubleshoot or diagnose any issue that might have come up. First, look for troubleshooting tips and assistance on your issue on our [documentation page](https://docs.particle.io/support/troubleshooting/common-issues). If you don’t find it there, our amazing [community](https://community.particle.io/) can most likely help you out. If you still are having trouble, visit us at our [support portal](https://support.particle.io).
 
-If we determine that something is wrong with your product due to a manufacturing defect or error, we will be happy to replace your item(s) as needed. Please visit  our [support portal](https://support.particle.io)and let us know your order number, the product you’re having issues with, and a detailed description of the problems you’re seeing. For broken products, please include pictures, they are worth a thousand words.  
+If we determine that something is wrong with your product due to a manufacturing defect or error, we will be happy to replace your item(s) as needed. Please visit  our [support portal](https://support.particle.io) and let us know your order number, the product you’re having issues with, and a detailed description of the problems you’re seeing. For broken products, please include pictures, they are worth a thousand words.  
 
 ### Damaged in Shipment
 
