@@ -26,7 +26,7 @@ The first time the utility is run, you will be prompted to enable administrator 
  
 ### <img style="margin:0; block:inline" src="{{assets}}/images/updater-apple-logo.png"> OS X
 
-Click [Firmware Manager for OS X](https://github.com/spark/device-updater/releases/download/v0.5.0/particle_firmware_manager-v0.5.1d-osx.zip) to download the application to your downloads folder.
+Click [Firmware Manager for OS X](https://github.com/spark/device-updater/releases/download/v0.5.1d/particle_firmware_manager-v0.5.1d-osx.zip) to download the application to your downloads folder.
 
 The application is provided as a Zip file. Once the file has downloaded, double-click the file to start unpacking the application. This will take just a few seconds and you'll then see a folder named "Particle firmware manager" with a Particle icon.  
 
