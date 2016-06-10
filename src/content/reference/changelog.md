@@ -39,8 +39,8 @@ There are three hardware variants for the Electron that operate on both 2G and 3
 | Electron Name  | Service | Service Location | Bands (MHz) |
 | ------------- | :-------------: | :----: | :----: |
 | Electron G350  | 2G only | Worldwide | 850/900/1800/1900
-| Electron U260  | 3G with 2G fallback | North and South America | 850/1900
-| Electron U270 | 3G with 2G fallback | Europe, Asia, Africa, Australia | 900/1800/2100 |
+| Electron U260  | 3G with 2G fallback | North and South America, Australia | 850/1900
+| Electron U270 | 3G with 2G fallback | Europe, Asia, Africa | 900/1800/2100 |
 <p class="caption">Table of Electron hardware variants.</p>
 
 ### 12 New Pins
