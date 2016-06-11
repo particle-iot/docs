@@ -151,11 +151,10 @@ If you have already claimed your device and you want to connect it to wifi, type
 If you're using an Electron, please follow the instructions at [https://setup.particle.io](https://setup.particle.io).
 {{/if}}
 
-If your device is not connecting, try troubleshooting [here](http://support.particle.io/hc/en-us/articles/204357684-Can-t-Get-Connected-).
+If your device is not connecting, try troubleshooting [here](https://docs.particle.io/support/troubleshooting/common-issues).
 
-[More info on the CLI is available ](/guide/tools-and-features/cli/).
+[More info on the CLI is available](/guide/tools-and-features/cli/).
 
 
-If your device is not connecting, try [troubleshooting](/support).
 
 Once you've finished connecting your device, head over to [the next section](/guide/getting-started/modes) to learn about the different modes for your device.
