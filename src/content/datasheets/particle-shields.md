@@ -327,7 +327,7 @@ Examples include:
 
 ### Internet Button - Specifications
 
-- Operating voltage: USB or External DC of 3.6 to 6VDC
+- Operating voltage: USB or External DC of 3.3 to 5.5VDC
 - Dimensions: 2.6" x 2.6"
 <!-- - Current consumption: -->
 <!-- - Weight: -->
