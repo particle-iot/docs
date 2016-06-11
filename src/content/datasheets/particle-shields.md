@@ -366,6 +366,7 @@ You get two 220-Ohm resistors in your Photon Kit. They are rated at 5%, 1/4 Watt
 ### Photon with Headers (1)
 
 ![Photon with Headers](/assets/images/photon-loose-top.jpg)
+[Click here for the Photon datasheet](/datasheets/photon-datasheet/)
 
 ### USB Micro B Cable (1)
 
