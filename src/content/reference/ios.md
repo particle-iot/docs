@@ -414,7 +414,7 @@ SparkCloud.sharedInstance().publishEventWithName("event_from_app", data: "event_
 
 If you're creating an app you're required to provide the `SparkCloud` class with OAuth clientId and secret.
 Those are used to identify users coming from your specific app to the Particle Cloud.
-Please follow the procedure decribed [in our guide](https://docs.particle.io/guide/how-to-build-a-product/web-app/#creating-an-oauth-client) to create those strings,
+Please follow the procedure decribed [in our guide](https://docs.particle.io/guide/how-to-build-a-product/authentication/#creating-an-oauth-client) to create those strings,
 then in your `AppDelegate` class you can supply those credentials by setting the following properties in `SparkCloud` singleton:
 
 ```objc
