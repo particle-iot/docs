@@ -105,7 +105,7 @@ For tips and resources for prototyping PCBs by hand (our preferred prototyping m
 ### Thinking about mass production
 **Reach out to us!** Once you've validated your hardware design with a series of prototypes, it's time to start thinking about how to scale up for mass production.  If you haven't already, [let us know you're building a product on Particle!](mailto:sales@particle.io) Our team has lots of experience bringing Internet-connected devices to market, and can give valuable feedback on a wide variety of topics like manufacturing overseas, Kickstarter, VC funding, and everything in between. If we don't know you exist, it's much harder for us to help :-)
 
-**Preferred Services Partners** *Coming soon!* Our customer success team is hard at work assembling a broad menu of trusted, professional services partners for every step of the product development process. In the meantime, please [email us](mailto:sales@particle.io) for references and recommendations.
+**Preferred Services Partners**  Our customer success team has assembled a broad menu of trusted, professional services partners for every step of the product development process. Please [take a look here](http://www.particle.io/servicepartners) and see if there's a partner that fits your development needs!
 
 ### Next step
 
