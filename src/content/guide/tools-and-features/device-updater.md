@@ -9,7 +9,7 @@ template: guide.hbs
 
 # Firmware Manager
 
-The Firmware Manager is a desktop application that upgrades your Electron to latest system firmware. It provides an easy way to update system firmware while avoiding cellular data charges.
+The Firmware Manager is a desktop application that upgrades your Electron to the latest system firmware. It provides an easy way to update system firmware while avoiding cellular data charges.
 
 ## Getting Started
 
