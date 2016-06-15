@@ -72,7 +72,7 @@ Exposing serial for debugging allows you to interact with Particle's basic test 
  - Ask your device to scan for available networks
  - Ask your device to report its connection strength
  - Ask your device to clear all stored Wi-Fi credentials
- - Ask your device it's unique hardware identifier
+ - Ask your device to report its unique hardware identifier
 
 These are all useful functions during manufacturing, so we highly encourage exposing serial debugging for your product.
 
