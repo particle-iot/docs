@@ -7509,9 +7509,6 @@ When the device awakens from deep sleep, it will reset and run all user code fro
 
 As such, it is recommended that deep sleep be called only after all user code has completed. The Standby mode is used to achieve the lowest power consumption.  After entering Standby mode, the SRAM and register contents are lost except for registers in the backup domain.
 
-**Note:**
-You can also wake the device "prematurely" by applying a rising edge signal to the {{#if core}}A7{{/if}}{{#unless core}}WKP{{/unless}} pin.
-
 ```C++
 // SYNTAX
 System.sleep(SLEEP_MODE_DEEP, long seconds);
@@ -7525,6 +7522,9 @@ System.sleep(SLEEP_MODE_DEEP,60);
 // The device LED will shut off during deep sleep
 ```
 The device will automatically *wake up* and reestablish the Wi-Fi connection after the specified number of seconds.
+
+**Note:**
+You can also wake the device "prematurely" by applying a rising edge signal to the {{#if core}}A7{{/if}}{{#unless core}}WKP{{/unless}} pin.
 
 `System.sleep(uint16_t wakeUpPin, uint16_t edgeTriggerMode)` can be used to put the entire device into a *stop* mode with *wakeup on interrupt*. In this particular mode, the device shuts down the network and puts the microcontroller in a stop mode with configurable wakeup pin and edge triggered interrupt. When the specific interrupt arrives, the device awakens from stop mode, it will behave as if the device is reset and run all user code from the beginning with no values being maintained in memory from before the stop mode.
 
