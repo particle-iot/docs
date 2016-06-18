@@ -7509,6 +7509,11 @@ When the device awakens from deep sleep, it will reset and run all user code fro
 
 As such, it is recommended that deep sleep be called only after all user code has completed. The Standby mode is used to achieve the lowest power consumption.  After entering Standby mode, the SRAM and register contents are lost except for registers in the backup domain.
 
+{{unless core}}
+**Note:**
+You can also wake the device "prematurely" by applying a rising edge signal to the WKP pin.
+{{/unless}}
+
 ```C++
 // SYNTAX
 System.sleep(SLEEP_MODE_DEEP, long seconds);
