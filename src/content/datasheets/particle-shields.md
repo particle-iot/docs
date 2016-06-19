@@ -608,6 +608,9 @@ Note: The Ground pin may vary as Brown or Black, +5V pin may vary as Orange or R
 
 This is a 128x64 pixel graphic OLED screen that can be either controlled via the SPI (default) or I2C.
 
+**Sample code**
+- https://github.com/pkourany/Adafruit_SSD1306
+
 **Specifications:**
 - Supply Voltage: 3.0V to 5V DC
 - Current consumption: 50mA max
