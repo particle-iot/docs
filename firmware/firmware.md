@@ -6878,7 +6878,7 @@ It's possible to subscribe to multiple events with the same handler in cases whe
 ```
 void handle_all_the_events(system_event_t event, int param)
 {
-	Serial.printlnf("got event %d with value %d");
+	Serial.printlnf("got event %d with value %d", event, param);
 }
 
 void setup()
