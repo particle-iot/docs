@@ -192,7 +192,7 @@ Photons that have been interrupted mid-firmware update often breathe magenta (de
 
 ### Manual Firmware Update
 
-If you do not have a Mac/Apple computer then you should not read the instructions below for a firmware upgrade. These are specifically for users who have MAC machines.
+If you do not have a Mac/Apple computer then you should not read the instructions below for a firmware upgrade. These are specifically for users who have Mac OS/OS X machines.
 
 *For Windows* If you have a Windows machine, please follow <a href="http://blog.jongallant.com/2015/08/particle-photon-firmware-flash-windows.html" target="_blank">these instructions</a>.
 
