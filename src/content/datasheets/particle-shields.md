@@ -609,6 +609,7 @@ Note: The Ground pin may vary as Brown or Black, +5V pin may vary as Orange or R
 This is a 128x64 pixel graphic OLED screen that can be either controlled via the SPI (default) or I2C.
 
 **Sample code**
+- [Adafruit SSD1306 in the Particle Build Library](https://build.particle.io/libs/5397d8d028979ed3cc000731)
 - https://github.com/pkourany/Adafruit_SSD1306
 
 **Specifications:**
