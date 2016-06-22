@@ -1288,7 +1288,7 @@ to retrieve the request data.
 // EXAMPLE
 
 if (body->bytes_left) {
-	char* data = body->read_as_string();
+	char* data = body->fetch_as_string();
 	// handle the body data
  	dostuff(data);
  	// free the data! IMPORTANT!
