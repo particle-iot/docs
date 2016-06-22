@@ -7589,7 +7589,7 @@ System.sleep(D0,RISING,60);
     - CHANGE to trigger the interrupt whenever the pin changes value,
     - RISING to trigger when the pin goes from low to high,
     - FALLING for when the pin goes from high to low.
-- `seconds`: wakeup after the specified number of seconds
+- `seconds`: wakeup after the specified number of seconds (0 = no alarm is set)
 {{#if electron}}
 - `SLEEP_NETWORK_STANDBY`: optional - keeps the cellular modem in a standby state while the device is sleeping.. 
 {{/if}}
