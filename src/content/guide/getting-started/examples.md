@@ -48,11 +48,11 @@ Since Electron is a cellular device and OTA usage consumes data, it's important 
 
 ## Blink an LED
 
-### Blink: Intro
+### Intro
 
 Blinking an LED is the ["Hello World"](http://en.wikipedia.org/wiki/Hello_world_program) example of the microcontroller universe. It's a nice way to warm up and start your journey into the land of embedded hardware.
 
-### Blink: Setup
+### Setup
 
 Connect everything together as shown in the image below. The negative (shorter) pin of the LED is connected to ground via a resistor and the positive (longer) pin is connected to {{#unless electron}}D0.{{/unless}}{{#if electron}}D6.{{/if}}
 
@@ -66,7 +66,7 @@ Go ahead and save this application, then flash it to your {{#unless electron}}Co
 
 _(In case you wonder how the pretty wiring diagram above was made, check out [Fritzing](http://fritzing.org/) and the [Particle Fritzing parts library](https://github.com/spark/hardware-libraries))_
 
-### Blink: Code
+### Code
 
 <pre><code class="lang-cpp" data-firmware-example-code-block=true>
 // ------------
@@ -146,7 +146,7 @@ void loop() {
 
 ## Control LEDs over the 'net
 
-### Control: Intro
+### Intro
 
 Now that we know how to blink an LED, how about we control it over the Internet? This is where the fun begins.
 
@@ -156,14 +156,14 @@ We've heavily commented the code below so that you can see what's going on. Basi
 - Create and register a Particle function (this gets called automagically when you make an API request to it)
 - Parse the incoming command and take appropriate actions
 
-### Control: Setup
+### Setup
 
 As in the previous example, connect everything together as shown in the image below. The negative (shorter) pin of the LED is connected to ground via a resistor and the positive (longer) pin is connected to {{#unless electron}}D0{{/unless}}{{#if electron}}D6{{/if}}.
 
 {{#unless electron}}![One LED illustration](/assets/images/photon-led-fritzing.png){{/unless}}
 {{#if electron}}![One LED illustration](/assets/images/electron/illustrations/electron-blink-led.png){{/if}}
 
-### Control: Code
+### Code
 
 
 <pre><code class="lang-cpp" data-firmware-example-code-block=true>
@@ -237,7 +237,7 @@ int ledToggle(String command) {
 
 </code></pre>
 
-### Control: Use
+### Use
 
 When we register a function or variable, we're basically making a space for it on the internet, similar to the way there's a space for a website you'd navigate to with your browser. Thanks to the REST API, there's a specific address that identifies you and your device. You can send requests, like `GET` and `POST` requests, to this URL just like you would with any webpage in a browser.
 
@@ -328,7 +328,7 @@ The holes marked "A5" and "A0" are misaligned with the headers of the Electron, 
 
 {{/if}}
 
-### Read: Intro
+### Intro
 
 This example uses the same setup as the LED control example to make a `Particle.function`. This time, though, we're going to add a sensor.
 
@@ -336,7 +336,7 @@ We will get a value from a photoresistor and store it in the cloud.
 
 Paste the following code into your IDE, or just access the examples on the left hand menu bar in the online IDE.
 
-### Read: Setup
+### Setup
 
 Set up your breadboard as shown in the image below:
 {{#unless electron}}![Fritzing Diagram](/assets/images/photon-photoresistor-fritzing.png){{/unless}}
@@ -347,7 +347,7 @@ Make sure that the short leg of the LED is plugged into `GND`. The other orienta
 
 Bend the LED and the Photoresistor so that they are pointing at each other. (You want the LED, when turned on, to shine its beam of light directly at the photoresistor.)
 
-### Read: Code
+### Code
 
 Copy and paste the following code into your [online IDE](http://build.particle.io) or [Particle Dev](http://particle.io/dev) environment.
 
@@ -425,7 +425,7 @@ int ledToggle(String command) {
 
 </code></pre>
 
-### Read: Use
+### Use
 
 Just like with our earlier example, we can toggle our LED on and off by creating an HTML page:
 
@@ -500,7 +500,7 @@ Now you can turn your LED on and off and see the values at A0 change based on th
 
 ## Make a Motion Detector: Publish and the Dashboard
 
-### Publish: Intro
+### Intro
 
 What if we simply want to know that something has happened, without all the information of a variable or all the action of a fuction? We might have a security system that tells us, "motion was detected!" or a smart washing machine that tells us "your laundry is done!" In that case, we might want to use `Particle.publish`.
 
@@ -514,7 +514,7 @@ You can check out the results on your dashboard at [dashboard.particle.io](https
 
 You can also hook up publishes to IFTTT! More info [here](/guide/tools-and-features/ifttt).
 
-### Publish: Setup
+### Setup
 The setup is the same as in the last example. Set up your breadboard as follows:
 
 {{#unless electron}}![Fritzing Diagram](/assets/images/photon-photoresistor-fritzing.png){{/unless}}
@@ -523,7 +523,7 @@ The setup is the same as in the last example. Set up your breadboard as follows:
 Ensure that the short end of the LED is plugged into `GND` and that the LED and Photoresistor are bent to face each other. (You want the LED, when turned on, to shine its beam of light directly at the photoresistor.) Try to leave enough space between the LED and the Photoresistor for your finger or a piece of paper.
 
 
-### Publish: Code
+### Code
 
 <pre><code class="lang-cpp" data-firmware-example-code-block=true>
 // -----------------------------------------
@@ -692,7 +692,7 @@ void loop() {
 
 ## The Buddy System: Publish and Subscribe
 
-### Subscribe: Intro
+### Intro
 
 In the previous example, we sent a private publish. This publish went to you alone; it was just for you and your own apps, programs, integrations, and devices. We can also send a public publish, though, which allows anyone anywhere to see and subscribe to our event in the cloud. All they need is our event name.
 
@@ -708,7 +708,7 @@ Flash the firmware to your devices. Calibrate your device when it comes online (
 
 When the beam is broken on your device, the D7 LED on your buddy's device will light up! Now you can send little messages to each other in morse code... though if one of you is using an Electron, you should be restrained.
 
-### Subscribe: Setup
+### Setup
 The setup is the same as in the last example. Set up your breadboard as follows:
 
 {{#unless electron}}![Fritzing Diagram](/assets/images/photon-photoresistor-fritzing.png){{/unless}}
@@ -716,7 +716,7 @@ The setup is the same as in the last example. Set up your breadboard as follows:
 
 Ensure that the short end of the LED is plugged into `GND` and that the LED and Photoresistor are bent to face each other. (You want the LED, when turned on, to shine its beam of light directly at the photoresistor.) Try to leave enough space between the LED and the Photoresistor for your finger or a piece of paper.
 
-### Subscribe: Code
+### Code
 
 <pre><code class="lang-cpp" data-firmware-example-code-block=true>
 // -----------------------------------------
@@ -899,15 +899,15 @@ void myHandler(const char *event, const char *data)
 
 ## Electron Combined Publish
 
-### Combo Publish: Intro
+### Intro
 Every message the Electron sends to or from the Cloud has a certain fixed overhead, so we try to minimize the number of messages that are sent. You can do some optimization in your code, too. If you combine many data points in a single publish message, you'll use less data. We combine the data points into a single string, with commas in between them for easy parsing later.
 
 
-### Combo Publish: Setup
+### Setup
 You can use the previous circuit, with the photoresistor connected to A0.
 
 
-### Combo Publish: Code
+### Code
 
 <pre><code class="lang-cpp" data-firmware-example-code-block=true>
 // --------------------------------------------
