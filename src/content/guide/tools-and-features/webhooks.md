@@ -135,7 +135,7 @@ Congratulations! You've created a webhook successfully and gotten data from your
 
 ## Triggering a webhook
 
-In order to signal to the Particle cloud that the webhook should be triggered, your device must publish an event in its firmware. A webhook that has been configured with the even name `temp` would trigger with the following firmware:
+In order to signal to the Particle cloud that the webhook should be triggered, your device must publish an event in its firmware. A webhook that has been configured with the event name `temp` would trigger with the following firmware:
 
 ```
 void loop() {
