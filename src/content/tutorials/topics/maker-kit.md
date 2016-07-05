@@ -171,27 +171,27 @@ Welcome to the second tutorial in our Maker Kit tutorial series. In this tutoria
 
 ### Discover your prediction URL
 
-The **NextBus Public XML Feed** allows anyone to get prediction times for many municipal transit agencies. But in order to use it to get times for a specific bus at a specific stop, we first have to use the feed itself to figure out what information to send to it. The way the feed works is that you enter a URL and receive information. Determining the info we need only requires five relatively simple steps, all of which can be done with a web browser. We'll look up the agency tag, find the route tag, find the stop tag, and finally create the full prediction URL.
+The **NextBus Public XML Feed** allows anyone to get prediction times for many municipal transit agencies. But in order to use it to get times for a specific bus at a specific stop, we first have to use the feed itself to figure out what information to send to it. NextBus provides a [document](https://www.nextbus.com/xmlFeedDocs/NextBusXMLFeed.pdf) that shows how to enter query URLs to get back the information we need. While the document may look intimidating, setting up our prediction URL only requires five relatively simple steps, all of which can be done with a web browser. We'll look up the agency tag, find the route tag, find the stop tag, and finally create the full prediction URL. The relevant URLs have been pulled from the document and into the steps below, but feel free to reference the indicated page numbers if you'd like more information.
 
-1. Choose the **bus stop**, **agency**, and **bus route** that you’d like to get times for. For example, you could choose the Santa Clara Ave & Crescent St stop for the AC Transit #57 bus in Oakland, California.
+1. Choose the **agency**, **bus route**, and **bus stop** that you’d like to get times for. For this example, we'll use the Santa Clara Ave & Crescent St stop for the AC Transit #57 bus in Oakland, California.
 
-2. Find your transit **agency tag** here: [http://webservices.nextbus.com/service/publicXMLFeed?command=agencyList](http://webservices.nextbus.com/service/publicXMLFeed?command=agencyList).
+2. Use the following URL to locate your transit **agency tag**: [http://webservices.nextbus.com/service/publicXMLFeed?command=agencyList](http://webservices.nextbus.com/service/publicXMLFeed?command=agencyList) (see page 8).
 >    
 >    **Example:** the agency tag for AC Transit is `actransit`.
 
-3. Find your **route tag** by replacing `AGENCYTAG` in the following URL with the agency tag from Step 1:
-[http://webservices.nextbus.com/service/publicXMLFeed?command=routeList&a=AGENCYTAG](http://webservices.nextbus.com/service/publicXMLFeed?command=routeList&a=AGENCYTAG). It's easiest to click the URL, then change it in the address bar in your web browser.
+3. Find your **route tag** by replacing `AGENCYTAG` in the following URL with the agency tag from Step 2:
+[http://webservices.nextbus.com/service/publicXMLFeed?command=routeList&a=AGENCYTAG](http://webservices.nextbus.com/service/publicXMLFeed?command=routeList&a=AGENCYTAG) (see page 8).
 >    
 >    **Example:** For AC Transit, the URL would look like this:
 >    [http://webservices.nextbus.com/service/publicXMLFeed?command=routeList&a=actransit](http://webservices.nextbus.com/service/publicXMLFeed?command=routeList&a=actransit)
 >    The route tag for the #57 bus in this example is `57`.
 
-4. Find your **stop tag** here: [http://webservices.nextbus.com/service/publicXMLFeed?command=routeConfig&a=AGENCYTAG&r=ROUTETAG](http://webservices.nextbus.com/service/publicXMLFeed?command=routeConfig&a=AGENCYTAG&r=ROUTETAG). Replace `AGENCYTAG` with your agency tag and `ROUTETAG` with your route tag.
+4. Find your **stop tag** here: [http://webservices.nextbus.com/service/publicXMLFeed?command=routeConfig&a=AGENCYTAG&r=ROUTETAG](http://webservices.nextbus.com/service/publicXMLFeed?command=routeConfig&a=AGENCYTAG&r=ROUTETAG). Replace `AGENCYTAG` with your agency tag and `ROUTETAG` with your route tag (see page 9).
 >    
 >    **Example:** For AC Transit’s 57 bus, the URL would look like: [http://webservices.nextbus.com/service/publicXMLFeed?command=routeConfig&a=actransit&r=57](http://webservices.nextbus.com/service/publicXMLFeed?command=routeConfig&a=actransit&r=57).
 >    The stop tag for Santa Clara Ave & Crescent St in Oakland is `1018530`. If you know your **stop ID** (it’s printed on bus stop signs and can also be located via Google Maps), you can search for it on the page to verify you have the right stop.
 
-5. Create your full **prediction URL** by substituting in your agency tag, route tag, and stop tag into the following URL: [http://webservices.nextbus.com/service/publicXMLFeed?command=predictions&a=AGENCYTAG&r=ROUTETAG&s=STOPTAG](http://webservices.nextbus.com/service/publicXMLFeed?command=predictions&a=AGENCYTAG&r=ROUTETAG&s=STOPTAG).
+5. Create your full **prediction URL** by substituting in your agency tag, route tag, and stop tag into the following URL: [http://webservices.nextbus.com/service/publicXMLFeed?command=predictions&a=AGENCYTAG&r=ROUTETAG&s=STOPTAG](http://webservices.nextbus.com/service/publicXMLFeed?command=predictions&a=AGENCYTAG&r=ROUTETAG&s=STOPTAG) (see pages 13 - 15).
 >    
 >    **Example:** Using the examples in steps 1-4, we get [http://webservices.nextbus.com/service/publicXMLFeed?command=predictions&a=actransit&r=57&s=1018530&useShortTitles=true](http://webservices.nextbus.com/service/publicXMLFeed?command=predictions&a=actransit&r=57&s=1018530&useShortTitles=true).
 
@@ -221,15 +221,15 @@ agency parameter "a" must be specified in query string
 ```
 If you get an error, the feed will give you an indication of what's wrong. In the example error above, it didn't get an agency tag. Check your URL to make sure you haven't deleted any of the & or = symbols, and that everything is spelled correctly.
 
-If it works, you're done! If you're curious about the NextBus Public XML Feed, check out the [full documentation here](https://www.nextbus.com/xmlFeedDocs/NextBusXMLFeed.pdf). Otherwise, continue to the next step.
+If it works, you're done creating your prediction URL!
 
 ### Create a webhook to retrieve prediction times
 
 Great, so we’ve got our prediction URL and we can access it from a browser, but how do we access it from the Photon? The answer is to use a **webhook**.
 
-Currently, webhooks can only be created via the Particle command line interface **(CLI)**. To install the Particle CLI for Windows, simply [download the installer](https://www.particle.io/cli). For Mac and Linux, first install [Node.js](https://nodejs.org/en/download/), then open a Terminal and enter `npm install -g particle-cli` to install the CLI.
+Currently, webhooks can only be created via the Particle command line interface **(CLI)**. To install the Particle CLI for Windows, simply [download the installer](https://www.particle.io/cli). For Mac and Linux, first install [Node.js](https://nodejs.org/en/download/), then open a Terminal and enter `sudo npm install -g particle-cli` to install the CLI (you'll need to enter your password).
 
-Now we'll use the CLI to create a webhook to retrieve prediction times. In your Terminal (Windows users hit **[Windows Logo Key] + R** and enter **CMD** in the Run box to open a command prompt), enter the following command (substitute with your prediction URL): `particle webhook GET get_nextbus http://webservices.nextbus.com/service/publicXMLFeed?command=predictions\&a=actransit\&r=57\&s=1018530\&useShortTitles=true` **(note the use of \& instead of just &. This is required in order for the URL to be interpreted properly)**.
+Now we'll use the CLI to create a webhook to retrieve prediction times. In your Terminal (Windows users hit **[Windows Logo Key] + R** and enter **CMD** in the Run box to open a command prompt), enter the following command (substitute with your prediction URL): `particle webhook GET get_nextbus http://webservices.nextbus.com/service/publicXMLFeed?command=predictions\&a=actransit\&r=57\&s=1018530\&useShortTitles=true` **(note the use of \& instead of just &. Backslashes are required in order for the URL to be interpreted correctly)**.
 
 You’ll get some output that ends with `“Successfully created webhook with ID XXXXX...”` Great! Your webhook is created. Now let’s access it from the Photon.
 
