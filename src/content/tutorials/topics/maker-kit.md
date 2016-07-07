@@ -171,11 +171,13 @@ Welcome to the second tutorial in our Maker Kit tutorial series. In this tutoria
 
 ### Discover your prediction URL
 
-The **NextBus Public XML Feed** allows anyone to get prediction times for many municipal transit agencies. But in order to use it to get times for a specific bus at a specific stop, we first have to use the feed itself to figure out what information to send to it. NextBus provides a [document](https://www.nextbus.com/xmlFeedDocs/NextBusXMLFeed.pdf) that shows how to enter query URLs to get back the information we need. While the document may look intimidating, setting up our prediction URL only requires five relatively simple steps, all of which can be done with a web browser. We'll look up the agency tag, find the route tag, find the stop tag, and finally create the full prediction URL. The relevant URLs have been pulled from the document and into the steps below, but feel free to reference the indicated page numbers if you'd like more information.
+The **NextBus Public XML Feed** allows anyone to get prediction times for many municipal transit agencies across the United States (many other countries also have their own public transit feeds). But in order to use it to get times for a specific bus at a specific stop, we first have to use the feed itself to figure out what information to send to it. NextBus provides a [document](https://www.nextbus.com/xmlFeedDocs/NextBusXMLFeed.pdf) that shows how to enter query URLs to get back the information we need. The relevant URLs have been pulled from the document and into the steps below, but feel free to reference the document if you'd like more information.
+
+Setting up our prediction URL only requires five relatively simple steps, all of which can be done with a web browser. We'll choose a transit agency, bus route, and bus stop, then look up the agency tag, route tag, and stop tag, and finally create the full prediction URL. 
 
 1. Choose the **agency**, **bus route**, and **bus stop** that you’d like to get times for. For this example, we'll use the Santa Clara Ave & Crescent St stop for the AC Transit #57 bus in Oakland, California.
 
-2. Use the following URL to locate your transit **agency tag**: [http://webservices.nextbus.com/service/publicXMLFeed?command=agencyList](http://webservices.nextbus.com/service/publicXMLFeed?command=agencyList) (see page 8).
+2. Use the following URL to locate your transit **agency tag**: [http://webservices.nextbus.com/service/publicXMLFeed?command=agencyList](http://webservices.nextbus.com/service/publicXMLFeed?command=agencyList).
 >    
 >    **Example:** the agency tag for AC Transit is `actransit`.
 
