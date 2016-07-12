@@ -165,6 +165,12 @@ Discover more projects at [particle.hackster.io](http://particle.hackster.io), a
 
 **I get an error when I try to flash the code to my Photon.** There could be many reasons for this. If your Photon is not breathing cyan, check the [device modes guide](https://docs.particle.io/guide/getting-started/modes/photon/). Search our [forums](http://community.particle.io) for your error or ask a question, or send an email to [support@particle.io](mailto:support@particle.io) with your error message.
 
+
+
+
+
+
+
 ## Tutorial #2: Display next bus time on the OLED screen
 
 Welcome to the second tutorial in our Maker Kit tutorial series. In this tutorial, you’ll use Particle webhooks to get the estimated time until the bus comes to a stop of your choosing. Then you’ll display it on the Maker Kit OLED screen with fancy marquee scrolling, which is made possible by the use of a software timer.
@@ -173,31 +179,33 @@ Welcome to the second tutorial in our Maker Kit tutorial series. In this tutoria
 
 The **NextBus Public XML Feed** allows anyone to get prediction times for many municipal transit agencies across the United States (many other countries also have their own public transit feeds). But in order to use it to get times for a specific bus at a specific stop, we first have to use the feed itself to figure out what information to send to it. NextBus provides a [document](https://www.nextbus.com/xmlFeedDocs/NextBusXMLFeed.pdf) that shows how to enter query URLs to get back the information we need. The relevant URLs have been pulled from the document and into the steps below, but feel free to reference the document if you'd like more information.
 
-Setting up our prediction URL only requires five relatively simple steps, all of which can be done with a web browser. We'll choose a transit agency, bus route, and bus stop, then look up the agency tag, route tag, and stop tag, and finally create the full prediction URL. 
+Setting up our prediction URL only requires five relatively simple steps, all of which can be done with a web browser. We'll choose a transit agency, bus route, and bus stop, then look up the agency tag, route tag, and stop tag, and finally create the full prediction URL.
 
-1. Choose the **agency**, **bus route**, and **bus stop** that you’d like to get times for. For this example, we'll use the Santa Clara Ave & Crescent St stop for the AC Transit #57 bus in Oakland, California.
+1. Choose the **agency**, **bus route**, and **bus stop** that you’d like to get times for. <br>
+For this example, we'll use the Santa Clara Ave & Crescent St stop for the AC Transit #57 bus in Oakland, California.
 
-2. Use the following URL to locate your transit **agency tag**: [http://webservices.nextbus.com/service/publicXMLFeed?command=agencyList](http://webservices.nextbus.com/service/publicXMLFeed?command=agencyList).
->    
->    **Example:** the agency tag for AC Transit is `actransit`.
+2. Use the following URL to locate your transit **agency tag**: [http://webservices.nextbus.com/service/publicXMLFeed?command=agencyList](http://webservices.nextbus.com/service/publicXMLFeed?command=agencyList). <br>
+On that page, you can see that the agency tag for AC Transit is `actransit`.
 
-3. Find your **route tag** by replacing `AGENCYTAG` in the following URL with the agency tag from Step 2:
-[http://webservices.nextbus.com/service/publicXMLFeed?command=routeList&a=AGENCYTAG](http://webservices.nextbus.com/service/publicXMLFeed?command=routeList&a=AGENCYTAG) (see page 8).
->    
->    **Example:** For AC Transit, the URL would look like this:
->    [http://webservices.nextbus.com/service/publicXMLFeed?command=routeList&a=actransit](http://webservices.nextbus.com/service/publicXMLFeed?command=routeList&a=actransit)
->    The route tag for the #57 bus in this example is `57`.
+3. Use the following URL to locate your **route tag**: <br>
+[http://webservices.nextbus.com/service/publicXMLFeed?command=routeList&a=AGENCYTAG](http://webservices.nextbus.com/service/publicXMLFeed?command=routeList&a=AGENCYTAG). <br>
+Replace `AGENCYTAG` with your agency tag. <br>
+**Example:** For AC Transit, the URL would be: <br>   [http://webservices.nextbus.com/service/publicXMLFeed?command=routeList&a=actransit](http://webservices.nextbus.com/service/publicXMLFeed?command=routeList&a=actransit) <br>
+On that page, the route tag for the #57 bus is `57`.
 
-4. Find your **stop tag** here: [http://webservices.nextbus.com/service/publicXMLFeed?command=routeConfig&a=AGENCYTAG&r=ROUTETAG](http://webservices.nextbus.com/service/publicXMLFeed?command=routeConfig&a=AGENCYTAG&r=ROUTETAG). Replace `AGENCYTAG` with your agency tag and `ROUTETAG` with your route tag (see page 9).
->    
->    **Example:** For AC Transit’s 57 bus, the URL would look like: [http://webservices.nextbus.com/service/publicXMLFeed?command=routeConfig&a=actransit&r=57](http://webservices.nextbus.com/service/publicXMLFeed?command=routeConfig&a=actransit&r=57).
->    The stop tag for Santa Clara Ave & Crescent St in Oakland is `1018530`. If you know your **stop ID** (it’s printed on bus stop signs and can also be located via Google Maps), you can search for it on the page to verify you have the right stop.
+4. Use the following URL to locate your **stop tag**: <br>
+[http://webservices.nextbus.com/service/publicXMLFeed?command=routeConfig&a=AGENCYTAG&r=ROUTETAG](http://webservices.nextbus.com/service/publicXMLFeed?command=routeConfig&a=AGENCYTAG&r=ROUTETAG). <br>
+Replace `AGENCYTAG` with your agency tag and `ROUTETAG` with your route tag. <br>
+**Example:** For AC Transit’s #57 bus, the URL would be: <br> [http://webservices.nextbus.com/service/publicXMLFeed?command=routeConfig&a=actransit&r=57](http://webservices.nextbus.com/service/publicXMLFeed?command=routeConfig&a=actransit&r=57).<br>
+On that page, the stop tag for the Santa Clara Ave & Crescent St stop is `1018530`.
 
-5. Create your full **prediction URL** by substituting in your agency tag, route tag, and stop tag into the following URL: [http://webservices.nextbus.com/service/publicXMLFeed?command=predictions&a=AGENCYTAG&r=ROUTETAG&s=STOPTAG](http://webservices.nextbus.com/service/publicXMLFeed?command=predictions&a=AGENCYTAG&r=ROUTETAG&s=STOPTAG) (see pages 13 - 15).
->    
->    **Example:** Using the examples in steps 1-4, we get [http://webservices.nextbus.com/service/publicXMLFeed?command=predictions&a=actransit&r=57&s=1018530&useShortTitles=true](http://webservices.nextbus.com/service/publicXMLFeed?command=predictions&a=actransit&r=57&s=1018530&useShortTitles=true).
+5. Use the following URL to create your full **prediction URL**: <br>
+[http://webservices.nextbus.com/service/publicXMLFeed?command=predictions&a=AGENCYTAG&r=ROUTETAG&s=STOPTAG](http://webservices.nextbus.com/service/publicXMLFeed?command=predictions&a=AGENCYTAG&r=ROUTETAG&s=STOPTAG). <br>
+Substitute in your agency tag, route tag, and stop tag. <br>
+**Example:** For AC Transit’s #57 bus at stop 1018530, the URL would be: <br>
+[http://webservices.nextbus.com/service/publicXMLFeed?command=predictions&a=actransit&r=57&s=1018530&useShortTitles=true](http://webservices.nextbus.com/service/publicXMLFeed?command=predictions&a=actransit&r=57&s=1018530&useShortTitles=true).
 
-Your data should look like this:
+The data from your prediction URL should look like this:
 ```
 <body copyright="All data copyright AC Transit 2016.">
 <predictions agencyTitle="AC Transit" routeTitle="57" routeTag="57" stopTitle="Santa Clara Av & Crescent St" stopTag="1018530">
@@ -213,7 +221,7 @@ Your data should look like this:
 </body>
 ```
 
-If you get data that looks like the data below, your URL is not formed correctly:
+If it looks like the data below, your URL is not formed correctly:
 ```
 <body copyright="All data copyright agencies listed below and NextBus Inc 2016.">
 <Error shouldRetry="false">
@@ -223,19 +231,54 @@ agency parameter "a" must be specified in query string
 ```
 If you get an error, the feed will give you an indication of what's wrong. In the example error above, it didn't get an agency tag. Check your URL to make sure you haven't deleted any of the & or = symbols, and that everything is spelled correctly.
 
-If it works, you're done creating your prediction URL!
+If it works, congrats! You're done creating your prediction URL!
 
 ### Create a webhook to retrieve prediction times
 
-Great, so we’ve got our prediction URL and we can access it from a browser, but how do we access it from the Photon? The answer is to use a **webhook**.
+Great, so we’ve got our prediction URL and we can access it from a browser, but how do we access it from the Photon? The answer is to use a **webhook**, which you can read more about in our [webhooks guide](https://docs.particle.io/guide/tools-and-features/webhooks/).
 
 Currently, webhooks can only be created via the Particle command line interface **(CLI)**. To install the Particle CLI for Windows, simply [download the installer](https://www.particle.io/cli). For Mac and Linux, first install [Node.js](https://nodejs.org/en/download/), then open a Terminal and enter `sudo npm install -g particle-cli` to install the CLI (you'll need to enter your password).
 
-Now we'll use the CLI to create a webhook to retrieve prediction times. In your Terminal (Windows users hit **[Windows Logo Key] + R** and enter **CMD** in the Run box to open a command prompt), enter the following command (substitute with your prediction URL): `particle webhook GET get_nextbus http://webservices.nextbus.com/service/publicXMLFeed?command=predictions\&a=actransit\&r=57\&s=1018530\&useShortTitles=true` **(note the use of \& instead of just &. Backslashes are required in order for the URL to be interpreted correctly)**.
+Once you've installed the Particle CLI, you'll need to log into your Particle account with the CLI. In your Terminal (Windows users hit **[Windows Logo Key] + R** and enter **CMD** in the Run box to open a command prompt):
+* Type `particle login`
+* Enter your username
+* Enter your password
 
-You’ll get some output that ends with `“Successfully created webhook with ID XXXXX...”` Great! Your webhook is created. Now let’s access it from the Photon.
+```
+Your-computer:~ yourname$ particle login
+? Please enter your email address hello@particle.io
+? Please enter your password ***********
+> Successfully completed login!
+```
 
-### Code
+Now we'll use the CLI to create a webhook to retrieve prediction times. Enter the following command (substitute with your prediction URL): <br>
+`particle webhook GET get_nextbus http://webservices.nextbus.com/service/publicXMLFeed?command=predictions\&a=actransit\&r=57\&s=1018530\&useShortTitles=true` <br>
+**(note the use of \& instead of just &. Backslashes are required in order for the URL to be interpreted correctly)**.
+
+You’ll get some output that looks like this:
+```
+Your-computer:~ yourname$ particle webhook GET get_nextbus http://webservices.nextbus.com/service/publicXMLFeed?command=predictions\&a=actransit\&r=57\&s=1018530
+Sending webhook request  { uri: '/v1/webhooks',
+  method: 'POST',
+  json:
+   { event: 'get_nextbus',
+     url: 'http://webservices.nextbus.com/service/publicXMLFeed?command=predictions&a=actransit&r=57&s=1018530',
+     deviceid: undefined,
+     requestType: 'GET',
+     mydevices: true },
+  headers: { Authorization: 'Bearer 536937662186795de3f9bb6b8016bff4015d54b4' } }
+Successfully created webhook with ID 577dbe7b30a649a105c68eca
+Your-computer:~ yourname$
+```
+Great! Your webhook is created. Now let’s access it from the Photon.
+
+### Code and OLED library
+First we’ll load the example code for this project:
+* Log into the [Particle Web IDE](http://build.particle.io)
+* Click **Libraries** in the left panel
+* Under Official Libraries, select **Maker Kit**
+* Click example #2
+* Click **Use This Example**
 
 ```
 /*****************************************************************************
@@ -244,7 +287,7 @@ Particle Maker Kit Tutorial #2: Next Bus Alert
 This tutorial uses a Particle Photon and the OLED screen from the Particle
 Maker Kit. It uses a webhook to retrieve bus prediction times from the
 NextBus Public XML feed, which must be set up first along with the webhook.
-See [http://docs.particle.io/tutorials/maker-kit/#tutorial-2-display-next-bus-time-on-the-oled-screen] to learn how!
+See [http://docs.particle.io/tutorials/maker-kit/] to learn how!
 ******************************************************************************/
 
 #include "Adafruit_SSD1306/Adafruit_GFX.h"
@@ -391,12 +434,20 @@ void getBusTimes() {
 This function **publishes** an **event** called *get_nextbus* to the Particle cloud. If you remember, we used this event name when we created the webhook. Further down, you'll see
 ```
 // retrieve the webhook data and send it to the gotNextBusData function
-Particle.subscribe("hook-response/get_nextbus", gotNextBusData, MY_DEVICES);
+Particle.subscribe("hook-response/get_nextbus/0", gotNextBusData, MY_DEVICES);
 ```
-This line **subscribes** your device to the *get_nextbus* event, which pulls in data coming from the webhook attached to it. It then sends that data to a function called *gotNextBusData*, which parses all the XML and pulls out the tiny bits we need, which are the number of **minutes** for the next two buses. See our [publish and subscribe](https://docs.particle.io/guide/getting-started/examples/photon/#the-buddy-system-publish-and-subscribe) guide for more info on publishing and subscribing.
+This line **subscribes** your device to the *get_nextbus* event, which pulls in data coming from the webhook attached to it. (The /0 tells it to reference the first chunk of data, since there are a few of them.) It then sends that data to a function called *gotNextBusData*, which parses all the XML and pulls out the tiny bits we need, which are the number of **minutes** for the next two buses. See our [publish and subscribe](https://docs.particle.io/guide/getting-started/examples/photon/#the-buddy-system-publish-and-subscribe) guide for more info on publishing and subscribing.
 
 ### Connecting the OLED screen
-Now that the webhook is ready, we'll wire up the **OLED screen**. Press the OLED screen into the breadboard, then connect the pins according to this diagram.
+Now that the webhook is ready, we can connect the **OLED screen**. We'll start by adding the OLED screen library to our project:
+* Click the **Libraries** icon on the left sidebar
+* Search for **Adafruit_SSD1306** in the search box
+* Click the Adafruit_SSD1306 library
+* Click the **Include in App** button
+* Select your code to add the library to
+* Click **Add to This App**
+
+Now for the hardware. Press the OLED screen into the breadboard, then connect the pins according to this diagram.
 
 ![Fritzing diagram - how to hook up the Particle Photon to the Maker Kit LED screen](/assets/images/nextbus-fritzing.png)
 
@@ -409,15 +460,15 @@ Wiring (Photon ⇒ OLED screen):
 * 3V3 ⇒ VCC
 * GND ⇒ GND
 
-Then press the piezo buzzer into the breadboard and connect the long pin to D0 and the short pin to GND. The long pin has a plus sign over it on the top of the buzzer.
+Then press the piezo buzzer into the breadboard and connect the long pin to D0 and the short pin to GND. The long pin has a plus sign engraved over it on the top of the buzzer.
 
 ### Upload and test!
 Plug in your Photon and upload the code! If all goes well, the screen will immediately start scrolling `[bus number] in xx and yy min`, where xx and yy are the times for the next two buses.
 
 [GIF of scrolling]
 
-### Cool feature: software timer
-The reason we're able to have scrolling code that runs constantly in our *loop()* function, yet still be able to trigger the webhook every 60 seconds, is that we're using a **software timer**. Software timers are hugely powerful because they allow functions to be triggered independently of other code. It's possible to do this without a software timer by using *millis()*, but a bonafide software timer makes it much neater.
+### Additional reading: software timer
+If you're interested in how we're able to have scrolling code that runs constantly in our *loop()* function, yet still be able to trigger the webhook every 60 seconds, the reason is that we're using a **software timer**. Software timers are hugely powerful because they allow functions to be triggered independently of other code. It's possible to do this without a software timer by using *millis()*, but a bonafide software timer makes it much neater.
 
 If you look in the code for this project, you'll see:
 ```
@@ -447,3 +498,144 @@ By keeping these functions separate from the main *loop()* function, code can be
 
 **I missed my bus because I was hypnotized by the fancy scrolling OLED screen.**
 * Don't worry, it happens to the best of us.
+
+
+
+
+
+## Tutorial #3: Slack-Integrated Conference Room Monitor
+Wouldn’t it be awesome to be able to know whether someone is occupying your office’s conference room, without getting up from your desk? In this tutorial, you’ll learn how to use the Maker Kit PIR motion sensor, and how to integrate it with Slack using webhooks. PIR sensors detect subtle changes in infrared light, so they're particularly good for sensing people, animals, or other warm (or bright, since many lights also produce infrared) objects -- regardless of whether it's dark or not. There are many use cases for this, but for this tutorial we’re going to make a Slack channel that gets real-time updates of whether a conference room is in use.
+
+### Set up a Slack Incoming Webhook
+A Slack Incoming Webhook listens for data from an external source and then posts it to a Slack channel of your choosing.
+
+First, make a channel for the webhook to post in. This example is for conference room availability, so we’ll make a channel called #conferenceroom. Next, click the gear icon and choose “Add an app or integration”.
+![Add a new Slack integration](/assets/images/conf-add-slack-integration.png)
+
+Now we'll create the webhook itself. Type `incoming webhooks` into the search box, then click Incoming WebHooks.
+![Add a new Slack webhook](/assets/images/conf-add-slack-webhook0.png)
+
+Click the **Add Configuration** button.
+![Add a new Slack webhook](/assets/images/conf-add-slack-webhook1.png)
+
+Choose a channel to post to. In this case, it’s #conferenceroom. If you’d rather keep this project to yourself, you can select "Privately to @yourname".
+![Add a new Slack webhook](/assets/images/conf-add-slack-webhook2.png)
+
+Locate your **Webhook URL**. This URL is what we’ll be sending data to via the Particle Cloud.
+![Add a new Slack webhook](/assets/images/conf-add-slack-webhook3.png)
+
+Scroll down to **Integration Settings** and give your webhook a descriptive label, name, and icon, then click **Save Settings**.
+![Add a new Slack webhook](/assets/images/conf-add-slack-webhook4.png)
+
+### Create Particle webhooks
+Many Slack integrations require dedicated web servers running PHP scripts to process information to and from Slack. However, in our case we can just use Particle webhooks to talk to the Slack webhook, and create our integration with ease. We’ll make one webhook to tell Slack that the conference room is available, and another webhook to tell Slack that the conference room is in use.
+
+Go to the [Particle Dashboard](http://dashboard.particle.io) and click the **Integrations** tab, then click **New Integration**.
+![Add a new Particle webhook](/assets/images/conf-add-particle-webhook0.png)
+
+Click **Webhook** to get to the Webhook Builder.
+![Add a new Particle webhook](/assets/images/conf-add-particle-webhook1.png)
+
+Now we’ll make a webhook that tells Slack the conference room is available. In the Webhook Builder, under **Event Name**, enter `conf_avail`. Then paste your Slack webhook URL under **URL**.
+![Add a new Particle webhook](/assets/images/conf-add-particle-webhook2.png)
+
+Expand **Advanced Settings** and choose **JSON**. Paste the following code:
+```
+{
+	“text”: “The conference room is available.”
+}
+```
+![Add a new Particle webhook](/assets/images/conf-add-particle-webhook3.png)
+
+Then Scroll down to the bottom and hit **Create Webhook**.
+
+Great! Now **repeat the process again** to create the second webhook, but use `conf_inuse` as the event name, and change the text to say `The conference room is in use.`
+![Add a new Particle webhook](/assets/images/conf-add-particle-webhook4.png)
+
+### Photon → Webhook Code
+Now we'll look at the code used to activate the webhook from a Photon. Here's all the code used in the project:
+```
+/*****************************************************************************
+Particle Maker Kit Tutorial #3: PIR Motion Sensor
+
+This tutorial uses a Photon and the PIR motion sensor from the Particle Maker
+Kit to determine whether a conference room is in use (you could also use it
+for many other applications) and post the status to Slack.
+******************************************************************************/
+
+int ledPin = D7;                 // choose the pin for the LED
+int inputPin = D0;               // choose the PIR sensor pin
+bool available;                  // status of conference room
+int motionCounter = 0;           // variable to count motion events
+
+Timer timer(30000, determineMotion); // software timer to check every 30s
+
+void setup() {
+  pinMode(ledPin, OUTPUT);       // set LED as output
+  pinMode(inputPin, INPUT);      // set sensor as input
+
+  timer.start(); // start the determineMotion timer
+}
+
+void determineMotion() {    // this function determines if there's motion
+    if(motionCounter < 2) { // if very little motion was detected
+        if(available == false) { // only publish if the status changed
+            Particle.publish("conf_avail"); //publish to conf_avail webhook
+            }
+        available = true; // set the status to available
+    } else if (motionCounter >= 2) {
+        if(available == true) { // only publish if the status changed
+            Particle.publish("conf_inuse"); //publish to conf_inuse webhook
+            }
+        available = false; // set the status to in use
+    }
+    motionCounter = 0; // reset motion counter
+}
+
+void loop() {
+  if (digitalRead(inputPin) == HIGH) {  // check if the input is HIGH
+    digitalWrite(ledPin, HIGH);         // turn LED ON if high
+    motionCounter++;                    // increment motion counter
+  } else {
+    digitalWrite(ledPin, LOW);          // turn LED OFF if no input
+  }
+  delay(500);                           // wait 0.5s
+}
+```
+The code that activates the webhooks is:
+```
+Particle.publish("conf_avail"); //publish to conf_avail webhook
+```
+and
+```
+Particle.publish("conf_inuse"); //publish to conf_inuse webhook
+```
+The name of the events being published matches the event name parameters in the webhooks we just made.
+
+Check out the Publish and Subscribe references for more information.
+
+### Set up the hardware
+On the PIR sensor itself, with the back of the PCB facing up, find the two small potentiometers. The one on the left controls the range of the sensor (3-7 meters), and the one on the right controls how long the sensor stays triggered once tripped (1.5 - 300 seconds). Set the range potentiometer to the size of your conference room, or just turn it all the way to the right if your conference room has no windows. Set the second potentiometer all the way to the left (counterclockwise) to maximize its timing resolution.
+![Set the range and blocking time for the PIR sensor](/assets/images/conf-pir-potentiometers.jpg)
+
+Now we'll connect the PIR sensor to the Photon. Press the sensor into the upper-left corner of your breadboard, then connect it to the Photon as follows:
+![Connecting a PIR sensor to a Particle Photon](/assets/images/conf-fritzing-diagram.png)
+
+### Flash the code to the Photon
+Plug in your Photon and flash the code to it. If all goes well, the D7 LED on your Photon should light up when the sensor detects motion. Note that it stays tripped for a second or two, so it may appear to be sluggish. To make sure it's actually working, hold perfectly still for a few seconds, then move. You'll find that it's sensitive enough to detect very subtle motion, which is great.
+
+Check your Slack #conferenceroom channel to see the updates! The code only reports the conference room as available if it detects no motion for 30 seconds, so if you want to test it out, put a towel or piece of paper over the sensor.
+
+### Some other applications
+This sensor and webhook integration are very versatile. You could use it for any number of applications, such as:
+* Reporting when a pet visits its food bowl
+* Reporting when someone enters your house or a building (it works in the dark!)
+* Reporting when the refrigerator is opened
+* Industrial applications like reporting how often vehicles frequent a particular road or when certain facilities are in use
+
+### Troubleshooting
+**My channel shows that the room is in use, but doesn't show that it's available (or the reverse).**
+* This setup is designed to only show the room as available if no motion has been detected for 30 seconds. Try putting a blanket over the sensor to completely block all motion.
+* Did you create webhooks for both in use and available? Did you spell the event names properly, such that they match the code?
+
+If you have issues that can't be solved here, post on our [community forums](community.particle.io).
