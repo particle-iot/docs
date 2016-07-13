@@ -7,7 +7,7 @@ order: 10
 
 # {{title}}
 
-This section provides tutorials for new users of the [Particle Maker Kit](https://store.particle.io/collections/shields-and-kits#particle-maker-kit) to get started quickly and build some projects using the contents of the kit.
+This section provides tutorials for new users of the [Particle Maker Kit](https://store.particle.io/collections/shields-and-kits#particle-maker-kit) to get started quickly and build some projects using the contents of the kit. These tutorials assume you’ve gone through the [Getting Started](/guide/getting-started/intro/photon/) guide and have set up your Photon. If not, head over there first.
 
 ![Photon Maker Kit](/assets/images/maker-kit-box.jpg)
 
@@ -16,12 +16,6 @@ This section provides tutorials for new users of the [Particle Maker Kit](https:
 In this beginner tutorial, you’ll learn how to connect the Maker Kit servo to your Photon, and how to control it via the web using the [Do Button](https://ifttt.com/products/do/button) app on your smartphone to ring a gong or other noise-making object.
 
 <iframe width="500" height="180" src="https://www.youtube.com/embed/SAE3dq_ChZw?rel=0" frameborder="0" allowfullscreen></iframe>
-
-```
-Note: see if we can make the video larger on the page or open in a lightbox type thing.
-```
-
-This tutorial assumes you’ve gone through the [Getting Started](/guide/getting-started/intro/photon/) guide, have set up your Photon, and are familiar with using the online IDE. If not, head over there first.
 
 ### What you'll need
 
@@ -173,16 +167,16 @@ Discover more projects at [particle.hackster.io](http://particle.hackster.io), a
 
 ## Tutorial #2: Next Bus Alert
 
-In this tutorial, you’ll learn how to to get bus prediction times from the internet and display them on the Maker Kit OLED screen. You'll learn what a webhook is, and how to use it to get the prediction data to your Photon. Lastly, you'll wire up the OLED screen and display the bus alerts with fancy marquee scrolling. Here's how:
-* Discover your bus prediction URL
-* Set up a webhook
-* Subscribe to the webhook from the Photon
-* Add the library for the OLED screen
-* Wire up the OLED screen and display bus times
+In this tutorial, you’ll learn how to to get bus prediction times from the internet and display them on the Maker Kit OLED screen, which will provide alerts for upcoming buses. You'll also learn what a webhook is, and how to use it to get the prediction data to your Photon. Then you'll wire up the OLED screen and display the bus alerts with fancy marquee scrolling. Here's how:
+* Discover your bus **prediction URL**
+* Set up a **webhook**
+* **Subscribe** to the webhook from the Photon
+* Add the **library** for the OLED screen
+* Wire up the **OLED screen** and display bus times
 
+<img src="/assets/images/nextbus-alert-scrolling.gif" alt="Next bus alerts scrolling on the OLED screen with a Particle Photon" style="width: 433px;" />
 
-
-### Discover your prediction URL
+### Discover your bus prediction URL
 
 The **NextBus Public XML Feed** allows anyone to get prediction times for many municipal transit agencies across the United States (many other countries also have their own public transit feeds). But in order to use it to get times for a specific bus at a specific stop, we first have to use the feed itself to figure out what information to send to it. NextBus provides a [document](https://www.nextbus.com/xmlFeedDocs/NextBusXMLFeed.pdf) that shows how to enter query URLs to get back the information we need. The relevant URLs have been pulled from the document and into the steps below, but feel free to reference the document if you'd like more information.
 
@@ -452,7 +446,7 @@ Now that the webhook is ready, we can connect the **OLED screen**. We'll start b
 * Select your code to add the library to
 * Click **Add to This App**
 
-Now for the hardware. Press the OLED screen into the breadboard, making sure the pins go in separate rows (i.e. 24-30), not all in the same row. Then connect the pins according to this diagram:
+Now for the hardware! Press the OLED screen into the breadboard, making sure the pins go in separate rows (i.e. 24-30), not all in the same row. Then connect the pins according to this diagram:
 
 ![Fritzing diagram - how to hook up the Particle Photon to the Maker Kit LED screen](/assets/images/nextbus-fritzing.png)
 
