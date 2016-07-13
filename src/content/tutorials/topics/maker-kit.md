@@ -153,7 +153,7 @@ You can also do other fun things using IFTTT without the Do Button, such as turn
 7. Enter "**alarm**" in the input field (the code makes it ring three times instead of one)
 8. Click **Create Action**, then click **Create Recipe** to finish the process
 
-Discover more projects at [particle.hackster.io](http://particle.hackster.io), and join our community at [community.particle.io](http://community.particle.io).
+Discover more projects at [particle.hackster.io](http://particle.hackster.io), and join our community at [community.particle.io](https://community.particle.io).
 
 ### Troubleshooting
 
@@ -163,7 +163,7 @@ Discover more projects at [particle.hackster.io](http://particle.hackster.io), a
 
 **When I press the Do Button, nothing happens.** If you were able to successfully create a recipe for your device but nothing happens when you press the Do Button, try moving your device closer to your wifi router or access point.
 
-**I get an error when I try to flash the code to my Photon.** There could be many reasons for this. If your Photon is not breathing cyan, check the [device modes guide](https://docs.particle.io/guide/getting-started/modes/photon/). Search our [forums](http://community.particle.io) for your error or ask a question, or send an email to [support@particle.io](mailto:support@particle.io) with your error message.
+**I get an error when I try to flash the code to my Photon.** There could be many reasons for this. If your Photon is not breathing cyan, check the [device modes guide](https://docs.particle.io/guide/getting-started/modes/photon/). Search our [forums](https://community.particle.io) for your error or ask a question, or send an email to [support@particle.io](mailto:support@particle.io) with your error message.
 
 
 
@@ -641,4 +641,4 @@ This sensor and webhook integration are very versatile. You could use it for any
 * This setup is designed to only show the room as available if no motion has been detected for 30 seconds. Try putting a blanket over the sensor to completely block all motion.
 * Did you create webhooks for both in use and available? Did you spell the event names properly, such that they match the code?
 
-If you have issues that can't be solved here, post on our [community forums](community.particle.io).
+If you have issues that can't be solved here, post on our [community forums](https://community.particle.io).

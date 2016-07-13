@@ -12,14 +12,14 @@ order: 9
 Connected devices nearly always require certifications that ensure they operate within the wireless transmission specifications determined by international regulatory bodies like the FCC and CE. This part of the guide will provide you with more information on how to leverage Particle's existing certifications to reduce the cost, complexity, and time associated with demonstrating regulatory compliance with your end product.
 
 ### Table of Contents
- - [FCC](https://docs.particle.io/guide/how-to-build-a-product/certification/#fcc-img-class-inline-header-image-src-assets-images-logo-fcc-png-) - United States
- - [IC](https://docs.particle.io/guide/how-to-build-a-product/certification/#ic-img-class-inline-header-image-src-assets-images-logo-ic-png-) - Canada
- - [CE](https://docs.particle.io/guide/how-to-build-a-product/certification/#ce-img-class-inline-header-image-src-assets-images-logo-ce-png-) - Europe
- - [TELEC](https://docs.particle.io/guide/how-to-build-a-product/certification/#telec-img-class-inline-header-image-src-assets-images-logo-telec-png-) - Japan
- - [RoHS](https://docs.particle.io/guide/how-to-build-a-product/certification/#rohs-img-class-inline-header-image-src-assets-images-logo-rohs-png-) - Europe
- - [UL](https://docs.particle.io/guide/how-to-build-a-product/certification/#ul-img-class-inline-header-image-src-assets-images-logo-ul-png-) - World
- - [Cellular Certifications](https://docs.particle.io/guide/how-to-build-a-product/certification/#cellular-certifications) - World
- - [Battery Certifications](https://docs.particle.io/guide/how-to-build-a-product/certification/#battery-certifications) - World
+ - [FCC](#fcc-img-class-inline-header-image-src-assets-images-logo-fcc-png-) - United States
+ - [IC](#ic-img-class-inline-header-image-src-assets-images-logo-ic-png-) - Canada
+ - [CE](#ce-img-class-inline-header-image-src-assets-images-logo-ce-png-) - Europe
+ - [TELEC](#telec-img-class-inline-header-image-src-assets-images-logo-telec-png-) - Japan
+ - [RoHS](#rohs-img-class-inline-header-image-src-assets-images-logo-rohs-png-) - Europe
+ - [UL](#ul-img-class-inline-header-image-src-assets-images-logo-ul-png-) - World
+ - [Cellular Certifications](#cellular-certifications) - World
+ - [Battery Certifications](#battery-certifications) - World
 
 
 Here is a graphical representation of the current state of certification across Particle's hardware portfolio:
@@ -144,7 +144,7 @@ For certificates of conformity, search [here](https://sms-sgs.ic.gc.ca/search/ra
 ## CE <img class="inline-header-image" src="/assets/images/logo-ce.png"/>
 
 ### Description
- - **Website**: [http://ec.europa.eu/growth/single-market/ce-marking/index_en.htm](http://ec.europa.eu/growth/single-market/ce-marking/index_en.htm)
+ - **Website**: [https://ec.europa.eu/growth/single-market/ce-marking/](https://ec.europa.eu/growth/single-market/ce-marking/)
  - **Wikipedia**: [http://en.wikipedia.org/wiki/CE_marking](http://en.wikipedia.org/wiki/CE_marking)
  - **Domain**: Europe
 
