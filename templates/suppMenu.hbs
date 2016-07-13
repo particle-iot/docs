@@ -7,7 +7,7 @@
 <script src='/assets/js/checkform.js'></script>
 </head>
 
-<body onload="myFunction()">
+<body onload="detectBrowser()">
 
 <div id="docs" data-level>
   {{> header}}
@@ -76,46 +76,183 @@
               <legend>Do you have a different question?</legend>
 
               <select id="category" name="category" class="feedback-input" required="required">
-                <option disabled selected> Please select a Category</option>
-                <option>Orders</option>
-                <option>Shipping</option>
-                <option>Cellular Service</option>
-                <option>Technical Help</option>
-                <option>Billing</option>
-                <option>Business Questions</option>
+                <option value="" disabled selected>--Select a category--</option>
+                <option value="Hardware">Hardware: Devices, Firmware, and Setup</option>
+                <option value="Software">Software: Tools, IDEs and Console</option>
+                <option value="Infrastructure">Infrastructure: Cloud and Cellular</option>
+                <option value="Orders">Shipping, Billing and Returns</option>
+                <option value="Enterprise">Enterprise: Product Development &amp; Sales, Distributors</option>
+                <option value="Other">Other Questions</option>
               </select>
 
-              <select id="secondmenu" name="subOptions" class="feedback-input" required="required"></select>
+              <select id="detailmenu" name="detailOptions" class="feedback-input" style="display: none"></select>
+              <select id="questionmenu" name="subOptions" class="feedback-input" required="required"></select>
 
               <script>
               jQuery(function($) {
-                  var secondmenus = {
-                      'Orders': ['--Select a Order Topic--','Order Status','Something wrong with shopping cart',
-                                  'Update my Address', 'I may need a refund', 'I am tax exempt, what should I do?', 'Do you offer student discounts?'],
-                      'Shipping': ['--Select a Shipping Topic--','Where is my package?', 'What is my tracking number?','Where is my Electron?',
-                                  'I need an invoice'],
-                      'Cellular Service': ['--Select a Cellular Service Topic--','What is the cellular coverage?', 'What is my data cap?', 'Is there a cellular outage?',
-                                  'I am using a non-Particle SIM card', 'Is the Particle Cloud down?', 'Can I travel to other countries and my Electron still work?'],
-                      'Technical Help': ['--Select a Technical Topic--','Help claiming a device', 'Troubleshooting the P0/P1', 'Troubleshooting the Photon',
-                                        'Troubleshooting the Electron', 'Troubleshooting the Core', 'Building a product on Particle',
-                                        'A particle shield/kit/accessory', 'Particle Dashboard','Is the Particle Cloud down?', 'Other technical question'],
-                      'Billing': ['--Select a Billing Topic--','What am I being charged for?', 'Why am I being charged monthly?', 'What is my data limit + cost?',
-                                  'How do I update my credit card?', 'I may need a refund on my data', 'I may need a refund on the dashboard',
-                                  'Other billing questions'],
-                      'Business Questions': ['--Select a Business Topic--','I am interested in selling Particle products', 'I would like to write about you!',
-                                  'Can you sponsor my event?', 'You are awesome and I just want to tell you that!']
+                  var details = {
+                      "Hardware": [
+                          "--Select a device--",
+                          "Photon",
+                          "Electron",
+                          "Core",
+                          "Particle Shield or Kit",
+                          "Other",
+                      ],
+
+                      "Software": [
+                          "--Select a tool--",
+                          "CLI",
+                          "Build (Web IDE)",
+                          "Dev (Desktop IDE)",
+                          "Mobile App",
+                          "Console",
+                          "Other",
+                      ]
+                  };
+
+                  var questions = {
+                      "Hardware": [
+                          "--Select a hardware question--",
+                          "I'm unable to setup my device",
+                          "I'm unable to claim my device",
+                          "I'm unable to get my device online",
+                          "I'm unable to flash my device",
+                          "My device is showing up as the wrong type",
+                          "My device is crashing / not operating correctly",
+                          "I'm having an issue with a Particle library.",
+                          "I'm having an issue with a firmware feature",
+                          "My device has a hardware defect",
+                          "My device is doing something else",
+                          "I'm having trouble with my SIM card",
+                          "I have another question not listed here",
+                      ],
+
+                      "Software": [
+                          "--Select a software question--",
+                          "I'm unable to claim a device",
+                          "I'm unable to flash a device",
+                          "I'm unable to login",
+                          "I'm unable to pull a device list",
+                          "I'm unable to logout",
+                          "I'm unable to add an app",
+                          "I'm unable to add a library",
+                          "I'm unable to view device logs",
+                          "An app I wrote is missing",
+                          "A device is showing up as the wrong kind of device",
+                          "I have another question not listed here",
+                      ],
+
+                      "Infrastructure": [
+                          "--Select an infrastructure question--",
+                          "The API isn't working",
+                          "My SIM card isn't working",
+                          "My webhooks are not working",
+                          "I'm having issues with the Spark Server",
+                          "I have another question not listed here",
+                      ],
+
+                      "Orders": [
+                          "--Select a shipping/returns question--",
+                          "Where is my package?",
+                          "I need an invoice for my store purchase.",
+                          "I need a return/refund.",
+                          "Did my payment go through?",
+                          "--Select a billing question--",
+                          "What was I charged for?",
+                          "How do I apply my 3 month promo code to my account?",
+                          "I need an invoice for my subscription service.",
+                          "I have another question not listed here",
+                      ],
+
+                      "Enterprise": [
+                          "--Select an enterprise question--",
+                          "I would like to become a distributor.",
+                          "I would like to place a large order (100+ units)",
+                          "I would like to develop a product on your platform.",
+                          "I have a general enterprise question.",
+                          "I would like to place a tax-exempt order. ",
+                          "I have another question not listed here",
+                      ],
+
+                      "Other": [
+                          "--Select another question--",
+                          "What products do you sell?",
+                          "I submitted my resume and I’d like to follow up.",
+                          "I’d like Particle to sponsor or attend my event.",
+                          "I have a feature request",
+                          "What is the timeline on a product",
+                          "When will a product come back in stock?",
+                          "I'd like help with a project requiring contractor work",
+                          "I have another question not listed here",
+                      ],
                   }
 
-                  var $secondmenus = $('#secondmenu');
-                  $('#category').change(function () {
-                      var category = $(this).val(), lcns = secondmenus[category] || [];
+                  var $categorymenu = $('#category');
+                  var $questionmenu = $('#questionmenu');
+                  var $detailmenu = $('#detailmenu');
+                  
+                  $categorymenu.change(function () {
+                      function populateMenu($menu, items) {
+                          var first = true;
+                          var html = $.map(items, function (s) {
+                              var $item = $('<option>');
+                              if(s.match(/^--/)) {
+                                $item.attr('disabled', true).attr('value', '');
+                              } else {
+                                $item.attr('value', s);
+                              }
+                              if(first) {
+                                $item.attr('selected', true);
+                                first = false;
+                              }
+                              return $item.html(s);
+                          });
+                          $menu.html(html);
+                      }
 
-                      var html = $.map(lcns, function(lcn){
-                          return '<option value="' + lcn + '">' + lcn + '</option>'
-                      }).join('');
-                      $secondmenus.html(html);
+                      var category = $(this).val();
+                      var categoryDetails = details[category];
+                      var categoryQuestions = questions[category] || [];
+
+                      $detailmenu.toggle(!!categoryDetails).attr('required', !!categoryDetails);
+                      if(categoryDetails) {
+                          populateMenu($detailmenu, categoryDetails);
+                      }
+
+                      populateMenu($questionmenu, categoryQuestions);
                   });
 
+                  // Helper function to print all possible topics
+                  window.printTopics = function () {
+                      var topics = [];
+
+                      var $categories = $categorymenu.find('option');
+                      for(var i = 0; i < $categories.length; i++) {
+                          var category = $($categories[i]).val();
+
+                          var categoryDetails = details[category] || [''];
+                          var categoryQuestions = questions[category] || [];
+
+                          for(var j = 0; j < categoryDetails.length; j++) {
+                              var categoryDetail = categoryDetails[j];
+                              if(categoryDetail.match(/^--/)) {
+                                  continue;
+                              }
+                              for(var k = 0; k < categoryQuestions.length; k++) {
+                                  var categoryQuestion = categoryQuestions[k];
+                                  if(categoryQuestion.match(/^--/)) {
+                                      continue;
+                                  }
+                                  topics.push(category +
+                                          (categoryDetail ? ' (' + categoryDetail + ')' : '') +
+                                           ': ' + categoryQuestion);
+                              }
+                          }
+                      }
+
+                      console.log(topics.join('\n'));
+                  };
               })
               </script>
 
@@ -134,38 +271,9 @@
                 <textarea type="text" name="text" class="validate[required,length[6,300]] feedback-input" id="comment" placeholder="Message" required="required"></textarea>
               </p>
 
-
-              <script>
-              jQuery(function($) {
-                $('#name').change(function () {
-                 var ggo = $('#secondmenu').val();
-                 if (ggo.indexOf('--') >= 0){
-                    alert("Please select a valid sub-topic.");
-                  }
-                  console.log(ggo[0]);
-                });
-
-                $('#email').change(function () {
-                 var ggo = $('#secondmenu').val();
-                 if (ggo.indexOf('--') >= 0){
-                    alert("Please select a valid sub-topic.");
-                  }
-                  console.log(ggo[0]);
-                });
-
-                $('#comment').change(function () {
-                 var ggo = $('#secondmenu').val();
-                 if (ggo.indexOf('--') >= 0){
-                    alert("Please select a valid sub-topic.");
-                  }
-                  console.log(ggo[0]);
-                });
-
-              })
-              </script>
               <script>
 
-              function myFunction() { 
+              function detectBrowser() { 
                 //console.log(navigator);
                if((navigator.userAgent.indexOf("Opera") || navigator.userAgent.indexOf('OPR')) != -1 ) 
               {
