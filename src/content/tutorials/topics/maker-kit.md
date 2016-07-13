@@ -171,9 +171,16 @@ Discover more projects at [particle.hackster.io](http://particle.hackster.io), a
 
 
 
-## Tutorial #2: Display next bus time on the OLED screen
+## Tutorial #2: Next Bus Alert
 
-Welcome to the second tutorial in our Maker Kit tutorial series. In this tutorial, you’ll use Particle webhooks to get the estimated time until the bus comes to a stop of your choosing. Then you’ll display it on the Maker Kit OLED screen with fancy marquee scrolling, which is made possible by the use of a software timer.
+In this tutorial, you’ll learn how to to get bus prediction times from the internet and display them on the Maker Kit OLED screen. You'll learn what a webhook is, and how to use it to get the prediction data to your Photon. Lastly, you'll wire up the OLED screen and display the bus alerts with fancy marquee scrolling. Here's how:
+* Discover your bus prediction URL
+* Set up a webhook
+* Subscribe to the webhook from the Photon
+* Add the library for the OLED screen
+* Wire up the OLED screen and display bus times
+
+
 
 ### Discover your prediction URL
 
@@ -280,6 +287,8 @@ First we’ll load the example code for this project:
 * Click example #2
 * Click **Use This Example**
 
+Here's the code:
+
 ```
 /*****************************************************************************
 Particle Maker Kit Tutorial #2: Next Bus Alert
@@ -287,11 +296,11 @@ Particle Maker Kit Tutorial #2: Next Bus Alert
 This tutorial uses a Particle Photon and the OLED screen from the Particle
 Maker Kit. It uses a webhook to retrieve bus prediction times from the
 NextBus Public XML feed, which must be set up first along with the webhook.
-See [http://docs.particle.io/tutorials/maker-kit/] to learn how!
-******************************************************************************/
+See http://docs.particle.io/tutorials/topics/maker-kit to learn how!
 
-#include "Adafruit_SSD1306/Adafruit_GFX.h"
-#include "Adafruit_SSD1306/Adafruit_SSD1306.h"
+NOTE: This code example requires the Adafruit_SSD1306 library to be included,
+so make sure to add it via the Libraries tab in the left sidebar.
+******************************************************************************/
 
 // use hardware SPI
 #define OLED_DC     D3
@@ -300,10 +309,11 @@ See [http://docs.particle.io/tutorials/maker-kit/] to learn how!
 Adafruit_SSD1306 display(OLED_DC, OLED_RESET, OLED_CS);
 
 String busName = "57"; // name of your bus -- FILL THIS IN!
-int leadTime = 5; // #minute you need to get to your bus -- FILL THIS IN!
+int leadTime = 5; // #minutes you need to get to your bus -- FILL THIS IN!
 int soonestBusTime = 99; // #minutes until next bus (99 is a placeholder)
-int nextSoonestBusTime = 88; // #minutes until bus after next (88 = placeholder)
-int gaveWarning = false; // to make sure we don't give bus warning too often
+int nextSoonestBusTime = 88; // #minutes until bus after next (88 is a placeholder)
+String soonestStr, nextSoonestStr; // strings for parsing
+int gaveWarning = false; // variable to make sure we don't give bus warning too often
 int  x, minX; // variables for scrolling code
 
 void getBusTimes() {
@@ -314,33 +324,31 @@ void getBusTimes() {
 // create a software timer to get new prediction times every minute
 Timer timer(60000, getBusTimes);
 
-// create another software timer to reset the warning beep so it only beeps
-// once per bus that's close by
-//Timer timer2(leadTime*60000, resetWarning);
+void setup()   {
+  // start the data retrieval timer
+  timer.start();
 
-void setup()   {                
-  Serial.begin(9600);
-
-  //retrieve the webhook data and send it to the gotNextBusData function
+  //subscribe to the get_nextbus event so we can get the data from the webhook
   Particle.subscribe("hook-response/get_nextbus/0", gotNextBusData, MY_DEVICES);
 
-  // by default, we'll generate the high voltage from the 3.3v line internally!
+  Particle.publish("get_nextbus"); // publish the event to trigger the data
+  delay(2000); // wait for data to arrive
+
+  // by default, we'll generate the high voltage from the 3.3v line internally! (neat!)
   display.begin(SSD1306_SWITCHCAPVCC);
 
   display.setTextSize(7);       // text size
   display.setTextColor(WHITE); // text color
   display.setTextWrap(false); // turn off text wrapping so we can do scrolling
-  x    = display.width(); // set x to display width
-  minX = -1500; // 1500 = 6 pixels/character * text size 7 * 15 chars * 2x slow
-
-  timer.start(); // start the data retrieval timer
+  x    = display.width(); // set scrolling frame to display width
+  minX = -1500; // 630 = 6 pixels/character * text size 7 * 15 characters * 2x slower
 }
 
 void loop() {
 
-  // this code displays next bus times on the OLED screen with fancy scrolling
+  // this code displays the next bus times on the OLED screen with fancy scrolling
   display.clearDisplay();
-  display.setCursor(x/2, 8);
+  display.setCursor(x/2, 7);
   display.print(busName);
   display.print(" in ");
   display.print(soonestBusTime);
@@ -351,7 +359,7 @@ void loop() {
   if(--x < minX) x = display.width()*2;
 
   // give a "time to leave!" beeping warning, but only once per bus
-  if(soonestBusTime < leadTime && gaveWarning == false)
+  if(soonestBusTime <= leadTime && gaveWarning == false)
   {
       for (int i=0; i<3; i++)
       {
@@ -364,7 +372,7 @@ void loop() {
   // reset the beeping warning flag so we can warn about the next bus
   else if(soonestBusTime > leadTime && gaveWarning == true)
   {
-      gaveWarning == false;
+      gaveWarning = false;
   }
 }
 
@@ -375,21 +383,18 @@ void gotNextBusData(const char *name, const char *data) {
     // put the incoming data (the XML page) into a string called "str"
     String str = String(data);
 
-    // send str to the tryExtractString function,
-    //looking for the first instance (0) of "minutes=\""
-    String soonestStr = tryExtractString(0, str, "minutes=\"", "\"");
-    // turn extracted bus time into an integer and store it in soonestBusTime
+    // send str to the tryExtractString function, looking for the first instance (0) of "minutes=\""
+    soonestStr = tryExtractString(0, str, "minutes=\"", "\"");
+    // turn the extracted bus time into an integer and store it in soonestBusTime
     soonestBusTime = soonestStr.toInt();
 
-    // send str to the tryExtractString function,
-    // looking for the second instance (1) of "minutes=\""
-    String nextSoonestStr = tryExtractString(1, str, "minutes=\"", "\"");
-    // turn extracted bus time into integer and store it in nextSoonestBusTime
+    // send str to the tryExtractString function, looking for the second instance (1) of "minutes=\""
+    nextSoonestStr = tryExtractString(1, str, "minutes=\"", "\"");
+    // turn the extracted bus time into an integer and store it in nextSoonestBusTime
     nextSoonestBusTime = nextSoonestStr.toInt();
 }
 
-// this function gets called by gotNextBusData to
-// extract the bus times from the NextBus XML page
+// this function gets called by gotNextBusData to extract the bus times from the NextBus XML page
 String tryExtractString(int matchNum, String str, const char* start, const char* end) {
     if (str == NULL) {
         return NULL;
@@ -413,15 +418,6 @@ String tryExtractString(int matchNum, String str, const char* start, const char*
 }
 ```
 
-### Fill in your bus name and lead time
-Near the top of the code above, you'll see:
-```
-String busName = "57"; // name of your bus -- FILL THIS IN!
-int leadTime = 5; // #minutes you need to get to your bus -- FILL THIS IN!
-```
-* **busName:** Later, once you set everything up, the name of your bus will display on the screen along with the prediction time. Using the example above, you would see something like `57 in 5, 15 min`. Change it to match the name of your bus.
-* **leadTime:** This is used to alert you with beeps that it's time to leave. Change it to the number of minutes you'll need in order to get comfortably to the bus stop. Don't forget to leave time to put on your shoes!
-
 ### Publish and subscribe to the webhook
 
 In the example code for this project, you’ll see
@@ -438,6 +434,15 @@ Particle.subscribe("hook-response/get_nextbus/0", gotNextBusData, MY_DEVICES);
 ```
 This line **subscribes** your device to the *get_nextbus* event, which pulls in data coming from the webhook attached to it. (The /0 tells it to reference the first chunk of data, since there are a few of them.) It then sends that data to a function called *gotNextBusData*, which parses all the XML and pulls out the tiny bits we need, which are the number of **minutes** for the next two buses. See our [publish and subscribe](https://docs.particle.io/guide/getting-started/examples/photon/#the-buddy-system-publish-and-subscribe) guide for more info on publishing and subscribing.
 
+### Fill in your bus name and lead time
+Near the top of the code above, you'll see:
+```
+String busName = "57"; // name of your bus -- FILL THIS IN!
+int leadTime = 5; // #minutes you need to get to your bus -- FILL THIS IN!
+```
+* **busName:** Later, once you set everything up, the name of your bus will display on the screen along with the prediction time. Using the example above, you would see something like `57 in 5, 15 min`. Change it to match the name of your bus.
+* **leadTime:** This is used to alert you with beeps that it's time to leave. Change it to the number of minutes you'll need in order to get comfortably to the bus stop. Don't forget to leave time to put on your shoes!
+
 ### Connecting the OLED screen
 Now that the webhook is ready, we can connect the **OLED screen**. We'll start by adding the OLED screen library to our project:
 * Click the **Libraries** icon on the left sidebar
@@ -447,7 +452,7 @@ Now that the webhook is ready, we can connect the **OLED screen**. We'll start b
 * Select your code to add the library to
 * Click **Add to This App**
 
-Now for the hardware. Press the OLED screen into the breadboard, then connect the pins according to this diagram.
+Now for the hardware. Press the OLED screen into the breadboard, making sure the pins go in separate rows (i.e. 24-30), not all in the same row. Then connect the pins according to this diagram:
 
 ![Fritzing diagram - how to hook up the Particle Photon to the Maker Kit LED screen](/assets/images/nextbus-fritzing.png)
 
@@ -463,9 +468,9 @@ Wiring (Photon ⇒ OLED screen):
 Then press the piezo buzzer into the breadboard and connect the long pin to D0 and the short pin to GND. The long pin has a plus sign engraved over it on the top of the buzzer.
 
 ### Upload and test!
-Plug in your Photon and upload the code! If all goes well, the screen will immediately start scrolling `[bus number] in xx and yy min`, where xx and yy are the times for the next two buses.
+Plug in your Photon and upload the code! If all goes well, the screen will immediately start scrolling `[bus number] in xx and yy min`, where `xx` and `yy` are the times for the next two buses.
 
-[GIF of scrolling]
+<img src="/assets/images/nextbus-alert-scrolling.gif" alt="Next bus alerts scrolling on the OLED screen with a Particle Photon" style="width: 433px;" />
 
 ### Additional reading: software timer
 If you're interested in how we're able to have scrolling code that runs constantly in our *loop()* function, yet still be able to trigger the webhook every 60 seconds, the reason is that we're using a **software timer**. Software timers are hugely powerful because they allow functions to be triggered independently of other code. It's possible to do this without a software timer by using *millis()*, but a bonafide software timer makes it much neater.
@@ -528,29 +533,27 @@ Scroll down to **Integration Settings** and give your webhook a descriptive labe
 ![Add a new Slack webhook](/assets/images/conf-add-slack-webhook4.png)
 
 ### Create Particle webhooks
-Many Slack integrations require dedicated web servers running PHP scripts to process information to and from Slack. However, in our case we can just use Particle webhooks to talk to the Slack webhook, and create our integration with ease. We’ll make one webhook to tell Slack that the conference room is available, and another webhook to tell Slack that the conference room is in use.
+Many Slack integrations require dedicated web servers running PHP scripts to process information to and from Slack. However, in our case we can just use a Particle webhook to tell the Slack webhook whether the conference room is available. Easy!
 
 Go to the [Particle Dashboard](http://dashboard.particle.io) and click the **Integrations** tab, then click **New Integration**.
 ![Add a new Particle webhook](/assets/images/conf-add-particle-webhook0.png)
 
-Click **Webhook** to get to the Webhook Builder.
+Click **Webhook** to start the Webhook Builder.
 ![Add a new Particle webhook](/assets/images/conf-add-particle-webhook1.png)
 
-Now we’ll make a webhook that tells Slack the conference room is available. In the Webhook Builder, under **Event Name**, enter `conf_avail`. Then paste your Slack webhook URL under **URL**.
+In the Webhook Builder under **Event Name**, enter `conf_avail`. Then paste your Slack webhook URL under **URL**.
 ![Add a new Particle webhook](/assets/images/conf-add-particle-webhook2.png)
 
 Expand **Advanced Settings** and choose **JSON**. Paste the following code:
+![Add a new Particle webhook](/assets/images/conf-add-particle-webhook3.png)
 ```
 {
-	“text”: “The conference room is available.”
+	"text": "The conference room is \{{PARTICLE_EVENT_VALUE}}."
 }
 ```
-![Add a new Particle webhook](/assets/images/conf-add-particle-webhook3.png)
+The \{{PARTICLE_EVENT_VALUE}} field gets filled with the data sent when the event is published by the device. In this case, the data will be the "status" variable, which will contain either "in use" or "available".
 
 Then Scroll down to the bottom and hit **Create Webhook**.
-
-Great! Now **repeat the process again** to create the second webhook, but use `conf_inuse` as the event name, and change the text to say `The conference room is in use.`
-![Add a new Particle webhook](/assets/images/conf-add-particle-webhook4.png)
 
 ### Photon → Webhook Code
 Now we'll look at the code used to activate the webhook from a Photon. Here's all the code used in the project:
