@@ -153,7 +153,7 @@ ParticleDevice myDevice = ParticleCloudSDK.getCloud().getDevice("53fa73265066544
 ---
 
 ### Read Variables
-Accessing variables of [all the standard Particle Cloud types](https://docs.particle.io/reference/firmware/photon/#particle-variable-) (integers, strings, and doubles):
+Accessing variables of [all the standard Particle Cloud types](/reference/firmware/#particle-variable-) (integers, strings, and doubles):
 
 ```java
 // 'myDevice' here is a ParticleDevice instance
