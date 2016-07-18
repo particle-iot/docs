@@ -270,7 +270,7 @@ The shield is setup so that when powered from the USB port as well as from a DC 
 
 ![Power Shield Supply](/assets/images/shields/power-shield/power-shield-powersupply.png)
 
-There are two status led located on the left of the JST battery connector labeled `STAT1` and `STAT2`. Here is a table of the led behavior depending on which state the battery charger is in:
+There are two status LEDs located on the left of the JST battery connector labeled `STAT1` and `STAT2`. Here is a table of the LED behavior depending on which state the battery charger is in:
 
 |STAT1 (Blue)  | STAT2 (Red) | Charge State |
 |--------|--------|-------------------------|
