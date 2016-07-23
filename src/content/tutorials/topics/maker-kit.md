@@ -15,7 +15,7 @@ This section provides tutorials for new users of the [Photon Maker Kit](https://
 
 In this beginner tutorial, you’ll learn how to connect the Maker Kit servo to your Photon, and how to control it via the web using the [Do Button](https://ifttt.com/products/do/button) app on your smartphone to ring a gong or other noise-making object.
 
-<iframe height="168" src="https://www.youtube.com/embed/stg5DNLRgOk?rel=0" frameborder="0" allowfullscreen></iframe>
+{{{youtube "https://www.youtube.com/embed/stg5DNLRgOk"}}}
 
 ### What you'll need
 
