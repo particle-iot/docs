@@ -1,5 +1,5 @@
 ---
-title: Maker Kit
+title: Maker Kit Tutorials
 template: tutorials.hbs
 columns: two
 order: 10
@@ -7,15 +7,15 @@ order: 10
 
 # {{title}}
 
-This section provides tutorials for new users of the [Particle Maker Kit](https://store.particle.io/collections/shields-and-kits#particle-maker-kit) to get started quickly and build some projects using the contents of the kit. These tutorials assume you’ve gone through the [Getting Started](/guide/getting-started/intro/photon/) guide and have set up your Photon. If not, head over there first.
+This section provides tutorials for new users of the [Photon Maker Kit](https://store.particle.io/collections/shields-and-kits#particle-maker-kit) to get started quickly and build some projects using the contents of the kit. These tutorials assume you’ve gone through the [Getting Started](/guide/getting-started/intro/photon/) guide and have set up your Photon. You'll also need to know how to use the [Particle Web IDE](http://build.particle.io), for which we have a tutorial [here](/guide/getting-started/build/photon/).
 
 ![Photon Maker Kit](/assets/images/maker-kit-box.jpg)
 
-## Tutorial #1: Web-connected servo gong
+## Tutorial #1: Servo Gong
 
 In this beginner tutorial, you’ll learn how to connect the Maker Kit servo to your Photon, and how to control it via the web using the [Do Button](https://ifttt.com/products/do/button) app on your smartphone to ring a gong or other noise-making object.
 
-<iframe width="500" height="180" src="https://www.youtube.com/embed/SAE3dq_ChZw?rel=0" frameborder="0" allowfullscreen></iframe>
+<iframe height="168" src="https://www.youtube.com/embed/stg5DNLRgOk?rel=0" frameborder="0" allowfullscreen></iframe>
 
 ### What you'll need
 
@@ -45,7 +45,7 @@ Connect the the black jumper wire to the GND pin on the Photon, the red wire to 
 
 ### Flash code to the Photon
 
-Now that the servo is connected electrically, we’ll connect it in software. Log into the [Particle online IDE](http://build.particle.io) and make a new app. Copy and paste the example code below into the new file.
+Now that the servo is connected electrically, we’ll connect it in software. Log into the [Particle Web IDE](http://build.particle.io) and make a new app. Copy and paste the example code below into the new file.
 
 ```
 Servo myservo;  // create servo object to control a servo
@@ -157,7 +157,7 @@ Discover more projects at [particle.hackster.io](http://particle.hackster.io), a
 
 **When I press the Do Button, nothing happens.** If you were able to successfully create a recipe for your device but nothing happens when you press the Do Button, try moving your device closer to your wifi router or access point.
 
-**I get an error when I try to flash the code to my Photon.** There could be many reasons for this. If your Photon is not breathing cyan, check the [device modes guide](https://docs.particle.io/guide/getting-started/modes/photon/). Search our [forums](https://community.particle.io) for your error or ask a question, or send an email to [support@particle.io](mailto:support@particle.io) with your error message.
+If you have issues that can't be solved here, post on our [community forums](https://community.particle.io/c/troubleshooting).
 
 
 
@@ -167,14 +167,16 @@ Discover more projects at [particle.hackster.io](http://particle.hackster.io), a
 
 ## Tutorial #2: Next Bus Alert
 
-In this tutorial, you’ll learn how to to get bus prediction times from the internet and display them on the Maker Kit OLED screen, which will provide alerts for upcoming buses. You'll also learn what a webhook is, and how to use it to get the prediction data to your Photon. Then you'll wire up the OLED screen and display the bus alerts with fancy marquee scrolling. Here's how:
+In this tutorial, you’ll learn how to to get bus prediction times from the internet and display them on the Maker Kit OLED screen, which will provide alerts for upcoming buses. You'll also learn what a webhook is, and how to use it to get the prediction data to your Photon.
+
+<iframe height="168" src="https://www.youtube.com/embed/H0nN0OSSMiA?rel=0" frameborder="0" allowfullscreen></iframe>
+
+Then you'll wire up the OLED screen and display the bus alerts with fancy marquee scrolling. Here's how:
 * Discover your bus **prediction URL**
 * Set up a **webhook**
 * **Subscribe** to the webhook from the Photon
 * Add the **library** for the OLED screen
 * Wire up the **OLED screen** and display bus times
-
-<img src="/assets/images/nextbus-alert-scrolling.gif" alt="Next bus alerts scrolling on the OLED screen with a Particle Photon" style="width: 433px;" />
 
 ### Discover your bus prediction URL
 
@@ -207,80 +209,31 @@ Substitute in your agency tag, route tag, and stop tag. <br>
 [http://webservices.nextbus.com/service/publicXMLFeed?command=predictions&a=actransit&r=57&s=1018530&useShortTitles=true](http://webservices.nextbus.com/service/publicXMLFeed?command=predictions&a=actransit&r=57&s=1018530&useShortTitles=true).
 
 The data from your prediction URL should look like this:
-```
-<body copyright="All data copyright AC Transit 2016.">
-<predictions agencyTitle="AC Transit" routeTitle="57" routeTag="57" stopTitle="Santa Clara Av & Crescent St" stopTag="1018530">
-<direction title="To Emeryville Public Market">
-<prediction epochTime="1467312925628" seconds="10" minutes="0" isDeparture="false" dirTag="57_13_1" vehicle="2018" block="57008" tripTag="4722183"/>
-<prediction epochTime="1467313850776" seconds="935" minutes="15" isDeparture="false" dirTag="57_13_1" vehicle="2050" block="57010" tripTag="4722088"/>
-<prediction epochTime="1467314908196" seconds="1993" minutes="33" isDeparture="false" dirTag="57_13_1" vehicle="2001" block="57001" tripTag="4722114"/>
-<prediction epochTime="1467315592048" seconds="2676" minutes="44" isDeparture="false" affectedByLayover="true" dirTag="57_13_1" vehicle="2218" block="57003" tripTag="4722223"/>
-<prediction epochTime="1467316406048" seconds="3490" minutes="58" isDeparture="false" affectedByLayover="true" dirTag="57_13_1" vehicle="2107" block="57005" tripTag="4722144"/>
-</direction>
-<message text="Service changes 6/26. For info visit actransit.org or call 510-891-4777" priority="Normal"/>
-</predictions>
-</body>
-```
+![NextBus prediction data in browser](/assets/images/nextbus-prediction-data.png)
 
-If it looks like the data below, your URL is not formed correctly:
-```
-<body copyright="All data copyright agencies listed below and NextBus Inc 2016.">
-<Error shouldRetry="false">
-agency parameter "a" must be specified in query string
-</Error>
-</body>
-```
-If you get an error, the feed will give you an indication of what's wrong. In the example error above, it didn't get an agency tag. Check your URL to make sure you haven't deleted any of the & or = symbols, and that everything is spelled correctly.
+If you get an error, the feed will give you an indication of what's wrong. Check your URL to make sure you haven't deleted any of the & or = symbols, and that everything is spelled correctly.
 
-If it works, congrats! You're done creating your prediction URL!
+If it works, congrats! You've created your bus prediction URL.
 
 ### Create a webhook to retrieve prediction times
 
 Great, so we’ve got our prediction URL and we can access it from a browser, but how do we access it from the Photon? The answer is to use a **webhook**, which you can read more about in our [webhooks guide](https://docs.particle.io/guide/tools-and-features/webhooks/).
 
-Currently, webhooks can only be created via the Particle command line interface **(CLI)**. To install the Particle CLI for Windows, simply [download the installer](https://www.particle.io/cli). For Mac and Linux, first install [Node.js](https://nodejs.org/en/download/), then open a Terminal and enter `sudo npm install -g particle-cli` to install the CLI (you'll need to enter your password).
+To create a webhook:
+* Go to the **[Particle Dashboard](dashboard.particle.io)**
+* Click the **Integrations** tab
+* Click **New Integration**
+* Click **Webhook**
+* Enter `get_nextbus` in the **Event Name** field
+* Paste your prediction URL into the **URL** field
+* Change **Request Type** to `GET`
+* Click **Create Webhook** to finish the process
 
-Once you've installed the Particle CLI, you'll need to log into your Particle account with the CLI. In your Terminal (Windows users hit **[Windows Logo Key] + R** and enter **CMD** in the Run box to open a command prompt):
-* Type `particle login`
-* Enter your username
-* Enter your password
+![Particle webhook settings](/assets/images/nextbus-webhook.png)
 
-```
-Your-computer:~ yourname$ particle login
-? Please enter your email address hello@particle.io
-? Please enter your password ***********
-> Successfully completed login!
-```
-
-Now we'll use the CLI to create a webhook to retrieve prediction times. Enter the following command (substitute with your prediction URL): <br>
-`particle webhook GET get_nextbus http://webservices.nextbus.com/service/publicXMLFeed?command=predictions\&a=actransit\&r=57\&s=1018530\&useShortTitles=true` <br>
-**(note the use of \& instead of just &. Backslashes are required in order for the URL to be interpreted correctly)**.
-
-You’ll get some output that looks like this:
-```
-Your-computer:~ yourname$ particle webhook GET get_nextbus http://webservices.nextbus.com/service/publicXMLFeed?command=predictions\&a=actransit\&r=57\&s=1018530
-Sending webhook request  { uri: '/v1/webhooks',
-  method: 'POST',
-  json:
-   { event: 'get_nextbus',
-     url: 'http://webservices.nextbus.com/service/publicXMLFeed?command=predictions&a=actransit&r=57&s=1018530',
-     deviceid: undefined,
-     requestType: 'GET',
-     mydevices: true },
-  headers: { Authorization: 'Bearer 536937662186795de3f9bb6b8016bff4015d54b4' } }
-Successfully created webhook with ID 577dbe7b30a649a105c68eca
-Your-computer:~ yourname$
-```
 Great! Your webhook is created. Now let’s access it from the Photon.
 
 ### Code and OLED library
-First we’ll load the example code for this project:
-* Log into the [Particle Web IDE](http://build.particle.io)
-* Click **Libraries** in the left panel
-* Under Official Libraries, select **Maker Kit**
-* Click example #2
-* Click **Use This Example**
-
 Here's the code:
 
 ```
@@ -412,6 +365,20 @@ String tryExtractString(int matchNum, String str, const char* start, const char*
 }
 ```
 
+In order to use the screen, you need to add the OLED screen library to your code:
+* Click the **Libraries** icon on the left sidebar
+* Search for **Adafruit_SSD1306** in the search box
+* Click the **Adafruit_SSD1306** library
+* Click the **Include in App** button
+* Select your code to add the library to
+* Click **Add to This App**
+
+You'll see the following code added to the top of your file:
+```
+// This #include statement was automatically added by the Particle IDE.
+#include "Adafruit_SSD1306/Adafruit_SSD1306.h"
+```
+
 ### Publish and subscribe to the webhook
 
 In the example code for this project, you’ll see
@@ -426,7 +393,7 @@ This function **publishes** an **event** called *get_nextbus* to the Particle cl
 // retrieve the webhook data and send it to the gotNextBusData function
 Particle.subscribe("hook-response/get_nextbus/0", gotNextBusData, MY_DEVICES);
 ```
-This line **subscribes** your device to the *get_nextbus* event, which pulls in data coming from the webhook attached to it. (The /0 tells it to reference the first chunk of data, since there are a few of them.) It then sends that data to a function called *gotNextBusData*, which parses all the XML and pulls out the tiny bits we need, which are the number of **minutes** for the next two buses. See our [publish and subscribe](https://docs.particle.io/guide/getting-started/examples/photon/#the-buddy-system-publish-and-subscribe) guide for more info on publishing and subscribing.
+This line **subscribes** your device to the *get_nextbus* event, which pulls in data coming from the webhook attached to it. (The `/0` tells it to reference the first chunk of data, since there are a few of them.) It then sends that data to a function called `gotNextBusData`, which parses all the XML and pulls out the tiny bits we need, which are the number of **minutes** for the next two buses. See our [publish and subscribe](https://docs.particle.io/guide/getting-started/examples/photon/#the-buddy-system-publish-and-subscribe) guide for more info on publishing and subscribing.
 
 ### Fill in your bus name and lead time
 Near the top of the code above, you'll see:
@@ -438,15 +405,9 @@ int leadTime = 5; // #minutes you need to get to your bus -- FILL THIS IN!
 * **leadTime:** This is used to alert you with beeps that it's time to leave. Change it to the number of minutes you'll need in order to get comfortably to the bus stop. Don't forget to leave time to put on your shoes!
 
 ### Connecting the OLED screen
-Now that the webhook is ready, we can connect the **OLED screen**. We'll start by adding the OLED screen library to our project:
-* Click the **Libraries** icon on the left sidebar
-* Search for **Adafruit_SSD1306** in the search box
-* Click the Adafruit_SSD1306 library
-* Click the **Include in App** button
-* Select your code to add the library to
-* Click **Add to This App**
+Now that the webhook is ready, we can connect the **OLED screen**.
 
-Now for the hardware! Press the OLED screen into the breadboard, making sure the pins go in separate rows (i.e. 24-30), not all in the same row. Then connect the pins according to this diagram:
+Press the OLED screen into the breadboard, making sure the pins go in separate numerical rows (i.e. 24-30), not all in the same row. Then connect the pins according to this diagram:
 
 ![Fritzing diagram - how to hook up the Particle Photon to the Maker Kit LED screen](/assets/images/nextbus-fritzing.png)
 
@@ -498,12 +459,16 @@ By keeping these functions separate from the main *loop()* function, code can be
 **I missed my bus because I was hypnotized by the fancy scrolling OLED screen.**
 * Don't worry, it happens to the best of us.
 
+If you have issues that can't be solved here, post on our [community forums](https://community.particle.io/c/troubleshooting).
 
 
 
 
-## Tutorial #3: Slack-Integrated Conference Room Monitor
+
+## Tutorial #3: Conference Room Monitor
 Wouldn’t it be awesome to be able to know whether someone is occupying your office’s conference room, without getting up from your desk? In this tutorial, you’ll learn how to use the Maker Kit PIR motion sensor, and how to integrate it with Slack using webhooks. PIR sensors detect subtle changes in infrared light, so they're particularly good for sensing people, animals, or other warm (or bright, since many lights also produce infrared) objects -- regardless of whether it's dark or not. There are many use cases for this, but for this tutorial we’re going to make a Slack channel that gets real-time updates of whether a conference room is in use.
+
+<iframe height="168" src="https://www.youtube.com/embed/IdVDryxmjjo?rel=0" frameborder="0" allowfullscreen></iframe>
 
 ### Set up a Slack Incoming Webhook
 A Slack Incoming Webhook listens for data from an external source and then posts it to a Slack channel of your choosing.
@@ -517,7 +482,7 @@ Now we'll create the webhook itself. Type `incoming webhooks` into the search bo
 Click the **Add Configuration** button.
 ![Add a new Slack webhook](/assets/images/conf-add-slack-webhook1.png)
 
-Choose a channel to post to. In this case, it’s #conferenceroom. If you’d rather keep this project to yourself, you can select "Privately to @yourname".
+Choose a channel to post to. In this case, it’s `#conferenceroom`. If you’d rather keep this project to yourself, you can select `Privately to @yourname` which will put the updates in your Slackbot channel (not your personal private channel).
 ![Add a new Slack webhook](/assets/images/conf-add-slack-webhook2.png)
 
 Locate your **Webhook URL**. This URL is what we’ll be sending data to via the Particle Cloud.
@@ -526,7 +491,7 @@ Locate your **Webhook URL**. This URL is what we’ll be sending data to via the
 Scroll down to **Integration Settings** and give your webhook a descriptive label, name, and icon, then click **Save Settings**.
 ![Add a new Slack webhook](/assets/images/conf-add-slack-webhook4.png)
 
-### Create Particle webhooks
+### Create a Particle webhook
 Many Slack integrations require dedicated web servers running PHP scripts to process information to and from Slack. However, in our case we can just use a Particle webhook to tell the Slack webhook whether the conference room is available. Easy!
 
 Go to the [Particle Dashboard](http://dashboard.particle.io) and click the **Integrations** tab, then click **New Integration**.
@@ -545,9 +510,9 @@ Expand **Advanced Settings** and choose **JSON**. Paste the following code:
 	"text": "The conference room is \{{PARTICLE_EVENT_VALUE}}."
 }
 ```
-The \{{PARTICLE_EVENT_VALUE}} field gets filled with the data sent when the event is published by the device. In this case, the data will be the "status" variable, which will contain either "in use" or "available".
+The \{{PARTICLE_EVENT_VALUE}} field gets filled with the data sent when the event is published by the device. In this case, the data will be the `status` variable, which will contain either `"in use"` or `"available"`.
 
-Then Scroll down to the bottom and hit **Create Webhook**.
+Scroll down to the bottom and hit **Create Webhook**.
 
 ### Photon → Webhook Code
 Now we'll look at the code used to activate the webhook from a Photon. Here's all the code used in the project:
@@ -603,25 +568,26 @@ The code that activates the webhooks is:
 ```
 Particle.publish("conf_avail"); //publish to conf_avail webhook
 ```
-and
-```
-Particle.publish("conf_inuse"); //publish to conf_inuse webhook
-```
-The name of the events being published matches the event name parameters in the webhooks we just made.
+The name of the event being published matches the **event name** parameter in the webhook we just made.
 
-Check out the Publish and Subscribe references for more information.
+Check out the [Publish](/reference/firmware/photon/#particle-publish-),  [Subscribe](/reference/firmware/photon/#particle-subscribe-), and [Webhooks](guide/tools-and-features/webhooks) documentation for more information.
 
 ### Set up the hardware
 On the PIR sensor itself, with the back of the PCB facing up, find the two small potentiometers. The one on the left controls the range of the sensor (3-7 meters), and the one on the right controls how long the sensor stays triggered once tripped (1.5 - 300 seconds). Set the range potentiometer to the size of your conference room, or just turn it all the way to the right if your conference room has no windows. Set the second potentiometer all the way to the left (counterclockwise) to maximize its timing resolution.
-![Set the range and blocking time for the PIR sensor](/assets/images/conf-pir-potentiometers.jpg)
+![Set the range and blocking time for the PIR sensor](/assets/images/conf-potentiometers.jpg)
 
 Now we'll connect the PIR sensor to the Photon. Press the sensor into the upper-left corner of your breadboard, then connect it to the Photon as follows:
 ![Connecting a PIR sensor to a Particle Photon](/assets/images/conf-fritzing-diagram.png)
 
-### Flash the code to the Photon
-Plug in your Photon and flash the code to it. If all goes well, the D7 LED on your Photon should light up when the sensor detects motion. Note that it stays tripped for a second or two, so it may appear to be sluggish. To make sure it's actually working, hold perfectly still for a few seconds, then move. You'll find that it's sensitive enough to detect very subtle motion, which is great.
+Wiring (Sensor ⇒ Photon):
+* GND ⇒ GND
+* OUT ⇒ D0
+* +5V ⇒ VIN
 
-Check your Slack #conferenceroom channel to see the updates! The code only reports the conference room as available if it detects no motion for 30 seconds, so if you want to test it out, put a towel or piece of paper over the sensor.
+### Flash the code to the Photon
+Plug in your Photon and flash the code to it (if you have more than one, click the Devices icon and select the desired device). If all goes well, the D7 LED on your Photon should light up when the sensor detects motion. Note that it stays tripped for a second or two, so it may appear to be sluggish. To make sure it's actually working, hold perfectly still for a few seconds, then move. You'll find that it's sensitive enough to detect very subtle motion, which is great.
+
+Check your Slack #conferenceroom channel to see the updates! The first post you see should be `The conference room is test`, which is a test to make sure the webhook works without having to wait 30 seconds to determine motion. After 30 seconds, you should see `The conference room is in use` (assuming the sensor is pointed) The code only reports the conference room as available if it detects no motion for 30 seconds, so if you want to test it out, put a towel or piece of paper over the sensor.
 
 ### Some other applications
 This sensor and webhook integration are very versatile. You could use it for any number of applications, such as:
@@ -633,6 +599,334 @@ This sensor and webhook integration are very versatile. You could use it for any
 ### Troubleshooting
 **My channel shows that the room is in use, but doesn't show that it's available (or the reverse).**
 * This setup is designed to only show the room as available if no motion has been detected for 30 seconds. Try putting a blanket over the sensor to completely block all motion.
-* Did you create webhooks for both in use and available? Did you spell the event names properly, such that they match the code?
+* When you created the Particle webhook, did you spell the event name properly, such that it matches the code?
 
-If you have issues that can't be solved here, post on our [community forums](https://community.particle.io).
+**No motion is being detected (the D7 LED isn't turning on at all).**
+* Check your wiring -- with the sensor on the upper right corner of the breadboard, the pin order from left to right is `GND, OUT, +5V`, where `OUT` is the sensor output that is read by pin `D0` on the Photon.
+
+If you have issues that can't be solved here, post on our [community forums](https://community.particle.io/c/troubleshooting).
+
+
+
+
+
+
+
+## Tutorial #4: Temperature Logger
+In this tutorial, you'll learn how to use the **Dallas DS18B20** temperature sensors included in the Maker Kit, and how to log the data to a Google Spreadsheet. Logging the data allows it to be graphed and analyzed, which can provide insights into temperature fluctuations in rooms, garages, reptile tanks, the outdoors, and even liquids. The Maker Kit contains two sensors, both of which are the same model, but one is waterproof and has long wires, while the other is just a bare sensor. We'll be using the bare sensor for simplicity, but you can substitute the waterproof sensor in its place without any modifications.
+
+<iframe height="168" src="https://www.youtube.com/embed/XouV4dnc1vY?rel=0" frameborder="0" allowfullscreen></iframe>
+
+We'll wire up the sensor to the Photon, then create a Particle Function to send the temperature data to the cloud, then connect our cloud data to Google Sheets using IFTTT, and start logging!
+
+### Wire up the sensor
+Slightly spread the pins of the sensor and insert them into separate numerical rows in your breadboard. Then connect them to the Photon as follows:
+
+![Dallas DS18B20 to Photon wiring](/assets/images/temp-logger-wiring.png)
+
+Wiring (Sensor ⇒ Photon):
+* Pin 1 (GND) ⇒ GND
+* Pin 2 (DQ) ⇒ D4
+* Pin 3 (VDD) ⇒ 3V3
+* Also put a 4.7k resistor between pins 2 and 3 on the sensor. If you don't have 4.7k, a 10k resistor will also work.
+
+If you want to use the waterproof sensor instead of the bare sensor:
+* Black (Pin 1) ⇒ GND
+* Yellow (Pin 2) ⇒ D4
+* Red (Pin 3) ⇒ 3V3
+* Also put a 4.7k resistor between pins 2 and 3 on the sensor
+
+**Plug in your Photon** before proceeding to the next step.
+
+### Code
+For this project, you'll need to add the Dallas 1-Wire library:
+* Click the **Libraries** icon on the left sidebar
+* Search for **OneWire** in the search box
+* Click the OneWire library
+* Click the **Include in App** button
+* Select your code to add the library to
+* Click **Add to This App**
+
+Here's the code below, all of which except the last three lines is devoted to reading the sensor. The advantage of OneWire devices is that you can have a huge number of them all on the same pin, whereas most other sensors require one dedicated pin per sensor, which limits the number of sensors to the number of pins on your device. The disadvantage of OneWire devices is that reading them is more complicated, which is why the code in this example is rather long.
+```
+/************************************************************************
+This sketch reads the temperature from a 1-Wire device and then publishes
+to the Particle cloud. From there, IFTTT can be used to log the date,
+time, and temperature to a Google Spreadsheet. Read more in our tutorial
+here: http://docs.particle.io/tutorials/topics/maker-kit
+
+This sketch is the same as the example from the OneWire library, but
+with the addition of three lines at the end to publish the data to the
+cloud.
+
+Use this sketch to read the temperature from 1-Wire devices
+you have attached to your Particle device (core, p0, p1, photon, electron)
+
+Temperature is read from: DS18S20, DS18B20, DS1822, DS2438
+
+Expanding on the enumeration process in the address scanner, this example
+reads the temperature and outputs it from known device types as it scans.
+
+I/O setup:
+These made it easy to just 'plug in' my 18B20 (note that a bare TO-92
+sensor may read higher than it should if it's right next to the Photon)
+
+D3 - 1-wire ground, or just use regular pin and comment out below.
+D4 - 1-wire signal, 2K-10K resistor to D5 (3v3)
+D5 - 1-wire power, ditto ground comment.
+
+A pull-up resistor is required on the signal line. The spec calls for a 4.7K.
+I have used 1K-10K depending on the bus configuration and what I had out on the
+bench. If you are powering the device, they all work. If you are using parisidic
+power it gets more picky about the value.
+************************************************************************/
+
+OneWire ds = OneWire(D4);  // 1-wire signal on pin D4
+
+unsigned long lastUpdate = 0;
+
+float lastTemp;
+
+void setup() {
+  Serial.begin(9600);
+  // Set up 'power' pins, comment out if not used!
+  pinMode(D3, OUTPUT);
+  pinMode(D5, OUTPUT);
+  digitalWrite(D3, LOW);
+  digitalWrite(D5, HIGH);
+}
+
+// up to here, it is the same as the address acanner
+// we need a few more variables for this example
+
+void loop(void) {
+  byte i;
+  byte present = 0;
+  byte type_s;
+  byte data[12];
+  byte addr[8];
+  float celsius, fahrenheit;
+
+  if ( !ds.search(addr)) {
+    Serial.println("No more addresses.");
+    Serial.println();
+    ds.reset_search();
+    delay(250);
+    return;
+  }
+
+  // The order is changed a bit in this example
+  // first the returned address is printed
+
+  Serial.print("ROM =");
+  for( i = 0; i < 8; i++) {
+    Serial.write(' ');
+    Serial.print(addr[i], HEX);
+  }
+
+  // second the CRC is checked, on fail,
+  // print error and just return to try again
+
+  if (OneWire::crc8(addr, 7) != addr[7]) {
+      Serial.println("CRC is not valid!");
+      return;
+  }
+  Serial.println();
+
+  // we have a good address at this point
+  // what kind of chip do we have?
+  // we will set a type_s value for known types or just return
+
+  // the first ROM byte indicates which chip
+  switch (addr[0]) {
+    case 0x10:
+      Serial.println("  Chip = DS1820/DS18S20");
+      type_s = 1;
+      break;
+    case 0x28:
+      Serial.println("  Chip = DS18B20");
+      type_s = 0;
+      break;
+    case 0x22:
+      Serial.println("  Chip = DS1822");
+      type_s = 0;
+      break;
+    case 0x26:
+      Serial.println("  Chip = DS2438");
+      type_s = 2;
+      break;
+    default:
+      Serial.println("Unknown device type.");
+      return;
+  }
+
+  // this device has temp so let's read it
+
+  ds.reset();               // first clear the 1-wire bus
+  ds.select(addr);          // now select the device we just found
+  // ds.write(0x44, 1);     // tell it to start a conversion, with parasite power on at the end
+  ds.write(0x44, 0);        // or start conversion in powered mode (bus finishes low)
+
+  // just wait a second while the conversion takes place
+  // different chips have different conversion times, check the specs, 1 sec is worse case + 250ms
+  // you could also communicate with other devices if you like but you would need
+  // to already know their address to select them.
+
+  delay(1000);     // maybe 750ms is enough, maybe not, wait 1 sec for conversion
+
+  // we might do a ds.depower() (parasite) here, but the reset will take care of it.
+
+  // first make sure current values are in the scratch pad
+
+  present = ds.reset();
+  ds.select(addr);
+  ds.write(0xB8,0);         // Recall Memory 0
+  ds.write(0x00,0);         // Recall Memory 0
+
+  // now read the scratch pad
+
+  present = ds.reset();
+  ds.select(addr);
+  ds.write(0xBE,0);         // Read Scratchpad
+  if (type_s == 2) {
+    ds.write(0x00,0);       // The DS2438 needs a page# to read
+  }
+
+  // transfer and print the values
+
+  Serial.print("  Data = ");
+  Serial.print(present, HEX);
+  Serial.print(" ");
+  for ( i = 0; i < 9; i++) {           // we need 9 bytes
+    data[i] = ds.read();
+    Serial.print(data[i], HEX);
+    Serial.print(" ");
+  }
+  Serial.print(" CRC=");
+  Serial.print(OneWire::crc8(data, 8), HEX);
+  Serial.println();
+
+  // Convert the data to actual temperature
+  // because the result is a 16 bit signed integer, it should
+  // be stored to an "int16_t" type, which is always 16 bits
+  // even when compiled on a 32 bit processor.
+  int16_t raw = (data[1] << 8) | data[0];
+  if (type_s == 2) raw = (data[2] << 8) | data[1];
+  byte cfg = (data[4] & 0x60);
+
+  switch (type_s) {
+    case 1:
+      raw = raw << 3; // 9 bit resolution default
+      if (data[7] == 0x10) {
+        // "count remain" gives full 12 bit resolution
+        raw = (raw & 0xFFF0) + 12 - data[6];
+      }
+      celsius = (float)raw * 0.0625;
+      break;
+    case 0:
+      // at lower res, the low bits are undefined, so let's zero them
+      if (cfg == 0x00) raw = raw & ~7;  // 9 bit resolution, 93.75 ms
+      if (cfg == 0x20) raw = raw & ~3; // 10 bit res, 187.5 ms
+      if (cfg == 0x40) raw = raw & ~1; // 11 bit res, 375 ms
+      // default is 12 bit resolution, 750 ms conversion time
+      celsius = (float)raw * 0.0625;
+      break;
+
+    case 2:
+      data[1] = (data[1] >> 3) & 0x1f;
+      if (data[2] > 127) {
+        celsius = (float)data[2] - ((float)data[1] * .03125);
+      }else{
+        celsius = (float)data[2] + ((float)data[1] * .03125);
+      }
+  }
+
+  // remove random errors
+  if(((celsius <= 0 && celsius > -1) && lastTemp > 5)) || celsius > 125 {
+      celsius = lastTemp;
+  }
+
+  fahrenheit = celsius * 1.8 + 32.0;
+  lastTemp = celsius;
+  Serial.print("  Temperature = ");
+  Serial.print(celsius);
+  Serial.print(" Celsius, ");
+  Serial.print(fahrenheit);
+  Serial.println(" Fahrenheit");
+
+  // now that we have the readings, we can publish them to the cloud
+  String temperature = String(fahrenheit); // store temp in "temperature" string
+  Particle.publish("temperature", temperature, PRIVATE); // publish to cloud
+  delay(5000); // 5 sec delay
+}
+```
+The second-to-last line publishes the data to the cloud:
+```
+Particle.publish("temperature", temperature, PRIVATE); // publish to cloud
+```
+This line publishes an **event** named "temperature" to the Particle cloud, which brings with it the data stored in the `temperature` variable. You can read more about publishing events [here](/reference/firmware/photon/#particle-publish-).
+
+The default is to take a reading every five seconds, which is great for testing this setup to make sure it works. If you want a longer interval once you get it working, change `delay(5000)` to something larger. Google spreadsheets can hold a maximum of 2000 rows, so the following line will take a reading every five minutes, which fits about a week's worth of readings into one sheet:
+```
+delay(300000); // 5 minute delay
+```
+Now let's upload the code. Click **Devices** in the left sidebar, and select your device as the device to upload to. Click the **Flash** button to upload the code!
+
+Your device should start publishing temperature readings to the [Particle Dashboard](dashboard.particle.io) immediately, so go there and make sure they look good. If you get nothing, the sensor is not connected properly. Make sure your wiring matches the diagram, and make sure your resistor and sensor are fully inserted into the breadboard. Once you get readings, continue on!
+
+![Temperatures displayed in the Particle Dashboard](/assets/images/temp-logger-dashboard.png)
+
+For more information about the Dashboard, read our [Dashboard guide](/guide/how-to-build-a-product/dashboard/).
+
+### IFTTT
+[IFTTT](ifttt.com) (which stands for "IF This Then That" and is pronounced "ift") is an incredibly flexible service that allows you to select a trigger and perform actions based on that trigger. In this case, the trigger will be our Photon publishing an event called `temperature`, and the action will be to add a row to a Google Spreadsheet containing the temperature and the current date and time. This will allow us to graph the temperature later on.
+
+[Sign in]([IFTTT](ifttt.com) to your IFTTT account or sign up for a new one if you don't already have an account.
+
+![Sign into IFTTT](/assets/images/temp-logger-ifttt1.png)
+
+Click on **My Recipes** at the top of the page to start the creation of your temperature-logging recipe. Select the following parameters in each of the Recipe steps:
+
+* Step 1: Select **Particle** from the integrations list. You'll be prompted to connect your Particle account to IFTTT if you have not done so already.
+* Step 2: Select **New event published**
+* Step 3: Enter `temperature` in the **If (Event Name)** field, and select your device in the **Device Name or ID** field.
+* Step 4: Select **Google Drive** from the integrations list. You'll be prompted to connect your Google Drive account to IFTTT if you have not done so already.
+* Step 5: Select **Add row to spreadsheet**
+* Step 6: Paste the following line into the **Formatted Row** box: `=DATEVALUE(SUBSTITUTE("\{{CreatedAt}}"," at ", " "))|||=TIMEVALUE(SUBSTITUTE("\{{CreatedAt}}"," at ", " "))|||\{{EventContents}}`. This line makes separate columns for the date, time, and temperature.
+* Step 7: Click **Create Recipe**!
+
+Your configuration settings should look like this:
+
+![IFTTT settings page](/assets/images/temp-logger-ifttt4.png)
+![IFTTT settings page](/assets/images/temp-logger-ifttt5.png)
+![IFTTT settings page](/assets/images/temp-logger-ifttt6.png)
+
+Your Photon is already plugged in and taking readings, so check your Google Spreadsheet and watch the readings come in!
+
+![Temperature logger spreadsheet](/assets/images/temp-logger-spreadsheet1.png)
+
+To make the date and time columns appear properly do the following:
+* Select **Column A**
+* From the **Format** menu, open **Number** and choose **Date**
+* Select **Column B**
+* From the **Format** menu, open **Number** and choose **Time**
+
+Once you get enough readings, you can make a graph:
+![Temperature logger spreadsheet](/assets/images/temp-logger-spreadsheet2.png)
+
+This setup has a wide range of applications, so enjoy!
+
+###Troubleshooting
+**No events are appearing in the Dashboard.**
+* Check the sensor wiring against the diagram.
+* In some cases breadboard holes can be a little loose. Try wiggling the resistor and sensor and see if readings come in.
+* Make sure you're logged into the dashboard with the same account that owns the device.
+* Make sure the Photon LED is "breathing cyan", which means it's connected to the cloud.
+
+**I see events in the Dashboard, but not in the spreadsheet.**
+* Check your IFTTT recipe. Is everything spelled correctly and in the correct boxes?
+
+**I don't see a spreadsheet at all.**
+* Check your IFTTT recipe. Is IFTTT wired up to the correct Google account?
+
+If you have issues that can't be solved here, post on our [community forums](https://community.particle.io/c/troubleshooting).
