@@ -308,14 +308,14 @@ data: {"data":"23:23:44","ttl":"60","published_at":"2014-05-28T19:20:34.638Z","d
 Unless specified otherwise, events sent to the cloud are sent as a reliable message. The Electoron waits for
 acknowledgement from the cloud that the event has been recieved, resending the event in the background up to 3 times before giving up.
 
-The `NO_ACK` flag disables this acknoweldge/retry behavior and sends the event only once.  This reduces data consumption per event, with the possibility that the event may not reach the cloud. 
+The `NO_ACK` flag disables this acknoweldge/retry behavior and sends the event only once.  This reduces data consumption per event, with the possibility that the event may not reach the cloud.
 
-For example, the `NO_ACK` flag could be useful when many events are sent (such as sensor readings) and the occaisonal lost event can be tolerated. 
+For example, the `NO_ACK` flag could be useful when many events are sent (such as sensor readings) and the occaisonal lost event can be tolerated.
 
 ```C++
 // SYNTAX
 
-int temperature = sensor.readTemperature();  // by way of example, not part of the API 
+int temperature = sensor.readTemperature();  // by way of example, not part of the API
 Particle.publish("t", temperature, NO_ACK);
 Particle.publish("t", temperature, PRIVATE, NO_ACK);
 Particle.publish("t", temperature, ttl, PRIVATE, NO_ACK);
@@ -672,7 +672,7 @@ It's possible to call `WiFi.connect()` without entering listening mode in the ca
 WiFi.connect(WIFI_CONNECT_SKIP_LISTEN);
 ```
 
-If there are no credentials then the call does nothing other than turn on the WiFi module. 
+If there are no credentials then the call does nothing other than turn on the WiFi module.
 
 
 ### disconnect()
@@ -1244,7 +1244,7 @@ SoftAP HTTP Pages is presently an advanced feature, requiring moderate C++ knowl
 void myPages(const char* url, ResponseCallback* cb, void* cbArg, Reader* body, Writer* result, void* reserved);
 
 STARTUP(softap_set_application_page_handler(myPages, nullptr));
-``` 
+```
 
 The `softap_set_application_page_handler` is set during startup. When the system is in setup mode, and a request is made for an unknown URL, the system
 calls the page handler function provided by the application (here, `myPages`.)
@@ -1253,23 +1253,23 @@ The page handler function is called whenever an unknown URL is requested. It is 
 
 - `url`: the path of the file requested by the client. It doesn't include the server name or port. Examples: `/index`,  `/someimage.jpg`.
 - `cb`: a response callback - this is used by the application to indicate the type of HTTP response, such as 200 (OK) or 404 (not found). More on this below.
-- `cbArg`: data that should be passed as the first parameter to the callback function `cb`. 
+- `cbArg`: data that should be passed as the first parameter to the callback function `cb`.
 - `body`: a reader object that the page handler uses to retrieve the HTTP request body
 - `result`: a writer object that the page handler uses to write the HTTP response body
 - `reserved`: reserved for future expansion. Will be equal to `nullptr` and can be ignored.
 
-The application MUST call the page callback function `cb` to provide a response for the requested page. If the requested page url isn't recognized by the application, then a 404 response should be sent, as described below. 
+The application MUST call the page callback function `cb` to provide a response for the requested page. If the requested page url isn't recognized by the application, then a 404 response should be sent, as described below.
 
 ### The page callback function
 
-When your page handler function is called, the system passes a result callback function as the `cb` parameter. 
+When your page handler function is called, the system passes a result callback function as the `cb` parameter.
 The callback function takes these parameters:
 
-- `cbArg`: this is the `cbArg` parameter passed to your page callback function. It's internal state used by the HTTP server. 
+- `cbArg`: this is the `cbArg` parameter passed to your page callback function. It's internal state used by the HTTP server.
 - `flags`: presently unused. Set to 0.
 - `status`: the HTTP status code, as an integer, such as 200 for `OK`, or 404 for `page not found`.
-- `mime-type`: the mime-type of the response as a string, such as `text/html` or `application/javascript`. 
-- `header`: an optional pointer to a `Header` that is added to the response sent to the client. 
+- `mime-type`: the mime-type of the response as a string, such as `text/html` or `application/javascript`.
+- `header`: an optional pointer to a `Header` that is added to the response sent to the client.
 
 For example, to send a "not found" error for a page that is not recognized, your application code would call
 
@@ -1282,7 +1282,7 @@ cb(cbArg, 0, 404, "text/plain", nullptr);
 ### Retrieving the request data
 
 When the HTTP request contains a request body (such as with a POST request), the `Reader` object provided by the `body` parameter can be used
-to retrieve the request data. 
+to retrieve the request data.
 
 ```cpp
 // EXAMPLE
@@ -1299,7 +1299,7 @@ if (body->bytes_left) {
 
 ### Sending a response
 
-When sending a page, the page function responds with a HTTP 200 code, meaning the content was found, followed by the page data. 
+When sending a page, the page function responds with a HTTP 200 code, meaning the content was found, followed by the page data.
 
 ```
 // EXAMPLE - send a page
@@ -1315,7 +1315,7 @@ if (!stricmp(url, '/helloworld') {
 ### The default page
 
 When a browser requests the default page (`http://192.168.0.1/`) the system internally redirects this to `/index` so that it can be handled
-by the application. 
+by the application.
 
 The application may provide an actual page at `/index` or redirect to another page if the application pefers to have another page as its launch page.
 
@@ -5039,7 +5039,7 @@ IPAddress remoteIP(192, 168, 1, 100);
 int port = 1337;
 
 void setup() {
-  // Required for two way communication 
+  // Required for two way communication
   Udp.begin(8888);
 
   if (Udp.sendPacket(buffer, sizeof(buffer), remoteIP, port) < 0) {
@@ -7032,13 +7032,13 @@ is not interrupted by the system background processing and network management.
 It does this by running the application loop and the system loop on separate threads,
 so they execute in parallel rather than sequentially.
 
-At present, System Thread is an opt-in change. To enable system threading for your application, add
+At present, System Thread is an opt-in change. To enable system threading for your application, add to the top of your application code.
 
 ```
+// EXAMPLE USAGE
 SYSTEM_THREAD(ENABLED);
 ```
 
-to the top of your application code.
 
 
 ### System Threading Behavior
@@ -7593,7 +7593,7 @@ System.sleep(D0,RISING,60);
     - FALLING for when the pin goes from high to low.
 - `seconds`: wakeup after the specified number of seconds (0 = no alarm is set)
 {{#if electron}}
-- `SLEEP_NETWORK_STANDBY`: optional - keeps the cellular modem in a standby state while the device is sleeping.. 
+- `SLEEP_NETWORK_STANDBY`: optional - keeps the cellular modem in a standby state while the device is sleeping..
 {{/if}}
 
 *Power consumption:*
