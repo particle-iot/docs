@@ -169,7 +169,7 @@ If you have issues that can't be solved here, post on our [community forums](htt
 
 In this tutorial, you’ll learn how to to get bus prediction times from the internet and display them on the Maker Kit OLED screen, which will provide alerts for upcoming buses. You'll also learn what a webhook is, and how to use it to get the prediction data to your Photon.
 
-<iframe height="168" src="https://www.youtube.com/embed/H0nN0OSSMiA?rel=0" frameborder="0" allowfullscreen></iframe>
+{{{youtube "https://www.youtube.com/embed/H0nN0OSSMiA?rel=0"}}}
 
 Then you'll wire up the OLED screen and display the bus alerts with fancy marquee scrolling. Here's how:
 * Discover your bus **prediction URL**
@@ -468,7 +468,7 @@ If you have issues that can't be solved here, post on our [community forums](htt
 ## Tutorial #3: Conference Room Monitor
 Wouldn’t it be awesome to be able to know whether someone is occupying your office’s conference room, without getting up from your desk? In this tutorial, you’ll learn how to use the Maker Kit PIR motion sensor, and how to integrate it with Slack using webhooks. PIR sensors detect subtle changes in infrared light, so they're particularly good for sensing people, animals, or other warm (or bright, since many lights also produce infrared) objects -- regardless of whether it's dark or not. There are many use cases for this, but for this tutorial we’re going to make a Slack channel that gets real-time updates of whether a conference room is in use.
 
-<iframe height="168" src="https://www.youtube.com/embed/IdVDryxmjjo?rel=0" frameborder="0" allowfullscreen></iframe>
+{{{youtube "https://www.youtube.com/embed/IdVDryxmjjo?rel=0"}}}
 
 ### Set up a Slack Incoming Webhook
 A Slack Incoming Webhook listens for data from an external source and then posts it to a Slack channel of your choosing.
@@ -615,7 +615,7 @@ If you have issues that can't be solved here, post on our [community forums](htt
 ## Tutorial #4: Temperature Logger
 In this tutorial, you'll learn how to use the **Dallas DS18B20** temperature sensors included in the Maker Kit, and how to log the data to a Google Spreadsheet. Logging the data allows it to be graphed and analyzed, which can provide insights into temperature fluctuations in rooms, garages, reptile tanks, the outdoors, and even liquids. The Maker Kit contains two sensors, both of which are the same model, but one is waterproof and has long wires, while the other is just a bare sensor. We'll be using the bare sensor for simplicity, but you can substitute the waterproof sensor in its place without any modifications.
 
-<iframe height="168" src="https://www.youtube.com/embed/XouV4dnc1vY?rel=0" frameborder="0" allowfullscreen></iframe>
+{{{youtube "https://www.youtube.com/embed/XouV4dnc1vY?rel=0"}}}
 
 We'll wire up the sensor to the Photon, then create a Particle Function to send the temperature data to the cloud, then connect our cloud data to Google Sheets using IFTTT, and start logging!
 
@@ -916,10 +916,10 @@ Once you get enough readings, you can make a graph:
 
 This setup has a wide range of applications, so enjoy!
 
-###Troubleshooting
+### Troubleshooting
 **No events are appearing in the Dashboard.**
 * Check the sensor wiring against the diagram.
-* In some cases breadboard holes can be a little loose. Try wiggling the resistor and sensor and see if readings come in.
+* In some cases breadboard holes can be a little loose. Try wiggling the resistor and sensor and see if readings come in. If you're using a resistor with very thin leads, sticking them into the same holes as the sensor pins often provides better contact.
 * Make sure you're logged into the dashboard with the same account that owns the device.
 * Make sure the Photon LED is "breathing cyan", which means it's connected to the cloud.
 
@@ -927,6 +927,6 @@ This setup has a wide range of applications, so enjoy!
 * Check your IFTTT recipe. Is everything spelled correctly and in the correct boxes?
 
 **I don't see a spreadsheet at all.**
-* Check your IFTTT recipe. Is IFTTT wired up to the correct Google account?
+* The default folder for the spreadsheet is `My Drive/events`, so check there if you haven't already.
 
 If you have issues that can't be solved here, post on our [community forums](https://community.particle.io/c/troubleshooting).
