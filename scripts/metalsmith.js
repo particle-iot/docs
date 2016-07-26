@@ -249,8 +249,8 @@ exports.metalsmith = function() {
       '/photon/hardware' : '/datasheets/photon-datasheet',
       '/troubleshooting' : '/support/troubleshooting/common-issues',
       '/help' : '/support/troubleshooting/common-issues',
-			'/faq' : '/support/support-and-fulfillment/faq',
-			'/tutorials': '/tutorials/topics/webhooks'
+      '/faq' : '/support/support-and-fulfillment/faq',
+      '/tutorials': '/tutorials/topics/maker-kit'
     }));
 
   return metalsmith;

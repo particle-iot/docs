@@ -99,7 +99,7 @@ Save the code, then flash the firmware to the Photon. (If you have multiple Phot
 
 ### Set up remote control
 
-One of the easiest ways to control a Particle device remotely is by using the [Do Button](https://ifttt.com/products/do/button). The Do Button is a smartphone app made by [IFTTT](http://ifttt.com) (If This Then That) that can be set to trigger events, which they call recipes, when you press the button inside the app. In this case, we’ll make a recipe that activates the servo.
+One of the easiest ways to control a Particle device remotely is by using the [Do Button](https://ifttt.com/products/do/button). The Do Button is a smartphone app made by [IFTTT](https://ifttt.com) (If This Then That) that can be set to trigger events, which they call recipes, when you press the button inside the app. In this case, we’ll make a recipe that activates the servo.
 
 First, download the Do Button app to your phone, make an account or log into your existing IFTTT account if you have one, and flip through the examples in the app. (Optionally, swipe left on the example recipe to delete it and reduce clutter.)
 
@@ -138,7 +138,7 @@ You can also do other fun things using IFTTT without the Do Button, such as turn
 
 ![Making an alarm recipe in IFTTT](/assets/images/ifttt-alarm-recipe.jpg)
 
-1. Log into [ifttt.com](http://ifttt.com)
+1. Log into [ifttt.com](https://ifttt.com)
 2. Make a new recipe
 3. Choose **Date and Time** as the trigger
 4. Choose **Particle** as the action
@@ -220,7 +220,7 @@ If it works, congrats! You've created your bus prediction URL.
 Great, so we’ve got our prediction URL and we can access it from a browser, but how do we access it from the Photon? The answer is to use a **webhook**, which you can read more about in our [webhooks guide](https://docs.particle.io/guide/tools-and-features/webhooks/).
 
 To create a webhook:
-* Go to the **[Particle Dashboard](dashboard.particle.io)**
+* Go to the **[Particle Dashboard](https://dashboard.particle.io)**
 * Click the **Integrations** tab
 * Click **New Integration**
 * Click **Webhook**
@@ -570,7 +570,7 @@ Particle.publish("conf_avail"); //publish to conf_avail webhook
 ```
 The name of the event being published matches the **event name** parameter in the webhook we just made.
 
-Check out the [Publish](/reference/firmware/photon/#particle-publish-),  [Subscribe](/reference/firmware/photon/#particle-subscribe-), and [Webhooks](guide/tools-and-features/webhooks) documentation for more information.
+Check out the [Publish](/reference/firmware/photon/#particle-publish-),  [Subscribe](/reference/firmware/photon/#particle-subscribe-), and [Webhooks](/guide/tools-and-features/webhooks) documentation for more information.
 
 ### Set up the hardware
 On the PIR sensor itself, with the back of the PCB facing up, find the two small potentiometers. The one on the left controls the range of the sensor (3-7 meters), and the one on the right controls how long the sensor stays triggered once tripped (1.5 - 300 seconds). Set the range potentiometer to the size of your conference room, or just turn it all the way to the right if your conference room has no windows. Set the second potentiometer all the way to the left (counterclockwise) to maximize its timing resolution.
@@ -872,16 +872,16 @@ delay(300000); // 5 minute delay
 ```
 Now let's upload the code. Click **Devices** in the left sidebar, and select your device as the device to upload to. Click the **Flash** button to upload the code!
 
-Your device should start publishing temperature readings to the [Particle Dashboard](dashboard.particle.io) immediately, so go there and make sure they look good. If you get nothing, the sensor is not connected properly. Make sure your wiring matches the diagram, and make sure your resistor and sensor are fully inserted into the breadboard. Once you get readings, continue on!
+Your device should start publishing temperature readings to the [Particle Dashboard](https://dashboard.particle.io) immediately, so go there and make sure they look good. If you get nothing, the sensor is not connected properly. Make sure your wiring matches the diagram, and make sure your resistor and sensor are fully inserted into the breadboard. Once you get readings, continue on!
 
 ![Temperatures displayed in the Particle Dashboard](/assets/images/temp-logger-dashboard.png)
 
 For more information about the Dashboard, read our [Dashboard guide](/guide/how-to-build-a-product/dashboard/).
 
 ### IFTTT
-[IFTTT](ifttt.com) (which stands for "IF This Then That" and is pronounced "ift") is an incredibly flexible service that allows you to select a trigger and perform actions based on that trigger. In this case, the trigger will be our Photon publishing an event called `temperature`, and the action will be to add a row to a Google Spreadsheet containing the temperature and the current date and time. This will allow us to graph the temperature later on.
+[IFTTT](https://ifttt.com) (which stands for "IF This Then That" and is pronounced "ift") is an incredibly flexible service that allows you to select a trigger and perform actions based on that trigger. In this case, the trigger will be our Photon publishing an event called `temperature`, and the action will be to add a row to a Google Spreadsheet containing the temperature and the current date and time. This will allow us to graph the temperature later on.
 
-[Sign in]([IFTTT](ifttt.com) to your IFTTT account or sign up for a new one if you don't already have an account.
+[Sign in](https://ifttt.com) to your IFTTT account or sign up for a new one if you don't already have an account.
 
 ![Sign into IFTTT](/assets/images/temp-logger-ifttt1.png)
 
