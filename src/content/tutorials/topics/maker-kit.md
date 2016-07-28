@@ -45,7 +45,7 @@ Connect the the black jumper wire to the GND pin on the Photon, the red wire to 
 
 ### Flash code to the Photon
 
-Now that the servo is connected electrically, we’ll connect it in software. Log into the [Particle Web IDE](http://build.particle.io) and make a new app. Copy and paste the example code below into the new file.
+Now that the servo is connected electrically, we’ll connect it in software. Log into the [Particle Web IDE](https://build.particle.io) and make a new app. Copy and paste the example code below into the new file.
 
 ```
 Servo myservo;  // create servo object to control a servo
@@ -454,7 +454,7 @@ By keeping these functions separate from the main *loop()* function, code can be
 
 **My OLED screen works, but it shows 0 for both prediction times.**
 * First enter your prediction URL into your web browser to make sure it's working properly.
-* If the URL returns good data when viewed from a browser, check your webhook by entering `particle webhook list` in your Terminal or command prompt. It should say `Hook ID XXXXXX is watching for "get_nextbus" and sending to: http://webservices.nextbus.com/service/publicXMLFeed?command=predictions&a=actransit&r=57&s=1018530`. If the URL cuts off at `command=predictions`, you probably didn't put backslashes before the & symbols. To fix this, first delete the bad webhook by entering `particle webhook delete XXXXXXX`, where XXXXXXX is the ID of your webhook. Then repeat the "Create a webhook" step in this tutorial.
+* If the URL returns good data when viewed from a browser, [check your webhook](https://dashboard.particle.io/user/integrations) and make sure the URL in the webhook matches the one you just tested in your browser.
 
 **I missed my bus because I was hypnotized by the fancy scrolling OLED screen.**
 * Don't worry, it happens to the best of us.
