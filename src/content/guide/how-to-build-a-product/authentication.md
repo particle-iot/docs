@@ -13,7 +13,7 @@ For any Particle-powered product to function properly, there are **four involved
 parties**:
 
 * Particle
-* Your organization's applications
+* Your product's applications
 * A device
 * The customer
 
@@ -25,7 +25,7 @@ Understanding how all four interact, manage data, and  secure information is cri
 Specifically, this section of the guide will go deep into decisions you
 must make on authentication and security with regards to your product.
 The results of these decisions will impact where and how data is
-stored as well as the ways in which your organization's applications
+stored as well as the ways in which your product's applications
 interact with Particle to control devices and manage customers.
 
 **Note:** *Many of the implementation details discussed in this document are still under development. We will add specific code examples and context as they become available in the mobile and JavaScript SDKs.*
@@ -42,14 +42,14 @@ Integral to OAuth is the concept of *clients*, and *client credentials*.
 An OAuth client generally represents an application, like a native iOS
 application running on an iPhone or a web app running in a browser. As
 part of the setup process for your product, you will need to create one or more
-OAuth clients for your organization.
+OAuth clients for your product.
 
-Your organization's OAuth client will be needed when hitting the
-Particle API to perform actions that only your organization's team
+Your product's OAuth client will be needed when hitting the
+Particle API to perform actions that only your product's team
 members or applications should be able to perform. An example of this is
-creating a customer that belongs to your organization via the Particle
+creating a customer that belongs to your product via the Particle
 API. Only those with a valid OAuth client will be able to perform this
-action, protecting your organization from fake or erroneous new customer
+action, protecting your product from fake or erroneous new customer
 accounts.
 
 ![Create OAuth Client](/assets/images/create-oauth-client.png)
@@ -74,22 +74,22 @@ scopes](http://tools.ietf.org/html/rfc6749#section-3.3).
 
 You can now use the [Particle console](https://console.particle.io) to
 create and manage your OAuth clients. The new "Authentication" view is your hub
-for creating, and managing your organization's clients.
+for creating, and managing your product's clients.
 
 You can find the Authentication view by clicking on the thumbprint icon in the
-menubar of your organization's console:
+menubar of your product's console:
 
  ![Auth Icon](/assets/images/auth-icon.png)
 
 When you visit the Authentication page, you will see a list of any OAuth clients
-that already have been created for your organization. To create a new client,
+that already have been created for your product. To create a new client,
 click the "+ New Client" button in the top right corner of the screen.
 
 This will launch a modal allowing you to configure an OAuth client that suits
 your needs. The configuration of your OAuth client will depend both on what
 _medium_ your customers will use to interact with their Particle devices (i.e.
 mobile vs. web app) in addition to what _authentication method_ you choose for
-your organization. You can [skip to choosing an authentication
+your product. You can [skip to choosing an authentication
 method](#choosing-an-authentication-method) if you'd like to create an OAuth
 client now.
 
@@ -105,7 +105,7 @@ or web app.
 **Never expose your client credentials,
 especially if they are unscoped**. Credentials are sensitive pieces of
 information that, if exposed, could allow unauthorized people or
-applications to interact with your organization's data and devices. [More
+applications to interact with your product's data and devices. [More
 on registering clients](http://tools.ietf.org/html/rfc6749#section-2).
 
 ## Access Tokens
@@ -168,7 +168,7 @@ needed from you or your engineers.
 Take a deep breath. We've covered a lot so far and you're picking things up quick! This section will help you determine the best place for you to go next.
 
 As described
-[earlier](/guide/tools-and-features/console/#organizations-vs-individuals),
+[earlier](/guide/tools-and-features/console/#devices-vs-product-devices),
 end-users of your product are referred to as *customers* in the Particle
 ecosystem. As a product creator, you will need to make a strategic decision
 about how you will want to handle authentication for your customers. Your choice
@@ -264,14 +264,14 @@ each new customer that sets up a device.
 ### 1. Creating OAuth Client Credentials
 
 The first thing you will need to do is ensure that you have created proper OAuth
-client credentials for your organization. In simple authentication,
+client credentials for your product. In simple authentication,
 communication will be direct from a client application (web or mobile app) to
 the Particle API. This is much less secure than server to server communication.
 As a result, you will create *scoped* client credentials that will be able to do
-one thing and one thing only: **create new customers for your organization**.
+one thing and one thing only: **create new customers for your product**.
 
 You will create your OAuth client using the Authentication view in your
-organization's Particle console. For info on how to find the Authentication
+product's Particle console. For info on how to find the Authentication
 page and create a client, [check out the earlier
 discussion](#creating-an-oauth-client).
 
@@ -304,7 +304,7 @@ below. Note that clients created using the default Simple Auth configurations
 will be scoped for _customer creation only_. This is for security purposes.
 In Simple Auth, client credentials can be uncovered relatively easily with some
 basic scraping techniques. Scoping the client will prevent unintended access to
-your organization's devices or data.
+your product's devices or data.
 
 Creating OAuth client can still be done directly against the Particle API. For
 info on this, see [reference documentation on creating OAuth
@@ -348,7 +348,7 @@ This step actually comprises a lot of things that happen behind the scenes, but 
 
 In order for a device to be setup successfully, your application must retrieve a claim code on behalf of the customer setting up their device and send that claim code to the device. When the device receives proper Wi-Fi credentials and is able to connect to the Internet, it sends the claim code to the Particle cloud. The Particle cloud then links the device to the customer, and grants the customer access over that device.
 
-The first thing that must happen is retreiving a claim code from the Particle cloud for the customer. A special endpoint exists for organizations to use to generate claim codes on behalf of their customers. 
+The first thing that must happen is retreiving a claim code from the Particle cloud for the customer. A special endpoint exists for products to use to generate claim codes on behalf of their customers. 
 
 This endpoint is `POST /v1/orgs/:orgSlug/products/:productSlug/device_claims`. The customer's access token is required, and is used to generate a claim code that will allow for the link between the device and the customer.
 
@@ -439,13 +439,13 @@ Each one of the steps will be covered in detail below. Note that the first two s
 
 ### 1. Creating OAuth Client Credentials
 
-Like Simple Authentication, you will need to create valid OAuth client credentials for your organization. Unlike simple authentication, your OAuth client credentials will be sent to the Particle API from your server, not directly from your mobile/web application. The client credentials will be used for two purposes:
+Like Simple Authentication, you will need to create valid OAuth client credentials for your product. Unlike simple authentication, your OAuth client credentials will be sent to the Particle API from your server, not directly from your mobile/web application. The client credentials will be used for two purposes:
 
 * Creating new customers 
 * Creating *scoped access tokens* for customers
 
 You will create your OAuth client using the Authentication view in your
-organization's Particle console. For info on how to find the Authentication
+product's Particle console. For info on how to find the Authentication
 page and create a client, [check out the earlier
 discussion](#creating-an-oauth-client).
 
@@ -482,7 +482,7 @@ Your *server* will need access to your newly created OAuth client ID and secret.
 
 Because of the presence of your server, you should not need to add these credentials to your web or mobile application.
 
-**Do not share your client ID and secret publically**. These credentials provide the ability to fully control your product's devices, and access sensitive information about your organization. We recommend never publishing the client ID and secret to a GitHub repository. 
+**Do not share your client ID and secret publically**. These credentials provide the ability to fully control your product's devices, and access sensitive information about your product. We recommend never publishing the client ID and secret to a GitHub repository. 
 
 *Coming soon: example implementation of client credentials*
 
@@ -558,7 +558,7 @@ curl -u my-org-client-1234:long-secret -d grant_type=client_credentials \
 ```
 
 Breaking this down:
-* The `-u` is a HTTP Basic Auth header, where you will pass your OAuth client ID and secret. This allows you to generate access tokens for customers that belong to your organization
+* The `-u` is a HTTP Basic Auth header, where you will pass your OAuth client ID and secret. This allows you to generate access tokens for customers that belong to your product
 * `grant_type` is the OAuth grant type, which in this case is `client_credentials`
 * `scope` is set to customer, and what allows you to specify the customer you'd like an access token for. The value of `customer` should be set to the `email` you passed when creating the customer.
 

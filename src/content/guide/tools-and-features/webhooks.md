@@ -241,7 +241,7 @@ As devices in your product's fleet will be running the same firmware, product we
 
 ### Create a product webhook 
 
-If you don't have one already, you'll need to [create an organization](/guide/tools-and-features/console/#setting-up-an-organization) and [define a product](/guide/tools-and-features/console/#defining-a-product) before you will be able to create product webhooks. Currently, webhooks for products are in beta and will evolve over the coming months.
+If you don't have one already, you'll need to [define a product](/guide/tools-and-features/console/#defining-a-product) before you will be able to create product webhooks. Currently, webhooks for products are in beta and will evolve over the coming months.
 
 Product webhook management can also be done from the [Particle Console](https://console.particle.io). To create a webhook, navigate to your product's hub on the console and click on the Integrations tab (<i class="im-integrations-icon"></i>). You'll see a very similar view to the Integrations hub as a developer.
 
