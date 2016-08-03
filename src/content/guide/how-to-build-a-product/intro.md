@@ -21,6 +21,7 @@ Before you start to follow this guide, you should already have:
 
 - A functional prototype running on a Core, Photon, P0, P1, or Electron
 - A working knowledge of Particle's development tools and cloud platform
+- Created a [Product in the Console](/guide/tools-and-features/console)
 
 If you are not yet familiar with these tools, please read the previous guides above (["Getting started"](/guide/getting-started/intro) and ["Tools and features"](/guide/tools-and-features/intro)).
 
@@ -28,8 +29,8 @@ If you are not yet familiar with these tools, please read the previous guides ab
 
 At a high level, you should expect to follow these steps to transition from your first functional prototype to a mass-manufactured product:
 
+- Set up your product in Particle's [Console](https://console.particle.io)
 - Design your own printed circuit board (PCB)
-- Set up your product in Particle's [dashboard](https://dashboard.particle.io)
 - Build your own web app
 - Build your own mobile apps (iOS and Android)
 - Manufacture, program, and test devices
@@ -51,7 +52,7 @@ We are building a network of professional services firms who can support you wit
 - Packaging
 - Logistics
 
-If you are interested in engaging us or our partners to help develop your product, please contact [our sales team](mailto:sales@particle.io).
+If you are interested in engaging us or our partners to help develop your product, please contact [our sales team](particle.io/sales).
 
 ### Let's get started!
 
