@@ -52,7 +52,7 @@ We are building a network of professional services firms who can support you wit
 - Packaging
 - Logistics
 
-If you are interested in engaging us or our partners to help develop your product, please contact [our sales team](particle.io/sales).
+If you are interested in engaging us or our partners to help develop your product, please contact [our sales team](https://www.particle.io/sales).
 
 ### Let's get started!
 

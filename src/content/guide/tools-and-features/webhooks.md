@@ -55,7 +55,7 @@ Great! We have what we need from ThingSpeak. Now let's go and create the webhook
 
 ### Create the webhook
 
-The hub for managing your webhooks is the [Particle Dashboard](https://dashboard.particle.io). Log into your dashboard and click on the Integrations tab. If you have created any webhooks in the past, they will appear here. Click on "New Integration" -> "Webhook" to get started.
+The hub for managing your webhooks is the [Particle Console](https://console.particle.io). Log into your console and click on the Integrations tab. If you have created any webhooks in the past, they will appear here. Click on "New Integration" -> "Webhook" to get started.
 
 ![Integrations Hub](/assets/images/integrations-hub.png)
 <p class="caption">Your Integrations Hub is where you can view and manage Particle webhooks</p>
@@ -112,7 +112,7 @@ Make sure your [device is connected](/guide/getting-started/start/) and selected
 
 Your device should now restart and start publishing the event that will trigger the webhook.
 
-To ensure that everything is working properly, head over to your Logs hub on the dashboard. Every time your webhook triggers, a `hook-sent` event will appear in your user event stream. If the webhook receives a response from the targeted web server with something in the `body`, a `hook-response` event will also appear in your event stream containing the response.
+To ensure that everything is working properly, head over to your Logs hub on the console. Every time your webhook triggers, a `hook-sent` event will appear in your user event stream. If the webhook receives a response from the targeted web server with something in the `body`, a `hook-response` event will also appear in your event stream containing the response.
 
 ![Webhook Logs](/assets/images/webhook-logs.png)
 <p class="caption">`hook-sent` and `hook-response` events will appear in your event stream for an active webhook</p>
@@ -209,13 +209,13 @@ This is same data you'd see if you subscribed to your [event stream](/reference/
 
 These properties will all be strings except for `published_at`, which is an ISO8601 date formatted string, which tends to be in the form `YYYY-MM-DDTHH:mm:ssZ`.
 
-You can customize both the type and the structure of data that gets sent with a webhook. To do this, check out the "Send Custom Data" section of the advanced settings when creating a webhook via the dashboard.
+You can customize both the type and the structure of data that gets sent with a webhook. To do this, check out the "Send Custom Data" section of the advanced settings when creating a webhook via the console.
 
 _Note:_ Even if you send custom JSON or form data with the webhook, the default data above will still be included in the request. If you do not want this, select "No" under "Include default data" in the advanced settings when creating a webhook.
 
 ## Monitoring your webhooks
 
-The easiest way to observe webhook activity is on the Logs hub of your Particle Dashboard. Every time your webhook triggers, a `hook-sent` event will appear in your user event stream. This is confirmation that the Particle cloud successfully forwarded your event to your webhook's target URL.
+The easiest way to observe webhook activity is on the Logs hub of your Particle Console. Every time your webhook triggers, a `hook-sent` event will appear in your user event stream. This is confirmation that the Particle cloud successfully forwarded your event to your webhook's target URL.
 
 If the webhook receives a response from the targeted web server with something in the body, a `hook-response` event will also appear in your event stream containing the response. This event will _only_ appear in your event stream if the web service returned something in the `body` of its response to the Particle cloud.
 
@@ -241,17 +241,17 @@ As devices in your product's fleet will be running the same firmware, product we
 
 ### Create a product webhook 
 
-If you don't have one already, you'll need to [create an organization](/guide/how-to-build-a-product/dashboard/#setting-up-an-organization) and [define a product](/guide/how-to-build-a-product/dashboard/#defining-a-product) before you will be able to create product webhooks. Currently, webhooks for products are in beta and will evolve over the coming months.
+If you don't have one already, you'll need to [create an organization](/guide/tools-and-features/console/#setting-up-an-organization) and [define a product](/guide/tools-and-features/console/#defining-a-product) before you will be able to create product webhooks. Currently, webhooks for products are in beta and will evolve over the coming months.
 
-Product webhook management can also be done from the [Particle Dashboard](https://dashboard.particle.io). To create a webhook, navigate to your product's hub on the dashboard and click on the Integrations tab (<i class="im-integrations-icon"></i>). You'll see a very similar view to the Integrations hub as a developer.
+Product webhook management can also be done from the [Particle Console](https://console.particle.io). To create a webhook, navigate to your product's hub on the console and click on the Integrations tab (<i class="im-integrations-icon"></i>). You'll see a very similar view to the Integrations hub as a developer.
 
 ![Product Integrations Hub](/assets/images/product-integrations-hub.png)
 <p class="caption">Product integrations are currently in public beta</p>
 
-Click on "New Integration" -> "Webhook." Again, the view will be very similar to what you would see in your developer dashboard. However, you will notice that the "Devices" dropdown has been replaced by a checkbox. This has to do with responses to product webhooks, which we'll cover in the next section.
+Click on "New Integration" -> "Webhook." Again, the view will be very similar to what you would see in your developer console. However, you will notice that the "Devices" dropdown has been replaced by a checkbox. This has to do with responses to product webhooks, which we'll cover in the next section.
 
 ![Create product webhook](/assets/images/create-product-webhook.png)
-<p class="caption">Create a product webhook from the Particle Dashboard</p>
+<p class="caption">Create a product webhook from the Particle Console</p>
 
 ### Product webhook responses
 
@@ -279,7 +279,7 @@ void myHandler(const char *event, const char *data) {
 
 ```
 
-At any time, you can see some sample firmware for both triggering and getting responses from webhooks on your Particle Dashboard. To do this, simply click on one of your product webhooks and scroll down to "Example Device Firmware."
+At any time, you can see some sample firmware for both triggering and getting responses from webhooks on your Particle Console. To do this, simply click on one of your product webhooks and scroll down to "Example Device Firmware."
 
 ### Monitoring Product Webhooks
 [Coming Soon]
@@ -290,7 +290,7 @@ At any time, you can see some sample firmware for both triggering and getting re
 
 ### Other ways to manage webhooks
 
-If you prefer not to use the Particle Dashboard, there are other tools you can use to manage webhooks.
+If you prefer not to use the Particle Console, there are other tools you can use to manage webhooks.
 
 If you prefer the command line: 
 

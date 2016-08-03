@@ -72,12 +72,12 @@ scopes](http://tools.ietf.org/html/rfc6749#section-3.3).
 
 ### Creating an OAuth Client
 
-You can now use the [Particle dashboard](https://dashboard.particle.io) to
+You can now use the [Particle console](https://console.particle.io) to
 create and manage your OAuth clients. The new "Authentication" view is your hub
 for creating, and managing your organization's clients.
 
 You can find the Authentication view by clicking on the thumbprint icon in the
-menubar of your organization's dashboard:
+menubar of your organization's console:
 
  ![Auth Icon](/assets/images/auth-icon.png)
 
@@ -94,10 +94,10 @@ method](#choosing-an-authentication-method) if you'd like to create an OAuth
 client now.
 
  ![Create client](/assets/images/create-client.png)
- <p class="caption">The dashboard provides an easy way to create OAuth
+ <p class="caption">The console provides an easy way to create OAuth
  clients</p>
 
-The dashboard will provide you client ID and secret in once you configure
+The console will provide you client ID and secret in once you configure
 your client correctly. **Your client secret will only be shown once for security
 purposes**. Ensure that you copy it for your records to be used in your mobile
 or web app.
@@ -168,7 +168,7 @@ needed from you or your engineers.
 Take a deep breath. We've covered a lot so far and you're picking things up quick! This section will help you determine the best place for you to go next.
 
 As described
-[earlier](/guide/how-to-build-a-product/dashboard/#organizations-vs-individuals),
+[earlier](/guide/tools-and-features/console/#organizations-vs-individuals),
 end-users of your product are referred to as *customers* in the Particle
 ecosystem. As a product creator, you will need to make a strategic decision
 about how you will want to handle authentication for your customers. Your choice
@@ -271,7 +271,7 @@ As a result, you will create *scoped* client credentials that will be able to do
 one thing and one thing only: **create new customers for your organization**.
 
 You will create your OAuth client using the Authentication view in your
-organization's Particle dashboard. For info on how to find the Authentication
+organization's Particle console. For info on how to find the Authentication
 page and create a client, [check out the earlier
 discussion](#creating-an-oauth-client).
 
@@ -445,7 +445,7 @@ Like Simple Authentication, you will need to create valid OAuth client credentia
 * Creating *scoped access tokens* for customers
 
 You will create your OAuth client using the Authentication view in your
-organization's Particle dashboard. For info on how to find the Authentication
+organization's Particle console. For info on how to find the Authentication
 page and create a client, [check out the earlier
 discussion](#creating-an-oauth-client).
 
