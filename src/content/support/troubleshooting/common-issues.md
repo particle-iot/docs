@@ -73,9 +73,9 @@ There are a bunch of things that you can do to improve your cellular reception:
 
 
 ### 8) Check your data limit
-If you've been using your Electron successfully for a while and it's now just started flashing green, you might have hit your data limit, and your SIM might be paused. You can check your data usage and update your data limits by visiting the SIM dashboard at the following link:
+If you've been using your Electron successfully for a while and it's now just started flashing green, you might have hit your data limit, and your SIM might be paused. You can check your data usage and update your data limits by visiting the SIM console at the following link:
 
-[https://dashboard.particle.io/user/billing](https://dashboard.particle.io/user/billing)
+[https://console.particle.io/billing](https://console.particle.io/billing)
 
 ### 9) Cold boot your device
 If all else fails, try restarting it! Remove *both* the USB cable and Li-Po battery from the Electron, so that the RGB LED fully powers off. Then, reconnect the Li-Po battery and USB cable--the Electron should reboot and retry the connection sequence.

@@ -496,9 +496,9 @@ and make sure you replace `device_name` with either your device ID or the casual
 
 Now you can turn your LED on and off and see the values at A0 change based on the photoresistor!
 
-<div style="display: none;" id="publish-and-the-dashboard" data-firmware-example-url="https://docs.particle.io/guide/getting-started/examples/photon/#make-a-motion-detector-publish-and-the-dashboard" data-firmware-example-title="Publish" data-firmware-example-description="Publish and the Dashboard"></div>
+<div style="display: none;" id="publish-and-the-dashboard" data-firmware-example-url="https://docs.particle.io/guide/getting-started/examples/photon/#make-a-motion-detector-publish-and-the-console" data-firmware-example-title="Publish" data-firmware-example-description="Publish and the Console"></div>
 
-## Make a Motion Detector: Publish and the Dashboard
+## Make a Motion Detector: Publish and the Console
 
 ### Intro
 
@@ -510,7 +510,7 @@ In this example, we've created a system where you turn your LED and photoresisto
 
 For your convenience, we've set up a little calibrate function so that your device will work no matter how bright your LED is, or how bright the ambient light may be. Put your finger in the beam when the D7 LED goes on, and hold it in the beam until you see two flashes from the D7 LED. Then take your finger out of the beam. If you mess up, don't worry-- you can just hit "reset" on your device and do it again!
 
-You can check out the results on your dashboard at [dashboard.particle.io](https://dashboard.particle.io). As you put your finger in front of the beam, you'll see an event appear that says the beam was broken. When you remove your finger, the event says that the beam is now intact.
+You can check out the results on your console at [console.particle.io](https://console.particle.io). As you put your finger in front of the beam, you'll see an event appear that says the beam was broken. When you remove your finger, the event says that the beam is now intact.
 
 You can also hook up publishes to IFTTT! More info [here](/guide/tools-and-features/ifttt).
 
@@ -527,7 +527,7 @@ Ensure that the short end of the LED is plugged into `GND` and that the LED and 
 
 <pre><code class="lang-cpp" data-firmware-example-code-block=true>
 // -----------------------------------------
-// Publish and Dashboard with Photoresistors
+// Publish and Console with Photoresistors
 // -----------------------------------------
 // This app will publish an event when the beam of light between the LED and the photoresistor is broken.
 // It will publish a different event when the light is intact again.
