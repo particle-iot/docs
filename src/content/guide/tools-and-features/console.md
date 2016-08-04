@@ -65,19 +65,15 @@ Our cloud platform thinks that all devices are *Photons*, *Electrons*, or *Cores
 - Collecting bulk data, events, errors, and logs from all of your devices
 - Distributing firmware updates in a controlled fashion
 
-Once you have an organization set up in the Console, you will be able to add a product and you will be walked through these decisions.
+To create a product, return to your personal console page and click on the **New Product** button.
 
-To create a product, return to your organization's products page and click on the **New Product** button.
-
-![Your organization's product page](/assets/images/products-page.png)
+![Your product page](/assets/images/products-page.png)
 
 This will open up a modal where you can add basic details about your product:
 
 ![A new product](/assets/images/new-product-modal.png)
 
 You now have your very first Particle product! Woot!
-
-After successfully creating your product, you will be directed to your product's configuration page.
 
 ## Adding team members
 
@@ -137,7 +133,7 @@ When you do a real manufacturing run and import those devices into the Console, 
 
 ## Rollout Firmware
 
-One of the most significant benefits of your organization Console is being able to roll out firmware to groups of devices, all from one place. This opens up tremendous possibilities for your IoT product: you now have the power to continuously improve how a customer's device operates after purchase. In addition, over-the-air (OTA) firmware updates can provide you additional flexibility in the manufacturing process. Specifically, you may continue to develop firmware between the time of manufacturing and shipping your product to customers, and send the latest firmware to your customers on setup of their device.
+One of the most significant benefits of your Console is being able to roll out firmware to groups of devices, all from one place. This opens up tremendous possibilities for your IoT product: you now have the power to continuously improve how a customer's device operates after purchase. In addition, over-the-air (OTA) firmware updates can provide you additional flexibility in the manufacturing process. Specifically, you may continue to develop firmware between the time of manufacturing and shipping your product to customers, and send the latest firmware to your customers on setup of their device.
 
 ### Preparing a binary
 
@@ -234,7 +230,7 @@ Now that you have set up a Product, your customers will be able to create accoun
 
 There are three ways you can authenticate your customers:
 
-- **Simple authentication**. Your customers will create an account with Particle that is registered to your organization. You do not need to set up your own authentication system, and will hit the Particle API directly.
+- **Simple authentication**. Your customers will create an account with Particle that is registered to your product. You do not need to set up your own authentication system, and will hit the Particle API directly.
 - **Two-legged authentication**. Your customers will create an account on your servers using your own authentication system, and your web servers will create an account with Particle for each customer that is paired to that customer. Your servers will request a scoped access token for each customer to interact with their device. This is a completely white-labeled solution.
 - **Login with Particle**. Your customers will create a Particle account and a separate account on your website, and link the two together using OAuth 2.0. Unlike the other authentication options, this option will showcase Particle branding. This is most useful when the customer is aware of Particle and may be using Particle's development tools with the product.
 
@@ -280,7 +276,7 @@ Products in the Console are billed separately, so if you have more than one they
 All Console plans are billed at the beginning of the plan period; in other words, it’s prepaid. You’ll pay for the following month or year, and can later cancel for a prorated remainder. 
 
 ### Status
-It’s easy to find out the status of your Product’s metrics. Visit <console.particle.io/billing> and you’ll see an up-to-date list of each Product you own, how many outbound events they’ve used that billing cycle, number of devices in each, and how many team members they have. The renewal date for each Product plan is also shown, so you know when the next bill is coming up.
+It’s easy to find out the status of your Product’s metrics. Visit [console.particle.io/billing](https://console.particle.io/billing) and you’ll see an up-to-date list of each Product you own, how many outbound events they’ve used that billing cycle, number of devices in each, and how many team members they have. The renewal date for each Product plan is also shown, so you know when the next bill is coming up.
 
 ### Changing Plans 
 You can upgrade to a higher tier at any time from the Billing view in order to add more team members or devices, or increase your monthly outbound event limit. We’ll send you notifications before you encounter the outbound event limit, but it’s wise to upgrade early because no events will be sent after you hit it. If you’ve hit the event limit, tried to add more devices than are supported by the current tier, or attempted to add a 6th team member while on the free Prototype tier, you’ll be prompted to upgrade to a higher tier.
@@ -291,15 +287,13 @@ Contact us if you need to downgrade or remove a Product; both have potentially c
 
 ### Updating your credit card
 
-You can update your credit card from the billing page by clicking on the "EDIT" button next to the credit card on file. Whenever your credit card on file expires or no longer is valid, be sure to update your credit card info here to avoid any disruptions in your service.
-
-![Update your credit card](/assets/images/edit-card.png)
+You can update your credit card from the billing page by clicking on the "UPDATE" button next to the credit card on file. Whenever your credit card on file expires or no longer is valid, be sure to update your credit card info here to avoid any disruptions in your service.
 
 ### Failed Payments
 
 If we attempt to charge your credit card and it fails, we do not immediately prevent you or your team from accessing your Device Management Console. We will continue to retry charging your card once every few days <strong>for a maximum of 3 retries</strong>. You will receive an email notification each time an attempt is made and fails. When you receive this notification, the best thing to avoid any interruption in service is to <a href="#updating-your-credit-card">update your credit card</a>.
 
-After we have unsuccessfully tried to charge your card 3 times, your Device Management account will be locked. <strong>Your Products and all data will not be deleted</strong>. After re-activating your account, you will be able to access your Console once again.
+After we have unsuccessfully tried to charge your card 3 times, your Console account will be locked. <strong>Your Products and all data will not be deleted</strong>. After re-activating your account, you will be able to access your Console once again.
 
 ## Configuring Your Product
 
