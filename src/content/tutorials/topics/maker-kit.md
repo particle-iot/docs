@@ -13,9 +13,9 @@ This section provides tutorials for new users of the [Photon Maker Kit](https://
 
 ## Tutorial #1: Servo Gong
 
-In this beginner tutorial, you’ll learn how to connect the Maker Kit servo to your Photon, and how to control it via the web using the [Do Button](https://ifttt.com/products/do/button) app on your smartphone to ring a gong or other noise-making object.
+In this beginner tutorial, you’ll learn how to connect the Maker Kit **servo** to your Photon, and how to control it via the web using the [Do Button](https://ifttt.com/products/do/button) app on your smartphone to ring a gong or other noise-making object.
 
-{{{youtube "https://www.youtube.com/embed/stg5DNLRgOk"}}}
+{{{youtube "https://www.youtube.com/embed/stg5DNLRgOk?rel=0"}}}
 
 ### What you'll need
 
@@ -167,11 +167,13 @@ If you have issues that can't be solved here, post on our [community forums](htt
 
 ## Tutorial #2: Next Bus Alert
 
-In this tutorial, you’ll learn how to to get bus prediction times from the internet and display them on the Maker Kit OLED screen, which will provide alerts for upcoming buses. You'll also learn what a webhook is, and how to use it to get the prediction data to your Photon.
+In this tutorial, you’ll learn how to to get bus prediction times from the internet and display them on the Maker Kit **OLED screen**, which will provide alerts for upcoming buses. You'll also learn what a **webhook** is, and how to use it to get the prediction data to your Photon.
 
-{{{youtube "https://www.youtube.com/embed/H0nN0OSSMiA?rel=0"}}}
+{{{youtube "https://www.youtube.com/embed/BDUVJ3dSksk?rel=0"}}}
 
-Then you'll wire up the OLED screen and display the bus alerts with fancy marquee scrolling. Here's how:
+Then you'll wire up the OLED screen and display the bus alerts with fancy marquee scrolling.
+
+Here's how:
 * Discover your bus **prediction URL**
 * Set up a **webhook**
 * **Subscribe** to the webhook from the Photon
@@ -220,7 +222,7 @@ If it works, congrats! You've created your bus prediction URL.
 Great, so we’ve got our prediction URL and we can access it from a browser, but how do we access it from the Photon? The answer is to use a **webhook**, which you can read more about in our [webhooks guide](https://docs.particle.io/guide/tools-and-features/webhooks/).
 
 To create a webhook:
-* Go to the **[Particle Dashboard](https://dashboard.particle.io)**
+* Go to the **[Particle Console](https://console.particle.io)**
 * Click the **Integrations** tab
 * Click **New Integration**
 * Click **Webhook**
@@ -454,7 +456,7 @@ By keeping these functions separate from the main *loop()* function, code can be
 
 **My OLED screen works, but it shows 0 for both prediction times.**
 * First enter your prediction URL into your web browser to make sure it's working properly.
-* If the URL returns good data when viewed from a browser, [check your webhook](https://dashboard.particle.io/user/integrations) and make sure the URL in the webhook matches the one you just tested in your browser.
+* If the URL returns good data when viewed from a browser, [check your webhook](https://console.particle.io/integrations) and make sure the URL in the webhook matches the one you just tested in your browser.
 
 **I missed my bus because I was hypnotized by the fancy scrolling OLED screen.**
 * Don't worry, it happens to the best of us.
@@ -466,12 +468,12 @@ If you have issues that can't be solved here, post on our [community forums](htt
 
 
 ## Tutorial #3: Conference Room Monitor
-Wouldn’t it be awesome to be able to know whether someone is occupying your office’s conference room, without getting up from your desk? In this tutorial, you’ll learn how to use the Maker Kit PIR motion sensor, and how to integrate it with Slack using webhooks. PIR sensors detect subtle changes in infrared light, so they're particularly good for sensing people, animals, or other warm (or bright, since many lights also produce infrared) objects -- regardless of whether it's dark or not. There are many use cases for this, but for this tutorial we’re going to make a Slack channel that gets real-time updates of whether a conference room is in use.
+Wouldn’t it be awesome to be able to know whether someone is occupying your office’s conference room, without getting up from your desk? In this tutorial, you’ll learn how to use the Maker Kit **PIR motion sensor**, and how to integrate it with [Slack](https://slack.com) using webhooks. PIR sensors detect subtle changes in infrared light, so they're particularly good for sensing people, animals, or other warm (or bright, since many lights also produce infrared) objects -- regardless of whether it's dark or not. There are many use cases for this, but for this tutorial we’re going to make a Slack channel that gets real-time updates of whether a conference room is in use.
 
-{{{youtube "https://www.youtube.com/embed/IdVDryxmjjo?rel=0"}}}
+{{{youtube "https://www.youtube.com/embed/354GYoZ4m8c?rel=0"}}}
 
 ### Set up a Slack Incoming Webhook
-A Slack Incoming Webhook listens for data from an external source and then posts it to a Slack channel of your choosing.
+A [Slack Incoming Webhook](https://api.slack.com/incoming-webhooks) listens for data from an external source and then posts it to a Slack channel of your choosing.
 
 First, make a channel for the webhook to post in. This example is for conference room availability, so we’ll make a channel called #conferenceroom. Next, click the gear icon and choose “Add an app or integration”.
 ![Add a new Slack integration](/assets/images/conf-add-slack-integration.png)
@@ -494,7 +496,7 @@ Scroll down to **Integration Settings** and give your webhook a descriptive labe
 ### Create a Particle webhook
 Many Slack integrations require dedicated web servers running PHP scripts to process information to and from Slack. However, in our case we can just use a Particle webhook to tell the Slack webhook whether the conference room is available. Easy!
 
-Go to the [Particle Dashboard](http://dashboard.particle.io) and click the **Integrations** tab, then click **New Integration**.
+Go to the [Particle Console](http://console.particle.io) and click the **Integrations** tab, then click **New Integration**.
 ![Add a new Particle webhook](/assets/images/conf-add-particle-webhook0.png)
 
 Click **Webhook** to start the Webhook Builder.
@@ -503,14 +505,14 @@ Click **Webhook** to start the Webhook Builder.
 In the Webhook Builder under **Event Name**, enter `conf_avail`. Then paste your Slack webhook URL under **URL**.
 ![Add a new Particle webhook](/assets/images/conf-add-particle-webhook2.png)
 
-Expand **Advanced Settings** and choose **JSON**. Paste the following code:
+Expand **Advanced Settings** and choose **JSON** under **Send Custom Data**. Paste the following code:
 ![Add a new Particle webhook](/assets/images/conf-add-particle-webhook3.png)
 ```
 {
 	"text": "The conference room is \{{PARTICLE_EVENT_VALUE}}."
 }
 ```
-The \{{PARTICLE_EVENT_VALUE}} field gets filled with the data sent when the event is published by the device. In this case, the data will be the `status` variable, which will contain either `"in use"` or `"available"`.
+The **\{{PARTICLE_EVENT_VALUE}}** field gets filled with the data sent when the event is published by the device. In this case, the data will be the `status` variable, which will contain either `"in use"` or `"available"`.
 
 Scroll down to the bottom and hit **Create Webhook**.
 
@@ -599,10 +601,11 @@ This sensor and webhook integration are very versatile. You could use it for any
 ### Troubleshooting
 **My channel shows that the room is in use, but doesn't show that it's available (or the reverse).**
 * This setup is designed to only show the room as available if no motion has been detected for 30 seconds. Try putting a blanket over the sensor to completely block all motion.
-* When you created the Particle webhook, did you spell the event name properly, such that it matches the code?
+* Check your Particle webhook and make sure the event name matches the event name in the code.
 
 **No motion is being detected (the D7 LED isn't turning on at all).**
 * Check your wiring -- with the sensor on the upper right corner of the breadboard, the pin order from left to right is `GND, OUT, +5V`, where `OUT` is the sensor output that is read by pin `D0` on the Photon.
+* These sensors sometimes seem to take a minute or two to start working properly, so wait and try again.
 
 If you have issues that can't be solved here, post on our [community forums](https://community.particle.io/c/troubleshooting).
 
@@ -613,9 +616,9 @@ If you have issues that can't be solved here, post on our [community forums](htt
 
 
 ## Tutorial #4: Temperature Logger
-In this tutorial, you'll learn how to use the **Dallas DS18B20** temperature sensors included in the Maker Kit, and how to log the data to a Google Spreadsheet. Logging the data allows it to be graphed and analyzed, which can provide insights into temperature fluctuations in rooms, garages, reptile tanks, the outdoors, and even liquids. The Maker Kit contains two sensors, both of which are the same model, but one is waterproof and has long wires, while the other is just a bare sensor. We'll be using the bare sensor for simplicity, but you can substitute the waterproof sensor in its place without any modifications.
+In this tutorial, you'll learn how to use the **Dallas DS18B20** temperature sensors included in the Maker Kit, and how to log the data to a Google Spreadsheet. Logging the data allows it to be graphed and analyzed, which can provide insights into temperature fluctuations in rooms, garages, reptile tanks, the outdoors, and even liquids. The Maker Kit contains two sensors, both of which are the same model, but one is waterproof and has long wires, while the other is just a bare sensor. We'll be using the bare sensor for simplicity in this tutorial, but you can substitute the waterproof sensor in its place without any modifications.
 
-{{{youtube "https://www.youtube.com/embed/XouV4dnc1vY?rel=0"}}}
+{{{youtube "https://www.youtube.com/embed/2LkPpa2GN6k?rel=0"}}}
 
 We'll wire up the sensor to the Photon, then create a Particle Function to send the temperature data to the cloud, then connect our cloud data to Google Sheets using IFTTT, and start logging!
 
@@ -857,7 +860,7 @@ void loop(void) {
   // now that we have the readings, we can publish them to the cloud
   String temperature = String(fahrenheit); // store temp in "temperature" string
   Particle.publish("temperature", temperature, PRIVATE); // publish to cloud
-  delay(5000); // 5 sec delay
+  delay(5000); // 5 second delay
 }
 ```
 The second-to-last line publishes the data to the cloud:
@@ -866,17 +869,17 @@ Particle.publish("temperature", temperature, PRIVATE); // publish to cloud
 ```
 This line publishes an **event** named "temperature" to the Particle cloud, which brings with it the data stored in the `temperature` variable. You can read more about publishing events [here](/reference/firmware/photon/#particle-publish-).
 
-The default is to take a reading every five seconds, which is great for testing this setup to make sure it works. If you want a longer interval once you get it working, change `delay(5000)` to something larger. Google spreadsheets can hold a maximum of 2000 rows, so the following line will take a reading every five minutes, which fits about a week's worth of readings into one sheet:
+The default is to take a reading every five seconds, which is great for  for short-term projects and for testing this setup to make sure it works. If you want a longer interval once you get it working, change `delay(5000)` to something larger. Google spreadsheets can hold a maximum of 2000 rows, so the following line will take a reading every five minutes, which fits about a week's worth of readings into one sheet:
 ```
 delay(300000); // 5 minute delay
 ```
 Now let's upload the code. Click **Devices** in the left sidebar, and select your device as the device to upload to. Click the **Flash** button to upload the code!
 
-Your device should start publishing temperature readings to the [Particle Dashboard](https://dashboard.particle.io) immediately, so go there and make sure they look good. If you get nothing, the sensor is not connected properly. Make sure your wiring matches the diagram, and make sure your resistor and sensor are fully inserted into the breadboard. Once you get readings, continue on!
+Your device should start publishing temperature readings to the **[Particle Console](https://console.particle.io)** immediately, so go there and make sure they're showing up. If you get nothing, the sensor is probably not connected properly. Make sure your wiring matches the diagram, and make sure your resistor and sensor are fully inserted into the breadboard. If the resistor seems loose in the breadboard holes, try inserting it into the same holes as the sensor. Once you get readings, continue on!
 
-![Temperatures displayed in the Particle Dashboard](/assets/images/temp-logger-dashboard.png)
+![Temperatures displayed in the Particle Console](/assets/images/temp-logger-dashboard.png)
 
-For more information about the Dashboard, read our [Dashboard guide](/guide/how-to-build-a-product/dashboard/).
+For more information about the Console, read our [Console guide](/guide/tools-and-features/console/).
 
 ### IFTTT
 [IFTTT](https://ifttt.com) (which stands for "IF This Then That" and is pronounced "ift") is an incredibly flexible service that allows you to select a trigger and perform actions based on that trigger. In this case, the trigger will be our Photon publishing an event called `temperature`, and the action will be to add a row to a Google Spreadsheet containing the temperature and the current date and time. This will allow us to graph the temperature later on.
@@ -917,16 +920,17 @@ Once you get enough readings, you can make a graph:
 This setup has a wide range of applications, so enjoy!
 
 ### Troubleshooting
-**No events are appearing in the Dashboard.**
+**No events are appearing in the Console.**
 * Check the sensor wiring against the diagram.
 * In some cases breadboard holes can be a little loose. Try wiggling the resistor and sensor and see if readings come in. If you're using a resistor with very thin leads, sticking them into the same holes as the sensor pins often provides better contact.
-* Make sure you're logged into the dashboard with the same account that owns the device.
+* Make sure you're logged into the Console with the same account that owns the device.
 * Make sure the Photon LED is "breathing cyan", which means it's connected to the cloud.
 
-**I see events in the Dashboard, but not in the spreadsheet.**
+**I see events in the Console, but not in the spreadsheet.**
 * Check your IFTTT recipe. Is everything spelled correctly and in the correct boxes?
 
-**I don't see a spreadsheet at all.**
-* The default folder for the spreadsheet is `My Drive/events`, so check there if you haven't already.
+**I can't find the spreadsheet.**
+* The default folder for the spreadsheet is `My Drive/events`, so check there first.
+* Check if events are showing up in the [Console](https://console.particle.io).
 
 If you have issues that can't be solved here, post on our [community forums](https://community.particle.io/c/troubleshooting).
