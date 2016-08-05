@@ -270,7 +270,7 @@ The shield is setup so that when powered from the USB port as well as from a DC 
 
 ![Power Shield Supply](/assets/images/shields/power-shield/power-shield-powersupply.png)
 
-There are two status led located on the left of the JST battery connector labeled `STAT1` and `STAT2`. Here is a table of the led behavior depending on which state the battery charger is in:
+There are two status LEDs located on the left of the JST battery connector labeled `STAT1` and `STAT2`. Here is a table of the LED behavior depending on which state the battery charger is in:
 
 |STAT1 (Blue)  | STAT2 (Red) | Charge State |
 |--------|--------|-------------------------|
@@ -327,7 +327,7 @@ Examples include:
 
 ### Internet Button - Specifications
 
-- Operating voltage: USB or External DC of 3.6 to 6VDC
+- Operating voltage: USB or External DC of 3.3 to 5.5VDC
 - Dimensions: 2.6" x 2.6"
 <!-- - Current consumption: -->
 <!-- - Weight: -->
@@ -366,6 +366,7 @@ You get two 220-Ohm resistors in your Photon Kit. They are rated at 5%, 1/4 Watt
 ### Photon with Headers (1)
 
 ![Photon with Headers](/assets/images/photon-loose-top.jpg)
+[Click here for the Photon datasheet](/datasheets/photon-datasheet/)
 
 ### USB Micro B Cable (1)
 
@@ -606,6 +607,10 @@ Note: The Ground pin may vary as Brown or Black, +5V pin may vary as Orange or R
 ![OLED](/assets/images/mk-oled.jpg)
 
 This is a 128x64 pixel graphic OLED screen that can be either controlled via the SPI (default) or I2C.
+
+**Sample code**
+- [Adafruit SSD1306 in the Particle Build Library](https://build.particle.io/libs/5397d8d028979ed3cc000731)
+- https://github.com/pkourany/Adafruit_SSD1306
 
 **Specifications:**
 - Supply Voltage: 3.0V to 5V DC

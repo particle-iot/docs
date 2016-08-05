@@ -48,7 +48,7 @@ Anxious to connect right away?
 
 The guide is broken down into three parts:
 - [**Getting Started**](/guide/getting-started/start/) goes over how to connect your device and then dives into some examples to get you used to the connected platform. If you've never played with connected hardware before, Getting Started is the section for you! It's filled with small {{{ popup 'footnotes' 'note' 'When you hover over or click these, you will get more info on the underlined word.'}}} that you can hover over or (on smaller screens and mobile) click or tap for more info. If you're an expert, you may want to take the first few chapters to connect your device, then move on to Tools and Features.
-- [**Tools and Features**](/guide/tools-and-features/intro/) details the different parts of the Particle platform that come in handy as you build a connected product. It includes using Particle Dev, the Dashboard, the Command Line Interface (CLI) and more.
+- [**Tools and Features**](/guide/tools-and-features/intro/) details the different parts of the Particle platform that come in handy as you build a connected product. It includes using Particle Dev, the Console, the Command Line Interface (CLI) and more.
 - [**How to Build a Product**](/guide/how-to-build-a-product/intro/) is the final section. It reviews everything you'll need to do when taking the connected device you've prototyped into full production and deployment.
 
 We'll fill in more parts of the guide in the {{{popup 'coming months' 'note' 'Thanks for your patience, friend.'}}}, but for now the best way to use the guide is:

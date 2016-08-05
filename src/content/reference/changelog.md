@@ -39,8 +39,8 @@ There are three hardware variants for the Electron that operate on both 2G and 3
 | Electron Name  | Service | Service Location | Bands (MHz) |
 | ------------- | :-------------: | :----: | :----: |
 | Electron G350  | 2G only | Worldwide | 850/900/1800/1900
-| Electron U260  | 3G with 2G fallback | North and South America | 850/1900
-| Electron U270 | 3G with 2G fallback | Europe, Asia, Africa, Australia | 900/1800/2100 |
+| Electron U260  | 3G with 2G fallback | North and South America, Australia | 850/1900
+| Electron U270 | 3G with 2G fallback | Europe, Asia, Africa | 900/1800/2100 |
 <p class="caption">Table of Electron hardware variants.</p>
 
 ### 12 New Pins
@@ -85,12 +85,12 @@ Particle is now an MVNO (Mobile virtual network operator)! Every Electron comes 
 
 We’re also providing low cost data plans specifically for IoT devices that you can pause or cancel at any time without a contract. Data plans start as low as $2.99 a month for 1MB of data — enough to send a few thousand messages on our extremely data-efficient messaging platform.
 
-### SIM Dashboard
+### SIM Console
 
 ![](/assets/images/electron-dashboard.png)
-<p class="caption">The Particle SIM dashboard lets you monitor and manage data usage.</p>
+<p class="caption">The Particle SIM console lets you monitor and manage data usage.</p>
 
-We’ve created a SIM management and billing [dashboard](https://dashboard.particle.io/user/billing) that allows you to visualize your data usage over time, set usage alerts to notify you when you’ve reached your data limit, and pause service to your SIM at configurable thresholds to avoid overages.
+We’ve created a SIM management and billing [console](https://console.particle.io/billing) that allows you to visualize your data usage over time, set usage alerts to notify you when you’ve reached your data limit, and pause service to your SIM at configurable thresholds to avoid overages.
 
 ### Worldwide Coverage
 

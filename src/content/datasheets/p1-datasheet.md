@@ -5,7 +5,7 @@ columns: two
 order: 5
 ---
 
-# P1 Datasheet <sup>(v005)</sup>
+# P1 Datasheet <sup>(v006)</sup>
 
 <div align=center><img src="/assets/images/p1-vector.png" width=200></div>
 
@@ -286,7 +286,7 @@ echo -e "\xFF" > fillbyte && dfu-util -d 2b04:d00a -a 1 -s 3106 -D fillbyte
 | 30	|	MICRO_UART2_CTS	|	PA0	|	WKP |
 | 31	|	MICRO_UART2_RXD	|	PA3	|	RGBB (RGB LED BLUE) |
 | 32	|	MICRO_UART2_TXD	|	PA2	|	RGBG (RGB LED GREEN) |
-| 33	|	TESTMODE	|	PA8	| GPIO (see STM32F205RGY6 datasheet) |
+| 33	|	TESTMODE	|	PA8	| Connected to MCO1 by default, outputs 32kHz clock for WICED powersave mode - currently unsupported for user control |
 | 34	|	MICRO_RST_N	|	I	|	/RESET (Active low MCU reset) |
 | 35	|	MICRO_I2C1_SCL	|	PB6	|	D1 (I2C SCL) |
 | 36	|	MICRO_I2C1_SDA	|	PB7	|	D0 (I2C SDA) |
@@ -517,7 +517,7 @@ The P1 module comes preprogrammed with a bootloader and a user application calle
 
 The bootloader allows you to easily update the user application via several different methods, USB, OTA, Serial Y-Modem, and also internally via the Factory Reset procedure.  All of these methods have multiple tools associated with them as well.
 
-You may use the online Web IDE [Particle Build](https://www.particle.io/build) to code, compile and flash a user application OTA (Over The Air).  [Particle Dev](https://www.particle.io/dev) is a local tool that uses the Cloud to compile and flash OTA as well.  There is also a package `Spark DFU-UTIL` for Particle Dev that allows for Cloud compiling and local flashing via DFU over USB.  This requires `dfu-util` to be installed on your system.  'dfu-util' can also be used with [Particle CLI](https://github.com/spark/particle-cli) for Cloud compiling and local flashing via the command line.  Finally the lowest level of development is available via the [GNU GCC toolchain for ARM](https://github.com/spark/firmware), which offers local compile and flash via dfu-util.  This gives the user complete control of all source code and flashing methods.  This is an extensive list, however not exhaustive.
+You may use the online Web IDE [Particle Build](https://build.particle.io/) to code, compile and flash a user application OTA (Over The Air).  [Particle Dev](https://www.particle.io/dev) is a local tool that uses the Cloud to compile and flash OTA as well.  There is also a package `Spark DFU-UTIL` for Particle Dev that allows for Cloud compiling and local flashing via DFU over USB.  This requires `dfu-util` to be installed on your system.  'dfu-util' can also be used with [Particle CLI](https://github.com/spark/particle-cli) for Cloud compiling and local flashing via the command line.  Finally the lowest level of development is available via the [GNU GCC toolchain for ARM](https://github.com/spark/firmware), which offers local compile and flash via dfu-util.  This gives the user complete control of all source code and flashing methods.  This is an extensive list, however not exhaustive.
 
 ## Glossary
 
@@ -608,6 +608,8 @@ Cet équipement devrait être installé et actionné avec une distance minimum d
 | v003 | 1-June-2015 | BW | Updated VBAT_MICRO info |
 | v004 | 24-July-2015 | BW | Added FCC IC CE Warnings and End Product Labeling Requirements, Updated power output, added approved antennas, Corrected DAC2 as A3, Corrected A0 as pin 50, Corrected External Coexistence Interface pin numbers, Added RGB LED, SETUP and RESET button section. |
 | v005 | 11-April-2016 | BW | Added: full STM32 part number, Memory map, DAC limits, SWD pin locations, max source/sink current, known errata URL and tape-and-reel dimensions. Updated: BT COEX info, pinout diagrams (fixed RESET pin number error), operating conditions, pin descriptions (P1S0~P1S5 pins), land-pattern image signal keepout note.
+| v006 | 14-July-2016 | BW | Updated P1 pin listing: TESTMODE pin 33 (PA8), connected to MCO1 by default, outputs 32kHz clock for WICED powersave mode - currently unsupported for user control.
+
 
 ## Known Errata
 

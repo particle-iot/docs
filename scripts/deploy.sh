@@ -8,6 +8,8 @@ if [ "${TRAVIS_BRANCH}" == "master" ]; then
 	BUCKET="docs.particle.io"
 elif [ "${TRAVIS_BRANCH}" == "staging" ]; then
 	BUCKET="docs.staging.particle.io"
+elif [ "${TRAVIS_BRANCH}" == "beta" ]; then
+	BUCKET="docs-beta.particle.io"
 else
 	exit 0
 fi

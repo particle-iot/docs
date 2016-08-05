@@ -33,10 +33,10 @@ Before making this decision, it is important to get a grasp of the role of the P
 A Product ID is used to group devices together and treat them as a cohesive unit. A group of devices that all share a Product ID are able to do things like download product-specific firmware, publish events that will appear in a product's event stream, and trigger product webhooks.
 
 When you created your product, a unique numeric ID was assigned to it. This ID
-will be used countless times during the development and manufacturing process for your product. When a device is [added to a product](/guide/how-to-build-a-product/dashboard/#adding-devices), the _Product ID_ of the device changes from a development kit to a member of a product.
+will be used countless times during the development and manufacturing process for your product. When a device is [added to a product](/guide/tools-and-features/console/#adding-devices), the _Product ID_ of the device changes from a development kit to a member of a product.
 
 You will be able to find your product's ID at any time in your product's
-dashboard navigation bar:
+console navigation bar:
 
 ![A new product](/assets/images/product-id.png) <p class="caption">Your product
 ID is marked with a key icon</p>
@@ -102,7 +102,7 @@ handled in the case of mismatched Product IDs. There are two choices for
 handling these kinds of devices: *Quarantining*, or *Auto Approval*.
 
 Ideally mismatches in Product IDs never happen, because you or a member of your
-team has taken the steps to [add the device to your product](/guide/how-to-build-a-product/dashboard/#adding-devices) before the device comes online with your product's firmware
+team has taken the steps to [add the device to your product](/guide/tools-and-features/console/#adding-devices) before the device comes online with your product's firmware
 binary.
 
 ## Quarantining Devices
@@ -116,10 +116,10 @@ A device will be put into a quarantined state when it comes online and reports a
 Product ID in its firmware that is different from the Product ID saved in the
 cloud for that device. This happens when a device was flashed firmware
 containing a given Product ID, but that device hasn't been properly [added to
-the product](/guide/how-to-build-a-product/dashboard/#adding-devices) via the dashboard.
+the product](/guide/tools-and-features/console/#adding-devices) via the console.
 
 When this happens, the device will temporarily lose all [product privileges
-](#product-privileges). In your product's devices hub on the Particle Dashboard,
+](#product-privileges). In your product's devices hub on the Particle Console,
 you will see a list of your quarantined devices.
 
 ![Quarantined Devices](/assets/images/quarantined-device.png) <p

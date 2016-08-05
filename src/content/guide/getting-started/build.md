@@ -34,9 +34,7 @@ Particle Build is an Integrated Development Environment, or IDE; that means that
 
 Particle Build starts with the navigation bar on the left. On the top, there are three buttons, which serve important functions:
 
-- **Flash**: Flashes the current code to the device. This initiates an *over-the-air firmware update* and loads the new software onto your device. {{#if electron}}
-**Note: Flashing OTA for the Electron uses data and should consider using flash over serial instead.**
-{{/if}}
+- **Flash**: Flashes the current code to the device. This initiates an *over-the-air firmware update* and loads the new software onto your device. {{#if electron}}**Note: Flashing OTA for the Electron uses data and should consider using flash over serial instead.**{{/if}}
 - **Verify**: This compiles your code without actually flashing it to the device; if there are any errors in your code, they will be shown in the debug console on the bottom of the screen.
 - **Save**: Saves any changes you've made to your code.
 

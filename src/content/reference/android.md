@@ -582,8 +582,8 @@ under `devicesetup -> src -> main -> res -> values`.
 ---
 
 ### Organization mode:
-Setting the boolean resource `organization` to `true`[1] in one of your resource files) will enable organization mode, which uses different API endpoints and requires special permissions (See Particle Dashboard).
-If you enable organization mode, be sure to also provide string resources for `organization_slug` and `product_slug`, using the values you created on the [Particle Dashboard](/guide/tools-and-features/dashboard/).
+Setting the boolean resource `organization` to `true`[1] in one of your resource files) will enable organization mode, which uses different API endpoints and requires special permissions (See Particle Console).
+If you enable organization mode, be sure to also provide string resources for `organization_slug` and `product_slug`, using the values you created on the [Particle Console](/guide/tools-and-features/console/).
 To provide the `ParticleCloud` class with correct OAuth credentials for creating customers (so app users could create an account), [read the instructions here](https://docs.particle.io/reference/android/#oauth-client-configuration).
 To learn how to create these credentials for your organization [read here](https://docs.particle.io/guide/how-to-build-a-product/authentication/#creating-an-oauth-client).
 

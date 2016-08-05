@@ -308,14 +308,14 @@ data: {"data":"23:23:44","ttl":"60","published_at":"2014-05-28T19:20:34.638Z","d
 Unless specified otherwise, events sent to the cloud are sent as a reliable message. The Electoron waits for
 acknowledgement from the cloud that the event has been recieved, resending the event in the background up to 3 times before giving up.
 
-The `NO_ACK` flag disables this acknoweldge/retry behavior and sends the event only once.  This reduces data consumption per event, with the possibility that the event may not reach the cloud. 
+The `NO_ACK` flag disables this acknoweldge/retry behavior and sends the event only once.  This reduces data consumption per event, with the possibility that the event may not reach the cloud.
 
-For example, the `NO_ACK` flag could be useful when many events are sent (such as sensor readings) and the occaisonal lost event can be tolerated. 
+For example, the `NO_ACK` flag could be useful when many events are sent (such as sensor readings) and the occaisonal lost event can be tolerated.
 
 ```C++
 // SYNTAX
 
-int temperature = sensor.readTemperature();  // by way of example, not part of the API 
+int temperature = sensor.readTemperature();  // by way of example, not part of the API
 Particle.publish("t", temperature, NO_ACK);
 Particle.publish("t", temperature, PRIVATE, NO_ACK);
 Particle.publish("t", temperature, ttl, PRIVATE, NO_ACK);
@@ -669,10 +669,10 @@ It's possible to call `WiFi.connect()` without entering listening mode in the ca
 
 ```cpp
 // SYNTAX
-WiFi.connect(WIFI_CONNECT_NO_LISTEN);
+WiFi.connect(WIFI_CONNECT_SKIP_LISTEN);
 ```
 
-If there are no credentials then the call does nothing other than turn on the WiFi module. 
+If there are no credentials then the call does nothing other than turn on the WiFi module.
 
 
 ### disconnect()
@@ -1244,7 +1244,7 @@ SoftAP HTTP Pages is presently an advanced feature, requiring moderate C++ knowl
 void myPages(const char* url, ResponseCallback* cb, void* cbArg, Reader* body, Writer* result, void* reserved);
 
 STARTUP(softap_set_application_page_handler(myPages, nullptr));
-``` 
+```
 
 The `softap_set_application_page_handler` is set during startup. When the system is in setup mode, and a request is made for an unknown URL, the system
 calls the page handler function provided by the application (here, `myPages`.)
@@ -1253,23 +1253,23 @@ The page handler function is called whenever an unknown URL is requested. It is 
 
 - `url`: the path of the file requested by the client. It doesn't include the server name or port. Examples: `/index`,  `/someimage.jpg`.
 - `cb`: a response callback - this is used by the application to indicate the type of HTTP response, such as 200 (OK) or 404 (not found). More on this below.
-- `cbArg`: data that should be passed as the first parameter to the callback function `cb`. 
+- `cbArg`: data that should be passed as the first parameter to the callback function `cb`.
 - `body`: a reader object that the page handler uses to retrieve the HTTP request body
 - `result`: a writer object that the page handler uses to write the HTTP response body
 - `reserved`: reserved for future expansion. Will be equal to `nullptr` and can be ignored.
 
-The application MUST call the page callback function `cb` to provide a response for the requested page. If the requested page url isn't recognized by the application, then a 404 response should be sent, as described below. 
+The application MUST call the page callback function `cb` to provide a response for the requested page. If the requested page url isn't recognized by the application, then a 404 response should be sent, as described below.
 
 ### The page callback function
 
-When your page handler function is called, the system passes a result callback function as the `cb` parameter. 
+When your page handler function is called, the system passes a result callback function as the `cb` parameter.
 The callback function takes these parameters:
 
-- `cbArg`: this is the `cbArg` parameter passed to your page callback function. It's internal state used by the HTTP server. 
+- `cbArg`: this is the `cbArg` parameter passed to your page callback function. It's internal state used by the HTTP server.
 - `flags`: presently unused. Set to 0.
 - `status`: the HTTP status code, as an integer, such as 200 for `OK`, or 404 for `page not found`.
-- `mime-type`: the mime-type of the response as a string, such as `text/html` or `application/javascript`. 
-- `header`: an optional pointer to a `Header` that is added to the response sent to the client. 
+- `mime-type`: the mime-type of the response as a string, such as `text/html` or `application/javascript`.
+- `header`: an optional pointer to a `Header` that is added to the response sent to the client.
 
 For example, to send a "not found" error for a page that is not recognized, your application code would call
 
@@ -1282,13 +1282,13 @@ cb(cbArg, 0, 404, "text/plain", nullptr);
 ### Retrieving the request data
 
 When the HTTP request contains a request body (such as with a POST request), the `Reader` object provided by the `body` parameter can be used
-to retrieve the request data. 
+to retrieve the request data.
 
 ```cpp
 // EXAMPLE
 
 if (body->bytes_left) {
-	char* data = body->read_as_string();
+	char* data = body->fetch_as_string();
 	// handle the body data
  	dostuff(data);
  	// free the data! IMPORTANT!
@@ -1299,7 +1299,7 @@ if (body->bytes_left) {
 
 ### Sending a response
 
-When sending a page, the page function responds with a HTTP 200 code, meaning the content was found, followed by the page data. 
+When sending a page, the page function responds with a HTTP 200 code, meaning the content was found, followed by the page data.
 
 ```
 // EXAMPLE - send a page
@@ -1315,7 +1315,7 @@ if (!stricmp(url, '/helloworld') {
 ### The default page
 
 When a browser requests the default page (`http://192.168.0.1/`) the system internally redirects this to `/index` so that it can be handled
-by the application. 
+by the application.
 
 The application may provide an actual page at `/index` or redirect to another page if the application pefers to have another page as its launch page.
 
@@ -2270,7 +2270,9 @@ analogWrite(DAC1, 1024);
 
 Reads the value from the specified analog pin. The device has 8 channels (A0 to A7) with a 12-bit resolution. This means that it will map input voltages between 0 and 3.3 volts into integer values between 0 and 4095. This yields a resolution between readings of: 3.3 volts / 4096 units or, 0.0008 volts (0.8 mV) per unit.
 
-**Note**: do *not* set the pinMode() with `analogRead()`. The pinMode() is automatically set to AN_INPUT the first time analogRead() is called for a particular analog pin. If you explicitly set a pin to INPUT or OUTPUT after that first use of analogRead(), it will not attempt to switch it back to AN_INPUT the next time you call analogRead() for the same analog pin. This will create incorrect analog readings.
+_Before 0.5.3_ **Note**: do *not* set the pinMode() with `analogRead()`. The pinMode() is automatically set to AN_INPUT the first time analogRead() is called for a particular analog pin. If you explicitly set a pin to INPUT or OUTPUT after that first use of analogRead(), it will not attempt to switch it back to AN_INPUT the next time you call analogRead() for the same analog pin. This will create incorrect analog readings.
+
+_Since 0.5.3_ **Note:** you do not need to set the pinMode() with analogRead(). The pinMode() is automatically set to AN_INPUT any time analogRead() is called for a particular analog pin, if that pin is set to a pinMode other than AN_INPUT.  If you explicitly set a pin to INPUT, INPUT_PULLUP, INPUT_PULLDOWN or OUTPUT before using analogRead(), it will switch it back to AN_INPUT before taking the reading.  If you use digitalRead() afterwards, it will automatically switch the pinMode back to whatever you originally explicitly set it to.
 
 ```C++
 // SYNTAX
@@ -5037,7 +5039,7 @@ IPAddress remoteIP(192, 168, 1, 100);
 int port = 1337;
 
 void setup() {
-  // Required for two way communication 
+  // Required for two way communication
   Udp.begin(8888);
 
   if (Udp.sendPacket(buffer, sizeof(buffer), remoteIP, port) < 0) {
@@ -5823,7 +5825,7 @@ attachInterrupt(pin, function, mode, priority, subpriority);
 - `priority` (optional): the priority of this interrupt. Default priority is 13. Lower values increase the priority of the interrupt.
 - `subpriority` (optional): the subpriority of this interrupt. Default subpriority is 0.
 
-The function returns a boolaen whether the ISR was successfully attached (true) or not (false).
+The function returns a boolean whether the ISR was successfully attached (true) or not (false).
 
 ```C++
 // EXAMPLE USAGE
@@ -5921,8 +5923,10 @@ void loop()
 
 Disables interrupts (you can re-enable them with `interrupts()`). Interrupts allow certain important tasks to happen in the background and are enabled by default. Some functions will not work while interrupts are disabled, and incoming communication may be ignored. Interrupts can slightly disrupt the timing of code, however, and may be disabled for particularly critical sections of code.
 
+```C++
 // SYNTAX
 noInterrupts();
+```
 
 `noInterrupts()` neither accepts a parameter nor returns anything.
 
@@ -6816,10 +6820,10 @@ When preparing software for your product, it is essential to include your produc
 ```cpp
 // EXAMPLE
 PRODUCT_ID(94); // replace by your product ID
-PRODUCT_VERSION(1); // increment each time you upload to the dashboard
+PRODUCT_VERSION(1); // increment each time you upload to the console
 ```
 
-You can find more details about the product ID and how to get yours in the [_How to build a product_ guide.](/guide/how-to-build-a-product/dashboard/#your-product-id)
+You can find more details about the product ID and how to get yours in the [_Console_ guide.](/guide/tools-and-features/console/#your-product-id)
 
 ## System Events
 
@@ -6878,7 +6882,7 @@ It's possible to subscribe to multiple events with the same handler in cases whe
 ```
 void handle_all_the_events(system_event_t event, int param)
 {
-	Serial.printlnf("got event %d with value %d");
+	Serial.printlnf("got event %d with value %d", event, param);
 }
 
 void setup()
@@ -6908,8 +6912,8 @@ These are the system events produced by the system, their numeric value (what yo
 | setup_update | 4 | periodic event signalling the device is still in setup mode. | milliseconds since setup mode was started |
 | setup_end | 8 | signals setup mode was exited | time in ms since setup mode was started |
 | network_credentials | 16 | network credentials were changed | `network_credentials_added` or `network_credentials_cleared` |
- | button_status | 128 | button pressed or releasesed | the duration in ms the button was pressed: 0 when pressed, >0 on release. |
- | firmware_update | 256 | firmwarwe update status | one of `firmware_update_begin`, `firmware_update_progress`, `firmware_update_complete`, `firmware_update_failed` |
+ | button_status | 128 | button pressed or released | the duration in ms the button was pressed: 0 when pressed, >0 on release. |
+ | firmware_update | 256 | firmware update status | one of `firmware_update_begin`, `firmware_update_progress`, `firmware_update_complete`, `firmware_update_failed` |
  | firmware_update_pending | 512 | notifies the application that a firmware update is available. This event is sent even when updates are disabled, giving the application chance to re-enable firmware updates with `System.enableUpdates()` | not used |
  | reset_pending | 1024 | notifies the application that the system would like to reset. This event is sent even when resets are disabled, giving the application chance to re-enable resets with `System.enableReset()` | not used |
  | reset | 2048 | notifies that the system will reset once the application has completed handling this event | not used |
@@ -7028,13 +7032,13 @@ is not interrupted by the system background processing and network management.
 It does this by running the application loop and the system loop on separate threads,
 so they execute in parallel rather than sequentially.
 
-At present, System Thread is an opt-in change. To enable system threading for your application, add
+At present, System Thread is an opt-in change. To enable system threading for your application, add to the top of your application code.
 
 ```
+// EXAMPLE USAGE
 SYSTEM_THREAD(ENABLED);
 ```
 
-to the top of your application code.
 
 
 ### System Threading Behavior
@@ -7419,11 +7423,10 @@ Serial.println(freemem);
 ```
 
 
-
+{{#if core}}
 ### factoryReset()
 
 This will perform a factory reset and do the following:
-
 - Restore factory reset firmware from external flash (tinker)
 - Erase Wi-Fi profiles
 - Enter Listening mode upon completion
@@ -7431,7 +7434,7 @@ This will perform a factory reset and do the following:
 ```cpp
 System.factoryReset()
 ```
-
+{{/if}}
 ### dfu()
 
 The device will enter DFU-mode to allow new user firmware to be refreshed. DFU mode is cancelled by
@@ -7524,9 +7527,10 @@ System.sleep(SLEEP_MODE_DEEP,60);
 ```
 The device will automatically *wake up* and reestablish the Wi-Fi connection after the specified number of seconds.
 
-`System.sleep(uint16_t wakeUpPin, uint16_t edgeTriggerMode)` can be used to put the entire device into a *stop* mode with *wakeup on interrupt*. In this particular mode, the device shuts down the network and puts the microcontroller in a stop mode with configurable wakeup pin and edge triggered interrupt. When the specific interrupt arrives, the device awakens from stop mode, it will behave as if the device is reset and run all user code from the beginning with no values being maintained in memory from before the stop mode.
+**Note:**
+You can also wake the device "prematurely" by applying a rising edge signal to the {{#if core}}A7{{/if}}{{#unless core}}WKP{{/unless}} pin.
 
-As such, it is recommended that stop mode be called only after all user code has completed. (Note: The Photon and Electron will not reset before going into stop mode so all the application variables are preserved after waking up from this mode. The voltage regulator is put in low-power mode. This mode achieves the lowest power consumption while retaining the contents of SRAM and registers.)
+`System.sleep(uint16_t wakeUpPin, uint16_t edgeTriggerMode)` can be used to put the entire device into a *stop* mode with *wakeup on interrupt*. In this particular mode, the device shuts down the network and puts the microcontroller in a stop mode with configurable wakeup pin and edge triggered interrupt. When the specific interrupt arrives, the device awakens from stop mode. {{#if core}} On the Core, the Core is reset on entering stop mode and runs all user code from the beginning with no values being maintained in memory from before the stop mode. As such, it is recommended that stop mode be called only after all user code has completed.{{/if}} {{#unless core}}The device will not reset before going into stop mode so all the application variables are preserved after waking up from this mode. The voltage regulator is put in low-power mode. This mode achieves the lowest power consumption while retaining the contents of SRAM and registers.{{/unless}}
 
 {{#if core}}
 It is mandatory to update the *bootloader* (https://github.com/spark/firmware/tree/bootloader-patch-update) for proper functioning of this mode.
@@ -7587,9 +7591,9 @@ System.sleep(D0,RISING,60);
     - CHANGE to trigger the interrupt whenever the pin changes value,
     - RISING to trigger when the pin goes from low to high,
     - FALLING for when the pin goes from high to low.
-- `seconds`: wakeup after the specified number of seconds
+- `seconds`: wakeup after the specified number of seconds (0 = no alarm is set)
 {{#if electron}}
-- `SLEEP_NETWORK_STANDBY`: optional - keeps the cellular modem in a standby state while the device is sleeping.. 
+- `SLEEP_NETWORK_STANDBY`: optional - keeps the cellular modem in a standby state while the device is sleeping..
 {{/if}}
 
 *Power consumption:*
@@ -7603,6 +7607,7 @@ System.sleep(D0,RISING,60);
 
 _Since 0.4.5._ The state of the {{#unless electron}}Wi-Fi{{/unless}}{{#if electron}}Cellular{{/if}} and Cloud connections is restored when the system wakes up from sleep. So if the device was connected to the cloud before sleeping, then the cloud connection
 is automatically resumed on waking up.
+
 _Since 0.5.0._ In automatic modes, the `sleep()` function doesn't return until the cloud connection has been established. This means that application code can use the cloud connection as soon as  `sleep()` returns. In previous versions, it was necessary to call `Particle.process()` to have the cloud reconnected by the system in the background.  
 
 

@@ -288,7 +288,7 @@ publishEventPr.then(
 Compiles files in the Particle cloud
 
 ```javascript
-var ccPr = particle.compileCode({ files: { file1: './path/to/file1', file2: './path/to/file2' }, auth: token });
+var ccPr = particle.compileCode({ files: { 'main.cpp': './project/main.cpp', 'my_lib/lib.cpp': './project/my_lib/lib.cpp' }, auth: token });
 
 ccPr.then(
   function(data) {

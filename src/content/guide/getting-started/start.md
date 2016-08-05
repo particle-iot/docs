@@ -146,10 +146,10 @@ For more technical details on what comes on your device, go {{#if core}}[here](/
 - The base rate covers you up to 1.0MB, additional MB are billed at a cheaper rate than the base
 - We bill your base rate at beginning of a period, additional MB at the end, so you'll often see both
 - Base and additional MB rates are based on your [country and Zone](/guide/getting-started/billing/electron/#roaming-zones-)
-- You can set a data limit for each SIM. It defaults to 5MB on new SIMs, but you can change it in the [Dashboard](https://dashboard.particle.io/user/billing)
+- You can set a data limit for each SIM. It defaults to 5MB on new SIMs, but you can change it in the [Console](https://console.particle.io/billing)
 - Data limits are soft maximums; we only charge you for the number of MB used, rounded up, and we'll cut off usage as quickly as we have updated metering from your carrier
 - If a SIM goes over the limit, it'll be paused and won't be able to use more data until the beginning of the next period or you raise the data limit
-- You can use the [Dashboard](https://dashboard.particle.io/user/billing) to manage SIMs, billing, and see data usage
+- You can use the [Console](https://console.particle.io/billing) to manage SIMs, billing, and see data usage
 - See the full [Electron Billing Guide](/guide/getting-started/billing/)
 
 ## Data Use on the Electron
@@ -242,7 +242,7 @@ If your device is not blinking at all, or if the LED is burning a dull orange co
 
 Open the app on your phone. Log in or sign up for an account with Particle if you don't have one.
 
-Follow the instructions on the screen to {{#if photon}}{{{ popup 'connect your device to Wi-Fi.' 'note' 'Your device remembers up to 5 wifi networks, and it will connect to these automatically if it can find them.'}}}{{/if}} {{#if core}}{{{ popup 'connect your device to Wi-Fi.' 'note' 'Your device remembers up to 7 wifi networks, and it will connect to these automatically if it can find them.'}}}{{/if}} Remember that to connect the Core, you need the older Spark Core app and to connect the Photon you need the new Particle App.
+Press the plus icon and select the device you'd like to add. Then follow the instructions on the screen to {{#if photon}}{{{ popup 'connect your device to Wi-Fi.' 'note' 'Your device remembers up to 5 wifi networks, and it will connect to these automatically if it can find them.'}}}{{/if}} {{#if core}}{{{ popup 'connect your device to Wi-Fi.' 'note' 'Your device remembers up to 7 wifi networks, and it will connect to these automatically if it can find them.'}}}{{/if}} Remember that to connect the Core, you need the older Spark Core app and to connect the Photon you need the new Particle App.
 
 This may take a little while - but don't worry.
 

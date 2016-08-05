@@ -289,14 +289,34 @@ Created by Zach Supalla.
   };
 
   Docs.toggleNav = function() {
+    var $root = $(".content-root");
     $('.toggle-navigation').click(function(e) {
       e.preventDefault();
-      if ($('.menubar').css('opacity') === '1') {
-        $('.menubar, .page-body').addClass('menu-hidden').removeClass('menu-visible');
-      } else {
-        $('.menubar, .page-body').addClass('menu-visible').removeClass('menu-hidden');
-      }
+      toggleNav();
+      updateBackdrop();
     });
+
+    $root.on('click', '.menubar-backdrop', function(e) {
+      e.preventDefault();
+      closeNav();
+      updateBackdrop();
+    });
+
+    function toggleNav() {
+      $root.toggleClass('menubar-show');
+    }
+
+    function closeNav() {
+      $root.removeClass('menubar-show');
+    }
+
+    function updateBackdrop() {
+      if($root.hasClass('menubar-show')) {
+        $root.prepend('<div class="menubar-backdrop"></div>');
+      } else {
+        $('.menubar-backdrop').remove();
+      }
+    }
   };
 
   // Ok, then let's do it!

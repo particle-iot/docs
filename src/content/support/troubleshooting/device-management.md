@@ -104,13 +104,13 @@ into your terminal. If you're presented with a list of commands, the CLI is inst
 
 Installing the Particle CLI
 
-**(2. Login**.  Make sure you're logged into your Particle account by typing
+**2. Login**.  Make sure you're logged into your Particle account by typing
 
 ``particle login``
 
 and successfully completing the command line prompts.
 
-**3. Remove {{#if photon}}Photon{{/if}} {{#if core}}Core{{/if}}**.  In your terminal, type
+**3. Remove {{#if photon}}Photon{{/if}}{{#if core}}Core{{/if}}**.  In your terminal, type
 
 ``particle {{#if photon}}photon{{/if}} {{#if core}}core{{/if}} remove [{{#if photon}}PHOTON{{/if}}{{#if core}}CORE{{/if}}]``
 
