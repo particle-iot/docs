@@ -6819,7 +6819,7 @@ PRODUCT_ID(94); // replace by your product ID
 PRODUCT_VERSION(1); // increment each time you upload to the dashboard
 ```
 
-You can find more details about the product ID and how to get yours in the [_How to build a product_ guide.](https://docs.particle.io/guide/how-to-build-a-product/dashboard/#your-product-id)
+You can find more details about the product ID and how to get yours in the [_How to build a product_ guide.](/guide/how-to-build-a-product/dashboard/#your-product-id)
 
 ## System Events
 

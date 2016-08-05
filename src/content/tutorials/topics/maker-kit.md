@@ -879,7 +879,7 @@ Your device should start publishing temperature readings to the **[Particle Cons
 
 ![Temperatures displayed in the Particle Console](/assets/images/temp-logger-dashboard.png)
 
-For more information about the Console, read our [Console guide](/guide/tools-and-features/console/).
+For more information about the Console, read our [Console guide](/guide/tools-and-features/dashboard/).
 
 ### IFTTT
 [IFTTT](https://ifttt.com) (which stands for "IF This Then That" and is pronounced "ift") is an incredibly flexible service that allows you to select a trigger and perform actions based on that trigger. In this case, the trigger will be our Photon publishing an event called `temperature`, and the action will be to add a row to a Google Spreadsheet containing the temperature and the current date and time. This will allow us to graph the temperature later on.
