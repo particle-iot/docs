@@ -58,5 +58,5 @@
 	"/photon-datasheet" : "/datasheets/photon-datasheet",
 	"/p1-datasheet" : "/datasheets/p1-datasheet",
 	"/hardware" : "/datasheets/core-datasheet",
-	"/guide/how-to-build-a-product/dashboard/": "/guide/tools-and-featuresres/console/"
+	"/guide/how-to-build-a-product/dashboard": "/guide/tools-and-featuresres/console"
 }

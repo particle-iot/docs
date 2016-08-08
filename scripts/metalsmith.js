@@ -250,7 +250,8 @@ exports.metalsmith = function() {
       '/troubleshooting' : '/support/troubleshooting/common-issues',
       '/help' : '/support/troubleshooting/common-issues',
       '/faq' : '/support/support-and-fulfillment/faq',
-      '/tutorials': '/tutorials/topics/maker-kit'
+      '/tutorials': '/tutorials/topics/maker-kit',
+      '/guide/how-to-build-a-product/dashboard': '/guide/tools-and-features/console'
     }));
 
   return metalsmith;
