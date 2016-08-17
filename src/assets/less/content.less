@@ -830,7 +830,9 @@ body:not(.no-literate) .content img[alt="Connection sequence"],
       clear: left;
     }
 
-    body:not(.no-literate) .content table {
+    body:not(.no-literate) .content > table,
+    body:not(.no-literate) .content > .table-scrollable {
+      box-sizing: border-box;
       width: 45%;
       padding-left: 40px;
       padding-right: 40px;
@@ -839,6 +841,7 @@ body:not(.no-literate) .content img[alt="Connection sequence"],
       clear: left;
       color: #000;
     }
+
 
     body:not(.no-literate) .content > p,
     body:not(.no-literate) .content > ul,
@@ -962,4 +965,8 @@ body:not(.no-literate) .content img[alt="Connection sequence"],
     display: block;
     margin: 0 0 50px;
   }
+}
+
+.table-scrollable {
+  overflow-x: auto;
 }
