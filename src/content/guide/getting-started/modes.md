@@ -234,28 +234,46 @@ To enter DFU Mode:
 
 The {{device}} now is in the DFU mode.
 
-{{#if photon}}
+{{#unless core}}
 
 ### Firmware Reset
 
-Firmware reset is not available on the Photon/P1, but not to worry! If you are experiencing problems with your application firmware, you can use [Safe Mode](#safe-mode) to recover.
-
+{{#if photon}}
+Firmware reset is not available on the {{device}}, but not to worry! If you are experiencing problems with your application firmware, you can use [Safe Mode](#safe-mode) to recover.
 {{/if}}
+
+{{#if electron}}
+_Since 0.6.0_
+
+{{{device-animation device "blink" "lime" }}}
+
+The Electron can store a backup copy of any desired user firmware in flash memory at address 0x080A0000, separate from user flash memory which is located at 0x08080000.  This backup copy of firmware can be restored to user memory with a button sequence that is only available when the backup copy flash memory contains a valid firmware image.  To program your Electron with a backup copy of user firmware via USB, you'll need to put the Electron in [DFU Mode](/guide/getting-started/modes/#dfu-mode-device-firmware-upgrade-) and run this command: `particle flash --factory user-backup-firmware.bin`
+
+A CLI installation tutorial can be found [here.](/guide/tools-and-features/cli/)
+
+And a usage guide [here.](/reference/cli/)
+
+To enter Firmware Reset Mode:
+
+1. Hold down BOTH buttons
+2. Release only the `{{reset-button}}` button, while holding down the `{{system-button}}` button.
+3. Wait for the LED to start flashing green or white (it will flash magenta, then yellow first)
+4. Release the `{{system-button}}` button
+{{/if}}
+
+{{/unless}}
+
+### Factory Reset
+
+{{#unless core}}
+
+Factory reset is not available on the {{device}}, but not to worry! If you are experiencing problems with your application firmware, you can use [Safe Mode](#safe-mode) to recover.
 
 {{#if photon}}
-### Factory Reset
-{{/if}}
-
-{{#if core}}
-### Factory Reset
-{{/if}}
-
-{{#if photon}}
-
-Factory reset is not available on the Photon/P1, but not to worry! If you are experiencing problems with your application firmware, you can use [Safe Mode](#safe-mode) to recover.
-
 You can reset Wi-Fi credentials by performing a [WiFi Network Reset](#wi-fi-network-reset).
 {{/if}}
+
+{{/unless}}
 
 {{#if core}}
 
