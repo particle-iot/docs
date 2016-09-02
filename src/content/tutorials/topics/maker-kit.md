@@ -845,7 +845,7 @@ void loop(void) {
   }
 
   // remove random errors
-  if(((celsius <= 0 && celsius > -1) && lastTemp > 5)) || celsius > 125 {
+  if((((celsius <= 0 && celsius > -1) && lastTemp > 5)) || celsius > 125) {
       celsius = lastTemp;
   }
 

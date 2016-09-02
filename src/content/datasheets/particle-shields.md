@@ -289,6 +289,8 @@ There are two status LEDs located on the left of the JST battery connector label
 
  ![Power Shield Dimensions](/assets/images/shields/power-shield/power-shield-dimensions.png)
 
+**NOTE:** There is a know issue on the v2.1.0 of the Power Shield where the shield will fail to power up the Photon when the battery is inserted for the first time or reinserted after a long time (>60mins). The user will need to unplug and plug the battery back again for the shield to power up. The issue arises by the fact that on startup, the battery charger confuses the Photon booting up to there being a short circuit and powers off to save the device. If you are feeling adventurous, you can fix this issue by soldering a 10nF capacitor across the DPPM pin and GND. This delays the short-circuit protection at startup and lets the Photon bootup without any issues. 
+
 ## Internet Button
 
 The Internet Button is not only an easy way to get started on the Internet of Things, it's also a clean and simple way to start building your own prototypes. Quickly start playing with LEDs, multiple buttons, an accelerometer and more without any wires or soldering.
