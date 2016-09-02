@@ -118,6 +118,7 @@ exports.metalsmith = function() {
 				sortBy: 'order',
 				orderDynamicCollections: [
 					'topics',
+          'integrations',
 					'projects',
 					'curriculum'
 				]
