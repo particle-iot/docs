@@ -108,6 +108,102 @@ Once created, check the checkbox next to your topic name, and click on the "Perm
 
 <img src="/assets/images/gcp-add-permissions.png" class="full-width" alt="Add Particle's Service Account to your Google Cloud Topic"/>
 
+## Enable the Integration
+
+### Particle Console
+
+Now that you've done all of the pre-configuration required, you are now ready to enable the Google Cloud Platform integration
+on the <a href="https://console.particle.io" target="_blank">Particle Console</a>.
+
+Start by going to the integrations hub by clicking on the integrations icon in the sidebar (<i class="im-integrations-icon"></i>), or
+by simply <a href="https://console.particle.io/integrations" target="_blank">following this link</a>. If you'd like to enable the integration
+for a <a href="/guide/tools-and-features/console/#devices-vs-product-devices" target="_blank">product</a>, you'll need to visit the integrations
+hub for the desired product. Do this by clicking the products icon (<i class="im-product-icon"></i>) in the sidebar, finding your product,
+then clicking on the integrations icon (<i class="im-integrations-icon"></i>) in the product context.
+
+Once in the integrations hub, click on the "New Integration" button. From the list of available integrations, click on "Google Cloud Platform."
+
+<img src="/assets/images/new-gcp-integration.png"/>
+
+You'll see a reminder that setup is required before continuing to enable the integration. If you have followed the steps outlined in
+[Preconfiguration in Google Cloud Platform](#preconfiguration-in-google-cloud-platform), you should be good to go. Click the
+"I have done all these things" button to advance.
+
+The next step is configuring the integration. Fill out the following fields:
+- **Event Name**: The name of the event that will trigger publishing an event to Google Cloud Platform. This is the name of your event when you call `Particle.publish()` in your firmware.
+- **Google Cloud Pub/Sub Topic**: The name of your topic that you created in your Google Cloud Pub/Sub account. This topic forwards messages from a publisher (the Particle cloud) to subscribers.
+The topic name is prefixed by `projects/{project_name}/topic/`.
+- **Device**: Select which of your devices will trigger publishing to Google. If you'd like the publish to trigger from any of the devices you own, select 'Any.'
+For product-level integrations, you can instead choose if you'd like the response to the integration to be routed back to the device in the fleet that originally triggered the publish.
+
+<img src="/assets/images/gcp-configure-integration.png"/>
+
+Click "Enable Integration." You have now successfully told the Particle cloud to stream data to Google Cloud Platform!
+Make sure that the integration is configured properly by clicking on the **TEST** button.
+
+<img src="/assets/images/test-integration.png"/>
+<p class="caption">Clicking <strong>TEST</strong> will attempt to send a test event to the Google Cloud Platform Topic. This serves as a gut-check
+to determine if the integration is configured successfully</p>
+
+Did the test return a successful response? Great! Let's move onto firmware. If you can't get the test to succeed, double check that you used the correct
+topic name, and that you gave the topic the correct permissions to allow Particle to publish to it on your behalf.
+
+### Firmware
+
+Now that the integration is enabled in the Particle cloud, the final step required to get data streaming into Google Cloud Platform
+is to flash a device with some firmware that publishes the targeted event. Head over to the <a href="https://build.particle.io" target="_blank">Particle Web IDE</a>,
+<a href="https://www.particle.io/products/development-tools/particle-local-ide" target="_blank">Local IDE</a>, or whichever IDE you are using for firmware development.
+
+If you're already working on a firmware application, just make sure you include a `Particle.publish()` with the event name matching the event used to enable the
+Google Cloud Platform integration above. Otherwise, if you need some sample firmware, paste in the below code into your firmware app:
+
+```
+// The on-board LED
+int led = D7;
+
+void setup() {
+  pinMode(led, OUTPUT);
+}
+void loop() {
+  // Turn the LED Off
+  digitalWrite(led, HIGH);
+  // Publish an event to trigger the integration
+  // Replace "my-event" with the event name you used when configuring the integration
+  // Replace "test-data" with the real data you'd like to send to Google Cloud Platform
+  Particle.publish("my-event", "test-data", PRIVATE);
+  // Wait for 3 seconds
+  delay(3000);
+  // Turn the LED off
+  digitalWrite(led, LOW);
+  delay(3000);
+}
+```
+
+The above code will publish an event every 6 seconds, when the on-board LED turns on.
+In reality, you might publish an event containing the readings from
+a temperature or humidity sensor every few minutes, when motion is detected, or when
+a user interacts with the device by pushing a button. This firmware is entirely meant as
+a sample to illustrate the minimum code needed to stream data into Google Cloud Platform.
+
+Go ahead and flash the firmware with the `Particle.publish()` that will trigger the integration to
+a Particle device.
+
+Once confident in the firmware, you can stream data from large numbers of devices by
+<a href="/guide/tools-and-features/console/#rollout-firmware" target="_blank">rolling out the firmware</a>
+to a product fleet. Remember that this requires creating the integration under the product scope, allowing
+any device in the product fleet to trigger the it.
+
+Congrats! This is all you need to get the integration working end-to-end.
+Your device will now begin to publish the targeted event, which will signal to
+the Particle cloud to stream the contents of the event to Google Cloud Platform.
+
+### Confirming the data reaches Google Cloud Platform
+
+*Add more info about how someone could verify things are working as expected*
+
+
 ## Storing Data in a Datastore Database
+
+*Specific example of what you can do with the data once it's in GCP*
 
 
