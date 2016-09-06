@@ -237,6 +237,19 @@ focus on specific IoT use cases for Google Cloud Platform.
 
 ### Storing Data in a Datastore Database
 
-*Specific example of what you can do with the data once it's in GCP*
+One relatively universal application of the Particle & Google Cloud Platform integration is the ability to store
+device data into a long-term database. Google Cloud offers many different data storage options within the
+platform, but this tutorial will show you how to get data into a <a href="https://cloud.google.com/datastore/" target="_blank">Google Cloud Datastore</a>.
 
+Datastore is a NoSQL document database built for automatic scaling, high performance, and ease of application development. A key advantage of using
+Datastore is the fact that its _schemaless_: this means it is flexible in the data structure it will accpet, and does not require configuration in advance.
+Google Cloud Datastore also features high availability of reads and writes, massive scalability and performance, and automatic data encryption. For all of
+Datastore's features, <a href="https://cloud.google.com/datastore/docs/concepts/overview" target="_blank">check out the docs</a>.
+
+Before starting with this tutorial, it is important that you first follow the setup steps above, both [preconfiguring in Google Cloud Platform](#preconfiguration-in-google-cloud-platform)
+and [enabling the integration](#enabling-the-integration). We will be doing the following to successfully start storing data in Datastore:
+
+1) Creating a subscription that will pull published messages from your Google Cloud Platform topic
+2) Running a script to funnel messages into Datastore
+3) Verifying that data is saved successfully
 
