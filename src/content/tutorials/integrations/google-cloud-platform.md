@@ -108,7 +108,7 @@ Once created, check the checkbox next to your topic name, and click on the "Perm
 
 <img src="/assets/images/gcp-add-permissions.png" class="full-width" alt="Add Particle's Service Account to your Google Cloud Topic"/>
 
-## Enable the Integration
+## Enabling the Integration
 
 ### Particle Console
 
@@ -199,10 +199,43 @@ the Particle cloud to stream the contents of the event to Google Cloud Platform.
 
 ### Confirming the data reaches Google Cloud Platform
 
-*Add more info about how someone could verify things are working as expected*
+To ensure that the data is successfully being published to Google Cloud Platform, you can use the Google Cloud
+CLI. To use the Google Cloud CLI, click on the terminal icon on the right side of
+the top navigation bar as shown below:
 
+<img src="/assets/images/gcp-cli-icon.png"/>
 
-## Storing Data in a Datastore Database
+After launching the CLI, you can verify messages coming through by creating a _subscription_ to your Google Cloud
+Pub/Sub topic name. Any other Google Cloud Platform product that you eventually use will also be subscribers
+of your topic's messages. This subscriber, however, will just be use to acknowledge that messages are entering
+Google Cloud Platform successfully.
+
+To create a subscription:
+
+```bash
+~$  gcloud beta pubsub subscriptions create test_sub --topic [topic_name]
+```
+
+Where `topic_name` is the name of your Google Cloud Pub/Sub topic (don't include the `projects/{project_name}/topic/`
+prefix, just the topic name). This subscriber will now listen for all messages published to your topic.
+
+Now, to pull some published messages:
+
+```bash
+~$ gcloud beta pubsub subscriptions pull test_sub --auto-ack --max-messages 100
+```
+
+If things are looking good, you should see a table like this:
+<img class="full-width" src="/assets/images/gcp-event-subscription-list.png"/>
+
+Nice! Everything looks to be wired up correctly. We've proven that we are now successfully getting data from
+a Particle device -> Particle Cloud -> Google Cloud Pub/Sub. From here, it's up to you how you'd like to leverage
+Googe Cloud Platform's products & services to add value to your connected product. The rest of this tutorial will
+focus on specific IoT use cases for Google Cloud Platform.
+
+## Example Use Cases
+
+### Storing Data in a Datastore Database
 
 *Specific example of what you can do with the data once it's in GCP*
 
