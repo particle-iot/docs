@@ -99,7 +99,7 @@ When the {{device}} is in the process of connecting to the cloud, it will rapidl
 If your {{device}} is breathing white, the {{#if electron}}cellular{{/if}}{{#if photon}}Wi-Fi{{/if}}{{#if core}}Wi-Fi{{/if}} module is off. You might see this mode if:
 
 - You have set your module to `MANUAL` or `SEMI_AUTOMATIC` in your user firmware
-- You have called {{#if electron}}`Cellular.off()`{{/if}}{{#if photon}}`Wifi.off()`{{/if}}{{#if core}}`Wifi.off()`{{/if}} in your user firmware
+- You have called {{#if electron}}`Cellular.off()`{{/if}}{{#if photon}}`WiFi.off()`{{/if}}{{#if core}}`WiFi.off()`{{/if}} in your user firmware
 
 
 ### Listening Mode
