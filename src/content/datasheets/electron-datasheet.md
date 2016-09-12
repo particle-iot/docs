@@ -224,16 +224,18 @@ echo -e "\xFF" > fillbyte && dfu-util -d 2b04:d00a -a 1 -s 34 -D fillbyte
 | RST | Active-low reset input. On-board circuitry contains a 10k ohm pull-up resistor between RST and 3V3, and 0.1uF capacitor between RST and GND. |
 | VBAT |Supply to the internal RTC, backup registers and SRAM when 3V3 is not present (1.65 to 3.6VDC). The Pin is internally connected to 3V3 supply via a 0 ohm resistor. If you wish to power is via an external supply, you'll need to remove this resistor. Instructions to remove this resistor can be found here <add link here> |
 | 3V3 |This pin is the output of the on-board regulator. When powering the Electron via VIN or the USB port, this pin will output a voltage of 3.3VDC. The max load on 3V3 is 800mA. It should not be used as an input to power the Electron. |
-| WKP |Active-high wakeup pin, wakes the module from sleep/standby modes. When not used as a WAKEUP, this pin can also be used as a digital GPIO, ADC input or PWM.|
-| DAC |12-bit Digital-to-Analog (D/A) output (0-4095), and also a digital GPIO. DAC is used as DAC or DAC1 in software, and A3 is a second DAC output used as DAC2 in software. |
-| RX |Primarily used as UART RX, but can also be used as a digital GPIO or PWM.|
-| TX |Primarily used as UART TX, but can also be used as a digital GPIO or PWM.|
-| D0-D1 | Digital only GPIO |
-| A0-A1 | 12-bit Analog-to-Digital (A/D) inputs (0-4095), and also digital GPIOs. A6 and A7 are code convenience mappings, which means pins are not actually labeled as such but you may use code like `analogRead(A7)`. A6 maps to the DAC pin and A7 maps to the WKP pin.|
-| B0-B5 | B0 and B1 are digital only while B2, B3, B4, B5 are 12-bit A/D inputs as well as digital GPIOs|
-| C0-C5 | Digital only GPIO |
+| WKP |Active-high wakeup pin, wakes the module from sleep/standby modes. When not used as a WAKEUP, this pin can also be used as a digital GPIO, ADC input or PWM<sup>[1]</sup>. Can be referred to as `A7` when used as an ADC.|
+| DAC |12-bit Digital-to-Analog (D/A) output (0-4095), referred to as `DAC` or `DAC1` in software. Can also be used as a digital GPIO or ADC. Can be referred to as `A6` when used as an ADC. |
+| RX |Primarily used as UART RX, but can also be used as a digital GPIO or PWM<sup>[1]</sup>.|
+| TX |Primarily used as UART TX, but can also be used as a digital GPIO or PWM<sup>[1]</sup>.|
+| D0-D7 | Digital only GPIO.  `D0, D1, D2, D3` can also be used as PWM<sup>[1]</sup> outputs.|
+| A0-A7 | 12-bit Analog-to-Digital (A/D) inputs (0-4095), and also digital GPIOs. A6 and A7 are code convenience mappings, which means pins are not actually labeled as such but you may use code like `analogRead(A7)`. `A6` maps to the `DAC` pin and `A7` maps to the `WKP` pin. `A3` is also a second DAC output used as `DAC2` or `A3` in software. `A4` and `A5` can also be used as PWM<sup>[1]</sup> outputs.|
+| B0-B5 | `B0` and `B1` are digital only while `B2, B3, B4, B5` are 12-bit A/D inputs as well as digital GPIOs. `B0, B1, B2, B3` can also be used as PWM<sup>[1]</sup> outputs.|
+| C0-C5 | Digital only GPIO. `C4` and `C5` can also be used as PWM<sup>[1]</sup> outputs.|
 | VUSB | This pin is internally connected to USB supply and will output 5V when the Electron is plugged into an USB port. It is intentionally left unpopulated. |
 | Li+ | This pin is internally connected to the positive terminal of the LiPo battery. It is intentionally left unpopulated. |
+
+[1] PWM is available on D0, D1, D2, D3, B0, B1, B2, B3, A4, A5, WKP, RX, TX with a caveat: PWM timer peripheral is duplicated on two pins (A5/D2) and (A4/D3) for 11 total independent PWM outputs. For example: PWM may be used on A5 while D2 is used as a GPIO, or D2 as a PWM while A5 is used as an analog input. However A5 and D2 cannot be used as independently controlled PWM outputs at the same time.
 
 ### LED Status
 
@@ -636,7 +638,7 @@ Cet équipement devrait être installé et actionné avec une distance minimum d
 |:-:|:-:|:-:|:-|
 | v001 | 20-Jan-2016 | MB | Initial release |
 | v002 | 24-March-2016 | MB | Added: Memory map, DAC limits, SIM card size, SWD pin locations. Updated: Power section, pin diagram, block diagram, operating conditions. |
-| v003 | 12-Sept-2016 | BW | Error in Cellular off operating current, changed from 2-15mA to 47-50mA. Also qualified these current readings with uC on/off |
+| v003 | 12-Sept-2016 | BW | Error in Cellular off operating current, changed from 2-15mA to 47-50mA. Also qualified these current readings with uC on/off. Updated the Pin Description section. |
 
 ## Known Errata
 
