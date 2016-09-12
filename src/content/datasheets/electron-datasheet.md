@@ -5,7 +5,7 @@ columns: two
 order: 4
 ---
 
-# Electron Datasheet <sup>(v002)</sup>
+# Electron Datasheet <sup>(v003)</sup>
 
 <div align=center><img src="/assets/images/electron/illustrations/electron-v20.png" ></div>
 
@@ -289,11 +289,11 @@ conditions is not implied. Exposure to absolute-maximum-rated conditions for ext
 | LiPo Battery Voltage | V<sub>LiPo</sub> | +3.6 |  | +4.4 | V |
 | Supply Input Voltage | V<sub>VBAT</sub> | +1.65 |  | +3.6 | V |
 | Supply Input Current (VBAT) | I<sub>VBAT</sub> |  |  | 19 | uA |
-| Operating Current (Cellular ON) | I<sub>IN avg</sub> |  | 180 | 250 | mA |
-| Peak Current (Cellular ON) | I<sub>IN pk</sub> | 800<sup>[2]</sup> |  | 1800<sup>[3]</sup> | mA |
-| Operating Current (Cellular OFF) | I<sub>IN avg</sub> |  | 2 | 15 | mA |
-| Sleep Current (4.2V LiPo)| I<sub>Qs</sub> |  | 0.8 | 2 | mA |
-| Deep Sleep Current (4.2V LiPo) | I<sub>Qds</sub> |  | 110 | 130 | uA |
+| Operating Current (uC on, Cellular ON) | I<sub>IN avg</sub> |  | 180 | 250 | mA |
+| Peak Current (uC on, Cellular ON) | I<sub>IN pk</sub> | 800<sup>[2]</sup> |  | 1800<sup>[3]</sup> | mA |
+| Operating Current (uC on, Cellular OFF) | I<sub>IN avg</sub> |  | 47 | 50 | mA |
+| Sleep Current (4.2V LiPo, Cellular OFF)| I<sub>Qs</sub> |  | 0.8 | 2 | mA |
+| Deep Sleep Current (4.2V LiPo, Cellular OFF) | I<sub>Qds</sub> |  | 110 | 130 | uA |
 | Operating Temperature | T<sub>op</sub> | -20 |  | +60 | °C |
 | Humidity Range Non condensing, relative humidity | | | | 95 | % |
 
@@ -560,6 +560,7 @@ You may use the online Web IDE [Particle Build](https://build.particle.io) to co
 |GSM| Global System for Mobile Communications |
 |CDMA| Code Division Multiple Access |
 |OTA | Over The Air; describing how firmware is transferred to the device. |
+|uC  | Microcontroller |
 
 ## FCC IC CE Warnings and End Product Labeling Requirements
 
@@ -635,6 +636,7 @@ Cet équipement devrait être installé et actionné avec une distance minimum d
 |:-:|:-:|:-:|:-|
 | v001 | 20-Jan-2016 | MB | Initial release |
 | v002 | 24-March-2016 | MB | Added: Memory map, DAC limits, SIM card size, SWD pin locations. Updated: Power section, pin diagram, block diagram, operating conditions. |
+| v003 | 12-Sept-2016 | BW | Error in Cellular off operating current, changed from 2-15mA to 47-50mA. Also qualified these current readings with uC on/off |
 
 ## Known Errata
 
