@@ -247,9 +247,123 @@ Google Cloud Datastore also features high availability of reads and writes, mass
 Datastore's features, <a href="https://cloud.google.com/datastore/docs/concepts/overview" target="_blank">check out the docs</a>.
 
 Before starting with this tutorial, it is important that you first follow the setup steps above, both [preconfiguring in Google Cloud Platform](#preconfiguration-in-google-cloud-platform)
-and [enabling the integration](#enabling-the-integration). We will be doing the following to successfully start storing data in Datastore:
+and [enabling the integration](#enabling-the-integration).
 
-1) Creating a subscription that will pull published messages from your Google Cloud Platform topic
-2) Running a script to funnel messages into Datastore
-3) Verifying that data is saved successfully
+For this example, we will be running a small Node.js script to act as an intermediary to subscribe to a Google Cloud Pub/Sub topic, and pass the data into a Datastore database.
+Events will flow from devices, to the Particle Cloud, and into Google Cloud Pub/Sub. Then, the Node script will funnel those events into Datastore. See below for the high-level
+architecture of what this example will entail:
+
+<img src="/assets/images/Particle+GCP-datastore.png" alt="Data architecture for Google Cloud Platform + Particle integration example with Datastore" />
+
+#### Creating a Private Key
+
+The Node script will need to have the correct permissions to both subscribe to Google Cloud Platform topics
+as well as insert data into Datastore. For this to work, we'll need to create a private key that your script
+will use to authenticate. Google refers to these private keys for external server authentication as
+<a href="https://cloud.google.com/compute/docs/access/service-accounts" target="_blank">service accounts</a>.
+
+To create a service account:
+
+1. Open the list of credentials in the Google Cloud Platform Console.<br/>
+<a class="btn" target="_blank" href="https://console.cloud.google.com/apis/credentials"/>Open List of Credentials</a>
+
+2. Click **Create credentials**
+
+3. Select **Service account key**
+
+4. Click the drop-down box below *Service account*, then click **New service account**
+
+5. Enter a name for the service account in **Name**
+
+6. From the **Role** dropdown, select **Project** > **Editor**
+
+7. Use the default **Service account ID** or generate a different one
+
+8. Select **JSON** as the **Key type**
+
+9. Click **Create**
+
+Now, a **Service account created** window is displayed and the private key for the **Key type** you selected
+should be downloaded automatically. This file is the private key that your script will use to authenticate
+with Google Cloud Platform.
+
+**NOTE: Do not share this private key, or check it into Git. Keep it secret.**
+
+#### Creating a Pub/Sub Subscription
+
+The next thing you'll need is a Google Cloud Pub/Sub subscription. Remember that the Particle Cloud *publishes
+to a topic* in Google Cloud. A *subscriber* listens for messages published to a topic. We'll need a subscriber
+in order to funnel events from the topic to the Datastore database.
+
+To create a topic,
+
+1. Visit the <a href="https://console.cloud.google.com/cloudpubsub/topicList" target="_blank">Pub/Sub Homepage</a>
+within the Google Cloud Platform Console.
+
+2. Find your topic in the list and click **New Subscription**. It is important that this topic name matches the topic
+you added as part of enabling the Google Cloud Platform Integration on Particle.
+
+<img src="/assets/images/gcp-new-subscription.png" />
+<p class="caption">The "New Subscription" button will appear when hovering over your topic</p>
+
+3. Give your subscription a **Name**, and set the **Delivery Type** to **Pull**. Your subscription name will
+automatically be prefixed just as your topic was.
+
+4. Click **Create**
+
+#### Running the Node Script
+
+We'll need an intermediary to allow the Particle device data to flow from Google Cloud Pub/Sub to Datastore. This
+is where the Node script comes into play. It's job is simple:
+
+- Subscribe to events published to your Pub/Sub Topic
+- Route those events into Datastore
+
+With the help of our friends at Googe Cloud Platform, we've created an
+open-source repository that has all the code you need to do just this.
+
+<a class="btn"
+href="https://github.com/spark/google-cloud-datastore-tutorial"
+target="_blank"><i class="ion-social-github"></i>Check out the repo</a>
+
+The README of the repository has all the information you need to get up
+and running. You'll need the [private key file](#creating-a-private key)
+and the [subscription name](#creating-a-pub-sub-subscription) you
+created earlier.
+
+#### Checking out the data
+
+If all goes well, you should see output like this when running the
+script:
+
+```bash
+Particle event received from Pub/Sub!
+ { gc_pub_sub_id: '62230504*****',
+  device_id: '3e003f0005473***********',
+  event: 'led-off',
+  data: null,
+  published_at: '2016-09-13T17:08:46.549Z' }
+
+Particle event stored in Datastore!
+ { gc_pub_sub_id: '62230504*****',
+  device_id: '3e003f0005473***********',
+  event: 'led-off',
+  data: null,
+  published_at: '2016-09-13T17:08:46.549Z' }
+```
+
+This confirms that the data has successfully been captured in Datastore. After some events have
+come through successfully, head over to <a href="https://console.cloud.google.com/datastore" target="_blank">Datastore</a>.
+
+Here's an example of how the Particle data in Datastore will look:
+<img src="/assets/images/gcp-datastore-data.png" class="full-width"/>
+
+Note the following:
+- `data` is the data send with the `Particle.publish()` event from a device
+- `device_id` is the ID of the device that sent the data
+- `event` is the Particle event name that triggered the integration
+- `published_at` is a timestamp of when the event was sent
+
+
+Congratulations! You are storing Particle device data in Google Cloud Platform.
 
