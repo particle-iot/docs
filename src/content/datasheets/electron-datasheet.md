@@ -379,16 +379,16 @@ These specifications are based on the STM32F205RG datasheet, with reference to E
  * Weight = 10 grams
 
 ### Mating connectors
-The Electron can be mounted with (qty 2) 18-pin single row 0.1" female headers. Typically these are 0.335" (8.5mm) tall, but you may pick a taller one if desired.When you search for parts like these it can be difficult to navigate the thousands of parts available.
+The Electron can be mounted with (qty 2) 18-pin single row 0.1" female headers. Typically these are 0.335" (8.5mm) tall, but you may pick a taller one if desired.  When you search for parts like these it can be difficult to navigate the thousands of parts available online so here are a few good choices for the Electron:
 
-On Digikey.com, under section Rectangular Connectors - narrow the search with: 18 positions, 1 row, 0.1" (2.54mm) pitch, Through Hole mounting types (unless you want SMT), and sort by Price Ascending. You may find something like this:
 
-|Description | MFG | MFG Part Number |
-|:---|:---|:---|
-|18 Position 0.100" (2.54mm) Gold Through Hole | TE Connectivity | 6-535541-6|
-|18 Position 0.100" (2.54mm) Tin Through Hole | 3M | 929974-01-18-RK|
+| Description | MFG | MFG Part Number | Distributor |
+|:-:|:-:|:-:|
+| 18-pin 0.1" (2.54mm) Female Header (Tin) | Sullins Connector Solutions | [PPTC181LFBN-RC](http://www.digikey.com/product-search/en?keywords=PPTC181LFBN-RC) | Digikey |
+| 18-pin 0.1" (2.54mm) Female Header (Tin) | 3M | [929974-01-18-RK](http://www.digikey.com/product-search/en?keywords=929974-01-18-RK) | Digikey |
+| 18-pin 0.1" (2.54mm) Female Header (Tin) | Harwin | [M20-7821846](http://www.mouser.com/search/ProductDetail.aspx?R=0virtualkey0virtualkeyM20-7821846) | Mouser |
 
-You may also search for other types, such as reverse mounted (bottom side SMT) female headers, low profile types, machine pin, etc..
+You may also use other types, such as reverse mounted (bottom side SMT) female headers, low profile types, etc..
 
 ### Recommended PCB land pattern
 
@@ -638,7 +638,7 @@ Cet équipement devrait être installé et actionné avec une distance minimum d
 |:-:|:-:|:-:|:-|
 | v001 | 20-Jan-2016 | MB | Initial release |
 | v002 | 24-March-2016 | MB | Added: Memory map, DAC limits, SIM card size, SWD pin locations. Updated: Power section, pin diagram, block diagram, operating conditions. |
-| v003 | 12-Sept-2016 | BW | Error in Cellular off operating current, changed from 2-15mA to 47-50mA. Also qualified these current readings with uC on/off. Updated the Pin Description section. |
+| v003 | 12-Sept-2016 | BW | Error in Cellular off operating current, changed from 2-15mA to 47-50mA. Also qualified these current readings with uC on/off. Updated the Pin Description section. Updated Mating connectors section. |
 
 ## Known Errata
 
