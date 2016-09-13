@@ -327,7 +327,7 @@ href="https://github.com/spark/google-cloud-datastore-tutorial"
 target="_blank"><i class="ion-social-github"></i>Check out the repo</a>
 
 The README of the repository has all the information you need to get up
-and running. You'll need the [private key file](#creating-a-private key)
+and running. You'll need the [private key file](#creating-a-private-key)
 and the [subscription name](#creating-a-pub-sub-subscription) you
 created earlier.
 
