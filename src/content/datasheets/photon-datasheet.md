@@ -5,7 +5,7 @@ columns: two
 order: 4
 ---
 
-# Photon Datasheet <sup>(v013)</sup>
+# Photon Datasheet <sup>(v014)</sup>
 
 **Model number:** PHOTONH, PHOTONNOH
 
@@ -379,17 +379,15 @@ These specifications are based on the STM32F205RGY6 datasheet, with reference to
 
 ### Mating connectors
 
-The Photon (with headers) can be mounted with (qty 2) 12-pin single row 0.1" female headers.  Typically these are 0.335" (8.5mm) tall, but you may pick a taller one if desired.  When you search for parts like these it can be difficult to navigate the thousands of parts available.
+The Photon (with headers) can be mounted with (qty 2) 12-pin single row 0.1" female headers.  Typically these are 0.335" (8.5mm) tall, but you may pick a taller one if desired.  When you search for parts like these it can be difficult to navigate the thousands of parts available online so here are a few good choices for the Photon:
 
-On [Digikey.com](http://www.digikey.com), this section [Rectangular Connectors - Headers, Receptacles, Female Sockets](http://www.digikey.com/product-search/en/connectors-interconnects/rectangular-connectors-headers-receptacles-female-sockets/1442548)
- contains 36,000 of them.  Narrow the search with: 12 positions, 1 row, 0.1" (2.54mm) pitch, Through Hole mounting types (unless you want SMT), and sort by Price Ascending.  You may find something like this:
+| Description | MFG | MFG Part Number | Distributor |
+|:-:|:-:|:-:|
+| 12-pin 0.1" Female Header (Tin) | Sullins Connector Solutions | [PPTC121LFBN-RC](http://www.digikey.com/product-search/en?keywords=PPTC121LFBN-RC) | Digikey |
+| 12-pin 0.1" Female Header (Gold) | Sullins Connector Solutions | [PPPC121LFBN-RC](http://www.digikey.com/product-search/en?keywords=PPPC121LFBN-RC) | Digikey |
+| 12-pin 0.1" Female Header (Tin) | Harwin | [M20-7821246](http://www.mouser.com/search/ProductDetail.aspx?R=0virtualkey0virtualkeyM20-7821246) | Mouser |
 
-Description | MFG | MFG Part Number
-:-:|:-:|:-:
-12-pin 0.1" Female Header (Tin) | Sullins Connector Solutions | PPTC121LFBN-RC
-12-pin 0.1" Female Header (Gold) | Sullins Connector Solutions | PPPC121LFBN-RC
-
-You may also search for other types, such as reverse mounted (bottom side SMT) female headers, low profile types, machine pin, etc..
+You may also use other types, such as reverse mounted (bottom side SMT) female headers, low profile types, etc..
 
 ### Recommended pcb land pattern (Photon with headers)
 
@@ -633,18 +631,19 @@ Cet équipement devrait être installé et actionné avec une distance minimum d
 
 | Revision | Date | Author | Comments |
 |:-:|:-:|:-:|:-|
-| - | 30-Mar-2015 | BW | Initial release |
-| v003 | 7-Apr-2015 | BW | Updated template |
-| v004 | 8-Apr-2015 | BW | Updated Overview, Block diagram, Power, RF, and Pin markings sections |
-| v005 | 9-Apr-2015 | BW | Updated BOM |
-| v006 | 21-Apr-2015 | BW | Added JTAG, BT CO-EX, I/O Characteristics, Schematic, Layout, Reflow Profile, Glossary, Updated Operating Conditions |
-| v007 | 28-Apr-2015 | BW | Added Layout, Updated analog pins, Land patterns, Packaging, Mating Connectors |
+| - | 30-March-2015 | BW | Initial release |
+| v003 | 7-April-2015 | BW | Updated template |
+| v004 | 8-April-2015 | BW | Updated Overview, Block diagram, Power, RF, and Pin markings sections |
+| v005 | 9-April-2015 | BW | Updated BOM |
+| v006 | 21-April-2015 | BW | Added JTAG, BT CO-EX, I/O Characteristics, Schematic, Layout, Reflow Profile, Glossary, Updated Operating Conditions |
+| v007 | 28-April-2015 | BW | Added Layout, Updated analog pins, Land patterns, Packaging, Mating Connectors |
 | v008 | 11-May-2015 | BW | Updated BT CO-EX, PWM info, Qualifications |
 | v009 | 31-May-2015 | BW | Updated Pinouts, DAC info, Height dimensions, Solder mask info, Recommended operating conditions |
 | v010 | 1-June-2015 | BW | Updated VBAT info |
 | v011 | 24-July-2015 | BW | Added FCC IC CE Warnings and End Product Labeling Requirements, Updated power output, added approved antennas, Corrected DAC2 as A3, Added pin numbers to PCB Land Pattern for Photon without headers. |
 | v012 | 15-January-2016 | WH | Added TELEC Certification information and expanded explanation of Photons with and without headers.
 | v013 | 7-April-2016 | BW | Added: full STM32 part number, Memory map, DAC limits, SWD pin locations, max source/sink current, more descriptive info about bottom side pads, known errata URL. Updated: BT COEX info, pin diagram, block diagram, operating conditions, pin descriptions, land-pattern image signal keepout note.
+| v014 | 13-September-2016 | BW | Updated Mating connectors section. |
 
 ## Known Errata
 
