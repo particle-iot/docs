@@ -121,9 +121,9 @@ $ particle flash 0123456789ABCDEFGHI app.ino library1.cpp library1.h
 
 ### Target a specific firmware version for flashing
 
-You can compile and flash your application against a specific firmware version use the `--target` flag. If you don't specific `target` your code will compile against the latest released firmware.
+You can compile and flash your application against a specific firmware version using the `--target` flag. If you don't specify `target` your code will compile against the latest released firmware.
 
-This is useful if you are not ready to upgrade to the latest system firmware on your device.
+This is useful if you are not ready to upgrade to the latest system firmware on your device or if you want to try a pre-release version.
 
 ```sh
 # compile your application with the 0.5.0 system firmware and flash it
