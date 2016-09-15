@@ -124,6 +124,17 @@ Without a doubt, the {{device}} rocks!
 
 To run the test scripts, run `npm test`.
 
+### Adding a new device
+
+When the firmware is available on a new device, add that device to the docs in these places:
+
+- Make the firmware docs available for the new device by adding an entry to the `devices` frontmatter in <src/content/reference/firmware.md>
+- Also update `devices` in the guides and tools frontmatter as appropriate
+- Update the device selection dropdown in <templates/partials/header.hbs>
+- Add the device in <src/assets/js> `rememberDevices()`
+- Add a new SVG in <src/assets/image> named `<device>.svg`
+- Tell the tests to crawl the new device page in <test/crawler.js>
+
 ### Attributions
 
 Some of this documentation is derived from the [Arduino documentation](http://arduino.cc/en/Reference), as the Arduino/Wiring language and libraries are used extensively on the Spark Core.

@@ -2,7 +2,7 @@
 title: Firmware
 template: reference.hbs
 columns: three
-devices: [photon,electron,core]
+devices: [photon,electron,core,raspberry-pi]
 order: 1
 ---
 

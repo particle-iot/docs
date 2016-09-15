@@ -2,7 +2,7 @@
 title: Getting started
 template: guide.hbs
 columns: two
-devices: [ photon,electron,core ]
+devices: [ photon,electron,core,raspberry-pi ]
 order: 2
 ---
 

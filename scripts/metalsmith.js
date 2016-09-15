@@ -113,15 +113,15 @@ exports.metalsmith = function() {
         pattern: 'reference/*md',
         sortBy: 'order'
       },
-			tutorials: {
-				pattern: 'tutorials/:section/*.md',
-				sortBy: 'order',
-				orderDynamicCollections: [
-					'topics',
-					'projects',
-					'curriculum'
-				]
-			},
+      tutorials: {
+        pattern: 'tutorials/:section/*.md',
+        sortBy: 'order',
+        orderDynamicCollections: [
+          'topics',
+          'projects',
+          'curriculum'
+        ]
+      },
       datasheet: {
         pattern: 'datasheets/*.md',
         sortBy: 'order'

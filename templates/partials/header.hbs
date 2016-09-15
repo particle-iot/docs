@@ -41,16 +41,7 @@
     {{#if devices}}
       <div class="dropdown">
         <a id="dLabel" data-target="#" class="nav nav-device" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
-          <i class="im-devices-icon"></i>
-          {{#if electron}}
-            Electron
-          {{/if}}
-          {{#if photon}}
-            Photon
-          {{/if}}
-          {{#if core}}
-            Core
-          {{/if}}
+          <i class="im-devices-icon"></i> {{device}}
         </a>
         <ul class="dropdown-menu" aria-labelledby="dLabel">
           {{#contains devices 'electron'}}
@@ -62,10 +53,13 @@
           {{#contains devices 'core'}}
             <li><a href="{{path.href}}{{path.name}}/core/">Core</a></li>
           {{/contains}}
+          {{#contains devices 'raspberry-pi'}}
+            <li><a href="{{path.href}}{{path.name}}/raspberry-pi/">Raspberry Pi</a></li>
+          {{/contains}}
         </ul>
       </div>
     {{/if}}
     <a href='{{edit-link branch path.href path.name}}' class="nav" target="_blank"><i class="ion-edit"></i>Edit</a>
- 
+
   </div>
 </div>

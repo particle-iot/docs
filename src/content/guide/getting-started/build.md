@@ -2,7 +2,7 @@
 title: Web IDE (Build)
 template: guide.hbs
 columns: two
-devices: [ electron,photon,core ]
+devices: [ electron,photon,core,raspberry-pi ]
 order: 6
 ---
 

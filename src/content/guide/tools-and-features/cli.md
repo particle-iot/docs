@@ -3,7 +3,7 @@ word: CLI
 title: Command Line
 order: 4
 columns: two
-devices: [electron,photon,core]
+devices: [electron,photon,core,raspberry-pi]
 template: guide.hbs
 ---
 
@@ -203,7 +203,7 @@ Then let's compile that program to make sure it's valid code.  The CLI will auto
 
 ```sh
 # how to compile a program without flashing to your device
-$ particle compile {{#if photon}}photon{{/if}}{{#if core}}core{{/if}}{{#if electron}}electron{{/if}} blinky.ino
+$ particle compile {{deviceValue}} blinky.ino
 Including:
 blinky.ino
 attempting to compile firmware
