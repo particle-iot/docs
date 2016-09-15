@@ -5,6 +5,10 @@ var path = require('path');
 var fs = require('fs');
 var titleize = require('../templates/helpers/titleize');
 
+/* This function is meant to read the `devices` key in each template and clones the template once for each device.
+ * On each cloned templates, it sets the `device` key to the titleized name of the device (so `photon` becomes `Photon`),
+ * it sets `deviceValue` to the lowercase name and it sets a boolean to true for that device (`photon = true`).
+ */
 module.exports = function(options) {
 	var key = options.key;
 	var keySingular = key.replace(/s$/, "");
@@ -33,7 +37,10 @@ module.exports = function(options) {
 				newFile[keySingular] = titleize(value);
 				newFile[keySingular + 'Value'] = value;
 				files[newName] = newFile;
-				forkLocations[value] = '/' + newName.replace(extension, '');
+				forkLocations[value] = {
+					path: '/' + newName.replace(extension, ''),
+					name: titleize(value)
+				};
 			});
 
 			file.forkLocations = forkLocations;

@@ -2,13 +2,13 @@
 title: Troubleshooting Tools
 template: support.hbs
 columns: two
-devices: [ photon,electron,core ]
+devices: [ photon,electron,core,raspberry-pi ]
 order: 10
 ---
 
 # Troubleshooting Tools
 
-Here are some tools to help you as you troubleshoot your Photon.
+Here are some tools to help you as you troubleshoot your {{device}}.
 
 ## Listening Mode Commands
 
@@ -26,7 +26,7 @@ It is possible to put your Core in [Listening Mode](/guide/getting-started/modes
 
 For Windows users, we recommend downloading [PuTTY](http://www.putty.org/). You will also need to download and install the [Particle driver](https://s3.amazonaws.com/spark-website/Particle.zip). 
 
-Plug your device into your computer over USB. When the {{#if photon}}Photon{{/if}}{{#if core}}Core{{/if}} is in [Listening Mode]({{#if photon}}/guide/getting-started/modes/photon/#listening-mode{{/if}}{{#if core}}/guide/getting-started/modes/core/#listening-mode{{/if}}), open a serial port over USB using the standard settings, which should be:
+Plug your device into your computer over USB. When the {{device}} is in [Listening Mode]({{#if photon}}/guide/getting-started/modes/photon/#listening-mode{{/if}}{{#if core}}/guide/getting-started/modes/core/#listening-mode{{/if}}), open a serial port over USB using the standard settings, which should be:
 
 - Baudrate: 9600
 - Data Bits: 8
