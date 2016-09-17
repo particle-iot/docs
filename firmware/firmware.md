@@ -4670,6 +4670,15 @@ client.read();
 
 Returns the next byte (or character), or -1 if none is available.
 
+or `int read(uint8_t *buffer, size_t size)` reads all readily available bytes up to `size` from the server the client is connected to into the provided `buffer`.
+
+```C++
+// SYNTAX
+bytesRead = client.read(buffer, length);
+```
+
+Returns the number of bytes (or characters) read into `buffer`.
+
 ### flush()
 
 Discard any bytes that have been written to the client but not yet read.
