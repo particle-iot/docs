@@ -2979,7 +2979,7 @@ by the system firmware.
 
 ## Serial
 
-Used for communication between the device and a computer or other devices. The device has {{#if electron}}four{{else}}two{{/if}} serial channels:
+Used for communication between the device and a computer or other devices. The device has {{#if electron}}four{{else}}two{{/if}} hardware (USART) serial channels and {{#unless core}}two{{else}}one{{/unless}} USB serial channel{{#unless core}}s{{else}}{{/unless}}.
 
 `Serial:` This channel communicates through the USB port and when connected to a computer, will show up as a virtual COM port.
 
@@ -2987,10 +2987,13 @@ Used for communication between the device and a computer or other devices. The d
 // EXAMPLE USAGE
 void setup()
 {
-  Serial.begin(9600);
+  Serial.begin();
   Serial.println("Hello World!");
 }
 ```
+{{#unless core}}
+`USBSerial1`: _Since 0.6.0_ This channel communicates through the USB port and when connected to a computer, will show up as a second virtual COM port. This channel is disabled by default.
+{{/unless}}
 
 `Serial1:` This channel is available via the device's TX and RX pins.
 
@@ -3043,11 +3046,32 @@ To use the hardware serial pins of (Serial1/2{{#if electron}}/4/5{{/if}}) to com
 
 ### begin()
 
-_Available on Serial, Serial1, Serial2{{#if electron}}, Serial4, Serial5{{/if}}._
+_Available on Serial, {{#unless core}}USBSerial1, {{/unless}}Serial1, Serial2{{#if electron}}, Serial4, Serial5{{/if}}._
 
-As of 0.5.0 firmware, 28800 baud set on the Host will put the device in Listening Mode, where a YMODEM download can be started by additionally sending an `f` character.
+Enables serial channel with specified configuration.
 
-The configuration of the serial channel may also specify the number of data bits, stop bits, parity, flow control and other settings. The default is SERIAL_8N1 (8 data bits, no parity and 1 stop bit) and does not need to be specified to achieve this configuration.  To specify one of the following configurations, add one of these defines as the second parameter in the `begin()` function, e.g. `Serial.begin(9600, SERIAL_8E1);` for 8 data bits, even parity and 1 stop bit.
+As of 0.5.0 firmware, 28800 baudrate set by the Host on `Serial` will put the device in Listening Mode, where a YMODEM download can be started by additionally sending an `f` character.
+
+{{#unless core}}
+***NOTE*** _Since 0.6.0_: When `USBSerial1` is enabled by calling `USBSerial1.begin()` in `setup()` or during normal application execution, the device will quickly disconnect from Host and connect back with `USBSerial1` enabled. If such behavior is undesireable, `USBSerial1` may be enabled with `STARTUP()` macro, which will force the device to connect to the Host with both `Serial` and `USBSerial1` by default.
+{{/unless}}
+
+```C++
+// EXAMPLE USAGE
+STARTUP(USBSerial1.begin());
+void setup()
+{
+  while(!Serial.isConnected())
+    Particle.process();
+  Serial.println("Hello Serial!");
+
+  while(!USBSerial1.isConnected())
+    Particle.process();
+  USBSerial1.println("Hello USBSerial1!");
+}
+```
+
+When using hardware serial channels (Serial1, Serial2{{#if electron}}, Serial4, Serial5{{/if}}), the configuration of the serial channel may also specify the number of data bits, stop bits, parity, flow control and other settings. The default is SERIAL_8N1 (8 data bits, no parity and 1 stop bit) and does not need to be specified to achieve this configuration.  To specify one of the following configurations, add one of these defines as the second parameter in the `begin()` function, e.g. `Serial1.begin(9600, SERIAL_8E1);` for 8 data bits, even parity and 1 stop bit.
 
 Pre-defined Serial configurations available:
 
@@ -3104,15 +3128,18 @@ LIN configuration:
 - `LIN_MODE_SLAVE` - LIN Slave
 - `LIN_BREAK_13B` - 13-bit break generation
 - `LIN_BREAK_10B` - 10-bit break detection
-- `LIN_BREAK_11B` - 10-bit break detection
+- `LIN_BREAK_11B` - 11-bit break detection
 
 **NOTE:** LIN break detection may be enabled in both Master and Slave modes.
 
 
 ```C++
 // SYNTAX
-Serial.begin(speed);          // via USB port
-Serial.begin(speed, config);  //  "
+Serial.begin();          // via USB port
+
+{{#unless core}}
+USBSerial1.begin();      // via USB port
+{{/unless}}
 
 Serial1.begin(speed);         // via TX/RX pins
 Serial1.begin(speed, config); //  "
@@ -3136,8 +3163,8 @@ Serial5.begin(speed, config); //  "
 ```
 
 Parameters:
-- `speed`: parameter that specifies the baud rate *(long)*
-- `config`: parameter that specifies the number of data bits used, parity and stop bits *(long)*
+- `speed`: parameter that specifies the baud rate *(long)* _(optional for `Serial` {{#unless core}}and `USBSerial1`{{/unless}})_
+- `config`: parameter that specifies the number of data bits used, parity and stop bits *(long)* _(not used with `Serial` {{#unless core}}and `USBSerial1`{{/unless}})_
 
 
 ```C++
@@ -3147,8 +3174,8 @@ void setup()
   Serial.begin(9600);   // open serial over USB
   // On Windows it will be necessary to implement the following line:
   // Make sure your Serial Terminal app is closed before powering your device
-  // Now open your Serial Terminal, and hit any key to continue!
-  while(!Serial.available()) Particle.process();
+  // Now open your Serial Terminal!
+  while(!Serial.isConnected()) Particle.process();
 
   Serial1.begin(9600);  // open serial over TX and RX pins
 
@@ -3161,9 +3188,17 @@ void loop() {}
 
 ### end()
 
-_Available on Serial, Serial1, Serial2{{#if electron}}, Serial4, Serial5{{/if}}._
+_Available on Serial, {{#unless core}}USBSerial1, {{/unless}}Serial1, Serial2{{#if electron}}, Serial4, Serial5{{/if}}._
 
-Disables serial communication, allowing the RX and TX pins to be used for general input and output. To re-enable serial communication, call `Serial1.begin()`.
+Disables serial channel.
+
+When used with hardware serial channels (Serial1, Serial2{{#if electron}}, Serial4, Serial5{{/if}}), disables serial communication, allowing channel's RX and TX pins to be used for general input and output. To re-enable serial communication, call `SerialX.begin()`.
+
+{{#unless core}}
+_Since 0.6.0_
+
+When used with USB serial channels (`Serial`{{#unless core}} or `USBSerial1`{{/unless}}), `end()` will cause the device to quickly disconnect from Host and connect back without the selected serial channel.
+{{/unless}}
 
 ```C++
 // SYNTAX
@@ -3172,9 +3207,17 @@ Serial1.end();
 
 ### available()
 
-_Available on Serial, Serial1, Serial2{{#if electron}}, Serial4, Serial5{{/if}}._
+_Available on Serial, {{#unless core}}USBSerial1, {{/unless}}Serial1, Serial2{{#if electron}}, Serial4, Serial5{{/if}}._
 
-Get the number of bytes (characters) available for reading from the serial port. This is data that's already arrived and stored in the serial receive buffer (which holds 64 bytes).
+Get the number of bytes (characters) available for reading from the serial port. This is data that's already arrived and stored in the serial receive buffer.
+
+The receive buffer size for hardware serial channels (Serial1, Serial2{{#if electron}}, Serial4, Serial5{{/if}}) is 64 bytes.
+
+{{#unless core}}
+The receive buffer size for USB serial channels (Serial and USBSerial1) is 256 bytes. Also see [`acquireSerialBuffer`](#acquireSerialBuffer-).
+{{else}}
+The receive buffer size for Serial is 64 bytes.
+{{/unless}}
 
 ```C++
 // EXAMPLE USAGE
@@ -3207,16 +3250,71 @@ void loop()
 _Since 0.4.9. Available on Serial1, Serial2{{#if electron}}, Serial4, Serial5{{/if}}._
 
 _Since 0.5.0. Available on USB Serial (Serial)_
+{{#unless core}}
+_Since 0.6.0. Available on `USBSerial1`_
+{{/unless}}
 
 Retrieves the number of bytes (characters) that can be written to this serial port without blocking.
 
 If `blockOnOverrun(false)` has been called, the method returns the number of bytes that can be written to the buffer without causing buffer overrun, which would cause old data to be discarded and overwritten.
+
+{{#unless core}}
+Also see [`acquireSerialBuffer`](#acquireSerialBuffer-).
+{{/unless}}
+
+{{#unless core}}
+### acquireSerialBuffer()
+
+```C++
+// SYNTAX
+HAL_USB_USART_Config acquireSerialBuffer()
+{
+  HAL_USB_USART_Config conf = {0};
+
+  // The usable buffer size will be 128
+  static uint8_t serial_rx_buffer[129];
+  static uint8_t serial_tx_buffer[129];
+
+  conf.rx_buffer = serial_rx_buffer;
+  conf.tx_buffer = serial_tx_buffer;
+  conf.rx_buffer_size = 129;
+  conf.tx_buffer_size = 129;
+
+  return conf;
+}
+
+HAL_USB_USART_Config acquireUSBSerial1Buffer()
+{
+  HAL_USB_USART_Config conf = {0};
+
+  // The usable buffer size will be 128
+  static uint8_t usbserial1_rx_buffer[129];
+  static uint8_t usbserial1_tx_buffer[129];
+
+  conf.rx_buffer = usbserial1_rx_buffer;
+  conf.tx_buffer = usbserial1_tx_buffer;
+  conf.rx_buffer_size = 129;
+  conf.tx_buffer_size = 129;
+
+  return conf;
+}
+```
+
+_Since 0.6.0_
+
+It is possible for the application to allocate its own buffers for `Serial` and `USBSerial1` by implementing `acquireSerialBuffer` and `acquireUSBSerial1Buffer` functions. Minimum receive buffer size is 65 bytes.
+
+{{/unless}}
 
 ### blockOnOverrun()
 
 _Since 0.4.9. Available on Serial1, Serial2{{#if electron}}, Serial4, Serial5{{/if}}._
 
 _Since 0.5.0. Available on USB Serial (Serial)_
+
+{{#unless core}}
+_Since 0.6.0. Available on `USBSerial1`_
+{{/unless}}
 
 Defines what should happen when calls to `write()/print()/println()/printlnf()` that would overrun the buffer.
 
@@ -3236,6 +3334,9 @@ A family of application-defined functions that are called whenever there is data
 from a serial peripheral.
 
 - serialEvent: called when there is data available from `Serial`
+{{#unless core}}
+- usbSerialEvent1: called when there is data available from `USBSerial1`
+{{/unless}}
 - serialEvent1: called when there is data available from `Serial1`
 - serialEvent2: called when there is data available from `Serial2`
 {{#if electron}}
@@ -3264,7 +3365,7 @@ void serialEvent()
 
 ### peek()
 
-_Available on Serial, Serial1, Serial2{{#if electron}}, Serial4, Serial5{{/if}}._
+_Available on Serial, {{#unless core}}USBSerial1, {{/unless}}Serial1, Serial2{{#if electron}}, Serial4, Serial5{{/if}}._
 
 Returns the next byte (character) of incoming serial data without removing it from the internal serial buffer. That is, successive calls to peek() will return the same character, as will the next call to `read()`.
 
@@ -3316,7 +3417,7 @@ void loop()
 
 ### read()
 
-_Available on Serial, Serial1, Serial2{{#if electron}}, Serial4, Serial5{{/if}}._
+_Available on Serial, {{#unless core}}USBSerial1, {{/unless}}Serial1, Serial2{{#if electron}}, Serial4, Serial5{{/if}}._
 
 Reads incoming serial data.
 
@@ -3349,7 +3450,7 @@ void loop() {
 ```
 ### print()
 
-_Available on Serial, Serial1, Serial2{{#if electron}}, Serial4, Serial5{{/if}}._
+_Available on Serial, {{#unless core}}USBSerial1, {{/unless}}Serial1, Serial2{{#if electron}}, Serial4, Serial5{{/if}}._
 
 Prints data to the serial port as human-readable ASCII text.
 This command can take many forms. Numbers are printed using an ASCII character for each digit. Floats are similarly printed as ASCII digits, defaulting to two decimal places. Bytes are sent as a single character. Characters and strings are sent as is. For example:
@@ -3371,7 +3472,7 @@ An optional second parameter specifies the base (format) to use; permitted value
 
 ### println()
 
-_Available on Serial, Serial1, Serial2{{#if electron}}, Serial4, Serial5{{/if}}._
+_Available on Serial, {{#unless core}}USBSerial1, {{/unless}}Serial1, Serial2{{#if electron}}, Serial4, Serial5{{/if}}._
 
 Prints data to the serial port as human-readable ASCII text followed by a carriage return character (ASCII 13, or '\r') and a newline character (ASCII 10, or '\n'). This command takes the same forms as `Serial.print()`.
 
@@ -3422,7 +3523,7 @@ void loop() {
 
 *Since 0.4.6.*
 
-_Available on Serial, Serial1, Serial2{{#if electron}}, Serial4, Serial5{{/if}}._
+_Available on Serial, {{#unless core}}USBSerial1, {{/unless}}Serial1, Serial2{{#if electron}}, Serial4, Serial5{{/if}}._
 
 Provides [printf](http://www.cplusplus.com/reference/cstdio/printf/)-style formatting over serial.
 
@@ -3448,7 +3549,7 @@ The last `printf()` call could be changed to `printlnf()` to avoid a separate ca
 
 *Since 0.4.6.*
 
-_Available on Serial, Serial1, Serial2{{#if electron}}, Serial4, Serial5{{/if}}._
+_Available on Serial, {{#unless core}}USBSerial1, {{/unless}}Serial1, Serial2{{#if electron}}, Serial4, Serial5{{/if}}._
 
 formatted output followed by a newline.
 Produces the same output as [printf](#printf-) which is then followed by a newline character,
@@ -3465,7 +3566,7 @@ Serial.flush();
 Serial1.flush();
 ```
 
-`flush()` neither takes a parameter nor returns anything
+`flush()` neither takes a parameter nor returns anything.
 
 ### halfduplex()
 
@@ -3493,7 +3594,29 @@ Serial1.halfduplex(true);
 
 `halfduplex()` returns nothing
 
+### isConnected()
 
+```C++
+// EXAMPLE USAGE
+void setup()
+{
+  Serial.begin();   // open serial over USB
+  while(!Serial.isConnected()) // wait for Host to open serial port
+    Particle.process();
+
+  Serial.println("Hello there!");
+}
+```
+
+_Since 0.5.3. Available on `Serial`._
+_Since 0.6.0. Available on `Serial`{{#unless core}} and `USBSerial1`{{/unless}}._
+
+Used to check if host has serial port (virtual COM port) open.
+
+{{#if core}}***NOTE:*** This function always returns `true` on {{device}}.{{/if}}
+
+Returns:
+- `true` when Host has virtual COM port open.
 
 SPI
 ----
