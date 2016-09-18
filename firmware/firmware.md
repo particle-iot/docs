@@ -4587,13 +4587,13 @@ Connects to a specified IP address and port. The return value indicates success 
 // SYNTAX
 client.connect();
 client.connect(ip, port);
-client.connect(URL, port);
+client.connect(hostname, port);
 ```
 
 Parameters:
 
 - `ip`: the IP address that the client will connect to (array of 4 bytes)
-- `URL`: the domain name the client will connect to (string, ex.:"particle.io")
+- `hostname`: the host name the client will connect to (string, ex.:"particle.io")
 - `port`: the port that the client will connect to (`int`)
 
 Returns true if the connection succeeds, false if not.
