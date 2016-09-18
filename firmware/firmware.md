@@ -3214,7 +3214,7 @@ Get the number of bytes (characters) available for reading from the serial port.
 The receive buffer size for hardware serial channels (Serial1, Serial2{{#if electron}}, Serial4, Serial5{{/if}}) is 64 bytes.
 
 {{#unless core}}
-The receive buffer size for USB serial channels (Serial and USBSerial1) is 256 bytes. Also see [`acquireSerialBuffer`](#acquireSerialBuffer-).
+The receive buffer size for USB serial channels (Serial and USBSerial1) is 256 bytes. Also see [`acquireSerialBuffer`](#acquireserialbuffer-).
 {{else}}
 The receive buffer size for Serial is 64 bytes.
 {{/unless}}
@@ -3259,7 +3259,7 @@ Retrieves the number of bytes (characters) that can be written to this serial po
 If `blockOnOverrun(false)` has been called, the method returns the number of bytes that can be written to the buffer without causing buffer overrun, which would cause old data to be discarded and overwritten.
 
 {{#unless core}}
-Also see [`acquireSerialBuffer`](#acquireSerialBuffer-).
+Also see [`acquireSerialBuffer`](#acquireserialbuffer-).
 {{/unless}}
 
 {{#unless core}}
@@ -3617,6 +3617,583 @@ Used to check if host has serial port (virtual COM port) open.
 
 Returns:
 - `true` when Host has virtual COM port open.
+
+{{#unless core}}
+Mouse
+----
+
+```cpp
+// EXAMPLE USAGE
+// Use STARTUP() macro to avoid USB disconnect/reconnect (see begin() documentation)
+STARTUP(Mouse.begin());
+
+void setup() {
+  // Set screen size to 1920x1080 (to scale [0, 32767] absolute Mouse coordinates)
+  Mouse.screenSize(1920, 1080);
+  // Move mouse to the center of the screen and click left button
+  Mouse.moveTo(1920 / 2, 1080 / 2);
+  Mouse.click(MOUSE_LEFT);
+  // Move mouse from the current position by 100 points (not pixels) left
+  Mouse.move(-100, 0);
+  // Press right mouse button (and leave it pressed)
+  Mouse.press(MOUSE_RIGHT);
+  // Scroll wheel in the negative direction
+  Mouse.scroll(-127);
+  // Release right mouse button
+  Mouse.release(MOUSE_RIGHT);
+}
+
+void loop() {
+}
+```
+
+_Since 0.6.0_
+
+This library allows {{device}} to act as a native USB HID Mouse.
+
+In terms of USB HID, {{device}} presents itself as two separate devices: Mouse (supporting relative movement) and Digitizer (supporting absolute movement).
+
+Full capabilities include:
+- Relative XY movement [-32767, 32767]
+- Absolute XY movement [0, 32767]
+- 3-buttons (left, right, middle)
+- Wheel [-127, 127]
+
+***NOTE:*** Linux X11 doesn't support HID devices reporting both absolute and relative coordinates. By default only absolute movement is possible by using [`Mouse.moveTo()`](#moveto-). In order for regular relative [`Mouse.move()`](#move-) to work, a call to [`Mouse.enableMoveTo(false)`](#enablemoveto-) is required.
+
+### begin()
+
+```cpp
+// SYNTAX
+Mouse.begin();
+```
+
+Initializes Mouse library and enables USB HID stack.
+
+```cpp
+// Example
+STARTUP(Mouse.begin());
+void setup() {
+  // At this point {{device}} is already connected to Host with Mouse enabled
+}
+```
+
+***NOTE:*** When `Mouse.begin()` is called in `setup()` or during normal application execution, the device will quickly disconnect from Host and connect back with USB HID enabled. If such behavior is undesireable, `Mouse` may be enabled with `STARTUP()` macro, which will force the device to connect to the Host after booting with `Mouse` already enabled.
+
+This function takes no parameters and does not return anything.
+
+### end()
+
+```cpp
+// SYNTAX
+Mouse.end();
+```
+
+Disables USB Mouse functionality.
+
+```cpp
+// Example
+// Enable both Keyboard and Mouse on startup
+STARTUP(Mouse.begin());
+STARTUP(Keyboard.begin());
+
+void setup() {
+  // A call to Mouse.end() here will not cause the device to disconnect and connect back to the Host
+  Mouse.end();
+  // Disabling both Keyboard and Mouse at this point will trigger the behavior explained in NOTE.
+  Keyboard.end();
+}
+```
+
+***NOTE:*** Calling `Mouse.end()` will cause the device to quickly disconnect from Host and connect back without USB HID enabled if [`Keyboard`](#keyboard) is disabled as well.
+
+This function takes no parameters and does not return anything.
+
+### move()
+
+```cpp
+// SYNTAX
+Mouse.move(x, y);
+Mouse.move(x, y, wheel);
+```
+
+Moves the cursor relative to the current position.
+
+*Parameters:*
+
+- `x`: amount to move along the X axis - `int16_t` [-32767, 32767]
+- `y`: amount to move along the Y axis - `int16_t` [-32767, 32767]
+- `wheel`: amount to move the scroll wheel - `int8_t` [-127, 127]
+
+`move()` does not return anything.
+
+### moveTo()
+
+```cpp
+// SYNTAX
+Mouse.moveTo(x, y);
+```
+
+Moves the cursor to an absolute position. (0, 0) position is the top left corner of the screen. By default both X and Y axes span from 0 to 32767.
+
+The default range [0, 32767] can be mapped to actual screen resolution by calling [`screenSize()`](#screensize-). After the call to [`screenSize()`](#screensize-), `moveTo()` will accept screen coordinates and automatically map them to the default range.
+
+*Parameters:*
+
+- `x`: X coordinate - `uint16_t` _[0, 32767] (default)_
+- `y`: Y coordinate - `uint16_t` _[0, 32767] (default)_
+
+`moveTo()` does not return anything.
+
+### scroll()
+
+```cpp
+// SYNTAX
+Mouse.scroll(wheel);
+```
+
+Scrolls the mouse wheel by the specified amount.
+
+*Parameters:*
+
+- `wheel`: amount to move the scroll wheel - `int8_t` [-127, 127]
+
+`scroll()` does not return anything.
+
+### click()
+
+```cpp
+// SYNTAX
+Mouse.click();
+Mouse.click(button);
+```
+
+Momementarily clicks specified mouse button at the current cursor position. A click is a [`press()`](#press-) quickly followed by [`release()`](#release-).
+
+```cpp
+// EXAMPLE USAGE
+// Click left mouse button
+Mouse.click(MOUSE_LEFT);
+// Click right mouse button
+Mouse.click(MOUSE_RIGHT);
+// Click middle mouse button
+Mouse.click(MOUSE_MIDDLE);
+// Click both left and right mouse buttons at the same time
+Mouse.click(MOUSE_LEFT | MOUSE_RIGHT);
+```
+
+*Parameters:*
+
+- `button`: which mouse button to click - `uint8_t` - `MOUSE_LEFT` (default), `MOUSE_RIGHT`, `MOUSE_MIDDLE` or any ORed (`|`) combination of buttons for simultaneous clicks
+
+`click()` does not return anything.
+
+### press()
+
+```cpp
+// SYNTAX
+Mouse.press();
+Mouse.press(button);
+```
+
+Presses specified mouse button at the current cursor position and holds it pressed. A press can be cancelled by [`release()`](#release-).
+
+```cpp
+// EXAMPLE USAGE
+// Press left mouse button
+Mouse.press(MOUSE_LEFT);
+// Press right mouse button
+Mouse.press(MOUSE_RIGHT);
+// Press middle mouse button
+Mouse.press(MOUSE_MIDDLE);
+// Press both left and right mouse buttons at the same time
+Mouse.press(MOUSE_LEFT | MOUSE_RIGHT);
+```
+
+*Parameters:*
+
+- `button`: which mouse button to press - `uint8_t` - `MOUSE_LEFT` (default), `MOUSE_RIGHT`, `MOUSE_MIDDLE` or any ORed (`|`) combination of buttons for simultaneous press
+
+`press()` does not return anything.
+
+### release()
+
+```cpp
+// SYNTAX
+Mouse.release();
+Mouse.release(button);
+```
+
+Releases previously pressed mouse button at the current cursor position.
+
+```cpp
+// EXAMPLE USAGE
+// Release left mouse button
+Mouse.release(MOUSE_LEFT);
+// Release right mouse button
+Mouse.release(MOUSE_RIGHT);
+// Release middle mouse button
+Mouse.release(MOUSE_MIDDLE);
+// Release both left and right mouse buttons at the same time
+Mouse.release(MOUSE_LEFT | MOUSE_RIGHT);
+```
+
+*Parameters:*
+
+- `button`: which mouse button to release - `uint8_t` - `MOUSE_LEFT` (default), `MOUSE_RIGHT`, `MOUSE_MIDDLE` or any ORed (`|`) combination of buttons to release simultaneously. To release all buttons simultaneously, `MOUSE_ALL` can also be used.
+
+`release()` does not return anything.
+
+### isPressed()
+
+```cpp
+// SYNTAX
+Mouse.isPressed();
+Mouse.isPressed(button);
+```
+
+This function checks the currnent state of mouse buttons and returns if they are currently pressed or not.
+
+```cpp
+// EXAMPLE USAGE
+bool pressed;
+// Check if left mouse button is currently pressed
+pressed = Mouse.isPressed(MOUSE_LEFT);
+// Check if right mouse button is currently pressed
+pressed = Mouse.isPressed(MOUSE_RIGHT);
+// Check if middle mouse button is currently pressed
+pressed = Mouse.isPressed(MOUSE_MIDDLE);
+```
+
+*Parameters:*
+
+- `button`: which mouse button to check - `uint8_t` - `MOUSE_LEFT` (default), `MOUSE_RIGHT`, `MOUSE_MIDDLE`
+
+`isPressed()` returns `true` if provided button is currently pressed.
+
+### screenSize()
+
+```cpp
+// SYNTAX
+Mouse.screenSize(screenWidth, screenHeight);
+Mouse.screenSize(screenWidth, screenHeight,
+                 marginLeft, marginRight,
+                 marginTop, marginBottom);
+Mouse.screenSize(screenWidth, screenHeight,
+                 std::array<4, float>);
+```
+
+Maps the default absolute movement range [0, 32767] used by [`moveTo()`](#moveto-) to actual screen resolution. After setting the screen size, `moveTo()` will accept screen coordinates and automatically map them to the default range.
+
+```cpp
+// EXAMPLE USAGE
+// Use STARTUP() macro to avoid USB disconnect/reconnect (see begin() documentation)
+STARTUP(Mouse.begin());
+
+void setup() {
+  // Set screen size to 1920x1080 (to scale [0, 32767] absolute Mouse coordinates)
+  Mouse.screenSize(1920, 1080);
+  // Move mouse to the center of the screen
+  Mouse.moveTo(1920 / 2, 1080 / 2);
+}
+
+void loop() {
+}
+```
+
+*Parameters:*
+
+- `screenWidth`: screen width in pixels - `uint16_t`
+- `screenHeight`: screen height in pixels - `uint16_t`
+- `marginLeft`: _(optional)_ left screen margin in percent (e.g. 10.0) - `float`
+- `marginRight`: _(optional)_ right screen margin in percent (e.g. 10.0) - `float`
+- `marginTop`: _(optional)_ top screen margin in percent (e.g. 10.0) - `float`
+- `marginBottom`: _(optional)_ bottom screen margin in percent (e.g. 10.0) - `float`
+
+`screenSize()` does not return anything.
+
+### enableMoveTo()
+
+```cpp
+// SYNTAX
+Mouse.enableMoveTo(false);
+Mouse.enableMoveTo(true);
+```
+
+Disables or enables absolute mouse movement (USB HID Digitizer).
+
+```cpp
+// EXAMPLE USAGE
+// Use STARTUP() macro to avoid USB disconnect/reconnect (see begin() documentation)
+STARTUP(Mouse.begin());
+// Disable absolute mouse movement
+STARTUP(Mouse.enableMoveTo(false));
+
+void setup() {
+  // Move cursor by 100 points along X axis and by 100 points Y axis
+  Mouse.move(100, 100);
+  // Mouse.moveTo() calls do nothing
+  Mouse.moveTo(0, 0);
+}
+
+void loop() {
+}
+```
+
+***NOTE:*** Linux X11 doesn't support HID devices reporting both absolute and relative coordinates. By default only absolute movement is possible by using [`Mouse.moveTo()`](#moveto-). In order for regular relative [`Mouse.move()`](#move-) to work, a call to [`Mouse.enableMoveTo(false)`](#enablemoveto-) is required.
+
+***NOTE:*** When `Mouse.enableMoveTo()` is called in `setup()` or during normal application execution, the device will quickly disconnect from Host and connect back with new settings. If such behavior is undesireable, `moveTo()` may be disable or enabled with `STARTUP()` macro, which will force the device to connect to the Host after booting with correct settings already in effect.
+
+*Parameters:*
+
+- `state`: `true` to enable absolute movement functionality, `false` to disable - `bool`
+
+`enableMoveTo()` does not return anything.
+
+Keyboard
+----
+
+```cpp
+// EXAMPLE USAGE
+// Use STARTUP() macro to avoid USB disconnect/reconnect (see begin() documentation)
+STARTUP(Keyboard.begin());
+
+void setup() {
+  // Type 'SHIFT+h', 'e', 'l', 'l', 'o', 'SPACE', 'w', 'o', 'r', 'l', 'd', 'ENTER'
+  Keyboard.println("Hello world!");
+
+  // Type 'SHIFT+t', 'e', 's', 't', 'SPACE', '1', '2', '3', '.', '4', '0', 'ENTER'
+  Keyboard.printf("%s %.2f\n", "Test", 123.4f);
+
+  // Quickly press and release Ctrl-Alt-Delete
+  Keyboard.click(KEY_DELETE, MOD_LCTRL | MOD_LALT);
+
+  // Press Ctrl, then Alt, then Delete and release them all
+  Keyboard.press(KEY_LCTRL);
+  Keyboard.press(KEY_LALT);
+  Keyboard.press(KEY_DELETE);
+  Keyboard.releaseAll();
+}
+
+void loop() {
+}
+```
+
+_Since 0.6.0_
+
+This library allows {{device}} to act as a native USB HID Keyboard.
+
+### begin()
+
+```cpp
+// SYNTAX
+Keyboard.begin();
+```
+
+Initializes Keyboard library and enables USB HID stack.
+
+```cpp
+// Example
+STARTUP(Keyboard.begin());
+void setup() {
+  // At this point {{device}} is already connected to Host with Mouse enabled
+}
+```
+
+***NOTE:*** When `Keyboard.begin()` is called in `setup()` or during normal application execution, the device will quickly disconnect from Host and connect back with USB HID enabled. If such behavior is undesireable, `Keyboard` may be enabled with `STARTUP()` macro, which will force the device to connect to the Host after booting with `Keyboard` already enabled.
+
+This function takes no parameters and does not return anything.
+
+### end()
+
+```cpp
+// SYNTAX
+Keyboard.end();
+```
+
+Disables USB Keyboard functionality.
+
+```cpp
+// Example
+// Enable both Keyboard and Mouse on startup
+STARTUP(Mouse.begin());
+STARTUP(Keyboard.begin());
+
+void setup() {
+  // A call to Mouse.end() here will not cause the device to disconnect and connect back to the Host
+  Mouse.end();
+  // Disabling both Keyboard and Mouse at this point will trigger the behavior explained in NOTE.
+  Keyboard.end();
+}
+```
+
+***NOTE:*** Calling `Keyboard.end()` will cause the device to quickly disconnect from Host and connect back without USB HID enabled if [`Mouse`](#mouse) is disabled as well.
+
+This function takes no parameters and does not return anything.
+
+### write()
+
+```cpp
+// SYNTAX
+Keyboard.write(character);
+```
+
+Momementarily clicks a keyboard key. A click is a [`press()`](#press--1) quickly followed by [`release()`](#release--1). This function works only with ASCII characters. ASCII characters are translated into USB HID keycodes according to the [conversion table](https://github.com/spark/firmware/blob/develop/wiring/src/spark_wiring_usbkeyboard.cpp#L33). For example ASCII character 'a' would be translated into 'a' keycode (leftmost middle row letter key on a QWERTY keyboard), whereas 'A' ASCII character would be sent as 'a' keycode with SHIFT modifier.
+
+```cpp
+// EXAMPLE USAGE
+STARTUP(Keyboard.begin());
+
+void setup() {
+  const char hello[] = "Hello world!\n";
+  // This for-loop will type "Hello world!" followed by ENTER
+  for (int i = 0; i < strlen(hello); i++) {
+    Keyboard.write(hello[i]);
+  }
+}
+```
+
+This function is used by [`print()`](#print--1), [`println()`](#println--1), [`printf()`](#printf--1), [`printlnf()`](#printlnf--1) which provide an easy way to type text.
+
+*Parameters:*
+
+- `ch`: ASCII character - `char`
+
+`write()` does not return anything.
+
+### click()
+
+```cpp
+// SYNTAX
+Keyboard.click(key);
+Keyboard.click(key, modifiers);
+```
+
+Momementarily clicks a keyboard key as well as one or more modifier keys (e.g. ALT, CTRL, SHIFT etc.). A click is a [`press()`](#press--1) quickly followed by [`release()`](#release--1). This function works only with USB HID [keycodes (defined in `enum UsbKeyboardScanCode`)](https://github.com/spark/firmware/blob/develop/wiring/inc/spark_wiring_usbkeyboard_scancode.h#L5) and [modifiers (defined in `enum UsbKeyboardModifier`)](https://github.com/spark/firmware/blob/develop/wiring/inc/spark_wiring_usbkeyboard_scancode.h#L396). `Keyboard` implementation supports keycodes ranging from `0x04 (KEY_A / Keyboard a and A)` to `0xDD (KEY_KPHEX / Keypad Hexadecimal)`.
+
+```cpp
+// EXAMPLE USAGE
+STARTUP(Keyboard.begin());
+
+void setup() {
+  // Quickly press and release Ctrl-Alt-Delete
+  Keyboard.click(KEY_DELETE, MOD_LCTRL | MOD_LALT);
+}
+```
+
+*Parameters:*
+
+- `key`: USB HID key code (see [`enum UsbKeyboardScanCode`](https://github.com/spark/firmware/blob/develop/wiring/inc/spark_wiring_usbkeyboard_scancode.h#L5)) - `uint16_t`
+- `modifier`: _(optional)_ one or more ORed (`|`) USB HID modifier codes (see [`enum UsbKeyboardModifier`](https://github.com/spark/firmware/blob/develop/wiring/inc/spark_wiring_usbkeyboard_scancode.h#L396) - `uint16_t`
+
+`click()` does not return anything.
+
+### press()
+
+```cpp
+// SYNTAX
+Keyboard.press(key);
+Keyboard.press(key, modifier);
+```
+
+Presses specified keyboard key as well as one or more modifier keys and holds them pressed. A press can be cancelled by [`release()`](#release--1) or [`releaseAll()`](#releaseall-).
+
+Up to 8 keys can be pressed simultaneously. Modifier keys (e.g. CTRL, ALT, SHIFT etc) are sent separately and do not add to the currently pressed key count, i.e. it is possible to press and keep pressing 8 regular keyboard keys and all the modifiers (LSHIFT, LALT, LGUI, LCTRL, RSHIFT, RALT, RSHIFT, RCTRL) at the same time.
+
+See [`Keyboard.click()`](#click--1) documentation for information about keycodes and modifier keys.
+
+```cpp
+// EXAMPLE USAGE
+STARTUP(Keyboard.begin());
+
+void setup() {
+  // Press Ctrl, then Alt, then Delete and release them all
+  Keyboard.press(KEY_LCTRL);
+  Keyboard.press(KEY_LALT);
+  Keyboard.press(KEY_DELETE);
+  Keyboard.releaseAll();
+}
+```
+
+*Parameters:*
+
+- `key`: USB HID key code (see [`enum UsbKeyboardScanCode`](https://github.com/spark/firmware/blob/develop/wiring/inc/spark_wiring_usbkeyboard_scancode.h#L5)) - `uint16_t`
+- `modifier`: _(optional)_ one or more ORed (`|`) USB HID modifier codes (see [`enum UsbKeyboardModifier`](https://github.com/spark/firmware/blob/develop/wiring/inc/spark_wiring_usbkeyboard_scancode.h#L396) - `uint16_t`
+
+`press()` does not return anything.
+
+### release()
+
+```cpp
+// SYNTAX
+Keyboard.release(key);
+Keyboard.release(key, modifier);
+```
+
+Releases previously pressed keyboard key as well as one or more modifier keys.
+
+```cpp
+// EXAMPLE USAGE
+STARTUP(Keyboard.begin());
+
+void setup() {
+  // Press Delete and two modifiers (left ALT and left CTRL) simultaneously
+  Keyboard.press(KEY_DELETE, MOD_LCTRL | MOD_LALT);
+  // Release Delete and two modifiers (left ALT and left CTRL) simultaneously
+  Keyboard.release(KEY_DELETE, MOD_LCTRL | MOD_LALT);
+}
+```
+
+See [`Keyboard.click()`](#click--1) documentation for information about keycodes and modifier keys.
+
+*Parameters:*
+
+- `key`: USB HID key code (see [`enum UsbKeyboardScanCode`](https://github.com/spark/firmware/blob/develop/wiring/inc/spark_wiring_usbkeyboard_scancode.h#L5)) - `uint16_t`
+- `modifier`: _(optional)_ one or more ORed (`|`) USB HID modifier codes (see [`enum UsbKeyboardModifier`](https://github.com/spark/firmware/blob/develop/wiring/inc/spark_wiring_usbkeyboard_scancode.h#L396) - `uint16_t`
+
+`release()` does not return anything.
+
+### releaseAll()
+
+```cpp
+// SYNTAX
+Keyboard.releaseAll();
+```
+
+Releases any previously pressed keyboard keys and modifier keys.
+
+```cpp
+// EXAMPLE USAGE
+STARTUP(Keyboard.begin());
+
+void setup() {
+  // Press Ctrl, then Alt, then Delete and release them all
+  Keyboard.press(KEY_LCTRL);
+  Keyboard.press(KEY_LALT);
+  Keyboard.press(KEY_DELETE);
+  Keyboard.releaseAll();
+}
+```
+
+This function takes no parameters and does not return anything.
+
+### print()
+
+See [`Keyboard.write()`](#write--1) and [`Serial.print()`](#print-) documentation.
+
+### println()
+
+See [`Keyboard.write()`](#write--1) and [`Serial.println()`](#println-) documentation.
+
+### printf()
+
+See [`Keyboard.write()`](#write--1) and [`Serial.printf()`](#printf-) documentation.
+
+### printlnf()
+
+See [`Keyboard.write()`](#write--1) and [`Serial.printlnf()`](#printlnf-) documentation.
+
+{{/unless}}
 
 SPI
 ----
