@@ -2498,17 +2498,25 @@ void loop()
 }
 ```
 
+{{#if core}}
 - On the Core, this function works on pins D0, D1, A0, A1, A4, A5, A6, A7, RX and TX.
+{{/if}}
+{{#unless core}}
 - On the Photon, P1 and Electron, this function works on pins D0, D1, D2, D3, A4, A5, WKP, RX and TX with a caveat: PWM timer peripheral is duplicated on two pins (A5/D2) and (A4/D3) for 7 total independent PWM outputs. For example: PWM may be used on A5 while D2 is used as a GPIO, or D2 as a PWM while A5 is used as an analog input. However A5 and D2 cannot be used as independently controlled PWM outputs at the same time.
 - Additionally on the Electron, this function works on pins B0, B1, B2, B3, C4, C5.
 - Additionally on the P1, this function works on pins P1S0, P1S1, P1S6 (note: for P1S6, the WiFi Powersave Clock should be disabled for complete control of this pin. See [System Features](#system-features)).
+{{/unless}}
 
 The PWM frequency must be the same for pins in the same timer group.
 
+{{#if core}}
 - On the Core, the timer groups are D0/D1, A0/A1/RX/TX, A4/A5/A6/A7.
+{{/if}}
+{{#unless core}}
 - On the Photon, the timer groups are D0/D1, D2/D3/A4/A5, WKP, RX/TX.
 - On the P1, the timer groups are D0/D1, D2/D3/A4/A5/P1S0/P1S1, WKP, RX/TX/P1S6.
 - On the Electron, the timer groups are D0/D1/C4/C5, D2/D3/A4/A5/B2/B3, WKP, RX/TX, B0/B1.
+{{/unless}}
 
 **NOTE:** When used with PWM capable pins, the `analogWrite()` function sets up these pins as PWM only.  {{#if has-dac}}This function operates differently when used with the [`Analog Output (DAC)`](#analog-output-dac-) pins.{{/if}}
 
@@ -2794,12 +2802,15 @@ void loop()
 
 Generates a square wave of the specified frequency and duration (and 50% duty cycle) on a timer channel pin which supports PWM. Use of the tone() function will interfere with PWM output on the selected pin. tone() is generally used to make sounds or music on speakers or piezo buzzers.
 
+{{#if core}}
 - On the Core, this function works on pins D0, D1, A0, A1, A4, A5, A6, A7, RX and TX.
-
+{{/if}}
+{{#unless core}}
 - On the Photon, P1 and Electron, this function works on pins D0, D1, D2, D3, A4, A5, WKP, RX and TX with a caveat: Tone timer peripheral is duplicated on two pins (A5/D2) and (A4/D3) for 7 total independent Tone outputs. For example: Tone may be used on A5 while D2 is used as a GPIO, or D2 for Tone while A5 is used as an analog input. However A5 and D2 cannot be used as independent Tone outputs at the same time.
 
 - Additionally on the Electron, this function works on pins B0, B1, B2, B3, C4, C5.
 - Additionally on the P1, this function works on pins P1S0, P1S1, P1S6 (note: for P1S6, the WiFi Powersave Clock should be disabled for complete control of this pin. See [System Features](#system-features)).
+{{/unless}}
 
 ```C++
 // SYNTAX
