@@ -42,7 +42,8 @@
     "eeprom",
     "button-mirror",
     "rgb-mirror",
-    "spi-settings"
+    "spi-settings",
+    "powersave-clock"
   ],
   "Electron": [
     "cellular",
