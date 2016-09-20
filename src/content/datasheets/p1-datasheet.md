@@ -5,7 +5,7 @@ columns: two
 order: 5
 ---
 
-# P1 Datasheet <sup>(v006)</sup>
+# P1 Datasheet <sup>(v007)</sup>
 
 <div align=center><img src="/assets/images/p1-vector.png" width=200></div>
 
@@ -88,7 +88,7 @@ The P1 module has ton of capability in a super small footprint, with analog, dig
 | I2C | 1 | I/O | FT |
 | CAN | 1 | I/O | FT |
 | USB | 1 | I/O | 3V3 |
-| PWM | 11<sup>3</sup> | O | 3V3 |
+| PWM | 12<sup>3</sup> | O | 3V3 |
 
 **Notes:**
 
@@ -96,7 +96,7 @@ The P1 module has ton of capability in a super small footprint, with analog, dig
 
 <sup>[2]</sup> 3V3 = 3.3V max pins.
 
-<sup>[3]</sup> PWM is available on D0, D1, D2, D3, A4, A5, WKP, RX, TX, P1S0, P1S1 with a caveat: PWM timer peripheral is duplicated on two pins (A5/D2) and (A4/D3) for 7 total independent PWM outputs. For example: PWM may be used on A5 while D2 is used as a GPIO, or D2 as a PWM while A5 is used as an analog input. However A5 and D2 cannot be used as independently controlled PWM outputs at the same time.
+<sup>[3]</sup> PWM is available on D0, D1, D2, D3, A4, A5, WKP, RX, TX, P1S0, P1S1, P1S6 with a caveat: PWM timer peripheral is duplicated on two pins (A5/D2) and (A4/D3) for 7 total independent PWM outputs. For example: PWM may be used on A5 while D2 is used as a GPIO, or D2 as a PWM while A5 is used as an analog input. However A5 and D2 cannot be used as independently controlled PWM outputs at the same time. P1S6 requires System Feature Wi-Fi Powersave Clock to be disabled.  See System Features in Firmware Reference.
 
 ### RGB LED, SETUP and RESET button
 
@@ -247,6 +247,7 @@ echo -e "\xFF" > fillbyte && dfu-util -d 2b04:d00a -a 1 -s 3106 -D fillbyte
 | P1S3 | 12-bit Analog-to-Digital (A/D) inputs (0-4095), and also can be used as a digital GPIO. |
 | P1S4 | Primarily used as a digital GPIO. |
 | P1S5 | 12-bit Analog-to-Digital (A/D) inputs (0-4095), and also can be used as a digital GPIO. |
+| P1S6 | Can be used as a digital GPIO or PWM output. Must disable Wi-Fi Powersave Clock first, see System Features in Firmware Reference. |
 
 ### Pin out diagrams
 
@@ -286,7 +287,7 @@ echo -e "\xFF" > fillbyte && dfu-util -d 2b04:d00a -a 1 -s 3106 -D fillbyte
 | 30	|	MICRO_UART2_CTS	|	PA0	|	WKP |
 | 31	|	MICRO_UART2_RXD	|	PA3	|	RGBB (RGB LED BLUE) |
 | 32	|	MICRO_UART2_TXD	|	PA2	|	RGBG (RGB LED GREEN) |
-| 33	|	TESTMODE	|	PA8	| Connected to MCO1 by default, outputs 32kHz clock for WICED powersave mode - currently unsupported for user control |
+| 33	|	TESTMODE	|	PA8	| P1S6 (Connected to MCO1 by default, outputs 32kHz clock for WICED powersave mode. See System Features in the Firmware Reference to disable the Wi-Fi Powersave Clock and allow usage of this pin.) |
 | 34	|	MICRO_RST_N	|	I	|	/RESET (Active low MCU reset) |
 | 35	|	MICRO_I2C1_SCL	|	PB6	|	D1 (I2C SCL) |
 | 36	|	MICRO_I2C1_SDA	|	PB7	|	D0 (I2C SDA) |
@@ -609,6 +610,7 @@ Cet équipement devrait être installé et actionné avec une distance minimum d
 | v004 | 24-July-2015 | BW | Added FCC IC CE Warnings and End Product Labeling Requirements, Updated power output, added approved antennas, Corrected DAC2 as A3, Corrected A0 as pin 50, Corrected External Coexistence Interface pin numbers, Added RGB LED, SETUP and RESET button section. |
 | v005 | 11-April-2016 | BW | Added: full STM32 part number, Memory map, DAC limits, SWD pin locations, max source/sink current, known errata URL and tape-and-reel dimensions. Updated: BT COEX info, pinout diagrams (fixed RESET pin number error), operating conditions, pin descriptions (P1S0~P1S5 pins), land-pattern image signal keepout note.
 | v006 | 14-July-2016 | BW | Updated P1 pin listing: TESTMODE pin 33 (PA8), connected to MCO1 by default, outputs 32kHz clock for WICED powersave mode - currently unsupported for user control.
+| v007 | 20-September-2016 | BW | Updated P1 pin listing: TESTMODE pin 33 (PA8), can use now as P1S6 if enabled.  Updated Pinmap and added P1S6.  Updated Pin Description and Peripherals and GPIO. |
 
 
 ## Known Errata
