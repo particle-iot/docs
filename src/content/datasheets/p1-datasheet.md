@@ -257,6 +257,9 @@ echo -e "\xFF" > fillbyte && dfu-util -d 2b04:d00a -a 1 -s 3106 -D fillbyte
 
 <div align=left><img src="/assets/images/p1-pinout3.png"</div>
 
+**Notes:**
+<sup>[1]</sup> Connected to MCO1 by default, outputs 32kHz clock for WICED powersave mode. See System Features in the Firmware Reference to disable the Wi-Fi Powersave Clock and allow usage of this pin.
+
 ### Complete P1 Module Pin Listing
 
 | P1 Pin # | P1 Pin Name	| Type / STM32F205RGY6 Port | Description |
