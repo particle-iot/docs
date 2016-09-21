@@ -41,3 +41,9 @@ See [the official JavaScript client](/reference/javascript/).
 ## LabVIEW
 
 * [Particle API for LabVIEW](https://github.com/freddiepingpong/labview-particle-api) - A set of LabVIEW VIs to connect to the Particle Cloud API.
+
+## Swift
+
+* [Swift 3.0 Client Library](https://github.com/vakoc/particle-swift) - A Swift 3.0, package manager compatible, library for interacting with the Particle Cloud API
+* [Swift 3.0 Command Line Interface](https://github.com/vakoc/particle-swift-cli) - A Swift 3.0, package manager compatible, command line application utilizing particle-swift for interacting with the Particle Cloud API
+
