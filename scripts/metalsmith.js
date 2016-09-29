@@ -14,6 +14,7 @@ var compress = require('metalsmith-gzip');
 var paths = require('metalsmith-paths');
 var partials = require('metalsmith-register-partials');
 var helpers = require('metalsmith-register-helpers');
+var deviceFeatureFlags = require('./device_feature_flags');
 var redirect = require('metalsmith-redirect');
 var copy = require('metalsmith-copy');
 var fork = require('./fork');
@@ -139,6 +140,9 @@ exports.metalsmith = function() {
     .use(fork({
       key: 'devices',
       redirectTemplate: './templates/redirector.jade'
+    }))
+    .use(deviceFeatureFlags({
+      config: './device_features.json'
     }))
     .use(inPlace({
       engine: 'jade',
