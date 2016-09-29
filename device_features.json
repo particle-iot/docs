@@ -1,0 +1,17 @@
+{
+  "Core": [
+    "wifi",
+    "embedded"
+  ],
+  "Photon": [
+    "wifi",
+    "embedded"
+  ],
+  "Electron": [
+    "cellular",
+    "embedded"
+  ],
+  "Raspberry Pi": [
+    "linux"
+  ]
+}

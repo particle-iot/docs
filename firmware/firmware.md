@@ -642,7 +642,7 @@ void setup() {
 }
 ```
 
-{{#unless electron}}
+{{#if has-wifi}}
 ## WiFi
 
 ### on()
@@ -1220,7 +1220,7 @@ by the system after calling `WiFi.useDynamicIP()`, and so are available for use 
 is called, without needing to be reconfigured using `WiFi.setStaticIP()`
 
 {{/if}}
-{{/unless}}
+{{/if}}
 
 
 {{#if photon}}
