@@ -4707,13 +4707,13 @@ Connects to a specified IP address and port. The return value indicates success 
 // SYNTAX
 client.connect();
 client.connect(ip, port);
-client.connect(URL, port);
+client.connect(hostname, port);
 ```
 
 Parameters:
 
 - `ip`: the IP address that the client will connect to (array of 4 bytes)
-- `URL`: the domain name the client will connect to (string, ex.:"particle.io")
+- `hostname`: the host name the client will connect to (string, ex.:"particle.io")
 - `port`: the port that the client will connect to (`int`)
 
 Returns true if the connection succeeds, false if not.
@@ -4789,6 +4789,15 @@ client.read();
 ```
 
 Returns the next byte (or character), or -1 if none is available.
+
+or `int read(uint8_t *buffer, size_t size)` reads all readily available bytes up to `size` from the server the client is connected to into the provided `buffer`.
+
+```C++
+// SYNTAX
+bytesRead = client.read(buffer, length);
+```
+
+Returns the number of bytes (or characters) read into `buffer`.
 
 ### flush()
 

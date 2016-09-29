@@ -24,43 +24,43 @@ Connection Issues
 There are many reasons that your Particle Core might not be able to connect to your network. There are many types of Wi-Fi networks, and the Core and the CC3000 do not support all of them. We consider it an important goal of ours to connect easily and painlessly to as many networks as possible, and your feedback is extremely valuable so that we can get better.
 {{/if}}
 
-The {{#if photon}}Photon{{/if}}{{#if core}}Core{{/if}} works best with a traditional home network: simple networks with WPA/WPA2 or WEP security (or unsecured), with a single router from a reputable company (Apple, Netgear, Linksys, D-Link, etc.) without any fancy settings. The more your network diverges from the norm, there more likely you might encounter issues.
+The {{device}} works best with a traditional home network: simple networks with WPA/WPA2 or WEP security (or unsecured), with a single router from a reputable company (Apple, Netgear, Linksys, D-Link, etc.) without any fancy settings. The more your network diverges from the norm, there more likely you might encounter issues.
 
 There are known issues with the following types of networks:
 
-- **802.11n-only networks**. The {{#if photon}}Photon{{/if}}{{#if core}}Core{{/if}} is 802.11b/g. Most 802.11n networks are backwards compatible with 802.11b/g, but if yours is not, the {{#if photon}}Photon{{/if}}{{#if core}}Core{{/if}} will not connect.
-- **Networks with ["captive portal"](http://en.wikipedia.org/wiki/Captive_portal) security**. A captive portal is the little website that comes up to ask you to sign in to a network or sign an agreement, like at a Starbucks. The {{#if photon}}Photon{{/if}}{{#if core}}Core{{/if}} can't navigate these portals.
+- **802.11n-only networks**. The {{device}} is 802.11b/g. Most 802.11n networks are backwards compatible with 802.11b/g, but if yours is not, the {{device}} will not connect.
+- **Networks with ["captive portal"](http://en.wikipedia.org/wiki/Captive_portal) security**. A captive portal is the little website that comes up to ask you to sign in to a network or sign an agreement, like at a Starbucks. The {{device}} can't navigate these portals.
 - **Enterprise networks**. We have had mixed results connecting the devices to enterprise networks, although we don't yet have a great understanding of what's causing the issue. This is something that we are working to improve.
 - **Complex Networks**. Networks with multiple routers, with non-standard firewalls, and with non-standard settings.
 {{#if core}}
 - **Channels above 11**. This is in particular an international issue; if you are outside the U.S., your Wi-Fi router might run at channels 12, 13, or 14, which the CC3000 does not support. Please use channels numbered 11 or lower.
 {{/if}}
 
-So, let's dig in. If your {{#if photon}}Photon{{/if}}{{#if core}}Core{{/if}} is not connecting to your Wi-Fi network, we recommend following these steps:
+So, let's dig in. If your {{device}} is not connecting to your Wi-Fi network, we recommend following these steps:
 
 **STEP 0: Check the basics**
 
 - Check your Wi-Fi credentials (SSID and password) to make sure you typed them correctly.
 - Make sure you're in range of your Wi-Fi network. If your phone or computer has a poor connection in the same location, try moving closer to your Wi-Fi access point.
 - If you're using a u.FL {{#if photon}}antenna{{/if}}{{#if core}}Core{{/if}}, make sure you have an antenna attached, and that it's firmly connected.
-- Make sure your {{#if photon}}Photon{{/if}}{{#if core}}Core{{/if}} has enough power to transmit Wi-Fi signals (300mA in bursts). Try a different power source, or unplug components that draw a lot of power.
+- Make sure your {{device}} has enough power to transmit Wi-Fi signals (300mA in bursts). Try a different power source, or unplug components that draw a lot of power.
 
-**STEP 1: Set up your {{#if photon}}Photon{{/if}}{{#if core}}Core{{/if}} over USB**
+**STEP 1: Set up your {{device}} over USB**
 
-On some networks, {{#if photon}}the mobile app won't work{{/if}}{{#if core}}Smart Config does not work{{/if}}, but the {{#if photon}}Photon{{/if}}{{#if core}}Core{{/if}} can connect to the network just fine. We've implemented a back-up mechanism so you can set up your {{#if photon}}Photon{{/if}}{{#if core}}Core{{/if}} over USB. Don't forget that you'll need to claim your {{#if photon}}Photon{{/if}}{{#if core}}Core{{/if}} manually as well if you haven't already!
+On some networks, {{#if photon}}the mobile app won't work{{/if}}{{#if core}}Smart Config does not work{{/if}}, but the {{device}} can connect to the network just fine. We've implemented a back-up mechanism so you can set up your {{device}} over USB. Don't forget that you'll need to claim your {{device}} manually as well if you haven't already!
 
 {{#if photon}}[Setup with USB >](/guide/getting-started/intro/photon){{/if}}{{#if core}}[Setup with USB >](/guide/getting-started/intro/core){{/if}}
 
 **STEP 2: Try another network**
 
-There are many reasons that your {{#if photon}}Photon{{/if}}{{#if core}}Core{{/if}} might not connect; some of them have to do with the {{#if photon}}Photon{{/if}}{{#if core}}Core{{/if}}; some have to do with your mobile device sending the Wi-Fi credentials; some have to do with the network. If your {{#if photon}}Photon{{/if}}{{#if core}}Core{{/if}} doesn't connect, try another Wi-Fi network. This will quickly help you figure out which type of issue you might be seeing.
+There are many reasons that your {{device}} might not connect; some of them have to do with the {{device}}; some have to do with your mobile device sending the Wi-Fi credentials; some have to do with the network. If your {{device}} doesn't connect, try another Wi-Fi network. This will quickly help you figure out which type of issue you might be seeing.
 
 **STEP 3: Reboot and clear memory**
 
 So often, electronics start behaving after you shut them off and turn them back on. Try:
 
 - Closing your mobile app and re-opening it
-- Un-plugging the {{#if photon}}Photon{{/if}}{{#if core}}Core{{/if}} and plugging it back in
+- Un-plugging the {{device}} and plugging it back in
 - Clear the {{#if photon}}Photon's{{/if}}{{#if core}}Core's{{/if}} memory of Wi-Fi networks by holding the `{{system-button}}` button for 10 seconds. After 3 seconds, the light should start flashing blue; after 10 seconds, it should do a quick burst of blue flashes. That means the memory has been cleared.
 {{#if core}}- Restoring the Core's firmware to the factory default. Getting this right can be tricky, see [this video](https://community.particle.io/t/how-to-do-a-factory-reset/2579) for illustration.{{/if}}
 
@@ -68,8 +68,8 @@ So often, electronics start behaving after you shut them off and turn them back 
 
 There are a million ways router settings could cause problems, but here's a few things to look out for:
 
-- **Use DHCP**. Although the {{#if photon}}Photon{{/if}}{{#if core}}Core{{/if}} can handle static IP addresses, it's not configured for it out of the box, so you'll have to dig into the source code.
-- **Turn off access control and firewalls**. Not permanently, but temporarily, to see if it resolves the issue. If it does, you can hopefully just tweak your settings to accommodate the {{#if photon}}Photon{{/if}}{{#if core}}Core{{/if}} rather than taking down your security. The only change you may need to make to your router is to open up outgoing port 5683, the default [CoAP](http://en.wikipedia.org/wiki/Constrained_Application_Protocol) port the {{#if photon}}Photon{{/if}}{{#if core}}Core{{/if}} uses to connect to the Particle Cloud. If your {{#if photon}}Photon{{/if}}{{#if core}}Core{{/if}} flashes cyan and occasionally flashes red, router issues are likely the culprit.
+- **Use DHCP**. Although the {{device}} can handle static IP addresses, it's not configured for it out of the box, so you'll have to dig into the source code.
+- **Turn off access control and firewalls**. Not permanently, but temporarily, to see if it resolves the issue. If it does, you can hopefully just tweak your settings to accommodate the {{device}} rather than taking down your security. The only change you may need to make to your router is to open up outgoing port 5683, the default [CoAP](http://en.wikipedia.org/wiki/Constrained_Application_Protocol) port the {{device}} uses to connect to the Particle Cloud. If your {{device}} flashes cyan and occasionally flashes red, router issues are likely the culprit.
 
 **STEP 5: Search the forums**
 
