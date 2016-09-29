@@ -8,8 +8,10 @@ if [ "${TRAVIS_BRANCH}" == "master" ]; then
 	BUCKET="docs.particle.io"
 elif [ "${TRAVIS_BRANCH}" == "staging" ]; then
 	BUCKET="docs.staging.particle.io"
-elif [ "${TRAVIS_BRANCH}" == "beta" ]; then
-	BUCKET="docs-beta.particle.io"
+elif [ "${TRAVIS_BRANCH}" == "prerelease" ]; then
+	BUCKET="prerelease-docs.particle.io"
+	AWS_ACCESS_KEY_ID=$PRERELEASE_AWS_ACCESS_KEY_ID
+	AWS_SECRET_ACCESS_KEY=$PRERELEASE_AWS_SECRET_ACCESS_KEY
 else
 	exit 0
 fi
