@@ -9604,3 +9604,173 @@ However, there might be instances where the preprocessor causes issues in your c
 
 
 So when you see the `ABC does not name a type` error, yet you know the type is defined, consider disabling the preprocessor using `#pragma SPARK_NO_PREPROCESSOR` at the top of your code.
+
+#### firmware-release-wrapper
+
+## Firmware Release
+
+### Release notes
+
+##### @VER@0.5.3if
+##### @VER@0.5.3endif
+##### @VER@0.5.4if
+##### @VER@0.5.4endif
+
+---Debugging introduction---
+
+### Particle CLI (easy method)
+
+##### @VER@0.5.3if
+This is for 0.5.3 ONLY
+##### @VER@0.5.3endif
+
+##### @VER@0.5.4if
+Special case for the 0.5.4 version...
+##### @VER@0.5.4endif
+
+##### @VER@0.5.3if
+This is another for 0.5.3
+##### @VER@0.5.3endif
+
+The easiest way to upgrade to @VER@ system firmware, is to use the CLI and run these commands.  First upgrade the System firmware, then optionally put Tinker on the device. This requires CLI version 1.17.0 or newer. You can check with `particle --version`.
+
+If you have the [Particle CLI](https://github.com/spark/particle-cli) installed already, you can update it with the following command. Make sure the device is in [DFU mode](http://docs.particle.io/photon/modes/#selecting-various-modes-dfu-mode-device-firmware-upgrade) (flashing yellow LED) and run:
+
+```
+sudo npm update -g particle-cli
+// Note: you can try without sudo first if you wish
+```
+
+1) Make sure the device is in DFU mode and run:
+
+```
+particle update
+```
+
+2) Optionally add Tinker as the user firmware instead of an app that you may currently have running on your device.  Have the device in DFU mode and run:
+
+```
+particle flash --usb tinker
+```
+
+### The OTA method using Particle CLI
+
+For devices already online and connected to the cloud, the system firmware can be updated OTA using these commands:
+
+If your device is online, you can attempt to OTA (Over The Air) update these system parts as well with the particle-cli:
+
+**Note**: You must download system binaries to a local directory on your machine for this to work. Binaries are attached to the bottom of this release.
+
+Core:
+
+```
+particle flash YOUR_DEVICE_NAME tinker-@VER@-core.bin
+```
+
+Photon:
+
+```
+particle flash YOUR_DEVICE_NAME system-part1-0.5.3-photon.bin
+particle flash YOUR_DEVICE_NAME system-part2-0.5.3-photon.bin
+particle flash YOUR_DEVICE_NAME tinker (optional)
+```
+
+P1:
+
+```
+particle flash YOUR_DEVICE_NAME system-part1-0.5.3-p1.bin
+particle flash YOUR_DEVICE_NAME system-part2-0.5.3-p1.bin
+particle flash YOUR_DEVICE_NAME tinker (optional)
+```
+
+Electron:
+
+```
+particle flash YOUR_DEVICE_NAME system-part1-0.5.3-electron.bin
+particle flash YOUR_DEVICE_NAME system-part2-0.5.3-electron.bin
+particle flash YOUR_DEVICE_NAME tinker (optional)
+```
+
+### The local method over USB using Particle CLI
+
+This requires CLI version 1.17.0 or newer. You can check with `particle --version`.
+
+If you have the [Particle CLI](https://github.com/spark/particle-cli) installed already, make sure it is updated with the following command.  Make sure the device is in DFU mode and run:
+`sudo npm update -g particle-cli` (note: you can try without sudo first if you wish)
+
+Core:
+
+```
+particle flash --usb tinker-0.5.3-core.bin
+```
+
+Photon:
+
+```
+particle flash --usb system-part1-0.5.3-photon.bin
+particle flash --usb system-part2-0.5.3-photon.bin
+particle flash --usb tinker (optional)
+```
+
+P1:
+
+```
+particle flash --usb system-part1-0.5.3-p1.bin
+particle flash --usb system-part2-0.5.3-p1.bin
+particle flash --usb tinker (optional)
+```
+
+Electron:
+
+```
+particle flash --usb system-part1-0.5.3-electron.bin
+particle flash --usb system-part2-0.5.3-electron.bin
+particle flash --usb tinker (optional)
+```
+
+### The local DFU-UTIL method
+can be applied to offline devices locally over USB using `dfu-util`
+- Put the device in [DFU mode](http://docs.particle.io/photon/modes/#selecting-various-modes-dfu-mode-device-firmware-upgrade) (flashing yellow LED)
+- open a terminal window, change to the directory where you downloaded the files above, and run these commands:
+
+Core:
+
+```
+dfu-util -d 1d50:607f -a 0 -s 0x8005000:leave -D tinker-0.5.3-core.bin
+```
+
+
+Photon:
+
+```
+dfu-util -d 2b04:d006 -a 0 -s 0x8020000 -D system-part1-0.5.3-photon.bin
+dfu-util -d 2b04:d006 -a 0 -s 0x8060000:leave -D system-part2-0.5.3-photon.bin
+```
+
+P1:
+
+```
+dfu-util -d 2b04:d008 -a 0 -s 0x8020000 -D system-part1-0.5.3-p1.bin
+dfu-util -d 2b04:d008 -a 0 -s 0x8060000:leave -D system-part2-0.5.3-p1.bin
+```
+
+Electron:
+
+```
+dfu-util -d 2b04:d00a -a 0 -s 0x8020000 -D system-part1-0.5.3-electron.bin
+dfu-util -d 2b04:d00a -a 0 -s 0x8040000 -D system-part2-0.5.3-electron.bin
+```
+
+---
+
+### Debugging for Electron
+
+##### Instructions on using the Tinker USB Debugging app [are here](https://docs.google.com/document/d/1NdYxPPk_i_mM2wM9oSbSZB1ElDlHA_x-IHY-UC7w62M/edit?usp=sharing)
+This is useful for simply capturing the Electron's connection process.
+
+---
+
+##### Instructions on using the Electron Troubleshooting app [are here](https://docs.google.com/document/d/1U_Wzy2SPRC3hZnKtw8d6QN2Tm8Q7QwtEbSUAeTkO3bk/edit?usp=sharing)
+This is useful for interacting with the Electron's connection process.
+
+#### firmware-release-wrapper
