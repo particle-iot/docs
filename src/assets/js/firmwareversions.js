@@ -1,8 +1,8 @@
 (function($) {
 
-  var delimiter1 = "#firmware-release-wrapper";
-  var delimiter2 = "#firmware-release-wrapper-1";
-  var id = "firmware-release";
+  var delimiter1 = "#release-notes-wrapper";
+  var delimiter2 = "#release-notes-wrapper-1";
+  var id = "release-notes";
   var version = getVersion();
 
   hideDelimiters();
@@ -63,7 +63,6 @@
   }
 
   function getVersion() {
-
     var version = null;
 
     var queryParam = window.location.search;
@@ -78,6 +77,5 @@
     }
 
     return version;
-
   }
 })(jQuery);
