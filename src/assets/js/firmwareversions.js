@@ -1,4 +1,8 @@
 (function($) {
+  // only load on firmware.md
+  if (window.location.href.indexOf('firmware') === -1) {
+    return;
+  }
 
   var delimiter1 = "#release-notes-wrapper";
   var delimiter2 = "#release-notes-wrapper-1";
