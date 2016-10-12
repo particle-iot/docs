@@ -9647,6 +9647,12 @@ v1.12.0 = 0.5.0
 #### release-notes-wrapper
 
 <!-- these empty if/endif blocks are required to be used first before any other use later on -->
+##### @FW_VER@0.5.0if
+##### @FW_VER@0.5.0endif
+##### @FW_VER@0.5.1if
+##### @FW_VER@0.5.1endif
+##### @FW_VER@0.5.2if
+##### @FW_VER@0.5.2endif
 ##### @FW_VER@0.5.3if
 ##### @FW_VER@0.5.3endif
 ##### @FW_VER@0.5.4if
@@ -9679,6 +9685,12 @@ particle flash YOUR_DEVICE_NAME system-part3-@FW_VER@-electron.bin
 -->
 
 The following instructions are for upgrading to **System Firmware v@FW_VER@** which requires **Particle CLI v@CLI_VER@**.
+
+**Updating System Firmware Automatically**
+
+To update your Photon, P1 or Core system firmware automatically, compile and flash your application in the [Build IDE](https://build.particle.io), selecting version **@FW_VER@** in the devices drawer. The app will be flashed, following by the system part1 and part2 firmware for Photon and P1. Other update instructions for Core, Photon, P1 and Electron can be found below.
+
+---
 
 **The easy local method using Particle CLI**
 
@@ -9869,6 +9881,14 @@ dfu-util -d 2b04:d00a -a 0 -s 0x8040000 -D system-part3-@FW_VER@-electron.bin
 ---
 
 **Downgrading from @FW_VER@ to current default firmware**
+
+##### @FW_VER@0.5.1if
+**Caution:** After upgrading to 0.5.1, DO NOT downgrade system firmware via OTA remotely! This will cause Wi-Fi credentials to be erased on the Photon and P1.  This does not affect the Core or Electron.  Feel free to downgrade locally with the understanding that you will have to re-enter Wi-Fi credentials.  Also note that 0.5.1 fixes several important bugs, so there should be no reason you'd normally want to downgrade.
+##### @FW_VER@0.5.1endif
+
+##### @FW_VER@0.5.2if
+**Note:** Upgrading to 0.5.2 will now allow you to downgrade remotely OTA to v0.5.0 or earlier without erasing Wi-Fi credentials.  There are still some cases where a downgrade will erase credentials, but only if you have explicitly set the country code to something other than the `default` or `JP2`.  For example, if you set the country code to `GB0` or `US4`, if you downgrade to v0.5.0 your Wi-Fi credentials will be erased.  Leaving the country code at `default` or set to `JP2` will not erase credentials when downgrading to v0.5.0.  **Do not** downgrade to v0.5.1 first, and then v0.5.0... this will erase credentials in all cases.
+##### @FW_VER@0.5.2endif
 
 Current defaults system firmware would be the latest non-rc.x firmware version.  E.g. if the current list of default releases was 0.5.1, 0.5.2, **0.5.3** (would be the latest).
 
