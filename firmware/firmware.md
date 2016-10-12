@@ -338,7 +338,7 @@ data: {"data":"23:23:44","ttl":"60","published_at":"2014-05-28T19:20:34.638Z","d
 {{#if electron}}
 *`NO_ACK` flag*
 
-Unless specified otherwise, events sent to the cloud are sent as a reliable message. The Electoron waits for
+Unless specified otherwise, events sent to the cloud are sent as a reliable message. The Electron waits for
 acknowledgement from the cloud that the event has been recieved, resending the event in the background up to 3 times before giving up.
 
 The `NO_ACK` flag disables this acknoweldge/retry behavior and sends the event only once.  This reduces data consumption per event, with the possibility that the event may not reach the cloud.
@@ -2188,7 +2188,7 @@ void loop()
 }
 ```
 
-**Note:** All GPIO pins (`D0`..`D7`, `A0`..`A7`, `DAC`, `WKP`, `RX`, `TX`) can be used as long they are not used otherwise (e.g. as `Serial1` `RX`/`TX`).
+**Note:** All GPIO pins (`A0`..`A7`, {{#if electron}}`B0`..`B5`, `C0`..`C5`, {{/if}}`D0`..`D7`, `DAC`, `WKP`, `RX`, `TX`) can be used as long they are not used otherwise (e.g. as `Serial1` `RX`/`TX`).
 
 ### digitalRead()
 
@@ -2222,7 +2222,7 @@ void loop()
 }
 
 ```
-**Note:** All GPIO pins (`D0`..`D7`, `A0`..`A7`, `DAC`, `WKP`, `RX`, `TX`) can be used as long they are not used otherwise (e.g. as `Serial1` `RX`/`TX`).
+**Note:** All GPIO pins (`A0`..`A7`, {{#if electron}}`B0`..`B5`, `C0`..`C5`, {{/if}}`D0`..`D7`, `DAC`, `WKP`, `RX`, `TX`) can be used as long they are not used otherwise (e.g. as `Serial1` `RX`/`TX`).
 
 ### analogWrite() (PWM)
 
@@ -10255,3 +10255,324 @@ However, there might be instances where the preprocessor causes issues in your c
 
 
 So when you see the `ABC does not name a type` error, yet you know the type is defined, consider disabling the preprocessor using `#pragma SPARK_NO_PREPROCESSOR` at the top of your code.
+
+## Firmware Releases
+
+Particle device firmware is open source and stored [here on Github](https://github.com/spark/firmware).
+
+Firmware releases are published [here on Github](https://github.com/spark/firmware/releases) as they are created, tested and deployed.
+
+### Firmware Release Process
+
+The process in place for releasing all firmware prerelease or default release versions can be found [here on Github](https://github.com/spark/firmware/wiki/Firmware-Release-Process).
+
+### Github Release Notes
+
+Please go to Github to read the Changelog for your desired firmware version (Click a version below).
+
+|Firmware Version (Github Release Notes)|
+|:-:|:-:|:-:|:-:|:-:|
+|v0.6.x-rc.x prereleases|[v0.6.0-rc.1](https://github.com/spark/firmware/releases/tag/v0.6.0-rc.1)|[v0.6.0-rc.2](https://github.com/spark/firmware/releases/tag/v0.6.0-rc.2)|-|-|
+|v0.5.x default releases|[v0.5.0](https://github.com/spark/firmware/releases/tag/v0.5.0)|[v0.5.1](https://github.com/spark/firmware/releases/tag/v0.5.1)|[v0.5.2](https://github.com/spark/firmware/releases/tag/v0.5.2)|[v0.5.3](https://github.com/spark/firmware/releases/tag/v0.5.3)|
+|v0.5.x-rc.x prereleases|[v0.5.3-rc.1](https://github.com/spark/firmware/releases/tag/v0.5.3-rc.1)|[v0.5.3-rc.2](https://github.com/spark/firmware/releases/tag/v0.5.3-rc.2)|[v0.5.3-rc.3](https://github.com/spark/firmware/releases/tag/v0.5.3-rc.3)|-|
+
+### Programming and Debugging Notes
+
+If you don't see any notes below or if they are the wrong version, please select your Firmware Version below to reload the page with the correct notes.  Otherwise, you must have come here from a firmware release page on Github and your version's notes will be found below :)
+
+|Firmware Version (Programming and Debugging Notes in Docs)|
+|:-:|:-:|:-:|:-:|:-:|
+|v0.6.x-rc.x prereleases|[v0.6.0-rc.1](https://prerelease-docs.particle.io/reference/firmware/photon/?fw_ver=0.6.0-rc.1&cli_ver=1.17.0&electron_parts=3#programming-and-debugging-notes)|[v0.6.0-rc.2](https://prerelease-docs.particle.io/reference/firmware/photon/?fw_ver=0.6.0-rc.2&cli_ver=1.17.0&electron_parts=3#programming-and-debugging-notes)|-|-|
+|v0.5.x default releases|[v0.5.0](https://docs.particle.io/reference/firmware/photon/?fw_ver=0.5.0&cli_ver=1.12.0&electron_parts=2#programming-and-debugging-notes)|[v0.5.1](https://docs.particle.io/reference/firmware/photon/?fw_ver=0.5.1&cli_ver=1.14.2&electron_parts=2#programming-and-debugging-notes)|[v0.5.2](https://docs.particle.io/reference/firmware/photon/?fw_ver=0.5.2&cli_ver=1.15.0&electron_parts=2#programming-and-debugging-notes)|[v0.5.3](https://docs.particle.io/reference/firmware/photon/?fw_ver=0.5.3&cli_ver=1.17.0&electron_parts=2#programming-and-debugging-notes)|
+|v0.5.x-rc.x prereleases|[v0.5.3-rc.1](https://prerelease-docs.particle.io/reference/firmware/photon/?fw_ver=0.5.3-rc.1&cli_ver=1.15.0&electron_parts=2#programming-and-debugging-notes)|[v0.5.3-rc.2](https://prerelease-docs.particle.io/reference/firmware/photon/?fw_ver=0.5.3-rc.2&cli_ver=1.16.0&electron_parts=2#programming-and-debugging-notes)|[v0.5.3-rc.3](https://prerelease-docs.particle.io/reference/firmware/photon/?fw_ver=0.5.3-rc.3&cli_ver=1.16.0&electron_parts=2#programming-and-debugging-notes)|-|
+
+<!--
+CLI VERSION is compatable with FIRMWARE VERSION
+v1.17.0 = 0.5.3, 0.6.0-rc.1, 0.6.0-rc.2
+v1.16.0 = required to recognize system part 3 of electron, 0.5.3-rc.2, 0.5.3-rc.3
+v1.15.0 = 0.5.2, 0.5.3-rc.1
+v1.14.2 = 0.5.1
+v1.12.0 = 0.5.0
+-->
+
+#### release-notes-wrapper
+
+<!-- these empty if/endif blocks are required to be used first before any other use later on -->
+##### @FW_VER@0.5.0if
+##### @FW_VER@0.5.0endif
+##### @FW_VER@0.5.1if
+##### @FW_VER@0.5.1endif
+##### @FW_VER@0.5.2if
+##### @FW_VER@0.5.2endif
+##### @FW_VER@0.5.3if
+##### @FW_VER@0.5.3endif
+##### @FW_VER@0.5.4if
+##### @FW_VER@0.5.4endif
+##### @CLI_VER@1.15.0if
+##### @CLI_VER@1.15.0endif
+##### @CLI_VER@1.17.0if
+##### @CLI_VER@1.17.0endif
+##### @ELECTRON_PARTS@2if
+##### @ELECTRON_PARTS@2endif
+##### @ELECTRON_PARTS@3if
+##### @ELECTRON_PARTS@3endif
+
+<!-- HOW TO USE if/endif blocks
+##### @FW_VER@0.5.3if
+This is for firmware version 0.5.3 ONLY!
+##### @FW_VER@0.5.3endif
+
+##### @FW_VER@0.5.4if
+This is for firmware version 0.5.4 ONLY!
+##### @FW_VER@0.5.4endif
+
+##### @FW_VER@0.5.3if
+This is another for 0.5.3
+##### @FW_VER@0.5.3endif
+
+##### @ELECTRON_PARTS@3if
+particle flash YOUR_DEVICE_NAME system-part3-@FW_VER@-electron.bin
+##### @ELECTRON_PARTS@3endif
+-->
+
+The following instructions are for upgrading to **System Firmware v@FW_VER@** which requires **Particle CLI v@CLI_VER@**.
+
+**Updating System Firmware Automatically**
+
+To update your Photon, P1 or Core system firmware automatically, compile and flash your application in the [Build IDE](https://build.particle.io), selecting version **@FW_VER@** in the devices drawer. The app will be flashed, following by the system part1 and part2 firmware for Photon and P1. Other update instructions for Core, Photon, P1 and Electron can be found below.
+
+---
+
+**The easy local method using Particle CLI**
+
+The easiest way to upgrade to System Firmware Version @FW_VER@ is to use the Particle CLI with a single command.  You will first upgrade the system firmware, then optionally program Tinker on the device. This **requires CLI version @CLI_VER@**. You can check with `particle --version`.
+
+If you have the [Particle CLI](https://github.com/spark/particle-cli) installed already, you can update it with the following command `sudo npm update -g particle-cli@v@CLI_VER@` (note: you can try without sudo first if you wish).
+
+To upgrade system firmware, make sure the device is in [DFU mode](http://docs.particle.io/photon/modes/#selecting-various-modes-dfu-mode-device-firmware-upgrade) (flashing yellow LED) and run these commands in order:
+
+```
+The easy local method using Particle CLI
+
+1) Make sure the device is in DFU mode and run:
+
+particle update
+
+2) Optionally add Tinker as the user firmware instead of an app that you may currently have running on your device.  Have the device in DFU mode and run:
+
+particle flash --usb tinker
+```
+
+---
+
+**The OTA method using Particle CLI**
+
+**Note**: You must download system binaries to a local directory on your machine for this to work. Binaries are attached to the bottom of the [Github Release Notes](#github-release-notes).
+
+If your device is online, you can attempt to OTA (Over The Air) update these system parts as well with the Particle CLI.  Run the following commands in order for your device type:
+
+##### @ELECTRON_PARTS@2if
+```
+The OTA method using Particle CLI
+
+// Core
+particle flash YOUR_DEVICE_NAME tinker-@FW_VER@-core.bin
+
+// Photon
+particle flash YOUR_DEVICE_NAME system-part1-@FW_VER@-photon.bin
+particle flash YOUR_DEVICE_NAME system-part2-@FW_VER@-photon.bin
+particle flash YOUR_DEVICE_NAME tinker (optional)
+
+// P1
+particle flash YOUR_DEVICE_NAME system-part1-@FW_VER@-p1.bin
+particle flash YOUR_DEVICE_NAME system-part2-@FW_VER@-p1.bin
+particle flash YOUR_DEVICE_NAME tinker (optional)
+
+// Electron
+particle flash YOUR_DEVICE_NAME system-part1-@FW_VER@-electron.bin
+particle flash YOUR_DEVICE_NAME system-part2-@FW_VER@-electron.bin
+particle flash YOUR_DEVICE_NAME tinker (optional)
+```
+##### @ELECTRON_PARTS@2endif
+
+##### @ELECTRON_PARTS@3if
+```
+The OTA method using Particle CLI
+
+// Core
+particle flash YOUR_DEVICE_NAME tinker-@FW_VER@-core.bin
+
+// Photon
+particle flash YOUR_DEVICE_NAME system-part1-@FW_VER@-photon.bin
+particle flash YOUR_DEVICE_NAME system-part2-@FW_VER@-photon.bin
+particle flash YOUR_DEVICE_NAME tinker (optional)
+
+// P1
+particle flash YOUR_DEVICE_NAME system-part1-@FW_VER@-p1.bin
+particle flash YOUR_DEVICE_NAME system-part2-@FW_VER@-p1.bin
+particle flash YOUR_DEVICE_NAME tinker (optional)
+
+// Electron
+particle flash YOUR_DEVICE_NAME system-part1-@FW_VER@-electron.bin
+particle flash YOUR_DEVICE_NAME system-part2-@FW_VER@-electron.bin
+particle flash YOUR_DEVICE_NAME system-part3-@FW_VER@-electron.bin
+particle flash YOUR_DEVICE_NAME tinker (optional)
+```
+##### @ELECTRON_PARTS@3endif
+
+---
+
+**The local method over USB using Particle CLI**
+
+This **requires CLI version @CLI_VER@ or newer**. You can check with `particle --version`.
+
+If you have the [Particle CLI](https://github.com/spark/particle-cli) installed already, you can update it with the following command `sudo npm update -g particle-cli` (note: you can try without sudo first if you wish).
+
+To upgrade system firmware, make sure the device is in [DFU mode](http://docs.particle.io/photon/modes/#selecting-various-modes-dfu-mode-device-firmware-upgrade) (flashing yellow LED) and run these commands in order for your device type:
+
+##### @ELECTRON_PARTS@2if
+```
+The local method over USB using Particle CLI
+
+// Core
+particle flash --usb tinker-@FW_VER@-core.bin
+
+// Photon
+particle flash --usb system-part1-@FW_VER@-photon.bin
+particle flash --usb system-part2-@FW_VER@-photon.bin
+particle flash --usb tinker (optional)
+
+// P1
+particle flash --usb system-part1-@FW_VER@-p1.bin
+particle flash --usb system-part2-@FW_VER@-p1.bin
+particle flash --usb tinker (optional)
+
+// Electron
+particle flash --usb system-part1-@FW_VER@-electron.bin
+particle flash --usb system-part2-@FW_VER@-electron.bin
+particle flash --usb tinker (optional)
+```
+##### @ELECTRON_PARTS@2endif
+
+##### @ELECTRON_PARTS@3if
+```
+The local method over USB using Particle CLI
+
+// Core
+particle flash --usb tinker-@FW_VER@-core.bin
+
+// Photon
+particle flash --usb system-part1-@FW_VER@-photon.bin
+particle flash --usb system-part2-@FW_VER@-photon.bin
+particle flash --usb tinker (optional)
+
+// P1
+particle flash --usb system-part1-@FW_VER@-p1.bin
+particle flash --usb system-part2-@FW_VER@-p1.bin
+particle flash --usb tinker (optional)
+
+// Electron
+particle flash --usb system-part1-@FW_VER@-electron.bin
+particle flash --usb system-part2-@FW_VER@-electron.bin
+particle flash --usb system-part3-@FW_VER@-electron.bin
+particle flash --usb tinker (optional)
+```
+##### @ELECTRON_PARTS@3endif
+
+---
+
+**The local DFU-UTIL method**
+can be applied to offline devices locally over USB using `dfu-util`
+- Put the device in [DFU mode](http://docs.particle.io/photon/modes/#selecting-various-modes-dfu-mode-device-firmware-upgrade) (flashing yellow LED)
+- open a terminal window, change to the directory where you downloaded the files above, and run these commands in order for your device type:
+
+##### @ELECTRON_PARTS@2if
+```
+The local DFU-UTIL method
+
+// Core
+dfu-util -d 1d50:607f -a 0 -s 0x8005000:leave -D tinker-@FW_VER@-core.bin
+
+// Photon
+dfu-util -d 2b04:d006 -a 0 -s 0x8020000 -D system-part1-@FW_VER@-photon.bin
+dfu-util -d 2b04:d006 -a 0 -s 0x8060000:leave -D system-part2-@FW_VER@-photon.bin
+
+// P1
+dfu-util -d 2b04:d008 -a 0 -s 0x8020000 -D system-part1-@FW_VER@-p1.bin
+dfu-util -d 2b04:d008 -a 0 -s 0x8060000:leave -D system-part2-@FW_VER@-p1.bin
+
+// Electron
+dfu-util -d 2b04:d00a -a 0 -s 0x8020000 -D system-part1-@FW_VER@-electron.bin
+dfu-util -d 2b04:d00a -a 0 -s 0x8040000 -D system-part2-@FW_VER@-electron.bin
+```
+##### @ELECTRON_PARTS@2endif
+
+##### @ELECTRON_PARTS@3if
+```
+The local DFU-UTIL method
+
+// Core
+dfu-util -d 1d50:607f -a 0 -s 0x8005000:leave -D tinker-@FW_VER@-core.bin
+
+// Photon
+dfu-util -d 2b04:d006 -a 0 -s 0x8020000 -D system-part1-@FW_VER@-photon.bin
+dfu-util -d 2b04:d006 -a 0 -s 0x8060000:leave -D system-part2-@FW_VER@-photon.bin
+
+// P1
+dfu-util -d 2b04:d008 -a 0 -s 0x8020000 -D system-part1-@FW_VER@-p1.bin
+dfu-util -d 2b04:d008 -a 0 -s 0x8060000:leave -D system-part2-@FW_VER@-p1.bin
+
+// Electron
+dfu-util -d 2b04:d00a -a 0 -s 0x8060000 -D system-part1-@FW_VER@-electron.bin
+dfu-util -d 2b04:d00a -a 0 -s 0x8020000 -D system-part2-@FW_VER@-electron.bin
+dfu-util -d 2b04:d00a -a 0 -s 0x8040000 -D system-part3-@FW_VER@-electron.bin
+```
+##### @ELECTRON_PARTS@3endif
+
+---
+
+**Downgrading from @FW_VER@ to current default firmware**
+
+##### @FW_VER@0.5.1if
+**Caution:** After upgrading to 0.5.1, DO NOT downgrade system firmware via OTA remotely! This will cause Wi-Fi credentials to be erased on the Photon and P1.  This does not affect the Core or Electron.  Feel free to downgrade locally with the understanding that you will have to re-enter Wi-Fi credentials.  Also note that 0.5.1 fixes several important bugs, so there should be no reason you'd normally want to downgrade.
+##### @FW_VER@0.5.1endif
+
+##### @FW_VER@0.5.2if
+**Note:** Upgrading to 0.5.2 will now allow you to downgrade remotely OTA to v0.5.0 or earlier without erasing Wi-Fi credentials.  There are still some cases where a downgrade will erase credentials, but only if you have explicitly set the country code to something other than the `default` or `JP2`.  For example, if you set the country code to `GB0` or `US4`, if you downgrade to v0.5.0 your Wi-Fi credentials will be erased.  Leaving the country code at `default` or set to `JP2` will not erase credentials when downgrading to v0.5.0.  **Do not** downgrade to v0.5.1 first, and then v0.5.0... this will erase credentials in all cases.
+##### @FW_VER@0.5.2endif
+
+Current defaults system firmware would be the latest non-rc.x firmware version.  E.g. if the current list of default releases was 0.5.1, 0.5.2, **0.5.3** (would be the latest).
+
+The easiest way to downgrade from a System Firmware Version @FW_VER@ is to use the Particle CLI with a single command.  You will first put the Tinker back on the device, then downgrade the System Firmware. Running the commands in this order prevents the device from automatically re-upgrading (based on user app version dependencies) after downgrading.  This will **require a CLI version associated with your desired default firmware**. To determine which version to use, click on the default version desired in the table under [Programming and Debugging Notes](#programming-and-debugging-notes) and refer to the CLI version required in **The easy local method using Particle CLI** section.
+
+If you have the [Particle CLI](https://github.com/spark/particle-cli) installed already, you can install a specific version like v1.16.0 with the following command `sudo npm update -g particle-cli@v1.16.0` (note: you can try without sudo first if you wish).  Replace v1.16.0 with your desired version.
+
+To downgrade system firmware, make sure the device is in [DFU mode](http://docs.particle.io/photon/modes/#selecting-various-modes-dfu-mode-device-firmware-upgrade) (flashing yellow LED) and run these commands in order:
+
+```
+Downgrading from @FW_VER@ to current default firmware
+
+1) Make sure Tinker is installed, instead of a @FW_VER@ app that you may currently have running on your device.  Have the device in DFU mode and run:
+
+particle flash --usb tinker
+
+2) Make sure the device is in DFU mode and run:
+
+particle update
+```
+
+**Note:** The CLI and `particle update` command is only updated when default firmware versions are released.  This is why we install a specific version of the CLI to get a specific older version of default firmware.
+
+---
+
+**Debugging for Electron**
+
+##### Instructions on using the Tinker USB Debugging app [are here](https://docs.google.com/document/d/1NdYxPPk_i_mM2wM9oSbSZB1ElDlHA_x-IHY-UC7w62M/edit?usp=sharing)
+This is useful for simply capturing the Electron's connection process.
+
+---
+
+##### Instructions on using the Electron Troubleshooting app [are here](https://docs.google.com/document/d/1U_Wzy2SPRC3hZnKtw8d6QN2Tm8Q7QwtEbSUAeTkO3bk/edit?usp=sharing)
+This is useful for interacting with the Electron's connection process.
+
+#### release-notes-wrapper
