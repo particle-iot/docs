@@ -1,6 +1,6 @@
 ---
 title: Firmware
-template: reference-firmware.hbs
+template: reference.hbs
 columns: three
 devices: [photon,electron,core]
 order: 1
