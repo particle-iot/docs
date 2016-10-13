@@ -16,7 +16,9 @@ html
 			| var devices = !{JSON.stringify(devices)};
 			| var forkLocations = !{JSON.stringify(forkLocations)};
 		script(type='text/javascript').
-			if (devices.length === 1) {
+			if (window.location.search === '?start') {
+				// always select device when coming from particle.io/start
+			} else if (devices.length === 1) {
 				var fl = forkLocations[devices[0]];
 				- window.location.replace(fl + window.location.hash);
 			} else {
