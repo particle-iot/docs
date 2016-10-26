@@ -339,7 +339,7 @@ data: {"data":"23:23:44","ttl":"60","published_at":"2014-05-28T19:20:34.638Z","d
 *`NO_ACK` flag*
 
 Unless specified otherwise, events sent to the cloud are sent as a reliable message. The Electron waits for
-acknowledgement from the cloud that the event has been recieved, resending the event in the background up to 3 times before giving up.
+acknowledgement from the cloud that the event has been received, resending the event in the background up to 3 times before giving up.
 
 The `NO_ACK` flag disables this acknoweldge/retry behavior and sends the event only once.  This reduces data consumption per event, with the possibility that the event may not reach the cloud.
 

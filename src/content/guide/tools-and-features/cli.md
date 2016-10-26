@@ -13,7 +13,9 @@ The Particle CLI is a powerful tool for interacting with your devices and the Pa
 
 ## Installing
 
-  First, make sure you have [node.js](http://nodejs.org/) installed!
+  If you are using Windows, you can use the official Particle [Windows CLI Installer](https://binaries.particle.io/cli/installer/windows/ParticleCLISetup.exe) to automatically install node.js, the particle-cli, and dfu-util.
+
+  Otherwise, make sure you have [node.js](http://nodejs.org/) installed.
 
   Next, open a command prompt or terminal, and install by typing:
 
@@ -33,7 +35,7 @@ To use the local flash and key features you'll also need to install [dfu-util](h
 
 Here are some great tutorials on the community for full installs:
 
-[Windows Installer](https://community.particle.io/t/toolchain-for-windows-installer/13217/82) *or* [Install Separate Components for Windows](https://community.particle.io/t/tutorial-spark-cli-on-windows-06-may-2014/3112)
+[Install Separate Components for Windows](https://community.particle.io/t/tutorial-spark-cli-on-windows-06-may-2014/3112)
 
 [Installing on Ubuntu 12.04](https://community.particle.io/t/how-to-install-spark-cli-on-ubuntu-12-04/3474)
 
