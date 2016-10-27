@@ -126,7 +126,7 @@ Pin D3 through D7 are JTAG interface pins. These can be used to reprogram your E
 
 ## Memory Map
 
-### STM32F205RGY6 Flash Layout Overview
+### STM32F205RGT6 Flash Layout Overview
 
 - Bootloader (16 KB)
 - DCD1 (16 KB), stores keys, mfg info, system flags, etc..
