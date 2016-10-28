@@ -5,7 +5,7 @@ columns: two
 order: 4
 ---
 
-# Electron Datasheet <sup>(v003)</sup>
+# Electron Datasheet <sup>(v004)</sup>
 
 <div align=center><img src="/assets/images/electron/illustrations/electron-v20.png" ></div>
 
@@ -20,7 +20,7 @@ It also comes with Particle's development tools and cloud platform for managing 
 ### Features
 
  * U-blox SARA-U260/U270 (3G) and G350 (2G) cellular module
- * STM32F205 120MHz ARM Cortex M3 microcontroller
+ * STM32F205RGT6 120MHz ARM Cortex M3 microcontroller
  * 1MB flash, 128KB RAM
  * BQ24195 power management unit and battery charger
  * MAX17043 fuel gauge
@@ -109,7 +109,7 @@ The confusing bit about this pin is that it will continue to provide 5.1VDC but 
 ### JTAG AND SWD
 Pin D3 through D7 are JTAG interface pins. These can be used to reprogram your Electron bootloader or user firmware image with standard JTAG tools such as the ST-Link v2, J-Link, R-Link, OLIMEX ARM-USB-TINI-H, and also the FTDI-based Particle JTAG Programmer. If you are short on available pins, you may also use SWD mode which requires less connections.
 
-| Electron Pin | JTAG | SWD | STM32 Pin | Default Internal<sup>[1]</sup> |
+| Electron Pin | JTAG | SWD | STM32F205RGT6 Pin | Default Internal<sup>[1]</sup> |
 | :-:|:-:|:-:|:-:|
 | D7 | JTAG_TMS | SWD/SWDIO| PA13 | ~40k pull-up |
 | D6 | JTAG_TCK | CLK/SWCLK| PA14 | ~40k pull-down |
@@ -126,7 +126,7 @@ Pin D3 through D7 are JTAG interface pins. These can be used to reprogram your E
 
 ## Memory Map
 
-### STM32F205RGY6 Flash Layout Overview
+### STM32F205RGT6 Flash Layout Overview
 
 - Bootloader (16 KB)
 - DCD1 (16 KB), stores keys, mfg info, system flags, etc..
@@ -338,7 +338,7 @@ Please be sure to order a board that works in the country where you want to depl
 
 ### I/O Characteristics
 
-These specifications are based on the STM32F205RG datasheet, with reference to Electron pin nomenclature.
+These specifications are based on the STM32F205RGT6 datasheet, with reference to Electron pin nomenclature.
 
 | Parameter | Symbol | Conditions | Min | Typ | Max | Unit |
 | :---|:---|:---:|:---:|:---:|:---:|:---: |
@@ -424,7 +424,7 @@ The microcontroller communicates with the PMIC via an I2C interface (pins PC9 an
 
 ![STM32](/assets/images/electron/schematics/stm32.png)
 
-The Electron uses ST Microelectronics's [STM32F205RGT6TR](http://www2.st.com/content/ccc/resource/technical/document/datasheet/bc/21/42/43/b0/f3/4d/d3/CD00237391.pdf/files/CD00237391.pdf/jcr:content/translations/en.CD00237391.pdf) ARM Cortex M3 microcontroller running at  120MHz.
+The Electron uses ST Microelectronics's [STM32F205RGT6](http://www2.st.com/content/ccc/resource/technical/document/datasheet/bc/21/42/43/b0/f3/4d/d3/CD00237391.pdf/files/CD00237391.pdf/jcr:content/translations/en.CD00237391.pdf) ARM Cortex M3 microcontroller running at  120MHz.
 
 ### U-blox cellular module
 
@@ -437,7 +437,7 @@ The u-blox cellular module talks to the microcontroller over a full-duplex USART
 
 ![Buffers](/assets/images/electron/schematics/buffers.png)
 
-Since u-blox module's communication interface operates at 1.8VDC, while the STM32 microcontroller operates at 3.3VDC, we need voltage translators in-between them. This is achieved with two [SN74AVC4T245](http://www.ti.com/lit/ds/symlink/sn74avc4t245.pdf) non-inverting buffers. The default state of the USART pins is set with the help of pull-up and pull-down resistors, and the unused input pins are tied to GND.
+Since u-blox module's communication interface operates at 1.8VDC, while the STM32F205RGT6 microcontroller operates at 3.3VDC, we need voltage translators in-between them. This is achieved with two [SN74AVC4T245](http://www.ti.com/lit/ds/symlink/sn74avc4t245.pdf) non-inverting buffers. The default state of the USART pins is set with the help of pull-up and pull-down resistors, and the unused input pins are tied to GND.
 
 ### 3.3V Regulator and Fuel Gauge
 
@@ -486,7 +486,7 @@ The Electron uses a four layer circuit board. Top layer consists of a signal lay
 | 1   | IC - Fuel Gauge|         | TDFN-8| U4| Maxim| MAX17043G+T|
 | 1   | IC - Cell Module|         | 16 x 26 x 3mm| U1| u-blox| SARA-G350SARA-U260SARA-U270 |
 | 2   | IC - Buffer|         | 16-UQFN| U2, U8| Texas Instruments| SN74AVC4T245RSVR|
-| 1   | IC - Microcontroller||LQFP64| U3| ST Microelectronics | STM32F205RGT6TR|
+| 1   | IC - Microcontroller||LQFP64| U3| ST Microelectronics | STM32F205RGT6|
 | 1   | IC - PMIC|| 24VQFN| U$1| Texas Instruments   | BQ24195RGER|
 | 1   | IC - MOSFET|| SC70-5| U9| Texas Instruments   | TPS22942DCKR|
 | 1   | IC - 3V3 Reg|1A| 6-SON (2x2)| U$5| Texas Instruments| TPS62291DRVR|
@@ -639,6 +639,7 @@ Cet équipement devrait être installé et actionné avec une distance minimum d
 | v001 | 20-Jan-2016 | MB | Initial release |
 | v002 | 24-March-2016 | MB | Added: Memory map, DAC limits, SIM card size, SWD pin locations. Updated: Power section, pin diagram, block diagram, operating conditions. |
 | v003 | 12-Sept-2016 | BW | Error in Cellular off operating current, changed from 2-15mA to 47-50mA. Also qualified these current readings with uC on/off. Updated the Pin Description section. Updated Mating connectors section. |
+| v004 | 27-Oct-2016 | BW | Replaced one STM32F205RGY6 with STM32F205RGT6, and replaced all STM32 mentions with full part number STM32F205RGT6 |
 
 ## Known Errata
 
