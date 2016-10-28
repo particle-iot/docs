@@ -2916,10 +2916,15 @@ void setup()
 `Serial2:` This channel is optionally available via the device's D1(TX) and D0(RX) pins. To use Serial2, add `#include "Serial2/Serial2.h"` near the top of your app's main code file.
 
 To use the TX/RX (Serial1) or D1/D0 (Serial2) pins to communicate with your personal computer, you will need an additional USB-to-serial adapter. To use them to communicate with an external TTL serial device, connect the TX pin to your device's RX pin, the RX to your device's TX pin, and the ground of your Core to your device's ground.
+
+{{#else if photon}}
+`Serial2:` This channel is optionally available via pins 28/29 (RGB LED Blue/Green). These pins are accessible via the pads on the botton of the PCB [See PCB Land Pattern](https://docs.particle.io/datasheets/photon-datasheet/#recommended-pcb-land-pattern-photon-without-headers-).
+{{else if electron}}
+`Serial2:` This channel is optionally available via the device's RGB Green (TX) and Blue (RX) LED pins. 
 {{/if}}
 
 {{#unless core}}
-`Serial2:` This channel is optionally available via the device's RGB Green (TX) and Blue (RX) LED pins. The Blue and Green current limiting resistors should be removed.  To use Serial2, add #include "Serial2/Serial2.h" near the top of your app's main code file.
+The Blue and Green current limiting resistors should be removed.  To use Serial2, add #include "Serial2/Serial2.h" near the top of your app's main code file.
 
 If the user enables Serial2, they should also consider using RGB.onChange() to move the RGB functionality to an external RGB LED on some PWM pins.
 {{/unless}}
