@@ -7578,7 +7578,7 @@ System.sleep(D0,RISING);
 
 ```C++
 // SYNTAX
-System.sleep(uint16_t wakeUpPin, uint16_t edgeTriggerMode, long seconds{{#if electron}},[SLEEP_NETWORK_STANDBY]{{/if}});
+System.sleep(uint16_t wakeUpPin, uint16_t edgeTriggerMode, long seconds{{#if electron}}[, SLEEP_NETWORK_STANDBY]{{/if}});
 ```
 
 ```C++
