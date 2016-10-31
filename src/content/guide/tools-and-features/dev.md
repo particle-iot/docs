@@ -127,30 +127,85 @@ Now you need to fill missing information and click **Save**. Your device will go
 
 ## Using Community Libraries
 
-Currently community libraries aren't supported natively (but we're working on it). You can still use them, just follow these instructions:
+Community libraries can be used from within Dev. Libraries are used like this:
 
-Find the [library you want to use](/guide/getting-started/build/photon/#using-libraries)
+- create a new project using the new project structure
+- add the libraries you wish to use to the project
+- edit your project's code to use the library
+- compile and flash the application to the target device
 
-![Link to GitHub repository]({{assets}}/images/build-libraries.jpg)
+## Creating the Project Structure
 
-View it on GitHub
+Create a new folder to hold the project, and add these files:
 
-![Download link]({{assets}}/images/build-library-github.jpg)
+- src/project.cpp
 
-Download the repository
+This provides the beginnings of a new project. 
 
-![Correct files selected]({{assets}}/images/github-download.jpg)
+## Adding a library to your project
 
-Copy files from `firmware` directory **without** `examples` to your project directory
+Using the Command Palette, launch the `Particle Dev Libraries:add` command (as a shortcut, you can type `lib add`)
 
-![Example project with include]({{assets}}/images/ide-selected-library.jpg)
+This will prompt you to begin typing in the name of the library. The first 10 libraries that partially match the entered name are shown. 
 
-Include library adding `#include "LIBRARY.h"` to your code
+![Library Add]({{assets}}/images/dev-library-add.jpg)
 
-![include-library]({{assets}}/images/ide-include-library.jpg)
+To add the library to your project, hit enter to accept the selected library or click on a different library.  The library is added immediately once a library is clicked.  
+
+To close the dialog without adding a library, press "ESC".
+
+# Using the Library
+
+To use the library in your project, you first need to include the library.
+Edit `project.cpp` and include the library by adding 
+
+```
+`#include "library.h"`
+```
+to your project code (replacing the text `library` with the actual name of the library being used.)
+
+With the library header file included, you can then call functions that are defined in the library. Please see the library documentation and examples for details on the functions that are available with your chosen library 
+
+When you compile your project, the library functions are automatically added to your project by the cloud compiler. 
+
+## Contributing Libraries
+
+### Creating a new library
+
+To scaffold a new library, create one using the new V2 structure:
+
+ - library.properties
+ - src/libraryname.cpp
+ - src/libraryname.h
+ - examples/example.ino
+
+See the [https://github.com/spark/uber-library-example/tree/39acac03fa58a76417d9247a87206c416f1d4a0a](user-library-example) for detials of what to include in the `library.properties` file.
 
 
-**Also**, check out and join our [community forums](http://community.particle.io/) for advanced help, tutorials, and troubleshooting.
+### Migrating an exiting V1 library to V2
+
+If you wish to continue working on an existing V1 format library, it's necessary to convert it to V2 format. This is done via the `library migrate` command. 
+
+To migrate a library:
+
+- open the library directory in atom as a project
+- run `Particle Dev Libraries: migrate` 
+- the library is then migrated to the new format (for example, you'll see the sources moved from `firmware` to `src`.)
+
+You can then continue working on the library and later publish your changes as a new version.
+
+### Publishing a Library
+
+To publish a new version of a library:
+
+- increment the version number to ensure the version is unique
+- ensure the library is opened as a project folder if not already done so
+- run `Particle Dev Libraries: publish` - the library will be validated and then published.
+
+
+### further Help
+
+Check out and join our [community forums](http://community.particle.io/) for advanced help, tutorials, and troubleshooting.
 
 {{#if photon}}
 [Go to Community Forums >](http://community.particle.io/c/troubleshooting)
