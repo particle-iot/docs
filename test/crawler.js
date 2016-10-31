@@ -152,6 +152,8 @@ describe('Crawler', function() {
           return;
         }
         var absolutePath = url.resolve(queueItem.url, toQueueUrl);
+        // Remove hash
+        absolutePath = absolutePath.replace(/#.*/, '');
         crawler.queueURL(absolutePath, queueItem, { content: linkContent });
       });
 
@@ -211,7 +213,7 @@ describe('Crawler', function() {
       }
       console.error(chalk.red('ERROR: ' + msg));
       errors++;
-    }    
+    }
 
     crawler.on('fetch404', fetchResultError);
     crawler.on('fetcherror', fetchResultError);
