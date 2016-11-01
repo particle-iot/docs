@@ -466,7 +466,9 @@ Okay!  New keys in place, your device will not restart.
 
 ## Overview
 
-The CLI supports useing libraries with your project. This allows you to incorporate already written and tested code into your project, speeding up development and assuring quality. If you are using a library in your project, you are a library consumer, and when you develop a new library for yourself, or for others to use, you are a library contributor. Both of these roles are described in the following sections.
+The CLI supports using libraries with your project. This allows you to incorporate already written and tested code 
+into your project, speeding up development and assuring quality. If you are using a library in your project, 
+you are a library consumer, and when you develop a new library for yourself, or for others to use, you are a library contributor. Both of these roles are described in the following sections.
 
 ## Consuming Libraries
 
@@ -482,14 +484,14 @@ These commands are described in detail below.
 
 ### Project structure
 
-Libraries are avaialble for use in your project when the project conforms to the extended project structure:
+Libraries are available for use in your project when the project conforms to the extended project structure:
 
 - there is a `project.properties` file in the root of the project
 - application sources are placed in a `src` folder
 
 ### library search
 
-The `library search` command allows you to search for libraries that are related to some text that you type in. 
+The `library search` command allows you to search for libraries that are related to the text that you type in. 
 
 For example,
 
@@ -505,7 +507,7 @@ To see additional details for each library, append `-v` to the command line.
 particle library search neop -v
 ```
 
-displays a short description of each library as well. 
+This command displays a short description of each library as well. 
 
 ### library add
 
@@ -519,17 +521,35 @@ particle library add neopixel
 
 This will add the neopixel dependency to your project's `project.properties` file. 
 
-The neopixel library itself is not prsent in your project, so you won't see the neopixel sources. The library is added to your project when the project is compiled in the cloud. 
+The neopixel library itself is not present in your project, so you won't see the neopixel sources. 
+The library is added to your project when the project is compiled in the cloud.
+ 
+### Library copy
+
+Adding a library to your project does not add the library sources. For times when you want to access the library sources,
+such as when making changes to an existing library, you can have them added locally. 
+
+To add the library locally, add the `--copy` flag to the `library add` command:
+
+```
+particle library copy neopixel
+```
+
+
 
 ### Incorporating the library into your project
 
-Once the library is added, it is available for use within your project. The first step to using the library is to include the library header, which follows the name of the library. For example:
+Once the library is added, it is available for use within your project. 
+The first step to using the library is to include the library header, which follows the name of the library. For example:
 
 ```
 #include "neopixel.h"
 ```
 
-The functions and classes from that library are then available to use in your application. Please see the library examples and documentation that comes with the library.
+The functions and classes from that library are then available for use in your application. 
+Check out the library examples and documentation that comes with the library for specifics on using that library.
+
+
 
 ## Contributing Libraries
 
@@ -563,7 +583,8 @@ All these files are initially empty - we'll add content to them as the library i
 
 ### Scaffolding the library
 
-The `library init` command is used to scaffold the library. It creates a skeleton structure for the library, containing initial sources, examples, tests and documentation. 
+The `library init` command is used to scaffold the library. It creates a skeleton structure for the library, containing 
+initial sources, examples, tests and documentation. 
 
 In our example project structure we want to create a new library in `lib/mylib` so we will run these commands:
 
@@ -584,9 +605,9 @@ It's a good idea to test often, by writing code in the consuming project that us
 
 ### Consuming the library
 
-To test your changes in the library, compile the project using `particle compile`
+To test your changes in the library, compile the project using `particle compile <platform>`
 
-`particle compile photon .`
+`particle compile photon`
 
 This will create a `.bin` file which you then flash to your device. 
 
@@ -594,21 +615,31 @@ This will create a `.bin` file which you then flash to your device.
 
 (Replace the name `firmware.bin` witht the name of the `.bin` file produced by the compile step.)
 
-### Publishing the library
+### Contributing the library
 
-Once you have tested the library and you are ready to release the library into the wild, you run the `library publish` command.  You run this command from the directory containing the library
+Once you have tested the library and you are ready to upload the library to the cloud, you run the `library contribute`
+command.  You run this command from the directory containing the library
 
 ```
 cd lib/mylib
-particle library publish
+particle library contribute
 ```
 
-Before the library is published, it is first validated. It's important to ensure the version number hasn't been published before. Incrementing the version with each poublish is a recommended approach to ensuring unique versions. If the version isn't unique, the library will not be published and an error message will be displayed. 
+Before the library is contributed, it is first validated. If validation succeeds, the library is contributed 
+and is then available for use in your other projects. The library is not available to anyone else.
 
-If validation succeeds, the library is published and is then available for use in other projects.
+### Publishing the Library
 
-Currently, all published libraries are visiblet o everyone. Private libraries will be supported in a future release. 
+If you wish to make a contributed library available to everyone, it first needs to be published.
 
+When publishing a library, it's important to ensure the version number hasn't been published before - 
+if the version has already been published, the library will not be published and an error message will be displayed. 
+
+Incrementing the version number with each publish is a recommended approach to ensuring unique versions. 
+
+Once the library is published, it is visible to everyone and available for use. Once the a given version of a library
+has been published, the files and data cannot be changed. Subsequent changes must be via a new contributed version
+and subsequent publish.
 
 
 
