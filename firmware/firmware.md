@@ -6959,7 +6959,7 @@ void loop() {
 - Once a connection with the Particle Cloud has been established, the user code starts running.
 - Messages to and from the Cloud are handled in between runs of the user loop; the user loop automatically alternates with [`Particle.process()`](#particle-process-).
 - `Particle.process()` is also called during any delay() of at least 1 second.
-- If the user loop blocks for more than about 20 seconds, the connection to the Cloud will be lost. To prevent this from happening, the user can call `Particle.process()` manually.
+- If the user loop blocks for more than the configured interval between keep alive messages (by default {{#if electron}}23 minutes{{/if}}{{#unless electron}}15 seconds{{/unless}}), the connection to the Cloud may be lost. To prevent this from happening, the user can call `Particle.process()` manually.
 - If the connection to the Cloud is ever lost, the device will automatically attempt to reconnect. This re-connection will block from a few milliseconds up to 8 seconds.
 - `SYSTEM_MODE(AUTOMATIC)` does not need to be called, because it is the default state; however the user can invoke this method to make the mode explicit.
 
@@ -7025,7 +7025,7 @@ When using manual mode:
 - The user code will run immediately when the device is powered on.
 - Once the user calls [`Particle.connect()`](#particle-connect-), the device will attempt to begin the connection process.
 - Once the device is connected to the Cloud ([`Particle.connected()`](#particle-connected-)` == true`), the user must call `Particle.process()` regularly to handle incoming messages and keep the connection alive. The more frequently `Particle.process()` is called, the more responsive the device will be to incoming messages.
-- If `Particle.process()` is called less frequently than every 20 seconds, the connection with the Cloud will die. It may take a couple of additional calls of `Particle.process()` for the device to recognize that the connection has been lost.
+- If `Particle.process()` is called less frequently than the configured interval between keep alive messages (by default {{#if electron}}23 minutes{{/if}}{{#unless electron}}15 seconds{{/unless}}), the connection to the Cloud may be lost. It may take a couple of additional calls of `Particle.process()` for the device to recognize that the connection has been lost.
 
 
 {{#unless core}}
