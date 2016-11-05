@@ -15,7 +15,8 @@ This section provides tutorials for new users of the [Photon Maker Kit](https://
 
 In this beginner tutorial, you’ll learn how to connect the Maker Kit **servo** to your Photon, and how to control it via the web using the [Do Button](https://ifttt.com/products/do/button) app on your smartphone to ring a gong or other noise-making object.
 
-{{{youtube "https://www.youtube.com/embed/stg5DNLRgOk?rel=0"}}}
+<iframe src="https://player.vimeo.com/video/178283217" width="640" height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+
 
 ### What you'll need
 
@@ -169,7 +170,8 @@ If you have issues that can't be solved here, post on our [community forums](htt
 
 In this tutorial, you’ll learn how to to get bus prediction times from the internet and display them on the Maker Kit **OLED screen**, which will provide alerts for upcoming buses. You'll also learn what a **webhook** is, and how to use it to get the prediction data to your Photon.
 
-{{{youtube "https://www.youtube.com/embed/BDUVJ3dSksk?rel=0"}}}
+<iframe src="https://player.vimeo.com/video/178282467" width="640" height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+
 
 Then you'll wire up the OLED screen and display the bus alerts with fancy marquee scrolling.
 
@@ -470,7 +472,7 @@ If you have issues that can't be solved here, post on our [community forums](htt
 ## Tutorial #3: Conference Room Monitor
 Wouldn’t it be awesome to be able to know whether someone is occupying your office’s conference room, without getting up from your desk? In this tutorial, you’ll learn how to use the Maker Kit **PIR motion sensor**, and how to integrate it with [Slack](https://slack.com) using webhooks. PIR sensors detect subtle changes in infrared light, so they're particularly good for sensing people, animals, or other warm (or bright, since many lights also produce infrared) objects -- regardless of whether it's dark or not. There are many use cases for this, but for this tutorial we’re going to make a Slack channel that gets real-time updates of whether a conference room is in use.
 
-{{{youtube "https://www.youtube.com/embed/354GYoZ4m8c?rel=0"}}}
+<iframe src="https://player.vimeo.com/video/178283764" width="640" height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
 
 ### Set up a Slack Incoming Webhook
 A [Slack Incoming Webhook](https://api.slack.com/incoming-webhooks) listens for data from an external source and then posts it to a Slack channel of your choosing.
@@ -618,7 +620,8 @@ If you have issues that can't be solved here, post on our [community forums](htt
 ## Tutorial #4: Temperature Logger
 In this tutorial, you'll learn how to use the **Dallas DS18B20** temperature sensors included in the Maker Kit, and how to log the data to a Google Spreadsheet. Logging the data allows it to be graphed and analyzed, which can provide insights into temperature fluctuations in rooms, garages, reptile tanks, the outdoors, and even liquids. The Maker Kit contains two sensors, both of which are the same model, but one is waterproof and has long wires, while the other is just a bare sensor. We'll be using the bare sensor for simplicity in this tutorial, but you can substitute the waterproof sensor in its place without any modifications.
 
-{{{youtube "https://www.youtube.com/embed/2LkPpa2GN6k?rel=0"}}}
+<iframe src="https://player.vimeo.com/video/178284169" width="640" height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+
 
 We'll wire up the sensor to the Photon, then create a Particle Function to send the temperature data to the cloud, then connect our cloud data to Google Sheets using IFTTT, and start logging!
 
