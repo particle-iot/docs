@@ -217,7 +217,9 @@ Go to the next section to learn to [connect over USB](/guide/getting-started/con
 {{#if photon}}
 In this example, we will connect your device to the internet for the very first time. Then, we will blink the D7 LED on your device by using your smartphone.
 
-{{{youtube "https://www.youtube.com/embed/2nRUphZtpsk"}}}
+<iframe src="https://player.vimeo.com/video/178282058" width="320" height="240" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+
+
 {{/if}}
 {{#if core}}
 In this example, we will connect your device to the internet for the very first time. Then, we will blink the D7 LED on your device by using your smartphone.
