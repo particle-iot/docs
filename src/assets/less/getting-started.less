@@ -15,7 +15,7 @@
   display: -ms-flexbox;      /* TWEENER - IE 10 */
   display: -webkit-flex;     /* NEW - Chrome */
   display: flex;             /* NEW, Spec - Opera 12.1, Firefox 20+ */
-  max-width: 768px;
+  max-width: 1000px;
   align-items: flex-start;
 
   margin: 0 auto;
@@ -52,7 +52,7 @@
       transition: color .2s;
     }
     img {
-      max-width: 100%;
+      max-width: 90%;
       width: 175px;
       opacity: 1;
       display: block;
@@ -65,6 +65,11 @@
         max-width: 80px;
       }
     }
+
+    &#raspberry-pi-link img {
+      width: 300px;
+    }
+
     &:hover {
       h3 {
         color: @spark-blue;
