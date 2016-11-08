@@ -55,7 +55,7 @@ If you're not using a Particle SIM, you will have to change the cellular APN on 
 ### 6) Check the cellular coverage in your area
 The Electron leverages a number of cellular carriers to provide excellent coverage, but it *is* possible that you are outside GSM coverage in your country. Fortunately, it's relatively simple to check:
 
-- Go to http://particle.io/cellular and select your country from the dropdown at the bottom of the page. Note the cellular provider in your country. In the US, for example, service is provided by `T-Mobile and AT&T`.
+- Go to https://www.particle.io/pricing#cellular-data and select your country from the dropdown at the bottom of the page. Note the cellular provider in your country. In the US, for example, service is provided by `T-Mobile and AT&T`.
 - Navigate to <a href="http://opensignal.com" target="_blank">http://opensignal.com</a> in your browser
 - If you have an Electron G350, select "2G" and unselect "3G" and "4G" options. If you have an Electron U260 or U270, select both "2G" and "3G" and unselect the "4G" option. Limit the coverage map to the carrier providing service to your Particle SIM in your country (`T-Mobile and AT&T` in the US, for example).
 - Check the coverage map to ensure that you have coverage in your area.
