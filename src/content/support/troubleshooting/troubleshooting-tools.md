@@ -24,7 +24,7 @@ It is possible to put your Core in [Listening Mode](/guide/getting-started/modes
 
 #### For Windows
 
-For Windows users, we recommend downloading [PuTTY](http://www.putty.org/). You will also need to download and install the [Particle driver](https://s3.amazonaws.com/spark-website/Particle.zip). 
+For Windows users, we recommend downloading [PuTTY](http://www.putty.org/). You will also need to download and install the [Particle driver](https://github.com/spark/windows-device-drivers/releases/download/v6.1.0.51/particle_drivers_6.1.0.51.exe).
 
 Plug your device into your computer over USB. When the {{#if photon}}Photon{{/if}}{{#if core}}Core{{/if}} is in [Listening Mode]({{#if photon}}/guide/getting-started/modes/photon/#listening-mode{{/if}}{{#if core}}/guide/getting-started/modes/core/#listening-mode{{/if}}), open a serial port over USB using the standard settings, which should be:
 
@@ -124,7 +124,7 @@ We don't recommend using these commands unless you're very comfortable with the 
 
 dfu-util works from the command line with OS X, but to use dfu-util on Windows, you'll need several drivers.
 
-- First, you'll need to download and install the [Particle driver](https://s3.amazonaws.com/spark-website/Particle.zip).
+- First, you'll need to download and install the [Particle driver](https://github.com/spark/windows-device-drivers/releases/download/v6.1.0.51/particle_drivers_6.1.0.51.exe).
 
 - Once that is done, put your Photon in DFU mode.
 
@@ -170,7 +170,7 @@ We don't recommend using these commands unless you're very comfortable with the 
 
 dfu-util works from the command line with OS X, but to use dfu-util on Windows, you'll need several drivers.
 
-- First, you'll need to download and install the [Particle driver](https://s3.amazonaws.com/spark-website/Particle.zip).
+- First, you'll need to download and install the [Particle driver](https://github.com/spark/windows-device-drivers/releases/download/v6.1.0.51/particle_drivers_6.1.0.51.exe).
 
 - Once that is done, put your Photon in DFU mode.
 
