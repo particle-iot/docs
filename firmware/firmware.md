@@ -5944,7 +5944,7 @@ noInterrupts();
 _Since 0.4.7. This feature is available on the Photon, P1 and Electron out the box. On the Core, the
 `freertos4core` Particle library <a href="https://build.particle.io/libs/56c33d19413c5afea2000601/tab/timers.ino" target="_blank">(Timers.ino example found here)</a> should be used to add FreeRTOS to the core._
 
-Software Timers provide a way to have timed actions in your program.  FreeRTOS provides the ability to have up to 10 Software Timers at a time with a minimum resolution of 1 millisecond.  It is common to use millis() based "timers" though exact timing is not always possible (due to other program delays).  Software timers are maintained by FreeRTOS and provide a more reliable method for running timed actions using callback functions.  Please note that Software Timers are "chained" and will be serviced sequencially when several timers trigger simultaneously, thus requiring special consideration when writing callback functions.
+Software Timers provide a way to have timed actions in your program.  FreeRTOS provides the ability to have up to 10 Software Timers at a time with a minimum resolution of 1 millisecond.  It is common to use millis() based "timers" though exact timing is not always possible (due to other program delays).  Software timers are maintained by FreeRTOS and provide a more reliable method for running timed actions using callback functions.  Please note that Software Timers are "chained" and will be serviced sequentially when several timers trigger simultaneously, thus requiring special consideration when writing callback functions.
 
 ```cpp
 // EXAMPLE
