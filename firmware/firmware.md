@@ -6631,9 +6631,7 @@ pause any time `put()` or `write()` is called.
 {{#unless core}}
 ## Backup RAM (SRAM)
 
-The STM32F2xx features 4KB of backup RAM, 3KB (3068 bytes) of which is available to the user. Unlike the regular RAM memory, the backup
-RAM is retained so long as power is provided to VIN or to VBAT. In particular this means that
-the data in backup RAM is retained when:
+The STM32F2xx features 4KB of backup RAM (3068 bytes for system firmware v0.6.0-rc1 and later) of which is available to the user. Unlike the regular RAM memory, the backup RAM is retained so long as power is provided to VIN or to VBAT. In particular this means that the data in backup RAM is retained when:
 
 - the device goes into deep sleep mode
 - the device is hardware or software reset (while maintaining power)
@@ -6699,7 +6697,7 @@ Here's some typical use cases for `retained` variables:
 - storing data for use after a hardware or software reset
 
 Finally, if you don't need the persistence of `retained` variables, you
-can consider them simply as 3KB of extra RAM to use.
+can consider them simply as extra RAM to use.
 
 ```C++
 // EXAMPLE USAGE
