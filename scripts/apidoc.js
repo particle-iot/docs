@@ -56,9 +56,14 @@ function breakOutAlternativeOperations(data) {
     var successExamplesIndex = {};
     if (route.examples) {
       examplesIndex = _.groupBy(route.examples, 'title');
+    } else {
+      route.examples = {};
     }
+
     if (route.success) {
       successExamplesIndex = _.groupBy(route.success.examples, 'title');
+    } else {
+      route.success = {};
     }
 
     _.each(route.parameter.fields, function(params, title) {
