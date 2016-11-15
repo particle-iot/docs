@@ -10,6 +10,10 @@ order: 2
 
 {{#if raspberry-pi}}
 
+_Particle on the Raspberry Pi is still in beta. We know you're eager to get started, but you won't be able to complete all these steps before you receive your beta activation email._
+
+<a class="big button" href="https://www.particle.io/particle-pi">Sign up for the beta to reserve your spot.</a>
+
 ## What do I need
 
 To connect a Raspberry Pi to the Particle cloud you'll need a Raspberry Pi, a power supply, SD card and a way to connect it to the network. If you don't have access to a wired network cable you will need a keyboard, mouse and monitor.
@@ -95,6 +99,8 @@ bash <( curl -sL https://particle.io/install-pi )
 When the installation is over, the Particle Agent setup will ask you to
 sign in to your Particle account. If you don't have one yet, [create a
 Particle account at https://login.particle.io/signup](https://login.particle.io/signup).
+
+_If you have not received your beta activation email yet, you won't be able to finish the setup. Hang on tight. The email will come in soon!_
 
 If you have to restart the setup process later, the command is `sudo particle-agent setup`.
 
