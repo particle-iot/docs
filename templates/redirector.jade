@@ -19,12 +19,13 @@ html
 			if (window.location.search === '?start') {
 				// always select device when coming from particle.io/start
 			} else if (devices.length === 1) {
-				var fl = forkLocations[devices[0]];
-				- window.location.replace(fl + window.location.hash);
+				var fork = forkLocations[devices[0]];
+				- window.location.replace(fork.path + window.location.hash);
 			} else {
 				var lastDevice = localStorage.getItem('lastDevice');
-				if (lastDevice && forkLocations[lastDevice]) {
-					- window.location.replace(forkLocations[lastDevice] + window.location.hash);
+				var fork = forkLocations[lastDevice];
+				if (lastDevice && fork) {
+					- window.location.replace(fork.path + window.location.hash);
 				}
 			}
 
@@ -39,10 +40,10 @@ html
 			#device-redirector.getting-started
 				h1.choose-device-header Which device are you interested in?
 				ul.devices
-					each path, device in forkLocations
-						a(href=path, id="#{device}-link")
+					each fork, device in forkLocations
+						a(href=fork.path, id="#{device}-link")
 							li.device(id=device)
-								h3 #{device}
+								h3 #{fork.name}
 								img(src="/assets/images/#{device}.svg")
 		script(type='text/javascript').
 			for (var device in forkLocations) {

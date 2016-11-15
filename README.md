@@ -89,9 +89,38 @@ front-matter of the MD file, like this:
 ```
 devices: [ photon, electron, core ]
 ```
-Where Photon, Electron and Core are the relevant devices to this page. Then, in
-the body of the page, you can specify device-specific content by
-using a special helper, like this:
+Where Photon, Electron and Core are the relevant devices to this page.
+
+Then add a new key to `device_features.json` for each device that
+supports the feature:
+```
+{
+  "Core": [
+    ...
+  ],
+  "Photon": [
+    ..
+    "backup-ram"
+  ],
+  "Electron": [
+    ...
+    "backup-ram"
+  ]
+}
+```
+
+Then, in the body of the page, you can specify feature-specific content by using:
+```
+{{#if has-backup-ram}}
+## Backup RAM
+
+...
+{{/if}} {{!-- has-backup-ram --}}
+```
+
+For content that is exclusively for one device and where defining a new
+feature name doesn't make sense (for example, which pins have PWM
+support for a device), you can also device-specific content by using:
 
 ```
 {{#if photon}}
@@ -105,15 +134,8 @@ using a special helper, like this:
 {{#if electron}}
   ELECTRON SPECIFIC STUFFZ
 {{/if}}
-
-{{#unless core}}
-  STM32F205 SPECIFIC STUFFZ (Photon, P1, Electron)
-{{/unless}}
-
-{{#unless electron}}
-  Wi-Fi SPECIFIC STUFFZ (Core, Photon, P1)
-{{/unless}}
 ```
+Prefer defining new feature names over using device-specific sections.
 
 You can also insert the selected device name into text like this:
 ```
@@ -123,6 +145,17 @@ Without a doubt, the {{device}} rocks!
 ### Tests
 
 To run the test scripts, run `npm test`.
+
+### Adding a new device
+
+When the firmware is available on a new device, add that device to the docs in these places:
+
+- Make the firmware docs available for the new device by adding an entry to the `devices` frontmatter in <src/content/reference/firmware.md>
+- Also update `devices` in the guides and tools frontmatter as appropriate
+- Update the device selection dropdown in <templates/partials/header.hbs>
+- Add the device in <src/assets/js> `rememberDevices()`
+- Add a new SVG in <src/assets/image> named `<device>.svg`
+- Tell the tests to crawl the new device page in <test/crawler.js>
 
 ### Attributions
 

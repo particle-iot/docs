@@ -2,11 +2,141 @@
 title: Getting started
 template: guide.hbs
 columns: two
-devices: [ photon,electron,core ]
+devices: [ photon,electron,core,raspberry-pi ]
 order: 2
 ---
 
 # Getting Started
+
+{{#if raspberry-pi}}
+
+_Particle on the Raspberry Pi is still in beta. We know you're eager to get started, but you won't be able to complete all these steps before you receive your beta activation email._
+
+<a class="big button" href="https://www.particle.io/particle-pi">Sign up for the beta to reserve your spot.</a>
+
+## What do I need
+
+To connect a Raspberry Pi to the Particle cloud you'll need a Raspberry Pi, a power supply, SD card and a way to connect it to the network. If you don't have access to a wired network cable you will need a keyboard, mouse and monitor.
+
+![](/assets/images/raspberry-pi-kit.jpg)
+
+## Getting the Raspberry Pi Ready
+
+First, let's make sure the Raspberry Pi is running the latest Raspbian operating system.
+
+You can [download Raspbian on the Raspberry Pi website](https://www.raspberrypi.org/downloads/raspbian/) and [follow the official installation guide](https://www.raspberrypi.org/documentation/installation/installing-images/README.md).
+
+When the SD card is ready, insert it into the Raspberry Pi and connect it to power.
+
+Next you'll need to connect the Raspberry Pi to the Internet.
+
+If you are using a wired network connection, just connect the wire and you're done!
+
+If you want to connect the Raspberry Pi to the Internet with Wi-Fi, you can either configure the Wi-Fi remotely by connecting a wired network cable or configure it through the graphical user interface by connecting a keyboard, mouse and monitor.
+
+### Remote Wi-Fi Setup
+
+Connect a wired network cable to the Raspberry Pi.
+
+TODO: Add instructions on getting the IP address of a Raspberry Pi connected through Ethernet.
+
+Connect to the Raspberry Pi through secure shell (SSH). On Windows,
+download [PuTTY](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html). On macOS and Linux, use the `ssh` command in a Terminal.
+
+```
+ssh pi@192.168.0.100
+```
+where `192.168.0.100` is the IP address of your Pi.
+
+The default password for the Raspberry Pi is `raspberry`
+
+After connecting, run:
+```
+sudo nano /etc/wpa_supplicant/wpa_supplicant.conf
+```
+
+Insert these lines at the end of the file:
+```
+network={
+	ssid="MyWiFiNetwork"
+	psk="the_password"
+	key_mgmt=WPA-PSK
+}
+
+```
+
+### Graphic Interface Wi-Fi Setup
+
+Connecting a keyboard, mouse and monitor to the Raspberry Pi.
+
+Configure your Wi-Fi network through the icon on the top right.
+
+![](/assets/images/raspberry-pi-wifi-ssid.png)
+
+![](/assets/images/raspberry-pi-wifi-password.png)
+
+![](/assets/images/raspberry-pi-wifi-connected.png)
+
+While you are here you can also find the IP address of your Raspberry Pi by running `ifconfig wlan0` in a terminal.
+
+![](/assets/images/raspberry-pi-ip-address.png)
+
+## Installing the Particle Software
+
+To get your Raspberry Pi connected to the Particle cloud, you need to
+install the Particle Agent. It's a software service that runs in the
+background on the Raspberry Pi and allows you to write and run firmware
+(software that interacts with the I/O pins).
+
+Install the agent by pasting this command in a terminal on your
+Raspberry Pi, either while connected remotely through SSH or locally
+with a keyboard and monitor.
+
+```
+bash <( curl -sL https://particle.io/install-pi )
+```
+
+When the installation is over, the Particle Agent setup will ask you to
+sign in to your Particle account. If you don't have one yet, [create a
+Particle account at https://login.particle.io/signup](https://login.particle.io/signup).
+
+_If you have not received your beta activation email yet, you won't be able to finish the setup. Hang on tight. The email will come in soon!_
+
+If you have to restart the setup process later, the command is `sudo particle-agent setup`.
+
+When the setup finishes, the Raspberry Pi will be online, running the
+Tinker firmware and claimed to your account.
+
+## Tinkering with the Raspberry Pi
+
+Now that your Raspberry Pi is connected to the Particle Cloud, you can use the Particle Mobile App to toggle pins and light LEDs.
+
+Install the app and log in.
+
+  * Particle Mobile App - [iPhone](https://itunes.apple.com/us/app/particle-build-photon-electron/id991459054?ls=1&mt=8) | [Android](https://play.google.com/store/apps/details?id=io.particle.android.app)
+
+Select your Raspberry Pi device from the list and you'll see the Tinker screen.
+
+![Tinker on your Phone!](/assets/images/tinker.png)
+
+Since the Raspberry Pi doesn't have labels next to the I/O pins, you'll
+need to refer to [the pin out diagram in the datasheet](/datasheets/raspberrypi-datasheet/#pin-out-diagram)
+
+Connect an LED and a resistor (any value between 200 ohm and 1000 ohm) between D0, the 4th pin on the top left and GND, the 13th pin on the left.
+
+![](/assets/images/raspberry-pi-tinker.jpg)
+
+Tap the D0 pin on the Mobile App and select `digitalWrite`. You'll be able to toggle the LED by tapping on the D0 pin again.
+
+Congratulations, you've just toggled an LED over the Internet!
+
+See more information in the [Tinker section](/guide/getting-started/tinker)
+
+## Writing a First App
+
+Go to the [Web IDE section](/guide/getting-started/build) to learn how to write your first app.
+
+{{else}}
 
 ## What's in the Box?
 
@@ -105,6 +235,7 @@ to wired power source. Consider this battery your Electron's best friend!
 {{/if}}
 
 For more technical details on what comes on your device, go {{#if core}}[here](/datasheets/core-datasheet/){{/if}}{{#if photon}}[here](/datasheets/kits/#photon){{/if}}{{#if electron}}[here](/datasheets/kits/#electron){{/if}}.
+
 
 {{#if electron}}
 ## New User Features On the Electron
@@ -359,3 +490,5 @@ If you don't have your smartphone with you, go ahead and move to the next lesson
 
 Otherwise, go to the next section to learn to connect over USB.
 {{/if}}
+
+{{/if}}{{!-- raspberry-pi --}}
