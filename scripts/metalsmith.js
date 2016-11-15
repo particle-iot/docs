@@ -122,6 +122,13 @@ exports.metalsmith = function() {
 					'curriculum'
 				]
 			},
+      faq: {
+        pattern: 'faq/:section/*.md',
+        sortBy: 'order',
+        orderDynamicCollections: [
+					'topics'
+				]
+      },
       datasheet: {
         pattern: 'datasheets/*.md',
         sortBy: 'order'
@@ -249,7 +256,7 @@ exports.metalsmith = function() {
       '/photon/hardware' : '/datasheets/photon-datasheet',
       '/troubleshooting' : '/support/troubleshooting/common-issues',
       '/help' : '/support/troubleshooting/common-issues',
-      '/faq' : '/support/support-and-fulfillment/faq',
+      '/faq' : '/faq/topics/something',
       '/tutorials': '/tutorials/topics/maker-kit',
       '/guide/how-to-build-a-product/dashboard': '/guide/tools-and-features/console'
     }));
