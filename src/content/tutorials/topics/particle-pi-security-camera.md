@@ -364,7 +364,7 @@ Here is the schematic of the complete project. Two neopixel rings are connected 
 
 These instructions are for the assembly of an optional enclosure that you can build if you have access to a laser cutter. All of the pieces are cut from a 3mm white acrylic sheet, but you can feel free to use MDF or plywood instead.
 
-You can download an illustrator file for the laser cutter [here.](https://docs.particle.io/assets/images/particle-pi-cam/enclosure.ai)
+You can download an illustrator file for the laser cutter [here.](/assets/images/particle-pi-cam/enclosure.ai)
 
 ![](/assets/images/particle-pi-cam/image01.jpg)
 
