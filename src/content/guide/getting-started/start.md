@@ -10,47 +10,99 @@ order: 2
 
 {{#if raspberry-pi}}
 
-_Particle on the Raspberry Pi is still in beta. We know you're eager to get started, but you won't be able to complete all these steps before you receive your beta activation email._
+![](/assets/images/raspberry-pi-hero.png)
 
-<a class="big button" href="https://www.particle.io/particle-pi">Sign up for the beta to reserve your spot.</a>
+## Particle Pi Beta Program
 
-## What do I need
+<p class = "boxedHead">Do not continue without reading</p>
+<p class = "boxed">
+Please note that the Raspberry Pi integration with the Particle Cloud is **currently in beta**. We know you're eager to get started (we're excited too!) but you won't be able to complete all the steps below before you've received your beta activation email.
+<br></br>
+We will be provisioning access to the beta in the upcoming weeks on a rolling basis. Upon open release of the Raspberry Pi and Particle Cloud integration, these provisioning instructions will work for everyone! To learn more and to join the beta program, visit our Raspberry Pi + Particle [information page](http://particle.io/particle-pi) by clicking the button below:
 
-To connect a Raspberry Pi to the Particle cloud you'll need a Raspberry Pi, a power supply, SD card and a way to connect it to the network. If you don't have access to a wired network cable you will need a keyboard, mouse and monitor.
+<center><a class="btn" target="_blank" href="https://particle.io/particle-pi"/>Join the beta!</a></center>
+
+</p>
+
+## What You'll Need
+In order to connect your Raspberry Pi to the Particle Cloud you'll need the following things. Note that these are all included in the [Particle Pi Starter Kit with Raspberry Pi v3](https://store.particle.io/#particle-pi-starter-kit), which is available for purchase in the [Particle Store](https://store.particle.io/#particle-pi-starter-kit).
+
+
+
+- Raspberry Pi (Raspberry Pi v2 and v3 preferred)
+- Power supply (5V, 2A+ preferred)
+- Micro SD card and SD adapter
+- Ethernet cable (for wired connections)
 
 ![](/assets/images/raspberry-pi-kit.jpg)
 
-## Getting the Raspberry Pi Ready
+If you do not have access to a wired network cable, you will need to connect your Pi to an active Wi-Fi network, which will require the following:
 
-First, let's make sure the Raspberry Pi is running the latest Raspbian operating system.
+- Keyboard
+- Mouse
+- Monitor
+- HDMI Cable (to connect the Pi to your monitor)
 
-You can [download Raspbian on the Raspberry Pi website](https://www.raspberrypi.org/downloads/raspbian/) and [follow the official installation guide](https://www.raspberrypi.org/documentation/installation/installing-images/README.md).
+## Download and install Raspbian
+Before you boot up your Pi for the first time, you'll need to make sure you have the latest Raspbian image from the Raspberry Pi Foundation.
 
-When the SD card is ready, insert it into the Raspberry Pi and connect it to power.
+Do you already have a Pi with Raspbian installed? Click [here](/guide/getting-started/start/raspberry-pi/#i-have-an-sd-card-with-raspbian) to skip the download and setup steps and update your existing Raspbian image.
 
-Next you'll need to connect the Raspberry Pi to the Internet.
+### I don't have an SD card with Raspbian
 
-If you are using a wired network connection, just connect the wire and you're done!
+If you don't already have an SD card with Raspbian on it, you'll need to follow these steps:
 
-If you want to connect the Raspberry Pi to the Internet with Wi-Fi, you can either configure the Wi-Fi remotely by connecting a wired network cable or configure it through the graphical user interface by connecting a keyboard, mouse and monitor.
+1. Make sure your SD card is FAT32 formatted
+2. Install an operating system image on the SD card. We recommend Raspberry Pi's preferred operating system, Raspbian Jessie with Pixel, which you can download [here](https://www.raspberrypi.org/downloads/raspbian/).
+3. Install the operating system onto your SD card by following the Raspberry Pi Foundation's official installation instructions, [here](https://www.raspberrypi.org/documentation/installation/installing-images/README.md).
+4. Insert the SD card into your Raspberry Pi, and apply power using a 5V, 2A+ power supply.
 
-### Remote Wi-Fi Setup
+### I have an SD card with Raspbian
 
-Connect a wired network cable to the Raspberry Pi.
+If you already have a Pi set up, run the following commands from your Raspberry Pi's command line to update your OS to the most recent version of Raspbian:
 
-TODO: Add instructions on getting the IP address of a Raspberry Pi connected through Ethernet.
+1. `sudo apt-get update`, which will update your local package database with the upstream one.
+2. `sudo apt-get upgrade`, which will actually upgrade your Raspbian image to the most recent from the Raspberry Pi Foundation.
 
-Connect to the Raspberry Pi through secure shell (SSH). On Windows,
-download [PuTTY](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html). On macOS and Linux, use the `ssh` command in a Terminal.
+## Connect your Pi to the Internet
+There are two primary ways to connect your Raspberry Pi to the web--using a wired connection (Ethernet) or using a wireless connection (Wi-Fi preferred).
 
-```
-ssh pi@192.168.0.100
-```
-where `192.168.0.100` is the IP address of your Pi.
+### Connecting with a wired connection (Ethernet)
 
-The default password for the Raspberry Pi is `raspberry`
+If your Raspberry Pi has an Ethernet port, connecting it to the Internet is as simple as plugging in a cable to the on-board RJ-45 jack on your Pi. The operating system should automatically work with your router to obtain an IP address and connect to the web.
 
-After connecting, run:
+**Note**: The Pi Zero does not have an on-board Ethernet port, but can be connected with a Ethernet --> USB adapter.
+
+### Connecting over Wi-Fi (GUI setup)
+
+1. Connect a USB keyboard, USB mouse and monitor to your Raspberry Pi.
+2. Click on the icon on the left of the system clock time to scan for Wi-Fi networks and start the Wi-Fi configuration process.
+
+![](/assets/images/raspberry-pi-wifi-ssid.png)
+
+3\. Enter your network's Wi-Fi password.
+
+![](/assets/images/raspberry-pi-wifi-password.png)
+
+4\. When your Pi has successfully connected to the Wi-Fi network, you will see a blue Wi-Fi icon next to the volume icon at the top righthand corner of your screen.
+
+![](/assets/images/raspberry-pi-wifi-connected.png)
+
+Note that it's also possible to obtain the IP Address of your Raspberry Pi after you've connected it to the Internet. To do so, click on the black terminal icon at the top lefthand side of your screen, and type `ifconfig wlan0`.
+
+Your Pi's IP Address should be displayed next to the label, `inet addr` and look something like `192.168.X.XXX`.
+
+![](/assets/images/raspberry-pi-ip-address.png)
+
+### Connecting over Wi-Fi (command line setup)
+
+To configure your Pi to connect to the Internet over Wi-Fi, start by ensuring that you have a monitor and keyboard plugged into your Raspberry Pi. You'll have to log in to your Pi in order to execute commands.
+
+- The default username for the Raspberry Pi is `pi`
+- The default password for the Raspberry Pi is `raspberry`
+
+After you've successfully logged into the Pi, run:
+
 ```
 sudo nano /etc/wpa_supplicant/wpa_supplicant.conf
 ```
@@ -65,28 +117,28 @@ network={
 
 ```
 
-### Graphic Interface Wi-Fi Setup
+You can verify that your Raspberry Pi is online by running the `ifconfig` command from your Pi's command line.
 
-Connecting a keyboard, mouse and monitor to the Raspberry Pi.
+## Install Particle Pi software
 
-Configure your Wi-Fi network through the icon on the top right.
+Now that your Pi is online, it's finally time to download and install the Particle Pi software. If your Pi has a monitor and keyboard connected, you can skip directly to [Install the Particle Agent](/guide/getting-started/start/raspberry-pi/#install-the-particle-agent). If would like to install the Particle Pi software without using a monitor and keyboard, please read the following section, [Instructions for headless setup](/guide/getting-started/start/raspberry-pi/#instructions-for-headless-setup).
 
-![](/assets/images/raspberry-pi-wifi-ssid.png)
+### Instructions for headless setup
+Note that if you are using a wired connection without a monitor and keyboard (headless) you will have to obtain your Pi's IP address and SSH into your Pi in order to install the Particle software. If you are using a keyboard and monitor, you can head directly to [Install the Particle Agent](/guide/getting-started/start/raspberry-pi/#install-the-particle-agent).
 
-![](/assets/images/raspberry-pi-wifi-password.png)
+1. The first step is to obtain the IP address for your Raspberry Pi once it is connected to the Internet. You can find instructions for obtaining your Pi's IP address using Raspberry Pi's official tutorial, [here](https://www.raspberrypi.org/documentation/remote-access/ip-address.md).
 
-![](/assets/images/raspberry-pi-wifi-connected.png)
+2. Once you have your Pi's IP address, you can connect to your Pi through a secure shell (SSH). If you are using MacOS or Linux, you can simply create an SSH tunnel using your `Terminal` application. If you are using Windows, download [PuTTY](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html).
 
-While you are here you can also find the IP address of your Raspberry Pi by running `ifconfig wlan0` in a terminal.
+3. SSH into your Pi using the following command, where `192.168.X.XXX` is the IP address of your Pi.
 
-![](/assets/images/raspberry-pi-ip-address.png)
+```
+ssh pi@192.168.X.XXX
+```
 
-## Installing the Particle Software
+### Install the Particle Agent
 
-To get your Raspberry Pi connected to the Particle cloud, you need to
-install the Particle Agent. It's a software service that runs in the
-background on the Raspberry Pi and allows you to write and run firmware
-(software that interacts with the I/O pins).
+To connect your Raspberry pi to the Particle Cloud, you'll first need to install the Particle Agent. The Particle Agent is a software service that runs in the background on the Raspberry Pi and allows you to write and run firmware (software that interacts with the GPIO pins on the Pi).
 
 Install the agent by pasting this command in a terminal on your
 Raspberry Pi, either while connected remotely through SSH or locally
@@ -100,41 +152,27 @@ When the installation is over, the Particle Agent setup will ask you to
 sign in to your Particle account. If you don't have one yet, [create a
 Particle account at https://login.particle.io/signup](https://login.particle.io/signup).
 
-_If you have not received your beta activation email yet, you won't be able to finish the setup. Hang on tight. The email will come in soon!_
+<p class = "boxed">
+**Remember** -- You will be unable to complete this step of the process if you have not already received your beta activation email. If that's the case, hang tight--you'll receive your email in the upcoming weeks as we expand access to the Raspberry Pi provisioning endpoint.
 
-If you have to restart the setup process later, the command is `sudo particle-agent setup`.
+For more information, visit [particle.io/particle-pi](http://particle.io/particle-pi)
+</p>
 
-When the setup finishes, the Raspberry Pi will be online, running the
-Tinker firmware and claimed to your account.
+If you have to restart the setup process later, simply type the command, `sudo particle-agent setup`. When the setup finishes, the Raspberry Pi will be online, running our default Tinker firmware and claimed to your Particle account.
 
-## Tinkering with the Raspberry Pi
+**Congratulations!** You've successfully connected your Pi to the Particle Cloud!
 
-Now that your Raspberry Pi is connected to the Particle Cloud, you can use the Particle Mobile App to toggle pins and light LEDs.
+## Next steps
 
-Install the app and log in.
+Connecting your Pi is only the beginning. Check out the other topics in our `Getting Started` guide for the Raspberry Pi, which will show you how to:
 
-  * Particle Mobile App - [iPhone](https://itunes.apple.com/us/app/particle-build-photon-electron/id991459054?ls=1&mt=8) | [Android](https://play.google.com/store/apps/details?id=io.particle.android.app)
+- Use [Tinker](/guide/getting-started/tinker/raspberry-pi/), our mobile application, to control your Pi
+- Write and flash code to your Pi with our [Web IDE](/guide/getting-started/build/raspberry-pi/)
+- Publish sensor values to the Internet
+- Remotely execute scripts on your Raspberry Pi
+- Leverage your Pi's powerful processor
 
-Select your Raspberry Pi device from the list and you'll see the Tinker screen.
-
-![Tinker on your Phone!](/assets/images/tinker.png)
-
-Since the Raspberry Pi doesn't have labels next to the I/O pins, you'll
-need to refer to [the pin out diagram in the datasheet](/datasheets/raspberrypi-datasheet/#pin-out-diagram)
-
-Connect an LED and a resistor (any value between 200 ohm and 1000 ohm) between D0, the 4th pin on the top left and GND, the 13th pin on the left.
-
-![](/assets/images/raspberry-pi-tinker.jpg)
-
-Tap the D0 pin on the Mobile App and select `digitalWrite`. You'll be able to toggle the LED by tapping on the D0 pin again.
-
-Congratulations, you've just toggled an LED over the Internet!
-
-See more information in the [Tinker section](/guide/getting-started/tinker)
-
-## Writing a First App
-
-Go to the [Web IDE section](/guide/getting-started/build) to learn how to write your first app.
+<center>[Tinker and Mobile App >](/guide/getting-started/tinker/raspberry-pi/)</center>
 
 {{else}}
 
