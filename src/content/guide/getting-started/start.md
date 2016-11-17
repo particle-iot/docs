@@ -157,6 +157,8 @@ ssh pi@192.168.X.XXX
 
 ### Install the Particle Agent
 
+<script type="text/javascript" src="https://asciinema.org/a/93209.js" id="asciicast-93209" async data-poster="npt:1:20"></script>
+
 To connect your Raspberry pi to the Particle Cloud, you'll first need to install the Particle Agent. The Particle Agent is a software service that runs in the background on the Raspberry Pi and allows you to write and run firmware (software that interacts with the GPIO pins on the Pi).
 
 Install the agent by pasting this command in a terminal on your
