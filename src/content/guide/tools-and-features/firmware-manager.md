@@ -17,7 +17,7 @@ The Firmware Manager is available for Windows and OS X.
 
 ### <img style="margin:0; block:inline" src="{{assets}}/images/updater-windows-logo.png"> Windows
 
-Click [Firmware Manager for Windows](https://binaries.particle.io/updater/particle_firmware_manager-v0.5.3-windows.exe) to download the application to your downloads folder. The file name will begin with "particle_firmware_manager".
+Click [Firmware Manager for Windows](https://binaries.particle.io/updater/particle_firmware_manager-v0.6.0-windows.exe) to download the application to your downloads folder. The file name will begin with "particle_firmware_manager".
 
 Once the download is complete, double-click the downloaded file to run.
 
@@ -26,7 +26,7 @@ The first time the utility is run, you will be prompted to enable administrator 
  
 ### <img style="margin:0; block:inline" src="{{assets}}/images/updater-apple-logo.png"> OS X
 
-Click [Firmware Manager for OS X](https://binaries.particle.io/updater/particle_firmware_manager-v0.5.3-osx.zip) to download the application to your downloads folder.
+Click [Firmware Manager for OS X](https://binaries.particle.io/updater/particle_firmware_manager-v0.6.0-osx.zip) to download the application to your downloads folder.
 
 The application is provided as a Zip file. Once the file has downloaded, double-click the file to start unpacking the application. This will take just a few seconds and you'll then see a folder named "Particle firmware manager" with a Particle icon.  
 
@@ -86,6 +86,23 @@ Your device will automatically reboot and will run your app using the updated sy
 ### Device not detected
 
 If the application doesn't detect your device, try disconnecting and reconnecting the device. This is especially true on Windows after installing the USB drivers - Windows will not detect the device using the newly installed drivers until the device has been disconnected and reconnected.
+
+### Electron Upgrade
+
+*This section only applies to Electrons. If you are upgrading another type of device, you can skip this section.*
+
+The Electron firmware for 0.6.0 and newer has changed from being made of 2 system modules, to 3 system modules. 
+
+When you are upgrading from a version earlier than 0.5.3, then your Electron has to be upgraded to 0.5.3 first, before upgrading to 0.6.0 or a later version.
+
+You can upgrade to 0.5.3 by downloading the 0.5.3 Firmware Manager for your OS and running that, as described on this page. Once your device is running 0.5.3 system firmware, then it can be upgraded to 0.6.0 or later. 
+
+Firmware Manager 0.5.3
+
+- [Windows](https://binaries.particle.io/updater/particle_firmware_manager-v0.5.3-windows.exe)
+- [OSX](https://binaries.particle.io/updater/particle_firmware_manager-v0.5.3-osx.zip)
+
+
 
 ### Update stops halfway
 
