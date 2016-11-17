@@ -83,6 +83,8 @@ If you already have a Pi set up, run the following commands from your Raspberry 
 1. `sudo apt-get update`, which will update your local package database with the upstream one.
 2. `sudo apt-get upgrade`, which will actually upgrade your Raspbian image to the most recent from the Raspberry Pi Foundation.
 
+Note that these steps may take **up to 10 minutes** to complete, so please have patience.
+
 ## Connect your Pi to the Internet
 There are two primary ways to connect your Raspberry Pi to the web--using a wired connection (Ethernet) or using a wireless connection (Wi-Fi preferred).
 
@@ -157,9 +159,9 @@ ssh pi@192.168.X.XXX
 
 ### Install the Particle Agent
 
-<script type="text/javascript" src="https://asciinema.org/a/93209.js" id="asciicast-93209" async data-poster="npt:1:20"></script>
+You will not be able to complete this step of the process if you have not already received your beta activation email. If that's the case, hang tight--you'll receive your email in the upcoming weeks as we expand access to the Raspberry Pi provisioning endpoint. For more information, visit [particle.io/particle-pi](http://particle.io/particle-pi)
 
-To connect your Raspberry pi to the Particle Cloud, you'll first need to install the Particle Agent. The Particle Agent is a software service that runs in the background on the Raspberry Pi and allows you to write and run firmware (software that interacts with the GPIO pins on the Pi).
+To connect your Raspberry pi to the Particle Cloud, you need to install the Particle Agent. The Particle Agent is a software service that runs in the background on the Raspberry Pi and allows you to write and run firmware (software that interacts with the GPIO pins on the Pi).
 
 Install the agent by pasting this command in a terminal on your
 Raspberry Pi, either while connected remotely through SSH or locally
@@ -169,19 +171,28 @@ with a keyboard and monitor.
 bash <( curl -sL https://particle.io/install-pi )
 ```
 
+The installation process should look like this:
+
+<script type="text/javascript" src="https://asciinema.org/a/93209.js" id="asciicast-93209" async data-poster="npt:1:20"></script>
+
 When the installation is over, the Particle Agent setup will ask you to
 sign in to your Particle account. If you don't have one yet, [create a
 Particle account at https://login.particle.io/signup](https://login.particle.io/signup).
 
-<p class = "boxed">
-**Remember** -- You will be unable to complete this step of the process if you have not already received your beta activation email. If that's the case, hang tight--you'll receive your email in the upcoming weeks as we expand access to the Raspberry Pi provisioning endpoint.
+Once the Particle Agent is installed, you will have a number of commands available to you to start firmware, stop firmware, and manage your connection to the Cloud. For a full list of available `particle-agent` commands, type `particle-agent help` into your terminal.
 
-For more information, visit [particle.io/particle-pi](http://particle.io/particle-pi)
+<p class = "boxedHead">`particle-agent setup`</p>
+<p class = "boxed">
+
+This is a super useful command! If you find yourself in an unknown or unintended device state at any point in development, you can type this command to reset your device and return it to "factory conditions" running **Tinker**, our default device firmware. The Pi will remain claimed to your Particle account.
+
 </p>
 
-If you have to restart the setup process later, simply type the command, `sudo particle-agent setup`. When the setup finishes, the Raspberry Pi will be online, running our default Tinker firmware and claimed to your Particle account.
+When you have successfully completed setup of your Pi, you will see the following confirmation message:
 
-**Congratulations!** You've successfully connected your Pi to the Particle Cloud!
+![](/assets/images/pi-setup-done.png)
+
+If you see the message above, **congratulations!** You've successfully connected your Pi to the Particle Cloud!
 
 ## Next steps
 
