@@ -52,10 +52,21 @@ Do you already have a Pi with Raspbian installed? Click [here](/guide/getting-st
 
 If you don't already have an SD card with Raspbian on it, you'll need to follow these steps:
 
-1. Make sure your SD card is FAT32 formatted
-2. Install an operating system image on the SD card. We recommend Raspberry Pi's preferred operating system, Raspbian Jessie with Pixel, which you can download [here](https://www.raspberrypi.org/downloads/raspbian/).
-3. Install the operating system onto your SD card by following the Raspberry Pi Foundation's official installation instructions, [here](https://www.raspberrypi.org/documentation/installation/installing-images/README.md).
-4. Insert the SD card into your Raspberry Pi, and apply power using a 5V, 2A+ power supply.
+1. Make sure your SD card is FAT32 formatted  
+2. Install an operating system image on the SD card. We recommend Raspberry Pi's preferred operating system, Raspbian Jessie with Pixel, which you can download [here](https://www.raspberrypi.org/downloads/raspbian/).  
+3. Install the operating system onto your SD card by following the Raspberry Pi Foundation's official installation instructions, [here](https://www.raspberrypi.org/documentation/installation/installing-images/README.md).  
+
+<p class = "boxed">
+**Note**: There are many different tools and resources available on the Internet to make the process of burning a new image for your Raspberry Pi easier. If you have issues with the instructions above from the Raspberry Pi Foundation, [elinux.org](http://elinux.org/RPi_Easy_SD_Card_Setup#SD_card_setup) has compiled a great list of alternatives for Mac, Windows, and Linux.  
+
+- [Mac setup options](http://elinux.org/RPi_Easy_SD_Card_Setup#Flashing_the_SD_card_using_Mac_OS_X)  
+- [Windows setup options](http://elinux.org/RPi_Easy_SD_Card_Setup#Flashing_the_SD_Card_using_Windows)  
+- [Linux setup options](http://elinux.org/RPi_Easy_SD_Card_Setup#Flashing_the_SD_Card_using_Linux_.28including_on_a_Raspberry_Pi.21.29)  
+
+</p>
+
+
+4\. Insert the SD card into your Raspberry Pi, and apply power using a 5V, 2A+ power supply.
 
 ### I have an SD card with Raspbian
 
@@ -128,11 +139,22 @@ Now that your Pi is online, it's finally time to download and install the Partic
 ### Instructions for headless setup
 Note that if you are using a wired connection without a monitor and keyboard (headless) you will have to obtain your Pi's IP address and SSH into your Pi in order to install the Particle software. If you are using a keyboard and monitor, you can head directly to [Install the Particle Agent](/guide/getting-started/start/raspberry-pi/#install-the-particle-agent).
 
-1. The first step is to obtain the IP address for your Raspberry Pi once it is connected to the Internet. You can find instructions for obtaining your Pi's IP address using Raspberry Pi's official tutorial, [here](https://www.raspberrypi.org/documentation/remote-access/ip-address.md).
+- The first step is to obtain the IP address for your Raspberry Pi once it is connected to the Internet. You can find instructions for obtaining your Pi's IP address using Raspberry Pi's official tutorial, [here](https://www.raspberrypi.org/documentation/remote-access/ip-address.md).
 
-2. Once you have your Pi's IP address, you can connect to your Pi through a secure shell (SSH). If you are using MacOS or Linux, you can simply create an SSH tunnel using your `Terminal` application. If you are using Windows, download [PuTTY](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html).
+<p class = "boxed">
+An alternate method for finding the IP address in a headless setup configuration is to ensure that your computer is connected to the same network as your Raspberry Pi device, and to run the following command in your computer's terminal:  
 
-3. SSH into your Pi using the following command, where `192.168.X.XXX` is the IP address of your Pi.
+</br>
+
+```arp -a | grep b8:27:eb | grep -Eo '[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}'```  
+</br>
+
+As it turns out, the Raspberry Pi Foundation has their own range of MAC addresses all to themselves. The command above will scan your network for devices whose MAC address starts with the prefix, `b8:27:eb` and report their IP address. Assuming you only have one Raspberry Pi connected to the network, you should be able to easily identify your Pi's network address and SSH into it in the next step.  
+</p>
+
+- Once you have your Pi's IP address, you can connect to your Pi through a secure shell (SSH). If you are using MacOS or Linux, you can simply create an SSH tunnel using your `Terminal` application. If you are using Windows, download [PuTTY](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html).
+
+- SSH into your Pi using the following command, where `192.168.X.XXX` is the IP address of your Pi.
 
 ```
 ssh pi@192.168.X.XXX
