@@ -145,7 +145,7 @@ If you have been using the Web IDE / Particle Build to develop firmware, you are
 
 Unlike compiling a binary for a single device, it is critical that the **product ID** and a **firmware version** are included in the compiled binary. Specifically, you must add `PRODUCT_ID([your product ID])` and `PRODUCT VERSION([version])` into the application code of your firmware. This is documented fully [here](https://github.com/spark/firmware/blob/develop/docs/build.md#product-id).
 
-You can't add these two "macros" anywhere in your application code.  They need to be under '#include [Library]' of your main `.ino` file. Remember that your [product ID](#your-product-id) can be found in the navigation of your Console. The firmware version must be an integer that increments each time a new binary is uploaded to the Console. This allows the Particle Cloud to determine which devices should be running which firmwares.
+Add these two "macros" near the top of your main aplication `.ino` file, below `#include "application.h"` if it includes that line. Remember that your [product ID](#your-product-id) can be found in the navigation of your Console. The firmware version must be an integer that increments each time a new binary is uploaded to the Console. This allows the Particle Cloud to determine which devices should be running which firmwares.
 
 Here is an example of Blinky with the correct product and version details:
 
