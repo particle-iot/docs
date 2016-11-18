@@ -24,25 +24,6 @@ We will be provisioning access to the beta in the upcoming weeks on a rolling ba
 
 </p>
 
-
-## Development Resources
-
-Before you dive in, here's a list of the resources that are available to help you get started. Please make a note of them, and remember that you can always send us a note via our [Support Portal](http://support.particle.io) if you get stuck!
-
-#### Technical Documentation
-- [Raspberry Pi Pinout and Datasheet](/datasheets/raspberrypi-datasheet/)
-- [`particle-agent` GitHub repository](https://github.com/spark/particle-agent)
-
-#### Projects and Examples
-- [Particle IoT projects](https://www.hackster.io/particle)
-- [Raspberry Pi tutorials](/guide/getting-started/examples/raspberry-pi/)
-
-#### Forums and Support
-- [Community forums](https://community.particle.io)
-- [Raspberry Pi Official Documentation](https://www.raspberrypi.org/documentation/)
-- [Particle Support Portal](http://support.particle.io)
-
-
 ## What You'll Need
 In order to connect your Raspberry Pi to the Particle Cloud you'll need the following things. Note that these are all included in the [Particle Pi Starter Kit with Raspberry Pi v3](https://store.particle.io/#particle-pi-starter-kit), which is available for purchase in the [Particle Store](https://store.particle.io/#particle-pi-starter-kit).
 
@@ -193,6 +174,23 @@ When you have successfully completed setup of your Pi, you will see the followin
 ![](/assets/images/pi-setup-done.png)
 
 If you see the message above, **congratulations!** You've successfully connected your Pi to the Particle Cloud!
+
+## Development Resources
+
+Great work so far! In case you ever find yourself in a pickle, here's a list of resources that can help you through the next steps of your journe. Please make a note of them, and remember that you can always send us a note via our [Support Portal](http://support.particle.io) if you get stuck!
+
+#### Technical Documentation
+- [Raspberry Pi Pinout and Datasheet](/datasheets/raspberrypi-datasheet/)
+- [`particle-agent` GitHub repository](https://github.com/spark/particle-agent)
+
+#### Projects and Examples
+- [Particle IoT projects](https://www.hackster.io/particle)
+- [Raspberry Pi tutorials](/guide/getting-started/examples/raspberry-pi/)
+
+#### Forums and Support
+- [Community forums](https://community.particle.io)
+- [Raspberry Pi Official Documentation](https://www.raspberrypi.org/documentation/)
+- [Particle Support Portal](http://support.particle.io)
 
 ## Next steps
 
