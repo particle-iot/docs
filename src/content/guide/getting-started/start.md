@@ -188,7 +188,7 @@ Great work so far! In case you ever find yourself in a pickle, here's a list of 
 - [Raspberry Pi tutorials](/guide/getting-started/examples/raspberry-pi/)
 
 #### Forums and Support
-- [Community forums](https://community.particle.io)
+- [Community forums](https://community.particle.io/c/36-category)
 - [Raspberry Pi Official Documentation](https://www.raspberrypi.org/documentation/)
 - [Particle Support Portal](http://support.particle.io)
 
