@@ -7,7 +7,7 @@ var util = require('util');
 var chalk = require('chalk');
 var _ = require('lodash');
 
-var devices = ['photon', 'electron', 'core'];
+var devices = ['photon', 'electron', 'core', 'raspberry-pi'];
 var isPullRequest = process.env.TRAVIS_PULL_REQUEST && process.env.TRAVIS_PULL_REQUEST !== 'false';
 
 function classifyUrl(item) {
@@ -152,6 +152,8 @@ describe('Crawler', function() {
           return;
         }
         var absolutePath = url.resolve(queueItem.url, toQueueUrl);
+        // Remove hash
+        absolutePath = absolutePath.replace(/#.*/, '');
         crawler.queueURL(absolutePath, queueItem, { content: linkContent });
       });
 
@@ -211,7 +213,7 @@ describe('Crawler', function() {
       }
       console.error(chalk.red('ERROR: ' + msg));
       errors++;
-    }    
+    }
 
     crawler.on('fetch404', fetchResultError);
     crawler.on('fetcherror', fetchResultError);

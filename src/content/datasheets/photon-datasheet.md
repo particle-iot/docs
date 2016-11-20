@@ -2,7 +2,7 @@
 title: Photon datasheet
 template: datasheet.hbs
 columns: two
-order: 4
+order: 3
 ---
 
 # Photon Datasheet <sup>(v014)</sup>

@@ -52,7 +52,7 @@ You may notice that Zones aren't always the same in countries that share borders
 ![](/assets/images/Coverage-Map-V3.png)
 <p class="caption">A map indicating Zone grouping under Particle's cellular data plan. <a target="_blank" href="/assets/images/Coverage-Map-V3.png">Click here</a> for a full size image.</p>
 
-More more information about pricing and carriers in each Zone/Country, please visit [http://particle.io/cellular](http://particle.io/cellular) and inspect the dropdown menu of country names at the bottom of the page.
+More more information about pricing and carriers in each Zone/Country, please visit [https://particle.io/pricing](https://www.particle.io/pricing#cellular-data) and inspect the dropdown menu of country names.
 
 ## Kickstarter Promo Codes
 First, thank you for being a backer! You should have received a unique promo code via email for each Electron you ordered during the campaign, and you'll need to enter one of those codes during the setup process as you activate each SIM (*Haven't gotten your promo code? Let us know by visiting our [support portal](https://docs.particle.io/support)).

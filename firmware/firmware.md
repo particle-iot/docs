@@ -2,7 +2,7 @@
 title: Firmware
 template: reference.hbs
 columns: three
-devices: [photon,electron,core]
+devices: [photon,electron,core,raspberry-pi]
 order: 1
 ---
 
@@ -354,7 +354,7 @@ Particle.publish("t", temperature, PRIVATE, NO_ACK);
 Particle.publish("t", temperature, ttl, PRIVATE, NO_ACK);
 ```
 
-{{/if}}
+{{/if}} {{!-- electron --}}
 
 
 ### Particle.subscribe()
@@ -502,8 +502,12 @@ void loop() {
 }
 ```
 
-While this function will disconnect from the Cloud, it will keep the connection to the {{#unless electron}}Wi-Fi network. If you would like to completely deactivate the Wi-Fi module, use [`WiFi.off()`](#off-).{{/unless}}{{#if electron}}Cellular network. If you would like to completely deactivate the Cellular module, use [`Cellular.off()`](#off-).{{/if}}
-
+{{#if has-wifi}}
+While this function will disconnect from the Cloud, it will keep the connection to the Wi-Fi network. If you would like to completely deactivate the Wi-Fi module, use [`WiFi.off()`](#off-).
+{{/if}}
+{{#if has-cellular}}
+While this function will disconnect from the Cloud, it will keep the connection to the Cellular network. If you would like to completely deactivate the Cellular module, use [`Cellular.off()`](#off-).
+{{/if}}
 
 **NOTE:* When the device is disconnected, many features are not possible, including over-the-air updates, reading Particle.variables, and calling Particle.functions.
 
@@ -533,7 +537,7 @@ void loop() {
 }
 ```
 
-{{#if electron}}
+{{#if has-cellular}}
 ### Particle.keepAlive()
 
 Sets the duration between keep alive messages used to maintain the connection to the cloud.
@@ -552,7 +556,7 @@ The keep alive duration varies by mobile network operator. The default keepalive
 **Note:** Each keep alive ping consumes 122 bytes of data (61 bytes sent, 61 bytes received).
 
 
-{{/if}}
+{{/if}} {{!-- has-cellular --}}
 
 
 ### Particle.process()
@@ -564,7 +568,12 @@ Runs the background loop. This is the public API for the former internal functio
 and processes any messages that have come in. It also sends keep-alive pings to the Cloud,
 so if it's not called frequently, the connection to the Cloud may be lost.
 
-Even in non-cloud-bound applications it can still be advisable to call `Particle.process()` to explicitly provide some processor time to the {{#unless electron}}Wi-Fi module (e.g. immediately after `WiFi.ready()` to update system variables).{{/unless}}{{#if electron}}Cellular module (e.g. immediately after `Cellular.ready()` to update system variables).{{/if}}
+{{#if has-wifi}}
+Even in non-cloud-bound applications it can still be advisable to call `Particle.process()` to explicitly provide some processor time to the Wi-Fi module (e.g. immediately after `WiFi.ready()` to update system variables).
+{{/if}}
+{{#if has-cellular}}
+Even in non-cloud-bound applications it can still be advisable to call `Particle.process()` to explicitly provide some processor time to the Cellular module (e.g. immediately after `Cellular.ready()` to update system variables).
+{{/if}}
 
 ```cpp
 void setup() {
@@ -675,7 +684,7 @@ void setup() {
 }
 ```
 
-{{#unless electron}}
+{{#if has-wifi}}
 ## WiFi
 
 ### on()
@@ -735,7 +744,7 @@ This function will return `true` once the device is connected to the network and
 WiFi.ready();
 ```
 
-{{#if photon}}
+{{#if has-wifi-antenna-switch}}
 ### selectAntenna()
 
 Selects which antenna the device should connect to Wi-Fi with and remembers that
@@ -780,10 +789,7 @@ void loop() {
 }
 ```
 
-
-
-
-{{/if}}
+{{/if}} {{!-- has-wifi-antenna-switch --}}
 
 ### listen()
 
@@ -867,7 +873,7 @@ When the Photon used with hidden or offline networks, the security cipher is als
 WiFi.setCredentials("SSID", "PASSWORD", WPA2, WLAN_CIPHER_AES));
 ```
 
-{{/if}}
+{{/if}} {{!-- photon --}}
 
 **Note:** In order for `WiFi.setCredentials()` to work, the WiFi module needs to be on (if switched off or disabled via non_AUTOMATIC SYSTEM_MODEs call `WiFi.on()`).
 
@@ -1252,11 +1258,12 @@ A note on switching between static and dynamic IP. If static IP addresses have b
 by the system after calling `WiFi.useDynamicIP()`, and so are available for use next time `WiFi.useStaticIP()`
 is called, without needing to be reconfigured using `WiFi.setStaticIP()`
 
-{{/if}}
-{{/unless}}
+{{/if}} {{!-- photon --}}
+
+{{/if}} {{!-- has-wifi --}}
 
 
-{{#if photon}}
+{{#if has-softap}}
 ## SoftAP HTTP Pages
 
 _Since 0.5.0_
@@ -1453,7 +1460,7 @@ void myPage(const char* url, ResponseCallback* cb, void* cbArg, Reader* body, Wr
 STARTUP(softap_set_application_page_handler(myPage, nullptr));
 ```
 
-{{/if}}
+{{/if}} {{!-- has-softap --}}
 
 
 {{#if electron}}
@@ -2044,10 +2051,10 @@ There are 13 different enumerated AT command responses passed by the system into
 - `TYPE_TEXT`       = 0x500000
 - `TYPE_ABORTED`    = 0x600000
 
-{{/if}}
+{{/if}} {{!-- electron --}}
 
 
-{{#if electron}}
+{{#if has-fuel-gauge}}
 ## FuelGauge
 The on-board Fuel Gauge allows you to monitor the battery voltage, state of charge and set low voltage battery thresholds. Use an instance of the `FuelGauge` library to call the various fuel gauge functions.
 
@@ -2103,7 +2110,7 @@ Serial.println( fuel.getSoC() );
 
 ### wakeup()
 `void wakeup();`
-{{/if}}
+{{/if}} {{!-- has-fuel-gauge --}}
 
 ## Input/Output
 
@@ -2278,12 +2285,13 @@ The PWM frequency must be the same for pins in the same timer group.
 - On the P1, the timer groups are D0/D1, D2/D3/A4/A5/P1S0/P1S1, WKP, RX/TX.
 - On the Electron, the timer groups are D0/D1/C4/C5, D2/D3/A4/A5/B2/B3, WKP, RX/TX, B0/B1.
 
-**NOTE:** When used with PWM capable pins, the `analogWrite()` function sets up these pins as PWM only.  {{#unless core}}This function operates differently when used with the [`Analog Output (DAC)`](#analog-output-dac-) pins.{{/unless}}
+**NOTE:** When used with PWM capable pins, the `analogWrite()` function sets up these pins as PWM only.  {{#if has-dac}}This function operates differently when used with the [`Analog Output (DAC)`](#analog-output-dac-) pins.{{/if}}
 
-{{#unless core}}
+{{#if has-pwm}}
+
+{{#if has-dac}}
 ### analogWriteResolution() (PWM and DAC)
-{{/unless}}
-{{#if core}}
+{{else}}
 ### analogWriteResolution() (PWM)
 {{/if}}
 
@@ -2305,9 +2313,9 @@ analogWriteResolution(D1, 12); // sets analogWrite resolution to 12 bits
 analogWrite(D1, 3000, 1000); // 3000/4095 = ~73% duty cycle at 1kHz
 ```
 
-{{#unless core}}
+{{#if has-dac}}
 **NOTE:** DAC pins `DAC1` (`A6`) and `DAC2` (`A3`) support only either 8-bit or 12-bit (default) resolutions.
-{{/unless}}
+{{/if}}
 
 **NOTE:** The resolution also affects maximum frequency that can be used with `analogWrite()`. The maximum frequency allowed with current resolution can be checked by calling `analogWriteMaxFrequency()`.
 
@@ -2329,7 +2337,9 @@ int maxFreq = analogWriteMaxFrequency(D1);
 analogWrite(D1, 3000, maxFreq / 2); // 3000/4095 = ~73% duty cycle
 ```
 
-{{#unless core}}
+{{/if}} {{!-- has-pwm --}}
+
+{{#if has-dac}}
 ### Analog Output (DAC)
 
 The Photon and Electron support true analog output on pins DAC (`DAC1` or `A6` in code) and A3 (`DAC2` or `A3` in code). Using `analogWrite(pin, value)`
@@ -2346,7 +2356,9 @@ pinMode(DAC1, OUTPUT);
 analogWrite(DAC1, 1024);
 // sets DAC pin to an output voltage of 1024/4095 * 3.3V = 0.825V.
 ```
-{{/unless}}
+{{/if}} {{!-- has-dac --}}
+
+{{#if has-adc}}
 
 ### analogRead() (ADC)
 
@@ -2411,6 +2423,8 @@ On the Core, this parameter can be one of the following values:
  * ADC_SampleTime_112Cycles: Sample time equal to 112 cycles
  * ADC_SampleTime_144Cycles: Sample time equal to 144 cycles
  * ADC_SampleTime_480Cycles: Sample time equal to 480 cycles
+
+{{/if}} {{!-- has-adc --}}
 
 ## Low Level Input/Output
 
@@ -2772,7 +2786,8 @@ void loop()
  */
 ```
 
-{{#if electron}}
+{{#if has-pmic}}
+
 ## PMIC (Power Managment IC)
 
 *Note*: This is advanced IO and for experienced users. This
@@ -2975,13 +2990,17 @@ by the system firmware.
 #### getNTCFault()
 `byte getNTCFault();`
 
-{{/if}}
+{{/if}} {{!-- has-pmic --}}
 
 ## Serial
 
 Used for communication between the device and a computer or other devices. The device has {{#if electron}}four{{else}}two{{/if}} hardware (USART) serial channels and {{#unless core}}two{{else}}one{{/unless}} USB serial channel{{#unless core}}s{{else}}{{/unless}}.
 
+{{#unless raspberry-pi}}
 `Serial:` This channel communicates through the USB port and when connected to a computer, will show up as a virtual COM port.
+{{else}}
+`Serial:` This channel communicates between the terminal and the firmware running. It uses standard input and standard output.
+{{/unless}}
 
 ```C++
 // EXAMPLE USAGE
@@ -2997,19 +3016,23 @@ void setup()
 
 `Serial1:` This channel is available via the device's TX and RX pins.
 
+{{#if has-serial2}}
+
 {{#if core}}
 `Serial2:` This channel is optionally available via the device's D1(TX) and D0(RX) pins. To use Serial2, add `#include "Serial2/Serial2.h"` near the top of your app's main code file.
 
 To use the TX/RX (Serial1) or D1/D0 (Serial2) pins to communicate with your personal computer, you will need an additional USB-to-serial adapter. To use them to communicate with an external TTL serial device, connect the TX pin to your device's RX pin, the RX to your device's TX pin, and the ground of your Core to your device's ground.
-{{/if}}
 
-{{#unless core}}
+{{else}}
+
 `Serial2:` This channel is optionally available via the device's RGB Green (TX) and Blue (RX) LED pins. The Blue and Green current limiting resistors should be removed.  To use Serial2, add #include "Serial2/Serial2.h" near the top of your app's main code file.
 
 If the user enables Serial2, they should also consider using RGB.onChange() to move the RGB functionality to an external RGB LED on some PWM pins.
-{{/unless}}
+{{/if}}
 
-{{#if electron}}
+{{/if}} {{!-- has-serial2 --}}
+
+{{#if has-serial4-5}}
 `Serial4:` This channel is optionally available via the Electron's C3(TX) and C2(RX) pins. To use Serial4, add `#include "Serial4/Serial4.h"` near the top of your app's main code file.
 
 `Serial5:` This channel is optionally available via the Electron's C1(TX) and C0(RX) pins. To use Serial5, add `#include "Serial5/Serial5.h"` near the top of your app's main code file.
@@ -3017,36 +3040,45 @@ If the user enables Serial2, they should also consider using RGB.onChange() to m
 
 ```C++
 // EXAMPLE USAGE
-// Include the appropriate header file for Serial2{{#if electron}}, Serial4, or Serial5{{/if}}
+{{#if has-serial2}}
+// IMPORTANT: Include the header file for Serial2
 #include "Serial2/Serial2.h"
-{{#if electron}}
+{{/if}}
+{{#if has-serial4-5}}
+// IMPORTANT: Include the header file for Serial4/5
 #include "Serial4/Serial4.h"
 #include "Serial5/Serial5.h"
 {{/if}}
 
 void setup()
 {
+  Serial1.begin(9600);
+{{#if has-serial2}}
   Serial2.begin(9600);
-{{#if electron}}
+{{/if}}
+{{#if has-serial4-5}}
   Serial4.begin(9600);
   Serial5.begin(9600);
 {{/if}}
 
+  Serial1.println("Hello World!");
+{{#if has-serial2}}
   Serial2.println("Hello World!");
-{{#if electron}}
+{{/if}}
+{{#if has-serial4-5}}
   Serial4.println("Hello World!");
   Serial5.println("Hello World!");
 {{/if}}
 }
 ```
 
-To use the hardware serial pins of (Serial1/2{{#if electron}}/4/5{{/if}}) to communicate with your personal computer, you will need an additional USB-to-serial adapter. To use them to communicate with an external TTL serial device, connect the TX pin to your device's RX pin, the RX to your device's TX pin, and the ground of your Core/Photon/Electron to your device's ground.
+To use the hardware serial pins of (Serial1{{#if has-serial2}}/2{{/if}}{{#if has-serial4-5}}/4/5{{/if}}) to communicate with your personal computer, you will need an additional USB-to-serial adapter. To use them to communicate with an external TTL serial device, connect the TX pin to your device's RX pin, the RX to your device's TX pin, and the ground of your {{device}} to your device's ground.
 
-**NOTE:** Please take into account that the voltage levels on these pins operate at 0V to 3.3V and should not be connected directly to a computer's RS232 serial port which operates at +/- 12V and will damage the Core/Photon/Electron.
+**NOTE:** Please take into account that the voltage levels on these pins operate at 0V to 3.3V and should not be connected directly to a computer's RS232 serial port which operates at +/- 12V and will damage the {{device}}.
 
 ### begin()
 
-_Available on Serial, {{#unless core}}USBSerial1, {{/unless}}Serial1, Serial2{{#if electron}}, Serial4, Serial5{{/if}}._
+_Available on Serial, {{#unless core}}USBSerial1, {{/unless}}Serial1{{#if has-serial2}}, Serial2{{/if}}{{#if has-serial4-5}}, Serial4, Serial5{{/if}}._
 
 Enables serial channel with specified configuration.
 
@@ -3144,13 +3176,17 @@ USBSerial1.begin();      // via USB port
 Serial1.begin(speed);         // via TX/RX pins
 Serial1.begin(speed, config); //  "
 
+Serial1.begin(9600, SERIAL_9N1); // via TX/RX pins, 9600 9N1 mode
+Serial1.begin(9600, SERIAL_DATA_BITS_8 | SERIAL_STOP_BITS_1_5 | SERIAL_PARITY_EVEN); // via TX/RX pins, 9600 8E1.5
+{{#if has-serial-2}}
 #include "Serial2/Serial2.h"
-Serial2.begin(speed);         {{#if core}}// D1(TX) and D0(RX) pins{{/if}}{{#unless core}}// RGB-LED green(TX) and blue (RX) pins{{/unless}}
+Serial2.begin(speed);         {{#if core}}// D1(TX) and D0(RX) pins{{else}}// RGB-LED green(TX) and blue (RX) pins{{/if}}
 Serial2.begin(speed, config); //  "
 
-Serial1.begin(9600, SERIAL_9N1); // via TX/RX pins, 9600 9N1 mode
-Serial2.begin(9600, SERIAL_DATA_BITS_8 | SERIAL_STOP_BITS_1_5 | SERIAL_PARITY_EVEN); // via TX/RX pins, 9600 8E1.5
-{{#if electron}}
+Serial2.begin(9600);         // via RGB Green (TX) and Blue (RX) LED pins
+Serial2.begin(9600, SERIAL_DATA_BITS_8 | SERIAL_STOP_BITS_1_5 | SERIAL_PARITY_EVEN); // via RGB Green (TX) and Blue (RX) LED pins, 9600 8E1.5
+{{/if}} {{!-- has-serial-2 --}}
+{{#if has-serial4-5}}
 
 #include "Serial4/Serial4.h"
 Serial4.begin(speed);         // via C3(TX)/C2(RX) pins
@@ -3159,7 +3195,7 @@ Serial4.begin(speed, config); //  "
 #include "Serial5/Serial5.h"
 Serial5.begin(speed);         // via C1(TX)/C0(RX) pins
 Serial5.begin(speed, config); //  "
-{{/if}}
+{{/if}} {{!-- has-serial-4-5 --}}
 ```
 
 Parameters:
@@ -3188,7 +3224,7 @@ void loop() {}
 
 ### end()
 
-_Available on Serial, {{#unless core}}USBSerial1, {{/unless}}Serial1, Serial2{{#if electron}}, Serial4, Serial5{{/if}}._
+_Available on Serial, {{#unless core}}USBSerial1, {{/unless}}Serial1{{#if has-serial2}}, Serial2{{/if}}{{#if has-serial4-5}}, Serial4, Serial5{{/if}}._
 
 Disables serial channel.
 
@@ -3207,7 +3243,7 @@ Serial1.end();
 
 ### available()
 
-_Available on Serial, {{#unless core}}USBSerial1, {{/unless}}Serial1, Serial2{{#if electron}}, Serial4, Serial5{{/if}}._
+_Available on Serial, {{#unless core}}USBSerial1, {{/unless}}Serial1{{#if has-serial2}}, Serial2{{/if}}{{#if has-serial4-5}}, Serial4, Serial5{{/if}}._
 
 Get the number of bytes (characters) available for reading from the serial port. This is data that's already arrived and stored in the serial receive buffer.
 
@@ -3247,12 +3283,9 @@ void loop()
 
 ### availableForWrite()
 
-_Since 0.4.9. Available on Serial1, Serial2{{#if electron}}, Serial4, Serial5{{/if}}._
-
-_Since 0.5.0. Available on USB Serial (Serial)_
-{{#unless core}}
-_Since 0.6.0. Available on `USBSerial1`_
-{{/unless}}
+_Since 0.4.9 Available on Serial1{{#if has-serial2}}, Serial2{{/if}}{{#if has-serial4-5}}, Serial4, Serial5{{/if}}._
+_Since 0.5.0 Available on USB Serial (Serial)_
+{{#unless core}}_Since 0.6.0 Available on `USBSerial1`_{{/unless}}
 
 Retrieves the number of bytes (characters) that can be written to this serial port without blocking.
 
@@ -3308,13 +3341,9 @@ It is possible for the application to allocate its own buffers for `Serial` and 
 
 ### blockOnOverrun()
 
-_Since 0.4.9. Available on Serial1, Serial2{{#if electron}}, Serial4, Serial5{{/if}}._
-
-_Since 0.5.0. Available on USB Serial (Serial)_
-
-{{#unless core}}
-_Since 0.6.0. Available on `USBSerial1`_
-{{/unless}}
+_Since 0.4.9 Available on Serial1{{#if has-serial2}}, Serial2{{/if}}{{#if has-serial4-5}}, Serial4, Serial5{{/if}}._
+_Since 0.5.0 Available on USB Serial (Serial)_
+{{#unless core}}_Since 0.6.0 Available on `USBSerial1`_{{/unless}}
 
 Defines what should happen when calls to `write()/print()/println()/printlnf()` that would overrun the buffer.
 
@@ -3334,15 +3363,15 @@ A family of application-defined functions that are called whenever there is data
 from a serial peripheral.
 
 - serialEvent: called when there is data available from `Serial`
-{{#unless core}}
-- usbSerialEvent1: called when there is data available from `USBSerial1`
-{{/unless}}
+{{#unless core}}- usbSerialEvent1: called when there is data available from `USBSerial1`{{/unless}}
 - serialEvent1: called when there is data available from `Serial1`
+{{#if has-serial-2}}
 - serialEvent2: called when there is data available from `Serial2`
-{{#if electron}}
+{{/if}} {{!-- has-serial-2 --}}
+{{#if has-serial4-5}}
 - serialEvent4: called when there is data available from `Serial4`
 - serialEvent5: called when there is data available from `Serial5`
-{{/if}}
+{{/if}} {{!-- has-serial-4-5 --}}
 
 The `serialEvent` functions are called by the system as part of the application loop. Since these is an
 extension of the application loop, it is ok to call any functions at you would also call from loop().
@@ -3365,7 +3394,7 @@ void serialEvent()
 
 ### peek()
 
-_Available on Serial, {{#unless core}}USBSerial1, {{/unless}}Serial1, Serial2{{#if electron}}, Serial4, Serial5{{/if}}._
+_Available on Serial, {{#unless core}}USBSerial1, {{/unless}}Serial1{{#if has-serial2}}, Serial2{{/if}}{{#if has-serial4-5}}, Serial4, Serial5{{/if}}._
 
 Returns the next byte (character) of incoming serial data without removing it from the internal serial buffer. That is, successive calls to peek() will return the same character, as will the next call to `read()`.
 
@@ -3378,7 +3407,7 @@ Serial1.peek();
 
 ### write()
 
-_Available on Serial, Serial1, Serial2{{#if electron}}, Serial4, Serial5{{/if}}._
+_Available on Serial, Serial1{{#if has-serial2}}, Serial2{{/if}}{{#if has-serial4-5}}, Serial4, Serial5{{/if}}._
 
 Writes binary data to the serial port. This data is sent as a byte or series of bytes; to send the characters representing the digits of a number use the `print()` function instead.
 
@@ -3417,7 +3446,7 @@ void loop()
 
 ### read()
 
-_Available on Serial, {{#unless core}}USBSerial1, {{/unless}}Serial1, Serial2{{#if electron}}, Serial4, Serial5{{/if}}._
+_Available on Serial, {{#unless core}}USBSerial1, {{/unless}}Serial1{{#if has-serial2}}, Serial2{{/if}}{{#if has-serial4-5}}, Serial4, Serial5{{/if}}._
 
 Reads incoming serial data.
 
@@ -3450,7 +3479,7 @@ void loop() {
 ```
 ### print()
 
-_Available on Serial, {{#unless core}}USBSerial1, {{/unless}}Serial1, Serial2{{#if electron}}, Serial4, Serial5{{/if}}._
+_Available on Serial, {{#unless core}}USBSerial1, {{/unless}}Serial1{{#if has-serial2}}, Serial2{{/if}}{{#if has-serial4-5}}, Serial4, Serial5{{/if}}._
 
 Prints data to the serial port as human-readable ASCII text.
 This command can take many forms. Numbers are printed using an ASCII character for each digit. Floats are similarly printed as ASCII digits, defaulting to two decimal places. Bytes are sent as a single character. Characters and strings are sent as is. For example:
@@ -3472,7 +3501,7 @@ An optional second parameter specifies the base (format) to use; permitted value
 
 ### println()
 
-_Available on Serial, {{#unless core}}USBSerial1, {{/unless}}Serial1, Serial2{{#if electron}}, Serial4, Serial5{{/if}}._
+_Available on Serial, {{#unless core}}USBSerial1, {{/unless}}Serial1{{#if has-serial2}}, Serial2{{/if}}{{#if has-serial4-5}}, Serial4, Serial5{{/if}}._
 
 Prints data to the serial port as human-readable ASCII text followed by a carriage return character (ASCII 13, or '\r') and a newline character (ASCII 10, or '\n'). This command takes the same forms as `Serial.print()`.
 
@@ -3521,9 +3550,9 @@ void loop() {
 
 ### printf()
 
-*Since 0.4.6.*
+_Since 0.4.6_
 
-_Available on Serial, {{#unless core}}USBSerial1, {{/unless}}Serial1, Serial2{{#if electron}}, Serial4, Serial5{{/if}}._
+_Available on Serial, {{#unless core}}USBSerial1, {{/unless}}Serial1{{#if has-serial2}}, Serial2{{/if}}{{#if has-serial4-5}}, Serial4, Serial5{{/if}}._
 
 Provides [printf](http://www.cplusplus.com/reference/cstdio/printf/)-style formatting over serial.
 
@@ -3547,9 +3576,9 @@ The last `printf()` call could be changed to `printlnf()` to avoid a separate ca
 
 ### printlnf()
 
-*Since 0.4.6.*
+_Since 0.4.6_
 
-_Available on Serial, {{#unless core}}USBSerial1, {{/unless}}Serial1, Serial2{{#if electron}}, Serial4, Serial5{{/if}}._
+_Available on Serial, {{#unless core}}USBSerial1, {{/unless}}Serial1{{#if has-serial2}}, Serial2{{/if}}{{#if has-serial4-5}}, Serial4, Serial5{{/if}}._
 
 formatted output followed by a newline.
 Produces the same output as [printf](#printf-) which is then followed by a newline character,
@@ -3570,7 +3599,7 @@ Serial1.flush();
 
 ### halfduplex()
 
-_Available on Serial1, Serial2{{#if electron}}, Serial4, Serial5{{/if}}._
+_Available on Serial1{{#if has-serial2}}, Serial2{{/if}}{{#if has-serial4-5}}, Serial4, Serial5{{/if}}._
 
 Puts Serial1 into half-duplex mode.  In this mode both the transmit and receive
 are on the TX pin.  This mode can be used for a single wire bus communications
@@ -3608,8 +3637,8 @@ void setup()
 }
 ```
 
-_Since 0.5.3. Available on `Serial`._
-_Since 0.6.0. Available on `Serial`{{#unless core}} and `USBSerial1`{{/unless}}._
+_Since 0.5.3 Available on `Serial`._
+_Since 0.6.0 Available on `Serial`{{#unless core}} and `USBSerial1`{{/unless}}._
 
 Used to check if host has serial port (virtual COM port) open.
 
@@ -4195,13 +4224,14 @@ See [`Keyboard.write()`](#write--1) and [`Serial.printlnf()`](#printlnf-) docume
 
 {{/unless}}
 
+{{#if has-spi}}
 SPI
 ----
 This library allows you to communicate with SPI devices, with the {{device}} as the master device.
 
-{{#unless core}}
+{{#if has-spi-slave}}
 _Since 0.5.0_ the {{device}} can function as a slave.
-{{/unless}}
+{{/if}}
 
 {{#if core}}
 ![SPI](/assets/images/core-pin-spi.jpg)
@@ -4214,14 +4244,14 @@ be used via the `SPI` object, are mapped as follows:
 * `MISO` => `A4`
 * `MOSI` => `A5`
 
-{{#unless core}}
+{{#if has-multiple-spi}}
 There is a second hardware SPI interface available, which can
 be used via the `SPI1` object. This second port is mapped as follows:
 * `SS` => `D5` (default)
 * `SCK` => `D4`
 * `MISO` => `D3`
 * `MOSI` => `D2`
-{{/unless}}
+{{/if}}
 
 {{#if electron}}
 Additionally on the Electron, there is an alternate pin location for the second SPI interface, which can
@@ -4232,13 +4262,13 @@ be used via the `SPI2` object. This alternate location is mapped as follows:
 * `MOSI` => `C1`
 {{/if}}
 
-{{#unless core}}
+{{#if has-multiple-spi}}
 **Note**: Because there are multiple SPI peripherals available, be sure to use the same `SPI`,`SPI1`{{#if electron}},`SPI2`{{/if}} object with all associated functions. I.e.,
 
 Do **NOT** use **SPI**.begin() with **SPI1**.transfer();
 
 **Do** use **SPI**.begin() with **SPI**.transfer();
-{{/unless}}
+{{/if}}
 
 ### begin()
 
@@ -4249,38 +4279,36 @@ Initializes the SPI bus by setting SCK, MOSI, and a user-specified slave-select 
 ```C++
 // SYNTAX
 SPI.begin(ss);
-{{#unless core}}
+{{#if has-multiple-spi}}
 SPI1.begin(ss);
-{{/unless}}
 {{#if electron}}
 SPI2.begin(ss);
+{{/if}}
 {{/if}}
 ```
 
 Where, the parameter `ss` is the `SPI` device slave-select pin to initialize.  If no pin is specified, the default pin is `SS (A2)`.
-{{#unless core}}
+{{#if has-multiple-spi}}
 For `SPI1`, the default `ss` pin is `SS (D5)`.
-{{/unless}}
 {{#if electron}}
 For `SPI2`, the default `ss` pin is also `SS (D5)`.
 {{/if}}
 
-{{#unless core}}
 ```C++
 // Example using SPI1, with D5 as the SS pin:
 SPI1.begin();
 // or
 SPI1.begin(D5);
 ```
-{{/unless}}
 {{#if electron}}
 ```C++
 // Example using SPI2, with C0 as the SS pin:
 SPI2.begin(C0);
 ```
 {{/if}}
+{{/if}}
 
-{{#unless core}}
+{{#if has-spi-slave}}
 
 ### begin(SPI_Mode, uint16_t)
 
@@ -4304,7 +4332,7 @@ SPI1.begin(SPI_MODE_SLAVE, D5);
 SPI2.begin(SPI_MODE_SLAVE, C0);
 ```
 
-{{/unless}}
+{{/if}} {{!-- has-spi-slave --}}
 
 ### end()
 
@@ -4313,11 +4341,11 @@ Disables the SPI bus (leaving pin modes unchanged).
 ```C++
 // SYNTAX
 SPI.end();
-{{#unless core}}
+{{#if has-multiple-spi}}
 SPI1.end();
-{{/unless}}
 {{#if electron}}
 SPI2.end();
+{{/if}}
 {{/if}}
 ```
 
@@ -4328,11 +4356,11 @@ Sets the order of the bits shifted out of and into the SPI bus, either LSBFIRST 
 ```C++
 // SYNTAX
 SPI.setBitOrder(order);
-{{#unless core}}
+{{#if has-multiple-spi}}
 SPI1.setBitOrder(order);
-{{/unless}}
 {{#if electron}}
 SPI2.setBitOrder(order);
+{{/if}}
 {{/if}}
 ```
 
@@ -4348,13 +4376,13 @@ as a value plus a multiplier.
 // SYNTAX
 SPI.setClockSpeed(value, scale);
 SPI.setClockSpeed(frequency);
-{{#unless core}}
+{{#if has-multiple-spi}}
 SPI1.setClockSpeed(value, scale);
 SPI1.setClockSpeed(frequency);
-{{/unless}}
 {{#if electron}}
 SPI2.setClockSpeed(value, scale);
 SPI2.setClockSpeed(frequency);
+{{/if}}
 {{/if}}
 ```
 
@@ -4372,6 +4400,10 @@ than the one specified.
 This method can make writing portable code easier, since it specifies the clock speed
 absolutely, giving comparable results across devices. In contrast, specifying
 the clock speed using dividers is typically not portable since is dependent upon the system clock speed.
+
+{{#if raspberry-pi}}
+On the Raspberry Pi, the default SPI clock is 4 MHz.
+{{/if}}
 
 ### setClockDividerReference
 
@@ -4397,10 +4429,19 @@ SPI.setClockDividerReference(SPI_CLK_ARDUINO);
 SPI.setClockDivider(SPI_CLK_DIV4);
 ```
 
-The default clock divider reference is the system clock.  {{#if core}}On the Core, this is 72 MHz.{{/if}} {{#unless core}}On the Photon and Electron, the system clock speeds are:
+The default clock divider reference is the system clock.
+{{#if core}}
+On the Core, this is 72 MHz.
+{{else}}
+{{#if raspberry-pi}}
+On the Raspberry Pi, this is 64 MHz.
+{{else}}
+On the Photon and Electron, the system clock speeds are:
 - SPI - 60 MHz
 - SPI1 - 30 MHz
-{{/unless}}
+{{/if}}
+{{/if}}
+
 
 ### setClockDivider()
 
@@ -4409,11 +4450,11 @@ Sets the SPI clock divider relative to the selected clock reference. The availab
 ```C++
 // SYNTAX
 SPI.setClockDivider(divider);
-{{#unless core}}
+{{#if has-multiple-spi}}
 SPI1.setClockDivider(divider);
-{{/unless}}
 {{#if electron}}
 SPI2.setClockDivider(divider);
+{{/if}}
 {{/if}}
 ```
 Where the parameter, `divider` can be:
@@ -4434,11 +4475,11 @@ Sets the SPI data mode: that is, clock polarity and phase. See the [Wikipedia ar
 ```C++
 // SYNTAX
 SPI.setDataMode(mode);
-{{#unless core}}
+{{#if has-multiple-spi}}
 SPI1.setDataMode(mode);
-{{/unless}}
 {{#if electron}}
 SPI2.setDataMode(mode);
+{{/if}}
 {{/if}}
 ```
 Where the parameter, `mode` can be:
@@ -4455,11 +4496,11 @@ Transfers one byte over the SPI bus, both sending and receiving.
 ```C++
 // SYNTAX
 SPI.transfer(val);
-{{#unless core}}
+{{#if has-multiple-spi}}
 SPI1.transfer(val);
-{{/unless}}
 {{#if electron}}
 SPI2.transfer(val);
+{{/if}}
 {{/if}}
 ```
 Where the parameter `val`, can is the byte to send out over the SPI bus.
@@ -4568,7 +4609,11 @@ SPI.available();
 
 Returns the number of bytes available.
 
-{{/unless}}
+{{/unless}} {{!-- core --}}
+
+{{/if}} {{!-- has-spi --}}
+
+{{#if has-i2c}}
 
 Wire (I2C)
 ----
@@ -4894,7 +4939,9 @@ void loop()
 }
 ```
 
-{{#unless core}}
+{{/if}} {{!-- has-i2c --}}
+
+{{#if has-can}}
 
 ## CAN (CANbus)
 
@@ -5158,7 +5205,8 @@ This value is only updated when attempting to transmit messages.
 The two most common causes of error are: being alone on the bus (such as when using a CAN shield not connected to anything) or using the wrong baud rate. Attempting to transmit in those situations will result in `CAN_BUS_OFF`.
 
 Errors heal automatically when properly communicating with other microcontrollers on the CAN bus.
-{{/unless}}
+
+{{/if}} {{!-- has-can --}}
 
 ## IPAddress
 
@@ -5940,7 +5988,7 @@ IPAddress multicastAddress(224,0,0,0);
 Udp.leaveMulticast(multicastAddress);
 ```
 
-{{/if}}
+{{/if}} {{!-- photon --}}
 
 ## Servo
 
@@ -6059,6 +6107,7 @@ servo.setTrim(30);
 servo.setTrim(0);
 ```
 
+{{#if has-rgb}}
 
 ## RGB
 
@@ -6200,6 +6249,7 @@ class ExternalRGB {
 ExternalRGB myRGB(D0, D1, D2);
 ```
 
+{{/if}} {{!-- has-rgb --}}
 
 ## Time
 
@@ -6679,6 +6729,8 @@ void loop()
 }
 ```
 
+{{#if has-interrupts}}
+
 ## Interrupts
 
 Interrupts are a way to write code that is run when an external event occurs.
@@ -6826,12 +6878,14 @@ noInterrupts();
 
 `noInterrupts()` neither accepts a parameter nor returns anything.
 
+{{/if}} {{!-- has-interrupts --}}
+
 ## Software Timers
 
 _Since 0.4.7. This feature is available on the Photon, P1 and Electron out the box. On the Core, the
 `freertos4core` Particle library <a href="https://build.particle.io/libs/56c33d19413c5afea2000601/tab/timers.ino" target="_blank">(Timers.ino example found here)</a> should be used to add FreeRTOS to the core._
 
-Software Timers provide a way to have timed actions in your program.  FreeRTOS provides the ability to have up to 10 Software Timers at a time with a minimum resolution of 1 millisecond.  It is common to use millis() based "timers" though exact timing is not always possible (due to other program delays).  Software timers are maintained by FreeRTOS and provide a more reliable method for running timed actions using callback functions.  Please note that Software Timers are "chained" and will be serviced sequencially when several timers trigger simultaneously, thus requiring special consideration when writing callback functions.
+Software Timers provide a way to have timed actions in your program.  FreeRTOS provides the ability to have up to 10 Software Timers at a time with a minimum resolution of 1 millisecond.  It is common to use millis() based "timers" though exact timing is not always possible (due to other program delays).  Software timers are maintained by FreeRTOS and provide a more reliable method for running timed actions using callback functions.  Please note that Software Timers are "chained" and will be serviced sequentially when several timers trigger simultaneously, thus requiring special consideration when writing callback functions.
 
 ```cpp
 // EXAMPLE
@@ -6994,7 +7048,7 @@ if (timer.isActive()) {
 }
 ```
 
-{{#unless core}}
+{{#if has-application-watchdog}}
 
 ## Application Watchdog
 
@@ -7029,7 +7083,7 @@ A default `stack_size` of 512 is used for the thread. `stack_size` is an optiona
 
 The application watchdog requires interrupts to be active in order to function.  Enabling the hardware watchdog in combination with this is recommended, so that the system resets in the event that interrupts are not firing.
 
-{{/unless}}
+{{/if}} {{!-- has-application-watchdog --}}
 
 ## Math
 
@@ -7515,12 +7569,10 @@ when data is written using `put()` or `write()` and both pages are full. So call
 `performPendingErase()` is optional and provided to avoid the uncertainty of a potential processor
 pause any time `put()` or `write()` is called.
 
-{{#unless core}}
+{{#if has-backup-ram}}
 ## Backup RAM (SRAM)
 
-The STM32F2xx features 4KB of backup RAM. Unlike the regular RAM memory, the backup
-RAM is retained so long as power is provided to VIN or to VBAT. In particular this means that
-the data in backup RAM is retained when:
+The STM32F2xx features 4KB of backup RAM (3068 bytes for system firmware v0.6.0-rc1 and later) of which is available to the user. Unlike the regular RAM memory, the backup RAM is retained so long as power is provided to VIN or to VBAT. In particular this means that the data in backup RAM is retained when:
 
 - the device goes into deep sleep mode
 - the device is hardware or software reset (while maintaining power)
@@ -7586,7 +7638,7 @@ Here's some typical use cases for `retained` variables:
 - storing data for use after a hardware or software reset
 
 Finally, if you don't need the persistence of `retained` variables, you
-can consider them simply as 4KB of extra RAM to use.
+can consider them simply as extra RAM to use.
 
 ```C++
 // EXAMPLE USAGE
@@ -7671,7 +7723,7 @@ keeping the `retained` variables in their own separate block. In this way it's e
 when new `retained` variables are added to the end of the list, or when they are rearranged.
 
 
-{{/unless}}
+{{/if}} {{!-- has-backup-ram --}}
 
 ## Macros
 
@@ -7701,7 +7753,7 @@ STARTUP( setup_the_fundulating_conbobulator() );
 
 The code referenced by `STARTUP()` is executed very early in the startup sequence, so it's best suited
 to initializing digital I/O and peripherals. Networking setup code should still be placed in `setup()`.
-{{#if photon}}
+{{#if has-wifi-antenna-switch}}
 Although there is one notable exception - `WiFi.selectAntenna()` should be called from `STARTUP()` to select the default antenna before the Wi-Fi connection is made.
 {{/if}}
 
@@ -7915,7 +7967,7 @@ When using manual mode:
 - If `Particle.process()` is called less frequently than every 20 seconds, the connection with the Cloud will die. It may take a couple of additional calls of `Particle.process()` for the device to recognize that the connection has been lost.
 
 
-{{#unless core}}
+{{#if has-threading}}
 ## System Thread
 
 *Since 0.4.6.*
@@ -8154,7 +8206,7 @@ only for a period of time, we can use `waitFor`
     waitUntil(WiFi.ready);
 ```
 
-{{/unless}}
+{{/if}} {{!-- has-threading --}}
 
 ## System Calls
 
@@ -8383,6 +8435,7 @@ System.enterSafeMode();
 
 Resets the device and restarts in safe mode.
 
+{{#if has-sleep}}
 
 ### sleep() [ Sleep ]
 
@@ -8501,11 +8554,12 @@ System.sleep(D0,RISING,60);
  - Please see the [Photon datasheet](/datasheets/photon-datasheet/#recommended-operating-conditions)
 
 
-_Since 0.4.5._ The state of the {{#unless electron}}Wi-Fi{{/unless}}{{#if electron}}Cellular{{/if}} and Cloud connections is restored when the system wakes up from sleep. So if the device was connected to the cloud before sleeping, then the cloud connection
+_Since 0.4.5._ The state of the {{#if has-wifi}}Wi-Fi{{/if}}{{#if has-cellular}}Cellular{{/if}} and Cloud connections is restored when the system wakes up from sleep. So if the device was connected to the cloud before sleeping, then the cloud connection
 is automatically resumed on waking up.
 
 _Since 0.5.0._ In automatic modes, the `sleep()` function doesn't return until the cloud connection has been established. This means that application code can use the cloud connection as soon as  `sleep()` returns. In previous versions, it was necessary to call `Particle.process()` to have the cloud reconnected by the system in the background.  
 
+{{/if}} {{!-- has-sleep --}}
 
 ### reset()
 
