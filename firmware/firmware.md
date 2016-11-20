@@ -3178,14 +3178,15 @@ Serial1.begin(speed, config); //  "
 
 Serial1.begin(9600, SERIAL_9N1); // via TX/RX pins, 9600 9N1 mode
 Serial1.begin(9600, SERIAL_DATA_BITS_8 | SERIAL_STOP_BITS_1_5 | SERIAL_PARITY_EVEN); // via TX/RX pins, 9600 8E1.5
-{{#if has-serial-2}}
+
+{{#if has-serial2}}
 #include "Serial2/Serial2.h"
 Serial2.begin(speed);         {{#if core}}// D1(TX) and D0(RX) pins{{else}}// RGB-LED green(TX) and blue (RX) pins{{/if}}
 Serial2.begin(speed, config); //  "
 
 Serial2.begin(9600);         // via RGB Green (TX) and Blue (RX) LED pins
 Serial2.begin(9600, SERIAL_DATA_BITS_8 | SERIAL_STOP_BITS_1_5 | SERIAL_PARITY_EVEN); // via RGB Green (TX) and Blue (RX) LED pins, 9600 8E1.5
-{{/if}} {{!-- has-serial-2 --}}
+{{/if}} {{!-- has-serial2 --}}
 {{#if has-serial4-5}}
 
 #include "Serial4/Serial4.h"
@@ -3195,7 +3196,7 @@ Serial4.begin(speed, config); //  "
 #include "Serial5/Serial5.h"
 Serial5.begin(speed);         // via C1(TX)/C0(RX) pins
 Serial5.begin(speed, config); //  "
-{{/if}} {{!-- has-serial-4-5 --}}
+{{/if}} {{!-- has-serial4-5 --}}
 ```
 
 Parameters:
@@ -3284,7 +3285,9 @@ void loop()
 ### availableForWrite()
 
 _Since 0.4.9 Available on Serial1{{#if has-serial2}}, Serial2{{/if}}{{#if has-serial4-5}}, Serial4, Serial5{{/if}}._
+
 _Since 0.5.0 Available on USB Serial (Serial)_
+
 {{#unless core}}_Since 0.6.0 Available on `USBSerial1`_{{/unless}}
 
 Retrieves the number of bytes (characters) that can be written to this serial port without blocking.
@@ -3342,7 +3345,9 @@ It is possible for the application to allocate its own buffers for `Serial` and 
 ### blockOnOverrun()
 
 _Since 0.4.9 Available on Serial1{{#if has-serial2}}, Serial2{{/if}}{{#if has-serial4-5}}, Serial4, Serial5{{/if}}._
+
 _Since 0.5.0 Available on USB Serial (Serial)_
+
 {{#unless core}}_Since 0.6.0 Available on `USBSerial1`_{{/unless}}
 
 Defines what should happen when calls to `write()/print()/println()/printlnf()` that would overrun the buffer.
@@ -3365,13 +3370,13 @@ from a serial peripheral.
 - serialEvent: called when there is data available from `Serial`
 {{#unless core}}- usbSerialEvent1: called when there is data available from `USBSerial1`{{/unless}}
 - serialEvent1: called when there is data available from `Serial1`
-{{#if has-serial-2}}
+{{#if has-serial2}}
 - serialEvent2: called when there is data available from `Serial2`
-{{/if}} {{!-- has-serial-2 --}}
+{{/if}} {{!-- has-serial2 --}}
 {{#if has-serial4-5}}
 - serialEvent4: called when there is data available from `Serial4`
 - serialEvent5: called when there is data available from `Serial5`
-{{/if}} {{!-- has-serial-4-5 --}}
+{{/if}} {{!-- has-serial4-5 --}}
 
 The `serialEvent` functions are called by the system as part of the application loop. Since these is an
 extension of the application loop, it is ok to call any functions at you would also call from loop().
@@ -3638,6 +3643,7 @@ void setup()
 ```
 
 _Since 0.5.3 Available on `Serial`._
+
 _Since 0.6.0 Available on `Serial`{{#unless core}} and `USBSerial1`{{/unless}}._
 
 Used to check if host has serial port (virtual COM port) open.
