@@ -3010,9 +3010,9 @@ void setup()
   Serial.println("Hello World!");
 }
 ```
-{{#unless core}}
+{{#if has-usb-serial1}}
 `USBSerial1`: _Since 0.6.0_ This channel communicates through the USB port and when connected to a computer, will show up as a second virtual COM port. This channel is disabled by default.
-{{/unless}}
+{{/if}}
 
 `Serial1:` This channel is available via the device's TX and RX pins.
 
@@ -3078,15 +3078,14 @@ To use the hardware serial pins of (Serial1{{#if has-serial2}}/2{{/if}}{{#if has
 
 ### begin()
 
-_Available on Serial, {{#unless core}}USBSerial1, {{/unless}}Serial1{{#if has-serial2}}, Serial2{{/if}}{{#if has-serial4-5}}, Serial4, Serial5{{/if}}._
+_Available on Serial, {{#if has-usb-serial1}}USBSerial1, {{/if}}Serial1{{#if has-serial2}}, Serial2{{/if}}{{#if has-serial4-5}}, Serial4, Serial5{{/if}}._
 
 Enables serial channel with specified configuration.
 
 As of 0.5.0 firmware, 28800 baudrate set by the Host on `Serial` will put the device in Listening Mode, where a YMODEM download can be started by additionally sending an `f` character.
 
-{{#unless core}}
+{{#if has-usb-serial1}}
 ***NOTE*** _Since 0.6.0_: When `USBSerial1` is enabled by calling `USBSerial1.begin()` in `setup()` or during normal application execution, the device will quickly disconnect from Host and connect back with `USBSerial1` enabled. If such behavior is undesireable, `USBSerial1` may be enabled with `STARTUP()` macro, which will force the device to connect to the Host with both `Serial` and `USBSerial1` by default.
-{{/unless}}
 
 ```C++
 // EXAMPLE USAGE
@@ -3102,6 +3101,7 @@ void setup()
   USBSerial1.println("Hello USBSerial1!");
 }
 ```
+{{/if}} {{!-- has-usb-serial1 --}}
 
 When using hardware serial channels (Serial1, Serial2{{#if electron}}, Serial4, Serial5{{/if}}), the configuration of the serial channel may also specify the number of data bits, stop bits, parity, flow control and other settings. The default is SERIAL_8N1 (8 data bits, no parity and 1 stop bit) and does not need to be specified to achieve this configuration.  To specify one of the following configurations, add one of these defines as the second parameter in the `begin()` function, e.g. `Serial1.begin(9600, SERIAL_8E1);` for 8 data bits, even parity and 1 stop bit.
 
@@ -3169,9 +3169,9 @@ LIN configuration:
 // SYNTAX
 Serial.begin();          // via USB port
 
-{{#unless core}}
+{{#if has-usb-serial1}}
 USBSerial1.begin();      // via USB port
-{{/unless}}
+{{/if}}
 
 Serial1.begin(speed);         // via TX/RX pins
 Serial1.begin(speed, config); //  "
@@ -3200,8 +3200,8 @@ Serial5.begin(speed, config); //  "
 ```
 
 Parameters:
-- `speed`: parameter that specifies the baud rate *(long)* _(optional for `Serial` {{#unless core}}and `USBSerial1`{{/unless}})_
-- `config`: parameter that specifies the number of data bits used, parity and stop bits *(long)* _(not used with `Serial` {{#unless core}}and `USBSerial1`{{/unless}})_
+- `speed`: parameter that specifies the baud rate *(long)* _(optional for `Serial` {{#if has-usb-serial1}}and `USBSerial1`{{/if}})_
+- `config`: parameter that specifies the number of data bits used, parity and stop bits *(long)* _(not used with `Serial` {{#if has-usb-serial1}}and `USBSerial1`{{/if}})_
 
 
 ```C++
@@ -3225,7 +3225,7 @@ void loop() {}
 
 ### end()
 
-_Available on Serial, {{#unless core}}USBSerial1, {{/unless}}Serial1{{#if has-serial2}}, Serial2{{/if}}{{#if has-serial4-5}}, Serial4, Serial5{{/if}}._
+_Available on Serial, {{#if has-usb-serial1}}USBSerial1, {{/if}}Serial1{{#if has-serial2}}, Serial2{{/if}}{{#if has-serial4-5}}, Serial4, Serial5{{/if}}._
 
 Disables serial channel.
 
@@ -3234,7 +3234,7 @@ When used with hardware serial channels (Serial1, Serial2{{#if electron}}, Seria
 {{#unless core}}
 _Since 0.6.0_
 
-When used with USB serial channels (`Serial`{{#unless core}} or `USBSerial1`{{/unless}}), `end()` will cause the device to quickly disconnect from Host and connect back without the selected serial channel.
+When used with USB serial channels (`Serial`{{#if has-usb-serial1}} or `USBSerial1`{{/if}}), `end()` will cause the device to quickly disconnect from Host and connect back without the selected serial channel.
 {{/unless}}
 
 ```C++
@@ -3244,17 +3244,17 @@ Serial1.end();
 
 ### available()
 
-_Available on Serial, {{#unless core}}USBSerial1, {{/unless}}Serial1{{#if has-serial2}}, Serial2{{/if}}{{#if has-serial4-5}}, Serial4, Serial5{{/if}}._
+_Available on Serial, {{#if has-usb-serial1}}USBSerial1, {{/if}}Serial1{{#if has-serial2}}, Serial2{{/if}}{{#if has-serial4-5}}, Serial4, Serial5{{/if}}._
 
 Get the number of bytes (characters) available for reading from the serial port. This is data that's already arrived and stored in the serial receive buffer.
 
 The receive buffer size for hardware serial channels (Serial1, Serial2{{#if electron}}, Serial4, Serial5{{/if}}) is 64 bytes.
 
-{{#unless core}}
+{{#if has-usb-serial1}}
 The receive buffer size for USB serial channels (Serial and USBSerial1) is 256 bytes. Also see [`acquireSerialBuffer`](#acquireserialbuffer-).
 {{else}}
 The receive buffer size for Serial is 64 bytes.
-{{/unless}}
+{{/if}}
 
 ```C++
 // EXAMPLE USAGE
@@ -3288,17 +3288,17 @@ _Since 0.4.9 Available on Serial1{{#if has-serial2}}, Serial2{{/if}}{{#if has-se
 
 _Since 0.5.0 Available on USB Serial (Serial)_
 
-{{#unless core}}_Since 0.6.0 Available on `USBSerial1`_{{/unless}}
+{{#if has-usb-serial1}}_Since 0.6.0 Available on `USBSerial1`_{{/if}}
 
 Retrieves the number of bytes (characters) that can be written to this serial port without blocking.
 
 If `blockOnOverrun(false)` has been called, the method returns the number of bytes that can be written to the buffer without causing buffer overrun, which would cause old data to be discarded and overwritten.
 
-{{#unless core}}
+{{#if has-usb-serial1}}
 Also see [`acquireSerialBuffer`](#acquireserialbuffer-).
-{{/unless}}
+{{/if}}
 
-{{#unless core}}
+{{#if has-usb-serial1}}
 ### acquireSerialBuffer()
 
 ```C++
@@ -3340,7 +3340,7 @@ _Since 0.6.0_
 
 It is possible for the application to allocate its own buffers for `Serial` and `USBSerial1` by implementing `acquireSerialBuffer` and `acquireUSBSerial1Buffer` functions. Minimum receive buffer size is 65 bytes.
 
-{{/unless}}
+{{/if}} {{!-- has-usb-serial1 --}}
 
 ### blockOnOverrun()
 
@@ -3348,7 +3348,7 @@ _Since 0.4.9 Available on Serial1{{#if has-serial2}}, Serial2{{/if}}{{#if has-se
 
 _Since 0.5.0 Available on USB Serial (Serial)_
 
-{{#unless core}}_Since 0.6.0 Available on `USBSerial1`_{{/unless}}
+{{#if has-usb-serial1}}_Since 0.6.0 Available on `USBSerial1`_{{/if}}
 
 Defines what should happen when calls to `write()/print()/println()/printlnf()` that would overrun the buffer.
 
@@ -3368,7 +3368,7 @@ A family of application-defined functions that are called whenever there is data
 from a serial peripheral.
 
 - serialEvent: called when there is data available from `Serial`
-{{#unless core}}- usbSerialEvent1: called when there is data available from `USBSerial1`{{/unless}}
+{{#if has-usb-serial1}}- usbSerialEvent1: called when there is data available from `USBSerial1`{{/if}}
 - serialEvent1: called when there is data available from `Serial1`
 {{#if has-serial2}}
 - serialEvent2: called when there is data available from `Serial2`
@@ -3399,7 +3399,7 @@ void serialEvent()
 
 ### peek()
 
-_Available on Serial, {{#unless core}}USBSerial1, {{/unless}}Serial1{{#if has-serial2}}, Serial2{{/if}}{{#if has-serial4-5}}, Serial4, Serial5{{/if}}._
+_Available on Serial, {{#if has-usb-serial1}}USBSerial1, {{/if}}Serial1{{#if has-serial2}}, Serial2{{/if}}{{#if has-serial4-5}}, Serial4, Serial5{{/if}}._
 
 Returns the next byte (character) of incoming serial data without removing it from the internal serial buffer. That is, successive calls to peek() will return the same character, as will the next call to `read()`.
 
@@ -3451,7 +3451,7 @@ void loop()
 
 ### read()
 
-_Available on Serial, {{#unless core}}USBSerial1, {{/unless}}Serial1{{#if has-serial2}}, Serial2{{/if}}{{#if has-serial4-5}}, Serial4, Serial5{{/if}}._
+_Available on Serial, {{#if has-usb-serial1}}USBSerial1, {{/if}}Serial1{{#if has-serial2}}, Serial2{{/if}}{{#if has-serial4-5}}, Serial4, Serial5{{/if}}._
 
 Reads incoming serial data.
 
@@ -3484,7 +3484,7 @@ void loop() {
 ```
 ### print()
 
-_Available on Serial, {{#unless core}}USBSerial1, {{/unless}}Serial1{{#if has-serial2}}, Serial2{{/if}}{{#if has-serial4-5}}, Serial4, Serial5{{/if}}._
+_Available on Serial, {{#if has-usb-serial1}}USBSerial1, {{/if}}Serial1{{#if has-serial2}}, Serial2{{/if}}{{#if has-serial4-5}}, Serial4, Serial5{{/if}}._
 
 Prints data to the serial port as human-readable ASCII text.
 This command can take many forms. Numbers are printed using an ASCII character for each digit. Floats are similarly printed as ASCII digits, defaulting to two decimal places. Bytes are sent as a single character. Characters and strings are sent as is. For example:
@@ -3506,7 +3506,7 @@ An optional second parameter specifies the base (format) to use; permitted value
 
 ### println()
 
-_Available on Serial, {{#unless core}}USBSerial1, {{/unless}}Serial1{{#if has-serial2}}, Serial2{{/if}}{{#if has-serial4-5}}, Serial4, Serial5{{/if}}._
+_Available on Serial, {{#if has-usb-serial1}}USBSerial1, {{/if}}Serial1{{#if has-serial2}}, Serial2{{/if}}{{#if has-serial4-5}}, Serial4, Serial5{{/if}}._
 
 Prints data to the serial port as human-readable ASCII text followed by a carriage return character (ASCII 13, or '\r') and a newline character (ASCII 10, or '\n'). This command takes the same forms as `Serial.print()`.
 
@@ -3557,7 +3557,7 @@ void loop() {
 
 _Since 0.4.6_
 
-_Available on Serial, {{#unless core}}USBSerial1, {{/unless}}Serial1{{#if has-serial2}}, Serial2{{/if}}{{#if has-serial4-5}}, Serial4, Serial5{{/if}}._
+_Available on Serial, {{#if has-usb-serial1}}USBSerial1, {{/if}}Serial1{{#if has-serial2}}, Serial2{{/if}}{{#if has-serial4-5}}, Serial4, Serial5{{/if}}._
 
 Provides [printf](http://www.cplusplus.com/reference/cstdio/printf/)-style formatting over serial.
 
@@ -3583,7 +3583,7 @@ The last `printf()` call could be changed to `printlnf()` to avoid a separate ca
 
 _Since 0.4.6_
 
-_Available on Serial, {{#unless core}}USBSerial1, {{/unless}}Serial1{{#if has-serial2}}, Serial2{{/if}}{{#if has-serial4-5}}, Serial4, Serial5{{/if}}._
+_Available on Serial, {{#if has-usb-serial1}}USBSerial1, {{/if}}Serial1{{#if has-serial2}}, Serial2{{/if}}{{#if has-serial4-5}}, Serial4, Serial5{{/if}}._
 
 formatted output followed by a newline.
 Produces the same output as [printf](#printf-) which is then followed by a newline character,
@@ -3644,7 +3644,7 @@ void setup()
 
 _Since 0.5.3 Available on `Serial`._
 
-_Since 0.6.0 Available on `Serial`{{#unless core}} and `USBSerial1`{{/unless}}._
+_Since 0.6.0 Available on `Serial`{{#if has-usb-serial1}} and `USBSerial1`{{/if}}._
 
 Used to check if host has serial port (virtual COM port) open.
 
