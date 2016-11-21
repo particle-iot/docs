@@ -39,6 +39,11 @@ The Raspberry Pi 3 has general purpose IO pins, 4 PWM-capable pin and
 several buses (SPI, I2C and UART). It does not have analog input or
 output pins.
 
+<p class = "boxedHead">**D7** User LED</p>
+<p class = "boxed">
+The Raspberry Pi has a green activity LED next to the red power LED near the USB connector. Particle's firmware maps activity of the D7 LED, which is a blue physical LED on the Photon and Electron, to the green LED of the Raspberry Pi.
+</p>
+
 ### RGB LED, SETUP and RESET button
 
 The Raspberry Pi doesn't have the RGB LED, SETUP or RESET button found on Particle devices. You can learn more about the state of your device by
