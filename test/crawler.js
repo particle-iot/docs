@@ -64,6 +64,9 @@ describe('Crawler', function() {
     crawler.addFetchCondition(function(parsedUrl) {
       return !(parsedUrl.host === 'localhost' && parsedUrl.port === 35729);
     });
+    crawler.addFetchCondition(function(parsedUrl) {
+      return (parsedUrl.host !== 'vimeo.com');
+    });
 
     crawler.addDownloadCondition(function(queueItem) {
       var uriis = classifyUrl(queueItem);
