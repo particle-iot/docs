@@ -26,7 +26,7 @@ To complete all the examples, you will need the following materials:
 
 {{#if electron}}All of the example circuits are based on the reference card that came along with your Electron kit. If you have misplaced yours, download it [here!](/assets/images/electron/illustrations/electron-card.pdf){{/if}}
 * **Software**
-  * The [online IDE](http://build.particle.io) 
+  * The [online IDE](http://build.particle.io)
   * or the local [Particle Dev](http://particle.io/dev)
 * **Experience**
   {{#unless electron}}* Connecting your Device [with your smartphone](/guide/getting-started/start/) or [over USB](/guide/getting-started/connect){{/unless}}
@@ -322,7 +322,7 @@ To better understand the concept of making API calls to your device over the clo
 <p class = "boxedHead">NOTE:</p>
 <p class = "boxed">
 
-There is a known issue with the first revision of the product card included with your Electron. 
+There is a known issue with the first revision of the product card included with your Electron.
 The holes marked "A5" and "A0" are misaligned with the headers of the Electron, and _actually_ align with pins "A4" and "B5", respectively. This issue will be corrected in later revisions of the project card. In the meantime, please ensure that the resistor and photoresistor included with your kit are connected to the correct pins (A5 and A0, _not_ A4 and B5).
 </p>
 
@@ -933,30 +933,30 @@ int i = 0;
 long lastMeasurement = 0;
 
 void setup() {
-    
+
 }
 
 void loop() {
-    
-    /* This statement is incredibly useful. 
+
+    /* This statement is incredibly useful.
     millis() tells us what the current time is in milliseconds
     lastMeasurement will be when we recorded last; it starts out as 0 because we've never measured
-    If the difference in milliseconds between the current time and the last time we've measured 
+    If the difference in milliseconds between the current time and the last time we've measured
     is more than 600,000 milliseconds (ten minutes) then... do all the things!
     */
     if(millis()-lastMeasurement > 600000){
         // Measure the value on the photoresistor, and put it into the array
         light[i] = analogRead(A0);
-        
+
         // Keep track of when last measurement was taken
         lastMeasurement = millis();
-    
+
         // If we've taken 5 measurements (0-4, inclusive) then we should send that data
         if(i == 4){
             /* We're using a short event name "T" to reduce data transmitted
             String::format will create a single string for us out of many data points
             Each %d means to put an integer there. %s is used for strings.
-            To learn more, read https://en.wikipedia.org/wiki/Printf_format_string 
+            To learn more, read https://en.wikipedia.org/wiki/Printf_format_string
             Since this will only happen every 5 measurements, we can assume these publishes will be 50 minutes apart*/
             Particle.publish("L", String::format("%d,%d,%d,%d,%d", light[0],light[1],light[2],light[3],light[4]));
             // Reset index to beginning
@@ -978,7 +978,7 @@ If you want to subscribe to these publishes from another Particle device, you ca
 // Parsing publishes that contain multiple data points
 /* ---------------------------------------------------
 
-Subscribing the the example above, this example will listen for data from 
+Subscribing the the example above, this example will listen for data from
 the "L" event, split it up, and put it into the subscribeData array.
 
 ------------------------------------------*/
@@ -987,18 +987,18 @@ the "L" event, split it up, and put it into the subscribeData array.
 int subscribeData[5];
 
 void setup() {
-    
+
     // if you are subscribing to a private event published with the syntax
     //    Particle.publish("event-name", event-data,time-to-live,PRIVATE);
     // you should use:
     Particle.subscribe("L",myHandler,MY_DEVICES);
-    
+
     // Otherwise, for a public event published with the syntax
     //    Particle.publish("event-name", event-data);
     // you should use:
     Particle.subscribe("L",myHandler);
     // Note that this will subscribe to all public events with the name "L".
-    
+
 }
 
 void loop() {
@@ -1032,7 +1032,7 @@ void myHandler(const char *event, const char *data) {
         Serial.println(subscribeData[4]);
     }
 }
-  
+
 
 </code></pre>
 
