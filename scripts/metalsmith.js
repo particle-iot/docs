@@ -261,7 +261,7 @@ exports.metalsmith = function() {
       '/photon/hardware' : '/datasheets/photon-datasheet',
       '/troubleshooting' : '/support/troubleshooting/common-issues',
       '/help' : '/support/troubleshooting/common-issues',
-      '/faq' : '/faq/raspberry-pi/beta',
+      '/faq' : '/faq/connectivity/common-issues',
       '/tutorials': '/tutorials/integrations/google-cloud-platform',
       '/guide/how-to-build-a-product/dashboard': '/guide/tools-and-features/console',
       '/tutorials/topics/particle-pi-security-camera' : '/tutorials/projects/particle-pi-security-camera'
