@@ -2,6 +2,7 @@
 title: Troubleshooting Questions
 template: faq.hbs
 columns: two
+devices: [ photon,electron,core,raspberry-pi ]
 order: 100
 ---
 
