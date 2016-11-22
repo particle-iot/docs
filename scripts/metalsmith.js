@@ -114,7 +114,6 @@ exports.metalsmith = function() {
         pattern: 'reference/*md',
         sortBy: 'order'
       },
-<<<<<<< HEAD
 			tutorials: {
 				pattern: 'tutorials/:section/*.md',
 				sortBy: 'order',

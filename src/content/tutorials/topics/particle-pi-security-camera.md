@@ -59,7 +59,11 @@ Here's a list of the parts you'll need to build your Particle-connected security
 The first thing you'll need to do, if you haven't already, is to create a SD card that you can use to boot up your Raspberry Pi. If you've already set up your Pi, you can skip these steps:
 
 - Make sure your SD card is **FAT32 formatted**
+<<<<<<< HEAD
 - **Install an operating system** image on the SD card. We recommend Raspberry Pi's preferred operating system, Raspian Jessie with Pixel, which you can download [here](https://www.raspberrypi.org/downloads/raspbian/).
+=======
+- **Install an operating system** image on the SD card. We recommend Raspberry Pi's preferred operating system, Rasbpian Jessie with Pixel, which you can download [here](https://www.raspberrypi.org/downloads/raspbian/).
+>>>>>>> master
 - **Install the operating system** onto your SD card by following the Raspberry Pi Foundation's official installation instructions, [here](https://www.raspberrypi.org/documentation/installation/installing-images/README.md).
 
 ### Connect your Pi to the Internet
@@ -141,6 +145,11 @@ The next step of the process is to wire up your hardware, and to use simple exam
 ### Connect and test your Neopixel rings
 For this project, we used these awesome [Neopixel LED rings](https://www.adafruit.com/products/2855) from Adafruit.
 
+<<<<<<< HEAD
+=======
+![](/assets/images/particle-pi-cam/particle-pi-ring.jpg)
+
+>>>>>>> master
 Follow these instructions for wiring up the LED rings:
 - Connect the positive supply of the ring to +5V on the Pi, GND to GND and input pin of the Neopixel ring to GPIO18 of the Pi
 - Use [this modified version](https://github.com/spark/particle-pi-camera/tree/master/firmware) of the Neopixel library, labeled `ws2811`, to control the ring. Note that it is included as a library dependency of the test app below.
@@ -238,6 +247,118 @@ uint32_t Wheel(byte WheelPos) {
 }
 ```
 
+<<<<<<< HEAD
+=======
+### Connect and test the PIR sensor
+
+We will use this particular [motion (PIR) sensor](https://www.adafruit.com/product/189) for our project from Adafruit. Although the PIR sensor requires a 5V supply, its output is a Pi-friendly 3.3V, so it can be connected directly to a GPIO input.
+
+![](/assets/images/particle-pi-cam/particle-pi-pir-sch.jpg)
+
+The neopixel ring will light upon detecting motion and will remain off otherwise.
+
+```cpp
+#include "application.h"
+#include "ws2811.h"
+#include "stdarg.h"
+
+#define TARGET_FREQ  WS2811_TARGET_FREQ
+#define GPIO_PIN     18
+#define DMA          5
+#define STRIP_TYPE   SK6812_STRIP_RGBW    // SK6812RGBW (NOT SK6812RGB)
+#define LED_COUNT    16
+
+ws2811_t ledstring = {
+    NULL,
+    NULL,
+    TARGET_FREQ,
+    DMA,
+    {
+        {
+            GPIO_PIN,
+            0,
+            LED_COUNT,
+            STRIP_TYPE,
+            NULL,
+            255,
+            0,
+            0,
+            0,
+            0,
+        },
+        {
+            0,
+            0,
+            0,
+            0,
+            NULL,
+            0,
+            0,
+            0,
+            0,
+            0,
+        },
+    },
+};
+
+uint32_t color(uint8_t r, uint8_t g, uint8_t b, uint8_t w);
+
+
+bool pirState = LOW;
+
+void setup()
+{
+  ws2811_init(&ledstring);
+  pinMode(26,INPUT_PULLDOWN);
+  for(uint8_t i=0; i<LED_COUNT; i++) {
+      ledstring.channel[0].leds[i] = color(0,100,0,0);
+    }
+    ws2811_render(&ledstring);
+    delay(500);
+}
+
+
+void loop()
+{
+    //This will run in a loop
+
+    int value = digitalRead(26);
+
+    if (value == HIGH) {    // check if the input is HIGH
+      ////Turn on all the neopixles
+      if (pirState == LOW) {
+            // we have just turned on
+            pirState = HIGH;
+            for(uint8_t i=0; i<LED_COUNT; i++) {
+              ledstring.channel[0].leds[i] = color(250,250,250,250);
+            }
+            ws2811_render(&ledstring);
+            delay(20);
+          }
+    } else {
+      //Turn off all the neopixles
+      for(uint8_t i=0; i<LED_COUNT; i++) {
+        ledstring.channel[0].leds[i] = color(0,0,0,0);
+      }
+      ws2811_render(&ledstring);
+      delay(20);
+      if (pirState == HIGH)
+        pirState = LOW;
+  }
+
+}
+
+uint8_t brightness = 32;
+uint32_t color(uint8_t r, uint8_t g, uint8_t b, uint8_t w = 0) {
+  return 
+    ((((uint32_t)w * brightness) >> 8) << 24) |
+    ((((uint32_t)r * brightness) >> 8) << 16) |
+    ((((uint32_t)g * brightness) >> 8) << 8) |
+    ((((uint32_t)b * brightness) >> 8));
+}
+```
+
+>>>>>>> master
 ## Putting it all together
 ### Flash the firmware
 
@@ -245,11 +366,22 @@ Once you've verified that your hardware has been configured correctly, you'll ne
 
 [https://github.com/spark/particle-pi-camera/blob/master/firmware/application.cpp](https://github.com/spark/particle-pi-camera/blob/master/firmware/application.cpp)
 
+<<<<<<< HEAD
+=======
+Here is the schematic of the complete project. Two neopixel rings are connected in series with the data out of the right ring connected to the data input of the left ring. The output of the PIR sensor is connected to GPIO26. Remember to plug in your pi-camera as well!
+
+![](/assets/images/particle-pi-cam/particle-pi-camera-sch.jpg)
+>>>>>>> master
 
 ### Assemble the enclosure (optional)
 
 These instructions are for the assembly of an optional enclosure that you can build if you have access to a laser cutter. All of the pieces are cut from a 3mm white acrylic sheet, but you can feel free to use MDF or plywood instead.
 
+<<<<<<< HEAD
+=======
+You can download an illustrator file for the laser cutter [here.](https://github.com/spark/particle-pi-camera/blob/master/images/enclosure.ai)
+
+>>>>>>> master
 ![](/assets/images/particle-pi-cam/image01.jpg)
 
   1\. Attach the Pi to the base plate using M2.5 screws and nuts
