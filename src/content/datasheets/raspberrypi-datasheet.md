@@ -55,7 +55,7 @@ The Raspberry Pi doesn't have the RGB LED, SETUP or RESET button found on Partic
 
 ### Pin numbering
 
-In the Particle firmware pins are labeled from D0 to D15. The Broadcom pin numbers, also know as the BCM or GPIO pin numbers, are also available from GPIO0 to GPIO27.
+In the Particle firmware, pins are labeled from D0 to D15. The Broadcom pin numbers, also know as the BCM or GPIO pin numbers, are also available from GPIO0 to GPIO27.
 
 **Note:** Since enabling and disabling peripherals like SPI and I2C can only be done at boot, the peripheral pins are considered dedicated pins and should not be used for digital I/O.
 
