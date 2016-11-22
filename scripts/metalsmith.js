@@ -114,14 +114,22 @@ exports.metalsmith = function() {
         pattern: 'reference/*md',
         sortBy: 'order'
       },
-      tutorials: {
-        pattern: 'tutorials/:section/*.md',
+			tutorials: {
+				pattern: 'tutorials/:section/*.md',
+				sortBy: 'order',
+				orderDynamicCollections: [
+					'integrations',
+					'dev-tools',
+					'projects'
+				]
+			},
+      faq: {
+        pattern: 'faq/:section/*.md',
         sortBy: 'order',
         orderDynamicCollections: [
-          'topics',
-          'projects',
-          'curriculum'
-        ]
+          'connectivity',
+          'raspberry-pi'
+				]
       },
       datasheet: {
         pattern: 'datasheets/*.md',
@@ -253,9 +261,10 @@ exports.metalsmith = function() {
       '/photon/hardware' : '/datasheets/photon-datasheet',
       '/troubleshooting' : '/support/troubleshooting/common-issues',
       '/help' : '/support/troubleshooting/common-issues',
-      '/faq' : '/support/support-and-fulfillment/faq',
-      '/tutorials': '/tutorials/topics/maker-kit',
-      '/guide/how-to-build-a-product/dashboard': '/guide/tools-and-features/console'
+      '/faq' : '/faq/connectivity/common-issues',
+      '/tutorials': '/tutorials/integrations/google-cloud-platform',
+      '/guide/how-to-build-a-product/dashboard': '/guide/tools-and-features/console',
+      '/tutorials/topics/particle-pi-security-camera' : '/tutorials/projects/particle-pi-security-camera'
     }));
 
   return metalsmith;

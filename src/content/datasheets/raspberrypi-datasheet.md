@@ -29,7 +29,7 @@ Firmware and library coverage for all versions of Raspberry Pi hardware will imp
 
 The Particle firmware and agent (the supervisor for the firmware) expects Raspbian Jessie or later. Please visit our Getting Started Guide for instructions on [updating your existing OS](https://docs.particle.io/guide/getting-started/start/raspberry-pi/#i-have-an-sd-card-with-raspbian), or [flashing a new SD card](https://docs.particle.io/guide/getting-started/start/raspberry-pi/#i-don-39-t-have-an-sd-card-with-raspbian) from scratch.
 
-You can download the latest version of Raspbian for you Raspberry Pi from the Raspberry Pi Foundation, [here](https://www.raspberrypi.org/downloads/raspbian/).
+You can download the latest version of Raspbian for your Raspberry Pi from the Raspberry Pi Foundation, [here](https://www.raspberrypi.org/downloads/raspbian/).
 
 ## Interfaces
 
@@ -38,6 +38,11 @@ You can download the latest version of Raspbian for you Raspberry Pi from the Ra
 The Raspberry Pi 3 has general purpose IO pins, 4 PWM-capable pin and
 several buses (SPI, I2C and UART). It does not have analog input or
 output pins.
+
+<p class = "boxedHead">**D7** User LED</p>
+<p class = "boxed">
+The Raspberry Pi has a green activity LED next to the red power LED near the USB connector. Particle's firmware maps activity of the D7 LED, which is a blue physical LED on the Photon and Electron, to the green LED of the Raspberry Pi.
+</p>
 
 ### RGB LED, SETUP and RESET button
 
@@ -50,7 +55,7 @@ The Raspberry Pi doesn't have the RGB LED, SETUP or RESET button found on Partic
 
 ### Pin numbering
 
-In the Particle firmware pins are labeled from D0 to D15. The Broadcom pin numbers, also know as the BCM or GPIO pin numbers, are also available from GPIO0 to GPIO27.
+In the Particle firmware, pins are labeled from D0 to D15. The Broadcom pin numbers, also know as the BCM or GPIO pin numbers, are also available from GPIO0 to GPIO27.
 
 **Note:** Since enabling and disabling peripherals like SPI and I2C can only be done at boot, the peripheral pins are considered dedicated pins and should not be used for digital I/O.
 

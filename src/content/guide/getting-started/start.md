@@ -44,7 +44,7 @@ If you do not have access to a wired network cable, you will need to connect you
 - HDMI Cable (to connect the Pi to your monitor)
 
 ## Download and install Raspbian
-Before you boot up your Pi for the first time, you'll need to make sure you have the latest Raspbian image from the Raspberry Pi Foundation.
+Before you boot up your Pi for the first time, you'll need to make sure you have the latest Raspbian image from the Raspberry Pi Foundation. Note that flashing a fresh version of Raspbian Jessie with Pixel (GUI) can take as long as 10-15 minutes.
 
 Do you already have a Pi with Raspbian installed? Click [here](/guide/getting-started/start/raspberry-pi/#i-have-an-sd-card-with-raspbian) to skip the download and setup steps and update your existing Raspbian image.
 
@@ -59,9 +59,9 @@ If you don't already have an SD card with Raspbian on it, you'll need to follow 
 <p class = "boxed">
 **Note**: There are many different tools and resources available on the Internet to make the process of burning a new image for your Raspberry Pi easier. If you have issues with the instructions above from the Raspberry Pi Foundation, [elinux.org](http://elinux.org/RPi_Easy_SD_Card_Setup#SD_card_setup) has compiled a great list of alternatives for Mac, Windows, and Linux.  
 
-- [Mac setup options](http://elinux.org/RPi_Easy_SD_Card_Setup#Flashing_the_SD_card_using_Mac_OS_X)  
-- [Windows setup options](http://elinux.org/RPi_Easy_SD_Card_Setup#Flashing_the_SD_Card_using_Windows)  
-- [Linux setup options](http://elinux.org/RPi_Easy_SD_Card_Setup#Flashing_the_SD_Card_using_Linux_.28including_on_a_Raspberry_Pi.21.29)  
+  - [Mac setup options](http://elinux.org/RPi_Easy_SD_Card_Setup#Flashing_the_SD_card_using_Mac_OS_X)  
+  - [Windows setup options](http://elinux.org/RPi_Easy_SD_Card_Setup#Flashing_the_SD_Card_using_Windows)  
+  - [Linux setup options](http://elinux.org/RPi_Easy_SD_Card_Setup#Flashing_the_SD_Card_using_Linux_.28including_on_a_Raspberry_Pi.21.29)  
 
 </p>
 
@@ -89,7 +89,7 @@ If your Raspberry Pi has an Ethernet port, connecting it to the Internet is as s
 ### Connecting over Wi-Fi (GUI setup)
 
 1. Connect a USB keyboard, USB mouse and monitor to your Raspberry Pi.
-2. Click on the icon on the left of the system clock time to scan for Wi-Fi networks and start the Wi-Fi configuration process.
+2. Click on the icon on the left of the volume symbol to scan for Wi-Fi networks and start the Wi-Fi configuration process.
 
 ![](/assets/images/raspberry-pi-wifi-ssid.png)
 

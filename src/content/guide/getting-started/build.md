@@ -18,12 +18,11 @@ When you're ready to reprogram your device, head over to our IDE:
 
 [Particle Build >](https://build.particle.io)
 
-Creating an account is a simple one-step process.  When presented with the login screen, simply enter your email address (careful!), and desired account password.  Press the big friendly "Sign Up" button, and you'll reach the Particle Build home page.
+Creating an account is a simple one-step process.  When presented with the login screen, click the "create account" text and fill out the form including your email address (careful!) and desired account password. That's it!
 
 ![Particle Build](/assets/images/ide-login.png)
 
-If you've already logged into Particle Build before, click the "Let me log in" text beneath the Sign Up button, and you'll be presented with a login for existing users.  Don't worry--if you already have an account and accidentally click the "Sign Up" button, we'll still log you into your existing account.
-
+If you haven't logged into Particle Build before, click the "create account" text beneath the Log In button, and you'll be presented with a signup for existing users.  
 
 Web IDE
 ---
@@ -60,11 +59,11 @@ Particle Apps and Libraries
 
 The heart of Particle Build is the "Particle Apps" section, which displays the name of the current app in your editor, as well as a list of your other applications and community-supported example apps.
 
-The application you've got open in the editor is displayed under the "Current App" header.  You'll notice that this "HELLOWORLD" sample application has only one file, but firmware with associated libraries/multiple files are fully supported.
+The application you've got open in the editor is displayed under the "Current App" header.  You'll notice that this empty application has only one file, but firmware with associated libraries/multiple files are fully supported.
 
-From this pane, you've got a lot of buttons and actions available to you that can help you grow and manage your library of kick-ass applications:
+From this pane, you've got a lot of buttons and actions available to you that can help you grow and manage your library of applications:
 
-- **Create**: You can create a new application by clicking the "Create New App" button.  Give it a sweet name and press enter!  Your app is now saved to your account and ready for editing.
+- **Create**: You can create a new application by clicking the "Create New App" button.  Give it a descriptive name and press enter!  Your app is now saved to your account and ready for editing.
 
 - **Delete**: Click the "Remove App" button to remove it forever from your Particle library.
 
@@ -81,7 +80,12 @@ Flashing Your First App
 
 The best way to get started with the IDE is to start writing code:
 
+{{#if raspberry-pi}}
+- **Connect**: Make sure your device is powered connected to the Particle Cloud and ready to be updated.
+{{else}}
 - **Connect**: Make sure your device is powered and "breathing" Cyan, which indicates that it's connected to the Particle Cloud and ready to be updated.
+{{/if}}
+
 - **Get Code**: Try clicking on the "Blink an LED" example under the "Example apps" header.  The Particle Build editor should display the code for the example application in an active tab.  Alternatively, you can copy and paste this snippet of code into a new application in the Build IDE.
 
 {{#if electron}}
@@ -115,12 +119,19 @@ void loop() {
 ![Particle Build](/assets/images/ide-devices.png)
 {{/if}}
 
+{{#if raspberry-pi}}
+![Particle Build](/assets/images/ide-devices.png)
+{{/if}}
+
 - **Select Your Device**: If you have more than one device you have to make sure that you've selected which of your devices to flash code to.  Click on the "Devices" icon at the bottom left side of the navigation pane, then when you hover over device name the star will appear on the left. Click on it to set the device you'd like to update (it won't be visible if you have only one device). Once you've selected a device, the star associated with it will turn yellow. (If you only have one device, there is no need to select it, you can continue on to the next step).
 
 **NOTE**: Devices are grouped by their platform. You can see the platform icon (circle with an letter) on the left of its name.
 
+{{#if raspberry-pi}}
+- **Flash**: Click the "Flash" button, and your code will be sent wirelessly to your device.  If the flash was successful, your device will begin running the app.
+{{else}}
 - **Flash**: Click the "Flash" button, and your code will be sent wirelessly to your device.  If the flash was successful, the LED on your device will begin flashing magenta.
-
+{{/if}}
 ![Particle Build](/assets/images/ide-examples.png)
 
 - **Fork**: Wish the timing of that LED flash was a little bit faster?  Try clicking on the "Fork This Example" button after selecting the "Blink An LED" example application.  You've now got a personal copy of that application that you can modify, save, and flash to all of your devices.
@@ -139,13 +150,13 @@ This will create two new tabs, one with `.h` and one with `.cpp` extension. You 
 Account Information
 ---
 
-There are a couple of other neat bells and whistles in Particle Build.  The Particle Build IDE the best tool for viewing important information about your device, managing devices associated with your Particle account, and "unclaiming" them so they can be transferred to your buddy.
+There are a couple of other neat bells and whistles in Particle Build.  The Particle Build IDE the best tool for viewing important information about your device, managing devices associated with your Particle account, and "unclaiming" them so they can be transferred to your friend.
 
 ![Particle Build](/assets/images/ide-account.png)
 
 - **Device ID**: You can view your device's ID by clicking on the "Device" icon at the bottom of the navigation pane, then clicking the dropdown arrow next to the device of interest.
 
-- **Unclaim**: You can "Unclaim" a device by pressing the "Remove Device" button that is revealed by clicking the dropdown arrow.  Once a device has been unclaimed, it is available to be reassociated with any Particle users' account.
+- **Unclaim**: You can "Unclaim" a device by pressing the "Remove Device" button that is revealed by clicking the dropdown arrow.  Once a device has been unclaimed, it is available to be associated with any Particle users' account.
 
 ![Particle Build](/assets/images/ide-settings.png)
 
@@ -186,6 +197,9 @@ _If there are no code changes and you **verify** code for the second time, the "
 
 ![Code memory information](/assets/images/ide-mem-usage.png)
 
+{{#if raspberry-pi}}
+{{else}}
+
 Wait, what is firmware?
 ---
 
@@ -201,6 +215,7 @@ In our case, because the Cores, Photons and Electrons are connected to the inter
 When you flash code onto your device, you are doing an *over-the-air firmware update*. This firmware update overwrites almost all of the software on the device; the only piece that is untouched is the bootloader, which manages the process of loading new firmware and ensures you can always update the firmware over USB or through a factory reset.
 
 For every device which version of our firmware you want to build against. In most cases you want to build with the latest firmware (which is used by default). If you need to target an older version (i.e. when newer version has some breaking changes) you can select it in dropdown located in device details.
+{{/if}}
 
 Troubleshooting
 ---
@@ -214,14 +229,4 @@ Feeling oriented? Let's move on to some more interesting [examples.](/guide/gett
 
 **Also**, check out and join our [community forums](http://community.particle.io/) for advanced help, tutorials, and troubleshooting.
 
-{{#if electron}}
 [Go to Community Forums >](http://community.particle.io/c/troubleshooting)
-{{/if}}
-
-{{#if photon}}
-[Go to Community Forums >](http://community.particle.io/c/troubleshooting)
-{{/if}}
-
-{{#if core}}
-[Go to Community Forums >](http://community.particle.io/c/troubleshooting)
-{{/if}}
