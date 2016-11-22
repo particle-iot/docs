@@ -7,7 +7,7 @@ var util = require('util');
 var chalk = require('chalk');
 var _ = require('lodash');
 
-var devices = ['photon', 'electron', 'core'];
+var devices = ['photon', 'electron', 'core', 'raspberry-pi'];
 var isPullRequest = process.env.TRAVIS_PULL_REQUEST && process.env.TRAVIS_PULL_REQUEST !== 'false';
 
 function classifyUrl(item) {
@@ -63,6 +63,9 @@ describe('Crawler', function() {
     });
     crawler.addFetchCondition(function(parsedUrl) {
       return !(parsedUrl.host === 'localhost' && parsedUrl.port === 35729);
+    });
+    crawler.addFetchCondition(function(parsedUrl) {
+      return (parsedUrl.host !== 'vimeo.com');
     });
 
     crawler.addDownloadCondition(function(queueItem) {
