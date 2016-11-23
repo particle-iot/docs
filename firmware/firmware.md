@@ -11032,6 +11032,7 @@ Please go to Github to read the Changelog for your desired firmware version (Cli
 
 |Firmware Version (Github Release Notes)|
 |:-:|:-:|:-:|:-:|:-:|
+|v0.6.x default releases|[v0.6.0](https://github.com/spark/firmware/releases/tag/v0.6.0)||||
 |v0.6.x-rc.x prereleases|[v0.6.0-rc.1](https://github.com/spark/firmware/releases/tag/v0.6.0-rc.1)|[v0.6.0-rc.2](https://github.com/spark/firmware/releases/tag/v0.6.0-rc.2)|-|-|
 |v0.5.x default releases|[v0.5.0](https://github.com/spark/firmware/releases/tag/v0.5.0)|[v0.5.1](https://github.com/spark/firmware/releases/tag/v0.5.1)|[v0.5.2](https://github.com/spark/firmware/releases/tag/v0.5.2)|[v0.5.3](https://github.com/spark/firmware/releases/tag/v0.5.3)|
 |v0.5.x-rc.x prereleases|[v0.5.3-rc.1](https://github.com/spark/firmware/releases/tag/v0.5.3-rc.1)|[v0.5.3-rc.2](https://github.com/spark/firmware/releases/tag/v0.5.3-rc.2)|[v0.5.3-rc.3](https://github.com/spark/firmware/releases/tag/v0.5.3-rc.3)|-|
@@ -11042,12 +11043,14 @@ If you don't see any notes below or if they are the wrong version, please select
 
 |Firmware Version (Programming and Debugging Notes in Docs)|
 |:-:|:-:|:-:|:-:|:-:|
+|v0.6.x default releases|[v0.6.0](https://docs.particle.io/reference/firmware/photon/?fw_ver=0.6.0&cli_ver=1.18.0&electron_parts=3#programming-and-debugging-notes)||||
 |v0.6.x-rc.x prereleases|[v0.6.0-rc.1](https://prerelease-docs.particle.io/reference/firmware/photon/?fw_ver=0.6.0-rc.1&cli_ver=1.17.0&electron_parts=3#programming-and-debugging-notes)|[v0.6.0-rc.2](https://prerelease-docs.particle.io/reference/firmware/photon/?fw_ver=0.6.0-rc.2&cli_ver=1.17.0&electron_parts=3#programming-and-debugging-notes)|-|-|
 |v0.5.x default releases|[v0.5.0](https://docs.particle.io/reference/firmware/photon/?fw_ver=0.5.0&cli_ver=1.12.0&electron_parts=2#programming-and-debugging-notes)|[v0.5.1](https://docs.particle.io/reference/firmware/photon/?fw_ver=0.5.1&cli_ver=1.14.2&electron_parts=2#programming-and-debugging-notes)|[v0.5.2](https://docs.particle.io/reference/firmware/photon/?fw_ver=0.5.2&cli_ver=1.15.0&electron_parts=2#programming-and-debugging-notes)|[v0.5.3](https://docs.particle.io/reference/firmware/photon/?fw_ver=0.5.3&cli_ver=1.17.0&electron_parts=2#programming-and-debugging-notes)|
 |v0.5.x-rc.x prereleases|[v0.5.3-rc.1](https://prerelease-docs.particle.io/reference/firmware/photon/?fw_ver=0.5.3-rc.1&cli_ver=1.15.0&electron_parts=2#programming-and-debugging-notes)|[v0.5.3-rc.2](https://prerelease-docs.particle.io/reference/firmware/photon/?fw_ver=0.5.3-rc.2&cli_ver=1.16.0&electron_parts=2#programming-and-debugging-notes)|[v0.5.3-rc.3](https://prerelease-docs.particle.io/reference/firmware/photon/?fw_ver=0.5.3-rc.3&cli_ver=1.16.0&electron_parts=2#programming-and-debugging-notes)|-|
 
 <!--
 CLI VERSION is compatable with FIRMWARE VERSION
+v1.18.0 = 0.6.0
 v1.17.0 = 0.5.3, 0.6.0-rc.1, 0.6.0-rc.2
 v1.16.0 = required to recognize system part 3 of electron, 0.5.3-rc.2, 0.5.3-rc.3
 v1.15.0 = 0.5.2, 0.5.3-rc.1
@@ -11068,10 +11071,14 @@ v1.12.0 = 0.5.0
 ##### @FW_VER@0.5.3endif
 ##### @FW_VER@0.5.4if
 ##### @FW_VER@0.5.4endif
+##### @FW_VER@0.6.0if
+##### @FW_VER@0.6.0endif
 ##### @CLI_VER@1.15.0if
 ##### @CLI_VER@1.15.0endif
 ##### @CLI_VER@1.17.0if
 ##### @CLI_VER@1.17.0endif
+##### @CLI_VER@1.18.0if
+##### @CLI_VER@1.18.0endif
 ##### @ELECTRON_PARTS@2if
 ##### @ELECTRON_PARTS@2endif
 ##### @ELECTRON_PARTS@3if
@@ -11126,6 +11133,10 @@ particle flash --usb tinker
 ---
 
 **The OTA method using Particle CLI**
+
+##### @FW_VER@0.6.0if
+**Note:** You must update your Electron to (v0.5.3, v0.5.3-rc.2, or v0.5.3-rc.3) first before attempting to use OTA or YModem transfer to update to v0.6.0. If you use DFU over USB, you can update to v0.6.0 directly, but make sure you have installed v1.18.0 of the CLI first.
+##### @FW_VER@0.6.0endif
 
 **Note**: You must download system binaries to a local directory on your machine for this to work. Binaries are attached to the bottom of the [Github Release Notes](#github-release-notes).
 
@@ -11263,7 +11274,7 @@ dfu-util -d 2b04:d008 -a 0 -s 0x8060000:leave -D system-part2-@FW_VER@-p1.bin
 
 // Electron
 dfu-util -d 2b04:d00a -a 0 -s 0x8020000 -D system-part1-@FW_VER@-electron.bin
-dfu-util -d 2b04:d00a -a 0 -s 0x8040000 -D system-part2-@FW_VER@-electron.bin
+dfu-util -d 2b04:d00a -a 0 -s 0x8040000:leave -D system-part2-@FW_VER@-electron.bin
 ```
 ##### @ELECTRON_PARTS@2endif
 
@@ -11285,7 +11296,7 @@ dfu-util -d 2b04:d008 -a 0 -s 0x8060000:leave -D system-part2-@FW_VER@-p1.bin
 // Electron
 dfu-util -d 2b04:d00a -a 0 -s 0x8060000 -D system-part1-@FW_VER@-electron.bin
 dfu-util -d 2b04:d00a -a 0 -s 0x8020000 -D system-part2-@FW_VER@-electron.bin
-dfu-util -d 2b04:d00a -a 0 -s 0x8040000 -D system-part3-@FW_VER@-electron.bin
+dfu-util -d 2b04:d00a -a 0 -s 0x8040000:leave -D system-part3-@FW_VER@-electron.bin
 ```
 ##### @ELECTRON_PARTS@3endif
 
