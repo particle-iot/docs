@@ -2,11 +2,231 @@
 title: Getting started
 template: guide.hbs
 columns: two
-devices: [ photon,electron,core ]
+devices: [ photon,electron,core,raspberry-pi ]
 order: 2
 ---
 
 # Getting Started
+
+{{#if raspberry-pi}}
+
+![](/assets/images/raspberry-pi-hero.png)
+
+## Particle Pi Beta Program
+
+<p class = "boxedHead">Do not continue without reading</p>
+<p class = "boxed">
+Please note that the Raspberry Pi integration with the Particle Cloud is **currently in beta**. We know you're eager to get started (we're excited too!) but you won't be able to complete all the steps below before you've received your beta activation email.
+<br></br>
+We will be provisioning access to the beta in the upcoming weeks on a rolling basis. Upon open release of the Raspberry Pi and Particle Cloud integration, these provisioning instructions will work for everyone! To learn more and to join the beta program, visit our Raspberry Pi + Particle [information page](http://particle.io/particle-pi) by clicking the button below:
+
+<center><a class="btn" target="_blank" href="https://particle.io/particle-pi"/>Join the beta!</a></center>
+
+</p>
+
+## What You'll Need
+In order to connect your Raspberry Pi to the Particle Cloud you'll need the following things. Note that these are all included in the [Particle Pi Starter Kit with Raspberry Pi v3](https://store.particle.io/#particle-pi-starter-kit), which is available for purchase in the [Particle Store](https://store.particle.io/#particle-pi-starter-kit).
+
+
+
+- Raspberry Pi (Raspberry Pi v2 and v3 preferred)
+- Power supply (5V, 2A+ preferred)
+- Micro SD card and SD adapter
+- Ethernet cable (for wired connections)
+
+![](/assets/images/raspberry-pi-kit.jpg)
+
+If you do not have access to a wired network cable, you will need to connect your Pi to an active Wi-Fi network, which will require the following:
+
+- Keyboard
+- Mouse
+- Monitor
+- HDMI Cable (to connect the Pi to your monitor)
+
+## Download and install Raspbian
+Before you boot up your Pi for the first time, you'll need to make sure you have the latest Raspbian image from the Raspberry Pi Foundation. Note that flashing a fresh version of Raspbian Jessie with Pixel (GUI) can take as long as 10-15 minutes.
+
+Do you already have a Pi with Raspbian installed? Click [here](/guide/getting-started/start/raspberry-pi/#i-have-an-sd-card-with-raspbian) to skip the download and setup steps and update your existing Raspbian image.
+
+### I don't have an SD card with Raspbian
+
+If you don't already have an SD card with Raspbian on it, you'll need to follow these steps:
+
+1. Make sure your SD card is FAT32 formatted  
+2. Install an operating system image on the SD card. We recommend Raspberry Pi's preferred operating system, Raspbian Jessie with Pixel, which you can download [here](https://www.raspberrypi.org/downloads/raspbian/).  
+3. Install the operating system onto your SD card by following the Raspberry Pi Foundation's official installation instructions, [here](https://www.raspberrypi.org/documentation/installation/installing-images/README.md).  
+
+<p class = "boxed">
+**Note**: There are many different tools and resources available on the Internet to make the process of burning a new image for your Raspberry Pi easier. If you have issues with the instructions above from the Raspberry Pi Foundation, [elinux.org](http://elinux.org/RPi_Easy_SD_Card_Setup#SD_card_setup) has compiled a great list of alternatives for Mac, Windows, and Linux.  
+
+  - [Mac setup options](http://elinux.org/RPi_Easy_SD_Card_Setup#Flashing_the_SD_card_using_Mac_OS_X)  
+  - [Windows setup options](http://elinux.org/RPi_Easy_SD_Card_Setup#Flashing_the_SD_Card_using_Windows)  
+  - [Linux setup options](http://elinux.org/RPi_Easy_SD_Card_Setup#Flashing_the_SD_Card_using_Linux_.28including_on_a_Raspberry_Pi.21.29)  
+
+</p>
+
+
+4\. Insert the SD card into your Raspberry Pi, and apply power using a 5V, 2A+ power supply.
+
+### I have an SD card with Raspbian
+
+If you already have a Pi set up, run the following commands from your Raspberry Pi's command line to update your OS to the most recent version of Raspbian:
+
+1. `sudo apt-get update`, which will update your local package database with the upstream one.
+2. `sudo apt-get upgrade`, which will actually upgrade your Raspbian image to the most recent from the Raspberry Pi Foundation.
+
+Note that these steps may take **up to 10 minutes** to complete, so please have patience.
+
+## Connect your Pi to the Internet
+There are two primary ways to connect your Raspberry Pi to the web--using a wired connection (Ethernet) or using a wireless connection (Wi-Fi preferred).
+
+### Connecting with a wired connection (Ethernet)
+
+If your Raspberry Pi has an Ethernet port, connecting it to the Internet is as simple as plugging in a cable to the on-board RJ-45 jack on your Pi. The operating system should automatically work with your router to obtain an IP address and connect to the web.
+
+**Note**: The Pi Zero does not have an on-board Ethernet port, but can be connected with a Ethernet --> USB adapter.
+
+### Connecting over Wi-Fi (GUI setup)
+
+1. Connect a USB keyboard, USB mouse and monitor to your Raspberry Pi.
+2. Click on the icon on the left of the volume symbol to scan for Wi-Fi networks and start the Wi-Fi configuration process.
+
+![](/assets/images/raspberry-pi-wifi-ssid.png)
+
+3\. Enter your network's Wi-Fi password.
+
+![](/assets/images/raspberry-pi-wifi-password.png)
+
+4\. When your Pi has successfully connected to the Wi-Fi network, you will see a blue Wi-Fi icon next to the volume icon at the top righthand corner of your screen.
+
+![](/assets/images/raspberry-pi-wifi-connected.png)
+
+Note that it's also possible to obtain the IP Address of your Raspberry Pi after you've connected it to the Internet. To do so, click on the black terminal icon at the top lefthand side of your screen, and type `ifconfig wlan0`.
+
+Your Pi's IP Address should be displayed next to the label, `inet addr` and look something like `192.168.X.XXX`.
+
+![](/assets/images/raspberry-pi-ip-address.png)
+
+### Connecting over Wi-Fi (command line setup)
+
+To configure your Pi to connect to the Internet over Wi-Fi, start by ensuring that you have a monitor and keyboard plugged into your Raspberry Pi. You'll have to log in to your Pi in order to execute commands.
+
+- The default username for the Raspberry Pi is `pi`
+- The default password for the Raspberry Pi is `raspberry`
+
+After you've successfully logged into the Pi, run:
+
+```
+sudo nano /etc/wpa_supplicant/wpa_supplicant.conf
+```
+
+Insert these lines at the end of the file:
+```
+network={
+	ssid="MyWiFiNetwork"
+	psk="the_password"
+	key_mgmt=WPA-PSK
+}
+
+```
+
+You can verify that your Raspberry Pi is online by running the `ifconfig` command from your Pi's command line.
+
+## Install Particle Pi software
+
+Now that your Pi is online, it's finally time to download and install the Particle Pi software. If your Pi has a monitor and keyboard connected, you can skip directly to [Install the Particle Agent](/guide/getting-started/start/raspberry-pi/#install-the-particle-agent). If would like to install the Particle Pi software without using a monitor and keyboard, please read the following section, [Instructions for headless setup](/guide/getting-started/start/raspberry-pi/#instructions-for-headless-setup).
+
+### Instructions for headless setup
+Note that if you are using a wired connection without a monitor and keyboard (headless) you will have to obtain your Pi's IP address and SSH into your Pi in order to install the Particle software. If you are using a keyboard and monitor, you can head directly to [Install the Particle Agent](/guide/getting-started/start/raspberry-pi/#install-the-particle-agent).
+
+- The first step is to obtain the IP address for your Raspberry Pi once it is connected to the Internet. You can find instructions for obtaining your Pi's IP address using Raspberry Pi's official tutorial, [here](https://www.raspberrypi.org/documentation/remote-access/ip-address.md).
+
+<p class = "boxed">
+An alternate method for finding the IP address in a headless setup configuration is to ensure that your computer is connected to the same network as your Raspberry Pi device, and to run the following command in your computer's terminal:  
+
+</br>
+
+```arp -a | grep b8:27:eb | grep -Eo '[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}'```  
+</br>
+
+As it turns out, the Raspberry Pi Foundation has their own range of MAC addresses all to themselves. The command above will scan your network for devices whose MAC address starts with the prefix, `b8:27:eb` and report their IP address. Assuming you only have one Raspberry Pi connected to the network, you should be able to easily identify your Pi's network address and SSH into it in the next step.  
+</p>
+
+- Once you have your Pi's IP address, you can connect to your Pi through a secure shell (SSH). If you are using MacOS or Linux, you can simply create an SSH tunnel using your `Terminal` application. If you are using Windows, download [PuTTY](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html).
+
+- SSH into your Pi using the following command, where `192.168.X.XXX` is the IP address of your Pi.
+
+```
+ssh pi@192.168.X.XXX
+```
+
+### Install the Particle Agent
+
+You will not be able to complete this step of the process if you have not already received your beta activation email. If that's the case, hang tight--you'll receive your email in the upcoming weeks as we expand access to the Raspberry Pi provisioning endpoint. For more information, visit [particle.io/particle-pi](http://particle.io/particle-pi)
+
+To connect your Raspberry pi to the Particle Cloud, you need to install the Particle Agent. The Particle Agent is a software service that runs in the background on the Raspberry Pi and allows you to write and run firmware (software that interacts with the GPIO pins on the Pi).
+
+Install the agent by pasting this command in a terminal on your
+Raspberry Pi, either while connected remotely through SSH or locally
+with a keyboard and monitor.
+
+```
+bash <( curl -sL https://particle.io/install-pi )
+```
+
+The installation process should look like this:
+
+<script type="text/javascript" src="https://asciinema.org/a/93209.js" id="asciicast-93209" async data-poster="npt:1:20"></script>
+
+When the installation is over, the Particle Agent setup will ask you to
+sign in to your Particle account. If you don't have one yet, [create a
+Particle account at https://login.particle.io/signup](https://login.particle.io/signup).
+
+Once the Particle Agent is installed, you will have a number of commands available to you to start firmware, stop firmware, and manage your connection to the Cloud. For a full list of available `particle-agent` commands, type `particle-agent help` into your terminal.
+
+<p class = "boxedHead">`particle-agent setup`</p>
+<p class = "boxed">
+
+This is a super useful command! If you find yourself in an unknown or unintended device state at any point in development, you can type this command to reset your device and return it to "factory conditions" running **Tinker**, our default device firmware. The Pi will remain claimed to your Particle account.
+
+</p>
+
+When you have successfully completed setup of your Pi, you will see the following confirmation message:
+
+![](/assets/images/pi-setup-done.png)
+
+If you see the message above, **congratulations!** You've successfully connected your Pi to the Particle Cloud!
+
+## Development Resources
+
+Great work so far! In case you ever find yourself in a pickle, here's a list of resources that can help you through the next steps of your journe. Please make a note of them, and remember that you can always send us a note via our [Support Portal](http://support.particle.io) if you get stuck!
+
+#### Technical Documentation
+- [Raspberry Pi Pinout and Datasheet](/datasheets/raspberrypi-datasheet/)
+- [`particle-agent` GitHub repository](https://github.com/spark/particle-agent)
+
+#### Projects and Examples
+- [Particle IoT projects](https://www.hackster.io/particle)
+- [Raspberry Pi tutorials](/guide/getting-started/examples/raspberry-pi/)
+
+#### Forums and Support
+- [Community forums](https://community.particle.io/c/36-category)
+- [Raspberry Pi Official Documentation](https://www.raspberrypi.org/documentation/)
+- [Particle Support Portal](http://support.particle.io)
+
+## Next steps
+
+Connecting your Pi is only the beginning. Check out the other topics in our `Getting Started` guide for the Raspberry Pi, which will show you how to:
+
+- Use [Tinker](/guide/getting-started/tinker/raspberry-pi/), our mobile application, to control your Pi
+- Write and flash code to your Pi with our [Web IDE](/guide/getting-started/build/raspberry-pi/)
+- Publish sensor values to the Internet
+- Remotely execute scripts on your Raspberry Pi
+- Leverage your Pi's powerful processor
+
+<center>[Tinker and Mobile App >](/guide/getting-started/tinker/raspberry-pi/)</center>
+
+{{else}}
 
 ## What's in the Box?
 
@@ -106,6 +326,7 @@ to wired power source. Consider this battery your Electron's best friend!
 
 For more technical details on what comes on your device, go {{#if core}}[here](/datasheets/core-datasheet/){{/if}}{{#if photon}}[here](/datasheets/kits/#photon){{/if}}{{#if electron}}[here](/datasheets/kits/#electron){{/if}}.
 
+
 {{#if electron}}
 ## New User Features On the Electron
 ### Onboard power management
@@ -146,10 +367,10 @@ For more technical details on what comes on your device, go {{#if core}}[here](/
 - The base rate covers you up to 1.0MB, additional MB are billed at a cheaper rate than the base
 - We bill your base rate at beginning of a period, additional MB at the end, so you'll often see both
 - Base and additional MB rates are based on your [country and Zone](/guide/getting-started/billing/electron/#roaming-zones-)
-- You can set a data limit for each SIM. It defaults to 5MB on new SIMs, but you can change it in the [Dashboard](https://dashboard.particle.io/user/billing)
+- You can set a data limit for each SIM. It defaults to 5MB on new SIMs, but you can change it in the [Console](https://console.particle.io/billing)
 - Data limits are soft maximums; we only charge you for the number of MB used, rounded up, and we'll cut off usage as quickly as we have updated metering from your carrier
 - If a SIM goes over the limit, it'll be paused and won't be able to use more data until the beginning of the next period or you raise the data limit
-- You can use the [Dashboard](https://dashboard.particle.io/user/billing) to manage SIMs, billing, and see data usage
+- You can use the [Console](https://console.particle.io/billing) to manage SIMs, billing, and see data usage
 - See the full [Electron Billing Guide](/guide/getting-started/billing/)
 
 ## Data Use on the Electron
@@ -216,6 +437,10 @@ Go to the next section to learn to [connect over USB](/guide/getting-started/con
 
 {{#if photon}}
 In this example, we will connect your device to the internet for the very first time. Then, we will blink the D7 LED on your device by using your smartphone.
+
+<iframe src="https://player.vimeo.com/video/178282058" width="320" height="240" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+
+
 {{/if}}
 {{#if core}}
 In this example, we will connect your device to the internet for the very first time. Then, we will blink the D7 LED on your device by using your smartphone.
@@ -355,3 +580,5 @@ If you don't have your smartphone with you, go ahead and move to the next lesson
 
 Otherwise, go to the next section to learn to connect over USB.
 {{/if}}
+
+{{/if}}{{!-- raspberry-pi --}}

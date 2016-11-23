@@ -8,8 +8,8 @@ order: 9
 
 How do I upgrade my firmware?
 ===
+{{#unless core}}
 
-{{#if photon}}
 ### The Simple Way (one CLI command)
 
 If you are using the [particle-cli](https://github.com/spark/particle-cli) and have been able to use it successfully to login to your account, then you should be able to upgrade your device firmware and it will auto-update the cli for you. Yeah I know, it's great right?!
@@ -17,13 +17,13 @@ If you are using the [particle-cli](https://github.com/spark/particle-cli) and h
 *Requirements:* 
 - dfu-util --> Install dfu-util on your Mac using: ```brew install dfu-util```
 - [particle-cli](https://github.com/spark/particle-cli)
-- [Particle Photon](https://store.particle.io/?product=particle-photon) 
+- [Particle {{device}}](https://store.particle.io/?product=particle-{{deviceValue}}) 
 
 **Step One:** 
-- Put photon into [dfu-mode](/guide/getting-started/modes/photon/#dfu-mode-device-firmware-upgrade-) while being plugged into computer.
+- Put {{device}} into [dfu-mode](/guide/getting-started/modes/{{deviceValue}}/#dfu-mode-device-firmware-upgrade-) while being plugged into computer. {{#if electron}}Make sure the antenna and battery are connected.{{/if}}
 
 **Step Two:** 
-- While photon in [dfu-mode](/guide/getting-started/modes/photon/#dfu-mode-device-firmware-upgrade-), issue ```particle update``` from the cli and that's it! Your device should upgrade to the newest available firmware, the cli should update to its newest version, and you should be a happy camper!
+- While {{device}} in [dfu-mode](/guide/getting-started/modes/{{deviceValue}}/#dfu-mode-device-firmware-upgrade-), issue ```particle update``` from the CLI and that's it! Your device should upgrade to the newest available firmware and you should be a happy camper!
 
 
 
@@ -37,28 +37,48 @@ If you do not have a Mac/Apple computer then you should not read the instruction
 
 Since your device is offline, I recommend using our dfu-util method. If you want more info on this, the local DFU-UTIL method is roughly explained [here](https://github.com/spark/firmware/releases).
 
-To upgrade your Photon, follow the instructions below:
+To upgrade your {{device}}, follow the instructions below:
 
--  Download the proper firmware binaries for the Photon linked below:
-      - [Part1](https://github.com/spark/firmware/releases/download/v0.4.6.1/system-part1-0.4.6-photon.bin)
-      - [Part2](https://github.com/spark/firmware/releases/download/v0.4.6.1/system-part2-0.4.6-photon.bin)
+-  Download the proper firmware binaries for the {{device}} linked below:
+{{#if photon}}
+      - [Part1](https://github.com/spark/firmware/releases/download/v0.5.3/system-part1-0.5.3-photon.bin)
+      - [Part2](https://github.com/spark/firmware/releases/download/v0.5.3/system-part2-0.5.3-photon.bin)
+{{/if}}
+{{#if electron}}
+      - [Part1](https://github.com/spark/firmware/releases/download/v0.5.3/system-part1-0.5.3-electron.bin)
+      - [Part2](https://github.com/spark/firmware/releases/download/v0.5.3/system-part2-0.5.3-electron.bin)
+{{/if}}
 
 -  Install dfu-util on your Mac using: ```brew install dfu-util```
 If you don't have brew or homebrew installed, install it here: http://brew.sh/
 
--  Put photon into DFU MODE, instructions [here](/guide/getting-started/modes/photon/#dfu-mode-device-firmware-upgrade-).
+-  Put {{device}} into DFU MODE, instructions [here](/guide/getting-started/modes/{{deviceValue}}/#dfu-mode-device-firmware-upgrade-).
 
+{{#if photon}}
 -  Flash part1:
-```dfu-util -d 2b04:d006 -a 0 -s 0x8020000 -D system-part1-0.4.6-photon.bin```
+
+`dfu-util -d 2b04:d006 -a 0 -s 0x8020000 -D system-part1-0.5.3-photon.bin`
 
 -  Flash part2, unit should still be blinking yellow:
-```dfu-util -d 2b04:d006 -a 0 -s 0x8060000:leave -D system-part2-0.4.6-photon.bin```
+
+`dfu-util -d 2b04:d006 -a 0 -s 0x8060000:leave -D system-part2-0.5.3-photon.bin`
+{{/if}}
+
+{{#if electron}}
+-  Flash part1:
+
+`dfu-util -d 2b04:d00a -a 0 -s 0x8020000 -D system-part1-0.5.3-electron.bin`
+
+-  Flash part2, unit should still be blinking yellow:
+
+`dfu-util -d 2b04:d00a -a 0 -s 0x8060000:leave -D system-part2-0.5.3-electron.bin`
+{{/if}}
 
 -  Wait... Your device should eventually restart and start blinking blue, breathing cyan, or flashing green -- all dependent on if you've setup the device before.
 
-{{/if}}
 
-{{#if core}}
+
+{{else}}
 
 ### Full Firmware Upgrade
 
@@ -73,7 +93,7 @@ Once the Particle CLI and dfu-util are installed, you have to enter DFU mode. On
 
 These commands replace the factory reset image, and re-patch the radio, bringing your Core to an upgraded factory state.
 
-{{/if}}
+{{/unless}}
 
 
 

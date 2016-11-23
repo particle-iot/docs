@@ -10,7 +10,11 @@
     </a>
     <div class="sections">
       <a class="nav {{#contains path.href 'guide'}}active{{/contains}}" href="/guide">Guide</a>
-      <a class="nav {{#contains path.href 'reference'}}active{{/contains}}" href="/reference">Reference</a>
+      <a class="nav {{#contains path.href 'tutorials'}}active{{/contains}}" href="/tutorials">Tutorials</a>
+      <a class="nav {{#contains path.href 'faq'}}active{{/contains}}"
+      href="/faq">FAQ</a>
+      <a class="nav {{#contains path.href 'reference'}}active{{/contains}}"
+      href="/reference">Reference</a>
       <a class="nav {{#contains path.href 'datasheets'}}active{{/contains}}" href="/datasheets">Datasheets</a>
       <a class="nav {{#contains path.href 'support'}}active{{/contains}}" href="/support">Support</a>
     </div>
@@ -21,6 +25,8 @@
       </a>
       <ul class="dropdown-menu" aria-labelledby="dLabel">
         <li><a href="/guide">Guide</a></li>
+        <li><a href="/tutorials">Tutorials</a></li>
+        <li><a href="/faq">FAQ</a></li>
         <li><a href="/reference">Reference</a></li>
         <li><a href="/datasheets">Datasheets</a></li>
         <li><a href="/support">Support</a></li>
@@ -39,16 +45,7 @@
     {{#if devices}}
       <div class="dropdown">
         <a id="dLabel" data-target="#" class="nav nav-device" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
-          <i class="im-devices-icon"></i>
-          {{#if electron}}
-            Electron
-          {{/if}}
-          {{#if photon}}
-            Photon
-          {{/if}}
-          {{#if core}}
-            Core
-          {{/if}}
+          <i class="im-devices-icon"></i> {{device}}
         </a>
         <ul class="dropdown-menu" aria-labelledby="dLabel">
           {{#contains devices 'electron'}}
@@ -60,10 +57,13 @@
           {{#contains devices 'core'}}
             <li><a href="{{path.href}}{{path.name}}/core/">Core</a></li>
           {{/contains}}
+          {{#contains devices 'raspberry-pi'}}
+            <li><a href="{{path.href}}{{path.name}}/raspberry-pi/">Raspberry Pi</a></li>
+          {{/contains}}
         </ul>
       </div>
     {{/if}}
     <a href='{{edit-link branch path.href path.name}}' class="nav" target="_blank"><i class="ion-edit"></i>Edit</a>
- 
+
   </div>
 </div>

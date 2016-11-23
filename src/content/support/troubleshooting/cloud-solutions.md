@@ -35,20 +35,20 @@ Perform <kbd>``CTRL``</kbd>``+``<kbd>``C``</kbd> once you logon with Particle-cl
 
 **4. On Command-line, ``cd`` to particle-server**
 
-**5. Place your {{#if photon}}photon{{/if}} {{#if core}}core{{/if}} in DFU mode [flashing yellow]**
+**5. Place your {{device}} in DFU mode [flashing yellow]**
 
 **6. Change server keys to local cloud key + IP Address**
 
 particle keys server default_key.pub.pem IP_ADDRESS
 
-**7. Go to {{#if photon}}photon{{/if}}{{#if core}}core{{/if}}_key directory to place {{#if photon}}photon{{/if}} {{#if core}}core{{/if}} public key inside**
+**7. Go to {{deviceValue}}_key directory to place {{device}} public key inside**
 
-``cd {{#if photon}}photon{{/if}}{{#if core}}core{{/if}}_keys``
-place {{#if photon}}photon{{/if}} {{#if core}}core{{/if}} in DFU-mode
-particle keys save INPUT_{{#if photon}}PHOTON{{/if}}{{#if core}}CORE{{/if}}_ID_HERE
-NOTE: make sure you use the {{#if photon}}PHOTON{{/if}} {{#if core}}CORE{{/if}} ID when saving the keys!
+``cd {{deviceValue}}_keys``
+place {{device}} in DFU-mode
+particle keys save INPUT_DEVICE_ID_HERE
+NOTE: make sure you use the {{device}} ID when saving the keys!
 
-Reset the {{#if photon}}photon{{/if}} {{#if core}}core{{/if}} manually by hitting the RST button
+Reset the {{device}} manually by hitting the RST button
 
 **8. Check for connection**
 
@@ -56,9 +56,9 @@ Reset the {{#if photon}}photon{{/if}} {{#if core}}core{{/if}} manually by hittin
 - open a separate CMD (if you closed it earlier)
 - cd to particle-server
 - run node main.js
-- watch the cmd for connections by the {{#if photon}}photon{{/if}}{{#if core}}core{{/if}}
+- watch the cmd for connections by the {{device}}
 
-You can restart the {{#if photon}}photon{{/if}}{{#if core}}core{{/if}} and see if there's any activity when the {{#if photon}}photon{{/if}}{{#if core}}core{{/if}} attempts to reach breathing cyan
+You can restart the {{device}} and see if there's any activity when the {{device}} attempts to reach breathing cyan
 
 Example activity from CMD output:
 
@@ -75,7 +75,7 @@ Example activity from CMD output:
 
 **1. You will need to flash the respective cloud Public Key to the core which you are connecting to.
 
-- Place your {{#if photon}}photon{{/if}}{{#if core}}core{{/if}} in DFU-mode (flashing yellow)
+- Place your {{device}} in DFU-mode (flashing yellow)
 - On the command line (to switch to Particle Cloud):
 
 	``particle keys server cloud_public.der``
@@ -83,7 +83,7 @@ Example activity from CMD output:
 	The Particle cloud public key file is here: [https://s3.amazonaws.com/spark-website/cloud_public.der](https://s3.amazonaws.com/spark-website/cloud_public.der)
 
 	For local Cloud: ``particle keys server your_local_cloud_public_key.der IP-ADDRESS``
-- Reset your {{#if photon}}photon{{/if}}{{#if core}}core{{/if}}
+- Reset your {{device}}
 
 **2.Changing of profile back to the default particle cloud on the Particle-cli must be performed using:
 

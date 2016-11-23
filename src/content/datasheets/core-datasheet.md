@@ -49,7 +49,7 @@ Some of the key features of the CC3000 module are as follows:
 - FCC, IC, and CE certified with a chip antenna
 - SPI host interface
 
-The datasheet is available [here.](http://www.ti.com/lit/ds/symlink/cc3000.pdf)
+The datasheet is available [here.](http://processors.wiki.ti.com/index.php/CC3000)
 
 
 ### External FLASH
@@ -343,4 +343,3 @@ Mechanical drawings of the Core are available [here.](https://github.com/spark/c
 ## Known Errata
 
 We are tracking [known errata with this datasheet here](https://github.com/spark/docs/issues/19).  These issues/errors in the datasheet will be resolved in subsequent revisions.
-

@@ -5,7 +5,7 @@ columns: two
 order: 4
 ---
 
-# Electron Datasheet <sup>(v002)</sup>
+# Electron Datasheet <sup>(v004)</sup>
 
 <div align=center><img src="/assets/images/electron/illustrations/electron-v20.png" ></div>
 
@@ -20,7 +20,7 @@ It also comes with Particle's development tools and cloud platform for managing 
 ### Features
 
  * U-blox SARA-U260/U270 (3G) and G350 (2G) cellular module
- * STM32F205 120MHz ARM Cortex M3 microcontroller
+ * STM32F205RGT6 120MHz ARM Cortex M3 microcontroller
  * 1MB flash, 128KB RAM
  * BQ24195 power management unit and battery charger
  * MAX17043 fuel gauge
@@ -109,7 +109,7 @@ The confusing bit about this pin is that it will continue to provide 5.1VDC but 
 ### JTAG AND SWD
 Pin D3 through D7 are JTAG interface pins. These can be used to reprogram your Electron bootloader or user firmware image with standard JTAG tools such as the ST-Link v2, J-Link, R-Link, OLIMEX ARM-USB-TINI-H, and also the FTDI-based Particle JTAG Programmer. If you are short on available pins, you may also use SWD mode which requires less connections.
 
-| Electron Pin | JTAG | SWD | STM32 Pin | Default Internal<sup>[1]</sup> |
+| Electron Pin | JTAG | SWD | STM32F205RGT6 Pin | Default Internal<sup>[1]</sup> |
 | :-:|:-:|:-:|:-:|
 | D7 | JTAG_TMS | SWD/SWDIO| PA13 | ~40k pull-up |
 | D6 | JTAG_TCK | CLK/SWCLK| PA14 | ~40k pull-down |
@@ -126,7 +126,7 @@ Pin D3 through D7 are JTAG interface pins. These can be used to reprogram your E
 
 ## Memory Map
 
-### STM32F205RGY6 Flash Layout Overview
+### STM32F205RGT6 Flash Layout Overview
 
 - Bootloader (16 KB)
 - DCD1 (16 KB), stores keys, mfg info, system flags, etc..
@@ -224,16 +224,18 @@ echo -e "\xFF" > fillbyte && dfu-util -d 2b04:d00a -a 1 -s 34 -D fillbyte
 | RST | Active-low reset input. On-board circuitry contains a 10k ohm pull-up resistor between RST and 3V3, and 0.1uF capacitor between RST and GND. |
 | VBAT |Supply to the internal RTC, backup registers and SRAM when 3V3 is not present (1.65 to 3.6VDC). The Pin is internally connected to 3V3 supply via a 0 ohm resistor. If you wish to power is via an external supply, you'll need to remove this resistor. Instructions to remove this resistor can be found here <add link here> |
 | 3V3 |This pin is the output of the on-board regulator. When powering the Electron via VIN or the USB port, this pin will output a voltage of 3.3VDC. The max load on 3V3 is 800mA. It should not be used as an input to power the Electron. |
-| WKP |Active-high wakeup pin, wakes the module from sleep/standby modes. When not used as a WAKEUP, this pin can also be used as a digital GPIO, ADC input or PWM.|
-| DAC |12-bit Digital-to-Analog (D/A) output (0-4095), and also a digital GPIO. DAC is used as DAC or DAC1 in software, and A3 is a second DAC output used as DAC2 in software. |
-| RX |Primarily used as UART RX, but can also be used as a digital GPIO or PWM.|
-| TX |Primarily used as UART TX, but can also be used as a digital GPIO or PWM.|
-| D0-D1 | Digital only GPIO |
-| A0-A1 | 12-bit Analog-to-Digital (A/D) inputs (0-4095), and also digital GPIOs. A6 and A7 are code convenience mappings, which means pins are not actually labeled as such but you may use code like `analogRead(A7)`. A6 maps to the DAC pin and A7 maps to the WKP pin.|
-| B0-B5 | B0 and B1 are digital only while B2, B3, B4, B5 are 12-bit A/D inputs as well as digital GPIOs|
-| C0-C5 | Digital only GPIO |
+| WKP |Active-high wakeup pin, wakes the module from sleep/standby modes. When not used as a WAKEUP, this pin can also be used as a digital GPIO, ADC input or PWM<sup>[1]</sup>. Can be referred to as `A7` when used as an ADC.|
+| DAC |12-bit Digital-to-Analog (D/A) output (0-4095), referred to as `DAC` or `DAC1` in software. Can also be used as a digital GPIO or ADC. Can be referred to as `A6` when used as an ADC. |
+| RX |Primarily used as UART RX, but can also be used as a digital GPIO or PWM<sup>[1]</sup>.|
+| TX |Primarily used as UART TX, but can also be used as a digital GPIO or PWM<sup>[1]</sup>.|
+| D0-D7 | Digital only GPIO.  `D0, D1, D2, D3` can also be used as PWM<sup>[1]</sup> outputs.|
+| A0-A7 | 12-bit Analog-to-Digital (A/D) inputs (0-4095), and also digital GPIOs. A6 and A7 are code convenience mappings, which means pins are not actually labeled as such but you may use code like `analogRead(A7)`. `A6` maps to the `DAC` pin and `A7` maps to the `WKP` pin. `A3` is also a second DAC output used as `DAC2` or `A3` in software. `A4` and `A5` can also be used as PWM<sup>[1]</sup> outputs.|
+| B0-B5 | `B0` and `B1` are digital only while `B2, B3, B4, B5` are 12-bit A/D inputs as well as digital GPIOs. `B0, B1, B2, B3` can also be used as PWM<sup>[1]</sup> outputs.|
+| C0-C5 | Digital only GPIO. `C4` and `C5` can also be used as PWM<sup>[1]</sup> outputs.|
 | VUSB | This pin is internally connected to USB supply and will output 5V when the Electron is plugged into an USB port. It is intentionally left unpopulated. |
 | Li+ | This pin is internally connected to the positive terminal of the LiPo battery. It is intentionally left unpopulated. |
+
+[1] PWM is available on D0, D1, D2, D3, B0, B1, B2, B3, A4, A5, WKP, RX, TX with a caveat: PWM timer peripheral is duplicated on two pins (A5/D2) and (A4/D3) for 11 total independent PWM outputs. For example: PWM may be used on A5 while D2 is used as a GPIO, or D2 as a PWM while A5 is used as an analog input. However A5 and D2 cannot be used as independently controlled PWM outputs at the same time.
 
 ### LED Status
 
@@ -289,11 +291,11 @@ conditions is not implied. Exposure to absolute-maximum-rated conditions for ext
 | LiPo Battery Voltage | V<sub>LiPo</sub> | +3.6 |  | +4.4 | V |
 | Supply Input Voltage | V<sub>VBAT</sub> | +1.65 |  | +3.6 | V |
 | Supply Input Current (VBAT) | I<sub>VBAT</sub> |  |  | 19 | uA |
-| Operating Current (Cellular ON) | I<sub>IN avg</sub> |  | 180 | 250 | mA |
-| Peak Current (Cellular ON) | I<sub>IN pk</sub> | 800<sup>[2]</sup> |  | 1800<sup>[3]</sup> | mA |
-| Operating Current (Cellular OFF) | I<sub>IN avg</sub> |  | 2 | 15 | mA |
-| Sleep Current (4.2V LiPo)| I<sub>Qs</sub> |  | 0.8 | 2 | mA |
-| Deep Sleep Current (4.2V LiPo) | I<sub>Qds</sub> |  | 110 | 130 | uA |
+| Operating Current (uC on, Cellular ON) | I<sub>IN avg</sub> |  | 180 | 250 | mA |
+| Peak Current (uC on, Cellular ON) | I<sub>IN pk</sub> | 800<sup>[2]</sup> |  | 1800<sup>[3]</sup> | mA |
+| Operating Current (uC on, Cellular OFF) | I<sub>IN avg</sub> |  | 47 | 50 | mA |
+| Sleep Current (4.2V LiPo, Cellular OFF)| I<sub>Qs</sub> |  | 0.8 | 2 | mA |
+| Deep Sleep Current (4.2V LiPo, Cellular OFF) | I<sub>Qds</sub> |  | 110 | 130 | uA |
 | Operating Temperature | T<sub>op</sub> | -20 |  | +60 | °C |
 | Humidity Range Non condensing, relative humidity | | | | 95 | % |
 
@@ -336,7 +338,7 @@ Please be sure to order a board that works in the country where you want to depl
 
 ### I/O Characteristics
 
-These specifications are based on the STM32F205RG datasheet, with reference to Electron pin nomenclature.
+These specifications are based on the STM32F205RGT6 datasheet, with reference to Electron pin nomenclature.
 
 | Parameter | Symbol | Conditions | Min | Typ | Max | Unit |
 | :---|:---|:---:|:---:|:---:|:---:|:---: |
@@ -377,16 +379,16 @@ These specifications are based on the STM32F205RG datasheet, with reference to E
  * Weight = 10 grams
 
 ### Mating connectors
-The Electron can be mounted with (qty 2) 18-pin single row 0.1" female headers. Typically these are 0.335" (8.5mm) tall, but you may pick a taller one if desired.When you search for parts like these it can be difficult to navigate the thousands of parts available.
+The Electron can be mounted with (qty 2) 18-pin single row 0.1" female headers. Typically these are 0.335" (8.5mm) tall, but you may pick a taller one if desired.  When you search for parts like these it can be difficult to navigate the thousands of parts available online so here are a few good choices for the Electron:
 
-On Digikey.com, under section Rectangular Connectors - narrow the search with: 18 positions, 1 row, 0.1" (2.54mm) pitch, Through Hole mounting types (unless you want SMT), and sort by Price Ascending. You may find something like this:
 
-|Description | MFG | MFG Part Number |
-|:---|:---|:---|
-|18 Position 0.100" (2.54mm) Gold Through Hole | TE Connectivity | 6-535541-6|
-|18 Position 0.100" (2.54mm) Tin Through Hole | 3M | 929974-01-18-RK|
+| Description | MFG | MFG Part Number | Distributor |
+|:-:|:-:|:-:|
+| 18-pin 0.1" (2.54mm) Female Header (Tin) | Sullins Connector Solutions | [PPTC181LFBN-RC](http://www.digikey.com/product-search/en?keywords=PPTC181LFBN-RC) | Digikey |
+| 18-pin 0.1" (2.54mm) Female Header (Tin) | 3M | [929974-01-18-RK](http://www.digikey.com/product-search/en?keywords=929974-01-18-RK) | Digikey |
+| 18-pin 0.1" (2.54mm) Female Header (Tin) | Harwin | [M20-7821846](http://www.mouser.com/search/ProductDetail.aspx?R=0virtualkey0virtualkeyM20-7821846) | Mouser |
 
-You may also search for other types, such as reverse mounted (bottom side SMT) female headers, low profile types, machine pin, etc..
+You may also use other types, such as reverse mounted (bottom side SMT) female headers, low profile types, etc..
 
 ### Recommended PCB land pattern
 
@@ -422,7 +424,7 @@ The microcontroller communicates with the PMIC via an I2C interface (pins PC9 an
 
 ![STM32](/assets/images/electron/schematics/stm32.png)
 
-The Electron uses ST Microelectronics's [STM32F205RGT6TR](http://www2.st.com/content/ccc/resource/technical/document/datasheet/bc/21/42/43/b0/f3/4d/d3/CD00237391.pdf/files/CD00237391.pdf/jcr:content/translations/en.CD00237391.pdf) ARM Cortex M3 microcontroller running at  120MHz.
+The Electron uses ST Microelectronics's [STM32F205RGT6](http://www2.st.com/content/ccc/resource/technical/document/datasheet/bc/21/42/43/b0/f3/4d/d3/CD00237391.pdf/files/CD00237391.pdf/jcr:content/translations/en.CD00237391.pdf) ARM Cortex M3 microcontroller running at  120MHz.
 
 ### U-blox cellular module
 
@@ -435,7 +437,7 @@ The u-blox cellular module talks to the microcontroller over a full-duplex USART
 
 ![Buffers](/assets/images/electron/schematics/buffers.png)
 
-Since u-blox module's communication interface operates at 1.8VDC, while the STM32 microcontroller operates at 3.3VDC, we need voltage translators in-between them. This is achieved with two [SN74AVC4T245](http://www.ti.com/lit/ds/symlink/sn74avc4t245.pdf) non-inverting buffers. The default state of the USART pins is set with the help of pull-up and pull-down resistors, and the unused input pins are tied to GND.
+Since u-blox module's communication interface operates at 1.8VDC, while the STM32F205RGT6 microcontroller operates at 3.3VDC, we need voltage translators in-between them. This is achieved with two [SN74AVC4T245](http://www.ti.com/lit/ds/symlink/sn74avc4t245.pdf) non-inverting buffers. The default state of the USART pins is set with the help of pull-up and pull-down resistors, and the unused input pins are tied to GND.
 
 ### 3.3V Regulator and Fuel Gauge
 
@@ -484,7 +486,7 @@ The Electron uses a four layer circuit board. Top layer consists of a signal lay
 | 1   | IC - Fuel Gauge|         | TDFN-8| U4| Maxim| MAX17043G+T|
 | 1   | IC - Cell Module|         | 16 x 26 x 3mm| U1| u-blox| SARA-G350SARA-U260SARA-U270 |
 | 2   | IC - Buffer|         | 16-UQFN| U2, U8| Texas Instruments| SN74AVC4T245RSVR|
-| 1   | IC - Microcontroller||LQFP64| U3| ST Microelectronics | STM32F205RGT6TR|
+| 1   | IC - Microcontroller||LQFP64| U3| ST Microelectronics | STM32F205RGT6|
 | 1   | IC - PMIC|| 24VQFN| U$1| Texas Instruments   | BQ24195RGER|
 | 1   | IC - MOSFET|| SC70-5| U9| Texas Instruments   | TPS22942DCKR|
 | 1   | IC - 3V3 Reg|1A| 6-SON (2x2)| U$5| Texas Instruments| TPS62291DRVR|
@@ -560,6 +562,7 @@ You may use the online Web IDE [Particle Build](https://build.particle.io) to co
 |GSM| Global System for Mobile Communications |
 |CDMA| Code Division Multiple Access |
 |OTA | Over The Air; describing how firmware is transferred to the device. |
+|uC  | Microcontroller |
 
 ## FCC IC CE Warnings and End Product Labeling Requirements
 
@@ -635,6 +638,8 @@ Cet équipement devrait être installé et actionné avec une distance minimum d
 |:-:|:-:|:-:|:-|
 | v001 | 20-Jan-2016 | MB | Initial release |
 | v002 | 24-March-2016 | MB | Added: Memory map, DAC limits, SIM card size, SWD pin locations. Updated: Power section, pin diagram, block diagram, operating conditions. |
+| v003 | 12-Sept-2016 | BW | Error in Cellular off operating current, changed from 2-15mA to 47-50mA. Also qualified these current readings with uC on/off. Updated the Pin Description section. Updated Mating connectors section. |
+| v004 | 27-Oct-2016 | BW | Replaced one STM32F205RGY6 with STM32F205RGT6, and replaced all STM32 mentions with full part number STM32F205RGT6 |
 
 ## Known Errata
 

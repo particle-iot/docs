@@ -316,8 +316,6 @@ of the response back to your devices.
 
 ## Firmware
 {{> api group=apiGroups.Firmware}}
-## Organizations
-{{> api group=apiGroups.Organizations}}
 ## Products
 {{> api group=apiGroups.Products}}
 ## Customers

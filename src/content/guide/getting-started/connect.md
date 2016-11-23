@@ -84,20 +84,7 @@ Restart your computer.
 Node should now be installed! In the next step we will test it and install the CLI.
 
 ### Installing the Particle Driver
-You'll also need to install the Windows driver. [Download it here.](https://s3.amazonaws.com/spark-website/Particle.zip)
-
-Unzip the file. It is fine to unzip this as a default into your Downloads folder.
-
-Go to the Device Manager and double-click on your Particle device under `Other Devices` (on Windows 10 your Particle device may be listed under `Ports`).
-
-Click `Update Driver`, and select `Browse for driver software on your computer`.
-
-Navigate to your Downloads folder, or wherever you unzipped the drivers.
-
-{{#if photon}}The driver is called `photon.cat`.{{/if}}
-{{#if core}}The driver is called `spark_core.cat`.{{/if}}
-
-If you have a problem installing, you may have to temporarily disable the digitally signed driver enforcement policy. (We're sorry.) There are good instructions on how to do that [here](http://www.howtogeek.com/167723/how-to-disable-driver-signature-verification-on-64-bit-windows-8.1-so-that-you-can-install-unsigned-drivers/).
+You'll also need to install the Windows driver. [Download it here.](https://github.com/spark/windows-device-drivers/releases/download/v6.1.0.51/particle_drivers_6.1.0.51.exe)
 
 ### Opening the Command Prompt
 You'll need to open the command prompt for this next part. You can also use Powershell or a similar command line tool if that is what you are used to.
@@ -151,11 +138,10 @@ If you have already claimed your device and you want to connect it to wifi, type
 If you're using an Electron, please follow the instructions at [https://setup.particle.io](https://setup.particle.io).
 {{/if}}
 
-If your device is not connecting, try troubleshooting [here](http://support.particle.io/hc/en-us/articles/204357684-Can-t-Get-Connected-).
+If your device is not connecting, try troubleshooting [here](https://docs.particle.io/support/troubleshooting/common-issues).
 
-[More info on the CLI is available ](/guide/tools-and-features/cli/).
+[More info on the CLI is available](/guide/tools-and-features/cli/).
 
 
-If your device is not connecting, try [troubleshooting](/support).
 
 Once you've finished connecting your device, head over to [the next section](/guide/getting-started/modes) to learn about the different modes for your device.

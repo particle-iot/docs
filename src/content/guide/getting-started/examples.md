@@ -2,7 +2,7 @@
 title: Code Examples
 template: guide.hbs
 columns: two
-devices: [ photon,electron,core ]
+devices: [ photon,electron,core,raspberry-pi ]
 order: 7
 ---
 
@@ -26,7 +26,7 @@ To complete all the examples, you will need the following materials:
 
 {{#if electron}}All of the example circuits are based on the reference card that came along with your Electron kit. If you have misplaced yours, download it [here!](/assets/images/electron/illustrations/electron-card.pdf){{/if}}
 * **Software**
-  * The [online IDE](http://build.particle.io) 
+  * The [online IDE](http://build.particle.io)
   * or the local [Particle Dev](http://particle.io/dev)
 * **Experience**
   {{#unless electron}}* Connecting your Device [with your smartphone](/guide/getting-started/start/) or [over USB](/guide/getting-started/connect){{/unless}}
@@ -322,7 +322,7 @@ To better understand the concept of making API calls to your device over the clo
 <p class = "boxedHead">NOTE:</p>
 <p class = "boxed">
 
-There is a known issue with the first revision of the product card included with your Electron. 
+There is a known issue with the first revision of the product card included with your Electron.
 The holes marked "A5" and "A0" are misaligned with the headers of the Electron, and _actually_ align with pins "A4" and "B5", respectively. This issue will be corrected in later revisions of the project card. In the meantime, please ensure that the resistor and photoresistor included with your kit are connected to the correct pins (A5 and A0, _not_ A4 and B5).
 </p>
 
@@ -496,9 +496,9 @@ and make sure you replace `device_name` with either your device ID or the casual
 
 Now you can turn your LED on and off and see the values at A0 change based on the photoresistor!
 
-<div style="display: none;" id="publish-and-the-dashboard" data-firmware-example-url="https://docs.particle.io/guide/getting-started/examples/photon/#make-a-motion-detector-publish-and-the-dashboard" data-firmware-example-title="Publish" data-firmware-example-description="Publish and the Dashboard"></div>
+<div style="display: none;" id="publish-and-the-dashboard" data-firmware-example-url="https://docs.particle.io/guide/getting-started/examples/photon/#make-a-motion-detector-publish-and-the-console" data-firmware-example-title="Publish" data-firmware-example-description="Publish and the Console"></div>
 
-## Make a Motion Detector: Publish and the Dashboard
+## Make a Motion Detector: Publish and the Console
 
 ### Intro
 
@@ -510,7 +510,7 @@ In this example, we've created a system where you turn your LED and photoresisto
 
 For your convenience, we've set up a little calibrate function so that your device will work no matter how bright your LED is, or how bright the ambient light may be. Put your finger in the beam when the D7 LED goes on, and hold it in the beam until you see two flashes from the D7 LED. Then take your finger out of the beam. If you mess up, don't worry-- you can just hit "reset" on your device and do it again!
 
-You can check out the results on your dashboard at [dashboard.particle.io](https://dashboard.particle.io). As you put your finger in front of the beam, you'll see an event appear that says the beam was broken. When you remove your finger, the event says that the beam is now intact.
+You can check out the results on your console at [console.particle.io](https://console.particle.io). As you put your finger in front of the beam, you'll see an event appear that says the beam was broken. When you remove your finger, the event says that the beam is now intact.
 
 You can also hook up publishes to IFTTT! More info [here](/guide/tools-and-features/ifttt).
 
@@ -527,7 +527,7 @@ Ensure that the short end of the LED is plugged into `GND` and that the LED and 
 
 <pre><code class="lang-cpp" data-firmware-example-code-block=true>
 // -----------------------------------------
-// Publish and Dashboard with Photoresistors
+// Publish and Console with Photoresistors
 // -----------------------------------------
 // This app will publish an event when the beam of light between the LED and the photoresistor is broken.
 // It will publish a different event when the light is intact again.
@@ -933,30 +933,30 @@ int i = 0;
 long lastMeasurement = 0;
 
 void setup() {
-    
+
 }
 
 void loop() {
-    
-    /* This statement is incredibly useful. 
+
+    /* This statement is incredibly useful.
     millis() tells us what the current time is in milliseconds
     lastMeasurement will be when we recorded last; it starts out as 0 because we've never measured
-    If the difference in milliseconds between the current time and the last time we've measured 
+    If the difference in milliseconds between the current time and the last time we've measured
     is more than 600,000 milliseconds (ten minutes) then... do all the things!
     */
     if(millis()-lastMeasurement > 600000){
         // Measure the value on the photoresistor, and put it into the array
         light[i] = analogRead(A0);
-        
+
         // Keep track of when last measurement was taken
         lastMeasurement = millis();
-    
+
         // If we've taken 5 measurements (0-4, inclusive) then we should send that data
         if(i == 4){
             /* We're using a short event name "T" to reduce data transmitted
             String::format will create a single string for us out of many data points
             Each %d means to put an integer there. %s is used for strings.
-            To learn more, read https://en.wikipedia.org/wiki/Printf_format_string 
+            To learn more, read https://en.wikipedia.org/wiki/Printf_format_string
             Since this will only happen every 5 measurements, we can assume these publishes will be 50 minutes apart*/
             Particle.publish("L", String::format("%d,%d,%d,%d,%d", light[0],light[1],light[2],light[3],light[4]));
             // Reset index to beginning
@@ -970,6 +970,72 @@ void loop() {
 }
 
 </code></pre>
+
+If you want to subscribe to these publishes from another Particle device, you can create a handler that splits the data on receipt:
+
+<pre><code class="lang-cpp" data-firmware-example-code-block=true>
+// ---------------------------------------------------
+// Parsing publishes that contain multiple data points
+/* ---------------------------------------------------
+
+Subscribing the the example above, this example will listen for data from
+the "L" event, split it up, and put it into the subscribeData array.
+
+------------------------------------------*/
+
+// Create an array with 5 locations to store values from the subscribe
+int subscribeData[5];
+
+void setup() {
+
+    // if you are subscribing to a private event published with the syntax
+    //    Particle.publish("event-name", event-data,time-to-live,PRIVATE);
+    // you should use:
+    Particle.subscribe("L",myHandler,MY_DEVICES);
+
+    // Otherwise, for a public event published with the syntax
+    //    Particle.publish("event-name", event-data);
+    // you should use:
+    Particle.subscribe("L",myHandler);
+    // Note that this will subscribe to all public events with the name "L".
+
+}
+
+void loop() {
+    // nothing here...
+}
+
+void myHandler(const char *event, const char *data) {
+    if (data) {
+        char input[64];
+        strcpy(input,data);
+        char *p;
+        p = strtok(input,",");
+        subscribeData[0]=atoi(p);
+        p = strtok(NULL,",");
+        subscribeData[1]=atoi(p);
+        p = strtok(NULL,",");
+        subscribeData[2]=atoi(p);
+        p = strtok(NULL,",");
+        subscribeData[3]=atoi(p);
+        p = strtok(NULL,",");
+        subscribeData[4]=atoi(p);
+        Serial.print("Got data: ");
+        Serial.print(subscribeData[0]);
+        Serial.print(",");
+        Serial.print(subscribeData[1]);
+        Serial.print(",");
+        Serial.print(subscribeData[2]);
+        Serial.print(",");
+        Serial.print(subscribeData[3]);
+        Serial.print(",");
+        Serial.println(subscribeData[4]);
+    }
+}
+
+
+</code></pre>
+
 {{/if}}
 
 <div style="display: none;" id="annotated-tinker-firmware" data-firmware-example-url="http://docs.particle.io/photon/tinker/#annotated-tinker-firmware" data-firmware-example-title="Tinker" data-firmware-example-description="The factory default firmware that mobile apps interact with"></div>

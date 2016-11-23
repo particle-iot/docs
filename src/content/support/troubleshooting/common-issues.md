@@ -55,7 +55,7 @@ If you're not using a Particle SIM, you will have to change the cellular APN on 
 ### 6) Check the cellular coverage in your area
 The Electron leverages a number of cellular carriers to provide excellent coverage, but it *is* possible that you are outside GSM coverage in your country. Fortunately, it's relatively simple to check:
 
-- Go to http://particle.io/cellular and select your country from the dropdown at the bottom of the page. Note the cellular provider in your country. In the US, for example, service is provided by `T-Mobile and AT&T`.
+- Go to https://www.particle.io/pricing#cellular-data and select your country from the dropdown at the bottom of the page. Note the cellular provider in your country. In the US, for example, service is provided by `T-Mobile and AT&T`.
 - Navigate to <a href="http://opensignal.com" target="_blank">http://opensignal.com</a> in your browser
 - If you have an Electron G350, select "2G" and unselect "3G" and "4G" options. If you have an Electron U260 or U270, select both "2G" and "3G" and unselect the "4G" option. Limit the coverage map to the carrier providing service to your Particle SIM in your country (`T-Mobile and AT&T` in the US, for example).
 - Check the coverage map to ensure that you have coverage in your area.
@@ -73,9 +73,9 @@ There are a bunch of things that you can do to improve your cellular reception:
 
 
 ### 8) Check your data limit
-If you've been using your Electron successfully for a while and it's now just started flashing green, you might have hit your data limit, and your SIM might be paused. You can check your data usage and update your data limits by visiting the SIM dashboard at the following link:
+If you've been using your Electron successfully for a while and it's now just started flashing green, you might have hit your data limit, and your SIM might be paused. You can check your data usage and update your data limits by visiting the SIM console at the following link:
 
-[https://dashboard.particle.io/user/billing](https://dashboard.particle.io/user/billing)
+[https://console.particle.io/billing](https://console.particle.io/billing)
 
 ### 9) Cold boot your device
 If all else fails, try restarting it! Remove *both* the USB cable and Li-Po battery from the Electron, so that the RGB LED fully powers off. Then, reconnect the Li-Po battery and USB cable--the Electron should reboot and retry the connection sequence.
@@ -192,7 +192,7 @@ Photons that have been interrupted mid-firmware update often breathe magenta (de
 
 ### Manual Firmware Update
 
-If you do not have a Mac/Apple computer then you should not read the instructions below for a firmware upgrade. These are specifically for users who have MAC machines.
+If you do not have a Mac/Apple computer then you should not read the instructions below for a firmware upgrade. These are specifically for users who have Mac OS/OS X machines.
 
 *For Windows* If you have a Windows machine, please follow <a href="http://blog.jongallant.com/2015/08/particle-photon-firmware-flash-windows.html" target="_blank">these instructions</a>.
 

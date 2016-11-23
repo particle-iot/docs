@@ -53,6 +53,8 @@ Created by Zach Supalla.
         localStorage.setItem('lastDevice', 'core');
       } else if (currentPath.indexOf('electron') > -1) {
         localStorage.setItem('lastDevice', 'electron');
+      } else if (currentPath.indexOf('raspberry-pi') > -1) {
+        localStorage.setItem('lastDevice', 'raspberry-pi');
       }
     }
   };
@@ -329,5 +331,7 @@ Created by Zach Supalla.
   Docs.buildSearch();
   Docs.toggleNav();
   Docs.toggleShowing();
-  prettyPrint();
+  if (prettyPrint) {
+    prettyPrint();
+  }
 })(jQuery);

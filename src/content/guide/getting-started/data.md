@@ -66,7 +66,7 @@ Our friend Tinker also consumes data! Calling digital and analog read/writes use
 Whenever you control the connection directly you'll use data. A lot of data. We highly recommend that you do **NOT** use these with the Electron, as they will use data much more quickly than Particle publishes and functions.
 
 ## What if I run out?
-If you reach your data limit and want to keep your device online, just hop over to the [Dashboard](https://dashboard.particle.io/) and increase the limit. It will automatically unpause and you'll be back online in a few minutes. We highly recommend that you set a high limit for critical applications.
+If you reach your data limit and want to keep your device online, just hop over to the [Console](https://console.particle.io/) and increase the limit. It will automatically unpause and you'll be back online in a few minutes. We highly recommend that you set a high limit for critical applications.
 
 Your application will be stuck in a connecting loop if you haven't written code specifically for offline behavior, so plan ahead! You can use System Modes like `MANUAL` and `SEMIAUTOMATIC` to directly control connection activity. In later versions of Electron firmware you can also enable multithreading so that connection attempts will not block your application code.
 

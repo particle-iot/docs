@@ -15,6 +15,28 @@
  }
 .content {
   position: relative;
+  .btn {
+    background: @spark-blue;
+    color: #fff;
+    font-weight: 700;
+    font-size: 12px;
+    padding: 10px !important;
+    text-transform: uppercase;
+    letter-spacing: 0.7px;
+    border-radius: 4px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    display: inline-block;
+    &:hover {
+      background: @spark-blue-dark;
+    }
+    i {
+      margin-right: 5px;
+      font-size: 16px;
+      display: inline-block;
+      vertical-align: middle;
+    }
+  }
 }
 .content p,
 .content ul,
@@ -55,10 +77,10 @@
   line-height: 24px;
   color: @gray;
   &.caption {
-    font-size: 12px;
+    font-size: 14px;
     font-style: italic;
     text-align: center;
-    margin-top: -35px;
+    margin-top: -15px;
     margin-bottom: 20px;
   }
 }
@@ -755,6 +777,9 @@ hr {
     @media(max-width: @medium-size) {
       max-width: 100%;
     }
+    &.full-width {
+      max-width: 100%;
+    }
   }
   .content h4:after, .content h5:after, .content .small-heading:after, body:not(.big-h3) .content h3:after {
     left: 0;
@@ -830,7 +855,9 @@ body:not(.no-literate) .content img[alt="Connection sequence"],
       clear: left;
     }
 
-    body:not(.no-literate) .content table {
+    body:not(.no-literate) .content > table,
+    body:not(.no-literate) .content > .table-scrollable {
+      box-sizing: border-box;
       width: 45%;
       padding-left: 40px;
       padding-right: 40px;
@@ -839,6 +866,7 @@ body:not(.no-literate) .content img[alt="Connection sequence"],
       clear: left;
       color: #000;
     }
+
 
     body:not(.no-literate) .content > p,
     body:not(.no-literate) .content > ul,
@@ -962,4 +990,8 @@ body:not(.no-literate) .content img[alt="Connection sequence"],
     display: block;
     margin: 0 0 50px;
   }
+}
+
+.table-scrollable {
+  overflow-x: auto;
 }

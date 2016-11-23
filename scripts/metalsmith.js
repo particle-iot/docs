@@ -14,6 +14,7 @@ var compress = require('metalsmith-gzip');
 var paths = require('metalsmith-paths');
 var partials = require('metalsmith-register-partials');
 var helpers = require('metalsmith-register-helpers');
+var deviceFeatureFlags = require('./device_feature_flags');
 var redirect = require('metalsmith-redirect');
 var copy = require('metalsmith-copy');
 var fork = require('./fork');
@@ -113,6 +114,23 @@ exports.metalsmith = function() {
         pattern: 'reference/*md',
         sortBy: 'order'
       },
+			tutorials: {
+				pattern: 'tutorials/:section/*.md',
+				sortBy: 'order',
+				orderDynamicCollections: [
+					'integrations',
+					'dev-tools',
+					'projects'
+				]
+			},
+      faq: {
+        pattern: 'faq/:section/*.md',
+        sortBy: 'order',
+        orderDynamicCollections: [
+          'connectivity',
+          'raspberry-pi'
+				]
+      },
       datasheet: {
         pattern: 'datasheets/*.md',
         sortBy: 'order'
@@ -130,6 +148,9 @@ exports.metalsmith = function() {
     .use(fork({
       key: 'devices',
       redirectTemplate: './templates/redirector.jade'
+    }))
+    .use(deviceFeatureFlags({
+      config: './device_features.json'
     }))
     .use(inPlace({
       engine: 'jade',
@@ -184,7 +205,7 @@ exports.metalsmith = function() {
       '/photon/tinker' : '/guide/getting-started/tinker',
       '/photon/examples' : '/guide/getting-started/examples',
       '/photon/dev' : '/guide/tools-and-features/dev',
-      '/photon/dashboard' : '/guide/tools-and-features/dashboard',
+      '/photon/dashboard' : '/guide/tools-and-features/console',
       '/photon/firmware' : '/reference/firmware',
       '/photon/api' : '/reference/api',
       '/photon/javascript' : '/reference/javascript',
@@ -203,7 +224,7 @@ exports.metalsmith = function() {
       '/core/tinker' : '/guide/getting-started/tinker/core',
       '/core/examples' : '/guide/getting-started/examples/core',
       '/core/dev' : '/guide/tools-and-features/dev/core',
-      '/core/dashboard' : '/guide/tools-and-features/dashboard/core',
+      '/core/dashboard' : '/guide/tools-and-features/console/core',
       '/core/firmware' : '/reference/firmware',
       '/core/api' : '/reference/api',
       '/core/javascript' : '/reference/javascript',
@@ -226,7 +247,7 @@ exports.metalsmith = function() {
       '/build' : '/guide/getting-started/build',
       '/examples' : '/guide/getting-started/examples',
       '/dev' : '/guide/tools-and-features/dev',
-      '/dashboard' : '/guide/tools-and-features/dashboard',
+      '/dashboard' : '/guide/tools-and-features/console',
       '/cli' : '/guide/tools-and-features/cli',
       '/monitor' : '/guide/tools-and-features/monitor',
       '/ifttt' : '/guide/tools-and-features/ifttt',
@@ -240,7 +261,10 @@ exports.metalsmith = function() {
       '/photon/hardware' : '/datasheets/photon-datasheet',
       '/troubleshooting' : '/support/troubleshooting/common-issues',
       '/help' : '/support/troubleshooting/common-issues',
-      '/faq' : '/support/support-and-fulfillment/faq'
+      '/faq' : '/faq/connectivity/common-issues',
+      '/tutorials': '/tutorials/integrations/google-cloud-platform',
+      '/guide/how-to-build-a-product/dashboard': '/guide/tools-and-features/console',
+      '/tutorials/topics/particle-pi-security-camera' : '/tutorials/projects/particle-pi-security-camera'
     }));
 
   return metalsmith;

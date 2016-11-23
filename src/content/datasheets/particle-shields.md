@@ -270,7 +270,7 @@ The shield is setup so that when powered from the USB port as well as from a DC 
 
 ![Power Shield Supply](/assets/images/shields/power-shield/power-shield-powersupply.png)
 
-There are two status led located on the left of the JST battery connector labeled `STAT1` and `STAT2`. Here is a table of the led behavior depending on which state the battery charger is in:
+There are two status LEDs located on the left of the JST battery connector labeled `STAT1` and `STAT2`. Here is a table of the LED behavior depending on which state the battery charger is in:
 
 |STAT1 (Blue)  | STAT2 (Red) | Charge State |
 |--------|--------|-------------------------|
@@ -288,6 +288,8 @@ There are two status led located on the left of the JST battery connector labele
  <!-- - Weight: -->
 
  ![Power Shield Dimensions](/assets/images/shields/power-shield/power-shield-dimensions.png)
+
+**NOTE:** There is a know issue on the v2.1.0 of the Power Shield where the shield will fail to power up the Photon when the battery is inserted for the first time or reinserted after a long time (>60mins). The user will need to unplug and plug the battery back again for the shield to power up. The issue arises by the fact that on startup, the battery charger confuses the Photon booting up to there being a short circuit and powers off to save the device. If you are feeling adventurous, you can fix this issue by soldering a 10nF capacitor across the DPPM pin and GND. This delays the short-circuit protection at startup and lets the Photon bootup without any issues. 
 
 ## Internet Button
 
@@ -327,7 +329,7 @@ Examples include:
 
 ### Internet Button - Specifications
 
-- Operating voltage: USB or External DC of 3.6 to 6VDC
+- Operating voltage: USB or External DC of 3.3 to 5.5VDC
 - Dimensions: 2.6" x 2.6"
 <!-- - Current consumption: -->
 <!-- - Weight: -->
@@ -366,6 +368,7 @@ You get two 220-Ohm resistors in your Photon Kit. They are rated at 5%, 1/4 Watt
 ### Photon with Headers (1)
 
 ![Photon with Headers](/assets/images/photon-loose-top.jpg)
+[Click here for the Photon datasheet](/datasheets/photon-datasheet/)
 
 ### USB Micro B Cable (1)
 
@@ -607,6 +610,10 @@ Note: The Ground pin may vary as Brown or Black, +5V pin may vary as Orange or R
 
 This is a 128x64 pixel graphic OLED screen that can be either controlled via the SPI (default) or I2C.
 
+**Sample code**
+- [Adafruit SSD1306 in the Particle Build Library](https://build.particle.io/libs/5397d8d028979ed3cc000731)
+- https://github.com/pkourany/Adafruit_SSD1306
+
 **Specifications:**
 - Supply Voltage: 3.0V to 5V DC
 - Current consumption: 50mA max
@@ -758,9 +765,9 @@ AND
 - (1) [ADXL362](http://www.analog.com/media/en/technical-documentation/data-sheets/ADXL362.pdf) accelerometer
 - (1) [GP2Y0A710K0F](https://acroname.com/sites/default/files/assets/sharp_gp2y0a710yk0f_datasheet.pdf) 100-550cm IR Distance sensor
 - (1) [Loudness sensor](http://www.seeedstudio.com/wiki/Grove_-_Loudness_Sensor) with LM2904 opamp
-- (1) [MQ2 gas sensor](https://www.seeedstudio.com/depot/datasheet/MQ-2.pdf) for LPG, i-butane, propane, methane ,alcohol, Hydrogen, smoke
+- (1) [MQ2 gas sensor](/assets/datasheets/electronsensorkit/MQ-2.pdf) for LPG, i-butane, propane, methane, alcohol, hydrogen and smoke.
 - (1) [SHT10](https://www.adafruit.com/products/1298) soil humidity and temperature sensor
-- (1) [HC-SR501](https://www.mpja.com/download/31227sc.pdf) PIR motion sensor
+- (1) [HC-SR501](/assets/datasheets/electronsensorkit/HC-SR501.pdf) PIR motion sensor
 - (1) Soil moisture sensor with LM393 (similar to [this one](http://seeedstudio.com/wiki/Grove_-_Moisture_Sensor))
 - (1) [DS18B20](https://www.adafruit.com/products/381) waterproof temperature sensor
 - (1) [SW18020P](http://www.electrodragon.com/product/vibration-switch-sensor-sw-18020p/) vibration sensor

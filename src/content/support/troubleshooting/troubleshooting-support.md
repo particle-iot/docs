@@ -13,7 +13,7 @@ Troubleshooting Common LED Codes
 
 During initial setup of a device these are the usual LED specifications:
 
-- **White pulse:** Start-up (happens when the {{#if photon}}Photon{{/if}} {{#if core}}Core{{/if}} is first powered on or when it's reset)
+- **White pulse:** Start-up (happens when the {{device}} is first powered on or when it's reset)
 - **Flashing blue:** {{#if photon}}Listening Mode{{/if}} {{#if core}}Smart Config{{/if}}, waiting for Wi-Fi credentials
 {{#if core}}- **Solid blue:** Smart Config, received Wi-Fi credentials{{/if}}
 - **Flashing green:** Connecting to local Wi-Fi network

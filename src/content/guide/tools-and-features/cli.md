@@ -3,17 +3,19 @@ word: CLI
 title: Command Line
 order: 4
 columns: two
-devices: [electron,photon,core]
+devices: [electron,photon,core,raspberry-pi]
 template: guide.hbs
 ---
 
 # Particle CLI
 
-The Particle CLI is a powerful tool for interacting with your devices and the Particle Cloud.  The CLI uses [node.js](http://nodejs.org/) and can easily run on Windows, Mac OS X, and Linux.  It's also [open source](https://github.com/spark/particle-cli) so you can edit and change it, and even send in your changes as [pull requests](https://help.github.com/articles/using-pull-requests/) if you want to share!
+The Particle CLI is a powerful tool for interacting with your devices and the Particle Cloud.  The CLI uses [node.js](http://nodejs.org/) and can easily run on Windows, Mac OS X, and Linux.  It's also [open source](https://github.com/spark/particle-cli) so you can edit and change it, and even send in your changes as [pull requests](https://help.github.com/articles/about-pull-requests/) if you want to share!
 
 ## Installing
 
-  First, make sure you have [node.js](http://nodejs.org/) installed!
+  If you are using Windows, you can use the official Particle [Windows CLI Installer](https://binaries.particle.io/cli/installer/windows/ParticleCLISetup.exe) to automatically install node.js, the particle-cli, and dfu-util.
+
+  Otherwise, make sure you have [node.js](http://nodejs.org/) installed.
 
   Next, open a command prompt or terminal, and install by typing:
 
@@ -33,7 +35,7 @@ To use the local flash and key features you'll also need to install [dfu-util](h
 
 Here are some great tutorials on the community for full installs:
 
-[Windows Installer](https://community.particle.io/t/toolchain-for-windows-installer/13217/82) *or* [Install Separate Components for Windows](https://community.particle.io/t/tutorial-spark-cli-on-windows-06-may-2014/3112)
+[Install Separate Components for Windows](https://community.particle.io/t/tutorial-spark-cli-on-windows-06-may-2014/3112)
 
 [Installing on Ubuntu 12.04](https://community.particle.io/t/how-to-install-spark-cli-on-ubuntu-12-04/3474)
 
@@ -63,7 +65,7 @@ To grab the CLI source and play with it locally
 
 ```sh
 # how to get the source code for the CLI
-$ git clone git@github.com:spark/particle-cli.git
+$ git clone https://github.com/spark/particle-cli.git
 $ cd particle-cli
 $ npm install
 $ node app.js help
@@ -201,7 +203,7 @@ Then let's compile that program to make sure it's valid code.  The CLI will auto
 
 ```sh
 # how to compile a program without flashing to your device
-$ particle compile {{#if photon}}photon{{/if}}{{#if core}}core{{/if}}{{#if electron}}electron{{/if}} blinky.ino
+$ particle compile {{deviceValue}} blinky.ino
 Including:
 blinky.ino
 attempting to compile firmware

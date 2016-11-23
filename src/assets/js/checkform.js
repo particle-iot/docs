@@ -9,7 +9,11 @@ $(document).ready(function() {
 		datax.email = $("#email").val();
 		datax.email2 = $("#email2").val();
 		datax.subj = $("#category option:selected").val();
-		datax.topic = $("#secondmenu option:selected").val();
+		var detail = $("#detailmenu:visible option:selected").val();
+		if(detail) {
+		    datax.subj += " (" + detail + ")";
+		}
+		datax.topic = $("#questionmenu option:selected").val();
 		datax.browserType = browserType;
 		datax.ostype = ostype;
 		datax.comments = $("#comment").val();
@@ -41,7 +45,8 @@ $(document).ready(function() {
 					$("#email").val('');
 					$("#email2").val('');
 					$("#category option:selected").val();
-					$("#secondmenu option:selected").val();
+					$("#detailmenu option:selected").val();
+					$("#questionmenu option:selected").val();
 					$("#comment").val('');
 					$("#fileUp").val();
 					$("#button-blue").css('background-color', 'green');
