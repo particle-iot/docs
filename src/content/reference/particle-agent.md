@@ -79,10 +79,14 @@ sudo rm -rf /var/lib/particle
 
 ## Troubleshooting
 
-If your firmware is crashing or your Raspberry Pi doesn't show as online
-in the Particle tools, the first step is run the setup command again.
-This will reinstall the default firmware Tinker and reconnect to the
-cloud.
+If your firmware crashes 5 times in a row within 30 seconds the Agent
+will go to "safe mode" which means it will revert the firmware to the
+default Tinker firmware. This will let the Raspberry Pi to reconnect
+to the cloud allowing you to reflash new firmware.
+
+If your Raspberry Pi still doesn't show as online in the Particle tools,
+the first step is run the setup command again.  This will reinstall
+the default firmware Tinker and reconnect to the cloud.
 
 ```
 sudo particle-agent setup
