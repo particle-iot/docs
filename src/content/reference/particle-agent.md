@@ -81,7 +81,7 @@ sudo rm -rf /var/lib/particle
 
 If your firmware crashes 5 times in a row within 30 seconds the Agent
 will go to "safe mode" which means it will revert the firmware to the
-default Tinker firmware. This will let the Raspberry Pi to reconnect
+default Tinker firmware. This will let the Raspberry Pi reconnect
 to the cloud allowing you to reflash new firmware.
 
 If your Raspberry Pi still doesn't show as online in the Particle tools,
