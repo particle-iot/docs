@@ -137,9 +137,22 @@ You can verify that your Raspberry Pi is online by running the `ifconfig` comman
 Now that your Pi is online, it's finally time to download and install the Particle Pi software. If your Pi has a monitor and keyboard connected, you can skip directly to [Install the Particle Agent](/guide/getting-started/start/raspberry-pi/#install-the-particle-agent). If would like to install the Particle Pi software without using a monitor and keyboard, please read the following section, [Instructions for headless setup](/guide/getting-started/start/raspberry-pi/#instructions-for-headless-setup).
 
 ### Instructions for headless setup
-Note that if you are using a wired connection without a monitor and keyboard (headless) you will have to obtain your Pi's IP address and SSH into your Pi in order to install the Particle software. If you are using a keyboard and monitor, you can head directly to [Install the Particle Agent](/guide/getting-started/start/raspberry-pi/#install-the-particle-agent).
+Note that if you are using a wired connection without a monitor and keyboard (headless) you will have to SSH into your Pi in order to install the Particle software. If you are using a keyboard and monitor, you can head directly to [Install the Particle Agent](/guide/getting-started/start/raspberry-pi/#install-the-particle-agent).
 
 - The first step is to obtain the IP address for your Raspberry Pi once it is connected to the Internet. You can find instructions for obtaining your Pi's IP address using Raspberry Pi's official tutorial, [here](https://www.raspberrypi.org/documentation/remote-access/ip-address.md).
+
+<p class = "boxed">
+The easiest method to SSH into your Pi is to use its mDNS hostname followed by `.local`. The default hostname for your Pi is `raspberrypi`, so on macOS and Linux, you can simply SSH into your pi by running the following command in your computer's terminal:
+```
+ssh pi@raspberrypi.local
+```
+The default password for Raspberry Pi is `raspberry`. If you want to change it, you can do so by running the following command inside of your Raspberry Pi's terminal:
+```
+passwd
+```
+</p>
+
+
 
 <p class = "boxed">
 An alternate method for finding the IP address in a headless setup configuration is to ensure that your computer is connected to the same network as your Raspberry Pi device, and to run the following command in your computer's terminal:  
