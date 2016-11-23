@@ -81,12 +81,6 @@ Congratulations! You've updated the system firmware on your device.
 Your device will automatically reboot and will run your app using the updated system firmware.
 
 
-## Troubleshooting
-
-### Device not detected
-
-If the application doesn't detect your device, try disconnecting and reconnecting the device. This is especially true on Windows after installing the USB drivers - Windows will not detect the device using the newly installed drivers until the device has been disconnected and reconnected.
-
 ### Electron Upgrade
 
 *This section only applies to Electrons. If you are upgrading another type of device, you can skip this section.*
@@ -103,14 +97,24 @@ Firmware Manager 0.5.3
 - [OSX](https://binaries.particle.io/updater/particle_firmware_manager-v0.5.3-osx.zip)
 
 
+## Troubleshooting
+
+### Device not detected
+
+If the application doesn't detect your device, try disconnecting and reconnecting the device. This is especially true on Windows after installing the USB drivers - Windows will not detect the device using the newly installed drivers until the device has been disconnected and reconnected.
+
 
 ### Update stops halfway
 
-If the update gets stuck or you see an error message, try starting the process with the device in safe mode.
+If the update gets stuck or you see an error message, try following these steps
 
-- Restart the device in [Safe Mode](/guide/getting-started/modes/electron/#safe-mode)
 - Close the device updater if it's already open
-- Launch the device updater and proceed with the update
+- Connect the device directly to your computer rather than via USB hubs
+- Restart the device in [Safe Mode](/guide/getting-started/modes/electron/#safe-mode)
+- When the device has connected to the cloud, put the device in [listening mode](/guide/getting-started/modes/electron/#listening-mode)
+- launch the device updater and perform the update as described above
+
+
 
 We hope that fixes it for you, but if you are still experiencing problems, please check our
 [GitHub Issues](https://github.com/spark/device-updater/issues) and file a new issue.
