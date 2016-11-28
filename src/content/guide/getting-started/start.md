@@ -17,7 +17,7 @@ order: 2
 <p class = "boxedHead">Do not continue without reading</p>
 <p class = "boxed">
 Please note that the Raspberry Pi integration with the Particle Cloud is **currently in beta**. We know you're eager to get started (we're excited too!) but you won't be able to complete all the steps below before you've received your beta activation email.
-<br></br>
+<br>
 We will be provisioning access to the beta in the upcoming weeks on a rolling basis. Upon open release of the Raspberry Pi and Particle Cloud integration, these provisioning instructions will work for everyone! To learn more and to join the beta program, visit our Raspberry Pi + Particle [information page](http://particle.io/particle-pi) by clicking the button below:
 
 <center><a class="btn" target="_blank" href="https://particle.io/particle-pi"/>Join the beta!</a></center>
@@ -137,28 +137,48 @@ You can verify that your Raspberry Pi is online by running the `ifconfig` comman
 Now that your Pi is online, it's finally time to download and install the Particle Pi software. If your Pi has a monitor and keyboard connected, you can skip directly to [Install the Particle Agent](/guide/getting-started/start/raspberry-pi/#install-the-particle-agent). If would like to install the Particle Pi software without using a monitor and keyboard, please read the following section, [Instructions for headless setup](/guide/getting-started/start/raspberry-pi/#instructions-for-headless-setup).
 
 ### Instructions for headless setup
-Note that if you are using a wired connection without a monitor and keyboard (headless) you will have to obtain your Pi's IP address and SSH into your Pi in order to install the Particle software. If you are using a keyboard and monitor, you can head directly to [Install the Particle Agent](/guide/getting-started/start/raspberry-pi/#install-the-particle-agent).
+Note that if you are using a wired connection without a monitor and keyboard (headless) you will have to SSH (secure shell) into your Pi in order to install the Particle software. If you are using a keyboard and monitor, you can head directly to [Install the Particle Agent](/guide/getting-started/start/raspberry-pi/#install-the-particle-agent).
 
 - The first step is to obtain the IP address for your Raspberry Pi once it is connected to the Internet. You can find instructions for obtaining your Pi's IP address using Raspberry Pi's official tutorial, [here](https://www.raspberrypi.org/documentation/remote-access/ip-address.md).
+
+The easiest method find your Raspberry Pi's IP address and SSH into it is to use its mDNS hostname followed by `.local`. The default hostname for your Pi is `raspberrypi`, so on MacOS and Linux, you can simply SSH into your Pi by running the following command in your computer's terminal:
+```
+ssh pi@raspberrypi.local
+```
+- If you are using Windows, you can download and use [PuTTY](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html) to SSH into your Pi.
+
+The default password for Raspberry Pi is `raspberry`. If you want to change it, you can do so by running the following command inside of your Raspberry Pi's terminal:
+```
+passwd
+```
+If your want to change the hostname of your Raspberry Pi to something more meaningful, or if you have multiple Raspberry Pi's on your network, you can do so by running the following command inside of your Pi's terminal:
+
+```
+echo newHostname | sudo tee /etc/hostname
+```
+- You will need to reboot your Pi for the new hostname to be used.
+
+
 
 <p class = "boxed">
 An alternate method for finding the IP address in a headless setup configuration is to ensure that your computer is connected to the same network as your Raspberry Pi device, and to run the following command in your computer's terminal:  
 
-</br>
+<br>
 
 ```arp -a | grep b8:27:eb | grep -Eo '[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}'```  
-</br>
+<br>
 
 As it turns out, the Raspberry Pi Foundation has their own range of MAC addresses all to themselves. The command above will scan your network for devices whose MAC address starts with the prefix, `b8:27:eb` and report their IP address. Assuming you only have one Raspberry Pi connected to the network, you should be able to easily identify your Pi's network address and SSH into it in the next step.  
-</p>
+<br>
 
 - Once you have your Pi's IP address, you can connect to your Pi through a secure shell (SSH). If you are using MacOS or Linux, you can simply create an SSH tunnel using your `Terminal` application. If you are using Windows, download [PuTTY](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html).
-
+<br><br>
 - SSH into your Pi using the following command, where `192.168.X.XXX` is the IP address of your Pi.
-
+<br>
 ```
 ssh pi@192.168.X.XXX
 ```
+</p>
 
 ### Install the Particle Agent
 
