@@ -17,7 +17,7 @@ order: 2
 <p class = "boxedHead">Do not continue without reading</p>
 <p class = "boxed">
 Please note that the Raspberry Pi integration with the Particle Cloud is **currently in beta**. We know you're eager to get started (we're excited too!) but you won't be able to complete all the steps below before you've received your beta activation email.
-<br></br>
+<br>
 We will be provisioning access to the beta in the upcoming weeks on a rolling basis. Upon open release of the Raspberry Pi and Particle Cloud integration, these provisioning instructions will work for everyone! To learn more and to join the beta program, visit our Raspberry Pi + Particle [information page](http://particle.io/particle-pi) by clicking the button below:
 
 <center><a class="btn" target="_blank" href="https://particle.io/particle-pi"/>Join the beta!</a></center>
@@ -163,18 +163,18 @@ echo newHostname | sudo tee /etc/hostname
 <p class = "boxed">
 An alternate method for finding the IP address in a headless setup configuration is to ensure that your computer is connected to the same network as your Raspberry Pi device, and to run the following command in your computer's terminal:  
 
-</br>
+<br>
 
 ```arp -a | grep b8:27:eb | grep -Eo '[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}'```  
-</br>
+<br>
 
 As it turns out, the Raspberry Pi Foundation has their own range of MAC addresses all to themselves. The command above will scan your network for devices whose MAC address starts with the prefix, `b8:27:eb` and report their IP address. Assuming you only have one Raspberry Pi connected to the network, you should be able to easily identify your Pi's network address and SSH into it in the next step.  
-</br>
+<br>
 
 - Once you have your Pi's IP address, you can connect to your Pi through a secure shell (SSH). If you are using MacOS or Linux, you can simply create an SSH tunnel using your `Terminal` application. If you are using Windows, download [PuTTY](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html).
-</br></br>
+<br><br>
 - SSH into your Pi using the following command, where `192.168.X.XXX` is the IP address of your Pi.
-</br>
+<br>
 ```
 ssh pi@192.168.X.XXX
 ```
