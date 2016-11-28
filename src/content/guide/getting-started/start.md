@@ -154,7 +154,7 @@ passwd
 If your want to change the hostname of your Raspberry Pi to something more meaningful, or if you have multiple Raspberry Pi's on your network, you can do so by running the following command inside of your Pi's terminal:
 
 ```
-sudo echo "newHostname" > /etc/hostname
+echo newHostname | sudo tee /etc/hostname
 ```
 - You will need to reboot your Pi for the new hostname to be used.
 
