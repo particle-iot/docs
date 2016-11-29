@@ -3653,7 +3653,7 @@ Used to check if host has serial port (virtual COM port) open.
 Returns:
 - `true` when Host has virtual COM port open.
 
-{{#unless core}}
+{{#if has-usb-hid}}
 Mouse
 ----
 
@@ -4228,7 +4228,7 @@ See [`Keyboard.write()`](#write--1) and [`Serial.printf()`](#printf-) documentat
 
 See [`Keyboard.write()`](#write--1) and [`Serial.printlnf()`](#printlnf-) documentation.
 
-{{/unless}}
+{{/if}} {{!-- has-usb-hid --}}
 
 {{#if has-spi}}
 SPI
@@ -4242,6 +4242,8 @@ _Since 0.5.0_ the {{device}} can function as a slave.
 {{#if core}}
 ![SPI](/assets/images/core-pin-spi.jpg)
 {{/if}}
+
+{{#if has-embedded}}
 
 The hardware SPI pin functions, which can
 be used via the `SPI` object, are mapped as follows:
@@ -4275,6 +4277,17 @@ Do **NOT** use **SPI**.begin() with **SPI1**.transfer();
 
 **Do** use **SPI**.begin() with **SPI**.transfer();
 {{/if}}
+
+{{/if}} {{!-- has-embedded --}}
+
+{{#if raspberry-pi}}
+
+There are dedicated pins for SPI on the Raspberry Pi: `MOSI`, `MISO`, `SCK` and 2 chip select pins `CE0` and `CE1`.
+
+**Note**: Before using the SPI interface on the Raspberry Pi, you have to enable it in hardware. In a terminal, type `sudo raspi-config`, go to `Advanced Options`, select `SPI` and answer `Yes` to enable it. Reboot the Raspberry Pi before flashing firmware that uses the SPI peripheral.
+
+It is not recommended to use the SPI pins for general purpose IO. If you need to, you must disable the SPI peripheral in `raspi-config`, reboot and use the `MOSI`, `MISO`, `SCK`, `CE0` and `CE1` pins with `pinMode`, `digitalRead` or `digitalWrite`.
+{{/if}} {{!-- raspberry-pi --}}
 
 ### begin()
 
@@ -4624,11 +4637,16 @@ Returns the number of bytes available.
 Wire (I2C)
 ----
 
+{{#if has-embedded}}
 {{#unless electron}}
 ![I2C](/assets/images/core-pin-i2c.jpg)
 {{/unless}}
+{{/if}}
 
-This library allows you to communicate with I2C / TWI(Two Wire Interface) devices. On the Core/Photon/Electron, D0 is the Serial Data Line (SDA) and D1 is the Serial Clock (SCL). {{#if electron}}Additionally on the Electron, there is an alternate pin location for the I2C interface: C4 is the Serial Data Line (SDA) and C5 is the Serial Clock (SCL).{{/if}} Both SCL and SDA pins are open-drain outputs that only pull LOW and typically operate with 3.3V logic, but are tolerant to 5V. Connect a pull-up resistor(1.5k to 10k) on the SDA line to 3V3. Connect a pull-up resistor(1.5k to 10k) on the SCL line to 3V3.  If you are using a breakout board with an I2C peripheral, check to see if it already incorporates pull-up resistors.
+This library allows you to communicate with I2C / TWI(Two Wire Interface) devices.
+
+{{#if has-embedded}}
+On the Core/Photon/Electron, D0 is the Serial Data Line (SDA) and D1 is the Serial Clock (SCL). {{#if electron}}Additionally on the Electron, there is an alternate pin location for the I2C interface: C4 is the Serial Data Line (SDA) and C5 is the Serial Clock (SCL).{{/if}} Both SCL and SDA pins are open-drain outputs that only pull LOW and typically operate with 3.3V logic, but are tolerant to 5V. Connect a pull-up resistor(1.5k to 10k) on the SDA line to 3V3. Connect a pull-up resistor(1.5k to 10k) on the SCL line to 3V3.  If you are using a breakout board with an I2C peripheral, check to see if it already incorporates pull-up resistors.
 
 These pins are used via the `Wire` object.
 
@@ -4647,6 +4665,18 @@ Do **NOT** use **Wire**.begin() with **Wire1**.write();
 
 **Do** use **Wire1**.begin() with **Wire1**.transfer();
 {{/if}}
+
+{{/if}} {{!-- has-embedded --}}
+
+{{#if raspberry-pi}}
+There are dedicated pins for I2C on the Raspberry Pi: Serial Data Line (SDA) and Serial Clock (SCL). [See the pin out diagram](datasheets/raspberrypi-datasheet/#pin-out-diagram) to find out where pins are located.
+
+**Note**: Before using the I2C interface on the Raspberry Pi, you have to enable it in hardware. In a terminal, type `sudo raspi-config`, go to `Advanced Options`, select `I2C` and answer `Yes` to enable it. Reboot the Raspberry Pi before flashing firmware that uses the I2C peripheral.
+
+It is not recommended to use the I2C pins for general purpose IO. If you need to, you must disable the I2C peripheral in `raspi-config`, reboot and use the `SCL` and `SDA` pins with `pinMode`, `digitalRead` or `digitalWrite`.
+{{/if}}
+
+{{#if has-embedded}}
 
 ### setSpeed()
 
@@ -4676,18 +4706,23 @@ Parameters:
 
 - `stretch`: boolean. `true` will enable clock stretching (default). `false` will disable clock stretching.
 
+{{/if}} {{!-- has-embedded --}}
 
 ### begin()
 
-Initiate the Wire library and join the I2C bus as a master or slave. This should normally be called only once.
+Initiate the Wire library and join the I2C bus as a master{{#if has-i2c-slave}} or slave{{/if}}. This should normally be called only once.
 
 ```C++
 // SYNTAX
 Wire.begin();
+{{#if has-i2c-slave}}
 Wire.begin(address);
+{{/if}} {{!-- has-i2c-slave --}}
 ```
 
+{{#if has-i2c-slave}}
 Parameters: `address`: the 7-bit slave address (optional); if not specified, join the bus as an I2C master.  If address is specified, join the bus as an I2C slave.
+{{/if}} {{!-- has-i2c-slave --}}
 
 
 ### end()
@@ -6886,6 +6921,8 @@ noInterrupts();
 
 {{/if}} {{!-- has-interrupts --}}
 
+{{#if has-software-timers}}
+
 ## Software Timers
 
 _Since 0.4.7. This feature is available on the Photon, P1 and Electron out the box. On the Core, the
@@ -6923,6 +6960,8 @@ The timer callback is similar to an interrupt - it shouldn't block. However, it 
 - `callback` is the callback function which gets called when the timer expires.
 - `one_shot` (optional, since 0.4.9) when `true`, the timer is fired once and then stopped automatically.  The default is `false` - a repeating timer.
 
+
+{{/if}} {{!-- has-software-timers --}}
 
 ### Class member callbacks
 
