@@ -4669,7 +4669,7 @@ Do **NOT** use **Wire**.begin() with **Wire1**.write();
 {{/if}} {{!-- has-embedded --}}
 
 {{#if raspberry-pi}}
-There are dedicated pins for I2C on the Raspberry Pi: Serial Data Line (SDA) and Serial Clock (SCL). [See the pin out diagram](datasheets/raspberrypi-datasheet/#pin-out-diagram) to find out where pins are located.
+There are dedicated pins for I2C on the Raspberry Pi: Serial Data Line (SDA) and Serial Clock (SCL). [See the pin out diagram](/datasheets/raspberrypi-datasheet/#pin-out-diagram) to find out where pins are located.
 
 **Note**: Before using the I2C interface on the Raspberry Pi, you have to enable it in hardware. In a terminal, type `sudo raspi-config`, go to `Advanced Options`, select `I2C` and answer `Yes` to enable it. Reboot the Raspberry Pi before flashing firmware that uses the I2C peripheral.
 
@@ -4746,7 +4746,7 @@ Returns: boolean `true` if I2C enabled, `false` if I2C disabled.
 // EXAMPLE USAGE
 
 // Initialize the I2C bus if not already enabled
-if ( !Wire.isEnabled() ) {
+if (!Wire.isEnabled()) {
     Wire.begin();
 }
 ```
@@ -4758,7 +4758,7 @@ Used by the master to request bytes from a slave device. The bytes may then be r
 ```C++
 // SYNTAX
 Wire.requestFrom(address, quantity);
-Wire.requestFrom(address, quantity, stop) ;
+Wire.requestFrom(address, quantity, stop);
 ```
 
 Parameters:
@@ -4769,6 +4769,8 @@ Parameters:
 
 Returns: `byte` : the number of bytes returned from the slave device.  If a timeout occurs, will return `0`.
 
+{{#if has-embedded}}
+
 ### reset()
 
 *Since 0.4.6.*
@@ -4776,6 +4778,8 @@ Returns: `byte` : the number of bytes returned from the slave device.  If a time
 Attempts to reset the I2C bus. This should be called only if the I2C bus has
 has hung. In 0.4.6 additional rework was done for the I2C bus on the Photon and Electron, so
 we hope this function isn't required, and it's provided for completeness.
+
+{{/if}} {{!-- has-embedded --}}
 
 ### beginTransmission()
 
@@ -4813,7 +4817,7 @@ Returns: `byte`, which indicates the status of the transmission:
 
 ### write()
 
-Writes data from a slave device in response to a request from a master, or queues bytes for transmission from a master to slave device (in-between calls to `beginTransmission()` and `endTransmission()`). Buffer size is truncated to 32 bytes; writing bytes beyond 32 before calling endTransmission() will be ignored.
+Queues bytes for transmission from a master to slave device (in-between calls to `beginTransmission()` and `endTransmission()`){{#if has-i2c-slave}}, or writes data from a slave device in response to a request from a master{{/if}}. Buffer size is truncated to 32 bytes; writing bytes beyond 32 before calling endTransmission() will be ignored.
 
 ```C++
 // SYNTAX
@@ -4837,15 +4841,13 @@ Returns:  `byte`
 
 // Master Writer running on Device No.1 (Use with corresponding Slave Reader running on Device No.2)
 
-void setup()
-{
+void setup() {
   Wire.begin();              // join i2c bus as master
 }
 
 byte x = 0;
 
-void loop()
-{
+void loop() {
   Wire.beginTransmission(4); // transmit to slave device #4
   Wire.write("x is ");       // sends five bytes
   Wire.write(x);             // sends one byte
@@ -4858,7 +4860,7 @@ void loop()
 
 ### available()
 
-Returns the number of bytes available for retrieval with `read()`. This should be called on a master device after a call to `requestFrom()` or on a slave inside the `onReceive()` handler.
+Returns the number of bytes available for retrieval with `read()`. This should be called on a master device after a call to `requestFrom()`{{#if has-i2c-slave}} or on a slave inside the `onReceive()` handler{{/if}}.
 
 ```C++
 Wire.available();
@@ -4868,7 +4870,7 @@ Returns: The number of bytes available for reading.
 
 ### read()
 
-Reads a byte that was transmitted from a slave device to a master after a call to `requestFrom()` or was transmitted from a master to a slave. `read()` inherits from the `Stream` utility class.
+Reads a byte that was transmitted from a slave device to a master after a call to `requestFrom()`{{#if has-i2c-slave}} or was transmitted from a master to a slave{{/if}}. `read()` inherits from the `Stream` utility class.
 
 ```C++
 // SYNTAX
@@ -4882,18 +4884,15 @@ Returns: The next byte received
 
 // Master Reader running on Device No.1 (Use with corresponding Slave Writer running on Device No.2)
 
-void setup()
-{
+void setup() {
   Wire.begin();              // join i2c bus as master
   Serial.begin(9600);        // start serial for output
 }
 
-void loop()
-{
+void loop() {
   Wire.requestFrom(2, 6);    // request 6 bytes from slave device #2
 
-  while(Wire.available())    // slave may send less than requested
-  {
+  while(Wire.available()){   // slave may send less than requested
     char c = Wire.read();    // receive a byte as character
     Serial.print(c);         // print the character
   }
@@ -4904,7 +4903,7 @@ void loop()
 
 ### peek()
 
-Similar in use to read(). Reads (but does not remove from the buffer) a byte that was transmitted from a slave device to a master after a call to `requestFrom()` or was transmitted from a master to a slave. `read()` inherits from the `Stream` utility class. Useful for peeking at the next byte to be read.
+Similar in use to read(). Reads (but does not remove from the buffer) a byte that was transmitted from a slave device to a master after a call to `requestFrom()`{{#if has-i2c-slave}} or was transmitted from a master to a slave{{/if}}. `read()` inherits from the `Stream` utility class. Useful for peeking at the next byte to be read.
 
 ```C++
 // SYNTAX
@@ -4912,6 +4911,8 @@ Wire.peek();
 ```
 
 Returns: The next byte received (without removing it from the buffer)
+
+{{#if has-i2c-slave}}
 
 ### onReceive()
 
@@ -4926,10 +4927,8 @@ Parameters: `handler`: the function to be called when the slave receives data; t
 
 // function that executes whenever data is received from master
 // this function is registered as an event, see setup()
-void receiveEvent(int howMany)
-{
-  while(1 < Wire.available())   // loop through all but the last
-  {
+void receiveEvent(int howMany) {
+  while(1 < Wire.available()) { // loop through all but the last
     char c = Wire.read();       // receive byte as a character
     Serial.print(c);            // print the character
   }
@@ -4937,15 +4936,13 @@ void receiveEvent(int howMany)
   Serial.println(x);            // print the integer
 }
 
-void setup()
-{
+void setup() {
   Wire.begin(4);                // join i2c bus with address #4
   Wire.onReceive(receiveEvent); // register event
   Serial.begin(9600);           // start serial for output
 }
 
-void loop()
-{
+void loop() {
   delay(100);
 }
 ```
@@ -4963,22 +4960,20 @@ Parameters: `handler`: the function to be called, takes no parameters and return
 
 // function that executes whenever data is requested by master
 // this function is registered as an event, see setup()
-void requestEvent()
-{
+void requestEvent() {
   Wire.write("hello ");         // respond with message of 6 bytes as expected by master
 }
 
-void setup()
-{
+void setup() {
   Wire.begin(2);                // join i2c bus with address #2
   Wire.onRequest(requestEvent); // register event
 }
 
-void loop()
-{
+void loop() {
   delay(100);
 }
 ```
+{{/if}} {{!-- has-i2c-slave --}}
 
 {{/if}} {{!-- has-i2c --}}
 

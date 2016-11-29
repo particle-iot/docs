@@ -66,6 +66,7 @@
   ],
   "Raspberry Pi": [
     "linux",
+    "i2c",
     "spi",
     "pwm",
     "multiple-spi"
