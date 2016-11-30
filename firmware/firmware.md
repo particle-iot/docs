@@ -3016,6 +3016,10 @@ void setup()
 
 `Serial1:` This channel is available via the device's TX and RX pins.
 
+{{#if raspberry-pi}}
+**IMPORTANT**: Support for `Serial1` is not complete for the Raspberry Pi so `Serial1` never returns any data.
+{{/if}}
+
 {{#if has-serial2}}
 
 {{#if core}}
