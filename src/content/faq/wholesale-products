@@ -10,12 +10,36 @@ order: 100
 
 ## Product Lead Times
 
+Particle products have different lead times based on the quantity. Please see the table below for approximate lead times.
+
+TO DO - table
+
+Lead times apply only from the point of payment. Requesting a lead time will not reserve stock. Only a committed non-refundable non-cancellable PO or a purchase with payment will guarantee lead times. Particle reserves the right to increase or decrease lead times at any time. 
+
 ## Product MOQs
 
-## Payment Policies
+Many of our products have minimum order quantities based on our case pack size. Please see the table below for minimum order quantities.
 
-## Choosing a product format
+TO DO - table
 
 ## Battery regulations
-### Shipping options
+
+Lithium ion battery shipping is a highly regulated and confusing area. The facts and documents below can guide you but for specific products and specific batteries, please consult your shipping representatives. 
+
 ### Restrictions and regulations
+
+The first thing to understand is the type of battery you have. The batteries that come standard with Electrons are XYZ lithium ion batteries. 
+
+Next you will need to identify how they are shipped. Whether the batteries are shipped IN, WITH or WITHOUT equipment is critical to the level of labeling and restriction they will have. Consult the following guides to identify your battery type: 
+- [Full list of DHL guides](http://www.dhl.com/en/express/shipping/shipping_advice/lithium_batteries.html#guides_materials)
+- [Guide to determining type of batteries](http://www.dhl.com/content/dam/downloads/g0/express/shipping/lithium_batteries/lithium_ion_batteries_regulations.pdf)
+
+You may need to register your business as a shipper of a certain type batteries. Contact your shipping representative to do this.
+
+You may also need to confirm your labeling fits the type of battery you are shipping. Shipping reps will often do an audit of your packaging. 
+
+Be on the look out for frequent regualtory changes. At the time of this documentation there was [pending changes](http://www.iata.org/whatwedo/cargo/dgr/Documents/lithium-battery-update.pdf) that will come into effect Jan 1, 2017.
+
+### Particle shipping restrictions
+Particle ships bulk batteries (SKU = BATTMOD50) only to locations in the US and Canada. To receive batteries elsewhere, please contact orders@particle.io for a case by case evaluation. 
+
