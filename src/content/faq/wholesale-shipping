@@ -1,0 +1,11 @@
+---
+title: Wholesale Shipping
+template: faq.hbs
+columns: two
+devices: [ photon,electron,core,raspberry-pi ]
+order: 100
+---
+
+# {{title}}
+
+## Wholesale store overview
