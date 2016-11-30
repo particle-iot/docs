@@ -1,0 +1,22 @@
+---
+title: Placing orders on the Wholesale Store
+template: faq.hbs
+columns: two
+devices: [ photon,electron,core,raspberry-pi ]
+order: 100
+---
+
+# {{title}}
+
+## Prerequisites to placing orders
+
+## Changing my Business Information
+
+## User Compliance Survey
+
+## Checking out with your own Shipping Account number
+
+## Payment methods
+
+## Paying with terms on the Wholesale Store
+
