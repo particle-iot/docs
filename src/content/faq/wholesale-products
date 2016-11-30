@@ -1,0 +1,17 @@
+---
+title: Wholesale Products
+template: faq.hbs
+columns: two
+devices: [ photon,electron,core,raspberry-pi ]
+order: 100
+---
+
+# {{title}}
+
+## Product Lead Times
+
+## Payment Timelines
+
+## Ship dates
+
+## Choosing a product format
