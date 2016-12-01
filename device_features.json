@@ -11,7 +11,8 @@
     "serial2",
     "interrupts",
     "sleep",
-    "software-timers"
+    "software-timers",
+	"eeprom"
   ],
   "Photon": [
     "wifi",
@@ -36,7 +37,8 @@
     "threading",
     "sleep",
     "usb-hid",
-    "software-timers"
+    "software-timers",
+	"eeprom"
   ],
   "Electron": [
     "cellular",
@@ -62,7 +64,8 @@
     "threading",
     "sleep",
     "usb-hid",
-    "software-timers"
+    "software-timers",
+	"eeprom"
   ],
   "Raspberry Pi": [
     "linux",

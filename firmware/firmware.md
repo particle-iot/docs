@@ -7407,6 +7407,7 @@ In the example, the seed is simply ignored, so the system will continue using
 whatever seed was previously set. In this case, the random seed will not be set
 from the cloud, and setting the seed is left to up you.
 
+{{#if has-eeprom}}
 
 ## EEPROM
 
@@ -7612,6 +7613,8 @@ If the application never calls `performPendingErase()` then the pending page era
 when data is written using `put()` or `write()` and both pages are full. So calling
 `performPendingErase()` is optional and provided to avoid the uncertainty of a potential processor
 pause any time `put()` or `write()` is called.
+
+{{/if}}
 
 {{#if has-backup-ram}}
 ## Backup RAM (SRAM)
