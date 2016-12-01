@@ -12,7 +12,10 @@ order: 100
 
 Particle products have different lead times based on the quantity. Please see the table below for approximate lead times.
 
-TO DO - table
+SKU | Second Header
+------------ | -------------
+Content from cell 1 | Content from cell 2
+Content in the first column | Content in the second column
 
 Lead times apply only from the point of payment. Requesting a lead time will not reserve stock. Only a committed non-refundable non-cancellable PO or a purchase with payment will guarantee lead times. Particle reserves the right to increase or decrease lead times at any time. 
 
