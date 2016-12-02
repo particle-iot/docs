@@ -155,4 +155,4 @@ TO DO - RAGHU
 
 ## Refunds, cancellations or delays
 
-All orders through the Wholesale are non-refundable and non-cancellable. We also can not accept shipping timeline delays. Sending a PO or placing an order on the Wholesale Store to Particle functions as a committed, non-cancellable, non-refunable order. 
+All orders through the Wholesale are non-refundable and non-cancellable. We also can not accept shipping timeline delays. 
