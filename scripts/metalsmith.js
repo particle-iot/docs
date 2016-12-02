@@ -127,7 +127,8 @@ exports.metalsmith = function() {
         pattern: 'faq/:section/*.md',
         sortBy: 'order',
         orderDynamicCollections: [
-          'connectivity',
+          'particle-devices',
+          'particle-tools',
           'raspberry-pi'
 				]
       },
@@ -261,7 +262,7 @@ exports.metalsmith = function() {
       '/photon/hardware' : '/datasheets/photon-datasheet',
       '/troubleshooting' : '/support/troubleshooting/common-issues',
       '/help' : '/support/troubleshooting/common-issues',
-      '/faq' : '/faq/connectivity/common-issues',
+      '/faq' : '/faq/particle-devices/led-troubleshooting',
       '/tutorials': '/tutorials/integrations/google-cloud-platform',
       '/guide/how-to-build-a-product/dashboard': '/guide/tools-and-features/console',
       '/tutorials/topics/particle-pi-security-camera' : '/tutorials/projects/particle-pi-security-camera'

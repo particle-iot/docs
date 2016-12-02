@@ -1,5 +1,5 @@
 ---
-title: Installing dfu-util
+title: Installing DFU-util
 template: faq.hbs
 columns: two
 devices: [ photon,electron,core ]
@@ -8,7 +8,7 @@ order: 1000
 
 # Installing dfu-util
 
-This guide explains how to install [dfu-util](http://dfu-util.sourceforge.net), the utility for programming the flash memory on Particle devices like the Core, Photon, P1 (with USB) and Electron over USB. 
+This guide explains how to install [dfu-util](http://dfu-util.sourceforge.net), the utility for programming the flash memory on Particle devices like the Core, Photon, P1 (with USB) and Electron over USB.
 
 It can be used to program both system firmware and user firmware, and save and restore configurations.
 
@@ -35,13 +35,13 @@ If your device is in a particularly odd and confused state, sometimes you may ne
 
 ## Installation - Windows
 
-The easiest way to install dfu-util under Windows is to use the [Particle CLI installer](https://binaries.particle.io/cli/installer/windows/ParticleCLISetup.exe), which installs it automatically. 
+The easiest way to install dfu-util under Windows is to use the [Particle CLI installer](https://binaries.particle.io/cli/installer/windows/ParticleCLISetup.exe), which installs it automatically.
 
 **Seriously, use the installer if you can.**
 
 The following instructions will be helpful if you want to install it manually, or you are having trouble getting it to work.
 
-You must download Zadig installer from the [Zadig web site](http://zadig.akeo.ie). 
+You must download Zadig installer from the [Zadig web site](http://zadig.akeo.ie).
 
 Put the Particle device in DFU mode (blinking yellow) as described above. Then run the **Zadig_2.2.exe** file (or whatever version you downloaded). The following window should be displayed.
 
@@ -106,11 +106,11 @@ Right click on the right side of the window, select **New** then **Folder**.
 
 ![Create folder in program files](/assets/images/installing-dfu-util-11newfolder.png)
 
-Name the new folder **dfu-util**. Then moved the files you downloaded into this directory. 
+Name the new folder **dfu-util**. Then moved the files you downloaded into this directory.
 
 ![Copy DFU files](/assets/images/installing-dfu-util-12copyfiles.png)
 
-Rename the **dfu-util-static.exe** file to just **dfu-util.exe**. 
+Rename the **dfu-util-static.exe** file to just **dfu-util.exe**.
 
 Depending on your settings, the **.exe** part may not display. In Windows 8, for example, it looks like this:
 
@@ -135,7 +135,7 @@ In the **Environment Variables** window, select **Path** in the bottom list (Sys
 
 ![Edit](/assets/images/installing-dfu-util-16edit.png)
 
-In the **Edit environment variable** window, click **New** then enter a new row in the table, **C:\Program Files\dfu-util**. 
+In the **Edit environment variable** window, click **New** then enter a new row in the table, **C:\Program Files\dfu-util**.
 
 ![Edit New](/assets/images/installing-dfu-util-17editnew.png)
 
@@ -155,7 +155,7 @@ The result should look something like this:
 
 ### Editing the path - Windows 7 and 8
 
-You need to open the Control Panel. 
+You need to open the Control Panel.
 
 ![Open Control Panel](/assets/images/installing-dfu-util-05controlpanel.png)
 
@@ -174,7 +174,7 @@ Then click on the **Advanced System Settings** link on the left side of the wind
 Then click on **Environment Variables...**
 
 ![Environment](/assets/images/installing-dfu-util-09environment.png)
- 
+
 Click on **Path** in the bottom list (System variables) and click Edit.
 
 Finally, position the cursor at the end of the box and add to the end:
@@ -200,7 +200,7 @@ It should look something like this:
 
 ## Windows - Debugging drivers
 
-There are two separate device drivers in Windows, depending on whether the Particle device is in DFU or regular operating mode (or listening mode). 
+There are two separate device drivers in Windows, depending on whether the Particle device is in DFU or regular operating mode (or listening mode).
 
 When in DFU mode, the Device Manager looks like this: (Note that it says **Photon DFU Mode** for all device types, including Electrons; this is normal.)
 
@@ -230,7 +230,7 @@ One thing about homebrew: it is designed to run without requiring superuser priv
 If you use [MacPorts](https://www.macports.org) you can install it using:
 
 ```
-port install libusb dfu-util 
+port install libusb dfu-util
 ```
 
 
@@ -264,7 +264,7 @@ Download the [50-particle.rules](/assets/files/50-particle.rules) file, then cop
 sudo cp 50-particle.rules /etc/udev/rules.d/
 ```
 
-You may need to restart after this step. 
+You may need to restart after this step.
 
 ## Using dfu-util
 
@@ -349,5 +349,3 @@ Restoring keys:
 ```
 dfu-util -d 2b04:d006 -a 1 -s 34 -D keys.bin
 ```
-
-

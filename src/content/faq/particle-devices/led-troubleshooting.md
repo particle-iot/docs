@@ -1,14 +1,14 @@
 ---
-title: Common Issues
+title: LED Troubleshooting
 template: faq.hbs
 columns: two
 devices: [ photon,electron,core,raspberry-pi ]
 order: 1000
 ---
 
-# Common Issues
+# {{title}}
 
-This section will help walk you through the diagnosis and resolution of the most common roadblocks that our users run into. Some of these roadblocks are caused by issues or bugs in the platform, but many are more innocuous than that, and few are permanent. We'll help you identify exactly why your device is `insert_issue_here` and help you get it back to happily connected.
+This section will help you decode the LED patterns on your Particle device. This FAQ will help you understand why your LED is flashing, blinking, or breathing a particular color and get it happily connected to the Particle Cloud. Use the menu on the left to select the LED pattern that your device is displaying, and follow the Troubleshooting steps described below to resolve your issue.
 
 {{#if raspberry-pi}}
 ## My Raspberry Pi is in a weird state.
