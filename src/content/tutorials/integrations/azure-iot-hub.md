@@ -209,6 +209,6 @@ Awesome! You now have everything you need to move on to enabling the integration
 ## Example Use Cases
 
 *We are in need of example use cases for this integration. Please help us
-improve this tutorial by <a href="https://github.com/spark/docs/blob/master/src/content/tutorials/integrations/azure-iot-hub.md"
+improve this tutorial by <a href="{{edit-link branch path.href path.name}}"
 target="_blank">contributing to this page</a>. We will shower you with
 kudos and smiley emojis!*

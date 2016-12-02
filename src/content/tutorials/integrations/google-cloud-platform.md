@@ -236,7 +236,7 @@ focus on specific IoT use cases for Google Cloud Platform.
 ## Example Use Cases
 
 *We are in need of more example use cases for this integration. Please help us
-improve this tutorial by <a href="https://github.com/spark/docs/blob/master/src/content/tutorials/integrations/google-cloud-platform.md"
+improve this tutorial by <a href="{{edit-link branch path.href path.name}}"
 target="_blank">contributing to this page</a>. We will shower you with
 kudos and smiley emojis!*
 
