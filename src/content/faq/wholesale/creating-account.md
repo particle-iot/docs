@@ -1,5 +1,5 @@
 ---
-title: Creating a Wholesale Store Account
+title: Wholesale Account Creation
 template: faq.hbs
 columns: two
 devices: [ photon,electron,core,raspberry-pi ]
@@ -22,7 +22,7 @@ TO DO - RAGHU
 
 Choose a tab at the top of the page to for the type of account you would like to create. 
 
-## What type of Wholesale store account should I create?
+## Wholesale store account types
 
  - [Business](http://www-wholesale.particle.io/wholesale-b2b) contains our standard bulk pricing and bulk format products. If you are a product creator, choose this option. Processing of your account will take up to 2 business days. 
  - [Educators](http://www-wholesale.particle.io/wholesale-educators) contains our preferred pricing for event hosts and educators. Our application process requires a description of your class or event and will take up to 1 week to process. We may ask you to provide proof of your tax-exempt educator status or marketing materials for your event. 
