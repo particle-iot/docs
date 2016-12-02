@@ -1,5 +1,5 @@
 ---
-title: Placing orders on the Wholesale Store
+title: Wholesale Store Order Placement
 template: faq.hbs
 columns: two
 devices: [ photon,electron,core,raspberry-pi ]
@@ -11,8 +11,8 @@ order: 200
 ## Wholesale Store Prerequisites
 
 You will need several things to start placing orders on the Wholesale store: 
-- Particle Account - You need a valid Particle account to be able to log in to the Wholesale store. 
-- Wholesale Account approval - Your account needs to be associated with a type of wholesale customer. See (Wholesale Account Creation)[TO DO] to get set up. If you have already received a Welcome email from us, you have a Wholesale account already.
+- **Particle Account** - You need a valid Particle account to be able to log in to the Wholesale store. 
+- **Wholesale Account Approval** - Your account needs to be associated with a type of wholesale customer. See (Wholesale Account Creation)[TO DO] to get set up. If you have already received a Welcome email from us, you have a Wholesale account already.
 
 Go to the [Wholesale store login page](https://login.particle.io/wholesale) to get started!
 

@@ -62,6 +62,10 @@ P1REEL | 500 units
 PHNTRAYH | 50 units
 PHNTRAYNOH | 50 units
 
+## Refunds, cancellations or delays
+
+All orders through the Wholesale are non-refundable and non-cancellable. We also can not accept shipping timeline delays. Sending a PO or placing an order on the Wholesale Store to Particle functions as a committed, non-cancellable, non-refunable order. 
+
 ## Battery regulations
 
 Lithium ion battery shipping is a highly regulated and confusing area. The facts and documents below can guide you but for specific products and specific batteries, please consult your shipping representatives. 
