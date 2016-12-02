@@ -41,12 +41,18 @@ analytics tool to enable predictive maintenance
   target="_blank">Notification Hubs</a>: A scalable, push notification
 engine for quickly sending millions of messages
 
+<img
+src="/assets/images/azure-iot-hub/particle+iot-hub-architecture.png"
+alt="Particle and Azure IoT Hub architecture diagram"/>
+<p class="caption">Send device data into Azure through IoT Hub, then onto other
+Azure products</p>
+
 Note that Azure IoT Hub has
 <a
 href="https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-what-is-iot-hub" target="_blank">many features</a>,
 but the main focus of this integration as it currently
-exists is to provide one-way event ingestion from Particle to IoT Hub
-(and onto other Azure products).
+exists is to provide one-way event ingestion from Particle to Azure IoT Hub
+(and then onto other Azure products).
 
 ## Key Concepts in IoT Hub
 
