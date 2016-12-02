@@ -12,6 +12,8 @@ This guide explains how to install [dfu-util](http://dfu-util.sourceforge.net), 
 
 It can be used to program both system firmware and user firmware, and save and restore configurations.
 
+If you are using Windows, you can use the [Windows CLI Installer](https://binaries.particle.io/cli/installer/windows/ParticleCLISetup.exe) to automatically install dfu-util and the CLI rather than using these instructions.
+
 ## Activating DFU mode (blinking yellow)
 
 In order to use dfu-util, your Particle device must be in DFU mode (blinking yellow).
@@ -253,6 +255,16 @@ Arch:
 ```
 sudo pacman -Sy dfu-util
 ```
+
+You will also want to add a udev rule. This allows dfu-util to work without requiring sudo, which is convenient, and also necessary when using certain CLI and local build commands.
+
+Download the [50-particle.rules](/assets/files/50-particle.rules) file, then copy it to /etc/udev/rules.d.
+
+```
+sudo cp 50-particle.rules /etc/udev/rules.d/
+```
+
+You may need to restart after this step. 
 
 ## Using dfu-util
 
