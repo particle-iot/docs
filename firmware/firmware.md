@@ -8759,7 +8759,7 @@ Returns `true` if the system flag is enabled.
 
 {{#if has-linux}}
 
-## Process control
+## Process Control
 
 You can call scripts and run other programs from the firmware. In Linux, a running program is called a process.
 
@@ -8939,6 +8939,16 @@ int result = proc.out().parseInt(); // 42
 The same functions used to print to `Serial` like `println` and `printf` are available.
 
 **Note**: It is very important to close `in()` so the process knows that no further input is coming. If you don't do this, the process will hang forever waiting for more input.
+
+### Advanced Process Control
+
+Linux process control is a deep topic on its own. If the methods in `Process` don't work for what you're trying to accomplish, you can also use any Linux process control functions like `system`, `fork` and `execve` method directly in your firmware.
+
+```cpp
+// Run a command using the Linux system() function instead of Process
+// The output won't be available
+system("my_command");
+```
 
 {{/if}} {{!-- has-linux --}}
 
