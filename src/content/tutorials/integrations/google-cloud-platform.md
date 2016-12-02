@@ -139,7 +139,7 @@ For product-level integrations, you can instead choose if you'd like the respons
 <img src="/assets/images/gcp-configure-integration.png"/>
 
 Click "Enable Integration." You have now successfully told the Particle cloud to stream data to Google Cloud Platform!
-Make sure that the integration is configured properly by clicking on the **TEST** button.
+Make sure that the integration is configured properly by clicking on the **TEST** button (available for integrations **not** scoped to a single device).
 
 <img src="/assets/images/test-integration.png"/>
 <p class="caption">Clicking <strong>TEST</strong> will attempt to send a test event to the Google Cloud Platform Topic. This serves as a gut-check
@@ -234,6 +234,11 @@ Googe Cloud Platform's products & services to add value to your connected produc
 focus on specific IoT use cases for Google Cloud Platform.
 
 ## Example Use Cases
+
+*We are in need of more example use cases for this integration. Please help us
+improve this tutorial by <a href="{{edit-link branch path.href path.name}}"
+target="_blank">contributing to this page</a>. We will shower you with
+kudos and smiley emojis!*
 
 ### Storing Data in a Datastore Database
 
