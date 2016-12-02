@@ -224,6 +224,10 @@ There are two action buttons available: **Lock and flash now**, and **Lock and f
 
 Once at least one device is successfully running your new firmware, you will now have the ability to release that version of firmware back on the Firmware page. Get into the habit of following this process as you continue to iterate and prepare new versions of firmware for your product!
 
+To turn a device with locked firmware back into a development device that can be flashed with any firmware, click the padlock to unlock the firmware version.
+
+![Unlock a device](/assets/images/unlock-firmware-version.png)
+
 ## Managing Customers
 
 Now that you have set up a Product, your customers will be able to create accounts on the Particle platform that are registered to your Product. When properly implemented, your customers will have no idea that Particle is behind the scenes; they will feel like they are creating an account with *ACME, Inc.*.

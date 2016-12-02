@@ -3016,6 +3016,10 @@ void setup()
 
 `Serial1:` This channel is available via the device's TX and RX pins.
 
+{{#if raspberry-pi}}
+**IMPORTANT**: Support for `Serial1` is not complete for the Raspberry Pi so `Serial1` never returns any data.
+{{/if}}
+
 {{#if has-serial2}}
 
 {{#if core}}
@@ -3653,7 +3657,7 @@ Used to check if host has serial port (virtual COM port) open.
 Returns:
 - `true` when Host has virtual COM port open.
 
-{{#unless core}}
+{{#if has-usb-hid}}
 Mouse
 ----
 
@@ -4228,7 +4232,7 @@ See [`Keyboard.write()`](#write--1) and [`Serial.printf()`](#printf-) documentat
 
 See [`Keyboard.write()`](#write--1) and [`Serial.printlnf()`](#printlnf-) documentation.
 
-{{/unless}}
+{{/if}} {{!-- has-usb-hid --}}
 
 {{#if has-spi}}
 SPI
@@ -4242,6 +4246,8 @@ _Since 0.5.0_ the {{device}} can function as a slave.
 {{#if core}}
 ![SPI](/assets/images/core-pin-spi.jpg)
 {{/if}}
+
+{{#if has-embedded}}
 
 The hardware SPI pin functions, which can
 be used via the `SPI` object, are mapped as follows:
@@ -4275,6 +4281,17 @@ Do **NOT** use **SPI**.begin() with **SPI1**.transfer();
 
 **Do** use **SPI**.begin() with **SPI**.transfer();
 {{/if}}
+
+{{/if}} {{!-- has-embedded --}}
+
+{{#if raspberry-pi}}
+
+There are dedicated pins for SPI on the Raspberry Pi: `MOSI`, `MISO`, `SCK` and 2 chip select pins `CE0` and `CE1`.
+
+**Note**: Before using the SPI interface on the Raspberry Pi, you have to enable it in hardware. In a terminal, type `sudo raspi-config`, go to `Advanced Options`, select `SPI` and answer `Yes` to enable it. Reboot the Raspberry Pi before flashing firmware that uses the SPI peripheral.
+
+It is not recommended to use the SPI pins for general purpose IO. If you need to, you must disable the SPI peripheral in `raspi-config`, reboot and use the `MOSI`, `MISO`, `SCK`, `CE0` and `CE1` pins with `pinMode`, `digitalRead` or `digitalWrite`.
+{{/if}} {{!-- raspberry-pi --}}
 
 ### begin()
 
@@ -4624,11 +4641,16 @@ Returns the number of bytes available.
 Wire (I2C)
 ----
 
+{{#if has-embedded}}
 {{#unless electron}}
 ![I2C](/assets/images/core-pin-i2c.jpg)
 {{/unless}}
+{{/if}}
 
-This library allows you to communicate with I2C / TWI(Two Wire Interface) devices. On the Core/Photon/Electron, D0 is the Serial Data Line (SDA) and D1 is the Serial Clock (SCL). {{#if electron}}Additionally on the Electron, there is an alternate pin location for the I2C interface: C4 is the Serial Data Line (SDA) and C5 is the Serial Clock (SCL).{{/if}} Both SCL and SDA pins are open-drain outputs that only pull LOW and typically operate with 3.3V logic, but are tolerant to 5V. Connect a pull-up resistor(1.5k to 10k) on the SDA line to 3V3. Connect a pull-up resistor(1.5k to 10k) on the SCL line to 3V3.  If you are using a breakout board with an I2C peripheral, check to see if it already incorporates pull-up resistors.
+This library allows you to communicate with I2C / TWI(Two Wire Interface) devices.
+
+{{#if has-embedded}}
+On the Core/Photon/Electron, D0 is the Serial Data Line (SDA) and D1 is the Serial Clock (SCL). {{#if electron}}Additionally on the Electron, there is an alternate pin location for the I2C interface: C4 is the Serial Data Line (SDA) and C5 is the Serial Clock (SCL).{{/if}} Both SCL and SDA pins are open-drain outputs that only pull LOW and typically operate with 3.3V logic, but are tolerant to 5V. Connect a pull-up resistor(1.5k to 10k) on the SDA line to 3V3. Connect a pull-up resistor(1.5k to 10k) on the SCL line to 3V3.  If you are using a breakout board with an I2C peripheral, check to see if it already incorporates pull-up resistors.
 
 These pins are used via the `Wire` object.
 
@@ -4647,6 +4669,18 @@ Do **NOT** use **Wire**.begin() with **Wire1**.write();
 
 **Do** use **Wire1**.begin() with **Wire1**.transfer();
 {{/if}}
+
+{{/if}} {{!-- has-embedded --}}
+
+{{#if raspberry-pi}}
+There are dedicated pins for I2C on the Raspberry Pi: Serial Data Line (SDA) and Serial Clock (SCL). [See the pin out diagram](/datasheets/raspberrypi-datasheet/#pin-out-diagram) to find out where pins are located.
+
+**Note**: Before using the I2C interface on the Raspberry Pi, you have to enable it in hardware. In a terminal, type `sudo raspi-config`, go to `Advanced Options`, select `I2C` and answer `Yes` to enable it. Reboot the Raspberry Pi before flashing firmware that uses the I2C peripheral.
+
+It is not recommended to use the I2C pins for general purpose IO. If you need to, you must disable the I2C peripheral in `raspi-config`, reboot and use the `SCL` and `SDA` pins with `pinMode`, `digitalRead` or `digitalWrite`.
+{{/if}}
+
+{{#if has-embedded}}
 
 ### setSpeed()
 
@@ -4676,18 +4710,23 @@ Parameters:
 
 - `stretch`: boolean. `true` will enable clock stretching (default). `false` will disable clock stretching.
 
+{{/if}} {{!-- has-embedded --}}
 
 ### begin()
 
-Initiate the Wire library and join the I2C bus as a master or slave. This should normally be called only once.
+Initiate the Wire library and join the I2C bus as a master{{#if has-i2c-slave}} or slave{{/if}}. This should normally be called only once.
 
 ```C++
 // SYNTAX
 Wire.begin();
+{{#if has-i2c-slave}}
 Wire.begin(address);
+{{/if}} {{!-- has-i2c-slave --}}
 ```
 
+{{#if has-i2c-slave}}
 Parameters: `address`: the 7-bit slave address (optional); if not specified, join the bus as an I2C master.  If address is specified, join the bus as an I2C slave.
+{{/if}} {{!-- has-i2c-slave --}}
 
 
 ### end()
@@ -4711,7 +4750,7 @@ Returns: boolean `true` if I2C enabled, `false` if I2C disabled.
 // EXAMPLE USAGE
 
 // Initialize the I2C bus if not already enabled
-if ( !Wire.isEnabled() ) {
+if (!Wire.isEnabled()) {
     Wire.begin();
 }
 ```
@@ -4723,7 +4762,7 @@ Used by the master to request bytes from a slave device. The bytes may then be r
 ```C++
 // SYNTAX
 Wire.requestFrom(address, quantity);
-Wire.requestFrom(address, quantity, stop) ;
+Wire.requestFrom(address, quantity, stop);
 ```
 
 Parameters:
@@ -4734,6 +4773,8 @@ Parameters:
 
 Returns: `byte` : the number of bytes returned from the slave device.  If a timeout occurs, will return `0`.
 
+{{#if has-embedded}}
+
 ### reset()
 
 *Since 0.4.6.*
@@ -4741,6 +4782,8 @@ Returns: `byte` : the number of bytes returned from the slave device.  If a time
 Attempts to reset the I2C bus. This should be called only if the I2C bus has
 has hung. In 0.4.6 additional rework was done for the I2C bus on the Photon and Electron, so
 we hope this function isn't required, and it's provided for completeness.
+
+{{/if}} {{!-- has-embedded --}}
 
 ### beginTransmission()
 
@@ -4778,7 +4821,7 @@ Returns: `byte`, which indicates the status of the transmission:
 
 ### write()
 
-Writes data from a slave device in response to a request from a master, or queues bytes for transmission from a master to slave device (in-between calls to `beginTransmission()` and `endTransmission()`). Buffer size is truncated to 32 bytes; writing bytes beyond 32 before calling endTransmission() will be ignored.
+Queues bytes for transmission from a master to slave device (in-between calls to `beginTransmission()` and `endTransmission()`){{#if has-i2c-slave}}, or writes data from a slave device in response to a request from a master{{/if}}. Buffer size is truncated to 32 bytes; writing bytes beyond 32 before calling endTransmission() will be ignored.
 
 ```C++
 // SYNTAX
@@ -4802,15 +4845,13 @@ Returns:  `byte`
 
 // Master Writer running on Device No.1 (Use with corresponding Slave Reader running on Device No.2)
 
-void setup()
-{
+void setup() {
   Wire.begin();              // join i2c bus as master
 }
 
 byte x = 0;
 
-void loop()
-{
+void loop() {
   Wire.beginTransmission(4); // transmit to slave device #4
   Wire.write("x is ");       // sends five bytes
   Wire.write(x);             // sends one byte
@@ -4823,7 +4864,7 @@ void loop()
 
 ### available()
 
-Returns the number of bytes available for retrieval with `read()`. This should be called on a master device after a call to `requestFrom()` or on a slave inside the `onReceive()` handler.
+Returns the number of bytes available for retrieval with `read()`. This should be called on a master device after a call to `requestFrom()`{{#if has-i2c-slave}} or on a slave inside the `onReceive()` handler{{/if}}.
 
 ```C++
 Wire.available();
@@ -4833,7 +4874,7 @@ Returns: The number of bytes available for reading.
 
 ### read()
 
-Reads a byte that was transmitted from a slave device to a master after a call to `requestFrom()` or was transmitted from a master to a slave. `read()` inherits from the `Stream` utility class.
+Reads a byte that was transmitted from a slave device to a master after a call to `requestFrom()`{{#if has-i2c-slave}} or was transmitted from a master to a slave{{/if}}. `read()` inherits from the `Stream` utility class.
 
 ```C++
 // SYNTAX
@@ -4847,18 +4888,15 @@ Returns: The next byte received
 
 // Master Reader running on Device No.1 (Use with corresponding Slave Writer running on Device No.2)
 
-void setup()
-{
+void setup() {
   Wire.begin();              // join i2c bus as master
   Serial.begin(9600);        // start serial for output
 }
 
-void loop()
-{
+void loop() {
   Wire.requestFrom(2, 6);    // request 6 bytes from slave device #2
 
-  while(Wire.available())    // slave may send less than requested
-  {
+  while(Wire.available()){   // slave may send less than requested
     char c = Wire.read();    // receive a byte as character
     Serial.print(c);         // print the character
   }
@@ -4869,7 +4907,7 @@ void loop()
 
 ### peek()
 
-Similar in use to read(). Reads (but does not remove from the buffer) a byte that was transmitted from a slave device to a master after a call to `requestFrom()` or was transmitted from a master to a slave. `read()` inherits from the `Stream` utility class. Useful for peeking at the next byte to be read.
+Similar in use to read(). Reads (but does not remove from the buffer) a byte that was transmitted from a slave device to a master after a call to `requestFrom()`{{#if has-i2c-slave}} or was transmitted from a master to a slave{{/if}}. `read()` inherits from the `Stream` utility class. Useful for peeking at the next byte to be read.
 
 ```C++
 // SYNTAX
@@ -4877,6 +4915,8 @@ Wire.peek();
 ```
 
 Returns: The next byte received (without removing it from the buffer)
+
+{{#if has-i2c-slave}}
 
 ### onReceive()
 
@@ -4891,10 +4931,8 @@ Parameters: `handler`: the function to be called when the slave receives data; t
 
 // function that executes whenever data is received from master
 // this function is registered as an event, see setup()
-void receiveEvent(int howMany)
-{
-  while(1 < Wire.available())   // loop through all but the last
-  {
+void receiveEvent(int howMany) {
+  while(1 < Wire.available()) { // loop through all but the last
     char c = Wire.read();       // receive byte as a character
     Serial.print(c);            // print the character
   }
@@ -4902,15 +4940,13 @@ void receiveEvent(int howMany)
   Serial.println(x);            // print the integer
 }
 
-void setup()
-{
+void setup() {
   Wire.begin(4);                // join i2c bus with address #4
   Wire.onReceive(receiveEvent); // register event
   Serial.begin(9600);           // start serial for output
 }
 
-void loop()
-{
+void loop() {
   delay(100);
 }
 ```
@@ -4928,22 +4964,20 @@ Parameters: `handler`: the function to be called, takes no parameters and return
 
 // function that executes whenever data is requested by master
 // this function is registered as an event, see setup()
-void requestEvent()
-{
+void requestEvent() {
   Wire.write("hello ");         // respond with message of 6 bytes as expected by master
 }
 
-void setup()
-{
+void setup() {
   Wire.begin(2);                // join i2c bus with address #2
   Wire.onRequest(requestEvent); // register event
 }
 
-void loop()
-{
+void loop() {
   delay(100);
 }
 ```
+{{/if}} {{!-- has-i2c-slave --}}
 
 {{/if}} {{!-- has-i2c --}}
 
@@ -6886,6 +6920,8 @@ noInterrupts();
 
 {{/if}} {{!-- has-interrupts --}}
 
+{{#if has-software-timers}}
+
 ## Software Timers
 
 _Since 0.4.7. This feature is available on the Photon, P1 and Electron out the box. On the Core, the
@@ -6923,6 +6959,8 @@ The timer callback is similar to an interrupt - it shouldn't block. However, it 
 - `callback` is the callback function which gets called when the timer expires.
 - `one_shot` (optional, since 0.4.9) when `true`, the timer is fired once and then stopped automatically.  The default is `false` - a repeating timer.
 
+
+{{/if}} {{!-- has-software-timers --}}
 
 ### Class member callbacks
 
@@ -7369,6 +7407,7 @@ In the example, the seed is simply ignored, so the system will continue using
 whatever seed was previously set. In this case, the random seed will not be set
 from the cloud, and setting the seed is left to up you.
 
+{{#if has-eeprom}}
 
 ## EEPROM
 
@@ -7574,6 +7613,8 @@ If the application never calls `performPendingErase()` then the pending page era
 when data is written using `put()` or `write()` and both pages are full. So calling
 `performPendingErase()` is optional and provided to avoid the uncertainty of a potential processor
 pause any time `put()` or `write()` is called.
+
+{{/if}}
 
 {{#if has-backup-ram}}
 ## Backup RAM (SRAM)

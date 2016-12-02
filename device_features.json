@@ -5,11 +5,14 @@
     "adc",
     "spi",
     "i2c",
+    "i2c-slave",
     "rgb",
     "pwm",
     "serial2",
     "interrupts",
-    "sleep"
+    "sleep",
+    "software-timers",
+	"eeprom"
   ],
   "Photon": [
     "wifi",
@@ -20,6 +23,7 @@
     "spi-slave",
     "multiple-spi",
     "i2c",
+    "i2c-slave",
     "can",
     "rgb",
     "pwm",
@@ -31,7 +35,10 @@
     "wifi-antenna-switch",
     "softap",
     "threading",
-    "sleep"
+    "sleep",
+    "usb-hid",
+    "software-timers",
+	"eeprom"
   ],
   "Electron": [
     "cellular",
@@ -42,6 +49,7 @@
     "spi-slave",
     "multiple-spi",
     "i2c",
+    "i2c-slave",
     "can",
     "rgb",
     "pwm",
@@ -54,10 +62,14 @@
     "fuel-gauge",
     "pmic",
     "threading",
-    "sleep"
+    "sleep",
+    "usb-hid",
+    "software-timers",
+	"eeprom"
   ],
   "Raspberry Pi": [
     "linux",
+    "i2c",
     "spi",
     "pwm",
     "multiple-spi"
