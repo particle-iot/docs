@@ -21,7 +21,7 @@ ARDSHIELD | Less than 100 units, Ships immediately | More than 100 units, ships 
 E260KIT | Less than 1000 units, Ships immediately | More than 1000 units, ships in 10 - 13 weeks
 E260TRAY50 | Less than 150 units, Ships immediately | More than 150 units, ships in 4 - 6 weeks
 E270KIT | Less than 1000 units, Ships immediately | More than 1000 units, ships in 10 - 13 weeks
-E270TRAY59 | Less than 150 units, Ships immediately | More than 150 units, ships in 4 - 6 weeks
+E270TRAY50 | Less than 150 units, Ships immediately | More than 150 units, ships in 4 - 6 weeks
 E350KIT | Less than 1000 units, Ships immediately | More than 1000 units, ships in 10 - 13 weeks
 E350TRAY50 | Less than 150 units, Ships immediately | More than 150 units, ships in 10 - 13 weeks
 GSWTP | Less than 30 units, Ships immediately | More than 30 units, ships in 8 - 10 weeks
@@ -48,7 +48,19 @@ Lead times apply only from the point of payment. Requesting a lead time will not
 
 Many of our products have minimum order quantities based on our case pack size. Please see the table below for minimum order quantities.
 
-TO DO - table
+SKU | Minimum order quantity
+------------ | -------------
+ANTELEC50 | 50 units
+BATTMOD50 | 50 units
+E260TRAY50 | 50 units
+E270TRAY50 | 50 units
+E350TRAY50 | 50 units
+P0MOD10 | 10 units
+P0REEL | 2000 units
+P1MOD10 | 10 units
+P1REEL | 500 units
+PHNTRAYH | 50 units
+PHNTRAYNOH | 50 units
 
 ## Battery regulations
 
