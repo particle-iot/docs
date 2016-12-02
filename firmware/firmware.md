@@ -8793,7 +8793,7 @@ It's important to call `wait()` to block the firmware until the program finishes
 
 Block the firmware until the program finishes. Returns immediately if the process has already finished.
 
-Returns the [exit code of the process](#exitCode).
+Returns the [exit code of the process](#exitcode-).
 
 ```cpp
 // SYNTAX
