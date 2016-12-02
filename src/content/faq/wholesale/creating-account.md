@@ -13,7 +13,7 @@ order: 100
 A Wholesale store account will help you get preferred or bulk pricing, volume discounts and other exciting offers.
 
 
-## Applying to the Wholesale store
+## Wholesale store application
 
 You can find the Wholesale Store sign up page [here](http://www-wholesale.particle.io/wholesale-b2b).
 This is what you should see....
@@ -28,10 +28,10 @@ Choose a tab at the top of the page to for the type of account you would like to
  - [Educators](http://www-wholesale.particle.io/wholesale-educators) contains our preferred pricing for event hosts and educators. Our application process requires a description of your class or event and will take up to 1 week to process. We may ask you to provide proof of your tax-exempt educator status or marketing materials for your event. 
  - [Distributors](http://www-wholesale.particle.io/wholesale-distributors) is for our reseller network. Use this account type if you would like to become an official Particle Distributor. Our application process requires a description of your class or event and will take up to 2 weeks to process. We may ask you to provide proof of your reseller status and reserve the right to decline any distributors. 
 
-## Requirements to be a Particle Distributor
+## Particle Distributor Requirements
 TO DO - RAGHU
 
-## Wholesale store distributor application
+## Distributor application
 
 After clicking on Apply Now from the [distributor sign up page](http://www-wholesale.particle.io/wholesale-distributors) you will be prompted to the Particle Distributor Application screen.
 
@@ -53,8 +53,8 @@ Congratulations!! You are sooo close to becoming an official Particle Distributo
 
 You will receive an email confirming your application on your registered email from Particle Wholesale.
 
-## Setting up your Wholesale Store Account
+## Wholesale Store Account Setup
 TO DO - RAGHU
 
-## Logging into the Wholesale Store
+## Wholesale Store logins
 TO DO - RAGHU

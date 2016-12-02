@@ -8,7 +8,7 @@ order: 200
 
 # {{title}}
 
-## Prerequisites to placing orders
+## Wholesale store prerequisites
 
 You will need several things to start placing orders on the Wholesale store: 
 - Particle Account - You should have a valid Particle account to be able to log in to the Wholesale store. 
@@ -18,7 +18,7 @@ You will need several things to start placing orders on the Wholesale store:
 
 Now go to the [Wholesale store login page](https://login.particle.io/wholesale) to get started!
 
-## Changing my Business Information
+## Changing Business Information
 
 After you sign in you will be directed to your account page. 
 
@@ -30,7 +30,7 @@ If the "Business Information" section is blank, that means Particle does not hav
 
 TO DO - RAGHU
 
-## The Wholesale store storefront
+## Wholesale store storefront
 
 Click on the "Wholesale" link at the top of the page to start ordering all Particle SKUs at bulk or distributor pricing. 
 
@@ -47,7 +47,7 @@ After filling your cart and clicking checkout, you will be taken the "User Compl
 
 Particle photon and electron products are restricted under ECCN number 5A992.c. Find out more about these restrictions [here](TO DO MARG).
 
-### Navigating the Compliance Survey as a Business customer
+### Compliance Survey as a Business
 
 The first question is required to establish whether you will use the products yourself or sell/give the products to another individual or business. As a business, the answer to this question will be "Yes" if you intend to use Particle products for internal uses and "No" for products you intend to sell. Checking the “No” option prompts another dropdown.
 
@@ -79,7 +79,7 @@ TO DO photo
 Checking “Yes” for this question will direct you to the checkout screen. If for any reason you have failed the survey please email orders@particle.io. 
 
 
-### Navigating the Compliance Survey as a Distribution customer
+### Compliance Survey as a Distributor
 
 The first question is required to establish whether you will use the products yourself or sell/give the products to another individual or business. As a distributor, the answer to this question is most likely “No”. Checking the “No” option prompts another dropdown.
 
@@ -110,7 +110,7 @@ TO DO photo - RAGHU
 
 Checking “Yes” for this question will direct you to the checkout screen. If for any reason you have failed the survey please email orders@particle.io. 
 
-### Navigating the Compliance Survey as an Education customer
+### Compliance Survey as an Educator
 
 The first question is required to establish whether you will use the products yourself or sell/give the products to another individual or business. As an educator or the host of an event, the answer to this question will likely be "No" for products you intend to sell or give to other individuals or businesses. Checking the “No” option prompts another dropdown.
 
@@ -151,10 +151,10 @@ In case you have a shipping account number and have not a received a unique disc
 The Wholesale store accepts the following payment methods: 
 TO DO - MARG
 
-## Paying with terms on the Wholesale Store
+## Paying with terms
 
 TO DO - RAGHU
 
-## Refunds, cancellations or shipping delays
+## Refunds, cancellations or delays
 
 All orders through the Wholesale are non-refundable and non-cancellable. We also can not accept shipping timeline delays. Sending a PO or placing an order on the Wholesale Store to Particle functions as a committed, non-cancellable, non-refunable order. 

@@ -14,5 +14,5 @@ TO DO - MARG
 ## Ship methods
 TO DO - MARG
 
-## Using your own shipping account number
+## Customer shipping accounts
 TO DO - MARG
