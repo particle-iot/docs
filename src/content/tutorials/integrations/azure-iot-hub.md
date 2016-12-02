@@ -9,7 +9,7 @@ order: 200
 
 Particle and Microsoft have teamed up to provide a 1st-class
 integration with <a href="https://azure.microsoft.com/en-us/services/iot-hub/" target="_blank">Azure IoT Hub</a>.
-Azure IoT Hub provides a seamless way to get Particle device data
+Azure IoT Hub provides a seamless way to send Particle device data
 into Azure, effective both during prototyping and when at scale.
 
 <img src="/assets/images/azure-iot-hub/particle+iot-hub.png"
@@ -58,9 +58,9 @@ exists is to provide one-way event ingestion from Particle to Azure IoT Hub
 
 Before using this integration, it is helpful to understand a few
 key concepts fundamental to how Azure IoT Hub works. These concepts will
-come up during preconfiguration and enabling of the IoT Hub integration.
+come up during use of the IoT Hub integration.
 
-### Device Identities and Registry
+### Device Identities and Identity Registry
 
 From IoT Hub's <a
 href="https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-devguide-identity-registry" target="_blank">documentation</a>:
@@ -77,14 +77,15 @@ own device identities for your fleet of Particle devices**.
 
 The identity in the IoT Hub registry will be created with the same
 device ID as used in the Particle system for easy correlation of data
-and events.
+and events. The identity will be created automatically in your Hub the
+first time an approved device publishes an event that triggers the integration.
 
 ### Device-to-cloud Message
 
 Related to device identities are device-to-cloud messages. Each device
-in the IoT Hub registry has its own messaging stream, allowing the
+in the IoT Hub registry has its own unique messaging stream. This allows the
 Particle cloud to publish messages on behalf of individual devices to
-their corresponding message stream.
+their corresponding stream.
 
 From IoT Hub's <a
 href="https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-devguide-messaging#device-to-cloud-messages" target="_blank">documentation</a>:
@@ -112,6 +113,11 @@ From IoT Hub's documentation:
 *"Shared access policies can grant any combination of permissions...Azure
 IoT Hub grants access to endpoints by verifying a token against the
 shared access policies"*
+
+Each policy can be scoped to be granted permissions to interact with the
+IoT Hub in various ways. It is important that the access policy given to
+Particle to authenticate with your IoT Hub has the right permissions to
+send device data successfully.
 
 For a full description of authentication and security on Azure IoT Hub,
 please visit the <a
@@ -202,7 +208,8 @@ To enable this integration successfully, you will need both the <strong>policy n
 <img src="/assets/images/azure-iot-hub/access-shared-policy-info.png"
 alt="Access shared IoT Hub policy info"/>
 
-Awesome! You now have everything you need to move on to enabling the integration on the Particle console.
+Awesome! You now have everything you need to move on to enabling the
+integration on the Particle Console.
 
 ## Enabling the integration
 
@@ -348,6 +355,12 @@ Monitoring events from device 3e003f000547343233323032...
 }
 -------------------
 ```
+
+In addition, you should now see this Particle device ID appear in your device
+registry:
+
+<img src="/assets/images/azure-iot-hub/device-registry.png"
+target="_blank" style="max-width:100%;"/>
 
 Yay! You are successfully sending data from Particle devices to your IoT Hub.
 
