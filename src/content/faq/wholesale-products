@@ -10,12 +10,37 @@ order: 100
 
 ## Product Lead Times
 
-Particle products have different lead times based on the quantity. Please see the table below for approximate lead times.
+Particle products have different lead times based on the quantity. Please see the table below for approximate lead times. After placing an order, an associate will reach out with an exact ship date. 
 
-SKU | Second Header
------------- | -------------
-Content from cell 1 | Content from cell 2
-Content in the first column | Content in the second column
+SKU | Low volume lead time | High volume lead time
+------------ | ------------- | -------------
+ANTDUCK | Less than 50 units, Ships immediately | More than 50 units, ships in 4 - 6 weeks
+ANTELEC | Less than 50 units, Ships immediately | More than 50 units, ships in 4 - 6 weeks
+ANTFLEX | Less than 50 units, Ships immediately | More than 50 units, ships in 4 - 6 weeks
+ARDSHIELD | Less than 100 units, Ships immediately | More than 100 units, ships in 8 - 10 weeks
+E260KIT | Less than 1000 units, Ships immediately | More than 1000 units, ships in 10 - 13 weeks
+E260TRAY50 | Less than 150 units, Ships immediately | More than 150 units, ships in 4 - 6 weeks
+E270KIT | Less than 1000 units, Ships immediately | More than 1000 units, ships in 10 - 13 weeks
+E270TRAY59 | Less than 150 units, Ships immediately | More than 150 units, ships in 4 - 6 weeks
+E350KIT | Less than 1000 units, Ships immediately | More than 1000 units, ships in 10 - 13 weeks
+E350TRAY50 | Less than 150 units, Ships immediately | More than 150 units, ships in 10 - 13 weeks
+GSWTP | Less than 30 units, Ships immediately | More than 30 units, ships in 8 - 10 weeks
+MKITPH | Less than 30 units, Ships immediately | More than 30 units, ships in 12 - 16 weeks
+P0MOD10 | Less than 150 units, Ships immediately | More than 150 units, ships in 12 - 16 weeks
+P0REEL | All volumes ship in 12 - 16 weeks | All volumes ship in 12 - 16 weeks
+P1MOD10 | Less than 50 units, Ships immediately | More than 50 units, ships in 4 - 6 weeks
+P1REEL | Less than 1000 units, Ships immediately | More than 1000 units, ships in 12 - 16 weeks
+PHNTRAYH | Less than 200 units, Ships immediately | More than 200 units, ships in 12 - 16 weeks
+PHNTRAYNOH | Less than 200 units, Ships immediately | More than 200 units, ships in 12 - 16 weeks
+PHOTONH | Less than 250 units, Ships immediately | More than 250 units, ships in 12 - 16 weeks
+PHOTONKIT | Less than 100 units, Ships immediately | More than 100 units, ships in 12 - 16 weeks
+PHOTONNOH | Less than 250 units, Ships immediately | More than 250 units, ships in 12 - 16 weeks
+PROGSHIELD | Less than 100 units, Ships immediately | More than 100 units, ships in 8 - 10 weeks
+PWRSHIELDH | Less than 100 units, Ships immediately | More than 100 units, ships in 8 - 10 weeks
+RLYSHIELD | Less than 100 units, Ships immediately | More than 100 units, ships in 8 - 10 weeks
+SIMTELE | Less than 50 units, Ships immediately | More than 50 units, ships in 4 - 6 weeks
+SPKBTTN | Less than 50 units, Ships immediately | More than 50 units, ships in 12 - 16 weeks
+
 
 Lead times apply only from the point of payment. Requesting a lead time will not reserve stock. Only a committed non-refundable non-cancellable PO or a purchase with payment will guarantee lead times. Particle reserves the right to increase or decrease lead times at any time. 
 
