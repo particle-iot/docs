@@ -206,6 +206,151 @@ Awesome! You now have everything you need to move on to enabling the integration
 
 ## Enabling the integration
 
+### Particle Console
+
+Now that you've done all of the pre-configuration required, you are now
+ready to enable the Azure IoT Hub integration
+on the <a href="https://console.particle.io" target="_blank">Particle Console</a>.
+
+Start by going to the integrations hub by clicking on the integrations icon in the sidebar (<i class="im-integrations-icon"></i>), or
+by simply <a href="https://console.particle.io/integrations" target="_blank">following this link</a>. If you'd like to enable the integration
+for a <a href="/guide/tools-and-features/console/#devices-vs-product-devices" target="_blank">product</a>, you'll need to visit the integrations
+hub for the desired product. Do this by clicking the products icon (<i class="im-product-icon"></i>) in the sidebar, finding your product,
+then clicking on the integrations icon (<i class="im-integrations-icon"></i>) in the product context.
+
+Once in the integrations hub, click on the "New Integration" button.
+From the list of available integrations, click on "Azure IoT Hub".
+
+<img src="/assets/images/azure-iot-hub/enable-integration.png"/>
+
+You'll see a reminder that setup is required before continuing to enable the integration. If you have followed the steps outlined in
+[Preconfiguration in Azure IoT Hub](#preconfiguration-in-azure-iot-hub), you should be good to go. Click the
+"I have done all these things" button to advance.
+
+The next step is configuring the integration. Fill out the following fields:
+- **Event Name**: The name of the event that will trigger publishing an
+event to Azure IoT Hub. This is the name of your event when you call `Particle.publish()` in your firmware.
+- **IoT Hub Name**: The name given when you created your Azure IoT Hub
+- **Shared Policy Name**: The name of the Azure shared policy that you
+created during setup
+- **Shared Policy Key**: The associated key of the Azure shared policy that you created
+during setup
+- **Device**: Select which of your devices will trigger publishing to
+Azure. If you'd like the publish to trigger from any of the devices you own, select 'Any.'
+
+<img src="/assets/images/azure-iot-hub/configure-integration.png"/>
+
+Click "Enable Integration." You have now successfully told the Particle
+cloud to stream data to Azure IoT Hub!
+Make sure that the integration is configured properly by clicking on the
+**TEST** button (available for integrations **not** scoped to a single
+device).
+
+### Firmware
+
+Now that the integration is enabled in the Particle cloud, the final
+step required to get data streaming into Azure IoT Hub
+is to flash a device with some firmware that publishes the targeted event. Head over to the <a href="https://build.particle.io" target="_blank">Particle Web IDE</a>,
+<a href="https://www.particle.io/products/development-tools/particle-local-ide" target="_blank">Local IDE</a>, or whichever IDE you are using for firmware development.
+
+If you're already working on a firmware application, just make sure you include a `Particle.publish()` with the event name matching the event used to enable the
+IoT Hub integration above. Otherwise, if you need some sample firmware, paste in the below code into your firmware app:
+
+```
+// The on-board LED
+int led = D7;
+
+void setup() {
+  pinMode(led, OUTPUT);
+}
+void loop() {
+  // Turn the LED Off
+  digitalWrite(led, HIGH);
+  // Publish an event to trigger the integration
+  // Replace "my-event" with the event name you used when configuring the integration
+  // Replace "test-data" with the real data you'd like to send to Azure
+  // IoT Hub
+  Particle.publish("my-event", "test-data", PRIVATE);
+  // Wait for 3 seconds
+  delay(3000);
+  // Turn the LED off
+  digitalWrite(led, LOW);
+  delay(3000);
+}
+```
+
+The above code will publish an event every 6 seconds, when the on-board LED turns on.
+In reality, you might publish an event containing the readings from
+a temperature or humidity sensor every few minutes, when motion is detected, or when
+a user interacts with the device by pushing a button. This firmware is entirely meant as
+a sample to illustrate the minimum code needed to stream data into Azure
+IoT Hub.
+
+Go ahead and flash the firmware with the `Particle.publish()` that will trigger the integration to
+a Particle device.
+
+Once confident in the firmware, you can stream data from large numbers of devices by
+<a href="/guide/tools-and-features/console/#rollout-firmware" target="_blank">rolling out the firmware</a>
+to a product fleet. Remember that this requires creating the integration under the product scope, allowing
+any device in the product fleet to trigger the it.
+
+Congrats! This is all you need to get the integration working end-to-end.
+Your device will now begin to publish the targeted event, which will signal to
+the Particle cloud to send a device-to-cloud message to IoT Hub.
+
+### Confirming the data reaches Azure IoT Hub
+
+To ensure that the data is successfully being published to Azure IoT
+Hub, you can use the <a href="https://github.com/Azure/azure-iot-sdks/tree/master/tools/iothub-explorer" target="_blank">IoT Hub Explorer</a>, an Node-based command line
+interface (CLI).
+
+Install the IoT Hub explorer and run the following command:
+
+```bash
+iothub-explorer monitor-events [particle-device-id] --login
+[IoT-Hub-connection-string]
+```
+
+You can find your Hub's connection string in the Azure portal by
+**clicking Shared access policies** > **iothubowner** > then click the
+clipboard next to **Connection string--primary key**.
+
+<img src="/assets/images/azure-iot-hub/connection-string.png"
+alt="Particle + Azure IoT Hub connection string" style="max-width: 100%;"/>
+<p class="caption">You can find your IoT Hub connection string in the
+shared access policies view</p>
+
+You should see output like this in your terminal:
+
+```bash
+Monitoring events from device 3e003f000547343233323032...
+{
+  "data": "70",
+  "device_id": "3e003f000547343233323032",
+  "event": "temperature",
+  "published_at": "2016-12-02T02:12:28.825Z",
+  "fw_version": "1"
+}
+-------------------
+{
+  "data": "70",
+  "device_id": "3e003f000547343233323032",
+  "event": "temperature",
+  "published_at": "2016-12-02T02:12:28.825Z"
+}
+-------------------
+{
+  "data": "69",
+  "device_id": "3e003f000547343233323032",
+  "event": "temperature",
+  "published_at": "2016-12-02T02:12:34.821Z",
+  "fw_version": "1"
+}
+-------------------
+```
+
+Yay! You are successfully sending data from Particle devices to your IoT Hub.
+
 ## Example Use Cases
 
 *We are in need of example use cases for this integration. Please help us
