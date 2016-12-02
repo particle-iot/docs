@@ -8,15 +8,13 @@ order: 200
 
 # {{title}}
 
-## Wholesale store prerequisites
+## Wholesale Store Prerequisites
 
 You will need several things to start placing orders on the Wholesale store: 
-- Particle Account - You should have a valid Particle account to be able to log in to the Wholesale store. 
-- Approval for your Wholesale store application - See (Setting up a Wholesale Store)[TO DO] to get set up. If you have received a Welcome email from us, you have been approved.
-- Tax ID’s/VAT - If you have not provided us with your Tax ID or VAT numbers please do so by emailing orders@particle.io with the Subject Line : Tax ID/VAT
-- Shipping Account Number - If you have your own shipping account number and would like to use it, please email orders@particle.io with the Subject Line : Shipping Account Number.
+- Particle Account - You need a valid Particle account to be able to log in to the Wholesale store. 
+- Wholesale Account approval - Your account needs to be associated with a type of wholesale customer. See (Wholesale Account Creation)[TO DO] to get set up. If you have already received a Welcome email from us, you have a Wholesale account already.
 
-Now go to the [Wholesale store login page](https://login.particle.io/wholesale) to get started!
+Go to the [Wholesale store login page](https://login.particle.io/wholesale) to get started!
 
 ## Changing Business Information
 

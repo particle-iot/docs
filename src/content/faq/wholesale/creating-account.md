@@ -8,12 +8,12 @@ order: 100
 
 # {{title}}
 
-## Wholesale store overview
+## Wholesale Account Overview
 
-A Wholesale store account will help you get preferred or bulk pricing, volume discounts and other exciting offers.
+A Wholesale account will help you get preferred or bulk pricing, volume discounts and other exciting offers through our bulk purchasing portal called the Particle Wholesale store. Learn more [here](wholesale.particle.io).
 
 
-## Wholesale store application
+## Wholesale Account Application
 
 You can find the Wholesale Store sign up page [here](http://www-wholesale.particle.io/wholesale-b2b).
 This is what you should see....
@@ -22,7 +22,7 @@ TO DO - RAGHU
 
 Choose a tab at the top of the page to for the type of account you would like to create. 
 
-## Wholesale store account types
+## Wholesale Account Types
 
  - [Business](http://www-wholesale.particle.io/wholesale-b2b) contains our standard bulk pricing and bulk format products. If you are a product creator, choose this option. Processing of your account will take up to 2 business days. 
  - [Educators](http://www-wholesale.particle.io/wholesale-educators) contains our preferred pricing for event hosts and educators. Our application process requires a description of your class or event and will take up to 1 week to process. We may ask you to provide proof of your tax-exempt educator status or marketing materials for your event. 
@@ -31,7 +31,7 @@ Choose a tab at the top of the page to for the type of account you would like to
 ## Particle Distributor Requirements
 TO DO - RAGHU
 
-## Distributor application
+## Particle Distributor Application
 
 After clicking on Apply Now from the [distributor sign up page](http://www-wholesale.particle.io/wholesale-distributors) you will be prompted to the Particle Distributor Application screen.
 
@@ -53,8 +53,8 @@ Congratulations!! You are sooo close to becoming an official Particle Distributo
 
 You will receive an email confirming your application on your registered email from Particle Wholesale.
 
-## Wholesale Store Account Setup
+## Wholesale Account Setup
 TO DO - RAGHU
 
-## Wholesale Store logins
+## Wholesale Store Logins
 TO DO - RAGHU
