@@ -129,7 +129,8 @@ exports.metalsmith = function() {
         orderDynamicCollections: [
           'particle-devices',
           'particle-tools',
-          'raspberry-pi'
+          'raspberry-pi',
+          'wholesale'
 				]
       },
       datasheet: {

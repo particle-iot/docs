@@ -3,7 +3,7 @@ title: Placing orders on the Wholesale Store
 template: faq.hbs
 columns: two
 devices: [ photon,electron,core,raspberry-pi ]
-order: 100
+order: 200
 ---
 
 # {{title}}

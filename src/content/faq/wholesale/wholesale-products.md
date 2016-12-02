@@ -3,7 +3,7 @@ title: Wholesale Products
 template: faq.hbs
 columns: two
 devices: [ photon,electron,core,raspberry-pi ]
-order: 100
+order: 300
 ---
 
 # {{title}}
