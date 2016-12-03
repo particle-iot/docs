@@ -181,7 +181,6 @@ alt="Configure an IoT Hub"/>
 <strong>Heads up!</strong> A few things to point out when configuring your IoT Hub:
 <ul>
 	<li>A free IoT Hub cannot be converted to a paid tier once created</li>
-	<li>The Device Management preview will allow you to see a list of registered devices in the Azure IoT Hub portal</li>
 	<li>You will need your <strong>IoT Hub Name</strong> to enable the integration successfully in the next step</li>
 </ul>
 
