@@ -147,7 +147,8 @@ In case you have a shipping account number and have not a received a unique disc
 ## Payment methods
 
 The Wholesale store accepts the following payment methods: 
-TO DO - MARG
+- **Credit cards** - We accept Visa, Mastercard, and Amex credit cards. 
+- **ACH** - We can accept ACH payments but your account must be set up for this option. Email orders@particle.io to learn more. 
 
 ## Paying with terms
 

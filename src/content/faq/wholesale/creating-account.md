@@ -10,7 +10,7 @@ order: 100
 
 ## Wholesale Account Overview
 
-A Wholesale account will help you get preferred or bulk pricing, volume discounts and other exciting offers through our bulk purchasing portal called the Particle Wholesale store. Learn more [here](wholesale.particle.io).
+A Wholesale account will help you get preferred or bulk pricing, volume discounts and other exciting offers through our bulk purchasing portal called the Particle Wholesale store. Learn more [here](https://wholesale.particle.io).
 
 
 ## Wholesale Account Application
