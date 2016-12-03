@@ -43,11 +43,10 @@ Lead times will change with the volume of units ordered. After you have done add
 
 After filling your cart and clicking checkout, you will be taken the "User Compliance Survey". This section is required by US Law and is mandatory for all purchases on the wholesale store.
 
-Particle photon and electron products are restricted under ECCN number 5A992.c. Find out more about these restrictions [here](TO DO MARG).
+Particle photon and electron products are restricted under ECCN number 5A992.c. Find out more about these restrictions [here](https://www.bis.doc.gov/index.php/forms-documents/doc_view/335-supplement-no-1-to-part-774-category-5-part-ii-information-security).
 
-### Compliance Survey as a Business
+### End user of the products
 
-#### End user of the products
 The first question is required to establish whether you will use the products yourself or sell/give the products to another individual or business. 
 
 - As a business, the answer to this question will be "Yes" if you intend to use Particle products for internal uses and "No" for products you intend to sell. 
@@ -62,7 +61,7 @@ The additional question if you selected "No" asks whether you will collect the f
 
 TO DO photo - RAGHU
 
-#### Destination of the products
+### Destination of the products
 
 The next question asks about countries that the United States currently has trade embargoes with. Answer "Yes" to this question if you can guarantee that the products will not be sold to these countries. If you will ship Particle products to these countries, we can not sell to you per US export law.
 
@@ -72,7 +71,8 @@ The next question asks the Geography in which the device will be used. Again, ch
 
 TO DO photo - RAGHU
 
-#### Use case of the products
+
+### Use case of the products
 
 A check list for use cases is next. All use cases are allowed but we will need additional information if you select "Military Applications".
 - For distributors the most likely use cases should be "MISCELLANEOUS HOBBYIST ACTIVITIES (Without military applications)". All use cases are allowed but we will need additional information if you select "Military Applications".
@@ -80,7 +80,8 @@ A check list for use cases is next. All use cases are allowed but we will need a
 
 TO DO photo - RAGHU
 
-#### Overall compliance
+
+### Overall compliance
 
 Finally, you will be asked to confirm that you can comply with the due dilligence requirements of US export law. Please see the following resources for more information:
 - Embargoed locations - Cuba, Iran, North Korea, Sudan or Syria
@@ -90,6 +91,7 @@ Finally, you will be asked to confirm that you can comply with the due dilligenc
 TO DO photo
 
 Checking “Yes” for this question will direct you to the checkout screen. If for any reason you have failed the survey please email orders@particle.io. 
+
 
 ## Checking out with your own Shipping Account number
 If you have your own shipping account on file, apply the discount code provided by Particle by email in the box below. Once you enter this code, the shipping cost will go down to $0.
