@@ -72,7 +72,7 @@ Lithium ion battery shipping is a highly regulated and confusing area. The facts
 
 ### Restrictions and regulations
 
-The first thing to understand is the type of battery you have. The batteries that come standard with Electrons are XYZ lithium ion batteries. 
+The first thing to understand is the type of battery you have. The batteries that come standard with Electrons are lithium ion batteries. 
 
 Next you will need to identify how they are shipped. Whether the batteries are shipped IN, WITH or WITHOUT equipment is critical to the level of labeling and restriction they will have. Consult the following guides to identify your battery type: 
 - [Full list of DHL guides](http://www.dhl.com/en/express/shipping/shipping_advice/lithium_batteries.html#guides_materials)
