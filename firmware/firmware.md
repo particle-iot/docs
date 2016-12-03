@@ -8811,7 +8811,7 @@ Returns true if the process has exited, false otherwise.
 
 A "blank" Process that was never started returns true for `exited()`.
 
-``cpp
+```cpp
 // SYNTAX
 bool done = process.exited();
 
