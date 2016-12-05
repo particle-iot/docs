@@ -39,15 +39,14 @@ After clicking on Apply Now from the [distributor sign up page](http://www-whole
 
 The first section is the company profile. Please be as detailed and specific as possible, this information will help us qualify your application more effectively. 
 
-TO DO - RAGHU
+![Profile Information](docs/src/assets/images/companyprofilepage.png)
 
 Please fill out the location of your operation, it can be your HQ or your warehouse. 
 
-TO DO - RAGHU
+![Location](docs/src/assets/images/locationinformation.png)
 
 This section of the application has default values populated. Please do not leave this section to the default values, fill out the information to the best of your knowledge.
-
-TO DO - RAGHU
+![Business Information](docs/src/assets/images/businessinformation.png)
 
 After you entered all the information, click on Apply Now.
 
