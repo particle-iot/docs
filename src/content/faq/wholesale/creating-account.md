@@ -55,7 +55,21 @@ Congratulations!! You are sooo close to becoming an official Particle Distributo
 You will receive an email confirming your application on your registered email from Particle Wholesale.
 
 ## Wholesale Account Setup
-TO DO - RAGHU
 
-## Wholesale Store Logins
-TO DO - RAGHU
+Create your official particle account [here](https://login.particle.io/login)
+
+Please click on the create account button, if you already have a Particle account you can sign in at this point.
+![Create Account](docs/src/assets/images/loginscreen1.png)
+
+After clicking on the create account button you will be prompted to a screen that looks like this
+![Create Account](docs/src/assets/images/loginscreen2.png)
+
+Fill out the information that is requested, remember to check business under the “account is” section of the form. 
+
+**CONGRATULATIONS!!** You now have an official Particle Account. Once we approve you, you will be able to log in with this account and take advantage of special pricing and other exciting distributor offers!!
+
+
+*NOTE : -  Please email us your reseller certificates or A501.c3 certificate to get the tax breaks you are eligible for* 
+
+
+
