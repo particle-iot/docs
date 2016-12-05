@@ -20,19 +20,19 @@ Go to the [Wholesale store login page](https://login.particle.io/wholesale) to g
 
 After you sign in you will be directed to your account page. 
 
-TO DO - RAGHU
+![Business Information](docs/src/assets/images/businessinfo1.png)
 
 This page should be populated with the information that you entered during sign up. Please review the information and correct any information that is not correct.
 
-If the "Business Information" section is blank, that means Particle does not have your Tax ID/VAT Number and/or your Shipping Account Number. Please email orders@particle.io with the Subject line : "Wholesale Store Business Information". If this section does not apply to you you can skip this section.
+If the "Business Information" section is blank, that means Particle does not have your Tax ID/VAT Number and/or your Shipping Account Number. Please email orders@particle.io with the Subject line : "Wholesale Store Business Information". If this section does not apply to you, you can skip this section.
 
-TO DO - RAGHU
+![Business Information](docs/src/assets/images/businessinfo2.png)
 
 ## Wholesale store storefront
 
 Click on the "Wholesale" link at the top of the page to start ordering all Particle SKUs at bulk or distributor pricing. 
 
-All the SKUs that are available to distributors st special pricing are listed in this category.
+All the SKUs that are available to distributors at special pricing are listed in this category.
 All the SKUs have pricing based on volume tiers as shown below:
 
 TO DO - RAGHU
