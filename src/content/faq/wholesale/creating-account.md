@@ -29,7 +29,7 @@ Choose a tab at the top of the page to for the type of account you would like to
  - [Distributors](http://www-wholesale.particle.io/wholesale-distributors) is for our reseller network. Use this account type if you would like to become an official Particle Distributor. Our application process requires a description of your class or event and will take up to 2 weeks to process. We may ask you to provide proof of your reseller status and reserve the right to decline any distributors. 
 
 ## Particle Distributor Requirements
-TO DO - RAGHU
+1. Have established distribution infrastructure
 
 ## Particle Distributor Application
 
