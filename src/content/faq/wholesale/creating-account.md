@@ -18,8 +18,7 @@ A Wholesale account will help you get preferred or bulk pricing, volume discount
 You can find the Wholesale Store sign up page [here](http://www-wholesale.particle.io/wholesale-b2b).
 This is what you should see....
 
-TO DO - RAGHU
-![Image of wholesale store login page](docs/src/assets/images/WholeSale Log in Page.png)
+![Wholesale store login page](docs/src/assets/images/WholeSale Log in Page.png)
 
 Choose a tab at the top of the page to for the type of account you would like to create. 
 
