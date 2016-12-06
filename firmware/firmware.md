@@ -3382,7 +3382,7 @@ from a serial peripheral.
 - serialEvent5: called when there is data available from `Serial5`
 {{/if}} {{!-- has-serial4-5 --}}
 
-The `serialEvent` functions are called by the system as part of the application loop. Since these is an
+The `serialEvent` functions are called by the system as part of the application loop. Since these are an
 extension of the application loop, it is ok to call any functions at you would also call from loop().
 
 ```cpp
