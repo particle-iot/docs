@@ -35,7 +35,7 @@ Click on the "Wholesale" link at the top of the page to start ordering all Parti
 All the SKUs that are available to distributors at special pricing are listed in this category.
 All the SKUs have pricing based on volume tiers as shown below:
 
-TO DO - RAGHU
+![Tiered Pricing](docs/src/assets/images/volumetier.png)
 
 Lead times will change with the volume of units ordered. After you have done adding all your items to the cart you can proceed to checkout.
 
