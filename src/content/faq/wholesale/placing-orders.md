@@ -53,23 +53,22 @@ The first question is required to establish whether you will use the products yo
 - As a distributor, the answer to this question is most likely “No”. 
 - As an educator or the host of an event, the answer to this question will likely be "No" for products you intend to sell or give to other individuals or businesses. 
 
-Checking the “No” option prompts another dropdown.
+Checking the “No” option for the first question prompts another dropdown.
 
-TO DO photo - RAGHU
+![Compliance Survey](docs/src/assets/images/complinacesurvey1.png)
 
 The additional question if you selected "No" asks whether you will collect the full name, physical address and end use of the end users of the products. If you have an e-commerce portal that stores this information or you will receive full invoices for the goods, you can answer "Yes" to this question. If you are not able to collect this information, we can not sell to you per US export law.
 
-TO DO photo - RAGHU
 
 ### Destination of the products
 
 The next question asks about countries that the United States currently has trade embargoes with. Answer "Yes" to this question if you can guarantee that the products will not be sold to these countries. If you will ship Particle products to these countries, we can not sell to you per US export law.
 
-TO DO photo - RAGHU
+![Embargoed Countries](docs/src/assets/images/embargoimage.png)
 
 The next question asks the Geography in which the device will be used. Again, choosing "Embargoed countries" will not allow us to ship to you. 
 
-TO DO photo - RAGHU
+![Geography](docs/src/assets/images/geographyimage.png)
 
 
 ### Use case of the products
@@ -78,7 +77,7 @@ A check list for use cases is next. All use cases are allowed but we will need a
 - For distributors the most likely use cases should be "MISCELLANEOUS HOBBYIST ACTIVITIES (Without military applications)". All use cases are allowed but we will need additional information if you select "Military Applications".
 - Educators or event hosts typically select "MISCELLANEOUS HOBBYIST ACTIVITIES (Without military applications)". All use cases are allowed but we will need additional information if you select "Military Applications".
 
-TO DO photo - RAGHU
+![Usage](docs/src/assets/images/usagecompliance.png)
 
 
 ### Overall compliance
@@ -88,13 +87,15 @@ Finally, you will be asked to confirm that you can comply with the due dilligenc
 - [Denied persons lists](http://export.gov/ecr/eg_main_023148.asp)
 - [ECCN specific information](https://www.bis.doc.gov/index.php/forms-documents/doc_view/335-supplement-no-1-to-part-774-category-5-part-ii-information-security)
 
-TO DO photo
+![Due Dilligence](docs/src/assets/images/lastquestioncompliance.png)
 
 Checking “Yes” for this question will direct you to the checkout screen. If for any reason you have failed the survey please email orders@particle.io. 
 
 
 ## Checking out with your own Shipping Account number
 If you have your own shipping account on file, apply the discount code provided by Particle by email in the box below. Once you enter this code, the shipping cost will go down to $0.
+
+![Unique Shipping Code](docs/src/assets/images/uniqueshippingcode.png)
 
 In case you have a shipping account number and have not a received a unique discount code, please email orders@particle.io with the subject line "Wholesale Store Business Information".
 
@@ -106,7 +107,7 @@ The Wholesale store accepts the following payment methods:
 
 ## Paying with terms
 
-TO DO - RAGHU
+The Wholesale store offers the option to invoice later, the payment terms are Net 30 days. The clock starts ticking from the day the invoice is sent out. 
 
 ## Refunds, cancellations or delays
 
