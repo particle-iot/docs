@@ -200,7 +200,7 @@ January 17, 2015 at 7:52am
 ### Monitor a function result
 
 ```cpp
-// SYNTAX TO REGISTER A SPARK FUNCTION
+// SYNTAX TO REGISTER A PARTICLE FUNCTION
 Particle.function("cloudNickname", firmwareFunctionName);
 //                ^
 //                |
