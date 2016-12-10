@@ -307,7 +307,7 @@ the Particle cloud to send a device-to-cloud message to IoT Hub.
 ### Confirming the data reaches Azure IoT Hub
 
 To ensure that the data is successfully being published to Azure IoT
-Hub, you can use the <a href="https://github.com/Azure/azure-iot-sdks/tree/master/tools/iothub-explorer" target="_blank">IoT Hub Explorer</a>, an Node-based command line
+Hub, you can use the <a href="https://github.com/Azure/iothub-explorer" target="_blank">IoT Hub Explorer</a>, an Node-based command line
 interface (CLI).
 
 Install the IoT Hub explorer and run the following command:
