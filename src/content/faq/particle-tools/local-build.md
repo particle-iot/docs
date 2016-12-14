@@ -27,29 +27,28 @@ This step uses Cygwin to provide command-line build support. You should install 
 
 [https://cygwin.com](https://cygwin.com/install.html)
 
-You will typically download **setup-x86_64.exe** (for 64-bit Windows) or **setup-x86.exe** (for 32-bit Windows). 
+- You will typically download **setup-x86_64.exe** (for 64-bit Windows) or **setup-x86.exe** (for 32-bit Windows).
+- Run the setup program, click **Next >**.
 
-Run the setup program, click **Next >**. 
+- You will typically use the default settings in chose installation type page, **Install from Internet** then click **Next >>**.
 
-You will typically use the default settings in chose installation type page, **Install from Internet** then click **Next >>**.
+- Use the default settings in choose installation directory page (root directory of **c:\cygwin64** or **c:\cygwin** and **All Users**), then click **Next >**.
 
-Use the default settings in choose installation directory page (root directory of **c:\cygwin64** or **c:\cygwin** and **All Users**), then click **Next >**.
+- Use the default settings in the select local package directory page, then click **Next >**.
 
-Use the default settings in the select local package directory page, then click **Next >**.
+- Use the default settings in the connection page (**Direct Connection**), then click **Next >**.
 
-Use the default settings in the connection page (**Direct Connection**), then click **Next >**.
+- Select a mirror from the following page (it usually doesn't matter which one), then click **Next >** and you'll get a list of packages to choose from.
 
-Select a mirror from the following page (it usually doesn't matter which one), then click **Next >** and you'll get a list of packages to choose from.
+- Expand **Devel** by clicking on the + in a box (pointed to by the purple arrow).
 
-Expand **Devel** by clicking on the + in a box (pointed to by the purple arrow).
+![Expand Devel](/assets/images/local-build-01expand.png)
 
-![Expand Devel](/assets/images/local-build-01expand.png) 
+- Select **make: The GNU version of the 'make' utility.** Click on arrows to enable downloading of the binary. Only the **Bin?** checkbox needs to be checked. Click **Next >**.
 
-Select **make: The GNU version of the 'make' utility.** Click on arrows to enable downloading of the binary. Only the **Bin?** checkbox needs to be checked. Click **Next >**.
+![Select Make](/assets/images/local-build-02selectmake.png)
 
-![Select Make](/assets/images/local-build-02selectmake.png) 
-
-Accept the default settings on the resolving dependencies page and click **Next >**.
+- Accept the default settings on the resolving dependencies page and click **Next >**.
 
 The download will take a few minutes. Then click **Finish**.
 
@@ -61,17 +60,17 @@ You should install using Cygwin or MinGW, depending on what you already have or 
 
 The official web site for MinGW is [http://mingw.org/](http://mingw.org/).
 
-Use the **Download Installer** link in the upper right corner of the window to download the installer, then run it.
+- Use the **Download Installer** link in the upper right corner of the window to download the installer, then run it.
 
-In the **MinGW Installation Manager** screen, select **mingw-developer-toolkit** and then click on the checkbox and select **Mark for Installation**.
+- In the **MinGW Installation Manager** screen, select **mingw-developer-toolkit** and then click on the checkbox and select **Mark for Installation**.
 
-![MinGW select package](/assets/images/local-build-08mingwinst.png) 
+![MinGW select package](/assets/images/local-build-08mingwinst.png)
 
-Then, from the **Installation** menu select **Apply Changes**. And click **Apply** in the confirmation window.
+- Then, from the **Installation** menu select **Apply Changes**. And click **Apply** in the confirmation window.
 
-If you did not get a **MinGW Shell** icon on your desktop or Startup menu, you may want to create one. Go into **Computer > Local Disk (C:) > MinGW > msys > 1.0** in the Windows File Explorer. Select **msys.bat** (the msys file of type Windows Batch File), right click and select **Create Shortcut**. I like to rename this to **MinGW Shell** and drag it to the desktop.
+- If you did not get a **MinGW Shell** icon on your desktop or Startup menu, you may want to create one. Go into **Computer > Local Disk (C:) > MinGW > msys > 1.0** in the Windows File Explorer. Select **msys.bat** (the msys file of type Windows Batch File), right click and select **Create Shortcut**. I like to rename this to **MinGW Shell** and drag it to the desktop.
 
-![MinGW select package](/assets/images/local-build-09mingwshortcut.png) 
+![MinGW select package](/assets/images/local-build-09mingwshortcut.png)
 
 You'll need to use the **MinGW Shell** for entering your build commands, not the standard Windows Command Prompt, so you'll probably want a handy shortcut to it.
 
@@ -81,14 +80,14 @@ The gcc-arm toolchains are here: [https://launchpad.net/gcc-arm-embedded](https:
 
 Currently, the 4.9-2015-q3-update is recommended. The 5.x versions can be used, but the 6.x versions will not work at all at this time.
 
-For Windows, download the installer [gcc-arm-none-eabi-4_9-2015q3-20150921-win32.exe](https://launchpad.net/gcc-arm-embedded/4.9/4.9-2015-q3-update/+download/gcc-arm-none-eabi-4_9-2015q3-20150921-win32.zip).
+- For Windows, download the installer [gcc-arm-none-eabi-4_9-2015q3-20150921-win32.exe](https://launchpad.net/gcc-arm-embedded/4.9/4.9-2015-q3-update/+download/gcc-arm-none-eabi-4_9-2015q3-20150921-win32.zip).
 
-Run the installer. Select **Next >** and **I Agree** for the terms and conditions of the license. 
+- Run the installer. Select **Next >** and **I Agree** for the terms and conditions of the license.
 
-You can use the default install location, or select another. The default location may vary, but on 64-bit Windows is typically:
+- You can use the default install location, or select another. The default location may vary, but on 64-bit Windows is typically:
 C:\Program Files (x86)\GNU Tools ARM Embedded\4.9 2015q3
 
-On the final page, be sure to select **Add path to environment variable** before clicking **Finish**. This is not the default and it is required for the builds to work properly.
+- On the final page, be sure to select **Add path to environment variable** before clicking **Finish**. This is not the default and it is required for the builds to work properly.
 
 ![Add path](/assets/images/local-build-03addpath.png)
 
@@ -113,31 +112,31 @@ This should also work from the Cygwin Terminal or MinGW Shell.
 
 ### Install git - Windows
 
-Go to [https://git-scm.com/](https://git-scm.com/) and download the latest Windows version for your type of Windows. In my case, I downloaded 2.10.2 for 64-bit Windows.
+- Go to [https://git-scm.com/](https://git-scm.com/) and download the latest Windows version for your type of Windows. In my case, I downloaded 2.10.2 for 64-bit Windows.
 
-Run the installer and select **Next >** to accept the license terms. 
+- Run the installer and select **Next >** to accept the license terms.
 
-You will typically install in the default location (**C:\Program Files\Git**) and click **Next >**. 
+- You will typically install in the default location (**C:\Program Files\Git**) and click **Next >**.
 
-The default components should be fine and click **Next >**. The startup menu default is usually fine, click **Next >**.
+- The default components should be fine and click **Next >**. The startup menu default is usually fine, click **Next >**.
 
-You generally will want to use the **Use Git from the Windows Command Prompt** option, which should be the default, click **Next >**. 
+- You generally will want to use the **Use Git from the Windows Command Prompt** option, which should be the default, click **Next >**.
 
-In the next screen, it's usually best to change the setting to **Checkout as-is, commit Unix-style line endings**. Make sure you change that before clicking **Next >**.
+- In the next screen, it's usually best to change the setting to **Checkout as-is, commit Unix-style line endings**. Make sure you change that before clicking **Next >**.
 
 ![Line endings](/assets/images/local-build-04lineendings.png)
 
-Either option can be selected in the next screen, **Use MinTTY (the default terminal of MSYS2)** is the default and is usually fine. Click **Next >**.
+- Either option can be selected in the next screen, **Use MinTTY (the default terminal of MSYS2)** is the default and is usually fine. Click **Next >**.
 
-The default options on the last screen are generally fine. Click **Install**.
+- The default options on the last screen are generally fine. Click **Install**.
 
-After installation, open a new Command Prompt window and enter the command:
+- After installation, open a new Command Prompt window and enter the command:
 
 ```bash
 git --help
 ```
 
-If it returns help, then your installation was probably successful. (Note that you will need to open a new command prompt window, windows that were open before won't have the PATH updated, and won't be able to use git yet.)
+- If it returns help, then your installation was probably successful. (Note that you will need to open a new command prompt window, windows that were open before won't have the PATH updated, and won't be able to use git yet.)
 
 ### Install dfu-util - Windows
 
@@ -147,7 +146,9 @@ There are also additional instructions in the [FAQ for installing dfu-util](http
 
 ### Install other build tools - Windows
 
-There are two tools needed by the standard Makefiles: xxd and crc32. Download the [buildtools_win.zip](/assets/files/buildtools_win.zip) file and extract the contents. Then copy the crc32.exe and xxd.exe application to a suitable location. I like to use /usr/local/bin because it's automatically added to your Cygwin or MinGW path so it will be found by the build tools.
+There are two tools needed by the standard Makefiles: xxd and crc32.
+
+- Download the [buildtools_win.zip](/assets/files/buildtools_win.zip) file and extract the contents. Then copy the crc32.exe and xxd.exe application to a suitable location. I like to use /usr/local/bin because it's automatically added to your Cygwin or MinGW path so it will be found by the build tools.
 
 (Incidentally, crc32 is named this because it generates 32-bit cyclic redundancy checks, and has nothing to do with the difference between Windows 32-bit and Windows 64-bit.)
 
@@ -182,26 +183,26 @@ There are additional instructions in the README.md file if necessary, including 
 
 Some of the other instructions use Homebrew, but they update their current compiler more frequently than Particle does, and it can cause build problems. It's easy to just download a specific version from Canonical, instead:
 
-The gcc-arm toolchains are here: [https://launchpad.net/gcc-arm-embedded](https://launchpad.net/gcc-arm-embedded)
+- The gcc-arm toolchains are here: [https://launchpad.net/gcc-arm-embedded](https://launchpad.net/gcc-arm-embedded)
 
 Currently, the 4.9-2015-q3-update is recommended. The 5.x versions can be used, but the 6.x versions will not work at all at this time.
 
-Download the [gcc-arm-none-eabi-4_9-2015q3-20150921-mac.tar.bz2](https://launchpad.net/gcc-arm-embedded/4.9/4.9-2015-q3-update/+download/gcc-arm-none-eabi-4_9-2015q3-20150921-mac.tar.bz2) release.
+- Download the [gcc-arm-none-eabi-4_9-2015q3-20150921-mac.tar.bz2](https://launchpad.net/gcc-arm-embedded/4.9/4.9-2015-q3-update/+download/gcc-arm-none-eabi-4_9-2015q3-20150921-mac.tar.bz2) release.
 
-Extract the archive file, then move the directory into a permanent location. I like /usr/local/gcc-arm.
+- Extract the archive file, then move the directory into a permanent location. I like /usr/local/gcc-arm.
 
 ```bash
 os-x-10:~ rickk$ sudo mv Downloads/gcc-arm-none-eabi-4_9-2015q3 /usr/local/gcc-arm
 ```
 
-Edit ~/.profile and add this:
+- Edit ~/.profile and add this:
 
 ```bash
 # gcc-arm toolchain                                                             
 export PATH=$PATH:/usr/local/gcc-arm/bin
 ```
 
-Close the Terminal window and reopen it. Then you can check that ARM gcc is in your path:
+- Close the Terminal window and reopen it. Then you can check that ARM gcc is in your path:
 
 ```bash
 os-x-10:~ rickk$ arm-none-eabi-gcc --version
@@ -214,13 +215,13 @@ warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 
 ### Install git - Mac
 
-Go to [https://git-scm.com/](https://git-scm.com/) and download the [latest Mac installer](https://git-scm.com/download/mac). I used 2.10.1.
+- Go to [https://git-scm.com/](https://git-scm.com/) and download the [latest Mac installer](https://git-scm.com/download/mac). I used 2.10.1.
 
-Run the installer. Depending on your security settings, you may get an error that it is from an unidentified developer. Go into **Apple Menu - System Preferences - Security and Privacy** and click the **Open Anyway** button.
+- Run the installer. Depending on your security settings, you may get an error that it is from an unidentified developer. Go into **Apple Menu - System Preferences - Security and Privacy** and click the **Open Anyway** button.
 
 ![open anyway](/assets/images/local-build-05openanyway.png)
 
-When complete you should be able to open a Terminal window and use git -- version to check the version.
+- When complete you should be able to open a Terminal window and use git -- version to check the version.
 
 ```bash
 os-x-10:~ rickk$ git --version
@@ -248,31 +249,32 @@ Also note that the pre-built gcc-arm toolchains are for x86 architecture only. T
 
 ### Download the gcc-arm toolchain - Linux
 
-The gcc-arm toolchains are here: [https://launchpad.net/gcc-arm-embedded](https://launchpad.net/gcc-arm-embedded)
+The gcc-arm toolchains are here:  
+[https://launchpad.net/gcc-arm-embedded](https://launchpad.net/gcc-arm-embedded)
 
 Currently, the 4.9-2015-q3-update is recommended. The 5.x versions can be used, but the 6.x versions will not work at all at this time.
 
-Download the [gcc-arm-none-eabi-4_9-2015q3-20150921-linux.tar.bz2](https://launchpad.net/gcc-arm-embedded/4.9/4.9-2015-q3-update/+download/gcc-arm-none-eabi-4_9-2015q3-20150921-linux.tar.bz2) file.
+- Download the [gcc-arm-none-eabi-4_9-2015q3-20150921-linux.tar.bz2](https://launchpad.net/gcc-arm-embedded/4.9/4.9-2015-q3-update/+download/gcc-arm-none-eabi-4_9-2015q3-20150921-linux.tar.bz2) file.
 
-Extract it and move it to the permanent location. I like /usr/local/gcc-arm.
+- Extract it and move it to the permanent location. I like /usr/local/gcc-arm.
 
 ```bash
 rickk@ubuntu:~$ cd Downloads
-rickk@ubuntu:~/Downloads$ bzip2 -d gcc-arm-none-eabi-4_9-2015q3-20150921-linux.tar.bz2 
+rickk@ubuntu:~/Downloads$ bzip2 -d gcc-arm-none-eabi-4_9-2015q3-20150921-linux.tar.bz2
 rickk@ubuntu:~/Downloads$ tar xf gcc-arm-none-eabi-4_9-2015q3-20150921-linux.tar
 rickk@ubuntu$ sudo mv gcc-arm-none-eabi-4_9-2015q3 /usr/local/gcc-arm
 ```
 
-Edit ~/.profile and add this:
+- Edit ~/.profile and add this:
 
 ```bash
 # gcc-arm toolchain                                                             
 export PATH=$PATH:/usr/local/gcc-arm/bin
 ```
 
-Log out and log back in again.
+- Log out and log back in again.
 
-Then try to run the gcc ARM cross-compiler:
+- Try to run the gcc ARM cross-compiler:
 
 ```bash
 rickk@ubuntu:~$ arm-none-eabi-gcc --version
@@ -313,17 +315,17 @@ Installing dfu-util on Linux is easy:
 sudo apt-get install dfu-util
 ```
 
-By default, dfu-util requires sudo (root access) to run. This will cause a problem using the program-dfu option in make, and many other locations. 
+By default, dfu-util requires sudo (root access) to run. This will cause a problem using the program-dfu option in make, and many other locations.
 
 The easiest solution is to install the [Particle CLI](https://docs.particle.io/guide/tools-and-features/cli/), however you can also manually install a udev rule:
 
-Download the [50-particle.rules](/assets/files/50-particle.rules) file, then:
+- Download the [50-particle.rules](/assets/files/50-particle.rules) file, then:
 
 ```bash
 sudo cp 50-particle.rules /etc/udev/rules.d/
 ```
 
-You will probably need to reboot after installing this.
+- You will probably need to reboot after installing this.
 
 ## Building
 
@@ -359,9 +361,9 @@ In other words, the src directory in the user's documents directory, for example
 
 ### Check out the source
 
-Use cd to position yourself into the src directory, as described above.
+- Use cd to position yourself into the src directory, as described above.
 
-Once you have Git installed, getting the source is easy:
+- Once you have Git installed, getting the source is easy:
 
 ```bash
 git clone https://github.com/spark/firmware.git
@@ -369,9 +371,9 @@ cd firmware
 git checkout release/stable
 ```
 
-The checkout command used to specify "latest" instead of "release/stable" but you should now use "release/stable" instead.
+- The checkout command used to specify "latest" instead of "release/stable" but you should now use "release/stable" instead.
 
-Then do a build. This will build all of the system firmware, plus Tinker, for the Photon.
+- Then do a build. This will build all of the system firmware, plus Tinker, for the Photon.
 
 ### Building
 
@@ -382,21 +384,21 @@ make all PLATFORM=photon
 
 These commands work for Windows, Linux and Mac. For Windows, remember to use the Cygwin Terminal or MinGW Shell, not the regular Windows Command Prompt.
 
-If you update the source, make sure you add the clean option:
+- If you update the source, make sure you add the clean option:
 
 ```bash
 cd modules
 make clean all PLATFORM=photon
 ```
 
-If you're building for the Electron:
+- If you're building for the Electron:
 
 ```bash
 cd modules
 make all PLATFORM=electron
 ```
 
-If you're building for the P1:
+- If you're building for the P1:
 
 ```bash
 cd modules
@@ -405,13 +407,13 @@ make all PLATFORM=P1
 
 These commands build the system firmware and Tinker. You can find the built binaries in the following locations after a successful build.
 
-Photon:
+**Photon:**
 
 - firmware/build/target/system-part1/platform-6-m/system-part1.bin
 - firmware/build/target/system-part2/platform-6-m/system-part2.bin
 - firmware/build/target/user-part/platform-6-m/user-part.bin
 
-Electron:
+**Electron:**
 
 - firmware/build/target/system-part1/platform-10-m/system-part1.bin
 - firmware/build/target/system-part2/platform-10-m/system-part2.bin
@@ -422,23 +424,23 @@ Electron:
 
 ### Building using APPDIR
 
-I like to use the APPDIR feature to keep my code separate from the firmware repository. 
+I like to use the APPDIR feature to keep my code separate from the firmware repository.
 
-For this example I created a new directory in my src directory, as described above.
+- For this example I created a new directory in my src directory, as described above.
 
 ```bash
 cd src
 mkdir blinkled
 ```
 
-And I created the file blinkled.cpp. It's very slightly modified from the source in the [Particle example](https://docs.particle.io/guide/getting-started/examples/photon/#blink-an-led).
+- And I created the file blinkled.cpp. It's very slightly modified from the source in the [Particle example](https://docs.particle.io/guide/getting-started/examples/photon/#blink-an-led).
 
 ```bash
 cd firmware/modules
 make all PLATFORM=photon APPDIR=../../blinkled
 ```
 
-This builds everything, including system firmware. You will probably want to do this once, but for subsequent builds, you can save a lot of time by using the command:
+- This builds everything, including system firmware. You will probably want to do this once, but for subsequent builds, you can save a lot of time by using the command:
 
 ```bash
 cd firmware/main
