@@ -141,7 +141,7 @@ If it returns help, then your installation was probably successful. (Note that y
 
 ### Install dfu-util - Windows
 
-If you have not already done so, you should install dfu-util and the necessary drivers. If you have used the [official Particle Windows CLI](Windows CLI Installer) installer, this will have been already.
+If you have not already done so, you should install dfu-util and the necessary drivers. If you have used the [Particle Windows CLI installer](https://binaries.particle.io/cli/installer/windows/ParticleCLISetup.exe), this will have been already.
 
 There are also additional instructions in the [FAQ for installing dfu-util](https://docs.particle.io/faq/particle-tools/installing-dfu-util/).
 
