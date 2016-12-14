@@ -77,7 +77,7 @@ create and manage your OAuth clients. The new "Authentication" view is your hub
 for creating, and managing your product's clients.
 
 You can find the Authentication view by clicking on the thumbprint icon in the
-menubar of your product's console:
+menu bar of your product's console:
 
  ![Auth Icon](/assets/images/auth-icon.png)
 
@@ -186,7 +186,7 @@ envision your customers interacting with their connected product.
   * **Mobile**: Use an iOS or Android mobile app to allow your customers to authenticate, setup their devices, and interact with their product. [More info](/guide/how-to-build-a-product/mobile-app/)
   * **Web**: Use a web browser and HTTP to allow your customers to authenticate, setup their devices, and interact with their product (*Coming soon*).
 
-When you're ready, click on the authenticaiton method that makes most sense to you.
+When you're ready, click on the authentication method that makes most sense to you.
 
 ## Simple Authentication
 
@@ -202,7 +202,7 @@ works at a high level:
 API using Simple Authentication</p>
 
 Let's take a simple example. Imagine you are the creator of a smart
-lightbulb that can be controlled via a smartphone app. The *customer*,
+light bulb that can be controlled via a smartphone app. The *customer*,
 or the end-user of the product, uses the mobile app to create an
 account. Behind the scenes, your mobile app hits the Particle API
 directly to create a customer. Then the customer goes through the setup
@@ -213,7 +213,7 @@ and off with the mobile app. This works as your app is able to call
 functions on the customer's device using the customer's access token.
 
 All of this is able to happen without the need to have your own server.
-All communiation flows from the mobile client to the Particle cloud,
+All communication flows from the mobile client to the Particle cloud,
 then down to the customer's device.
 
 ### Advantages of Simple Auth
@@ -348,7 +348,7 @@ This step actually comprises a lot of things that happen behind the scenes, but 
 
 In order for a device to be setup successfully, your application must retrieve a claim code on behalf of the customer setting up their device and send that claim code to the device. When the device receives proper Wi-Fi credentials and is able to connect to the Internet, it sends the claim code to the Particle cloud. The Particle cloud then links the device to the customer, and grants the customer access over that device.
 
-The first thing that must happen is retreiving a claim code from the Particle cloud for the customer. A special endpoint exists for products to use to generate claim codes on behalf of their customers. 
+The first thing that must happen is retrieving a claim code from the Particle cloud for the customer. A special endpoint exists for products to use to generate claim codes on behalf of their customers. 
 
 This endpoint is `POST /v1/orgs/:orgSlug/products/:productSlug/device_claims`. The customer's access token is required, and is used to generate a claim code that will allow for the link between the device and the customer.
 
@@ -482,7 +482,7 @@ Your *server* will need access to your newly created OAuth client ID and secret.
 
 Because of the presence of your server, you should not need to add these credentials to your web or mobile application.
 
-**Do not share your client ID and secret publically**. These credentials provide the ability to fully control your product's devices, and access sensitive information about your product. We recommend never publishing the client ID and secret to a GitHub repository. 
+**Do not share your client ID and secret publicly**. These credentials provide the ability to fully control your product's devices, and access sensitive information about your product. We recommend never publishing the client ID and secret to a GitHub repository. 
 
 *Coming soon: example implementation of client credentials*
 

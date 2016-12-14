@@ -57,7 +57,7 @@ particle.login({username: 'user@email.com', password: 'pass'});
 
 ## Responses
 
-You interact with the api using [promises](https://promisesaplus.com/).
+You interact with the API using [promises](https://promisesaplus.com/).
 
 ```javascript
 particle.login({username: 'email@example.com', password: 'pass'}).then(

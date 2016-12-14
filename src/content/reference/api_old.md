@@ -382,7 +382,7 @@ create your own client.
 
 *NEVER expose the client secret to a browser.*
 If, for example, you have a client that controls all your organization's
-products, and you use the client secret in front-end javascript, then a
+products, and you use the client secret in front-end JavaScript, then a
 tech-savvy customer using your website can read the secret in her developer
 console and hack all your customers' devices.
 
@@ -713,7 +713,7 @@ Send the source code file as "file" in request body.
 ---
 
 The API request should be encoded as `multipart/form-data` with a `file` field populated.
-Your filename does not matter.  In particular, the extension can be .c, .cpp, .ino, or anything else your prefer.
+Your file name does not matter.  In particular, the extension can be .c, .cpp, .ino, or anything else your prefer.
 
 **NOTE**: Remember that **\*.cpp** and **\*.ino** files behave differently. You can read more about it on our [support page](http://support.particle.io/hc/en-us/articles/204952620).
 

@@ -88,7 +88,7 @@ It is fine to call this function when the cloud is disconnected - the variable
 will be registered next time the cloud is connected.
 
 Prior to 0.4.7 firmware, variables were defined with an additional 3rd parameter
-to specify the data type of the variable. From 0.4.7 onwards, the system can
+to specify the data type of the variable. From 0.4.7 onward, the system can
 infer the type from the actual variable. Additionally, the variable address
 was passed via the address-of operator (`&`). With 0.4.7 and newer, this is no longer required.
 
@@ -341,7 +341,7 @@ data: {"data":"23:23:44","ttl":"60","published_at":"2014-05-28T19:20:34.638Z","d
 Unless specified otherwise, events sent to the cloud are sent as a reliable message. The Electron waits for
 acknowledgement from the cloud that the event has been received, resending the event in the background up to 3 times before giving up.
 
-The `NO_ACK` flag disables this acknoweldge/retry behavior and sends the event only once.  This reduces data consumption per event, with the possibility that the event may not reach the cloud.
+The `NO_ACK` flag disables this acknowledge/retry behavior and sends the event only once.  This reduces data consumption per event, with the possibility that the event may not reach the cloud.
 
 For example, the `NO_ACK` flag could be useful when many events are sent (such as sensor readings) and the occasional lost event can be tolerated.
 
@@ -3717,7 +3717,7 @@ void setup() {
 }
 ```
 
-***NOTE:*** When `Mouse.begin()` is called in `setup()` or during normal application execution, the device will quickly disconnect from Host and connect back with USB HID enabled. If such behavior is undesireable, `Mouse` may be enabled with `STARTUP()` macro, which will force the device to connect to the Host after booting with `Mouse` already enabled.
+***NOTE:*** When `Mouse.begin()` is called in `setup()` or during normal application execution, the device will quickly disconnect from Host and connect back with USB HID enabled. If such behavior is undesirable, `Mouse` may be enabled with `STARTUP()` macro, which will force the device to connect to the Host after booting with `Mouse` already enabled.
 
 This function takes no parameters and does not return anything.
 
@@ -3807,7 +3807,7 @@ Mouse.click();
 Mouse.click(button);
 ```
 
-Momementarily clicks specified mouse button at the current cursor position. A click is a [`press()`](#press-) quickly followed by [`release()`](#release-).
+Momentarily clicks specified mouse button at the current cursor position. A click is a [`press()`](#press-) quickly followed by [`release()`](#release-).
 
 ```cpp
 // EXAMPLE USAGE
@@ -3891,7 +3891,7 @@ Mouse.isPressed();
 Mouse.isPressed(button);
 ```
 
-This function checks the currnent state of mouse buttons and returns if they are currently pressed or not.
+This function checks the current state of mouse buttons and returns if they are currently pressed or not.
 
 ```cpp
 // EXAMPLE USAGE
@@ -3981,7 +3981,7 @@ void loop() {
 
 ***NOTE:*** Linux X11 doesn't support HID devices reporting both absolute and relative coordinates. By default only absolute movement is possible by using [`Mouse.moveTo()`](#moveto-). In order for regular relative [`Mouse.move()`](#move-) to work, a call to [`Mouse.enableMoveTo(false)`](#enablemoveto-) is required.
 
-***NOTE:*** When `Mouse.enableMoveTo()` is called in `setup()` or during normal application execution, the device will quickly disconnect from Host and connect back with new settings. If such behavior is undesireable, `moveTo()` may be disable or enabled with `STARTUP()` macro, which will force the device to connect to the Host after booting with correct settings already in effect.
+***NOTE:*** When `Mouse.enableMoveTo()` is called in `setup()` or during normal application execution, the device will quickly disconnect from Host and connect back with new settings. If such behavior is undesirable, `moveTo()` may be disable or enabled with `STARTUP()` macro, which will force the device to connect to the Host after booting with correct settings already in effect.
 
 *Parameters:*
 
@@ -4531,9 +4531,9 @@ Where the parameter `val`, can is the byte to send out over the SPI bus.
 {{#unless core}}
 ### transfer(void\*, void\*, size_t, std::function)
 
-For transferring a large number of bytes, this form of transfer() uses DMA to speed up SPI data transfer and at the same time allows you to run code in parallel to the data transmission. The function initialises, configures and enables the DMA peripheral’s channel and stream for the selected SPI peripheral for both outgoing and incoming data and initiates the data transfer. If a user callback function is passed then it will be called after completion of the DMA transfer. This results in asynchronous filling of RX buffer after which the DMA transfer is disabled till the transfer function is called again. If NULL is passed as a callback then the result is synchronous i.e. the function will only return once the DMA transfer is complete.
+For transferring a large number of bytes, this form of transfer() uses DMA to speed up SPI data transfer and at the same time allows you to run code in parallel to the data transmission. The function initializes, configures and enables the DMA peripheral’s channel and stream for the selected SPI peripheral for both outgoing and incoming data and initiates the data transfer. If a user callback function is passed then it will be called after completion of the DMA transfer. This results in asynchronous filling of RX buffer after which the DMA transfer is disabled till the transfer function is called again. If NULL is passed as a callback then the result is synchronous i.e. the function will only return once the DMA transfer is complete.
 
-**Note**: The SPI protocol is based on a one byte OUT / one byte IN inteface. For every byte expected to be received, one (dummy, typically 0x00 or 0xFF) byte must be sent.
+**Note**: The SPI protocol is based on a one byte OUT / one byte IN interface. For every byte expected to be received, one (dummy, typically 0x00 or 0xFF) byte must be sent.
 
 ```C++
 // SYNTAX
@@ -6675,7 +6675,7 @@ void loop()
 }
 ```
 **Note:**
-The return value for millis is an unsigned long, errors may be generated if a programmer tries to do math with other datatypes such as ints.
+The return value for millis is an unsigned long, errors may be generated if a programmer tries to do math with other data types such as ints.
 
 ### micros()
 
@@ -6710,7 +6710,7 @@ void loop()
 
 ### delay()
 
-Pauses the program for the amount of time (in miliseconds) specified as parameter. (There are 1000 milliseconds in a second.)
+Pauses the program for the amount of time (in milliseconds) specified as parameter. (There are 1000 milliseconds in a second.)
 
 ```C++
 // SYNTAX
@@ -6738,7 +6738,7 @@ void loop()
 }
 ```
 **NOTE:**
-the parameter for millis is an unsigned long, errors may be generated if a programmer tries to do math with other datatypes such as ints.
+the parameter for millis is an unsigned long, errors may be generated if a programmer tries to do math with other data types such as ints.
 
 ### delayMicroseconds()
 

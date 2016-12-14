@@ -38,24 +38,24 @@ The FCC (Federal Communications Commission) is an independent agency of the U.S.
 
 ### Integration
 
-The Photon as well as the P0/P1 Modules are covered under certifications from the FCC. Certified radio modules comply with the "Intentional Radiator" portion (Part 15c) of FCC certification.
+The Photon as well as the PØ/P1 Modules are covered under certifications from the FCC. Certified radio modules comply with the "Intentional Radiator" portion (Part 15c) of FCC certification.
 
  - The **Photon** is certified as a single-modular transmitter that carries a modular grant. Modular certified radio modules are allowed for integration into multiple host end products by the FCC.
 
- - The **P0 Module**, which is on the Photon, does not itself have an antenna and thus does not have a discrete certification from the FCC. However, it is certified for integration into a host product under the RF reference of the Photon as a design guideline.
+ - The **PØ Module**, which is on the Photon, does not itself have an antenna and thus does not have a discrete certification from the FCC. However, it is certified for integration into a host product under the RF reference of the Photon as a design guideline.
 
  - The **P1 Module** is also certified as a single-modular transmitter that carries a modular grant, and is certified for integration into multiple host end products by the FCC.
 
-Any host product incorporating the Photon/P0 or P1 modules does not require additional testing or authorization for the Wi-Fi transmitter as long as:
+Any host product incorporating the Photon/PØ or P1 modules does not require additional testing or authorization for the Wi-Fi transmitter as long as:
 - An antenna of the same type **and** equal or lesser gain to the antenna used for certification is used on the product.  
 - Any restrictions found in the grants are followed in the OEM's end product integration of Particle hardware.
 
-The Photon/P0 and P1 modules were certified with antennas of the following gain:
-- **Photon/P0 Module**: Chip antenna (1.3dBi), external antenna (2.15dBi)
+The Photon/PØ and P1 modules were certified with antennas of the following gain:
+- **Photon/PØ Module**: Chip antenna (1.3dBi), external antenna (2.15dBi)
 - **P1 Module**: External antenna (2.5dBi)
 
 ### Customer Responsibilities
-Even though we've certified the Photon and P0/P1 Modules, as a product creator you're still responsible for meeting test requirements determined by the class of your product as described by the FCC. In general, there are two types of products--**Class A** and **Class B**:
+Even though we've certified the Photon and PØ/P1 Modules, as a product creator you're still responsible for meeting test requirements determined by the class of your product as described by the FCC. In general, there are two types of products--**Class A** and **Class B**:
 - **Class A**: Digital device for use in commercial, industrial, or business environments.
 - **Class B**: Digital device for use in residential environment not withstanding use in commercial, business, and industrial environments. Examples of such devices include, but are not limited to, personal computers, calculators, and similar electronic devices that are marketed for use by the general public.
 
@@ -70,7 +70,7 @@ Particle's certifications will help you decrease the time and cost associated wi
   This section covers devices whose purpose is not to produce radio waves, but which do anyway, including computers, voltage regulators, and oscillators/crystals.  It's likely that your end product contains unintentional radiators.  Part B allows for self-classication, which means that you don't have to get expensive test reports to demonstrate unintentional radiators in your product.
 
 - **PART C: Intentional Radiators**  
-  This section covers devices whose purpose is to produce coherent radio waves. The Photon/P0/P1 modules are intentional radiators.  This is the most difficult part of FCC certification, and is where you can reuse Particle's hardware certifications to significantly simplify the application process. For instance, a from-scratch certification might cost $10-30K and take 4-8 weeks, while a verification of conformity might only cost $1-5K and take 2 weeks.
+  This section covers devices whose purpose is to produce coherent radio waves. The Photon/PØ/P1 modules are intentional radiators.  This is the most difficult part of FCC certification, and is where you can reuse Particle's hardware certifications to significantly simplify the application process. For instance, a from-scratch certification might cost $10-30K and take 4-8 weeks, while a verification of conformity might only cost $1-5K and take 2 weeks.
 
 - **ADDITIONAL TESTING: Determined by device classification**  
   You'll also be responsible for any additional testing requirements defined by the FCC for your product. You can learn more about additional required testing for your product by visiting the FCC website, linked below.
@@ -80,7 +80,7 @@ Particle's certifications will help you decrease the time and cost associated wi
 
 ### Documentation
 
-#### Photon/P0
+#### Photon/PØ
 - FCC ID: [2AEMI-PHOTON](https://apps.fcc.gov/oetcf/eas/reports/ViewExhibitReport.cfm?mode=Exhibits&RequestTimeout=500&calledFromFrame=N&application_id=o2hW1PEmrUZn19QwwX8hCA%3D%3D&fcc_id=2AEMI-PHOTON)
 - [Certificate of Conformity](/assets/pdfs/p0-fcc-certificate.pdf)
 - [Test Reports](/assets/pdfs/p0-fcc-ic-test-reports.zip)
@@ -112,7 +112,7 @@ Particle's certifications will help you decrease the time and cost associated wi
 
 ### Integration
 
-The Photon/P0 and P1 Modules are IC certified as single-modular transmitters. Just like with FCC Certification, any host product incorporating the Photon/P0 or P1 modules does not require additional testing or authorization for the Wi-Fi transmitter by IC as long as:
+The Photon/PØ and P1 Modules are IC certified as single-modular transmitters. Just like with FCC Certification, any host product incorporating the Photon/PØ or P1 modules does not require additional testing or authorization for the Wi-Fi transmitter by IC as long as:
 - An antenna of the same type **and** equal or lesser gain to the antenna used for certification is used on the product.  
 - Any restrictions found in the grants are followed in the OEM's end product integration of Particle hardware.
 
@@ -123,7 +123,7 @@ Industry Canada follows the same testing and rules as the FCC in regards to cert
 ### Documentation
 For certificates of conformity, search [here](https://sms-sgs.ic.gc.ca/search/radioEquipmentPortal) under "Radio Equipment List (REL) > Certification Number" using IC ID for each Particle device, respectively.
 
-#### Photon/P0
+#### Photon/PØ
 - IC ID: **20127-PHOTON**.
 - [Certificate of Conformity](/assets/pdfs/p0-ic-certificate.pdf)
 - [Test Report](/assets/pdfs/p0-fcc-ic-test-reports.zip)
@@ -151,13 +151,13 @@ For certificates of conformity, search [here](https://sms-sgs.ic.gc.ca/search/ra
 The CE mark is a mandatory conformity marking for certain products sold within the European Economic Area (EEA). It is analogous in that sense to the FCC marking used on devices sold within in the United States.
 
 ### Integration
-Both the Photon/P0 and P1 are certified and carry the CE marking. Section 1.3.1 of the [Guide to the R&TTE Directive 1999/5/EC](http://ec.europa.eu/growth/sectors/electrical-engineering/rtte-directive/) states the following regarding the attachment of antennas to a module that already has documentation of conformance:
+Both the Photon/PØ and P1 are certified and carry the CE marking. Section 1.3.1 of the [Guide to the R&TTE Directive 1999/5/EC](http://ec.europa.eu/growth/sectors/electrical-engineering/rtte-directive/) states the following regarding the attachment of antennas to a module that already has documentation of conformance:
 
 _"Manufacturers who place on the market products without an antenna or with an antenna that is intended to allow replacement have a responsibility to provide information on the general types and/or characteristics of antennas that may be used with their equipment in order that the overall radio equipment remains compliant. The guidance of the transmitter manufacturer has to be followed when they are installed."_
 
-For the Photon/P0 and P1 Modules, these integration instructions are the same as for the FCC/IC--so long as you're integrating the modules without modifying the RF design or implementing an antenna with gain greater than that used in certification, your equipment will likely remain compliant.
+For the Photon/PØ and P1 Modules, these integration instructions are the same as for the FCC/IC--so long as you're integrating the modules without modifying the RF design or implementing an antenna with gain greater than that used in certification, your equipment will likely remain compliant.
 
-The Photon/P0 and P1 Modules are certified with ETSI radio tests which can be accepted by a number of countries for radio compliance.
+The Photon/PØ and P1 Modules are certified with ETSI radio tests which can be accepted by a number of countries for radio compliance.
 
 ### Customer Responsibilities
 If a product has adhered to the integration guidelines and has minimal risk, it can be self-certified where manufacturers complete a Declaration of Conformity and affix the CE marking to their own product.
@@ -171,7 +171,7 @@ If a product has adhered to the integration guidelines and has minimal risk, it 
 
 ### Documentation
 
-#### Photon/P0
+#### Photon/PØ
 - [Certificate of Conformity](/assets/pdfs/p0-ce-certificate.pdf)
 - [Test Reports](/assets/pdfs/p0-ce-test-reports.zip)
 
@@ -198,7 +198,7 @@ Particle has completed TELEC certification to achieve compliance with Japanese R
 
 ### Documentation
 
-#### Photon/P0
+#### Photon/PØ
 - [Certificate of Conformity](/assets/pdfs/p0-telec-certificate.pdf)
 - [Test Report](/assets/pdfs/p0-telec-test-report.pdf)
 
@@ -226,7 +226,7 @@ RoHS compliance is self-declared and there is no certification body that governs
 
 ### Documentation
 
-#### Photon/P0
+#### Photon/PØ
 
 - [Test Reports](/assets/pdfs/p0-rohs-test-reports.zip)
 
@@ -238,7 +238,7 @@ RoHS compliance is self-declared and there is no certification body that governs
  - **Wikipedia**: <a target="_blank" href="https://en.wikipedia.org/wiki/UL_(safety_organization)#UL_Standards">https://en.wikipedia.org/wiki/UL_(safety_organization)#UL_Standards</a>
  - **Domain**: Worldwide
 
-UL (Underwriters Laboritories) is an American worldwide safety consulting and certification company. UL provides safety-related certification, validation, testing, inspection, auditing, advising, and training services to manufactures, retailers, policymakers, regulators, service companies, and consumers.
+UL (Underwriters Laboratories) is an American worldwide safety consulting and certification company. UL provides safety-related certification, validation, testing, inspection, auditing, advising, and training services to manufactures, retailers, policymakers, regulators, service companies, and consumers.
 
 ### Integration
 The large majority of UL certifications, which can be found <a target="_blank" href="https://en.wikipedia.org/wiki/UL_(safety_organization)#UL_Standards">here</a>, are standards for electrical and electronic products that utilize high voltage AC electricity for power. UL certification is typically not required for low voltage or battery powered products.

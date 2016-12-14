@@ -25,9 +25,9 @@ _You do the hard work on a server, keeping the device simple._
 
 Our [REST API](/reference/api/) allows you easily to
 build web services that interact with your products in real time. You can
-build these web services in any programming language (Javascript/Node.js,
+build these web services in any programming language (JavaScript/Node.js,
 Ruby, Python, C#, PHP, etc.), although we provide the most support for
-Javascript/Node.js through our [ParticleJS](/reference/javascript/) Javascript
+JavaScript/Node.js through our [ParticleJS](/reference/javascript/) JavaScript
 SDK. If you are interested in libraries for interacting with our API in other
 programming languages, please [search our forum](https://community.particle.io)
 for community-generated libraries.
@@ -88,7 +88,7 @@ event stream. Here are some links to help out.
 - https://github.com/heroku-examples/node-articles-nlp
 - https://devcenter.heroku.com/articles/asynchronous-web-worker-model-using-rabbitmq-in-node
 
-*Coming soon:* a easy-to-deploy heroku example.
+*Coming soon:* a easy-to-deploy Heroku example.
 (Ping @zachary in the [forum](https://community.particle.io/) about this.)
 
 

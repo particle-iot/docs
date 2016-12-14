@@ -40,7 +40,7 @@ Other IFTTT channels will provide (and sometimes automatically insert) their own
 
 ### Before you build with Particle + IFTTT
 
-**Firmware is key**: IFTTT will pull directly from the firmware that is currently flashed to your devices. It will only show functions,variables,etc from firmware that is currently flashed to one of your devices. That means that if, for example, you're trying to use the "Monitor a Function" Trigger you'll need to have flashed firmware to your board that includes spark.function().
+**Firmware is key**: IFTTT will pull directly from the firmware that is currently flashed to your devices. It will only show functions,variables,etc from firmware that is currently flashed to one of your devices. That means that if, for example, you're trying to use the "Monitor a Function" Trigger you'll need to have flashed firmware to your board that includes Particle.function().
 
 **But what if I want to try this without writing firmware?** We recommend starting with the Monitor a Device Status Trigger. You can use this Trigger with the firmware that came with your device.
 
@@ -75,7 +75,7 @@ Particle.publish("Boiling!", "212", 60, PRIVATE);
 
 #### Firmware requirements
 
-To use this Trigger, firmware must include spark.publish(). Complete documentation on using [Particle.publish() is here.](/reference/firmware/#particle-publish-)
+To use this Trigger, firmware must include Particle.publish(). Complete documentation on using [Particle.publish() is here.](/reference/firmware/#particle-publish-)
 
 A word of caution - firmware loops quickly, so it's very easy to run publish() too frequently. You'll trigger your IFTTT recipe 100 times in a blink, and if you publish() more than once a second then the Particle Cloud will briefly disable further publishes. Make sure to think through the logic of your code so that it only publishes when you actually want it to.
 

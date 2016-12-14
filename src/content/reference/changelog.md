@@ -76,7 +76,7 @@ Need a more powerful antenna for your product? The Electron is compatible with a
 ### Particle SIM Included
 
 ![](/assets/images/electron-simcard.jpg)
-<p class="caption">The Particle SIM provides wordwide coverage for cellular IOT devices.</p>
+<p class="caption">The Particle SIM provides worldwide coverage for cellular IoT devices.</p>
 
 Particle is now an MVNO (Mobile virtual network operator)! Every Electron comes with a Particle SIM that is pre-provisioned for Internet access in over 100 countries. For a full list of supported countries and associated carriers, find your country in the dropdown menu [here](http://particle.io/cellular).
 
@@ -101,7 +101,7 @@ The Particle SIM leverages cellular agreements with most of the major GSM carrie
 ## Firmware
 ### UDP Messaging
 
-In order to conserve bandwidth, we’ve switched all communications on the Electron over from TCP to a bandwidth-efficient implementation of UDP. Besides lowering overall data consumption, the biggest difference between UDP and TCP is that, unlike TCP, UDP is a connectionless protocol. This means that the Electron does not hold a persistent connection with the Cloud, and only checks in to send/receive messages or to let the Cloud know that it’s still around. If you prefer TCP, you can always switch protocols for your device in firmware.
+In order to conserve bandwidth, we’ve switched all communications on the Electron over from TCP to a bandwidth-efficient implementation of UDP. Besides lowering overall data consumption, the biggest difference between UDP and TCP is that, unlike TCP, UDP is a connection-less protocol. This means that the Electron does not hold a persistent connection with the Cloud, and only checks in to send/receive messages or to let the Cloud know that it’s still around. If you prefer TCP, you can always switch protocols for your device in firmware.
 
 ### Check Signal Strength
 
@@ -163,7 +163,7 @@ If you want more details on certification, visit the [Certification](https://doc
 
 ## More to Come
 
-We’ve still got a lot of great features planned for the Electron and the rest of the Particle platform. Like every new product, we expect the Electron to undergo rapid improvement in the upcoming months as we identify improvements to be made to our firmware and developer tools. We’re eager for your feedback — if you encounter bugs or want to request new features when you receive your Electron join our [online community](http://community.particle.io/) to learn how to create a Github issue or [contribute](http://community.particle.io/t/how-to-contribute-to-docs-spark-io/4976) a Pull Request. If you’re working on a project, post it on [Hackster](https://www.hackster.io/particle)--we often share our favorite projects with our community.
+We’ve still got a lot of great features planned for the Electron and the rest of the Particle platform. Like every new product, we expect the Electron to undergo rapid improvement in the upcoming months as we identify improvements to be made to our firmware and developer tools. We’re eager for your feedback — if you encounter bugs or want to request new features when you receive your Electron join our [online community](http://community.particle.io/) to learn how to create a GitHub issue or [contribute](http://community.particle.io/t/how-to-contribute-to-docs-spark-io/4976) a Pull Request. If you’re working on a project, post it on [Hackster](https://www.hackster.io/particle)--we often share our favorite projects with our community.
 
 Happy hacking--we'll see you online!
 

@@ -29,7 +29,7 @@ The first step, if you don't already have one, is to [make an account](http://bu
 
 ### Claiming and Connecting
 
-Once you have your account, it is time to claim your Photon to your account and get started coding. You'll be doing this with your iOS or Android device. Before you get started, examine the packaging that your Photon, Photon Kit, or Internet Button came in. You'll see a barcode like the one below. The barcode has a four-digit code (outlined in blue below) in the third part of the alphanumeric sequence.
+Once you have your account, it is time to claim your Photon to your account and get started coding. You'll be doing this with your iOS or Android device. Before you get started, examine the packaging that your Photon, Photon Kit, or Internet Button came in. You'll see a bar code like the one below. The bar code has a four-digit code (outlined in blue below) in the third part of the alphanumeric sequence.
 
 ![Photon Barcode]({{assets}}/images/photon-barcode.jpg)
 
@@ -39,7 +39,7 @@ During your smartphone setup, this code will appear after the word `Photon` in y
 
 ![Photon Wi-Fi]({{assets}}/images/photon-wifi-ios.jpg)
 
-In this iOS screenshot, you can see two Photons online. If you see this while you're setting up your PHoton, it just means you need to pick the Photon with your correct barcode (in this case, either `JPXH` or `X929`).
+In this iOS screenshot, you can see two Photons online. If you see this while you're setting up your PHoton, it just means you need to pick the Photon with your correct bar code (in this case, either `JPXH` or `X929`).
 
 Continue to set up your Photon [with your smartphone](/guide/getting-started/start/photon/#prerequisites-for-setup). Follow the instruction on the Particle app to get your Photon online and claim it to the account you set up earlier.
 
@@ -53,7 +53,7 @@ It gets very chaotic with everyone's Photons broadcasting networks, or everyone'
 
 ## Setup
 
-Here are instrutions on setting up some tools that will help you hack around with Particle in the limited time you have.
+Here are instructions on setting up some tools that will help you hack around with Particle in the limited time you have.
 
 ### Installing the CLI
 
@@ -72,7 +72,7 @@ Otherwise, follow the instructions on how to [connect over USB](/guide/getting-s
 
 **If your devices have been pre-connected...**
 
-If someone from Particle came to your workshop or hackathon, there's a chance they already pre-programmed all your devices to connect to the local wifi. In that case, someone has probably written your device ID in or on the box for your Core or Photon. If this has happened, go to [this step](/guide/getting-started/hackathon/#particle-dev) to download Particle Dev and claim the core to your account.
+If someone from Particle came to your workshop or hackathon, there's a chance they already pre-programmed all your devices to connect to the local WiFi. In that case, someone has probably written your device ID in or on the box for your Core or Photon. If this has happened, go to [this step](/guide/getting-started/hackathon/#particle-dev) to download Particle Dev and claim the core to your account.
 
 
 **If devices have not been pre-connected...**
@@ -133,12 +133,12 @@ If you're looking to hit an API not listed in IFTTT and you have a little more e
 ### View Functions
 Open up Particle Dev and go to the Particle menu. Select your device with `Select device`. Then select `Show cloud functions`.
 
-A menu will appear on the lower half of the screen. It should have four functions: digitalwrite, digitalread, analogwrite, and analogread. These are the Tinker functions that are defaulted to your device before you flash your own code. Check out the [Tinker docs](/guide/getting-started/tinker) for more info. You should be able to send commands to your device by identifying the pin and, for `write` functions, any necessary info. For example:
+A menu will appear on the lower half of the screen. It should have four functions: digitalWrite, digitalRead, analogWrite, and analogRead. These are the Tinker functions that are defaulted to your device before you flash your own code. Check out the [Tinker docs](/guide/getting-started/tinker) for more info. You should be able to send commands to your device by identifying the pin and, for `write` functions, any necessary info. For example:
 
-- `D7,HIGH` for digitalwrite
-- `D7` for digitalread
-- `A0,100` for analogwrite
-- `A0` for analogread
+- `D7,HIGH` for digitalWrite
+- `D7` for digitalRead
+- `A0,100` for analogWrite
+- `A0` for analogRead
 
 Try it out!
 
@@ -154,7 +154,7 @@ You can also monitor any [serial output](/reference/firmware/#serial) with the `
 
 Although Tinker can be really useful in early stages, we're sure you'll want to put your real code on your device at some point.
 
-For maximum sharability, make a [repo on github](https://help.github.com/articles/create-a-repo/) for your shared code. Hook up to this repo by using `git clone` on the clone URL. Open Particle Dev and navigate to the repo you just cloned. Make sure you have a single folder that will hold all of your .ino files and libraries-- the current version of Particle Dev gets confused when libraries are placed in subdirectories.
+For maximum sharability, make a [repo on GitHub](https://help.github.com/articles/create-a-repo/) for your shared code. Hook up to this repo by using `git clone` on the clone URL. Open Particle Dev and navigate to the repo you just cloned. Make sure you have a single folder that will hold all of your .ino files and libraries-- the current version of Particle Dev gets confused when libraries are placed in subdirectories.
 
 Note that now that you are in a GitHub repo, you can use some of the functions in Particle Dev that play nicely with git. Access these in the `Packages` menu:
 

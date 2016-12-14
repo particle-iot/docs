@@ -21,7 +21,7 @@ We use Texas Instruments TXB0108PWR to do the voltage translation in between the
 
 ![Shield Shield TXB0108PWR](/assets/images/shields/shield-shield/txb0108pwr-schematic.png)
 
-The new version of the Shield Shield (v3.x.x) uses dedicated mosfet based voltage translation on the I2C lines. We also decided to add a prototyping area in empty space in the middle of the shield.
+The new version of the Shield Shield (v3.x.x) uses dedicated MOSFET based voltage translation on the I2C lines. We also decided to add a prototyping area in empty space in the middle of the shield.
 
 ### Shield Shield Schematic - MOSFET I2C
 
@@ -262,7 +262,7 @@ The Power Shield, as the name implies, allows the Particle device to be powered 
 
 ![Power Shield](/assets/images/shields/power-shield/power-shield.png)
 
-The system switches in between the different power sources automatically, reducing the charge and discharge cycle stress on the battery. The fuel-guage allows you to monitor the battery's state-of-charge (SOC), allowing it to notify the user remotely and take preemptive actions when necessary.
+The system switches in between the different power sources automatically, reducing the charge and discharge cycle stress on the battery. The fuel gauge allows you to monitor the battery's state-of-charge (SOC), allowing it to notify the user remotely and take preemptive actions when necessary.
 
 ![Power Shield Plugged](/assets/images/shields/power-shield/power-shield-photon-plugged.png)
 
@@ -509,7 +509,7 @@ A photo resistor is a light dependent resistor whose resistance decreases with t
 
 ![Unsealed Temp Sensor](/assets/images/mk-temperature-unsealed.jpg)
 
-The DS18B20 is an easy to use one wire digital thermometer with upto 12-bit measuring resolution.
+The DS18B20 is an easy to use one wire digital thermometer with up to 12-bit measuring resolution.
 
 - Supply Voltage: 3.0V to 5.5V DC
 - Current consumption: 4mA max
@@ -542,7 +542,7 @@ Add an audible feedback to your project with this buzzer. The longer lead is pos
 
 [Datasheet >](/assets/datasheets/makerkit/buzzer.pdf)
 
-### Mini Pushbuttons (3)
+### Mini Push Buttons (3)
 
 ![Push Buttons](/assets/images/mk-mini-pushbutton.jpg)
 
@@ -711,7 +711,7 @@ Examples:
  - Velocity accuracy: 0.05 to 0.1m/s
  - Acceleration: 4G (max)
  - Frequency: L1, 1575.42MHz
- - Supports upto 210 PRN channels
+ - Supports up to 210 PRN channels
  - Supports multi-GNSS incl. QZSS, SBAS ranging
  - Supports WAAS/EGNOS/MSAS/GAGAN
  - NMEA 0183 standard v3.01 and backwards compatible
@@ -771,7 +771,7 @@ AND
 - (1) Soil moisture sensor with LM393 (similar to [this one](http://seeedstudio.com/wiki/Grove_-_Moisture_Sensor))
 - (1) [DS18B20](https://www.adafruit.com/products/381) waterproof temperature sensor
 - (1) [SW18020P](http://www.electrodragon.com/product/vibration-switch-sensor-sw-18020p/) vibration sensor
-- Various jumper wires, resistors, capacitors, LEDs, and pushbuttons
+- Various jumper wires, resistors, capacitors, LEDs, and push buttons
 
 *Library and photos coming soon!*
 

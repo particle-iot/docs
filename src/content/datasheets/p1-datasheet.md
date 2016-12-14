@@ -434,7 +434,7 @@ These are the physical dimensions of the P1 module itself, including all pins:
 
 <div align=center><img src="/assets/images/p1-module-dimensions.png" width=600></div>
 
-### P1 Module Recommended pcb land pattern
+### P1 Module Recommended PCB land pattern
 
 The P1 can be mounted directly on a carrier PCB with following PCB land pattern:
 
@@ -513,11 +513,11 @@ P1 modules are available from [store.particle.io](https://store.particle.io/) as
 
 ## Default settings
 
-The P1 module comes preprogrammed with a bootloader and a user application called Tinker.  This application works with an iOS and Android app also named Tinker that allows you to very easily toggle digital pins, take analog and digital readings and drive variable PWM outputs.
+The P1 module comes pre-programmed with a bootloader and a user application called Tinker.  This application works with an iOS and Android app also named Tinker that allows you to very easily toggle digital pins, take analog and digital readings and drive variable PWM outputs.
 
 The bootloader allows you to easily update the user application via several different methods, USB, OTA, Serial Y-Modem, and also internally via the Factory Reset procedure.  All of these methods have multiple tools associated with them as well.
 
-You may use the online Web IDE [Particle Build](https://build.particle.io/) to code, compile and flash a user application OTA (Over The Air).  [Particle Dev](https://www.particle.io/dev) is a local tool that uses the Cloud to compile and flash OTA as well.  There is also a package `Spark DFU-UTIL` for Particle Dev that allows for Cloud compiling and local flashing via DFU over USB.  This requires `dfu-util` to be installed on your system.  'dfu-util' can also be used with [Particle CLI](https://github.com/spark/particle-cli) for Cloud compiling and local flashing via the command line.  Finally the lowest level of development is available via the [GNU GCC toolchain for ARM](https://github.com/spark/firmware), which offers local compile and flash via dfu-util.  This gives the user complete control of all source code and flashing methods.  This is an extensive list, however not exhaustive.
+You may use the online Web IDE [Particle Build](https://build.particle.io/) to code, compile and flash a user application OTA (Over The Air).  [Particle Dev](https://www.particle.io/dev) is a local tool that uses the Cloud to compile and flash OTA as well.  There is also a package `Spark DFU-UTIL` for Particle Dev that allows for Cloud compiling and local flashing via DFU over USB.  This requires `dfu-util` to be installed on your system.  'dfu-util' can also be used with [Particle CLI](https://github.com/spark/particle-cli) for Cloud compiling and local flashing via the command line.  Finally the lowest level of development is available via the [GNU GCC tool chain for ARM](https://github.com/spark/firmware), which offers local compile and flash via dfu-util.  This gives the user complete control of all source code and flashing methods.  This is an extensive list, however not exhaustive.
 
 ## Glossary
 

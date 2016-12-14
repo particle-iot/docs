@@ -9,9 +9,9 @@ order: 3
 # CLI Command Reference
 
 
-## particle setup wifi
+## particle setup WiFi
 
-  Helpful shortcut for adding another wifi network to a device connected over USB.  Make sure your device is connected via a USB cable, and is slow blinking blue [listening mode](/guide/getting-started/modes/#listening-mode)
+  Helpful shortcut for adding another WiFi network to a device connected over USB.  Make sure your device is connected via a USB cable, and is slow blinking blue [listening mode](/guide/getting-started/modes/#listening-mode)
 
 ```sh
 # how to just update your wifi settings.
@@ -132,7 +132,7 @@ $ particle flash --target 0.5.0 0123456789ABCDEFGHI my_project
 
 ### Compiling remotely and flashing locally
 
-To work locally, but use the cloud compiler, simply use the compile command, and then the local flash command after.  Make sure you connect your device via USB and place it into [dfu mode](/guide/getting-started/modes/#dfu-mode-device-firmware-upgrade-).
+To work locally, but use the cloud compiler, simply use the compile command, and then the local flash command after.  Make sure you connect your device via USB and place it into [DFU mode](/guide/getting-started/modes/#dfu-mode-device-firmware-upgrade-).
 
 ```sh
 # how to compile a directory of source code and tell the CLI where to save the results
@@ -167,7 +167,7 @@ eg. `particle compile photon xxx` OR `particle compile p xxxx` both targets the 
 
 ### compiling a directory
 
-  You can setup a directory of source files and libraries for your project, and the CLI will use those when compiling remotely.  You can also create ```particle.include``` and / or a ```particle.ignore``` file in that directory that will tell the CLI specifically which files to use or ignore.  Those files are just plain text with one line per filename
+  You can setup a directory of source files and libraries for your project, and the CLI will use those when compiling remotely.  You can also create ```particle.include``` and / or a ```particle.ignore``` file in that directory that will tell the CLI specifically which files to use or ignore.  Those files are just plain text with one line per file name
 
 ```sh
 # how to compile a directory of source code
@@ -176,7 +176,7 @@ $ particle compile photon my_project_folder
 
 ### example particle.include
 
-  The particle.include and particle.ignore files are just regular text files with one filename per line.  If your directory has one of these files, the CLI will use it to try and determine what to include or ignore when compiling your app.
+  The particle.include and particle.ignore files are just regular text files with one file name per line.  If your directory has one of these files, the CLI will use it to try and determine what to include or ignore when compiling your app.
 
 ```text
 # particle.include
@@ -385,7 +385,7 @@ $ particle serial monitor /dev/cu.usbmodem12345
 
 Helps you update your keys, or recover your device when the keys on the server are out of sync with the keys on your device.  The ```particle keys``` tools requires both dfu-util, and openssl to be installed.
 
-Connect your device in [dfu mode](/guide/getting-started/modes/#dfu-mode-device-firmware-upgrade-), and run this command to replace the unique cryptographic keys on your device.  Automatically attempts to send the new public key to the cloud as well.
+Connect your device in [DFU mode](/guide/getting-started/modes/#dfu-mode-device-firmware-upgrade-), and run this command to replace the unique cryptographic keys on your device.  Automatically attempts to send the new public key to the cloud as well.
 
 ```sh
 # helps repair key issues on a device
@@ -395,7 +395,7 @@ $ particle keys doctor 0123456789ABCDEFGHI
 
 ## particle keys new
 
-Generates a new public / private keypair that can be used on a device.
+Generates a new public / private key pair that can be used on a device.
 
 ```sh
 # generates a new public/private keypair
@@ -415,7 +415,7 @@ New Key Created!
 
 ## particle keys load
 
-Copies a ```.DER``` formatted private key onto your device's external flash.  Make sure your device is connected and in [dfu mode](/guide/getting-started/modes/#dfu-mode-device-firmware-upgrade-).  The ```particle keys``` tools requires both dfu-util, and openssl to be installed.  Make sure any key you load is sent to the cloud with ```particle keys send device.pub.pem```
+Copies a ```.DER``` formatted private key onto your device's external flash.  Make sure your device is connected and in [DFU mode](/guide/getting-started/modes/#dfu-mode-device-firmware-upgrade-).  The ```particle keys``` tools requires both dfu-util, and openssl to be installed.  Make sure any key you load is sent to the cloud with ```particle keys send device.pub.pem```
 
 ```sh
 # loads a key to your device via USB
@@ -428,7 +428,7 @@ Saved!
 
 ## particle keys save
 
-Copies a ```.DER``` formatted private key from your device's external flash to your computer.  Make sure your device is connected and in [dfu mode](/guide/getting-started/modes/#dfu-mode-device-firmware-upgrade-).  The ```particle keys``` tools requires both dfu-util, and openssl to be installed.
+Copies a ```.DER``` formatted private key from your device's external flash to your computer.  Make sure your device is connected and in [DFU mode](/guide/getting-started/modes/#dfu-mode-device-firmware-upgrade-).  The ```particle keys``` tools requires both dfu-util, and openssl to be installed.
 
 ```sh
 # creates a backup of the private key from your device to a file

@@ -72,7 +72,7 @@ Some of its key features are:
 - Input voltage range of 3.6 to 6.0V (for 3.3V output)
 - Low Dropout (LDO) voltage of 210mV at 500mA
 - SOT-223 package that sits nicely on the other side of the USB connector. The connector also acts as an additional heat sink.
-- Short Circuit Current Limiting and Overtemperature Protection
+- Short Circuit Current Limiting and Over Temperature Protection
 
 This means, you can power the Core via the USB port or via the VIN pin from an external power supply that can range from 3.6V to 6.0V DC. Ideal sources of power can be: 3.6V LiPo battery, 4AA battery pack, backup USB battery or an USB wall charger.
 
@@ -107,7 +107,7 @@ Each of these pins can individually source/sink a maximum of 20mA. In the input 
 
 ### Analog Inputs
 
-Pins A0 to A7 can be set up as analog inputs and can measure voltages of upto 3.3V and are internally referenced to VDD. The user can read the pins using [analogRead()](/reference/firmware/#analogread-adc-) function which returns a 12bit value.
+Pins A0 to A7 can be set up as analog inputs and can measure voltages of up to 3.3V and are internally referenced to VDD. The user can read the pins using [analogRead()](/reference/firmware/#analogread-adc-) function which returns a 12bit value.
 
 ### Analog Outputs
 

@@ -164,7 +164,7 @@ sudo particle-agent logs
 ```
 
 Show the last 50 lines of logs and display more logs as they
-are generated. You'll be able to see when the firware restarts after an
+are generated. You'll be able to see when the firmware restarts after an
 Over-the-Air update in these logs.
 
 The log file is in `/var/log/particle-agent.log`

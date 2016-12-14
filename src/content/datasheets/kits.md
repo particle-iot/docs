@@ -101,7 +101,7 @@ AND
 - (1) LM393 soil moisture sensor
 - (1) DS18B20 waterproof temperature sensor
 - (1) SW18020P vibration sensor
-- Various jumper wires, resistors, capacitors, LEDs, and pushbuttons
+- Various jumper wires, resistors, capacitors, LEDs, and push buttons
 
 ## Photon
 ### Photon
@@ -159,7 +159,7 @@ AND
   - (1) Temperature Sensor
   - (1) Temperature Sensor (covered)
   - (1) Piezo Buzzer
-  - (3) Mini Pushbuttons
+  - (3) Mini Push Buttons
   - (2) SPDT Switch
   - (1) SPDT Relay
   - (1) NPN Transistor
@@ -226,7 +226,7 @@ The Internet Button is not only an easy way to get started on the Internet of Th
   - (1) USB Micro B Cable
   - (1) Breadboard
 - Inputs
-  - (3) Mini Pushbuttons
+  - (3) Mini Push Buttons
   - (2) DPDT Switch
   - (2) Tilt Sensor
   - (1) Temperature Sensor

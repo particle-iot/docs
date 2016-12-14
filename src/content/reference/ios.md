@@ -23,12 +23,12 @@ Particle iOS Cloud SDK enables iOS apps to interact with Particle-powered connec
 - Publish events from the mobile app and subscribe to events coming from devices
 
 All cloud operations take place asynchronously and use the well-known completion blocks (closures for swift) design pattern for reporting results allowing you to build beautiful responsive apps for your Particle products and projects.
-iOS Cloud SDK is implemented as an open-source Cocoapod static library and also as Carthage dynamic framework dependancy. See [Installation](#installation) section for more details. It works well for both Objective-C and [Swift](#support-for-swift-projects) projects.
+iOS Cloud SDK is implemented as an open-source CocoaPods static library and also as Carthage dynamic framework dependency. See [Installation](#installation) section for more details. It works well for both Objective-C and [Swift](#support-for-swift-projects) projects.
 
 **Rebranding notice**
 
 Spark has been rebranded as Particle.
-Code currently refers to `SparkCloud` and `SparkDevice`, this will soon be replaced with `ParticleCloud` and `ParticleDevice`. A new Cocoapod library will be published and current one will be deprecated and point to the new one. This should not bother or affect your code.
+Code currently refers to `SparkCloud` and `SparkDevice`, this will soon be replaced with `ParticleCloud` and `ParticleDevice`. A new CocoaPods library will be published and current one will be deprecated and point to the new one. This should not bother or affect your code.
 
 **Beta notice**
 
@@ -45,7 +45,7 @@ The SDK is now also available as a [Carthage](https://github.com/Carthage/Cartha
 
 #### 2) Nullability - even better Swift interoperability!
 
-One of the great things about Swift is that it transparently interoperates with Objective-C code, both existing frameworks written in Objective-C and code in your app. However, in Swift there’s a strong distinction between optional and non-optional references, e.g. `NSView` vs. `NSView?`, while Objective-C represents boths of these two types as `NSView *`. Because the Swift compiler can’t be sure whether a particular `NSView *` is optional or not, the type is brought into Swift as an implicitly unwrapped optional, NSView!.
+One of the great things about Swift is that it transparently interoperates with Objective-C code, both existing frameworks written in Objective-C and code in your app. However, in Swift there’s a strong distinction between optional and non-optional references, e.g. `NSView` vs. `NSView?`, while Objective-C represents both of these two types as `NSView *`. Because the Swift compiler can’t be sure whether a particular `NSView *` is optional or not, the type is brought into Swift as an implicitly unwrapped optional, NSView!.
 In previous Xcode releases, some Apple frameworks had been specially audited so that their API would show up with proper Swift optionals. Starting Xcode 6.3 there's support for this on your own code with a new Objective-C language feature: nullability annotations.
 The new nullability annotations have been integrated into the Particle iOS Cloud SDK library so now it plays more nicely with Swift projects.
 
@@ -59,7 +59,7 @@ Code changes are optional and if you've been ignoring the return value (since it
 
 #### 4) Two legged auth support / better session handling
 
-If you use your own backend to authenticate users in your app - you can now inject the Particle access token your backend gets from Particle cloud easily using one of the new `injectSessionAccessToken` functions exposed from `SparkCloud` singleton class.
+If you use your own back end to authenticate users in your app - you can now inject the Particle access token your back end gets from Particle cloud easily using one of the new `injectSessionAccessToken` functions exposed from `SparkCloud` singleton class.
 In turn the `.isLoggedIn` property has been deprecated in favor of `.isAuthenticated` - which checks for the existence of an active access token instead of a username. Additionally the SDK will now automatically renew an expired session if a refresh token exists. As increased security measure the Cloud SDK will no longer save user's password in the Keychain.
 
 #### 5) Electron support
@@ -457,26 +457,26 @@ func application(application: UIApplication, didFinishLaunchingWithOptions launc
 Be sure to replace `YourAppName` with your project name.
 
 ### Additional reference
-For additional reference check out the [Reference in Cocoadocs website](http://cocoadocs.org/docsets/Spark-SDK/) for full coverage of `SparkDevice` and `SparkCloud` functions and member variables. In addition you can consult the javadoc style comments in `SparkCloud.h` and `SparkDevice.h` for each public method. If Particle iOS Cloud SDK is integrated in your Xcode project you should be able to press `Esc` to get an auto-complete hints for each cloud and device method.
+For additional reference check out the [Reference in Cocoadocs website](http://cocoadocs.org/docsets/Spark-SDK/) for full coverage of `SparkDevice` and `SparkCloud` functions and member variables. In addition you can consult the JavaDoc style comments in `SparkCloud.h` and `SparkDevice.h` for each public method. If Particle iOS Cloud SDK is integrated in your Xcode project you should be able to press `Esc` to get an auto-complete hints for each cloud and device method.
 
 ### Installation
 
-#### Cocoapods
+#### CocoaPods
 
-Particle iOS Cloud SDK is available through [CocoaPods](http://cocoapods.org). Cocoapods is an easy to use dependency manager for iOS.
-You must have Cocoapods installed, if you don't then be sure to [Install Cocoapods](https://guides.cocoapods.org/using/getting-started.html) before you start:
+Particle iOS Cloud SDK is available through [CocoaPods](http://cocoapods.org). CocoaPods is an easy to use dependency manager for iOS.
+You must have CocoaPods installed, if you don't then be sure to [Install CocoaPods](https://guides.cocoapods.org/using/getting-started.html) before you start:
 To install the iOS Cloud SDK, simply add the following line to your Podfile on main project folder:
 
 ```ruby
 pod "Spark-SDK"
 ```
 
-and then run `pod update`. A new `.xcworkspace` file will be created for you to open by Cocoapods, open that file workspace file in Xcode and you can start interacting with Particle cloud and devices by
+and then run `pod update`. A new `.xcworkspace` file will be created for you to open by CocoaPods, open that file workspace file in Xcode and you can start interacting with Particle cloud and devices by
 adding `#import "Spark-SDK.h"`. (that is not required for swift projects)
 
 #### Support for Swift projects
 
-*Applies to Cocoapods dependency only:*
+*Applies to CocoaPods dependency only:*
 To use iOS Cloud SDK from within Swift based projects [read here](http://swiftalicio.us/2014/11/using-cocoapods-from-swift/).
 For a detailed step-by-step help on integrating the Cloud SDK within a Swift project check out this [Particle community posting](https://community.particle.io/t/mobile-sdk-building-the-bridge-from-swift-to-objective-c/12020/1).
 
@@ -519,17 +519,17 @@ To get this example app running, clone it, open the project in XCode and:
 
 The Particle Device Setup library is meant for integrating the initial setup process of Particle devices in your app.
 This library will enable you to easily invoke a standalone setup wizard UI for setting up internet-connected products
-powered by a Particle device (Photon, P0, P1). The setup UI can be easily customized by a customization proxy class,
+powered by a Particle device (Photon, PØ, P1). The setup UI can be easily customized by a customization proxy class,
 that includes: look & feel, colors, texts and fonts as well as custom brand logos and custom instructional video for your product. There are good defaults in place if you don’t set these properties, but you can override the look and feel as needed to suit the rest of your app.
 
 The wireless setup process for the Photon uses very different underlying technology from the Core. Where the Core used TI SmartConfig, the Photon uses what we call “soft AP” — i.e.: the Photon advertises a Wi-Fi network, you join that network from your mobile app to exchange credentials, and then the Photon connects using the Wi-Fi credentials you supplied.
 
 With the Device Setup library, you make one simple call from your app, for example when the user hits a “Setup my device” button, and a whole series of screens then guide the user through the setup process. When the process finishes, the app user is back on the screen where she hit the “setup my device” button, and your code has been passed an instance of the device she just setup and claimed.
-iOS Device setup library is implemented as an open-source Cocoapods static library and also as Carthage dynamic framework dependancy. See [Installation](#installation) section for more details. It works well for both Objective-C and [Swift](#support-for-swift-projects) projects containing any type of dependencies.
+iOS Device setup library is implemented as an open-source CocoaPods static library and also as Carthage dynamic framework dependency. See [Installation](#installation) section for more details. It works well for both Objective-C and [Swift](#support-for-swift-projects) projects containing any type of dependencies.
 
 ### Basic usage
 
-**Cocoapods**
+**CocoaPods**
 
 Import `SparkSetup.h` in your view controller implementation file, use bridging header for Swift projects (See [Installation](#installation) section for more details).
 
@@ -698,35 +698,35 @@ using the [iOS Cloud SDK](https://cocoapods.org/pods/Spark-SDK).
 
 ### Example
 
-Cocoapods usage example app (in Swift) can be found [here](https://www.github.com/spark/spark-setup-ios-example/). Example app demonstrates - invoking the setup wizard, customizing its UI and using the returned SparkDevice instance once
+CocoaPods usage example app (in Swift) can be found [here](https://www.github.com/spark/spark-setup-ios-example/). Example app demonstrates - invoking the setup wizard, customizing its UI and using the returned SparkDevice instance once
 setup wizard completes (delegate). Feel free to contribute to the example by submitting pull requests.
 
 A new example app demonstrating the usage of Carthage installation method is available [here](https://github.com/spark/ios-app-example-carthage).
 
 ### Reference
 
-Check out the [Reference in Cocoadocs website](http://cocoadocs.org/docsets/SparkSetup/) or consult the javadoc style comments in `SparkSetupCustomization.h` and `SparkSetupMainController.h` for each public method or property.
+Check out the [Reference in Cocoadocs website](http://cocoadocs.org/docsets/SparkSetup/) or consult the JavaDoc style comments in `SparkSetupCustomization.h` and `SparkSetupMainController.h` for each public method or property.
 If the Device Setup library installation completed successfully - you should be able to press `Esc` to get an auto-complete hints from XCode for each public method or property in the library.
 
 ### Requirements / limitations
 
 - iOS 8.0 and up supported
-- Currently setup wizard displays on portait mode only.
+- Currently setup wizard displays on portrait mode only.
 - XCode 6.0 and up is required
 
 ### Installation
 
-#### Cocoapods
+#### CocoaPods
 
-Particle Device Setup library is available through [CocoaPods](http://cocoapods.org). Cocoapods is an easy to use dependency manager for iOS.
-You must have Cocoapods installed, if you don't then be sure to [Install Cocoapods](https://guides.cocoapods.org/using/getting-started.html) before you start:
+Particle Device Setup library is available through [CocoaPods](http://cocoapods.org). CocoaPods is an easy to use dependency manager for iOS.
+You must have CocoaPods installed, if you don't then be sure to [Install CocoaPods](https://guides.cocoapods.org/using/getting-started.html) before you start:
 To install the iOS Device Setup library, simply add the following line to your Podfile on main project folder:
 
 ```ruby
 pod "SparkSetup"
 ```
 
-and then run `pod update`. A new `.xcworkspace` file will be created for you to open by Cocoapods, open that workspace file in Xcode and you can start invoking a new instance of the setup process viewcontroller - refer to the examples above. Don't forget to add `#import "SparkSetup.h"` to the source file in which you want to invoke setup in (that is not required for swift projects).
+and then run `pod update`. A new `.xcworkspace` file will be created for you to open by CocoaPods, open that workspace file in Xcode and you can start invoking a new instance of the setup process viewcontroller - refer to the examples above. Don't forget to add `#import "SparkSetup.h"` to the source file in which you want to invoke setup in (that is not required for swift projects).
 
 
 #### Support for Swift projects
@@ -754,12 +754,12 @@ Go to your XCode target settings->General->Embedded binaries and press `+` and a
 Build your project - you now have the Particle SDK embedded in your project.
 Use `#import <ParticleDeviceSetupLibrary/ParticleDeviceSetupLibrary.h>` in Obj-C files or `import ParticleDeviceSetupLibrary` for Swift files to gain access to `SparkSetupMainController` (see usage example).
 
-No need for any special process or operation integrating the Device Setup Library with Swift-based or Swift-dependant projects. This is the recommended way if you have a mixed set of dependencies.
+No need for any special process or operation integrating the Device Setup Library with Swift-based or Swift-dependent projects. This is the recommended way if you have a mixed set of dependencies.
 
 
 ### Communication
 
-- If you **need help**, use [Our community website](http://community.particle.io), use the `Mobile` category for dicussion/troubleshooting iOS apps using the Particle iOS Cloud SDK.
+- If you **need help**, use [Our community website](http://community.particle.io), use the `Mobile` category for discussion/troubleshooting iOS apps using the Particle iOS Cloud SDK.
 - If you are certain you **found a bug**, _and can provide steps to reliably reproduce it_, open an issue, label it as `bug`.
 - If you **have a feature request**, open an issue with an `enhancement` label on it
 - If you **want to contribute**, submit a pull request, be sure to check out spark.github.io for our contribution guidelines, and please sign the [CLA](https://docs.google.com/a/particle.io/forms/d/1_2P-vRKGUFg5bmpcKLHO_qNZWGi5HKYnfrrkd-sbZoA/viewform).

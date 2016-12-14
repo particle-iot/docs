@@ -139,7 +139,7 @@ attempting to flash firmware to your device my_new_device_name
 flash device said  {"id":"0123456789ABCDEFGHI","status":"Update started"}
 ```
 
-Let's make sure your device is online and loaded with Tinker.  We should see the four characteristic functions exposed by Tinker, "digitalwrite", "digitalread", "analogwrite", and "analogread".
+Let's make sure your device is online and loaded with Tinker.  We should see the four characteristic functions exposed by Tinker, "digitalWrite", "digitalRead", "analogWrite", and "analogRead".
 
 ```sh
 # how to show all your devices and their functions and variables
@@ -198,7 +198,7 @@ void loop() {
 ```
 
 
-Then let's compile that program to make sure it's valid code.  The CLI will automatically download the compiled binary of your program if everything went well, and show you the url.  The server will also keep a copy of your binary around for you for about 24 hours.
+Then let's compile that program to make sure it's valid code.  The CLI will automatically download the compiled binary of your program if everything went well, and show you the URL.  The server will also keep a copy of your binary around for you for about 24 hours.
 
 
 ```sh
