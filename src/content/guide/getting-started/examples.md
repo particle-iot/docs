@@ -775,7 +775,7 @@ void setup() {
   // Next, write the power of the photoresistor to be the maximum possible, which is 4095 in analog.
   analogWrite(power,4095);
 
-  // Since everyone sets up their leds differently, we are also going to start by calibrating our photoresistor.
+  // Since everyone sets up their LEDs differently, we are also going to start by calibrating our photoresistor.
   // This one is going to require some input from the user!
 
   // Calibrate:
@@ -1099,7 +1099,7 @@ void loop()
  *******************************************************************************/
 int tinkerDigitalRead(String pin)
 {
-    //convert ascii to integer
+    //convert ASCII to integer
     int pinNumber = pin.charAt(1) - '0';
     //Sanity check to see if the pin numbers are within limits
     if (pinNumber < 0 || pinNumber > 7) return -1;
@@ -1141,7 +1141,7 @@ int tinkerDigitalRead(String pin)
 int tinkerDigitalWrite(String command)
 {
     bool value = 0;
-    //convert ascii to integer
+    //convert ASCII to integer
     int pinNumber = command.charAt(1) - '0';
     //Sanity check to see if the pin numbers are within limits
     if (pinNumber < 0 || pinNumber > 7) return -1;
@@ -1191,7 +1191,7 @@ int tinkerDigitalWrite(String command)
  *******************************************************************************/
 int tinkerAnalogRead(String pin)
 {
-    //convert ascii to integer
+    //convert ASCII to integer
     int pinNumber = pin.charAt(1) - '0';
     //Sanity check to see if the pin numbers are within limits
     if (pinNumber < 0 || pinNumber > 7) return -1;
@@ -1238,7 +1238,7 @@ int tinkerAnalogWrite(String command)
         return 1;
     }
 
-    //convert ascii to integer
+    //convert ASCII to integer
     int pinNumber = command.charAt(1) - '0';
     //Sanity check to see if the pin numbers are within limits
 

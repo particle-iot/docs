@@ -42,7 +42,7 @@ development of your Internet of Things products.
 Defining a Product is what unifies a group of homogeneous devices together, and your Product can be configured to function exactly how you
 envision.
 
-Each Product has its own fleet of associated **devices**. Any hardware on the Particle Cloud including the P0, P1,
+Each Product has its own fleet of associated **devices**. Any hardware on the Particle Cloud including the PØ, P1,
 Photon, and Electron, could be used inside a Product, but it's important to note that only one type of device will be in each Product
 
 **Customers** own a device, and have permissions to control
@@ -145,7 +145,7 @@ If you have been using the Web IDE / Particle Build to develop firmware, you are
 
 Unlike compiling a binary for a single device, it is critical that the **product ID** and a **firmware version** are included in the compiled binary. Specifically, you must add `PRODUCT_ID([your product ID])` and `PRODUCT VERSION([version])` into the application code of your firmware. This is documented fully [here](https://github.com/spark/firmware/blob/develop/docs/build.md#product-id).
 
-Add these two "macros" near the top of your main aplication `.ino` file, below `#include "application.h"` if it includes that line. Remember that your [product ID](#your-product-id) can be found in the navigation of your Console. The firmware version must be an integer that increments each time a new binary is uploaded to the Console. This allows the Particle Cloud to determine which devices should be running which firmwares.
+Add these two "macros" near the top of your main application `.ino` file, below `#include "application.h"` if it includes that line. Remember that your [product ID](#your-product-id) can be found in the navigation of your Console. The firmware version must be an integer that increments each time a new binary is uploaded to the Console. This allows the Particle Cloud to determine which devices should be running which firmwares.
 
 Here is an example of Blinky with the correct product and version details:
 
@@ -307,7 +307,7 @@ It's also worth mentioning that some of the questions asked on the configuration
 
 There are four main sections to the configuration page: *Overview*, *Working with Particle*, *Customers*, and *Firmware*. A few questions to highlight here:
 
-* **Authentication/Logging in with Particle**: Thinking about how you would like to handle authentication is one of the earlier decisions you should be make as a product creator. There are three options for authentication: *simple auth*, *two-legged auth*, and *login with Particle (oAuth)*. Each option is explained in detail [later](#managing-customers). Picking an authentication method will likely depend on whether/how much you would like Particle to be hidden from your customers, as well as your development's team appetite for complexity.
+* **Authentication/Logging in with Particle**: Thinking about how you would like to handle authentication is one of the earlier decisions you should be make as a product creator. There are three options for authentication: *simple auth*, *two-legged auth*, and *login with Particle (OAuth)*. Each option is explained in detail [later](#managing-customers). Picking an authentication method will likely depend on whether/how much you would like Particle to be hidden from your customers, as well as your development's team appetite for complexity.
 
 * **Private Beta**: Do you only want a select group of people to use your product, inviting them as part of a private beta? This is likely a good idea if you would like to run a controlled test for your product. As a manager of a private beta, you will import a list of customers you would like to participate, and each one will be assigned a 4-character activation code that they will need to claim their device during setup.
 

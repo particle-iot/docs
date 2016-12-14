@@ -94,7 +94,7 @@ You can upgrade to 0.5.3 by downloading the 0.5.3 Firmware Manager for your OS a
 Firmware Manager 0.5.3
 
 - [Windows](https://binaries.particle.io/updater/particle_firmware_manager-v0.5.3-windows.exe)
-- [OSX](https://binaries.particle.io/updater/particle_firmware_manager-v0.5.3-osx.zip)
+- [macOS](https://binaries.particle.io/updater/particle_firmware_manager-v0.5.3-osx.zip)
 
 
 ## Troubleshooting

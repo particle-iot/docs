@@ -16,7 +16,7 @@ Particle devices boot into listening mode by default, so if your device is brand
 
 There are a two ways to go about connecting your device over USB, depending on your OS.
 
-## Using OSX
+## Using macOS
 
 We're going to install the Particle CLI on your computer. If you already have node.js installed, you can skip to [this step](/guide/getting-started/connect/#install-the-particle-cli).
 
@@ -41,11 +41,11 @@ Make sure your device is plugged in via USB and in [Listening Mode](/guide/getti
 
 Log in with your Particle account and follow the prompts to set up your device.
 
-If you have already claimed your device and you want to connect it to wifi, type `particle serial wifi` instead of `particle setup`. This will set up your device on the current wifi.
+If you have already claimed your device and you want to connect it to WiFi, type `particle serial wifi` instead of `particle setup`. This will set up your device on the current WiFi.
 
-**Wait! What is an SSID? What kind of security does my wifi have?**
-- __The SSID__ is the name of your network. When you connect on your computer, it is the name that you select when you connect your computer to wifi.
-- __The Security__ of your wifi is often set up by the administrator. Typically this is WPA2 if a password is needed, or unsecured if no password is needed. Contact your network administrator if you can't get this step to work, and find out exactly what kind of wifi you have.
+**Wait! What is an SSID? What kind of security does my WiFi have?**
+- __The SSID__ is the name of your network. When you connect on your computer, it is the name that you select when you connect your computer to WiFi.
+- __The Security__ of your WiFi is often set up by the administrator. Typically this is WPA2 if a password is needed, or unsecured if no password is needed. Contact your network administrator if you can't get this step to work, and find out exactly what kind of WiFi you have.
 {{/if}}
 
 {{#if core}}
@@ -55,11 +55,11 @@ Make sure your device is plugged in via USB and in [Listening Mode](/guide/getti
 
 Log in with your Particle account and follow the prompts to set up your device.
 
-If you have already claimed your device and you want to connect it to wifi, type `particle serial wifi` instead of `particle setup`. This will set up your device on the current wifi.
+If you have already claimed your device and you want to connect it to WiFi, type `particle serial wifi` instead of `particle setup`. This will set up your device on the current WiFi.
 
-**Wait! What is an SSID? What kind of security does my wifi have?**
-- __The SSID__ is the name of your network. When you connect on your computer, it is the name that you select when you connect your computer to wifi.
-- __The Security__ of your wifi is often set up by the administrator. Typically this is WPA2 if a password is needed, or unsecured if no password is needed. Contact your network administrator if you can't get this step to work, and find out exactly what kind of wifi you have.
+**Wait! What is an SSID? What kind of security does my WiFi have?**
+- __The SSID__ is the name of your network. When you connect on your computer, it is the name that you select when you connect your computer to WiFi.
+- __The Security__ of your WiFi is often set up by the administrator. Typically this is WPA2 if a password is needed, or unsecured if no password is needed. Contact your network administrator if you can't get this step to work, and find out exactly what kind of WiFi you have.
 {{/if}}
 
 {{#if electron}}
@@ -112,11 +112,11 @@ Make sure your device is plugged in via USB and in [Listening Mode](/guide/getti
 
 Log in with your Particle account and follow the prompts to set up your device.
 
-If you have already claimed your device and you want to connect it to wifi, type `particle serial wifi` instead of `particle setup`. This will set up your device on the current wifi.
+If you have already claimed your device and you want to connect it to WiFi, type `particle serial wifi` instead of `particle setup`. This will set up your device on the current WiFi.
 
-**Wait! What is an SSID? What kind of security does my wifi have?**
-- __The SSID__ is the name of your network. When you connect on your computer, it is the name that you select when you connect your computer to wifi.
-- __The Security__ of your wifi is often set up by the administrator. Typically this is WPA2 if a password is needed, or unsecured if no password is needed. Contact your network administrator if you can't get this step to work, and find out exactly what kind of wifi you have.
+**Wait! What is an SSID? What kind of security does my WiFi have?**
+- __The SSID__ is the name of your network. When you connect on your computer, it is the name that you select when you connect your computer to WiFi.
+- __The Security__ of your WiFi is often set up by the administrator. Typically this is WPA2 if a password is needed, or unsecured if no password is needed. Contact your network administrator if you can't get this step to work, and find out exactly what kind of WiFi you have.
 {{/if}}
 
 {{#if core}}
@@ -126,11 +126,11 @@ Make sure your device is plugged in via USB and in [Listening Mode](/guide/getti
 
 Log in with your Particle account and follow the prompts to set up your device.
 
-If you have already claimed your device and you want to connect it to wifi, type `particle serial wifi` instead of `particle setup`. This will set up your device on the current wifi.
+If you have already claimed your device and you want to connect it to WiFi, type `particle serial wifi` instead of `particle setup`. This will set up your device on the current WiFi.
 
-**Wait! What is an SSID? What kind of security does my wifi have?**
-- __The SSID__ is the name of your network. When you connect on your computer, it is the name that you select when you connect your computer to wifi.
-- __The Security__ of your wifi is often set up by the administrator. Typically this is WPA2 if a password is needed, or unsecured if no password is needed. Contact your network administrator if you can't get this step to work, and find out exactly what kind of wifi you have.
+**Wait! What is an SSID? What kind of security does my WiFi have?**
+- __The SSID__ is the name of your network. When you connect on your computer, it is the name that you select when you connect your computer to WiFi.
+- __The Security__ of your WiFi is often set up by the administrator. Typically this is WPA2 if a password is needed, or unsecured if no password is needed. Contact your network administrator if you can't get this step to work, and find out exactly what kind of WiFi you have.
 {{/if}}
 
 {{#if electron}}

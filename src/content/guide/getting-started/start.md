@@ -97,11 +97,11 @@ If your Raspberry Pi has an Ethernet port, connecting it to the Internet is as s
 
 ![](/assets/images/raspberry-pi-wifi-password.png)
 
-4\. When your Pi has successfully connected to the Wi-Fi network, you will see a blue Wi-Fi icon next to the volume icon at the top righthand corner of your screen.
+4\. When your Pi has successfully connected to the Wi-Fi network, you will see a blue Wi-Fi icon next to the volume icon at the top right hand corner of your screen.
 
 ![](/assets/images/raspberry-pi-wifi-connected.png)
 
-Note that it's also possible to obtain the IP Address of your Raspberry Pi after you've connected it to the Internet. To do so, click on the black terminal icon at the top lefthand side of your screen, and type `ifconfig wlan0`.
+Note that it's also possible to obtain the IP Address of your Raspberry Pi after you've connected it to the Internet. To do so, click on the black terminal icon at the top left hand side of your screen, and type `ifconfig wlan0`.
 
 Your Pi's IP Address should be displayed next to the label, `inet addr` and look something like `192.168.X.XXX`.
 
@@ -141,7 +141,7 @@ Note that if you are using a wired connection without a monitor and keyboard (he
 
 - The first step is to obtain the IP address for your Raspberry Pi once it is connected to the Internet. You can find instructions for obtaining your Pi's IP address using Raspberry Pi's official tutorial, [here](https://www.raspberrypi.org/documentation/remote-access/ip-address.md).
 
-The easiest method find your Raspberry Pi's IP address and SSH into it is to use its mDNS hostname followed by `.local`. The default hostname for your Pi is `raspberrypi`, so on MacOS and Linux, you can simply SSH into your Pi by running the following command in your computer's terminal:
+The easiest method find your Raspberry Pi's IP address and SSH into it is to use its mDNS hostname followed by `.local`. The default hostname for your Pi is `raspberrypi`, so on macOS and Linux, you can simply SSH into your Pi by running the following command in your computer's terminal:
 ```
 ssh pi@raspberrypi.local
 ```
@@ -171,7 +171,7 @@ An alternate method for finding the IP address in a headless setup configuration
 As it turns out, the Raspberry Pi Foundation has their own range of MAC addresses all to themselves. The command above will scan your network for devices whose MAC address starts with the prefix, `b8:27:eb` and report their IP address. Assuming you only have one Raspberry Pi connected to the network, you should be able to easily identify your Pi's network address and SSH into it in the next step.  
 <br>
 
-- Once you have your Pi's IP address, you can connect to your Pi through a secure shell (SSH). If you are using MacOS or Linux, you can simply create an SSH tunnel using your `Terminal` application. If you are using Windows, download [PuTTY](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html).
+- Once you have your Pi's IP address, you can connect to your Pi through a secure shell (SSH). If you are using macOS or Linux, you can simply create an SSH tunnel using your `Terminal` application. If you are using Windows, download [PuTTY](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html).
 <br><br>
 - SSH into your Pi using the following command, where `192.168.X.XXX` is the IP address of your Pi.
 <br>
@@ -219,7 +219,7 @@ If you see the message above, **congratulations!** You've successfully connected
 
 ## Development Resources
 
-Great work so far! In case you ever find yourself in a pickle, here's a list of resources that can help you through the next steps of your journe. Please make a note of them, and remember that you can always send us a note via our [Support Portal](http://support.particle.io) if you get stuck!
+Great work so far! In case you ever find yourself in a pickle, here's a list of resources that can help you through the next steps of your journey. Please make a note of them, and remember that you can always send us a note via our [Support Portal](http://support.particle.io) if you get stuck!
 
 #### Technical Documentation
 - [Raspberry Pi Pinout and Datasheet](/datasheets/raspberrypi-datasheet/)
@@ -264,7 +264,7 @@ Connecting your Pi is only the beginning. Check out the other topics in our `Get
 <p class="caption">Introducing the Electron.</p>
 {{/if}}
 
-Congratulations on being the owner of a brand new Particle Device! Go ahead and open the box. You can see the different [kit add-ons](/datasheets/kits) and check out the {{#if photon}}[Photon datasheet](/datasheets/photon-datasheet/){{/if}}{{#if core}}[Core datasheet](/datasheets/core-datasheet/){{/if}}{{#if electron}}[Electron datasheet](/datasheets/electron-datasheet/){{/if}} if you like!
+Congratulations on being the owner of a brand new Particle Device! Go ahead and open the box. You can see the different [kit addons](/datasheets/kits) and check out the {{#if photon}}[Photon datasheet](/datasheets/photon-datasheet/){{/if}}{{#if core}}[Core datasheet](/datasheets/core-datasheet/){{/if}}{{#if electron}}[Electron datasheet](/datasheets/electron-datasheet/){{/if}} if you like!
 
 {{#if photon}}
 If you have an Internet Button, read through this section to get started and connect your device, then hop over to the [Internet Button Guide](/guide/tools-and-features/button/) for more detailed info.
@@ -314,7 +314,7 @@ The microcontroller is the brain of your device. It runs your software and tells
 
 {{#if electron}}{{{popup '**The Antenna & USB Cable.**' 'img' 'electronAntenna.jpg'}}}
 The cellular antenna is imperative for the Electron to reach connection to a cellular tower. It will operate for all 2G/3G frequencies that your
-Electron needs, depending on the version you have. The USB cable provides a means to charge your Electron as well as send serial and dfu commands to your device.
+Electron needs, depending on the version you have. The USB cable provides a means to charge your Electron as well as send serial and DFU commands to your device.
 {{/if}}
 
 
@@ -419,9 +419,9 @@ Go to the next section to learn to [connect over USB](/guide/getting-started/con
   * 2.4GHz capable router
   * Channels 1-11
   * WPA/WPA2 encryption
-  * On a broadcasted SSID network
+  * On a broadcast SSID network
   * Not behind a hard firewall or Enterprise network
-  * *Note: We do not recommend using WEP wifi settings, for security reasons.*
+  * *Note: We do not recommend using WEP WiFi settings, for security reasons.*
 * **Experience**
     * None! This is your first project.
 
@@ -440,9 +440,9 @@ Go to the next section to learn to [connect over USB](/guide/getting-started/con
   * 2.4GHz capable router
   * Channels 1-11
   * WPA/WPA2 encryption
-  * On a broadcasted SSID network
+  * On a broadcast SSID network
   * Not behind a hard firewall or Enterprise network
-  * *Note: We do not recommend using WEP wifi settings, for security reasons.*
+  * *Note: We do not recommend using WEP WiFi settings, for security reasons.*
 * **Experience**
     * None! This is your first project.
 
@@ -504,7 +504,7 @@ This may take a little while - but don't worry.
 
 If you can't seem to get the Mobile App to connect your device, that's okay! Read over this example quickly, and then check out the [next lesson](/guide/getting-started/connect) to connect your device using the USB cable.
 
-Once you have connected your device, it has learned that network. Your device can store up to {{#if core}}seven{{/if}} {{#if photon}}five{{/if}} networks. To add a new network after your initial setup, you'd put your device into {{#if photon}}{{{popup 'Listening Mode' 'vine' 'https://vine.co/v/eZUH7WaWjMT/embed/simple'}}}{{/if}}{{#if core}}{{{popup 'Listening Mode' 'vine' 'https://vine.co/v/eZU6YiK20Hl/embed/simple'}}}{{/if}} again and proceede as above (the claiming part can be skipped). If you feel like your device has too many networks on it, you can wipe your device's memory of any wifi networks it has learned. You can do so by continuing to hold the `{{system-button}}` button for 10 seconds until the RGB LED flashes blue quickly, signaling that all profiles have been deleted.
+Once you have connected your device, it has learned that network. Your device can store up to {{#if core}}seven{{/if}} {{#if photon}}five{{/if}} networks. To add a new network after your initial setup, you'd put your device into {{#if photon}}{{{popup 'Listening Mode' 'vine' 'https://vine.co/v/eZUH7WaWjMT/embed/simple'}}}{{/if}}{{#if core}}{{{popup 'Listening Mode' 'vine' 'https://vine.co/v/eZU6YiK20Hl/embed/simple'}}}{{/if}} again and proceed as above (the claiming part can be skipped). If you feel like your device has too many networks on it, you can wipe your device's memory of any WiFi networks it has learned. You can do so by continuing to hold the `{{system-button}}` button for 10 seconds until the RGB LED flashes blue quickly, signaling that all profiles have been deleted.
 
 ### Step 3: Blink an LED!
 {{#if core}}The Spark Core App should now be on the {{{ popup 'Tinker' 'note' 'We have taken the liberty of loading some firmware onto your device for you. It is called Tinker, and it helps you talk to your device by sending power to the pins and reading power levels from the pins. More info about Tinker is available [here](/guide/getting-started/tinker/core).'}}} screen, as shown below.
@@ -571,7 +571,7 @@ This may take a little while - but don't worry.
 
 If you can't seem to get the Mobile App to connect your device, that's okay! Read over this example quickly, and then check out the [next lesson](/guide/getting-started/connect) to connect your device using the USB cable.
 
-Once you have connected your device, it has learned that network. Your device can store up to {{#if core}}seven{{/if}} {{#if photon}}five{{/if}} networks. To add a new network after your initial setup, you'd put your device into {{#if photon}}{{{popup 'Listening Mode' 'vine' 'https://vine.co/v/eZUH7WaWjMT/embed/simple'}}}{{/if}}{{#if core}}{{{popup 'Listening Mode' 'vine' 'https://vine.co/v/eZU6YiK20Hl/embed/simple'}}}{{/if}} again and proceede as above (the claiming part can be skipped). If you feel like your device has too many networks on it, you can wipe your device's memory of any wifi networks it has learned. You can do so by continuing to hold the `{{system-button}}` button for 10 seconds until the RGB LED flashes blue quickly, signaling that all profiles have been deleted.
+Once you have connected your device, it has learned that network. Your device can store up to {{#if core}}seven{{/if}} {{#if photon}}five{{/if}} networks. To add a new network after your initial setup, you'd put your device into {{#if photon}}{{{popup 'Listening Mode' 'vine' 'https://vine.co/v/eZUH7WaWjMT/embed/simple'}}}{{/if}}{{#if core}}{{{popup 'Listening Mode' 'vine' 'https://vine.co/v/eZU6YiK20Hl/embed/simple'}}}{{/if}} again and proceed as above (the claiming part can be skipped). If you feel like your device has too many networks on it, you can wipe your device's memory of any WiFi networks it has learned. You can do so by continuing to hold the `{{system-button}}` button for 10 seconds until the RGB LED flashes blue quickly, signaling that all profiles have been deleted.
 
 ### Step 3: Blink an LED!
 {{#if core}}The Spark Core App should now be on the {{{ popup 'Tinker' 'note' 'We have taken the liberty of loading some firmware onto your device for you. It is called Tinker, and it helps you talk to your device by sending power to the pins and reading power levels from the pins. More info about Tinker is available [here](/guide/getting-started/tinker/core).'}}} screen, as shown below.

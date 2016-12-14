@@ -141,7 +141,7 @@ void loop() {
 Adding files to your app
 ---
 
-As your codebase grows, you will naturally create libraries to better manage your firmware development. To add a file to your app, simply hit the "+" button located at the top right hand corner.
+As your code base grows, you will naturally create libraries to better manage your firmware development. To add a file to your app, simply hit the "+" button located at the top right hand corner.
 
 ![Particle Build](/assets/images/ide-add-files.png)
 

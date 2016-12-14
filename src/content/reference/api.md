@@ -29,7 +29,7 @@ you might code something like `/v1/devices/55ff8800beefcafe12345678`.
 ## Authentication
 
 Just because you've connected your Particle device to the internet doesn't mean anyone else should have access to it.
-Permissions for controlling and communciating with your Particle device are managed with OAuth2.
+Permissions for controlling and communicating with your Particle device are managed with OAuth2.
 
 ```bash
 # You type in your terminal
@@ -135,7 +135,7 @@ create your own client.
 
 *NEVER expose the client secret to a browser.*
 If, for example, you have a client that controls all your organization's
-products, and you use the client secret in front-end javascript, then a
+products, and you use the client secret in front-end JavaScript, then a
 tech-savvy customer using your website can read the secret in her developer
 console and hack all your customers' devices.
 
@@ -199,7 +199,7 @@ When your device starts ("online") or stops ("offline") a session with the cloud
 ```
 
 If your device is a packaged product, you may see an "auto-update" event from time to time.  This is the cloud 
-signalling that a new version of firmware is available for your product from your manufacturer, and an update is 
+signaling that a new version of firmware is available for your product from your manufacturer, and an update is 
 about to be delivered over the air.
 
 ```
@@ -228,7 +228,7 @@ save you costs on bandwidth.  If you do get an automatic update, you may see a "
 #### Flashing
 
 As updates are being delivered via the cloud to your device, you may see some events published by the cloud to help
-you monitor the update.  These may include an optional filename after the status type if available.
+you monitor the update.  These may include an optional file name after the status type if available.
 
 
 ```

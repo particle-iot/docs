@@ -135,7 +135,7 @@ To put your {{device}} in Listening Mode, hold the `{{system-button}}` button fo
 
 {{{vine "https://vine.co/v/eZUwtJljYnK/embed/simple"}}}
 
-To erase the stored wifi networks on your {{device}}, hold the `{{system-button}}` button for about ten seconds, until the RGB LED blinks blue rapidly.
+To erase the stored WiFi networks on your {{device}}, hold the `{{system-button}}` button for about ten seconds, until the RGB LED blinks blue rapidly.
 
 You can also reset the Wi-Fi networks by holding the `{{system-button}}` button and tapping `{{reset-button}}`, then continuing to hold `{{system-button}}` until the light on the {{device}} turns white. (This differs from the Core. Doing this action on the Core will result in a factory reset.)
 
@@ -147,7 +147,7 @@ You can also reset the Wi-Fi networks by holding the `{{system-button}}` button 
 
 {{{vine "https://vine.co/v/eZU6expA5bA/embed/simple"}}}
 
-To erase the stored wifi networks on your {{device}}, hold the `{{system-button}}` button for about ten seconds, until the RGB LED blinks blue rapidly.
+To erase the stored WiFi networks on your {{device}}, hold the `{{system-button}}` button for about ten seconds, until the RGB LED blinks blue rapidly.
 
 {{/if}}
 

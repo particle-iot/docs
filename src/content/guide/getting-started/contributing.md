@@ -8,7 +8,7 @@ order: 10
 
 # How to Contribute to Particle's Open Source Repositories
 
-Particle is an open-source platform. You might find something you'd like changed, a feature you'd like implemented, or a bug you see a fix for. If so, you can create a pull request or an issue on one of our open-source Github repos. Here's a quick run-down of some repos you might want to know about, as well as some information on how to contribute.
+Particle is an open-source platform. You might find something you'd like changed, a feature you'd like implemented, or a bug you see a fix for. If so, you can create a pull request or an issue on one of our open-source GitHub repos. Here's a quick run-down of some repos you might want to know about, as well as some information on how to contribute.
 
 ## Open-Source Repos
 
@@ -86,15 +86,15 @@ Current hardware design repos include:
 - [`hardware-libraries`](https://github.com/spark/hardware-libraries)
 
 
-## Using Github
+## Using GitHub
 
 During an episode of Particle Interactions, Christine and Will went over how to contribute to the repos. This video is below.
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/JnI2VjXEAiU?t=17m11s" frameborder="0" allowfullscreen></iframe>
 
-If you're already a Github expert, no need to watch. Otherwise, go [here](https://guides.github.com/introduction/flow/index.html) to get a sense of Github flow. We also suggest the [Github for Desktop](https://desktop.github.com/) application, which has a great built-in tutorial on forking, editing, merging, and creating a pull request.
+If you're already a GitHub expert, no need to watch. Otherwise, go [here](https://guides.github.com/introduction/flow/index.html) to get a sense of GitHub flow. We also suggest the [GitHub for Desktop](https://desktop.github.com/) application, which has a great built-in tutorial on forking, editing, merging, and creating a pull request.
 
-If you prefer the command line, here's an [extra fast tutorial](http://rogerdudler.github.io/git-guide/) on how to get started. Just make sure you [fork a repo to your Github account](https://help.github.com/articles/fork-a-repo/) before cloning your fork to edit on your local machine.
+If you prefer the command line, here's an [extra fast tutorial](http://rogerdudler.github.io/git-guide/) on how to get started. Just make sure you [fork a repo to your GitHub account](https://help.github.com/articles/fork-a-repo/) before cloning your fork to edit on your local machine.
 
 If you have your own favorite tutorials on how to `git`, make a pull request on this documentation to add them!
 

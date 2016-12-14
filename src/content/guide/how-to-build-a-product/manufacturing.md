@@ -141,7 +141,7 @@ Connected devices provide the opportunity to compare customer behavior across di
 
   - Recording device IDs for customer support and record-keeping
   - Creating setup identifiers for your device
-  - Creating trackable barcodes
+  - Creating trackable bar codes
   - UUIDs on the Particle platform
 
 

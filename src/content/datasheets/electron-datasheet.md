@@ -47,9 +47,9 @@ Most USB ports can supply only a maximum of 500mA, but the u-Blox GSM module on 
 The input voltage range on VIN pin is 3.9VDC to 12VDC. When powering from the VIN pin alone, make sure that the power supply is rated at 10W (for example 5VDC at 2Amp). If the power source is unable to meet this requirement, you'll need connect the LiPo battery as well.
 
 #### LiPo Battery
-When powered from a LiPo battery alone, the power management IC switches off the internal regulator and supplies power to the system directly from the battery. This reduces the conduction losses and maximizes battery run time. The battery provided with the Electron is a Lithium-Ion Polymer battery rated at 3.7VDC 2000mAh. You can substitute this battery with another 3.7V LiPo with higher current rating. Remember to never exceed this voltage rating and alway pay attention to the polarity of the connector.
+When powered from a LiPo battery alone, the power management IC switches off the internal regulator and supplies power to the system directly from the battery. This reduces the conduction losses and maximizes battery run time. The battery provided with the Electron is a Lithium-Ion Polymer battery rated at 3.7VDC 2000mAh. You can substitute this battery with another 3.7V LiPo with higher current rating. Remember to never exceed this voltage rating and always pay attention to the polarity of the connector.
 
-Typical current consumption is around 180mA and upto 1.8A transients at 5VDC. In deep sleep mode, the quiescent current is 130uA (powered from the battery alone).
+Typical current consumption is around 180mA and up to 1.8A transients at 5VDC. In deep sleep mode, the quiescent current is 130uA (powered from the battery alone).
 
 #### Li+
 This pin is internally tied to the positive terminal of the LiPo battery connector. It is intentionally left unpopulated. Please note that an incorrect usage of this pin can render the Electron unusable. 
@@ -220,7 +220,7 @@ echo -e "\xFF" > fillbyte && dfu-util -d 2b04:d00a -a 1 -s 34 -D fillbyte
 
 |   Pin | Description |
 | :-----|:----- |
-| VIN | This pin can be used as an input or output. As an input, supply 5VDC to 12VDC to power the Electron. When the Electron is powered via the USB port, this pin will output a voltage of approximately 4.8VDC due to a reverse polarity protection series schottky diode between VUSB and VIN. When used as an output, the max load on VIN is 1Amp. |
+| VIN | This pin can be used as an input or output. As an input, supply 5VDC to 12VDC to power the Electron. When the Electron is powered via the USB port, this pin will output a voltage of approximately 4.8VDC due to a reverse polarity protection series Schottky diode between VUSB and VIN. When used as an output, the max load on VIN is 1Amp. |
 | RST | Active-low reset input. On-board circuitry contains a 10k ohm pull-up resistor between RST and 3V3, and 0.1uF capacitor between RST and GND. |
 | VBAT |Supply to the internal RTC, backup registers and SRAM when 3V3 is not present (1.65 to 3.6VDC). The Pin is internally connected to 3V3 supply via a 0 ohm resistor. If you wish to power is via an external supply, you'll need to remove this resistor. Instructions to remove this resistor can be found here <add link here> |
 | 3V3 |This pin is the output of the on-board regulator. When powering the Electron via VIN or the USB port, this pin will output a voltage of 3.3VDC. The max load on 3V3 is 800mA. It should not be used as an input to power the Electron. |
@@ -272,7 +272,7 @@ You can download a high resolution pinout diagram in a PDF version [here.](/asse
 |:---|:---|:---:|:---:|:---:|:---:|
 | Supply Input Voltage | V<sub>IN-MAX</sub> |  |  | +17 | V |
 | Supply Output Current | I<sub>IN-MAX-L</sub> |  |  | 1 | A |
-| Battery Input Voltage | V<sub>LiPO</sub> |  |  | +6 | V |
+| Battery Input Voltage | V<sub>LiPo</sub> |  |  | +6 | V |
 | Supply Output Current | I<sub>3V3-MAX-L</sub> |  |  | 800 | mA |
 | Storage Temperature | T<sub>stg</sub> | -30 |  | +75 | °C |
 | ESD Susceptibility HBM (Human Body Mode) | V<sub>ESD</sub> |  |  | 2 | kV |
@@ -384,8 +384,8 @@ The Electron can be mounted with (qty 2) 18-pin single row 0.1" female headers. 
 
 | Description | MFG | MFG Part Number | Distributor |
 |:-:|:-:|:-:|
-| 18-pin 0.1" (2.54mm) Female Header (Tin) | Sullins Connector Solutions | [PPTC181LFBN-RC](http://www.digikey.com/product-search/en?keywords=PPTC181LFBN-RC) | Digikey |
-| 18-pin 0.1" (2.54mm) Female Header (Tin) | 3M | [929974-01-18-RK](http://www.digikey.com/product-search/en?keywords=929974-01-18-RK) | Digikey |
+| 18-pin 0.1" (2.54mm) Female Header (Tin) | Sullins Connector Solutions | [PPTC181LFBN-RC](http://www.digikey.com/product-search/en?keywords=PPTC181LFBN-RC) | DigiKey |
+| 18-pin 0.1" (2.54mm) Female Header (Tin) | 3M | [929974-01-18-RK](http://www.digikey.com/product-search/en?keywords=929974-01-18-RK) | DigiKey |
 | 18-pin 0.1" (2.54mm) Female Header (Tin) | Harwin | [M20-7821846](http://www.mouser.com/search/ProductDetail.aspx?R=0virtualkey0virtualkeyM20-7821846) | Mouser |
 
 You may also use other types, such as reverse mounted (bottom side SMT) female headers, low profile types, etc..
@@ -408,7 +408,7 @@ All of the Electron hardware design files are open source and available under a 
 
 ![USB](/assets/images/electron/schematics/usb.png)
 
-The USB datalines are terminated with 22 Ohm resistors. These data pins are also exposed via small through holes next to the USB connector and are labeled D+ and D-. The VBUS (+5VDC Vcc of the USB port) is fed to the PMIC via a 3Amp schottky diode ([SS3P3](http://www.vishay.com/docs/88944/ss3p3.pdf)). The VBUS pin is also available via the unpopulated header hole on the top-right side of the Electron.
+The USB data lines are terminated with 22 Ohm resistors. These data pins are also exposed via small through holes next to the USB connector and are labeled D+ and D-. The VBUS (+5VDC VCC of the USB port) is fed to the PMIC via a 3Amp Schottky diode ([SS3P3](http://www.vishay.com/docs/88944/ss3p3.pdf)). The VBUS pin is also available via the unpopulated header hole on the top-right side of the Electron.
 
 ### PMIC (Power Management Integrated Circuit)
 
@@ -528,7 +528,7 @@ The micro B USB connector on the electron is soldered on the PCB with large surf
 
 ![Unplugging USB connector](/assets/images/electron/illustrations/usb-conn-unplug.png)
 
-The u.FL antenna connector is a very fragile piece of hardware ( and is fancy too with all the gold plating). The connector was not designed to be constantly plugged and unplugged. Care must be taken not to put stress on it at any time (yes, swinging the Electron by the antenna is a very bad idea, this is not your cat). The antenna pin is also the most static sensitive and you can destroy the radio with improper handling. If you are feeling adventurous, we highly recommend putting a tiny dab of glue (epoxy, rubber cement, liquid tape or hotglue) on the connector to securely hold the plug in place.
+The u.FL antenna connector is a very fragile piece of hardware ( and is fancy too with all the gold plating). The connector was not designed to be constantly plugged and unplugged. Care must be taken not to put stress on it at any time (yes, swinging the Electron by the antenna is a very bad idea, this is not your cat). The antenna pin is also the most static sensitive and you can destroy the radio with improper handling. If you are feeling adventurous, we highly recommend putting a tiny dab of glue (epoxy, rubber cement, liquid tape or hot glue) on the connector to securely hold the plug in place.
 
 <add pic here>
 
@@ -538,11 +538,11 @@ The breadboard provided with the Electron is specifically designed to require lo
 
 ## Default settings
 
-The Electron comes preprogrammed with a bootloader and a user application called Tinker. This application works with an iOS and Android app also named Tinker that allows you to very easily toggle digital pins, take analog and digital readings and drive variable PWM outputs.
+The Electron comes pre-programmed with a bootloader and a user application called Tinker. This application works with an iOS and Android app also named Tinker that allows you to very easily toggle digital pins, take analog and digital readings and drive variable PWM outputs.
 
 The bootloader allows you to easily update the user application via several different methods, USB, OTA, Serial Y-Modem, and also internally via the Factory Reset procedure.  All of these methods have multiple tools associated with them as well.
 
-You may use the online Web IDE [Particle Build](https://build.particle.io) to code, compile and flash a user application OTA (Over The Air).  [Particle Dev](https://www.particle.io/dev) is a local tool that uses the Cloud to compile and flash OTA as well.  There is also a package `Spark DFU-UTIL` for Particle Dev that allows for Cloud compiling and local flashing via DFU over USB.  This requires `dfu-util` to be installed on your system.  'dfu-util' can also be used with [Particle CLI](https://github.com/spark/particle-cli) for Cloud compiling and local flashing via the command line.  Finally the lowest level of development is available via the [GNU GCC toolchain for ARM](https://github.com/spark/firmware), which offers local compile and flash via dfu-util.  This gives the user complete control of all source code and flashing methods.  This is an extensive list, however not exhaustive.
+You may use the online Web IDE [Particle Build](https://build.particle.io) to code, compile and flash a user application OTA (Over The Air).  [Particle Dev](https://www.particle.io/dev) is a local tool that uses the Cloud to compile and flash OTA as well.  There is also a package `Spark DFU-UTIL` for Particle Dev that allows for Cloud compiling and local flashing via DFU over USB.  This requires `dfu-util` to be installed on your system.  'dfu-util' can also be used with [Particle CLI](https://github.com/spark/particle-cli) for Cloud compiling and local flashing via the command line.  Finally the lowest level of development is available via the [GNU GCC tool chain for ARM](https://github.com/spark/firmware), which offers local compile and flash via dfu-util.  This gives the user complete control of all source code and flashing methods.  This is an extensive list, however not exhaustive.
 
 ## Glossary
 |Term|Definition |

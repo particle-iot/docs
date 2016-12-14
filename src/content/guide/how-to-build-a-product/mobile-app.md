@@ -20,7 +20,7 @@ focus more specifically on building mobile applications.
 
 **iOS**
 
-- Mac computer/laptop running latest OSX
+- Mac computer/laptop running latest macOS
 - [Apple developer account](https://developer.apple.com/programs/)
 - iOS device & USB lightning cable (Particle device setup process cannot run on simulator)
 - [XCode](https://developer.apple.com/xcode/downloads/) 6 and up
@@ -28,7 +28,7 @@ focus more specifically on building mobile applications.
 - Particle iOS SDKs: [Cloud SDK](http://docs.particle.io/photon/ios/#ios-cloud-sdk) and [Device setup library](http://docs.particle.io/photon/ios/#ios-device-setup-library)
 - Skills in object oriented programming. Knowledge in Objective-C / Swift and Cocoa Touch APIs. Here are few recommended free learning resources:
 	- Official [Apple tutorials](https://developer.apple.com/resources/)
-	- [Developing iOS 8 Apps with Swift Stanford Universitry CS193p course](https://itunes.apple.com/us/course/developing-ios-8-apps-swift/id961180099) on iTunes U
+	- [Developing iOS 8 Apps with Swift Stanford University CS193p course](https://itunes.apple.com/us/course/developing-ios-8-apps-swift/id961180099) on iTunes U
 	- [Ray Wenderlich](http://www.raywenderlich.com/) - a great iOS-centric tutorials website
 	- [Try iOS](https://www.codeschool.com/courses/try-ios) - Free online iOS course from Codeschool
 	- and always: [Stack Overflow](http://stackoverflow.com/questions/tagged/ios) - best Q&A website for programmers. You can probably find an answer to ALL your how-do-I-do-that iOS questions there.
@@ -70,7 +70,7 @@ then name your app and identifier, choose if you prefer to code in Obj-C or Swif
 
 ![XCode new project](/assets/images/xcode-new-project.png)
 
- Open Finder or Terminal and go to your project folder - create a new plain textfile named `Podfile` in the same directory then install the Device Setup library for iOS (which has the Cloud SDK as a dependency). Simply add the following line to the `Podfile` in your iOS project root folder:
+ Open Finder or Terminal and go to your project folder - create a new plain text file named `Podfile` in the same directory then install the Device Setup library for iOS (which has the Cloud SDK as a dependency). Simply add the following line to the `Podfile` in your iOS project root folder:
 
 `pod "SparkSetup"`
 
@@ -99,7 +99,7 @@ Or the Swift version:
 }
 ```
 
-If you're using Objective-C, don't forget to import the file `SparkSetup.h` in your view controller implementation file. If you're using Swift, be sure to complete all the required steps to integrate the Objective-C Cocoapod libraries in your project, mainly adding bridging header file to the project settings, as described [here](http://swiftalicio.us/2014/11/using-cocoapods-from-swift/). We've included a bridging header file in both the SDKs.
+If you're using Objective-C, don't forget to import the file `SparkSetup.h` in your view controller implementation file. If you're using Swift, be sure to complete all the required steps to integrate the Objective-C CocoaPod libraries in your project, mainly adding bridging header file to the project settings, as described [here](http://swiftalicio.us/2014/11/using-cocoapods-from-swift/). We've included a bridging header file in both the SDKs.
 
 That's it. Build and run your project on a device or a simulator, tap the "Start Setup" button you created and you should see the device setup wizard pop up ready for authenticating with Particle Cloud and then setting up a new Particle Device.
 Make sure you set up your new Photon, and name the device `myDevice` at the last screen, you'll see why in a moment. If you already setup your device and just need to rename it you can do it from [Particle Build](https://build.particle.io/build) -> Devices. You can also rename the device from the Tinker app.

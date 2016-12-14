@@ -15,9 +15,9 @@ Note that these client libraries have not been tested by
 Particle. If you develop an open-source client library that you would
 like to add to this page, please submit a pull request.
 
-## Javascript
+## JavaScript
 
-See [the official Javascript client](/reference/javascript/).
+See [the official JavaScript client](/reference/javascript/).
 
 * [Cylon.js robotics framework adapter by The Hybrid Group](http://cylonjs.com/documentation/platforms/particle/)
 
@@ -36,7 +36,7 @@ See [the official Javascript client](/reference/javascript/).
 * [phpSparkDashboard by Harrison Jones (and others)](https://github.com/harrisonhjones/phpSparkDashboard/) - A basic dashboard for interacting with the Particle Cloud API
 
 ## .NET
-* [ParticleSDK for .NET](https://github.com/ParticleNET/ParticleSDK/) - A wrapper around the Particle cloud api.
+* [ParticleSDK for .NET](https://github.com/ParticleNET/ParticleSDK/) - A wrapper around the Particle cloud API.
 
 ## LabVIEW
 
