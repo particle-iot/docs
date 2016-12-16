@@ -2,7 +2,6 @@
 title: Wholesale Store Order Placement
 template: faq.hbs
 columns: two
-devices: [ photon,electron,core,raspberry-pi ]
 order: 200
 ---
 
@@ -12,7 +11,7 @@ order: 200
 
 You will need several things to start placing orders on the Wholesale store: 
 - **Particle Account** - You need a valid Particle account to be able to log in to the Wholesale store. 
-- **Wholesale Account Approval** - Your account needs to be associated with a type of wholesale customer. See (Wholesale Account Creation)[TO DO] to get set up. If you have already received a Welcome email from us, you have a Wholesale account already.
+- **Wholesale Account Approval** - Your account needs to be associated with a type of wholesale customer. See [Wholesale Account Creation](/faq/wholesale/creating-account) to get set up. If you have already received a Welcome email from us, you have a Wholesale account already.
 
 Go to the [Wholesale store login page](https://login.particle.io/wholesale) to get started!
 
@@ -20,28 +19,28 @@ Go to the [Wholesale store login page](https://login.particle.io/wholesale) to g
 
 After you sign in you will be directed to your account page. 
 
-![Business Information](docs/src/assets/images/businessinfo1.png)
+![Business Information](/assets/images/businessinfo1.png)
 
 This page should be populated with the information that you entered during sign up. Please review the information and correct any information that is not correct.
 
 If the "Business Information" section is blank, that means Particle does not have your Tax ID/VAT Number and/or your Shipping Account Number. Please email orders@particle.io with the Subject line : "Wholesale Store Business Information". If this section does not apply to you, you can skip this section.
 
-![Business Information](docs/src/assets/images/businessinfo2.png)
+![Business Information](/assets/images/businessinfo2.png)
 
 ## Wholesale store storefront
 
-Click on the "Wholesale" link at the top of the page to start ordering all Particle SKUs at bulk or distributor pricing. 
+Click on the "Wholesale" link at the top of the page to start ordering Particle products at bulk or distributor pricing. 
 
-All the SKUs that are available to distributors at special pricing are listed in this category.
+All SKUs available to your customer type (Distributor, Business or Educator) at special pricing are listed in this category.
 All the SKUs have pricing based on volume tiers as shown below:
 
-![Tiered Pricing](docs/src/assets/images/volumetier.png)
+![Tiered Pricing](/assets/images/volumetier.png)
 
 Lead times will change with the volume of units ordered. After you have done adding all your items to the cart you can proceed to checkout.
 
 ## User Compliance Survey
 
-After filling your cart and clicking checkout, you will be taken the "User Compliance Survey". This section is required by US Law and is mandatory for all purchases on the wholesale store.
+After filling your cart and clicking checkout, you will be taken the "User Compliance Survey". This section is required by US Law and is mandatory for all purchases on the Wholesale Store.
 
 Particle photon and electron products are restricted under ECCN number 5A992.c. Find out more about these restrictions [here](https://www.bis.doc.gov/index.php/forms-documents/doc_view/335-supplement-no-1-to-part-774-category-5-part-ii-information-security).
 
@@ -55,7 +54,7 @@ The first question is required to establish whether you will use the products yo
 
 Checking the “No” option for the first question prompts another dropdown.
 
-![Compliance Survey](docs/src/assets/images/complinacesurvey1.png)
+![Compliance Survey](/assets/images/complinacesurvey1.png)
 
 The additional question if you selected "No" asks whether you will collect the full name, physical address and end use of the end users of the products. If you have an e-commerce portal that stores this information or you will receive full invoices for the goods, you can answer "Yes" to this question. If you are not able to collect this information, we can not sell to you per US export law.
 
@@ -64,11 +63,11 @@ The additional question if you selected "No" asks whether you will collect the f
 
 The next question asks about countries that the United States currently has trade embargoes with. Answer "Yes" to this question if you can guarantee that the products will not be sold to these countries. If you will ship Particle products to these countries, we can not sell to you per US export law.
 
-![Embargoed Countries](docs/src/assets/images/embargoimage.png)
+![Embargoed Countries](/assets/images/embargoimage.png)
 
 The next question asks the Geography in which the device will be used. Again, choosing "Embargoed countries" will not allow us to ship to you. 
 
-![Geography](docs/src/assets/images/geographyimage.png)
+![Geography](/assets/images/geographyimage.png)
 
 
 ### Use case of the products
@@ -77,7 +76,7 @@ A check list for use cases is next. All use cases are allowed but we will need a
 - For distributors the most likely use cases should be "MISCELLANEOUS HOBBYIST ACTIVITIES (Without military applications)". All use cases are allowed but we will need additional information if you select "Military Applications".
 - Educators or event hosts typically select "MISCELLANEOUS HOBBYIST ACTIVITIES (Without military applications)". All use cases are allowed but we will need additional information if you select "Military Applications".
 
-![Usage](docs/src/assets/images/usagecompliance.png)
+![Usage](/assets/images/usagecompliance.png)
 
 
 ### Overall compliance
@@ -87,17 +86,17 @@ Finally, you will be asked to confirm that you can comply with the due dilligenc
 - [Denied persons lists](http://export.gov/ecr/eg_main_023148.asp)
 - [ECCN specific information](https://www.bis.doc.gov/index.php/forms-documents/doc_view/335-supplement-no-1-to-part-774-category-5-part-ii-information-security)
 
-![Due Dilligence](docs/src/assets/images/lastquestioncompliance.png)
+![Due Dilligence](/assets/images/lastquestioncompliance.png)
 
 Checking “Yes” for this question will direct you to the checkout screen. If for any reason you have failed the survey please email orders@particle.io. 
 
 
 ## Checking out with your own Shipping Account number
-If you have your own shipping account on file, apply the discount code provided by Particle by email in the box below. Once you enter this code, the shipping cost will go down to $0.
-
-![Unique Shipping Code](docs/src/assets/images/uniqueshippingcode.png)
+If you have your own shipping account on file, apply the discount code provided by Particlein the box below. Once you enter this code, the shipping cost will go down to $0. Please note, you must select a shipping carrier that corresponds to the shipping account we have on file.
 
 In case you have a shipping account number and have not a received a unique discount code, please email orders@particle.io with the subject line "Wholesale Store Business Information".
+
+![Unique Shipping Code](/assets/images/uniqueshippingcode.png)
 
 ## Payment methods
 
@@ -107,8 +106,12 @@ The Wholesale store accepts the following payment methods:
 
 ## Paying with terms
 
-The Wholesale store offers the option to invoice later, the payment terms are Net 30 days. The clock starts ticking from the day the invoice is sent out. 
+The Wholesale store offers the option to receive an invoice from us if your account has payment terms authorized. Payment terms begin from the day the invoice is sent out. Payment terms are reserved for distributors or businesses with over $100K in business with Particle. We reserve the right to offer or change payment terms at our discretion.
 
 ## Refunds, cancellations or delays
 
-All orders through the Wholesale are non-refundable and non-cancellable. We also can not accept shipping timeline delays. 
+All orders through the Wholesale are non-refundable and non-cancellable. We do not accept shipping timeline delays.
+
+## Any Other Questions
+
+If you have any additional questions that aren’t answered here, please let us know at our [support portal](https://support.particle.io).

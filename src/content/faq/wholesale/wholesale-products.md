@@ -2,7 +2,6 @@
 title: Wholesale Products
 template: faq.hbs
 columns: two
-devices: [ photon,electron,core,raspberry-pi ]
 order: 300
 ---
 
@@ -82,8 +81,12 @@ You may need to register your business as a shipper of a certain type batteries.
 
 You may also need to confirm your labeling fits the type of battery you are shipping. Shipping reps will often do an audit of your packaging. 
 
-Be on the look out for frequent regualtory changes. At the time of this documentation there was [pending changes](http://www.iata.org/whatwedo/cargo/dgr/Documents/lithium-battery-update.pdf) that will come into effect Jan 1, 2017.
+Be on the look out for frequent regualtory changes. At the time of this documentation there are [pending changes](http://www.iata.org/whatwedo/cargo/dgr/Documents/lithium-battery-update.pdf) that will come into effect Jan 1, 2017.
 
 ### Particle shipping restrictions
 Particle ships bulk batteries (SKU = BATTMOD50) only to locations in the US and Canada. To receive batteries elsewhere, please contact orders@particle.io for a case by case evaluation. 
+
+## Any Other Questions
+
+If you have any additional questions that aren’t answered here, please let us know at our [support portal](https://support.particle.io).
 

@@ -2,7 +2,6 @@
 title: Wholesale Shipping
 template: faq.hbs
 columns: two
-devices: [ photon,electron,core,raspberry-pi ]
 order: 400
 ---
 
@@ -12,20 +11,20 @@ order: 400
 
 ### Shipping timing
 
-All packages ship out within 2 business days of the established ship date of your order. 
-- If your products have no lead times, your packages ship out within 2 business days of order placement.
-- If your products have a lead time, you will receive an email with the estimated ship date of your package after you order. 
+All packages ship out within one week of the **ship date** of your order. This ship date may or may not be the same as the order date of the goods. 
+- If your products have no lead times, your packages ship out within one week of the order date
+- If your products have a lead time, you will receive an email with the ship date of your package
 
-Our shipping partner is the first day of every month. Please see below to understand the timing of our shipping methods. 
+Our shipping partner is closed the first day of every month. Please see below to understand the timing of our shipping methods. 
 
 ### Tracking your package
 
-Your order confirmation and tracking information will be sent to the email address you used to place the order. If you are having trouble finding your order, please visit our [support portal](https://support.particle.io) and let us know. For order changes and cancellations, please also visit our [support portal](https://support.particle.io) and let us know as soon as possible. We will do our best to change your order before it is shipped out
+Your order confirmation and tracking information will be sent to the email address you used to place the order. If you are having trouble finding your order or for order related questions, please visit our [support portal](https://support.particle.io) and let us know. 
 
 ## Shipping methods
 
 ### Customer shipping accounts
-If you have your own shipping account on file, apply the discount code provided by Particle by email in the box below. Once you enter this code, the shipping cost will go down to $0.
+If you have your own shipping account on file, apply the discount code provided by Particle by email in the discount code box. Once you enter this code, the shipping cost will go down to $0.
 
 In case you have a shipping account number and have not a received a unique discount code, please email orders@particle.io with the subject line "Wholesale Store Business Information".
 
@@ -38,7 +37,7 @@ For domestic orders we use both UPS and USPS. A brief description of the differe
 - UPS Three-Day Select - Usually delivered in 3 business days if placed before 12pm PST
 - UPS Second Day Air - Usually delivered in 2 business days if placed before 12pm PST
 
-Did you know orders over $200 ship for free? Well they do! You’ll see a free First Class shipping option when your basket size is over $200. 
+Please note these shipping timelines are from **ship date** not **order date**. 
 
 ### PO Boxes
 
@@ -52,17 +51,17 @@ We ship to your country unless you live in Iran, North Korea, Sudan, Cuba, Syria
 - UPS Saver- Usually is delivered in 1- 3 Business days if placed before 12pm PST
 - DHL Express - Usually is delivered in 1- 3 Business days if placed before 12pm PST
 
-We ship all our bulk products from California.
+We ship all products from California.
 
 ## Duties and Taxes
 
-Additional fees such as VAT, import costs, duties, and taxes for international shipments aare not included in shipping and handling costs. Particle is not responsible for any extra charges once the original package has been shipped. 
+Additional fees such as VAT, import costs, duties, and taxes for international shipments are not included in shipping and handling costs. Particle is not responsible for any extra charges once the original package has been shipped. 
 
 If you refuse to pay these extra charges, the return shipping and any additional fees will be taken out of the order return we refund to you. In the event that the extra charges exceed the value of the order, we may charge those amounts to the credit card originally used for the order.
 
 ### Return to Sender
 
-There are lots of things that can happen in the delivery process, and packages can get held up for reasons that are outside of our control. If your order gets returned to us in Gilroy, CA, we can issue you a refund or take the appropriate actions to get you a new package. 
+There are lots of things that can happen in the delivery process and packages can get held up for reasons that are outside of our control. If your order gets returned to us in California, we can issue you a refund or take the appropriate actions to get you a new package. 
 
 Before you get a new package or refund, we'll need to determine the following:
 - What shipping address was entered when you placed the order
@@ -73,13 +72,14 @@ If the fault lies with us or our warehouse, Particle will issue the replacement 
 
 ### Invoices
 
-We automatically include an invoice with international orders, but sometimes packages do get held up. The customs office should contact you about this, so let us know at orders@particle.io if you do require any additional documentation. 
+We automatically include an invoice with international orders, but sometimes packages do get held up. The customs office should contact you about this, so let us know at orders@particle.io if you require any additional documentation. 
 
 ## Shipping Cost
 
 We work hard to lower the shipping rates you see. If they are higher than you expected though, there are some things you can do: 
 - Consolidate shipments
 - Use a slower shipping method
+- Use your own shipping account number
 
 All shipping prices include a handling fee. 
 
