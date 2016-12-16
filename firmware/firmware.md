@@ -8058,7 +8058,7 @@ for the network or cloud to be available, nor while connecting to Wi-Fi.
 - System modes `SEMI_AUTOMATIC` and `MANUAL` behave identically - both of these
 modes do not not start the Networking or a Cloud
 connection automatically. while `AUTOMATIC` mode connects to the cloud as soon as possible.
-Neither has an affect on when the application `setup()` function is run - it is run
+Neither has an effect on when the application `setup()` function is run - it is run
 as soon as possible, independently from the system network activities, as described above.
 
 - `Particle.process()` and `delay()` are not needed to keep the background tasks active - they run independently. These functions have a new role in keeping the application events serviced. Application events are:
