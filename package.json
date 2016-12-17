@@ -56,6 +56,6 @@
     "markdown-spellcheck": "^0.11.0",
     "simplecrawler": "spark/node-simplecrawler#v0.6.3",
     "sinon": "^1.17.6",
-    "markdown-spellcheck": "^3.6.0"
+    "markdown-spellcheck": "^0.11.0"
   }
 }
