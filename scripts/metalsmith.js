@@ -267,6 +267,7 @@ exports.metalsmith = function() {
       '/tutorials': '/tutorials/integrations/google-cloud-platform',
       '/guide/how-to-build-a-product/dashboard': '/guide/tools-and-features/console',
       '/tutorials/topics/particle-pi-security-camera' : '/tutorials/projects/particle-pi-security-camera'
+      '/tutorials/topics/google-cloud-platform/': '/tutorials/integrations/google-cloud-platform/'
     }));
 
   return metalsmith;
