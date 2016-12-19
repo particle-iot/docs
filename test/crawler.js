@@ -67,6 +67,10 @@ describe('Crawler', function() {
     crawler.addFetchCondition(function(parsedUrl) {
       return (parsedUrl.host !== 'vimeo.com');
     });
+    crawler.addFetchCondition(function(parsedUrl) {
+      // Broken webserver that returns 404 not found for regular pages
+      return (parsedUrl.host !== 'www.emaxmodel.com');
+    });
 
     crawler.addDownloadCondition(function(queueItem) {
       var uriis = classifyUrl(queueItem);
