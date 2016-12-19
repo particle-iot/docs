@@ -266,7 +266,7 @@ exports.metalsmith = function() {
       '/faq' : '/faq/particle-devices/led-troubleshooting',
       '/tutorials': '/tutorials/integrations/google-cloud-platform',
       '/guide/how-to-build-a-product/dashboard': '/guide/tools-and-features/console',
-      '/tutorials/topics/particle-pi-security-camera' : '/tutorials/projects/particle-pi-security-camera'
+      '/tutorials/topics/particle-pi-security-camera' : '/tutorials/projects/particle-pi-security-camera',
       '/tutorials/topics/google-cloud-platform/': '/tutorials/integrations/google-cloud-platform/'
     }));
 
