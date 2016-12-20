@@ -63,7 +63,7 @@ PHNTRAYNOH | 50 units
 
 ## Refunds, cancellations or delays
 
-Sending a PO to the Particle sales team or placing an order on the Wholesale Store functions as a committed, non-cancellable, non-refunable order. We do not accept shipping timeline delays. 
+Sending a PO to the Particle sales team or placing an order on the Wholesale Store functions as a committed, non-cancellable, non-refundable order. We do not accept shipping timeline delays. 
 
 ## Battery regulations
 
@@ -81,7 +81,7 @@ You may need to register your business as a shipper of a certain type batteries.
 
 You may also need to confirm your labeling fits the type of battery you are shipping. Shipping reps will often do an audit of your packaging. 
 
-Be on the look out for frequent regualtory changes. At the time of this documentation there are [pending changes](http://www.iata.org/whatwedo/cargo/dgr/Documents/lithium-battery-update.pdf) that will come into effect Jan 1, 2017.
+Be on the look out for frequent regulatory changes. At the time of this documentation there are [pending changes](http://www.iata.org/whatwedo/cargo/dgr/Documents/lithium-battery-update.pdf) that will come into effect Jan 1, 2017.
 
 ### Particle shipping restrictions
 Particle ships bulk batteries (SKU = BATTMOD50) only to locations in the US and Canada. To receive batteries elsewhere, please contact orders@particle.io for a case by case evaluation. 

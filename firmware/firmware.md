@@ -714,7 +714,7 @@ It's possible to call `WiFi.connect()` without entering listening mode in the ca
 WiFi.connect(WIFI_CONNECT_SKIP_LISTEN);
 ```
 
-If there are no credentials then the call does nothing other than turn on the WiFi module.
+If there are no credentials then the call does nothing other than turn on the Wi-Fi module.
 
 
 ### disconnect()
@@ -875,7 +875,7 @@ WiFi.setCredentials("SSID", "PASSWORD", WPA2, WLAN_CIPHER_AES));
 
 {{/if}} {{!-- photon --}}
 
-**Note:** In order for `WiFi.setCredentials()` to work, the WiFi module needs to be on (if switched off or disabled via non_AUTOMATIC SYSTEM_MODEs call `WiFi.on()`).
+**Note:** In order for `WiFi.setCredentials()` to work, the Wi-Fi module needs to be on (if switched off or disabled via non_AUTOMATIC SYSTEM_MODEs call `WiFi.on()`).
 
 ### getCredentials()
 

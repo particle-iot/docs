@@ -81,7 +81,7 @@ A check list for use cases is next. All use cases are allowed but we will need a
 
 ### Overall compliance
 
-Finally, you will be asked to confirm that you can comply with the due dilligence requirements of US export law. Please see the following resources for more information:
+Finally, you will be asked to confirm that you can comply with the due diligence requirements of US export law. Please see the following resources for more information:
 - Embargoed locations - Cuba, Iran, North Korea, Sudan or Syria
 - [Denied persons lists](http://export.gov/ecr/eg_main_023148.asp)
 - [ECCN specific information](https://www.bis.doc.gov/index.php/forms-documents/doc_view/335-supplement-no-1-to-part-774-category-5-part-ii-information-security)
@@ -92,7 +92,7 @@ Checking “Yes” for this question will direct you to the checkout screen. If 
 
 
 ## Checking out with your own Shipping Account number
-If you have your own shipping account on file, apply the discount code provided by Particlein the box below. Once you enter this code, the shipping cost will go down to $0. Please note, you must select a shipping carrier that corresponds to the shipping account we have on file.
+If you have your own shipping account on file, apply the discount code provided by Particle in the box below. Once you enter this code, the shipping cost will go down to $0. Please note, you must select a shipping carrier that corresponds to the shipping account we have on file.
 
 In case you have a shipping account number and have not a received a unique discount code, please email orders@particle.io with the subject line "Wholesale Store Business Information".
 

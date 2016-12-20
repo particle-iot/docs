@@ -12,7 +12,7 @@
     "test": "node ./node_modules/mocha/bin/mocha ./test/crawler.js --reporter dot",
     "build": "node ./scripts/build.js",
     "update-api": "git submodule update --init --recursive && cd api-node && git fetch && git merge origin/production && cd ..",
-    "spell": "mdspell --en-us --ignore-numbers src/content/**/*.md"
+    "spell": "mdspell --en-us --ignore-numbers --no-suggestions 'src/content/**/*.md' '!src/content/languages/**/*.md'"
   },
   "dependencies": {
     "apidoc": "^0.13.1",

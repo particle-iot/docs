@@ -41,11 +41,11 @@ Make sure your device is plugged in via USB and in [Listening Mode](/guide/getti
 
 Log in with your Particle account and follow the prompts to set up your device.
 
-If you have already claimed your device and you want to connect it to WiFi, type `particle serial wifi` instead of `particle setup`. This will set up your device on the current WiFi.
+If you have already claimed your device and you want to connect it to Wi-Fi, type `particle serial wifi` instead of `particle setup`. This will set up your device on the current Wi-Fi.
 
-**Wait! What is an SSID? What kind of security does my WiFi have?**
-- __The SSID__ is the name of your network. When you connect on your computer, it is the name that you select when you connect your computer to WiFi.
-- __The Security__ of your WiFi is often set up by the administrator. Typically this is WPA2 if a password is needed, or unsecured if no password is needed. Contact your network administrator if you can't get this step to work, and find out exactly what kind of WiFi you have.
+**Wait! What is an SSID? What kind of security does my Wi-Fi have?**
+- __The SSID__ is the name of your network. When you connect on your computer, it is the name that you select when you connect your computer to Wi-Fi.
+- __The Security__ of your Wi-Fi is often set up by the administrator. Typically this is WPA2 if a password is needed, or unsecured if no password is needed. Contact your network administrator if you can't get this step to work, and find out exactly what kind of Wi-Fi you have.
 {{/if}}
 
 {{#if core}}
@@ -55,11 +55,11 @@ Make sure your device is plugged in via USB and in [Listening Mode](/guide/getti
 
 Log in with your Particle account and follow the prompts to set up your device.
 
-If you have already claimed your device and you want to connect it to WiFi, type `particle serial wifi` instead of `particle setup`. This will set up your device on the current WiFi.
+If you have already claimed your device and you want to connect it to Wi-Fi, type `particle serial wifi` instead of `particle setup`. This will set up your device on the current Wi-Fi.
 
-**Wait! What is an SSID? What kind of security does my WiFi have?**
-- __The SSID__ is the name of your network. When you connect on your computer, it is the name that you select when you connect your computer to WiFi.
-- __The Security__ of your WiFi is often set up by the administrator. Typically this is WPA2 if a password is needed, or unsecured if no password is needed. Contact your network administrator if you can't get this step to work, and find out exactly what kind of WiFi you have.
+**Wait! What is an SSID? What kind of security does my Wi-Fi have?**
+- __The SSID__ is the name of your network. When you connect on your computer, it is the name that you select when you connect your computer to Wi-Fi.
+- __The Security__ of your Wi-Fi is often set up by the administrator. Typically this is WPA2 if a password is needed, or unsecured if no password is needed. Contact your network administrator if you can't get this step to work, and find out exactly what kind of Wi-Fi you have.
 {{/if}}
 
 {{#if electron}}
@@ -112,11 +112,11 @@ Make sure your device is plugged in via USB and in [Listening Mode](/guide/getti
 
 Log in with your Particle account and follow the prompts to set up your device.
 
-If you have already claimed your device and you want to connect it to WiFi, type `particle serial wifi` instead of `particle setup`. This will set up your device on the current WiFi.
+If you have already claimed your device and you want to connect it to Wi-Fi, type `particle serial wifi` instead of `particle setup`. This will set up your device on the current Wi-Fi.
 
-**Wait! What is an SSID? What kind of security does my WiFi have?**
-- __The SSID__ is the name of your network. When you connect on your computer, it is the name that you select when you connect your computer to WiFi.
-- __The Security__ of your WiFi is often set up by the administrator. Typically this is WPA2 if a password is needed, or unsecured if no password is needed. Contact your network administrator if you can't get this step to work, and find out exactly what kind of WiFi you have.
+**Wait! What is an SSID? What kind of security does my Wi-Fi have?**
+- __The SSID__ is the name of your network. When you connect on your computer, it is the name that you select when you connect your computer to Wi-Fi.
+- __The Security__ of your Wi-Fi is often set up by the administrator. Typically this is WPA2 if a password is needed, or unsecured if no password is needed. Contact your network administrator if you can't get this step to work, and find out exactly what kind of Wi-Fi you have.
 {{/if}}
 
 {{#if core}}
@@ -126,11 +126,11 @@ Make sure your device is plugged in via USB and in [Listening Mode](/guide/getti
 
 Log in with your Particle account and follow the prompts to set up your device.
 
-If you have already claimed your device and you want to connect it to WiFi, type `particle serial wifi` instead of `particle setup`. This will set up your device on the current WiFi.
+If you have already claimed your device and you want to connect it to Wi-Fi, type `particle serial wifi` instead of `particle setup`. This will set up your device on the current Wi-Fi.
 
-**Wait! What is an SSID? What kind of security does my WiFi have?**
-- __The SSID__ is the name of your network. When you connect on your computer, it is the name that you select when you connect your computer to WiFi.
-- __The Security__ of your WiFi is often set up by the administrator. Typically this is WPA2 if a password is needed, or unsecured if no password is needed. Contact your network administrator if you can't get this step to work, and find out exactly what kind of WiFi you have.
+**Wait! What is an SSID? What kind of security does my Wi-Fi have?**
+- __The SSID__ is the name of your network. When you connect on your computer, it is the name that you select when you connect your computer to Wi-Fi.
+- __The Security__ of your Wi-Fi is often set up by the administrator. Typically this is WPA2 if a password is needed, or unsecured if no password is needed. Contact your network administrator if you can't get this step to work, and find out exactly what kind of Wi-Fi you have.
 {{/if}}
 
 {{#if electron}}

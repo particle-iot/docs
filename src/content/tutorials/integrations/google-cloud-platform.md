@@ -92,7 +92,7 @@ Then, give your project a name. When you're done, click "Create."
 
 #### Navigate to Pub/Sub
 
-Click the hamburger menu icon in the top navigation bar. Then, from the slideout menu, select "Pub/Sub" from the list of Google Cloud Platform products.
+Click the hamburger menu icon in the top navigation bar. Then, from the slide out menu, select "Pub/Sub" from the list of Google Cloud Platform products.
 
 <img src="/assets/images/gcp-find-pub-sub.png" class="full-width" alt="Navigate to Pub/Sub"/>
 
@@ -247,7 +247,7 @@ device data into a long-term database. Google Cloud offers many different data s
 platform, but this tutorial will show you how to get data into a <a href="https://cloud.google.com/datastore/" target="_blank">Google Cloud Datastore</a>.
 
 Datastore is a NoSQL document database built for automatic scaling, high performance, and ease of application development. A key advantage of using
-Datastore is the fact that its _schemaless_: this means it is flexible in the data structure it will accpet, and does not require configuration in advance.
+Datastore is the fact that its _schemaless_: this means it is flexible in the data structure it will accept, and does not require configuration in advance.
 Google Cloud Datastore also features high availability of reads and writes, massive scalability and performance, and automatic data encryption. For all of
 Datastore's features, <a href="https://cloud.google.com/datastore/docs/concepts/overview" target="_blank">check out the docs</a>.
 

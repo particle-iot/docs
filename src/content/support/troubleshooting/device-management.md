@@ -30,7 +30,7 @@ Your {{device}} should respond with it's {{device}} device ID!
 
 Plug your {{device}} into your computer over USB. When the {{device}} is in Listening Mode (flashing blue), open a serial port over USB using the standard settings, which should be:
 
-- Baudrate: 9600
+- Baud rate: 9600
 - Data Bits: 8
 - Parity: none
 - Stop Bits: 1

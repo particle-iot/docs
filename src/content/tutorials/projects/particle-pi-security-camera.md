@@ -60,9 +60,9 @@ The first thing you'll need to do, if you haven't already, is to create a SD car
 
 - Make sure your SD card is **FAT32 formatted**
 <<<<<<< HEAD
-- **Install an operating system** image on the SD card. We recommend Raspberry Pi's preferred operating system, Raspian Jessie with Pixel, which you can download [here](https://www.raspberrypi.org/downloads/raspbian/).
+- **Install an operating system** image on the SD card. We recommend Raspberry Pi's preferred operating system, Raspbian Jessie with Pixel, which you can download [here](https://www.raspberrypi.org/downloads/raspbian/).
 =======
-- **Install an operating system** image on the SD card. We recommend Raspberry Pi's preferred operating system, Rasbpian Jessie with Pixel, which you can download [here](https://www.raspberrypi.org/downloads/raspbian/).
+- **Install an operating system** image on the SD card. We recommend Raspberry Pi's preferred operating system, Raspbian Jessie with Pixel, which you can download [here](https://www.raspberrypi.org/downloads/raspbian/).
 >>>>>>> master
 - **Install the operating system** onto your SD card by following the Raspberry Pi Foundation's official installation instructions, [here](https://www.raspberrypi.org/documentation/installation/installing-images/README.md).
 
@@ -255,7 +255,7 @@ We will use this particular [motion (PIR) sensor](https://www.adafruit.com/produ
 
 ![](/assets/images/particle-pi-cam/particle-pi-pir-sch.jpg)
 
-The neopixel ring will light upon detecting motion and will remain off otherwise.
+The Neopixel ring will light upon detecting motion and will remain off otherwise.
 
 ```cpp
 #include "application.h"
@@ -368,7 +368,7 @@ Once you've verified that your hardware has been configured correctly, you'll ne
 
 <<<<<<< HEAD
 =======
-Here is the schematic of the complete project. Two neopixel rings are connected in series with the data out of the right ring connected to the data input of the left ring. The output of the PIR sensor is connected to GPIO26. Remember to plug in your pi-camera as well!
+Here is the schematic of the complete project. Two Neopixel rings are connected in series with the data out of the right ring connected to the data input of the left ring. The output of the PIR sensor is connected to GPIO26. Remember to plug in your pi-camera as well!
 
 ![](/assets/images/particle-pi-cam/particle-pi-camera-sch.jpg)
 >>>>>>> master

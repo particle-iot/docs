@@ -272,13 +272,13 @@ There are known issues with the following types of networks:
   * USB to micro USB cable {{#if photon}}(included with Photon Kit and Maker Kit){{/if}}
   * Power source for USB cable (such as your computer, USB battery, or power brick)
   * Your iPhone or Android smartphone
-* **Wifi Settings**
+* **Wi-Fi Settings**
   * 2.4GHz capable router
   * Channels 1-11
   * WPA/WPA2 encryption
-  * On a broadcasted SSID network
+  * On a broadcast SSID network
   * Not behind a hard firewall or Enterprise network
-  * *Note: We do not recommend using WEP wifi settings, for security reasons.*
+  * *Note: We do not recommend using WEP Wi-Fi settings, for security reasons.*
 * **Experience**
     * None! This is your first project.
 
@@ -294,13 +294,13 @@ There are known issues with the following types of networks:
   * USB to micro USB cable {{#if photon}}(included with Photon Kit and Maker Kit){{/if}}
   * Power source for USB cable (such as your computer, USB battery, or power brick)
   * Your iPhone or Android smartphone
-* **Wifi Settings**
+* **Wi-Fi Settings**
   * 2.4GHz capable router
   * Channels 1-11
   * WPA/WPA2 encryption
-  * On a broadcasted SSID network
+  * On a broadcast SSID network
   * Not behind a hard firewall or Enterprise network
-  * *Note: We do not recommend using WEP wifi settings, for security reasons.*
+  * *Note: We do not recommend using WEP Wi-Fi settings, for security reasons.*
 * **Experience**
     * None! This is your first project.
 

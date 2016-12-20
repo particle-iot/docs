@@ -4,7 +4,7 @@ The Power Shield, as the name implies, allows the Particle device to be powered 
 
 ![](https://github.com/spark/photon-shields-docs/blob/master/power-shield/power-shield.png)
 
-The system switches in between the different power sources automatically, reducing the charge and discharge cycle stress on the battery. The fuel-guage allows you to monitor the battery's state-of-charge (SOC), allowing it to notify the user remotely and take preemptive actions when necessary.
+The system switches in between the different power sources automatically, reducing the charge and discharge cycle stress on the battery. The fuel gauge allows you to monitor the battery's state-of-charge (SOC), allowing it to notify the user remotely and take preemptive actions when necessary.
 
 ![](https://github.com/spark/photon-shields-docs/blob/master/power-shield/power-shield-dimensions.png)
 

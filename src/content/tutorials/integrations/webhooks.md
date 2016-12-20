@@ -130,8 +130,8 @@ station. You'll need this ID when creating the webhook a bit later.
 
 ### Creating the webhook
 
-For this example, let's puiblish a `get_weather` event from our devices, and then
-have it make a GET request to our weather data url.
+For this example, let's publish a `get_weather` event from our devices, and then
+have it make a GET request to our weather data URL.
 
 You can use the Particle dashboard to create a webhook. Follow [this
 link](https://dashboard.particle.io/user/integrations/webhooks/create)
@@ -298,7 +298,7 @@ Click on the token's name to expose a pane that includes the full API token.
 
 Copy the token and put it somewhere easily accessible. You'll need it when creating the webhook in the next step.
 
-### An example librato Webhook
+### An example Librato Webhook
 
 For this example, we will be using the Particle CLI to create the Librato webhook. It is also entirely possible to use the Particle Dashboard to create this webhook.
 

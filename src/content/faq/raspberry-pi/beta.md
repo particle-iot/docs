@@ -9,7 +9,7 @@ order: 100
 # {{title}}
 
 ## How do I get access to the beta?
-In order to get access to the beta, you first have to join the waiting list. Anyone can join the waitlist by going to [http://particle.io/particle-pi](http://particle.io/particle-pi) and signing up with their Particle account. If they don’t already have a Particle account, they can create one in that view.
+In order to get access to the beta, you first have to join the waiting list. Anyone can join the wait list by going to [http://particle.io/particle-pi](http://particle.io/particle-pi) and signing up with their Particle account. If they don’t already have a Particle account, they can create one in that view.
 
 
 ## I’m already on the waiting list. Can I have access to the beta?

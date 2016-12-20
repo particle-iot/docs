@@ -33,7 +33,7 @@ Some of its key features are as follows:
 
 ![CC3000](/assets/images/core-cc3000.jpg)
 
-Core v1.0 uses TI's CC3000 module for the WiFi communications.
+Core v1.0 uses TI's CC3000 module for the Wi-Fi communications.
 
 Some of the key features of the CC3000 module are as follows:
 
@@ -159,7 +159,7 @@ Both of these pins run at 3.3V logic level but *are* tolerant to 5V inputs.
 
 ![JTAG](/assets/images/core-pins-jtag.jpg)
 
-In addition to having the ability to load new firmware over USB and WiFi, the users also have direct access to the STM32 chip via the JTAG channel. In order to do this, you will need a JTAG shield and a JTAG programmer. You could make your own JTAG shield or buy one from us. Currently we have only tested the [ST-LINK/V2](http://www.st.com/web/catalog/tools/FM146/CL1984/SC724/SS1677/PF251168) programmer successfully.
+In addition to having the ability to load new firmware over USB and Wi-Fi, the users also have direct access to the STM32 chip via the JTAG channel. In order to do this, you will need a JTAG shield and a JTAG programmer. You could make your own JTAG shield or buy one from us. Currently we have only tested the [ST-LINK/V2](http://www.st.com/web/catalog/tools/FM146/CL1984/SC724/SS1677/PF251168) programmer successfully.
 
 The hardware files for the JTAG shield are available [here.](https://github.com/spark/shields/tree/master/core-shields/Programmer%20Shield)
 
@@ -299,7 +299,7 @@ This version of the Core comes with an on board chip antenna that gives a signal
 
 ### uFL Connector
 
-If you want to improve the signal strength of the Core, you can connect an external antenna with the help of the [uFL connector](http://en.wikipedia.org/wiki/Hirose_U.FL). Most antennas that are designed to operate at 2.4GHz or are WiFi rated will do the job. You can also make your own [cantenna](https://community.particle.io/t/extending-the-core-wifi-range-with-a-cantenna/1357)!
+If you want to improve the signal strength of the Core, you can connect an external antenna with the help of the [uFL connector](http://en.wikipedia.org/wiki/Hirose_U.FL). Most antennas that are designed to operate at 2.4GHz or are Wi-Fi rated will do the job. You can also make your own [cantenna](https://community.particle.io/t/extending-the-core-wifi-range-with-a-cantenna/1357)!
 
 
 ## Physical layout

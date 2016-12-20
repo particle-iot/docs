@@ -72,7 +72,7 @@ Otherwise, follow the instructions on how to [connect over USB](/guide/getting-s
 
 **If your devices have been pre-connected...**
 
-If someone from Particle came to your workshop or hackathon, there's a chance they already pre-programmed all your devices to connect to the local WiFi. In that case, someone has probably written your device ID in or on the box for your Core or Photon. If this has happened, go to [this step](/guide/getting-started/hackathon/#particle-dev) to download Particle Dev and claim the core to your account.
+If someone from Particle came to your workshop or hackathon, there's a chance they already pre-programmed all your devices to connect to the local Wi-Fi. In that case, someone has probably written your device ID in or on the box for your Core or Photon. If this has happened, go to [this step](/guide/getting-started/hackathon/#particle-dev) to download Particle Dev and claim the core to your account.
 
 
 **If devices have not been pre-connected...**
@@ -94,7 +94,7 @@ Particle Dev has a lot of wonderful features. Namely, you can monitor cloud vari
 {{#if core}}
 **My device was pre-connected. Can I claim it now?**
 
-If someone gave you your device ID and pre-connected your device to the local WiFi, now is a good time to claim your device.
+If someone gave you your device ID and pre-connected your device to the local Wi-Fi, now is a good time to claim your device.
 
 Go to the Particle menu in the Particle Dev environment and select `Claim device...`
 

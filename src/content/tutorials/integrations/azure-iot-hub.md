@@ -23,8 +23,8 @@ target="_blank">Azure's products</a> to add intelligence and
 robustness to your IoT product or application. Here are some examples of
 things you could do with Particle + Azure IoT Hub:
 
-- Predict when a piece of equipment needs maintenence ahead of time using
-  predictive analyctics
+- Predict when a piece of equipment needs maintenance ahead of time using
+  predictive analytics
 - Detect anomalies in product behavior by analyzing device data from an
   entire fleet simultaneously
 - Trigger a notification to a device owner when supplies are running low
@@ -188,7 +188,7 @@ When you're ready, click the **Create** button. It will take a few minutes for A
 
 ### Add a shared access policy
 
-You will need to provide Particle with a shared access policy to allow the Particle cloud to create Azure IoT Hub <a href="https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-devguide-identity-registry" target="_blank">device identites</a> on your behalf. For security reasons, you should create a separate access policy specifically for this integration.
+You will need to provide Particle with a shared access policy to allow the Particle cloud to create Azure IoT Hub <a href="https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-devguide-identity-registry" target="_blank">device identities</a> on your behalf. For security reasons, you should create a separate access policy specifically for this integration.
 
 
 #### Create the new policy

@@ -22,7 +22,7 @@ Activation is different than claiming an Electron, which adds the Electron to yo
 
 Every SIM card has an ICCID ("integrated circuit card identifier") that uniquely identifies the card. The number is usually 19 or 20 digits long and is usually printed on the card, though some carriers only print part of the number on the card.
 
-Assuming your phone accepts nano-sized SIM cards (iPhone 5 and later, for example), your phone can show the ICCID. On the iPhones, it's in Settings - General - About - ICCID. 
+Assuming your phone accepts nano-sized SIM cards (iPhone 5 and later, for example), your phone can show the ICCID. On the iPhone, it's in Settings - General - About - ICCID. 
 
 The location varies on Android phones, and sometimes it's called the SIM ID or SIM Number instead of ICCID. There are other numbers like the IMSI and IMEI that are different, and shorter.
 

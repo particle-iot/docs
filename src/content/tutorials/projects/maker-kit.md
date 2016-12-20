@@ -156,7 +156,7 @@ Discover more projects at [particle.hackster.io](http://particle.hackster.io), a
 
 **When I press the Do Button, the D7 LED blinks but the servo doesn't move.** IFTTT is communicating successfully with the Photon, but the Photon is not communicating with the servo. Double-check your wiring: the servo's brown or black wire should go to GND, the orange wire to Vin, and the yellow wire to D0.
 
-**When I press the Do Button, nothing happens.** If you were able to successfully create a recipe for your device but nothing happens when you press the Do Button, try moving your device closer to your wifi router or access point.
+**When I press the Do Button, nothing happens.** If you were able to successfully create a recipe for your device but nothing happens when you press the Do Button, try moving your device closer to your Wi-Fi router or access point.
 
 If you have issues that can't be solved here, post on our [community forums](https://community.particle.io/c/troubleshooting).
 
@@ -432,7 +432,7 @@ Plug in your Photon and upload the code! If all goes well, the screen will immed
 <img src="/assets/images/nextbus-alert-scrolling.gif" alt="Next bus alerts scrolling on the OLED screen with a Particle Photon" style="width: 433px;" />
 
 ### Additional reading: software timer
-If you're interested in how we're able to have scrolling code that runs constantly in our *loop()* function, yet still be able to trigger the webhook every 60 seconds, the reason is that we're using a **software timer**. Software timers are hugely powerful because they allow functions to be triggered independently of other code. It's possible to do this without a software timer by using *millis()*, but a bonafide software timer makes it much neater.
+If you're interested in how we're able to have scrolling code that runs constantly in our *loop()* function, yet still be able to trigger the webhook every 60 seconds, the reason is that we're using a **software timer**. Software timers are hugely powerful because they allow functions to be triggered independently of other code. It's possible to do this without a software timer by using *millis()*, but a bona fide software timer makes it much neater.
 
 If you look in the code for this project, you'll see:
 ```

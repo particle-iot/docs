@@ -71,6 +71,9 @@ describe('Crawler', function() {
       // Broken webserver that returns 404 not found for regular pages
       return (parsedUrl.host !== 'www.emaxmodel.com');
     });
+    crawler.addFetchCondition(function(parsedUrl) {
+      return (parsedUrl.host !== '192.168.0.1');
+    });
 
     crawler.addDownloadCondition(function(queueItem) {
       var uriis = classifyUrl(queueItem);

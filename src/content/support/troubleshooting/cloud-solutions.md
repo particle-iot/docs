@@ -31,7 +31,7 @@ This will create a new profile to point to your server and switching back to the
 
 This will create an account on the local cloud.
 
-Perform <kbd>``CTRL``</kbd>``+``<kbd>``C``</kbd> once you logon with Particle-cli asking you to send Wifi-credentials etc...
+Perform <kbd>``CTRL``</kbd>``+``<kbd>``C``</kbd> once you logon with Particle-cli asking you to send Wi-Fi credentials etc...
 
 **4. On Command-line, ``cd`` to particle-server**
 
@@ -85,7 +85,7 @@ Example activity from CMD output:
 	For local Cloud: ``particle keys server your_local_cloud_public_key.der IP-ADDRESS``
 - Reset your {{device}}
 
-**2.Changing of profile back to the default particle cloud on the Particle-cli must be performed using:
+**2. Changing of profile back to the default particle cloud on the Particle-cli must be performed using:
 
 ``particle config identify``
 

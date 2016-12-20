@@ -24,7 +24,7 @@ focus more specifically on building mobile applications.
 - [Apple developer account](https://developer.apple.com/programs/)
 - iOS device & USB lightning cable (Particle device setup process cannot run on simulator)
 - [XCode](https://developer.apple.com/xcode/downloads/) 6 and up
-- [Cocoapods](https://cocoapods.org/) installed
+- [CocoaPods](https://cocoapods.org/) installed
 - Particle iOS SDKs: [Cloud SDK](http://docs.particle.io/photon/ios/#ios-cloud-sdk) and [Device setup library](http://docs.particle.io/photon/ios/#ios-device-setup-library)
 - Skills in object oriented programming. Knowledge in Objective-C / Swift and Cocoa Touch APIs. Here are few recommended free learning resources:
 	- Official [Apple tutorials](https://developer.apple.com/resources/)
@@ -60,7 +60,7 @@ Let's go through a basic step by step example on how to integrate and use the mo
 
 #### iOS
 
-Both the Cloud SDK and Device Setup library are available through CocoaPods, the most widely used iOS dependency manager. If you don’t have it, you’ll need to start by installing the Cocoapods `ruby gem`; check out the CocoaPods site for more info.
+Both the Cloud SDK and Device Setup library are available through CocoaPods, the most widely used iOS dependency manager. If you don’t have it, you’ll need to start by installing the CocoaPods `ruby gem`; check out the CocoaPods site for more info.
 
 **Starting from scratch**
 
@@ -99,7 +99,7 @@ Or the Swift version:
 }
 ```
 
-If you're using Objective-C, don't forget to import the file `SparkSetup.h` in your view controller implementation file. If you're using Swift, be sure to complete all the required steps to integrate the Objective-C CocoaPod libraries in your project, mainly adding bridging header file to the project settings, as described [here](http://swiftalicio.us/2014/11/using-cocoapods-from-swift/). We've included a bridging header file in both the SDKs.
+If you're using Objective-C, don't forget to import the file `SparkSetup.h` in your view controller implementation file. If you're using Swift, be sure to complete all the required steps to integrate the Objective-C CocoaPods libraries in your project, mainly adding bridging header file to the project settings, as described [here](http://swiftalicio.us/2014/11/using-cocoapods-from-swift/). We've included a bridging header file in both the SDKs.
 
 That's it. Build and run your project on a device or a simulator, tap the "Start Setup" button you created and you should see the device setup wizard pop up ready for authenticating with Particle Cloud and then setting up a new Particle Device.
 Make sure you set up your new Photon, and name the device `myDevice` at the last screen, you'll see why in a moment. If you already setup your device and just need to rename it you can do it from [Particle Build](https://build.particle.io/build) -> Devices. You can also rename the device from the Tinker app.

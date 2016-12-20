@@ -135,7 +135,7 @@ To put your {{device}} in Listening Mode, hold the `{{system-button}}` button fo
 
 {{{vine "https://vine.co/v/eZUwtJljYnK/embed/simple"}}}
 
-To erase the stored WiFi networks on your {{device}}, hold the `{{system-button}}` button for about ten seconds, until the RGB LED blinks blue rapidly.
+To erase the stored Wi-Fi networks on your {{device}}, hold the `{{system-button}}` button for about ten seconds, until the RGB LED blinks blue rapidly.
 
 You can also reset the Wi-Fi networks by holding the `{{system-button}}` button and tapping `{{reset-button}}`, then continuing to hold `{{system-button}}` until the light on the {{device}} turns white. (This differs from the Core. Doing this action on the Core will result in a factory reset.)
 
@@ -147,7 +147,7 @@ You can also reset the Wi-Fi networks by holding the `{{system-button}}` button 
 
 {{{vine "https://vine.co/v/eZU6expA5bA/embed/simple"}}}
 
-To erase the stored WiFi networks on your {{device}}, hold the `{{system-button}}` button for about ten seconds, until the RGB LED blinks blue rapidly.
+To erase the stored Wi-Fi networks on your {{device}}, hold the `{{system-button}}` button for about ten seconds, until the RGB LED blinks blue rapidly.
 
 {{/if}}
 
@@ -270,7 +270,7 @@ To enter Firmware Reset Mode:
 Factory reset is not available on the {{device}}, but not to worry! If you are experiencing problems with your application firmware, you can use [Safe Mode](#safe-mode) to recover.
 
 {{#if photon}}
-You can reset Wi-Fi credentials by performing a [WiFi Network Reset](#wi-fi-network-reset).
+You can reset Wi-Fi credentials by performing a [Wi-Fi Network Reset](#wi-fi-network-reset).
 {{/if}}
 
 {{/unless}}
@@ -293,7 +293,7 @@ The procedure is same as the one described above (DFU Mode), but in this case yo
 6. Release the `{{system-button}}` button
 
 
-You can reset Wi-Fi credentials by performing a [WiFi Network Reset](#wi-fi-network-reset).
+You can reset Wi-Fi credentials by performing a [Wi-Fi Network Reset](#wi-fi-network-reset).
 {{/if}}
 
 

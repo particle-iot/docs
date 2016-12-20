@@ -94,7 +94,7 @@ Please post issues with connectivity either as responses to this topic or, if th
 ***Pulsing White***
 
 - **What's the Core Doing?** The main LED on my Core slowly pulses white, even if I reset it or [perform a factory reset](https://community.particle.io/t/how-to-do-a-factory-reset/2579).
-- **What's the problem?** The CC3000 on the COre is having trouble initializing due ot a potential hardware issue.
+- **What's the problem?** The CC3000 on the COre is having trouble initializing due to a potential hardware issue.
 - **How do I fix it?** In general, if the LED on your Core starts breathing white, the best thing to do is to reach out to the Particle team. Refer to this issue in your email, and Particle's Technical Support staff will help you resolve the problem directly.
 
 
@@ -110,7 +110,7 @@ Please post issues with connectivity either as responses to this topic or, if th
 
 ***Both LEDs off and Unresponsive***
 
-- **What's the Core doing?** My Core isn't showing any LED acitivity when I power it over USB.
+- **What's the Core doing?** My Core isn't showing any LED activity when I power it over USB.
 - **What's the problem?** Your core is not receiving power.
 - **How do I fix it?**
 
@@ -124,7 +124,7 @@ Please complete the following steps:
 
 ### Deep Update for the Core
 
-A **deep update** is a firmware update that reaches **deep** into the internals of a core and updates the firmware of peripheral modules like the CC3000. Periodically, as enhancements and bugfixes become available for components on the Core, we'll release new deep updates to keep your hardware always running the latest, greatest firmware within your application and the other underlying flashable components. Our first deep update release, **deep_update_2014_06** is the maiden voyage of this feature, designed to apply the CC3000 patch, fix the flashing cyan issue, and dramatically improve the stability and performance of the Core.
+A **deep update** is a firmware update that reaches **deep** into the internals of a core and updates the firmware of peripheral modules like the CC3000. Periodically, as enhancements and bug fixes become available for components on the Core, we'll release new deep updates to keep your hardware always running the latest, greatest firmware within your application and the other underlying flashable components. Our first deep update release, **deep_update_2014_06** is the maiden voyage of this feature, designed to apply the CC3000 patch, fix the flashing cyan issue, and dramatically improve the stability and performance of the Core.
 
 ***Overview***
 
@@ -149,11 +149,11 @@ If you want to get a preview of what to expect, please checkout these **videos t
 The easiest way to apply **deep_update_2014_06** is to simply log into the [Particle Build IDE](https://build.particle.io/build).
 When you login, you'll be prompted with instructions and links that will show you the way. Once all of your claimed cores have had the deep update applied to them, you'll no longer be prompted. Note: You'll need have a Core connected and breathing cyan for this to work.
 
-If you're on a noisy WiFi network you've had troubles flashing wirelessly in the past, you might want to consider using one of the alternate USB-based approaches described below.
+If you're on a noisy Wi-Fi network you've had troubles flashing wirelessly in the past, you might want to consider using one of the alternate USB-based approaches described below.
 
 **Flash via Particle CLI**
 
-The [Particle CLI](https://github.com/spark/particle-cli) s a swiss army command line knife that can be used to do all kinds of cool things...like flash a deep update to your core. The README provides some nice documentation about how to install it and [how to do a deep update over USB](https://github.com/spark/particle-cli#performing-a-deep-update). The process is pretty simple:
+The [Particle CLI](https://github.com/spark/particle-cli) s a Swiss army command line knife that can be used to do all kinds of cool things...like flash a deep update to your core. The README provides some nice documentation about how to install it and [how to do a deep update over USB](https://github.com/spark/particle-cli#performing-a-deep-update). The process is pretty simple:
 
 Install or Upgrade the CLI (requires Node.js):
 
@@ -167,7 +167,7 @@ Run the flash command:
 - `particle flash --usb cc3000` **(v1.29 stable - recommended)**
 - `particle flash --usb cc3000_1_14` **(v1.32 latest - not recommended without testing)**
 
-This installs the deep udate from a binary that is packaged with the Particle CLI, so you don't have to download it.
+This installs the deep update from a binary that is packaged with the Particle CLI, so you don't have to download it.
 
 
 ### Full Firmware Upgrade

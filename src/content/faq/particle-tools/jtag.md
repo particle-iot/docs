@@ -98,7 +98,7 @@ If your flash is very corrupted, you may also need to flash system and user firm
 
 ### Programming system and user firmware
 
-You can download system firmware binaries for all released versions from [the github release site](https://github.com/spark/firmware/releases).
+You can download system firmware binaries for all released versions from [the GitHub release site](https://github.com/spark/firmware/releases).
 
 For the Photon, flash, for example:
 

@@ -9,9 +9,9 @@ order: 3
 # CLI Command Reference
 
 
-## particle setup WiFi
+## particle setup Wi-Fi
 
-  Helpful shortcut for adding another WiFi network to a device connected over USB.  Make sure your device is connected via a USB cable, and is slow blinking blue [listening mode](/guide/getting-started/modes/#listening-mode)
+  Helpful shortcut for adding another Wi-Fi network to a device connected over USB.  Make sure your device is connected via a USB cable, and is slow blinking blue [listening mode](/guide/getting-started/modes/#listening-mode)
 
 ```sh
 # how to just update your wifi settings.

@@ -114,15 +114,15 @@ exports.metalsmith = function() {
         pattern: 'reference/*md',
         sortBy: 'order'
       },
-			tutorials: {
-				pattern: 'tutorials/:section/*.md',
-				sortBy: 'order',
-				orderDynamicCollections: [
-					'integrations',
-					'dev-tools',
-					'projects'
-				]
-			},
+      tutorials: {
+        pattern: 'tutorials/:section/*.md',
+        sortBy: 'order',
+        orderDynamicCollections: [
+          'integrations',
+          'dev-tools',
+          'projects'
+        ]
+      },
       faq: {
         pattern: 'faq/:section/*.md',
         sortBy: 'order',
@@ -131,7 +131,7 @@ exports.metalsmith = function() {
           'particle-tools',
           'raspberry-pi',
           'wholesale'
-				]
+        ]
       },
       datasheet: {
         pattern: 'datasheets/*.md',
@@ -264,6 +264,10 @@ exports.metalsmith = function() {
       '/troubleshooting' : '/support/troubleshooting/common-issues',
       '/help' : '/support/troubleshooting/common-issues',
       '/faq' : '/faq/particle-devices/led-troubleshooting',
+      '/faq/particle-devices' : '/faq/particle-devices/led-troubleshooting',
+      '/faq/particle-tools': '/faq/particle-tools/installing-dfu-util',
+      '/faq/raspberry-pi': '/faq/raspberry-pi/general',
+      '/faq/wholesale': '/faq/wholesale/placing-orders',
       '/tutorials': '/tutorials/integrations/google-cloud-platform',
       '/guide/how-to-build-a-product/dashboard': '/guide/tools-and-features/console',
       '/tutorials/topics/particle-pi-security-camera' : '/tutorials/projects/particle-pi-security-camera',

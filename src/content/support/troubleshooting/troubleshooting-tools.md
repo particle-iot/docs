@@ -28,7 +28,7 @@ For Windows users, we recommend downloading [PuTTY](http://www.putty.org/). You 
 
 Plug your device into your computer over USB. When the {{device}} is in [Listening Mode]({{#if photon}}/guide/getting-started/modes/photon/#listening-mode{{/if}}{{#if core}}/guide/getting-started/modes/core/#listening-mode{{/if}}), open a serial port over USB using the standard settings, which should be:
 
-- Baudrate: 9600
+- Baud rate: 9600
 - Data Bits: 8
 - Parity: none
 - Stop Bits: 1
@@ -108,7 +108,7 @@ The output will be a big confusing mess, which is why most of the time you won't
 
 ### Configure Wi-Fi
 
-You can also configure your wifi using this method. The key for wifi configuration is `w`
+You can also configure your Wi-Fi using this method. The key for Wi-Fi configuration is `w`
 
 The configuration process will be almost identical to the process laid out in the Particle CLI command `particle serial wifi`
 

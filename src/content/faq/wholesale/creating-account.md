@@ -30,7 +30,7 @@ Choose a tab at the top of the page for the type of account you would like to cr
 ## Particle Distributor Requirements
 To become a Particle distributor, you must meet the following requirements: 
 - Established distribution infrastructure including non-technical customer support and logistics support
-- E-commerce website, retail storefornt or both
+- E-commerce website, retail storefront or both
 - Acceptance of our Distribution Contract and standard Terms and Conditions
 
 If you are in the process of setting up your distribution infrastructure, please reach out to us after you have completed that process. We reserve the right to decline any distributors.

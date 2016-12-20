@@ -57,7 +57,7 @@ But the whole point of the automatic mode is you don't really need to know that.
 
 What's actually happening is that first we're calling **Particle.connect()**, which will connect the device to the Cloud. Once it's connected, then your code will run, and your **loop()** will alternate with **Particle.process()** so that we can process incoming messages in something that resembles a background process. (Side note: **Particle.process()** also runs during delays).
 
-Ok, that's all well and good, but what if I don't know whether my {{device}} will have an internet connection? I still want my LED to blink. So now we've got:
+OK, that's all well and good, but what if I don't know whether my {{device}} will have an internet connection? I still want my LED to blink. So now we've got:
 
 ### Semi-automatic mode
 

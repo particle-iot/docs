@@ -109,11 +109,11 @@ You can also add parameters to the call by entering them to the right of button.
 
 ## Managing Your Device
 
-### Setting up WiFi
+### Setting up Wi-Fi
 
 ![WiFi list]({{assets}}/images/ide-wifi-list.jpg)
 
-To setup device's WiFi, connect it via USB and click **Setup device's WiFi...** button on the toolbar.
+To setup device's Wi-Fi, connect it via USB and click **Setup device's Wi-Fi...** button on the toolbar.
 
 If your device isn't in {{#if photon}}{{{popup 'Listening Mode,' 'vine' 'https://vine.co/v/eZUH7WaWjMT/embed/simple'}}}{{/if}}{{#if core}}{{{popup 'Listening Mode,' 'vine' 'https://vine.co/v/eZU6YiK20Hl/embed/simple'}}}{{/if}} you'll see animation showing how to enter that state.
 
@@ -123,7 +123,7 @@ Select the one you want your device to use or choose **Enter SSID manually** (li
 
 ![WiFi setup]({{assets}}/images/ide-wifi-save.jpg)
 
-Now you need to fill missing information and click **Save**. Your device will go dark for a second and then try to connect to the WiFi.
+Now you need to fill missing information and click **Save**. Your device will go dark for a second and then try to connect to the Wi-Fi.
 
 ## Using Community Libraries
 
