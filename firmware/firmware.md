@@ -1059,7 +1059,7 @@ WiFi.setCredentials("SSID", "PASSWORD", WPA2, WLAN_CIPHER_AES));
 
 ### getCredentials()
 
-*Since 0.4.9.*
+_Since 0.4.9_
 
 Lists the Wi-Fi networks with credentials stored on the device. Returns the number of stored networks.
 
@@ -2007,7 +2007,7 @@ void loop()
 bool Cellular.getBandSelect(CellularBand &data_get);
 
 ### getBandAvailable()
-*Since 0.5.0.*
+_Since 0.5.0._
 
 Gets the cellular bands currently available in the modem.  `Bands` are the carrier frequncies used to communicate with the cellular network.  Some modems have 2 bands available (U260/U270) and others have 4 bands (G350).
 
@@ -2064,7 +2064,7 @@ else {
 ```
 
 ### getBandSelect()
-*Since 0.5.0.*
+_Since 0.5.0_
 
 Gets the cellular bands currently set in the modem.  `Bands` are the carrier frequncies used to communicate with the cellular network.
 
@@ -2095,7 +2095,7 @@ else {
 ```
 
 ### setBandSelect()
-*Since 0.5.0.*
+_Since 0.5.0_
 
 Sets the cellular bands currently set in the modem.  `Bands` are the carrier frequncies used to communicate with the cellular network.
 
@@ -2167,7 +2167,7 @@ else {
 ```
 
 ### localIP()
-*Since 0.5.0.*
+_Since 0.5.0_
 
 `Cellular.localIP()` returns the local (private) IP address assigned to the device as an `IPAddress`.
 
@@ -2476,8 +2476,8 @@ analogWrite(pin, value, frequency);
 `analogWrite()` takes two or three arguments:
 
 - `pin`: the number of the pin whose value you wish to set
-- `value`: the duty cycle: between 0 (always off) and 255 (always on). *Since 0.6.0:* between 0 and 255 (default 8-bit resolution) or `2^(analogWriteResolution(pin)) - 1` in general.
-- `frequency`: the PWM frequency: between 1 Hz and 65535 Hz (default 500 Hz). *Since 0.6.0:* between 1 Hz and `analogWriteMaxFrequency(pin)`.
+- `value`: the duty cycle: between 0 (always off) and 255 (always on). _Since 0.6.0:_ between 0 and 255 (default 8-bit resolution) or `2^(analogWriteResolution(pin)) - 1` in general.
+- `frequency`: the PWM frequency: between 1 Hz and 65535 Hz (default 500 Hz). _Since 0.6.0:_ between 1 Hz and `analogWriteMaxFrequency(pin)`.
 
 **NOTE:** `pinMode(pin, OUTPUT);` is required before calling `analogWrite(pin, value);` or else the `pin` will not be initialized as a PWM output and set to the desired duty cycle.
 
@@ -2525,7 +2525,7 @@ The PWM frequency must be the same for pins in the same timer group.
 ### analogWriteResolution() (PWM)
 {{/if}}
 
-*Since 0.6.0.*
+_Since 0.6.0_
 
 Sets or retrieves the resolution of `analogWrite()` function of a particular pin.
 
@@ -2551,7 +2551,7 @@ analogWrite(D1, 3000, 1000); // 3000/4095 = ~73% duty cycle at 1kHz
 
 ### analogWriteMaxFrequency() (PWM)
 
-*Since 0.6.0.*
+_Since 0.6.0_
 
 Returns maximum frequency that can be used with `analogWrite()` on this pin.
 
@@ -2970,7 +2970,7 @@ loop() {
 
 ### pulseIn()
 
-*Since 0.4.7.*
+_Since 0.4.7_
 
 Reads a pulse (either HIGH or LOW) on a pin. For example, if value is HIGH, pulseIn() waits for the pin to go HIGH, starts timing, then waits for the pin to go LOW and stops timing. Returns the length of the pulse in microseconds or 0 if no complete pulse was received within the timeout.
 
@@ -4961,7 +4961,7 @@ Parameters: `address`: the 7-bit slave address (optional); if not specified, joi
 
 ### end()
 
-*Since 0.4.6.*
+_Since 0.4.6_
 
 Releases the I2C bus so that the pins used by the I2C bus are available for general purpose I/O.
 
@@ -5007,7 +5007,7 @@ Returns: `byte` : the number of bytes returned from the slave device.  If a time
 
 ### reset()
 
-*Since 0.4.6.*
+_Since 0.4.6_
 
 Attempts to reset the I2C bus. This should be called only if the I2C bus has
 has hung. In 0.4.6 additional rework was done for the I2C bus on the Photon and Electron, so
@@ -5217,7 +5217,7 @@ void loop() {
 
 ![CAN bus](/assets/images/can.png)
 
-*Since 0.4.9*
+_Since 0.4.9_
 
 <a href="https://en.wikipedia.org/wiki/CAN_bus" target="_blank">Controller area network (CAN bus)</a> is a bus used in most automobiles, as well as some industrial equipment, for communication between different microcontrollers.
 
@@ -7190,7 +7190,7 @@ noInterrupts();
 
 ## Software Timers
 
-_Since 0.4.7. This feature is available on the Photon, P1 and Electron out the box. On the Core, the
+_Since 0.4.7 This feature is available on the Photon, P1 and Electron out the box. On the Core, the
 `freertos4core` Particle library <a href="https://build.particle.io/libs/56c33d19413c5afea2000601/tab/timers.ino" target="_blank">(Timers.ino example found here)</a> should be used to add FreeRTOS to the core._
 
 Software Timers provide a way to have timed actions in your program.  FreeRTOS provides the ability to have up to 10 Software Timers at a time with a minimum resolution of 1 millisecond.  It is common to use millis() based "timers" though exact timing is not always possible (due to other program delays).  Software timers are maintained by FreeRTOS and provide a more reliable method for running timed actions using callback functions.  Please note that Software Timers are "chained" and will be serviced sequentially when several timers trigger simultaneously, thus requiring special consideration when writing callback functions.
@@ -8088,7 +8088,7 @@ You can find more details about the product ID and how to get yours in the [_Con
 
 ## System Events
 
-*Since 0.4.9*
+_Since 0.4.9_
 
 ### System Events Overview
 
@@ -8287,7 +8287,7 @@ When using manual mode:
 {{#if has-threading}}
 ## System Thread
 
-*Since 0.4.6.*
+_Since 0.4.6_
 
 {{#if electron}}**Please note:** The System Thread feature is in Beta - we advise only using this
 in production after extensive testing.{{/if}}
@@ -8677,7 +8677,7 @@ at compile time and inline the function calls, reducing overhead to a minimum.
 
 ### freeMemory()
 
-*Since v0.4.4.*
+_Since 0.4.4_
 
 Retrieves the amount of free memory in the system in bytes.
 
@@ -8871,10 +8871,10 @@ System.sleep(D0,RISING,60);
  - Please see the [Photon datasheet](/datasheets/photon-datasheet/#recommended-operating-conditions)
 
 
-_Since 0.4.5._ The state of the {{#if has-wifi}}Wi-Fi{{/if}}{{#if has-cellular}}Cellular{{/if}} and Cloud connections is restored when the system wakes up from sleep. So if the device was connected to the cloud before sleeping, then the cloud connection
+_Since 0.4.5_ The state of the {{#if has-wifi}}Wi-Fi{{/if}}{{#if has-cellular}}Cellular{{/if}} and Cloud connections is restored when the system wakes up from sleep. So if the device was connected to the cloud before sleeping, then the cloud connection
 is automatically resumed on waking up.
 
-_Since 0.5.0._ In automatic modes, the `sleep()` function doesn't return until the cloud connection has been established. This means that application code can use the cloud connection as soon as  `sleep()` returns. In previous versions, it was necessary to call `Particle.process()` to have the cloud reconnected by the system in the background.  
+_Since 0.5.0_ In automatic modes, the `sleep()` function doesn't return until the cloud connection has been established. This means that application code can use the cloud connection as soon as  `sleep()` returns. In previous versions, it was necessary to call `Particle.process()` to have the cloud reconnected by the system in the background.  
 
 {{/if}} {{!-- has-sleep --}}
 
@@ -8933,7 +8933,7 @@ Returns `true` if the system needs to reset the device.
 
 ### Reset Reason
 
-*Since 0.6.0*
+_Since 0.6.0_
 
 The system can track the hardware and software resets of the device.
 
@@ -9463,7 +9463,7 @@ Returns:
 
 ### format()
 
-*Since 0.4.6.*
+_Since 0.4.6_
 
 Provides printf-style formatting for strings.
 
