@@ -356,7 +356,9 @@ Particle.publish("t", temperature, ttl, PRIVATE, NO_ACK);
 
 {{/if}} {{!-- electron --}}
 
-*`WITH_ACK` flag*
+_`WITH_ACK` flag_
+
+_Since 0.6.1_
 
 This flag causes `Particle.publish()` to return only after receiving an acknowledgement that the published event has been received by the Cloud.
 
@@ -633,7 +635,7 @@ See [`Particle.syncTimeDone()`](#particle-synctimedone-), [`Particle.timeSyncedL
 
 ### Particle.syncTimeDone()
 
-_Since 0.7.0_
+_Since 0.6.1_
 
 Returns `true` if there is no `syncTime()` request currently pending or there is no active connection to Particle Cloud. Returns `false` when there is a pending `syncTime()` request.
 
@@ -663,7 +665,7 @@ See also [`Particle.timeSyncedLast()`](#particle-timesyncedlast-) and [`Time.isV
 
 ### Particle.syncTimePending()
 
-_Since 0.7.0_
+_Since 0.6.1_
 
 Returns `true` if there a `syncTime()` request currently pending. Returns `false` when there is no `syncTime()` request pending or there is no active connection to Particle Cloud.
 
@@ -700,7 +702,7 @@ See also [`Particle.timeSyncedLast()`](#particle-timesyncedlast-) and [`Time.isV
 
 ### Particle.timeSyncedLast()
 
-_Since 0.7.0_
+_Since 0.6.1_
 
 Used to check when time was last synchronized with Particle Cloud.
 
@@ -967,6 +969,8 @@ It will return `false` when the device is not in listening mode.
 
 ### setListenTimeout()
 
+_Since 0.6.1_
+
 ```cpp
 // SYNTAX
 WiFi.setListenTimeout(seconds);
@@ -996,6 +1000,8 @@ void loop() {
 
 
 ### getListenTimeout()
+
+_Since 0.6.1_
 
 ```cpp
 // SYNTAX
@@ -1735,6 +1741,8 @@ It will return `false` when the device is not in listening mode.
 
 ### setListenTimeout()
 
+_Since 0.6.1_
+
 ```cpp
 // SYNTAX
 Cellular.setListenTimeout(seconds);
@@ -1761,6 +1769,8 @@ void loop() {
 
 
 ### getListenTimeout()
+
+_Since 0.6.1_
 
 ```cpp
 // SYNTAX
@@ -6991,7 +7001,7 @@ void loop()
 
 ### isValid()
 
-_Since 0.7.0_
+_Since 0.6.1_
 
 ```cpp
 // SYNTAX
@@ -8155,25 +8165,25 @@ void setup()
 
 ### System Events Reference
 
-These are the system events produced by the system, their numeric value (what you will see when printing the system event to Serial) and details of how to handle the parameter value.
+These are the system events produced by the system, their numeric value (what you will see when printing the system event to Serial) and details of how to handle the parameter value. The version of firmware these events became available is noted in the first column below.
 
-| Event Name | ID | Description | Parameter |
-|------------|----------|-----------|
-| setup_begin | 2 | signals the device has entered setup mode |  not used |
-| setup_update | 4 | periodic event signalling the device is still in setup mode. | milliseconds since setup mode was started |
-| setup_end | 8 | signals setup mode was exited | time in ms since setup mode was started |
-| network_credentials | 16 | network credentials were changed | `network_credentials_added` or `network_credentials_cleared` |
-| network_status | 32 | network connection status | one of `network_status_powering_on`, `network_status_on`, `network_status_powering_off`, `network_status_off`, `network_status_connecting`, `network_status_connected` |
-| cloud_status | 64 | cloud connection status | one of `cloud_status_connecting`, `cloud_status_connected`, `cloud_status_disconnecting`, `cloud_status_disconnected` |
- | button_status | 128 | button pressed or released | the duration in ms the button was pressed: 0 when pressed, >0 on release. |
- | firmware_update | 256 | firmware update status | one of `firmware_update_begin`, `firmware_update_progress`, `firmware_update_complete`, `firmware_update_failed` |
- | firmware_update_pending | 512 | notifies the application that a firmware update is available. This event is sent even when updates are disabled, giving the application chance to re-enable firmware updates with `System.enableUpdates()` | not used |
- | reset_pending | 1024 | notifies the application that the system would like to reset. This event is sent even when resets are disabled, giving the application chance to re-enable resets with `System.enableReset()` | not used |
- | reset | 2048 | notifies that the system will reset once the application has completed handling this event | not used |
- | button_click | 4096 | event sent each time setup button is clicked. | `int clicks = system_button_clicks(param); ` retrieves the number of clicks so far. |
-| button_final_click | 8192 | sent after a run of one or more clicks not followed by additional clicks. Unlike the `button_click` event, the `button_final_click` event is sent once, at the end of a series of clicks. | `int clicks = system_button_clicks(param); ` retrieves the number of times the button was pushed. |
-| time_changed | 16384 | device time changed | `time_changed_manually` or `time_changed_sync` |
-| low_battery | 32768 | generated when low battery condition is detected. | not used |
+| Since | Event Name | ID | Description | Parameter |
+|-------|------------|----|-------------|-----------|
+|       | setup_begin | 2 | signals the device has entered setup mode |  not used |
+|       | setup_update | 4 | periodic event signalling the device is still in setup mode. | milliseconds since setup mode was started |
+|       | setup_end | 8 | signals setup mode was exited | time in ms since setup mode was started |
+|       | network_credentials | 16 | network credentials were changed | `network_credentials_added` or `network_credentials_cleared` |
+| 0.6.1 | network_status | 32 | network connection status | one of `network_status_powering_on`, `network_status_on`, `network_status_powering_off`, `network_status_off`, `network_status_connecting`, `network_status_connected` |
+| 0.6.1 | cloud_status | 64 | cloud connection status | one of `cloud_status_connecting`, `cloud_status_connected`, `cloud_status_disconnecting`, `cloud_status_disconnected` |
+|       | button_status | 128 | button pressed or released | the duration in ms the button was pressed: 0 when pressed, >0 on release. |
+|       | firmware_update | 256 | firmware update status | one of `firmware_update_begin`, `firmware_update_progress`, `firmware_update_complete`, `firmware_update_failed` |
+|       | firmware_update_pending | 512 | notifies the application that a firmware update is available. This event is sent even when updates are disabled, giving the application chance to re-enable firmware updates with `System.enableUpdates()` | not used |
+|       | reset_pending | 1024 | notifies the application that the system would like to reset. This event is sent even when resets are disabled, giving the application chance to re-enable resets with `System.enableReset()` | not used |
+|       | reset | 2048 | notifies that the system will reset once the application has completed handling this event | not used |
+|       | button_click | 4096 | event sent each time setup button is clicked. | `int clicks = system_button_clicks(param); ` retrieves the number of clicks so far. |
+|       | button_final_click | 8192 | sent after a run of one or more clicks not followed by additional clicks. Unlike the `button_click` event, the `button_final_click` event is sent once, at the end of a series of clicks. | `int clicks = system_button_clicks(param); ` retrieves the number of times the button was pushed. |
+| 0.6.1 | time_changed | 16384 | device time changed | `time_changed_manually` or `time_changed_sync` |
+| 0.6.1 | low_battery | 32768 | generated when low battery condition is detected. | not used |
 
 
 ## System Modes
@@ -9215,7 +9225,7 @@ system("my_command");
 {{#unless core}}
 ### buttonMirror()
 
-*Since 0.7.0*
+_Since 0.6.1_
 
 Allows a pin to mirror the functionality of the SETUP/MODE button.
 
@@ -9249,7 +9259,7 @@ STARTUP(System.buttonMirror(D1, RISING, true));
 
 ### disableButtonMirror()
 
-*Since 0.7.0*
+_Since 0.6.1_
 
 Disables SETUP button mirroring on a pin.
 
