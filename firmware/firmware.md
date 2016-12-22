@@ -356,6 +356,18 @@ Particle.publish("t", temperature, ttl, PRIVATE, NO_ACK);
 
 {{/if}} {{!-- electron --}}
 
+*`WITH_ACK` flag*
+
+This flag causes `Particle.publish()` to return only after receiving an acknowledgement that the published event has been received by the Cloud.
+
+```C++
+// SYNTAX
+
+Particle.publish("motion-detected", NULL, WITH_ACK);
+Particle.publish("motion-detected", NULL, PRIVATE, WITH_ACK);
+Particle.publish("motion-detected", NULL, ttl, PRIVATE, WITH_ACK);
+```
+
 
 ### Particle.subscribe()
 
@@ -617,6 +629,120 @@ void loop() {
 Note that this function sends a request message to the Cloud and then returns.
 The time on the device will not be synchronized until some milliseconds later
 when the Cloud responds with the current time between calls to your loop.
+See [`Particle.syncTimeDone()`](#particle-synctimedone-), [`Particle.timeSyncedLast()`](#particle-timesyncedlast-), [`Time.isValid()`](#isvalid-) and [`Particle.syncTimePending()`](#particle-synctimepending-) for information on how to wait for request to be finished.
+
+### Particle.syncTimeDone()
+
+_Since 0.7.0_
+
+Returns `true` if there is no `syncTime()` request currently pending or there is no active connection to Particle Cloud. Returns `false` when there is a pending `syncTime()` request.
+
+```C++
+// SYNTAX
+Particle.syncTimeDone();
+
+// RETURNS
+// boolean (true or false)
+```
+
+```C++
+// EXAMPLE
+
+void loop()
+{
+  // Request time synchronization from the Particle Cloud
+  Particle.syncTime();
+  // Wait until {{device}} receives time from Particle Cloud (or connection to Particle Cloud is lost)
+  waitUntil(Particle.syncTimeDone);
+  // Print current time
+  Serial.println(Time.timeStr());
+}
+```
+
+See also [`Particle.timeSyncedLast()`](#particle-timesyncedlast-) and [`Time.isValid()`](#isvalid-).
+
+### Particle.syncTimePending()
+
+_Since 0.7.0_
+
+Returns `true` if there a `syncTime()` request currently pending. Returns `false` when there is no `syncTime()` request pending or there is no active connection to Particle Cloud.
+
+```C++
+// SYNTAX
+Particle.syncTimePending();
+
+// RETURNS
+// boolean (true or false)
+```
+
+```C++
+// EXAMPLE
+
+void loop()
+{
+  // Request time synchronization from the Particle Cloud
+  Particle.syncTime();
+  // Wait until {{device}} receives time from Particle Cloud (or connection to Particle Cloud is lost)
+  while(Particle.syncTimePending())
+  {
+    //
+    // Do something else
+    //
+
+    Particle.process();
+  }
+  // Print current time
+  Serial.println(Time.timeStr());
+}
+```
+
+See also [`Particle.timeSyncedLast()`](#particle-timesyncedlast-) and [`Time.isValid()`](#isvalid-).
+
+### Particle.timeSyncedLast()
+
+_Since 0.7.0_
+
+Used to check when time was last synchronized with Particle Cloud.
+
+```C++
+// SYNTAX
+Particle.timeSyncedLast();
+Particle.timeSyncedLast(timestamp);
+```
+
+Returns the number of milliseconds since the device began running the current program when last time synchronization with Particle Cloud was performed.
+
+This function takes one optional argument:
+- `timestamp`: `time_t` variable that will contain a UNIX timestamp received from Particle Cloud during last time synchronization
+
+```C++
+// EXAMPLE
+#define ONE_DAY_MILLIS (24 * 60 * 60 * 1000)
+
+void loop() {
+  time_t lastSyncTimestamp;
+  unsigned long lastSync = Particle.timeSyncedLast(lastSyncTimestamp);
+  if (millis() - lastSync > ONE_DAY_MILLIS) {
+    unsigned long cur = millis();
+    Serial.printlnf("Time was last synchronized %lu milliseconds ago", millis() - lastSync);
+    if (lastSyncTimestamp > 0)
+    {
+      Serial.print("Time received from Particle Cloud was: ");
+      Serial.println(Time.timeStr(lastSyncTimestamp));
+    }
+    // Request time synchronization from Particle Cloud
+    Particle.syncTime();
+    // Wait until {{device}} receives time from Particle Cloud (or connection to Particle Cloud is lost)
+    waitUntil(Particle.syncTimeDone);
+    // Check if synchronized successfully
+    if (Particle.timeSyncedLast() >= cur)
+    {
+      // Print current time
+      Serial.println(Time.timeStr());
+    }
+  }
+}
+```
 
 ### Get Public IP
 
@@ -837,6 +963,54 @@ or the setup button has been held for 3 seconds,
 when the RGB LED should be blinking blue.
 It will return `false` when the device is not in listening mode.
 {{/if}}
+
+
+### setListenTimeout()
+
+```cpp
+// SYNTAX
+WiFi.setListenTimeout(seconds);
+```
+
+`WiFi.setListenTimeout(seconds)` is used to set a timeout value for Listening Mode.  Values are specified in `seconds`, and 0 disables the timeout.  By default, Wi-Fi devices do not have any timeout set (seconds=0).  As long as interrupts are enabled, a timer is started and running while the device is in listening mode (WiFi.listening()==true).  After the timer expires, listening mode will be exited automatically.  If WiFi.setListenTimeout() is called while the timer is currently in progress, the timer will be updated and restarted with the new value (e.g. updating from 10 seconds to 30 seconds, or 10 seconds to 0 seconds (disabled)).  {{#unless core}}**Note:** Enabling multi-threaded mode with SYSTEM_THREAD(ENABLED) will allow user code to update the timeout value while Listening Mode is active.{{/unless}} {{#if core}}Because listening mode blocks your application code on the Core, this command should be avoided in loop().  It can be used with the STARTUP() macro or in setup() on the Core.
+It will always return `false`.
+
+This setting is not persistent in memory if the {{device}} is rebooted.
+{{/if}}
+
+```cpp
+// EXAMPLE
+// If desired, use the STARTUP() macro to set the timeout value at boot time.
+STARTUP(WiFi.setListenTimeout(60)); // set listening mode timeout to 60 seconds
+
+void setup() {
+  // your setup code
+}
+{{#unless core}}
+void loop() {
+  // update the timeout later in code based on an expression
+  if (disableTimeout) WiFi.setListenTimeout(0); // disables the listening mode timeout
+}
+{{/unless}}
+```
+
+
+### getListenTimeout()
+
+```cpp
+// SYNTAX
+uint16_t seconds = WiFi.getListenTimeout();
+```
+
+`WiFi.getListenTimeout()` is used to get the timeout value currently set for Listening Mode.  Values are returned in (uint16_t)`seconds`, and 0 indicates the timeout is disabled.  By default, Wi-Fi devices do not have any timeout set (seconds=0).
+
+```cpp
+// EXAMPLE
+void setup() {
+  Serial.begin();
+  Serial.println(WiFi.getListenTimeout());
+}
+```
 
 
 ### setCredentials()
@@ -1557,6 +1731,52 @@ Once system code does not block application code,
 `Cellular.listening()` will return `true` once `Cellular.listen()` has been called
 or the setup button has been held for 3 seconds, when the RGB LED should be blinking blue.
 It will return `false` when the device is not in listening mode.
+
+
+### setListenTimeout()
+
+```cpp
+// SYNTAX
+Cellular.setListenTimeout(seconds);
+```
+
+`Cellular.setListenTimeout(seconds)` is used to set a timeout value for Listening Mode.  Values are specified in `seconds`, and 0 disables the timeout.  By default, Cellular devices have a 5 minute timeout set (seconds=300).  As long as interrupts are enabled, a timer is started and running while the device is in listening mode (Cellular.listening()==true).  After the timer expires, listening mode will be exited automatically.  If Cellular.setListenTimeout() is called while the timer is currently in progress, the timer will be updated and restarted with the new value (e.g. updating from 10 seconds to 30 seconds, or 10 seconds to 0 seconds (disabled)).  **Note:** Enabling multi-threaded mode with SYSTEM_THREAD(ENABLED) will allow user code to update the timeout value while Listening Mode is active.
+
+This setting is not persistent in memory if the {{device}} is rebooted.
+
+```cpp
+// EXAMPLE
+// If desired, use the STARTUP() macro to set the timeout value at boot time.
+STARTUP(Cellular.setListenTimeout(60)); // set listening mode timeout to 60 seconds
+
+void setup() {
+  // your setup code
+}
+
+void loop() {
+  // update the timeout later in code based on an expression
+  if (disableTimeout) Cellular.setListenTimeout(0); // disables the listening mode timeout
+}
+```
+
+
+### getListenTimeout()
+
+```cpp
+// SYNTAX
+uint16_t seconds = Cellular.getListenTimeout();
+```
+
+`Cellular.getListenTimeout()` is used to get the timeout value currently set for Listening Mode.  Values are returned in (uint16_t)`seconds`, and 0 indicates the timeout is disabled.  By default, Cellular devices have a 5 minute timeout set (seconds=300).
+
+```cpp
+// EXAMPLE
+void setup() {
+  Serial.begin();
+  Serial.println(Cellular.getListenTimeout());
+}
+```
+
 
 
 ### setCredentials()
@@ -6769,6 +6989,42 @@ void loop()
 }
 ```
 
+### isValid()
+
+_Since 0.7.0_
+
+```cpp
+// SYNTAX
+Time.isValid();
+```
+
+Used to check if current time is valid. This function will return `true` if:
+- Time has been set manually using [`Time.setTime()`](#settime-)
+- Time has been successfully synchronized with the Particle Cloud. The device synchronizes time with the Particle Cloud during the handshake. The application may also manually synchronize time with Particle Cloud using [`Particle.syncTime()`](#particle-synctime-)
+- Correct time has been maintained by RTC.{{#unless core}} See information on [`Backup RAM (SRAM)`](#backup-ram-sram-) for cases when RTC retains the time. RTC is part of the backup domain and retains its counters under the same conditions as Backup RAM.{{/unless}}
+
+**NOTE:** When {{device}} is running in `AUTOMATIC` mode {{#unless core}}and threading is disabled {{/unless}} this function will block if current time is not valid and there is an active connection to Particle Cloud. Once {{device}} synchronizes the time with Particle Cloud or the connection to Particle Cloud is lost, `Time.isValid()` will return its current state. This function is also implicitly called by any `Time` function that returns current time or date (e.g. `Time.hour()`/`Time.now()`/etc).
+
+```cpp
+// Print true or false depending on whether current time is valid
+Serial.print(Time.isValid());
+```
+
+```cpp
+void setup()
+{
+  // Wait for time to be synchronized with Particle Cloud (requires active connection)
+  waitFor(Time.isValid, 60000);
+}
+
+void loop()
+{
+  // Print current time
+  Serial.println(Time.timeStr());
+}
+
+```
+
 {{#if has-interrupts}}
 
 ## Interrupts
@@ -7907,6 +8163,8 @@ These are the system events produced by the system, their numeric value (what yo
 | setup_update | 4 | periodic event signalling the device is still in setup mode. | milliseconds since setup mode was started |
 | setup_end | 8 | signals setup mode was exited | time in ms since setup mode was started |
 | network_credentials | 16 | network credentials were changed | `network_credentials_added` or `network_credentials_cleared` |
+| network_status | 32 | network connection status | one of `network_status_powering_on`, `network_status_on`, `network_status_powering_off`, `network_status_off`, `network_status_connecting`, `network_status_connected` |
+| cloud_status | 64 | cloud connection status | one of `cloud_status_connecting`, `cloud_status_connected`, `cloud_status_disconnecting`, `cloud_status_disconnected` |
  | button_status | 128 | button pressed or released | the duration in ms the button was pressed: 0 when pressed, >0 on release. |
  | firmware_update | 256 | firmware update status | one of `firmware_update_begin`, `firmware_update_progress`, `firmware_update_complete`, `firmware_update_failed` |
  | firmware_update_pending | 512 | notifies the application that a firmware update is available. This event is sent even when updates are disabled, giving the application chance to re-enable firmware updates with `System.enableUpdates()` | not used |
@@ -7914,6 +8172,8 @@ These are the system events produced by the system, their numeric value (what yo
  | reset | 2048 | notifies that the system will reset once the application has completed handling this event | not used |
  | button_click | 4096 | event sent each time setup button is clicked. | `int clicks = system_button_clicks(param); ` retrieves the number of clicks so far. |
 | button_final_click | 8192 | sent after a run of one or more clicks not followed by additional clicks. Unlike the `button_click` event, the `button_final_click` event is sent once, at the end of a series of clicks. | `int clicks = system_button_clicks(param); ` retrieves the number of times the button was pushed. |
+| time_changed | 16384 | device time changed | `time_changed_manually` or `time_changed_sync` |
+| low_battery | 32768 | generated when low battery condition is detected. | not used |
 
 
 ## System Modes
@@ -8951,6 +9211,57 @@ system("my_command");
 ```
 
 {{/if}} {{!-- has-linux --}}
+
+{{#unless core}}
+### buttonMirror()
+
+*Since 0.7.0*
+
+Allows a pin to mirror the functionality of the SETUP/MODE button.
+
+```C++
+// SYNTAX
+System.buttonMirror(D1, RISING);
+System.buttonMirror(D1, FALLING, true);
+```
+Parameters:
+
+  * `pin`: the pin number
+  * `mode`: defines the condition that signifies a button press:
+    - RISING to trigger when the pin goes from low to high,
+    - FALLING for when the pin goes from high to low.
+  * `bootloader`: (optional) if `true`, the mirror pin configuration is saved in DCT and pin mirrors the SETUP/MODE button functionality while in bootloader as well. If `false`, any previously stored configuration is removed from the DCT and pin only mirrors the SETUP/MODE button while running the firmware (default).
+
+See also [`System.disableButtonMirror()`](#disablebuttonmirror-).
+
+```cpp
+// EXAMPLE
+// Mirror SETUP/MODE button on D1 pin. Button pressed state - LOW
+STARTUP(System.buttonMirror(D1, FALLING));
+
+// EXAMPLE
+// Mirror SETUP/MODE button on D1 pin. Button pressed state - HIGH
+// Works in both firmware and bootloader
+STARTUP(System.buttonMirror(D1, RISING, true));
+```
+
+***NOTE:*** Pins `D0` and `A5` will disable normal SETUP button operation. Pins `D0` and `A5` also can not be used in bootloader, the configuration will not be saved in DCT.
+
+### disableButtonMirror()
+
+*Since 0.7.0*
+
+Disables SETUP button mirroring on a pin.
+
+```C++
+// SYNTAX
+System.disableButtonMirror();
+System.disableButtonMirror(false);
+```
+Parameters:
+  * `bootloader`: (optional) if `true`, the mirror pin configuration is cleared from the DCT, disabling the feature in bootloader (default).
+
+{{/unless}}
 
 ## OTA Updates
 
