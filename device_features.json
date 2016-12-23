@@ -38,7 +38,10 @@
     "sleep",
     "usb-hid",
     "software-timers",
-    "eeprom"
+    "eeprom",
+    "button-mirror",
+    "rgb-mirror",
+    "led-themes"
   ],
   "Electron": [
     "cellular",
@@ -65,7 +68,10 @@
     "sleep",
     "usb-hid",
     "software-timers",
-    "eeprom"
+    "eeprom",
+    "button-mirror",
+    "rgb-mirror",
+    "led-themes"
   ],
   "Raspberry Pi": [
     "linux",
