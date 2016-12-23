@@ -348,10 +348,10 @@ For example, the `NO_ACK` flag could be useful when many events are sent (such a
 ```C++
 // SYNTAX
 
-int temperature = sensor.readTemperature();  // by way of example, not part of the API
-Particle.publish("t", temperature, NO_ACK);
-Particle.publish("t", temperature, PRIVATE, NO_ACK);
-Particle.publish("t", temperature, ttl, PRIVATE, NO_ACK);
+float temperature = sensor.readTemperature();  // by way of example, not part of the API
+Particle.publish("t", String::format("%.2f",temperature), NO_ACK);  // make sure to convert to const char * or String
+Particle.publish("t", String::format("%.2f",temperature), PRIVATE, NO_ACK);
+Particle.publish("t", String::format("%.2f",temperature), ttl, PRIVATE, NO_ACK);
 ```
 
 {{/if}} {{!-- electron --}}
