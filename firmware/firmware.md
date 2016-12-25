@@ -6521,6 +6521,45 @@ class ExternalRGB {
 ExternalRGB myRGB(D0, D1, D2);
 ```
 
+{{#if has-rgb-mirror}}
+
+### mirrorTo()
+
+_Since 0.6.1_
+
+Allows a set of PWM pins to mirror the functionality of the on-board RGB LED.
+
+```C++
+// SYNTAX
+// Common-cathode RGB LED connected to A4 (R), A5 (G), A7 (B)
+RGB.mirrorTo(A4, A5, A7);
+// Common-anode RGB LED connected to A4 (R), A5 (G), A7 (B)
+RGB.mirrorTo(A4, A5, A7, true);
+// Common-anode RGB LED connected to A4 (R), A5 (G), A7 (B)
+// Mirroring is enabled in firmware _and_ bootloader
+RGB.mirrorTo(A4, A5, A7, true, true);
+// Enable RGB LED mirroring as soon as {{device}} starts up
+STARTUP(RGB.mirrorTo(A4, A5, A7));
+```
+
+Parameters:
+  - `pinr`: PWM-enabled pin number connected to red LED (see [`analogWrite()`](#analogwrite-pwm-) for a list of PWM-capable pins)
+  - `ping`: PWM-enabled pin number connected to blue LED (see [`analogWrite()`](#analogwrite-pwm-) for a list of PWM-capable pins)
+  - `pinb`: PWM-enabled pin number connected to green LED (see [`analogWrite()`](#analogwrite-pwm-) for a list of PWM-capable pins)
+  - `invert` (optional): `true` if the connected RGB LED is common-anode, `false` if common-cathode (default).
+  - `bootloader` (optional): if `true`, the RGB mirorring settings are saved in DCT and are used by the bootloader. If `false`, any previously stored configuration is removed from the DCT and RGB mirorring only works while the firmware is running (default).
+
+### mirrorDisable()
+
+_Since 0.6.1_
+
+Disables RGB LED mirroring.
+
+Parameters:
+  - bootloader: if `true`, RGB mirorring configuration stored in DCT is also cleared disabling RGB mirroring functionality in bootloader (default)
+
+{{/if}} {{!-- has-rgb-mirror --}}
+
 {{/if}} {{!-- has-rgb --}}
 
 ## Time
