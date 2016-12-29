@@ -4866,6 +4866,93 @@ Returns the number of bytes available.
 
 {{/unless}} {{!-- core --}}
 
+{{#if has-spi-settings}}
+### SPISettings
+
+_Since 0.6.1_
+
+The `SPISettings` object specifies the SPI peripheral settings. This object can be used with [`beginTransaction()`](#begintransaction-) function and replacing separate calls to [`setClockSpeed()`](#setclockspeed), [`setBitOrder()`](#setbitorder-) and [`setDataMode()`](#setdatamode-).
+
+```C++
+// SYNTAX
+SPI.beginTransaction(SPISettings(4*MHZ, MSBFIRST, SPI_MODE0));
+// Pre-declared SPISettings object
+SPISettings settings(4*MHZ, MSBFIRST, SPI_MODE0);
+SPI.beginTransaction(settings);
+
+{{#if has-multiple-spi}}
+SPI1.beginTransaction(SPISettings(4*MHZ, MSBFIRST, SPI_MODE3));
+{{#if electron}}
+SPI2.beginTransaction(SPISettings(1*MHZ, LSBFIRST, SPI_MODE3));
+{{/if}}
+{{/if}}
+```
+
+Parameters:
+- `clockSpeed`: maximum SPI clock speed (see [`setClockSpeed()`](#setclockspeed))
+- `bitOrder`: bit order of the bits shifted out of and into the SPI bus, either `LSBFIRST` (least-sngnificant bit first) or `MSBFIRST` (most-significant bit first)
+- `dataMode`: `SPI_MODE0`, `SPI_MODE1`, `SPI_MODE2` or `SPI_MODE3` (see [`setDataMode()`](#setdatamode-))
+
+### beginTransaction()
+
+_Since 0.6.1_
+
+Reconfigures the SPI peripheral with the supplied settings (see [`SPISettings`](#spisettings) documentation).
+
+{{#if has-threading}}
+In addition to reconfiguring the SPI peripheral, `beginTransaction()` also acquires the SPI peripheral lock, blocking other threads from using the selected SPI peripheral until [`endTransaction()`](#endtransaction-) is called. See [Synchronizing Access to Shared System Resources](#synchronizing-access-to-shared-system-resources) section for additional information on shared resource locks.
+
+{{/if}} {{!-- has-threading --}}
+
+```C++
+// SYNTAX
+SPI.beginTransaction(SPISettings(4*MHZ, MSBFIRST, SPI_MODE0));
+// Pre-declared SPISettings object
+SPI.beginTransaction(settings);
+
+{{#if has-multiple-spi}}
+SPI1.beginTransaction(SPISettings(4*MHZ, MSBFIRST, SPI_MODE3));
+{{#if electron}}
+SPI2.beginTransaction(SPISettings(1*MHZ, LSBFIRST, SPI_MODE3));
+{{/if}}
+{{/if}}
+```
+
+Parameters:
+- `settings`: [`SPISettings`](#spisettings) object with chosen settings
+
+Returns: Negative integer in case of an error.
+
+### endTransaction()
+
+_Since 0.6.1_
+
+Releases the SPI peripheral.
+
+{{#if core}}
+**NOTE:** This function does nothing on {{device}}.
+{{/if}} {{!-- core --}}
+
+{{#if has-threading}}
+This function releases the SPI peripheral lock, allowing other threads to use it. See [Synchronizing Access to Shared System Resources](#synchronizing-access-to-shared-system-resources) section for additional information on shared resource locks.
+
+{{/if}} {{!-- has-threading --}}
+
+```C++
+// SYNTAX
+SPI.endTransaction();
+{{#if has-multiple-spi}}
+SPI1.endTransaction();
+{{#if electron}}
+SPI2.endTransaction();
+{{/if}}
+{{/if}}
+```
+
+Returns: Negative integer in case of an error.
+
+{{/if}} {{!-- has-spi-settings --}}
+
 {{/if}} {{!-- has-spi --}}
 
 {{#if has-i2c}}
