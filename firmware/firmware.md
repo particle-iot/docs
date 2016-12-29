@@ -4889,7 +4889,7 @@ SPI2.beginTransaction(SPISettings(1*MHZ, LSBFIRST, SPI_MODE3));
 ```
 
 Parameters:
-- `clockSpeed`: maximum SPI clock speed (see [`setClockSpeed()`](#setclockspeed-))
+- `clockSpeed`: maximum SPI clock speed (see [`setClockSpeed()`](#setclockspeed))
 - `bitOrder`: bit order of the bits shifted out of and into the SPI bus, either `LSBFIRST` (least-sngnificant bit first) or `MSBFIRST` (most-significant bit first)
 - `dataMode`: `SPI_MODE0`, `SPI_MODE1`, `SPI_MODE2` or `SPI_MODE3` (see [`setDataMode()`](#setdatamode-))
 
