@@ -54,7 +54,7 @@ Bare with me for these next steps! This is slightly complicated because of the g
 
 8. Run the ``particle keys doctor xxxxx`` command, where xxxxx is the device ID you copied just earlier. This will generate a new public/private key pair and automatically download it to your device, and also send the public key up to the Cloud.
 
-9. If ``particle keys doctor`` fails to send the keys to the cloud please contact the [Particle support](https://support.particle.io).
+9. If ``particle keys doctor`` fails to send the keys to the cloud please contact [Particle support](https://support.particle.io).
 
 Congrats, you made it to the end! now your {{device}} should be connected to the Cloud... or will be just as soon as we add your Key to the server.
 
