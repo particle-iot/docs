@@ -97,7 +97,7 @@ devicesPr.then(
 Call a function in device
 
 ```javascript
-var fnPr = particle.callFunction({ deviceId: 'DEVICE_ID', name: 'brew', argument: 'D0:HIGH', auth: token });
+var fnPr = particle.callFunction({ deviceId: 'DEVICE_ID', name: 'brew', argument: 'D0:HIGH', auth: 'token' });
 
 fnPr.then(
   function(data) {
@@ -141,7 +141,7 @@ particle.flashDevice({ deviceId: 'DEVICE_ID', files: { file1: './path/file1' }, 
 Gets all attributes for the device
 
 ```javascript
-var devicesPr = particle.getDevice({ deviceId: 'DEVICE_ID', auth: token });
+var devicesPr = particle.getDevice({ deviceId: 'DEVICE_ID', auth: 'token' });
 
 devicesPr.then(
   function(data){
@@ -158,7 +158,7 @@ devicesPr.then(
 Gets a variable value for the device
 
 ```javascript
-particle.getVariable({ deviceId: 'DEVICE_ID', name: 'temp', auth: token }).then(function(data) {
+particle.getVariable({ deviceId: 'DEVICE_ID', name: 'temp', auth: 'token' }).then(function(data) {
   console.log('Device variable retrieved successfully:', data);
 }, function(err) {
   console.log('An error occurred while getting attrs:', err);
@@ -172,7 +172,7 @@ The variable needs to be defined in your device's code.
 Removes device from the user account
 
 ```javascript
-particle.removeDevice({ deviceId: 'DEVICE_ID', auth: token }).then(function(data) {
+particle.removeDevice({ deviceId: 'DEVICE_ID', auth: 'token' }).then(function(data) {
   console.log('remove call response:', data);
 }, function(err) {
   console.log('An error occurred while removing:', err);
@@ -184,7 +184,7 @@ particle.removeDevice({ deviceId: 'DEVICE_ID', auth: token }).then(function(data
 Renames device for the user account
 
 ```javascript
-particle.renameDevice({ deviceId: 'DEVICE_ID', name: 'new-name', auth: token }).then(function(data) {
+particle.renameDevice({ deviceId: 'DEVICE_ID', name: 'new-name', auth: 'token' }).then(function(data) {
   console.log('Device renamed successfully:', data);
 }, function(err) {
   console.log('An error occurred while renaming device:', err);
@@ -196,7 +196,7 @@ particle.renameDevice({ deviceId: 'DEVICE_ID', name: 'new-name', auth: token }).
 Send a signal to the device to shout rainbows
 
 ```javascript
-particle.signalDevice({ deviceId: 'DEVICE_ID', signal: true, auth: token }).then(function(data) {
+particle.signalDevice({ deviceId: 'DEVICE_ID', signal: true, auth: 'token' }).then(function(data) {
   console.log('Device is shouting rainbows:', data);
 }, function(err) {
   console.log('Error sending a signal to the device:', err);
@@ -206,7 +206,7 @@ particle.signalDevice({ deviceId: 'DEVICE_ID', signal: true, auth: token }).then
 Send a signal to the device to stop shouting rainbows
 
 ```javascript
-particle.signalDevice({ deviceId: 'DEVICE_ID', signal: false, auth: token }).then(function(data) {
+particle.signalDevice({ deviceId: 'DEVICE_ID', signal: false, auth: 'token' }).then(function(data) {
   console.log('The LED is back to normal:', data);
 }, function(err) {
   console.log('Error sending a signal to the device:', err);
@@ -218,7 +218,7 @@ particle.signalDevice({ deviceId: 'DEVICE_ID', signal: false, auth: token }).the
 Send public key for a device to the cloud
 
 ```javascript
-particle.sendPublicKey({ deviceId: 'DEVICE_ID', key: 'key', auth: token }).then(function(data) {
+particle.sendPublicKey({ deviceId: 'DEVICE_ID', key: 'key', auth: 'token' }).then(function(data) {
   console.log('Public key sent successfully:', data);
 }, function(err) {
   console.log('Error sending public key to the device:', err);
@@ -231,21 +231,21 @@ Get event listener to an stream in the Particle cloud
 
 ```javascript
 //Get all events
-particle.getEventStream({ auth: token}).then(function(stream) {
+particle.getEventStream({ auth: 'token'}).then(function(stream) {
   stream.on('event', function(data) {
     console.log("Event: " + data);
   });
 });
 
 //Get your devices events
-particle.getEventStream({ deviceId: 'mine', auth: token }).then(function(stream) {
+particle.getEventStream({ deviceId: 'mine', auth: 'toke'n }).then(function(stream) {
   stream.on('event', function(data) {
     console.log("Event: " + data);
   });
 });
 
 //Get test event for specific device
-particle.getEventStream({ deviceId: 'DEVICE_ID', name: 'test', auth: token }).then(function(stream) {
+particle.getEventStream({ deviceId: 'DEVICE_ID', name: 'test', auth: 'token' }).then(function(stream) {
   stream.on('event', function(data) {
     console.log("Event: " + data);
   });
@@ -269,7 +269,7 @@ data is an object with the following properties
 Register an event stream in the Particle cloud
 
 ```javascript
-var publishEventPr = particle.publishEvent({ name: 'test', data: {}, auth: token });
+var publishEventPr = particle.publishEvent({ name: 'test', data: {}, auth: 'token' });
 
 publishEventPr.then(
   function(data) {
@@ -288,7 +288,7 @@ publishEventPr.then(
 Compiles files in the Particle cloud
 
 ```javascript
-var ccPr = particle.compileCode({ files: { 'main.cpp': './project/main.cpp', 'my_lib/lib.cpp': './project/my_lib/lib.cpp' }, auth: token });
+var ccPr = particle.compileCode({ files: { 'main.cpp': './project/main.cpp', 'my_lib/lib.cpp': './project/my_lib/lib.cpp' }, auth: 'token' });
 
 ccPr.then(
   function(data) {
