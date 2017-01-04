@@ -461,3 +461,17 @@ Coming Soon - more commands to make it easier to change the server settings on y
 $ particle keys server my_server.der
 Okay!  New keys in place, your device will not restart.
 ```
+
+## particle nyan
+
+That's weird, huh, I guess the description for this mysterious command is missing...
+
+```sh
+# Activates the "shouting rainbow LED" sequence
+$ particle cloud nyan
+$ particle cloud nyan my_device_id on
+$ particle cloud nyan my_device_id off
+$ particle cloud nyan all on
+$ particle cloud nyan [on/off]
+$ particle cloud nyan [device_id/all] [on/off]
+```
