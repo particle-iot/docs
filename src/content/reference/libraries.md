@@ -25,7 +25,7 @@ In general, libraries in the Particle ecosystem have the following features:
 
 ### Public Libraries
 
-The vast majority of Particle libraries are developed and maintained by the Particle community and made available for broader use via the Particle libraries ecosystem. All public libraries are made available for public consumption through our development tools and via our `Libraries API` <LINK>, described in more detail below. The availability of such a large number of libraries in a single place makes developing IoT products on the Particle platform fast and simple.
+The vast majority of Particle libraries are developed and maintained by the Particle community and made available for broader use via the Particle libraries ecosystem. All public libraries are available for public consumption through our development tools and via our `Libraries API` <LINK>, described in more detail below. The availability of such a large number of libraries in a single place makes developing IoT products on the Particle platform fast and simple.
 
 Note that a library may have its own associated open source license that limits or restricts redistribution or commercialization of the library.
 
@@ -42,18 +42,63 @@ All Particle libraries meet the same quality standards as `Verified` libraries, 
 
 ### Verified Libraries <img class="inline-header-image" src="/assets/images/verified.png">
 
-Some stuff about verified libraries.
+Verified libraries are community-contributed libraries that have been reviewed and confirmed by members of the Particle team to meet the following criteria:
+
+1. **The library is well documented.** It contains in-line comments that document proper usage of the library and contains example applications that demonstrate how to use each of the included functions.
+
+2. **The library has been reviewed for quality.** The library compiles on all  relevant hardware platforms and performs as intended. The library includes testing instructions (`verification.txt`) that anyone can follow to independently verify that the library is working as expected.
+
+3. **The library has improved visibility.** Verified libraries float to the top of library searches, improving the visibility of the library within the Particle ecosystem.
 
 ### Private Libraries <img class="inline-header-image" src="/assets/images/private.png">
 
-Some stuff about private libraries.
+Private libraries are libraries that have been uploaded to the Particle Cloud for reuse with many projects, but are _only_ visible to the individual who created and submitted the library. Private libraries can be published as public libraries at any time by the author of the library.
 
 ## Library file structure
 
+Every Particle library complies with the following file structure that will be automatically generated when a new library is initialized:
+
+- examples
+  - usage
+    - usage.ino
+- src
+  - mylibrary.cpp
+  - mylibrary.h
+- library.properties
+- README.md
+- LICENSE.txt
+
+`examples` is the folder that contains the example applications that reference your library. If your library controls LEDs, for example, you should include examples (`usage.ino`) in the `usage` subdirectory that demonstrates how someone could use the library in a typical application.
+
+`src` is the folder that contains the actual library files (`.cpp` and `.h` files) that define the library's behavior. Everything in the `src` folder will be compiled when a user adds the library to their project and compiles it.
+
+`library.properties` includes descriptive information about your library (title, description, version, author, license), and also specifies any other libraries that your library depends on. Libraries dependencies can be tagged at a particular version in this file.
+
+`README.md` provides instructions for library creators on creation and usage.
+
+`LICENSE.txt` is the file that defines the license that the public library is distributed with. All libraries in Particle's library ecosystem must include an associated license.
+
+
+
 ## Using libraries
-This is links to the other sections about using libraries.
+
+Libraries consumption is supported in each of our three primary development tools. Instructions for using libraries can be found in the documentation for each of those tools, linked below:
+
+- [Using libraries with the Web IDE](LINK)
+- [Using libraries with the Desktop IDE](LINK)
+- [Using libraries with the Command Line Interface (CLI)](LINK)
+
+## Contributing libraries
+
+Library contribution is currently supported in our Desktop IDE and via our Command Line Interface (CLI). Instructions for contributing libraries can be found in our [tutorial on library contribution](LINK), and specific instructions for using each tool can be found in the links below:
+
+- [Contributing libraries with the Desktop IDE](LINK)
+- [Contributing libraries with the Command Line Interface (CLI)](LINK)
+
 
 ## Libraries API
+
+NEED JULIEN's HELP HERE
 
 ```cpp
 // EXAMPLE USAGE
