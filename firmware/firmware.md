@@ -8219,38 +8219,61 @@ The `TRY_LOCK()` statement functions similarly to `WITH_LOCK()` but it does not 
 
 ### Waiting for the system
 
-The [waitUntil](#waituntil-) function can be used to wait for something to happen.
-Typically this is waiting for something that the system is doing,
-such as waiting for Wi-Fi to be ready or the cloud to be connected.
+Use [waitUntil](#waituntil-) to delay the application indefinitely until the condition is met.
 
+Use [waitFor](#waitfor-) to delay the application only for a period of time or the condition is met.
+
+Makes your application wait until/for something that the system is doing, such as waiting for Wi-Fi to be ready or the Cloud to be connected. **Note:** that conditions must be a function that takes a void argument `function(void)` with the `()` removed, e.g. `Particle.connected` instead of `Particle.connected()`.  Functions should return 0/false to indicate waiting, or non-zero/true to stop waiting.  `bool` or `int` are valid return types.  If a complex expression is required, a separate function should be created to evaluate that expression.
 
 #### waitUntil()
 
-Sometimes you want your application  to wait until the system is in a given state.
+To delay the application indefinitely until the condition is met.
 
-For example, you want to publish a critical event. this can be done using the `waitUntil` function:
+```
+// SYNTAX
+waitUntil(condition);
 
-```cpp
-    // wait for the cloud to be connected
-    waitUntil(Particle.connected);
-    bool sent = Particle.publish("weather", "sunny");
+// Wait until the Cloud is connected to publish a critical event.
+waitUntil(Particle.connected);
+Particle.publish("weather", "sunny");
 ```
 
-This will delay the application indefinitely until the cloud is connected. To delay the application
-only for a period of time, we can use `waitFor`
+{{#if has-wifi}}`WiFi.ready` is another common event to wait until complete.
 
 ```cpp
-    // wait for the cloud connection to be connected or timeout after 10 seconds
-    if (waitFor(Particle.connected, 10000)) {
-        bool sent = Particle.publish("weather", "sunny");
-    }
+// wait until Wi-Fi is ready
+waitUntil(WiFi.ready);
 ```
-
-`WiFi.ready` is another common event to wait for.
+{{/if}}
+{{#if has-cellular}}`Cellular.ready` is another common event to wait until complete.
 
 ```cpp
-    // wait until Wi-Fi is ready
-    waitUntil(WiFi.ready);
+// wait until Cellular is ready
+waitUntil(Cellular.ready);
+```
+{{/if}}
+
+#### waitFor()
+
+To delay the application only for a period of time or the condition is met.
+
+```cpp
+// SYNTAX
+waitFor(condition, timeout);
+
+// wait up to 10 seconds for the cloud connection to be connected.
+if (waitFor(Particle.connected, 10000)) {
+    Particle.publish("weather", "sunny");
+}
+
+// wait up to 10 seconds for the cloud connection to be disconnected.
+// Here we have to add a function to invert the condition.
+bool notConnected() {
+    return !Particle.connected();
+}
+if (waitFor(notConnected, 10000)) {
+    Particle.publish("weather", "sunny");
+}
 ```
 
 {{/if}} {{!-- has-threading --}}
