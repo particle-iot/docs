@@ -112,7 +112,12 @@ exports.metalsmith = function() {
       },
       reference: {
         pattern: 'reference/*md',
-        sortBy: 'order'
+        sortBy: 'order',
+        orderDynamicCollections: [
+          'apis',
+          'sdks',
+          'dev-tools'
+        ]
       },
       tutorials: {
         pattern: 'tutorials/:section/*.md',
