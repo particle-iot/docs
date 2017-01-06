@@ -28,7 +28,7 @@ Choose a tab at the top of the page for the type of account you would like to cr
  - [Distributors](http://www-wholesale.particle.io/wholesale-distributors) is for our reseller network. Use this account type if you would like to become an official Particle Distributor. Our application process requires relevant business information and will take up to 2 weeks to process. We may ask you to provide proof of your reseller status and reserve the right to decline any distributors. 
 
 ## Particle Distributor Requirements
-To become a Particle distributor, you must meet the following requirements: 
+To become a Particle distributor, you must meet all of the following requirements: 
 - Established distribution infrastructure including non-technical customer support and logistics support
 - E-commerce website, retail storefront or both
 - Acceptance of our Distribution Contract and standard Terms and Conditions
