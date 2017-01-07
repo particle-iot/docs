@@ -366,7 +366,6 @@ Below are a few community-written webhook examples. They have been sorted by wha
 
 ### Sending SMS (Text Messages)
 
-- [Twilio - Sending a text message using Twilio](https://community.particle.io/t/webhooks-sending-a-text-message/10560) by [hoxworth](https://community.particle.io/users/hoxworth/activity)
 - [Tropo - Sending a text message (or voice call) using Tropo](https://community.particle.io/t/webhook-tutorial-send-a-sms/11431) by [harrisonhjones](https://community.particle.io/users/harrisonhjones/activity)
 
 ### Push Notifications
