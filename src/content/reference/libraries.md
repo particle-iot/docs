@@ -29,7 +29,7 @@ The vast majority of Particle libraries are developed and maintained by the Part
 
 Note that a library may have its own associated open source license that limits or restricts redistribution or commercialization of the library.
 
-### Official Libraries <img class="inline-header-image" src="/assets/images/particle-mark.png">
+### Official Libraries <img class="inline-header-image" src="/assets/images/particle-mark.png" style="width:20px">
 
 Official libraries are libraries that were created _by members of the Particle team_ and are designed to be used with Particle hardware. Examples of Official Particle libraries include:
 
@@ -40,7 +40,7 @@ Official libraries are libraries that were created _by members of the Particle t
 
 All Particle libraries meet the same quality standards as `Verified` libraries, and appear in the library list with a Particle start next to them.
 
-### Verified Libraries <img class="inline-header-image" src="/assets/images/verified.png">
+### Verified Libraries <img class="inline-header-image" src="/assets/images/verified.png" style="width:20px">
 
 Verified libraries are community-contributed libraries that have been reviewed and confirmed by members of the Particle team to meet the following criteria:
 
@@ -50,9 +50,9 @@ Verified libraries are community-contributed libraries that have been reviewed a
 
 3. **The library has improved visibility.** Verified libraries float to the top of library searches, improving the visibility of the library within the Particle ecosystem.
 
-### Private Libraries <img class="inline-header-image" src="/assets/images/private.png">
+### Private Libraries <img class="inline-header-image" src="/assets/images/private.png" style="width:15px">
 
-Private libraries are libraries that have been uploaded to the Particle Cloud for reuse with many projects, but are _only_ visible to the individual who created and submitted the library. Private libraries can be published as public libraries at any time by the author of the library.
+Private libraries are libraries that have been uploaded to the Particle Cloud for reuse with many projects, but are _only_ visible to the individual who created and submitted the library. Private libraries can be published as public libraries at any time by the author of the library using the `particle library publish` command.
 
 ## Library file structure
 
@@ -80,7 +80,7 @@ Every Particle library complies with the following file structure that will be a
 
 
 
-## Using libraries
+## Using libraries [Coming soon!]
 
 Libraries consumption is supported in each of our three primary development tools. Instructions for using libraries can be found in the documentation for each of those tools, linked below:
 
@@ -88,7 +88,7 @@ Libraries consumption is supported in each of our three primary development tool
 - [Using libraries with the Desktop IDE](LINK)
 - [Using libraries with the Command Line Interface (CLI)](LINK)
 
-## Contributing libraries
+## Contributing libraries [Coming soon!]
 
 Library contribution is currently supported in our Desktop IDE and via our Command Line Interface (CLI). Instructions for contributing libraries can be found in our [tutorial on library contribution](LINK), and specific instructions for using each tool can be found in the links below:
 
@@ -96,7 +96,7 @@ Library contribution is currently supported in our Desktop IDE and via our Comma
 - [Contributing libraries with the Command Line Interface (CLI)](LINK)
 
 
-## Libraries API
+## Libraries API [Coming soon!]
 
 NEED JULIEN's HELP HERE
 
