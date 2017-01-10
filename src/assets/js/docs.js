@@ -234,13 +234,22 @@ Created by Zach Supalla.
       var idx = lunr.Index.load(data.index);
       $('input.search-box').keyup(function() {
         var searchQuery = this.value;
+        var specifier="";
+        if (searchQuery.indexOf(":")!=-1) { // if the searchQuery has a specifier
+          specifier = searchQuery.split(":")[0];
+          searchQuery = searchQuery.split(":")[1];
+          console.log(specifier);
+        }
         Docs.emptyResults();
         if (searchQuery === '' || searchQuery.length < 3) {
           $('.search-results').hide();
         } else {
           $('.search-results').show();
+          console.log(searchQuery);
           var results = idx.search(searchQuery);
-          Docs.buildSearchResults(results, store);
+          var sectionResults = Docs.filterSearchBySection(results,specifier);
+          var topFilteredResults = Docs.filterSearchByDevice(sectionResults);
+          Docs.buildSearchResults(topFilteredResults, store);
         }
       });
     });
@@ -264,6 +273,75 @@ Created by Zach Supalla.
     });
     return stringToTitleCase;
   };
+
+  Docs.filterSearchBySection = function(results,specifier) {
+    var pathSearch = window.location.pathname.split("/").filter(function(n){return n!=""});
+    var sectionSearch = pathSearch[0];
+
+    var sectionFilteredResults = [];
+    var allSections = ["guides","tutorials","faq","reference","support"];
+
+    if (specifier.length>0) { // if the searchQuery has a specifier
+      if (allSections.indexOf(specifier)!=-1) {  // if your specifier identifies one of the sections
+        // narrow by that section
+        for (x=0; x<results.length; x++) {
+          var params = String(results[x].ref);
+          if (params.indexOf(specifier)!=-1) {  // if the specifier is in this ref, then include it
+            sectionFilteredResults.push(results[x]);
+          }
+        }
+      }
+      else if (specifier=="all") { // if specifier is "all," no need to narrow by section
+        sectionFilteredResults = results;
+      }
+    }
+    else {  // if there is no specifier, then narrow by current section
+      for (x=0; x<results.length; x++) {
+        var params = String(results[x].ref);
+        if (params.indexOf(sectionSearch)!=-1) {  // if the this section is in this ref, then include it
+          sectionFilteredResults.push(results[x]);
+        }
+      }
+    }
+
+    return sectionFilteredResults;
+  }
+
+  Docs.filterSearchByDevice = function(results) {
+    var pathSearch = window.location.pathname.split("/").filter(function(n){return n!=""});
+    var deviceSearch = pathSearch[pathSearch.length - 1];
+    var twentyResults = results.slice(0,20);
+
+    var allDevices = ["photon","core","electron","raspberry-pi"];
+
+    var topFilteredResults = [];
+
+    if (allDevices.indexOf(deviceSearch)!=-1) { // this section has device sensitivity
+      for (x=0; x<twentyResults.length; x++) {
+        var params = String(twentyResults[x].ref);
+        var paramDeviceCount=0;
+        for (y=0; y<allDevices.length; y++) {
+          if (params.indexOf(allDevices[y])>=0) {
+            paramDeviceCount++;
+          }
+        }
+        if (paramDeviceCount==0) {  // does it have one of the allDevices in it?
+          topFilteredResults.push(twentyResults[x]);
+        }
+        else {  // check to see if it includes the deviceSearch term
+          if (String(twentyResults[x].ref).indexOf(deviceSearch) >= 0) {
+            topFilteredResults.push(twentyResults[x]);
+          }
+        }
+      }
+    }
+    else {  // this section does not have device sensitivity, do not filter by device
+      // probably should filter by some "default" device, whatever is what people most likely want to see
+      topFilteredResults=twentyResults;
+    }
+    return topFilteredResults;
+  }
+
 
   Docs.buildSearchResults = function(results, store) {
     var fiveResults = results.slice(0,5);
