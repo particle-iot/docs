@@ -954,7 +954,7 @@ Because listening mode blocks your application code on the Core, this command is
 It will always return `false`.
 {{/if}}
 {{#if photon}
-This command is only useful in connection witg `SYSTEM_THREAD(ENABLED)`, otherwise it will always return `false`, because listening mode blocks application code.
+This command is only useful in connection with `SYSTEM_THREAD(ENABLED)`, otherwise it will always return `false`, because listening mode blocks application code.
 With a dedicated system thread though `WiFi.listening()` will return `true` once `WiFi.listen()` has been called
 or the setup button has been held for 3 seconds, when the RGB LED should be blinking blue.
 It will return `false` when the device is not in listening mode.
