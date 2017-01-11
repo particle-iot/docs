@@ -245,7 +245,7 @@ For this example, I selected **Eclipse IDE for C/C++ Developers** but you can ch
 
 Eclipse doesn't have an installer or dmg file.
 
-Also, you may be prompted to install the [Legacy Java SE 6 for OS X](https://support.apple.com/kb/DL1572?locale=en_US) when you first run Eclipse. If this happens, just follow the instructions for doing so.
+Also, you may be prompted to install the Legacy Java SE 6 for OS X when you first run Eclipse. If this happens, just follow the instructions for doing so.
 
 - Upgrade to Java JDK 8 if necessary
 
