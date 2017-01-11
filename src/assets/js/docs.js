@@ -238,14 +238,12 @@ Created by Zach Supalla.
         if (searchQuery.indexOf(":")!=-1) { // if the searchQuery has a specifier
           specifier = searchQuery.split(":")[0];
           searchQuery = searchQuery.split(":")[1];
-          console.log(specifier);
         }
         Docs.emptyResults();
         if (searchQuery === '' || searchQuery.length < 3) {
           $('.search-results').hide();
         } else {
           $('.search-results').show();
-          console.log(searchQuery);
           var results = idx.search(searchQuery);
           var sectionResults = Docs.filterSearchBySection(results,specifier);
           var topFilteredResults = Docs.filterSearchByDevice(sectionResults);
@@ -279,7 +277,7 @@ Created by Zach Supalla.
     var sectionSearch = pathSearch[0];
 
     var sectionFilteredResults = [];
-    var allSections = ["guides","tutorials","faq","reference","support"];
+    var allSections = ["guide","tutorials","faq","reference","support"];
 
     if (specifier.length>0) { // if the searchQuery has a specifier
       if (allSections.indexOf(specifier)!=-1) {  // if your specifier identifies one of the sections
