@@ -173,16 +173,75 @@ Particle Libraries are easily shareable, extensible packages built by the commun
 
 You can include a library in an application by opening the library drawer, finding a library that will work for your project, and clicking the "include in app" button. This will add an `#include` statement to your code that will expose all the capabilities of the library to your code.
 
+Detailed step by step guide on how to include a library.
+
+##### Step 1 - Go to the Libraries tab
+This can be achieved by clicking on the bookmark icon on the left sidebar.
+
+![Bookmark icon](/assets/images/libraries-guide-bookmarkicon.png)
+
+##### Step 2 - Find the library you need
+
+![Bookmark icon](/assets/images/libraries-guide-librarylist.png)
+
+You should be presented with a list of libraries. The ones that have the Particle logo next to them are official Particle libraries and the one that have a checkmark are [verified libraries](). To find the library you are looking for, you can either search it by name or use the pagination buttons at the bottom.
+
+**Search**. The search happens instantly, and it is ordered the same way as the initial list (official, verified, community).
+
+![Search](/assets/images/libraries-guide-search.png)
+
+**Pagination**. This enables you to see more than one page of results. Pagination also works with search results.
+
+![Pagination](/assets/images/libraries-guide-pagination.png)
+
+##### Step 3 - Click on a library
+After clicking on the library name, you should see more detailed information about the library.
+
+![Library information](/assets/images/libraries-guide-libraryinfo.png)
+
+This includes:
+#### Library name
+The name of the library. The name must be unique, so there aren't 2 libraries with the same name.
+
+#### Library version
+The version of the library. This follows the [semver convention](http://semver.org/).
+
+#### Github link
+Where the library is hosted. The code for public libraries must be open-sourced. See how to [Contribute a library]().
+
+#### Library description
+Detailed information about the library
+
+#### Library files
+What files come with the library. This follows the [new library file structure]().
+
+#### Library examples
+Those are examples of usage. If you click on one of them, you will be shown the source code. To use it as one of your projects, click on 'Use this example'.
+
+![Library examples](/assets/images/libraries-guide-libraryexamples.png)
+
+#### Library code
+In the editor you will see all the code of the library.
+
+##### Step 4 - Click on 'Include in App'
+
+![Include in App](/assets/images/libraries-guide-includeinapp.png)
+
+If you want to use this library in your project, you can click on 'Include in App'. This will show you a list of all your apps, select the one you want and you should see a confirmation page.
+
+![Include in App](/assets/images/libraries-guide-includeinappconfirmation.png)
+
+After clicking on 'Confirm', you will be bought back to your application. The library include should appear at the top of your file. Also, you should have it in the 'Included libraries' list.
+
+![Include](/assets/images/libraries-guide-include.png)
+![Included libraries](/assets/images/libraries-guide-includedlibraries.png)
+
+**Cograts!** You are now using a Particle library in your project!
+
 Contribute a library
 ---
 
-![Validate library](/assets/images/validate-library.png)
-
-Adding a library to the IDE starts by creating an open source GitHub repository where your code will live.
-At minimum, this repository needs a `spark.json` file, some documentation, some example firmware files, and some Arduino/C++ files.
-The import and validation process is designed to be forgiving and easy to interpret, so don't be scared; the IDE will walk you through what is required to get your library set to go.
-
-The easiest way to generate library boilerplate code is to follow the instructions on the [getting started section](https://github.com/spark/uber-library-example#getting-started) of the `uber-library-example`, a project designed to illustrate and document what a library is supposed to look like.
+This functionality was moved to DEV and CLI. You can follow [this link]() to find more about contributing a library.
 
 Checking code memory usage
 ---
