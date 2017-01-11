@@ -143,7 +143,7 @@ Click the Firmware icon in the left sidebar to get started. This will direct you
 
 If you have been using the Web IDE / Particle Build to develop firmware, you are used to the process of writing, compiling, and then flashing firmware. You will follow the same high-level process here, but altered slightly to work with a group of devices. The first thing you'll need to do is compile a *firmware binary* that you will upload to your Console.
 
-Unlike compiling a binary for a single device, it is critical that the **product ID** and a **firmware version** are included in the compiled binary. Specifically, you must add `PRODUCT_ID([your product ID])` and `PRODUCT VERSION([version])` into the application code of your firmware. This is documented fully [here](https://github.com/spark/firmware/blob/develop/docs/build.md#product-id).
+Unlike compiling a binary for a single device, it is critical that the **product ID** and a **firmware version** are included in the compiled binary. Specifically, you must add `PRODUCT_ID([your product ID])` and `PRODUCT_VERSION([version])` into the application code of your firmware. This is documented fully [here](https://github.com/spark/firmware/blob/develop/docs/build.md#product-id).
 
 Add these two "macros" near the top of your main application `.ino` file, below `#include "application.h"` if it includes that line. Remember that your [product ID](#your-product-id) can be found in the navigation of your Console. The firmware version must be an integer that increments each time a new binary is uploaded to the Console. This allows the Particle Cloud to determine which devices should be running which firmwares.
 

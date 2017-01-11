@@ -59,11 +59,9 @@ Here's a list of the parts you'll need to build your Particle-connected security
 The first thing you'll need to do, if you haven't already, is to create a SD card that you can use to boot up your Raspberry Pi. If you've already set up your Pi, you can skip these steps:
 
 - Make sure your SD card is **FAT32 formatted**
-<<<<<<< HEAD
+
 - **Install an operating system** image on the SD card. We recommend Raspberry Pi's preferred operating system, Raspbian Jessie with Pixel, which you can download [here](https://www.raspberrypi.org/downloads/raspbian/).
-=======
-- **Install an operating system** image on the SD card. We recommend Raspberry Pi's preferred operating system, Raspbian Jessie with Pixel, which you can download [here](https://www.raspberrypi.org/downloads/raspbian/).
->>>>>>> master
+
 - **Install the operating system** onto your SD card by following the Raspberry Pi Foundation's official installation instructions, [here](https://www.raspberrypi.org/documentation/installation/installing-images/README.md).
 
 ### Connect your Pi to the Internet
@@ -350,7 +348,7 @@ void loop()
 
 uint8_t brightness = 32;
 uint32_t color(uint8_t r, uint8_t g, uint8_t b, uint8_t w = 0) {
-  return 
+  return
     ((((uint32_t)w * brightness) >> 8) << 24) |
     ((((uint32_t)r * brightness) >> 8) << 16) |
     ((((uint32_t)g * brightness) >> 8) << 8) |
