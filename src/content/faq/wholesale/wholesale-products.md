@@ -14,7 +14,7 @@ Particle products have different lead times based on the quantity. Please see th
 SKU | Low volume lead time | High volume lead time
 ------------ | ------------- | -------------
 ANTDUCK | Less than 50 units, Ships immediately | More than 50 units, ships in 4 - 6 weeks
-ANTELEC50 | Less than 250 units, Ships immediately | More than 200 units, ships in 4 - 6 weeks
+ANTELEC50 | Less than 250 units, Ships immediately | More than 250 units, ships in 4 - 6 weeks
 ANTFLEX | Less than 50 units, Ships immediately | More than 50 units, ships in 4 - 6 weeks
 ARDSHIELD | Less than 100 units, Ships immediately | More than 100 units, ships in 8 - 10 weeks
 ASSET (all SKUs) | Less than 50 units, Ships immediately | More than 50 units, ships in 10 - 13 weeks 
@@ -43,7 +43,7 @@ SNSRKIT (all SKUs) | Less than 100 units, Ships immediately | More than 100 unit
 SPKBTTN | Less than 100 units, Ships immediately | More than 100 units, ships in 10 - 13 weeks
 
 
-Lead times apply only from the point of payment. Requesting a lead time will not reserve stock. Only a committed non-refundable non-cancellable PO or a purchase with payment will guarantee lead times. Particle reserves the right to increase or decrease lead times at any time. 
+Lead times apply only from the point of payment. Requesting a lead time will not reserve stock. Only a committed, non-refundable, non-cancellable purchase order (PO) or a purchase with payment will guarantee lead times. Particle reserves the right to increase or decrease lead times at any time. 
 
 ## Product MOQs
 
