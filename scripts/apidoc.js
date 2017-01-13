@@ -5,8 +5,16 @@ var _ = require('lodash');
 var fs = require('fs');
 
 function trimParam(string) {
-  if (!string) return string;
-  if (string.indexOf('<p>') !== 0) return string;
+  if (!string) {
+    return string;
+  }
+  var pCount = (string.match(/<p>/g) || []).length;
+  if (pCount !== 1) {
+    return string;
+  }
+  if (string.indexOf('<p>') !== 0 || string.indexOf('</p>') !== string.length - 4) {
+    return string;
+  }
   return string.trim().slice(3, -4);
 }
 
@@ -17,7 +25,7 @@ function trimParameters(allParams) {
     params.forEach(function (param) {
       // remove unnecessary <p></p> tags from start and end
       param.type = trimParam(param.type);
-      param.description = trimParam(param.description);
+      param.description = param.description;
     });
   });
 }

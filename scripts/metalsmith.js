@@ -66,8 +66,7 @@ exports.metalsmith = function() {
     .use(cleanCSS({
       files: '**/*.css'
     }))
-    .use(msIf(
-      (!process.env.TRAVIS_PULL_REQUEST || process.env.TRAVIS_PULL_REQUEST === 'false'),
+    .use(
       apidoc({
         destFile: 'content/reference/api.md',
         apis: [
@@ -83,7 +82,7 @@ exports.metalsmith = function() {
           },
         ]
       })
-    ))
+    )
     .use(partials({
       directory: '../templates/partials'
     }))

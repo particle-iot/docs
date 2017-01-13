@@ -16,9 +16,9 @@ else
     BRANCH="production"
 fi
 
-[ -d api-node ] || git clone -b ${BRANCH} git@github.com:spark/api-node
+[ -d api-node ] || git clone -b ${BRANCH} https://github.com/spark/api-node.git
 cd api-node && git fetch && git merge origin/${BRANCH} && cd ..
 
-[ -d api-service-libraries ] || git clone git@github.com:spark/api-service-libraries
+[ -d api-service-libraries ] || git clone https://github.com/spark/api-service-libraries.git
 cd api-service-libraries && git fetch && git merge origin/master && cd ..
 

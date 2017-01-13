@@ -316,6 +316,11 @@ of the response back to your devices.
 
 ## Firmware
 {{> api group=apiGroups.Firmware}}
+## Libraries
+
+The libraries endpoints are a little different as they follow the [JSON API](http://jsonapi.org/) specification.
+
+{{> api group=apiGroups.Libraries}}
 ## Products
 {{> api group=apiGroups.Products}}
 ## Customers

@@ -25,7 +25,7 @@ In general, libraries in the Particle ecosystem have the following features:
 
 ### Public Libraries
 
-The vast majority of Particle libraries are developed and maintained by the Particle community and made available for broader use via the Particle libraries ecosystem. All public libraries are available for public consumption through our development tools and via our `Libraries API` <LINK>, described in more detail below. The availability of such a large number of libraries in a single place makes developing IoT products on the Particle platform fast and simple.
+The vast majority of Particle libraries are developed and maintained by the Particle community and made available for broader use via the Particle libraries ecosystem. All public libraries are available for public consumption through our development tools and via our `Libraries API`, described in more detail below. The availability of such a large number of libraries in a single place makes developing IoT products on the Particle platform fast and simple.
 
 Note that a library may have its own associated open source license that limits or restricts redistribution or commercialization of the library.
 
