@@ -53,12 +53,6 @@ To upgrade Particle-CLI, enter the following command:
 $ npm update -g particle-cli
 ```
 
-### Upgrading from the Spark CLI
-
-If you have already installed `spark-cli`, please uninstall it before installing the Particle CLI. Simply type: `npm uninstall -g spark-cli` into the command line.
-
-Once this is done, then run `npm install -g particle-cli` to install the Particle CLI.
-
 ### Running from source (advanced)
 
 To grab the CLI source and play with it locally
@@ -198,7 +192,7 @@ void loop() {
 ```
 
 
-Then let's compile that program to make sure it's valid code.  The CLI will automatically download the compiled binary of your program if everything went well, and show you the URL.  The server will also keep a copy of your binary around for you for about 24 hours.
+Then let's compile that program to make sure it's valid code.  The CLI will automatically download the compiled binary of your program if everything went well.
 
 
 ```sh
@@ -227,6 +221,34 @@ firmware_123456781234.bin
 attempting to flash firmware to your device my_device_name
 flash device said  {"id":"01234567890ABCDEFGH","status":"Update started"}
 ```
+
+## Working with projects
+
+When your code gets too long for one file or you want to use libraries
+that other developers have contributed to the Particle platform it's
+time to create a project.
+
+By default projects are created in your home directory under Particle or
+in your Documents folder under Particle on Windows. You can also create
+projects in the current directory.
+
+```sh
+$ particle project create
+What would you like to call your project? [myproject]: doorbell
+Would you like to create your project in the default project directory? [Y/n]: 
+Initializing project in directory /home/user/Particle/projects/doorbell...
+> A new project has been initialized in directory /home/user/Particle/projects/doorbell
+```
+
+Add a library to your new project with `particle library add name_of_library`
+
+```sh
+$ particle library add internetbutton
+> Library InternetButton 0.1.10 has been added to the project.
+> To get started using this library, run particle library view InternetButton to view the library documentation and sources.
+```
+
+You can then compile your project with `particle compile photon` or flash it directly to a device with `particle flash my_device`.
 
 ## Reference
 For more info on CLI commands, go [here](../../../../reference/cli).

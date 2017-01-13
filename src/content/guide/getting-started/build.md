@@ -184,7 +184,7 @@ This can be achieved by clicking on the bookmark icon on the left sidebar.
 
 ![Bookmark icon](/assets/images/libraries-guide-librarylist.png)
 
-You should be presented with a list of libraries. The ones that have the Particle logo next to them are official Particle libraries and the one that have a checkmark are [verified libraries](). To find the library you are looking for, you can either search it by name or use the pagination buttons at the bottom.
+You should be presented with a list of libraries. The ones that have the Particle logo next to them are official Particle libraries and the one that have a check mark are [verified libraries](). To find the library you are looking for, you can either search it by name or use the pagination buttons at the bottom.
 
 **Search**. The search happens instantly, and it is ordered the same way as the initial list (official, verified, community).
 
@@ -206,7 +206,7 @@ The name of the library. The name must be unique, so there aren't 2 libraries wi
 #### Library version
 The version of the library. This follows the [semver convention](http://semver.org/).
 
-#### Github link
+#### GitHub link
 Where the library is hosted. The code for public libraries must be open-sourced. See how to [Contribute a library]().
 
 #### Library description

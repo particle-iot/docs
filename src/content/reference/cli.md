@@ -105,7 +105,7 @@ Okay!
 
 ### Flashing a directory
 
-  You can setup a directory of source files and libraries for your project, and the CLI will use those when compiling remotely.  You can also create ```particle.include``` and / or a ```particle.ignore``` file in that directory that will tell the CLI specifically which files to use or ignore.
+  You can setup a directory of source files and libraries for your project, and the CLI will use those when compiling remotely.
 
 ```sh
 # how to compile and flash a directory of source code to your device
@@ -167,31 +167,13 @@ eg. `particle compile photon xxx` OR `particle compile p xxxx` both targets the 
 
 ### compiling a directory
 
-  You can setup a directory of source files and libraries for your project, and the CLI will use those when compiling remotely.  You can also create ```particle.include``` and / or a ```particle.ignore``` file in that directory that will tell the CLI specifically which files to use or ignore.  Those files are just plain text with one line per file name
+You can setup a directory of source files and libraries for your project, and the CLI will use those when compiling remotely.
 
 ```sh
 # how to compile a directory of source code
 $ particle compile photon my_project_folder
-```
-
-### example particle.include
-
-  The particle.include and particle.ignore files are just regular text files with one file name per line.  If your directory has one of these files, the CLI will use it to try and determine what to include or ignore when compiling your app.
-
-```text
-# particle.include
-application.cpp
-library1.h
-library1.cpp
-```
-
-### example particle.ignore
-
-```text
-# particle.ignore
-.ds_store
-logo.png
-old_version.cpp
+# by default the current directory will be compiled
+$ particle compile photon
 ```
 
 
@@ -213,6 +195,85 @@ This is useful if you are not ready to upgrade to the latest system firmware on 
 $ particle compile photon --target 0.5.0 my_project
 ```
 
+## particle project
+
+Use the project structure when you want to use libraries or you want to organize your source code better.
+
+### creating a project
+
+You will be prompted to create the project in a default directory or in the current directory. The default directory for projects is your home directory 
+
+```sh
+# create a new project
+$ particle project create
+What would you like to call your project? [myproject]: doorbell
+Would you like to create your project in the default project directory? [Y/n]: 
+Initializing project in directory /home/user/Particle/projects/doorbell...
+> A new project has been initialized in directory /home/user/Particle/projects/doorbell
+```
+
+The meta data about the project is stored in the `project.properties` file. It includes the project name and what libraries are used by the project.
+
+### compiling a project
+
+Compile or flash a project like you would another directory.
+
+```sh
+# compile the project in the current directory
+$ particle compile photon
+# flash the project in the current directory to a device
+$ particle flash my_device
+```
+
+## particle library
+
+The fantastic Particle community has created and ported many libraries to make it easier to get your project done fast. You can use those libraries in projects you compile through the command line.
+
+### particle library list
+
+Browse the list of all libraries to see what are the most popular libraries available.
+
+```
+$ particle library list
+```
+
+### particle library search
+
+Find a specific library by name. The name is case insensitive.
+
+```sh
+# seach for the InternetButton library
+$ particle library search internet
+```
+
+### particle library add
+
+First, [create a project](#creating-a-project) then in the project directory add the library. It will be added to the `project.properties`.
+
+```sh
+# add the InternetButton library
+$ particle library add internetbutton
+# add a specific version of the InternetButton library
+$ particle library add internetbutton@0.1.10
+```
+
+To upgrade to a newer version later, just do `particle library add` with the same name and the `project.properties` will be updated with the latest version of that library.
+
+### particle library view
+
+See the source and examples of a library with `particle library view`.  It will download the library and tell you where it is on the local file system.
+
+```sh
+# see the InternetButton library
+$ particle library view internetbutton
+```
+
+### particle library copy
+
+If you need to make modifications to a published library, to fix a bug or add a new feature, copy the library locally to your project. It will end up in the `lib` folder of your project.
+
+```sh
+```
 
 ## particle call
 
