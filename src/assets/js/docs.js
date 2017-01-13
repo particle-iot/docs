@@ -245,8 +245,18 @@ Created by Zach Supalla.
         } else {
           $('.search-results').show();
           var results = idx.search(searchQuery);
+
+          // filter by section
           var sectionResults = Docs.filterSearchBySection(results,specifier);
+
+          // define urls to prioritize
+          // var urlArray = ["faq/particle-devices/led-troubleshooting/photon/#blinking-green"];
+          // Docs.boostSearchByUrl(sectionResults,urlArray);
+          
+          // filter by device
           var topFilteredResults = Docs.filterSearchByDevice(sectionResults);
+          
+          // build search
           Docs.buildSearchResults(topFilteredResults, store);
         }
       });
@@ -271,6 +281,25 @@ Created by Zach Supalla.
     });
     return stringToTitleCase;
   };
+
+  Docs.boostSearchByUrl = function(results,urlArray) {
+    var resultsBoost=[];
+    // if the results you get contain a particular URL, push this URL to the top of the pile.
+    for (x=0; x<results.length; x++) {
+      // check to see if there is any overlap between the two arrays
+      var currentResult = results[x];
+      var currentUrl = String(currentResult.ref);
+      for (y=0; y<urlArray.length; y++) {
+        if (currentUrl.indexOf(urlArray[y])!=-1) {
+          // splice
+          results.splice(x-1,x);
+          // unshift
+          results.unshift(currentResult);
+        }
+      }
+    }
+    return resultsBoost;
+  }
 
   Docs.filterSearchBySection = function(results,specifier) {
     var pathSearch = window.location.pathname.split("/").filter(function(n){return n!=""});
@@ -339,7 +368,6 @@ Created by Zach Supalla.
     }
     return topFilteredResults;
   }
-
 
   Docs.buildSearchResults = function(results, store) {
     var fiveResults = results.slice(0,5);
