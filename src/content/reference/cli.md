@@ -60,7 +60,30 @@ my_device_name (0123456789ABCDEFGHI) 0 variables, and 4 functions
 
 ```
 
-## particle device add
+## particle call
+
+  Calls a function on one of your devices, use ```particle list``` to see which devices are online, and what functions are available.
+
+```sh
+# how to call a function on your device
+$ particle call 0123456789ABCDEFGHI digitalWrite "D7,HIGH"
+1
+```
+
+## particle get
+
+  Retrieves a variable value from one of your devices, use ```particle list``` to see which devices are online, and what variables are available.
+
+```sh
+# how to get a variable value from a device
+$ particle get 0123456789ABCDEFGHI temperature
+72.1
+```
+
+
+## particle device
+
+### particle device add
 
   Adds a new device to your account.
   
@@ -74,7 +97,7 @@ Successfully claimed device 0123456789ABCDEFGHI
 ```
 
 
-## particle device rename
+### particle device rename
 
   Assigns a new name to a device you've claimed
 
@@ -85,7 +108,7 @@ $ particle device rename 0123456789ABCDEFGHI "pirate frosting"
 
 
 
-## particle device remove
+### particle device remove
 
   Removes a device from your account so someone else can claim it.
 
@@ -255,6 +278,7 @@ First, [create a project](#creating-a-project) then in the project directory add
 $ particle library add internetbutton
 # add a specific version of the InternetButton library
 $ particle library add internetbutton@0.1.10
+# add the line #include "InternetButton.h" in your source code to use the library
 ```
 
 To upgrade to a newer version later, just do `particle library add` with the same name and the `project.properties` will be updated with the latest version of that library.
@@ -273,31 +297,50 @@ $ particle library view internetbutton
 If you need to make modifications to a published library, to fix a bug or add a new feature, copy the library locally to your project. It will end up in the `lib` folder of your project.
 
 ```sh
+# add a custom version of the InternetButton library to your project
+$ particle library copy internetbutton
+# add the line #include "InternetButton.h" in your source code to use the library
 ```
 
-## particle call
+If you previously had added the library with `particle library add` you should remove it from your `project.properties` to make sure you don't include 2 versions of the library: the published one and modified one.
 
-  Calls a function on one of your devices, use ```particle list``` to see which devices are online, and what functions are available.
+### particle library create
+
+To make your own library you can use `particle library init` to get a folder structure with all the files you'll need and customize it from there.
 
 ```sh
-# how to call a function on your device
-$ particle call 0123456789ABCDEFGHI digitalWrite "D7,HIGH"
-1
+$ mkdir mylib
+# create a library mylib
+$ particle library create
 ```
 
+### particle library upload
 
-
-## particle get
-
-  Retrieves a variable value from one of your devices, use ```particle list``` to see which devices are online, and what variables are available.
+After you modified a published library or you are ready to use the [library you created](#particle-library-create) in a project, you upload a private version of your library to the Particle cloud.
 
 ```sh
-# how to get a variable value from a device
-$ particle get 0123456789ABCDEFGHI temperature
-72.1
+# upload the library in the current directory
+$ particle library upload
 ```
 
-## particle webhook create
+You can upload the same private version several times until you have happy with it.
+
+If you modified an existing library you have to modify the name of the library in `library.properties`.
+
+### particle library publish
+
+When you're ready to make a new private library version available, you publish it.
+
+```sh
+# publish you library
+$ particle library publish mylib
+```
+
+Remember that it's necessary to publish every new version after uploading it before others can use it in their projects.
+
+## particle webhook
+
+### particle webhook create
 
 Create a webhook that will trigger an HTTP request when a Particle event is published to the cloud. You can pass in an `eventName`, `url`, and `deviceID`
 as arguments to the CLI command. Optionally, you can create your own custom JSON file that includes webhook params. For a full list of available
@@ -332,7 +375,8 @@ $ particle webhook create webhook.json
 }
 
 ```
-## particle webhook list
+
+### particle webhook list
 
 List all webhooks belonging to the authenticated user. This command is only available for user webhooks.
 
@@ -353,7 +397,7 @@ Found 2 hooks registered
 
 
 
-## particle webhook delete
+### particle webhook delete
 
 Delete a webhook and immediately stop it from triggering. This command is only available for user webhooks.
 
@@ -418,8 +462,10 @@ $ particle subscribe eventName 0123456789ABCDEFGHI
 ```sh
 $ particle publish eventName data
 ```
- 
-## particle serial list
+
+## particle serial
+
+### particle serial list
 
   Shows currently connected Particle Core's acting as serial devices over USB
 
@@ -429,7 +475,7 @@ $ particle serial list
 ```
 
 
-## particle serial monitor
+### particle serial monitor
 
   Starts listening to the specified serial device, and echoes to the terminal
 
@@ -441,8 +487,9 @@ $ particle serial monitor COM3
 $ particle serial monitor /dev/cu.usbmodem12345
 ```
 
+## particle keys
 
-## particle keys doctor
+### particle keys doctor
 
 Helps you update your keys, or recover your device when the keys on the server are out of sync with the keys on your device.  The ```particle keys``` tools requires both dfu-util, and openssl to be installed.
 
@@ -454,7 +501,7 @@ $ particle keys doctor 0123456789ABCDEFGHI
 ```
 
 
-## particle keys new
+### particle keys new
 
 Generates a new public / private key pair that can be used on a device.
 
@@ -474,7 +521,7 @@ running openssl rsa -in mykey.pem -outform DER -out mykey.der
 New Key Created!
 ```
 
-## particle keys load
+### particle keys load
 
 Copies a ```.DER``` formatted private key onto your device's external flash.  Make sure your device is connected and in [DFU mode](/guide/getting-started/modes/#dfu-mode-device-firmware-upgrade-).  The ```particle keys``` tools requires both dfu-util, and openssl to be installed.  Make sure any key you load is sent to the cloud with ```particle keys send device.pub.pem```
 
@@ -487,7 +534,7 @@ $ particle keys load device.der
 Saved!
 ```
 
-## particle keys save
+### particle keys save
 
 Copies a ```.DER``` formatted private key from your device's external flash to your computer.  Make sure your device is connected and in [DFU mode](/guide/getting-started/modes/#dfu-mode-device-firmware-upgrade-).  The ```particle keys``` tools requires both dfu-util, and openssl to be installed.
 
@@ -499,7 +546,7 @@ $ particle keys save device.der
 Saved!
 ```
 
-## particle keys send
+### particle keys send
 
 Sends a device's public key to the cloud for use in opening an encrypted session with your device.  Please make sure your device has the corresponding private key loaded using the ```particle keys load``` command.
 
@@ -509,7 +556,7 @@ $ particle keys send 0123456789ABCDEFGHI device.pub.pem
 submitting public key succeeded!
 ```
 
-## particle keys server
+### particle keys server
 
 Switches the server public key stored on the device's external flash.  This command is important when changing which server your device is connecting to, and the server public key helps protect your connection.   Your device will stay in DFU mode after this command, so that you can load new firmware to connect to your server.
 

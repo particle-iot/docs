@@ -29,7 +29,7 @@ The vast majority of Particle libraries are developed and maintained by the Part
 
 Note that a library may have its own associated open source license that limits or restricts redistribution or commercialization of the library.
 
-### Official Libraries<img class="inline-header-image" src="/assets/images/particle-mark.png" style="width:20px">
+### Official Libraries<img class="inline-header-image -small" src="/assets/images/particle-mark.png">
 
 Official libraries are libraries that were created _by members of the Particle team_ and are designed to be used with Particle hardware. Examples of Official Particle libraries include:
 
@@ -38,9 +38,9 @@ Official libraries are libraries that were created _by members of the Particle t
 - `relayshield` for the Relay Shield, our shield for switching high and low voltage electronics.
 - `assettracker` for the Asset Tracker Shield, our kit for tracking and locating valuable possessions
 
-All Particle libraries meet the same quality standards as `Verified` libraries, and appear in the library list with a Particle start next to them.
+All Particle libraries meet the same quality standards as [Verified](#verified-libraries) libraries, and appear in the library list with the Particle logo next to them.
 
-### Verified Libraries<img class="inline-header-image" src="/assets/images/verified.png" style="width:20px">
+### Verified Libraries<img class="inline-header-image -small" src="/assets/images/verified.png">
 
 Verified libraries are community-contributed libraries that have been reviewed and confirmed by members of the Particle team to meet the following criteria:
 
@@ -50,7 +50,7 @@ Verified libraries are community-contributed libraries that have been reviewed a
 
 3. **The library has improved visibility.** Verified libraries float to the top of library searches, improving the visibility of the library within the Particle ecosystem.
 
-### Private Libraries<img class="inline-header-image" src="/assets/images/private.png" style="width:15px">
+### Private Libraries<img class="inline-header-image -small" src="/assets/images/private.png">
 
 Private libraries are libraries that have been uploaded to the Particle Cloud for reuse with many projects, but are _only_ visible to the individual who created and submitted the library. Private libraries can be published as public libraries at any time by the author of the library using the `particle library publish` command.
 
@@ -58,19 +58,19 @@ Private libraries are libraries that have been uploaded to the Particle Cloud fo
 
 Every Particle library complies with the following file structure that will be automatically generated when a new library is initialized:
 
-- examples
-  - usage
-    - usage.ino
-- src
-  - mylibrary.cpp
-  - mylibrary.h
-- library.properties
-- README.md
-- LICENSE.txt
+- `examples`
+  - `usage`
+    - `usage.ino`
+- `src`
+  - `mylibrary.cpp`
+  - `mylibrary.h`
+- `library.properties`
+- `README.md`
+- `LICENSE.txt`
 
-`examples` is the folder that contains the example applications that reference your library. If your library controls LEDs, for example, you should include examples (`usage.ino`) in the `usage` subdirectory that demonstrates how someone could use the library in a typical application.
+`examples` is the folder that contains the example applications that reference your library with one example per directory. If your library controls LEDs, for example, you should include an example called `examples/control/control.ino` that demonstrates how someone could use the library in a typical application.
 
-`src` is the folder that contains the actual library files (`.cpp` and `.h` files) that define the library's behavior. Everything in the `src` folder will be compiled when a user adds the library to their project and compiles it.
+`src` is the folder that contains the actual library files (`.cpp` and `.h` files) that define the library's behavior. Everything in the `src` folder will be compiled when a user adds the library to their project and compiles it. You can add subfolders to `src` if you have many files in your library.
 
 `library.properties` includes descriptive information about your library (title, description, version, author, license), and also specifies any other libraries that your library depends on. Libraries dependencies can be tagged at a particular version in this file.
 
@@ -78,6 +78,23 @@ Every Particle library complies with the following file structure that will be a
 
 `LICENSE.txt` is the file that defines the license that the public library is distributed with. All libraries in Particle's library ecosystem must include an associated license.
 
+### library.properties fields
+
+- **name**
+
+- **version**
+
+- **author**
+
+- **sentence**
+
+- **paragraph**
+
+- **url**
+
+- **repository**
+
+- **architectures**
 
 
 ## Using libraries [Coming soon!]
@@ -95,24 +112,3 @@ Library contribution is currently supported in our Desktop IDE and via our Comma
 - [Contributing libraries with the Desktop IDE](#)
 - [Contributing libraries with the Command Line Interface (CLI)](#)
 
-
-## Libraries API [Coming soon!]
-
-NEED JULIEN's HELP HERE
-
-```cpp
-// EXAMPLE USAGE
-// Using SEMI_AUTOMATIC mode to get the lowest possible data usage by
-// registering functions and variables BEFORE connecting to the cloud.
-SYSTEM_MODE(SEMI_AUTOMATIC);
-
-void setup() {
-    // register cloudy things
-    Particle.function(....);
-    Particle.variable(....);
-    Particle.subscribe(....);
-    // etc...
-    // then connect
-    Particle.connect();
-}
-```
