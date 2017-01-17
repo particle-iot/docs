@@ -12,12 +12,12 @@ order: 9
 Connected devices nearly always require certifications that ensure they operate within the wireless transmission specifications determined by international regulatory bodies like the FCC and CE. This part of the guide will provide you with more information on how to leverage Particle's existing certifications to reduce the cost, complexity, and time associated with demonstrating regulatory compliance with your end product.
 
 ### Table of Contents
- - [FCC](#fcc-img-class-inline-header-image-src-assets-images-logo-fcc-png-) - United States
- - [IC](#ic-img-class-inline-header-image-src-assets-images-logo-ic-png-) - Canada
- - [CE](#ce-img-class-inline-header-image-src-assets-images-logo-ce-png-) - Europe
- - [TELEC](#telec-img-class-inline-header-image-src-assets-images-logo-telec-png-) - Japan
- - [RoHS](#rohs-img-class-inline-header-image-src-assets-images-logo-rohs-png-) - Europe
- - [UL](#ul-img-class-inline-header-image-src-assets-images-logo-ul-png-) - World
+ - [FCC](#fcc) - United States
+ - [IC](#ic) - Canada
+ - [CE](#ce) - Europe
+ - [TELEC](#telec) - Japan
+ - [RoHS](#rohs) - Europe
+ - [UL](#ul) - World
  - [Cellular Certifications](#cellular-certifications) - World
  - [Battery Certifications](#battery-certifications) - World
 
@@ -28,7 +28,7 @@ Here is a graphical representation of the current state of certification across 
 <p class="caption">It's important to understand which certifications apply to your end product. <a target="_blank" href="/assets/images/particle-certifications-160210.png">Click here</a> for a full size image. Updated 2/10/16.</p>
 
 
-## FCC <img class="inline-header-image" src="/assets/images/logo-fcc.png"/>
+## FCC<img class="inline-header-image" src="/assets/images/logo-fcc.png"/>
 ### Description
  - **Website**: [http://www.fcc.gov](http://www.fcc.gov)
  - **Wikipedia**: [https://en.wikipedia.org/wiki/FCC_Declaration_of_Conformity](https://en.wikipedia.org/wiki/FCC_Declaration_of_Conformity)
@@ -101,7 +101,7 @@ Particle's certifications will help you decrease the time and cost associated wi
 - [Certificate of Conformity - G350](/assets/pdfs/electron/fcc-g350-certificate.pdf)
 - [Test Reports - G350](/assets/pdfs/electron/fcc-g350-test-report.pdf)
 
-## IC <img class="inline-header-image" src="/assets/images/logo-ic.png"/>
+## IC<img class="inline-header-image" src="/assets/images/logo-ic.png"/>
 
 ### Description
  - **Website**: [http://www.ic.gc.ca/Intro.html](http://www.ic.gc.ca/Intro.html)
@@ -141,7 +141,7 @@ For certificates of conformity, search [here](https://sms-sgs.ic.gc.ca/search/ra
 - IC ID: **8595A-SARAG350**.
 - [Test Report](/assets/pdfs/electron/ic-g350-test-report.pdf)
 
-## CE <img class="inline-header-image" src="/assets/images/logo-ce.png"/>
+## CE<img class="inline-header-image" src="/assets/images/logo-ce.png"/>
 
 ### Description
  - **Website**: [https://ec.europa.eu/growth/single-market/ce-marking/](https://ec.europa.eu/growth/single-market/ce-marking/)
@@ -187,7 +187,7 @@ If a product has adhered to the integration guidelines and has minimal risk, it 
 - [Test Reports](/assets/pdfs/electron/ce-g350-test-reports.zip)
 
 
-## TELEC <img class="inline-header-image" src="/assets/images/logo-telec.png"/>
+## TELEC<img class="inline-header-image" src="/assets/images/logo-telec.png"/>
 
 ### Description
  - **Website**: [http://www.telec.or.jp/eng/](http://www.telec.or.jp/eng/)
@@ -202,7 +202,7 @@ Particle has completed TELEC certification to achieve compliance with Japanese R
 - [Certificate of Conformity](/assets/pdfs/p0-telec-certificate.pdf)
 - [Test Report](/assets/pdfs/p0-telec-test-report.pdf)
 
-## RoHS <img class="inline-header-image" src="/assets/images/logo-rohs.png"/>
+## RoHS<img class="inline-header-image" src="/assets/images/logo-rohs.png"/>
 
 ### Description
 - **Website**: [http://ec.europa.eu/environment/waste/rohs_eee/index_en.htm](http://ec.europa.eu/environment/waste/rohs_eee/index_en.htm)
@@ -230,7 +230,7 @@ RoHS compliance is self-declared and there is no certification body that governs
 
 - [Test Reports](/assets/pdfs/p0-rohs-test-reports.zip)
 
-## UL <img class="inline-header-image" src="/assets/images/logo-ul.png"/>
+## UL<img class="inline-header-image" src="/assets/images/logo-ul.png"/>
 
 ### Description
 <!-- remove for now because their website is broken, preventing pushing docs updates -->

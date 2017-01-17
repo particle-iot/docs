@@ -17,7 +17,7 @@ In general, libraries in the Particle ecosystem have the following features:
 
 1. **Most Arduino libraries are compatible with Particle.** We've worked hard to ensure that our [firmware API](https://docs.particle.io/reference/firmware) contains all of the most commonly used Arduino functions and firmware commands so that many Arduino libraries can be submitted into the Particle library ecosystem without modification. All of the most popular Arduino libraries are already available through our libraries system, and many others can be easily modified for compatibility.
 
-2. **Particle libraries can include and depend on other Particle libraries.** If your library requires another external library as a dependency, it is easy to specify the particular library and even version of the library that your library depends on. A good example is our `internet-button` library, which depends on the popular `neopixel` library for controlling Neopixel LEDs. You can learn more about libraries with dependencies in the `Library file structure` section below.
+2. **Particle libraries can include and depend on other Particle libraries.** If your library requires another external library as a dependency, it is easy to specify the particular library and even version of the library that your library depends on. A good example is our `internet-button` library, which depends on the popular `neopixel` library for controlling Neopixel LEDs. You can learn more about libraries with dependencies in the [Library file structure](#library-file-structure) section below.
 
 3. **Particle libraries are reliable.** In addition to building and sharing our own high quality libraries, Particle verifies and promotes high quality community libraries that are fully documented, perform reliably, and include a variety of usage examples. Using our official and verified libraries means you'll spend less time debugging and more time building your project.
 
@@ -25,11 +25,11 @@ In general, libraries in the Particle ecosystem have the following features:
 
 ### Public Libraries
 
-The vast majority of Particle libraries are developed and maintained by the Particle community and made available for broader use via the Particle libraries ecosystem. All public libraries are available for public consumption through our development tools and via our `Libraries API`, described in more detail below. The availability of such a large number of libraries in a single place makes developing IoT products on the Particle platform fast and simple.
+The vast majority of Particle libraries are developed and maintained by the Particle community and made available for broader use via the Particle libraries ecosystem. All public libraries are available for public consumption through our development tools and via our [Libraries API](/reference/api/#libraries). The availability of such a large number of libraries in a single place makes developing IoT products on the Particle platform fast and simple.
 
 Note that a library may have its own associated open source license that limits or restricts redistribution or commercialization of the library.
 
-### Official Libraries <img class="inline-header-image" src="/assets/images/particle-mark.png" style="width:20px">
+### Official Libraries<img class="inline-header-image" src="/assets/images/particle-mark.png" style="width:20px">
 
 Official libraries are libraries that were created _by members of the Particle team_ and are designed to be used with Particle hardware. Examples of Official Particle libraries include:
 
@@ -40,7 +40,7 @@ Official libraries are libraries that were created _by members of the Particle t
 
 All Particle libraries meet the same quality standards as `Verified` libraries, and appear in the library list with a Particle start next to them.
 
-### Verified Libraries <img class="inline-header-image" src="/assets/images/verified.png" style="width:20px">
+### Verified Libraries<img class="inline-header-image" src="/assets/images/verified.png" style="width:20px">
 
 Verified libraries are community-contributed libraries that have been reviewed and confirmed by members of the Particle team to meet the following criteria:
 
@@ -50,7 +50,7 @@ Verified libraries are community-contributed libraries that have been reviewed a
 
 3. **The library has improved visibility.** Verified libraries float to the top of library searches, improving the visibility of the library within the Particle ecosystem.
 
-### Private Libraries <img class="inline-header-image" src="/assets/images/private.png" style="width:15px">
+### Private Libraries<img class="inline-header-image" src="/assets/images/private.png" style="width:15px">
 
 Private libraries are libraries that have been uploaded to the Particle Cloud for reuse with many projects, but are _only_ visible to the individual who created and submitted the library. Private libraries can be published as public libraries at any time by the author of the library using the `particle library publish` command.
 
