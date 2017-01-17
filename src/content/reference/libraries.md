@@ -84,16 +84,16 @@ Every Particle library complies with the following file structure that will be a
 
 Libraries consumption is supported in each of our three primary development tools. Instructions for using libraries can be found in the documentation for each of those tools, linked below:
 
-- [Using libraries with the Web IDE](LINK)
-- [Using libraries with the Desktop IDE](LINK)
-- [Using libraries with the Command Line Interface (CLI)](LINK)
+- [Using libraries with the Web IDE](#)
+- [Using libraries with the Desktop IDE](#)
+- [Using libraries with the Command Line Interface (CLI)](#)
 
 ## Contributing libraries [Coming soon!]
 
-Library contribution is currently supported in our Desktop IDE and via our Command Line Interface (CLI). Instructions for contributing libraries can be found in our [tutorial on library contribution](LINK), and specific instructions for using each tool can be found in the links below:
+Library contribution is currently supported in our Desktop IDE and via our Command Line Interface (CLI). Instructions for contributing libraries can be found in our [tutorial on library contribution](#), and specific instructions for using each tool can be found in the links below:
 
-- [Contributing libraries with the Desktop IDE](LINK)
-- [Contributing libraries with the Command Line Interface (CLI)](LINK)
+- [Contributing libraries with the Desktop IDE](#)
+- [Contributing libraries with the Command Line Interface (CLI)](#)
 
 
 ## Libraries API [Coming soon!]
