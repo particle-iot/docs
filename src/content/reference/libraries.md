@@ -80,22 +80,23 @@ Every Particle library complies with the following file structure that will be a
 
 ### library.properties fields
 
-- **name**
+- **name** A short name for the library. It will be the name of main `.cpp` and `.h` file. It will be what users type to include the library.
 
-- **version**
+- **version** A [Semantic Versioning](http://semver.org/) version number like 1.0.0
 
-- **author**
+- **author** Your name and email like `The Author <author@example.com>`.  If there are several authors, separate them with commas.
 
-- **sentence**
+- **sentence** A one sentece description of the library that will be shown in the library browser.
 
-- **paragraph**
+- **paragraph** A longer description to be shown in the details page of the library.
 
-- **url**
+- **url** The web page that a user wanting more information would visit like a GitHub URL.
 
-- **repository**
+- **repository** The GitHub repositiory in the form `user/project`, if available.
 
-- **architectures**
+- **architectures** A comma-separated list of supported hardware boards that are compatible with your library like `particle-core`, `particle-photon`, `particle-electron`. If missing, the library will be available for all architectures.
 
+- **dependencies.<lib>** Other library that this library depends on, one line per library dependency. The value is the desired version number of the library dependency.
 
 ## Using libraries [Coming soon!]
 
@@ -105,10 +106,59 @@ Libraries consumption is supported in each of our three primary development tool
 - [Using libraries with the Desktop IDE](#)
 - [Using libraries with the Command Line Interface (CLI)](#)
 
-## Contributing libraries [Coming soon!]
+## Contributing libraries
 
-Library contribution is currently supported in our Desktop IDE and via our Command Line Interface (CLI). Instructions for contributing libraries can be found in our [tutorial on library contribution](#), and specific instructions for using each tool can be found in the links below:
+The main steps for contributing a library are preparing the structure,
+writing the code, testing the examples, uploading a private version and
+publishing to the public.
+
+Library contribution is currently supported in our Desktop IDE and via our Command Line Interface (CLI).
 
 - [Contributing libraries with the Desktop IDE](#)
-- [Contributing libraries with the Command Line Interface (CLI)](#)
+- [Contributing libraries with the Command Line Interface (CLI)](/reference/cli/#particle-library-upload)
+
+
+### Preparing the structure
+
+There are several ways to start contributing a Particle library.
+
+You can start a brand new library by generating the file structure with the Command Line Interface (CLI) using the [`particle library create`](/reference/cli/#particle-library-create) or downloading the [example library](https://github.com/spark/uber-library-example) and editing it.
+
+If you made a library in the past, you can migrate it to the new format with `particle library migrate`.
+
+You can modify an existing library by forking the code from GitHub. You can also download an existing library through the CLI with `particle library view <library_name>`. Make sure you move the library to a new folder before modifying it in that case.
+
+You can also start with an existing Arduino library from GitHub.  Particle libraries have the same structure as Arduino libraries.
+
+### Writing the code
+
+The main sources of the library go into `src/lib_name.cpp` and `src/lib_name.h`.
+
+Create at least one example `.ino` file inside a subfolder of `examples` to show people how to use the library.
+
+If you application depends on other libraries you can add those dependencies to `library.properties` with `particle library add`. For example, since the [Internet Button](/datasheets/kits/#internet-button) contains NeoPixel LEDs, the `InternetButton` library has the line `dependencies.neopixel=0.0.10` in `library.properties` to indicate this.
+
+Review the `library.properties` and `README.md` and fill in as much information as possible.
+
+### Testing the examples
+
+The best way to ensure people will use your library is to provide good examples.
+
+Once you've written the first draft of the library you can test the examples on hardware you own in the CLI with `particle library flash <my_device> examples/<example_name>` from the library folder or in the Desktop IDE by right-clicking on the example and selecting "Flash this example".
+
+### Uploading a private version
+
+Once your library is ready to go, you can upload it to Particle in the CLI with `particle library upload` from the library folder or in the Desktop IDE with "Upload library".
+
+When you upload a new private version you can use the library as usual from your own account in the Web IDE, Desktop IDE or CLI.
+
+If you find issues, you can upload another private version with the same version number.
+
+When you want to modify an existing library for your own projects only, you can stop after uploading a private version. However if you want other people to be able to use the library go on to publishing it.
+
+### Publish to the public
+
+When a version is ready for prime time, simply type `particle library publish <my_lib>` in the CLI and it will make the latest private version available to the public. You can also publish through the Desktop IDE.
+
+After this, anybody with a Particle account will be able to use your library! Thank you!
 

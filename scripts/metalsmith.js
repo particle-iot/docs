@@ -60,8 +60,7 @@ exports.metalsmith = function() {
     .use(ignore([
       '**/less/*.less',
       'content/languages/**/*',
-      'assets/images/**/*.ai',
-      'content/reference/api_old.md'
+      'assets/images/**/*.ai'
     ]))
     .use(cleanCSS({
       files: '**/*.css'
