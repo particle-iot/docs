@@ -166,18 +166,20 @@ There are a couple of other neat bells and whistles in Particle Build.  The Part
 Using Libraries
 ---
 
-![Include the library](/assets/images/choose-app-to-include-library.png)
+![Include the library](/assets/images/libraries/libraries.png)
 
-When you want to reuse code across multiple applications, Particle Libraries are your friend.
+Firmware libraries are an important part of how you connect your Photon or Electron to sensors and actuators. They make it easy to reuse code across multiple Particle projects, or to leverage code written by other people in the Particle community. As an example, firmware libraries make it easy to get data out of your DS18B20 temperature sensor without writing any of the code yourself.
 
-Particle Libraries are easily shareable, extensible packages built by the community to help with common problems many Particle applications encounter. They can easily be included in apps and shared with others.
+Particle libraries are hosted on GitHub, and can be easily accessed through through all of Particle's development tools including the Web IDE.
 
-You can include a library in an application by opening the library drawer, finding a library that will work for your project, and clicking the "include in app" button. This will add an `#include` statement to your code that will expose all the capabilities of the library to your code.
+To include a firmware library in your Particle project, open the library drawer, search for the corresponding library for your sensor or actuator, and click the `Include in App` button. Including a library in your project will add the library dependency to the `project.properties` file that will be compiled with your project when it is verified or flashed to your target device.
+
+Read on for detailed instructions to include a firmware library in your Particle application with Build.
 
 We have [a detailed reference guide about libraries](/reference/libraries/) but for now here's a step by step guide on how to include a library in the Web IDE.
 
 ##### Step 1 - Go to the Libraries tab
-This can be achieved by clicking on the bookmark icon on the left sidebar.
+Click on the libraries bookmark icon on the lefthand side of the Build interface.
 
 ![Bookmark icon](/assets/images/libraries-guide-bookmarkicon.png)
 
@@ -185,59 +187,50 @@ This can be achieved by clicking on the bookmark icon on the left sidebar.
 
 ![Bookmark icon](/assets/images/libraries-guide-librarylist.png)
 
-You should be presented with a list of libraries. The ones that have the Particle logo next to them are official Particle libraries and the one that have a check mark are [verified libraries](). To find the library you are looking for, you can either search it by name or use the pagination buttons at the bottom.
+Once you open the libraries tab, you'll be presented with a list of libraries. Libraries with the Particle logo next to them are Official libraries created by the Particle team for Particle hardware. Libraries that have a check mark next to them are Verified libraries. Verified libraries are popular community libraries that have been validated by the Particle team to ensure that they work and are well documented. Click [here](/reference/libraries/#kinds-of-libraries) To learn more about the different kinds of Particle libraries.
 
-**Search**. The search happens instantly, and it is ordered the same way as the initial list (official, verified, community).
+To find the right library for your project, you can either search for it directly or browse through popular firmware libraries using the browsing arrows at the bottom of the library list.
+
+**Search**. To search for a library, begin typing in the search bar. Search results are ranked by match with the search term with a preference for official and verified libraries.
 
 ![Search](/assets/images/libraries-guide-search.png)
 
-**Pagination**. This enables you to see more than one page of results. Pagination also works with search results.
+**Browsing arrows**. Not sure what library you're looking for? Use the browsing arrows beneath the library list to view additional Particle libraries in our firmware library manager. Pagination also works with search results.
 
 ![Pagination](/assets/images/libraries-guide-pagination.png)
 
 ##### Step 3 - Click on a library
-After clicking on the library name, you should see more detailed information about the library.
+Clicking on a library from the library list shows you more detailed information about the library.
 
 ![Library information](/assets/images/libraries-guide-libraryinfo.png)
 
-This includes:
-#### Library name
-The name of the library. The name must be unique, so there aren't 2 libraries with the same name.
+The detailed view for a library includes the following:
 
-#### Library version
-The version of the library. This follows the [semver convention](http://semver.org/).
-
-#### GitHub link
-Where the library is hosted. The code for public libraries must be open-sourced. See how to [Contribute a library](/reference/libraries/#contributing-libraries).
-
-#### Library description
-Detailed information about the library
-
-#### Library files
-What files come with the library. This follows the [new library file structure](/reference/libraries/#library-file-structure).
-
-#### Library examples
-Those are examples of usage. If you click on one of them, you will be shown the source code. To use it as one of your projects, click on 'Use this example'.
+- `Library name`: The name of the library. The name must be unique, so there aren't two libraries with the same name.
+- `Library version`: The version of the library. This follows the [semver convention](http://semver.org/).
+- `GitHub link`: Where the library is hosted. The code for public libraries must be open-sourced. See how to [Contribute a library](/reference/libraries/#contributing-libraries).
+- `Library description`: Detailed information about the library
+- `Library files`: What files come with the library. This follows the [new library file structure](/reference/libraries/#library-file-structure).
+- `Library examples`: Those are examples of usage. If you click on one of them, you will be shown the source code. To use it as one of your projects, click on 'Use this example'.
 
 ![Library examples](/assets/images/libraries-guide-libraryexamples.png)
 
-#### Library code
-In the editor you will see all the code of the library.
+- `Library source`: In the editor you will see all the code of the library.
 
 ##### Step 4 - Click on 'Include in App'
 
 ![Include in App](/assets/images/libraries-guide-includeinapp.png)
 
-If you want to use this library in your project, you can click on 'Include in App'. This will show you a list of all your apps, select the one you want and you should see a confirmation page.
+To add a firmware library to a project, click the `Include in App` button. You will be presented with a list of your Particle projects that the library can be added to. After you select your target project from the list, you'll be presented with a confirmation page.
 
 ![Include in App](/assets/images/libraries-guide-includeinappconfirmation.png)
 
-After clicking on 'Confirm', you will be bought back to your application. The library include should appear at the top of your file. Also, you should have it in the 'Included libraries' list.
+Clicking the `Confirm` button will bring you back to your Particle project. The library include should appear at the top of your project source file. It should also be listed in the `Included libraries` section of the project.
 
 ![Include](/assets/images/libraries-guide-include.png)
 ![Included libraries](/assets/images/libraries-guide-includedlibraries.png)
 
-**Cograts!** You are now using a Particle library in your project!
+**Congrats!** You have now added a firmware library to your Particle project!
 
 Contribute a library
 ---

@@ -56,6 +56,8 @@ Private libraries are libraries that have been uploaded to the Particle Cloud fo
 
 ## Library file structure
 
+### Overview
+
 Every Particle library complies with the following file structure that will be automatically generated when a new library is initialized:
 
 - `examples`
@@ -80,6 +82,7 @@ Every Particle library complies with the following file structure that will be a
 
 ### library.properties fields
 
+<<<<<<< Updated upstream
 - **name** A short name for the library. The name must be unique, so there aren't 2 libraries with the same name. It will be the name of main `.cpp` and `.h` file.
 
 - **version** A [Semantic Versioning](http://semver.org/) version number like 1.0.0
@@ -115,6 +118,7 @@ publishing to the public.
 Library contribution is currently supported in our Desktop IDE and via our Command Line Interface (CLI).
 
 - [Contributing libraries with the Desktop IDE](#)
+<<<<<<< Updated upstream
 - [Contributing libraries with the Command Line Interface (CLI)](/reference/cli/#particle-library-upload)
 
 
@@ -160,5 +164,5 @@ When you want to modify an existing library for your own projects only, you can 
 
 When a version is ready for prime time, simply type `particle library publish <my_lib>` in the CLI and it will make the latest private version available to the public. You can also publish through the Desktop IDE.
 
-After this, anybody with a Particle account will be able to use your library! Thank you!
-
+After this, anybody with a Particle account will be able to use your library!
+Thank you!
