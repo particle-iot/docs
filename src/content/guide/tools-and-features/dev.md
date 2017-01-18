@@ -179,7 +179,7 @@ The information included with each library search result includes:
 
 - `Install count`: This is the number of times a particular library has been added to a Particle project
 
-##### Step 4 - Click on 'Include in App'
+##### Step 4 - Click on `Add to current project`
 
 ![Include in App](/assets/images/libraries/libraries-dev-use.png)
 
@@ -203,51 +203,3 @@ Contribute a library
 ---
 
 This functionality was moved to the Desktop IDE and the Command Line Interface (CLI). You can follow [this link](/reference/libraries/#contributing-libraries) to find more about contributing a library.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-Currently community libraries aren't supported natively (but we're working on it). You can still use them, just follow these instructions:
-
-Find the [library you want to use](/guide/getting-started/build/photon/#using-libraries)
-
-![Link to GitHub repository]({{assets}}/images/build-libraries.jpg)
-
-View it on GitHub
-
-![Download link]({{assets}}/images/build-library-github.jpg)
-
-Download the repository
-
-![Correct files selected]({{assets}}/images/github-download.jpg)
-
-Copy files from `firmware` directory **without** `examples` to your project directory
-
-![Example project with include]({{assets}}/images/ide-selected-library.jpg)
-
-Include library adding `#include "LIBRARY.h"` to your code
-
-![include-library]({{assets}}/images/ide-include-library.jpg)
-
-
-**Also**, check out and join our [community forums](http://community.particle.io/) for advanced help, tutorials, and troubleshooting.
-
-{{#if photon}}
-[Go to Community Forums >](http://community.particle.io/c/troubleshooting)
-{{/if}}
-
-{{#if core}}
-[Go to Community Forums >](http://community.particle.io/c/troubleshooting)
-{{/if}}
