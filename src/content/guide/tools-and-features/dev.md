@@ -1,13 +1,13 @@
 ---
 word: Dev
-title: Particle Dev
+title: Desktop IDE (Dev)
 order: 2
 shared: true
 columns: two
 template: guide.hbs
 ---
 
-# Particle Dev
+# Desktop IDE (Dev)
 
 ## Getting Started
 
@@ -127,35 +127,79 @@ Now you need to fill missing information and click **Save**. Your device will go
 
 ## Using Community Libraries
 
-Currently community libraries aren't supported natively (but we're working on it). You can still use them, just follow these instructions:
+![Include the library](/assets/images/libraries/libraries-dev.png)
 
-Find the [library you want to use](/guide/getting-started/build/photon/#using-libraries)
+Firmware libraries are an important part of how you connect your Photon or Electron to sensors and actuators. They make it easy to reuse code across multiple Particle projects, or to leverage code written by other people in the Particle community. As an example, firmware libraries make it easy to get data out of your DS18B20 temperature sensor without writing any of the code yourself.
 
-![Link to GitHub repository]({{assets}}/images/build-libraries.jpg)
+Particle libraries are hosted on GitHub, and can be easily accessed through through all of Particle's development tools including the Web IDE.
 
-View it on GitHub
+To include a firmware library in your Particle project, open the library drawer in the Desktop IDE, search for the corresponding library for your sensor or actuator, click the `Use` button, then select `Add to current project`. Adding a library in your project will add the library dependency to the `project.properties` file that will be compiled with your project when it is verified or flashed to your target device.
 
-![Download link]({{assets}}/images/build-library-github.jpg)
+Read on for detailed instructions to include a firmware library in your Particle application with Build.
 
-Download the repository
+We have [a detailed reference guide about libraries](/guide/tools-and-features/libraries) but for now here's a step by step guide on how to include a library in our Desktop IDE.
 
-![Correct files selected]({{assets}}/images/github-download.jpg)
+##### Step 1 - Open the libraries tab
 
-Copy files from `firmware` directory **without** `examples` to your project directory
+Once you have opened your Particle project in the Desktop IDE, open the libraries tab by clicking on the `Browse and manage libraries` button on the lefthand toolbar.
 
-![Example project with include]({{assets}}/images/ide-selected-library.jpg)
+![Open the libraries tab](/assets/images/libraries/libraries-tab.png)
 
-Include library adding `#include "LIBRARY.h"` to your code
+##### Step 2 - Find the library you need
 
-![include-library]({{assets}}/images/ide-include-library.jpg)
+![Library list](/assets/images/libraries/libraries-list-dev.png)
 
+Once you open the libraries tab, you'll be presented with a list of libraries. Libraries with the Particle logo next to them are Official libraries created by the Particle team for Particle hardware. Libraries that have a check mark next to them are Verified libraries. Verified libraries are popular community libraries that have been validated by the Particle team to ensure that they work and are well documented. Click [here](/guide/tools-and-features/libraries/#kinds-of-libraries) To learn more about the different kinds of Particle libraries.
 
-**Also**, check out and join our [community forums](http://community.particle.io/) for advanced help, tutorials, and troubleshooting.
+To find the right library for your project, you can either search for it directly or browse through popular firmware libraries using the browsing buttons at the bottom of the library list.
 
-{{#if photon}}
-[Go to Community Forums >](http://community.particle.io/c/troubleshooting)
-{{/if}}
+**Search**. To search for a library, begin typing in the search bar. Search results are ranked by match with the search term with a preference for official and verified libraries.
 
-{{#if core}}
-[Go to Community Forums >](http://community.particle.io/c/troubleshooting)
-{{/if}}
+![Search](/assets/images/libraries/libraries-dev-search.png)
+
+**Browsing buttons**. Not sure what library you're looking for? Use the browsing arrows beneath the library list to view additional Particle libraries in our firmware library manager. Pagination also works with search results.
+
+![Pagination](/assets/images/libraries/libraries-dev-browsing.png)
+
+##### Step 3 - Library details
+
+All the information you need to select your library is available in the search result cards for each library.
+
+![Library information](/assets/images/libraries/libraries-dev-info.png)
+
+The information included with each library search result includes:
+
+- `Library name`: The name of the library. The name must be unique, so there aren't two libraries with the same name.
+- `Library version`: The version of the library. This follows the [semver convention](http://semver.org/).
+- `GitHub link`: Where the library is hosted. The code for public libraries must be open-sourced. See how to [Contribute a library](/guide/tools-and-features/libraries/#contributing-libraries).
+- `Library description`: Detailed information about the library
+- `View source`: Clicking this icon will download the source files of the library and open them in another window. Library source files include the source files for the library itself which follow the [new library file structure](/guide/tools-and-features/libraries/#library-file-structure), as well as library examples, which demonstrate usage of the library.
+
+![View source](/assets/images/libraries/libraries-dev-source.png)
+
+- `Install count`: This is the number of times a particular library has been added to a Particle project
+
+##### Step 4 - Click on `Add to current project`
+
+![Include in App](/assets/images/libraries/libraries-dev-use.png)
+
+To add a firmware library to a project, click the `Use` button. You will be presented with two options -- `Add to current project` or `Copy to current project`.
+
+- **Add to current project** will include the library as a line in your project's project.properties file and will be included by the Particle compiler when your project is verified or flashed.
+
+- **Copy to current project** will download a local copy of the source files of the library to your project's `src` folder. The library can be inspected and modified before it is sent to the Particle compiler. If you copy a library into a project, the library files must be included in the `src` folder or they will not be compiled with the rest of your project.
+
+Once you add the library to your Particle project, you should see a confirmation message
+
+![Confirmation](/assets/images/libraries/libraries-dev-confirmation.png)
+
+the library name and version number should be added to the `project.properties` file for your Particle project.
+
+![Library included](/assets/images/libraries/libraries-dev-properties.png)
+
+**Congrats!** You have now added a firmware library to your Particle project in the Desktop IDE!
+
+Contribute a library
+---
+
+This functionality was moved to the Desktop IDE and the Command Line Interface (CLI). You can follow [this link](/guide/tools-and-features/libraries/#contributing-libraries) to find more about contributing a library.

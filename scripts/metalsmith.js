@@ -60,21 +60,28 @@ exports.metalsmith = function() {
     .use(ignore([
       '**/less/*.less',
       'content/languages/**/*',
-      'assets/images/**/*.ai',
-      'content/reference/api_old.md'
+      'assets/images/**/*.ai'
     ]))
     .use(cleanCSS({
       files: '**/*.css'
     }))
-    .use(msIf(
-      (!process.env.TRAVIS_PULL_REQUEST || process.env.TRAVIS_PULL_REQUEST === 'false'),
+    .use(
       apidoc({
-        src: '../api-node/',
-        config: '../api-node/',
         destFile: 'content/reference/api.md',
-        includeFilters: ['.*[vV]iews[^.]*\\.js$', 'lib/AccessTokenController.js']
+        apis: [
+          {
+            src: '../api-node/',
+            config: '../api-node/',
+            includeFilters: ['.*[vV]iews[^.]*\\.js$', 'lib/AccessTokenController.js']
+          },
+          {
+            src: '../api-service-libraries/',
+            config: '../api-node/',
+            includeFilters: ['.*Controller\\.js$']
+          },
+        ]
       })
-    ))
+    )
     .use(partials({
       directory: '../templates/partials'
     }))
@@ -112,7 +119,12 @@ exports.metalsmith = function() {
       },
       reference: {
         pattern: 'reference/*md',
-        sortBy: 'order'
+        sortBy: 'order',
+        orderDynamicCollections: [
+          'apis',
+          'sdks',
+          'dev-tools'
+        ]
       },
       tutorials: {
         pattern: 'tutorials/:section/*.md',

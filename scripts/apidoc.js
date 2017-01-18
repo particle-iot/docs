@@ -5,8 +5,16 @@ var _ = require('lodash');
 var fs = require('fs');
 
 function trimParam(string) {
-  if (!string) return string;
-  if (string.indexOf('<p>') !== 0) return string;
+  if (!string) {
+    return string;
+  }
+  var pCount = (string.match(/<p>/g) || []).length;
+  if (pCount !== 1) {
+    return string;
+  }
+  if (string.indexOf('<p>') !== 0 || string.indexOf('</p>') !== string.length - 4) {
+    return string;
+  }
   return string.trim().slice(3, -4);
 }
 
@@ -17,7 +25,7 @@ function trimParameters(allParams) {
     params.forEach(function (param) {
       // remove unnecessary <p></p> tags from start and end
       param.type = trimParam(param.type);
-      param.description = trimParam(param.description);
+      param.description = param.description;
     });
   });
 }
@@ -130,27 +138,43 @@ function assignOrder(data) {
 
 module.exports = function(options) {
   return function(files, metalsmith, done) {
-    options.parse = true;
-    options.src = metalsmith.path(options.src);
-    if (!fs.existsSync(options.src)) {
+    var apiData = options.apis.map(function processApi(apiOptions) {
+      apiOptions.parse = true;
+      apiOptions.src = metalsmith.path(apiOptions.src);
+      if (!fs.existsSync(apiOptions.src)) {
+        return null;
+      }
+      var dirFiles = fs.readdirSync(apiOptions.src);
+      if (!dirFiles.length) {
+        return null;
+      }
+
+      var apiReturn = apidoc.createDoc(apiOptions);
+      if (!apiReturn) {
+        return new Error('Error');
+      }
+
+      //console.log(apiReturn.data);
+      return JSON.parse(apiReturn.data);
+    }).reduce(function collectApiData(data, thisData) {
+      return data.concat(thisData);
+    }, []);
+
+    // Don't continue if directory is missing
+    if (!_.all(apiData)) {
       return done();
     }
-    var dirFiles = fs.readdirSync(options.src);
-    if (!dirFiles.length) {
-      return done();
+
+    // Don't continue if error
+    var err;
+    if (err = _.find(apiData, _.isError)) {
+      return done(err);
     }
 
-    var apiReturn = apidoc.createDoc(options);
-    if (!apiReturn) {
-      return done(new Error('Error'));
-    }
+    assignOrder(apiData);
+    breakOutAlternativeOperations(apiData);
 
-    //console.log(apiReturn.data);
-    var goodData = JSON.parse(apiReturn.data);
-    assignOrder(goodData);
-    breakOutAlternativeOperations(goodData);
-
-    goodData.forEach(function (route) {
+    apiData.forEach(function (route) {
       if (route.parameter) {
         trimParameters(route.parameter.fields);
       }
@@ -160,15 +184,15 @@ module.exports = function(options) {
         nestParameters(route.success.fields);
       }
     });
-    goodData = _.sortBy(goodData, 'group');
-    apiReturn.data = _.groupBy(goodData, 'group');
-    _.each(apiReturn.data, function (routes, name) {
-      apiReturn.data[name] = _.sortBy(routes, 'order');
+
+    var apiGroups = _.groupBy(_.sortBy(apiData, 'group'), 'group');
+    _.each(apiGroups, function (routes, name) {
+      apiGroups[name] = _.sortBy(routes, 'order');
     });
 
     var destFile = files[options.destFile];
     if (destFile) {
-      destFile.apiGroups = apiReturn.data;
+      destFile.apiGroups = apiGroups;
     }
     return done();
   };
