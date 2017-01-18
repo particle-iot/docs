@@ -80,7 +80,7 @@ Every Particle library complies with the following file structure that will be a
 
 ### library.properties fields
 
-- **name** A short name for the library. It will be the name of main `.cpp` and `.h` file. It will be what users type to include the library.
+- **name** A short name for the library. The name must be unique, so there aren't 2 libraries with the same name. It will be the name of main `.cpp` and `.h` file.
 
 - **version** A [Semantic Versioning](http://semver.org/) version number like 1.0.0
 

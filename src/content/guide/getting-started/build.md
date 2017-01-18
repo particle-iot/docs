@@ -169,11 +169,12 @@ Using Libraries
 ![Include the library](/assets/images/choose-app-to-include-library.png)
 
 When you want to reuse code across multiple applications, Particle Libraries are your friend.
-Particle Libraries are easily shareable, extensible packages built by the community to help with common problems many Particle applications encounter. They are hosted on GitHub and easily pulled into the IDE where they can be included in apps and shared with others.
+
+Particle Libraries are easily shareable, extensible packages built by the community to help with common problems many Particle applications encounter. They can easily be included in apps and shared with others.
 
 You can include a library in an application by opening the library drawer, finding a library that will work for your project, and clicking the "include in app" button. This will add an `#include` statement to your code that will expose all the capabilities of the library to your code.
 
-Detailed step by step guide on how to include a library.
+We have [a detailed reference guide about libraries](/reference/libraries/) but for now here's a step by step guide on how to include a library in the Web IDE.
 
 ##### Step 1 - Go to the Libraries tab
 This can be achieved by clicking on the bookmark icon on the left sidebar.
@@ -207,13 +208,13 @@ The name of the library. The name must be unique, so there aren't 2 libraries wi
 The version of the library. This follows the [semver convention](http://semver.org/).
 
 #### GitHub link
-Where the library is hosted. The code for public libraries must be open-sourced. See how to [Contribute a library]().
+Where the library is hosted. The code for public libraries must be open-sourced. See how to [Contribute a library](/reference/libraries/#contributing-libraries).
 
 #### Library description
 Detailed information about the library
 
 #### Library files
-What files come with the library. This follows the [new library file structure]().
+What files come with the library. This follows the [new library file structure](/reference/libraries/#library-file-structure).
 
 #### Library examples
 Those are examples of usage. If you click on one of them, you will be shown the source code. To use it as one of your projects, click on 'Use this example'.
@@ -241,7 +242,7 @@ After clicking on 'Confirm', you will be bought back to your application. The li
 Contribute a library
 ---
 
-This functionality was moved to DEV and CLI. You can follow [this link]() to find more about contributing a library.
+This functionality was moved to the Desktop IDE and the Command Line Interface (CLI). You can follow [this link](/reference/libraries/#contributing-libraries) to find more about contributing a library.
 
 Checking code memory usage
 ---
