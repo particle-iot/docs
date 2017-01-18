@@ -82,7 +82,6 @@ Every Particle library complies with the following file structure that will be a
 
 ### library.properties fields
 
-<<<<<<< Updated upstream
 - **name** A short name for the library. The name must be unique, so there aren't 2 libraries with the same name. It will be the name of main `.cpp` and `.h` file.
 
 - **version** A [Semantic Versioning](http://semver.org/) version number like 1.0.0
@@ -101,13 +100,13 @@ Every Particle library complies with the following file structure that will be a
 
 - **dependencies.<lib>** Other library that this library depends on, one line per library dependency. The value is the desired version number of the library dependency.
 
-## Using libraries [Coming soon!]
+## Using libraries
 
 Libraries consumption is supported in each of our three primary development tools. Instructions for using libraries can be found in the documentation for each of those tools, linked below:
 
-- [Using libraries with the Web IDE](#)
-- [Using libraries with the Desktop IDE](#)
-- [Using libraries with the Command Line Interface (CLI)](#)
+- [Using libraries with the Web IDE](/guide/getting-started/build/)
+- [Using libraries with the Desktop IDE](/guide/tools-and-features/dev/#using-community-libraries)
+- [Using libraries with the Command Line Interface (CLI)](/reference/cli/#particle-library)
 
 ## Contributing libraries
 
@@ -117,8 +116,7 @@ publishing to the public.
 
 Library contribution is currently supported in our Desktop IDE and via our Command Line Interface (CLI).
 
-- [Contributing libraries with the Desktop IDE](#)
-<<<<<<< Updated upstream
+- [Contributing libraries with the Desktop IDE](#) - _Coming soon!_
 - [Contributing libraries with the Command Line Interface (CLI)](/reference/cli/#particle-library-upload)
 
 

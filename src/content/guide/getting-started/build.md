@@ -199,7 +199,7 @@ To find the right library for your project, you can either search for it directl
 
 ![Pagination](/assets/images/libraries-guide-pagination.png)
 
-##### Step 3 - Click on a library
+##### Step 3 - Inspect a library
 Clicking on a library from the library list shows you more detailed information about the library.
 
 ![Library information](/assets/images/libraries-guide-libraryinfo.png)
