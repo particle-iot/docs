@@ -123,7 +123,7 @@ Some requests, like generating an access token, require you to specify an OAuth
 client ID and secret using HTTP Basic authentication. Normally, when calling the
 Particle API as a single developer user to access your own account, you can use
 `particle` for both the client ID and secret as in the example above for
-[generating an access token](#generate-an-access-token).
+generating an access token.
 
 ```bash
 curl -u particle:particle https://...
