@@ -1,8 +1,10 @@
 ---
-title: Libraries
-template: reference.hbs
+word: Firmware Libraries
+title: Firmware Libraries
+order: 9
 columns: two
-order: 10
+devices: [ photon,electron,core,raspberry-pi ]
+template: guide.hbs
 ---
 
 # {{title}}

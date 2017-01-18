@@ -137,7 +137,7 @@ To include a firmware library in your Particle project, open the library drawer 
 
 Read on for detailed instructions to include a firmware library in your Particle application with Build.
 
-We have [a detailed reference guide about libraries](/reference/libraries/) but for now here's a step by step guide on how to include a library in our Desktop IDE.
+We have [a detailed reference guide about libraries](/guide/tools-and-features/libraries) but for now here's a step by step guide on how to include a library in our Desktop IDE.
 
 ##### Step 1 - Open the libraries tab
 
@@ -149,7 +149,7 @@ Once you have opened your Particle project in the Desktop IDE, open the librarie
 
 ![Library list](/assets/images/libraries/libraries-list-dev.png)
 
-Once you open the libraries tab, you'll be presented with a list of libraries. Libraries with the Particle logo next to them are Official libraries created by the Particle team for Particle hardware. Libraries that have a check mark next to them are Verified libraries. Verified libraries are popular community libraries that have been validated by the Particle team to ensure that they work and are well documented. Click [here](/reference/libraries/#kinds-of-libraries) To learn more about the different kinds of Particle libraries.
+Once you open the libraries tab, you'll be presented with a list of libraries. Libraries with the Particle logo next to them are Official libraries created by the Particle team for Particle hardware. Libraries that have a check mark next to them are Verified libraries. Verified libraries are popular community libraries that have been validated by the Particle team to ensure that they work and are well documented. Click [here](/guide/tools-and-features/libraries/#kinds-of-libraries) To learn more about the different kinds of Particle libraries.
 
 To find the right library for your project, you can either search for it directly or browse through popular firmware libraries using the browsing buttons at the bottom of the library list.
 
@@ -171,9 +171,9 @@ The information included with each library search result includes:
 
 - `Library name`: The name of the library. The name must be unique, so there aren't two libraries with the same name.
 - `Library version`: The version of the library. This follows the [semver convention](http://semver.org/).
-- `GitHub link`: Where the library is hosted. The code for public libraries must be open-sourced. See how to [Contribute a library](/reference/libraries/#contributing-libraries).
+- `GitHub link`: Where the library is hosted. The code for public libraries must be open-sourced. See how to [Contribute a library](/guide/tools-and-features/libraries/#contributing-libraries).
 - `Library description`: Detailed information about the library
-- `View source`: Clicking this icon will download the source files of the library and open them in another window. Library source files include the source files for the library itself which follow the [new library file structure](/reference/libraries/#library-file-structure), as well as library examples, which demonstrate usage of the library.
+- `View source`: Clicking this icon will download the source files of the library and open them in another window. Library source files include the source files for the library itself which follow the [new library file structure](/guide/tools-and-features/libraries/#library-file-structure), as well as library examples, which demonstrate usage of the library.
 
 ![View source](/assets/images/libraries/libraries-dev-source.png)
 
@@ -202,4 +202,4 @@ the library name and version number should be added to the `project.properties` 
 Contribute a library
 ---
 
-This functionality was moved to the Desktop IDE and the Command Line Interface (CLI). You can follow [this link](/reference/libraries/#contributing-libraries) to find more about contributing a library.
+This functionality was moved to the Desktop IDE and the Command Line Interface (CLI). You can follow [this link](/guide/tools-and-features/libraries/#contributing-libraries) to find more about contributing a library.
