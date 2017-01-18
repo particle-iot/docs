@@ -1,3 +1,6 @@
+# Reduce number of commits fetched by Travis to speed up the build
+git:
+  depth: 3
 language: node_js
 sudo: required
 node_js:

@@ -3,7 +3,6 @@ word: Firmware Libraries
 title: Firmware Libraries
 order: 9
 columns: two
-devices: [ photon,electron,core,raspberry-pi ]
 template: guide.hbs
 ---
 
