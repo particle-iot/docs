@@ -92,10 +92,10 @@ Checking “Yes” for this question will direct you to the checkout screen. If 
 
 ## Entering VAT information
 On the checkout screen you will see your shipping adress
-![Shipping Address](/assets/images/Screen Shot 2017-01-18 at 12.51.55 PM.png)
+![Shipping Address](/assets/images/shipping-address.png)
 
 Click on edit shipping address, this will open an editable version of your shipping address. You will see a field called APT/Suite or VAT#
-![VAT](/assets/images/Screen Shot 2017-01-18 at 12.56.03 PM.png)
+![VAT](/assets/images/vat-number.png)
 
 Please enter your VAT# in that field.
 
