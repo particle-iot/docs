@@ -97,7 +97,7 @@ On the checkout screen you will see your shipping adress
 Click on edit shipping address, this will open an editable version of your shipping address. You will see a field called APT/Suite or VAT#
 ![VAT](/assets/images/Screen Shot 2017-01-18 at 12.56.03 PM.png)
 
-Please neter your VAT# in that field.
+Please enter your VAT# in that field.
 
 ## Checking out with your own Shipping Account number
 If you have your own shipping account on file, apply the discount code provided by Particle in the box below. Once you enter this code, the shipping cost will go down to $0. Please note, you must select a shipping carrier that corresponds to the shipping account we have on file.
