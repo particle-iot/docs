@@ -16,9 +16,12 @@ else
     BRANCH="production"
 fi
 
-[ -d api-node ] || git clone -b ${BRANCH} https://github.com/spark/api-node.git
+# Do a shallow clone
+DEPTH=3
+
+[ -d api-node ] || git clone --depth ${DEPTH} -b ${BRANCH} https://github.com/spark/api-node.git
 cd api-node && git fetch && git merge origin/${BRANCH} && cd ..
 
-[ -d api-service-libraries ] || git clone https://github.com/spark/api-service-libraries.git
+[ -d api-service-libraries ] || git clone --depth ${DEPTH} https://github.com/spark/api-service-libraries.git
 cd api-service-libraries && git fetch && git merge origin/master && cd ..
 
