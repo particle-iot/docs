@@ -105,7 +105,7 @@ Every Particle library complies with the following file structure that will be a
 
 Libraries consumption is supported in each of our three primary development tools. Instructions for using libraries can be found in the documentation for each of those tools, linked below:
 
-- [Using libraries with the Web IDE](/guide/getting-started/build/)
+- [Using libraries with the Web IDE](/guide/getting-started/build/#using-libraries)
 - [Using libraries with the Desktop IDE](/guide/tools-and-features/dev/#using-community-libraries)
 - [Using libraries with the Command Line Interface (CLI)](/reference/cli/#particle-library)
 

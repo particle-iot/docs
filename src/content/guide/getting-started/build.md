@@ -172,7 +172,7 @@ Firmware libraries are an important part of how you connect your Photon or Elect
 
 Particle libraries are hosted on GitHub, and can be easily accessed through through all of Particle's development tools including the Web IDE.
 
-To include a firmware library in your Particle project, open the library drawer, search for the corresponding library for your sensor or actuator, and click the `Include in App` button. Including a library in your project will add the library dependency to the `project.properties` file that will be compiled with your project when it is verified or flashed to your target device.
+To include a firmware library in your Particle project, open the library drawer, search for the corresponding library for your sensor or actuator, and click the `Include in Project` button. Including a library in your project will add the library dependency to the `project.properties` file that will be compiled with your project when it is verified or flashed to your target device.
 
 Read on for detailed instructions to include a firmware library in your Particle application with Build.
 
@@ -217,13 +217,13 @@ The detailed view for a library includes the following:
 
 - `Library source`: In the editor you will see all the code of the library.
 
-##### Step 4 - Click on 'Include in App'
+##### Step 4 - Click on 'Include in Project'
 
-![Include in App](/assets/images/libraries-guide-includeinapp.png)
+![Include in Project](/assets/images/libraries-guide-includeinproject.png)
 
-To add a firmware library to a project, click the `Include in App` button. You will be presented with a list of your Particle projects that the library can be added to. After you select your target project from the list, you'll be presented with a confirmation page.
+To add a firmware library to a project, click the `Include in Project` button. You will be presented with a list of your Particle projects that the library can be added to. After you select your target project from the list, you'll be presented with a confirmation page.
 
-![Include in App](/assets/images/libraries-guide-includeinappconfirmation.png)
+![Include in Project](/assets/images/libraries-guide-includeinappconfirmation.png)
 
 Clicking the `Confirm` button will bring you back to your Particle project. The library include should appear at the top of your project source file. It should also be listed in the `Included libraries` section of the project.
 
