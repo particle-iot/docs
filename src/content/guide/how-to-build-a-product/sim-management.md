@@ -8,21 +8,23 @@ order: 10
 
 # {{title}} <sub style="color: #777;font-size:18px; bottom: 0;">beta</sub>
 
-For cellular connected Particle products, it is labor-intensive and
-unrealistic to manage SIM cards individually. SIM Management for products
+SIM Management for products
 equips product creators with the functionality needed to operate at scale with
-a large number of cellular-connected devices that use Particle SIMs. This suite of
+cellular-connected devices that use Particle SIMs. This suite of
 tools is focused on reducing friction of managing a fleet of SIM cards
 at all stages of the SIM lifecycle.
 
-Some of the ways SIM Management for products provides value include:
-- Batch-import SIM cards to your product account
-- Pre-activate SIM cards en-masse to ensure a smooth unboxing experience
+Some of the ways SIM Management provides value to product creators include:
+- **Import and pre-activate SIM cards en-masse** to ensure a smooth unboxing experience
 for end users of your products
-- View fleet-wide statistics on data usage and estimated monthly
-  data cost
-- Set fleet-wide sensible defaults, but still get granular control of
-  individual SIM cards
+- **Gain meaningful insights into data usage patterns** by viewing fleet-wide usage information
+- **Set sensible cellular defaults** to save you time and effort without
+sacrificing control of individual SIM cards
+- **Take advantage of <a href="https://www.particle.io/pricing#cellular-data" target="_blank">volume-based pricing</a>**
+for cellular service available exclusively to product creators
+
+This set of features is currently released as a beta and is subject to change.
+Please report any issues you may experience to <a href="mailto:support@particle.io">support@particle.io</a>.
 
 ## Product ownership
 
@@ -157,5 +159,55 @@ list and select "Set data limit."
 individual SIM using the Console</p>
 
 ## Monitoring your fleet
+
+Another major benefit of SIM management within a product is gaining
+fleet-wide visibility into data usage and estimated cost. Previously,
+data usage and cost was only displayed on a per-SIM basis. Now, you have
+the ability to monitor your entire fleet of SIMs in real time from the
+Console:
+
+<img src="/assets/images/sims-for-products/fleet-stats.png"
+class="full-width"/>
+
+The usage sparkline aggregates data consumption from all SIMs in your
+product for the current month, and plots usage over time. This could
+allow you to identify patterns of data usage, realize the usage impact
+of a new version of firmware, or spot unexpected spikes in consumption.
+
+Coupled with the sparkline is some additional information about your
+fleet:
+
+- **Data Usage**: represents the total number of megabytes
+consumed across your fleet of SIM cards since the start of the current
+billing period. Usage reports may be delayed by up to 1 hour.
+- **Active SIMs**: represent all the SIM cards in your fleet
+that are either active, or temporarily paused due to hitting their
+monthly data limit.
+- ** Monthly Cost**: an approximation of the amount to
+be invoiced for SIM data usage at this point in time. The actual amount
+invoiced at the end of the billing period may change as SIMs consume
+additional data.
+
+Together, this information paints a picture of how your fleet of SIM
+cards is behaving at a high level in the current month.
+
+## Individual SIM actions
+
+Although SIM management within a product provides fleet-wide control and
+insight, it does not come at the expense of individual SIM control. In
+the SIMs view, you can take the following actions on a SIM
+card:
+
+- **Set Data Limit**: Override the default data limit applied to every
+SIM in your product. This is especially helpful for SIMs that might use
+more data than average, like a SIM used for internal testing. Service
+will be temporarily paused on this SIM if the data limit is reached
+- **Deactivation**: Immediately stops any device using this SIM from
+sending or receiving data via a cellular network
+- **Reactivation/Unpausing**: Resume cellular data transfer of a
+deactivated or paused SIM and immediately enable the SIM to be used with
+a Particle device
+- **Removal from Product**: Deactivate the SIM card and dissasociate it
+from your product's billing account
 
 ## Billing and invoicing
