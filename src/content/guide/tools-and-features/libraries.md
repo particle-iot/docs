@@ -95,7 +95,7 @@ Every Particle library complies with the following file structure that will be a
 
 - **url** The web page that a user wanting more information would visit like a GitHub URL.
 
-- **repository** The GitHub repositiory in the form `user/project`, if available.
+- **repository** The git repositiory like `http://github.com/user/project.git`, if available.
 
 - **architectures** A comma-separated list of supported hardware boards that are compatible with your library like `particle-core`, `particle-photon`, `particle-electron`. If missing, the library will be available for all architectures.
 
@@ -139,7 +139,7 @@ The main sources of the library go into `src/lib_name.cpp` and `src/lib_name.h`.
 
 Create at least one example `.ino` file inside a subfolder of `examples` to show people how to use the library.
 
-If you application depends on other libraries you can add those dependencies to `library.properties` with `particle library add`. For example, since the [Internet Button](/datasheets/kits/#internet-button) contains NeoPixel LEDs, the `InternetButton` library has the line `dependencies.neopixel=0.0.10` in `library.properties` to indicate this.
+If your library depends on other libraries you can add those dependencies to `library.properties` with `particle library add`. For example, since the [Internet Button](/datasheets/kits/#internet-button) contains NeoPixel LEDs, the `InternetButton` library has the line `dependencies.neopixel=0.0.10` in `library.properties` to indicate this.
 
 Review the `library.properties` and `README.md` and fill in as much information as possible.
 
