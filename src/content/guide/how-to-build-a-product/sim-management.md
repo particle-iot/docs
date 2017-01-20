@@ -23,19 +23,48 @@ sacrificing control of individual SIM cards
 - **Take advantage of <a href="https://www.particle.io/pricing#cellular-data" target="_blank">volume-based pricing</a>**
 for cellular service available exclusively to product creators
 
+![SIM Management for
+products](/assets/images/sims-for-products/sims-for-products.png)
+<p class="caption">Seamlessly manage a large fleet of SIM cards by
+associating them with your Particle product</p>
+
 This set of features is currently released as a beta and is subject to change.
 Please report any issues you may experience to <a href="mailto:support@particle.io">support@particle.io</a>.
 
-## Product ownership
+## Introduction
+
+The SIMs view will be visible to those products that are cellular-based
+(i.e. you chose the Electron as the device type during product
+creation). It will appear as a new icon in the Console side bar when
+looking at your product. To access this view and start exploring, click on the SIM card icon ( <i
+class="im-sim-vertical-detailed"></i> ).
 
 Much like devices, SIM cards can now be associated with a Particle
-product instead of an individual Particle developer. It is important to
-be aware of a few implications of product ownership of a SIM card:
+product instead of an individual developer account. It is important to
+be aware of a 2 main implications of product ownership of a SIM card:
 
-- The owning product takes billing ownership over the SIM card and its data
-  usage costs
+- The owning product takes billing ownership over the SIM card and the data
+usage costs it incurs. This is useful to simplify billing, which is covered more in the [billing
+and invoicing section](#billing-and-invoicing)
 - Any member of the owning product team gains access to view and manage the SIM
-  (i.e. deactivation, changing the data limit)
+  (i.e. deactivation, changing the data limit). This makes it more
+  accessible for your team to access and control SIM cards when
+  necessary.
+
+The SIMs page looks like this:
+
+<img src="/assets/images/sims-for-products/sims-view.png"
+class="full-width"/>
+
+Here's a few things you will see on this page:
+- A list of your product SIM cards, with details like its
+ICCID, connection status, associated device info, data limit, and base
+country
+- Some statistics about your fleet's [aggregate data
+usage](#monitoring-your-fleet)
+- Buttons to take action on your fleet, like [importing
+new](#importing-sim-cards) SIMs into the
+product, setting a [default data limit](#default-data-limits), and more
 
 ## Importing SIM Cards
 
@@ -44,11 +73,16 @@ You can import SIM cards into your product a variety of different ways:
 - Scanning ICCIDs using your webcam
 - Uploading a file containing a list of ICCIDs
 
+
 Regardless of the method you choose, **importing SIMs into a product also
 triggers SIM activation**. This is a key benefit of managing SIM cards on
 the product level: you are able to pre-activate large numbers of SIM cards
 to ensure a smooth unboxing and setup experience for end-users of your
 product.
+
+![Import methods](/assets/images/sims-for-products/import-methods.png)
+<p class="caption">You have three ways to choose from when importing SIM
+cards into your product</p>
 
 SIM activation requires selection of a home country for billing
 purposes. For more information on home countries, please see the
@@ -211,3 +245,52 @@ a Particle device
 from your product's billing account
 
 ## Billing and invoicing
+
+This section will outline billing and invoicing information specific to
+associating a SIM with a product. For general information about how
+SIM data is billed, check out the
+[cellular billing guide](/guide/getting-started/billing/electron/).
+
+### Data plans
+
+Each SIM card will have its own individual data plan and overage cost,
+similar to what you might have experienced owning a SIM as a Particle
+developer. The particular base rate and overage cost per-MB applied to
+your SIMs will depend on 2 things:
+- **Where it is "homed"**: When importing the SIM, you choose the home
+country for a SIM card(s) where it will operate most frequently.
+Different countries have different base and overage rates for data plans
+- **How many SIMs are in the product**: Particle offers <a href="https://www.particle.io/pricing#cellular-data" target="_blank">volume-based pricing</a>
+for product creators with large fleets of SIM Cards
+
+Note that product SIM cards are **not** eligible for promotional pricing
+given to developers (i.e. 3 free months of data). Data plan details will
+be communicated clearly during the import process as well as on monthly
+invoices.
+
+**Data pooling**, or purchasing a chunk of cellular data shared by a
+fleet of SIM cards can be arranged by <a href="mailto:sales@particle.io">contacting us</a>.
+This is often useful to help product creators more accurately estimate
+cloud infrastructure costs over time.
+
+### Invoices
+
+Cellular data usage will be calculated and charged on a monthly basis,
+and included as part of your regular invoice for your <a href="https://www.particle.io/pricing">product plan</a>.
+If you are on a monthly plan, this means you will receive an invoice
+each month that contains line items for both your platform plan and SIM
+costs. For those who have chosen to be billed for their product plan
+annually, you will receive monthly invoices for cellular data and still
+maintain your annual payment schedule for your product plan.
+
+Your invoice will look something like this:
+
+<img src="/assets/images/sims-for-products/invoice-with-sims.png"
+class="full-width"/>
+
+You will notice a few things about your invoice:
+- It will contain a summary at the top, that includes a cost for your
+product plan and cellular data, which add up to your monthly total cost
+- You will see the total number of billable SIMs in your fleet as well
+as the total amount of data consumed for the month
+- Each SIM's individual cost will be itemized in the invoice details
