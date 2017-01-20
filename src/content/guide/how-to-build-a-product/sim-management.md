@@ -8,13 +8,11 @@ order: 10
 
 # {{title}} <sub style="color: #777;font-size:18px; bottom: 0;">beta</sub>
 
-SIM Management for products
-equips product creators with the functionality needed to operate at scale with
-cellular-connected devices that use Particle SIMs. This suite of
-tools is focused on reducing friction of managing a fleet of SIM cards
-at all stages of the SIM lifecycle.
+SIM Management equips product creators with the functionality needed to operate at scale with
+cellular-connected devices. This suite of tools is focused on reducing friction of
+managing a fleet of Particle SIM cards at all stages of the SIM lifecycle.
 
-Some of the ways SIM Management provides value to product creators include:
+Some of the most notable features of SIM management for products include:
 - **Import and pre-activate SIM cards en-masse** to ensure a smooth unboxing experience
 for end users of your products
 - **Gain meaningful insights into data usage patterns** by viewing fleet-wide usage information
@@ -33,18 +31,18 @@ Please report any issues you may experience to <a href="mailto:support@particle.
 
 ## Introduction
 
-The SIMs view will be visible to those products that are cellular-based
-(i.e. you chose the Electron as the device type during product
-creation). It will appear as a new icon in the Console side bar when
+The SIMs view is a new page on the Console that will be visible to those products
+that are cellular-based (i.e. you chose the Electron as the device type during product
+creation). It will appear as a SIM card icon in the Console side bar when
 looking at your product. To access this view and start exploring, click on the SIM card icon ( <i
 class="im-sim-vertical-detailed"></i> ).
 
 Much like devices, SIM cards can now be associated with a Particle
 product instead of an individual developer account. It is important to
-be aware of a 2 main implications of product ownership of a SIM card:
+be aware of 2 main implications of product ownership of a SIM card:
 
-- The owning product takes billing ownership over the SIM card and the data
-usage costs it incurs. This is useful to simplify billing, which is covered more in the [billing
+- The owning product takes billing responsibility of the SIM card and the data
+usage costs it incurs. This is useful to simplify product billing, which is covered more in the [billing
 and invoicing section](#billing-and-invoicing)
 - Any member of the owning product team gains access to view and manage the SIM
   (i.e. deactivation, changing the data limit). This makes it more
@@ -63,7 +61,7 @@ country
 - Some statistics about your fleet's [aggregate data
 usage](#monitoring-your-fleet)
 - Buttons to take action on your fleet, like [importing
-new](#importing-sim-cards) SIMs into the
+new SIMs](#importing-sim-cards) into the
 product, setting a [default data limit](#default-data-limits), and more
 
 ## Importing SIM Cards
@@ -81,7 +79,7 @@ to ensure a smooth unboxing and setup experience for end-users of your
 product.
 
 ![Import methods](/assets/images/sims-for-products/import-methods.png)
-<p class="caption">You have three ways to choose from when importing SIM
+<p class="caption">You have methods to choose from when importing SIM
 cards into your product</p>
 
 SIM activation requires selection of a home country for billing
@@ -94,8 +92,7 @@ importing the desired ICCIDs:
 
 You should be sure to choose the country that your SIMs will be
 operating in most often to avoid incurring unnecessary roaming charges.
-You also will see the data plan cost details on this page.
-
+You also will see the SIMs' data plan cost details on this page.
 If you have a fleet of SIMs that operate in different countries, we
 suggest importing each country's SIM cards separately so they can be
 homed accurately.
@@ -107,7 +104,7 @@ first month's 1MB data plan on your next invoice.
 ### Typing or scanning ICCIDs
 
 For importing smaller numbers of SIM cards, it makes more sense to type
-or scan ICCIDs to import into your product. Either way, you can find the
+or scan ICCIDs to import into your product. You can find the
 full ICCID number on the back of your Particle SIM carrier card, below the
 barcode. Alternatively, the ICCID is also printed directly on the micro
 SIM, if it has already been popped out of it's SIM carrier card.
