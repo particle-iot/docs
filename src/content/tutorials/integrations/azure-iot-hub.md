@@ -40,6 +40,9 @@ analytics tool to enable predictive maintenance
 - <a href="https://azure.microsoft.com/en-us/services/notification-hubs/"
   target="_blank">Notification Hubs</a>: A scalable, push notification
 engine for quickly sending millions of messages
+- <a href="https://powerbi.microsoft.com/en-us/"
+  target="_blank">Power BI</a>: A suite of business analytics tools to 
+analyze data and share insights. 
 
 <img
 src="/assets/images/azure-iot-hub/particle+iot-hub-architecture.png"
@@ -105,8 +108,8 @@ message stream in IoT Hub.
 
 The Particle cloud must successfully authenticate with your IoT Hub to
 have permissions to both manage the device identity registry as well as publish
-device-to-cloud messages. This is done through the use of shared access
-policies.
+device-to-cloud messages. This is done through the use of <a href="https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-devguide-security" target="_blank">shared access
+policies</a>.
 
 From IoT Hub's documentation:
 
