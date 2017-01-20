@@ -89,6 +89,8 @@ Every Particle library complies with the following file structure that will be a
 
 - **author** Your name and email like `The Author <author@example.com>`.  If there are several authors, separate them with commas.
 
+- **license** The acronym for the license this library is released under, such as GPL, MIT, Apache-2.
+
 - **sentence** A one sentece description of the library that will be shown in the library browser.
 
 - **paragraph** A longer description to be shown in the details page of the library.
