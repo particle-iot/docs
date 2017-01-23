@@ -322,13 +322,17 @@ Created by Zach Supalla.
         sectionFilteredResults = results;
       }
     }
-    else {  // if there is no specifier, then narrow by current section
-      for (x=0; x<results.length; x++) {
-        var params = String(results[x].ref);
-        if (params.indexOf(sectionSearch)!=-1) {  // if the this section is in this ref, then include it
-          sectionFilteredResults.push(results[x]);
-        }
-      }
+    // else {  // if there is no specifier, then narrow by current section
+    //   for (x=0; x<results.length; x++) {
+    //     var params = String(results[x].ref);
+    //     if (params.indexOf(sectionSearch)!=-1) {  // if the this section is in this ref, then include it
+    //       sectionFilteredResults.push(results[x]);
+    //     }
+    //   }
+    // }
+
+    else { // if there is no specifier, then search all
+      sectionFilteredResults = results;
     }
 
     return sectionFilteredResults;
