@@ -47,7 +47,7 @@ To complete all the examples, you will need the following materials:
   * or the local [Particle Dev](http://particle.io/dev)
 * **Experience**
 {{#if raspberry-pi}}
-  * [Connecting your Raspberry Pi to Particle](http://localhost:8080/guide/getting-started/start)
+  * [Connecting your Raspberry Pi to Particle](/guide/getting-started/start)
 {{else}}
   {{#if electron}}
   * Connecting your Device [with your browser or smartphone](/guide/getting-started/start/electron/)
