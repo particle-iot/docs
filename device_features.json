@@ -42,7 +42,6 @@
     "eeprom",
     "button-mirror",
     "rgb-mirror",
-    "led-themes",
     "spi-settings"
   ],
   "Electron": [
@@ -73,7 +72,6 @@
     "eeprom",
     "button-mirror",
     "rgb-mirror",
-    "led-themes",
     "spi-settings"
   ],
   "Raspberry Pi": [
