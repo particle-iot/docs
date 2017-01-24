@@ -6641,6 +6641,561 @@ Parameters:
 
 {{/if}} {{!-- has-rgb-mirror --}}
 
+## LED Signaling
+
+_Since 0.6.1_
+
+This library allows applications to share control over the on-device RGB LED with the system firmware in a non-exclusive way, making it possible for the system to use the LED for various important indications, such as cloud connection errors, even if an application already uses the LED for its own signaling. For this to work, an application needs to assign a [_priority_](#ledpriority-enum) to every application-specific LED indication (using instances of the [`LEDStatus`](#ledstatus-class) class), and the system will ensure that the LED only shows a highest priority indication at any moment of time.
+
+The library also allows to set a custom [_theme_](#ledsystemtheme-class) for the system LED signaling. Refer to the [Device Modes](/guide/getting-started/modes) and [LEDSignal Enum](#ledsignal-enum) sections for information about default LED signaling patterns used by the system.
+
+**Note:** Consider using this library instead of the [RGB API](#rgb) for all application-specific LED signaling, unless a low-level control over the LED is required.
+
+### LEDStatus Class
+
+This class allows to define a _LED status_ that represents an application-specific LED indication. Every LED status is described by a signaling [pattern](#ledpattern-enum), [speed](#ledspeed-enum) and [color](#rgb-colors) parameters. Typically, applications use separate status instance for each application state that requires LED indication.
+
+```cpp
+// EXAMPLE - defining and using a LED status
+LEDStatus blinkRed(RGB_COLOR_RED, LED_PATTERN_BLINK);
+
+void setup() {
+    // Blink red for 3 seconds after connecting to the Cloud
+    blinkRed.setActive(true);
+    delay(3000);
+    blinkRed.setActive(false);
+}
+
+void loop() {
+}
+```
+
+In the provided example, the application defines a single LED status (`blinkRed`) and activates it for 3 seconds, causing the LED to start blinking in red color. Note that there is no need to toggle the LED on and off manually – this is done automatically by the system, according to the parameters passed to the status instance.
+
+#### LEDStatus()
+
+Constructs a status instance. Initially, a newly constructed status instance is set to inactive state and doesn't affect the LED until [setActive()](#setactive-) method is called by an application to activate this instance.
+
+```cpp
+// SYNTAX
+LEDStatus::LEDStatus(uint32_t color = RGB_COLOR_WHITE, LEDPattern pattern = LED_PATTERN_SOLID, LEDPriority priority = LED_PRIORITY_NORMAL); // 1
+LEDStatus::LEDStatus(uint32_t color, LEDPattern pattern, LEDSpeed speed, LEDPriority priority = LED_PRIORITY_NORMAL); // 2
+LEDStatus::LEDStatus(uint32_t color, LEDPattern pattern, uint16_t period, LEDPriority priority = LED_PRIORITY_NORMAL); // 3
+LEDStatus::LEDStatus(LEDPattern pattern, LEDPriority priority = LED_PRIORITY_NORMAL); // 4
+
+// EXAMPLE - constructing LEDStatus instance
+// Solid green; normal priority (default)
+LEDStatus status1(RGB_COLOR_GREEN);
+// Blinking blue; normal priority (default)
+LEDStatus status2(RGB_COLOR_BLUE, LED_PATTERN_BLINK);
+// Fast blinking blue; normal priority (default)
+LEDStatus status3(RGB_COLOR_BLUE, LED_PATTERN_BLINK, LED_SPEED_FAST);
+// Breathing red with custom pattern period; important priority
+LEDStatus status4(RGB_COLOR_RED, LED_PATTERN_FADE, 1000 /* 1 second */, LED_PRIORITY_IMPORTANT);
+```
+
+Parameters:
+
+  * `color` : [RGB color](#rgb-colors) (`uint32_t`, default value is `RGB_COLOR_WHITE`)
+  * `pattern` : pattern type ([`LEDPattern`](#ledpattern-enum), default value is `LED_PATTERN_SOLID`)
+  * `speed` : pattern speed ([`LEDSpeed`](#ledspeed-enum), default value is `LED_SPEED_NORMAL`)
+  * `period` : pattern period in milliseconds (`uint16_t`)
+  * `priority` : status priority ([`LEDPriority`](#ledpriority-enum), default value is `LED_PRIORITY_NORMAL`)
+
+#### setColor()
+
+Sets status color.
+
+```cpp
+// SYNTAX
+void LEDStatus::setColor(uint32_t color);
+uint32_t LEDStatus::color() const;
+
+// EXAMPLE - setting and getting status color
+LEDStatus status;
+status.setColor(RGB_COLOR_BLUE);
+uint32_t color = status.color(); // Returns 0x000000ff
+```
+
+Parameters:
+
+  * `color` : [RGB color](#rgb-colors) (`uint32_t`)
+
+#### color()
+
+Returns status color (`uint32_t`).
+
+#### setPattern()
+
+Sets pattern type.
+
+```cpp
+// SYNTAX
+void LEDStatus::setPattern(LEDPattern pattern);
+LEDPattern LEDStatus::pattern() const;
+
+// EXAMPLE - setting and getting pattern type
+LEDStatus status;
+status.setPattern(LED_PATTERN_BLINK);
+LEDPattern pattern = status.pattern(); // Returns LED_PATTERN_BLINK
+```
+
+Parameters:
+
+  * `pattern` : pattern type ([`LEDPattern`](#ledpattern-enum))
+
+#### pattern()
+
+Returns pattern type ([`LEDPattern`](#ledpattern-enum)).
+
+#### setSpeed()
+
+Sets pattern speed. This method resets pattern period to a system-default value that depends on specified pattern speed and current pattern type set for this status instance.
+
+```cpp
+// SYNTAX
+void LEDStatus::setSpeed(LEDSpeed speed);
+
+// EXAMPLE - setting pattern speed
+LEDStatus status;
+status.setSpeed(LED_SPEED_FAST);
+```
+
+Parameters:
+
+  * `speed` : pattern speed ([`LEDSpeed`](#ledspeed-enum))
+
+#### setPeriod()
+
+Sets pattern period. Pattern period specifies duration of a signaling pattern in milliseconds. For example, given the pattern type `LED_PATTERN_BLINK` (blinking color) with period set to 1000 milliseconds, the system will toggle the LED on and off every 500 milliseconds.
+
+```cpp
+// SYNTAX
+void LEDStatus::setPeriod(uint16_t period);
+uint16_t LEDStatus::period() const;
+
+// EXAMPLE - setting and getting pattern period
+LEDStatus status;
+status.setPeriod(1000); // 1 second
+uint16_t period = status.period(); // Returns 1000
+```
+
+Parameters:
+
+  * `period` : pattern period in milliseconds (`uint16_t`)
+
+#### period()
+
+Returns pattern period in milliseconds (`uint16_t`).
+
+#### setPriority()
+
+Sets status priority. Note that a newly assigned priority will take effect only after [`setActive()`](#setactive-) method is called for the next time.
+
+```cpp
+// SYNTAX
+void LEDStatus::setPriority(LEDPriority priority);
+LEDPriority LEDStatus::priority() const;
+
+// EXAMPLE - setting and getting status priority
+LEDStatus status;
+status.setPriority(LED_PRIORITY_IMPORTANT);
+LEDPriority priority = status.priority(); // Returns LED_PRIORITY_IMPORTANT
+```
+
+Parameters:
+
+  * `priority` : status priority ([`LEDPriority`](#ledpriority-enum))
+
+#### priority()
+
+Returns status priority ([`LEDPriority`](#ledpriority-enum)).
+
+#### on()
+
+Turns the LED on.
+
+```cpp
+// SYNTAX
+void LEDStatus::on();
+void LEDStatus::off();
+void LEDStatus::toggle();
+bool LEDStatus::isOn() const;
+bool LEDStatus::isOff() const;
+
+// EXAMPLE - turning the LED on and off
+LEDStatus status;
+status.off(); // Turns the LED off
+bool on = status.isOn(); // Returns false
+
+status.on(); // Turns the LED on
+on = status.isOn(); // Returns true
+
+status.toggle(); // Toggles the LED
+on = status.isOn(); // Returns false
+status.toggle();
+on = status.isOn(); // Returns true
+```
+
+#### off()
+
+Turns the LED off.
+
+#### toggle()
+
+Toggles the LED on or off.
+
+#### isOn()
+
+Returns `true` if the LED is turned on, or `false` otherwise.
+
+#### isOff()
+
+Returns `true` if the LED turned off, or `false` otherwise.
+
+#### setActive()
+
+Activates or deactivates this status instance. The overloaded method that takes `priority` argument assigns a new priority to this status instance before activating it.
+
+```cpp
+// SYNTAX
+void LEDStatus::setActive(bool active = true); // 1
+void LEDStatus::setActive(LEDPriority priority); // 2
+bool LEDStatus::isActive() const;
+
+// EXAMPLE - activating and deactivating a status instance
+LEDStatus status;
+status.setActive(true); // Activates status
+bool active = status.isActive(); // Returns true
+
+status.setActive(false); // Deactivates status
+active = status.isActive(); // Returns false
+
+status.setActive(LED_PRIORITY_IMPORTANT); // Activates status with new priority
+LEDPriority priority = status.priority(); // Returns LED_PRIORITY_IMPORTANT
+active = status.isActive(); // Returns true
+```
+
+Parameters:
+
+  * `active` : whether the status should be activated (`true`) or deactivated (`false`). Default value is `true`
+  * `priority` : status priority ([`LEDPriority`](#ledpriority-enum))
+
+#### isActive()
+
+Returns `true` if this status is active, or `false` otherwise.
+
+#### Custom Patterns
+
+`LEDStatus` class can be subclassed to implement a custom signaling pattern.
+
+```cpp
+// EXAMPLE - implementing a custom signaling pattern
+class CustomStatus: public LEDStatus {
+public:
+    explicit CustomStatus(LEDPriority priority) :
+        LEDStatus(LED_PATTERN_CUSTOM, priority),
+        colorIndex(0),
+        colorTicks(0) {
+    }
+
+protected:
+    virtual void update(system_tick_t ticks) override {
+        // Change status color every 300 milliseconds
+        colorTicks += ticks;
+        if (colorTicks > 300) {
+            if (++colorIndex == colorCount) {
+                colorIndex = 0;
+            }
+            setColor(colors[colorIndex]);
+            colorTicks = 0;
+        }
+    }
+
+private:
+    size_t colorIndex;
+    system_tick_t colorTicks;
+
+    static const uint32_t colors[];
+    static const size_t colorCount;
+};
+
+const uint32_t CustomStatus::colors[] = {
+    RGB_COLOR_MAGENTA,
+    RGB_COLOR_BLUE,
+    RGB_COLOR_CYAN,
+    RGB_COLOR_GREEN,
+    RGB_COLOR_YELLOW
+};
+
+const size_t CustomStatus::colorCount =
+    sizeof(CustomStatus::colors) /
+    sizeof(CustomStatus::colors[0]);
+
+CustomStatus customStatus(LED_PRIORITY_IMPORTANT);
+
+void setup() {
+    // Activate custom status
+    customStatus.setActive(true);
+}
+
+void loop() {
+}
+```
+
+In the provided example, `CustomStatus` class implements a signaling pattern that alternates between some of the predefined colors.
+
+Any class implementing a custom pattern needs to pass `LED_PATTERN_CUSTOM` pattern type to the constructor of the base `LEDStatus` class and reimplement its `update()` method. Once an instance of such class is activated, the system starts to call its `update()` method periodically in background, passing number of milliseconds passed since previous update in `ticks` argument.
+
+**Note:** The system may call `update()` method within an ISR. Ensure provided implementation doesn't make any blocking calls, returns as quickly as possible, and, ideally, only updates internal timing and makes calls to `setColor()`, `setActive()` and other methods of the base `LEDStatus` class.
+
+### LEDSystemTheme Class
+
+This class allows to set a custom theme for the system LED signaling. Refer to the [LEDSignal Enum](#ledsignal-enum) section for the list of LED signals defined by the system.
+
+```cpp
+// EXAMPLE - setting custom colors for network status indication
+LEDSystemTheme theme;
+theme.setColor(LED_SIGNAL_NETWORK_OFF, RGB_COLOR_GRAY);
+theme.setColor(LED_SIGNAL_NETWORK_ON, RGB_COLOR_WHITE);
+theme.setColor(LED_SIGNAL_NETWORK_CONNECTING, RGB_COLOR_YELLOW);
+theme.setColor(LED_SIGNAL_NETWORK_DHCP, RGB_COLOR_YELLOW);
+theme.setColor(LED_SIGNAL_NETWORK_CONNECTED, RGB_COLOR_YELLOW);
+theme.apply(); // Apply theme settings
+```
+
+#### LEDSystemTheme()
+
+Constructs a theme instance and initializes it with current system settings.
+
+```cpp
+// SYNTAX
+LEDSystemTheme::LEDSystemTheme();
+
+// EXAMPLE - constructing theme instance
+LEDSystemTheme theme;
+```
+
+#### setColor()
+
+Sets signal color.
+
+```cpp
+// SYNTAX
+void LEDSystemTheme::setColor(LEDSignal signal, uint32_t color);
+uint32_t LEDSystemTheme::color(LEDSignal signal) const;
+
+// EXAMPLE - setting and getting signal color
+LEDSystemTheme theme;
+theme.setColor(LED_SIGNAL_NETWORK_ON, RGB_COLOR_BLUE);
+uint32_t color = theme.color(LED_SIGNAL_NETWORK_ON); // Returns 0x000000ff
+```
+
+Parameters:
+
+  * `signal` : LED signal ([`LEDSignal`](#ledsignal-enum))
+  * `color` : [RGB color](#rgb-colors) (`uint32_t`)
+
+#### color()
+
+Returns signal color (`uint32_t`).
+
+#### setPattern()
+
+Sets signal pattern.
+
+```cpp
+// SYNTAX
+void LEDSystemTheme::setPattern(LEDSignal signal, LEDPattern pattern);
+LEDPattern LEDSystemTheme::pattern(LEDSignal signal) const;
+
+// EXAMPLE - setting and getting signal pattern
+LEDSystemTheme theme;
+theme.setPattern(LED_SIGNAL_NETWORK_ON, LED_PATTERN_BLINK);
+LEDPattern pattern = theme.pattern(LED_SIGNAL_NETWORK_ON); // Returns LED_PATTERN_BLINK
+```
+
+Parameters:
+
+  * `signal` : LED signal ([`LEDSignal`](#ledsignal-enum))
+  * `pattern` : pattern type ([`LEDPattern`](#ledpattern-enum))
+
+#### pattern()
+
+Returns signal pattern ([`LEDPattern`](#ledpattern-enum)).
+
+#### setSpeed()
+
+Sets signal speed.
+
+```cpp
+// SYNTAX
+void LEDSystemTheme::setSpeed(LEDSignal signal, LEDSpeed speed);
+
+// EXAMPLE - setting signal speed
+LEDSystemTheme theme;
+theme.setSpeed(LED_SIGNAL_NETWORK_ON, LED_SPEED_FAST);
+```
+
+Parameters:
+
+  * `signal` : LED signal ([`LEDSignal`](#ledsignal-enum))
+  * `speed` : pattern speed ([`LEDSpeed`](#ledspeed-enum))
+
+#### setPeriod()
+
+Sets signal period.
+
+```cpp
+// SYNTAX
+void LEDSystemTheme::setPeriod(LEDSignal signal, uint16_t period);
+uint16_t LEDSystemTheme::period(LEDSignal signal) const;
+
+// EXAMPLE - setting and getting signal period
+LEDSystemTheme theme;
+theme.setPeriod(LED_SIGNAL_NETWORK_ON, 1000); // 1 second
+uint16_t period = theme.period(); // Returns 1000
+```
+
+Parameters:
+
+  * `signal` : LED signal ([`LEDSignal`](#ledsignal-enum))
+  * `period` : pattern period in milliseconds (`uint16_t`)
+
+#### period()
+
+Returns signal period in milliseconds (`uint16_t`).
+
+#### setSignal()
+
+Sets several signal parameters at once.
+
+```cpp
+// SYNTAX
+void LEDSystemTheme::setSignal(LEDSignal signal, uint32_t color); // 1
+void LEDSystemTheme::setSignal(LEDSignal signal, uint32_t color, LEDPattern pattern, LEDSpeed speed = LED_SPEED_NORMAL); // 2
+void LEDSystemTheme::setSignal(LEDSignal signal, uint32_t color, LEDPattern pattern, uint16_t period); // 3
+
+// EXAMPLE - setting signal parameters
+LEDSystemTheme theme;
+theme.setSignal(LED_SIGNAL_NETWORK_ON, RGB_COLOR_BLUE, LED_PATTERN_BLINK, LED_SPEED_FAST);
+```
+
+Parameters:
+
+  * `signal` : LED signal ([`LEDSignal`](#ledsignal-enum))
+  * `color` : [RGB color](#rgb-colors) (`uint32_t`)
+  * `pattern` : pattern type ([`LEDPattern`](#ledpattern-enum))
+  * `speed` : pattern speed ([`LEDSpeed`](#ledspeed-enum))
+  * `period` : pattern period in milliseconds (`uint16_t`)
+
+#### apply()
+
+Applies theme settings.
+
+```cpp
+// SYNTAX
+{{#unless core}}
+void LEDSystemTheme::apply(bool save = false);
+{{/unless}}
+{{#if core}}
+void LEDSystemTheme::apply();
+{{/if}}
+
+// EXAMPLE - applying theme settings
+LEDSystemTheme theme;
+theme.setColor(LED_SIGNAL_NETWORK_ON, RGB_COLOR_BLUE);
+theme.apply();
+```
+
+{{#unless core}}
+Parameters:
+
+  * `save` : whether theme settings should be saved to a persistent storage (default value is `false`)
+{{/unless}}
+
+#### restoreDefault()
+
+Restores factory default theme.
+
+```cpp
+// SYNTAX
+static void LEDSystemTheme::restoreDefault();
+
+// EXAMPLE - restoring factory default theme
+LEDSystemTheme::restoreDefault();
+```
+
+### LEDSignal Enum
+
+This enum defines LED signals supported by the system:
+
+Name | Description | Priority | Default Pattern
+-----|-------------|----------|----------------
+LED_SIGNAL_NETWORK_OFF | Network is off | Background | Breathing white
+LED_SIGNAL_NETWORK_ON | Network is on | Background | Breathing blue
+LED_SIGNAL_NETWORK_CONNECTING | Connecting to network | Normal | Blinking green
+LED_SIGNAL_NETWORK_DHCP | Getting network address | Normal | Fast blinking green
+LED_SIGNAL_NETWORK_CONNECTED | Connected to network | Background | Breathing green
+LED_SIGNAL_CLOUD_CONNECTING | Connecting to the Cloud | Normal | Blinking cyan
+LED_SIGNAL_CLOUD_HANDSHAKE | Performing handshake with the Cloud | Normal | Fast blinking cyan
+LED_SIGNAL_CLOUD_CONNECTED | Connected to the Cloud | Background | Breathing cyan
+LED_SIGNAL_SAFE_MODE | Connected to the Cloud in safe mode | Background | Breathing magenta
+LED_SIGNAL_LISTENING_MODE | Listening mode | Normal | Slow blinking blue
+{{#unless core}}
+LED_SIGNAL_DFU_MODE * | DFU mode | Critical | Blinking yellow
+LED_SIGNAL_FIRMWARE_UPDATE * | Performing firmware update | Critical | Blinking magenta
+{{/unless}}
+LED_SIGNAL_POWER_OFF | Soft power down is pending | Critical | Solid gray
+
+{{#unless core}}
+**Note:** Signals marked with an asterisk (*) are implemented within the bootloader and currently don't support pattern type and speed customization due to flash memory constraints. This may be changed in future versions of the firmware.
+{{/unless}}
+
+### LEDPriority Enum
+
+This enum defines LED priorities supported by the system (from lowest to highest priority):
+
+  * `LED_PRIORITY_BACKGROUND` : long-lasting background indications
+  * `LED_PRIORITY_NORMAL` : regular, typically short indications
+  * `LED_PRIORITY_IMPORTANT` : important indications
+  * `LED_PRIORITY_CRITICAL` : critically important indications
+
+Internally, the system uses the same set of priorities for its own LED signaling. In a situation when both an application and the system use same priority for their active indications, system indication takes precedence. Refer to the [LEDSignal Enum](#ledsignal-enum) section for information about system signal priorities.
+
+### LEDPattern Enum
+
+This enum defines LED patterns supported by the system:
+
+  * `LED_PATTERN_SOLID` : solid color
+  * `LED_PATTERN_BLINK` : blinking color
+  * `LED_PATTERN_FADE` : breathing color
+  * `LED_PATTERN_CUSTOM` : [custom pattern](#custom-patterns)
+
+### LEDSpeed Enum
+
+This enum defines system-default LED speed values:
+
+  * `LED_SPEED_SLOW` : slow speed
+  * `LED_SPEED_NORMAL` : normal speed
+  * `LED_SPEED_FAST` : fast speed
+
+### RGB Colors
+
+RGB colors are represented by 32-bit integer values (`uint32_t`) with the following layout in hex: `0x00RRGGBB`, where `R`, `G` and `B` are bits of the red, green and blue color components respectively.
+
+For convenience, the library defines constants for the following basic colors:
+
+  * `RGB_COLOR_BLUE` : blue (`0x000000ff`)
+  * `RGB_COLOR_GREEN` : green (`0x0000ff00`)
+  * `RGB_COLOR_CYAN` : cyan (`0x0000ffff`)
+  * `RGB_COLOR_RED` : red (`0x00ff0000`)
+  * `RGB_COLOR_MAGENTA` : magenta (`0x00ff00ff`)
+  * `RGB_COLOR_YELLOW` : yellow (`0x00ffff00`)
+  * `RGB_COLOR_WHITE` : white (`0x00ffffff`)
+  * `RGB_COLOR_GRAY` : gray (`0x001f1f1f`)
+  * `RGB_COLOR_ORANGE` : orange (`0x00ff6000`)
+
 {{/if}} {{!-- has-rgb --}}
 
 ## Time
