@@ -143,11 +143,8 @@ The next step of the process is to wire up your hardware, and to use simple exam
 ### Connect and test your Neopixel rings
 For this project, we used these awesome [Neopixel LED rings](https://www.adafruit.com/products/2855) from Adafruit.
 
-<<<<<<< HEAD
-=======
 ![](/assets/images/particle-pi-cam/particle-pi-ring.jpg)
 
->>>>>>> master
 Follow these instructions for wiring up the LED rings:
 - Connect the positive supply of the ring to +5V on the Pi, GND to GND and input pin of the Neopixel ring to GPIO18 of the Pi
 - Use [this modified version](https://github.com/spark/particle-pi-camera/tree/master/firmware) of the Neopixel library, labeled `ws2811`, to control the ring. Note that it is included as a library dependency of the test app below.
@@ -245,8 +242,6 @@ uint32_t Wheel(byte WheelPos) {
 }
 ```
 
-<<<<<<< HEAD
-=======
 ### Connect and test the PIR sensor
 
 We will use this particular [motion (PIR) sensor](https://www.adafruit.com/product/189) for our project from Adafruit. Although the PIR sensor requires a 5V supply, its output is a Pi-friendly 3.3V, so it can be connected directly to a GPIO input.
@@ -356,7 +351,6 @@ uint32_t color(uint8_t r, uint8_t g, uint8_t b, uint8_t w = 0) {
 }
 ```
 
->>>>>>> master
 ## Putting it all together
 ### Flash the firmware
 
@@ -364,22 +358,16 @@ Once you've verified that your hardware has been configured correctly, you'll ne
 
 [https://github.com/spark/particle-pi-camera/blob/master/firmware/application.cpp](https://github.com/spark/particle-pi-camera/blob/master/firmware/application.cpp)
 
-<<<<<<< HEAD
-=======
 Here is the schematic of the complete project. Two Neopixel rings are connected in series with the data out of the right ring connected to the data input of the left ring. The output of the PIR sensor is connected to GPIO26. Remember to plug in your pi-camera as well!
 
 ![](/assets/images/particle-pi-cam/particle-pi-camera-sch.jpg)
->>>>>>> master
 
 ### Assemble the enclosure (optional)
 
 These instructions are for the assembly of an optional enclosure that you can build if you have access to a laser cutter. All of the pieces are cut from a 3mm white acrylic sheet, but you can feel free to use MDF or plywood instead.
 
-<<<<<<< HEAD
-=======
 You can download an illustrator file for the laser cutter [here.](https://github.com/spark/particle-pi-camera/blob/master/images/enclosure.ai)
 
->>>>>>> master
 ![](/assets/images/particle-pi-cam/image01.jpg)
 
   1\. Attach the Pi to the base plate using M2.5 screws and nuts
