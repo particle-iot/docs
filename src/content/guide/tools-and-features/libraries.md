@@ -191,7 +191,7 @@ Instructions for migrating v1 libraries to the new library format using the CLI 
 Follow these steps to migrate a v1 Particle library to the new v2 structure using the Particle CLI:
 
 - Install the Particle CLI version 1.19 or later.
-  - If you do not have the Particle CLI installed on your machine, you can find installation instructions [here](LINK)
+  - If you do not have the Particle CLI installed on your machine, you can download and install it using our OS-specific instructions, [here](https://www.particle.io/products/development-tools/particle-command-line-interface)
   - If you already have the Particle CLI installed, you can update it to the latest version by running `npm update -g particle-cli`
 
 - Run `particle library migrate` in your library directory
