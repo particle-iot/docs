@@ -90,6 +90,14 @@ Finally, you will be asked to confirm that you can comply with the due diligence
 
 Checking “Yes” for this question will direct you to the checkout screen. If for any reason you have failed the survey please email orders@particle.io. 
 
+## Entering VAT information
+On the checkout screen you will see your shipping adress
+![Shipping Address](/assets/images/shipping-address.png)
+
+Click on edit shipping address, this will open an editable version of your shipping address. You will see a field called APT/Suite or VAT#
+![VAT](/assets/images/vat-number.png)
+
+Please enter your VAT# in that field.
 
 ## Checking out with your own Shipping Account number
 If you have your own shipping account on file, apply the discount code provided by Particle in the box below. Once you enter this code, the shipping cost will go down to $0. Please note, you must select a shipping carrier that corresponds to the shipping account we have on file.

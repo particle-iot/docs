@@ -60,7 +60,30 @@ my_device_name (0123456789ABCDEFGHI) 0 variables, and 4 functions
 
 ```
 
-## particle device add
+## particle call
+
+  Calls a function on one of your devices, use ```particle list``` to see which devices are online, and what functions are available.
+
+```sh
+# how to call a function on your device
+$ particle call 0123456789ABCDEFGHI digitalWrite "D7,HIGH"
+1
+```
+
+## particle get
+
+  Retrieves a variable value from one of your devices, use ```particle list``` to see which devices are online, and what variables are available.
+
+```sh
+# how to get a variable value from a device
+$ particle get 0123456789ABCDEFGHI temperature
+72.1
+```
+
+
+## particle device
+
+### particle device add
 
   Adds a new device to your account.
   
@@ -74,7 +97,7 @@ Successfully claimed device 0123456789ABCDEFGHI
 ```
 
 
-## particle device rename
+### particle device rename
 
   Assigns a new name to a device you've claimed
 
@@ -85,7 +108,7 @@ $ particle device rename 0123456789ABCDEFGHI "pirate frosting"
 
 
 
-## particle device remove
+### particle device remove
 
   Removes a device from your account so someone else can claim it.
 
@@ -105,7 +128,7 @@ Okay!
 
 ### Flashing a directory
 
-  You can setup a directory of source files and libraries for your project, and the CLI will use those when compiling remotely.  You can also create ```particle.include``` and / or a ```particle.ignore``` file in that directory that will tell the CLI specifically which files to use or ignore.
+  You can setup a directory of source files and libraries for your project, and the CLI will use those when compiling remotely.
 
 ```sh
 # how to compile and flash a directory of source code to your device
@@ -167,31 +190,13 @@ eg. `particle compile photon xxx` OR `particle compile p xxxx` both targets the 
 
 ### compiling a directory
 
-  You can setup a directory of source files and libraries for your project, and the CLI will use those when compiling remotely.  You can also create ```particle.include``` and / or a ```particle.ignore``` file in that directory that will tell the CLI specifically which files to use or ignore.  Those files are just plain text with one line per file name
+You can setup a directory of source files and libraries for your project, and the CLI will use those when compiling remotely.
 
 ```sh
 # how to compile a directory of source code
 $ particle compile photon my_project_folder
-```
-
-### example particle.include
-
-  The particle.include and particle.ignore files are just regular text files with one file name per line.  If your directory has one of these files, the CLI will use it to try and determine what to include or ignore when compiling your app.
-
-```text
-# particle.include
-application.cpp
-library1.h
-library1.cpp
-```
-
-### example particle.ignore
-
-```text
-# particle.ignore
-.ds_store
-logo.png
-old_version.cpp
+# by default the current directory will be compiled
+$ particle compile photon
 ```
 
 
@@ -213,30 +218,129 @@ This is useful if you are not ready to upgrade to the latest system firmware on 
 $ particle compile photon --target 0.5.0 my_project
 ```
 
+## particle project
 
-## particle call
+Use the project structure when you want to use libraries or you want to organize your source code better.
 
-  Calls a function on one of your devices, use ```particle list``` to see which devices are online, and what functions are available.
+### creating a project
 
-```sh
-# how to call a function on your device
-$ particle call 0123456789ABCDEFGHI digitalWrite "D7,HIGH"
-1
-```
-
-
-
-## particle get
-
-  Retrieves a variable value from one of your devices, use ```particle list``` to see which devices are online, and what variables are available.
+You will be prompted to create the project in a default directory or in the current directory. The default directory for projects is your home directory 
 
 ```sh
-# how to get a variable value from a device
-$ particle get 0123456789ABCDEFGHI temperature
-72.1
+# create a new project
+$ particle project create
+What would you like to call your project? [myproject]: doorbell
+Would you like to create your project in the default project directory? [Y/n]: 
+Initializing project in directory /home/user/Particle/projects/doorbell...
+> A new project has been initialized in directory /home/user/Particle/projects/doorbell
 ```
 
-## particle webhook create
+The meta data about the project is stored in the `project.properties` file. It includes the project name and what libraries are used by the project.
+
+### compiling a project
+
+Compile or flash a project like you would another directory.
+
+```sh
+# compile the project in the current directory
+$ particle compile photon
+# flash the project in the current directory to a device
+$ particle flash my_device
+```
+
+## particle library
+
+The fantastic Particle community has created and ported many libraries to make it easier to get your project done fast. You can use those libraries in projects you compile through the command line.
+
+### particle library list
+
+Browse the list of all libraries to see what are the most popular libraries available.
+
+```
+$ particle library list
+```
+
+### particle library search
+
+Find a specific library by name. The name is case insensitive.
+
+```sh
+# seach for the InternetButton library
+$ particle library search internet
+```
+
+### particle library add
+
+First, [create a project](#creating-a-project) then in the project directory add the library. It will be added to the `project.properties`.
+
+```sh
+# add the InternetButton library
+$ particle library add internetbutton
+# add a specific version of the InternetButton library
+$ particle library add internetbutton@0.1.10
+# add the line #include "InternetButton.h" in your source code to use the library
+```
+
+To upgrade to a newer version later, just do `particle library add` with the same name and the `project.properties` will be updated with the latest version of that library.
+
+### particle library view
+
+See the source and examples of a library with `particle library view`.  It will download the library and tell you where it is on the local file system.
+
+```sh
+# see the InternetButton library
+$ particle library view internetbutton
+```
+
+### particle library copy
+
+If you need to make modifications to a published library, to fix a bug or add a new feature, copy the library locally to your project. It will end up in the `lib` folder of your project.
+
+```sh
+# add a custom version of the InternetButton library to your project
+$ particle library copy internetbutton
+# add the line #include "InternetButton.h" in your source code to use the library
+```
+
+If you previously had added the library with `particle library add` you should remove it from your `project.properties` to make sure you don't include 2 versions of the library: the published one and modified one.
+
+### particle library create
+
+To make your own library you can use `particle library init` to get a folder structure with all the files you'll need and customize it from there.
+
+```sh
+$ mkdir mylib
+# create a library mylib
+$ particle library create
+```
+
+### particle library upload
+
+After you modified a published library or you are ready to use the [library you created](#particle-library-create) in a project, you upload a private version of your library to the Particle cloud.
+
+```sh
+# upload the library in the current directory
+$ particle library upload
+```
+
+You can upload the same private version several times until you have happy with it.
+
+If you modified an existing library you have to modify the name of the library in `library.properties`.
+
+### particle library publish
+
+When you're ready to make a new private library version available, you publish it.
+
+```sh
+# publish you library
+$ particle library publish mylib
+```
+
+Remember that it's necessary to publish every new version after uploading it before others can use it in their projects.
+
+## particle webhook
+
+### particle webhook create
 
 Create a webhook that will trigger an HTTP request when a Particle event is published to the cloud. You can pass in an `eventName`, `url`, and `deviceID`
 as arguments to the CLI command. Optionally, you can create your own custom JSON file that includes webhook params. For a full list of available
@@ -271,7 +375,8 @@ $ particle webhook create webhook.json
 }
 
 ```
-## particle webhook list
+
+### particle webhook list
 
 List all webhooks belonging to the authenticated user. This command is only available for user webhooks.
 
@@ -292,7 +397,7 @@ Found 2 hooks registered
 
 
 
-## particle webhook delete
+### particle webhook delete
 
 Delete a webhook and immediately stop it from triggering. This command is only available for user webhooks.
 
@@ -357,8 +462,10 @@ $ particle subscribe eventName 0123456789ABCDEFGHI
 ```sh
 $ particle publish eventName data
 ```
- 
-## particle serial list
+
+## particle serial
+
+### particle serial list
 
   Shows currently connected Particle Core's acting as serial devices over USB
 
@@ -368,7 +475,7 @@ $ particle serial list
 ```
 
 
-## particle serial monitor
+### particle serial monitor
 
   Starts listening to the specified serial device, and echoes to the terminal
 
@@ -380,8 +487,9 @@ $ particle serial monitor COM3
 $ particle serial monitor /dev/cu.usbmodem12345
 ```
 
+## particle keys
 
-## particle keys doctor
+### particle keys doctor
 
 Helps you update your keys, or recover your device when the keys on the server are out of sync with the keys on your device.  The ```particle keys``` tools requires both dfu-util, and openssl to be installed.
 
@@ -393,7 +501,7 @@ $ particle keys doctor 0123456789ABCDEFGHI
 ```
 
 
-## particle keys new
+### particle keys new
 
 Generates a new public / private key pair that can be used on a device.
 
@@ -413,7 +521,7 @@ running openssl rsa -in mykey.pem -outform DER -out mykey.der
 New Key Created!
 ```
 
-## particle keys load
+### particle keys load
 
 Copies a ```.DER``` formatted private key onto your device's external flash.  Make sure your device is connected and in [DFU mode](/guide/getting-started/modes/#dfu-mode-device-firmware-upgrade-).  The ```particle keys``` tools requires both dfu-util, and openssl to be installed.  Make sure any key you load is sent to the cloud with ```particle keys send device.pub.pem```
 
@@ -426,7 +534,7 @@ $ particle keys load device.der
 Saved!
 ```
 
-## particle keys save
+### particle keys save
 
 Copies a ```.DER``` formatted private key from your device's external flash to your computer.  Make sure your device is connected and in [DFU mode](/guide/getting-started/modes/#dfu-mode-device-firmware-upgrade-).  The ```particle keys``` tools requires both dfu-util, and openssl to be installed.
 
@@ -438,7 +546,7 @@ $ particle keys save device.der
 Saved!
 ```
 
-## particle keys send
+### particle keys send
 
 Sends a device's public key to the cloud for use in opening an encrypted session with your device.  Please make sure your device has the corresponding private key loaded using the ```particle keys load``` command.
 
@@ -448,7 +556,7 @@ $ particle keys send 0123456789ABCDEFGHI device.pub.pem
 submitting public key succeeded!
 ```
 
-## particle keys server
+### particle keys server
 
 Switches the server public key stored on the device's external flash.  This command is important when changing which server your device is connecting to, and the server public key helps protect your connection.   Your device will stay in DFU mode after this command, so that you can load new firmware to connect to your server.
 
@@ -460,4 +568,18 @@ Coming Soon - more commands to make it easier to change the server settings on y
 # (useful when switching servers)
 $ particle keys server my_server.der
 Okay!  New keys in place, your device will not restart.
+```
+
+## particle nyan
+
+That's weird, huh, I guess the description for this mysterious command is missing...
+
+```sh
+# Activates the "shouting rainbow LED" sequence
+$ particle cloud nyan
+$ particle cloud nyan my_device_id on
+$ particle cloud nyan my_device_id off
+$ particle cloud nyan all on
+$ particle cloud nyan [on/off]
+$ particle cloud nyan [device_id/all] [on/off]
 ```

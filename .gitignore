@@ -2,3 +2,5 @@
 node_modules
 build/
 npm-debug.log
+api-node
+api-service-libraries

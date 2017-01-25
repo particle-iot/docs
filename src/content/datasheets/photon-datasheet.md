@@ -517,7 +517,7 @@ Photons are available from [store.particle.io](https://store.particle.io/) in si
 
 The Photon comes in two primary styles of packaging: Matchbox and Kit Box.  The matchbox packaging contains the bare essentials to get you started, while the Photon Kit contains a breadboard, Micro B USB cable, sticker, prototyping card and a couple sensors to build your first Internet connected project!
 
-![photon-packaging](https://lh3.googleusercontent.com/-E7B5bPuCIvU/VVOs6bdsAmI/AAAAAAAAA_c/5NQ5v6Rnhm0/s0/photon-packaging.png)
+<div align=center><img src="/assets/images/photon-packaging.png" width=500></div>
 
 Photons without headers in matchbox packaging are also available in JEDEC style trays for automated pick and place machines.  Request more details from us on this in the Contact section below.
 

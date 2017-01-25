@@ -97,7 +97,7 @@ We have even provided a small prototyping area around the shield for you to add 
 **IMPORTANT:** This shield provides regulated power (5V) to the seated Particle device and relays. However, it does not support power to the devices controlled by the relays.
 
 ### Relay Shield - Library
-If you're already logged into Build.particle.io then you can [jump directly to the library](https://build.particle.io/libs/55e0a4256b6e3275580009ce/tab/1_Blink_An_LED.cpp) to get going quickly and easily with the RelayShield library, which wraps all the features in easy-to-use functions.
+If you're already logged into Build.particle.io then you can [jump directly to the library](https://build.particle.io/libs/RelayShield/0.0.6/tab/1_Blink_a_Relay.cpp) to get going quickly and easily with the RelayShield library, which wraps all the features in easy-to-use functions.
 
 Examples include:
 1. __Blink a Relay__ - How to turn a relay on and off
@@ -289,7 +289,7 @@ There are two status LEDs located on the left of the JST battery connector label
 
  ![Power Shield Dimensions](/assets/images/shields/power-shield/power-shield-dimensions.png)
 
-**NOTE:** There is a know issue on the v2.1.0 of the Power Shield where the shield will fail to power up the Photon when the battery is inserted for the first time or reinserted after a long time (>60mins). The user will need to unplug and plug the battery back again for the shield to power up. The issue arises by the fact that on startup, the battery charger confuses the Photon booting up to there being a short circuit and powers off to save the device. If you are feeling adventurous, you can fix this issue by soldering a 10nF capacitor across the DPPM pin and GND. This delays the short-circuit protection at startup and lets the Photon bootup without any issues. 
+**NOTE:** There is a know issue on the v2.1.0 of the Power Shield where the shield will fail to power up the Photon when the battery is inserted for the first time or reinserted after a long time (>60mins). The user will need to unplug and plug the battery back again for the shield to power up. The issue arises by the fact that on startup, the battery charger confuses the Photon booting up to there being a short circuit and powers off to save the device. If you are feeling adventurous, you can fix this issue by soldering a 10nF capacitor across the DPPM pin and GND. This delays the short-circuit protection at startup and lets the Photon bootup without any issues.
 
 ## Internet Button
 
@@ -305,7 +305,7 @@ The Internet Button is not only an easy way to get started on the Internet of Th
 |D7 | Button 4   | Button 1 |
 
 ### Internet Button - Library
-If you're already logged into Build.particle.io then you can [jump directly to the library](https://build.particle.io/libs/55e0a4256b6e3275580009ce/tab/1_Blink_An_LED.cpp) to get going quickly and easily with the InternetButton library, which wraps all the features in easy-to-use functions.
+If you're already logged into Build.particle.io then you can [jump directly to the library](https://build.particle.io/libs/InternetButton/0.1.11/tab/1_Blink_An_LED.cpp) to get going quickly and easily with the InternetButton library, which wraps all the features in easy-to-use functions.
 
 Examples include:
 1. __Blink an LED__ - How to control the smart LEDs on this board
@@ -656,7 +656,7 @@ Assembly:
 
 The Asset Tracker is a cellular solution for tracking the location of just about anything! The included shield has a GPS module and an accelerometer, so you can make projects that use location, orientation, and movement. Report vibration as you drive around, save power by keeping the cell modem and GPS off if the device isn't moving, or track boxes. Also has a screw terminal for adding another power source and a connector for adding an external GPS antenna if it's going to be inside something. Designed by Adafruit!
 
-### Using the Asset Tracker 
+### Using the Asset Tracker
 
 ![Asset Tracker Description](/assets/images/shields/asset-tracker-shield/asset-tracker-v002-descriptions.png)
 
@@ -682,7 +682,7 @@ When the `GPS Fix` LED is blinking once per second (1Hz) then it is trying to ge
 
 The GPS is connected to the Serial1 UART on the Electron, and we've also provided a MOSFET to completely shut off power to it for major power savings. Pin D6 controls the GPS power, with inverted logic. This means that the GPS will only be ON when D6 is LOW, which should keep it off even if you put the Electron to sleep.
 
-**Backup battery** 
+**Backup battery**
 
 There's a backup battery holder for the GPS to reduce subsequent fix acquisition times, but it's *not required*. This is the small coin cell (part number CR1220) holder slot. Inserting the coin cell powers up the internal RTC of the GPS module and also help retain the satellite data in its volatile RAM. It is highly recommended that you have this battery plugged in at all times to bring down fix times.
 
@@ -695,7 +695,7 @@ The shield also has an on-board accelerometer, the <a href="http://www2.st.com/c
 The waterproof box includes two M4 screws for mounting the shield securely into the box. Screw the shield down in the enclosure, then plug the Electron into the shield with the USB connector facing inward. You can also look at the silkscreen Electron outline on the board for the correct orientation. The battery and antenna can be fixed in the box using the foam adhesive tape if you want to keep them from moving around.
 
 ### Asset tracker library
-We've put together a great library for you to start building from! If you're already logged into Build then you can just click on [AssetTracker library](https://build.particle.io/libs/56ca184fd7e949613400086f/tab/1_GPS_Features.cpp) and you can always open the "Libraries" view in Build, and AssetTracker will show up under the Official Libraries. This library is especially good for learning about the Electron because it implements a couple of useful features, like a Particle.function for checking the battery level!
+We've put together a great library for you to start building from! If you're already logged into Build then you can just click on [AssetTracker library](https://build.particle.io/libs/AssetTracker/0.0.5/tab/example/1_GPS_Features.cpp) and you can always open the "Libraries" view in Build, and AssetTracker will show up under the Official Libraries. This library is especially good for learning about the Electron because it implements a couple of useful features, like a Particle.function for checking the battery level!
 
 Examples:
 1. __GPS Features__ - How to use the GPS efficiently, and some nice Electron functions

@@ -1,16 +1,16 @@
+# Reduce number of commits fetched by Travis to speed up the build
+git:
+  depth: 3
 language: node_js
 sudo: required
 node_js:
 - '0.12'
-git:
-  submodules: false
-  depth: 2
 cache:
   directories:
   - node_modules
 before_install:
 - echo -e "machine github.com\n  login $CI_USER_TOKEN" >> ~/.netrc
-- ./scripts/before_install.sh
+- ./scripts/update-api.sh
 install:
 - npm install -g npm
 - npm install

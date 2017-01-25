@@ -2257,7 +2257,7 @@ The four Cellular.command() callback arguments are defined as follows:
 - `buf`: (`const char*`) a pointer to the character array containing the AT command response.
 - `len`: (`int`) length of the AT command response `buf`.
 - `param`: (`void*`) a pointer to the variable or structure being updated by the callback function.
-- returns an `int` - user specified callback return value, default is `return WAIT;` which keeps the system invoking the callback again as more of the AT command response is received.  Optionally any one of the 6 enumerated AT command responses previously described can be used as a return type which will force the Cellular.command() to return the same value. All AT commands typically end with an `OK` response, so even after a response is parsed, it is recommended to wait for the final `OK` response to be parsed and returned by the system. Then after testing `if(Cellular.command() == RESP_OK)` and any other optional qualifiers, should you act upon the results contained in the variable/structure passed into the callback.
+- returns an `int` - user specified callback return value, default is `return WAIT;` which keeps the system invoking the callback again as more of the AT command response is received.  Optionally any one of the 6 enumerated AT command responses previously described can be used as a return type which will force the Cellular.command() to return the same value. AT commands typically end with an `OK` response, so even after a response is parsed, it is recommended to wait for the final `OK` response to be parsed and returned by the system. Then after testing `if(Cellular.command() == RESP_OK)` and any other optional qualifiers, should you act upon the results contained in the variable/structure passed into the callback.
 
 There are 13 different enumerated AT command responses passed by the system into the Cellular.command() callback as `type`. These are used to help qualify which type of response has already been parsed by the system.
 
@@ -2526,7 +2526,7 @@ Sets or retrieves the resolution of `analogWrite()` function of a particular pin
 `analogWriteResolution()` takes one or two arguments:
 
 - `pin`: the number of the pin whose resolution you wish to set or retrieve
-- `resolution`: (optional) resolution in bits. The value can range from 2 to 31 bits. If the resolution is not supported, it will not be applied. 
+- `resolution`: (optional) resolution in bits. The value can range from 2 to 31 bits. If the resolution is not supported, it will not be applied.
 
 `analogWriteResolution()` returns currently set resolution.
 
@@ -7867,8 +7867,8 @@ noInterrupts();
 
 ## Software Timers
 
-_Since 0.4.7 This feature is available on the Photon, P1 and Electron out the box. On the Core, the
-`freertos4core` Particle library <a href="https://build.particle.io/libs/56c33d19413c5afea2000601/tab/timers.ino" target="_blank">(Timers.ino example found here)</a> should be used to add FreeRTOS to the core._
+_Since 0.4.7. This feature is available on the Photon, P1 and Electron out the box. On the Core, the
+`freertos4core` Particle library <a href="https://build.particle.io/libs/freertos4core/0.2.0/tab/example/timers.ino" target="_blank">(Timers.ino example found here)</a> should be used to add FreeRTOS to the core._
 
 Software Timers provide a way to have timed actions in your program.  FreeRTOS provides the ability to have up to 10 Software Timers at a time with a minimum resolution of 1 millisecond.  It is common to use millis() based "timers" though exact timing is not always possible (due to other program delays).  Software timers are maintained by FreeRTOS and provide a more reliable method for running timed actions using callback functions.  Please note that Software Timers are "chained" and will be serviced sequentially when several timers trigger simultaneously, thus requiring special consideration when writing callback functions.
 

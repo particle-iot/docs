@@ -92,10 +92,7 @@ These are all useful functions during manufacturing, so we highly encourage expo
 
 **4. Happy Path Batch Testing**. Regardless of the checks you build into the test firmware, you should make sure that you are doing functional batch testing of your product before final shipment. It's a good idea to take a handful of units from the "passed" bin every day and use the same tools available to the customer to configure your product onto the Internet and Particle Cloud. Test the basic function and use cases of the product. This will help you identify issues and potential pitfalls that might otherwise fall through the cracks of your functional tests and prevent a user from successfully configuring your product.
 
-*COMING SOON!*
- - Particle Test Firmware for simple functional evaluations
- - Detailed documentation for interacting with Particle's default test suite
- - Resources and references for test jig fabrication
+
 
 
 ### Programming the device

@@ -11,7 +11,7 @@
     "start": "node ./scripts/server.js",
     "test": "node ./node_modules/mocha/bin/mocha ./test/crawler.js --reporter dot",
     "build": "node ./scripts/build.js",
-    "update-api": "git submodule update --init --recursive && cd api-node && git fetch && git merge origin/production && cd ..",
+    "update-api": "./scripts/update-api.sh --force",
     "spell": "mdspell --en-us --ignore-numbers --no-suggestions 'src/content/**/*.md' '!src/content/languages/**/*.md'"
   },
   "dependencies": {
@@ -33,7 +33,7 @@
     "metalsmith-in-place": "^1.0.1",
     "metalsmith-less": "^2.0.0",
     "metalsmith-lunr": "git://github.com/spark/metalsmith-lunr#0.3.0",
-    "metalsmith-markdown": "spark/metalsmith-markdown#0.4.0",
+    "metalsmith-markdown": "spark/metalsmith-markdown#0.4.1",
     "metalsmith-move-up": "^1.0.0",
     "metalsmith-paths": "2.1.1",
     "metalsmith-permalinks": "^0.4.0",

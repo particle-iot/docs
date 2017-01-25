@@ -6,8 +6,9 @@
 		line-height: 30px;
 	}
 
-	div {
+	div, p {
 		font-size: 14px;
+		font-weight: 400;
 		padding: 10px;
 		color: #555;
 	}
@@ -21,6 +22,13 @@
 
 	.field-desc {
 		overflow: hidden;
+
+		> p:first-child {
+			padding-top: 0;
+		}
+		> p:last-child {
+			padding-bottom: 0;
+		}
 	}
 
 	.field-required {
@@ -35,7 +43,7 @@
 		text-transform: lowercase;
 	}
 
-	li {
+	> li {
 		border-top: 1px solid #ddd;
 		clear: both;
 		overflow: auto;
@@ -45,18 +53,23 @@
 		line-height: 1.4;
 	}
 
-	li:last-child {
+	> li:last-child {
 		border-bottom: 1px solid #ddd;
 	}
 
 	.nested-params {
 		margin-left: 30px;
 		padding: 0;
+
+		> li {
+		  overflow: auto;
+		  list-style-type: none;
+	    }
 		
-		li:first-child {
+		> li:first-child {
 			border-top-width: 0;
 		}
-		li:last-child {
+		> li:last-child {
 			border-bottom-width: 0;
 		}
 	}
