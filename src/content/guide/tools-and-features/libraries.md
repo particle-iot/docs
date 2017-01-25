@@ -149,7 +149,7 @@ Review the `library.properties` and `README.md` and fill in as much information 
 
 The best way to ensure people will use your library is to provide good examples.
 
-Once you've written the first draft of the library you can test the examples on hardware you own in the CLI with `particle library flash <my_device> examples/<example_name>` from the library folder or in the Desktop IDE by right-clicking on the example and selecting "Flash this example".
+Once you've written the first draft of the library you can test the examples on hardware you own in the CLI with `particle flash <my_device> examples/<example_name>` from the library folder or in the Desktop IDE by right-clicking on the example and selecting "Flash this example".
 
 ### Uploading a private version
 
