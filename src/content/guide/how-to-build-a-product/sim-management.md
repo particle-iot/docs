@@ -266,7 +266,7 @@ be communicated clearly during the import process as well as on monthly
 invoices.
 
 **Data pooling**, or purchasing a chunk of cellular data shared by a
-fleet of SIM cards can be arranged by <a href="mailto:sales@particle.io">contacting us</a>.
+fleet of SIM cards can be arranged by [contacting us](http://www.particle.io/sales).
 This is often useful to help product creators more accurately estimate
 cloud infrastructure costs over time.
 
