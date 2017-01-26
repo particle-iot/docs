@@ -12,15 +12,16 @@ order: 2
 
 ![](/assets/images/raspberry-pi-hero.png)
 
-## Particle Pi Beta Program
-
-<p class = "boxedHead">Do not continue without reading</p>
+## Particle Pi Beta
+<p class = "boxedHead">Please read me!</p>
 <p class = "boxed">
-Please note that the Raspberry Pi integration with the Particle Cloud is **currently in beta**. We know you're eager to get started (we're excited too!) but you won't be able to complete all the steps below before you've received your beta activation email.
+Please note that the Raspberry Pi integration with the Particle Cloud is **currently in beta**. This means that, while the primary happy paths and use cases are tested, the software may still be a little rough around the edges in some areas.
 <br>
-We will be provisioning access to the beta in the upcoming weeks on a rolling basis. Upon open release of the Raspberry Pi and Particle Cloud integration, these provisioning instructions will work for everyone! To learn more and to join the beta program, visit our Raspberry Pi + Particle [information page](http://particle.io/particle-pi) by clicking the button below:
-
-<center><a class="btn" target="_blank" href="https://particle.io/particle-pi"/>Join the beta!</a></center>
+<br>
+The good news is that you're about to join a wonderful community of Particle developers who are here to help. If you need support and can't find the answer in our docs, head over to our [community forums](https://community.particle.io/c/raspberry-pi) and chat with the Particle team. Find an issue? Log it in our [open-source repository](https://github.com/spark/particle-agent) so we can fix it!
+<br>
+<br>
+Have fun!
 
 </p>
 
