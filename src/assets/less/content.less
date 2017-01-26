@@ -779,6 +779,15 @@ hr {
     &.full-width {
       max-width: 100%;
     }
+    &.small {
+      max-width: 300px;
+      @media(max-width: @medium-size) {
+        max-width: 50%;
+      }
+      @media(max-width: @small-size) {
+        max-width: 80%;
+      }
+    }
   }
   .content h4:after, .content h5:after, .content .small-heading:after, body:not(.big-h3) .content h3:after {
     left: 0;
