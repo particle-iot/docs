@@ -26,7 +26,7 @@ Yes? OK--let's move forward on good faith, then :-)
 
 To work with Particle, your hardware must meet a small list of design requirements. They are:
 
-- **Your device should use a supported hardware module.** While the firmware stack can be run on a variety of connectivity modules, we provide our own modules (the PØ and P1) as an out-of-the-box solution, and we can support other Broadcom WICED modules easily. You may also choose to port our firmware libraries to another module by implementing our [Hardware Abstraction Layer (HAL)](https://www.github.com/spark/firmware); this is, however, a more involved process. Please contact our [sales team](mailto:sales@particle.io) if you are interested in engaging us to support another hardware solution.
+- **Your device should use a supported hardware module.** While the firmware stack can be run on a variety of connectivity modules, we provide our own modules (the PØ and P1) as an out-of-the-box solution, and we can support other Broadcom WICED modules easily. You may also choose to port our firmware libraries to another module by implementing our [Hardware Abstraction Layer (HAL)](https://www.github.com/spark/firmware); this is, however, a more involved process. Please contact our [sales team](http://www.particle.io/sales) if you are interested in engaging us to support another hardware solution.
 - **Your device must have an RGB LED and a button to enter 'setup mode'**. The RGB LED shows the user the connectivity status, while the 'setup' button lets your customer reconfigure the device. These components should be wired according to the [Photon reference design](https://www.github.com/spark/photon).
 - **Your device must have an RF circuit and an antenna.** If you use the Photon or P1, the antenna is included in the hardware. If you use the PØ, you must connect your own antenna. Please use the [Photon](https://www.github.com/spark/photon) as a reference design; if you use an antenna of equal or lesser gain, you may leverage Particle's FCC/CE/IC modular certification for the Photon.
 - **Your device must expose JTAG programming pins**. All Particle development kits (Photon/Core) expose JTAG pins by default. Although the Particle platform has been optimized for over-the-air firmware updates, JTAG programming is required for advanced debugging and development, or modifications to the underlying Particle firmware libraries. All product creators working with the PØ or P1 should expose these pins on their PCB. To be specific, if you're integrating the Photon, your test fixture needs to be able to make an electrical connection to the male JTAG pins on the Photon, a female socket connected to those male headers, or to test pads that are electrically connected to those headers on your PCB.  If you're integrating the PØ or P1, you'll need to expose test pads that are routed to the appropriate JTAG solder pads on the PØ/P1 module. These pins/pads are identified in the corresponding datasheets for the PØ and P1, [here](http://docs.particle.io/photon/photon-datasheet/) and [here](http://docs.particle.io/photon/p1-datasheet/).
@@ -44,7 +44,7 @@ Your first prototype was most likely built with a Core or a Photon in a breadboa
 
 ![Surface mounted Photon](/assets/images/castellated-edges.png)
 
-**Transition to PØ**. The PØ is the module on the Photon, which includes a microcontroller and Wi-Fi chip. The PØ can be purchased in packs of 10 from our [online store](https://store.particle.io) or in bulk (contact [sales@particle.io](mailto:sales@particle.io)). When you transition from a Photon to the PØ, you must reimplement on your board the following subsystems:
+**Transition to PØ**. The PØ is the module on the Photon, which includes a microcontroller and Wi-Fi chip. The PØ can be purchased in packs of 10 from our [online store](https://store.particle.io) or in bulk ([contact sales](http://www.particle.io/sales)). When you transition from a Photon to the PØ, you must reimplement on your board the following subsystems:
 
 - Voltage regulator (depending on your input voltage)
 - RGB LED and 'setup' button (see hardware requirements above)
@@ -91,7 +91,7 @@ Before you manufacture thousands of units, it's best to start with just a handfu
 - [OSH Park](https://oshpark.com/)
 - [HQPCB](http://www.hqpcb.com/)
 
-If you would like introductions to high-volume overseas PCB manufacturers, please contact our [sales team](mailto:sales@particle.io).
+If you would like introductions to high-volume overseas PCB manufacturers, please contact our [sales team](http://www.particle.io/sales).
 
 **Popular low volume PCB assembly (PCBA) solutions:**
 
@@ -103,6 +103,6 @@ For tips and resources for prototyping PCBs by hand (our preferred prototyping m
 **RF validation** - *Coming soon!*.  You have to validate your RF design with a professional shop and equipment you probably don't have access to. Here's strategies for dealing with that.
 
 ### Thinking about mass production
-**Reach out to us!** Once you've validated your hardware design with a series of prototypes, it's time to start thinking about how to scale up for mass production.  If you haven't already, [let us know you're building a product on Particle!](mailto:sales@particle.io) Our team has lots of experience bringing Internet-connected devices to market, and can give valuable feedback on a wide variety of topics like manufacturing overseas, Kickstarter, VC funding, and everything in between. If we don't know you exist, it's much harder for us to help :-)
+**Reach out to us!** Once you've validated your hardware design with a series of prototypes, it's time to start thinking about how to scale up for mass production.  If you haven't already, [let us know you're building a product on Particle!](http://www.particle.io/sales) Our team has lots of experience bringing Internet-connected devices to market, and can give valuable feedback on a wide variety of topics like manufacturing overseas, Kickstarter, VC funding, and everything in between. If we don't know you exist, it's much harder for us to help :-)
 
 **Preferred Services Partners**  Our customer success team has assembled a broad menu of trusted, professional services partners for every step of the product development process. Please [take a look here](http://www.particle.io/servicepartners) and see if there's a partner that fits your development needs!
