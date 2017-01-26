@@ -1,5 +1,5 @@
 ---
-title: Particle Debugging with Eclipse
+title: Debugging with Eclipse
 template: faq.hbs
 columns: two
 devices: [ photon,electron,core ]
@@ -29,15 +29,53 @@ Some of the things you can do:
 The instructions are in the [local build FAQ](https://docs.particle.io/faq/particle-tools/local-build/). This is necessary because the cloud compilers are not configured to generate debugging builds.
 
 
-## Connect the debugging device
+## Connect the debugger device
 
-In this tutorial, we'll use three different devices, but they all work in the same way so you can choose whatever device you prefer.
+In this tutorial, we'll use three different debugger devices, but they all work in the same way so you can choose whatever device you prefer.
 
-### Inexpensive ST-LINK/V2 clone SWD USB stick
+Some debuggers support SWD (Single Wire Debug) mode, JTAG mode or both to talk to the STM32 microcontroller.
 
-You can find clone ST-LINK/V2 USB sticks that support SWD (Serial Wire Debug) at places like Amazon and eBay for US&#36;12 or less. They work great with the Photon, P1, and Electron, requiring only two data lines and ground.
+### Particle Programmer Shield
 
-This is for one brand of device; verify that yours is the same before wiring.
+The [Particle Programmer Shield](https://store.particle.io/products/prog-shield) is designed to fit the Photon. You can also use it with an Electron, with the extra pins hanging over the edge. [It is available on the Particle store](https://store.particle.io/products/prog-shield).
+
+If you need your device to be in a breadboard while you debug you can look at  using one of the other interfaces.
+
+You will need to use two separate micro USB cables. One connects to the Programmer Shield to access the JTAG features, and the other connects directly to the Photon. 
+
+The Photon USB cable isn't entirely necessary because the shield can power the Photon, but since the Eclipse debug process below by default uses DFU to load the debugging code onto the Photon, it's easier if you use a direct USB connection to the Photon for that.
+
+![Particle Programmer Shield](/assets/images/eclipse-debug-progshield.jpg)
+
+### Particle Programer Shield - Windows
+
+In order to use a Particle Programmer Shield with OpenOCD under Windows you'll need to assign the **STM32 STLink** device using [Zadig](http://zadig.akeo.ie).
+
+You may need to select **List All Devices** from the **Options** menu to see the device.
+
+Select **USB <-> Serial Converter (Interface 0)** (USB ID 0403 6010 00). Then set the driver to **libusbK**. Make sure you select Interface 0, not Interface 1.
+
+![Zadig settings for Particle Programmer Shield](/assets/images/eclipse-debug-programmer-zadig.png)
+
+
+### Particle Programer Shield - Mac
+
+This doesn't seem to be a problem with El Capitan and Sierra versions of Mac OS X, but you may encounter a driver conflict that makes it difficult to use the Programmer Shield on the Mac. The detailed instructions for the workaround are in the [instructions for the Programmer Shield](https://github.com/spark/shields/tree/master/photon-shields/programmer-shield).
+
+In some cases, you may need to unload and reload the driver to get the Programmer Shield to work. This will need to be done after each reboot. Try it first without running this, as sometimes it works without it. It may be sufficient to only do this and not the more elaborate steps listed above, as well.
+
+```
+sudo kextunload -bundle com.apple.driver.AppleUSBFTDI 
+sudo kextload -bundle com.apple.driver.AppleUSBFTDI
+```
+
+### Inexpensive mini SWD device
+
+You can find inexpensive USB stick that support SWD (Serial Wire Debug) at places like Amazon and eBay for US&#36;12 or less. They work great with the Photon, P1, and Electron, requiring only two data lines and ground.
+
+They are compatible with the official ST-LINK/V2, however these devices generally only support SWD. 
+
+Here's an example on how to connect one brand of such an interface; verify that yours is the same before wiring.
 
 - USB connector side away from you
 - Debug header facing you
@@ -59,14 +97,14 @@ In this picture, it's wired as follows. Note that the color code is not official
 | GND | Green | GND | 
 | SWDIO | Blue | D7 |
 
-![ST-LINK/V2](/assets/images/eclipse-debug-stmini.jpg)
+![Mini SWD device](/assets/images/eclipse-debug-stmini.jpg)
 
 It's a little unclear whether the VCC pin (orange) should be connected for the mini devices. I generally leave it unconnected for the mini devices but connected for the actual ST-LINK/V2 real device.
 
 
-### ST-LINK/V2 Clone - Windows
+### Mini SWD device - Windows
 
-In order to use a ST-LINK/V2 clone device with OpenOCD under Windows you'll need to assign the **STM32 STLink** device using [Zadig](http://zadig.akeo.ie).
+In order to use a mini SWD device with OpenOCD under Windows you'll need to assign the **STM32 STLink** device using [Zadig](http://zadig.akeo.ie).
 
 You may need to select **List All Devices** from the **Options** menu to see the STLink device.
 
@@ -75,43 +113,12 @@ Select **STM32 STLink** (USB ID 0483 3748). Then set the driver to **libusbK**.
 ![Setting libusbk driver for STM32 STLink device](/assets/images/eclipse-debug-stlink-zadig.png)
 
 
-### Particle programmer shield
-
-The Particle programmer shield is designed to fit the Photon. You can also use it with an Electron, though extra pins will hang over the edge. You're probably better off using one of the other SWD devices with the Electron so you can use it in a normal prototyping breadboard.
-
-You will need to use two separate micro USB cables. One connects to the programmer shield to access the JTAG features, and the other connects directly to the Photon. 
-
-The Photon USB cable isn't entirely necessary because the shield can power the Photon, but since the Eclipse debug process below by default uses DFU to load the debugging code onto the Photon, it's easier if you use a direct USB connection to the Photon for that.
-
-![Particle Programmer Shield](/assets/images/eclipse-debug-progshield.jpg)
-
-### Particle Programer Shield - Windows
-
-In order to use a Particle Programmer Shield with OpenOCD under Windows you'll need to assign the **STM32 STLink** device using [Zadig](http://zadig.akeo.ie).
-
-You may need to select **List All Devices** from the **Options** menu to see the device.
-
-Select **USB <-> Serial Converter (Interface 0)** (USB ID 0403 6010 00). Then set the driver to **libusbK**. Make sure you select Interface 0, not Interface 1.
-
-![Zadig settings for Particle Programmer Shield](/assets/images/eclipse-debug-programmer-zadig.png)
-
-
-### Particle Programer Shield - Mac
-
-This doesn't seem to be a problem with El Capitan and Sierra versions of Mac OS X, but you may encounter a driver conflict that makes it difficult to use the Programmer Shield on the Mac. The detailed instructions for the workaround are in the [instructions for the Programmer Shield](https://github.com/spark/shields/tree/master/photon-shields/programmer-shield).
-
-In some cases, you may need to unload and reload the driver to get the programmer shield to work. This will need to be done after each reboot. Try it first without running this, as sometimes it works without it. It may be sufficient to only do this and not the more elaborate steps listed above, as well.
-
-```
-sudo kextunload -bundle com.apple.driver.AppleUSBFTDI 
-sudo kextload -bundle com.apple.driver.AppleUSBFTDI
-```
 
 ### ST-LINK/V2 USB JTAG device
 
-The [official ST-LINK/V2 device](http://www.st.com/en/development-tools/st-link-v2.html) can be used as well. It supports both JTAG and SWD mode unlike the cheaper clone devices which generally only support SWD. 
+You can also use an [official ST-LINK/V2 device](http://www.st.com/en/development-tools/st-link-v2.html). It supports both JTAG and SWD mode.
 
-If you have a full 20-pin JTAG connector (0.1"x0.1" pitch, in 2x10 layout) on your board, that's the easiest way to connect the device. The connector is keyed so you can usually only insert it one way. The Particle Programmer shield has one of these connectors on it, though you generally don't need to use it as the Programmer Shield has built-in USB JTAG support.
+If you have a full 20-pin JTAG connector (0.1"x0.1" pitch, in 2x10 layout) on your board, that's the easiest way to connect the device. The connector is keyed so you can usually only insert it one way.
 
 You can also connect the ST-LINK/V2 using jumper wires; this is more practical for SWD as it only requires 3 or 4 pins. 
 
@@ -140,7 +147,7 @@ You can also connect the ST-LINK/V2 using jumper wires; this is more practical f
 
 You only need to connect one GND line, though it's best to connect all of them if possible to reduce noise on the ribbon cable if you are making a board with a 20-pin JTAG connector.
 
-If you're just using SWD like you would with the ST-LINK/V2 mini SWD devices, you should connect it as follows:
+If you're just using SWD like you would with the mini SWD device, you should connect it as follows:
 
 The pins on the connector are numbered this way when you have the programmer positioned so the logo is upright and the notch is on the bottom of the 20-pin connector.
 
@@ -162,12 +169,11 @@ As above, the color code is not official, it's just what I happened to have on t
 
 ![ST-LINK/V2](/assets/images/eclipse-debug-stlink.jpg)
 
-
 ## Building Debug Builds
 
 You'll need a local gcc-arm toolchain to make builds that are compatible with the debugger; you cannot use the cloud compilers to build debug builds.
 
-For debugging using JTAG/SWD you create special monolithic debug builds. They're monolithic in that they are a single file that contains the system and user firmware instead of the normal 3 (or 4) part binaries. The disadvantage of the monolithic binaries is that they are large, maybe 480 Kbytes for a simple program that might only be 6 Kbytes normally!
+For debugging using JTAG/SWD you create special monolithic debug builds. They're monolithic in that they are a single file that contains the system and user firmware instead of the usual modular binaries (system parts and user part). The disadvantage of the monolithic binaries is that they are large, maybe 480 Kbytes for a simple program that might only be 6 Kbytes normally!
 
 Whenever you switch between debug and non-debug builds, or monolithic to non-monolithic, you must add the clean option to make.
 
