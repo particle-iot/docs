@@ -27,7 +27,7 @@ products](/assets/images/sims-for-products/sims-for-products.png)
 associating them with your Particle product</p>
 
 This set of features is currently released as a beta and is subject to change.
-Please report any issues you may experience to <a href="mailto:support@particle.io">support@particle.io</a>.
+Please report any issues you experience via our <a href="/support">support form</a>.
 
 ## Introduction
 
