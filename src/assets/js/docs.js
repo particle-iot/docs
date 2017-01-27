@@ -254,8 +254,8 @@ Created by Zach Supalla.
           // Docs.boostSearchByUrl(sectionResults,urlArray);
           
           // filter by device
-          var topFilteredResults = Docs.filterSearchByDevice(sectionResults);
-          
+          var topFilteredResults = Docs.filterSearchByDevice(sectionResults,specifier);
+
           // build search
           Docs.buildSearchResults(topFilteredResults, store);
         }
@@ -318,7 +318,7 @@ Created by Zach Supalla.
           }
         }
       }
-      else if (specifier=="all") { // if specifier is "all," no need to narrow by section
+      else { // if specifier is "all" or anything else, no need to narrow by section
         sectionFilteredResults = results;
       }
     }
@@ -338,18 +338,23 @@ Created by Zach Supalla.
     return sectionFilteredResults;
   }
 
-  Docs.filterSearchByDevice = function(results) {
+  Docs.filterSearchByDevice = function(results,specifier) {
     var pathSearch = window.location.pathname.split("/").filter(function(n){return n!=""});
     var deviceSearch = pathSearch[pathSearch.length - 1];
-    var twentyResults = results.slice(0,20);
 
     var allDevices = ["photon","core","electron","raspberry-pi"];
+
+    if (specifier.length>0) {
+      if (allDevices.indexOf(specifier)!=-1) { // the specifier is one of the devices
+        deviceSearch=specifier;
+      }
+    }
 
     var topFilteredResults = [];
 
     if (allDevices.indexOf(deviceSearch)!=-1) { // this section has device sensitivity
-      for (x=0; x<twentyResults.length; x++) {
-        var params = String(twentyResults[x].ref);
+      for (x=0; x<results.length; x++) {
+        var params = String(results[x].ref);
         var paramDeviceCount=0;
         for (y=0; y<allDevices.length; y++) {
           if (params.indexOf(allDevices[y])>=0) {
@@ -357,18 +362,18 @@ Created by Zach Supalla.
           }
         }
         if (paramDeviceCount==0) {  // does it have one of the allDevices in it?
-          topFilteredResults.push(twentyResults[x]);
+          topFilteredResults.push(results[x]);
         }
         else {  // check to see if it includes the deviceSearch term
-          if (String(twentyResults[x].ref).indexOf(deviceSearch) >= 0) {
-            topFilteredResults.push(twentyResults[x]);
+          if (String(results[x].ref).indexOf(deviceSearch) >= 0) {
+            topFilteredResults.push(results[x]);
           }
         }
       }
     }
     else {  // this section does not have device sensitivity, do not filter by device
       // probably should filter by some "default" device, whatever is what people most likely want to see
-      topFilteredResults=twentyResults;
+      topFilteredResults=results;
     }
     return topFilteredResults;
   }
