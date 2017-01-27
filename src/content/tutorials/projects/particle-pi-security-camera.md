@@ -11,7 +11,7 @@ order: 10
 
 ## Introduction
 
-Welcome to the official tutorial for building your very own Particle-connected security camera with Raspberry Pi! This project uses the Raspberry Pi integration with the Particle Cloud to control a PIR sensor, Neopixel LED ring, and Raspberry Pi camera to watch for intruders, snap a photo, and upload it to the web via Dropbox.
+Welcome to the official tutorial for building your very own Particle-connected security camera with Raspberry Pi! This project uses the Raspberry Pi integration with the Particle Cloud to control a PIR sensor, NeoPixel LED ring, and Raspberry Pi camera to watch for intruders, snap a photo, and upload it to the web via Dropbox.
 
 All firmware and software files for the project are located at the following GitHub repository:
 [https://github.com/spark/particle-pi-camera](https://github.com/spark/particle-pi-camera)
@@ -29,7 +29,7 @@ Upon open release of the Raspberry Pi + Particle Cloud integration, the provisio
 
 The project includes a few major sensing components:
 - [PIR (motion) sensor](https://www.adafruit.com/products/189)
-- [Neopixel LED rings](https://www.adafruit.com/products/2855)
+- [NeoPixel LED rings](https://www.adafruit.com/products/2855)
 - [Raspberry Pi camera](https://www.adafruit.com/products/3099)
 
 The Pi checks the PIR sensor to check for motion within its field of view. If it detects motion, it triggers the LED rings to illuminate the scene, so you can capture intruders in both light and dark environments. The camera then snaps a picture of the intruder, and uses the Pi's connection to the Internet to upload to your personal Dropbox folder.
@@ -41,7 +41,7 @@ Here's a list of the parts you'll need to build your Particle-connected security
 - [Raspberry Pi](https://www.adafruit.com/products/3055) (v3 preferred)
 - [Raspberry Camera V2](https://www.adafruit.com/products/3099)
 - [PIR (motion) sensor](https://www.adafruit.com/products/189)
-- [Neopixel LED rings](https://www.adafruit.com/products/2855)
+- [NeoPixel LED rings](https://www.adafruit.com/products/2855)
 - Micro USB cable
 - Micro SD card
 
@@ -138,16 +138,16 @@ echo "uploading image"
 /usr/local/bin/dropbox_uploader upload /home/pi/picam/$DATE.jpg "camera/"```
 
 ## Connect your hardware
-The next step of the process is to wire up your hardware, and to use simple example sketches on your Raspberry Pi to confirm that everything is working the way you'd like. The two major components we need to validate are the PIR sensor and the Neopixel LEDs.
+The next step of the process is to wire up your hardware, and to use simple example sketches on your Raspberry Pi to confirm that everything is working the way you'd like. The two major components we need to validate are the PIR sensor and the NeoPixel LEDs.
 
-### Connect and test your Neopixel rings
-For this project, we used these awesome [Neopixel LED rings](https://www.adafruit.com/products/2855) from Adafruit.
+### Connect and test your NeoPixel rings
+For this project, we used these awesome [NeoPixel LED rings](https://www.adafruit.com/products/2855) from Adafruit.
 
 ![](/assets/images/particle-pi-cam/particle-pi-ring.jpg)
 
 Follow these instructions for wiring up the LED rings:
-- Connect the positive supply of the ring to +5V on the Pi, GND to GND and input pin of the Neopixel ring to GPIO18 of the Pi
-- Use [this modified version](https://github.com/spark/particle-pi-camera/tree/master/firmware) of the Neopixel library, labeled `ws2811`, to control the ring. Note that it is included as a library dependency of the test app below.
+- Connect the positive supply of the ring to +5V on the Pi, GND to GND and input pin of the NeoPixel ring to GPIO18 of the Pi
+- Use [this modified version](https://github.com/spark/particle-pi-camera/tree/master/firmware) of the NeoPixel library, labeled `ws2811`, to control the ring. Note that it is included as a library dependency of the test app below.
 - Use the following app to test the ring. You can flash it to your Pi by copying and pasting it into the Web IDE and flashing it to your Raspberry Pi by clicking the star icon next to your device in the "Devices" panel.
 
 ```cpp
@@ -248,7 +248,7 @@ We will use this particular [motion (PIR) sensor](https://www.adafruit.com/produ
 
 ![](/assets/images/particle-pi-cam/particle-pi-pir-sch.jpg)
 
-The Neopixel ring will light upon detecting motion and will remain off otherwise.
+The NeoPixel ring will light upon detecting motion and will remain off otherwise.
 
 ```cpp
 #include "application.h"
@@ -358,7 +358,7 @@ Once you've verified that your hardware has been configured correctly, you'll ne
 
 [https://github.com/spark/particle-pi-camera/blob/master/firmware/application.cpp](https://github.com/spark/particle-pi-camera/blob/master/firmware/application.cpp)
 
-Here is the schematic of the complete project. Two Neopixel rings are connected in series with the data out of the right ring connected to the data input of the left ring. The output of the PIR sensor is connected to GPIO26. Remember to plug in your pi-camera as well!
+Here is the schematic of the complete project. Two NeoPixel rings are connected in series with the data out of the right ring connected to the data input of the left ring. The output of the PIR sensor is connected to GPIO26. Remember to plug in your pi-camera as well!
 
 ![](/assets/images/particle-pi-cam/particle-pi-camera-sch.jpg)
 

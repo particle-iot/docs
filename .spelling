@@ -1380,7 +1380,6 @@ publicKey
 NuGet
 DigiKey
 desoldering
-Neopixel
 ICCIDs
 nano-sized
 IMSI
@@ -1661,3 +1660,15 @@ mylibrary.cpp
 mylibrary.h
 library.properties
 LICENSE.txt
+pre-activate
+1080p
+queueing
+sparkline
+project.properties
+subfolders
+GPL
+url
+subfolder
+NeoPixel
+PDFs
+nyan

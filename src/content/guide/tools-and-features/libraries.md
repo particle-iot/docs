@@ -18,7 +18,7 @@ In general, libraries in the Particle ecosystem have the following features:
 
 1. **Most Arduino libraries are compatible with Particle.** We've worked hard to ensure that our [firmware API](https://docs.particle.io/reference/firmware) contains all of the most commonly used Arduino functions and firmware commands so that many Arduino libraries can be submitted into the Particle library ecosystem without modification. All of the most popular Arduino libraries are already available through our libraries system, and many others can be easily modified for compatibility.
 
-2. **Particle libraries can include and depend on other Particle libraries.** If your library requires another external library as a dependency, it is easy to specify the particular library and even version of the library that your library depends on. A good example is our `internet-button` library, which depends on the popular `neopixel` library for controlling Neopixel LEDs. You can learn more about libraries with dependencies in the [Library file structure](#library-file-structure) section below.
+2. **Particle libraries can include and depend on other Particle libraries.** If your library requires another external library as a dependency, it is easy to specify the particular library and even version of the library that your library depends on. A good example is our `internet-button` library, which depends on the popular `neopixel` library for controlling NeoPixel LEDs. You can learn more about libraries with dependencies in the [Library file structure](#library-file-structure) section below.
 
 3. **Particle libraries are reliable.** In addition to building and sharing our own high quality libraries, Particle verifies and promotes high quality community libraries that are fully documented, perform reliably, and include a variety of usage examples. Using our official and verified libraries means you'll spend less time debugging and more time building your project.
 
@@ -91,13 +91,13 @@ Every Particle library complies with the following file structure that will be a
 
 - **license** The acronym for the license this library is released under, such as GPL, MIT, Apache-2.
 
-- **sentence** A one sentece description of the library that will be shown in the library browser.
+- **sentence** A one sentence description of the library that will be shown in the library browser.
 
 - **paragraph** A longer description to be shown in the details page of the library.
 
 - **url** The web page that a user wanting more information would visit like a GitHub URL.
 
-- **repository** The git repositiory like `http://github.com/user/project.git`, if available.
+- **repository** The git repository like `http://github.com/user/project.git`, if available.
 
 - **architectures** A comma-separated list of supported hardware boards that are compatible with your library like `particle-core`, `particle-photon`, `particle-electron`. If missing, the library will be available for all architectures.
 
@@ -218,7 +218,7 @@ Follow these steps to migrate a v1 Particle library to the new v2 structure usin
     - Click the `Check for Updates` button. This will update your `particle-dev-profiles` and `particle-dev-libraries` packages to the most recent version.
 
 - Open your library directory in a new window of the Desktop IDE
-- Open the `Library Manager` tab on the lefthand navigation bar
+- Open the `Library Manager` tab on the left hand navigation bar
 
 ![](/assets/images/libraries/migrate-1.png)
 

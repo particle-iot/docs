@@ -10,7 +10,7 @@ order: 10
 
 SIM Management equips product creators with the functionality needed to operate at scale with
 cellular-connected devices. This suite of tools is focused on reducing friction of
-managing a fleet of Particle SIM cards at all stages of the SIM lifecycle.
+managing a fleet of Particle SIM cards at all stages of the SIM life cycle.
 
 Some of the most notable features of SIM management for products include:
 - **Import and pre-activate SIM cards en-masse** to ensure a smooth unboxing experience
@@ -106,7 +106,7 @@ first month's 1MB data plan on your next invoice.
 For importing smaller numbers of SIM cards, it makes more sense to type
 or scan ICCIDs to import into your product. You can find the
 full ICCID number on the back of your Particle SIM carrier card, below the
-barcode. Alternatively, the ICCID is also printed directly on the micro
+bar code. Alternatively, the ICCID is also printed directly on the micro
 SIM, if it has already been popped out of it's SIM carrier card.
 
 <img src="/assets/images/sims-for-products/iccid-carrier-card.png"
@@ -122,7 +122,7 @@ kind of webcam handy, we suggest typing ICCIDs or [importing via a
 file](#importing-via-files).
 
 ![Scan ICCIDs](/assets/images/sims-for-products/scan-sim-cards.png)
-<p class="caption">To scan, position the barcode inside the cyan box,
+<p class="caption">To scan, position the bar code inside the cyan box,
 and ensure that it is in focus</p>
 
 Regardless of if you are typing or scanning ICCIDs, SIM cards will queue
@@ -238,7 +238,7 @@ sending or receiving data via a cellular network
 - **Reactivation/Unpausing**: Resume cellular data transfer of a
 deactivated or paused SIM and immediately enable the SIM to be used with
 a Particle device
-- **Removal from Product**: Deactivate the SIM card and dissasociate it
+- **Removal from Product**: Deactivate the SIM card and disassociate it
 from your product's billing account
 
 ## Billing and invoicing

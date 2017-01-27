@@ -141,7 +141,7 @@ We have [a detailed reference guide about libraries](/guide/tools-and-features/l
 
 ##### Step 1 - Open the libraries tab
 
-Once you have opened your Particle project in the Desktop IDE, open the libraries tab by clicking on the `Browse and manage libraries` button on the lefthand toolbar.
+Once you have opened your Particle project in the Desktop IDE, open the libraries tab by clicking on the `Browse and manage libraries` button on the left hand toolbar.
 
 ![Open the libraries tab](/assets/images/libraries/libraries-tab.png)
 
