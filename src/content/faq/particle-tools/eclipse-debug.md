@@ -171,7 +171,9 @@ As above, the color code is not official, it's just what I happened to have on t
 
 ## Building Debug Builds
 
-You'll need a local gcc-arm toolchain to make builds that are compatible with the debugger; you cannot use the cloud compilers to build debug builds.
+**Important: Make sure your software doesn't use the debugger pins: D6 and D7 for SWD, or D4, D5, D6, and D7 for JTAG.** This means you can't use the D7 user LED while using the debugger.
+
+The firmware compiled through the Web IDE, Desktop IDE or CLI are don't contain debug information.  You'll need a local gcc-arm toolchain to make builds that are compatible with the debugger.
 
 For debugging using JTAG/SWD you create special monolithic debug builds. They're monolithic in that they are a single file that contains the system and user firmware instead of the usual modular binaries (system parts and user part). The disadvantage of the monolithic binaries is that they are large, maybe 480 Kbytes for a simple program that might only be 6 Kbytes normally!
 
@@ -239,7 +241,7 @@ The download is a zip file, not an installer. Select the file in your Downloads 
 
 For convenience, I created a desktop shortcut icon as well. Right click on **eclipse.exe** and select **Create Shortcut** and select **Yes** to create it on the desktop (or drag and drop it there).
 
-Now you should be able to launch Eclipse and complete the next step of the instructions, **Eclipse Install GNU ARM C/C++**, which is common for all operating systems.
+Now you should be able to launch Eclipse and complete the next step of the instructions, [Eclipse Install GNU ARM C/C++](#eclipse-install-gnu-arm-c-c-), which is common for all operating systems.
 
 ### Eclipse Base Install - Mac
 
@@ -283,7 +285,7 @@ drwxr-xr-x  4 root  wheel  136 Dec  1 08:18 JavaVirtualMachines
 
 Make sure you link to the version of the JDK you installed, which might not be build 111.
 
-Now you should be able to launch Eclipse and complete the next step of the instructions, **Eclipse Install GNU ARM C/C++**, which is common for all operating systems.
+Now you should be able to launch Eclipse and complete the next step of the instructions, [Eclipse Install GNU ARM C/C++](#eclipse-install-gnu-arm-c-c-), which is common for all operating systems.
 
 
 
@@ -351,16 +353,23 @@ rickk@ubuntu:~/Downloads$ cd ../Desktop/
 rickk@ubuntu:~/Desktop$ ln -s /usr/local/bin/eclipse/eclipse .
 ```
 
-Now you should be able to launch Eclipse and complete the next step of the instructions, **Eclipse Install GNU ARM C/C++**, which is common for all operating systems.
+Now you should be able to launch Eclipse and complete the next step of the instructions, [Eclipse Install GNU ARM C/C++](#eclipse-install-gnu-arm-c-c-), which is common for all operating systems.
 
 ### Eclipse Install GNU ARM C/C++
 
 These steps are required for Windows, Mac and Linux to use the gcc-arm compiler and GDB with the Photon and Electron.
 
+{{!-- NOTE: http://gnuarmeclipse.sourceforge.net/updates is currently broken so add steps on how to install manually --}}
+{{!-- Remove this step when the update URL is fixed --}}
+- Download [the latest release of the GNU ARM Eclipse plugin](https://github.com/gnuarmeclipse/plug-ins/releases).
+
 - Run Eclipse 
 
 - From the **Help** menu select **Install New Software...**
 
+{{!-- Remove this step when the update URL is fixed --}}
+- Click **Add** then **Achive** and select the zip file of GNU ARM Eclipse.
+{{!-- Add these 2 steps when the update URL is fixed
 - In the **Work with** box enter **http://gnuarmeclipse.sourceforge.net/updates** (1) and click **Add** (2).
 
 ![Add Software](/assets/images/eclipse-debug-eclipse-add-1.png)
@@ -369,6 +378,7 @@ These steps are required for Windows, Mac and Linux to use the gcc-arm compiler 
 
 ![Add Software](/assets/images/eclipse-debug-eclipse-add-2.png)
 
+--}}
 - Select the packages
 
 ![Add Software](/assets/images/eclipse-debug-eclipse-add-3.png)
@@ -407,7 +417,7 @@ For bug reports, read
         http://openocd.org/doc/doxygen/bugs.html
 ```
 
-Or better yet, the more involved example, using a ST-LINK/V2 mini SWD USB stick connected to a Photon:
+Or better yet, the more involved example, using a ST-LINK/V2 mini SWD USB stick connected to a Photon **in DFU mode** (DFU has debugger support regardless of what firmware is flashed):
 
 ```
 C:\Program Files\GNU ARM Eclipse\OpenOCD\0.10.0-201610281609-dev\scripts>..\bin\openocd.exe -f interface/stlink-v2.cfg -f target/stm32f2x.cfg
@@ -430,7 +440,7 @@ Info : stm32f2x.cpu: hardware has 6 breakpoints, 4 watchpoints
 
 ```
 
-If you are using the Particle Programmer Shield, you will need to copy the configuration file. Download [particle-ftdi.cfg](/assets/files/eclipse-debug/particle-ftdi.cfg) and copy it into your OpenOCD installation directory, into **scripts/ftdi/particle-ftdi.cfg**.
+If you are using the Particle Programmer Shield, you will need to copy the configuration file. Download [particle-ftdi.cfg](/assets/files/eclipse-debug/particle-ftdi.cfg) and copy it into your OpenOCD installation directory, into **scripts/interface/ftdi/particle-ftdi.cfg**.
 
 
 
@@ -446,7 +456,7 @@ For Mac, download the pkg installer and run it. You may need to go into **Contro
 
 The installation directory will be something like: /Applications/GNU ARM Eclipse/OpenOCD/0.10.0-201610281609-dev. 
 
-You can test it by connecting the debugging device to a Photon. In this case, I connected a ST-LINK/V2 mini device to a Photon with SWD:
+You can test it by connecting the debugging device to a Photon **in DFU mode** (DFU has debugger support regardless of what firmware is flashed). In this case, I connected a ST-LINK/V2 mini device to a Photon with SWD:
 
 ```
 os-x-10:~ rickk$ cd "/Applications/GNU ARM Eclipse/OpenOCD/0.10.0-201510281129-dev/scripts"
@@ -469,7 +479,7 @@ Info : Target voltage: 3.250331
 Info : stm32f2x.cpu: hardware has 6 breakpoints, 4 watchpoints
 ```
 
-If you are using the Particle Programmer Shield, you will need to copy the configuration file. Download [particle-ftdi.cfg](/assets/files/eclipse-debug/particle-ftdi.cfg) and copy it into your OpenOCD installation directory, into **scripts/ftdi/particle-ftdi.cfg**.
+If you are using the Particle Programmer Shield, you will need to copy the configuration file. Download [particle-ftdi.cfg](/assets/files/eclipse-debug/particle-ftdi.cfg) and copy it into your OpenOCD installation directory, into **scripts/interface/ftdi/particle-ftdi.cfg**.
 
 
 ### Install GNU ARM Eclipse OpenOCD - Linux
@@ -490,7 +500,7 @@ rickk@ubuntu:~$ cd /opt/gnuarmeclipse/
 rickk@ubuntu:/opt/gnuarmeclipse$ sudo tar xzf ~/Downloads/gnuarmeclipse-openocd-debian64-0.10.0-201610281609-dev.tgz 
 ```
 
-You can test it by connecting the debugging device to a Photon. In this case, I connected a ST-LINK/V2 mini device to a Photon with SWD:
+You can test it by connecting the debugging device to a Photon **in DFU mode** (DFU has debugger support regardless of what firmware is flashed). In this case, I connected a ST-LINK/V2 mini device to a Photon with SWD:
 
 ```
 rickk@ubuntu:~$ /opt/gnuarmeclipse/openocd/0.10.0-201610281609-dev/scripts
@@ -513,7 +523,7 @@ Info : Target voltage: 3.251357
 Info : stm32f2x.cpu: hardware has 6 breakpoints, 4 watchpoints
 ```
 
-If you are using the Particle Programmer Shield, you will need to copy the configuration file. Download [particle-ftdi.cfg](/assets/files/eclipse-debug/particle-ftdi.cfg) and copy it into your OpenOCD installation directory, into **scripts/ftdi/particle-ftdi.cfg**.
+If you are using the Particle Programmer Shield, you will need to copy the configuration file. Download [particle-ftdi.cfg](/assets/files/eclipse-debug/particle-ftdi.cfg) and copy it into your OpenOCD installation directory, into **scripts/interface/ftdi/particle-ftdi.cfg**.
 
 
 ## Create an Eclipse project - All Operating Systems
@@ -743,6 +753,24 @@ Of importance is that the execution is stopped at 0x0 (1) and you need to click 
 This is what the screen looks like when firmware is running. The Photon should be breathing cyan and the a ST-LINK/V2 Mini SWD stick should be still be alternating red and green.
 
 ![Debug View](/assets/images/eclipse-debug-debug-9.png)
+
+If you see errors in the debugging console like these make sure your code is not using pins D6 and D7 (SWD), or D4, D5, D6 and D7 (JTAG).
+```
+Examination failed, GDB will be halted. Polling again in 1500ms
+Warn : Invalid ACK 0x7 in JTAG-DP transaction
+Polling target stm32f2x.cpu failed, trying to reexamine
+Warn : Invalid ACK 0x7 in JTAG-DP transaction
+Warn : Invalid ACK 0x7 in JTAG-DP transaction
+Warn : Invalid ACK 0x7 in JTAG-DP transaction
+Warn : Invalid ACK 0x7 in JTAG-DP transaction
+Warn : Invalid ACK 0x7 in JTAG-DP transaction
+Warn : Invalid ACK 0x7 in JTAG-DP transaction
+Warn : Invalid ACK 0x7 in JTAG-DP transaction
+Warn : Invalid ACK 0x7 in JTAG-DP transaction
+Warn : Invalid ACK 0x7 in JTAG-DP transaction
+Warn : Invalid ACK 0x7 in JTAG-DP transaction
+Examination failed, GDB will be halted. Polling again in 3100m
+```
 
 Some more techniques are described below in the **Debugging Examples** section.
 
