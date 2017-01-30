@@ -322,7 +322,7 @@ flashPr.then(
 Creates a user in the Particle cloud
 
 ```javascript
-particle.createUser({ username: 'example@email.com', password: 'pass' }.then(function(data) {
+particle.createUser({ username: 'example@email.com', password: 'pass' }).then(function(data) {
 ```
 
 We try to login and get back an accessToken to verify user creation
