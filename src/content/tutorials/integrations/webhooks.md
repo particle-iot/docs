@@ -307,20 +307,20 @@ Create a text file and name it librato.json, and paste in this example.  Make su
 ```json
 {
     "event": "librato_",
-    "url": "https://metrics-api.librato.com/v1/metrics",
+    "url": "https://metrics-api.librato.com/v1/measurements",
     "requestType": "POST",
     "auth": {
         "username": "YOUR_LIBRATO_USERNAME",
         "password": "YOUR_LIBRATO_API_TOKEN"
     },
     "json": {
-        "gauges": [
-            {
-                "name": "\{{PARTICLE_EVENT_NAME}}",
-                "value": "\{{PARTICLE_EVENT_VALUE}}",
-                "source": "\{{PARTICLE_DEVICE_ID}}"
-            }
-        ]
+	    "tags": {
+		    "device": "{{PARTICLE_DEVICE_ID}}"
+    	},
+	    "measurements": [{
+	    	"name": "{{PARTICLE_EVENT_NAME}}",
+		    "value": "{{PARTICLE_EVENT_VALUE}}"
+	    }]
     },
     "mydevices": true
 }
