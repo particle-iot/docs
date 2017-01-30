@@ -322,7 +322,8 @@ Create a text file and name it librato.json, and paste in this example.  Make su
 		    "value": "{{PARTICLE_EVENT_VALUE}}"
 	    }]
     },
-    "mydevices": true
+    "mydevices": true,
+    "noDefaults": true
 }
 ```
 
