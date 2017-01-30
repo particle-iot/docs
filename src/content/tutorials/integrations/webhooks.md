@@ -315,11 +315,11 @@ Create a text file and name it librato.json, and paste in this example.  Make su
     },
     "json": {
 	    "tags": {
-		    "device": "{{PARTICLE_DEVICE_ID}}"
+		    "device": "\{{PARTICLE_DEVICE_ID}}"
     	},
 	    "measurements": [{
-	    	"name": "{{PARTICLE_EVENT_NAME}}",
-		    "value": "{{PARTICLE_EVENT_VALUE}}"
+	    	"name": "\{{PARTICLE_EVENT_NAME}}",
+		    "value": "\{{PARTICLE_EVENT_VALUE}}"
 	    }]
     },
     "mydevices": true,
