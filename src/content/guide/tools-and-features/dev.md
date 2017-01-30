@@ -211,4 +211,4 @@ For example, if we were using the library "UberSensor", it would be included lik
 Contribute a library
 ---
 
-This functionality is available in the Desktop IDE and the Command Line Interface (CLI). You can follow [this link](/guide/tools-and-features/libraries/#contributing-libraries) to find more about contributing a library.
+See the [detailed library guide](/guide/tools-and-features/libraries/#contributing-libraries) to find more about contributing a library from the Desktop IDE.
