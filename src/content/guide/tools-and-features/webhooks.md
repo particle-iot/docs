@@ -319,6 +319,14 @@ You can use these variables in a variety of different places when configuring a 
 }
 ```
 
+To pass multiple pieces of data to a webhook for things like query string parameters, place the values in an sprintf buffer.  The values can then be referenced dynamically using the `\{{parameter name}}` construct.
+```
+sprintf(szInfo, "%.6f,%.6f", (lat == TinyGPS::GPS_INVALID_F_ANGLE ? 0.0 : lat), (lng == TinyGPS::GPS_INVALID_F_ANGLE ? 0.0 : lng));
+        
+Particle.publish("location", szInfo, PRIVATE);
+```
+In this example, you can use `\{{lat}}` and `\{{lng}}` as parameters in your webhook.
+
 - The _response topic_, or the name of the event that gets sent back to the device with the results of the webhook. You'd want to use webhook variables if you were creating a product webhook that should only return a response to the device that triggered it. [Read here](#product-webhook-responses) for more details.
 
 - The _response template_, or the body of data that gets sent back to the device after the webhook has successfully been returned.
