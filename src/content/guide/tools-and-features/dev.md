@@ -197,9 +197,18 @@ the library name and version number should be added to the `project.properties` 
 
 ![Library included](/assets/images/libraries/libraries-dev-properties.png)
 
+To make the library functionality available to your application, you add an include statement to your application source code. 
+The include statement names the library header file, which is the library name with a `.h` ending.  
+
+For example, if we were using the library "UberSensor", it would be included like this:
+ 
+```
+#include "UberSensor.h"
+```
+
 **Congrats!** You have now added a firmware library to your Particle project in the Desktop IDE!
 
 Contribute a library
 ---
 
-This functionality was moved to the Desktop IDE and the Command Line Interface (CLI). You can follow [this link](/guide/tools-and-features/libraries/#contributing-libraries) to find more about contributing a library.
+This functionality is available in the Desktop IDE and the Command Line Interface (CLI). You can follow [this link](/guide/tools-and-features/libraries/#contributing-libraries) to find more about contributing a library.

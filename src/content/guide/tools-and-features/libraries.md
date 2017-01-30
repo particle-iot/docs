@@ -103,13 +103,57 @@ Every Particle library complies with the following file structure that will be a
 
 - **dependencies.<lib>** Other library that this library depends on, one line per library dependency. The value is the desired version number of the library dependency.
 
+## Project file structure
+
+There are 3 kinds of project structure:
+
+- legacy
+- simple 
+- extended
+
+### Legacy Structure
+
+The legacy project structure stores files in the root of the project. There is no project definition file. This is
+the structure used by all projects prior to libraries v2. 
+
+- `myapp`
+  - `application.ino`
+
+A legacy project does not support using libraries.
+
+### Simple Structure
+
+The simple project structure is similar to the legacy structure - the project sources are stored in the root. However,
+the project also includes a project definition file `project.properties`. Even saving a blank `project.properties` file
+is enough to make a simple project.
+
+- `myapp`
+  - `application.ino`
+  - `project.properties`
+
+A simple project has standard support for libraries; libraries can be added to the project via the CLI `library add` command or the Desktop IDE library manager.
+
+### Extended Structure
+
+The extended structure expands on the simple structure, placing all application sources in the `src` folder.
+
+- `myapp`
+  - `project.properties`
+  - `src`
+    - `application.ino`
+
+An extended project has full support for libraries, supporting both `library add` and copied libraries.
+
+An extended project can be created by using the Desktop IDE "Start a new project" or the CLI `particle project create` command.
+
+
 ## Using libraries
 
 Libraries consumption is supported in each of our three primary development tools. Instructions for using libraries can be found in the documentation for each of those tools, linked below:
 
 - [Using libraries with the Web IDE](/guide/getting-started/build/#using-libraries)
 - [Using libraries with the Desktop IDE](/guide/tools-and-features/dev/#using-community-libraries)
-- [Using libraries with the Command Line Interface (CLI)](/reference/cli/#particle-library)
+- [Using libraries with the Command Line Interface (CLI)](/guide/tools-and-features/dev/#working-with-projects-and-libraries)
 
 ## Contributing libraries
 
