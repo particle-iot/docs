@@ -350,10 +350,10 @@ The steps to creating a library are as follows:
 
 ### Create a project for consuming the library
 
-While it's not structly necessary to have a project present when authoring
+While it's not strictly necessary to have a project present when authoring
 a new library, having one can help ensure that the library works as intended before publishing it. The project allows you to consume the library, check that it compiles and verify it behaves as expected on the target platforms before publishing.
 
-For the library consumer project that will consume the library `mylib`, create an intiial project structure tha looks like this:
+For the library consumer project that will consume the library `mylib`, create an initial project structure that looks like this:
 
 ```
 src/project.cpp
@@ -399,7 +399,7 @@ This will create a `.bin` file which you then flash to your device.
 
 `particle flash mydevice firmware.bin`
 
-(Replace the name `firmware.bin` witht the name of the `.bin` file produced by the compile step.)
+(Replace the name `firmware.bin` with the name of the `.bin` file produced by the compile step.)
 
 ### Contributing the library
 

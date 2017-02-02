@@ -47,7 +47,7 @@ The Photon USB cable isn't entirely necessary because the shield can power the P
 
 ![Particle Programmer Shield](/assets/images/eclipse-debug-progshield.jpg)
 
-### Particle Programer Shield - Windows
+### Particle Programmer Shield - Windows
 
 In order to use a Particle Programmer Shield with OpenOCD under Windows you'll need to assign the **STM32 STLink** device using [Zadig](http://zadig.akeo.ie).
 
@@ -58,7 +58,7 @@ Select **USB <-> Serial Converter (Interface 0)** (USB ID 0403 6010 00). Then se
 ![Zadig settings for Particle Programmer Shield](/assets/images/eclipse-debug-programmer-zadig.png)
 
 
-### Particle Programer Shield - Mac
+### Particle Programmer Shield - Mac
 
 This doesn't seem to be a problem with El Capitan and Sierra versions of Mac OS X, but you may encounter a driver conflict that makes it difficult to use the Programmer Shield on the Mac. The detailed instructions for the workaround are in the [instructions for the Programmer Shield](https://github.com/spark/shields/tree/master/photon-shields/programmer-shield).
 
@@ -368,7 +368,7 @@ These steps are required for Windows, Mac and Linux to use the gcc-arm compiler 
 - From the **Help** menu select **Install New Software...**
 
 {{!-- Remove this step when the update URL is fixed --}}
-- Click **Add** then **Achive** and select the zip file of GNU ARM Eclipse.
+- Click **Add** then **Archive** and select the zip file of GNU ARM Eclipse.
 {{!-- Add these 2 steps when the update URL is fixed
 - In the **Work with** box enter **http://gnuarmeclipse.sourceforge.net/updates** (1) and click **Add** (2).
 
@@ -812,7 +812,7 @@ You can click the **Resume** button (3) to continue executing code on the Photon
 
 ### Setting breakpoints
 
-To set a breakpoint in the code, double-click in the blue bar to the left of the line number. A small icon with a checkmark and a tiny blue circle will appear.
+To set a breakpoint in the code, double-click in the blue bar to the left of the line number. A small icon with a check mark and a tiny blue circle will appear.
 
 In this example, I set a breakpoint on line 51.
 

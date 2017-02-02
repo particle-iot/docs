@@ -7,19 +7,19 @@ columns: two
 template: guide.hbs
 ---
 
+
 # Webhooks
 
 Webhooks are a simple and flexible way to send data from your Particle devices to other apps and services around the Internet. Webhooks bridge the gap between the physical and the digital world, helping you get your data where you need it to be.
 
-You could use a webhook to save valuable information in a database, visualize data being read from a sensor, send the latest weather report to your device, trigger a payment, send a text message, and so much more!   
-
-
+You could use a webhook to save valuable information in a database, visualize data being read from a sensor, send the latest weather report to your device, trigger a payment, send a text message, and so much more!
 
 <img src="/assets/images/webhooks-overview.png" alt="Webhooks with Particle"/>
 <p class="caption">Webhooks allow you to send data from your connected device anywhere on the Internet</p>
 
 In this guide, we'll provide an overview of how you can use webhooks in your connected products, and walk you through a few examples to get you started.
 
+**If you are looking for all the juicy details, head over to the <a href="/reference/webhooks">webhook reference page</a>.**
 
 ## How webhooks work
 
@@ -222,7 +222,7 @@ If the webhook receives a response from the targeted web server with something i
 ![Webhook Logs](/assets/images/webhook-logs.png)
 <p class="caption">`hook-sent` and `hook-response` events will appear in your event stream for an active webhook</p>
 
-It is also possible that you can see errors appear in your Logs from unsuccessful attempts to contact the third-party server. You can read more about those [here](#error-limits).
+It is also possible that you can see errors appear in your Logs from unsuccessful attempts to contact the third-party server. You can read more about those [here](/reference/webhooks/#error-limits).
 
 *Note*: This method of monitoring activity is not enabled for product-level webhooks. A method for monitoring product-level webhooks is coming soon.
 
@@ -284,97 +284,76 @@ At any time, you can see some sample firmware for both triggering and getting re
 ### Monitoring Product Webhooks
 [Coming Soon]
 
+## Debugging with RequestBin
+
+Depending on the service you're sending data to, it can be difficult to debug a webhook, especially if you're using sending data using templates. A great debugging tool is the free service <http://requestb.in/>. You create a new RequestBin and it returns a URL that you use as the URL in your webhook. Then, when you refresh you RequestBin page, it will show you the requests that have come in, with all of the parameters and data. Very handy!
+
+
+Here's a simple webhook JSON file. Save it in a file "hook1.json".
+
+```
+{
+    "event": "test1",
+    "url": "http://requestb.in/19le9w61",
+    "requestType": "POST",
+    "noDefaults":false
+}
+```
+
+You can create a webhook using the Particle CLI by issuing the command:
+
+```
+particle webhook create hook1.json
+```
+
+Tested it first using the CLI:
+
+```
+particle publish test1 "testing" --private
+```
+
+And this is what the request bin looks like:
+
+![Request Bin Example](/assets/images/webhooks/bin1.png)
+
+In this simple example, you can see the POST request with the default data in form encoding. 
+
+Here's an example using JSON encoding.
+
+```
+{
+    "event": "test1",
+    "url": "http://requestb.in/19le9w61",
+    "requestType": "POST",
+    "json": {
+		"name": "{{PARTICLE_EVENT_NAME}}",
+		"value": "{{PARTICLE_EVENT_VALUE}}"
+    },
+    "noDefaults": true
+}
+
+```
+
+Generating the event:
+
+```
+particle publish test1 "testing2" --private
+```
+
+And the RequestBin results:
+![Request Bin Example](/assets/images/webhooks/bin2.png)
 
 
 ## Advanced Topics
 
-### Other ways to manage webhooks
+See [the webhook reference](/reference/webhooks) for more details on customizing webhooks with variables, examples of different webhook configurations as well as community guides on setting up webhooks with external services.
 
-If you prefer not to use the Particle Console, there are other tools you can use to manage webhooks.
+As a quick reference, these are the pre-defined webhook variables available for you to use:
 
-If you prefer the command line: 
-
-1) The [Particle CLI](/reference/cli/) has commands for [creating](/reference/cli/#particle-webhook-create), [listing](/reference/cli/#particle-webhook-list), and [deleting](/reference/cli/#particle-webhook-delete) webhooks.
-
-If you prefer to manage webhooks programatically:
-
-2) The [Particle API](/reference/api/) has endpoints for [creating](/reference/api/#create-a-webhook), [listing](/reference/api/#list-all-webhooks), [retrieving](/reference/api/#get-a-webhook) and [deleting](/reference/api/#delete-a-webhook) webhooks.
-
-### Webhook variables
-
-A webhook can be configured to inject dynamic data at runtime. The following webhook variables are available for you to use:
-
-- `\{{PARTICLE_DEVICE_ID}}`: The ID of the device that triggered the webhook
+r `\{{PARTICLE_DEVICE_ID}}`: The ID of the device that triggered the webhook
 - `\{{PARTICLE_EVENT_NAME}}`: The name of the event that triggers the webhook
 - `\{{PARTICLE_EVENT_VALUE}}`: The data associated with the webhook event
 - `\{{PARTICLE_PUBLISHED_AT}}`: When the webhook was sent
-
-You can use these variables in a variety of different places when configuring a webhook, such as:
-- Custom JSON or form data sent with the request. This is most commonly used when the web server you are interacting with expects structured data in a specific way. Here's what custom JSON could look like with some webhook variables included:
-
-```
-{
-  "source": "\{{PARTICLE_DEVICE_ID}}",
-  "published_at": "\{{PARTICLE_PUBLISHED_AT}}"
-}
-```
-
-- The _response topic_, or the name of the event that gets sent back to the device with the results of the webhook. You'd want to use webhook variables if you were creating a product webhook that should only return a response to the device that triggered it. [Read here](#product-webhook-responses) for more details.
-
-- The _response template_, or the body of data that gets sent back to the device after the webhook has successfully been returned.
-
-## Limits
-
-### Be a good citizen
-
-**Please make sure you have permission from the target site!**
-
-Web requests via webhooks can go almost anywhere on the internet, and to almost any service, which is awesome!
-
-In being responsible members of the Internet community, we want to make sure we're not sending unwanted requests to sites, or sending too much traffic, or causing errors.  For this reason we ask that you make sure you have permission to make requests to any sites you configure webhooks for, and that you're sending those requests within their usage policies.  We will generally disable any hooks, or adjust rate limiting if we hear from site administrators that contact us about issues.
-
-
-### Limits by Host
-
-**Any host will be limited to 120 requests per minute
-unless we're contacted by the site administrator**
-
-Particle webhooks will not contact any host more often than 120 times per minute, despite any number of configured webhooks from any number of users.  Requests over this limit for the moment will be dropped.  We intend to add a proper queuing system so this is done more fairly, but for the moment we've opted to protect sites against abuse first.  If you're a site owner / operator and you want to allow more traffic, please email us at hello@particle.io.
-
-
-### Limits by User
-
-**You can create up to 20 webhooks,
-you can send 10 webhooks per minute per device**
-
-A user by default may trigger a webook up to 10 times per minute for every device that is registered to their account.  A user may create up to 20 webhooks in total.
-
-Note: This means you must have at least one device registered to your account to trigger a webhook.
-
-
-### Error Limits
-
-**A webhook will be disabled if the server responds with errors 10 times in a row.**
-
-Any webhook that results in an error code from the server (above a 400), 10 consecutive times in a row will be automatically disabled.  We'll be adding notifications, and the ability to pause/unpause when this happens, but for the moment you might notice that your webhook stops working for this reason.
-
-Error responses from the target URL will also be sent back in the response event.  If you have 10 consecutive errors, the hook will send you a "Too many errors, webhook disabled" message.  Make sure you're watching the responses when developing your webhook!
-
-## Community Webhook Examples
-
-Below are a few community-written webhook examples. They have been sorted by what they do. These examples were not written by Particle but instead members of our community. Got your own webhook example? Post on the [community forums](https://community.particle.io/) and then issue a pull request to our [docs repo](https://github.com/spark/docs/compare).
-
-### Sending SMS (Text Messages)
-
-- [Tropo - Sending a text message (or voice call) using Tropo](https://community.particle.io/t/webhook-tutorial-send-a-sms/11431) by [harrisonhjones](https://community.particle.io/users/harrisonhjones/activity)
-
-### Push Notifications
-
-- [Pushbullet - Sending a push notification using Pushbullet](https://www.hackster.io/gusgonnet/add-push-notifications-to-your-hardware-41fa5e) by [gusgonnet](https://community.particle.io/users/gusgonnet/activity)
-
-### Sending Emails
-
-- [mailgun - Sending emails with mailgun](https://github.com/harrisonhjones/webhook-examples/tree/master/mailgun.org) by [harrisonhjones](https://community.particle.io/users/harrisonhjones/activity)
 
 
 **Also**, check out and join our [community forums](http://community.particle.io/) for advanced help, tutorials, and troubleshooting.
