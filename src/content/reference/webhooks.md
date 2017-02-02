@@ -36,11 +36,10 @@ EXAMPLE WEBHOOK
 The 3 main parts of the webhook are: which events from which devices trigger it, which service it targets and what data format to use.
 
 An event will trigger a webhook if:
-- The event is private
 - The event name starts with the webhook `eventName`.
-- The device that published the event matches the webhook `deviceID` or all devices if `deviceID` is omitted.
+- The device that published the event matches the webhook `deviceID` or all devices you own if `deviceID` is omitted.
 
-_Note: events can be published publicly or privately from the firmware. Webhooks only trigger on private events published by your devices._
+Note: events can be published publicly or privately from the firmware. Webhooks can trigger on either type of event as long as it is published by one of your devices.
 
 ## Webhook properties
 
@@ -530,11 +529,13 @@ The [Webhook Builder](https://console.particle.io/integrations/webhooks/create) 
 
 All the webhook properties can be filled out with the form, _except for `body` which is currently not supported on the Console._
 
-Currently product webhooks can only be created through the Console. Navigate into your product, then click Integrations on the left navigation bar, then New integration, Webhook.
+Product webhooks can be created through the Console. Navigate into your product, then click Integrations on the left navigation bar, then New integration, Webhook.
 
 ## Using the CLI
 
 Webhooks can be created, listed and deleted with the [Particle Command Line Interface (CLI)](https://particle.io/cli).
+
+Product webhooks cannot currently be created through the CLI.
 
 ### particle webhook create
 
@@ -833,7 +834,7 @@ Below are a few community-written webhook examples. They have been sorted by wha
 
 ### Saving data in Firebase
 
-- [Firebase tutorial] (https://github.com/rickkas7/firebase_tutorial) by [rickkas7](http://community.particle.io/users/rickkas7/activity)
+- [Firebase tutorial](https://github.com/rickkas7/firebase_tutorial) by [rickkas7](http://community.particle.io/users/rickkas7/activity)
 
 **Also**, check out and join our [community forums](http://community.particle.io/) for advanced help, tutorials, and troubleshooting.
 
