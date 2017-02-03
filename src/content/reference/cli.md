@@ -491,7 +491,7 @@ $ particle serial monitor /dev/cu.usbmodem12345
 
 Update your device to the latest system firmware release. Follow this with `particle flash --usb tinker` to reflash the default Tinker app to make your device run known good software.
 
-``sh
+```sh
 # put the device in DFU mode first, then update the system firmware
 $ particle update
 > Your device is ready for a system update.
