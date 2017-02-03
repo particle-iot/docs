@@ -9,7 +9,7 @@ order: 3
 # CLI Command Reference
 
 
-## particle setup Wi-Fi
+## particle setup wifi
 
   Helpful shortcut for adding another Wi-Fi network to a device connected over USB.  Make sure your device is connected via a USB cable, and is slow blinking blue [listening mode](/guide/getting-started/modes/#listening-mode)
 
@@ -485,6 +485,21 @@ $ particle serial monitor
 $ particle serial monitor 1
 $ particle serial monitor COM3
 $ particle serial monitor /dev/cu.usbmodem12345
+```
+
+## particle update
+
+Update your device to the latest system firmware release. Follow this with `particle flash --usb tinker` to reflash the default Tinker app to make your device run known good software.
+
+``sh
+# put the device in DFU mode first, then update the system firmware
+$ particle update
+> Your device is ready for a system update.
+> This process should take about 30 seconds. Here goes!
+
+! System firmware update successfully completed!
+
+> Your device should now restart automatically.
 ```
 
 ## particle keys
