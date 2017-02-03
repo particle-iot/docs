@@ -11268,11 +11268,15 @@ make: *** [user] Error 2
 
 When you are using the Particle Cloud to compile your `.ino` source code, a preprocessor comes in to modify the code into C++ requirements before producing the binary file used to flash onto your devices.
 
-However, there might be instances where the preprocessor causes issues in your code. One example is the use of class/structs in your function parameters.
+However, there might be instances where the preprocessor causes issues in your code. Examples include:
 
+  * Using class/struct types in your function parameters (as above).
+  * Using single variables in conditions - e.g. `else if(foo)`
 
 
 So when you see the `ABC does not name a type` error, yet you know the type is defined, consider disabling the preprocessor using `#pragma SPARK_NO_PREPROCESSOR` at the top of your code.
+
+Without the preprocessor you are writing bare C++ code, so you will need to add things like forward declarations for functions. To keep using Particle defined names (e.g. `INPUT_PULLUP`) you should add `#include Particle.h` immediately following the no-preprocessor pragma.
 
 ## Firmware Releases
 
