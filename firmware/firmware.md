@@ -1267,7 +1267,6 @@ SoftAP HTTP server.
 
 SoftAP HTTP Pages is presently an advanced feature, requiring moderate C++ knowledge.  To being using the feature:
 
-- add `#pragma SPARK_NO_PREPROCESSOR` to the top of your sketch
 - add `#include "Particle.h"` below that, then
 - add `#include "softap_http.h"` below that still
 
@@ -1378,8 +1377,6 @@ Here's a complete example providing a Web UI for setting up WiFi via HTTP. Credi
 
 
 ```
-#pragma SPARK_NO_PREPROCESSOR
-
 #include "Particle.h"
 #include "softap_http.h"
 
@@ -1452,6 +1449,12 @@ void myPage(const char* url, ResponseCallback* cb, void* cbArg, Reader* body, Wr
 }
 
 STARTUP(softap_set_application_page_handler(myPage, nullptr));
+
+// Press SETUP for 3 seconds to make the Photon enter Listening mode
+// Navigate to http://192.168.0.1 to setup Wi-Fi
+
+// Include the rest of your application below,
+// including your setup and loop functions
 ```
 
 {{/if}} {{!-- has-softap --}}
@@ -11241,38 +11244,9 @@ Note that most of the functions in newlib described at [https://sourceware.org/n
 
 `#pragma SPARK_NO_PREPROCESSOR`
 
-```cpp
-//Example
-class ABC
-{
-   int abc;
-};
-
-void doSomethingWithABC(const ABC& abc)
-{
-}
-
-/*
-//Compiler error
-
-/spark/compile_service/shared/workspace/6_hal_12_0/firmware-privatest.cpp:6:31: error: 'ABC' does not name a type
-void doSomethingWithABC(const ABC& abc);
-^
-/spark/compile_service/shared/workspace/6_hal_12_0/firmware-privatest.cpp:6:36: error: ISO C++ forbids declaration of 'abc' with no type [-fpermissive]
-void doSomethingWithABC(const ABC& abc);
-^
-make[1]: *** [../build/target/user/platform-6test.o] Error 1
-make: *** [user] Error 2
-*/
-```
-
 When you are using the Particle Cloud to compile your `.ino` source code, a preprocessor comes in to modify the code into C++ requirements before producing the binary file used to flash onto your devices.
 
-However, there might be instances where the preprocessor causes issues in your code. One example is the use of class/structs in your function parameters.
-
-
-
-So when you see the `ABC does not name a type` error, yet you know the type is defined, consider disabling the preprocessor using `#pragma SPARK_NO_PREPROCESSOR` at the top of your code.
+If you are getting unexpected errors when compiling valid code, it could be the preprocessor causing issues in your code. You can disable the preprocessor by adding the pragma line above.
 
 ## Firmware Releases
 
