@@ -18,7 +18,7 @@ order: 5
 
 ## Beta Compatibility
 
-Raspberry Pi compatibility with the Particle Cloud and Particle development tools is still currently in beta. Raspberry Pi **does not yet have full compatibility** in the Particle App for iOS and Android, but we will be working throughout the upcoming months to add support for existing features.
+Raspberry Pi compatibility with the Particle Cloud and Particle development tools is still currently in beta. Raspberry Pi **does not yet have full compatibility** in the Particle App for iOS, Windows, and Android, but we will be working throughout the upcoming months to add support for existing features.
 
 Several features are still currently supported, if you care to use the Particle mobile app with your Raspberry Pi right away.
 
@@ -30,9 +30,9 @@ Several features are still currently supported, if you care to use the Particle 
 
 - **Device Inspector.** The Device Inspector view, which lets you see information about your Raspberry Pi, view and interact with exposed `Particle.function()` and `Particle.variable()`'s on your Pi, and view/search/filter the event stream from your Raspberry Pi, is operational.
 
-To download the Particle App, and to stay up to date with the latest changes and improvements, visit the following download URLs for our iOS and Android apps, below:
+To download the Particle App, and to stay up to date with the latest changes and improvements, visit the following download URLs for our Windows, iOS, and Android apps, below:
 
-* Particle Mobile App - [iPhone](https://itunes.apple.com/us/app/particle-build-photon-electron/id991459054?ls=1&mt=8) | [Android](https://play.google.com/store/apps/details?id=io.particle.android.app) (requires Android 4.0.3 or higher)
+* Particle Mobile App - [iPhone](https://itunes.apple.com/us/app/particle-build-photon-electron/id991459054?ls=1&mt=8) | [Android](https://play.google.com/store/apps/details?id=io.particle.android.app) (requires Android 4.0.3 or higher) | [Windows](https://www.microsoft.com/en-us/store/p/particle/9nblggh4p55n)
 
 
 
@@ -49,12 +49,12 @@ To get started, you'll need the following things:
   * Your Particle device, brand new and out of the box!
   * USB to micro USB cable {{#if photon}}(included with Photon Kit and Maker Kit){{/if}}
   * Power source for USB cable (such as your computer, USB battery, or power brick)
-  * Your iPhone or Android smartphone
+  * Your iPhone, Windows, or Android smartphone
   * (2) Resistors between 220 Ohms and 1000 Ohms {{#if photon}}(220 Ohm Resistors included with Photon Kit and Maker Kit){{/if}}
   * (1) LED, any color {{#if photon}}(Red LED included with Photon Kit and Maker Kit){{/if}}
   * (1) Photoresistor or other resistance-based sensor, such as a Thermistor or Force-Sensitive Resistor {{#if photon}}(Photoresistor included with Photon Kit and Maker Kit){{/if}}
 * **Software**
-  * Particle Mobile App - [iPhone](https://itunes.apple.com/us/app/particle-build-photon-electron/id991459054?ls=1&mt=8) | [Android](https://play.google.com/store/apps/details?id=io.particle.android.app) (requires Android 4.0.3 or higher)
+  * Particle Mobile App - [iPhone](https://itunes.apple.com/us/app/particle-build-photon-electron/id991459054?ls=1&mt=8) | [Android](https://play.google.com/store/apps/details?id=io.particle.android.app) (requires Android 4.0.3 or higher) | [Windows](https://www.microsoft.com/en-us/store/p/particle/9nblggh4p55n)
 * **Experience**
     * Connecting your Device [with your smartphone](/guide/getting-started/start) or [over USB](/guide/getting-started/connect)
 
@@ -213,12 +213,12 @@ To get started, you'll need the following things:
   * Your Particle device, brand new and out of the box!
   * USB to micro USB cable {{#if photon}}(included with Photon Kit and Maker Kit){{/if}}
   * Power source for USB cable (such as your computer, USB battery, or power brick)
-  * Your iPhone or Android smartphone
+  * Your iPhone, Windows, or Android smartphone
   * (2) Resistors between 220 Ohms and 1000 Ohms {{#if photon}}(220 Ohm Resistors included with Photon Kit and Maker Kit){{/if}}
   * (1) LED, any color {{#if photon}}(Red LED included with Photon Kit and Maker Kit){{/if}}
   * (1) Photoresistor or other resistance-based sensor, such as a Thermistor or Force-Sensitive Resistor {{#if photon}}(Photoresistor included with Photon Kit and Maker Kit){{/if}}
 * **Software**
-  * Particle Mobile App - [iPhone](https://itunes.apple.com/us/app/particle-build-photon-electron/id991459054?ls=1&mt=8) | [Android](https://play.google.com/store/apps/details?id=io.particle.android.app) (requires Android 4.0.3 or higher)
+  * Particle Mobile App - [iPhone](https://itunes.apple.com/us/app/particle-build-photon-electron/id991459054?ls=1&mt=8) | [Android](https://play.google.com/store/apps/details?id=io.particle.android.app) (requires Android 4.0.3 or higher) | [Windows](https://www.microsoft.com/en-us/store/p/particle/9nblggh4p55n)
 * **Experience**
     * Connecting your Device [with your smartphone](/guide/getting-started/start) or [over USB](/guide/getting-started/connect)
 

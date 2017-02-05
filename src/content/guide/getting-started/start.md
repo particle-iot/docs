@@ -370,7 +370,7 @@ For more technical details on what comes on your device, go {{#if core}}[here](/
 {{#if electron}}
 * **Software**
   * We highly recommend using our [online web setup](https://setup.particle.io) for the Electron.
-  * You can also use the Particle Mobile App - [iPhone](https://itunes.apple.com/us/app/particle-build-photon-electron/id991459054?ls=1&mt=8) | [Android](https://play.google.com/store/apps/details?id=io.particle.android.app)
+  * You can also use the Particle Mobile App - [iPhone](https://itunes.apple.com/us/app/particle-build-photon-electron/id991459054?ls=1&mt=8) | [Android](https://play.google.com/store/apps/details?id=io.particle.android.app) | [Windows](https://www.microsoft.com/en-us/store/p/particle/9nblggh4p55n)
 * **Hardware**
   * Your Particle Electron, brand new and out of the box!
   * USB to micro USB cable (included)
@@ -409,13 +409,13 @@ Go to the next section to learn to [connect over USB](/guide/getting-started/con
 
 {{#if photon}}
 * **Software**
-  * Particle Mobile App - [iPhone](https://itunes.apple.com/us/app/particle-build-photon-electron/id991459054?ls=1&mt=8) | [Android](https://play.google.com/store/apps/details?id=io.particle.android.app)
+  * Particle Mobile App - [iPhone](https://itunes.apple.com/us/app/particle-build-photon-electron/id991459054?ls=1&mt=8) | [Android](https://play.google.com/store/apps/details?id=io.particle.android.app) | [Windows](https://www.microsoft.com/en-us/store/p/particle/9nblggh4p55n)
   * *Note: We highly recommend using the mobile app for first time setup.*
 * **Hardware**
   * Your Particle device, brand new and out of the box!
   * USB to micro USB cable {{#if photon}}(included with Photon Kit and Maker Kit){{/if}}
   * Power source for USB cable (such as your computer, USB battery, or power brick)
-  * Your iPhone or Android smartphone
+  * Your iPhone or Android or Windows smartphone
 * **Wi-Fi Settings**
   * 2.4GHz capable router
   * Channels 1-11
@@ -430,13 +430,13 @@ Go to the next section to learn to [connect over USB](/guide/getting-started/con
 
 {{#if core}}
 * **Software**
-  * Spark Core Mobile App - [iPhone](https://itunes.apple.com/us/app/spark-core/id760157884) | [Android](https://play.google.com/store/apps/details?id=io.spark.core.android)
+  * Spark Core Mobile App - [iPhone](https://itunes.apple.com/us/app/spark-core/id760157884) | [Android](https://play.google.com/store/apps/details?id=io.spark.core.android) | [Windows](https://www.microsoft.com/en-us/store/p/particle/9nblggh4p55n)
   * *Note: We highly recommend using the mobile app for first time setup.*
 * **Hardware**
   * Your Particle device, brand new and out of the box!
   * USB to micro USB cable {{#if photon}}(included with Photon Kit and Maker Kit){{/if}}
   * Power source for USB cable (such as your computer, USB battery, or power brick)
-  * Your iPhone or Android smartphone
+  * Your iPhone or Android or Windows smartphone
 * **Wi-Fi Settings**
   * 2.4GHz capable router
   * Channels 1-11

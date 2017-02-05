@@ -265,13 +265,13 @@ There are known issues with the following types of networks:
 {{#if photon}}
 **Prerequisites for Setup**
 * **Software**
-  * Particle Mobile App - <a href="https://itunes.apple.com/us/app/particle-build-photon-electron/id991459054?ls=1&mt=8" target="_blank">iPhone</a> | <a href="https://play.google.com/store/apps/details?id=io.particle.android.app" target="_blank">Android</a>
+  * Particle Mobile App - <a href="https://itunes.apple.com/us/app/particle-build-photon-electron/id991459054?ls=1&mt=8" target="_blank">iPhone</a> | <a href="https://play.google.com/store/apps/details?id=io.particle.android.app" target="_blank">Android</a> | <a href="https://www.microsoft.com/en-us/store/p/particle/9nblggh4p55n" target="_blank">Windows</a>
   * *Note: We highly recommend using the mobile app for first time setup.*
 * **Hardware**
   * Your Particle device, brand new and out of the box!
   * USB to micro USB cable {{#if photon}}(included with Photon Kit and Maker Kit){{/if}}
   * Power source for USB cable (such as your computer, USB battery, or power brick)
-  * Your iPhone or Android smartphone
+  * Your iPhone, Windows, or Android smartphone
 * **Wi-Fi Settings**
   * 2.4GHz capable router
   * Channels 1-11
@@ -287,13 +287,13 @@ There are known issues with the following types of networks:
 {{#if core}}
 **Prerequisites for Setup**
 * **Software**
-  * Spark Core Mobile App - <a href="https://itunes.apple.com/us/app/spark-core/id760157884" target="_blank">iPhone</a> | <a href="https://play.google.com/store/apps/details?id=io.spark.core.android" target="_blank">Android</a>
+  * Spark Core Mobile App - <a href="https://itunes.apple.com/us/app/spark-core/id760157884" target="_blank">iPhone</a> | <a href="https://play.google.com/store/apps/details?id=io.spark.core.android" target="_blank">Android</a> | <a href="https://www.microsoft.com/en-us/store/p/particle/9nblggh4p55n" target="_blank">Windows</a>
   * *Note: We highly recommend using the mobile app for first time setup.*
 * **Hardware**
   * Your Particle device, brand new and out of the box!
   * USB to micro USB cable {{#if photon}}(included with Photon Kit and Maker Kit){{/if}}
   * Power source for USB cable (such as your computer, USB battery, or power brick)
-  * Your iPhone or Android smartphone
+  * Your iPhone, Windows, or Android smartphone
 * **Wi-Fi Settings**
   * 2.4GHz capable router
   * Channels 1-11
