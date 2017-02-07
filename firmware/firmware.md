@@ -2498,16 +2498,25 @@ void loop()
 }
 ```
 
+{{#if core}}
 - On the Core, this function works on pins D0, D1, A0, A1, A4, A5, A6, A7, RX and TX.
-- On the Photon and Electron, this function works on pins D0, D1, D2, D3, A4, A5, WKP, RX and TX with a caveat: PWM timer peripheral is duplicated on two pins (A5/D2) and (A4/D3) for 7 total independent PWM outputs. For example: PWM may be used on A5 while D2 is used as a GPIO, or D2 as a PWM while A5 is used as an analog input. However A5 and D2 cannot be used as independently controlled PWM outputs at the same time.
+{{/if}}
+{{#unless core}}
+- On the Photon, P1 and Electron, this function works on pins D0, D1, D2, D3, A4, A5, WKP, RX and TX with a caveat: PWM timer peripheral is duplicated on two pins (A5/D2) and (A4/D3) for 7 total independent PWM outputs. For example: PWM may be used on A5 while D2 is used as a GPIO, or D2 as a PWM while A5 is used as an analog input. However A5 and D2 cannot be used as independently controlled PWM outputs at the same time.
 - Additionally on the Electron, this function works on pins B0, B1, B2, B3, C4, C5.
+- Additionally on the P1, this function works on pins P1S0, P1S1, P1S6 (note: for P1S6, the WiFi Powersave Clock should be disabled for complete control of this pin. See [System Features](#system-features)).
+{{/unless}}
 
 The PWM frequency must be the same for pins in the same timer group.
 
+{{#if core}}
 - On the Core, the timer groups are D0/D1, A0/A1/RX/TX, A4/A5/A6/A7.
+{{/if}}
+{{#unless core}}
 - On the Photon, the timer groups are D0/D1, D2/D3/A4/A5, WKP, RX/TX.
-- On the P1, the timer groups are D0/D1, D2/D3/A4/A5/P1S0/P1S1, WKP, RX/TX.
+- On the P1, the timer groups are D0/D1, D2/D3/A4/A5/P1S0/P1S1, WKP, RX/TX/P1S6.
 - On the Electron, the timer groups are D0/D1/C4/C5, D2/D3/A4/A5/B2/B3, WKP, RX/TX, B0/B1.
+{{/unless}}
 
 **NOTE:** When used with PWM capable pins, the `analogWrite()` function sets up these pins as PWM only.  {{#if has-dac}}This function operates differently when used with the [`Analog Output (DAC)`](#analog-output-dac-) pins.{{/if}}
 
@@ -2793,11 +2802,15 @@ void loop()
 
 Generates a square wave of the specified frequency and duration (and 50% duty cycle) on a timer channel pin which supports PWM. Use of the tone() function will interfere with PWM output on the selected pin. tone() is generally used to make sounds or music on speakers or piezo buzzers.
 
+{{#if core}}
 - On the Core, this function works on pins D0, D1, A0, A1, A4, A5, A6, A7, RX and TX.
-
-- On the Photon and Electron, this function works on pins D0, D1, D2, D3, A4, A5, WKP, RX and TX with a caveat: Tone timer peripheral is duplicated on two pins (A5/D2) and (A4/D3) for 7 total independent Tone outputs. For example: Tone may be used on A5 while D2 is used as a GPIO, or D2 for Tone while A5 is used as an analog input. However A5 and D2 cannot be used as independent Tone outputs at the same time.
+{{/if}}
+{{#unless core}}
+- On the Photon, P1 and Electron, this function works on pins D0, D1, D2, D3, A4, A5, WKP, RX and TX with a caveat: Tone timer peripheral is duplicated on two pins (A5/D2) and (A4/D3) for 7 total independent Tone outputs. For example: Tone may be used on A5 while D2 is used as a GPIO, or D2 for Tone while A5 is used as an analog input. However A5 and D2 cannot be used as independent Tone outputs at the same time.
 
 - Additionally on the Electron, this function works on pins B0, B1, B2, B3, C4, C5.
+- Additionally on the P1, this function works on pins P1S0, P1S1, P1S6 (note: for P1S6, the WiFi Powersave Clock should be disabled for complete control of this pin. See [System Features](#system-features)).
+{{/unless}}
 
 ```C++
 // SYNTAX
@@ -9968,6 +9981,55 @@ Parameters:
   * `bootloader`: (optional) if `true`, the mirror pin configuration is cleared from the DCT, disabling the feature in bootloader (default).
 
 {{/if}} {{!-- button-mirror --}}
+
+{{#if has-backup-sram}}
+### System Features
+
+The system allows to alter certain aspects of its default behavior via the system features. The following system features are defined:
+
+  * `FEATURE_RETAINED_MEMORY` : enables/disables retained memory on backup power (disabled by default) (see [Enabling Backup RAM (SRAM)](#enabling-backup-ram-sram-))
+  * `FEATURE_WIFI_POWERSAVE_CLOCK` : enables/disables the Wi-Fi Powersave Clock on P1S6 on P1 (enabled by default).
+
+## FEATURE_RETAINED_MEMORY
+
+Enables/disables retained memory on backup power (disabled by default) (see [Enabling Backup RAM (SRAM)](#enabling-backup-ram-sram-))
+
+{{#if has-powersave-clock}}
+## FEATURE_WIFI_POWERSAVE_CLOCK
+
+_Since 0.6.1_
+
+```cpp
+// EXAMPLE
+// enable POWERSAVE_CLOCK on P1S6 on P1
+System.enableFeature(FEATURE_WIFI_POWERSAVE_CLOCK);
+
+// disable POWERSAVE_CLOCK on P1S6 on P1
+System.disableFeature(FEATURE_WIFI_POWERSAVE_CLOCK);
+```
+
+Enables/disables the Wi-Fi Powersave Clock on P1S6 on P1 (enabled by default). Useful for gaining 1 additional GPIO or PWM output on the P1.  When disabled, the 32kHz oscillator will not be running on this pin, and subsequently Powersave Mode (to be defined in the future) will not be usable.
+
+> Note that the FEATURE_WIFI_POWERSAVE_CLOCK feature setting is remembered even after power off or when entering safe mode. This is to allow your device to be configured once and then continue to function with the feature enabled/disabled.
+
+
+```cpp
+// Use the STARTUP() macro to disable the powersave clock at the time of boot
+STARTUP(System.disableFeature(FEATURE_WIFI_POWERSAVE_CLOCK));
+
+void setup() {
+  pinMode(P1S6, OUTPUT);
+  analogWrite(P1S6, 128); // set PWM output on P1S6 to 50% duty cycle
+}
+
+void loop() {
+  // your loop code
+}
+```
+{{/if}} {{!-- has-powersave-clock --}}
+
+{{/if}} {{!-- has-backup-sram --}}
+
 
 ## OTA Updates
 
