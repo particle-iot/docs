@@ -237,7 +237,7 @@ projects in the current directory.
 ```sh
 $ particle project create
 What would you like to call your project? [myproject]: doorbell
-Would you like to create your project in the default project directory? [Y/n]: 
+Would you like to create your project in the default project directory? [Y/n]:
 Initializing project in directory /home/user/Particle/projects/doorbell...
 > A new project has been initialized in directory /home/user/Particle/projects/doorbell
 ```
@@ -254,13 +254,13 @@ The overall flow when consuming a library goes like this
 - find the library you want to add `particle library search`
 - add the library to your project - `particle library add`
 - edit your source code to use the library
-- compile your project - `particle compile` 
+- compile your project - `particle compile`
 
 These commands are described in more details in [the CLI reference](/reference/cli/#particle-library).
 
 ### library search
 
-The `library search` command allows you to search for libraries that are related to the text that you type in. 
+The `library search` command allows you to search for libraries that are related to the text that you type in.
 
 For example,
 
@@ -272,7 +272,7 @@ Will find libraries containing `neo` in their name.
 
 ### library add
 
-The `library add` command adds the latest version of a library to your project. 
+The `library add` command adds the latest version of a library to your project.
 
 For example, if you wanted to add the InternetButton library to your project, you would type
 
@@ -282,12 +282,12 @@ $ particle library add internetbutton
 > To get started using this library, run particle library view InternetButton to view the library documentation and sources.
 ```
 
-This will add the InternetButton dependency to your project's `project.properties` file. 
+This will add the InternetButton dependency to your project's `project.properties` file.
 
-The InternetButton library itself is not present in your project, so you won't see the InternetButton sources. 
+The InternetButton library itself is not present in your project, so you won't see the InternetButton sources.
 The library is added to your project when the project is compiled in the cloud.
 
-To make the library functionality available to your application, you add an include statement to your application source code. 
+To make the library functionality available to your application, you add an include statement to your application source code.
 The include statement names the library header file, which is the library name with a `.h` ending.  
 
 For example, if we were using the library "UberSensor", it would be included like this
@@ -315,7 +315,7 @@ Change to the directory indicated to view the sources.
 
 ### library copy
 
-Adding a library to your project does not add the library sources. For times when you want to modify the library sources, you can have them added locally. 
+Adding a library to your project does not add the library sources. For times when you want to modify the library sources, you can have them added locally.
 
 ```
 particle library copy neopixel
@@ -324,27 +324,27 @@ particle library copy neopixel
 The library will be copied to the `lib` folder of your project. If you already have the library in your `project.properties` make sure to remove it so the cloud compiler doesn't overwrite your changed copy with the published code.
 
 
- 
+
 ### Incorporating the library into your project
 
-Once the library is added, it is available for use within your project. 
+Once the library is added, it is available for use within your project.
 The first step to using the library is to include the library header, which follows the name of the library. For example:
 
 ```
 #include "neopixel.h"
 ```
 
-The functions and classes from that library are then available for use in your application. 
+The functions and classes from that library are then available for use in your application.
 Check out the library examples and documentation that comes with the library for specifics on using that library.
 
 ## Contributing Libraries
 
-Contributing a library is the process where you author a library and share this with the community. 
+Contributing a library is the process where you author a library and share this with the community.
 
 The steps to creating a library are as follows:
 
 - optionally, create a project for consuming the library
-- scaffold a new library structure - `library init`
+- scaffold a new library structure - `library create`
 - author the library, tests and examples
 - publish the library
 
@@ -362,32 +362,32 @@ project.properties
 lib/mylib
 ```
 
-The library will exist in the directory `lib/mylib`. 
+The library will exist in the directory `lib/mylib`.
 
-All these files are initially empty - we'll add content to them as the library is authored. 
+All these files are initially empty - we'll add content to them as the library is authored.
 
 
 ### Scaffolding the library
 
-The `library init` command is used to scaffold the library. It creates a skeleton structure for the library, containing 
-initial sources, examples, tests and documentation. 
+The `library create` command is used to scaffold the library. It creates a skeleton structure for the library, containing
+initial sources, examples, tests and documentation.
 
 In our example project structure we want to create a new library in `lib/mylib` so we will run these commands:
 
 ```
 cd lib/mylib
-particle library init
+particle library create
 ```
-The command will prompt you to enter the name of the library - `mylib`, the version - `0.0.1` and the author, your name/handle/ident. 
+The command will prompt you to enter the name of the library - `mylib`, the version - `0.0.1` and the author, your name/handle/ident.
 
-The command will then create the skeleton structure for the library. 
+The command will then create the skeleton structure for the library.
 
 
 ### Authoring the library
 
-You are then free to edit the `.cpp` and `.h` files in the `lib/mylib/src` folder to provide the functionality of your library. 
+You are then free to edit the `.cpp` and `.h` files in the `lib/mylib/src` folder to provide the functionality of your library.
 
-It's a good idea to test often, by writing code in the consuming project that uses each piece of functionality in the library as it's written. 
+It's a good idea to test often, by writing code in the consuming project that uses each piece of functionality in the library as it's written.
 
 ### Consuming the library
 
@@ -395,7 +395,7 @@ To test your changes in the library, compile the project using `particle compile
 
 `particle compile photon`
 
-This will create a `.bin` file which you then flash to your device. 
+This will create a `.bin` file which you then flash to your device.
 
 `particle flash mydevice firmware.bin`
 
@@ -411,17 +411,17 @@ cd lib/mylib
 particle library contribute
 ```
 
-Before the library is contributed, it is first validated. If validation succeeds, the library is contributed 
+Before the library is contributed, it is first validated. If validation succeeds, the library is contributed
 and is then available for use in your other projects. The library is not available to anyone else.
 
 ### Publishing the Library
 
 If you wish to make a contributed library available to everyone, it first needs to be published.
 
-When publishing a library, it's important to ensure the version number hasn't been published before - 
-if the version has already been published, the library will not be published and an error message will be displayed. 
+When publishing a library, it's important to ensure the version number hasn't been published before -
+if the version has already been published, the library will not be published and an error message will be displayed.
 
-Incrementing the version number with each publish is a recommended approach to ensuring unique versions. 
+Incrementing the version number with each publish is a recommended approach to ensuring unique versions.
 
 Once the library is published, it is visible to everyone and available for use. Once the a given version of a library
 has been published, the files and data cannot be changed. Subsequent changes must be via a new contributed version
