@@ -98,7 +98,7 @@ AND
 - (1) MQ2 gas sensor
 - (1) SHT10 soil humidity and temperature sensor
 - (1) HC-SR501 PIR motion sensor
-- (1) LM393 soil moisture sensor
+
 - (1) DS18B20 waterproof temperature sensor
 - (1) SW18020P vibration sensor
 - Various jumper wires, resistors, capacitors, LEDs, and push buttons

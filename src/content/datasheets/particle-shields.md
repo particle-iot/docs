@@ -768,7 +768,7 @@ AND
 - (1) [MQ2 gas sensor](/assets/datasheets/electronsensorkit/MQ-2.pdf) for LPG, i-butane, propane, methane, alcohol, hydrogen and smoke.
 - (1) [SHT10](https://www.adafruit.com/products/1298) soil humidity and temperature sensor
 - (1) [HC-SR501](/assets/datasheets/electronsensorkit/HC-SR501.pdf) PIR motion sensor
-- (1) Soil moisture sensor with LM393 (similar to [this one](http://seeedstudio.com/wiki/Grove_-_Moisture_Sensor))
+
 - (1) [DS18B20](https://www.adafruit.com/products/381) waterproof temperature sensor
 - (1) [SW18020P](http://www.electrodragon.com/product/vibration-switch-sensor-sw-18020p/) vibration sensor
 - Various jumper wires, resistors, capacitors, LEDs, and push buttons
