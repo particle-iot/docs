@@ -45,7 +45,7 @@ See [the official JavaScript client](/reference/javascript/).
 # Community Supported Tools
 
 Note that these tools have not been tested by
-Particle. If you develop an open-source toolthat you would
+Particle. If you develop an open-source tool that you would
 like to add to this page, please submit a pull request.
 
 ## po-util
