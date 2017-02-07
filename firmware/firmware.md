@@ -9971,35 +9971,47 @@ Parameters:
 
 {{/if}} {{!-- button-mirror --}}
 
-{{#if has-backup-sram}}
+{{#if has-backup-ram}}
 ### System Features
 
 The system allows to alter certain aspects of its default behavior via the system features. The following system features are defined:
 
   * `FEATURE_RETAINED_MEMORY` : enables/disables retained memory on backup power (disabled by default) (see [Enabling Backup RAM (SRAM)](#enabling-backup-ram-sram-))
+{{#if has-powersave-clock}}
   * `FEATURE_WIFI_POWERSAVE_CLOCK` : enables/disables the Wi-Fi Powersave Clock on P1S6 on P1 (enabled by default).
+{{/if}} {{!-- has-powersave-clock --}}
 
-## FEATURE_RETAINED_MEMORY
+#### FEATURE_RETAINED_MEMORY
 
 Enables/disables retained memory on backup power (disabled by default) (see [Enabling Backup RAM (SRAM)](#enabling-backup-ram-sram-))
 
+```cpp
+// SYNTAX
+// enable RETAINED MEMORY
+System.enableFeature(FEATURE_RETAINED_MEMORY);
+
+// disable RETAINED MEMORY (default)
+System.disableFeature(FEATURE_RETAINED_MEMORY);
+```
+{{/if}} {{!-- has-backup-ram --}}
+
 {{#if has-powersave-clock}}
-## FEATURE_WIFI_POWERSAVE_CLOCK
+#### FEATURE_WIFI_POWERSAVE_CLOCK
 
 _Since 0.6.1_
 
 ```cpp
-// EXAMPLE
-// enable POWERSAVE_CLOCK on P1S6 on P1
+// SYNTAX
+// enable POWERSAVE_CLOCK on P1S6 on P1 (default)
 System.enableFeature(FEATURE_WIFI_POWERSAVE_CLOCK);
 
 // disable POWERSAVE_CLOCK on P1S6 on P1
 System.disableFeature(FEATURE_WIFI_POWERSAVE_CLOCK);
 ```
 
-Enables/disables the Wi-Fi Powersave Clock on P1S6 on P1 (enabled by default). Useful for gaining 1 additional GPIO or PWM output on the P1.  When disabled, the 32kHz oscillator will not be running on this pin, and subsequently Powersave Mode (to be defined in the future) will not be usable.
+Enables/disables the Wi-Fi Powersave Clock on P1S6 on P1 (enabled by default). Useful for gaining 1 additional GPIO or PWM output on the P1.  When disabled, the 32kHz oscillator will not be running on this pin, and subsequently Wi-Fi Eco Mode (to be defined in the future) will not be usable.
 
-> Note that the FEATURE_WIFI_POWERSAVE_CLOCK feature setting is remembered even after power off or when entering safe mode. This is to allow your device to be configured once and then continue to function with the feature enabled/disabled.
+**Note:** the FEATURE_WIFI_POWERSAVE_CLOCK feature setting is remembered even after power off or when entering safe mode. This is to allow your device to be configured once and then continue to function with the feature enabled/disabled.
 
 
 ```cpp
@@ -10016,8 +10028,6 @@ void loop() {
 }
 ```
 {{/if}} {{!-- has-powersave-clock --}}
-
-{{/if}} {{!-- has-backup-sram --}}
 
 
 ## OTA Updates
