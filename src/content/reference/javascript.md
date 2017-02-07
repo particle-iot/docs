@@ -46,13 +46,21 @@ Now you will have a `Particle` object available that you can use in your applica
 
 ### With username/password
 
-You can create an account [here](https://build.particle.io/signup)
+You can create an account [here](https://build.particle.io/signup). Use the token from `particle.login` as the `auth` parameter in other calls.
 
 ```javascript
 var Particle = require('particle-api-js');
 var particle = new Particle();
+var token;
 
-particle.login({username: 'user@email.com', password: 'pass'});
+particle.login({username: 'user@email.com', password: 'pass'}).then(
+  function(data) {
+    token = data.body.access_token;
+  },
+  function (err) {
+    console.log('Could not log in.', err);
+  }
+);
 ```
 
 ## Responses
@@ -322,7 +330,7 @@ flashPr.then(
 Creates a user in the Particle cloud
 
 ```javascript
-particle.createUser({ username: 'example@email.com', password: 'pass' }.then(function(data) {
+particle.createUser({ username: 'example@email.com', password: 'pass' }).then(function(data) {
 ```
 
 We try to login and get back an accessToken to verify user creation

@@ -9,7 +9,7 @@ order: 3
 # CLI Command Reference
 
 
-## particle setup Wi-Fi
+## particle setup wifi
 
   Helpful shortcut for adding another Wi-Fi network to a device connected over USB.  Make sure your device is connected via a USB cable, and is slow blinking blue [listening mode](/guide/getting-started/modes/#listening-mode)
 
@@ -86,7 +86,7 @@ $ particle get 0123456789ABCDEFGHI temperature
 ### particle device add
 
   Adds a new device to your account.
-  
+
   Your device will need to be connected to the Internet (onboard LED breathing cyan) for this process to work.
 
 ```sh
@@ -224,13 +224,13 @@ Use the project structure when you want to use libraries or you want to organize
 
 ### creating a project
 
-You will be prompted to create the project in a default directory or in the current directory. The default directory for projects is your home directory 
+You will be prompted to create the project in a default directory or in the current directory. The default directory for projects is your home directory
 
 ```sh
 # create a new project
 $ particle project create
 What would you like to call your project? [myproject]: doorbell
-Would you like to create your project in the default project directory? [Y/n]: 
+Would you like to create your project in the default project directory? [Y/n]:
 Initializing project in directory /home/user/Particle/projects/doorbell...
 > A new project has been initialized in directory /home/user/Particle/projects/doorbell
 ```
@@ -306,11 +306,11 @@ If you previously had added the library with `particle library add` you should r
 
 ### particle library create
 
-To make your own library you can use `particle library init` to get a folder structure with all the files you'll need and customize it from there.
+To make your own library you can use `particle library create` to get a folder structure with all the files you'll need and customize it from there.
 
 ```sh
 $ mkdir mylib
-# create a library mylib
+$ cd mylib
 $ particle library create
 ```
 
@@ -458,7 +458,7 @@ $ particle subscribe eventName 0123456789ABCDEFGHI
 ## particle publish
 
   Publishes events to the cloud via API, similar to running Particle.publish() on a Particle Device.
-  
+
 ```sh
 $ particle publish eventName data
 ```
@@ -485,6 +485,21 @@ $ particle serial monitor
 $ particle serial monitor 1
 $ particle serial monitor COM3
 $ particle serial monitor /dev/cu.usbmodem12345
+```
+
+## particle update
+
+Update your device to the latest system firmware release. Follow this with `particle flash --usb tinker` to reflash the default Tinker app to make your device run known good software.
+
+```sh
+# put the device in DFU mode first, then update the system firmware
+$ particle update
+> Your device is ready for a system update.
+> This process should take about 30 seconds. Here goes!
+
+! System firmware update successfully completed!
+
+> Your device should now restart automatically.
 ```
 
 ## particle keys

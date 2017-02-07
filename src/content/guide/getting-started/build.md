@@ -179,7 +179,7 @@ Read on for detailed instructions to include a firmware library in your Particle
 We have [a detailed reference guide about libraries](/guide/tools-and-features/libraries/) but for now here's a step by step guide on how to include a library in the Web IDE.
 
 ##### Step 1 - Go to the Libraries tab
-Click on the libraries bookmark icon on the lefthand side of the Build interface.
+Click on the libraries bookmark icon on the left hand side of the Build interface.
 
 ![Bookmark icon](/assets/images/libraries-guide-bookmarkicon.png)
 

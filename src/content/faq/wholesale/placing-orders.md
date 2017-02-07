@@ -91,7 +91,7 @@ Finally, you will be asked to confirm that you can comply with the due diligence
 Checking “Yes” for this question will direct you to the checkout screen. If for any reason you have failed the survey please email orders@particle.io. 
 
 ## Entering VAT information
-On the checkout screen you will see your shipping adress
+On the checkout screen you will see your shipping address
 ![Shipping Address](/assets/images/shipping-address.png)
 
 Click on edit shipping address, this will open an editable version of your shipping address. You will see a field called APT/Suite or VAT#

@@ -1447,7 +1447,6 @@ SoftAP HTTP server.
 
 SoftAP HTTP Pages is presently an advanced feature, requiring moderate C++ knowledge.  To being using the feature:
 
-- add `#pragma SPARK_NO_PREPROCESSOR` to the top of your sketch
 - add `#include "Particle.h"` below that, then
 - add `#include "softap_http.h"` below that still
 
@@ -1558,8 +1557,6 @@ Here's a complete example providing a Web UI for setting up WiFi via HTTP. Credi
 
 
 ```
-#pragma SPARK_NO_PREPROCESSOR
-
 #include "Particle.h"
 #include "softap_http.h"
 
@@ -1632,6 +1629,12 @@ void myPage(const char* url, ResponseCallback* cb, void* cbArg, Reader* body, Wr
 }
 
 STARTUP(softap_set_application_page_handler(myPage, nullptr));
+
+// Press SETUP for 3 seconds to make the Photon enter Listening mode
+// Navigate to http://192.168.0.1 to setup Wi-Fi
+
+// Include the rest of your application below,
+// including your setup and loop functions
 ```
 
 {{/if}} {{!-- has-softap --}}
@@ -3251,16 +3254,20 @@ void setup()
 {{#if has-serial2}}
 
 {{#if core}}
-`Serial2:` This channel is optionally available via the device's D1(TX) and D0(RX) pins. To use Serial2, add `#include "Serial2/Serial2.h"` near the top of your app's main code file.
+`Serial2:` This channel is optionally available via the device's D1(TX) and D0(RX) pins.
+{{/if}}
 
-To use the TX/RX (Serial1) or D1/D0 (Serial2) pins to communicate with your personal computer, you will need an additional USB-to-serial adapter. To use them to communicate with an external TTL serial device, connect the TX pin to your device's RX pin, the RX to your device's TX pin, and the ground of your Core to your device's ground.
+{{#if photon}}
+`Serial2:` This channel is optionally available via pins 28/29 (RGB LED Blue/Green). These pins are accessible via the pads on the botton of the PCB [See PCB Land Pattern](/datasheets/photon-datasheet/#recommended-pcb-land-pattern-photon-without-headers-). The Blue and Green current limiting resistors should be removed.
+{{/if}}
 
-{{else}}
+{{#if electron}}
+`Serial2:` This channel is optionally available via the device's RGB Green (TX) and Blue (RX) LED pins. The Blue and Green current limiting resistors should be removed.
+{{/if}}
 
-`Serial2:` This channel is optionally available via the device's RGB Green (TX) and Blue (RX) LED pins. The Blue and Green current limiting resistors should be removed.  To use Serial2, add #include "Serial2/Serial2.h" near the top of your app's main code file.
+To use Serial2, add `#include "Serial2/Serial2.h"` near the top of your app's main code file.
 
 If the user enables Serial2, they should also consider using RGB.onChange() to move the RGB functionality to an external RGB LED on some PWM pins.
-{{/if}}
 
 {{/if}} {{!-- has-serial2 --}}
 
@@ -3269,6 +3276,8 @@ If the user enables Serial2, they should also consider using RGB.onChange() to m
 
 `Serial5:` This channel is optionally available via the Electron's C1(TX) and C0(RX) pins. To use Serial5, add `#include "Serial5/Serial5.h"` near the top of your app's main code file.
 {{/if}}
+
+To use the TX/RX (Serial1){{#if has-serial2}} or D1/D0 (Serial2){{/if}} pins to communicate with your personal computer, you will need an additional USB-to-serial adapter. To use them to communicate with an external TTL serial device, connect the TX pin to your device's RX pin, the RX to your device's TX pin, and the ground of your Core to your device's ground.
 
 ```C++
 // EXAMPLE USAGE
@@ -12296,38 +12305,9 @@ Note that most of the functions in newlib described at [https://sourceware.org/n
 
 `#pragma SPARK_NO_PREPROCESSOR`
 
-```cpp
-//Example
-class ABC
-{
-   int abc;
-};
-
-void doSomethingWithABC(const ABC& abc)
-{
-}
-
-/*
-//Compiler error
-
-/spark/compile_service/shared/workspace/6_hal_12_0/firmware-privatest.cpp:6:31: error: 'ABC' does not name a type
-void doSomethingWithABC(const ABC& abc);
-^
-/spark/compile_service/shared/workspace/6_hal_12_0/firmware-privatest.cpp:6:36: error: ISO C++ forbids declaration of 'abc' with no type [-fpermissive]
-void doSomethingWithABC(const ABC& abc);
-^
-make[1]: *** [../build/target/user/platform-6test.o] Error 1
-make: *** [user] Error 2
-*/
-```
-
 When you are using the Particle Cloud to compile your `.ino` source code, a preprocessor comes in to modify the code into C++ requirements before producing the binary file used to flash onto your devices.
 
-However, there might be instances where the preprocessor causes issues in your code. One example is the use of class/structs in your function parameters.
-
-
-
-So when you see the `ABC does not name a type` error, yet you know the type is defined, consider disabling the preprocessor using `#pragma SPARK_NO_PREPROCESSOR` at the top of your code.
+If you are getting unexpected errors when compiling valid code, it could be the preprocessor causing issues in your code. You can disable the preprocessor by adding the pragma line above.
 
 ## Firmware Releases
 

@@ -78,7 +78,7 @@ You'll need to use the **MinGW Shell** for entering your build commands, not the
 
 The gcc-arm toolchains are here: [https://launchpad.net/gcc-arm-embedded](https://launchpad.net/gcc-arm-embedded)
 
-Currently, the 4.9-2015-q3-update is recommended. The 5.x versions can be used, but the 6.x versions will not work at all at this time.
+Currently, the 4.9-2015-q3-update is recommended. The 5.3.1 version can be used now and will be used for cloud compiles starting with system firmware 0.7.0. The 5.4.x and 6.x versions are not recommended at this time.
 
 - For Windows, download the installer [gcc-arm-none-eabi-4_9-2015q3-20150921-win32.exe](https://launchpad.net/gcc-arm-embedded/4.9/4.9-2015-q3-update/+download/gcc-arm-none-eabi-4_9-2015q3-20150921-win32.zip).
 
@@ -185,7 +185,7 @@ Some of the other instructions use Homebrew, but they update their current compi
 
 - The gcc-arm toolchains are here: [https://launchpad.net/gcc-arm-embedded](https://launchpad.net/gcc-arm-embedded)
 
-Currently, the 4.9-2015-q3-update is recommended. The 5.x versions can be used, but the 6.x versions will not work at all at this time.
+Currently, the 4.9-2015-q3-update is recommended. The 5.3.1 version can be used now and will be used for cloud compiles starting with system firmware 0.7.0. The 5.4.x and 6.x versions are not recommended at this time.
 
 - Download the [gcc-arm-none-eabi-4_9-2015q3-20150921-mac.tar.bz2](https://launchpad.net/gcc-arm-embedded/4.9/4.9-2015-q3-update/+download/gcc-arm-none-eabi-4_9-2015q3-20150921-mac.tar.bz2) release.
 
@@ -252,7 +252,7 @@ Also note that the pre-built gcc-arm toolchains are for x86 architecture only. T
 The gcc-arm toolchains are here:  
 [https://launchpad.net/gcc-arm-embedded](https://launchpad.net/gcc-arm-embedded)
 
-Currently, the 4.9-2015-q3-update is recommended. The 5.x versions can be used, but the 6.x versions will not work at all at this time.
+Currently, the 4.9-2015-q3-update is recommended. The 5.3.1 version can be used now and will be used for cloud compiles starting with system firmware 0.7.0. The 5.4.x and 6.x versions are not recommended at this time.
 
 - Download the [gcc-arm-none-eabi-4_9-2015q3-20150921-linux.tar.bz2](https://launchpad.net/gcc-arm-embedded/4.9/4.9-2015-q3-update/+download/gcc-arm-none-eabi-4_9-2015q3-20150921-linux.tar.bz2) file.
 

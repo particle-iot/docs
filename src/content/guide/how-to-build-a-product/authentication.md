@@ -76,8 +76,10 @@ You can now use the [Particle console](https://console.particle.io) to
 create and manage your OAuth clients. The new "Authentication" view is your hub
 for creating, and managing your product's clients.
 
-You can find the Authentication view by clicking on the thumbprint icon in the
-menu bar of your product's console:
+You can find the Authentication view by clicking on Products icon on the left
+navigation bar in the Console, then selecting your product then clicking on the
+thumbprint icon. If you don't have a product yet,
+[create one on the Console](https://console.particle.io/products).
 
  ![Auth Icon](/assets/images/auth-icon.png)
 

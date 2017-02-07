@@ -97,12 +97,12 @@ You don't need to worry about access tokens and session expiry, SDK takes care o
 
 **Swift**
 ```swift
-SparkCloud.sharedInstance().loginWithUser("username@email.com", password: "userpass") { (error:NSError?) -> Void in
-    if let e=error {
-        println("Wrong credentials or no internet connectivity, please try again")
+SparkCloud.sharedInstance().login(withUser: "username@email.com", password: "userpass") { (error:Error?) -> Void in
+    if error != nil {
+        print("Wrong credentials or no internet connectivity, please try again")
     }
     else {
-        println("Logged in")
+        print("Logged in")
     }
 }
 ```
@@ -121,9 +121,9 @@ else
 **Swift**
 ```swift
 if SparkCloud.sharedInstance().injectSessionAccessToken("9bb9f7433940e7c808b191c28cd6738f8d12986c") {
-    println("Session is active")
+    print("Session is active")
 } else {
-    println("Bad access token provided")
+    print("Bad access token provided")
 }
 ```
 ---
@@ -150,9 +150,9 @@ __block SparkDevice *myPhoton;
 
 ```swift
 var myPhoton : SparkDevice?
-SparkCloud.sharedInstance().getDevices { (sparkDevices:[AnyObject]?, error:NSError?) -> Void in
-    if let e = error {
-        println("Check your internet connectivity")
+SparkCloud.sharedInstance().getDevices { (sparkDevices:[SparkDevice]?, error:Error?) -> Void in
+    if error != nil {
+        print("Check your internet connectivity")
     }
     else {
         if let devices = sparkDevices as? [SparkDevice] {
@@ -186,13 +186,13 @@ Assuming here that `myPhoton` is an active instance of `SparkDevice` class which
 
 **Swift**
 ```swift
-myPhoton!.getVariable("temperature", completion: { (result:AnyObject?, error:NSError?) -> Void in
-    if let e=error {
-        println("Failed reading temperature from device")
+myPhoton!.getVariable("temperature", completion: { (result:AnyObject?, error:Error?) -> Void in
+    if error != nil {
+        print("Failed reading temperature from device")
     }
     else {
         if let temp = result as? Float {
-            println("Room temperature is \(temp) degrees")
+            print("Room temperature is \(temp) degrees")
         }
     }
 })
@@ -218,9 +218,9 @@ int64_t bytesToReceive  = task.countOfBytesExpectedToReceive;
 **Swift**
 ```swift
 let funcArgs = ["D7",1]
-var task = myPhoton!.callFunction("digitalWrite", withArguments: funcArgs) { (resultCode : NSNumber?, error : NSError?) -> Void in
+var task = myPhoton!.callFunction("digitalWrite", withArguments: funcArgs) { (resultCode : NSNumber?, error : Error?) -> Void in
     if (error == nil) {
-        println("LED on D7 successfully turned on")
+        print("LED on D7 successfully turned on")
     }
 }
 var bytesToReceive : Int64 = task.countOfBytesExpectedToReceive
@@ -243,10 +243,10 @@ NSLog(@"MyDevice first Function is called %@", myDeviceFunctions[0]);
 **Swift**
 ```swift
 let myDeviceVariables : Dictionary? = myPhoton.variables as? Dictionary<String,String>
-println("MyDevice first Variable is called \(myDeviceVariables!.keys.first) and is from type \(myDeviceVariables?.values.first)")
+print("MyDevice first Variable is called \(myDeviceVariables!.keys.first) and is from type \(myDeviceVariables?.values.first)")
 
 let myDeviceFunction = myPhoton.functions
-println("MyDevice first function is called \(myDeviceFunction!.first)")
+print("MyDevice first function is called \(myDeviceFunction!.first)")
 ```
 ---
 #### Get an instance of a device
@@ -266,7 +266,7 @@ NSString *deviceID = @"53fa73265066544b16208184";
 **Swift**
 ```swift
 var myOtherDevice : SparkDevice? = nil
-    SparkCloud.sharedInstance().getDevice("53fa73265066544b16208184", completion: { (device:SparkDevice?, error:NSError?) -> Void in
+    SparkCloud.sharedInstance().getDevice("53fa73265066544b16208184", completion: { (device:SparkDevice?, error:Error?) -> Void in
         if let d = device {
             myOtherDevice = d
         }
@@ -297,9 +297,9 @@ myPhoton!.name = "myNewDeviceName"
 ---
 _or_
 ```swift
-myPhoton!.rename("myNewDeviceName", completion: { (error:NSError?) -> Void in
+myPhoton!.rename("myNewDeviceName", completion: { (error:Error?) -> Void in
     if (error == nil) {
-        println("Device successfully renamed")
+        print("Device successfully renamed")
     }
 })
 ```
@@ -402,10 +402,10 @@ You can also publish an event from your app to the Particle Cloud:
 **Swift**
 
 ```swift
-SparkCloud.sharedInstance().publishEventWithName("event_from_app", data: "event_payload", isPrivate: false, ttl: 60, completion: { (error:NSError?) -> Void in
-    if let e = error
+SparkCloud.sharedInstance().publishEvent(withName: "event_from_app", data: "event_payload", isPrivate: false, ttl: 60, completion: { (error:Error?) -> Void in
+    if error != nil
     {
-        println("Error publishing event" + e.localizedDescription)
+        print("Error publishing event" + e.localizedDescription)
     }
 })
 ```

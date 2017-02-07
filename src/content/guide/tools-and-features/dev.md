@@ -141,7 +141,7 @@ We have [a detailed reference guide about libraries](/guide/tools-and-features/l
 
 ##### Step 1 - Open the libraries tab
 
-Once you have opened your Particle project in the Desktop IDE, open the libraries tab by clicking on the `Browse and manage libraries` button on the lefthand toolbar.
+Once you have opened your Particle project in the Desktop IDE, open the libraries tab by clicking on the `Browse and manage libraries` button on the left hand toolbar.
 
 ![Open the libraries tab](/assets/images/libraries/libraries-tab.png)
 
@@ -197,9 +197,18 @@ the library name and version number should be added to the `project.properties` 
 
 ![Library included](/assets/images/libraries/libraries-dev-properties.png)
 
+To make the library functionality available to your application, you add an include statement to your application source code. 
+The include statement names the library header file, which is the library name with a `.h` ending.  
+
+For example, if we were using the library "UberSensor", it would be included like this:
+ 
+```
+#include "UberSensor.h"
+```
+
 **Congrats!** You have now added a firmware library to your Particle project in the Desktop IDE!
 
 Contribute a library
 ---
 
-This functionality was moved to the Desktop IDE and the Command Line Interface (CLI). You can follow [this link](/guide/tools-and-features/libraries/#contributing-libraries) to find more about contributing a library.
+See the [detailed library guide](/guide/tools-and-features/libraries/#contributing-libraries) to find more about contributing a library from the Desktop IDE.

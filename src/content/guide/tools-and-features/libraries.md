@@ -18,7 +18,7 @@ In general, libraries in the Particle ecosystem have the following features:
 
 1. **Most Arduino libraries are compatible with Particle.** We've worked hard to ensure that our [firmware API](https://docs.particle.io/reference/firmware) contains all of the most commonly used Arduino functions and firmware commands so that many Arduino libraries can be submitted into the Particle library ecosystem without modification. All of the most popular Arduino libraries are already available through our libraries system, and many others can be easily modified for compatibility.
 
-2. **Particle libraries can include and depend on other Particle libraries.** If your library requires another external library as a dependency, it is easy to specify the particular library and even version of the library that your library depends on. A good example is our `internet-button` library, which depends on the popular `neopixel` library for controlling Neopixel LEDs. You can learn more about libraries with dependencies in the [Library file structure](#library-file-structure) section below.
+2. **Particle libraries can include and depend on other Particle libraries.** If your library requires another external library as a dependency, it is easy to specify the particular library and even version of the library that your library depends on. A good example is our `internet-button` library, which depends on the popular `neopixel` library for controlling NeoPixel LEDs. You can learn more about libraries with dependencies in the [Library file structure](#library-file-structure) section below.
 
 3. **Particle libraries are reliable.** In addition to building and sharing our own high quality libraries, Particle verifies and promotes high quality community libraries that are fully documented, perform reliably, and include a variety of usage examples. Using our official and verified libraries means you'll spend less time debugging and more time building your project.
 
@@ -91,17 +91,61 @@ Every Particle library complies with the following file structure that will be a
 
 - **license** The acronym for the license this library is released under, such as GPL, MIT, Apache-2.
 
-- **sentence** A one sentece description of the library that will be shown in the library browser.
+- **sentence** A one sentence description of the library that will be shown in the library browser.
 
 - **paragraph** A longer description to be shown in the details page of the library.
 
 - **url** The web page that a user wanting more information would visit like a GitHub URL.
 
-- **repository** The git repositiory like `http://github.com/user/project.git`, if available.
+- **repository** The git repository like `http://github.com/user/project.git`, if available.
 
 - **architectures** A comma-separated list of supported hardware boards that are compatible with your library like `particle-core`, `particle-photon`, `particle-electron`. If missing, the library will be available for all architectures.
 
 - **dependencies.<lib>** Other library that this library depends on, one line per library dependency. The value is the desired version number of the library dependency.
+
+## Project file structure
+
+There are 3 kinds of project structure:
+
+- legacy
+- simple 
+- extended
+
+### Legacy Structure
+
+The legacy project structure stores files in the root of the project. There is no project definition file. This is
+the structure used by all projects prior to libraries v2. 
+
+- `myapp`
+  - `application.ino`
+
+A legacy project does not support using libraries.
+
+### Simple Structure
+
+The simple project structure is similar to the legacy structure - the project sources are stored in the root. However,
+the project also includes a project definition file `project.properties`. Even saving a blank `project.properties` file
+is enough to make a simple project.
+
+- `myapp`
+  - `application.ino`
+  - `project.properties`
+
+A simple project has standard support for libraries; libraries can be added to the project via the CLI `library add` command or the Desktop IDE library manager.
+
+### Extended Structure
+
+The extended structure expands on the simple structure, placing all application sources in the `src` folder.
+
+- `myapp`
+  - `project.properties`
+  - `src`
+    - `application.ino`
+
+An extended project has full support for libraries, supporting both `library add` and copied libraries.
+
+An extended project can be created by using the Desktop IDE "Start a new project" or the CLI `particle project create` command.
+
 
 ## Using libraries
 
@@ -109,7 +153,7 @@ Libraries consumption is supported in each of our three primary development tool
 
 - [Using libraries with the Web IDE](/guide/getting-started/build/#using-libraries)
 - [Using libraries with the Desktop IDE](/guide/tools-and-features/dev/#using-community-libraries)
-- [Using libraries with the Command Line Interface (CLI)](/reference/cli/#particle-library)
+- [Using libraries with the Command Line Interface (CLI)](/guide/tools-and-features/dev/#working-with-projects-and-libraries)
 
 ## Contributing libraries
 
@@ -149,7 +193,7 @@ Review the `library.properties` and `README.md` and fill in as much information 
 
 The best way to ensure people will use your library is to provide good examples.
 
-Once you've written the first draft of the library you can test the examples on hardware you own in the CLI with `particle library flash <my_device> examples/<example_name>` from the library folder or in the Desktop IDE by right-clicking on the example and selecting "Flash this example".
+Once you've written the first draft of the library you can test the examples on hardware you own in the CLI with `particle flash <my_device> examples/<example_name>` from the library folder or in the Desktop IDE by right-clicking on the example and selecting "Flash this example".
 
 ### Uploading a private version
 
@@ -167,3 +211,90 @@ When a version is ready for prime time, simply type `particle library publish <m
 
 After this, anybody with a Particle account will be able to use your library!
 Thank you!
+
+## Migrating Libraries
+
+On January 23, 2017, Particle introduced a new version of our firmware library manager, requiring that libraries be migrated from the old library structure (v1) to our new library structure (v2).
+
+With our original firmware library manager, libraries could only be contributed and consumed through our Web IDE (Build). We’ve now upgraded the library manager behind the Web IDE, and made those libraries accessible in our Desktop IDE (Dev) and CLI.
+
+Libraries under the new library format have the following features:
+
+- Every library now has a library.properties file that can be used to specify external library dependencies, library version number, description, and associated open-source license
+- Libraries are now accessible via our firmware libraries API
+- Libraries can now be added to projects via our Desktop IDE and CLI
+
+All existing Particle applications that included a v1 library have been preserved and will continue to function as before. However, all new library includes will pull from our migrated v2 library list, so all new Particle projects that include a library will use the updated library structure.
+
+For that reason, it may be necessary to migrate a library to the new library structure if the library was originally created as a v1 library.
+
+Instructions for migrating v1 libraries to the new library format using the CLI and Desktop IDE are included below.
+
+### Using the CLI
+
+Follow these steps to migrate a v1 Particle library to the new v2 structure using the Particle CLI:
+
+- Install the Particle CLI version 1.19 or later.
+  - If you do not have the Particle CLI installed on your machine, you can download and install it using our OS-specific instructions, [here](https://www.particle.io/products/development-tools/particle-command-line-interface)
+  - If you already have the Particle CLI installed, you can update it to the latest version by running `npm update -g particle-cli`
+
+- Run `particle library migrate` in your library directory
+- Edit the newly created `library.properties` file to add a GitHub URL to the `url` field (like [https://github.com/spark/internetbutton](https://github.com/spark/internetbutton)) and the git remote to the `repository` field (like [https://github.com/spark/internetbutton.git](https://github.com/spark/internetbutton.git))
+- If your library depends on another library, run `particle library add dependency` in your library directory and remove the source files of the other library from your own repository
+- Ensure that the example applications for your library compile by running `particle compile photon examples/<name>` in your library directory
+- Refresh the `README.md` file for your library with detailed information and instructions for using and interacting with the library. The `README.md` file will be used as the "home page" for your library.
+  - See [https://github.com/spark/PowerShield](https://github.com/spark/PowerShield) for a good example.
+- Upload a private version of your library by running `particle library upload`
+- Try adding the library to a project using the [Web IDE](https://build.particle.io)
+- Publish the new public version of the library by running `particle library publish mylibrary` in the CLI
+- Push to GitHub, and go celebrate!
+
+
+### Using the Desktop IDE
+
+Follow these steps to migrate a v1 Particle library to the new v2 structure using Particle's Desktop IDE:
+
+- Install the Particle Desktop IDE or update it to the latest version
+  - You can install the Desktop IDE by visiting our [download page](https://www.particle.io/products/development-tools/particle-desktop-ide) and selecting the appropriate installer for your computer's operating system
+  - If you already have Particle's Desktop IDE installed, you can update it using the following instructions
+    - Select `Atom > Preferences` from the top menu
+    - When the preferences pane opens, navigate to to `Updates`
+    - Click the `Check for Updates` button. This will update your `particle-dev-profiles` and `particle-dev-libraries` packages to the most recent version.
+
+- Open your library directory in a new window of the Desktop IDE
+- Open the `Library Manager` tab on the left hand navigation bar
+
+![](/assets/images/libraries/migrate-1.png)
+
+- You will be presented with a notification telling you that you need to migrate your library. Click the `Migrate` button
+
+![](/assets/images/libraries/migrate-2.png)
+
+- When migration is complete, you will be notified with a banner alert and presented with new options in the `Library Manager` view
+
+![](/assets/images/libraries/migrate-3.png)
+
+- Edit the newly created `library.properties` file to add a GitHub URL to the `url` field (like [https://github.com/spark/internetbutton](https://github.com/spark/internetbutton)) and the git remote to the `repository` field (like [https://github.com/spark/internetbutton.git](https://github.com/spark/internetbutton.git))
+
+- Add any necessary external library dependencies in the `library.properties` file as new lines using the following format:
+
+`dependencies.library_name=0.0.X`
+
+- Ensure that the example applications for your library compile by opening up an example in the `examples` directory and clicking the compile button
+- Refresh the `README.md` file for your library with detailed information and instructions for using and interacting with the library. The `README.md` file will be used as the "home page" for your library.
+  - See [https://github.com/spark/PowerShield](https://github.com/spark/PowerShield) for a good example.
+- Upload a private version of your library by clicking the `Upload` button at the top of the Library Manager tab
+- Try adding the library to a project using the [Web IDE](https://build.particle.io)
+- Publish the new public version of the library clicking the `Publish` button at the top of the Library manager tab
+- Push to GitHub, and go celebrate!
+
+
+### Common issues with migration
+
+- **Include statements**: After you have migrated a library, the process will automatically create a file, `mylibrary/mylibrary.h` that is included for compatibility with old projects. New projects and examples should use `#include "mylibrary.h"`
+
+- **`library upload` scope**: When uploading a new version of a library, *all files in the library directory are uploaded.* Be careful in case you have files in there you don’t want to upload like test binaries and large PDFs.
+
+- **Versioning**: You can upload a private version multiple times with the same version number, but once you publish a version to the public you won’t be able to upload with the same version number. If you make a small mistake just increase the version number and upload again. Version numbers are free!
+
+If you're having additional issues with library migration or contribution, please feel free to post a message in the [`libraries`](https://community.particle.io/c/libraries) category of our community forums, or send us a message via our [support portal](http://support.particle.io).

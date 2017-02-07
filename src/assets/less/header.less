@@ -17,7 +17,7 @@
 
 .sections {
   display: block;
-  float: left;
+  float: right;
   @media(max-width: @xlarge-size) {
     display: none;
   }
@@ -90,6 +90,7 @@ a.nav-device {
 .header .right {
   float: right;
   @media (max-width: @medium-size) {
+    padding-right: 8px;
     display: none;
   }
 }
@@ -120,6 +121,7 @@ a.nav-device {
 .dropdown {
   position: relative;
   display: inline-block;
+  margin-right: 10px;
   a {
     margin-right: 12px !important;
   }
