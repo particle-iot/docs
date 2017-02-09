@@ -492,7 +492,7 @@ You must have Carthage installed, if you don't then be sure to [install Carthage
 Then to build the iOS Cloud SDK, simply create a `Cartfile` on your project root folder, containing the following line:
 
 ```
-github "spark/spark-sdk-ios" >= 0.4.0
+github "spark/spark-sdk-ios" "master"
 ```
 
 and then run the following command:
