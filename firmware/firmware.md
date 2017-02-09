@@ -821,16 +821,16 @@ WiFi.listen(false);
 WiFi.listening();
 ```
 
-{{#if core}}
-Because listening mode blocks your application code on the Core, this command is not useful on the Core.
+{{#unless has-threading}}
+Because listening mode blocks your application code on the {{device}}, this command is not useful on the Core.
 It will always return `false`.
-{{/if}}
-{{#if photon}}
+{{/unless}} {{!-- has-threading --}}
+{{#if has-threading}}
 This command is only useful in connection with `SYSTEM_THREAD(ENABLED)`, otherwise it will always return `false`, because listening mode blocks application code.
 With a dedicated system thread though `WiFi.listening()` will return `true` once `WiFi.listen()` has been called
-or the setup button has been held for 3 seconds, when the RGB LED should be blinking blue.
+or the {{system-button}} button has been held for 3 seconds, when the RGB LED should be blinking blue.
 It will return `false` when the device is not in listening mode.
-{{/if}}
+{{/if}} {{!-- has-threading --}}
 
 
 ### setCredentials()
@@ -5741,6 +5741,22 @@ Initializes the UDP library and network settings.
 Udp.begin(port);
 ```
 
+{{#if has-threading}}
+
+_Note: If using [`SYSTEM_THREAD(ENABLED)`](#system-thread), you'll need
+to wait until the network is connected before calling `Udp.begin()`.
+
+```
+SYSTEM_THREAD(ENABLED);
+
+void setup() {
+  waitUntil(Particle.connected);
+  Udp.begin(4567);
+}
+```
+
+{{/if}} {{!-- has-threading --}}
+
 ### available()
 
 Get the number of bytes (characters) available for reading from the buffer. This is data that's already arrived.
@@ -8783,6 +8799,71 @@ Disables the system flag.
 
 Returns `true` if the system flag is enabled.
 
+{{#if has-interrupts}}
+
+## System Interrupts
+
+This is advanced, low-level functionality, intended primarily for library writers.
+
+System interrupts happen as a result of peripheral events within the system. These
+system interrupts are supported on all platforms:
+
+|Identifier | Description |
+|-----------|-------------|
+|SysInterrupt_SysTick | System Tick (1ms) handler |
+|SysInterrupt_TIM3 | Timer 3 interrupt | 
+|SysInterrupt_TIM4 | Timer 4 interrupt |
+
+NB: SysInterrupt_TIM3 and SysInterrupt_TIM4 are used by the system to provide `tone()` and PWM output.
+
+{{#if has-stm32f2}}
+
+The {{device}} supports these additional interrupts:
+
+| Identifier | Description |
+| -----------|-------------|
+| SysInterrupt_TIM5 | Timer 5 interrupt |
+| SysInterrupt_TIM6 | Timer 6 interrupt |
+| SysInterrupt_TIM7 | Timer 7 interrupt |
+
+NB: SysInterrupt_TIM5 is used by the system to provide `tone()` and PWM output.
+NB: SysInterrupt_TIM7 is used as a shadow watchdog timer by WICED when connected to JTAG.
+
+{{/if}} {{!-- has-stm32f2 --}}
+
+See the [full list of interrupts in the firmware repository](https://github.com/spark/firmware/blob/develop/hal/inc/interrupts_irq.h).
+
+> When implementing an interrupt handler, the handler **must** execute quickly, or the system operation may be impaired. Any variables shared between the interrupt handler and the main program should be declared as `volatile` to ensure that changes in the interrupt handler are visible in the main loop and vice versa.
+
+### attachSystemInterrupt()
+
+Registers a function that is called when a system interrupt happens.
+
+```cpp
+void handle_timer5()
+{
+   // called when timer 5 fires an interrupt
+}
+
+void setup() 
+{
+    attachSystemInterrupt(SysInterrupt_TIM5, handle_timer5);
+}
+```
+
+### detachSystemInterrupt()
+
+Removes all handlers for the given interrupt, or for all interrupts.
+
+```cpp
+
+detachSystemInterrupt(SysInterrupt_TIM5);
+// remove all handlers for the SysInterrupt_TIM5 interrupt
+```
+
+
+{{/if}} {{!-- has-interrupts --}}
+
 {{#if has-linux}}
 
 ## Process Control
@@ -9828,7 +9909,8 @@ void loop() {
 
 The library provides the following log handlers:
 
-`SerialLogHandler`
+- `SerialLogHandler`
+- Additional community-supported log handlers can be found further below.
 
 This handler uses primary serial over USB interface for the logging output ([Serial](#serial)).
 
@@ -9851,6 +9933,13 @@ Parameters:
   * level : default logging level (default value is `LOG_LEVEL_INFO`)
   * filters : category filters (not specified by default)
   * baud : baud rate (default value is 9600)
+
+#### Community Log Handlers
+
+The log handlers below are written by the community and are not considered "Official" Particle-supported log handlers. If you have any issues with them please raise an issue in the forums or, ideally, in the online repo for the handler. 
+
+- [Papertrail](https://papertrailapp.com/) Log Handler by [barakwei](https://community.particle.io/users/barakwei/activity). [[Particle Build](https://build.particle.io/libs/585c5e64edfd74acf7000e7a/)] [[GitHub Repo](https://github.com/barakwei/ParticlePapertrail)] [[Known Issues](https://github.com/barakwei/ParticlePapertrail/issues/)]
+- More to come (feel free to add your own by editing the docs on GitHub)
 
 ### Logger Class
 

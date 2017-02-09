@@ -201,6 +201,7 @@ The device will itself automatically enter safe mode if there is no application 
 {{{device-animation device "blink" "yellow" }}}
 
 If you wish to program your {{device}} with a custom firmware via USB, you'll need to use this mode. This mode triggers the on-board bootloader that accepts firmware binary files via the [dfu-utility.](https://s3.amazonaws.com/spark-assets/dfu-util-0.8-binaries.tar.xz)
+(Note: Some users reported issues with dfu-util on a USB3.0 ports on Windows. Use a USB2.0 port if the USB3.0 port doesn't work.)
 
 Installation tutorial can be found [here.](/guide/tools-and-features/cli/)
 
@@ -390,5 +391,18 @@ The two most common ones are:
 **Out of heap memory (8 blinks between 2 SOS patterns)**
 
 {{{device-animation device "sos" 8 }}}
+
+If your {{device}} crashes repeatedly with an SOS code, first try recovering with [Safe Mode](/guide/getting-started/modes/#safe-mode) and flashing Tinker with the CLI to see if it was something recently added in your user application.
+
+```
+particle flash <mydevice> tinker
+```
+
+If it's not possible to enter Safe Mode, your system firmware may be corrupted.  Try putting your {{device}} into [DFU Mode](/guide/getting-started/modes/#dfu-mode-device-firmware-upgrade-) and flashing the system firmware locally over USB (and optionally flash the Tinker application) with:
+ 
+```
+particle update
+particle flash --usb tinker
+```
 
 Don't forget that the [community forum is always there to help](https://community.particle.io).
