@@ -1,5 +1,6 @@
 {
   "Core": [
+	"stm32f1",
     "wifi",
     "embedded",
     "adc",
@@ -15,6 +16,7 @@
     "eeprom"
   ],
   "Photon": [
+	"stm32f2",
     "wifi",
     "embedded",
     "dac",
@@ -41,6 +43,7 @@
     "eeprom"
   ],
   "Electron": [
+	"stm32f2",
     "cellular",
     "embedded",
     "dac",

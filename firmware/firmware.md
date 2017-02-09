@@ -8783,6 +8783,71 @@ Disables the system flag.
 
 Returns `true` if the system flag is enabled.
 
+{{#if has-interrupts}}
+
+## System Interrupts
+
+This is advanced, low-level functionality, intended primarily for library writers.
+
+System interrupts happen as a result of peripheral events within the system. These
+system interrupts are supported on all platforms:
+
+|Identifier | Description |
+|-----------|-------------|
+|SysInterrupt_SysTick | System Tick (1ms) handler |
+|SysInterrupt_TIM3 | Timer 3 interrupt | 
+|SysInterrupt_TIM4 | Timer 4 interrupt |
+
+NB: SysInterrupt_TIM3 and SysInterrupt_TIM4 are used by the system to provide `tone()` and PWM output.
+
+{{#if has-stm32f2}}
+
+The {{device}} supports these additional interrupts:
+
+| Identifier | Description |
+| -----------|-------------|
+| SysInterrupt_TIM5 | Timer 5 interrupt |
+| SysInterrupt_TIM6 | Timer 6 interrupt |
+| SysInterrupt_TIM7 | Timer 7 interrupt |
+
+NB: SysInterrupt_TIM5 is used by the system to provide `tone()` and PWM output.
+NB: SysInterrupt_TIM7 is used as a shadow watchdog timer by WICED when connected to JTAG.
+
+{{/if}} {{!-- has-stm32f2 --}}
+
+See the [full list of interrupts in the firmware repository](https://github.com/spark/firmware/blob/develop/hal/inc/interrupts_irq.h).
+
+> When implementing an interrupt handler, the handler **must** execute quickly, or the system operation may be impaired. Any variables shared between the interrupt handler and the main program should be declared as `volatile` to ensure that changes in the interrupt handler are visible in the main loop and vice versa.
+
+### attachSystemInterrupt()
+
+Registers a function that is called when a system interrupt happens.
+
+```cpp
+void handle_timer5()
+{
+   // called when timer 5 fires an interrupt
+}
+
+void setup() 
+{
+    attachSystemInterrupt(SysInterrupt_TIM5, handle_timer5);
+}
+```
+
+### detachSystemInterrupt()
+
+Removes all handlers for the given interrupt, or for all interrupts.
+
+```cpp
+
+detachSystemInterrupt(SysInterrupt_TIM5);
+// remove all handlers for the SysInterrupt_TIM5 interrupt
+```
+
+
+{{/if}} {{!-- has-interrupts --}}
+
 {{#if has-linux}}
 
 ## Process Control
