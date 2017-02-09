@@ -391,4 +391,17 @@ The two most common ones are:
 
 {{{device-animation device "sos" 8 }}}
 
+If your {{device}} crashes repeatedly with an SOS code, first try recovering with [Safe Mode](/guide/getting-started/modes/#safe-mode) and flashing Tinker with the CLI to see if it was something recently added in your user application.
+
+```
+particle flash <mydevice> tinker
+```
+
+If it's not possible to enter Safe Mode, your system firmware may be corrupted.  Try putting your {{device}} into [DFU Mode](/guide/getting-started/modes/#dfu-mode-device-firmware-upgrade-) and flashing the system firmware locally over USB (and optionally flash the Tinker application) with:
+ 
+```
+particle update
+particle flash --usb tinker
+```
+
 Don't forget that the [community forum is always there to help](https://community.particle.io).
