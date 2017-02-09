@@ -9935,7 +9935,7 @@ Parameters:
 The log handlers below are written by the community and are not considered "Official" Particle-supported log handlers. If you have any issues with them please raise an issue in the forums or, ideally, in the online repo for the handler. 
 
 - [Papertrail](https://papertrailapp.com/) Log Handler by [barakwei](https://community.particle.io/users/barakwei/activity). [[Particle Build](https://build.particle.io/libs/585c5e64edfd74acf7000e7a/)] [[GitHub Repo](https://github.com/barakwei/ParticlePapertrail)] [[Known Issues](https://github.com/barakwei/ParticlePapertrail/issues/)]
-- More to come (feel free to add your own by editing the docs or raise an issue and assign to @harrisonhjones)
+- More to come (feel free to add your own by editing the docs on GitHub)
 
 ### Logger Class
 
