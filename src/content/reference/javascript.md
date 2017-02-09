@@ -7,9 +7,13 @@ order: 4
 
 # Particle API JS
 
-ParticleJS is a library for interacting with your devices and the Particle Cloud.
-It uses node.js and can run on Windows, Mac OS X, and Linux fairly easily.
-It's also open source so you can edit, change or even send in pull requests if you want to share!
+ParticleJS is JavaScript library for the Particle Cloud API for Node.js and the browser.
+It's also [open source](https://github.com/spark/particle-api-js) so you can edit, change or even send in pull requests if you want to share!
+
+This page contains examples to get started using the library.
+
+For more details, read the [API reference on GitHub](https://github.com/spark/particle-api-js/blob/master/docs/api.md) and check the
+[examples folder on GitHub](https://github.com/spark/particle-api-js/blob/master/examples).
 
 ## Installation
 
@@ -23,7 +27,7 @@ Next, open a command prompt or terminal, and install by typing:
 $ npm install particle-api-js
 ```
 
-## Client side
+## Browser
 
 #### Including Particle API JS
 
@@ -120,6 +124,8 @@ device and registered to the Particle cloud.
 
 You pass along the name of the function and the params.
 
+If the function call succeeds, `data.return_value` is the value returned by the function call on the Particle device.
+
 ### claimDevice
 
 Claims device and adds it to the user account
@@ -174,6 +180,9 @@ particle.getVariable({ deviceId: 'DEVICE_ID', name: 'temp', auth: token }).then(
 ```
 
 The variable needs to be defined in your device's code.
+
+If getting the variable succeeds, `data.result` is the value of the variable on the Particle device.
+
 
 ### removeDevice
 
@@ -260,7 +269,7 @@ particle.getEventStream({ deviceId: 'DEVICE_ID', name: 'test', auth: token }).th
 });
 ```
 
-data is an object with the following properties
+`data` is an object with the following properties
 
 ```
 {
