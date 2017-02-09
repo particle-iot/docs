@@ -821,16 +821,16 @@ WiFi.listen(false);
 WiFi.listening();
 ```
 
-{{#if core}}
-Because listening mode blocks your application code on the Core, this command is not useful on the Core.
+{{#unless has-threading}}
+Because listening mode blocks your application code on the {{device}}, this command is not useful on the Core.
 It will always return `false`.
-{{/if}}
-{{#if photon}}
+{{/unless}} {{!-- has-threading --}}
+{{#if has-threading}}
 This command is only useful in connection with `SYSTEM_THREAD(ENABLED)`, otherwise it will always return `false`, because listening mode blocks application code.
 With a dedicated system thread though `WiFi.listening()` will return `true` once `WiFi.listen()` has been called
-or the setup button has been held for 3 seconds, when the RGB LED should be blinking blue.
+or the {{system-button}} button has been held for 3 seconds, when the RGB LED should be blinking blue.
 It will return `false` when the device is not in listening mode.
-{{/if}}
+{{/if}} {{!-- has-threading --}}
 
 
 ### setCredentials()
@@ -5741,6 +5741,8 @@ Initializes the UDP library and network settings.
 Udp.begin(port);
 ```
 
+{{#if has-threading}}
+
 _Note: If using [`SYSTEM_THREAD(ENABLED)`](#system-thread), you'll need
 to wait until the network is connected before calling `Udp.begin()`.
 
@@ -5752,6 +5754,8 @@ void setup() {
   Udp.begin(4567);
 }
 ```
+
+{{/if}} {{!-- has-threading --}}
 
 ### available()
 
