@@ -5741,6 +5741,18 @@ Initializes the UDP library and network settings.
 Udp.begin(port);
 ```
 
+_Note: If using [`SYSTEM_THREAD(ENABLED)`](#system-thread), you'll need
+to wait until the network is connected before calling `Udp.begin()`.
+
+```
+SYSTEM_THREAD(ENABLED);
+
+void setup() {
+  waitUntil(Particle.connected);
+  Udp.begin(4567);
+}
+```
+
 ### available()
 
 Get the number of bytes (characters) available for reading from the buffer. This is data that's already arrived.
