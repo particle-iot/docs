@@ -99,7 +99,7 @@ Every Particle library complies with the following file structure that will be a
 
 - **repository** The git repository like `http://github.com/user/project.git`, if available.
 
-- **architectures** A comma-separated list of supported hardware boards that are compatible with your library like `particle-core`, `particle-photon`, `particle-electron`. If missing, the library will be available for all architectures.
+- **architectures** A comma-separated list of supported hardware boards that are compatible with your library. If missing or set to `*`, the library will be available for all architectures. Available values for Particle libraries: `spark-core`, `particle-photon`, `particle-electron`, `particle-p1`, `digistump-oak`, `bluz`, `redbear-duo`.
 
 - **dependencies.<lib>** Other library that this library depends on, one line per library dependency. The value is the desired version number of the library dependency.
 
