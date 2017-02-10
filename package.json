@@ -12,7 +12,9 @@
     "test": "node ./node_modules/mocha/bin/mocha ./test/crawler.js --reporter dot",
     "build": "node ./scripts/build.js",
     "update-api": "./scripts/update-api.sh --force",
-    "spell": "mdspell --en-us --ignore-numbers --no-suggestions 'src/content/**/*.md' '!src/content/languages/**/*.md'"
+    "spell": "mdspell --en-us --ignore-numbers --no-suggestions 'src/content/**/*.md' '!src/content/languages/**/*.md'",
+    "snyk-protect": "snyk protect",
+    "prepublish": "npm run snyk-protect"
   },
   "dependencies": {
     "apidoc": "^0.13.1",
@@ -45,7 +47,8 @@
     "metalsmith-watch": "^1.0.1",
     "minimatch": "^2.0.8",
     "mocha": "^2.2.5",
-    "prettify": "^0.1.7"
+    "prettify": "^0.1.7",
+    "snyk": "^1.25.0"
   },
   "devDependencies": {
     "chalk": "^1.1.1",
@@ -56,5 +59,6 @@
     "markdown-spellcheck": "^0.11.0",
     "simplecrawler": "spark/node-simplecrawler#v0.6.3",
     "sinon": "^1.17.6"
-  }
+  },
+  "snyk": true
 }
