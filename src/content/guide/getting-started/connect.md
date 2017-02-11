@@ -69,7 +69,9 @@ If you're using an Electron, please follow the instructions at [https://setup.pa
 
 ## Using Windows
 
-*An official, updated tutorial on CLI, DFU, and driver tools installation is referenced [here](http://community.particle.io/t/particle-official-windows-10-full-cli-and-dfu-setup/18309).*
+**You can use the official Particle [Windows CLI Installer](https://binaries.particle.io/cli/installer/windows/ParticleCLISetup.exe) to automatically install node.js, the particle-cli, and dfu-util instead of using the manual installation instructions below.**
+ 
+An updated tutorial on CLI, DFU, and driver tools installation is referenced [here](http://community.particle.io/t/particle-official-windows-10-full-cli-and-dfu-setup/18309) as well.
 
 To connect and interact with a Particle Device over USB from a Windows machine, the easiest route is to use the Particle command line interface.
 The following describes how to install the Particle CLI on your computer. If you already have Node.js installed, you can skip to [this step](#installing-the-particle-cli).
