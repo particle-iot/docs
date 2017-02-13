@@ -153,12 +153,9 @@ If you're on a noisy Wi-Fi network you've had troubles flashing wirelessly in th
 
 **Flash via Particle CLI**
 
-The [Particle CLI](https://github.com/spark/particle-cli) s a Swiss army command line knife that can be used to do all kinds of cool things...like flash a deep update to your core. The README provides some nice documentation about how to install it and [how to do a deep update over USB](https://github.com/spark/particle-cli#performing-a-deep-update). The process is pretty simple:
+The [Particle CLI](https://docs.particle.io/cli) is a Swiss army command line knife that can be used to do all kinds of cool things...like flash a deep update to your core. The process is pretty simple:
 
-Install or Upgrade the CLI (requires Node.js):
-
-``npm install -g particle-cli``
-
+[install or Upgrade the CLI](https://docs.particle.io/cli#installing)
 Connect a Core to your computer via USB and put it into [dfu-mode](/guide/getting-started/modes/core/#dfu-mode-device-firmware-upgrade-)
 
 Run the flash command:
@@ -168,6 +165,13 @@ Run the flash command:
 - `particle flash --usb cc3000_1_14` **(v1.32 latest - not recommended without testing)**
 
 This installs the deep update from a binary that is packaged with the Particle CLI, so you don't have to download it.
+
+When it's done running, your Core will be blinking yellow in DFU-mode, you'll need to flash regular firmware like Tinker
+to get connected and developing again.
+
+1. Run `particle flash --usb tinker`. This will flash a new version of Tinker to your Core and return to a blinking blue "listening" state, where
+you can:
+1. Run `particle setup` or `particle setup wifi` to provide your network credentials to get connected again.
 
 
 ### Full Firmware Upgrade

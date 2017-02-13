@@ -137,10 +137,17 @@ $ particle flash 0123456789ABCDEFGHI my_project
 
 ### Flashing one or more source files
 
+You can include any number of individual source files after the device Name, and the CLI will include them while flashing your app.
+
 ```sh
 # how to compile and flash a list of source files to your device
 $ particle flash 0123456789ABCDEFGHI app.ino library1.cpp library1.h
 ```
+
+Note that the CLI since 1.9.0 has support for firmware libraries via the [particle library](#particle-library)
+commands. 
+
+ 
 
 ### Target a specific firmware version for flashing
 
@@ -151,6 +158,25 @@ This is useful if you are not ready to upgrade to the latest system firmware on 
 ```sh
 # compile your application with the 0.5.0 system firmware and flash it
 $ particle flash --target 0.5.0 0123456789ABCDEFGHI my_project
+```
+
+### Flashing a known app
+
+You can easily reset a device back to a previous existing app with a quick command. Three app names are reserved right now: "tinker", "voodoo", and "cc3000".  Tinker is the original firmware that ships with the device, and cc3000 will patch the wifi module on your Core. Voodoo is a build of [VoodooSpark](http://voodoospark.me/) to allow local wireless firmata control of a device.
+
+```sh
+$ particle flash deviceName tinker
+$ particle flash deviceName cc3000
+$ particle flash deviceName voodoo
+
+```
+
+You can also update the factory reset version using the `--factory` flag, over USB with `--usb`, or over serial using `--serial`.
+
+```sh
+$ particle flash --factory tinker
+$ particle flash --usb tinker
+$ particle flash --serial tinker
 ```
 
 ### Compiling remotely and flashing locally
@@ -184,11 +210,31 @@ The devices available are:
 
 - photon (alias is 'p')
 - core (alias is 'c')
+- electron (alias is 'e')
+- duo (alias is 'd')
+- oak (alias is 'o')
+- bluz (alias is 'b')
+- bluz-gateway (alias is 'bg')
+- bluz-beacon (alias is 'bb')
 
 eg. `particle compile photon xxx` OR `particle compile p xxxx` both targets the photon
 ```
 
-### compiling a directory
+Note!  The cloud compiles ```.ino``` and ```.cpp``` files differently.  For ```.ino``` files, the cloud will apply a pre-processor.  It will add missing function declarations, and it will inject an ```#include "
+application.h"``` line at the top of your files if it is missing.
+
+If you want to build a library that can be used for both Arduino and Particle, here's a useful code snippet:
+
+```cpp
+#if defined(ARDUINO) && ARDUINO >= 100
+#include "Arduino.h"
+#elif defined(SPARK)
+#include "application.h"
+#endif
+```
+
+
+### Compiling a directory
 
 You can setup a directory of source files and libraries for your project, and the CLI will use those when compiling remotely.
 
@@ -216,6 +262,9 @@ This is useful if you are not ready to upgrade to the latest system firmware on 
 ```sh
 # compile your application with the 0.5.0 system firmware
 $ particle compile photon --target 0.5.0 my_project
+$ particle compile electron myapp.ino --target 0.5.1`
+$ `particle flash <deviceid> myapp.ino --target 0.5.1` would compile and flash myapp.ino for device <deviceid> against system firmware 0.5.1.
+
 ```
 
 ## particle project
@@ -455,13 +504,30 @@ $ particle subscribe eventName CoreName
 $ particle subscribe eventName 0123456789ABCDEFGHI
 ```
 
+It's also possible to subscribe to events from a specific device
+
+```sh
+# subscribe to all events for a particular device
+$ particle subscribe mine deviceName
+$ particle subscribe mine 0123456789abcdef01234567
+```
+
 ## particle publish
 
   Publishes events to the cloud via API, similar to running Particle.publish() on a Particle Device.
 
 ```sh
+$ particle publish eventName
 $ particle publish eventName data
 ```
+
+There is a `--private` flag that allows you to `publish` events to devices subscribing to events with the `MY_DEVICES` option.
+
+```sh
+$ particle publish eventName --private
+$ particle publish eventName someData --private
+```
+
 
 ## particle serial
 
@@ -485,6 +551,14 @@ $ particle serial monitor
 $ particle serial monitor 1
 $ particle serial monitor COM3
 $ particle serial monitor /dev/cu.usbmodem12345
+```
+
+### particle serial flash
+
+Flash a firmware binary over serial.
+
+```sh
+$ particle serial flash firmware.bin
 ```
 
 ## particle update
@@ -573,16 +647,45 @@ submitting public key succeeded!
 
 ### particle keys server
 
-Switches the server public key stored on the device's external flash.  This command is important when changing which server your device is connecting to, and the server public key helps protect your connection.   Your device will stay in DFU mode after this command, so that you can load new firmware to connect to your server.
-
-Coming Soon - more commands to make it easier to change the server settings on your device!
+Switches the server public key stored on the device's external flash. This command is important when changing which server your device is connecting to, and the server public key helps protect your connection. Your device will stay in DFU mode after this command, so that you can load new firmware to connect to your server. By default this will only change the server key associated with the default protocol for a device. If you wish to change a specific protocol, add `--protocol tcp` or `--protocol udp` to the end of your command.
 
 
 ```sh
-# changes the public server key stored on your device
-# (useful when switching servers)
 $ particle keys server my_server.der
-Okay!  New keys in place, your device will not restart.
+$ particle keys server my_server.der --protocol udp
+```
+
+#### Encoding a server address and port
+
+When using the local cloud you can ask the CLI to encode the IP or dns address into your key to control where your device will connect. You may also specify a port number to be included.
+
+```sh
+$ particle keys server my_server.pub.pem 192.168.1.10
+$ particle keys server my_server.der 192.168.1.10 9000
+$ particle keys server my_server.der 192.168.1.10 9000 --protocol udp
+```
+
+### particle keys address
+
+Reads and displays the server address, port, and protocol from a device.
+
+```sh
+$ particle keys address
+
+tcp://device.spark.io:5683
+```
+
+### particle keys protocol
+
+Views or changes the transport protocol used to communicate with the cloud. Available options are `tcp` and `udp` for Electrons (if you are running at least firmware version 0.4.8).
+
+```sh
+# determine the current protocol
+$ particle keys protocol
+
+# set the protocol to tcp or udp
+$ particle keys protocol tcp
+$ particle keys protocol udp
 ```
 
 ## particle nyan
@@ -598,3 +701,39 @@ $ particle cloud nyan all on
 $ particle cloud nyan [on/off]
 $ particle cloud nyan [device_id/all] [on/off]
 ```
+
+### particle config
+
+The config command lets you create groups of settings and quickly switch to a profile by calling `particle config profile-name`. This is especially useful for switching to your local server or between other environments.
+
+Calling `particle config particle` will switch **Particle-Cli** back to the Particle Cloud API server.
+
+```sh
+$ particle config profile-name
+$ particle config particle
+$ particle config local apiUrl http://localhost:8080  //creates a new profile with name "local" and saves the IP-address parameter
+$ particle config useSudoForDfu true
+```
+
+Calling `particle config identify` will output your current config settings.
+
+```sh
+$ particle config identify
+Current profile: particle
+Using API: https://api.particle.io
+Access token: 01234567890abcdef01234567890abcdef012345
+```
+
+### particle binary inspect file.bin
+
+Describe binary generated by compile.
+
+```sh
+$ particle binary inspect file.bin
+file.bin
+ CRC is ok (06276dc6)
+ Compiled for photon
+ This is a system module number 2 at version 6
+ It depends on a system module number 1 at version 6
+```
+
