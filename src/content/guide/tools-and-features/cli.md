@@ -62,7 +62,7 @@ To grab the CLI source and play with it locally
 $ git clone https://github.com/spark/particle-cli.git
 $ cd particle-cli
 $ npm install
-$ node app.js help
+$ node bin/particle help
 ```
 
 
