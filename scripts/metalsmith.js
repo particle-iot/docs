@@ -43,6 +43,8 @@ var environment;
 
 var gitBranch;
 
+var generateSearch = process.env.SEARCH_INDEX !== '0';
+
 exports.metalsmith = function() {
   function removeEmptyTokens(token) {
     if (token.length > 0) {
@@ -184,16 +186,18 @@ exports.metalsmith = function() {
       selector: 'h2, h3',
       pattern: '**/**/*.md'
     }))
-    .use(lunr({
-      indexPath: 'search-index.json',
-      fields: {
-        contents: 1,
-        title: 10
-      },
-      pipelineFunctions: [
-        removeEmptyTokens
-      ]
-    }))
+    .use(msIf(generateSearch,
+        lunr({
+			indexPath: 'search-index.json',
+			fields: {
+				contents: 1,
+				title: 10
+			},
+			pipelineFunctions: [
+				removeEmptyTokens
+			]
+		})
+    ))
     .use(templates({
       engine: 'handlebars',
       directory: '../templates'
@@ -325,6 +329,7 @@ exports.test = function(callback) {
   var server = serve({ cache: 300 });
   git.branch(function (str) {
     gitBranch = process.env.TRAVIS_BRANCH || str;
+    generateSearch = true;
     exports.metalsmith()
       .use(server)
       .build(function(err, files) {
