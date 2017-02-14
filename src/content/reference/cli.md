@@ -561,6 +561,12 @@ Flash a firmware binary over serial.
 $ particle serial flash firmware.bin
 ```
 
+This is a synonym for `particle flash --serial firmware.bin`.
+Note that at present only binaries can be flashed using this command.
+If you wish to flash from application sources, first use `particle compile` to compile a binary from sources. 
+
+If you have system firmware with debugging enabled (which is the default on the Electron) then flashing via serial will fail unless debugging is disabled. You can disable debugging logs flashing Tinker via USB: `particle flash --usb tinker`.
+
 ## particle update
 
 Update your device to the latest system firmware release. Follow this with `particle flash --usb tinker` to reflash the default Tinker app to make your device run known good software.
