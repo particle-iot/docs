@@ -151,7 +151,7 @@ Follow these instructions for wiring up the LED rings:
 - Use the following app to test the ring. You can flash it to your Pi by copying and pasting it into the Web IDE and flashing it to your Raspberry Pi by clicking the star icon next to your device in the "Devices" panel.
 
 ```cpp
-#include "application.h"
+#include "Particle.h"
 #include "ws2811.h"
 
 #define TARGET_FREQ  WS2811_TARGET_FREQ
@@ -251,7 +251,7 @@ We will use this particular [motion (PIR) sensor](https://www.adafruit.com/produ
 The NeoPixel ring will light upon detecting motion and will remain off otherwise.
 
 ```cpp
-#include "application.h"
+#include "Particle.h"
 #include "ws2811.h"
 #include "stdarg.h"
 
