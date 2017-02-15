@@ -5,6 +5,12 @@ columns: three
 order: 2
 ---
 
+{{!--
+  The Cloud API documentation is auto-generated from an internal repository.
+  To make a change, please open a GitHub issue with your change and
+  someone from Particle will be happy to merge it in for you!
+--}}
+
 # Particle Cloud API
 
 The Particle Cloud API is a [REST](http://en.wikipedia.org/wiki/Representational_State_Transfer) API.
