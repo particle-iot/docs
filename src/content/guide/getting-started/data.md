@@ -42,6 +42,7 @@ Any time the Electron talks to the Internet or the Internet talks back, that dat
 - Publish (smallest communication)
 - Function calls from the API
 - Variable calls from the API
+- Subscribe to events or webhook response
 
 **Background connectivity:**
 - Pings (once every 23 minutes if no other communications happen and device is awake. 122 bytes)
