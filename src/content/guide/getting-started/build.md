@@ -125,6 +125,10 @@ void loop() {
 
 - **Select Your Device**: If you have more than one device you have to make sure that you've selected which of your devices to flash code to.  Click on the "Devices" icon at the bottom left side of the navigation pane, then when you hover over device name the star will appear on the left. Click on it to set the device you'd like to update (it won't be visible if you have only one device). Once you've selected a device, the star associated with it will turn yellow. (If you only have one device, there is no need to select it, you can continue on to the next step).
 
+![Signal device](/assets/images/signal-device.png)
+
+- **Device details**: To identify a device in the "Devices" list, click the chevron then click Signal to make the device LED shout rainbows. Click Signal again to stop. You can also use the firmware selector to opt-in to the latest cutting edge features!
+
 **NOTE**: Devices are grouped by their platform. You can see the platform icon (circle with an letter) on the left of its name.
 
 {{#if raspberry-pi}}

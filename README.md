@@ -70,7 +70,7 @@ devices: [ photon, electron, core ]
 ```
 Where Photon, Electron and Core are the relevant devices to this page.
 
-Then add a new key to `device_features.json` for each device that
+Then add a new key to [`device_features.json`](config/device_features.json) for each device that
 supports the feature:
 ```
 {
@@ -132,6 +132,10 @@ When the firmware is available on a new device, add that device to the docs in t
 - Add the device in <src/assets/js> `rememberDevices()`
 - Add a new SVG in <src/assets/image> named `<device>.svg`
 - Tell the tests to crawl the new device page in <test/crawler.js>
+
+### Redirects
+
+When moving pages around or defining the default page for a section, add redirect links to [`redirects.json`](config/redirects.json). 
 
 ### Attributions
 
