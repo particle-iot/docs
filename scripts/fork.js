@@ -5,7 +5,7 @@ var path = require('path');
 var fs = require('fs');
 var titleize = require('../templates/helpers/titleize');
 
-/* This function is meant to read the `devices` key in each template and clones the template once for each device.
+/* This plugin is meant to read the `devices` key in each template and clones the template once for each device.
  * On each cloned templates, it sets the `device` key to the titleized name of the device (so `photon` becomes `Photon`),
  * it sets `deviceValue` to the lowercase name and it sets a boolean to true for that device (`photon = true`).
  */
@@ -14,6 +14,8 @@ module.exports = function(options) {
 	var keySingular = key.replace(/s$/, "");
 	var redirectTemplate = fs.readFileSync(path.resolve(options.redirectTemplate));
 
+	var forkList = {};
+
 	return function(files, metalsmith, done) {
 		Object.keys(files).forEach(function (fileName) {
 			var file = files[fileName];
@@ -21,11 +23,12 @@ module.exports = function(options) {
 			if (!forkValues) return;
 
 			var forkLocations = {};
+			var extension = path.extname(fileName);
+			var fileNameWithoutExt = path.basename(fileName, extension);
+			var basePath = path.join(path.dirname(fileName), fileNameWithoutExt);
 
 			forkValues.forEach(function (value) {
-				var extension = path.extname(fileName);
-				var fileNameWithoutExt = path.basename(fileName, extension);
-				var newName = path.join(path.dirname(fileName), fileNameWithoutExt, value + extension);
+				var newName = path.join(basePath, value + extension);
 
 				var newFile = cloneDeep(file, function(value) {
 					if (value instanceof Buffer) {
@@ -52,7 +55,13 @@ module.exports = function(options) {
 			// rename from .XXX (original extension) to .YYY (extension of redirectTemplate)
 			files[path.join(path.dirname(fileName), path.basename(fileName, path.extname(fileName)) + path.extname(options.redirectTemplate))] = file;
 			delete files[fileName];
+
+			forkList['/' + basePath] = forkValues;
 		});
+
+		// save the list of forks in the global metadata
+		var metadata = metalsmith.metadata();
+		metadata.forkList = forkList;
 
 		done();
 	};

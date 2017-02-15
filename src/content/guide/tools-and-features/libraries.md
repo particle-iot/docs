@@ -93,7 +93,7 @@ Every Particle library complies with the following file structure that will be a
 
 - **sentence** A one sentence description of the library that will be shown in the library browser.
 
-- **paragraph** A longer description to be shown in the details page of the library.
+- **paragraph** A longer description to be shown in the details page of the library. This is always shown after **sentence** so start with the second sentence of the description.
 
 - **url** The web page that a user wanting more information would visit like a GitHub URL.
 

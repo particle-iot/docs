@@ -1,3 +1,10 @@
+/* Outputs a JavaScript file with precompiled Handlebar templates that can be used
+ * in the front-end JavaScript code.
+ *
+ * For template search.hbs, use it like this:
+ *     var html = Handlebars.templates.search({results: niceResults});
+ */
+
 var handlebars = require('handlebars');
 var minimatch = require('minimatch');
 var fs = require('fs');
