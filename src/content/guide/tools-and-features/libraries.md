@@ -187,6 +187,18 @@ Create at least one example `.ino` file inside a subfolder of `examples` to show
 
 If your library depends on other libraries you can add those dependencies to `library.properties` with `particle library add`. For example, since the [Internet Button](/datasheets/kits/#internet-button) contains NeoPixel LEDs, the `InternetButton` library has the line `dependencies.neopixel=0.0.10` in `library.properties` to indicate this.
 
+List the hardware platforms supported by your library supports to the [`architectures` field](#library-properties-fields) in `library.properties`. In the code you can compare the current platform with [the platform definition constants](https://github.com/spark/firmware/blob/develop/platform/shared/inc/platforms.h).
+
+```
+#if ( PLATFORM_ID == PLATFORM_ELECTRON_PRODUCTION )
+    #include "cellular_hal.h"
+#elif ( PLATFORM_ID == PLATFORM_PHOTON_PRODUCTION )
+    #include "softap_http.h"
+#else
+    #error "This library only works on the Electron and Photon"
+#endif
+```
+
 Review the `library.properties` and `README.md` and fill in as much information as possible.
 
 ### Testing the examples
