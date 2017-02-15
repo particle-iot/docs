@@ -12,11 +12,12 @@ var titleize = require('../templates/helpers/titleize');
 module.exports = function(options) {
 	var key = options.key;
 	var keySingular = key.replace(/s$/, "");
-	var redirectTemplate = fs.readFileSync(path.resolve(options.redirectTemplate));
-
 	var forkList = {};
+	var redirectTemplate = options.redirectTemplate;
 
 	return function(files, metalsmith, done) {
+		var templateContents = fs.readFileSync(metalsmith.path(redirectTemplate));
+
 		Object.keys(files).forEach(function (fileName) {
 			var file = files[fileName];
 			var forkValues = file[key];
@@ -49,11 +50,11 @@ module.exports = function(options) {
 			file.forkLocations = forkLocations;
 
 			file.keyString = JSON.stringify(forkLocations);
-			file.contents = redirectTemplate;
+			file.contents = templateContents;
 			delete file.template;
 
 			// rename from .XXX (original extension) to .YYY (extension of redirectTemplate)
-			files[path.join(path.dirname(fileName), path.basename(fileName, path.extname(fileName)) + path.extname(options.redirectTemplate))] = file;
+			files[path.join(path.dirname(fileName), path.basename(fileName, path.extname(fileName)) + path.extname(redirectTemplate))] = file;
 			delete files[fileName];
 
 			forkList['/' + basePath] = forkValues;

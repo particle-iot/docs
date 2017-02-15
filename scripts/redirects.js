@@ -5,7 +5,7 @@ var path = require('path');
 
 module.exports = function plugin(options) {
 	return function(files, metalsmith, done) {
-		var configPath = path.resolve(options.config);
+		var configPath = metalsmith.path(options.config);
 		var redirectList = JSON.parse(fs.readFileSync(configPath));
 
 		// Save in the global metadata
