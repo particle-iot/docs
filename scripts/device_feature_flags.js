@@ -16,7 +16,7 @@ module.exports = function plugin(options) {
 		Object.keys(deviceFeatures).forEach(function (device) {
 			var features = deviceFeatures[device];
 			deviceFeatureFlags[device] = flagsForFeatures(features)
-		})
+		});
 
 		// For each feature like wifi, define a helper flag has-wifi
 		function flagsForFeatures(features) {

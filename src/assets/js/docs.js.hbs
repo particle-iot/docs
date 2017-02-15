@@ -252,7 +252,7 @@ Created by Zach Supalla.
           // define urls to prioritize
           // var urlArray = ["faq/particle-devices/led-troubleshooting/photon/#blinking-green"];
           // Docs.boostSearchByUrl(sectionResults,urlArray);
-          
+
           // filter by device
           var topFilteredResults = Docs.filterSearchByDevice(sectionResults,specifier);
 
@@ -434,6 +434,42 @@ Created by Zach Supalla.
     }
   };
 
+  Docs.catchRedirectLinks = function() {
+    $(document).on('click', 'a', function (e) {
+      var href = $(this).attr('href');
+      var redirect = applyRedirect(href);
+      redirect = applyDeviceRedirect(redirect);
+      if (href !== redirect) {
+        e.preventDefault();
+        window.location.href = redirect + '/';
+      }
+    });
+  }
+
+  function applyRedirect(href) {
+    for (var link in redirects) {
+      if (href === link) {
+        return redirects[link];
+      }
+    }
+    return href;
+  }
+
+  function applyDeviceRedirect(href) {
+    for (var link in deviceLinks) {
+      if (href === link) {
+        var lastDevice = localStorage.getItem('lastDevice');
+        if (deviceLinks[link].indexOf(lastDevice) >= 0) {
+          return link + '/' + lastDevice;
+        }
+      }
+    }
+    return href;
+  }
+
+  var deviceLinks = {{{ json forkList }}};
+  var redirects = {{{ json redirectList }}};
+
   // Ok, then let's do it!
   Docs.rememberDevices();
   Docs.transform();
@@ -444,6 +480,7 @@ Created by Zach Supalla.
   Docs.buildSearch();
   Docs.toggleNav();
   Docs.toggleShowing();
+  Docs.catchRedirectLinks();
   if (prettyPrint) {
     prettyPrint();
   }

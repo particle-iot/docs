@@ -1,9 +1,9 @@
 ## Particle Documentation [![Build Status](https://travis-ci.org/spark/docs.svg?branch=master)](https://travis-ci.org/spark/docs)
 =======
 
-Here you'll find the documentation for the Particle platform, including the Particle Cloud, Photon, and Spark Core.
+Here you'll find the documentation for the Particle platform, including the Particle Cloud, Photon, Electron, and Spark Core.
 
-To view this documentation, visit [our website](http://docs.particle.io), where the documentation is hosted.
+To view this documentation, visit [our website](https://docs.particle.io), where the documentation is hosted.
 
 ### Installation
 
@@ -45,11 +45,11 @@ To see the latest build, visit the [Travis CI page](https://travis-ci.org/spark/
 
 ### Organization
 
-The majority of the content herein is stored in the `src/content/en` directory as a set of Markdown files. Assets such as images and javascript are stored in the `src/assets` directory.
+The majority of the content herein is stored in the `src/content` directory as a set of Markdown files. Assets such as images and javascript are stored in the `src/assets` directory.
 
 ### Structuring your content
 
-The docs dynamically generate a table of contents for navigation purposes based on the headers (i.e. `###`) that you use on each page. It is important to note that _order and heirarchy matters_ when you are designing the organization of content on your page. Your page should include the following:
+The docs dynamically generate a table of contents for navigation purposes based on the headers (i.e. `###`) that you use on each page. It is important to note that _order and hierarchy matters_ when you are designing the organization of content on your page. Your page should include the following:
 
 * 1 `h1` at the top of the page that will serve as the title of the page. You can even copy the `title` directly from the front-matter of the markdown file like this: `# {{title}}`
 
