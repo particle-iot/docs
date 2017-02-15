@@ -4547,6 +4547,10 @@ SPI1.transfer(tx_buffer, rx_buffer, length, myFunction);
 {{#if electron}}
 SPI2.transfer(tx_buffer, rx_buffer, length, myFunction);
 {{/if}}
+
+void myFunction(void) {
+  // called when transfer is complete
+}
 ```
 
 Parameters:
@@ -4554,7 +4558,7 @@ Parameters:
 - `tx_buffer`: array of Tx bytes that is filled by the user before starting the SPI transfer. If `NULL`, default dummy 0xFF bytes will be clocked out.
 - `rx_buffer`: array of Rx bytes that will be filled by the slave during the SPI transfer. If `NULL`, the received data will be discarded.
 - `length`: number of data bytes that are to be transferred
-- `myFunction`: user specified function callback to be called after completion of the SPI DMA transfer
+- `myFunction`: user specified function callback to be called after completion of the SPI DMA transfer. It takes no argument and returns nothing, e.g.: `void myHandler()`
 
 NOTE: `tx_buffer` and `rx_buffer` sizes MUST be identical (of size `length`)
 
@@ -4573,6 +4577,21 @@ Aborts the configured DMA transfer and disables the DMA peripheral’s channel a
 _Since 0.5.0_
 
 Registers a function to be called when the SPI master selects or deselects this slave device by pulling configured slave-select pin low (selected) or high (deselected).
+
+```C++
+// SYNTAX
+SPI.onSelect(myFunction);
+{{#unless core}}
+SPI1.onSelect(myFunction);
+{{/unless}}
+{{#if electron}}
+SPI2.onSelect(myFunction);
+{{/if}}
+
+void myFunction(uint8_t state) {
+  // called when selected or deselected
+}
+```
 
 Parameters: `handler`: the function to be called when the slave is selected or deselected; this should take a single uint8_t parameter (the current state: `1` - selected, `0` - deselected) and return nothing, e.g.: `void myHandler(uint8_t state)`
 
