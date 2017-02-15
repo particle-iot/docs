@@ -484,4 +484,9 @@ Created by Zach Supalla.
   if (prettyPrint) {
     prettyPrint();
   }
+
+  {{#if development}}
+  // Make sure to scroll the element after live reload
+  Docs.scrollToElement(window.location.hash);
+  {{/if}}
 })(jQuery);

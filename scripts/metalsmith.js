@@ -113,7 +113,8 @@ exports.metalsmith = function() {
     .use(msIf(
       environment === 'development',
       fileMetadata([
-        {pattern: 'content/**/*.md', metadata: {development: true}}
+        {pattern: 'content/**/*.md', metadata: {development: true}},
+        {pattern: '**/*.hbs', metadata: {development: true}}
       ])
     ))
     // Handlebar templates for use in the front-end JS code
