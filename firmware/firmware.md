@@ -11335,6 +11335,8 @@ Note that most of the functions in newlib described at [https://sourceware.org/n
 
 When you are using the Particle Cloud to compile your `.ino` source code, a preprocessor comes in to modify the code into C++ requirements before producing the binary file used to flash onto your devices.
 
+It automatically adds the line `#include "Particle.h"` to the top of the file and adds prototypes for your functions so your code can call functions declared later in the source code.
+
 If you are getting unexpected errors when compiling valid code, it could be the preprocessor causing issues in your code. You can disable the preprocessor by adding the pragma line above.
 
 ## Firmware Releases
