@@ -3089,26 +3089,65 @@ _Available on Serial, {{#if has-usb-serial1}}USBSerial1, {{/if}}Serial1{{#if has
 
 Enables serial channel with specified configuration.
 
-As of 0.5.0 firmware, 28800 baudrate set by the Host on `Serial` will put the device in Listening Mode, where a YMODEM download can be started by additionally sending an `f` character.
+```C++
+// SYNTAX
+Serial.begin();          // via USB port
 
 {{#if has-usb-serial1}}
-***NOTE*** _Since 0.6.0_: When `USBSerial1` is enabled by calling `USBSerial1.begin()` in `setup()` or during normal application execution, the device will quickly disconnect from Host and connect back with `USBSerial1` enabled. If such behavior is undesireable, `USBSerial1` may be enabled with `STARTUP()` macro, which will force the device to connect to the Host with both `Serial` and `USBSerial1` by default.
+USBSerial1.begin();      // via USB port
+{{/if}}
+
+Serial1.begin(speed);         // via TX/RX pins
+Serial1.begin(speed, config); //  "
+
+Serial1.begin(9600, SERIAL_9N1); // via TX/RX pins, 9600 9N1 mode
+Serial1.begin(9600, SERIAL_DATA_BITS_8 | SERIAL_STOP_BITS_1_5 | SERIAL_PARITY_EVEN); // via TX/RX pins, 9600 8E1.5
+
+{{#if has-serial2}}
+#include "Serial2/Serial2.h"
+Serial2.begin(speed);         {{#if core}}// D1(TX) and D0(RX) pins{{else}}// RGB-LED green(TX) and blue (RX) pins{{/if}}
+Serial2.begin(speed, config); //  "
+
+Serial2.begin(9600);         // via RGB Green (TX) and Blue (RX) LED pins
+Serial2.begin(9600, SERIAL_DATA_BITS_8 | SERIAL_STOP_BITS_1_5 | SERIAL_PARITY_EVEN); // via RGB Green (TX) and Blue (RX) LED pins, 9600 8E1.5
+{{/if}} {{!-- has-serial2 --}}
+{{#if has-serial4-5}}
+
+#include "Serial4/Serial4.h"
+Serial4.begin(speed);         // via C3(TX)/C2(RX) pins
+Serial4.begin(speed, config); //  "
+
+#include "Serial5/Serial5.h"
+Serial5.begin(speed);         // via C1(TX)/C0(RX) pins
+Serial5.begin(speed, config); //  "
+{{/if}} {{!-- has-serial4-5 --}}
+```
+
+Parameters:
+- `speed`: parameter that specifies the baud rate *(long)* _(optional for `Serial` {{#if has-usb-serial1}}and `USBSerial1`{{/if}})_ Baud rates of 1200 up to 115200 are supported for hardware serial channels.
+- `config`: parameter that specifies the number of data bits used, parity and stop bits *(long)* _(not used with `Serial` {{#if has-usb-serial1}}and `USBSerial1`{{/if}})_
+
 
 ```C++
 // EXAMPLE USAGE
-STARTUP(USBSerial1.begin());
 void setup()
 {
-  while(!Serial.isConnected())
-    Particle.process();
-  Serial.println("Hello Serial!");
+  Serial.begin(9600);   // open serial over USB
+  // On Windows it will be necessary to implement the following line:
+  // Make sure your Serial Terminal app is closed before powering your device
+  // Now open your Serial Terminal!
+  while(!Serial.isConnected()) Particle.process();
 
-  while(!USBSerial1.isConnected())
-    Particle.process();
-  USBSerial1.println("Hello USBSerial1!");
+  Serial1.begin(9600);  // open serial over TX and RX pins
+
+  Serial.println("Hello Computer");
+  Serial1.println("Hello Serial 1");
 }
+
+void loop() {}
 ```
-{{/if}} {{!-- has-usb-serial1 --}}
+
+As of 0.5.0 firmware, 28800 baudrate set by the Host on `Serial` will put the device in Listening Mode, where a YMODEM download can be started by additionally sending an `f` character.
 
 When using hardware serial channels (Serial1, Serial2{{#if electron}}, Serial4, Serial5{{/if}}), the configuration of the serial channel may also specify the number of data bits, stop bits, parity, flow control and other settings. The default is SERIAL_8N1 (8 data bits, no parity and 1 stop bit) and does not need to be specified to achieve this configuration.  To specify one of the following configurations, add one of these defines as the second parameter in the `begin()` function, e.g. `Serial1.begin(9600, SERIAL_8E1);` for 8 data bits, even parity and 1 stop bit.
 
@@ -3172,63 +3211,24 @@ LIN configuration:
 **NOTE:** LIN break detection may be enabled in both Master and Slave modes.
 
 
-```C++
-// SYNTAX
-Serial.begin();          // via USB port
-
 {{#if has-usb-serial1}}
-USBSerial1.begin();      // via USB port
-{{/if}}
-
-Serial1.begin(speed);         // via TX/RX pins
-Serial1.begin(speed, config); //  "
-
-Serial1.begin(9600, SERIAL_9N1); // via TX/RX pins, 9600 9N1 mode
-Serial1.begin(9600, SERIAL_DATA_BITS_8 | SERIAL_STOP_BITS_1_5 | SERIAL_PARITY_EVEN); // via TX/RX pins, 9600 8E1.5
-
-{{#if has-serial2}}
-#include "Serial2/Serial2.h"
-Serial2.begin(speed);         {{#if core}}// D1(TX) and D0(RX) pins{{else}}// RGB-LED green(TX) and blue (RX) pins{{/if}}
-Serial2.begin(speed, config); //  "
-
-Serial2.begin(9600);         // via RGB Green (TX) and Blue (RX) LED pins
-Serial2.begin(9600, SERIAL_DATA_BITS_8 | SERIAL_STOP_BITS_1_5 | SERIAL_PARITY_EVEN); // via RGB Green (TX) and Blue (RX) LED pins, 9600 8E1.5
-{{/if}} {{!-- has-serial2 --}}
-{{#if has-serial4-5}}
-
-#include "Serial4/Serial4.h"
-Serial4.begin(speed);         // via C3(TX)/C2(RX) pins
-Serial4.begin(speed, config); //  "
-
-#include "Serial5/Serial5.h"
-Serial5.begin(speed);         // via C1(TX)/C0(RX) pins
-Serial5.begin(speed, config); //  "
-{{/if}} {{!-- has-serial4-5 --}}
-```
-
-Parameters:
-- `speed`: parameter that specifies the baud rate *(long)* _(optional for `Serial` {{#if has-usb-serial1}}and `USBSerial1`{{/if}})_
-- `config`: parameter that specifies the number of data bits used, parity and stop bits *(long)* _(not used with `Serial` {{#if has-usb-serial1}}and `USBSerial1`{{/if}})_
-
+***NOTE*** _Since 0.6.0_: When `USBSerial1` is enabled by calling `USBSerial1.begin()` in `setup()` or during normal application execution, the device will quickly disconnect from Host and connect back with `USBSerial1` enabled. If such behavior is undesireable, `USBSerial1` may be enabled with `STARTUP()` macro, which will force the device to connect to the Host with both `Serial` and `USBSerial1` by default.
 
 ```C++
 // EXAMPLE USAGE
+STARTUP(USBSerial1.begin());
 void setup()
 {
-  Serial.begin(9600);   // open serial over USB
-  // On Windows it will be necessary to implement the following line:
-  // Make sure your Serial Terminal app is closed before powering your device
-  // Now open your Serial Terminal!
-  while(!Serial.isConnected()) Particle.process();
+  while(!Serial.isConnected())
+    Particle.process();
+  Serial.println("Hello Serial!");
 
-  Serial1.begin(9600);  // open serial over TX and RX pins
-
-  Serial.println("Hello Computer");
-  Serial1.println("Hello Serial 1");
+  while(!USBSerial1.isConnected())
+    Particle.process();
+  USBSerial1.println("Hello USBSerial1!");
 }
-
-void loop() {}
 ```
+{{/if}} {{!-- has-usb-serial1 --}}
 
 ### end()
 
