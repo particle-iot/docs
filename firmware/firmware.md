@@ -7671,14 +7671,14 @@ pause any time `put()` or `write()` is called.
 {{#if has-backup-ram}}
 ## Backup RAM (SRAM)
 
-The STM32F2xx features 4KB of backup RAM (3068 bytes for system firmware v0.6.0-rc1 and later) of which is available to the user. Unlike the regular RAM memory, the backup RAM is retained so long as power is provided to VIN or to VBAT. In particular this means that the data in backup RAM is retained when:
+The STM32F2xx features 4KB of backup RAM (3068 bytes for system firmware v0.6.0 and later) of which is available to the user. Unlike the regular RAM memory, the backup RAM is retained so long as power is provided to VIN or to VBAT. In particular this means that the data in backup RAM is retained when:
 
 - the device goes into deep sleep mode
 - the device is hardware or software reset (while maintaining power)
 - power is removed from VIN but retained on VBAT (which will retain both the backup RAM and the RTC)
 
 Note that _if neither VIN or VBAT is powered then the contents of the backup RAM will be lost; for data to be
-retained, the device needs a power source._  For persistent storage of data through a total power loss, please use the [EEPROM](#eeprom) library.
+retained, the device needs a power source._  For persistent storage of data through a total power loss, please use the [EEPROM](#eeprom).
 
 Power Conditions and how they relate to Backup RAM initilization and data retention:
 
@@ -8561,14 +8561,54 @@ Resets the device and restarts in safe mode.
 
 ### sleep() [ Sleep ]
 
-`System.sleep()` can be used to dramatically improve the battery life of a Particle-powered project by temporarily deactivating the Wi-Fi module, which is by far the biggest power draw.
+`System.sleep()` can be used to dramatically improve the battery life of a Particle-powered project by temporarily deactivating the {{network-type}} module, which is by far the biggest power draw.
+
+```
+// Variants of System.sleep()
+
+// Turn off {{network-type}} for seconds.
+// Keep application running.
+// Low power usage.
+System.sleep(seconds);
+
+// Turn off microcontroller and {{network-type}}.
+// Reset after seconds.
+// Ultra low power usage.
+System.sleep(SLEEP_MODE_DEEP, seconds);
+
+{{#if has-fuel-gauge}}
+// Turn off microcontroller, {{network-type}} and fuel gauge.
+// Reset after seconds.
+// Lowest power usage.
+System.sleep(SLEEP_MODE_SOFTPOWEROFF, seconds);
+{{/if}}
+
+// Turn off {{network-type}}.
+// Pause microcontroller.
+// Application resumes on pin trigger or after seconds.
+// Very low power usage.
+System.sleep(wakeUpPin, edgeTriggerMode, seconds);
+
+{{#if has-cellular}}
+// Keep {{network-type}} running.
+// Pause microcontroller.
+// Application resumes on pin trigger or after seconds.
+System.sleep(wakeUpPin, edgeTriggerMode, SLEEP_NETWORK_STANDBY, seconds);
+{{/if}}
+```
+
+There are several variations of `System.sleep()` based on which arguments are passed. See below for details.
+
+In all cases, if the wake up time `seconds` is omitted or 0, the application will keep sleeping until the `wakeUpPin` triggers (if specified) or the user hits the {{reset-button}} button.
+
+---
+
+`System.sleep(long seconds)` does NOT stop the execution of application code (non-blocking call).  Application code will continue running while the {{network-type}} module is in standby mode.
 
 ```C++
 // SYNTAX
 System.sleep(long seconds);
-```
 
-```C++
 // EXAMPLE USAGE
 
 // Put the Wi-Fi module in standby (low power) for 5 seconds
@@ -8576,78 +8616,93 @@ System.sleep(5);
 // The device LED will breathe white during sleep
 ```
 
-`System.sleep(long seconds)` does NOT stop the execution of application code (non-blocking call).  Application code will continue running while the Wi-Fi module is in standby mode.
+---
 
 `System.sleep(SLEEP_MODE_DEEP, long seconds)` can be used to put the entire device into a *deep sleep* mode.
-In this particular mode, the device shuts down the network subsystem and puts the microcontroller in a stand-by mode.
-When the device awakens from deep sleep, it will reset and run all user code from the beginning with no values being maintained in memory from before the deep sleep.
-
-As such, it is recommended that deep sleep be called only after all user code has completed. The Standby mode is used to achieve the lowest power consumption.  After entering Standby mode, the SRAM and register contents are lost except for registers in the backup domain.
 
 ```C++
 // SYNTAX
 System.sleep(SLEEP_MODE_DEEP, long seconds);
-```
 
-```C++
 // EXAMPLE USAGE
 
 // Put the device into deep sleep for 60 seconds
 System.sleep(SLEEP_MODE_DEEP,60);
 // The device LED will shut off during deep sleep
 ```
-The device will automatically *wake up* and reestablish the Wi-Fi connection after the specified number of seconds.
+
+In this particular mode, the device shuts down the network subsystem and puts the microcontroller in a stand-by mode.
+When the device awakens from deep sleep, it will reset and run all user code from the beginning with no values being maintained in memory from before the deep sleep.
+
+As such, it is recommended that deep sleep be called only after all user code has completed. The Standby mode is used to achieve the lowest power consumption.  After entering Standby mode, the SRAM and register contents are lost except for registers in the backup domain.
+
+
+The device will automatically *wake up* and reestablish the network connection after the specified number of seconds.
 
 **Note:**
-You can also wake the device "prematurely" by applying a rising edge signal to the {{#if core}}A7{{/if}}{{#unless core}}WKP{{/unless}} pin.
+You can also wake the device "prematurely" by applying a rising edge signal to the {{#if core}}A7{{else}}WKP{{/if}} pin.
 
-`System.sleep(uint16_t wakeUpPin, uint16_t edgeTriggerMode)` can be used to put the entire device into a *stop* mode with *wakeup on interrupt*. In this particular mode, the device shuts down the network and puts the microcontroller in a stop mode with configurable wakeup pin and edge triggered interrupt. When the specific interrupt arrives, the device awakens from stop mode. {{#if core}} On the Core, the Core is reset on entering stop mode and runs all user code from the beginning with no values being maintained in memory from before the stop mode. As such, it is recommended that stop mode be called only after all user code has completed.{{/if}} {{#unless core}}The device will not reset before going into stop mode so all the application variables are preserved after waking up from this mode. The voltage regulator is put in low-power mode. This mode achieves the lowest power consumption while retaining the contents of SRAM and registers.{{/unless}}
+{{#if has-fuel-gauge}}
+---
+
+`System.sleep(SLEEP_MODE_SOFTPOWEROFF, long seconds)` is just like `SLEEP_MODE_DEEP`, with the added benefit that it also sleeps the Fuel Gauge. This is the only way to achieve the lowest quiescent current on the {{device}}, apart from sleeping the Fuel Gauge before calling `SLEEP_MODE_DEEP`. This is also the same net result as used in the user-activated Soft Power Down feature when you double-tap the Mode button and the Electron powers down.
+
+```C++
+// SYNTAX
+System.sleep(SLEEP_MODE_SOFTPOWEROFF, long seconds);
+```
+{{/if}} {{!-- has-fuel-gauge --}}
+
+---
+
+`System.sleep(uint16_t wakeUpPin, uint16_t edgeTriggerMode)` can be used to put the entire device into a *stop* mode with *wakeup on interrupt*. In this particular mode, the device shuts down the network and puts the microcontroller in a stop mode with configurable wakeup pin and edge triggered interrupt. When the specific interrupt arrives, the device awakens from stop mode. {{#if core}}The Core is reset on entering stop mode and runs all user code from the beginning with no values being maintained in memory from before the stop mode. As such, it is recommended that stop mode be called only after all user code has completed.{{else}}The {{device}} will not reset before going into stop mode so all the application variables are preserved after waking up from this mode. The voltage regulator is put in low-power mode. This mode achieves the lowest power consumption while retaining the contents of SRAM and registers.{{/if}}
+
+```C++
+// SYNTAX
+System.sleep(uint16_t wakeUpPin, uint16_t edgeTriggerMode);
+{{#if has-cellular}}
+System.sleep(uint16_t wakeUpPin, uint16_t edgeTriggerMode, SLEEP_NETWORK_STANDBY);
+{{/if}}
+
+// EXAMPLE USAGE
+
+// Put the device into stop mode with wakeup using RISING edge interrupt on D1 pin
+System.sleep(D1,RISING);
+// The device LED will shut off during sleep
+```
 
 {{#if core}}
 It is mandatory to update the *bootloader* (https://github.com/spark/firmware/tree/bootloader-patch-update) for proper functioning of this mode.
 {{/if}}
 
-{{#if electron}}
+{{#if has-cellular}}
 The Electron maintains the cellular connection for the duration of the sleep when  `SLEEP_NETWORK_STANDBY` is given as the last parameter value. On wakeup, the device is able to reconnect to the cloud much quicker, at the expense of increased power consumption.
 {{/if}}
 
-```C++
-// SYNTAX
-System.sleep(uint16_t wakeUpPin, uint16_t edgeTriggerMode);
-{{#if electron}}
-System.sleep(uint16_t wakeUpPin, uint16_t edgeTriggerMode, SLEEP_NETWORK_STANDBY);
-{{/if}}
-```
-
-```C++
-// EXAMPLE USAGE
-
-// Put the device into stop mode with wakeup using RISING edge interrupt on D0 pin
-System.sleep(D0,RISING);
-// The device LED will shut off during sleep
-```
 
 *Parameters:*
 
 - `wakeUpPin`: the wakeup pin number. supports external interrupts on the following pins:
-    - D0, D1, D2, D3, D4, A0, A1, A3, A4, A5, A6, A7
+    - D1, D2, D3, D4, A0, A1, A3, A4, A6, A7
+    - The same [pin limitations as `attachInterrupt`](#attachinterrupt-) apply
 - `edgeTriggerMode`: defines when the interrupt should be triggered. Four constants are predefined as valid values:
     - CHANGE to trigger the interrupt whenever the pin changes value,
     - RISING to trigger when the pin goes from low to high,
     - FALLING for when the pin goes from high to low.
 
-`System.sleep(uint16_t wakeUpPin, uint16_t edgeTriggerMode, long seconds)` can be used to put the entire device into a *stop* mode with *wakeup on interrupt* or *wakeup after specified seconds*. In this particular mode, the device shuts network subsystem and puts the microcontroller in a stop mode with configurable wakeup pin and edge triggered interrupt or wakeup after the specified seconds. When the specific interrupt arrives or upon reaching the configured timeout, the device awakens from stop mode. {{#if core}} On the Core, the Core is reset on entering stop mode and runs all user code from the beginning with no values being maintained in memory from before the stop mode. As such, it is recommended that stop mode be called only after all user code has completed.{{/if}} {{#unless core}}The device will not reset before going into stop mode so all the application variables are preserved after waking up from this mode. The voltage regulator is put in low-power mode. This mode achieves the lowest power consumption while retaining the contents of SRAM and registers.{{/unless}}
+`System.sleep(uint16_t wakeUpPin, uint16_t edgeTriggerMode, long seconds)` can be used to put the entire device into a *stop* mode with *wakeup on interrupt* or *wakeup after specified seconds*. In this particular mode, the device shuts network subsystem and puts the microcontroller in a stop mode with configurable wakeup pin and edge triggered interrupt or wakeup after the specified seconds. When the specific interrupt arrives or upon reaching the configured timeout, the device awakens from stop mode. {{#if core}}The Core is reset on entering stop mode and runs all user code from the beginning with no values being maintained in memory from before the stop mode. As such, it is recommended that stop mode be called only after all user code has completed.{{else}}The device will not reset before going into stop mode so all the application variables are preserved after waking up from this mode. The voltage regulator is put in low-power mode. This mode achieves the lowest power consumption while retaining the contents of SRAM and registers.{{/if}}
 
 ```C++
 // SYNTAX
-System.sleep(uint16_t wakeUpPin, uint16_t edgeTriggerMode, long seconds{{#if electron}}[, SLEEP_NETWORK_STANDBY]{{/if}});
-```
+System.sleep(uint16_t wakeUpPin, uint16_t edgeTriggerMode, long seconds);
+{{#if has-cellular}}
+System.sleep(uint16_t wakeUpPin, uint16_t edgeTriggerMode, SLEEP_NETWORK_STANDBY, long seconds);
+{{/if}}
 
-```C++
 // EXAMPLE USAGE
 
-// Put the device into stop mode with wakeup using RISING edge interrupt on D0 pin or wakeup after 60 seconds whichever comes first
-System.sleep(D0,RISING,60);
+// Put the device into stop mode with wakeup using RISING edge interrupt on D1 pin or wakeup after 60 seconds whichever comes first
+System.sleep(D1,RISING,60);
 // The device LED will shut off during sleep
 ```
 
@@ -8657,7 +8712,8 @@ System.sleep(D0,RISING,60);
 *Parameters:*
 
 - `wakeUpPin`: the wakeup pin number. supports external interrupts on the following pins:
-    - D0, D1, D2, D3, D4, A0, A1, A3, A4, A5, A6, A7
+    - D1, D2, D3, D4, A0, A1, A3, A4, A6, A7
+    - The same [pin limitations as `attachInterrupt`](#attachinterrupt-) apply
 - `edgeTriggerMode`: defines when the interrupt should be triggered. Four constants are predefined as valid values:
     - CHANGE to trigger the interrupt whenever the pin changes value,
     - RISING to trigger when the pin goes from low to high,
@@ -8676,7 +8732,7 @@ System.sleep(D0,RISING,60);
  - Please see the [Photon datasheet](/datasheets/photon-datasheet/#recommended-operating-conditions)
 
 
-_Since 0.4.5._ The state of the {{#if has-wifi}}Wi-Fi{{/if}}{{#if has-cellular}}Cellular{{/if}} and Cloud connections is restored when the system wakes up from sleep. So if the device was connected to the cloud before sleeping, then the cloud connection
+_Since 0.4.5._ The state of the {{network-type}} and Cloud connections is restored when the system wakes up from sleep. So if the device was connected to the cloud before sleeping, then the cloud connection
 is automatically resumed on waking up.
 
 _Since 0.5.0._ In automatic modes, the `sleep()` function doesn't return until the cloud connection has been established. This means that application code can use the cloud connection as soon as  `sleep()` returns. In previous versions, it was necessary to call `Particle.process()` to have the cloud reconnected by the system in the background.  
