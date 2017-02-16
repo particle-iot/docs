@@ -132,6 +132,7 @@ exports.metalsmith = function() {
     .use(paths())
     // Handlebar helpers to use in any Handlebar template
     // Use helpers like this: {{ reset-button }}
+    // Note that the last parameter to the helper will be a context object with the file metadata in context.data.root
     .use(helpers({
       directory: '../templates/helpers'
     }))
