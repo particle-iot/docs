@@ -43,6 +43,7 @@ Any time the Electron talks to the Internet or the Internet talks back, that dat
 - Function calls from the API
 - Variable calls from the API
 - Subscribe to events or webhook response
+- Direct network connections through `TCPServer/TCPClient/UDP`
 
 **Background connectivity:**
 - Pings (once every 23 minutes if no other communications happen and device is awake. 122 bytes)
@@ -63,8 +64,8 @@ Whenever the Electron has to join the cellular network it will "handshake" and r
 Our friend Tinker also consumes data! Calling digital and analog read/writes use the API to talk to the Electron, and it has to reply. Use sparingly and you'll be fine. 
 - All functions of Tinker (digital I/O, analog I/O)
 
-**HTTPClient, Sockets, etc:**
-Whenever you control the connection directly you'll use data. A lot of data. We highly recommend that you do **NOT** use these with the Electron, as they will use data much more quickly than Particle publishes and functions.
+**Libraries: HTTPClient, MQTT, etc:**
+Whenever you use a library that talks over the network you'll use data. A lot of data. We highly recommend that you do **NOT** use these with the Electron, as they will use data much more quickly than Particle publishes and functions.
 
 ## What if I run out?
 If you reach your data limit and want to keep your device online, just hop over to the [Console](https://console.particle.io/) and increase the limit. It will automatically unpause and you'll be back online in a few minutes. We highly recommend that you set a high limit for critical applications.
