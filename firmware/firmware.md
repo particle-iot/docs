@@ -11,8 +11,8 @@ Particle Device Firmware
 
 ## Cloud Functions
 
-{{#if electron}}
-### Optimizing Cellular Data Use with Cloud connectivity on the Electron
+{{#if has-cellular}}
+### Optimizing Cellular Data Use with Cloud connectivity on the {{device}}
 
 _Since 0.6.0_
 
@@ -41,8 +41,7 @@ void setup() {
     Particle.connect();
 }
 ```
-{{/if}}
-
+{{/if}} {{!-- has-cellular --}}
 
 ### Particle.variable()
 
@@ -1485,7 +1484,7 @@ Cellular.off();
 
 ### connect()
 
-Attempts to connect to the Cellular network. If there are no credentials entered, the default Particle APN for Particle SIM cards will be used.  If no SIM card is inserted, the Electron will enter listening mode. If a 3rd party APN is set, these credentials must match the inserted SIM card for the Electron to connect to the cellular network. When this function returns, the device may not have a local (private) IP address; use `Cellular.ready()` to determine the connection status.
+Attempts to connect to the Cellular network. If there are no credentials entered, the default Particle APN for Particle SIM cards will be used.  If no SIM card is inserted, the {{device}} will enter listening mode. If a 3rd party APN is set, these credentials must match the inserted SIM card for the {{device}} to connect to the cellular network. When this function returns, the device may not have a local (private) IP address; use `Cellular.ready()` to determine the connection status.
 
 ```cpp
 // SYNTAX
@@ -1548,7 +1547,7 @@ Cellular.listening();
 
 Without multithreading enabled, this command is not useful (always returning `false`) because listening mode blocks application code.
 
-This command becomes useful on the Electron when system code runs as a separate RTOS task from application code.
+This command becomes useful on the {{device}} when system code runs as a separate RTOS task from application code.
 
 Once system code does not block application code,
 `Cellular.listening()` will return `true` once `Cellular.listen()` has been called
@@ -1568,11 +1567,11 @@ Sets 3rd party credentials for the Cellular network from within the user applica
 
 **Note**: When using the default `SYSTEM_MODE(AUTOMATIC)` connection behavior, it is necessary to call `cellular_credentials_set()` with the `STARTUP()` macro outside of `setup()` and `loop()` so that the system will have the correct credentials before it tries to connect to the cellular network (see EXAMPLE).
 
-The following examples can be copied to a file called `setcreds.ino` and compiled and flashed to your Electron over USB via the [Particle CLI](/guide/tools-and-features/cli).  With your Electron in [DFU mode](/guide/getting-started/modes/electron/#dfu-mode-device-firmware-upgrade-), the command for this is:
+The following examples can be copied to a file called `setcreds.ino` and compiled and flashed to your {{device}} over USB via the [Particle CLI](/guide/tools-and-features/cli).  With your {{device}} in [DFU mode](/guide/getting-started/modes/electron/#dfu-mode-device-firmware-upgrade-), the command for this is:
 
 `particle compile electron setcreds.ino --saveTo firmware.bin && particle flash --usb firmware.bin`
 
-**Note**: Your Electron only uses one set of credentials, and they must be correctly matched to the SIM card that's used.  If using a Particle SIM, using `cellular_credentials_set()` is not necessary as the default APN of "spark.telefonica.com" with no username or password will be used by system firmware. To switch back to using a Particle SIM after successfully connecting with a 3rd Party SIM, just flash any app that does not include cellular_credentials_set().  Then ensure you completely power cycle the Electron to remove the settings from the modem’s volatile memory.
+**Note**: Your {{device}} only uses one set of credentials, and they must be correctly matched to the SIM card that's used.  If using a Particle SIM, using `cellular_credentials_set()` is not necessary as the default APN of "spark.telefonica.com" with no username or password will be used by system firmware. To switch back to using a Particle SIM after successfully connecting with a 3rd Party SIM, just flash any app that does not include cellular_credentials_set().  Then ensure you completely power cycle the {{device}} to remove the settings from the modem’s volatile memory.
 
 ```C++
 // SYNTAX
@@ -1866,7 +1865,7 @@ else {
 
 Sets the cellular bands currently set in the modem.  `Bands` are the carrier frequncies used to communicate with the cellular network.
 
-**Caution:** The Band Select API is an advanced feature designed to give users selective frequency control over their Electrons. When changing location or between cell towers, you may experience connectivity issues if you have only set one specific frequency for use. Because these settings are permanently saved in non-volatile memory, it is recommended to keep the factory default value of including all frequencies with mobile applications.  Only use the selective frequency control for stationary applications, or for special use cases.
+**Caution:** The Band Select API is an advanced feature designed to give users selective frequency control over their {{device}}. When changing location or between cell towers, you may experience connectivity issues if you have only set one specific frequency for use. Because these settings are permanently saved in non-volatile memory, it is recommended to keep the factory default value of including all frequencies with mobile applications.  Only use the selective frequency control for stationary applications, or for special use cases.
 
 - Make sure to set the `count` to the appropriate number of bands set in the CellularBand object before calling `setBandSelect()`.
 - Use the `.isBand(int)` helper function to determine if an integer value is a valid band.  It still may not be valid for the particular modem you are using, in which case `setBandSelect()` will return `false` and `.ok` will also be set to `false`.
@@ -5376,6 +5375,12 @@ void loop()
 }
 ```
 
+{{#if has-cellular}}
+**Data Usage Warning**
+
+When using a Particle SIM with the {{device}}, be careful interacting with web hosts with `TCPServer` or libraries using `TCPServer`. These can use a lot of data in a short period of time resulting in a higher bill. To keep the data usage low, use [`Particle.publish`](#particle-publish-) along with [webhooks](/guide/tools-and-features/webhooks/).
+{{/if}} {{!-- has-cellular --}}
+
 ### begin()
 
 Tells the server to begin listening for incoming connections.
@@ -5497,6 +5502,12 @@ void loop()
   }
 }
 ```
+
+{{#if has-cellular}}
+**Data Usage Warning**
+
+When using a Particle SIM with the {{device}}, be careful interacting with web hosts with `TCPClient` or libraries using `TCPClient`. These can use a lot of data in a short period of time resulting in a higher bill. To keep the data usage low, use [`Particle.publish`](#particle-publish-) along with [webhooks](/guide/tools-and-features/webhooks/).
+{{/if}} {{!-- has-cellular --}}
 
 ### connected()
 
@@ -5748,8 +5759,11 @@ There are two primary ways of working with UDP - buffered operation and unbuffer
  - to write an unbuffered packet,  call `sendPacket` with the packet buffer to send, and the destination address.
 
 
-<!-- TO DO -->
-<!-- Add more examples-->
+{{#if has-cellular}}
+**Data Usage Warning**
+
+When using a Particle SIM with the {{device}}, be careful interacting with web hosts with `UDP` or libraries using `UDP`. These can use a lot of data in a short period of time resulting in a higher bill. To keep the data usage low, use [`Particle.publish`](#particle-publish-) along with [webhooks](/guide/tools-and-features/webhooks/).
+{{/if}} {{!-- has-cellular --}}
 
 ### begin()
 
