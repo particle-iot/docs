@@ -320,7 +320,6 @@ exports.test = function(callback) {
 };
 
 exports.server = function(callback) {
-  console.time('docs build time');
   environment = 'development';
   git.branch(function (str) {
     gitBranch = process.env.TRAVIS_BRANCH || str;
@@ -342,7 +341,6 @@ exports.server = function(callback) {
         livereload: true
       }))
       .build(function(err, files) {
-        console.timeEnd('docs build time');
         if (err) {
           console.error(err, err.stack);
         }

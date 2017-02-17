@@ -350,7 +350,7 @@ See [the webhook reference](/reference/webhooks) for more details on customizing
 
 As a quick reference, these are the pre-defined webhook variables available for you to use:
 
-r `\{{PARTICLE_DEVICE_ID}}`: The ID of the device that triggered the webhook
+- `\{{PARTICLE_DEVICE_ID}}`: The ID of the device that triggered the webhook
 - `\{{PARTICLE_EVENT_NAME}}`: The name of the event that triggers the webhook
 - `\{{PARTICLE_EVENT_VALUE}}`: The data associated with the webhook event
 - `\{{PARTICLE_PUBLISHED_AT}}`: When the webhook was sent
