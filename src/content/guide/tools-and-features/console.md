@@ -107,9 +107,9 @@ When working with devices that belong to your Product, it is important to note t
 
 Now that you have your Product, it's time to import devices. Importing devices will assign them to your Product and allow you to start viewing and managing these devices within your Product Console.
 
-For any product you may be developing, you likely have one or more Particle development kits (i.e. a Photon) that you have been using internally for prototyping purposes. We strongly recommend importing these devices into your Product, and using them as your *test group*.
+For any product you may be developing, you likely have one or more Particle development kits (i.e. a Photon) that you have been using internally for prototyping purposes. We strongly recommend importing these devices into your Product, and using them as your *development group*.
 
-Your *test group* will serve as the guinea pigs for new versions of product firmware. You should get into the habit of uploading a new version of firmware to your product, and flashing it to your test group to ensure your code is working as expected. This too will be covered more in-depth in the [rollout firmware](#rollout-firmware) section below.
+In addition, you'll want to have a *test group* of devices to serve as the guinea pigs for new versions of product firmware. You should get into the habit of uploading a new version of firmware to your product, and flashing it to your test group to ensure your code is working as expected. This too will be covered more in-depth in the [rollout firmware](#rollout-firmware) section below.
 
 To import devices, click on the Devices icon in your product sidebar, then click on the "Import" button.
 
@@ -123,13 +123,11 @@ To allow you to import devices in bulk, we allow you to upload a file containing
 35ee6d064989a9XXXXXXXXXX
 ```
 
-Where each line is one Device ID. Once you have your file ready, drop it onto the file selector in the import devices modal. Before clicking import, note the checkbox that says *Force imported devices to switch to this product*.
+Where each line is one Device ID. Once you have your file ready, drop it onto the file selector in the import devices dialog box.
 
 ![Import devices modal](/assets/images/import-devices.png)
 
-Checking this checkbox will signal to the Particle Cloud that it should be treated as your product, though this will be overridden by any pre-existing Product relationship (i.e. you can't transfer an existing product this way). Your test devices are likely Photons that do not have your new product ID compiled into its firmware. If this is the case, go ahead and **check this box**.
-
-When you do a real manufacturing run and import those devices into the Console, you will not need to check this box. This is because your devices will receive firmware with your product ID directly on the manufacturing line.
+As noted at the bottom of the dialog box, if you previously rolled out firmware, those newly imported devices will be updated over the air to that firmware next time they connect to the Particle Cloud.
 
 ## Rollout Firmware
 
@@ -209,24 +207,34 @@ However, releasing firmware also presents a serious risk. The last thing you wou
 ![Unable to release firmware](/assets/images/unable-to-release.png)
 <p class="caption">Releasing a firmware version is disabled until it is running on at least one device</p>
 
-### Recommended development flow
+### Locking firmware
 
-To get the firmware running on a device, head to your devices page by clicking on the devices icon in the sidebar (<i class="im-devices-icon"></i>). Before flashing your device, it's important to first understand the recommended development flow for managing firmware for a Product. This flow is designed to minimize risk when deploying new firmware to devices. As discussed earlier, you should start each cycle of firmware rollout by flashing your firmware to your *test group* of devices. Your test devices should be physically available to you and/or your team for testing purposes. Once you have thoroughly tested the new firmware on your test group and fixed any bugs, you can then release the firmware to all other devices. This signals to the cloud that every device should be running the new firmware, and will trigger an auto-update to this version unless otherwise specified.
+On the devices page (click <i class="im-devices-icon"></i> in the sidebar), you have the abilitity to lock the firmware version on a device so you can develop and test new firmware before releasing it to your whole fleet. When the device connects, if the firmware version doesn't match the locked version, the Cloud will force an OTA update with that firmware version.
 
-![Release firmware flow](/assets/images/release-schedule.png)
-<p class="caption">The recommended flow for managing firmware</p>
-
-On the devices page, find one of your test devices in the list of devices and click on the row. A dropdown will appear, populated with each of the firmware versions available for that product. For now, this dropdown may only have one available option (the firmware you just uploaded). Select your firmware from the list.
+To lock firmware, find one of your devices in the list of devices and click on the row. A dropdown will appear, populated with each of the firmware versions available for that product. For now, this dropdown may only have one available option (the firmware you just uploaded). Select your firmware from the list.
 
 There are two action buttons available: **Lock and flash now**, and **Lock and flash on reset**. Both options involve "locking" a device to a firmware version. This will force the device to download and run the desired firmware version. Once the device receives and runs that firmware, it will not receive any more OTA updates even if a new firmware version is released. **Lock and flash now** will trigger an immediate OTA of the device to the desired firmware version (only available if the device is currently online). **Lock and flash on reset** will only trigger the OTA the next time the device comes online. If you do not have physical access to the device, it may be a good idea to flash on reset to avoid disrupting any current firmware running on the device.
 
 ![Lock a device](/assets/images/lock-firmware-version.png)
 
-Once at least one device is successfully running your new firmware, you will now have the ability to release that version of firmware back on the Firmware page. Get into the habit of following this process as you continue to iterate and prepare new versions of firmware for your product!
-
-To turn a device with locked firmware back into a development device that can be flashed with any firmware, click the padlock to unlock the firmware version.
+To turn a device with locked firmware back into a device that gets updated with the latest released firmware, click the padlock to unlock the firmware version.
 
 ![Unlock a device](/assets/images/unlock-firmware-version.png)
+
+### Recommended development flow
+
+Before flashing your fleet, it's important to first understand the recommended development flow for managing firmware for a Product. This flow is designed to minimize risk when deploying new firmware to devices.
+
+While rapidly developing firmware you'll want to be able to use the Particle developer tools like the Web IDE, Desktop IDE or CLI to flash devices in your *development group*. [Lock those devices](#locking-firmware) to a fixed version of firmware (version 1 or another arbitrary version number) and always set `PRODUCT_VERSION` to that version when compiling development firmware. This will prevent the Particle Cloud from pushing new software OTA to them. If you have not started writing your product firmware yet, compile a "dummy" firmware with your product ID and version 1. Upload it to the Console and give it the title "Development firmware". Lock your development devices to that firmware.
+
+When you are ready for a release, change the product version macro to the next available number. [Download the firmware from the Web IDE](#compiling-binaries), the Desktop IDE or the CLI. [Upload the binary to the console.](#uploading-firmware)
+
+Start each firmware release cycle by [flashing and locking the firmware](#locking-firmware) you plan to release to your *test group* of devices using the Console. Your test devices should be physically available to you and/or your team for testing purposes. Once you have thoroughly tested the new firmware on your test group and fixed any bugs in a new version, you can then release the firmware to all other devices. This signals to the cloud that every unlocked device should be running the new firmware, and will trigger an auto-update to this version.
+
+![Release firmware flow](/assets/images/release-schedule.png)
+<p class="caption">The recommended flow for releasing firmware</p>
+
+Once at least one device is successfully running your new firmware, you will now have [the ability to release that version of firmware back on the Firmware page](#releasing-firmware). Get into the habit of following this process as you continue to iterate and prepare new versions of firmware for your product!
 
 ## Managing Customers
 
