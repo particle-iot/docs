@@ -12,7 +12,7 @@ template: guide.hbs
 
 The [Device Management Console](https://console.particle.io) is your command center. It allows you and a team to manage firmware running on your devices, collect and analyze product data, and manage team permissions from a single administrative interface.
 
-**Note:** If you're experiencing rendering issues when accessing the Console, turn off any ad blocking extensions you may be using.
+**Note:** The Console does not yet work in Microsoft Internet Explorer including Edge. Please use another browser, such as Chrome or Firefox, to access the Console. If you're experiencing rendering issues, turn off any ad blocking extensions you may be using.
 
 When you begin using many devices you'll find yourself asking questions like:
 
