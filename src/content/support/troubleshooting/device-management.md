@@ -26,7 +26,7 @@ You should see a help message that displays the various commands available to yo
 Your {{device}} should respond with it's {{device}} device ID!
 
   1b. **Get your {{device}} device ID using CoolTerm, PuTTY, or screen** CoolTerm and PuTTY are programs for Mac and Windows, respectively, that allow you to communicate with your {{device}} using the exposed serial lines.  You can find the download links for CoolTerm and PuTTY at the links attached--
-  [CoolTerm](http://freeware.the-meiers.org/) & [PuTTy](http://the.earth.li/~sgtatham/putty/latest/x86/putty.exe).
+  [CoolTerm](http://freeware.the-meiers.org/) & [PuTTy](http://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html).
 
 Plug your {{device}} into your computer over USB. When the {{device}} is in Listening Mode (flashing blue), open a serial port over USB using the standard settings, which should be:
 
