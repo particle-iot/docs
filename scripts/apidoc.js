@@ -91,7 +91,7 @@ function breakOutAlternativeOperations(data) {
       };
 
       // grab op specific response fields too
-      var responseFields = route.success.fields[title];
+      var responseFields = (route.success.fields || {})[title];
       if (responseFields) {
         newRoute.success.fields = {
           'Success 200': baseSuccess.concat(responseFields)
