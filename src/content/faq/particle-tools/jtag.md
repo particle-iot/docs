@@ -157,7 +157,9 @@ Select **Sector 1** (0x08004000) and **Sector 2** (0x080008000).
 
 Note that when you erase the configuration flash your device ID is preserved but your device private key will be lost. This means you won't be able to connect to the cloud until you upload your keys using the CLI command [particle keys doctor](https://docs.particle.io/reference/cli/#particle-keys-doctor).
 
-## Using OpenOCD
+## Installing OpenOCD - Standalone Installation
+
+If you've already set up [Particle Debugging with Eclipse](https://docs.particle.io/faq/particle-tools/eclipse-debug/) you can use the installation of OpenOCD included with that and skip to the next section.
 
 [OpenOCD](http://openocd.org) is more complicated to install, but works on Mac and Linux as well as Windows, and also is a command-line interface which may be helpful if you're automating the setup of devices on an assembly line.
 
@@ -184,6 +186,48 @@ There are special concerns with the USB driver that may affect the programmer sh
 
 It's theoretically possible to install OpenOCD under Cygwin under Windows. I haven't successfully gotten this to work when enabling USB (--enable-ftdi); I'll update this document when I get it to work.
 
+## Installing OpenOCD - Using Eclipse OpenOCD Installation
+
+If you've already set up [Particle Debugging with Eclipse](https://docs.particle.io/faq/particle-tools/eclipse-debug/) you can use the installation of OpenOCD included with that.
+
+### Installing OpenOCD - Using Eclipse OpenOCD Installation - Mac
+
+The installation directory will vary depending on the version you have installed, but usually it's something like:
+
+```
+cd "/Applications/GNU ARM Eclipse/OpenOCD/0.10.0-201510281129-dev/scripts"
+../bin/openocd --version
+```
+
+This is the directory you use in place of /usr/local/share/openocd/scripts in the examples below.
+ 
+### Installing OpenOCD - Using Eclipse OpenOCD Installation - Windows
+
+The installation directory will vary depending on the version you have installed, but usually it's something like:
+
+```
+cd "C:\Program Files\GNU ARM Eclipse\OpenOCD\0.10.0-201610281609-dev\scripts"
+..\bin\openocd --version
+```
+
+This is the directory you use in place of /usr/local/share/openocd/scripts in the examples below.
+
+Windows Vista and later do not include telnet, which you'll probably need for programming the flash. If you are using Cygwin, you can install the **inetutils** package to get telnet.
+
+
+### Installing OpenOCD - Using Eclipse OpenOCD Installation - Linux
+
+The installation directory will vary depending on the version you have installed, but usually it's something like:
+
+```
+cd "/opt/gnuarmeclipse/openocd/0.10.0-201610281609-dev/scripts"
+../bin/openocd --version
+```
+
+This is the directory you use in place of /usr/local/share/openocd/scripts in the examples below.
+
+
+## Using OpenOCD
 
 ### General Instructions
 
@@ -200,6 +244,27 @@ For example, using the ST-LINK/V2 Mini on the Mac, you might use a command like 
 ```
 $ cd /usr/local/share/openocd/scripts
 $ openocd -f interface/stlink-v2.cfg -f target/stm32f2x.cfg -c "telnet_port 4444"
+```
+
+If you are using Eclipse OpenOCD under Windows:
+
+```
+cd "C:\Program Files\GNU ARM Eclipse\OpenOCD\0.10.0-201610281609-dev\scripts"
+..\bin\openocd -f interface/stlink-v2.cfg -f target/stm32f2x.cfg -c "telnet_port 4444"
+```
+
+If you are using Eclipse OpenOCD under Windows with Cygwin:
+
+```
+cd "/cygdrive/c/Program Files/GNU ARM Eclipse/OpenOCD/0.10.0-201610281609-dev/scripts"
+../bin/openocd -f interface/stlink-v2.cfg -f target/stm32f2x.cfg -c "telnet_port 4444"
+```
+
+If you are using Eclipse OpenOCD on the Mac:
+
+```
+$ cd "/Applications/GNU ARM Eclipse/OpenOCD/0.10.0-201510281129-dev/scripts"
+$ ../bin/openocd -f interface/stlink-v2.cfg -f target/stm32f2x.cfg -c "telnet_port 4444"
 ```
 
 Then in a separate terminal window, you'd issue commands. The command prompt is the greater than symbol ">" so the commands you type are after that.
@@ -267,6 +332,8 @@ Info : using stlink api v2
 Info : Target voltage: 3.258847
 Info : stm32f2x.cpu: hardware has 6 breakpoints, 4 watchpoints
 ```
+
+## Common OpenOCD telnet commands
 
 ### Programming the boot loader
 
