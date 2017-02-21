@@ -188,7 +188,7 @@ It's theoretically possible to install OpenOCD under Cygwin under Windows. I hav
 
 ## Installing OpenOCD - Using Eclipse OpenOCD Installation
 
-If you've already set up [Particle Debugging with Eclipse](https://docs.particle.io/faq/particle-tools/eclipse-debug/) you can use the installation of OpenOCD included with that.
+If you've already set up [Particle Debugging with Eclipse](https://docs.particle.io/faq/particle-tools/eclipse-debug/) you can use the installation of OpenOCD included with that. The only difference is the path to the scripts and executable.
 
 ### Installing OpenOCD - Using Eclipse OpenOCD Installation - Mac
 
