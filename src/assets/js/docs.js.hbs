@@ -436,12 +436,14 @@ Created by Zach Supalla.
 
   Docs.catchRedirectLinks = function() {
     $(document).on('click', 'a', function (e) {
-      var href = $(this).attr('href');
+      var components = $(this).attr('href').split("#");
+      var href = components[0].replace(/\/$/, '');
+      var hash = components[1];
       var redirect = applyRedirect(href);
       redirect = applyDeviceRedirect(redirect);
       if (href !== redirect) {
         e.preventDefault();
-        window.location.href = redirect + '/';
+        window.location.href = redirect + '/' + (hash ? '#' + hash : '');
       }
     });
   }
