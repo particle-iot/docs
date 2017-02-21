@@ -17,8 +17,8 @@
   "dependencies": {
     "apidoc": "^0.17.5",
     "handlebars": "^3.0.1",
-    "lodash": "^3.9.3",
-    "lunr": "^0.5.11",
+    "lodash": "^4.17.4",
+    "lunr": "^0.7.2",
     "marked": "^0.3.3",
     "metalsmith": "^1.7.0",
     "metalsmith-autotoc": "git://github.com/spark/metalsmith-autotoc",

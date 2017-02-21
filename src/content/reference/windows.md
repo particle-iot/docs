@@ -2,7 +2,7 @@
 title: Windows SDK
 template: reference.hbs
 columns: three
-order: 7
+order: 8
 ---
 
 # {{title}}

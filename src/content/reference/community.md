@@ -2,7 +2,7 @@
 title: Community Supported Clients
 template: reference.hbs
 columns: two
-order: 9
+order: 10
 ---
 
 # Community Supported Clients
