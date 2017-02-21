@@ -14,6 +14,8 @@ module.exports = function(options) {
 	var keySingular = key.replace(/s$/, "");
 	var forkList = {};
 	var redirectTemplate = options.redirectTemplate;
+	// extract all extensions
+	var redirectExtensions = '.' + path.basename(redirectTemplate).split('.').slice(1).join('.');
 
 	return function(files, metalsmith, done) {
 		var templateContents = fs.readFileSync(metalsmith.path(redirectTemplate));
@@ -54,7 +56,7 @@ module.exports = function(options) {
 			delete file.template;
 
 			// rename from .XXX (original extension) to .YYY (extension of redirectTemplate)
-			files[path.join(path.dirname(fileName), path.basename(fileName, path.extname(fileName)) + path.extname(redirectTemplate))] = file;
+			files[path.join(path.dirname(fileName), path.basename(fileName, path.extname(fileName)) + redirectExtensions)] = file;
 			delete files[fileName];
 
 			forkList['/' + basePath] = forkValues;

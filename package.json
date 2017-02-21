@@ -15,9 +15,8 @@
     "spell": "mdspell --en-us --ignore-numbers --no-suggestions 'src/content/**/*.md' '!src/content/languages/**/*.md'"
   },
   "dependencies": {
-    "apidoc": "^0.13.1",
+    "apidoc": "^0.17.5",
     "handlebars": "^3.0.1",
-    "jade": "^1.11.0",
     "lodash": "^3.9.3",
     "lunr": "^0.5.11",
     "marked": "^0.3.3",
