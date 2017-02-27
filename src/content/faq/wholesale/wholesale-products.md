@@ -18,7 +18,7 @@ ANTELEC50 | Less than 250 units, Ships immediately | More than 250 units, ships 
 ANTFLEX | Less than 50 units, Ships immediately | More than 50 units, ships in 4 - 6 weeks
 ARDSHIELD | Less than 100 units, Ships immediately | More than 100 units, ships in 8 - 10 weeks
 ASSET (all SKUs) | Less than 50 units, Ships immediately | More than 50 units, ships in 10 - 13 weeks 
-E260KIT | Less than 1000 units, Ships immediately | More than 1000 units, ships in 10 - 13 weeks
+E260KIT | Less than 500 units, Ships immediately | More than 500 units, ships in 10 - 13 weeks
 E260TRAY50 | Less than 1000 units, Ships immediately | More than 1000 units, ships in 10 - 13 weeks
 E270KIT | Less than 1000 units, Ships immediately | More than 1000 units, ships in 10 - 13 weeks
 E270TRAY50 | Less than 100 units, Ships immediately | More than 100 units, ships in 10 - 13 weeks
@@ -26,21 +26,21 @@ E350KIT | Less than 1000 units, Ships immediately | More than 1000 units, ships 
 E350TRAY50 | 50 units, Ships immediately | More than 50 units, ships in 10 - 13 weeks
 GSWTP | Less than 30 units, Ships immediately | More than 30 units, ships in 8 - 10 weeks
 MKITPH | Less than 50 units, Ships immediately | More than 50 units, ships in 12 - 16 weeks
-P0MOD10 | Less than 50 units, Ships immediately | More than 50 units, ships in 12 - 16 weeks
+P0MOD10 | Less than 250 units, Ships immediately | More than 250 units, ships in 12 - 16 weeks
 P0REEL | All volumes ship in 12 - 16 weeks | All volumes ship in 12 - 16 weeks
 P1MOD10 | Less than 500 units, Ships immediately | More than 500 units, ships in 12 - 16 weeks
 P1REEL | Less than 3000 units, Ships immediately | More than 3000 units, ships in 12 - 16 weeks
 PHNTRAYH | Less than 500 units, Ships immediately | More than 500 units, ships in 12 - 16 weeks
 PHNTRAYNOH | Less than 500 units, Ships immediately | More than 500 units, ships in 12 - 16 weeks
-PHOTONH | Less than 50 units, Ships immediately | More than 50 units, ships in 12 - 16 weeks
-PHOTONKIT | Less than 200 units, Ships immediately | More than 200 units, ships in 12 - 16 weeks
+PHOTONH | Less than 200 units, Ships in 4 weeks | More than 200 units, ships in 12 - 16 weeks
+PHOTONKIT | Less than 10 units, Ships immediately | More than 10 units, ships in 12 - 16 weeks
 PHOTONNOH | Less than 200 units, Ships immediately | More than 200 units, ships in 12 - 16 weeks
 PROGSHIELD | Less than 100 units, Ships immediately | More than 100 units, ships in 8 - 10 weeks
 PWRSHIELDH | Less than 100 units, Ships immediately | More than 100 units, ships in 8 - 10 weeks
 RLYSHIELD | Less than 100 units, Ships immediately | More than 100 units, ships in 8 - 10 weeks
 SIMBLANK50 | Less than 500 units, Ships immediately | More than 500 units, ships in 4 - 6 weeks
 SNSRKIT (all SKUs) | Less than 100 units, Ships immediately | More than 100 units, ships in 10 - 13 weeks
-SPKBTTN | Less than 100 units, Ships immediately | More than 100 units, ships in 10 - 13 weeks
+SPKBTTN | Less than 50 units, Ships immediately | More than 50 units, ships in 10 - 13 weeks
 
 
 Lead times apply only from the point of payment. Requesting a lead time will not reserve stock. Only a committed, non-refundable, non-cancellable purchase order (PO) or a purchase with payment will guarantee lead times. Particle reserves the right to increase or decrease lead times at any time. 
@@ -83,7 +83,7 @@ You may need to register your business as a shipper of a certain type batteries.
 
 You may also need to confirm your labeling fits the type of battery you are shipping. Shipping reps will often do an audit of your packaging. 
 
-Be on the look out for frequent regulatory changes. At the time of this documentation there are [pending changes](http://www.iata.org/whatwedo/cargo/dgr/Documents/lithium-battery-update.pdf) that will come into effect Jan 1, 2017.
+Be on the look out for frequent regulatory changes.(http://www.iata.org/whatwedo/cargo/dgr/Documents/lithium-battery-update.pdf) New regulations went into effect Jan 1, 2017.
 
 ### Particle shipping restrictions
 Particle ships bulk batteries (SKU = BATTMOD50) only to locations in the US and Canada. To receive batteries elsewhere, please contact orders@particle.io for a case by case evaluation. 
