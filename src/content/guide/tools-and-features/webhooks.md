@@ -96,7 +96,7 @@ void setup() {
 
 void loop() {
   digitalWrite(led, HIGH);   // Turn ON the LED
-  
+
   String temp = String(random(60, 80));
   Particle.publish("temp", temp, PRIVATE);
   delay(30000);               // Wait for 30 seconds
@@ -132,6 +132,19 @@ Back on ThingSpeak, navigate back to your channel. You should see temperature da
 <p class="caption">Temperature data from your device being graphed in real-time!</p>
 
 Congratulations! You've created a webhook successfully and gotten data from your connected device into another service. Awesome!
+
+## Editing a webhook
+
+To edit a webhook, scroll to the bottom of any webhook page, and press the edit button.
+
+![Editing webhooks](/assets/images/integrations-webhook-edit.png)
+
+You will be presented with a form, containing the same inputs as the 'Create webhook' page.
+
+![Editing webhooks form](/assets/images/integrations-webhook-edit-form.png)
+
+If you press 'Cancel', all the changes you made won't be persisted. Clicking on 'Save' updates the integration. When the webhook is fired, it should contain the new information.
+
 
 ## Triggering a webhook
 
@@ -182,7 +195,7 @@ void setup() {
 void myHandler(const char *event, const char *data) {
   // Handle the webhook response
 }
-            
+
 
 ```
 
@@ -233,13 +246,13 @@ If you are building a product using Particle, you now have the ability to create
 ![Product Webhooks](/assets/images/product-webhooks-overview.png)
 <p class="caption">Create a single webhook that any of your product devices can trigger</p>
 
-As devices in your product's fleet will be running the same firmware, product webhooks are a scalable way to integrate with third-party web services. Trigger a product webhook when you'd like to do thing like: 
+As devices in your product's fleet will be running the same firmware, product webhooks are a scalable way to integrate with third-party web services. Trigger a product webhook when you'd like to do thing like:
 - Sending information about how a customer's device is behaving to an analytics service
 - Make an API call to your servers to send personalized content to a device
 - Save data to a hosted database in the cloud
 
 
-### Create a product webhook 
+### Create a product webhook
 
 If you don't have one already, you'll need to [define a product](/guide/tools-and-features/console/#defining-a-product) before you will be able to create product webhooks. Currently, webhooks for products are in beta and will evolve over the coming months.
 
@@ -262,7 +275,7 @@ This is where the checkbox discussed in the previous section comes into play. Th
 As discussed [earlier](#webhook-firmware), any response from a webhook will result in a `hook-response/[event_name]` event in the event stream. Normally, if you wanted to get that response on your device, you would add something like this to your firmware: `Particle.subscribe("hook-response/weather/", myHandler, MY_DEVICES);`
 
 
-If you used this line of code in product firmware, however, a given device listening for a webhook response could receive it from _any device in the fleet_, not just the webhook that it triggered. 
+If you used this line of code in product firmware, however, a given device listening for a webhook response could receive it from _any device in the fleet_, not just the webhook that it triggered.
 
 Ensuring that the "Only the device that triggers the webhook should receive its response" checkbox is checked will prepend the device ID of the triggering webhook to the `hook-response` event. This will allow you to write firmware that will listen to only webhook responses for that particular device, like this:
 
@@ -316,7 +329,7 @@ And this is what the request bin looks like:
 
 ![Request Bin Example](/assets/images/webhooks/bin1.png)
 
-In this simple example, you can see the POST request with the default data in form encoding. 
+In this simple example, you can see the POST request with the default data in form encoding.
 
 Here's an example using JSON encoding.
 
