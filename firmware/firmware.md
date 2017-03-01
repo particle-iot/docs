@@ -355,6 +355,20 @@ Particle.publish("t", String::format("%.2f",temperature), ttl, PRIVATE, NO_ACK);
 
 {{/if}} {{!-- electron --}}
 
+_`WITH_ACK` flag_
+
+_Since 0.6.1_
+
+This flag causes `Particle.publish()` to return only after receiving an acknowledgement that the published event has been received by the Cloud.
+
+```C++
+// SYNTAX
+
+Particle.publish("motion-detected", NULL, WITH_ACK);
+Particle.publish("motion-detected", NULL, PRIVATE, WITH_ACK);
+Particle.publish("motion-detected", NULL, ttl, PRIVATE, WITH_ACK);
+```
+
 
 ### Particle.subscribe()
 
@@ -616,6 +630,120 @@ void loop() {
 Note that this function sends a request message to the Cloud and then returns.
 The time on the device will not be synchronized until some milliseconds later
 when the Cloud responds with the current time between calls to your loop.
+See [`Particle.syncTimeDone()`](#particle-synctimedone-), [`Particle.timeSyncedLast()`](#particle-timesyncedlast-), [`Time.isValid()`](#isvalid-) and [`Particle.syncTimePending()`](#particle-synctimepending-) for information on how to wait for request to be finished.
+
+### Particle.syncTimeDone()
+
+_Since 0.6.1_
+
+Returns `true` if there is no `syncTime()` request currently pending or there is no active connection to Particle Cloud. Returns `false` when there is a pending `syncTime()` request.
+
+```C++
+// SYNTAX
+Particle.syncTimeDone();
+
+// RETURNS
+// boolean (true or false)
+```
+
+```C++
+// EXAMPLE
+
+void loop()
+{
+  // Request time synchronization from the Particle Cloud
+  Particle.syncTime();
+  // Wait until {{device}} receives time from Particle Cloud (or connection to Particle Cloud is lost)
+  waitUntil(Particle.syncTimeDone);
+  // Print current time
+  Serial.println(Time.timeStr());
+}
+```
+
+See also [`Particle.timeSyncedLast()`](#particle-timesyncedlast-) and [`Time.isValid()`](#isvalid-).
+
+### Particle.syncTimePending()
+
+_Since 0.6.1_
+
+Returns `true` if there a `syncTime()` request currently pending. Returns `false` when there is no `syncTime()` request pending or there is no active connection to Particle Cloud.
+
+```C++
+// SYNTAX
+Particle.syncTimePending();
+
+// RETURNS
+// boolean (true or false)
+```
+
+```C++
+// EXAMPLE
+
+void loop()
+{
+  // Request time synchronization from the Particle Cloud
+  Particle.syncTime();
+  // Wait until {{device}} receives time from Particle Cloud (or connection to Particle Cloud is lost)
+  while(Particle.syncTimePending())
+  {
+    //
+    // Do something else
+    //
+
+    Particle.process();
+  }
+  // Print current time
+  Serial.println(Time.timeStr());
+}
+```
+
+See also [`Particle.timeSyncedLast()`](#particle-timesyncedlast-) and [`Time.isValid()`](#isvalid-).
+
+### Particle.timeSyncedLast()
+
+_Since 0.6.1_
+
+Used to check when time was last synchronized with Particle Cloud.
+
+```C++
+// SYNTAX
+Particle.timeSyncedLast();
+Particle.timeSyncedLast(timestamp);
+```
+
+Returns the number of milliseconds since the device began running the current program when last time synchronization with Particle Cloud was performed.
+
+This function takes one optional argument:
+- `timestamp`: `time_t` variable that will contain a UNIX timestamp received from Particle Cloud during last time synchronization
+
+```C++
+// EXAMPLE
+#define ONE_DAY_MILLIS (24 * 60 * 60 * 1000)
+
+void loop() {
+  time_t lastSyncTimestamp;
+  unsigned long lastSync = Particle.timeSyncedLast(lastSyncTimestamp);
+  if (millis() - lastSync > ONE_DAY_MILLIS) {
+    unsigned long cur = millis();
+    Serial.printlnf("Time was last synchronized %lu milliseconds ago", millis() - lastSync);
+    if (lastSyncTimestamp > 0)
+    {
+      Serial.print("Time received from Particle Cloud was: ");
+      Serial.println(Time.timeStr(lastSyncTimestamp));
+    }
+    // Request time synchronization from Particle Cloud
+    Particle.syncTime();
+    // Wait until {{device}} receives time from Particle Cloud (or connection to Particle Cloud is lost)
+    waitUntil(Particle.syncTimeDone);
+    // Check if synchronized successfully
+    if (Particle.timeSyncedLast() >= cur)
+    {
+      // Print current time
+      Serial.println(Time.timeStr());
+    }
+  }
+}
+```
 
 ### Get Public IP
 
@@ -832,6 +960,58 @@ It will return `false` when the device is not in listening mode.
 {{/if}} {{!-- has-threading --}}
 
 
+### setListenTimeout()
+
+_Since 0.6.1_
+
+```cpp
+// SYNTAX
+WiFi.setListenTimeout(seconds);
+```
+
+`WiFi.setListenTimeout(seconds)` is used to set a timeout value for Listening Mode.  Values are specified in `seconds`, and 0 disables the timeout.  By default, Wi-Fi devices do not have any timeout set (seconds=0).  As long as interrupts are enabled, a timer is started and running while the device is in listening mode (WiFi.listening()==true).  After the timer expires, listening mode will be exited automatically.  If WiFi.setListenTimeout() is called while the timer is currently in progress, the timer will be updated and restarted with the new value (e.g. updating from 10 seconds to 30 seconds, or 10 seconds to 0 seconds (disabled)).  {{#if has-threading}}**Note:** Enabling multi-threaded mode with SYSTEM_THREAD(ENABLED) will allow user code to update the timeout value while Listening Mode is active.{{/if}} {{#if core}}Because listening mode blocks your application code on the Core, this command should be avoided in loop().  It can be used with the STARTUP() macro or in setup() on the Core.
+It will always return `false`.
+
+This setting is not persistent in memory if the {{device}} is rebooted.
+{{/if}}
+
+```cpp
+// EXAMPLE
+// If desired, use the STARTUP() macro to set the timeout value at boot time.
+STARTUP(WiFi.setListenTimeout(60)); // set listening mode timeout to 60 seconds
+
+void setup() {
+  // your setup code
+}
+{{#if has-threading}}
+void loop() {
+  // update the timeout later in code based on an expression
+  if (disableTimeout) WiFi.setListenTimeout(0); // disables the listening mode timeout
+}
+{{/if}}
+```
+
+
+### getListenTimeout()
+
+_Since 0.6.1_
+
+```cpp
+// SYNTAX
+uint16_t seconds = WiFi.getListenTimeout();
+```
+
+`WiFi.getListenTimeout()` is used to get the timeout value currently set for Listening Mode.  Values are returned in (uint16_t)`seconds`, and 0 indicates the timeout is disabled.  By default, Wi-Fi devices do not have any timeout set (seconds=0).
+
+```cpp
+// EXAMPLE
+void setup() {
+  Serial.begin();
+  Serial.println(WiFi.getListenTimeout());
+}
+```
+
+
 ### setCredentials()
 
 Allows the application to set credentials for the Wi-Fi network from within the code. These credentials will be added to the device's memory, and the device will automatically attempt to connect to this network in the future.
@@ -872,7 +1052,7 @@ WiFi.setCredentials("SSID", "PASSWORD", WPA2, WLAN_CIPHER_AES));
 
 ### getCredentials()
 
-*Since 0.4.9.*
+_Since 0.4.9_
 
 Lists the Wi-Fi networks with credentials stored on the device. Returns the number of stored networks.
 
@@ -1555,6 +1735,56 @@ or the setup button has been held for 3 seconds, when the RGB LED should be blin
 It will return `false` when the device is not in listening mode.
 
 
+### setListenTimeout()
+
+_Since 0.6.1_
+
+```cpp
+// SYNTAX
+Cellular.setListenTimeout(seconds);
+```
+
+`Cellular.setListenTimeout(seconds)` is used to set a timeout value for Listening Mode.  Values are specified in `seconds`, and 0 disables the timeout.  By default, Cellular devices have a 5 minute timeout set (seconds=300).  As long as interrupts are enabled, a timer is started and running while the device is in listening mode (Cellular.listening()==true).  After the timer expires, listening mode will be exited automatically.  If Cellular.setListenTimeout() is called while the timer is currently in progress, the timer will be updated and restarted with the new value (e.g. updating from 10 seconds to 30 seconds, or 10 seconds to 0 seconds (disabled)).  **Note:** Enabling multi-threaded mode with SYSTEM_THREAD(ENABLED) will allow user code to update the timeout value while Listening Mode is active.
+
+This setting is not persistent in memory if the {{device}} is rebooted.
+
+```cpp
+// EXAMPLE
+// If desired, use the STARTUP() macro to set the timeout value at boot time.
+STARTUP(Cellular.setListenTimeout(60)); // set listening mode timeout to 60 seconds
+
+void setup() {
+  // your setup code
+}
+
+void loop() {
+  // update the timeout later in code based on an expression
+  if (disableTimeout) Cellular.setListenTimeout(0); // disables the listening mode timeout
+}
+```
+
+
+### getListenTimeout()
+
+_Since 0.6.1_
+
+```cpp
+// SYNTAX
+uint16_t seconds = Cellular.getListenTimeout();
+```
+
+`Cellular.getListenTimeout()` is used to get the timeout value currently set for Listening Mode.  Values are returned in (uint16_t)`seconds`, and 0 indicates the timeout is disabled.  By default, Cellular devices have a 5 minute timeout set (seconds=300).
+
+```cpp
+// EXAMPLE
+void setup() {
+  Serial.begin();
+  Serial.println(Cellular.getListenTimeout());
+}
+```
+
+
+
 ### setCredentials()
 
 **Note**: `Cellular.setCredentials()` is not currently enabled, however read on to find out how to use the cellular_hal to do the same thing with `cellular_credentials_set()`.
@@ -1773,7 +2003,7 @@ void loop()
 bool Cellular.getBandSelect(CellularBand &data_get);
 
 ### getBandAvailable()
-*Since 0.5.0.*
+_Since 0.5.0._
 
 Gets the cellular bands currently available in the modem.  `Bands` are the carrier frequncies used to communicate with the cellular network.  Some modems have 2 bands available (U260/U270) and others have 4 bands (G350).
 
@@ -1830,7 +2060,7 @@ else {
 ```
 
 ### getBandSelect()
-*Since 0.5.0.*
+_Since 0.5.0_
 
 Gets the cellular bands currently set in the modem.  `Bands` are the carrier frequncies used to communicate with the cellular network.
 
@@ -1861,7 +2091,7 @@ else {
 ```
 
 ### setBandSelect()
-*Since 0.5.0.*
+_Since 0.5.0_
 
 Sets the cellular bands currently set in the modem.  `Bands` are the carrier frequncies used to communicate with the cellular network.
 
@@ -1933,7 +2163,7 @@ else {
 ```
 
 ### localIP()
-*Since 0.5.0.*
+_Since 0.5.0_
 
 `Cellular.localIP()` returns the local (private) IP address assigned to the device as an `IPAddress`.
 
@@ -2242,8 +2472,8 @@ analogWrite(pin, value, frequency);
 `analogWrite()` takes two or three arguments:
 
 - `pin`: the number of the pin whose value you wish to set
-- `value`: the duty cycle: between 0 (always off) and 255 (always on). *Since 0.6.0:* between 0 and 255 (default 8-bit resolution) or `2^(analogWriteResolution(pin)) - 1` in general.
-- `frequency`: the PWM frequency: between 1 Hz and 65535 Hz (default 500 Hz). *Since 0.6.0:* between 1 Hz and `analogWriteMaxFrequency(pin)`.
+- `value`: the duty cycle: between 0 (always off) and 255 (always on). _Since 0.6.0:_ between 0 and 255 (default 8-bit resolution) or `2^(analogWriteResolution(pin)) - 1` in general.
+- `frequency`: the PWM frequency: between 1 Hz and 65535 Hz (default 500 Hz). _Since 0.6.0:_ between 1 Hz and `analogWriteMaxFrequency(pin)`.
 
 **NOTE:** `pinMode(pin, OUTPUT);` is required before calling `analogWrite(pin, value);` or else the `pin` will not be initialized as a PWM output and set to the desired duty cycle.
 
@@ -2271,14 +2501,15 @@ void loop()
 ```
 
 - On the Core, this function works on pins D0, D1, A0, A1, A4, A5, A6, A7, RX and TX.
-- On the Photon and Electron, this function works on pins D0, D1, D2, D3, A4, A5, WKP, RX and TX with a caveat: PWM timer peripheral is duplicated on two pins (A5/D2) and (A4/D3) for 7 total independent PWM outputs. For example: PWM may be used on A5 while D2 is used as a GPIO, or D2 as a PWM while A5 is used as an analog input. However A5 and D2 cannot be used as independently controlled PWM outputs at the same time.
+- On the Photon, P1 and Electron, this function works on pins D0, D1, D2, D3, A4, A5, WKP, RX and TX with a caveat: PWM timer peripheral is duplicated on two pins (A5/D2) and (A4/D3) for 7 total independent PWM outputs. For example: PWM may be used on A5 while D2 is used as a GPIO, or D2 as a PWM while A5 is used as an analog input. However A5 and D2 cannot be used as independently controlled PWM outputs at the same time.
 - Additionally on the Electron, this function works on pins B0, B1, B2, B3, C4, C5.
+- Additionally on the P1, this function works on pins P1S0, P1S1, P1S6 (note: for P1S6, the WiFi Powersave Clock should be disabled for complete control of this pin. {{#if has-backup-ram}}See [System Features](#system-features)).{{/if}}
 
 The PWM frequency must be the same for pins in the same timer group.
 
 - On the Core, the timer groups are D0/D1, A0/A1/RX/TX, A4/A5/A6/A7.
 - On the Photon, the timer groups are D0/D1, D2/D3/A4/A5, WKP, RX/TX.
-- On the P1, the timer groups are D0/D1, D2/D3/A4/A5/P1S0/P1S1, WKP, RX/TX.
+- On the P1, the timer groups are D0/D1, D2/D3/A4/A5/P1S0/P1S1, WKP, RX/TX/P1S6.
 - On the Electron, the timer groups are D0/D1/C4/C5, D2/D3/A4/A5/B2/B3, WKP, RX/TX, B0/B1.
 
 **NOTE:** When used with PWM capable pins, the `analogWrite()` function sets up these pins as PWM only.  {{#if has-dac}}This function operates differently when used with the [`Analog Output (DAC)`](#analog-output-dac-) pins.{{/if}}
@@ -2291,7 +2522,7 @@ The PWM frequency must be the same for pins in the same timer group.
 ### analogWriteResolution() (PWM)
 {{/if}}
 
-*Since 0.6.0.*
+_Since 0.6.0_
 
 Sets or retrieves the resolution of `analogWrite()` function of a particular pin.
 
@@ -2317,7 +2548,7 @@ analogWrite(D1, 3000, 1000); // 3000/4095 = ~73% duty cycle at 1kHz
 
 ### analogWriteMaxFrequency() (PWM)
 
-*Since 0.6.0.*
+_Since 0.6.0_
 
 Returns maximum frequency that can be used with `analogWrite()` on this pin.
 
@@ -2567,9 +2798,10 @@ Generates a square wave of the specified frequency and duration (and 50% duty cy
 
 - On the Core, this function works on pins D0, D1, A0, A1, A4, A5, A6, A7, RX and TX.
 
-- On the Photon and Electron, this function works on pins D0, D1, D2, D3, A4, A5, WKP, RX and TX with a caveat: Tone timer peripheral is duplicated on two pins (A5/D2) and (A4/D3) for 7 total independent Tone outputs. For example: Tone may be used on A5 while D2 is used as a GPIO, or D2 for Tone while A5 is used as an analog input. However A5 and D2 cannot be used as independent Tone outputs at the same time.
+- On the Photon, P1 and Electron, this function works on pins D0, D1, D2, D3, A4, A5, WKP, RX and TX with a caveat: Tone timer peripheral is duplicated on two pins (A5/D2) and (A4/D3) for 7 total independent Tone outputs. For example: Tone may be used on A5 while D2 is used as a GPIO, or D2 for Tone while A5 is used as an analog input. However A5 and D2 cannot be used as independent Tone outputs at the same time.
 
 - Additionally on the Electron, this function works on pins B0, B1, B2, B3, C4, C5.
+- Additionally on the P1, this function works on pins P1S0, P1S1, P1S6 (note: for P1S6, the WiFi Powersave Clock should be disabled for complete control of this pin. {{#if has-backup-ram}}See [System Features](#system-features)).{{/if}}
 
 ```C++
 // SYNTAX
@@ -2736,7 +2968,7 @@ loop() {
 
 ### pulseIn()
 
-*Since 0.4.7.*
+_Since 0.4.7_
 
 Reads a pulse (either HIGH or LOW) on a pin. For example, if value is HIGH, pulseIn() waits for the pin to go HIGH, starts timing, then waits for the pin to go LOW and stops timing. Returns the length of the pulse in microseconds or 0 if no complete pulse was received within the timeout.
 
@@ -2990,7 +3222,9 @@ by the system firmware.
 
 ## Serial
 
-Used for communication between the device and a computer or other devices. The device has {{#if electron}}four{{else}}two{{/if}} hardware (USART) serial channels and {{#unless core}}two{{else}}one{{/unless}} USB serial channel{{#unless core}}s{{else}}{{/unless}}.
+{{#unless raspberry-pi}}
+Used for communication between the {{device}} and a computer or other devices. The {{device}} has {{#if electron}}four{{else}}two{{/if}} hardware (USART) serial channels and {{#if has-usb-serial1}}two{{else}}one{{/if}} USB serial channel{{#if has-usb-serial1}}s{{else}}{{/if}}.
+{{/unless}}
 
 {{#unless raspberry-pi}}
 `Serial:` This channel communicates through the USB port and when connected to a computer, will show up as a virtual COM port.
@@ -3192,9 +3426,9 @@ Parity:
 {{#if core}}
 Hardware flow control, available only on Serial1 (`CTS` - `A0`, `RTS` - `A1`):
 {{/if}}
-{{#unless core}}
+{{#if has-serial2}}{{#unless core}}
 Hardware flow control, available only on Serial2 (`CTS` - `A7`, `RTS` - `RGBR` ):
-{{/unless}}
+{{/unless}}{{/if}}
 - `SERIAL_FLOW_CONTROL_NONE` - no flow control
 - `SERIAL_FLOW_CONTROL_RTS` - RTS flow control
 - `SERIAL_FLOW_CONTROL_CTS` - CTS flow control
@@ -3237,11 +3471,11 @@ Disables serial channel.
 
 When used with hardware serial channels (Serial1, Serial2{{#if electron}}, Serial4, Serial5{{/if}}), disables serial communication, allowing channel's RX and TX pins to be used for general input and output. To re-enable serial communication, call `SerialX.begin()`.
 
-{{#unless core}}
+{{#unless core}}{{#unless raspberry-pi}}
 _Since 0.6.0_
 
 When used with USB serial channels (`Serial`{{#if has-usb-serial1}} or `USBSerial1`{{/if}}), `end()` will cause the device to quickly disconnect from Host and connect back without the selected serial channel.
-{{/unless}}
+{{/unless}}{{/unless}}
 
 ```C++
 // SYNTAX
@@ -4540,16 +4774,12 @@ For transferring a large number of bytes, this form of transfer() uses DMA to sp
 ```C++
 // SYNTAX
 SPI.transfer(tx_buffer, rx_buffer, length, myFunction);
-{{#unless core}}
+{{#if has-multiple-spi}}
 SPI1.transfer(tx_buffer, rx_buffer, length, myFunction);
-{{/unless}}
 {{#if electron}}
 SPI2.transfer(tx_buffer, rx_buffer, length, myFunction);
 {{/if}}
-
-void myFunction(void) {
-  // called when transfer is complete
-}
+{{/if}}
 ```
 
 Parameters:
@@ -4580,11 +4810,11 @@ Registers a function to be called when the SPI master selects or deselects this 
 ```C++
 // SYNTAX
 SPI.onSelect(myFunction);
-{{#unless core}}
+{{#if has-multiple-spi}}
 SPI1.onSelect(myFunction);
-{{/unless}}
 {{#if electron}}
 SPI2.onSelect(myFunction);
+{{/if}}
 {{/if}}
 
 void myFunction(uint8_t state) {
@@ -4654,6 +4884,93 @@ SPI.available();
 Returns the number of bytes available.
 
 {{/unless}} {{!-- core --}}
+
+{{#if has-spi-settings}}
+### SPISettings
+
+_Since 0.6.1_
+
+The `SPISettings` object specifies the SPI peripheral settings. This object can be used with [`beginTransaction()`](#begintransaction-) function and replacing separate calls to [`setClockSpeed()`](#setclockspeed), [`setBitOrder()`](#setbitorder-) and [`setDataMode()`](#setdatamode-).
+
+```C++
+// SYNTAX
+SPI.beginTransaction(SPISettings(4*MHZ, MSBFIRST, SPI_MODE0));
+// Pre-declared SPISettings object
+SPISettings settings(4*MHZ, MSBFIRST, SPI_MODE0);
+SPI.beginTransaction(settings);
+
+{{#if has-multiple-spi}}
+SPI1.beginTransaction(SPISettings(4*MHZ, MSBFIRST, SPI_MODE3));
+{{#if electron}}
+SPI2.beginTransaction(SPISettings(1*MHZ, LSBFIRST, SPI_MODE3));
+{{/if}}
+{{/if}}
+```
+
+Parameters:
+- `clockSpeed`: maximum SPI clock speed (see [`setClockSpeed()`](#setclockspeed))
+- `bitOrder`: bit order of the bits shifted out of and into the SPI bus, either `LSBFIRST` (least-sngnificant bit first) or `MSBFIRST` (most-significant bit first)
+- `dataMode`: `SPI_MODE0`, `SPI_MODE1`, `SPI_MODE2` or `SPI_MODE3` (see [`setDataMode()`](#setdatamode-))
+
+### beginTransaction()
+
+_Since 0.6.1_
+
+Reconfigures the SPI peripheral with the supplied settings (see [`SPISettings`](#spisettings) documentation).
+
+{{#if has-threading}}
+In addition to reconfiguring the SPI peripheral, `beginTransaction()` also acquires the SPI peripheral lock, blocking other threads from using the selected SPI peripheral until [`endTransaction()`](#endtransaction-) is called. See [Synchronizing Access to Shared System Resources](#synchronizing-access-to-shared-system-resources) section for additional information on shared resource locks.
+
+{{/if}} {{!-- has-threading --}}
+
+```C++
+// SYNTAX
+SPI.beginTransaction(SPISettings(4*MHZ, MSBFIRST, SPI_MODE0));
+// Pre-declared SPISettings object
+SPI.beginTransaction(settings);
+
+{{#if has-multiple-spi}}
+SPI1.beginTransaction(SPISettings(4*MHZ, MSBFIRST, SPI_MODE3));
+{{#if electron}}
+SPI2.beginTransaction(SPISettings(1*MHZ, LSBFIRST, SPI_MODE3));
+{{/if}}
+{{/if}}
+```
+
+Parameters:
+- `settings`: [`SPISettings`](#spisettings) object with chosen settings
+
+Returns: Negative integer in case of an error.
+
+### endTransaction()
+
+_Since 0.6.1_
+
+Releases the SPI peripheral.
+
+{{#if core}}
+**NOTE:** This function does nothing on {{device}}.
+{{/if}} {{!-- core --}}
+
+{{#if has-threading}}
+This function releases the SPI peripheral lock, allowing other threads to use it. See [Synchronizing Access to Shared System Resources](#synchronizing-access-to-shared-system-resources) section for additional information on shared resource locks.
+
+{{/if}} {{!-- has-threading --}}
+
+```C++
+// SYNTAX
+SPI.endTransaction();
+{{#if has-multiple-spi}}
+SPI1.endTransaction();
+{{#if electron}}
+SPI2.endTransaction();
+{{/if}}
+{{/if}}
+```
+
+Returns: Negative integer in case of an error.
+
+{{/if}} {{!-- has-spi-settings --}}
 
 {{/if}} {{!-- has-spi --}}
 
@@ -4752,7 +5069,7 @@ Parameters: `address`: the 7-bit slave address (optional); if not specified, joi
 
 ### end()
 
-*Since 0.4.6.*
+_Since 0.4.6_
 
 Releases the I2C bus so that the pins used by the I2C bus are available for general purpose I/O.
 
@@ -4798,7 +5115,7 @@ Returns: `byte` : the number of bytes returned from the slave device.  If a time
 
 ### reset()
 
-*Since 0.4.6.*
+_Since 0.4.6_
 
 Attempts to reset the I2C bus. This should be called only if the I2C bus has
 has hung. In 0.4.6 additional rework was done for the I2C bus on the Photon and Electron, so
@@ -5008,7 +5325,7 @@ void loop() {
 
 ![CAN bus](/assets/images/can.png)
 
-*Since 0.4.9*
+_Since 0.4.9_
 
 <a href="https://en.wikipedia.org/wiki/CAN_bus" target="_blank">Controller area network (CAN bus)</a> is a bus used in most automobiles, as well as some industrial equipment, for communication between different microcontrollers.
 
@@ -6341,6 +6658,600 @@ class ExternalRGB {
 ExternalRGB myRGB(D0, D1, D2);
 ```
 
+{{#if has-rgb-mirror}}
+
+### mirrorTo()
+
+_Since 0.6.1_
+
+Allows a set of PWM pins to mirror the functionality of the on-board RGB LED.
+
+```C++
+// SYNTAX
+// Common-cathode RGB LED connected to A4 (R), A5 (G), A7 (B)
+RGB.mirrorTo(A4, A5, A7);
+// Common-anode RGB LED connected to A4 (R), A5 (G), A7 (B)
+RGB.mirrorTo(A4, A5, A7, true);
+// Common-anode RGB LED connected to A4 (R), A5 (G), A7 (B)
+// Mirroring is enabled in firmware _and_ bootloader
+RGB.mirrorTo(A4, A5, A7, true, true);
+// Enable RGB LED mirroring as soon as {{device}} starts up
+STARTUP(RGB.mirrorTo(A4, A5, A7));
+```
+
+Parameters:
+  - `pinr`: PWM-enabled pin number connected to red LED (see [`analogWrite()`](#analogwrite-pwm-) for a list of PWM-capable pins)
+  - `ping`: PWM-enabled pin number connected to blue LED (see [`analogWrite()`](#analogwrite-pwm-) for a list of PWM-capable pins)
+  - `pinb`: PWM-enabled pin number connected to green LED (see [`analogWrite()`](#analogwrite-pwm-) for a list of PWM-capable pins)
+  - `invert` (optional): `true` if the connected RGB LED is common-anode, `false` if common-cathode (default).
+  - `bootloader` (optional): if `true`, the RGB mirorring settings are saved in DCT and are used by the bootloader. If `false`, any previously stored configuration is removed from the DCT and RGB mirorring only works while the firmware is running (default).
+
+### mirrorDisable()
+
+_Since 0.6.1_
+
+Disables RGB LED mirroring.
+
+Parameters:
+  - bootloader: if `true`, RGB mirorring configuration stored in DCT is also cleared disabling RGB mirroring functionality in bootloader (default)
+
+{{/if}} {{!-- has-rgb-mirror --}}
+
+## LED Signaling
+
+_Since 0.6.1_
+
+This library allows applications to share control over the on-device RGB LED with the system firmware in a non-exclusive way, making it possible for the system to use the LED for various important indications, such as cloud connection errors, even if an application already uses the LED for its own signaling. For this to work, an application needs to assign a [_priority_](#ledpriority-enum) to every application-specific LED indication (using instances of the [`LEDStatus`](#ledstatus-class) class), and the system will ensure that the LED only shows a highest priority indication at any moment of time.
+
+The library also allows to set a custom [_theme_](#ledsystemtheme-class) for the system LED signaling. Refer to the [Device Modes](/guide/getting-started/modes) and [LEDSignal Enum](#ledsignal-enum) sections for information about default LED signaling patterns used by the system.
+
+**Note:** Consider using this library instead of the [RGB API](#rgb) for all application-specific LED signaling, unless a low-level control over the LED is required.
+
+### LEDStatus Class
+
+This class allows to define a _LED status_ that represents an application-specific LED indication. Every LED status is described by a signaling [pattern](#ledpattern-enum), [speed](#ledspeed-enum) and [color](#rgb-colors) parameters. Typically, applications use separate status instance for each application state that requires LED indication.
+
+```cpp
+// EXAMPLE - defining and using a LED status
+LEDStatus blinkRed(RGB_COLOR_RED, LED_PATTERN_BLINK);
+
+void setup() {
+    // Blink red for 3 seconds after connecting to the Cloud
+    blinkRed.setActive(true);
+    delay(3000);
+    blinkRed.setActive(false);
+}
+
+void loop() {
+}
+```
+
+In the provided example, the application defines a single LED status (`blinkRed`) and activates it for 3 seconds, causing the LED to start blinking in red color. Note that there is no need to toggle the LED on and off manually – this is done automatically by the system, according to the parameters passed to the status instance.
+
+#### LEDStatus()
+
+Constructs a status instance. Initially, a newly constructed status instance is set to inactive state and doesn't affect the LED until [setActive()](#setactive-) method is called by an application to activate this instance.
+
+```cpp
+// SYNTAX
+LEDStatus::LEDStatus(uint32_t color = RGB_COLOR_WHITE, LEDPattern pattern = LED_PATTERN_SOLID, LEDPriority priority = LED_PRIORITY_NORMAL); // 1
+LEDStatus::LEDStatus(uint32_t color, LEDPattern pattern, LEDSpeed speed, LEDPriority priority = LED_PRIORITY_NORMAL); // 2
+LEDStatus::LEDStatus(uint32_t color, LEDPattern pattern, uint16_t period, LEDPriority priority = LED_PRIORITY_NORMAL); // 3
+LEDStatus::LEDStatus(LEDPattern pattern, LEDPriority priority = LED_PRIORITY_NORMAL); // 4
+
+// EXAMPLE - constructing LEDStatus instance
+// Solid green; normal priority (default)
+LEDStatus status1(RGB_COLOR_GREEN);
+// Blinking blue; normal priority (default)
+LEDStatus status2(RGB_COLOR_BLUE, LED_PATTERN_BLINK);
+// Fast blinking blue; normal priority (default)
+LEDStatus status3(RGB_COLOR_BLUE, LED_PATTERN_BLINK, LED_SPEED_FAST);
+// Breathing red with custom pattern period; important priority
+LEDStatus status4(RGB_COLOR_RED, LED_PATTERN_FADE, 1000 /* 1 second */, LED_PRIORITY_IMPORTANT);
+```
+
+Parameters:
+
+  * `color` : [RGB color](#rgb-colors) (`uint32_t`, default value is `RGB_COLOR_WHITE`)
+  * `pattern` : pattern type ([`LEDPattern`](#ledpattern-enum), default value is `LED_PATTERN_SOLID`)
+  * `speed` : pattern speed ([`LEDSpeed`](#ledspeed-enum), default value is `LED_SPEED_NORMAL`)
+  * `period` : pattern period in milliseconds (`uint16_t`)
+  * `priority` : status priority ([`LEDPriority`](#ledpriority-enum), default value is `LED_PRIORITY_NORMAL`)
+
+#### setColor()
+
+Sets status color.
+
+```cpp
+// SYNTAX
+void LEDStatus::setColor(uint32_t color);
+uint32_t LEDStatus::color() const;
+
+// EXAMPLE - setting and getting status color
+LEDStatus status;
+status.setColor(RGB_COLOR_BLUE);
+uint32_t color = status.color(); // Returns 0x000000ff
+```
+
+Parameters:
+
+  * `color` : [RGB color](#rgb-colors) (`uint32_t`)
+
+#### color()
+
+Returns status color (`uint32_t`).
+
+#### setPattern()
+
+Sets pattern type.
+
+```cpp
+// SYNTAX
+void LEDStatus::setPattern(LEDPattern pattern);
+LEDPattern LEDStatus::pattern() const;
+
+// EXAMPLE - setting and getting pattern type
+LEDStatus status;
+status.setPattern(LED_PATTERN_BLINK);
+LEDPattern pattern = status.pattern(); // Returns LED_PATTERN_BLINK
+```
+
+Parameters:
+
+  * `pattern` : pattern type ([`LEDPattern`](#ledpattern-enum))
+
+#### pattern()
+
+Returns pattern type ([`LEDPattern`](#ledpattern-enum)).
+
+#### setSpeed()
+
+Sets pattern speed. This method resets pattern period to a system-default value that depends on specified pattern speed and current pattern type set for this status instance.
+
+```cpp
+// SYNTAX
+void LEDStatus::setSpeed(LEDSpeed speed);
+
+// EXAMPLE - setting pattern speed
+LEDStatus status;
+status.setSpeed(LED_SPEED_FAST);
+```
+
+Parameters:
+
+  * `speed` : pattern speed ([`LEDSpeed`](#ledspeed-enum))
+
+#### setPeriod()
+
+Sets pattern period. Pattern period specifies duration of a signaling pattern in milliseconds. For example, given the pattern type `LED_PATTERN_BLINK` (blinking color) with period set to 1000 milliseconds, the system will toggle the LED on and off every 500 milliseconds.
+
+```cpp
+// SYNTAX
+void LEDStatus::setPeriod(uint16_t period);
+uint16_t LEDStatus::period() const;
+
+// EXAMPLE - setting and getting pattern period
+LEDStatus status;
+status.setPeriod(1000); // 1 second
+uint16_t period = status.period(); // Returns 1000
+```
+
+Parameters:
+
+  * `period` : pattern period in milliseconds (`uint16_t`)
+
+#### period()
+
+Returns pattern period in milliseconds (`uint16_t`).
+
+#### setPriority()
+
+Sets status priority. Note that a newly assigned priority will take effect only after [`setActive()`](#setactive-) method is called for the next time.
+
+```cpp
+// SYNTAX
+void LEDStatus::setPriority(LEDPriority priority);
+LEDPriority LEDStatus::priority() const;
+
+// EXAMPLE - setting and getting status priority
+LEDStatus status;
+status.setPriority(LED_PRIORITY_IMPORTANT);
+LEDPriority priority = status.priority(); // Returns LED_PRIORITY_IMPORTANT
+```
+
+Parameters:
+
+  * `priority` : status priority ([`LEDPriority`](#ledpriority-enum))
+
+#### priority()
+
+Returns status priority ([`LEDPriority`](#ledpriority-enum)).
+
+#### on()
+
+Turns the LED on.
+
+```cpp
+// SYNTAX
+void LEDStatus::on();
+void LEDStatus::off();
+void LEDStatus::toggle();
+bool LEDStatus::isOn() const;
+bool LEDStatus::isOff() const;
+
+// EXAMPLE - turning the LED on and off
+LEDStatus status;
+status.off(); // Turns the LED off
+bool on = status.isOn(); // Returns false
+
+status.on(); // Turns the LED on
+on = status.isOn(); // Returns true
+
+status.toggle(); // Toggles the LED
+on = status.isOn(); // Returns false
+status.toggle();
+on = status.isOn(); // Returns true
+```
+
+#### off()
+
+Turns the LED off.
+
+#### toggle()
+
+Toggles the LED on or off.
+
+#### isOn()
+
+Returns `true` if the LED is turned on, or `false` otherwise.
+
+#### isOff()
+
+Returns `true` if the LED turned off, or `false` otherwise.
+
+#### setActive()
+
+Activates or deactivates this status instance. The overloaded method that takes `priority` argument assigns a new priority to this status instance before activating it.
+
+```cpp
+// SYNTAX
+void LEDStatus::setActive(bool active = true); // 1
+void LEDStatus::setActive(LEDPriority priority); // 2
+bool LEDStatus::isActive() const;
+
+// EXAMPLE - activating and deactivating a status instance
+LEDStatus status;
+status.setActive(true); // Activates status
+bool active = status.isActive(); // Returns true
+
+status.setActive(false); // Deactivates status
+active = status.isActive(); // Returns false
+
+status.setActive(LED_PRIORITY_IMPORTANT); // Activates status with new priority
+LEDPriority priority = status.priority(); // Returns LED_PRIORITY_IMPORTANT
+active = status.isActive(); // Returns true
+```
+
+Parameters:
+
+  * `active` : whether the status should be activated (`true`) or deactivated (`false`). Default value is `true`
+  * `priority` : status priority ([`LEDPriority`](#ledpriority-enum))
+
+#### isActive()
+
+Returns `true` if this status is active, or `false` otherwise.
+
+#### Custom Patterns
+
+`LEDStatus` class can be subclassed to implement a custom signaling pattern.
+
+```cpp
+// EXAMPLE - implementing a custom signaling pattern
+class CustomStatus: public LEDStatus {
+public:
+    explicit CustomStatus(LEDPriority priority) :
+        LEDStatus(LED_PATTERN_CUSTOM, priority),
+        colorIndex(0),
+        colorTicks(0) {
+    }
+
+protected:
+    virtual void update(system_tick_t ticks) override {
+        // Change status color every 300 milliseconds
+        colorTicks += ticks;
+        if (colorTicks > 300) {
+            if (++colorIndex == colorCount) {
+                colorIndex = 0;
+            }
+            setColor(colors[colorIndex]);
+            colorTicks = 0;
+        }
+    }
+
+private:
+    size_t colorIndex;
+    system_tick_t colorTicks;
+
+    static const uint32_t colors[];
+    static const size_t colorCount;
+};
+
+const uint32_t CustomStatus::colors[] = {
+    RGB_COLOR_MAGENTA,
+    RGB_COLOR_BLUE,
+    RGB_COLOR_CYAN,
+    RGB_COLOR_GREEN,
+    RGB_COLOR_YELLOW
+};
+
+const size_t CustomStatus::colorCount =
+    sizeof(CustomStatus::colors) /
+    sizeof(CustomStatus::colors[0]);
+
+CustomStatus customStatus(LED_PRIORITY_IMPORTANT);
+
+void setup() {
+    // Activate custom status
+    customStatus.setActive(true);
+}
+
+void loop() {
+}
+```
+
+In the provided example, `CustomStatus` class implements a signaling pattern that alternates between some of the predefined colors.
+
+Any class implementing a custom pattern needs to pass `LED_PATTERN_CUSTOM` pattern type to the constructor of the base `LEDStatus` class and reimplement its `update()` method. Once an instance of such class is activated, the system starts to call its `update()` method periodically in background, passing number of milliseconds passed since previous update in `ticks` argument.
+
+**Note:** The system may call `update()` method within an ISR. Ensure provided implementation doesn't make any blocking calls, returns as quickly as possible, and, ideally, only updates internal timing and makes calls to `setColor()`, `setActive()` and other methods of the base `LEDStatus` class.
+
+### LEDSystemTheme Class
+
+This class allows to set a custom theme for the system LED signaling. Refer to the [LEDSignal Enum](#ledsignal-enum) section for the list of LED signals defined by the system.
+
+```cpp
+// EXAMPLE - setting custom colors for network status indication
+LEDSystemTheme theme;
+theme.setColor(LED_SIGNAL_NETWORK_OFF, RGB_COLOR_GRAY);
+theme.setColor(LED_SIGNAL_NETWORK_ON, RGB_COLOR_WHITE);
+theme.setColor(LED_SIGNAL_NETWORK_CONNECTING, RGB_COLOR_YELLOW);
+theme.setColor(LED_SIGNAL_NETWORK_DHCP, RGB_COLOR_YELLOW);
+theme.setColor(LED_SIGNAL_NETWORK_CONNECTED, RGB_COLOR_YELLOW);
+theme.apply(); // Apply theme settings
+```
+
+#### LEDSystemTheme()
+
+Constructs a theme instance and initializes it with current system settings.
+
+```cpp
+// SYNTAX
+LEDSystemTheme::LEDSystemTheme();
+
+// EXAMPLE - constructing theme instance
+LEDSystemTheme theme;
+```
+
+#### setColor()
+
+Sets signal color.
+
+```cpp
+// SYNTAX
+void LEDSystemTheme::setColor(LEDSignal signal, uint32_t color);
+uint32_t LEDSystemTheme::color(LEDSignal signal) const;
+
+// EXAMPLE - setting and getting signal color
+LEDSystemTheme theme;
+theme.setColor(LED_SIGNAL_NETWORK_ON, RGB_COLOR_BLUE);
+uint32_t color = theme.color(LED_SIGNAL_NETWORK_ON); // Returns 0x000000ff
+```
+
+Parameters:
+
+  * `signal` : LED signal ([`LEDSignal`](#ledsignal-enum))
+  * `color` : [RGB color](#rgb-colors) (`uint32_t`)
+
+#### color()
+
+Returns signal color (`uint32_t`).
+
+#### setPattern()
+
+Sets signal pattern.
+
+```cpp
+// SYNTAX
+void LEDSystemTheme::setPattern(LEDSignal signal, LEDPattern pattern);
+LEDPattern LEDSystemTheme::pattern(LEDSignal signal) const;
+
+// EXAMPLE - setting and getting signal pattern
+LEDSystemTheme theme;
+theme.setPattern(LED_SIGNAL_NETWORK_ON, LED_PATTERN_BLINK);
+LEDPattern pattern = theme.pattern(LED_SIGNAL_NETWORK_ON); // Returns LED_PATTERN_BLINK
+```
+
+Parameters:
+
+  * `signal` : LED signal ([`LEDSignal`](#ledsignal-enum))
+  * `pattern` : pattern type ([`LEDPattern`](#ledpattern-enum))
+
+#### pattern()
+
+Returns signal pattern ([`LEDPattern`](#ledpattern-enum)).
+
+#### setSpeed()
+
+Sets signal speed.
+
+```cpp
+// SYNTAX
+void LEDSystemTheme::setSpeed(LEDSignal signal, LEDSpeed speed);
+
+// EXAMPLE - setting signal speed
+LEDSystemTheme theme;
+theme.setSpeed(LED_SIGNAL_NETWORK_ON, LED_SPEED_FAST);
+```
+
+Parameters:
+
+  * `signal` : LED signal ([`LEDSignal`](#ledsignal-enum))
+  * `speed` : pattern speed ([`LEDSpeed`](#ledspeed-enum))
+
+#### setPeriod()
+
+Sets signal period.
+
+```cpp
+// SYNTAX
+void LEDSystemTheme::setPeriod(LEDSignal signal, uint16_t period);
+uint16_t LEDSystemTheme::period(LEDSignal signal) const;
+
+// EXAMPLE - setting and getting signal period
+LEDSystemTheme theme;
+theme.setPeriod(LED_SIGNAL_NETWORK_ON, 1000); // 1 second
+uint16_t period = theme.period(); // Returns 1000
+```
+
+Parameters:
+
+  * `signal` : LED signal ([`LEDSignal`](#ledsignal-enum))
+  * `period` : pattern period in milliseconds (`uint16_t`)
+
+#### period()
+
+Returns signal period in milliseconds (`uint16_t`).
+
+#### setSignal()
+
+Sets several signal parameters at once.
+
+```cpp
+// SYNTAX
+void LEDSystemTheme::setSignal(LEDSignal signal, uint32_t color); // 1
+void LEDSystemTheme::setSignal(LEDSignal signal, uint32_t color, LEDPattern pattern, LEDSpeed speed = LED_SPEED_NORMAL); // 2
+void LEDSystemTheme::setSignal(LEDSignal signal, uint32_t color, LEDPattern pattern, uint16_t period); // 3
+
+// EXAMPLE - setting signal parameters
+LEDSystemTheme theme;
+theme.setSignal(LED_SIGNAL_NETWORK_ON, RGB_COLOR_BLUE, LED_PATTERN_BLINK, LED_SPEED_FAST);
+```
+
+Parameters:
+
+  * `signal` : LED signal ([`LEDSignal`](#ledsignal-enum))
+  * `color` : [RGB color](#rgb-colors) (`uint32_t`)
+  * `pattern` : pattern type ([`LEDPattern`](#ledpattern-enum))
+  * `speed` : pattern speed ([`LEDSpeed`](#ledspeed-enum))
+  * `period` : pattern period in milliseconds (`uint16_t`)
+
+#### apply()
+
+Applies theme settings.
+
+```cpp
+// SYNTAX
+{{#unless core}}
+void LEDSystemTheme::apply(bool save = false);
+{{/unless}}
+{{#if core}}
+void LEDSystemTheme::apply();
+{{/if}}
+
+// EXAMPLE - applying theme settings
+LEDSystemTheme theme;
+theme.setColor(LED_SIGNAL_NETWORK_ON, RGB_COLOR_BLUE);
+theme.apply();
+```
+
+{{#unless core}}
+Parameters:
+
+  * `save` : whether theme settings should be saved to a persistent storage (default value is `false`)
+{{/unless}}
+
+#### restoreDefault()
+
+Restores factory default theme.
+
+```cpp
+// SYNTAX
+static void LEDSystemTheme::restoreDefault();
+
+// EXAMPLE - restoring factory default theme
+LEDSystemTheme::restoreDefault();
+```
+
+### LEDSignal Enum
+
+This enum defines LED signals supported by the system:
+
+Name | Description | Priority | Default Pattern
+-----|-------------|----------|----------------
+LED_SIGNAL_NETWORK_OFF | Network is off | Background | Breathing white
+LED_SIGNAL_NETWORK_ON | Network is on | Background | Breathing blue
+LED_SIGNAL_NETWORK_CONNECTING | Connecting to network | Normal | Blinking green
+LED_SIGNAL_NETWORK_DHCP | Getting network address | Normal | Fast blinking green
+LED_SIGNAL_NETWORK_CONNECTED | Connected to network | Background | Breathing green
+LED_SIGNAL_CLOUD_CONNECTING | Connecting to the Cloud | Normal | Blinking cyan
+LED_SIGNAL_CLOUD_HANDSHAKE | Performing handshake with the Cloud | Normal | Fast blinking cyan
+LED_SIGNAL_CLOUD_CONNECTED | Connected to the Cloud | Background | Breathing cyan
+LED_SIGNAL_SAFE_MODE | Connected to the Cloud in safe mode | Background | Breathing magenta
+LED_SIGNAL_LISTENING_MODE | Listening mode | Normal | Slow blinking blue
+{{#unless core}}
+LED_SIGNAL_DFU_MODE * | DFU mode | Critical | Blinking yellow
+LED_SIGNAL_FIRMWARE_UPDATE * | Performing firmware update | Critical | Blinking magenta
+{{/unless}}
+LED_SIGNAL_POWER_OFF | Soft power down is pending | Critical | Solid gray
+
+{{#unless core}}
+**Note:** Signals marked with an asterisk (*) are implemented within the bootloader and currently don't support pattern type and speed customization due to flash memory constraints. This may be changed in future versions of the firmware.
+{{/unless}}
+
+### LEDPriority Enum
+
+This enum defines LED priorities supported by the system (from lowest to highest priority):
+
+  * `LED_PRIORITY_BACKGROUND` : long-lasting background indications
+  * `LED_PRIORITY_NORMAL` : regular, typically short indications
+  * `LED_PRIORITY_IMPORTANT` : important indications
+  * `LED_PRIORITY_CRITICAL` : critically important indications
+
+Internally, the system uses the same set of priorities for its own LED signaling. In a situation when both an application and the system use same priority for their active indications, system indication takes precedence. Refer to the [LEDSignal Enum](#ledsignal-enum) section for information about system signal priorities.
+
+### LEDPattern Enum
+
+This enum defines LED patterns supported by the system:
+
+  * `LED_PATTERN_SOLID` : solid color
+  * `LED_PATTERN_BLINK` : blinking color
+  * `LED_PATTERN_FADE` : breathing color
+  * `LED_PATTERN_CUSTOM` : [custom pattern](#custom-patterns)
+
+### LEDSpeed Enum
+
+This enum defines system-default LED speed values:
+
+  * `LED_SPEED_SLOW` : slow speed
+  * `LED_SPEED_NORMAL` : normal speed
+  * `LED_SPEED_FAST` : fast speed
+
+### RGB Colors
+
+RGB colors are represented by 32-bit integer values (`uint32_t`) with the following layout in hex: `0x00RRGGBB`, where `R`, `G` and `B` are bits of the red, green and blue color components respectively.
+
+For convenience, the library defines constants for the following basic colors:
+
+  * `RGB_COLOR_BLUE` : blue (`0x000000ff`)
+  * `RGB_COLOR_GREEN` : green (`0x0000ff00`)
+  * `RGB_COLOR_CYAN` : cyan (`0x0000ffff`)
+  * `RGB_COLOR_RED` : red (`0x00ff0000`)
+  * `RGB_COLOR_MAGENTA` : magenta (`0x00ff00ff`)
+  * `RGB_COLOR_YELLOW` : yellow (`0x00ffff00`)
+  * `RGB_COLOR_WHITE` : white (`0x00ffffff`)
+  * `RGB_COLOR_GRAY` : gray (`0x001f1f1f`)
+  * `RGB_COLOR_ORANGE` : orange (`0x00ff6000`)
+
 {{/if}} {{!-- has-rgb --}}
 
 ## Time
@@ -6819,6 +7730,42 @@ void loop()
   digitalWrite(outPin, LOW);  // sets the pin off
   delayMicroseconds(50);      // pauses for 50 microseconds
 }
+```
+
+### isValid()
+
+_Since 0.6.1_
+
+```cpp
+// SYNTAX
+Time.isValid();
+```
+
+Used to check if current time is valid. This function will return `true` if:
+- Time has been set manually using [`Time.setTime()`](#settime-)
+- Time has been successfully synchronized with the Particle Cloud. The device synchronizes time with the Particle Cloud during the handshake. The application may also manually synchronize time with Particle Cloud using [`Particle.syncTime()`](#particle-synctime-)
+- Correct time has been maintained by RTC.{{#if has-backup-ram}} See information on [`Backup RAM (SRAM)`](#backup-ram-sram-) for cases when RTC retains the time. RTC is part of the backup domain and retains its counters under the same conditions as Backup RAM.{{/if}}
+
+**NOTE:** When {{device}} is running in `AUTOMATIC` mode {{#if has-threading}}and threading is disabled {{/if}} this function will block if current time is not valid and there is an active connection to Particle Cloud. Once {{device}} synchronizes the time with Particle Cloud or the connection to Particle Cloud is lost, `Time.isValid()` will return its current state. This function is also implicitly called by any `Time` function that returns current time or date (e.g. `Time.hour()`/`Time.now()`/etc).
+
+```cpp
+// Print true or false depending on whether current time is valid
+Serial.print(Time.isValid());
+```
+
+```cpp
+void setup()
+{
+  // Wait for time to be synchronized with Particle Cloud (requires active connection)
+  waitFor(Time.isValid, 60000);
+}
+
+void loop()
+{
+  // Print current time
+  Serial.println(Time.timeStr());
+}
+
 ```
 
 {{#if has-interrupts}}
@@ -7874,7 +8821,7 @@ You can find more details about the product ID and how to get yours in the [_Con
 
 ## System Events
 
-*Since 0.4.9*
+_Since 0.4.9_
 
 ### System Events Overview
 
@@ -7951,21 +8898,25 @@ void setup()
 
 ### System Events Reference
 
-These are the system events produced by the system, their numeric value (what you will see when printing the system event to Serial) and details of how to handle the parameter value.
+These are the system events produced by the system, their numeric value (what you will see when printing the system event to Serial) and details of how to handle the parameter value. The version of firmware these events became available is noted in the first column below.
 
-| Event Name | ID | Description | Parameter |
-|------------|----------|-----------|
-| setup_begin | 2 | signals the device has entered setup mode |  not used |
-| setup_update | 4 | periodic event signalling the device is still in setup mode. | milliseconds since setup mode was started |
-| setup_end | 8 | signals setup mode was exited | time in ms since setup mode was started |
-| network_credentials | 16 | network credentials were changed | `network_credentials_added` or `network_credentials_cleared` |
- | button_status | 128 | button pressed or released | the duration in ms the button was pressed: 0 when pressed, >0 on release. |
- | firmware_update | 256 | firmware update status | one of `firmware_update_begin`, `firmware_update_progress`, `firmware_update_complete`, `firmware_update_failed` |
- | firmware_update_pending | 512 | notifies the application that a firmware update is available. This event is sent even when updates are disabled, giving the application chance to re-enable firmware updates with `System.enableUpdates()` | not used |
- | reset_pending | 1024 | notifies the application that the system would like to reset. This event is sent even when resets are disabled, giving the application chance to re-enable resets with `System.enableReset()` | not used |
- | reset | 2048 | notifies that the system will reset once the application has completed handling this event | not used |
- | button_click | 4096 | event sent each time setup button is clicked. | `int clicks = system_button_clicks(param); ` retrieves the number of clicks so far. |
-| button_final_click | 8192 | sent after a run of one or more clicks not followed by additional clicks. Unlike the `button_click` event, the `button_final_click` event is sent once, at the end of a series of clicks. | `int clicks = system_button_clicks(param); ` retrieves the number of times the button was pushed. |
+| Since | Event Name | ID | Description | Parameter |
+|-------|------------|----|-------------|-----------|
+|       | setup_begin | 2 | signals the device has entered setup mode |  not used |
+|       | setup_update | 4 | periodic event signalling the device is still in setup mode. | milliseconds since setup mode was started |
+|       | setup_end | 8 | signals setup mode was exited | time in ms since setup mode was started |
+|       | network_credentials | 16 | network credentials were changed | `network_credentials_added` or `network_credentials_cleared` |
+| 0.6.1 | network_status | 32 | network connection status | one of `network_status_powering_on`, `network_status_on`, `network_status_powering_off`, `network_status_off`, `network_status_connecting`, `network_status_connected` |
+| 0.6.1 | cloud_status | 64 | cloud connection status | one of `cloud_status_connecting`, `cloud_status_connected`, `cloud_status_disconnecting`, `cloud_status_disconnected` |
+|       | button_status | 128 | button pressed or released | the duration in ms the button was pressed: 0 when pressed, >0 on release. |
+|       | firmware_update | 256 | firmware update status | one of `firmware_update_begin`, `firmware_update_progress`, `firmware_update_complete`, `firmware_update_failed` |
+|       | firmware_update_pending | 512 | notifies the application that a firmware update is available. This event is sent even when updates are disabled, giving the application chance to re-enable firmware updates with `System.enableUpdates()` | not used |
+|       | reset_pending | 1024 | notifies the application that the system would like to reset. This event is sent even when resets are disabled, giving the application chance to re-enable resets with `System.enableReset()` | not used |
+|       | reset | 2048 | notifies that the system will reset once the application has completed handling this event | not used |
+|       | button_click | 4096 | event sent each time setup button is clicked. | `int clicks = system_button_clicks(param); ` retrieves the number of clicks so far. |
+|       | button_final_click | 8192 | sent after a run of one or more clicks not followed by additional clicks. Unlike the `button_click` event, the `button_final_click` event is sent once, at the end of a series of clicks. | `int clicks = system_button_clicks(param); ` retrieves the number of times the button was pushed. |
+| 0.6.1 | time_changed | 16384 | device time changed | `time_changed_manually` or `time_changed_sync` |
+| 0.6.1 | low_battery | 32768 | generated when low battery condition is detected. | not used |
 
 
 ## System Modes
@@ -8027,13 +8978,9 @@ void loop() {
 The semi-automatic mode is therefore much like the automatic mode, except:
 
 - When the device boots up, `setup()` and `loop()` will begin running immediately.
-- Once the user calls [`Particle.connect()`](#particle-connect-), the user code will be blocked between calls of `loop()` while the device attempts to negotiate a connection. This connection will block execution of `loop()` until either the device connects to the Cloud or an interrupt is fired that calls [`Particle.disconnect()`](#particle-disconnect-).
-
-To block inside `setup()` or `loop()` during the connection attempt, use `waitFor`.
+- Once the user calls [`Particle.connect()`](#particle-connect-), the user code will be blocked while the device attempts to negotiate a connection. This connection will block execution of `loop()` or `setup()` until either the device connects to the Cloud or an interrupt is fired that calls [`Particle.disconnect()`](#particle-disconnect-).
 
 `Particle.connect();
-
-waitFor(Particle.connected, 30000);`
 
 ### Manual mode
 
@@ -8069,7 +9016,7 @@ When using manual mode:
 {{#if has-threading}}
 ## System Thread
 
-*Since 0.4.6.*
+_Since 0.4.6_
 
 {{#if electron}}**Please note:** The System Thread feature is in Beta - we advise only using this
 in production after extensive testing.{{/if}}
@@ -8482,7 +9429,7 @@ at compile time and inline the function calls, reducing overhead to a minimum.
 
 ### freeMemory()
 
-*Since v0.4.4.*
+_Since 0.4.4_
 
 Retrieves the amount of free memory in the system in bytes.
 
@@ -8735,7 +9682,7 @@ System.sleep(D1,RISING,60);
 _Since 0.4.5._ The state of the {{network-type}} and Cloud connections is restored when the system wakes up from sleep. So if the device was connected to the cloud before sleeping, then the cloud connection
 is automatically resumed on waking up.
 
-_Since 0.5.0._ In automatic modes, the `sleep()` function doesn't return until the cloud connection has been established. This means that application code can use the cloud connection as soon as  `sleep()` returns. In previous versions, it was necessary to call `Particle.process()` to have the cloud reconnected by the system in the background.  
+_Since 0.5.0_ In automatic modes, the `sleep()` function doesn't return until the cloud connection has been established. This means that application code can use the cloud connection as soon as  `sleep()` returns. In previous versions, it was necessary to call `Particle.process()` to have the cloud reconnected by the system in the background.  
 
 {{/if}} {{!-- has-sleep --}}
 
@@ -8794,7 +9741,7 @@ Returns `true` if the system needs to reset the device.
 
 ### Reset Reason
 
-*Since 0.6.0*
+_Since 0.6.0_
 
 The system can track the hardware and software resets of the device.
 
@@ -9148,6 +10095,116 @@ system("my_command");
 
 {{/if}} {{!-- has-linux --}}
 
+{{#if has-button-mirror}}
+### buttonMirror()
+
+_Since 0.6.1_
+
+Allows a pin to mirror the functionality of the SETUP/MODE button.
+
+```C++
+// SYNTAX
+System.buttonMirror(D1, RISING);
+System.buttonMirror(D1, FALLING, true);
+```
+Parameters:
+
+  * `pin`: the pin number
+  * `mode`: defines the condition that signifies a button press:
+    - RISING to trigger when the pin goes from low to high,
+    - FALLING for when the pin goes from high to low.
+  * `bootloader`: (optional) if `true`, the mirror pin configuration is saved in DCT and pin mirrors the SETUP/MODE button functionality while in bootloader as well. If `false`, any previously stored configuration is removed from the DCT and pin only mirrors the SETUP/MODE button while running the firmware (default).
+
+See also [`System.disableButtonMirror()`](#disablebuttonmirror-).
+
+```cpp
+// EXAMPLE
+// Mirror SETUP/MODE button on D1 pin. Button pressed state - LOW
+STARTUP(System.buttonMirror(D1, FALLING));
+
+// EXAMPLE
+// Mirror SETUP/MODE button on D1 pin. Button pressed state - HIGH
+// Works in both firmware and bootloader
+STARTUP(System.buttonMirror(D1, RISING, true));
+```
+
+***NOTE:*** Pins `D0` and `A5` will disable normal SETUP button operation. Pins `D0` and `A5` also can not be used in bootloader, the configuration will not be saved in DCT.
+
+### disableButtonMirror()
+
+_Since 0.6.1_
+
+Disables SETUP button mirroring on a pin.
+
+```C++
+// SYNTAX
+System.disableButtonMirror();
+System.disableButtonMirror(false);
+```
+Parameters:
+  * `bootloader`: (optional) if `true`, the mirror pin configuration is cleared from the DCT, disabling the feature in bootloader (default).
+
+{{/if}} {{!-- button-mirror --}}
+
+{{#if has-backup-ram}}
+### System Features
+
+The system allows to alter certain aspects of its default behavior via the system features. The following system features are defined:
+
+  * `FEATURE_RETAINED_MEMORY` : enables/disables retained memory on backup power (disabled by default) (see [Enabling Backup RAM (SRAM)](#enabling-backup-ram-sram-))
+{{#if has-powersave-clock}}
+  * `FEATURE_WIFI_POWERSAVE_CLOCK` : enables/disables the Wi-Fi Powersave Clock on P1S6 on P1 (enabled by default).
+{{/if}} {{!-- has-powersave-clock --}}
+
+#### FEATURE_RETAINED_MEMORY
+
+Enables/disables retained memory on backup power (disabled by default) (see [Enabling Backup RAM (SRAM)](#enabling-backup-ram-sram-))
+
+```cpp
+// SYNTAX
+// enable RETAINED MEMORY
+System.enableFeature(FEATURE_RETAINED_MEMORY);
+
+// disable RETAINED MEMORY (default)
+System.disableFeature(FEATURE_RETAINED_MEMORY);
+```
+{{/if}} {{!-- has-backup-ram --}}
+
+{{#if has-powersave-clock}}
+#### FEATURE_WIFI_POWERSAVE_CLOCK
+
+_Since 0.6.1_
+
+```cpp
+// SYNTAX
+// enable POWERSAVE_CLOCK on P1S6 on P1 (default)
+System.enableFeature(FEATURE_WIFI_POWERSAVE_CLOCK);
+
+// disable POWERSAVE_CLOCK on P1S6 on P1
+System.disableFeature(FEATURE_WIFI_POWERSAVE_CLOCK);
+```
+
+Enables/disables the Wi-Fi Powersave Clock on P1S6 on P1 (enabled by default). Useful for gaining 1 additional GPIO or PWM output on the P1.  When disabled, the 32kHz oscillator will not be running on this pin, and subsequently Wi-Fi Eco Mode (to be defined in the future) will not be usable.
+
+**Note:** the FEATURE_WIFI_POWERSAVE_CLOCK feature setting is remembered even after power off or when entering safe mode. This is to allow your device to be configured once and then continue to function with the feature enabled/disabled.
+
+
+```cpp
+// Use the STARTUP() macro to disable the powersave clock at the time of boot
+STARTUP(System.disableFeature(FEATURE_WIFI_POWERSAVE_CLOCK));
+
+void setup() {
+  pinMode(P1S6, OUTPUT);
+  analogWrite(P1S6, 128); // set PWM output on P1S6 to 50% duty cycle
+}
+
+void loop() {
+  // your loop code
+}
+```
+{{/if}} {{!-- has-powersave-clock --}}
+
+
 ## OTA Updates
 
 Application firmware can use these functions to turn on or off OTA updates.
@@ -9338,7 +10395,7 @@ Returns:
 
 ### format()
 
-*Since 0.4.6.*
+_Since 0.4.6_
 
 Provides printf-style formatting for strings.
 

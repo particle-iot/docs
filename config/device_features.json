@@ -13,7 +13,8 @@
     "interrupts",
     "sleep",
     "software-timers",
-    "eeprom"
+    "eeprom",
+    "spi-settings"
   ],
   "Photon": [
     "stm32f2",
@@ -40,7 +41,11 @@
     "sleep",
     "usb-hid",
     "software-timers",
-    "eeprom"
+    "eeprom",
+    "button-mirror",
+    "rgb-mirror",
+    "spi-settings",
+    "powersave-clock"
   ],
   "Electron": [
     "stm32f2",
@@ -68,7 +73,10 @@
     "sleep",
     "usb-hid",
     "software-timers",
-    "eeprom"
+    "eeprom",
+    "button-mirror",
+    "rgb-mirror",
+    "spi-settings"
   ],
   "Raspberry Pi": [
     "linux",
