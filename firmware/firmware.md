@@ -12503,8 +12503,8 @@ Please go to Github to read the Changelog for your desired firmware version (Cli
 
 |Firmware Version (Github Release Notes)|
 |:-:|:-:|:-:|:-:|:-:|
-|v0.6.x default releases|[v0.6.0](https://github.com/spark/firmware/releases/tag/v0.6.0)||||
-|v0.6.x-rc.x prereleases|[v0.6.0-rc.1](https://github.com/spark/firmware/releases/tag/v0.6.0-rc.1)|[v0.6.0-rc.2](https://github.com/spark/firmware/releases/tag/v0.6.0-rc.2)|-|-|
+|v0.6.x default releases|[v0.6.0](https://github.com/spark/firmware/releases/tag/v0.6.0)|[v0.6.1](https://github.com/spark/firmware/releases/tag/v0.6.1)|||
+|v0.6.x-rc.x prereleases|[v0.6.0-rc.1](https://github.com/spark/firmware/releases/tag/v0.6.0-rc.1)|[v0.6.0-rc.2](https://github.com/spark/firmware/releases/tag/v0.6.0-rc.2)|[v0.6.1-rc.1](https://github.com/spark/firmware/releases/tag/v0.6.1-rc.1)|[v0.6.1-rc.2](https://github.com/spark/firmware/releases/tag/v0.6.1-rc.2)|
 |v0.5.x default releases|[v0.5.0](https://github.com/spark/firmware/releases/tag/v0.5.0)|[v0.5.1](https://github.com/spark/firmware/releases/tag/v0.5.1)|[v0.5.2](https://github.com/spark/firmware/releases/tag/v0.5.2)|[v0.5.3](https://github.com/spark/firmware/releases/tag/v0.5.3)|
 |v0.5.x-rc.x prereleases|[v0.5.3-rc.1](https://github.com/spark/firmware/releases/tag/v0.5.3-rc.1)|[v0.5.3-rc.2](https://github.com/spark/firmware/releases/tag/v0.5.3-rc.2)|[v0.5.3-rc.3](https://github.com/spark/firmware/releases/tag/v0.5.3-rc.3)|-|
 
@@ -12514,14 +12514,16 @@ If you don't see any notes below or if they are the wrong version, please select
 
 |Firmware Version (Programming and Debugging Notes in Docs)|
 |:-:|:-:|:-:|:-:|:-:|
-|v0.6.x default releases|[v0.6.0](https://docs.particle.io/reference/firmware/photon/?fw_ver=0.6.0&cli_ver=1.18.0&electron_parts=3#programming-and-debugging-notes)||||
-|v0.6.x-rc.x prereleases|[v0.6.0-rc.1](https://prerelease-docs.particle.io/reference/firmware/photon/?fw_ver=0.6.0-rc.1&cli_ver=1.17.0&electron_parts=3#programming-and-debugging-notes)|[v0.6.0-rc.2](https://prerelease-docs.particle.io/reference/firmware/photon/?fw_ver=0.6.0-rc.2&cli_ver=1.17.0&electron_parts=3#programming-and-debugging-notes)|-|-|
+|v0.6.x default releases|[v0.6.0](https://docs.particle.io/reference/firmware/photon/?fw_ver=0.6.0&cli_ver=1.18.0&electron_parts=3#programming-and-debugging-notes)|[v0.6.1](https://docs.particle.io/reference/firmware/photon/?fw_ver=0.6.1&cli_ver=1.20.0&electron_parts=3#programming-and-debugging-notes)|||
+|v0.6.x-rc.x prereleases|[v0.6.0-rc.1](https://prerelease-docs.particle.io/reference/firmware/photon/?fw_ver=0.6.0-rc.1&cli_ver=1.17.0&electron_parts=3#programming-and-debugging-notes)|[v0.6.0-rc.2](https://prerelease-docs.particle.io/reference/firmware/photon/?fw_ver=0.6.0-rc.2&cli_ver=1.17.0&electron_parts=3#programming-and-debugging-notes)|[v0.6.1-rc.1](https://prerelease-docs.particle.io/reference/firmware/photon/?fw_ver=0.6.1-rc.1&cli_ver=1.18.0&electron_parts=3#programming-and-debugging-notes)|[v0.6.0-rc.2](https://prerelease-docs.particle.io/reference/firmware/photon/?fw_ver=0.6.1-rc.2&cli_ver=1.18.0&electron_parts=3#programming-and-debugging-notes)|
 |v0.5.x default releases|[v0.5.0](https://docs.particle.io/reference/firmware/photon/?fw_ver=0.5.0&cli_ver=1.12.0&electron_parts=2#programming-and-debugging-notes)|[v0.5.1](https://docs.particle.io/reference/firmware/photon/?fw_ver=0.5.1&cli_ver=1.14.2&electron_parts=2#programming-and-debugging-notes)|[v0.5.2](https://docs.particle.io/reference/firmware/photon/?fw_ver=0.5.2&cli_ver=1.15.0&electron_parts=2#programming-and-debugging-notes)|[v0.5.3](https://docs.particle.io/reference/firmware/photon/?fw_ver=0.5.3&cli_ver=1.17.0&electron_parts=2#programming-and-debugging-notes)|
 |v0.5.x-rc.x prereleases|[v0.5.3-rc.1](https://prerelease-docs.particle.io/reference/firmware/photon/?fw_ver=0.5.3-rc.1&cli_ver=1.15.0&electron_parts=2#programming-and-debugging-notes)|[v0.5.3-rc.2](https://prerelease-docs.particle.io/reference/firmware/photon/?fw_ver=0.5.3-rc.2&cli_ver=1.16.0&electron_parts=2#programming-and-debugging-notes)|[v0.5.3-rc.3](https://prerelease-docs.particle.io/reference/firmware/photon/?fw_ver=0.5.3-rc.3&cli_ver=1.16.0&electron_parts=2#programming-and-debugging-notes)|-|
 
 <!--
 CLI VERSION is compatable with FIRMWARE VERSION
-v1.18.0 = 0.6.0
+v1.20.0 = 0.6.1
+v1.19.4 = Particle Libraries v2
+v1.18.0 = 0.6.0, 0.6.1-rc.1, 0.6.1-rc.2
 v1.17.0 = 0.5.3, 0.6.0-rc.1, 0.6.0-rc.2
 v1.16.0 = required to recognize system part 3 of electron, 0.5.3-rc.2, 0.5.3-rc.3
 v1.15.0 = 0.5.2, 0.5.3-rc.1
@@ -12544,12 +12546,16 @@ v1.12.0 = 0.5.0
 ##### @FW_VER@0.5.4endif
 ##### @FW_VER@0.6.0if
 ##### @FW_VER@0.6.0endif
+##### @FW_VER@0.6.1if
+##### @FW_VER@0.6.1endif
 ##### @CLI_VER@1.15.0if
 ##### @CLI_VER@1.15.0endif
 ##### @CLI_VER@1.17.0if
 ##### @CLI_VER@1.17.0endif
 ##### @CLI_VER@1.18.0if
 ##### @CLI_VER@1.18.0endif
+##### @CLI_VER@1.20.0if
+##### @CLI_VER@1.20.0endif
 ##### @ELECTRON_PARTS@2if
 ##### @ELECTRON_PARTS@2endif
 ##### @ELECTRON_PARTS@3if
@@ -12608,6 +12614,8 @@ particle flash --usb tinker
 ##### @FW_VER@0.6.0if
 **Note:** You must update your Electron to (v0.5.3, v0.5.3-rc.2, or v0.5.3-rc.3) first before attempting to use OTA or YModem transfer to update to v0.6.0. If you use DFU over USB, you can update to v0.6.0 directly, but make sure you have installed v1.18.0 of the CLI first.
 ##### @FW_VER@0.6.0endif
+
+**Note:** As a Product in the Console, when flashing a >= 0.6.0 user app, Electrons can now Safe Mode Heal from < 0.5.3 to >= 0.6.0 firmware. This will consume about 500KB of data as it has to transfer two 0.5.3 system parts and three >= 0.6.0 system parts. Devices will not automatically update system firmware if not added as a Product in Console.
 
 **Note**: You must download system binaries to a local directory on your machine for this to work. Binaries are attached to the bottom of the [Github Release Notes](#github-release-notes).
 
@@ -12783,7 +12791,7 @@ dfu-util -d 2b04:d00a -a 0 -s 0x8040000:leave -D system-part3-@FW_VER@-electron.
 **Note:** Upgrading to 0.5.2 will now allow you to downgrade remotely OTA to v0.5.0 or earlier without erasing Wi-Fi credentials.  There are still some cases where a downgrade will erase credentials, but only if you have explicitly set the country code to something other than the `default` or `JP2`.  For example, if you set the country code to `GB0` or `US4`, if you downgrade to v0.5.0 your Wi-Fi credentials will be erased.  Leaving the country code at `default` or set to `JP2` will not erase credentials when downgrading to v0.5.0.  **Do not** downgrade to v0.5.1 first, and then v0.5.0... this will erase credentials in all cases.
 ##### @FW_VER@0.5.2endif
 
-Current defaults system firmware would be the latest non-rc.x firmware version.  E.g. if the current list of default releases was 0.5.1, 0.5.2, **0.5.3** (would be the latest).
+Current default system firmware would be the latest non-rc.x firmware version.  E.g. if the current list of default releases was 0.5.3, 0.6.0, **0.6.1** (would be the latest).
 
 The easiest way to downgrade from a System Firmware Version @FW_VER@ is to use the Particle CLI with a single command.  You will first put the Tinker back on the device, then downgrade the System Firmware. Running the commands in this order prevents the device from automatically re-upgrading (based on user app version dependencies) after downgrading.  This will **require a CLI version associated with your desired default firmware**. To determine which version to use, click on the default version desired in the table under [Programming and Debugging Notes](#programming-and-debugging-notes) and refer to the CLI version required in **The easy local method using Particle CLI** section.
 
