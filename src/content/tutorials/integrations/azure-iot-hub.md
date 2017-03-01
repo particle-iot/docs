@@ -126,6 +126,21 @@ For a full description of authentication and security on Azure IoT Hub,
 please visit the <a
 href="https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-devguide-security" target="_blank">Developer guide on security</a>.
 
+### Device Twin
+
+The device twin is a virtual representation of a device's
+state in IoT Hub, stored as JSON. **Particle will use the twin in IoT Hub to
+sync a device's name in the Particle cloud with Azure**. Device name syncing happens once,
+at the time of creation in the IoT Hub device registry. If no name exists for
+the device at this time, this step will be skipped. Check out the section on
+[confirming date reaches Azure](#confirming-the-data-reaches-azure-iot-hub) for details
+on how to access the name from the device twin once it's synced.
+
+**Note:** Device name syncing with IoT Hub requires that you provide a
+shared access policy to Particle that has the "service connect"
+permission enabled when creating the integration.
+
+
 ## Preconfiguration in Azure IoT Hub
 
 You will need to do some setup in Azure IoT Hub before your integration
@@ -196,7 +211,12 @@ You will need to provide Particle with a shared access policy to allow the Parti
 
 #### Create the new policy
 
-Once your IoT Hub has been successfully created, click on its icon from your Azure portal dashboard. Then, click <strong>Shared access policies</strong> &gt; <strong>+ Add</strong> from the IoT Hub blade. Give your policy a name, and ensure that you only give your new policy <strong>registry read, registry write, and device connect permissions</strong> as shown below:
+Once your IoT Hub has been successfully created, click on its icon from
+your Azure portal dashboard. Then, click <strong>Shared access
+policies</strong> &gt; <strong>+ Add</strong> from the IoT Hub blade.
+Give your policy a name, and ensure that you give  your new policy
+<strong>registry read, registry write, service connect, and device
+connect permissions</strong> (check all the boxes) as shown below:
 
 <img src="/assets/images/azure-iot-hub/create-shared-policy.png"
 alt="Create shared IoT Hub policy"/>
@@ -365,6 +385,24 @@ registry:
 target="_blank" style="max-width:100%;"/>
 
 Yay! You are successfully sending data from Particle devices to your IoT Hub.
+
+If you'd like to get the device name from IoT Hub that was synced from
+Particle, you can run the following command:
+
+```bash
+iothub-explorer get-twin <device-id>
+```
+
+and you should see the `deviceName` attribute in the output:
+
+```bash
+...
+properties:
+  desired:
+    deviceName: <device-name>
+		...
+deviceId: <device-id>
+```
 
 ## Example Use Cases
 
