@@ -29,7 +29,7 @@ function shouldCrawl(qurl) {
 
 describe('Crawler', function() {
   before(function(done) {
-    this.timeout(60000);
+    this.timeout(120000);
     console.log('Building...');
     server = metalsmith.test(done);
   });
