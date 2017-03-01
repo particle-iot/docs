@@ -874,7 +874,7 @@ WiFi.ready();
 ```
 
 {{#if has-wifi-antenna-switch}}
-### selectAntenna()
+### selectAntenna() [Antenna]
 
 Selects which antenna the device should connect to Wi-Fi with and remembers that
 setting until it is changed.
