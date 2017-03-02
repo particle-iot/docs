@@ -1,10 +1,11 @@
+dist: trusty
 # Reduce number of commits fetched by Travis to speed up the build
 git:
   depth: 3
 language: node_js
 sudo: required
 node_js:
-- 5
+- 6
 cache:
   directories:
   - node_modules
