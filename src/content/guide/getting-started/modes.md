@@ -1,6 +1,6 @@
 ---
 title: Device Modes
-template: guide.hbs
+layout: guide.hbs
 columns: two
 devices: [ photon,electron,core ]
 order: 4

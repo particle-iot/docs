@@ -1,6 +1,6 @@
 ---
 title: Electron Billing Guide
-template: guide.hbs
+layout: guide.hbs
 columns: two
 devices: [ electron ]
 order: 8

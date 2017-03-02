@@ -1,6 +1,6 @@
 ---
 title: Particle shields and kits
-template: datasheet.hbs
+layout: datasheet.hbs
 columns: two
 order: 2
 ---

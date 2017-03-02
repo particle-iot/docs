@@ -1,6 +1,6 @@
 ---
 title: Connectivity Help
-template: support.hbs
+layout: support.hbs
 columns: two
 devices: [ photon,core ]
 order: 8

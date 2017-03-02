@@ -1,7 +1,7 @@
 ---
 title: Certification
 columns: two
-template: guide.hbs
+layout: guide.hbs
 order: 9
 ---
 

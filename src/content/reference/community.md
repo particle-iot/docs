@@ -1,6 +1,6 @@
 ---
 title: Community Supported Clients
-template: reference.hbs
+layout: reference.hbs
 columns: two
 order: 10
 ---

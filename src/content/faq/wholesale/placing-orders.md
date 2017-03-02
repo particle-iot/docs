@@ -1,6 +1,6 @@
 ---
 title: Wholesale Store Order Placement
-template: faq.hbs
+layout: faq.hbs
 columns: two
 order: 200
 ---

@@ -1,7 +1,7 @@
 ---
 title: SIM Management
 columns: two
-template: guide.hbs
+layout: guide.hbs
 devices: [ electron ]
 order: 10
 ---

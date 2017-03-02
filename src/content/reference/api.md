@@ -1,6 +1,6 @@
 ---
 title: Cloud API
-template: api.hbs
+layout: api.hbs
 columns: three
 order: 2
 ---

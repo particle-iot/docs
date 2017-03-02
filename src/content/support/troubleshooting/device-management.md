@@ -1,6 +1,6 @@
 ---
 title: Device Ownership
-template: support.hbs
+layout: support.hbs
 columns: two
 devices: [ photon,electron,core ]
 order: 3

@@ -1,6 +1,6 @@
 ---
 title: Google Cloud Platform
-template: tutorials.hbs
+layout: tutorials.hbs
 columns: two
 order: 100
 ---

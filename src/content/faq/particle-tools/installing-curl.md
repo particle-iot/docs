@@ -1,6 +1,6 @@
 ---
 title: Installing curl (for Windows)
-template: faq.hbs
+layout: faq.hbs
 columns: two
 devices: [ photon,electron,core ]
 order: 1100

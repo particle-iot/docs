@@ -1,6 +1,6 @@
 ---
 title: Local build using gcc-arm
-template: faq.hbs
+layout: faq.hbs
 columns: two
 devices: [ photon,electron,core ]
 order: 1001

@@ -1,6 +1,6 @@
 ---
 title: Wholesale Shipping
-template: faq.hbs
+layout: faq.hbs
 columns: two
 order: 400
 ---

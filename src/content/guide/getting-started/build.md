@@ -1,6 +1,6 @@
 ---
 title: Web IDE (Build)
-template: guide.hbs
+layout: guide.hbs
 columns: two
 devices: [ electron,photon,core,raspberry-pi ]
 order: 6

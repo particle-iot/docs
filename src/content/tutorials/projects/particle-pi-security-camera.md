@@ -1,6 +1,6 @@
 ---
 title: Raspberry Pi Security Camera
-template: tutorials.hbs
+layout: tutorials.hbs
 columns: two
 order: 10
 ---

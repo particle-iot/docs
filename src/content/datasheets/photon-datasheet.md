@@ -1,6 +1,6 @@
 ---
 title: Photon datasheet
-template: datasheet.hbs
+layout: datasheet.hbs
 columns: two
 order: 3
 ---

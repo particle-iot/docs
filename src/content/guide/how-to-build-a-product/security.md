@@ -1,7 +1,7 @@
 ---
 title: Security
 columns: two
-template: guide.hbs
+layout: guide.hbs
 order: 5
 ---
 

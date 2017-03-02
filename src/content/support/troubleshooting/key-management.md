@@ -1,6 +1,6 @@
 ---
 title: Device Keys
-template: support.hbs
+layout: support.hbs
 columns: two
 devices: [ photon,electron,core,raspberry-pi ]
 order: 7

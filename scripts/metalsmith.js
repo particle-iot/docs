@@ -12,7 +12,7 @@
 
 var Metalsmith = require('metalsmith');
 var markdown = require('metalsmith-markdown');
-var templates = require('metalsmith-templates');
+var layouts = require('metalsmith-layouts');
 var serve = require('metalsmith-serve');
 var moveUp = require('metalsmith-move-up');
 var less = require('metalsmith-less');
@@ -247,9 +247,9 @@ exports.metalsmith = function() {
     }))
     // For files that have a template frontmatter key, look for that template file in the configured directory and
     // render that template using the Metalsmith file with all its keys as context
-    .use(templates({
+    .use(layouts({
       engine: 'handlebars',
-      directory: '../templates'
+      directory: '../templates/layouts'
     }))
     // Rename files so that about.html is converted into about/index.html
     .use(permalinks({
@@ -319,11 +319,11 @@ exports.server = function(callback) {
         paths: {
           '${source}/content/**/*.md': true,
           '${source}/assets/less/*.less': 'assets/less/*.less',
-          '../templates/reference.hbs': 'content/reference/*.md',
-          '../templates/guide.hbs': 'content/guide/**/*.md',
-          '../templates/datasheet.hbs': 'content/datasheets/*.md',
-          '../templates/support.hbs': 'content/support/**/*.md',
-          '../templates/suppMenu.hbs': 'content/support/**/*.md',
+          '../templates/layouts/reference.hbs': 'content/reference/*.md',
+          '../templates/layouts/guide.hbs': 'content/guide/**/*.md',
+          '../templates/layouts/datasheet.hbs': 'content/datasheets/*.md',
+          '../templates/layouts/support.hbs': 'content/support/**/*.md',
+          '../templates/layouts/suppMenu.hbs': 'content/support/**/*.md',
           '${source}/assets/js/*.js*' : true,
           '${source}/assets/images/*' : true,
           '../config/device_features.json': 'content/**/*.md',

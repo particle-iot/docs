@@ -1,7 +1,7 @@
 ---
 word: CLI
 title: Command Line Interface (CLI)
-template: reference.hbs
+layout: reference.hbs
 columns: three
 order: 3
 ---

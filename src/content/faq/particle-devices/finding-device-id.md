@@ -1,6 +1,6 @@
 ---
 title: Finding your device ID
-template: faq.hbs
+layout: faq.hbs
 columns: two
 devices: [ photon,electron,core ]
 order: 1010

@@ -1,6 +1,6 @@
 ---
 title: Firmware
-template: reference.hbs
+layout: reference.hbs
 columns: three
 devices: [photon,electron,core,raspberry-pi]
 order: 1

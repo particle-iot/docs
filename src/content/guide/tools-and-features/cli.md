@@ -4,7 +4,7 @@ title: Command Line
 order: 4
 columns: two
 devices: [electron,photon,core,raspberry-pi]
-template: guide.hbs
+layout: guide.hbs
 ---
 
 # Particle CLI

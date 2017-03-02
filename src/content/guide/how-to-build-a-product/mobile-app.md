@@ -1,7 +1,7 @@
 ---
 title: Building your own mobile app (iOS and Android)
 columns: two
-template: guide.hbs
+layout: guide.hbs
 order: 7
 ---
 

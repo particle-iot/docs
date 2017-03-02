@@ -1,6 +1,6 @@
 ---
 title: 3rd-party SIM cards
-template: faq.hbs
+layout: faq.hbs
 columns: two
 devices: [ electron ]
 order: 1020

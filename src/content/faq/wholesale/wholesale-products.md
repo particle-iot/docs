@@ -1,6 +1,6 @@
 ---
 title: Wholesale Products
-template: faq.hbs
+layout: faq.hbs
 columns: two
 order: 300
 ---

@@ -1,6 +1,6 @@
 ---
 title: Electron datasheet
-template: datasheet.hbs
+layout: datasheet.hbs
 columns: two
 order: 4
 ---

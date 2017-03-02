@@ -1,6 +1,6 @@
 ---
 title: Connecting over USB
-template: guide.hbs
+layout: guide.hbs
 columns: two
 devices: [ photon,electron,core ]
 order: 3

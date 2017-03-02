@@ -1,6 +1,6 @@
 ---
 title: P1 datasheet
-template: datasheet.hbs
+layout: datasheet.hbs
 columns: two
 order: 5
 ---

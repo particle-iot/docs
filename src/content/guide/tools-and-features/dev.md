@@ -4,7 +4,7 @@ title: Desktop IDE (Dev)
 order: 2
 shared: true
 columns: two
-template: guide.hbs
+layout: guide.hbs
 ---
 
 # Desktop IDE (Dev)

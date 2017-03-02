@@ -53,7 +53,7 @@ module.exports = function(options) {
 
 			file.keyString = JSON.stringify(forkLocations);
 			file.contents = templateContents;
-			delete file.template;
+			delete file.layout;
 
 			// rename from .XXX (original extension) to .YYY (extension of redirectTemplate)
 			files[path.join(path.dirname(fileName), path.basename(fileName, path.extname(fileName)) + redirectExtensions)] = file;

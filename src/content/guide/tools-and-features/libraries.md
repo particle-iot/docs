@@ -3,7 +3,7 @@ word: Firmware Libraries
 title: Firmware Libraries
 order: 9
 columns: two
-template: guide.hbs
+layout: guide.hbs
 ---
 
 # {{title}}

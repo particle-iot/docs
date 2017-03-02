@@ -1,6 +1,6 @@
 ---
 title: Electron Product Changelog
-template: reference.hbs
+layout: reference.hbs
 columns: two
 order: 11
 ---

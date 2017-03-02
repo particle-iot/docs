@@ -1,6 +1,6 @@
 ---
 title: Webhooks
-template: tutorials.hbs
+layout: tutorials.hbs
 columns: two
 order: 300
 ---

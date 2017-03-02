@@ -1,6 +1,6 @@
 ---
 title: LED Troubleshooting
-template: faq.hbs
+layout: faq.hbs
 columns: two
 devices: [ photon,electron,core,raspberry-pi ]
 order: 1000

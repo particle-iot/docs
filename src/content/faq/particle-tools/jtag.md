@@ -1,6 +1,6 @@
 ---
 title: JTAG and SWD
-template: faq.hbs
+layout: faq.hbs
 columns: two
 devices: [ photon,electron,core ]
 order: 1005

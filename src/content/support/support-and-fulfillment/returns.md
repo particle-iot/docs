@@ -1,6 +1,6 @@
 ---
 title: Returns
-template: support.hbs
+layout: support.hbs
 columns: two
 order: 3
 ---

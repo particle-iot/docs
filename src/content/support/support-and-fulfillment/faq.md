@@ -1,6 +1,6 @@
 ---
 title: Other FAQ
-template: support.hbs
+layout: support.hbs
 columns: two
 order: 4
 ---

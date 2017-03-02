@@ -30,6 +30,7 @@
     "metalsmith-if": "0.0.1",
     "metalsmith-ignore": "git://github.com/spark/metalsmith-ignore",
     "metalsmith-in-place": "^1.0.1",
+    "metalsmith-layouts": "^1.8.0",
     "metalsmith-less": "^2.0.0",
     "metalsmith-lunr": "git://github.com/spark/metalsmith-lunr#0.3.0",
     "metalsmith-markdown": "spark/metalsmith-markdown#0.4.1",
@@ -40,7 +41,6 @@
     "metalsmith-register-helpers": "git://github.com/brycekahle/metalsmith-register-helpers",
     "metalsmith-register-partials": "git://github.com/spark/metalsmith-register-partials",
     "metalsmith-serve": "0.0.7",
-    "metalsmith-templates": "^0.6.1",
     "metalsmith-watch": "^1.0.1",
     "mocha": "^3.2.0",
     "prettify": "^0.1.7"

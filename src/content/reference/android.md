@@ -1,6 +1,6 @@
 ---
 title: Android SDK
-template: reference.hbs
+layout: reference.hbs
 columns: three
 order: 6
 sdkversion: 0.4.1

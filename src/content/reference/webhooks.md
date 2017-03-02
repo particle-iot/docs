@@ -1,6 +1,6 @@
 ---
 title: Webhooks
-template: reference.hbs
+layout: reference.hbs
 columns: three
 order: 7
 ---

@@ -4,7 +4,7 @@ title: Console
 order: 3
 shared: true
 columns: two
-template: guide.hbs
+layout: guide.hbs
 ---
 
 
