@@ -131,6 +131,10 @@ void loop() {
 
 **NOTE**: Devices are grouped by their platform. You can see the platform icon (circle with an letter) on the left of its name.
 
+- **Status bar**: You can see more information about your currently selected device in the bottom right corner of the Web IDE. It contains the following: Last Event Name, Last Event Data, Device Type, Device Name, Device Status, Device Version. Clicking on the lightbulb will signal the device.
+
+![Web IDE Status Bar](/assets/images/web-ide-status-bar.png)
+
 {{#if raspberry-pi}}
 - **Flash**: Click the "Flash" button, and your code will be sent wirelessly to your device.  If the flash was successful, your device will begin running the app.
 {{else}}
