@@ -1,9 +1,9 @@
 dist: trusty
+sudo: false
 # Reduce number of commits fetched by Travis to speed up the build
 git:
   depth: 3
 language: node_js
-sudo: required
 node_js:
 - 6
 cache:
@@ -13,7 +13,6 @@ before_install:
 - echo -e "machine github.com\n  login $CI_USER_TOKEN" >> ~/.netrc
 - ./scripts/update-api.sh
 install:
-- npm install -g npm
 - npm install
 - npm prune
 script:
