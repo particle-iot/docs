@@ -183,6 +183,8 @@ we'll give you lots of notice and a clear upgrade path.
 {{> api group=apiGroups.Devices}}
 ## Events
 {{> api group=apiGroups.Events}}
+## Integrations
+{{> api group=apiGroups.Integrations}}
 ## Webhooks
 {{> api group=apiGroups.Webhooks}}
 ## Special Events
