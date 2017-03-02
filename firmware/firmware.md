@@ -82,7 +82,7 @@ void loop()
 ```
 
 Up to 20 cloud variables may be registered and each variable name is limited to a maximum of 12 characters.
-
+**Note:** No blanks are allowed in the variable names, otherwise you may get unexpected results. It would be best to stick to the naming conventions that apply to C/C++ variables.
 It is fine to call this function when the cloud is disconnected - the variable
 will be registered next time the cloud is connected.
 
