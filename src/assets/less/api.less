@@ -14,14 +14,21 @@
 	}
 
 	.api-field {
-		text-align: right;
-		min-width: 18%;
+		text-align: left;
+		width: 150px;
+		font-size: 14px;
 		float: left;
 		color: @almost-black;
+		overflow:hidden;
+		word-wrap: break-word;
 	}
 
 	.field-desc {
 		overflow: hidden;
+		padding-right: 0;
+		p {
+			padding: 0;
+		}
 
 		> p:first-child {
 			padding-top: 0;
@@ -41,6 +48,7 @@
 		display: block;
 		color: @another-gray;
 		text-transform: lowercase;
+		font-size: 12px;
 	}
 
 	> li {
@@ -58,19 +66,28 @@
 	}
 
 	.nested-params {
-		margin-left: 30px;
+		margin-left: 10px;
 		padding: 0;
 
 		> li {
 		  overflow: auto;
 		  list-style-type: none;
-	    }
-		
+			&.nested-param {
+				margin-left: 0;
+			}
+		}
 		> li:first-child {
 			border-top-width: 0;
 		}
 		> li:last-child {
 			border-bottom-width: 0;
+		}
+	}
+}
+.content pre.api-request-example {
+	&[data-title="--"] {
+		&:before {
+			display: none;
 		}
 	}
 }
