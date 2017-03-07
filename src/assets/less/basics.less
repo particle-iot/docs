@@ -107,14 +107,16 @@ td {
 a img {
   border: none;
 }
-#docs,
-html,
-body {
-  height: 100%;
-  overflow-y: auto;
-}
-html {
-  overflow-x: hidden;
+@media screen {
+  #docs,
+  html,
+  body {
+	height: 100%;
+	overflow-y: auto;
+  }
+  html {
+	overflow-x: hidden;
+  }
 }
 body,
 td,

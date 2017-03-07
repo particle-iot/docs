@@ -217,12 +217,14 @@ h1 .header-permalinks {
     }
   }
 }
-.content-root {
-  position: absolute;
-  top: 53px;
-  left: 0;
-  right: 0;
-  bottom: 0;
+@media screen {
+  .content-root {
+    position: absolute;
+    top: 53px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
 }
 .content, .content-body {
   padding-top: 20px;
@@ -232,15 +234,17 @@ h1 .header-permalinks {
   zoom: 1;
   max-width: 700px;
 }
-.content-inner {
-  position: absolute;
-  top: 0;
-  right: 0;
-  left: 0;
-  bottom: 0;
-  overflow-y: auto;
-  overflow-x: hidden;
-  -webkit-transform: translate3d(0,0,0);
+@media screen {
+  .content-inner {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    overflow-y: auto;
+    overflow-x: hidden;
+    -webkit-transform: translate3d(0,0,0);
+  }
 }
 .content:before,
 .content:after {
@@ -504,20 +508,22 @@ h1 small.beta {
   vertical-align: text-top;
 }
 
-.page-body {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  right: 0;
-  overflow-y: auto;
-  -webkit-transform: translate3d(0,0,0);
-  z-index: @pageBodyZindex;
-  background: @white;
-  left: @menubarWidth;
+@media screen {
+  .page-body {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    overflow-y: auto;
+    -webkit-transform: translate3d(0,0,0);
+    z-index: @pageBodyZindex;
+    background: @white;
+    left: @menubarWidth;
 
-  // Start with menu hidden on mobile
-  @media(max-width: @medium-size) {
-    left: 0;
+    // Start with menu hidden on mobile
+    @media(max-width: @medium-size) {
+      left: 0;
+    }
   }
 }
 
@@ -804,10 +810,12 @@ hr {
   table {
     margin: 40px auto;
   }
-  .content pre > code {
-    background: #272822;
-    border-radius: 2px;
-    padding: 10px;
+  @media screen {
+    .content pre > code {
+      background: #272822;
+      border-radius: 2px;
+      padding: 10px;
+    }
   }
   .content h4, .content h5, .content .small-heading, body:not(.big-h3) .content h3 {
     margin-bottom: 10px;
