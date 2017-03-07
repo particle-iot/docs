@@ -12521,13 +12521,82 @@ For advanced use cases, those functions are available for use in addition to the
 
 ## Preprocessor
 
-`#pragma SPARK_NO_PREPROCESSOR`
-
 When you are using the Particle Cloud to compile your `.ino` source code, a preprocessor comes in to modify the code into C++ requirements before producing the binary file used to flash onto your devices.
 
-It automatically adds the line `#include "Particle.h"` to the top of the file and adds prototypes for your functions so your code can call functions declared later in the source code.
+```
+// EXAMPLE
+/* This is my awesome app! */
+#include "TinyGPS++.h"
 
-If you are getting unexpected errors when compiling valid code, it could be the preprocessor causing issues in your code. You can disable the preprocessor by adding the pragma line above.
+TinyGPSPlus gps;
+enum State { GPS_START, GPS_STOP };
+
+void updateState(State st); // You must add this prototype
+
+void setup() {
+  updateState(GPS_START);
+}
+
+void updateState(State st) {
+  // ...
+}
+
+void loop() {
+  displayPosition(gps);
+}
+
+void displayPosition(TinyGPSPlus &gps) {
+  // ...
+}
+
+// AFTER PREPROCESSOR
+#include "Particle.h" // <-- added by preprocessor
+/* This is my awesome app! */
+#include "TinyGPS++.h"
+
+void setup(); // <-- added by preprocessor
+void loop();  // <-- added by preprocessor
+void displayPosition(TinyGPSPlus &gps); // <-- added by preprocessor
+
+TinyGPSPlus gps;
+enum State { GPS_START, GPS_STOP };
+
+void updateState(State st); // You must add this prototype
+
+void setup() {
+  updateState(GPS_START);
+}
+
+void updateState(State st) {
+  // ...
+}
+
+void loop() {
+  displayPosition(gps);
+}
+
+void displayPosition(TinyGPSPlus &gps) {
+  // ...
+}
+```
+
+The preprocessor automatically adds the line `#include "Particle.h"` to the top of the file, unless your file already includes "Particle.h", "Arduino.h" or "application.h".
+
+The preprocessor adds prototypes for your functions so your code can call functions declared later in the source code. The function prototypes are added at the top of the file, below `#include` statements.
+
+If you define custom classes, structs or enums in your code, the preprocessor will not add prototypes for functions with those custom types as arguments. This is to avoid putting the prototype before the type definition. This doesn't apply to functions with types defined in libraries. Those functions will get a prototype.
+
+If you need to include another file or define constants before Particle.h gets included, for example to define `PARTICLE_NO_ARDUINO_COMPATIBILITY` to 1 to disalbe Arduino compatibility macros, be sure to include Particle.h manually in the right place.
+
+---
+
+If you are getting unexpected errors when compiling valid code, it could be the preprocessor causing issues in your code. You can disable the preprocessor by adding this pragma line. Be sure to add `#include "Particle.h"` and the function prototypes to your code.
+
+```
+#pragma PARTICLE_NO_PREPROCESSOR
+// 
+#pragma SPARK_NO_PREPROCESSOR
+```
 
 ## Firmware Releases
 
