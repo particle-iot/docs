@@ -5,6 +5,8 @@
   {{> head}}
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 <script src='/assets/js/checkform.js'></script>
+
+<script src="/assets/js/statusio_widget.js"></script>
 </head>
 
 <body onload="detectBrowser()">
@@ -60,9 +62,10 @@
         </div>
         <div class='tile'>
           <a class='resource-tile' href='http://status.particle.io/' target="_blank">
-            <i class='icon-iHelp ion-alert-circled'></i>
+            <i class="current-status-indicator"></i>
             <h3>System Status</h3>
-            <p>Check the Particle Cloud to make sure everything's running smoothly.</p>
+            <h4 id="current-status-description"></h4>
+            <p>Status of Particle Cloud services.</p>
           </a>
         </div>
       </div> {{!-- Help Buttons --}}

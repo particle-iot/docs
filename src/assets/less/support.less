@@ -9,7 +9,7 @@
 	}
 
 	h4 {
-		margin: 10px auto;
+		margin: 0;
     font-size: 18px;
     line-height: 28px;
     max-width: 860px;
@@ -67,6 +67,32 @@
 	font-size: 36px;
 	color: @spark-blue;
 }
+/* Status.io Widget */
+
+.current-status-indicator {
+    width: 36px;
+    height: 36px;
+    margin: 0 0 0 5px;
+    display: inline-block;
+    border-radius: 18px
+}
+
+.current-status-indicator.green {
+    background: #27ae60
+}
+
+.current-status-indicator.yellow {
+    background: #ffa837
+}
+
+.current-status-indicator.red {
+    background: #c44031
+}
+
+.current-status-indicator.blue {
+    background: #00aaf0
+}
+
 //end of Regular sizing
 
 @media (max-width: @medium-size) {
@@ -100,6 +126,13 @@
 	.icon-iHelp {
 		font-size: 22px;
 	}
+	.current-status-indicator {
+	    width: 22px;
+	    height: 22px;
+	    margin: 0 0 0 5px;
+	    display: inline-block;
+	    border-radius: 11px;
+	}
 
 	.resources-wrapper {
 		padding: 5px 5px;
@@ -107,7 +140,6 @@
 		h3 {
 			font-size: 20px;
 		}
-
 		p {
 			font-size: 10px;
 		}
@@ -153,6 +185,13 @@
 
 	.icon-iHelp {
 		font-size: 22px;
+	}
+	.current-status-indicator {
+	    width: 22px;
+	    height: 22px;
+	    margin: 0 0 0 5px;
+	    display: inline-block;
+	    border-radius: 11px;
 	}
 
 	.resources-wrapper {
