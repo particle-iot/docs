@@ -70,31 +70,49 @@
 /* Status.io Widget */
 
 .current-status-indicator {
-    width: 36px;
-    height: 36px;
-    margin: 0 0 0 5px;
-    display: inline-block;
-    border-radius: 18px
+  width: 36px;
+  height: 36px;
+  margin: 0 0 0 5px;
+  display: inline-block;
+  border-radius: 18px
+}
+
+.current-status-incidents {
+  display: block;
+  margin: 0 auto 20px;
+  max-width: 600px;
+  padding: 5px;
+
+  &, &:hover, &:active {
+	color: white;
+  }
+}
+
+.current-status-incidents.empty {
+  display: none;
 }
 
 .current-status-indicator.empty {
   border: 1px solid @dark-gray;
 }
 
-.current-status-indicator.green {
-    background: #27ae60
-}
+.current-status-indicator,
+.current-status-incidents {
+  &.green {
+	background: #27ae60
+  }
 
-.current-status-indicator.yellow {
-    background: #ffa837
-}
+  &.yellow {
+	background: #ffa837
+  }
 
-.current-status-indicator.red {
-    background: #c44031
-}
+  &.red {
+	background: #c44031
+  }
 
-.current-status-indicator.blue {
-    background: #00aaf0
+  &.blue {
+	background: #00aaf0
+  }
 }
 
 //end of Regular sizing

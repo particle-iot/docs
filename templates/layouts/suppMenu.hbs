@@ -18,6 +18,10 @@
 
 <div class="content-root resources-wrapper">
   <div> {{!-- Outer Static Div --}}
+    <a class='current-status-incidents empty' href='http://status.particle.io/' target="_blank">
+      <div>System Status: <span class='current-status-description'></span></div>
+      <div>Check the status page for details</div>
+    </a>
     <div id="res-title">
       <h2>How can we help you today?</h2>
       <h4>We probably have the answer somewhere around here...</h4>
@@ -65,7 +69,7 @@
           <a class='resource-tile' href='http://status.particle.io/' target="_blank">
             <i class="current-status-indicator empty"></i>
             <h3>System Status</h3>
-            <h4 id="current-status-description">Loading...</h4>
+            <h4 class="current-status-description">Loading...</h4>
           </a>
         </div>
       </div> {{!-- Help Buttons --}}

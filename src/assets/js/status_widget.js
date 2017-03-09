@@ -12,8 +12,13 @@ $('.current-status-indicator').ready(function ($) {
     success: function (data) {
       var description = data.status.description;
       var color = colorCodes[data.status.indicator];
-      $("#current-status-description").text(description);
-      $(".current-status-indicator").removeClass("empty").addClass(color);
+      $('.current-status-description').text(description);
+      $('.current-status-indicator').removeClass('empty').addClass(color);
+      if (color !== 'green') {
+        $(".current-status-incidents")
+          .removeClass('empty')
+          .addClass(color);
+      }
     }
   });
 });
