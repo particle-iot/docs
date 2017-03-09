@@ -7292,6 +7292,128 @@ The device synchronizes time with the Particle Cloud during the handshake.
 From then, the time is continually updated on the device.
 This reduces the need for external libraries to manage dates and times.
 
+Before the device gets online and for short intervals, you can use the
+`millis()` and `micros()` functions.
+
+### millis()
+
+Returns the number of milliseconds since the device began running the current program. This number will overflow (go back to zero), after approximately 49 days.
+
+`unsigned long time = millis();`
+
+```C++
+// EXAMPLE USAGE
+
+unsigned long time;
+
+void setup()
+{
+  Serial.begin(9600);
+}
+void loop()
+{
+  Serial.print("Time: ");
+  time = millis();
+  //prints time since program started
+  Serial.println(time);
+  // wait a second so as not to send massive amounts of data
+  delay(1000);
+}
+```
+**Note:**
+The return value for millis is an unsigned long, errors may be generated if a programmer tries to do math with other data types such as ints.
+
+### micros()
+
+Returns the number of microseconds since the device began running the current program.
+
+Firmware v0.4.3 and earlier:
+- This number will overflow (go back to zero), after exactly 59,652,323 microseconds (0 .. 59,652,322) on the Core and after exactly 35,791,394 microseconds (0 .. 35,791,394) on the Photon and Electron.
+
+
+
+`unsigned long time = micros();`
+
+```C++
+// EXAMPLE USAGE
+
+unsigned long time;
+
+void setup()
+{
+  Serial.begin(9600);
+}
+void loop()
+{
+  Serial.print("Time: ");
+  time = micros();
+  //prints time since program started
+  Serial.println(time);
+  // wait a second so as not to send massive amounts of data
+  delay(1000);
+}
+```
+
+### delay()
+
+Pauses the program for the amount of time (in milliseconds) specified as parameter. (There are 1000 milliseconds in a second.)
+
+```C++
+// SYNTAX
+delay(ms);
+```
+
+`ms` is the number of milliseconds to pause *(unsigned long)*
+
+```C++
+// EXAMPLE USAGE
+
+int ledPin = D1;              // LED connected to digital pin D1
+
+void setup()
+{
+  pinMode(ledPin, OUTPUT);    // sets the digital pin as output
+}
+
+void loop()
+{
+  digitalWrite(ledPin, HIGH); // sets the LED on
+  delay(1000);                // waits for a second
+  digitalWrite(ledPin, LOW);  // sets the LED off
+  delay(1000);                // waits for a second
+}
+```
+**NOTE:**
+the parameter for millis is an unsigned long, errors may be generated if a programmer tries to do math with other data types such as ints.
+
+### delayMicroseconds()
+
+Pauses the program for the amount of time (in microseconds) specified as parameter. There are a thousand microseconds in a millisecond, and a million microseconds in a second.
+
+```C++
+// SYNTAX
+delayMicroseconds(us);
+```
+`us` is the number of microseconds to pause *(unsigned int)*
+
+```C++
+// EXAMPLE USAGE
+
+int outPin = D1;              // digital pin D1
+
+void setup()
+{
+  pinMode(outPin, OUTPUT);    // sets the digital pin as output
+}
+
+void loop()
+{
+  digitalWrite(outPin, HIGH); // sets the pin on
+  delayMicroseconds(50);      // pauses for 50 microseconds
+  digitalWrite(outPin, LOW);  // sets the pin off
+  delayMicroseconds(50);      // pauses for 50 microseconds
+}
+```
 
 ### hour()
 
@@ -7644,126 +7766,6 @@ Time.format(Time.now(), "Now it's %I:%M%p.");
 Retrieves the currently configured format string for time formatting with `format()`.
 
 
-### millis()
-
-Returns the number of milliseconds since the device began running the current program. This number will overflow (go back to zero), after approximately 49 days.
-
-`unsigned long time = millis();`
-
-```C++
-// EXAMPLE USAGE
-
-unsigned long time;
-
-void setup()
-{
-  Serial.begin(9600);
-}
-void loop()
-{
-  Serial.print("Time: ");
-  time = millis();
-  //prints time since program started
-  Serial.println(time);
-  // wait a second so as not to send massive amounts of data
-  delay(1000);
-}
-```
-**Note:**
-The return value for millis is an unsigned long, errors may be generated if a programmer tries to do math with other data types such as ints.
-
-### micros()
-
-Returns the number of microseconds since the device began running the current program.
-
-Firmware v0.4.3 and earlier:
-- This number will overflow (go back to zero), after exactly 59,652,323 microseconds (0 .. 59,652,322) on the Core and after exactly 35,791,394 microseconds (0 .. 35,791,394) on the Photon and Electron.
-
-
-
-`unsigned long time = micros();`
-
-```C++
-// EXAMPLE USAGE
-
-unsigned long time;
-
-void setup()
-{
-  Serial.begin(9600);
-}
-void loop()
-{
-  Serial.print("Time: ");
-  time = micros();
-  //prints time since program started
-  Serial.println(time);
-  // wait a second so as not to send massive amounts of data
-  delay(1000);
-}
-```
-
-### delay()
-
-Pauses the program for the amount of time (in milliseconds) specified as parameter. (There are 1000 milliseconds in a second.)
-
-```C++
-// SYNTAX
-delay(ms);
-```
-
-`ms` is the number of milliseconds to pause *(unsigned long)*
-
-```C++
-// EXAMPLE USAGE
-
-int ledPin = D1;              // LED connected to digital pin D1
-
-void setup()
-{
-  pinMode(ledPin, OUTPUT);    // sets the digital pin as output
-}
-
-void loop()
-{
-  digitalWrite(ledPin, HIGH); // sets the LED on
-  delay(1000);                // waits for a second
-  digitalWrite(ledPin, LOW);  // sets the LED off
-  delay(1000);                // waits for a second
-}
-```
-**NOTE:**
-the parameter for millis is an unsigned long, errors may be generated if a programmer tries to do math with other data types such as ints.
-
-### delayMicroseconds()
-
-Pauses the program for the amount of time (in microseconds) specified as parameter. There are a thousand microseconds in a millisecond, and a million microseconds in a second.
-
-```C++
-// SYNTAX
-delayMicroseconds(us);
-```
-`us` is the number of microseconds to pause *(unsigned int)*
-
-```C++
-// EXAMPLE USAGE
-
-int outPin = D1;              // digital pin D1
-
-void setup()
-{
-  pinMode(outPin, OUTPUT);    // sets the digital pin as output
-}
-
-void loop()
-{
-  digitalWrite(outPin, HIGH); // sets the pin on
-  delayMicroseconds(50);      // pauses for 50 microseconds
-  digitalWrite(outPin, LOW);  // sets the pin off
-  delayMicroseconds(50);      // pauses for 50 microseconds
-}
-```
-
 ### isValid()
 
 _Since 0.6.1_
@@ -7799,6 +7801,10 @@ void loop()
 }
 
 ```
+
+### Advanced
+
+For more advanced date parsing, formatting, normalization and manipulation functions, use the C standard library time functions like `mktime`. See the [note about the standard library on the {{device}}](#other-functions) and the [description of the C standard libray time functions](https://en.wikipedia.org/wiki/C_date_and_time_functions).
 
 {{#if has-interrupts}}
 
@@ -10117,7 +10123,7 @@ The same functions used to print to `Serial` like `println` and `printf` are ava
 
 ### Advanced Process Control
 
-Linux process control is a deep topic on its own. If the methods in `Process` don't work for what you're trying to accomplish, you can also use any Linux process control functions like `system`, `fork` and `execve` method directly in your firmware.
+Linux process control is a deep topic on its own. If the methods in `Process` don't work for what you're trying to accomplish, you can also use any Linux process control functions like `system`, `fork` and `execve` method directly in your firmware. See the [note about the standard library on the {{device}}](#other-functions).
 
 ```cpp
 // Run a command using the Linux system() function instead of Process
@@ -12505,7 +12511,13 @@ for (int i = 0; i < arraySize(myPins); i++) {
 
 ## Other Functions
 
-Note that most of the functions in newlib described at [https://sourceware.org/newlib/libc.html](https://sourceware.org/newlib/libc.html) are available for use in addition to the functions outlined above.
+{{#if has-linux}}
+The C standard library and other Linux libraries are available on the {{device}}. See this [description of the standard library](https://en.wikipedia.org/wiki/C_standard_library).
+{{else}}
+The C standard library used on the {{device}} is called newlib and is described at [https://sourceware.org/newlib/libc.html](https://sourceware.org/newlib/libc.html)
+{{/if}} {{!-- has-linux --}}
+
+For advanced use cases, those functions are available for use in addition to the functions outlined above.
 
 ## Preprocessor
 
