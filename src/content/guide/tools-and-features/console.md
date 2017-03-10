@@ -209,7 +209,7 @@ However, releasing firmware also presents a serious risk. The last thing you wou
 
 ### Locking firmware
 
-On the devices page (click <i class="im-devices-icon"></i> in the sidebar), you have the abilitity to lock the firmware version on a device so you can develop and test new firmware before releasing it to your whole fleet. When the device connects, if the firmware version doesn't match the locked version, the Cloud will force an OTA update with that firmware version.
+On the devices page (click <i class="im-devices-icon"></i> in the sidebar), you have the ability to lock the firmware version on a device so you can develop and test new firmware before releasing it to your whole fleet. When the device connects, if the firmware version doesn't match the locked version, the Cloud will force an OTA update with that firmware version.
 
 To lock firmware, find one of your devices in the list of devices and click on the row. A dropdown will appear, populated with each of the firmware versions available for that product. For now, this dropdown may only have one available option (the firmware you just uploaded). Select your firmware from the list.
 

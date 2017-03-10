@@ -4941,7 +4941,7 @@ SPI2.beginTransaction(SPISettings(1*MHZ, LSBFIRST, SPI_MODE3));
 
 Parameters:
 - `clockSpeed`: maximum SPI clock speed (see [`setClockSpeed()`](#setclockspeed))
-- `bitOrder`: bit order of the bits shifted out of and into the SPI bus, either `LSBFIRST` (least-sngnificant bit first) or `MSBFIRST` (most-significant bit first)
+- `bitOrder`: bit order of the bits shifted out of and into the SPI bus, either `LSBFIRST` (least significant bit first) or `MSBFIRST` (most-significant bit first)
 - `dataMode`: `SPI_MODE0`, `SPI_MODE1`, `SPI_MODE2` or `SPI_MODE3` (see [`setDataMode()`](#setdatamode-))
 
 ### beginTransaction()
@@ -6716,7 +6716,7 @@ Parameters:
   - `ping`: PWM-enabled pin number connected to blue LED (see [`analogWrite()`](#analogwrite-pwm-) for a list of PWM-capable pins)
   - `pinb`: PWM-enabled pin number connected to green LED (see [`analogWrite()`](#analogwrite-pwm-) for a list of PWM-capable pins)
   - `invert` (optional): `true` if the connected RGB LED is common-anode, `false` if common-cathode (default).
-  - `bootloader` (optional): if `true`, the RGB mirorring settings are saved in DCT and are used by the bootloader. If `false`, any previously stored configuration is removed from the DCT and RGB mirorring only works while the firmware is running (default).
+  - `bootloader` (optional): if `true`, the RGB mirroring settings are saved in DCT and are used by the bootloader. If `false`, any previously stored configuration is removed from the DCT and RGB mirroring only works while the firmware is running (default).
 
 ### mirrorDisable()
 
@@ -6725,7 +6725,7 @@ _Since 0.6.1_
 Disables RGB LED mirroring.
 
 Parameters:
-  - bootloader: if `true`, RGB mirorring configuration stored in DCT is also cleared disabling RGB mirroring functionality in bootloader (default)
+  - bootloader: if `true`, RGB mirroring configuration stored in DCT is also cleared disabling RGB mirroring functionality in bootloader (default)
 
 {{/if}} {{!-- has-rgb-mirror --}}
 
@@ -8477,7 +8477,7 @@ updated together.
 EEPROM.put(int address, object)
 ```
 
-`address` is the start address (int) of the EERPOM locations to write. It must be a value between 0
+`address` is the start address (int) of the EEPROM locations to write. It must be a value between 0
 and `EEPROM.length()-1`
 
 `object` is the object data to write. The number of bytes to write is automatically determined from
@@ -8520,7 +8520,7 @@ This function will retrieve an object from the EEPROM. Use the same type of obje
 EEPROM.get(int address, object)
 ```
 
-`address` is the start address (int) of the EERPOM locations to read. It must be a value between 0
+`address` is the start address (int) of the EEPROM locations to read. It must be a value between 0
 and `EEPROM.length()-1`
 
 `object` is the object data that would be read. The number of bytes read is automatically determined
@@ -8566,7 +8566,7 @@ Read a single byte of data from the emulated EEPROM.
 uint8_t value = EEPROM.read(int address);
 ```
 
-`address` is the address (int) of the EERPOM location to read
+`address` is the address (int) of the EEPROM location to read
 
 ```C++
 // EXAMPLE USAGE
@@ -8586,7 +8586,7 @@ Write a single byte of data to the emulated EEPROM.
 write(int address, uint8_t value);
 ```
 
-`address` is the address (int) of the EERPOM location to write to
+`address` is the address (int) of the EEPROM location to write to
 `value` is the byte data (uint8_t) to write
 
 ```C++
@@ -8665,7 +8665,7 @@ The STM32F2xx features 4KB of backup RAM (3068 bytes for system firmware v0.6.0 
 Note that _if neither VIN or VBAT is powered then the contents of the backup RAM will be lost; for data to be
 retained, the device needs a power source._  For persistent storage of data through a total power loss, please use the [EEPROM](#eeprom).
 
-Power Conditions and how they relate to Backup RAM initilization and data retention:
+Power Conditions and how they relate to Backup RAM initialization and data retention:
 
 | Power Down Method | Power Up Method | When VIN Powered | When VBAT Powered | SRAM Initialized | SRAM Retained |
 | -: | :- | :-: | :-: | :-: | :-: |
@@ -8865,7 +8865,7 @@ _Since 0.4.9_
 
 System events are messages sent by the system and received by application code. They inform the application about changes in the system, such as when the system has entered setup mode, or when an Over-the-Air (OTA) update starts, or when the system is about to reset.
 
-System events are recieved by the application by registering a handler. The handler has this general format:
+System events are received by the application by registering a handler. The handler has this general format:
 
 ```
 void handler(system_event_t event, int data, void* moredata);
@@ -8941,7 +8941,7 @@ These are the system events produced by the system, their numeric value (what yo
 | Since | Event Name | ID | Description | Parameter |
 |-------|------------|----|-------------|-----------|
 |       | setup_begin | 2 | signals the device has entered setup mode |  not used |
-|       | setup_update | 4 | periodic event signalling the device is still in setup mode. | milliseconds since setup mode was started |
+|       | setup_update | 4 | periodic event signaling the device is still in setup mode. | milliseconds since setup mode was started |
 |       | setup_end | 8 | signals setup mode was exited | time in ms since setup mode was started |
 |       | network_credentials | 16 | network credentials were changed | `network_credentials_added` or `network_credentials_cleared` |
 | 0.6.1 | network_status | 32 | network connection status | one of `network_status_powering_on`, `network_status_on`, `network_status_powering_off`, `network_status_off`, `network_status_connecting`, `network_status_connected` |
@@ -9047,7 +9047,7 @@ When using manual mode:
 
 - The user code will run immediately when the device is powered on.
 - Once the user calls [`Particle.connect()`](#particle-connect-), the device will attempt to begin the connection process.
-- Once the device is connected to the Cloud ([`Particle.connected()`](#particle-connected-)` == true`), the user must call `Particle.process()` regularly to handle incoming messages and keep the connection alive. The more frequently `Particle.process()` is called, the more responsive the device will be to incoming messages.
+- Once the device is connected to the Cloud ([`Particle.connected()`](#particle-connected-) ` == true`), the user must call `Particle.process()` regularly to handle incoming messages and keep the connection alive. The more frequently `Particle.process()` is called, the more responsive the device will be to incoming messages.
 - If `Particle.process()` is called less frequently than every 20 seconds, the connection with the Cloud will die. It may take a couple of additional calls of `Particle.process()` for the device to recognize that the connection has been lost.
 
 
