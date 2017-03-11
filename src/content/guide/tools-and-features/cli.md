@@ -171,7 +171,7 @@ You can write whole apps and flash them remotely from the command line just as y
 Copy and paste the following program into a file called blinky.ino
 
 ```ino
-#Copy me to blinky.ino
+// Copy me to blinky.ino
 #define PIN D7
 int state = 0;
 
