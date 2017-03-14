@@ -9885,7 +9885,7 @@ system interrupts are supported on all platforms:
 |Identifier | Description |
 |-----------|-------------|
 |SysInterrupt_SysTick | System Tick (1ms) handler |
-|SysInterrupt_TIM3 | Timer 3 interrupt | 
+|SysInterrupt_TIM3 | Timer 3 interrupt |
 |SysInterrupt_TIM4 | Timer 4 interrupt |
 
 NB: SysInterrupt_TIM3 and SysInterrupt_TIM4 are used by the system to provide `tone()` and PWM output.
@@ -9919,7 +9919,7 @@ void handle_timer5()
    // called when timer 5 fires an interrupt
 }
 
-void setup() 
+void setup()
 {
     attachSystemInterrupt(SysInterrupt_TIM5, handle_timer5);
 }
@@ -11120,7 +11120,7 @@ Parameters:
 
 #### Community Log Handlers
 
-The log handlers below are written by the community and are not considered "Official" Particle-supported log handlers. If you have any issues with them please raise an issue in the forums or, ideally, in the online repo for the handler. 
+The log handlers below are written by the community and are not considered "Official" Particle-supported log handlers. If you have any issues with them please raise an issue in the forums or, ideally, in the online repo for the handler.
 
 - [Papertrail](https://papertrailapp.com/) Log Handler by [barakwei](https://community.particle.io/users/barakwei/activity). [[Particle Build](https://build.particle.io/libs/585c5e64edfd74acf7000e7a/)] [[GitHub Repo](https://github.com/barakwei/ParticlePapertrail)] [[Known Issues](https://github.com/barakwei/ParticlePapertrail/issues/)]
 - More to come (feel free to add your own by editing the docs on GitHub)
@@ -12586,7 +12586,7 @@ The preprocessor adds prototypes for your functions so your code can call functi
 
 If you define custom classes, structs or enums in your code, the preprocessor will not add prototypes for functions with those custom types as arguments. This is to avoid putting the prototype before the type definition. This doesn't apply to functions with types defined in libraries. Those functions will get a prototype.
 
-If you need to include another file or define constants before Particle.h gets included, for example to define `PARTICLE_NO_ARDUINO_COMPATIBILITY` to 1 to disalbe Arduino compatibility macros, be sure to include Particle.h manually in the right place.
+If you need to include another file or define constants before Particle.h gets included, define `PARTICLE_NO_ARDUINO_COMPATIBILITY` to 1 to disable Arduino compatibility macros, be sure to include Particle.h manually in the right place.
 
 ---
 
@@ -12594,7 +12594,7 @@ If you are getting unexpected errors when compiling valid code, it could be the 
 
 ```
 #pragma PARTICLE_NO_PREPROCESSOR
-// 
+//
 #pragma SPARK_NO_PREPROCESSOR
 ```
 
