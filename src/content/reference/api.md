@@ -183,6 +183,8 @@ we'll give you lots of notice and a clear upgrade path.
 
 ## Devices
 {{> api group=apiGroups.Devices}}
+## Quarantine
+{{> api group=apiGroups.Quarantine}}
 ## SIM Cards
 {{> api group=apiGroups.Sims}}
 ## Events
