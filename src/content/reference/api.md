@@ -167,6 +167,8 @@ codes in the 500 range indicate failure within Particle's server infrastructure.
 
 408 Timed Out - The cloud experienced a significant delay when trying to reach the device.
 
+429 Too Many Requests - You are either making requests too often or too many at the same time. Please slow down.
+
 500 Server errors - Fail whale. Something's wrong on our end.
 ```
 
