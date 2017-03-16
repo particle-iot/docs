@@ -43,8 +43,6 @@ The new nullability annotations have been integrated into the Particle iOS Cloud
 
 All SDK callbacks return real optionals (`SparkDevice?`) instead of implicitly unwrapped optionals (`SparkDevice!`). See Swift examples below. Basically only a simple change required from the SDK user: to replace your callback argument types from `!` suffix to `?` suffix.
 
-...
-
 ### Getting Started
 
 - Perform the installation step described under the **Installation** section below for integrating in your own project
@@ -574,8 +572,8 @@ Be sure to replace `YourAppName` with your project name.
 ### Deploying apps with the Particle Cloud SDK
 
 Starting iOS 10 / XCode 8, Apple requires the developer to enable *Keychain sharing* under the app Capabilities tab when clicking on your target in the project navigator pane. Otherwise an exception will be thrown when a user logs in, the the SDK tries to write the session token to the secure keychain and will fail without this capability enabled.
+Consult this [screenshot](http://i63.tinypic.com/szc3nc.png) for reference:
 
-Consult this screenshot for reference:
 ![Keychain sharing screenshot](http://i63.tinypic.com/szc3nc.png "Enable keychain sharing capability before deploying")
 
 ### Installation
@@ -643,33 +641,33 @@ To get this example app running, clone it, open the project in XCode and:
 
 #### SparkCloud class
 
-##### `@property (nonatomic, strong, nullable, readonly) NSString* loggedInUsername`
+  `@property (nonatomic, strong, nullable, readonly) NSString* loggedInUsername`
 
 Currently logged in user name, nil if no valid session
 
-##### `@property (nonatomic, readonly) BOOL isAuthenticated`
+  `@property (nonatomic, readonly) BOOL isAuthenticated`
 
 Currently authenticated (does a access token exist?)
 
-##### `@property (nonatomic, strong, nullable, readonly) NSString *accessToken`
+  `@property (nonatomic, strong, nullable, readonly) NSString *accessToken`
 
 Current session access token string, nil if not logged in
 
-##### `@property (nonatomic, nullable, strong) NSString *oAuthClientId`
+  `@property (nonatomic, nullable, strong) NSString *oAuthClientId`
 
 oAuthClientId unique for your app, use 'particle' for development or generate your OAuth creds for production apps (https://docs.particle.io/reference/api/#create-an-oauth-client)
 
-##### `@property (nonatomic, nullable, strong) NSString *oAuthClientSecret`
+  `@property (nonatomic, nullable, strong) NSString *oAuthClientSecret`
 
 oAuthClientSecret unique for your app, use 'particle' for development or generate your OAuth creds for production apps (https://docs.particle.io/reference/api/#create-an-oauth-client)
 
-##### `+ (instancetype)sharedInstance`
+  `+ (instancetype)sharedInstance`
 
 Singleton instance of SparkCloud class
 
  * **Returns:** initialized SparkCloud singleton
 
-##### `-(NSURLSessionDataTask *)loginWithUser:(NSString *)user password:(NSString *)password completion:(nullable SparkCompletionBlock)completion`
+  `-(NSURLSessionDataTask *)loginWithUser:(NSString *)user password:(NSString *)password completion:(nullable SparkCompletionBlock)completion`
 
 Login with existing account credentials to Spark cloud
 
@@ -678,7 +676,7 @@ Login with existing account credentials to Spark cloud
    * `password` — Password
    * `completion` — Completion block will be called when login finished, NS/Error object will be passed in case of an error, nil if success
 
-##### `-(NSURLSessionDataTask *)createUser:(NSString *)username password:(NSString *)password accountInfo:(nullable NSDictionary *)accountInfo completion:(nullable SparkCompletionBlock)completion`
+  `-(NSURLSessionDataTask *)createUser:(NSString *)username password:(NSString *)password accountInfo:(nullable NSDictionary *)accountInfo completion:(nullable SparkCompletionBlock)completion`
 
 Sign up with new account credentials to Particle cloud
 
@@ -688,7 +686,7 @@ Sign up with new account credentials to Particle cloud
    * `accountInfo` — Optional dictionary with extended account info fields: firstName, lastName, isBusinessAccount [NSNumber @0=false, @1=true], companyName
    * `completion` — Completion block will be called when sign-up finished, NSError object will be passed in case of an error, nil if success
 
-##### `-(nullable NSURLSessionDataTask *)createCustomer:(NSString *)username password:(NSString *)password productId:(NSUInteger)productId accountInfo:(nullable NSDictionary *)accountInfo completion:(nullable SparkCompletionBlock)completion`
+  `-(nullable NSURLSessionDataTask *)createCustomer:(NSString *)username password:(NSString *)password productId:(NSUInteger)productId accountInfo:(nullable NSDictionary *)accountInfo completion:(nullable SparkCompletionBlock)completion`
 
 Sign up with new account credentials to Spark cloud
 
@@ -699,18 +697,18 @@ Sign up with new account credentials to Spark cloud
    * `accountInfo` — Optional account information metadata that contains fields: first_name, last_name, company_name, business_account [boolean] - currently has no effect for customers
    * `completion` — Completion block will be called when sign-up finished, NSError object will be passed in case of an error, nil if success
 
-##### `-(void)logout`
+  `-(void)logout`
 
 Logout user, remove session data
 
-##### `-(BOOL)injectSessionAccessToken:(NSString * _Nonnull)accessToken`
+  `-(BOOL)injectSessionAccessToken:(NSString * _Nonnull)accessToken`
 
 Inject session access token received from a custom backend service in case Two-legged auth is being used. This session expected not to expire, or at least SDK won't know about its expiration date.
 
  * **Parameters:** `accessToken` — Particle Access token string
  * **Returns:** YES if session injected successfully
 
-##### `-(BOOL)injectSessionAccessToken:(NSString *)accessToken withExpiryDate:(NSDate *)expiryDate`
+  `-(BOOL)injectSessionAccessToken:(NSString *)accessToken withExpiryDate:(NSDate *)expiryDate`
 
 Inject session access token received from a custom backend service in case Two-legged auth is being used. Session will expire at expiry date.
 
@@ -719,7 +717,7 @@ Inject session access token received from a custom backend service in case Two-l
    * `expiryDate` — Date/time in which session expire and no longer be active - you'll have to inject a new session token at that point.
  * **Returns:** YES if session injected successfully
 
-##### `-(BOOL)injectSessionAccessToken:(NSString *)accessToken withExpiryDate:(NSDate *)expiryDate andRefreshToken:(NSString *)refreshToken`
+  `-(BOOL)injectSessionAccessToken:(NSString *)accessToken withExpiryDate:(NSDate *)expiryDate andRefreshToken:(NSString *)refreshToken`
 
 Inject session access token received from a custom backend service in case Two-legged auth is being used. Session will expire at expiry date, and SDK will try to renew it using supplied refreshToken.
 
@@ -729,7 +727,7 @@ Inject session access token received from a custom backend service in case Two-l
    * `refreshToken` — Refresh token will be used automatically to hit Particle cloud to create a new active session access token.
  * **Returns:** YES if session injected successfully
 
-##### `-(NSURLSessionDataTask *)requestPasswordResetForCustomer:(NSString *)email productId:(NSUInteger)productId completion:(nullable SparkCompletionBlock)completion`
+  `-(NSURLSessionDataTask *)requestPasswordResetForCustomer:(NSString *)email productId:(NSUInteger)productId completion:(nullable SparkCompletionBlock)completion`
 
 Request password reset for customer (in product mode) command generates confirmation token and sends email to customer using org SMTP settings
 
@@ -738,7 +736,7 @@ Request password reset for customer (in product mode) command generates confirma
    * `productId` — Product ID number
    * `completion` — Completion block with NSError object if failure, nil if success
 
-##### `-(NSURLSessionDataTask *)requestPasswordResetForUser:(NSString *)email completion:(nullable SparkCompletionBlock)completion`
+  `-(NSURLSessionDataTask *)requestPasswordResetForUser:(NSString *)email completion:(nullable SparkCompletionBlock)completion`
 
 Request password reset for user command generates confirmation token and sends email to customer using org SMTP settings
 
@@ -746,14 +744,14 @@ Request password reset for user command generates confirmation token and sends e
    * `email` — user email
    * `completion` — Completion block with NSError object if failure, nil if success
 
-##### `-(NSURLSessionDataTask *)getDevices:(nullable void (^)(NSArray<SparkDevice *> * _Nullable sparkDevices, NSError * _Nullable error))completion`
+  `-(NSURLSessionDataTask *)getDevices:(nullable void (^)(NSArray<SparkDevice *> * _Nullable sparkDevices, NSError * _Nullable error))completion`
 
 Get an array of instances of all user's claimed devices offline devices will contain only partial data (no info about functions/variables)
 
  * **Parameters:** `completion` — Completion block with the device instances array in case of success or with NSError object if failure
  * **Returns:** NSURLSessionDataTask task for requested network access
 
-##### `-(NSURLSessionDataTask *)getDevice:(NSString *)deviceID completion:(nullable void (^)(SparkDevice * _Nullable device, NSError * _Nullable error))completion`
+  `-(NSURLSessionDataTask *)getDevice:(NSString *)deviceID completion:(nullable void (^)(SparkDevice * _Nullable device, NSError * _Nullable error))completion`
 
 Get a specific device instance by its deviceID. If the device is offline the instance will contain only partial information the cloud has cached, notice that the the request might also take quite some time to complete for offline devices.
 
@@ -762,7 +760,7 @@ Get a specific device instance by its deviceID. If the device is offline the ins
    * `completion` — Completion block with first arguemnt as the device instance in case of success or with second argument NSError object if operation failed
  * **Returns:** NSURLSessionDataTask task for requested network access
 
-##### `-(NSURLSessionDataTask *)claimDevice:(NSString *)deviceID completion:(nullable SparkCompletionBlock)completion`
+  `-(NSURLSessionDataTask *)claimDevice:(NSString *)deviceID completion:(nullable SparkCompletionBlock)completion`
 
 Claim the specified device to the currently logged in user (without claim code mechanism)
 
@@ -771,7 +769,7 @@ Claim the specified device to the currently logged in user (without claim code m
    * `completion` — Completion block with NSError object if failure, nil if success
  * **Returns:** NSURLSessionDataTask task for requested network access
 
-##### `-(NSURLSessionDataTask *)generateClaimCode:(nullable void(^)(NSString * _Nullable claimCode, NSArray * _Nullable userClaimedDeviceIDs, NSError * _Nullable error))completion`
+  `-(NSURLSessionDataTask *)generateClaimCode:(nullable void(^)(NSString * _Nullable claimCode, NSArray * _Nullable userClaimedDeviceIDs, NSError * _Nullable error))completion`
 
 Get a short-lived claiming token for transmitting to soon-to-be-claimed device in soft AP setup process
 
@@ -779,7 +777,7 @@ Get a short-lived claiming token for transmitting to soon-to-be-claimed device i
  * **Returns:** NSURLSessionDataTask task for requested network access
 
 
-##### `-(NSURLSessionDataTask *)generateClaimCodeForProduct:(NSUInteger)productId completion:(nullable void(^)(NSString *_Nullable claimCode, NSArray * _Nullable userClaimedDeviceIDs, NSError * _Nullable error))completion`
+  `-(NSURLSessionDataTask *)generateClaimCodeForProduct:(NSUInteger)productId completion:(nullable void(^)(NSString *_Nullable claimCode, NSArray * _Nullable userClaimedDeviceIDs, NSError * _Nullable error))completion`
 
 Get a short-lived claiming token for transmitting to soon-to-be-claimed device in soft AP setup process for specific product and organization (different API endpoints)
 
@@ -788,7 +786,7 @@ Get a short-lived claiming token for transmitting to soon-to-be-claimed device i
    * `completion` — Completion block with claimCode string returned (48 random bytes base64 encoded to 64 ASCII characters), second argument is a list of the devices currently claimed by current session user and third is NSError object for a failure, nil if success
  * **Returns:** NSURLSessionDataTask task for requested network access
 
-##### `-(nullable id)subscribeToAllEventsWithPrefix:(nullable NSString *)eventNamePrefix handler:(nullable SparkEventHandler)eventHandler`
+  `-(nullable id)subscribeToAllEventsWithPrefix:(nullable NSString *)eventNamePrefix handler:(nullable SparkEventHandler)eventHandler`
 
 Subscribe to the firehose of public events, plus private events published by devices one owns
 
@@ -797,7 +795,7 @@ Subscribe to the firehose of public events, plus private events published by dev
    * `eventName` — Filter only events that match name eventName, if nil is passed any event will trigger eventHandler
  * **Returns:** eventListenerID function will return an id type object as the eventListener registration unique ID - keep and pass this object to the unsubscribe method in order to remove this event listener
 
-##### `-(nullable id)subscribeToMyDevicesEventsWithPrefix:(nullable NSString *)eventNamePrefix handler:(nullable SparkEventHandler)eventHandler`
+  `-(nullable id)subscribeToMyDevicesEventsWithPrefix:(nullable NSString *)eventNamePrefix handler:(nullable SparkEventHandler)eventHandler`
 
 Subscribe to all events, public and private, published by devices one owns
 
@@ -806,7 +804,7 @@ Subscribe to all events, public and private, published by devices one owns
    * `eventNamePrefix` — Filter only events that match name eventNamePrefix, for exact match pass whole string, if nil/empty string is passed any event will trigger eventHandler
  * **Returns:** eventListenerID function will return an id type object as the eventListener registration unique ID - keep and pass this object to the unsubscribe method in order to remove this event listener
 
-##### `-(nullable id)subscribeToDeviceEventsWithPrefix:(nullable NSString *)eventNamePrefix deviceID:(NSString *)deviceID handler:(nullable SparkEventHandler)eventHandler`
+  `-(nullable id)subscribeToDeviceEventsWithPrefix:(nullable NSString *)eventNamePrefix deviceID:(NSString *)deviceID handler:(nullable SparkEventHandler)eventHandler`
 
 Subscribe to events from one specific device. If the API user has the device claimed, then she will receive all events, public and private, published by that device. If the API user does not own the device she will only receive public events.
 
@@ -816,13 +814,13 @@ Subscribe to events from one specific device. If the API user has the device cla
    * `eventHandler` — Event handler function that accepts the event payload dictionary and an NSError object in case of an error
  * **Returns:** eventListenerID function will return an id type object as the eventListener registration unique ID - keep and pass this object to the unsubscribe method in order to remove this event listener
 
-##### `-(void)unsubscribeFromEventWithID:(id)eventListenerID`
+  `-(void)unsubscribeFromEventWithID:(id)eventListenerID`
 
 Unsubscribe from event/events.
 
  * **Parameters:** `eventListenerID` — The eventListener registration unique ID returned by the subscribe method which you want to cancel
 
-##### `-(NSURLSessionDataTask *)publishEventWithName:(NSString *)eventName data:(NSString *)data isPrivate:(BOOL)isPrivate ttl:(NSUInteger)ttl completion:(nullable SparkCompletionBlock)completion`
+  `-(NSURLSessionDataTask *)publishEventWithName:(NSString *)eventName data:(NSString *)data isPrivate:(BOOL)isPrivate ttl:(NSUInteger)ttl completion:(nullable SparkCompletionBlock)completion`
 
 Subscribe to events from one specific device. If the API user has the device claimed, then she will receive all events, public and private, published by that device. If the API user does not own the device she will only receive public events.
 
@@ -837,35 +835,35 @@ Subscribe to events from one specific device. If the API user has the device cla
 
 #### SparkDevice class
 
-##### `typedef void (^SparkCompletionBlock)(NSError * _Nullable error)`
+  `typedef void (^SparkCompletionBlock)(NSError * _Nullable error)`
 
 Standard completion block for API calls, will be called when the task is completed with a nullable error object that will be nil if the task was successful.
 
-##### `@property (strong, nonatomic, readonly) NSString* id`
+  `@property (strong, nonatomic, readonly) NSString* id`
 
 DeviceID string
 
-##### `@property (strong, nullable, nonatomic) NSString* name`
+  `@property (strong, nullable, nonatomic) NSString* name`
 
 Device name. Device can be renamed in the cloud by setting this property. If renaming fails name will stay the same.
 
-##### `@property (nonatomic, readonly) BOOL connected`
+  `@property (nonatomic, readonly) BOOL connected`
 
 Is device connected to the cloud? Best effort - May not accurate reflect true state.
 
-##### `@property (strong, nonatomic, nonnull, readonly) NSArray<NSString *> *functions`
+  `@property (strong, nonatomic, nonnull, readonly) NSArray<NSString *> *functions`
 
 List of function names exposed by device
 
-##### `@property (strong, nonatomic, nonnull, readonly) NSDictionary<NSString *, NSString *> *variables`
+  `@property (strong, nonatomic, nonnull, readonly) NSDictionary<NSString *, NSString *> *variables`
 
 Dictionary of exposed variables on device with their respective types.
 
-##### `@property (strong, nonatomic, readonly) NSString *version`
+  `@property (strong, nonatomic, readonly) NSString *version`
 
 Device firmware version string
 
-##### `-(NSURLSessionDataTask *)getVariable:(NSString *)variableName completion:(nullable void(^)(id _Nullable result, NSError* _Nullable error))completion`
+  `-(NSURLSessionDataTask *)getVariable:(NSString *)variableName completion:(nullable void(^)(id _Nullable result, NSError* _Nullable error))completion`
 
 Retrieve a variable value from the device
 
@@ -873,7 +871,7 @@ Retrieve a variable value from the device
    * `variableName` — Variable name
    * `completion` — Completion block to be called when function completes with the variable value retrieved (as id/Any) or NSError object in case on an error
 
-##### `-(NSURLSessionDataTask *)callFunction:(NSString *)functionName withArguments:(nullable NSArray *)args completion:(nullable void (^)(NSNumber * _Nullable result, NSError * _Nullable error))completion`
+  `-(NSURLSessionDataTask *)callFunction:(NSString *)functionName withArguments:(nullable NSArray *)args completion:(nullable void (^)(NSNumber * _Nullable result, NSError * _Nullable error))completion`
 
 Call a function on the device
 
@@ -882,25 +880,25 @@ Call a function on the device
    * `args` — Array of arguments to pass to the function on the device. Arguments will be converted to string maximum length 63 chars.
    * `completion` — Completion block will be called when function was invoked on device. First argument of block is the integer return value of the function, second is NSError object in case of an error invoking the function
 
-##### `-(NSURLSessionDataTask *)signal:(BOOL)enable completion:(nullable SparkCompletionBlock)completion`
+  `-(NSURLSessionDataTask *)signal:(BOOL)enable completion:(nullable SparkCompletionBlock)completion`
 
 Signal device Will make the onboard LED "shout rainbows" for easy physical identification of a device
 
  * **Parameters:** `enale` — - YES to start or NO to stop LED signal.
 
-##### `-(NSURLSessionDataTask *)refresh:(nullable SparkCompletionBlock)completion`
+  `-(NSURLSessionDataTask *)refresh:(nullable SparkCompletionBlock)completion`
 
 Request device refresh from cloud update online status/functions/variables/device name, etc
 
  * **Parameters:** `completion` — Completion block called when function completes with NSError object in case of an error or nil if success.
 
-##### `-(NSURLSessionDataTask *)unclaim:(nullable SparkCompletionBlock)completion`
+  `-(NSURLSessionDataTask *)unclaim:(nullable SparkCompletionBlock)completion`
 
 Remove device from current logged in user account
 
  * **Parameters:** `completion` — Completion block called when function completes with NSError object in case of an error or nil if success.
 
-##### `-(NSURLSessionDataTask *)rename:(NSString *)newName completion:(nullable SparkCompletionBlock)completion`
+  `-(NSURLSessionDataTask *)rename:(NSString *)newName completion:(nullable SparkCompletionBlock)completion`
 
 Rename device
 
@@ -908,13 +906,13 @@ Rename device
    * `newName` — New device name
    * `completion` — Completion block called when function completes with NSError object in case of an error or nil if success.
 
-##### `-(NSURLSessionDataTask *)getCurrentDataUsage:(nullable void(^)(float dataUsed, NSError* _Nullable error))completion`
+  `-(NSURLSessionDataTask *)getCurrentDataUsage:(nullable void(^)(float dataUsed, NSError* _Nullable error))completion`
 
 Retrieve current data usage report (For Electron only)
 
  * **Parameters:** `completion` — Completion block to be called when function completes with the data used in current payment period in (float)MBs. All devices other than Electron will return an error with -1 value
 
-##### `-(nullable NSURLSessionDataTask *)flashFiles:(NSDictionary *)filesDict completion:(nullable SparkCompletionBlock)completion`
+  `-(nullable NSURLSessionDataTask *)flashFiles:(NSDictionary *)filesDict completion:(nullable SparkCompletionBlock)completion`
 
 Flash files to device
 
@@ -922,7 +920,7 @@ Flash files to device
    * `filesDict` — files dictionary in the following format: @{@"filename.bin" : <NSData>, ...} - that is a NSString filename as key and NSData blob as value. More than one file can be flashed. Data is alway binary.
    * `completion` — Completion block called when function completes with NSError object in case of an error or nil if success. NSError.localized descripion will contain a detailed error report in case of a
 
-##### `-(NSURLSessionDataTask *)flashKnownApp:(NSString *)knownAppName completion:(nullable SparkCompletionBlock)completion`
+  `-(NSURLSessionDataTask *)flashKnownApp:(NSString *)knownAppName completion:(nullable SparkCompletionBlock)completion`
 
 Flash known firmware images to device
 
@@ -930,7 +928,7 @@ Flash known firmware images to device
    * `knownAppName` — NSString of known app name. Currently @"tinker" is supported.
    * `completion` — Completion block called when function completes with NSError object in case of an error or nil if success. NSError.localized descripion will contain a detailed error report in case of a
 
-##### `-(nullable id)subscribeToEventsWithPrefix:(nullable NSString *)eventNamePrefix handler:(nullable SparkEventHandler)eventHandler`
+  `-(nullable id)subscribeToEventsWithPrefix:(nullable NSString *)eventNamePrefix handler:(nullable SparkEventHandler)eventHandler`
 
 Subscribe to events from this specific (claimed) device - both public and private.
 
@@ -938,7 +936,7 @@ Subscribe to events from this specific (claimed) device - both public and privat
    * `eventNamePrefix` — Filter only events that match name eventNamePrefix, for exact match pass whole string, if nil/empty string is passed any event will trigger eventHandler
    * `eventHandler` — Event handler function that accepts the event payload dictionary and an NSError object in case of an error
 
-##### `-(void)unsubscribeFromEventWithID:(id)eventListenerID`
+  `-(void)unsubscribeFromEventWithID:(id)eventListenerID`
 
 Unsubscribe from event/events.
 
