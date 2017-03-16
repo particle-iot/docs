@@ -35,38 +35,15 @@ Code currently refers to `SparkCloud` and `SparkDevice`, this will soon be repla
 
 This SDK is still under development and is currently released as Beta. Although tested, bugs and issues may be present. Some code might require cleanup. In addition, until version 1.0 is released, we cannot guarantee that API calls will not break from one Cloud SDK version to the next. Be sure to consult the [Change Log](https://github.com/spark/spark-sdk-ios/blob/master/CHANGELOG.md) for any breaking changes / additions to the SDK.
 
-
-**Existing SDK users**
-
-Please read carefully:
-
-#### 1) Carthage support
-
-The SDK is now also available as a [Carthage](https://github.com/Carthage/Carthage) dependency. This should solve many issues SDK users has been reporting with mixing Swift dependencies in their projects and having to use the `use_frameworks!` directive in the `Podfile` -  that flag is required for any dynamic library, which includes anything written in Swift. The previously static library would not play nicely with those. For additional information on how to install the Particle iOS SDK as a Carthage framework dependency check out the updated [Installation](#installation) section.
-
-#### 2) Nullability - even better Swift interoperability!
+**Swift support**
 
 One of the great things about Swift is that it transparently interoperates with Objective-C code, both existing frameworks written in Objective-C and code in your app. However, in Swift there’s a strong distinction between optional and non-optional references, e.g. `NSView` vs. `NSView?`, while Objective-C represents both of these two types as `NSView *`. Because the Swift compiler can’t be sure whether a particular `NSView *` is optional or not, the type is brought into Swift as an implicitly unwrapped optional, NSView!.
 In previous Xcode releases, some Apple frameworks had been specially audited so that their API would show up with proper Swift optionals. Starting Xcode 6.3 there's support for this on your own code with a new Objective-C language feature: nullability annotations.
-The new nullability annotations have been integrated into the Particle iOS Cloud SDK library so now it plays more nicely with Swift projects.
+The new nullability annotations have been integrated into the Particle iOS Cloud SDK library so now it plays nicely with Swift projects.
 
-All SDK callbacks now return real optionals (`SparkDevice?`) instead of implicitly unwrapped optionals (`SparkDevice!`). See updated Swift examples below. Basically only simple change required from you the SDK user: to replace your callback argument types from `!` suffix to `?` suffix.
+All SDK callbacks return real optionals (`SparkDevice?`) instead of implicitly unwrapped optionals (`SparkDevice!`). See Swift examples below. Basically only a simple change required from the SDK user: to replace your callback argument types from `!` suffix to `?` suffix.
 
-#### 3) AFNetworking 3.0
-
-AFNetworking is a networking library for iOS and Mac OS X. It's built on top of the Foundation URL Loading System, extending the powerful high-level networking abstractions built into Cocoa. It has a modular architecture with well-designed, feature-rich APIs.
-The Particle Cloud SDK has been relying on this useful library since the beginning, version 3.0 was released not long ago that contained some breaking changes, the main change from 2.x is that `NSURLConnectionOperation` was removed all together and `NSURLSessionDataTask` was introduced instead - it is used to invoke network access. The major change in Particle iOS Cloud SDK is that now every SDK function will return the [`NSURLSessionDataTask`](https://developer.apple.com/library/prerelease/ios/documentation/Foundation/Reference/NSURLSessionDataTask_class/index.html) object that can be queried by the app developer for further information about the status of the network operation. Refer to the Apple docs link above for further information on how to use it.
-Code changes are optional and if you've been ignoring the return value (since it was `void`) of the SDK functions before you can keep doing so, alternatively you can now make use of the `NSURLSessionDataTask` object as described.
-
-#### 4) Two legged auth support / better session handling
-
-If you use your own backend to authenticate users in your app - you can now inject the Particle access token your back end gets from Particle cloud easily using one of the new `injectSessionAccessToken` functions exposed from `SparkCloud` singleton class.
-In turn the `.isLoggedIn` property has been deprecated in favor of `.isAuthenticated` - which checks for the existence of an active access token instead of a username. Additionally the SDK will now automatically renew an expired session if a refresh token exists. As increased security measure the Cloud SDK will no longer save user's password in the Keychain.
-
-#### 5) Electron support
-
-The [Electron](https://store.particle.io/#electron), our cellular development kit for creating connected products that work anywhere has been released!
-Particle iOS Cloud SDK supports it fully, no code changes required!
+...
 
 ### Getting Started
 
@@ -78,7 +55,13 @@ Particle iOS Cloud SDK supports it fully, no code changes required!
 
 Cloud SDK usage involves two basic classes: first is `SparkCloud` which is a singleton object that enables all basic cloud operations such as user authentication, device listing, claiming etc. Second class is `SparkDevice` which is an instance representing a claimed device in the current user session. Each object enables device-specific operation such as: getting its info, invoking functions and reading variables from it.
 
-### Common tasks
+##### Return values
+
+Most SDK functions will return an [`NSURLSessionDataTask`](https://developer.apple.com/library/prerelease/ios/documentation/Foundation/Reference/NSURLSessionDataTask_class/index.html) object that can be queried by the app developer for further information about the status of the network operation.
+This is a result of the SDK relying on AFNetworking which is a networking library for iOS and Mac OS X.
+It's built on top of the Foundation URL Loading System, extending the powerful high-level networking abstractions built into Cocoa.
+The Particle Cloud SDK has been relying on this powerful library since the beginning, but when version 3.0 was released not long ago it contained some breaking changes, the main change from 2.x is that `NSURLConnectionOperation` was deprecated by Apple and `NSURLSessionDataTask` was introduced to replace it.
+You can ignore the return value (previously it was just `void`) coming out of the SDK functions, alternatively you can now make use of the `NSURLSessionDataTask` object as described.
 
 Here are few examples for the most common use cases to get your started:
 
@@ -109,6 +92,9 @@ SparkCloud.sharedInstance().login(withUser: "username@email.com", password: "use
 ```
 ---
 #### Injecting a session access token (app utilizes two legged authentication)
+
+If you use your own backend to authenticate users in your app - you can now inject the Particle access token your back end gets from Particle cloud easily using one of the new `injectSessionAccessToken` functions exposed from `SparkCloud` singleton class.
+In turn the `.isLoggedIn` property has been deprecated in favor of `.isAuthenticated` - which checks for the existence of an active access token instead of a username. Additionally the SDK will now automatically renew an expired session if a refresh token exists. As increased security measure the Cloud SDK will no longer save user's password in the Keychain.
 
 **Objective-C**
 ```objc
@@ -585,7 +571,7 @@ func application(_ application: UIApplication, didFinishLaunchingWithOptions lau
 
 Be sure to replace `YourAppName` with your project name.
 
-### Deploying apps with Particle cloud SDK
+### Deploying apps with the Particle Cloud SDK
 
 Starting iOS 10 / XCode 8, Apple requires the developer to enable *Keychain sharing* under the app Capabilities tab when clicking on your target in the project navigator pane. Otherwise an exception will be thrown when a user logs in, the the SDK tries to write the session token to the secure keychain and will fail without this capability enabled.
 
@@ -612,9 +598,8 @@ Replace `YourAppName` with your app target name - usually shown as the root item
 In your shell - run `pod update` in the project folder. A new `.xcworkspace` file will be created for you to open by Cocoapods, open that file workspace file in Xcode and you can start interacting with Particle cloud and devices by
 adding `#import "Spark-SDK.h"`. (that is not required for swift projects)
 
-#### Support for Swift projects
+##### Support for Swift projects
 
-*Applies to CocoaPods dependency only:*
 To use iOS Cloud SDK from within Swift based projects [read here](http://swiftalicio.us/2014/11/using-cocoapods-from-swift/).
 For a detailed step-by-step help on integrating the Cloud SDK within a Swift project check out this [Particle community posting](https://community.particle.io/t/mobile-sdk-building-the-bridge-from-swift-to-objective-c/12020/1).
 
@@ -625,8 +610,9 @@ There's also an [example app](https://github.com/spark/spark-setup-ios-example),
 
 #### Carthage (Recommended method)
 
-Starting version 0.4.0 Particle iOS Cloud SDK is available through [Carthage](https://github.com/Carthage/Carthage). Carthage is intended to be the simplest way to add frameworks to your Cocoa application.
-You must have Carthage installed, if you don't then be sure to [install Carthage](https://github.com/Carthage/Carthage#installing-carthage) before you start.
+The SDK is now also available as a [Carthage](https://github.com/Carthage/Carthage) dependency since version 0.4.0.
+This should solve many issues SDK users has been reporting with mixing Swift dependencies in their projects and having to use the `use_frameworks!` directive in the `Podfile` -  that flag is required for any dynamic library, which includes anything written in Swift.
+You must have Carthage tool installed, if you don't then be sure to [install Carthage](https://github.com/Carthage/Carthage#installing-carthage) before you start.
 Then to build the iOS Cloud SDK, simply create a `Cartfile` on your project root folder, containing the following line:
 
 ```
@@ -639,7 +625,7 @@ A new folder will be created in your project root folder - navigate to the `./Ca
 Go to your XCode target settings->General->Embedded binaries and make sure the `ParticleSDK.framework` and the `AFNetworking.framework` are listed there.
 Build your project - you now have the Particle SDK embedded in your project.
 
-#### Carthage example
+##### Carthage example
 
 A new example app demonstrating the usage of Carthage installation method is available [here](https://github.com/spark/ios-app-example-carthage).
 This app is meant to serve as basic example for using the Particle Cloud SDK and Device Setup Library in the Carthage dependencies form.
