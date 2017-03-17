@@ -172,9 +172,9 @@ If you’re unsure if your order has been charged or not, visit the order status
 
 **A:** When your order ships, we will send you a shipping confirmation email. If you choose a shipping method that supports tracking, the shipping confirmation email will include your tracking number. You can visit the shipping provider’s website to track your package.
 
-[USPS - United States Postal Service](https://tools.usps.com/go/TrackConfirmAction_input - link directly to tracking web)
+[USPS - United States Postal Service](https://tools.usps.com/go/TrackConfirmAction_input)
 
-[UPS - United Parcel Service](https://www.ups.com/WebTracking/track?loc=en_US&WT.svl=PriNav - link direct to tracking)
+[UPS - United Parcel Service](https://www.ups.com/WebTracking/track)
 
 For additional information on your order, grab you tracking number from the confirmation email and go here:
 
