@@ -191,8 +191,6 @@ we'll give you lots of notice and a clear upgrade path.
 {{> api group=apiGroups.Events}}
 ## Integrations
 {{> api group=apiGroups.Integrations}}
-## Webhooks
-{{> api group=apiGroups.Webhooks}}
 ## Special Events
 
 If you watch your event stream, you may notice your devices publishing events that don't appear in your firmware.  The
