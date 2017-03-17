@@ -32,6 +32,10 @@ PROTOCOL AND HOST
 For example when you see something like `/v1/devices/:deviceId`
 you might code something like `/v1/devices/55ff8800beefcafe12345678`.
 
+![Product ID or slug](/assets/images/productIdOrSlug.png)
+
+For product endpoints, you need to specify which product the API call targets. You can use either the product ID or the short alphanumerical product slug. Get either from the Console. In this example, the product ID is 1337 and the product slug is `my-product-v1`.
+
 ## Authentication
 
 Just because you've connected your Particle device to the internet doesn't mean anyone else should have access to it.
@@ -189,7 +193,7 @@ we'll give you lots of notice and a clear upgrade path.
 {{> api group=apiGroups.Sims}}
 ## Events
 {{> api group=apiGroups.Events}}
-## Integrations
+## Integrations [Webhooks]
 {{> api group=apiGroups.Integrations}}
 ## Special Events
 
