@@ -55,7 +55,7 @@ You may notice that Zones aren't always the same in countries that share borders
 More more information about pricing and carriers in each Zone/Country, please visit [https://particle.io/pricing](https://www.particle.io/pricing#cellular-data) and inspect the dropdown menu of country names.
 
 ## Kickstarter Promo Codes
-First, thank you for being a backer! You should have received a unique promo code via email for each Electron you ordered during the campaign, and you'll need to enter one of those codes during the setup process as you activate each SIM (*Haven't gotten your promo code? Let us know by visiting our [support portal](https://docs.particle.io/support)).
+First, thank you for being a backer! You should have received a unique promo code via email for each Electron you ordered during the campaign, and you'll need to enter one of those codes during the setup process as you activate each SIM (*Haven't gotten your promo code? Let us know by visiting our [support portal](/support)).
 
 **The Kickstarter promo code pays for your base rate/first MB for 3 consecutive months**. We do have to collect a payment method at activation time to cover any additional MBs used in a given month, and so your Electron will seamlessly continue to work after those 3 months! Pausing or deactivating a SIM doesn't pause the 3 month clock, so once you put in a promo code you should keep rocking for the next quarter year.
 

@@ -12625,9 +12625,9 @@ If you don't see any notes below or if they are the wrong version, please select
 
 |Firmware Version (Programming and Debugging Notes in Docs)|
 |:-:|:-:|:-:|:-:|:-:|
-|v0.6.x default releases|[v0.6.0](https://docs.particle.io/reference/firmware/photon/?fw_ver=0.6.0&cli_ver=1.18.0&electron_parts=3#programming-and-debugging-notes)|[v0.6.1](https://docs.particle.io/reference/firmware/photon/?fw_ver=0.6.1&cli_ver=1.20.1&electron_parts=3#programming-and-debugging-notes)|||
+|v0.6.x default releases|[v0.6.0](/reference/firmware/photon/?fw_ver=0.6.0&cli_ver=1.18.0&electron_parts=3#programming-and-debugging-notes)|[v0.6.1](/reference/firmware/photon/?fw_ver=0.6.1&cli_ver=1.20.1&electron_parts=3#programming-and-debugging-notes)|||
 |v0.6.x-rc.x prereleases|[v0.6.0-rc.1](https://prerelease-docs.particle.io/reference/firmware/photon/?fw_ver=0.6.0-rc.1&cli_ver=1.17.0&electron_parts=3#programming-and-debugging-notes)|[v0.6.0-rc.2](https://prerelease-docs.particle.io/reference/firmware/photon/?fw_ver=0.6.0-rc.2&cli_ver=1.17.0&electron_parts=3#programming-and-debugging-notes)|[v0.6.1-rc.1](https://prerelease-docs.particle.io/reference/firmware/photon/?fw_ver=0.6.1-rc.1&cli_ver=1.18.0&electron_parts=3#programming-and-debugging-notes)|[v0.6.0-rc.2](https://prerelease-docs.particle.io/reference/firmware/photon/?fw_ver=0.6.1-rc.2&cli_ver=1.18.0&electron_parts=3#programming-and-debugging-notes)|
-|v0.5.x default releases|[v0.5.0](https://docs.particle.io/reference/firmware/photon/?fw_ver=0.5.0&cli_ver=1.12.0&electron_parts=2#programming-and-debugging-notes)|[v0.5.1](https://docs.particle.io/reference/firmware/photon/?fw_ver=0.5.1&cli_ver=1.14.2&electron_parts=2#programming-and-debugging-notes)|[v0.5.2](https://docs.particle.io/reference/firmware/photon/?fw_ver=0.5.2&cli_ver=1.15.0&electron_parts=2#programming-and-debugging-notes)|[v0.5.3](https://docs.particle.io/reference/firmware/photon/?fw_ver=0.5.3&cli_ver=1.17.0&electron_parts=2#programming-and-debugging-notes)|
+|v0.5.x default releases|[v0.5.0](/reference/firmware/photon/?fw_ver=0.5.0&cli_ver=1.12.0&electron_parts=2#programming-and-debugging-notes)|[v0.5.1](/reference/firmware/photon/?fw_ver=0.5.1&cli_ver=1.14.2&electron_parts=2#programming-and-debugging-notes)|[v0.5.2](/reference/firmware/photon/?fw_ver=0.5.2&cli_ver=1.15.0&electron_parts=2#programming-and-debugging-notes)|[v0.5.3](/reference/firmware/photon/?fw_ver=0.5.3&cli_ver=1.17.0&electron_parts=2#programming-and-debugging-notes)|
 |v0.5.x-rc.x prereleases|[v0.5.3-rc.1](https://prerelease-docs.particle.io/reference/firmware/photon/?fw_ver=0.5.3-rc.1&cli_ver=1.15.0&electron_parts=2#programming-and-debugging-notes)|[v0.5.3-rc.2](https://prerelease-docs.particle.io/reference/firmware/photon/?fw_ver=0.5.3-rc.2&cli_ver=1.16.0&electron_parts=2#programming-and-debugging-notes)|[v0.5.3-rc.3](https://prerelease-docs.particle.io/reference/firmware/photon/?fw_ver=0.5.3-rc.3&cli_ver=1.16.0&electron_parts=2#programming-and-debugging-notes)|-|
 
 <!--
@@ -12704,7 +12704,7 @@ The easiest way to upgrade to System Firmware Version @FW_VER@ is to use the Par
 
 If you have the [Particle CLI](https://github.com/spark/particle-cli) installed already, you can update it with the following command `sudo npm update -g particle-cli@v@CLI_VER@` (note: you can try without sudo first if you wish).
 
-To upgrade system firmware, make sure the device is in [DFU mode](http://docs.particle.io/photon/modes/#selecting-various-modes-dfu-mode-device-firmware-upgrade) (flashing yellow LED) and run these commands in order:
+To upgrade system firmware, make sure the device is in [DFU mode](/photon/modes/#selecting-various-modes-dfu-mode-device-firmware-upgrade) (flashing yellow LED) and run these commands in order:
 
 ```
 The easy local method using Particle CLI
@@ -12789,7 +12789,7 @@ This **requires CLI version @CLI_VER@ or newer**. You can check with `particle -
 
 If you have the [Particle CLI](https://github.com/spark/particle-cli) installed already, you can update it with the following command `sudo npm update -g particle-cli` (note: you can try without sudo first if you wish).
 
-To upgrade system firmware, make sure the device is in [DFU mode](http://docs.particle.io/photon/modes/#selecting-various-modes-dfu-mode-device-firmware-upgrade) (flashing yellow LED) and run these commands in order for your device type:
+To upgrade system firmware, make sure the device is in [DFU mode](/photon/modes/#selecting-various-modes-dfu-mode-device-firmware-upgrade) (flashing yellow LED) and run these commands in order for your device type:
 
 ##### @ELECTRON_PARTS@2if
 ```
@@ -12844,7 +12844,7 @@ particle flash --usb tinker (optional)
 
 **The local DFU-UTIL method**
 can be applied to offline devices locally over USB using `dfu-util`
-- Put the device in [DFU mode](http://docs.particle.io/photon/modes/#selecting-various-modes-dfu-mode-device-firmware-upgrade) (flashing yellow LED)
+- Put the device in [DFU mode](/photon/modes/#selecting-various-modes-dfu-mode-device-firmware-upgrade) (flashing yellow LED)
 - open a terminal window, change to the directory where you downloaded the files above, and run these commands in order for your device type:
 
 ##### @ELECTRON_PARTS@2if
@@ -12908,7 +12908,7 @@ The easiest way to downgrade from a System Firmware Version @FW_VER@ is to use t
 
 If you have the [Particle CLI](https://github.com/spark/particle-cli) installed already, you can install a specific version like v1.16.0 with the following command `sudo npm update -g particle-cli@v1.16.0` (note: you can try without sudo first if you wish).  Replace v1.16.0 with your desired version.
 
-To downgrade system firmware, make sure the device is in [DFU mode](http://docs.particle.io/photon/modes/#selecting-various-modes-dfu-mode-device-firmware-upgrade) (flashing yellow LED) and run these commands in order:
+To downgrade system firmware, make sure the device is in [DFU mode](/photon/modes/#selecting-various-modes-dfu-mode-device-firmware-upgrade) (flashing yellow LED) and run these commands in order:
 
 ```
 Downgrading from @FW_VER@ to current default firmware

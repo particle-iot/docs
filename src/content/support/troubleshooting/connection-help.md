@@ -104,7 +104,7 @@ Please post issues with connectivity either as responses to this topic or, if th
 - **What’s the problem?** Your Core is missing firmware.
 - **How do I fix it?**
 
-1. Try a factory reset. Hold down both buttons, then release the RST button, while holding down the `{{system-button}}` button. The LED should begin flashing yellow. Continue holding down the `{{system-button}}` button until you see the Core change from flashing yellow to flashing white. Then release the button. The Core should begin after the factory reset is complete. [Here](http://docs.particle.io/core/connect/#appendix-factory-reset) is a video to illustrate it being done.
+1. Try a factory reset. Hold down both buttons, then release the RST button, while holding down the `{{system-button}}` button. The LED should begin flashing yellow. Continue holding down the `{{system-button}}` button until you see the Core change from flashing yellow to flashing white. Then release the button. The Core should begin after the factory reset is complete. [Here](/core/connect/#appendix-factory-reset) is a video to illustrate it being done.
 
 2. If you see no flashing lights during factory reset, then your Core may be temporarily nonfunctional. If you have a JTAG shield, contact [hello @ particle dot io] so we can help walk you through re-installing the Core firmware. If you do not have a JTAG shield, please contact the Particle team to let us know, and we’ll help you take next steps.
 
@@ -153,9 +153,9 @@ If you're on a noisy Wi-Fi network you've had troubles flashing wirelessly in th
 
 **Flash via Particle CLI**
 
-The [Particle CLI](https://docs.particle.io/cli) is a Swiss army command line knife that can be used to do all kinds of cool things...like flash a deep update to your core. The process is pretty simple:
+The [Particle CLI](/cli) is a Swiss army command line knife that can be used to do all kinds of cool things...like flash a deep update to your core. The process is pretty simple:
 
-[install or Upgrade the CLI](https://docs.particle.io/cli#installing)
+[install or Upgrade the CLI](/cli#installing)
 Connect a Core to your computer via USB and put it into [dfu-mode](/guide/getting-started/modes/core/#dfu-mode-device-firmware-upgrade-)
 
 Run the flash command:

@@ -221,7 +221,7 @@ If it works, congrats! You've created your bus prediction URL.
 
 ### Create a webhook to retrieve prediction times
 
-Great, so we’ve got our prediction URL and we can access it from a browser, but how do we access it from the Photon? The answer is to use a **webhook**, which you can read more about in our [webhooks guide](https://docs.particle.io/guide/tools-and-features/webhooks/).
+Great, so we’ve got our prediction URL and we can access it from a browser, but how do we access it from the Photon? The answer is to use a **webhook**, which you can read more about in our [webhooks guide](/guide/tools-and-features/webhooks/).
 
 To create a webhook:
 * Go to the **[Particle Console](https://console.particle.io)**
@@ -247,7 +247,7 @@ Particle Maker Kit Tutorial #2: Next Bus Alert
 This tutorial uses a Particle Photon and the OLED screen from the Particle
 Maker Kit. It uses a webhook to retrieve bus prediction times from the
 NextBus Public XML feed, which must be set up first along with the webhook.
-See http://docs.particle.io/tutorials/topics/maker-kit to learn how!
+See https://docs.particle.io/tutorials/topics/maker-kit to learn how!
 
 NOTE: This code example requires the Adafruit_SSD1306 library to be included,
 so make sure to add it via the Libraries tab in the left sidebar.
@@ -397,7 +397,7 @@ This function **publishes** an **event** called *get_nextbus* to the Particle cl
 // retrieve the webhook data and send it to the gotNextBusData function
 Particle.subscribe("hook-response/get_nextbus/0", gotNextBusData, MY_DEVICES);
 ```
-This line **subscribes** your device to the *get_nextbus* event, which pulls in data coming from the webhook attached to it. (The `/0` tells it to reference the first chunk of data, since there are a few of them.) It then sends that data to a function called `gotNextBusData`, which parses all the XML and pulls out the tiny bits we need, which are the number of **minutes** for the next two buses. See our [publish and subscribe](https://docs.particle.io/guide/getting-started/examples/photon/#the-buddy-system-publish-and-subscribe) guide for more info on publishing and subscribing.
+This line **subscribes** your device to the *get_nextbus* event, which pulls in data coming from the webhook attached to it. (The `/0` tells it to reference the first chunk of data, since there are a few of them.) It then sends that data to a function called `gotNextBusData`, which parses all the XML and pulls out the tiny bits we need, which are the number of **minutes** for the next two buses. See our [publish and subscribe](/guide/getting-started/examples/photon/#the-buddy-system-publish-and-subscribe) guide for more info on publishing and subscribing.
 
 ### Fill in your bus name and lead time
 Near the top of the code above, you'll see:
@@ -448,13 +448,13 @@ void getBusTimes() {
     Particle.publish("get_nextbus");
 }
 ```
-By keeping these functions separate from the main *loop()* function, code can be made much neater and more flexible. For more complex code, software timers are essential because they save you from having to weave timed events (which are sometimes blocking) into code that needs to run continuously. To learn more, read our [software timers guide](https://docs.particle.io/reference/firmware/photon/#software-timers).
+By keeping these functions separate from the main *loop()* function, code can be made much neater and more flexible. For more complex code, software timers are essential because they save you from having to weave timed events (which are sometimes blocking) into code that needs to run continuously. To learn more, read our [software timers guide](/reference/firmware/photon/#software-timers).
 
 ### Troubleshooting
 
 **My OLED screen doesn't turn on.**
 * Re-check your wiring. "DC" and "D0" look pretty similar, so make sure you haven't swapped any pins.
-* If your Photon is not breathing cyan, check the [device modes guide](https://docs.particle.io/guide/getting-started/modes/photon/).
+* If your Photon is not breathing cyan, check the [device modes guide](/guide/getting-started/modes/photon/).
 
 **My OLED screen works, but it shows 0 for both prediction times.**
 * First enter your prediction URL into your web browser to make sure it's working properly.
@@ -659,7 +659,7 @@ Here's the code below, all of which except the last three lines is devoted to re
 This sketch reads the temperature from a 1-Wire device and then publishes
 to the Particle cloud. From there, IFTTT can be used to log the date,
 time, and temperature to a Google Spreadsheet. Read more in our tutorial
-here: http://docs.particle.io/tutorials/topics/maker-kit
+here: https://docs.particle.io/tutorials/topics/maker-kit
 
 This sketch is the same as the example from the OneWire library, but
 with the addition of three lines at the end to publish the data to the

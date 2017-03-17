@@ -214,7 +214,7 @@ See the [detailed library guide](/guide/tools-and-features/libraries/#contributi
 
 ## Targeting different platforms and firmware versions
 
-Similarly to the [Web IDE](https://docs.particle.io/guide/getting-started/build/photon/#wait-what-is-firmware-) you can specify exactly which platform (Core, Photon, Electron or others) you're using and at which specific firmware version your project is depending.
+Similarly to the [Web IDE](/guide/getting-started/build/photon/#wait-what-is-firmware-) you can specify exactly which platform (Core, Photon, Electron or others) you're using and at which specific firmware version your project is depending.
 
 **Note:** By default all projects are compiled for latest version of firmware for a Photon.
 

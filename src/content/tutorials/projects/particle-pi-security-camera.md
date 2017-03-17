@@ -99,7 +99,7 @@ Your Pi should automatically download the necessary tooling and install the Part
 ### Provision your Pi
 Follow the on-screen prompts to log into your Particle account, provision your Pi on the Particle Cloud, and give your brand new Particle Pi hardware a name (or let us generate a goofy one for you).
 
-Once your Pi has been successfully provisioned, you should be able to see it in your device list in our [Web IDE](https://build.particle.io) and in our [Command Line Utility](https://docs.particle.io/guide/tools-and-features/cli/photon/) by typing `particle list`. Your Raspberry Pi should be running our default "Tinker" firmware, so you should see the following `Particle.function()`'s exposed through the API:
+Once your Pi has been successfully provisioned, you should be able to see it in your device list in our [Web IDE](https://build.particle.io) and in our [Command Line Utility](/guide/tools-and-features/cli/photon/) by typing `particle list`. Your Raspberry Pi should be running our default "Tinker" firmware, so you should see the following `Particle.function()`'s exposed through the API:
 
 ```  Functions:
     int digitalread(String args)

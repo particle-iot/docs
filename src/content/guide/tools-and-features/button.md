@@ -319,7 +319,7 @@ void loop(){
 
 /* Let me show you how easy it is to put the Button on the Internet.
 Useful info, like how to access the data from your browser, can be
-found here: http://docs.particle.io/photon/firmware/#particle-function-
+found here: https://docs.particle.io/photon/firmware/#particle-function-
 The code to control the number of illuminated LEDs is here:
 https://github.com/spark/InternetButton/blob/master/controlKnob.html
 Try naming one of your devices "InternetButton" and running controlKnob in your browser or on your phone!

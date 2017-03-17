@@ -26,7 +26,7 @@ Some of the things you can do:
 
 - Install a gcc-arm toolchain for local building for Windows, Mac or Linux
 
-The instructions are in the [local build FAQ](https://docs.particle.io/faq/particle-tools/local-build/). This is necessary because the cloud compilers are not configured to generate debugging builds.
+The instructions are in the [local build FAQ](/faq/particle-tools/local-build/). This is necessary because the cloud compilers are not configured to generate debugging builds.
 
 
 ## Connect the debugger device

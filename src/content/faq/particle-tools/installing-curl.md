@@ -8,7 +8,7 @@ order: 1100
 
 # Installing curl (for Windows)
 
-The curl command, used in the [Particle cloud examples](https://docs.particle.io/reference/api/) is generally built-in on the Mac and Linux, but not Windows. These instructions explain how to install it.
+The curl command, used in the [Particle cloud examples](/reference/api/) is generally built-in on the Mac and Linux, but not Windows. These instructions explain how to install it.
 
 
 ## Installation

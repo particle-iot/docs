@@ -526,7 +526,7 @@ The system events types are:
 
 If you're creating an app you're required to provide the `SparkCloud` class with OAuth clientId and secret.
 Those are used to identify users coming from your specific app to the Particle Cloud.
-Please follow the procedure decribed [in our guide](https://docs.particle.io/guide/how-to-build-a-product/authentication/#creating-an-oauth-client) to create those strings,
+Please follow the procedure decribed [in our guide](/guide/how-to-build-a-product/authentication/#creating-an-oauth-client) to create those strings,
 then in your `AppDelegate` class you can supply those credentials by setting the following properties in `SparkCloud` singleton:
 
 ```objc
@@ -655,11 +655,11 @@ Current session access token string, nil if not logged in
 
   `@property (nonatomic, nullable, strong) NSString *oAuthClientId`
 
-oAuthClientId unique for your app, use 'particle' for development or generate your OAuth creds for production apps (https://docs.particle.io/reference/api/#create-an-oauth-client)
+oAuthClientId unique for your app, use 'particle' for development or generate your OAuth creds for production apps (/reference/api/#create-an-oauth-client)
 
   `@property (nonatomic, nullable, strong) NSString *oAuthClientSecret`
 
-oAuthClientSecret unique for your app, use 'particle' for development or generate your OAuth creds for production apps (https://docs.particle.io/reference/api/#create-an-oauth-client)
+oAuthClientSecret unique for your app, use 'particle' for development or generate your OAuth creds for production apps (/reference/api/#create-an-oauth-client)
 
   `+ (instancetype)sharedInstance`
 
@@ -1089,8 +1089,8 @@ Setting `organization=YES` will enable organization mode which uses different AP
 *New fields since v0.2.2*
 
 If you set `organization` to `YES` be sure to also provide the `organizationSlug` and `productSlug` your created in [Particle Console](/guide/tools-and-features/console/).
-Make sure you inject the `SparkCloud` class with scoped OAuth credentials for creating customers (so app users could create an account), [read here](https://docs.particle.io/reference/ios/#oauth-client-configuration) on how to do it correctly.
-To learn how to create those credentials for your organization [read here](https://docs.particle.io/guide/how-to-build-a-product/authentication/#creating-an-oauth-client).
+Make sure you inject the `SparkCloud` class with scoped OAuth credentials for creating customers (so app users could create an account), [read here](/reference/ios/#oauth-client-configuration) on how to do it correctly.
+To learn how to create those credentials for your organization [read here](/guide/how-to-build-a-product/authentication/#creating-an-oauth-client).
 
 ```objc
  BOOL organization;             // enable organizational mode

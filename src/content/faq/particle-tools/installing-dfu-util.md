@@ -324,7 +324,7 @@ dfu-util -d 2b04:d006 -a 0 -s 0x08020000 -D system-part1-0.4.9-photon.bin
 dfu-util -d 2b04:d006 -a 0 -s 0x08060000:leave -D system-part2-0.4.9-photon.bin
 ```
 
-Note the addresses are different for the Electron; you should refer to the [release notes](https://docs.particle.io/reference/firmware/photon/?fw_ver=0.5.3&cli_ver=1.17.0&electron_parts=2#programming-and-debugging-notes) to find the addresses to use for your device and system firmware version.
+Note the addresses are different for the Electron; you should refer to the [release notes](/reference/firmware/photon/?fw_ver=0.5.3&cli_ver=1.17.0&electron_parts=2#programming-and-debugging-notes) to find the addresses to use for your device and system firmware version.
 
 You will often see this warning in the output from dfu-util. It's normal:
 

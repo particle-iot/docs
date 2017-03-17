@@ -158,7 +158,7 @@ own that publish the `get_weather` event will trigger your webhook.
 Now it's time to write the firmware that will publish the event that
 will trigger the webhook. On a high level, we will trigger the webhook
 every 60s, parse the result on the device, and print out the weather
-data over [serial](https://docs.particle.io/reference/firmware#serial).
+data over [serial](/reference/firmware#serial).
 
 Head over to the [Particle Web
 IDE](https://build.particle.io). Create a new App called "get-weather"
