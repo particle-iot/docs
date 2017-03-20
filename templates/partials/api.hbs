@@ -6,9 +6,6 @@
 		<pre class='api-code api-definition' data-title='Definition'><code class='prettyprint lang-json'>{{uppercase type}} {{url}}</code></pre>
 		{{{description}}}
 
-		{{#each examples}}
-<pre class='api-code api-request-example' data-title='{{#isnt title content}}{{title}}{{else}}Example Request{{/isnt}}'><code class='prettyprint lang-{{this.type}}'>{{{this.content}}}</code></pre>
-		{{/each}}
 
 		{{#if parameter.fields}}
 			<ul class='api-attributes api-request' data-title='Request Arguments'>
@@ -21,6 +18,10 @@
 				{{/each}}
 			</ul>
 		{{/if}}
+
+		{{#each examples}}
+<pre class='api-code api-request-example' data-title='{{#isnt title content}}{{title}}{{else}}Example Request{{/isnt}}'><code class='prettyprint lang-{{this.type}}'>{{{this.content}}}</code></pre>
+		{{/each}}
 
 		{{#each success.fields}}
 			<ul class='api-attributes api-response' data-title='Response Attributes'>

@@ -183,12 +183,14 @@ we'll give you lots of notice and a clear upgrade path.
 
 ## Devices
 {{> api group=apiGroups.Devices}}
+## Quarantine
+{{> api group=apiGroups.Quarantine}}
+## SIM Cards
+{{> api group=apiGroups.Sims}}
 ## Events
 {{> api group=apiGroups.Events}}
 ## Integrations
 {{> api group=apiGroups.Integrations}}
-## Webhooks
-{{> api group=apiGroups.Webhooks}}
 ## Special Events
 
 If you watch your event stream, you may notice your devices publishing events that don't appear in your firmware.  The
@@ -326,8 +328,11 @@ of the response back to your devices.
 
 ## Firmware
 {{> api group=apiGroups.Firmware}}
-## Libraries
+## Product Firmware
+{{> api group=apiGroups.ProductFirmware}}
 
+
+## Libraries
 The libraries endpoints are a little different as they follow the [JSON API](http://jsonapi.org/) specification.
 
 {{> api group=apiGroups.Libraries}}
