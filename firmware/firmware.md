@@ -5294,6 +5294,8 @@ Registers a function to be called when a slave device receives a transmission fr
 
 Parameters: `handler`: the function to be called when the slave receives data; this should take a single int parameter (the number of bytes read from the master) and return nothing, e.g.: `void myHandler(int numBytes) `
 
+**Note:** This handler will lock up the device if System calls such as Particle.publish() are made within, due to interrupts being disabled for atomic operations during this handler.  Do not overload this handler with extra function calls other than what is immediately required to receive I2C data.  Post process outside of this handler.
+
 ```C++
 // EXAMPLE USAGE
 
@@ -5326,6 +5328,8 @@ void loop() {
 Register a function to be called when a master requests data from this slave device.
 
 Parameters: `handler`: the function to be called, takes no parameters and returns nothing, e.g.: `void myHandler() `
+
+**Note:** This handler will lock up the device if System calls such as Particle.publish() are made within, due to interrupts being disabled for atomic operations during this handler.  Do not overload this handler with extra function calls other than what is immediately required to send I2C data.  Post process outside of this handler.
 
 ```C++
 // EXAMPLE USAGE
