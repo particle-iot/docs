@@ -1114,13 +1114,14 @@ byte mac[6];
 void setup() {
   WiFi.on();
   Serial.begin(9600);
-  while (!Serial.available()) Particle.process();
+  // wait up to 10 seconds for USB host to connect
+  // requires firmware >= 0.5.3
+  waitFor(Serial.isConnected, 10000);
 
   WiFi.macAddress(mac);
 
   for (int i=0; i<6; i++) {
-    if (i) Serial.print(":");
-    Serial.print(mac[i], HEX);
+    Serial.printf("%02x%s", mac[i], i != 5 ? ":" : "");
   }
 }
 ```
@@ -1130,27 +1131,24 @@ void setup() {
 
 // Only for Spark Core using firmware < 0.4.0
 // Mac address is in the reversed order and
-// is fixed from V0.4.0 onwards
+// is fixed from v0.4.0 onwards
 
 byte mac[6];
 
 void setup() {
   Serial.begin(9600);
-  while (!Serial.available()) Particle.process();
+  // wait until a character sent from USB host
+  while (!Serial.available()) Spark.process();
 
   WiFi.macAddress(mac);
 
-  Serial.print(mac[5],HEX);
-  Serial.print(":");
-  Serial.print(mac[4],HEX);
-  Serial.print(":");
-  Serial.print(mac[3],HEX);
-  Serial.print(":");
-  Serial.print(mac[2],HEX);
-  Serial.print(":");
-  Serial.print(mac[1],HEX);
-  Serial.print(":");
-  Serial.println(mac[0],HEX);
+  for (int i=5; i>0; i--) {
+    Serial.print(mac[i]>>4,HEX);
+    Serial.print(mac[i]&0x0f,HEX);
+    if (i != 0) {
+      Serial.print(":");
+    }
+  }
 }
 
 void loop() {}
