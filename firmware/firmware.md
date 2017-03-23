@@ -5389,7 +5389,7 @@ void setup() {
 void loop() {
     CANMessage message;
 
-    Message.id = 0x100;
+    message.id = 0x100;
     can.transmit(message);
 
     delay(10);
