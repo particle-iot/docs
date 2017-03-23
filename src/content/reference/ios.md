@@ -947,17 +947,22 @@ Unsubscribe from event/events.
 
 The Particle Device Setup library is meant for integrating the initial setup process of Particle devices in your app.
 This library will enable you to easily invoke a standalone setup wizard UI for setting up internet-connected products
-powered by a Particle device (Photon, PØ, P1). The setup UI can be easily customized by a customization proxy class,
+powered by a Particle device (Photon, P0, P1). The setup UI can be easily customized by a customization proxy class,
 that includes: look & feel, colors, texts and fonts as well as custom brand logos and custom instructional video for your product. There are good defaults in place if you don’t set these properties, but you can override the look and feel as needed to suit the rest of your app.
 
 The wireless setup process for the Photon uses very different underlying technology from the Core. Where the Core used TI SmartConfig, the Photon uses what we call “soft AP” — i.e.: the Photon advertises a Wi-Fi network, you join that network from your mobile app to exchange credentials, and then the Photon connects using the Wi-Fi credentials you supplied.
 
 With the Device Setup library, you make one simple call from your app, for example when the user hits a “Setup my device” button, and a whole series of screens then guide the user through the setup process. When the process finishes, the app user is back on the screen where she hit the “setup my device” button, and your code has been passed an instance of the device she just setup and claimed.
-iOS Device setup library is implemented as an open-source Cocoapod static library and also as Carthage dynamic framework dependency. See [Installation](#installation) section for more details. It works well for both Objective-C and [Swift](#support-for-swift-projects) projects containing any type of dependencies.
+iOS Device setup library is implemented as an open-source Cocoapod static library and also as Carthage dynamic framework dependancy. See [Installation](#installation) section for more details. It works well for both Objective-C and [Swift](#support-for-swift-projects) projects containing any type of dependencies.
 
-### Basic usage
+**Rebranding notice**
 
-**CocoaPods**
+Spark has been recently rebranded as Particle.
+Code currently contains `SparkSetup` keyword as classes prefixes. this will soon be replaced with `ParticleDeviceSetup`.
+
+### Usage
+
+**Cocoapods**
 
 Import `SparkSetup.h` in your view controller implementation file, use bridging header for Swift projects (See [Installation](#installation) section for more details).
 
@@ -985,6 +990,7 @@ if let setupController = SparkSetupMainController()
 }
 ```
 ---
+
 Alternatively if your app requires separation between the Particle cloud authentication process and the device setup process you can call:
 
 **Objective-C**
@@ -994,7 +1000,9 @@ SparkSetupMainController *setupController = [[SparkSetupMainController alloc] in
 [self presentViewController:setupController animated:YES completion:nil];
 ```
 ---
+
 **Swift**
+
 ```swift
 if let setupController = SparkSetupMainController(authenticationOnly: true)
 {
@@ -1007,7 +1015,7 @@ This will invoke Particle Cloud authentication (login/signup/password recovery s
 after user has successfully logged in or signed up, control will be returned to the calling app.
 If an active user session already exists control will be returned immediately.
 
-####Configure device Wi-Fi credentials without claiming it
+#### Configure device Wi-Fi credentials without claiming it
 
 If your app requires the ability to let users configure device Wi-Fi credentials without changing its ownership you can also do that via `initWithSetupOnly`,
 and by allowing your users to skip authentication (see `allowSkipAuthentication` flag in customization section) if you present the authentication stage.
@@ -1016,12 +1024,16 @@ So invoking setup without an active user session will go thru the setup steps re
 However, calling `-initWithSetupOnly:` method with an active user session is essentially the same as calling `-init:`.
 Usage:
 
+**Objective-C**
+
 ```objc
 SparkSetupMainController *setupController = [[SparkSetupMainController alloc] initWithSetupOnly:YES];
 [self presentViewController:setupController animated:YES completion:nil];
 ```
 ---
+
 **Swift**
+
 ```swift
 if let setupController = SparkSetupMainController(setupOnly: true)
 {
@@ -1030,10 +1042,18 @@ if let setupController = SparkSetupMainController(setupOnly: true)
 ```
 ---
 
+#### Password manager extension support
+
+Starting library version 0.6.0 the 1Password manager extension support has been added to the signup and login screens - no action is required from the developer - if 1Password is installed on the iOS device the lock icon will appear in the password fields on those screen and will allow user to fill in his saved password (login) or create a new one (signup). Only recommendation is adding `LSApplicationQueriesSchemes = org-appextension-feature-password-management` key-value to your `info.plist` file in your app project.
+
+For additional information read [here](https://github.com/AgileBits/onepassword-app-extension#use-case-1-native-app-login).
+
+
 ### Customization
 
 Customize setup look and feel by accessing the `SparkSetupCustomization` singleton appearance proxy `[SparkSetupCustomization sharedInstance]`
-and modify its default properties. Setting the properties in this class is optional. *(Replace NSString with String for Swift projects)*
+and modify its default properties. Setting the properties in this class is optional.
+These properies are shown in Objective-C syntax for convenience but work the same for Swift projects - use `String`, `Bool` instead of `NSString` and `BOOL`.
 
 #### Product/brand info:
 
@@ -1043,9 +1063,10 @@ and modify its default properties. Setting the properties in this class is optio
  NSString *brandName;                   // Your brand name
  UIImage *brandImage;                   // Your brand logo to fit in header of setup wizard screens
  UIColor *brandImageBackgroundColor;    // brand logo background color
- NSString *instructionalVideoFilename;  // Instructional video shown when "show me how" button pressed
+ NSString *instructionalVideoFilename;  // Instructional video shown landscape full screen mode when "Show me how" button pressed on second setup screen
 ```
 ---
+
 #### Technical data:
 
 ```objc
@@ -1054,20 +1075,15 @@ and modify its default properties. Setting the properties in this class is optio
  NSString *networkNamePrefix;           // The SSID prefix of the Soft AP Wi-Fi network of your product while in listen mode
 ```
 ---
+
 #### Links for legal/technical info:
 
 ```objc
  NSURL *termsOfServiceLinkURL;      // URL for terms of service of the app/device usage
  NSURL *privacyPolicyLinkURL;       // URL for privacy policy of the app/device usage
- NSURL *forgotPasswordLinkURL;      // URL for user password reset (non-organization setup app only) - to be disabled soon
- NSURL *troubleshootingLinkURL;     // URL for troubleshooting text of the app/device usage
-
- NSString *termsOfServiceHTMLFile;  // Static HTML file for terms of service of the app/device usage
- NSString *privacyPolicyHTMLFile;   // Static HTML file for privacy policy of the app/device usage
- NSString *forgotPasswordHTMLFile;  // Static HTML file for user password reset (non-organization setup app only) - to be disabled soon
- NSString *troubleshootingHTMLFile; // Static HTML file for troubleshooting text of the app/device usage
 ```
 ---
+
 #### Look & feel:
 
 ```objc
@@ -1081,95 +1097,120 @@ and modify its default properties. Setting the properties in this class is optio
  NSString *boldTextFontName;       // Customize setup font - include OTF/TTF file in project
  CGFloat fontSizeOffset;           // Set offset of font size so small/big fonts can be fine-adjusted
  BOOL tintSetupImages;             // This will tint the checkmark/warning/wifi symbols in the setup process to match text color (useful for dark backgrounds)
+ BOOL lightStatusAndNavBar;        // Make navigation and status bar appear in white or black color characters to contrast the selected brandImage color // *New since v0.6.1*
 ```
 ---
-#### Organization:
 
-Setting `organization=YES` will enable organization mode which uses different API endpoints and requires special permissions (See Particle Console).
-*New fields since v0.2.2*
+#### Product creators
 
-If you set `organization` to `YES` be sure to also provide the `organizationSlug` and `productSlug` your created in [Particle Console](/guide/tools-and-features/console/).
-Make sure you inject the `SparkCloud` class with scoped OAuth credentials for creating customers (so app users could create an account), [read here](/reference/ios/#oauth-client-configuration) on how to do it correctly.
-To learn how to create those credentials for your organization [read here](/guide/how-to-build-a-product/authentication/#creating-an-oauth-client).
+If you're developing an app for your product / you're a product creator you should set `productMode` to YES (or true for Swift) - this will enable product mode which uses different API endpoints to allow adding/setting up devices assigned to your product.
+
+If you set `productMode ` to `YES / true` be sure to also provide the `productId` (and `productName`) - please [read here](https://docs.particle.io/guide/tools-and-features/console/#your-product-id) about how to find your productId number.
+
+Make sure you inject the `SparkCloud` class with [scoped OAuth credentials for creating customers](https://docs.particle.io/guide/how-to-build-a-product/authentication/#creating-an-oauth-client), so app users could create an account. [Read here](https://docs.particle.io/reference/ios/#oauth-client-configuration) on how to do it correctly.
 
 ```objc
- BOOL organization;             // enable organizational mode
- NSString *organizationName;    // organization display name
- NSString *organizationSlug;    // organizational name for API endpoint URL - must specify for orgMode *new*
- NSString *productName;         // product display name *new*
- NSString *productSlug;         // product string for API endpoint URL - must specify for orgMode *new*
+ BOOL productMode;              // enable product mode
+ NSString *productName;         // product display name
+ NSUInteger productId;			  // Product Id number from Particle console
 ```
 ---
-#### Skipping authentication:
 
-*New since v0.3.0*
+#### Skipping authentication:
 
 ```objc
  BOOL allowSkipAuthentication;          // Allow user to skip authentication (skip button will appear on signup and login screens)
  NSString *skipAuthenticationMessage;   // Message to display to user when she's requesting to skip authentication (Yes/No question)
 ```
 ---
-### Advanced usage
 
-You can get an active instance of `SparkDevice` by making your ViewController conform to protocol `<SparkSetupMainControllerDelegate>` when setup wizard completes:
+### Advanced
+
+You can get an active instance of the set up device - `SparkDevice` by making your viewcontroller conform to protocol `<SparkSetupMainControllerDelegate>` when setup wizard completes successfully:
+
+**Objective-C**
 
 ```objc
 -(void)sparkSetupViewController:(SparkSetupMainController *)controller didFinishWithResult:(SparkSetupMainControllerResult)result device:(SparkDevice *)device;
 ```
+---
+
+**Swift**
 
 ```swift
-func sparkSetupViewController(controller: SparkSetupMainController!, didFinishWithResult result: SparkSetupMainControllerResult, device: SparkDevice!);
+func sparkSetupViewController(controller: SparkSetupMainController!, didFinishWithResult result: SparkSetupMainControllerResult, device: SparkDevice!)
 ```
 ---
+
 method will be called, if `(result == SparkSetupMainControllerResultSuccess)` or (or simply `(result == .Success)` in Swift) the device parameter will contain an active `SparkDevice` instance you can interact with
 using the [iOS Cloud SDK](https://cocoapods.org/pods/Spark-SDK).
+In case setup failed, aborted or was cancalled  you can determine the exact reason by consulting the documentation of the enum value `SparkSetupMainControllerResult`. See [here](https://github.com/spark/spark-setup-ios/blob/master/Classes/User/SparkSetupMainController.h#L18-31) for additional details.
+
+If setup failed and you can still determine the device ID of the last device that was tried to be setup and failed by conforming to the @optional delegate function: (new since 0.5.0)
+
+**Objective-C**
+
+```objc
+- (void)sparkSetupViewController:(SparkSetupMainController *)controller didNotSucceeedWithDeviceID:(NSString *)deviceID;
+```
+---
+
+**Swift**
+
+```swift
+func sparkSetupViewController(controller: SparkSetupMainController!, didNotSucceeedWithDeviceID deviceID: String)
+```
+---
 
 ### Example
 
-CocoaPods usage example app (in Swift) can be found [here](https://www.github.com/spark/spark-setup-ios-example/). Example app demonstrates - invoking the setup wizard, customizing its UI and using the returned SparkDevice instance once
+Cocoapods usage example app (in Swift) can be found [here](https://www.github.com/spark/spark-setup-ios-example/). Example app demonstates - invoking the setup wizard, customizing its UI and using the returned SparkDevice instance once
 setup wizard completes (delegate). Feel free to contribute to the example by submitting pull requests.
-
-A new example app demonstrating the usage of Carthage installation method is available [here](https://github.com/spark/ios-app-example-carthage).
 
 ### Reference
 
-Check out the [Reference in Cocoadocs website](http://cocoadocs.org/docsets/SparkSetup/) or consult the JavaDoc style comments in `SparkSetupCustomization.h` and `SparkSetupMainController.h` for each public method or property.
-If the Device Setup library installation completed successfully - you should be able to press `Esc` to get an auto-complete hints from XCode for each public method or property in the library.
+Check out the [Reference in Cocoadocs website](http://cocoadocs.org/docsets/SparkSetup/) or consult the javadoc style comments in `SparkSetupCustomization.h` and `SparkSetupMainController.h` for each public method or property.
+If the Device Setup library installation completed successfully in your XCode project - you should be able to press `Esc` to get an auto-complete hints from XCode for each public method or property in the library.
 
 ### Requirements / limitations
 
 - iOS 8.0 and up supported
-- Currently setup wizard displays on portrait mode only.
-- XCode 6.0 and up is required
+- Currently setup wizard displays on portait mode only.
+- XCode 7 and up is required
 
 ### Installation
 
-#### CocoaPods
+#### Cocoapods
 
-Particle Device Setup library is available through [CocoaPods](http://cocoapods.org). CocoaPods is an easy to use dependency manager for iOS.
-You must have CocoaPods installed, if you don't then be sure to [Install CocoaPods](https://guides.cocoapods.org/using/getting-started.html) before you start:
-To install the iOS Device Setup library, simply add the following line to your Podfile on main project folder:
+Particle Device Setup library is available through [CocoaPods](http://cocoapods.org). Cocoapods is an easy to use dependency manager for iOS.
+You must have Cocoapods installed, if you don't then be sure to [Install Cocoapods](https://guides.cocoapods.org/using/getting-started.html) before you start:
+To install the iOS Device Setup library, create a text file named `Podfile` on main project folder, it should contain:
 
 ```ruby
-pod "SparkSetup"
+source 'https://github.com/CocoaPods/Specs.git'
+
+target 'YourAppName' do
+    pod 'SparkSetup'
+end
 ```
+---
 
-and then run `pod update`. A new `.xcworkspace` file will be created for you to open by CocoaPods, open that workspace file in Xcode and you can start invoking a new instance of the setup process viewcontroller - refer to the examples above. Don't forget to add `#import "SparkSetup.h"` to the source file in which you want to invoke setup in (that is not required for swift projects).
+Replace `YourAppName` with your app target name - usually shown as the root item name in the XCode project,
+then run `pod update` in your shell. A new `.xcworkspace` file will be created for you to open by Cocoapods, open that workspace file in Xcode and you can start invoking a new instance of the setup process viewcontroller - refer to the examples above. Don't forget to add `#import "SparkSetup.h"` to the source file in which you want to invoke setup in (that is not required for swift projects).
 
+##### Support for Swift projects
 
-#### Support for Swift projects
 To use Particle Device Setup library from within Swift based projects - you'll need to configure a bridging header - please [read here](http://swiftalicio.us/2014/11/using-cocoapods-from-swift/),
 as an additional resource you can consult official [Apple documentation](https://developer.apple.com/library/ios/documentation/Swift/Conceptual/BuildingCocoaApps/InteractingWithObjective-CAPIs.html) on the matter.
 
 #### Carthage
 
-*New since v0.4.0*
 Starting version 0.4.0 Particle iOS device setup library is available through [Carthage](https://github.com/Carthage/Carthage). Carthage is intended to be the simplest way to add frameworks to your Cocoa application.
 You must have Carthage installed, if you don't then be sure to [install Carthage](https://github.com/Carthage/Carthage#installing-carthage) before you start.
 Then to build the Particle iOS device setup library, simply create a `Cartfile` on your project root folder (that's important), containing the following line:
 
 ```
-github "spark/spark-setup-ios" ~> 0.4.0
+github "spark/spark-setup-ios" ~> 0.6.0
 ```
 
 and then run the following command:
@@ -1182,16 +1223,16 @@ Go to your XCode target settings->General->Embedded binaries and press `+` and a
 Build your project - you now have the Particle SDK embedded in your project.
 Use `#import <ParticleDeviceSetupLibrary/ParticleDeviceSetupLibrary.h>` in Obj-C files or `import ParticleDeviceSetupLibrary` for Swift files to gain access to `SparkSetupMainController` (see usage example).
 
-No need for any special process or operation integrating the Device Setup Library with Swift-based or Swift-dependent projects. This is the recommended way if you have a mixed set of dependencies.
+No need for any special process or operation integrating the Device Setup Library with Swift-based or Swift-dependant projects. This is the recommended way if you have a mixed set of dependencies.
 
 
 ### Communication
 
-- If you **need help**, use [Our community website](http://community.particle.io), use the `Mobile` category for discussion/troubleshooting iOS apps using the Particle iOS Cloud SDK.
-- If you are certain you **found a bug**, _and can provide steps to reliably reproduce it_, open an issue, label it as `bug`.
-- If you **have a feature request**, open an issue with an `enhancement` label on it
-- If you **want to contribute**, submit a pull request, be sure to check out spark.github.io for our contribution guidelines, and please sign the [CLA](https://docs.google.com/a/particle.io/forms/d/1_2P-vRKGUFg5bmpcKLHO_qNZWGi5HKYnfrrkd-sbZoA/viewform).
+- If you **need help**, use [Our community website](http://community.particle.io)
+- If you **found a bug**, _and can provide steps to reliably reproduce it_, open an issue.
+- If you **have a feature request**, open an issue.
+- If you **want to contribute**, submit a pull request.
 
 ### License
 
-Particle Device Setup library and the Particle iOS Cloud SDK are both available under the Apache License 2.0. See the LICENSE file in the repository for more information.
+Particle Device Setup library is available under the Apache license 2.0. See the LICENSE file for more info.
