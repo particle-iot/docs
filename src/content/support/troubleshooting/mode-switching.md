@@ -61,28 +61,32 @@ OK, that's all well and good, but what if I don't know whether my {{device}} wil
 
 ### Semi-automatic mode
 
-	// Insert firearm metaphor here
 	SYSTEM_MODE(SEMI_AUTOMATIC);
 
+	boolean connectToCloud = false;
+
 	void setup() {
-	  pinMode(D7, OUTPUT);
-	  attachInterrupt(D0, connect, FALLING);
+		pinMode(D7, OUTPUT);
+		attachInterrupt(D1, connect, FALLING);
 	}
 
 	void loop() {
-	  digitalWrite(D7, HIGH);
-	  delay(500);
-	  digitalWrite(D7, LOW);
-	  delay(500);
+		digitalWrite(D7, HIGH);
+		delay(500);
+		digitalWrite(D7, LOW);
+		delay(500);
+
+		if(connectToCloud && Particle.connected() == false) {
+			Particle.connect();
+			connectToCloud = false;
+		}
 	}
 
 	void connect() {
-	  if (Particle.connected() == false) {
-	    Particle.connect();
-	  }
+		connectToCloud = true;
 	}
 
-In this version of the code, when the {{device}} is plugged in, the LED will immediately start blinking. When a button attached to D0 is depressed (bringing DO to **LOW**), **Particle.connect()** will be called. {{#unless electron}}If the {{device}} already has Wi-Fi credentials in memory, it will attempt to connect; otherwise, it will enter listening mode, and wait for your network name and password through the Particle mobile app or over USB.
+In this version of the code, when the {{device}} is plugged in, the LED will immediately start blinking. When a button attached to D1 is depressed (bringing D1 to **LOW**), **Particle.connect()** will be called. {{#unless electron}}If the {{device}} already has Wi-Fi credentials in memory, it will attempt to connect; otherwise, it will enter listening mode, and wait for your network name and password through the Particle mobile app or over USB.
 {{/unless}}{{#if electron}}If the {{device}} has a SIM card inserted, it will attempt to connect; otherwise, it will enter listening mode.
 {{/if}}
 
@@ -97,24 +101,29 @@ Like **SEMI_AUTOMATIC** mode, in **MANUAL** mode you need to connect to the Clou
 
 	SYSTEM_MODE(MANUAL);
 
+	boolean connectToCloud = false;
+
 	void setup() {
-	  pinMode(D7, OUTPUT);
-	  attachInterrupt(D0, connect, FALLING);
+		pinMode(D7, OUTPUT);
+		attachInterrupt(D1, connect, FALLING);
 	}
 
 	void loop() {
-	  digitalWrite(D7, HIGH);
-	  Particle.process();
-	  delay(500);
-	  digitalWrite(D7, LOW);
-	  Particle.process();
-	  delay(500);
+		digitalWrite(D7, HIGH);
+		Particle.process();
+		delay(500);
+		digitalWrite(D7, LOW);
+		Particle.process();
+		delay(500);
+
+		if(connectToCloud && Particle.connected() == false) {
+			Particle.connect();
+			connectToCloud = false;
+		}
 	}
 
 	void connect() {
-	  if (Particle.connected() == false) {
-	    Particle.connect();
-	  }
+		connectToCloud = true;
 	}
 
 **You must call Particle.process() as frequently as possible to process messages from the {{network-type}} module.** If you do not do so, you will encounter erratic behavior, such as:
