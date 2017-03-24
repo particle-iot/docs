@@ -5969,7 +5969,7 @@ or `int read(uint8_t *buffer, size_t size)` reads all readily available bytes up
 bytesRead = client.read(buffer, length);
 ```
 
-Returns the number of bytes (or characters) read into `buffer`.
+Returns the number of bytes (or characters) read into `bytesRead`.
 
 ### flush()
 
