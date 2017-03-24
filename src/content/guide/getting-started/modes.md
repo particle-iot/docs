@@ -333,6 +333,8 @@ If the Wi-Fi module is on but not connected to a network, your {{device}} will b
 
 When the {{device}} is connected to a {{#if electron}}cellular{{/if}}{{#if photon}}Wi-Fi{{/if}}{{#if core}}Wi-Fi{{/if}} network but not to the cloud, it will breathe green.
 
+Sometimes that happens due to flashed code that interferes with its ability to connect to the cloud. You can try going into Safe Mode with the instructions above, and then flash new code.
+
 
 ### Bad Public Key
 
