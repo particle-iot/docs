@@ -335,7 +335,7 @@ When the {{device}} is connected to a {{#if electron}}cellular{{/if}}{{#if photo
 
 This can be caused by the currently running application firmware which may interfere with the cloud maintenance tasks which is usually executed between iterations of `loop()` or via an explicit call of [`Particle.process()`](/reference/firmware/photon/#particle-process-). That commonly happens when the code blocks for more than 10 seconds. 
 In addition to regularly allowing for cloud maintenance (via dropping out of `loop()` and/or calling `Particle.process()`) you can take manual control of the [connection](/reference/firmware/photon/#cloud-functions), choose an better suited [`SYSTEM_MODE`](/reference/firmware/photon/#system-modes) and/or opt for [`SYSTEM_THREAD(ENABLED)`](/reference/firmware/photon/#system-thread).
-To correct the "offending" firmware you may need to flash new firmware either via USB or [Safe Mode](#safe-mode).
+To correct the "offending" firmware you may need to flash new firmware either via USB or [Safe Mode](/guide/getting-started/modes/#safe-mode).
 
 
 ### Bad Public Key
