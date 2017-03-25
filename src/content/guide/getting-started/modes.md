@@ -333,8 +333,7 @@ If the Wi-Fi module is on but not connected to a network, your {{device}} will b
 
 When the {{device}} is connected to a {{#if electron}}cellular{{/if}}{{#if photon}}Wi-Fi{{/if}}{{#if core}}Wi-Fi{{/if}} network but not to the cloud, it will breathe green.
 
-This can be caused by the currently running application firmware which may interfere with the cloud maintenance tasks which is usually executed between iterations of `loop()` or via an explicit call of [`Particle.process()`](/
-/firmware/photon/#particle-process-). That commonly happens when the code blocks for more than 10 seconds. 
+This can be caused by the currently running application firmware which may interfere with the cloud maintenance tasks which is usually executed between iterations of `loop()` or via an explicit call of [`Particle.process()`](/firmware/#particle-process-). That commonly happens when the code blocks for more than 10 seconds. 
 In addition to regularly allowing for cloud maintenance (via dropping out of `loop()` and/or calling `Particle.process()`) you can take manual control of the [connection](/reference/firmware/#cloud-functions), choose an better suited [`SYSTEM_MODE`](/reference/firmware/#system-modes) and/or opt for [`SYSTEM_THREAD(ENABLED)`](/reference/firmware/#system-thread).
 To correct the "offending" firmware you may need to flash new firmware either via USB or [Safe Mode](/guide/getting-started/modes/#safe-mode).
 
