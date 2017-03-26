@@ -10287,6 +10287,7 @@ Constructs an instance of the String class. There are multiple versions that con
   * a constant integer or long integer, using a specified base
   * an integer or long integer variable
   * an integer or long integer variable, using a specified base
+  * a float variable, showing a specific number of decimal places
 
 ```C++
 // SYNTAX
@@ -10306,6 +10307,7 @@ String stringOne =  String(analogRead(0), DEC);        // using an int and a bas
 String stringOne =  String(45, HEX);                   // using an int and a base (hexadecimal)
 String stringOne =  String(255, BIN);                  // using an int and a base (binary)
 String stringOne =  String(millis(), DEC);             // using a long and a base
+String stringOne =  String(34.5432, 2);                // using a float showing only 2 decimal places shows 34.54 
 ```
 Constructing a String from a number results in a string that contains the ASCII representation of that number. The default is base ten, so
 
