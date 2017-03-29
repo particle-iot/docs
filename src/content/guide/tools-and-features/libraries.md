@@ -108,13 +108,13 @@ Every Particle library complies with the following file structure that will be a
 There are 3 kinds of project structure:
 
 - legacy
-- simple 
+- simple
 - extended
 
 ### Legacy Structure
 
 The legacy project structure stores files in the root of the project. There is no project definition file. This is
-the structure used by all projects prior to libraries v2. 
+the structure used by all projects prior to libraries v2.
 
 - `myapp`
   - `application.ino`
@@ -153,7 +153,7 @@ Libraries consumption is supported in each of our three primary development tool
 
 - [Using libraries with the Web IDE](/guide/getting-started/build/#using-libraries)
 - [Using libraries with the Desktop IDE](/guide/tools-and-features/dev/#using-community-libraries)
-- [Using libraries with the Command Line Interface (CLI)](/guide/tools-and-features/dev/#working-with-projects-and-libraries)
+- [Using libraries with the Command Line Interface (CLI)](/guide/tools-and-features/cli/#using-libraries)
 
 ## Contributing libraries
 
