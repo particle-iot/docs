@@ -103,6 +103,9 @@ Every Particle library complies with the following file structure that will be a
 
 - **dependencies.<lib>** Other library that this library depends on, one line per library dependency. The value is the desired version number of the library dependency.
 
+- **whitelist** Additional files to include when publishing a library. By default these files are included in a library when publishing: `*.ino`, `*.pde`, `*.cpp`, `*.c`, `*.c++`, `*.h`, `*.h++`, `*.hpp`, `*.ipp`, `*.properties`, `*.md`, `*.txt`, `*.S`, `*.a` and `LICENSE`.
+
+
 ## Project file structure
 
 There are 3 kinds of project structure:
