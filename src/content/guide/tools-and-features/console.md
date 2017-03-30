@@ -97,7 +97,7 @@ tutorial](/tutorials/integrations/webhooks/)
 - [Azure IoT Hub
 tutorial](/tutorials/integrations/azure-iot-hub/)
 - [Google Cloud Platform
-tutorial](tutorials/integrations/google-cloud-platform/)
+tutorial](/tutorials/integrations/google-cloud-platform/)
 
 ### Billing
 
