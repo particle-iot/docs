@@ -70,7 +70,7 @@ Note that this does not work on unboxed photons unless they have firmware update
 ### Get Device ID [deviceID] CLI method
 _Using the Particle CLI_
 * Put your device into [Listening Mode](/guide/getting-started/modes/photon/#listening-mode) mode while being plugged into a computer via USB
-* Issue `particle serial identify` from the [particle CLI](https://github.com/spark/particle-cli)
+* Issue `particle serial identify` from the [particle CLI](/guide/tools-and-features/cli)
 	and it should return the deviceID.
 
 ### Get Device ID
