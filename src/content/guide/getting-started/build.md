@@ -89,7 +89,7 @@ The best way to get started with the IDE is to start writing code:
 - **Get Code**: Try clicking on the "Blink an LED" example under the "Example apps" header.  The Particle Build editor should display the code for the example application in an active tab.  Alternatively, you can copy and paste this snippet of code into a new application in the Build IDE.
 
 {{#if electron}}
-**NOTE**: Each over *over-the-air firmware update* on Electron counts towards your data allowance. You can also flash the Electron locally [using our CLI](https://github.com/spark/particle-cli#compiling-remotely-and-flashing-locally).
+**NOTE**: Each over *over-the-air firmware update* on Electron counts towards your data allowance. You can also flash the Electron locally [using our CLI](/reference/cli/#compiling-remotely-and-flashing-locally).
 {{/if}}
 
 ```
