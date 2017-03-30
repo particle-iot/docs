@@ -10269,7 +10269,7 @@ Determine if OTA updates are presently enabled or disabled.
 
 Indicates if there are OTA updates pending.
 
-**Note:** Currently this function does not do anything useful, since it only returns `true`, once the OTA update has already kicked in. So with `System.disableUpdates()` it will *never* become `true`.
+**Note:** Currently this function does not do anything useful, since it only returns `true` once the OTA update is already about to kick in. So with `System.disableUpdates()` it will *never* become `true`.
 
 
 
