@@ -145,9 +145,9 @@ $ particle flash 0123456789ABCDEFGHI app.ino library1.cpp library1.h
 ```
 
 Note that the CLI since 1.9.0 has support for firmware libraries via the [particle library](#particle-library)
-commands. 
+commands.
 
- 
+
 
 ### Target a specific firmware version for flashing
 
@@ -562,7 +562,7 @@ $ particle serial flash firmware.bin
 
 This is a synonym for `particle flash --serial firmware.bin`.
 Note that at present only binaries can be flashed using this command.
-If you wish to flash from application sources, first use `particle compile` to compile a binary from sources. 
+If you wish to flash from application sources, first use `particle compile` to compile a binary from sources.
 
 If you have system firmware with debugging enabled (which is the default on the Electron) then flashing via serial will fail unless debugging is disabled. You can disable debugging logs flashing Tinker via USB: `particle flash --usb tinker`.
 
@@ -742,3 +742,59 @@ file.bin
  It depends on a system module number 1 at version 6
 ```
 
+## particle token
+
+### list
+Retrieve all the access token under your Particle account.
+
+```sh
+$ particle token list
+Checking with the cloud...
+? Using account cli@particle.io
+Please enter your password: *******
+
+spark-ide
+ Token:      da39a3ee5e6b4b0d3255bfef95601890afd80709
+ Expires at: null
+
+cloud-compile
+ Token:      da39a3ee5e6b4b0d3255bfef95601890afd80709
+ Expires at: null
+
+spark-cli
+ Token:      da39a3ee5e6b4b0d3255bfef95601890afd80709
+ Expires at: null
+
+__PASSWORD_ONLY__
+ Token:      da39a3ee5e6b4b0d3255bfef95601890afd80709
+ Expires at: 2017-06-12T13:42:46.308Z
+
+__PASSWORD_ONLY__
+ Token:      da39a3ee5e6b4b0d3255bfef95601890afd80709
+ Expires at: 2017-06-12T09:03:45.797Z
+
+__PASSWORD_ONLY__ (active)
+ Token:      da39a3ee5e6b4b0d3255bfef95601890afd80709
+ Expires at: 2017-06-12T08:44:16.371Z
+```
+
+### new
+Create a new access token under your Particle account.
+
+```sh
+$ particle token new
+? Using account cli@particle.io
+Please enter your password: *******
+New access token expires on Fri Jun 23 2017 23:09:24 GMT+0800 (SGT)
+		da39a3ee5e6b4b0d3255bfef95601890afd80709
+```
+
+### revoke
+Revoke an access token under your Particle account.
+
+```sh
+$ particle token revoke ACCESS_TOKEN
+? Using account cli@particle.io
+Please enter your password: *******
+successfully deleted ACCESS_TOKEN
+```
