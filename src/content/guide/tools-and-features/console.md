@@ -8,28 +8,135 @@ layout: guide.hbs
 ---
 
 
-# Console 
+# Console
 
-The [Device Management Console](https://console.particle.io) is your command center. It allows you and a team to manage firmware running on your devices, collect and analyze product data, and manage team permissions from a single administrative interface.
+The [Particle Console](https://console.particle.io) is your
+centralized IoT command center. It provides interfaces to make
+interacting with and managing Particle devices easy. This guide is
+divided into two main sections, [tools for developers](#developer-tools)
+and [tools to manage product fleets](#product-tools).
 
 **Note:** The Console does not yet work in Microsoft Internet Explorer including Edge. Please use another browser, such as Chrome or Firefox, to access the Console. If you're experiencing rendering issues, turn off any ad blocking extensions you may be using.
 
-When you begin using many devices you'll find yourself asking questions like:
+## Developer Tools
+
+While actively developing an IoT project or product, the Console offers
+many helpful features to make prototyping a breeze. See the last time a
+device connected, debug a firmware issue by observing event logs,
+set up a webhook to send data to an external service, and more.
+
+### Devices
+
+The Devices page allows you to see a list of the devices associated with
+your account. Here, you can see specific information about each device,
+including it's unique Device ID, it's name, the type of device (i.e.
+Photon or Electron) the last time it connected
+to the Particle cloud, and whether or not the device is currently
+online.
+
+<img src="{{assets}}/images/console/devices-view.png"
+class="full-width"/>
+
+You can also take certain actions on devices from this view, such as
+renaming the device and unclaiming it from your account.
+
+### Logs
+
+You can watch events published from your devices with
+`Particle.publish()` come in, in realtime.
+
+[![Logs
+App]({{assets}}/images/dashboard/logs-big-picture.png)]({{assets}}/images/dashboard/logs-big-picture.png)
+
+The Logs feature provides a clean interface to view event information in
+real-time, just from your devices. We're hoping that this is handy both
+while debugging code during development, and checking out recent
+activity on your device once you power-on your finished project. Here’s
+a snapshot of a Particle device monitoring the health of a theoretical
+aquarium.
+
+Let's look at it starting at the top.
+
+Near the title, we've got a button to pause and un-pause the event
+stream.
+
+There's also an icon of a terminal window. When you click on it, we give
+you a hint on how to get the same information from the API.
+
+Below the title is a side-scrolling bar graph. It's a visualization of
+the number of events from your devices over time. Each color in the bar
+graph represents a unique event name. Each bar is 5 seconds in duration.
+
+At the bottom is a real-time log of events passing through the cloud.
+You'll get the name, data, timestamp and the device name associated with
+each event as it comes in. Oh Yeah! And, if you click on the event, you
+can see a raw JSON view of the event.
+
+[![Raw
+event]({{assets}}/images/dashboard/raw-event.jpg)]({{assets}}/images/dashboard/raw-event.jpg)
+
+In this view, you'll only see events that come in while the browser
+window is open.
+
+### Integrations
+
+Integrations allow you to send data from your Particle devices to
+external tools and services. The Console provides an interface to
+create, view, edit, and delete Particle integrations.
+
+<img src="{{assets}}/images/console/integrations-view.png"
+class="full-width"/>
+
+For more information on how to start using integrations, you should
+check out:
+
+- [Webhooks
+guide](/guide/tools-and-features/webhooks/)
+- [Webhooks
+tutorial](/tutorials/integrations/webhooks/)
+- [Azure IoT Hub
+tutorial](/tutorials/integrations/azure-iot-hub/)
+- [Google Cloud Platform
+tutorial](/tutorials/integrations/google-cloud-platform/)
+
+### Billing
+
+You should also use the Console to view and manage billing information.
+Some of the things to use the billing view for include:
+
+- Updating the credit card used to pay for Particle platform features
+- Viewing SIM card data usage, and managing the connectivity state of
+the SIM card
+- View product billing and usage information, including outbound event
+count, device fleet size, and current plan
+
+<img src="{{assets}}/images/console/billing-view.png"
+class="full-width"/>
+
+## Product Tools
+
+For many using Particle, the end-goal is to move from a single prototype
+to a professional deployment of thousands or millions of units in the
+field. When you begin making this transition to managing a larger fleet
+of devices, you'll find yourself asking questions like:
 
 - _How many_ of my devices are online right now?
-- _Who_ of my customers are using their devices, and who isn't?
-- _How_ are my customers using their devices?
 - _Which_ firmware version is running on each device?
-- _What_ errors and exceptions are the devices generating?
+- _Who_ of my customers are using their devices, and who isn't?
+- _Who_ in my company has access to this fleet, and what information can they
+access?
+
+This is where creating a Particle product is vital to ensure scaling can
+happen seamlessly and successfully.
 
 Luckily, the Particle Console is designed to give you full visibility into the
-state of your fleet, and provide a centralized control panel to change how
-devices are functioning.
+state of your product fleet, and provide a centralized control panel to change how
+devices are functioning. It allows you and a team to manage firmware running on your devices, collect and analyze product data, and manage team permissions from a single administrative interface.
 
 The first step to get started is understanding the differences between your
 personal devices and those added to a Product.
 
-## Devices vs Product Devices
+### Devices vs Product Devices
 
 Up until now, you've been an individual user of Particle. Your devices belong to
 you, and you can only act upon one device at a time.
@@ -53,7 +160,7 @@ Your Product also has **team members** with access to the Console.
 
 It is important to note that *team members* and *customers* have different levels of access. For instance, only *team members* will typically be able to send an over-the-air firmware update, while *customers* may have the ability to control their own product. These access levels will be controlled through the Console.
 
-## Defining a product
+### Defining a product
 
 Our cloud platform thinks that all devices are *Photons*, *Electrons*, or *Cores* — unless it's told otherwise. Now's the time to define your own product within the platform and tell us a bit about how that product should behave.
 
@@ -75,7 +182,7 @@ This will open up a modal where you can add basic details about your product:
 
 You now have your very first Particle product! Woot!
 
-## Adding team members
+### Adding team members
 
 Now that you have created a Product successfully, it's time to add your coworkers and friends that are collaborating with you on your IoT product. Adding a team member will give them full access to your Product's Console.
 
@@ -92,7 +199,7 @@ Once your team member is successfully invited, they will receive an email notify
 
 Nice! Now you have a Product with a team.
 
-## Your Product ID
+### Your Product ID
 
 When you created your product, a unique numeric ID was assigned to it. This small piece of information is *very, very important* to you as a product creator, and it will be used countless times during the development and manufacturing process for your product. You will be able to find your product's ID at any time in the navigation bar when viewing information about your product:
 
@@ -103,7 +210,7 @@ This ID will be used by the Particle Cloud to identify which devices belong to y
 
 When working with devices that belong to your Product, it is important to note that this product ID must be compiled into the firmware that is running on each device. The product ID that the device reports to the cloud from its firmware will determine which Product it requests to become a part of. This will be covered more in-depth in the [rollout firmware](#rollout-firmware) section below.
 
-## Adding Devices
+### Adding Devices
 
 Now that you have your Product, it's time to import devices. Importing devices will assign them to your Product and allow you to start viewing and managing these devices within your Product Console.
 
@@ -129,11 +236,11 @@ Where each line is one Device ID. Once you have your file ready, drop it onto th
 
 As noted at the bottom of the dialog box, if you previously rolled out firmware, those newly imported devices will be updated over the air to that firmware next time they connect to the Particle Cloud.
 
-## Rollout Firmware
+### Rollout Firmware
 
 One of the most significant benefits of your Console is being able to roll out firmware to groups of devices, all from one place. This opens up tremendous possibilities for your IoT product: you now have the power to continuously improve how a customer's device operates after purchase. In addition, over-the-air (OTA) firmware updates can provide you additional flexibility in the manufacturing process. Specifically, you may continue to develop firmware between the time of manufacturing and shipping your product to customers, and send the latest firmware to your customers on setup of their device.
 
-### Preparing a binary
+#### Preparing a binary
 
 Click the Firmware icon in the left sidebar to get started. This will direct you to your product's firmware page, your centralized hub for viewing and managing firmware for your product's devices. If you haven't yet uploaded any firmware for this Product, your page will look like this:
 
@@ -165,7 +272,7 @@ void loop() {
 }
 ```
 
-### Compiling Binaries
+#### Compiling Binaries
 
 If you are in the Web IDE, you can easily download a compiled binary by clicking the Code icon (<i class="ion-code"></i>) in your sidebar. You will see the name of your app in the pane, along with a download icon (<i class="ion-ios7-cloud-download"></i>). Click the download icon to compile and download your current binary.
 
@@ -179,7 +286,7 @@ If you are using Particle Dev, clicking on the compile icon (<i class="ion-check
 
 Once you have a binary ready to go, it's time to upload it to the Console!
 
-### Uploading firmware
+#### Uploading firmware
 
 Back on the firmware page, click on the **Upload** button in the top-right corner of the page. This will launch the upload firmware modal:
 
@@ -196,7 +303,7 @@ Click upload. Congrats! You've uploaded your first version of product firmware! 
 ![Product firmware version](/assets/images/product-firmware.png)
 <p class="caption">Your firmware version now appears in your list of available binaries</p>
 
-### Releasing firmware
+#### Releasing firmware
 
 Time to flash that shiny new binary to some devices! Notice that when you hover over a version of firmware, you have the ability to **Release firmware** (<i class="ion-star"></i>). *Releasing* firmware sets that binary as the **preferred firmware version** for all devices reporting as your product. Unless set individually, any device that does not report this released version of firmware will **automatically download and run it** next time it comes online.
 
@@ -207,7 +314,7 @@ However, releasing firmware also presents a serious risk. The last thing you wou
 ![Unable to release firmware](/assets/images/unable-to-release.png)
 <p class="caption">Releasing a firmware version is disabled until it is running on at least one device</p>
 
-### Locking firmware
+#### Locking firmware
 
 On the devices page (click <i class="im-devices-icon"></i> in the sidebar), you have the ability to lock the firmware version on a device so you can develop and test new firmware before releasing it to your whole fleet. When the device connects, if the firmware version doesn't match the locked version, the Cloud will force an OTA update with that firmware version.
 
@@ -221,7 +328,7 @@ To turn a device with locked firmware back into a device that gets updated with 
 
 ![Unlock a device](/assets/images/unlock-firmware-version.png)
 
-### Recommended development flow
+#### Recommended development flow
 
 Before flashing your fleet, it's important to first understand the recommended development flow for managing firmware for a Product. This flow is designed to minimize risk when deploying new firmware to devices.
 
@@ -236,7 +343,7 @@ Start each firmware release cycle by [flashing and locking the firmware](#lockin
 
 Once at least one device is successfully running your new firmware, you will now have [the ability to release that version of firmware back on the Firmware page](#releasing-firmware). Get into the habit of following this process as you continue to iterate and prepare new versions of firmware for your product!
 
-## Managing Customers
+### Managing Customers
 
 Now that you have set up a Product, your customers will be able to create accounts on the Particle platform that are registered to your Product. When properly implemented, your customers will have no idea that Particle is behind the scenes; they will feel like they are creating an account with *ACME, Inc.*.
 
@@ -250,11 +357,11 @@ When you create your Product in the Console, you will be asked which authenticat
 
 As customers are created for your product, they will begin to appear on your Customers (<i class="ion-user"></i>) page. For each customer, you will be able to see their username and associated device ID. Note that the device ID column will not be populated until the customer goes through the claiming process with their device.
 
-## Monitoring Event Logs
+### Monitoring Event Logs
 
 The Logs page (<i class="icon-terminal"></i>) is also available to product creators! Featuring the same interface as what you are used to with the [developer version of the Console](/guide/tools-and-features/console/), the logs will now include events from any device identifying as your product. Use this page to get a real-time look into what is happening with your devices. In order to take full advantage of the Logs page, be sure to use `Particle.publish()` in your firmware.
 
-## Managing your billing
+### Managing your billing
 
 To see all billing related information, you can click on the billing icon in your Product's sidebar (<i class="ion-card"></i>). This is the hub for all billing-related information and actions. For more specifics about the pricing tiers and frequently asked questions, [go check out the Pricing page](https://www.particle.io/pricing).
 
@@ -307,7 +414,7 @@ If we attempt to charge your credit card and it fails, we do not immediately pre
 
 After we have unsuccessfully tried to charge your card 3 times, your Console account will be locked. <strong>Your Products and all data will not be deleted</strong>. After re-activating your account, you will be able to access your Console once again.
 
-## Configuring Your Product
+### Configuring Your Product
 
 As a product creator, there are some key decisions you will need to make before devices are shipped to customers. Your configuration page will walk you through key questions that you should be thinking about during the development process. **You don't need to know the answers to all of these questions right now.** You are always able to return to your Configuration page to answer outstanding questions, or change your answers. However, you **should** answer all questions before you can start manufacturing.
 
