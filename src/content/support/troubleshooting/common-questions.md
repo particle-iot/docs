@@ -26,7 +26,7 @@ Feel free to contact [hello @ particle dot io] with **subject line: *"Sponsorshi
 
 ## How do I get my deviceID [device ID] ?
 * Put the device into [Listening Mode](/guide/getting-started/modes/#listening-mode) mode while being plugged into a computer via USB
-* Issue `particle serial identify` from the [particle CLI](https://github.com/spark/particle-cli)
+* Issue `particle serial identify` from the [particle CLI](/guide/tools-and-features/cli)
 	and it should return the deviceID.
 
 {{#if core}}
@@ -37,7 +37,9 @@ Here is a [comprehensive community guide](https://community.particle.io/t/spark-
 
 ## Installing Particle CLI
 
-For [installation instructions](https://github.com/spark/particle-cli) and to stay up-to-date on the most recent revisions of our Particle-cli, follow our repo
+Please see the [installation instructions](/guide/tools-and-features/cli) for step-by-step guide to installing the CLI.
+
+To stay up-to-date on the most recent revisions of our Particle-cli, follow our repo
 [Particle CLI Repo](https://github.com/spark/particle-cli).
 
 

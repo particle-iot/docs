@@ -12708,7 +12708,7 @@ To update your Photon, P1 or Core system firmware automatically, compile and fla
 
 The easiest way to upgrade to System Firmware Version @FW_VER@ is to use the Particle CLI with a single command.  You will first upgrade the system firmware, then optionally program Tinker on the device. This **requires CLI version @CLI_VER@**. You can check with `particle --version`.
 
-If you have the [Particle CLI](https://github.com/spark/particle-cli) installed already, you can update it with the following command `sudo npm update -g particle-cli@v@CLI_VER@` (note: you can try without sudo first if you wish).
+If you have the [Particle CLI](/guide/tools-and-features/cli) installed already, you can update it with the following command `sudo npm update -g particle-cli@v@CLI_VER@` (note: you can try without sudo first if you wish).
 
 To upgrade system firmware, make sure the device is in [DFU mode](/photon/modes/#selecting-various-modes-dfu-mode-device-firmware-upgrade) (flashing yellow LED) and run these commands in order:
 
@@ -12793,7 +12793,7 @@ particle flash YOUR_DEVICE_NAME tinker (optional)
 
 This **requires CLI version @CLI_VER@ or newer**. You can check with `particle --version`.
 
-If you have the [Particle CLI](https://github.com/spark/particle-cli) installed already, you can update it with the following command `sudo npm update -g particle-cli` (note: you can try without sudo first if you wish).
+If you have the [Particle CLI](/guide/tools-and-features/cli) installed already, you can update it with the following command `sudo npm update -g particle-cli` (note: you can try without sudo first if you wish).
 
 To upgrade system firmware, make sure the device is in [DFU mode](/photon/modes/#selecting-various-modes-dfu-mode-device-firmware-upgrade) (flashing yellow LED) and run these commands in order for your device type:
 
@@ -12912,7 +12912,7 @@ Current default system firmware would be the latest non-rc.x firmware version.  
 
 The easiest way to downgrade from a System Firmware Version @FW_VER@ is to use the Particle CLI with a single command.  You will first put the Tinker back on the device, then downgrade the System Firmware. Running the commands in this order prevents the device from automatically re-upgrading (based on user app version dependencies) after downgrading.  This will **require a CLI version associated with your desired default firmware**. To determine which version to use, click on the default version desired in the table under [Programming and Debugging Notes](#programming-and-debugging-notes) and refer to the CLI version required in **The easy local method using Particle CLI** section.
 
-If you have the [Particle CLI](https://github.com/spark/particle-cli) installed already, you can install a specific version like v1.16.0 with the following command `sudo npm update -g particle-cli@v1.16.0` (note: you can try without sudo first if you wish).  Replace v1.16.0 with your desired version.
+If you have the [Particle CLI](/guide/tools-and-features/cli) installed already, you can install a specific version like v1.16.0 with the following command `sudo npm update -g particle-cli@v1.16.0` (note: you can try without sudo first if you wish).  Replace v1.16.0 with your desired version.
 
 To downgrade system firmware, make sure the device is in [DFU mode](/photon/modes/#selecting-various-modes-dfu-mode-device-firmware-upgrade) (flashing yellow LED) and run these commands in order:
 
