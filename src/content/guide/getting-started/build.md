@@ -155,6 +155,23 @@ As your code base grows, you will naturally create libraries to better manage yo
 
 This will create two new tabs, one with `.h` and one with `.cpp` extension. You can read more about why we need both in [this C++ tutorial](http://www.learncpp.com/cpp-tutorial/19-header-files/).
 
+Sharing your app
+---
+
+When you want to share the app you created with someone, you can create a "snapshot" of it by clicking **Share this revision**: button.
+
+![Share revision](/assets/images/web-ide/share-app.gif)
+
+Once you make the revision public anyone with the link can see a read-only version of your app.
+
+**Note:** you can't revert a revision to being private. Be careful about what you're making public.
+
+Any changes you make to the app after this won't be reflected under this link. To share newer version of your app, you need to generate a new link for the latest revision.
+
+When viewing a shared app you can either flash it to any of your devices or copy it to your apps so you can modify it:
+
+![Copy shared app](/assets/images/web-ide/copy-app.gif)
+
 Account Information
 ---
 
