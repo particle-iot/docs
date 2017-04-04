@@ -454,6 +454,17 @@ $ particle webhook delete 234523452345234523452345
 Successfully deleted webhook!
 ```
 
+All registered user webhooks can be removed by passing the `all` parameter. 
+
+```sh
+$ particle webhook delete all
+? Do you want to delete ALL your webhooks? Yes
+Found 3 hooks registered
+
+deleting 58889c0af14a8228a3fe64c8
+deleting 58889c0ef14a8228a3fe64dd
+deleting 58889c1113e45f1b69be21b7
+```
 
 ## particle monitor
 
