@@ -38,7 +38,7 @@ If you have physical access to the {{device}} in question, here's how to change 
 
 Bare with me for these next steps! This is slightly complicated because of the great security implemented on the {{device}}.
 
-1. Before we can start, you're going to want to install the Particle CLI tool to make life easier! Please see the README here: [Particle CLI](https://github.com/spark/particle-cli)
+1. Before we can start, you're going to want to install the Particle CLI tool to make life easier! [Particle CLI](/guide/tools-and-features/cli)
 
 2. Once the CLI tool is installed the first thing you should do is login to your Particle account.  If you do not have an account yet, please set one up at https://build.particle.io/build .
 
