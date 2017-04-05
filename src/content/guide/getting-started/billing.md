@@ -54,23 +54,12 @@ You may notice that Zones aren't always the same in countries that share borders
 
 More more information about pricing and carriers in each Zone/Country, please visit [https://particle.io/pricing](https://www.particle.io/pricing#cellular-data) and inspect the dropdown menu of country names.
 
-## Kickstarter Promo Codes
-First, thank you for being a backer! You should have received a unique promo code via email for each Electron you ordered during the campaign, and you'll need to enter one of those codes during the setup process as you activate each SIM (*Haven't gotten your promo code? Let us know by visiting our [support portal](/support)).
+## Initial Electron Promotion included with your order
+First, thank you for your purchase! The first 3 months of our 1MB data plan are FREE! This promotion will be automatically applied upon activation of your SIM. (Note: Only SIMs purchased through our retail or wholesale stores, or reseller partners are eligible for this promotion.)
 
-**The Kickstarter promo code pays for your base rate/first MB for 3 consecutive months**. We do have to collect a payment method at activation time to cover any additional MBs used in a given month, and so your Electron will seamlessly continue to work after those 3 months! Pausing or deactivating a SIM doesn't pause the 3 month clock, so once you put in a promo code you should keep rocking for the next quarter year.
+**The promotion pays for your base rate/first MB for 3 consecutive months**. We do have to collect a payment method at activation time to cover any additional MBs used in a given month, and so your Electron will seamlessly continue to work after those 3 months! Pausing or deactivating a SIM doesn't pause the 3 month clock, so once you activate your SIM, you should keep rocking for the next quarter year.
 
-If you add another SIM using a promo code on a later date, the equation gets slightly more complicated. The TL;DR is that we're making sure you get the full value of your months, but read on for more detail. We don't want you to miss out on the full discount on a month's base rate, so instead of counting your first partial month leading up to your billing anniversary as one month, we're prorating a credit of your base rate against the percentage of the month remaining. This remainder will show up on your receipt four months later as a credit towards your first non-promo-discounted month.
-
-## Forgot to apply your promo code?
-
-If you have a promo code for free cellular data, but forgot to add it during SIM activation, fear not! There is a way to retroactively apply a promo code to your SIM card's data plan.
-
-To apply a promo code to a SIM after setup, visit your [billing hub](https://dashboard.particle.io/user/billing) on the Particle dashboard. There, you'll see a list of your SIM cards. Find the SIM that you'd like to apply the promo code to, and click on the "more" icon (<i class="ion-more"></i>) for you SIM, then click "<strong>Apply Promo Code</strong>." This will display a field for you to add your promo code and apply it to the SIM.
-
-If a valid promo code is added, your SIM will be immediately transitioned to the data plan associated with the promo code, and you will be credited for any amount you have been incorrectly charged up to now. The credit will be applied to your next invoice at the beginning of the next billing cycle. In addition, your SIM will receive the benefits of its new data plan for all invoices moving forward.
-
-For instance, if you activated your SIM in the US without the promo code on April 15, you were charged $2.99 for the SIM's 1st MB of data for the first month of service. If you then retroactively applied your promo code on April 18, you would receive a credit of $2.99 applied to your May 15 invoice. Assuming that the promo code was good for 3 free months of the 1MB data plan for a SIM, your next invoice would include a $0.00 line item for the SIM's monthly data plan (May would be the second of three months of the free data promotion).
-
+If you activate another SIM at a later date, the equation gets slightly more complicated. The TL;DR is that we're making sure you get the full value of your months, but read on for more detail. We don't want you to miss out on the full discount on a month's base rate, so instead of counting your first partial month leading up to your billing anniversary as one month, we're prorating a credit of your base rate against the percentage of the month remaining. This remainder will show up on your receipt four months later as a credit towards your first non-promo-discounted month.
 
 ## Monitoring your Data Usage
 
