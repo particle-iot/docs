@@ -1,6 +1,6 @@
 ---
 title: Particle API JS (Javascript SDK)
-template: reference.hbs
+layout: reference.hbs
 columns: three
 order: 4
 ---

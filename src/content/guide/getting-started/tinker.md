@@ -1,6 +1,6 @@
 ---
 title: Tinker & Mobile App
-template: guide.hbs
+layout: guide.hbs
 columns: two
 devices: [ photon,electron,core,raspberry-pi]
 order: 5

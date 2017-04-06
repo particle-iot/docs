@@ -3,7 +3,7 @@ word: Kits
 title: Particle Kits Overview
 order: 1
 columns: 2
-template: datasheet.hbs
+layout: datasheet.hbs
 
 ---
 

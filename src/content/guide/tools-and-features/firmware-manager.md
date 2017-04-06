@@ -4,7 +4,7 @@ title: Firmware Manager
 order: 4
 columns: two
 devices: [ photon,electron,core ]
-template: guide.hbs
+layout: guide.hbs
 ---
 
 # Firmware Manager

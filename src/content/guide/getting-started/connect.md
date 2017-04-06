@@ -1,6 +1,6 @@
 ---
 title: Connecting over USB
-template: guide.hbs
+layout: guide.hbs
 columns: two
 devices: [ photon,electron,core ]
 order: 3
@@ -140,7 +140,7 @@ If you have already claimed your device and you want to connect it to Wi-Fi, typ
 If you're using an Electron, please follow the instructions at [https://setup.particle.io](https://setup.particle.io).
 {{/if}}
 
-If your device is not connecting, try troubleshooting [here](https://docs.particle.io/support/troubleshooting/common-issues).
+If your device is not connecting, try troubleshooting [here](/support/troubleshooting/common-issues).
 
 [More info on the CLI is available](/guide/tools-and-features/cli/).
 

@@ -6,7 +6,6 @@
  */
 
 var handlebars = require('handlebars');
-var minimatch = require('minimatch');
 var fs = require('fs');
 var path = require('path');
 

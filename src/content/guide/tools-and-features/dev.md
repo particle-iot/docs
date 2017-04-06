@@ -4,7 +4,7 @@ title: Desktop IDE (Dev)
 order: 2
 shared: true
 columns: two
-template: guide.hbs
+layout: guide.hbs
 ---
 
 # Desktop IDE (Dev)
@@ -197,18 +197,47 @@ the library name and version number should be added to the `project.properties` 
 
 ![Library included](/assets/images/libraries/libraries-dev-properties.png)
 
-To make the library functionality available to your application, you add an include statement to your application source code. 
+To make the library functionality available to your application, you add an include statement to your application source code.
 The include statement names the library header file, which is the library name with a `.h` ending.  
 
 For example, if we were using the library "UberSensor", it would be included like this:
- 
+
 ```
 #include "UberSensor.h"
 ```
 
 **Congrats!** You have now added a firmware library to your Particle project in the Desktop IDE!
 
-Contribute a library
----
+## Contribute a library
 
 See the [detailed library guide](/guide/tools-and-features/libraries/#contributing-libraries) to find more about contributing a library from the Desktop IDE.
+
+## Targeting different platforms and firmware versions
+
+Similarly to the [Web IDE](/guide/getting-started/build/photon/#wait-what-is-firmware-) you can specify exactly which platform (Core, Photon, Electron or others) you're using and at which specific firmware version your project is depending.
+
+**Note:** By default all projects are compiled for latest version of firmware for a Photon.
+
+To know what platform and version you are targeting take a look at the status bar:
+
+![](/assets/images/local-ide/status-bar.png)
+
+The first item is currently selected device. Once you select a different device, the target platform will be automatically changed to its platform.
+
+The second one is the platform you want to target. Different platforms have different capabilities (i.e. Photon has WiFi but Electron has cellular instead) so keep in mind that some firmware methods might not exist or work differently (consult [the reference](/reference) to make sure they will work as you expect).
+
+Clicking on the platform name will allow you to select a different one:
+
+![](/assets/images/local-ide/platforms.png)
+
+**Note:** You can target platforms you don't own hardware of and at least test if the code compiles.
+
+The last item is the firmware version aka the build target. This allows you to select exactly which version you want to use. When reading [the reference](/reference/firmware) you might have noticed that some functions have a note saying: _Since X.Y.Z_. This specifies the minimum build target you need to use in order to have this function available.
+
+When you use a version newer than's on your device (which can be checked using `particle serial inspect` [CLI command](/guide/tools-and-features/cli)) it will enter **safe mode** which should be automatically fixed with multiple consecutive flashes. The exception here is the Electron where updating system firmware would incur charges. In this case, the IDE will select the build target that's currently on the device in order to keep the device running.
+
+Clicking on the build target will show the list of available ones for current platform:
+
+![](/assets/images/local-ide/build-targets.png)
+
+You can see that some of the build targets have a warning sign next to them. Those are pre-releases. They will bring the latest features but might not be as stable as the other releases. We encourage you to test them but only for experimental purposes (i.e. not in production).

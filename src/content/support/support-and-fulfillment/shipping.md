@@ -1,6 +1,6 @@
 ---
 title: Shipping
-template: support.hbs
+layout: support.hbs
 columns: two
 order: 2
 ---

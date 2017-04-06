@@ -1,7 +1,7 @@
 ---
 word: Hackathon
 title: Hackathon
-template: guide.hbs
+layout: guide.hbs
 columns: two
 devices: [ photon,electron,core ]
 order: 11
@@ -229,7 +229,7 @@ Note that some libraries may not yet be updated for the Photon.
 
 Happy hacking! If you get stuck, try out:
 
-- [These docs](http://docs.particle.io), specifically the ones referring to the kit you have ([standard examples](/guide/getting-started/examples) or [Internet Button docs](/guide/tools-and-features/button/))
+- [These docs](/), specifically the ones referring to the kit you have ([standard examples](/guide/getting-started/examples) or [Internet Button docs](/guide/tools-and-features/button/))
 - [The Particle Community](http://community.particle.io)
 - [The Particle Support Page](http://support.particle.io)
 

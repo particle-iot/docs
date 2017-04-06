@@ -1,8 +1,8 @@
 ---
 title: Community Supported Clients
-template: reference.hbs
+layout: reference.hbs
 columns: two
-order: 9
+order: 10
 ---
 
 # Community Supported Clients
@@ -46,6 +46,10 @@ See [the official JavaScript client](/reference/javascript/).
 
 * [Swift 3.0 Client Library](https://github.com/vakoc/particle-swift) - A Swift 3.0, package manager compatible, library for interacting with the Particle Cloud API
 * [Swift 3.0 Command Line Interface](https://github.com/vakoc/particle-swift-cli) - A Swift 3.0, package manager compatible, command line application utilizing particle-swift for interacting with the Particle Cloud API
+
+## Xamarin
+
+* [Particle Xamarin Cloud SDK](https://github.com/michael-watson/particle-xamarin) - Enables Xamarin mobile apps apps to interact with Particle-powered connected products.
 
 # Community Supported Tools
 

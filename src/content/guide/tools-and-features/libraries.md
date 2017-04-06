@@ -3,7 +3,7 @@ word: Firmware Libraries
 title: Firmware Libraries
 order: 9
 columns: two
-template: guide.hbs
+layout: guide.hbs
 ---
 
 # {{title}}
@@ -16,7 +16,7 @@ Leveraging high quality libraries to build Internet-connected projects and appli
 
 In general, libraries in the Particle ecosystem have the following features:
 
-1. **Most Arduino libraries are compatible with Particle.** We've worked hard to ensure that our [firmware API](https://docs.particle.io/reference/firmware) contains all of the most commonly used Arduino functions and firmware commands so that many Arduino libraries can be submitted into the Particle library ecosystem without modification. All of the most popular Arduino libraries are already available through our libraries system, and many others can be easily modified for compatibility.
+1. **Most Arduino libraries are compatible with Particle.** We've worked hard to ensure that our [firmware API](/reference/firmware) contains all of the most commonly used Arduino functions and firmware commands so that many Arduino libraries can be submitted into the Particle library ecosystem without modification. All of the most popular Arduino libraries are already available through our libraries system, and many others can be easily modified for compatibility.
 
 2. **Particle libraries can include and depend on other Particle libraries.** If your library requires another external library as a dependency, it is easy to specify the particular library and even version of the library that your library depends on. A good example is our `internet-button` library, which depends on the popular `neopixel` library for controlling NeoPixel LEDs. You can learn more about libraries with dependencies in the [Library file structure](#library-file-structure) section below.
 
@@ -103,18 +103,21 @@ Every Particle library complies with the following file structure that will be a
 
 - **dependencies.<lib>** Other library that this library depends on, one line per library dependency. The value is the desired version number of the library dependency.
 
+- **whitelist** Additional files to include when publishing a library. By default these files are included in a library when publishing: `*.ino`, `*.pde`, `*.cpp`, `*.c`, `*.c++`, `*.h`, `*.h++`, `*.hpp`, `*.ipp`, `*.properties`, `*.md`, `*.txt`, `*.S`, `*.a` and `LICENSE`.
+
+
 ## Project file structure
 
 There are 3 kinds of project structure:
 
 - legacy
-- simple 
+- simple
 - extended
 
 ### Legacy Structure
 
 The legacy project structure stores files in the root of the project. There is no project definition file. This is
-the structure used by all projects prior to libraries v2. 
+the structure used by all projects prior to libraries v2.
 
 - `myapp`
   - `application.ino`
@@ -153,7 +156,7 @@ Libraries consumption is supported in each of our three primary development tool
 
 - [Using libraries with the Web IDE](/guide/getting-started/build/#using-libraries)
 - [Using libraries with the Desktop IDE](/guide/tools-and-features/dev/#using-community-libraries)
-- [Using libraries with the Command Line Interface (CLI)](/guide/tools-and-features/dev/#working-with-projects-and-libraries)
+- [Using libraries with the Command Line Interface (CLI)](/guide/tools-and-features/cli/#using-libraries)
 
 ## Contributing libraries
 
@@ -187,12 +190,12 @@ Create at least one example `.ino` file inside a subfolder of `examples` to show
 
 If your library depends on other libraries you can add those dependencies to `library.properties` with `particle library add`. For example, since the [Internet Button](/datasheets/kits/#internet-button) contains NeoPixel LEDs, the `InternetButton` library has the line `dependencies.neopixel=0.0.10` in `library.properties` to indicate this.
 
-List the hardware platforms supported by your library supports to the [`architectures` field](#library-properties-fields) in `library.properties`. In the code you can compare the current platform with [the platform definition constants](https://github.com/spark/firmware/blob/develop/platform/shared/inc/platforms.h).
+List the hardware platforms supported by your library supports to the [`architectures` field](#library-properties-fields) in `library.properties`. In the code you can compare the current platform constant with [the platform IDs](https://github.com/spark/firmware/blob/develop/platform/shared/inc/platforms.h).
 
 ```
-#if ( PLATFORM_ID == PLATFORM_ELECTRON_PRODUCTION )
+#if PLATFORM_ID == 10 // Electron
     #include "cellular_hal.h"
-#elif ( PLATFORM_ID == PLATFORM_PHOTON_PRODUCTION )
+#elif PLATFORM_ID == 6 // Photon
     #include "softap_http.h"
 #else
     #error "This library only works on the Electron and Photon"

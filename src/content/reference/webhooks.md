@@ -1,6 +1,6 @@
 ---
 title: Webhooks
-template: reference.hbs
+layout: reference.hbs
 columns: three
 order: 7
 ---
@@ -623,9 +623,14 @@ In being responsible members of the Internet community, we want to make sure we'
 
 **Any host will be limited to 120 requests per minute unless we're contacted by the site administrator**
 
-Particle webhooks will not contact any host more often than 120 times per minute, despite any number of configured webhooks from any number of users.  Requests over this limit for the moment will be dropped.  We intend to add a proper queuing system so this is done more fairly, but for the moment we've opted to protect sites against abuse first.
+Particle webhooks will not contact any host more often than 120 times per minute,
+despite any number of configured webhooks from any number of users.
+Requests over this limit will be dropped.
+The intent of this limit is to protect sites against abuse.
 
-_If you are a server operator and you believe you're being spammed by webhooks or want to increase the host limit, please use the [support form to contact us](https://support.particle.io)._
+_If you are a server operator and want to increase the host limit
+or believe you're being spammed by webhooks, please use the
+[support form to contact us](https://support.particle.io)._
 
 ### Limits by User
 

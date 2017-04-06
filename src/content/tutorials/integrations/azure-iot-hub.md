@@ -1,6 +1,6 @@
 ---
 title: Azure IoT Hub
-template: tutorials.hbs
+layout: tutorials.hbs
 columns: two
 order: 200
 ---

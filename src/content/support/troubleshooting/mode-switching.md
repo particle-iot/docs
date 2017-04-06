@@ -1,6 +1,6 @@
 ---
 title: System Modes
-template: support.hbs
+layout: support.hbs
 columns: two
 devices: [ photon,electron,core ]
 order: 6
@@ -18,7 +18,7 @@ As of today, the {{device}} has three modes: **AUTOMATIC, SEMI_AUTOMATIC, and MA
 
 ### Automatic Mode
 
-The default mode of the {{device}} is "automatic mode". This means that the {{device}} will attempt to connect to Wi-Fi automatically. If you don't explicitly define the connection mode, the {{device}} will be running in automatic mode. This is identical to how the {{device}} has always worked up until now.
+The default mode of the {{device}} is "automatic mode". This means that the {{device}} will attempt to connect to {{network-type}} automatically. If you don't explicitly define the connection mode, the {{device}} will be running in automatic mode. This is identical to how the {{device}} has always worked up until now.
 
 Behind the scenes, what's running on the {{device}} looks something like this:
 
@@ -39,7 +39,7 @@ Behind the scenes, what's running on the {{device}} looks something like this:
 	  }
 	}
 
-But the whole point of the automatic mode is you don't really need to know that. The Wi-Fi connection just works. So let's say your code looks like this:
+But the whole point of the automatic mode is you don't really need to know that. The {{network-type}} connection just works. So let's say your code looks like this:
 
 	// You don't have to add this, but if you want to be explicit:
 	SYSTEM_MODE(AUTOMATIC);
@@ -61,28 +61,35 @@ OK, that's all well and good, but what if I don't know whether my {{device}} wil
 
 ### Semi-automatic mode
 
-	// Insert firearm metaphor here
 	SYSTEM_MODE(SEMI_AUTOMATIC);
 
+	boolean connectToCloud = false;
+
 	void setup() {
-	  pinMode(D7, OUTPUT);
-	  attachInterrupt(D0, connect, FALLING);
+		pinMode(D7, OUTPUT);
+		attachInterrupt(D1, connect, FALLING);
 	}
 
 	void loop() {
-	  digitalWrite(D7, HIGH);
-	  delay(500);
-	  digitalWrite(D7, LOW);
-	  delay(500);
+		digitalWrite(D7, HIGH);
+		delay(500);
+		digitalWrite(D7, LOW);
+		delay(500);
+
+		if(connectToCloud && Particle.connected() == false) {
+			Particle.connect();
+			connectToCloud = false;
+		}
 	}
 
 	void connect() {
-	  if (Particle.connected() == false) {
-	    Particle.connect();
-	  }
+		connectToCloud = true;
 	}
 
-In this version of the code, when the {{device}} is plugged in, the LED will immediately start blinking. When a button attached to D0 is depressed (bringing DO to **LOW**), **Particle.connect()** will be called. If the {{device}} already has Wi-Fi credentials in memory, it will attempt to connect; otherwise, it will enter listening mode, and wait for your network name and password through the Particle mobile app or over USB.
+In this version of the code, when the {{device}} is plugged in, the LED will immediately start blinking. When a button attached to D1 is depressed (bringing D1 to **LOW**), **Particle.connect()** will be called. {{#unless electron}}If the {{device}} already has Wi-Fi credentials in memory, it will attempt to connect; otherwise, it will enter listening mode, and wait for your network name and password through the Particle mobile app or over USB.
+{{/unless}}{{#if electron}}If the {{device}} has a SIM card inserted, it will attempt to connect; otherwise, it will enter listening mode.
+{{/if}}
+
 
 The only main difference between **SEMI_AUTOMATIC** mode and **AUTOMATIC** mode is that **Particle.connect()** is not called at the beginning of your code; you have to do that yourself. Let's go deeper down the rabbit hole with:
 
@@ -94,27 +101,32 @@ Like **SEMI_AUTOMATIC** mode, in **MANUAL** mode you need to connect to the Clou
 
 	SYSTEM_MODE(MANUAL);
 
+	boolean connectToCloud = false;
+
 	void setup() {
-	  pinMode(D7, OUTPUT);
-	  attachInterrupt(D0, connect, FALLING);
+		pinMode(D7, OUTPUT);
+		attachInterrupt(D1, connect, FALLING);
 	}
 
 	void loop() {
-	  digitalWrite(D7, HIGH);
-	  Particle.process();
-	  delay(500);
-	  digitalWrite(D7, LOW);
-	  Particle.process();
-	  delay(500);
+		digitalWrite(D7, HIGH);
+		Particle.process();
+		delay(500);
+		digitalWrite(D7, LOW);
+		Particle.process();
+		delay(500);
+
+		if(connectToCloud && Particle.connected() == false) {
+			Particle.connect();
+			connectToCloud = false;
+		}
 	}
 
 	void connect() {
-	  if (Particle.connected() == false) {
-	    Particle.connect();
-	  }
+		connectToCloud = true;
 	}
 
-**You must call Particle.process() as frequently as possible to process messages from the Wi-Fi module.** If you do not do so, you will encounter erratic behavior, such as:
+**You must call Particle.process() as frequently as possible to process messages from the {{network-type}} module.** If you do not do so, you will encounter erratic behavior, such as:
 
 - The {{device}} losing its connection to the Cloud
 - The {{device}} breathing cyan when in fact it is not connected
@@ -134,5 +146,3 @@ As Stan Lee once said: with great power comes great responsibility. Go forth and
 {{#if core}}
 [Go to Community Forums >](http://community.particle.io/c/troubleshooting)
 {{/if}}
-
-

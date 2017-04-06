@@ -1,6 +1,6 @@
 ---
 title: Getting started
-template: guide.hbs
+layout: guide.hbs
 columns: two
 devices: [ photon,electron,core,raspberry-pi ]
 order: 2
@@ -24,6 +24,11 @@ The good news is that you're about to join a wonderful community of Particle dev
 Have fun!
 
 </p>
+
+### Quick install
+
+*If you've read this guide before and are just looking for the install command, we'll save you some scrolling:*
+`bash <( curl -sL https://particle.io/install-pi )`
 
 ## What You'll Need
 In order to connect your Raspberry Pi to the Particle Cloud you'll need the following things. Note that these are all included in the [Particle Pi Starter Kit with Raspberry Pi v3](https://store.particle.io/#particle-pi-starter-kit), which is available for purchase in the [Particle Store](https://store.particle.io/#particle-pi-starter-kit).
@@ -79,59 +84,56 @@ If you already have a Pi set up, run the following commands from your Raspberry 
 Note that these steps may take **up to 10 minutes** to complete, so please have patience.
 
 ## Connect your Pi to the Internet
+
 There are two primary ways to connect your Raspberry Pi to the web--using a wired connection (Ethernet) or using a wireless connection (Wi-Fi preferred).
 
 ### Connecting with a wired connection (Ethernet)
 
 If your Raspberry Pi has an Ethernet port, connecting it to the Internet is as simple as plugging in a cable to the on-board RJ-45 jack on your Pi. The operating system should automatically work with your router to obtain an IP address and connect to the web.
 
+You'll also want to add a blank file named `ssh` (open a text editor and hit Save as: `ssh`) to the `boot` drive of the SD card to allow connecting to your Raspberry Pi remotely.
+
 **Note**: The Pi Zero does not have an on-board Ethernet port, but can be connected with a Ethernet --> USB adapter.
+
+### Connecting over Wi-Fi (headless setup)
+
+You can put the Wi-Fi connection information to the SD card before starting the Raspberry Pi if you don't want to connect a monitor and keyboard.
+
+1. Insert the SD card into your computer.
+2. Open the drive called `boot`
+3. Add a file named `wpa_supplicant.conf` with this content:
+
+  ```
+  network={
+      ssid="YOUR_SSID"
+      psk="YOUR_PASSWORD"
+      key_mgmt=WPA-PSK
+  }
+  ```
+
+4. Add a blank file named `ssh` (open a text editor and hit Save as: `ssh`).
+5. Insert the SD card into your Raspberry Pi.
 
 ### Connecting over Wi-Fi (GUI setup)
 
 1. Connect a USB keyboard, USB mouse and monitor to your Raspberry Pi.
 2. Click on the icon on the left of the volume symbol to scan for Wi-Fi networks and start the Wi-Fi configuration process.
 
-![](/assets/images/raspberry-pi-wifi-ssid.png)
+  ![](/assets/images/raspberry-pi-wifi-ssid.png)
 
-3\. Enter your network's Wi-Fi password.
+3. Enter your network's Wi-Fi password.
 
-![](/assets/images/raspberry-pi-wifi-password.png)
+  ![](/assets/images/raspberry-pi-wifi-password.png)
 
-4\. When your Pi has successfully connected to the Wi-Fi network, you will see a blue Wi-Fi icon next to the volume icon at the top right hand corner of your screen.
+4. When your Pi has successfully connected to the Wi-Fi network, you will see a blue Wi-Fi icon next to the volume icon at the top right hand corner of your screen.
 
-![](/assets/images/raspberry-pi-wifi-connected.png)
+  ![](/assets/images/raspberry-pi-wifi-connected.png)
 
 Note that it's also possible to obtain the IP Address of your Raspberry Pi after you've connected it to the Internet. To do so, click on the black terminal icon at the top left hand side of your screen, and type `ifconfig wlan0`.
 
 Your Pi's IP Address should be displayed next to the label, `inet addr` and look something like `192.168.X.XXX`.
 
 ![](/assets/images/raspberry-pi-ip-address.png)
-
-### Connecting over Wi-Fi (command line setup)
-
-To configure your Pi to connect to the Internet over Wi-Fi, start by ensuring that you have a monitor and keyboard plugged into your Raspberry Pi. You'll have to log in to your Pi in order to execute commands.
-
-- The default username for the Raspberry Pi is `pi`
-- The default password for the Raspberry Pi is `raspberry`
-
-After you've successfully logged into the Pi, run:
-
-```
-sudo nano /etc/wpa_supplicant/wpa_supplicant.conf
-```
-
-Insert these lines at the end of the file:
-```
-network={
-	ssid="MyWiFiNetwork"
-	psk="the_password"
-	key_mgmt=WPA-PSK
-}
-
-```
-
-You can verify that your Raspberry Pi is online by running the `ifconfig` command from your Pi's command line.
 
 ## Install Particle Pi software
 
@@ -148,7 +150,7 @@ ssh pi@raspberrypi.local
 ```
 - If you are using Windows, you can download and use [PuTTY](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html) to SSH into your Pi.
 
-The default password for Raspberry Pi is `raspberry`. If you want to change it, you can do so by running the following command inside of your Raspberry Pi's terminal:
+The default password for Raspberry Pi is `raspberry`. **We strongly recommend you change the default password.** You can do so by running the following command inside of your Raspberry Pi's terminal:
 ```
 passwd
 ```

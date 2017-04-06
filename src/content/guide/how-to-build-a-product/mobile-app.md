@@ -1,7 +1,7 @@
 ---
 title: Building your own mobile app (iOS and Android)
 columns: two
-template: guide.hbs
+layout: guide.hbs
 order: 7
 ---
 
@@ -25,7 +25,7 @@ focus more specifically on building mobile applications.
 - iOS device & USB lightning cable (Particle device setup process cannot run on simulator)
 - [XCode](https://developer.apple.com/xcode/downloads/) 6 and up
 - [CocoaPods](https://cocoapods.org/) installed
-- Particle iOS SDKs: [Cloud SDK](http://docs.particle.io/photon/ios/#ios-cloud-sdk) and [Device setup library](http://docs.particle.io/photon/ios/#ios-device-setup-library)
+- Particle iOS SDKs: [Cloud SDK](/photon/ios/#ios-cloud-sdk) and [Device setup library](/photon/ios/#ios-device-setup-library)
 - Skills in object oriented programming. Knowledge in Objective-C / Swift and Cocoa Touch APIs. Here are few recommended free learning resources:
 	- Official [Apple tutorials](https://developer.apple.com/resources/)
 	- [Developing iOS 8 Apps with Swift Stanford University CS193p course](https://itunes.apple.com/us/course/developing-ios-8-apps-swift/id961180099) on iTunes U
@@ -40,7 +40,7 @@ focus more specifically on building mobile applications.
 - [Google Play developer account](https://support.google.com/googleplay/android-developer/answer/6112435?hl=en)
 - An Android device running Android v4.0 and up (the Particle device setup process isn't supported via emulators), and a USB cable to connect the device to your computer
 - [Android Studio](https://developer.android.com/sdk/index.html) v1.4 and up
-- Particle Android SDKs: [Cloud SDK](https://docs.particle.io/reference/android/#android-cloud-sdk) and the [Device Setup library](https://docs.particle.io/reference/android/#android-device-setup-library)
+- Particle Android SDKs: [Cloud SDK](/reference/android/#android-cloud-sdk) and the [Device Setup library](/reference/android/#android-device-setup-library)
 - Basic familiarity with Android development using Java and the Gradle build system.  Here are few recommended free resources to get you started:
 	- Official [Google tutorials](https://developer.android.com/training/basics/firstapp/index.html)
 	- [Udemy Learn Android Programming From Scratch](https://www.udemy.com/learn-android-programming-from-scratch-beta/) free online video course
@@ -52,7 +52,7 @@ focus more specifically on building mobile applications.
 ### Two-tier SDK
 
 There are two parts to the Particle Mobile SDK: the Cloud SDK and the Device Setup library.
-In a nutshell, the **Cloud SDK** is a library that enables your mobile app to interact with internet-connected hardware through the Particle Cloud. It serves the same purpose as [ParticleJS](http://docs.particle.io/photon/javascript/) — it’s an easy-to-use wrapper for our REST API, accessible from Objective-C and Swift. The **Device Setup library** allows you to create a setup wizard within your app for connecting your device to the internet with two lines of code.
+In a nutshell, the **Cloud SDK** is a library that enables your mobile app to interact with internet-connected hardware through the Particle Cloud. It serves the same purpose as [ParticleJS](/photon/javascript/) — it’s an easy-to-use wrapper for our REST API, accessible from Objective-C and Swift. The **Device Setup library** allows you to create a setup wizard within your app for connecting your device to the internet with two lines of code.
 
 ### How To Get Started?
 

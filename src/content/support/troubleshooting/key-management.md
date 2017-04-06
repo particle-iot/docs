@@ -1,6 +1,6 @@
 ---
 title: Device Keys
-template: support.hbs
+layout: support.hbs
 columns: two
 devices: [ photon,electron,core,raspberry-pi ]
 order: 7
@@ -11,7 +11,7 @@ Device Key Management
 
 An easy step-by-step walkthrough of Particle CLI commands to BACKUP, RESTORE and CHANGE Keys.
 
-[https://github.com/spark/particle-cli#particle-keys-doctor](https://github.com/spark/particle-cli#particle-keys-doctor)
+[particle keys doctor]](/reference/cli/#particle-keys-doctor)
 
 {{#if core}}
 You may need to use this guide if you suffer from: "My Core is flashing yellow/red (orange) lights after it connects to Wi-Fi (Decryption Error)"
@@ -38,7 +38,7 @@ If you have physical access to the {{device}} in question, here's how to change 
 
 Bare with me for these next steps! This is slightly complicated because of the great security implemented on the {{device}}.
 
-1. Before we can start, you're going to want to install the Particle CLI tool to make life easier! Please see the README here: [Particle CLI](https://github.com/spark/particle-cli)
+1. Before we can start, you're going to want to install the Particle CLI tool to make life easier! [Particle CLI](/guide/tools-and-features/cli)
 
 2. Once the CLI tool is installed the first thing you should do is login to your Particle account.  If you do not have an account yet, please set one up at https://build.particle.io/build .
 
@@ -48,7 +48,7 @@ Bare with me for these next steps! This is slightly complicated because of the g
 
 5. Next run the following command to get the ID of your {{device}}: ``particle serial identify``. It should reply "Your device id is: xxxxxxxxxxxxxxxxxx". Copy the number down or to your clipboard for later.
 
-6. View the key commands and example output here for the next steps: https://github.com/spark/particle-cli#particle-keys-doctor
+6. View the key commands and example output here for the next steps: [particle keys doctor](/reference/cli/#particle-keys-doctor)
 
 7. Place your {{device}} into DFU mode by holding Mode and tapping Reset, then continue holding Mode for about 3 seconds until the LED starts flashing Yellow.
 

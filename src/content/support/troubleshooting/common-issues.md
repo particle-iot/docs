@@ -1,6 +1,6 @@
 ---
 title: Common Issues
-template: support.hbs
+layout: support.hbs
 columns: two
 devices: [ photon,electron,core ]
 order: 1
@@ -161,7 +161,7 @@ More details coming soon.
 
 ### 3) Check your application for issues
 
-If you are confident that there is a version match between the system and user compile targets of firmware on your device or you see the LED on your device flash [red or orange](http://docs.particle.io/support/troubleshooting/troubleshooting-support/electron/#error-codes) after startup, it is likely that there is an issue with the user firmware running on your device. To return your device to a stable condition, reflash the Tinker app to your device in one of two ways:
+If you are confident that there is a version match between the system and user compile targets of firmware on your device or you see the LED on your device flash [red or orange](/support/troubleshooting/troubleshooting-support/electron/#error-codes) after startup, it is likely that there is an issue with the user firmware running on your device. To return your device to a stable condition, reflash the Tinker app to your device in one of two ways:
 
 **Using the CLI** - Uses _no_ data
 - Attach the Electron to your computer using a USB cable
@@ -234,7 +234,7 @@ Run the following command:
 This should reset your public key.
 
 - **If you claimed the device previously:**
-You need the [CLI](https://docs.particle.io/guide/tools-and-features/cli/). Once it is installed, run:
+You need the [CLI](/guide/tools-and-features/cli/). Once it is installed, run:
 `particle keys server cloud_public.der`
 `particle keys new photon`
 `particle keys load photon.der`

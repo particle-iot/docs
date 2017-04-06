@@ -1,6 +1,6 @@
 ---
 title: Cloud Solutions
-template: support.hbs
+layout: support.hbs
 columns: two
 devices: [ photon,electron,core ]
 order: 4

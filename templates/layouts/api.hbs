@@ -1,0 +1,60 @@
+<!doctype html>
+<html class="{{columns}}-columns">
+<head>
+  {{> head sectionTitle='Reference Documentation'}}
+</head>
+<body role='flatdoc'>
+  <div id="docs" data-level>
+    {{> header}}
+
+    <div class='content-root'>
+      <div class='menubar'>
+
+      <ul class="nav reference">
+        {{#each reference}}
+            <ul>
+              <li class="top-level {{#page-equal ../path.href ../path.name path.href path.name}}active{{/page-equal}}">
+                {{#page-equal ../path.href ../path.name path.href path.name}}
+                  <span>{{{title}}}</span>
+                  {{#if ../toc}}
+                    <i id="toggle-in-page-nav" class="ion-plus"></i>
+                  {{/if}}
+                {{else}}
+                  <a href="{{path.href}}{{path.name}}">{{{title}}}</a>
+                {{/page-equal}}
+              </li>
+                {{#page-equal ../path.href ../path.name path.href path.name}}
+                  {{#if ../../toc}}
+                    <div class="in-page-toc-container">
+                      <ul class="nav in-page-toc hide">
+                        {{#each ../../../toc}}
+                        <li class="middle-level" data-nav="">{{#if children}}<i class="toggle-secondary-toc ion-arrow-right-b"></i>{{/if}}<a href="#{{id}}">{{{text}}}</a></li>
+                        {{#if children}}
+                          <ul class="nav secondary-in-page-toc">
+                            {{#each children}}
+                              <li data-secondary-nav=""><a href="#{{id}}">{{{text}}}</a></li>
+                            {{/each}}
+                          </ul>
+                        {{/if}}
+                        {{/each}}
+                      </ul>
+                    </div>
+                  {{/if}}
+                {{/page-equal}}
+            </ul>
+        {{/each}}
+      </ul>
+      </div>
+      <div class="page-body">
+        <div class='content-inner'>
+          <div class="content api-docs">
+            {{{contents}}}
+            <div class="code-samples">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    {{> scripts}}
+</body>
+</html>

@@ -1,6 +1,6 @@
 ---
 title: Firmware
-template: reference.hbs
+layout: reference.hbs
 columns: three
 devices: [photon,electron,core,raspberry-pi]
 order: 1
@@ -83,7 +83,7 @@ void loop()
 
 Up to 20 cloud variables may be registered and each variable name is limited to a maximum of 12 characters.
 
-**Note:** No blanks are allowed in the variable names, otherwise you may get unexpected results. It would be best to stick to the naming conventions that apply to C/C++ variables.
+**Note:** Only use letters, numbers, underscores and dashes in variable names. Special characters may be escaped by different tools and libraries causing unexpected results.
 
 It is fine to call this function when the cloud is disconnected - the variable
 will be registered next time the cloud is connected.
@@ -150,6 +150,8 @@ int funcName(String extra) {
 ```
 
 Up to 15 cloud functions may be registered and each function name is limited to a maximum of 12 characters.
+
+**Note:** Only use letters, numbers, underscores and dashes in function names. Special characters may be escaped by different tools and libraries causing unexpected results.
 
 In order to register a cloud  function, the user provides the `funcKey`, which is the string name used to make a POST request and a `funcName`, which is the actual name of the function that gets called in your app. The cloud function can return any integer; `-1` is commonly used for a failed function call.
 
@@ -874,7 +876,7 @@ WiFi.ready();
 ```
 
 {{#if has-wifi-antenna-switch}}
-### selectAntenna()
+### selectAntenna() [Antenna]
 
 Selects which antenna the device should connect to Wi-Fi with and remembers that
 setting until it is changed.
@@ -1114,13 +1116,14 @@ byte mac[6];
 void setup() {
   WiFi.on();
   Serial.begin(9600);
-  while (!Serial.available()) Particle.process();
+  // wait up to 10 seconds for USB host to connect
+  // requires firmware >= 0.5.3
+  waitFor(Serial.isConnected, 10000);
 
   WiFi.macAddress(mac);
 
   for (int i=0; i<6; i++) {
-    if (i) Serial.print(":");
-    Serial.print(mac[i], HEX);
+    Serial.printf("%02x%s", mac[i], i != 5 ? ":" : "");
   }
 }
 ```
@@ -1130,27 +1133,24 @@ void setup() {
 
 // Only for Spark Core using firmware < 0.4.0
 // Mac address is in the reversed order and
-// is fixed from V0.4.0 onwards
+// is fixed from v0.4.0 onwards
 
 byte mac[6];
 
 void setup() {
   Serial.begin(9600);
-  while (!Serial.available()) Particle.process();
+  // wait until a character sent from USB host
+  while (!Serial.available()) Spark.process();
 
   WiFi.macAddress(mac);
 
-  Serial.print(mac[5],HEX);
-  Serial.print(":");
-  Serial.print(mac[4],HEX);
-  Serial.print(":");
-  Serial.print(mac[3],HEX);
-  Serial.print(":");
-  Serial.print(mac[2],HEX);
-  Serial.print(":");
-  Serial.print(mac[1],HEX);
-  Serial.print(":");
-  Serial.println(mac[0],HEX);
+  for (int i=5; i>0; i--) {
+    Serial.print(mac[i]>>4,HEX);
+    Serial.print(mac[i]&0x0f,HEX);
+    if (i != 0) {
+      Serial.print(":");
+    }
+  }
 }
 
 void loop() {}
@@ -4941,7 +4941,7 @@ SPI2.beginTransaction(SPISettings(1*MHZ, LSBFIRST, SPI_MODE3));
 
 Parameters:
 - `clockSpeed`: maximum SPI clock speed (see [`setClockSpeed()`](#setclockspeed))
-- `bitOrder`: bit order of the bits shifted out of and into the SPI bus, either `LSBFIRST` (least-sngnificant bit first) or `MSBFIRST` (most-significant bit first)
+- `bitOrder`: bit order of the bits shifted out of and into the SPI bus, either `LSBFIRST` (least significant bit first) or `MSBFIRST` (most-significant bit first)
 - `dataMode`: `SPI_MODE0`, `SPI_MODE1`, `SPI_MODE2` or `SPI_MODE3` (see [`setDataMode()`](#setdatamode-))
 
 ### beginTransaction()
@@ -5294,6 +5294,8 @@ Registers a function to be called when a slave device receives a transmission fr
 
 Parameters: `handler`: the function to be called when the slave receives data; this should take a single int parameter (the number of bytes read from the master) and return nothing, e.g.: `void myHandler(int numBytes) `
 
+**Note:** This handler will lock up the device if System calls such as Particle.publish() are made within, due to interrupts being disabled for atomic operations during this handler.  Do not overload this handler with extra function calls other than what is immediately required to receive I2C data.  Post process outside of this handler.
+
 ```C++
 // EXAMPLE USAGE
 
@@ -5326,6 +5328,8 @@ void loop() {
 Register a function to be called when a master requests data from this slave device.
 
 Parameters: `handler`: the function to be called, takes no parameters and returns nothing, e.g.: `void myHandler() `
+
+**Note:** This handler will lock up the device if System calls such as Particle.publish() are made within, due to interrupts being disabled for atomic operations during this handler.  Do not overload this handler with extra function calls other than what is immediately required to send I2C data.  Post process outside of this handler.
 
 ```C++
 // EXAMPLE USAGE
@@ -5385,7 +5389,7 @@ void setup() {
 void loop() {
     CANMessage message;
 
-    Message.id = 0x100;
+    message.id = 0x100;
     can.transmit(message);
 
     delay(10);
@@ -6716,7 +6720,7 @@ Parameters:
   - `ping`: PWM-enabled pin number connected to blue LED (see [`analogWrite()`](#analogwrite-pwm-) for a list of PWM-capable pins)
   - `pinb`: PWM-enabled pin number connected to green LED (see [`analogWrite()`](#analogwrite-pwm-) for a list of PWM-capable pins)
   - `invert` (optional): `true` if the connected RGB LED is common-anode, `false` if common-cathode (default).
-  - `bootloader` (optional): if `true`, the RGB mirorring settings are saved in DCT and are used by the bootloader. If `false`, any previously stored configuration is removed from the DCT and RGB mirorring only works while the firmware is running (default).
+  - `bootloader` (optional): if `true`, the RGB mirroring settings are saved in DCT and are used by the bootloader. If `false`, any previously stored configuration is removed from the DCT and RGB mirroring only works while the firmware is running (default).
 
 ### mirrorDisable()
 
@@ -6725,7 +6729,7 @@ _Since 0.6.1_
 Disables RGB LED mirroring.
 
 Parameters:
-  - bootloader: if `true`, RGB mirorring configuration stored in DCT is also cleared disabling RGB mirroring functionality in bootloader (default)
+  - bootloader: if `true`, RGB mirroring configuration stored in DCT is also cleared disabling RGB mirroring functionality in bootloader (default)
 
 {{/if}} {{!-- has-rgb-mirror --}}
 
@@ -7292,6 +7296,128 @@ The device synchronizes time with the Particle Cloud during the handshake.
 From then, the time is continually updated on the device.
 This reduces the need for external libraries to manage dates and times.
 
+Before the device gets online and for short intervals, you can use the
+`millis()` and `micros()` functions.
+
+### millis()
+
+Returns the number of milliseconds since the device began running the current program. This number will overflow (go back to zero), after approximately 49 days.
+
+`unsigned long time = millis();`
+
+```C++
+// EXAMPLE USAGE
+
+unsigned long time;
+
+void setup()
+{
+  Serial.begin(9600);
+}
+void loop()
+{
+  Serial.print("Time: ");
+  time = millis();
+  //prints time since program started
+  Serial.println(time);
+  // wait a second so as not to send massive amounts of data
+  delay(1000);
+}
+```
+**Note:**
+The return value for millis is an unsigned long, errors may be generated if a programmer tries to do math with other data types such as ints.
+
+### micros()
+
+Returns the number of microseconds since the device began running the current program.
+
+Firmware v0.4.3 and earlier:
+- This number will overflow (go back to zero), after exactly 59,652,323 microseconds (0 .. 59,652,322) on the Core and after exactly 35,791,394 microseconds (0 .. 35,791,394) on the Photon and Electron.
+
+
+
+`unsigned long time = micros();`
+
+```C++
+// EXAMPLE USAGE
+
+unsigned long time;
+
+void setup()
+{
+  Serial.begin(9600);
+}
+void loop()
+{
+  Serial.print("Time: ");
+  time = micros();
+  //prints time since program started
+  Serial.println(time);
+  // wait a second so as not to send massive amounts of data
+  delay(1000);
+}
+```
+
+### delay()
+
+Pauses the program for the amount of time (in milliseconds) specified as parameter. (There are 1000 milliseconds in a second.)
+
+```C++
+// SYNTAX
+delay(ms);
+```
+
+`ms` is the number of milliseconds to pause *(unsigned long)*
+
+```C++
+// EXAMPLE USAGE
+
+int ledPin = D1;              // LED connected to digital pin D1
+
+void setup()
+{
+  pinMode(ledPin, OUTPUT);    // sets the digital pin as output
+}
+
+void loop()
+{
+  digitalWrite(ledPin, HIGH); // sets the LED on
+  delay(1000);                // waits for a second
+  digitalWrite(ledPin, LOW);  // sets the LED off
+  delay(1000);                // waits for a second
+}
+```
+**NOTE:**
+the parameter for millis is an unsigned long, errors may be generated if a programmer tries to do math with other data types such as ints.
+
+### delayMicroseconds()
+
+Pauses the program for the amount of time (in microseconds) specified as parameter. There are a thousand microseconds in a millisecond, and a million microseconds in a second.
+
+```C++
+// SYNTAX
+delayMicroseconds(us);
+```
+`us` is the number of microseconds to pause *(unsigned int)*
+
+```C++
+// EXAMPLE USAGE
+
+int outPin = D1;              // digital pin D1
+
+void setup()
+{
+  pinMode(outPin, OUTPUT);    // sets the digital pin as output
+}
+
+void loop()
+{
+  digitalWrite(outPin, HIGH); // sets the pin on
+  delayMicroseconds(50);      // pauses for 50 microseconds
+  digitalWrite(outPin, LOW);  // sets the pin off
+  delayMicroseconds(50);      // pauses for 50 microseconds
+}
+```
 
 ### hour()
 
@@ -7644,126 +7770,6 @@ Time.format(Time.now(), "Now it's %I:%M%p.");
 Retrieves the currently configured format string for time formatting with `format()`.
 
 
-### millis()
-
-Returns the number of milliseconds since the device began running the current program. This number will overflow (go back to zero), after approximately 49 days.
-
-`unsigned long time = millis();`
-
-```C++
-// EXAMPLE USAGE
-
-unsigned long time;
-
-void setup()
-{
-  Serial.begin(9600);
-}
-void loop()
-{
-  Serial.print("Time: ");
-  time = millis();
-  //prints time since program started
-  Serial.println(time);
-  // wait a second so as not to send massive amounts of data
-  delay(1000);
-}
-```
-**Note:**
-The return value for millis is an unsigned long, errors may be generated if a programmer tries to do math with other data types such as ints.
-
-### micros()
-
-Returns the number of microseconds since the device began running the current program.
-
-Firmware v0.4.3 and earlier:
-- This number will overflow (go back to zero), after exactly 59,652,323 microseconds (0 .. 59,652,322) on the Core and after exactly 35,791,394 microseconds (0 .. 35,791,394) on the Photon and Electron.
-
-
-
-`unsigned long time = micros();`
-
-```C++
-// EXAMPLE USAGE
-
-unsigned long time;
-
-void setup()
-{
-  Serial.begin(9600);
-}
-void loop()
-{
-  Serial.print("Time: ");
-  time = micros();
-  //prints time since program started
-  Serial.println(time);
-  // wait a second so as not to send massive amounts of data
-  delay(1000);
-}
-```
-
-### delay()
-
-Pauses the program for the amount of time (in milliseconds) specified as parameter. (There are 1000 milliseconds in a second.)
-
-```C++
-// SYNTAX
-delay(ms);
-```
-
-`ms` is the number of milliseconds to pause *(unsigned long)*
-
-```C++
-// EXAMPLE USAGE
-
-int ledPin = D1;              // LED connected to digital pin D1
-
-void setup()
-{
-  pinMode(ledPin, OUTPUT);    // sets the digital pin as output
-}
-
-void loop()
-{
-  digitalWrite(ledPin, HIGH); // sets the LED on
-  delay(1000);                // waits for a second
-  digitalWrite(ledPin, LOW);  // sets the LED off
-  delay(1000);                // waits for a second
-}
-```
-**NOTE:**
-the parameter for millis is an unsigned long, errors may be generated if a programmer tries to do math with other data types such as ints.
-
-### delayMicroseconds()
-
-Pauses the program for the amount of time (in microseconds) specified as parameter. There are a thousand microseconds in a millisecond, and a million microseconds in a second.
-
-```C++
-// SYNTAX
-delayMicroseconds(us);
-```
-`us` is the number of microseconds to pause *(unsigned int)*
-
-```C++
-// EXAMPLE USAGE
-
-int outPin = D1;              // digital pin D1
-
-void setup()
-{
-  pinMode(outPin, OUTPUT);    // sets the digital pin as output
-}
-
-void loop()
-{
-  digitalWrite(outPin, HIGH); // sets the pin on
-  delayMicroseconds(50);      // pauses for 50 microseconds
-  digitalWrite(outPin, LOW);  // sets the pin off
-  delayMicroseconds(50);      // pauses for 50 microseconds
-}
-```
-
 ### isValid()
 
 _Since 0.6.1_
@@ -7799,6 +7805,10 @@ void loop()
 }
 
 ```
+
+### Advanced
+
+For more advanced date parsing, formatting, normalization and manipulation functions, use the C standard library time functions like `mktime`. See the [note about the standard library on the {{device}}](#other-functions) and the [description of the C standard libray time functions](https://en.wikipedia.org/wiki/C_date_and_time_functions).
 
 {{#if has-interrupts}}
 
@@ -8471,7 +8481,7 @@ updated together.
 EEPROM.put(int address, object)
 ```
 
-`address` is the start address (int) of the EERPOM locations to write. It must be a value between 0
+`address` is the start address (int) of the EEPROM locations to write. It must be a value between 0
 and `EEPROM.length()-1`
 
 `object` is the object data to write. The number of bytes to write is automatically determined from
@@ -8514,7 +8524,7 @@ This function will retrieve an object from the EEPROM. Use the same type of obje
 EEPROM.get(int address, object)
 ```
 
-`address` is the start address (int) of the EERPOM locations to read. It must be a value between 0
+`address` is the start address (int) of the EEPROM locations to read. It must be a value between 0
 and `EEPROM.length()-1`
 
 `object` is the object data that would be read. The number of bytes read is automatically determined
@@ -8560,7 +8570,7 @@ Read a single byte of data from the emulated EEPROM.
 uint8_t value = EEPROM.read(int address);
 ```
 
-`address` is the address (int) of the EERPOM location to read
+`address` is the address (int) of the EEPROM location to read
 
 ```C++
 // EXAMPLE USAGE
@@ -8580,7 +8590,7 @@ Write a single byte of data to the emulated EEPROM.
 write(int address, uint8_t value);
 ```
 
-`address` is the address (int) of the EERPOM location to write to
+`address` is the address (int) of the EEPROM location to write to
 `value` is the byte data (uint8_t) to write
 
 ```C++
@@ -8659,7 +8669,7 @@ The STM32F2xx features 4KB of backup RAM (3068 bytes for system firmware v0.6.0 
 Note that _if neither VIN or VBAT is powered then the contents of the backup RAM will be lost; for data to be
 retained, the device needs a power source._  For persistent storage of data through a total power loss, please use the [EEPROM](#eeprom).
 
-Power Conditions and how they relate to Backup RAM initilization and data retention:
+Power Conditions and how they relate to Backup RAM initialization and data retention:
 
 | Power Down Method | Power Up Method | When VIN Powered | When VBAT Powered | SRAM Initialized | SRAM Retained |
 | -: | :- | :-: | :-: | :-: | :-: |
@@ -8859,7 +8869,7 @@ _Since 0.4.9_
 
 System events are messages sent by the system and received by application code. They inform the application about changes in the system, such as when the system has entered setup mode, or when an Over-the-Air (OTA) update starts, or when the system is about to reset.
 
-System events are recieved by the application by registering a handler. The handler has this general format:
+System events are received by the application by registering a handler. The handler has this general format:
 
 ```
 void handler(system_event_t event, int data, void* moredata);
@@ -8935,7 +8945,7 @@ These are the system events produced by the system, their numeric value (what yo
 | Since | Event Name | ID | Description | Parameter |
 |-------|------------|----|-------------|-----------|
 |       | setup_begin | 2 | signals the device has entered setup mode |  not used |
-|       | setup_update | 4 | periodic event signalling the device is still in setup mode. | milliseconds since setup mode was started |
+|       | setup_update | 4 | periodic event signaling the device is still in setup mode. | milliseconds since setup mode was started |
 |       | setup_end | 8 | signals setup mode was exited | time in ms since setup mode was started |
 |       | network_credentials | 16 | network credentials were changed | `network_credentials_added` or `network_credentials_cleared` |
 | 0.6.1 | network_status | 32 | network connection status | one of `network_status_powering_on`, `network_status_on`, `network_status_powering_off`, `network_status_off`, `network_status_connecting`, `network_status_connected` |
@@ -9041,7 +9051,7 @@ When using manual mode:
 
 - The user code will run immediately when the device is powered on.
 - Once the user calls [`Particle.connect()`](#particle-connect-), the device will attempt to begin the connection process.
-- Once the device is connected to the Cloud ([`Particle.connected()`](#particle-connected-)` == true`), the user must call `Particle.process()` regularly to handle incoming messages and keep the connection alive. The more frequently `Particle.process()` is called, the more responsive the device will be to incoming messages.
+- Once the device is connected to the Cloud ([`Particle.connected()`](#particle-connected-) ` == true`), the user must call `Particle.process()` regularly to handle incoming messages and keep the connection alive. The more frequently `Particle.process()` is called, the more responsive the device will be to incoming messages.
 - If `Particle.process()` is called less frequently than every 20 seconds, the connection with the Cloud will die. It may take a couple of additional calls of `Particle.process()` for the device to recognize that the connection has been lost.
 
 
@@ -9088,7 +9098,7 @@ for the network or cloud to be available, nor while connecting to Wi-Fi.
 
 - System modes `SEMI_AUTOMATIC` and `MANUAL` behave identically - both of these
 modes do not not start the Networking or a Cloud
-connection automatically. while `AUTOMATIC` mode connects to the cloud as soon as possible.
+connection automatically, while `AUTOMATIC` mode connects to the cloud as soon as possible.
 Neither has an effect on when the application `setup()` function is run - it is run
 as soon as possible, independently from the system network activities, as described above.
 
@@ -9879,7 +9889,7 @@ system interrupts are supported on all platforms:
 |Identifier | Description |
 |-----------|-------------|
 |SysInterrupt_SysTick | System Tick (1ms) handler |
-|SysInterrupt_TIM3 | Timer 3 interrupt | 
+|SysInterrupt_TIM3 | Timer 3 interrupt |
 |SysInterrupt_TIM4 | Timer 4 interrupt |
 
 NB: SysInterrupt_TIM3 and SysInterrupt_TIM4 are used by the system to provide `tone()` and PWM output.
@@ -9913,7 +9923,7 @@ void handle_timer5()
    // called when timer 5 fires an interrupt
 }
 
-void setup() 
+void setup()
 {
     attachSystemInterrupt(SysInterrupt_TIM5, handle_timer5);
 }
@@ -10117,7 +10127,7 @@ The same functions used to print to `Serial` like `println` and `printf` are ava
 
 ### Advanced Process Control
 
-Linux process control is a deep topic on its own. If the methods in `Process` don't work for what you're trying to accomplish, you can also use any Linux process control functions like `system`, `fork` and `execve` method directly in your firmware.
+Linux process control is a deep topic on its own. If the methods in `Process` don't work for what you're trying to accomplish, you can also use any Linux process control functions like `system`, `fork` and `execve` method directly in your firmware. See the [note about the standard library on the {{device}}](#other-functions).
 
 ```cpp
 // Run a command using the Linux system() function instead of Process
@@ -10259,6 +10269,8 @@ Determine if OTA updates are presently enabled or disabled.
 
 Indicates if there are OTA updates pending.
 
+**Note:** Currently this function does not do anything useful, since it only returns `true` once the OTA update is already about to kick in. So with `System.disableUpdates()` it will *never* become `true`.
+
 
 
 
@@ -10279,6 +10291,7 @@ Constructs an instance of the String class. There are multiple versions that con
   * a constant integer or long integer, using a specified base
   * an integer or long integer variable
   * an integer or long integer variable, using a specified base
+  * a float variable, showing a specific number of decimal places
 
 ```C++
 // SYNTAX
@@ -10298,6 +10311,7 @@ String stringOne =  String(analogRead(0), DEC);        // using an int and a bas
 String stringOne =  String(45, HEX);                   // using an int and a base (hexadecimal)
 String stringOne =  String(255, BIN);                  // using an int and a base (binary)
 String stringOne =  String(millis(), DEC);             // using a long and a base
+String stringOne =  String(34.5432, 2);                // using a float showing only 2 decimal places shows 34.54 
 ```
 Constructing a String from a number results in a string that contains the ASCII representation of that number. The default is base ten, so
 
@@ -11114,7 +11128,7 @@ Parameters:
 
 #### Community Log Handlers
 
-The log handlers below are written by the community and are not considered "Official" Particle-supported log handlers. If you have any issues with them please raise an issue in the forums or, ideally, in the online repo for the handler. 
+The log handlers below are written by the community and are not considered "Official" Particle-supported log handlers. If you have any issues with them please raise an issue in the forums or, ideally, in the online repo for the handler.
 
 - [Papertrail](https://papertrailapp.com/) Log Handler by [barakwei](https://community.particle.io/users/barakwei/activity). [[Particle Build](https://build.particle.io/libs/585c5e64edfd74acf7000e7a/)] [[GitHub Repo](https://github.com/barakwei/ParticlePapertrail)] [[Known Issues](https://github.com/barakwei/ParticlePapertrail/issues/)]
 - More to come (feel free to add your own by editing the docs on GitHub)
@@ -12505,17 +12519,92 @@ for (int i = 0; i < arraySize(myPins); i++) {
 
 ## Other Functions
 
-Note that most of the functions in newlib described at [https://sourceware.org/newlib/libc.html](https://sourceware.org/newlib/libc.html) are available for use in addition to the functions outlined above.
+{{#if has-linux}}
+The C standard library and other Linux libraries are available on the {{device}}. See this [description of the standard library](https://en.wikipedia.org/wiki/C_standard_library).
+{{else}}
+The C standard library used on the {{device}} is called newlib and is described at [https://sourceware.org/newlib/libc.html](https://sourceware.org/newlib/libc.html)
+{{/if}} {{!-- has-linux --}}
+
+For advanced use cases, those functions are available for use in addition to the functions outlined above.
 
 ## Preprocessor
 
-`#pragma SPARK_NO_PREPROCESSOR`
-
 When you are using the Particle Cloud to compile your `.ino` source code, a preprocessor comes in to modify the code into C++ requirements before producing the binary file used to flash onto your devices.
 
-It automatically adds the line `#include "Particle.h"` to the top of the file and adds prototypes for your functions so your code can call functions declared later in the source code.
+```
+// EXAMPLE
+/* This is my awesome app! */
+#include "TinyGPS++.h"
 
-If you are getting unexpected errors when compiling valid code, it could be the preprocessor causing issues in your code. You can disable the preprocessor by adding the pragma line above.
+TinyGPSPlus gps;
+enum State { GPS_START, GPS_STOP };
+
+void updateState(State st); // You must add this prototype
+
+void setup() {
+  updateState(GPS_START);
+}
+
+void updateState(State st) {
+  // ...
+}
+
+void loop() {
+  displayPosition(gps);
+}
+
+void displayPosition(TinyGPSPlus &gps) {
+  // ...
+}
+
+// AFTER PREPROCESSOR
+#include "Particle.h" // <-- added by preprocessor
+/* This is my awesome app! */
+#include "TinyGPS++.h"
+
+void setup(); // <-- added by preprocessor
+void loop();  // <-- added by preprocessor
+void displayPosition(TinyGPSPlus &gps); // <-- added by preprocessor
+
+TinyGPSPlus gps;
+enum State { GPS_START, GPS_STOP };
+
+void updateState(State st); // You must add this prototype
+
+void setup() {
+  updateState(GPS_START);
+}
+
+void updateState(State st) {
+  // ...
+}
+
+void loop() {
+  displayPosition(gps);
+}
+
+void displayPosition(TinyGPSPlus &gps) {
+  // ...
+}
+```
+
+The preprocessor automatically adds the line `#include "Particle.h"` to the top of the file, unless your file already includes "Particle.h", "Arduino.h" or "application.h".
+
+The preprocessor adds prototypes for your functions so your code can call functions declared later in the source code. The function prototypes are added at the top of the file, below `#include` statements.
+
+If you define custom classes, structs or enums in your code, the preprocessor will not add prototypes for functions with those custom types as arguments. This is to avoid putting the prototype before the type definition. This doesn't apply to functions with types defined in libraries. Those functions will get a prototype.
+
+If you need to include another file or define constants before Particle.h gets included, define `PARTICLE_NO_ARDUINO_COMPATIBILITY` to 1 to disable Arduino compatibility macros, be sure to include Particle.h manually in the right place.
+
+---
+
+If you are getting unexpected errors when compiling valid code, it could be the preprocessor causing issues in your code. You can disable the preprocessor by adding this pragma line. Be sure to add `#include "Particle.h"` and the function prototypes to your code.
+
+```
+#pragma PARTICLE_NO_PREPROCESSOR
+//
+#pragma SPARK_NO_PREPROCESSOR
+```
 
 ## Firmware Releases
 
@@ -12624,9 +12713,9 @@ To update your Photon, P1 or Core system firmware automatically, compile and fla
 
 The easiest way to upgrade to System Firmware Version @FW_VER@ is to use the Particle CLI with a single command.  You will first upgrade the system firmware, then optionally program Tinker on the device. This **requires CLI version @CLI_VER@**. You can check with `particle --version`.
 
-If you have the [Particle CLI](https://github.com/spark/particle-cli) installed already, you can update it with the following command `sudo npm update -g particle-cli@v@CLI_VER@` (note: you can try without sudo first if you wish).
+If you have the [Particle CLI](/guide/tools-and-features/cli) installed already, you can update it with the following command `sudo npm update -g particle-cli@v@CLI_VER@` (note: you can try without sudo first if you wish).
 
-To upgrade system firmware, make sure the device is in [DFU mode](http://docs.particle.io/photon/modes/#selecting-various-modes-dfu-mode-device-firmware-upgrade) (flashing yellow LED) and run these commands in order:
+To upgrade system firmware, make sure the device is in [DFU mode](/photon/modes/#selecting-various-modes-dfu-mode-device-firmware-upgrade) (flashing yellow LED) and run these commands in order:
 
 ```
 The easy local method using Particle CLI
@@ -12709,9 +12798,9 @@ particle flash YOUR_DEVICE_NAME tinker (optional)
 
 This **requires CLI version @CLI_VER@ or newer**. You can check with `particle --version`.
 
-If you have the [Particle CLI](https://github.com/spark/particle-cli) installed already, you can update it with the following command `sudo npm update -g particle-cli` (note: you can try without sudo first if you wish).
+If you have the [Particle CLI](/guide/tools-and-features/cli) installed already, you can update it with the following command `sudo npm update -g particle-cli` (note: you can try without sudo first if you wish).
 
-To upgrade system firmware, make sure the device is in [DFU mode](http://docs.particle.io/photon/modes/#selecting-various-modes-dfu-mode-device-firmware-upgrade) (flashing yellow LED) and run these commands in order for your device type:
+To upgrade system firmware, make sure the device is in [DFU mode](/photon/modes/#selecting-various-modes-dfu-mode-device-firmware-upgrade) (flashing yellow LED) and run these commands in order for your device type:
 
 ##### @ELECTRON_PARTS@2if
 ```
@@ -12766,7 +12855,7 @@ particle flash --usb tinker (optional)
 
 **The local DFU-UTIL method**
 can be applied to offline devices locally over USB using `dfu-util`
-- Put the device in [DFU mode](http://docs.particle.io/photon/modes/#selecting-various-modes-dfu-mode-device-firmware-upgrade) (flashing yellow LED)
+- Put the device in [DFU mode](/photon/modes/#selecting-various-modes-dfu-mode-device-firmware-upgrade) (flashing yellow LED)
 - open a terminal window, change to the directory where you downloaded the files above, and run these commands in order for your device type:
 
 ##### @ELECTRON_PARTS@2if
@@ -12828,9 +12917,9 @@ Current default system firmware would be the latest non-rc.x firmware version.  
 
 The easiest way to downgrade from a System Firmware Version @FW_VER@ is to use the Particle CLI with a single command.  You will first put the Tinker back on the device, then downgrade the System Firmware. Running the commands in this order prevents the device from automatically re-upgrading (based on user app version dependencies) after downgrading.  This will **require a CLI version associated with your desired default firmware**. To determine which version to use, click on the default version desired in the table under [Programming and Debugging Notes](#programming-and-debugging-notes) and refer to the CLI version required in **The easy local method using Particle CLI** section.
 
-If you have the [Particle CLI](https://github.com/spark/particle-cli) installed already, you can install a specific version like v1.16.0 with the following command `sudo npm update -g particle-cli@v1.16.0` (note: you can try without sudo first if you wish).  Replace v1.16.0 with your desired version.
+If you have the [Particle CLI](/guide/tools-and-features/cli) installed already, you can install a specific version like v1.16.0 with the following command `sudo npm update -g particle-cli@v1.16.0` (note: you can try without sudo first if you wish).  Replace v1.16.0 with your desired version.
 
-To downgrade system firmware, make sure the device is in [DFU mode](http://docs.particle.io/photon/modes/#selecting-various-modes-dfu-mode-device-firmware-upgrade) (flashing yellow LED) and run these commands in order:
+To downgrade system firmware, make sure the device is in [DFU mode](/photon/modes/#selecting-various-modes-dfu-mode-device-firmware-upgrade) (flashing yellow LED) and run these commands in order:
 
 ```
 Downgrading from @FW_VER@ to current default firmware

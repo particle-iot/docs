@@ -1,6 +1,6 @@
 ---
 title: Particle shields and kits
-template: datasheet.hbs
+layout: datasheet.hbs
 columns: two
 order: 2
 ---
@@ -236,7 +236,7 @@ Do you want to gain complete control over your Particle device right down to its
 
 This is a FT2232H based JTAG programmer shield that is compatible with OpenOCD and Broadcom's WICED IDE. The FT2232 chip is setup to provide an USB-JTAG and USB-UART interface simultaneously. The FT2232 can be also reconfigured by the user by reprogramming the on-board config EEPROM. The unused pins are clearly marked and broken out into easy to access header holes.
 
-The USB-UART interface is connected to the TX and RX of a Particle device and communicates via [Serial1](https://docs.particle.io/reference/firmware#serial)
+The USB-UART interface is connected to the TX and RX of a Particle device and communicates via [Serial1](/reference/firmware#serial)
 
 ![Programmer Shield Description](/assets/images/shields/prog-shield/prog-shield-description.png)
 

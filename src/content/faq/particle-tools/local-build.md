@@ -1,6 +1,6 @@
 ---
 title: Local build using gcc-arm
-template: faq.hbs
+layout: faq.hbs
 columns: two
 devices: [ photon,electron,core ]
 order: 1001
@@ -15,7 +15,7 @@ It is possible to build both user and system firmware locally using the gcc-arm 
 - To work entirely offline, with no Internet access
 - To use the GDB debugger
 
-This note explains how to do a fully native installation. It's also possible to do a Docker installation. And, of course, you can use the cloud compilers [Particle Build](https://build.particle.io), [Particle Dev](https://docs.particle.io/guide/tools-and-features/dev/), or [Particle CLI](https://docs.particle.io/guide/tools-and-features/cli/) which are much easier to install and use.
+This note explains how to do a fully native installation. It's also possible to do a Docker installation. And, of course, you can use the cloud compilers [Particle Build](https://build.particle.io), [Particle Dev](/guide/tools-and-features/dev/), or [Particle CLI](/guide/tools-and-features/cli/) which are much easier to install and use.
 
 ## Installation - Windows
 
@@ -80,7 +80,7 @@ The gcc-arm toolchains are here: [https://launchpad.net/gcc-arm-embedded](https:
 
 Currently, the 4.9-2015-q3-update is recommended. The 5.3.1 version can be used now and will be used for cloud compiles starting with system firmware 0.7.0. The 5.4.x and 6.x versions are not recommended at this time.
 
-- For Windows, download the installer [gcc-arm-none-eabi-4_9-2015q3-20150921-win32.exe](https://launchpad.net/gcc-arm-embedded/4.9/4.9-2015-q3-update/+download/gcc-arm-none-eabi-4_9-2015q3-20150921-win32.zip).
+- For Windows, download the installer [gcc-arm-none-eabi-4_9-2015q3-20150921-win32.exe](https://launchpad.net/gcc-arm-embedded/4.9/4.9-2015-q3-update/+download/gcc-arm-none-eabi-4_9-2015q3-20150921-win32.exe).
 
 - Run the installer. Select **Next >** and **I Agree** for the terms and conditions of the license.
 
@@ -142,7 +142,7 @@ git --help
 
 If you have not already done so, you should install dfu-util and the necessary drivers. If you have used the [Particle Windows CLI installer](https://binaries.particle.io/cli/installer/windows/ParticleCLISetup.exe), this will have been already.
 
-There are also additional instructions in the [FAQ for installing dfu-util](https://docs.particle.io/faq/particle-tools/installing-dfu-util/).
+There are also additional instructions in the [FAQ for installing dfu-util](/faq/particle-tools/installing-dfu-util/).
 
 ### Install other build tools - Windows
 
@@ -238,7 +238,7 @@ If you have not already done so, you should install dfu-util.
 brew install dfu-util
 ```
 
-There are additional instructions in the [FAQ for installing dfu-util](https://docs.particle.io/faq/particle-tools/installing-dfu-util/) including installing Homebrew if necessary or using MacPorts if you use that instead of Homebrew.
+There are additional instructions in the [FAQ for installing dfu-util](/faq/particle-tools/installing-dfu-util/) including installing Homebrew if necessary or using MacPorts if you use that instead of Homebrew.
 
 ## Installation - Linux
 
@@ -317,7 +317,7 @@ sudo apt-get install dfu-util
 
 By default, dfu-util requires sudo (root access) to run. This will cause a problem using the program-dfu option in make, and many other locations.
 
-The easiest solution is to install the [Particle CLI](https://docs.particle.io/guide/tools-and-features/cli/), however you can also manually install a udev rule:
+The easiest solution is to install the [Particle CLI](/guide/tools-and-features/cli/), however you can also manually install a udev rule:
 
 - Download the [50-particle.rules](/assets/files/50-particle.rules) file, then:
 
@@ -433,7 +433,7 @@ cd src
 mkdir blinkled
 ```
 
-- And I created the file blinkled.cpp. It's very slightly modified from the source in the [Particle example](https://docs.particle.io/guide/getting-started/examples/photon/#blink-an-led).
+- And I created the file blinkled.cpp. It's very slightly modified from the source in the [Particle example](/guide/getting-started/examples/photon/#blink-an-led).
 
 ```bash
 cd firmware/modules

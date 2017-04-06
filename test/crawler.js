@@ -52,7 +52,7 @@ describe('Crawler', function() {
     crawler.maxConcurrency = 10;
     crawler.userAgent = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.134 Safari/537.36';
     crawler.acceptCookies = false;
-    crawler.timeout = 6000;
+    crawler.timeout = 20000;
     crawler.filterByDomain = false;
     crawler.interval = 5;
     crawler.supportedMimeTypes = [/^text\//i];

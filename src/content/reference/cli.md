@@ -1,7 +1,7 @@
 ---
 word: CLI
 title: Command Line Interface (CLI)
-template: reference.hbs
+layout: reference.hbs
 columns: three
 order: 3
 ---
@@ -145,9 +145,9 @@ $ particle flash 0123456789ABCDEFGHI app.ino library1.cpp library1.h
 ```
 
 Note that the CLI since 1.9.0 has support for firmware libraries via the [particle library](#particle-library)
-commands. 
+commands.
 
- 
+
 
 ### Target a specific firmware version for flashing
 
@@ -220,8 +220,7 @@ The devices available are:
 eg. `particle compile photon xxx` OR `particle compile p xxxx` both targets the photon
 ```
 
-Note!  The cloud compiles ```.ino``` and ```.cpp``` files differently.  For ```.ino``` files, the cloud will apply a pre-processor.  It will add missing function declarations, and it will inject an ```#include "
-application.h"``` line at the top of your files if it is missing.
+Note!  The cloud compiles ```.ino``` and ```.cpp``` files differently.  For ```.ino``` files, the cloud will apply a pre-processor.  It will add missing function declarations, and it will inject an ```#include "Particle.h"``` line at the top of your files if it is missing. See [the pre-processor documentation for details](/reference/firmware/#preprocessor).
 
 If you want to build a library that can be used for both Arduino and Particle, here's a useful code snippet:
 
@@ -455,6 +454,17 @@ $ particle webhook delete 234523452345234523452345
 Successfully deleted webhook!
 ```
 
+All registered user webhooks can be removed by passing the `all` parameter. 
+
+```sh
+$ particle webhook delete all
+? Do you want to delete ALL your webhooks? Yes
+Found 3 hooks registered
+
+deleting 58889c0af14a8228a3fe64c8
+deleting 58889c0ef14a8228a3fe64dd
+deleting 58889c1113e45f1b69be21b7
+```
 
 ## particle monitor
 
@@ -563,7 +573,7 @@ $ particle serial flash firmware.bin
 
 This is a synonym for `particle flash --serial firmware.bin`.
 Note that at present only binaries can be flashed using this command.
-If you wish to flash from application sources, first use `particle compile` to compile a binary from sources. 
+If you wish to flash from application sources, first use `particle compile` to compile a binary from sources.
 
 If you have system firmware with debugging enabled (which is the default on the Electron) then flashing via serial will fail unless debugging is disabled. You can disable debugging logs flashing Tinker via USB: `particle flash --usb tinker`.
 
@@ -743,3 +753,59 @@ file.bin
  It depends on a system module number 1 at version 6
 ```
 
+## particle token
+
+### list
+Retrieve all the access token under your Particle account.
+
+```sh
+$ particle token list
+Checking with the cloud...
+? Using account cli@particle.io
+Please enter your password: *******
+
+spark-ide
+ Token:      da39a3ee5e6b4b0d3255bfef95601890afd80709
+ Expires at: null
+
+cloud-compile
+ Token:      da39a3ee5e6b4b0d3255bfef95601890afd80709
+ Expires at: null
+
+spark-cli
+ Token:      da39a3ee5e6b4b0d3255bfef95601890afd80709
+ Expires at: null
+
+__PASSWORD_ONLY__
+ Token:      da39a3ee5e6b4b0d3255bfef95601890afd80709
+ Expires at: 2017-06-12T13:42:46.308Z
+
+__PASSWORD_ONLY__
+ Token:      da39a3ee5e6b4b0d3255bfef95601890afd80709
+ Expires at: 2017-06-12T09:03:45.797Z
+
+__PASSWORD_ONLY__ (active)
+ Token:      da39a3ee5e6b4b0d3255bfef95601890afd80709
+ Expires at: 2017-06-12T08:44:16.371Z
+```
+
+### new
+Create a new access token under your Particle account.
+
+```sh
+$ particle token new
+? Using account cli@particle.io
+Please enter your password: *******
+New access token expires on Fri Jun 23 2017 23:09:24 GMT+0800 (SGT)
+		da39a3ee5e6b4b0d3255bfef95601890afd80709
+```
+
+### revoke
+Revoke an access token under your Particle account.
+
+```sh
+$ particle token revoke ACCESS_TOKEN
+? Using account cli@particle.io
+Please enter your password: *******
+successfully deleted ACCESS_TOKEN
+```

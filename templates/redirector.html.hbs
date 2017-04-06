@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+    <meta content="width=device-width" name="viewport">
+    <meta content="Particle" property="og:title">
+    <meta content="Documentation for Particle, a platform for connected devices." name="description">
+    <title>Particle Documentation | {{title}}</title>
+    <script src="/assets/js/jquery-1.11.1.min.js">
+    </script>
+    <link href="/assets/orange.ico" rel="shortcut icon" type="image/x-icon">
+    <link href="/assets/css/style.css" rel="stylesheet">
+    <link href="//cloud.typography.com/6107112/665726/css/fonts.css" rel="stylesheet" type="text/css">
+    <script type="text/javascript">
+        var devices = {{{ json devices }}};
+        var forkLocations = {{{ json forkLocations }}};
+    </script>
+    <script type="text/javascript">
+        if (window.location.search === '?start') {
+            // always select device when coming from particle.io/start
+        } else if (devices.length === 1) {
+            var fork = forkLocations[devices[0]];
+            window.location.replace(fork.path + window.location.hash);
+        } else {
+            var lastDevice = localStorage.getItem('lastDevice');
+            var fork = forkLocations[lastDevice];
+            if (lastDevice && fork) {
+                window.location.replace(fork.path + window.location.hash);
+            }
+        }
+    </script>
+    <script src="/assets/js/docs.js"></script>
+    <script src="/assets/js/ga.js"></script>
+</head>
+<body>
+<div id="docs">
+    <div class="header">
+        <div class="left"><a href="https://www.particle.io"><img id="logo" src="/assets/images/particle-docs.png"></a></div>
+    </div>
+    <div class="getting-started" id="device-redirector">
+        <h1 class="choose-device-header">Which device are you interested in?</h1>
+        <ul class="devices">
+            {{#items forkLocations}}
+                <a href="{{value.path}}" id="{{key}}-link">
+                    <li class="device" id="{{key}}">
+                        <h3>{{value.name}}</h3>
+                        <img src="/assets/images/{{key}}.svg">
+                    </li>
+                </a>
+            {{/items}}
+        </ul>
+    </div>
+</div>
+<script type="text/javascript">
+    for (var device in forkLocations) {
+        var dl = document.getElementById(device + '-link');
+        if (dl) {
+            dl.href = dl.pathname + window.location.hash;
+        }
+    }
+</script>
+</body>
+</html>

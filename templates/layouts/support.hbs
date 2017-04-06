@@ -1,0 +1,74 @@
+<!doctype html>
+<html class="{{columns}}-columns">
+<head>
+  {{> head sectionTitle='Support'}}
+</head>
+<body>
+  <div id="docs" data-level>
+    {{> header}}
+
+    <div class='content-root'>
+      <div class='menubar'>
+      <ul class="nav guide-menu">
+        {{#each support}}
+        <li data-level="{{inc @index}}" class="guide-section {{#contains ../path.href section}}active-section{{/contains}}">
+          <h3 class="guide-section-titles" >{{{titleize section}}}</h3>
+            <ol type="1">
+              {{#each this}}
+                <li class="top-level {{#page-equal ../../path.href ../../path.name path.href path.name}}active{{/page-equal}}" data-level="{{inc @../index}}.{{inc @index}}">
+                  {{#page-equal ../../path.href ../../path.name path.href path.name}}
+                    <span>{{{title}}}</span>
+                    {{#if ../../../toc}}
+                      <i id="toggle-in-page-nav" class="ion-minus"></i>
+                    {{/if}}
+                  {{else}}
+                    <a href="{{path.href}}{{path.name}}">{{title}}</a>
+                  {{/page-equal}}
+                </li>
+                {{#page-equal ../../path.href ../../path.name path.href path.name}}
+                  {{#if ../../../toc}}
+                    <div class="in-page-toc-container">
+                      <ul class="nav in-page-toc show">
+                        {{#each ../../../../toc}}
+                        <li class="middle-level" data-nav="">{{#if children}}<i class="toggle-secondary-toc ion-arrow-right-b"></i>{{/if}}<a href="#{{id}}">{{{text}}}</a></li>
+                          {{#if children}}
+                            <ul class="nav secondary-in-page-toc">
+                              {{#each children}}
+                                <li data-secondary-nav=""><a href="#{{id}}">{{{text}}}</a></li>
+                              {{/each}}
+                            </ul>
+                          {{/if}}
+                        {{/each}}
+                      </ul>
+                    </div>
+                  {{/if}}
+                {{/page-equal}}
+              {{/each}}
+            </ol>
+          </li>
+        {{/each}}
+      </ul>
+      </div>
+      <div class="page-body">
+        <div class='content-inner'>
+          <div class="content" >
+            {{{contents}}}
+            <div class="mobile-arrows">
+              {{> arrows}}
+            </div>
+          </div>
+        </div>
+        <div class="desktop-arrows">
+          {{> arrows}}
+        </div>
+      </div>
+    </div>
+    {{!-- Extract for external JS file --}}
+    <div class="help-button-wrapper">
+      <a href="/support/support-and-fulfillment/menu-base/#form-main" id="buttonParticle" class="buttonTextHelp" target="_blank"><i class="icon-xxHelp ion-help"></i></a>
+    </div>
+    {{!-- Extract for external JS file --}}
+    {{> scripts}}
+
+</body>
+</html>

@@ -1,7 +1,7 @@
 ---
 title: Certification
 columns: two
-template: guide.hbs
+layout: guide.hbs
 order: 9
 ---
 
@@ -17,15 +17,17 @@ Connected devices nearly always require certifications that ensure they operate 
  - [CE](#ce) - Europe
  - [TELEC](#telec) - Japan
  - [RoHS](#rohs) - Europe
+ - [PTCRB](#ptcrb) - North America
+ - [GCF](#gcf) - Europe
  - [UL](#ul) - World
- - [Cellular Certifications](#cellular-certifications) - World
  - [Battery Certifications](#battery-certifications) - World
+
 
 
 Here is a graphical representation of the current state of certification across Particle's hardware portfolio:
 
-![particle certifications table](/assets/images/particle-certifications-160210.png)
-<p class="caption">It's important to understand which certifications apply to your end product. <a target="_blank" href="/assets/images/particle-certifications-160210.png">Click here</a> for a full size image. Updated 2/10/16.</p>
+![particle certifications table](/assets/pdfs/new-certs/particle-certifications-v5.png)
+<p class="caption">It is important to understand which certifications apply to your end product. <a target="_blank" href="/assets/pdfs/new-certs/particle-certifications-v5.png">Click here</a> for a full size image. Updated 3/20/17.</p>
 
 
 ## FCC<img class="inline-header-image" src="/assets/images/logo-fcc.png"/>
@@ -80,10 +82,10 @@ Particle's certifications will help you decrease the time and cost associated wi
 
 ### Documentation
 
-#### Photon/PØ
+#### Photon/PØ - (updated 3/20/17)
 - FCC ID: [2AEMI-PHOTON](https://apps.fcc.gov/oetcf/eas/reports/ViewExhibitReport.cfm?mode=Exhibits&RequestTimeout=500&calledFromFrame=N&application_id=o2hW1PEmrUZn19QwwX8hCA%3D%3D&fcc_id=2AEMI-PHOTON)
-- [Certificate of Conformity](/assets/pdfs/p0-fcc-certificate.pdf)
-- [Test Reports](/assets/pdfs/p0-fcc-ic-test-reports.zip)
+- [Certificate of Conformity](/assets/pdfs/new-certs/fcc/photon-fcc-certificate2017.pdf)
+- [Test Reports](/assets/pdfs/new-certs/fcc/photon-test-reports.zip)
 - [Test Firmware and Instructions](/assets/files/P0_P1_FCC_Firmware.zip)
 
 #### P1 Module
@@ -121,12 +123,12 @@ The Photon/PØ and P1 Modules are IC certified as single-modular transmitters. J
 Industry Canada follows the same testing and rules as the FCC in regards to certified modules in authorized equipment.
 
 ### Documentation
-For certificates of conformity, search [here](https://sms-sgs.ic.gc.ca/search/radioEquipmentPortal) under "Radio Equipment List (REL) > Certification Number" using IC ID for each Particle device, respectively.
+For certificates of conformity, search [here](https://sms-sgs.ic.gc.ca/equipmentSearch/searchRadioEquipments?execution=e2s1&lang=en) using the IC ID for each Particle device, respectively.
 
-#### Photon/PØ
+#### Photon/PØ - (updated 3/20/17)
 - IC ID: **20127-PHOTON**.
-- [Certificate of Conformity](/assets/pdfs/p0-ic-certificate.pdf)
-- [Test Report](/assets/pdfs/p0-fcc-ic-test-reports.zip)
+- [Certificate of Conformity](/assets/pdfs/new-certs/ic/photon-ic-certificate2017.pdf)
+- [Test Report](/assets/pdfs/new-certs/ic/photon-test-reports.zip)
 
 #### P1 Module
 - IC ID: **10293A-WMNB11**.
@@ -171,9 +173,9 @@ If a product has adhered to the integration guidelines and has minimal risk, it 
 
 ### Documentation
 
-#### Photon/PØ
-- [Certificate of Conformity](/assets/pdfs/p0-ce-certificate.pdf)
-- [Test Reports](/assets/pdfs/p0-ce-test-reports.zip)
+#### Photon/PØ - (updated 3/20/17)
+- [Certificate of Conformity](/assets/pdfs/new-certs/ce/photon-ce-certificate2017.pdf)
+- [Test Reports](/assets/pdfs/new-certs/ce/ce-test-reports.zip)
 
 #### P1 Module
 - [Certificate of Conformity](/assets/pdfs/p1-ce-certificate.pdf)
@@ -246,15 +248,68 @@ The large majority of UL certifications, which can be found <a target="_blank" h
 ### Customer Responsibilities
 UL certification and safety standards are not applicable to Particle hardware, but may be applicable to the host end product in which they are integrated. It is the product creator's responsibility to ensure compliance with all UL safety standards and to obtain end product certification if required.
 
-## Cellular Certifications
+## PTCRB<img class="inline-header-image" src="/assets/images/logo-ptcrb.png"/>
+### Description
+- **Website**: [https://ptcrb.com/index.cfm](https://ptcrb.com/index.cfm)
+- **Wikipedia**: [https://en.wikipedia.org/wiki/PTCRB](https://en.wikipedia.org/wiki/PTCRB)
+- **Domain**: North America
 
-More information coming soon.
+The PTCRB is a certification body selected by North American cellular operators to create and manage a common cellular certification framework. PTCRB certification is a certification prerequisite for nearly all devices connecting to North American cellular networks.
 
-### PTCRB
+### Certification variants
 
-### GCF
+There are two common types of PTCRB certification – one that requires subsequent certifications after integration and one that does not. The Electron is certified with **"End Product"** certification, which does not require subsequent certification after integration, which decreases the certification burden on product creators building with the Particle platform.
 
-### Carrier Certifications
+**Module certification**
+This is the PTCRB certification level for cellular modules. The PTCRB defines a module in the following way:
+
+<p class = "boxed">
+Modules are finished WWAN radio devices that do not directly connect to a host via a standardized external interface such as USB, PCMCIA, Compact Flash, MMC, RS-232, or IEEE-1394. A module may or may not include an integral antenna system or SIM/USIM interface.
+<br>
+
+Most cellular module vendors will seek PTCRB approval for their module in order to make subsequent End Product certifications simpler. Particle leverages the u-blox SARA-G350, SARA-U260, and SARA-U270 modules, all of which have module certifications from the PTCRB.
+
+**End Product certification**
+This is the PTCRB certification level for finished cellular products. End Products are defined as devices that meet all of the following attributes:
+
+ - *Physical Interface* - If a physical control interface is required for the End Product, it shall utilize one of the following: USB, PCMCIA, Compact Flash, MMC, RS-232 (DE9), or IEEE-1394. No other physical control interfaces are acceptable.
+
+ - *Power* - Obtains power from the standardized physical control interface or have a provisioned power source (i.e. dedicated battery, or a dedicated power source).
+ - *UICC Interface* - Includes a fully self-contained USIM/SIM socket or embedded USIM/SIM
+ - *Antenna* - Utilizes a self-contained antenna or provide an external antenna connector.
+ - *Radio Access Technologies* - Covers at least one (1) comprehensive radio technology as specified by 3GPP for GERAN, UTRA, or E-UTRA devices
+
+The Electron meets all of these specifications, and is thus certified by the PTCRB as an End Product.
+
+### Customer Responsibilities
+
+When an End Product like the Electron is connected to a host device (PC, PDA, etc.), no certification of the host device is required.  By its design and intended user application, an End Product must:
+
+1. Be consistent with the terms of its FCC / Industry Canada type acceptance (e.g. type of antenna, distance from user, etc.).  In all cases, the End Product shall not alter its antenna system in any way from that allowed by the associated Type Acceptance or other regulatory approval.
+
+2. Serve its final intended use without any further hardware and software modifications. If a control interface connection to a host is required for operation of the device, that connection can only be made through one of the above defined standardized physical interfaces.
+
+### Documentation
+#### Electron 3G (U260)
+- [Certified Device Detail](https://ptcrb.com/vendor/complete/view_complete_request_guest.cfm?modelid=33577)
+
+#### Electron 2G (G350)
+- Product has completed and passed all PTCRB test requirements. Please [contact Particle](https://www.particle.io/sales) if you are building an end product with our 2G cellular solutions.
+
+## GCF<img class="inline-header-image" src="/assets/images/logo-gcf.png"/>
+### Description
+- **Website**: [http://www.globalcertificationforum.org/](http://www.globalcertificationforum.org/)
+- **Wikipedia**: [https://en.wikipedia.org/wiki/Global_Certification_Forum](https://en.wikipedia.org/wiki/Global_Certification_Forum)
+- **Domain**: Europe
+
+The GCF is a certification partnership between European network operators, mobile devices manufacturers, and certification/test labs. It serves a very similar function to the PTCRB for European operators.
+
+### Documentation
+
+#### Electron 3G (U270)
+- Product has completed and passed all GCF test requirements. Please [contact Particle](https://www.particle.io/sales) if you are building an end product with our 3G-U270 cellular solutions.
+
+
 
 ## Battery Certifications
 
@@ -263,13 +318,13 @@ The 2,000mAh lithium-polymer (Li-Po) battery included with the Electron and othe
 **Model Number**: LP103450  
 **Ratings**: 3.7V DC, 2000mAh, 7.4Wh  
 **Manufacturer**: PKCELL (Shenzhen, China)  
-**Test Reports**:
+**Test Reports**: Updated 3/20/17
 - [IEC62133](/assets/pdfs/electron/battery/IEC62133.pdf)
-- [UN Section 38.3](/assets/pdfs/electron/battery/UN-section-38.3-report.pdf)
-- [MSDS Test Report](/assets/pdfs/electron/battery/msds-report.pdf)
-- [1.2m Drop Test](/assets/pdfs/electron/battery/1.2m-drop-test.pdf)
-- [Air Freight Transport](/assets/pdfs/electron/battery/air-freight-transport.pdf)
-- [Sea Freight Transport](/assets/pdfs/electron/battery/sea-freight-transport.pdf)
+- [UN Section 38.3](/assets/pdfs/new-certs/battery/un38.3-updated.pdf)
+- [MSDS Test Report](/assets/pdfs/new-certs/battery/msds-updated.pdf)
+- [1.2m Drop Test](/assets/pdfs/new-certs/battery/drop-report-updated.pdf)
+- [Air Freight Transport](/assets/pdfs/new-certs/battery/air-goods-updated.pdf)
+- [Sea Freight Transport](/assets/pdfs/new-certs/battery/sea-freight-updated.pdf)
 
 ## What's next?
 

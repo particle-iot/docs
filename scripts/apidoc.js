@@ -33,7 +33,7 @@ function trimParameters(allParams) {
 function nestParameters(allParams) {
   if (allParams) {
     _.each(allParams, function (params, key) {
-      var indexedParameters = _.indexBy(allParams[key], 'field');
+      var indexedParameters = _.keyBy(allParams[key], 'field');
       var nestedParams = [];
       params.forEach(function (param) {
         var nameParts = param.field.split('.');
@@ -157,11 +157,11 @@ module.exports = function(options) {
       //console.log(apiReturn.data);
       return JSON.parse(apiReturn.data);
     }).reduce(function collectApiData(data, thisData) {
-      return data.concat(thisData);
+      return thisData ? data.concat(thisData) : data;
     }, []);
 
     // Don't continue if directory is missing
-    if (!_.all(apiData)) {
+    if (apiData.length === 0) {
       return done();
     }
 

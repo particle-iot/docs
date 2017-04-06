@@ -1,6 +1,6 @@
 ---
 title: 3rd-party SIM cards
-template: faq.hbs
+layout: faq.hbs
 columns: two
 devices: [ electron ]
 order: 1020
@@ -308,7 +308,7 @@ else return -2;
 
 ```
 
-Put the Electron in DFU mode ([blinking yellow](https://docs.particle.io/guide/getting-started/modes/electron/#dfu-mode-device-firmware-upgrade-)) by holding down the RESET and MODE buttons, releasing RESET and continuing to hold down MODE while the main status LED blinks magenta until it blinks yellow. Then release MODE.
+Put the Electron in DFU mode ([blinking yellow](/guide/getting-started/modes/electron/#dfu-mode-device-firmware-upgrade-)) by holding down the RESET and MODE buttons, releasing RESET and continuing to hold down MODE while the main status LED blinks magenta until it blinks yellow. Then release MODE.
 
 ```
 particle compile electron --target 0.4.8 tinker.ino --saveTo firmware.bin
@@ -331,7 +331,7 @@ You can be fooled into believing otherwise, because the APN is actually stored i
 
 In addition to using the setup.particle.io method above, once your Electron is breathing cyan after successfully setting the APN, you can claim an Electron with a 3rd-party SIM or an activated Particle SIM manually.
 
-You'll need the device ID of your Electron. You can get it by putting the Electron in [listening mode](https://docs.particle.io/guide/getting-started/modes/electron/#listening-mode), blinking dark blue, by holding down the MODE button until the main status LED blinks blue, then issuing the CLI command:
+You'll need the device ID of your Electron. You can get it by putting the Electron in [listening mode](/guide/getting-started/modes/electron/#listening-mode), blinking dark blue, by holding down the MODE button until the main status LED blinks blue, then issuing the CLI command:
 
 ```
 particle identify
@@ -380,7 +380,7 @@ The problem is that without a working return channel the following things don't 
 - Getting the value of Particle variables on the Electron
 - OTA code flash
 
-If you're using a 3rd-party SIM card you almost certainly will need to use the [Particle.keepAlive()](https://docs.particle.io/reference/firmware/electron/#particle-keepalive-) function. It's typically added to setup and the parameter is in seconds.
+If you're using a 3rd-party SIM card you almost certainly will need to use the [Particle.keepAlive()](/reference/firmware/electron/#particle-keepalive-) function. It's typically added to setup and the parameter is in seconds.
 
 ```
 void setup()
@@ -429,13 +429,13 @@ The U270 model supports 900/2100 MHz for 3G (UMTS/HSPA) and 900/1800 MHz for 2G 
 
 ### Blinking Blue
 
-If, when you power on the Electron, it's blinking dark blue ([listening mode blue](https://docs.particle.io/guide/getting-started/modes/electron/#listening-mode)), the most common cause is that the SIM is loose. Try removing it and putting it back in again.
+If, when you power on the Electron, it's blinking dark blue ([listening mode blue](/guide/getting-started/modes/electron/#listening-mode)), the most common cause is that the SIM is loose. Try removing it and putting it back in again.
 
 Or you can try to either gently lift the little metal prongs that contact the SIM with a pin (with power off and SIM card removed) or push down on the little metal holder to get a better contact.
 
 ### Stuck on blinking green
 
-If the Electron never progresses past [blinking green](https://docs.particle.io/guide/getting-started/modes/electron/#looking-for-internet), it probably can't contact a cellular tower. There are several possible reasons for this:
+If the Electron never progresses past [blinking green](/guide/getting-started/modes/electron/#looking-for-internet), it probably can't contact a cellular tower. There are several possible reasons for this:
 
 - No coverage on the required band. For example, you have a 2G Electron but no 2G coverage. 2G coverage may be different than 3G, 4G or LTE coverage.
 - No coverage from the selected carrier/SIM.
@@ -446,7 +446,7 @@ Also note that the 2G Electron is not supported in Japan. It will be discontinue
 
 ### Blinking magenta
 
-[Blinking magenta](https://docs.particle.io/guide/getting-started/modes/electron/#safe-mode) is safe mode, and is an entirely different problem than connectivity. You can find more about safe mode in [this post](https://community.particle.io/t/safe-mode-explained/26259).
+[Blinking magenta](/guide/getting-started/modes/electron/#safe-mode) is safe mode, and is an entirely different problem than connectivity. You can find more about safe mode in [this post](https://community.particle.io/t/safe-mode-explained/26259).
 
 
 ## Electron troubleshooting app

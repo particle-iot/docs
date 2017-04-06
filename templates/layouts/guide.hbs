@@ -1,0 +1,91 @@
+<!doctype html>
+<html class="{{columns}}-columns">
+<head>
+  {{> head sectionTitle='Guides'}}
+</head>
+<body>
+  <div id="docs" data-level>
+    {{> header}}
+
+    <div class='content-root'>
+      <div class='menubar'>
+
+      <ul class="nav guide-menu">
+        {{#each guide}}
+        <li data-level="{{inc @index}}" class="guide-section {{#contains ../path.href section}}active-section{{/contains}}">
+          <h3 class="guide-section-titles" >{{{titleize section}}}</h3>
+            <ol type="1">
+              {{#each this}}
+                {{#empty-or-contains devices @root.deviceValue}}
+                  <li class="top-level {{#page-equal @root.path.href @root.path.name path.href path.name}}active{{/page-equal}}" data-level="{{inc @../index}}.{{inc @index}}">
+                    {{#page-equal @root.path.href @root.path.name path.href path.name}}
+                      <span>{{{title}}}</span>
+                      {{#if @root.toc}}
+                        <i id="toggle-in-page-nav" class="ion-minus"></i>
+                      {{/if}}
+                    {{else}}
+                      <a href="{{path.href}}{{path.name}}">{{title}}</a>
+                    {{/page-equal}}
+                  </li>
+                  {{#page-equal @root.path.href @root.path.name path.href path.name}}
+                    {{#if @root.toc}}
+                      <div class="in-page-toc-container">
+                        <ul class="nav in-page-toc show">
+                          {{#each @root.toc}}
+                          <li class="middle-level" data-nav="">{{#if children}}<i class="toggle-secondary-toc ion-arrow-right-b"></i>{{/if}}<a href="#{{id}}">{{{text}}}</a></li>
+                            {{#if children}}
+                              <ul class="nav secondary-in-page-toc">
+                                {{#each children}}
+                                  <li data-secondary-nav=""><a href="#{{id}}">{{{text}}}</a></li>
+                                {{/each}}
+                              </ul>
+                            {{/if}}
+                          {{/each}}
+                        </ul>
+                      </div>
+                    {{/if}}
+                  {{/page-equal}}
+                {{/empty-or-contains}}
+              {{/each}}
+            </ol>
+          </li>
+        {{/each}}
+      </ul>
+      </div>
+      <div class="page-body">
+        <div class='content-inner'>
+          <div class="content" >
+            {{{contents}}}
+            <div class="mobile-arrows">
+              {{> arrows}}
+            </div>
+          </div>
+        </div>
+        <div class="desktop-arrows">
+          {{> arrows}}
+        </div>
+      </div>
+    </div>
+    
+    {{> scripts}}
+    {{#contains path.href 'how-to-build-a-product'}}
+      <script type="text/javascript">
+        var userCookie = $.cookie('ember_simple_auth_session');
+
+        if(userCookie) {
+          var userJSON = JSON.parse(userCookie);
+          var username = userJSON.username;
+
+          analytics.identify(username, {
+            email: username,
+          });
+          analytics.track('Viewed How to Build a Product', {
+            page: '{{path.name}}',
+            fullUrl: window.location.href
+          });
+        }
+
+      </script>
+    {{/contains}}
+</body>
+</html>

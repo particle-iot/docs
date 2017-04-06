@@ -1,6 +1,6 @@
 ---
 title: Raspberry Pi datasheet
-template: datasheet.hbs
+layout: datasheet.hbs
 columns: two
 order: 9
 ---
@@ -27,7 +27,7 @@ Firmware and library coverage for all versions of Raspberry Pi hardware will imp
 
 ## Operating System
 
-The Particle firmware and agent (the supervisor for the firmware) expects Raspbian Jessie or later. Please visit our Getting Started Guide for instructions on [updating your existing OS](https://docs.particle.io/guide/getting-started/start/raspberry-pi/#i-have-an-sd-card-with-raspbian), or [flashing a new SD card](https://docs.particle.io/guide/getting-started/start/raspberry-pi/#i-don-39-t-have-an-sd-card-with-raspbian) from scratch.
+The Particle firmware and agent (the supervisor for the firmware) expects Raspbian Jessie or later. Please visit our Getting Started Guide for instructions on [updating your existing OS](/guide/getting-started/start/raspberry-pi/#i-have-an-sd-card-with-raspbian), or [flashing a new SD card](/guide/getting-started/start/raspberry-pi/#i-don-39-t-have-an-sd-card-with-raspbian) from scratch.
 
 You can download the latest version of Raspbian for your Raspberry Pi from the Raspberry Pi Foundation, [here](https://www.raspberrypi.org/downloads/raspbian/).
 

@@ -1,8 +1,8 @@
 ---
 title: Windows SDK
-template: reference.hbs
+layout: reference.hbs
 columns: three
-order: 7
+order: 8
 ---
 
 # {{title}}
@@ -227,7 +227,7 @@ ParticleCloud.SharedCloud.PublishEventAsync("event_from_app", "event_payload", t
 
 ### OAuth client configuration
 
-If you're creating an app you're required to provide the `ParticleCloud` class with OAuth clientId and secret. Those are used to identify users coming from your specific app to the Particle Cloud. Please follow the procedure described [in our guide](https://docs.particle.io/reference/api/#create-an-oauth-client) to create those strings.
+If you're creating an app you're required to provide the `ParticleCloud` class with OAuth clientId and secret. Those are used to identify users coming from your specific app to the Particle Cloud. Please follow the procedure described [in our guide](/reference/api/#create-an-oauth-client) to create those strings.
 
 Once you've created your OAuth credentials, you can supply them to the SDK by providing them as string resources in a string resource file called "OAuthClient.resw", using the names `OAuthClientID` and `OAuthClientSecret` and they'll be picked up by the SDK automatically:
 

@@ -1,8 +1,8 @@
 ---
 title: Electron Product Changelog
-template: reference.hbs
+layout: reference.hbs
 columns: two
-order: 10
+order: 11
 ---
 
 # Electron Changelog
@@ -111,7 +111,7 @@ We’ve made it easier than ever to check the cellular signal of your device. Wh
 
 ### Sleep Modes
 
-The Electron is the perfect tool for untethered and remote projects. We’ve worked hard to minimize current consumption of the Electron in deep sleep modes to provide you the tools to significantly extend the battery life of your project. Check out the technical documentation for our [sleep() function](https://docs.particle.io/reference/firmware/#sleep-sleep-) to learn more.
+The Electron is the perfect tool for untethered and remote projects. We’ve worked hard to minimize current consumption of the Electron in deep sleep modes to provide you the tools to significantly extend the battery life of your project. Check out the technical documentation for our [sleep() function](/reference/firmware/#sleep-sleep-) to learn more.
 
 ### New Peripherals
 
@@ -148,10 +148,10 @@ In order to help you monitor your data usage, we’ll present you with a confirm
 
 Because the Electron is so different from the Photon and Core, we’ve built out a bunch of new example code and technical documentation for beginners, product creators, and everyone in between. Here are some of the highlights:
 
-- [Electron Hardware Datasheet](https://docs.particle.io/datasheets/electron-datasheet/)
-- [Electron Billing Guide](https://docs.particle.io/guide/getting-started/billing/)
-- [Electron Data Guide](https://docs.particle.io/guide/getting-started/data/)
-- [Electron Code Examples](https://docs.particle.io/guide/getting-started/examples/electron/)
+- [Electron Hardware Datasheet](/datasheets/electron-datasheet/)
+- [Electron Billing Guide](/guide/getting-started/billing/)
+- [Electron Data Guide](/guide/getting-started/data/)
+- [Electron Code Examples](/guide/getting-started/examples/electron/)
 
 We’ll be building integration guides and more detailed application notes for product creators in the near future.
 
@@ -159,7 +159,7 @@ We’ll be building integration guides and more detailed application notes for p
 
 The Electron ships with nearly every wireless certification that we could think of which significantly limits the time and cost associated with building products on the Electron platform. The full laundry list includes FCC, CE, IC, RoHS, PTCRB, GCF, and wireless carrier certifications.
 
-If you want more details on certification, visit the [Certification](https://docs.particle.io/guide/how-to-build-a-product/certification/) section of our Product Creator’s Guide.
+If you want more details on certification, visit the [Certification](/guide/how-to-build-a-product/certification/) section of our Product Creator’s Guide.
 
 ## More to Come
 

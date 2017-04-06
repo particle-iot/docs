@@ -1,6 +1,6 @@
 ---
 title: Cloud API
-template: api.hbs
+layout: api.hbs
 columns: three
 order: 2
 ---
@@ -31,6 +31,10 @@ PROTOCOL AND HOST
 *Formatting note:* When we write something prefixed with a colon `:`, we mean you should substitute your own information.
 For example when you see something like `/v1/devices/:deviceId`
 you might code something like `/v1/devices/55ff8800beefcafe12345678`.
+
+![Product ID or slug](/assets/images/productIdOrSlug.png)
+
+For product endpoints, you need to specify which product the API call targets. You can use either the product ID or the short alphanumerical product slug. Get either from the Console. In this example, the product ID is 1337 and the product slug is `my-product-v1`.
 
 ## Authentication
 
@@ -167,6 +171,8 @@ codes in the 500 range indicate failure within Particle's server infrastructure.
 
 408 Timed Out - The cloud experienced a significant delay when trying to reach the device.
 
+429 Too Many Requests - You are either making requests too often or too many at the same time. Please slow down.
+
 500 Server errors - Fail whale. Something's wrong on our end.
 ```
 
@@ -181,12 +187,14 @@ we'll give you lots of notice and a clear upgrade path.
 
 ## Devices
 {{> api group=apiGroups.Devices}}
+## Quarantine
+{{> api group=apiGroups.Quarantine}}
+## SIM Cards
+{{> api group=apiGroups.Sims}}
 ## Events
 {{> api group=apiGroups.Events}}
-## Integrations
+## Integrations [Webhooks]
 {{> api group=apiGroups.Integrations}}
-## Webhooks
-{{> api group=apiGroups.Webhooks}}
 ## Special Events
 
 If you watch your event stream, you may notice your devices publishing events that don't appear in your firmware.  The
@@ -324,8 +332,11 @@ of the response back to your devices.
 
 ## Firmware
 {{> api group=apiGroups.Firmware}}
-## Libraries
+## Product Firmware
+{{> api group=apiGroups.ProductFirmware}}
 
+
+## Libraries
 The libraries endpoints are a little different as they follow the [JSON API](http://jsonapi.org/) specification.
 
 {{> api group=apiGroups.Libraries}}

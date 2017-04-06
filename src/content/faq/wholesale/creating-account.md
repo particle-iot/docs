@@ -1,6 +1,6 @@
 ---
 title: Wholesale Account Creation
-template: faq.hbs
+layout: faq.hbs
 columns: two
 order: 100
 ---

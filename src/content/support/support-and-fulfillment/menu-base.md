@@ -1,6 +1,6 @@
 ---
 title: Support Menu
-template: suppMenu.hbs
+layout: suppMenu.hbs
 columns: two
 order: 1
 ---

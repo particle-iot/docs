@@ -1,7 +1,7 @@
 ---
 title: Manufacturing, programming, and testing
 columns: two
-template: guide.hbs
+layout: guide.hbs
 order: 8
 ---
 
@@ -98,7 +98,7 @@ These are all useful functions during manufacturing, so we highly encourage expo
 ### Programming the device
 Now that your product has successfully completed functional testing, you need to think about how the default firmware for your product is going to be programmed onto the device.
 
-All Particle hardware comes off the manufacturing line loaded with [Tinker](http://docs.particle.io/photon/tinker/), application firmware designed for use with Particle's mobile app of the same name.  The Tinker app makes it easy to start playing and experimenting with your Particle device without writing any code. It's great for early development, but isn't suitable for a standalone product.  
+All Particle hardware comes off the manufacturing line loaded with [Tinker](/photon/tinker/), application firmware designed for use with Particle's mobile app of the same name.  The Tinker app makes it easy to start playing and experimenting with your Particle device without writing any code. It's great for early development, but isn't suitable for a standalone product.  
 
 If you're building a product on the Particle platform, you'll need to flash application firmware to your device that makes your Internet connected coffee-maker a coffee-maker and not a Photon. There are two basic strategies for flashing firmware to your product--both are outlined below.
 

@@ -1,6 +1,6 @@
 ---
 title: JTAG and SWD
-template: faq.hbs
+layout: faq.hbs
 columns: two
 devices: [ photon,electron,core ]
 order: 1005
@@ -155,11 +155,11 @@ To erase all of your configuration and start from scratch, select **Erase Sector
 
 Select **Sector 1** (0x08004000) and **Sector 2** (0x080008000).
 
-Note that when you erase the configuration flash your device ID is preserved but your device private key will be lost. This means you won't be able to connect to the cloud until you upload your keys using the CLI command [particle keys doctor](https://docs.particle.io/reference/cli/#particle-keys-doctor).
+Note that when you erase the configuration flash your device ID is preserved but your device private key will be lost. This means you won't be able to connect to the cloud until you upload your keys using the CLI command [particle keys doctor](/reference/cli/#particle-keys-doctor).
 
 ## Installing OpenOCD - Standalone Installation
 
-If you've already set up [Particle Debugging with Eclipse](https://docs.particle.io/faq/particle-tools/eclipse-debug/) you can use the installation of OpenOCD included with that and skip to the next section.
+If you've already set up [Particle Debugging with Eclipse](/faq/particle-tools/eclipse-debug/) you can use the installation of OpenOCD included with that and skip to the next section.
 
 [OpenOCD](http://openocd.org) is more complicated to install, but works on Mac and Linux as well as Windows, and also is a command-line interface which may be helpful if you're automating the setup of devices on an assembly line.
 
@@ -188,7 +188,7 @@ It's theoretically possible to install OpenOCD under Cygwin under Windows. I hav
 
 ## Installing OpenOCD - Using Eclipse OpenOCD Installation
 
-If you've already set up [Particle Debugging with Eclipse](https://docs.particle.io/faq/particle-tools/eclipse-debug/) you can use the installation of OpenOCD included with that. The only difference is the path to the scripts and executable.
+If you've already set up [Particle Debugging with Eclipse](/faq/particle-tools/eclipse-debug/) you can use the installation of OpenOCD included with that. The only difference is the path to the scripts and executable.
 
 ### Installing OpenOCD - Using Eclipse OpenOCD Installation - Mac
 
@@ -432,5 +432,4 @@ To erase all of your configuration and start from scratch:
 
 That's bank 0, sectors 1 and 2 (starting at 0x08004000 and 0x080008000).
 
-Note that when you erase the configuration flash your device ID is preserved but your device private key will be lost. This means you won't be able to connect to the cloud until you upload your keys using the CLI command [particle keys doctor](https://docs.particle.io/reference/cli/#particle-keys-doctor).
-
+Note that when you erase the configuration flash your device ID is preserved but your device private key will be lost. This means you won't be able to connect to the cloud until you upload your keys using the CLI command [particle keys doctor](/reference/cli/#particle-keys-doctor).
