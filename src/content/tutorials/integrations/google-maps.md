@@ -112,9 +112,7 @@ Once in the integrations hub, click on the "New Integration" button. From the li
 
 <img src="/assets/images/google-maps-01.png"/>
 
-You'll see a reminder that setup is required before continuing to enable the integration. If you have followed the steps outlined in
-[Preconfiguration in Google Cloud Platform](#preconfiguration-in-google-cloud-platform), you should be good to go. Click the
-"I have done all these things" button to advance.
+You'll see a reminder that setup is required before continuing to enable the integration. If you have followed the steps above, you should be good to go. Click the "I have done all these things" button to advance.
 
 The next step is configuring the integration. Fill out the following fields:
 
