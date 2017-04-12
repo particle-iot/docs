@@ -791,7 +791,7 @@ You can choose to mount the asset tracker board inside the provided enclosure as
 ![atv2](/assets/images/shields/asset-tracker-shield-v2/asset-enclosure.png)
 
 ### Asset Tracker Library
-We've put together a great library for you to start building from! If you're already logged into Build then you can just click on [AssetTracker library](https://build.particle.io/libs/56ca184fd7e949613400086f/tab/1_GPS_Features.cpp) and you can always open the "Libraries" view in Build, and AssetTracker will show up under the Official Libraries. This library is especially good for learning about the Electron because it implements a couple of useful features, like a Particle.function for checking the battery level!
+We've put together a great library for you to start building from! If you're already logged into Build then you can just click on [AssetTracker library](https://build.particle.io/libs/AssetTracker/0.0.10/tab/example/1_GPS_Features.ino) and you can always open the "Libraries" view in Build, and AssetTracker will show up under the Official Libraries. This library is especially good for learning about the Electron because it implements a couple of useful features, like a Particle.function for checking the battery level!
 
 Examples:
 
