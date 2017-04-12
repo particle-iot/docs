@@ -772,7 +772,7 @@ When the module acquires a satellite fix, the **SAT FIX** LED on the shield will
 
 **Backup Power** 
 
-The shield has a super capacitor connected to the back up power of the GPS receiver. This helps the receiver retain time and satellite fix information upon a power cycle. The capacitor should be able to provide backup power for a few minutes after you remove the main supply. This is helpful when you are changing batteries or plugging/unplugging the Electron. For longer backup times, we have provided a footprint to solder in a CR2032 coin sell holder at the bottom. In most cases, you will not need it.
+The shield has a super capacitor connected to the back up power of the GPS receiver. This helps the receiver retain time and satellite fix information upon a power cycle. The capacitor should be able to provide backup power for a few minutes after you remove the main supply. This is helpful when you are changing batteries or plugging/unplugging the Electron. For longer backup times, we have provided a footprint to solder in a CR2032 coin cell holder at the bottom. In most cases, you will not need it.
 
 **Accelerometer**
 
