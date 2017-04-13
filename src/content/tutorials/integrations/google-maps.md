@@ -1,5 +1,5 @@
 ---
-title: Google Maps 
+title: Google Maps
 layout: tutorials.hbs
 columns: two
 order: 150
@@ -7,63 +7,99 @@ order: 150
 
 # {{title}} Integration
 
-The Google Maps Device Locator makes it easy to find the location of Particle Electron and Photon devices without any additional hardware. Reporting your Photon or Electron's location to the cloud is as easy as:
+Particle and Google Maps can now be used in tandem to easily find the location of
+Particle devices without the need for any additional hardware. The <a href="https://developers.google.com/maps/documentation/geolocation/intro" target="_blank">Geolocation API</a>
+from Google Maps returns a location and accuracy radius from visible Wi-Fi access points
+or cell towers collected by Particle devices.
 
-```
-#include "google-maps-device-locator.h"
+<img src="/assets/images/particle+gm.png"
+alt="Particle + Azure IoT Hub"/>
+<p class="caption">Geolocate Particle devices using the Google Maps
+Geolocation API</p>
 
-GoogleMapsDeviceLocator locator;
+Geolocating devices has many potential applications in an IoT deployment,
+including:
 
-void setup() {
-	locator.withLocatePeriodic(120); 
-}
+- *Improve operating efficiency* via remote tracking of assets in a
+company's supply chain, including improving demand forecasting and
+reducing operating expenses. For more details, please check out our <a href="https://www.particle.io/white-papers/iot-revolutionizing-supply-chain-management"
+target="_blank">whitepaper on supply chain management</a>
+- *Delight customers* via providing visibility into the
+location of connected devices to end-users in real-time
+- *Discover business insights* via collecting and identifying device location data
 
-void loop() {
-	locator.loop();
-}
-```
+This tutorial will explore how to get started with the Particle + Google
+Maps integration.
 
-Once in the cloud, you could plot the location on a map or show it on a display on the device, for example. These examples are provided below.
+## Geolocation basics
 
-
-## About geolocation
-
-There are four common ways to find a location:
+There are four common ways to find a location of a device, described
+below. It is important to note that while these methods are distinct
+from one another, it is possible (and often preferrable) to use multiple
+geolocation methods together to enhance end-user experience and/or
+increase the likelihood of successfully locating a device.
 
 ### GPS (Global Positioning System)
 
-The Global Positioning System (GPS) is generally the most accurate and it can provide your location continuously. The disadvantage is that it requires additional hardware like the Particle [Asset Tracker module](https://www.particle.io/products/hardware/asset-tracker). 
+The Global Positioning System (GPS) is generally the most accurate and
+it can provide device location continuously. Under normal conditions,
+GPS can locate a device with an accuracy of ~4 meters.
 
-It may also take some time to establish a satellite fix, and may have trouble establishing a location where the view is obstructed, such as downtown in cities.
+While very accurate, the disadvantage is that GPS requires additional hardware like the Particle [Asset Tracker module](https://www.particle.io/products/hardware/asset-tracker). It may also take some time to establish a satellite fix, and may have trouble establishing a location where the view is obstructed, such as downtown in cities.
 
-If you only need to find approximate locations, such as a neighborhood or town, the other options may be suitable and are generally free and require no additional hardware.
+The Particle + Google Maps integration does not use GPS, but rather
+cell towers or Wi-Fi networks to geolocate a device. Read on for a
+description of these two geolocation methods.
 
 ### Cellular tower location
 
-Another alternative is to use cell tower location information. This is good for Particle Electron based projects that only need approximate locations. 
-
-The Google Maps Device Locator makes this easy to do, with just a few lines of code on Particle Electron (cellular) devices.
+Cell tower geolocation is ideal for cellular IoT deployments that require approximate locations
+and do not wish to include additional hardware to support GPS.
 
 Every cell tower has an identifier, and this can be looked up using the Google Geolocation API to find its location. This process is fast and provides a general location, usually within 4000 meters or a couple miles.
 
+The Google Maps integration can be used in tandem with a Particle
+Electron to geolocate devices using visible cellular networks.
 
 ### Wi-Fi location
 
-For the Particle Photon and P1, Wi-Fi location is another option. Google maintains a database of known Wi-Fi base stations and can use this to determine your location by what networks it can see.
+For the Particle Photon and P1, Wi-Fi geolocation is another option.
+Google maintains a database of known Wi-Fi base stations and can use
+this to determine a device's  location by what networks it can see.
 
-The Google Maps Device Locator makes this easy to do, with just a few lines of code on Particle Photon and P1 (Wi-Fi) devices. 
+The database is generated by information from Android smart phones with
+location services enabled. They periodically record both the visible
+Wi-Fi access points and GPS locations when location services is enabled.
+(Apple uses the same technique with iPhones for their Wi-Fi location
+database, but it's a different database than Google's database.) Not all
+Wi-Fi access points are included in these databases, but if a device is near one,
+it can provide accurate location information.
 
-The database is generated by information from Android smart phones with location services enabled. They periodically record both the visible Wi-Fi access points and GPS locations when location services is enabled. (Apple uses the same technique with iPhones for their Wi-Fi location database, but it's a different database than Google's database.)
-
-Not all Wi-Fi access points are in the database, but if you are near one, it can provide accurate location information with no additional cost.
-
+The Google Maps integration also supports this method of geolocation.
+Particle Photon and P1 (Wi-Fi) devices can collect visible Wi-Fi access
+points, and send these to the geolocation API in exchange for its
+location. Often times, Wi-Fi geolocation is more precise than cellular
+geolocation, often with an accuracy radius of 50 meters or less.
 
 ### IP Address location
 
-The Google Maps Device Locator does not use this technique, but for home Wi-Fi networks it's often possible to get an approximate location (city or nearby city), based on the public IP address. 
+The Google Maps Device Locator does not use this technique, but for home
+Wi-Fi networks it's often possible to get an approximate location (city
+or nearby city), based on the public IP address. Particle Wi-Fi devices
+report their last IP address to the cloud, which could be used for this
+geolocation method. This is most often the least accurate of the 4
+methods described in this section.
 
+## Preconfiguration steps
 
-## Get a Google Geolocation API Key
+### Sign up for a Google account
+
+If you do not already have an account, visit the <a href="https://accounts.google.com/signup?hl=en" target="_blank">Google signup page</a>.
+Follow the instructions to register for a new account. A Google account
+is needed to successfully authenticate with the Google Maps Geolocation
+API.
+
+### Get a Google Geolocation API Key
 
 In order to use the Google Geolocation API, you need an API key. In many cases, you'll be able to take advantage of the free usage tier.
 
@@ -75,7 +111,7 @@ In order to use the Google Geolocation API, you need an API key. In many cases, 
 
 ![Get a key](/assets/images/google-maps-03.png)
 
-- Select or create a project. 
+- Select or create a project.
 
 ![Select or create project](/assets/images/google-maps-04.png)
 
@@ -91,47 +127,31 @@ In order to use the Google Geolocation API, you need an API key. In many cases, 
 
 ![API Key](/assets/images/google-maps-07.png)
 
-I got the API key `AIzaSyBUOy5zkINuqqYCw9-KhJ9LS1NWHLlI65Y`. Copy your key to the clipboard because you'll need it when you create your integration.
+Copy your key to the clipboard because you'll need it when you enable your integration.
 
 To view, edit or delete your credentials later, you can use the [Google Developer Credentials Console](https://console.developers.google.com/apis/credentials).
 
-## Enabling the Integration
-
-### Particle Console
-
-Now that you've done all of the pre-configuration, you are now ready to enable the Google Cloud Platform integration
-on the <a href="https://console.particle.io" target="_blank">Particle Console</a>.
-
-Start by going to the integrations hub by clicking on the integrations icon in the sidebar (<i class="im-integrations-icon"></i>), or
-by simply <a href="https://console.particle.io/integrations" target="_blank">following this link</a>. If you'd like to enable the integration
-for a <a href="/guide/tools-and-features/console/#devices-vs-product-devices" target="_blank">product</a>, you'll need to visit the integrations
-hub for the desired product. Do this by clicking the products icon (<i class="im-product-icon"></i>) in the sidebar, finding your product,
-then clicking on the integrations icon (<i class="im-integrations-icon"></i>) in the product context.
-
-Once in the integrations hub, click on the "New Integration" button. From the list of available integrations, click on "Google Cloud Platform."
-
-<img src="/assets/images/google-maps-01.png"/>
-
-You'll see a reminder that setup is required before continuing to enable the integration. If you have followed the steps above, you should be good to go. Click the "I have done all these things" button to advance.
-
-The next step is configuring the integration. Fill out the following fields:
-
-- **API Key**: Enter the API key you created above. In the example above, it was `AIzaSyBUOy5zkINuqqYCw9-KhJ9LS1NWHLlI65Y` but yours will be different. You must create your own API key; you can't use that one.
-
-- **Device**: Select which of your devices will trigger publishing to Google. If you'd like the publish to trigger from any of the devices you own, select 'Any.'
-For product-level integrations, you can instead choose if you'd like the response to the integration to be routed back to the device in the fleet that originally triggered the publish.
-
-![Integration Configuraton](/assets/images/google-maps-02.png)
-
-If you expand **Advanced Settings** the following option appears:
-
-- **Override Default Event Name**: The name of the event that will trigger publishing an event to Google Cloud Platform. This is the name of your event set using `locator.withEventName("differentEventName")`.
-
-## Firmware
+### Run the Google Maps firmware library on your devices
 
 The final piece is the firmware that you flash to your Photon or Electron:
 
-### Using Particle Build (Web IDE)
+Reporting your Photon or Electron's location to the cloud is as easy as:
+
+```
+#include "google-maps-device-locator.h"
+
+GoogleMapsDeviceLocator locator;
+
+void setup() {
+	locator.withLocatePeriodic(120);
+}
+
+void loop() {
+	locator.loop();
+}
+```
+
+#### Using Particle Build (Web IDE)
 
 - Select the **Libraries** icon (1)
 
@@ -156,6 +176,42 @@ The final piece is the firmware that you flash to your Photon or Electron:
 This example publishes the location every 2 minutes (120 seconds). It works on the Particle Photon, P1, and Core (Wi-Fi) and also the Electron (cellular).
 
 By changing a few options you can have it publish once at boot, which might be appropriate for Wi-Fi devices that are not battery powered. You can also post location on demand, when you make a call from your code.
+
+## Enabling the Integration
+
+### Particle Console
+
+Now that you've done all of the pre-configuration, you are now ready to
+enable the Google Maps integration
+on the <a href="https://console.particle.io" target="_blank">Particle Console</a>.
+
+Start by going to the integrations hub by clicking on the integrations icon in the sidebar (<i class="im-integrations-icon"></i>), or
+by simply <a href="https://console.particle.io/integrations" target="_blank">following this link</a>. If you'd like to enable the integration
+for a <a href="/guide/tools-and-features/console/#devices-vs-product-devices" target="_blank">product</a>, you'll need to visit the integrations
+hub for the desired product. Do this by clicking the products icon (<i class="im-product-icon"></i>) in the sidebar, finding your product,
+then clicking on the integrations icon (<i class="im-integrations-icon"></i>) in the product context.
+
+Once in the integrations hub, click on the "New Integration" button.
+From the list of available integrations, click on "Google Maps."
+
+<img src="/assets/images/google-maps-01.png"/>
+
+You'll see a reminder that setup is required before continuing to enable the integration. If you have followed the steps above, you should be good to go. Click the "I have done all these things" button to advance.
+
+The next step is configuring the integration. Fill out the following fields:
+
+- **API Key**: Enter the API key you created above. In the example above, it was `AIzaSyBUOy5zkINuqqYCw9-KhJ9LS1NWHLlI65Y` but yours will be different. You must create your own API key; you can't use that one.
+
+- **Device**: Select which of your devices will trigger publishing to Google. If you'd like the publish to trigger from any of the devices you own, select 'Any.'
+For product-level integrations, you can instead choose if you'd like the response to the integration to be routed back to the device in the fleet that originally triggered the publish.
+
+![Integration Configuraton](/assets/images/google-maps-02.png)
+
+If you expand **Advanced Settings** the following option appears:
+
+- **Override Default Event Name**: The name of the event that will
+trigger publishing an event to Google Maps. This is the name of your event set using `locator.withEventName("differentEventName")`.
+
 
 ## Testing it out
 
@@ -244,7 +300,8 @@ The source code is in the **oled-location** directory.
 
 ## Example: Google Location Tracker
 
-This example demonstrates how to visualize your Google Maps Device Locator results using node.js in a Google App Engine Flexible Environment and the Google Maps Javascript API. This sample also uses the Express web framework, websockets, and the Particle Javascript API. 
+This example demonstrates how to visualize your Google Maps Device
+Locator results using Node.js in a Google App Engine Flexible Environment and the Google Maps Javascript API. This sample also uses the Express web framework, websockets, and the Particle Javascript API.
 
 It can be run from your own computer, as described in the Run Locally section, or it can be deployed to the Google Cloud.
 
