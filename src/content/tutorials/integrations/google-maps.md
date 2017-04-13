@@ -164,22 +164,6 @@ Google Maps.
 
 - Now you can view and edit the code.
 
-Reporting your Particle device's location to the cloud is as easy as:
-
-```cpp
-#include "google-maps-device-locator.h"
-
-GoogleMapsDeviceLocator locator;
-
-void setup() {
-	locator.withLocatePeriodic(120);
-}
-
-void loop() {
-	locator.loop();
-}
-```
-
 This example publishes the location every 2 minutes (120 seconds). It works on the Particle Photon, P1, and Core (Wi-Fi) and also the Electron (cellular).
 
 By changing a few options you can have it publish once at boot, which might be appropriate for Wi-Fi devices that are not battery powered. You can also post location on demand, when you make a call from your code.
