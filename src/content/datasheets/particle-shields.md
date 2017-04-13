@@ -786,7 +786,7 @@ We have provided two grove sensor ports for you to easily connect sensors to the
 
 **Enclosure**
 
-You can choose to mount the asset tracker board inside the provided enclosure as shown below. Use the four M3 screws to secure the board in place. The antenna comes with a peel-able sticky back that can be used to stick the antenna to the side wall. Remember not to block the GPS antenna with anything - wires, antenna, battery, etc.
+You can choose to mount the asset tracker board inside the provided enclosure as shown below. Use the four M3 screws to secure the board in place. The antenna comes with a peel-able sticky back that can be used to stick the antenna to the side wall. Remember not to block the GPS antenna with anything - wires, antenna, battery, etc. Enclosure dimentions are: 115.06 x 65.02 x 39.88 mm.
 
 ![atv2](/assets/images/shields/asset-tracker-shield-v2/asset-enclosure.png)
 
@@ -809,7 +809,7 @@ Examples:
  - Acquisition times: Cold starts: 26s, Aided starts: 2s, Reacquisition: 1s
  - Onboard ROM
  - Anti spoofing and anti jamming technologies
- - OPerating temperature of –40° C to 85° C
+ - Operating temperature of –40° C to 85° C
 
 ![atv2](/assets/images/shields/asset-tracker-shield-v2/asset-dims.png)
 
@@ -820,6 +820,8 @@ Examples:
 | Supply Input Voltage | V<sub>IN</sub> | +5.0<sup>[1]</sup> |  | +12 | V |
 | Supply Output Voltage | V<sub>3V3</sub> |  | +3.3 |  | V |
 | LiPo Battery Voltage | V<sub>LiPo</sub> | +3.6 |  | +4.4 | V |
+| Current consumption at 3V (GPS only) | I | 6.2 |  | 67 | mA |
+| Total current consumption at | I | 50 |  | 800 | mA |
 | Backup power consumption at 3V (GPS only) | I<sub>Qs</sub> |  | 15 |  | uA |
 | Deep Sleep Current (4.2V LiPo) | I<sub>Qds</sub> |  | 120 | 140 | uA |
 | Operating Temperature | T<sub>op</sub> | -40 |  | +85 | °C |
