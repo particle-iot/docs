@@ -821,7 +821,7 @@ Examples:
 | Supply Output Voltage | V<sub>3V3</sub> |  | +3.3 |  | V |
 | LiPo Battery Voltage | V<sub>LiPo</sub> | +3.6 |  | +4.4 | V |
 | Current consumption at 3V (GPS only) | I | 6.2 |  | 67 | mA |
-| Total current consumption at | I | 50 |  | 800 | mA |
+| Total current consumption | I | 50 |  | 800 | mA |
 | Backup power consumption at 3V (GPS only) | I<sub>Qs</sub> |  | 15 |  | uA |
 | Deep Sleep Current (4.2V LiPo) | I<sub>Qds</sub> |  | 120 | 140 | uA |
 | Operating Temperature | T<sub>op</sub> | -40 |  | +85 | °C |
