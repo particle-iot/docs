@@ -133,23 +133,16 @@ To view, edit or delete your credentials later, you can use the [Google Develope
 
 ### Run the Google Maps firmware library on your devices
 
-The final piece is the firmware that you flash to your Photon or Electron:
+The final preconfiguration step is the firmware that you flash to your
+Particle device. In order for Google Maps to geolocate a device, the
+device must collect a list of currently visible networks (access points
+for Wi-Fi, and towers for Cellular) and send information about these
+networks to the cloud.
 
-Reporting your Photon or Electron's location to the cloud is as easy as:
+A verified Particle library must be added to a device's firmware to
+collect and send network info to successfully fetch its location from
+Google Maps.
 
-```
-#include "google-maps-device-locator.h"
-
-GoogleMapsDeviceLocator locator;
-
-void setup() {
-	locator.withLocatePeriodic(120);
-}
-
-void loop() {
-	locator.loop();
-}
-```
 
 #### Using Particle Build (Web IDE)
 
@@ -171,7 +164,21 @@ void loop() {
 
 - Now you can view and edit the code.
 
-![Edit code](/assets/images/google-maps-14.png)
+Reporting your Particle device's location to the cloud is as easy as:
+
+```cpp
+#include "google-maps-device-locator.h"
+
+GoogleMapsDeviceLocator locator;
+
+void setup() {
+	locator.withLocatePeriodic(120);
+}
+
+void loop() {
+	locator.loop();
+}
+```
 
 This example publishes the location every 2 minutes (120 seconds). It works on the Particle Photon, P1, and Core (Wi-Fi) and also the Electron (cellular).
 
@@ -200,10 +207,9 @@ You'll see a reminder that setup is required before continuing to enable the int
 
 The next step is configuring the integration. Fill out the following fields:
 
-- **API Key**: Enter the API key you created above. In the example above, it was `AIzaSyBUOy5zkINuqqYCw9-KhJ9LS1NWHLlI65Y` but yours will be different. You must create your own API key; you can't use that one.
+- **API Key**: Enter the API key you created above.
 
 - **Device**: Select which of your devices will trigger publishing to Google. If you'd like the publish to trigger from any of the devices you own, select 'Any.'
-For product-level integrations, you can instead choose if you'd like the response to the integration to be routed back to the device in the fleet that originally triggered the publish.
 
 ![Integration Configuraton](/assets/images/google-maps-02.png)
 
@@ -213,9 +219,10 @@ If you expand **Advanced Settings** the following option appears:
 trigger publishing an event to Google Maps. This is the name of your event set using `locator.withEventName("differentEventName")`.
 
 
-## Testing it out
+### Testing it out
 
-Once you have the firmware installed on your Electron or Photon, you can check the Logs in the [console](https://console.particle.io/logs).
+Once you have the firmware installed on yourd device and the integration
+enabled Electron, you can check the Logs in the [console](https://console.particle.io/logs).
 
 ![Event Log](/assets/images/google-maps-16.png)
 
@@ -231,11 +238,11 @@ If the location is not known by the Google geolocation service, a 404 error appe
 
 ## Firmware examples
 
-The firmware source code is in the Github repository:
+The Google Maps device locator firmware library source code is in the Github repository:
 
 [https://github.com/rickkas7/google-maps-device-locator-examples](https://github.com/rickkas7/google-maps-device-locator-examples)
 
-You should downloading the whole thing, either by clone or download zip. Then you can easily use the code examples.
+To use these firmware examples, you should downlod the repo, either by clone or download zip.
 
 ### Using the Particle CLI
 
@@ -258,10 +265,9 @@ particle compile electron . --saveTo firmware.bin
 particle flash --usb firmware.bin
 ```
 
-
 ### Using Particle Dev (Atom IDE)
 
-It's also easy to open examples using Particle Dev (Atom IDE). 
+It's also easy to open examples using Particle Dev (Atom IDE).
 
 ![Particle DEV](/assets/images/google-maps-18.png)
 
@@ -282,21 +288,87 @@ dependencies.Adafruit_SSD1306_RK=1.1.2```
 
 You would have to add the libraries **google-maps-device-locator** and **Adafruit_SSD1306_RK** to your project in order to run the sample code.
 
+## Firmware Library API
 
-## Example: Location OLED Display
+### Creating an object
 
-![OLED display](/assets/images/google-maps-15.jpg)
+You normally create an locator object as a global variable in your program:
 
-This example displays your current location on a small SSD1306-compatible OLED display to show your latitude, longitude, and uncertainty radius (in meters).
+```
+GoogleMapsDeviceLocator locator;
+```
 
-The connections are:
+### Operating modes
 
-- VCC to 3V3 red
-- GND to GND black
-- SCL to D1 (SCL) blue
-- SDA to D0 (SDA) green
+There are three modes of operation:
 
-The source code is in the **oled-location** directory.
+If you want to only publish the location once when the device starts up, use withLocateOnce from your setup function.
+
+```
+locator.withLocateOnce();
+```
+
+To publish every *n* seconds while connected to the cloud, use withLocatePeriodic. The value is in seconds.
+
+```
+locator.withLocatePeriodic(120);
+```
+
+To manually connect, specify neither option and call publishLocation when you want to publish the location
+
+```
+locator.publishLocation();
+```
+
+### The loop
+
+With periodic and locate once modes, you must call:
+
+```
+locator.loop();
+```
+
+from your loop. It doesn't hurt to always call it, even in manual location mode. It gives the library time to process the data.
+
+### Customizing the event name
+
+The default event name is **deviceLocator**. You can change that in setup using:
+
+```
+locator.withEventName("myEventName");
+```
+
+This also must be updated in the integration, since the eventName is what triggers the webhook. 
+
+![Event Name Configuration](/assets/images/google-maps-22.png)
+
+
+### Subscription
+
+You can also have the library tell your firmware code what location was found. Use the withSubscribe option with a callback function.
+
+This goes in setup() for example:
+
+```
+locator.withSubscribe(locationCallback).withLocatePeriodic(120);
+```
+
+The callback function looks like this:
+
+```
+void locationCallback(float lat, float lon, float accuracy)
+```
+
+One possibility is that you could display this information on a small OLED display, for example.
+
+### Debugging
+
+The library uses the logging feature of system firmware 0.6.0 or later when building for 0.6.0 or later. Adding this line to the top of your .ino file will enable debugging messages to the serial port.
+
+```
+SerialLogHandler logHandler;
+```
+
 
 ## Example: Google Location Tracker
 
@@ -323,7 +395,7 @@ In order to use the Google Maps API, you need an API key. In many cases, you'll 
 
 ![Get a key](/assets/images/google-maps-19.png)
 
-- Select or create a project. 
+- Select or create a project.
 
 - If you created a project above for the Geolocation API, you may want tp select the same project. I selected **location** and used the **Enable API** button to enable it.
 
@@ -333,7 +405,7 @@ In order to use the Google Maps API, you need an API key. In many cases, you'll 
 
 ![API Key](/assets/images/google-maps-21.png)
 
-I got the API key `AIzaSyDS9_jiIai6kSDSUdXcZ2R4bajPoSAsdNs`. Copy your key to the clipboard because you'll need it when you create your integration. 
+Copy your key to the clipboard because you'll need it when you create your integration. 
 
 To view, edit or delete your credentials later, you can use the [Google Developer Credentials Console](https://console.developers.google.com/apis/credentials).
 
@@ -343,30 +415,24 @@ The firmware source code is in the Github repository:
 
 [https://github.com/rickkas7/google-maps-device-locator-examples](https://github.com/rickkas7/google-maps-device-locator-examples)
 
-You should downloading the whole thing, either by clone or download zip. This example is in the **appengine** directory.
+You should download the whole thing, either by clone or download zip. This example is in the **appengine** directory.
 
 ### Run Locally
 
 #### Install node.js
 
-If you haven't already done so, install [node.js](https://nodejs.org). 
+If you haven't already done so, install [Node.js](https://nodejs.org).
 
 The version on the left, the LTS (long-term support) version is recommended. At the time of writing it was 6.10.2, but install whatever the current LTS version is.
 
 #### Setup
 
-You will need to supply a Google Maps Javascript API key in order for the example to work properly. 
+You will need to supply a Google Maps Javascript API key in order for the example to work properly.
 
 - Edit the file `app.js` to set the `map_api_key` variable to your Google Maps API key.
 
 ```
 const map_api_key = 'YOUR_API_KEY';
-```
-
-For example:
-
-```
-const map_api_key = 'AIzaSyDS9_jiIai6kSDSUdXcZ2R4bajPoSAsdNs';
 ```
 
 The Google Maps API key is different than your Google Geolocation API key you used in your integration configuration.
@@ -375,7 +441,7 @@ The Google Maps API key is different than your Google Geolocation API key you us
 
 - Install the [Google Cloud SDK](https://cloud.google.com/sdk/). There are installation instructions for Windows, Mac OS X and Linux.
 
-- Setup the gcloud tool. This provides authentication to Google Cloud APIs and services. 
+- Setup the gcloud tool. This provides authentication to Google Cloud APIs and services.
 
 ```
 gcloud init
@@ -449,83 +515,17 @@ $ gcloud app logs read
 
 One thing to beware of: Deploying a new instance doesn't stop the old one first! Make sure you to clean up the old instances and versions from the [Google Cloud console](https://console.cloud.google.com) App Engine page.
 
-## Library API
+## Example: Location OLED Display
 
-### Creating an object
+![OLED display](/assets/images/google-maps-15.jpg)
 
-You normally create an locator object as a global variable in your program:
+This example displays your current location on a small SSD1306-compatible OLED display to show your latitude, longitude, and uncertainty radius (in meters).
 
-```
-GoogleMapsDeviceLocator locator;
-```
+The connections are:
 
-### Operating modes
+- VCC to 3V3 red
+- GND to GND black
+- SCL to D1 (SCL) blue
+- SDA to D0 (SDA) green
 
-There are three modes of operation:
-
-If you want to only publish the location once when the device starts up, use withLocateOnce from your setup function.
-
-```
-locator.withLocateOnce();
-```
-
-To publish every *n* seconds while connected to the cloud, use withLocatePeriodic. The value is in seconds.
-
-```
-locator.withLocatePeriodic(120);
-```
-
-To manually connect, specify neither option and call publishLocation when you want to publish the location
-
-```
-locator.publishLocation();
-```
-
-### The loop
-
-With periodic and locate once modes, you must call 
-
-```
-locator.loop();
-```
-
-from your loop. It doesn't hurt to always call it, even in manual location mode. It gives the library time to process the data.
-
-### Customizing the event name
-
-The default event name is **deviceLocator**. You can change that in setup using:
-
-```
-locator.withEventName("myEventName");
-```
-
-This also must be updated in the integration, since the eventName is what triggers the webhook. 
-
-![Event Name Configuration](/assets/images/google-maps-22.png)
-
-
-### Subscription
-
-You can also have the library tell your firmware code what location was found. Use the withSubscribe option with a callback function.
-
-This goes in setup() for example:
-
-```
-locator.withSubscribe(locationCallback).withLocatePeriodic(120);
-```
-
-The callback function looks like this:
-
-```
-void locationCallback(float lat, float lon, float accuracy)
-```
-
-One possibility is that you could display this information on a small OLED display, for example.
-
-### Debugging
-
-The library uses the logging feature of system firmware 0.6.0 or later when building for 0.6.0 or later. Adding this line to the top of your .ino file will enable debugging messages to the serial port.
-
-```
-SerialLogHandler logHandler;
-```
+The source code is in the **oled-location** directory.
