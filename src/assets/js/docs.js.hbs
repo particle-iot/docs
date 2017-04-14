@@ -227,6 +227,8 @@ Created by Zach Supalla.
     if (typeof lunr === 'undefined') {
       return;
     }
+    // Make Particle.function searchable with function only
+    lunr.tokenizer.separator = /[\s\-.]+/;
     lunr.Pipeline.registerFunction(Docs._removeEmptyTokens, 'removeEmptyTokens');
 
     $.getJSON('/search-index.json', function(data) {
