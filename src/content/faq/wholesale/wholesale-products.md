@@ -13,33 +13,34 @@ Particle products have different lead times based on the quantity. Please see th
 
 SKU | Low volume lead time | High volume lead time
 ------------ | ------------- | -------------
-ANTDUCK | Less than 50 units, Ships immediately | More than 50 units, ships in 4 - 6 weeks
-ANTELEC50 | Less than 250 units, Ships immediately | More than 250 units, ships in 4 - 6 weeks
+ANTDUCK | Less than 100 units, Ships immediately | More than 100 units, ships in 4 - 6 weeks
+ANTELEC50 | Less than 500 units, Ships immediately | More than 500 units, ships in 4 - 6 weeks
 ANTFLEX | Less than 50 units, Ships immediately | More than 50 units, ships in 4 - 6 weeks
-ARDSHIELD | Less than 100 units, Ships immediately | More than 100 units, ships in 8 - 10 weeks
-ASSET (all SKUs) | Less than 50 units, Ships immediately | More than 50 units, ships in 10 - 13 weeks 
+ARDSHIELD | Less than 200 units, Ships immediately | More than 200 units, ships in 8 - 10 weeks
+ASSET (all SKUs) | Less than 100 units, Ships immediately | More than 100 units, ships in 10 - 13 weeks 
 E260KIT | Less than 500 units, Ships immediately | More than 500 units, ships in 10 - 13 weeks
-E260TRAY50 | Less than 250 units, Ships immediately | More than 250 units, ships in 10 - 13 weeks
+E260TRAY50 | Less than 500 units, Ships immediately | More than 500 units, ships in 10 - 13 weeks
 E270KIT | Less than 1000 units, Ships immediately | More than 1000 units, ships in 10 - 13 weeks
-E270TRAY50 | Less than 100 units, Ships immediately | More than 100 units, ships in 10 - 13 weeks
+E270TRAY50 | Less than 200 units, Ships immediately | More than 200 units, ships in 10 - 13 weeks
 E350KIT | Less than 1000 units, Ships immediately | More than 1000 units, ships in 10 - 13 weeks
-E350TRAY50 | 100 units, Ships immediately | More than 100 units, ships in 10 - 13 weeks
-GSWTP | Less than 30 units, Ships immediately | More than 30 units, ships in 8 - 10 weeks
-MKITPH | Less than 50 units, Ships immediately | More than 50 units, ships in 12 - 16 weeks
+E350TRAY50 | All volumes ship in 10 - 13 weeks | All volumes ship in 10 - 13 weeks
+GSWTP | Less than 50 units, Ships immediately | More than 50 units, ships in 8 - 10 weeks
+MKITPH | Less than 75 units, Ships immediately | More than 75 units, ships in 12 - 16 weeks
 P0MOD10 | Less than 250 units, Ships immediately | More than 250 units, ships in 12 - 16 weeks
 P0REEL | All volumes ship in 12 - 16 weeks | All volumes ship in 12 - 16 weeks
-P1MOD10 | Less than 500 units, Ships immediately | More than 500 units, ships in 12 - 16 weeks
-P1REEL | Less than 3000 units, Ships immediately | More than 3000 units, ships in 12 - 16 weeks
-PHNTRAYH | Less than 500 units, Ships immediately | More than 500 units, ships in 12 - 16 weeks
+P1MOD10 | Less than 750 units, Ships immediately | More than 750 units, ships in 12 - 16 weeks
+P1REEL | Less than 7000 units, Ships immediately | More than 7000 units, ships in 12 - 16 weeks
+PHNTRAYH | Less than 300 units, Ships immediately | More than 300 units, ships in 12 - 16 weeks
 PHNTRAYNOH | Less than 500 units, Ships immediately | More than 500 units, ships in 12 - 16 weeks
 PHOTONH | Less than 250 units, Ships immediately | More than 250 units, ships in 12 - 16 weeks
-PHOTONKIT | Less than 50 units, Ships immediately | More than 50 units, ships in 12 - 16 weeks
-PHOTONNOH | Less than 200 units, Ships immediately | More than 200 units, ships in 12 - 16 weeks
-PROGSHIELD | Less than 100 units, Ships immediately | More than 100 units, ships in 8 - 10 weeks
-PWRSHIELDH | Less than 100 units, Ships immediately | More than 100 units, ships in 8 - 10 weeks
-RLYSHIELD | Less than 100 units, Ships immediately | More than 100 units, ships in 8 - 10 weeks
-SIMBLANK50 | Less than 500 units, Ships immediately | More than 500 units, ships in 4 - 6 weeks
-SNSRKIT (all SKUs) | Less than 100 units, Ships immediately | More than 100 units, ships in 10 - 13 weeks
+PHOTONKIT | Less than 150 units, Ships immediately | More than 150 units, ships in 12 - 16 weeks
+PHOTONNOH | Less than 250 units, Ships immediately | More than 250 units, ships in 12 - 16 weeks
+PROGSHIELD | Less than 75 units, Ships immediately | More than 75 units, ships in 8 - 10 weeks
+PWRSHIELDH | Less than 300 units, Ships immediately | More than 300 units, ships in 8 - 10 weeks
+RLYSHIELD | Less than 150 units, Ships immediately | More than 150 units, ships in 8 - 10 weeks
+SIMBLANK50 | Less than 1000 units, Ships immediately | More than 1000 units, ships in 4 - 6 weeks
+SNSRKIT3G260 | Less than 200 units, Ships immediately | More than 200 units, ships in 10 - 13 weeks
+SNSRKIT3G270 | Less than 30 units, Ships immediately | More than 30 units, ships in 10 - 13 weeks
 SPKBTTN | Less than 25 units, Ships immediately | More than 25 units, ships in 10 - 13 weeks
 
 
