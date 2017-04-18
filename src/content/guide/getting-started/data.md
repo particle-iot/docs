@@ -23,7 +23,7 @@ On the Electron, the AES encryption mode is CCM, which adds no overhead, however
 **Reduced ping frequency**
 To keep the TCP connection alive on the Photon we have to send a ping every 15 seconds even if your application isn't communicating at all. Those pings end up being the same size as the publish described above, plus acknowledge them at the application level. The initial ping results in 98 bytes, plus then the application's acknowledgement is another 98 bytes. That's 196 bytes every 15 seconds, or almost 46 kilobytes per hour, just in pings.
 
-On the Electron, using UDP, there is no connection to keep alive. The only reason we do send pings is to keep the NAT open at the cellular provider. An Electron that is breathing cyan and doing nothing else currently pings every 23 minutes. The ping and the cloud's acknowledgement are each 61 bytes. That averages out to 318 bytes per hour, a DRAMATIC reduction.
+On the Electron, using UDP, there is no connection to keep alive. The only reason we do send pings is to keep the NAT open at the cellular provider. An Electron that is breathing cyan and doing nothing else currently pings every 23 minutes. The ping and the cloud's acknowledgement are each 61 bytes. That averages out to 318 bytes per hour, just over 200KB a month, a DRAMATIC reduction.
 
 **Fewer handshakes and longer sessions**
 When a device initially connects to the Particle cloud it has to perform a handshake to set up the encryption. The handshake is always big compared to the stream messages, multiple kilobytes for both the Photon and the Electron. However, we can control how often handshakes happen.
