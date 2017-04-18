@@ -220,21 +220,98 @@ If the location is not known by the Google geolocation service, a 404 error appe
 
 ![Event Log 404](/assets/images/google-maps-17.png)
 
-## Firmware examples
 
-The Google Maps device locator firmware library source code is in the Github repository:
 
-[https://github.com/rickkas7/google-maps-device-locator-examples](https://github.com/rickkas7/google-maps-device-locator-examples)
 
-To use these firmware examples, you should downlod the repo, either by clone or download zip.
+## Example: Google Location Tracker
+
+This example demonstrates how to visualize your Google Maps Device
+Locator results using Node.js in a Google App Engine Flexible Environment and the Google Maps Javascript API. This sample also uses the Express web framework, websockets, and the Particle Javascript API.
+
+The Google Maps team has created an open-source visualization
+application, which you can find here:
+
+<a class="btn"
+href="https://github.com/kwnevarez/particle-device-locator"
+target="_blank"><i class="ion-social-github"></i>Check out the repo</a>
+
+The README has all the information you need to both run
+the application locally, or deploy it to <a
+href="https://cloud.google.com/appengine/" target="_blank">Google Cloud
+App Engine</a>.
+
+### Sign up for a Google Cloud Platform Account
+
+If you don't already have one, you'll need to sign up for a Google Cloud Platform Account to use this integration.
+
+Visit the <a href="https://cloud.google.com/free-trial/" target="_blank">Google Cloud Platform signup page</a>. Click the "Try it Free" button, and enter the requested information.
+
+### Getting a Google Maps API Key
+
+In order to use the Google Maps API, you need an API key. In many cases, you'll be able to take advantage of the free usage tier. The Maps API key is different than the Geolocation API key you created earlier.
+
+- Go to the [Google Maps Javascript API page](https://developers.google.com/maps/documentation/javascript/).
+
+- If you are not signed into Google already, sign in.
+
+- Use the **Get a Key** button to request a new API key.
+
+![Get a key](/assets/images/google-maps-19.png)
+
+- Select or create a project.
+
+- If you created a project above for the Geolocation API, you may want tp select the same project. I selected **location** and used the **Enable API** button to enable it.
+
+![Enable API](/assets/images/google-maps-20.png)
+
+- And then you'll be presented with your API key.
+
+![API Key](/assets/images/google-maps-21.png)
+
+Copy your key to the clipboard because you'll need it when you create your integration. 
+
+To view, edit or delete your credentials later, you can use the [Google Developer Credentials Console](https://console.developers.google.com/apis/credentials).
+
+### Run Locally
+
+#### Install Node.js
+
+If you haven't already done so, install [Node.js](https://nodejs.org).
+
+The version on the left, the LTS (long-term support) version is recommended. At the time of writing it was 6.10.2, but install whatever the current LTS version is.
+
+## Example: Location OLED Display
+
+![OLED display](/assets/images/google-maps-15.jpg)
+
+This example displays your current location on a small SSD1306-compatible OLED display to show your latitude, longitude, and uncertainty radius (in meters).
+
+The connections are:
+
+- VCC to 3V3 red
+- GND to GND black
+- SCL to D1 (SCL) blue
+- SDA to D0 (SDA) green
+
+### Firmware
+
+The firmware to power displaying a device's location on an OLED display
+can be found in the [Google Maps device locator
+examples](https://github.com/spark/google-maps-device-locator-examples)
+repository.
+
+To use this firmware example, you should downlod the repo, either by
+clone or download zip. Then, `cd` into the `oled-locator` directory.
 
 ### Using the Particle CLI
 
-Using the [Particle CLI](https://docs.particle.io/guide/tools-and-features/cli/) is an easy to run run these examples.
+Using the [Particle
+CLI](https://docs.particle.io/guide/tools-and-features/cli/) is an easy
+to flash this firmware to a device.
 
 For example, if you wanted to flash the oled-locator example to the device you named "test2" then you'd use the commands:
 
-```
+```bash
 cd oled-locator
 particle flash test2 .
 ```
@@ -243,15 +320,18 @@ That will automatically include the necessary libraries for you.
 
 For an Electron, you'll probably want to do:
 
-```
+```bash
 cd oled-locator
 particle compile electron . --saveTo firmware.bin
 particle flash --usb firmware.bin
 ```
 
-### Using Particle Dev (Atom IDE)
+This will flash the firmware to your electron locally (over USB) to
+prevent consuming data from over-the-air firmware updates.
 
-It's also easy to open examples using Particle Dev (Atom IDE).
+### Using Particle Dev (Local IDE)
+
+It's also easy to open this example using Particle Dev (Local IDE).
 
 ![Particle DEV](/assets/images/google-maps-18.png)
 
@@ -352,164 +432,3 @@ The library uses the logging feature of system firmware 0.6.0 or later when buil
 ```
 SerialLogHandler logHandler;
 ```
-
-
-## Example: Google Location Tracker
-
-This example demonstrates how to visualize your Google Maps Device
-Locator results using Node.js in a Google App Engine Flexible Environment and the Google Maps Javascript API. This sample also uses the Express web framework, websockets, and the Particle Javascript API.
-
-It can be run from your own computer, as described in the Run Locally section, or it can be deployed to the Google Cloud.
-
-### Sign up for a Google Cloud Platform Account
-
-If you don't already have one, you'll need to sign up for a Google Cloud Platform Account to use this integration.
-
-Visit the <a href="https://cloud.google.com/free-trial/" target="_blank">Google Cloud Platform signup page</a>. Click the "Try it Free" button, and enter the requested information.
-
-### Getting a Google Maps API Key
-
-In order to use the Google Maps API, you need an API key. In many cases, you'll be able to take advantage of the free usage tier. The Maps API key is different than the Geolocation API key you created earlier.
-
-- Go to the [Google Maps Javascript API page](https://developers.google.com/maps/documentation/javascript/).
-
-- If you are not signed into Google already, sign in.
-
-- Use the **Get a Key** button to request a new API key.
-
-![Get a key](/assets/images/google-maps-19.png)
-
-- Select or create a project.
-
-- If you created a project above for the Geolocation API, you may want tp select the same project. I selected **location** and used the **Enable API** button to enable it.
-
-![Enable API](/assets/images/google-maps-20.png)
-
-- And then you'll be presented with your API key.
-
-![API Key](/assets/images/google-maps-21.png)
-
-Copy your key to the clipboard because you'll need it when you create your integration. 
-
-To view, edit or delete your credentials later, you can use the [Google Developer Credentials Console](https://console.developers.google.com/apis/credentials).
-
-#### Get the example source
-
-The firmware source code is in the Github repository:
-
-[https://github.com/rickkas7/google-maps-device-locator-examples](https://github.com/rickkas7/google-maps-device-locator-examples)
-
-You should download the whole thing, either by clone or download zip. This example is in the **appengine** directory.
-
-### Run Locally
-
-#### Install node.js
-
-If you haven't already done so, install [Node.js](https://nodejs.org).
-
-The version on the left, the LTS (long-term support) version is recommended. At the time of writing it was 6.10.2, but install whatever the current LTS version is.
-
-#### Setup
-
-You will need to supply a Google Maps Javascript API key in order for the example to work properly.
-
-- Edit the file `app.js` to set the `map_api_key` variable to your Google Maps API key.
-
-```
-const map_api_key = 'YOUR_API_KEY';
-```
-
-The Google Maps API key is different than your Google Geolocation API key you used in your integration configuration.
-
-#### Launch
-
-- Install the [Google Cloud SDK](https://cloud.google.com/sdk/). There are installation instructions for Windows, Mac OS X and Linux.
-
-- Setup the gcloud tool. This provides authentication to Google Cloud APIs and services.
-
-```
-gcloud init
-```
-
-- Acquire local credentials for authenticating with Google Cloud Platform APIs.
-
-```
-gcloud beta auth application-default login
-```
-
-- Go into the appengine folder and install the dependencies.
-
-```
-cd appengine
-npm install
-```
-
-- Run the sample:
-
-```
-npm start
-```
-
-- Visit the application at [http://localhost:8080](http://localhost:8080).
-
-
-### Run in the Cloud
-
-__Note:__ Secure WebSockets are currently not supported by App Engine Flexible Environment. WebSockets will only work if you load your page over HTTP (not HTTPS).
-
-To use Secure WebSockets now, you can launch a VM on Google Compute Engine using a custom image where you have added SSL support for WebSockets.
-
-#### Setup
-
-Before you can run or deploy the sample, you will need to create a new firewall rule to allow traffic on port 50051. This port will be used for websocket connections. You can do this with the [Google Cloud SDK](https://cloud.google.com/sdk) with the following command:
-
-```
-    gcloud compute firewall-rules create default-allow-websockets \
-      --allow tcp:50051 \
-      --target-tags websocket \
-      --description "Allow websocket traffic on port 50051"
-```
-      
-#### Deploy
-
-- Use the [Google Developers Console](https://console.developer.google.com) to create a project/app id. (App id and project id are identical.)
-
-- Setup the gcloud tool, if you haven't already.
-
-```
-gcloud init
-```
-
-- Use gcloud to deploy your app.
-
-```
-cd appengine
-gcloud app deploy
-```
-
-- It will take a few minutes to deploy, but when complete you can view the app at: `http://YOUR_PROJECT_ID.appspot.com`.  
-
-Note that you must use http, not https, because of the websocket limitation mentioned above.
-
-- You can view the server logs using:
-
-```
-$ gcloud app logs read
-```
-
-One thing to beware of: Deploying a new instance doesn't stop the old one first! Make sure you to clean up the old instances and versions from the [Google Cloud console](https://console.cloud.google.com) App Engine page.
-
-## Example: Location OLED Display
-
-![OLED display](/assets/images/google-maps-15.jpg)
-
-This example displays your current location on a small SSD1306-compatible OLED display to show your latitude, longitude, and uncertainty radius (in meters).
-
-The connections are:
-
-- VCC to 3V3 red
-- GND to GND black
-- SCL to D1 (SCL) blue
-- SDA to D0 (SDA) green
-
-The source code is in the **oled-location** directory.
