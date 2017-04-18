@@ -5,7 +5,7 @@ columns: two
 order: 150
 ---
 
-# {{title}} Integration
+# {{title}} <sub style="color: #777;font-size:18px; bottom: 0;">beta</sub>
 
 Particle and Google Maps can now be used in tandem to easily find the location of
 Particle devices without the need for any additional hardware. The <a href="https://developers.google.com/maps/documentation/geolocation/intro" target="_blank">Geolocation API</a>
@@ -158,8 +158,13 @@ app.
 <a class="btn" target="_blank" href="https://build.particle.io/shared_apps/58f636d12335f78ef20017f6"><i class="ion-share"></i>Use Sample
 Firmware App</a>
 
-
 This example publishes the location every 30 seconds. It works on the Particle Photon, P1, and Core (Wi-Fi) and also the Electron (cellular).
+
+Navigate to the sample app, then click
+<strong>Copy this App</strong> to fork the sample code into
+a new app associated with your account, as shown below:
+
+![Copy app](/assets/images/google-maps-copy-app.png)
 
 By changing a few options you can have it publish once at boot, which might be appropriate for Wi-Fi devices that are not battery powered. You can also post location on demand, when you make a call from your code.
 
