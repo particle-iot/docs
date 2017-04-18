@@ -146,27 +146,28 @@ Google Maps.
 
 #### Using Particle Build (Web IDE)
 
-- Select the **Libraries** icon (1)
+The quickest way to add the Google
+Maps firmware library is to start with the
+<a href="https://build.particle.io/shared_apps/58f636d12335f78ef20017f6"
+target="_blank">sample firmware application</a> in the Web
+IDE. This sample app will locate the device periodically,
+every 30 seconds. The Google Maps firmware library is
+automatically added to your project when using the sample
+app.
 
-![Libraries](/assets/images/google-maps-10.png)
+<a class="btn" target="_blank"><i class="ion-share"></i>Use Sample
+Firmware App</a>
 
-- Enter **google-maps** in the search box (1) and select **google-maps-device-locator**.
 
-![Select google-maps-device-locator](/assets/images/google-maps-11.png)
-
-- Select **simple.ino** under examples to try a simple sample application.
-
-![Select example](/assets/images/google-maps-12.png)
-
-- Click the **Use this example** button to create a new project using this example.
-
-![Use this example](/assets/images/google-maps-13.png)
-
-- Now you can view and edit the code.
-
-This example publishes the location every 2 minutes (120 seconds). It works on the Particle Photon, P1, and Core (Wi-Fi) and also the Electron (cellular).
+This example publishes the location every 30 seconds. It works on the Particle Photon, P1, and Core (Wi-Fi) and also the Electron (cellular).
 
 By changing a few options you can have it publish once at boot, which might be appropriate for Wi-Fi devices that are not battery powered. You can also post location on demand, when you make a call from your code.
+
+For more information on how to
+customize the library, or integrate the library in an
+existing firmware application, check out the
+<a href="https://github.com/spark/google-maps-device-locator#firmware-library-api"
+target="_blank">firmware library API</a>.
 
 ## Enabling the Integration
 
@@ -219,9 +220,6 @@ From the bottom to the top:
 If the location is not known by the Google geolocation service, a 404 error appear in the logs instead:
 
 ![Event Log 404](/assets/images/google-maps-17.png)
-
-
-
 
 ## Example: Google Maps Visualization
 
