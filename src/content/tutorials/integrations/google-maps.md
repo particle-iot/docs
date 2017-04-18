@@ -223,10 +223,19 @@ If the location is not known by the Google geolocation service, a 404 error appe
 
 
 
-## Example: Google Location Tracker
+## Example: Google Maps Visualization
 
-This example demonstrates how to visualize your Google Maps Device
-Locator results using Node.js in a Google App Engine Flexible Environment and the Google Maps Javascript API. This sample also uses the Express web framework, websockets, and the Particle Javascript API.
+For most of us, latitudinal and longitudinal coordinates don't give us a
+clear understanding of where something is located in the world. Seeing
+those coordinates plotted on a map helps provide that clarity.
+
+This example demonstrates how to visualize your Particle devices'
+locations using Node.js in a Google App Engine Flexible Environment and the Google Maps Javascript API. This sample also uses the Express web framework, websockets, and the Particle Javascript API.
+
+Devices that are running the proper firmware and trigger the Google Maps
+integration will have its returned location displayed with a marker on a
+map. An radius will also be drawn around the reported
+coordinates to represent the precision of the reading.
 
 The Google Maps team has created an open-source visualization
 application, which you can find here:
@@ -235,50 +244,11 @@ application, which you can find here:
 href="https://github.com/kwnevarez/particle-device-locator"
 target="_blank"><i class="ion-social-github"></i>Check out the repo</a>
 
-The README has all the information you need to both run
+
+The README of the app has all the information you need to both run
 the application locally, or deploy it to <a
 href="https://cloud.google.com/appengine/" target="_blank">Google Cloud
 App Engine</a>.
-
-### Sign up for a Google Cloud Platform Account
-
-If you don't already have one, you'll need to sign up for a Google Cloud Platform Account to use this integration.
-
-Visit the <a href="https://cloud.google.com/free-trial/" target="_blank">Google Cloud Platform signup page</a>. Click the "Try it Free" button, and enter the requested information.
-
-### Getting a Google Maps API Key
-
-In order to use the Google Maps API, you need an API key. In many cases, you'll be able to take advantage of the free usage tier. The Maps API key is different than the Geolocation API key you created earlier.
-
-- Go to the [Google Maps Javascript API page](https://developers.google.com/maps/documentation/javascript/).
-
-- If you are not signed into Google already, sign in.
-
-- Use the **Get a Key** button to request a new API key.
-
-![Get a key](/assets/images/google-maps-19.png)
-
-- Select or create a project.
-
-- If you created a project above for the Geolocation API, you may want tp select the same project. I selected **location** and used the **Enable API** button to enable it.
-
-![Enable API](/assets/images/google-maps-20.png)
-
-- And then you'll be presented with your API key.
-
-![API Key](/assets/images/google-maps-21.png)
-
-Copy your key to the clipboard because you'll need it when you create your integration. 
-
-To view, edit or delete your credentials later, you can use the [Google Developer Credentials Console](https://console.developers.google.com/apis/credentials).
-
-### Run Locally
-
-#### Install Node.js
-
-If you haven't already done so, install [Node.js](https://nodejs.org).
-
-The version on the left, the LTS (long-term support) version is recommended. At the time of writing it was 6.10.2, but install whatever the current LTS version is.
 
 ## Example: Location OLED Display
 
