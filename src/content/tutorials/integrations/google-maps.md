@@ -155,7 +155,7 @@ every 30 seconds. The Google Maps firmware library is
 automatically added to your project when using the sample
 app.
 
-<a class="btn" target="_blank"><i class="ion-share"></i>Use Sample
+<a class="btn" target="_blank" href="https://build.particle.io/shared_apps/58f636d12335f78ef20017f6"><i class="ion-share"></i>Use Sample
 Firmware App</a>
 
 
