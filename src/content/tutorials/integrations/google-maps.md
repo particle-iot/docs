@@ -232,6 +232,8 @@ For most of us, latitudinal and longitudinal coordinates don't give us a
 clear understanding of where something is located in the world. Seeing
 those coordinates plotted on a map helps provide that clarity.
 
+![Google Maps Visualization](/assets/images/google-maps-23.png)
+
 This example demonstrates how to visualize your Particle devices'
 locations using Node.js in a Google App Engine Flexible Environment and the Google Maps Javascript API. This sample also uses the Express web framework, websockets, and the Particle Javascript API.
 
