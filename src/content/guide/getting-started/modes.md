@@ -392,6 +392,12 @@ The two most common ones are:
 
 {{{device-animation device "sos" 1 }}}
 
+If your {{device}} is stuck in Hard fault, try putting your {{device}} into DFU mode and flashing the Tinker application to it with:
+
+```BASH
+particle flash --usb tinker
+```
+
 **Out of heap memory (8 blinks between 2 SOS patterns)**
 
 {{{device-animation device "sos" 8 }}}
