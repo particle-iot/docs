@@ -147,16 +147,13 @@ Google Maps.
 #### Using Particle Build (Web IDE)
 
 The quickest way to add the Google
-Maps firmware library is to start with the
-<a href="https://build.particle.io/shared_apps/58f636d12335f78ef20017f6"
-target="_blank">sample firmware application</a> in the Web
+Maps firmware library is to start with the sample firmware application in the Web
 IDE. This sample app will locate the device periodically,
 every 30 seconds. The Google Maps firmware library is
 automatically added to your project when using the sample
 app.
 
-<a class="btn" target="_blank" href="https://build.particle.io/shared_apps/58f636d12335f78ef20017f6"><i class="ion-share"></i>Use Sample
-Firmware App</a>
+<a class="btn" target="_blank" href="https://go.particle.io/shared_apps/58fe450fb77e5bb68f0018a3"><i class="ion-share"></i>Use Sample Firmware App</a>
 
 This example publishes the location every 30 seconds. It works on the Particle Photon, P1, and Core (Wi-Fi) and also the Electron (cellular).
 
