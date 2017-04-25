@@ -209,13 +209,13 @@ trigger publishing an event to Google Maps. This is the name of your event set u
 ### Testing it out
 
 Once you have the firmware installed on your device and the integration
-enabled Electron, you can check the Logs in the [console](https://console.particle.io/logs).
+enabled, you can check the Logs in the [console](https://console.particle.io/logs).
 
 ![Event Log](/assets/images/google-maps-16.png)
 
 From the bottom to the top:
 
-- The **deviceLocator** event is what was sent from the Electron
+- The **deviceLocator** event is what was sent from the Parti
 - The **hookSent/deviceLocator** is what the Particle cloud sent to the Google Geolocation service. The data is always undefined; that's the normal behavior.
 - The **hook-** is the response data: latitude,longitude,uncertainty. The uncertainty radius is in meters.
 
