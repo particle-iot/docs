@@ -215,7 +215,7 @@ enabled, you can check the Logs in the [console](https://console.particle.io/log
 
 From the bottom to the top:
 
-- The **deviceLocator** event is what was sent from the Parti
+- The **deviceLocator** event is what was sent from the Particle device
 - The **hookSent/deviceLocator** is what the Particle cloud sent to the Google Geolocation service. The data is always undefined; that's the normal behavior.
 - The **hook-** is the response data: latitude,longitude,uncertainty. The uncertainty radius is in meters.
 
