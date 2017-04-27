@@ -20,6 +20,7 @@
 .content {
   position: relative;
   .btn {
+    cursor: pointer;
     background: @spark-blue;
     color: #fff;
     font-weight: 700;
@@ -35,10 +36,13 @@
       background: @spark-blue-dark;
     }
     i {
-      margin-right: 5px;
+      margin-right: 7px;
       font-size: 16px;
       display: inline-block;
       vertical-align: middle;
+      color: @white;
+      position: relative;
+      top: -1px;
     }
   }
 }
@@ -57,6 +61,9 @@
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
+  i {
+    color: @gray;
+  }
 }
 .content h1,
 .content h2,

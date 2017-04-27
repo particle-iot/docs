@@ -746,6 +746,87 @@ Examples:
 | v001 | 20-Jan-2016 | MB | The TX and RX labels are flipped on the PCB. USB cable blocks the GPS antenna when powering over USB.  |
 | | | | | |
 
+## Electron Asset Tracker v2
+
+![atv2](/assets/images/shields/asset-tracker-shield-v2/asset.png)
+
+This new revision of the Electron Asset Tracker uses a uBlox M8 engine GNSS receiver. Unlike the v1, this module is capable of receiving 3 GNSS (GPS, Galileo, GLONASS, BeiDou) concurrently. We have also added a low noise amplifier and a band pass filter for improved performance with the on-board antenna.
+
+### Using the Asset Tracker
+
+![atv2](/assets/images/shields/asset-tracker-shield-v2/asset-description.png)
+
+**Power**
+
+There are a couple of different ways that you can power this shield. You can power it via the screw terminal from a 5V to 12V DC supply (make sure it can support at least 2 Amp current peaks) or you can simply power it via the LiPo battery that came with the Electron. You can also use the two sources together. We do not recommend powering it from a USB source, as the USB cable will block the GPS antenna leading to a poor or no satellite reception. If you HAVE to use the USB power, then make sure to use an external GPS antenna.
+
+Say if you want to put the asset tracker inside a car, you can use the car's battery as the main power source and use the LiPo battery as a backup when the car is turned off. Remember that in order for the battery to last a long time, it's ideal that you put the Electron in deep sleep mode and turn off the GPS when not needed. This is described in greater detail under the library section.
+
+![atv2](/assets/images/shields/asset-tracker-shield-v2/asset-power.png)
+
+**GPS**
+
+The GPS is connected to the Serial1 UART on the Electron, and we've also provided a MOSFET to completely shut off power to it for major power savings. Pin D6 controls the GPS power, with inverted logic. This means that the GPS will only be ON when D6 is LOW, which should keep it off even if you put the Electron to sleep.
+
+When the module acquires a satellite fix, the **SAT FIX** LED on the shield will start blinking at the rate of once per second. The acquisition time can vary anywhere from 26 seconds, from a cold start, to around 1 second from a hot restart.
+
+**Backup Power** 
+
+The shield has a super capacitor connected to the back up power of the GPS receiver. This helps the receiver retain time and satellite fix information upon a power cycle. The capacitor should be able to provide backup power for a few minutes after you remove the main supply. This is helpful when you are changing batteries or plugging/unplugging the Electron. For longer backup times, we have provided a footprint to solder in a CR2032 coin cell holder at the bottom. In most cases, you will not need it.
+
+**Accelerometer**
+
+The shield also has an on-board accelerometer, the <a href="http://www2.st.com/content/ccc/resource/technical/document/datasheet/3c/ae/50/85/d6/b1/46/fe/CD00274221.pdf/files/CD00274221.pdf/jcr:content/translations/en.CD00274221.pdf" target="_blank">LIS3DH</a>. It's extremely low power so won't chew up your energy budget. The accel communicates over SPI, so it takes up A2, A3, A4, and A5 as marked on the silkscreen of the shield. A configurable interrupt from the LIS3DH is connected to the Electron's "wake" (WKP) pin, so you should be able to make a project where the Electron and GPS stay in deep sleep until it's hit hard enough to cross a threshold you set on the accelerometer.
+
+**Grove Sensor Ports**
+
+We have provided two grove sensor ports for you to easily connect sensors to the asset tracker. One of the connector exposes the I2C port (D0 and D1), while the other exposes two analog pins (A0 and A1).
+
+![atv2](/assets/images/shields/asset-tracker-shield-v2/asset-ports.png)
+
+**Enclosure**
+
+You can choose to mount the asset tracker board inside the provided enclosure as shown below. Use the four M3 screws to secure the board in place. The antenna comes with a peel-able sticky back that can be used to stick the antenna to the side wall. Remember not to block the GPS antenna with anything - wires, antenna, battery, etc. Enclosure dimentions are: 115.06 x 65.02 x 39.88 mm.
+
+![atv2](/assets/images/shields/asset-tracker-shield-v2/asset-enclosure.png)
+
+### Asset Tracker Library
+We've put together a great library for you to start building from! If you're already logged into Build then you can just click on [AssetTracker library](https://build.particle.io/libs/AssetTracker/0.0.10/tab/example/1_GPS_Features.ino) and you can always open the "Libraries" view in Build, and AssetTracker will show up under the Official Libraries. This library is especially good for learning about the Electron because it implements a couple of useful features, like a Particle.function for checking the battery level!
+
+Examples:
+
+1. __GPS Features__ - How to use the GPS efficiently, and some nice Electron functions
+2. __Accelerometer__ - Using the accelerometer with some cute tricks
+
+
+### Specifications
+
+ - 72-channel u-bloxM8 engine
+ - GPS/QZSS L1 C/A, GLONASS L10F, BeiDou B1I, Galileo E1B/C, SBAS L1 C/A: WAAS, EGNOS, MSAS, GAGAN
+ - Update rates: Single GNSS: up to 18 Hz, 2 Concurrent GNSS: up to 10 Hz
+ - Position accuracy of 2.5 m
+ - Sensitivity of -167 dBm
+ - Acquisition times: Cold starts: 26s, Aided starts: 2s, Reacquisition: 1s
+ - Onboard ROM
+ - Anti spoofing and anti jamming technologies
+ - Operating temperature of –40° C to 85° C
+
+![atv2](/assets/images/shields/asset-tracker-shield-v2/asset-dims.png)
+
+### Recommended Operating Conditions
+
+| Parameter | Symbol | Min | Typ | Max | Unit |
+| :---|:---|:---:|:---:|:---:|:---:|
+| Supply Input Voltage | V<sub>IN</sub> | +5.0<sup>[1]</sup> |  | +12 | V |
+| Supply Output Voltage | V<sub>3V3</sub> |  | +3.3 |  | V |
+| LiPo Battery Voltage | V<sub>LiPo</sub> | +3.6 |  | +4.4 | V |
+| Current consumption at 3V (GPS only) | I | 6.2 |  | 67 | mA |
+| Total current consumption | I | 50 |  | 800 | mA |
+| Backup power consumption at 3V (GPS only) | I<sub>Qs</sub> |  | 15 |  | uA |
+| Deep Sleep Current (4.2V LiPo) | I<sub>Qds</sub> |  | 120 | 140 | uA |
+| Operating Temperature | T<sub>op</sub> | -40 |  | +85 | °C |
+| Humidity Range Non condensing, relative humidity | | | | 95 | % |
+
 ## Electron Sensor Kit
 This is the big one! A fantastic collection of premium and versatile sensors.
 ### Sensor Kit Includes

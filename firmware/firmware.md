@@ -1446,7 +1446,7 @@ _Since 0.5.0_
 When the device is in listening mode, it creates a temporary access point (AP) and a HTTP server on port 80. The HTTP server is used to configure the Wi-Fi access points the device attempts to connect to. As well as the system providing HTTP URLs, applications can add their own pages to the
 SoftAP HTTP server.
 
-SoftAP HTTP Pages is presently an advanced feature, requiring moderate C++ knowledge.  To being using the feature:
+SoftAP HTTP Pages is presently an advanced feature, requiring moderate C++ knowledge.  To begin using the feature:
 
 - add `#include "Particle.h"` below that, then
 - add `#include "softap_http.h"` below that still

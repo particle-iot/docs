@@ -26,8 +26,8 @@ Connected devices nearly always require certifications that ensure they operate 
 
 Here is a graphical representation of the current state of certification across Particle's hardware portfolio:
 
-![particle certifications table](/assets/pdfs/new-certs/particle-certifications-v5.png)
-<p class="caption">It is important to understand which certifications apply to your end product. <a target="_blank" href="/assets/pdfs/new-certs/particle-certifications-v5.png">Click here</a> for a full size image. Updated 3/20/17.</p>
+![particle certifications table](/assets/pdfs/new-certs/particle-certifications-v6.png)
+<p class="caption">It is important to understand which certifications apply to your end product. <a target="_blank" href="/assets/pdfs/new-certs/particle-certifications-v6.png">Click here</a> for a full size image. Updated 4/19/17.</p>
 
 
 ## FCC<img class="inline-header-image" src="/assets/images/logo-fcc.png"/>
@@ -93,10 +93,12 @@ Particle's certifications will help you decrease the time and cost associated wi
 - [Test Reports](https://apps.fcc.gov/oetcf/eas/reports/ViewExhibitReport.cfm?mode=Exhibits&RequestTimeout=500&calledFromFrame=N&application_id=ug625xSKTLocEEah0xLMFw%3D%3D&fcc_id=COFWMNBM11)
 - [Test Firmware and Instructions](/assets/files/P0_P1_FCC_Firmware.zip)
 
-#### Electron U260
+#### Electron U260 - (Updated 4/19/17)
 - FCC ID: [XPYSARAU260](https://apps.fcc.gov/oetcf/eas/reports/ViewExhibitReport.cfm?mode=Exhibits&RequestTimeout=500&calledFromFrame=N&application_id=o2hW1PEmrUZn19QwwX8hCA%3D%3D&fcc_id=XPYSARAU260)
-- [Certificate of Conformity - U260](/assets/pdfs/electron/fcc-u260-certificate.pdf)
-- [Test Reports - U260](/assets/pdfs/electron/fcc-u260-test-report.pdf)
+- [Certificate of Conformity - U260 v1.0](/assets/pdfs/electron/fcc-u260-certificate.pdf)
+- [Test Reports - U260 v1.0](/assets/pdfs/electron/fcc-u260-test-report.pdf)
+- [Certificate of Conformity - U260 v1.1](/assets/pdfs/new-certs/electron/FINAL_U260_FCC_DOC.pdf)
+- [Test Repots - U260 v1.1](/assets/pdfs/new-certs/electron/FINAL_U260_FCC_REPORT.pdf)
 
 #### Electron G350
 - FCC ID: [XPYSARAG350](https://apps.fcc.gov/oetcf/eas/reports/ViewExhibitReport.cfm?mode=Exhibits&RequestTimeout=500&calledFromFrame=N&application_id=o2hW1PEmrUZn19QwwX8hCA%3D%3D&fcc_id=XPYSARAG350)
@@ -135,9 +137,10 @@ For certificates of conformity, search [here](https://sms-sgs.ic.gc.ca/equipment
 - [Certificate of Conformity](/assets/pdfs/p1-ic-certificate.pdf)
 - [Test Report](/assets/pdfs/p1-ic-test-report.pdf)
 
-#### Electron U260
+#### Electron U260 - (Updated 4/19/17)
 - IC ID: **8595A-SARAU260**.
-- [Test Report](/assets/pdfs/electron/ic-u260-test-report.pdf)
+- [Test Report - U260 v1.0](/assets/pdfs/electron/ic-u260-test-report.pdf)
+- [Test Report - U260 v1.1](/assets/pdfs/new-certs/electron/FINAL_U260_ICES_REPORT.pdf)
 
 #### Electron G350
 - IC ID: **8595A-SARAG350**.
@@ -231,6 +234,10 @@ RoHS compliance is self-declared and there is no certification body that governs
 #### Photon/PØ
 
 - [Test Reports](/assets/pdfs/p0-rohs-test-reports.zip)
+
+#### Electron U260/U270/G350
+
+- [Test Reports](/assets/pdfs/new-certs/rohs/electron-rohs-test-reports.pdf)
 
 ## UL<img class="inline-header-image" src="/assets/images/logo-ul.png"/>
 

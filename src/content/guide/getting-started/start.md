@@ -372,7 +372,7 @@ For more technical details on what comes on your device, go {{#if core}}[here](/
 {{#if electron}}
 * **Software**
   * We highly recommend using our [online web setup](https://setup.particle.io) for the Electron.
-  * You can also use the Particle Mobile App - [iPhone](https://itunes.apple.com/us/app/particle-build-photon-electron/id991459054?ls=1&mt=8) | [Android](https://play.google.com/store/apps/details?id=io.particle.android.app) | [Windows](https://www.microsoft.com/en-us/store/p/particle/9nblggh4p55n)
+  * You can also use the Particle Mobile App - [iPhone](https://itunes.apple.com/us/app/particle-build-iot-projects-wifi-or-cellular/id991459054?mt=8) | [Android](https://play.google.com/store/apps/details?id=io.particle.android.app) | [Windows](https://www.microsoft.com/en-us/store/p/particle/9nblggh4p55n)
 * **Hardware**
   * Your Particle Electron, brand new and out of the box!
   * USB to micro USB cable (included)
