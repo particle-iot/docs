@@ -12623,7 +12623,8 @@ Please go to Github to read the Changelog for your desired firmware version (Cli
 |Firmware Version||||||
 |:-:|:-:|:-:|:-:|:-:|:-:|
 |v0.6.x default releases|[v0.6.0](https://github.com/spark/firmware/releases/tag/v0.6.0)|[v0.6.1](https://github.com/spark/firmware/releases/tag/v0.6.1)|-|-|-|
-|v0.6.x-rc.x prereleases|[v0.6.0-rc.1](https://github.com/spark/firmware/releases/tag/v0.6.0-rc.1)|[v0.6.0-rc.2](https://github.com/spark/firmware/releases/tag/v0.6.0-rc.2)|[v0.6.1-rc.1](https://github.com/spark/firmware/releases/tag/v0.6.1-rc.1)|[v0.6.1-rc.2](https://github.com/spark/firmware/releases/tag/v0.6.1-rc.2)|[v0.6.2-rc.1](https://github.com/spark/firmware/releases/tag/v0.6.2-rc.1)|
+|v0.6.x-rc.x prereleases|[v0.6.2-rc.1](https://github.com/spark/firmware/releases/tag/v0.6.2-rc.1)|[v0.6.2-rc.2](https://github.com/spark/firmware/releases/tag/v0.6.2-rc.2)|-|-|-|
+|-|[v0.6.0-rc.1](https://github.com/spark/firmware/releases/tag/v0.6.0-rc.1)|[v0.6.0-rc.2](https://github.com/spark/firmware/releases/tag/v0.6.0-rc.2)|[v0.6.1-rc.1](https://github.com/spark/firmware/releases/tag/v0.6.1-rc.1)|[v0.6.1-rc.2](https://github.com/spark/firmware/releases/tag/v0.6.1-rc.2)|-|
 |v0.5.x default releases|[v0.5.0](https://github.com/spark/firmware/releases/tag/v0.5.0)|[v0.5.1](https://github.com/spark/firmware/releases/tag/v0.5.1)|[v0.5.2](https://github.com/spark/firmware/releases/tag/v0.5.2)|[v0.5.3](https://github.com/spark/firmware/releases/tag/v0.5.3)|-|
 |v0.5.x-rc.x prereleases|[v0.5.3-rc.1](https://github.com/spark/firmware/releases/tag/v0.5.3-rc.1)|[v0.5.3-rc.2](https://github.com/spark/firmware/releases/tag/v0.5.3-rc.2)|[v0.5.3-rc.3](https://github.com/spark/firmware/releases/tag/v0.5.3-rc.3)|-|-|
 
@@ -12634,13 +12635,14 @@ If you don't see any notes below or if they are the wrong version, please select
 |Firmware Version||||||
 |:-:|:-:|:-:|:-:|:-:|:-:|
 |v0.6.x default releases|[v0.6.0](https://docs.particle.io/reference/firmware/photon/?fw_ver=0.6.0&cli_ver=1.18.0&electron_parts=3#programming-and-debugging-notes)|[v0.6.1](https://docs.particle.io/reference/firmware/photon/?fw_ver=0.6.1&cli_ver=1.20.1&electron_parts=3#programming-and-debugging-notes)|-|-|-|
-|v0.6.x-rc.x prereleases|[v0.6.0-rc.1](https://prerelease-docs.particle.io/reference/firmware/photon/?fw_ver=0.6.0-rc.1&cli_ver=1.17.0&electron_parts=3#programming-and-debugging-notes)|[v0.6.0-rc.2](https://prerelease-docs.particle.io/reference/firmware/photon/?fw_ver=0.6.0-rc.2&cli_ver=1.17.0&electron_parts=3#programming-and-debugging-notes)|[v0.6.1-rc.1](https://prerelease-docs.particle.io/reference/firmware/photon/?fw_ver=0.6.1-rc.1&cli_ver=1.18.0&electron_parts=3#programming-and-debugging-notes)|[v0.6.1-rc.2](https://prerelease-docs.particle.io/reference/firmware/photon/?fw_ver=0.6.1-rc.2&cli_ver=1.18.0&electron_parts=3#programming-and-debugging-notes)|[v0.6.2-rc.1](https://prerelease-docs.particle.io/reference/firmware/photon/?fw_ver=0.6.2-rc.1&cli_ver=1.21.0&electron_parts=3#programming-and-debugging-notes)|
+|v0.6.x-rc.x prereleases|[v0.6.2-rc.1](https://prerelease-docs.particle.io/reference/firmware/photon/?fw_ver=0.6.2-rc.1&cli_ver=1.21.0&electron_parts=3#programming-and-debugging-notes)|[v0.6.2-rc.2](https://prerelease-docs.particle.io/reference/firmware/photon/?fw_ver=0.6.2-rc.2&cli_ver=1.21.0&electron_parts=3#programming-and-debugging-notes)|-|-|-|
+|-|[v0.6.0-rc.1](https://prerelease-docs.particle.io/reference/firmware/photon/?fw_ver=0.6.0-rc.1&cli_ver=1.17.0&electron_parts=3#programming-and-debugging-notes)|[v0.6.0-rc.2](https://prerelease-docs.particle.io/reference/firmware/photon/?fw_ver=0.6.0-rc.2&cli_ver=1.17.0&electron_parts=3#programming-and-debugging-notes)|[v0.6.1-rc.1](https://prerelease-docs.particle.io/reference/firmware/photon/?fw_ver=0.6.1-rc.1&cli_ver=1.18.0&electron_parts=3#programming-and-debugging-notes)|[v0.6.1-rc.2](https://prerelease-docs.particle.io/reference/firmware/photon/?fw_ver=0.6.1-rc.2&cli_ver=1.18.0&electron_parts=3#programming-and-debugging-notes)|-|
 |v0.5.x default releases|[v0.5.0](https://docs.particle.io/reference/firmware/photon/?fw_ver=0.5.0&cli_ver=1.12.0&electron_parts=2#programming-and-debugging-notes)|[v0.5.1](https://docs.particle.io/reference/firmware/photon/?fw_ver=0.5.1&cli_ver=1.14.2&electron_parts=2#programming-and-debugging-notes)|[v0.5.2](https://docs.particle.io/reference/firmware/photon/?fw_ver=0.5.2&cli_ver=1.15.0&electron_parts=2#programming-and-debugging-notes)|[v0.5.3](https://docs.particle.io/reference/firmware/photon/?fw_ver=0.5.3&cli_ver=1.17.0&electron_parts=2#programming-and-debugging-notes)|-|
 |v0.5.x-rc.x prereleases|[v0.5.3-rc.1](https://prerelease-docs.particle.io/reference/firmware/photon/?fw_ver=0.5.3-rc.1&cli_ver=1.15.0&electron_parts=2#programming-and-debugging-notes)|[v0.5.3-rc.2](https://prerelease-docs.particle.io/reference/firmware/photon/?fw_ver=0.5.3-rc.2&cli_ver=1.16.0&electron_parts=2#programming-and-debugging-notes)|[v0.5.3-rc.3](https://prerelease-docs.particle.io/reference/firmware/photon/?fw_ver=0.5.3-rc.3&cli_ver=1.16.0&electron_parts=2#programming-and-debugging-notes)|-|-|
 
 <!--
 CLI VERSION is compatable with FIRMWARE VERSION
-v1.21.0 = 0.6.2-rc.1
+v1.21.0 = 0.6.2-rc.1, 0.6.2-rc.2
 v1.20.1 = 0.6.1
 v1.19.4 = Particle Libraries v2
 v1.18.0 = 0.6.0, 0.6.1-rc.1, 0.6.1-rc.2
