@@ -233,6 +233,15 @@ To enter DFU Mode:
 
 {{/if}}
 
+{{#if electron}}
+
+1. Hold down BOTH buttons for 3 seconds
+2. Release only the `RESET` button, while holding down the `SETUP` button.
+3. Wait for the LED to start flashing purple then yellow.
+4. Release the `SETUP` button
+
+{{/if}}
+
 The {{device}} now is in the DFU mode.
 
 {{#unless core}}
@@ -296,7 +305,6 @@ The procedure is same as the one described above (DFU Mode), but in this case yo
 
 You can reset Wi-Fi credentials by performing a [Wi-Fi Network Reset](#wi-fi-network-reset).
 {{/if}}
-
 
 
 ## Troubleshooting Modes
