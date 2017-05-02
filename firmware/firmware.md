@@ -460,7 +460,7 @@ Particle.unsubscribe();
 
 ### Particle.connect()
 
-`Particle.connect()` connects the device to the Cloud. This will automatically activate the cellular connection and attempt to connect to a cellular network and Particle cloud if the device is not already connected to a network/cloud.
+`Particle.connect()` connects the device to the Cloud. This will automatically activate the {{network-type}} connection and attempt to connect to the Particle cloud if the device is not already connected to the cloud.
 
 ```cpp
 void setup() {}
