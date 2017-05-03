@@ -60,7 +60,7 @@ The Android Cloud SDK is available through [JCenter](https://bintray.com/particl
 
 ```gradle
 dependencies {
-    // (...other dependencies...) 
+    // (...other dependencies...)
     compile 'io.particle:cloudsdk:{{sdkversion}}'
 }
 ```
@@ -99,10 +99,10 @@ Most of the methods on the `ParticleCloud` and `ParticleDevice` classes make blo
 Here's an example of reading a variable from a device using the `ParticleDevice` API with the `Async` class:
 
 ```java
-// "aDevice" is a ParticleDevice instance we've previously retrieved 
+// "aDevice" is a ParticleDevice instance we've previously retrieved
 Async.executeAsync(aDevice, new Async.ApiWork<ParticleDevice, Integer>() {
 
-    public Integer callApi(ParticleDevice particleDevice) 
+    public Integer callApi(ParticleDevice particleDevice)
             throws ParticleCloudException, IOException {
         return particleDevice.getVariable("myVariable");
     }
@@ -149,6 +149,25 @@ Get a device instance by its ID:
 
 ```java
 ParticleDevice myDevice = ParticleCloudSDK.getCloud().getDevice("53fa73265066544b16208184");
+```
+---
+
+### Read Device Information
+Accessing information about a device.
+
+```java
+// 'myDevice' here is a ParticleDevice instance
+String nameString = myDevice.getName();
+int productIdInt = myDevice.getProductID();
+int platformIdInt = myDevice.getPlatformID();
+String ipAddressString = myDevice.getIpAddress();
+String lastNameString = myDevice.getLastAppName();
+String statusString = myDevice.getStatus();
+Date lastHeardDate = myDevice.getLastHeard();
+boolean cellularBoolean = myDevice.isCellular();
+String imeiString = myDevice.getImei();
+String currentBuildString = myDevice.getCurrentBuild();
+String defaultBuildString = myDevice.getDefaultBuild();
 ```
 ---
 
@@ -220,7 +239,7 @@ subscriptionId = ParticleCloudSDK.getCloud().subscribeToAllEvents(
         public void onEvent(String eventName, ParticleEvent event) {
             Log.i("some tag", "Received event with payload: " + event.dataPayload);
         }
-        
+
         public void onEventError(Exception e) {
             Log.e("some tag", "Event error: ", e);
         }
@@ -253,7 +272,7 @@ Another option for subscribing to events from a particular device is calling sam
 
 ```java
 long subscriptionId;  // save this for later, for unsubscribing
-subscriptionId = someDevice.subscribeToEventsWithPrefix(null, someHandler);
+subscriptionId = someDevice.subscribeToEvents(null, someHandler);
 ```
 ---
 
@@ -280,7 +299,7 @@ someDevice.unsubscribeFromEvents(subscriptionId);
 You can also publish an event from your app to the Particle Cloud:
 
 ```java
-ParticleCloudSDK.getCloud().publishEventWithName("event_from_app", "some_event_payload", 
+ParticleCloudSDK.getCloud().publishEventWithName("event_from_app", "some_event_payload",
         ParticleEventVisibility.PRIVATE, 60);
 ```
 ---
@@ -308,7 +327,7 @@ The first way is to provide them as string resources, using the names `oauth_cli
 
 The second way, if you would prefer not to ship these OAuth strings as Android string resources, is to use an alternate SDK init method, `ParticleCloudSDK.initWithOauthCredentialsProvider()`.  For this option, you'll need to create a custom `OauthBasicAuthCredentialsProvider` implementation, and pass it to the init method, as seen here:
 ```java
-ParticleCloudSDK.initWithOauthCredentialsProvider(someContext, 
+ParticleCloudSDK.initWithOauthCredentialsProvider(someContext,
     new OauthBasicAuthCredentialsProvider() {
 
         public String getClientId() {
@@ -344,7 +363,7 @@ The SDK also ships with a handful of utility classes, mostly focused on eliminat
 ---
 
 
-## Android Device Setup Library 
+## Android Device Setup Library
 
 ### Introduction
 <!-- FIXME: tighten this up, copy it back into the setup lib README -->
@@ -379,7 +398,7 @@ The Android Cloud SDK is available through [JCenter](https://bintray.com/particl
 
 ```gradle
 dependencies {
-    // (...other dependencies...) 
+    // (...other dependencies...)
     compile 'io.particle:devicesetup:{{devicesetupversion}}'
 }
 ```
