@@ -5,7 +5,8 @@ $('.current-status-indicator').ready(function ($) {
     none: 'green',
     minor: 'yellow',
     major: 'red',
-    critical: 'red'
+    critical: 'red',
+    maintenance: 'blue',
   };
   var sp = new StatusPage.page({ page : '8d849mp6fy12' });
   sp.summary({
