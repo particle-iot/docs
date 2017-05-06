@@ -12,7 +12,7 @@ It's also [open source](https://github.com/spark/particle-api-js) so you can edi
 
 This page contains examples to get started using the library.
 
-For more details, read the [API reference on GitHub](https://github.com/spark/particle-api-js/blob/master/docs/api.md) and check the
+For more details, see the [detailed reference below](#detailed-reference) and check the
 [examples folder on GitHub](https://github.com/spark/particle-api-js/blob/master/examples).
 
 ## Installation
@@ -387,34 +387,9 @@ particle.removeAccessToken({ username: 'u@m.com', password: 'pass', token: 'toke
 });
 ```
 
-## Setup your dev environment
+## Detailed reference
 
-Install project dependencies
+Here a full reference of every function available in the Javascript
+client library.
 
-```shell
-$ npm install
-```
-
-### Test
-
-Run the mocha test suite
-
-```bash
-npm test
-```
-
-### Lint
-
-Lint your code using eslint
-
-```bash
-npm run lint
-```
-
-### Coverage
-
-Generate istanbul coverage report
-
-```bash
-npm run cover
-```
+GENERATED_JAVASCRIPT_DOCS

@@ -25,3 +25,6 @@ cd api-node && git fetch && git merge origin/${BRANCH} && cd ..
 [ -d api-service-libraries ] || git clone --depth ${DEPTH} https://github.com/spark/api-service-libraries.git
 cd api-service-libraries && git fetch && git merge origin/master && cd ..
 
+[ -d particle-api-js ] || git clone --depth ${DEPTH} https://github.com/spark/particle-api-js.git
+cd particle-api-js && git fetch && git merge origin/master && cd ..
+
