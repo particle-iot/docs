@@ -7534,7 +7534,7 @@ Integer is returned without a leading zero.
 // Print the day for the current time
 Serial.print(Time.day());
 
-// Print the minute for the given time, in this case: 21
+// Print the day for the given time, in this case: 21
 Serial.print(Time.day(1400647897));
 ```
 
