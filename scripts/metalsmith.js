@@ -37,6 +37,8 @@ var fileMetadata = require('metalsmith-filemetadata');
 var msIf = require('metalsmith-if');
 var precompile = require('./precompile');
 var apidoc = require('./apidoc');
+var insertFragment = require('./insert_fragment');
+var javascriptDocsPreprocess = require('./javascript_docs_preprocess');
 var git = require('git-rev');
 var path = require('path');
 
@@ -104,6 +106,13 @@ exports.metalsmith = function() {
         ]
       })
     )
+    // Auto-generate documentation for the Javascript client library
+    .use(insertFragment({
+      destFile: 'content/reference/javascript.md',
+      srcFile: '../particle-api-js/docs/api.md',
+      fragment: 'GENERATED_JAVASCRIPT_DOCS',
+      preprocess: javascriptDocsPreprocess,
+    }))
     // Make all files in this directory available to any Handlebar template
     // Use partials like this: {{> arrows}}
     .use(partials({

@@ -33,7 +33,7 @@
     "metalsmith-layouts": "^1.8.0",
     "metalsmith-less": "^2.0.0",
     "metalsmith-lunr": "git://github.com/spark/metalsmith-lunr#0.3.0",
-    "metalsmith-markdown": "spark/metalsmith-markdown#0.4.1",
+    "metalsmith-markdown": "spark/metalsmith-markdown#v0.4.2",
     "metalsmith-move-up": "^1.0.0",
     "metalsmith-paths": "2.1.1",
     "metalsmith-permalinks": "^0.4.0",
