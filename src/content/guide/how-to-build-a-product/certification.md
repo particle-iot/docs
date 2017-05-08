@@ -180,8 +180,8 @@ If a product has adhered to the integration guidelines and has minimal risk, it 
 - [Certificate of Conformity](/assets/pdfs/new-certs/ce/photon-ce-certificate2017.pdf)
 - [Test Reports](/assets/pdfs/new-certs/ce/ce-test-reports.zip)
 
-#### P1 Module
-- [Certificate of Conformity](/assets/pdfs/p1-ce-certificate.pdf)
+#### P1 Module - (updated 5/8/17)
+- [Certificate of Conformity](/assets/pdfs/new-certs/ce/p1-ce-certification2017.pdf)
 
 #### Electron U270
 - [Certificate of Conformity](/assets/pdfs/electron/ce-u270-certificate.pdf)
