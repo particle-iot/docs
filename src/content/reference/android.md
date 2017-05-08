@@ -229,7 +229,7 @@ Using the SDK, you can make an API call that will open a stream of [Server-Sent 
 
 ### Subscribe to events
 
-Subscribe to the [_firehose_](http://i.imgur.com/w1X4f3j.gif) of public events, plus the private events published by devices one owns:
+Subscribe to the firehose of public events, plus the private events published by devices one owns:
 
 ```java
 long subscriptionId;  // save this for later, for unsubscribing
