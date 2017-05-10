@@ -7,6 +7,7 @@ module.exports = function (contents) {
 	if (start !== -1) {
 		contents = contents.substr(start);
 	}
+
 	// fix a bad link
 	contents = contents.replace(
 		'../src/Defaults.js',
