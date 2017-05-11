@@ -301,7 +301,7 @@ exports.build = function(callback) {
 };
 
 exports.test = function(callback) {
-  var server = serve({ cache: 300 });
+  var server = serve({ cache: 300, port: 8081 });
   git.branch(function (str) {
     gitBranch = process.env.TRAVIS_BRANCH || str;
     generateSearch = true;
