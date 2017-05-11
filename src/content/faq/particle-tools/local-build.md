@@ -469,6 +469,84 @@ Or, with the device in listening mode (blinking dark blue):
 particle flash --serial target/blinkled.bin
 ```
 
+## Building with libraries
+
+To use libraries with local build you should use the [extended project structure](https://docs.particle.io/guide/tools-and-features/libraries/#project-file-structure) within the APPDIR.
+
+It looks like this:
+
+```
+myappdir
+  project.properties
+  src
+    myapp.cpp
+  lib
+```
+
+You can start out with an empty file for project.properties. 
+
+To add a library you typically cd into myappdir then use a [CLI library copy command](https://docs.particle.io/guide/tools-and-features/cli/electron/#using-libraries) for example:
+
+```
+particle library copy neopixel
+```
+
+This copies the source to the neopixel library to lib/neopixel.
+
+If you have a project in the extended format, building with APPDIR automatically builds all of the libraries in lib as well, and all of the src directories in the libraries are added to the include search path, so for example you can just:
+
+```
+#include "neopixel.h"
+```
+
+## Including additional header directories
+
+Sometimes you want to include other directories as locations for header files. For example, say you are using the [extended project structure](https://docs.particle.io/guide/tools-and-features/libraries/#project-file-structure) within the APPDIR with the following layout:
+
+```
+myappdir
+  project.properties
+  inc
+    testinc.h
+  src
+    main.cpp
+    build.mk
+```
+
+The project.properties can be an empty file; it just signifies that you are using the extended project layout.
+
+This is my main.cpp. Of note is that it just includes testinc.h, not inc/testinc.h.
+
+```
+#include "Particle.h"
+
+#include "testinc.h"
+
+void setup() {
+	Serial.begin(9600);
+}
+
+void loop() {
+}
+```
+
+Adding additional include directories requires adding a build.mk file in your src directory. The first part should be the standard boilerplate.
+
+But after that, you can add other things, such as adding additional include directories.
+
+```
+# Standard behavior must be included here
+INCLUDE_DIRS += $(SOURCE_PATH)/$(USRSRC)  # add user sources to include path
+CPPSRC += $(call target_files,$(USRSRC_SLASH),*.cpp)
+CSRC += $(call target_files,$(USRSRC_SLASH),*.c)
+
+APPSOURCES=$(call target_files,$(USRSRC_SLASH),*.cpp)
+APPSOURCES+=$(call target_files,$(USRSRC_SLASH),*.c)
+
+# Custom stuff can be added here
+INCLUDE_DIRS += $(SOURCE_PATH)/inc
+```
+
 
 ## Flashing using DFU during build
 
