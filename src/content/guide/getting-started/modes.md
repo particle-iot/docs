@@ -53,8 +53,7 @@ When it is breathing cyan, your {{device}} is happily connected to the Internet.
 
 {{{device-animation device "blink" "magenta" }}}
 
-If your {{device}} is blinking magenta, it is currently loading an app or updating its firmware. This state is triggered by a firmware update or by flashing code from Particle Dev or Particle Build. You will often see this mode when you connect your {{device}} to the cloud for the first time.
-
+If your {{device}} is blinking magenta, it is currently loading an app or updating its firmware. This state is triggered by a firmware update or by flashing code from the Web IDE or Desktop IDE. You might see this mode when you connect your {{device}} to the cloud for the first time.
 
 Note that, if you enter this mode by holding `{{system-button}}` on boot, blinking magenta indicates that letting go of the `{{system-button}}` button will enter safe mode to connect to the cloud and not run application firmware.
 
@@ -62,7 +61,7 @@ Note that, if you enter this mode by holding `{{system-button}}` on boot, blinki
 
 {{{device-animation device "blink" "lime" }}}
 
-If your {{device}} is blinking green, it is trying to connect to the internet. If you already entered your {{#if electron}}cellular{{/if}}{{#if photon}}Wi-Fi{{/if}}{{#if core}}Wi-Fi{{/if}} credentials, give your device a few seconds to connect and start breathing cyan.
+If your {{device}} is blinking green, it is trying to connect to the internet. If you already setup the {{network-type}} connection, give your device a few seconds to connect and start breathing cyan.
 
 {{#if photon}}
 If you haven't yet connected your {{device}} to Wi-Fi, then set your device to [Listening Mode](#listening-mode).
@@ -74,7 +73,6 @@ If you haven't yet connected your {{device}} to Wi-Fi, then set your device to [
 
 {{#if electron}}
 If you haven't connected your {{device}} to a cellular tower yet, please wait up to ten minutes. If it takes longer than that, refer to [cellular troubleshooting section](/support/troubleshooting/common-issues/electron/#blinking-green).
-
 {{/if}}
 
 {{#if photon}}
@@ -87,12 +85,8 @@ When the {{device}} is in the process of connecting to the cloud, it will rapidl
 
 {{/if}}
 
-{{#if electron}}### Cellular Off{{/if}}
-{{#if photon}}### Wi-Fi Off
-{{/if}}
-{{#if core}}### Wi-Fi Off
-{{/if}}
-
+{{#if has-cellular}}### Cellular Off{{/if}}
+{{#if has-wifi}}### Wi-Fi Off{{/if}}
 
 {{{device-animation device "breathe" "white" }}}
 

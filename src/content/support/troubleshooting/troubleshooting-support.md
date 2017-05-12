@@ -14,9 +14,10 @@ Troubleshooting Common LED Codes
 During initial setup of a device these are the usual LED specifications:
 
 - **White pulse:** Start-up (happens when the {{device}} is first powered on or when it's reset)
-- **Flashing blue:** {{#if photon}}Listening Mode{{/if}} {{#if core}}Smart Config{{/if}}, waiting for Wi-Fi credentials
+{{#if has-wifi}}- **Flashing blue:** {{#if photon}}Listening Mode{{/if}}{{#if core}}Smart Config{{/if}}, waiting for Wi-Fi credentials{{/if}}
+{{#if has-cellular}}- **Flashing blue:** Listening mode.{{/if}}
 {{#if core}}- **Solid blue:** Smart Config, received Wi-Fi credentials{{/if}}
-- **Flashing green:** Connecting to local Wi-Fi network
+- **Flashing green:** Connecting to {{network-type}} network
 - **Flashing cyan:** Connecting to Particle Cloud
 - **High-speed flashing cyan:** Particle Cloud handshake
 - **Breathing cyan:** Connected to Particle Cloud
@@ -40,18 +41,4 @@ Hopefully, you never see these colors but here are the error LED color codes:
 - **High-speed flashing white:** Flashing code from factory reset memory
 - **Flashing yellow:** Bootloader mode, waiting for code over USB or JTAG
 
-**Also**, check out and join our [community forums](http://community.particle.io/) for advanced help, tutorials, and troubleshooting.
-
-{{#if photon}}
-[Go to Community Forums >](http://community.particle.io/c/troubleshooting)
-{{/if}}
-
-{{#if core}}
-[Go to Community Forums >](http://community.particle.io/c/troubleshooting)
-{{/if}}
-
-
-
-
-
-
+For more help join our [community forums](http://community.particle.io/) and post in the [troubleshooting section](https://community.particle.io/c/troubleshooting).

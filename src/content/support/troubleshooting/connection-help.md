@@ -173,6 +173,7 @@ to get connected and developing again.
 you can:
 1. Run `particle setup` or `particle setup wifi` to provide your network credentials to get connected again.
 
+{{/if}}
 
 ### Full Firmware Upgrade
 
@@ -181,20 +182,18 @@ If you are having intermittent connectivity issues, odd behavior or believe your
 
 Once the Particle CLI and dfu-util are installed, you have to enter DFU mode. Once that is done, please run the following commands through the Particle CLI:
 
+{{#if core}}
 - particle flash --factory tinker
 - particle flash --usb cc3000
 - particle flash --usb tinker
 
 These commands replace the factory reset image, and re-patch the radio, bringing your Core to an upgraded factory state. Good luck!
+{{else}}
+- particle upgrade
+- particle flash --usb tinker
 
+These commands upgrade the system firmware to the latest version and restores the app to the default Tinker. Good luck!
 {{/if}}
 
-**Also**, check out and join our [community forums](http://community.particle.io/) for advanced help, tutorials, and troubleshooting.
 
-{{#if photon}}
-[Go to Community Forums >](http://community.particle.io/c/troubleshooting)
-{{/if}}
-
-{{#if core}}
-[Go to Community Forums >](http://community.particle.io/c/troubleshooting)
-{{/if}}
+For more help join our [community forums](http://community.particle.io/) and post in the [troubleshooting section](https://community.particle.io/c/troubleshooting).

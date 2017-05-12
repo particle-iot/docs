@@ -58,12 +58,4 @@ Bare with me for these next steps! This is slightly complicated because of the g
 
 Congrats, you made it to the end! now your {{device}} should be connected to the Cloud... or will be just as soon as we add your Key to the server.
 
-**Also**, check out and join our [community forums](http://community.particle.io/) for advanced help, tutorials, and troubleshooting.
-
-{{#if photon}}
-[Go to Community Forums >](http://community.particle.io/c/troubleshooting)
-{{/if}}
-
-{{#if core}}
-[Go to Community Forums >](http://community.particle.io/c/troubleshooting)
-{{/if}}
+For more help join our [community forums](http://community.particle.io/) and post in the [troubleshooting section](https://community.particle.io/c/troubleshooting).
