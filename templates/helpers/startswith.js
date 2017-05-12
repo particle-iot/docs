@@ -1,5 +1,5 @@
 module.exports = function (value, test, options) {
-  if (!value || value !== test) {
+  if (value && test && value.indexOf(test) === 0) {
     return options.fn(this);
   } else {
     return options.inverse(this);
