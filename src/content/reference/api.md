@@ -17,7 +17,7 @@ The Particle Cloud API is a [REST](http://en.wikipedia.org/wiki/Representational
 REST means a lot of things, but first and foremost it means that we use the URL in the way that it's intended:
 as a "Uniform Resource Locator".
 
-In this case, the unique "resource" in question is your device (Spark Core, Photon, Electron).
+In this case, the unique "resource" in question is your device (Core, Photon, Electron).
 Every device has a URL, which can be used to `GET` variables, `POST` a function call, or `PUT` new firmware.
 The variables and functions that you have written in your firmware are exposed as *subresources* under the device.
 
@@ -92,7 +92,7 @@ The access token is called a "Bearer" token and goes in the standard
 HTTP `Authorization` header.
 
 ``` bash
-curl -H "Authorization: Bearer 38bb7b318cc6898c80317decb34525844bc9db55"
+curl -H "Authorization: Bearer 38bb7b318cc6898c80317decb34525844bc9db55" \
   https://...
 ```
 
@@ -100,10 +100,11 @@ curl -H "Authorization: Bearer 38bb7b318cc6898c80317decb34525844bc9db55"
 
 The query string is the part of the URL after a `?` question mark.
 To send the access token in the query string just add `access_token=38bb...`.
-Because your terminal thinks the question mark is special, we escape it with a backslash.
+Because your terminal may think the question mark is special, enclose
+the entire URL in double quotes.
 
 ``` bash
-curl https://api.particle.io/v1/devices\?access_token=38bb7b318cc6898c80317decb34525844bc9db55
+curl "https://api.particle.io/v1/devices?access_token=38bb7b318cc6898c80317decb34525844bc9db55"
 ```
 
 ---
@@ -115,7 +116,7 @@ If you need a different request type, you have to specifically say so with the `
 for example `-X PUT`.
 
 ``` bash
-curl -d access_token=38bb7b318cc6898c80317decb34525844bc9db55
+curl -d access_token=38bb7b318cc6898c80317decb34525844bc9db55 \
   https://...
 ```
 
