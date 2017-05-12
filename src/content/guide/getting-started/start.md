@@ -471,7 +471,30 @@ If your device is not blinking blue, {{#if photon}}{{popup 'hold down the SETUP 
 
 If your device is not blinking at all, or if the LED is burning a dull orange color, it may not be getting enough power. Try changing your power source or USB cable.
 
-### Step 2: Connect With Your Smartphone
+### Step 2a: Connect your Photon to the Internet using the setup web application
+
+*Note: This process only works in Chrome / Firefox / Opera*
+
+- **Step 1** Go to [setup.particle.io](https://setup.particle.io)
+- **Step 2** Click on `Setup a Photon`
+- **Step 3** After clicking on `NEXT`, you should be presented with a file (`photonsetup.html`)
+- **Step 4** Open the file
+
+After opening the file:
+- **Step 5** Connect your PC to the Photon, by connecting to the network named `PHOTON-...`
+- **Step 6** Configure your Wi-Fi credentials
+
+*Note: If you mistyped your credentials, the Photon will blink dark blue or green. You have to go through the process again (by refreshing the page or clicking on the retry process part)*
+
+-  **Step 7** Rename your device. You will also see a confirmation if the device was claimed or not
+
+*Note: Make sure your Photon is not part of a product before claiming it*
+
+#### Why a separate file?
+
+We care a lot about security, and we want to make sure that everything you do is safe. Downloading a local file ensures that the credentials are sent directly to the Photon, without any chance of being intercepted.
+
+### Step 2b: Connect your Photon to the Internet using your smartphone
 
 Open the app on your phone. Log in or sign up for an account with Particle if you don't have one.
 
