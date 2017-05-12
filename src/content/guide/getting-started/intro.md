@@ -25,29 +25,21 @@ order: 1
 ![](/assets/images/raspberry-pi.svg)
 {{/if}}
 
+{{#if has-embedded}}
+This guide will show you how to use Particle to make a connected device, from the first time you connect to the cloud to the day you manufacture and ship your connected product.
+
+Anxious to connect right away?
+
 {{#if photon}}
-This guide will show you how to use Particle to make a connected device, from the first time you connect to the cloud to the day you manufacture and ship your connected product.
-
-Anxious to connect right away?
-
-[SETUP MY PHOTON >](/guide/getting-started/start/photon/#step-1-power-on-your-device)
+[SETUP MY PHOTON >](/guide/getting-started/start/#step-1-power-on-your-device)
 {{/if}}
-
 {{#if core}}
-This guide will show you how to use Particle to make a connected device, from the first time you connect to the cloud to the day you manufacture and ship your connected product.
-
-Anxious to connect right away?
-
-[SETUP MY CORE >](/guide/getting-started/start/photon/#step-1-power-on-your-device)
+[SETUP MY CORE >](/guide/getting-started/start/#step-1-power-on-your-device)
 {{/if}}
-
 {{#if electron}}
-This guide will show you how to use Particle to make a connected device, from the first time you connect to the cloud to the day you manufacture and ship your connected product.
-
-Anxious to connect right away?
-
 [SETUP MY ELECTRON >](https://setup.particle.io/)
 {{/if}}
+{{/if}} {{!-- has-embedded --}}
 
 {{#if raspberry-pi}}
 The Raspberry Pi is an amazing credit-card sized computer with immense possibilities.

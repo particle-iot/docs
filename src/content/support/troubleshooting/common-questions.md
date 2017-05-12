@@ -45,17 +45,7 @@ To stay up-to-date on the most recent revisions of our Particle-cli, follow our 
 
 ## {{device}} Pinout Map & Datasheets
 
-{{#if photon}}
-Go to our Photon datasheets [collection](/datasheets/photon-datasheet/) to get an in-depth view of the Photon pinouts.
-{{/if}}
-
-{{#if core}}
-Go to our Core datasheets [collection](/datasheets/core-datasheet/) to get an in-depth view of the Core's pinouts.
-{{/if}}
-
-{{#if electron}}
-Go to our Electron datasheets [collection](/datasheets/electron-datasheet/) to get an in-depth view of the Electron pinouts.
-{{/if}}
+Go to our {{device}} datasheets [collection](/datasheets/{{deviceValue}}-datasheet/) to get an in-depth view of the {{device}} pinouts.
 
 ## Hardware Questions
 
