@@ -289,7 +289,7 @@ Let's quickly go over what you see.
 ### What's all here?
 {{/if}}
 
-{{#if has-cellular}}{{{popup '**The Cellular Module.**' 'img' 'electronUblox.png'}}}
+{{#if has-cellular}}{{popup '**The Cellular Module.**' 'img' 'electronUblox.png'}}
 This is probably why you bought your device-- the cellular module allows your Electron to communicate with the internet in over 120 countries!
 The cellular module is also accompanied with a Particle SIM card.
 
@@ -298,40 +298,40 @@ It connects your device to the internet in the same way that your smartphone mig
 {{/if}}
 
 {{#if has-wifi}}
-{{#if photon}}{{{popup '**The Wi-Fi Module.**' 'img' 'photon-module.jpg'}}}{{/if}}
-{{#if core}}{{{popup '**The Wi-Fi Module.**' 'img' 'core-cc3000.jpg'}}}{{/if}}
+{{#if photon}}{{popup '**The Wi-Fi Module.**' 'img' 'photon-module.jpg'}}{{/if}}
+{{#if core}}{{popup '**The Wi-Fi Module.**' 'img' 'core-cc3000.jpg'}}{{/if}}
 This is probably why you bought your device-- the Wi-Fi module allows your {{device}} to communicate with the internet. It connects your device to the internet in the same way that your smartphone might connect to a wifi network.
 {{#if photon}} **Do not press down on the Photon's module.** Doing so triggers a reset and is generally not good for the Photon.{{/if}}
 {{/if}} {{!-- has-wifi --}}
 
-{{#if photon}}{{{popup '**The Microcontroller.**' 'img' 'photon-module.jpg'}}}{{/if}}
-{{#if core}}{{{popup '**The Microcontroller.**' 'img' 'core-stm32.jpg'}}}{{/if}}
-{{#if electron}}{{{popup '**The Microcontroller.**' 'img' 'electronMCU.png'}}}{{/if}}
+{{#if photon}}{{popup '**The Microcontroller.**' 'img' 'photon-module.jpg'}}{{/if}}
+{{#if core}}{{popup '**The Microcontroller.**' 'img' 'core-stm32.jpg'}}{{/if}}
+{{#if electron}}{{popup '**The Microcontroller.**' 'img' 'electronMCU.png'}}{{/if}}
 The microcontroller is the brain of your device. It runs your software and tells your prototype what to do. Unlike your computer, it can only run one application (often called *firmware* or an *embedded application*). This application can be simple (just a few lines of code), or very complex, depending on what you want to do. The microcontroller interacts with the outside world using pins.
 
 
-{{#if electron}}{{{popup '**The Pins.**' 'img' 'mk-header-male.jpg'}}}{{/if}}
-{{#if photon}}{{{popup '**The Pins.**' 'img' 'photon-pinout.png'}}}{{/if}}
-{{#if core}} {{{popup '**The Pins.**' 'img' 'core-pinout.png'}}}{{/if}}
+{{#if electron}}{{popup '**The Pins.**' 'img' 'mk-header-male.jpg'}}{{/if}}
+{{#if photon}}{{popup '**The Pins.**' 'img' 'photon-pinout.png'}}{{/if}}
+{{#if core}} {{popup '**The Pins.**' 'img' 'core-pinout.png'}}{{/if}}
 Pins are the input and output parts of the microcontroller that are exposed on the sides of your device. GPIO pins can be hooked to sensors or buttons to listen to the world, or they can be hooked to lights and buzzers to act upon the world. There are also pins to allow you to power your device, or power motors and outputs outside of your device. There are pins for Serial/UART communication, and a pin for resetting your device.
 
 
 {{#if has-cellular}}
-{{{popup '**The Antenna & USB Cable.**' 'img' 'electronAntenna.jpg'}}}
+{{popup '**The Antenna & USB Cable.**' 'img' 'electronAntenna.jpg'}}
 The cellular antenna is imperative for the {{device}} to reach connection to a cellular tower. It will operate for all 2G/3G frequencies that your
 {{device}} needs, depending on the version you have. The USB cable provides a means to charge your {{device}} as well as send serial and DFU commands to your device.
 {{/if}} {{!-- has-cellular --}}
 
 
 {{#if has-battery}}
-{{{popup '**The Battery.**' 'img' 'electronBattery.jpg'}}}
+{{popup '**The Battery.**' 'img' 'electronBattery.jpg'}}
 The {{device}} comes with a standard 2000mAh 3.7V LiPo battery (rechargeable) which allows the {{device}} to be powered over long periods of time without needing a connection
 to wired power source. Consider this battery your {{device}}'s best friend!
 {{/if}} {{!-- has-battery --}}
 
 
-{{#if photon}}{{{popup '**Buttons**' 'img' 'photon-buttons.jpg'}}} **and** {{{popup '**LEDs.**' 'img' 'photon-leds.jpg'}}}{{/if}}
-{{#if core}}{{{popup '**Buttons**' 'img' 'core-buttons.jpg'}}} **and** {{{popup '**LEDs.**' 'img' 'core-leds.jpg'}}}{{/if}}
+{{#if photon}}{{popup '**Buttons**' 'img' 'photon-buttons.jpg'}} **and** {{popup '**LEDs.**' 'img' 'photon-leds.jpg'}}{{/if}}
+{{#if core}}{{popup '**Buttons**' 'img' 'core-buttons.jpg'}} **and** {{popup '**LEDs.**' 'img' 'core-leds.jpg'}}{{/if}}
 {{#if electron}}**Buttons and LEDs.**{{/if}}
 There are several awesome buttons and LEDs on your {{device}} to make it easier to use.
 
@@ -465,9 +465,9 @@ In this example, we will connect your device to the internet for the very first 
 
 Plug the USB cable into your power source. {{{ popup '(Your computer works perfectly for this purpose.)' 'note' 'Your Particle device does not need your computer to connect to wifi. You could just as easily power your device with a power brick, a battery shield, or another power source wired to the VIN pin.'}}}
 
-As soon as it is plugged in, the RGB LED on your device should begin {{#if photon}}{{{popup 'blinking blue.' 'vine' 'https://vine.co/v/eZUH7WaWjMT/embed/simple'}}}{{/if}}{{#if core}}{{{popup 'blinking blue.' 'vine' 'https://vine.co/v/eZU6YiK20Hl/embed/simple'}}}{{/if}}
+As soon as it is plugged in, the RGB LED on your device should begin {{#if photon}}{{popup 'blinking blue.' 'vine' 'https://vine.co/v/eZUH7WaWjMT/embed/simple'}}{{/if}}{{#if core}}{{popup 'blinking blue.' 'vine' 'https://vine.co/v/eZU6YiK20Hl/embed/simple'}}{{/if}}
 
-If your device is not blinking blue, {{#if photon}}{{{popup 'hold down the SETUP button.' 'vine' 'https://vine.co/v/eZUHUIjq7pO/embed/simple'}}}{{/if}}{{#if core}}{{{popup 'hold down the MODE button.' 'vine' 'https://vine.co/v/eZUgHYYrYgl/embed/simple'}}}{{/if}}
+If your device is not blinking blue, {{#if photon}}{{popup 'hold down the SETUP button.' 'vine' 'https://vine.co/v/eZUHUIjq7pO/embed/simple'}}{{/if}}{{#if core}}{{popup 'hold down the MODE button.' 'vine' 'https://vine.co/v/eZUgHYYrYgl/embed/simple'}}{{/if}}
 
 If your device is not blinking at all, or if the LED is burning a dull orange color, it may not be getting enough power. Try changing your power source or USB cable.
 
@@ -494,7 +494,7 @@ This may take a little while - but don't worry.
 
 If you can't seem to get the Mobile App to connect your device, that's okay! Read over this example quickly, and then check out the [next lesson](/guide/getting-started/connect) to connect your device using the USB cable.
 
-Once you have connected your device, it has learned that network. Your device can store up to {{#if core}}seven{{/if}} {{#if photon}}five{{/if}} networks. To add a new network after your initial setup, you'd put your device into {{#if photon}}{{{popup 'Listening Mode' 'vine' 'https://vine.co/v/eZUH7WaWjMT/embed/simple'}}}{{/if}}{{#if core}}{{{popup 'Listening Mode' 'vine' 'https://vine.co/v/eZU6YiK20Hl/embed/simple'}}}{{/if}} again and proceed as above (the claiming part can be skipped). If you feel like your device has too many networks on it, you can wipe your device's memory of any Wi-Fi networks it has learned. You can do so by continuing to hold the `{{system-button}}` button for 10 seconds until the RGB LED flashes blue quickly, signaling that all profiles have been deleted.
+Once you have connected your device, it has learned that network. Your device can store up to {{#if core}}seven{{/if}} {{#if photon}}five{{/if}} networks. To add a new network after your initial setup, you'd put your device into {{#if photon}}{{popup 'Listening Mode' 'vine' 'https://vine.co/v/eZUH7WaWjMT/embed/simple'}}{{/if}}{{#if core}}{{popup 'Listening Mode' 'vine' 'https://vine.co/v/eZU6YiK20Hl/embed/simple'}}{{/if}} again and proceed as above (the claiming part can be skipped). If you feel like your device has too many networks on it, you can wipe your device's memory of any Wi-Fi networks it has learned. You can do so by continuing to hold the `{{system-button}}` button for 10 seconds until the RGB LED flashes blue quickly, signaling that all profiles have been deleted.
 
 ### Step 3: Blink an LED!
 {{#if core}}The Spark Core App should now be on the {{{ popup 'Tinker' 'note' 'We have taken the liberty of loading some firmware onto your device for you. It is called Tinker, and it helps you talk to your device by sending power to the pins and reading power levels from the pins. More info about Tinker is available [here](/guide/getting-started/tinker/core).'}}} screen, as shown below.

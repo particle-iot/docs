@@ -1,3 +1,6 @@
+// Generate a link to edit the current file on GitHub
+// Usage:
+// {{edit-link branch path.href path.name}}
 module.exports = function(branch, path, file) {
 	/* todo - we could check if the file is a symlink and rewrite the path to the target. 
 	  For now we take the simple, trustworthy appraoch. */

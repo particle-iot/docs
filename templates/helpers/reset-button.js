@@ -1,3 +1,7 @@
+// Render to the appropriate name for the reset button for the current device
+// Usage in a page that has the "devices" front-matter key:
+// {{reset-button}}
 module.exports = function(context) {
-  return context.data.root.device == "Core" ?  "RST" : "RESET";
+  var metadata = context.data.root;
+  return metadata.device == 'Core' ?  'RST' : 'RESET';
 };

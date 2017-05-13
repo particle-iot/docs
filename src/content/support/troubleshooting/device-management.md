@@ -65,7 +65,7 @@ Remove the {{device}} from the account it was previously registered to, using th
 
 Make sure that the {{device}} is connected to the Particle Cloud (breathing or pulsing cyan).
 
-NOTE: A {{device}} cannot be claimed unless it is connected to the Particle Cloud, and is breathing/pulsing cyan.
+Note that {{a-device}} cannot be claimed unless it is connected to the Particle Cloud, and is breathing/pulsing cyan.
 
 **3. Claim the {{device}}**
 
@@ -79,9 +79,9 @@ We take **security** extremely seriously at Particle, and that means being very 
 
 If you really are the owner of your {{device}}, and are having trouble logging into your Particle account or configuring your {{device}}, send us an email at [hello @ particle dot io], and our Troubleshooting staff would be happy to help you resolve the issue.
 
-### How do I unclaim a {{device}} ?
+### How do I unclaim {{a-device}} ?
 
-There are two primary ways to remove a {{device}} from your account--using the Particle Build Web IDE, or using the Particle Command Line Interface (CLI).
+There are two primary ways to remove {{a-device}} from your account--using the Particle Build Web IDE, or using the Particle Command Line Interface (CLI).
 
 **Using Particle Build**
 

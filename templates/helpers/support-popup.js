@@ -1,3 +1,4 @@
+// Unused
 module.exports = function(link, type, args) {
 	if (type == 'img') {
 		var r = '<span class="popupLink">'

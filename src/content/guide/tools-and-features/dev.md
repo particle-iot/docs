@@ -115,7 +115,7 @@ You can also add parameters to the call by entering them to the right of button.
 
 To setup device's Wi-Fi, connect it via USB and click **Setup device's Wi-Fi...** button on the toolbar.
 
-If your device isn't in {{#if photon}}{{{popup 'Listening Mode,' 'vine' 'https://vine.co/v/eZUH7WaWjMT/embed/simple'}}}{{/if}}{{#if core}}{{{popup 'Listening Mode,' 'vine' 'https://vine.co/v/eZU6YiK20Hl/embed/simple'}}}{{/if}} you'll see animation showing how to enter that state.
+If your device isn't in {{#if photon}}{{popup 'Listening Mode,' 'vine' 'https://vine.co/v/eZUH7WaWjMT/embed/simple'}}{{/if}}{{#if core}}{{popup 'Listening Mode,' 'vine' 'https://vine.co/v/eZU6YiK20Hl/embed/simple'}}{{/if}} you'll see animation showing how to enter that state.
 
 Next you'll see all available networks. The one you are currently connected to will be listed first.
 

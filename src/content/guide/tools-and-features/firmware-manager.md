@@ -66,7 +66,7 @@ The progress bar will start to change to magenta as the update progresses
 
 ... and the LED on your device will start blinking magenta, like this:
 
-{{{device-animation device "blink" "magenta" }}}
+{{device-animation device "blink" "magenta" }}
 
 The update will pause for a short while halfway through as the device restarts and gets ready for the second part of the update. You don't need to do anything here - the device will automatically continue with the next part of the update.
 

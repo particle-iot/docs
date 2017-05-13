@@ -14,7 +14,7 @@ This section will help walk you through the diagnosis and resolution of the most
 
 ## Blinking Green
 
-{{{device-animation device "blink" "lime" }}}
+{{device-animation device "blink" "lime" }}
 
 Electrons that are blinking green have successfully read the APN data from the inserted SIM card and are attempting to connect to a cellular tower. There are many different reasons that your Electron might fail to connect to your nearby cellular network. Here are a few things you can check if you find your device in an endless loop (5 minutes+) of blinking green:
 
@@ -91,7 +91,7 @@ Still having issues? [Write us an email](/support/support-and-fulfillment/menu-b
 
 ## Blinking Blue
 
-{{{device-animation device "blink" "blue" 300 300 }}}
+{{device-animation device "blink" "blue" 300 300 }}
 
 Electrons that are blinking blue are in listening mode. When an Electron boots up, it will attempt to read information from the its SIM card to connect to the cellular network. Electrons that do not have a SIM card, or that have an improperly configured SIM card will be unable to connect to a cell tower and will default back to listening mode. If you're in listening mode and don't want to be, try the steps listed below:
 
@@ -128,7 +128,7 @@ Still having issues? [Write us an email](/support/support-and-fulfillment/menu-b
 
 ## Breathing Magenta
 
-{{{device-animation device "breathe" "magenta" }}}
+{{device-animation device "breathe" "magenta" }}
 
 If your Electron is breathing magenta, it is in Safe Mode. This means that, although it is connected to the Cloud, it is not running your user firmware. Your device can end up in Safe Mode if the user app that you programmed became corrupted, or the compile target of the user app is newer than the firmware version of the system modules on your device.
 
@@ -186,7 +186,7 @@ If you are confident that there is a version match between the system and user c
 
 ## Breathing Magenta
 
-{{{device-animation device "breathe" "magenta" }}}
+{{device-animation device "breathe" "magenta" }}
 
 Photons that have been interrupted mid-firmware update often breathe magenta (defaulting to Safe Mode) to avoid running faulty firmware. To solve this issue, you can update your firmware manually.
 
@@ -218,7 +218,7 @@ If you don't have brew or homebrew installed, install it here: <a href="http://b
 
 ## Blinking Cyan
 
-{{{device-animation device "blink" "cyan" }}}
+{{device-animation device "blink" "cyan" }}
 
 If your Photon is blinking cyan and sometimes orange/red without connecting, it is helpful to first try to manually update your firmware, in the same way as listed as above. If this does not work, then move on to a key reset.
 
@@ -244,7 +244,7 @@ This should reset your public key.
 
 ## Blinking Green
 
-{{{device-animation device "blink" "lime" }}}
+{{device-animation device "blink" "lime" }}
 
 If your device is blinking green without connecting, there are a few things to check immediately.
 

@@ -14,20 +14,20 @@ Now that we've gone over connecting your device, we're going to review the diffe
 {{#if photon}}
 These modes are the typical behaviors you will see from your {{device}} on a regular basis. They are the light patterns of a healthy {{device}}.
 
-Here's the typical pattern of a {{device}} after power up.
+Here's the typical pattern of {{a-device}} after power up.
 
-{{{device-animation device "pattern"
+{{device-animation device "pattern"
   "off 1000ms"
   "on white 1000ms"
   "blink lime 8 times"
   "blink cyan 8 times"
   "breathe cyan 3 times"
   "off 1000ms"
-}}}
+}}
 
 {{!-- Use this block for the RSSI UX
 
-{{{device-animation device "pattern"
+{{device-animation device "pattern"
   "on rgba(0, 255, 0, 0.4) 1000ms"
   "on rgba(0, 255, 0, 1) 200ms"
   "on rgba(0, 255, 0, 0.4) 300ms"
@@ -36,7 +36,7 @@ Here's the typical pattern of a {{device}} after power up.
   "on rgba(0, 255, 0, 1) 200ms"
   "on rgba(0, 255, 0, 0.4) 300ms"
   "off 2000ms"
-}}}
+}}
 
 --}}
 
@@ -44,14 +44,14 @@ Here's the typical pattern of a {{device}} after power up.
 
 ### Connected
 
-{{{device-animation device "breathe" "cyan" }}}
+{{device-animation device "breathe" "cyan" }}
 
 When it is breathing cyan, your {{device}} is happily connected to the Internet. When it is in this mode, you can call functions and flash code.
 
 
 ### OTA Firmware Update
 
-{{{device-animation device "blink" "magenta" }}}
+{{device-animation device "blink" "magenta" }}
 
 If your {{device}} is blinking magenta, it is currently loading an app or updating its firmware. This state is triggered by a firmware update or by flashing code from the Web IDE or Desktop IDE. You might see this mode when you connect your {{device}} to the cloud for the first time.
 
@@ -59,7 +59,7 @@ Note that, if you enter this mode by holding `{{system-button}}` on boot, blinki
 
 ### Looking For Internet
 
-{{{device-animation device "blink" "lime" }}}
+{{device-animation device "blink" "lime" }}
 
 If your {{device}} is blinking green, it is trying to connect to the internet. If you already setup the {{network-type}} connection, give your device a few seconds to connect and start breathing cyan.
 
@@ -79,7 +79,7 @@ If you haven't connected your {{device}} to a cellular tower yet, please wait up
 
 ### Connecting to the Cloud
 
-{{{device-animation device "blink" "cyan" }}}
+{{device-animation device "blink" "cyan" }}
 
 When the {{device}} is in the process of connecting to the cloud, it will rapidly blink cyan. You often see this mode when you first connect your {{device}} to a network, after it has just blinked green.
 
@@ -88,7 +88,7 @@ When the {{device}} is in the process of connecting to the cloud, it will rapidl
 {{#if has-cellular}}### Cellular Off{{/if}}
 {{#if has-wifi}}### Wi-Fi Off{{/if}}
 
-{{{device-animation device "breathe" "white" }}}
+{{device-animation device "breathe" "white" }}
 
 If your {{device}} is breathing white, the {{#if electron}}cellular{{/if}}{{#if photon}}Wi-Fi{{/if}}{{#if core}}Wi-Fi{{/if}} module is off. You might see this mode if:
 
@@ -98,26 +98,26 @@ If your {{device}} is breathing white, the {{#if electron}}cellular{{/if}}{{#if 
 
 ### Listening Mode
 
-{{{device-animation device "blink" "blue" 300 300 }}}
+{{device-animation device "blink" "blue" 300 300 }}
 
 When your {{device}} is in Listening Mode, it is waiting for your input to connect to {{#if electron}}a cellular tower{{/if}}{{#if photon}}Wi-Fi{{/if}}{{#if core}}Wi-Fi{{/if}}. Your {{device}} needs to be in Listening Mode in order to begin connecting with the Mobile App or over USB.
 
 {{#if photon}}
-{{{vine "https://vine.co/v/eZUHUIjq7pO/embed/simple"}}}
+{{vine "https://vine.co/v/eZUHUIjq7pO/embed/simple"}}
 
 To put your {{device}} in Listening Mode, hold the `{{system-button}}` button for three seconds, until the RGB LED begins blinking blue.
 {{/if}}
 
 {{#if electron}}
 {{#if photon}}
-{{{vine "https://vine.co/v/eZUHUIjq7pO/embed/simple"}}}
+{{vine "https://vine.co/v/eZUHUIjq7pO/embed/simple"}}
 {{/if}}
 
 To put your {{device}} in Listening Mode, hold the `{{system-button}}` button for three seconds, until the RGB LED begins blinking blue.
 {{/if}}
 
 {{#if core}}
-{{{vine "https://vine.co/v/eZUgHYYrYgl/embed/simple"}}}
+{{vine "https://vine.co/v/eZUgHYYrYgl/embed/simple"}}
 
 To put your {{device}} in Listening Mode, hold the `{{system-button}}` button for three seconds, until the RGB LED begins blinking blue.
 {{/if}}
@@ -127,7 +127,7 @@ To put your {{device}} in Listening Mode, hold the `{{system-button}}` button fo
 
 ### Wi-Fi Network Reset
 
-{{{vine "https://vine.co/v/eZUwtJljYnK/embed/simple"}}}
+{{vine "https://vine.co/v/eZUwtJljYnK/embed/simple"}}
 
 To erase the stored Wi-Fi networks on your {{device}}, hold the `{{system-button}}` button for about ten seconds, until the RGB LED blinks blue rapidly.
 
@@ -139,7 +139,7 @@ You can also reset the Wi-Fi networks by holding the `{{system-button}}` button 
 
 ### Wi-Fi Network Reset
 
-{{{vine "https://vine.co/v/eZU6expA5bA/embed/simple"}}}
+{{vine "https://vine.co/v/eZU6expA5bA/embed/simple"}}
 
 To erase the stored Wi-Fi networks on your {{device}}, hold the `{{system-button}}` button for about ten seconds, until the RGB LED blinks blue rapidly.
 
@@ -149,7 +149,7 @@ To erase the stored Wi-Fi networks on your {{device}}, hold the `{{system-button
 
 ### Safe Mode
 
-{{{device-animation device "breathe" "magenta" }}}
+{{device-animation device "breathe" "magenta" }}
 
 Safe mode connects the {{device}} to the cloud, but does not run any application firmware. This mode is one of the most useful for development or for troubleshooting. If something goes wrong with the app you loaded onto your device, you can set your device to Safe Mode. This runs the device's system firmware but doesn't execute any application code, which can be useful if the application code contains bugs that stop the device from connecting to the cloud.
 
@@ -164,7 +164,7 @@ To put your device in Safe Mode:
 
 The device will itself automatically enter safe mode if there is no application code flashed to the device or when the application is not valid.
 
-{{{vine "https://vine.co/v/eZUF2ilvLxJ/embed/simple"}}}
+{{vine "https://vine.co/v/eZUF2ilvLxJ/embed/simple"}}
 
 {{/if}}
 
@@ -172,7 +172,7 @@ The device will itself automatically enter safe mode if there is no application 
 
 ### Safe Mode
 
-{{{device-animation device "breathe" "magenta" }}}
+{{device-animation device "breathe" "magenta" }}
 
 Safe mode connects the {{device}} to the cloud, but does not run any application firmware. This mode is one of the most useful for development or for troubleshooting. If something goes wrong with the app you loaded onto your device, you can set your device to Safe Mode. This runs the device's system firmware but doesn't execute any application code, which can be useful if the application code contains bugs that stop the device from connecting to the cloud.
 
@@ -192,7 +192,7 @@ The device will itself automatically enter safe mode if there is no application 
 
 ### DFU Mode (Device Firmware Upgrade)
 
-{{{device-animation device "blink" "yellow" }}}
+{{device-animation device "blink" "yellow" }}
 
 If you wish to program your {{device}} with a custom firmware via USB, you'll need to use this mode. This mode triggers the on-board bootloader that accepts firmware binary files via the [dfu-utility.](https://s3.amazonaws.com/spark-assets/dfu-util-0.8-binaries.tar.xz)
 (Note: Some users reported issues with dfu-util on a USB3.0 ports on Windows. Use a USB2.0 port if the USB3.0 port doesn't work.)
@@ -211,7 +211,7 @@ To enter DFU Mode:
 4. Release the `{{system-button}}` button
 
 {{#if photon}}
-{{{vine "https://vine.co/v/eZUHnhaUD9Y/embed/simple"}}}
+{{vine "https://vine.co/v/eZUHnhaUD9Y/embed/simple"}}
 {{/if}}
 
 {{/unless}}
@@ -223,7 +223,7 @@ To enter DFU Mode:
 3. Wait for the LED to start flashing yellow
 4. Release the `{{system-button}}` button
 
-{{{vine "https://vine.co/v/eZUgeu0r639/embed/simple"}}}
+{{vine "https://vine.co/v/eZUgeu0r639/embed/simple"}}
 
 {{/if}}
 
@@ -240,7 +240,7 @@ Firmware reset is not available on the {{device}}, but not to worry! If you are 
 {{#if electron}}
 _Since 0.6.0_
 
-{{{device-animation device "blink" "lime" }}}
+{{device-animation device "blink" "lime" }}
 
 The Electron can store a backup copy of any desired user firmware in flash memory at address 0x080A0000, separate from user flash memory which is located at 0x08080000.  This backup copy of firmware can be restored to user memory with a button sequence that is only available when the backup copy flash memory contains a valid firmware image.  To program your Electron with a backup copy of user firmware via USB, you'll need to put the Electron in [DFU Mode](/guide/getting-started/modes/#dfu-mode-device-firmware-upgrade-) and run this command: `particle flash --factory user-backup-firmware.bin`
 
@@ -272,7 +272,7 @@ You can reset Wi-Fi credentials by performing a [Wi-Fi Network Reset](#wi-fi-net
 
 {{#if core}}
 
-{{{vine "https://vine.co/v/eZU6XdrYbd5/embed/simple"}}}
+{{vine "https://vine.co/v/eZU6XdrYbd5/embed/simple"}}
 
 A factory reset restores the firmware on the {{device}} to the default Tinker app and clears all your Wi-Fi credentials.
 
@@ -300,7 +300,7 @@ These modes let you know about more atypical issues your {{device}} might be exh
 {{#if electron}}
 ### Cellular Module Not Connected
 
-{{{device-animation device "breathe" "blue" }}}
+{{device-animation device "breathe" "blue" }}
 
 If the Cellular module is on but not connected to a cellular tower, your {{device}} will breathe blue. Note that this will be dark blue and not cyan.
 {{/if}}
@@ -308,7 +308,7 @@ If the Cellular module is on but not connected to a cellular tower, your {{devic
 {{#if photon}}
 ### Wi-Fi Module Not Connected
 
-{{{device-animation device "breathe" "blue" }}}
+{{device-animation device "breathe" "blue" }}
 
 If the Wi-Fi module is on but not connected to a network, your {{device}} will breathe blue. Note that this will be dark blue and not cyan.
 {{/if}}
@@ -316,14 +316,14 @@ If the Wi-Fi module is on but not connected to a network, your {{device}} will b
 {{#if core}}
 ### Wi-Fi Module Not Connected
 
-{{{device-animation device "breathe" "blue" }}}
+{{device-animation device "breathe" "blue" }}
 
 If the Wi-Fi module is on but not connected to a network, your {{device}} will breathe blue. Note that this will be dark blue and not cyan.
 {{/if}}
 
 ### Cloud Not Connected
 
-{{{device-animation device "breathe" "lime" }}}
+{{device-animation device "breathe" "lime" }}
 
 When the {{device}} is connected to a {{#if electron}}cellular{{/if}}{{#if photon}}Wi-Fi{{/if}}{{#if core}}Wi-Fi{{/if}} network but not to the cloud, it will breathe green.
 
@@ -348,7 +348,7 @@ Blinking red indicates various errors.
 
 ### Red Flash SOS
 
-{{{device-animation device "sos" }}}
+{{device-animation device "sos" }}
 
 Is your {{device}} blinking red? Oh no!
 
@@ -384,11 +384,11 @@ The two most common ones are:
 
 **Hard Fault (1 blink between 2 SOS patterns)**
 
-{{{device-animation device "sos" 1 }}}
+{{device-animation device "sos" 1 }}
 
 **Out of heap memory (8 blinks between 2 SOS patterns)**
 
-{{{device-animation device "sos" 8 }}}
+{{device-animation device "sos" 8 }}
 
 If your {{device}} crashes repeatedly with an SOS code, first try recovering with [Safe Mode](/guide/getting-started/modes/#safe-mode) and flashing Tinker with the CLI to see if it was something recently added in your user application.
 

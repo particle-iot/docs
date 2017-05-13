@@ -1,3 +1,6 @@
+// Generates HTML headers with unique anchor IDs from a title
+// Usage:
+// {{permalink-header title}}
 var Handlebars = require('handlebars');
 
 module.exports = function (str) {

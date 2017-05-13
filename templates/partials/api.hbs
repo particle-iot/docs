@@ -20,7 +20,7 @@
 		{{/if}}
 
 		{{#each examples}}
-<pre class='api-code api-request-example' data-title='{{#startswith content title}}Example Request{{else}}{{title}}{{/startswith}}'><code class='prettyprint lang-{{this.type}}'>{{{this.content}}}</code></pre>
+<pre class='api-code api-request-example' data-title='{{#starts-with content title}}Example Request{{else}}{{title}}{{/starts-with}}'><code class='prettyprint lang-{{this.type}}'>{{{this.content}}}</code></pre>
 		{{/each}}
 
 		{{#each success.fields}}

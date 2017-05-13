@@ -88,11 +88,7 @@ Current hardware design repos include:
 
 ## Using GitHub
 
-During an episode of Particle Interactions, Christine and Will went over how to contribute to the repos. This video is below.
-
-<iframe width="560" height="315" src="https://www.youtube.com/embed/JnI2VjXEAiU?t=17m11s" frameborder="0" allowfullscreen></iframe>
-
-If you're already a GitHub expert, no need to watch. Otherwise, go [here](https://guides.github.com/introduction/flow/index.html) to get a sense of GitHub flow. We also suggest the [GitHub for Desktop](https://desktop.github.com/) application, which has a great built-in tutorial on forking, editing, merging, and creating a pull request.
+If you're new to GitHub expert, go [here](https://guides.github.com/introduction/flow/index.html) to get a sense of GitHub flow. We also suggest the [GitHub for Desktop](https://desktop.github.com/) application, which has a great built-in tutorial on forking, editing, merging, and creating a pull request.
 
 If you prefer the command line, here's an [extra fast tutorial](http://rogerdudler.github.io/git-guide/) on how to get started. Just make sure you [fork a repo to your GitHub account](https://help.github.com/articles/fork-a-repo/) before cloning your fork to edit on your local machine.
 
