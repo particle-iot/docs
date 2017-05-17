@@ -5368,7 +5368,7 @@ _Since 0.4.9_
 The Photon and Electron support communicating with CAN devices via the CAN bus.
 
 - The Photon and Electron have a CANbus on pins D1 (CAN2_TX) and D2 (CAN2_RX).
-- The Electron only, has a second CANbus on pins C4 (CAN1_TX) and C5 (CAN1_TX).
+- The Electron only, has a second CANbus on pins C4 (CAN1_TX) and C5 (CAN1_RX).
 
 **Note**: an additional CAN transceiver integrated circuit is needed to convert the logic-level voltages of the Photon or Electron to the voltage levels of the CAN bus.
 
