@@ -4303,7 +4303,7 @@ Initializes Keyboard library and enables USB HID stack.
 // Example
 STARTUP(Keyboard.begin());
 void setup() {
-  // At this point {{device}} is already connected to Host with Mouse enabled
+  // At this point {{device}} is already connected to Host with Keyboard enabled
 }
 ```
 
