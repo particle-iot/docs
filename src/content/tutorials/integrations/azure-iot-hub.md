@@ -336,13 +336,12 @@ interface (CLI).
 Install the IoT Hub explorer and run the following command:
 
 ```bash
-iothub-explorer monitor-events [particle-device-id] --login
-[IoT-Hub-connection-string]
+iothub-explorer monitor-events [particle-device-id] --login [IoT-Hub-connection-string]
 ```
-Note: [IoT-Hub-connection-string] might need to be wrapped in double quotes for the command to work properly. 
+
 Example:
 ```bash
-$ iothub-explorer monitor-events 2a003123456789012345678 --login "HostName=iothubfreeblahblah.azure-devices.net;SharedAccessKeyName=particle-iot-hub;SharedAccessKey=CNZ6PARTICLEwerISfasdfTHElkhaeBESTg/ked="
+iothub-explorer monitor-events 2a003123456789012345678 --login "HostName=iothubfreeblahblah.azure-devices.net;SharedAccessKeyName=particle-iot-hub;SharedAccessKey=CNZ6PARTICLEwerISfasdfTHElkhaeBESTg/ked="
 ```
 
 You can find your Hub's connection string in the Azure portal by
