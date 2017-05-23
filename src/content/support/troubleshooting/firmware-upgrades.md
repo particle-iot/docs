@@ -57,22 +57,21 @@ On Ubuntu Linux, type: ```sudo apt install dfu-util```
 -  Flash part2, unit should still be blinking yellow:
 
 `dfu-util -d 2b04:d006 -a 0 -s 0x8060000:leave -D system-part2-x.y.z-photon.bin`
-{{/if}}
+{{/if}} {{!-- photon --}}
 
 {{#if electron}}
 -  Flash part1:
 
-`dfu-util -d 2b04:d00a -a 0 -s 0x8020000 -D system-part1-x.y.z-electron.bin`
+`dfu-util -d 2b04:d00a -a 0 -s 0x8060000 -D system-part1-x.y.z-electron.bin`
 
 -  Flash part2, unit should still be blinking yellow:
 
-`dfu-util -d 2b04:d00a -a 0 -s 0x8060000 -D system-part2-x.y.z-electron.bin`
+`dfu-util -d 2b04:d00a -a 0 -s 0x8020000 -D system-part2-x.y.z-electron.bin`
 
 -  Flash part3, unit should still be blinking yellow:
 
-{{!-- TODO: Check that the DFU address is correct --}}
-`dfu-util -d 2b04:d00a -a 0 -s 0x8060000:leave -D system-part2-x.y.z-electron.bin`
-{{/if}}
+`dfu-util -d 2b04:d00a -a 0 -s 0x8040000:leave -D system-part3-x.y.z-electron.bin`
+{{/if}} {{!-- electron --}}
 
 -  Wait... Your device should eventually restart and start blinking blue, breathing cyan, or flashing green -- all dependent on if you've setup the device before.
 
