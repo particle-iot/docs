@@ -6,8 +6,6 @@ devices: [photon,electron,core,raspberry-pi]
 order: 1
 ---
 
-{{{debug}}}
-
 Particle Device Firmware
 ==========
 
