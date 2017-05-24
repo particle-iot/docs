@@ -261,7 +261,7 @@ Connecting your Pi is only the beginning. Check out the other topics in our `Get
 {{/if}}
 
 {{#if electron}}
-![](/assets/images/electronItemBox.png)
+![](/assets/images/electronItemBox.jpg)
 <p class="caption">Introducing the Electron.</p>
 {{/if}}
 
@@ -306,7 +306,7 @@ This is probably why you bought your device-- the Wi-Fi module allows your {{dev
 
 {{#if photon}}{{popup '**The Microcontroller.**' 'img' 'photon-module.jpg'}}{{/if}}
 {{#if core}}{{popup '**The Microcontroller.**' 'img' 'core-stm32.jpg'}}{{/if}}
-{{#if electron}}{{popup '**The Microcontroller.**' 'img' 'electronMCU.png'}}{{/if}}
+{{#if electron}}{{popup '**The Microcontroller.**' 'img' 'electronMCU.jpg'}}{{/if}}
 The microcontroller is the brain of your device. It runs your software and tells your prototype what to do. Unlike your computer, it can only run one application (often called *firmware* or an *embedded application*). This application can be simple (just a few lines of code), or very complex, depending on what you want to do. The microcontroller interacts with the outside world using pins.
 
 

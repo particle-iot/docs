@@ -143,7 +143,7 @@ In order to help you monitor your data usage, we’ll present you with a confirm
 ## Everything Else
 ### New Documentation
 
-![](/assets/images/electronItemBox.png)
+![](/assets/images/electronItemBox.jpg)
 <p class="caption">The Electron comes loaded with awesome tools to help you build your first project.</p>
 
 Because the Electron is so different from the Photon and Core, we’ve built out a bunch of new example code and technical documentation for beginners, product creators, and everyone in between. Here are some of the highlights:
