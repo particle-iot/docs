@@ -9849,7 +9849,34 @@ Returns a user-defined value that has been previously specified for the `System.
 
 This overloaded method accepts an arbitrary 32-bit value, stores it to the backup register and resets the device. The value can be retrieved via `resetReasonData()` method after the device has restarted.
 
-### System Flags
+### System Config [ set ]
+
+System configuration can be modified with the `System.set()` call.
+
+```cpp
+// SYNTAX
+System.set(SYSTEM_CONFIG_..., "value");
+System.set(SYSTEM_CONFIG_..., buffer, length);
+
+{{#if has-wifi}}
+// EXAMPLE
+// Change the SSID prefix in listening mode
+System.set(SYSTEM_CONFIG_SOFTAP_PREFIX, "Gizmo");
+
+// Change the SSID suffix in listening mode
+System.set(SYSTEM_CONFIG_SOFTAP_SUFFIX, "ABC");
+{{/if}} {{!-- has-wifi --}}
+```
+
+The following configuration values can be changed:
+- `SYSTEM_CONFIG_DEVICE_KEY`: the device private key. Max length of `DCT_DEVICE_PRIVATE_KEY_SIZE` (1216).
+- `SYSTEM_CONFIG_SERVER_KEY`: the server public key. Max length of `SYSTEM_CONFIG_SERVER_KEY` (768).
+{{#if has-wifi}}
+- `SYSTEM_CONFIG_SOFTAP_PREFIX`: the prefix of the SSID broadcast in listening mode. Defaults to Photon. Max length of `DCT_SSID_PREFIX_SIZE-1` (25).
+- `SYSTEM_CONFIG_SOFTAP_SUFFIX`: the suffix of the SSID broadcast in listening mode. Defaults to a random 4 character alphanumerical string. Max length of `DCT_DEVICE_ID_SIZE` (6).
+{{/if}} {{!-- has-wifi --}}
+
+### System Flags [ disable ]
 
 The system allows to alter certain aspects of its default behavior via the system flags. The following system flags are defined:
 
