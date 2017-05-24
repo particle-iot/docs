@@ -522,11 +522,11 @@ Electrons are available from [store.particle.io](https://store.particle.io/) in 
 
 There are three connectors on the Electron that will get damaged with improper usage. The JST connector on the circuit board, where you plug in the LiPo battery, is very durable but the connector on the battery itself is not. When unplugging the battery, take extra precaution to **NOT** pull the connector using the wires, but instead hold the plug at its base to avoid putting stress on the wires. This can be tricky with bare hands - nose pliers are your friend here.
 
-![Unplugging LiPo connector](/assets/images/electron/illustrations/electron-lipo-conn.png)
+![Unplugging LiPo connector](/assets/images/electron/illustrations/electron-lipo-conn.jpg)
 
 The micro B USB connector on the electron is soldered on the PCB with large surface pads as well as couple of through hole anchor points. Despite this reinforcement, it is very easy to rip out the connector if too much stress is put on in the vertical direction.
 
-![Unplugging USB connector](/assets/images/electron/illustrations/usb-conn-unplug.png)
+![Unplugging USB connector](/assets/images/electron/illustrations/usb-conn-unplug.jpg)
 
 The u.FL antenna connector is a very fragile piece of hardware ( and is fancy too with all the gold plating). The connector was not designed to be constantly plugged and unplugged. Care must be taken not to put stress on it at any time (yes, swinging the Electron by the antenna is a very bad idea, this is not your cat). The antenna pin is also the most static sensitive and you can destroy the radio with improper handling. If you are feeling adventurous, we highly recommend putting a tiny dab of glue (epoxy, rubber cement, liquid tape or hot glue) on the connector to securely hold the plug in place.
 
