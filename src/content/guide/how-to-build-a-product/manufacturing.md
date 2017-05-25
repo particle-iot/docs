@@ -84,7 +84,7 @@ These are all useful functions during manufacturing, so we highly encourage expo
 
 **3. Wi-Fi Connectivity.** If you're building a product with Particle hardware inside, you're device probably connects to the Internet. It's important to make sure that the Wi-Fi module on your PCB is working correctly and that your antenna and RF system is functional. There are several different approaches you can take to testing your device's wireless capabilities:
 
-- *Connecting to the Particle Cloud*.  The most foolproof test is to configure your device to connect to the Particle Cloud on the manufacturing line. This requires that you have a wired Internet connection and router on the to which the device can connect. Depending on the contract manufacturer that you are working with, a live Internet connection may or may not be available on the line. This will require that you clear the device credentials on your product after the test.
+- *Connecting to the Particle Cloud*.  The most foolproof test is to configure your device to connect to the Particle Cloud on the manufacturing line. This requires that you have a wired Internet connection and router to which the device can connect. Depending on the contract manufacturer that you are working with, a live Internet connection may or may not be available on the line. This will require that you clear the device credentials on your product after the test.
 
 - *Connecting to a Local Network*. If Wi-Fi isn't available on the manufacturing line, electricity probably still is. Power up a router with a known SSID and password and configure your Photon to connect to it. If your product can request and receive an IP address, you can be confident that your radio and antenna configuration are functionally operational.
 
