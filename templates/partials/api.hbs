@@ -7,6 +7,18 @@
 		{{{description}}}
 
 
+        {{#if header.fields}}
+			<ul class='api-attributes api-header' data-title='Request Headers'>
+				{{#each header.fields.Header}}
+					<li>
+						<div class='api-field'>{{field}}{{#unless optional}}<span class='field-required'>REQUIRED</span>{{/unless}}
+						<small>{{#if allowedValues}}{{join allowedValues ','}}{{else}}{{type}}{{/if}}</small></div>
+						<div class='field-desc'>{{#if description}}{{{description}}}{{else}}&mdash;{{/if}}</div>
+					</li>
+				{{/each}}
+			</ul>
+        {{/if}}
+
 		{{#if parameter.fields}}
 			<ul class='api-attributes api-request' data-title='Request Arguments'>
 				{{#each parameter.fields.Parameter}}
