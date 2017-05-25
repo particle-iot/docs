@@ -168,7 +168,7 @@ Type the letter i (lowercase i, as in identify) in the box at the top of the win
 
 If your Android phone supports USB OTG ("on the go") and you have an OTG adapter cable, you may be able to get your device ID that way. One caveat is that your phone probably won't power up a Photon, so this will probably only work if you have an external power source, like an Electron with a battery.
 
-![OTG connection](/assets/images/finding-device-id-android_serial2.png)
+![OTG connection](/assets/images/finding-device-id-android_serial2.jpg)
 
 Install the Android USB Serial Monitor Lite application from the Google Play store. 
 

@@ -289,7 +289,7 @@ Let's quickly go over what you see.
 ### What's all here?
 {{/if}}
 
-{{#if has-cellular}}{{popup '**The Cellular Module.**' 'img' 'electronUblox.png'}}
+{{#if has-cellular}}{{popup '**The Cellular Module.**' 'img' 'electronUblox.jpg'}}
 This is probably why you bought your device-- the cellular module allows your Electron to communicate with the internet in over 120 countries!
 The cellular module is also accompanied with a Particle SIM card.
 
