@@ -211,6 +211,8 @@ The devices available are:
 - photon (alias is 'p')
 - core (alias is 'c')
 - electron (alias is 'e')
+- p1
+- raspberry-pi (alias is 'pi')
 - duo (alias is 'd')
 - oak (alias is 'o')
 - bluz (alias is 'b')
