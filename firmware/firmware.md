@@ -9582,7 +9582,7 @@ System.sleep(wakeUpPin, edgeTriggerMode, seconds);
 // Keep {{network-type}} running.
 // Pause microcontroller.
 // Application resumes on pin trigger or after seconds.
-System.sleep(wakeUpPin, edgeTriggerMode, SLEEP_NETWORK_STANDBY, seconds);
+System.sleep(wakeUpPin, edgeTriggerMode, seconds, SLEEP_NETWORK_STANDBY);
 {{/if}}
 ```
 
@@ -9685,7 +9685,7 @@ The Electron maintains the cellular connection for the duration of the sleep whe
 // SYNTAX
 System.sleep(uint16_t wakeUpPin, uint16_t edgeTriggerMode, long seconds);
 {{#if has-cellular}}
-System.sleep(uint16_t wakeUpPin, uint16_t edgeTriggerMode, SLEEP_NETWORK_STANDBY, long seconds);
+System.sleep(uint16_t wakeUpPin, uint16_t edgeTriggerMode, long seconds, SLEEP_NETWORK_STANDBY);
 {{/if}}
 
 // EXAMPLE USAGE
