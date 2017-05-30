@@ -9582,7 +9582,7 @@ System.sleep(wakeUpPin, edgeTriggerMode, seconds);
 // Keep {{network-type}} running.
 // Pause microcontroller.
 // Application resumes on pin trigger or after seconds.
-System.sleep(wakeUpPin, edgeTriggerMode, SLEEP_NETWORK_STANDBY, seconds);
+System.sleep(wakeUpPin, edgeTriggerMode, seconds, SLEEP_NETWORK_STANDBY);
 {{/if}}
 ```
 
