@@ -27,10 +27,56 @@ questions or feedback.
 
 ## Creating Device Groups
 
+A group is scoped to a Particle product, and can be applied to any number of devices in the
+fleet. A group can be created using the
+<a href="https://console.particle.io"
+target="_blank">Particle Console</a>. Visit your product's devices view
+(<i class="im-devices-icon"></i>) and click the "New Group" button. The
+_New Device Group_ modal will appear:
+
+![New group modal](/assets/images/device-groups/new-device-group.png)
+
+Give your group a unique name that allows you to quickly identify its
+purpose. You can optionally provide a description and a thumbnail color.
+Some examples of groups you may wish to create:
+
+- **Prerelease Group**: Target this subset of devices to receive
+"bleeding-edge" firmwares for early testing. This can help you get user
+feedback and/or identify potential firmware bugs before releasing to the rest of the fleet.
+- **Group by Geographic Region**: Devices that are deployed in various
+parts of the world may need to be addressed differently. Segment device
+behavior, or run different versions of firmware.
+- **Group by Permissions**: You may have distributors, service partners,
+or customers that need access to certain device groups.
+
+_Quick tip_: If you prefer, you can also [call the Particle API](!insert
+group link) directly to create a product device group.
+
 ## Tagging Devices to Groups
 
-## Using Device Groups
+Now that you have created your groups, you'll need to associate devices
+in the fleet with those groups. A device can belong to multiple
+groups at once, as you will likely need to segment your fleet
+along many different axes.
 
-### Firmware Release by Group
+To assign a single device to a group, click on it from your product's
+devices view (<i class="im-devices-icon"></i>). Then, click the "+ Add
+groups" button as shown in the device header:
+
+![Tag device to group](/assets/images/device-groups/tag-device-to-group.png)
+
+Apply groups to the device, and click "Done" to save. You can tag
+devices with existing groups, or create a new group and apply it to the
+device. You can also batch-assign devices to groups. To do this, select the
+devices you want to tag from the product device view, and select "Edit
+groups" from the dropdown that appears.
+
+_Quick tip_: If you prefer, you can also [call the Particle API](!insert
+group link) directly to tag a device to a group.
+
+_Quick tip_: After tagging devices with groups, you can use the Console
+or the [Particle API](!insert link) to filter product devices by group.
+
+## Firmware Release by Group
 
 
