@@ -33,9 +33,7 @@ For domestic orders we use both UPS and USPS. A brief description of the differe
 - USPS Priority Mail - Usually delivered in 3 days
 - UPS Ground - Usually ships in 1-5 Business Days, depending on the distance from California
 - UPS Three-Day Select - Usually delivered in 3 business days if placed before 12pm PST
-- UPS Second Day Air - Usually delivered in 2 business days if placed before 12pm PST
-
-Did you know orders over $200 ship for free? Well they do! You’ll see a free First Class shipping option when your basket size is over $200. 
+- UPS Second Day Air - Usually delivered in 2 business days if placed before 12pm PST 
 
 #### PO Boxes
 
