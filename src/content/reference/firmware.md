@@ -7612,7 +7612,7 @@ Retrieve the current time as seconds since January 1, 1970 (commonly known as "U
 Serial.print(Time.now()); // 1400647897
 ```
 
-Returns: Integer
+Returns: Unsigned Integer
 
 ### local()
 
