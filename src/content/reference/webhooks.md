@@ -643,6 +643,8 @@ Note: This means you must have at least one device registered to your account to
 
 ### Error Limits
 
+The server receiving a webhook must responds within 5 seconds.
+
 **A webhook will sleep if the server responds with errors 10 times in a row.**
 
 Any webhook that results in an error code from the server (above a 400), 10 consecutive times in a row will be automatically disabled for a short period of time to allow the server to avoid hammering the server.
