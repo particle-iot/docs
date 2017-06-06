@@ -144,7 +144,7 @@ AND
   - (10) Ceramic Capacitors 100nF
   - (5) Electrolytic Capacitors 100uF
 - LEDs and Diodes
-  - (5) Basic LED - Red
+  - (5) Basic LED - White
   - (5) Basic LED - Green
   - (1) RGB LED
   - (6) Diode
