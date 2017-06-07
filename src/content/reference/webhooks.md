@@ -643,7 +643,7 @@ Note: This means you must have at least one device registered to your account to
 
 ### Error Limits
 
-The server receiving a webhook must responds within 5 seconds.
+The server receiving a webhook must respond within 5 seconds.
 
 **A webhook will sleep if the server responds with errors 10 times in a row.**
 
