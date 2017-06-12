@@ -8454,8 +8454,9 @@ from the cloud, and setting the seed is left to up you.
 
 EEPROM emulation allocates a region of the device's built-in Flash memory to act as EEPROM.
 Unlike "true" EEPROM, flash doesn't suffer from write "wear" with each write to
-each individual address. Instead, the page suffers wear when it is filled. Each write
-will add more data to the page until it is full, causing a page erase.
+each individual address. Instead, the page suffers wear when it is filled.
+
+Each write containing changed values will add more data to the page until it is full, causing a page erase.  When writing unchanged data, there is no flash wear, but there is a penalty in CPU cycles. Try not write to EEPROM every loop() iteration to avoid unnecessary CPU cycle penalties.  Backup RAM may be a better storage solution for quickly changing values.  (see [Backup RAM (SRAM)](#backup-ram-sram-))
 
 The EEPROM functions can be used to store small amounts of data in Flash that
 will persist even after the device resets after a deep sleep or is powered off.
@@ -8604,6 +8605,9 @@ EEPROM.write(addr, val);
 
 When writing more than 1 byte, prefer `put()` over multiple `write()` since it's faster and it ensures
 consistent data even when power is lost while writing.
+
+The object data is first compared to the data written in the EEPROM to avoid writing values that
+haven't changed.
 
 ### clear()
 Erase all the EEPROM so that all reads will return 255 (hexadecimal 0xFF).
