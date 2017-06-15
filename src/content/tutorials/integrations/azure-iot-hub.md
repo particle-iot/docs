@@ -410,7 +410,12 @@ deviceId: <device-id>
 
 ## Example Use Cases
 
-*We are in need of example use cases for this integration. Please help us
-improve this tutorial by <a href="{{edit-link branch path.href path.name}}"
-target="_blank">contributing to this page</a>. We will shower you with
-kudos and smiley emojis!*
+After you have connected your device to IoT Hub, you can explore additional IoT scenarios that use other Azure tools and services. Below are 7 different example use cases, taken from <a href="https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-get-started">Azure IoT hub documentation</a>:
+
+- **Using iothub-explorer tool**: <a href="https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-explorer-cloud-device-messaging?WT.mc_id=7061727469636c65">Use iothub-explorer to send and receive messages between your device and IoT Hub</a>
+- **Using Azure table storage**: <a href="https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-store-data-in-azure-table-storage?WT.mc_id=7061727469636c65">Save IoT Hub messages that contain information like sensor data to Azure table storage</a></li>
+- **Using Microsoft Power BI and Azure Web Apps**: <a href="https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-live-data-visualization-in-power-bi?WT.mc_id=7061727469636c65">Visualize real-time sensor data from Azure IoT Hub using Power BI</a>
+- **Using Azure Web Apps**: <a href="https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-live-data-visualization-in-web-apps?WT.mc_id=7061727469636c65">Visualize real-time sensor data from Azure IoT Hub using Azure Web Apps</a>
+- **Using Azure Machine Learning**: <a href="https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-weather-forecast-machine-learning?WT.mc_id=7061727469636c65">Weather forecast using the sensor data from your IoT hub in Azure Machine Learning</a>
+- **Using iothub-explorer tool**: <a href="https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-device-management-iothub-explorer?WT.mc_id=7061727469636c65">Use iothub-explorer for Azure IoT Hub device management</a>
+- **Using Azure Logic Apps**: <a href="https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-monitoring-notifications-with-azure-logic-apps?WT.mc_id=7061727469636c65">IoT remote monitoring and notifications with Azure Logic Apps connecting your IoT hub and mailbox</a>
