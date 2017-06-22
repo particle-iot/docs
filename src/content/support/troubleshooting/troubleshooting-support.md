@@ -18,7 +18,7 @@ During initial setup of a device these are the usual LED specifications:
 {{#if has-cellular}}- **Flashing blue:** Listening mode.{{/if}}
 {{#if core}}- **Solid blue:** Smart Config, received Wi-Fi credentials{{/if}}
 - **Flashing green:** Connecting to {{network-type}} network
-- **Flashing cyan:** Connecting to Particle Cloud
+- **Flashing cyan:** Connecting to Particle Cloud. Connected to the network, but not necessarily the internet yet.
 - **High-speed flashing cyan:** Particle Cloud handshake
 - **Breathing cyan:** Connected to Particle Cloud
 - **Flashing magenta:** Receiving new firmware update over-the-air (OTA)
