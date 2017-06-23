@@ -1433,6 +1433,49 @@ A note on switching between static and dynamic IP. If static IP addresses have b
 by the system after calling `WiFi.useDynamicIP()`, and so are available for use next time `WiFi.useStaticIP()`
 is called, without needing to be reconfigured using `WiFi.setStaticIP()`
 
+### setHostname()
+
+_Since 0.7.0_
+
+Sets a custom hostname to be used as DHCP client name (DHCP option 12).
+
+Parameters:
+
+- `hostname`: the hostname to set (string)
+
+```cpp
+// SYNTAX
+
+WiFi.setHostname("photon-123");
+```
+
+By default the {{device}} uses its [device ID](#deviceid-) as hostname.
+
+The hostname is stored in persistent memory. In order to reset the hostname to its default value (device ID) `setHostname()` needs to be called with `hostname` argument set to `NULL`.
+
+```cpp
+// Reset hostname to default value (device ID)
+WiFi.setHostname(NULL);
+// Both these functions should return the same value.
+Serial.println(WiFi.getHostname());
+Serial.println(System.deviceID());
+```
+
+### hostname()
+
+_Since 0.7.0_
+
+Retrieves device hostname used as DHCP client name (DHCP option 12).
+
+This function does not take any arguments and returns a `String`.
+
+```cpp
+// SYNTAX
+String hostname = WiFi.hostname();
+```
+
+By default the {{device}} uses its [device ID](#deviceid-) as hostname. See [WiFi.setHostname()](#sethostname-) for documentation on changing the hostname.
+
 {{/if}} {{!-- photon --}}
 
 {{/if}} {{!-- has-wifi --}}
