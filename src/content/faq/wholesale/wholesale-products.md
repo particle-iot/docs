@@ -63,6 +63,27 @@ P1MOD10 | 10 units
 P1REEL | 500 units
 PHNTRAYH | 50 units
 PHNTRAYNOH | 50 units
+SIMBLANK50 | 50 Units
+
+## HS Codes (Harmonized System) and ECCN (Export Control Classification Number)
+
+For MOQ items over a certain dollar value, custom offices require the items to be declared. Please see the table below for the HS Codes and ECCN's for custom declaration. 
+
+SKU | HS Code (US) | HS Code (China) | ECCN
+------------ | ------------- | ------------- | -------------
+ANTELEC50 |	8529.10.9090	| 8529.10.9090	| EAR99
+BATTMOD50	| 8507.60.0020	| 8507.60.0090	| EAR99
+E260TRAY50	| 8517.62.0050	| 8517.62.99	| 5A992.c
+E270TRAY50	| 8517.62.0050	| 8517.62.99	| 5A992.c
+E350TRAY50	| 8517.62.0050	| 8517.62.99	| 5A992.c
+P0MOD10	| 8517.70.9000	| 8517.70.9000	| 5A992.c
+P0REEL	| 8517.70.9000	| 8517.70.9000	| 5A992.c
+P1MOD10	| 8517.70.9000	| 8517.70.9000	| 5A992.c
+P1REEL	| 8517.70.9000	| 8517.70.9000	| 5A992.c
+PHNTRAYH	| 8517.70.9000	| 8517.70.9000	| 5A992.c
+PHNTRAYNOH	| 8517.70.9000	| 8517.70.9000	| 5A992.c
+SIMBLANK50	| 8523.52.90	| 8523.52.9000	| EAR99
+
 
 ## Refunds, cancellations or delays
 
