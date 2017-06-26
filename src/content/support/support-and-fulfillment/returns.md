@@ -12,7 +12,7 @@ Wow. Never thought we’d see you here. This is awkward. Well, since you’re al
 
 ### 60-Day Unopened Return Policy
 
-If you are not 100% satisfied with your order, we will be happy to arrange a return for any unused items purchased within 60 days. Simply visit support.particle.io with your order number, email address you used to place the order, and a brief description of why you’d like this return.
+If you are not 100% satisfied with your order, we will be happy to arrange a return for any unused items purchased within 60 days. Simply visit our [support portal](https://support.particle.io/) with your order number, email address you used to place the order, and a brief description of why you’d like this return.
 
 ### Opened Product Return Policy
 
@@ -23,6 +23,12 @@ If we determine that something is wrong with your product due to a manufacturing
 ### Damaged in Shipment
 
 Please visit our [support portal](https://support.particle.io) and let us know what happened. Include your order number, the product with a brief description of the damage and a picture (if possible). This information helps us assess our packaging so we can prevent similar problems in the future. We’ll get replacements for the damaged goods to you as quickly as possible.
+
+### Orders placed through a distributor
+
+If you placed your original order through one of our [distributors](https://www.particle.io/partnerships/distributors), please see their website for applicable return/replacement/refund policy. For potentially defective units, we can offer advice, troubleshoot or diagnose any issue that might have come up. First, look for troubleshooting tips and assistance on your issue on our [documentation page](https://docs.particle.io/support/troubleshooting/common-issues). If you don’t find it there, our amazing [community](https://community.particle.io/) can most likely help you out. If you still are having trouble, visit us at our [support portal](https://support.particle.io/).
+
+If we determine that something is wrong with your product due to a manufacturing defect or error, we will be happy to replace your item(s) as needed. Please visit our [support portal](https://support.particle.io/) and let us know the product you’re having issues with along with a detailed description of the problems you’re seeing. Be sure to let us know which distributor you ordered your item(s) from as well. For physically broken products, please include pictures, they are worth a thousand words.
 
 ### General Returns Guidelines
 
