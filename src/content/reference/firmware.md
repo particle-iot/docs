@@ -1022,35 +1022,112 @@ Allows the application to set credentials for the Wi-Fi network from within the 
 
 Your device can remember more than one set of credentials:
 - Core: remembers the 7 most recently set credentials
-- Photon: remembers the 5 most recently set credentials
+- Photon: remembers the 5 most recently set credentials.
+
+_Since 0.7.0_: Photon can store one set of WPA Enterprise credentials.
 
 ```cpp
 // Connects to an unsecured network.
-WiFi.setCredentials(SSID);
+WiFi.setCredentials(ssid);
 WiFi.setCredentials("My_Router_Is_Big");
 
 // Connects to a network secured with WPA2 credentials.
-WiFi.setCredentials(SSID, PASSWORD);
+WiFi.setCredentials(ssid, password);
 WiFi.setCredentials("My_Router", "mypasswordishuge");
 
 // Connects to a network with a specified authentication procedure.
 // Options are WPA2, WPA, or WEP.
-WiFi.setCredentials(SSID, PASSWORD, AUTH);
+WiFi.setCredentials(ssid, password, auth);
 WiFi.setCredentials("My_Router", "wepistheworst", WEP);
-
 ```
 
 {{#if photon}}
-When the Photon used with hidden or offline networks, the security cipher is also required.
+When the Photon is used with hidden or offline networks, the security cipher is also required.
 
 ```cpp
 
 // for hidden and offline networks on the Photon, the security cipher is also needed
 // Cipher options are WLAN_CIPHER_AES, WLAN_CIPHER_TKIP and WLAN_CIPHER_AES_TKIP
-WiFi.setCredentials("SSID", "PASSWORD", WPA2, WLAN_CIPHER_AES));
+WiFi.setCredentials(ssid, password, auth, cipher);
+WiFi.setCredentials("SSID", "PASSWORD", WPA2, WLAN_CIPHER_AES);
 ```
 
 {{/if}} {{!-- photon --}}
+
+```c++
+// Connects to a network with an authentication procedure specified by WiFiCredentials object
+WiFi.setCredentials(credentials);
+WiFiCredentials credentials;
+credentials.setSsid("My_Router")
+           .setSecurity(WEP)
+           .setPassword("wepistheworst");
+WiFi.setCredentials(credentials);
+```
+
+_Since 0.7.0_: Credentials can be set using [WiFiCredentials class](#wificredentials-class).
+
+{{#if has-wpa-enterprise}}
+```cpp
+// WPA2 Enterprise with EAP-TLS
+
+// We are setting WPA2 Enterprise credentials
+WiFiCredentials credentials("My_Enterprise_AP", WPA2_ENTERPRISE);
+// EAP type: EAP-TLS
+credentials.setEapType(WLAN_EAP_TYPE_TLS);
+// Client certificate in PEM format
+credentials.setClientCertificate("-----BEGIN CERTIFICATE-----\r\n" \
+                                 /* ... */ \
+                                 "-----END CERTIFICATE-----\r\n\r\n"
+                                );
+// Private key in PEM format
+credentials.setPrivateKey("-----BEGIN RSA PRIVATE KEY-----\r\n" \
+                          /* ... */ \
+                          "-----END RSA PRIVATE KEY-----\r\n\r\n"
+                         );
+// Root (CA) certificate in PEM format (optional)
+credentials.setRootCertificate("-----BEGIN CERTIFICATE-----\r\n" \
+                               /* ... */ \
+                               "-----END CERTIFICATE-----\r\n\r\n"
+                              );
+// EAP outer identity (optional, default - "anonymous")
+credentials.setOuterIdentity("anonymous");
+// Save credentials
+WiFi.setCredentials(credentials);
+```
+
+```cpp
+// WPA Enterprise with PEAP/MSCHAPv2
+
+// We are setting WPA Enterprise credentials
+WiFiCredentials credentials("My_Enterprise_AP", WPA_ENTERPRISE);
+// EAP type: PEAP/MSCHAPv2
+credentials.setEapType(WLAN_EAP_TYPE_PEAP);
+// Set username
+credentials.setIdentity("username");
+// Set password
+credentials.setPassword("password");
+// Set outer identity (optional, default - "anonymous")
+credentials.setOuterIdentity("anonymous");
+// Root (CA) certificate in PEM format (optional)
+credentials.setRootCertificate("-----BEGIN CERTIFICATE-----\r\n" \
+                               /* ... */ \
+                               "-----END CERTIFICATE-----\r\n\r\n"
+                              );
+// Save credentials
+WiFi.setCredentials(credentials);
+```
+{{/if}}
+
+Parameters:
+- `ssid`: SSID (string)
+- `password`: password (string)
+- `auth`: see [SecurityType](#securitytype-enum) enum.
+- `cipher`: see [WLanSecurityCipher](#wlansecuritycipher-enum) enum.
+- `credentials`: an instance of [WiFiCredentials class](#wificredentials-class).
+
+This function returns `true` if credentials were successfully saved, or `false` in case of an error.
+
+**Note:** Setting WPA/WPA2 Enterprise credentials requires use of [WiFiCredentials class](#wificredentials-class).
 
 **Note:** In order for `WiFi.setCredentials()` to work, the Wi-Fi module needs to be on (if switched off or disabled via non_AUTOMATIC SYSTEM_MODEs call `WiFi.on()`).
 
@@ -1075,10 +1152,10 @@ int found = WiFi.getCredentials(ap, 5);
 for (int i = 0; i < found; i++) {
     Serial.print("ssid: ");
     Serial.println(ap[i].ssid);
-    // security is one of WLAN_SEC_UNSEC, WLAN_SEC_WEP, WLAN_SEC_WPA, WLAN_SEC_WPA2
+    // security is one of WLAN_SEC_UNSEC, WLAN_SEC_WEP, WLAN_SEC_WPA, WLAN_SEC_WPA2, WLAN_SEC_WPA_ENTERPRISE, WLAN_SEC_WPA2_ENTERPRISE
     Serial.print("security: ");
     Serial.println(ap[i].security);
-    // cipher is one of WLAN_CIPHER_AES, WLAN_CIPHER_TKIP
+    // cipher is one of WLAN_CIPHER_AES, WLAN_CIPHER_TKIP or WLAN_CIPHER_AES_TKIP
     Serial.print("cipher: ");
     Serial.println(ap[i].cipher);
 }
@@ -1434,6 +1511,304 @@ by the system after calling `WiFi.useDynamicIP()`, and so are available for use 
 is called, without needing to be reconfigured using `WiFi.setStaticIP()`
 
 {{/if}} {{!-- photon --}}
+
+### WiFiCredentials class
+This class allows to define WiFi credentials that can be passed to [WiFi.setCredentials()](#setcredentials-) function.
+
+```c++
+// EXAMPLE - defining and using WiFiCredentials class
+
+void setup() {
+    // Ensure that WiFi module is on
+    WiFi.on();
+    // Set up WPA2 access point "My AP" with password "mypassword" and AES cipher
+    WiFiCredentials credentials("My AP", WPA2);
+    credentials.setPassword("mypassword")
+               .setCipher(WLAN_CIPHER_AES);
+    // Connect if settings were successfully saved
+    if (WiFi.setCredentials(credentials)) {
+        WiFi.connect();
+        waitFor(WiFi.ready, 30000);
+        Particle.connect();
+        waitFor(Particle.connected, 30000);
+    }
+}
+
+void loop() {
+}
+```
+
+#### WiFiCredentials()
+Constructs an instance of the WiFiCredentials class. By default security type is initialized to unsecured (`UNSEC`).
+
+```c++
+// SYNTAX
+WiFiCredentials credentials(SecurityType security = UNSEC); // 1
+WiFiCredentials credentials(const char* ssid, SecurityType security = UNSEC); // 2
+```
+
+```c++
+// EXAMPLE - constructing WiFiCredentials instance
+// Empty instance, security is set to UNSEC
+WiFiCredentials credentials;
+// No SSID, security is set to WPA2
+WiFiCredentials credentials(WPA2);
+// SSID set to "My AP", security is set to UNSEC
+WiFiCredentials credentials("My AP");
+// SSID set to "My WPA AP", security is set to WPA
+WiFiCredentials credentials("My AP", WPA);
+```
+
+Parameters:
+- `ssid`: SSID (string)
+- `security`: see [SecurityType](#securitytype-enum) enum.
+
+#### setSsid()
+Sets access point SSID.
+
+```c++
+// SYNTAX
+WiFiCredentials& WiFiCredentials::setSsid(const char* ssid);
+```
+
+```c++
+// EXAMPLE - setting ssid
+WiFiCredentials credentials;
+credentials.setSsid("My AP");
+```
+
+Parameters:
+- `ssid`: SSID (string)
+
+#### setSecurity()
+Sets access point security type.
+
+```c++
+// SYNTAX
+WiFiCredentials& WiFiCredentials::setSecurity(SecurityType security);
+```
+
+```c++
+// EXAMPLE - setting security type
+WiFiCredentials credentials;
+credentials.setSecurity(WPA2);
+```
+
+Parameters:
+- `security`: see [SecurityType](#securitytype-enum) enum.
+
+#### setCipher()
+Sets access point cipher.
+
+```c++
+// SYNTAX
+WiFiCredentials& WiFiCredentials::setCipher(WLanSecurityCipher cipher);
+```
+
+```c++
+// EXAMPLE - setting cipher
+WiFiCredentials credentials;
+credentials.setCipher(WLAN_CIPHER_AES);
+```
+
+Parameters:
+- `cipher`: see [WLanSecurityCipher](#wlansecuritycipher-enum) enum.
+
+#### setPassword()
+Sets access point password.
+
+{{#if has-wpa-enterprise}}
+When configuring credentials for WPA/WPA2 Enterprise access point with PEAP/MSCHAPv2 authentication, this function sets password for username set by [setIdentity()](#setidentity-).
+{{/if}} {{!-- has-wpa-enterprise --}}
+
+```c++
+// SYNTAX
+WiFiCredentials& WiFiCredentials::setPassword(const char* password);
+```
+
+```c++
+// EXAMPLE - setting password
+WiFiCredentials credentials("My AP", WPA2);
+credentials.setPassword("mypassword");
+```
+
+Parameters:
+{{#if has-wpa-enterprise}}
+- `password`: WEP/WPA/WPA2 access point password, or user password for PEAP/MSCHAPv2 authentication (string)
+{{else}}
+- `password`: WEP/WPA/WPA2 access point password (string)
+{{/if}} {{!-- has-wpa-enterprise --}}
+
+#### setChannel()
+Sets access point channel.
+
+```c++
+// SYNYAX
+WiFiCredentials& WiFiCredentials::setChannel(int channel);
+```
+
+```c++
+// EXAMPLE - setting channel
+WiFiCredentials credentials("My AP");
+credentials.setChannel(10);
+```
+
+Parameters:
+- `channel`: WLAN channel (int)
+
+{{#if has-wpa-enterprise}}
+#### setEapType()
+Sets EAP type.
+
+```c++
+// SYNTAX
+WiFiCredentials& WiFiCredentials::setEapType(WLanEapType type);
+```
+
+```c++
+// EXAMPLE - setting EAP type
+WiFiCredentials credentials("My Enterprise AP", WPA2_ENTERPRISE);
+credentials.setEapType(WLAN_EAP_TYPE_PEAP);
+```
+
+Parameters:
+- `type`: EAP type. See [WLanEapType](#wlaneaptype-enum) enum for a list of supported values.
+
+#### setIdentity()
+Sets EAP inner identity (username in case of PEAP/MSCHAPv2).
+
+```c++
+// SYNTAX
+WiFiCredentials& WiFiCredentials::setIdentity(const char* identity);
+```
+
+```c++
+// EXAMPLE - setting PEAP identity (username)
+WiFiCredentials credentials("My Enterprise AP", WPA2_ENTERPRISE);
+credentials.setEapType(WLAN_EAP_TYPE_PEAP);
+credentials.setIdentity("username");
+```
+
+Parameters:
+- `identity`: inner identity (string)
+
+#### setOuterIdentity()
+Sets EAP outer identity. Defaults to "anonymous".
+
+```c++
+// SYNTAX
+WiFiCredentials& WiFiCredentials::setOuterIdentity(const char* identity);
+```
+
+```c++
+// EXAMPLE - setting outer identity
+WiFiCredentials credentials("My Enterprise AP", WPA2_ENTERPRISE);
+credentials.setOuterIdentity("notanonymous");
+```
+
+Parameters:
+- `identity`: outer identity (string)
+
+#### setClientCertificate()
+Sets client certificate used for EAP-TLS authentication.
+
+```c++
+// SYNTAX
+WiFiCredentials& WiFiCredentials::setClientCertificate(const char* cert);
+```
+
+```c++
+// EXAMPLE - setting client certificate
+WiFiCredentials credentials;
+credentials.setClientCertificate("-----BEGIN CERTIFICATE-----\r\n" \
+                                 /* ... */ \
+                                 "-----END CERTIFICATE-----\r\n\r\n"
+                                );
+```
+
+Parameters:
+- `cert`: client certificate in PEM format (string)
+
+#### setPrivateKey()
+Sets private key used for EAP-TLS authentication.
+
+```c++
+// SYNTAX
+WiFiCredentials& WiFiCredentials::setPrivateKey(const char* key);
+```
+
+```c++
+// EXAMPLE - setting private key
+WiFiCredentials credentials;
+credentials.setPrivateKey("-----BEGIN RSA PRIVATE KEY-----\r\n" \
+                          /* ... */ \
+                          "-----END RSA PRIVATE KEY-----\r\n\r\n"
+                         );
+```
+
+Parameters:
+- `key`: private key in PEM format (string)
+
+#### setRootCertificate()
+Sets one more root (CA) certificates.
+
+```c++
+// SYNTAX
+WiFiCredentials& WiFiCredentials::setRootCertificate(const char* cert);
+```
+
+```c++
+// EXAMPLE - setting one root certificate
+WiFiCredentials credentials;
+credentials.setClientCertificate("-----BEGIN CERTIFICATE-----\r\n" \
+                                 /* ... */ \
+                                 "-----END CERTIFICATE-----\r\n\r\n"
+                                );
+// EXAMPLE - setting multiple root certificates
+WiFiCredentials credentials;
+credentials.setClientCertificate("-----BEGIN CERTIFICATE-----\r\n" \
+                                 /* ... */ \
+                                 "-----END CERTIFICATE-----\r\n"
+                                 "-----BEGIN CERTIFICATE-----\r\n" \
+                                 /* ... */ \
+                                 "-----END CERTIFICATE-----\r\n\r\n"
+                                );
+```
+
+Parameters:
+- `cert`: one or multiple concatenated root certificates in PEM format (string)
+
+### WLanEapType Enum
+This enum defines EAP types.
+
+| Name                 | Description                                                     |
+|----------------------|-----------------------------------------------------------------|
+| `WLAN_EAP_TYPE_PEAP` | PEAPv0/EAP-MSCHAPv2 (draft-josefsson-pppext-eap-tls-eap-06.txt) |
+| `WLAN_EAP_TYPE_TLS`  | EAP-TLS (RFC 2716)                                              |
+
+{{/if}} {{!-- has-wpa-enterprise --}}
+
+### SecurityType Enum
+This enum defines wireless security types.
+
+| Name              | Description                          |
+|-------------------|--------------------------------------|
+| `UNSEC`           | Unsecured                            |
+| `WEP`             | Wired Equivalent Privacy             |
+| `WPA`             | Wi-Fi Protected Access               |
+| `WPA2`            | Wi-Fi Protected Access II            |
+| `WPA_ENTERPRISE`  | Wi-Fi Protected Access-Enterprise    |
+| `WPA2_ENTERPRISE` | Wi-Fi Protected Access-Enterprise II |
+
+### WLanSecurityCipher Enum
+This enum defines wireless security ciphers.
+
+| Name                   | Description        |
+|------------------------|--------------------|
+| `WLAN_CIPHER_NOT_SET`  | No cipher          |
+| `WLAN_CIPHER_AES`      | AES cipher         |
+| `WLAN_CIPHER_TKIP`     | TKIP cipher        |
+| `WLAN_CIPHER_AES_TKIP` | AES or TKIP cipher |
 
 {{/if}} {{!-- has-wifi --}}
 
