@@ -67,7 +67,9 @@ SIMBLANK50 | 50 Units
 
 ## HS Codes (Harmonized System) and ECCN (Export Control Classification Number)
 
-For MOQ items over a certain dollar value, custom offices require the items to be declared. Please see the table below for the HS Codes and ECCN's for custom declaration. 
+For international orders over a certain dollar value, custom offices may require the items to be declared. Please see the table below for the HS Codes and ECCNs for customs declarations for select products. For other Particle products, please contact us on our [support portal](https://support.particle.io). 
+
+The HS code for a product is an internationally standardized product classification number that drives tariff and VAT schedules and is needed for most documentation. The ECCN or Export Control Classification Number is a US government export controls number that applies to most electronic products with encryption. Particle and any customers of the Particle products below must abide by the US government export controls under this classification. This means confirming you will do due diligence to certify that the ultimate end user and any user of these goods will not sell or transfer these goods to locations embargoed by the US government, will not sell or transfer these goods to persons on the US government’s [denied persons lists](http://2016.export.gov/ecr/eg_main_023148.asp), will not use these goods for military applications and will otherwise comply with US law for products under classification [ECCN 5A992.c](https://www.bis.doc.gov/index.php/forms-documents/doc_view/335-supplement-no-1-to-part-774-category-5-part-ii-information-security).
 
 SKU | HS Code (US) | HS Code (China) | ECCN
 ------------ | ------------- | ------------- | -------------
