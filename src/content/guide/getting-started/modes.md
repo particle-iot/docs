@@ -153,7 +153,7 @@ To erase the stored Wi-Fi networks on your {{device}}, hold the `{{system-button
 
 Safe mode connects the {{device}} to the cloud, but does not run any application firmware. This mode is one of the most useful for development or for troubleshooting. If something goes wrong with the app you loaded onto your device, you can set your device to Safe Mode. This runs the device's system firmware but doesn't execute any application code, which can be useful if the application code contains bugs that stop the device from connecting to the cloud.
 
-**The {{device}} indicates that it is in Safe Mode with the LED, which breathes magenta.**
+**The {{device}} indicates that it is in Safe Mode with the LED breathing magenta.**
 
 To put your device in Safe Mode:
 
@@ -176,7 +176,7 @@ The device will itself automatically enter safe mode if there is no application 
 
 Safe mode connects the {{device}} to the cloud, but does not run any application firmware. This mode is one of the most useful for development or for troubleshooting. If something goes wrong with the app you loaded onto your device, you can set your device to Safe Mode. This runs the device's system firmware but doesn't execute any application code, which can be useful if the application code contains bugs that stop the device from connecting to the cloud.
 
-**The {{device}} indicates that it is in Safe Mode with the LED, which breathes magenta.**
+**The {{device}} indicates that it is in Safe Mode with the LED breathing magenta.**
 
 To put your device in Safe Mode:
 
@@ -222,7 +222,7 @@ To enter DFU Mode:
 2. Release only the `RST` button, while holding down the `{{system-button}}` button.
 3. Wait for the LED to start flashing yellow
 4. Release the `{{system-button}}` button
-
+"
 {{vine "https://vine.co/v/eZUgeu0r639/embed/simple"}}
 
 {{/if}}
@@ -302,7 +302,7 @@ These modes let you know about more atypical issues your {{device}} might be exh
 
 {{device-animation device "breathe" "blue" }}
 
-If the Cellular module is on but not connected to a cellular tower, your {{device}} will breathe blue. Note that this will be dark blue and not cyan.
+If the Cellular module is on but not connected to a cellular tower, your {{device}} will be breathing blue. Note that this will be dark blue and not cyan.
 {{/if}}
 
 {{#if photon}}
@@ -310,7 +310,7 @@ If the Cellular module is on but not connected to a cellular tower, your {{devic
 
 {{device-animation device "breathe" "blue" }}
 
-If the Wi-Fi module is on but not connected to a network, your {{device}} will breathe blue. Note that this will be dark blue and not cyan.
+If the Wi-Fi module is on but not connected to a network, your {{device}} will be breathing blue. Note that this will be dark blue and not cyan.
 {{/if}}
 
 {{#if core}}
@@ -318,14 +318,14 @@ If the Wi-Fi module is on but not connected to a network, your {{device}} will b
 
 {{device-animation device "breathe" "blue" }}
 
-If the Wi-Fi module is on but not connected to a network, your {{device}} will breathe blue. Note that this will be dark blue and not cyan.
+If the Wi-Fi module is on but not connected to a network, your {{device}} will be breathing blue. Note that this will be dark blue and not cyan.
 {{/if}}
 
 ### Cloud Not Connected
 
 {{device-animation device "breathe" "lime" }}
 
-When the {{device}} is connected to a {{#if electron}}cellular{{/if}}{{#if photon}}Wi-Fi{{/if}}{{#if core}}Wi-Fi{{/if}} network but not to the cloud, it will breathe green.
+When the {{device}} is connected to a {{#if electron}}cellular{{/if}}{{#if photon}}Wi-Fi{{/if}}{{#if core}}Wi-Fi{{/if}} network but not to the cloud, it will be breathing green.
 
 This can be caused by the currently running application firmware which may interfere with the cloud maintenance tasks which are usually executed between iterations of `loop()` or via an explicit call of [`Particle.process()`](/firmware/#particle-process-). That commonly happens when the code blocks for more than 10 seconds. 
 In addition to regularly allowing for cloud maintenance (via dropping out of `loop()` and/or calling `Particle.process()`) you can take manual control of the [connection](/reference/firmware/#cloud-functions), choose a better suited [`SYSTEM_MODE`](/reference/firmware/#system-modes) and/or opt for [`SYSTEM_THREAD(ENABLED)`](/reference/firmware/#system-thread).
