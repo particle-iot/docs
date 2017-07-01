@@ -184,7 +184,7 @@ You can also start with an existing Arduino library from GitHub.  Particle libra
 
 ### Writing the code
 
-The main sources of the library go into `src/lib_name.cpp` and `src/lib_name.h`.
+The main sources of the library go into `src/lib_name.cpp` and `src/lib_name.h`.  More complex libraries may use a nested structure within the `src/` directory.  For example `src/subFolder/subhHeader.h` and referenced as `#include <subFolder/subHeader.h>`.
 
 Create at least one example `.ino` file inside a subfolder of `examples` to show people how to use the library.
 
