@@ -339,6 +339,8 @@ data: {"data":"23:23:44","ttl":"60","published_at":"2014-05-28T19:20:34.638Z","d
 ```
 
 {{#if electron}}
+---
+
 *`NO_ACK` flag*
 
 Unless specified otherwise, events sent to the cloud are sent as a reliable message. The Electron waits for
@@ -358,8 +360,9 @@ Particle.publish("t", String::format("%.2f",temperature), ttl, PRIVATE, NO_ACK);
 ```
 
 {{/if}} {{!-- electron --}}
+---
 
-_`WITH_ACK` flag_
+*`WITH_ACK` flag*
 
 _Since 0.6.1_
 
@@ -371,6 +374,18 @@ This flag causes `Particle.publish()` to return only after receiving an acknowle
 Particle.publish("motion-detected", NULL, WITH_ACK);
 Particle.publish("motion-detected", NULL, PRIVATE, WITH_ACK);
 Particle.publish("motion-detected", NULL, ttl, PRIVATE, WITH_ACK);
+```
+
+---
+
+_Since 0.7.0_
+
+`Particle.publish()` flags can be combined using a regular syntax with OR operator (`|`).
+
+```cpp
+// EXAMPLE - combining Particle.publish() flags
+
+Particle.publish("motion-detected", PRIVATE | WITH_ACK);
 ```
 
 
