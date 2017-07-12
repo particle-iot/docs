@@ -3650,8 +3650,10 @@ from a serial peripheral.
 - serialEvent5: called when there is data available from `Serial5`
 {{/if}} {{!-- has-serial4-5 --}}
 
-The `serialEvent` functions are called by the system as part of the application loop. Since these are an
-extension of the application loop, it is ok to call any functions at you would also call from loop().
+The `serialEvent` functions are called in between calls to the application `loop()`. This means that if `loop()` runs for a long time due to `delay()` calls or other blocking calls the serial buffer might become full between subsequent calls to `serialEvent` and serial characters might be lost. Avoid long `delay()` calls in your application if using `serialEvent`.
+
+Since `serialEvent` functions are an
+extension of the application loop, it is ok to call any functions that you would also call from `loop()`.
 
 ```cpp
 // EXAMPLE - echo all characters typed over serial
