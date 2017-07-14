@@ -7074,6 +7074,16 @@ RGB.brightness(128);
 RGB.brightness(255);
 ```
 
+### brightness()
+
+Returns current brightness value.
+
+```cpp
+// EXAMPLE
+
+uint8_t value = RGB.brightness();
+```
+
 ### onChange(handler)
 
 Specifies a function to call when the color of the RGB LED changes. It can be used to implement an external RGB LED.
