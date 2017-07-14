@@ -64,9 +64,35 @@ P1REEL | 500 units
 PHNTRAYH | 50 units
 PHNTRAYNOH | 50 units
 
-## Refunds, cancellations or delays
+## Refunds and Replacements
 
-Sending a PO to the Particle sales team or placing an order on the Wholesale Store functions as a committed, non-cancellable, non-refundable order. We do not accept shipping timeline delays. 
+If you’ve made a purchase through our Wholesale Store, our replacement process is slightly different than our normal [return process](https://docs.particle.io/support/support-and-fulfillment/returns/). 
+
+### Original Condition Return Policy
+
+Orders on our Wholesale Store are committed POs that are non-cancellable and non-refundable. We also can not delay shipping timelines in the case of a committed PO. 
+ 
+In certain circumstances, we may allow returns or exchanges if the items are in original condition. If you have a question about a particular return or exchange, please contact us via our [support portal](https://support.particle.io/) within 15 days of receipt of your order. A restocking fee of 15% may be assessed for returns depending on the size and products.
+
+### Items on Reels or Trays
+
+If your order includes items on reels or in trays, such as the P1 or P0, or items in trays, such as the Electron trays or Photon trays, and the vacuum sealed bag on the reel or tray has been opened, the units are no longer in original condition. Because of the moisture sensitivity of these units, we can not guarantee their condition for other customers after they have been unsealed. 
+
+###  Modified or Opened Product Return Policy
+
+If you are struggling with a Particle product or aren’t satisfied with your purchase, our team of support engineers will help you determine the issue in our standard troubleshooting process. 
+ 
+In the case of demonstrable manufacturing issues or a failure due to defective materials, we will troubleshoot and replace the item(s) as needed.
+ 
+Please check out the troubleshooting tips and assistance on our [documentation page](https://docs.particle.io/support/troubleshooting/common-issues). Our amazing [community](https://community.particle.io/) is also a great resource and may be able to help as well. If you still have not resolved your problem, please visit our [support portal](https://support.particle.io/) to begin basic troubleshooting with our team. Often, defective units have simple misconfigurations that can easily be fixed, and this will put you in position to quickly and easily resolve certain issues if they crop up again. 
+
+### Modules Incorporated into custom boards
+
+We can only perform limited troubleshooting on modules built into custom boards. If you’re interested in more in-depth troubleshooting, please visit our [support portal](https://support.particle.io/) and let us know you’re interested in working with one of our [service partners](https://www.particle.io/partnerships/professional-services) for an in-depth technical review of your custom board. 
+
+### Items damaged in shipment
+
+Please please contact us via our [support portal](https://support.particle.io/) with a description of the damages, and pictures of the damaged items/packaging and we will help you to repair, return or exchange the item(s) as needed.
 
 ## Battery regulations
 

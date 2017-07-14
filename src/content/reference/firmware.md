@@ -776,12 +776,7 @@ void handler(const char *topic, const char *data) {
 
 void setup() {
     Serial.begin(115200);
-    for(int i=0;i<5;i++) {
-        Serial.println("waiting... " + String(5 - i));
-        delay(1000);
-    }
-
-    Particle.subscribe("spark/", handler);
+    Particle.subscribe("spark/device/ip", handler);
     Particle.publish("spark/device/ip");
 }
 ```
@@ -799,12 +794,7 @@ void handler(const char *topic, const char *data) {
 
 void setup() {
     Serial.begin(115200);
-    for(int i=0;i<5;i++) {
-        Serial.println("waiting... " + String(5 - i));
-        delay(1000);
-    }
-
-    Particle.subscribe("spark/", handler);
+    Particle.subscribe("spark/device/name", handler);
     Particle.publish("spark/device/name");
 }
 ```
@@ -820,12 +810,7 @@ void handler(const char *topic, const char *data) {
 
 void setup() {
     Serial.begin(115200);
-    for(int i=0;i<5;i++) {
-        Serial.println("waiting... " + String(5 - i));
-        delay(1000);
-    }
-
-    Particle.subscribe("spark/", handler);
+    Particle.subscribe("spark/device/random", handler);
     Particle.publish("spark/device/random");
 }
 ```
@@ -4083,8 +4068,10 @@ from a serial peripheral.
 - serialEvent5: called when there is data available from `Serial5`
 {{/if}} {{!-- has-serial4-5 --}}
 
-The `serialEvent` functions are called by the system as part of the application loop. Since these are an
-extension of the application loop, it is ok to call any functions at you would also call from loop().
+The `serialEvent` functions are called in between calls to the application `loop()`. This means that if `loop()` runs for a long time due to `delay()` calls or other blocking calls the serial buffer might become full between subsequent calls to `serialEvent` and serial characters might be lost. Avoid long `delay()` calls in your application if using `serialEvent`.
+
+Since `serialEvent` functions are an
+extension of the application loop, it is ok to call any functions that you would also call from `loop()`.
 
 ```cpp
 // EXAMPLE - echo all characters typed over serial
@@ -11746,7 +11733,7 @@ void loop()
 ```
 
 #### loop()
-After creating a setup() function, which initializes and sets the initial values, the loop() function does precisely what its name suggests, and loops consecutively, allowing your program to change and respond. Use it to actively control the device.
+After creating a setup() function, which initializes and sets the initial values, the loop() function does precisely what its name suggests, and loops consecutively, allowing your program to change and respond. Use it to actively control the device.  A return may be used to exit the loop() before it completely finishes.
 
 ```C++
 // EXAMPLE USAGE
