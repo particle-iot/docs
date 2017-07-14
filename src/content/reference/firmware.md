@@ -761,12 +761,7 @@ void handler(const char *topic, const char *data) {
 
 void setup() {
     Serial.begin(115200);
-    for(int i=0;i<5;i++) {
-        Serial.println("waiting... " + String(5 - i));
-        delay(1000);
-    }
-
-    Particle.subscribe("spark/", handler);
+    Particle.subscribe("spark/device/ip", handler);
     Particle.publish("spark/device/ip");
 }
 ```
@@ -784,12 +779,7 @@ void handler(const char *topic, const char *data) {
 
 void setup() {
     Serial.begin(115200);
-    for(int i=0;i<5;i++) {
-        Serial.println("waiting... " + String(5 - i));
-        delay(1000);
-    }
-
-    Particle.subscribe("spark/", handler);
+    Particle.subscribe("spark/device/name", handler);
     Particle.publish("spark/device/name");
 }
 ```
@@ -805,12 +795,7 @@ void handler(const char *topic, const char *data) {
 
 void setup() {
     Serial.begin(115200);
-    for(int i=0;i<5;i++) {
-        Serial.println("waiting... " + String(5 - i));
-        delay(1000);
-    }
-
-    Particle.subscribe("spark/", handler);
+    Particle.subscribe("spark/device/random", handler);
     Particle.publish("spark/device/random");
 }
 ```
