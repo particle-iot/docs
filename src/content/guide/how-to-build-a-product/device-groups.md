@@ -91,6 +91,8 @@ some devices, and click the **Edit groups** button that appears:
 
 <img class="full-width" alt="Batch edit groups"
 src="/assets/images/device-groups/batch-edit-groups.png"/>
+<p class="caption">Edit groups of many devices at once
+using the Console</p>
 
 You will then be presented with a modal that will allow you to batch
 update groups of the selected devices. **Note that editing groups for a
@@ -112,10 +114,22 @@ out the [Particle Console
 Guide](/guide/tools-and-features/console/#rollout-firmware) before
 continuing.
 
+With grouping enabled, you can *release a product firmware to one or
+more groups*,
+or choose to mark the version as the *Product default* release.
+Releasing firmware to a group will target a only subset of the product
+fleet to receive the binary (those devices that belong to that group).
+
+Marking as the Product default, in
+contrast, sets the firmware as the default firmware version
+available to all devices in the fleet to download and run.
+The specific firmware chosen to be delivered to a
+given device is determined by *precedence rules*, which you can read about in
+the next section.
+
 ### Firmware Precedence Rules
 
-You can release a product firmware to one or more groups, or choose to
-make it the product default. Devices in your fleet will be targeted to
+Devices in your fleet will be targeted to
 receive a version of product firmware according to these precedence
 rules:
 
@@ -129,8 +143,8 @@ to the group). When a device belongs to multiple groups that each have
 released firmware, the _highest firmware version_ will be preferred
 
 - If a device is unlocked and **does not belong to any groups** with
-released firmware, it will receive the product's default released
-firmware (if a firmware has been released as the product default)
+released firmware, it will receive the **Product default** released
+firmware (if a firmware has been released as the Product default)
 
 - If none of the above conditions result in a device being targeted for
 a product firmware, it will not receive an automatic OTA update from the
@@ -138,10 +152,11 @@ Particle cloud
 
 ### Example Release Process
 
-Let's walk through a real-life example of how you could utilize
+Let's walk through a real-life example of how you could use
 releasing product firmware by group. Imagine you have a fleet of 5,000
 internet-connected widgets in the field. They are all currently running
-version 1 of your product firmware.
+version 1 of your product firmware (v1 had been previously marked as the
+default product firmware).
 
 After some initial feedback from end-users, you and your engineering
 team add a few impressive new features. You upload this new version of
@@ -149,11 +164,46 @@ firmware to your product:
 
 <img class="full-width" alt="The new flashy firmware" src="/assets/images/device-groups/release-firmware-1.png"/>
 
-You've tested out the firmware on a few of your internal development
+You've tested out the firmware on one of your internal development
 devices, and are ready to roll it out to devices in the field. However,
 you still aren't completely certain how this new code will perform in
 the wild and would like to mitigate risk as much as possible.
 
 Luckily, you've defined a `prerelease` group. This group contains 15
 devices belonging to customers that have opted-in to receiving
-bleeding-edge firmware
+bleeding-edge firmware. Let's go ahead and release version 2 to the
+`prerelease` group to target those eager customers.
+
+To do this, click on **<i class="ion-star"></i>&nbsp;Release this firmware** when hovering over v2.
+The *Release Firmware* modal will appear. Use the dropdown to select
+`prerelease` from the available groups:
+
+![Releasing to prerelease](/assets/images/device-groups/release-firmware-2.png)
+
+Click **Next**. You will now be asked to confirm the action you are about
+to take. Releasing firmware to devices deployed in the field always comes with
+some risk, so use the confirmation screen to ensure you're releasing the
+right firmware to the right devices:
+
+![Confirm release](/assets/images/device-groups/release-firmware-3.png)
+<p class="caption">Always confirm the version, targeted group(s) and impacted
+devices before releasing firmware to your
+device fleet to ensure you are taking the desired action</p>
+
+Looks good! We see that we are releasing version 2 of firmware to the
+`prerelease` group, which should impact the 15 devices that belong to
+this group. Note that *impacted devices* refers specifically to the
+number of devices that will receive an OTA firmware update as a direct
+result of this action.
+
+Click **<i class="ion-star"></i>&nbsp;Release this firmware** to confirm
+the action. Nice! We've now released v2 to the `prerelease` group. You
+should now see the group tag appear next to the firmware version:
+
+<img class="full-width" alt="Successful release"
+src="/assets/images/device-groups/release-firmware-4.png"/>
+
+Note that the devices will not receive the firmware immediately;
+instead, they will be targeted for an over-the-air update the next time
+they start a new secure session with the cloud (this is called a
+*handshake*).
