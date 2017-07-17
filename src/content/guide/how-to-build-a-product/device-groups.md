@@ -10,19 +10,19 @@ order: 12
 Device groups allow you to define subsets of your IoT deployment that can
 be addressed separately from the rest of the fleet. Groups provide the flexibility
 and granularity you need to manage a connected product at scale. This
-feature is currently available in beta to customers on an Enterprise plan. For more details, please see
-<a href="https://www.particle.io/pricing" target="_blank">our
-pricing</a>.
+feature is currently available in beta to customers on an Enterprise
+plan. If you would like access to this feature, please <a
+href="https://www.particle.io/sales" target="_blank">contact us</a>.
 
 ![Device
 Groups](/assets/images/device-groups/device-groups-overview.jpg)
 <p class="caption">Assign devices to groups for more granular control of
-your IoT deployment</a>
+your IoT deployment</p>
 
 Segmenting devices into groups allows you to manage an IoT fleet with
 more specificity,
-like the ability to [release firmware by group](#firmware-release-by-group). As an example,
-a business serving customers around the globe can now target devices to run a different
+like the ability to [rollout firmware by group](#firmware-release-by-group). As an example,
+a business serving customers around the world can now target devices to run a different
 version of firmware depending on the local country's native language.
 
 Stay tuned as we add more ways to leverage device groups in your product.
@@ -30,14 +30,22 @@ Stay tuned as we add more ways to leverage device groups in your product.
 ## Creating Device Groups
 
 In order to get the benefits of device segmentation, you will first need
-to define a group.
+to create a group.
 
 A group is scoped to a Particle product, and can be applied to any number of devices in the
 fleet. A group can be created using the
 <a href="https://console.particle.io"
 target="_blank">Particle Console</a>. Visit your product's devices view
-(<i class="im-devices-icon"></i>) and click the "New Group" button. The
-_New Device Group_ modal will appear:
+(<i class="im-devices-icon"></i>) and click the "New Group" button:
+
+![New group button](/assets/images/device-groups/new-group-btn.png)
+
+<p class="caption">You will find the 'New Group' button on your
+product's devices page. Note that this button will only be enabled if
+you are on an Enterprise plan. <a href="https://www.particle.io/sales"
+target="_blank">Contact us</a> for access to this feature.</p>
+
+After clicking this button, the _New Device Group_ modal will appear:
 
 ![New group modal](/assets/images/device-groups/new-device-group.png)
 
@@ -55,26 +63,39 @@ behavior, or run different versions of firmware.
 or customers that need access to certain device groups.
 
 _Quick tip_: If you prefer, you can also [call the Particle API](!insert
-group link) directly to create a product device group.
+group link) directly to create a device group.
 
 ## Tagging Devices to Groups
 
-Now that you have created your groups, you'll need to associate devices
-in the fleet with those groups. A device can belong to multiple
-groups at once, as you will likely need to segment your fleet
+Now that you have created your group(s), you'll need to tag devices
+in your fleet to a group. Note that **a device can belong to multiple
+groups**, as you will likely need to segment your fleet
 along many different axes.
 
 To assign a single device to a group, click on it from your product's
-devices view (<i class="im-devices-icon"></i>). Then, click the "+ Add
-groups" button as shown in the device header:
+devices view (<i class="im-devices-icon"></i>). Then, click the **+ Add
+groups** button as shown in the device header:
 
-![Tag device to group](/assets/images/device-groups/tag-device-to-group.png)
+<img class="full-width" alt="Tag device to group" src="/assets/images/device-groups/tag-device-to-group.png"/>
 
-Apply groups to the device, and click "Done" to save. You can tag
+The page will enter into an edit mode. Apply groups to the device
+using the dropdown, and click the **Done** button to save. You can tag
 devices with existing groups, or create a new group and apply it to the
-device. You can also batch-assign devices to groups. To do this, select the
-devices you want to tag from the product device view, and select "Edit
-groups" from the dropdown that appears.
+device. You can come back here and click the **Edit** button on a device
+to update its group memberships at any time.
+
+You can also assign many devices to a group at the same time. If you
+have grouping enabled for your product, you should see checkboxes next
+to each approved device visible on your product's device view. Select
+some devices, and click the **Edit groups** button that appears:
+
+<img class="full-width" alt="Batch edit groups"
+src="/assets/images/device-groups/batch-edit-groups.png"/>
+
+You will then be presented with a modal that will allow you to batch
+update groups of the selected devices. **Note that editing groups for a
+device may result in the device being targeted for an OTA firmware
+update**, due to product firmware releases by group.
 
 _Quick tip_: If you prefer, you can also [call the Particle API](!insert
 group link) directly to tag a device to a group.
