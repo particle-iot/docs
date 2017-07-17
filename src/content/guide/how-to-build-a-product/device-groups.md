@@ -8,24 +8,29 @@ order: 12
 # {{title}} <sub style="color: #777;font-size:18px; bottom: 0;">beta</sub>
 
 Device groups allow you to define subsets of your IoT deployment that can
-be addressed directly and separately from the rest of the fleet. Groups provide the flexibility
-and granularity needed to manage a connected product at scale. For instance,
-a business serving customers around the globe can target devices to run a different
-version of firmware depending on the local country's native language.
+be addressed separately from the rest of the fleet. Groups provide the flexibility
+and granularity you need to manage a connected product at scale. This
+feature is currently available in beta to customers on an Enterprise plan. For more details, please see
+<a href="https://www.particle.io/pricing" target="_blank">our
+pricing</a>.
 
 ![Device
 Groups](/assets/images/device-groups/device-groups-overview.jpg)
 <p class="caption">Assign devices to groups for more granular control of
 your IoT deployment</a>
 
-Device grouping is a premium feature available to products enrolled in
-paid plans. For more details, please see
-<a href="https://www.particle.io/pricing" target="_blank">our
-pricing</a>. Device grouping is currently in public beta.<br/>Please
-<a href="mailto:support@particle.io">let us know</a> if you have any
-questions or feedback.
+Segmenting devices into groups allows you to manage an IoT fleet with
+more specificity,
+like the ability to [release firmware by group](#firmware-release-by-group). As an example,
+a business serving customers around the globe can now target devices to run a different
+version of firmware depending on the local country's native language.
+
+Stay tuned as we add more ways to leverage device groups in your product.
 
 ## Creating Device Groups
+
+In order to get the benefits of device segmentation, you will first need
+to define a group.
 
 A group is scoped to a Particle product, and can be applied to any number of devices in the
 fleet. A group can be created using the
