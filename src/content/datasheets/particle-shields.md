@@ -668,7 +668,7 @@ Say if you want to put the asset tracker inside a car, you can use the car's bat
 
 ![Asset Tracker Emotions](/assets/images/shields/asset-tracker-shield/asset-emotions.gif)
 
-Your asset tracker has emotions too. Don't make it sad. Don't be that guy.
+Your asset tracker has emotions too. Don't make it sad. Don't be that person.
 
 **GPS**
 
