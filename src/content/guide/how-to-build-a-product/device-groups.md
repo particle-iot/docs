@@ -79,4 +79,55 @@ or the [Particle API](!insert link) to filter product devices by group.
 
 ## Firmware Release by Group
 
+With devices segmented into groups, it is now possible to gain more
+control and flexibility over the firmware release process. If you are
+unfamiliar with how to rollout firmware to a product fleet, please check
+out the [Particle Console
+Guide](/guide/tools-and-features/console/#rollout-firmware) before
+continuing.
 
+### Firmware Precedence Rules
+
+You can release a product firmware to one or more groups, or choose to
+make it the product default. Devices in your fleet will be targeted to
+receive a version of product firmware according to these precedence
+rules:
+
+- A device that has been **individually locked** to a version of product
+firmware is respected above all else, and will not be overwritten by any
+released firmwares.
+
+- If unlocked, devices **belonging to a group** will receive the
+corresponding group's released firmware (if a firmware has been released
+to the group). When a device belongs to multiple groups that each have
+released firmware, the _highest firmware version_ will be preferred
+
+- If a device is unlocked and **does not belong to any groups** with
+released firmware, it will receive the product's default released
+firmware (if a firmware has been released as the product default)
+
+- If none of the above conditions result in a device being targeted for
+a product firmware, it will not receive an automatic OTA update from the
+Particle cloud
+
+### Example Release Process
+
+Let's walk through a real-life example of how you could utilize
+releasing product firmware by group. Imagine you have a fleet of 5,000
+internet-connected widgets in the field. They are all currently running
+version 1 of your product firmware.
+
+After some initial feedback from end-users, you and your engineering
+team add a few impressive new features. You upload this new version of
+firmware to your product:
+
+<img class="full-width" alt="The new flashy firmware" src="/assets/images/device-groups/release-firmware-1.png"/>
+
+You've tested out the firmware on a few of your internal development
+devices, and are ready to roll it out to devices in the field. However,
+you still aren't completely certain how this new code will perform in
+the wild and would like to mitigate risk as much as possible.
+
+Luckily, you've defined a `prerelease` group. This group contains 15
+devices belonging to customers that have opted-in to receiving
+bleeding-edge firmware
