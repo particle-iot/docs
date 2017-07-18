@@ -371,17 +371,47 @@ version of product firmware. This is referred to as **locking** the
 device. You can lock a device to a new version of product
 firmware to test it before releasing the firmware to the fleet.
 
-On the devices page (click <i class="im-devices-icon"></i> in the sidebar), you have the ability to lock the firmware version on a device so you can develop and test new firmware before releasing it to your whole fleet. When the device connects, if the firmware version doesn't match the locked version, the Cloud will force an OTA update with that firmware version.
+To lock a device to a firmware, find the device on your product's
+devices view <i class="im-devices-icon"></i>. Click on the device, which
+will take you to the device details view. Click on the **Edit** button:
 
-To lock firmware, find one of your devices in the list of devices and click on the row. A dropdown will appear, populated with each of the firmware versions available for that product. For now, this dropdown may only have one available option (the firmware you just uploaded). Select your firmware from the list.
+<img class="full-width" alt="Edit device" src="/assets/images/edit-device.png" />
 
-There are two action buttons available: **Lock and flash now**, and **Lock and flash on reset**. Both options involve "locking" a device to a firmware version. This will force the device to download and run the desired firmware version. Once the device receives and runs that firmware, it will not receive any more OTA updates even if a new firmware version is released. **Lock and flash now** will trigger an immediate OTA of the device to the desired firmware version (only available if the device is currently online). **Lock and flash on reset** will only trigger the OTA the next time the device comes online. If you do not have physical access to the device, it may be a good idea to flash on reset to avoid disrupting any current firmware running on the device.
+This will allow you to edit many aspects of the device's state,
+including the firmware it is targeted to run. Find the **Firmware**
+section, select a version of firmware you want to lock the device to,
+and click the **Lock** button as sown below:
 
-![Lock a device](/assets/images/lock-firmware-version.png)
+<img class="full-width" alt="Lock device firmware"
+src="/assets/images/lock-firmware.png" />
 
-To turn a device with locked firmware back into a device that gets updated with the latest released firmware, click the padlock to unlock the firmware version.
+If the device is currently online, you can optionally immediately
+trigger an OTA update to the device by checking *Flash now* next to the
+lock button. Otherwise, the device will download and run the locked
+firmware the next time it handshakes with the cloud (starts a new secure
+session, most often on reset).
 
-![Unlock a device](/assets/images/unlock-firmware-version.png)
+Once the device downloads and runs the locked firmware, it will no
+longer be targeted by the Particle cloud for automatic firmware updates,
+until it is unlocked. For more details, please read the [firmware
+precedence rules](#firmware-precedence-rules).
+
+#### Unlocking firmware
+
+Unlocking a product device breaks its association with the locked
+firmware version and makes the device eligible to receive released
+product firmwares once again.
+
+To unlock a devcie, visit the device's details view by clicking on it
+from your product's device list. Click the **Edit button** (shown
+above), and then click the **Unlock** button:
+
+<img class="full-width" alt="Unlock device firmware"
+src="/assets/images/unlock-firmware.png" />
+
+The device above is now unlocked from version 3 of product firmware, and
+may be targeted to receive a released firmware next time it handshakes
+with the cloud.
 
 #### Firmware Precedence Rules
 
