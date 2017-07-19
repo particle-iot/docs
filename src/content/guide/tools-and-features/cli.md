@@ -223,7 +223,7 @@ flash device said  {"id":"01234567890ABCDEFGH","status":"Update started"}
 
 ## Compile and flash code locally
 
-You can find a [step-by-step guide to installing the local build toolchain for the firmware](faq/particle-tools/local-build) in the FAQ section of the documentation.
+You can find a [step-by-step guide to installing the local build toolchain for the firmware](/faq/particle-tools/local-build) in the FAQ section of the documentation.
 
 After building your code on your machine, you can flash it to your device over Serial or remotely.
 
