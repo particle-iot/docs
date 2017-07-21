@@ -343,5 +343,8 @@ The libraries endpoints are a little different as they follow the [JSON API](htt
 {{> api group=apiGroups.Libraries}}
 ## Products
 {{> api group=apiGroups.Products}}
+## Device Groups
+_Device groups are currently in beta and only available for products on an enterprise plan._
+{{> api group=apiGroups.Groups}}
 ## Customers
 {{> api group=apiGroups.Customers}}
