@@ -5,14 +5,18 @@ layout: guide.hbs
 order: 12
 ---
 
-# {{title}} <sub style="color: #777;font-size:18px; bottom: 0;">beta</sub>
+# {{title}}
+
+<p class="boxedHead">Beta feature</p>
+<p class="boxed">
+Device groups are **currently in beta** and available to customers on an
+Enterprise plan. If you would like access to this feature, please <a
+href="https://www.particle.io/sales" target="_blank">contact us</a>.
+</p>
 
 Device groups allow you to define subsets of your IoT deployment that can
 be addressed separately from the rest of the fleet. Groups provide the flexibility
-and granularity you need to manage a connected product at scale. This
-feature is currently available in beta to customers on an Enterprise
-plan. If you would like access to this feature, please <a
-href="https://www.particle.io/sales" target="_blank">contact us</a>.
+and granularity you need to manage a connected product at scale.
 
 ![Device
 Groups](/assets/images/device-groups/device-groups-overview.jpg)
@@ -62,13 +66,14 @@ behavior, or run different versions of firmware.
 - **Group by Permissions**: You may have distributors, service partners,
 or customers that need access to certain device groups.
 
-_Quick tip_: If you prefer, you can also [call the Particle API](!insert
-group link) directly to create a device group.
+_Quick tip_: If you prefer, you can also [call the Particle
+API](/reference/api/#create-device-group) directly to create a device
+group.
 
-## Tagging Devices to Groups
+## Assigning Groups to Devices
 
-Now that you have created your group(s), you'll need to tag devices
-in your fleet to a group. Note that **a device can belong to multiple
+Now that you have created your group(s), you'll need to assign groups
+to devices in your fleet. Note that **a device can belong to multiple
 groups**, as you will likely need to segment your fleet
 along many different axes.
 
@@ -76,13 +81,13 @@ To assign a single device to a group, click on it from your product's
 devices view (<i class="im-devices-icon"></i>). Then, click the **+ Add
 groups** button as shown in the device header:
 
-<img class="full-width" alt="Tag device to group" src="/assets/images/device-groups/tag-device-to-group.png"/>
+<img class="full-width" alt="Assign group to device" src="/assets/images/device-groups/assign-group-to-device.png"/>
 
 The page will enter into an edit mode. Apply groups to the device
-using the dropdown, and click the **Done** button to save. You can tag
-devices with existing groups, or create a new group and apply it to the
-device. You can come back here and click the **Edit** button on a device
-to update its group memberships at any time.
+using the dropdown, and click the **Done** button to save. You can
+assign devices to existing groups, or create a new group and assign it
+to the device. You can come back here and click the **Edit** button on a
+device to update its group memberships at any time.
 
 You can also assign many devices to a group at the same time. If you
 have grouping enabled for your product, you should see checkboxes next
@@ -99,11 +104,10 @@ update groups of the selected devices. **Note that editing groups for a
 device may result in the device being targeted for an OTA firmware
 update**, due to product firmware releases by group.
 
-_Quick tip_: If you prefer, you can also [call the Particle API](!insert
-group link) directly to tag a device to a group.
+_Quick tip_: If you prefer, you can also [call the Particle API](/reference/api/#batch-assign-groups-to-devices) directly to assign groups to a device.
 
-_Quick tip_: After tagging devices with groups, you can use the Console
-or the [Particle API](!insert link) to filter product devices by group.
+_Quick tip_: After assigning groups to devices, you can use the Console
+or the [Particle API](/reference/api/#list-devices-in-a-product) to filter product devices by group.
 
 ## Firmware Release by Group
 
@@ -132,6 +136,9 @@ the next section.
 Devices in your fleet will be targeted to
 receive a version of product firmware according to these precedence
 rules:
+
+- A **development device** never receives automatic updates of product
+firmware.
 
 - A device that has been **individually locked** to a version of product
 firmware is respected above all else, and will not be overwritten by any
