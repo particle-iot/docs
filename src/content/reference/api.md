@@ -320,7 +320,7 @@ If the hook got an error back from your server, it'll publish a hook-error event
 ```
 
 If the hook got a good response back, it'll break the response into 512 byte chunks and publish up to the first 100KB
-of the response back to your devices. 
+of the response back to your devices.
 
 ```
 # hook-response
@@ -343,5 +343,19 @@ The libraries endpoints are a little different as they follow the [JSON API](htt
 {{> api group=apiGroups.Libraries}}
 ## Products
 {{> api group=apiGroups.Products}}
+
+## Device Groups (beta)
+
+Device groups allow you to define subsets of your IoT deployment that
+can be addressed separately from the rest of the fleet. Groups are
+defined within the scope of a [product](#products). For more information,
+please see [the guide](/guide/how-to-build-a-product/device-groups/).
+
+**Note: this
+feature is currently in beta and only available to products on an
+Enterprise plan.**
+
+{{> api group=apiGroups.Groups}}
+
 ## Customers
 {{> api group=apiGroups.Customers}}
