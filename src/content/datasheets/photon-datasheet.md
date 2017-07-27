@@ -5,7 +5,7 @@ columns: two
 order: 3
 ---
 
-# Photon Datasheet <sup>(v014)</sup>
+# Photon Datasheet <sup>(v015)</sup>
 
 **Model number:** PHOTONH, PHOTONNOH
 
@@ -58,9 +58,17 @@ The Photon comes in two physical forms: with headers and without. Prototyping is
 
 ### Power
 
-Power to the Photon is supplied via the on-board USB Micro B connector or directly via the VIN pin.  If power is supplied directly to the VIN pin, the voltage should be regulated between 3.6VDC and 5.5VDC.  When the Photon is powered via the USB port, VIN will output a voltage of approximately 4.8VDC due to a reverse polarity protection series schottky diode between V+ of USB and VIN. When used as an output, the max load on VIN is 1A.
+Power to the Photon is supplied via the on-board USB Micro B connector or directly via the VIN pin.  If power is supplied directly to the VIN pin, the voltage should be regulated between 3.6VDC and 5.5VDC.  When the Photon is powered via the USB port, VIN will output a voltage of approximately 4.8VDC due to a reverse polarity protection series schottky diode between V+ of USB and VIN. When used as an output, the max load on VIN is 1A. 3V3 can also be used as an output, but has a limited overhead of only 100mA available. (Please refer to [Absolute Maximum Ratings](#absolute-maximum-ratings) for more info).
 
-Typical average current consumption is 80mA with 5V @ VIN with Wi-Fi on. Deep sleep quiescent current is typically 80uA (Please refer to [Recommended Operating Conditions](#recommended-operating-conditions) for more info).  When powering the Photon from the USB connector, make sure to use a quality cable to minimize IR drops (current x resistance = voltage) in the wiring.  If a high resistance cable (i.e., low current) is used, peak currents drawn from the Photon when transmitting and receiving will result in voltage sag at the input which may cause a system brown out or intermittent operation.  Likewise, the power source should be sufficient enough to source 1A of current to be on the safe side.
+Typical average current consumption is 80mA with 5V @ VIN with Wi-Fi on. Deep sleep quiescent current is typically 80uA (Please refer to [Recommended Operating Conditions](#recommended-operating-conditions) for more info).  When powering the Photon from the USB connector, make sure to use a quality cable to minimize IR drops (current x resistance = voltage) in the wiring.  If a high resistance cable (i.e., low current) is used, peak currents drawn from the Photon when transmitting and receiving will result in voltage sag at the input which may cause a system brown out or intermittent operation.  Likewise, the power source should be sufficient enough to source 1A of current to provide an adequate amount of current overhead (especially if powering additional circuitry off of VIN).
+
+**Warning:** When powering the Photon from long wires on USB and VIN, care should be taken to protect against damaging voltage transients. **From the Richtek datasheet:**
+
+<p class = "boxed">
+When a ceramic capacitor is used at the input and the power is supplied by a wall adapter through long wires, a load step at the output can induce ringing at the input, VIN. At best, this ringing can couple to the output and be mistaken as loop instability. At worst, a sudden inrush of current through the long wires can potentially cause a voltage spike at VIN large enough to damage the part.
+</p>
+
+To avoid these voltage spikes, keep input wiring as short as possible.  If long wires are unavoidable, it is advisable to add a 5.1V zener diode or similar transient suppression device from VIN to GND.
 
 ### RF
 
@@ -95,9 +103,9 @@ The Photon has ton of capability in a small footprint, with analog, digital and 
 | SPI | 2 | I/O | 3V3 |
 | I2S | 1 | I/O | 3V3 |
 | I2C | 1 | I/O | FT |
-| CAN | 1 | I/O | FT |
+| CAN | 1 | I/O | 3V3<sup>[4]</sup> |
 | USB | 1 | I/O | 3V3 |
-| PWM | 9<sup>3</sup> | O | 3V3 |
+| PWM | 9<sup>[3]</sup> | O | 3V3 |
 
 **Notes:**
 
@@ -106,6 +114,8 @@ The Photon has ton of capability in a small footprint, with analog, digital and 
 <sup>[2]</sup> 3V3 = 3.3V max pins.
 
 <sup>[3]</sup> PWM is available on D0, D1, D2, D3, A4, A5, WKP, RX, TX with a caveat: PWM timer peripheral is duplicated on two pins (A5/D2) and (A4/D3) for 7 total independent PWM outputs. For example: PWM may be used on A5 while D2 is used as a GPIO, or D2 as a PWM while A5 is used as an analog input. However A5 and D2 cannot be used as independently controlled PWM outputs at the same time.
+
+<sup>[4]</sup> Technically these pins are 5.0V tolerant, but since you wouldn't operate them with a 5.0V transceiver it's proper to classify them as 3.3V.
 
 ---
 
@@ -167,7 +177,7 @@ When these pads are programmed to be used as a Bluetooth coexistence interface, 
 
 The DCT area of flash memory has been mapped to a separate DFU media device so that we can incrementally update the application data. This allows one item (say, server public key) to be updated without erasing the other items.
 
-_DCT layout as of v0.4.9_ [found here in firmware](https://github.com/spark/firmware/blob/develop/platform/MCU/STM32F2xx/SPARK_Firmware_Driver/inc/dct.h)
+_DCT layout in `release/stable`_ <a href="https://github.com/spark/firmware/blob/release/stable/platform/MCU/STM32F2xx/SPARK_Firmware_Driver/inc/dct.h" target="_blank">found here in firmware.</a>
 
 | Region | Offset | Size |
 |:---|---|---|
@@ -175,11 +185,13 @@ _DCT layout as of v0.4.9_ [found here in firmware](https://github.com/spark/firm
 | version | 32 | 2 |
 | device private key | 34 | 1216 |
 | device public key | 1250 | 384 |
-| ip config | 1634 | 128 |
+| ip config | 1634 | 120 |
+| feature flags | 1754 | 4 |
+| country code | 1758 | 4 |
 | claim code | 1762 | 63 |
 | claimed | 1825 | 1 |
 | ssid prefix | 1826 | 26 |
-| device id | 1852 | 6 |
+| device code | 1852 | 6 |
 | version string | 1858 | 32 |
 | dns resolve | 1890 | 128 |
 | reserved1 | 2018 | 64 |
@@ -193,7 +205,12 @@ _DCT layout as of v0.4.9_ [found here in firmware](https://github.com/spark/firm
 | alt device private key | 3106 | 192 |
 | alt server public key | 3298 | 192 |
 | alt server address | 3490 | 128 |
-| reserved2 | 3618 | 1280 |
+| device id | 3618 | 12 |
+| radio flags | 3630 | 1 |
+| mode button mirror | 3631 | 32 |
+| led mirror | 3663 | 96 |
+| led theme | 3759 | 64 |
+| reserved2 | 3823 | 435 |
 
 **Note:** Writing 0xFF to offset 34 (DEFAULT) or 3106 (ALTERNATE) will cause the device to re-generate a new private key on the next boot. Alternate keys are currently unsupported on the Photon but are used on the Electron as UDP/ECC keys.  You should not need to use this feature unless your keys are corrupted.
 
@@ -251,25 +268,30 @@ echo -e "\xFF" > fillbyte && dfu-util -d 2b04:d006 -a 1 -s 3106 -D fillbyte
 | RST | Active-low reset input. On-board circuitry contains a 1k ohm pull-up resistor between RST and 3V3, and 0.1uF capacitor between RST and GND. |
 | VBAT | Supply to the internal RTC, backup registers and SRAM when 3V3 is not present (1.65 to 3.6VDC). |
 | 3V3 | This pin is the output of the on-board regulator and is internally connected to the VDD of the Wi-Fi module. When powering the Photon via VIN or the USB port, this pin will output a voltage of 3.3VDC. This pin can also be used to power the Photon directly (max input 3.3VDC). When used as an output, the max load on 3V3 is 100mA. NOTE: When powering the Photon via this pin, ensure power is disconnected from VIN and USB. |
-| WKP | Active-high wakeup pin, wakes the module from sleep/standby modes. When not used as a WAKEUP, this pin can also be used as a digital GPIO, ADC input or PWM. |
-| D0~D7 | Digital only GPIO pins. D0~D3 may also be used as a PWM output. |
-| A0~A7 | 12-bit Analog-to-Digital (A/D) inputs (0-4095), and also digital GPIOs. `A6` and `A7` are code convenience mappings, which means pins are not actually labeled as such but you may use code like `analogRead(A7)`.  `A6` maps to the DAC pin and `A7` maps to the WKP pin. A4,A5,A7 may also be used as a PWM output. |
-| DAC   | 12-bit Digital-to-Analog (D/A) output (0-4095), and also a digital GPIO. DAC is used as `DAC` or `DAC1` in software, and A3 is a second DAC output used as `DAC2` in software. |
-| RX    | Primarily used as UART RX, but can also be used as a digital GPIO or PWM. |
-| TX    | Primarily used as UART TX, but can also be used as a digital GPIO or PWM. |
+| RX    | Primarily used as UART RX, but can also be used as a digital GPIO or PWM<sup>[2]</sup>. |
+| TX    | Primarily used as UART TX, but can also be used as a digital GPIO or PWM<sup>[2]</sup>. |
+| WKP | Active-high wakeup pin, wakes the module from sleep/standby modes. When not used as a WAKEUP, this pin can also be used as a digital GPIO, ADC input or PWM<sup>[2]</sup>. Can be referred to as `A7` when used as an ADC. |
+| DAC   | 12-bit Digital-to-Analog (D/A) output (0-4095), referred to as `DAC` or `DAC1` in software. Can also be used as a digital GPIO or ADC. Can be referred to as `A6` when used as an ADC. A3 is a second DAC output used as `DAC2` in software. |
+| A0~A7 | 12-bit Analog-to-Digital (A/D) inputs (0-4095), and also digital GPIOs. `A6` and `A7` are code convenience mappings, which means pins are not actually labeled as such but you may use code like `analogRead(A7)`.  `A6` maps to the DAC pin and `A7` maps to the WKP pin. A4,A5,A7 may also be used as a PWM<sup>[2]</sup> output. |
+| D0~D7 | Digital only GPIO pins. D0~D3 may also be used as a PWM<sup>[2]</sup> output. |
 
-In addition to the 24 pins around the outside of the Photon, there are 7 pads on the bottom the Photon PCB that can be used to connect to extra signals: RGB LED outputs, SETUP button, SMPS enable line and USB D+/D-. Photon Pins #25-31 are described in the [Pin out diagrams](#pin-out-diagrams). Also refer to the [Recommended PCB land pattern photon without headers](#recommended-pcb-land-pattern-photon-without-headers-) section for their location on the bottom of the Photon.
+**Notes:**
+<sup>[1]</sup> In addition to the 24 pins around the outside of the Photon, there are 7 pads on the bottom the Photon PCB that can be used to connect to extra signals: RGB LED outputs, SETUP button, SMPS enable line and USB D+/D-. Photon Pins #25-31 are described in the [Pin out diagrams](#pin-out-diagrams). Also refer to the [Recommended PCB land pattern photon without headers](#recommended-pcb-land-pattern-photon-without-headers-) section for their location on the bottom of the Photon.
+
+<sup>[2]</sup> PWM is available on D0, D1, D2, D3, A4, A5, WKP, RX, TX with a caveat: PWM timer peripheral is duplicated on two pins (A5/D2) and (A4/D3) for 7 total independent PWM outputs. For example: PWM may be used on A5 while D2 is used as a GPIO, or D2 as a PWM while A5 is used as an analog input. However A5 and D2 cannot be used as independently controlled PWM outputs at the same time.
 
 ---
 
 
-### Pin out diagrams
+### Pinout diagrams
 
-<div align=left><img src="/assets/images/photon-pinout1.png"</div>
+<div align=left><a href="/assets/images/photon-pinout.pdf" target="_blank"><img src="/assets/images/photon-pinout1.png"</div></a></div>
+<div align=left><a href="/assets/images/photon-pinout.pdf" target="_blank"><img src="/assets/images/photon-pinout2.png"</div></a></div>
+<div align=left><a href="/assets/images/photon-pinout.pdf" target="_blank"><img src="/assets/images/photon-pinout3.png"</div></a></div>
 
-<div align=left><img src="/assets/images/photon-pinout2.png"</div>
+**Notes:**
 
-<div align=left><img src="/assets/images/photon-pinout3.png"</div>
+<sup>[1]</sup> MICRO_SPI_SSN is only for reference as a PØ module pin name.  It is technically speaking the STM32 pin PA4 which is the SS pin in an hardware SPI driven sense, however in the Particle API SPI SS is only user controlled as a GPIO. The hardware SS pin is not implemented.  The default SS pin for the Particle SPI API is A2 (STM32 pin PC2), but any GPIO can be used for this function with SPI.begin(pin).
 
 ## Technical specification
 
@@ -644,6 +666,7 @@ Cet équipement devrait être installé et actionné avec une distance minimum d
 | v012 | 15-January-2016 | WH | Added TELEC Certification information and expanded explanation of Photons with and without headers.
 | v013 | 7-April-2016 | BW | Added: full STM32 part number, Memory map, DAC limits, SWD pin locations, max source/sink current, more descriptive info about bottom side pads, known errata URL. Updated: BT COEX info, pin diagram, block diagram, operating conditions, pin descriptions, land-pattern image signal keepout note.
 | v014 | 13-September-2016 | BW | Updated Mating connectors section. |
+| v015 | 25-July-2017 | BW | Updated the Pin Description section and added high resolution pinout PDF, PWM notes and DCT layout, added warning to power section |
 
 ## Known Errata
 
