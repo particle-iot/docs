@@ -36,6 +36,27 @@ you might code something like `/v1/devices/55ff8800beefcafe12345678`.
 
 For product endpoints, you need to specify which product the API call targets. You can use either the product ID or the short alphanumerical product slug. Get either from the Console. In this example, the product ID is 1337 and the product slug is `my-product-v1`.
 
+## Format
+
+The Particle API accepts requests in [JSON](https://www.w3schools.com/js/js_json_intro.asp) (content type `application/json`) and in [form encoded format](https://en.wikipedia.org/wiki/POST_(HTTP%29) (content type `application/x-www-form-urlencoded`). It always replies with JSON (content type `application/json`).
+
+```bash
+# Example with form encoded format
+curl https://api.particle.io/v1/devices/mydevice/wakeup \
+     -d arg=please \
+     -d access_token=1234
+
+# Same example with JSON
+curl "https://api.particle.io/v1/devices/mydevice/wakeup?access_token=1234" \
+     -H "Content-Type: application/json" \
+     -d "{\"arg\": \"please\"}"
+```
+
+In these docs, you'll see example calls written using a terminal program called [curl](https://curl.haxx.se/) which may already be available on your machine.
+
+The example use form encoded data to make them easier to read and type but unless specified otherwise any endpoint can also accept a JSON object with the parameters as properties.
+
+
 ## Authentication
 
 Just because you've connected your Particle device to the internet doesn't mean anyone else should have access to it.
@@ -77,13 +98,7 @@ There are three ways to send your access token in a request.
 
 * In an HTTP Authorization header (always works)
 * In the URL query string (only works with GET requests)
-* In the request body (only works for POST & PUT when body is URL-encoded)
-
-In these docs, you'll see example calls written using a terminal program called
-[curl](https://curl.haxx.se/)
-which may already be available on your machine.
-
-Example commands will always start with `curl`.
+* In the request body (only works for POST, PUT and DELETE when body is form encoded)
 
 ---
 
@@ -119,6 +134,7 @@ for example `-X PUT`.
 curl -d access_token=38bb7b318cc6898c80317decb34525844bc9db55 \
   https://...
 ```
+
 
 {{> api group=apiGroups.Authentication}}
 
