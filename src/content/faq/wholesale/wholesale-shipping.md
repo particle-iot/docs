@@ -61,7 +61,7 @@ If you refuse to pay these extra charges, the return shipping and any additional
 
 ### Return to Sender
 
-There are lots of things that can happen in the delivery process and packages can get held up for reasons that are outside of our control. If your order gets returned to us in California, we can issue you a refund or take the appropriate actions to get you a new package. 
+There are lots of things that can happen in the delivery process and packages can get held up for reasons that are outside of our control. If your order gets returned to us, we can issue you a refund or take the appropriate actions to get you a new package. 
 
 Before you get a new package or refund, we'll need to determine the following:
 - What shipping address was entered when you placed the order
