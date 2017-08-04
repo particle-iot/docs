@@ -59,7 +59,7 @@ Additional fees such as VAT, import costs, duties, and taxes for international s
 
 ### Return to Sender
 
-There are lots of things that can happen in the delivery process, and packages can get held up for reasons that are outside of our control. If your order gets returned to us in Gilroy, CA, we can issue you a refund or take the appropriate actions to get you a new package. 
+There are lots of things that can happen in the delivery process, and packages can get held up for reasons that are outside of our control. If your order gets returned to us, we can issue you a refund or take the appropriate actions to get you a new package. 
 
 Before you get a new package or refund, we'll need to determine the following:
 - What shipping address was entered when you placed the order
@@ -77,7 +77,7 @@ We include an invoice with international orders, but sometimes packages do get h
 We work hard to lower the shipping rates you see. If they are higher than you expected though, there are some things you can do: 
 - Consolidate shipments. It costs the same to ship 1 and 5 Photons.
 - Use a slower shipping method
-- Use one of our [international distributors](https://www.particle.io/distributors))
+- Use one of our [international distributors](https://www.particle.io/distributors)
 
 All shipping prices include a handling fee. 
 
