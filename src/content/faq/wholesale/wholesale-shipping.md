@@ -45,13 +45,13 @@ If your order is going to a PO Box, you MUST use USPS as UPS does not deliver to
 
 ### International Shipping
 
-We ship to your country unless you live in Iran, North Korea, Sudan, Cuba, Syria, or any country that is embargoed by the US Government. Depending on your location, we use UPS, DHL and USPS. A brief description of the differences can be seen below:
-- USPS First-Class Package International Service - Delivery varies by destination. Can take up to 20 business days
-- UPS Worldwide Expedited - Usually is delivered in 2- 5 Business days
-- UPS Saver- Usually is delivered in 1- 3 Business days if placed before 12pm PST
-- DHL Express - Usually is delivered in 1- 3 Business days if placed before 12pm PST
+We ship to your country unless you live in Iran, North Korea, Sudan, Cuba, Syria, or any country that is embargoed by the US Government. 
 
-We ship all products from California.
+For international orders we only have DHL at this time. New shipping methods are being added frequently as we work with different partners and carriers.
+
+DHL International - Usually delivered 3-4 business days
+
+We ship all products from Indiana.
 
 ## Duties and Taxes
 
