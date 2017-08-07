@@ -279,7 +279,7 @@ represents a release action, with the specific firmware being delivered
 to a product device.
 
 4. [**Mark the firmware as released**](#releasing-firmware). This will
-target product devices to automatically donwload and run the firmware.
+target product devices to automatically download and run the firmware.
 The Particle Cloud will respect the [precedence
 rules](#firmware-precedence-rules) to determine which firmware is
 delivered to a given device. If you are on the Enterprise plan with
