@@ -1538,7 +1538,7 @@ if (strcmp(url,"/index")==0) {
 
 ### Complete Example
 
-Here's a complete example providing a Web UI for setting up WiFi via HTTP. Credit for the HTTP pages goes to Github user @mebrunet!
+Here's a complete example providing a Web UI for setting up WiFi via HTTP. Credit for the HTTP pages goes to Github user @mebrunet! ([Included from PR #909 here](https://github.com/spark/firmware/pull/906)) ([Source code here](https://github.com/mebrunet/softap-setup-page))
 
 
 
