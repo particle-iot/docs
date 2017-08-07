@@ -47,9 +47,9 @@ If your order is going to a PO Box, you MUST use USPS as UPS does not deliver to
 
 We ship to your country unless you live in Iran, North Korea, Sudan, Cuba, Syria, or any country that is embargoed by the US Government. 
 
-For international orders we only have DHL at this time. New shipping methods are being added frequently as we work with different partners and carriers.
-
-DHL International - Usually delivered 3-4 business days
+For international orders we only have USPS and DHL at this time. New shipping methods are being added frequently as we work with different partners and carriers. 
+- USPS First-Class Package International Service - Delivery varies by destination. Can take up to 20 business days
+- DHL Express - Usually is delivered in 1- 3 Business days if placed before 12pm PST
 
 We ship all products from Indiana.
 
