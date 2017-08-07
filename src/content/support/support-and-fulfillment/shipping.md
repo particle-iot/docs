@@ -31,7 +31,7 @@ Your order confirmation and tracking information will be sent to the email addre
 For domestic orders we use both UPS and USPS. A brief description of the differences can be seen below:
 - USPS First-Class Mail Parcel - Usually delivered in 5 to 10 days
 - USPS Priority Mail - Usually delivered in 3 days
-- UPS Ground - Usually ships in 1-5 Business Days, depending on the distance from California
+- UPS Ground - Usually ships in 1-5 Business Days, depending on the distance from Indiana
 - UPS Three-Day Select - Usually delivered in 3 business days if placed before 12pm PST
 - UPS Second Day Air - Usually delivered in 2 business days if placed before 12pm PST 
 
@@ -46,12 +46,10 @@ We ship to your country! (Unless you live in Iran, North Korea, Sudan, Cuba, Syr
 
 #### International Shipping Methods
 
-For international orders we use both UPS and USPS. A brief description of the differences can be seen below:
-- USPS First-Class Package International Service - Delivery varies by destination. Can take up to 20 business days
-- UPS Worldwide Expedited - Usually is delivered in 2- 5 Business days
-- UPS Saver- Usually is delivered in 1- 3 Business days if placed before 12pm PST
+For international orders we only have DHL at this time. New shipping methods are being added frequently as we work with different partners and carriers. 
+- DHL International - Usually delivered 3-4 business days
 
-We ship all our products from California, but we have many distributors around the world (you can find a list of some our international distributors [here](https://www.particle.io/distributors).
+We ship all our products from Indiana, but we have many distributors around the world (you can find a list of some our international distributors [here](https://www.particle.io/distributors).
 
 #### Duties and Taxes
 
