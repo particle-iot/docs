@@ -46,8 +46,9 @@ We ship to your country! (Unless you live in Iran, North Korea, Sudan, Cuba, Syr
 
 #### International Shipping Methods
 
-For international orders we only have DHL at this time. New shipping methods are being added frequently as we work with different partners and carriers. 
-- DHL International - Usually delivered 3-4 business days
+For international orders we only have USPS and DHL at this time. New shipping methods are being added frequently as we work with different partners and carriers. 
+- USPS First-Class Package International Service - Delivery varies by destination. Can take up to 20 business days
+- DHL Express - Usually is delivered in 1- 3 Business days if placed before 12pm PST
 
 We ship all our products from Indiana, but we have many distributors around the world (you can find a list of some our international distributors [here](https://www.particle.io/distributors).
 
