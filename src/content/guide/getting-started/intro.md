@@ -31,13 +31,13 @@ This guide will show you how to use Particle to make a connected device, from th
 Anxious to connect right away?
 
 {{#if photon}}
-[SETUP MY PHOTON >](/guide/getting-started/start/#step-1-power-on-your-device)
+<a href="/guide/getting-started/start/#step-1-power-on-your-device" target="_blank" class="button">SETUP MY PHOTON</a>
 {{/if}}
 {{#if core}}
-[SETUP MY CORE >](/guide/getting-started/start/#step-1-power-on-your-device)
+<a href="/guide/getting-started/start/#step-1-power-on-your-device" target="_blank" class="button">SETUP MY CORE</a>
 {{/if}}
 {{#if electron}}
-[SETUP MY ELECTRON >](https://setup.particle.io/)
+<a href="https://setup.particle.io/" target="_blank" class="button">SETUP MY ELECTRON</a>
 {{/if}}
 {{/if}} {{!-- has-embedded --}}
 
