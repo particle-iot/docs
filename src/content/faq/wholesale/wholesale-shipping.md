@@ -43,7 +43,7 @@ Please note these shipping timelines are from **ship date** not **order date**.
 
 ### PO Boxes
 
-If your order is going to a PO Box, you MUST use USPS as UPS does not deliver to PO Boxes. If you choose UPS and your delivery address is to a PO box, you will be charged to reship once the order is returned to our warehouse. 
+If your order is going to a PO Box, you MUST use USPS as UPS, FedEx, and DHL do not deliver to PO Boxes. If you choose anything other than USPS and your delivery address is to a PO box, you will be charged to reship once the order is returned to our warehouse. 
 
 ### International Shipping
 
