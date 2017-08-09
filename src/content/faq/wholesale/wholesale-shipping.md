@@ -47,7 +47,7 @@ If your order is going to a PO Box, you MUST use USPS as UPS, FedEx, and DHL do 
 
 ### International Shipping
 
-We ship to your country unless you live in Iran, North Korea, Sudan, Cuba, Syria, or any country that is embargoed by the US Government. 
+We ship to your country unless you live in Iran, Iraq, South Sudan, North Korea, Sudan, Cuba, Syria, or any country that is embargoed by the US Government. 
 
 For international orders we only have FedEx and DHL at this time. New shipping methods are being added frequently as we work with different partners and carriers. 
 - FedEx International Ground - Usually is delivered in 5 Business days if placed before 12pm PST
