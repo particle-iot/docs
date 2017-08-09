@@ -26,29 +26,33 @@ Your order confirmation and tracking information will be sent to the email addre
 
 ### Domestic Shipping
 
-#### Domestic Shipping Methods
+### Domestic Shipping Methods
 
-For domestic orders we use both UPS and USPS. A brief description of the differences can be seen below:
-- USPS First-Class Mail Parcel - Usually delivered in 5 to 10 days
-- USPS Priority Mail - Usually delivered in 3 days
-- UPS Ground - Usually ships in 1-5 Business Days, depending on the distance from Indiana
+For domestic orders we use UPS, FedEx, and USPS. A brief description of the differences can be seen below:
+- USPS First-Class Mail Parcel - Usually delivered in 5 to 10 buesiness days if placed before 12pm PST
+- USPS Priority Mail - Usually delivered in 3 business days if placed before 12pm PST
+- UPS Ground - Usually delivered in 1-5 Business Days, depending on the distance from Indiana
 - UPS Three-Day Select - Usually delivered in 3 business days if placed before 12pm PST
-- UPS Second Day Air - Usually delivered in 2 business days if placed before 12pm PST 
+- UPS Second Day Air - Usually delivered in 2 business days if placed before 12pm PST
+- FedEx Ground - Usually delivered in 1-5 Business Days, depending on the distance from Indiana
+- Fedex Second Day - Usually delivered in 2 business days if placed before 12pm PST
 
-#### PO Boxes
+Please note these shipping timelines are from **ship date** not **order date**. 
 
-If your order is going to a PO Box, you MUST use USPS as UPS does not deliver to PO Boxes. If you choose UPS and your delivery address is to a PO box, you will be charged to reship once the order is returned to our warehouse. 
+### PO Boxes
 
+If your order is going to a PO Box, you MUST use USPS as UPS, FedEx, and DHL do not deliver to PO Boxes. If you choose anything other than USPS and your delivery address is to a PO box, you will be charged to reship once the order is returned to our warehouse. 
 
 ### International Shipping
 
-We ship to your country! (Unless you live in Iran, North Korea, Sudan, Cuba, Syria, or any country that is embargoed by the US Government)
+We ship to your country unless you live in Iran, North Korea, Sudan, Cuba, Syria, or any country that is embargoed by the US Government. 
 
-#### International Shipping Methods
+For international orders we only have FedEx and DHL at this time. New shipping methods are being added frequently as we work with different partners and carriers. 
+- FedEx International Ground - Usually is delivered in 5 Business days if placed before 12pm PST
+- FedEx International Priority - Usually is delivered in 3 Business days if placed before 12pm PST
+- DHL Express - Usually is delivered in 1 - 3 Business days if placed before 12pm PST
 
-For international orders we only have USPS and DHL at this time. New shipping methods are being added frequently as we work with different partners and carriers. 
-- USPS First-Class Package International Service - Delivery varies by destination. Can take up to 20 business days
-- DHL Express - Usually is delivered in 1- 3 Business days if placed before 12pm PST
+We ship all products from Indiana, USA.
 
 We ship all our products from Indiana, but we have many distributors around the world (you can find a list of some our international distributors [here](https://www.particle.io/distributors).
 
