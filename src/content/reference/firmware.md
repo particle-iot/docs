@@ -8045,7 +8045,7 @@ timer.stop(); // stops a running timer.
 
 ### changePeriod()
 
-Changes the period of a previously created timer. It can be called to change the period of an running or stopped timer.
+Changes the period of a previously created timer. It can be called to change the period of an running or stopped timer. Note that changing the period of a dormant timer will also start the timer.
 
 `changePeriod(newPeriod)`
 
@@ -10329,7 +10329,7 @@ String stringOne =  String(analogRead(0), DEC);        // using an int and a bas
 String stringOne =  String(45, HEX);                   // using an int and a base (hexadecimal)
 String stringOne =  String(255, BIN);                  // using an int and a base (binary)
 String stringOne =  String(millis(), DEC);             // using a long and a base
-String stringOne =  String(34.5432, 2);                // using a float showing only 2 decimal places shows 34.54 
+String stringOne =  String(34.5432, 2);                // using a float showing only 2 decimal places shows 34.54
 ```
 Constructing a String from a number results in a string that contains the ASCII representation of that number. The default is base ten, so
 
