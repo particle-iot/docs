@@ -10461,7 +10461,7 @@ Returns:
 
 _Since 0.4.6_
 
-Provides printf-style formatting for strings.
+Provides [printf](http://www.cplusplus.com/reference/cstdio/printf/)-style formatting for strings.
 
 ```C++
 
