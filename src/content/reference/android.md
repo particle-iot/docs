@@ -127,11 +127,12 @@ Log in to the Particle Cloud:
 ParticleCloudSDK.getCloud().logIn("ido@particle.io", "myl33tp4ssw0rd");
 Toaster.s(someActivity, "Logged in!");
 ```
-#### INJECTING A SESSION ACCESS TOKEN (APP UTILIZES TWO LEGGED AUTHENTICATION)
+#### Injecting Session Access Token (Two Legged Authentication)
+
 If you use your own backend to authenticate users in your app - you can now inject the Particle access token your back end gets from Particle cloud easily using one of the new setAccessToken methods exposed from ParticleCloud class. Additionally the SDK will now automatically renew an expired session if a refresh token exists.
 
 ```java
-ParticleCloudSDK.getCloud().setAccessToken("9bb9f7433940e7c808b191c28cd6738f8d12986c");
+ParticleCloudSDK.getCloud().setAccessToken("9bb912533940e7c808b191c28cd6aaaf8d12986c");
 ```
 
 ---
