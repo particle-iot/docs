@@ -5,7 +5,7 @@ columns: two
 order: 4
 ---
 
-# Electron Datasheet <sup>(v004)</sup>
+# Electron Datasheet <sup>(v005)</sup>
 
 <div align=center><img src="/assets/images/electron/illustrations/electron-v20.png" ></div>
 
@@ -44,7 +44,7 @@ The Electron can be powered via the VIN (3.9V-12VDC) pin, the USB Micro B connec
 Most USB ports can supply only a maximum of 500mA, but the u-Blox GSM module on the Electron alone can consume a peak of 800mA to 1800mA of current during transmission. In order to compensate of this deficit, one must connect the LiPo battery at all times when powering from a traditional USB port. The Electron will intelligently source power from the USB most of the time and keep the battery charged. During peak current requirements, the additional power will be sourced from the battery. This reduces the charge-discharge cycle load on the battery, thus improving its longevity. 
 
 #### VIN
-The input voltage range on VIN pin is 3.9VDC to 12VDC. When powering from the VIN pin alone, make sure that the power supply is rated at 10W (for example 5VDC at 2Amp). If the power source is unable to meet this requirement, you'll need connect the LiPo battery as well.
+The input voltage range on VIN pin is 3.9VDC to 12VDC. When powering from the VIN pin alone, make sure that the power supply is rated at 10W (for example 5VDC at 2Amp). If the power source is unable to meet this requirement, you'll need connect the LiPo battery as well.  An additional bulk capacitance of 470uF to 1000uF should be added to the VIN input when the LiPo Battery is disconnected.  The amount of capacitance required will depend on the ability of the power supply to deliver peak currents to the cellular modem.
 
 #### LiPo Battery
 When powered from a LiPo battery alone, the power management IC switches off the internal regulator and supplies power to the system directly from the battery. This reduces the conduction losses and maximizes battery run time. The battery provided with the Electron is a Lithium-Ion Polymer battery rated at 3.7VDC 2000mAh. You can substitute this battery with another 3.7V LiPo with higher current rating. Remember to never exceed this voltage rating and always pay attention to the polarity of the connector.
@@ -52,9 +52,9 @@ When powered from a LiPo battery alone, the power management IC switches off the
 Typical current consumption is around 180mA and up to 1.8A transients at 5VDC. In deep sleep mode, the quiescent current is 130uA (powered from the battery alone).
 
 #### Li+
-This pin is internally tied to the positive terminal of the LiPo battery connector. It is intentionally left unpopulated. Please note that an incorrect usage of this pin can render the Electron unusable. 
+This pin is internally tied to the positive terminal of the LiPo battery connector. It is intentionally left unpopulated. Please note that an incorrect usage of this pin can render the Electron unusable.
 
-Li+ pin serves two purposes. You can use this pin to connect a LiPo battery directly without having to use a JST connector or it can be used to connect an external DC power source (and this is where one needs to take extra precautions). When powering it from an external regulated DC source, the  recommended input voltage range on this pin is between 3.6V to 4.4VDC. Make sure that the supply can handle currents of at least 3Amp. 
+Li+ pin serves two purposes. You can use this pin to connect a LiPo battery directly without having to use a JST connector or it can be used to connect an external DC power source (and this is where one needs to take extra precautions). When powering it from an external regulated DC source, the  recommended input voltage range on this pin is between 3.6V to 4.4VDC. Make sure that the supply can handle currents of at least 2 Amps.
 
 This is the most efficient way of powering the Electron since the PMIC by-passes the regulator and supplies power to the Electron via an internal FET leading to lower quiescent current.
 
@@ -64,6 +64,11 @@ This pin is internally connected to USB supply rail and will output 5V when the 
 #### 3V3 Pin
 This pin is the output of the on-board 3.3V switching regulator that powers the microcontroller and the peripherals. This pin can be used as a 3.3V power source with a max load of 800mA. Unlike the Photon or the Core, this pin _CANNOT_ be used as an input to power the Electron.
 
+#### VBAT
+Supply to the internal RTC, backup registers and SRAM when 3V3 is not present (1.65 to 3.6VDC). The Pin is internally connected to 3V3 supply via a 0 ohm resistor. If you wish to power VBAT via an external supply, you'll need to remove this resistor with a desoldering iron.  Contact us if you wish to request trays of electrons with this jumper depopulated.
+
+#### Powering the Electron without a battery
+The most forgiving way to power the Electron without a battery is via the VIN input [see VIN above](#vin).  Power may also be applied separately to the Li+ pin or LiPo JST connector [see Li+ above](#li-).
 
 <!---
 #### PMID
@@ -71,8 +76,6 @@ This is a very interesting pin (or rather a pad ) and it's usage is often confus
 
 The confusing bit about this pin is that it will continue to provide 5.1VDC but only when the input voltage (VIN) is between 3.6V to 5.1VDC. As soon as the input voltage exceeds this limit, the PMID starts tracking _that_ voltage. For example if VIN = 9VDC, the PMID will be 9VDC and _NOT_ 5.1VDC. So you need to be careful when using it as a source for powering your external circuitry. The max current draw on this pin is 2.1A but is not recommended due to thermal limitations of the circuit board.
 <add photo here>
-
-### Powering the Electron without a battery
 -->
 
 ### FCC approved antennas
@@ -94,17 +97,18 @@ The confusing bit about this pin is that it will continue to provide 5.1VDC but 
 | SPI  | 2 | I/O | 3V3 |
 | I2S  | 1 | I/O | 3V3 |
 | I2C  | 1 | I/O | FT |
-| CAN  | 2 | I/O | FT |
+| CAN  | 2 | I/O | 3V3<sup>[4]</sup> |
 | USB  | 1 | I/O | 3V3 |
 | PWM  | 13<sup>3</sup> | O | 3V3 |
 
 **Notes:**
-[1] FT = 5.0V tolerant pins. All pins except A3 and DAC are 5V tolerant (when not in analog mode). If used as a 5V input the pull-up/pull-down resistor must be disabled.
+<sup>[1]</sup> FT = 5.0V tolerant pins. All pins except A3 and DAC are 5V tolerant (when not in analog mode). If used as a 5V input the pull-up/pull-down resistor must be disabled.
 
-[2] 3V3 = 3.3V max pins.
+<sup>[2]</sup> 3V3 = 3.3V max pins.
 
-[3] PWM is available on D0, D1, D2, D3, B0, B1, B2, B3, A4, A5, WKP, RX, TX with a caveat: PWM timer peripheral is duplicated on two pins (A5/D2) and (A4/D3) for 11 total independent PWM outputs. For example: PWM may be used on A5 while D2 is used as a GPIO, or D2 as a PWM while A5 is used as an analog input. However A5 and D2 cannot be used as independently controlled PWM outputs at the same time.
+<sup>[3]</sup> PWM is available on D0, D1, D2, D3, B0, B1, B2, B3, A4, A5, WKP, RX, TX with a caveat: PWM timer peripheral is duplicated on two pins (A5/D2) and (A4/D3) for 11 total independent PWM outputs. For example: PWM may be used on A5 while D2 is used as a GPIO, or D2 as a PWM while A5 is used as an analog input. However A5 and D2 cannot be used as independently controlled PWM outputs at the same time.
 
+<sup>[4]</sup> Technically these pins are 5.0V tolerant, but since you wouldn't operate them with a 5.0V transceiver it's proper to classify them as 3.3V.
 
 ### JTAG AND SWD
 Pin D3 through D7 are JTAG interface pins. These can be used to reprogram your Electron bootloader or user firmware image with standard JTAG tools such as the ST-Link v2, J-Link, R-Link, OLIMEX ARM-USB-TINI-H, and also the FTDI-based Particle JTAG Programmer. If you are short on available pins, you may also use SWD mode which requires less connections.
@@ -132,7 +136,7 @@ Pin D3 through D7 are JTAG interface pins. These can be used to reprogram your E
 - DCD1 (16 KB), stores keys, mfg info, system flags, etc..
 - DCD2 (16 KB), swap area for DCD1
 - EEPROM emulation bank 1 (16 KB)
-- EEPROM emulation bank 2 (64 KB) [only 16k used]
+- EEPROM emulation bank 2 (64 KB)
 - System firmware (512 KB) [256 KB comms + 256 KB hal/platform/services]
 - Factory backup, OTA backup and user application (384 KB) [3 x 128 KB]
 
@@ -140,7 +144,7 @@ Pin D3 through D7 are JTAG interface pins. These can be used to reprogram your E
 
 The DCD area of flash memory has been mapped to a separate DFU media device so that we can incrementally update the application data. This allows one item (say, server public key) to be updated without erasing the other items.
 
-_DCD layout as of v0.4.9_ [found here in firmware](https://github.com/spark/firmware/blob/develop/platform/MCU/STM32F2xx/SPARK_Firmware_Driver/inc/dct.h)
+_DCD layout in `release/stable`_ <a href="https://github.com/spark/firmware/blob/release/stable/platform/MCU/STM32F2xx/SPARK_Firmware_Driver/inc/dct.h" target="_blank">found here in firmware.</a>
 
 | Region | Offset | Size |
 |:---|---|---|
@@ -148,10 +152,13 @@ _DCD layout as of v0.4.9_ [found here in firmware](https://github.com/spark/firm
 | version | 32 | 2 |
 | device private key | 34 | 1216 |
 | device public key | 1250 | 384 |
-| ip config | 1634 | 128 |
+| ip config | 1634 | 120 |
+| feature flags | 1754 | 4 |
+| country code | 1758 | 4 |
 | claim code | 1762 | 63 |
 | claimed | 1825 | 1 |
-| device id | 1852 | 6 |
+| ssid prefix | 1826 | 26 |
+| device code | 1852 | 6 |
 | version string | 1858 | 32 |
 | dns resolve | 1890 | 128 |
 | reserved1 | 2018 | 64 |
@@ -159,12 +166,18 @@ _DCD layout as of v0.4.9_ [found here in firmware](https://github.com/spark/firm
 | padding | 2850 | 2 |
 | flash modules | 2852 | 100 |
 | product store | 2952 | 24 |
+| antenna selection | 2976 | 1 |
 | cloud transport | 2977 | 1 |
 | alt device public key | 2978 | 128 |
 | alt device private key | 3106 | 192 |
 | alt server public key | 3298 | 192 |
 | alt server address | 3490 | 128 |
-| reserved2 | 3618 | 1280 |
+| device id | 3618 | 12 |
+| radio flags | 3630 | 1 |
+| mode button mirror | 3631 | 32 |
+| led mirror | 3663 | 96 |
+| led theme | 3759 | 64 |
+| reserved2 | 3823 | 435 |
 
 **Note:** Writing 0xFF to offset 3106 (DEFAULT key used on Electron) will cause the device to re-generate a new private UDP/ECC key on the next boot. TCP keys are currently unsupported on the Electron but would be located at offset 34.  You should not need to use this feature unless your keys are corrupted.
 
@@ -186,6 +199,7 @@ echo -e "\xFF" > fillbyte && dfu-util -d 2b04:d00a -a 1 -s 34 -D fillbyte
 | EEPROM2 | 0x8010000 | 0x8020000 | 64 KB |
 
 ### Memory Map (Modular Firmware - default)
+_Before 0.6.0 firmware_
 
 | Region | Start Address | End Address | Size |
 |:---|---|---|---|
@@ -196,7 +210,17 @@ echo -e "\xFF" > fillbyte && dfu-util -d 2b04:d00a -a 1 -s 34 -D fillbyte
 | OTA Backup | 0x80C0000 | 0x80E0000 | 128 KB |
 | Decompress region | 0x80E0000 | 0x8100000 | 128 KB |
 
-<add later |System Part 3| 0x8060000| 0x8080000 |128 KB|>
+_Since 0.6.0 firmware_
+
+| Region | Start Address | End Address | Size |
+|:---|---|---|---|
+| System Part 2 | 0x8020000 | 0x8040000 | 128 KB |
+| System Part 3 | 0x8040000 | 0x8060000 | 128 KB |
+| System Part 1 | 0x8060000 | 0x8080000 | 128 KB |
+| Application | 0x8080000 | 0x80A0000 | 128 KB |
+| Factory Reset/Extended Application | 0x80A0000 | 0x80C0000 | 128 KB |
+| OTA Backup | 0x80C0000 | 0x80E0000 | 128 KB |
+| Decompress region | 0x80E0000 | 0x8100000 | 128 KB |
 
 ### Memory Map (Monolithic Firmware - optional)
 
@@ -222,7 +246,7 @@ echo -e "\xFF" > fillbyte && dfu-util -d 2b04:d00a -a 1 -s 34 -D fillbyte
 | :-----|:----- |
 | VIN | This pin can be used as an input or output. As an input, supply 5VDC to 12VDC to power the Electron. When the Electron is powered via the USB port, this pin will output a voltage of approximately 4.8VDC due to a reverse polarity protection series Schottky diode between VUSB and VIN. When used as an output, the max load on VIN is 1Amp. |
 | RST | Active-low reset input. On-board circuitry contains a 10k ohm pull-up resistor between RST and 3V3, and 0.1uF capacitor between RST and GND. |
-| VBAT |Supply to the internal RTC, backup registers and SRAM when 3V3 is not present (1.65 to 3.6VDC). The Pin is internally connected to 3V3 supply via a 0 ohm resistor. If you wish to power it via an external supply, you'll need to remove this resistor. Draft instructions to remove this resistor can be found [here](http://community.particle.io/t/solved-how-to-use-vbat-on-electron/21312/5). |
+| VBAT | Supply to the internal RTC, backup registers and SRAM when 3V3 is not present (1.65 to 3.6VDC). The Pin is internally connected to 3V3 supply via a 0 ohm resistor. If you wish to power VBAT via an external supply, you'll need to remove this resistor with a desoldering iron.  Contact us if you wish to request trays of electrons with this jumper depopulated. |
 | 3V3 |This pin is the output of the on-board regulator. When powering the Electron via VIN or the USB port, this pin will output a voltage of 3.3VDC. The max load on 3V3 is 800mA. It should not be used as an input to power the Electron. |
 | WKP |Active-high wakeup pin, wakes the module from sleep/standby modes. When not used as a WAKEUP, this pin can also be used as a digital GPIO, ADC input or PWM<sup>[1]</sup>. Can be referred to as `A7` when used as an ADC.|
 | DAC |12-bit Digital-to-Analog (D/A) output (0-4095), referred to as `DAC` or `DAC1` in software. Can also be used as a digital GPIO or ADC. Can be referred to as `A6` when used as an ADC. |
@@ -235,7 +259,9 @@ echo -e "\xFF" > fillbyte && dfu-util -d 2b04:d00a -a 1 -s 34 -D fillbyte
 | VUSB | This pin is internally connected to USB supply and will output 5V when the Electron is plugged into an USB port. It is intentionally left unpopulated. |
 | Li+ | This pin is internally connected to the positive terminal of the LiPo battery. It is intentionally left unpopulated. |
 
-[1] PWM is available on D0, D1, D2, D3, B0, B1, B2, B3, A4, A5, WKP, RX, TX with a caveat: PWM timer peripheral is duplicated on two pins (A5/D2) and (A4/D3) for 11 total independent PWM outputs. For example: PWM may be used on A5 while D2 is used as a GPIO, or D2 as a PWM while A5 is used as an analog input. However A5 and D2 cannot be used as independently controlled PWM outputs at the same time.
+**Notes:**
+
+<sup>[1]</sup> PWM is available on D0, D1, D2, D3, B0, B1, B2, B3, A4, A5, WKP, RX, TX with a caveat: PWM timer peripheral is duplicated on two pins (A5/D2) and (A4/D3) for 11 total independent PWM outputs. For example: PWM may be used on A5 while D2 is used as a GPIO, or D2 as a PWM while A5 is used as an analog input. However A5 and D2 cannot be used as independently controlled PWM outputs at the same time.
 
 ### LED Status
 
@@ -252,7 +278,7 @@ echo -e "\xFF" > fillbyte && dfu-util -d 2b04:d00a -a 1 -s 34 -D fillbyte
 
 <sup>[1]</sup> A fault condition can occur due to several reasons, for example, battery over/under voltage, temperature fault or safety timer fault. You can find the root cause by reading the fault register of the power management IC in firmware.
 
-<sup>[2]</sup> You can stop this behavior by either plugging in the LiPo battery or by disabling the charging using the appropriate firmware command.
+<sup>[2]</sup> You can stop this behavior by either plugging in the LiPo battery or by disabling charging using firmware command: `PMIC().disableCharging();`.
 
 #### System RGB LED
 
@@ -260,9 +286,9 @@ For a detailed explanation of different color codes of the RGB system LED, pleas
 
 ### Pinout diagram
 
-<div align=center> <a href="/assets/images/electron/illustrations/electron_pinout.pdf"> <img src="/assets/images/electron/illustrations/electron_pinout.png"> </a></div>
+<div align=center> <a href="/assets/images/electron/illustrations/electron_pinout.pdf" target="_blank"> <img src="/assets/images/electron/illustrations/electron_pinout.png"> </a></div>
 
-You can download a high resolution pinout diagram in a PDF version [here.](/assets/images/electron/illustrations/electron_pinout.pdf)
+You can download a high resolution pinout diagram in a <a href="/assets/images/electron/illustrations/electron_pinout.pdf" target="_blank"><strong>PDF version here.</strong></a></div><br>
 
 ## Technical Specifications
 
@@ -285,15 +311,15 @@ conditions is not implied. Exposure to absolute-maximum-rated conditions for ext
 
 | Parameter | Symbol | Min | Typ | Max | Unit |
 | :---|:---|:---:|:---:|:---:|:---:
-| Supply Input Voltage | V<sub>IN</sub> | +3.88<sup>[1]</sup> |  | +12 | V |
-| Supply Output Voltage | V<sub>IN</sub> |  | +4.8 |  | V |
+| Supply Input Voltage | V<sub>VIN</sub> | +3.88<sup>[1]</sup> |  | +12 | V |
+| Supply Output Voltage | V<sub>VIN</sub> |  | +4.8 |  | V |
 | Supply Output Voltage | V<sub>3V3</sub> |  | +3.3 |  | V |
 | LiPo Battery Voltage | V<sub>LiPo</sub> | +3.6 |  | +4.4 | V |
 | Supply Input Voltage | V<sub>VBAT</sub> | +1.65 |  | +3.6 | V |
 | Supply Input Current (VBAT) | I<sub>VBAT</sub> |  |  | 19 | uA |
-| Operating Current (uC on, Cellular ON) | I<sub>IN avg</sub> |  | 180 | 250 | mA |
-| Peak Current (uC on, Cellular ON) | I<sub>IN pk</sub> | 800<sup>[2]</sup> |  | 1800<sup>[3]</sup> | mA |
-| Operating Current (uC on, Cellular OFF) | I<sub>IN avg</sub> |  | 47 | 50 | mA |
+| Operating Current (uC on, Cellular ON) | I<sub>VIN avg</sub> |  | 180 | 250 | mA |
+| Peak Current (uC on, Cellular ON) | I<sub>VIN pk</sub> | 800<sup>[2]</sup> |  | 1800<sup>[3]</sup> | mA |
+| Operating Current (uC on, Cellular OFF) | I<sub>VIN avg</sub> |  | 47 | 50 | mA |
 | Sleep Current (4.2V LiPo, Cellular OFF)| I<sub>Qs</sub> |  | 0.8 | 2 | mA |
 | Deep Sleep Current (4.2V LiPo, Cellular OFF) | I<sub>Qds</sub> |  | 110 | 130 | uA |
 | Operating Temperature | T<sub>op</sub> | -20 |  | +60 | °C |
@@ -305,7 +331,7 @@ conditions is not implied. Exposure to absolute-maximum-rated conditions for ext
 
 <sup>[2]</sup> 3G operation
 
-<sup>[3]</sup> 2G operation 
+<sup>[3]</sup> 2G operation
 
 
 ### Radio specifications
@@ -640,6 +666,7 @@ Cet équipement devrait être installé et actionné avec une distance minimum d
 | v002 | 24-March-2016 | MB | Added: Memory map, DAC limits, SIM card size, SWD pin locations. Updated: Power section, pin diagram, block diagram, operating conditions. |
 | v003 | 12-Sept-2016 | BW | Error in Cellular off operating current, changed from 2-15mA to 47-50mA. Also qualified these current readings with uC on/off. Updated the Pin Description section. Updated Mating connectors section. |
 | v004 | 27-Oct-2016 | BW | Replaced one STM32F205RGY6 with STM32F205RGT6, and replaced all STM32 mentions with full part number STM32F205RGT6 |
+| v005 | 14-Aug-2017 | BW | Updated DCD layout and Memory Map, renamed SPI1_*/SPI3_* to match Particle API instead of STM32 pin names to avoid confusion (now SPI, SPI1 and SPI2), updated the Pin Description section and added high resolution pinout PDF, updated LED Status section, VBAT info, added Power the Electron without a battery section |
 
 ## Known Errata
 
