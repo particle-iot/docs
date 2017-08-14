@@ -56,7 +56,7 @@ Typical average current consumption is 80mA with 5V @ input of the recommended S
 When a ceramic capacitor is used at the input and the power is supplied by a wall adapter through long wires, a load step at the output can induce ringing at the input, VIN. At best, this ringing can couple to the output and be mistaken as loop instability. At worst, a sudden inrush of current through the long wires can potentially cause a voltage spike at VIN large enough to damage the part.
 </p>
 
-To avoid these voltage spikes, keep input wiring as short as possible.  If long wires are unavoidable, it is advisable to add a 5.1V zener diode or similar transient suppression device from VIN to GND.
+To avoid these voltage spikes, keep input wiring as short as possible.  If long wires are unavoidable, it is advisable to add a 5.1V zener diode or similar transient suppression device from VIN to GND.  Another technique is adding more capacitance to the input using an electrolytic capacitor. Please refer to [AN-88 by Linear](http://cds.linear.com/docs/en/application-note/an88f.pdf) for a good discussion on this topic.
 
 <div align=center><img src="/assets/images/p1-power-pins.png" width="500">
 <br><br><b>Fig. 1</b> Recommended power connections with decoupling capacitors.</div>
@@ -158,7 +158,7 @@ When these pins are programmed to be used as a Bluetooth coexistence interface, 
 - DCT1 (16 KB), stores Wi-Fi credentials, keys, mfg info, system flags, etc..
 - DCT2 (16 KB), swap area for DCT1
 - EEPROM emulation bank 1 (16 KB)
-- EEPROM emulation bank 2 (64 KB) [only 16k used]
+- EEPROM emulation bank 2 (64 KB)
 - System firmware (512 KB) [256 KB Wi-Fi/comms + 256 KB hal/platform/services]
 - Factory backup, OTA backup and user application (384 KB) [3 x 128 KB]
 
