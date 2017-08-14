@@ -423,6 +423,7 @@ A Photon with headers part for EAGLE can be found in the [Particle EAGLE library
 
 The Photon (without headers) can be surface mounted directly in an end application PCB using the following PCB land pattern:
 
+<div align=center><strong>TOP THROUGH VIEW</strong></div>
 <div align=left><img src="/assets/images/photon_land_pattern_without_headers.png" width=600></div>
 
 In addition to the 24 pins around the outside of the Photon, there are 7 pads on the bottom the Photon PCB that can be used to connect to extra signals: RGB LED outputs, SETUP button, SMPS enable line and USB D+/D-. Photon Pins #25-31 are described in the [Pin out diagrams](#pin-out-diagrams).
