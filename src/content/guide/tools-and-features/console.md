@@ -238,15 +238,75 @@ As noted at the bottom of the dialog box, if you previously rolled out firmware,
 
 ### Rollout Firmware
 
-One of the most significant benefits of your Console is being able to roll out firmware to groups of devices, all from one place. This opens up tremendous possibilities for your IoT product: you now have the power to continuously improve how a customer's device operates after purchase. In addition, over-the-air (OTA) firmware updates can provide you additional flexibility in the manufacturing process. Specifically, you may continue to develop firmware between the time of manufacturing and shipping your product to customers, and send the latest firmware to your customers on setup of their device.
+One of the most valuable features of a Particle product is being able
+to seamlessly manage firmware on a fleet of IoT devices. You now have
+the ability to continuously improve how a device functions after
+deployment. In addition, product firmware management allows you to
+quickly and remotely fix bugs identified in the field, fleet-wide.
+
+This happens through **firmware releases**, which targets some or all of
+a device fleet to automatically download and run a firmware binary.
+
+#### Recommended development flow
+
+When releasing firmware your fleet, it's helpful to first understand
+Particle's recommended release flow. This flow has been designed to minimize
+risk when deploying new firmware to devices:
+
+<img src="/assets/images/release-firmware-flow.png" class="full-width" />
+<p class="caption">The recommended flow for releasing firmware</p>
+
+1. The first step of the release flow is using [**development
+devices**](/guide/how-to-build-a-product/development-devices/) to rapidly develop and iterate on product firmware. These are special
+product devices marked specifically for internal testing.
+This gives you the flexibility to experiment with
+new firmwares while still simulating behaviors of deployed devices in
+the production fleet. For information on marking a device as a
+development devices, check out [the
+guide](/guide/how-to-build-a-product/development-devices/#marking-a-development-device).
+
+2. When you have finalized a firmware that you feel confident in releasing
+to your fleet, [**prepare the binary and upload it to your
+product**](#preparing-a-binary).
+
+3. Before releasing, you will need to ensure that the uploaded product
+firmware is running on at least one device in your product fleet.
+Your development device(s) may already be running the firmware,
+but we also recommend [**locking one or more devices**](#locking-firmware)
+to the newly updated firmware and ensure that it re-connects
+successfully to the cloud. This is because locking more closely
+represents a release action, with the specific firmware being delivered
+to a product device.
+
+4. [**Mark the firmware as released**](#releasing-firmware). This will
+target product devices to automatically download and run the firmware.
+The Particle Cloud will respect the [precedence
+rules](#firmware-precedence-rules) to determine which firmware is
+delivered to a given device. If you are on the Enterprise plan with
+access to [device groups](/guide/how-to-build-a-product/device-groups/),
+you can more safely roll out the firmware by targeting a subset of the
+fleet for release.
+
+The rest of this section contains details around how to go through this
+process.
+
+#### Development devices
+
+Please visit the [guide on development
+devices](/guide/how-to-build-a-product/development-devices/) for
+information on this feature.
 
 #### Preparing a binary
 
 Click the Firmware icon in the left sidebar to get started. This will direct you to your product's firmware page, your centralized hub for viewing and managing firmware for your product's devices. If you haven't yet uploaded any firmware for this Product, your page will look like this:
 
-![Firmware page](/assets/images/firmware-page.png)
+<img src="/assets/images/firmware-page.png" class="full-width"
+alt="Firmware page"/>
 
-If you have been using the Web IDE / Particle Build to develop firmware, you are used to the process of writing, compiling, and then flashing firmware. You will follow the same high-level process here, but altered slightly to work with a group of devices. The first thing you'll need to do is compile a *firmware binary* that you will upload to your Console.
+If you have been using the [Web IDE](/guide/getting-started/build/) to
+develop firmware, you are used to the process of writing, compiling, and
+then flashing firmware. You will follow the same high-level process
+here, but altered slightly to work with a fleet of devices. The first thing you'll need to do is compile a *firmware binary* that you will upload to your Console.
 
 Unlike compiling a binary for a single device, it is critical that the **product ID** and a **firmware version** are included in the compiled binary. Specifically, you must add `PRODUCT_ID([your product ID])` and `PRODUCT_VERSION([version])` into the application code of your firmware. This is documented fully [here](https://github.com/spark/firmware/blob/develop/docs/build.md#product-id).
 
@@ -274,12 +334,15 @@ void loop() {
 
 #### Compiling Binaries
 
-If you are in the Web IDE, you can easily download a compiled binary by clicking the Code icon (<i class="ion-code"></i>) in your sidebar. You will see the name of your app in the pane, along with a download icon (<i class="ion-ios7-cloud-download"></i>). Click the download icon to compile and download your current binary.
+If you are in the Web IDE, you can easily download a compiled binary by
+clicking the code icon (<i class="ion-code"></i>) in your sidebar. You
+will see the name of your app in the pane, along with a download icon
+(shown below). Click the download icon to compile and download your current binary.
 
 ![Compile firmware](/assets/images/ide-compile.png)
 <p class="caption">Compile and download a product binary from the web IDE</p>
 
-If you are using Particle Dev, clicking on the compile icon (<i class="ion-checkmark-circled"></i>) will automatically add a `.bin` file to your current working directory if the compilation is a success. **Note**: Make sure that you have a device selected in Particle Dev before compiling.
+If you are using the [Desktop IDE](/guide/tools-and-features/dev/), clicking on the compile icon (<i class="ion-checkmark-circled"></i>) will automatically add a `.bin` file to your current working directory if the compilation is a success. **Note**: Make sure that you have a device selected in Particle Dev before compiling.
 
 ![Compile firmware](/assets/images/particle-dev-icon.png)
 <p class="caption">Particle Dev will automatically add a compiled binary to your working directory after you compile</p>
@@ -305,43 +368,129 @@ Click upload. Congrats! You've uploaded your first version of product firmware! 
 
 #### Releasing firmware
 
-Time to flash that shiny new binary to some devices! Notice that when you hover over a version of firmware, you have the ability to **Release firmware** (<i class="ion-star"></i>). *Releasing* firmware sets that binary as the **preferred firmware version** for all devices reporting as your product. Unless set individually, any device that does not report this released version of firmware will **automatically download and run it** next time it comes online.
+Time to flash that shiny new binary to some devices! Notice that when
+you hover over a version of firmware, you have the ability to
+**release firmware**. Releasing firmware is the mechanism by which any
+number of devices can receive a single version of firmware
+without being individually targeted.
 
-Releasing firmware is the mechanism by which any number of devices can receive a single version of firmware without being individually targeted. This is incredibly valuable: imagine identifying a bug in your firmware and pushing out a fix to thousands of devices that are out in the field. Or, consider the possibility of continuing to build new features that can be introduced to customers, even after they have purchased your product and are actively using it. Amazing! This is the power of the Internet of Things.
+Imagine identifying a bug in your firmware and pushing out a fix to
+thousands of devices that are out in the field. Or, consider the
+possibility of continuing to add new capabilities to your fleet connected
+devices, even after being deployed. It is all possible via releasing
+firmware.
 
-However, releasing firmware also presents a serious risk. The last thing you would want as a product creator is to break existing functionality for your customers, detracting from their experience with your product. Fear not! Specific safeguards are in place to help you avoid unintended regressions in firmware quality. Namely, **a firmware version must be successfully running on at least one device before it can be released to all devices.**
+As a product creator, you can choose to release firmware to *some* or *all* of your
+product fleet. Releasing a firmware as the **product default** sets the
+firmware as the default version available to *all*
+devices in the fleet to download and run.
 
-![Unable to release firmware](/assets/images/unable-to-release.png)
-<p class="caption">Releasing a firmware version is disabled until it is running on at least one device</p>
+To start the release process, place your cursor over the firmware you
+want to release and click **Release firmware**:
+
+<img class="full-width" src="/assets/images/release-firmware-list.png" />
+
+A modal will appear, asking you to confirm the action you are about to
+take:
+
+![Release firmware confirmation](/assets/images/release-firmware-confirmation.png)
+<p class="caption">Always confirm the version, targeted group(s) and impacted devices
+before releasing firmware to your device fleet to ensure you are taking
+the desired action.</p>
+
+*Impacted devices* refers specifically to the number of devices
+that will receive an OTA firmware update as a direct result of this
+action. Keep in mind  that releasing firmware always presents risk. Anytime the code on a
+device is changed, there is a chance of introducing bugs or regressions.
+As a safeguard, **a firmware version must be successfully running on at
+least one device before it can be released**.
+
+When you have confirmed the release is what you have intended, click the
+**Release this firmware** button. Note that the devices will not receive the firmware immediately;
+instead, they will be targeted for an over-the-air update the next time
+they start a new secure session with the cloud (this is called a
+*handshake*).
+
+It is also possible to release firmware to a subset of your product
+fleet, using [device
+groups](/guide/how-to-build-a-product/device-groups/). For more
+information on fine-grained firmware management, please check out
+[the guide](/guide/how-to-build-a-product/device-groups) on device
+groups. Note that this is a feature currently only available to
+enterprise customers. Please [contact us](https://particle.io/sales) for
+access to this feature.
 
 #### Locking firmware
 
-On the devices page (click <i class="im-devices-icon"></i> in the sidebar), you have the ability to lock the firmware version on a device so you can develop and test new firmware before releasing it to your whole fleet. When the device connects, if the firmware version doesn't match the locked version, the Cloud will force an OTA update with that firmware version.
+In many cases, you may want to force a device to download and run a specific
+version of product firmware. This is referred to as **locking** the
+device. You can lock a device to a new version of product
+firmware to test it before releasing the firmware to the fleet.
 
-To lock firmware, find one of your devices in the list of devices and click on the row. A dropdown will appear, populated with each of the firmware versions available for that product. For now, this dropdown may only have one available option (the firmware you just uploaded). Select your firmware from the list.
+To lock a device to a firmware, find the device on your product's
+devices view <i class="im-devices-icon"></i>. Click on the device, which
+will take you to the device details view. Click on the **Edit** button:
 
-There are two action buttons available: **Lock and flash now**, and **Lock and flash on reset**. Both options involve "locking" a device to a firmware version. This will force the device to download and run the desired firmware version. Once the device receives and runs that firmware, it will not receive any more OTA updates even if a new firmware version is released. **Lock and flash now** will trigger an immediate OTA of the device to the desired firmware version (only available if the device is currently online). **Lock and flash on reset** will only trigger the OTA the next time the device comes online. If you do not have physical access to the device, it may be a good idea to flash on reset to avoid disrupting any current firmware running on the device.
+<img class="full-width" alt="Edit device" src="/assets/images/edit-device.png" />
 
-![Lock a device](/assets/images/lock-firmware-version.png)
+This will allow you to edit many aspects of the device's state,
+including the firmware it is targeted to run. Find the **Firmware**
+section, select a version of firmware you want to lock the device to,
+and click the **Lock** button as sown below:
 
-To turn a device with locked firmware back into a device that gets updated with the latest released firmware, click the padlock to unlock the firmware version.
+<img class="full-width" alt="Lock device firmware"
+src="/assets/images/lock-firmware.png" />
 
-![Unlock a device](/assets/images/unlock-firmware-version.png)
+If the device is currently online, you can optionally immediately
+trigger an OTA update to the device by checking *Flash now* next to the
+lock button. Otherwise, the device will download and run the locked
+firmware the next time it handshakes with the cloud (starts a new secure
+session, most often on reset).
 
-#### Recommended development flow
+Once the device downloads and runs the locked firmware, it will no
+longer be targeted by the Particle cloud for automatic firmware updates,
+until it is unlocked. For more details, please read the [firmware
+precedence rules](#firmware-precedence-rules).
 
-Before flashing your fleet, it's important to first understand the recommended development flow for managing firmware for a Product. This flow is designed to minimize risk when deploying new firmware to devices.
+#### Unlocking firmware
 
-While rapidly developing firmware you'll want to be able to use the Particle developer tools like the Web IDE, Desktop IDE or CLI to flash devices in your *development group*. [Lock those devices](#locking-firmware) to a fixed version of firmware (version 1 or another arbitrary version number) and always set `PRODUCT_VERSION` to that version when compiling development firmware. This will prevent the Particle Cloud from pushing new software OTA to them. If you have not started writing your product firmware yet, compile a "dummy" firmware with your product ID and version 1. Upload it to the Console and give it the title "Development firmware". Lock your development devices to that firmware.
+Unlocking a product device breaks its association with the locked
+firmware version and makes the device eligible to receive released
+product firmwares once again.
 
-When you are ready for a release, change the product version macro to the next available number. [Download the firmware from the Web IDE](#compiling-binaries), the Desktop IDE or the CLI. [Upload the binary to the console.](#uploading-firmware)
+To unlock a devcie, visit the device's details view by clicking on it
+from your product's device list. Click the **Edit button** (shown
+above), and then click the **Unlock** button:
 
-Start each firmware release cycle by [flashing and locking the firmware](#locking-firmware) you plan to release to your *test group* of devices using the Console. Your test devices should be physically available to you and/or your team for testing purposes. Once you have thoroughly tested the new firmware on your test group and fixed any bugs in a new version, you can then release the firmware to all other devices. This signals to the cloud that every unlocked device should be running the new firmware, and will trigger an auto-update to this version.
+<img class="full-width" alt="Unlock device firmware"
+src="/assets/images/unlock-firmware.png" />
 
-![Release firmware flow](/assets/images/release-schedule.png)
-<p class="caption">The recommended flow for releasing firmware</p>
+The device above is now unlocked from version 3 of product firmware, and
+may be targeted to receive a released firmware next time it handshakes
+with the cloud.
 
-Once at least one device is successfully running your new firmware, you will now have [the ability to release that version of firmware back on the Firmware page](#releasing-firmware). Get into the habit of following this process as you continue to iterate and prepare new versions of firmware for your product!
+#### Firmware Precedence Rules
+
+Devices in your fleet will be targeted to
+receive a version of product firmware according to these precedence
+rules:
+
+- A device that has been **individually locked** to a version of product
+firmware is respected above all else, and will not be overwritten by any
+released firmwares.
+
+- If unlocked, devices **belonging to a group** will receive the
+corresponding group's released firmware (if a firmware has been released
+to the group). When a device belongs to multiple groups that each have
+released firmware, the _highest firmware version_ will be preferred
+
+- If a device is unlocked and **does not belong to any groups** with
+released firmware, it will receive the **Product default** released
+firmware (if a firmware has been released as the Product default)
+
+- If none of the above conditions result in a device being targeted for
+a product firmware, it will not receive an automatic OTA update from the
+Particle cloud
 
 ### Managing Customers
 

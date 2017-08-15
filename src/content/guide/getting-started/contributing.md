@@ -24,6 +24,8 @@ Before you contribute to the code base, check out the [`style-guides`](https://g
 
 The [`firmware`](https://github.com/spark/firmware) repo contains the [system firmware](/reference/firmware) that runs on the Core and Photon.
 
+See the [local build tools FAQ](/faq/particle-tools/local-build) for steps to build the firmware on your machine.
+
 
 ### CLI
 

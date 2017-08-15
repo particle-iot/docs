@@ -176,9 +176,9 @@ If a product has adhered to the integration guidelines and has minimal risk, it 
 
 ### Documentation
 
-#### Photon/PØ - (updated 3/20/17)
-- [Certificate of Conformity](/assets/pdfs/new-certs/ce/photon-ce-certificate2017.pdf)
-- [Test Reports](/assets/pdfs/new-certs/ce/ce-test-reports.zip)
+#### Photon/PØ - (updated 8/6/17)
+- [Certificate of Conformity](/assets/pdfs/new-certs/ce/photon-ce-certification-201708.pdf)
+- [Test Reports](/assets/pdfs/new-certs/ce/photon-ce-test-reports-201708.zip)
 
 #### P1 Module - (updated 5/8/17)
 - [Certificate of Conformity](/assets/pdfs/new-certs/ce/p1-ce-certification2017.pdf)

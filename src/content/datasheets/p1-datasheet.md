@@ -5,7 +5,7 @@ columns: two
 order: 5
 ---
 
-# P1 Datasheet <sup>(v007)</sup>
+# P1 Datasheet <sup>(v008)</sup>
 
 <div align=center><img src="/assets/images/p1-vector.png" width=200></div>
 
@@ -19,7 +19,7 @@ void setup() {
 
 ### Overview
 
-The P1 is Particle's tiny Wi-Fi module that contains both the Broadcom Wi-Fi chip and a reprogrammable STM32F205RGY6 32-bit ARM Cortex-M3 microcontroller. The P1 comes preloaded with Particle firmware libraries, just like our dev kits, and it's designed to simplify your transition from prototype to production. The P1 is the PØ's big brother; it's a bit bigger and a tad more expensive, but it includes some extra flash and an antenna and u.FL connector on board.  Every P1 includes free cloud service.
+The P1 is Particle's tiny Wi-Fi module that contains both the Broadcom Wi-Fi chip and a reprogrammable STM32F205RGY6 32-bit ARM Cortex-M3 microcontroller. The P1 comes preloaded with Particle firmware libraries, just like our dev kits, and it's designed to simplify your transition from prototype to production. The P1 is the PØ's big brother; it's a bit bigger and a tad more expensive, but it includes some extra flash and an antenna and u.FL connector on board.  Particle provides free access to Particle Cloud for prototyping. Paid tiers of Particle Cloud start when you create a product with more than 25 devices.
 
 ### Features
 
@@ -42,13 +42,21 @@ The P1 is Particle's tiny Wi-Fi module that contains both the Broadcom Wi-Fi chi
 
 ### Block Diagram
 
-<div align=center><img src="/assets/images/p1-block-diagram.png" width=600></div>
+<div align=center><img src="/assets/images/p1-block-diagram.png" width=700></div>
 
 ### Power
 
-Power to the P1 is supplied via 3 different inputs: VBAT_WL (pin 2 & 3), VDDIO_3V3_WL (pin 5), VDD_3V3 (pin 26 & 27).  Optionally +3.3V may be supplied to VBAT_MICRO (pin 38) for data retention in low power sleep modes. Each of these inputs also requires a 0.1uF and 10uF ceramic decoupling capacitor, located as close as possible to the pin (see Fig 1). The voltage should be regulated between 3.0VDC and 3.6VDC.
+Power to the P1 is supplied via 3 different inputs: VBAT_WL (pin 2 & 3), VDDIO_3V3_WL (pin 5), VDD_3V3 (pin 26 & 27).  Optionally +3.3V may be supplied to VBAT_MICRO (pin 38) for data retention in low power sleep modes. Each of these inputs also requires a 0.1uF and 10uF ceramic decoupling capacitor, located as close as possible to the pin (see Fig 1). The voltage should be regulated between 3.0VDC and 3.6VDC. (Please refer to [Absolute Maximum Ratings](#absolute-maximum-ratings) for more info).
 
-Typical average current consumption is 80mA with 5V @ input of the recommended SMPS power supply with Wi-Fi on. Deep sleep quiescent current is typically 80uA (Please refer to [Recommended Operating Conditions](#recommended-operating-conditions) for more info).  When powering the P1 make sure the power supply can handle 600mA continuous. If a lesser power supply is provided, peak currents drawn from the P1 when transmitting and receiving will result in voltage sag at the input which may cause a system brown out or intermittent operation.  Likewise, the power source should be sufficient enough to source 1A of current to be on the safe side.
+Typical average current consumption is 80mA with 5V @ input of the recommended SMPS power supply with Wi-Fi on. Deep sleep quiescent current is typically 80uA (Please refer to [Recommended Operating Conditions](#recommended-operating-conditions) for more info).  When powering the P1 make sure the power supply can handle 600mA continuous. If a lesser power supply is provided, peak currents drawn from the P1 when transmitting and receiving will result in voltage sag at the input which may cause a system brown out or intermittent operation.
+
+**Warning:** When powering the P1 from long wires, care should be taken to protect against damaging voltage transients if using the same regulator as is used on the Photon. **From the Richtek datasheet:**
+
+<p class = "boxed">
+When a ceramic capacitor is used at the input and the power is supplied by a wall adapter through long wires, a load step at the output can induce ringing at the input, VIN. At best, this ringing can couple to the output and be mistaken as loop instability. At worst, a sudden inrush of current through the long wires can potentially cause a voltage spike at VIN large enough to damage the part.
+</p>
+
+To avoid these voltage spikes, keep input wiring as short as possible.  If long wires are unavoidable, it is advisable to add a 5.1V zener diode or similar transient suppression device from VIN to GND.  Another technique is adding more capacitance to the input using an electrolytic capacitor. Please refer to [AN-88 by Linear](http://cds.linear.com/docs/en/application-note/an88f.pdf) for a good discussion on this topic.
 
 <div align=center><img src="/assets/images/p1-power-pins.png" width="500">
 <br><br><b>Fig. 1</b> Recommended power connections with decoupling capacitors.</div>
@@ -86,9 +94,9 @@ The P1 module has ton of capability in a super small footprint, with analog, dig
 | SPI | 2 | I/O | 3V3 |
 | I2S | 1 | I/O | 3V3 |
 | I2C | 1 | I/O | FT |
-| CAN | 1 | I/O | FT |
+| CAN | 1 | I/O | 3V3<sup>[4]</sup> |
 | USB | 1 | I/O | 3V3 |
-| PWM | 12<sup>3</sup> | O | 3V3 |
+| PWM | 12<sup>[3]</sup> | O | 3V3 |
 
 **Notes:**
 
@@ -96,7 +104,9 @@ The P1 module has ton of capability in a super small footprint, with analog, dig
 
 <sup>[2]</sup> 3V3 = 3.3V max pins.
 
-<sup>[3]</sup> PWM is available on D0, D1, D2, D3, A4, A5, WKP, RX, TX, P1S0, P1S1, P1S6 with a caveat: PWM timer peripheral is duplicated on two pins (A5/D2) and (A4/D3) for 7 total independent PWM outputs. For example: PWM may be used on A5 while D2 is used as a GPIO, or D2 as a PWM while A5 is used as an analog input. However A5 and D2 cannot be used as independently controlled PWM outputs at the same time. P1S6 requires System Feature Wi-Fi Powersave Clock to be disabled.  See System Features in Firmware Reference.
+<sup>[3]</sup> PWM is available on D0, D1, D2, D3, A4, A5, WKP, RX, TX, P1S0, P1S1, P1S6 with a caveat: PWM timer peripheral is duplicated on two pins (A5/D2) and (A4/D3) for 10 total independent PWM outputs. For example: PWM may be used on A5 while D2 is used as a GPIO, or D2 as a PWM while A5 is used as an analog input. However A5 and D2 cannot be used as independently controlled PWM outputs at the same time. P1S6 requires System Feature Wi-Fi Powersave Clock to be disabled.  See System Features in Firmware Reference.
+
+<sup>[4]</sup> Technically these pins are 5.0V tolerant, but since you wouldn't operate them with a 5.0V transceiver it's proper to classify them as 3.3V.
 
 ### RGB LED, SETUP and RESET button
 
@@ -111,7 +121,7 @@ Pin D3 through D7 are JTAG interface pins.  These can be used to reprogram your 
 | D7 | JTAG_TMS | SWD/SWDIO | PA13 | 54 | MICRO_JTAG_TMS | ~40k pull-up |
 | D6 | JTAG_TCK | CLK/SWCLK | PA14 | 55 | MICRO_JTAG_TCK | ~40k pull-down |
 | D5 | JTAG_TDI | | PA15 | 53 | MICRO_JTAG_TDI | ~40k pull-up |
-| D4 | JTAG_TDO | | PB3 | 54 | MICRO_JTAG_TDO | Floating |
+| D4 | JTAG_TDO | | PB3 | 52 | MICRO_JTAG_TDO | Floating |
 | D3 | JTAG_TRST | | PB4 | 51 | MICRO_JTAG_TRSTN | ~40k pull-up |
 | 3V3 | Power | Power | | | | |
 | GND | Ground | Ground | | | | |
@@ -148,7 +158,7 @@ When these pins are programmed to be used as a Bluetooth coexistence interface, 
 - DCT1 (16 KB), stores Wi-Fi credentials, keys, mfg info, system flags, etc..
 - DCT2 (16 KB), swap area for DCT1
 - EEPROM emulation bank 1 (16 KB)
-- EEPROM emulation bank 2 (64 KB) [only 16k used]
+- EEPROM emulation bank 2 (64 KB)
 - System firmware (512 KB) [256 KB Wi-Fi/comms + 256 KB hal/platform/services]
 - Factory backup, OTA backup and user application (384 KB) [3 x 128 KB]
 
@@ -156,7 +166,7 @@ When these pins are programmed to be used as a Bluetooth coexistence interface, 
 
 The DCT area of flash memory has been mapped to a separate DFU media device so that we can incrementally update the application data. This allows one item (say, server public key) to be updated without erasing the other items.
 
-_DCT layout as of v0.4.9_ [found here in firmware](https://github.com/spark/firmware/blob/develop/platform/MCU/STM32F2xx/SPARK_Firmware_Driver/inc/dct.h)
+_DCT layout in `release/stable`_ <a href="https://github.com/spark/firmware/blob/release/stable/platform/MCU/STM32F2xx/SPARK_Firmware_Driver/inc/dct.h" target="_blank">found here in firmware.</a>
 
 | Region | Offset | Size |
 |:---|---|---|
@@ -164,11 +174,13 @@ _DCT layout as of v0.4.9_ [found here in firmware](https://github.com/spark/firm
 | version | 32 | 2 |
 | device private key | 34 | 1216 |
 | device public key | 1250 | 384 |
-| ip config | 1634 | 128 |
+| ip config | 1634 | 120 |
+| feature flags | 1754 | 4 |
+| country code | 1758 | 4 |
 | claim code | 1762 | 63 |
 | claimed | 1825 | 1 |
 | ssid prefix | 1826 | 26 |
-| device id | 1852 | 6 |
+| device code | 1852 | 6 |
 | version string | 1858 | 32 |
 | dns resolve | 1890 | 128 |
 | reserved1 | 2018 | 64 |
@@ -182,7 +194,12 @@ _DCT layout as of v0.4.9_ [found here in firmware](https://github.com/spark/firm
 | alt device private key | 3106 | 192 |
 | alt server public key | 3298 | 192 |
 | alt server address | 3490 | 128 |
-| reserved2 | 3618 | 1280 |
+| device id | 3618 | 12 |
+| radio flags | 3630 | 1 |
+| mode button mirror | 3631 | 32 |
+| led mirror | 3663 | 96 |
+| led theme | 3759 | 64 |
+| reserved2 | 3823 | 435 |
 
 **Note:** Writing 0xFF to offset 34 (DEFAULT) or 3106 (ALTERNATE) will cause the device to re-generate a new private key on the next boot. Alternate keys are currently unsupported on the P1 but are used on the Electron as UDP/ECC keys.  You should not need to use this feature unless your keys are corrupted.
 
@@ -236,29 +253,37 @@ echo -e "\xFF" > fillbyte && dfu-util -d 2b04:d00a -a 1 -s 3106 -D fillbyte
 | RST | Active-low reset input. On-board circuitry contains a 1k ohm pull-up resistor between RST and 3V3, and 0.1uF capacitor between RST and GND. |
 | VBAT | Supply to the internal RTC, backup registers and SRAM when 3V3 not present (1.65 to 3.6VDC). |
 | 3V3  | This pin represents the regulated +3.3V DC power to the P1 module.  In reality, +3.3V must be supplied to 3 different inputs: VBAT_WL (pin 2 & 3), VDDIO_3V3_WL (pin 5), VDD_3V3 (pin 26 & 27). Optionally +3.3V may be supplied to VBAT_MICRO (pin 38) for data retention in low power sleep modes. Each of these inputs also requires a 0.1uF and 10uF ceramic decoupling capacitor, located as close as possible to the pin. |
-| D0~D7 | Digital only GPIO pins. D0~D3 may also be used as a PWM output. |
-| A0~A7 | 12-bit Analog-to-Digital (A/D) inputs (0-4095), and also digital GPIOs. `A6` and `A7` are code convenience mappings, which means pins are not actually labeled as such but you may use code like `analogRead(A7)`.  `A6` maps to the DAC pin and `A7` maps to the WKP pin. A4,A5,A7 may also be used as a PWM output. |
-| DAC   | 12-bit Digital-to-Analog (D/A) output (0-4095), and also a digital GPIO. DAC is used as `DAC` or `DAC1` in software, and A3 is a second DAC output used as `DAC2` in software. |
-| RX    | Primarily used as UART RX, but can also be used as a digital GPIO or PWM. |
-| TX    | Primarily used as UART TX, but can also be used as a digital GPIO or PWM. |
-| P1S0 | 12-bit Analog-to-Digital (A/D) inputs (0-4095), and also can be used as a digital GPIO or PWM. |
-| P1S1 | 12-bit Analog-to-Digital (A/D) inputs (0-4095), and also can be used as a digital GPIO or PWM. |
+| TX    | Primarily used as UART TX, but can also be used as a digital GPIO or PWM<sup>[1]</sup>. |
+| RX    | Primarily used as UART RX, but can also be used as a digital GPIO or PWM<sup>[1]</sup>. |
+| WKP | Active-high wakeup pin, wakes the module from sleep/standby modes. When not used as a WAKEUP, this pin can also be used as a digital GPIO, ADC input or PWM<sup>[1]</sup>. Can be referred to as `A7` when used as an ADC.|
+| DAC   | 12-bit Digital-to-Analog (D/A) output (0-4095), referred to as `DAC` or `DAC1` in software. Can also be used as a digital GPIO or ADC. Can be referred to as `A6` when used as an ADC. A3 is a second DAC output used as `DAC2` in software. |
+| A0~A7 | 12-bit Analog-to-Digital (A/D) inputs (0-4095), and also digital GPIOs. `A6` and `A7` are code convenience mappings, which means pins are not actually labeled as such but you may use code like `analogRead(A7)`.  `A6` maps to the DAC pin and `A7` maps to the WKP pin. A4,A5,A7 may also be used as a PWM<sup>[1]</sup> output. |
+| D0~D7 | Digital only GPIO pins. D0~D3 may also be used as a PWM<sup>[1]</sup> output. |
+| P1S0 | 12-bit Analog-to-Digital (A/D) inputs (0-4095), and also can be used as a digital GPIO or PWM<sup>[1]</sup>. |
+| P1S1 | 12-bit Analog-to-Digital (A/D) inputs (0-4095), and also can be used as a digital GPIO or PWM<sup>[1]</sup>. |
 | P1S2 | 12-bit Analog-to-Digital (A/D) inputs (0-4095), and also can be used as a digital GPIO. |
 | P1S3 | 12-bit Analog-to-Digital (A/D) inputs (0-4095), and also can be used as a digital GPIO. |
 | P1S4 | Primarily used as a digital GPIO. |
 | P1S5 | 12-bit Analog-to-Digital (A/D) inputs (0-4095), and also can be used as a digital GPIO. |
-| P1S6 | Can be used as a digital GPIO or PWM output. Must disable Wi-Fi Powersave Clock first, see System Features in Firmware Reference. |
+| P1S6 | Can be used as a digital GPIO or PWM<sup>[1]</sup> output. Must disable Wi-Fi Powersave Clock first, see System Features in Firmware Reference. |
 
-### Pin out diagrams
+**Notes:**
+<sup>[1]</sup> PWM is available on D0, D1, D2, D3, A4, A5, WKP, RX, TX, P1S0, P1S1, P1S6 with a caveat: PWM timer peripheral is duplicated on two pins (A5/D2) and (A4/D3) for 10 total independent PWM outputs. For example: PWM may be used on A5 while D2 is used as a GPIO, or D2 as a PWM while A5 is used as an analog input. However A5 and D2 cannot be used as independently controlled PWM outputs at the same time. P1S6 requires System Feature Wi-Fi Powersave Clock to be disabled.  See System Features in Firmware Reference.
 
-<div align=left><img src="/assets/images/p1-pinout1.png"</div>
+### Pinout diagram
 
-<div align=left><img src="/assets/images/p1-pinout2.png"</div>
+<div align=left><a href="/assets/images/p1-pinout.pdf" target="_blank"><img src="/assets/images/p1-pinout1.png"</div></a></div>
 
-<div align=left><img src="/assets/images/p1-pinout3.png"</div>
+<div align=left><a href="/assets/images/p1-pinout.pdf" target="_blank"><img src="/assets/images/p1-pinout2.png"</div></a></div>
+
+<div align=left><a href="/assets/images/p1-pinout.pdf" target="_blank"><img src="/assets/images/p1-pinout3.png"</div></a></div>
+
+You can download a high resolution pinout diagram in a <a href="/assets/images/p1-pinout.pdf" target="_blank"><strong>PDF version here.</strong></a></div><br>
 
 **Notes:**
 <sup>[1]</sup> Connected to MCO1 by default, outputs 32kHz clock for WICED powersave mode. See System Features in the Firmware Reference to disable the Wi-Fi Powersave Clock and allow usage of this pin.
+
+<sup>[2]</sup> MICRO_SPI1_SS is only for reference as a P1 module pin name.  It is technically speaking the STM32 pin PA4 which is the SS pin in an hardware SPI driven sense, however in the Particle API SPI SS is only user controlled as a GPIO. The hardware SS pin is not implemented.  The default SS pin for the Particle SPI API is A2 (STM32 pin PC2), but any GPIO can be used for this function with SPI.begin(pin).
 
 ### Complete P1 Module Pin Listing
 
@@ -282,7 +307,7 @@ echo -e "\xFF" > fillbyte && dfu-util -d 2b04:d00a -a 1 -s 3106 -D fillbyte
 | 21	|	MICRO_SPI1_MISO	|	PA6	|	A4 (SPI MISO) |
 | 22	|	MICRO_SPI1_SCK	|	PA5	|	A3 (SPI SCK) |
 | 23	|	MICRO_SPI1_MOSI	|	PA7	|	A5 (SPI MOSI) |
-| 24	|	MICRO_SPI1_SS	|	PA4	|	DAC (SPI SS) |
+| 24	|	MICRO_SPI1_SS	|	PA4	|	DAC |
 | 25	|	GND	|	PWR	|	Ground |
 | 26~27	|	VDD_3V3	|	PWR	|	+3.3V |
 | 28	|	GND	|	PWR	|	Ground |
@@ -306,7 +331,7 @@ echo -e "\xFF" > fillbyte && dfu-util -d 2b04:d00a -a 1 -s 3106 -D fillbyte
 | 46	|	MICRO_GPIO_8	|	PC7	|	/SETUP (I2S MCK) |
 | 47	|	MICRO_GPIO_9	|	PC13	|	P1S4 |
 | 48	|	MICRO_GPIO_12	|	PC1	|	P1S5 |
-| 49	|	MICRO_GPIO_13	|	PC2	|	A2 |
+| 49	|	MICRO_GPIO_13	|	PC2	|	A2  (DEFAULT SPI SS) |
 | 50	|	MICRO_GPIO_14	|	PC5	|	A0 |
 | 51	|	MICRO_JTAG_TRSTN	|	PB4	|	D3 |
 | 52	|	MICRO_JTAG_TDO	|	PB3	|	D4 (I2S SCK) |
@@ -614,7 +639,7 @@ Cet équipement devrait être installé et actionné avec une distance minimum d
 | v005 | 11-April-2016 | BW | Added: full STM32 part number, Memory map, DAC limits, SWD pin locations, max source/sink current, known errata URL and tape-and-reel dimensions. Updated: BT COEX info, pinout diagrams (fixed RESET pin number error), operating conditions, pin descriptions (P1S0~P1S5 pins), land-pattern image signal keepout note.
 | v006 | 14-July-2016 | BW | Updated P1 pin listing: TESTMODE pin 33 (PA8), connected to MCO1 by default, outputs 32kHz clock for WICED powersave mode - currently unsupported for user control.
 | v007 | 20-September-2016 | BW | Updated P1 pin listing: TESTMODE pin 33 (PA8), can use now as P1S6 if enabled.  Updated Pinmap and added P1S6.  Updated Pin Description and Peripherals and GPIO. |
-
+| v008 | 25-July-2017 | BW | Added note to clarify MICRO_SPI1_SS label, renamed SPI1_*/SPI3_* to match Particle API instead of STM32 pin names to avoid confusion (now SPI and SPI1), updated the Pin Description section and added high resolution pinout PDF, updated PWM notes, JTAG_TDO pin number (54 -> 52), block diagram and DCT layout, added warning to power section |
 
 ## Known Errata
 

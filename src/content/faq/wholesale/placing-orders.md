@@ -99,12 +99,6 @@ Click on edit shipping address, this will open an editable version of your shipp
 
 Please enter your VAT# in that field.
 
-## Checking out with your own Shipping Account number
-If you have your own shipping account on file, apply the discount code provided by Particle in the box below. Once you enter this code, the shipping cost will go down to $0. Please note, you must select a shipping carrier that corresponds to the shipping account we have on file.
-
-In case you have a shipping account number and have not a received a unique discount code, please email orders@particle.io with the subject line "Wholesale Store Business Information".
-
-![Unique Shipping Code](/assets/images/uniqueshippingcode.png)
 
 ## Payment methods
 

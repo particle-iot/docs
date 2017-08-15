@@ -251,7 +251,9 @@ of `false`.
 
 For the time being there exists no way to access a previously published but TTL-unexpired event.
 
-**NOTE:** Currently, a device can publish at rate of about 1 event/sec, with bursts of up to 4 allowed in 1 second. Back to back burst of 4 messages will take 4 seconds to recover.
+**NOTE 1:** Currently, a device can publish at rate of about 1 event/sec, with bursts of up to 4 allowed in 1 second. Back to back burst of 4 messages will take 4 seconds to recover.
+
+**NOTE 2:** `Particle.publish()` and the `Particle.subscribe()` handler(s) share the same buffer. As such, calling `Particle.publish()` within a `Particle.subscribe()` handler will wipe the subscribe buffer! In these cases, copying the subscribe buffer's content to a separate char buffer prior to calling `Particle.publish()` is recommended.
 
 ---
 
@@ -462,7 +464,10 @@ A _subscription handler_ (like `myHandler` above) must return `void` and take tw
 the device is not connected to the cloud - the subscription is automatically registered
 with the cloud next time the device connects.
 
-**NOTE:** A device can register up to 4 event handlers. This means you can call `Particle.subscribe()` a maximum of 4 times; after that it will return `false`.
+**NOTE 1:** A device can register up to 4 event handlers. This means you can call `Particle.subscribe()` a maximum of 4 times; after that it will return `false`.
+
+
+**NOTE 2:** `Particle.publish()` and the `Particle.subscribe()` handler(s) share the same buffer. As such, calling `Particle.publish()` within a `Particle.subscribe()` handler will wipe the subscribe buffer! In these cases, copying the subscribe buffer's content to a separate char buffer prior to calling `Particle.publish()` is recommended.
 
 ### Particle.unsubscribe()
 
@@ -1971,7 +1976,7 @@ if (strcmp(url,"/index")==0) {
 
 ### Complete Example
 
-Here's a complete example providing a Web UI for setting up WiFi via HTTP. Credit for the HTTP pages goes to Github user @mebrunet!
+Here's a complete example providing a Web UI for setting up WiFi via HTTP. Credit for the HTTP pages goes to Github user @mebrunet! ([Included from PR #909 here](https://github.com/spark/firmware/pull/906)) ([Source code here](https://github.com/mebrunet/softap-setup-page))
 
 
 
@@ -10775,7 +10780,7 @@ String stringOne =  String(analogRead(0), DEC);        // using an int and a bas
 String stringOne =  String(45, HEX);                   // using an int and a base (hexadecimal)
 String stringOne =  String(255, BIN);                  // using an int and a base (binary)
 String stringOne =  String(millis(), DEC);             // using a long and a base
-String stringOne =  String(34.5432, 2);                // using a float showing only 2 decimal places shows 34.54 
+String stringOne =  String(34.5432, 2);                // using a float showing only 2 decimal places shows 34.54
 ```
 Constructing a String from a number results in a string that contains the ASCII representation of that number. The default is base ten, so
 
@@ -10907,7 +10912,7 @@ Returns:
 
 _Since 0.4.6_
 
-Provides printf-style formatting for strings.
+Provides [printf](http://www.cplusplus.com/reference/cstdio/printf/)-style formatting for strings.
 
 ```C++
 

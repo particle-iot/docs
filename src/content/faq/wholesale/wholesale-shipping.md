@@ -30,28 +30,31 @@ In case you have a shipping account number and have not a received a unique disc
 
 ### Domestic Shipping Methods
 
-For domestic orders we use both UPS and USPS. A brief description of the differences can be seen below:
-- USPS First-Class Mail Parcel - Usually delivered in 5 to 10 days
-- USPS Priority Mail - Usually delivered in 3 days
-- UPS Ground - Usually ships in 1-5 Business Days, depending on the distance from California
+For domestic orders we use UPS, FedEx, and USPS. A brief description of the differences can be seen below:
+- USPS First-Class Mail Parcel - Usually delivered in 5 to 10 buesiness days if placed before 12pm PST
+- USPS Priority Mail - Usually delivered in 3 business days if placed before 12pm PST
+- UPS Ground - Usually delivered in 1-5 Business Days, depending on the distance from Indiana
 - UPS Three-Day Select - Usually delivered in 3 business days if placed before 12pm PST
 - UPS Second Day Air - Usually delivered in 2 business days if placed before 12pm PST
+- FedEx Ground - Usually delivered in 1-5 Business Days, depending on the distance from Indiana
+- Fedex Second Day - Usually delivered in 2 business days if placed before 12pm PST
 
 Please note these shipping timelines are from **ship date** not **order date**. 
 
 ### PO Boxes
 
-If your order is going to a PO Box, you MUST use USPS as UPS does not deliver to PO Boxes. If you choose UPS and your delivery address is to a PO box, you will be charged to reship once the order is returned to our warehouse. 
+If your order is going to a PO Box, you MUST use USPS as UPS, FedEx, and DHL do not deliver to PO Boxes. If you choose anything other than USPS and your delivery address is to a PO box, you will be charged to reship once the order is returned to our warehouse. 
 
 ### International Shipping
 
-We ship to your country unless you live in Iran, North Korea, Sudan, Cuba, Syria, or any country that is embargoed by the US Government. Depending on your location, we use UPS, DHL and USPS. A brief description of the differences can be seen below:
-- USPS First-Class Package International Service - Delivery varies by destination. Can take up to 20 business days
-- UPS Worldwide Expedited - Usually is delivered in 2- 5 Business days
-- UPS Saver- Usually is delivered in 1- 3 Business days if placed before 12pm PST
-- DHL Express - Usually is delivered in 1- 3 Business days if placed before 12pm PST
+We ship to your country unless you live in Iran, Iraq, South Sudan, North Korea, Sudan, Cuba, Syria, or any country that is embargoed by the US Government. 
 
-We ship all products from California.
+For international orders we only have FedEx and DHL at this time. New shipping methods are being added frequently as we work with different partners and carriers. 
+- FedEx International Ground - Usually is delivered in 5 Business days if placed before 12pm PST
+- FedEx International Priority - Usually is delivered in 3 Business days if placed before 12pm PST
+- DHL Express - Usually is delivered in 1 - 3 Business days if placed before 12pm PST
+
+We ship all products from Indiana, USA.
 
 ## Duties and Taxes
 
@@ -61,7 +64,7 @@ If you refuse to pay these extra charges, the return shipping and any additional
 
 ### Return to Sender
 
-There are lots of things that can happen in the delivery process and packages can get held up for reasons that are outside of our control. If your order gets returned to us in California, we can issue you a refund or take the appropriate actions to get you a new package. 
+There are lots of things that can happen in the delivery process and packages can get held up for reasons that are outside of our control. If your order gets returned to us, we can issue you a refund or take the appropriate actions to get you a new package. 
 
 Before you get a new package or refund, we'll need to determine the following:
 - What shipping address was entered when you placed the order

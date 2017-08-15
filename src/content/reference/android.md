@@ -3,8 +3,8 @@ title: Android SDK
 layout: reference.hbs
 columns: three
 order: 6
-sdkversion: 0.4.5
-devicesetupversion: 0.4.6
+sdkversion: 0.4.6
+devicesetupversion: 0.4.7
 asyncclasslink: https://github.com/spark/spark-sdk-android/blob/master/cloudsdk/src/main/java/io/particle/android/sdk/utils/Async.java
 ---
 
@@ -127,6 +127,14 @@ Log in to the Particle Cloud:
 ParticleCloudSDK.getCloud().logIn("ido@particle.io", "myl33tp4ssw0rd");
 Toaster.s(someActivity, "Logged in!");
 ```
+#### Injecting Session Access Token (Two Legged Authentication)
+
+If you use your own backend to authenticate users in your app - you can now inject the Particle access token your back end gets from Particle cloud easily using one of the new setAccessToken methods exposed from ParticleCloud class. Additionally the SDK will now automatically renew an expired session if a refresh token exists.
+
+```java
+ParticleCloudSDK.getCloud().setAccessToken("9bb912533940e7c808b191c28cd6aaaf8d12986c");
+```
+
 ---
 
 
@@ -420,6 +428,12 @@ The class passed in as the second argument to `init()` is used to return you to 
 "main activity" of your app once setup has completed (or whatever other activity you
 wish to start once setup is complete).
 
+#### Configure device Wi-Fi credentials without claiming it
+
+If your app requires the ability to let users configure device Wi-Fi credentials without changing its ownership you can also do that via initWithSetupOnly. Invoking setup will go thru the setup steps required for configuring device Wi-Fi credentials but not for claiming it.
+```java
+ParticleDeviceSetupLibrary.initWithSetupOnly(this.getApplicationContext());
+```
 
 - You must add all of the following entries to your application's `AndroidManifest.xml` file.
 (Due to Android platform requirements, we cannot provide these manifest entries for
