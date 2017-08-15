@@ -315,7 +315,7 @@ clients](/reference/api/#create-an-oauth-client).
 
 ### 2. Add OAuth Credentials to SDK
 
-For both the mobile & JavaScript SDKs, you will need to add your client credentials to a configuration file. The client application will need the client credentials that you just generated when creating new customers. Without these credentials, calls to `POST /v1/orgs/:orgSlug/customers` will fail.
+For both the mobile & JavaScript SDKs, you will need to add your client credentials to a configuration file. The client application will need the client credentials that you just generated when creating new customers. Without these credentials, calls to [`POST /v1/products/:productIdOrSlug/customers`](/reference/api/#create-a-customer---client-credentials) will fail.
 
 ![Adding OAuth credentials to your app](/assets/images/adding-oauth-credentials.png)
 <p class="caption">You will need to add your OAuth credentials to your web or mobile application</p>
@@ -333,7 +333,7 @@ You have now moved from the one-time configuration steps to a process that will 
 
 After navigating to your application, one of the first things your customer will need to do is create an account. Because you are not running your own web server, the customer will be created in the Particle system. They will provide a username and password in the form, that will serve as their login credentials to the app.
 
-Specifically, the SDK will grab the customer's username and password, and hit the `POST /v1/orgs/:orgSlug/customers` API endpoint, passing along the customer's credentials *as well as* the OAuth client credentials you added to the config file in the previous step.
+Specifically, the SDK will grab the customer's username and password, and hit the [`POST /v1/products/:productIdOrSlug/customers` API endpoint](/reference/api/#create-a-customer---client-credentials), passing along the customer's credentials *as well as* the OAuth client credentials you added to the config file in the previous step.
 
 ![creating a customer](/assets/images/create_customers.png)
 <p class="caption">The create customer endpoint requires your OAuth client credentials,</br> and returns an access token for the newly created customer</p>
@@ -352,7 +352,7 @@ In order for a device to be setup successfully, your application must retrieve a
 
 The first thing that must happen is retrieving a claim code from the Particle cloud for the customer. A special endpoint exists for products to use to generate claim codes on behalf of their customers. 
 
-This endpoint is `POST /v1/orgs/:orgSlug/products/:productSlug/device_claims`. The customer's access token is required, and is used to generate a claim code that will allow for the link between the device and the customer.
+This endpoint is [`POST /v1/products/:productIdOrSlug/device_claims`](/reference/api/#create-a-claim-code). The customer's access token is required, and is used to generate a claim code that will allow for the link between the device and the customer.
 
 Once your mobile/web app has a claim code, it then must then send it to the device.
 
@@ -502,11 +502,11 @@ A Particle shadow customer is **required** to interact with Particle devices whe
 
 The Particle shadow customer should be created at the exact time that the customer is created in your system. As you will be managing customer credentials on your own server/database, a shadow customer **should not have a password** when they are created. You will still be able to generate access tokens for the customer using your OAuth client ID and secret instead of passing a username/password for that customer.
 
-The API endpoint to create a customer is `POST /v1/orgs/:orgSlug/customers`. A request to create a customer could look something like:
+The API endpoint to create a customer is [`POST /v1/products/:productIdOrSlug/customers`](/reference/api/#create-a-customer---client-credentials). A request to create a customer could look something like:
 
 ```bash
 curl -X POST -u "client-id-goes-here:client-secret-goes-here" -d email=abu@agrabahmonkeys.com \
--d no_password=true https://api.particle.io/v1/orgs/particle/customers
+-d no_password=true https://api.particle.io/v1/products/widget-v1/customers
 ```
 Note that there is no password for the customer. An email address is the only piece of information required to create a customer in the Particle system, and **must be collected by your application during signup**. As a result,  you must pass the `no_password=true` flag to create the customer with no password. Note that in this endpoint, you should use your client ID and secret instead of an access token.
 
