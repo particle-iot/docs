@@ -253,7 +253,7 @@ For the time being there exists no way to access a previously published but TTL-
 
 **NOTE 1:** Currently, a device can publish at rate of about 1 event/sec, with bursts of up to 4 allowed in 1 second. Back to back burst of 4 messages will take 4 seconds to recover.
 
-**NOTE 2:** `Particle.publish()` and the `Particle.subscribe()` handler(s) share the same buffers.  As such, calling `Particle.publish()` within a `Particle.subscribe()` handler will wipe the susbscibe buffer!  In these cases, copying the subscribe buffer's content to a separate char buffer prior to calling `Particle.publish()` is recommended.
+**NOTE 2:** `Particle.publish()` and the `Particle.subscribe()` handler(s) share the same buffer. As such, calling `Particle.publish()` within a `Particle.subscribe()` handler will wipe the subscribe buffer! In these cases, copying the subscribe buffer's content to a separate char buffer prior to calling `Particle.publish()` is recommended.
 
 ---
 
@@ -452,7 +452,7 @@ with the cloud next time the device connects.
 **NOTE 1:** A device can register up to 4 event handlers. This means you can call `Particle.subscribe()` a maximum of 4 times; after that it will return `false`.
 
 
-**NOTE 2:** `Particle.publish()` and the `Particle.subscribe()` handler(s) share the same buffers.  As such, calling `Particle.publish()` within a `Particle.subscribe()` handler will wipe the susbscibe buffer!  In these cases, copying the subscribe buffer's content to a separate char buffer prior to calling `Particle.publish()` is recommended.
+**NOTE 2:** `Particle.publish()` and the `Particle.subscribe()` handler(s) share the same buffer. As such, calling `Particle.publish()` within a `Particle.subscribe()` handler will wipe the subscribe buffer! In these cases, copying the subscribe buffer's content to a separate char buffer prior to calling `Particle.publish()` is recommended.
 
 ### Particle.unsubscribe()
 
@@ -10334,7 +10334,7 @@ String stringOne =  String(analogRead(0), DEC);        // using an int and a bas
 String stringOne =  String(45, HEX);                   // using an int and a base (hexadecimal)
 String stringOne =  String(255, BIN);                  // using an int and a base (binary)
 String stringOne =  String(millis(), DEC);             // using a long and a base
-String stringOne =  String(34.5432, 2);                // using a float showing only 2 decimal places shows 34.54 
+String stringOne =  String(34.5432, 2);                // using a float showing only 2 decimal places shows 34.54
 ```
 Constructing a String from a number results in a string that contains the ASCII representation of that number. The default is base ten, so
 
