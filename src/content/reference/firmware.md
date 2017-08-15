@@ -251,7 +251,9 @@ of `false`.
 
 For the time being there exists no way to access a previously published but TTL-unexpired event.
 
-**NOTE:** Currently, a device can publish at rate of about 1 event/sec, with bursts of up to 4 allowed in 1 second. Back to back burst of 4 messages will take 4 seconds to recover.
+**NOTE 1:** Currently, a device can publish at rate of about 1 event/sec, with bursts of up to 4 allowed in 1 second. Back to back burst of 4 messages will take 4 seconds to recover.
+
+**NOTE 2:** `Particle.publish()` and the `Particle.subscribe()` handler(s) share the same buffers.  As such, calling `Particle.publish()` within a `Particle.subscribe()` handler will wipe the susbscibe buffer!  In these cases, copying the subscribe buffer's content to a separate char buffer prior to calling `Particle.publish()` is recommended.
 
 ---
 
@@ -447,7 +449,10 @@ A _subscription handler_ (like `myHandler` above) must return `void` and take tw
 the device is not connected to the cloud - the subscription is automatically registered
 with the cloud next time the device connects.
 
-**NOTE:** A device can register up to 4 event handlers. This means you can call `Particle.subscribe()` a maximum of 4 times; after that it will return `false`.
+**NOTE 1:** A device can register up to 4 event handlers. This means you can call `Particle.subscribe()` a maximum of 4 times; after that it will return `false`.
+
+
+**NOTE 2:** `Particle.publish()` and the `Particle.subscribe()` handler(s) share the same buffers.  As such, calling `Particle.publish()` within a `Particle.subscribe()` handler will wipe the susbscibe buffer!  In these cases, copying the subscribe buffer's content to a separate char buffer prior to calling `Particle.publish()` is recommended.
 
 ### Particle.unsubscribe()
 
