@@ -163,9 +163,8 @@ As above, the color code is not official, it's just what I happened to have on t
 | :-:|:-:|:-:|:-: |
 | 1 | VCC | Orange | 3V3 |
 | 4 | GND | Green | GND | 
-| 7 | SWCKD | Yellow | D6 |
-| 9 | SWDIO | Blue | D7 |
-
+| 7 | SWDIO | Blue | D7 |
+| 9 | SWSCK | Yellow | D6 |
 
 ![ST-LINK/V2](/assets/images/eclipse-debug-stlink.jpg)
 
