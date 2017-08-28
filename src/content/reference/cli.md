@@ -543,9 +543,18 @@ $ particle publish eventName someData --private
 
 ## particle serial
 
+### particle serial wifi
+
+Configure Wi-Fi credentials over serial
+
+```sh
+# Configure new Wi-Fi credentials for a Photon over a serial connection
+$ particle serial wifi
+```
+
 ### particle serial list
 
-  Shows currently connected Particle Core's acting as serial devices over USB
+  Shows currently connected Particle devices acting as serial devices over USB
 
 ```sh
 # shows a list of devices connected via serial usb
