@@ -10,6 +10,14 @@ order: 1
 
 This section will help walk you through the diagnosis and resolution of the most common roadblocks that our users run into. Some of these roadblocks are caused by issues or bugs in the platform, but many are more innocuous than that, and few are permanent. We'll help you identify exactly why your device is `insert_issue_here` and help you get it back to happily connected.
 
+## Device Doctor
+
+If your {{device}} used to work but is not connecting to the cloud anymore, the easiest way to get it back to health is to use the Device Doctor.
+
+- Install [the Particle CLI](/guide/tools-and-features/cli)
+- Run [`particle device doctor`](/reference/cli/#particle-device-doctor)
+- Follow the prompts to reset various settings on your device.
+
 {{#if electron}}
 
 ## Blinking Green
