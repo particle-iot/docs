@@ -121,6 +121,29 @@ server said  { ok: true }
 Okay!
 ```
 
+### particle device doctor
+
+Brings back a device with bad firmware, bad network settings or bad keys
+to health so it can connec to the Particle cloud.
+
+The Device Doctor will:
+* Update system firmware to the latest version
+* Update the CC3000 Wi-Fi module firmware (Core only)
+* Reset the antenna selection
+* Reset the IP configuration
+* Reset the SoftAP (listen mode) hotspot name
+* Clear the data in the EEPROM
+* Clear the Wi-Fi credentials
+* Prompt for new Wi-Fi credentials
+* Reset server and device key
+* Flash the default Particle Tinker app
+
+```sh
+# connect a device to the USB port first
+$ particle device doctor
+The Device Doctor will put your device back into a healthy state
+# follow the prompts to restore your device
+```
 
 ## particle flash
 
@@ -543,9 +566,18 @@ $ particle publish eventName someData --private
 
 ## particle serial
 
+### particle serial wifi
+
+Configure Wi-Fi credentials over serial
+
+```sh
+# Configure new Wi-Fi credentials for a Photon over a serial connection
+$ particle serial wifi
+```
+
 ### particle serial list
 
-  Shows currently connected Particle Core's acting as serial devices over USB
+  Shows currently connected Particle devices acting as serial devices over USB
 
 ```sh
 # shows a list of devices connected via serial usb
@@ -607,6 +639,7 @@ Connect your device in [DFU mode](/guide/getting-started/modes/#dfu-mode-device-
 $ particle keys doctor 0123456789ABCDEFGHI
 ```
 
+See also [`particle device doctor`](#particle-device-doctor)
 
 ### particle keys new
 
