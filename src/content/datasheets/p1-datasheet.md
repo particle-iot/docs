@@ -28,7 +28,7 @@ The P1 is Particle's tiny Wi-Fi module that contains both the Broadcom Wi-Fi chi
 	- 802.11b/g/n Wi-Fi
     - STM32F205RGY6 120Mhz ARM Cortex M3
 	- 1MB flash, 128KB RAM
-	- 1MB external SPI flash
+	- 1MB external SPI flash (MX25L8006E)
 	- Integrated PCB antenna
 	- Integrated u.FL connector for external antenna
 	- Integrated RF switch
