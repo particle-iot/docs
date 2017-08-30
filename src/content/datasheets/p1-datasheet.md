@@ -5,7 +5,7 @@ columns: two
 order: 5
 ---
 
-# P1 Datasheet <sup>(v008)</sup>
+# P1 Datasheet <sup>(v009)</sup>
 
 <div align=center><img src="/assets/images/p1-vector.png" width=200></div>
 
@@ -640,6 +640,7 @@ Cet équipement devrait être installé et actionné avec une distance minimum d
 | v006 | 14-July-2016 | BW | Updated P1 pin listing: TESTMODE pin 33 (PA8), connected to MCO1 by default, outputs 32kHz clock for WICED powersave mode - currently unsupported for user control.
 | v007 | 20-September-2016 | BW | Updated P1 pin listing: TESTMODE pin 33 (PA8), can use now as P1S6 if enabled.  Updated Pinmap and added P1S6.  Updated Pin Description and Peripherals and GPIO. |
 | v008 | 25-July-2017 | BW | Added note to clarify MICRO_SPI1_SS label, renamed SPI1_*/SPI3_* to match Particle API instead of STM32 pin names to avoid confusion (now SPI and SPI1), updated the Pin Description section and added high resolution pinout PDF, updated PWM notes, JTAG_TDO pin number (54 -> 52), block diagram and DCT layout, added warning to power section |
+| v009 | 30-August-2017 | BW | Added part number for 1MB external SPI flash (MX25L8006E) |
 
 ## Known Errata
 
