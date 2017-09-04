@@ -766,8 +766,8 @@ void handler(const char *topic, const char *data) {
 
 void setup() {
     Serial.begin(115200);
-    Particle.subscribe("spark/device/ip", handler);
-    Particle.publish("spark/device/ip");
+    Particle.subscribe("particle/device/ip", handler);
+    Particle.publish("particle/device/ip");
 }
 ```
 
@@ -784,8 +784,8 @@ void handler(const char *topic, const char *data) {
 
 void setup() {
     Serial.begin(115200);
-    Particle.subscribe("spark/device/name", handler);
-    Particle.publish("spark/device/name");
+    Particle.subscribe("particle/device/name", handler);
+    Particle.publish("particle/device/name");
 }
 ```
 
@@ -800,8 +800,8 @@ void handler(const char *topic, const char *data) {
 
 void setup() {
     Serial.begin(115200);
-    Particle.subscribe("spark/device/random", handler);
-    Particle.publish("spark/device/random");
+    Particle.subscribe("particle/device/random", handler);
+    Particle.publish("particle/device/random");
 }
 ```
 
