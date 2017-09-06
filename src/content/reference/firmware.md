@@ -2651,27 +2651,27 @@ void loop()
 
 The function `setADCSampleTime(duration)` is used to change the default sample time for `analogRead()`.
 
-On the Core, this parameter can be one of the following values:
+On the Core, this parameter can be one of the following values (ADC clock = 18MHz or 55.6ns per cycle):
 
- * ADC_SampleTime_1Cycles5: Sample time equal to 1.5 cycles
- * ADC_SampleTime_7Cycles5: Sample time equal to 7.5 cycles
- * ADC_SampleTime_13Cycles5: Sample time equal to 13.5 cycles
- * ADC_SampleTime_28Cycles5: Sample time equal to 28.5 cycles
- * ADC_SampleTime_41Cycles5: Sample time equal to 41.5 cycles
- * ADC_SampleTime_55Cycles5: Sample time equal to 55.5 cycles
- * ADC_SampleTime_71Cycles5: Sample time equal to 71.5 cycles
- * ADC_SampleTime_239Cycles5: Sample time equal to 239.5 cycles
+ * ADC_SampleTime_1Cycles5: Sample time equal to 1.5 cycles, 83ns
+ * ADC_SampleTime_7Cycles5: Sample time equal to 7.5 cycles, 417ns
+ * ADC_SampleTime_13Cycles5: Sample time equal to 13.5 cycles, 750ns
+ * ADC_SampleTime_28Cycles5: Sample time equal to 28.5 cycles, 1.58us
+ * ADC_SampleTime_41Cycles5: Sample time equal to 41.5 cycles, 2.31us
+ * ADC_SampleTime_55Cycles5: Sample time equal to 55.5 cycles, 3.08us
+ * ADC_SampleTime_71Cycles5: Sample time equal to 71.5 cycles, 3.97us
+ * ADC_SampleTime_239Cycles5: Sample time equal to 239.5 cycles, 13.3us
 
- On the Photon and Electron, this parameter can be one of the following values:
+ On the Photon and Electron, this parameter can be one of the following values (ADC clock = 30MHz or 33.3ns per cycle):
 
- * ADC_SampleTime_3Cycles: Sample time equal to 3 cycles
- * ADC_SampleTime_15Cycles: Sample time equal to 15 cycles
- * ADC_SampleTime_28Cycles: Sample time equal to 28 cycles
- * ADC_SampleTime_56Cycles: Sample time equal to 56 cycles
- * ADC_SampleTime_84Cycles: Sample time equal to 84 cycles
- * ADC_SampleTime_112Cycles: Sample time equal to 112 cycles
- * ADC_SampleTime_144Cycles: Sample time equal to 144 cycles
- * ADC_SampleTime_480Cycles: Sample time equal to 480 cycles
+ * ADC_SampleTime_3Cycles: Sample time equal to 3 cycles, 100ns
+ * ADC_SampleTime_15Cycles: Sample time equal to 15 cycles, 500ns
+ * ADC_SampleTime_28Cycles: Sample time equal to 28 cycles, 933ns
+ * ADC_SampleTime_56Cycles: Sample time equal to 56 cycles, 1.87us
+ * ADC_SampleTime_84Cycles: Sample time equal to 84 cycles, 2.80us
+ * ADC_SampleTime_112Cycles: Sample time equal to 112 cycles, 3.73us
+ * ADC_SampleTime_144Cycles: Sample time equal to 144 cycles, 4.80us
+ * ADC_SampleTime_480Cycles: Sample time equal to 480 cycles, 16.0us
 
 {{/if}} {{!-- has-adc --}}
 
