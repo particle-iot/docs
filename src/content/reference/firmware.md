@@ -9568,6 +9568,13 @@ System.sleep(SLEEP_MODE_DEEP, seconds);
 System.sleep(SLEEP_MODE_SOFTPOWEROFF, seconds);
 {{/if}}
 
+{{#if has-cellular}}
+// Keep {{network-type}} running.
+// Turn off microcontroller.
+// Reset after seconds.
+System.sleep(SLEEP_MODE_DEEP, seconds, SLEEP_NETWORK_STANDBY);
+{{/if}}
+
 // Turn off {{network-type}}.
 // Pause microcontroller.
 // Application resumes on pin trigger or after seconds.
@@ -9637,6 +9644,17 @@ You can also wake the device "prematurely" by applying a rising edge signal to t
 System.sleep(SLEEP_MODE_SOFTPOWEROFF, long seconds);
 ```
 {{/if}} {{!-- has-fuel-gauge --}}
+
+{{#if has-cellular}}
+---
+
+`System.sleep(SLEEP_MODE_DEEP, long seconds, SLEEP_NETWORK_STANDBY)` is just like `SLEEP_MODE_DEEP` but does not turn the {{network-type}} OFF.  This significantly reduces the amount of data required for reconnecting to the carrier when the {{device}} restarts from SLEEP_MODE_DEEP.  Note that this mode is most beneficial with a long KeepAlive time (23 mins on Particle SIM) where the {{device}} maximum deep sleep time can be set to the KeepAlive time.
+
+```C++
+// SYNTAX
+System.sleep(SLEEP_MODE_DEEP, seconds, SLEEP_NETWORK_STANDBY);
+```
+{{/if}}
 
 ---
 
