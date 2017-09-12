@@ -325,7 +325,6 @@ has sent a request to your server.
 
 ```
 
-
 If the hook got an error back from your server, it'll publish a hook-error event with the contents of the error. See
 
 ```
@@ -343,6 +342,7 @@ of the response back to your devices.
 {"name":"hook-response/your_published_event_topic/0","data":"your server response...","ttl":"60","published_at":"2016-02-09T15:23:23.047Z","coreid":"particle-internal"}
 ```
 
+These special webhook events cannot trigger webhooks themselves to avoid the possibility of a bad webhook recursively triggering other webhooks. Use the [Console event logs](https://console.particle.io/logs) or open an [event stream](#get-a-stream-of-events) to see these events.
 
 ### Special IFTTT Events
 
