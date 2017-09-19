@@ -5525,7 +5525,7 @@ Returns: boolean `true` if the message was added to the queue, `false` if the tr
 CANChannel can(CAN_D1_D2);
 CANMessage message;
 message.id = 0x100;
-message.length = 1;
+message.len = 1;
 message.data[0] = 42;
 can.transmit(message);
 ```
