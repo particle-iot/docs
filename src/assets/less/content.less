@@ -346,7 +346,9 @@ body.big-h3 .content h3:before {
   font-family: @base-font-family;
   text-transform: uppercase;
   font-size: 11.5px;
-
+}
+.content.reference h4 {
+  text-transform: none;
 }
 .content h5,
 .content .small-heading,
@@ -371,6 +373,9 @@ body:not(.big-h3) .content h3 {
 }
 body:not(.big-h3) .content h3 {
   font-size: 12px;
+}
+body:not(.big-h3) .content.reference h3 {
+  text-transform: none;
 }
 .content h1:first-child {
   padding: 0;
@@ -1018,8 +1023,4 @@ body:not(.no-literate) .content img[alt="Connection sequence"],
 
 .table-scrollable {
   overflow-x: auto;
-}
-
-.content#Webhooks-content h3 {
-  text-transform: none;
 }
