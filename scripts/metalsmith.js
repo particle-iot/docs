@@ -337,6 +337,7 @@ exports.server = function(callback) {
           '../templates/layouts/datasheet.hbs': 'content/datasheets/*.md',
           '../templates/layouts/support.hbs': 'content/support/**/*.md',
           '../templates/layouts/suppMenu.hbs': 'content/support/**/*.md',
+          '../templates/partials/**/*.hbs': 'content/**/*.md',
           '${source}/assets/js/*.js*' : true,
           '${source}/assets/images/**/*' : true,
           '../config/device_features.json': 'content/**/*.md',
