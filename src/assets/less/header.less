@@ -274,3 +274,17 @@ a.nav-device {
     display: none;
   }
 }
+
+@media (max-width: @small-size) { // 452px to be precise
+  .header .left {
+    > a {
+      display: none;
+    }
+    .dropdown {
+      margin-right: 0;
+      > a {
+        margin-right: 8px !important; // because of important in `.dropdown a` rule from line 126
+      }
+    }
+  }
+}
