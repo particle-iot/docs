@@ -347,8 +347,8 @@ void gotNextBusData(const char *name, const char *data) {
 
 // this function gets called by gotNextBusData to extract the bus times from the NextBus XML page
 String tryExtractString(int matchNum, String str, const char* start, const char* end) {
-    if (str == NULL) {
-        return NULL;
+    if (str == "") {
+        return "";
     }
 
     int count = 0;

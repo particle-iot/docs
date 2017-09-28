@@ -3,7 +3,7 @@ title: Technical Questions
 layout: faq.hbs
 columns: two
 devices: [ photon,electron,core,raspberry-pi ]
-order: 100
+order: 2
 ---
 
 # {{title}}

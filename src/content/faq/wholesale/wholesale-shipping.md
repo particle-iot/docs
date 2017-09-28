@@ -52,7 +52,6 @@ We ship to your country unless you live in Iran, Iraq, South Sudan, North Korea,
 For international orders we only have FedEx and DHL at this time. New shipping methods are being added frequently as we work with different partners and carriers. 
 - FedEx International Ground - Usually is delivered in 5 Business days if placed before 12pm PST
 - FedEx International Priority - Usually is delivered in 3 Business days if placed before 12pm PST
-- DHL Express - Usually is delivered in 1 - 3 Business days if placed before 12pm PST
 
 We ship all products from Indiana, USA.
 

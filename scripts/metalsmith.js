@@ -28,6 +28,7 @@ var deviceFeatureFlags = require('./device_feature_flags');
 var redirects = require('./redirects');
 var copy = require('metalsmith-copy');
 var fork = require('./fork');
+var fixLinks = require('./fixLinks');
 var inPlace = require('metalsmith-in-place');
 var watch = require('metalsmith-watch');
 var autotoc = require('metalsmith-autotoc');
@@ -150,7 +151,6 @@ exports.metalsmith = function() {
     }))
     // Group files into collections and add collection metadata
     // This plugin is complex and buggy.
-    // It causes the broken previous / next links when a page doesn't exist for a device
     // It causes the duplicate nav bar bug during development with livereload
     .use(collections({
       guide: {
@@ -209,6 +209,10 @@ exports.metalsmith = function() {
     .use(fork({
       key: 'devices',
       redirectTemplate: '../templates/redirector.html.hbs'
+    }))
+		// Fix previous / next links when a page doesn't exist for a specific device
+    .use(fixLinks({
+      key: 'devices'
     }))
     // For files that have the devices key set, add a bunch of properties like has-wifi, has-cellular
     // Use them in Handlebar templates like this:
@@ -333,6 +337,7 @@ exports.server = function(callback) {
           '../templates/layouts/datasheet.hbs': 'content/datasheets/*.md',
           '../templates/layouts/support.hbs': 'content/support/**/*.md',
           '../templates/layouts/suppMenu.hbs': 'content/support/**/*.md',
+          '../templates/partials/**/*.hbs': 'content/**/*.md',
           '${source}/assets/js/*.js*' : true,
           '${source}/assets/images/**/*' : true,
           '../config/device_features.json': 'content/**/*.md',

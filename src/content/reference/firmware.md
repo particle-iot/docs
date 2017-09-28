@@ -781,8 +781,8 @@ void handler(const char *topic, const char *data) {
 
 void setup() {
     Serial.begin(115200);
-    Particle.subscribe("spark/device/ip", handler);
-    Particle.publish("spark/device/ip");
+    Particle.subscribe("particle/device/ip", handler);
+    Particle.publish("particle/device/ip");
 }
 ```
 
@@ -799,8 +799,8 @@ void handler(const char *topic, const char *data) {
 
 void setup() {
     Serial.begin(115200);
-    Particle.subscribe("spark/device/name", handler);
-    Particle.publish("spark/device/name");
+    Particle.subscribe("particle/device/name", handler);
+    Particle.publish("particle/device/name");
 }
 ```
 
@@ -815,8 +815,8 @@ void handler(const char *topic, const char *data) {
 
 void setup() {
     Serial.begin(115200);
-    Particle.subscribe("spark/device/random", handler);
-    Particle.publish("spark/device/random");
+    Particle.subscribe("particle/device/random", handler);
+    Particle.publish("particle/device/random");
 }
 ```
 
@@ -3084,27 +3084,27 @@ void loop()
 
 The function `setADCSampleTime(duration)` is used to change the default sample time for `analogRead()`.
 
-On the Core, this parameter can be one of the following values:
+On the Core, this parameter can be one of the following values (ADC clock = 18MHz or 55.6ns per cycle):
 
- * ADC_SampleTime_1Cycles5: Sample time equal to 1.5 cycles
- * ADC_SampleTime_7Cycles5: Sample time equal to 7.5 cycles
- * ADC_SampleTime_13Cycles5: Sample time equal to 13.5 cycles
- * ADC_SampleTime_28Cycles5: Sample time equal to 28.5 cycles
- * ADC_SampleTime_41Cycles5: Sample time equal to 41.5 cycles
- * ADC_SampleTime_55Cycles5: Sample time equal to 55.5 cycles
- * ADC_SampleTime_71Cycles5: Sample time equal to 71.5 cycles
- * ADC_SampleTime_239Cycles5: Sample time equal to 239.5 cycles
+ * ADC_SampleTime_1Cycles5: Sample time equal to 1.5 cycles, 83ns
+ * ADC_SampleTime_7Cycles5: Sample time equal to 7.5 cycles, 417ns
+ * ADC_SampleTime_13Cycles5: Sample time equal to 13.5 cycles, 750ns
+ * ADC_SampleTime_28Cycles5: Sample time equal to 28.5 cycles, 1.58us
+ * ADC_SampleTime_41Cycles5: Sample time equal to 41.5 cycles, 2.31us
+ * ADC_SampleTime_55Cycles5: Sample time equal to 55.5 cycles, 3.08us
+ * ADC_SampleTime_71Cycles5: Sample time equal to 71.5 cycles, 3.97us
+ * ADC_SampleTime_239Cycles5: Sample time equal to 239.5 cycles, 13.3us
 
- On the Photon and Electron, this parameter can be one of the following values:
+ On the Photon and Electron, this parameter can be one of the following values (ADC clock = 30MHz or 33.3ns per cycle):
 
- * ADC_SampleTime_3Cycles: Sample time equal to 3 cycles
- * ADC_SampleTime_15Cycles: Sample time equal to 15 cycles
- * ADC_SampleTime_28Cycles: Sample time equal to 28 cycles
- * ADC_SampleTime_56Cycles: Sample time equal to 56 cycles
- * ADC_SampleTime_84Cycles: Sample time equal to 84 cycles
- * ADC_SampleTime_112Cycles: Sample time equal to 112 cycles
- * ADC_SampleTime_144Cycles: Sample time equal to 144 cycles
- * ADC_SampleTime_480Cycles: Sample time equal to 480 cycles
+ * ADC_SampleTime_3Cycles: Sample time equal to 3 cycles, 100ns
+ * ADC_SampleTime_15Cycles: Sample time equal to 15 cycles, 500ns
+ * ADC_SampleTime_28Cycles: Sample time equal to 28 cycles, 933ns
+ * ADC_SampleTime_56Cycles: Sample time equal to 56 cycles, 1.87us
+ * ADC_SampleTime_84Cycles: Sample time equal to 84 cycles, 2.80us
+ * ADC_SampleTime_112Cycles: Sample time equal to 112 cycles, 3.73us
+ * ADC_SampleTime_144Cycles: Sample time equal to 144 cycles, 4.80us
+ * ADC_SampleTime_480Cycles: Sample time equal to 480 cycles, 16.0us
 
 {{/if}} {{!-- has-adc --}}
 
@@ -5958,7 +5958,7 @@ Returns: boolean `true` if the message was added to the queue, `false` if the tr
 CANChannel can(CAN_D1_D2);
 CANMessage message;
 message.id = 0x100;
-message.length = 1;
+message.len = 1;
 message.data[0] = 42;
 can.transmit(message);
 ```
@@ -10014,6 +10014,13 @@ System.sleep(SLEEP_MODE_DEEP, seconds);
 System.sleep(SLEEP_MODE_SOFTPOWEROFF, seconds);
 {{/if}}
 
+{{#if has-cellular}}
+// Keep {{network-type}} running.
+// Turn off microcontroller.
+// Reset after seconds.
+System.sleep(SLEEP_MODE_DEEP, seconds, SLEEP_NETWORK_STANDBY);
+{{/if}}
+
 // Turn off {{network-type}}.
 // Pause microcontroller.
 // Application resumes on pin trigger or after seconds.
@@ -10083,6 +10090,17 @@ You can also wake the device "prematurely" by applying a rising edge signal to t
 System.sleep(SLEEP_MODE_SOFTPOWEROFF, long seconds);
 ```
 {{/if}} {{!-- has-fuel-gauge --}}
+
+{{#if has-cellular}}
+---
+
+`System.sleep(SLEEP_MODE_DEEP, long seconds, SLEEP_NETWORK_STANDBY)` is just like `SLEEP_MODE_DEEP` but does not turn the {{network-type}} OFF.  This significantly reduces the amount of data required for reconnecting to the carrier when the {{device}} restarts from SLEEP_MODE_DEEP.  Note that this mode is most beneficial with a long KeepAlive time (23 mins on Particle SIM) where the {{device}} maximum deep sleep time can be set to the KeepAlive time.
+
+```C++
+// SYNTAX
+System.sleep(SLEEP_MODE_DEEP, seconds, SLEEP_NETWORK_STANDBY);
+```
+{{/if}}
 
 ---
 
@@ -13095,7 +13113,7 @@ Please go to Github to read the Changelog for your desired firmware version (Cli
 |v0.6.x default releases|[v0.6.0](https://github.com/spark/firmware/releases/tag/v0.6.0)|[v0.6.1](https://github.com/spark/firmware/releases/tag/v0.6.1)|[v0.6.2](https://github.com/spark/firmware/releases/tag/v0.6.2)|-|-|
 |v0.6.x-rc.x prereleases|[v0.6.2-rc.1](https://github.com/spark/firmware/releases/tag/v0.6.2-rc.1)|[v0.6.2-rc.2](https://github.com/spark/firmware/releases/tag/v0.6.2-rc.2)|-|-|-|
 |-|[v0.6.0-rc.1](https://github.com/spark/firmware/releases/tag/v0.6.0-rc.1)|[v0.6.0-rc.2](https://github.com/spark/firmware/releases/tag/v0.6.0-rc.2)|[v0.6.1-rc.1](https://github.com/spark/firmware/releases/tag/v0.6.1-rc.1)|[v0.6.1-rc.2](https://github.com/spark/firmware/releases/tag/v0.6.1-rc.2)|-|
-|v0.5.x default releases|[v0.5.0](https://github.com/spark/firmware/releases/tag/v0.5.0)|[v0.5.1](https://github.com/spark/firmware/releases/tag/v0.5.1)|[v0.5.2](https://github.com/spark/firmware/releases/tag/v0.5.2)|[v0.5.3](https://github.com/spark/firmware/releases/tag/v0.5.3)|-|
+|v0.5.x default releases|[v0.5.0](https://github.com/spark/firmware/releases/tag/v0.5.0)|[v0.5.1](https://github.com/spark/firmware/releases/tag/v0.5.1)|[v0.5.2](https://github.com/spark/firmware/releases/tag/v0.5.2)|[v0.5.3](https://github.com/spark/firmware/releases/tag/v0.5.3)|[v0.5.4](https://github.com/spark/firmware/releases/tag/v0.5.4)|
 |v0.5.x-rc.x prereleases|[v0.5.3-rc.1](https://github.com/spark/firmware/releases/tag/v0.5.3-rc.1)|[v0.5.3-rc.2](https://github.com/spark/firmware/releases/tag/v0.5.3-rc.2)|[v0.5.3-rc.3](https://github.com/spark/firmware/releases/tag/v0.5.3-rc.3)|-|-|
 
 ### Programming and Debugging Notes
@@ -13108,7 +13126,7 @@ If you don't see any notes below the table or if they are the wrong version, ple
 |v0.6.x default releases|[v0.6.0](https://docs.particle.io/reference/firmware/photon/?fw_ver=0.6.0&cli_ver=1.18.0&electron_parts=3#programming-and-debugging-notes)|[v0.6.1](https://docs.particle.io/reference/firmware/photon/?fw_ver=0.6.1&cli_ver=1.20.1&electron_parts=3#programming-and-debugging-notes)|[v0.6.2](/reference/firmware/photon/?fw_ver=0.6.2&cli_ver=1.22.0&electron_parts=3#programming-and-debugging-notes)|-|-|
 |v0.6.x-rc.x prereleases|[v0.6.2-rc.1](https://prerelease-docs.particle.io/reference/firmware/photon/?fw_ver=0.6.2-rc.1&cli_ver=1.21.0&electron_parts=3#programming-and-debugging-notes)|[v0.6.2-rc.2](https://prerelease-docs.particle.io/reference/firmware/photon/?fw_ver=0.6.2-rc.2&cli_ver=1.21.0&electron_parts=3#programming-and-debugging-notes)|-|-|-|
 |-|[v0.6.0-rc.1](https://prerelease-docs.particle.io/reference/firmware/photon/?fw_ver=0.6.0-rc.1&cli_ver=1.17.0&electron_parts=3#programming-and-debugging-notes)|[v0.6.0-rc.2](https://prerelease-docs.particle.io/reference/firmware/photon/?fw_ver=0.6.0-rc.2&cli_ver=1.17.0&electron_parts=3#programming-and-debugging-notes)|[v0.6.1-rc.1](https://prerelease-docs.particle.io/reference/firmware/photon/?fw_ver=0.6.1-rc.1&cli_ver=1.18.0&electron_parts=3#programming-and-debugging-notes)|[v0.6.1-rc.2](https://prerelease-docs.particle.io/reference/firmware/photon/?fw_ver=0.6.1-rc.2&cli_ver=1.18.0&electron_parts=3#programming-and-debugging-notes)|-|
-|v0.5.x default releases|[v0.5.0](https://docs.particle.io/reference/firmware/photon/?fw_ver=0.5.0&cli_ver=1.12.0&electron_parts=2#programming-and-debugging-notes)|[v0.5.1](https://docs.particle.io/reference/firmware/photon/?fw_ver=0.5.1&cli_ver=1.14.2&electron_parts=2#programming-and-debugging-notes)|[v0.5.2](https://docs.particle.io/reference/firmware/photon/?fw_ver=0.5.2&cli_ver=1.15.0&electron_parts=2#programming-and-debugging-notes)|[v0.5.3](https://docs.particle.io/reference/firmware/photon/?fw_ver=0.5.3&cli_ver=1.17.0&electron_parts=2#programming-and-debugging-notes)|-|
+|v0.5.x default releases|[v0.5.0](https://docs.particle.io/reference/firmware/photon/?fw_ver=0.5.0&cli_ver=1.12.0&electron_parts=2#programming-and-debugging-notes)|[v0.5.1](https://docs.particle.io/reference/firmware/photon/?fw_ver=0.5.1&cli_ver=1.14.2&electron_parts=2#programming-and-debugging-notes)|[v0.5.2](https://docs.particle.io/reference/firmware/photon/?fw_ver=0.5.2&cli_ver=1.15.0&electron_parts=2#programming-and-debugging-notes)|[v0.5.3](https://docs.particle.io/reference/firmware/photon/?fw_ver=0.5.3&cli_ver=1.17.0&electron_parts=2#programming-and-debugging-notes)|[v0.5.4](https://docs.particle.io/reference/firmware/photon/?fw_ver=0.5.4&cli_ver=1.24.1&electron_parts=2#programming-and-debugging-notes)|
 |v0.5.x-rc.x prereleases|[v0.5.3-rc.1](https://prerelease-docs.particle.io/reference/firmware/photon/?fw_ver=0.5.3-rc.1&cli_ver=1.15.0&electron_parts=2#programming-and-debugging-notes)|[v0.5.3-rc.2](https://prerelease-docs.particle.io/reference/firmware/photon/?fw_ver=0.5.3-rc.2&cli_ver=1.16.0&electron_parts=2#programming-and-debugging-notes)|[v0.5.3-rc.3](https://prerelease-docs.particle.io/reference/firmware/photon/?fw_ver=0.5.3-rc.3&cli_ver=1.16.0&electron_parts=2#programming-and-debugging-notes)|-|-|
 
 <!--
@@ -13119,6 +13137,7 @@ v1.21.0 = 0.6.2-rc.1, 0.6.2-rc.2
 v1.20.1 = 0.6.1
 v1.19.4 = Particle Libraries v2
 v1.18.0 = 0.6.0, 0.6.1-rc.1, 0.6.1-rc.2
+v1.24.1 = 0.5.4 (technically this doesn't have 0.5.4 binaries in it for `particle update` but this was the version currently out when 0.5.4 was released)
 v1.17.0 = 0.5.3, 0.6.0-rc.1, 0.6.0-rc.2
 v1.16.0 = required to recognize system part 3 of electron, 0.5.3-rc.2, 0.5.3-rc.3
 v1.15.0 = 0.5.2, 0.5.3-rc.1
@@ -13159,6 +13178,8 @@ v1.12.0 = 0.5.0
 ##### @CLI_VER@1.22.0endif
 ##### @CLI_VER@1.23.1if
 ##### @CLI_VER@1.23.1endif
+##### @CLI_VER@1.24.1if
+##### @CLI_VER@1.24.1endif
 ##### @ELECTRON_PARTS@2if
 ##### @ELECTRON_PARTS@2endif
 ##### @ELECTRON_PARTS@3if
@@ -13191,6 +13212,10 @@ To update your Photon, P1 or Core system firmware automatically, compile and fla
 ---
 
 **The easy local method using Particle CLI**
+
+##### @FW_VER@0.5.4if
+**Note:** There is no version of the Particle CLI released that supports the `particle update` command for firmware version **@FW_VER@**. Please download the binaries and use one of the other supported programming methods.
+##### @FW_VER@0.5.4endif
 
 The easiest way to upgrade to System Firmware Version @FW_VER@ is to use the Particle CLI with a single command.  You will first upgrade the system firmware, then optionally program Tinker on the device. This **requires CLI version @CLI_VER@**. You can check with `particle --version`.
 
