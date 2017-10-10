@@ -47,6 +47,10 @@ See [the official JavaScript client](/reference/javascript/).
 * [Swift 3.0 Client Library](https://github.com/vakoc/particle-swift) - A Swift 3.0, package manager compatible, library for interacting with the Particle Cloud API
 * [Swift 3.0 Command Line Interface](https://github.com/vakoc/particle-swift-cli) - A Swift 3.0, package manager compatible, command line application utilizing particle-swift for interacting with the Particle Cloud API
 
+## Typescript
+
+* [Soft AP Setup library for Typescript by Mark Terrill](https://www.npmjs.com/package/softap-setup-ts) - Port of the [Particle SoftAP Setup library](https://github.com/spark/softap-setup-js) to perform wireless setup of Particle devices
+
 ## Xamarin
 
 * [Particle Xamarin Cloud SDK](https://github.com/michael-watson/particle-xamarin) - Enables Xamarin mobile apps apps to interact with Particle-powered connected products.
