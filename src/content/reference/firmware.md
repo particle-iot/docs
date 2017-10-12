@@ -3342,14 +3342,14 @@ To use the hardware serial pins of (Serial1{{#if has-serial2}}/2{{/if}}{{#if has
 
 For **Windows** users, we recommend downloading [PuTTY](http://www.putty.org/). You will also need to download and install the [Particle driver](https://github.com/spark/windows-device-drivers/releases/download/v6.1.0.51/particle_drivers_6.1.0.51.exe).
 
-Plug your device into your computer over USB. Open a serial port over USB using the standard settings, which should be:
+Plug your device into your computer over USB, open a serial port in PuTTY using the standard settings, which should be:
 
 - Baud rate: 9600
 - Data Bits: 8
 - Parity: none
 - Stop Bits: 1
 
-On **OS X and Linux** systems, you can access the serial monitor through the terminal.
+On **OS X and Linux** systems, you can access the serial port through the terminal.
 
 For OS X, open the terminal and type:
 
