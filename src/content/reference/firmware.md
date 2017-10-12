@@ -3338,6 +3338,33 @@ To use the hardware serial pins of (Serial1{{#if has-serial2}}/2{{/if}}{{#if has
 
 **NOTE:** Please take into account that the voltage levels on these pins operate at 0V to 3.3V and should not be connected directly to a computer's RS232 serial port which operates at +/- 12V and will damage the {{device}}.
 
+#### How to use Serial
+
+For **Windows** users, we recommend downloading [PuTTY](http://www.putty.org/). You will also need to download and install the [Particle driver](https://github.com/spark/windows-device-drivers/releases/download/v6.1.0.51/particle_drivers_6.1.0.51.exe).
+
+Plug your device into your computer over USB. Open a serial port over USB using the standard settings, which should be:
+
+- Baud rate: 9600
+- Data Bits: 8
+- Parity: none
+- Stop Bits: 1
+
+On **OS X and Linux** systems, you can access the serial monitor through the terminal.
+
+For OS X, open the terminal and type:
+
+```screen /dev/tty.u```
+
+and pressing tab to autocomplete.
+
+On Linux, you can accomplish the same thing by using:
+
+```screen /dev/ttyACM```
+
+and pressing tab to autocomplete.
+
+Now you are ready to read data sent by the device over Serial and send data back.
+
 ### begin()
 
 _Available on Serial, {{#if has-usb-serial1}}USBSerial1, {{/if}}Serial1{{#if has-serial2}}, Serial2{{/if}}{{#if has-serial4-5}}, Serial4, Serial5{{/if}}._
