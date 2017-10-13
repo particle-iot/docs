@@ -3338,6 +3338,33 @@ To use the hardware serial pins of (Serial1{{#if has-serial2}}/2{{/if}}{{#if has
 
 **NOTE:** Please take into account that the voltage levels on these pins operate at 0V to 3.3V and should not be connected directly to a computer's RS232 serial port which operates at +/- 12V and will damage the {{device}}.
 
+{{#unless raspberry-pi}}
+#### Connect to Serial with a computer
+
+For **Windows** users, we recommend downloading [PuTTY](http://www.putty.org/). Plug your {{device}} into your computer over USB, open a serial port in PuTTY using the standard settings, which should be:
+
+- Baud rate: 9600
+- Data Bits: 8
+- Parity: none
+- Stop Bits: 1
+
+On **OS X and Linux** systems, you can access the serial port through the terminal.
+
+For OS X, open the terminal and type:
+
+```screen /dev/tty.u```
+
+and pressing tab to autocomplete.
+
+On Linux, you can accomplish the same thing by using:
+
+```screen /dev/ttyACM```
+
+and pressing tab to autocomplete.
+
+Now you are ready to read data sent by the {{device}} over Serial and send data back.
+{{/unless}} {{!-- raspberry-pi --}}
+
 ### begin()
 
 _Available on Serial, {{#if has-usb-serial1}}USBSerial1, {{/if}}Serial1{{#if has-serial2}}, Serial2{{/if}}{{#if has-serial4-5}}, Serial4, Serial5{{/if}}._
