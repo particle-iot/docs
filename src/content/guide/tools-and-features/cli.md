@@ -15,7 +15,18 @@ The Particle CLI is a powerful tool for interacting with your devices and the Pa
 
   If you are using Windows, you can use the official Particle [Windows CLI Installer](https://binaries.particle.io/cli/installer/windows/ParticleCLISetup.exe) to automatically install node.js, the particle-cli, and dfu-util.
 
-  Otherwise, make sure you have [node.js](http://nodejs.org/) installed.
+  Otherwise, make sure you have a recent [node.js](http://nodejs.org/) installed.
+
+```sh
+# check that you have node.js 6 or above. Check http://nodejs.org on how to update node.js
+$ node -v
+v6.11.4
+# check that you have npm 5 or above
+$ npm -v
+5.5.1
+# update npm if your version is older than 5
+$ npm install -g npm
+```
 
   Next, open a command prompt or terminal, and install by typing:
 
