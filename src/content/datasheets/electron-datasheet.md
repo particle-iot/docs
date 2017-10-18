@@ -9,6 +9,8 @@ order: 4
 
 <div align=center><img src="/assets/images/electron/illustrations/electron-v20.png" ></div>
 
+<!-- --✂-- cut: part above doesn't go to PDF -->
+
 ## Functional description
 
 ### Overview
@@ -38,10 +40,10 @@ It also comes with Particle's development tools and cloud platform for managing 
 <div align=center><img src="/assets/images/electron/illustrations/electron-blockdiagram.png" width=700></div>
 
 ### Power
-The Electron can be powered via the VIN (3.9V-12VDC) pin, the USB Micro B connector or a LiPo battery. 
+The Electron can be powered via the VIN (3.9V-12VDC) pin, the USB Micro B connector or a LiPo battery.
 
 #### USB
-Most USB ports can supply only a maximum of 500mA, but the u-Blox GSM module on the Electron alone can consume a peak of 800mA to 1800mA of current during transmission. In order to compensate of this deficit, one must connect the LiPo battery at all times when powering from a traditional USB port. The Electron will intelligently source power from the USB most of the time and keep the battery charged. During peak current requirements, the additional power will be sourced from the battery. This reduces the charge-discharge cycle load on the battery, thus improving its longevity. 
+Most USB ports can supply only a maximum of 500mA, but the u-Blox GSM module on the Electron alone can consume a peak of 800mA to 1800mA of current during transmission. In order to compensate of this deficit, one must connect the LiPo battery at all times when powering from a traditional USB port. The Electron will intelligently source power from the USB most of the time and keep the battery charged. During peak current requirements, the additional power will be sourced from the battery. This reduces the charge-discharge cycle load on the battery, thus improving its longevity.
 
 #### VIN
 The input voltage range on VIN pin is 3.9VDC to 12VDC. When powering from the VIN pin alone, make sure that the power supply is rated at 10W (for example 5VDC at 2Amp). If the power source is unable to meet this requirement, you'll need connect the LiPo battery as well.  An additional bulk capacitance of 470uF to 1000uF should be added to the VIN input when the LiPo Battery is disconnected.  The amount of capacitance required will depend on the ability of the power supply to deliver peak currents to the cellular modem.
@@ -72,7 +74,7 @@ The most forgiving way to power the Electron without a battery is via the VIN in
 
 <!---
 #### PMID
-This is a very interesting pin (or rather a pad ) and it's usage is often confusing. This pin is the output of an internal boost regulator of the PMIC that can source 5.1VDC from the battery in OTG (On The Go) mode. This feature is useful when your circuitry needs a 5V source from the Electron when powered by the battery alone. 
+This is a very interesting pin (or rather a pad ) and it's usage is often confusing. This pin is the output of an internal boost regulator of the PMIC that can source 5.1VDC from the battery in OTG (On The Go) mode. This feature is useful when your circuitry needs a 5V source from the Electron when powered by the battery alone.
 
 The confusing bit about this pin is that it will continue to provide 5.1VDC but only when the input voltage (VIN) is between 3.6V to 5.1VDC. As soon as the input voltage exceeds this limit, the PMID starts tracking _that_ voltage. For example if VIN = 9VDC, the PMID will be 9VDC and _NOT_ 5.1VDC. So you need to be careful when using it as a source for powering your external circuitry. The max current draw on this pin is 2.1A but is not recommended due to thermal limitations of the circuit board.
 <add photo here>
@@ -558,7 +560,7 @@ The u.FL antenna connector is a very fragile piece of hardware ( and is fancy to
 
 <add pic here>
 
-### Breadboarding 
+### Breadboarding
 
 The breadboard provided with the Electron is specifically designed to require low insertion force. This makes it easy to plug the Electron in and out of the breadboard. If you end up using a different breadboard, remember that it may require more force. In this case, always remember to pinch-hold your precious Electron by the sides (along the header pins) when plugging-unplugging and **not** by the USB connector (don't be this person).
 
@@ -615,7 +617,7 @@ In the event that these conditions can not be met (for example certain laptop co
 
 **End Product Labeling**
 The final end product must be labeled in a visible area with the following:
-> Contains FCC ID: 
+> Contains FCC ID:
 
  * XPYSARAG350 (For 2G Electron using the G350 module)
  * XPYSARAU260 (For 3G Electron using the U260 module)
@@ -655,7 +657,7 @@ This End equipment should be installed and operated with a minimum distance of 2
 Cet équipement devrait être installé et actionné avec une distance minimum de 20 centimètres entre le radiateur et votre corps.
 
 > The end user manual shall include all required regulatory information/warning as shown in this manual.
-> 
+>
 > For an in-depth review on certifications, please click [here.](/guide/how-to-build-a-product/certification/)
 
 ## Revision history

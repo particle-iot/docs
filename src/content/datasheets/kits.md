@@ -7,9 +7,12 @@ layout: datasheet.hbs
 
 ---
 
+<!-- --✂-- cut: part above doesn't go to PDF -->
+
 # Particle Kits Overview
 
 Here's a quick "what's in the box" for each of our offered kits. More detail is available by clicking on their links to the shields and kits page.
+
 
 ## Electron
 ### Electron

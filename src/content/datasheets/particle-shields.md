@@ -5,6 +5,8 @@ columns: two
 order: 2
 ---
 
+<!-- --✂-- cut: part above doesn't go to PDF -->
+
 # Shields and accessories
 
 ## Shield Shield
@@ -770,7 +772,7 @@ The GPS is connected to the Serial1 UART on the Electron, and we've also provide
 
 When the module acquires a satellite fix, the **SAT FIX** LED on the shield will start blinking at the rate of once per second. The acquisition time can vary anywhere from 26 seconds, from a cold start, to around 1 second from a hot restart.
 
-**Backup Power** 
+**Backup Power**
 
 The shield has a super capacitor connected to the back up power of the GPS receiver. This helps the receiver retain time and satellite fix information upon a power cycle. The capacitor should be able to provide backup power for a few minutes after you remove the main supply. This is helpful when you are changing batteries or plugging/unplugging the Electron. For longer backup times, we have provided a footprint to solder in a CR2032 coin cell holder at the bottom. In most cases, you will not need it.
 

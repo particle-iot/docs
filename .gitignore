@@ -6,3 +6,5 @@ npm-debug.log
 api-node
 api-service-libraries
 particle-api-js
+_pdf-datasheets-build/
+_pdf-datasheets/
