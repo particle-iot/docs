@@ -15,6 +15,8 @@ void setup() {
 }
 ```
 
+<!-- --✂-- cut: part above doesn't go to PDF -->
+
 ## Functional description
 
 ### Overview
