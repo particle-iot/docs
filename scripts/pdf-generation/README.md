@@ -9,7 +9,7 @@ npm run pdf-generation
 **But make sure that you've done following things before:**
 - Install all the **dependencies** with `npm install`
 - Install **wkhtmltopdf** tool for your system from https://wkhtmltopdf.org/downloads.html
-- Have **Gotham font** installed in your system
+- Have **Gotham and Fira Mono fonts** installed in your system
 
 ## What script does
 
@@ -19,7 +19,7 @@ The script is just a gulp file (`scripts/pdf-generation/pdf-generation-gulpfile.
 2. **Prepare styles** (from LESS) for the pages (not for cover and TOC)
 3. For each datasheet (markdown file in `src/content/datasheets/`):
     1. **Strips headers** in datasheets above `<!-- --✂-- … -->` comment (it should be an HTML comment with the scissors symbol in it, Unicode for it is U+2702)
-    2. **Fix relat paths** to assets: `/assets/…` and `{{assets}}/…` → `./assets/…`
+    2. **Fix relative paths** to assets: `/assets/…` and `{{assets}}/…` → `./assets/…`
     3. **Compile** datasheets **from markdown to HTML**
     4. **Add** general **HTML5 header and footer** around that HTML
     5. **Run `wkhtmltopdf`** to make PDFs of such HTMLs, cover pages, and generate TOC

@@ -1,26 +1,23 @@
-import { execSync } from 'child_process';
-import { existsSync, mkdirSync } from 'fs';
+const { execSync } = require('child_process');
+const { existsSync, mkdirSync } = require('fs');
 
 /* gulp */
-import gulp from 'gulp';
-import through from 'through2';
+const gulp = require('gulp');
+const through = require('through2');
 /* gulp — md to pdf */
-import replace from 'gulp-replace';
-import markdown from 'gulp-markdown';
-import header from 'gulp-header';
-import footer from 'gulp-footer';
+const replace = require('gulp-replace');
+const markdown = require('gulp-markdown');
+const header = require('gulp-header');
+const footer = require('gulp-footer');
 /* gulp — css */
-import less from 'gulp-less';
-import postcss from 'gulp-postcss';
-import autoprefixer from 'autoprefixer';
+const less = require('gulp-less');
+const postcss = require('gulp-postcss');
+const autoprefixer = require('autoprefixer');
 /* gulp — utilities */
-import rename from 'gulp-rename';
-
-/* browserSync */
-// import browserSync from 'browser-sync';
+const rename = require('gulp-rename');
 
 /* utilities */
-import del from 'del';
+const del = require('del');
 
 /* ---------------- */
 
@@ -29,7 +26,7 @@ process.chdir('../..'); // go back to repo dir
 
 const paths = {
     build: '_pdf-datasheets-build',
-    distrib: '_pdf-datasheets',
+    distrib: 'src/assets/pdfs/datasheets',
     md: 'src/content/datasheets/**/*.md',
     assets: 'src/assets/**/*',
     css: 'scripts/pdf-generation/styles/**/*.{css,less}',
@@ -89,8 +86,8 @@ gulp.task('assets', () => gulp.src(paths.assets)
 
 gulp.task('transfrom md to pdf', ['assets', 'css'], () => gulp.src(paths.md)
     .pipe(replace(/^[\s\S]*?<!--.*✂.*-->/, '')) // strip top of the file before cut comment
-    .pipe(replace(/\/assets\//g, './assets/')) // fix related paths
-    .pipe(replace(/{{assets}}/g, './assets')) // fix related paths
+    .pipe(replace(/\/assets\//g, './assets/')) // fix relative paths
+    .pipe(replace(/{{assets}}/g, './assets')) // fix relative paths
     .pipe(markdown())
     .pipe(header('<!DOCTYPE html> <html> <head> <meta charset="utf-8"> <link rel="stylesheet" href="style.css"> </head> <body>'))
     .pipe(footer('</body> </html>'))
