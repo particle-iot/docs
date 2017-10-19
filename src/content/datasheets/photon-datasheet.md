@@ -5,6 +5,8 @@ columns: two
 order: 3
 ---
 
+{{#unless pdf-generation}}
+
 # Photon Datasheet <sup>(v015)</sup>
 
 **Model number:** PHOTONH, PHOTONNOH
@@ -17,9 +19,7 @@ void setup() {
 }
 ```
 
----
-
-<!-- --✂-- cut: part above doesn't go to PDF -->
+{{/unless}} {{!-- pdf-generation --}}
 
 ## Functional description
 

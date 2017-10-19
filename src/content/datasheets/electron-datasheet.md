@@ -5,11 +5,13 @@ columns: two
 order: 4
 ---
 
+{{#unless pdf-generation}}
+
 # Electron Datasheet <sup>(v005)</sup>
 
 <div align=center><img src="/assets/images/electron/illustrations/electron-v20.png" ></div>
 
-<!-- --✂-- cut: part above doesn't go to PDF -->
+{{/unless}} {{!-- pdf-generation --}}
 
 ## Functional description
 

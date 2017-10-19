@@ -5,6 +5,8 @@ columns: two
 order: 5
 ---
 
+{{#unless pdf-generation}}
+
 # P1 Datasheet <sup>(v009)</sup>
 
 <div align=center><img src="/assets/images/p1-vector.png" width=200></div>
@@ -15,7 +17,7 @@ void setup() {
 }
 ```
 
-<!-- --✂-- cut: part above doesn't go to PDF -->
+{{/unless}} {{!-- pdf-generation --}}
 
 ## Functional description
 
