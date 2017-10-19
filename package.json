@@ -1,84 +1,70 @@
 {
-    "name": "particle-docs",
-    "version": "0.3.0",
-    "private": false,
-    "license": "CC-BY-SA-3.0",
-    "repository": {
-        "type": "git",
-        "url": "git://github.com/spark/docs.git"
-    },
-    "scripts": {
-        "start": "node ./scripts/server.js",
-        "test": "node ./node_modules/mocha/bin/mocha ./test/crawler.js --reporter dot",
-        "build": "node ./scripts/build.js",
-        "update-api": "./scripts/update-api.sh --force",
-        "spell": "mdspell --en-us --ignore-numbers --no-suggestions 'src/content/**/*.md' '!src/content/languages/**/*.md'",
-        "pdf-generation": "gulp --gulpfile ./scripts/pdf-generation/pdf-generation-gulpfile.js --require babel-register"
-    },
-    "dependencies": {
-        "apidoc": "^0.17.5",
-        "autoprefixer": "^7.1.5",
-        "babel-preset-env": "^1.6.0",
-        "babel-register": "^6.26.0",
-        "del": "^3.0.0",
-        "gulp": "^3.9.1",
-        "gulp-footer": "^1.0.5",
-        "gulp-header": "^1.8.9",
-        "gulp-less": "^3.3.2",
-        "gulp-markdown": "^1.2.0",
-        "gulp-postcss": "^7.0.0",
-        "gulp-rename": "^1.2.2",
-        "gulp-replace": "^0.6.1",
-        "handlebars": "^3.0.1",
-        "lodash": "^4.17.4",
-        "lunr": "^0.7.2",
-        "marked": "^0.3.6",
-        "metalsmith": "^2.3.0",
-        "metalsmith-autotoc": "git://github.com/spark/metalsmith-autotoc",
-        "metalsmith-clean-css": "^5.0.1",
-        "metalsmith-collections": "git://github.com/spark/metalsmith-collections#dynamic-collections",
-        "metalsmith-copy": "git://github.com/spark/metalsmith-copy#improved-ci",
-        "metalsmith-filemetadata": "1.0.0",
-        "metalsmith-gzip": "^1.1.0",
-        "metalsmith-if": "0.0.1",
-        "metalsmith-ignore": "git://github.com/spark/metalsmith-ignore",
-        "metalsmith-in-place": "^1.0.1",
-        "metalsmith-layouts": "^1.8.0",
-        "metalsmith-less": "^2.0.0",
-        "metalsmith-lunr": "git://github.com/spark/metalsmith-lunr#0.3.0",
-        "metalsmith-markdown": "spark/metalsmith-markdown#v0.4.2",
-        "metalsmith-move-up": "^1.0.0",
-        "metalsmith-paths": "2.1.1",
-        "metalsmith-permalinks": "^0.4.0",
-        "metalsmith-redirect": "^2.1.0",
-        "metalsmith-register-helpers": "git://github.com/brycekahle/metalsmith-register-helpers",
-        "metalsmith-register-partials": "git://github.com/spark/metalsmith-register-partials",
-        "metalsmith-serve": "0.0.7",
-        "metalsmith-watch": "^1.0.1",
-        "mocha": "^3.2.0",
-        "prettify": "^0.1.7",
-        "through2": "^2.0.3"
-    },
-    "devDependencies": {
-        "chalk": "^1.1.3",
-        "cheerio": "^0.22.0",
-        "eslint": "^2.8.0",
-        "eslint-config-particle": "^1.0.2",
-        "git-rev": "^0.2.1",
-        "markdown-spellcheck": "^0.11.0",
-        "simplecrawler": "spark/node-simplecrawler#v0.6.3",
-        "sinon": "^1.17.6"
-    },
-    "babel": {
-        "presets": [
-            [
-                "env",
-                {
-                    "targets": {
-                        "node": "current"
-                    }
-                }
-            ]
-        ]
-    }
+  "name": "particle-docs",
+  "version": "0.3.0",
+  "private": false,
+  "license": "CC-BY-SA-3.0",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/spark/docs.git"
+  },
+  "scripts": {
+    "start": "node ./scripts/server.js",
+    "test": "node ./node_modules/mocha/bin/mocha ./test/crawler.js --reporter dot",
+    "build": "node ./scripts/build.js",
+    "update-api": "./scripts/update-api.sh --force",
+    "spell": "mdspell --en-us --ignore-numbers --no-suggestions 'src/content/**/*.md' '!src/content/languages/**/*.md'",
+    "pdf-generation": "gulp --gulpfile ./scripts/pdf-generation/pdf-generation-gulpfile.js"
+  },
+  "dependencies": {
+    "apidoc": "^0.17.5",
+    "autoprefixer": "^7.1.5",
+    "del": "^3.0.0",
+    "gulp": "^3.9.1",
+    "gulp-footer": "^1.0.5",
+    "gulp-header": "^1.8.9",
+    "gulp-less": "^3.3.2",
+    "gulp-markdown": "^1.2.0",
+    "gulp-postcss": "^7.0.0",
+    "gulp-rename": "^1.2.2",
+    "gulp-replace": "^0.6.1",
+    "handlebars": "^3.0.1",
+    "lodash": "^4.17.4",
+    "lunr": "^0.7.2",
+    "marked": "^0.3.6",
+    "metalsmith": "^2.3.0",
+    "metalsmith-autotoc": "git://github.com/spark/metalsmith-autotoc",
+    "metalsmith-clean-css": "^5.0.1",
+    "metalsmith-collections": "git://github.com/spark/metalsmith-collections#dynamic-collections",
+    "metalsmith-copy": "git://github.com/spark/metalsmith-copy#improved-ci",
+    "metalsmith-filemetadata": "1.0.0",
+    "metalsmith-gzip": "^1.1.0",
+    "metalsmith-if": "0.0.1",
+    "metalsmith-ignore": "git://github.com/spark/metalsmith-ignore",
+    "metalsmith-in-place": "^1.0.1",
+    "metalsmith-layouts": "^1.8.0",
+    "metalsmith-less": "^2.0.0",
+    "metalsmith-lunr": "git://github.com/spark/metalsmith-lunr#0.3.0",
+    "metalsmith-markdown": "spark/metalsmith-markdown#v0.4.2",
+    "metalsmith-move-up": "^1.0.0",
+    "metalsmith-paths": "2.1.1",
+    "metalsmith-permalinks": "^0.4.0",
+    "metalsmith-redirect": "^2.1.0",
+    "metalsmith-register-helpers": "git://github.com/brycekahle/metalsmith-register-helpers",
+    "metalsmith-register-partials": "git://github.com/spark/metalsmith-register-partials",
+    "metalsmith-serve": "0.0.7",
+    "metalsmith-watch": "^1.0.1",
+    "mocha": "^3.2.0",
+    "prettify": "^0.1.7",
+    "through2": "^2.0.3"
+  },
+  "devDependencies": {
+    "chalk": "^1.1.3",
+    "cheerio": "^0.22.0",
+    "eslint": "^2.8.0",
+    "eslint-config-particle": "^1.0.2",
+    "git-rev": "^0.2.1",
+    "markdown-spellcheck": "^0.11.0",
+    "simplecrawler": "spark/node-simplecrawler#v0.6.3",
+    "sinon": "^1.17.6"
+  }
 }
