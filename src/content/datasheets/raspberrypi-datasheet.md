@@ -5,8 +5,6 @@ columns: two
 order: 9
 ---
 
-<!-- --✂-- cut: part above doesn't go to PDF -->
-
 # Raspberry Pi Datasheet
 
 <div align=center><img src="/assets/images/raspberry-pi.svg" width=200></div>

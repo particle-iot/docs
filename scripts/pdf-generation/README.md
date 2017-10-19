@@ -18,7 +18,8 @@ The script is just a gulp file (`scripts/pdf-generation/pdf-generation-gulpfile.
 1. **Copy assets** from `src/assets/`
 2. **Prepare styles** (from LESS) for the pages (not for cover and TOC)
 3. For each datasheet (markdown file in `src/content/datasheets/`):
-    1. **Strips headers** in datasheets above `<!-- --✂-- … -->` comment (it should be an HTML comment with the scissors symbol in it, Unicode for it is U+2702)
+    1. **Strips frontmatter** in datasheets. These are the lines between 2 `---` at the top of the markdown.
+    1. **Strips web-only sections** in datasheets. Lines between `{{#unless pdf-generation}}` and `{{/unless}} {{!-- pdf-generation --}}` won't be in the PDF.
     2. **Fix relative paths** to assets: `/assets/…` and `{{assets}}/…` → `./assets/…`
     3. **Compile** datasheets **from markdown to HTML**
     4. **Add** general **HTML5 header and footer** around that HTML
@@ -28,7 +29,6 @@ The script is just a gulp file (`scripts/pdf-generation/pdf-generation-gulpfile.
 
 ```
 docs
-├── _pdf-datasheets          ← folder for PDF results
 ├── _pdf-datasheets-build    ← temporary folder for compiled datasheets, styles, and copied assets
 …
 ├── scripts
@@ -41,6 +41,9 @@ docs
 │   …
 ├── src
 │   …
+│   ├── assets
+│   │   ├── pdfs
+│   │   │   ├── datasheets    ← folder for PDF results
 │   ├── content
 │   │   ├── datasheets
 │   │   │   ├── covers
@@ -60,19 +63,13 @@ All content for datasheets is in markdown files in `src/content/datasheets/`. Th
 
 **To edit a datasheet**, just edit the corresponding markdown file in `src/content/datasheets/`.
 
-Don't forget to **separate header** for web version **using special “cut” comment**.
+Mark sections for the web version only **using special comments**:
 
-Typical datasheet markdown:
 ```
-… YAML settings for Metalsmith
-… heading content that is not going to PDF
-
-<!-- --✂-- … -->
-
-… everything below is going to PDF
+{{#unless pdf-generation}}
+Only only content!
+{{/unless}} {{!-- pdf-generation --}}
 ```
-
-
 
 ## Cover Pages
 

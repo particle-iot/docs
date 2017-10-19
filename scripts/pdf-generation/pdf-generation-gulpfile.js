@@ -85,7 +85,8 @@ gulp.task('assets', () => gulp.src(paths.assets)
 /* ---------------- Transfrom MD to PDF ---------------- */
 
 gulp.task('transfrom md to pdf', ['assets', 'css'], () => gulp.src(paths.md)
-    .pipe(replace(/^[\s\S]*?<!--.*✂.*-->/, '')) // strip top of the file before cut comment
+    .pipe(replace(/^---$[^]*?^---$/m, '')) // strip frontmatter
+    .pipe(replace(/{{#unless pdf-generation}}[^]*?{{\/unless}} {{!-- pdf-generation --}}/mg, '')) // strip sections from the pdf
     .pipe(replace(/\/assets\//g, './assets/')) // fix relative paths
     .pipe(replace(/{{assets}}/g, './assets')) // fix relative paths
     .pipe(markdown())

@@ -4,10 +4,7 @@ title: Particle Kits Overview
 order: 1
 columns: 2
 layout: datasheet.hbs
-
 ---
-
-<!-- --✂-- cut: part above doesn't go to PDF -->
 
 # Particle Kits Overview
 

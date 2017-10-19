@@ -5,8 +5,6 @@ columns: two
 order: 7
 ---
 
-<!-- --✂-- cut: part above doesn't go to PDF -->
-
 # Spark Core Datasheet
 
 ## Subsystems

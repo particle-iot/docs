@@ -5,8 +5,6 @@ columns: two
 order: 2
 ---
 
-<!-- --✂-- cut: part above doesn't go to PDF -->
-
 # Shields and accessories
 
 ## Shield Shield
