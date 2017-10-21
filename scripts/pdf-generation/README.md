@@ -8,10 +8,11 @@ npm run pdf-generation
 
 **But make sure that you've done following things before:**
 - Install all the **dependencies** with `npm install`
-- Install **wkhtmltopdf** tool for your system from https://wkhtmltopdf.org/downloads.html
-- Have **Gotham and Fira Mono fonts** installed in your system
+- Install **wkhtmltopdf** tool (0.12.4 is used here) for your system from https://wkhtmltopdf.org/downloads.html
+- Have **[Montserrat](https://github.com/JulietaUla/Montserrat) and [Fira Mono](https://github.com/mozilla/Fira) fonts** installed in your system (alternative links on Font Squirrel: [Montserrat](https://www.fontsquirrel.com/fonts/montserrat), [Fira Mono](https://www.fontsquirrel.com/fonts/fira-mono); on Google Fonts: [Montserrat](https://fonts.google.com/specimen/Montserrat), [Fira Mono](https://fonts.google.com/specimen/Fira+Mono))
 
-## What script does
+
+## What Script Does
 
 The script is just a gulp file (`scripts/pdf-generation/pdf-generation-gulpfile.js`) which calls `wkhtmltopdf`.
 
@@ -19,11 +20,11 @@ The script is just a gulp file (`scripts/pdf-generation/pdf-generation-gulpfile.
 2. **Prepare styles** (from LESS) for the pages (not for cover and TOC)
 3. For each datasheet (markdown file in `src/content/datasheets/`):
     1. **Strips frontmatter** in datasheets. These are the lines between 2 `---` at the top of the markdown.
-    1. **Strips web-only sections** in datasheets. Lines between `{{#unless pdf-generation}}` and `{{/unless}} {{!-- pdf-generation --}}` won't be in the PDF.
-    2. **Fix relative paths** to assets: `/assets/…` and `{{assets}}/…` → `./assets/…`
-    3. **Compile** datasheets **from markdown to HTML**
-    4. **Add** general **HTML5 header and footer** around that HTML
-    5. **Run `wkhtmltopdf`** to make PDFs of such HTMLs, cover pages, and generate TOC
+    2. **Strips web-only sections** in datasheets. Lines between `{{#unless pdf-generation}}` and `{{/unless}} {{!-- pdf-generation --}}` won't be in the PDF.
+    3. **Fix relative paths** to assets: `/assets/…` and `{{assets}}/…` → `./assets/…`
+    4. **Compile** datasheets **from markdown to HTML**
+    5. **Add** general **HTML5 header and footer** around that HTML
+    6. **Run `wkhtmltopdf`** to make PDFs of such HTMLs, cover pages, and generate TOC
 
 ## Files Structure
 
@@ -40,7 +41,6 @@ docs
 │   │   ├── README.md
 │   …
 ├── src
-│   …
 │   ├── assets
 │   │   ├── pdfs
 │   │   │   ├── datasheets    ← folder for PDF results
@@ -67,8 +67,21 @@ Mark sections for the web version only **using special comments**:
 
 ```
 {{#unless pdf-generation}}
-Only only content!
+Only web content!
 {{/unless}} {{!-- pdf-generation --}}
+```
+
+## Page Breaks
+
+To add a page break, just add a line  with `---` (markdown's for `<hr>`). Like that:
+
+```
+Some content.
+
+---
+
+Content on new page.
+
 ```
 
 ## Cover Pages

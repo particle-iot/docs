@@ -1,142 +1,86 @@
 <html>
-  <head>
+
+<head>
     <title>Electron Datasheet Cover Page</title>
+    <link rel="stylesheet" href="cover-style.css">
+</head>
 
-<style>
-body {
-  font-family: Arial;
-}
-
-.cover-header-container {
-  display: flex;
-}
-
-.cover-device {
-  padding-bottom: 30px;
-  padding-left: 20px;
-  width: 100px;
-}
-
-.cover-header {
-  border-top: 1px solid black;
-}
-
-.cover-header .header-logo {
-  height: 80px;
-  margin: 5px 0;
-}
-
-.cover-header .header-title {
-  font-size: 50px;
-  font-weight: bold;
-  float: right;
-  margin: 15px 0;
-}
-
-.cover-header .header-subtitle {
-  border-top: 1px solid black;
-  border-bottom: 1px solid black;
-  text-align: center;
-  font-size: 22px;
-  padding: 8px 0;
-}
-
-.cover-header .header-revision {
-  font-weight: bold;
-  padding: 6px 0;
-  text-align: right;
-}
-
-.cover-features .features-title {
-  font-size: 20px;
-  font-weight: bold;
-}
-
-.cover-features .features-list > li {
-  margin: 5px 0;
-}
-
-.cover-features .features-list > li > ul > li {
-  margin: 3px 0;
-}
-
-</style>
-  </head>
-  <body>
+<body>
     <div class="cover-header-container">
-      <div class="cover-header">
-        <img src="particle-logo.svg" class="header-logo">
-        <span class="header-title">Electron</span>
+        <div class="cover-header">
+            <img src="particle-logo.svg" class="header-logo">
+            <span class="header-title">Electron</span>
 
-        <div class="header-subtitle">
-          Cellular connected Internet of Things development kit wit a small footprint powered by a powerful STM32 ARM Cortex M3 microcontroller and a uBlox cellular chip.
+            <div class="header-subtitle">
+                Cellular connected Internet of Things development kit wit a small footprint powered by a powerful STM32 ARM Cortex M3 microcontroller and a uBlox cellular chip
+            </div>
+            <div class="header-revision">
+                Datasheet v005
+            </div>
         </div>
-        <div class="header-revision">
-          Datasheet v005
-        </div>
-      </div>
-      <img src="electron.svg" width="600" height="868" class="cover-device">
-
     </div>
+
+    <img src="electron.svg" class="cover-device">
 
     <div class="cover-features">
 
-      <div class="features-title">
-        Features
-      </div>
+        <div class="features-title">
+            Features
+        </div>
 
-      <ul class="features-list">
-        <li>
-          Microcontroller specs
-          <ul>
-            <li>STM32F205 120Mhz ARM Cortex M3</li>
-            <li>1MB Flash</li>
-            <li>128KB RAM</li>
-            <li>30 mixed-signal GPIO (digital, ADC, PWM)</li>
-            <li>Advanced peripherals: DAC, I2S, I2C, CAN</li>
-          </ul>
-        </li>
-        <li>
-          Cellular specs
-          <ul>
-            <li>U-Blox SARA U260/U270 (3G) or G350 (2G)</li>
-            <li>Telefonica global SIM card</li>
-            <li>Particle IoT data plan - Plans vary based on usage and location. See <a href="https://www.particle.io/pricing">website</a> for details.</li>
-          </ul>
-        </li>
-        <li>
-          Other specs
-          <ul>
-            <li>On-board RGB status LED</li>
-            <li>Li-Po battery (2000mAh)</li>
-            <li>Board dimensions: 2.0" x 0.8" x 0.3" (0.5" including headers)</li>
-            <li>Breadboard friendly 38-pin package</li>
-            <li>Real-time operating system (FreeRTOS)</li>
-            <li>FCC/CE/IC certified</li>
-            <li>Open source hardware</li>
-          </ul>
-        </li>
-        <li>
-          Simple to setup and use
-          <ul>
-            <li>Set up with web app within minutes</li>
-            <li>Connects to the Particle cloud out of the box</li>
-            <li>Program over the air through the Particle Web IDE</li>
-            <li>Work on projects locally with the Particle Desktop IDE</li>
-            <li>Script common tasks with the Particle Command Line Interface</li>
-            <li>Send data to 3rd party services through webhooks and integrations</li>
-            <li>Monitor state of device through the Particle Console</li>
-          </ul>
-        </li>
-        <li>
-          Community resources
-          <ul>
-            <li>Explore fully developed projects to get through IoT learning curve</li>
-            <li>Use community-provided code libraries for common peripherals</li>
-            <li>Join the Particle community for inspiration and help by experts</li>
-          </ul>
-        </li>
-      </ul>
+        <ul class="features-list">
+            <li>
+                Microcontroller specs
+                <ul>
+                    <li>STM32F205 120Mhz ARM Cortex M3</li>
+                    <li>1MB Flash</li>
+                    <li>128KB RAM</li>
+                    <li>30 mixed-signal GPIO (digital, ADC, PWM)</li>
+                    <li>Advanced peripherals: DAC, I2S, I2C, CAN</li>
+                </ul>
+            </li>
+            <li>
+                Cellular specs
+                <ul>
+                    <li>U-Blox SARA U260/U270 (3G) or G350 (2G)</li>
+                    <li>Telefonica global SIM card</li>
+                    <li>Particle IoT data plan - Plans vary based on usage and location. See <a href="https://www.particle.io/pricing">website</a> for details.</li>
+                </ul>
+            </li>
+            <li>
+                Other specs
+                <ul>
+                    <li>On-board RGB status LED</li>
+                    <li>Li-Po battery (2000mAh)</li>
+                    <li>Board dimensions: 2.0" x 0.8" x 0.3" (0.5" including headers)</li>
+                    <li>Breadboard friendly 38-pin package</li>
+                    <li>Real-time operating system (FreeRTOS)</li>
+                    <li>FCC/CE/IC certified</li>
+                    <li>Open source hardware</li>
+                </ul>
+            </li>
+            <li>
+                Simple to setup and use
+                <ul>
+                    <li>Set up with web app within minutes</li>
+                    <li>Connects to the Particle cloud out of the box</li>
+                    <li>Program over the air through the Particle Web IDE</li>
+                    <li>Work on projects locally with the Particle Desktop IDE</li>
+                    <li>Script common tasks with the Particle Command Line Interface</li>
+                    <li>Send data to 3rd party services through webhooks and integrations</li>
+                    <li>Monitor state of device through the Particle Console</li>
+                </ul>
+            </li>
+            <li>
+                Community resources
+                <ul>
+                    <li>Explore fully developed projects to get through IoT learning curve</li>
+                    <li>Use community-provided code libraries for common peripherals</li>
+                    <li>Join the Particle community for inspiration and help by experts</li>
+                </ul>
+            </li>
+        </ul>
     </div>
-  </body>
+</body>
+
 </html>
