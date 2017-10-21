@@ -18,6 +18,7 @@ const rename = require('gulp-rename');
 
 /* utilities */
 const del = require('del');
+// const browserSync = require('browser-sync'); // for dev purposes, `npm i browser-sync`
 
 /* ---------------- */
 
@@ -42,7 +43,6 @@ function toPDF() {
         const filePath = [...file.history].pop();
         const fileName = filePath.split('/').pop().replace(/\.[^.]*$/, '');
         const coverPath = `${paths.covers}/${fileName}.html`;
-        // console.dir({ path: filePath, name: fileName }, { colors: true });
         const commandArgs = [
             `wkhtmltopdf`,
             `--dpi 300`,
@@ -89,7 +89,9 @@ gulp.task('transfrom md to pdf', ['assets', 'css'], () => gulp.src(paths.md)
     .pipe(replace(/{{#unless pdf-generation}}[^]*?{{\/unless}} {{!-- pdf-generation --}}/mg, '')) // strip sections from the pdf
     .pipe(replace(/\/assets\//g, './assets/')) // fix relative paths
     .pipe(replace(/{{assets}}/g, './assets')) // fix relative paths
+    .pipe(replace(/\]\(\//g, '](https://docs.particle.io/')) // point to website in non-assets cases
     .pipe(markdown())
+    .pipe(replace(/href="\./g, 'href="https://docs.particle.io')) // point to website's assets (to pdfs mostly)
     .pipe(header('<!DOCTYPE html> <html> <head> <meta charset="utf-8"> <link rel="stylesheet" href="style.css"> </head> <body>'))
     .pipe(footer('</body> </html>'))
     .pipe(gulp.dest(paths.build))

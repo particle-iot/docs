@@ -18,18 +18,16 @@
                         color: #00adef;
                     }
                     li {
-                        font-family: 'Gotham';
+                        font-family: Montserrat, Gotham, sans-serif;
                         list-style: none;
                         margin-top: 8px;
-                        font-weight: 400;
                     }
                     ul {
                         font-size: 20px;
-                        font-family: arial;
                         padding-left: 0;
                     }
                     ul ul {
-                        font-size: 80%;
+                        font-size: 90%;
                         padding-left: 2em;
                     }
                     a {

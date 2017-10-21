@@ -1,6 +1,5 @@
 body {
-    font-family: Gotham, sans-serif;
-    font-weight: 300;
+    font-family: Montserrat, Gotham, sans-serif;
     font-size  : 14px;
     width      : 700px;
     margin     : 0 auto;
@@ -10,12 +9,17 @@ hr {
     visibility      : hidden;
 }
 h1 {
-    font-weight: 200;
-    font-size  : 35px;
+    page-break-before: always;
+    font-weight      : 200;
+    font-size        : 35px;
 }
 h2 {
-    font-weight: 300;
-    font-size  : 24px;
+    page-break-before: always;
+    font-weight      : 300;
+    font-size        : 24px;
+}
+h1 + h2 {
+    page-break-before: auto;
 }
 h3 {
     font-weight   : bold;
@@ -34,6 +38,17 @@ h3 {
         height    : 1px;
         background: #c7c7c7;
     }
+}
+h4 {
+    margin-top   : 2em;
+    margin-bottom: 0;
+}
+h3,
+h4 {
+    // BUG: unfortunately, doesn't work as it should
+    // WORKAROUNDS: manual page break before, or wrap in div with `page-break-inside: avoid;`
+    page-break-after: avoid;
+    break-after     : avoid-page;
 }
 code {
     font-family: 'Fira Mono';
@@ -62,8 +77,14 @@ ul {
     line-height: 24px;
     margin-left: 20px;
 }
+div a {
+    // `a` usually wraps image when in `div`
+    border: none;
+}
 a {
-    color: #00adef;
+    color          : #00adef;
+    text-decoration: none;
+    border-bottom  : 1px dashed #00adef;
 }
 p.boxed {
     background-color: #f0f0f0;
@@ -109,11 +130,15 @@ dt {
     font-weight: 700;
     margin-top : 15px;
 }
+dd {
+    margin-left: 40px;
+    margin-top : 5px;
+}
 dd,
 dt {
     line-height: 1.45;
 }
-dd {
-    margin-left: 40px;
-    margin-top : 5px;
+blockquote,
+p {
+    margin: 0;
 }

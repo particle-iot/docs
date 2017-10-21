@@ -1,0 +1,60 @@
+body {
+    font-family: Montserrat, Gotham, sans-serif;
+}
+
+a {
+    color          : #00adef;
+    text-decoration: none;
+    border-bottom  : 1px dashed #00adef;
+}
+
+.cover-header-container {
+    display: flex;
+}
+
+.cover-device {
+    padding-bottom: 30px;
+    padding-left  : 20px;
+    width         : 100px;
+}
+
+.cover-header {
+    border-top: 1px solid black;
+}
+
+.cover-header .header-logo {
+    height: 80px;
+    margin: 5px 0;
+}
+
+.cover-header .header-title {
+    font-size  : 50px;
+    font-weight: bold;
+    float      : right;
+    margin     : 15px 0;
+}
+
+.cover-header .header-subtitle {
+    border-top   : 1px solid black;
+    border-bottom: 1px solid black;
+    text-align   : center;
+    font-size    : 18px;
+    padding      : 8px 0;
+}
+
+.cover-header .header-revision {
+    font-weight: bold;
+    padding    : 6px 0;
+    text-align : right;
+}
+
+.cover-features .features-title {
+    font-size  : 20px;
+    font-weight: bold;
+}
+
+ul {
+    padding    : 4px 0;
+    line-height: 24px;
+    margin-left: 20px;
+}
