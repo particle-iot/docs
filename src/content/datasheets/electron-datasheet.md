@@ -88,7 +88,7 @@ The confusing bit about this pin is that it will continue to provide 5.1VDC but 
 |:--|:--|:--|:--|
 |PCB antenna| Taoglas| [PC104.07.0165C](http://www.taoglas.com/wp-content/uploads/2015/06/PC104.07.0165C.pdf)| 1dBi ~ 2.39dBi|
 
-
+---
 
 ### Peripherals and GPIO
 
@@ -226,6 +226,8 @@ _Since 0.6.0 firmware_
 | OTA Backup | 0x80C0000 | 0x80E0000 | 128 KB |
 | Decompress region | 0x80E0000 | 0x8100000 | 128 KB |
 
+---
+
 ### Memory Map (Monolithic Firmware - optional)
 
 | Region | Start Address | End Address | Size |
@@ -243,6 +245,8 @@ _Since 0.6.0 firmware_
 <div align=center><img src="/assets/images/electron/illustrations/electron_pin_markings.png"></div>
 
 <div align=center><img src="/assets/images/electron/illustrations/electron_pin_markings_bottom.png"></div>
+
+---
 
 ### Pin description
 
@@ -266,6 +270,8 @@ _Since 0.6.0 firmware_
 **Notes:**
 
 <sup>[1]</sup> PWM is available on D0, D1, D2, D3, B0, B1, B2, B3, A4, A5, WKP, RX, TX with a caveat: PWM timer peripheral is duplicated on two pins (A5/D2) and (A4/D3) for 11 total independent PWM outputs. For example: PWM may be used on A5 while D2 is used as a GPIO, or D2 as a PWM while A5 is used as an analog input. However A5 and D2 cannot be used as independently controlled PWM outputs at the same time.
+
+---
 
 ### LED Status
 
@@ -337,6 +343,7 @@ conditions is not implied. Exposure to absolute-maximum-rated conditions for ext
 
 <sup>[3]</sup> 2G operation
 
+---
 
 ### Radio specifications
 
@@ -365,6 +372,7 @@ Please be sure to order a board that works in the country where you want to depl
 |Bands | Band V (850 MHz) Band II (1900 MHz)| Band VIII (900 MHz) Band I (2100 MHz) |
 |Power Class | Class 3 (24 dBm) for all bands| Class 3 (24 dBm) for all bands |
 
+---
 
 ### I/O Characteristics
 
@@ -456,12 +464,15 @@ The microcontroller communicates with the PMIC via an I2C interface (pins PC9 an
 
 The Electron uses ST Microelectronics's [STM32F205RGT6](http://www2.st.com/content/ccc/resource/technical/document/datasheet/bc/21/42/43/b0/f3/4d/d3/CD00237391.pdf/files/CD00237391.pdf/jcr:content/translations/en.CD00237391.pdf) ARM Cortex M3 microcontroller running at  120MHz.
 
+---
+
 ### U-blox cellular module
 
 ![ublox](/assets/images/electron/schematics/ublox.png)
 
 The u-blox cellular module talks to the microcontroller over a full-duplex USART interface using a standard set of AT commands. The SIM (Nano 4FF) card is directly connected to the u-blox. The power to the SIM card is also provided by the cellular module.
 
+---
 
 ### Buffers
 

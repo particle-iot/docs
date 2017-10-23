@@ -73,8 +73,6 @@ The default selected antenna will be the PCB antenna.
 
 The area surrounding the PCB antenna on the carrier PCB should be free of ground planes and signal traces for maximum Wi-Fi performance.
 
----
-
 ### FCC Approved Antennas
 
 | Antenna Type | Manufacturer | MFG. Part # | Gain |
@@ -116,6 +114,8 @@ The P1 module has ton of capability in a super small footprint, with analog, dig
 
 When using the P1 module, it is very important to remember that your device must have an RGB LED to show the user the connectivity status.  Also required is a SETUP and RESET button to enter various [Device Modes](/guide/getting-started/modes). By default the RGB LED outputs are configured for a Common Anode type of LED. These components should be wired according to the [P1 Reference Design - User I/O](#schematic-user-i-o).  RGB pins may be accessed in code as: RGBR, RGBG and RGBB.
 
+---
+
 ### JTAG and SWD
 
 Pin D3 through D7 are JTAG interface pins.  These can be used to reprogram your P1 bootloader or user firmware image with standard JTAG tools such as the ST-Link v2, J-Link, R-Link, OLIMEX ARM-USB-TINI-H, and also the FTDI-based Particle JTAG Programmer. If you are short on available pins, you may also use SWD mode which requires less connections.
@@ -137,6 +137,8 @@ Pin D3 through D7 are JTAG interface pins.  These can be used to reprogram your 
 A standard 20-pin 0.1" shrouded male JTAG interface connector should be wired as follows:
 
 <div align=center><a href="/assets/images/p1-jtag.png"><img src="/assets/images/p1-jtag.png" height=500>(click to stop squinting)</a></div>
+
+---
 
 ### External Coexistence Interface
 
