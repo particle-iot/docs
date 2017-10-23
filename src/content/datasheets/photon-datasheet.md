@@ -81,16 +81,12 @@ Additionally, a user API is available to switch between internal, external and e
 
 The chip antenna is impedance matched to the 50 ohm RF feed line via a Pi network comprised of three RF inductors (1 series, 2 shunt).  These values are quite specific to the Photon due to the PCB construction and layout of the RF section.  Even if the Photon's layout design is copied exactly, to achieve the best performance it would be worth re-examining the Pi network values on actual samples of the PCB in question.
 
----
-
 ### FCC Approved Antennas
 
 | Antenna Type | Manufacturer | MFG. Part # | Gain |
 |-|-|-|-|
 | Dipole antenna | LumenRadio | 104-1001 | 2.15dBi |
 | Chip antenna | Advanced Ceramic X | AT7020-E3R0HBA | 1.3dBi |
-
----
 
 ### Peripherals and GPIO
 
@@ -420,6 +416,8 @@ The Photon (with headers) can be mounted with 0.1" 12-pin female header receptac
 
 A Photon with headers part for EAGLE can be found in the [Particle EAGLE library](https://github.com/spark/hardware-libraries#pcb-footprints-land-pattern)
 
+---
+
 ### Recommended pcb land pattern (Photon without headers)
 
 The Photon (without headers) can be surface mounted directly in an end application PCB using the following PCB land pattern:
@@ -447,6 +445,8 @@ A Photon without headers part for EAGLE can be found in the [Particle EAGLE libr
 
 <div align=center><img src="/assets/images/photon-sch-user-io.png" width=600></div>
 
+---
+
 ### Schematic - RF
 
 <div align=center><img src="/assets/images/photon-sch-rf.png" width=500></div>
@@ -462,6 +462,8 @@ A Photon without headers part for EAGLE can be found in the [Particle EAGLE libr
 
 ### Photon v1.0.0 GND Layer (G2L)
 <div align=center><img src="/assets/images/photon_v100_pcb_gnd.png" width=200></div>
+
+---
 
 ### Photon v1.0.0 3V3 Layer (G15L)
 <div align=center><img src="/assets/images/photon_v100_pcb_3v3.png" width=200></div>
