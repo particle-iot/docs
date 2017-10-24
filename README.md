@@ -23,7 +23,10 @@ This documentation uses a fabulous tool from the folks at Segment called [Metals
 
 To run a locally hosted version of the documentation, follow the installation instructions above, and then within the 'docs' directory type in your terminal:
 
-`npm start`
+```
+export SEARCH_INDEX=0 # optional. speeds up the build if you don't need the search
+npm start
+```
 
 This will set up a server running at `http://localhost:8080`. If you make changes to the source content, your browser should automatically refresh using `livereload`.
 
