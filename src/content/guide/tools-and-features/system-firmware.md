@@ -20,6 +20,10 @@ Particle system firmware abstracts much of the complexity away from the traditio
 - **Application enablement**: Exposing a feature-rich API that is used by developers to write applications for the device
 - **Over-the-air updates**: Allowing rapid remote changes to code running on the device while providing resilience in poor connectivity environments, ensuring your device is never bricked
 
+Unlike application firmware, system firmware is written and maintained primarily by the Particle team. This is a conscious decision meant to keep you focused on your particular use case without needing to understand the nuances of low-level device behaviors.
+
+That being said, Particle's firmware repository is available as an open source project for those that want deep visibility into system firmware. To view the code and/or contribute, check out the [repo on GitHub](https://github.com/spark/firmware).
+
 
 ## Versioning
 New features, security patches, and bugfixes are introduced to new versions of system firmware regularly by the Particle team. These changes to system firmware are bundled into _releases_ that are versioned using [semantic versioning](http://semver.org/) best practices.
