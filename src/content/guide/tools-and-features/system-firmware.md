@@ -59,3 +59,112 @@ A couple of important notes:
 
 - System firmware versions are _backwards compatible_. That is, you can flash an app compiled against an older version of system firmware to the device without the device entering into safe mode. The device will not be automatically downgraded to the older version of system firmware
 - System firmware is _modular_ and contains multiple parts. That is, your device will receive 2 or more binary files when getting a system firmware update. When receiving system modules via safe mode healer, the device will reset between each binary flashed to it
+
+## Managing System Firmware
+Advanced users may need the ability to actively manage system firmware on a fleet of devices. The management tools needed include: 
+
+- Visibility into the version of system firmware running on a device
+- Ability to easily update the version of system firmware running on a device
+
+### Which version is running on my device?
+
+The easiest place to find the version of system firmware running on your device is in the [Web IDE](https://build.particle.io). From the main view, click on the devices icon (<i class="ion-pinpoint"></i>) from the sidebar. This opens up the device drawer. From here, find the desired device and click on the arrow (<i class="ion-chevron-right"></i>) to expand device details. You should now see the system firmware version running on the device:
+
+![Find system firmware in the Web IDE](/assets/images/system-fw-ide.png)
+<p class="caption">This device is running system firmware version <strong>0.6.2</strong></p>
+
+You can also find this information in the Desktop IDE, in the bottom rail:
+
+![Find system firmware in the Desktop IDE](/assets/images/system-fw-desktop-ide.png)
+
+Note that you will need to be the owner of the device to have visibility into system firmware in the IDE. Now that we know the version of system firmware on the device, how can we update it to a different version?
+
+### Updating remotely
+For devices in which you do not have physical access, you have the ability to update system firmware over-the-air.
+
+#### Flashing application firmware
+One of the easiest and safest ways to update system firmware is to simply flash an application firmware that was compiled against a newer version of system firmware. The device will receive the incompatible firmware app, and use [safe mode healer](#safe-mode-healer) to automatically download the newer system modules.
+
+In the Web IDE, this can be done by using the _system firmware target_ dropdown, and choosing a version that is newer than what is currently on the device.
+
+![Select newer version of system firmware in the IDE](/assets/images/system-fw-newer-ide.png)
+<p class="caption">In this case, the app  will be compiled against <strong>0.7.0-rc.3</strong>, a prereleased system firmware version</p>
+
+This can be just as easily accomplished using the Desktop IDE:
+
+![Desktop IDE newer version of system firmware](/assets/images/system-fw-newer-desktop-ide.png)
+
+
+Now, compile and flash the firmware by clicking on the flash (<i class="ion-flash"></i>) icon. Your device will receive the new application firmware and reboot. Then, it will automatically enter safe mode and trigger the cloud to resolve the incompatibility by sending it system firmware version 0.7.0-rc.3. 
+
+Sweet! You just updated the system firmware on your device.
+
+There's a couple of things to note: 
+
+- This approach will also work for _product firmware_. When a product firmware binary is [released to a fleet](/guide/tools-and-features/console/#releasing-firmware), any device that receives it will enter into safe mode and heal itself by downloading the required system firmware
+- This approach will trigger system firmware _upgrades_, but not _downgrades_. As mentioned earlier, system firmware is backwards compatible meaning that devices can successfully run application firmware compiled against an older version of system firmware than it currently is running
+
+#### CLI (Remote)
+You can also use the Particle CLI to remotely update a device's system firmware without changing the application firmware. This is a more advanced approach and requires some technical chops. 
+
+To do this, first visit the [system firmware releases page](https://github.com/spark/firmware/releases) on GitHub and locate the version you'd like to send to a device.
+
+When you find the desired release, scroll down to the **Downloads** section. Here you will find the system firmware binary files. Remember that these binaries are specific to a device type, and a complete system firmware is comprised of multiple parts. Hone in on the files that begin with `system-part`:
+
+![System firmware binaries](/assets/images/system-fw-binaries-gh.png)
+<p class="caption">Available downloads for the 0.7.0-rc.3 release</p>
+
+Find the files relevant to your device (each binary is suffixed with the device type) and click to download them to your machine. Note that you'll only need to do this step once to store a copy of the binaries on your computer.
+
+Next, you'll flash these files to a device using the `particle flash` command in the CLI. If you haven't already, you must [download the Particle CLI](/guide/tools-and-features/cli/photon/). Open up your Terminal and run the following commands to flash the system modules to a device:
+
+```bash
+particle flash YOUR_DEVICE_NAME_OR_ID path/to/system-part1.bin
+particle flash YOUR_DEVICE_NAME_ID path/to/system-part2.bin
+# Sometimes required
+particle flash YOUR_DEVICE_NAME_ID path/to/system-part3.bin
+```
+
+*Use caution when using this method. Double check that you are flashing the correct binaries for the given device type, and that you flash all required system parts.*
+
+### Updating locally
+For devices in which you have physical access, there are also methods to update system firmware over-the-wire.
+
+#### CLI (Local)
+The Particle CLI offers two different methods of updating system firmware locally. Both require that the device is connected to your computer over USB.  If you haven't already, you must [download the Particle CLI](/guide/tools-and-features/cli/photon/) and ensure you are running version **1.24.1** or later. You can check with `particle --version`.
+
+The first approach is to run [`particle update`](/reference/cli/#particle-update). Open up your Terminal and run the following command to flash the latest system firmware to a device:
+
+
+```bash
+# put the device in DFU mode first, then update the system firmware
+$ particle update
+> Your device is ready for a system update.
+> This process should take about 30 seconds. Here goes!
+
+! System firmware update successfully completed!
+
+> Your device should now restart automatically.
+```
+
+Be sure to put the device in [DFU mode](/guide/getting-started/modes/#dfu-mode-device-firmware-upgrade-) before running the command. Note that this will update your device to the _newest_ system firmware - it does not currently allow you to flash a different verrsion of firmware other than the latest. 
+
+If you'd like to use the CLI to flash a system firmware version _other than the latest_, you can use the `particle flash` command in a similar way as [outlined above](#cli-remote-). The only difference will be that you'll pass an argument to tell the CLI to flash the files over USB:
+
+```bash
+particle flash --usb YOUR_DEVICE_NAME_OR_ID path/to/system-part1.bin
+particle flash --usb YOUR_DEVICE_NAME_ID path/to/system-part2.bin
+# Sometimes required
+particle flash --usb YOUR_DEVICE_NAME_ID path/to/system-part3.bin
+```
+
+
+#### Firmware Manger
+*Note: This method works for Electrons and E series modules only.*
+
+The [Firmware Manager](o/guide/tools-and-features/firmware-manager/) is a desktop application that upgrades your Electron to the latest system firmware. It provides an easy way to update system firmware while avoiding cellular data charges.
+
+![Electron Firmware Manager](/assets/images/updater-connected.png)
+<p class="caption">The Firmware Manager is available for Windows and Mac</p>
+
+Like the `particle update` command, the Firmware Manager updates your device to the _newest_ system firmware. For more information on this method, please check out the [firmware manager guide](/guide/tools-and-features/firmware-manager).
