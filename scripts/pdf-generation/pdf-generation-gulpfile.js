@@ -102,7 +102,6 @@ gulp.task('transfrom md to pdf', ['assets', 'css'], () => gulp.src(paths.md)
 
 gulp.task('prepare dirs', () => {
     del.sync(paths.build);
-    del.sync(paths.distrib);
     if (!existsSync(paths.build)) {
         mkdirSync(paths.build);
     }
