@@ -32,6 +32,8 @@
                     }
                     a {
                         text-decoration: none;
+                    }
+                    a.toc-section {
                         color: black;
                     }
 
@@ -49,7 +51,7 @@
 
             <xsl:if test="@title!=''">
                 <div>
-                    <a>
+                    <a class="toc-section">
 
                         <xsl:if test="@link">
 
@@ -64,7 +66,14 @@
                         <xsl:value-of select="@title"/>
                     </a>
                     <span>
-                        <xsl:value-of select="@page"/>
+                        <a>
+                            <xsl:if test="@link">
+
+                                <xsl:attribute name="href"><xsl:value-of select="@link"/></xsl:attribute>
+                            </xsl:if>
+
+                            <xsl:value-of select="@page"/>
+                        </a>
                     </span>
                 </div>
             </xsl:if>
