@@ -22,4 +22,10 @@ Particle system firmware abstracts much of the complexity away from the traditio
 
 
 ## Versioning
-New features, security patches, and bugfixes are introduced to new versions of system firmware regularly by the Particle team. Due to the interdependence between application and system firmware, Particle system firmware is released using [semantic versioning](http://semver.org/).
+New features, security patches, and bugfixes are introduced to new versions of system firmware regularly by the Particle team. These changes to system firmware are bundled into _releases_ that are versioned using [semantic versioning](http://semver.org/) best practices.
+
+System firmware versions that are suffixed with `-rc.x` are called _prereleases_ ("rc" stands for release candidate). These prereleases contain the changes that will eventually become a default release, but still need more thorough usage and testing. We recommend that you **do not** flash prereleased firmware to your production units deployed in the field.
+
+Each release is documented thoroughly to give you a comprehensive picture of what has changed in the new version. For a full list of system firmware releases and their descriptions, please check out [the release page on GitHub](https://github.com/spark/firmware/releases) for the firmware repository.
+
+## Managing System Firmware
