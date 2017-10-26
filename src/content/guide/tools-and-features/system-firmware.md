@@ -10,7 +10,7 @@ layout: guide.hbs
 
 System firmware is low-level firmware code that supports a Particle device's basic functions. You can think of system firmware as the _operating system_ (OS) for Particle's embedded hardware.
 
-Like an operating system for a computer, Particle system firmware provides a foundation for other applications to run on. More specifically, it enables _application firmware_ (the firmware you write) to run successfully by exposing the underlying behaviors of the device. 
+Like an operating system for a computer, Particle system firmware provides a foundation for other applications to run on. More specifically, it enables _application firmware_ (the firmware you write) to run successfully by exposing the underlying behaviors of the device.
 
 
 Particle system firmware abstracts much of the complexity away from the traditional firmware development experience. Some specific responsibilities of system firmware include:
@@ -18,7 +18,7 @@ Particle system firmware abstracts much of the complexity away from the traditio
 - **Secure communication**: Ensuring that all communications between the device and the Particle cloud are authorized and encrypted
 - **Hardware abstraction**: Providing a single, unified interface to the device, regardless of the underlying hardware architecture
 - **Application enablement**: Exposing a feature-rich API that is used by developers to write applications for the device
-- **Over-the-air updates**: Allowing rapid remote changes to code running on the device while providing resilience in poor connectivity environments, ensuring your device is never bricked
+- **Over-the-air updates**: Allowing rapid remote changes to code running on the device while providing resilience in poor connectivity environments
 
 Unlike application firmware, system firmware is written and maintained primarily by the Particle team. This is a conscious decision meant to keep you focused on your particular use case without needing to understand the nuances of low-level device behaviors.
 
@@ -32,12 +32,35 @@ System firmware versions that are suffixed with `-rc.x` are called _prereleases_
 
 Each release is documented thoroughly to give you a comprehensive picture of what has changed in the new version. For a full list of system firmware releases and their descriptions, please check out [the release page on GitHub](https://github.com/spark/firmware/releases) for the firmware repository.
 
+## Firmware Modules
+
+Particle firmware is split into modules: two or more modules for the
+system firmware and one module for the application firmware.
+
+Each module can be updated independently. This is why
+over-the-air updates to the user application are so fast: you can update
+only the user application module without having to update the system
+firmware modules.
+
 ## Firmware Dependencies
-Recall from the introduction of this guide that system firmware provides a foundation for the application firmware that you write to run. As such, it is important to understand the tight coupling between application and system firmware.
 
-Application firmware that is written in the [Web](https://build.particle.io) or [Desktop](https://www.particle.io/products/development-tools/particle-desktop-ide) IDEs are _compiled against_ a specific version of system firmware before being sent to a device to run. That is, the system firmware acts as a translator - taking the human-readable code you write using the firmware API and translating into machine-executable code that the device can run.
+Application firmware that is written in the
+[Web](https://build.particle.io) or
+[Desktop](https://www.particle.io/products/development-tools/particle-desktop-ide)
+IDEs are _compiled against_ a specific version of system firmware before
+being sent to a device to run. That is, the system firmware acts as a
+translator - taking the human-readable code you write and translating
+into a binary that the device is able to run.
 
-This creates a dependency that must be carefully managed. For example, imagine a new firmware primitive was introduced in system firmware version `1.0.0`, `Particle.travelInTime()`. As an aspiring time traveler, you quickly add the new feature to your firmware logic and send the code off to be compiled and flashed to your Electron.
+This creates a dependency that must be carefully managed.
+Application firmware can only run on a device with the same or newer system
+firmware version than the system firmware used to compile it.
+This is because the application firmware may be using new
+functionality that was not available in an older version of system firmware. Allowing
+a new application to run with older system firmware might lead to a
+crash.
+
+For example, imagine a new firmware primitive was introduced in system firmware version `1.0.0`, `Particle.travelInTime()`. As an aspiring time traveler, you quickly add the new feature to your firmware logic and send the code off to be compiled and flashed to your Electron.
 
 However, the Electron on your desk is running system firmware `0.9.0`, a version that predates the time travel functionality. Instructing the device to use the new firmware method in application firmware before it understands how to do so will of course not work. You can see how application firmware _depends on_ a compatible version of system firmware.
 
@@ -61,7 +84,7 @@ A couple of important notes:
 - System firmware is _modular_ and contains multiple parts. That is, your device will receive 2 or more binary files when getting a system firmware update. When receiving system modules via safe mode healer, the device will reset between each binary flashed to it
 
 ## Managing System Firmware
-Advanced users may need the ability to actively manage system firmware on a fleet of devices. The management tools needed include: 
+Advanced users may need the ability to actively manage system firmware on a fleet of devices. The management tools needed include:
 
 - Visibility into the version of system firmware running on a device
 - Ability to easily update the version of system firmware running on a device
@@ -95,17 +118,17 @@ This can be just as easily accomplished using the Desktop IDE:
 ![Desktop IDE newer version of system firmware](/assets/images/system-fw-newer-desktop-ide.png)
 
 
-Now, compile and flash the firmware by clicking on the flash (<i class="ion-flash"></i>) icon. Your device will receive the new application firmware and reboot. Then, it will automatically enter safe mode and trigger the cloud to resolve the incompatibility by sending it system firmware version 0.7.0-rc.3. 
+Now, compile and flash the firmware by clicking on the flash (<i class="ion-flash"></i>) icon. Your device will receive the new application firmware and reboot. Then, it will automatically enter safe mode and trigger the cloud to resolve the incompatibility by sending it system firmware version 0.7.0-rc.3.
 
 Sweet! You just updated the system firmware on your device.
 
-There's a couple of things to note: 
+There's a couple of things to note:
 
 - This approach will also work for _product firmware_. When a product firmware binary is [released to a fleet](/guide/tools-and-features/console/#releasing-firmware), any device that receives it will enter into safe mode and heal itself by downloading the required system firmware
 - This approach will trigger system firmware _upgrades_, but not _downgrades_. As mentioned earlier, system firmware is backwards compatible meaning that devices can successfully run application firmware compiled against an older version of system firmware than it currently is running
 
 #### CLI (Remote)
-You can also use the Particle CLI to remotely update a device's system firmware without changing the application firmware. This is a more advanced approach and requires some technical chops. 
+You can also use the Particle CLI to remotely update a device's system firmware without changing the application firmware. This is a more advanced approach and requires some technical chops.
 
 To do this, first visit the [system firmware releases page](https://github.com/spark/firmware/releases) on GitHub and locate the version you'd like to send to a device.
 
@@ -160,11 +183,11 @@ particle flash --usb YOUR_DEVICE_NAME_ID path/to/system-part3.bin
 
 
 #### Firmware Manger
-*Note: This method works for Electrons and E series modules only.*
+The [Firmware Manager](/guide/tools-and-features/firmware-manager/) is a
+desktop application that upgrades your device to the latest system
+firmware. For Electrons, it provides an easy way to update system firmware while avoiding cellular data charges.
 
-The [Firmware Manager](o/guide/tools-and-features/firmware-manager/) is a desktop application that upgrades your Electron to the latest system firmware. It provides an easy way to update system firmware while avoiding cellular data charges.
-
-![Electron Firmware Manager](/assets/images/updater-connected.png)
+![Firmware Manager](/assets/images/updater-connected.png)
 <p class="caption">The Firmware Manager is available for Windows and Mac</p>
 
 Like the `particle update` command, the Firmware Manager updates your device to the _newest_ system firmware. For more information on this method, please check out the [firmware manager guide](/guide/tools-and-features/firmware-manager).
