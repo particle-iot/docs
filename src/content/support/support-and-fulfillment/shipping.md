@@ -17,7 +17,7 @@ If you're here, a Particle product must be on it's way to you! Congratulations!
 
 #### Shipping timing
 
-All packages ship out within 2 business days of the order being placed. Our shipping partner is closed in the beginning of the month, every month. Usually they open back up on the 2nd or 3rd, so please keep these dates in mind when placing orders. Please see below to understand the timing of our shipping methods. 
+All packages ship out within 2 business days of the order being placed. Please see below to understand the timing of our shipping methods. 
 
 #### Tracking your package
 
