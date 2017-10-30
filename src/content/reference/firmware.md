@@ -234,6 +234,10 @@ This feature allows the device to generate an event based on a condition. For ex
 Cloud events have the following properties:
 
 * name (1–63 ASCII characters)
+  !! NOTE: Do not use spaces otherwise Particle.subscribe will not function correctly. Particle.subscribe will only work upto the
+  first space in the event name. For example, if you publish an event "Blue Light" then you can only subscribe using the event name
+  "Blue", anything after the first space is ignored. To subscribe to "Blue Light" you must remove the space in the published event
+  name either like this, "BlueLight", or like this, "Blue_Light".
 * public/private (default public)
 * ttl (time to live, 0–16777215 seconds, default 60)
   !! NOTE: The user-specified ttl value is not yet implemented, so changing this property will not currently have any impact.
