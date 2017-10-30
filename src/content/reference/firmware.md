@@ -235,7 +235,7 @@ Cloud events have the following properties:
 
 * name (1–63 ASCII characters)
 
-**Note:** Only use letters, numbers, underscores, dashes and slashes in variable names. Spaces and special characters may be escaped by different tools and libraries causing unexpected results.
+**Note:** Only use letters, numbers, underscores, dashes and slashes in event names. Spaces and special characters may be escaped by different tools and libraries causing unexpected results.
 
 * public/private (default public)
 * ttl (time to live, 0–16777215 seconds, default 60)
