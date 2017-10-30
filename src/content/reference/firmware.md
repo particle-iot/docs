@@ -83,7 +83,7 @@ void loop()
 
 Up to 20 cloud variables may be registered and each variable name is limited to a maximum of 12 characters.
 
-**Note:** Only use letters, numbers, underscores and dashes in variable names. Special characters may be escaped by different tools and libraries causing unexpected results.
+**Note:** Only use letters, numbers, underscores and dashes in variable names. Spaces and special characters may be escaped by different tools and libraries causing unexpected results.
 
 It is fine to call this function when the cloud is disconnected - the variable
 will be registered next time the cloud is connected.
@@ -151,7 +151,7 @@ int funcName(String extra) {
 
 Up to 15 cloud functions may be registered and each function name is limited to a maximum of 12 characters.
 
-**Note:** Only use letters, numbers, underscores and dashes in function names. Special characters may be escaped by different tools and libraries causing unexpected results.
+**Note:** Only use letters, numbers, underscores and dashes in function names. Spaces and special characters may be escaped by different tools and libraries causing unexpected results.
 
 In order to register a cloud  function, the user provides the `funcKey`, which is the string name used to make a POST request and a `funcName`, which is the actual name of the function that gets called in your app. The cloud function can return any integer; `-1` is commonly used for a failed function call.
 
@@ -234,6 +234,9 @@ This feature allows the device to generate an event based on a condition. For ex
 Cloud events have the following properties:
 
 * name (1–63 ASCII characters)
+
+**Note:** Only use letters, numbers, underscores, dashes and slashes in variable names. Spaces and special characters may be escaped by different tools and libraries causing unexpected results.
+
 * public/private (default public)
 * ttl (time to live, 0–16777215 seconds, default 60)
   !! NOTE: The user-specified ttl value is not yet implemented, so changing this property will not currently have any impact.
