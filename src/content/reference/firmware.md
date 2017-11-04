@@ -6230,6 +6230,42 @@ Returns:
  - `byte`: returns the number of characters sent. This does not have to be read
 
 
+### receivePacket()
+
+Checks for the presence of a UDP packet and returns the size. Note that it is possible to receive a valid packet of zero bytes, this will still return the sender's address and port after the call to receivePacket().
+
+```cpp
+// SYNTAX
+size = Udp.receivePacket(buffer, size);
+// EXAMPLE USAGE - get a string without buffer copy
+UDP Udp;
+char message[128];
+int port = 8888;
+int rxError = 0;
+
+Udp.begin (port);
+int count = Udp.receivePacket((byte*)message, 127);
+if (count >= 0 && count < 128) {
+  message[count] = 0;
+  rxError = 0;
+} else if (count < -1) {
+  rxError = count;
+  // need to re-initialize on error
+  Udp.begin(port);
+}
+if (!rxError) {
+  Serial.println (message);
+}
+```
+
+Parameters:
+ - `buffer`: the buffer to hold any received bytes (uint8_t).
+ - `size`: the size of the buffer.
+
+Returns:
+
+ - `int`: on success the size (greater then or equal to zero) of a received UDP packet. On failure the internal error code.
+
 ### parsePacket()
 
 Checks for the presence of a UDP packet, and reports the size. `parsePacket()` must be called before reading the buffer with `UDP.read()`.
