@@ -172,13 +172,13 @@ $ particle update
 
 Be sure to put the device in [DFU mode](/guide/getting-started/modes/#dfu-mode-device-firmware-upgrade-) before running the command. Note that this will update your device to the _newest_ system firmware - it does not currently allow you to flash a different verrsion of firmware other than the latest. 
 
-If you'd like to use the CLI to flash a system firmware version _other than the latest_, you can use the `particle flash` command in a similar way as [outlined above](#cli-remote-). The only difference will be that you'll pass an argument to tell the CLI to flash the files over USB:
+If you'd like to use the CLI to flash a system firmware version _other than the latest_, you can use the `particle flash` command in a similar way as [outlined above](#cli-remote-). The only difference will be that you'll pass an argument to tell the CLI to flash the files over USB, and you won't have to include the device name or ID in the command:
 
 ```bash
-particle flash --usb YOUR_DEVICE_NAME_OR_ID path/to/system-part1.bin
-particle flash --usb YOUR_DEVICE_NAME_ID path/to/system-part2.bin
+particle flash --usb path/to/system-part1.bin
+particle flash --usb path/to/system-part2.bin
 # Sometimes required
-particle flash --usb YOUR_DEVICE_NAME_ID path/to/system-part3.bin
+particle flash --usb path/to/system-part3.bin
 ```
 
 
