@@ -7468,7 +7468,7 @@ Integer is returned without a leading zero.
 // Print the hour in 12-hour format for the current time
 Serial.print(Time.hourFormat12());
 
-// Print the hour in 12-hour format for the given time, in this case: 15
+// Print the hour in 12-hour format for a given time, in this case: 3
 Serial.print(Time.hourFormat12(1400684400));
 ```
 
