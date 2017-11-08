@@ -194,9 +194,9 @@ exports.metalsmith = function() {
         pattern: 'datasheets/:section/*.md',
         sortBy: 'order',
         orderDynamicCollections: [
-          'kits-and-accessories',
           'photon-(wifi)',
           'electron-(cellular)',
+          'kits-and-accessories',
           'discontinued-products'
         ]
       },
