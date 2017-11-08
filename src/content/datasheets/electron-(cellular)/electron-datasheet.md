@@ -2,7 +2,7 @@
 title: Electron datasheet
 layout: datasheet.hbs
 columns: two
-order: 4
+order: 1
 ---
 
 {{#unless pdf-generation}}

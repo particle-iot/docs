@@ -2,7 +2,7 @@
 title: Raspberry Pi datasheet
 layout: datasheet.hbs
 columns: two
-order: 9
+order: 3
 ---
 
 # Raspberry Pi Datasheet

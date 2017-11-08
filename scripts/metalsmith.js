@@ -191,8 +191,14 @@ exports.metalsmith = function() {
         ]
       },
       datasheet: {
-        pattern: 'datasheets/*.md',
-        sortBy: 'order'
+        pattern: 'datasheets/:section/*.md',
+        sortBy: 'order',
+        orderDynamicCollections: [
+          'kits-and-accessories',
+          'photon-(wifi)',
+          'electron-(cellular)',
+          'discontinued-products'
+        ]
       },
       support: {
         pattern: 'support/:section/*.md',

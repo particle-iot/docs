@@ -2,7 +2,7 @@
 title: Photon datasheet
 layout: datasheet.hbs
 columns: two
-order: 3
+order: 1
 ---
 
 {{#unless pdf-generation}}
