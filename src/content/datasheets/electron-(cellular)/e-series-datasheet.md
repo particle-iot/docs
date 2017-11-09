@@ -354,7 +354,7 @@ conditions is not implied. Exposure to absolute-maximum-rated conditions for ext
 | Operating Current (uC on, Cellular OFF) | I<sub>IN avg</sub> |  | 47 | 50 | mA |
 | Sleep Current (4.2V LiPo, Cellular OFF)| I<sub>Qs</sub> |  | 0.8 | 2 | mA |
 | Deep Sleep Current (4.2V LiPo, Cellular OFF) | I<sub>Qds</sub> |  | 110 | 130 | uA |
-| Operating Temperature | T<sub>op</sub> | -20 |  | +60 | °C |
+| Operating Temperature | T<sub>op</sub> | -40<sup>[4]</sup> |  | +85<sup>[4]</sup> | °C |
 | Humidity Range Non condensing, relative humidity | | | | 95 | % |
 
 **Notes:**
@@ -365,6 +365,7 @@ conditions is not implied. Exposure to absolute-maximum-rated conditions for ext
 
 <sup>[3]</sup> 2G operation
 
+<sup>[4]</sup> When powering the E series module with a LiPo battery (or other battery chemistries), please note that the operating temperatures will be affected accordingly.
 
 ### Radio specifications
 
