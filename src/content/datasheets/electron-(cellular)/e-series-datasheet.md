@@ -13,7 +13,7 @@ order: 2
 
 ### Overview
 
-The E Series module is an IOT platform for creating cellular-connected products. It is an industrial version of Particle's Electron dev kit. It is specifically designed for mass scale manufacturing and integration. It comes with and an affordable data plan for low-bandwidth applications. Plus it's available for more than 100 countries worldwide!
+The E Series module is an IOT platform for creating cellular-connected products. It is an industrial version of Particle's Electron dev kit. It is specifically designed for mass scale manufacturing and integration. It comes with an affordable data plan for low-bandwidth applications. Plus the E Series is available for more than 100 countries worldwide!
 
 It also comes with Particle's development tools and cloud platform for managing and interacting with your new connected hardware.
 
@@ -37,7 +37,7 @@ It also comes with Particle's development tools and cloud platform for managing 
 <div align=center><img src="/assets/images/e-series/illustrations/e-blockdiagram.png" width=700></div>
 
 ### Power
-The E series can be powered via the VIN (3.88V-12VDC) pin, over USB, or a LiPo battery. 
+The E series can be powered via the VIN (3.88V-12VDC) pin, over USB, or a LiPo battery.
 
 #### VIN
 The input voltage range on VIN pin is 3.88VDC to 12VDC. When powering from the VIN pin alone, make sure that the power supply is rated at 10W (for example 5 VDC at 2 Amp). If the power source is unable to meet this requirement, you'll need connect the LiPo battery as well.  An additional bulk capacitance of 470uF to 1000uF should be added to the VIN input when the LiPo Battery is disconnected.  The amount of capacitance required will depend on the ability of the power supply to deliver peak currents to the cellular modem.
@@ -52,7 +52,7 @@ Typical current consumption is around 180mA and up to 1.8A transients at 5VDC. I
 #### VBUS
 This pin is internally connected to USB supply rail and will output 5V when the E series module is plugged into an USB port. It is intentionally left unpopulated. This pin will _NOT_ output any voltage when the E series module is powered via VIN and/or the LiPo battery.
 
-Most USB ports can supply only a maximum of 500mA, but the u-Blox GSM module on the E series alone can consume a peak of 800mA to 1800mA of current during transmission. In order to compensate of this deficit, one must connect the LiPo battery at all times when powering from a traditional USB port. The E series will intelligently source power from the USB most of the time and keep the battery charged. During peak current requirements, the additional power will be sourced from the battery. This reduces the charge-discharge cycle load on the battery, thus improving its longevity. 
+Most USB ports can supply only a maximum of 500mA, but the u-Blox GSM module on the E series alone can consume a peak of 800mA to 1800mA of current during transmission. In order to compensate of this deficit, one must connect the LiPo battery at all times when powering from a traditional USB port. The E series will intelligently source power from the USB most of the time and keep the battery charged. During peak current requirements, the additional power will be sourced from the battery. This reduces the charge-discharge cycle load on the battery, thus improving its longevity.
 
 #### 3V3 Pin
 This pin is the output of the on-board 3.3V switching regulator that powers the microcontroller and the peripherals. This pin can be used as a 3.3V power source with a max load of 800mA. Unlike the Photon or the Core, this pin _CANNOT_ be used as an input to power the E series module.
@@ -64,7 +64,7 @@ Unlike the Electron, the E series module exposes the VDDA pin of the STM32 micro
 This is the supply to the internal RTC, backup registers and SRAM. You can connect a backup battery to it (1.65 to 3.6VDC), if you wish to retain RTC/RAM when 3V3 is absent or simply tie it up to 3V3.
 
 #### PMID
-This pin is the output of the internal boost regulator of the PMIC that can source 5.1VDC from the battery in OTG (On The Go) mode. This feature is useful when your circuitry needs a 5V source from the E series module when powered by the battery alone. 
+This pin is the output of the internal boost regulator of the PMIC that can source 5.1VDC from the battery in OTG (On The Go) mode. This feature is useful when your circuitry needs a 5V source from the E series module when powered by the battery alone.
 
 The confusing bit about this pin is that it will continue to provide 5.1VDC but only when the input voltage (VIN) is between 3.6V to 5.1VDC. As soon as the input voltage exceeds this limit, the PMID starts tracking _that_ voltage. For example if VIN = 9VDC, the PMID will be 9VDC and _NOT_ 5.1VDC. So you need to be careful when using it as a source for powering your external circuitry. The max current draw on this pin is 2.1A but is not recommended due to thermal limitations of the circuit board.
 
@@ -102,7 +102,7 @@ The confusing bit about this pin is that it will continue to provide 5.1VDC but 
 
 
 ### JTAG AND SWD
-Pin D3 through D7 are JTAG interface pins. These can be used to reprogram your E series module bootloader or user firmware image with standard JTAG tools such as the ST-Link v2, J-Link, R-Link, OLIMEX ARM-USB-TINI-H, and also the FTDI-based Particle JTAG Programmer. If you are short on available pins, you may also use SWD mode which requires less connections.
+Pin D3 through D7 are JTAG interface pins. These can be used to reprogram your E series module bootloader or user firmware image with standard JTAG tools such as the ST-Link v2, J-Link, R-Link, OLIMEX ARM-USB-TINI-H, and also the FTDI-based Particle JTAG Programmer. If you are short on available pins, you may also use SWD mode which requires less pins.
 
 | E series module Pin | JTAG | SWD | STM32F205RGT6 Pin | Default Internal<sup>[1]</sup> |
 | :-:|:-:|:-:|:-:|:-:|
@@ -239,7 +239,7 @@ _Since 0.6.0 firmware_
 
 #### System RGB LED
 
-Unlike the Electron, the E series module does not have an on-board RGB status LED. We have provided its individual control pins for you to connect an LED of your liking. This will allow greater flexibility in the end design of your products. 
+Unlike the Electron, the E series module does not have an on-board RGB status LED. We have provided its individual control pins for you to connect an LED of your liking. This will allow greater flexibility in the end design of your products.
 
 For a detailed explanation of different color codes of the RGB system LED, please take a look [here.](/guide/getting-started/modes/electron/)
 
@@ -253,15 +253,15 @@ You can download a high resolution pinout diagram in a <a href="/assets/images/e
 
 |#	| PIN | FUNCTION  | DESCRIPTION|
 |:--|:----|:---------:|:-----------|
-|1| VIN   | POWER     | This pin can be used as an input or output. As an input, supply 5VDC to 12VDC to power the Electron. When the Electron is powered via the USB port, this pin will output a voltage of approximately 4.8VDC due to a reverse polarity protection series Schottky diode between VBUS and VIN. When used as an output, the max load on VIN is 1Amp.	
+|1| VIN   | POWER     | This pin can be used as an input or output. As an input, supply 5VDC to 12VDC to power the Electron. When the Electron is powered via the USB port, this pin will output a voltage of approximately 4.8VDC due to a reverse polarity protection series Schottky diode between VBUS and VIN. When used as an output, the max load on VIN is 1Amp.
 |2| GND   | POWER     | System ground.
-|3| VBUS  | POWER     | This is connected to the VBUS power pin of the USB port. 
+|3| VBUS  | POWER     | This is connected to the VBUS power pin of the USB port.
 |4| GND   | POWER     | System ground.
 |5| LIPO  | POWER     | This is connected to the +LiPo connector.				
 |6| NC    | TBD       | Do not connect.
 |7| GND   | POWER     | System ground.
 |8| PMID  | POWER     | This is connected to the PMID pin of the PMIC.			
-|9| 3V3   | POWER     | This is the output of the 3V3 regulator on the E0.	
+|9| 3V3   | POWER     | This is the output of the 3V3 regulator on the E0.
 |10| VDDA | POWER     | This is the input to the analog block of the STM32.		
 |11| VBAT | POWER     | Supply to the internal RTC, backup registers and SRAM when 3V3 is not present (1.65 to 3.6VDC).
 |12| GND  | POWER     | System ground.
@@ -363,7 +363,7 @@ conditions is not implied. Exposure to absolute-maximum-rated conditions for ext
 
 <sup>[2]</sup> 3G operation
 
-<sup>[3]</sup> 2G operation 
+<sup>[3]</sup> 2G operation
 
 
 ### Radio specifications
@@ -502,7 +502,7 @@ There are two connectors on the E series that will get damaged with improper usa
 The micro B USB connector on the E series is soldered on the PCB with large surface pads as well as couple of through hole anchor points. Despite this reinforcement, it is very easy to rip out the connector if too much stress is put on in the vertical direction.
 
 
-The u.FL antenna connector is a very fragile piece of hardware ( and is fancy too with all the gold plating). The connector was not designed to be constantly plugged and unplugged. Care must be taken not to put stress on it at any time (yes, swinging the E series by the antenna is a very bad idea, this is not your cat). The antenna pin is also the most static sensitive and you can destroy the radio with improper handling. If you are feeling adventurous, we highly recommend putting a tiny dab of glue (epoxy, rubber cement, liquid tape or hot glue) on the connector to securely hold the plug in place.
+The u.FL antenna connector is a very fragile piece of hardware (and is fancy too with all the gold plating). The connector was not designed to be constantly plugged and unplugged. Care must be taken not to put stress on it at any time (yes, swinging the E series by the antenna is a very bad idea, this is not your cat). The antenna pin is also the most static sensitive and you can destroy the radio with improper handling. If you are feeling adventurous, we highly recommend putting a tiny dab of glue (epoxy, rubber cement, liquid tape or hot glue) on the connector to securely hold the plug in place.
 
 ## Default settings
 
@@ -566,7 +566,7 @@ In the event that these conditions can not be met (for example certain laptop co
 
 **End Product Labeling**
 The final end product must be labeled in a visible area with the following:
-> Contains FCC ID: 
+> Contains FCC ID:
 
  * XPYSARAG350 (For 2G E series module using the G350 module)
  * XPYSARAU260 (For 3G E series module using the U260 module)
@@ -608,7 +608,7 @@ This End equipment should be installed and operated with a minimum distance of 2
 Cet équipement devrait être installé et actionné avec une distance minimum de 20 centimètres entre le radiateur et votre corps.
 
 > The end user manual shall include all required regulatory information/warning as shown in this manual.
-> 
+>
 > For an in-depth review on certifications, please click [here.](/guide/how-to-build-a-product/certification/)
 
 ## Revision history
