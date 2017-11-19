@@ -98,7 +98,7 @@ Particle's certifications will help you decrease the time and cost associated wi
 - [Certificate of Conformity - U260 v1.0](/assets/pdfs/electron/fcc-u260-certificate.pdf)
 - [Test Reports - U260 v1.0](/assets/pdfs/electron/fcc-u260-test-report.pdf)
 - [Certificate of Conformity - U260 v1.1](/assets/pdfs/new-certs/electron/FINAL_U260_FCC_DOC.pdf)
-- [Test Repots - U260 v1.1](/assets/pdfs/new-certs/electron/FINAL_U260_FCC_REPORT.pdf)
+- [Test Reports - U260 v1.1](/assets/pdfs/new-certs/electron/FINAL_U260_FCC_REPORT.pdf)
 
 #### Electron G350
 - FCC ID: [XPYSARAG350](https://apps.fcc.gov/oetcf/eas/reports/ViewExhibitReport.cfm?mode=Exhibits&RequestTimeout=500&calledFromFrame=N&application_id=o2hW1PEmrUZn19QwwX8hCA%3D%3D&fcc_id=XPYSARAG350)
