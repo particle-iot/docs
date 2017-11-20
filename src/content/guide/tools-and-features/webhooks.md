@@ -63,10 +63,10 @@ The hub for managing your webhooks is the [Particle Console](https://console.par
 Let's configure our webhook:
 - Set the event name to `temp` to match the field in ThingSpeak
 - Set the URL to `https://api.thingspeak.com/update`
-- Make sure the request type is set to `POST` (it should be already)
+- Make sure the request type is set to `POST` and the request format is "Web Form"
 - If you'd like to limit the webhook triggering to a single one of your devices, choose it from the device dropdown
 
-Next, click on "Advanced Settings," and find "Send Custom Data." Choose "form" from the available options. Drop in the following key/value pairs:
+Next, click on "Advanced Settings," and chose "Custom" in the "Form Fields" section. Drop in the following key/value pairs:
 
 - `api_key`: `YOUR_API_KEY`<br/>
 - `field1`: `\{{PARTICLE_EVENT_VALUE}}`
@@ -219,12 +219,11 @@ When a webhook gets triggered, some data will be sent to the third-party web ser
 
 This is same data you'd see if you subscribed to your [event stream](/reference/api/#events).
 
-
 These properties will all be strings except for `published_at`, which is an ISO8601 date formatted string, which tends to be in the form `YYYY-MM-DDTHH:mm:ssZ`.
 
-You can customize both the type and the structure of data that gets sent with a webhook. To do this, check out the "Send Custom Data" section of the advanced settings when creating a webhook via the console.
+You can customize the format of the data sent with the webhook by changing the "Request Format". When the "Request Type" is `POST`, `PUT` or `DELETE`, the data will be in the request body. You can select "Web Form" (similar to submitting a form from a browser), JSON (common for API requests) or write your own "Custom Body" using the [webhook template language](/reference/webhooks/#variable-substitution). When the "Request Type" is `GET`, the data can only be sent in the "Query Parameters".
 
-_Note:_ Even if you send custom JSON or form data with the webhook, the default data above will still be included in the request. If you do not want this, select "No" under "Include default data" in the advanced settings when creating a webhook.
+You can also customize the structure of the data that gets sent. In the "Advanced Settings" of the Webhook Builder, either keep the "Default" data and add some more fields, or switch to "Custom" and define your own mapping.
 
 ## Monitoring your webhooks
 
@@ -239,7 +238,17 @@ It is also possible that you can see errors appear in your Logs from unsuccessfu
 
 *Note*: This method of monitoring activity is not enabled for product-level webhooks. A method for monitoring product-level webhooks is coming soon.
 
-## Product webhooks (beta)
+## Custom Template
+
+The "Custom Template" tab of the webhook editor shows the raw configuration for the webhook. The syntax is described in the [webhook reference page](/reference/webhooks/).
+
+![Webhook Custom Template](/assets/images/webhook-custom-template.png)
+
+If you want to create a webhook from an existing template, you can switch over to the "Custom Template" tab of the webhook editor and paste in a JSON webhook template. You can even switch back to the "Webhook Builder" and continue making some edits.
+
+You can also copy from the "Custom Template" tab and share the webhook template with others.
+
+## Product webhooks
 
 If you are building a product using Particle, you now have the ability to create webhooks at the product-level. This will allow you as a product creator to define a single webhook than any of the devices in the product's fleet can trigger.
 
@@ -302,7 +311,7 @@ At any time, you can see some sample firmware for both triggering and getting re
 Depending on the service you're sending data to, it can be difficult to debug a webhook, especially if you're using sending data using templates. A great debugging tool is the free service <http://requestb.in/>. You create a new RequestBin and it returns a URL that you use as the URL in your webhook. Then, when you refresh you RequestBin page, it will show you the requests that have come in, with all of the parameters and data. Very handy!
 
 
-Here's a simple webhook JSON file. Save it in a file "hook1.json".
+Here's a simple webhook template. Save it in a file "hook1.json".
 
 ```
 {
@@ -313,7 +322,7 @@ Here's a simple webhook JSON file. Save it in a file "hook1.json".
 }
 ```
 
-You can create a webhook using the Particle CLI by issuing the command:
+You can create a webhook through the Console by using the "Custom Template" tab of the new webhook form or through the Particle CLI by issuing the command:
 
 ```
 particle webhook create hook1.json

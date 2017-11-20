@@ -504,17 +504,18 @@ Go to the [Particle Console](http://console.particle.io) and click the **Integra
 Click **Webhook** to start the Webhook Builder.
 ![Add a new Particle webhook](/assets/images/conf-add-particle-webhook1.png)
 
-In the Webhook Builder under **Event Name**, enter `conf_avail`. Then paste your Slack webhook URL under **URL**.
+In the Webhook Builder under **Event Name**, enter `conf_avail`. Paste your Slack webhook URL under **URL**. Change **Request Format** to **JSON**.
 ![Add a new Particle webhook](/assets/images/conf-add-particle-webhook2.png)
 
-Expand **Advanced Settings** and choose **JSON** under **Send Custom Data**. Paste the following code:
-![Add a new Particle webhook](/assets/images/conf-add-particle-webhook3.png)
+Expand **Advanced Settings** and choose **Custom** under **JSON Data**. Paste the following code:
 ```
 {
 	"text": "The conference room is \{{PARTICLE_EVENT_VALUE}}."
 }
 ```
 The **\{{PARTICLE_EVENT_VALUE}}** field gets filled with the data sent when the event is published by the device. In this case, the data will be the `status` variable, which will contain either `"in use"` or `"available"`.
+
+![Add a new Particle webhook](/assets/images/conf-add-particle-webhook3.png)
 
 Scroll down to the bottom and hit **Create Webhook**.
 

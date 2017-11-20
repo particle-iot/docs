@@ -35,10 +35,11 @@ Set the following properties for your webhook:
 - Event Name: `twilio`
 - URL: <strong>https://api.twilio.com/2010-04-01/Accounts/{YOUR_ACCOUNT_SID}/Messages</strong>
 - Request Type: `POST`
+- Request Format: <strong>Web Form</strong>
 - Device: <strong>Any</strong>
 
 
-Next, click on "Advanced Settings," and find "Send Custom Data." Choose "form" from the available options. Drop in the following key/value pairs:
+Next, click on "Advanced Settings." Choose "Custom" in the "Form Fields" section. Drop in the following key/value pairs:
 
 - `From`: `{YOUR_TWILIO_NUMBER}`
 - `To`: `{YOUR_DESTINATION_PHONE_NUMBER}`
@@ -61,9 +62,9 @@ The `URL` is the HTTP endpoint that we want our webhook to hit. In this case, yo
 
 The `Request Type` defines the HTTP method invoked when executing the webhook, which in this case is `POST`.
 
-The `Form` section defines any form parameters that should be sent with your webhook. When set, the request is made with the `Content-Type: application/x-www-form-urlencoded` header. 
+The `Request Format` defines how the event data will be sent to the remote server. In this case <strong>Web Form</strong> is similar to submitting a form through a browser.
 
-For this example, `{YOUR_TWILIO_NUMBER}` is your Twilio number you want to send from, `{YOUR_DESTINATION_PHONE_NUMBER}` is the phone number you want to send the message to, and Body is the body of the text message. The {{PARTICLE_EVENT_VALUE}} is a template placeholder, and the value of this is replaced by data sent from your Particle device.
+For this example, `{YOUR_TWILIO_NUMBER}` is your Twilio number you want to send from, `{YOUR_DESTINATION_PHONE_NUMBER}` is the phone number you want to send the message to, and Body is the body of the text message. The `\{{PARTICLE_EVENT_VALUE}}` is a template placeholder, and the value of this is replaced by data sent from your Particle device.
 
 Lastly, the `HTTP Basic Auth` section defines headers that will be required to access the URL. For this example, you will need to replace `{YOUR_ACCOUNT_SID}` and `{YOUR_AUTH_TOKEN}` with your Twilio credentials.
 
@@ -143,6 +144,7 @@ Set the following properties for your new webhook:
 - URL: <strong>http://w1.weather.gov/xml/current_obs/{YOUR STATION
   ID}.xml</strong>
 - Request Type: `GET`
+- Request Format: <strong>Query Parameters</strong>
 - Device: <strong>Any</strong>
 
 Your completed form should look something like this:
