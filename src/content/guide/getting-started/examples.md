@@ -881,8 +881,8 @@ void setup() {
   // (Remember to replace buddy_unique_event_name with your buddy's actual unique event name that they have in their firmware.)
   // myHandler() is declared later in this app.
 
-  // Next, write the power of the photoresistor to be the maximum possible, which is 4095 in analog.
-  analogWrite(power,4095);
+  // Next, deliver power to the photoresistor
+  digitalWrite(power,HIGH);
 
   // Since everyone sets up their LEDs differently, we are also going to start by calibrating our photoresistor.
   // This one is going to require some input from the user!
