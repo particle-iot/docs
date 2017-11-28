@@ -3,7 +3,7 @@ title: Android SDK
 layout: reference.hbs
 columns: three
 order: 6
-sdkversion: 0.4.7
+sdkversion: 0.4.8
 devicesetupversion: 0.4.9
 asyncclasslink: https://github.com/spark/spark-sdk-android/blob/master/cloudsdk/src/main/java/io/particle/android/sdk/utils/Async.java
 ---
