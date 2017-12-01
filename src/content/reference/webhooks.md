@@ -505,7 +505,7 @@ The event name will use the triggering event, not the webhook hook name filter.
 
 If your hook captures everything starting with `my-hooks`, but you published `my-hooks/get_weather`, then your response event name would be `hook-response/my-hooks/get_weather`.  Each packet event name includes the index of the packet in the response.
 
-The hook sent and response events cannot trigger webhooks themselves to avoid the possibility of a bad webhook recursively triggering other webhooks. Use the [Console event logs](https://console.particle.io/logs) or open an [event stream](#get-a-stream-of-events) to see these events.
+The hook sent and response events cannot trigger webhooks themselves to avoid the possibility of a bad webhook recursively triggering other webhooks. Use the [Console event logs](https://console.particle.io/logs) or open an [event stream](/reference/api/#get-a-stream-of-events) to see these events.
 
 ### Errors
 
@@ -523,7 +523,7 @@ Error responses from the target url will also be sent back in the response event
 
 If you have many consecutive errors, the hook will sleep and get re-enabled automatically later.  Make sure you're watching the responses when developing your hook!
 
-The hook error events cannot trigger webhooks themselves to avoid the possibility of a bad webhook recursively triggering other webhooks. Use the [Console event logs](https://console.particle.io/logs) or open an [event stream](#get-a-stream-of-events) to see these events.
+The hook error events cannot trigger webhooks themselves to avoid the possibility of a bad webhook recursively triggering other webhooks. Use the [Console event logs](https://console.particle.io/logs) or open an [event stream](/reference/api/#get-a-stream-of-events) to see these events.
 
 ## Using the Console
 

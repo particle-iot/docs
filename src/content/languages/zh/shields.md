@@ -489,8 +489,6 @@ Emax ES08A 是个 迷你 RC 伺服电机.
 
 74HC595 是 8 位串行输入常用为输出扩展并行输出的移位寄存器. 可以从只有 3 条线（使用 1 芯片) 驱动高达 8 个输出. 您可能把它连锁数倍，以获得更多的输出.
 
-[数据表 >](http://www.nxp.com/documents/data_sheet/74HC_HCT595.pdf)
-
 <!-- TO DO ADD EXAMPLES AND LINKS-->
 
 ### 17. 倾角传感器 (2)

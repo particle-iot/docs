@@ -190,7 +190,6 @@ This pin powers the analog block of the on board microcontroller. You can connec
 
 >**Note:** Do not leave this pin unconnected. For the module to boot up, you need to tie this pin to systems 3V3 or other 3.3V supply. 
 
-![vdda](images/e-ps-vdda.png)
 <div align=center><img src="/assets/images/e-series/schematics/e-ps-vdda.png"></div>
 
 

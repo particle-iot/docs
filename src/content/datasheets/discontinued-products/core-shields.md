@@ -428,7 +428,7 @@ This is a tiny Double Pole Double Throw (DPDT) Switch with 6 legs.
 
 74HC595 is an 8 bit serial-in parallel-out shift register commonly used as an output expander. You can drive of up to 8 outputs from only 3 lines (using one chip). You could potentially daisy chain multiple of these to get even more outputs.
 
-[Datasheet >](http://www.nxp.com/documents/data_sheet/74HC_HCT595.pdf)
+[Datasheet >](https://www.nxp.com/pages/8-bit-serial-in-serial-or-parallel-out-shift-register-with-output-latches-3-state-based-on-pip-74hc-hct595:74HC_T_595)
 
 <!-- TO DO ADD EXAMPLES AND LINKS-->
 
