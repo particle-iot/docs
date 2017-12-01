@@ -278,7 +278,7 @@ clone or download zip. Then, `cd` into the `oled-locator` directory.
 ### Using the Particle CLI
 
 Using the [Particle
-CLI](https://docs.particle.io/guide/tools-and-features/cli/) is an easy
+CLI](/guide/tools-and-features/cli/) is an easy
 to flash this firmware to a device.
 
 For example, if you wanted to flash the oled-locator example to the device you named "test2" then you'd use the commands:

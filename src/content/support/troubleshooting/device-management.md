@@ -19,7 +19,7 @@ There are several ways to **find the device ID of your {{device}}**, but the bes
 
 If you haven't claimed your {{device}} yet, there are two ways for you to figure out your {{device}} device ID:
 
-  1a. **Get your {{device}} ID using the Particle CLI** Make sure that you've got the Particle Command Line Interface (CLI) installed by typing ``particle``
+  1a. **Get your {{device}} ID using the Particle CLI** Make sure that you've got the Particle Command Line Interface (CLI) installed by typing `particle`
 into your terminal.
 You should see a help message that displays the various commands available to you.  Please make sure your {{device}} is in [Listening Mode](https://mtc.cdn.vine.co/r/videos/B75AACF6B91015398617940668416_154e6c92f81.4.3.1608668747173494282_V_AMvRCF0NS2Y_i_y0FdDV9ABtESHh9GR_VFKEu8Pn8Q3ZHYx9l32NfspugyWKJh.mp4?versionId=l_G0UVaqFXFSdJVxAeJ3.56M1HhVfO9S) (flashing blue), and type ``particle serial identify``.
 
@@ -102,7 +102,7 @@ There are two primary ways to remove {{a-device}} from your account--using the P
 
 into your terminal. If you're presented with a list of commands, the CLI is installed correctly. If not, please see the following article:
 
-Installing the Particle CLI
+[Installing the Particle CLI](/guide/tools-and-features/cli/)
 
 **2. Login**.  Make sure you're logged into your Particle account by typing
 

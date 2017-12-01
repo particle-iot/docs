@@ -59,12 +59,6 @@ Here are instructions on setting up some tools that will help you hack around wi
 
 First, get the [Particle CLI](/guide/tools-and-features/cli). Unless someone has already set it up for you, you're going to need it to connect your device.
 
-If you already have node.js, you can download the CLI by opening a terminal window and typing:
-
-
-`npm install -g particle-cli`
-
-
 Otherwise, follow the instructions on how to [connect over USB](/guide/getting-started/connect/photon/) **BUT BEFORE YOU DO THAT** please read on!
 
 

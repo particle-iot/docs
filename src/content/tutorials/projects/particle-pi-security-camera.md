@@ -92,7 +92,9 @@ You can verify that your Raspberry Pi is online by running the `ifconfig` comman
 ### Install the Particle Agent
 Downloading and installing the Particle Pi software is a straightforward, single-step process. After your Pi is connected to the web, simply copy and paste the command below:
 
-```bash <( curl -s https://raw.githubusercontent.com/spark/particle-agent/master/bin/cloud-install )```
+```
+bash <( curl -sL https://particle.io/install-pi )
+```
 
 Your Pi should automatically download the necessary tooling and install the Particle Agent software package. This step may take several minutes, depending on the version of Raspberry Pi hardware you have.
 

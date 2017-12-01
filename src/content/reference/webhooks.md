@@ -537,7 +537,7 @@ Product webhooks can be created through the Console. Navigate into your product,
 
 ## Using the CLI
 
-Webhooks can be created, listed and deleted with the [Particle Command Line Interface (CLI)](https://particle.io/cli).
+Webhooks can be created, listed and deleted with the [Particle Command Line Interface (CLI)](/guide/tools-and-features/cli/).
 
 Product webhooks cannot currently be created through the CLI.
 
