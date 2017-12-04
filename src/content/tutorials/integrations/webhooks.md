@@ -302,7 +302,7 @@ Copy the token and put it somewhere easily accessible. You'll need it when creat
 
 ### An example Librato Webhook
 
-For this example, we will be using the Particle CLI to create the Librato webhook. It is also entirely possible to use the Particle Dashboard to create this webhook.
+For this example, we will be using the Particle CLI to create the Librato webhook. You can also use the Particle Console to create this webhook by pasting the JSON below into the Custom Template tab of the new webhook screen.
 
 Create a text file and name it librato.json, and paste in this example.  Make sure you replace the Librato username, and API Token as well.
 

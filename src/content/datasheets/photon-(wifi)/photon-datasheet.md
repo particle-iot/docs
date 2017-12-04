@@ -273,7 +273,7 @@ echo -e "\xFF" > fillbyte && dfu-util -d 2b04:d006 -a 1 -s 3106 -D fillbyte
 | D0~D7 | Digital only GPIO pins. D0~D3 may also be used as a PWM<sup>[2]</sup> output. |
 
 **Notes:**
-<sup>[1]</sup> In addition to the 24 pins around the outside of the Photon, there are 7 pads on the bottom the Photon PCB that can be used to connect to extra signals: RGB LED outputs, SETUP button, SMPS enable line and USB D+/D-. Photon Pins #25-31 are described in the [Pin out diagrams](#pin-out-diagrams). Also refer to the [Recommended PCB land pattern photon without headers](#recommended-pcb-land-pattern-photon-without-headers-) section for their location on the bottom of the Photon.
+<sup>[1]</sup> In addition to the 24 pins around the outside of the Photon, there are 7 pads on the bottom the Photon PCB that can be used to connect to extra signals: RGB LED outputs, SETUP button, SMPS enable line and USB D+/D-. Photon Pins #25-31 are described in the [Pin out diagrams](#pinout-diagrams). Also refer to the [Recommended PCB land pattern photon without headers](#recommended-pcb-land-pattern-photon-without-headers-) section for their location on the bottom of the Photon.
 
 <sup>[2]</sup> PWM is available on D0, D1, D2, D3, A4, A5, WKP, RX, TX with a caveat: PWM timer peripheral is duplicated on two pins (A5/D2) and (A4/D3) for 7 total independent PWM outputs. For example: PWM may be used on A5 while D2 is used as a GPIO, or D2 as a PWM while A5 is used as an analog input. However A5 and D2 cannot be used as independently controlled PWM outputs at the same time.
 
@@ -425,7 +425,7 @@ The Photon (without headers) can be surface mounted directly in an end applicati
 <div align=center><strong>TOP THROUGH VIEW</strong></div>
 <div align=left><img src="/assets/images/photon_land_pattern_without_headers.png" width=600></div>
 
-In addition to the 24 pins around the outside of the Photon, there are 7 pads on the bottom the Photon PCB that can be used to connect to extra signals: RGB LED outputs, SETUP button, SMPS enable line and USB D+/D-. Photon Pins #25-31 are described in the [Pin out diagrams](#pin-out-diagrams).
+In addition to the 24 pins around the outside of the Photon, there are 7 pads on the bottom the Photon PCB that can be used to connect to extra signals: RGB LED outputs, SETUP button, SMPS enable line and USB D+/D-. Photon Pins #25-31 are described in the [Pin out diagrams](#pinout-diagrams).
 
 Solder mask around exposed copper pads should be 0.1mm (4 mils) larger in all directions.  E.g., a 0.08" x 0.10" pad would have a 0.088" x 0.108" solder mask.
 

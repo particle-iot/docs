@@ -12,7 +12,7 @@ How do I upgrade my firmware?
 
 ### The Simple Way (one CLI command)
 
-If you are using the [particle-cli](/guide/tools-and-features/cli) and have been able to use it successfully to login to your account, then you should be able to upgrade your device firmware and it will auto-update the CLI for you. Yeah I know, it's great right?!
+If you are using the [Particle CLI](/guide/tools-and-features/cli) and have been able to use it successfully to login to your account, then you should be able to upgrade your device firmware and it will auto-update the CLI for you. Yeah I know, it's great right?!
 
 *Requirements:* 
 - dfu-util --> Install dfu-util on your Mac using: ```brew install dfu-util```
@@ -23,7 +23,7 @@ If you are using the [particle-cli](/guide/tools-and-features/cli) and have been
 - Put {{device}} into [DFU mode](/guide/getting-started/modes/{{deviceValue}}/#dfu-mode-device-firmware-upgrade-) while being plugged into computer. {{#if has-cellular}}Make sure the antenna and battery are connected.{{/if}}
 
 **Step Two:** 
-- While {{device}} in [DFU mode](/guide/getting-started/modes/{{deviceValue}}/#dfu-mode-device-firmware-upgrade-), issue ```particle update``` from the CLI and that's it! Your device should upgrade to the newest available firmware and you should be a happy camper!
+- While {{device}} in [DFU mode](/guide/getting-started/modes/{{deviceValue}}/#dfu-mode-device-firmware-upgrade-), issue `particle update` from the CLI and that's it! Your device should upgrade to the newest available firmware and you should be a happy camper!
 
 
 

@@ -104,7 +104,7 @@ You can use any serial terminal on your computer to then monitor the results. In
 
 ### Watching results using Particle CLI
 
-You can also use [Particle CLI](http://localhost:8080/guide/tools-and-features/console/) tool to subscribe to your's device's events using the command : ```particle subscribe mine YOUR_DEVICE_NAME```
+You can also use [Particle CLI](/guide/tools-and-features/cli/) tool to subscribe to your's device's events using the command : `particle subscribe mine YOUR_DEVICE_NAME`
 
 <div align=center><img src="/assets/images/e-series/illustrations/e-cli-console.png" ></div>
 

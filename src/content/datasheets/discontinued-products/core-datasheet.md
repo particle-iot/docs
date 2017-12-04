@@ -48,8 +48,6 @@ Some of the key features of the CC3000 module are as follows:
 - FCC, IC, and CE certified with a chip antenna
 - SPI host interface
 
-The datasheet is available [here.](http://processors.wiki.ti.com/index.php/CC3000)
-
 
 ### External FLASH
 

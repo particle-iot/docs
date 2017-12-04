@@ -48,7 +48,7 @@ describe('Crawler', function() {
   it('should complete without error', function(done) {
     this.timeout(500000);
     var errors = 0;
-    var crawler = new Crawler('localhost', '/', 8080);
+    var crawler = new Crawler('localhost', '/', 8081);
     crawler.maxConcurrency = 10;
     crawler.userAgent = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.134 Safari/537.36';
     crawler.acceptCookies = false;
@@ -66,6 +66,9 @@ describe('Crawler', function() {
     });
     crawler.addFetchCondition(function(parsedUrl) {
       return (parsedUrl.host !== 'vimeo.com');
+    });
+    crawler.addFetchCondition(function(parsedUrl) {
+      return (parsedUrl.host !== 'tools.usps.com');
     });
     crawler.addFetchCondition(function(parsedUrl) {
       return (parsedUrl.host !== 'www.microsoft.com');

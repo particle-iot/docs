@@ -41,7 +41,7 @@ Let's get started! For your first webhook, let's try to send some data from your
 
 ### Configure ThingSpeak
 
-[Create a ThingSpeak account](https://thingspeak.com/users/sign_up) if you don't already have one. Next, create a [channel](https://www.mathworks.com/help/thingspeak/channels-and-charts.html?requestedDomain=www.mathworks.com) by clicking the "New Channel" button on your ThingSpeak dashboard.
+[Create a ThingSpeak account](https://thingspeak.com/users/sign_up) if you don't already have one. Next, create a [channel](https://www.mathworks.com/help/thingspeak/channels-and-charts-api.html) by clicking the "New Channel" button on your ThingSpeak dashboard.
 
 Name your channel "Temperature," add one field called "temp" and create the channel.
 

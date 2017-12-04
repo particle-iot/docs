@@ -46,7 +46,7 @@ Texas Instruments(德州仪器) CC3000手机应用程序的智能配置过程与
 
 按照德州仪器(TI)的网站上的说明：
 
-[CC3000 Smart Config @ Texas Instruments](http://processors.wiki.ti.com/index.php/CC3000_Smart_Config)
+CC3000 Smart Config @ Texas Instruments
 
 唯一的不同的是，您需要通过可选的AES密钥并输入`sparkdevices2013`.
 

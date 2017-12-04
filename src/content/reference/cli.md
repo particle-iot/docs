@@ -8,17 +8,15 @@ order: 3
 
 # CLI Command Reference
 
+For information on how to install the Particle CLI, see the [CLI guide](/guide/tools-and-features/cli/).
 
-## particle setup wifi
+## particle setup
 
-  Helpful shortcut for adding another Wi-Fi network to a device connected over USB.  Make sure your device is connected via a USB cable, and is slow blinking blue [listening mode](/guide/getting-started/modes/#listening-mode)
+  Everything you need to get started using a Particle device from the command line. Create an account or log in, set up Wi-Fi to a device and claim the device to your Particle account.
 
 ```sh
-# how to just update your wifi settings.
-# Make sure your device is connected and in listening mode first
-$ particle setup wifi
+$ particle setup
 ```
-
 
 ## particle login
 
@@ -245,7 +243,7 @@ The devices available are:
 eg. `particle compile photon xxx` OR `particle compile p xxxx` both targets the photon
 ```
 
-Note!  The cloud compiles ```.ino``` and ```.cpp``` files differently.  For ```.ino``` files, the cloud will apply a pre-processor.  It will add missing function declarations, and it will inject an ```#include "Particle.h"``` line at the top of your files if it is missing. See [the pre-processor documentation for details](/reference/firmware/#preprocessor).
+Note!  The cloud compiles `.ino` and `.cpp` files differently.  For `.ino` files, the cloud will apply a pre-processor.  It will add missing function declarations, and it will inject an `#include "Particle.h"` line at the top of your files if it is missing. See [the pre-processor documentation for details](/reference/firmware/#preprocessor).
 
 If you want to build a library that can be used for both Arduino and Particle, here's a useful code snippet:
 
@@ -790,7 +788,7 @@ file.bin
 
 ## particle token
 
-### list
+### particle token list
 Retrieve all the access token under your Particle account.
 
 ```sh
@@ -824,7 +822,7 @@ __PASSWORD_ONLY__ (active)
  Expires at: 2017-06-12T08:44:16.371Z
 ```
 
-### new
+### particle token new
 Create a new access token under your Particle account.
 
 ```sh
@@ -835,7 +833,7 @@ New access token expires on Fri Jun 23 2017 23:09:24 GMT+0800 (SGT)
 		da39a3ee5e6b4b0d3255bfef95601890afd80709
 ```
 
-### revoke
+### particle token revoke
 Revoke an access token under your Particle account.
 
 ```sh

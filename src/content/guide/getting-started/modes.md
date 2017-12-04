@@ -343,7 +343,7 @@ Blinking red indicates various errors.
 
 - 2 red blinks: Could not reach the internet.
 - 3 red blinks: Connected to the internet, but could not reach the Particle Cloud.
-- Blinking "orange": This sometimes is seen as yellow or red and indicates bad server keys. To fix this issue, use the Particle CLI to restore the server keys using ```particle keys server``` in your terminal window, while having the device in DFU mode.
+- Blinking "orange": This sometimes is seen as yellow or red and indicates bad server keys. To fix this issue, use the Particle CLI to restore the server keys using `particle keys server` in your terminal window, while having the device in DFU mode.
 
 
 ### Red Flash SOS
@@ -396,11 +396,10 @@ If your {{device}} crashes repeatedly with an SOS code, first try recovering wit
 particle flash <mydevice> tinker
 ```
 
-If it's not possible to enter Safe Mode, your system firmware may be corrupted.  Try putting your {{device}} into [DFU Mode](/guide/getting-started/modes/#dfu-mode-device-firmware-upgrade-) and flashing the system firmware locally over USB (and optionally flash the Tinker application) with:
+If it's not possible to enter Safe Mode, your system firmware may be corrupted.  Use the Device Doctor feature of the CLI to put your {{device}} into a healthy state.
  
 ```
-particle update
-particle flash --usb tinker
+particle device doctor
 ```
 
 Don't forget that the [community forum is always there to help](https://community.particle.io).
