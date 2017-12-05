@@ -208,7 +208,7 @@ The following is a sample schematic needed to power up and use the E series modu
 
 In addition to these parts, it is also encouraged to add a USB interface for the ublox module as it provides additional debugging channel and can be used to update the firmware of the modem. The JTAG/SWD interface can be useful to provision the product during manufacturing or when testing/debugging the firmware.
 
-<div align=center><img src="/assets/images/e-series/illustrations/e-sample-setup.png"></div>
+<div align=center><img src="/assets/images/e-series/schematics/e-sample-setup.png"></div>
 
 
 > You can also take a look at the schematic and board files of the E series evaluation kit as a reference design available here.
