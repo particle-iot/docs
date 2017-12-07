@@ -4942,21 +4942,24 @@ Returns the number of bytes available.
 {{#if has-spi-settings}}
 ### SPISettings
 
-_Since 0.6.1_
+_Since 0.6.2_
 
-The `SPISettings` object specifies the SPI peripheral settings. This object can be used with [`beginTransaction()`](#begintransaction-) function and replacing separate calls to [`setClockSpeed()`](#setclockspeed), [`setBitOrder()`](#setbitorder-) and [`setDataMode()`](#setdatamode-).
+The `__SPISettings` object specifies the SPI peripheral settings. This object can be used with [`beginTransaction()`](#begintransaction-) function and can replace separate calls to [`setClockSpeed()`](#setclockspeed), [`setBitOrder()`](#setbitorder-) and [`setDataMode()`](#setdatamode-).
+
+**Note:** Either `SPISettings()` (_Since 0.6.1_) or `__SPISettings()` (_Since 0.6.2_) may be used **with** `#include "Arduino.h"`
+`__SPISettings()` should be used **without** `#include "Arduino.h"`
 
 ```C++
 // SYNTAX
-SPI.beginTransaction(SPISettings(4*MHZ, MSBFIRST, SPI_MODE0));
-// Pre-declared SPISettings object
-SPISettings settings(4*MHZ, MSBFIRST, SPI_MODE0);
+SPI.beginTransaction(__SPISettings(4*MHZ, MSBFIRST, SPI_MODE0));
+// Pre-declared __SPISettings object
+__SPISettings settings(4*MHZ, MSBFIRST, SPI_MODE0);
 SPI.beginTransaction(settings);
 
 {{#if has-multiple-spi}}
-SPI1.beginTransaction(SPISettings(4*MHZ, MSBFIRST, SPI_MODE3));
+SPI1.beginTransaction(__SPISettings(4*MHZ, MSBFIRST, SPI_MODE3));
 {{#if electron}}
-SPI2.beginTransaction(SPISettings(1*MHZ, LSBFIRST, SPI_MODE3));
+SPI2.beginTransaction(__SPISettings(1*MHZ, LSBFIRST, SPI_MODE3));
 {{/if}}
 {{/if}}
 ```
@@ -4979,14 +4982,14 @@ In addition to reconfiguring the SPI peripheral, `beginTransaction()` also acqui
 
 ```C++
 // SYNTAX
-SPI.beginTransaction(SPISettings(4*MHZ, MSBFIRST, SPI_MODE0));
-// Pre-declared SPISettings object
+SPI.beginTransaction(__SPISettings(4*MHZ, MSBFIRST, SPI_MODE0));
+// Pre-declared __SPISettings object
 SPI.beginTransaction(settings);
 
 {{#if has-multiple-spi}}
-SPI1.beginTransaction(SPISettings(4*MHZ, MSBFIRST, SPI_MODE3));
+SPI1.beginTransaction(__SPISettings(4*MHZ, MSBFIRST, SPI_MODE3));
 {{#if electron}}
-SPI2.beginTransaction(SPISettings(1*MHZ, LSBFIRST, SPI_MODE3));
+SPI2.beginTransaction(__SPISettings(1*MHZ, LSBFIRST, SPI_MODE3));
 {{/if}}
 {{/if}}
 ```
