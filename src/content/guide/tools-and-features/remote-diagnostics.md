@@ -84,3 +84,55 @@ that devices subscribe to.
 The Webhooks service allows for device data to be sent to other
 apps and services. Webhooks also allow for devices to ingest
 information *from* these Internet services.
+
+## Running Diagnostic Tests
+
+Diagnostics tests can be run for a device using the
+<a href="https://console.particle.io" target="_blank">Particle
+Console</a>. To access Remote Diagnostics, click on a device from your
+device list (on the devices view) to visit the device details page. From
+here, click on the Diagnostics tab. This toggles between the Event Logs
+and Remote Diagnostic tests for the device.
+
+<img src="/assets/images/remote-diagnostics/diagnostics-tab.png"/>
+<p class="caption">Remote Diagnostics are available on the Console's
+device details page.</br>Click on the Diagnostics tab to get started.</p>
+
+You are now presented with the relevant connectivity layers as described
+[above](#connectivity-layers). Click the **Run Tests** button to trigger the
+execution of a variety of health checks:
+
+{{#if electron}}
+<img class="full-width"
+src="/assets/images/remote-diagnostics/default-diagnostics-state-cellular.png"/>
+{{else}}
+<img class="full-width"
+src="/assets/images/remote-diagnostics/default-diagnostics-state-wifi.png"/>
+{{/if}}
+
+Running the tests will kick off diagnostics for each layer of the
+connectivity stack. Let's dive into what each test actually does:
+
+### Device
+### SIM Card
+### Cellular Network
+
+### Particle Cloud
+When running the test suite, the Particle Cloud services most relevant
+to device connectivity are automatically checked to ensure they are fully operational.
+Probed services are:
+- Device Service
+- API
+- Webhooks
+
+This test is made possible by a tight integration with Particle's
+<a href="https://status.particle.io" target="_blank">status page</a>.
+Any open incident involving the services above will be reflected in the
+test results.
+
+## Test Results
+
+There are three potential results of the Remote Diagnostic tests:
+- **Healthy**
+- **Warning**
+- **Failure**
