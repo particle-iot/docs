@@ -308,7 +308,7 @@ At any time, you can see some sample firmware for both triggering and getting re
 
 ## Debugging with RequestBin
 
-Depending on the service you're sending data to, it can be difficult to debug a webhook, especially if you're using sending data using templates. A great debugging tool is the free service <http://requestb.in/>. You create a new RequestBin and it returns a URL that you use as the URL in your webhook. Then, when you refresh you RequestBin page, it will show you the requests that have come in, with all of the parameters and data. Very handy!
+Depending on the service you're sending data to, it can be difficult to debug a webhook, especially if you're sending data using templates. A great debugging tool is the free service <http://requestb.in/>. You create a new RequestBin and it returns a URL that you use as the URL in your webhook. Then, when you refresh you RequestBin page, it will show you the requests that have come in, with all of the parameters and data. Very handy!
 
 
 Here's a simple webhook template. Save it in a file "hook1.json".
