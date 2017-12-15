@@ -23,18 +23,27 @@ device falling into an unhealthy state, your team will be empowered with
 rich context and suggested courses of action to quickly diagnose and
 rapidly resolve the issue.
 
+<img
+src="/assets/images/remote-diagnostics/successful-diagnostics-test.png"
+class="full-width"/>
+<p class="caption">Remote Diagnostics allow you to test the connectivity
+health of your devices, and quickly resolve problems when they arise.</p>
+
 ## Connectivity Layers
 
 Multiple connectivity layers must be operating successfully for a given device
 to be able to successfully communicate with the cloud.
-These connectivity layers include:
+These connectivity layers are:
 
-- **Device**
 {{#if electron}}
-- **SIM Card**
-- **Cellular Network**
+  <img class="full-width" alt="Device, SIM Card, Cellular Network, and
+  Particle Cloud"
+  src="/assets/images/remote-diagnostics/connectivity-layers-cellular.png"/>
+{{else}}
+  <img class="full-width" alt="Device and
+  Particle Cloud"
+  src="/assets/images/remote-diagnostics/connectivity-layers-wifi.png"/>
 {{/if}}
-- **Particle Cloud**
 
 
 ### Device
@@ -111,7 +120,9 @@ src="/assets/images/remote-diagnostics/default-diagnostics-state-wifi.png"/>
 {{/if}}
 
 Running the tests will kick off diagnostics for each layer of the
-connectivity stack. Let's dive into what each test actually does:
+connectivity stack. Tests will be run in parallel, but test results
+will only be shown once all tests are completed.
+Let's dive into what each test actually does:
 
 ### Device
 
@@ -137,8 +148,20 @@ running a system firmware version equal to or greater than `0.8.0`. For
 information on managing system firmware, check out the [system firmware
 guide](/guide/tools-and-features/system-firmware/).
 
+{{#if electron}}
 ### SIM Card
+As mentioned earlier in this guide, in order for a device to
+succesfully connect to a cell tower, it relies on an active SIM Card.
+This test verifies the state of the SIM and reports back on whether it
+is currently active or not.
+
 ### Cellular Network
+Particle is a mobile virtual network operator (MVNO) that enables
+Particle SIM cards to connect to cell towers from a variety
+of carriers around the world. This test verifies that the active SIM
+card in the device has a healthy data session with a cell tower.
+
+{{/if}}
 
 ### Particle Cloud
 When running the test suite, the Particle Cloud services most relevant
@@ -159,3 +182,15 @@ There are three potential results of the Remote Diagnostic tests:
 - **Healthy**
 - **Warning**
 - **Failure**
+
+A fully healthy test result will be displayed like this:
+
+<img
+src="/assets/images/remote-diagnostics/successful-diagnostics-test.png"
+class="full-width"/>
+
+A diagnostic test in the warning state will be displayed like this:
+
+<img
+src="/assets/images/remote-diagnostics/warning-diagnostics-test.png"
+class="full-width"/>
