@@ -114,6 +114,29 @@ Running the tests will kick off diagnostics for each layer of the
 connectivity stack. Let's dive into what each test actually does:
 
 ### Device
+
+Starting with system firmware version `0.8.x`, Particle devices have the
+ability to collect a rich amount of diagnostic data and send this
+information to the Particle Cloud.
+
+Device diagnostics are sent to the cloud at two different times:
+- Automatically, when the device _handshakes_ (starts a new secure session with the
+Particle cloud)
+- On-demand, when the diagnostic tests are run in the Console or via the
+API
+
+The device delivers the diagnostics data to the Particle Cloud via a
+[system event](/reference/firmware/#system-events) that is published
+to the event stream. The device diagnostic event will have the name
+`spark/device/diagnostics/update`, and include a data payload of the
+most recent diagnostic vitals the device collected.
+
+To ensure that your device is able to collect and send diagnostic data
+to the Particle Cloud, you will need to ensure that the device is
+running a system firmware version equal to or greater than `0.8.0`. For
+information on managing system firmware, check out the [system firmware
+guide](/guide/tools-and-features/system-firmware/).
+
 ### SIM Card
 ### Cellular Network
 
