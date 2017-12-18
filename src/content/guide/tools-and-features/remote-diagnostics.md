@@ -225,7 +225,9 @@ test.
 
 ### Healthy
 
-A fully healthy test result will be displayed like this:
+A _healthy_ test result means that all tests have passed
+successfully. The device is operating normally. This state looks like
+this:
 
 {{#if electron}}
 <img
@@ -252,15 +254,31 @@ the healthy range. However, all diagnostic tests still passed. This is
 an indication that there _may be a problem_, and you should investigate
 it further:
 
+{{#if electron}}
 <img
 src="/assets/images/remote-diagnostics/warning-diagnostics-test.png"
 class="full-width" style="max-height: inherit"/>
+{{else}}
+<img
+src="/assets/images/remote-diagnostics/warning-diagnostics-test-wifi.png"
+class="full-width" style="max-height: inherit"/>
+{{/if}}
 
+In the warning state, you will receive some helpul text to explain what
+is happening as well as some recommendations on how to return the device
+to a fully healthy state.
+
+{{#if electron}}
 In this case, the device's battery is running low (12%) but the device
-is still online and able to communicate with the Particle Cloud. Some
-help text appears to provide an explanation and a recommended course of
-action. For devices with low battery, the recommendation is simple
+is still online and able to communicate with the Particle Cloud.
+For devices with low battery, the recommendation is simple
 &mdash; recharge the battery before the device turns off.
+{{else}}
+In this case, the device is getting rate-limited in firmware because it
+is attempting to publish events too quickly. The recommendation is to
+rework the application firmware by reducing the frequency of event
+publishes to 1 per second or less.
+{{/if}}
 
 ### Unhealthy
 
@@ -268,10 +286,17 @@ The test run will be marked as _unhealthy_ if one or more of the Remote
 Diagnostic tests fail. Note that failure is defined as a state in which
 the device will not be able to communicate with the Particle Cloud:
 
+{{#if electron}}
 <img src="/assets/images/remote-diagnostics/diagnostic-failure.png"
 class="full-width" />
 <p class="caption">This Remote Diagnostic test reports a problem because the
 SIM is deactivated<br/>causing 3 tests to fail</p>
+{{else}}
+<img src="/assets/images/remote-diagnostics/diagnostic-failure-wifi.png"
+class="full-width" />
+<p class="caption">This Remote Diagnostic test reports a problem because
+the device is unresponsive</p>
+{{/if}}
 
 In this state, the test will be marked clearly as failing with a red "X"
 icon. In this case, we are not able to successfully communicate with the
@@ -282,10 +307,14 @@ Anytime the Remote Diagnostic tests fail, there will be a course of
 action suggested in the test results summary. These calls-to-action are
 designed to help your team quickly identify a solution to the
 connectivity issue that has arisen. In this scenario, the call to action
-is simple &mdash; reactivate the SIM. Remote Diagnostics provides this
+is {{#if electron}}simple &mdash; reactivate the SIM{{else}} to visit
+the docs to troubleshoot device connectivity{{/if}}. Remote Diagnostics provides this
 call-to-action intelligently based on the test failures.
 
 To help uncover what the cause of the issue might be, the last known
 device diagnostic reading is displayed. For this device, we can see that
-the SIM card is deactivated. This prevents the device from connecting
-and the cellular network from initiatiing a session.
+{{#if electron}}the SIM card is deactivated. This prevents the device from connecting
+and the cellular network from initiatiing a session.{{else}} the last
+known diagnostics reading showed a weak Wi-Fi signal. This may be the
+cause of why the device is now not responsive to requests from the
+Particle Cloud.{{/if}}
