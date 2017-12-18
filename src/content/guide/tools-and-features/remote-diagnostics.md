@@ -224,8 +224,8 @@ the device will not be able to communicate with the Particle Cloud:
 
 <img src="/assets/images/remote-diagnostics/diagnostic-failure.png"
 class="full-width" />
-<p class="caption">This Remote Diagnostic test has failed because the
-device is unresponsive to attempts to ping it from the cloud</p>
+<p class="caption">This Remote Diagnostic test reports a problem because the
+SIM is deactivated, causing 3 tests to fail</p>
 
 In this state, the test will be marked clearly as failing with a red "X"
 icon. In this case, we are not able to successfully communicate with the
@@ -234,7 +234,8 @@ that the device is unresponsive.
 
 To help uncover what the cause of the issue might be, the last known
 device diagnostic reading is displayed. For this device, we can see that
-the battery state of charge was low the last time it checked in with the
-cloud. We can deduce that the device ran out of battery, powered down, and went
-offline.
+the SIM card is deactivated. This prevents the device from connecting
+and the cellular network from initiatiing a session. The call to action
+is simple &mdash; reactivate the SIM. Remote Diagnostics provides this
+call-to-action intelligently based on the test failures.
 
