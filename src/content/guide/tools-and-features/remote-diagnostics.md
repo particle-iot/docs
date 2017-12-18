@@ -9,6 +9,13 @@ devices: [photon, electron]
 
 # {{title}}
 
+<p class="boxedHead">Beta feature</p>
+<p class="boxed">
+This feature is **currently in private beta**.
+If you would like access to this feature, please
+<a href="https://www.particle.io/sales" target="_blank">contact us</a>.
+</p>
+
 As you  deploy your IoT fleet into the field, it becomes increasingly
 important to ensure that devices stay in a healthy state. In addition,
 when problems do arise, the ability to quickly identify and implement a
@@ -23,9 +30,15 @@ device falling into an unhealthy state, your team will be empowered with
 rich context and suggested courses of action to quickly diagnose and
 rapidly resolve the issue.
 
+{{#if electron}}
 <img
 src="/assets/images/remote-diagnostics/successful-diagnostics-test.png"
 class="full-width"/>
+{{else}}
+<img
+src="/assets/images/remote-diagnostics/successful-diagnostics-test-wifi.png"
+class="full-width"/>
+{{/if}}
 <p class="caption">Remote Diagnostics allow you to test the connectivity
 health of your devices, and quickly resolve problems when they arise.</p>
 
@@ -214,9 +227,15 @@ test.
 
 A fully healthy test result will be displayed like this:
 
+{{#if electron}}
 <img
 src="/assets/images/remote-diagnostics/successful-diagnostics-test.png"
 class="full-width"/>
+{{else}}
+<img
+src="/assets/images/remote-diagnostics/successful-diagnostics-test-wifi.png"
+class="full-width"/>
+{{/if}}
 <p class="caption">All diagnostic tests have passed and this device is
 healthy! Woot!</p>
 
