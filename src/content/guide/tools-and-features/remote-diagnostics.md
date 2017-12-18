@@ -139,6 +139,19 @@ Particle cloud)
 - On-demand, when the diagnostic tests are run in the Console or via the
 API
 
+The device collects the following diagnostic vitals:
+{{#if electron}}
+- *Battery state of charge*: The state of charge of the device’s connected battery, represented as a percentage.
+{{/if}}
+- *Signal strength*: The strength of the device’s connection to the
+{{#if electron}}Cellular{{else}}Wi-Fi{{/if}} network, measured in decibels of received signal power.
+- *Disconnect events*: The number of times the device disconnected unexpectedly from the Particle Cloud since its last reset.
+- *Round-trip time*: The amount of time it takes for the device to successfully respond to a CoAP message sent by the Particle Cloud in milliseconds.
+- *Rate-limited publishes*: Particle devices are allowed to publish an
+average of 1 event per second in application firmware. Publishing at a
+rate higher than this will result in rate limiting of events.
+- *Used Memory*: The amount of memory used by the device, combining the heap and the user application’s static RAM in bytes.
+
 The device delivers the diagnostics data to the Particle Cloud via a
 [system event](/reference/firmware/#system-events) that is published
 to the event stream. The device diagnostic event will have the name
