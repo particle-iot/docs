@@ -40,7 +40,7 @@ These connectivity layers are:
   Particle Cloud"
   src="/assets/images/remote-diagnostics/connectivity-layers-cellular.png"/>
 {{else}}
-  <img class="full-width" alt="Device and
+  <img alt="Device and
   Particle Cloud"
   src="/assets/images/remote-diagnostics/connectivity-layers-wifi.png"/>
 {{/if}}
@@ -178,19 +178,63 @@ test results.
 
 ## Test Results
 
-There are three potential results of the Remote Diagnostic tests:
-- **Healthy**
-- **Warning**
-- **Failure**
+Once all of the diagnostic tests have completed, the Console will
+provide test results. Each connectivity layer will marked as
+_healthy_, _unhealthy_, or _warning_  depending on the result of the
+test.
+
+### Healthy
 
 A fully healthy test result will be displayed like this:
 
 <img
 src="/assets/images/remote-diagnostics/successful-diagnostics-test.png"
 class="full-width"/>
+<p class="caption">All diagnostic tests have passed and this device is
+healthy! Woot!</p>
 
-A diagnostic test in the warning state will be displayed like this:
+You can see that each connectivity layer has been marked as _healthy_,
+with a green checkmark. You will also notice a top-level summary
+that confirms that all tests have passed and diagnostic vitals are in healthy
+ranges.
+
+### Warning
+
+The diagnostic tests also can be marked in the _warning_ state. In
+this case, one or more of the diagnostic vitals has fallen outside of
+the healthy range. However, all diagnostic tests still passed. This is
+an indication that there _may be a problem_, and you should investigate
+it further:
 
 <img
 src="/assets/images/remote-diagnostics/warning-diagnostics-test.png"
-class="full-width"/>
+class="full-width" style="max-height: inherit"/>
+
+In this case, the device's battery is running low (12%) but the device
+is still online and able to communicate with the Particle Cloud. Some
+help text appears to provide an explanation and a recommended course of
+action. For devices with low battery, the recommendation is simple
+&mdash; recharge the battery before the device turns off.
+
+### Unhealthy
+
+The test run will be marked as _unhealthy_ if one or more of the Remote
+Diagnostic tests fail. Note that failure is defined as a state in which
+the device will not be able to communicate with the Particle Cloud:
+
+<img src="/assets/images/remote-diagnostics/diagnostic-failure.png"
+class="full-width" />
+<p class="caption">This Remote Diagnostic test has failed because the
+device is unresponsive to attempts to ping it from the cloud</p>
+
+In this state, the test will be marked clearly as failing with a red "X"
+icon. In this case, we are not able to successfully communicate with the
+Particle device. The device layer is marked as unhealthy, and we see
+that the device is unresponsive.
+
+To help uncover what the cause of the issue might be, the last known
+device diagnostic reading is displayed. For this device, we can see that
+the battery state of charge was low the last time it checked in with the
+cloud. We can deduce that the device ran out of battery, powered down, and went
+offline.
+
