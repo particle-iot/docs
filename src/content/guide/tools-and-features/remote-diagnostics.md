@@ -32,7 +32,10 @@ health of your devices, and quickly resolve problems when they arise.</p>
 ## Connectivity Layers
 
 Multiple connectivity layers must be operating successfully for a given device
-to be able to successfully communicate with the cloud.
+to be able to successfully communicate with the cloud. Note that the
+relevant connectivity layers vary based on the type of device (i.e.
+Wi-Fi vs. Cellular).
+
 These connectivity layers are:
 
 {{#if electron}}
@@ -155,11 +158,22 @@ succesfully connect to a cell tower, it relies on an active SIM Card.
 This test verifies the state of the SIM and reports back on whether it
 is currently active or not.
 
+Note that the SIM layer will only be displayed if your Particle account
+has the proper access to the Particle SIM Card inside the device. For instance, if
+you are viewing Remote Diagnostics for a device claimed to your
+developer account, but that device is using a SIM associated with a product
+(not owned by your individual Particle account), the SIM Card layer will
+not be displayed.
+
 ### Cellular Network
 Particle is a mobile virtual network operator (MVNO) that enables
 Particle SIM cards to connect to cell towers from a variety
 of carriers around the world. This test verifies that the active SIM
 card in the device has a healthy data session with a cell tower.
+
+Similar to what was said in the above section, you must have proper
+access to the Particle SIM Card being used in the device for the
+Cellular Network layer to be displayed in the Console.
 
 {{/if}}
 
@@ -225,17 +239,21 @@ the device will not be able to communicate with the Particle Cloud:
 <img src="/assets/images/remote-diagnostics/diagnostic-failure.png"
 class="full-width" />
 <p class="caption">This Remote Diagnostic test reports a problem because the
-SIM is deactivated, causing 3 tests to fail</p>
+SIM is deactivated<br/>causing 3 tests to fail</p>
 
 In this state, the test will be marked clearly as failing with a red "X"
 icon. In this case, we are not able to successfully communicate with the
 Particle device. The device layer is marked as unhealthy, and we see
 that the device is unresponsive.
 
-To help uncover what the cause of the issue might be, the last known
-device diagnostic reading is displayed. For this device, we can see that
-the SIM card is deactivated. This prevents the device from connecting
-and the cellular network from initiatiing a session. The call to action
+Anytime the Remote Diagnostic tests fail, there will be a course of
+action suggested in the test results summary. These calls-to-action are
+designed to help your team quickly identify a solution to the
+connectivity issue that has arisen. In this scenario, the call to action
 is simple &mdash; reactivate the SIM. Remote Diagnostics provides this
 call-to-action intelligently based on the test failures.
 
+To help uncover what the cause of the issue might be, the last known
+device diagnostic reading is displayed. For this device, we can see that
+the SIM card is deactivated. This prevents the device from connecting
+and the cellular network from initiatiing a session.
