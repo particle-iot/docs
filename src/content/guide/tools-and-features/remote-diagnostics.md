@@ -16,7 +16,7 @@ If you would like access to this feature, please
 <a href="https://www.particle.io/sales" target="_blank">contact us</a>.
 </p>
 
-As you  deploy your IoT fleet into the field, it becomes increasingly
+As you deploy your IoT fleet into the field, it becomes increasingly
 important to ensure that devices stay in a healthy state. In addition,
 when problems do arise, the ability to quickly identify and implement a
 solution are paramount to the reliability of your production deployment.
@@ -45,7 +45,7 @@ health of your devices, and quickly resolve problems when they arise.</p>
 ## Connectivity Layers
 
 Multiple connectivity layers must be operating successfully for a given device
-to be able to successfully communicate with the cloud. Note that the
+to be able to successfully communicate with the Particle Cloud. Note that the
 relevant connectivity layers vary based on the type of device (i.e.
 Wi-Fi vs. Cellular).
 
@@ -63,6 +63,7 @@ These connectivity layers are:
 
 
 ### Device
+
 The device itself must be in a healthy state in order to successfully
 communicate with the cloud. A variety of factors influence its state,
 such as battery state of charge, signal strength, available memory, and
@@ -70,16 +71,17 @@ application firmware that does not exceed enforced rate limits.
 
 {{#if electron}}
 ### SIM Card
+
 Cellular devices rely on a SIM card to facilitate a connection to the
-cellular network. This SIM must be in an active state, allowing the
+cellular network. The SIM must be in an active state, allowing the
 device to try to initiate a data session with the network.
 
 ### Cellular Network
 
 In addition to the need for an active SIM, the device still must be in
 range of a cell tower to create a healthy connection to the cellular
-network. Particle works with a global network of cellular carriers to
-allow devices to connect virtually anywhere in the world.
+network. Particle works with a [global network of cellular carriers](https://www.particle.io/pricing#cellular-data)
+to allow devices to connect virtually anywhere in the world.
 {{/if}}
 
 ### Particle Cloud
@@ -107,7 +109,7 @@ that devices subscribe to.
 #### Webhooks
 
 The Webhooks service allows for device data to be sent to other
-apps and services. Webhooks also allow for devices to ingest
+apps and services. Webhooks also allows devices to ingest
 information *from* these Internet services.
 
 ## Running Diagnostic Tests
@@ -136,8 +138,8 @@ src="/assets/images/remote-diagnostics/default-diagnostics-state-wifi.png"/>
 {{/if}}
 
 Running the tests will kick off diagnostics for each layer of the
-connectivity stack. Tests will be run in parallel, but test results
-will only be shown once all tests are completed.
+connectivity stack. Tests will be run in parallel, and the test results
+will be shown once all tests are completed.
 Let's dive into what each test actually does:
 
 ### Device
@@ -314,7 +316,7 @@ call-to-action intelligently based on the test failures.
 To help uncover what the cause of the issue might be, the last known
 device diagnostic reading is displayed. For this device, we can see that
 {{#if electron}}the SIM card is deactivated. This prevents the device from connecting
-and the cellular network from initiatiing a session.{{else}} the last
+and the cellular network from initiating a session.{{else}} the last
 known diagnostics reading showed a weak Wi-Fi signal. This may be the
 cause of why the device is now not responsive to requests from the
 Particle Cloud.{{/if}}
