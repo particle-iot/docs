@@ -9983,7 +9983,8 @@ NB: SysInterrupt_TIM7 is used as a shadow watchdog timer by WICED when connected
 
 {{/if}} {{!-- has-stm32f2 --}}
 
-See the [full list of interrupts in the firmware repository](https://github.com/spark/firmware/blob/develop/hal/inc/interrupts_irq.h).
+See the [full list of interrupts in the firmware
+repository](https://github.com/spark/firmware/blob/develop/hal/inc/interrupts_hal.h).
 
 > When implementing an interrupt handler, the handler **must** execute quickly, or the system operation may be impaired. Any variables shared between the interrupt handler and the main program should be declared as `volatile` to ensure that changes in the interrupt handler are visible in the main loop and vice versa.
 
