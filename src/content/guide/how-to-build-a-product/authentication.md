@@ -99,7 +99,7 @@ client now.
  <p class="caption">The console provides an easy way to create OAuth
  clients</p>
 
-The console will provide you client ID and secret in once you configure
+The console will provide your client ID and secret once you configure
 your client correctly. **Your client secret will only be shown once for security
 purposes**. Ensure that you copy it for your records to be used in your mobile
 or web app.
