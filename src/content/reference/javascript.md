@@ -8,12 +8,12 @@ order: 4
 # Particle API JS
 
 ParticleJS is JavaScript library for the Particle Cloud API for Node.js and the browser.
-It's [open source](https://github.com/spark/particle-api-js) so you can edit, change or even send in pull requests if you want to share!
+It's [open source](https://github.com/particle-iot/particle-api-js) so you can edit, change or even send in pull requests if you want to share!
 
 This page contains examples to get started using the library.
 
 For more details, see the [detailed reference below](#detailed-reference) and check the
-[examples folder on GitHub](https://github.com/spark/particle-api-js/blob/master/examples).
+[examples folder on GitHub](https://github.com/particle-iot/particle-api-js/blob/master/examples).
 
 ## Installation
 
@@ -402,7 +402,7 @@ client library.
 {{!--
   The detailed Javascript docs are automatically generated from JSDoc comments
   in the source code of the library.  To fix any issues in the generated
-  documentation, edit the source code at https://github.com/spark/particle-api-js
+  documentation, edit the source code at https://github.com/particle-iot/particle-api-js
   and make a pull request with your changes on that repository. The docs will be
   automatically updated with the new content.
 --}}

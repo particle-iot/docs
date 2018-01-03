@@ -24,11 +24,11 @@ Particle Windows Cloud SDK enables Windows apps to interact with Particle-powere
 
 All cloud operations take place asynchronously and return a *System.Threading.Tasks.Task* allowing you to build beautiful responsive apps for your Particle products and projects. Windows Cloud SDK is implemented as an open-source .NET Portable Class Library. See [Installation](#installation) section for more details. It works well for both C# and VB projects.
 
-[The code for the Windows Cloud SDK is available on GitHub.](https://github.com/spark/particle-windows-sdk)
+[The code for the Windows Cloud SDK is available on GitHub.](https://github.com/particle-iot/particle-windows-sdk)
 
 ### Beta notice
 
-This SDK is still under development and is currently released as Beta and over the next few months may go under considerable changes. Although tested, bugs and issues may be present. Some code might require cleanup. In addition, until version 1.0 is released, we cannot guarantee that API calls will not break from one Cloud SDK version to the next. Be sure to consult the [Change Log](https://github.com/spark/particle-windows-sdk/blob/master/CHANGELOG.md) for any breaking changes / additions to the SDK.
+This SDK is still under development and is currently released as Beta and over the next few months may go under considerable changes. Although tested, bugs and issues may be present. Some code might require cleanup. In addition, until version 1.0 is released, we cannot guarantee that API calls will not break from one Cloud SDK version to the next. Be sure to consult the [Change Log](https://github.com/particle-iot/particle-windows-sdk/blob/master/CHANGELOG.md) for any breaking changes / additions to the SDK.
 
 ### Getting started
 
@@ -37,7 +37,7 @@ This SDK is still under development and is currently released as Beta and over t
 
 ### Usage
 
-Cloud SDK usage involves two basic classes: first is [`ParticleCloud`](https://github.com/spark/particle-windows-sdk/blob/master/ParticleSDK/ParticleCloud.cs) which is an object that enables all basic cloud operations such as user authentication, device listing, claiming etc. Second class is [`ParticleDevice`](https://github.com/spark/particle-windows-sdk/blob/master/ParticleSDK/ParticleDevice.cs) which is an instance representing a claimed device in the current user session. Each object enables device-specific operation such as: getting its info, invoking functions and reading variables from it.
+Cloud SDK usage involves two basic classes: first is [`ParticleCloud`](https://github.com/particle-iot/particle-windows-sdk/blob/master/ParticleSDK/ParticleCloud.cs) which is an object that enables all basic cloud operations such as user authentication, device listing, claiming etc. Second class is [`ParticleDevice`](https://github.com/particle-iot/particle-windows-sdk/blob/master/ParticleSDK/ParticleDevice.cs) which is an instance representing a claimed device in the current user session. Each object enables device-specific operation such as: getting its info, invoking functions and reading variables from it.
 
 ### SDK calls from the UI thread
 
@@ -247,20 +247,20 @@ Once you've created your OAuth credentials, you can supply them to the SDK by pr
 - Any edition of Microsoft Visual Studio 2015 (Other build systems may also work, but are not officially supported.)
 - You can use either C# or VB
 
-You can either [download Particle Windows Cloud SDK](https://github.com/spark/particle-windows-sdk/archive/master.zip) or install using [NuGet](http://www.nuget.org/packages/Particle.SDK)
+You can either [download Particle Windows Cloud SDK](https://github.com/particle-iot/particle-windows-sdk/archive/master.zip) or install using [NuGet](http://www.nuget.org/packages/Particle.SDK)
 
 `PM> Install-Package Particle.SDK`
 
 ### Communication
 
 - If you **need help**, use [Our community website](http://community.particle.io), use the `Mobile` category for dicussion/troubleshooting Windows apps using the Particle Windows Cloud SDK.
-- If you are certain you **found a bug**, _and can provide steps to reliably reproduce it_, [open an issue on GitHub](https://github.com/spark/particle-windows-sdk/labels/bug).
-- If you **have a feature request**, [open an issue on GitHub](https://github.com/spark/particle-windows-sdk/labels/enhancement).
+- If you are certain you **found a bug**, _and can provide steps to reliably reproduce it_, [open an issue on GitHub](https://github.com/particle-iot/particle-windows-sdk/labels/bug).
+- If you **have a feature request**, [open an issue on GitHub](https://github.com/particle-iot/particle-windows-sdk/labels/enhancement).
 - If you **want to contribute**, submit a pull request, be sure to check out spark.github.io for our contribution guidelines, and please sign the [CLA](https://docs.google.com/a/particle.io/forms/d/1_2P-vRKGUFg5bmpcKLHO_qNZWGi5HKYnfrrkd-sbZoA/viewform).
 
 ### License
 
-Particle Windows Cloud SDK is available under the Apache License 2.0. See the [LICENSE file](https://github.com/spark/particle-windows-sdk/blob/master/LICENSE) for more info.
+Particle Windows Cloud SDK is available under the Apache License 2.0. See the [LICENSE file](https://github.com/particle-iot/particle-windows-sdk/blob/master/LICENSE) for more info.
 
 ## Particle Device Setup library *(Alpha)*
 
@@ -272,11 +272,11 @@ The wireless setup process for the Photon uses very different underlying technol
 
 With the Device Setup library, you make one simple call from your app, for example when the user hits a "Setup my device" button, and a whole series of screens then guide the user through the setup process. When the process finishes, the app user is back on the screen where she hit the "Setup my device" button, and your code has been passed an instance of the device she just setup and claimed. Windows Device setup library is implemented as an open-source .NET Portable Class Library. It works well for both C# and VB projects.
 
-[The code for the Windows Device Setup library is available on GitHub.](https://github.com/spark/particle-windows-devicesetup)
+[The code for the Windows Device Setup library is available on GitHub.](https://github.com/particle-iot/particle-windows-devicesetup)
 
 ### Alpha notice
 
-This Library is still under development and is currently released as Alpha and over the next few months may go under considerable changes. Although tested, bugs and issues may be present. Some code might require cleanup. In addition, until version 1.0 is released, we cannot guarantee that API calls will not break from one version to the next. Be sure to consult the [Change Log](https://github.com/spark/particle-windows-devicesetup/blob/master/CHANGELOG.md) for any breaking changes / additions to the library.
+This Library is still under development and is currently released as Alpha and over the next few months may go under considerable changes. Although tested, bugs and issues may be present. Some code might require cleanup. In addition, until version 1.0 is released, we cannot guarantee that API calls will not break from one version to the next. Be sure to consult the [Change Log](https://github.com/particle-iot/particle-windows-devicesetup/blob/master/CHANGELOG.md) for any breaking changes / additions to the library.
 
 ### Getting started
 
@@ -359,7 +359,7 @@ Possible result values:
 
 ### Internally used direct soft AP commands
 
-The Device Setup library currently also has the internally used class: [`SoftAPConfig`](https://github.com/spark/particle-windows-devicesetup/blob/master/ParticleSetup/SoftAPConfig.cs) which is an object that enables all basic soft AP commands.
+The Device Setup library currently also has the internally used class: [`SoftAPConfig`](https://github.com/particle-iot/particle-windows-devicesetup/blob/master/ParticleSetup/SoftAPConfig.cs) which is an object that enables all basic soft AP commands.
 
 #### Get device ID
 
@@ -425,17 +425,17 @@ var result = await SoftAPConfig.SetConnectAPAsync(index);
 - Any edition of Microsoft Visual Studio 2015 (Other build systems may also work, but are not officially supported.)
 - You can use either C# or VB
 
-You can either [download Particle Device Setup library](https://github.com/spark/particle-windows-devicesetup/archive/master.zip) or install using [NuGet](http://www.nuget.org/packages/Particle.Setup)
+You can either [download Particle Device Setup library](https://github.com/particle-iot/particle-windows-devicesetup/archive/master.zip) or install using [NuGet](http://www.nuget.org/packages/Particle.Setup)
 
 `PM> Install-Package Particle.Setup`
 
 ### Communication
 
 - If you **need help**, use [Our community website](http://community.particle.io), use the `Mobile` category for discussion/troubleshooting Windows apps using the Particle Windows Cloud SDK.
-- If you are certain you **found a bug**, _and can provide steps to reliably reproduce it_, [open an issue on GitHub](https://github.com/spark/particle-windows-devicesetup/labels/bug).
-- If you **have a feature request**, [open an issue on GitHub](https://github.com/spark/particle-windows-devicesetup/labels/enhancement).
+- If you are certain you **found a bug**, _and can provide steps to reliably reproduce it_, [open an issue on GitHub](https://github.com/particle-iot/particle-windows-devicesetup/labels/bug).
+- If you **have a feature request**, [open an issue on GitHub](https://github.com/particle-iot/particle-windows-devicesetup/labels/enhancement).
 - If you **want to contribute**, submit a pull request, be sure to check out spark.github.io for our contribution guidelines, and please sign the [CLA](https://docs.google.com/a/particle.io/forms/d/1_2P-vRKGUFg5bmpcKLHO_qNZWGi5HKYnfrrkd-sbZoA/viewform).
 
 ### License
 
-Particle Device Setup library is available under the Apache License 2.0. See the [LICENSE file](https://github.com/spark/particle-windows-devicesetup/blob/master/LICENSE) for more info.
+Particle Device Setup library is available under the Apache License 2.0. See the [LICENSE file](https://github.com/particle-iot/particle-windows-devicesetup/blob/master/LICENSE) for more info.

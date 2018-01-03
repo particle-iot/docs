@@ -100,7 +100,7 @@ __操作方法__
 
 如果使用手机应用程序来设置您的 Spark Core， 它应该会自动认领. 但是，如果您通过USB连接您的 Core, 或者认领过程不成功，您可以亲自认领.
 
-通过 USB 手动认取 core  最简单的方法是使用[Spark 命令行界面](https://github.com/spark/spark-cli). 一旦您安装了这个，您可以简单的输入'setup'的设置，并按照说明进行操作.
+通过 USB 手动认取 core  最简单的方法是使用[Spark 命令行界面](https://github.com/particle-iot/spark-cli). 一旦您安装了这个，您可以简单的输入'setup'的设置，并按照说明进行操作.
 
 另外，如果您在安装命令行工具时遇到问题，您可以通过串行得到 core 的 标识号.
  

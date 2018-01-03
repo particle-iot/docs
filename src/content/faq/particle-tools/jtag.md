@@ -29,7 +29,7 @@ There are also "ST-LINK/V2 Mini" devices. These also connect by USB but only use
 
 ![ST-LINK/V2 Mini](/assets/images/jtag-07mini.jpg)
 
-Finally, there's the [Particle Programmer Shield](https://github.com/spark/shields/tree/master/photon-shields/programmer-shield), primarily designed for the Photon.  
+Finally, there's the [Particle Programmer Shield](https://github.com/particle-iot/shields/tree/master/photon-shields/programmer-shield), primarily designed for the Photon.  
 
 ![Particle Programmer Shield](/assets/images/jtag-08shield.jpg)
 
@@ -98,7 +98,7 @@ If your flash is very corrupted, you may also need to flash system and user firm
 
 ### Programming system and user firmware
 
-You can download system firmware binaries for all released versions from [the GitHub release site](https://github.com/spark/firmware/releases).
+You can download system firmware binaries for all released versions from [the GitHub release site](https://github.com/particle-iot/firmware/releases).
 
 For the Photon, flash, for example:
 
@@ -179,7 +179,7 @@ If you are using the Particle Programmer shield you will also need to install th
 /usr/local/share/openocd/scripts/interface/ftdi/
 ```
 
-There are special concerns with the USB driver that may affect the programmer shield. You should check out the [official documentation](https://github.com/spark/shields/tree/master/photon-shields/programmer-shield) for more information about configuring the USB device.
+There are special concerns with the USB driver that may affect the programmer shield. You should check out the [official documentation](https://github.com/particle-iot/shields/tree/master/photon-shields/programmer-shield) for more information about configuring the USB device.
 
 
 ### Installation - Windows

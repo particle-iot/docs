@@ -240,7 +240,7 @@ Recently Resolved Issues
 
 ## Flashing Blue
 * Status: **Resolved as of v0.2.0**
-* Github Issue: https://github.com/spark/core-firmware/issues/144
+* Github Issue: https://github.com/particle-iot/core-firmware/issues/144
 * Forum Thread: https://community.particle.io/t/status-led-flashing-blue/2915
 
 #### Description
@@ -256,7 +256,7 @@ This issue has been resolved, and the fix was pushed with firmware v0.2.0 on Mar
 
 #### Description
 
-Timing issues were causing analog readings to return incorrectly; this has now been fixed with [this commit](https://github.com/spark/core-firmware/commit/b7ce24a4fb2dfe4f90e597e3a0f568f9ae098cfe).
+Timing issues were causing analog readings to return incorrectly; this has now been fixed with [this commit](https://github.com/particle-iot/core-firmware/commit/b7ce24a4fb2dfe4f90e597e3a0f568f9ae098cfe).
 
 This issue has been resolved, and the fix was pushed with firmware v0.2.0 on March 25.
 

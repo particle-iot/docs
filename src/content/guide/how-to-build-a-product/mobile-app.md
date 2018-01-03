@@ -182,17 +182,17 @@ Well Done! You've just created a mobile basic app that can:
 
 If you prefer to have a point of reference you're more than welcome to modify an existing app. Ideas for modifiable apps include:
 
-- [Example app](https://github.com/spark/spark-setup-ios-example)
-- [Particle Tinker open-source app](https://github.com/spark/photon-tinker-ios)
+- [Example app](https://github.com/particle-iot/spark-setup-ios-example)
+- [Particle Tinker open-source app](https://github.com/particle-iot/photon-tinker-ios)
 - Other users/3rd party apps, [ideas?](https://www.hackster.io/particle/projects)
 
 There’s also an example app written in Swift that demonstrates the basic usage of invoking the setup wizard, customizing its UI and using the returned SparkDevice class instance once Device Setup wizard completes.
 
 You can find the source code for the Cloud SDK under our GitHub account:
 
-[Repository of iOS Cloud SDK](https://github.com/spark/spark-sdk-ios)
+[Repository of iOS Cloud SDK](https://github.com/particle-iot/spark-sdk-ios)
 
-[Repository of iOS Device Setup library](https://github.com/spark/spark-setup-ios)
+[Repository of iOS Device Setup library](https://github.com/particle-iot/spark-setup-ios)
 
 
 #### Android
@@ -205,9 +205,9 @@ The Cloud SDK and Device Setup library for Android are available on our GitHub a
 The guide for how to create an Android app for Particle devices in Android studio is coming soon.
 Meanwhile you can find the source code for the Android Cloud SDK and Device Setup under our GitHub account:
 
-[Repository of Android Cloud SDK](https://github.com/spark/spark-sdk-android)
+[Repository of Android Cloud SDK](https://github.com/particle-iot/spark-sdk-android)
 
-[Repository of Android Device Setup library](https://github.com/spark/spark-setup-android)
+[Repository of Android Device Setup library](https://github.com/particle-iot/spark-setup-android)
 
 #### What's next?
 

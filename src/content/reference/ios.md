@@ -33,7 +33,7 @@ Code currently refers to `SparkCloud` and `SparkDevice`, this will soon be repla
 
 **Beta notice**
 
-This SDK is still under development and is currently released as Beta. Although tested, bugs and issues may be present. Some code might require cleanup. In addition, until version 1.0 is released, we cannot guarantee that API calls will not break from one Cloud SDK version to the next. Be sure to consult the [Change Log](https://github.com/spark/spark-sdk-ios/blob/master/CHANGELOG.md) for any breaking changes / additions to the SDK.
+This SDK is still under development and is currently released as Beta. Although tested, bugs and issues may be present. Some code might require cleanup. In addition, until version 1.0 is released, we cannot guarantee that API calls will not break from one Cloud SDK version to the next. Be sure to consult the [Change Log](https://github.com/particle-iot/spark-sdk-ios/blob/master/CHANGELOG.md) for any breaking changes / additions to the SDK.
 
 **Swift support**
 
@@ -46,7 +46,7 @@ All SDK callbacks return real optionals (`SparkDevice?`) instead of implicitly u
 ### Getting Started
 
 - Perform the installation step described under the **Installation** section below for integrating in your own project
-- You can also [Download Particle iOS Cloud SDK](https://github.com/spark/spark-sdk-ios/archive/master.zip) and try out the included iOS example app
+- You can also [Download Particle iOS Cloud SDK](https://github.com/particle-iot/spark-sdk-ios/archive/master.zip) and try out the included iOS example app
 - Be sure to check [Usage](#usage) before you begin for some code examples
 
 ### Usage
@@ -604,7 +604,7 @@ For a detailed step-by-step help on integrating the Cloud SDK within a Swift pro
 The [Apple documentation](https://developer.apple.com/library/ios/documentation/Swift/Conceptual/BuildingCocoaApps/InteractingWithObjective-CAPIs.html) is an important resource on mixing Objective-C and Swift code, be sure to read through that as well.
 
 _Notice_ that we've included the required bridging header file in the SDK, you just need to copy it to your project add it as the active bridging header file in the project settings as described in the links above.
-There's also an [example app](https://github.com/spark/spark-setup-ios-example), this app also demonstrates the Particle DeviceSetup library usage, as well as several Cloud SDK calls.
+There's also an [example app](https://github.com/particle-iot/spark-setup-ios-example), this app also demonstrates the Particle DeviceSetup library usage, as well as several Cloud SDK calls.
 
 #### Carthage (Recommended method)
 
@@ -625,7 +625,7 @@ Build your project - you now have the Particle SDK embedded in your project.
 
 ##### Carthage example
 
-A new example app demonstrating the usage of Carthage installation method is available [here](https://github.com/spark/ios-app-example-carthage).
+A new example app demonstrating the usage of Carthage installation method is available [here](https://github.com/particle-iot/ios-app-example-carthage).
 This app is meant to serve as basic example for using the Particle Cloud SDK and Device Setup Library in the Carthage dependencies form.
 To get this example app running, clone it, open the project in XCode and:
 
@@ -1144,7 +1144,7 @@ func sparkSetupViewController(controller: SparkSetupMainController!, didFinishWi
 
 method will be called, if `(result == SparkSetupMainControllerResultSuccess)` or (or simply `(result == .Success)` in Swift) the device parameter will contain an active `SparkDevice` instance you can interact with
 using the [iOS Cloud SDK](https://cocoapods.org/pods/Spark-SDK).
-In case setup failed, aborted or was cancalled  you can determine the exact reason by consulting the documentation of the enum value `SparkSetupMainControllerResult`. See [here](https://github.com/spark/spark-setup-ios/blob/master/Classes/User/SparkSetupMainController.h#L18-31) for additional details.
+In case setup failed, aborted or was cancalled  you can determine the exact reason by consulting the documentation of the enum value `SparkSetupMainControllerResult`. See [here](https://github.com/particle-iot/spark-setup-ios/blob/master/Classes/User/SparkSetupMainController.h#L18-31) for additional details.
 
 If setup failed and you can still determine the device ID of the last device that was tried to be setup and failed by conforming to the @optional delegate function: (new since 0.5.0)
 
@@ -1164,7 +1164,7 @@ func sparkSetupViewController(controller: SparkSetupMainController!, didNotSucce
 
 ### Example
 
-Cocoapods usage example app (in Swift) can be found [here](https://www.github.com/spark/spark-setup-ios-example/). Example app demonstates - invoking the setup wizard, customizing its UI and using the returned SparkDevice instance once
+Cocoapods usage example app (in Swift) can be found [here](https://www.github.com/particle-iot/spark-setup-ios-example/). Example app demonstates - invoking the setup wizard, customizing its UI and using the returned SparkDevice instance once
 setup wizard completes (delegate). Feel free to contribute to the example by submitting pull requests.
 
 ### Reference
@@ -1216,7 +1216,7 @@ github "spark/spark-setup-ios" ~> 0.6.0
 and then run the following command:
 `carthage update --platform iOS --use-submodules --no-use-binaries`.
 
-*you can also re-use/copy the `bin/setup` shell script in your project, find it [here](https://github.com/spark/spark-setup-ios/blob/master/bin/setup)*
+*you can also re-use/copy the `bin/setup` shell script in your project, find it [here](https://github.com/particle-iot/spark-setup-ios/blob/master/bin/setup)*
 
 A new folder will be created in your project root folder - when Carthage checkout and builds are done, navigate to the `./Carthage/Build/iOS` folder and drag all the created `.framework`s files into your project in XCode.
 Go to your XCode target settings->General->Embedded binaries and press `+` and add all the `.framework` files there too - make sure the `ParticleDeviceSetupLibrary.framework`, `ParticleSDK.framework` and the `AFNetworking.framework` are listed there.

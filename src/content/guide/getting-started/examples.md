@@ -98,7 +98,7 @@ Next, we're going to load code onto your device. Copy and paste this code into a
 
 Go ahead and save this application, then flash it to your {{device}}. You should be able to see that LED blinking away!
 
-_(In case you wonder how the pretty wiring diagram above was made, check out [Fritzing](http://fritzing.org/) and the [Particle Fritzing parts library](https://github.com/spark/hardware-libraries))_
+_(In case you wonder how the pretty wiring diagram above was made, check out [Fritzing](http://fritzing.org/) and the [Particle Fritzing parts library](https://github.com/particle-iot/hardware-libraries))_
 
 ### Code
 
@@ -1168,7 +1168,7 @@ To reflash Tinker from within the app:
 - **Android Users**: With your desired device selected, tap the options button in the upper right and tap the "Reflash Tinker" option in the drop down menu.
 {{/unless}} {{!-- raspberry-pi --}}
 
-The Tinker app is a great example of how to build a very powerful application with not all that much code. If you're a technical person, you can have a look at the latest release [here.](https://github.com/spark/firmware/blob/master/user/src/application.cpp)
+The Tinker app is a great example of how to build a very powerful application with not all that much code. If you're a technical person, you can have a look at the latest release [here.](https://github.com/particle-iot/firmware/blob/master/user/src/application.cpp)
 
 I know what you're thinking: this is amazing, but I really want to use Tinker *while* my code is running so I can see what's happening! Now you can.
 

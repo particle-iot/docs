@@ -116,5 +116,5 @@ If the update gets stuck or you see an error message, try following these steps
 
 
 We hope that fixes it for you, but if you are still experiencing problems, please check our
-[GitHub Issues](https://github.com/spark/device-updater/issues) and file a new issue.
+[GitHub Issues](https://github.com/particle-iot/device-updater/issues) and file a new issue.
 

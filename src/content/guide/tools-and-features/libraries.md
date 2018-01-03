@@ -174,7 +174,7 @@ Library contribution is currently supported in our Desktop IDE and via our Comma
 
 There are several ways to start contributing a Particle library.
 
-You can start a brand new library by generating the file structure with the Command Line Interface (CLI) using the [`particle library create`](/reference/cli/#particle-library-create) or downloading the [example library](https://github.com/spark/uber-library-example) and editing it.
+You can start a brand new library by generating the file structure with the Command Line Interface (CLI) using the [`particle library create`](/reference/cli/#particle-library-create) or downloading the [example library](https://github.com/particle-iot/uber-library-example) and editing it.
 
 If you made a library in the past, you can migrate it to the new format with `particle library migrate`.
 
@@ -190,7 +190,7 @@ Create at least one example `.ino` file inside a subfolder of `examples` to show
 
 If your library depends on other libraries you can add those dependencies to `library.properties` with `particle library add`. For example, since the [Internet Button](/datasheets/kits/#internet-button) contains NeoPixel LEDs, the `InternetButton` library has the line `dependencies.neopixel=0.0.10` in `library.properties` to indicate this.
 
-List the hardware platforms supported by your library supports to the [`architectures` field](#library-properties-fields) in `library.properties`. In the code you can compare the current platform constant with [the platform IDs](https://github.com/spark/firmware/blob/develop/platform/shared/inc/platforms.h).
+List the hardware platforms supported by your library supports to the [`architectures` field](#library-properties-fields) in `library.properties`. In the code you can compare the current platform constant with [the platform IDs](https://github.com/particle-iot/firmware/blob/develop/platform/shared/inc/platforms.h).
 
 ```
 #if PLATFORM_ID == 10 // Electron
@@ -254,11 +254,11 @@ Follow these steps to migrate a v1 Particle library to the new v2 structure usin
   - If you already have the Particle CLI installed, you can update it to the latest version by running `npm update -g particle-cli`
 
 - Run `particle library migrate` in your library directory
-- Edit the newly created `library.properties` file to add a GitHub URL to the `url` field (like [https://github.com/spark/internetbutton](https://github.com/spark/internetbutton)) and the git remote to the `repository` field (like [https://github.com/spark/internetbutton.git](https://github.com/spark/internetbutton.git))
+- Edit the newly created `library.properties` file to add a GitHub URL to the `url` field (like [https://github.com/particle-iot/internetbutton](https://github.com/particle-iot/internetbutton)) and the git remote to the `repository` field (like [https://github.com/particle-iot/internetbutton.git](https://github.com/particle-iot/internetbutton.git))
 - If your library depends on another library, run `particle library add dependency` in your library directory and remove the source files of the other library from your own repository
 - Ensure that the example applications for your library compile by running `particle compile photon examples/<name>` in your library directory
 - Refresh the `README.md` file for your library with detailed information and instructions for using and interacting with the library. The `README.md` file will be used as the "home page" for your library.
-  - See [https://github.com/spark/PowerShield](https://github.com/spark/PowerShield) for a good example.
+  - See [https://github.com/particle-iot/PowerShield](https://github.com/particle-iot/PowerShield) for a good example.
 - Upload a private version of your library by running `particle library upload`
 - Try adding the library to a project using the [Web IDE](https://build.particle.io)
 - Publish the new public version of the library by running `particle library publish mylibrary` in the CLI
@@ -289,7 +289,7 @@ Follow these steps to migrate a v1 Particle library to the new v2 structure usin
 
 ![](/assets/images/libraries/migrate-3.png)
 
-- Edit the newly created `library.properties` file to add a GitHub URL to the `url` field (like [https://github.com/spark/internetbutton](https://github.com/spark/internetbutton)) and the git remote to the `repository` field (like [https://github.com/spark/internetbutton.git](https://github.com/spark/internetbutton.git))
+- Edit the newly created `library.properties` file to add a GitHub URL to the `url` field (like [https://github.com/particle-iot/internetbutton](https://github.com/particle-iot/internetbutton)) and the git remote to the `repository` field (like [https://github.com/particle-iot/internetbutton.git](https://github.com/particle-iot/internetbutton.git))
 
 - Add any necessary external library dependencies in the `library.properties` file as new lines using the following format:
 
@@ -297,7 +297,7 @@ Follow these steps to migrate a v1 Particle library to the new v2 structure usin
 
 - Ensure that the example applications for your library compile by opening up an example in the `examples` directory and clicking the compile button
 - Refresh the `README.md` file for your library with detailed information and instructions for using and interacting with the library. The `README.md` file will be used as the "home page" for your library.
-  - See [https://github.com/spark/PowerShield](https://github.com/spark/PowerShield) for a good example.
+  - See [https://github.com/particle-iot/PowerShield](https://github.com/particle-iot/PowerShield) for a good example.
 - Upload a private version of your library by clicking the `Upload` button at the top of the Library Manager tab
 - Try adding the library to a project using the [Web IDE](https://build.particle.io)
 - Publish the new public version of the library clicking the `Publish` button at the top of the Library manager tab

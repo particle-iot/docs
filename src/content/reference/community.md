@@ -56,7 +56,7 @@ library it needs. Code level is Java-8. It should be trivial to use Java-7 or lo
 
 ## Typescript
 
-* [Soft AP Setup library for Typescript by Mark Terrill](https://www.npmjs.com/package/softap-setup-ts) - Port of the [Particle SoftAP Setup library](https://github.com/spark/softap-setup-js) to perform wireless setup of Particle devices
+* [Soft AP Setup library for Typescript by Mark Terrill](https://www.npmjs.com/package/softap-setup-ts) - Port of the [Particle SoftAP Setup library](https://github.com/particle-iot/softap-setup-js) to perform wireless setup of Particle devices
 
 ## Xamarin
 

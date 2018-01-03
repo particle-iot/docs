@@ -46,7 +46,7 @@ Plug in your Photon and go through the setup process as seen in either the [star
 
 ## Examples
 
-You can find examples on how to use your Internet Button in the [official Internet Button library under the Libraries tab on Particle Build](https://build.particle.io/libs/InternetButton/0.1.11/tab/example/1_Blink_An_LED.cpp). You can also access them via [this GitHub repo](https://github.com/spark/InternetButton/tree/master/examples), or by checking out the text below.
+You can find examples on how to use your Internet Button in the [official Internet Button library under the Libraries tab on Particle Build](https://build.particle.io/libs/InternetButton/0.1.11/tab/example/1_Blink_An_LED.cpp). You can also access them via [this GitHub repo](https://github.com/particle-iot/InternetButton/tree/master/examples), or by checking out the text below.
 
 You should be able to fork the examples from Particle Build or copy and paste the code from the GitHub repo or from this page. We recommend going through these examples in order for the best understanding of how the Internet Button works. If you haven't used Particle Build before, read the [Particle Build guide](/guide/getting-started/build/photon/).
 
@@ -321,7 +321,7 @@ void loop(){
 Useful info, like how to access the data from your browser, can be
 found here: https://docs.particle.io/photon/firmware/#particle-function-
 The code to control the number of illuminated LEDs is here:
-https://github.com/spark/InternetButton/blob/master/controlKnob.html
+https://github.com/particle-iot/InternetButton/blob/master/controlKnob.html
 Try naming one of your devices "InternetButton" and running controlKnob in your browser or on your phone!
 Note that the Core or Photon *must* be named "InternetButton" because the javascript looks for it.
 */

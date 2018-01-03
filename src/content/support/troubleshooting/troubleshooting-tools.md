@@ -20,7 +20,7 @@ It is possible to put your {{device}} in [Listening Mode](/guide/getting-started
 
 #### For Windows
 
-For Windows users, we recommend downloading [PuTTY](http://www.putty.org/). You will also need to download and install the [Particle driver](https://github.com/spark/windows-device-drivers/releases/download/v6.1.0.51/particle_drivers_6.1.0.51.exe).
+For Windows users, we recommend downloading [PuTTY](http://www.putty.org/). You will also need to download and install the [Particle driver](https://github.com/particle-iot/windows-device-drivers/releases/download/v6.1.0.51/particle_drivers_6.1.0.51.exe).
 
 Plug your device into your computer over USB. When the {{device}} is in [Listening Mode](/guide/getting-started/modes/#listening-mode), open a serial port over USB using the standard settings, which should be:
 
@@ -85,7 +85,7 @@ The IMEI of the cellular modem will also be printed.
 
 To get the system firmware version of your device, type `v`
 
-This will give you an output indicating the [firmware](https://github.com/spark/firmware/blob/develop/CHANGELOG.md) that your device is using.
+This will give you an output indicating the [firmware](https://github.com/particle-iot/firmware/blob/develop/CHANGELOG.md) that your device is using.
 
 Sample output:
 
@@ -126,7 +126,7 @@ We don't recommend using these commands unless you're very comfortable with the 
 
 dfu-util works from the command line with OS X, but to use dfu-util on Windows, you'll need several drivers.
 
-- First, you'll need to download and install the [Particle driver](https://github.com/spark/windows-device-drivers/releases/download/v6.1.0.51/particle_drivers_6.1.0.51.exe).
+- First, you'll need to download and install the [Particle driver](https://github.com/particle-iot/windows-device-drivers/releases/download/v6.1.0.51/particle_drivers_6.1.0.51.exe).
 
 - Once that is done, put your {{device}} in DFU mode.
 

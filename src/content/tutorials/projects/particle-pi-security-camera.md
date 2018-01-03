@@ -14,7 +14,7 @@ order: 10
 Welcome to the official tutorial for building your very own Particle-connected security camera with Raspberry Pi! This project uses the Raspberry Pi integration with the Particle Cloud to control a PIR sensor, NeoPixel LED ring, and Raspberry Pi camera to watch for intruders, snap a photo, and upload it to the web via Dropbox.
 
 All firmware and software files for the project are located at the following GitHub repository:
-[https://github.com/spark/particle-pi-camera](https://github.com/spark/particle-pi-camera)
+[https://github.com/particle-iot/particle-pi-camera](https://github.com/particle-iot/particle-pi-camera)
 
 
 ### Particle Pi beta program
@@ -149,7 +149,7 @@ For this project, we used these awesome [NeoPixel LED rings](https://www.adafrui
 
 Follow these instructions for wiring up the LED rings:
 - Connect the positive supply of the ring to +5V on the Pi, GND to GND and input pin of the NeoPixel ring to GPIO18 of the Pi
-- Use [this modified version](https://github.com/spark/particle-pi-camera/tree/master/firmware) of the NeoPixel library, labeled `ws2811`, to control the ring. Note that it is included as a library dependency of the test app below.
+- Use [this modified version](https://github.com/particle-iot/particle-pi-camera/tree/master/firmware) of the NeoPixel library, labeled `ws2811`, to control the ring. Note that it is included as a library dependency of the test app below.
 - Use the following app to test the ring. You can flash it to your Pi by copying and pasting it into the Web IDE and flashing it to your Raspberry Pi by clicking the star icon next to your device in the "Devices" panel.
 
 ```cpp
@@ -358,7 +358,7 @@ uint32_t color(uint8_t r, uint8_t g, uint8_t b, uint8_t w = 0) {
 
 Once you've verified that your hardware has been configured correctly, you'll need to flash the final firmware application that interacts with the hardware to your Raspberry Pi. You can view and download that application from our GitHub page for the project, located here:
 
-[https://github.com/spark/particle-pi-camera/blob/master/firmware/application.cpp](https://github.com/spark/particle-pi-camera/blob/master/firmware/application.cpp)
+[https://github.com/particle-iot/particle-pi-camera/blob/master/firmware/application.cpp](https://github.com/particle-iot/particle-pi-camera/blob/master/firmware/application.cpp)
 
 Here is the schematic of the complete project. Two NeoPixel rings are connected in series with the data out of the right ring connected to the data input of the left ring. The output of the PIR sensor is connected to GPIO26. Remember to plug in your pi-camera as well!
 
@@ -368,7 +368,7 @@ Here is the schematic of the complete project. Two NeoPixel rings are connected 
 
 These instructions are for the assembly of an optional enclosure that you can build if you have access to a laser cutter. All of the pieces are cut from a 3mm white acrylic sheet, but you can feel free to use MDF or plywood instead.
 
-You can download an illustrator file for the laser cutter [here.](https://github.com/spark/particle-pi-camera/blob/master/images/enclosure.ai)
+You can download an illustrator file for the laser cutter [here.](https://github.com/particle-iot/particle-pi-camera/blob/master/images/enclosure.ai)
 
 ![](/assets/images/particle-pi-cam/image01.jpg)
 

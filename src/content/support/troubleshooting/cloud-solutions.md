@@ -13,7 +13,7 @@ Cloud Solutions
 
 This will guide you through on how to Setup the Local cloud and use it with Particle-cli after a successful installation.
 
-Before you proceed, make sure you fired up ``particle-server`` [link to particle-server](https://github.com/spark/spark-server) successfully at least once. We will need the server public keys generated on 1st run later.
+Before you proceed, make sure you fired up ``particle-server`` [link to particle-server](https://github.com/particle-iot/spark-server) successfully at least once. We will need the server public keys generated on 1st run later.
 
 **NOTE:** This will point the Particle-CLI to the local cloud and you will not be able to use features available on the Particle cloud.
 

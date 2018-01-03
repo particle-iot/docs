@@ -204,11 +204,11 @@ If you do not have a Mac/Apple computer then you should not read the instruction
 
 *For Windows* If you have a Windows machine, please follow <a href="http://blog.jongallant.com/2015/08/particle-photon-firmware-flash-windows.html" target="_blank">these instructions</a>.
 
-Since your device is offline, I recommend using our dfu-util method. If you want more info on this, the local DFU-UTIL method is roughly explained [here](https://github.com/spark/firmware/releases).
+Since your device is offline, I recommend using our dfu-util method. If you want more info on this, the local DFU-UTIL method is roughly explained [here](https://github.com/particle-iot/firmware/releases).
 
 To upgrade your Photon, follow the instructions below:
 
--  Download the latest system Part-1 and Part-2 firmware binaries for the Photon linked here: [latest release](https://github.com/spark/firmware/releases/latest)
+-  Download the latest system Part-1 and Part-2 firmware binaries for the Photon linked here: [latest release](https://github.com/particle-iot/firmware/releases/latest)
 
 -  Install dfu-util on your Mac using: ```brew install dfu-util```
 If you don't have brew or homebrew installed, install it here: <a href="http://brew.sh/" target="_blank">http://brew.sh/</a>

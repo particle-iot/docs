@@ -172,7 +172,7 @@ When these pins are programmed to be used as a Bluetooth coexistence interface, 
 
 The DCT area of flash memory has been mapped to a separate DFU media device so that we can incrementally update the application data. This allows one item (say, server public key) to be updated without erasing the other items.
 
-_DCT layout in `release/stable`_ <a href="https://github.com/spark/firmware/blob/release/stable/platform/MCU/STM32F2xx/SPARK_Firmware_Driver/inc/dct.h" target="_blank">found here in firmware.</a>
+_DCT layout in `release/stable`_ <a href="https://github.com/particle-iot/firmware/blob/release/stable/platform/MCU/STM32F2xx/SPARK_Firmware_Driver/inc/dct.h" target="_blank">found here in firmware.</a>
 
 | Region | Offset | Size |
 |:---|---|---|
@@ -475,7 +475,7 @@ The P1 can be mounted directly on a carrier PCB with following PCB land pattern:
 
 <div align=center><img src="/assets/images/p1-land-pattern.png" width=600px></div>
 
-A P1 part for EAGLE can be found in the [Particle EAGLE library](https://github.com/spark/hardware-libraries#pcb-footprints-land-pattern)
+A P1 part for EAGLE can be found in the [Particle EAGLE library](https://github.com/particle-iot/hardware-libraries#pcb-footprints-land-pattern)
 
 ## P1 Reference Design Schematic
 
@@ -552,7 +552,7 @@ The P1 module comes pre-programmed with a bootloader and a user application call
 
 The bootloader allows you to easily update the user application via several different methods, USB, OTA, Serial Y-Modem, and also internally via the Factory Reset procedure.  All of these methods have multiple tools associated with them as well.
 
-You may use the online Web IDE [Particle Build](https://build.particle.io/) to code, compile and flash a user application OTA (Over The Air).  [Particle Dev](https://www.particle.io/dev) is a local tool that uses the Cloud to compile and flash OTA as well.  There is also a package `Spark DFU-UTIL` for Particle Dev that allows for Cloud compiling and local flashing via DFU over USB.  This requires `dfu-util` to be installed on your system.  'dfu-util' can also be used with [Particle CLI](/guide/tools-and-features/cli) for Cloud compiling and local flashing via the command line.  Finally the lowest level of development is available via the [GNU GCC tool chain for ARM](https://github.com/spark/firmware), which offers local compile and flash via dfu-util.  This gives the user complete control of all source code and flashing methods.  This is an extensive list, however not exhaustive.
+You may use the online Web IDE [Particle Build](https://build.particle.io/) to code, compile and flash a user application OTA (Over The Air).  [Particle Dev](https://www.particle.io/dev) is a local tool that uses the Cloud to compile and flash OTA as well.  There is also a package `Spark DFU-UTIL` for Particle Dev that allows for Cloud compiling and local flashing via DFU over USB.  This requires `dfu-util` to be installed on your system.  'dfu-util' can also be used with [Particle CLI](/guide/tools-and-features/cli) for Cloud compiling and local flashing via the command line.  Finally the lowest level of development is available via the [GNU GCC tool chain for ARM](https://github.com/particle-iot/firmware), which offers local compile and flash via dfu-util.  This gives the user complete control of all source code and flashing methods.  This is an extensive list, however not exhaustive.
 
 ## Glossary
 
@@ -650,7 +650,7 @@ Cet équipement devrait être installé et actionné avec une distance minimum d
 
 ## Known Errata
 
-We are tracking [known errata with this datasheet here](https://github.com/spark/docs/issues/19).  These issues/errors in the datasheet will be resolved in subsequent revisions.
+We are tracking [known errata with this datasheet here](https://github.com/particle-iot/docs/issues/19).  These issues/errors in the datasheet will be resolved in subsequent revisions.
 
 ## Contact
 

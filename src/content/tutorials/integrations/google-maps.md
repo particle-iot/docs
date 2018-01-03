@@ -168,7 +168,7 @@ By changing a few options you can have it publish once at boot, which might be a
 For more information on how to
 customize the library, or integrate the library in an
 existing firmware application, check out the
-<a href="https://github.com/spark/google-maps-device-locator#firmware-library-api"
+<a href="https://github.com/particle-iot/google-maps-device-locator#firmware-library-api"
 target="_blank">firmware library API</a>.
 
 ## Enabling the Integration
@@ -269,7 +269,7 @@ The connections are:
 
 The firmware to power displaying a device's location on an OLED display
 can be found in the [Google Maps device locator
-examples](https://github.com/spark/google-maps-device-locator-examples)
+examples](https://github.com/particle-iot/google-maps-device-locator-examples)
 repository.
 
 To use this firmware example, you should downlod the repo, either by
