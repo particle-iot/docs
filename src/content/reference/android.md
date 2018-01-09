@@ -4,7 +4,7 @@ layout: reference.hbs
 columns: three
 order: 6
 sdkversion: 0.4.8
-devicesetupversion: 0.4.9
+devicesetupversion: 0.5.0
 asyncclasslink: https://github.com/spark/spark-sdk-android/blob/master/cloudsdk/src/main/java/io/particle/android/sdk/utils/Async.java
 ---
 
@@ -420,6 +420,7 @@ The Device Setup library has two main requirements:
 
 - You must call `ParticleDeviceSetupLibrary.init(...)` in your Application.onCreate() or in the
 onCreate() of your first Activity, e.g.:
+
 ```java
 ParticleDeviceSetupLibrary.init(this.getApplicationContext(), MyMainActivity.class);
 ```
@@ -433,79 +434,6 @@ wish to start once setup is complete).
 If your app requires the ability to let users configure device Wi-Fi credentials without changing its ownership you can also do that via initWithSetupOnly. Invoking setup will go thru the setup steps required for configuring device Wi-Fi credentials but not for claiming it.
 ```java
 ParticleDeviceSetupLibrary.initWithSetupOnly(this.getApplicationContext());
-```
-
-- You must add all of the following entries to your application's `AndroidManifest.xml` file.
-(Due to Android platform requirements, we cannot provide these manifest entries for
-you automatically.)
-
-```xml
-<!-- All of the following are from the device setup lib, and must be present in your app's
-manifest or you will not go to space today. -->
-<activity
-    android:name="io.particle.android.sdk.devicesetup.ui.DiscoverDeviceActivity"
-    android:label="@string/title_activity_discover_device"
-    android:screenOrientation="portrait"
-    android:theme="@style/ParticleSetupTheme.NoActionBar"
-    android:windowSoftInputMode="stateHidden" />
-<activity
-    android:name="io.particle.android.sdk.devicesetup.ui.SelectNetworkActivity"
-    android:label="@string/title_activity_select_network"
-    android:screenOrientation="portrait"
-    android:theme="@style/ParticleSetupTheme.NoActionBar"
-    android:windowSoftInputMode="stateHidden" />
-<activity
-    android:name="io.particle.android.sdk.devicesetup.ui.PasswordEntryActivity"
-    android:label="@string/title_activity_password_entry"
-    android:screenOrientation="portrait"
-    android:theme="@style/ParticleSetupTheme.NoActionBar"
-    android:windowSoftInputMode="adjustResize|stateVisible" />
-<activity
-    android:name="io.particle.android.sdk.devicesetup.ui.ConnectingActivity"
-    android:label="@string/title_activity_connecting"
-    android:screenOrientation="portrait"
-    android:theme="@style/ParticleSetupTheme.NoActionBar"
-    android:windowSoftInputMode="stateHidden" />
-<activity
-    android:name="io.particle.android.sdk.devicesetup.ui.SuccessActivity"
-    android:label="@string/title_activity_success"
-    android:screenOrientation="portrait"
-    android:theme="@style/ParticleSetupTheme.NoActionBar"
-    android:windowSoftInputMode="stateHidden" />
-<activity
-    android:name="io.particle.android.sdk.utils.ui.WebViewActivity"
-    android:label="@string/title_activity_web_view"
-    android:screenOrientation="portrait"
-    android:theme="@style/ParticleSetupTheme.NoActionBar" />
-<activity
-    android:name="io.particle.android.sdk.devicesetup.ui.GetReadyActivity"
-    android:label="@string/title_activity_get_ready"
-    android:screenOrientation="portrait"
-    android:theme="@style/ParticleSetupTheme.NoActionBar" />
-<activity
-    android:name="io.particle.android.sdk.devicesetup.ui.ManualNetworkEntryActivity"
-    android:label="@string/title_activity_manual_network_entry"
-    android:screenOrientation="portrait"
-    android:theme="@style/ParticleSetupTheme.NoActionBar"
-    android:windowSoftInputMode="adjustResize|stateVisible" />
-<activity
-    android:name="io.particle.android.sdk.accountsetup.CreateAccountActivity"
-    android:label="@string/title_activity_create_account"
-    android:screenOrientation="portrait"
-    android:theme="@style/ParticleSetupTheme.NoActionBar"
-    android:windowSoftInputMode="adjustResize|stateHidden" />
-<activity
-    android:name="io.particle.android.sdk.accountsetup.LoginActivity"
-    android:label="@string/title_activity_login"
-    android:screenOrientation="portrait"
-    android:theme="@style/ParticleSetupTheme.NoActionBar"
-    android:windowSoftInputMode="adjustResize|stateHidden" />
-<activity
-    android:name="io.particle.android.sdk.accountsetup.PasswordResetActivity"
-    android:label="@string/title_activity_password_reset"
-    android:screenOrientation="portrait"
-    android:theme="@style/ParticleSetupTheme.NoActionBar"
-    android:windowSoftInputMode="adjustResize|stateVisible" />
 ```
 ---
 
