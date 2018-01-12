@@ -31,7 +31,7 @@ To start and stop the firmware you use the `particle-agent` command.
 [All commands are documented below.](#agent-commands)
 
 For more details on the implementation of the Particle Agent, see the
-GitHub repository at <https://github.com/spark/particle-agent>.
+GitHub repository at <https://github.com/particle-iot/particle-agent>.
 
 
 ## Install
@@ -61,7 +61,7 @@ The settings like user email and Particle token are stored in
 The device-specific files are in `/var/lib/particle/devices/<deviceid>`
 where `deviceid` is a 24 character string.
 
-The package releases are also available on the [GitHub releases page](https://github.com/spark/particle-agent/releases).
+The package releases are also available on the [GitHub releases page](https://github.com/particle-iot/particle-agent/releases).
 
 ## Uninstall
 

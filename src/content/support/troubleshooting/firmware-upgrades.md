@@ -31,12 +31,12 @@ If you are using the [Particle CLI](/guide/tools-and-features/cli) and have been
 
 *Note:* This will allow you to flash custom versions of firmware.
 
-Since your device is offline, I recommend using our dfu-util method. If you want more info on this, the local DFU-UTIL method is roughly explained [here](https://github.com/spark/firmware/releases).
+Since your device is offline, I recommend using our dfu-util method. If you want more info on this, the local DFU-UTIL method is roughly explained [here](https://github.com/particle-iot/firmware/releases).
 
 To upgrade your {{device}}, follow the instructions below:
 
 -  Download the firmware binaries for the {{device}} from the latest release on GitHub. Scroll to the bottom of the page and download `system-part1-x.y.z-{{deviceValue}}.bin`, `system-part2-x.y.z-{{deviceValue}}.bin` and `system-part3-x.y.z-{{deviceValue}}.bin` (if available) where `x.y.z` is the firmware version number like 0.7.0.
-   <https://github.com/spark/firmware/releases/latest>
+   <https://github.com/particle-iot/firmware/releases/latest>
 
 -  Install dfu-util
 

@@ -169,7 +169,7 @@ The special baud rates are:
 
 ## UART Serial
 
-When connecting to an actual serial device, you'll be using one of the UART hardware serial ports. The Photon has one<sup>[&dagger;](#usbSerialFootnote)</sup> and the Electron has three UART serial ports.
+When connecting to an actual serial device, you'll be using one of the UART hardware serial ports. The Photon has one<sup><a href="#usbSerialFootnote">&dagger;</a></sup> and the Electron has three UART serial ports.
 
 All of the devices have the `Serial1` object, the main UART serial port, on the RX and TX pins.
 
@@ -178,7 +178,7 @@ All of the devices have the `Serial1` object, the main UART serial port, on the 
 
 When you connect a Photon another device, say an Arduino, the RX pin on the Photon always gets connected to the TX pin of the Arduino and vice versa. This is always the case, even if you connect two Photons by serial.
 
-> <sup><a name="usbSerialFootnote">&dagger;</a></sup> The Photon actually has two and the Electron four UART serial ports. The catch is that Serial2 is on the same pins as the RGB status LED. Using it requires soldering and disabling the status LED, which will make troubleshooting your device very difficult. It's a complicated enough topic that it [has its own tutorial](https://github.com/rickkas7/photon-serial2).
+<a id="usbSerialFootnote">&dagger;</a> The Photon actually has two and the Electron four UART serial ports. The catch is that Serial2 is on the same pins as the RGB status LED. Using it requires soldering and disabling the status LED, which will make troubleshooting your device very difficult. It's a complicated enough topic that it [has its own tutorial](https://github.com/rickkas7/photon-serial2).
 
 
 ### Additional ports on the Electron

@@ -1546,7 +1546,7 @@ if (strcmp(url,"/index")==0) {
 
 ### Complete Example
 
-Here's a complete example providing a Web UI for setting up WiFi via HTTP. Credit for the HTTP pages goes to Github user @mebrunet! ([Included from PR #909 here](https://github.com/spark/firmware/pull/906)) ([Source code here](https://github.com/mebrunet/softap-setup-page))
+Here's a complete example providing a Web UI for setting up WiFi via HTTP. Credit for the HTTP pages goes to Github user @mebrunet! ([Included from PR #909 here](https://github.com/particle-iot/firmware/pull/906)) ([Source code here](https://github.com/mebrunet/softap-setup-page))
 
 
 
@@ -4367,7 +4367,7 @@ This function takes no parameters and does not return anything.
 Keyboard.write(character);
 ```
 
-Momementarily clicks a keyboard key. A click is a [`press()`](#press--1) quickly followed by [`release()`](#release--1). This function works only with ASCII characters. ASCII characters are translated into USB HID keycodes according to the [conversion table](https://github.com/spark/firmware/blob/develop/wiring/src/spark_wiring_usbkeyboard.cpp#L33). For example ASCII character 'a' would be translated into 'a' keycode (leftmost middle row letter key on a QWERTY keyboard), whereas 'A' ASCII character would be sent as 'a' keycode with SHIFT modifier.
+Momementarily clicks a keyboard key. A click is a [`press()`](#press--1) quickly followed by [`release()`](#release--1). This function works only with ASCII characters. ASCII characters are translated into USB HID keycodes according to the [conversion table](https://github.com/particle-iot/firmware/blob/develop/wiring/src/spark_wiring_usbkeyboard.cpp#L33). For example ASCII character 'a' would be translated into 'a' keycode (leftmost middle row letter key on a QWERTY keyboard), whereas 'A' ASCII character would be sent as 'a' keycode with SHIFT modifier.
 
 ```cpp
 // EXAMPLE USAGE
@@ -4398,7 +4398,7 @@ Keyboard.click(key);
 Keyboard.click(key, modifiers);
 ```
 
-Momementarily clicks a keyboard key as well as one or more modifier keys (e.g. ALT, CTRL, SHIFT etc.). A click is a [`press()`](#press--1) quickly followed by [`release()`](#release--1). This function works only with USB HID [keycodes (defined in `enum UsbKeyboardScanCode`)](https://github.com/spark/firmware/blob/develop/wiring/inc/spark_wiring_usbkeyboard_scancode.h#L5) and [modifiers (defined in `enum UsbKeyboardModifier`)](https://github.com/spark/firmware/blob/develop/wiring/inc/spark_wiring_usbkeyboard_scancode.h#L396). `Keyboard` implementation supports keycodes ranging from `0x04 (KEY_A / Keyboard a and A)` to `0xDD (KEY_KPHEX / Keypad Hexadecimal)`.
+Momementarily clicks a keyboard key as well as one or more modifier keys (e.g. ALT, CTRL, SHIFT etc.). A click is a [`press()`](#press--1) quickly followed by [`release()`](#release--1). This function works only with USB HID [keycodes (defined in `enum UsbKeyboardScanCode`)](https://github.com/particle-iot/firmware/blob/develop/wiring/inc/spark_wiring_usbkeyboard_scancode.h#L5) and [modifiers (defined in `enum UsbKeyboardModifier`)](https://github.com/particle-iot/firmware/blob/develop/wiring/inc/spark_wiring_usbkeyboard_scancode.h#L396). `Keyboard` implementation supports keycodes ranging from `0x04 (KEY_A / Keyboard a and A)` to `0xDD (KEY_KPHEX / Keypad Hexadecimal)`.
 
 ```cpp
 // EXAMPLE USAGE
@@ -4412,8 +4412,8 @@ void setup() {
 
 *Parameters:*
 
-- `key`: USB HID key code (see [`enum UsbKeyboardScanCode`](https://github.com/spark/firmware/blob/develop/wiring/inc/spark_wiring_usbkeyboard_scancode.h#L5)) - `uint16_t`
-- `modifier`: _(optional)_ one or more ORed (`|`) USB HID modifier codes (see [`enum UsbKeyboardModifier`](https://github.com/spark/firmware/blob/develop/wiring/inc/spark_wiring_usbkeyboard_scancode.h#L396) - `uint16_t`
+- `key`: USB HID key code (see [`enum UsbKeyboardScanCode`](https://github.com/particle-iot/firmware/blob/develop/wiring/inc/spark_wiring_usbkeyboard_scancode.h#L5)) - `uint16_t`
+- `modifier`: _(optional)_ one or more ORed (`|`) USB HID modifier codes (see [`enum UsbKeyboardModifier`](https://github.com/particle-iot/firmware/blob/develop/wiring/inc/spark_wiring_usbkeyboard_scancode.h#L396) - `uint16_t`
 
 `click()` does not return anything.
 
@@ -4446,8 +4446,8 @@ void setup() {
 
 *Parameters:*
 
-- `key`: USB HID key code (see [`enum UsbKeyboardScanCode`](https://github.com/spark/firmware/blob/develop/wiring/inc/spark_wiring_usbkeyboard_scancode.h#L5)) - `uint16_t`
-- `modifier`: _(optional)_ one or more ORed (`|`) USB HID modifier codes (see [`enum UsbKeyboardModifier`](https://github.com/spark/firmware/blob/develop/wiring/inc/spark_wiring_usbkeyboard_scancode.h#L396) - `uint16_t`
+- `key`: USB HID key code (see [`enum UsbKeyboardScanCode`](https://github.com/particle-iot/firmware/blob/develop/wiring/inc/spark_wiring_usbkeyboard_scancode.h#L5)) - `uint16_t`
+- `modifier`: _(optional)_ one or more ORed (`|`) USB HID modifier codes (see [`enum UsbKeyboardModifier`](https://github.com/particle-iot/firmware/blob/develop/wiring/inc/spark_wiring_usbkeyboard_scancode.h#L396) - `uint16_t`
 
 `press()` does not return anything.
 
@@ -4477,8 +4477,8 @@ See [`Keyboard.click()`](#click--1) documentation for information about keycodes
 
 *Parameters:*
 
-- `key`: USB HID key code (see [`enum UsbKeyboardScanCode`](https://github.com/spark/firmware/blob/develop/wiring/inc/spark_wiring_usbkeyboard_scancode.h#L5)) - `uint16_t`
-- `modifier`: _(optional)_ one or more ORed (`|`) USB HID modifier codes (see [`enum UsbKeyboardModifier`](https://github.com/spark/firmware/blob/develop/wiring/inc/spark_wiring_usbkeyboard_scancode.h#L396) - `uint16_t`
+- `key`: USB HID key code (see [`enum UsbKeyboardScanCode`](https://github.com/particle-iot/firmware/blob/develop/wiring/inc/spark_wiring_usbkeyboard_scancode.h#L5)) - `uint16_t`
+- `modifier`: _(optional)_ one or more ORed (`|`) USB HID modifier codes (see [`enum UsbKeyboardModifier`](https://github.com/particle-iot/firmware/blob/develop/wiring/inc/spark_wiring_usbkeyboard_scancode.h#L396) - `uint16_t`
 
 `release()` does not return anything.
 
@@ -9744,7 +9744,7 @@ System.sleep(D1,RISING);
 ```
 
 {{#if core}}
-It is mandatory to update the *bootloader* (https://github.com/spark/firmware/tree/bootloader-patch-update) for proper functioning of this mode.
+It is mandatory to update the *bootloader* (https://github.com/particle-iot/firmware/tree/bootloader-patch-update) for proper functioning of this mode.
 {{/if}}
 
 {{#if has-cellular}}
@@ -9778,7 +9778,7 @@ System.sleep(D1,RISING,60);
 // The device LED will shut off during sleep
 ```
 
-{{#if core}}On the Core, it is necessary to update the *bootloader* (https://github.com/spark/firmware/tree/bootloader-patch-update) for proper functioning of this mode.{{/if}}
+{{#if core}}On the Core, it is necessary to update the *bootloader* (https://github.com/particle-iot/firmware/tree/bootloader-patch-update) for proper functioning of this mode.{{/if}}
 
 
 *Parameters:*
@@ -10020,7 +10020,7 @@ NB: SysInterrupt_TIM7 is used as a shadow watchdog timer by WICED when connected
 {{/if}} {{!-- has-stm32f2 --}}
 
 See the [full list of interrupts in the firmware
-repository](https://github.com/spark/firmware/blob/develop/hal/inc/interrupts_hal.h).
+repository](https://github.com/particle-iot/firmware/blob/develop/hal/inc/interrupts_hal.h).
 
 > When implementing an interrupt handler, the handler **must** execute quickly, or the system operation may be impaired. Any variables shared between the interrupt handler and the main program should be declared as `volatile` to ensure that changes in the interrupt handler are visible in the main loop and vice versa.
 
@@ -12719,13 +12719,13 @@ If you are getting unexpected errors when compiling valid code, it could be the 
 
 ## Firmware Releases
 
-Particle device firmware is open source and stored [here on Github](https://github.com/spark/firmware).
+Particle device firmware is open source and stored [here on Github](https://github.com/particle-iot/firmware).
 
-Firmware releases are published [here on Github](https://github.com/spark/firmware/releases) as they are created, tested and deployed.
+Firmware releases are published [here on Github](https://github.com/particle-iot/firmware/releases) as they are created, tested and deployed.
 
 ### Firmware Release Process
 
-The process in place for releasing all firmware prerelease or default release versions can be found [here on Github](https://github.com/spark/firmware/wiki/Firmware-Release-Process).
+The process in place for releasing all firmware prerelease or default release versions can be found [here on Github](https://github.com/particle-iot/firmware/wiki/Firmware-Release-Process).
 
 ### Github Release Notes
 
@@ -12733,11 +12733,11 @@ Please go to Github to read the Changelog for your desired firmware version (Cli
 
 |Firmware Version||||||
 |:-:|:-:|:-:|:-:|:-:|:-:|
-|v0.6.x default releases|[v0.6.0](https://github.com/spark/firmware/releases/tag/v0.6.0)|[v0.6.1](https://github.com/spark/firmware/releases/tag/v0.6.1)|[v0.6.2](https://github.com/spark/firmware/releases/tag/v0.6.2)|-|-|
-|v0.6.x-rc.x prereleases|[v0.6.2-rc.1](https://github.com/spark/firmware/releases/tag/v0.6.2-rc.1)|[v0.6.2-rc.2](https://github.com/spark/firmware/releases/tag/v0.6.2-rc.2)|-|-|-|
-|-|[v0.6.0-rc.1](https://github.com/spark/firmware/releases/tag/v0.6.0-rc.1)|[v0.6.0-rc.2](https://github.com/spark/firmware/releases/tag/v0.6.0-rc.2)|[v0.6.1-rc.1](https://github.com/spark/firmware/releases/tag/v0.6.1-rc.1)|[v0.6.1-rc.2](https://github.com/spark/firmware/releases/tag/v0.6.1-rc.2)|-|
-|v0.5.x default releases|[v0.5.0](https://github.com/spark/firmware/releases/tag/v0.5.0)|[v0.5.1](https://github.com/spark/firmware/releases/tag/v0.5.1)|[v0.5.2](https://github.com/spark/firmware/releases/tag/v0.5.2)|[v0.5.3](https://github.com/spark/firmware/releases/tag/v0.5.3)|[v0.5.4](https://github.com/spark/firmware/releases/tag/v0.5.4)|
-|v0.5.x-rc.x prereleases|[v0.5.3-rc.1](https://github.com/spark/firmware/releases/tag/v0.5.3-rc.1)|[v0.5.3-rc.2](https://github.com/spark/firmware/releases/tag/v0.5.3-rc.2)|[v0.5.3-rc.3](https://github.com/spark/firmware/releases/tag/v0.5.3-rc.3)|-|-|
+|v0.6.x default releases|[v0.6.0](https://github.com/particle-iot/firmware/releases/tag/v0.6.0)|[v0.6.1](https://github.com/particle-iot/firmware/releases/tag/v0.6.1)|[v0.6.2](https://github.com/particle-iot/firmware/releases/tag/v0.6.2)|-|-|
+|v0.6.x-rc.x prereleases|[v0.6.2-rc.1](https://github.com/particle-iot/firmware/releases/tag/v0.6.2-rc.1)|[v0.6.2-rc.2](https://github.com/particle-iot/firmware/releases/tag/v0.6.2-rc.2)|-|-|-|
+|-|[v0.6.0-rc.1](https://github.com/particle-iot/firmware/releases/tag/v0.6.0-rc.1)|[v0.6.0-rc.2](https://github.com/particle-iot/firmware/releases/tag/v0.6.0-rc.2)|[v0.6.1-rc.1](https://github.com/particle-iot/firmware/releases/tag/v0.6.1-rc.1)|[v0.6.1-rc.2](https://github.com/particle-iot/firmware/releases/tag/v0.6.1-rc.2)|-|
+|v0.5.x default releases|[v0.5.0](https://github.com/particle-iot/firmware/releases/tag/v0.5.0)|[v0.5.1](https://github.com/particle-iot/firmware/releases/tag/v0.5.1)|[v0.5.2](https://github.com/particle-iot/firmware/releases/tag/v0.5.2)|[v0.5.3](https://github.com/particle-iot/firmware/releases/tag/v0.5.3)|[v0.5.4](https://github.com/particle-iot/firmware/releases/tag/v0.5.4)|
+|v0.5.x-rc.x prereleases|[v0.5.3-rc.1](https://github.com/particle-iot/firmware/releases/tag/v0.5.3-rc.1)|[v0.5.3-rc.2](https://github.com/particle-iot/firmware/releases/tag/v0.5.3-rc.2)|[v0.5.3-rc.3](https://github.com/particle-iot/firmware/releases/tag/v0.5.3-rc.3)|-|-|
 
 ### Programming and Debugging Notes
 

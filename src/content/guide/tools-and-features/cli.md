@@ -9,7 +9,7 @@ layout: guide.hbs
 
 # Particle CLI
 
-The Particle CLI is a powerful tool for interacting with your devices and the Particle Cloud.  The CLI uses [Node.js](http://nodejs.org/) and can easily run on Windows, Mac OS X, and Linux.  It's also [open source](https://github.com/spark/particle-cli) so you can edit and change it, and even send in your changes as [pull requests](https://help.github.com/articles/about-pull-requests/) if you want to share!
+The Particle CLI is a powerful tool for interacting with your devices and the Particle Cloud.  The CLI uses [Node.js](http://nodejs.org/) and can easily run on Windows, Mac OS X, and Linux.  It's also [open source](https://github.com/particle-iot/particle-cli) so you can edit and change it, and even send in your changes as [pull requests](https://help.github.com/articles/about-pull-requests/) if you want to share!
 
 ## Installing
 
@@ -95,7 +95,7 @@ To grab the CLI source and play with it locally
 
 ```sh
 # how to get the source code for the CLI
-$ git clone https://github.com/spark/particle-cli.git
+$ git clone https://github.com/particle-iot/particle-cli.git
 $ cd particle-cli
 $ npm install
 $ node bin/particle.js help

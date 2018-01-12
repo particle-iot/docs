@@ -22,7 +22,7 @@ Particle system firmware abstracts much of the complexity away from the traditio
 
 Unlike application firmware, system firmware is written and maintained primarily by the Particle team. This is a conscious decision meant to keep you focused on your particular use case without needing to understand the nuances of low-level device behaviors.
 
-That being said, Particle's firmware repository is available as an open source project for those that want deep visibility into system firmware. To view the code and/or contribute, check out the [repo on GitHub](https://github.com/spark/firmware).
+That being said, Particle's firmware repository is available as an open source project for those that want deep visibility into system firmware. To view the code and/or contribute, check out the [repo on GitHub](https://github.com/particle-iot/firmware).
 
 
 ## Versioning
@@ -30,7 +30,7 @@ New features, security patches, and bugfixes are introduced to new versions of s
 
 System firmware versions that are suffixed with `-rc.x` are called _prereleases_ ("rc" stands for release candidate). These prereleases contain the changes that will eventually become a default release, but still need more thorough usage and testing. We recommend that you **do not** flash prereleased firmware to your production units deployed in the field.
 
-Each release is documented thoroughly to give you a comprehensive picture of what has changed in the new version. For a full list of system firmware releases and their descriptions, please check out [the release page on GitHub](https://github.com/spark/firmware/releases) for the firmware repository.
+Each release is documented thoroughly to give you a comprehensive picture of what has changed in the new version. For a full list of system firmware releases and their descriptions, please check out [the release page on GitHub](https://github.com/particle-iot/firmware/releases) for the firmware repository.
 
 ## Firmware Modules
 
@@ -130,7 +130,7 @@ There's a couple of things to note:
 #### CLI (Remote)
 You can also use the Particle CLI to remotely update a device's system firmware without changing the application firmware. This is a more advanced approach and requires some technical chops.
 
-To do this, first visit the [system firmware releases page](https://github.com/spark/firmware/releases) on GitHub and locate the version you'd like to send to a device.
+To do this, first visit the [system firmware releases page](https://github.com/particle-iot/firmware/releases) on GitHub and locate the version you'd like to send to a device.
 
 When you find the desired release, scroll down to the **Downloads** section. Here you will find the system firmware binary files. Remember that these binaries are specific to a device type, and a complete system firmware is comprised of multiple parts. Hone in on the files that begin with `system-part`:
 

@@ -517,7 +517,7 @@ As the diagram above suggests, you will receive an access token in the response 
 
 If you are using Particle's iOS SDK, there is a hook available to inject the
 customer's access token into the mobile client. You can [learn about this hook
-here](https://github.com/spark/spark-sdk-ios/tree/feature/two-legged-auth#4-two-legged-auth-support--better-session-handling).
+here](https://github.com/particle-iot/spark-sdk-ios/tree/feature/two-legged-auth#4-two-legged-auth-support--better-session-handling).
 
 
 ### Device Setup (Steps 4, 5 & 6)

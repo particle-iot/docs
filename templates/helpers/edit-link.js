@@ -3,6 +3,6 @@
 // {{edit-link branch path.href path.name}}
 module.exports = function(branch, path, file) {
 	var content = "src/content" + path + file + ".md";
-	var base = "https://github.com/spark/docs/tree/" + branch + "/";
+	var base = "https://github.com/particle-iot/docs/tree/" + branch + "/";
 	return base + content;
 }

@@ -124,7 +124,7 @@ This shield is essentially an adapter that allows the user to connect Arduino co
 
 **重要**：`屏蔽 屏蔽` 并 *不* 连接 Spark Core 引脚到 Arduino 的相同编号的引脚。换句话说，Spark Core 的 D0 和 Arduino 的 D0 是 **不** 一样的. 请检查引脚连接表做计划.
 
-[屏蔽 屏蔽 硬件文件 >](https://github.com/spark/shields/tree/master/Shield%20Shield)
+[屏蔽 屏蔽 硬件文件 >](https://github.com/particle-iot/shields/tree/master/Shield%20Shield)
 
 
 继电器 屏蔽
@@ -223,7 +223,7 @@ curl https://api.spark.io/v1/devices/0123456789abcdef01234567/relay \
 
 **请格外小心当处理高电压！**
 
-[继电器 屏蔽 硬件文件 >](https://github.com/spark/shields/tree/master/Relay%20Shield)
+[继电器 屏蔽 硬件文件 >](https://github.com/particle-iot/shields/tree/master/Relay%20Shield)
 
 <!-- TO DO
 Project Ideas
@@ -258,7 +258,7 @@ JTAG 屏蔽是一个简单的适配器, 可以让您把一个 JTAG 编程器连�
 
 所有的 JTAG 屏蔽文件的硬件可供下载.
 
-[JTAG 屏蔽 硬件盾文件 >](https://github.com/spark/shields/tree/master/Programmer%20Shield)
+[JTAG 屏蔽 硬件盾文件 >](https://github.com/particle-iot/shields/tree/master/Programmer%20Shield)
 
 
 电池 屏蔽
@@ -282,7 +282,7 @@ MCP73871 是，允许一个同时装入电池和电源系统的智能电池充�
 
 电池的充电电流被设定在 500mA.
 
-[Battery 屏蔽 硬件盾文件 >](https://github.com/spark/shields/tree/master/Battery%20Shield)
+[Battery 屏蔽 硬件盾文件 >](https://github.com/particle-iot/shields/tree/master/Battery%20Shield)
 
 产品规格
 -----
@@ -325,7 +325,7 @@ MCP73871 是，允许一个同时装入电池和电源系统的智能电池充�
 
 **注意:** 检查电池极性和电压等级
 
-[Battery 屏蔽 硬件盾文件 >](https://github.com/spark/shields/tree/master/Battery%20Shield)
+[Battery 屏蔽 硬件盾文件 >](https://github.com/particle-iot/shields/tree/master/Battery%20Shield)
 
 # Spark Maker Kit
 

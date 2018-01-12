@@ -828,7 +828,7 @@ In the response we want to return just the "elevation" parameter. The returned J
 
 ## Community Webhook Examples
 
-Below are a few community-written webhook examples. They have been sorted by what they do. These examples were not written by Particle but instead members of our community. Got your own webhook example? Post on the [community forums](https://community.particle.io/) and then issue a pull request to our [docs repo](https://github.com/spark/docs/compare).
+Below are a few community-written webhook examples. They have been sorted by what they do. These examples were not written by Particle but instead members of our community. Got your own webhook example? Post on the [community forums](https://community.particle.io/) and then issue a pull request to our [docs repo](https://github.com/particle-iot/docs/compare).
 
 ### Sending SMS (Text Messages)
 

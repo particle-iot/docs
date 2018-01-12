@@ -2,7 +2,7 @@
 
 Sometimes life can be a little difficult in the land of electronics when two systems talk a different voltage language. How do you make them talk to each other without making one of them _burnout_? The Shield Shield is the answer. This shield performs all the necessary voltage translation and provides an Arduino-like footprint to make it easier for you to plug in your existing Arduino shields or talk to other 5V hardware.
 
-![](https://github.com/spark/photon-shields-docs/blob/master/shield-shield/shield-shield.png)
+![](https://github.com/particle-iot/photon-shields-docs/blob/master/shield-shield/shield-shield.png)
 
 **Specifications (v3.x.x):**
  - Operating voltage: 7 to 15V DC
@@ -14,7 +14,7 @@ Sometimes life can be a little difficult in the land of electronics when two sys
  - Dimensions: 3.4" x 2.1"
  - Weight: 28 gms
 
-![](https://github.com/spark/photon-shields-docs/blob/master/shield-shield/shield-shield-dimensions.png)
+![](https://github.com/particle-iot/photon-shields-docs/blob/master/shield-shield/shield-shield-dimensions.png)
 
 **Operation:**   
 
@@ -22,7 +22,7 @@ We use Texas Instruments TXB0108PWR to do the voltage translation in between the
 
 The new version of the Shield Shield (v3.x.x) uses dedicated MOSFET based voltage translation on the I2C lines. We also decided to add a prototyping area in empty space in the middle of the shield.
 
-![](https://github.com/spark/photon-shields-docs/blob/master/shield-shield/shield-shield-description.png)
+![](https://github.com/particle-iot/photon-shields-docs/blob/master/shield-shield/shield-shield-description.png)
 
 **Note:** One drawback of using the TXB0108PWR as a voltage translator is that it is only capable of driving loads at short distances. Long length wires will introduce excessive capacitive loading and cause the auto direction detection to fail. To overcome this drawback, the shield shield also has an optional on-board 74ABT125 buffer that is capable of driving heavier loads in *one* direction. A user can jumper wire to whichever IO pin they would like to be translated to 5V.
 
@@ -31,7 +31,7 @@ The new version of the Shield Shield (v3.x.x) uses dedicated MOSFET based voltag
 
 **Pin Mapping**
 
-![](https://github.com/spark/photon-shields-docs/blob/master/shield-shield/shield-shield-pinmapping.png)
+![](https://github.com/particle-iot/photon-shields-docs/blob/master/shield-shield/shield-shield-pinmapping.png)
 
 |Shield  | Photon | Peripherals             |
 |--------|--------|-------------------------|

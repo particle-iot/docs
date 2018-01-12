@@ -216,7 +216,7 @@ Tinker 固件
 
 Tinker 固件是 Spark Core 在工厂流水线时储存的默认应用程序. 您可以随时用 [恢复出厂设置模式](#buttons) 让 Spark Core 回到 Tinker 固件 , 或者通过 Spark 的手机程序重新重新下载 Tinker 固件.
 
- Tinker 应用程序, 是示范如何用极少的代码，建立一个功能强大的应用程序的好例子。 您可以 [在这里](https://github.com/spark/core-firmware/blob/master/src/application.cpp) 看看最新发布.
+ Tinker 应用程序, 是示范如何用极少的代码，建立一个功能强大的应用程序的好例子。 您可以 [在这里](https://github.com/particle-iot/core-firmware/blob/master/src/application.cpp) 看看最新发布.
 
 Tinker 应用程式介面 (API)
 

@@ -18,7 +18,7 @@ order: 2
 Please note that the Raspberry Pi integration with the Particle Cloud is **currently in beta**. This means that, while the primary happy paths and use cases are tested, the software may still be a little rough around the edges in some areas.
 <br>
 <br>
-The good news is that you're about to join a wonderful community of Particle developers who are here to help. If you need support and can't find the answer in our docs, head over to our [community forums](https://community.particle.io/c/raspberry-pi) and chat with the Particle team. Find an issue? Log it in our [open-source repository](https://github.com/spark/particle-agent) so we can fix it!
+The good news is that you're about to join a wonderful community of Particle developers who are here to help. If you need support and can't find the answer in our docs, head over to our [community forums](https://community.particle.io/c/raspberry-pi) and chat with the Particle team. Find an issue? Log it in our [open-source repository](https://github.com/particle-iot/particle-agent) so we can fix it!
 <br>
 <br>
 Have fun!
@@ -224,7 +224,7 @@ Great work so far! In case you ever find yourself in a pickle, here's a list of 
 
 #### Technical Documentation
 - [Raspberry Pi Pinout and Datasheet](/datasheets/raspberrypi-datasheet/)
-- [`particle-agent` GitHub repository](https://github.com/spark/particle-agent)
+- [`particle-agent` GitHub repository](https://github.com/particle-iot/particle-agent)
 
 #### Projects and Examples
 - [Particle IoT projects](https://www.hackster.io/particle)

@@ -13,7 +13,7 @@ order: 1
 
 ![STM32](/assets/images/core-stm32.jpg)
 
-Spark Core v1.0 uses the STM32F103CB - ARM 32-bit Cortex M3 based - microcontroller for its brain power. You can download the datasheet [here.](https://github.com/spark/core/blob/master/Datasheets/ST_STM32F103CB.pdf)
+Spark Core v1.0 uses the STM32F103CB - ARM 32-bit Cortex M3 based - microcontroller for its brain power. You can download the datasheet [here.](https://github.com/particle-iot/core/blob/master/Datasheets/ST_STM32F103CB.pdf)
 
 Some of its key features are as follows:
 
@@ -53,7 +53,7 @@ Some of the key features of the CC3000 module are as follows:
 
 ![External Flash](/assets/images/core-flashchip.jpg)
 
-In addition to having 128KB of internal flash memory for storing the firmware, the Core also features an external SPI based flash memory chip - [SST25VF016B](https://github.com/spark/core/blob/master/Datasheets/MicrochipTech_SST25VF016B-75-4I-S2AF-T.pdf?raw=true). This memory space (a total of 2MB) is used to store the factory reset firmware, a back up firmware, a copy of the firmware sent during Over The Air (OTA) update and the keys. Part of the space is also available to the user who can use it to store log data, user parameters, etc. A detailed description of the memory mapping can be found further down this document in the [memory mapping section.](#memory-mapping)
+In addition to having 128KB of internal flash memory for storing the firmware, the Core also features an external SPI based flash memory chip - [SST25VF016B](https://github.com/particle-iot/core/blob/master/Datasheets/MicrochipTech_SST25VF016B-75-4I-S2AF-T.pdf?raw=true). This memory space (a total of 2MB) is used to store the factory reset firmware, a back up firmware, a copy of the firmware sent during Over The Air (OTA) update and the keys. Part of the space is also available to the user who can use it to store log data, user parameters, etc. A detailed description of the memory mapping can be found further down this document in the [memory mapping section.](#memory-mapping)
 
 Since the flash memory is non-volatile, it retains the data even after turning off the power. According to the manufacturer of the chip, the data retention of this memory is greater than 100 years, which we reckon should be good enough for now. Also, note that the maximum read-write endurance is limited to 100,000 cycles. meh.
 
@@ -158,7 +158,7 @@ Both of these pins run at 3.3V logic level but *are* tolerant to 5V inputs.
 
 In addition to having the ability to load new firmware over USB and Wi-Fi, the users also have direct access to the STM32 chip via the JTAG channel. In order to do this, you will need a JTAG shield and a JTAG programmer. You could make your own JTAG shield or buy one from us. Currently we have only tested the [ST-LINK/V2](http://www.st.com/web/catalog/tools/FM146/CL1984/SC724/SS1677/PF251168) programmer successfully.
 
-The hardware files for the JTAG shield are available [here.](https://github.com/spark/shields/tree/master/core-shields/Programmer%20Shield)
+The hardware files for the JTAG shield are available [here.](https://github.com/particle-iot/shields/tree/master/core-shields/Programmer%20Shield)
 
 ## Memory mapping
 
@@ -305,9 +305,9 @@ If you want to improve the signal strength of the Core, you can connect an exter
 
 The header pins on the Core are spaced at an interval of 0.1", which is the standard pitch size for proto-boards and breadboards. The physical layout of the Core was inspired from the [Arduino Pro Mini](http://arduino.cc/en/Main/ArduinoBoardProMini) board.
 
-A Core part for EAGLE can be found in the [Particle EAGLE library](https://github.com/spark/hardware-libraries#pcb-footprints-land-pattern)
+A Core part for EAGLE can be found in the [Particle EAGLE library](https://github.com/particle-iot/hardware-libraries#pcb-footprints-land-pattern)
 
-Mechanical drawings of the Core are available [here.](https://github.com/spark/core/blob/master/PDFs/core-mechanical-drawing-v1.pdf)
+Mechanical drawings of the Core are available [here.](https://github.com/particle-iot/core/blob/master/PDFs/core-mechanical-drawing-v1.pdf)
 
 <table border = '1'>
    <tr>
@@ -339,4 +339,4 @@ Mechanical drawings of the Core are available [here.](https://github.com/spark/c
 
 ## Known Errata
 
-We are tracking [known errata with this datasheet here](https://github.com/spark/docs/issues/19).  These issues/errors in the datasheet will be resolved in subsequent revisions.
+We are tracking [known errata with this datasheet here](https://github.com/particle-iot/docs/issues/19).  These issues/errors in the datasheet will be resolved in subsequent revisions.

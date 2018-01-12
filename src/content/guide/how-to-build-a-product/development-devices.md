@@ -21,7 +21,7 @@ released product firmware as well as any firmware version it has been
 locked to run.
 
 This allows you to freely flash new firmware to these devices from the
-development tool of your choice (i.e. the <a href="https://build.particle.io" target="_blank">Web IDE</a>, <a href="https://www.particle.io/products/development-tools/particle-desktop-ide" target="_blank">Local IDE</a>, or the <a href="https://github.com/spark/particle-cli">CLI</a>),
+development tool of your choice (i.e. the <a href="https://build.particle.io" target="_blank">Web IDE</a>, <a href="https://www.particle.io/products/development-tools/particle-desktop-ide" target="_blank">Local IDE</a>, or the <a href="https://github.com/particle-iot/particle-cli">CLI</a>),
 without having it immediately overwritten by the Particle cloud. These
 devices will continue to maintain [product
 privileges](/guide/how-to-build-a-product/security/#product-privileges),

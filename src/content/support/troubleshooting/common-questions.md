@@ -40,7 +40,7 @@ Here is a [comprehensive community guide](https://community.particle.io/t/spark-
 Please see the [installation instructions](/guide/tools-and-features/cli) for step-by-step guide to installing the CLI.
 
 To stay up-to-date on the most recent revisions of our Particle-cli, follow our repo
-[Particle CLI Repo](https://github.com/spark/particle-cli).
+[Particle CLI Repo](https://github.com/particle-iot/particle-cli).
 
 
 ## {{device}} Pinout Map & Datasheets

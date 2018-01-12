@@ -323,7 +323,7 @@ comunicazione locale. Se non ricevuti, di nuovo, non facciamo niente.
 Se siamo *connessi* e abbiamo *ricevuto un comando* usiamo il comando
 per eseguire un `digitalWrite()`.
 
-[Esempio di server e firmware su github >](https://github.com/spark/local-communication-example)
+[Esempio di server e firmware su github >](https://github.com/particle-iot/local-communication-example)
 
 texting il core
 ===
