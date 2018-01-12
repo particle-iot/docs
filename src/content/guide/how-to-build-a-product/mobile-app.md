@@ -182,7 +182,7 @@ Well Done! You've just created a mobile basic app that can:
 
 If you prefer to have a point of reference you're more than welcome to modify an existing app. Ideas for modifiable apps include:
 
-- [Example app](https://github.com/particle-iot/spark-setup-ios-example)
+- [Example app](https://github.com/particle-iot/ios-app-example-pod)
 - [Particle Tinker open-source app](https://github.com/particle-iot/photon-tinker-ios)
 - Other users/3rd party apps, [ideas?](https://www.hackster.io/particle/projects)
 

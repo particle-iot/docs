@@ -604,7 +604,7 @@ For a detailed step-by-step help on integrating the Cloud SDK within a Swift pro
 The [Apple documentation](https://developer.apple.com/library/ios/documentation/Swift/Conceptual/BuildingCocoaApps/InteractingWithObjective-CAPIs.html) is an important resource on mixing Objective-C and Swift code, be sure to read through that as well.
 
 _Notice_ that we've included the required bridging header file in the SDK, you just need to copy it to your project add it as the active bridging header file in the project settings as described in the links above.
-There's also an [example app](https://github.com/particle-iot/spark-setup-ios-example), this app also demonstrates the Particle DeviceSetup library usage, as well as several Cloud SDK calls.
+There's also an [example app](https://github.com/particle-iot/ios-app-example-pod), this app also demonstrates the Particle DeviceSetup library usage, as well as several Cloud SDK calls.
 
 #### Carthage (Recommended method)
 
@@ -1164,7 +1164,7 @@ func sparkSetupViewController(controller: SparkSetupMainController!, didNotSucce
 
 ### Example
 
-Cocoapods usage example app (in Swift) can be found [here](https://www.github.com/particle-iot/spark-setup-ios-example/). Example app demonstates - invoking the setup wizard, customizing its UI and using the returned SparkDevice instance once
+Cocoapods usage example app (in Swift) can be found [here](https://github.com/particle-iot/ios-app-example-pod). Example app demonstates - invoking the setup wizard, customizing its UI and using the returned SparkDevice instance once
 setup wizard completes (delegate). Feel free to contribute to the example by submitting pull requests.
 
 ### Reference

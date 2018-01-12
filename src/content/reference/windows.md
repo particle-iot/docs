@@ -256,7 +256,7 @@ You can either [download Particle Windows Cloud SDK](https://github.com/particle
 - If you **need help**, use [Our community website](http://community.particle.io), use the `Mobile` category for dicussion/troubleshooting Windows apps using the Particle Windows Cloud SDK.
 - If you are certain you **found a bug**, _and can provide steps to reliably reproduce it_, [open an issue on GitHub](https://github.com/particle-iot/particle-windows-sdk/labels/bug).
 - If you **have a feature request**, [open an issue on GitHub](https://github.com/particle-iot/particle-windows-sdk/labels/enhancement).
-- If you **want to contribute**, submit a pull request, be sure to check out spark.github.io for our contribution guidelines, and please sign the [CLA](https://docs.google.com/a/particle.io/forms/d/1_2P-vRKGUFg5bmpcKLHO_qNZWGi5HKYnfrrkd-sbZoA/viewform).
+- If you **want to contribute**, submit a pull request, be sure to check out particle-iot.github.io for our contribution guidelines, and please sign the [CLA](https://docs.google.com/a/particle.io/forms/d/1_2P-vRKGUFg5bmpcKLHO_qNZWGi5HKYnfrrkd-sbZoA/viewform).
 
 ### License
 
@@ -434,7 +434,7 @@ You can either [download Particle Device Setup library](https://github.com/parti
 - If you **need help**, use [Our community website](http://community.particle.io), use the `Mobile` category for discussion/troubleshooting Windows apps using the Particle Windows Cloud SDK.
 - If you are certain you **found a bug**, _and can provide steps to reliably reproduce it_, [open an issue on GitHub](https://github.com/particle-iot/particle-windows-devicesetup/labels/bug).
 - If you **have a feature request**, [open an issue on GitHub](https://github.com/particle-iot/particle-windows-devicesetup/labels/enhancement).
-- If you **want to contribute**, submit a pull request, be sure to check out spark.github.io for our contribution guidelines, and please sign the [CLA](https://docs.google.com/a/particle.io/forms/d/1_2P-vRKGUFg5bmpcKLHO_qNZWGi5HKYnfrrkd-sbZoA/viewform).
+- If you **want to contribute**, submit a pull request, be sure to check out particle-iot.github.io for our contribution guidelines, and please sign the [CLA](https://docs.google.com/a/particle.io/forms/d/1_2P-vRKGUFg5bmpcKLHO_qNZWGi5HKYnfrrkd-sbZoA/viewform).
 
 ### License
 

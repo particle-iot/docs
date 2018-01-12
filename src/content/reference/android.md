@@ -25,7 +25,7 @@ Both the Cloud SDK and Device Setup libraries have the following requirements:
 - If you **need help**, visit the [Mobile category](http://community.particle.io/c/mobile) in our [community forums](http://community.particle.io) for discussion, troubleshooting, and feedback around the Android Cloud SDK and Device Setup library.
 - If you have **found a bug**, _and can provide steps to reliably reproduce it_, open an issue in the appropriate repo [on GitHub](https://github.com/particle-iot/?query=android) in the appropriate repo, and apply the `bug` label.
 - If you **have a feature request**, open an issue in the appropriate repo [on GitHub](https://github.com/particle-iot/?query=android) in the appropriate repo, and apply the `enhancement` label.
-- If you **want to contribute**, submit a pull request! Also be sure to check out [the contribution guidelines](http://spark.github.io/#contributions), and sign our [CLA](https://docs.google.com/a/particle.io/forms/d/1_2P-vRKGUFg5bmpcKLHO_qNZWGi5HKYnfrrkd-sbZoA/viewform).
+- If you **want to contribute**, submit a pull request! Also be sure to check out [the contribution guidelines](http://particle-iot.github.io/#contributions), and sign our [CLA](https://docs.google.com/a/particle.io/forms/d/1_2P-vRKGUFg5bmpcKLHO_qNZWGi5HKYnfrrkd-sbZoA/viewform).
 
 
 ## Android Cloud SDK
