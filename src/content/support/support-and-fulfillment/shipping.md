@@ -21,37 +21,42 @@ All packages ship out within 2 business days of the order being placed. Please s
 
 #### Tracking your package
 
-Your order confirmation and tracking information will be sent to the email address you used to place the order. If you are having trouble finding your order, please visit our [support portal](https://support.particle.io) and let us know. For order changes and cancellations, please also visit our [support portal](https://support.particle.io) and let us know as soon as possible. We will do our best to change your order before it is shipped out
+Your order confirmation and tracking information will be sent to the email address you used to place the order. If you are having trouble finding your order, please visit our [support portal](https://support.particle.io) and let us know. For order changes and cancellations, please also visit our [support portal](https://support.particle.io) and let us know as soon as possible. We will do our best to change your order before it is shipped out but we cannot guarantee that we'll catch it in time. 
 
 
 ### Domestic Shipping
 
 ### Domestic Shipping Methods
 
-For domestic orders we use UPS, FedEx, and USPS. A brief description of the differences can be seen below:
-- USPS First-Class Mail Parcel - Usually delivered in 5 to 10 buesiness days if placed before 12pm PST
-- USPS Priority Mail - Usually delivered in 3 business days if placed before 12pm PST
-- UPS Ground - Usually delivered in 1-5 Business Days, depending on the distance from Indiana
-- UPS Three-Day Select - Usually delivered in 3 business days if placed before 12pm PST
-- UPS Second Day Air - Usually delivered in 2 business days if placed before 12pm PST
-- FedEx Ground - Usually delivered in 1-5 Business Days, depending on the distance from Indiana
-- Fedex Second Day - Usually delivered in 2 business days if placed before 12pm PST
+For domestic orders (contiguous USA only) we have flat-rate shipping options, detailed below:
+
+|         Name         	|    Time For Shipping   	| Weight in Lbs 	|  Price 	|
+|:--------------------:	|:----------------------:	|:-------------:	|:------:	|
+|        Economy       	| Approx 7 business days 	|  Less than 1  	|  $4.80 	|
+| Economy (For PO Box) 	| Approx 7 business days 	|     0 - 40    	|  $8.68 	|
+|        Standard      	| Approx 5 business days 	|   0 - 10.99   	|  $5.99 	|
+|                      	|                        	|   11 - 20.99  	| $12.53 	|
+|                      	|                        	|    21 - 40    	| $32.84 	|
+|       Expedited      	| Approx 3 business days 	|   0 - 10.99   	| $12.13 	|
+|                      	|                        	|   11 - 20.99  	| $21.76 	|
+|                      	|                        	|    21 - 40    	| $32.84 	|
+|        Express       	| Approx 2 business days 	|   0 - 10.99   	| $19.22 	|
+|                      	|                        	|   11 - 20.99  	| $28.35 	|
+|                      	|                        	|    21 - 40    	| $34.02 	|
 
 Please note these shipping timelines are from **ship date** not **order date**. 
 
 ### PO Boxes
 
-If your order is going to a PO Box, you MUST use USPS as UPS, FedEx, and DHL do not deliver to PO Boxes. If you choose anything other than USPS and your delivery address is to a PO box, you will be charged to reship once the order is returned to our warehouse. 
+Please note that for PO Boxes, there's only 1 option for shipping, Economy. If you need it quicker, you'll have to choose a different, non-PO Box, address since we only have 1 option with our logistic partner to ship to PO boxes.
 
 ### International Shipping
 
 We ship to your country unless you live in Iran, Iraq, South Sudan, North Korea, Sudan, Cuba, Syria, or any country that is embargoed by the US Government. 
 
-For international orders we only have FedEx and DHL at this time. New shipping methods are being added frequently as we work with different partners and carriers. 
+For international orders we only have FedEx at this time. New shipping methods are being added frequently as we work with different partners and carriers. 
 - FedEx International Ground - Usually is delivered in 5 Business days if placed before 12pm PST
 - FedEx International Priority - Usually is delivered in 3 Business days if placed before 12pm PST
-
-We ship all products from Indiana, USA.
 
 We ship all our products from Indiana, but we have many distributors around the world (you can find a list of some our international distributors [here](https://www.particle.io/distributors).
 
@@ -78,8 +83,8 @@ We include an invoice with international orders, but sometimes packages do get h
 
 We work hard to lower the shipping rates you see. If they are higher than you expected though, there are some things you can do: 
 - Consolidate shipments. It costs the same to ship 1 and 5 Photons.
-- Use a slower shipping method
-- Use one of our [international distributors](https://www.particle.io/distributors)
+- Use a slower shipping method.
+- Use one of our [distributors](https://www.particle.io/distributors).
 
 All shipping prices include a handling fee. 
 
