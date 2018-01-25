@@ -26,7 +26,7 @@ Your order confirmation and tracking information will be sent to the email addre
 
 ### Domestic Shipping
 
-### Domestic Shipping Methods
+#### Domestic Shipping Methods
 
 For domestic orders (contiguous USA only) we have flat-rate shipping options, detailed below:
 
@@ -46,7 +46,7 @@ For domestic orders (contiguous USA only) we have flat-rate shipping options, de
 
 Please note these shipping timelines are from **ship date** not **order date**. 
 
-### PO Boxes
+#### PO Boxes
 
 Please note that for PO Boxes, there's only 2 options for shipping, Economy (for less than 1lb) and Economy Plus (for over 1lb). If you need it quicker, you'll have to choose a different, non-PO Box, address since we only have 1 option with our logistic partner to ship to PO boxes.
 
