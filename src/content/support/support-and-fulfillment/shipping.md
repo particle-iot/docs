@@ -30,25 +30,25 @@ Your order confirmation and tracking information will be sent to the email addre
 
 For domestic orders (contiguous USA only) we have flat-rate shipping options, detailed below:
 
-|         Name         	|    Time For Shipping   	| Weight in Lbs 	|  Price 	|
-|:--------------------:	|:----------------------:	|:-------------:	|:------:	|
-|        Economy       	| Approx 7 business days 	|  Less than 1  	|  $4.80 	|
-| Economy (For PO Box) 	| Approx 7 business days 	|     0 - 40    	|  $8.68 	|
-|        Standard      	| Approx 5 business days 	|   0 - 10.99   	|  $5.99 	|
-|                      	|                        	|   11 - 20.99  	| $12.53 	|
-|                      	|                        	|    21 - 40    	| $32.84 	|
-|       Expedited      	| Approx 3 business days 	|   0 - 10.99   	| $12.13 	|
-|                      	|                        	|   11 - 20.99  	| $21.76 	|
-|                      	|                        	|    21 - 40    	| $32.84 	|
-|        Express       	| Approx 2 business days 	|   0 - 10.99   	| $19.22 	|
-|                      	|                        	|   11 - 20.99  	| $28.35 	|
-|                      	|                        	|    21 - 40    	| $34.02 	|
+|         Name         	      |    Time For Shipping   	| Weight in Lbs 	|  Price 	|
+|:--------------------------:	|:----------------------:	|:-------------:	|:------:	|
+|        Economy            	| Approx 7 business days 	|  Less than 1  	|  $4.80 	|
+| Economy+ (For PO Box Only)  | Approx 7 business days 	|     1 - 40    	|  $8.68 	|
+|        Standard           	| Approx 5 business days 	|   0 - 10.99   	|  $5.99 	|
+|                           	|                        	|   11 - 20.99  	| $12.53 	|
+|                           	|                        	|    21 - 40    	| $32.84 	|
+|       Expedited           	| Approx 3 business days 	|   0 - 10.99   	| $12.13 	|
+|                           	|                        	|   11 - 20.99  	| $21.76 	|
+|                           	|                        	|    21 - 40    	| $32.84 	|
+|        Express            	| Approx 2 business days 	|   0 - 10.99   	| $19.22 	|
+|                           	|                        	|   11 - 20.99  	| $28.35 	|
+|                      	      |                        	|    21 - 40    	| $34.02 	|
 
 Please note these shipping timelines are from **ship date** not **order date**. 
 
 ### PO Boxes
 
-Please note that for PO Boxes, there's only 1 option for shipping, Economy. If you need it quicker, you'll have to choose a different, non-PO Box, address since we only have 1 option with our logistic partner to ship to PO boxes.
+Please note that for PO Boxes, there's only 2 options for shipping, Economy (for less than 1lb) and Economy Plus (for over 1lb). If you need it quicker, you'll have to choose a different, non-PO Box, address since we only have 1 option with our logistic partner to ship to PO boxes.
 
 ### International Shipping
 
