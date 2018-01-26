@@ -1277,7 +1277,7 @@ public:
     const char* scan()
     {
         // initialize data
-        strongest_rssi = 0;
+        strongest_rssi = -128;
         strongest_ssid[0] = 0;
         // perform the scan
         WiFi.scan(handle_ap, this);
