@@ -4,7 +4,7 @@ layout: reference.hbs
 columns: three
 order: 6
 sdkversion: 0.4.8
-devicesetupversion: 0.5.0
+devicesetupversion: 0.5.1
 asyncclasslink: https://github.com/particle-iot/spark-sdk-android/blob/master/cloudsdk/src/main/java/io/particle/android/sdk/utils/Async.java
 ---
 
