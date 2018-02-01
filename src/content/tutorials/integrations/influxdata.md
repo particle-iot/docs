@@ -220,7 +220,7 @@ the Particle cloud to stream the contents of the event to your InfluxDB instance
 
 To ensure that the data is successfully being published to InfluxDB, you can use Chronograf, the visual
 graphing front-end to InfluxDB. Simply point your browser at your Chronograf instance (typically the same 
-address as your InfluxDB instance, on port 8080) and browse the Data:
+address as your InfluxDB instance, on port 8888) and browse the Data:
 
 <img src="/assets/images/Chronograf.gif"/>
 
