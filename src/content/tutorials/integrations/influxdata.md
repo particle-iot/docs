@@ -36,7 +36,7 @@ from your Particle devices via the Particle Cloud.
 
 ## Setting Up InfluxData Services
 
-<img src="/assets/images/particle+influx-architecture.png" alt="Particle + InfluxData"/>
+<img src="/assets/images/Particle+Influx-architecture.png" alt="Particle + InfluxData"/>
 <p class="caption">Data is routed from your Particle devices through the Particle
 	Cloud and into the InfluxData Platform via the Telegraf Data Collection Agent.</p>
 	
