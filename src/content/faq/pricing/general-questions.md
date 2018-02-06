@@ -44,7 +44,7 @@ and the Device Cloud is designed to work specifically with Particle hardware.
 
 When you purchase Particle development kits or connectivity modules, you are not
 buying a piece of standalone silicon. Instead, you are getting a
-bundle: IoT hardware that comes pre-programemd to work with a full-featured Device
+bundle: IoT hardware that comes pre-programed to work with a full-featured Device
 Cloud. This is one of the main value propositions of using Particle --
 it's an integrated solution that allows you to focus on what makes
 your IoT product unique.
