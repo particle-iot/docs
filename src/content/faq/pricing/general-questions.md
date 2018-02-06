@@ -94,9 +94,7 @@ guide](/guide/getting-started/billing/electron/).
 
 ### What about 3rd Party SIMs?
 While we encourage you to use Particle SIM cards with your cellular
-devices, there may be cases when you need to use a different SIM. The
-most common reason for doing this is to get cellular coverage in an area
-where Particle SIMs do not cover.
+devices, there may be cases when you want to use a different SIM.
 
 As a courtesy, we will wave Device Cloud fees for **up to 100 cellular
 devices** that use non-Particle SIM cards. However, we do not support
@@ -161,15 +159,29 @@ Some tips to keep costs down:
 - **Prototype with Wi-Fi**: Our Wi-Fi development kits are significantly less expensive
 than cellular, and access to the Device Cloud is always free for your first 100 Wi-Fi devices
 - **Manage cellular devices closely**: If you are using cellular, you can
-  avoid Device Cloud costs by de-activating your SIM card when it is not
+  avoid Device Cloud costs by deactivating your SIM card when it is not
 in use. Also, make sure to set and check the data limit on your SIM to avoid
 incuring overages. For more info on reducing your cellular bill,
-[check out the guide](/guide/getting-started/billing/electron/#how-to-reduce-your-bill)
+[check out the cellular billing
+guide](/guide/getting-started/billing/electron/#how-to-reduce-your-bill)
+and the [cellular data guide](/guide/getting-started/data/electron/#what-consumes-data-)
 
 Doing something with Particle that makes a positive social impact? Check
 out <a href="https://particle.io/for-good" target="_blank">Particle for
 Good</a> to get access to special benefits and resources for approved
 organizations.
+
+### Do I have to pay anything to use Particle Mesh devices?
+
+For mesh deployments, Particle will charge product creators an additional monthly fee in addition
+to our baseline Device Cloud pricing for Argon and Boron devices acting as gateways within a Particle
+Mesh network. All Particle customers will get 10 free gateway upgrades for prototyping and evaluating
+Particle Mesh. All local communications between mesh endpoints are free.
+
+With 10 free gateways, you could build:
+- **One giant network** of 100+ devices
+- **Ten different networks** of 10+ devices
+- **Five different networks** with redundant gateways (Ethernet + Cellular backup, for example)
 
 ## Users vs. Products
 
