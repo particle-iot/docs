@@ -24,8 +24,8 @@ Device Cloud, described below.
 
 ### What is the Device Cloud?
 The Device Cloud is a powerful set of tools and infrastructure designed
-to build, connect, and manage your IoT fleet. It encompasses access to
-Particle's cloud-side offerings, which includes:
+to build, connect, and manage your fleet of Particle devices. It encompasses access to
+Particle's cloud-side services, which includes:
 - Developer tools
 - Device management
 - Over-the-air firmware updates
@@ -37,9 +37,9 @@ For more information on the Device Cloud and its features, check out
 target="_blank">our website</a>.
 
 ### How am I charged for Hardware?
-Hardware is sold on our <a href="https://store.particle.io"
-target="_blank">store</a> as well as through our distribution partners.
 Hardware is purchased as a one-time cost per device.
+Dev kits, modules, and accessories are sold on our <a href="https://store.particle.io"
+target="_blank">store</a> as well as through our distribution partners.
 
 You can reduce your Hardware cost-per-device by growing the
 size of your fleet. Check out our <a href="https://particle.io/pricing" target="_blank">pricing page</a>
