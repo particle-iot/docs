@@ -36,6 +36,19 @@ For more information on the Device Cloud and its features, check out
 <a href="https://www.particle.io/products/software/device-cloud"
 target="_blank">our website</a>.
 
+### Why is Hardware + Device Cloud presented together?
+Particle Hardware and the Device Cloud are tightly
+coupled and built from the ground up to work together.
+The Hardware is designed specifically to work with the Device Cloud,
+and the Device Cloud is designed to work specifically with Particle hardware.
+
+When you purchase Particle development kits or connectivity modules, you are not
+buying a piece of standalone silicon. Instead, you are getting a
+bundle: IoT hardware that comes pre-programemd to work with a full-featured Device
+Cloud. This is one of the main value propositions of using Particle --
+it's an integrated solution that allows you to focus on what makes
+your IoT product unique.
+
 ### How am I charged for Hardware?
 Hardware is purchased as a one-time cost per device.
 Dev kits, modules, and accessories are sold on our <a href="https://store.particle.io"
@@ -47,7 +60,7 @@ for details on specific device volume break-points.
 
 If you are looking to purchase hardware in large volumes, check out our
 <a href="https://www-wholesale.particle.io/wholesale-b2b"
-target="_blank">B2B store</a>.
+target="_blank">wholesale store</a>.
 
 ### How am I charged for the Device Cloud?
 All Device Cloud costs are captured as a single monthly fee per device
@@ -79,18 +92,71 @@ overage rate is $0.40/MB.
 For more information on cellular billing, check out [the
 guide](/guide/getting-started/billing/electron/).
 
-### Why is Hardware + Device Cloud presented together?
-Particle Hardware and the Device Cloud are tightly
-coupled and built from the ground up to work together.
-The Hardware is designed specifically to work with the Device Cloud,
-and the Device Cloud is designed to work specifically with Particle hardware.
+### What about 3rd Party SIMs?
+While we encourage you to use Particle SIM cards with your cellular
+devices, there may be cases when you need to use a different SIM. The
+most common reason for doing this is to get cellular coverage in an area
+where Particle SIMs do not cover.
 
-When you purchase Particle development kits or connectivity modules, you are not
-buying a piece of standalone silicon. Instead, you are getting a
-bundle: IoT hardware that comes pre-programemd to work with a full-featured Device
-Cloud. This is one of the main value propositions of using Particle --
-it's an integrated solution that allows you to focus on what makes
-your IoT product unique.
+As a courtesy, we will wave Device Cloud fees for **up to 100 cellular
+devices** that use non-Particle SIM cards. However, we do not support
+cellular deployments at large scales that use non-Particle SIMs.
+
+If you are concerned about coverage areas, we can work with you to extend
+our cellular carrier network to include coverage where you need it.
+<a href="https://particle.io/sales">Contact sales</a> for details.
+
+### How does Device Cloud invoicing work?
+When you first activated a cellular device or created your product,
+you were put on a _billing period_. That is, you were assigned a day on which you will be
+invoiced each month.
+
+At this time, you will receive an email outlining your monthly Device
+Cloud fees. Each "billable" Device will receive a line item representing
+access to the Device Cloud for the _upcoming month_. There are also 2
+potential types of line items that are added to invoices representing costs
+incurred in the _previous month_:
+- Cellular data overages accrued will be charged at the appropriate rate
+  given where the data was consumed ($0.40 for most countries).
+- Devices added in the middle of the month can receive a prorated
+  charge representing Device Cloud access for the remainder of the
+  month.
+
+### What counts as a "billable device"?
+
+A billable device is a device that will receive a non-zero line item for Device
+Cloud access on your upcoming invoice. A billable device:
+
+- **Has come online at least once**. We won't bill you for devices that
+  haven't ever been turned on
+- **Uses a Particle SIM that is in the active
+  state (cellular only)**. Devices using deactivated SIMs are not billable. In addition,
+  [3rd-party SIMs](#what-about-3rd-party-sims-) SIMs (100 or less) are not
+  billable.
+- **No longer qualifes for Device Cloud promotional pricing**. This
+  includes first 3 months free for cellular devices, or first 100
+  devices free for Wi-Fi.
+
+
+### I'm cost-conscious. What can I do to keep my bill low?
+Particle supports makers, hobbyists and tinkerers alike with low-cost
+development kits and generous Device Cloud freebies to make prototyping
+easy and inexpensive.
+
+Some tips to keep costs down:
+
+- **Prototype with Wi-Fi**: Our Wi-Fi development kits are significantly less expensive
+than cellular, and access to the Device Cloud is always free for your first 100 Wi-Fi devices
+- **Manage cellular devices closely**: If you are using cellular, you can
+  avoid Device Cloud costs by de-activating your SIM card when it is not
+in use. Also, make sure to set and check the data limit on your SIM to avoid
+incuring overages. For more info on reducing your cellular bill,
+[check out the guide](/guide/getting-started/billing/electron/#how-to-reduce-your-bill)
+
+Doing something with Particle that makes a positive social impact? Check
+out <a href="https://particle.io/for-good" target="_blank">Particle for
+Good</a> to get access to special benefits and resources for approved
+organizations.
 
 ## Users vs. Products
 
@@ -102,10 +168,10 @@ password in order to claim your device. This is referred to as a _User
 account_. This is the account that you use to login to Particle web
 properties like the Console, and what allows you to manage Particle devices
 you own. For prototyping purposes, all you need to
-get going with Particle are devices and a Developer account.
+get going with Particle are devices and a User account.
 
 When you are ready to professionalize your IoT prototype, you'll want to
-create a _Product_. A product unifies a group of Particle devices into a
+create a _Product_ and add your devices to it. A product unifies a group of Particle devices into a
 homogenous fleet, and provides additional features to easily manage an IoT deployment
 at scale. A Product also has team members, which allows many Particle users to
 collaborate on an IoT project together. As a user, you can _belong to_
@@ -115,7 +181,7 @@ guide](/guide/tools-and-features/console/#product-tools).
 
 You can think of Users and Products as two different "spaces" in which devices can
 be managed. As a result, they are also billed separately from one
-another. Each Product is on its own Device Cloud plan, separate from the
+another. Each Product has its own Device Cloud plan, separate from the
 devices that are associated with your User account.
 
 ### What caps exist for User accounts?
@@ -125,10 +191,13 @@ devices** claimed to your user account. Devices that have been added to a
 Product **do not count** towards these totals.
 
 We enforce these caps to ensure that you get the benefit of fleet
-management features only available with Products.
+management features only available with Products. You can view your
+User Device Cloud subscriptions on the <a href="https://console.particle.io/billing"
+target="_blank">billing page</a> of the Console to
+get an idea of how close you are to these caps.
 
 Note that we count both official Particle devices + Compounds towards
-these counts, categorized by connectivity type. For instance, Raspberry Pis
+these totals, categorized by connectivity type. For instance, Raspberry Pis
 provisioned to the Particle Cloud will be counted towards your Wi-Fi
 device count.
 
