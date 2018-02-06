@@ -137,6 +137,19 @@ Cloud access on your upcoming invoice. A billable device:
   includes first 3 months free for cellular devices, or first 100
   devices free for Wi-Fi.
 
+### What if my device and Particle SIM doesn't belong to the same account?
+We'd recommend correcting this if you can: things will be much easier
+to track and manage if the devices and SIMs are housed either under the
+same User or Product account.
+
+However, rest assured we won't double-bill you if your devices and SIM cards happen
+to be in different accounts. When an invoice is being generated, our
+billing system will detect this and ensure that each device/SIM pair is
+only billed once.
+- If your device is in a Product and the SIM it uses is owned by a User,
+  the User will pay for the device
+- If your device is in a Product and the SIM is owned by a different
+  product, the product owning the SIM will pay for the device
 
 ### I'm cost-conscious. What can I do to keep my bill low?
 Particle supports makers, hobbyists and tinkerers alike with low-cost
@@ -254,4 +267,12 @@ will start receiving 3MB of cellular data included per device/mo.
 Yes, the reduced overage prices (starting at $0.40/MB) will apply for
 everyone, regardless of if your Product is on the new Device Cloud
 pricing or not.
+
+### I am on an annual account. What happens if I upgrade?
+- You will receive a new monthly billing period that will begin the day
+that the upgrade occurs.
+- You will be credited for the unused time on your annual plan that will
+  count towards future invoices
+- You will receive your first month of Device Cloud access under the new
+  pricing free
 
