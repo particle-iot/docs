@@ -10,7 +10,7 @@ order: 400
 
 Particle has teamed up with InfluxData to create  an easy webhook integration
 with the <a href="https:/influxdata.com//" target="_blank">InfluxData</a> Platform. 
-The InfluxData Time Series Data platform is a purpose-built platofrm for the highly efficient
+The InfluxData Time Series Data platform is a purpose-built platform for the highly efficient
 collection, storage, querying, analysis and alerting of IoT data.
 
 <img src="/assets/images/particle+influx.png" alt="Particle + InfluxData"/>
