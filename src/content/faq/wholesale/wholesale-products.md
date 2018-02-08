@@ -23,11 +23,12 @@ ASSET2GV2 | Less than 50 units, ships immediately | More than 50 units, ships in
 E260KIT | All volumes ship in 10 - 13 weeks | All volumes ship in 10 - 13 weeks
 E260TRAY50 | All volumes ship in 12 - 16 weeks | All volumes ship in 12 - 16 weeks
 E270KIT | Less than 500 units, ships immediately | More than 500 units, ships in 10 - 13 weeks
-E270TRAY50 | All volumes ship in 10 - 13 weeks | All volumes ship in 10 - 13 weeks
+E270TRAY50 | All volumes ship in 10 - 13 weeks | All volumes ship in 10 - 13 weeks 
+E310KIT | All volumes ship in 10 - 13 weeks | All volumes ship in 10 - 13 weeks
 E350KIT | Less than 200 units, ships immediately | More than 200 units, ships in 10 - 13 weeks
 E350TRAY50 | Less than 100 units, ships immediately | More than 100 units, ships in 10 - 13 weeks
 GSWTP | Less than 50 units, ships immediately | More than 50 units, ships in 8 - 10 weeks
-MKITPH | Less than 100 units, ships immediately | More than 100 units, ships in 12 - 16 weeks
+MKITPH | Less than 50 units, ships immediately | More than 50 units, ships in 12 - 16 weeks
 P0MOD10 | Less than 250 units, ships immediately | More than 250 units, ships in 12 - 16 weeks
 P0REEL | All volumes ship in 12 - 16 weeks | All volumes ship in 12 - 16 weeks
 P1MOD10 | Less than 500 units, ships immediately | More than 500 units, ships in 12 - 16 weeks
@@ -60,7 +61,7 @@ E260TRAY50 | 50 units
 E270TRAY50 | 50 units
 E350TRAY50 | 50 units
 P0MOD10 | 10 units
-P0REEL | 2000 units
+P0REEL | 1000 units
 P1MOD10 | 10 units
 P1REEL | 500 units
 PHNTRAYH | 50 units
