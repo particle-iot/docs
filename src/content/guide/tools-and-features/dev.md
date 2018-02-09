@@ -33,7 +33,13 @@ There's also a toolbar on left side of IDE which contains shortcuts to the most 
 
 If you want to work on more advanced projects, Particle Dev could be the choice for you. Head over and download latest release:
 
-[Particle Dev Download >](https://www.particle.io/dev)
+[Download for Windows >](https://updates.particle.io/latest/windows)
+
+[Download for Windows X64 >](https://updates.particle.io/latest/windows-x64)
+
+[Download for Mac >](https://updates.particle.io/latest/mac)
+
+[Download for Linux >](https://github.com/particle-iot/particle-dev-app#linux)
 
 ![IDE Window]({{assets}}/images/ide-window.jpg)
 
