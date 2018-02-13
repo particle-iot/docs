@@ -134,7 +134,7 @@ Please check out the troubleshooting tips and assistance on our [documentation p
 
 ### Modules Incorporated into custom boards
 
-We can only perform limited troubleshooting on modules built into custom boards. If you’re interested in more in-depth troubleshooting, please visit our [support portal](https://support.particle.io/) and let us know you’re interested in working with one of our [service partners](https://www.particle.io/partnerships/professional-services) for an in-depth technical review of your custom board. 
+We can only perform limited troubleshooting on modules built into custom boards. If you’re interested in more in-depth troubleshooting, please visit our [support portal](https://support.particle.io/) and let us know you’re interested in working with one of our [service partners](https://www.particle.io/pricing#particle-studios) for an in-depth technical review of your custom board. 
 
 ### Items damaged in shipment
 
