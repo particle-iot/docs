@@ -2415,7 +2415,7 @@ if (getPinMode(D0)==INPUT) {
 
 ### digitalWrite()
 
-Write a `HIGH` or a `LOW` value to a digital pin.
+Write a `HIGH` or a `LOW` value to a GPIO pin.
 
 ```C++
 // SYNTAX
