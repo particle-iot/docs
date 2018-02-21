@@ -28,7 +28,7 @@ E260TRAY50 | All volumes ship in 12 - 16 weeks | All volumes ship in 12 - 16 wee
 E270KIT | Less than 500 units, ships immediately | More than 500 units, ships in 10 - 13 weeks
 E270TRAY50 | All volumes ship in 10 - 13 weeks | All volumes ship in 10 - 13 weeks 
 E310KIT | All volumes ship in 10 - 13 weeks | All volumes ship in 10 - 13 weeks
-E310MOD1 | Less than 25 units, ships immediately | More than 25 units, ships in 10 - 13 weeks
+E310MOD1 | All volumes ship in 10 - 13 weeks | All volumes ship in 10 - 13 weeks
 E310TRAY50 | All volumes ship in 12 - 16 weeks | All volumes ship in 12 - 16 weeks
 E350KIT | Less than 200 units, ships immediately | More than 200 units, ships in 10 - 13 weeks
 E350TRAY50 | Less than 150 units, ships immediately | More than 150 units, ships in 10 - 13 weeks
