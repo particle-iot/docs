@@ -10426,6 +10426,53 @@ detachSystemInterrupt(SysInterrupt_TIM5);
 // remove all handlers for the SysInterrupt_TIM5 interrupt
 ```
 
+### attachInteruptDirect()
+
+_Since 0.8.0_
+
+Registers a function that is called when an interrupt happens. This function installs the interrupt handler function directly into the interrupt vector table and will override system handlers for the specified interrupt.
+
+**NOTE**: Most likely use-cases:
+- if lower latency is required: handlers registered with `attachInterrupt()` or `attachSystemInterrupt()` may be called with some delay due to handler chaining or some additional processing done by the system
+- system interrupt handler needs to be overriden
+- interrupt unsupported by `attachSystemInterrupt()` needs to be handled
+
+```cpp
+// SYNTAX
+attachInterruptDirect(irqn, handler);
+
+// EXAMPLE
+void handle_timer5()
+{
+  // called when timer 5 fires an interrupt
+}
+
+void setup()
+{
+  attachSystemInterrupt(TIM5_IRQn, handle_timer5);
+}
+```
+
+Parameters:
+- `irqn`: platform-specific IRQ number
+- `handler`: interrupt handler function pointer
+
+### detachInterruptDirect()
+
+_Since 0.8.0_
+
+Unregisters application-provided interrupt handlers for the given interrupt and restores the default one.
+
+```cpp
+// SYNTAX
+detachInterruptDirect(irqn);
+
+// EXAMPLE
+detachInterruptDirect(TIM5_IRQn);
+```
+
+Parameters:
+- `irqn`: platform-specific IRQ number
 
 {{/if}} {{!-- has-interrupts --}}
 
