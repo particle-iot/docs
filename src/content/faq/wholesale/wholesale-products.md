@@ -45,7 +45,7 @@ PHOTONKIT | Less than 150 units, ships immediately | More than 150 units, ships 
 PHOTONNOH | Less than 500 units, ships immediately | More than 500 units, ships in 12 - 16 weeks
 PROGSHIELD | Less than 200 units, ships immediately | More than 200 units, ships in 8 - 10 weeks
 PWRSHIELDH | Less than 200 units, ships immediately | More than 200 units, ships in 8 - 10 weeks
-RLYSHIELD | Less than 2 units, ships immediately | More than 2 units, ships in 8 - 10 weeks
+RLYSHIELD | All volumes ship in 8 - 10 weeks | All volumes ship in 8 - 10 weeks
 SIMBLANK50 | Less than 500 units, ships immediately | More than 500 units, ships in 4 - 6 weeks
 SIMTELE | Less than 500 units, ships immediately | More than 500 units, ships in 4 - 6 weeks
 SNSRKIT3G260 | Less than 20 units, ships immediately | More than 20 units, ships in 10 - 13 weeks
