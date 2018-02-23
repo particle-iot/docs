@@ -10184,9 +10184,197 @@ System.sleep(D1,RISING,60);
 _Since 0.4.5._ The state of the {{network-type}} and Cloud connections is restored when the system wakes up from sleep. So if the device was connected to the cloud before sleeping, then the cloud connection
 is automatically resumed on waking up.
 
-_Since 0.5.0_ In automatic modes, the `sleep()` function doesn't return until the cloud connection has been established. This means that application code can use the cloud connection as soon as  `sleep()` returns. In previous versions, it was necessary to call `Particle.process()` to have the cloud reconnected by the system in the background.  
+_Since 0.5.0_ In automatic modes, the `sleep()` function doesn't return until the cloud connection has been established. This means that application code can use the cloud connection as soon as  `sleep()` returns. In previous versions, it was necessary to call `Particle.process()` to have the cloud reconnected by the system in the background.
+
+_Since 0.8.0_ All `System.sleep()` variants return an instance of [`SleepResult`](#sleepresult-) class that can be queried on the result of `System.sleep()` execution.
+
+_Since 0.8.0_ An application may check the information about the latest sleep by using [`System.sleepResult()`](#sleepresult-) or additional accessor methods:
+- [`System.wakeUpReason()`](#wakeupreason-)
+- [`System.wokenUpByPin()`](#wokenupbypin--1)
+- [`System.wokenUpByRtc()`](#wokenupbyrtc--1)
+- [`System.wakeUpPin()`](#wakeuppin-)
+- [`System.sleepError()`](#sleeperror-)
 
 {{/if}} {{!-- has-sleep --}}
+
+### SleepResult Class
+
+_Since 0.8.0_
+
+This class allows to query the information about the latest `System.sleep()`.
+
+#### reason()
+
+```C++
+// SYNTAX
+SleepResult result = System.sleepResult();
+int reason = result.reason();
+```
+
+Get the wake up reason.
+
+```C++
+// EXAMPLE
+SleepResult result = System.sleepResult();
+switch (result.reason()) {
+  case WAKEUP_REASON_NONE: {
+    Log.info("{{device}} did not wake up from sleep");
+    break;
+  }
+  case WAKEUP_REASON_PIN: {
+    Log.info("{{device}} was woken up by a pin");
+    break;
+  }
+  case WAKEUP_REASON_RTC: {
+    Log.info("{{device}} was woken up by the RTC (after a specified number of seconds)");
+    break;
+  }
+  case WAKEUP_REASON_PIN_OR_RTC: {
+    Log.info("{{device}} was woken up by either a pin or the RTC (after a specified number of seconds)");
+    break;
+  }
+}
+```
+
+Returns a code describing a reason {{device}} woke up from sleep. The following reasons are defined:
+- `WAKEUP_REASON_NONE`: {{device}} did not wake up from sleep
+- `WAKEUP_REASON_PIN`: {{device}} was woken up by an edge signal to a pin
+- `WAKEUP_REASON_RTC`: {{device}} was woken up by the RTC (after a specified number of seconds)
+- `WAKEUP_REASON_PIN_OR_RTC`: {{device}} was woken up either by an edge signal to a pin or by the RTC (after a specified number of seconds)
+
+
+#### wokenUpByPin()
+
+```C++
+// SYNTAX
+SleepResult result = System.sleepResult();
+bool r = result.wokenUpByPin();
+
+// EXAMPLE
+SleepResult result = System.sleepResult();
+if (result.wokenUpByPin()) {
+  Log.info("{{device}} was woken up by a pin");
+}
+```
+
+Returns `true` when {{device}} was woken up by a pin.
+
+#### wokenUpByRtc()
+
+Returns `true` when {{device}} was woken up by the RTC (after a specified number of seconds).
+
+```C++
+// SYNTAX
+SleepResult result = System.sleepResult();
+bool r = result.wokenUpByRtc();
+
+// EXAMPLE
+SleepResult result = System.sleepResult();
+if (result.wokenUpByRtc()) {
+  Log.info("{{device}} was woken up by the RTC (after a specified number of seconds)");
+}
+```
+
+#### rtc()
+
+An alias to [`wokenUpByRtc()`](#wokenupbyrtc-).
+
+#### pin()
+
+```C++
+// SYNTAX
+SleepResult result = System.sleepResult();
+pin_t pin = result.pin();
+
+// EXAMPLE
+SleepResult result = System.sleepResult();
+pin_t pin = result.pin();
+if (result.wokenUpByPin()) {
+  Log.info("{{device}} was woken up by the pin number %d", pin);
+}
+```
+
+Returns: the number of the pin that woke the device.
+
+#### error()
+
+Get the error code of the latest sleep.
+
+```C++
+// SYNTAX
+SleepResult result = System.sleepResult();
+int err = result.error();
+```
+
+Returns: `SYSTEM_ERROR_NONE (0)` when there was no error during latest sleep or a non-zero error code.
+
+### sleepResult()
+
+_Since 0.8.0_
+
+```C++
+// SYNTAX
+SleepResult result = System.sleepResult();
+```
+
+Retrieves the information about the latest sleep.
+
+Returns: an instance of [`SleepResult`](#sleepresult-) class.
+
+### wakeUpReason()
+
+_Since 0.8.0_
+
+```C++
+// SYNTAX
+int reason = System.wakeUpReason();
+```
+
+See [`SleepResult`](#reason-) documentation.
+
+### wokenUpByPin()
+
+_Since 0.8.0_
+
+```C++
+// SYNTAX
+bool result = System.wokenUpByPin();
+```
+
+See [`SleepResult`](#wokenupbypin-) documentation.
+
+### wokenUpByRtc()
+
+_Since 0.8.0_
+
+```C++
+// SYNTAX
+bool result = System.wokeUpByRtc();
+```
+
+See [`SleepResult`](#wokenupbyrtc-) documentation.
+
+### wakeUpPin()
+
+_Since 0.8.0_
+
+```C++
+// SYNTAX
+pin_t pin = System.wakeUpPin();
+```
+
+See [`SleepResult`](#pin-) documentation.
+
+### sleepError()
+
+_Since 0.8.0_
+
+```C++
+// SYNTAX
+int err = System.sleepError();
+```
+
+See [`SleepResult`](#error-) documentation.
 
 ### reset()
 
