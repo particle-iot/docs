@@ -66,7 +66,7 @@ This is the most efficient way of powering the Electron since the PMIC by-passes
 This pin is internally connected to USB supply rail and will output 5V when the Electron is plugged into an USB port. It is intentionally left unpopulated. This pin will _NOT_ output any voltage when the Electron is powered via VIN and/or the LiPo battery.
 
 #### 3V3 Pin
-This pin is the output of the on-board 3.3V switching regulator that powers the microcontroller and the peripherals. This pin can be used as a 3.3V power source with a max load of 800mA. Unlike the Photon or the Core, this pin _CANNOT_ be used as an input to power the Electron.
+This pin is the output of the on-board 3.3V switching regulator that powers the microcontroller and the peripherals. This pin can be used as a 3.3V power source with a max load of 800mA. 3.3V will also be available on that pin while the device being in deep sleep. Unlike the Photon or the Core, this pin _CANNOT_ be used as an input to power the Electron.
 
 #### VBAT
 Supply to the internal RTC, backup registers and SRAM when 3V3 is not present (1.65 to 3.6VDC). The Pin is internally connected to 3V3 supply via a 0 ohm resistor. If you wish to power VBAT via an external supply, you'll need to remove this resistor with a desoldering iron.  Contact us if you wish to request trays of electrons with this jumper depopulated.
