@@ -39,7 +39,7 @@ P0REEL | All volumes ship in 12 - 16 weeks | All volumes ship in 12 - 16 weeks
 P1MOD10 | Less than 1,000 units, ships immediately | More than 1,000 units, ships in 12 - 16 weeks
 P1REEL | Less than 3000 units, ships immediately | More than 3000 units, ships in 12 - 16 weeks
 PHNTRAYH | Less than 700 units, ships immediately | More than 700 units, ships in 12 - 16 weeks
-PHNTRAYNOH | Less than 50 units, ships immediately | More than 50 units, ships in 12 - 16 weeks
+PHNTRAYNOH | All volumes ship in 12 - 16 weeks | All volumes ship in 12 - 16 weeks
 PHOTONH | Less than 2000 units, ships immediately | More than 2000 units, ships in 12 - 16 weeks
 PHOTONKIT | Less than 150 units, ships immediately | More than 150 units, ships in 12 - 16 weeks
 PHOTONNOH | Less than 500 units, ships immediately | More than 500 units, ships in 12 - 16 weeks
