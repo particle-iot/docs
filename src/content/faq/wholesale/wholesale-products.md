@@ -21,8 +21,8 @@ ARDSHIELD | Less than 200 units, ships immediately | More than 200 units, ships 
 ASSET2GV2 | Less than 50 units, ships immediately | More than 50 units, ships in 2 - 4 weeks
 ASSET3G260V2 | Less than 25 units, ships immediately | More than 25 units, ships in 10 - 13 weeks
 ASSET3G270V2 | Less than 50 units, ships immediately | More than 50 units, ships in 2 - 4 weeks
-BAT2000 | Less than 12 units, ships immediately | More than 12 units, ships in 4 - 6 weeks
-BATTMOD50 | All volumes ship in 4 - 6 weeks | All volumes ship in 4 - 6 weeks
+BAT2000 | All volumes ship in 2 - 3 weeks | All volumes ship in 2 - 3 weeks
+BATTMOD50 | All volumes ship in 2 - 3 weeks | All volumes ship in 2 - 3 weeks
 E260KIT | Less than 350 units, ships immediately | More than 350 units, ships in 10 - 13 weeks
 E260TRAY50 | All volumes ship in 12 - 16 weeks | All volumes ship in 12 - 16 weeks
 E270KIT | Less than 500 units, ships immediately | More than 500 units, ships in 10 - 13 weeks
