@@ -845,7 +845,7 @@ AND
 
 - (1) [ADXL362](http://www.analog.com/media/en/technical-documentation/data-sheets/ADXL362.pdf) accelerometer
 - (1) [GP2Y0A710K0F](https://acroname.com/sites/default/files/assets/sharp_gp2y0a710yk0f_datasheet.pdf) 100-550cm IR Distance sensor
-- (1) [Loudness sensor](http://www.seeedstudio.com/wiki/Grove_-_Loudness_Sensor) with LM2904 opamp
+- (1) [Loudness sensor](http://wiki.seeedstudio.com/Grove-Loudness_Sensor/) with LM2904 opamp
 - (1) [MQ2 gas sensor](/assets/datasheets/electronsensorkit/MQ-2.pdf) for LPG, i-butane, propane, methane, alcohol, hydrogen and smoke.
 - (1) [SHT10](https://www.adafruit.com/products/1298) soil humidity and temperature sensor
 - (1) [HC-SR501](/assets/datasheets/electronsensorkit/HC-SR501.pdf) PIR motion sensor
