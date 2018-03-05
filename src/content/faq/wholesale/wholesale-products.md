@@ -55,7 +55,7 @@ SPKBTTN | Less than 750 units, ships immediately | More than 750 units, ships in
 
 Lead times apply only from the point of payment. Requesting a lead time will not reserve stock. Only a committed, non-refundable, non-cancellable purchase order (PO) or a purchase with payment will guarantee lead times. Particle reserves the right to increase or decrease lead times at any time. 
 
-## Product MOQs
+## Product MOQs 
 
 Many of our products have minimum order quantities based on our case pack size. Please see the table below for minimum order quantities.
 
