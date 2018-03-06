@@ -1,5 +1,4 @@
-## Particle Documentation [![Build Status](https://travis-ci.org/spark/docs.svg?branch=master)](https://travis-ci.org/spark/docs)
-=======
+## Particle Documentation [![Build Status](https://travis-ci.org/particle-iot/docs.svg?branch=master)](https://travis-ci.org/particle-iot/docs)
 
 Here you'll find the documentation for the Particle platform, including the Particle Cloud, Photon, Electron, and Spark Core.
 
@@ -44,7 +43,7 @@ not.
 
 When updated documentation is pushed to the master branch, it is automatically pushed to Amazon S3 by Travis CI.
 
-To see the latest build, visit the [Travis CI page](https://travis-ci.org/spark/docs).
+To see the latest build, visit the [Travis CI page](https://travis-ci.org/particle-iot/docs).
 
 ### Organization
 
