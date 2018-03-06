@@ -159,15 +159,17 @@
   font-weight: 300;
 }
 .content code {
-  font-family: 'Fira Mono Medium', Monaco, monospace;
+  font-family: @monospace-font;
+  font-weight: 500;
   background: @almost-white;
   padding: 1px 3px;
   font-size: 13px;
   span {
-    font-family: 'Fira Mono Medium', Monaco, monospace;
+    font-family: @monospace-font;
+    font-weight: 500;
     font-size: 14px;
     &.com {
-      font-family: 'Fira Mono Regular', Monaco, monospace;
+      font-family: @monospace-font;
     }
   }
 }
@@ -292,7 +294,7 @@ h1 .header-permalinks {
   letter-spacing: 0;
   font-size: 35px;
   line-height: 55px;
-  font-family: @header-fonts;
+  font-family: @header-font;
 }
 .content h3 {
   font-size: 1.2em;
@@ -343,7 +345,7 @@ body.big-h3 .content h3:before {
   color: @gray;
   padding-top: 15px;
   padding-bottom: 10px;
-  font-family: @base-font-family;
+  font-family: @body-font;
   text-transform: uppercase;
   font-size: 11.5px;
 }
@@ -357,7 +359,7 @@ body:not(.big-h3) .content h3 {
   text-transform: uppercase;
   font-size: 12px;
   letter-spacing: 1px;
-  font-family: @base-font-family;
+  font-family: @body-font;
   padding-top: 30px;
   padding-bottom: 10px;
   position: relative;
@@ -624,7 +626,7 @@ a.big.button {
   border: solid 3px #2badad;
   -webkit-border-radius: 30px;
   border-radius: 30px;
-  font-family: montserrat, sans-serif;
+  font-family: @body-font;
 }
 a.big.button,
 a.big.button:visited {
