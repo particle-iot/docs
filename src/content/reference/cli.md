@@ -220,30 +220,30 @@ $ particle flash --usb firmware.bin
 
 ## particle compile
 
-  Compiles one or more source file, or a directory of source files, and downloads a firmware binary.
+  Compiles one or more source file, or a directory of source files, and downloads a firmware binary to your computer. The cloud compiler is device-specific, so the name of device you want to target (or its alias) must be provided as an argument. The supported devices are:
+
+  - photon ('p')
+  - core ('c')
+  - electron ('e')
+  - p1
+  - raspberry-pi ('pi')
+  - duo ('d')
+  - oak ('o')
+  - bluz ('b')
+  - bluz-gateway ('bg')
+  - bluz-beacon ('bb')
 
   **NOTE**: Remember that **\*.cpp** and **\*.ino** files behave differently. You can read more about it on our [support page](http://support.particle.io/hc/en-us/articles/204952620).
 
-```text
-This is device specific and must be passed as an argument during compilation.
+```bash
+particle compile photon myapp.ino
+particle compile p myapp.ino
 
-The devices available are:
-
-- photon (alias is 'p')
-- core (alias is 'c')
-- electron (alias is 'e')
-- p1
-- raspberry-pi (alias is 'pi')
-- duo (alias is 'd')
-- oak (alias is 'o')
-- bluz (alias is 'b')
-- bluz-gateway (alias is 'bg')
-- bluz-beacon (alias is 'bb')
-
-eg. `particle compile photon xxx` OR `particle compile p xxxx` both targets the photon
+particle compile electron myapp.ino
+particle compile e myapp.ino
 ```
 
-Note!  The cloud compiles `.ino` and `.cpp` files differently.  For `.ino` files, the cloud will apply a pre-processor.  It will add missing function declarations, and it will inject an `#include "Particle.h"` line at the top of your files if it is missing. See [the pre-processor documentation for details](/reference/firmware/#preprocessor).
+The cloud compiles `.ino` and `.cpp` files differently.  For `.ino` files, the cloud will apply a pre-processor.  It will add missing function declarations, and it will inject an `#include "Particle.h"` line at the top of your files if it is missing. See [the pre-processor documentation for details](/reference/firmware/#preprocessor).
 
 If you want to build a library that can be used for both Arduino and Particle, here's a useful code snippet:
 
