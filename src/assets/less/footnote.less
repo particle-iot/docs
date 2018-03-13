@@ -1,14 +1,14 @@
 @media screen and (min-width: 1360px) {
 
 	.footnoteLink {
-		border-bottom: 1px solid #00adef;
+		border-bottom: 1px solid @NC_CYAN;
 		cursor: pointer;
 	}
 
 	.footnote {
-		background-color: #ffffff;
-    border-top: 2px solid #00adef;
-    border-bottom: 2px solid #00adef;
+		background-color: @NC_WHITE;
+    border-top: 2px solid @NC_CYAN;
+    border-bottom: 2px solid @NC_CYAN;
 		font-weight: normal;
 		height: auto;
 		left: -140px;
@@ -34,14 +34,14 @@
 
 @media screen and (max-width: 1360px) and (min-width: @small-size) {
   .footnoteLink {
-    border-bottom: 1px solid #00adef;
+    border-bottom: 1px solid @NC_CYAN;
     cursor: pointer;
   }
 
   .footnote {
-    background-color: #ffffff;
-    border-top: 2px solid #00adef;
-    border-bottom: 2px solid #00adef;
+    background-color: @NC_WHITE;
+    border-top: 2px solid @NC_CYAN;
+    border-bottom: 2px solid @NC_CYAN;
     font-weight: normal;
     height: auto;
     line-height: 1.4;
@@ -56,7 +56,7 @@
     font-size: 10 px;
     transform: translateY(-50%);
     padding: 15px;
-    border: 2px solid #00adef;
+    border: 2px solid @NC_CYAN;
     border-radius: 10px;
     display: block;
   }
@@ -70,13 +70,13 @@
 
 @media screen and (max-width: @small-size) and (min-width: 0) {
     .footnoteLink {
-      border-bottom: 1px solid #00adef;
+      border-bottom: 1px solid @NC_CYAN;
       cursor: pointer;
     }
 
     .footnote {
-      background-color: #ffffff;
-      border: 2px solid #00adef;
+      background-color: @NC_WHITE;
+      border: 2px solid @NC_CYAN;
       font-weight:normal;
       height: auto;
       left:0;
@@ -102,7 +102,7 @@
 
 
 @media print
-{    
+{
     .footnoteLink
     {
         display: none !important;

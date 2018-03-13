@@ -8,9 +8,9 @@
 
 	div, p {
 		font-size: 14px;
-		font-weight: 400;
+		font-weight: normal;
 		padding: 10px;
-		color: #555;
+		color: @NC_SPACE_GRAY;
 	}
 
 	.api-field {
@@ -40,9 +40,9 @@
       margin-left: 0;
       li {
         margin-bottom: 5px;
-        font-weight: 400;
+        font-weight: normal;
         line-height: 24px;
-        color: #555;
+        color: @NC_SPACE_GRAY;
       }
     }
 	}
@@ -61,17 +61,17 @@
 	}
 
 	> li {
-		border-top: 1px solid #ddd;
+		border-top: 1px solid @NC_MORNING_MIST;
 		clear: both;
 		overflow: auto;
 		list-style-type: none;
-		font-weight: 400;
+		font-weight: normal;
 		margin: 0;
 		line-height: 1.4;
 	}
 
 	> li:last-child {
-		border-bottom: 1px solid #ddd;
+		border-bottom: 1px solid @NC_MORNING_MIST;
 	}
 
 	.nested-params {
@@ -95,11 +95,11 @@
 }
 
 .content ul.api-attributes::before {
-	content: attr(data-title);	
+	content: attr(data-title);
 }
 
 .content pre.api-code::before {
-	content: attr(data-title);	
+	content: attr(data-title);
 }
 
 .api-code {
@@ -108,7 +108,7 @@
 
 	&::before {
 		color: @another-gray;
-		background-color: #272822;
+		background-color: @NC_SPACE_GRAY;
 		display: block;
 		margin: 0 -40px;
 		padding: 10px 40px;

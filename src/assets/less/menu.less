@@ -2,7 +2,7 @@
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
   background: @white;
-  font-size: 12px;
+  font-size: 16px;
   padding-top: 30px;
   padding-bottom: 75px;
   overflow-y: auto;
@@ -12,7 +12,7 @@
   bottom: 0;
   width: @menubarWidth;
   box-sizing: border-box;
-  border-right: solid 1px #dfe2e7;
+  border-right: solid 1px @NC_MORNING_MIST;
   z-index: @menuZindex;
 
   // Start with menu hidden on mobile
@@ -25,7 +25,7 @@
     padding: 10px 20px;
 
     p {
-      font-weight: 700;
+      font-weight: bold;
       text-transform: uppercase;
       margin-top: 10px;
     }
@@ -84,10 +84,10 @@
 
 
 h3.guide-section-titles {
-  font-size: 12px;
+  font-size: 16px;
   text-transform: uppercase;
   letter-spacing: .7px;
-  font-weight: 700;
+  font-weight: bold;
   margin-bottom: 5px;
 }
 
@@ -125,8 +125,8 @@ ul.guide-menu {
 
 .menubar li a,
 .menubar li a:visited {
-  font-size: 14px;
-  font-weight: 400;
+  font-size: 16px;
+  font-weight: normal;
   color: @gray;
   margin: 2px 0;
   &:hover {
@@ -163,12 +163,12 @@ ul.in-page-toc {
     }
     &.active {
       a {
-        font-weight: 700;
+        font-weight: bold;
         color: @spark-blue;
       }
     }
     a {
-      font-size: 12px;
+      font-size: 14px;
     }
   }
   .secondary-in-page-toc {
@@ -193,9 +193,8 @@ ul.in-page-toc {
     }
   }
   span {
-    font-weight: 700;
+    font-weight: bold;
     color: @gray;
-    font-size: 14px;
   }
 }
 .guide-section {

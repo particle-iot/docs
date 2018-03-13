@@ -334,7 +334,7 @@ exports.server = function(callback) {
   environment = 'development';
   git.branch(function (str) {
     gitBranch = process.env.TRAVIS_BRANCH || str;
-    exports.metalsmith().use(serve())
+    exports.metalsmith().use(serve({ port: 8080 }))
       .use(watch({
         paths: {
           '${source}/content/**/*.md': true,
