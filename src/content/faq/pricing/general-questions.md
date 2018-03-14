@@ -131,7 +131,7 @@ Cloud access on your upcoming invoice. A billable device:
   state (cellular only)**. Devices using deactivated SIMs are not billable. In addition,
   [3rd-party SIMs](#what-about-3rd-party-sims-) SIMs (100 or less) are not
   billable.
-- **No longer qualifes for Device Cloud promotional pricing**. This
+- **No longer qualifies for Device Cloud promotional pricing**. This
   includes first 3 months free for cellular devices, or first 100
   devices free for Wi-Fi.
 
