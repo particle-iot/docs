@@ -106,7 +106,10 @@ Note that you will need to be the owner of the device to have visibility into sy
 For devices in which you do not have physical access, you have the ability to update system firmware over-the-air.
 
 #### Flashing application firmware
+
 One of the easiest and safest ways to update system firmware is to simply flash an application firmware that was compiled against a newer version of system firmware. The device will receive the incompatible firmware app, and use [safe mode healer](#safe-mode-healer) to automatically download the newer system modules.
+
+**Note**: This method is not currently available for Electrons, unless the device has been added to a [product](https://docs.particle.io/guide/tools-and-features/console/#product-tools). This is meant to help you manage cellular data usage. For updating system firmware on Electrons, check out the methods for [updating locally](#updating-locally).
 
 In the Web IDE, this can be done by using the _system firmware target_ dropdown, and choosing a version that is newer than what is currently on the device.
 
