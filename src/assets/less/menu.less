@@ -158,9 +158,11 @@ ul.in-page-toc {
     padding: 2px 0;
     i.toggle-secondary-toc {
       color: @gray;
-      margin-right: 5px;
+      margin-right: 4px;
       cursor: pointer;
       .transition(color 0.2s);
+      width: 1em;
+      display: inline-block;
       &:hover {
         color: @spark-blue;
       }
@@ -176,7 +178,7 @@ ul.in-page-toc {
     }
   }
   .secondary-in-page-toc {
-    padding-left: 10px;
+    padding-left: 18px; // .875em (14px) + 4px
     display: none;
   }
 }
