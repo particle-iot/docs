@@ -95,13 +95,13 @@ exports.metalsmith = function() {
         destFile: 'content/reference/api.md',
         apis: [
           {
-            src: '../api-node/',
-            config: '../api-node/',
+            src: '../api-service/',
+            config: '../api-service/',
             includeFilters: ['.*[vV]iews[^.]*\\.js$', 'lib/AccessTokenController.js']
           },
           {
             src: '../api-service-libraries/',
-            config: '../api-node/',
+            config: '../api-service/',
             includeFilters: ['.*Controller\\.js$']
           },
         ]
@@ -348,7 +348,7 @@ exports.server = function(callback) {
           '${source}/assets/js/*.js*' : true,
           '${source}/assets/images/**/*' : true,
           '../config/device_features.json': 'content/**/*.md',
-          '../api-node/lib/**/*.js': 'content/reference/api.md',
+          '../api-service/lib/**/*.js': 'content/reference/api.md',
           '../config/redirects.json': '**/*'
         },
         livereload: true
