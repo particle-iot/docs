@@ -4,6 +4,7 @@ build/
 build_*/
 npm-debug.log
 api-node
+api-service
 api-service-libraries
 particle-api-js
 _pdf-datasheets-build/

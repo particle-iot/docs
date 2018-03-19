@@ -22,8 +22,8 @@ if [ "${TRAVIS_PULL_REQUEST}" != "false" -a "${FORCE}" != 1 ]; then
     exit 0
 fi
 
-[ -d api-node ] || git clone --depth ${DEPTH} -b ${BRANCH} https://github.com/particle-iot/api-node.git
-cd api-node && git fetch && git merge origin/${BRANCH} && cd ..
+[ -d api-service ] || git clone --depth ${DEPTH} -b ${BRANCH} https://github.com/particle-iot/api-service.git
+cd api-service && git fetch && git merge origin/${BRANCH} && cd ..
 
 [ -d api-service-libraries ] || git clone --depth ${DEPTH} https://github.com/particle-iot/api-service-libraries.git
 cd api-service-libraries && git fetch && git merge origin/master && cd ..
