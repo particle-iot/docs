@@ -7784,8 +7784,13 @@ _NB: In 0.3.4 and earlier, this function included a newline at the end of the re
 Formats a time string using a configurable format.
 
 ```cpp
+// SYNTAX
+Time.format(time, strFormat); // fully qualified (e.g. current time with custom format)
+Time.format(strFormat);       // current time with custom format
+Time.format(time);            // custom time with preset format
+Time.format();                // current time with preset format
+  
 // EXAMPLE
-
 time_t time = Time.now();
 Time.format(time, TIME_FORMAT_DEFAULT); // Sat Jan 10 08:22:04 2004 , same as Time.timeStr()
 
@@ -7800,8 +7805,10 @@ The formats available are:
 - `TIME_FORMAT_ISO8601_FULL`
 - custom format based on `strftime()`
 
+**Note:** The custom time provided to `Time.format()` needs to be UTC based and *not* contain the time zone offset (as `Time.local()` would), since the time zone correction is performed by the high level `Time` methods internally.
+
 {{#if core}}
-Note that the format function is implemented using `strftime()` which adds several kilobytes to the size of firmware.
+**Note:** On the Core the format function is implemented using `strftime()` which adds several kilobytes to the size of firmware.
 Application firmware that has limited space available may want to consider using simpler alternatives that consume less firmware space, such as `sprintf()`.
 {{/if}}
 
