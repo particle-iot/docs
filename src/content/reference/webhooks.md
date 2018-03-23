@@ -520,8 +520,8 @@ Error responses from the target url will also be sent back in the response event
   "coreid":"particle-internal"
 }
 ```
-
-If you have many consecutive errors, the hook will sleep and get re-enabled automatically later.  Make sure you're watching the responses when developing your hook!
+Too many errors from a receiving server can result in [webhook
+throttling](#limits).
 
 The hook error events cannot trigger webhooks themselves to avoid the possibility of a bad webhook recursively triggering other webhooks. Use the [Console event logs](https://console.particle.io/logs) or open an [event stream](/reference/api/#get-a-stream-of-events) to see these events.
 
@@ -534,6 +534,25 @@ The [Webhook Builder](https://console.particle.io/integrations/webhooks/create) 
 All the webhook properties can be filled out with the form, _except for `body` which is currently not supported on the Console._
 
 Product webhooks can be created through the Console. Navigate into your product, then click Integrations on the left navigation bar, then New integration, Webhook.
+
+You can also use the Console to see an audit trail of webhooks that have
+previously been attempted. From the Integrations page, click on an
+integration to display its details.
+
+Scrolling down a bit, you'll see 2 sections, **History** and **Logs**.
+
+History will show you a graph of all attempts and their result over the
+last 30 days. Results will be broken down into _success_, _error_, and
+_sleep_ (throttling).
+
+![Webhook History](/assets/images/webhooks/webhook-history.png)
+
+Logs will provide details on the last 10 attempts. For each logged
+webhook, you'll be able to see the source event that triggered the
+webhook, the HTTP request sent to the webhook URL, and the full HTTP
+response from the webhook server.
+
+![Webhook Logs](/assets/images/webhooks/webhook-logs.png)
 
 ## Using the CLI
 
@@ -614,46 +633,23 @@ See the [API reference](/reference/api/#webhooks) for details on the webhook end
 
 ## Limits
 
-### Be a good citizen
+Particle places no limitation on the rate at which a webhook can be
+triggered by default. Therefore, ensure that the
+receiving server is capable of handling the request volume you are
+expecting to send.
 
-**Please make sure you have permission from the target site!**
+When a server receiving webhook requests fails, the Particle Cloud will
+throttle requests. Specifically, Particle uses an adaptive algorithm to
+throttle webhook attempts when more 4xx or 5xx HTTP status codes than 2xx
+HTTP status codes are returned by the receiving server.
+After a cooldown period of a few seconds, requests will be allowed to be made once again.
 
-Web requests via webhooks can go almost anywhere on the internet, and to almost any service, which is awesome!
+You will know that your webhook is being throttled if you see a
+`hook-error` event in your event stream that reads "Sleeping, too many errors,
+please wait and try again" in the body.
 
-In being responsible members of the Internet community, we want to make sure we're not sending unwanted requests to sites, or sending too much traffic, or causing errors.  For this reason we ask that you make sure you have permission to make requests to any sites you configure webhooks for, and that you're sending those requests within their usage policies.  We will generally disable any hooks, or adjust rate limiting if we hear from site administrators that contact us about issues.
-
-
-### Limits by Host
-
-**Any host will be limited to 120 requests per minute unless we're contacted by the site administrator**
-
-Particle webhooks will not contact any host more often than 120 times per minute,
-despite any number of configured webhooks from any number of users.
-Requests over this limit will be dropped.
-The intent of this limit is to protect sites against abuse.
-
-_If you are a server operator and want to increase the host limit
-or believe you're being spammed by webhooks, please use the
-[support form to contact us](https://support.particle.io)._
-
-### Limits by User
-
-**You can create up to 20 webhooks, you can send 10 webhooks per minute per device**
-
-A user by default may trigger a webook up to 10 times per minute for every device that is registered to their account.  A user may create up to 20 webhooks in total.
-
-Note: This means you must have at least one device registered to your account to trigger a webhook.
-
-
-### Error Limits
-
-The server receiving a webhook must respond within 20 seconds.
-
-**A webhook will sleep if the server responds with errors 10 times in a row.**
-
-Any webhook that results in an error code from the server (above a 400), 10 consecutive times in a row will be automatically disabled for a short period of time to allow the server to avoid hammering the server.
-
-Error responses from the target URL will also be sent back in the response event.  If you have 10 consecutive errors, the hook will send you a "Too many errors, webhook disabled" message.  Make sure you're watching the responses when developing your webhook!
+We remind you to be a good Internet citizen and only send webhook
+requests to target sites that you have permission to send traffic.
 
 ## Examples
 
