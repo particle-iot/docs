@@ -344,6 +344,8 @@ data: {"data":"23:23:44","ttl":"60","published_at":"2014-05-28T19:20:34.638Z","d
 ```
 
 {{#if electron}}
+---
+
 *`NO_ACK` flag*
 
 Unless specified otherwise, events sent to the cloud are sent as a reliable message. The Electron waits for
@@ -363,8 +365,9 @@ Particle.publish("t", String::format("%.2f",temperature), ttl, PRIVATE, NO_ACK);
 ```
 
 {{/if}} {{!-- electron --}}
+---
 
-_`WITH_ACK` flag_
+*`WITH_ACK` flag*
 
 _Since 0.6.1_
 
@@ -376,6 +379,18 @@ This flag causes `Particle.publish()` to return only after receiving an acknowle
 Particle.publish("motion-detected", NULL, WITH_ACK);
 Particle.publish("motion-detected", NULL, PRIVATE, WITH_ACK);
 Particle.publish("motion-detected", NULL, ttl, PRIVATE, WITH_ACK);
+```
+
+---
+
+_Since 0.7.0_
+
+`Particle.publish()` flags can be combined using a regular syntax with OR operator (`|`).
+
+```cpp
+// EXAMPLE - combining Particle.publish() flags
+
+Particle.publish("motion-detected", PRIVATE | WITH_ACK);
 ```
 
 
@@ -1015,35 +1030,112 @@ Allows the application to set credentials for the Wi-Fi network from within the 
 
 Your device can remember more than one set of credentials:
 - Core: remembers the 7 most recently set credentials
-- Photon: remembers the 5 most recently set credentials
+- Photon: remembers the 5 most recently set credentials.
+
+_Since 0.7.0_: Photon can store one set of WPA Enterprise credentials.
 
 ```cpp
 // Connects to an unsecured network.
-WiFi.setCredentials(SSID);
+WiFi.setCredentials(ssid);
 WiFi.setCredentials("My_Router_Is_Big");
 
 // Connects to a network secured with WPA2 credentials.
-WiFi.setCredentials(SSID, PASSWORD);
+WiFi.setCredentials(ssid, password);
 WiFi.setCredentials("My_Router", "mypasswordishuge");
 
 // Connects to a network with a specified authentication procedure.
 // Options are WPA2, WPA, or WEP.
-WiFi.setCredentials(SSID, PASSWORD, AUTH);
+WiFi.setCredentials(ssid, password, auth);
 WiFi.setCredentials("My_Router", "wepistheworst", WEP);
-
 ```
 
 {{#if photon}}
-When the Photon used with hidden or offline networks, the security cipher is also required.
+When the Photon is used with hidden or offline networks, the security cipher is also required.
 
 ```cpp
 
 // for hidden and offline networks on the Photon, the security cipher is also needed
 // Cipher options are WLAN_CIPHER_AES, WLAN_CIPHER_TKIP and WLAN_CIPHER_AES_TKIP
-WiFi.setCredentials("SSID", "PASSWORD", WPA2, WLAN_CIPHER_AES));
+WiFi.setCredentials(ssid, password, auth, cipher);
+WiFi.setCredentials("SSID", "PASSWORD", WPA2, WLAN_CIPHER_AES);
 ```
 
 {{/if}} {{!-- photon --}}
+
+```c++
+// Connects to a network with an authentication procedure specified by WiFiCredentials object
+WiFi.setCredentials(credentials);
+WiFiCredentials credentials;
+credentials.setSsid("My_Router")
+           .setSecurity(WEP)
+           .setPassword("wepistheworst");
+WiFi.setCredentials(credentials);
+```
+
+_Since 0.7.0_: Credentials can be set using [WiFiCredentials class](#wificredentials-class).
+
+{{#if has-wpa-enterprise}}
+```cpp
+// WPA2 Enterprise with EAP-TLS
+
+// We are setting WPA2 Enterprise credentials
+WiFiCredentials credentials("My_Enterprise_AP", WPA2_ENTERPRISE);
+// EAP type: EAP-TLS
+credentials.setEapType(WLAN_EAP_TYPE_TLS);
+// Client certificate in PEM format
+credentials.setClientCertificate("-----BEGIN CERTIFICATE-----\r\n" \
+                                 /* ... */ \
+                                 "-----END CERTIFICATE-----\r\n\r\n"
+                                );
+// Private key in PEM format
+credentials.setPrivateKey("-----BEGIN RSA PRIVATE KEY-----\r\n" \
+                          /* ... */ \
+                          "-----END RSA PRIVATE KEY-----\r\n\r\n"
+                         );
+// Root (CA) certificate in PEM format (optional)
+credentials.setRootCertificate("-----BEGIN CERTIFICATE-----\r\n" \
+                               /* ... */ \
+                               "-----END CERTIFICATE-----\r\n\r\n"
+                              );
+// EAP outer identity (optional, default - "anonymous")
+credentials.setOuterIdentity("anonymous");
+// Save credentials
+WiFi.setCredentials(credentials);
+```
+
+```cpp
+// WPA Enterprise with PEAP/MSCHAPv2
+
+// We are setting WPA Enterprise credentials
+WiFiCredentials credentials("My_Enterprise_AP", WPA_ENTERPRISE);
+// EAP type: PEAP/MSCHAPv2
+credentials.setEapType(WLAN_EAP_TYPE_PEAP);
+// Set username
+credentials.setIdentity("username");
+// Set password
+credentials.setPassword("password");
+// Set outer identity (optional, default - "anonymous")
+credentials.setOuterIdentity("anonymous");
+// Root (CA) certificate in PEM format (optional)
+credentials.setRootCertificate("-----BEGIN CERTIFICATE-----\r\n" \
+                               /* ... */ \
+                               "-----END CERTIFICATE-----\r\n\r\n"
+                              );
+// Save credentials
+WiFi.setCredentials(credentials);
+```
+{{/if}}
+
+Parameters:
+- `ssid`: SSID (string)
+- `password`: password (string)
+- `auth`: see [SecurityType](#securitytype-enum) enum.
+- `cipher`: see [WLanSecurityCipher](#wlansecuritycipher-enum) enum.
+- `credentials`: an instance of [WiFiCredentials class](#wificredentials-class).
+
+This function returns `true` if credentials were successfully saved, or `false` in case of an error.
+
+**Note:** Setting WPA/WPA2 Enterprise credentials requires use of [WiFiCredentials class](#wificredentials-class).
 
 **Note:** In order for `WiFi.setCredentials()` to work, the Wi-Fi module needs to be on (if switched off or disabled via non_AUTOMATIC SYSTEM_MODEs call `WiFi.on()`).
 
@@ -1068,10 +1160,10 @@ int found = WiFi.getCredentials(ap, 5);
 for (int i = 0; i < found; i++) {
     Serial.print("ssid: ");
     Serial.println(ap[i].ssid);
-    // security is one of WLAN_SEC_UNSEC, WLAN_SEC_WEP, WLAN_SEC_WPA, WLAN_SEC_WPA2
+    // security is one of WLAN_SEC_UNSEC, WLAN_SEC_WEP, WLAN_SEC_WPA, WLAN_SEC_WPA2, WLAN_SEC_WPA_ENTERPRISE, WLAN_SEC_WPA2_ENTERPRISE
     Serial.print("security: ");
     Serial.println(ap[i].security);
-    // cipher is one of WLAN_CIPHER_AES, WLAN_CIPHER_TKIP
+    // cipher is one of WLAN_CIPHER_AES, WLAN_CIPHER_TKIP or WLAN_CIPHER_AES_TKIP
     Serial.print("cipher: ");
     Serial.println(ap[i].cipher);
 }
@@ -1426,7 +1518,348 @@ A note on switching between static and dynamic IP. If static IP addresses have b
 by the system after calling `WiFi.useDynamicIP()`, and so are available for use next time `WiFi.useStaticIP()`
 is called, without needing to be reconfigured using `WiFi.setStaticIP()`
 
+### setHostname()
+
+_Since 0.7.0_
+
+Sets a custom hostname to be used as DHCP client name (DHCP option 12).
+
+Parameters:
+
+- `hostname`: the hostname to set (string)
+
+```cpp
+// SYNTAX
+
+WiFi.setHostname("photon-123");
+```
+
+By default the {{device}} uses its [device ID](#deviceid-) as hostname.
+
+The hostname is stored in persistent memory. In order to reset the hostname to its default value (device ID) `setHostname()` needs to be called with `hostname` argument set to `NULL`.
+
+```cpp
+// Reset hostname to default value (device ID)
+WiFi.setHostname(NULL);
+// Both these functions should return the same value.
+Serial.println(WiFi.getHostname());
+Serial.println(System.deviceID());
+```
+
+### hostname()
+
+_Since 0.7.0_
+
+Retrieves device hostname used as DHCP client name (DHCP option 12).
+
+This function does not take any arguments and returns a `String`.
+
+```cpp
+// SYNTAX
+String hostname = WiFi.hostname();
+```
+
+By default the {{device}} uses its [device ID](#deviceid-) as hostname. See [WiFi.setHostname()](#sethostname-) for documentation on changing the hostname.
+
 {{/if}} {{!-- photon --}}
+
+### WiFiCredentials class
+This class allows to define WiFi credentials that can be passed to [WiFi.setCredentials()](#setcredentials-) function.
+
+```c++
+// EXAMPLE - defining and using WiFiCredentials class
+
+void setup() {
+    // Ensure that WiFi module is on
+    WiFi.on();
+    // Set up WPA2 access point "My AP" with password "mypassword" and AES cipher
+    WiFiCredentials credentials("My AP", WPA2);
+    credentials.setPassword("mypassword")
+               .setCipher(WLAN_CIPHER_AES);
+    // Connect if settings were successfully saved
+    if (WiFi.setCredentials(credentials)) {
+        WiFi.connect();
+        waitFor(WiFi.ready, 30000);
+        Particle.connect();
+        waitFor(Particle.connected, 30000);
+    }
+}
+
+void loop() {
+}
+```
+
+#### WiFiCredentials()
+Constructs an instance of the WiFiCredentials class. By default security type is initialized to unsecured (`UNSEC`).
+
+```c++
+// SYNTAX
+WiFiCredentials credentials(SecurityType security = UNSEC); // 1
+WiFiCredentials credentials(const char* ssid, SecurityType security = UNSEC); // 2
+```
+
+```c++
+// EXAMPLE - constructing WiFiCredentials instance
+// Empty instance, security is set to UNSEC
+WiFiCredentials credentials;
+// No SSID, security is set to WPA2
+WiFiCredentials credentials(WPA2);
+// SSID set to "My AP", security is set to UNSEC
+WiFiCredentials credentials("My AP");
+// SSID set to "My WPA AP", security is set to WPA
+WiFiCredentials credentials("My AP", WPA);
+```
+
+Parameters:
+- `ssid`: SSID (string)
+- `security`: see [SecurityType](#securitytype-enum) enum.
+
+#### setSsid()
+Sets access point SSID.
+
+```c++
+// SYNTAX
+WiFiCredentials& WiFiCredentials::setSsid(const char* ssid);
+```
+
+```c++
+// EXAMPLE - setting ssid
+WiFiCredentials credentials;
+credentials.setSsid("My AP");
+```
+
+Parameters:
+- `ssid`: SSID (string)
+
+#### setSecurity()
+Sets access point security type.
+
+```c++
+// SYNTAX
+WiFiCredentials& WiFiCredentials::setSecurity(SecurityType security);
+```
+
+```c++
+// EXAMPLE - setting security type
+WiFiCredentials credentials;
+credentials.setSecurity(WPA2);
+```
+
+Parameters:
+- `security`: see [SecurityType](#securitytype-enum) enum.
+
+#### setCipher()
+Sets access point cipher.
+
+```c++
+// SYNTAX
+WiFiCredentials& WiFiCredentials::setCipher(WLanSecurityCipher cipher);
+```
+
+```c++
+// EXAMPLE - setting cipher
+WiFiCredentials credentials;
+credentials.setCipher(WLAN_CIPHER_AES);
+```
+
+Parameters:
+- `cipher`: see [WLanSecurityCipher](#wlansecuritycipher-enum) enum.
+
+#### setPassword()
+Sets access point password.
+
+{{#if has-wpa-enterprise}}
+When configuring credentials for WPA/WPA2 Enterprise access point with PEAP/MSCHAPv2 authentication, this function sets password for username set by [setIdentity()](#setidentity-).
+{{/if}} {{!-- has-wpa-enterprise --}}
+
+```c++
+// SYNTAX
+WiFiCredentials& WiFiCredentials::setPassword(const char* password);
+```
+
+```c++
+// EXAMPLE - setting password
+WiFiCredentials credentials("My AP", WPA2);
+credentials.setPassword("mypassword");
+```
+
+Parameters:
+{{#if has-wpa-enterprise}}
+- `password`: WEP/WPA/WPA2 access point password, or user password for PEAP/MSCHAPv2 authentication (string)
+{{else}}
+- `password`: WEP/WPA/WPA2 access point password (string)
+{{/if}} {{!-- has-wpa-enterprise --}}
+
+#### setChannel()
+Sets access point channel.
+
+```c++
+// SYNYAX
+WiFiCredentials& WiFiCredentials::setChannel(int channel);
+```
+
+```c++
+// EXAMPLE - setting channel
+WiFiCredentials credentials("My AP");
+credentials.setChannel(10);
+```
+
+Parameters:
+- `channel`: WLAN channel (int)
+
+{{#if has-wpa-enterprise}}
+#### setEapType()
+Sets EAP type.
+
+```c++
+// SYNTAX
+WiFiCredentials& WiFiCredentials::setEapType(WLanEapType type);
+```
+
+```c++
+// EXAMPLE - setting EAP type
+WiFiCredentials credentials("My Enterprise AP", WPA2_ENTERPRISE);
+credentials.setEapType(WLAN_EAP_TYPE_PEAP);
+```
+
+Parameters:
+- `type`: EAP type. See [WLanEapType](#wlaneaptype-enum) enum for a list of supported values.
+
+#### setIdentity()
+Sets EAP inner identity (username in case of PEAP/MSCHAPv2).
+
+```c++
+// SYNTAX
+WiFiCredentials& WiFiCredentials::setIdentity(const char* identity);
+```
+
+```c++
+// EXAMPLE - setting PEAP identity (username)
+WiFiCredentials credentials("My Enterprise AP", WPA2_ENTERPRISE);
+credentials.setEapType(WLAN_EAP_TYPE_PEAP);
+credentials.setIdentity("username");
+```
+
+Parameters:
+- `identity`: inner identity (string)
+
+#### setOuterIdentity()
+Sets EAP outer identity. Defaults to "anonymous".
+
+```c++
+// SYNTAX
+WiFiCredentials& WiFiCredentials::setOuterIdentity(const char* identity);
+```
+
+```c++
+// EXAMPLE - setting outer identity
+WiFiCredentials credentials("My Enterprise AP", WPA2_ENTERPRISE);
+credentials.setOuterIdentity("notanonymous");
+```
+
+Parameters:
+- `identity`: outer identity (string)
+
+#### setClientCertificate()
+Sets client certificate used for EAP-TLS authentication.
+
+```c++
+// SYNTAX
+WiFiCredentials& WiFiCredentials::setClientCertificate(const char* cert);
+```
+
+```c++
+// EXAMPLE - setting client certificate
+WiFiCredentials credentials;
+credentials.setClientCertificate("-----BEGIN CERTIFICATE-----\r\n" \
+                                 /* ... */ \
+                                 "-----END CERTIFICATE-----\r\n\r\n"
+                                );
+```
+
+Parameters:
+- `cert`: client certificate in PEM format (string)
+
+#### setPrivateKey()
+Sets private key used for EAP-TLS authentication.
+
+```c++
+// SYNTAX
+WiFiCredentials& WiFiCredentials::setPrivateKey(const char* key);
+```
+
+```c++
+// EXAMPLE - setting private key
+WiFiCredentials credentials;
+credentials.setPrivateKey("-----BEGIN RSA PRIVATE KEY-----\r\n" \
+                          /* ... */ \
+                          "-----END RSA PRIVATE KEY-----\r\n\r\n"
+                         );
+```
+
+Parameters:
+- `key`: private key in PEM format (string)
+
+#### setRootCertificate()
+Sets one more root (CA) certificates.
+
+```c++
+// SYNTAX
+WiFiCredentials& WiFiCredentials::setRootCertificate(const char* cert);
+```
+
+```c++
+// EXAMPLE - setting one root certificate
+WiFiCredentials credentials;
+credentials.setClientCertificate("-----BEGIN CERTIFICATE-----\r\n" \
+                                 /* ... */ \
+                                 "-----END CERTIFICATE-----\r\n\r\n"
+                                );
+// EXAMPLE - setting multiple root certificates
+WiFiCredentials credentials;
+credentials.setClientCertificate("-----BEGIN CERTIFICATE-----\r\n" \
+                                 /* ... */ \
+                                 "-----END CERTIFICATE-----\r\n"
+                                 "-----BEGIN CERTIFICATE-----\r\n" \
+                                 /* ... */ \
+                                 "-----END CERTIFICATE-----\r\n\r\n"
+                                );
+```
+
+Parameters:
+- `cert`: one or multiple concatenated root certificates in PEM format (string)
+
+### WLanEapType Enum
+This enum defines EAP types.
+
+| Name                 | Description                                                     |
+|----------------------|-----------------------------------------------------------------|
+| `WLAN_EAP_TYPE_PEAP` | PEAPv0/EAP-MSCHAPv2 (draft-josefsson-pppext-eap-tls-eap-06.txt) |
+| `WLAN_EAP_TYPE_TLS`  | EAP-TLS (RFC 2716)                                              |
+
+{{/if}} {{!-- has-wpa-enterprise --}}
+
+### SecurityType Enum
+This enum defines wireless security types.
+
+| Name              | Description                          |
+|-------------------|--------------------------------------|
+| `UNSEC`           | Unsecured                            |
+| `WEP`             | Wired Equivalent Privacy             |
+| `WPA`             | Wi-Fi Protected Access               |
+| `WPA2`            | Wi-Fi Protected Access II            |
+| `WPA_ENTERPRISE`  | Wi-Fi Protected Access-Enterprise    |
+| `WPA2_ENTERPRISE` | Wi-Fi Protected Access-Enterprise II |
+
+### WLanSecurityCipher Enum
+This enum defines wireless security ciphers.
+
+| Name                   | Description        |
+|------------------------|--------------------|
+| `WLAN_CIPHER_NOT_SET`  | No cipher          |
+| `WLAN_CIPHER_AES`      | AES cipher         |
+| `WLAN_CIPHER_TKIP`     | TKIP cipher        |
+| `WLAN_CIPHER_AES_TKIP` | AES or TKIP cipher |
 
 {{/if}} {{!-- has-wifi --}}
 
@@ -6702,6 +7135,16 @@ RGB.brightness(128);
 RGB.brightness(255);
 ```
 
+### brightness()
+
+Returns current brightness value.
+
+```cpp
+// EXAMPLE
+
+uint8_t value = RGB.brightness();
+```
+
 ### onChange(handler)
 
 Specifies a function to call when the color of the RGB LED changes. It can be used to implement an external RGB LED.
@@ -8380,9 +8823,9 @@ The function also handles negative numbers well, so that this example
 
 is also valid and works well.
 
-The `map()` function uses integer math so will not generate fractions, when the math might indicate that it should do so. Fractional remainders are truncated, and are not rounded or averaged.
+When called with integers, the `map()` function uses integer math so will not generate fractions, when the math might indicate that it should do so. Fractional remainders are truncated, not rounded.
 
-*Parameters:*
+*Parameters can either be integers or floating point numbers:*
 
 - `value`: the number to map
 - `fromLow`: the lower bound of the value's current range
@@ -8390,15 +8833,18 @@ The `map()` function uses integer math so will not generate fractions, when the 
 - `toLow`: the lower bound of the value's target range
 - `toHigh`: the upper bound of the value's target range
 
-The function returns the mapped value
+The function returns the mapped value, as integer or floating point depending on the arguments.
 
 *Appendix:*
 For the mathematically inclined, here's the whole function
 
 ```C++
-long map(long x, long in_min, long in_max, long out_min, long out_max)
+int map(int value, int fromStart, int fromEnd, int toStart, int toEnd)
 {
-  return (x - in_min) * (out_max - out_min) / (in_max - in_min) + out_min;
+    if (fromEnd == fromStart) {
+        return value;
+    }
+    return (value - fromStart) * (toEnd - toStart) / (fromEnd - fromStart) + toStart;
 }
 ```
 
@@ -12738,28 +13184,36 @@ The process in place for releasing all firmware prerelease or default release ve
 
 Please go to Github to read the Changelog for your desired firmware version (Click a version below).
 
-|Firmware Version||||||
-|:-:|:-:|:-:|:-:|:-:|:-:|
-|v0.6.x default releases|[v0.6.0](https://github.com/particle-iot/firmware/releases/tag/v0.6.0)|[v0.6.1](https://github.com/particle-iot/firmware/releases/tag/v0.6.1)|[v0.6.2](https://github.com/particle-iot/firmware/releases/tag/v0.6.2)|-|-|
-|v0.6.x-rc.x prereleases|[v0.6.2-rc.1](https://github.com/particle-iot/firmware/releases/tag/v0.6.2-rc.1)|[v0.6.2-rc.2](https://github.com/particle-iot/firmware/releases/tag/v0.6.2-rc.2)|-|-|-|
-|-|[v0.6.0-rc.1](https://github.com/particle-iot/firmware/releases/tag/v0.6.0-rc.1)|[v0.6.0-rc.2](https://github.com/particle-iot/firmware/releases/tag/v0.6.0-rc.2)|[v0.6.1-rc.1](https://github.com/particle-iot/firmware/releases/tag/v0.6.1-rc.1)|[v0.6.1-rc.2](https://github.com/particle-iot/firmware/releases/tag/v0.6.1-rc.2)|-|
-|v0.5.x default releases|[v0.5.0](https://github.com/particle-iot/firmware/releases/tag/v0.5.0)|[v0.5.1](https://github.com/particle-iot/firmware/releases/tag/v0.5.1)|[v0.5.2](https://github.com/particle-iot/firmware/releases/tag/v0.5.2)|[v0.5.3](https://github.com/particle-iot/firmware/releases/tag/v0.5.3)|[v0.5.4](https://github.com/particle-iot/firmware/releases/tag/v0.5.4)|
-|v0.5.x-rc.x prereleases|[v0.5.3-rc.1](https://github.com/particle-iot/firmware/releases/tag/v0.5.3-rc.1)|[v0.5.3-rc.2](https://github.com/particle-iot/firmware/releases/tag/v0.5.3-rc.2)|[v0.5.3-rc.3](https://github.com/particle-iot/firmware/releases/tag/v0.5.3-rc.3)|-|-|
+|Firmware Version||||||||
+|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|
+|v0.7.x default releases|[v0.7.0](https://github.com/particle-iot/firmware/releases/tag/v0.7.0)|-|-|-|-|-|-|
+|v0.7.x-rc.x prereleases|[v0.7.0-rc.1](https://github.com/spark/firmware/releases/tag/v0.7.0-rc.1)|[v0.7.0-rc.2](https://github.com/spark/firmware/releases/tag/v0.7.0-rc.2)|[v0.7.0-rc.3](https://github.com/spark/firmware/releases/tag/v0.7.0-rc.3)|[v0.7.0-rc.4](https://github.com/spark/firmware/releases/tag/v0.7.0-rc.4)|[v0.7.0-rc.5](https://github.com/spark/firmware/releases/tag/v0.7.0-rc.5)|[v0.7.0-rc.6](https://github.com/spark/firmware/releases/tag/v0.7.0-rc.6)|[v0.7.0-rc.7](https://github.com/spark/firmware/releases/tag/v0.7.0-rc.7)|
+|v0.6.x default releases|[v0.6.0](https://github.com/spark/firmware/releases/tag/v0.6.0)|[v0.6.1](https://github.com/spark/firmware/releases/tag/v0.6.1)|[v0.6.2](https://github.com/spark/firmware/releases/tag/v0.6.2)|[v0.6.3](https://github.com/spark/firmware/releases/tag/v0.6.3)|[v0.6.4](https://github.com/spark/firmware/releases/tag/v0.6.4)|-|-|
+|v0.6.x-rc.x prereleases|[v0.6.2-rc.1](https://github.com/spark/firmware/releases/tag/v0.6.2-rc.1)|[v0.6.2-rc.2](https://github.com/spark/firmware/releases/tag/v0.6.2-rc.2)|-|-|-|-|-|
+|-|[v0.6.0-rc.1](https://github.com/spark/firmware/releases/tag/v0.6.0-rc.1)|[v0.6.0-rc.2](https://github.com/spark/firmware/releases/tag/v0.6.0-rc.2)|[v0.6.1-rc.1](https://github.com/spark/firmware/releases/tag/v0.6.1-rc.1)|[v0.6.1-rc.2](https://github.com/spark/firmware/releases/tag/v0.6.1-rc.2)|-|-|-|
+|v0.5.x default releases|[v0.5.0](https://github.com/spark/firmware/releases/tag/v0.5.0)|[v0.5.1](https://github.com/spark/firmware/releases/tag/v0.5.1)|[v0.5.2](https://github.com/spark/firmware/releases/tag/v0.5.2)|[v0.5.3](https://github.com/spark/firmware/releases/tag/v0.5.3)|[v0.5.4](https://github.com/particle-iot/firmware/releases/tag/v0.5.4)|[v0.5.5](https://github.com/spark/firmware/releases/tag/v0.5.5)|-|
+|v0.5.x-rc.x prereleases|[v0.5.3-rc.1](https://github.com/spark/firmware/releases/tag/v0.5.3-rc.1)|[v0.5.3-rc.2](https://github.com/spark/firmware/releases/tag/v0.5.3-rc.2)|[v0.5.3-rc.3](https://github.com/spark/firmware/releases/tag/v0.5.3-rc.3)|-|-|-|-|
 
 ### Programming and Debugging Notes
 
 If you don't see any notes below the table or if they are the wrong version, please select your Firmware Version in the table below to reload the page with the correct notes.  Otherwise, you must have come here from a firmware release page on Github and your version's notes will be found below the table :)
 
-|Firmware Version||||||
-|:-:|:-:|:-:|:-:|:-:|:-:|
-|v0.6.x default releases|[v0.6.0](https://docs.particle.io/reference/firmware/photon/?fw_ver=0.6.0&cli_ver=1.18.0&electron_parts=3#programming-and-debugging-notes)|[v0.6.1](https://docs.particle.io/reference/firmware/photon/?fw_ver=0.6.1&cli_ver=1.20.1&electron_parts=3#programming-and-debugging-notes)|[v0.6.2](/reference/firmware/photon/?fw_ver=0.6.2&cli_ver=1.22.0&electron_parts=3#programming-and-debugging-notes)|-|-|
-|v0.6.x-rc.x prereleases|[v0.6.2-rc.1](https://prerelease-docs.particle.io/reference/firmware/photon/?fw_ver=0.6.2-rc.1&cli_ver=1.21.0&electron_parts=3#programming-and-debugging-notes)|[v0.6.2-rc.2](https://prerelease-docs.particle.io/reference/firmware/photon/?fw_ver=0.6.2-rc.2&cli_ver=1.21.0&electron_parts=3#programming-and-debugging-notes)|-|-|-|
-|-|[v0.6.0-rc.1](https://prerelease-docs.particle.io/reference/firmware/photon/?fw_ver=0.6.0-rc.1&cli_ver=1.17.0&electron_parts=3#programming-and-debugging-notes)|[v0.6.0-rc.2](https://prerelease-docs.particle.io/reference/firmware/photon/?fw_ver=0.6.0-rc.2&cli_ver=1.17.0&electron_parts=3#programming-and-debugging-notes)|[v0.6.1-rc.1](https://prerelease-docs.particle.io/reference/firmware/photon/?fw_ver=0.6.1-rc.1&cli_ver=1.18.0&electron_parts=3#programming-and-debugging-notes)|[v0.6.1-rc.2](https://prerelease-docs.particle.io/reference/firmware/photon/?fw_ver=0.6.1-rc.2&cli_ver=1.18.0&electron_parts=3#programming-and-debugging-notes)|-|
-|v0.5.x default releases|[v0.5.0](https://docs.particle.io/reference/firmware/photon/?fw_ver=0.5.0&cli_ver=1.12.0&electron_parts=2#programming-and-debugging-notes)|[v0.5.1](https://docs.particle.io/reference/firmware/photon/?fw_ver=0.5.1&cli_ver=1.14.2&electron_parts=2#programming-and-debugging-notes)|[v0.5.2](https://docs.particle.io/reference/firmware/photon/?fw_ver=0.5.2&cli_ver=1.15.0&electron_parts=2#programming-and-debugging-notes)|[v0.5.3](https://docs.particle.io/reference/firmware/photon/?fw_ver=0.5.3&cli_ver=1.17.0&electron_parts=2#programming-and-debugging-notes)|[v0.5.4](https://docs.particle.io/reference/firmware/photon/?fw_ver=0.5.4&cli_ver=1.24.1&electron_parts=2#programming-and-debugging-notes)|
-|v0.5.x-rc.x prereleases|[v0.5.3-rc.1](https://prerelease-docs.particle.io/reference/firmware/photon/?fw_ver=0.5.3-rc.1&cli_ver=1.15.0&electron_parts=2#programming-and-debugging-notes)|[v0.5.3-rc.2](https://prerelease-docs.particle.io/reference/firmware/photon/?fw_ver=0.5.3-rc.2&cli_ver=1.16.0&electron_parts=2#programming-and-debugging-notes)|[v0.5.3-rc.3](https://prerelease-docs.particle.io/reference/firmware/photon/?fw_ver=0.5.3-rc.3&cli_ver=1.16.0&electron_parts=2#programming-and-debugging-notes)|-|-|
+|Firmware Version||||||||
+|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|
+|v0.6.x default releases|[v0.7.0](https://docs.particle.io/reference/firmware/photon/?fw_ver=0.7.0&cli_ver=1.29.0&electron_parts=3#programming-and-debugging-notes)|-|-|-|-|-|-|
+|v0.7.x-rc.x prereleases|[v0.7.0-rc.1](https://prerelease-docs.particle.io/reference/firmware/photon/?fw_ver=0.7.0-rc.1&cli_ver=1.23.1&electron_parts=3#programming-and-debugging-notes)|[v0.7.0-rc.2](https://prerelease-docs.particle.io/reference/firmware/photon/?fw_ver=0.7.0-rc.2&cli_ver=1.23.1&electron_parts=3#programming-and-debugging-notes)|[v0.7.0-rc.3](https://prerelease-docs.particle.io/reference/firmware/photon/?fw_ver=0.7.0-rc.3&cli_ver=1.23.1&electron_parts=3#programming-and-debugging-notes)|[v0.7.0-rc.4](https://prerelease-docs.particle.io/reference/firmware/photon/?fw_ver=0.7.0-rc.4&cli_ver=1.23.1&electron_parts=3#programming-and-debugging-notes)|[v0.7.0-rc.5](https://prerelease-docs.particle.io/reference/firmware/photon/?fw_ver=0.7.0-rc.5&cli_ver=1.23.1&electron_parts=3#programming-and-debugging-notes)|[v0.7.0-rc.6](https://prerelease-docs.particle.io/reference/firmware/photon/?fw_ver=0.7.0-rc.6&cli_ver=1.23.1&electron_parts=3#programming-and-debugging-notes)|[v0.7.0-rc.7](https://prerelease-docs.particle.io/reference/firmware/photon/?fw_ver=0.7.0-rc.7&cli_ver=1.23.1&electron_parts=3#programming-and-debugging-notes)|
+|v0.6.x default releases|[v0.6.0](https://docs.particle.io/reference/firmware/photon/?fw_ver=0.6.0&cli_ver=1.18.0&electron_parts=3#programming-and-debugging-notes)|[v0.6.1](https://docs.particle.io/reference/firmware/photon/?fw_ver=0.6.1&cli_ver=1.20.1&electron_parts=3#programming-and-debugging-notes)|[v0.6.2](/reference/firmware/photon/?fw_ver=0.6.2&cli_ver=1.22.0&electron_parts=3#programming-and-debugging-notes)|[v0.6.3](/reference/firmware/photon/?fw_ver=0.6.3&cli_ver=1.25.0&electron_parts=3#programming-and-debugging-notes)|[v0.6.4](/reference/firmware/photon/?fw_ver=0.6.4&cli_ver=1.26.2&electron_parts=3#programming-and-debugging-notes)|-|-|
+|v0.6.x-rc.x prereleases|[v0.6.2-rc.1](https://prerelease-docs.particle.io/reference/firmware/photon/?fw_ver=0.6.2-rc.1&cli_ver=1.21.0&electron_parts=3#programming-and-debugging-notes)|[v0.6.2-rc.2](https://prerelease-docs.particle.io/reference/firmware/photon/?fw_ver=0.6.2-rc.2&cli_ver=1.21.0&electron_parts=3#programming-and-debugging-notes)|-|-|-|-|-|
+|-|[v0.6.0-rc.1](https://prerelease-docs.particle.io/reference/firmware/photon/?fw_ver=0.6.0-rc.1&cli_ver=1.17.0&electron_parts=3#programming-and-debugging-notes)|[v0.6.0-rc.2](https://prerelease-docs.particle.io/reference/firmware/photon/?fw_ver=0.6.0-rc.2&cli_ver=1.17.0&electron_parts=3#programming-and-debugging-notes)|[v0.6.1-rc.1](https://prerelease-docs.particle.io/reference/firmware/photon/?fw_ver=0.6.1-rc.1&cli_ver=1.18.0&electron_parts=3#programming-and-debugging-notes)|[v0.6.1-rc.2](https://prerelease-docs.particle.io/reference/firmware/photon/?fw_ver=0.6.1-rc.2&cli_ver=1.18.0&electron_parts=3#programming-and-debugging-notes)|-|-|-|
+|v0.5.x default releases|[v0.5.0](https://docs.particle.io/reference/firmware/photon/?fw_ver=0.5.0&cli_ver=1.12.0&electron_parts=2#programming-and-debugging-notes)|[v0.5.1](https://docs.particle.io/reference/firmware/photon/?fw_ver=0.5.1&cli_ver=1.14.2&electron_parts=2#programming-and-debugging-notes)|[v0.5.2](https://docs.particle.io/reference/firmware/photon/?fw_ver=0.5.2&cli_ver=1.15.0&electron_parts=2#programming-and-debugging-notes)|[v0.5.3](https://docs.particle.io/reference/firmware/photon/?fw_ver=0.5.3&cli_ver=1.17.0&electron_parts=2#programming-and-debugging-notes)|[v0.5.4](https://docs.particle.io/reference/firmware/photon/?fw_ver=0.5.4&cli_ver=1.24.1&electron_parts=2#programming-and-debugging-notes)|[v0.5.5](https://docs.particle.io/reference/firmware/photon/?fw_ver=0.5.5&cli_ver=1.24.1&electron_parts=2#programming-and-debugging-notes)|-|-|
+|v0.5.x-rc.x prereleases|[v0.5.3-rc.1](https://prerelease-docs.particle.io/reference/firmware/photon/?fw_ver=0.5.3-rc.1&cli_ver=1.15.0&electron_parts=2#programming-and-debugging-notes)|[v0.5.3-rc.2](https://prerelease-docs.particle.io/reference/firmware/photon/?fw_ver=0.5.3-rc.2&cli_ver=1.16.0&electron_parts=2#programming-and-debugging-notes)|[v0.5.3-rc.3](https://prerelease-docs.particle.io/reference/firmware/photon/?fw_ver=0.5.3-rc.3&cli_ver=1.16.0&electron_parts=2#programming-and-debugging-notes)|-|-|-|-|
 
 <!--
 CLI VERSION is compatable with FIRMWARE VERSION
+v1.29.0 = 0.7.0
+v1.26.2 = 0.6.4
+v1.25.0 = 0.6.3
+v1.23.1 = 0.7.0-rc.1 support for WPA Enterprise setup
 v1.22.0 = 0.6.2
 v1.21.0 = 0.6.2-rc.1, 0.6.2-rc.2
 v1.20.1 = 0.6.1
@@ -12786,12 +13240,18 @@ v1.12.0 = 0.5.0
 ##### @FW_VER@0.5.3endif
 ##### @FW_VER@0.5.4if
 ##### @FW_VER@0.5.4endif
+##### @FW_VER@0.5.5if
+##### @FW_VER@0.5.5endif
 ##### @FW_VER@0.6.0if
 ##### @FW_VER@0.6.0endif
 ##### @FW_VER@0.6.1if
 ##### @FW_VER@0.6.1endif
 ##### @FW_VER@0.6.2if
 ##### @FW_VER@0.6.2endif
+##### @FW_VER@0.6.3if
+##### @FW_VER@0.6.3endif
+##### @FW_VER@0.6.4if
+##### @FW_VER@0.6.4endif
 ##### @CLI_VER@1.15.0if
 ##### @CLI_VER@1.15.0endif
 ##### @CLI_VER@1.17.0if
@@ -12804,8 +13264,16 @@ v1.12.0 = 0.5.0
 ##### @CLI_VER@1.21.0endif
 ##### @CLI_VER@1.22.0if
 ##### @CLI_VER@1.22.0endif
+##### @CLI_VER@1.23.1if
+##### @CLI_VER@1.23.1endif
 ##### @CLI_VER@1.24.1if
 ##### @CLI_VER@1.24.1endif
+##### @CLI_VER@1.25.0if
+##### @CLI_VER@1.25.0endif
+##### @CLI_VER@1.26.2if
+##### @CLI_VER@1.26.2endif
+##### @CLI_VER@1.29.0if
+##### @CLI_VER@1.29.0endif
 ##### @ELECTRON_PARTS@2if
 ##### @ELECTRON_PARTS@2endif
 ##### @ELECTRON_PARTS@3if
@@ -12843,6 +13311,10 @@ To update your Photon, P1 or Core system firmware automatically, compile and fla
 **Note:** There is no version of the Particle CLI released that supports the `particle update` command for firmware version **@FW_VER@**. Please download the binaries and use one of the other supported programming methods.
 ##### @FW_VER@0.5.4endif
 
+##### @FW_VER@0.5.5if
+**Note:** There is no version of the Particle CLI released that supports the `particle update` command for firmware version **@FW_VER@**. Please download the binaries and use one of the other supported programming methods.
+##### @FW_VER@0.5.5endif
+
 The easiest way to upgrade to System Firmware Version @FW_VER@ is to use the Particle CLI with a single command.  You will first upgrade the system firmware, then optionally program Tinker on the device. This **requires CLI version @CLI_VER@**. You can check with `particle --version`.
 
 If you have the [Particle CLI](/guide/tools-and-features/cli) installed already, you can update it with the following command `sudo npm update -g particle-cli@v@CLI_VER@` (note: you can try without sudo first if you wish).
@@ -12868,6 +13340,14 @@ particle flash --usb tinker
 ##### @FW_VER@0.6.0if
 **Note:** You must update your Electron to (v0.5.3, v0.5.3-rc.2, or v0.5.3-rc.3) first before attempting to use OTA or YModem transfer to update to v0.6.0. If you use DFU over USB, you can update to v0.6.0 directly, but make sure you have installed v1.18.0 of the CLI first.
 ##### @FW_VER@0.6.0endif
+
+##### @FW_VER@0.7.0if
+**Note:** Update sequence required!
+
+1. First Update to 0.5.3 (if the current version is less than that)
+2. Then update to 0.6.3(Photon/P1) or 0.6.4(Electron) (if the current version is less than that)
+3. Then update to 0.7.0
+##### @FW_VER@0.7.0endif
 
 **Note:** As a Product in the Console, when flashing a >= 0.6.0 user app, Electrons can now Safe Mode Heal from < 0.5.3 to >= 0.6.0 firmware. This will consume about 500KB of data as it has to transfer two 0.5.3 system parts and three >= 0.6.0 system parts. Devices will not automatically update system firmware if not added as a Product in Console.
 
@@ -13044,6 +13524,10 @@ dfu-util -d 2b04:d00a -a 0 -s 0x8040000:leave -D system-part3-@FW_VER@-electron.
 ##### @FW_VER@0.5.2if
 **Note:** Upgrading to 0.5.2 will now allow you to downgrade remotely OTA to v0.5.0 or earlier without erasing Wi-Fi credentials.  There are still some cases where a downgrade will erase credentials, but only if you have explicitly set the country code to something other than the `default` or `JP2`.  For example, if you set the country code to `GB0` or `US4`, if you downgrade to v0.5.0 your Wi-Fi credentials will be erased.  Leaving the country code at `default` or set to `JP2` will not erase credentials when downgrading to v0.5.0.  **Do not** downgrade to v0.5.1 first, and then v0.5.0... this will erase credentials in all cases.
 ##### @FW_VER@0.5.2endif
+
+##### @FW_VER@0.7.0if
+If you need to downgrade, you must downgrade to 0.6.3(Photon/P1) or 0.6.4(Electron) to ensure that the bootloader downgrades automatically. When downgrading to older versions, downgrade to 0.6.3(Photon/P1) or 0.6.4(Electron) first, then to an older version such as 0.5.3. You will have to manually downgrade the bootloader as well (see release notes in 0.7.0-rc.3 release)
+##### @FW_VER@0.7.0endif
 
 Current default system firmware would be the latest non-rc.x firmware version.  E.g. if the current list of default releases was 0.5.3, 0.6.0, **0.6.1** (would be the latest).
 
