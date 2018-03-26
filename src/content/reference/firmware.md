@@ -13252,6 +13252,8 @@ v1.12.0 = 0.5.0
 ##### @FW_VER@0.6.3endif
 ##### @FW_VER@0.6.4if
 ##### @FW_VER@0.6.4endif
+##### @FW_VER@0.7.0if
+##### @FW_VER@0.7.0endif
 ##### @CLI_VER@1.15.0if
 ##### @CLI_VER@1.15.0endif
 ##### @CLI_VER@1.17.0if
@@ -13342,11 +13344,12 @@ particle flash --usb tinker
 ##### @FW_VER@0.6.0endif
 
 ##### @FW_VER@0.7.0if
-**Note:** Update sequence required!
+**Note:** The following update sequence is required!
 
-1. First Update to 0.5.3 (if the current version is less than that)
-2. Then update to 0.6.3(Photon/P1) or 0.6.4(Electron) (if the current version is less than that)
-3. Then update to 0.7.0
+- First Update to 0.5.3 (if the current version is less than that)
+- Then update to 0.6.3(Photon/P1) or 0.6.4(Electron) (if the current version is less than that)
+- Then update to 0.7.0
+
 ##### @FW_VER@0.7.0endif
 
 **Note:** As a Product in the Console, when flashing a >= 0.6.0 user app, Electrons can now Safe Mode Heal from < 0.5.3 to >= 0.6.0 firmware. This will consume about 500KB of data as it has to transfer two 0.5.3 system parts and three >= 0.6.0 system parts. Devices will not automatically update system firmware if not added as a Product in Console.
@@ -13517,6 +13520,8 @@ dfu-util -d 2b04:d00a -a 0 -s 0x8040000:leave -D system-part3-@FW_VER@-electron.
 
 **Downgrading from @FW_VER@ to current default firmware**
 
+Current default system firmware would be the latest non-rc.x firmware version.  E.g. if the current list of default releases was 0.5.3, 0.6.0, **0.6.1** (would be the latest).
+
 ##### @FW_VER@0.5.1if
 **Caution:** After upgrading to 0.5.1, DO NOT downgrade system firmware via OTA remotely! This will cause Wi-Fi credentials to be erased on the Photon and P1.  This does not affect the Core or Electron.  Feel free to downgrade locally with the understanding that you will have to re-enter Wi-Fi credentials.  Also note that 0.5.1 fixes several important bugs, so there should be no reason you'd normally want to downgrade.
 ##### @FW_VER@0.5.1endif
@@ -13526,11 +13531,12 @@ dfu-util -d 2b04:d00a -a 0 -s 0x8040000:leave -D system-part3-@FW_VER@-electron.
 ##### @FW_VER@0.5.2endif
 
 ##### @FW_VER@0.7.0if
-If you need to downgrade, you must downgrade to 0.6.3(Photon/P1) or 0.6.4(Electron) to ensure that the bootloader downgrades automatically. When downgrading to older versions, downgrade to 0.6.3(Photon/P1) or 0.6.4(Electron) first, then to an older version such as 0.5.3. You will have to manually downgrade the bootloader as well (see release notes in 0.7.0-rc.3 release)
+**Note:** If you need to downgrade, you must downgrade to 0.6.3(Photon/P1) or 0.6.4(Electron) to ensure that the bootloader downgrades automatically. When downgrading to older versions, downgrade to 0.6.3(Photon/P1) or 0.6.4(Electron) first, then to an older version such as 0.5.3. You will have to manually downgrade the bootloader as well (see release notes in 0.7.0-rc.3 release)
 ##### @FW_VER@0.7.0endif
 
-Current default system firmware would be the latest non-rc.x firmware version.  E.g. if the current list of default releases was 0.5.3, 0.6.0, **0.6.1** (would be the latest).
-
+##### @FW_VER@0.7.0if
+**Note:** The following is not applicable for 0.7.0, please see above.
+##### @FW_VER@0.7.0endif
 The easiest way to downgrade from a System Firmware Version @FW_VER@ is to use the Particle CLI with a single command.  You will first put the Tinker back on the device, then downgrade the System Firmware. Running the commands in this order prevents the device from automatically re-upgrading (based on user app version dependencies) after downgrading.  This will **require a CLI version associated with your desired default firmware**. To determine which version to use, click on the default version desired in the table under [Programming and Debugging Notes](#programming-and-debugging-notes) and refer to the CLI version required in **The easy local method using Particle CLI** section.
 
 If you have the [Particle CLI](/guide/tools-and-features/cli) installed already, you can install a specific version like v1.16.0 with the following command `sudo npm update -g particle-cli@v1.16.0` (note: you can try without sudo first if you wish).  Replace v1.16.0 with your desired version.
