@@ -19,7 +19,7 @@ ANTELEC50 | Less than 250 units, ships immediately | More than 250 units, ships 
 ANTFLEX | Less than 100 units, ships immediately | More than 100 units, ships in 4 - 6 weeks
 ARDSHIELD | Less than 150 units, ships immediately | More than 150 units, ships in 8 - 10 weeks
 ASSET2GV2 | Less than 50 units, ships immediately | More than 50 units, ships in 2 - 4 weeks
-ASSET3G260V2 | All volumes ship in 1 - 2 weeks | All volumes ship in 1 - 2 weeks
+ASSET3G260V2 | Less than 25 units, ships immediately | More than 25 units, ships in 2 - 4 weeks
 ASSET3G270V2 | Less than 30 units, ships immediately | More than 30 units, ships in 2 - 4 weeks
 BAT2000 | All volumes ship in 4 - 6 weeks | All volumes ship in 4 - 6 weeks
 BATTMOD50 | Less than 750 units, ships immediately | More than 750 units, ships in 4 - 6 weeks
