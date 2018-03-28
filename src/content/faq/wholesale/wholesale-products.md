@@ -24,7 +24,7 @@ ASSET3G270V2 | Less than 30 units, ships immediately | More than 30 units, ships
 BAT2000 | All volumes ship in 4 - 6 weeks | All volumes ship in 4 - 6 weeks
 BATTMOD50 | Less than 750 units, ships immediately | More than 750 units, ships in 4 - 6 weeks
 E260KIT | Less than 200 units, ships immediately | More than 200 units, ships in 10 - 13 weeks
-E260TRAY50 | Less than 250 units, ships immediately | More than 250 units, ships in 12 - 16 weeks
+E260TRAY50 | Less than 200 units, ships immediately | More than 200 units, ships in 12 - 16 weeks
 E270KIT | Less than 500 units, ships immediately | More than 500 units, ships in 10 - 13 weeks
 E270TRAY50 | All volumes ship in 10 - 13 weeks | All volumes ship in 10 - 13 weeks 
 E310KIT | All volumes ship in 10 - 13 weeks | All volumes ship in 10 - 13 weeks
