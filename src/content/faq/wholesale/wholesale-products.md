@@ -26,7 +26,7 @@ BATTMOD50 | Less than 750 units, ships immediately | More than 750 units, ships 
 E260KIT | Less than 200 units, ships immediately | More than 200 units, ships in 10 - 13 weeks
 E260TRAY50 | Less than 200 units, ships immediately | More than 200 units, ships in 12 - 16 weeks
 E270KIT | Less than 500 units, ships immediately | More than 500 units, ships in 10 - 13 weeks
-E270TRAY50 | All volumes ship in 10 - 13 weeks | All volumes ship in 10 - 13 weeks 
+E270TRAY50 | Less than 150 units, ships in 2 - 4 weeks | More than 150 units, ships in 10 - 13 weeks
 E310KIT | All volumes ship in 10 - 13 weeks | All volumes ship in 10 - 13 weeks
 E310MOD1 | All volumes ship in 10 - 13 weeks | All volumes ship in 10 - 13 weeks
 E310TRAY50 | All volumes ship in 12 - 16 weeks | All volumes ship in 12 - 16 weeks
@@ -40,9 +40,9 @@ P1MOD10 | Less than 1,000 units, ships immediately | More than 1,000 units, ship
 P1REEL | Less than 3000 units, ships immediately | More than 3000 units, ships in 12 - 16 weeks
 PHNTRAYH | Less than 700 units, ships immediately | More than 700 units, ships in 12 - 16 weeks
 PHNTRAYNOH | All volumes ship in 12 - 16 weeks | All volumes ship in 12 - 16 weeks
-PHOTONH | Less than 150 units, ships immediately | More than 150 units, ships in 2 - 4 weeks
+PHOTONH | Less than 250 units, ships immediately | More than 250 units, ships in 12 - 16 weeks
 PHOTONKIT | All volumes ship in 2 - 4 weeks | All volumes ship in 2 - 4 weeks
-PHOTONNOH | Less than 75 units, ships immediately | More than 75 units, ships in 12 - 16 weeks
+PHOTONNOH | Less than 75 units, ships immediately | More than 75 units, ships in 2 - 4 weeks
 PROGSHIELD | Less than 200 units, ships immediately | More than 200 units, ships in 8 - 10 weeks
 PWRSHIELDH | Less than 200 units, ships immediately | More than 200 units, ships in 8 - 10 weeks
 RLYSHIELD | All volumes ship in 8 - 10 weeks | All volumes ship in 8 - 10 weeks
