@@ -59,7 +59,7 @@ Lead times apply only from the point of payment. Requesting a lead time will not
 
 Many of our products have minimum order quantities based on our case pack size. Please see the table below for minimum order quantities.
 
-SKU | Minimum order quantity
+SKU | Minimum order quantity 
 ------------ | -------------
 ANTELEC50 | 50 units
 BATTMOD50 | 50 units
