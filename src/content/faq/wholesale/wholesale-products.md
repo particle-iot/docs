@@ -15,7 +15,7 @@ SKU | Low volume lead time | High volume lead time
 ------------ | ------------- | -------------
 ANTDUCK | Less than 100 units, ships immediately | More than 100 units, ships in 4 - 6 weeks
 ANTELEC | Less than 250 units, ships immediately | More than 250 units, ships in 4 - 6 weeks
-ANTELEC50 | Less than 250 units, ships immediately | More than 250 units, ships in 4 - 6 weeks
+ANTELEC50 | Less than 50 units, ships immediately | More than 50 units, ships in 4 - 6 weeks
 ANTFLEX | Less than 100 units, ships immediately | More than 100 units, ships in 4 - 6 weeks
 ARDSHIELD | Less than 150 units, ships immediately | More than 150 units, ships in 8 - 10 weeks
 ASSET2GV2 | Less than 50 units, ships immediately | More than 50 units, ships in 2 - 4 weeks
