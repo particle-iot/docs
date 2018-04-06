@@ -23,7 +23,7 @@ ASSET3G260V2 | Less than 25 units, ships immediately | More than 25 units, ships
 ASSET3G270V2 | Less than 20 units, ships immediately | More than 20 units, ships in 2 - 4 weeks
 BAT2000 | All volumes ship in 4 - 6 weeks | All volumes ship in 4 - 6 weeks
 BATTMOD50 | Less than 750 units, ships immediately | More than 750 units, ships in 4 - 6 weeks
-E260KIT | Less than 10 units, ships immediately | More than 10 units, ships in 10 - 13 weeks
+E260KIT | Less than 5 units, ships immediately | More than 5 units, ships in 10 - 13 weeks
 E260TRAY50 | Less than 150 units, ships immediately | More than 150 units, ships in 12 - 16 weeks
 E270KIT | Less than 500 units, ships immediately | More than 500 units, ships in 10 - 13 weeks
 E270TRAY50 | Less than 50 units, ships in 2 - 4 weeks | More than 50 units, ships in 10 - 13 weeks
@@ -59,7 +59,7 @@ Lead times apply only from the point of payment. Requesting a lead time will not
 
 Many of our products have minimum order quantities based on our case pack size. Please see the table below for minimum order quantities.
 
-SKU | Minimum order quantity 
+SKU | Minimum order quantity
 ------------ | -------------
 ANTELEC50 | 50 units
 BATTMOD50 | 50 units
