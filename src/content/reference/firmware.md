@@ -10837,6 +10837,81 @@ Indicates if there are OTA updates pending.
 
 **Note:** Currently this function does not really do what the name might suggests but rather indicates whether an update is currently active or not. It can't be used in connection with `System.disableUpdates()` as that would prevent `System.upatesPending()` from becoming `true`. 
 
+## Arduino Compatibility
+
+All versions of Particle firmware to date have supported parts of the [Arduino API](https://www.arduino.cc/en/Reference/HomePage), such as `digitalRead`, `Serial` and `String`.
+
+From 0.6.2 onwards, the firmware API will continue to provide increasing levels of support for new Arduino APIs to make
+porting applications and libraries as straightforward as possible.
+
+However, to prevent breaking existing applications and libraries, these new Arduino APIs have to be specifically enabled
+in order to be available for use in your application or library.
+
+Arduino APIs that need to be enabled explicitly are marked with "requires Arduino.h" in this reference documentation.
+
+
+### Enabling Extended Arduino SDK Compatibility
+
+The extended Arduino APIs that are added from 0.6.2 onwards are not immediately available but 
+have to be enabled by declaring Arduino support in your app or library.
+
+This is done by adding  `#include "Arduino.h"` to each source file that requires an extended Arduino API.
+
+### Arduino APIs added by Firmware Version
+
+Once `Arduino.h` has been added to a source file, additional arduino APIs are made available.
+The APIs added are determined by the targeted firmware version. In addition to defining the new APIs,
+the `ARDUINO` symbol is set to a value that describes the supported SDK version. (e.g. 10800 for 1.8.0)
+
+The table below lists the Arduino APIs added for each firmware version
+and the value of the `ARDUINO` symbol.
+
+|API name|description|ARDUINO version|Particle version|
+----
+|SPISettings||10800|0.6.2|
+|__FastStringHelper||10800|0.6.2|
+|Wire.setClock|synonym for `Wire.setSpeed`|10800|0.6.2|
+|SPI.usingInterrupt|NB: this function is included to allow libraries to compile, but is implemented as a empty function.|10800|0.6.2|
+|LED_BUILTIN|defines the pin that corresponds to the built-in LED|10800|0.6.2|
+
+### Adding Arduino Symbols to Applications and Libraries
+
+The Arduino SDK has a release cycle that is independent from Particle firmware. When a new Arduino SDK is released,
+the new APIs introduced will not be available in the Particle firmware until the next Particle firmware release at
+the earliest.
+
+However, this does not have to stop applications and library authors from using these new Arduino APIs.
+In some cases, it's possible to duplicate the sources in your application or library. 
+However, it is necessary to be sure these APIs defined in your code are only conditionally included,
+based on the version of the Arduino SDK provided by Particle firmware used to compile the library or application.
+
+For example, let's say that in Arduino SDK 1.9.5, a new function was added, `engageHyperdrive()`.
+You read the description and determine this is perfect for your application or library and that you want to use it.
+
+In your application sources, or library headers you would add the definition like this:
+
+```c++
+// Example of adding an Arduino SDK API in a later Arduino SDK than presently supported
+#include "Arduino.h" // this declares that our app/library wants the extended Arduino support
+
+#if ARDUINO < 10905   // the API is added in SDK version 1.9.5 so we don't re-define it when the SDK already has it
+// now to define the new API
+bool engageHyperdrive() {
+   return false;  // womp womp
+}
+#endif
+```
+ 
+In your source code, you use the function normally. When compiling against a version of firmware that supports
+an older arduino SDK, then your own version of the API will be used.  Later, when `engageHyperdrive()` is added to
+Particle firmware,  our version will be used. This happens when the `ARDUINO` version is the same or greater than
+the the corresponding version of the Arduino SDK, which indicates the API is provided by Particle firmware.
+
+By using this technique, you can use new APIs and functions right away, while also allowing them to be later defined
+in the Arduino support provided by Particle, and crucially, without clashes.
+
+*Note*: for this to work, the version check has to be correct and must use the value that the Arduino SDK sets the
+`ARDUINO` symbol to when the new Arduino API is first introduced in the Arduino SDK.
 
 
 
