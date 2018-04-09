@@ -10163,6 +10163,12 @@ System.sleep(SLEEP_MODE_DEEP, long seconds);
 // Put the device into deep sleep for 60 seconds
 System.sleep(SLEEP_MODE_DEEP,60);
 // The device LED will shut off during deep sleep
+
+// Since 0.8.0
+// Put the device into deep sleep for 60 seconds and disable {{#if core}}A7{{else}}WKP{{/if}} pin
+System.sleep(SLEEP_MODE_DEEP, 60, SLEEP_DISABLE_WKP_PIN);
+// The device LED will shut off during deep sleep
+// The device will not wake up if a rising edge signal is applied to {{#if core}}A7{{else}}WKP{{/if}}
 ```
 
 In this particular mode, the device shuts down the network subsystem and puts the microcontroller in a stand-by mode.
@@ -10175,6 +10181,9 @@ The device will automatically *wake up* and reestablish the network connection a
 
 **Note:**
 You can also wake the device "prematurely" by applying a rising edge signal to the {{#if core}}A7{{else}}WKP{{/if}} pin.
+
+_Since 0.8.0_
+Wake up by {{#if core}}A7{{else}}WKP{{/if}} pin may be disabled by passing `SLEEP_DISABLE_WKP_PIN` option to `System.sleep()`: `System.sleep(SLEEP_MODE_DEEP, long seconds, SLEEP_DISABLE_WKP_PIN)`.
 
 {{#if has-fuel-gauge}}
 ---
