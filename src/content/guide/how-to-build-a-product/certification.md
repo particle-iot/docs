@@ -98,7 +98,7 @@ Particle's certifications will help you decrease the time and cost associated wi
 - [Certificate of Conformity - U260 v1.0](/assets/pdfs/electron/fcc-u260-certificate.pdf)
 - [Test Reports - U260 v1.0](/assets/pdfs/electron/fcc-u260-test-report.pdf)
 - [Certificate of Conformity - U260 v1.1](/assets/pdfs/new-certs/electron/FINAL_U260_FCC_DOC.pdf)
-- [Test Repots - U260 v1.1](/assets/pdfs/new-certs/electron/FINAL_U260_FCC_REPORT.pdf)
+- [Test Reports - U260 v1.1](/assets/pdfs/new-certs/electron/FINAL_U260_FCC_REPORT.pdf)
 
 #### Electron G350
 - FCC ID: [XPYSARAG350](https://apps.fcc.gov/oetcf/eas/reports/ViewExhibitReport.cfm?mode=Exhibits&RequestTimeout=500&calledFromFrame=N&application_id=o2hW1PEmrUZn19QwwX8hCA%3D%3D&fcc_id=XPYSARAG350)
@@ -195,7 +195,7 @@ If a product has adhered to the integration guidelines and has minimal risk, it 
 ## TELEC<img class="inline-header-image" src="/assets/images/logo-telec.png"/>
 
 ### Description
- - **Website**: [http://www.telec.or.jp/eng/](http://www.telec.or.jp/eng/)
+ - **Website**: [http://www.telec.co.jp/](http://www.telec.co.jp/)
  - **Documentation**: [http://www.tele.soumu.go.jp/e/index.htm](http://www.tele.soumu.go.jp/e/index.htm)
  - **Domain**: Japan
 
@@ -257,7 +257,7 @@ UL certification and safety standards are not applicable to Particle hardware, b
 
 ## PTCRB<img class="inline-header-image" src="/assets/images/logo-ptcrb.png"/>
 ### Description
-- **Website**: [https://ptcrb.com/index.cfm](https://ptcrb.com/index.cfm)
+- **Website**: [https://www.ptcrb.com/](https://www.ptcrb.com/)
 - **Wikipedia**: [https://en.wikipedia.org/wiki/PTCRB](https://en.wikipedia.org/wiki/PTCRB)
 - **Domain**: North America
 
@@ -298,7 +298,7 @@ When an End Product like the Electron is connected to a host device (PC, PDA, et
 
 ### Documentation
 #### Electron 3G (U260)
-- [Certified Device Detail](https://ptcrb.com/vendor/complete/view_complete_request_guest.cfm?modelid=33577)
+- [Certified Device Detail](https://www.ptcrb.com/certified-devices/device-details/?model=33577)
 
 #### Electron 2G (G350)
 - Product has completed and passed all PTCRB test requirements. Please [contact Particle](https://www.particle.io/sales) if you are building an end product with our 2G cellular solutions.

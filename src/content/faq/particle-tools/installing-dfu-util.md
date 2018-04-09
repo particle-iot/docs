@@ -221,6 +221,8 @@ If you have [homebrew](http://brew.sh) installed, it's as simple as running:
 brew install dfu-util
 ```
 
+The [macOS CLI Installer](/guide/tools-and-features/cli/) tries to install dfu-util if you have homebrew installed.
+
 If you have neither homebrew nor MacPorts installed, I recommend installing homebrew as the easiest way to install dfu-util. Just follow the instructions on the [homebrew](http://brew.sh) site to install it first.
 
 One thing about homebrew: it is designed to run without requiring superuser privileges (su). If you get a permission denied error, it's probably because your installation has incorrect permissions. You should stop and fix that first, because all sorts of strange things will continue to happen until you fix it. [This community forum post](https://community.particle.io/t/dfu-util-install-on-mac-os-x/18361) has more details on how to fix permission problems with homebrew.
@@ -236,7 +238,11 @@ port install libusb dfu-util
 
 ## Installation - Linux
 
-Most Linux installations have packages for dfu-util already. These are but a few examples:
+Most Linux installations have packages for dfu-util already.
+
+If you have Ubuntu, the [Linux CLI Installer](/guide/tools-and-features/cli/) will try to install dfu-util through `apt-get`.
+
+Here are the manual install commands for some popular distributions.
 
 Ubuntu and Debian:
 

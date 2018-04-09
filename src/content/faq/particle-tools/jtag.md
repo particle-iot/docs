@@ -29,7 +29,7 @@ There are also "ST-LINK/V2 Mini" devices. These also connect by USB but only use
 
 ![ST-LINK/V2 Mini](/assets/images/jtag-07mini.jpg)
 
-Finally, there's the [Particle Programmer Shield](https://github.com/spark/shields/tree/master/photon-shields/programmer-shield), primarily designed for the Photon.  
+Finally, there's the [Particle Programmer Shield](https://github.com/particle-iot/shields/tree/master/photon-shields/programmer-shield), primarily designed for the Photon.  
 
 ![Particle Programmer Shield](/assets/images/jtag-08shield.jpg)
 
@@ -68,7 +68,35 @@ Since you plug the Photon into the programmer shield, there's nothing to connect
 
 By far the easiest way to program the flash is to use the ST/LINK application for Windows. It's a free download from [ST](http://www.st.com/en/development-tools/st-link-v2.html), and works with both the real ST/LINK device and many clone devices. 
 
-For the Mac, Linux, and for the Particle Programmer shield you'll need to use OpenOCD, in the next section.
+For the Mac, Linux, and for the Particle Programmer shield you'll need to use OpenOCD, in the next section. 
+
+The pins on the connector are numbered this way when you have the programmer positioned so the logo is upright and the notch is on the bottom of the 20-pin connector.
+
+|||||||||||
+|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|
+| 2 | 4 | 6 | 8 | 10 | 12 | 14 | 16 | 18 | 20 |
+| 1 | 3 | 5 | 7 | 9  | 11 | 13 | 15 | 17 | 19 |
+| | | | | notch | | | | | 
+ 
+ 
+| Pin | Function | Color | P1 Pin |
+| --- | --- | --- | --- |
+| 1 | VCC | Red | 3V3 |
+| 4 | GND | Brown | GND | 
+| 7 | SWDIO | Orange | D7 |
+| 9 | SWCLK | Yellow | D6 |
+
+![ST-LINK connections](/assets/images/jtag-09stlink.jpg)
+
+With the ST-LINK, make sure you connect the VCC line to 3V3. It's used to detect the device voltage, and if you don't connect it, it does not work reliably.
+
+In the Settings, you will probably need to select:
+
+- **SWD** (you can use JTAG if you connect the rest of the pins)
+- **4.0 MHz** (though slower speeds will work too)
+- **Access Port 0**
+- **Hot Plug** mode 
+- **Software System Reset** reset mode
 
 
 ### Programming the boot loader
@@ -98,7 +126,7 @@ If your flash is very corrupted, you may also need to flash system and user firm
 
 ### Programming system and user firmware
 
-You can download system firmware binaries for all released versions from [the GitHub release site](https://github.com/spark/firmware/releases).
+You can download system firmware binaries for all released versions from [the GitHub release site](https://github.com/particle-iot/firmware/releases).
 
 For the Photon, flash, for example:
 
@@ -179,7 +207,7 @@ If you are using the Particle Programmer shield you will also need to install th
 /usr/local/share/openocd/scripts/interface/ftdi/
 ```
 
-There are special concerns with the USB driver that may affect the programmer shield. You should check out the [official documentation](https://github.com/spark/shields/tree/master/photon-shields/programmer-shield) for more information about configuring the USB device.
+There are special concerns with the USB driver that may affect the programmer shield. You should check out the [official documentation](https://github.com/particle-iot/shields/tree/master/photon-shields/programmer-shield) for more information about configuring the USB device.
 
 
 ### Installation - Windows

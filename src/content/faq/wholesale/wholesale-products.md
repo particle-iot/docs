@@ -13,40 +13,49 @@ Particle products have different lead times based on the quantity. Please see th
 
 SKU | Low volume lead time | High volume lead time
 ------------ | ------------- | -------------
-ANTDUCK | Less than 100 units, Ships immediately | More than 100 units, ships in 4 - 6 weeks
-ANTELEC50 | Less than 500 units, Ships immediately | More than 500 units, ships in 4 - 6 weeks
-ANTFLEX | Less than 50 units, Ships immediately | More than 50 units, ships in 4 - 6 weeks
-ARDSHIELD | Less than 200 units, Ships immediately | More than 200 units, ships in 8 - 10 weeks
-ASSET (all SKUs) | Less than 100 units, Ships immediately | More than 100 units, ships in 10 - 13 weeks 
-E260KIT | Less than 500 units, Ships immediately | More than 500 units, ships in 10 - 13 weeks
-E260TRAY50 | Less than 500 units, Ships immediately | More than 500 units, ships in 10 - 13 weeks
-E270KIT | Less than 1000 units, Ships immediately | More than 1000 units, ships in 10 - 13 weeks
-E270TRAY50 | Less than 200 units, Ships immediately | More than 200 units, ships in 10 - 13 weeks
-E350KIT | Less than 1000 units, Ships immediately | More than 1000 units, ships in 10 - 13 weeks
-E350TRAY50 | All volumes ship in 10 - 13 weeks | All volumes ship in 10 - 13 weeks
-GSWTP | Less than 50 units, Ships immediately | More than 50 units, ships in 8 - 10 weeks
-MKITPH | Less than 75 units, Ships immediately | More than 75 units, ships in 12 - 16 weeks
-P0MOD10 | Less than 250 units, Ships immediately | More than 250 units, ships in 12 - 16 weeks
+ANTDUCK | Less than 100 units, ships immediately | More than 100 units, ships in 4 - 6 weeks
+ANTELEC | Less than 250 units, ships immediately | More than 250 units, ships in 4 - 6 weeks
+ANTELEC50 | Less than 250 units, ships immediately | More than 250 units, ships in 4 - 6 weeks
+ANTFLEX | Less than 100 units, ships immediately | More than 100 units, ships in 4 - 6 weeks
+ARDSHIELD | Less than 150 units, ships immediately | More than 150 units, ships in 8 - 10 weeks
+ASSET2GV2 | Less than 50 units, ships immediately | More than 50 units, ships in 2 - 4 weeks
+ASSET3G260V2 | Less than 25 units, ships immediately | More than 25 units, ships in 2 - 4 weeks
+ASSET3G270V2 | Less than 30 units, ships immediately | More than 30 units, ships in 2 - 4 weeks
+BAT2000 | All volumes ship in 4 - 6 weeks | All volumes ship in 4 - 6 weeks
+BATTMOD50 | Less than 750 units, ships immediately | More than 750 units, ships in 4 - 6 weeks
+E260KIT | Less than 350 units, ships immediately | More than 350 units, ships in 10 - 13 weeks
+E260TRAY50 | All volumes ship in 12 - 16 weeks | All volumes ship in 12 - 16 weeks
+E270KIT | Less than 500 units, ships immediately | More than 500 units, ships in 10 - 13 weeks
+E270TRAY50 | All volumes ship in 10 - 13 weeks | All volumes ship in 10 - 13 weeks 
+E310KIT | All volumes ship in 10 - 13 weeks | All volumes ship in 10 - 13 weeks
+E310MOD1 | All volumes ship in 10 - 13 weeks | All volumes ship in 10 - 13 weeks
+E310TRAY50 | All volumes ship in 12 - 16 weeks | All volumes ship in 12 - 16 weeks
+E350KIT | Less than 200 units, ships immediately | More than 200 units, ships in 10 - 13 weeks
+E350TRAY50 | Less than 100 units, ships immediately | More than 100 units, ships in 10 - 13 weeks
+GSWTP | Less than 50 units, ships immediately | More than 50 units, ships in 8 - 10 weeks
+MKITPH | Less than 200 units, ships immediately | More than 200 units, ships in 12 - 16 weeks
+P0MOD10 | Less than 500 units, ships immediately | More than 500 units, ships in 12 - 16 weeks
 P0REEL | All volumes ship in 12 - 16 weeks | All volumes ship in 12 - 16 weeks
-P1MOD10 | Less than 750 units, Ships immediately | More than 750 units, ships in 12 - 16 weeks
-P1REEL | Less than 7000 units, Ships immediately | More than 7000 units, ships in 12 - 16 weeks
-PHNTRAYH | Less than 300 units, Ships immediately | More than 300 units, ships in 12 - 16 weeks
-PHNTRAYNOH | Less than 500 units, Ships immediately | More than 500 units, ships in 12 - 16 weeks
-PHOTONH | Less than 250 units, Ships immediately | More than 250 units, ships in 12 - 16 weeks
-PHOTONKIT | Less than 150 units, Ships immediately | More than 150 units, ships in 12 - 16 weeks
-PHOTONNOH | Less than 250 units, Ships immediately | More than 250 units, ships in 12 - 16 weeks
-PROGSHIELD | Less than 75 units, Ships immediately | More than 75 units, ships in 8 - 10 weeks
-PWRSHIELDH | Less than 300 units, Ships immediately | More than 300 units, ships in 8 - 10 weeks
-RLYSHIELD | Less than 150 units, Ships immediately | More than 150 units, ships in 8 - 10 weeks
-SIMBLANK50 | Less than 1000 units, Ships immediately | More than 1000 units, ships in 4 - 6 weeks
-SNSRKIT3G260 | Less than 200 units, Ships immediately | More than 200 units, ships in 10 - 13 weeks
-SNSRKIT3G270 | Less than 30 units, Ships immediately | More than 30 units, ships in 10 - 13 weeks
-SPKBTTN | Less than 25 units, Ships immediately | More than 25 units, ships in 10 - 13 weeks
+P1MOD10 | Less than 1,000 units, ships immediately | More than 1,000 units, ships in 12 - 16 weeks
+P1REEL | Less than 3000 units, ships immediately | More than 3000 units, ships in 12 - 16 weeks
+PHNTRAYH | Less than 700 units, ships immediately | More than 700 units, ships in 12 - 16 weeks
+PHNTRAYNOH | All volumes ship in 12 - 16 weeks | All volumes ship in 12 - 16 weeks
+PHOTONH | Less than 150 units, ships immediately | More than 150 units, ships in 2 - 4 weeks
+PHOTONKIT | All volumes ship in 2 - 4 weeks | All volumes ship in 2 - 4 weeks
+PHOTONNOH | Less than 75 units, ships immediately | More than 75 units, ships in 12 - 16 weeks
+PROGSHIELD | Less than 200 units, ships immediately | More than 200 units, ships in 8 - 10 weeks
+PWRSHIELDH | Less than 200 units, ships immediately | More than 200 units, ships in 8 - 10 weeks
+RLYSHIELD | All volumes ship in 8 - 10 weeks | All volumes ship in 8 - 10 weeks
+SIMBLANK50 | Less than 500 units, ships immediately | More than 500 units, ships in 4 - 6 weeks
+SIMTELE | Less than 500 units, ships immediately | More than 500 units, ships in 4 - 6 weeks
+SNSRKIT3G260 | Less than 20 units, ships immediately | More than 20 units, ships in 10 - 13 weeks
+SNSRKIT3G270 | Less than 75 units, ships immediately | More than 75 units, ships in 10 - 13 weeks
+SPKBTTN | Less than 750 units, ships immediately | More than 750 units, ships in 10 - 13 weeks
 
 
 Lead times apply only from the point of payment. Requesting a lead time will not reserve stock. Only a committed, non-refundable, non-cancellable purchase order (PO) or a purchase with payment will guarantee lead times. Particle reserves the right to increase or decrease lead times at any time. 
 
-## Product MOQs
+## Product MOQs 
 
 Many of our products have minimum order quantities based on our case pack size. Please see the table below for minimum order quantities.
 
@@ -56,17 +65,19 @@ ANTELEC50 | 50 units
 BATTMOD50 | 50 units
 E260TRAY50 | 50 units
 E270TRAY50 | 50 units
+E310TRAY50 | 50 units
 E350TRAY50 | 50 units
 P0MOD10 | 10 units
-P0REEL | 2000 units
+P0REEL | 1000 units
 P1MOD10 | 10 units
 P1REEL | 500 units
 PHNTRAYH | 50 units
 PHNTRAYNOH | 50 units
+SIMBLANK50 | 50 units
 
 ## Refunds and Replacements
 
-If you’ve made a purchase through our Wholesale Store, our replacement process is slightly different than our normal [return process](https://docs.particle.io/support/support-and-fulfillment/returns/). 
+If you’ve made a purchase through our Wholesale Store, our replacement process is slightly different than our normal [return process](/support/support-and-fulfillment/returns/). 
 
 ### Original Condition Return Policy
 
@@ -84,11 +95,11 @@ If you are struggling with a Particle product or aren’t satisfied with your pu
  
 In the case of demonstrable manufacturing issues or a failure due to defective materials, we will troubleshoot and replace the item(s) as needed.
  
-Please check out the troubleshooting tips and assistance on our [documentation page](https://docs.particle.io/support/troubleshooting/common-issues). Our amazing [community](https://community.particle.io/) is also a great resource and may be able to help as well. If you still have not resolved your problem, please visit our [support portal](https://support.particle.io/) to begin basic troubleshooting with our team. Often, defective units have simple misconfigurations that can easily be fixed, and this will put you in position to quickly and easily resolve certain issues if they crop up again. 
+Please check out the troubleshooting tips and assistance on our [documentation page](/support/troubleshooting/common-issues). Our amazing [community](https://community.particle.io/) is also a great resource and may be able to help as well. If you still have not resolved your problem, please visit our [support portal](https://support.particle.io/) to begin basic troubleshooting with our team. Often, defective units have simple misconfigurations that can easily be fixed, and this will put you in position to quickly and easily resolve certain issues if they crop up again. 
 
 ### Modules Incorporated into custom boards
 
-We can only perform limited troubleshooting on modules built into custom boards. If you’re interested in more in-depth troubleshooting, please visit our [support portal](https://support.particle.io/) and let us know you’re interested in working with one of our [service partners](https://www.particle.io/partnerships/professional-services) for an in-depth technical review of your custom board. 
+We can only perform limited troubleshooting on modules built into custom boards. If you’re interested in more in-depth troubleshooting, please visit our [support portal](https://support.particle.io/) and let us know you’re interested in working with one of our [service partners](https://www.particle.io/pricing/#particle-studios) for an in-depth technical review of your custom board. 
 
 ### Items damaged in shipment
 

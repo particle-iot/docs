@@ -204,7 +204,7 @@ Il firmware Tinker
 
 Il firmware Tinker é l'applicazione che viene installata di partenza sullo Spark Core quando esce dalla linea di produzione della fabbrica. Potete sempre tornare a questa applicazione mettendo il Core nel modo [factory reset](#bottoni), o ricaricando il Core con Tinker nell'applicazione Spark mobile.
 
-L'applicazione Tinker è un bel esempio di come creare un'applicazione potente senza troppo codice. Potete dare un'occhiata all'ultima versione [qui.](https://github.com/spark/core-firmware/blob/master/src/application.cpp)
+L'applicazione Tinker è un bel esempio di come creare un'applicazione potente senza troppo codice. Potete dare un'occhiata all'ultima versione [qui.](https://github.com/particle-iot/core-firmware/blob/master/src/application.cpp)
 
 La API Tinker
 ---

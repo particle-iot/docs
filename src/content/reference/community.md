@@ -20,6 +20,7 @@ like to add to this page, please submit a pull request.
 See [the official JavaScript client](/reference/javascript/).
 
 * [Cylon.js robotics framework adapter by The Hybrid Group](http://cylonjs.com/documentation/platforms/particle/)
+* [ember-particle - Ember service for the Particle API](https://github.com/mileszim/ember-particle)
 
 ## Ruby
 
@@ -35,6 +36,12 @@ See [the official JavaScript client](/reference/javascript/).
 * [phpSpark by Harrison Jones (and others)](https://github.com/harrisonhjones/phpSpark/) - A simple PHP wrapper library for the Particle Cloud API
 * [phpSparkDashboard by Harrison Jones (and others)](https://github.com/harrisonhjones/phpSparkDashboard/) - A basic dashboard for interacting with the Particle Cloud API
 
+## Java
+
+* [JParticle by Walter Stroebel](https://github.com/Walter-Stroebel/JParticle) - This is a threaded library in Java to use
+the Particle cloud from your programs. Currently provided as a Maven project to satisfy the single dependency on the JSON
+library it needs. Code level is Java-8. It should be trivial to use Java-7 or lower though. 
+
 ## .NET
 * [ParticleSDK for .NET](https://github.com/ParticleNET/ParticleSDK/) - A wrapper around the Particle cloud API.
 
@@ -46,6 +53,10 @@ See [the official JavaScript client](/reference/javascript/).
 
 * [Swift 3.0 Client Library](https://github.com/vakoc/particle-swift) - A Swift 3.0, package manager compatible, library for interacting with the Particle Cloud API
 * [Swift 3.0 Command Line Interface](https://github.com/vakoc/particle-swift-cli) - A Swift 3.0, package manager compatible, command line application utilizing particle-swift for interacting with the Particle Cloud API
+
+## Typescript
+
+* [Soft AP Setup library for Typescript by Mark Terrill](https://www.npmjs.com/package/softap-setup-ts) - Port of the [Particle SoftAP Setup library](https://github.com/particle-iot/softap-setup-js) to perform wireless setup of Particle devices
 
 ## Xamarin
 

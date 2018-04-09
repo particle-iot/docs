@@ -9,7 +9,7 @@ layout: guide.hbs
 
 # Firmware Manager
 
-The Firmware Manager is a desktop application that upgrades your Electron to the latest system firmware. It provides an easy way to update system firmware while avoiding cellular data charges.
+The Firmware Manager is a desktop application that upgrades your {{device}} to the latest system firmware. It provides an easy way to update system firmware while avoiding cellular data charges.
 
 ## Getting Started
 
@@ -50,7 +50,7 @@ When the application starts, you'll see a screen like this:
 
 ### Connecting your Device
 
-If you haven't already connected your Electron to your computer with a USB cable, do that now. When connected, the screen will look like this:
+If you haven't already connected your {{device}} to your computer with a USB cable, do that now. When connected, the screen will look like this:
 
 ![Updater Connected]({{assets}}/images/updater-connected.png)
 
@@ -80,10 +80,8 @@ Congratulations! You've updated the system firmware on your device.
 
 Your device will automatically reboot and will run your app using the updated system firmware.
 
-
+{{#if electron}}
 ### Electron Upgrade
-
-*This section only applies to Electrons. If you are upgrading another type of device, you can skip this section.*
 
 The Electron firmware for 0.6.0 and newer has changed from being made of 2 system modules, to 3 system modules. 
 
@@ -96,6 +94,7 @@ Firmware Manager 0.5.3
 - [Windows](https://binaries.particle.io/updater/particle_firmware_manager-v0.5.3-windows.exe)
 - [macOS](https://binaries.particle.io/updater/particle_firmware_manager-v0.5.3-osx.zip)
 
+{{/if}} {{!-- electron --}}
 
 ## Troubleshooting
 
@@ -110,12 +109,12 @@ If the update gets stuck or you see an error message, try following these steps
 
 - Close the device updater if it's already open
 - Connect the device directly to your computer rather than via USB hubs
-- Restart the device in [Safe Mode](/guide/getting-started/modes/electron/#safe-mode)
-- When the device has connected to the cloud, put the device in [listening mode](/guide/getting-started/modes/electron/#listening-mode)
+- Restart the device in [Safe Mode](/guide/getting-started/modes/#safe-mode)
+- When the device has connected to the cloud, put the device in [listening mode](/guide/getting-started/modes/#listening-mode)
 - launch the device updater and perform the update as described above
 
 
 
 We hope that fixes it for you, but if you are still experiencing problems, please check our
-[GitHub Issues](https://github.com/spark/device-updater/issues) and file a new issue.
+[GitHub Issues](https://github.com/particle-iot/device-updater/issues) and file a new issue.
 

@@ -87,9 +87,18 @@
                 <option value="Hardware">Hardware: Devices, Firmware, and Setup</option>
                 <option value="Software">Software: Tools, IDEs and Console</option>
                 <option value="Infrastructure">Infrastructure: Cloud and Cellular</option>
-                <option value="Orders">Shipping, Billing and Returns</option>
+                <option value="Orders">Shipping, Returns, and Pricing</option>
                 <option value="Enterprise">Enterprise: Product Development &amp; Sales, Distributors</option>
+                <option value="PreOrder">Pre-Order Questions</option>
                 <option value="Other">Other Questions</option>
+              </select>
+
+              <select id="deviceFamilyMenu" name="deviceFamily" class="feedback-input" style="display: none">
+                <option value="" disabled selected>--Select a Device Family--</option>
+                <option value="WiFi">Photon, P1, and P0</option>
+                <option value="Cellular">Electron, and E-Series</option>
+                <option value="Mesh">Argon, Boron, and Xenon</option>
+                <option value="Shields">Spark Core, Shields, and Other</option>
               </select>
 
               <select id="detailmenu" name="detailOptions" class="feedback-input" style="display: none"></select>
@@ -98,13 +107,27 @@
               <script>
               jQuery(function($) {
                   var details = {
-                      "Hardware": [
+                      "WiFi": [
                           "--Select a device--",
                           "Photon",
+                          "P1",
+                          "P0",
+                      ],
+                      "Cellular": [
                           "Electron",
-                          "Core",
-                          "Particle Shield or Kit",
-                          "Other",
+                          "E-Series",
+                      ],
+                      "Mesh": [
+                            "Argon",
+                            "Boron",
+                            "Xenon",
+                      ],
+                      "Shields": [
+                            "Spark Core",
+                            "Particle Classic Shield",
+                            "Particle FeatherWing",
+                            "Other Shield",
+                            "Something else",
                       ],
 
                       "Software": [
@@ -119,19 +142,55 @@
                   };
 
                   var questions = {
-                      "Hardware": [
+                      "WiFi": [
                           "--Select a hardware question--",
                           "I'm unable to setup my device",
                           "I'm unable to claim my device",
                           "I'm unable to get my device online",
                           "I'm unable to flash my device",
-                          "My device is showing up as the wrong type",
                           "My device is crashing / not operating correctly",
-                          "I'm having an issue with a Particle library.",
                           "I'm having an issue with a firmware feature",
                           "My device has a hardware defect",
                           "My device is doing something else",
-                          "I'm having trouble with my SIM card",
+                          "I have another question not listed here",
+                      ],
+                      "Cellular": [
+                          "--Select a hardware question--",
+                          "I'm unable to setup my device",
+                          "I'm unable to claim my device",
+                          "I'm unable to get my device online",
+                          "I'm unable to flash my device",
+                          "I’m having trouble with my SIM card",
+                          "My device is crashing / not operating correctly",
+                          "I'm having an issue with a firmware feature",
+                          "My device has a hardware defect",
+                          "My device is doing something else",
+                          "I have another question not listed here",
+
+                      ],
+                      "Mesh": [
+                          "--Select a hardware question--",
+                          "I'm unable to setup my device",
+                          "I'm unable to claim my device",
+                          "I'm unable to get my device online",
+                          "I'm unable to flash my device",
+                          "I’m unable to setup my mesh network",
+                          "My device is crashing / not operating correctly",
+                          "I'm having an issue with a firmware feature",
+                          "My device has a hardware defect",
+                          "My device is doing something else",
+                          "I have another question not listed here",
+                      ],
+                      "Shields": [
+                          "--Select a hardware question--",
+                          "I'm unable to setup my device",
+                          "I'm unable to claim my device",
+                          "I'm unable to get my device online",
+                          "I'm unable to flash my device",
+                          "My device is crashing / not operating correctly",
+                          "I'm having an issue with a firmware feature",
+                          "My device has a hardware defect",
+                          "My device is doing something else",
                           "I have another question not listed here",
                       ],
 
@@ -160,14 +219,17 @@
                       ],
 
                       "Orders": [
+                          "--Select a pricing question--",
+                          "What’s the pricing breakdown now?",
+                          "What do I need to do to get on the new pricing plans?",
+                          "What happens when I add over 100 Wi-Fi devices?",
+                          "I have a question about Particle Studios",
+                          "I have another question not listed here",
                           "--Select a shipping/returns question--",
                           "Where is my package?",
                           "I need an invoice for my store purchase.",
                           "I need a return/refund.",
-                          "Did my payment go through?",
-                          "--Select a billing question--",
                           "What was I charged for?",
-                          "How do I apply my 3 month promo code to my account?",
                           "I need an invoice for my subscription service.",
                           "I have another question not listed here",
                       ],
@@ -182,15 +244,28 @@
                           "I have another question not listed here",
                       ],
 
+                      "PreOrder": [
+                          "--Select a pre-order question--",
+                          "How does the referral program work?",
+                          "How can I find out how many people have used my referral code?",
+                          "My promo-code isn’t working",
+                          "When do the products ship?",
+                          "--I need to change or cancel my pre-order--",
+                          "I’m no longer interested in the products",
+                          "I decided to go with another solution",
+                          "I need a different quantity of products",
+                          "I need to change my address or credit card info",
+                          "I have a different reason",
+                      ],
+
                       "Other": [
                           "--Select another question--",
-                          "What products do you sell?",
+                          "What is Mesh?",
+                          "What is OpenThread?",
                           "I submitted my resume and I’d like to follow up.",
                           "I’d like Particle to sponsor or attend my event.",
                           "I have a feature request",
-                          "What is the timeline on a product",
                           "When will a product come back in stock?",
-                          "I'd like help with a project requiring contractor work",
                           "I have another question not listed here",
                       ],
                   }
@@ -198,8 +273,9 @@
                   var $categorymenu = $('#category');
                   var $questionmenu = $('#questionmenu');
                   var $detailmenu = $('#detailmenu');
-                  
-                  $categorymenu.change(function () {
+                  var $devicefamilymenu = $('#deviceFamilyMenu');
+
+                  function changeCategory(category) {
                       function populateMenu($menu, items) {
                           var first = true;
                           var html = $.map(items, function (s) {
@@ -218,9 +294,19 @@
                           $menu.html(html);
                       }
 
-                      var category = $(this).val();
                       var categoryDetails = details[category];
                       var categoryQuestions = questions[category] || [];
+
+                      var isHardware = ($categorymenu.val() === 'Hardware');
+                      if (isHardware) {
+                          $devicefamilymenu.attr('required', 'required');
+                          $devicefamilymenu.show();
+                          categoryDetails = details[$devicefamilymenu.val()];
+                      }
+                      else {
+                          $devicefamilymenu.removeAttr('required');
+                          $devicefamilymenu.hide();
+                      }
 
                       $detailmenu.toggle(!!categoryDetails).attr('required', !!categoryDetails);
                       if(categoryDetails) {
@@ -228,6 +314,13 @@
                       }
 
                       populateMenu($questionmenu, categoryQuestions);
+                  }
+
+                  $categorymenu.change(function() {
+                      changeCategory($categorymenu.val())
+                  });
+                  $devicefamilymenu.change(function() {
+                      changeCategory($devicefamilymenu.val())
                   });
 
                   // Helper function to print all possible topics
@@ -280,9 +373,9 @@
 
               <script>
 
-              function detectBrowser() { 
+              function detectBrowser() {
                 //console.log(navigator);
-               if((navigator.userAgent.indexOf("Opera") || navigator.userAgent.indexOf('OPR')) != -1 ) 
+               if((navigator.userAgent.indexOf("Opera") || navigator.userAgent.indexOf('OPR')) != -1 )
               {
                   browserType = 'Opera';
                   ostype = navigator.appVersion;
@@ -297,7 +390,7 @@
                   browserType = 'Safari';
                   ostype = navigator.appVersion;
               }
-              else if(navigator.userAgent.indexOf("Firefox") != -1 ) 
+              else if(navigator.userAgent.indexOf("Firefox") != -1 )
               {
                   browserType = 'Firefox';
                   ostype = navigator.appVersion;
@@ -306,8 +399,8 @@
               {
                   browserType = 'IE';
                   ostype = navigator.appVersion;
-              }  
-              else 
+              }
+              else
               {
                   browserType = 'Unknown browser'
                   ostype = navigator.appVersion;

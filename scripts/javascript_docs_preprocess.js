@@ -11,7 +11,7 @@ module.exports = function (contents) {
 	// fix a bad link
 	contents = contents.replace(
 		'../src/Defaults.js',
-		'https://github.com/spark/particle-api-js/blob/master/src/Defaults.js'
+		'https://github.com/particle-iot/particle-api-js/blob/master/src/Defaults.js'
 	);
 	return contents;
 };

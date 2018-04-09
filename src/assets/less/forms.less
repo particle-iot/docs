@@ -1,4 +1,4 @@
-#form-main{	
+#form-main{
 	width:100%;
 	text-align: center;
 	// float:left;
@@ -21,13 +21,13 @@
 }
 
 .feedback-input {
-	color:#3c3c3c;
-	font-family: @base-font-family;
+	color: @NC_SPACE_GRAY;
+	font-family: @body-font;
   	//font-weight:500;
 	font-size: 18px;
 	border-radius: 0;
 	line-height: 22px;
-	background-color: #fbfbfb;
+	background-color: @NC_WHITE;
 	padding: 13px 13px 13px 54px;
 	margin-bottom: 10px;
 	width:100%;
@@ -39,10 +39,10 @@
 }
 
 .feedback-input:focus{
-	background: #fff;
+	background: @NC_WHITE;
 	box-shadow: 0;
 	border: 1px solid @spark-blue;
-	color: #3498db;
+	color: @NC_CYAN_HOVER;
 	outline: none;
     padding: 13px 13px 13px 54px;
 }
@@ -136,10 +136,10 @@ input:focus, textarea:focus {
 }
 
 #button-blue{
-	font-family: @base-font-family;
+	font-family: @body-font;
 	float:left;
 	width: 100%;
-	border: #fbfbfb solid 4px;
+	border: @NC_WHITE solid 4px;
 	cursor:pointer;
 	background-color: @spark-blue;
 	color:white;
@@ -150,8 +150,8 @@ input:focus, textarea:focus {
 	-moz-transition: all 0.3s;
 	transition: all 0.3s;
   	margin-top:-4px;
-  
-  font-weight:700;
+
+  font-weight:bold;
 }
 
 #button-blue:hover{
@@ -165,7 +165,7 @@ input:focus, textarea:focus {
   background-color: @clouds;
   outline: none;
 }
-	
+
 // .submit:hover {
 // 	color: @clouds;
 // }
@@ -173,11 +173,11 @@ input:focus, textarea:focus {
 // .submit:focus {
 //   background-color: @clouds;
 // }
-	
+
 
 
 @media (max-width: @small-size) {
-	#form-main{	
+	#form-main{
 		width:120%;
 		text-align: center;
 		margin-left: -10%;
@@ -214,4 +214,3 @@ input:focus, textarea:focus {
 		padding-right: 3%;
 	}
 }
-

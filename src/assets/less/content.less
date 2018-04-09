@@ -22,8 +22,8 @@
   .btn {
     cursor: pointer;
     background: @spark-blue;
-    color: #fff;
-    font-weight: 700;
+    color: @NC_WHITE;
+    font-weight: bold;
     font-size: 12px;
     padding: 10px !important;
     text-transform: uppercase;
@@ -88,7 +88,6 @@
   line-height: 24px;
   color: @dark-gray;
   &.caption {
-    font-size: 14px;
     font-style: italic;
     text-align: center;
     margin-top: -15px;
@@ -98,12 +97,12 @@
 .content ul > li {
   list-style-type: disc;
   color: @dark-gray;
-  font-weight: 300;
+  // font-weight: 300;
 }
 .content ol > li {
   list-style-type: decimal;
   color: @dark-gray;
-  font-weight: 300;
+  // font-weight: 300;
   margin-bottom: 7px;
 }
 .content ul,
@@ -141,7 +140,7 @@
   display: none;
 }
 .content ul > ul > li {
-  color: blue;
+  color: @NC_NAVY;
 }
 .content li > :first-child {
   padding-top: 0;
@@ -156,18 +155,20 @@
 
 .content em {
   font-style: italic;
-  font-weight: 300;
+  // font-weight: 300;
 }
 .content code {
-  font-family: 'Fira Mono Medium', Monaco, monospace;
+  font-family: @monospace-font;
+  font-weight: 500;
   background: @almost-white;
   padding: 1px 3px;
   font-size: 13px;
   span {
-    font-family: 'Fira Mono Medium', Monaco, monospace;
+    font-family: @monospace-font;
+    font-weight: 500;
     font-size: 14px;
     &.com {
-      font-family: 'Fira Mono Regular', Monaco, monospace;
+      font-family: @monospace-font;
     }
   }
 }
@@ -255,7 +256,7 @@ h1 .header-permalinks {
   clear: both;
 }
 .content blockquote {
-  color: #9090aa;
+  color: @NC_PURPLE_GRAY;
   text-shadow: 0 1px 0 rgba(255,255,255,0.5);
 }
 .content h1,
@@ -281,18 +282,20 @@ h1 .header-permalinks {
 .content h1, .content h2 {
   color: @dark-gray;
   font-size: 24px;
-  font-weight: 300;
+  text-transform: uppercase;
+  // font-weight: 300;
 }
 .content h1:first-child,
 .content h1:first-child a,
 .content h1:first-child a:visited {
   color: @dark-gray;
-  font-weight: 200;
-  text-transform: none;
+  // font-weight: 200;
+  font-weight: bold;
+  text-transform: uppercase;
   letter-spacing: 0;
   font-size: 35px;
   line-height: 55px;
-  font-family: @header-fonts;
+  font-family: @header-font;
 }
 .content h3 {
   font-size: 1.2em;
@@ -309,12 +312,12 @@ body.big-h3 .content h3 {
 body.big-h3 .content h3:before {
   display: none;
   content: '';
-  /*background: -webkit-gradient(linear, left top, right top, color-stop(0.4, #dfe2e7), color-stop(1, @transparent-monokai));
-  background: -webkit-linear-gradient(left, #dfe2e7 40%, @transparent-monokai 100%);
-  background: -moz-linear-gradient(left, #dfe2e7 40%, @transparent-monokai 100%);
-  background: -o-linear-gradient(left, #dfe2e7 40%, @transparent-monokai 100%);
-  background: -ms-linear-gradient(left, #dfe2e7 40%, @transparent-monokai 100%);
-  background: linear-gradient(left, #dfe2e7 40%, @transparent-monokai 100%);*/
+  /*background: -webkit-gradient(linear, left top, right top, color-stop(0.4, @NC_MORNING_MIST), color-stop(1, @transparent-monokai));
+  background: -webkit-linear-gradient(left, @NC_MORNING_MIST 40%, @transparent-monokai 100%);
+  background: -moz-linear-gradient(left, @NC_MORNING_MIST 40%, @transparent-monokai 100%);
+  background: -o-linear-gradient(left, @NC_MORNING_MIST 40%, @transparent-monokai 100%);
+  background: -ms-linear-gradient(left, @NC_MORNING_MIST 40%, @transparent-monokai 100%);
+  background: linear-gradient(left, @NC_MORNING_MIST 40%, @transparent-monokai 100%);*/
   background: @light-gray;
   height: 1px;
   position: relative;
@@ -333,7 +336,7 @@ body.big-h3 .content h3 {
   .content h2:before,
   .content .big-heading:before,
 body.big-h3 .content h3:before {
-    background: #dfe2e7;
+    background: @NC_MORNING_MIST;
     left: -40px;
     top: -20px;
     width: 120%;
@@ -343,9 +346,9 @@ body.big-h3 .content h3:before {
   color: @gray;
   padding-top: 15px;
   padding-bottom: 10px;
-  font-family: @base-font-family;
+  font-family: @body-font;
   text-transform: uppercase;
-  font-size: 11.5px;
+  font-size: 16px;
 }
 .content.reference h4 {
   text-transform: none;
@@ -355,9 +358,9 @@ body.big-h3 .content h3:before {
 body:not(.big-h3) .content h3 {
   color: @dark-gray;
   text-transform: uppercase;
-  font-size: 12px;
+  font-size: 18px;
   letter-spacing: 1px;
-  font-family: @base-font-family;
+  font-family: @header-font;
   padding-top: 30px;
   padding-bottom: 10px;
   position: relative;
@@ -371,11 +374,15 @@ body:not(.big-h3) .content h3 {
     left: 40px;
   }
 }
-body:not(.big-h3) .content h3 {
-  font-size: 12px;
-}
 body:not(.big-h3) .content.reference h3 {
   text-transform: none;
+  font-family: @body-font;
+  font-size: 16px;
+}
+.content.reference h2 {
+  text-transform: none;
+  font-family: @body-font;
+  font-size: 22px;
 }
 .content h1:first-child {
   padding: 0;
@@ -405,9 +412,9 @@ body:not(.big-h3) .content.reference h3 {
 }
 body.no-literate .content pre > code {
   background: @monokai-gray;
-  border: solid 1px #e7eaee;
-  border-top: solid 1px #dbdde2;
-  border-left: solid 1px #e2e5e9;
+  border: solid 1px @NC_ALMOST_WHITE;
+  border-top: solid 1px @NC_MORNING_MIST;
+  border-left: solid 1px @NC_MORNING_MIST;
   display: block;
   padding: 10px;
   -webkit-border-radius: 2px;
@@ -422,13 +429,13 @@ body.no-literate .content pre > code::-webkit-scrollbar {
   height: 15px;
 }
 body.no-literate .content pre > code::-webkit-scrollbar-thumb {
-  background: #ddd;
+  background: @NC_MORNING_MIST;
   -webkit-border-radius: 8px;
   border-radius: 8px;
-  border: solid 4px #f3f6fb;
+  border: solid 4px @NC_ALMOST_WHITE;
 }
 body.no-literate .content pre > code:hover::-webkit-scrollbar-thumb {
-  background: #999;
+  background: @NC_HAZE;
   -webkit-box-shadow: inset 2px 2px 3px rgba(0,0,0,0.2);
   box-shadow: inset 2px 2px 3px rgba(0,0,0,0.2);
 }
@@ -439,9 +446,9 @@ body.no-literate .content pre > code:hover::-webkit-scrollbar-thumb {
   }
   .content pre > code {
     background: @monokai-gray;
-    border: solid 1px #e7eaee;
-    border-top: solid 1px #dbdde2;
-    border-left: solid 1px #e2e5e9;
+    border: solid 1px @NC_ALMOST_WHITE;
+    border-top: solid 1px @NC_MORNING_MIST;
+    border-left: solid 1px @NC_MORNING_MIST;
     display: block;
     padding: 10px;
     -webkit-border-radius: 2px;
@@ -456,13 +463,13 @@ body.no-literate .content pre > code:hover::-webkit-scrollbar-thumb {
     height: 15px;
   }
   .content pre > code::-webkit-scrollbar-thumb {
-    background: #ddd;
+    background: @NC_MORNING_MIST;
     -webkit-border-radius: 8px;
     border-radius: 8px;
-    border: solid 4px #f3f6fb;
+    border: solid 4px @NC_ALMOST_WHITE;
   }
   .content pre > code:hover::-webkit-scrollbar-thumb {
-    background: #999;
+    background: @NC_HAZE;
     -webkit-box-shadow: inset 2px 2px 3px rgba(0,0,0,0.2);
     box-shadow: inset 2px 2px 3px rgba(0,0,0,0.2);
   }
@@ -470,45 +477,45 @@ body.no-literate .content pre > code:hover::-webkit-scrollbar-thumb {
 .button {
   text-rendering: optimizeLegibility;
   font-weight: bold;
-  font-size: 12px;
+  font-size: 14px;
   text-transform: uppercase;
   letter-spacing: 0.7px;
   display: inline-block;
   padding: 8px 20px;
-  border: solid 2px #2badad;
+  border: solid 2px @NC_TEAL_DARK;
   -webkit-border-radius: 4px;
   border-radius: 4px;
   margin-right: 4px;
 }
 .button,
 .button:visited {
-  background: #2badad;
-  color: #fff;
+  background: @NC_TEAL_DARK;
+  color: @NC_WHITE;
   text-shadow: none;
 }
 .button:hover {
-  border-color: #111;
-  background: #111;
-  color: #fff;
+  border-color: @NC_BLACK;
+  background: @NC_BLACK;
+  color: @NC_WHITE;
 }
 .button.light,
 .button.light:visited {
   background: transparent;
-  color: #9090aa;
-  border-color: #9090aa;
+  color: @NC_PURPLE_GRAY;
+  border-color: @NC_PURPLE_GRAY;
   text-shadow: none;
 }
 .button.light:hover {
-  border-color: #9090aa;
-  background: #9090aa;
-  color: #fff;
+  border-color: @NC_PURPLE_GRAY;
+  background: @NC_PURPLE_GRAY;
+  color: @NC_WHITE;
 }
 .content .button + em {
-  color: #9090aa;
+  color: @NC_PURPLE_GRAY;
 }
 
 h1 small.beta {
-  color: #9090aa;
+  color: @NC_PURPLE_GRAY;
   font-size: 0.6em;
   vertical-align: text-top;
 }
@@ -621,42 +628,42 @@ a.big.button {
   font-weight: bold;
   font-size: 1.1em;
   background: transparent;
-  border: solid 3px #2badad;
+  border: solid 3px @NC_TEAL_DARK;
   -webkit-border-radius: 30px;
   border-radius: 30px;
-  font-family: montserrat, sans-serif;
+  font-family: @body-font;
 }
 a.big.button,
 a.big.button:visited {
-  color: #2badad;
+  color: @NC_TEAL_DARK;
   text-decoration: none;
 }
 a.big.button:hover {
-  background: #2badad;
+  background: @NC_TEAL_DARK;
 }
 a.big.button:hover,
 a.big.button:hover:visited {
-  color: #fff;
+  color: @NC_WHITE;
 }
 
 code .string,
 code .number {
-  color: #3ac;
+  color: @NC_CYAN;
 }
 code .init {
-  color: #383;
+  color: @NC_EMERALD;
 }
 code .keyword {
   font-weight: bold;
 }
 code .comment {
-  color: #adadcc;
+  color: @NC_PURPLE_GRAY;
 }
 .large-brief .content > h1:first-child + p,
 .content > p.brief {
   font-size: 1.3em;
-  font-family: Open Sans, sans-serif;
-  font-weight: 300;
+  // font-family: Open Sans, sans-serif;
+  // font-weight: 300;
 }
 .title-area {
   min-height: 100px;
@@ -666,7 +673,7 @@ code .comment {
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
   text-align: center;
-  border-bottom: solid 1px #dfe2e7;
+  border-bottom: solid 1px @NC_MORNING_MIST;
   overflow: hidden;
 }
 .title-area > img.bg {
@@ -681,7 +688,7 @@ code .comment {
 
 .content img {
   max-width: 320px;
-  //border: 1px solid #e7e7e7;
+  //border: 1px solid @NC_ALMOST_WHITE;
   position: relative;
   z-index: 1;
   display: block;
@@ -709,12 +716,12 @@ code .comment {
 
 .content table th {
   vertical-align: bottom;
-  border-bottom: 2px solid #dddddd;
+  border-bottom: 2px solid @NC_MORNING_MIST;
   font-weight: bold;
 }
 
 .content table td {
-  border-top: 1px solid #dddddd;
+  border-top: 1px solid @NC_MORNING_MIST;
 }
 
 hr {
@@ -817,7 +824,7 @@ hr {
   }
   @media screen {
     .content pre > code {
-      background: #272822;
+      background: @NC_SPACE_GRAY;
       border-radius: 2px;
       padding: 10px;
     }
@@ -858,8 +865,8 @@ body:not(.no-literate) .content img[alt="Connection sequence"],
       display: block;
       margin: 0 0 50px;
       padding: 5px;
-      background: #ffffff;
-      border: 1px solid #f2f2f2;
+      background: @NC_WHITE;
+      border: 1px solid @NC_ALMOST_WHITE;
     }
 
     body:not(.no-literate) .content .iframe-wrapper {
@@ -893,7 +900,7 @@ body:not(.no-literate) .content img[alt="Connection sequence"],
       margin: 20px 0;
       float: left;
       clear: left;
-      color: #000;
+      color: @NC_BLACK;
     }
 
 
@@ -927,12 +934,10 @@ body:not(.no-literate) .content img[alt="Connection sequence"],
       padding-left: 75px;
     }
     body:not(.no-literate) .content-root {
-      background-color: #fff;
-      /*-webkit-box-shadow: inset 780px 0 #fff, inset 781px 0 #dfe2e7, inset 790px 0 5px -10px rgba(0,0,0,0.1);
-      box-shadow: inset 780px 0 #fff, inset 781px 0 #dfe2e7, inset 790px 0 5px -10px rgba(0,0,0,0.1);*/
+      background-color: @NC_WHITE;
     }
     .code-samples {
-      background: #272822;
+      background: @NC_CODE_BG;
       position: absolute;
       top: 0;
       right: 0;

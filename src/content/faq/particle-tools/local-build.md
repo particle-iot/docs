@@ -366,7 +366,7 @@ In other words, the src directory in the user's documents directory, for example
 - Once you have Git installed, getting the source is easy:
 
 ```bash
-git clone https://github.com/spark/firmware.git
+git clone https://github.com/particle-iot/firmware.git
 cd firmware
 git checkout release/stable
 ```
@@ -451,7 +451,7 @@ Here's what a build window might look like in the Cygwin Terminal:
 
 ![Windows build](/assets/images/local-build-06winbuild.png)
 
-If you look in the **target** directory in the blinkled directory you'll find a **blinkled.bin**. This is the user firmware binary that you can flash using the particle CLI:
+If you look in the **target** directory in the blinkled directory you'll find a **blinkled.bin**. This is the user firmware binary that you can flash using the Particle CLI:
 
 ```bash
 particle flash YOUR_DEVICE_NAME target/blinkled.bin
@@ -485,7 +485,7 @@ myappdir
 
 You can start out with an empty file for project.properties. 
 
-To add a library you typically cd into myappdir then use a [CLI library copy command](https://docs.particle.io/guide/tools-and-features/cli/electron/#using-libraries) for example:
+To add a library you typically cd into myappdir then use a [CLI library copy command](/guide/tools-and-features/cli/electron/#using-libraries) for example:
 
 ```
 particle library copy neopixel
@@ -501,7 +501,7 @@ If you have a project in the extended format, building with APPDIR automatically
 
 ## Including additional header directories
 
-Sometimes you want to include other directories as locations for header files. For example, say you are using the [extended project structure](https://docs.particle.io/guide/tools-and-features/libraries/#project-file-structure) within the APPDIR with the following layout:
+Sometimes you want to include other directories as locations for header files. For example, say you are using the [extended project structure](/guide/tools-and-features/libraries/#project-file-structure) within the APPDIR with the following layout:
 
 ```
 myappdir

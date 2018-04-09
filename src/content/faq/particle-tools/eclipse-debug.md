@@ -60,7 +60,7 @@ Select **USB <-> Serial Converter (Interface 0)** (USB ID 0403 6010 00). Then se
 
 ### Particle Programmer Shield - Mac
 
-This doesn't seem to be a problem with El Capitan and Sierra versions of Mac OS X, but you may encounter a driver conflict that makes it difficult to use the Programmer Shield on the Mac. The detailed instructions for the workaround are in the [instructions for the Programmer Shield](https://github.com/spark/shields/tree/master/photon-shields/programmer-shield).
+This doesn't seem to be a problem with El Capitan and Sierra versions of Mac OS X, but you may encounter a driver conflict that makes it difficult to use the Programmer Shield on the Mac. The detailed instructions for the workaround are in the [instructions for the Programmer Shield](https://github.com/particle-iot/shields/tree/master/photon-shields/programmer-shield).
 
 In some cases, you may need to unload and reload the driver to get the Programmer Shield to work. This will need to be done after each reboot. Try it first without running this, as sometimes it works without it. It may be sufficient to only do this and not the more elaborate steps listed above, as well.
 

@@ -210,7 +210,7 @@ Le firmware Tinker
 
 Le firmware Tinker est l'application stockée par défaut quand le Spark Core quitte les lignes d'assemblages à l'usine. Vous pouvez le retrouver en mettant le Core en mode [restauration des réglages d'usine](#boutons), ou bien en reflashant votre Core avec Tinker depuis l'application mobile Particle.
 
-L'application Tinker est un bon exemple de comment construire une application puissante avec peu de code. Vous pouvez jeter un œil sur la dernière version disponible [ici.](https://github.com/spark/core-firmware/blob/master/src/application.cpp)
+L'application Tinker est un bon exemple de comment construire une application puissante avec peu de code. Vous pouvez jeter un œil sur la dernière version disponible [ici.](https://github.com/particle-iot/core-firmware/blob/master/src/application.cpp)
 
 L'API Tinker
 ---
@@ -415,7 +415,7 @@ Il y a aussi quelques autres trucs utiles dans Spark Build. L'IDE Spark Build es
 La ligne de commande Spark
 ===
 
-Les outils en ligne de commande Spark fournisse un jeu de fonctionnalités allant de la création du compte à l'interaction avec les Cores déployés, en passant par la vérification et flashage de code via le Spark Cloud. Vous trouverez plus de détails sur l'installation et toutes les choses intéressantes que vous pourrez faire avec [sur GitHub](https://github.com/spark/spark-cli).
+Les outils en ligne de commande Spark fournisse un jeu de fonctionnalités allant de la création du compte à l'interaction avec les Cores déployés, en passant par la vérification et flashage de code via le Spark Cloud. Vous trouverez plus de détails sur l'installation et toutes les choses intéressantes que vous pourrez faire avec [sur GitHub](https://github.com/particle-iot/spark-cli).
 
 Déployer une application web Spark
 ===

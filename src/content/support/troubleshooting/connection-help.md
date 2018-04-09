@@ -153,9 +153,9 @@ If you're on a noisy Wi-Fi network you've had troubles flashing wirelessly in th
 
 **Flash via Particle CLI**
 
-The [Particle CLI](/cli) is a Swiss army command line knife that can be used to do all kinds of cool things...like flash a deep update to your core. The process is pretty simple:
+The [Particle CLI](/guide/tools-and-features/cli/) is a Swiss army command line knife that can be used to do all kinds of cool things...like flash a deep update to your core. The process is pretty simple:
 
-[install or Upgrade the CLI](/cli#installing)
+[Install or upgrade the CLI](/guide/tools-and-features/cli/#installing)
 Connect a Core to your computer via USB and put it into [dfu-mode](/guide/getting-started/modes/core/#dfu-mode-device-firmware-upgrade-)
 
 Run the flash command:

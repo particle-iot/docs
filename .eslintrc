@@ -1,9 +1,0 @@
-{
-	"extends": "particle",
-	"env": {
-		"node": true
-	},
-	"rules": {
-		"func-names": 0
-	}
-}

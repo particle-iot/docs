@@ -100,30 +100,31 @@ Save the code, then flash the firmware to the Photon. (If you have multiple Phot
 
 ### Set up remote control
 
-One of the easiest ways to control a Particle device remotely is by using the [Do Button](https://ifttt.com/products/do/button). The Do Button is a smartphone app made by [IFTTT](https://ifttt.com) (If This Then That) that can be set to trigger events, which they call recipes, when you press the button inside the app. In this case, we’ll make a recipe that activates the servo.
+One of the easiest ways to control a Particle device remotely is by using the [Do Button](https://ifttt.com/products/do/button). The Do Button is a smartphone app made by [IFTTT](https://ifttt.com) (If This Then That) that can be set to trigger events, which they call applets, when you press the button(_My Applets_) inside the app. In this case, we’ll make an applet that activates the servo.
 
-First, download the Do Button app to your phone, make an account or log into your existing IFTTT account if you have one, and flip through the examples in the app. (Optionally, swipe left on the example recipe to delete it and reduce clutter.)
+First, download the Do Button app to your phone, make an account or log into your existing IFTTT account if you have one, and flip through the examples in the app. (Optionally, swipe left on the example applet to delete it and reduce clutter.)
 
-Next, make a new recipe in the Do Button app:
+Next, make a new applet in the Do Button app:
 
-![Create a new Do Button recipe](/assets/images/new-do-button-recipe-numbers.png)
+![Create a new Do Button applet](/assets/images/new-do-button-recipe-numbers.png)
 
-1. Click the **+** button to start a new recipe
-2. Find **Particle** under Channels
-3. Tap **Create a New Recipe**
-4. Tap **Call a Function**
+1. Click the **My Applets** button on the bottom of the screen
+2. Click the **+** button to start a new applet
+3. Press the blue **+ this** buttom to find an applet
+4. Find **Particle** in services
+5. Tap **Particle**
+6. Tap **Monitor a function result**
 
-If this is your first time using IFTTT with Particle, you'll be prompted to enter your Particle username and password so that IFTTT can connect to your Particle account and all your devices. Then you'll return to the Do Button app to finish the recipe.
+If this is your first time using IFTTT with Particle, you'll be prompted to enter your Particle username and password so that IFTTT can connect to your Particle account and all your devices. Then you'll return to the Do Button app to finish the applet.
 
 ![Connect Particle to IFTTT](/assets/images/connect-particle-to-ifttt-numbers.png)
 
-1. Tap **Continue** to start process of connecting IFTTT to Particle
+1. Tap **Connect** to start process of connecting IFTTT to Particle
 2. Enter your Particle username and password, then tap **Sign In**
-3. Tap **Okay** to connect your accounts
-4. Enter a **title** for your recipe
-5. Select the **gong** function
-6. Under Input, enter “**now**” to match the command in our code
-7. Tap **Add** to finish creating the recipe.
+3. Tap **Ok** to connect your accounts
+4. Select the **gong** function
+5. Under Input, enter “**now**” to match the command in our code
+6. Tap **Next** then **Finish** to finish creating the applet.
 
 ### Test it!
 
@@ -137,26 +138,27 @@ There are a few ways to secure the servo so it swings the chopstick properly. Ta
 
 You can also do other fun things using IFTTT without the Do Button, such as turning this gong into an alarm that goes off at 8am:
 
-![Making an alarm recipe in IFTTT](/assets/images/ifttt-alarm-recipe.jpg)
+![Making an alarm applet in IFTTT](/assets/images/ifttt-alarm-recipe.jpg)
 
 1. Log into [ifttt.com](https://ifttt.com)
-2. Make a new recipe
-3. Choose **Date and Time** as the trigger
-4. Choose **Particle** as the action
-5. Choose **Call a function**
-6. Select the **gong** function
-7. Enter "**alarm**" in the input field (the code makes it ring three times instead of one)
-8. Click **Create Action**, then click **Create Recipe** to finish the process
+2. Make a new Applet
+3. Choose **Date and Time** as the first (_"+ this" button_)service
+4. Choose the **trigger** (every day, hour, month, etc)
+5. Choose **Particle** as the action (_"+ that" button_)
+6. Choose **Call a function**
+7. Select the **gong** function
+8. Enter "**alarm**" in the input field (the code makes it ring three times instead of one)
+9. Click **Next**, then click **Finish** to finish the process
 
 Discover more projects at [particle.hackster.io](http://particle.hackster.io), and join our community at [community.particle.io](https://community.particle.io).
 
 ### Troubleshooting
 
-**I don't see my function listed when making my Do Button recipe.** This can happen if you connect IFTTT to your Particle account before flashing code to your Photon, or if you add a new Photon to your account after connecting IFTTT. This can often be fixed by going to [ifttt.com/particle](https://ifttt.com/particle) and clicking the **Reconnect Channel** button.
+**I don't see my function listed when making my Do Button applet.** This can happen if you connect IFTTT to your Particle account before flashing code to your Photon, or if you add a new Photon to your account after connecting IFTTT. This can often be fixed by going to [ifttt.com/particle](https://ifttt.com/particle) and clicking the **Reconnect Channel** button.
 
 **When I press the Do Button, the D7 LED blinks but the servo doesn't move.** IFTTT is communicating successfully with the Photon, but the Photon is not communicating with the servo. Double-check your wiring: the servo's brown or black wire should go to GND, the orange wire to Vin, and the yellow wire to D0.
 
-**When I press the Do Button, nothing happens.** If you were able to successfully create a recipe for your device but nothing happens when you press the Do Button, try moving your device closer to your Wi-Fi router or access point.
+**When I press the Do Button, nothing happens.** If you were able to successfully create an applet for your device but nothing happens when you press the Do Button, try moving your device closer to your Wi-Fi router or access point.
 
 If you have issues that can't be solved here, post on our [community forums](https://community.particle.io/c/troubleshooting).
 
@@ -504,17 +506,18 @@ Go to the [Particle Console](http://console.particle.io) and click the **Integra
 Click **Webhook** to start the Webhook Builder.
 ![Add a new Particle webhook](/assets/images/conf-add-particle-webhook1.png)
 
-In the Webhook Builder under **Event Name**, enter `conf_avail`. Then paste your Slack webhook URL under **URL**.
+In the Webhook Builder under **Event Name**, enter `conf_avail`. Paste your Slack webhook URL under **URL**. Change **Request Format** to **JSON**.
 ![Add a new Particle webhook](/assets/images/conf-add-particle-webhook2.png)
 
-Expand **Advanced Settings** and choose **JSON** under **Send Custom Data**. Paste the following code:
-![Add a new Particle webhook](/assets/images/conf-add-particle-webhook3.png)
+Expand **Advanced Settings** and choose **Custom** under **JSON Data**. Paste the following code:
 ```
 {
 	"text": "The conference room is \{{PARTICLE_EVENT_VALUE}}."
 }
 ```
 The **\{{PARTICLE_EVENT_VALUE}}** field gets filled with the data sent when the event is published by the device. In this case, the data will be the `status` variable, which will contain either `"in use"` or `"available"`.
+
+![Add a new Particle webhook](/assets/images/conf-add-particle-webhook3.png)
 
 Scroll down to the bottom and hit **Create Webhook**.
 
@@ -891,15 +894,15 @@ For more information about the Console, read our [Console guide](/guide/tools-an
 
 ![Sign into IFTTT](/assets/images/temp-logger-ifttt1.png)
 
-Click on **My Recipes** at the top of the page to start the creation of your temperature-logging recipe. Select the following parameters in each of the Recipe steps:
+Click on **My Applets** at the bottom of the page to start the creation of your temperature-logging applet. Select the following parameters in each of the New Applet steps:
 
-* Step 1: Select **Particle** from the integrations list. You'll be prompted to connect your Particle account to IFTTT if you have not done so already.
+* Step 1: Select **Particle** from the services list. You'll be prompted to connect your Particle account to IFTTT if you have not done so already.
 * Step 2: Select **New event published**
 * Step 3: Enter `temperature` in the **If (Event Name)** field, and select your device in the **Device Name or ID** field.
 * Step 4: Select **Google Drive** from the integrations list. You'll be prompted to connect your Google Drive account to IFTTT if you have not done so already.
 * Step 5: Select **Add row to spreadsheet**
 * Step 6: Paste the following line into the **Formatted Row** box: `=DATEVALUE(SUBSTITUTE("\{{CreatedAt}}"," at ", " "))|||=TIMEVALUE(SUBSTITUTE("\{{CreatedAt}}"," at ", " "))|||\{{EventContents}}`. This line makes separate columns for the date, time, and temperature.
-* Step 7: Click **Create Recipe**!
+* Step 7: Click **Next** and then **Finish**!
 
 Your configuration settings should look like this:
 
@@ -930,7 +933,7 @@ This setup has a wide range of applications, so enjoy!
 * Make sure the Photon LED is "breathing cyan", which means it's connected to the cloud.
 
 **I see events in the Console, but not in the spreadsheet.**
-* Check your IFTTT recipe. Is everything spelled correctly and in the correct boxes?
+* Check your IFTTT Applet. Is everything spelled correctly and in the correct boxes?
 
 **I can't find the spreadsheet.**
 * The default folder for the spreadsheet is `My Drive/events`, so check there first.

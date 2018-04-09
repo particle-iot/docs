@@ -46,7 +46,7 @@ Plug in your Photon and go through the setup process as seen in either the [star
 
 ## Examples
 
-You can find examples on how to use your Internet Button in the [official Internet Button library under the Libraries tab on Particle Build](https://build.particle.io/libs/InternetButton/0.1.11/tab/example/1_Blink_An_LED.cpp). You can also access them via [this GitHub repo](https://github.com/spark/InternetButton/tree/master/firmware/examples), or by checking out the text below.
+You can find examples on how to use your Internet Button in the [official Internet Button library under the Libraries tab on Particle Build](https://build.particle.io/libs/InternetButton/0.1.11/tab/example/1_Blink_An_LED.cpp). You can also access them via [this GitHub repo](https://github.com/particle-iot/InternetButton/tree/master/examples), or by checking out the text below.
 
 You should be able to fork the examples from Particle Build or copy and paste the code from the GitHub repo or from this page. We recommend going through these examples in order for the best understanding of how the Internet Button works. If you haven't used Particle Build before, read the [Particle Build guide](/guide/getting-started/build/photon/).
 
@@ -279,7 +279,7 @@ void loop(){
 ### Orientation Awareness
 
 ```cpp
-#include "InternetButton/InternetButton.h"
+#include "InternetButton.h"
 #include "math.h"
 
 /* Did you know that the Internet Button can detect if it's moving? It's true!
@@ -287,28 +287,38 @@ Specifically it can read when it's being accelerated. Recall that gravity
 is a constant acceleration and this becomes very useful- you know the orientation!*/
 
 InternetButton b = InternetButton();
+int ledPos = 0;
 
 void setup() {
     // Tell b to get everything ready to go
     // Use b.begin(1); if you have the original SparkButton, which does not have a buzzer or a plastic enclosure
     // to use, just add a '1' between the parentheses in the code below.
     b.begin();
+
+    // reduce to less than full eye-blazing brightness
+    b.setBrightness(95);
+    
+    Particle.variable("ledPos",ledPos);
 }
 
 void loop(){
+    // previous LED off (or 'null' LED0 off the first time through)
+    b.ledOn(ledPos, 0, 0, 0);
+    
     // Want to figure out which LED is the lowest?
     // We've hidden the necessary trigonometry in this function.
-    int ledPos = b.lowestLed();
-
-    // Turn the LEDs off so they don't all end up on
-    b.allLedsOff();
-
-    // Now turn that LED on
+    ledPos = b.lowestLed();
+    
+    // give some time for human retinal response
+    delay(330);
+    
+    // Now turn the lowest LED on
     b.ledOn(ledPos, 0, 30, 30);
 
     // Wait a mo'
-    delay(100);
+    delay(330);
 }
+
 ```
 
 ### Connecting to the Internet
@@ -321,7 +331,7 @@ void loop(){
 Useful info, like how to access the data from your browser, can be
 found here: https://docs.particle.io/photon/firmware/#particle-function-
 The code to control the number of illuminated LEDs is here:
-https://github.com/spark/InternetButton/blob/master/controlKnob.html
+https://github.com/particle-iot/InternetButton/blob/master/controlKnob.html
 Try naming one of your devices "InternetButton" and running controlKnob in your browser or on your phone!
 Note that the Core or Photon *must* be named "InternetButton" because the javascript looks for it.
 */

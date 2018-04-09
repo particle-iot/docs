@@ -12,7 +12,7 @@ The [Particle Electron](https://www.particle.io/products/hardware/electron-cellu
 
 Sometimes, however, you may want to use a different mobile provider. You may need to transfer large amounts of data, which may be cheaper on another provider, or you may need to use the Electron in a country that's not supported by the Particle SIM. Fortunately, the Electron can easily be used with 3rd-party SIM cards.
 
-Several of the steps below require the Particle CLI, so if you haven't installed it yet, you should do so now. The installer and instructions are at the [bottom of CLI page](https://particle.io/cli).
+Several of the steps below require the Particle CLI, so if you haven't installed it yet, you should do so now. The instructions are at the [top of CLI page](/guide/tools-and-features/cli/).
 
 All SIMs, including 3rd-party SIMs, must be activated. The method for activating varies by carrier; you might do this from a web site or with a phone call. If you're using the SIM that was in your phone, it's already activated. Being activated or not is part of the state of the SIM and doesn't depend on what device it's being used in. 
 

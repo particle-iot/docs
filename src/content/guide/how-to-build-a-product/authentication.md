@@ -99,7 +99,7 @@ client now.
  <p class="caption">The console provides an easy way to create OAuth
  clients</p>
 
-The console will provide you client ID and secret in once you configure
+The console will provide your client ID and secret once you configure
 your client correctly. **Your client secret will only be shown once for security
 purposes**. Ensure that you copy it for your records to be used in your mobile
 or web app.
@@ -517,7 +517,7 @@ As the diagram above suggests, you will receive an access token in the response 
 
 If you are using Particle's iOS SDK, there is a hook available to inject the
 customer's access token into the mobile client. You can [learn about this hook
-here](https://github.com/spark/spark-sdk-ios/tree/feature/two-legged-auth#4-two-legged-auth-support--better-session-handling).
+here](https://github.com/particle-iot/spark-sdk-ios/tree/feature/two-legged-auth#4-two-legged-auth-support--better-session-handling).
 
 
 ### Device Setup (Steps 4, 5 & 6)

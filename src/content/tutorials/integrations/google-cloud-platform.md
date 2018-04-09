@@ -328,7 +328,7 @@ With the help of our friends at Googe Cloud Platform, we've created an
 open-source repository that has all the code you need to do just this.
 
 <a class="btn"
-href="https://github.com/spark/google-cloud-datastore-tutorial"
+href="https://github.com/particle-iot/google-cloud-datastore-tutorial"
 target="_blank"><i class="ion-social-github"></i>Check out the repo</a>
 
 The README of the repository has all the information you need to get up

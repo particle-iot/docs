@@ -3,9 +3,9 @@ title: Android SDK
 layout: reference.hbs
 columns: three
 order: 6
-sdkversion: 0.4.6
-devicesetupversion: 0.4.7
-asyncclasslink: https://github.com/spark/spark-sdk-android/blob/master/cloudsdk/src/main/java/io/particle/android/sdk/utils/Async.java
+sdkversion: 0.4.8
+devicesetupversion: 0.5.2
+asyncclasslink: https://github.com/particle-iot/spark-sdk-android/blob/master/cloudsdk/src/main/java/io/particle/android/sdk/utils/Async.java
 ---
 
 # {{title}}
@@ -23,9 +23,9 @@ Both the Cloud SDK and Device Setup libraries have the following requirements:
 
 ## Support and Contributions
 - If you **need help**, visit the [Mobile category](http://community.particle.io/c/mobile) in our [community forums](http://community.particle.io) for discussion, troubleshooting, and feedback around the Android Cloud SDK and Device Setup library.
-- If you have **found a bug**, _and can provide steps to reliably reproduce it_, open an issue in the appropriate repo [on GitHub](https://github.com/spark/?query=android) in the appropriate repo, and apply the `bug` label.
-- If you **have a feature request**, open an issue in the appropriate repo [on GitHub](https://github.com/spark/?query=android) in the appropriate repo, and apply the `enhancement` label.
-- If you **want to contribute**, submit a pull request! Also be sure to check out [the contribution guidelines](http://spark.github.io/#contributions), and sign our [CLA](https://docs.google.com/a/particle.io/forms/d/1_2P-vRKGUFg5bmpcKLHO_qNZWGi5HKYnfrrkd-sbZoA/viewform).
+- If you have **found a bug**, _and can provide steps to reliably reproduce it_, open an issue in the appropriate repo [on GitHub](https://github.com/particle-iot/?query=android) in the appropriate repo, and apply the `bug` label.
+- If you **have a feature request**, open an issue in the appropriate repo [on GitHub](https://github.com/particle-iot/?query=android) in the appropriate repo, and apply the `enhancement` label.
+- If you **want to contribute**, submit a pull request! Also be sure to check out [the contribution guidelines](http://particle-iot.github.io/#contributions), and sign our [CLA](https://docs.google.com/a/particle.io/forms/d/1_2P-vRKGUFg5bmpcKLHO_qNZWGi5HKYnfrrkd-sbZoA/viewform).
 
 
 ## Android Cloud SDK
@@ -42,13 +42,13 @@ SDK features include:
 - Claiming & unclaiming devices for a user
 - Managing access tokens for the Particle Cloud
 
-The complete SDK sources are available to [browse on GitHub](https://github.com/spark/spark-sdk-android/tree/master/cloudsdk/src/main/java/io/particle/android/sdk/cloud), and can be [downloaded as a zip file](https://github.com/spark/spark-sdk-android/archive/master.zip).
+The complete SDK sources are available to [browse on GitHub](https://github.com/particle-iot/spark-sdk-android/tree/master/cloudsdk/src/main/java/io/particle/android/sdk/cloud), and can be [downloaded as a zip file](https://github.com/particle-iot/spark-sdk-android/archive/master.zip).
 
 For usage info, check out [the examples](#common-tasks) below, or play with the `example_app` module included in the git repository.
 
 #### Beta notice
 
-While this SDK is ready for production use, as seen in [the Particle Android app](https://github.com/spark/photon-tinker-android), it is still under development and is currently in beta.  The API is mostly stable, but may be subject to further changes prior to leaving beta.  Once the SDK leaves beta, the API should never change outside of ["major" version](http://semver.org/) updates.
+While this SDK is ready for production use, as seen in [the Particle Android app](https://github.com/particle-iot/photon-tinker-android), it is still under development and is currently in beta.  The API is mostly stable, but may be subject to further changes prior to leaving beta.  Once the SDK leaves beta, the API should never change outside of ["major" version](http://semver.org/) updates.
 
 ### Installation
 
@@ -73,8 +73,8 @@ If you're unfamiliar with adding dependencies to your project, or are unfamiliar
 
 Cloud SDK usage mostly revolves around two main classes:
 
-1. [`ParticleCloud`](https://github.com/spark/spark-sdk-android/blob/master/cloudsdk/src/main/java/io/particle/android/sdk/cloud/ParticleCloud.java), which is the interface for all cloud operations not specific to a claimed device, such as user authentication, retrieving a user's device list, claiming devices, and more
-2. [`ParticleDevice`](https://github.com/spark/spark-sdk-android/blob/master/cloudsdk/src/main/java/io/particle/android/sdk/cloud/ParticleDevice.java), which represents a claimed device.  Each instance enables operations specific to that device, e.g.: invoking functions, reading variables, and accessing basic info like the device's name and version info.
+1. [`ParticleCloud`](https://github.com/particle-iot/spark-sdk-android/blob/master/cloudsdk/src/main/java/io/particle/android/sdk/cloud/ParticleCloud.java), which is the interface for all cloud operations not specific to a claimed device, such as user authentication, retrieving a user's device list, claiming devices, and more
+2. [`ParticleDevice`](https://github.com/particle-iot/spark-sdk-android/blob/master/cloudsdk/src/main/java/io/particle/android/sdk/cloud/ParticleDevice.java), which represents a claimed device.  Each instance enables operations specific to that device, e.g.: invoking functions, reading variables, and accessing basic info like the device's name and version info.
 
 #### Blocking APIs FTW
 
@@ -314,7 +314,7 @@ ParticleCloudSDK.getCloud().publishEventWithName("event_from_app", "some_event_p
 
 
 ### API Reference
-For a complete interface reference, simply check out the JavaDoc and source code in [the Git repo](https://github.com/spark/spark-sdk-android/).
+For a complete interface reference, simply check out the JavaDoc and source code in [the Git repo](https://github.com/particle-iot/spark-sdk-android/).
 
 Also, if you're working from Android Studio, you can get the JavaDoc for each method or class by putting the cursor over it and hitting `F1`.  (This is on OS X; shortcuts on other platforms may vary.)
 
@@ -365,9 +365,9 @@ For example, to set logging to `BASIC`, you would add the following to your `str
 The SDK also ships with a handful of utility classes, mostly focused on eliminating boilerplate while maintaining a clear API:
 
 - [`Async`]({{asyncclasslink}}): [as mentioned previously](#blocking-apis-ftw), this is an optional convenience wrapper around AsyncTask for calling Cloud SDK methods.  Usage information for this class can be found in [the API examples](#common-tasks).
-- [`Toaster`](https://github.com/spark/spark-sdk-android/blob/master/cloudsdk/src/main/java/io/particle/android/sdk/utils/Toaster.java): another boilerplate eliminator.  `Toast.makeToast(blah blah blah).show()` is absurd when all you really wanted was an ultra-lightweight way to say _"hey Android, put this string on the screen for a sec, pls."_.  `Toaster` makes this dream come true.
-- [`EZ`](https://github.com/spark/spark-sdk-android/blob/master/cloudsdk/src/main/java/io/particle/android/sdk/utils/EZ.java): miscellaneous shortcuts which have no simple taxonomic classification.
-- [`Py`](https://github.com/spark/spark-sdk-android/blob/master/cloudsdk/src/main/java/io/particle/android/sdk/utils/Py.java): There's nothing Particle or Android-specific about this class, but it's worth calling out.  This class brings a little Pythonic joy to your Java, like easy collection constructors (e.g.: `list()` and `set()`), a _truthiness_ check named `truthy()`, and other simple, sane goodies.  See the javadoc on source for this class for additional information.
+- [`Toaster`](https://github.com/particle-iot/spark-sdk-android/blob/master/cloudsdk/src/main/java/io/particle/android/sdk/utils/Toaster.java): another boilerplate eliminator.  `Toast.makeToast(blah blah blah).show()` is absurd when all you really wanted was an ultra-lightweight way to say _"hey Android, put this string on the screen for a sec, pls."_.  `Toaster` makes this dream come true.
+- [`EZ`](https://github.com/particle-iot/spark-sdk-android/blob/master/cloudsdk/src/main/java/io/particle/android/sdk/utils/EZ.java): miscellaneous shortcuts which have no simple taxonomic classification.
+- [`Py`](https://github.com/particle-iot/spark-sdk-android/blob/master/cloudsdk/src/main/java/io/particle/android/sdk/utils/Py.java): There's nothing Particle or Android-specific about this class, but it's worth calling out.  This class brings a little Pythonic joy to your Java, like easy collection constructors (e.g.: `list()` and `set()`), a _truthiness_ check named `truthy()`, and other simple, sane goodies.  See the javadoc on source for this class for additional information.
 ---
 
 
@@ -393,7 +393,7 @@ The wireless setup process for the Photon uses very different underlying technol
 
 #### Beta notice
 
-While this library is ready for production use, as seen in [the Particle Android app](https://github.com/spark/photon-tinker-android), it is still under development and is currently in beta.  The API is mostly stable, but may be subject to further changes prior to leaving beta.  Once it leaves beta, the API should never change outside of ["major" version](http://semver.org/) updates.
+While this library is ready for production use, as seen in [the Particle Android app](https://github.com/particle-iot/photon-tinker-android), it is still under development and is currently in beta.  The API is mostly stable, but may be subject to further changes prior to leaving beta.  Once it leaves beta, the API should never change outside of ["major" version](http://semver.org/) updates.
 
 
 ## Installation
@@ -420,6 +420,7 @@ The Device Setup library has two main requirements:
 
 - You must call `ParticleDeviceSetupLibrary.init(...)` in your Application.onCreate() or in the
 onCreate() of your first Activity, e.g.:
+
 ```java
 ParticleDeviceSetupLibrary.init(this.getApplicationContext(), MyMainActivity.class);
 ```
@@ -433,79 +434,6 @@ wish to start once setup is complete).
 If your app requires the ability to let users configure device Wi-Fi credentials without changing its ownership you can also do that via initWithSetupOnly. Invoking setup will go thru the setup steps required for configuring device Wi-Fi credentials but not for claiming it.
 ```java
 ParticleDeviceSetupLibrary.initWithSetupOnly(this.getApplicationContext());
-```
-
-- You must add all of the following entries to your application's `AndroidManifest.xml` file.
-(Due to Android platform requirements, we cannot provide these manifest entries for
-you automatically.)
-
-```xml
-<!-- All of the following are from the device setup lib, and must be present in your app's
-manifest or you will not go to space today. -->
-<activity
-    android:name="io.particle.android.sdk.devicesetup.ui.DiscoverDeviceActivity"
-    android:label="@string/title_activity_discover_device"
-    android:screenOrientation="portrait"
-    android:theme="@style/ParticleSetupTheme.NoActionBar"
-    android:windowSoftInputMode="stateHidden" />
-<activity
-    android:name="io.particle.android.sdk.devicesetup.ui.SelectNetworkActivity"
-    android:label="@string/title_activity_select_network"
-    android:screenOrientation="portrait"
-    android:theme="@style/ParticleSetupTheme.NoActionBar"
-    android:windowSoftInputMode="stateHidden" />
-<activity
-    android:name="io.particle.android.sdk.devicesetup.ui.PasswordEntryActivity"
-    android:label="@string/title_activity_password_entry"
-    android:screenOrientation="portrait"
-    android:theme="@style/ParticleSetupTheme.NoActionBar"
-    android:windowSoftInputMode="adjustResize|stateVisible" />
-<activity
-    android:name="io.particle.android.sdk.devicesetup.ui.ConnectingActivity"
-    android:label="@string/title_activity_connecting"
-    android:screenOrientation="portrait"
-    android:theme="@style/ParticleSetupTheme.NoActionBar"
-    android:windowSoftInputMode="stateHidden" />
-<activity
-    android:name="io.particle.android.sdk.devicesetup.ui.SuccessActivity"
-    android:label="@string/title_activity_success"
-    android:screenOrientation="portrait"
-    android:theme="@style/ParticleSetupTheme.NoActionBar"
-    android:windowSoftInputMode="stateHidden" />
-<activity
-    android:name="io.particle.android.sdk.utils.ui.WebViewActivity"
-    android:label="@string/title_activity_web_view"
-    android:screenOrientation="portrait"
-    android:theme="@style/ParticleSetupTheme.NoActionBar" />
-<activity
-    android:name="io.particle.android.sdk.devicesetup.ui.GetReadyActivity"
-    android:label="@string/title_activity_get_ready"
-    android:screenOrientation="portrait"
-    android:theme="@style/ParticleSetupTheme.NoActionBar" />
-<activity
-    android:name="io.particle.android.sdk.devicesetup.ui.ManualNetworkEntryActivity"
-    android:label="@string/title_activity_manual_network_entry"
-    android:screenOrientation="portrait"
-    android:theme="@style/ParticleSetupTheme.NoActionBar"
-    android:windowSoftInputMode="adjustResize|stateVisible" />
-<activity
-    android:name="io.particle.android.sdk.accountsetup.CreateAccountActivity"
-    android:label="@string/title_activity_create_account"
-    android:screenOrientation="portrait"
-    android:theme="@style/ParticleSetupTheme.NoActionBar"
-    android:windowSoftInputMode="adjustResize|stateHidden" />
-<activity
-    android:name="io.particle.android.sdk.accountsetup.LoginActivity"
-    android:label="@string/title_activity_login"
-    android:screenOrientation="portrait"
-    android:theme="@style/ParticleSetupTheme.NoActionBar"
-    android:windowSoftInputMode="adjustResize|stateHidden" />
-<activity
-    android:name="io.particle.android.sdk.accountsetup.PasswordResetActivity"
-    android:label="@string/title_activity_password_reset"
-    android:screenOrientation="portrait"
-    android:theme="@style/ParticleSetupTheme.NoActionBar"
-    android:windowSoftInputMode="adjustResize|stateVisible" />
 ```
 ---
 
@@ -638,4 +566,4 @@ To learn how to create these credentials for your organization [read here](/guid
 
 ## License
 
-Just like the Android support libraries, the Particle Android Cloud SDK and Device Setup library are available under the Apache License 2.0.  See [the LICENSE file](https://github.com/spark/spark-sdk-android/blob/master/LICENSE) for the complete text of the license.
+Just like the Android support libraries, the Particle Android Cloud SDK and Device Setup library are available under the Apache License 2.0.  See [the LICENSE file](https://github.com/particle-iot/spark-sdk-android/blob/master/LICENSE) for the complete text of the license.

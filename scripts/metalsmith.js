@@ -95,13 +95,13 @@ exports.metalsmith = function() {
         destFile: 'content/reference/api.md',
         apis: [
           {
-            src: '../api-node/',
-            config: '../api-node/',
+            src: '../api-service/',
+            config: '../api-service/',
             includeFilters: ['.*[vV]iews[^.]*\\.js$', 'lib/AccessTokenController.js']
           },
           {
             src: '../api-service-libraries/',
-            config: '../api-node/',
+            config: '../api-service/',
             includeFilters: ['.*Controller\\.js$']
           },
         ]
@@ -186,13 +186,20 @@ exports.metalsmith = function() {
         orderDynamicCollections: [
           'particle-devices',
           'particle-tools',
+          'pricing',
           'raspberry-pi',
           'wholesale'
         ]
       },
       datasheet: {
-        pattern: 'datasheets/*.md',
-        sortBy: 'order'
+        pattern: 'datasheets/:section/*.md',
+        sortBy: 'order',
+        orderDynamicCollections: [
+          'photon-(wifi)',
+          'electron-(cellular)',
+          'kits-and-accessories',
+          'discontinued-products'
+        ]
       },
       support: {
         pattern: 'support/:section/*.md',
@@ -327,7 +334,7 @@ exports.server = function(callback) {
   environment = 'development';
   git.branch(function (str) {
     gitBranch = process.env.TRAVIS_BRANCH || str;
-    exports.metalsmith().use(serve())
+    exports.metalsmith().use(serve({ port: 8080 }))
       .use(watch({
         paths: {
           '${source}/content/**/*.md': true,
@@ -341,7 +348,7 @@ exports.server = function(callback) {
           '${source}/assets/js/*.js*' : true,
           '${source}/assets/images/**/*' : true,
           '../config/device_features.json': 'content/**/*.md',
-          '../api-node/lib/**/*.js': 'content/reference/api.md',
+          '../api-service/lib/**/*.js': 'content/reference/api.md',
           '../config/redirects.json': '**/*'
         },
         livereload: true

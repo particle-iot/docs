@@ -21,9 +21,9 @@ and informs the cloud of the registered functions, variables and subscriptions. 
 
 Subsequent reconnections to the cloud while the device is still powered does not resend this data. Instead, a small reconnection message is sent to the cloud, which uses 135 bytes.
 
-Prior to 0.6.0, when the device was reset or woken from deep sleep, the cloud connection would be fully reinitialized, which meant resending the 4400 bytes of data. From 0.6.0, the device determines that a full reinitialization isn't needed and reuses the existing session, after validating that the local state matches what was last communicated to the cloud. Connecting to the cloud after reset or wake-up sends just a reconnect message, using 135 bytes of data. A key requirement for the device to be able to determine that the existing session can be reused is that the functions, variables and subscriptions are registered BEFORE connecting to the cloud.
+Prior to 0.6.0, when the device was reset or woken from deep sleep, the cloud connection would be fully reinitialized, which meant resending the 4400 bytes of data. From 0.6.0, the device determines that a full reinitialization isn't needed and reuses the existing session (providing it still exists and is usable - see [`Particle.keepAlive()`](#particle-keepalive-)), after validating that the local state matches what was last communicated to the cloud. Connecting to the cloud after reset or wake-up sends just a reconnect message, using 135 bytes of data. A key requirement for the device to be able to determine that the existing session can be reused is that the functions, variables and subscriptions are registered BEFORE connecting to the cloud.
 
-Registering functions and variables before connecting to the cloud is easily done using `SEMI_AUTOMATIC` mode:
+One way to make sure of that is registering functions and variables before connecting to the cloud is easily done using `SEMI_AUTOMATIC` mode:
 
 ```cpp
 // EXAMPLE USAGE
@@ -83,7 +83,7 @@ void loop()
 
 Up to 20 cloud variables may be registered and each variable name is limited to a maximum of 12 characters.
 
-**Note:** Only use letters, numbers, underscores and dashes in variable names. Special characters may be escaped by different tools and libraries causing unexpected results.
+**Note:** Only use letters, numbers, underscores and dashes in variable names. Spaces and special characters may be escaped by different tools and libraries causing unexpected results.
 
 It is fine to call this function when the cloud is disconnected - the variable
 will be registered next time the cloud is connected.
@@ -151,7 +151,7 @@ int funcName(String extra) {
 
 Up to 15 cloud functions may be registered and each function name is limited to a maximum of 12 characters.
 
-**Note:** Only use letters, numbers, underscores and dashes in function names. Special characters may be escaped by different tools and libraries causing unexpected results.
+**Note:** Only use letters, numbers, underscores and dashes in function names. Spaces and special characters may be escaped by different tools and libraries causing unexpected results.
 
 In order to register a cloud  function, the user provides the `funcKey`, which is the string name used to make a POST request and a `funcName`, which is the actual name of the function that gets called in your app. The cloud function can return any integer; `-1` is commonly used for a failed function call.
 
@@ -234,6 +234,9 @@ This feature allows the device to generate an event based on a condition. For ex
 Cloud events have the following properties:
 
 * name (1–63 ASCII characters)
+
+**Note:** Only use letters, numbers, underscores, dashes and slashes in event names. Spaces and special characters may be escaped by different tools and libraries causing unexpected results.
+
 * public/private (default public)
 * ttl (time to live, 0–16777215 seconds, default 60)
   !! NOTE: The user-specified ttl value is not yet implemented, so changing this property will not currently have any impact.
@@ -1259,7 +1262,7 @@ void setup() {
 
 ### RSSI()
 
-`WiFi.RSSI()` returns the signal strength of a Wi-Fi network from from -127 (weak) to -1dB (strong) as an `int`. Positive return values indicate an error with 1 indicating a Wi-Fi chip error and 2 indicating a time-out error.
+`WiFi.RSSI()` returns the signal strength of a Wi-Fi network from -127 (weak) to -1dB (strong) as an `int`. Positive return values indicate an error with 1 indicating a Wi-Fi chip error and 2 indicating a time-out error.
 
 ```cpp
 // SYNTAX
@@ -1366,7 +1369,7 @@ public:
     const char* scan()
     {
         // initialize data
-        strongest_rssi = 0;
+        strongest_rssi = -128;
         strongest_ssid[0] = 0;
         // perform the scan
         WiFi.scan(handle_ap, this);
@@ -1976,7 +1979,7 @@ if (strcmp(url,"/index")==0) {
 
 ### Complete Example
 
-Here's a complete example providing a Web UI for setting up WiFi via HTTP. Credit for the HTTP pages goes to Github user @mebrunet! ([Included from PR #909 here](https://github.com/spark/firmware/pull/906)) ([Source code here](https://github.com/mebrunet/softap-setup-page))
+Here's a complete example providing a Web UI for setting up WiFi via HTTP. Credit for the HTTP pages goes to Github user @mebrunet! ([Included from PR #909 here](https://github.com/particle-iot/firmware/pull/906)) ([Source code here](https://github.com/mebrunet/softap-setup-page))
 
 
 
@@ -2845,7 +2848,7 @@ if (getPinMode(D0)==INPUT) {
 
 ### digitalWrite()
 
-Write a `HIGH` or a `LOW` value to a digital pin.
+Write a `HIGH` or a `LOW` value to a GPIO pin.
 
 ```C++
 // SYNTAX
@@ -3771,6 +3774,33 @@ To use the hardware serial pins of (Serial1{{#if has-serial2}}/2{{/if}}{{#if has
 
 **NOTE:** Please take into account that the voltage levels on these pins operate at 0V to 3.3V and should not be connected directly to a computer's RS232 serial port which operates at +/- 12V and will damage the {{device}}.
 
+{{#unless raspberry-pi}}
+#### Connect to Serial with a computer
+
+For **Windows** users, we recommend downloading [PuTTY](http://www.putty.org/). Plug your {{device}} into your computer over USB, open a serial port in PuTTY using the standard settings, which should be:
+
+- Baud rate: 9600
+- Data Bits: 8
+- Parity: none
+- Stop Bits: 1
+
+On **OS X and Linux** systems, you can access the serial port through the terminal.
+
+For OS X, open the terminal and type:
+
+```screen /dev/tty.u```
+
+and pressing tab to autocomplete.
+
+On Linux, you can accomplish the same thing by using:
+
+```screen /dev/ttyACM```
+
+and pressing tab to autocomplete.
+
+Now you are ready to read data sent by the {{device}} over Serial and send data back.
+{{/unless}} {{!-- raspberry-pi --}}
+
 ### begin()
 
 _Available on Serial, {{#if has-usb-serial1}}USBSerial1, {{/if}}Serial1{{#if has-serial2}}, Serial2{{/if}}{{#if has-serial4-5}}, Serial4, Serial5{{/if}}._
@@ -3835,7 +3865,7 @@ void setup()
 void loop() {}
 ```
 
-As of 0.5.0 firmware, 28800 baudrate set by the Host on `Serial` will put the device in Listening Mode, where a YMODEM download can be started by additionally sending an `f` character.
+As of 0.5.0 firmware, 28800 baudrate set by the Host on `Serial` will put the device in Listening Mode, where a YMODEM download can be started by additionally sending an `f` character. Baudrate 14400 can be used to put the device into DFU Mode.
 
 When using hardware serial channels (Serial1, Serial2{{#if electron}}, Serial4, Serial5{{/if}}), the configuration of the serial channel may also specify the number of data bits, stop bits, parity, flow control and other settings. The default is SERIAL_8N1 (8 data bits, no parity and 1 stop bit) and does not need to be specified to achieve this configuration.  To specify one of the following configurations, add one of these defines as the second parameter in the `begin()` function, e.g. `Serial1.begin(9600, SERIAL_8E1);` for 8 data bits, even parity and 1 stop bit.
 
@@ -4770,7 +4800,7 @@ This function takes no parameters and does not return anything.
 Keyboard.write(character);
 ```
 
-Momementarily clicks a keyboard key. A click is a [`press()`](#press--1) quickly followed by [`release()`](#release--1). This function works only with ASCII characters. ASCII characters are translated into USB HID keycodes according to the [conversion table](https://github.com/spark/firmware/blob/develop/wiring/src/spark_wiring_usbkeyboard.cpp#L33). For example ASCII character 'a' would be translated into 'a' keycode (leftmost middle row letter key on a QWERTY keyboard), whereas 'A' ASCII character would be sent as 'a' keycode with SHIFT modifier.
+Momementarily clicks a keyboard key. A click is a [`press()`](#press--1) quickly followed by [`release()`](#release--1). This function works only with ASCII characters. ASCII characters are translated into USB HID keycodes according to the [conversion table](https://github.com/particle-iot/firmware/blob/develop/wiring/src/spark_wiring_usbkeyboard.cpp#L33). For example ASCII character 'a' would be translated into 'a' keycode (leftmost middle row letter key on a QWERTY keyboard), whereas 'A' ASCII character would be sent as 'a' keycode with SHIFT modifier.
 
 ```cpp
 // EXAMPLE USAGE
@@ -4801,7 +4831,7 @@ Keyboard.click(key);
 Keyboard.click(key, modifiers);
 ```
 
-Momementarily clicks a keyboard key as well as one or more modifier keys (e.g. ALT, CTRL, SHIFT etc.). A click is a [`press()`](#press--1) quickly followed by [`release()`](#release--1). This function works only with USB HID [keycodes (defined in `enum UsbKeyboardScanCode`)](https://github.com/spark/firmware/blob/develop/wiring/inc/spark_wiring_usbkeyboard_scancode.h#L5) and [modifiers (defined in `enum UsbKeyboardModifier`)](https://github.com/spark/firmware/blob/develop/wiring/inc/spark_wiring_usbkeyboard_scancode.h#L396). `Keyboard` implementation supports keycodes ranging from `0x04 (KEY_A / Keyboard a and A)` to `0xDD (KEY_KPHEX / Keypad Hexadecimal)`.
+Momementarily clicks a keyboard key as well as one or more modifier keys (e.g. ALT, CTRL, SHIFT etc.). A click is a [`press()`](#press--1) quickly followed by [`release()`](#release--1). This function works only with USB HID [keycodes (defined in `enum UsbKeyboardScanCode`)](https://github.com/particle-iot/firmware/blob/develop/wiring/inc/spark_wiring_usbkeyboard_scancode.h#L5) and [modifiers (defined in `enum UsbKeyboardModifier`)](https://github.com/particle-iot/firmware/blob/develop/wiring/inc/spark_wiring_usbkeyboard_scancode.h#L396). `Keyboard` implementation supports keycodes ranging from `0x04 (KEY_A / Keyboard a and A)` to `0xDD (KEY_KPHEX / Keypad Hexadecimal)`.
 
 ```cpp
 // EXAMPLE USAGE
@@ -4815,8 +4845,8 @@ void setup() {
 
 *Parameters:*
 
-- `key`: USB HID key code (see [`enum UsbKeyboardScanCode`](https://github.com/spark/firmware/blob/develop/wiring/inc/spark_wiring_usbkeyboard_scancode.h#L5)) - `uint16_t`
-- `modifier`: _(optional)_ one or more ORed (`|`) USB HID modifier codes (see [`enum UsbKeyboardModifier`](https://github.com/spark/firmware/blob/develop/wiring/inc/spark_wiring_usbkeyboard_scancode.h#L396) - `uint16_t`
+- `key`: USB HID key code (see [`enum UsbKeyboardScanCode`](https://github.com/particle-iot/firmware/blob/develop/wiring/inc/spark_wiring_usbkeyboard_scancode.h#L5)) - `uint16_t`
+- `modifier`: _(optional)_ one or more ORed (`|`) USB HID modifier codes (see [`enum UsbKeyboardModifier`](https://github.com/particle-iot/firmware/blob/develop/wiring/inc/spark_wiring_usbkeyboard_scancode.h#L396) - `uint16_t`
 
 `click()` does not return anything.
 
@@ -4849,8 +4879,8 @@ void setup() {
 
 *Parameters:*
 
-- `key`: USB HID key code (see [`enum UsbKeyboardScanCode`](https://github.com/spark/firmware/blob/develop/wiring/inc/spark_wiring_usbkeyboard_scancode.h#L5)) - `uint16_t`
-- `modifier`: _(optional)_ one or more ORed (`|`) USB HID modifier codes (see [`enum UsbKeyboardModifier`](https://github.com/spark/firmware/blob/develop/wiring/inc/spark_wiring_usbkeyboard_scancode.h#L396) - `uint16_t`
+- `key`: USB HID key code (see [`enum UsbKeyboardScanCode`](https://github.com/particle-iot/firmware/blob/develop/wiring/inc/spark_wiring_usbkeyboard_scancode.h#L5)) - `uint16_t`
+- `modifier`: _(optional)_ one or more ORed (`|`) USB HID modifier codes (see [`enum UsbKeyboardModifier`](https://github.com/particle-iot/firmware/blob/develop/wiring/inc/spark_wiring_usbkeyboard_scancode.h#L396) - `uint16_t`
 
 `press()` does not return anything.
 
@@ -4880,8 +4910,8 @@ See [`Keyboard.click()`](#click--1) documentation for information about keycodes
 
 *Parameters:*
 
-- `key`: USB HID key code (see [`enum UsbKeyboardScanCode`](https://github.com/spark/firmware/blob/develop/wiring/inc/spark_wiring_usbkeyboard_scancode.h#L5)) - `uint16_t`
-- `modifier`: _(optional)_ one or more ORed (`|`) USB HID modifier codes (see [`enum UsbKeyboardModifier`](https://github.com/spark/firmware/blob/develop/wiring/inc/spark_wiring_usbkeyboard_scancode.h#L396) - `uint16_t`
+- `key`: USB HID key code (see [`enum UsbKeyboardScanCode`](https://github.com/particle-iot/firmware/blob/develop/wiring/inc/spark_wiring_usbkeyboard_scancode.h#L5)) - `uint16_t`
+- `modifier`: _(optional)_ one or more ORed (`|`) USB HID modifier codes (see [`enum UsbKeyboardModifier`](https://github.com/particle-iot/firmware/blob/develop/wiring/inc/spark_wiring_usbkeyboard_scancode.h#L396) - `uint16_t`
 
 `release()` does not return anything.
 
@@ -5345,21 +5375,24 @@ Returns the number of bytes available.
 {{#if has-spi-settings}}
 ### SPISettings
 
-_Since 0.6.1_
+_Since 0.6.2_
 
-The `SPISettings` object specifies the SPI peripheral settings. This object can be used with [`beginTransaction()`](#begintransaction-) function and replacing separate calls to [`setClockSpeed()`](#setclockspeed), [`setBitOrder()`](#setbitorder-) and [`setDataMode()`](#setdatamode-).
+The `__SPISettings` object specifies the SPI peripheral settings. This object can be used with [`beginTransaction()`](#begintransaction-) function and can replace separate calls to [`setClockSpeed()`](#setclockspeed), [`setBitOrder()`](#setbitorder-) and [`setDataMode()`](#setdatamode-).
+
+**Note:** Either `SPISettings()` (_Since 0.6.1_) or `__SPISettings()` (_Since 0.6.2_) may be used **with** `#include "Arduino.h"`
+`__SPISettings()` should be used **without** `#include "Arduino.h"`
 
 ```C++
 // SYNTAX
-SPI.beginTransaction(SPISettings(4*MHZ, MSBFIRST, SPI_MODE0));
-// Pre-declared SPISettings object
-SPISettings settings(4*MHZ, MSBFIRST, SPI_MODE0);
+SPI.beginTransaction(__SPISettings(4*MHZ, MSBFIRST, SPI_MODE0));
+// Pre-declared __SPISettings object
+__SPISettings settings(4*MHZ, MSBFIRST, SPI_MODE0);
 SPI.beginTransaction(settings);
 
 {{#if has-multiple-spi}}
-SPI1.beginTransaction(SPISettings(4*MHZ, MSBFIRST, SPI_MODE3));
+SPI1.beginTransaction(__SPISettings(4*MHZ, MSBFIRST, SPI_MODE3));
 {{#if electron}}
-SPI2.beginTransaction(SPISettings(1*MHZ, LSBFIRST, SPI_MODE3));
+SPI2.beginTransaction(__SPISettings(1*MHZ, LSBFIRST, SPI_MODE3));
 {{/if}}
 {{/if}}
 ```
@@ -5382,14 +5415,14 @@ In addition to reconfiguring the SPI peripheral, `beginTransaction()` also acqui
 
 ```C++
 // SYNTAX
-SPI.beginTransaction(SPISettings(4*MHZ, MSBFIRST, SPI_MODE0));
-// Pre-declared SPISettings object
+SPI.beginTransaction(__SPISettings(4*MHZ, MSBFIRST, SPI_MODE0));
+// Pre-declared __SPISettings object
 SPI.beginTransaction(settings);
 
 {{#if has-multiple-spi}}
-SPI1.beginTransaction(SPISettings(4*MHZ, MSBFIRST, SPI_MODE3));
+SPI1.beginTransaction(__SPISettings(4*MHZ, MSBFIRST, SPI_MODE3));
 {{#if electron}}
-SPI2.beginTransaction(SPISettings(1*MHZ, LSBFIRST, SPI_MODE3));
+SPI2.beginTransaction(__SPISettings(1*MHZ, LSBFIRST, SPI_MODE3));
 {{/if}}
 {{/if}}
 ```
@@ -6632,6 +6665,42 @@ Returns:
 
  - `byte`: returns the number of characters sent. This does not have to be read
 
+
+### receivePacket()
+
+Checks for the presence of a UDP packet and returns the size. Note that it is possible to receive a valid packet of zero bytes, this will still return the sender's address and port after the call to receivePacket().
+
+```cpp
+// SYNTAX
+size = Udp.receivePacket(buffer, size);
+// EXAMPLE USAGE - get a string without buffer copy
+UDP Udp;
+char message[128];
+int port = 8888;
+int rxError = 0;
+
+Udp.begin (port);
+int count = Udp.receivePacket((byte*)message, 127);
+if (count >= 0 && count < 128) {
+  message[count] = 0;
+  rxError = 0;
+} else if (count < -1) {
+  rxError = count;
+  // need to re-initialize on error
+  Udp.begin(port);
+}
+if (!rxError) {
+  Serial.println (message);
+}
+```
+
+Parameters:
+ - `buffer`: the buffer to hold any received bytes (uint8_t).
+ - `size`: the size of the buffer.
+
+Returns:
+
+ - `int`: on success the size (greater then or equal to zero) of a received UDP packet. On failure the internal error code.
 
 ### parsePacket()
 
@@ -7881,7 +7950,7 @@ Integer is returned without a leading zero.
 // Print the hour in 12-hour format for the current time
 Serial.print(Time.hourFormat12());
 
-// Print the hour in 12-hour format for the given time, in this case: 15
+// Print the hour in 12-hour format for a given time, in this case: 3
 Serial.print(Time.hourFormat12(1400684400));
 ```
 
@@ -8158,8 +8227,13 @@ _NB: In 0.3.4 and earlier, this function included a newline at the end of the re
 Formats a time string using a configurable format.
 
 ```cpp
+// SYNTAX
+Time.format(time, strFormat); // fully qualified (e.g. current time with custom format)
+Time.format(strFormat);       // current time with custom format
+Time.format(time);            // custom time with preset format
+Time.format();                // current time with preset format
+  
 // EXAMPLE
-
 time_t time = Time.now();
 Time.format(time, TIME_FORMAT_DEFAULT); // Sat Jan 10 08:22:04 2004 , same as Time.timeStr()
 
@@ -8174,8 +8248,10 @@ The formats available are:
 - `TIME_FORMAT_ISO8601_FULL`
 - custom format based on `strftime()`
 
+**Note:** The custom time provided to `Time.format()` needs to be UTC based and *not* contain the time zone offset (as `Time.local()` would), since the time zone correction is performed by the high level `Time` methods internally.
+
 {{#if core}}
-Note that the format function is implemented using `strftime()` which adds several kilobytes to the size of firmware.
+**Note:** On the Core the format function is implemented using `strftime()` which adds several kilobytes to the size of firmware.
 Application firmware that has limited space available may want to consider using simpler alternatives that consume less firmware space, such as `sprintf()`.
 {{/if}}
 
@@ -8894,7 +8970,7 @@ EEPROM emulation allocates a region of the device's built-in Flash memory to act
 Unlike "true" EEPROM, flash doesn't suffer from write "wear" with each write to
 each individual address. Instead, the page suffers wear when it is filled.
 
-Each write containing changed values will add more data to the page until it is full, causing a page erase.  When writing unchanged data, there is no flash wear, but there is a penalty in CPU cycles. Try not write to EEPROM every loop() iteration to avoid unnecessary CPU cycle penalties.  Backup RAM may be a better storage solution for quickly changing values.  (see [Backup RAM (SRAM)](#backup-ram-sram-))
+Each write containing changed values will add more data to the page until it is full, causing a page erase.  When writing unchanged data, there is no flash wear, but there is a penalty in CPU cycles. Try not write to EEPROM every loop() iteration to avoid unnecessary CPU cycle penalties.  {{#if has-backup-ram}}Backup RAM may be a better storage solution for quickly changing values.  (see [Backup RAM (SRAM)](#backup-ram-sram-)){{/if}}
 
 The EEPROM functions can be used to store small amounts of data in Flash that
 will persist even after the device resets after a deep sleep or is powered off.
@@ -10141,7 +10217,7 @@ System.sleep(D1,RISING);
 ```
 
 {{#if core}}
-It is mandatory to update the *bootloader* (https://github.com/spark/firmware/tree/bootloader-patch-update) for proper functioning of this mode.
+It is mandatory to update the *bootloader* (https://github.com/particle-iot/firmware/tree/bootloader-patch-update) for proper functioning of this mode.
 {{/if}}
 
 {{#if has-cellular}}
@@ -10243,11 +10319,9 @@ System.sleep(D1,RISING,60);
 // The device LED will shut off during sleep
 ```
 
-
 `System.sleep(uint16_t wakeUpPin, uint16_t edgeTriggerMode, long seconds)` can be used to put the entire device into a *stop* mode with *wakeup on interrupt* or *wakeup after specified seconds*. In this particular mode, the device shuts network subsystem and puts the microcontroller in a stop mode with configurable wakeup pin and edge triggered interrupt or wakeup after the specified seconds. When the specific interrupt arrives or upon reaching the configured timeout, the device awakens from stop mode. {{#if core}}The Core is reset on entering stop mode and runs all user code from the beginning with no values being maintained in memory from before the stop mode. As such, it is recommended that stop mode be called only after all user code has completed.{{else}}The device will not reset before going into stop mode so all the application variables are preserved after waking up from this mode. The voltage regulator is put in low-power mode. This mode achieves the lowest power consumption while retaining the contents of SRAM and registers.{{/if}}
 
-{{#if core}}On the Core, it is necessary to update the *bootloader* (https://github.com/spark/firmware/tree/bootloader-patch-update) for proper functioning of this mode.{{/if}}
-
+{{#if core}}On the Core, it is necessary to update the *bootloader* (https://github.com/particle-iot/firmware/tree/bootloader-patch-update) for proper functioning of this mode.{{/if}}
 
 *Parameters:*
 
@@ -10555,7 +10629,8 @@ NB: SysInterrupt_TIM7 is used as a shadow watchdog timer by WICED when connected
 
 {{/if}} {{!-- has-stm32f2 --}}
 
-See the [full list of interrupts in the firmware repository](https://github.com/spark/firmware/blob/develop/hal/inc/interrupts_irq.h).
+See the [full list of interrupts in the firmware
+repository](https://github.com/particle-iot/firmware/blob/develop/hal/inc/interrupts_hal.h).
 
 > When implementing an interrupt handler, the handler **must** execute quickly, or the system operation may be impaired. Any variables shared between the interrupt handler and the main program should be declared as `volatile` to ensure that changes in the interrupt handler are visible in the main loop and vice versa.
 
@@ -10915,7 +10990,7 @@ Determine if OTA updates are presently enabled or disabled.
 
 Indicates if there are OTA updates pending.
 
-**Note:** Currently this function does not do anything useful, since it only returns `true` once the OTA update is already about to kick in. So with `System.disableUpdates()` it will *never* become `true`.
+**Note:** Currently this function does not really do what the name might suggests but rather indicates whether an update is currently active or not. It can't be used in connection with `System.disableUpdates()` as that would prevent `System.upatesPending()` from becoming `true`. 
 
 
 
@@ -13254,42 +13329,46 @@ If you are getting unexpected errors when compiling valid code, it could be the 
 
 ## Firmware Releases
 
-Particle device firmware is open source and stored [here on Github](https://github.com/spark/firmware).
+Particle device firmware is open source and stored [here on Github](https://github.com/particle-iot/firmware).
 
-Firmware releases are published [here on Github](https://github.com/spark/firmware/releases) as they are created, tested and deployed.
+Firmware releases are published [here on Github](https://github.com/particle-iot/firmware/releases) as they are created, tested and deployed.
 
 ### Firmware Release Process
 
-The process in place for releasing all firmware prerelease or default release versions can be found [here on Github](https://github.com/spark/firmware/wiki/Firmware-Release-Process).
+The process in place for releasing all firmware prerelease or default release versions can be found [here on Github](https://github.com/particle-iot/firmware/wiki/Firmware-Release-Process).
 
 ### Github Release Notes
 
 Please go to Github to read the Changelog for your desired firmware version (Click a version below).
 
-|Firmware Version||||||
-|:-:|:-:|:-:|:-:|:-:|:-:|
-|v0.7.x-rc.x prereleases|[v0.7.0-rc.1](https://github.com/spark/firmware/releases/tag/v0.7.0-rc.1)|[v0.7.0-rc.2](https://github.com/spark/firmware/releases/tag/v0.7.0-rc.2)|[v0.7.0-rc.3](https://github.com/spark/firmware/releases/tag/v0.7.0-rc.3)|[v0.7.0-rc.4](https://github.com/spark/firmware/releases/tag/v0.7.0-rc.4)|-|
-|v0.6.x default releases|[v0.6.0](https://github.com/spark/firmware/releases/tag/v0.6.0)|[v0.6.1](https://github.com/spark/firmware/releases/tag/v0.6.1)|[v0.6.2](https://github.com/spark/firmware/releases/tag/v0.6.2)|[v0.6.3](https://github.com/spark/firmware/releases/tag/v0.6.3)|-|
-|v0.6.x-rc.x prereleases|[v0.6.2-rc.1](https://github.com/spark/firmware/releases/tag/v0.6.2-rc.1)|[v0.6.2-rc.2](https://github.com/spark/firmware/releases/tag/v0.6.2-rc.2)|-|-|-|
-|-|[v0.6.0-rc.1](https://github.com/spark/firmware/releases/tag/v0.6.0-rc.1)|[v0.6.0-rc.2](https://github.com/spark/firmware/releases/tag/v0.6.0-rc.2)|[v0.6.1-rc.1](https://github.com/spark/firmware/releases/tag/v0.6.1-rc.1)|[v0.6.1-rc.2](https://github.com/spark/firmware/releases/tag/v0.6.1-rc.2)|-|
-|v0.5.x default releases|[v0.5.0](https://github.com/spark/firmware/releases/tag/v0.5.0)|[v0.5.1](https://github.com/spark/firmware/releases/tag/v0.5.1)|[v0.5.2](https://github.com/spark/firmware/releases/tag/v0.5.2)|[v0.5.3](https://github.com/spark/firmware/releases/tag/v0.5.3)|[v0.5.5](https://github.com/spark/firmware/releases/tag/v0.5.5)|
-|v0.5.x-rc.x prereleases|[v0.5.3-rc.1](https://github.com/spark/firmware/releases/tag/v0.5.3-rc.1)|[v0.5.3-rc.2](https://github.com/spark/firmware/releases/tag/v0.5.3-rc.2)|[v0.5.3-rc.3](https://github.com/spark/firmware/releases/tag/v0.5.3-rc.3)|-|-|
+|Firmware Version||||||||
+|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|
+|v0.7.x default releases|[v0.7.0](https://github.com/particle-iot/firmware/releases/tag/v0.7.0)|-|-|-|-|-|-|
+|v0.7.x-rc.x prereleases|[v0.7.0-rc.1](https://github.com/spark/firmware/releases/tag/v0.7.0-rc.1)|[v0.7.0-rc.2](https://github.com/spark/firmware/releases/tag/v0.7.0-rc.2)|[v0.7.0-rc.3](https://github.com/spark/firmware/releases/tag/v0.7.0-rc.3)|[v0.7.0-rc.4](https://github.com/spark/firmware/releases/tag/v0.7.0-rc.4)|[v0.7.0-rc.5](https://github.com/spark/firmware/releases/tag/v0.7.0-rc.5)|[v0.7.0-rc.6](https://github.com/spark/firmware/releases/tag/v0.7.0-rc.6)|[v0.7.0-rc.7](https://github.com/spark/firmware/releases/tag/v0.7.0-rc.7)|
+|v0.6.x default releases|[v0.6.0](https://github.com/spark/firmware/releases/tag/v0.6.0)|[v0.6.1](https://github.com/spark/firmware/releases/tag/v0.6.1)|[v0.6.2](https://github.com/spark/firmware/releases/tag/v0.6.2)|[v0.6.3](https://github.com/spark/firmware/releases/tag/v0.6.3)|[v0.6.4](https://github.com/spark/firmware/releases/tag/v0.6.4)|-|-|
+|v0.6.x-rc.x prereleases|[v0.6.2-rc.1](https://github.com/spark/firmware/releases/tag/v0.6.2-rc.1)|[v0.6.2-rc.2](https://github.com/spark/firmware/releases/tag/v0.6.2-rc.2)|-|-|-|-|-|
+|-|[v0.6.0-rc.1](https://github.com/spark/firmware/releases/tag/v0.6.0-rc.1)|[v0.6.0-rc.2](https://github.com/spark/firmware/releases/tag/v0.6.0-rc.2)|[v0.6.1-rc.1](https://github.com/spark/firmware/releases/tag/v0.6.1-rc.1)|[v0.6.1-rc.2](https://github.com/spark/firmware/releases/tag/v0.6.1-rc.2)|-|-|-|
+|v0.5.x default releases|[v0.5.0](https://github.com/spark/firmware/releases/tag/v0.5.0)|[v0.5.1](https://github.com/spark/firmware/releases/tag/v0.5.1)|[v0.5.2](https://github.com/spark/firmware/releases/tag/v0.5.2)|[v0.5.3](https://github.com/spark/firmware/releases/tag/v0.5.3)|[v0.5.4](https://github.com/particle-iot/firmware/releases/tag/v0.5.4)|[v0.5.5](https://github.com/spark/firmware/releases/tag/v0.5.5)|-|
+|v0.5.x-rc.x prereleases|[v0.5.3-rc.1](https://github.com/spark/firmware/releases/tag/v0.5.3-rc.1)|[v0.5.3-rc.2](https://github.com/spark/firmware/releases/tag/v0.5.3-rc.2)|[v0.5.3-rc.3](https://github.com/spark/firmware/releases/tag/v0.5.3-rc.3)|-|-|-|-|
 
 ### Programming and Debugging Notes
 
 If you don't see any notes below the table or if they are the wrong version, please select your Firmware Version in the table below to reload the page with the correct notes.  Otherwise, you must have come here from a firmware release page on Github and your version's notes will be found below the table :)
 
-|Firmware Version||||||
-|:-:|:-:|:-:|:-:|:-:|:-:|
-|v0.7.x-rc.x prereleases|[v0.7.0-rc.1](https://prerelease-docs.particle.io/reference/firmware/photon/?fw_ver=0.7.0-rc.1&cli_ver=1.23.1&electron_parts=3#programming-and-debugging-notes)|[v0.7.0-rc.2](https://prerelease-docs.particle.io/reference/firmware/photon/?fw_ver=0.7.0-rc.2&cli_ver=1.23.1&electron_parts=3#programming-and-debugging-notes)|[v0.7.0-rc.3](https://prerelease-docs.particle.io/reference/firmware/photon/?fw_ver=0.7.0-rc.3&cli_ver=1.23.1&electron_parts=3#programming-and-debugging-notes)|[v0.7.0-rc.4](https://prerelease-docs.particle.io/reference/firmware/photon/?fw_ver=0.7.0-rc.4&cli_ver=1.23.1&electron_parts=3#programming-and-debugging-notes)|-|
-|v0.6.x default releases|[v0.6.0](https://docs.particle.io/reference/firmware/photon/?fw_ver=0.6.0&cli_ver=1.18.0&electron_parts=3#programming-and-debugging-notes)|[v0.6.1](https://docs.particle.io/reference/firmware/photon/?fw_ver=0.6.1&cli_ver=1.20.1&electron_parts=3#programming-and-debugging-notes)|[v0.6.2](/reference/firmware/photon/?fw_ver=0.6.2&cli_ver=1.22.0&electron_parts=3#programming-and-debugging-notes)|[v0.6.3](/reference/firmware/photon/?fw_ver=0.6.3&cli_ver=1.25.0&electron_parts=3#programming-and-debugging-notes)|-|
-|v0.6.x-rc.x prereleases|[v0.6.2-rc.1](https://prerelease-docs.particle.io/reference/firmware/photon/?fw_ver=0.6.2-rc.1&cli_ver=1.21.0&electron_parts=3#programming-and-debugging-notes)|[v0.6.2-rc.2](https://prerelease-docs.particle.io/reference/firmware/photon/?fw_ver=0.6.2-rc.2&cli_ver=1.21.0&electron_parts=3#programming-and-debugging-notes)|-|-|-|
-|-|[v0.6.0-rc.1](https://prerelease-docs.particle.io/reference/firmware/photon/?fw_ver=0.6.0-rc.1&cli_ver=1.17.0&electron_parts=3#programming-and-debugging-notes)|[v0.6.0-rc.2](https://prerelease-docs.particle.io/reference/firmware/photon/?fw_ver=0.6.0-rc.2&cli_ver=1.17.0&electron_parts=3#programming-and-debugging-notes)|[v0.6.1-rc.1](https://prerelease-docs.particle.io/reference/firmware/photon/?fw_ver=0.6.1-rc.1&cli_ver=1.18.0&electron_parts=3#programming-and-debugging-notes)|[v0.6.1-rc.2](https://prerelease-docs.particle.io/reference/firmware/photon/?fw_ver=0.6.1-rc.2&cli_ver=1.18.0&electron_parts=3#programming-and-debugging-notes)|-|
-|v0.5.x default releases|[v0.5.0](https://docs.particle.io/reference/firmware/photon/?fw_ver=0.5.0&cli_ver=1.12.0&electron_parts=2#programming-and-debugging-notes)|[v0.5.1](https://docs.particle.io/reference/firmware/photon/?fw_ver=0.5.1&cli_ver=1.14.2&electron_parts=2#programming-and-debugging-notes)|[v0.5.2](https://docs.particle.io/reference/firmware/photon/?fw_ver=0.5.2&cli_ver=1.15.0&electron_parts=2#programming-and-debugging-notes)|[v0.5.3](https://docs.particle.io/reference/firmware/photon/?fw_ver=0.5.3&cli_ver=1.17.0&electron_parts=2#programming-and-debugging-notes)|[v0.5.4](https://docs.particle.io/reference/firmware/photon/?fw_ver=0.5.4&cli_ver=1.24.1&electron_parts=2#programming-and-debugging-notes)|[v0.5.5](https://docs.particle.io/reference/firmware/photon/?fw_ver=0.5.5&cli_ver=1.24.1&electron_parts=2#programming-and-debugging-notes)|
-|v0.5.x-rc.x prereleases|[v0.5.3-rc.1](https://prerelease-docs.particle.io/reference/firmware/photon/?fw_ver=0.5.3-rc.1&cli_ver=1.15.0&electron_parts=2#programming-and-debugging-notes)|[v0.5.3-rc.2](https://prerelease-docs.particle.io/reference/firmware/photon/?fw_ver=0.5.3-rc.2&cli_ver=1.16.0&electron_parts=2#programming-and-debugging-notes)|[v0.5.3-rc.3](https://prerelease-docs.particle.io/reference/firmware/photon/?fw_ver=0.5.3-rc.3&cli_ver=1.16.0&electron_parts=2#programming-and-debugging-notes)|-|-|
+|Firmware Version||||||||
+|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|
+|v0.6.x default releases|[v0.7.0](https://docs.particle.io/reference/firmware/photon/?fw_ver=0.7.0&cli_ver=1.29.0&electron_parts=3#programming-and-debugging-notes)|-|-|-|-|-|-|
+|v0.7.x-rc.x prereleases|[v0.7.0-rc.1](https://prerelease-docs.particle.io/reference/firmware/photon/?fw_ver=0.7.0-rc.1&cli_ver=1.23.1&electron_parts=3#programming-and-debugging-notes)|[v0.7.0-rc.2](https://prerelease-docs.particle.io/reference/firmware/photon/?fw_ver=0.7.0-rc.2&cli_ver=1.23.1&electron_parts=3#programming-and-debugging-notes)|[v0.7.0-rc.3](https://prerelease-docs.particle.io/reference/firmware/photon/?fw_ver=0.7.0-rc.3&cli_ver=1.23.1&electron_parts=3#programming-and-debugging-notes)|[v0.7.0-rc.4](https://prerelease-docs.particle.io/reference/firmware/photon/?fw_ver=0.7.0-rc.4&cli_ver=1.23.1&electron_parts=3#programming-and-debugging-notes)|[v0.7.0-rc.5](https://prerelease-docs.particle.io/reference/firmware/photon/?fw_ver=0.7.0-rc.5&cli_ver=1.23.1&electron_parts=3#programming-and-debugging-notes)|[v0.7.0-rc.6](https://prerelease-docs.particle.io/reference/firmware/photon/?fw_ver=0.7.0-rc.6&cli_ver=1.23.1&electron_parts=3#programming-and-debugging-notes)|[v0.7.0-rc.7](https://prerelease-docs.particle.io/reference/firmware/photon/?fw_ver=0.7.0-rc.7&cli_ver=1.23.1&electron_parts=3#programming-and-debugging-notes)|
+|v0.6.x default releases|[v0.6.0](https://docs.particle.io/reference/firmware/photon/?fw_ver=0.6.0&cli_ver=1.18.0&electron_parts=3#programming-and-debugging-notes)|[v0.6.1](https://docs.particle.io/reference/firmware/photon/?fw_ver=0.6.1&cli_ver=1.20.1&electron_parts=3#programming-and-debugging-notes)|[v0.6.2](/reference/firmware/photon/?fw_ver=0.6.2&cli_ver=1.22.0&electron_parts=3#programming-and-debugging-notes)|[v0.6.3](/reference/firmware/photon/?fw_ver=0.6.3&cli_ver=1.25.0&electron_parts=3#programming-and-debugging-notes)|[v0.6.4](/reference/firmware/photon/?fw_ver=0.6.4&cli_ver=1.26.2&electron_parts=3#programming-and-debugging-notes)|-|-|
+|v0.6.x-rc.x prereleases|[v0.6.2-rc.1](https://prerelease-docs.particle.io/reference/firmware/photon/?fw_ver=0.6.2-rc.1&cli_ver=1.21.0&electron_parts=3#programming-and-debugging-notes)|[v0.6.2-rc.2](https://prerelease-docs.particle.io/reference/firmware/photon/?fw_ver=0.6.2-rc.2&cli_ver=1.21.0&electron_parts=3#programming-and-debugging-notes)|-|-|-|-|-|
+|-|[v0.6.0-rc.1](https://prerelease-docs.particle.io/reference/firmware/photon/?fw_ver=0.6.0-rc.1&cli_ver=1.17.0&electron_parts=3#programming-and-debugging-notes)|[v0.6.0-rc.2](https://prerelease-docs.particle.io/reference/firmware/photon/?fw_ver=0.6.0-rc.2&cli_ver=1.17.0&electron_parts=3#programming-and-debugging-notes)|[v0.6.1-rc.1](https://prerelease-docs.particle.io/reference/firmware/photon/?fw_ver=0.6.1-rc.1&cli_ver=1.18.0&electron_parts=3#programming-and-debugging-notes)|[v0.6.1-rc.2](https://prerelease-docs.particle.io/reference/firmware/photon/?fw_ver=0.6.1-rc.2&cli_ver=1.18.0&electron_parts=3#programming-and-debugging-notes)|-|-|-|
+|v0.5.x default releases|[v0.5.0](https://docs.particle.io/reference/firmware/photon/?fw_ver=0.5.0&cli_ver=1.12.0&electron_parts=2#programming-and-debugging-notes)|[v0.5.1](https://docs.particle.io/reference/firmware/photon/?fw_ver=0.5.1&cli_ver=1.14.2&electron_parts=2#programming-and-debugging-notes)|[v0.5.2](https://docs.particle.io/reference/firmware/photon/?fw_ver=0.5.2&cli_ver=1.15.0&electron_parts=2#programming-and-debugging-notes)|[v0.5.3](https://docs.particle.io/reference/firmware/photon/?fw_ver=0.5.3&cli_ver=1.17.0&electron_parts=2#programming-and-debugging-notes)|[v0.5.4](https://docs.particle.io/reference/firmware/photon/?fw_ver=0.5.4&cli_ver=1.24.1&electron_parts=2#programming-and-debugging-notes)|[v0.5.5](https://docs.particle.io/reference/firmware/photon/?fw_ver=0.5.5&cli_ver=1.24.1&electron_parts=2#programming-and-debugging-notes)|-|-|
+|v0.5.x-rc.x prereleases|[v0.5.3-rc.1](https://prerelease-docs.particle.io/reference/firmware/photon/?fw_ver=0.5.3-rc.1&cli_ver=1.15.0&electron_parts=2#programming-and-debugging-notes)|[v0.5.3-rc.2](https://prerelease-docs.particle.io/reference/firmware/photon/?fw_ver=0.5.3-rc.2&cli_ver=1.16.0&electron_parts=2#programming-and-debugging-notes)|[v0.5.3-rc.3](https://prerelease-docs.particle.io/reference/firmware/photon/?fw_ver=0.5.3-rc.3&cli_ver=1.16.0&electron_parts=2#programming-and-debugging-notes)|-|-|-|-|
 
 <!--
 CLI VERSION is compatable with FIRMWARE VERSION
+v1.29.0 = 0.7.0
+v1.26.2 = 0.6.4
 v1.25.0 = 0.6.3
 v1.23.1 = 0.7.0-rc.1 support for WPA Enterprise setup
 v1.22.0 = 0.6.2
@@ -13328,6 +13407,10 @@ v1.12.0 = 0.5.0
 ##### @FW_VER@0.6.2endif
 ##### @FW_VER@0.6.3if
 ##### @FW_VER@0.6.3endif
+##### @FW_VER@0.6.4if
+##### @FW_VER@0.6.4endif
+##### @FW_VER@0.7.0if
+##### @FW_VER@0.7.0endif
 ##### @CLI_VER@1.15.0if
 ##### @CLI_VER@1.15.0endif
 ##### @CLI_VER@1.17.0if
@@ -13345,7 +13428,11 @@ v1.12.0 = 0.5.0
 ##### @CLI_VER@1.24.1if
 ##### @CLI_VER@1.24.1endif
 ##### @CLI_VER@1.25.0if
-##### @CLI_VER@1.20.0endif
+##### @CLI_VER@1.25.0endif
+##### @CLI_VER@1.26.2if
+##### @CLI_VER@1.26.2endif
+##### @CLI_VER@1.29.0if
+##### @CLI_VER@1.29.0endif
 ##### @ELECTRON_PARTS@2if
 ##### @ELECTRON_PARTS@2endif
 ##### @ELECTRON_PARTS@3if
@@ -13412,6 +13499,15 @@ particle flash --usb tinker
 ##### @FW_VER@0.6.0if
 **Note:** You must update your Electron to (v0.5.3, v0.5.3-rc.2, or v0.5.3-rc.3) first before attempting to use OTA or YModem transfer to update to v0.6.0. If you use DFU over USB, you can update to v0.6.0 directly, but make sure you have installed v1.18.0 of the CLI first.
 ##### @FW_VER@0.6.0endif
+
+##### @FW_VER@0.7.0if
+**Note:** The following update sequence is required!
+
+- First Update to 0.5.3 (if the current version is less than that)
+- Then update to 0.6.3(Photon/P1) or 0.6.4(Electron) (if the current version is less than that)
+- Then update to 0.7.0
+
+##### @FW_VER@0.7.0endif
 
 **Note:** As a Product in the Console, when flashing a >= 0.6.0 user app, Electrons can now Safe Mode Heal from < 0.5.3 to >= 0.6.0 firmware. This will consume about 500KB of data as it has to transfer two 0.5.3 system parts and three >= 0.6.0 system parts. Devices will not automatically update system firmware if not added as a Product in Console.
 
@@ -13581,6 +13677,8 @@ dfu-util -d 2b04:d00a -a 0 -s 0x8040000:leave -D system-part3-@FW_VER@-electron.
 
 **Downgrading from @FW_VER@ to current default firmware**
 
+Current default system firmware would be the latest non-rc.x firmware version.  E.g. if the current list of default releases was 0.5.3, 0.6.0, **0.6.1** (would be the latest).
+
 ##### @FW_VER@0.5.1if
 **Caution:** After upgrading to 0.5.1, DO NOT downgrade system firmware via OTA remotely! This will cause Wi-Fi credentials to be erased on the Photon and P1.  This does not affect the Core or Electron.  Feel free to downgrade locally with the understanding that you will have to re-enter Wi-Fi credentials.  Also note that 0.5.1 fixes several important bugs, so there should be no reason you'd normally want to downgrade.
 ##### @FW_VER@0.5.1endif
@@ -13589,8 +13687,13 @@ dfu-util -d 2b04:d00a -a 0 -s 0x8040000:leave -D system-part3-@FW_VER@-electron.
 **Note:** Upgrading to 0.5.2 will now allow you to downgrade remotely OTA to v0.5.0 or earlier without erasing Wi-Fi credentials.  There are still some cases where a downgrade will erase credentials, but only if you have explicitly set the country code to something other than the `default` or `JP2`.  For example, if you set the country code to `GB0` or `US4`, if you downgrade to v0.5.0 your Wi-Fi credentials will be erased.  Leaving the country code at `default` or set to `JP2` will not erase credentials when downgrading to v0.5.0.  **Do not** downgrade to v0.5.1 first, and then v0.5.0... this will erase credentials in all cases.
 ##### @FW_VER@0.5.2endif
 
-Current default system firmware would be the latest non-rc.x firmware version.  E.g. if the current list of default releases was 0.5.3, 0.6.0, **0.6.1** (would be the latest).
+##### @FW_VER@0.7.0if
+**Note:** If you need to downgrade, you must downgrade to 0.6.3(Photon/P1) or 0.6.4(Electron) to ensure that the bootloader downgrades automatically. When downgrading to older versions, downgrade to 0.6.3(Photon/P1) or 0.6.4(Electron) first, then to an older version such as 0.5.3. You will have to manually downgrade the bootloader as well (see release notes in 0.7.0-rc.3 release)
+##### @FW_VER@0.7.0endif
 
+##### @FW_VER@0.7.0if
+**Note:** The following is not applicable for 0.7.0, please see above.
+##### @FW_VER@0.7.0endif
 The easiest way to downgrade from a System Firmware Version @FW_VER@ is to use the Particle CLI with a single command.  You will first put the Tinker back on the device, then downgrade the System Firmware. Running the commands in this order prevents the device from automatically re-upgrading (based on user app version dependencies) after downgrading.  This will **require a CLI version associated with your desired default firmware**. To determine which version to use, click on the default version desired in the table under [Programming and Debugging Notes](#programming-and-debugging-notes) and refer to the CLI version required in **The easy local method using Particle CLI** section.
 
 If you have the [Particle CLI](/guide/tools-and-features/cli) installed already, you can install a specific version like v1.16.0 with the following command `sudo npm update -g particle-cli@v1.16.0` (note: you can try without sudo first if you wish).  Replace v1.16.0 with your desired version.

@@ -6,7 +6,6 @@ devices: [ photon,electron,core,raspberry-pi ]
 order: 1
 ---
 
-
 # Introduction to the Guide
 
 {{#if photon}}

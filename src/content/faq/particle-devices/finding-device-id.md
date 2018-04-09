@@ -20,7 +20,7 @@ Also note: even though the device ID is hexadecimal, many commands that take a d
 
 ## Using the Particle CLI
 
-For the Photon, Electron, and Core, an easy way is to use the [Particle CLI](https://particle.io/cli).
+For the Photon, Electron, and Core, an easy way is to use the [Particle CLI](/guide/tools-and-features/cli/).
 
 Connect the device to your computer using USB and put the device in [listening mode](/guide/getting-started/modes/electron/#listening-mode) (blinking dark blue) by holding down the SETUP (or MODE) button until the main status LED blinks dark blue, about 3 seconds.
 

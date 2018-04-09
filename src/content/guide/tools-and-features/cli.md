@@ -9,15 +9,48 @@ layout: guide.hbs
 
 # Particle CLI
 
-The Particle CLI is a powerful tool for interacting with your devices and the Particle Cloud.  The CLI uses [node.js](http://nodejs.org/) and can easily run on Windows, Mac OS X, and Linux.  It's also [open source](https://github.com/spark/particle-cli) so you can edit and change it, and even send in your changes as [pull requests](https://help.github.com/articles/about-pull-requests/) if you want to share!
+The Particle CLI is a powerful tool for interacting with your devices and the Particle Cloud.  The CLI uses [Node.js](http://nodejs.org/) and can easily run on Windows, Mac OS X, and Linux.  It's also [open source](https://github.com/particle-iot/particle-cli) so you can edit and change it, and even send in your changes as [pull requests](https://help.github.com/articles/about-pull-requests/) if you want to share!
 
 ## Installing
 
-  If you are using Windows, you can use the official Particle [Windows CLI Installer](https://binaries.particle.io/cli/installer/windows/ParticleCLISetup.exe) to automatically install node.js, the particle-cli, and dfu-util.
+### Using macOS or Linux
 
-  Otherwise, make sure you have [node.js](http://nodejs.org/) installed.
+The easiest way to install the CLI is to open a Terminal and type:
 
-  Next, open a command prompt or terminal, and install by typing:
+```sh
+bash <( curl -sL https://particle.io/install-cli )
+```
+
+This command downloads the `particle` command to your home directory at `~/bin`, installs a version of Node.js to `~/.particle` and installs the `particle-cli` Node.js module that contain the code of the CLI.
+
+It will also try to install [DFU-util](/faq/particle-tools/installing-dfu-util/), a utility program for programming devices over USB. See the [instructions for installing DFU-util](/faq/particle-tools/installing-dfu-util/) if the installer is not able to automatically install dfu-util.
+
+The installer also works on the Raspberry Pi!
+
+### Using Windows
+
+Download the [Windows CLI Installer](https://binaries.particle.io/cli/installer/windows/ParticleCLISetup.exe) and run it to install the Particle CLI, the device drivers and [DFU-util](/faq/particle-tools/installing-dfu-util/).
+
+The CLI is installed to `%LOCALAPPDATA%\particle` (`C:\Users\username\AppData\Local\particle` for Windodws in English).
+
+### Advanced Install
+
+You can manually install the `particle-cli` Node.js package if you need the CLI installed in a different location or you need to install a specific version of the CLI. 
+
+Make sure you have a recent [LTS version of Node.js](http://nodejs.org/) installed.
+
+```sh
+# check that you have node.js 6 or above. Check http://nodejs.org on how to update node.js
+$ node -v
+v6.11.4
+# check that you have npm 5 or above
+$ npm -v
+5.5.1
+# update npm if your version is older than 5
+$ npm install -g npm
+```
+
+Next, open a command prompt or terminal, and install by typing:
 
 ```sh
 # how to install the particle-cli
@@ -25,11 +58,10 @@ $ npm install -g particle-cli
 $ particle login
 ```
 
-If you experience permission errors, you have two options: change the permission to npm's default directory or change npm's default directory to another directory (preferred choice on a multiuser environment). Both options are documented [here](https://docs.npmjs.com/getting-started/fixing-npm-permissions).
+If you experience permission errors, we recommend you change the directory where npm installs global packages (ones installed with `-g`) to another directory as documented [here](https://docs.npmjs.com/getting-started/fixing-npm-permissions#option-2-change-npms-default-directory-to-another-directory). If you must install `particle-cli` to the default global package location as the superuser, you have to use the `--unsafe-perm` flag to successfully install all dependencies: `sudo npm install -g --unsafe-perm particle-cli`.
 
 For more OS-specific install instructions, see below.
 
-### Advanced Install
 
 To use the local flash and key features you'll also need to install [dfu-util](https://s3.amazonaws.com/spark-assets/dfu-util-0.8-binaries.tar.xz), and [openssl](http://www.openssl.org/).  They are freely available and open-source, and there are installers and binaries for most major platforms.
 
@@ -46,12 +78,16 @@ Here are some great tutorials on the community for full installs:
 
 ### Upgrading to the latest version
 
-To upgrade Particle-CLI, enter the following command:
+If you installed the Particle CLI through the installer, it will periodically update itself to the latest version.
+
+To force it to update, run the installer script again or enter this command:
 
 ```sh
-# how to update the particle-cli
-$ npm update -g particle-cli
+# how to update the installed CLI
+$ particle update-cli
 ```
+
+If you installed manually using `npm install`, you can upgrade by running the same command you used to install the tool.
 
 ### Running from source (advanced)
 
@@ -59,10 +95,10 @@ To grab the CLI source and play with it locally
 
 ```sh
 # how to get the source code for the CLI
-$ git clone https://github.com/spark/particle-cli.git
+$ git clone https://github.com/particle-iot/particle-cli.git
 $ cd particle-cli
 $ npm install
-$ node bin/particle help
+$ node bin/particle.js help
 ```
 
 
@@ -433,7 +469,7 @@ has been published, the files and data cannot be changed. Subsequent changes mus
 and subsequent publish.
 
 ## Reference
-For more info on CLI commands, go [here](../../../../reference/cli).
+For more info on CLI commands, go [here](/reference/cli).
 
 
 **Also**, check out and join our [community forums](http://community.particle.io/) for advanced help, tutorials, and troubleshooting.
