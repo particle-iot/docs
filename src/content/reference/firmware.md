@@ -2639,6 +2639,8 @@ void setup() {
 
 `Cellular.command()` is a powerful API that allows users access to directly send AT commands to, and parse responses returned from, the Cellular module.  Commands may be sent with and without printf style formatting. The API also includes the ability pass a callback function pointer which is used to parse the response returned from the cellular module.
 
+NOTE: C.f. if [system mode](#system-modes) has been changed, [`Cellular.on()`](#on-) must be called prior to calling `Cellular.command()`.
+
 You can download the latest <a href="https://www.u-blox.com/en/product-resources/2432?f[0]=field_file_category%3A210" target="_blank">u-blox AT Commands Manual</a>.
 
 Another good resource is the <a href="https://www.u-blox.com/sites/default/files/AT-CommandsExamples_AppNote_%28UBX-13001820%29.pdf" target="_blank">u-blox AT Command Examples Application Note</a>.
