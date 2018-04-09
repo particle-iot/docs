@@ -11041,6 +11041,18 @@ Disables the system flag.
 
 Returns `true` if the system flag is enabled.
 
+### System Uptime
+
+_Since 0.8.0_
+
+#### System.millis()
+
+Returns the number of milliseconds passed since the device was last reset. This function is similar to the global [`millis()`](#millis-) function but returns a 64-bit value.
+
+#### System.uptime()
+
+Returns the number of seconds passed since the device was last reset.
+
 {{#if has-interrupts}}
 
 ## System Interrupts
