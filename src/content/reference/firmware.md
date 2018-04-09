@@ -8571,7 +8571,7 @@ timer.stop(); // stops a running timer.
 
 ### changePeriod()
 
-Changes the period of a previously created timer. It can be called to change the period of an running or stopped timer.
+Changes the period of a previously created timer. It can be called to change the period of an running or stopped timer. Note that changing the period of a dormant timer will also start the timer.
 
 `changePeriod(newPeriod)`
 
