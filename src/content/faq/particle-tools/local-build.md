@@ -78,14 +78,18 @@ You'll need to use the **MinGW Shell** for entering your build commands, not the
 
 The gcc-arm toolchains are here: [https://launchpad.net/gcc-arm-embedded](https://launchpad.net/gcc-arm-embedded)
 
-Currently, the 4.9-2015-q3-update is recommended. The 5.3.1 version can be used now and will be used for cloud compiles starting with system firmware 0.7.0. The 5.4.x and 6.x versions are not recommended at this time.
+Currently, the [5-2016-q1-update](https://launchpad.net/gcc-arm-embedded/5.0/5-2016-q1-update) is recommended.
 
-- For Windows, download the installer [gcc-arm-none-eabi-4_9-2015q3-20150921-win32.exe](https://launchpad.net/gcc-arm-embedded/4.9/4.9-2015-q3-update/+download/gcc-arm-none-eabi-4_9-2015q3-20150921-win32.exe).
+Prior to system firmware 0.6.3 you can also use the 4.9-2015-q3-update.
+
+The 5.4.x and 6.x versions are not recommended at this time.
+
+- For Windows, download the installer [gcc-arm-none-eabi-5_3-2016q1-20160330-win32.exe](https://launchpad.net/gcc-arm-embedded/5.0/5-2016-q1-update/+download/gcc-arm-none-eabi-5_3-2016q1-20160330-win32.exe).
 
 - Run the installer. Select **Next >** and **I Agree** for the terms and conditions of the license.
 
 - You can use the default install location, or select another. The default location may vary, but on 64-bit Windows is typically:
-C:\Program Files (x86)\GNU Tools ARM Embedded\4.9 2015q3
+C:\Program Files (x86)\GNU Tools ARM Embedded\5.3 2016q1
 
 - On the final page, be sure to select **Add path to environment variable** before clicking **Finish**. This is not the default and it is required for the builds to work properly.
 
@@ -100,9 +104,9 @@ arm-none-eabi-gcc --version
 It should report back something like:
 
 ```bash
-C:\Users\User>arm-none-eabi-gcc --version
-arm-none-eabi-gcc (GNU Tools for ARM Embedded Processors) 4.9.3 20150529 (release) [ARM/embedded-4_9-branch revision 227977]
-Copyright (C) 2014 Free Software Foundation, Inc.
+c:\>arm-none-eabi-gcc --version
+arm-none-eabi-gcc (GNU Tools for ARM Embedded Processors) 5.3.1 20160307 (release) [ARM/embedded-5-branch revision 234589]
+Copyright (C) 2015 Free Software Foundation, Inc.
 This is free software; see the source for copying conditions.  There is NO
 warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 ```
@@ -185,14 +189,18 @@ Some of the other instructions use Homebrew, but they update their current compi
 
 - The gcc-arm toolchains are here: [https://launchpad.net/gcc-arm-embedded](https://launchpad.net/gcc-arm-embedded)
 
-Currently, the 4.9-2015-q3-update is recommended. The 5.3.1 version can be used now and will be used for cloud compiles starting with system firmware 0.7.0. The 5.4.x and 6.x versions are not recommended at this time.
+Currently, the [5-2016-q1-update](https://launchpad.net/gcc-arm-embedded/5.0/5-2016-q1-update) is recommended.
 
-- Download the [gcc-arm-none-eabi-4_9-2015q3-20150921-mac.tar.bz2](https://launchpad.net/gcc-arm-embedded/4.9/4.9-2015-q3-update/+download/gcc-arm-none-eabi-4_9-2015q3-20150921-mac.tar.bz2) release.
+Prior to system firmware 0.6.3 you can also use the 4.9-2015-q3-update.
+
+The 5.4.x and 6.x versions are not recommended at this time.
+
+- Download the [gcc-arm-none-eabi-5_3-2016q1-20160330-mac.tar.bz2](https://launchpad.net/gcc-arm-embedded/5.0/5-2016-q1-update/+download/gcc-arm-none-eabi-5_3-2016q1-20160330-mac.tar.bz2) release.
 
 - Extract the archive file, then move the directory into a permanent location. I like /usr/local/gcc-arm.
 
 ```bash
-os-x-10:~ rickk$ sudo mv Downloads/gcc-arm-none-eabi-4_9-2015q3 /usr/local/gcc-arm
+os-x-10:~ rickk$ sudo mv Downloads/gcc-arm-none-eabi-5_3-2016q1 /usr/local/gcc-arm
 ```
 
 - Edit ~/.profile and add this:
@@ -252,17 +260,21 @@ Also note that the pre-built gcc-arm toolchains are for x86 architecture only. T
 The gcc-arm toolchains are here:  
 [https://launchpad.net/gcc-arm-embedded](https://launchpad.net/gcc-arm-embedded)
 
-Currently, the 4.9-2015-q3-update is recommended. The 5.3.1 version can be used now and will be used for cloud compiles starting with system firmware 0.7.0. The 5.4.x and 6.x versions are not recommended at this time.
+Currently, the [5-2016-q1-update](https://launchpad.net/gcc-arm-embedded/5.0/5-2016-q1-update) is recommended.
 
-- Download the [gcc-arm-none-eabi-4_9-2015q3-20150921-linux.tar.bz2](https://launchpad.net/gcc-arm-embedded/4.9/4.9-2015-q3-update/+download/gcc-arm-none-eabi-4_9-2015q3-20150921-linux.tar.bz2) file.
+Prior to system firmware 0.6.3 you can also use the 4.9-2015-q3-update.
+
+The 5.4.x and 6.x versions are not recommended at this time.
+
+- Download the [gcc-arm-none-eabi-5_3-2016q1-20160330-linux.tar.bz2](https://launchpad.net/gcc-arm-embedded/5.0/5-2016-q1-update/+download/gcc-arm-none-eabi-5_3-2016q1-20160330-linux.tar.bz2) file.
 
 - Extract it and move it to the permanent location. I like /usr/local/gcc-arm.
 
 ```bash
 rickk@ubuntu:~$ cd Downloads
-rickk@ubuntu:~/Downloads$ bzip2 -d gcc-arm-none-eabi-4_9-2015q3-20150921-linux.tar.bz2
-rickk@ubuntu:~/Downloads$ tar xf gcc-arm-none-eabi-4_9-2015q3-20150921-linux.tar
-rickk@ubuntu$ sudo mv gcc-arm-none-eabi-4_9-2015q3 /usr/local/gcc-arm
+rickk@ubuntu:~/Downloads$ bzip2 -d gcc-arm-none-eabi-5_3-2016q1-20160330-linux.tar.bz2
+rickk@ubuntu:~/Downloads$ tar xf gcc-arm-none-eabi-5_3-2016q1-20160330-linux.tar
+rickk@ubuntu$ sudo mv gcc-arm-none-eabi-5_3-2016q1 /usr/local/gcc-arm
 ```
 
 - Edit ~/.profile and add this:
@@ -372,6 +384,12 @@ git checkout release/stable
 ```
 
 - The checkout command used to specify "latest" instead of "release/stable" but you should now use "release/stable" instead.
+
+You may prefer to check out a specific version instead:
+
+```
+git checkout release/v0.7.0
+```
 
 - Then do a build. This will build all of the system firmware, plus Tinker, for the Photon.
 

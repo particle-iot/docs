@@ -194,7 +194,7 @@ The device will itself automatically enter safe mode if there is no application 
 
 {{device-animation device "blink" "yellow" }}
 
-If you wish to program your {{device}} with a custom firmware via USB, you'll need to use this mode. This mode triggers the on-board bootloader that accepts firmware binary files via the [dfu-utility.](https://s3.amazonaws.com/spark-assets/dfu-util-0.8-binaries.tar.xz)
+If you wish to program your {{device}} with a custom firmware via USB, you'll need to use this mode. This mode triggers the on-board bootloader that accepts firmware binary files via [dfu-util](/faq/particle-tools/installing-dfu-util/)
 (Note: Some users reported issues with dfu-util on a USB3.0 ports on Windows. Use a USB2.0 port if the USB3.0 port doesn't work.)
 
 Installation tutorial can be found [here.](/guide/tools-and-features/cli/)
