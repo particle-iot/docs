@@ -15,7 +15,7 @@ SKU | Low volume lead time | High volume lead time
 ------------ | ------------- | -------------
 ANTDUCK | Less than 100 units, ships immediately | More than 100 units, ships in 4 - 6 weeks
 ANTELEC | Less than 250 units, ships immediately | More than 250 units, ships in 4 - 6 weeks
-ANTELEC50 | Less than 50 units, ships immediately | More than 50 units, ships in 4 - 6 weeks
+ANTELEC50 | Less than 200 units, ships immediately | More than 200 units, ships in 4 - 6 weeks
 ANTFLEX | Less than 100 units, ships immediately | More than 100 units, ships in 4 - 6 weeks
 ARDSHIELD | Less than 150 units, ships immediately | More than 150 units, ships in 8 - 10 weeks
 ASSET2GV2 | Less than 50 units, ships immediately | More than 50 units, ships in 2 - 4 weeks
@@ -40,7 +40,7 @@ P1MOD10 | Less than 1,000 units, ships immediately | More than 1,000 units, ship
 P1REEL | Less than 3000 units, ships immediately | More than 3000 units, ships in 12 - 16 weeks
 PHNTRAYH | Less than 700 units, ships immediately | More than 700 units, ships in 12 - 16 weeks
 PHNTRAYNOH | All volumes ship in 12 - 16 weeks | All volumes ship in 12 - 16 weeks
-PHOTONH | Less than 150 units, ships immediately | More than 150 units, ships in 12 - 16 weeks
+PHOTONH | Less than 10 units, ships immediately | More than 10 units, ships in 12 - 16 weeks
 PHOTONKIT | Less than 50 units, ships in 2 - 4 weeks | More than 50 units, ships in 10 - 13 weeks
 PHOTONNOH | Less than 75 units, ships immediately | More than 75 units, ships in 2 - 4 weeks
 PROGSHIELD | Less than 200 units, ships immediately | More than 200 units, ships in 8 - 10 weeks
