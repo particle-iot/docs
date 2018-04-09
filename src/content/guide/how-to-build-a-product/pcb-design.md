@@ -72,6 +72,7 @@ If you have never designed your own circuit boards, there is a wealth of knowled
 - [Upverter](https://upverter.com/) is bringing PCB design online with a browser-based design tool. Upverter adds Github-like collaboration to PCB design. If you're learning from scratch, Upverter is worth a look.
 - [KiCad](https://en.wikipedia.org/wiki/KiCad) gets a special mention for being open source. If you're all about FOSS (Free and Open Source Software), KiCad is for you.
 - [Fritzing](http://fritzing.org/home/) is a beautiful tool for prototyping. It's not necessarily suitable for complex designs, but it's extremely easy to use.
+- [Circuits.io](https://circuits.io/pcb) is an online tool for schematic capture and PC layout.  More capable than Fritzing, easier to use than EAGLE, and includes many user-generated library parts.
 
 If you don't have strong preferences, we would currently recommend using EAGLE, since you'll be able to use our [Photon board design](https://www.github.com/particle-iot/photon) as a reference for your own PCB.
 
@@ -90,6 +91,7 @@ Before you manufacture thousands of units, it's best to start with just a handfu
 - [Seeed Studio Fusion PCB](https://www.seeedstudio.com/service/)
 - [OSH Park](https://oshpark.com/)
 - [HQPCB](http://www.hqpcb.com/)
+- [Sunstone](http://www.sunstone.com/) -- new kid on the block with easy upload and quick turnaround
 
 If you would like introductions to high-volume overseas PCB manufacturers, please contact our [sales team](http://www.particle.io/sales).
 
