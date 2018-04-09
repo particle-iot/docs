@@ -1266,8 +1266,78 @@ void setup() {
 
 ```cpp
 // SYNTAX
-WiFi.RSSI();
+int rssi = WiFi.RSSI();
+WiFiSignal rssi = WiFi.RSSI();
 ```
+
+_Since 0.8.0_
+
+`WiFi.RSSI()` returns an instance of [`WiFiSignal`](#wifisignal-class) class.
+
+```cpp
+// SYNTAX
+WiFiSignal sig = WiFi.RSSI();
+```
+
+### WiFiSignal Class
+
+This class allows to query a number of signal parameters of the currently connected WiFi network.
+
+#### getStrength()
+
+Gets the signal strength as a percentage (0.0 - 100.0). See [`getStrengthValue()`](#getstrengthvalue-) on how strength values are mapped to 0%-100% range.
+
+```cpp
+// SYNTAX
+WiFiSignal sig = WiFi.RSSI();
+float strength = sig.getStrength();
+
+// EXAMPLE
+WiFiSignal sig = WiFi.RSSI();
+Log.info("WiFi signal strength: %.02f%%", sig.getStrength());
+```
+
+Returns: `float`
+
+#### getQuality()
+
+Gets the signal quality as a percentage (0.0 - 100.0). See [`getQualityValue()`](#getqualityvalue-) on how quality values are mapped to 0%-100% range.
+
+```cpp
+// SYNTAX
+WiFiSignal sig = WiFi.RSSI();
+float quality = sig.getQuality();
+
+// EXAMPLE
+WiFiSignal sig = WiFi.RSSI();
+Log.info("WiFi signal quality: %.02f%%", sig.getQuality());
+```
+
+Returns: `float`
+
+#### getStrengthValue()
+
+```cpp
+// SYNTAX
+WiFiSignal sig = WiFi.RSSI();
+float strength = sig.getStrengthValue();
+```
+
+Gets the raw signal strength value in dBm. Range: [-90, 0].
+
+Returns: `float`
+
+#### getQualityValue()
+
+```cpp
+// SYNTAX
+WiFiSignal sig = WiFi.RSSI();
+float quality = sig.getQualityValue();
+```
+
+Gets the raw signal quality value (SNR) in dB. Range: [0, 90].
+
+Returns: `float`
 
 ### ping()
 
@@ -2380,7 +2450,7 @@ Cellular.dataUsageReset();
 
 ### RSSI()
 
-`Cellular.RSSI()` returns a struct of type `CellularSignal` that contains two integers: the signal strength (`rssi`) and signal quality (`qual`) of the currently connected Cellular network.
+`Cellular.RSSI()` returns an instance of [`CellularSignal`](#cellularsignal-class) class that contains two integers: the signal strength (`rssi`) and signal quality (`qual`) of the currently connected Cellular network.
 
 `CellularSignal`
 - `rssi`: (`int`) is the signal strength with range -113dBm to -51dBm (in 2dBm steps). This variable also doubles as an error response for the entire struct; positive return values indicate an error with:
@@ -2389,6 +2459,9 @@ Cellular.dataUsageReset();
 - `qual`: (`int`) is a number in UMTS RAT indicating the Energy per Chip/Noise ratio in dB levels of the current cell. This value ranges from 0 to 49, higher numbers indicate higher signal quality.
 
 **Note**: `qual` is not supported on 2G Electrons (Model G350) and will return 0.
+
+_Since 0.8.0_
+See additional documentation on [`CellularSignal`](#cellularsignal-class) class.
 
 ```C++
 // SYNTAX
@@ -2427,8 +2500,88 @@ void loop()
 }
 ```
 
+### CellularSignal Class
 
-bool Cellular.getBandSelect(CellularBand &data_get);
+This class allows to query a number of signal parameters of the currently connected Cellular network.
+
+#### getAccessTechnology()
+
+```cpp
+// SYNTAX
+CellularSignal sig = Cellular.RSSI();
+int rat = sig.getAccessTechnology();
+```
+
+Gets the current radio access technology (RAT) in use.
+
+The following radio technologies are defined:
+- `NET_ACCESS_TECHNOLOGY_GSM`: 2G RAT
+- `NET_ACCESS_TECHNOLOGY_EDGE`: 2G RAT with EDGE
+- `NET_ACCESS_TECHNOLOGY_UMTS`/`NET_ACCESS_TECHNOLOGY_UTRAN`/`NET_ACCESS_TECHNOLOGY_WCDMA`: UMTS RAT
+- `NET_ACCESS_TECHNOLOGY_LTE`: LTE RAT
+
+#### getStrength()
+
+Gets the signal strength as a percentage (0.0 - 100.0). See [`getStrengthValue()`](#getstrengthvalue-) on how raw RAT-specific strength values are mapped to 0%-100% range.
+
+```cpp
+// SYNTAX
+CellularSignal sig = Cellular.RSSI();
+float strength = sig.getStrength();
+
+// EXAMPLE
+CellularSignal sig = Cellular.RSSI();
+Log.info("Cellular signal strength: %.02f%%", sig.getStrength());
+```
+
+Returns: `float`
+
+#### getQuality()
+
+Gets the signal quality as a percentage (0.0 - 100.0). See [`getQualityValue()`](#getqualityvalue-) on how raw RAT-specific quality values are mapped to 0%-100% range.
+
+```cpp
+// SYNTAX
+CellularSignal sig = Cellular.RSSI();
+float quality = sig.getQuality();
+
+// EXAMPLE
+CellularSignal sig = Cellular.RSSI();
+Log.info("Cellular signal quality: %.02f%%", sig.getQuality());
+```
+
+Returns: `float`
+
+#### getStrengthValue()
+
+```cpp
+// SYNTAX
+CellularSignal sig = Cellular.RSSI();
+float strength = sig.getStrengthValue();
+```
+
+Gets the raw signal strength value. This value is RAT-specific. See [`getAccessTechnology()`](#getaccesstechnology-) for a list of radio access technologies.
+
+- 2G RAT / 2G RAT with EDGE: RSSI in dBm. Range: [-111, -48] as specified in 3GPP TS 45.008 8.1.4.
+- UMTS RAT: RSCP in dBm. Range: [-121, -25] as specified in 3GPP TS 25.133 9.1.1.3.
+
+Returns: `float`
+
+#### getQualityValue()
+
+```cpp
+// SYNTAX
+CellularSignal sig = Cellular.RSSI();
+float quality = sig.getQualityValue();
+```
+
+Gets the raw signal quality value. This value is RAT-specific. See [`getAccessTechnology()`](#getaccesstechnology-) for a list of radio access technologies.
+
+- 2G RAT: Bit Error Rate (BER) in % as specified in 3GPP TS 45.008 8.2.4. Range: [0.14%, 18.10%]
+- 2G RAT with EDGE: log10 of Mean Bit Error Probability (BEP) as defined in 3GPP TS 45.008. Range: [-0.60, -3.60] as specified in 3GPP TS 45.008 10.2.3.3.
+- UMTS RAT: Ec/Io (dB) [-24.5, 0], as specified in 3GPP TS 25.133 9.1.2.3.
+
+Returns: `float`
 
 ### getBandAvailable()
 _Since 0.5.0._
