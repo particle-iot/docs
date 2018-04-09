@@ -594,7 +594,7 @@ one possible cause of this is that the keep alives have not been sent often enou
 The keep alive duration varies by mobile network operator. The default keepalive is set to 23 minutes, which is sufficient to maintain the connection on Particle SIM cards. 3rd party SIM cards will need to determine the appropriate keep alive value.
 
 **Note:** Each keep alive ping consumes 122 bytes of data (61 bytes sent, 61 bytes received).
-
+**Note:** If using `keepAlive()` in a [multi-threaded context](https://docs.particle.io/reference/firmware/electron/#system-thread) with third-party SIMs, please refer to a [known workaround](https://github.com/particle-iot/firmware/issues/1482) and determine if it applies to you.
 
 {{/if}} {{!-- has-cellular --}}
 
@@ -9581,7 +9581,7 @@ When using manual mode:
 _Since 0.4.6_
 
 {{#if electron}}**Please note:** The System Thread feature is in Beta - we advise only using this
-in production after extensive testing.{{/if}}
+in production after extensive testing. If using third-party SIMs, please also read https://github.com/particle-iot/firmware/issues/1482.{{/if}}
 
 The System Thread is a system configuration that helps ensure the application loop
 is not interrupted by the system background processing and network management.
