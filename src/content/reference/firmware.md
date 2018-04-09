@@ -6362,12 +6362,25 @@ Gets a client that is connected to the server and has data available for reading
 
 ### write()
 
-Write data to the last client that connected to a server. This data is sent as a byte or series of bytes.
+Write data to the last client that connected to a server. This data is sent as a byte or series of bytes. This function is blocking by default and may block the application thread indefinitely until all the data is sent.
+
+_Since 0.7.0_
+{{#if photon}}
+
+This function also takes an optional argument `timeout`, which allows the caller to specify the maximum amount of time the function may take. If `timeout` value is specified, write operation may succeed partially and it's up to the caller to check the actual number of bytes written and schedule the next `write()` call in order to send all the data out.
+{{/if}}
+
+The application code may additionally check if an error occured during the last `write()` call by checking [`getWriteError()`](#getwriteerror-) return value. Any non-zero error code indicates and error during write operation.
+
 
 ```C++
 // SYNTAX
 server.write(val);
 server.write(buf, len);
+{{#if photon}}
+server.write(val, timeout);
+server.write(buf, len, timeout);
+{{/if}}
 ```
 
 Parameters:
@@ -6375,8 +6388,13 @@ Parameters:
 - `val`: a value to send as a single byte (byte or char)
 - `buf`: an array to send as a series of bytes (byte or char)
 - `len`: the length of the buffer
+{{#if photon}}
+- `timeout`: timeout in milliseconds (`0` - non-blocking mode)
+{{/if}}
 
-Returns: `byte`: `write()` returns the number of bytes written. It is not necessary to read this.
+Returns: `size_t`: `write()` returns the number of bytes written.
+
+**NOTE**: `write()` currently may return negative error codes. This behavior will change in the next major release (0.9.0). Applications will be required to use [`getWriteError()`](#getwriteerror-) to check for write errors.
 
 ### print()
 
@@ -6411,6 +6429,35 @@ Parameters:
 - `data` (optional): the data to print (char, byte, int, long, or string)
 - `BASE` (optional): the base in which to print numbers: BIN for binary (base 2), DEC for decimal (base 10), OCT for octal (base 8), HEX for hexadecimal (base 16).
 
+### getWriteError()
+
+Get the error code of the most recent [`write()`](#write--3) operation.
+
+Returns: int `0` when everything is ok, a non-zero error code in case of an error.
+
+This value is updated every after every call to [`write()`](#write--3) or can be manually cleared by  [`clearWriteError()`](#clearwriteerror-)
+
+```C++
+// SYNTAX
+int err = server.getWriteError();
+```
+
+```C++
+// EXAMPLE
+TCPServer server;
+// Write in non-blocking mode to the last client that connected to the server
+int bytes = server.write(buf, len, 0);
+int err = server.getWriteError();
+if (err != 0) {
+  Log.trace("TCPServer::write() failed (error = %d), number of bytes written: %d", err, bytes);
+}
+```
+
+### clearWriteError()
+
+Clears the error code of the most recent [`write()`](#write--3) operation setting it to `0`. This function is automatically called by [`write()`](#write--3).
+
+`clearWriteError()` does not return anything.
 
 ## TCPClient
 
@@ -6505,12 +6552,25 @@ Returns true if the connection succeeds, false if not.
 
 ### write()
 
-Write data to the server the client is connected to. This data is sent as a byte or series of bytes.
+Write data to the server the client is connected to. This data is sent as a byte or series of bytes. This function is blocking by default and may block the application thread indefinitely until all the data is sent.
+
+_Since 0.7.0_
+{{#if photon}}
+
+This function also takes an optional argument `timeout`, which allows the caller to specify the maximum amount of time the function may take. If `timeout` value is specified, write operation may succeed partially and it's up to the caller to check the actual number of bytes written and schedule the next `write()` call in order to send all the data out.
+{{/if}}
+
+The application code may additionally check if an error occured during the last `write()` call by checking [`getWriteError()`](#getwriteerror--1) return value. Any non-zero error code indicates and error during write operation.
+
 
 ```C++
 // SYNTAX
 client.write(val);
 client.write(buf, len);
+{{#if photon}}
+client.write(val, timeout);
+client.write(buf, len, timeout);
+{{/if}}
 ```
 
 Parameters:
@@ -6518,8 +6578,13 @@ Parameters:
 - `val`: a value to send as a single byte (byte or char)
 - `buf`: an array to send as a series of bytes (byte or char)
 - `len`: the length of the buffer
+{{#if photon}}
+- `timeout`: timeout in milliseconds (`0` - non-blocking mode)
+{{/if}}
 
-Returns: `byte`: `write()` returns the number of bytes written. It is not necessary to read this value.
+Returns: `size_t`: `write()` returns the number of bytes written.
+
+**NOTE**: `write()` currently may return negative error codes. This behavior will change in the next major release (0.9.0). Applications will be required to use [`getWriteError()`](#getwriteerror--1) to check for write errors.
 
 ### print()
 
@@ -6657,6 +6722,35 @@ Disconnect from the server.
 client.stop();
 ```
 
+### getWriteError()
+
+Get the error code of the most recent [`write()`](#write--4) operation.
+
+Returns: int `0` when everything is ok, a non-zero error code in case of an error.
+
+This value is updated every after every call to [`write()`](#write--4) or can be manually cleared by  [`clearWriteError()`](#clearwriteerror--1)
+
+```C++
+// SYNTAX
+int err = client.getWriteError();
+```
+
+```C++
+// EXAMPLE
+TCPClient client;
+// Write in non-blocking mode
+int bytes = client.write(buf, len, 0);
+int err = client.getWriteError();
+if (err != 0) {
+  Log.trace("TCPClient::write() failed (error = %d), number of bytes written: %d", err, bytes);
+}
+```
+
+### clearWriteError()
+
+Clears the error code of the most recent [`write()`](#write--4) operation setting it to `0`. This function is automatically called by [`write()`](#write--4).
+
+`clearWriteError()` does not return anything.
 
 ## UDP
 
