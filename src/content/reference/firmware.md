@@ -9724,7 +9724,7 @@ These are the system events produced by the system, their numeric value (what yo
 |       | button_final_click | 8192 | sent after a run of one or more clicks not followed by additional clicks. Unlike the `button_click` event, the `button_final_click` event is sent once, at the end of a series of clicks. | `int clicks = system_button_clicks(param); ` retrieves the number of times the button was pushed. |
 | 0.6.1 | time_changed | 16384 | device time changed | `time_changed_manually` or `time_changed_sync` |
 | 0.6.1 | low_battery | 32768 | generated when low battery condition is detected. | not used |
-
+| 0.8.0 | out_of_memory | 1<<18 | event generated when a request for memory could not be satisfied | the amount in bytes of memory that could not be allocated | 
 
 ## System Modes
 
