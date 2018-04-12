@@ -26,8 +26,8 @@ EXAMPLE WEBHOOK
     "password": "API_KEY"
   },
   "json": {
-    "field1": "\{{indoorTemp}}", 
-    "field2": "\{{outdoorTemp}}", 
+    "field1": "\{{{indoorTemp}}}", 
+    "field2": "\{{{outdoorTemp}}}", 
     "created_at": "\{{SPARK_PUBLISHED_AT}}"
   }
 }
@@ -139,7 +139,7 @@ The values can contain variables.
 ```
 EXAMPLE
 "query": {
-  "q": "\{{PARTICLE_EVENT_VALUE}}",
+  "q": "\{{{PARTICLE_EVENT_VALUE}}}",
   "p": "my app"
 }
 
@@ -160,7 +160,7 @@ EXAMPLE
 "form": {
   "From" : "FROM_PHONE_NUMBER",
   "To" : "TO_PHONE_NUMBER",
-  "Body" : "\{{BODY}}"
+  "Body" : "\{{{BODY}}}"
 }
 
 REQUEST BODY
@@ -182,7 +182,7 @@ The properties [form](#form), [json](#json) and [body](#body) are mutually exclu
 ```
 EXAMPLE
 "json": {
-  "value": "\{{PARTICLE_EVENT_VALUE}}"
+  "value": "\{{{PARTICLE_EVENT_VALUE}}}"
 }
 
 REQUEST BODY
@@ -194,8 +194,8 @@ EXAMPLE
 "json": {
   "gauges": [
     {
-      "name": "\{{n}}",
-      "value": "\{{v}}",
+      "name": "\{{{n}}}",
+      "value": "\{{{v}}}",
       "source": "\{{PARTICLE_DEVICE_ID}}"
     }
   ]
@@ -221,7 +221,7 @@ The keys or values can contain variables.
 
 One current limitation of this format is that variables can only be interpolated as strings.  In particular this is not a valid template:
 
-`"json": { "value": \{{PARTICLE_EVENT_VALUE}} }`
+`"json": { "value": \{{{PARTICLE_EVENT_VALUE}}} }`
 
 See [body](#body) for a workaround.
 
@@ -231,13 +231,13 @@ The properties [form](#form), [json](#json) and [body](#body) are mutually exclu
 
 ```
 EXAMPLE
-"body": "{ \"value\": \{{PARTICLE_EVENT_VALUE}} }"
+"body": "{ \"value\": \{{{PARTICLE_EVENT_VALUE}}} }"
 
 REQUEST BODY
 { "value": true }
 
 EXAMPLE
-"body": "{ \"gauges\": [{ \"name\": \"\{{n}}\", \"value\": \{{v}} }] }"
+"body": "{ \"gauges\": [{ \"name\": \"\{{{n}}}\", \"value\": \{{{v}}} }] }"
 
 REQUEST BODY
 { "gauges": [{ "name": "click", "value": 2 }] }
@@ -245,9 +245,7 @@ REQUEST BODY
 
 A string that will be used as the body of the web request. Use this key to generate a completely custom request, as JSON, HTML or plain text. You may need to set a Content-Type header for the right format.
 
-You can use any syntax from [mustache templates](http://mustache.github.io/mustache.5.html). Remember that using double braces `\{{var}}` will HTML escape strings. Use triple braces `\{{{var}}}` to avoid escaping.
-
-One current limitation is that body must render to a valid JSON string. This means if your event variables contain quotes they must be escaped with backslashes.
+You can use any syntax from [mustache templates](http://mustache.github.io/mustache.5.html). Note that using double braces `\{{var}}` will HTML escape strings. Use triple braces `\{{{var}}}` to avoid escaping.
 
 The properties [form](#form), [json](#json) and [body](#body) are mutually exclusive.
 
@@ -285,8 +283,8 @@ If you're using a self-signed certificate, or are otherwise having certificate i
 ```
 EXAMPLE
 "responseTemplate": {
-  "lat": "\{{results.0.location.lat}}",
-  "lng": "\{{results.0.location.lng}}"
+  "lat": "\{{{results.0.location.lat}}}",
+  "lng": "\{{{results.0.location.lng}}}"
 }
 ```
 
@@ -359,32 +357,34 @@ EXAMPLE DATA
     ]
 }
 
-TEMPLATE: \{{a.aa}}
+TEMPLATE: \{{{a.aa}}}
 RESULT:   testing
 
-TEMPLATE: \{{a.ab}}
+TEMPLATE: \{{{a.ab}}}
 RESULT:   1234
 
-TEMPLATE: \{{b}}
+TEMPLATE: \{{{b}}}
 RESULT:   xxx
 
-TEMPLATE: \{{c.0.ca}}
+TEMPLATE: \{{{c.0.ca}}}
 RESULT:   first
 
-TEMPLATE: \{{c.1.cb}}
+TEMPLATE: \{{{c.1.cb}}}
 RESULT:   456
 
-TEMPLATE: \{{#b}}\{{b}}\{{/b}}\{{^b}}Missing\{{/b}}
+TEMPLATE: \{{#b}}\{{{b}}}\{{/b}}\{{^b}}Missing\{{/b}}
 RESULT:   xxx
 
-TEMPLATE: \{{#z}}\{{z}}\{{/z}}\{{^z}}Missing\{{/z}}
+TEMPLATE: \{{#z}}\{{{z}}}\{{/z}}\{{^z}}Missing\{{/z}}
 RESULT:   Missing
 
-TEMPLATE: \{{#c}}\{{ca}}~\{{/c}}
+TEMPLATE: \{{#c}}\{{{ca}}}~\{{/c}}
 RESULT:   first~second~
 ```
 
-The `\{{PARTICLE_EVENT_VALUE}}` is a mustache template to include the event value in the data. It's automatically replaced by the event value when the template is processed.
+Inserting a variable with double braces `\{{a}}` will do HTML escaping of the characters `&<>"'`. To avoid this, use triple braces `\{{{a}}}`.
+
+The `\{{{PARTICLE_EVENT_VALUE}}}` is a mustache template to include the event value in the data. It's automatically replaced by the event value when the template is processed.
 
 If the response from a webhook is JSON with multiple levels, you can use the `\{{a.aa}}` syntax to extract keys nested deep in the structure.
 
@@ -392,17 +392,17 @@ You can also use the `\{{#b}}value\{{/b}}` syntax to display a value if the key 
 
 ### Pre-defined variables
 
-These variables are predefined for any webhook:
+These variables are predefined for any webhook (use triple braces to avoid HTML escaping of the values):
 
-- `\{{PARTICLE_DEVICE_ID}}`: The ID of the device that triggered the webhook
-- `\{{PARTICLE_EVENT_NAME}}`: The name of the event that triggers the webhook
-- `\{{PARTICLE_EVENT_VALUE}}`: The data associated with the event
-- `\{{PARTICLE_PUBLISHED_AT}}`: When the event was published
+- `\{{{PARTICLE_DEVICE_ID}}}`: The ID of the device that triggered the webhook
+- `\{{{PARTICLE_EVENT_NAME}}}`: The name of the event that triggers the webhook
+- `\{{{PARTICLE_EVENT_VALUE}}}`: The data associated with the event
+- `\{{{PARTICLE_PUBLISHED_AT}}}`: When the event was published
 
 Product webhooks also have access to:
 
-- `\{{PRODUCT_USER_ID}}`: The user id of the device owner
-- `\{{PRODUCT_VERSION}}`: The firmware version that published the event
+- `\{{{PRODUCT_USER_ID}}}`: The user id of the device owner
+- `\{{{PRODUCT_VERSION}}}`: The firmware version that published the event
 
 ### Custom variables
 
@@ -420,15 +420,15 @@ Particle.publish("test", data, PRIVATE);
 WEBHOOK
 {
   "eventName": "test",
-  "url": "http://example.com/log/\{{room}}",
+  "url": "http://example.com/log/\{{{room}}}",
   "json": {
-    "location": "\{{room}}",
-    "temperature": "\{{temp}}"
+    "location": "\{{{room}}}",
+    "temperature": "\{{{temp}}}"
   }
 }
 ```
 
-For example, this firmware code will make variables `\{{room}}` and `\{{temp}}` available inside the webhook template.
+For example, this firmware code will make variables `\{{{room}}}` and `\{{{temp}}}` available inside the webhook template.
 
 ## Default data
 
@@ -582,7 +582,7 @@ Sending webhook request  { uri: 'https://api.particle.io/v1/webhooks',
      json:
       { channel: '#random',
         username: 'ParticleBot',
-        text: '\{{SPARK_EVENT_VALUE}}',
+        text: '\{{{SPARK_EVENT_VALUE}}}',
         icon_emoji: ':spark:' },
      query: undefined,
      auth: undefined,
@@ -663,7 +663,7 @@ WEBHOOK
   "event": "Temperature/",
   "url": "https://example.com/123456789",
   "json": {
-    "\{{PARTICLE_EVENT_NAME}}": "\{{PARTICLE_EVENT_VALUE}}"
+    "\{{PARTICLE_EVENT_NAME}}": "\{{{PARTICLE_EVENT_VALUE}}}"
   },
   "noDefaults": true
 }
@@ -695,8 +695,8 @@ WEBHOOK
   "url": "https://example.com/123456789",
   "json": {
     "coordinates": {
-      "lat": "\{{lat}}",
-      "lng": "\{{lng}}"
+      "lat": "\{{{lat}}}",
+      "lng": "\{{{lng}}}"
     }
   },
   "noDefaults": true
@@ -733,7 +733,7 @@ WEBHOOK
   "headers": {
       "content-type": "application/json"
   },
-  "body": "{ \"coordinates\": { \"lat\": \{{lat}}, \"lng\": \{{lng}} } }",
+  "body": "{ \"coordinates\": { \"lat\": \{{{lat}}}, \"lng\": \{{{lng}}} } }",
   "noDefaults": true
 }
 
@@ -768,10 +768,10 @@ WEBHOOK
     "url": "https://maps.googleapis.com/maps/api/elevation/json",
     "requestType": "GET",
     "query": {
-		"locations": "\{{lat}},\{{lng}}",
+		"locations": "\{{{lat}}},\{{{lng}}}",
 		"key": "<paste your secret Google API key here>"
     },
-    "responseTemplate": "\{{results.0.elevation}}",
+    "responseTemplate": "\{{{results.0.elevation}}}",
     "noDefaults": true
 }
 
@@ -817,7 +817,7 @@ And you get a response back in JSON, like this:
 
 Since this a GET request we use the [query](#query) in the hook template.
 
-The Google API wants a parameter "location" with a value of two decimal numbers for the latitude and longitude, separated by a comma. We can do this easily using the Mustache template `\{{lat}},\{{lng}}`.
+The Google API wants a parameter "location" with a value of two decimal numbers for the latitude and longitude, separated by a comma. We can do this easily using the Mustache template `\{{{lat}}},\{{{lng}}}`.
 
 In the response we want to return just the "elevation" parameter. The returned JSON object contains a key "results" that is an array. In the array is an object with the "elevation". Rather than dealing with parsing the whole result on the Photon we return just the elevation using the template `\{{results.0.elevation}}`.
 
