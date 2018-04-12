@@ -43,7 +43,7 @@ Next, click on "Advanced Settings." Choose "Custom" in the "Form Fields" section
 
 - `From`: `{YOUR_TWILIO_NUMBER}`
 - `To`: `{YOUR_DESTINATION_PHONE_NUMBER}`
-- `Body`: `\{{PARTICLE_EVENT_VALUE}}`
+- `Body`: `\{{{PARTICLE_EVENT_VALUE}}}`
 
 Finally, find "HTTP Basic Auth" and enter the following:
 
@@ -64,7 +64,7 @@ The `Request Type` defines the HTTP method invoked when executing the webhook, w
 
 The `Request Format` defines how the event data will be sent to the remote server. In this case <strong>Web Form</strong> is similar to submitting a form through a browser.
 
-For this example, `{YOUR_TWILIO_NUMBER}` is your Twilio number you want to send from, `{YOUR_DESTINATION_PHONE_NUMBER}` is the phone number you want to send the message to, and Body is the body of the text message. The `\{{PARTICLE_EVENT_VALUE}}` is a template placeholder, and the value of this is replaced by data sent from your Particle device.
+For this example, `{YOUR_TWILIO_NUMBER}` is your Twilio number you want to send from, `{YOUR_DESTINATION_PHONE_NUMBER}` is the phone number you want to send the message to, and Body is the body of the text message. The `\{{{PARTICLE_EVENT_VALUE}}}` is a template placeholder, and the value of this is replaced by data sent from your Particle device.
 
 Lastly, the `HTTP Basic Auth` section defines headers that will be required to access the URL. For this example, you will need to replace `{YOUR_ACCOUNT_SID}` and `{YOUR_AUTH_TOKEN}` with your Twilio credentials.
 
@@ -321,7 +321,7 @@ Create a text file and name it librato.json, and paste in this example.  Make su
         },
         "measurements": [{
             "name": "\{{PARTICLE_EVENT_NAME}}",
-            "value": "\{{PARTICLE_EVENT_VALUE}}"
+            "value": "\{{{PARTICLE_EVENT_VALUE}}}"
         }]
     },
     "noDefaults": true

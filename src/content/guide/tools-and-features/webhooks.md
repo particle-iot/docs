@@ -69,7 +69,7 @@ Let's configure our webhook:
 Next, click on "Advanced Settings," and chose "Custom" in the "Form Fields" section. Drop in the following key/value pairs:
 
 - `api_key`: `YOUR_API_KEY`<br/>
-- `field1`: `\{{PARTICLE_EVENT_VALUE}}`
+- `field1`: `\{{{PARTICLE_EVENT_VALUE}}}`
 
 The form should look something like this:
 
@@ -348,8 +348,8 @@ Here's an example using JSON encoding.
     "url": "http://requestb.in/19le9w61",
     "requestType": "POST",
     "json": {
-		"name": "{{PARTICLE_EVENT_NAME}}",
-		"value": "{{PARTICLE_EVENT_VALUE}}"
+		"name": "\{{PARTICLE_EVENT_NAME}}",
+		"value": "\{{{PARTICLE_EVENT_VALUE}}}"
     },
     "noDefaults": true
 }
@@ -370,12 +370,12 @@ And the RequestBin results:
 
 See [the webhook reference](/reference/webhooks) for more details on customizing webhooks with variables, examples of different webhook configurations as well as community guides on setting up webhooks with external services.
 
-As a quick reference, these are the pre-defined webhook variables available for you to use:
+As a quick reference, these are the pre-defined webhook variables available for you to use (use triple braces to avoid HTML escaping of the values):
 
-- `\{{PARTICLE_DEVICE_ID}}`: The ID of the device that triggered the webhook
-- `\{{PARTICLE_EVENT_NAME}}`: The name of the event that triggers the webhook
-- `\{{PARTICLE_EVENT_VALUE}}`: The data associated with the webhook event
-- `\{{PARTICLE_PUBLISHED_AT}}`: When the webhook was sent
+- `\{{{PARTICLE_DEVICE_ID}}}`: The ID of the device that triggered the webhook
+- `\{{{PARTICLE_EVENT_NAME}}}`: The name of the event that triggers the webhook
+- `\{{{PARTICLE_EVENT_VALUE}}}`: The data associated with the webhook event
+- `\{{{PARTICLE_PUBLISHED_AT}}}`: When the webhook was sent
 
 
 **Also**, check out and join our [community forums](http://community.particle.io/) for advanced help, tutorials, and troubleshooting.
