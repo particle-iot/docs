@@ -88,5 +88,6 @@
 	"/tutorials/topics/google-cloud-platform": "/tutorials/integrations/google-cloud-platform",
 	"/tutorials/topics/particle-pi-security-camera" : "/tutorials/projects/particle-pi-security-camera",
 	"/tutorials": "/tutorials/integrations/google-cloud-platform",
-	"/webhooks" : "/guide/tools-and-features/webhooks"
+	"/webhooks" : "/guide/tools-and-features/webhooks",
+	"/guide/tools-and-features/system-firmware/": "/guide/tools-and-features/device-os"
 }
