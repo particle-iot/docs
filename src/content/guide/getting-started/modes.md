@@ -342,7 +342,8 @@ When the server public key is bad, the {{device}} will blink alternately cyan an
 Blinking red indicates various errors.
 
 - 2 red blinks: Could not reach the internet.
-- 3 red blinks: Connected to the internet, but could not reach the Particle Cloud.
+- 3 red blinks: Connected to the internet, but could not reach the
+Particle Device Cloud.
 - Blinking "orange": This sometimes is seen as yellow or red and indicates bad server keys. To fix this issue, use the Particle CLI to restore the server keys using `particle keys server` in your terminal window, while having the device in DFU mode.
 
 

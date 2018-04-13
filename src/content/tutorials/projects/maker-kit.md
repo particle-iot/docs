@@ -491,7 +491,8 @@ Click the **Add Configuration** button.
 Choose a channel to post to. In this case, it’s `#conferenceroom`. If you’d rather keep this project to yourself, you can select `Privately to @yourname` which will put the updates in your Slackbot channel (not your personal private channel).
 ![Add a new Slack webhook](/assets/images/conf-add-slack-webhook2.png)
 
-Locate your **Webhook URL**. This URL is what we’ll be sending data to via the Particle Cloud.
+Locate your **Webhook URL**. This URL is what we’ll be sending data to
+via the Particle Device Cloud.
 ![Add a new Slack webhook](/assets/images/conf-add-slack-webhook3.png)
 
 Scroll down to **Integration Settings** and give your webhook a descriptive label, name, and icon, then click **Save Settings**.

@@ -149,10 +149,10 @@ Le Core possède 24 broches que vous pouvez connecter à un circuit. Ces broches
 
 Quand vous souhaitez utiliser la fonction `analogWrite()` du Core, par exemple pour diminuer l'intensité lumineuse de LED, vous devez utiliser les broches qui possèdent un timer. Les gens les appellent fréquemment des broches PWM, car ce qu'elles font est appelé Pulse Width Modulation (Modulation par Largeur d'Impulsion). Le Core possède 8 broches PWM : A0, A1, A4, A5, A6, A7, D0 et D1.
 
-Le Particle Cloud
+Le Particle Device Cloud
 ---
 
-Le Particle Cloud est le réseau de serveurs hébergés à l'adresse `https://api.particle.io/` auquel se connecte le Spark Core une fois qu'il est connecté au réseau Wi-Fi.
+Le Particle Device Cloud est le réseau de serveurs hébergés à l'adresse `https://api.particle.io/` auquel se connecte le Spark Core une fois qu'il est connecté au réseau Wi-Fi.
 
 Le Cloud existe pour trois raisons principales :
 

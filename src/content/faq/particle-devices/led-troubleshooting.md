@@ -8,7 +8,10 @@ order: 1000
 
 # {{title}}
 
-This section will help you decode the LED patterns on your Particle device. This FAQ will help you understand why your LED is flashing, blinking, or breathing a particular color and get it happily connected to the Particle Cloud. Use the menu on the left to select the LED pattern that your device is displaying, and follow the Troubleshooting steps described below to resolve your issue.
+This section will help you decode the LED patterns on your Particle
+device. This FAQ will help you understand why your LED is flashing,
+blinking, or breathing a particular color and get it happily connected
+to the Particle Device Cloud. Use the menu on the left to select the LED pattern that your device is displaying, and follow the Troubleshooting steps described below to resolve your issue.
 
 {{#if raspberry-pi}}
 ## My Raspberry Pi is in a weird state.

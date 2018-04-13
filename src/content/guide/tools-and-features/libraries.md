@@ -53,7 +53,8 @@ Verified libraries are community-contributed libraries that have been reviewed a
 
 ### Private Libraries<img class="inline-header-image -small" src="/assets/images/private.png">
 
-Private libraries are libraries that have been uploaded to the Particle Cloud for reuse with many projects, but are _only_ visible to the individual who created and submitted the library. Private libraries can be published as public libraries at any time by the author of the library using the `particle library publish` command.
+Private libraries are libraries that have been uploaded to the Particle
+Device Cloud for reuse with many projects, but are _only_ visible to the individual who created and submitted the library. Private libraries can be published as public libraries at any time by the author of the library using the `particle library publish` command.
 
 ## Library file structure
 

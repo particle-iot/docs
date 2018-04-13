@@ -23,7 +23,15 @@ void setup() {
 
 ### Overview
 
-The P1 is Particle's tiny Wi-Fi module that contains both the Broadcom Wi-Fi chip and a reprogrammable STM32F205RGY6 32-bit ARM Cortex-M3 microcontroller. The P1 comes preloaded with Particle firmware libraries, just like our dev kits, and it's designed to simplify your transition from prototype to production. The P1 is the PØ's big brother; it's a bit bigger and a tad more expensive, but it includes some extra flash and an antenna and u.FL connector on board.  Particle provides free access to Particle Cloud for prototyping. Paid tiers of Particle Cloud start when you create a product with more than 25 devices.
+The P1 is Particle's tiny Wi-Fi module that contains both the Broadcom
+Wi-Fi chip and a reprogrammable STM32F205RGY6 32-bit ARM Cortex-M3
+microcontroller. The P1 comes preloaded with Particle firmware
+libraries, just like our dev kits, and it's designed to simplify your
+transition from prototype to production. The P1 is the PØ's big brother;
+it's a bit bigger and a tad more expensive, but it includes some extra
+flash and an antenna and u.FL connector on board.  Particle provides
+free access to Particle Device Cloud for prototyping. Paid tiers of
+Particle Device Cloud start when you create a product with more than 100 devices.
 
 ### Features
 

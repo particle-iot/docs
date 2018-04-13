@@ -9,13 +9,15 @@ order: 1
 # {{title}}
 
 ## What do I do to get started?
-Congratulations! You just received your confirmation email to the Raspberry Pi beta, and you want to get your hardware connected to the Particle Cloud. The first thing you should do is make sure you follow all of the instructions in our Getting Started guide for the Raspberry Pi, which is available [here](http://particle.io/start-pi). This tutorial will walk you through:
+Congratulations! You just received your confirmation email to the
+Raspberry Pi beta, and you want to get your hardware connected to the
+Particle Device Cloud. The first thing you should do is make sure you follow all of the instructions in our Getting Started guide for the Raspberry Pi, which is available [here](http://particle.io/start-pi). This tutorial will walk you through:
  - Setting up your Pi
  - Using the Particle mobile app
  - Using Particle's Web IDE
  - Several basic code examples
 
-## Is connecting my Raspberry Pi to the Particle Cloud free?
+## Is connecting my Raspberry Pi to the Particle Device Cloud free?
 Yes, it is free, for the first 25 Pi’s that you provision to your Particle Account. After that, you’ll have to create a product, which follows our standard product creator pricing, described on our [pricing page](http://particle.io/pricing).
 
 ## How can I tell if my Raspberry Pi is connected to the Cloud?

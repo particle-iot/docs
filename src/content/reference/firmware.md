@@ -227,7 +227,7 @@ curl https://api.particle.io/v1/devices/0123456789abcdef/brew \
 
 ### Particle.publish()
 
-Publish an *event* through the Particle Cloud that will be forwarded to all registered listeners, such as callbacks, subscribed streams of Server-Sent Events, and other devices listening via `Particle.subscribe()`.
+Publish an *event* through the Particle Device Cloud that will be forwarded to all registered listeners, such as callbacks, subscribed streams of Server-Sent Events, and other devices listening via `Particle.subscribe()`.
 
 This feature allows the device to generate an event based on a condition. For example, you could connect a motion sensor to the device and have the device generate an event whenever motion is detected.
 
@@ -636,7 +636,7 @@ void redundantLoop() {
 
 ### Particle.syncTime()
 
-Synchronize the time with the Particle Cloud.
+Synchronize the time with the Particle Device Cloud.
 This happens automatically when the device connects to the Cloud.
 However, if your device runs continuously for a long time,
 you may want to synchronize once per day or so.
@@ -647,7 +647,7 @@ unsigned long lastSync = millis();
 
 void loop() {
   if (millis() - lastSync > ONE_DAY_MILLIS) {
-    // Request time synchronization from the Particle Cloud
+    // Request time synchronization from the Particle Device Cloud
     Particle.syncTime();
     lastSync = millis();
   }
@@ -663,7 +663,7 @@ See [`Particle.syncTimeDone()`](#particle-synctimedone-), [`Particle.timeSyncedL
 
 _Since 0.6.1_
 
-Returns `true` if there is no `syncTime()` request currently pending or there is no active connection to Particle Cloud. Returns `false` when there is a pending `syncTime()` request.
+Returns `true` if there is no `syncTime()` request currently pending or there is no active connection to Particle Device Cloud. Returns `false` when there is a pending `syncTime()` request.
 
 ```C++
 // SYNTAX
@@ -678,9 +678,9 @@ Particle.syncTimeDone();
 
 void loop()
 {
-  // Request time synchronization from the Particle Cloud
+  // Request time synchronization from the Particle Device Cloud
   Particle.syncTime();
-  // Wait until {{device}} receives time from Particle Cloud (or connection to Particle Cloud is lost)
+  // Wait until {{device}} receives time from Particle Device Cloud (or connection to Particle Device Cloud is lost)
   waitUntil(Particle.syncTimeDone);
   // Print current time
   Serial.println(Time.timeStr());
@@ -693,7 +693,7 @@ See also [`Particle.timeSyncedLast()`](#particle-timesyncedlast-) and [`Time.isV
 
 _Since 0.6.1_
 
-Returns `true` if there a `syncTime()` request currently pending. Returns `false` when there is no `syncTime()` request pending or there is no active connection to Particle Cloud.
+Returns `true` if there a `syncTime()` request currently pending. Returns `false` when there is no `syncTime()` request pending or there is no active connection to Particle Device Cloud.
 
 ```C++
 // SYNTAX
@@ -708,9 +708,9 @@ Particle.syncTimePending();
 
 void loop()
 {
-  // Request time synchronization from the Particle Cloud
+  // Request time synchronization from the Particle Device Cloud
   Particle.syncTime();
-  // Wait until {{device}} receives time from Particle Cloud (or connection to Particle Cloud is lost)
+  // Wait until {{device}} receives time from Particle Device Cloud (or connection to Particle Device Cloud is lost)
   while(Particle.syncTimePending())
   {
     //
@@ -730,7 +730,7 @@ See also [`Particle.timeSyncedLast()`](#particle-timesyncedlast-) and [`Time.isV
 
 _Since 0.6.1_
 
-Used to check when time was last synchronized with Particle Cloud.
+Used to check when time was last synchronized with Particle Device Cloud.
 
 ```C++
 // SYNTAX
@@ -738,10 +738,10 @@ Particle.timeSyncedLast();
 Particle.timeSyncedLast(timestamp);
 ```
 
-Returns the number of milliseconds since the device began running the current program when last time synchronization with Particle Cloud was performed.
+Returns the number of milliseconds since the device began running the current program when last time synchronization with Particle Device Cloud was performed.
 
 This function takes one optional argument:
-- `timestamp`: `time_t` variable that will contain a UNIX timestamp received from Particle Cloud during last time synchronization
+- `timestamp`: `time_t` variable that will contain a UNIX timestamp received from Particle Device Cloud during last time synchronization
 
 ```C++
 // EXAMPLE
@@ -755,12 +755,12 @@ void loop() {
     Serial.printlnf("Time was last synchronized %lu milliseconds ago", millis() - lastSync);
     if (lastSyncTimestamp > 0)
     {
-      Serial.print("Time received from Particle Cloud was: ");
+      Serial.print("Time received from Particle Device Cloud was: ");
       Serial.println(Time.timeStr(lastSyncTimestamp));
     }
-    // Request time synchronization from Particle Cloud
+    // Request time synchronization from Particle Device Cloud
     Particle.syncTime();
-    // Wait until {{device}} receives time from Particle Cloud (or connection to Particle Cloud is lost)
+    // Wait until {{device}} receives time from Particle Device Cloud (or connection to Particle Device Cloud is lost)
     waitUntil(Particle.syncTimeDone);
     // Check if synchronized successfully
     if (Particle.timeSyncedLast() >= cur)
@@ -7798,7 +7798,7 @@ For convenience, the library defines constants for the following basic colors:
 
 ## Time
 
-The device synchronizes time with the Particle Cloud during the handshake.
+The device synchronizes time with the Particle Device Cloud during the handshake.
 From then, the time is continually updated on the device.
 This reduces the need for external libraries to manage dates and times.
 
@@ -8200,7 +8200,7 @@ Stop applying Daylight Saving Time (DST) offset to the current time.
 
 Set the system time to the given timestamp.
 
-*NOTE*: This will override the time set by the Particle Cloud.
+*NOTE*: This will override the time set by the Particle Device Cloud.
 If the cloud connection drops, the reconnection handshake will set the time again
 
 Also see: [`Particle.syncTime()`](#particle-synctime-)
@@ -8294,10 +8294,10 @@ Time.isValid();
 
 Used to check if current time is valid. This function will return `true` if:
 - Time has been set manually using [`Time.setTime()`](#settime-)
-- Time has been successfully synchronized with the Particle Cloud. The device synchronizes time with the Particle Cloud during the handshake. The application may also manually synchronize time with Particle Cloud using [`Particle.syncTime()`](#particle-synctime-)
+- Time has been successfully synchronized with the Particle Device Cloud. The device synchronizes time with the Particle Device Cloud during the handshake. The application may also manually synchronize time with Particle Device Cloud using [`Particle.syncTime()`](#particle-synctime-)
 - Correct time has been maintained by RTC.{{#if has-backup-ram}} See information on [`Backup RAM (SRAM)`](#backup-ram-sram-) for cases when RTC retains the time. RTC is part of the backup domain and retains its counters under the same conditions as Backup RAM.{{/if}}
 
-**NOTE:** When {{device}} is running in `AUTOMATIC` mode {{#if has-threading}}and threading is disabled {{/if}} this function will block if current time is not valid and there is an active connection to Particle Cloud. Once {{device}} synchronizes the time with Particle Cloud or the connection to Particle Cloud is lost, `Time.isValid()` will return its current state. This function is also implicitly called by any `Time` function that returns current time or date (e.g. `Time.hour()`/`Time.now()`/etc).
+**NOTE:** When {{device}} is running in `AUTOMATIC` mode {{#if has-threading}}and threading is disabled {{/if}} this function will block if current time is not valid and there is an active connection to Particle Device Cloud. Once {{device}} synchronizes the time with Particle Device Cloud or the connection to Particle Device Cloud is lost, `Time.isValid()` will return its current state. This function is also implicitly called by any `Time` function that returns current time or date (e.g. `Time.hour()`/`Time.now()`/etc).
 
 ```cpp
 // Print true or false depending on whether current time is valid
@@ -8307,7 +8307,7 @@ Serial.print(Time.isValid());
 ```cpp
 void setup()
 {
-  // Wait for time to be synchronized with Particle Cloud (requires active connection)
+  // Wait for time to be synchronized with Particle Device Cloud (requires active connection)
   waitFor(Time.isValid, 60000);
 }
 
@@ -9506,8 +9506,8 @@ void loop() {
 }
 ```
 
-- When the device starts up, it automatically tries to connect to Wi-Fi and the Particle Cloud.
-- Once a connection with the Particle Cloud has been established, the user code starts running.
+- When the device starts up, it automatically tries to connect to Wi-Fi and the Particle Device Cloud.
+- Once a connection with the Particle Device Cloud has been established, the user code starts running.
 - Messages to and from the Cloud are handled in between runs of the user loop; the user loop automatically alternates with [`Particle.process()`](#particle-process-).
 - `Particle.process()` is also called during any delay() of at least 1 second.
 - If the user loop blocks for more than about 20 seconds, the connection to the Cloud will be lost. To prevent this from happening, the user can call `Particle.process()` manually.
@@ -9547,7 +9547,7 @@ The semi-automatic mode is therefore much like the automatic mode, except:
 ### Manual mode
 
 
-The "manual" mode puts the device's connectivity completely in the user's control. This means that the user is responsible for both establishing a connection to the Particle Cloud and handling communications with the Cloud by calling [`Particle.process()`](#particle-process-) on a regular basis.
+The "manual" mode puts the device's connectivity completely in the user's control. This means that the user is responsible for both establishing a connection to the Particle Device Cloud and handling communications with the Cloud by calling [`Particle.process()`](#particle-process-) on a regular basis.
 
 ```cpp
 SYSTEM_MODE(MANUAL);
@@ -13170,7 +13170,7 @@ For advanced use cases, those functions are available for use in addition to the
 
 ## Preprocessor
 
-When you are using the Particle Cloud to compile your `.ino` source code, a preprocessor comes in to modify the code into C++ requirements before producing the binary file used to flash onto your devices.
+When you are using the Particle Device Cloud to compile your `.ino` source code, a preprocessor comes in to modify the code into C++ requirements before producing the binary file used to flash onto your devices.
 
 ```
 // EXAMPLE

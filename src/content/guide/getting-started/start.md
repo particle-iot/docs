@@ -15,7 +15,7 @@ order: 2
 ## Particle Pi Beta
 <p class="boxedHead">Please read me!</p>
 <p class="boxed">
-Please note that the Raspberry Pi integration with the Particle Cloud is **currently in beta**. This means that, while the primary happy paths and use cases are tested, the software may still be a little rough around the edges in some areas.
+Please note that the Raspberry Pi integration with the Particle Device Cloud is **currently in beta**. This means that, while the primary happy paths and use cases are tested, the software may still be a little rough around the edges in some areas.
 <br>
 <br>
 The good news is that you're about to join a wonderful community of Particle developers who are here to help. If you need support and can't find the answer in our docs, head over to our [community forums](https://community.particle.io/c/raspberry-pi) and chat with the Particle team. Find an issue? Log it in our [open-source repository](https://github.com/particle-iot/particle-agent) so we can fix it!
@@ -31,7 +31,7 @@ Have fun!
 `bash <( curl -sL https://particle.io/install-pi )`
 
 ## What You'll Need
-In order to connect your Raspberry Pi to the Particle Cloud you'll need the following things. Note that these are all included in the [Particle Pi Starter Kit with Raspberry Pi v3](https://store.particle.io/#particle-pi-starter-kit), which is available for purchase in the [Particle Store](https://store.particle.io/#particle-pi-starter-kit).
+In order to connect your Raspberry Pi to the Particle Device Cloud you'll need the following things. Note that these are all included in the [Particle Pi Starter Kit with Raspberry Pi v3](https://store.particle.io/#particle-pi-starter-kit), which is available for purchase in the [Particle Store](https://store.particle.io/#particle-pi-starter-kit).
 
 - Raspberry Pi (Raspberry Pi v2 and v3 preferred)
 - Power supply (5V, 2A+ preferred)
@@ -185,7 +185,7 @@ ssh pi@192.168.X.XXX
 
 You will not be able to complete this step of the process if you have not already received your beta activation email. If that's the case, hang tight--you'll receive your email in the upcoming weeks as we expand access to the Raspberry Pi provisioning endpoint. For more information, visit [particle.io/particle-pi](http://particle.io/particle-pi)
 
-To connect your Raspberry pi to the Particle Cloud, you need to install the Particle Agent. The Particle Agent is a software service that runs in the background on the Raspberry Pi and allows you to write and run firmware (software that interacts with the GPIO pins on the Pi).
+To connect your Raspberry pi to the Particle Device Cloud, you need to install the Particle Agent. The Particle Agent is a software service that runs in the background on the Raspberry Pi and allows you to write and run firmware (software that interacts with the GPIO pins on the Pi).
 
 Install the agent by pasting this command in a terminal on your
 Raspberry Pi, either while connected remotely through SSH or locally
@@ -216,7 +216,8 @@ When you have successfully completed setup of your Pi, you will see the followin
 
 ![](/assets/images/pi-setup-done.png)
 
-If you see the message above, **congratulations!** You've successfully connected your Pi to the Particle Cloud!
+If you see the message above, **congratulations!** You've successfully
+connected your Pi to the Particle Device Cloud!
 
 ## Development Resources
 
@@ -507,7 +508,7 @@ This may take a little while - but don't worry.
 * *Blinking blue:* Listening for Wi-Fi credentials
 * *Solid blue:* Getting Wi-Fi info from app
 * *Blinking green:* Connecting to the Wi-Fi network
-* *Blinking cyan:* Connecting to the Particle Cloud
+* *Blinking cyan:* Connecting to the Particle Device Cloud
 * *Blinking magenta:* Updating to the newest firmware
 * *Breathing cyan:* Connected!
 

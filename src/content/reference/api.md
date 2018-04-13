@@ -11,9 +11,9 @@ order: 2
   someone from Particle will be happy to merge it in for you!
 --}}
 
-# Particle Cloud API
+# Particle Device Cloud API
 
-The Particle Cloud API is a [REST](http://en.wikipedia.org/wiki/Representational_State_Transfer) API.
+The Particle Device Cloud API is a [REST](http://en.wikipedia.org/wiki/Representational_State_Transfer) API.
 REST means a lot of things, but first and foremost it means that we use the URL in the way that it's intended:
 as a "Uniform Resource Locator".
 
@@ -170,7 +170,7 @@ console and hack all your customers' devices.
 
 ## Errors
 
-The Particle Cloud uses traditional HTTP response codes to provide feedback from the device regarding the validity
+The Particle Device Cloud uses traditional HTTP response codes to provide feedback from the device regarding the validity
 of the request and its success or failure. As with other HTTP resources, response codes in the 200 range
 indicate success; codes in the 400 range indicate failure due to the information provided;
 codes in the 500 range indicate failure within Particle's server infrastructure.
@@ -195,7 +195,8 @@ codes in the 500 range indicate failure within Particle's server infrastructure.
 
 ## Versioning
 
-The API endpoints all start with `/v1` to represent the first official version of the Particle Cloud API.
+The API endpoints all start with `/v1` to represent the first official
+version of the Particle Device Cloud API.
 The existing API is stable, and we may add new endpoints with the `/v1` prefix.
 
 If in the future we make backwards-incompatible changes to the API, the new endpoints will start with

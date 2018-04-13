@@ -18,7 +18,7 @@ order: 5
 
 ## Beta Compatibility
 
-Raspberry Pi compatibility with the Particle Cloud and Particle development tools is still currently in beta. Raspberry Pi **does not yet have full compatibility** in the Particle App for iOS, Windows, and Android, but we will be working throughout the upcoming months to add support for existing features.
+Raspberry Pi compatibility with the Particle Device Cloud and Particle development tools is still currently in beta. Raspberry Pi **does not yet have full compatibility** in the Particle App for iOS, Windows, and Android, but we will be working throughout the upcoming months to add support for existing features.
 
 Several features are still currently supported, if you care to use the Particle mobile app with your Raspberry Pi right away.
 

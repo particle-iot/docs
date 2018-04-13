@@ -72,11 +72,17 @@ When booting up, the Particle device will check dependencies between the applica
 Safe mode allows the device to connect to the Particle cloud, but does not run application firmware. There are many uses for safe mode, but is particularly relevant when a device receives application firmware compiled against a newer version of system firmware than it currently is running. In this case, safe mode prevents the device from running the incompatible application firmware that will cause it to hard fault.
 
 ### Safe Mode Healer
-_Safe mode healer_ takes things one step further, automatically resolving system firmware incompatibilities when a device enters safe mode. Because a device in safe mode still has network connectivity, it is able to send an event to the Particle Cloud notifying it of the firmware mismatch.
+_Safe mode healer_ takes things one step further, automatically
+resolving system firmware incompatibilities when a device enters safe
+mode. Because a device in safe mode still has network connectivity, it
+is able to send an event to the Particle Device Cloud notifying it of the firmware mismatch.
 
-From this event, the Particle Cloud determines the cause of the incompatibility and delivers to the device new system firmware over-the-air. When this happens, you'll see the device rapidly blinking magenta as it receives packets containing the new system firmware. When complete, the device will have what it needs to successfully run the application that was previously flashed.
+From this event, the Particle Device Cloud determines the cause of the incompatibility and delivers to the device new system firmware over-the-air. When this happens, you'll see the device rapidly blinking magenta as it receives packets containing the new system firmware. When complete, the device will have what it needs to successfully run the application that was previously flashed.
 
-The combination of safe mode and safe mode healer provides you confidence when flashing new application firmwares to devices. Regardless of the version of system firmware the app was compiled against, the Particle Cloud will ensure the device has what it needs to run it without issue.
+The combination of safe mode and safe mode healer provides you
+confidence when flashing new application firmwares to devices.
+Regardless of the version of system firmware the app was compiled
+against, the Particle Device Cloud will ensure the device has what it needs to run it without issue.
 
 A couple of important notes:
 

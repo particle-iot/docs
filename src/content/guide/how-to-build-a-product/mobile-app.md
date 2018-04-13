@@ -52,7 +52,9 @@ focus more specifically on building mobile applications.
 ### Two-tier SDK
 
 There are two parts to the Particle Mobile SDK: the Cloud SDK and the Device Setup library.
-In a nutshell, the **Cloud SDK** is a library that enables your mobile app to interact with internet-connected hardware through the Particle Cloud. It serves the same purpose as [ParticleJS](/photon/javascript/) — it’s an easy-to-use wrapper for our REST API, accessible from Objective-C and Swift. The **Device Setup library** allows you to create a setup wizard within your app for connecting your device to the internet with two lines of code.
+In a nutshell, the **Cloud SDK** is a library that enables your mobile
+app to interact with internet-connected hardware through the Particle
+Device Cloud. It serves the same purpose as [ParticleJS](/photon/javascript/) — it’s an easy-to-use wrapper for our REST API, accessible from Objective-C and Swift. The **Device Setup library** allows you to create a setup wizard within your app for connecting your device to the internet with two lines of code.
 
 ### How To Get Started?
 
@@ -101,7 +103,9 @@ Or the Swift version:
 
 If you're using Objective-C, don't forget to import the file `SparkSetup.h` in your view controller implementation file. If you're using Swift, be sure to complete all the required steps to integrate the Objective-C CocoaPods libraries in your project, mainly adding bridging header file to the project settings, as described [here](http://swiftalicio.us/2014/11/using-cocoapods-from-swift/). We've included a bridging header file in both the SDKs.
 
-That's it. Build and run your project on a device or a simulator, tap the "Start Setup" button you created and you should see the device setup wizard pop up ready for authenticating with Particle Cloud and then setting up a new Particle Device.
+That's it. Build and run your project on a device or a simulator, tap
+the "Start Setup" button you created and you should see the device setup
+wizard pop up ready for authenticating with Particle Device Cloud and then setting up a new Particle Device.
 Make sure you set up your new Photon, and name the device `myDevice` at the last screen, you'll see why in a moment. If you already setup your device and just need to rename it you can do it from [Particle Build](https://build.particle.io/build) -> Devices. You can also rename the device from the Tinker app.
 
 Now, let's try to list your devices and read a variable from the device you just set up (by using the Cloud SDK). Stop the app and go back to the split view of your view controller and code. Drag another button and name it "Read Variable", Ctrl-Drag it to your code and create another IBAction function. Call the function "readVariableButtonTapped" and fill in its body like so:

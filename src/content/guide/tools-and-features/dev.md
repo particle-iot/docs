@@ -13,7 +13,9 @@ layout: guide.hbs
 
 ![IDE Menu]({{assets}}/images/ide-menu.jpg)
 
-**Particle Dev** is a desktop application that allows you to work with local copies of your firmware files. However, **internet** access is required as the files are pushed to the Particle Cloud for compilation and returns a binary. i.e. This is not an offline development tool, yet.
+**Particle Dev** is a desktop application that allows you to work with
+local copies of your firmware files. However, **internet** access is
+required as the files are pushed to the Particle Device Cloud for compilation and returns a binary. i.e. This is not an offline development tool, yet.
 
 All the commands are available from the **Particle** menu. The menu changes depending on whether you're logged in or have selected a device, so some of the commands will only show up once you're in the right context.
 

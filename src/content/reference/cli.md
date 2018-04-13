@@ -20,7 +20,7 @@ $ particle setup
 
 ## particle login
 
-  Login and save an access token for interacting with your account on the Particle Cloud.
+  Login and save an access token for interacting with your account on the Particle Device Cloud.
 
 ```sh
 # how to login - creates and saves an access token for your session with the CLI
@@ -757,7 +757,7 @@ $ particle cloud nyan [device_id/all] [on/off]
 
 The config command lets you create groups of settings and quickly switch to a profile by calling `particle config profile-name`. This is especially useful for switching to your local server or between other environments.
 
-Calling `particle config particle` will switch **Particle-Cli** back to the Particle Cloud API server.
+Calling `particle config particle` will switch **Particle-Cli** back to the Particle Device Cloud API server.
 
 ```sh
 $ particle config profile-name
