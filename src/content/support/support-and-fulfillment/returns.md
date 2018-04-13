@@ -36,6 +36,7 @@ If we determine that something is wrong with your product due to a manufacturing
 - Modified items are reviewed on a case by case basis for eligibility of returns. We cannot guarantee that we’ll accept them back
 - Returns may take up to 2 weeks to process, not including transit times
 - Replacement orders can not be modified to include different or additional parts
-- You are responsible for return shipping charges that are not related to a manufacturer error
+- You are responsible for return shipping charges that are not related to a manufacturer error 
 - We reserve the right to limit support, or deny returns on items that were purchased over 1 calendar year from the order date or deprecated/unsupported products
 - If your return is not received in restockable condition, we reserve the right to change your refund amount or method (e.g., limit your refund to store credit)
+- A $2.85 per device restocking fee may be deducted from any refunds issued
