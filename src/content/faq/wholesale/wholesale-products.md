@@ -31,7 +31,7 @@ E310KIT | All volumes ship in 10 - 13 weeks | All volumes ship in 10 - 13 weeks
 E310MOD1 | All volumes ship in 10 - 13 weeks | All volumes ship in 10 - 13 weeks
 E310TRAY50 | All volumes ship in 12 - 16 weeks | All volumes ship in 12 - 16 weeks
 E350KIT | Less than 200 units, ships immediately | More than 200 units, ships in 10 - 13 weeks
-E350TRAY50 | Less than 100 units, ships immediately | More than 100 units, ships in 10 - 13 weeks
+E350TRAY50 | Less than 50 units, ships immediately | More than 50 units, ships in 10 - 13 weeks
 GSWTP | Less than 50 units, ships immediately | More than 50 units, ships in 8 - 10 weeks
 MKITPH | Less than 200 units, ships immediately | More than 200 units, ships in 12 - 16 weeks
 P0MOD10 | Less than 500 units, ships immediately | More than 500 units, ships in 12 - 16 weeks
