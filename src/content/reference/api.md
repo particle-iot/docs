@@ -360,16 +360,12 @@ The libraries endpoints are a little different as they follow the [JSON API](htt
 ## Products
 {{> api group=apiGroups.Products}}
 
-## Device Groups (beta)
+## Device Groups
 
 Device groups allow you to define subsets of your IoT deployment that
 can be addressed separately from the rest of the fleet. Groups are
 defined within the scope of a [product](#products). For more information,
 please see [the guide](/guide/how-to-build-a-product/device-groups/).
-
-**Note: this
-feature is currently in beta and only available to products on an
-Enterprise plan.**
 
 {{> api group=apiGroups.Groups}}
 
