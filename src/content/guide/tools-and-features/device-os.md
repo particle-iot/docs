@@ -7,6 +7,8 @@ layout: guide.hbs
 ---
 
 # {{title}}
+_Note: Device OS was previously referred to as **system firmware**, and
+may still be called system firmware in certain Particle interfaces_.
 
 Device OS is low-level firmware code that supports a Particle device's basic functions. You can think of Device OS as the _operating system_ (OS) for Particle's embedded hardware.
 
@@ -22,7 +24,8 @@ Particle Device OS abstracts much of the complexity away from the traditional fi
 
 Unlike application firmware, Device OS is written and maintained primarily by the Particle team. This is a conscious decision meant to keep you focused on your particular use case without needing to understand the nuances of low-level device behaviors.
 
-That being said, Particle's firmware repository is available as an open source project for those that want deep visibility into Device OS. To view the code and/or contribute, check out the [repo on GitHub](https://github.com/particle-iot/firmware).
+That being said, Particle's firmware repository is available as an open
+source project for those that want deep visibility into Device OS code. To view the code and/or contribute, check out the [repo on GitHub](https://github.com/particle-iot/firmware).
 
 
 ## Versioning
@@ -35,7 +38,9 @@ Each release is documented thoroughly to give you a comprehensive picture of wha
 ## Firmware Modules
 
 Particle firmware is split into modules: two or more modules for the
-Device OS and one module for the application firmware.
+Device OS (the code Particle writes and maintains)
+and one module for the _application firmware_ (the code you write for your
+deivce app).
 
 Each module can be updated independently. This is why
 over-the-air updates to the user application are so fast: you can update
@@ -47,37 +52,43 @@ system modules.
 Application firmware that is written in the
 [Web](https://build.particle.io) or
 [Desktop](https://www.particle.io/products/development-tools/particle-desktop-ide)
-IDEs are _compiled against_ a specific version of Device OS before
+IDEs are _compiled against_ a specific version of Device OS system
+firmware before
 being sent to a device to run. That is, the Device OS acts as a
 translator - taking the human-readable code you write and translating
 into a binary that the device is able to run.
 
 This creates a dependency that must be carefully managed.
-Application firmware can only run on a device with the same or newer system
-firmware version than the Device OS used to compile it.
-This is because the application firmware may be using new
+Application firmware can only run on a device with the same or newer
+Device OS version used to compile it. This is because the application firmware may be using new
 functionality that was not available in an older version of Device OS. Allowing
-a new application to run with older Device OS might lead to a
+a new application to run with an older Device OS version might lead to a
 crash.
 
 For example, imagine a new firmware primitive was introduced in Device OS version `1.0.0`, `Particle.travelInTime()`. As an aspiring time traveler, you quickly add the new feature to your firmware logic and send the code off to be compiled and flashed to your Electron.
 
-However, the Electron on your desk is running Device OS `0.9.0`, a version that predates the time travel functionality. Instructing the device to use the new firmware method in application firmware before it understands how to do so will of course not work. You can see how application firmware _depends on_ a compatible version of Device OS.
+However, the Electron on your desk is running Device OS version `0.9.0`, a version that predates the time travel functionality. Instructing the device to use the new firmware method in application firmware before it understands how to do so will of course not work. You can see how application firmware _depends on_ a compatible version of Device OS.
 
 So what happens in these cases?
 
 ### Safe Mode
-When booting up, the Particle device will check dependencies between the application and the Device OS. In the case of an incompatibility between the two, the device will automatically enter into [_safe mode_](/guide/getting-started/modes/#safe-mode) (breathing magenta). 
+When booting up, the Particle device will check dependencies between the
+application firmware and the Device OS version. In the case of an incompatibility
+between the two, the device will automatically enter into [_safe mode_](/guide/getting-started/modes/#safe-mode) (breathing magenta). 
 
 Safe mode allows the device to connect to the Particle cloud, but does not run application firmware. There are many uses for safe mode, but is particularly relevant when a device receives application firmware compiled against a newer version of Device OS than it currently is running. In this case, safe mode prevents the device from running the incompatible application firmware that will cause it to hard fault.
 
 ### Safe Mode Healer
 _Safe mode healer_ takes things one step further, automatically
-resolving Device OS incompatibilities when a device enters safe
+resolving firmware incompatibilities when a device enters safe
 mode. Because a device in safe mode still has network connectivity, it
 is able to send an event to the Particle Device Cloud notifying it of the firmware mismatch.
 
-From this event, the Particle Device Cloud determines the cause of the incompatibility and delivers to the device new Device OS over-the-air. When this happens, you'll see the device rapidly blinking magenta as it receives packets containing the new Device OS. When complete, the device will have what it needs to successfully run the application that was previously flashed.
+From this event, the Particle Device Cloud determines the cause of the
+incompatibility and delivers to the device a new version of Device OS
+over-the-air. When this happens, you'll see the device rapidly blinking
+magenta as it receives packets containing the new Device OS version.
+When complete, the device will have what it needs to successfully run the application that was previously flashed.
 
 The combination of safe mode and safe mode healer provides you
 confidence when flashing new application firmwares to devices.
@@ -137,7 +148,8 @@ There's a couple of things to note:
 - This approach will trigger Device OS _upgrades_, but not _downgrades_. As mentioned earlier, Device OS is backwards compatible meaning that devices can successfully run application firmware compiled against an older version of Device OS than it currently is running
 
 #### CLI (Remote)
-You can also use the Particle CLI to remotely update a device's Device OS without changing the application firmware. This is a more advanced approach and requires some technical chops.
+You can also use the Particle CLI to remotely update a device's Device
+OS version without changing the application firmware. This is a more advanced approach and requires some technical chops.
 
 To do this, first visit the [Device OS releases page](https://github.com/particle-iot/firmware/releases) on GitHub and locate the version you'd like to send to a device.
 
