@@ -128,7 +128,7 @@ Pin D3 through D7 are JTAG interface pins. These can be used to reprogram your E
 - DCD2 (16 KB), swap area for DCD1
 - EEPROM emulation bank 1 (16 KB)
 - EEPROM emulation bank 2 (64 KB) [only 16k used]
-- System firmware (512 KB) [256 KB comms + 256 KB hal/platform/services]
+- Device OS (512 KB) [256 KB comms + 256 KB hal/platform/services]
 - Factory backup, OTA backup and user application (384 KB) [3 x 128 KB]
 
 ### DCD Layout

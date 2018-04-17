@@ -125,7 +125,7 @@ Brings back a device with bad firmware, bad network settings or bad keys
 to health so it can connec to the Particle cloud.
 
 The Device Doctor will:
-* Update system firmware to the latest version
+* Update Device OS to the latest version
 * Update the CC3000 Wi-Fi module firmware (Core only)
 * Reset the antenna selection
 * Reset the IP configuration
@@ -174,10 +174,11 @@ commands.
 
 You can compile and flash your application against a specific firmware version using the `--target` flag. If you don't specify `target` your code will compile against the latest released firmware.
 
-This is useful if you are not ready to upgrade to the latest system firmware on your device or if you want to try a pre-release version.
+This is useful if you are not ready to upgrade to the latest Device OS
+version on your device or if you want to try a pre-release version.
 
 ```sh
-# compile your application with the 0.5.0 system firmware and flash it
+# compile your application with the 0.5.0 Device OS version and flash it
 $ particle flash --target 0.5.0 0123456789ABCDEFGHI my_project
 ```
 
@@ -281,13 +282,15 @@ $ particle compile photon app.ino library1.cpp library1.h
 
 You can compile your application against a specific firmware version use the `--target` flag. If you don't specific `target` your code will compile against the latest released firmware.
 
-This is useful if you are not ready to upgrade to the latest system firmware on your device.
+This is useful if you are not ready to upgrade to the latest Device OS
+version on your device.
 
 ```sh
-# compile your application with the 0.5.0 system firmware
+# compile your application with the 0.5.0 Device OS version
 $ particle compile photon --target 0.5.0 my_project
 $ particle compile electron myapp.ino --target 0.5.1`
-$ `particle flash <deviceid> myapp.ino --target 0.5.1` would compile and flash myapp.ino for device <deviceid> against system firmware 0.5.1.
+$ `particle flash <deviceid> myapp.ino --target 0.5.1` would compile and
+flash myapp.ino for device <deviceid> against Device OS version 0.5.1.
 
 ```
 
@@ -609,14 +612,14 @@ This is a synonym for `particle flash --serial firmware.bin`.
 Note that at present only binaries can be flashed using this command.
 If you wish to flash from application sources, first use `particle compile` to compile a binary from sources.
 
-If you have system firmware with debugging enabled (which is the default on the Electron) then flashing via serial will fail unless debugging is disabled. You can disable debugging logs flashing Tinker via USB: `particle flash --usb tinker`.
+If you have Device OS firmware with debugging enabled (which is the default on the Electron) then flashing via serial will fail unless debugging is disabled. You can disable debugging logs flashing Tinker via USB: `particle flash --usb tinker`.
 
 ## particle update
 
-Update your device to the latest system firmware release. Follow this with `particle flash --usb tinker` to reflash the default Tinker app to make your device run known good software.
+Update your device to the latest Device OS release. Follow this with `particle flash --usb tinker` to reflash the default Tinker app to make your device run known good software.
 
 ```sh
-# put the device in DFU mode first, then update the system firmware
+# put the device in DFU mode first, then update the Device OS
 $ particle update
 > Your device is ready for a system update.
 > This process should take about 30 seconds. Here goes!

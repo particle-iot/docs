@@ -144,7 +144,7 @@ Let's dive into what each test actually does:
 
 ### Device
 
-Starting with system firmware version `0.8.x`, Particle devices have the
+Starting with Device OS version `0.8.x`, Particle devices have the
 ability to collect a rich amount of diagnostic data and send this
 information to the Particle Device Cloud.
 
@@ -177,9 +177,9 @@ most recent diagnostic vitals the device collected.
 
 To ensure that your device is able to collect and send diagnostic data
 to the Particle Device Cloud, you will need to ensure that the device is
-running a system firmware version equal to or greater than `0.8.0`. For
-information on managing system firmware, check out the [system firmware
-guide](/guide/tools-and-features/system-firmware/).
+running a Device OS version equal to or greater than `0.8.0`. For
+information on managing Device OS versions, check out the [Device OS
+guide](/guide/tools-and-features/device-os/).
 
 {{#if electron}}
 ### SIM Card

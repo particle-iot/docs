@@ -167,7 +167,7 @@ When these pads are programmed to be used as a Bluetooth coexistence interface, 
 - DCT2 (16 KB), swap area for DCT1
 - EEPROM emulation bank 1 (16 KB)
 - EEPROM emulation bank 2 (64 KB)
-- System firmware (512 KB) [256 KB Wi-Fi/comms + 256 KB hal/platform/services]
+- Device OS (512 KB) [256 KB Wi-Fi/comms + 256 KB hal/platform/services]
 - Factory backup, OTA backup and user application (384 KB) [3 x 128 KB]
 
 ### DCT Layout

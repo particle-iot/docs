@@ -8,10 +8,10 @@ order: 1001
 
 # Local build using gcc-arm
 
-It is possible to build both user and system firmware locally using the gcc-arm toolchain on Windows, Mac and Linux. There are a few reasons you might be interested in doing this:
+It is possible to build both application firmware and Device OS locally using the gcc-arm toolchain on Windows, Mac and Linux. There are a few reasons you might be interested in doing this:
 
-- To make a custom modification to system firmware
-- To test out system firmware change that hasn't been released yet
+- To make a custom modification to Device OS
+- To test out Device OS changes that haven't been released yet
 - To work entirely offline, with no Internet access
 - To use the GDB debugger
 
@@ -80,7 +80,7 @@ The gcc-arm toolchains are here: [https://launchpad.net/gcc-arm-embedded](https:
 
 Currently, the [5-2016-q1-update](https://launchpad.net/gcc-arm-embedded/5.0/5-2016-q1-update) is recommended.
 
-Prior to system firmware 0.6.3 you can also use the 4.9-2015-q3-update.
+Prior to Device OS version 0.6.3 you can also use the 4.9-2015-q3-update.
 
 The 5.4.x and 6.x versions are not recommended at this time.
 
@@ -191,7 +191,7 @@ Some of the other instructions use Homebrew, but they update their current compi
 
 Currently, the [5-2016-q1-update](https://launchpad.net/gcc-arm-embedded/5.0/5-2016-q1-update) is recommended.
 
-Prior to system firmware 0.6.3 you can also use the 4.9-2015-q3-update.
+Prior to Device OS version 0.6.3 you can also use the 4.9-2015-q3-update.
 
 The 5.4.x and 6.x versions are not recommended at this time.
 
@@ -262,7 +262,7 @@ The gcc-arm toolchains are here:
 
 Currently, the [5-2016-q1-update](https://launchpad.net/gcc-arm-embedded/5.0/5-2016-q1-update) is recommended.
 
-Prior to system firmware 0.6.3 you can also use the 4.9-2015-q3-update.
+Prior to Device OS version 0.6.3 you can also use the 4.9-2015-q3-update.
 
 The 5.4.x and 6.x versions are not recommended at this time.
 
@@ -391,7 +391,7 @@ You may prefer to check out a specific version instead:
 git checkout release/v0.7.0
 ```
 
-- Then do a build. This will build all of the system firmware, plus Tinker, for the Photon.
+- Then do a build. This will build all of the Device OS firmware, plus Tinker, for the Photon.
 
 ### Building
 
@@ -423,7 +423,7 @@ cd modules
 make all PLATFORM=P1
 ```
 
-These commands build the system firmware and Tinker. You can find the built binaries in the following locations after a successful build.
+These commands build the Device OS firmware and Tinker. You can find the built binaries in the following locations after a successful build.
 
 **Photon:**
 
@@ -458,7 +458,7 @@ cd firmware/modules
 make all PLATFORM=photon APPDIR=../../blinkled
 ```
 
-- This builds everything, including system firmware. You will probably want to do this once, but for subsequent builds, you can save a lot of time by using the command:
+- This builds everything, including Device OS firmware. You will probably want to do this once, but for subsequent builds, you can save a lot of time by using the command:
 
 ```bash
 cd firmware/main

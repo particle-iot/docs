@@ -30,7 +30,8 @@ Then issue the command:
 particle identify
 ```
 
-This will output your device ID, system firmware version number, and, for the Electron, your ICCID. Something like:
+This will output your device ID, Device OS version number (previously
+called system firmware), and, for the Electron, your ICCID. Something like:
 
 ```
 Your device id is 1e0032123447343149111039
@@ -182,7 +183,7 @@ Enter "i" (lowercase i, as in identify) in the box at the top of the box at the 
 
 ## USB Serial Number - 0.6.0 and later
 
-Starting with system firmware 0.6.0, the USB device serial number is your Device ID. This only works when your Photon or Electron is in normal operating mode or listening mode (blinking blue); it does not work in DFU mode. Also, since it only works when the device is running 0.6.0 this won't be helpful for fresh from the factory devices at this time. But it still may come in handy.
+Starting with Device OS version 0.6.0, the USB device serial number is your Device ID. This only works when your Photon or Electron is in normal operating mode or listening mode (blinking blue); it does not work in DFU mode. Also, since it only works when the device is running 0.6.0 this won't be helpful for fresh from the factory devices at this time. But it still may come in handy.
 
 ### USB Serial Number - Windows
 

@@ -126,7 +126,7 @@ If your flash is very corrupted, you may also need to flash system and user firm
 
 ### Programming system and user firmware
 
-You can download system firmware binaries for all released versions from [the GitHub release site](https://github.com/particle-iot/firmware/releases).
+You can download Device OS binaries for all released versions from [the GitHub release site](https://github.com/particle-iot/firmware/releases).
 
 For the Photon, flash, for example:
 
@@ -378,7 +378,7 @@ You'll need to edit the path to the bootloader-photon.bin file. You need to spec
 
 ### Programming system and user firmware
 
-To program system firmware, use a set of commands like this for the Photon:
+To program Device OS, use a set of commands like this for the Photon:
 
 ```
 > reset halt

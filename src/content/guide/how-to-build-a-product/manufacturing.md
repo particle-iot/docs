@@ -28,7 +28,7 @@ leverage our order volumes to get better pricing. Working with large
 silicon manufacturers can be difficult and slow, and we strive to be
 friendly, communicative, and easy to deal with. Additionally, when you
 buy hardware from Particle, it includes all the necessary firmware
-libraries and system firmware for connecting to the Particle Device Cloud by default, simplifying your manufacturing process.  This option is best for low to medium volume product deployments (<50K units).
+libraries and Device OS code for connecting to the Particle Device Cloud by default, simplifying your manufacturing process.  This option is best for low to medium volume product deployments (<50K units).
 
 
 - **Purchasing from our module manufacturer.** If your order volumes for the PØ or P1 are very large (50-100K), and you prefer to manage your own supply chain relationships, we encourage you to place an order directly to our module manufacturer. We are happy to provide all necessary introductions to get your purchase order submitted; please [contact sales](http://www.particle.io/sales).
@@ -156,10 +156,16 @@ connect to the Particle Device Cloud.
  Device Cloud, its unique hardware identifier must be registered with our database--this helps us keep the Cloud safe and protect your devices from users and devices that don't belong there. If you purchase hardware directly from Particle, we've already captured this data and can automate the device ID insertion and tagging process behind the scenes.  If you purchase from our module manufacturer directly, though, you'll have to be very diligent about collecting and reporting these identifiers to us during manufacturing so that we recognize your product when it attempts to open up a socket to our Cloud. If an end-user or customer attempts to setup a device without a recognized device ID, the Cloud will reject the connection. Note that this is a significant risk that requires significant attention during the manufacturing process.
 
 
- - **Particle System Firmware.** Buying hardware directly from Particle means it will come pre-programmed with a bootloader, our system firmware (an embedded OS for your device), and Tinker, our default user app.  If you purchase directly from our module manufacturer, the hardware will be blank and require that you flash it using your product's exposed JTAG pins/pads in order to function properly. At a minimum, you'll need to flash our system firmware to the device so that it has the information it needs to communicate with our Cloud during initial configuration and setup.
+ - **Particle Device OS.** Buying hardware directly from Particle means
+ it will come pre-programmed with a bootloader, our Device OS (an
+ embedded OS for your device), and Tinker, our default user app.  If you
+ purchase directly from our module manufacturer, the hardware will be
+ blank and require that you flash it using your product's exposed JTAG
+ pins/pads in order to function properly. At a minimum, you'll need to
+ flash our Device OS to the device so that it has the information it needs to communicate with our Cloud during initial configuration and setup.
 
 *COMING SOON!*
- - Instructions and resources for flashing Particle system firmware to your device on the manufacturing line
+ - Instructions and resources for flashing Particle Device OS to your device on the manufacturing line
 
 
 ### Device tracking and serialization -  *Coming soon!*

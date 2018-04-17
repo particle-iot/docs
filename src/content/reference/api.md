@@ -244,7 +244,8 @@ about to be delivered over the air.
     
 #### Safe-Mode
 
-If your device is running an app that needs a particular version of system firmware, your device may come online and
+If your device is running an app that needs a particular version of
+Device OS, your device may come online and
 report that it's in Safe Mode.  In this case, your device is waiting to run your app until it has received an update.
 Some products can receive system updates automatically while in safe mode, but others like the Electron prevent this to
 save you costs on bandwidth.  If you do get an automatic update, you may see a "spark/safe-mode-updater/updating" event.

@@ -519,7 +519,7 @@ The system events types are:
 - FlashSucceeded (OTA flashing succeeded - new uesr firmware app is live)
 - FlashFailed (OTA flashing process failed - user firmware app was not updated)
 - AppHashUpdated (a new app which is different from last one was flashed to the device)
-- EnteredSafeMode (device has entered safe mode due to system firmware dependency issue )
+- EnteredSafeMode (device has entered safe mode due to firmware dependency issue )
 - SafeModeUpdater (device is trying to heal itself out of safe mode)
 
 ### OAuth client configuration

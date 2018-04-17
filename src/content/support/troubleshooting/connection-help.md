@@ -198,7 +198,7 @@ These commands replace the factory reset image, and re-patch the radio, bringing
 - particle upgrade
 - particle flash --usb tinker
 
-These commands upgrade the system firmware to the latest version and restores the app to the default Tinker. Good luck!
+These commands upgrade the Device OS to the latest version and restores the app to the default Tinker. Good luck!
 {{/if}}
 
 
