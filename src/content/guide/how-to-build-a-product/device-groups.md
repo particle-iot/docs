@@ -7,13 +7,6 @@ order: 12
 
 # {{title}}
 
-<p class="boxedHead">Beta feature</p>
-<p class="boxed">
-Device groups are **currently in beta** and available to customers on an
-Enterprise plan. If you would like access to this feature, please <a
-href="https://www.particle.io/sales" target="_blank">contact us</a>.
-</p>
-
 Device groups allow you to define subsets of your IoT deployment that can
 be addressed separately from the rest of the fleet. Groups provide the flexibility
 and granularity you need to manage a connected product at scale.
