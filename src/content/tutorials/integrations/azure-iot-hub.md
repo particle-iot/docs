@@ -5,7 +5,7 @@ columns: two
 order: 200
 ---
 
-# {{title}} <sub style="color: #777;font-size:18px; bottom: 0;">beta</sub>
+# {{title}}
 
 Particle and Microsoft have teamed up to provide a 1st-class
 integration with <a href="https://azure.microsoft.com/en-us/services/iot-hub/" target="_blank">Azure IoT Hub</a>.
