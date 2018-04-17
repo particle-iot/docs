@@ -81,9 +81,9 @@ Your device id is 1a2345678912345678901234
 The IMEI of the cellular modem will also be printed.
 {{/if}} {{!-- has-cellular --}}
 
-### Display System Firmware Version
+### Display Device OS Version
 
-To get the system firmware version of your device, type `v`
+To get the Device OS (previously called system firmware) version of your device, type `v`
 
 This will give you an output indicating the [firmware](https://github.com/particle-iot/firmware/blob/develop/CHANGELOG.md) that your device is using.
 

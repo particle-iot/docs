@@ -401,7 +401,7 @@ One possibility is that you could display this information on a small OLED displ
 
 ### Debugging
 
-The library uses the logging feature of system firmware 0.6.0 or later when building for 0.6.0 or later. Adding this line to the top of your .ino file will enable debugging messages to the serial port.
+The library uses the logging feature of Device OS version 0.6.0 or later when building for 0.6.0 or later. Adding this line to the top of your .ino file will enable debugging messages to the serial port.
 
 ```
 SerialLogHandler logHandler;

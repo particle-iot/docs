@@ -140,7 +140,7 @@ If the Photon is in listening mode (blinking dark blue), configuration can also 
 - f - Firmware update (using ymodem)
 - x - Exit listening mode
 - s - Print system_module_info 
-- v - System firmware version
+- v - Device OS version
 - L - Safe listen mode (does not run user code concurrently with listening mode)
 - w - Configure Wi-Fi
 - m - Print MAC Address for the Wi-Fi adapter
@@ -247,7 +247,8 @@ There are four configuration parameters for serial, and you must make sure they'
 
 The baud rate is the speed that data is sent. A common value is 9600. The valid values for the Photon and Electron are 1200, 2400, 4800, 9600, 14400, 19200, 28800, 38400, 57600, and 115200. Neither device can use speeds under 1200 (such as 300 or 600).
 
-The number of bits per byte is typically 8. It's occasionally 7 or 9. There is limited support for 9 bit in system firmware 0.5.0 and later, and full support for 7 and 9 bit in 0.6.0 and later.
+The number of bits per byte is typically 8. It's occasionally 7 or 9.
+There is limited support for 9 bit in Device OS version 0.5.0 and later, and full support for 7 and 9 bit in 0.6.0 and later.
 
 The parity is a method of detecting errors in the data. It can be none ("N"), odd ("O") or even ("E"). Support for parity is included in 0.5.0 and later.
 

@@ -7,15 +7,15 @@ order: 5
 
 # {{title}}
 
-The iOS SDK consists of two parts: (1) the Cloud SDK and (2) the Device Setup library, the first is an API wrapper that enables your mobile app to interact with internet-connected hardware through the Particle Cloud while the latter is a library allows you to easily create a setup wizard for allowing your app users to setup their devices.
+The iOS SDK consists of two parts: (1) the Cloud SDK and (2) the Device Setup library, the first is an API wrapper that enables your mobile app to interact with internet-connected hardware through the Particle Device Cloud while the latter is a library allows you to easily create a setup wizard for allowing your app users to setup their devices.
 
 ## iOS Cloud SDK
 
 ### Introduction
 
-Particle iOS Cloud SDK enables iOS apps to interact with Particle-powered connected products via the Particle Cloud. It’s an easy-to-use wrapper for Particle REST API. The Cloud SDK will allow you to:
+Particle iOS Cloud SDK enables iOS apps to interact with Particle-powered connected products via the Particle Device Cloud. It’s an easy-to-use wrapper for Particle REST API. The Cloud SDK will allow you to:
 
-- Manage & inject user sessions for the Particle Cloud (access tokens, encrypted session management)
+- Manage & inject user sessions for the Particle Device Cloud (access tokens, encrypted session management)
 - Claim/Unclaim devices for a user account
 - Get a list of instances of user's Particle devices
 - Read variables from devices
@@ -58,7 +58,7 @@ Cloud SDK usage involves two basic classes: first is `SparkCloud` which is a sin
 Most SDK functions will return an [`NSURLSessionDataTask`](https://developer.apple.com/library/prerelease/ios/documentation/Foundation/Reference/NSURLSessionDataTask_class/index.html) object that can be queried by the app developer for further information about the status of the network operation.
 This is a result of the SDK relying on AFNetworking which is a networking library for iOS and Mac OS X.
 It's built on top of the Foundation URL Loading System, extending the powerful high-level networking abstractions built into Cocoa.
-The Particle Cloud SDK has been relying on this powerful library since the beginning, but when version 3.0 was released not long ago it contained some breaking changes, the main change from 2.x is that `NSURLConnectionOperation` was deprecated by Apple and `NSURLSessionDataTask` was introduced to replace it.
+The Particle Device Cloud SDK has been relying on this powerful library since the beginning, but when version 3.0 was released not long ago it contained some breaking changes, the main change from 2.x is that `NSURLConnectionOperation` was deprecated by Apple and `NSURLSessionDataTask` was introduced to replace it.
 You can ignore the return value (previously it was just `void`) coming out of the SDK functions, alternatively you can now make use of the `NSURLSessionDataTask` object as described.
 
 Here are few examples for the most common use cases to get your started:
@@ -330,7 +330,7 @@ SparkCloud.sharedInstance().logout()
 ---
 ### Events sub-system
 
-You can make an API call that will open a stream of [Server-Sent Events (SSEs)](http://www.w3.org/TR/eventsource/). You will make one API call that opens a connection to the Particle Cloud. That connection will stay open, unlike normal HTTP calls which end quickly. Very little data will come to you across the connection unless your Particle device publishes an event, at which point you will be immediately notified. In each case, the event name filter is `eventNamePrefix` and is optional. When specifying an event name filter, published events will be limited to those events with names that begin with the specified string. For example, specifying an event name filter of 'temp' will return events with names 'temp' and 'temperature'.
+You can make an API call that will open a stream of [Server-Sent Events (SSEs)](http://www.w3.org/TR/eventsource/). You will make one API call that opens a connection to the Particle Device Cloud. That connection will stay open, unlike normal HTTP calls which end quickly. Very little data will come to you across the connection unless your Particle device publishes an event, at which point you will be immediately notified. In each case, the event name filter is `eventNamePrefix` and is optional. When specifying an event name filter, published events will be limited to those events with names that begin with the specified string. For example, specifying an event name filter of 'temp' will return events with names 'temp' and 'temperature'.
 
 #### Subscribe to events
 
@@ -467,7 +467,7 @@ device.unsubscribeFromEvent(withID : eventListenerID)
 
 #### Publishing an event
 
-You can also publish an event from your app to the Particle Cloud:
+You can also publish an event from your app to the Particle Device Cloud:
 
 **Objective-C**
 
@@ -519,13 +519,13 @@ The system events types are:
 - FlashSucceeded (OTA flashing succeeded - new uesr firmware app is live)
 - FlashFailed (OTA flashing process failed - user firmware app was not updated)
 - AppHashUpdated (a new app which is different from last one was flashed to the device)
-- EnteredSafeMode (device has entered safe mode due to system firmware dependency issue )
+- EnteredSafeMode (device has entered safe mode due to firmware dependency issue )
 - SafeModeUpdater (device is trying to heal itself out of safe mode)
 
 ### OAuth client configuration
 
 If you're creating an app you're required to provide the `SparkCloud` class with OAuth clientId and secret.
-Those are used to identify users coming from your specific app to the Particle Cloud.
+Those are used to identify users coming from your specific app to the Particle Device Cloud.
 Please follow the procedure decribed [in our guide](/guide/how-to-build-a-product/authentication/#creating-an-oauth-client) to create those strings,
 then in your `AppDelegate` class you can supply those credentials by setting the following properties in `SparkCloud` singleton:
 
@@ -569,7 +569,7 @@ func application(_ application: UIApplication, didFinishLaunchingWithOptions lau
 
 Be sure to replace `YourAppName` with your project name.
 
-### Deploying apps with the Particle Cloud SDK
+### Deploying apps with the Particle Device Cloud SDK
 
 Starting iOS 10 / XCode 8, Apple requires the developer to enable *Keychain sharing* under the app Capabilities tab when clicking on your target in the project navigator pane. Otherwise an exception will be thrown when a user logs in, the the SDK tries to write the session token to the secure keychain and will fail without this capability enabled.
 Consult this [screenshot](http://i63.tinypic.com/szc3nc.png) for reference:
@@ -626,7 +626,7 @@ Build your project - you now have the Particle SDK embedded in your project.
 ##### Carthage example
 
 A new example app demonstrating the usage of Carthage installation method is available [here](https://github.com/particle-iot/ios-app-example-carthage).
-This app is meant to serve as basic example for using the Particle Cloud SDK and Device Setup Library in the Carthage dependencies form.
+This app is meant to serve as basic example for using the Particle Device Cloud SDK and Device Setup Library in the Carthage dependencies form.
 To get this example app running, clone it, open the project in XCode and:
 
 1. Flash the `firmware.c` (included in the repo project) firmware to an online photon available under your account, use Build or Dev or CLI.
@@ -1011,7 +1011,7 @@ if let setupController = SparkSetupMainController(authenticationOnly: true)
 ```
 ---
 
-This will invoke Particle Cloud authentication (login/signup/password recovery screens) only
+This will invoke Particle Device Cloud authentication (login/signup/password recovery screens) only
 after user has successfully logged in or signed up, control will be returned to the calling app.
 If an active user session already exists control will be returned immediately.
 

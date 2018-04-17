@@ -57,14 +57,14 @@ flexible and reliable entry point for Particle device data into
 Google Cloud Platform.
 
 <img src="/assets/images/Particle+GCP-architecture.png" alt="Particle and Google Cloud Platform architecture diagram"/>
-<p class="caption">Device data gets routed through the Particle Cloud into Google Cloud Pub/Sub. You can then use that data in
+<p class="caption">Device data gets routed through the Particle Device Cloud into Google Cloud Pub/Sub. You can then use that data in
 any number of Google Cloud Platform products.</p>
 
 The Particle cloud will *publish* device data to a Pub/Sub *topic*.
 Once inside, Google Cloud Platform, any number of *subscribers* can listen for
 messages sent to the topic, and relay them to other Google Cloud
 Platform products & services. Once you have enabled the Google Cloud Platform integration,
-the Particle Cloud will begin listening for Particle publishes with a specific event name from your
+the Particle Device Cloud will begin listening for Particle publishes with a specific event name from your
 fleet of devices, and forward the data payload onto your Google Cloud Pub/Sub topic.
 
 Before setting up the integration in Particle, there are a few pre-configuration steps that you
@@ -229,7 +229,7 @@ If things are looking good, you should see a table like this:
 <img class="full-width" src="/assets/images/gcp-event-subscription-list.png"/>
 
 Nice! Everything looks to be wired up correctly. We've proven that we are now successfully getting data from
-a Particle device -> Particle Cloud -> Google Cloud Pub/Sub. From here, it's up to you how you'd like to leverage
+a Particle device -> Particle Device Cloud -> Google Cloud Pub/Sub. From here, it's up to you how you'd like to leverage
 Googe Cloud Platform's products & services to add value to your connected product. The rest of this tutorial will
 focus on specific IoT use cases for Google Cloud Platform.
 
@@ -255,7 +255,7 @@ Before starting with this tutorial, it is important that you first follow the se
 and [enabling the integration](#enabling-the-integration).
 
 For this example, we will be running a small Node.js script to act as an intermediary to subscribe to a Google Cloud Pub/Sub topic, and pass the data into a Datastore database.
-Events will flow from devices, to the Particle Cloud, and into Google Cloud Pub/Sub. Then, the Node script will funnel those events into Datastore. See below for the high-level
+Events will flow from devices, to the Particle Device Cloud, and into Google Cloud Pub/Sub. Then, the Node script will funnel those events into Datastore. See below for the high-level
 architecture of what this example will entail:
 
 <img src="/assets/images/Particle+GCP-datastore.png" alt="Data architecture for Google Cloud Platform + Particle integration example with Datastore" />
@@ -296,7 +296,8 @@ with Google Cloud Platform.
 
 #### Creating a Pub/Sub Subscription
 
-The next thing you'll need is a Google Cloud Pub/Sub subscription. Remember that the Particle Cloud *publishes
+The next thing you'll need is a Google Cloud Pub/Sub subscription.
+Remember that the Particle Device Cloud *publishes
 to a topic* in Google Cloud. A *subscriber* listens for messages published to a topic. We'll need a subscriber
 in order to funnel events from the topic to the Datastore database.
 

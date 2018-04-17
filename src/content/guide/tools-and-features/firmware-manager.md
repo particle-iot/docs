@@ -9,7 +9,7 @@ layout: guide.hbs
 
 # Firmware Manager
 
-The Firmware Manager is a desktop application that upgrades your {{device}} to the latest system firmware. It provides an easy way to update system firmware while avoiding cellular data charges.
+The Firmware Manager is a desktop application that upgrades your {{device}} to the latest Device OS version. It provides an easy way to update Device OS version while avoiding cellular data charges.
 
 ## Getting Started
 
@@ -76,9 +76,9 @@ When the update is complete you'll see this screen
 
 ![Update complete]({{assets}}/images/updater-complete.png)
 
-Congratulations! You've updated the system firmware on your device.
+Congratulations! You've updated the Device OS version on your device.
 
-Your device will automatically reboot and will run your app using the updated system firmware.
+Your device will automatically reboot and will run your app using the updated Device OS version.
 
 {{#if electron}}
 ### Electron Upgrade
@@ -87,7 +87,7 @@ The Electron firmware for 0.6.0 and newer has changed from being made of 2 syste
 
 When you are upgrading from a version earlier than 0.5.3, then your Electron has to be upgraded to 0.5.3 first, before upgrading to 0.6.0 or a later version.
 
-You can upgrade to 0.5.3 by downloading the 0.5.3 Firmware Manager for your OS and running that, as described on this page. Once your device is running 0.5.3 system firmware, then it can be upgraded to 0.6.0 or later. 
+You can upgrade to 0.5.3 by downloading the 0.5.3 Firmware Manager for your OS and running that, as described on this page. Once your device is running 0.5.3 Device OS version, then it can be upgraded to 0.6.0 or later. 
 
 Firmware Manager 0.5.3
 

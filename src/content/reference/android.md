@@ -11,7 +11,7 @@ asyncclasslink: https://github.com/particle-iot/spark-sdk-android/blob/master/cl
 # {{title}}
 
 The Particle Android SDK consists of two parts:
-1. [the Cloud SDK](#android-cloud-sdk): a REST API wrapper which enables your mobile app to interact with Particle-powered hardware through the Particle Cloud
+1. [the Cloud SDK](#android-cloud-sdk): a REST API wrapper which enables your mobile app to interact with Particle-powered hardware through the Particle Device Cloud
 2. [the Device Setup library](#android-device-setup-library): a library which provides an easy setup wizard for your app users to set up their Particle-powered devices
 
 ## Requirements
@@ -33,7 +33,7 @@ Both the Cloud SDK and Device Setup libraries have the following requirements:
 
 ### Introduction
 
-The Particle Android Cloud SDK is an easy-to-use wrapper for the Particle REST API, providing a clear, type-safe way for your Android app to interact with Particle-powered connected products, all via the Particle Cloud.
+The Particle Android Cloud SDK is an easy-to-use wrapper for the Particle REST API, providing a clear, type-safe way for your Android app to interact with Particle-powered connected products, all via the Particle Device Cloud.
 
 SDK features include:
 
@@ -41,7 +41,7 @@ SDK features include:
 - Reading variables and invoking functions on devices
 - Publishing events from mobile devices, and subscribing to events published by devices & apps
 - Claiming & unclaiming devices for a user
-- Managing access tokens for the Particle Cloud
+- Managing access tokens for the Particle Device Cloud
 
 The complete SDK sources are available to [browse on GitHub](https://github.com/particle-iot/spark-sdk-android/tree/master/cloudsdk/src/main/java/io/particle/android/sdk/cloud), and can be [downloaded as a zip file](https://github.com/particle-iot/spark-sdk-android/archive/master.zip).
 
@@ -122,7 +122,7 @@ Async.executeAsync(aDevice, new Async.ApiWork<ParticleDevice, Integer>() {
 ```
 
 ### Cloud Login
-Log in to the Particle Cloud:
+Log in to the Particle Device Cloud:
 
 ```java
 ParticleCloudSDK.getCloud().logIn("ido@particle.io", "myl33tp4ssw0rd");
@@ -181,7 +181,7 @@ String defaultBuildString = myDevice.getDefaultBuild();
 ---
 
 ### Read Variables
-Accessing variables of [all the standard Particle Cloud types](/reference/firmware/#particle-variable-) (integers, strings, and doubles):
+Accessing variables of [all the standard Particle Device Cloud types](/reference/firmware/#particle-variable-) (integers, strings, and doubles):
 
 ```java
 // 'myDevice' here is a ParticleDevice instance
@@ -234,7 +234,7 @@ ParticleCloudSDK.getCloud().logOut()
 
 ### Events sub-system
 <!-- FIXME: improve this description -->
-Using the SDK, you can make an API call that will open a stream of [Server-Sent Events (SSEs)](http://www.w3.org/TR/eventsource/). You will make one API call that opens a connection to the Particle Cloud. That connection will stay open, unlike normal HTTP calls which end quickly. Very little data will come to you across the connection unless your Particle device publishes an event, at which point you will be immediately notified. In each case, the event name filter is `eventNamePrefix` and is optional. When specifying an event name filter, published events will be limited to those events with names that begin with the specified string. For example, specifying an event name filter of 'temp' will return events with names 'temp' and 'temperature'.
+Using the SDK, you can make an API call that will open a stream of [Server-Sent Events (SSEs)](http://www.w3.org/TR/eventsource/). You will make one API call that opens a connection to the Particle Device Cloud. That connection will stay open, unlike normal HTTP calls which end quickly. Very little data will come to you across the connection unless your Particle device publishes an event, at which point you will be immediately notified. In each case, the event name filter is `eventNamePrefix` and is optional. When specifying an event name filter, published events will be limited to those events with names that begin with the specified string. For example, specifying an event name filter of 'temp' will return events with names 'temp' and 'temperature'.
 
 ### Subscribe to events
 
@@ -305,7 +305,7 @@ someDevice.unsubscribeFromEvents(subscriptionId);
 
 ### Publishing an event
 
-You can also publish an event from your app to the Particle Cloud:
+You can also publish an event from your app to the Particle Device Cloud:
 
 ```java
 ParticleCloudSDK.getCloud().publishEventWithName("event_from_app", "some_event_payload",
@@ -322,7 +322,7 @@ Also, if you're working from Android Studio, you can get the JavaDoc for each me
 
 ### OAuth client configuration
 
-If you're distributing your own app, you're required to provide the cloud SDK with an OAuth client ID and secret. These are used to identify users coming from your specific app to the Particle Cloud.  You need only create one pair of these credentials for each app that you plan to release.  i.e. If you plan to release two different apps, then you'll need one set of credentials for each app.  They will persist forever and do not need to be refreshed.  
+If you're distributing your own app, you're required to provide the cloud SDK with an OAuth client ID and secret. These are used to identify users coming from your specific app to the Particle Device Cloud.  You need only create one pair of these credentials for each app that you plan to release.  i.e. If you plan to release two different apps, then you'll need one set of credentials for each app.  They will persist forever and do not need to be refreshed.  
 
 To create these credentials, follow the procedure described [in our guide](/guide/how-to-build-a-product/web-app/#creating-an-oauth-client).
 

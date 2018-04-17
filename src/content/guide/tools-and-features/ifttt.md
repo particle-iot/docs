@@ -77,7 +77,10 @@ Particle.publish("Boiling!", "212", 60, PRIVATE);
 
 To use this Trigger, firmware must include Particle.publish(). Complete documentation on using [Particle.publish() is here.](/reference/firmware/#particle-publish-)
 
-A word of caution - firmware loops quickly, so it's very easy to run publish() too frequently. You'll trigger your IFTTT recipe 100 times in a blink, and if you publish() more than once a second then the Particle Cloud will briefly disable further publishes. Make sure to think through the logic of your code so that it only publishes when you actually want it to.
+A word of caution - firmware loops quickly, so it's very easy to run
+publish() too frequently. You'll trigger your IFTTT recipe 100 times in
+a blink, and if you publish() more than once a second then the Particle
+Device Cloud will briefly disable further publishes. Make sure to think through the logic of your code so that it only publishes when you actually want it to.
 
 ### Trigger fields
 

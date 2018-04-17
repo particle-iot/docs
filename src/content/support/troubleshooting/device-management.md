@@ -63,9 +63,10 @@ Remove the {{device}} from the account it was previously registered to, using th
 
 **2. Connect the {{device}}**
 
-Make sure that the {{device}} is connected to the Particle Cloud (breathing or pulsing cyan).
+Make sure that the {{device}} is connected to the Particle Device Cloud (breathing or pulsing cyan).
 
-Note that {{a-device}} cannot be claimed unless it is connected to the Particle Cloud, and is breathing/pulsing cyan.
+Note that {{a-device}} cannot be claimed unless it is connected to the
+Particle Device Cloud, and is breathing/pulsing cyan.
 
 **3. Claim the {{device}}**
 

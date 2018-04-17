@@ -33,8 +33,12 @@ See [the official JavaScript client](/reference/javascript/).
 
 ## PHP
 
-* [phpSpark by Harrison Jones (and others)](https://github.com/harrisonhjones/phpSpark/) - A simple PHP wrapper library for the Particle Cloud API
-* [phpSparkDashboard by Harrison Jones (and others)](https://github.com/harrisonhjones/phpSparkDashboard/) - A basic dashboard for interacting with the Particle Cloud API
+* [phpSpark by Harrison Jones (and
+* others)](https://github.com/harrisonhjones/phpSpark/) - A simple PHP
+* wrapper library for the Particle Device Cloud API
+* [phpSparkDashboard by Harrison Jones (and
+* others)](https://github.com/harrisonhjones/phpSparkDashboard/) - A
+* basic dashboard for interacting with the Particle Device Cloud API
 
 ## Java
 
@@ -47,12 +51,14 @@ library it needs. Code level is Java-8. It should be trivial to use Java-7 or lo
 
 ## LabVIEW
 
-* [Particle API for LabVIEW](https://github.com/freddiepingpong/labview-particle-api) - A set of LabVIEW VIs to connect to the Particle Cloud API.
+* [Particle API for
+* LabVIEW](https://github.com/freddiepingpong/labview-particle-api) - A
+* set of LabVIEW VIs to connect to the Particle Device Cloud API.
 
 ## Swift
 
-* [Swift 3.0 Client Library](https://github.com/vakoc/particle-swift) - A Swift 3.0, package manager compatible, library for interacting with the Particle Cloud API
-* [Swift 3.0 Command Line Interface](https://github.com/vakoc/particle-swift-cli) - A Swift 3.0, package manager compatible, command line application utilizing particle-swift for interacting with the Particle Cloud API
+* [Swift 3.0 Client Library](https://github.com/vakoc/particle-swift) - A Swift 3.0, package manager compatible, library for interacting with the Particle Device Cloud API
+* [Swift 3.0 Command Line Interface](https://github.com/vakoc/particle-swift-cli) - A Swift 3.0, package manager compatible, command line application utilizing particle-swift for interacting with the Particle Device Cloud API
 
 ## Typescript
 

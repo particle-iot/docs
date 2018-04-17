@@ -21,7 +21,7 @@ Streaming data from Particle devices into InfluxData via a webhook is now
 fully supported via a plugin to the Telegraf component of InfluxData's TICK
 stack. With a simple configuration of a webhook, and an existing -- or new -- 
 instance of Telegraf and InfluxDB you can stream large amounts of data
-from your Particle devices via the Particle Cloud.
+from your Particle devices via the Particle Device Cloud.
 
 - Store data from a fleet of devices in a high-performance, time series database
 - Combine data sources from an entire fleet into unified data flows that
@@ -36,7 +36,7 @@ from your Particle devices via the Particle Cloud.
 <p class="caption">Data is routed from your Particle devices through the Particle
 	Cloud and into the InfluxData Platform via the Telegraf Data Collection Agent.</p>
 	
-Device data gets routed through the Particle Cloud and then to a running instance of
+Device data gets routed through the Particle Device Cloud and then to a running instance of
 InfluxData's <a href="https://www.influxdata.com/time-series-platform/telegraf/">Telegraf</a> data collection service.  Telegraf then routes that data to your instance of <a href="https://www.influxdata.com/time-series-platform/influxdb/">InfluxDB</a> where
 you can create real-time dashboards using <a href="https://www.influxdata.com/time-series-platform/chronograf/">Chronograf</a>, perform data analysis and alerting using
 <a href="https://www.influxdata.com/time-series-platform/kapacitor/">Kapacitor</a>, and store your sensor data for long-term data analysis.</p>
@@ -174,7 +174,8 @@ void loop() {
   digitalWrite(led, HIGH);
   // Publish an event to trigger the integration
   // Replace "my-event" with the event name you used when configuring the integration
-  // You'll also create a valid JSON object to send to the Particle Cloud
+  // You'll also create a valid JSON object to send to the Particle
+  // Device Cloud
   // The JSON is formatted:
   // { "tags: {
   //            "tag1": "value,

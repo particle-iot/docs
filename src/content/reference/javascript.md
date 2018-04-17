@@ -7,7 +7,7 @@ order: 4
 
 # Particle API JS
 
-ParticleJS is JavaScript library for the Particle Cloud API for Node.js and the browser.
+ParticleJS is JavaScript library for the Particle Device Cloud API for Node.js and the browser.
 It's [open source](https://github.com/particle-iot/particle-api-js) so you can edit, change or even send in pull requests if you want to share!
 
 This page contains examples to get started using the library.

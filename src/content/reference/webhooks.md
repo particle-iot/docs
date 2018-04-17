@@ -562,7 +562,7 @@ Product webhooks cannot currently be created through the CLI.
 
 ### particle webhook create
 
-Registers your Webhook with the Particle Cloud.  Creates a request to the given url when your event is sent.  See [the list of properties](#webhook-properties) for JSON formatting requirements and parameters.
+Registers your Webhook with the Particle Device Cloud.  Creates a request to the given url when your event is sent.  See [the list of properties](#webhook-properties) for JSON formatting requirements and parameters.
 
 ```sh
 # how to create a webhook with json data using the CLI
@@ -616,7 +616,7 @@ Delete a webhook using your registered webhook ID number.  Use `particle webhook
 
 ```sh
 # how to delete your previously registered webhook
-# from the Particle Cloud using the CLI
+# from the Particle Device Cloud using the CLI
 $ particle webhook delete WEBHOOK_ID
 
 $ particle webhook delete 234523452345234523452345
@@ -638,7 +638,7 @@ triggered by default. Therefore, ensure that the
 receiving server is capable of handling the request volume you are
 expecting to send.
 
-When a server receiving webhook requests fails, the Particle Cloud will
+When a server receiving webhook requests fails, the Particle Device Cloud will
 throttle requests. Specifically, Particle uses an adaptive algorithm to
 throttle webhook attempts when more 4xx or 5xx HTTP status codes than 2xx
 HTTP status codes are returned by the receiving server.

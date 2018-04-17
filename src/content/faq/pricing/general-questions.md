@@ -223,7 +223,7 @@ get an idea of how close you are to these caps.
 
 Note that we count both official Particle devices + Compounds towards
 these totals, categorized by connectivity type. For instance, Raspberry Pis
-provisioned to the Particle Cloud will be counted towards your Wi-Fi
+provisioned to the Particle Device Cloud will be counted towards your Wi-Fi
 device count.
 
 ## Grandfathered Products

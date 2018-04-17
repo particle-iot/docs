@@ -10,7 +10,7 @@ order: 1000
 
 This guide explains how to install [dfu-util](http://dfu-util.sourceforge.net), the utility for programming the flash memory on Particle devices like the Core, Photon, P1 (with USB) and Electron over USB.
 
-It can be used to program both system firmware and user firmware, and save and restore configurations.
+It can be used to program both Device OS and application firmware, and save and restore configurations.
 
 If you are using Windows, you can use the [Windows CLI Installer](https://binaries.particle.io/cli/installer/windows/ParticleCLISetup.exe) to automatically install dfu-util and the CLI rather than using these instructions.
 
@@ -314,7 +314,7 @@ They're nearly identical but you can tell by their USB IDs:
 - [2b04:d00a] Electron
 
 
-### Updating system firmware with dfu-util
+### Updating Device OS versions with dfu-util
 
 Normally it's easier to use the Particle CLI, which calls dfu-util to do the actual work. For example, for the Photon you might use:
 
@@ -330,7 +330,10 @@ dfu-util -d 2b04:d006 -a 0 -s 0x08020000 -D system-part1-0.4.9-photon.bin
 dfu-util -d 2b04:d006 -a 0 -s 0x08060000:leave -D system-part2-0.4.9-photon.bin
 ```
 
-Note the addresses are different for the Electron; you should refer to the [release notes](/reference/firmware/photon/?fw_ver=0.5.3&cli_ver=1.17.0&electron_parts=2#programming-and-debugging-notes) to find the addresses to use for your device and system firmware version.
+Note the addresses are different for the Electron; you should refer to
+the [release
+notes](/reference/firmware/photon/?fw_ver=0.5.3&cli_ver=1.17.0&electron_parts=2#programming-and-debugging-notes)
+to find the addresses to use for your device and Device OS version.
 
 You will often see this warning in the output from dfu-util. It's normal:
 

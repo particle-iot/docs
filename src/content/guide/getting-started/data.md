@@ -36,7 +36,15 @@ On the Electron we use UDP, which is connection-less. An Electron can go to slee
 When data is sent to or from the device, it comes with a fixed overhead. This includes the [User Datagram Protocol (UDP)](https://en.wikipedia.org/wiki/User_Datagram_Protocol#Packet_structure) header, the Datagram Transport Layer Security (DTLS) header, and an acknowledgement message (ACK). The UDP header is necessary because specifies where the packet came from and where it's going, and that adds 26 bytes to a message. Without the DTLS header we couldn't encrypt your data, and that's an additional 27 bytes. Finally, the ACK is a very short message back from the Cloud with its own UDP and DTLS headers which acts as a receipt and confirms that a message was received, and adds around 61 bytes. For a very short Particle.publish you're looking at a total of nearly 128 bytes, mostly comprised of infrastructure.
 
 ## What consumes data?
-Any time the Electron talks to the Internet or the Internet talks back, that data travels though the cellular network and is metered. There's also unavoidable overhead on all communications because of the structure of the Internet and the necessity of security and reliability. Many of these communications are intentional and obvious, like calling Particle.publish() or flashing code over the air. There are other communications that you may not even be aware of. For instance, when an Electron turns on or is reset it has to register with the cell towers and the Particle Cloud, and this set of messages can use as much as 6KB! The following all use data:
+Any time the Electron talks to the Internet or the Internet talks back,
+that data travels though the cellular network and is metered. There's
+also unavoidable overhead on all communications because of the structure
+of the Internet and the necessity of security and reliability. Many of
+these communications are intentional and obvious, like calling
+Particle.publish() or flashing code over the air. There are other
+communications that you may not even be aware of. For instance, when an
+Electron turns on or is reset it has to register with the cell towers
+and the Particle Device Cloud, and this set of messages can use as much as 6KB! The following all use data:
 
 **Functions from or registered by firmware:**
 - Publish (smallest communication)

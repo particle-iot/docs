@@ -149,7 +149,8 @@ development of your Internet of Things products.
 Defining a Product is what unifies a group of homogeneous devices together, and your Product can be configured to function exactly how you
 envision.
 
-Each Product has its own fleet of associated **devices**. Any hardware on the Particle Cloud including the PØ, P1,
+Each Product has its own fleet of associated **devices**. Any hardware
+on the Particle Device Cloud including the PØ, P1,
 Photon, and Electron, could be used inside a Product, but it's important to note that only one type of device will be in each Product
 
 **Customers** own a device, and have permissions to control
@@ -206,7 +207,7 @@ When you created your product, a unique numeric ID was assigned to it. This smal
 ![A new product](/assets/images/product-id.png)
 <p class="caption">Your product ID is marked with a key icon</p>
 
-This ID will be used by the Particle Cloud to identify which devices belong to your Product, and subsequently it is part of what empowers you to manage firmware running on those devices *en masse*.
+This ID will be used by the Particle Device Cloud to identify which devices belong to your Product, and subsequently it is part of what empowers you to manage firmware running on those devices *en masse*.
 
 When working with devices that belong to your Product, it is important to note that this product ID must be compiled into the firmware that is running on each device. The product ID that the device reports to the cloud from its firmware will determine which Product it requests to become a part of. This will be covered more in-depth in the [rollout firmware](#rollout-firmware) section below.
 
@@ -234,7 +235,9 @@ Where each line is one Device ID. Once you have your file ready, drop it onto th
 
 ![Import devices modal](/assets/images/import-devices.png)
 
-As noted at the bottom of the dialog box, if you previously rolled out firmware, those newly imported devices will be updated over the air to that firmware next time they connect to the Particle Cloud.
+As noted at the bottom of the dialog box, if you previously rolled out
+firmware, those newly imported devices will be updated over the air to
+that firmware next time they connect to the Particle Device Cloud.
 
 ### Rollout Firmware
 
@@ -280,7 +283,7 @@ to a product device.
 
 4. [**Mark the firmware as released**](#releasing-firmware). This will
 target product devices to automatically download and run the firmware.
-The Particle Cloud will respect the [precedence
+The Particle Device Cloud will respect the [precedence
 rules](#firmware-precedence-rules) to determine which firmware is
 delivered to a given device. If you are on the Enterprise plan with
 access to [device groups](/guide/how-to-build-a-product/device-groups/),
@@ -310,7 +313,12 @@ here, but altered slightly to work with a fleet of devices. The first thing you'
 
 Unlike compiling a binary for a single device, it is critical that the **product ID** and a **firmware version** are included in the compiled binary. Specifically, you must add `PRODUCT_ID([your product ID])` and `PRODUCT_VERSION([version])` into the application code of your firmware. This is documented fully [here](https://github.com/particle-iot/firmware/blob/develop/docs/build.md#product-id).
 
-Add these two "macros" near the top of your main application `.ino` file, below `#include "Particle.h"` if it includes that line. Remember that your [product ID](#your-product-id) can be found in the navigation of your Console. The firmware version must be an integer that increments each time a new binary is uploaded to the Console. This allows the Particle Cloud to determine which devices should be running which firmwares.
+Add these two "macros" near the top of your main application `.ino`
+file, below `#include "Particle.h"` if it includes that line. Remember
+that your [product ID](#your-product-id) can be found in the navigation
+of your Console. The firmware version must be an integer that increments
+each time a new binary is uploaded to the Console. This allows the
+Particle Device Cloud to determine which devices should be running which firmwares.
 
 Here is an example of Blinky with the correct product and version details:
 
@@ -521,13 +529,14 @@ Each Product has one primary administrator, the product owner. The owner manages
 
 #### Devices
 
-Devices are any physical device that uses the Particle Cloud- Photons, Electrons, P1s, P0s, etc. The only devices that count toward your pricing tier are those in a single Product fleet, so you could have many “loose” devices in your personal account without them adding to the number of devices in one of your Products. 
+Devices are any physical device that uses the Particle Device Cloud- Photons, Electrons, P1s, P0s, etc. The only devices that count toward your pricing tier are those in a single Product fleet, so you could have many “loose” devices in your personal account without them adding to the number of devices in one of your Products. 
 
 Your personal account’s devices (as well as new, unclaimed devices) are added to a Product when you want to use them as a group for data reporting, firmware updates, and collaboration with coworkers or friends. Only when they’ve been intentionally added to a Product will they count towards that total. 
 
 #### Events
 
-An event is any single outbound message from your fleet that exits the Particle Cloud. For example, this could include a Particle.publish() call on a device that triggers a webhook, an integration such as IFTTT, or a server-sent event (SSE).
+An event is any single outbound message from your fleet that exits the
+Particle Device Cloud. For example, this could include a Particle.publish() call on a device that triggers a webhook, an integration such as IFTTT, or a server-sent event (SSE).
 
 If you have multiple JS applications subscribed to an event then each will consume one of your outbound messages with each published event- watch out for running many copies of your app!
 

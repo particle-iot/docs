@@ -76,7 +76,7 @@ Example activity from CMD output:
 **1. You will need to flash the respective cloud Public Key to the core which you are connecting to.
 
 - Place your {{device}} in DFU-mode (flashing yellow)
-- On the command line (to switch to Particle Cloud):
+- On the command line (to switch to Particle Device Cloud):
 
 	``particle keys server cloud_public.der``
 
