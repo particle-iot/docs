@@ -10867,7 +10867,7 @@ The table below lists the Arduino APIs added for each firmware version
 and the value of the `ARDUINO` symbol.
 
 |API name|description|ARDUINO version|Particle version|
-----
+|---|---|---|---|
 |SPISettings||10800|0.6.2|
 |__FastStringHelper||10800|0.6.2|
 |Wire.setClock|synonym for `Wire.setSpeed`|10800|0.6.2|
