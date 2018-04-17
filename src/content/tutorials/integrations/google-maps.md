@@ -5,7 +5,7 @@ columns: two
 order: 150
 ---
 
-# {{title}} <sub style="color: #777;font-size:18px; bottom: 0;">beta</sub>
+# {{title}}
 
 Particle and Google Maps can now be used in tandem to easily find the location of
 Particle devices without the need for any additional hardware. The <a href="https://developers.google.com/maps/documentation/geolocation/intro" target="_blank">Geolocation API</a>
