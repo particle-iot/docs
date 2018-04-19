@@ -2379,7 +2379,7 @@ Returns `bool` - `true` indicating this operation was successful and the interna
 ```c++
 // SYNTAX
 // Reset Data Usage
-Cellular.dataUsageReset();
+Cellular.resetDataUsage();
 ```
 
 ### RSSI()
