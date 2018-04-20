@@ -326,7 +326,7 @@ The cellular antenna is imperative for the {{device}} to reach connection to a c
 
 {{#if has-battery}}
 {{popup '**The Battery.**' 'img' 'electronBattery.jpg'}}
-The {{device}} comes with a standard 2000mAh 3.7V LiPo battery (rechargeable) which allows the {{device}} to be powered over long periods of time without needing a connection
+The {{device}} comes with a standard 1,800mAh 3.7V LiPo battery (rechargeable) which allows the {{device}} to be powered over long periods of time without needing a connection
 to wired power source. Consider this battery your {{device}}'s best friend!
 {{/if}} {{!-- has-battery --}}
 

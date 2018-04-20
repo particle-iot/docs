@@ -151,8 +151,8 @@ The E series modules can be powered over VIN, VBUS, LIPO or a combination of the
 
 #### Powering using a battery:
 
-The E series module uses TI's BQ24195 to do all of its power management. It is designed to charge a single cell Li-Ion or Li-Polymer battery while intelligently switching between charging and discharging based on the presence of an additional power supply. You can power your design with a battery alone or use it as a back up in addition to having a permanent DC source. The two things you need to keep in mind while choosing a battery is its cell chemistry and max discharge rate. The on board PMIC only supports single cell Li Ion and Li Polymer (3.7V) chemistries. The discharge rate should be able equal to or greater that 2A to meet the cellular modems peak current requirements. 
-The battery provided with the E series evaluation kit is rated at 2000mAH and a discharge rate of 1C with internal over current protection.
+The E series module uses TI's BQ24195 to do all of its power management. It is designed to charge a single cell Li-Ion or Li-Polymer battery while intelligently switching between charging and discharging based on the presence of an additional power supply. You can power your design with a battery alone or use it as a back up in addition to having a permanent DC source. The two things you need to keep in mind while choosing a battery is its cell chemistry and max discharge rate. The on board PMIC only supports single cell Li Ion and Li Polymer (3.7V) chemistries. The discharge rate should be able equal to or greater that 2A to meet the cellular modems peak current requirements.
+The battery provided with the E series evaluation kit is rated at 1,800mAH and a discharge rate of 1C with internal over current protection.
 
 <div align=center><img src="/assets/images/e-series/schematics/e-ps-lipo.png"></div>
 
