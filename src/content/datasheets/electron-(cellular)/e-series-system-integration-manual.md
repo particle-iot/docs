@@ -6,7 +6,7 @@ order: 3
 ---
 # System Integration Manual
 
-This manual provides the necessary guidelines to successfully integrate the E series module in your product. 
+This manual provides the necessary guidelines to successfully integrate the E series module in your product.
 
 For further information about this module please refer to:
 
@@ -16,12 +16,12 @@ For further information about this module please refer to:
 
 ## E series architecture:
 
-The block diagram below summarizes the architecture of the E series module. It's key components are the STM32F205 microcontroller and the uBlox SARA cellular modem. In addition to that, the module has an on board power management IC, 3.3V DC regulator, LiPo fuel gauge, and an Particle embedded SIM chip. There is also room for additional SPI based FLASH memory expansion. 
+The block diagram below summarizes the architecture of the E series module. It's key components are the STM32F205 microcontroller and the uBlox SARA cellular modem. In addition to that, the module has an on board power management IC, 3.3V DC regulator, LiPo fuel gauge, and an Particle embedded SIM chip. There is also room for additional SPI based FLASH memory expansion.
 
 <div align=center><img src="/assets/images/e-series/illustrations/e-blockdiagram.png" ></div>
 
 ### Overview
- 
+
 ### Pinout diagram
 
 <div align=center> <a href="/assets/images/e-series/illustrations/e0-pinout.pdf" target="_blank"> <img src="/assets/images/e-series/illustrations/e0-pinout.png"> </a></div>
@@ -34,7 +34,7 @@ You can download a high resolution pinout diagram in a <a href="/assets/images/e
 |:--|:----|:---------:|:-----------|
 |1| VIN   | POWER     | This pin can be used as an input or output. As an input, supply 5VDC to 12VDC to power the Electron. When the Electron is powered via the USB port, this pin will output a voltage of approximately 4.8VDC due to a reverse polarity protection series Schottky diode between VBUS and VIN. When used as an output, the max load on VIN is 1Amp.  
 |2| GND   | POWER     | System ground.
-|3| VBUS  | POWER     | This is connected to the VBUS power pin of the USB port. 
+|3| VBUS  | POWER     | This is connected to the VBUS power pin of the USB port.
 |4| GND   | POWER     | System ground.
 |5| LIPO  | POWER     | This is connected to the +LiPo connector.       
 |6| NC    | TBD       | Do not connect.
@@ -139,7 +139,7 @@ conditions is not implied. Exposure to absolute-maximum-rated conditions for ext
 
 <sup>[2]</sup> 3G operation
 
-<sup>[3]</sup> 2G operation 
+<sup>[3]</sup> 2G operation
 
 ## Design
 
@@ -167,28 +167,28 @@ If you are planning to use a different cell chemistry or voltage, you'll have to
 
 **VIN**
 
-The E series module can be powered from an external DC source via the VIN pin. The pin can accept voltages from 3.88V to 12VDC. For continuous operation without a battery, please spec the power supply at 10 Watts. For example, if powering at 5 V, the supply should be able to supply 2 A of current. 
+The E series module can be powered from an external DC source via the VIN pin. The pin can accept voltages from 3.88V to 12VDC. For continuous operation without a battery, please spec the power supply at 10 Watts. For example, if powering at 5 V, the supply should be able to supply 2 A of current.
 
 <div align=center><img src="/assets/images/e-series/schematics/e-ps-vin.png"></div>
 
 
 **LIPO**
 
-You can also bypass the PMIC's internal regulator and power the module directly by connecting an externally regulated DC source (3.8 V to 4.1 V) to the LIPO pin as long as the VIN pin is left disconnected. The PMID internally routes power from the LIPO pin to the system via a FET with minimal losses. 
+You can also bypass the PMIC's internal regulator and power the module directly by connecting an externally regulated DC source (3.8 V to 4.1 V) to the LIPO pin as long as the VIN pin is left disconnected. The PMID internally routes power from the LIPO pin to the system via a FET with minimal losses.
 
 <div align=center><img src="/assets/images/e-series/schematics/e-ps-lipo-ext.png"></div>
 
 
 <!-- #### Powering over USB:
 
-If you are designing a product that is only powered via a USB power source, remember to spec it at 2 A minimum since the cellular module can consume upto 1.8A peak for short durations when transmitting in 2G mode, or upto 0.8A in 3G mode. If the USB power source cannot be specd at 2 A, you can supplement the power requirements by integrating a battery. 
+If you are designing a product that is only powered via a USB power source, remember to spec it at 2 A minimum since the cellular module can consume upto 1.8A peak for short durations when transmitting in 2G mode, or upto 0.8A in 3G mode. If the USB power source cannot be specd at 2 A, you can supplement the power requirements by integrating a battery.
   (or enough bulk capacitance along with inrush current limiting) -->
 
 #### VDDA
 
 This pin powers the analog block of the on board microcontroller. You can connect this directly to the 3V3 pin or power it separately with a low noise power source. In either case, you need to connect it to a source for the module to boot up.
 
->**Note:** Do not leave this pin unconnected. For the module to boot up, you need to tie this pin to systems 3V3 or other 3.3V supply. 
+>**Note:** Do not leave this pin unconnected. For the module to boot up, you need to tie this pin to systems 3V3 or other 3.3V supply.
 
 <div align=center><img src="/assets/images/e-series/schematics/e-ps-vdda.png"></div>
 
@@ -275,7 +275,7 @@ These specifications are based on the STM32F205RGT6 datasheet, with reference to
 
 ### Antenna interface
 
-Antenna interface provided via an IPEX MHF/u.FL receptacle. The interface has LC ESD protection of XXXKV. 
+Antenna interface provided via an IPEX MHF/u.FL receptacle. The interface has LC ESD protection of XXXKV.
 
 Particle recommends the Taoglas PC104 penta-band (850/900/1800/1900/2100 MHz) GSM antenna. The antenna comes with an adhesive backing making it easy to mount. Please refer to its datasheet for further details on power characteristics and optimal placement in a product.
 
@@ -284,7 +284,7 @@ Particle recommends the Taoglas PC104 penta-band (850/900/1800/1900/2100 MHz) GS
 |PCB antenna| Taoglas| [PC104.07.0165C](http://www.taoglas.com/wp-content/uploads/2015/06/PC104.07.0165C.pdf)| 1dBi ~ 2.39dBi|
 
 If you are choosing your own antenna please make sure of the following:
- 
+
  - Optimal support for the operating frequency bands of the module.
  - Select an antenna cable with minimum insertion loss.
  - Select a connector with 50 ohm impedance.
@@ -327,7 +327,7 @@ We recommend no clean solder paste over water soluble as it does not require add
 
 **Melting temperature:** 217 °C
 
-**Stencil thickness:** 150 micrometer 
+**Stencil thickness:** 150 micrometer
 
 **Reflow**
 
