@@ -541,6 +541,7 @@ You may use the online Web IDE [Particle Build](https://build.particle.io) to co
 |E301|3G with 2G fallback|Regional(Americas/Aus)|SARA-U260     |850/1900 MHz|
 |E302|3G with 2G fallback|Regional(Eur/Asia/Aus)|SARA-U270     |900/1800/2100 MHz|
 |E310|3G with 2G fallback|Global                |SARA-U201     |850/900/1800/1900/2100 MHz|
+|E402|LTE M1 only        |North America         |R404-02B      |LTE B2, B3, B4, B5, B8, B12, B13, B20, B28|
 
 ## FCC IC CE Warnings and End Product Labeling Requirements
 
