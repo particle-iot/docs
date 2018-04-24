@@ -24,14 +24,17 @@ ASSET3G270V2 | Less than 15 units, ships immediately | More than 15 units, ships
 BAT2000 | All volumes ship in 4 - 6 weeks | All volumes ship in 4 - 6 weeks
 BATTMOD50 | Less than 750 units, ships immediately | More than 750 units, ships in 4 - 6 weeks
 E260KIT | All volumes ship in 12 - 16 weeks | All volumes ship in 12 - 16 weeks
-E260TRAY50 | Less than 200 units, ships in 4 - 6 weeks | More than 200 units, ships in 12 - 16 weeks
+E260TRAY50 | Less than 50 units, ships in 4 - 6 weeks | More than 50 units, ships in 12 - 16 weeks
 E270KIT | Less than 200 units, ships immediately | More than 200 units, ships in 12 - 16 weeks
 E270TRAY50 | Less than 100 units, ships in 4 - 6 weeks | More than 100 units, ships in 12 - 16 weeks
 E310KIT | Less than 50 units, ships in 4 - 6 weeks | More than 50 units, ships in 12 - 16 weeks
 E310MOD1 | Less than 75 units, ships in 4 - 6 weeks | More than 75 units, ships in 12 - 16 weeks
-E310TRAY50 | Less than 300 units, ships in 4 - 6 weeks | More than 300 units, ships in 12 - 16 weeks
+E310TRAY50 | Less than 100 units, ships in 4 - 6 weeks | More than 100 units, ships in 12 - 16 weeks
 E350KIT | Less than 200 units, ships immediately | More than 200 units, ships in 12 - 16 weeks
 E350TRAY50 | Less than 50 units, ships in 4 - 6 weeks | More than 50 units, ships in 12 - 16 weeks
+E402KIT | Less than 200 units, ships in 6 - 8 weeks | More than 200 units, ships in 12 - 16 weeks
+E402MOD1 | Less than 150 units, ships in 6 - 8 weeks | More than 150 units, ships in 12 - 16 weeks
+E402TRAY50 | Less than 250 units, ships in 6 - 8 weeks | More than 250 units, ships in 12 - 16 weeks
 GSWTP | Less than 50 units, ships immediately | More than 50 units, ships in 8 - 10 weeks
 MKITPH | Less than 200 units, ships immediately | More than 200 units, ships in 12 - 16 weeks
 P0MOD10 | Less than 500 units, ships immediately | More than 500 units, ships in 12 - 16 weeks
@@ -41,7 +44,7 @@ P1REEL | Less than 3000 units, ships immediately | More than 3000 units, ships i
 PHNTRAYH | Less than 300 units, ships immediately | More than 300 units, ships in 12 - 16 weeks
 PHNTRAYNOH | Less than 500 units, ships in 2 - 4 weeks | More than 500 units, ships in 12 - 16 weeks
 PHOTONH | Less than 30 units, ships in 2 - 4 weeks | More than 30 units, ships in 12 - 16 weeks
-PHOTONNOH | Less than 50 units, ships immediately | More than 50 units, ships in 12 - 16 weeks
+PHOTONNOH | Less than 30 units, ships immediately | More than 30 units, ships in 12 - 16 weeks
 PHOTONKIT | Less than 50 units, ships in 8 - 10 weeks | More than 50 units, ships in 10 - 13 weeks
 PROGSHIELD | Less than 200 units, ships immediately | More than 200 units, ships in 8 - 10 weeks
 PWRSHIELDH | Less than 200 units, ships immediately | More than 200 units, ships in 8 - 10 weeks
@@ -67,6 +70,7 @@ E260TRAY50 | 50 units
 E270TRAY50 | 50 units
 E310TRAY50 | 50 units
 E350TRAY50 | 50 units
+E402TRAY50 | 50 units
 P0MOD10 | 10 units
 P0REEL | 1000 units
 P1MOD10 | 10 units
@@ -83,7 +87,7 @@ If you’ve made a purchase through our Wholesale Store, our replacement process
 
 Orders on our Wholesale Store are committed POs that are non-cancellable and non-refundable. We also can not delay shipping timelines in the case of a committed PO. 
  
-In certain circumstances, we may allow returns or exchanges if the items are in original condition. If you have a question about a particular return or exchange, please contact us via our [support portal](https://support.particle.io/) within 15 days of receipt of your order. A $2.85 per device restocking fee may be deducted from any refunds issued.
+In certain circumstances, we may allow returns or exchanges if the items are in original condition. If you have a question about a particular return or exchange, please contact us via our [support portal](https://support.particle.io/) within 15 days of receipt of your order. A $2.85 per unopened device restocking fee may be deducted from any refunds issued.
 
 ### Items on Reels or Trays
 
@@ -113,7 +117,7 @@ Lithium ion battery shipping is a highly regulated and confusing area. The facts
 
 The first thing to understand is the type of battery you have. The batteries that come standard with Electrons are lithium ion batteries. 
 
-Next you will need to identify how they are shipped. Whether the batteries are shipped IN, WITH or WITHOUT equipment is critical to the level of labeling and restriction they will have. Consult the following guides to identify your battery type: 
+Next you will need to identify how they are shipped. Whether the batteries are shipped IN, WITH, or WITHOUT equipment is critical to the level of labeling and restriction they will have. Consult the following guides to identify your battery type: 
 - [Full list of DHL guides](http://www.dhl.com/en/express/shipping/shipping_advice/lithium_batteries.html#guides_materials)
 - [Guide to determining type of batteries](http://www.dhl.com/content/dam/downloads/g0/express/shipping/lithium_batteries/lithium_ion_batteries_regulations.pdf)
 
