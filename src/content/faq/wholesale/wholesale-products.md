@@ -127,9 +127,6 @@ You may also need to confirm your labeling fits the type of battery you are ship
 
 Be on the look out for frequent regulatory changes.(http://www.iata.org/whatwedo/cargo/dgr/Documents/lithium-battery-update.pdf) New regulations went into effect Jan 1, 2017.
 
-### Particle shipping restrictions
-Particle ships bulk batteries (SKU = BATTMOD50) only to locations in the US and Canada. To receive batteries elsewhere, please contact orders@particle.io for a case by case evaluation. 
-
 ## Any Other Questions
 
 If you have any additional questions that aren’t answered here, please let us know at our [support portal](https://support.particle.io).
