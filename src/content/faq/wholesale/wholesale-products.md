@@ -19,12 +19,12 @@ ANTELEC50 | All volumes ship in 4 - 6 weeks | All volumes ship in 4 - 6 weeks
 ANTFLEX | Less than 100 units, ships immediately | More than 100 units, ships in 4 - 6 weeks
 ARDSHIELD | Less than 150 units, ships immediately | More than 150 units, ships in 8 - 10 weeks
 ASSET2GV2 | Less than 50 units, ships immediately | More than 50 units, ships in 4 - 6 weeks
-ASSET3G260V2 | Less than 75 units, ships in 2 - 4 weeks | More than 75 units, ships in 10 - 13 weeks
-ASSET3G270V2 | Less than 15 units, ships immediately | More than 15 units, ships in 10 - 13 weeks
+ASSET3G260V2 | Less than 20 units, ships in 2 - 4 weeks | More than 20 units, ships in 10 - 13 weeks
+ASSET3G270V2 | Less than 5 units, ships immediately | More than 5 units, ships in 10 - 13 weeks
 BAT2000 | All volumes ship in 4 - 6 weeks | All volumes ship in 4 - 6 weeks
 BATTMOD50 | Less than 750 units, ships immediately | More than 750 units, ships in 4 - 6 weeks
 E260KIT | All volumes ship in 12 - 16 weeks | All volumes ship in 12 - 16 weeks
-E260TRAY50 | Less than 50 units, ships in 4 - 6 weeks | More than 50 units, ships in 12 - 16 weeks
+E260TRAY50 | Less than 400 units, ships in 6 - 8 weeks | More than 400 units, ships in 12 - 16 weeks
 E270KIT | Less than 200 units, ships immediately | More than 200 units, ships in 12 - 16 weeks
 E270TRAY50 | Less than 100 units, ships in 4 - 6 weeks | More than 100 units, ships in 12 - 16 weeks
 E310KIT | Less than 50 units, ships in 4 - 6 weeks | More than 50 units, ships in 12 - 16 weeks
@@ -34,7 +34,7 @@ E350KIT | Less than 200 units, ships immediately | More than 200 units, ships in
 E350TRAY50 | Less than 50 units, ships in 4 - 6 weeks | More than 50 units, ships in 12 - 16 weeks
 E402KIT | Less than 200 units, ships in 6 - 8 weeks | More than 200 units, ships in 12 - 16 weeks
 E402MOD1 | Less than 150 units, ships in 6 - 8 weeks | More than 150 units, ships in 12 - 16 weeks
-E402TRAY50 | Less than 250 units, ships in 6 - 8 weeks | More than 250 units, ships in 12 - 16 weeks
+E402TRAY50 | Less than 250 units, ships in 6 - 12 weeks | More than 250 units, ships in 12 - 16 weeks
 GSWTP | Less than 50 units, ships immediately | More than 50 units, ships in 8 - 10 weeks
 MKITPH | Less than 200 units, ships immediately | More than 200 units, ships in 12 - 16 weeks
 P0MOD10 | Less than 500 units, ships immediately | More than 500 units, ships in 12 - 16 weeks
@@ -45,7 +45,7 @@ PHNTRAYH | Less than 300 units, ships immediately | More than 300 units, ships i
 PHNTRAYNOH | Less than 500 units, ships in 2 - 4 weeks | More than 500 units, ships in 12 - 16 weeks
 PHOTONH | Less than 30 units, ships in 2 - 4 weeks | More than 30 units, ships in 12 - 16 weeks
 PHOTONNOH | Less than 30 units, ships immediately | More than 30 units, ships in 12 - 16 weeks
-PHOTONKIT | Less than 50 units, ships in 8 - 10 weeks | More than 50 units, ships in 10 - 13 weeks
+PHOTONKIT | Less than 20 units, ships immediately | More than 20 units, ships in 12 - 16 weeks
 PROGSHIELD | Less than 200 units, ships immediately | More than 200 units, ships in 8 - 10 weeks
 PWRSHIELDH | Less than 200 units, ships immediately | More than 200 units, ships in 8 - 10 weeks
 RLYSHIELD | All volumes ship in 8 - 10 weeks | All volumes ship in 8 - 10 weeks
