@@ -72,43 +72,52 @@ scopes](http://tools.ietf.org/html/rfc6749#section-3.3).
 
 ### Creating an OAuth Client
 
-You can now use the [Particle console](https://console.particle.io) to
-create and manage your OAuth clients. The new "Authentication" view is your hub
-for creating, and managing your product's clients.
+You can use the [Particle Console](https://console.particle.io) to
+create and manage your OAuth clients. To get started, click on the
+Authentication icon <i class="im-fingerprint-icon"></i> in your
+sidebar.
 
-You can find the Authentication view by clicking on Products icon on the left
-navigation bar in the Console, then selecting your product then clicking on the
-thumbprint icon. If you don't have a product yet,
-[create one on the Console](https://console.particle.io/products).
+You can create OAuth clients on behalf of your Particle user (to
+interact with devices your account has claimed), or on behalf of a
+Particle product (to interact withe devices in the product fleet).
+
+Scoping the client to a user or product account does impact which
+devices the client can interact with, and which permissions are
+available—so please choose mindfully. If you'd like
+to create an OAuth client for your product, visit the Authentication
+view within the Console's management context for your product.
 
  ![Auth Icon](/assets/images/auth-icon.png)
 
-When you visit the Authentication page, you will see a list of any OAuth clients
-that already have been created for your product. To create a new client,
-click the "+ New Client" button in the top right corner of the screen.
+To create a new client, click the **+ New Client** button in the top
+right corner of the screen.
 
 This will launch a modal allowing you to configure an OAuth client that suits
-your needs. The configuration of your OAuth client will depend both on what
-_medium_ your customers will use to interact with their Particle devices (i.e.
+your particular use case.
+
+The configuration of your OAuth client will depend both on what
+_type of interface_ your end-users will use to interact with their Particle devices (i.e.
 mobile vs. web app) in addition to what _authentication method_ you choose for
 your product. You can [skip to choosing an authentication
 method](#choosing-an-authentication-method) if you'd like to create an OAuth
 client now.
 
  ![Create client](/assets/images/create-client.png)
- <p class="caption">The console provides an easy way to create OAuth
+ <p class="caption">The Console provides an easy way to manage OAuth
  clients</p>
 
-The console will provide your client ID and secret once you configure
-your client correctly. **Your client secret will only be shown once for security
+The Console will provide you with a **client ID** and **secret** once
+you create your client. **Your client secret will only be shown once for security
 purposes**. Ensure that you copy it for your records to be used in your mobile
 or web app.
 
 **Never expose your client credentials,
-especially if they are unscoped**. Credentials are sensitive pieces of
+_especially_ if the client has full permissions**. Credentials are sensitive pieces of
 information that, if exposed, could allow unauthorized people or
-applications to interact with your product's data and devices. [More
-on registering clients](http://tools.ietf.org/html/rfc6749#section-2).
+applications to interact with your product's data and devices.
+
+_Note: You may also manage OAuth clients programmatically, using the [Device Cloud
+REST API](/reference/api/#oauth-clients)_.
 
 ## Access Tokens
 A related concept to understand is how Particle uses access

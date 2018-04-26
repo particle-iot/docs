@@ -547,8 +547,11 @@ _sleep_ (throttling).
 
 ![Webhook History](/assets/images/webhooks/webhook-history.png)
 
-Logs will provide details on the last 10 attempts. For each logged
-webhook, you'll be able to see the source event that triggered the
+Logs will provide details on both the last 10 request, as well as the
+last 10 errors. These logs will also be available for 30 days from the
+time of the request.
+
+For each logged webhook, you'll be able to see the source event that triggered the
 webhook, the HTTP request sent to the webhook URL, and the full HTTP
 response from the webhook server.
 
