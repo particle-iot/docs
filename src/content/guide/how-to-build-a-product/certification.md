@@ -320,10 +320,10 @@ The GCF is a certification partnership between European network operators, mobil
 
 ## Battery Certifications
 
-The 2,000mAh lithium-polymer (Li-Po) battery included with the Electron and other Particle accessories is compliant with all international safety and transportation standards. Test reports below.
+The 1,800mAh lithium-polymer (Li-Po) battery included with the Electron and other Particle accessories is compliant with all international safety and transportation standards. Test reports below.
 
 **Model Number**: LP103450  
-**Ratings**: 3.7V DC, 2000mAh, 7.4Wh  
+**Ratings**: 3.7V DC, 1,800mAh, 7.4Wh  
 **Manufacturer**: PKCELL (Shenzhen, China)  
 **Test Reports**: Updated 3/20/17
 - [IEC62133](/assets/pdfs/electron/battery/IEC62133.pdf)

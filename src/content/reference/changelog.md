@@ -54,7 +54,7 @@ Additionally, we’ve added two new sets of GPIO pins (B0-B5, C0-C5) as well as 
 
 ### Power Management
 
-Cellular communication requires a different current consumption profile than Wi-Fi communication, so we’ve included an attachable Li-Po battery (2,000mAH) and battery management system to make product creation easier.
+Cellular communication requires a different current consumption profile than Wi-Fi communication, so we’ve included an attachable Li-Po battery (1,800mAH) and battery management system to make product creation easier.
 
 - **JST connector.** Each Electron includes a JST connector to make attaching an external battery quick and simple. All batteries we sell come with compatible connectors.
 - **Charge Management.** The Electron includes a very powerful charge management IC that handles all of the charge/discharge responsibilities of the device.
