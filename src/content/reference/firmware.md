@@ -43,6 +43,18 @@ void setup() {
 ```
 {{/if}} {{!-- has-cellular --}}
 
+**Overview of API field limits**
+
+| API Field | Prior to 0.8.0 | Since 0.8.0 | Comment |
+|--:|--:|--:|:--|
+| Variable Key | 12 | 64 | |
+| Variable Data | 622 | 622 | |
+| Function Key | 12 | 64 | |
+| Function Argument | 63 | 622 | |
+| Publish/Subscribe Event Name | 64 | 64 | |
+| Publish/Subscribe Event Data | 255 | 622 | Cloud API currently still limits to 255, but Device OS can publish 622.  Will change Cloud API to accept 622. |
+**Note:** Spark Core limits remain as-is prior to 0.8.0
+
 ### Particle.variable()
 
 Expose a *variable* through the Cloud so that it can be called with `GET /v1/devices/{DEVICE_ID}/{VARIABLE}`.
@@ -59,7 +71,6 @@ String aString;
 
 void setup()
 {
-  // variable name max length is 12 characters long
   Particle.variable("analogvalue", analogvalue);
   Particle.variable("temp", tempC);
   if (Particle.variable("mess", message)==false)
@@ -81,7 +92,7 @@ void loop()
 }
 ```
 
-Up to 20 cloud variables may be registered and each variable name is limited to a maximum of 12 characters.
+Up to 20 cloud variables may be registered and each variable name is limited to a maximum of 12 characters (_prior to 0.8.0_), 64 characters (_since 0.8.0_).  The Spark Core remains limited to 12 characters.
 
 **Note:** Only use letters, numbers, underscores and dashes in variable names. Spaces and special characters may be escaped by different tools and libraries causing unexpected results.
 
@@ -102,7 +113,6 @@ char *message = "my name is particle";
 
 void setup()
 {
-  // variable name max length is 12 characters long
   Particle.variable("analogvalue", &analogvalue, INT);
   Particle.variable("temp", &tempC, DOUBLE);
   if (Particle.variable("mess", message, STRING)==false)
@@ -149,13 +159,13 @@ int funcName(String extra) {
 }
 ```
 
-Up to 15 cloud functions may be registered and each function name is limited to a maximum of 12 characters.
+Up to 15 cloud functions may be registered and each function name is limited to a maximum of 12 characters (_prior to 0.8.0_), 64 characters (_since 0.8.0_). The Spark Core remains limited to 12 characters.
 
 **Note:** Only use letters, numbers, underscores and dashes in function names. Spaces and special characters may be escaped by different tools and libraries causing unexpected results.
 
 In order to register a cloud  function, the user provides the `funcKey`, which is the string name used to make a POST request and a `funcName`, which is the actual name of the function that gets called in your app. The cloud function can return any integer; `-1` is commonly used for a failed function call.
 
-A cloud function is set up to take one argument of the [String](#string-class) datatype. This argument length is limited to a max of 63 characters.
+A cloud function is set up to take one argument of the [String](#string-class) datatype. This argument length is limited to a max of 63 characters (_prior to 0.8.0_), 622 characters (_since 0.8.0_). The Spark Core remains limited to 63 characters.
 
 ```cpp
 // EXAMPLE USAGE
@@ -233,14 +243,14 @@ This feature allows the device to generate an event based on a condition. For ex
 
 Cloud events have the following properties:
 
-* name (1–63 ASCII characters)
+* name (1–64 ASCII characters)
 
 **Note:** Only use letters, numbers, underscores, dashes and slashes in event names. Spaces and special characters may be escaped by different tools and libraries causing unexpected results.
 
 * public/private (default public)
 * ttl (time to live, 0–16777215 seconds, default 60)
   !! NOTE: The user-specified ttl value is not yet implemented, so changing this property will not currently have any impact.
-* optional data (up to 255 bytes)
+* optional data (up to 255 characters (_prior to 0.8.0_), 622 characters (_since 0.8.0_)).  The Spark Core remains limited to 255 characters.
 
 Anyone may subscribe to public events; think of them like tweets.
 Only the owner of the device will be able to subscribe to private events.
@@ -13923,7 +13933,7 @@ Please go to Github to read the Changelog for your desired firmware version (Cli
 
 |Firmware Version||||||||
 |:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|
-|v0.8.x-rc.x prereleases|[v0.8.0-rc.1](https://github.com/spark/firmware/releases/tag/v0.8.0-rc.1)|[v0.8.0-rc.2](https://github.com/spark/firmware/releases/tag/v0.8.0-rc.2)|[v0.8.0-rc.3](https://github.com/spark/firmware/releases/tag/v0.8.0-rc.3)|-|-|-|-|
+|v0.8.x-rc.x prereleases|[v0.8.0-rc.1](https://github.com/spark/firmware/releases/tag/v0.8.0-rc.1)|[v0.8.0-rc.2](https://github.com/spark/firmware/releases/tag/v0.8.0-rc.2)|[v0.8.0-rc.3](https://github.com/spark/firmware/releases/tag/v0.8.0-rc.3)|[v0.8.0-rc.4](https://github.com/spark/firmware/releases/tag/v0.8.0-rc.4)|-|-|-|
 |v0.7.x default releases|[v0.7.0](https://github.com/particle-iot/firmware/releases/tag/v0.7.0)|-|-|-|-|-|-|
 |v0.7.x-rc.x prereleases|[v0.7.0-rc.1](https://github.com/spark/firmware/releases/tag/v0.7.0-rc.1)|[v0.7.0-rc.2](https://github.com/spark/firmware/releases/tag/v0.7.0-rc.2)|[v0.7.0-rc.3](https://github.com/spark/firmware/releases/tag/v0.7.0-rc.3)|[v0.7.0-rc.4](https://github.com/spark/firmware/releases/tag/v0.7.0-rc.4)|[v0.7.0-rc.5](https://github.com/spark/firmware/releases/tag/v0.7.0-rc.5)|[v0.7.0-rc.6](https://github.com/spark/firmware/releases/tag/v0.7.0-rc.6)|[v0.7.0-rc.7](https://github.com/spark/firmware/releases/tag/v0.7.0-rc.7)|
 |v0.6.x default releases|[v0.6.0](https://github.com/spark/firmware/releases/tag/v0.6.0)|[v0.6.1](https://github.com/spark/firmware/releases/tag/v0.6.1)|[v0.6.2](https://github.com/spark/firmware/releases/tag/v0.6.2)|[v0.6.3](https://github.com/spark/firmware/releases/tag/v0.6.3)|[v0.6.4](https://github.com/spark/firmware/releases/tag/v0.6.4)|-|-|
@@ -13938,7 +13948,7 @@ If you don't see any notes below the table or if they are the wrong version, ple
 
 |Firmware Version||||||||
 |:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|
-|v0.8.x-rc.x prereleases|[v0.8.0-rc.1](https://prerelease-docs.particle.io/reference/firmware/photon/?fw_ver=0.8.0-rc.1&cli_ver=1.29.0&electron_parts=3#programming-and-debugging-notes)|[v0.8.0-rc.2](https://prerelease-docs.particle.io/reference/firmware/photon/?fw_ver=0.8.0-rc.2&cli_ver=1.29.0&electron_parts=3#programming-and-debugging-notes)|[v0.8.0-rc.3](https://prerelease-docs.particle.io/reference/firmware/photon/?fw_ver=0.8.0-rc.3&cli_ver=1.29.0&electron_parts=3#programming-and-debugging-notes)|-|-|-|-|
+|v0.8.x-rc.x prereleases|[v0.8.0-rc.1](https://prerelease-docs.particle.io/reference/firmware/photon/?fw_ver=0.8.0-rc.1&cli_ver=1.29.0&electron_parts=3#programming-and-debugging-notes)|[v0.8.0-rc.2](https://prerelease-docs.particle.io/reference/firmware/photon/?fw_ver=0.8.0-rc.2&cli_ver=1.29.0&electron_parts=3#programming-and-debugging-notes)|[v0.8.0-rc.3](https://prerelease-docs.particle.io/reference/firmware/photon/?fw_ver=0.8.0-rc.3&cli_ver=1.29.0&electron_parts=3#programming-and-debugging-notes)|[v0.8.0-rc.4](https://prerelease-docs.particle.io/reference/firmware/photon/?fw_ver=0.8.0-rc.4&cli_ver=1.29.0&electron_parts=3#programming-and-debugging-notes)|-|-|-|
 |v0.7.x default releases|[v0.7.0](https://docs.particle.io/reference/firmware/photon/?fw_ver=0.7.0&cli_ver=1.29.0&electron_parts=3#programming-and-debugging-notes)|-|-|-|-|-|-|
 |v0.7.x-rc.x prereleases|[v0.7.0-rc.1](https://prerelease-docs.particle.io/reference/firmware/photon/?fw_ver=0.7.0-rc.1&cli_ver=1.23.1&electron_parts=3#programming-and-debugging-notes)|[v0.7.0-rc.2](https://prerelease-docs.particle.io/reference/firmware/photon/?fw_ver=0.7.0-rc.2&cli_ver=1.23.1&electron_parts=3#programming-and-debugging-notes)|[v0.7.0-rc.3](https://prerelease-docs.particle.io/reference/firmware/photon/?fw_ver=0.7.0-rc.3&cli_ver=1.23.1&electron_parts=3#programming-and-debugging-notes)|[v0.7.0-rc.4](https://prerelease-docs.particle.io/reference/firmware/photon/?fw_ver=0.7.0-rc.4&cli_ver=1.23.1&electron_parts=3#programming-and-debugging-notes)|[v0.7.0-rc.5](https://prerelease-docs.particle.io/reference/firmware/photon/?fw_ver=0.7.0-rc.5&cli_ver=1.23.1&electron_parts=3#programming-and-debugging-notes)|[v0.7.0-rc.6](https://prerelease-docs.particle.io/reference/firmware/photon/?fw_ver=0.7.0-rc.6&cli_ver=1.23.1&electron_parts=3#programming-and-debugging-notes)|[v0.7.0-rc.7](https://prerelease-docs.particle.io/reference/firmware/photon/?fw_ver=0.7.0-rc.7&cli_ver=1.23.1&electron_parts=3#programming-and-debugging-notes)|
 |v0.6.x default releases|[v0.6.0](https://docs.particle.io/reference/firmware/photon/?fw_ver=0.6.0&cli_ver=1.18.0&electron_parts=3#programming-and-debugging-notes)|[v0.6.1](https://docs.particle.io/reference/firmware/photon/?fw_ver=0.6.1&cli_ver=1.20.1&electron_parts=3#programming-and-debugging-notes)|[v0.6.2](/reference/firmware/photon/?fw_ver=0.6.2&cli_ver=1.22.0&electron_parts=3#programming-and-debugging-notes)|[v0.6.3](/reference/firmware/photon/?fw_ver=0.6.3&cli_ver=1.25.0&electron_parts=3#programming-and-debugging-notes)|[v0.6.4](/reference/firmware/photon/?fw_ver=0.6.4&cli_ver=1.26.2&electron_parts=3#programming-and-debugging-notes)|-|-|
@@ -13949,7 +13959,7 @@ If you don't see any notes below the table or if they are the wrong version, ple
 
 <!--
 CLI VERSION is compatable with FIRMWARE VERSION
-v1.29.0 = 0.7.0, 0.8.0-rc.1, 0.8.0-rc2, 0.8.0-rc.3
+v1.29.0 = 0.7.0, 0.8.0-rc.1, 0.8.0-rc2, 0.8.0-rc.3, 0.8.0-rc.4
 v1.26.2 = 0.6.4
 v1.25.0 = 0.6.3
 v1.23.1 = 0.7.0-rc.1 support for WPA Enterprise setup
