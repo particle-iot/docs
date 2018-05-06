@@ -410,7 +410,7 @@ Go to the next section to learn to [connect over USB](/guide/getting-started/con
 
 {{#if photon}}
 * **Software**
-  * Particle Mobile App - [iPhone](https://itunes.apple.com/us/app/particle-build-photon-electron/id991459054?ls=1&mt=8) | [Android](https://play.google.com/store/apps/details?id=io.particle.android.app) | [Windows](https://www.microsoft.com/en-us/store/p/particle/9nblggh4p55n)
+  * Particle Mobile App - [iPhone](https://itunes.apple.com/us/app/particle-build-iot-projects-wifi-or-cellular/id991459054?mt=8) | [Android](https://play.google.com/store/apps/details?id=io.particle.android.app) | [Windows](https://www.microsoft.com/en-us/store/p/particle/9nblggh4p55n)
   * *Note: We highly recommend using the mobile app for first time setup.*
 * **Hardware**
   * Your Particle device, brand new and out of the box!
@@ -431,7 +431,7 @@ Go to the next section to learn to [connect over USB](/guide/getting-started/con
 
 {{#if core}}
 * **Software**
-  * Spark Core Mobile App - [iPhone](https://itunes.apple.com/us/app/spark-core/id760157884) | [Android](https://play.google.com/store/apps/details?id=io.spark.core.android) | [Windows](https://www.microsoft.com/en-us/store/p/particle/9nblggh4p55n)
+  * Spark Core Mobile App - [iPhone](https://itunes.apple.com/us/app/spark-core/id760157884?mt=8) | [Android](https://play.google.com/store/apps/details?id=io.spark.core.android) | [Windows](https://www.microsoft.com/en-us/store/p/particle/9nblggh4p55n)
   * *Note: We highly recommend using the mobile app for first time setup.*
 * **Hardware**
   * Your Particle device, brand new and out of the box!
