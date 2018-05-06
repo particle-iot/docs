@@ -5,7 +5,7 @@ columns: two
 order: 150
 ---
 
-# {{title}} <sub style="color: #777;font-size:18px; bottom: 0;">beta</sub>
+# {{title}}
 
 Particle and Google Maps can now be used in tandem to easily find the location of
 Particle devices without the need for any additional hardware. The <a href="https://developers.google.com/maps/documentation/geolocation/intro" target="_blank">Geolocation API</a>
@@ -401,7 +401,7 @@ One possibility is that you could display this information on a small OLED displ
 
 ### Debugging
 
-The library uses the logging feature of system firmware 0.6.0 or later when building for 0.6.0 or later. Adding this line to the top of your .ino file will enable debugging messages to the serial port.
+The library uses the logging feature of Device OS version 0.6.0 or later when building for 0.6.0 or later. Adding this line to the top of your .ino file will enable debugging messages to the serial port.
 
 ```
 SerialLogHandler logHandler;

@@ -237,7 +237,7 @@ curl https://api.particle.io/v1/devices/0123456789abcdef/brew \
 
 ### Particle.publish()
 
-Publish an *event* through the Particle Cloud that will be forwarded to all registered listeners, such as callbacks, subscribed streams of Server-Sent Events, and other devices listening via `Particle.subscribe()`.
+Publish an *event* through the Particle Device Cloud that will be forwarded to all registered listeners, such as callbacks, subscribed streams of Server-Sent Events, and other devices listening via `Particle.subscribe()`.
 
 This feature allows the device to generate an event based on a condition. For example, you could connect a motion sensor to the device and have the device generate an event whenever motion is detected.
 
@@ -646,7 +646,7 @@ void redundantLoop() {
 
 ### Particle.syncTime()
 
-Synchronize the time with the Particle Cloud.
+Synchronize the time with the Particle Device Cloud.
 This happens automatically when the device connects to the Cloud.
 However, if your device runs continuously for a long time,
 you may want to synchronize once per day or so.
@@ -657,7 +657,7 @@ unsigned long lastSync = millis();
 
 void loop() {
   if (millis() - lastSync > ONE_DAY_MILLIS) {
-    // Request time synchronization from the Particle Cloud
+    // Request time synchronization from the Particle Device Cloud
     Particle.syncTime();
     lastSync = millis();
   }
@@ -673,7 +673,7 @@ See [`Particle.syncTimeDone()`](#particle-synctimedone-), [`Particle.timeSyncedL
 
 _Since 0.6.1_
 
-Returns `true` if there is no `syncTime()` request currently pending or there is no active connection to Particle Cloud. Returns `false` when there is a pending `syncTime()` request.
+Returns `true` if there is no `syncTime()` request currently pending or there is no active connection to Particle Device Cloud. Returns `false` when there is a pending `syncTime()` request.
 
 ```C++
 // SYNTAX
@@ -688,9 +688,9 @@ Particle.syncTimeDone();
 
 void loop()
 {
-  // Request time synchronization from the Particle Cloud
+  // Request time synchronization from the Particle Device Cloud
   Particle.syncTime();
-  // Wait until {{device}} receives time from Particle Cloud (or connection to Particle Cloud is lost)
+  // Wait until {{device}} receives time from Particle Device Cloud (or connection to Particle Device Cloud is lost)
   waitUntil(Particle.syncTimeDone);
   // Print current time
   Serial.println(Time.timeStr());
@@ -703,7 +703,7 @@ See also [`Particle.timeSyncedLast()`](#particle-timesyncedlast-) and [`Time.isV
 
 _Since 0.6.1_
 
-Returns `true` if there a `syncTime()` request currently pending. Returns `false` when there is no `syncTime()` request pending or there is no active connection to Particle Cloud.
+Returns `true` if there a `syncTime()` request currently pending. Returns `false` when there is no `syncTime()` request pending or there is no active connection to Particle Device Cloud.
 
 ```C++
 // SYNTAX
@@ -718,9 +718,9 @@ Particle.syncTimePending();
 
 void loop()
 {
-  // Request time synchronization from the Particle Cloud
+  // Request time synchronization from the Particle Device Cloud
   Particle.syncTime();
-  // Wait until {{device}} receives time from Particle Cloud (or connection to Particle Cloud is lost)
+  // Wait until {{device}} receives time from Particle Device Cloud (or connection to Particle Device Cloud is lost)
   while(Particle.syncTimePending())
   {
     //
@@ -740,7 +740,7 @@ See also [`Particle.timeSyncedLast()`](#particle-timesyncedlast-) and [`Time.isV
 
 _Since 0.6.1_
 
-Used to check when time was last synchronized with Particle Cloud.
+Used to check when time was last synchronized with Particle Device Cloud.
 
 ```C++
 // SYNTAX
@@ -748,10 +748,10 @@ Particle.timeSyncedLast();
 Particle.timeSyncedLast(timestamp);
 ```
 
-Returns the number of milliseconds since the device began running the current program when last time synchronization with Particle Cloud was performed.
+Returns the number of milliseconds since the device began running the current program when last time synchronization with Particle Device Cloud was performed.
 
 This function takes one optional argument:
-- `timestamp`: `time_t` variable that will contain a UNIX timestamp received from Particle Cloud during last time synchronization
+- `timestamp`: `time_t` variable that will contain a UNIX timestamp received from Particle Device Cloud during last time synchronization
 
 ```C++
 // EXAMPLE
@@ -765,12 +765,12 @@ void loop() {
     Serial.printlnf("Time was last synchronized %lu milliseconds ago", millis() - lastSync);
     if (lastSyncTimestamp > 0)
     {
-      Serial.print("Time received from Particle Cloud was: ");
+      Serial.print("Time received from Particle Device Cloud was: ");
       Serial.println(Time.timeStr(lastSyncTimestamp));
     }
-    // Request time synchronization from Particle Cloud
+    // Request time synchronization from Particle Device Cloud
     Particle.syncTime();
-    // Wait until {{device}} receives time from Particle Cloud (or connection to Particle Cloud is lost)
+    // Wait until {{device}} receives time from Particle Device Cloud (or connection to Particle Device Cloud is lost)
     waitUntil(Particle.syncTimeDone);
     // Check if synchronized successfully
     if (Particle.timeSyncedLast() >= cur)
@@ -2309,7 +2309,11 @@ The following examples can be copied to a file called `setcreds.ino` and compile
 
 `particle compile electron setcreds.ino --saveTo firmware.bin && particle flash --usb firmware.bin`
 
-**Note**: Your {{device}} only uses one set of credentials, and they must be correctly matched to the SIM card that's used.  If using a Particle SIM, using `cellular_credentials_set()` is not necessary as the default APN of "spark.telefonica.com" with no username or password will be used by system firmware. To switch back to using a Particle SIM after successfully connecting with a 3rd Party SIM, just flash any app that does not include cellular_credentials_set().  Then ensure you completely power cycle the {{device}} to remove the settings from the modem’s volatile memory.
+**Note**: Your {{device}} only uses one set of credentials, and they
+must be correctly matched to the SIM card that's used.  If using a
+Particle SIM, using `cellular_credentials_set()` is not necessary as the
+default APN of "spark.telefonica.com" with no username or password will
+be used by Device OS. To switch back to using a Particle SIM after successfully connecting with a 3rd Party SIM, just flash any app that does not include cellular_credentials_set().  Then ensure you completely power cycle the {{device}} to remove the settings from the modem’s volatile memory.
 
 ```C++
 // SYNTAX
@@ -2455,7 +2459,7 @@ Returns `bool` - `true` indicating this operation was successful and the interna
 ```c++
 // SYNTAX
 // Reset Data Usage
-Cellular.dataUsageReset();
+Cellular.resetDataUsage();
 ```
 
 ### RSSI()
@@ -3198,7 +3202,7 @@ from 0-4095.
 
 **NOTE:** This output is buffered inside the STM32 to allow for more output current at the cost of not being able to acheive rail-to-rail performance, i.e., the output will be about 50mV when the DAC is set to 0, and approx 50mV less than the 3V3 voltage when DAC output is set to 4095.
 
-**NOTE:** System firmware version 0.4.6 and 0.4.7 only - not applicable to versions from 0.4.9 onwards: While for PWM pins one single call to `pinMode(pin, OUTPUT);` sets the pin mode for multiple `analogWrite(pin, value);` calls, for DAC pins you need to set `pinMode(DAC, OUTPUT);` each time you want to perform an `analogWrite()`.
+**NOTE:** Device OS version 0.4.6 and 0.4.7 only - not applicable to versions from 0.4.9 onwards: While for PWM pins one single call to `pinMode(pin, OUTPUT);` sets the pin mode for multiple `analogWrite(pin, value);` calls, for DAC pins you need to set `pinMode(DAC, OUTPUT);` each time you want to perform an `analogWrite()`.
 
 ```C++
 // SYNTAX
@@ -3643,7 +3647,7 @@ void loop()
 
 *Note*: This is advanced IO and for experienced users. This
 controls the LiPo battery management system and is handled automatically
-by the system firmware.
+by the Device OS.
 
 ### begin()
 `bool begin();`
@@ -7500,7 +7504,8 @@ Parameters:
 
 _Since 0.6.1_
 
-This library allows applications to share control over the on-device RGB LED with the system firmware in a non-exclusive way, making it possible for the system to use the LED for various important indications, such as cloud connection errors, even if an application already uses the LED for its own signaling. For this to work, an application needs to assign a [_priority_](#ledpriority-enum) to every application-specific LED indication (using instances of the [`LEDStatus`](#ledstatus-class) class), and the system will ensure that the LED only shows a highest priority indication at any moment of time.
+This library allows applications to share control over the on-device RGB
+LED with the Device OS in a non-exclusive way, making it possible for the system to use the LED for various important indications, such as cloud connection errors, even if an application already uses the LED for its own signaling. For this to work, an application needs to assign a [_priority_](#ledpriority-enum) to every application-specific LED indication (using instances of the [`LEDStatus`](#ledstatus-class) class), and the system will ensure that the LED only shows a highest priority indication at any moment of time.
 
 The library also allows to set a custom [_theme_](#ledsystemtheme-class) for the system LED signaling. Refer to the [Device Modes](/guide/getting-started/modes) and [LEDSignal Enum](#ledsignal-enum) sections for information about default LED signaling patterns used by the system.
 
@@ -8055,7 +8060,7 @@ For convenience, the library defines constants for the following basic colors:
 
 ## Time
 
-The device synchronizes time with the Particle Cloud during the handshake.
+The device synchronizes time with the Particle Device Cloud during the handshake.
 From then, the time is continually updated on the device.
 This reduces the need for external libraries to manage dates and times.
 
@@ -8457,7 +8462,7 @@ Stop applying Daylight Saving Time (DST) offset to the current time.
 
 Set the system time to the given timestamp.
 
-*NOTE*: This will override the time set by the Particle Cloud.
+*NOTE*: This will override the time set by the Particle Device Cloud.
 If the cloud connection drops, the reconnection handshake will set the time again
 
 Also see: [`Particle.syncTime()`](#particle-synctime-)
@@ -8551,10 +8556,10 @@ Time.isValid();
 
 Used to check if current time is valid. This function will return `true` if:
 - Time has been set manually using [`Time.setTime()`](#settime-)
-- Time has been successfully synchronized with the Particle Cloud. The device synchronizes time with the Particle Cloud during the handshake. The application may also manually synchronize time with Particle Cloud using [`Particle.syncTime()`](#particle-synctime-)
+- Time has been successfully synchronized with the Particle Device Cloud. The device synchronizes time with the Particle Device Cloud during the handshake. The application may also manually synchronize time with Particle Device Cloud using [`Particle.syncTime()`](#particle-synctime-)
 - Correct time has been maintained by RTC.{{#if has-backup-ram}} See information on [`Backup RAM (SRAM)`](#backup-ram-sram-) for cases when RTC retains the time. RTC is part of the backup domain and retains its counters under the same conditions as Backup RAM.{{/if}}
 
-**NOTE:** When {{device}} is running in `AUTOMATIC` mode {{#if has-threading}}and threading is disabled {{/if}} this function will block if current time is not valid and there is an active connection to Particle Cloud. Once {{device}} synchronizes the time with Particle Cloud or the connection to Particle Cloud is lost, `Time.isValid()` will return its current state. This function is also implicitly called by any `Time` function that returns current time or date (e.g. `Time.hour()`/`Time.now()`/etc).
+**NOTE:** When {{device}} is running in `AUTOMATIC` mode {{#if has-threading}}and threading is disabled {{/if}} this function will block if current time is not valid and there is an active connection to Particle Device Cloud. Once {{device}} synchronizes the time with Particle Device Cloud or the connection to Particle Device Cloud is lost, `Time.isValid()` will return its current state. This function is also implicitly called by any `Time` function that returns current time or date (e.g. `Time.hour()`/`Time.now()`/etc).
 
 ```cpp
 // Print true or false depending on whether current time is valid
@@ -8564,7 +8569,7 @@ Serial.print(Time.isValid());
 ```cpp
 void setup()
 {
-  // Wait for time to be synchronized with Particle Cloud (requires active connection)
+  // Wait for time to be synchronized with Particle Device Cloud (requires active connection)
   waitFor(Time.isValid, 60000);
 }
 
@@ -9437,7 +9442,8 @@ pause any time `put()` or `write()` is called.
 {{#if has-backup-ram}}
 ## Backup RAM (SRAM)
 
-The STM32F2xx features 4KB of backup RAM (3068 bytes for system firmware v0.6.0 and later) of which is available to the user. Unlike the regular RAM memory, the backup RAM is retained so long as power is provided to VIN or to VBAT. In particular this means that the data in backup RAM is retained when:
+The STM32F2xx features 4KB of backup RAM (3068 bytes for Device OS
+version v0.6.0 and later) of which is available to the user. Unlike the regular RAM memory, the backup RAM is retained so long as power is provided to VIN or to VBAT. In particular this means that the data in backup RAM is retained when:
 
 - the device goes into deep sleep mode
 - the device is hardware or software reset (while maintaining power)
@@ -9763,8 +9769,8 @@ void loop() {
 }
 ```
 
-- When the device starts up, it automatically tries to connect to Wi-Fi and the Particle Cloud.
-- Once a connection with the Particle Cloud has been established, the user code starts running.
+- When the device starts up, it automatically tries to connect to Wi-Fi and the Particle Device Cloud.
+- Once a connection with the Particle Device Cloud has been established, the user code starts running.
 - Messages to and from the Cloud are handled in between runs of the user loop; the user loop automatically alternates with [`Particle.process()`](#particle-process-).
 - `Particle.process()` is also called during any delay() of at least 1 second.
 - If the user loop blocks for more than about 20 seconds, the connection to the Cloud will be lost. To prevent this from happening, the user can call `Particle.process()` manually.
@@ -9804,7 +9810,7 @@ The semi-automatic mode is therefore much like the automatic mode, except:
 ### Manual mode
 
 
-The "manual" mode puts the device's connectivity completely in the user's control. This means that the user is responsible for both establishing a connection to the Particle Cloud and handling communications with the Cloud by calling [`Particle.process()`](#particle-process-) on a regular basis.
+The "manual" mode puts the device's connectivity completely in the user's control. This means that the user is responsible for both establishing a connection to the Particle Device Cloud and handling communications with the Cloud by calling [`Particle.process()`](#particle-process-) on a regular basis.
 
 ```cpp
 SYSTEM_MODE(MANUAL);
@@ -9933,7 +9939,7 @@ void setup()
 
 ### Task Switching
 
-The system firmware includes an RTOS (Real Time Operating System). The RTOS is responsible for switching between the application thread and the system thread, which it does automatically every millisecond. This has 2 main consequences:
+The Device OS includes an RTOS (Real Time Operating System). The RTOS is responsible for switching between the application thread and the system thread, which it does automatically every millisecond. This has 2 main consequences:
 
 - delays close to 1ms are typically much longer
 - application code may be stopped at any time when the RTOS switches to the system thread
@@ -10102,7 +10108,7 @@ if (waitFor(notConnected, 10000)) {
 
 _Since 0.4.7_
 
-Determine the version of system firmware available. Returns a version string
+Determine the version of Device OS available. Returns a version string
 of the format:
 
 > MAJOR.MINOR.PATCH
@@ -10124,7 +10130,7 @@ void setup()
 
 ### versionNumber()
 
-Determines the version of system firmware available. Returns the version encoded
+Determines the version of Device OS available. Returns the version encoded
 as a number:
 
 > 0xAABBCCDD
@@ -11537,7 +11543,7 @@ The table below lists the Arduino APIs added for each firmware version
 and the value of the `ARDUINO` symbol.
 
 |API name|description|ARDUINO version|Particle version|
-----
+|---|---|---|---|
 |SPISettings||10800|0.6.2|
 |__FastStringHelper||10800|0.6.2|
 |Wire.setClock|synonym for `Wire.setSpeed`|10800|0.6.2|
@@ -13840,7 +13846,7 @@ For advanced use cases, those functions are available for use in addition to the
 
 ## Preprocessor
 
-When you are using the Particle Cloud to compile your `.ino` source code, a preprocessor comes in to modify the code into C++ requirements before producing the binary file used to flash onto your devices.
+When you are using the Particle Device Cloud to compile your `.ino` source code, a preprocessor comes in to modify the code into C++ requirements before producing the binary file used to flash onto your devices.
 
 ```
 // EXAMPLE
@@ -14048,11 +14054,11 @@ particle flash YOUR_DEVICE_NAME system-part3-@FW_VER@-electron.bin
 ##### @ELECTRON_PARTS@3endif
 -->
 
-The following instructions are for upgrading to **System Firmware v@FW_VER@** which requires **Particle CLI v@CLI_VER@**.
+The following instructions are for upgrading to **Device OS v@FW_VER@** which requires **Particle CLI v@CLI_VER@**.
 
-**Updating System Firmware Automatically**
+**Updating Device OS Automatically**
 
-To update your Photon, P1 or Core system firmware automatically, compile and flash your application in the [Build IDE](https://build.particle.io), selecting version **@FW_VER@** in the devices drawer. The app will be flashed, following by the system part1 and part2 firmware for Photon and P1. Other update instructions for Core, Photon, P1 and Electron can be found below.
+To update your Photon, P1 or Core Device OS version automatically, compile and flash your application in the [Build IDE](https://build.particle.io), selecting version **@FW_VER@** in the devices drawer. The app will be flashed, following by the system part1 and part2 firmware for Photon and P1. Other update instructions for Core, Photon, P1 and Electron can be found below.
 
 ---
 
@@ -14066,11 +14072,13 @@ To update your Photon, P1 or Core system firmware automatically, compile and fla
 **Note:** There is no version of the Particle CLI released that supports the `particle update` command for firmware version **@FW_VER@**. Please download the binaries and use one of the other supported programming methods.
 ##### @FW_VER@0.5.5endif
 
-The easiest way to upgrade to System Firmware Version @FW_VER@ is to use the Particle CLI with a single command.  You will first upgrade the system firmware, then optionally program Tinker on the device. This **requires CLI version @CLI_VER@**. You can check with `particle --version`.
+The easiest way to upgrade to Device OS Version @FW_VER@ is to use the
+Particle CLI with a single command.  You will first upgrade the Device
+OS, then optionally program Tinker on the device. This **requires CLI version @CLI_VER@**. You can check with `particle --version`.
 
 If you have the [Particle CLI](/guide/tools-and-features/cli) installed already, you can update it with the following command `sudo npm update -g particle-cli@v@CLI_VER@` (note: you can try without sudo first if you wish).
 
-To upgrade system firmware, make sure the device is in [DFU mode](/photon/modes/#selecting-various-modes-dfu-mode-device-firmware-upgrade) (flashing yellow LED) and run these commands in order:
+To upgrade Device OS, make sure the device is in [DFU mode](/photon/modes/#selecting-various-modes-dfu-mode-device-firmware-upgrade) (flashing yellow LED) and run these commands in order:
 
 ```
 The easy local method using Particle CLI
@@ -14101,7 +14109,11 @@ particle flash --usb tinker
 
 ##### @FW_VER@0.7.0endif
 
-**Note:** As a Product in the Console, when flashing a >= 0.6.0 user app, Electrons can now Safe Mode Heal from < 0.5.3 to >= 0.6.0 firmware. This will consume about 500KB of data as it has to transfer two 0.5.3 system parts and three >= 0.6.0 system parts. Devices will not automatically update system firmware if not added as a Product in Console.
+**Note:** As a Product in the Console, when flashing a >= 0.6.0 user
+app, Electrons can now Safe Mode Heal from < 0.5.3 to >= 0.6.0 firmware.
+This will consume about 500KB of data as it has to transfer two 0.5.3
+system parts and three >= 0.6.0 system parts. Devices will not
+automatically update Device OS if not added as a Product in Console.
 
 **Note**: You must download system binaries to a local directory on your machine for this to work. Binaries are attached to the bottom of the [Github Release Notes](#github-release-notes).
 
@@ -14164,7 +14176,7 @@ This **requires CLI version @CLI_VER@ or newer**. You can check with `particle -
 
 If you have the [Particle CLI](/guide/tools-and-features/cli) installed already, you can update it with the following command `sudo npm update -g particle-cli` (note: you can try without sudo first if you wish).
 
-To upgrade system firmware, make sure the device is in [DFU mode](/photon/modes/#selecting-various-modes-dfu-mode-device-firmware-upgrade) (flashing yellow LED) and run these commands in order for your device type:
+To upgrade Device OS, make sure the device is in [DFU mode](/photon/modes/#selecting-various-modes-dfu-mode-device-firmware-upgrade) (flashing yellow LED) and run these commands in order for your device type:
 
 ##### @ELECTRON_PARTS@2if
 ```
@@ -14269,10 +14281,10 @@ dfu-util -d 2b04:d00a -a 0 -s 0x8040000:leave -D system-part3-@FW_VER@-electron.
 
 **Downgrading from @FW_VER@ to current default firmware**
 
-Current default system firmware would be the latest non-rc.x firmware version.  E.g. if the current list of default releases was 0.5.3, 0.6.0, **0.6.1** (would be the latest).
+Current default Device OS would be the latest non-rc.x firmware version.  E.g. if the current list of default releases was 0.5.3, 0.6.0, **0.6.1** (would be the latest).
 
 ##### @FW_VER@0.5.1if
-**Caution:** After upgrading to 0.5.1, DO NOT downgrade system firmware via OTA remotely! This will cause Wi-Fi credentials to be erased on the Photon and P1.  This does not affect the Core or Electron.  Feel free to downgrade locally with the understanding that you will have to re-enter Wi-Fi credentials.  Also note that 0.5.1 fixes several important bugs, so there should be no reason you'd normally want to downgrade.
+**Caution:** After upgrading to 0.5.1, DO NOT downgrade Device OS via OTA remotely! This will cause Wi-Fi credentials to be erased on the Photon and P1.  This does not affect the Core or Electron.  Feel free to downgrade locally with the understanding that you will have to re-enter Wi-Fi credentials.  Also note that 0.5.1 fixes several important bugs, so there should be no reason you'd normally want to downgrade.
 ##### @FW_VER@0.5.1endif
 
 ##### @FW_VER@0.5.2if
@@ -14286,11 +14298,11 @@ Current default system firmware would be the latest non-rc.x firmware version.  
 ##### @FW_VER@0.7.0if
 **Note:** The following is not applicable for 0.7.0, please see above.
 ##### @FW_VER@0.7.0endif
-The easiest way to downgrade from a System Firmware Version @FW_VER@ is to use the Particle CLI with a single command.  You will first put the Tinker back on the device, then downgrade the System Firmware. Running the commands in this order prevents the device from automatically re-upgrading (based on user app version dependencies) after downgrading.  This will **require a CLI version associated with your desired default firmware**. To determine which version to use, click on the default version desired in the table under [Programming and Debugging Notes](#programming-and-debugging-notes) and refer to the CLI version required in **The easy local method using Particle CLI** section.
+The easiest way to downgrade from a Device OS Version @FW_VER@ is to use the Particle CLI with a single command.  You will first put the Tinker back on the device, then downgrade the Device OS. Running the commands in this order prevents the device from automatically re-upgrading (based on user app version dependencies) after downgrading.  This will **require a CLI version associated with your desired default firmware**. To determine which version to use, click on the default version desired in the table under [Programming and Debugging Notes](#programming-and-debugging-notes) and refer to the CLI version required in **The easy local method using Particle CLI** section.
 
 If you have the [Particle CLI](/guide/tools-and-features/cli) installed already, you can install a specific version like v1.16.0 with the following command `sudo npm update -g particle-cli@v1.16.0` (note: you can try without sudo first if you wish).  Replace v1.16.0 with your desired version.
 
-To downgrade system firmware, make sure the device is in [DFU mode](/photon/modes/#selecting-various-modes-dfu-mode-device-firmware-upgrade) (flashing yellow LED) and run these commands in order:
+To downgrade Device OS, make sure the device is in [DFU mode](/photon/modes/#selecting-various-modes-dfu-mode-device-firmware-upgrade) (flashing yellow LED) and run these commands in order:
 
 ```
 Downgrading from @FW_VER@ to current default firmware

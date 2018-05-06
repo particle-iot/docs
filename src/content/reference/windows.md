@@ -7,15 +7,15 @@ order: 8
 
 # {{title}}
 
-The Windows SDK consists of two parts: (1) the Cloud SDK and (2) the Device Setup library, the first is an API wrapper that enables your mobile app to interact with internet-connected hardware through the Particle Cloud while the latter is a library allows you to easily create a setup wizard for allowing your app users to setup their devices.
+The Windows SDK consists of two parts: (1) the Cloud SDK and (2) the Device Setup library, the first is an API wrapper that enables your mobile app to interact with internet-connected hardware through the Particle Device Cloud while the latter is a library allows you to easily create a setup wizard for allowing your app users to setup their devices.
 
 ## Windows Cloud SDK
 
 ### Introduction
 
-Particle Windows Cloud SDK enables Windows apps to interact with Particle-powered connected products via the Particle Cloud. It's an easy-to-use wrapper for Particle REST API. The Cloud SDK will allow you to:
+Particle Windows Cloud SDK enables Windows apps to interact with Particle-powered connected products via the Particle Device Cloud. It's an easy-to-use wrapper for Particle REST API. The Cloud SDK will allow you to:
 
-- Manage user sessions for the Particle Cloud (access tokens, encrypted session management)
+- Manage user sessions for the Particle Device Cloud (access tokens, encrypted session management)
 - Claim/Unclaim devices for a user account
 - Get a list of instances of user's Particle devices
 - Read variables from devices
@@ -52,7 +52,7 @@ ParticleCloud.SharedCloud.SynchronizationContext = System.Threading.Synchronizat
 
 Here are few examples for the most common use cases to get your started:
 
-#### Log in to Particle Cloud
+#### Log in to Particle Device Cloud
 
 You don't need to worry about access tokens and session expiry, SDK takes care of that for you.
 
@@ -61,7 +61,7 @@ var success = await ParticleCloud.SharedCloud.LoginAsync("user@example.com", "my
 ```
 ---
 
-#### Log in to Particle Cloud with a token and validate
+#### Log in to Particle Device Cloud with a token and validate
 
 ```cs
 var success = await ParticleCloud.SharedCloud.TokenLoginAsync("d4f69e3a357f78316d50e76dbf10fe92364154bf");
@@ -158,7 +158,7 @@ ParticleCloud.SharedCloud.LogOut();
 ---
 
 ### Events sub-system
-You can make an API call that will open a stream of [Server-Sent Events (SSEs)](http://www.w3.org/TR/eventsource/). You will make one API call that opens a connection to the Particle Cloud. That connection will stay open, unlike normal HTTP calls which end quickly. Very little data will come to you across the connection unless your Particle device publishes an event, at which point you will be immediately notified. In each case, the event name filter is `eventNamePrefix` and is optional. When specifying an event name filter, published events will be limited to those events with names that begin with the specified string. For example, specifying an event name filter of 'temp' will return events with names 'temp' and 'temperature'.
+You can make an API call that will open a stream of [Server-Sent Events (SSEs)](http://www.w3.org/TR/eventsource/). You will make one API call that opens a connection to the Particle Device Cloud. That connection will stay open, unlike normal HTTP calls which end quickly. Very little data will come to you across the connection unless your Particle device publishes an event, at which point you will be immediately notified. In each case, the event name filter is `eventNamePrefix` and is optional. When specifying an event name filter, published events will be limited to those events with names that begin with the specified string. For example, specifying an event name filter of 'temp' will return events with names 'temp' and 'temperature'.
 
 #### Subscribe to events
 
@@ -218,7 +218,7 @@ myDevice.UnsubscribeFromEvent(eventListenerID);
 
 #### Publishing an event
 
-You can also publish an event from your app to the Particle Cloud:
+You can also publish an event from your app to the Particle Device Cloud:
 
 ```cs
 ParticleCloud.SharedCloud.PublishEventAsync("event_from_app", "event_payload", true, 60);
@@ -227,7 +227,7 @@ ParticleCloud.SharedCloud.PublishEventAsync("event_from_app", "event_payload", t
 
 ### OAuth client configuration
 
-If you're creating an app you're required to provide the `ParticleCloud` class with OAuth clientId and secret. Those are used to identify users coming from your specific app to the Particle Cloud. Please follow the procedure described [in our guide](/reference/api/#create-an-oauth-client) to create those strings.
+If you're creating an app you're required to provide the `ParticleCloud` class with OAuth clientId and secret. Those are used to identify users coming from your specific app to the Particle Device Cloud. Please follow the procedure described [in our guide](/reference/api/#create-an-oauth-client) to create those strings.
 
 Once you've created your OAuth credentials, you can supply them to the SDK by providing them as string resources in a string resource file called "OAuthClient.resw", using the names `OAuthClientID` and `OAuthClientSecret` and they'll be picked up by the SDK automatically:
 

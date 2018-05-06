@@ -45,7 +45,7 @@ health of your devices, and quickly resolve problems when they arise.</p>
 ## Connectivity Layers
 
 Multiple connectivity layers must be operating successfully for a given device
-to be able to successfully communicate with the Particle Cloud. Note that the
+to be able to successfully communicate with the Particle Device Cloud. Note that the
 relevant connectivity layers vary based on the type of device (i.e.
 Wi-Fi vs. Cellular).
 
@@ -53,11 +53,11 @@ These connectivity layers are:
 
 {{#if electron}}
   <img class="full-width" alt="Device, SIM Card, Cellular Network, and
-  Particle Cloud"
+  Particle Device Cloud"
   src="/assets/images/remote-diagnostics/connectivity-layers-cellular.png"/>
 {{else}}
   <img alt="Device and
-  Particle Cloud"
+  Device Particle Device Cloud"
   src="/assets/images/remote-diagnostics/connectivity-layers-wifi.png"/>
 {{/if}}
 
@@ -84,17 +84,17 @@ network. Particle works with a [global network of cellular carriers](https://www
 to allow devices to connect virtually anywhere in the world.
 {{/if}}
 
-### Particle Cloud
+### Particle Device Cloud
 
-The health of the Particle Cloud is critical to devices having the ability to
-successfully connect and communicate. There are a few Particle Cloud
+The health of the Particle Device Cloud is critical to devices having the ability to
+successfully connect and communicate. There are a few Particle Device Cloud
 services in particular that directly impact device health and
 communications:
 
 #### Device Service
 
 The Device Service brokers the connection between an IoT device and
-the Particle Cloud. In addition, the Device Service is responsible for
+the Particle Device Cloud. In addition, the Device Service is responsible for
 shuttling of messages to and from a Particle device.
 
 #### API
@@ -144,9 +144,9 @@ Let's dive into what each test actually does:
 
 ### Device
 
-Starting with system firmware version `0.8.x`, Particle devices have the
+Starting with Device OS version `0.8.x`, Particle devices have the
 ability to collect a rich amount of diagnostic data and send this
-information to the Particle Cloud.
+information to the Particle Device Cloud.
 
 Device diagnostics are sent to the cloud at two different times:
 - Automatically, when the device _handshakes_ (starts a new secure session with the
@@ -160,24 +160,26 @@ The device collects the following diagnostic vitals:
 {{/if}}
 - *Signal strength*: The strength of the device’s connection to the
 {{#if electron}}Cellular{{else}}Wi-Fi{{/if}} network, measured in decibels of received signal power.
-- *Disconnect events*: The number of times the device disconnected unexpectedly from the Particle Cloud since its last reset.
-- *Round-trip time*: The amount of time it takes for the device to successfully respond to a CoAP message sent by the Particle Cloud in milliseconds.
+- *Disconnect events*: The number of times the device disconnected
+unexpectedly from the Particle Device Cloud since its last reset.
+- *Round-trip time*: The amount of time it takes for the device to
+successfully respond to a CoAP message sent by the Particle Device Cloud in milliseconds.
 - *Rate-limited publishes*: Particle devices are allowed to publish an
 average of 1 event per second in application firmware. Publishing at a
 rate higher than this will result in rate limiting of events.
 - *Used Memory*: The amount of memory used by the device, combining the heap and the user application’s static RAM in bytes.
 
-The device delivers the diagnostics data to the Particle Cloud via a
+The device delivers the diagnostics data to the Particle Device Cloud via a
 [system event](/reference/firmware/#system-events) that is published
 to the event stream. The device diagnostic event will have the name
 `spark/device/diagnostics/update`, and include a data payload of the
 most recent diagnostic vitals the device collected.
 
 To ensure that your device is able to collect and send diagnostic data
-to the Particle Cloud, you will need to ensure that the device is
-running a system firmware version equal to or greater than `0.8.0`. For
-information on managing system firmware, check out the [system firmware
-guide](/guide/tools-and-features/system-firmware/).
+to the Particle Device Cloud, you will need to ensure that the device is
+running a Device OS version equal to or greater than `0.8.0`. For
+information on managing Device OS versions, check out the [Device OS
+guide](/guide/tools-and-features/device-os/).
 
 {{#if electron}}
 ### SIM Card
@@ -205,8 +207,8 @@ Cellular Network layer to be displayed in the Console.
 
 {{/if}}
 
-### Particle Cloud
-When running the test suite, the Particle Cloud services most relevant
+### Particle Device Cloud
+When running the test suite, the Particle Device Cloud services most relevant
 to device connectivity are automatically checked to ensure they are fully operational.
 Probed services are:
 - Device Service
@@ -272,7 +274,7 @@ to a fully healthy state.
 
 {{#if electron}}
 In this case, the device's battery is running low (12%) but the device
-is still online and able to communicate with the Particle Cloud.
+is still online and able to communicate with the Particle Device Cloud.
 For devices with low battery, the recommendation is simple
 &mdash; recharge the battery before the device turns off.
 {{else}}
@@ -286,7 +288,7 @@ publishes to 1 per second or less.
 
 The test run will be marked as _unhealthy_ if one or more of the Remote
 Diagnostic tests fail. Note that failure is defined as a state in which
-the device will not be able to communicate with the Particle Cloud:
+the device will not be able to communicate with the Particle Device Cloud:
 
 {{#if electron}}
 <img src="/assets/images/remote-diagnostics/diagnostic-failure.png"
@@ -319,4 +321,4 @@ device diagnostic reading is displayed. For this device, we can see that
 and the cellular network from initiating a session.{{else}} the last
 known diagnostics reading showed a weak Wi-Fi signal. This may be the
 cause of why the device is now not responsive to requests from the
-Particle Cloud.{{/if}}
+Particle Device Cloud.{{/if}}

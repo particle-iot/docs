@@ -13,7 +13,9 @@ layout: guide.hbs
 
 ![IDE Menu]({{assets}}/images/ide-menu.jpg)
 
-**Particle Dev** is a desktop application that allows you to work with local copies of your firmware files. However, **internet** access is required as the files are pushed to the Particle Cloud for compilation and returns a binary. i.e. This is not an offline development tool, yet.
+**Particle Dev** is a desktop application that allows you to work with
+local copies of your firmware files. However, **internet** access is
+required as the files are pushed to the Particle Device Cloud for compilation and returns a binary. i.e. This is not an offline development tool, yet.
 
 All the commands are available from the **Particle** menu. The menu changes depending on whether you're logged in or have selected a device, so some of the commands will only show up once you're in the right context.
 
@@ -240,7 +242,11 @@ Clicking on the platform name will allow you to select a different one:
 
 The last item is the firmware version aka the build target. This allows you to select exactly which version you want to use. When reading [the reference](/reference/firmware) you might have noticed that some functions have a note saying: _Since X.Y.Z_. This specifies the minimum build target you need to use in order to have this function available.
 
-When you use a version newer than's on your device (which can be checked using `particle serial inspect` [CLI command](/guide/tools-and-features/cli)) it will enter **safe mode** which should be automatically fixed with multiple consecutive flashes. The exception here is the Electron where updating system firmware would incur charges. In this case, the IDE will select the build target that's currently on the device in order to keep the device running.
+When you use a version newer than's on your device (which can be checked
+using `particle serial inspect` [CLI
+command](/guide/tools-and-features/cli)) it will enter **safe mode**
+which should be automatically fixed with multiple consecutive flashes.
+The exception here is the Electron where updating Device OS versions would incur charges. In this case, the IDE will select the build target that's currently on the device in order to keep the device running.
 
 Clicking on the build target will show the list of available ones for current platform:
 

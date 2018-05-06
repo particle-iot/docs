@@ -9,7 +9,8 @@ layout: guide.hbs
 
 # Particle CLI
 
-The Particle CLI is a powerful tool for interacting with your devices and the Particle Cloud.  The CLI uses [Node.js](http://nodejs.org/) and can easily run on Windows, Mac OS X, and Linux.  It's also [open source](https://github.com/particle-iot/particle-cli) so you can edit and change it, and even send in your changes as [pull requests](https://help.github.com/articles/about-pull-requests/) if you want to share!
+The Particle CLI is a powerful tool for interacting with your devices
+and the Particle Device Cloud.  The CLI uses [Node.js](http://nodejs.org/) and can easily run on Windows, Mac OS X, and Linux.  It's also [open source](https://github.com/particle-iot/particle-cli) so you can edit and change it, and even send in your changes as [pull requests](https://help.github.com/articles/about-pull-requests/) if you want to share!
 
 ## Installing
 
@@ -153,8 +154,11 @@ sending file: firmware.bin
 Flash success!
 ```
 
-*Note*: If your Electron goes into [safe mode](/guide/getting-started/modes/electron/#safe-mode), this is okay, just make sure that the system firmware you on the device matches the dependency of the system firmware
-built into the firmware application.
+*Note*: If your Electron goes into [safe
+mode](/guide/getting-started/modes/electron/#safe-mode), this is okay,
+just make sure that the Device OS version you have on the device matches
+the dependency of the Device OS version used to compile the application
+firmware.
 
 ## Blink an LED with Tinker
 

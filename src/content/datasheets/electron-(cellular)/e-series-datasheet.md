@@ -45,7 +45,7 @@ The input voltage range on VIN pin is 3.88VDC to 12VDC. When powering from the V
 #### LIPO
 This pin serves two purposes. You can use this pin to connect a LiPo battery directly without having to use a JST connector or it can be used to connect an external DC power source (and this is where one needs to take extra precautions). When powering it from an external regulated DC source, the  recommended input voltage range on this pin is between 3.6V to 4.4VDC. Make sure that the supply can handle currents of at least 3Amp. This is the most efficient way of powering the E series since the PMIC by-passes the regulator and supplies power to the E series module via an internal FET leading to lower quiescent current.
 
-When powered from a LiPo battery alone, the power management IC switches off the internal regulator and supplies power to the system directly from the battery. This reduces the conduction losses and maximizes battery run time. The battery provided with the E series module is a Lithium-Ion Polymer battery rated at 3.7VDC 2000mAh. You can substitute this battery with another 3.7V LiPo with higher current rating. Remember to never exceed this voltage rating and always pay attention to the polarity of the connector.
+When powered from a LiPo battery alone, the power management IC switches off the internal regulator and supplies power to the system directly from the battery. This reduces the conduction losses and maximizes battery run time. The battery provided with the E series module is a Lithium-Ion Polymer battery rated at 3.7VDC 1,800mAh. You can substitute this battery with another 3.7V LiPo with higher current rating. Remember to never exceed this voltage rating and always pay attention to the polarity of the connector.
 
 Typical current consumption is around 180mA and up to 1.8A transients at 5VDC. In deep sleep mode, the quiescent current is 130uA (powered from the battery alone).
 
@@ -128,7 +128,7 @@ Pin D3 through D7 are JTAG interface pins. These can be used to reprogram your E
 - DCD2 (16 KB), swap area for DCD1
 - EEPROM emulation bank 1 (16 KB)
 - EEPROM emulation bank 2 (64 KB) [only 16k used]
-- System firmware (512 KB) [256 KB comms + 256 KB hal/platform/services]
+- Device OS (512 KB) [256 KB comms + 256 KB hal/platform/services]
 - Factory backup, OTA backup and user application (384 KB) [3 x 128 KB]
 
 ### DCD Layout
@@ -541,6 +541,7 @@ You may use the online Web IDE [Particle Build](https://build.particle.io) to co
 |E301|3G with 2G fallback|Regional(Americas/Aus)|SARA-U260     |850/1900 MHz|
 |E302|3G with 2G fallback|Regional(Eur/Asia/Aus)|SARA-U270     |900/1800/2100 MHz|
 |E310|3G with 2G fallback|Global                |SARA-U201     |850/900/1800/1900/2100 MHz|
+|E402|LTE M1 only        |North America         |R404-02B      |LTE B2, B3, B4, B5, B8, B12, B13, B20, B28|
 
 ## FCC IC CE Warnings and End Product Labeling Requirements
 

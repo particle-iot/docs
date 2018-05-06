@@ -11,9 +11,9 @@ order: 2
   someone from Particle will be happy to merge it in for you!
 --}}
 
-# Particle Cloud API
+# Particle Device Cloud API
 
-The Particle Cloud API is a [REST](http://en.wikipedia.org/wiki/Representational_State_Transfer) API.
+The Particle Device Cloud API is a [REST](http://en.wikipedia.org/wiki/Representational_State_Transfer) API.
 REST means a lot of things, but first and foremost it means that we use the URL in the way that it's intended:
 as a "Uniform Resource Locator".
 
@@ -170,7 +170,7 @@ console and hack all your customers' devices.
 
 ## Errors
 
-The Particle Cloud uses traditional HTTP response codes to provide feedback from the device regarding the validity
+The Particle Device Cloud uses traditional HTTP response codes to provide feedback from the device regarding the validity
 of the request and its success or failure. As with other HTTP resources, response codes in the 200 range
 indicate success; codes in the 400 range indicate failure due to the information provided;
 codes in the 500 range indicate failure within Particle's server infrastructure.
@@ -195,7 +195,8 @@ codes in the 500 range indicate failure within Particle's server infrastructure.
 
 ## Versioning
 
-The API endpoints all start with `/v1` to represent the first official version of the Particle Cloud API.
+The API endpoints all start with `/v1` to represent the first official
+version of the Particle Device Cloud API.
 The existing API is stable, and we may add new endpoints with the `/v1` prefix.
 
 If in the future we make backwards-incompatible changes to the API, the new endpoints will start with
@@ -243,7 +244,8 @@ about to be delivered over the air.
     
 #### Safe-Mode
 
-If your device is running an app that needs a particular version of system firmware, your device may come online and
+If your device is running an app that needs a particular version of
+Device OS, your device may come online and
 report that it's in Safe Mode.  In this case, your device is waiting to run your app until it has received an update.
 Some products can receive system updates automatically while in safe mode, but others like the Electron prevent this to
 save you costs on bandwidth.  If you do get an automatic update, you may see a "spark/safe-mode-updater/updating" event.
@@ -360,16 +362,12 @@ The libraries endpoints are a little different as they follow the [JSON API](htt
 ## Products
 {{> api group=apiGroups.Products}}
 
-## Device Groups (beta)
+## Device Groups
 
 Device groups allow you to define subsets of your IoT deployment that
 can be addressed separately from the rest of the fleet. Groups are
 defined within the scope of a [product](#products). For more information,
 please see [the guide](/guide/how-to-build-a-product/device-groups/).
-
-**Note: this
-feature is currently in beta and only available to products on an
-Enterprise plan.**
 
 {{> api group=apiGroups.Groups}}
 

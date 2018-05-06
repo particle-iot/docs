@@ -11,7 +11,9 @@ order: 10
 
 ## Introduction
 
-Welcome to the official tutorial for building your very own Particle-connected security camera with Raspberry Pi! This project uses the Raspberry Pi integration with the Particle Cloud to control a PIR sensor, NeoPixel LED ring, and Raspberry Pi camera to watch for intruders, snap a photo, and upload it to the web via Dropbox.
+Welcome to the official tutorial for building your very own
+Particle-connected security camera with Raspberry Pi! This project uses
+the Raspberry Pi integration with the Particle Device Cloud to control a PIR sensor, NeoPixel LED ring, and Raspberry Pi camera to watch for intruders, snap a photo, and upload it to the web via Dropbox.
 
 All firmware and software files for the project are located at the following GitHub repository:
 [https://github.com/particle-iot/particle-pi-camera](https://github.com/particle-iot/particle-pi-camera)
@@ -19,9 +21,9 @@ All firmware and software files for the project are located at the following Git
 
 ### Particle Pi beta program
 
-Please note that the Raspberry Pi integration with the Particle Cloud is _currently in beta_. The steps in the [Provision your Pi](/tutorials/topics/particle-pi-security-camera/#provision-your-pi) section _will not work_ until you have received an email confirmation your active status in the beta program.
+Please note that the Raspberry Pi integration with the Particle Device Cloud is _currently in beta_. The steps in the [Provision your Pi](/tutorials/topics/particle-pi-security-camera/#provision-your-pi) section _will not work_ until you have received an email confirmation your active status in the beta program.
 
-Upon open release of the Raspberry Pi + Particle Cloud integration, the provisioning instructions will work for everyone. To learn more and to join the beta program, visit our Raspberry Pi + Particle [landing page](http://particle.io/particle-pi) by clicking the button below:
+Upon open release of the Raspberry Pi + Particle Device Cloud integration, the provisioning instructions will work for everyone. To learn more and to join the beta program, visit our Raspberry Pi + Particle [landing page](http://particle.io/particle-pi) by clicking the button below:
 
 <center><a class="btn" target="_blank" href="https://particle.io/particle-pi"/>Join the beta!</a></center>
 
@@ -99,7 +101,8 @@ bash <( curl -sL https://particle.io/install-pi )
 Your Pi should automatically download the necessary tooling and install the Particle Agent software package. This step may take several minutes, depending on the version of Raspberry Pi hardware you have.
 
 ### Provision your Pi
-Follow the on-screen prompts to log into your Particle account, provision your Pi on the Particle Cloud, and give your brand new Particle Pi hardware a name (or let us generate a goofy one for you).
+Follow the on-screen prompts to log into your Particle account,
+provision your Pi on the Particle Device Cloud, and give your brand new Particle Pi hardware a name (or let us generate a goofy one for you).
 
 Once your Pi has been successfully provisioned, you should be able to see it in your device list in our [Web IDE](https://build.particle.io) and in our [Command Line Utility](/guide/tools-and-features/cli/photon/) by typing `particle list`. Your Raspberry Pi should be running our default "Tinker" firmware, so you should see the following `Particle.function()`'s exposed through the API:
 

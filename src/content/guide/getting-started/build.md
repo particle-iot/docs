@@ -81,9 +81,11 @@ Flashing Your First App
 The best way to get started with the IDE is to start writing code:
 
 {{#if raspberry-pi}}
-- **Connect**: Make sure your device is powered connected to the Particle Cloud and ready to be updated.
+- **Connect**: Make sure your device is powered connected to the
+Particle Device Cloud and ready to be updated.
 {{else}}
-- **Connect**: Make sure your device is powered and "breathing" Cyan, which indicates that it's connected to the Particle Cloud and ready to be updated.
+- **Connect**: Make sure your device is powered and "breathing" Cyan,
+which indicates that it's connected to the Particle Device Cloud and ready to be updated.
 {{/if}}
 
 - **Get Code**: Try clicking on the "Blink an LED" example under the "Example apps" header.  The Particle Build editor should display the code for the example application in an active tab.  Alternatively, you can copy and paste this snippet of code into a new application in the Build IDE.

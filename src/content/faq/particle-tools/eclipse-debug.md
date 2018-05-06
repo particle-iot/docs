@@ -198,7 +198,8 @@ In the tinkerbreak/target directory are a few files that you may need:
 
 ### Restoring modular firmware
 
-To restore normal modular firmware, to allow for user flashing independent of system firmware and normal OTA flashing, put the device in DFU mode and:
+To restore normal modular firmware, to allow for user flashing
+independent of Device OS firmware and normal OTA flashing, put the device in DFU mode and:
 
 ```
 particle flash --usb tinker
@@ -666,7 +667,7 @@ will automatically change it to match your project name. In this example, it wou
 
 - Change error settings
 
-This is necessary because the system firmware is not fully integrated into Eclipse in this FAQ, so the lack of definitions causes many lines to be flagged as errors.
+This is necessary because the Device OS firmware is not fully integrated into Eclipse in this FAQ, so the lack of definitions causes many lines to be flagged as errors.
 
 Select **C/C++ General** then **Code Analysis** (1). Select **Use project settings** (2). Scroll down and uncheck the box for **Syntax and Semantic Errors** (3).
 

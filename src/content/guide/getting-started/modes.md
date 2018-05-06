@@ -151,7 +151,11 @@ To erase the stored Wi-Fi networks on your {{device}}, hold the `{{system-button
 
 {{device-animation device "breathe" "magenta" }}
 
-Safe mode connects the {{device}} to the cloud, but does not run any application firmware. This mode is one of the most useful for development or for troubleshooting. If something goes wrong with the app you loaded onto your device, you can set your device to Safe Mode. This runs the device's system firmware but doesn't execute any application code, which can be useful if the application code contains bugs that stop the device from connecting to the cloud.
+Safe mode connects the {{device}} to the cloud, but does not run any
+application firmware. This mode is one of the most useful for
+development or for troubleshooting. If something goes wrong with the app
+you loaded onto your device, you can set your device to Safe Mode. This
+runs the Device OS but doesn't execute any application code, which can be useful if the application code contains bugs that stop the device from connecting to the cloud.
 
 **The {{device}} indicates that it is in Safe Mode with the LED breathing magenta.**
 
@@ -174,7 +178,11 @@ The device will itself automatically enter safe mode if there is no application 
 
 {{device-animation device "breathe" "magenta" }}
 
-Safe mode connects the {{device}} to the cloud, but does not run any application firmware. This mode is one of the most useful for development or for troubleshooting. If something goes wrong with the app you loaded onto your device, you can set your device to Safe Mode. This runs the device's system firmware but doesn't execute any application code, which can be useful if the application code contains bugs that stop the device from connecting to the cloud.
+Safe mode connects the {{device}} to the cloud, but does not run any
+application firmware. This mode is one of the most useful for
+development or for troubleshooting. If something goes wrong with the app
+you loaded onto your device, you can set your device to Safe Mode. This
+runs the Device OS but doesn't execute any application code, which can be useful if the application code contains bugs that stop the device from connecting to the cloud.
 
 **The {{device}} indicates that it is in Safe Mode with the LED breathing magenta.**
 
@@ -342,7 +350,8 @@ When the server public key is bad, the {{device}} will blink alternately cyan an
 Blinking red indicates various errors.
 
 - 2 red blinks: Could not reach the internet.
-- 3 red blinks: Connected to the internet, but could not reach the Particle Cloud.
+- 3 red blinks: Connected to the internet, but could not reach the
+Particle Device Cloud.
 - Blinking "orange": This sometimes is seen as yellow or red and indicates bad server keys. To fix this issue, use the Particle CLI to restore the server keys using `particle keys server` in your terminal window, while having the device in DFU mode.
 
 
@@ -396,7 +405,7 @@ If your {{device}} crashes repeatedly with an SOS code, first try recovering wit
 particle flash <mydevice> tinker
 ```
 
-If it's not possible to enter Safe Mode, your system firmware may be corrupted.  Use the Device Doctor feature of the CLI to put your {{device}} into a healthy state.
+If it's not possible to enter Safe Mode, your Device OS may be corrupted.  Use the Device Doctor feature of the CLI to put your {{device}} into a healthy state.
  
 ```
 particle device doctor

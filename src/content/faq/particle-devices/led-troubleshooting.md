@@ -8,7 +8,10 @@ order: 1000
 
 # {{title}}
 
-This section will help you decode the LED patterns on your Particle device. This FAQ will help you understand why your LED is flashing, blinking, or breathing a particular color and get it happily connected to the Particle Cloud. Use the menu on the left to select the LED pattern that your device is displaying, and follow the Troubleshooting steps described below to resolve your issue.
+This section will help you decode the LED patterns on your Particle
+device. This FAQ will help you understand why your LED is flashing,
+blinking, or breathing a particular color and get it happily connected
+to the Particle Device Cloud. Use the menu on the left to select the LED pattern that your device is displaying, and follow the Troubleshooting steps described below to resolve your issue.
 
 {{#if raspberry-pi}}
 ## My Raspberry Pi is in a weird state.
@@ -142,9 +145,10 @@ If your Electron is breathing magenta, it is in Safe Mode. This means that, alth
 
 There are two primary ways that you can resolve this issue:
 
-### 1) Recompile your user app for your existing system firmware.
+### 1) Recompile your user app for your existing Device OS version.
 
-If you are developing in the Build IDE, the compiler should automatically target the version of system firmware running on the selected device. The Build IDE will also give you a warning if you select a firmware version build target for your device that is newer than the system modules running on it. To confirm that you're building with the right version of firmware, follow these steps:
+If you are developing in the Build IDE, the compiler should
+automatically target the version of Device OS running on the selected device. The Build IDE will also give you a warning if you select a firmware version build target for your device that is newer than the system modules running on it. To confirm that you're building with the right version of firmware, follow these steps:
 
 - Go to [https://build.particle.io](https://build.particle.io)
 - Click on the `Devices` icon on the left-most navigation pane
@@ -152,9 +156,10 @@ If you are developing in the Build IDE, the compiler should automatically target
 - Click the `Building with firmware` dropdown and make sure that it is set to `Default`
 - Try flashing the application to your device again over the air, or download the binary and flash it to your device using the CLI
 
-### 2) Update the system firmware on your Electron
+### 2) Update the Device OS version on your Electron
 
-The other option to resolve a mismatch between system and user firmware versions is to update the system firmware on your Electron to match the newer user firmware version. You can do this one of two ways:
+The other option to resolve a mismatch between system and user firmware
+versions is to update the Device OS version on your Electron to match the newer user firmware version. You can do this one of two ways:
 
 **Using the Build IDE**  
 More details coming soon.
@@ -165,7 +170,7 @@ More details coming soon.
 **Using the Particle CLI**
 - Put your device into DFU mode by holding the `{{system-button}}` and `{{reset-button}}` buttons, then releasing the `{{reset-button}}` button while continuing to hold the `{{system-button}}` button. The LED on your Electron will begin flashing yellow.
 - Open up a terminal session and type `particle update`
-- Your device will download the most recent version of system firmware and will reboot successfully.
+- Your device will download the most recent version of Device OS and will reboot successfully.
 
 ### 3) Check your application for issues
 

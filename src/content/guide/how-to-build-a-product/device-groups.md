@@ -7,13 +7,6 @@ order: 12
 
 # {{title}}
 
-<p class="boxedHead">Beta feature</p>
-<p class="boxed">
-Device groups are **currently in beta** and available to customers on an
-Enterprise plan. If you would like access to this feature, please <a
-href="https://www.particle.io/sales" target="_blank">contact us</a>.
-</p>
-
 Device groups allow you to define subsets of your IoT deployment that can
 be addressed separately from the rest of the fleet. Groups provide the flexibility
 and granularity you need to manage a connected product at scale.
@@ -45,9 +38,7 @@ target="_blank">Particle Console</a>. Visit your product's devices view
 ![New group button](/assets/images/device-groups/new-group-btn.png)
 
 <p class="caption">You will find the 'New Group' button on your
-product's devices page. Note that this button will only be enabled if
-you are on an Enterprise plan. <a href="https://www.particle.io/sales"
-target="_blank">Contact us</a> for access to this feature.</p>
+product's devices page.</p>
 
 After clicking this button, the _New Device Group_ modal will appear:
 

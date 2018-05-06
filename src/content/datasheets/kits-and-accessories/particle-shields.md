@@ -834,7 +834,7 @@ This is the big one! A fantastic collection of premium and versatile sensors.
 - (1) USB Micro B Cable
 - (1) Particle SIM Card
 - (1) Cellular Antenna
-- (1) 2000mAh LiPo Battery
+- (1) 1,800mAh LiPo Battery
 - (1) Particle Sticker
 - (2) Resistor 220-Ohm
 - (1) Breadboard

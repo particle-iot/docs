@@ -110,7 +110,7 @@ sudo particle-agent setup
 ```
 
 Add the Raspberry Pi to your Particle account, create keys for the
-secure connection to the Particle Cloud and start the Agent running Tinker.
+secure connection to the Particle Device Cloud and start the Agent running Tinker.
 
 Use this command as a "factory reset" in case your firmware doesn't
 connect to the cloud anymore.
