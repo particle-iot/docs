@@ -20,11 +20,11 @@ ANTFLEX | Less than 100 units, ships immediately | More than 100 units, ships in
 ARDSHIELD | Less than 100 units, ships immediately | More than 100 units, ships in 8 - 10 weeks
 ASSET2GV2 | Less than 50 units, ships in 1 - 2 weeks | More than 50 units, ships in 4 - 6 weeks
 ASSET3G260V2 | Less than 200 units, ships immediately | More than 200 units, ships in 10 - 13 weeks
-ASSET3G270V2 | Less than 5 units, ships immediately | More than 5 units, ships in 10 - 13 weeks
+ASSET3G270V2 | Less than 50 units, ships in 1 - 2 weeks | More than 50 units, ships in 10 - 13 weeks
 BAT1800 | All volumes ship in 4 - 6 weeks | All volumes ship in 4 - 6 weeks
 BATTMOD50 | Less than 750 units, ships immediately | More than 750 units, ships in 4 - 6 weeks
 E260KIT | Less than 100 units, ships immediately | More than 100 units, ships in 12 - 16 weeks
-E260TRAY50 | Less than 250 units, ships in 4 - 6 weeks | More than 250 units, ships in 12 - 16 weeks
+E260TRAY50 | Less than 200 units, ships in 4 - 6 weeks | More than 200 units, ships in 12 - 16 weeks
 E270KIT | Less than 200 units, ships immediately | More than 200 units, ships in 12 - 16 weeks
 E270TRAY50 | Less than 100 units, ships immediately | More than 100 units, ships in 12 - 16 weeks
 E310KIT | Less than 30 units, ships immediately | More than 30 units, ships in 12 - 16 weeks
@@ -49,7 +49,7 @@ PHOTONKIT | Less than 300 units, ships in 4 - 6 weeks | More than 300 units, shi
 PROGSHIELD | Less than 200 units, ships immediately | More than 200 units, ships in 8 - 10 weeks
 PWRSHIELDH | Less than 150 units, ships immediately | More than 150 units, ships in 8 - 10 weeks
 RLYSHIELD | Less than 200 units, ships immediately | More than 200 units, ships in 8 - 10 weeks
-SIMBLANK50 | All volumes ship in 4 - 6 weeks | All volumes ship in 4 - 6 weeks
+SIMBLANK50 | Less than 150 units, ships immediately | More than 150 units, ships in 4 - 6 weeks
 SIMTELE | Less than 50 units, ships immediately | More than 50 units, ships in 4 - 6 weeks
 SNSRKIT3G260 | Less than 100 units, ships in 4 - 6 weeks | More than 100 units, ships in 12 - 16 weeks
 SNSRKIT3G270 | Less than 50 units, ships immediately | More than 50 units, ships in 12 - 16 weeks
