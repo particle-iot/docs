@@ -26,7 +26,7 @@ BATTMOD50 | Less than 750 units, ships immediately | More than 750 units, ships 
 E260KIT | Less than 100 units, ships immediately | More than 100 units, ships in 12 - 16 weeks
 E260TRAY50 | Less than 150 units, ships in 4 - 6 weeks | More than 150 units, ships in 12 - 16 weeks
 E270KIT | Less than 200 units, ships immediately | More than 200 units, ships in 12 - 16 weeks
-E270TRAY50 | Less than 100 units, ships immediately | More than 100 units, ships in 12 - 16 weeks
+E270TRAY50 | Less than 50 units, ships immediately | More than 50 units, ships in 12 - 16 weeks
 E310KIT | Less than 30 units, ships immediately | More than 30 units, ships in 12 - 16 weeks
 E310MOD1 | Less than 75 units, ships immediately | More than 75 units, ships in 12 - 16 weeks
 E310TRAY50 | Less than 300 units, ships immediately | More than 300 units, ships in 12 - 16 weeks
