@@ -13,19 +13,19 @@ Particle products have different lead times based on the quantity. Please see th
 
 SKU | Low volume lead time | High volume lead time
 ------------ | ------------- | -------------
-ANTDUCK | Less than 150 units, ships in 2 - 4 weeks | More than 150 units, ships in 4 - 6 weeks
+ANTDUCK | Less than 150 units, ships immediately | More than 150 units, ships in 4 - 6 weeks
 ANTELEC | Less than 30 units, ships immediately | More than 30 units, ships in 4 - 6 weeks
 ANTELEC50 | Less than 500 units, ships immediately | More than 500 units, ships in 4 - 6 weeks
 ANTFLEX | Less than 100 units, ships immediately | More than 100 units, ships in 4 - 6 weeks
 ARDSHIELD | Less than 40 units, ships immediately | More than 40 units, ships in 8 - 10 weeks
-ASSET2GV2 | Less than 100 units, ships immediately | More than 100 units, ships in 10 - 13 weeks
+ASSET2GV2 | Less than 8 units, ships immediately | More than 8 units, ships in 10 - 13 weeks
 ASSET3G260V2 | Less than 10 units, ships immediately | More than 10 units, ships in 10 - 13 weeks
 ASSET3G270V2 | Less than 50 units, ships immediately | More than 50 units, ships in 10 - 13 weeks
 BAT1800 | All volumes ship in 4 - 6 weeks | All volumes ship in 4 - 6 weeks
 BATTMOD50 | Less than 500 units, ships immediately | More than 500 units, ships in 4 - 6 weeks
 E260KIT | Less than 100 units, ships immediately | More than 100 units, ships in 12 - 16 weeks
-E260TRAY50 | Less than 200 units, ships in 4 - 6 weeks | More than 200 units, ships in 12 - 16 weeks
-E270KIT | Less than 100 units, ships immediately | More than 100 units, ships in 12 - 16 weeks
+E260TRAY50 | Less than 500 units, ships in 2 - 4 weeks | More than 500 units, ships in 12 - 16 weeks
+E270KIT | Less than 40 units, ships immediately | More than 40 units, ships in 12 - 16 weeks
 E270TRAY50 | Less than 200 units, ships in 2 - 4 weeks | More than 200 units, ships in 12 - 16 weeks
 E310KIT | Less than 30 units, ships immediately | More than 30 units, ships in 12 - 16 weeks
 E310MOD1 | Less than 75 units, ships immediately | More than 75 units, ships in 12 - 16 weeks
@@ -41,9 +41,9 @@ P0MOD10 | Less than 500 units, ships immediately | More than 500 units, ships in
 P0REEL | All volumes ship in 12 - 16 weeks | All volumes ship in 12 - 16 weeks
 P1MOD10 | Less than 1000 units, ships immediately | More than 1000 units, ships in 12 - 16 weeks
 P1REEL | Less than 3000 units, ships immediately | More than 3000 units, ships in 12 - 16 weeks
-PHNTRAYH | Less than 50 units, ships immediately | More than 50 units, ships in 12 - 16 weeks
+PHNTRAYH | Less than 500 units, ships in 1 - 2 weeks | More than 500 units, ships in 12 - 16 weeks
 PHNTRAYNOH | Less than 200 units, ships immediately | More than 200 units, ships in 12 - 16 weeks
-PHOTONH | Less than 100 units, ships in 2 - 4 weeks | More than 20 units, ships in 12 - 16 weeks
+PHOTONH | Less than 100 units, ships immediately | More than 100 units, ships in 12 - 16 weeks
 PHOTONNOH | Less than 75 units, ships immediately | More than 75 units, ships in 12 - 16 weeks
 PHOTONKIT | Less than 300 units, ships in 4 - 6 weeks | More than 300 units, ships in 12 - 16 weeks
 PROGSHIELD | Less than 200 units, ships immediately | More than 200 units, ships in 8 - 10 weeks
