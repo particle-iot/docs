@@ -9,13 +9,6 @@ devices: [photon, electron]
 
 # {{title}}
 
-<p class="boxedHead">Beta feature</p>
-<p class="boxed">
-This feature is **currently in private beta**.
-If you would like access to this feature, please
-<a href="https://www.particle.io/sales" target="_blank">contact us</a>.
-</p>
-
 As you deploy your IoT fleet into the field, it becomes increasingly
 important to ensure that devices stay in a healthy state. In addition,
 when problems do arise, the ability to quickly identify and implement a
