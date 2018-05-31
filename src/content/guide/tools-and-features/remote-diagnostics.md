@@ -235,7 +235,6 @@ src="/assets/images/remote-diagnostics/default-diagnostics-state-wifi.png"/>
 Running the tests will kick off diagnostics for each layer of the
 connectivity stack. Tests will be run in parallel, and the test results
 will be shown once all tests are completed.
-Let's dive into what each test actually does:
 
 ## Test Results
 
