@@ -126,8 +126,6 @@ For devices in which you do not have physical access, you have the ability to up
 
 One of the easiest and safest ways to update Device OS is to simply flash an application firmware that was compiled against a newer version of Device OS. The device will receive the incompatible firmware app, and use [safe mode healer](#safe-mode-healer) to automatically download the newer system modules.
 
-**Note**: This method is not currently available for Electrons, unless the device has been added to a [product](https://docs.particle.io/guide/tools-and-features/console/#product-tools). This is meant to help you manage cellular data usage. For updating Device OS on Electrons, check out the methods for [updating locally](#updating-locally).
-
 In the Web IDE, this can be done by using the _Device OS target_ dropdown, and choosing a version that is newer than what is currently on the device.
 
 ![Select newer version of Device OS in the IDE](/assets/images/system-fw-newer-ide.png)
