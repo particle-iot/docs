@@ -45,17 +45,17 @@ Wi-Fi vs. Cellular).
 These connectivity layers are:
 
 {{#if electron}}
-  <img class="full-width" alt="Device, SIM Card, Cellular Network, and
+  <img class="full-width" alt="Device Vitals, SIM Card, Cellular Network, and
   Particle Device Cloud"
   src="/assets/images/remote-diagnostics/connectivity-layers-cellular.png"/>
 {{else}}
-  <img alt="Device and
+  <img alt="Device Vitals and
   Device Particle Device Cloud"
   src="/assets/images/remote-diagnostics/connectivity-layers-wifi.png"/>
 {{/if}}
 
 
-### Device
+### Device Vitals
 
 The device itself must be in a healthy state in order to successfully
 communicate with the cloud. A variety of factors influence its state,
@@ -105,7 +105,74 @@ The Webhooks service allows for device data to be sent to other
 apps and services. Webhooks also allows devices to ingest
 information *from* these Internet services.
 
-## Running Diagnostic Tests
+## Device Vitals
+
+Starting with Device OS version `0.8.0`, each device will automatically
+send its vitals to the Device Cloud upon starting a new secure session. For
+information on upgrading Device OS versions for your devices, check out the [Device OS
+guide](/guide/tools-and-features/device-os/#managing-device-os).
+
+When viewing a device's details on the Console (click on a device from
+your device list), you will see a section for _Device Vitals_ in the
+right column. This will show you the last recorded vitals information
+for your device:
+
+<img src="/assets/images/remote-diagnostics/device-vitals-cellular.png"
+class="small"/>
+
+The device collects the following diagnostic vitals, and sends them to
+the Device Cloud:
+{{#if electron}}
+- *Battery state of charge*: The state of charge of the device’s connected battery, represented as a percentage.
+{{/if}}
+- *Signal strength*: The strength of the device’s connection to the
+{{#if electron}}Cellular{{else}}Wi-Fi{{/if}} network, measured in decibels of received signal power.
+- *Disconnect events*: The number of times the device disconnected
+unexpectedly from the Particle Device Cloud since its last reset.
+- *Round-trip time*: The amount of time it takes for the device to
+successfully respond to a CoAP message sent by the Particle Device Cloud in milliseconds.
+- *Rate-limited publishes*: Particle devices are allowed to publish an
+average of 1 event per second in application firmware. Publishing at a
+rate higher than this will result in rate limiting of events.
+- *Used Memory*: The amount of memory used by the device, combining the heap and the user application’s static RAM in bytes.
+
+The device delivers the diagnostics data to the Particle Device Cloud
+via the [`spark/device/diagnostics/update`](/reference/api/#device-vitals-event)
+system event. The device vitals event will include a data payload of the
+most recent readings the device collected.
+
+You can also refresh a device vitals on-demand. Read on to learn how.
+
+### Refresh in the Console
+You can use the Console to update vitals for your device:
+
+<img src="/assets/images/remote-diagnostics/device-vitals-refresh.png"
+class="small"/>
+
+**Clicking on the <i class="ion-refresh"></i> refresh icon**  above the
+last recorded vitals reading will instruct the device to re-send its
+device vitals to the Device Cloud. If your device is online and
+responsive, device vitals will be refreshed.
+
+**Clicking on the _Run diagnostics_ link** will trigger running the [full
+diagnostics test suite](#full-diagnostics-test-suite), which includes
+refreshing device vitals.
+
+### Refresh using the API
+
+If you'd like to programmatically instruct the device to re-send its
+device vitals, you can use the Device Cloud REST API. **This is especially
+usefull if you'd like to automate devices in your fleet reporting
+diagnostic information on a regular cadence**.
+
+You will need to make a `POST` request to the [refresh device
+vitals](/reference/api/#refresh-device-vitals) API endpoint, then listen for the
+published event from the device either using the [server-sent event
+stream](/reference/api/#product-event-streamh) or by
+[setting up a webhook](/guide/tools-and-features/webhooks/) that
+triggers off of the `spark/device/diagnostics/update` event.
+
+## Full Diagnostics Test Suite
 
 Diagnostics tests can be run for a device using the
 <a href="https://console.particle.io" target="_blank">Particle
@@ -135,9 +202,9 @@ connectivity stack. Tests will be run in parallel, and the test results
 will be shown once all tests are completed.
 Let's dive into what each test actually does:
 
-### Device
+### Device Vitals
 
-Starting with Device OS version `0.8.x`, Particle devices have the
+Starting with Device OS version `0.8.0`, Particle devices have the
 ability to collect a rich amount of diagnostic data and send this
 information to the Particle Device Cloud.
 
@@ -147,32 +214,6 @@ Particle cloud)
 - On-demand, when the diagnostic tests are run in the Console or via the
 API
 
-The device collects the following diagnostic vitals:
-{{#if electron}}
-- *Battery state of charge*: The state of charge of the device’s connected battery, represented as a percentage.
-{{/if}}
-- *Signal strength*: The strength of the device’s connection to the
-{{#if electron}}Cellular{{else}}Wi-Fi{{/if}} network, measured in decibels of received signal power.
-- *Disconnect events*: The number of times the device disconnected
-unexpectedly from the Particle Device Cloud since its last reset.
-- *Round-trip time*: The amount of time it takes for the device to
-successfully respond to a CoAP message sent by the Particle Device Cloud in milliseconds.
-- *Rate-limited publishes*: Particle devices are allowed to publish an
-average of 1 event per second in application firmware. Publishing at a
-rate higher than this will result in rate limiting of events.
-- *Used Memory*: The amount of memory used by the device, combining the heap and the user application’s static RAM in bytes.
-
-The device delivers the diagnostics data to the Particle Device Cloud via a
-[system event](/reference/firmware/#system-events) that is published
-to the event stream. The device diagnostic event will have the name
-`spark/device/diagnostics/update`, and include a data payload of the
-most recent diagnostic vitals the device collected.
-
-To ensure that your device is able to collect and send diagnostic data
-to the Particle Device Cloud, you will need to ensure that the device is
-running a Device OS version equal to or greater than `0.8.0`. For
-information on managing Device OS versions, check out the [Device OS
-guide](/guide/tools-and-features/device-os/).
 
 {{#if electron}}
 ### SIM Card
