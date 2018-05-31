@@ -37,13 +37,17 @@ health of your devices, and quickly resolve problems when they arise.</p>
 
 ## Device Vitals
 
-Starting with Device OS version `0.8.0`, each device will automatically
-send its vitals to the Device Cloud upon starting a new secure session. For
+Device vitals are indicators that impact connectivity health for
+that device. Starting with Device OS version `0.8.0`, each device will automatically
+collect and send its vitals to the Device Cloud upon starting a new secure session. For
 information on upgrading Device OS versions for your devices, check out the [Device OS
 guide](/guide/tools-and-features/device-os/#managing-device-os).
 
-When viewing a device's details on the <a href="https://console.particle.io" target="_blank">Console</a> (click on a device from
-your device list), you will see a section for _Device Vitals_ in the
+You can see a device's vitals in the <a
+href="https://console.particle.io" target="_blank">Console</a>. From the
+devices view, click on a device from your device list.
+
+When viewing a device details page,  will see a section for _Device Vitals_ in the
 right column. This will show you the last recorded vitals information
 for your device:
 
@@ -70,6 +74,10 @@ The device delivers the diagnostics data to the Particle Device Cloud
 via the [`spark/device/diagnostics/update`](/reference/api/#device-vitals-event)
 system event. The device vitals event will include a data payload of the
 most recent readings the device collected.
+
+Each vital will be analyzed and marked as either _healthy_ or _warning_
+depending on what values are returned by the device. Learn more about
+diagnostic analysis in the section on [test results](#test-results).
 
 You can also refresh a device vitals on-demand. Read on to learn how.
 
@@ -136,7 +144,7 @@ application firmware that does not exceed enforced rate limits.
 As part of the full Remote Diagnostics test suite, the device will be
 asked to re-send its vitals to the Device Cloud. Each vital will be
 inspected and analyzed to ensure that it falls within a healthy range.
-See the section on [device vitals](#device-vitals-1) for detailed
+See the section on [device vitals](#device-vitals) for detailed
 information on what data gets sent from the device.
 
 
@@ -207,15 +215,14 @@ information *from* these Internet services.
 
 ## Running the test suite
 
-To run the full test suite, you can click on **Run diagnostics** from
-the Device Vitals UI, or click on the Diagnostics tab when viewing a
+To run the full test suite, you can click on the **Run diagnostics**
+link from the Device Vitals UI, or click on the **Diagnostics tab** when viewing a
 device on the Console:
 
-<img src="/assets/images/remote-diagnostics/diagnostics-tab.png"/>
-<p class="caption">Remote Diagnostics are available on the Console's
-device details page.</br>Click on the Diagnostics tab to get started.</p>
+<img src="/assets/images/remote-diagnostics/device-vitals-run-fullsuite.jpg"/>
 
- Click the **Run Tests** button to run the test suite:
+Click the **Run Tests** button to run the test suite, if the tests have
+not already begun to run:
 
 {{#if electron}}
 <img class="full-width"
