@@ -7,7 +7,7 @@ order: 1
 
 {{#unless pdf-generation}}
 
-# Photon Datasheet <sup>(v015)</sup>
+# Photon Datasheet <sup>(v016)</sup>
 
 **Model number:** PHOTONH, PHOTONNOH
 
@@ -141,6 +141,8 @@ A standard 20-pin 0.1" shrouded male JTAG interface connector should be wired as
 ---
 
 ### External Coexistence Interface
+
+**Note:** Currently this interface is unsupported. If you need this feature for a product, please [contact Particle](/support/support-and-fulfillment/menu-base/).
 
 The Photon supports coexistence with Bluetooth and other external radios via the three gold pads on the top side of the PCB near pin A3.  These pads are 0.035" square, spaced 0.049" apart.  This spacing supports the possibility of tacking on a small 1.25mm - 1.27mm pitch 3-pin male header to make it somewhat easier to interface with.
 
@@ -670,6 +672,7 @@ Cet équipement devrait être installé et actionné avec une distance minimum d
 | v013 | 7-April-2016 | BW | Added: full STM32 part number, Memory map, DAC limits, SWD pin locations, max source/sink current, more descriptive info about bottom side pads, known errata URL. Updated: BT COEX info, pin diagram, block diagram, operating conditions, pin descriptions, land-pattern image signal keepout note.
 | v014 | 13-September-2016 | BW | Updated Mating connectors section. |
 | v015 | 25-July-2017 | BW | Updated the Pin Description section and added high resolution pinout PDF, PWM notes and DCT layout, added warning to power section |
+| v016 | 31-May-2018 | BW | Updated External Coexistence Interface section (currently unsupported) |
 
 ## Known Errata
 

@@ -7,7 +7,7 @@ order: 2
 
 {{#unless pdf-generation}}
 
-# P1 Datasheet <sup>(v009)</sup>
+# P1 Datasheet <sup>(v010)</sup>
 
 <div align=center><img src="/assets/images/p1-vector.png" width=200></div>
 
@@ -149,6 +149,8 @@ A standard 20-pin 0.1" shrouded male JTAG interface connector should be wired as
 ---
 
 ### External Coexistence Interface
+
+**Note:** Currently this interface is unsupported. If you need this feature for a product, please [contact Particle](/support/support-and-fulfillment/menu-base/).
 
 The P1 supports coexistence with Bluetooth and other external radios via three pins available on the P1 module.
 
@@ -655,6 +657,7 @@ Cet équipement devrait être installé et actionné avec une distance minimum d
 | v007 | 20-September-2016 | BW | Updated P1 pin listing: TESTMODE pin 33 (PA8), can use now as P1S6 if enabled.  Updated Pinmap and added P1S6.  Updated Pin Description and Peripherals and GPIO. |
 | v008 | 25-July-2017 | BW | Added note to clarify MICRO_SPI1_SS label, renamed SPI1_*/SPI3_* to match Particle API instead of STM32 pin names to avoid confusion (now SPI and SPI1), updated the Pin Description section and added high resolution pinout PDF, updated PWM notes, JTAG_TDO pin number (54 -> 52), block diagram and DCT layout, added warning to power section |
 | v009 | 30-August-2017 | BW | Added part number for 1MB external SPI flash (MX25L8006E) |
+| v010 | 31-May-2018 | BW | Updated External Coexistence Interface section (currently unsupported) |
 
 ## Known Errata
 

@@ -163,7 +163,7 @@ Up to 15 cloud functions may be registered and each function name is limited to 
 
 **Note:** Only use letters, numbers, underscores and dashes in function names. Spaces and special characters may be escaped by different tools and libraries causing unexpected results.
 
-In order to register a cloud  function, the user provides the `funcKey`, which is the string name used to make a POST request and a `funcName`, which is the actual name of the function that gets called in your app. The cloud function can return any integer; `-1` is commonly used for a failed function call.
+In order to register a cloud  function, the user provides the `funcKey`, which is the string name used to make a POST request and a `funcName`, which is the actual name of the function that gets called in your app. The cloud function has to return an integer; `-1` is commonly used for a failed function call.
 
 A cloud function is set up to take one argument of the [String](#string-class) datatype. This argument length is limited to a max of 63 characters (_prior to 0.8.0_), 622 characters (_since 0.8.0_). The Spark Core remains limited to 63 characters.
 
