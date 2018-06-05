@@ -32,9 +32,9 @@ E310MOD1 | Less than 75 units, ships immediately | More than 75 units, ships in 
 E310TRAY50 | Less than 500 units, ships immediately | More than 500 units, ships in 12 - 16 weeks
 E350KIT | Less than 200 units, ships immediately | More than 200 units, ships in 12 - 16 weeks
 E350TRAY50 | Less than 50 units, ships immediately | More than 50 units, ships in 12 - 16 weeks
-E402KIT | Less than 200 units, ships in 10 - 12 weeks | More than 200 units, ships in 12 - 16 weeks
-E402MOD1 | Less than 150 units, ships in 10 -12 weeks | More than 150 units, ships in 12 - 16 weeks
-E402TRAY50 | Less than 250 units, ships in 10 - 12 weeks | More than 250 units, ships in 12 - 16 weeks
+E402KIT | Less than 200 units, ships in 6 - 8 weeks | More than 200 units, ships in 12 - 16 weeks
+E402MOD1 | Less than 150 units, ships in 6 - 8 weeks | More than 150 units, ships in 12 - 16 weeks
+E402TRAY50 | Less than 200 units, ships in 10 - 12 weeks | More than 200 units, ships in 12 - 16 weeks
 GSWTP | Less than 40 units, ships immediately | More than 40 units, ships in 8 - 10 weeks
 MKITPH | Less than 200 units, ships immediately | More than 200 units, ships in 12 - 16 weeks
 P0MOD10 | Less than 500 units, ships immediately | More than 500 units, ships in 12 - 16 weeks
