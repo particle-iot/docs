@@ -18,7 +18,7 @@ ANTELEC | Less than 50 units, ships immediately | More than 50 units, ships in 4
 ANTELEC50 | Less than 500 units, ships immediately | More than 500 units, ships in 4 - 6 weeks
 ANTFLEX | Less than 250 units, ships immediately | More than 250 units, ships in 4 - 6 weeks
 ARDSHIELD | Less than 20 units, ships immediately | More than 20 units, ships in 8 - 10 weeks
-ASSET2GV2 | Less than 4 units, ships immediately | More than 4 units, ships in 10 - 13 weeks
+ASSET2GV2 | Less than 150 units, ships immediately | More than 150 units, ships in 2 - 3 weeks
 ASSET3G260V2 | Less than 300 units, ships immediately | More than 300 units, ships in 10 - 13 weeks
 ASSET3G270V2 | Less than 50 units, ships in 6 - 8 weeks | More than 50 units, ships in 10 - 13 weeks
 BAT1800 | Less than 50 units, ships immediately | More than 50 units, ships in 2 - 4 weeks
@@ -43,8 +43,8 @@ P1MOD10 | Less than 1000 units, ships immediately | More than 1000 units, ships 
 P1REEL | Less than 3000 units, ships immediately | More than 3000 units, ships in 12 - 16 weeks
 PHNTRAYH | Less than 500 units, ships immediately | More than 500 units, ships in 12 - 16 weeks
 PHNTRAYNOH | Less than 200 units, ships immediately | More than 200 units, ships in 12 - 16 weeks
-PHOTONH | Less than 100 units, ships immediately | More than 100 units, ships in 12 - 16 weeks
-PHOTONNOH | Less than 150 units, ships immediately | More than 150 units, ships in 12 - 16 weeks
+PHOTONH | Less than 75 units, ships immediately | More than 75 units, ships in 12 - 16 weeks
+PHOTONNOH | Less than 80 units, ships immediately | More than 80 units, ships in 12 - 16 weeks
 PHOTONKIT | Less than 500 units, ships in 4 - 6 weeks | More than 500 units, ships in 12 - 16 weeks
 PROGSHIELD | Less than 200 units, ships immediately | More than 200 units, ships in 8 - 10 weeks
 PWRSHIELDH | All volumes ship in 8 - 10 weeks | All volumes ship in 8 - 10 weeks
