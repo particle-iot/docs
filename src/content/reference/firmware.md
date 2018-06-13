@@ -608,7 +608,7 @@ Runs the background loop. This is the public API for the former internal functio
 and processes any messages that have come in. It also sends keep-alive pings to the Cloud,
 so if it's not called frequently, the connection to the Cloud may be lost.
 
-Even in non-cloud-bound applications it can still be advisable to call `Particle.process()` to explicitly provide some processor time to the {{network-type}} module (e.g. immediately after `{{if has-wifi}}WiFi{{else}}{{if has-cellular}}Cellular{{/if}}{{/if}}.ready()` to update system variables).
+Even in non-cloud-bound applications it can still be advisable to call `Particle.process()` to explicitly provide some processor time to the {{network-type}} module (e.g. immediately after `{{#if has-wifi}}WiFi{{else}}{{#if has-cellular}}Cellular{{/if}}{{/if}}.ready()` to update system variables).
 
 ```cpp
 void setup() {
