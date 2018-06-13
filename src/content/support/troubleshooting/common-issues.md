@@ -36,7 +36,7 @@ There are three different variants of the Electron, and they each work in differ
 | Electron U260  | 3G with 2G fallback | North and South America, Australia | 850/1900
 | Electron U270 | 3G with 2G fallback | Europe, Asia, Africa | 900/1800/2100 |
 
-Make sure that your device is compatible with the cellular infrastructure in your country. Small country-by-country variations from the generalized table above may apply. For a detailed list of 3G service country by country, <a href="https://www.kickstarter.com/projects/sparkdevices/spark-electron-cellular-dev-kit-with-a-simple-data/description" target="_blank">please visit the following link</a>.
+Make sure that your device is compatible with the cellular infrastructure in your country. Small country-by-country variations from the generalized table above may apply. For a detailed list of 3G service country by country, <a href="https://www.particle.io/products/connectivity/cellular-iot-sim-2g-3g-lte#additional-mbs" target="_blank">please visit the following link</a>.
 
 If your device is not compatible with the cellular infrastructure in your country, **it will be unable to connect to the Internet using a Particle SIM or any other SIM.**
 
@@ -245,7 +245,7 @@ This should reset your public key.
 
 - **If you claimed the device previously:**
 You need the [CLI](/guide/tools-and-features/cli/). Once it is installed, run:
-`particle keys server cloud_public.der`
+`particle keys server`
 `particle keys new photon`
 `particle keys load photon.der`
 `particle keys send photon.pub.pem`
@@ -338,3 +338,4 @@ These commands replace the factory reset image, and re-patch the radio, bringing
 Check out [connection help](/support/troubleshooting/connection-help) for more info.
 
 For more help join our [community forums](http://community.particle.io/) and post in the [troubleshooting section](https://community.particle.io/c/troubleshooting).
+t
