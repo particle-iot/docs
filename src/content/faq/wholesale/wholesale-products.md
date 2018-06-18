@@ -9,7 +9,7 @@ order: 300
 
 ## Standard Manufacturing Lead Times
 
-Particle products may be subject to standard manufacturing lead times depending on availability and demand. Please see the table below for the standard manufacturing lead time for each SKU. After placing an order, an associate will reach out with an estimated ship date.
+Particle products may be subject to standard manufacturing lead times depending on availability and demand. Please see the table below for the standard manufacturing lead time for each SKU. After placing an order, an associate will reach out with an estimated shipping date.
 
 SKU | Name | Standard Manufacturing Lead Time
 ------------ | ------------- | -------------
