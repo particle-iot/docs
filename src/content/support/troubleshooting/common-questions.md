@@ -29,6 +29,8 @@ Feel free to contact [hello @ particle dot io] with **subject line: *"Sponsorshi
 * Issue `particle serial identify` from the [particle CLI](/guide/tools-and-features/cli)
 	and it should return the deviceID.
 
+* There are many more options available in [the device ID FAQ](https://docs.particle.io/faq/particle-devices/finding-device-id/).
+
 {{#if core}}
 ## Troubleshoot LED Color on the Core
 
@@ -61,13 +63,6 @@ This includes:
 - Internet Button
 - Particle Dev (Electron, Photon, Core) Kit
 - Particle Maker Kit
-
-{{#if photon}}
-## Avoid Factory Reset
-
-It’s best to avoid doing a Factory Reset on your Photon. Here’s an in-depth explanation and some ways to avoid it
-[link here](https://community.particle.io/t/avoid-factory-reset-what-do-do-with-unexpected-led-behavior-on-a-photon/13358).
-{{/if}}
 
 **Also**, check out and join our [community forums](http://community.particle.io/) for advanced help, tutorials, and troubleshooting.
 
