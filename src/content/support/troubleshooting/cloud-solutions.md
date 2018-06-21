@@ -11,7 +11,7 @@ Cloud Solutions
 
 ### Building a Local Cloud for Devices
 
-This will guide you through on how to Setup the Local cloud and use it with Particle-cli after a successful installation.
+This will guide you through on how to Setup the Local cloud and use it with Particle-cli after a successful installation. Note that the local cloud can only be used with Wi-Fi devices (Photon/P1) and cannot be used with cellular devices.
 
 Before you proceed, make sure you fired up ``particle-server`` [link to particle-server](https://github.com/particle-iot/spark-server) successfully at least once. We will need the server public keys generated on 1st run later.
 
