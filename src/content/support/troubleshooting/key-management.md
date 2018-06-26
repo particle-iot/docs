@@ -11,8 +11,6 @@ Device Key Management
 
 An easy step-by-step walkthrough of Particle CLI commands to BACKUP, RESTORE and CHANGE Keys.
 
-[particle keys doctor]](/reference/cli/#particle-keys-doctor)
-
 {{#if core}}
 You may need to use this guide if you suffer from: "My Core is flashing yellow/red (orange) lights after it connects to Wi-Fi (Decryption Error)"
 
@@ -52,9 +50,11 @@ Bare with me for these next steps! This is slightly complicated because of the g
 
 7. Place your {{device}} into DFU mode by holding Mode and tapping Reset, then continue holding Mode for about 3 seconds until the LED starts flashing Yellow.
 
-8. Run the ``particle keys doctor xxxxx`` command, where xxxxx is the device ID you copied just earlier. This will generate a new public/private key pair and automatically download it to your device, and also send the public key up to the Cloud.
+8. It's a good idea to run the ``particle keys server`` command in case your server keys or address are corrupted.
 
-9. If ``particle keys doctor`` fails to send the keys to the cloud please contact [Particle support](https://support.particle.io).
+9. Run the ``particle keys doctor xxxxx`` command, where xxxxx is the device ID you copied just earlier. This will generate a new public/private key pair and automatically download it to your device, and also send the public key up to the Cloud.
+
+10. If ``particle keys doctor`` fails to send the keys to the cloud please contact [Particle support](https://support.particle.io).
 
 Congrats, you made it to the end! now your {{device}} should be connected to the Cloud... or will be just as soon as we add your Key to the server.
 

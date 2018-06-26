@@ -7,53 +7,53 @@ order: 300
 
 # {{title}}
 
-## Product Lead Times
+## Standard Manufacturing Lead Times
 
-Particle products have different lead times based on the quantity. Please see the table below for approximate lead times. After placing an order, an associate will reach out with an estimated ship date.
+Particle products may be subject to standard manufacturing lead times depending on availability and demand. Please see the table below for the standard manufacturing lead time for each SKU. After placing an order, an associate will reach out with an estimated shipping date.
 
-SKU | Low volume lead time | High volume lead time
+SKU | Name | Standard Manufacturing Lead Time
 ------------ | ------------- | -------------
-ANTDUCK | Less than 100 units, ships immediately | More than 100 units, ships in 4 - 6 weeks
-ANTELEC | Less than 30 units, ships immediately | More than 30 units, ships in 4 - 6 weeks
-ANTELEC50 | Less than 500 units, ships immediately | More than 500 units, ships in 4 - 6 weeks
-ANTFLEX | Less than 100 units, ships immediately | More than 100 units, ships in 4 - 6 weeks
-ARDSHIELD | Less than 40 units, ships immediately | More than 40 units, ships in 8 - 10 weeks
-ASSET2GV2 | Less than 6 units, ships immediately | More than 6 units, ships in 10 - 13 weeks
-ASSET3G260V2 | Less than 400 units, ships immediately | More than 400 units, ships in 10 - 13 weeks
-ASSET3G270V2 | Less than 10 units, ships immediately | More than 10 units, ships in 10 - 13 weeks
-BAT1800 | All volumes ship in 4 - 6 weeks | All volumes ship in 4 - 6 weeks
-BATTMOD50 | Less than 500 units, ships immediately | More than 500 units, ships in 4 - 6 weeks
-E260KIT | Less than 100 units, ships immediately | More than 100 units, ships in 12 - 16 weeks
-E260TRAY50 | Less than 500 units, ships in 1 - 2 weeks | More than 500 units, ships in 12 - 16 weeks
-E270KIT | Less than 100 units, ships in 4 - 6 weeks | More than 100 units, ships in 12 - 16 weeks
-E270TRAY50 | Less than 200 units, ships in 1 - 2 weeks | More than 200 units, ships in 12 - 16 weeks
-E310KIT | Less than 50 units, ships immediately | More than 50 units, ships in 12 - 16 weeks
-E310MOD1 | Less than 75 units, ships immediately | More than 75 units, ships in 12 - 16 weeks
-E310TRAY50 | Less than 500 units, ships immediately | More than 500 units, ships in 12 - 16 weeks
-E350KIT | Less than 200 units, ships immediately | More than 200 units, ships in 12 - 16 weeks
-E350TRAY50 | Less than 50 units, ships immediately | More than 50 units, ships in 12 - 16 weeks
-E402KIT | Less than 200 units, ships in 6 - 8 weeks | More than 200 units, ships in 12 - 16 weeks
-E402MOD1 | Less than 150 units, ships in 6 - 8 weeks | More than 150 units, ships in 12 - 16 weeks
-E402TRAY50 | Less than 250 units, ships in 6 - 12 weeks | More than 250 units, ships in 12 - 16 weeks
-GSWTP | Less than 40 units, ships immediately | More than 40 units, ships in 8 - 10 weeks
-MKITPH | Less than 200 units, ships immediately | More than 200 units, ships in 12 - 16 weeks
-P0MOD10 | Less than 500 units, ships immediately | More than 500 units, ships in 12 - 16 weeks
-P0REEL | All volumes ship in 12 - 16 weeks | All volumes ship in 12 - 16 weeks
-P1MOD10 | Less than 1000 units, ships immediately | More than 1000 units, ships in 12 - 16 weeks
-P1REEL | Less than 3000 units, ships immediately | More than 3000 units, ships in 12 - 16 weeks
-PHNTRAYH | Less than 500 units, ships in 1 - 2 weeks | More than 500 units, ships in 12 - 16 weeks
-PHNTRAYNOH | Less than 200 units, ships immediately | More than 200 units, ships in 12 - 16 weeks
-PHOTONH | Less than 100 units, ships immediately | More than 100 units, ships in 12 - 16 weeks
-PHOTONNOH | Less than 250 units, ships immediately | More than 250 units, ships in 12 - 16 weeks
-PHOTONKIT | Less than 500 units, ships in 4 - 6 weeks | More than 500 units, ships in 12 - 16 weeks
-PROGSHIELD | Less than 200 units, ships immediately | More than 200 units, ships in 8 - 10 weeks
-PWRSHIELDH | All volumes ship in 8 - 10 weeks | All volumes ship in 8 - 10 weeks
-RLYSHIELD | Less than 10 units, ships immediately | More than 10 units, ships in 8 - 10 weeks
-SIMBLANK50 | Less than 150 units, ships immediately | More than 150 units, ships in 4 - 6 weeks
-SIMTELE | Less than 50 units, ships immediately | More than 50 units, ships in 4 - 6 weeks
-SNSRKIT3G260 | Less than 100 units, ships in 1 - 2 weeks | More than 100 units, ships in 12 - 16 weeks
-SNSRKIT3G270 | Less than 25 units, ships immediately | More than 25 units, ships in 12 - 16 weeks
-SPKBTTN | Less than 400 units, ships immediately | More than 400 units, ships in 12 - 16 weeks
+ANTDUCK | DUCK ANTENNA | 4 - 6 weeks
+ANTELEC | CELLULAR ANTENNA | 4 - 6 weeks
+ANTELEC50 | CELLULAR ANTENNA (BULK) | 4 - 6 weeks
+ANTFLEX | FLEX ANTENNA | 4 - 6 weeks
+ARDSHIELD | SHIELD SHIELD | 8 - 10 weeks
+ASSET2GV2 | ASSET TRACKER 2G KIT V2 | 10 - 13 weeks
+ASSET3G260V2 | ASSET TRACKER 3G KIT V2 (AMERICAS/AUS) | 10 - 13 weeks
+ASSET3G270V2 | ASSET TRACKER 3G KIT V2 (EUR/ASIA/AFR) | 10 - 13 weeks
+BAT2000 | LI-PO BATTERY | 4 - 6 weeks
+BATTMOD50 | LI-PO BATTERY (BULK) | 4 - 6 weeks
+E260KIT | ELECTRON 3G KIT (AMERICAS/AUS) | 12 - 16 weeks
+E260TRAY50 | ELECTRON 3G (AMERICAS/AUS) IN TRAYS | 12 - 16 weeks
+E270KIT | ELECTRON 3G KIT (EUR/ASIA/AFR) | 12 - 16 weeks
+E270TRAY50 | ELECTRON 3G (EUR/ASIA/AFR) IN TRAYS | 12 - 16 weeks
+E310KIT | E SERIES 3G GLOBAL EVALUATION KIT (GLOBAL) | 12 - 16 weeks
+E310MOD1 | E SERIES 3G MODULE (GLOBAL) | 12 - 16 weeks
+E310TRAY50 | E SERIES 3G (GLOBAL) IN TRAYS | 12 - 16 weeks
+E350KIT | ELECTRON 2G KIT (GLOBAL) | 12 - 16 weeks
+E350TRAY50 | ELECTRON 2G (GLOBAL) IN TRAYS | 12 - 16 weeks
+E402KIT | E SERIES LTE EVALUATION KIT | 12 - 16 weeks
+E402MOD1 | E SERIES LTE MODULE | 12 - 16 weeks
+E402TRAY50 | E SERIES LTE IN TRAYS | 12 - 16 weeks
+GSWPH | GETTING STARTED WITH THE PHOTON BOOK | 8 - 10 weeks
+MKITPH | MAKER KIT | 12 - 16 weeks
+P0MOD10 | P0 WI-FI MODULE (10 UNITS) | 12 - 16 weeks
+P0REEL | P0 WI-FI MODULE IN REELS (1000 UNITS) | 12 - 16 weeks
+P1MOD10 | P1 WI-FI MODULE (10 UNITS) | 12 - 16 weeks
+P1REEL | P1 WI-FI MODULE IN REELS (500 UNITS) | 12 - 16 weeks
+PHNTRAYH | PHOTON WITH HEADERS IN TRAYS | 12 - 16 weeks
+PHNTRAYNOH | PHOTON WITHOUT HEADERS IN TRAYS | 12 - 16 weeks
+PHOTONH | PHOTON WITH HEADERS | 12 - 16 weeks
+PHOTONNOH | PHOTON WITHOUT HEADERS | 12 - 16 weeks
+PHOTONKIT | PHOTON KIT | 12 - 16 weeks
+PROGSHIELD | PROGRAMMER SHIELD | 8 - 10 weeks
+PWRSHIELDH | POWER SHIELD | 8 - 10 weeks
+RLYSHIELD | RELAY SHIELD | 8 - 10 weeks
+SIMBLANK50 | SIM CARD (BULK) | 4 - 6 weeks
+SIMTELE | SIM CARD | 4 - 6 weeks
+SNSRKIT3G260 | SENSOR KIT WITH ELECTRON 3G (AMERICAS/AUS) | 12 - 16 weeks
+SNSRKIT3G270 | SENSOR KIT WITH ELECTRON 3G (EUR/ASIA/AFR) | 12 - 16 weeks
+SPKBTTN | INTERNET BUTTON | 12 - 16 weeks
 
 
 Lead times apply only from the point of payment. Requesting a lead time will not reserve stock. Only a committed, non-refundable, non-cancellable purchase order (PO) or a purchase with payment will guarantee lead times. Particle reserves the right to increase or decrease lead times at any time.
@@ -107,7 +107,7 @@ We can only perform limited troubleshooting on modules built into custom boards.
 
 ### Items damaged in shipment
 
-Please contact us via our [support portal](https://support.particle.io/) with a description of the damages, and pictures of the damaged items/packaging and we will help you to repair, return or exchange the item(s) as needed.
+Please contact us via our [support portal](https://support.particle.io/) with a description of the damages, and pictures of the damaged items/packaging and we will help you to repair, return, or exchange the item(s) as needed.
 
 ## Battery regulations
 

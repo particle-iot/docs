@@ -222,7 +222,7 @@ prefix, just the topic name). This subscriber will now listen for all messages p
 Now, to pull some published messages:
 
 ```bash
-~$ gcloud beta pubsub subscriptions pull test_sub --auto-ack --max-messages 100
+~$ gcloud beta pubsub subscriptions pull test_sub --auto-ack --limit 100
 ```
 
 If things are looking good, you should see a table like this:
@@ -259,6 +259,8 @@ Events will flow from devices, to the Particle Device Cloud, and into Google Clo
 architecture of what this example will entail:
 
 <img src="/assets/images/Particle+GCP-datastore.png" alt="Data architecture for Google Cloud Platform + Particle integration example with Datastore" />
+
+Note that this example program currently requires Node 6, such as 6.14.3. It will not properly run on Node 8 and later.
 
 #### Creating a Private Key
 

@@ -12,7 +12,8 @@ Connection Issues
 {{#if electron}}
 ## Using non Particle SIM card
 ### Steps for using non Particle SIM card for Electron
-*This section is coming soon!*
+
+You can find full instructions in [the 3rd-party SIM FAQ](https://docs.particle.io/faq/particle-devices/electron-3rdparty-sims/electron/).
 {{/if}}
 
 
