@@ -31,10 +31,7 @@ If the "Business Information" section is blank, that means Particle does not hav
 
 Click on the "Wholesale" link at the top of the page to start ordering Particle products at bulk or distributor pricing. 
 
-All SKUs available to your customer type (Distributor, Business or Educator) at special pricing are listed in this category.
-All the SKUs have pricing based on volume tiers as shown below:
-
-![Tiered Pricing](/assets/images/volumetier.png)
+All SKUs available to your customer type (Distributor, Business or Particle for Good) at special pricing are listed in this category.
 
 Lead times will change with the volume of units ordered. After you have done adding all your items to the cart you can proceed to checkout.
 
