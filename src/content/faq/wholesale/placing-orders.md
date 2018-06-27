@@ -115,7 +115,7 @@ If you’ve made a purchase through our Wholesale Store, our replacement process
 
 Orders on our Wholesale Store are committed POs that are non-cancellable and non-refundable. We also can not delay shipping timelines in the case of a committed PO. 
  
-In certain circumstances, we may allow returns or exchanges if the items are in original condition. If you have a question about a particular return or exchange, please contact us via our [support portal](https://support.particle.io/) within 15 days of receipt of your order. A restocking fee of 15% may be assessed for returns depending on the size and products.
+In certain circumstances, we may allow returns or exchanges if the items are in original condition. If you have a question about a particular return or exchange, please contact us via our [support portal](https://support.particle.io/) within 15 days of receipt of your order. A restocking fee will be calculated and deducted from your refund.
 
 ### Items on Reels or Trays
 
