@@ -40,43 +40,72 @@ class="full-width"/>
 You can also take certain actions on devices from this view, such as
 renaming the device and unclaiming it from your account.
 
-### Logs
+### Event Logs
 
-You can watch events published from your devices with
-`Particle.publish()` come in, in realtime.
+The Logs feature provides a clean interface to view event information in real-time, just from your devices. We're hoping that this is handy both while debugging code during development, and checking out recent activity on your device once you power-on your finished project. Tailored around improving the experience of browsing logs, the page provides a handful of tools, like filtering, modifiers which enable you to narrow down your search for events, making it easier to view only the data that is relevant to you. In this view, you'll only see events that come in while the browser window is open.
 
-[![Logs
-App]({{assets}}/images/dashboard/logs-big-picture.png)]({{assets}}/images/dashboard/logs-big-picture.png)
+To visit the page go to [https://console.particle.io/events](https://console.particle.io/events)
 
-The Logs feature provides a clean interface to view event information in
-real-time, just from your devices. We're hoping that this is handy both
-while debugging code during development, and checking out recent
-activity on your device once you power-on your finished project. Here’s
-a snapshot of a Particle device monitoring the health of a theoretical
-aquarium.
+<img src="/assets/images/eventlogs/full.png" class="full-width" />
 
-Let's look at it starting at the top.
+#### Logs
 
-Near the title, we've got a button to pause and un-pause the event
-stream.
+The left side of the page contains a real-time log of events passing through the cloud. You'll get the name, data, timestamp and the device name associated with each event as it comes in. Oh Yeah! And, if you click on the event, you can see the event data.
 
-There's also an icon of a terminal window. When you click on it, we give
-you a hint on how to get the same information from the API.
+#### How to publish events
 
-Below the title is a side-scrolling bar graph. It's a visualization of
-the number of events from your devices over time. Each color in the bar
-graph represents a unique event name. Each bar is 5 seconds in duration.
+Publishing events can be achieved in multiple ways:
+- Using `particle.publish` in firmware ([docs](https://docs.particle.io/reference/firmware/#particle-publish-))
+- Using Particle API JS's `publishEvent` ([docs](https://docs.particle.io/reference/javascript/#publishevent))
+- Using the Publish event button in the Event Logs page:
 
-At the bottom is a real-time log of events passing through the cloud.
-You'll get the name, data, timestamp and the device name associated with
-each event as it comes in. Oh Yeah! And, if you click on the event, you
-can see a raw JSON view of the event.
+<img src="/assets/images/eventlogs/publish.png" class="full-width" />
 
-[![Raw
-event]({{assets}}/images/dashboard/raw-event.jpg)]({{assets}}/images/dashboard/raw-event.jpg)
+#### Filtering the events
 
-In this view, you'll only see events that come in while the browser
-window is open.
+Filters let you narrow down your search and only see events that are relevant.
+
+You can filter the events by writing anything in the input. Your query will be compared with the event name, data, publisher, and date.
+<img src="/assets/images/eventlogs/filter_word.png" class="full-width" />
+
+#### Modifiers
+
+Besides writing in the input, you can use modifiers to narrow down your search even further.
+
+<img src="/assets/images/eventlogs/filters.png" class="full-width" />
+
+- `product` Filter by product (example: `product:my-product`)
+- `device` Filter by device ID (example: `device:34003d001647353236343012`)
+- `event` Filter by event name (example: `event:status`)
+- `range` Only show events that have a number value between min and max (`range:min-max`, example: `range:20-100`)
+- `data` Filter by data (example: `data:device-is-ok`)
+
+Modifiers can be grouped: `device:34003d001647353236343012 event:temperature range:30-50`
+
+** Note: Having multiple modifiers of the same type is not yet supported (you can not filter by 2 device IDs) **
+
+You can combine modifiers with a query. In this example, we combine the query '35' with the modifier 'event:temperature'. The page will only show events named `temperature` that have `35` as their data.
+<img src="/assets/images/eventlogs/filter_multiple.png" class="full-width" />
+
+#### Viewing event data
+
+To view more details about an event, click on it. If the event data is a valid JSON string, it will be displayed in a way that makes it easier to read and understand.
+
+<img src="/assets/images/eventlogs/eventdata_pretty.png" />
+
+To view the raw version of the JSON, click on the `RAW` button.
+
+<img src="/assets/images/eventlogs/eventdata_raw.png" class="full-width" />
+
+You can copy the data to the clipboard if you click on the copy button.
+
+#### Pausing the event stream
+
+If lots of events are coming through, you can put events in a queue by clicking on the Pause button. This should help you navigate through the list of events that you have already received.
+
+To make the events from the queue visible click on the Play button.
+
+<img src="/assets/images/eventlogs/queue.png" class="full-width" />
 
 ### Integrations
 
