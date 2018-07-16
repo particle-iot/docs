@@ -105,6 +105,10 @@ Particle's certifications will help you decrease the time and cost associated wi
 - [Certificate of Conformity - G350](/assets/pdfs/electron/fcc-g350-certificate.pdf)
 - [Test Reports - G350](/assets/pdfs/electron/fcc-g350-test-report.pdf)
 
+#### E-Series E310 (U201)
+- [Certificate of Conformity](/assets/pdfs/electron/fcc-u201-certificiate.pdf)
+- [Test Reports - E310](/assets/pdfs/electron/fcc-u201-test-report.pdf)
+
 ## IC<img class="inline-header-image" src="/assets/images/logo-ic.png"/>
 
 ### Description
@@ -145,6 +149,10 @@ For certificates of conformity, search [here](https://sms-sgs.ic.gc.ca/equipment
 #### Electron G350
 - IC ID: **8595A-SARAG350**.
 - [Test Report](/assets/pdfs/electron/ic-g350-test-report.pdf)
+
+#### E Series E310 (U201)
+- [Certificate of Conformity](/assets/pdfs/electron/ic-u201-certificate.pdf)
+- [Test Report](/assets/pdfs/electron/ic-u201-test-report.pdf)
 
 ## CE<img class="inline-header-image" src="/assets/images/logo-ce.png"/>
 
@@ -191,6 +199,10 @@ If a product has adhered to the integration guidelines and has minimal risk, it 
 #### Electron G350
 - [Certificate of Conformity](/assets/pdfs/electron/ce-g350-certificate.pdf)
 - [Test Reports](/assets/pdfs/electron/ce-g350-test-reports.zip)
+
+#### E Series E310 (U201)
+- [Certificate of Conformity](/assets/pdfs/electron/ce-u201-certificate.pdf)
+- [Test Reports](/assets/pdfs/electron/ce-u201-test-report.pdf)
 
 
 ## TELEC<img class="inline-header-image" src="/assets/images/logo-telec.png"/>
@@ -239,6 +251,10 @@ RoHS compliance is self-declared and there is no certification body that governs
 #### Electron U260/U270/G350
 
 - [Test Reports](/assets/pdfs/new-certs/rohs/electron-rohs-test-reports.pdf)
+
+#### E Series E310 (U201)
+
+- [Test Reports](/assets/pdfs/electron/rohs-u201.pdf)
 
 ## UL<img class="inline-header-image" src="/assets/images/logo-ul.png"/>
 
@@ -303,6 +319,11 @@ When an End Product like the Electron is connected to a host device (PC, PDA, et
 
 #### Electron 2G (G350)
 - Product has completed and passed all PTCRB test requirements. Please [contact Particle](https://www.particle.io/sales) if you are building an end product with our 2G cellular solutions.
+
+#### E Series E310 (U201)
+- [Certificate of Conformity](/assets/pdfs/electron/ptcrb-u201-certificate.pdf)
+- [Test Reports](/assets/pdfs/electron/ptcrb-u201-test-report.pdf)
+
 
 ## GCF<img class="inline-header-image" src="/assets/images/logo-gcf.png"/>
 ### Description
