@@ -59,9 +59,10 @@ function breakOutAlternativeOperations(data) {
     var route = data[i];
     if (!route.parameter) continue;
 
-    var baseParams, baseSuccess;
+    var baseParams, baseSuccess, baseError;
     var examplesIndex = {};
     var successExamplesIndex = {};
+    var errorExamplesIndex = {};
     if (route.examples) {
       examplesIndex = _.groupBy(route.examples, 'title');
     } else {
@@ -74,10 +75,17 @@ function breakOutAlternativeOperations(data) {
       route.success = {};
     }
 
+    if (route.error) {
+      errorExamplesIndex = _.groupBy(route.error.examples, 'title');
+    } else {
+      route.error = {};
+    }
+
     _.each(route.parameter.fields, function(params, title) {
       if (title === 'Parameter') {
         baseParams = params;
         baseSuccess = (route.success.fields || {})['Success 200'] || [];
+        baseError = (route.error.fields || {})['Error 4xx'] || [];
         return;
       }
 
@@ -97,6 +105,13 @@ function breakOutAlternativeOperations(data) {
           'Success 200': baseSuccess.concat(responseFields)
         };
         delete route.success.fields[title];
+      }
+      var errorFields = (route.error.fields || {})[title];
+      if (errorFields) {
+        newRoute.error.fields = {
+          'Error 4xx': baseError.concat(errorFields)
+        };
+        delete route.error.fields[title];
       }
 
       // copy over specific examples
@@ -120,6 +135,16 @@ function breakOutAlternativeOperations(data) {
         newRoute.success.examples = null;
       }
       route.success.examples = _.difference(route.success.examples, newRoute.success.examples);
+
+      if (errorExamplesIndex[groupKey] && errorExamplesIndex[groupKey].length) {
+        newRoute.error.examples = errorExamplesIndex[groupKey];
+        newRoute.error.examples.forEach(function (ex) {
+          ex.title = ex.content;
+        });
+      } else {
+        newRoute.error.examples = null;
+      }
+      route.error.examples = _.difference(route.error.examples, newRoute.error.examples);
 
       // add to list of all routes
       i++;
@@ -182,6 +207,11 @@ module.exports = function(options) {
       if (route.success) {
         trimParameters(route.success.fields);
         nestParameters(route.success.fields);
+      }
+
+      if (route.error) {
+        trimParameters(route.error.fields);
+        nestParameters(route.error.fields);
       }
     });
 
