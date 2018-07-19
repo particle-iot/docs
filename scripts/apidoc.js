@@ -183,6 +183,11 @@ module.exports = function(options) {
         trimParameters(route.success.fields);
         nestParameters(route.success.fields);
       }
+
+      if (route.error) {
+        trimParameters(route.error.fields);
+        nestParameters(route.error.fields);
+      }
     });
 
     var apiGroups = _.groupBy(_.sortBy(apiData, 'group'), 'group');
