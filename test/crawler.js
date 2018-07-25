@@ -7,11 +7,15 @@ var util = require('util');
 var chalk = require('chalk');
 var _ = require('lodash');
 
+// Ignore links to these hosts since they occasionally fail on Travis
+// even though the links are valid. It's worth the risk of dead links to
+// avoid flaky builds
 var ignoreHosts = [
   'vimeo.com',
   'tools.usps.com',
   'www.microsoft.com',
   'www.mouser.com',
+  'www.oracle.com',
   // Broken webserver that returns 404 not found for regular pages
   'www.emaxmodel.com',
   '192.168.0.1',
