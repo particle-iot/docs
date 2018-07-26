@@ -36,7 +36,7 @@ particle update
 
 ## Configure your Photon
 
-Connect the Photon to your computer using USB and put the device in [listening mode] (https://docs.particle.io/guide/getting-started/modes/electron/#listening-mode) (blinking dark blue) by holding down the SETUP (or MODE) button until the main status LED blinks dark blue, about 3 seconds, if not already blinking blue.
+Connect the Photon to your computer using USB and put the device in [listening mode](https://docs.particle.io/guide/getting-started/modes/electron/#listening-mode) (blinking dark blue) by holding down the SETUP (or MODE) button until the main status LED blinks dark blue, about 3 seconds, if not already blinking blue.
 
 In a Command Prompt or Terminal window, enter the command:
 
