@@ -106,6 +106,7 @@ Particle's certifications will help you decrease the time and cost associated wi
 - [Test Reports - G350](/assets/pdfs/electron/fcc-g350-test-report.pdf)
 
 #### E-Series E310 (U201)
+- FCC ID: [XPY1CGM5NNN](https://apps.fcc.gov/oetcf/eas/reports/ViewExhibitReport.cfm?mode=Exhibits&RequestTimeout=500&calledFromFrame=N&application_id=3vkdOEQAe%2Fc2YGK%2FBZsiJQ%3D%3D&fcc_id=XPY1CGM5NNN)
 - [Certificate of Conformity](/assets/pdfs/electron/fcc-u201-certificiate.pdf)
 - [Test Reports - E310](/assets/pdfs/electron/fcc-u201-test-report.pdf)
 
