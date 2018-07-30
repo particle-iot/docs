@@ -17,14 +17,14 @@ A Wholesale account will help you get preferred or bulk pricing, volume discount
 You can find the Wholesale Store sign up page [here](http://www-wholesale.particle.io/wholesale-b2b).
 This is what you should see....
 
-![Wholesale store login page](/assets/images/wholesale-log-in-page.png)
+![Wholesale store login page](https://i.imgur.com/fIqXbJg.png)
 
 Choose a tab at the top of the page for the type of account you would like to create. 
 
 ## Wholesale Account Types
 
  - [Business](http://www-wholesale.particle.io/wholesale-b2b) contains our standard bulk pricing and bulk format products. If you are a product creator, choose this option. Processing of your account will take up to 2 business days. 
- - [Educators](http://www-wholesale.particle.io/wholesale-educators) contains our preferred pricing for event hosts and educators. Our application process requires a description of your class or event and will take up to 1 week to process. We may ask you to provide proof of your tax-exempt educator status or marketing materials for your event. 
+ - [Particle For Good](http://www-wholesale.particle.io/wholesale-particle-for-good) contains our preferred pricing for non-profits, educators, and those commited to making a positive impact. To learn more about the Particle For Good program and to apply to be apart of this program, please visit the [P4G](https://www.particle.io/for-good/) site. 
  - [Distributors](http://www-wholesale.particle.io/wholesale-distributors) is for our reseller network. Use this account type if you would like to become an official Particle Distributor. Our application process requires relevant business information and will take up to 2 weeks to process. We may ask you to provide proof of your reseller status and reserve the right to decline any distributors. 
 
 ## Particle Distributor Requirements

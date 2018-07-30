@@ -7,6 +7,19 @@ var util = require('util');
 var chalk = require('chalk');
 var _ = require('lodash');
 
+// Ignore links to these hosts since they occasionally fail on Travis
+// even though the links are valid. It's worth the risk of dead links to
+// avoid flaky builds
+var ignoreHosts = [
+  'vimeo.com',
+  'tools.usps.com',
+  'www.microsoft.com',
+  'www.mouser.com',
+  'www.oracle.com',
+  // Broken webserver that returns 404 not found for regular pages
+  'www.emaxmodel.com',
+  '192.168.0.1',
+];
 var devices = ['photon', 'electron', 'core', 'raspberry-pi'];
 var isPullRequest = process.env.TRAVIS_PULL_REQUEST && process.env.TRAVIS_PULL_REQUEST !== 'false';
 
@@ -64,21 +77,10 @@ describe('Crawler', function() {
     crawler.addFetchCondition(function(parsedUrl) {
       return !(parsedUrl.host === 'localhost' && parsedUrl.port === 35729);
     });
-    crawler.addFetchCondition(function(parsedUrl) {
-      return (parsedUrl.host !== 'vimeo.com');
-    });
-    crawler.addFetchCondition(function(parsedUrl) {
-      return (parsedUrl.host !== 'tools.usps.com');
-    });
-    crawler.addFetchCondition(function(parsedUrl) {
-      return (parsedUrl.host !== 'www.microsoft.com');
-    });
-    crawler.addFetchCondition(function(parsedUrl) {
-      // Broken webserver that returns 404 not found for regular pages
-      return (parsedUrl.host !== 'www.emaxmodel.com');
-    });
-    crawler.addFetchCondition(function(parsedUrl) {
-      return (parsedUrl.host !== '192.168.0.1');
+    ignoreHosts.forEach(host => {
+      crawler.addFetchCondition(function(parsedUrl) {
+        return (parsedUrl.host !== host);
+      });
     });
 
     crawler.addDownloadCondition(function(queueItem) {

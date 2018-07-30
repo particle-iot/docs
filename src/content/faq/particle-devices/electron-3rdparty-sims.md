@@ -405,6 +405,29 @@ Also note that the keep-alive settings is only in Electron Device OS
 0.5.0 and later, so if you have the original factory default firmware
 0.4.8 you'll need to upgrade the Device OS.
 
+In Device OS 0.6.2 through 0.8.0-rc.3, there is an issue where the Particle.keepAlive value does not stay properly set. The workaround is as follows:
+
+Create a global variable, such as:
+
+```
+bool hasSetKeepAlive = false;
+```
+
+And add this to your loop:
+
+```
+	if (Particle.connected()) {
+		if (!hasSetKeepAlive) {
+			hasSetKeepAlive = true;
+			Particle.keepAlive(120);
+		}
+	}
+	else {
+		hasSetKeepAlive = false;		
+	}
+```
+
+Basically, you need to set the keep alive only after successfully connected to the Particle cloud, and every time you've disconnected.
 
 ## Switching between Particle and 3rd-party SIM cards
 
