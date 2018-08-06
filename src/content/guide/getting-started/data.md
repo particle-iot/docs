@@ -106,6 +106,6 @@ We're also working on a new kind of Particle.publish that will do this for you a
 
 **On-Device Logic** Most of the behaviors you'd like to implement can live right on the Electron. For example, if you have a greenhouse with a motorized vent, and you want the vent to turn on if the temperature exceeds a user-set threshold, then there are two options. You could send the temperature reading to the cloud from time to time, compare the reading to the threshold, and have the cloud control the vent via a function if the temp is above the threshold. This is much, much less data efficient than using a function to set the threshold on the device when necessary, and otherwise keeping the logic and control entirely on the device. This has the added benefit of being more reliable in the event of a connectivity outage.
 
-**Being "Sleepy"** When your Electron is asleep you won't use pings and power consumption will be much lower! For now, hop over to the firmware reference and read about [sleep](/reference/firmware/electron/#sleep-sleep-). *Examples coming soon!*
+**Being "Sleepy"** When your Electron is asleep you won't use pings and power consumption will be much lower! For now, hop over to the firmware reference and read about [sleep](/reference/firmware/electron/#sleep-sleep-). 
 
 

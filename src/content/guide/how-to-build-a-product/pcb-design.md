@@ -100,7 +100,7 @@ If you would like introductions to high-volume overseas PCB manufacturers, pleas
 
 For tips and resources for prototyping PCBs by hand (our preferred prototyping method at Particle), please visit our blog, [Proto2Prod](http://www.proto2prod.com/proto2prod/2015/6/15/your-first-prototype-assembly-tips-and-techniques).
 
-**RF validation** - *Coming soon!*.  You have to validate your RF design with a professional shop and equipment you probably don't have access to. Here's strategies for dealing with that.
+**RF validation** - You have to validate your RF design with a professional shop and equipment you probably don't have access to. Here's strategies for dealing with that.
 
 ### Thinking about mass production
 **Reach out to us!** Once you've validated your hardware design with a series of prototypes, it's time to start thinking about how to scale up for mass production.  If you haven't already, [let us know you're building a product on Particle!](http://www.particle.io/sales) Our team has lots of experience bringing Internet-connected devices to market, and can give valuable feedback on a wide variety of topics like manufacturing overseas, Kickstarter, VC funding, and everything in between. If we don't know you exist, it's much harder for us to help :-)
