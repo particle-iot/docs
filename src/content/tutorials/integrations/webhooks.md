@@ -162,10 +162,7 @@ will trigger the webhook. On a high level, we will trigger the webhook
 every 60s, parse the result on the device, and print out the weather
 data over [serial](/reference/firmware#serial).
 
-Head over to the [Particle Web
-IDE](https://build.particle.io). Create a new App called "get-weather"
-and paste in the following code:
-
+You can open the example code below by following [this link](https://go.particle.io/shared_apps/5b6840dea07305b0fd0006a5) or by going to the [Particle Web IDE](https://build.particle.io), creating a new App called "get-weather" and pasting in the following code:
 
 ```cpp
 // called once on startup
@@ -174,15 +171,13 @@ void setup() {
     Serial.begin(115200);
 
     // Listen for the webhook response, and call gotWeatherData()
-    Particle.subscribe("hook-response/get_weather", gotWeatherData,
-MY_DEVICES);
+    Particle.subscribe("hook-response/get_weather", gotWeatherData, MY_DEVICES);
 
     // Give ourselves 10 seconds before we actually start the
     // program.  This will open the serial monitor before
     // the program sends the request
     for(int i=0;i<10;i++) {
-        Serial.println("waiting " + String(10-i) + " seconds before we
-publish");
+        Serial.println("waiting " + String(10-i) + " seconds before we publish");
         delay(1000);
     }
 }
@@ -233,17 +228,17 @@ void gotWeatherData(const char *name, const char *data) {
 String tryExtractString(String str, const char* start, const char* end)
 {
     if (str == NULL) {
-        return NULL;
+        return "";
     }
 
     int idx = str.indexOf(start);
     if (idx < 0) {
-        return NULL;
+        return "";
     }
 
     int endIdx = str.indexOf(end);
     if (endIdx < 0) {
-        return NULL;
+        return "";
     }
 
     return str.substring(idx + strlen(start), endIdx);
