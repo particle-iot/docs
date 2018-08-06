@@ -165,9 +165,8 @@ The main steps for contributing a library are preparing the structure,
 writing the code, testing the examples, uploading a private version and
 publishing to the public.
 
-Library contribution is currently supported in our Desktop IDE and via our Command Line Interface (CLI).
+Library contribution is currently supported via our Command Line Interface (CLI).
 
-- [Contributing libraries with the Desktop IDE](#) - _Coming soon!_
 - [Contributing libraries with the Command Line Interface (CLI)](/reference/cli/#particle-library-upload)
 
 

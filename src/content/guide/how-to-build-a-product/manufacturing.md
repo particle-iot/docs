@@ -139,9 +139,7 @@ Particle Device Cloud for the first time, they automatically download the most r
 
 Have questions about which programming strategy is right for your product?  Ask us!  We're always happy to provide our two cents.
 
-*COMING SOON!*
- - Detailed instruction for flashing over JTAG and DFU using Particle's bootloader
-
+ - Detailed instruction for flashing over JTAG can be found in the [JTAG FAQ](https://docs.particle.io/faq/particle-tools/jtag/).
 
 ### Provisioning your device
 If you've decided that you want to purchase your wireless hardware
@@ -164,11 +162,8 @@ connect to the Particle Device Cloud.
  pins/pads in order to function properly. At a minimum, you'll need to
  flash our Device OS to the device so that it has the information it needs to communicate with our Cloud during initial configuration and setup.
 
-*COMING SOON!*
- - Instructions and resources for flashing Particle Device OS to your device on the manufacturing line
 
-
-### Device tracking and serialization -  *Coming soon!*
+### Device tracking and serialization
 Connected devices provide the opportunity to compare customer behavior across distribution channels *if* you track your hardware properly. Consider adding a unique serial number for each device and tracking the mapping between these serial numbers and the device IDs.
 
   - Recording device IDs for customer support and record-keeping
