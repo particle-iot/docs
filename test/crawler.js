@@ -16,6 +16,7 @@ var ignoreHosts = [
   'www.microsoft.com',
   'www.mouser.com',
   'www.oracle.com',
+  'datasheets.maximintegrated.com',
   // Broken webserver that returns 404 not found for regular pages
   'www.emaxmodel.com',
   '192.168.0.1',
