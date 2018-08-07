@@ -97,7 +97,7 @@ If you lose or are otherwise unable to use your phone, you will need to use the 
 
 - If you lose your recovery codes (but still have your phone) you can find the remaining recovery codes in your [account info page](https://login.particle.io/account-info).
 
-- If you lose access to your mobile device AND you lose your recovery codes, you will need to [contact support](https://particle.io/support). Additional verification steps will be required.
+- You will lose access to your account permanently if you lose both your phone and recovery codes. We cannot disable two-step authentication from support for security reasons.
 
 ### Shared accounts
 
