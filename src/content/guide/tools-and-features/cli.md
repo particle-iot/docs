@@ -1,7 +1,7 @@
 ---
 word: CLI
 title: Command Line
-order: 4
+order: 5
 columns: two
 devices: [electron,photon,core,raspberry-pi]
 layout: guide.hbs
