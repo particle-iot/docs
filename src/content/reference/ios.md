@@ -13,11 +13,11 @@ The iOS SDK consists of two parts: (1) the Cloud SDK and (2) the Device Setup li
 
 ### Introduction
 
-Particle iOS Cloud SDK enables iOS apps to interact with Particle-powered connected products via the Particle Device Cloud. It’s an easy-to-use wrapper for Particle REST API. The Cloud SDK will allow you to:
+Particle iOS Cloud SDK enables iOS apps to interact with Particle-powered connected products via the Particle Cloud. It’s an easy-to-use wrapper for Particle REST API. The Cloud SDK will allow you to:
 
-- Manage & inject user sessions for the Particle Device Cloud (access tokens, encrypted session management)
+- Manage & inject user sessions for the Particle Cloud (access tokens, encrypted session management)
 - Claim/Unclaim devices for a user account
-- Get a list of instances of user's Particle devices
+- Get a list of Particle devices claimed by user
 - Read variables from devices
 - Invoke functions on devices
 - Publish events from the mobile app and subscribe to events coming from devices
@@ -28,8 +28,7 @@ iOS Cloud SDK is implemented as an open-source CocoaPods static library and also
 
 **Rebranding notice**
 
-Spark has been rebranded as Particle.
-Code currently refers to `SparkCloud` and `SparkDevice`, this will soon be replaced with `ParticleCloud` and `ParticleDevice`. A new CocoaPods library will be published and current one will be deprecated and point to the new one. This should not bother or affect your code.
+Spark has been rebranded as Particle. Code that previously used `Spark` keyword as class prefix now uses `Particle` keyword. CocoaPods library [Spark-SDK](https://cocoapods.org/pods/Spark-SDK) has been deprecated in favor of [Particle-SDK](https://cocoapods.org/pods/Particle-SDK) library. Github repository [particle-iot/spark-sdk-ios](https://github.com/particle-iot/spark-sdk-ios/) has been deprecated in favor of [particle-iot/particle-sdk-ios](https://github.com/particle-iot/particle-sdk-ios/) too.
 
 **Beta notice**
 
@@ -945,6 +944,8 @@ Unsubscribe from event/events.
 
 ## Particle Device Setup library
 
+### Introduction
+
 The Particle Device Setup library is meant for integrating the initial setup process of Particle devices in your app.
 This library will enable you to easily invoke a standalone setup wizard UI for setting up internet-connected products
 powered by a Particle device (Photon, P0, P1). The setup UI can be easily customized by a customization proxy class,
@@ -953,12 +954,11 @@ that includes: look & feel, colors, texts and fonts as well as custom brand logo
 The wireless setup process for the Photon uses very different underlying technology from the Core. Where the Core used TI SmartConfig, the Photon uses what we call “soft AP” — i.e.: the Photon advertises a Wi-Fi network, you join that network from your mobile app to exchange credentials, and then the Photon connects using the Wi-Fi credentials you supplied.
 
 With the Device Setup library, you make one simple call from your app, for example when the user hits a “Setup my device” button, and a whole series of screens then guide the user through the setup process. When the process finishes, the app user is back on the screen where she hit the “setup my device” button, and your code has been passed an instance of the device she just setup and claimed.
-iOS Device setup library is implemented as an open-source Cocoapod static library and also as Carthage dynamic framework dependancy. See [Installation](#installation) section for more details. It works well for both Objective-C and [Swift](#support-for-swift-projects) projects containing any type of dependencies.
+iOS Device setup library is implemented as an open-source Cocoapod static library and also as Carthage dynamic framework dependancy.
 
 **Rebranding notice**
 
-Spark has been recently rebranded as Particle.
-Code currently contains `SparkSetup` keyword as classes prefixes. this will soon be replaced with `ParticleDeviceSetup`.
+Spark has been rebranded as Particle. Code that previously used `Spark` keyword as class prefix now uses `Particle` keyword. CocoaPods library [SparkSetup](https://cocoapods.org/pods/SparkSetup) has been deprecated in favor of [ParticleSetup](https://cocoapods.org/pods/ParticleSetup) library. Github repository [particle-iot/spark-setup-ios](https://github.com/particle-iot/spark-setup-ios/) has been deprecated in favor of [particle-iot/particle-setup-ios](https://github.com/particle-iot/particle-setup-ios/) too.
 
 ### Usage
 
@@ -1224,7 +1224,6 @@ Build your project - you now have the Particle SDK embedded in your project.
 Use `#import <ParticleDeviceSetupLibrary/ParticleDeviceSetupLibrary.h>` in Obj-C files or `import ParticleDeviceSetupLibrary` for Swift files to gain access to `SparkSetupMainController` (see usage example).
 
 No need for any special process or operation integrating the Device Setup Library with Swift-based or Swift-dependant projects. This is the recommended way if you have a mixed set of dependencies.
-
 
 ### Communication
 
