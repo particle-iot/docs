@@ -193,6 +193,24 @@ codes in the 500 range indicate failure within Particle's server infrastructure.
 500 Server errors - Fail whale. Something's wrong on our end.
 ```
 
+## API rate limits
+
+There is an API rate limit of approximately 10 calls per second to api.particle.io from each public IP address. This limit is the total number of requests from a public IP address and does not depend on the access token or API endpoint used.
+
+#### Beware of monitoring variables for change
+
+One situation that can cause problems is continuously monitoring variables for change. If you're polling every few seconds it's not a problem for a single device and variable. But if you are trying to monitor many devices, or have a classroom of students each polling their own device, you can easily exceed the API rate limit.
+
+Having the device call [Particle.publish](https://docs.particle.io/reference/firmware/#particle-publish-) when the value changes may be more efficient.
+
+#### Make sure you handle error conditions properly
+
+If you get a 401 (Unauthorized), your access token has probably expired so retransmitting the request won't help.
+
+If you get a 429 (Too many requests) you've already hit the limit, so making another request immediately will not help.
+
+In response to most error conditions you may want to consider a delay before retrying the request.
+
 ## Versioning
 
 The API endpoints all start with `/v1` to represent the first official
