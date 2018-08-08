@@ -3,7 +3,8 @@ word: Agent
 title: Particle Agent (Raspberry Pi)
 layout: reference.hbs
 columns: three
-order: 9
+devices: [raspberry-pi]
+order: 10
 ---
 
 # Particle Agent
