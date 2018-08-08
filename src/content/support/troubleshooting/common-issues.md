@@ -357,4 +357,3 @@ These commands replace the factory reset image, and re-patch the radio, bringing
 Check out [connection help](/support/troubleshooting/connection-help) for more info.
 
 For more help join our [community forums](http://community.particle.io/) and post in the [troubleshooting section](https://community.particle.io/c/troubleshooting).
-t
