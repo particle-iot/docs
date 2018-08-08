@@ -941,6 +941,16 @@ Unsubscribe from event/events.
 
  * **Parameters:** `eventListenerID` — The eventListener registration unique ID returned by the subscribe method which you want to cancel
 
+ ### Communication
+
+ - If you **need help**, use [Our community website](http://community.particle.io)
+ - If you **found a bug**, _and can provide steps to reliably reproduce it_, [open an issue](https://github.com/particle-iot/particle-sdk-ios/issues).
+ - If you **have a feature request**, [open an issue](https://github.com/particle-iot/particle-sdk-ios/issues).
+ - If you **want to contribute**, [submit a pull request](https://github.com/particle-iot/particle-sdk-ios/pulls).
+
+ ### License
+
+ Particle iOS Cloud SDK is available under the Apache License 2.0. See the LICENSE file for more info.
 
 ## Particle Device Setup library
 
@@ -1228,10 +1238,10 @@ No need for any special process or operation integrating the Device Setup Librar
 ### Communication
 
 - If you **need help**, use [Our community website](http://community.particle.io)
-- If you **found a bug**, _and can provide steps to reliably reproduce it_, open an issue.
-- If you **have a feature request**, open an issue.
-- If you **want to contribute**, submit a pull request.
+- If you **found a bug**, _and can provide steps to reliably reproduce it_, [open an issue](https://github.com/particle-iot/particle-setup-ios/issues).
+- If you **have a feature request**, [open an issue](https://github.com/particle-iot/particle-setup-ios/issues).
+- If you **want to contribute**, [submit a pull request](https://github.com/particle-iot/particle-setup-ios/pulls).
 
 ### License
 
-Particle Device Setup library is available under the Apache license 2.0. See the LICENSE file for more info.
+Particle Device Setup library is available under the Apache License 2.0. See the LICENSE file for more info.
