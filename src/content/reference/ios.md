@@ -20,6 +20,10 @@ iOS Cloud SDK supports iOS 8.0 and up, Device Setup Library supports iOS 9.0 and
 - If you **have a feature request**, open an issue in the appropriate repo [on GitHub](https://github.com/search?q=org%3Aparticle-iot+ios&unscoped_q=ios), and apply the `enhancement` label.
 - If you **want to contribute**, submit a pull request. Also be sure to check out [the contribution guidelines](http://particle-iot.github.io/#contributions), and sign our [CLA](https://docs.google.com/a/particle.io/forms/d/1_2P-vRKGUFg5bmpcKLHO_qNZWGi5HKYnfrrkd-sbZoA/viewform).
 
+## Beta notice
+
+While iOS Cloud SDK and Device Setup Library is ready for production use, as seen in [the Particle iOS app](https://github.com/particle-iot/photon-tinker-ios), it is still under development and is currently in beta. The API is mostly stable, but may be subject to further changes prior to leaving beta. Once the SDK leaves beta, the API should never change outside of ["major" version](http://semver.org/) updates.
+
 ## iOS Cloud SDK
 
 ### Introduction
@@ -40,10 +44,6 @@ iOS Cloud SDK is implemented as an open-source CocoaPods static library and also
 **Rebranding notice**
 
 Spark has been rebranded as Particle. Code that previously used `Spark` keyword as class prefix now uses `Particle` keyword. CocoaPods library [Spark-SDK](https://cocoapods.org/pods/Spark-SDK) has been deprecated in favor of [Particle-SDK](https://cocoapods.org/pods/Particle-SDK) library. Github repository [particle-iot/spark-sdk-ios](https://github.com/particle-iot/spark-sdk-ios/) has been deprecated in favor of [particle-iot/particle-sdk-ios](https://github.com/particle-iot/particle-sdk-ios/) too.
-
-**Beta notice**
-
-This SDK is still under development and is currently released as Beta. Although tested, bugs and issues may be present. Some code might require cleanup. In addition, until version 1.0 is released, we cannot guarantee that API calls will not break from one Cloud SDK version to the next. Be sure to consult the [Change Log](https://github.com/particle-iot/spark-sdk-ios/blob/master/CHANGELOG.md) for any breaking changes / additions to the SDK.
 
 **Swift support**
 
