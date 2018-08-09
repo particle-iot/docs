@@ -9,6 +9,17 @@ order: 5
 
 The iOS SDK consists of two parts: (1) the Cloud SDK and (2) the Device Setup library, the first is an API wrapper that enables your mobile app to interact with internet-connected hardware through the Particle Device Cloud while the latter is a library allows you to easily create a setup wizard for allowing your app users to setup their devices.
 
+## Requirements
+
+iOS Cloud SDK supports iOS 8.0 and up, Device Setup Library supports iOS 9.0 and up.
+
+## Support and Contributions
+
+- If you **need help**, visit the [Mobile category](http://community.particle.io/c/mobile) in our [community forums](http://community.particle.io) for discussion, troubleshooting, and feedback around the iOS Cloud SDK and Device Setup library.
+- If you **found a bug**, _and can provide steps to reliably reproduce it_, open an issue in the appropriate repo [on GitHub](https://github.com/search?q=org%3Aparticle-iot+ios&unscoped_q=ios), and apply the `bug` label.
+- If you **have a feature request**, open an issue in the appropriate repo [on GitHub](https://github.com/search?q=org%3Aparticle-iot+ios&unscoped_q=ios), and apply the `enhancement` label.
+- If you **want to contribute**, submit a pull request. Also be sure to check out [the contribution guidelines](http://particle-iot.github.io/#contributions), and sign our [CLA](https://docs.google.com/a/particle.io/forms/d/1_2P-vRKGUFg5bmpcKLHO_qNZWGi5HKYnfrrkd-sbZoA/viewform).
+
 ## iOS Cloud SDK
 
 ### Introduction
@@ -941,17 +952,6 @@ Unsubscribe from event/events.
 
  * **Parameters:** `eventListenerID` — The eventListener registration unique ID returned by the subscribe method which you want to cancel
 
- ### Communication
-
- - If you **need help**, use [Our community website](http://community.particle.io)
- - If you **found a bug**, _and can provide steps to reliably reproduce it_, [open an issue](https://github.com/particle-iot/particle-sdk-ios/issues).
- - If you **have a feature request**, [open an issue](https://github.com/particle-iot/particle-sdk-ios/issues).
- - If you **want to contribute**, [submit a pull request](https://github.com/particle-iot/particle-sdk-ios/pulls).
-
- ### License
-
- Particle iOS Cloud SDK is available under the Apache License 2.0. See the LICENSE file for more info.
-
 ## Particle Device Setup library
 
 ### Introduction
@@ -1235,13 +1235,6 @@ Use `#import <ParticleDeviceSetupLibrary/ParticleDeviceSetupLibrary.h>` in Obj-C
 
 No need for any special process or operation integrating the Device Setup Library with Swift-based or Swift-dependant projects. This is the recommended way if you have a mixed set of dependencies.
 
-### Communication
+## License
 
-- If you **need help**, use [Our community website](http://community.particle.io)
-- If you **found a bug**, _and can provide steps to reliably reproduce it_, [open an issue](https://github.com/particle-iot/particle-setup-ios/issues).
-- If you **have a feature request**, [open an issue](https://github.com/particle-iot/particle-setup-ios/issues).
-- If you **want to contribute**, [submit a pull request](https://github.com/particle-iot/particle-setup-ios/pulls).
-
-### License
-
-Particle Device Setup library is available under the Apache License 2.0. See the LICENSE file for more info.
+Particle Cloud SDK and Particle Device Setup library is available under the Apache License 2.0. See the LICENSE file for more info.
