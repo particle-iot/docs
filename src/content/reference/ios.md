@@ -53,17 +53,17 @@ One of the great things about Swift is that it transparently interoperates with 
 In previous Xcode releases, some Apple frameworks had been specially audited so that their API would show up with proper Swift optionals. Starting Xcode 6.3 there's support for this on your own code with a new Objective-C language feature: nullability annotations.
 The new nullability annotations have been integrated into the Particle iOS Cloud SDK library so now it plays nicely with Swift projects.
 
-All SDK callbacks return real optionals (`SparkDevice?`) instead of implicitly unwrapped optionals (`SparkDevice!`). See Swift examples below. Basically only a simple change required from the SDK user: to replace your callback argument types from `!` suffix to `?` suffix.
+All SDK callbacks return real optionals (`ParticleDevice?`) instead of implicitly unwrapped optionals (`ParticleDevice!`). See Swift examples below. Basically only a simple change required from the SDK user: to replace your callback argument types from `!` suffix to `?` suffix.
 
 ### Getting Started
 
 - Perform the installation step described under the **Installation** section below for integrating in your own project
-- You can also [Download Particle iOS Cloud SDK](https://github.com/particle-iot/spark-sdk-ios/archive/master.zip) and try out the included iOS example app
+- You can also [Download Particle iOS Cloud SDK](https://github.com/particle-iot/particle-sdk-ios/archive/master.zip) and try out the included iOS example app
 - Be sure to check [Usage](#usage) before you begin for some code examples
 
 ### Usage
 
-Cloud SDK usage involves two basic classes: first is `SparkCloud` which is a singleton object that enables all basic cloud operations such as user authentication, device listing, claiming etc. Second class is `SparkDevice` which is an instance representing a claimed device in the current user session. Each object enables device-specific operation such as: getting its info, invoking functions and reading variables from it.
+Cloud SDK usage involves two basic classes: first is `ParticleCloud` which is a singleton object that enables all basic cloud operations such as user authentication, device listing, claiming etc. Second class is `ParticleDevice` which is an instance representing a claimed device in the current user session. Each object enables device-specific operation such as: getting its info, invoking functions and reading variables from it.
 
 ##### Return values
 
@@ -80,7 +80,7 @@ You don't need to worry about access tokens and session expiry, SDK takes care o
 
 **Objective-C**
 ```objc
-[[SparkCloud sharedInstance] loginWithUser:@"username@email.com" password:@"userpass" completion:^(NSError *error) {
+[[ParticleCloud sharedInstance] loginWithUser:@"username@email.com" password:@"userpass" completion:^(NSError *error) {
     if (!error)
         NSLog(@"Logged in to cloud");
     else
@@ -91,7 +91,7 @@ You don't need to worry about access tokens and session expiry, SDK takes care o
 
 **Swift**
 ```swift
-SparkCloud.sharedInstance().login(withUser: "username@email.com", password: "userpass") { (error:Error?) -> Void in
+ParticleCloud.sharedInstance().login(withUser: "username@email.com", password: "userpass") { (error:Error?) -> Void in
     if let _ = error {
         print("Wrong credentials or no internet connectivity, please try again")
     }
@@ -103,12 +103,12 @@ SparkCloud.sharedInstance().login(withUser: "username@email.com", password: "use
 ---
 #### Injecting a session access token (app utilizes two legged authentication)
 
-If you use your own backend to authenticate users in your app - you can now inject the Particle access token your back end gets from Particle cloud easily using one of the new `injectSessionAccessToken` functions exposed from `SparkCloud` singleton class.
+If you use your own backend to authenticate users in your app - you can now inject the Particle access token your back end gets from Particle cloud easily using one of the new `injectSessionAccessToken` functions exposed from `ParticleCloud` singleton class.
 In turn the `.isLoggedIn` property has been deprecated in favor of `.isAuthenticated` - which checks for the existence of an active access token instead of a username. Additionally the SDK will now automatically renew an expired session if a refresh token exists. As increased security measure the Cloud SDK will no longer save user's password in the Keychain.
 
 **Objective-C**
 ```objc
-if ([[SparkCloud sharedInstance] injectSessionAccessToken:@"9bb9f7433940e7c808b191c28cd6738f8d12986c"])
+if ([[ParticleCloud sharedInstance] injectSessionAccessToken:@"9bb9f7433940e7c808b191c28cd6738f8d12986c"])
     NSLog(@"Session is active!");
 else
     NSLog(@"Bad access token provided");
@@ -117,7 +117,7 @@ else
 
 **Swift**
 ```swift
-if SparkCloud.sharedInstance().injectSessionAccessToken("9bb9f7433940e7c808b191c28cd6738f8d12986c") {
+if ParticleCloud.sharedInstance().injectSessionAccessToken("9bb9f7433940e7c808b191c28cd6738f8d12986c") {
     print("Session is active")
 } else {
     print("Bad access token provided")
@@ -130,11 +130,11 @@ List the devices that belong to currently logged in user and find a specific dev
 **Objective-C**
 
 ```objc
-__block SparkDevice *myPhoton;
-[[SparkCloud sharedInstance] getDevices:^(NSArray *sparkDevices, NSError *error) {
-    NSLog(@"%@",sparkDevices.description); // print all devices claimed to user
+__block ParticleDevice *myPhoton;
+[[ParticleCloud sharedInstance] getDevices:^(NSArray *particleDevices, NSError *error) {
+    NSLog(@"%@",particleDevices.description); // print all devices claimed to user
 
-    for (SparkDevice *device in sparkDevices)
+    for (ParticleDevice *device in particleDevices)
     {
         if ([device.name isEqualToString:@"myNewPhotonName"])
             myPhoton = device;
@@ -146,8 +146,8 @@ __block SparkDevice *myPhoton;
 **Swift**
 
 ```swift
-var myPhoton : SparkDevice?
-SparkCloud.sharedInstance().getDevices { (devices:[SparkDevice]?, error:Error?) -> Void in
+var myPhoton : ParticleDevice?
+ParticleCloud.sharedInstance().getDevices { (devices:[ParticleDevice]?, error:Error?) -> Void in
     if let _ = error {
         print("Check your internet connectivity")
     }
@@ -165,7 +165,7 @@ SparkCloud.sharedInstance().getDevices { (devices:[SparkDevice]?, error:Error?) 
 ---
 
 #### Read a variable from a Particle device (Core/Photon/Electron)
-Assuming here that `myPhoton` is an active instance of `SparkDevice` class which represents a device claimed to current user:
+Assuming here that `myPhoton` is an active instance of `ParticleDevice` class which represents a device claimed to current user:
 
 **Objective-C**
 ```objc
@@ -227,7 +227,7 @@ var bytesToReceive : Int64 = task.countOfBytesExpectedToReceive
 
 #### Retrieve current data usage (Electron only)
 _Starting SDK version 0.5.0_
-Assuming here that `myElectron` is an active instance of `SparkDevice` class which represents an Electron device:
+Assuming here that `myElectron` is an active instance of `ParticleDevice` class which represents an Electron device:
 
 **Objective-C**
 ```objc
@@ -276,9 +276,9 @@ Get a device instance by its ID:
 
 **Objective-C**
 ```objc
-__block SparkDevice *myOtherDevice;
+__block ParticleDevice *myOtherDevice;
 NSString *deviceID = @"53fa73265066544b16208184";
-[[SparkCloud sharedInstance] getDevice:deviceID completion:^(SparkDevice *device, NSError *error) {
+[[ParticleCloud sharedInstance] getDevice:deviceID completion:^(ParticleDevice *device, NSError *error) {
     if (!error)
         myOtherDevice = device;
 }];
@@ -287,8 +287,8 @@ NSString *deviceID = @"53fa73265066544b16208184";
 
 **Swift**
 ```swift
-var myOtherDevice : SparkDevice? = nil
-    SparkCloud.sharedInstance().getDevice("53fa73265066544b16208184", completion: { (device:SparkDevice?, error:Error?) -> Void in
+var myOtherDevice : ParticleDevice? = nil
+    ParticleCloud.sharedInstance().getDevice("53fa73265066544b16208184", completion: { (device:ParticleDevice?, error:Error?) -> Void in
         if let d = device {
             myOtherDevice = d
         }
@@ -331,13 +331,13 @@ Also clears user session and access token
 
 **Objective-C**
 ```objc
-[[SparkCloud sharedInstance] logout];
+[[ParticleCloud sharedInstance] logout];
 ```
 ---
 
 **Swift**
 ```swift
-SparkCloud.sharedInstance().logout()
+ParticleCloud.sharedInstance().logout()
 ```
 ---
 ### Events sub-system
@@ -351,7 +351,7 @@ Subscribe to the firehose of public events with name that starts with "temp", pl
 **Objective-C**
 ```objc
 // The event handler:
-SparkEventHandler handler = ^(SparkEvent *event, NSError *error) {
+ParticleEventHandler handler = ^(ParticleEvent *event, NSError *error) {
         if (!error)
         {
             dispatch_async(dispatch_get_main_queue(), ^{
@@ -366,14 +366,14 @@ SparkEventHandler handler = ^(SparkEvent *event, NSError *error) {
     };
 
 // This line actually subscribes to the event stream:
-id eventListenerID = [[SparkCloud sharedInstance] subscribeToAllEventsWithPrefix:@"temp" handler:handler];
+id eventListenerID = [[ParticleCloud sharedInstance] subscribeToAllEventsWithPrefix:@"temp" handler:handler];
 ```
 ---
 
 **Swift**
 ```swift
 var handler : Any?
-handler = SparkCloud.sharedInstance().subscribeToAllEvents(withPrefix: "temp", handler: { (event :SparkEvent?, error : Error?) in
+handler = ParticleCloud.sharedInstance().subscribeToAllEvents(withPrefix: "temp", handler: { (event :ParticleEvent?, error : Error?) in
     if let _ = error {
         print ("could not subscribe to events")
     } else {
@@ -393,7 +393,7 @@ Subscribe to all events, public and private, published by devices the user owns 
 **Objective-C**
 
 ```objc
-id eventListenerID = [[SparkCloud sharedInstance] subscribeToMyDevicesEventsWithPrefix:@"temp" handler:handler];
+id eventListenerID = [[ParticleCloud sharedInstance] subscribeToMyDevicesEventsWithPrefix:@"temp" handler:handler];
 ```
 ---
 
@@ -401,7 +401,7 @@ id eventListenerID = [[SparkCloud sharedInstance] subscribeToMyDevicesEventsWith
 
 ```swift
 var eventListenerID : Any?
-eventListenerID = SparkCloud.sharedInstance().subscribeToMyDevicesEvents(withPrefix: "temp", handler: handler)
+eventListenerID = ParticleCloud.sharedInstance().subscribeToMyDevicesEvents(withPrefix: "temp", handler: handler)
 ```
 ---
 
@@ -410,7 +410,7 @@ Subscribe to events from one specific device (by deviceID, second parameter). If
 **Objective-C**
 
 ```objc
-id eventListenerID = [[SparkCloud sharedInstance] subscribeToDeviceEventsWithPrefix:@"temp" deviceID:@"53ff6c065075535119511687" handler:handler];
+id eventListenerID = [[ParticleCloud sharedInstance] subscribeToDeviceEventsWithPrefix:@"temp" deviceID:@"53ff6c065075535119511687" handler:handler];
 ```
 ---
 
@@ -418,11 +418,11 @@ id eventListenerID = [[SparkCloud sharedInstance] subscribeToDeviceEventsWithPre
 
 ```swift
 var eventListenerID : Any?
-eventListenerID = SparkCloud.sharedInstance().subscribeToDeviceEvents(withPrefix: "temp", deviceID: "53ff6c065075535119511687", handler: handler)
+eventListenerID = ParticleCloud.sharedInstance().subscribeToDeviceEvents(withPrefix: "temp", deviceID: "53ff6c065075535119511687", handler: handler)
 ```
 ---
 
-other option is calling same method via the `SparkDevice` instance:
+other option is calling same method via the `ParticleDevice` instance:
 
 **Objective-C**
 
@@ -448,7 +448,7 @@ Very straightforward. Keep the id object the subscribe method returned and use i
 **Objective-C**
 
 ```objc
-[[SparkCloud sharedInstance] unsubscribeFromEventWithID:eventListenerID];
+[[ParticleCloud sharedInstance] unsubscribeFromEventWithID:eventListenerID];
 ```
 ---
 
@@ -456,12 +456,12 @@ Very straightforward. Keep the id object the subscribe method returned and use i
 
 ```swift
 if let sid = eventListenerID {
-    SparkCloud.sharedInstance().unsubscribeFromEvent(withID: sid)
+    ParticleCloud.sharedInstance().unsubscribeFromEvent(withID: sid)
 }
 ```
 ---
 
-or via the `SparkDevice` instance (if applicable):
+or via the `ParticleDevice` instance (if applicable):
 
 **Objective-C**
 
@@ -484,7 +484,7 @@ You can also publish an event from your app to the Particle Device Cloud:
 **Objective-C**
 
 ```objc
-[[SparkCloud sharedInstance] publishEventWithName:@"event_from_app" data:@"event_payload" isPrivate:NO ttl:60 completion:^(NSError *error) {
+[[ParticleCloud sharedInstance] publishEventWithName:@"event_from_app" data:@"event_payload" isPrivate:NO ttl:60 completion:^(NSError *error) {
     if (error)
     {
         NSLog(@"Error publishing event: %@",error.localizedDescription);
@@ -496,7 +496,7 @@ You can also publish an event from your app to the Particle Device Cloud:
 **Swift**
 
 ```swift
-SparkCloud.sharedInstance().publishEvent(withName: "event_from_app", data: "event_payload", isPrivate: false, ttl: 60, completion: { (error:Error?) -> Void in
+ParticleCloud.sharedInstance().publishEvent(withName: "event_from_app", data: "event_payload", isPrivate: false, ttl: 60, completion: { (error:Error?) -> Void in
     if error != nil
     {
         print("Error publishing event" + e.localizedDescription)
@@ -508,16 +508,16 @@ SparkCloud.sharedInstance().publishEvent(withName: "event_from_app", data: "even
 ### Delegate Protocol
 
 _Starting version 0.5.0_
-You can opt-in to conform to the `SparkDeviceDelegate` protocol in your viewcontroller code if you want to register for receiving system events notifications about the specific device.
-You do it by setting `device.delegate = self` where device is an instance of `SparkDevice`.
+You can opt-in to conform to the `ParticleDeviceDelegate` protocol in your viewcontroller code if you want to register for receiving system events notifications about the specific device.
+You do it by setting `device.delegate = self` where device is an instance of `ParticleDevice`.
 
 The function that will be called on the delegate is:
-`-(void)sparkDevice:(SparkDevice *)device didReceiveSystemEvent:(SparkDeviceSystemEvent)event;`
+`-(void)particleDevice:(ParticleDevice *)device didReceiveSystemEvent:(ParticleDeviceSystemEvent)event;`
 
 and then you can respond to the various system events by:
 
 ```swift
-func sparkDevice(device: SparkDevice, receivedSystemEvent event: SparkDeviceSystemEvent) {
+func particleDevice(device: ParticleDevice, receivedSystemEvent event: ParticleDeviceSystemEvent) {
         print("Received system event "+String(event.rawValue)+" from device "+device.name!)
         // do something meaningful
     }
@@ -536,10 +536,10 @@ The system events types are:
 
 ### OAuth client configuration
 
-If you're creating an app you're required to provide the `SparkCloud` class with OAuth clientId and secret.
+If you're creating an app you're required to provide the `ParticleCloud` class with OAuth clientId and secret.
 Those are used to identify users coming from your specific app to the Particle Device Cloud.
 Please follow the procedure decribed [in our guide](/guide/how-to-build-a-product/authentication/#creating-an-oauth-client) to create those strings,
-then in your `AppDelegate` class you can supply those credentials by setting the following properties in `SparkCloud` singleton:
+then in your `AppDelegate` class you can supply those credentials by setting the following properties in `ParticleCloud` singleton:
 
 ```objc
 @property (nonatomic, strong) NSString *OAuthClientId;
@@ -563,7 +563,7 @@ plugin 'cocoapods-keys', {
 ```
 ---
 go to your project folder in shell and run `pod install` - it will now ask you for "OAuthClientId", "OAuthSecret" - you can copy/paste the generated keys there
-and from that point on you can feed those keys into `SparkCloud` by adding this code to your AppDelegate `didFinishLaunchingWithOptions` function which gets called
+and from that point on you can feed those keys into `ParticleCloud` by adding this code to your AppDelegate `didFinishLaunchingWithOptions` function which gets called
 when your app starts:
 
 *Swift example code*
@@ -572,8 +572,8 @@ when your app starts:
 func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
 
     var keys = YourappnameKeys()
-    SparkCloud.sharedInstance().OAuthClientId = keys.oAuthClientId()
-    SparkCloud.sharedInstance().OAuthClientSecret = keys.oAuthSecret()
+    ParticleCloud.sharedInstance().OAuthClientId = keys.oAuthClientId()
+    ParticleCloud.sharedInstance().OAuthClientSecret = keys.oAuthSecret()
 
     return true
 }
@@ -600,13 +600,13 @@ To install the iOS Cloud SDK, simply add the following line to your Podfile on m
 source 'https://github.com/CocoaPods/Specs.git'
 
 target 'YourAppName' do
-    pod 'Spark-SDK'
+    pod 'Particle-SDK'
 end
 ```
 
 Replace `YourAppName` with your app target name - usually shown as the root item name in the XCode project.
 In your shell - run `pod update` in the project folder. A new `.xcworkspace` file will be created for you to open by Cocoapods, open that file workspace file in Xcode and you can start interacting with Particle cloud and devices by
-adding `#import "Spark-SDK.h"`. (that is not required for swift projects)
+adding `#import "Particle-SDK.h"`. (that is not required for swift projects)
 
 ##### Support for Swift projects
 
@@ -626,7 +626,7 @@ You must have Carthage tool installed, if you don't then be sure to [install Car
 Then to build the iOS Cloud SDK, simply create a `Cartfile` on your project root folder, containing the following line:
 
 ```
-github "spark/spark-sdk-ios" "master"
+github "particle-iot/particle-sdk-ios" "master"
 ```
 
 and then run the following command:
@@ -651,7 +651,7 @@ To get this example app running, clone it, open the project in XCode and:
 
 ### Reference
 
-#### SparkCloud class
+#### ParticleCloud class
 
   `@property (nonatomic, strong, nullable, readonly) NSString* loggedInUsername`
 
@@ -675,20 +675,20 @@ oAuthClientSecret unique for your app, use 'particle' for development or generat
 
   `+ (instancetype)sharedInstance`
 
-Singleton instance of SparkCloud class
+Singleton instance of ParticleCloud class
 
- * **Returns:** initialized SparkCloud singleton
+ * **Returns:** initialized ParticleCloud singleton
 
-  `-(NSURLSessionDataTask *)loginWithUser:(NSString *)user password:(NSString *)password completion:(nullable SparkCompletionBlock)completion`
+  `-(NSURLSessionDataTask *)loginWithUser:(NSString *)user password:(NSString *)password completion:(nullable ParticleCompletionBlock)completion`
 
-Login with existing account credentials to Spark cloud
+Login with existing account credentials to Particle cloud
 
  * **Parameters:**
    * `user` — User name, must be a valid email address
    * `password` — Password
    * `completion` — Completion block will be called when login finished, NS/Error object will be passed in case of an error, nil if success
 
-  `-(NSURLSessionDataTask *)createUser:(NSString *)username password:(NSString *)password accountInfo:(nullable NSDictionary *)accountInfo completion:(nullable SparkCompletionBlock)completion`
+  `-(NSURLSessionDataTask *)createUser:(NSString *)username password:(NSString *)password accountInfo:(nullable NSDictionary *)accountInfo completion:(nullable ParticleCompletionBlock)completion`
 
 Sign up with new account credentials to Particle cloud
 
@@ -698,9 +698,9 @@ Sign up with new account credentials to Particle cloud
    * `accountInfo` — Optional dictionary with extended account info fields: firstName, lastName, isBusinessAccount [NSNumber @0=false, @1=true], companyName
    * `completion` — Completion block will be called when sign-up finished, NSError object will be passed in case of an error, nil if success
 
-  `-(nullable NSURLSessionDataTask *)createCustomer:(NSString *)username password:(NSString *)password productId:(NSUInteger)productId accountInfo:(nullable NSDictionary *)accountInfo completion:(nullable SparkCompletionBlock)completion`
+  `-(nullable NSURLSessionDataTask *)createCustomer:(NSString *)username password:(NSString *)password productId:(NSUInteger)productId accountInfo:(nullable NSDictionary *)accountInfo completion:(nullable ParticleCompletionBlock)completion`
 
-Sign up with new account credentials to Spark cloud
+Sign up with new account credentials to Particle cloud
 
  * **Parameters:**
    * `username` — Required user name, must be a valid email address
@@ -739,7 +739,7 @@ Inject session access token received from a custom backend service in case Two-l
    * `refreshToken` — Refresh token will be used automatically to hit Particle cloud to create a new active session access token.
  * **Returns:** YES if session injected successfully
 
-  `-(NSURLSessionDataTask *)requestPasswordResetForCustomer:(NSString *)email productId:(NSUInteger)productId completion:(nullable SparkCompletionBlock)completion`
+  `-(NSURLSessionDataTask *)requestPasswordResetForCustomer:(NSString *)email productId:(NSUInteger)productId completion:(nullable ParticleCompletionBlock)completion`
 
 Request password reset for customer (in product mode) command generates confirmation token and sends email to customer using org SMTP settings
 
@@ -748,7 +748,7 @@ Request password reset for customer (in product mode) command generates confirma
    * `productId` — Product ID number
    * `completion` — Completion block with NSError object if failure, nil if success
 
-  `-(NSURLSessionDataTask *)requestPasswordResetForUser:(NSString *)email completion:(nullable SparkCompletionBlock)completion`
+  `-(NSURLSessionDataTask *)requestPasswordResetForUser:(NSString *)email completion:(nullable ParticleCompletionBlock)completion`
 
 Request password reset for user command generates confirmation token and sends email to customer using org SMTP settings
 
@@ -756,14 +756,14 @@ Request password reset for user command generates confirmation token and sends e
    * `email` — user email
    * `completion` — Completion block with NSError object if failure, nil if success
 
-  `-(NSURLSessionDataTask *)getDevices:(nullable void (^)(NSArray<SparkDevice *> * _Nullable sparkDevices, NSError * _Nullable error))completion`
+  `-(NSURLSessionDataTask *)getDevices:(nullable void (^)(NSArray<ParticleDevice *> * _Nullable particleDevices, NSError * _Nullable error))completion`
 
 Get an array of instances of all user's claimed devices offline devices will contain only partial data (no info about functions/variables)
 
  * **Parameters:** `completion` — Completion block with the device instances array in case of success or with NSError object if failure
  * **Returns:** NSURLSessionDataTask task for requested network access
 
-  `-(NSURLSessionDataTask *)getDevice:(NSString *)deviceID completion:(nullable void (^)(SparkDevice * _Nullable device, NSError * _Nullable error))completion`
+  `-(NSURLSessionDataTask *)getDevice:(NSString *)deviceID completion:(nullable void (^)(ParticleDevice * _Nullable device, NSError * _Nullable error))completion`
 
 Get a specific device instance by its deviceID. If the device is offline the instance will contain only partial information the cloud has cached, notice that the the request might also take quite some time to complete for offline devices.
 
@@ -772,7 +772,7 @@ Get a specific device instance by its deviceID. If the device is offline the ins
    * `completion` — Completion block with first arguemnt as the device instance in case of success or with second argument NSError object if operation failed
  * **Returns:** NSURLSessionDataTask task for requested network access
 
-  `-(NSURLSessionDataTask *)claimDevice:(NSString *)deviceID completion:(nullable SparkCompletionBlock)completion`
+  `-(NSURLSessionDataTask *)claimDevice:(NSString *)deviceID completion:(nullable ParticleCompletionBlock)completion`
 
 Claim the specified device to the currently logged in user (without claim code mechanism)
 
@@ -798,16 +798,16 @@ Get a short-lived claiming token for transmitting to soon-to-be-claimed device i
    * `completion` — Completion block with claimCode string returned (48 random bytes base64 encoded to 64 ASCII characters), second argument is a list of the devices currently claimed by current session user and third is NSError object for a failure, nil if success
  * **Returns:** NSURLSessionDataTask task for requested network access
 
-  `-(nullable id)subscribeToAllEventsWithPrefix:(nullable NSString *)eventNamePrefix handler:(nullable SparkEventHandler)eventHandler`
+  `-(nullable id)subscribeToAllEventsWithPrefix:(nullable NSString *)eventNamePrefix handler:(nullable ParticleEventHandler)eventHandler`
 
 Subscribe to the firehose of public events, plus private events published by devices one owns
 
  * **Parameters:**
-   * `eventHandler` — SparkEventHandler event handler method - receiving NSDictionary argument which contains keys: event (name), data (payload), ttl (time to live), published_at (date/time emitted), coreid (device ID). Second argument is NSError object in case error occured in parsing the event payload.
+   * `eventHandler` — ParticleEventHandler event handler method - receiving NSDictionary argument which contains keys: event (name), data (payload), ttl (time to live), published_at (date/time emitted), coreid (device ID). Second argument is NSError object in case error occured in parsing the event payload.
    * `eventName` — Filter only events that match name eventName, if nil is passed any event will trigger eventHandler
  * **Returns:** eventListenerID function will return an id type object as the eventListener registration unique ID - keep and pass this object to the unsubscribe method in order to remove this event listener
 
-  `-(nullable id)subscribeToMyDevicesEventsWithPrefix:(nullable NSString *)eventNamePrefix handler:(nullable SparkEventHandler)eventHandler`
+  `-(nullable id)subscribeToMyDevicesEventsWithPrefix:(nullable NSString *)eventNamePrefix handler:(nullable ParticleEventHandler)eventHandler`
 
 Subscribe to all events, public and private, published by devices one owns
 
@@ -816,7 +816,7 @@ Subscribe to all events, public and private, published by devices one owns
    * `eventNamePrefix` — Filter only events that match name eventNamePrefix, for exact match pass whole string, if nil/empty string is passed any event will trigger eventHandler
  * **Returns:** eventListenerID function will return an id type object as the eventListener registration unique ID - keep and pass this object to the unsubscribe method in order to remove this event listener
 
-  `-(nullable id)subscribeToDeviceEventsWithPrefix:(nullable NSString *)eventNamePrefix deviceID:(NSString *)deviceID handler:(nullable SparkEventHandler)eventHandler`
+  `-(nullable id)subscribeToDeviceEventsWithPrefix:(nullable NSString *)eventNamePrefix deviceID:(NSString *)deviceID handler:(nullable ParticleEventHandler)eventHandler`
 
 Subscribe to events from one specific device. If the API user has the device claimed, then she will receive all events, public and private, published by that device. If the API user does not own the device she will only receive public events.
 
@@ -832,7 +832,7 @@ Unsubscribe from event/events.
 
  * **Parameters:** `eventListenerID` — The eventListener registration unique ID returned by the subscribe method which you want to cancel
 
-  `-(NSURLSessionDataTask *)publishEventWithName:(NSString *)eventName data:(NSString *)data isPrivate:(BOOL)isPrivate ttl:(NSUInteger)ttl completion:(nullable SparkCompletionBlock)completion`
+  `-(NSURLSessionDataTask *)publishEventWithName:(NSString *)eventName data:(NSString *)data isPrivate:(BOOL)isPrivate ttl:(NSUInteger)ttl completion:(nullable ParticleCompletionBlock)completion`
 
 Subscribe to events from one specific device. If the API user has the device claimed, then she will receive all events, public and private, published by that device. If the API user does not own the device she will only receive public events.
 
@@ -845,9 +845,9 @@ Subscribe to events from one specific device. If the API user has the device cla
      The geolocation of a large piece of farm equipment that remains stationary most of the time but may be moved to a different field once in a while might have a TTL of 86400 (24 hours). After the TTL has passed, the information can be considered stale or out of date.
  * **Returns:** NSURLSessionDataTask task for requested network access
 
-#### SparkDevice class
+#### ParticleDevice class
 
-  `typedef void (^SparkCompletionBlock)(NSError * _Nullable error)`
+  `typedef void (^ParticleCompletionBlock)(NSError * _Nullable error)`
 
 Standard completion block for API calls, will be called when the task is completed with a nullable error object that will be nil if the task was successful.
 
@@ -892,25 +892,25 @@ Call a function on the device
    * `args` — Array of arguments to pass to the function on the device. Arguments will be converted to string maximum length 63 chars.
    * `completion` — Completion block will be called when function was invoked on device. First argument of block is the integer return value of the function, second is NSError object in case of an error invoking the function
 
-  `-(NSURLSessionDataTask *)signal:(BOOL)enable completion:(nullable SparkCompletionBlock)completion`
+  `-(NSURLSessionDataTask *)signal:(BOOL)enable completion:(nullable ParticleCompletionBlock)completion`
 
 Signal device Will make the onboard LED "shout rainbows" for easy physical identification of a device
 
  * **Parameters:** `enale` — - YES to start or NO to stop LED signal.
 
-  `-(NSURLSessionDataTask *)refresh:(nullable SparkCompletionBlock)completion`
+  `-(NSURLSessionDataTask *)refresh:(nullable ParticleCompletionBlock)completion`
 
 Request device refresh from cloud update online status/functions/variables/device name, etc
 
  * **Parameters:** `completion` — Completion block called when function completes with NSError object in case of an error or nil if success.
 
-  `-(NSURLSessionDataTask *)unclaim:(nullable SparkCompletionBlock)completion`
+  `-(NSURLSessionDataTask *)unclaim:(nullable ParticleCompletionBlock)completion`
 
 Remove device from current logged in user account
 
  * **Parameters:** `completion` — Completion block called when function completes with NSError object in case of an error or nil if success.
 
-  `-(NSURLSessionDataTask *)rename:(NSString *)newName completion:(nullable SparkCompletionBlock)completion`
+  `-(NSURLSessionDataTask *)rename:(NSString *)newName completion:(nullable ParticleCompletionBlock)completion`
 
 Rename device
 
@@ -924,7 +924,7 @@ Retrieve current data usage report (For Electron only)
 
  * **Parameters:** `completion` — Completion block to be called when function completes with the data used in current payment period in (float)MBs. All devices other than Electron will return an error with -1 value
 
-  `-(nullable NSURLSessionDataTask *)flashFiles:(NSDictionary *)filesDict completion:(nullable SparkCompletionBlock)completion`
+  `-(nullable NSURLSessionDataTask *)flashFiles:(NSDictionary *)filesDict completion:(nullable ParticleCompletionBlock)completion`
 
 Flash files to device
 
@@ -932,7 +932,7 @@ Flash files to device
    * `filesDict` — files dictionary in the following format: @{@"filename.bin" : <NSData>, ...} - that is a NSString filename as key and NSData blob as value. More than one file can be flashed. Data is alway binary.
    * `completion` — Completion block called when function completes with NSError object in case of an error or nil if success. NSError.localized descripion will contain a detailed error report in case of a
 
-  `-(NSURLSessionDataTask *)flashKnownApp:(NSString *)knownAppName completion:(nullable SparkCompletionBlock)completion`
+  `-(NSURLSessionDataTask *)flashKnownApp:(NSString *)knownAppName completion:(nullable ParticleCompletionBlock)completion`
 
 Flash known firmware images to device
 
@@ -940,7 +940,7 @@ Flash known firmware images to device
    * `knownAppName` — NSString of known app name. Currently @"tinker" is supported.
    * `completion` — Completion block called when function completes with NSError object in case of an error or nil if success. NSError.localized descripion will contain a detailed error report in case of a
 
-  `-(nullable id)subscribeToEventsWithPrefix:(nullable NSString *)eventNamePrefix handler:(nullable SparkEventHandler)eventHandler`
+  `-(nullable id)subscribeToEventsWithPrefix:(nullable NSString *)eventNamePrefix handler:(nullable ParticleEventHandler)eventHandler`
 
 Subscribe to events from this specific (claimed) device - both public and private.
 
@@ -970,13 +970,13 @@ iOS Device setup library is implemented as an open-source Cocoapod static librar
 
 **Rebranding notice**
 
-Spark has been rebranded as Particle. Code that previously used `Spark` keyword as class prefix now uses `Particle` keyword. CocoaPods library [SparkSetup](https://cocoapods.org/pods/SparkSetup) has been deprecated in favor of [ParticleSetup](https://cocoapods.org/pods/ParticleSetup) library. Github repository [particle-iot/spark-setup-ios](https://github.com/particle-iot/spark-setup-ios/) has been deprecated in favor of [particle-iot/particle-setup-ios](https://github.com/particle-iot/particle-setup-ios/) too.
+Particle has been rebranded as Particle. Code that previously used `Particle` keyword as class prefix now uses `Particle` keyword. CocoaPods library [ParticleSetup](https://cocoapods.org/pods/ParticleSetup) has been deprecated in favor of [ParticleSetup](https://cocoapods.org/pods/ParticleSetup) library. Github repository [particle-iot/particle-setup-ios](https://github.com/particle-iot/particle-setup-ios/) has been deprecated in favor of [particle-iot/particle-setup-ios](https://github.com/particle-iot/particle-setup-ios/) too.
 
 ### Usage
 
 **Cocoapods**
 
-Import `SparkSetup.h` in your view controller implementation file, use bridging header for Swift projects (See [Installation](#installation) section for more details).
+Import `ParticleSetup.h` in your view controller implementation file, use bridging header for Swift projects (See [Installation](#installation) section for more details).
 
 **Carthage**
 
@@ -987,7 +987,7 @@ and then invoke the device setup wizard by:
 **Objective-C**
 
 ```objc
-SparkSetupMainController *setupController = [[SparkSetupMainController alloc] init];
+ParticleSetupMainController *setupController = [[ParticleSetupMainController alloc] init];
 setupController.delegate = self; // why? see "Advanced" section below
 [self presentViewController:setupController animated:YES completion:nil];
 ```
@@ -995,7 +995,7 @@ setupController.delegate = self; // why? see "Advanced" section below
 **Swift**
 
 ```swift
-if let setupController = SparkSetupMainController()
+if let setupController = ParticleSetupMainController()
 {
     setupController.delegate = self
     self.presentViewController(setupController, animated: true, completion: nil)
@@ -1008,7 +1008,7 @@ Alternatively if your app requires separation between the Particle cloud authent
 **Objective-C**
 
 ```objc
-SparkSetupMainController *setupController = [[SparkSetupMainController alloc] initWithAuthenticationOnly:YES];
+ParticleSetupMainController *setupController = [[ParticleSetupMainController alloc] initWithAuthenticationOnly:YES];
 [self presentViewController:setupController animated:YES completion:nil];
 ```
 ---
@@ -1016,7 +1016,7 @@ SparkSetupMainController *setupController = [[SparkSetupMainController alloc] in
 **Swift**
 
 ```swift
-if let setupController = SparkSetupMainController(authenticationOnly: true)
+if let setupController = ParticleSetupMainController(authenticationOnly: true)
 {
     self.presentViewController(setupController, animated: true, completion: nil)
 }
@@ -1039,7 +1039,7 @@ Usage:
 **Objective-C**
 
 ```objc
-SparkSetupMainController *setupController = [[SparkSetupMainController alloc] initWithSetupOnly:YES];
+ParticleSetupMainController *setupController = [[ParticleSetupMainController alloc] initWithSetupOnly:YES];
 [self presentViewController:setupController animated:YES completion:nil];
 ```
 ---
@@ -1047,7 +1047,7 @@ SparkSetupMainController *setupController = [[SparkSetupMainController alloc] in
 **Swift**
 
 ```swift
-if let setupController = SparkSetupMainController(setupOnly: true)
+if let setupController = ParticleSetupMainController(setupOnly: true)
 {
     self.presentViewController(setupController, animated: true, completion: nil)
 }
@@ -1063,7 +1063,7 @@ For additional information read [here](https://github.com/AgileBits/onepassword-
 
 ### Customization
 
-Customize setup look and feel by accessing the `SparkSetupCustomization` singleton appearance proxy `[SparkSetupCustomization sharedInstance]`
+Customize setup look and feel by accessing the `ParticleSetupCustomization` singleton appearance proxy `[ParticleSetupCustomization sharedInstance]`
 and modify its default properties. Setting the properties in this class is optional.
 These properies are shown in Objective-C syntax for convenience but work the same for Swift projects - use `String`, `Bool` instead of `NSString` and `BOOL`.
 
@@ -1119,7 +1119,7 @@ If you're developing an app for your product / you're a product creator you shou
 
 If you set `productMode ` to `YES / true` be sure to also provide the `productId` (and `productName`) - please [read here](/guide/tools-and-features/console/#your-product-id) about how to find your productId number.
 
-Make sure you inject the `SparkCloud` class with [scoped OAuth credentials for creating customers](/guide/how-to-build-a-product/authentication/#creating-an-oauth-client), so app users could create an account. [Read here](/reference/ios/#oauth-client-configuration) on how to do it correctly.
+Make sure you inject the `ParticleCloud` class with [scoped OAuth credentials for creating customers](/guide/how-to-build-a-product/authentication/#creating-an-oauth-client), so app users could create an account. [Read here](/reference/ios/#oauth-client-configuration) on how to do it correctly.
 
 ```objc
  BOOL productMode;              // enable product mode
@@ -1138,50 +1138,50 @@ Make sure you inject the `SparkCloud` class with [scoped OAuth credentials for c
 
 ### Advanced
 
-You can get an active instance of the set up device - `SparkDevice` by making your viewcontroller conform to protocol `<SparkSetupMainControllerDelegate>` when setup wizard completes successfully:
+You can get an active instance of the set up device - `ParticleDevice` by making your viewcontroller conform to protocol `<ParticleSetupMainControllerDelegate>` when setup wizard completes successfully:
 
 **Objective-C**
 
 ```objc
--(void)sparkSetupViewController:(SparkSetupMainController *)controller didFinishWithResult:(SparkSetupMainControllerResult)result device:(SparkDevice *)device;
+-(void)particleSetupViewController:(ParticleSetupMainController *)controller didFinishWithResult:(ParticleSetupMainControllerResult)result device:(ParticleDevice *)device;
 ```
 ---
 
 **Swift**
 
 ```swift
-func sparkSetupViewController(controller: SparkSetupMainController!, didFinishWithResult result: SparkSetupMainControllerResult, device: SparkDevice!)
+func particleSetupViewController(controller: ParticleSetupMainController!, didFinishWithResult result: ParticleSetupMainControllerResult, device: ParticleDevice!)
 ```
 ---
 
-method will be called, if `(result == SparkSetupMainControllerResultSuccess)` or (or simply `(result == .Success)` in Swift) the device parameter will contain an active `SparkDevice` instance you can interact with
-using the [iOS Cloud SDK](https://cocoapods.org/pods/Spark-SDK).
-In case setup failed, aborted or was cancalled  you can determine the exact reason by consulting the documentation of the enum value `SparkSetupMainControllerResult`. See [here](https://github.com/particle-iot/spark-setup-ios/blob/master/Classes/User/SparkSetupMainController.h#L18-31) for additional details.
+method will be called, if `(result == ParticleSetupMainControllerResultSuccess)` or (or simply `(result == .Success)` in Swift) the device parameter will contain an active `ParticleDevice` instance you can interact with
+using the [iOS Cloud SDK](https://cocoapods.org/pods/Particle-SDK).
+In case setup failed, aborted or was cancalled  you can determine the exact reason by consulting the documentation of the enum value `ParticleSetupMainControllerResult`. See [here](https://github.com/particle-iot/particle-setup-ios/blob/master/Classes/User/ParticleSetupMainController.h#L18-31) for additional details.
 
 If setup failed and you can still determine the device ID of the last device that was tried to be setup and failed by conforming to the @optional delegate function: (new since 0.5.0)
 
 **Objective-C**
 
 ```objc
-- (void)sparkSetupViewController:(SparkSetupMainController *)controller didNotSucceeedWithDeviceID:(NSString *)deviceID;
+- (void)particleSetupViewController:(ParticleSetupMainController *)controller didNotSucceeedWithDeviceID:(NSString *)deviceID;
 ```
 ---
 
 **Swift**
 
 ```swift
-func sparkSetupViewController(controller: SparkSetupMainController!, didNotSucceeedWithDeviceID deviceID: String)
+func particleSetupViewController(controller: ParticleSetupMainController!, didNotSucceeedWithDeviceID deviceID: String)
 ```
 ---
 
 ### Example
 
-Cocoapods usage example app (in Swift) can be found [here](https://github.com/particle-iot/ios-app-example-pod). Example app demonstates - invoking the setup wizard, customizing its UI and using the returned SparkDevice instance once
+Cocoapods usage example app (in Swift) can be found [here](https://github.com/particle-iot/ios-app-example-pod). Example app demonstates - invoking the setup wizard, customizing its UI and using the returned ParticleDevice instance once
 setup wizard completes (delegate). Feel free to contribute to the example by submitting pull requests.
 
 ### Reference
 
-Check out the [Reference in Cocoadocs website](http://cocoadocs.org/docsets/SparkSetup/) or consult the javadoc style comments in `SparkSetupCustomization.h` and `SparkSetupMainController.h` for each public method or property.
+Check out the [Reference in Cocoadocs website](http://cocoadocs.org/docsets/ParticleSetup/) or consult the javadoc style comments in `ParticleSetupCustomization.h` and `ParticleSetupMainController.h` for each public method or property.
 If the Device Setup library installation completed successfully in your XCode project - you should be able to press `Esc` to get an auto-complete hints from XCode for each public method or property in the library.
 
 ### Requirements / limitations
@@ -1202,13 +1202,13 @@ To install the iOS Device Setup library, create a text file named `Podfile` on m
 source 'https://github.com/CocoaPods/Specs.git'
 
 target 'YourAppName' do
-    pod 'SparkSetup'
+    pod 'ParticleSetup'
 end
 ```
 ---
 
 Replace `YourAppName` with your app target name - usually shown as the root item name in the XCode project,
-then run `pod update` in your shell. A new `.xcworkspace` file will be created for you to open by Cocoapods, open that workspace file in Xcode and you can start invoking a new instance of the setup process viewcontroller - refer to the examples above. Don't forget to add `#import "SparkSetup.h"` to the source file in which you want to invoke setup in (that is not required for swift projects).
+then run `pod update` in your shell. A new `.xcworkspace` file will be created for you to open by Cocoapods, open that workspace file in Xcode and you can start invoking a new instance of the setup process viewcontroller - refer to the examples above. Don't forget to add `#import "ParticleSetup.h"` to the source file in which you want to invoke setup in (that is not required for swift projects).
 
 ##### Support for Swift projects
 
@@ -1222,18 +1222,18 @@ You must have Carthage installed, if you don't then be sure to [install Carthage
 Then to build the Particle iOS device setup library, simply create a `Cartfile` on your project root folder (that's important), containing the following line:
 
 ```
-github "spark/spark-setup-ios" ~> 0.6.0
+github "particle-iot/particle-setup-ios" ~> 0.6.0
 ```
 
 and then run the following command:
 `carthage update --platform iOS --use-submodules --no-use-binaries`.
 
-*you can also re-use/copy the `bin/setup` shell script in your project, find it [here](https://github.com/particle-iot/spark-setup-ios/blob/master/bin/setup)*
+*you can also re-use/copy the `bin/setup` shell script in your project, find it [here](https://github.com/particle-iot/particle-setup-ios/blob/master/bin/setup)*
 
 A new folder will be created in your project root folder - when Carthage checkout and builds are done, navigate to the `./Carthage/Build/iOS` folder and drag all the created `.framework`s files into your project in XCode.
 Go to your XCode target settings->General->Embedded binaries and press `+` and add all the `.framework` files there too - make sure the `ParticleDeviceSetupLibrary.framework`, `ParticleSDK.framework` and the `AFNetworking.framework` are listed there.
 Build your project - you now have the Particle SDK embedded in your project.
-Use `#import <ParticleDeviceSetupLibrary/ParticleDeviceSetupLibrary.h>` in Obj-C files or `import ParticleDeviceSetupLibrary` for Swift files to gain access to `SparkSetupMainController` (see usage example).
+Use `#import <ParticleDeviceSetupLibrary/ParticleDeviceSetupLibrary.h>` in Obj-C files or `import ParticleDeviceSetupLibrary` for Swift files to gain access to `ParticleSetupMainController` (see usage example).
 
 No need for any special process or operation integrating the Device Setup Library with Swift-based or Swift-dependant projects. This is the recommended way if you have a mixed set of dependencies.
 
