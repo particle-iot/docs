@@ -1156,7 +1156,7 @@ func particleSetupViewController(controller: ParticleSetupMainController!, didFi
 
 method will be called, if `(result == ParticleSetupMainControllerResultSuccess)` or (or simply `(result == .Success)` in Swift) the device parameter will contain an active `ParticleDevice` instance you can interact with
 using the [iOS Cloud SDK](https://cocoapods.org/pods/Particle-SDK).
-In case setup failed, aborted or was cancalled  you can determine the exact reason by consulting the documentation of the enum value `ParticleSetupMainControllerResult`. See [here](https://github.com/particle-iot/particle-setup-ios/blob/master/Classes/User/ParticleSetupMainController.h#L18-31) for additional details.
+In case setup failed, aborted or was cancalled  you can determine the exact reason by consulting the documentation of the enum value `ParticleSetupMainControllerResult`. See [here](https://github.com/particle-iot/particle-setup-ios/blob/master/ParticleSetup/User/ParticleSetupMainController.h#L18-31) for additional details.
 
 If setup failed and you can still determine the device ID of the last device that was tried to be setup and failed by conforming to the @optional delegate function: (new since 0.5.0)
 
