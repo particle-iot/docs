@@ -7,22 +7,24 @@ order: 5
 
 # {{title}}
 
-The iOS SDK consists of two parts: (1) the Cloud SDK and (2) the Device Setup library, the first is an API wrapper that enables your mobile app to interact with internet-connected hardware through the Particle Device Cloud while the latter is a library allows you to easily create a setup wizard for allowing your app users to setup their devices.
+The iOS SDK consists of two parts:
+1. [Cloud SDK](#ios-cloud-sdk) - an API wrapper that enables your mobile app to interact with internet-connected hardware through the Particle Device Cloud.
+2. [Device Setup Library](#device-setup-library) - a library which provides an easy setup wizard for your app users to set up their Particle-powered devices.
 
 ## Requirements
 
-iOS Cloud SDK supports iOS 8.0 and up, Device Setup Library supports iOS 9.0 and up.
+Cloud SDK supports iOS 8.0 and up, Device Setup Library supports iOS 9.0 and up.
 
 ## Support and Contributions
 
-- If you **need help**, visit the [Mobile category](http://community.particle.io/c/mobile) in our [community forums](http://community.particle.io) for discussion, troubleshooting, and feedback around the iOS Cloud SDK and Device Setup library.
+- If you **need help**, visit the [mobile category](http://community.particle.io/c/mobile) in our [community forums](http://community.particle.io) for discussion, troubleshooting, and feedback around the iOS Cloud SDK and Device Setup library.
 - If you **found a bug**, _and can provide steps to reliably reproduce it_, open an issue in the appropriate repo [on GitHub](https://github.com/search?q=org%3Aparticle-iot+ios&unscoped_q=ios), and apply the `bug` label.
 - If you **have a feature request**, open an issue in the appropriate repo [on GitHub](https://github.com/search?q=org%3Aparticle-iot+ios&unscoped_q=ios), and apply the `enhancement` label.
 - If you **want to contribute**, submit a pull request. Also be sure to check out [the contribution guidelines](http://particle-iot.github.io/#contributions), and sign our [CLA](https://docs.google.com/a/particle.io/forms/d/1_2P-vRKGUFg5bmpcKLHO_qNZWGi5HKYnfrrkd-sbZoA/viewform).
 
 ## Beta notice
 
-While iOS Cloud SDK and Device Setup Library is ready for production use, as seen in [the Particle iOS app](https://github.com/particle-iot/photon-tinker-ios), it is still under development and is currently in beta. The API is mostly stable, but may be subject to further changes prior to leaving beta. Once the SDK leaves beta, the API should never change outside of ["major" version](http://semver.org/) updates.
+While iOS Cloud SDK and Device Setup Library are ready for production use, as seen in [the Particle iOS app](https://github.com/particle-iot/photon-tinker-ios), it is still under development and is currently in beta. The API is mostly stable, but may be subject to further changes prior to leaving beta. Once the SDK leaves beta, the API should never change outside of ["major" version](http://semver.org/) updates.
 
 ## iOS Cloud SDK
 
@@ -952,7 +954,7 @@ Unsubscribe from event/events.
 
  * **Parameters:** `eventListenerID` — The eventListener registration unique ID returned by the subscribe method which you want to cancel
 
-## Particle Device Setup library
+## Device Setup library
 
 ### Introduction
 
@@ -1237,4 +1239,4 @@ No need for any special process or operation integrating the Device Setup Librar
 
 ## License
 
-Particle Cloud SDK and Particle Device Setup library is available under the Apache License 2.0. See the LICENSE file for more info.
+Particle Cloud SDK and Particle Device Setup library are available under the Apache License 2.0.
