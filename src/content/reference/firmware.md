@@ -2768,6 +2768,10 @@ FuelGauge fuel;
 Serial.println( fuel.getSoC() );
 ```
 
+Note that in most cases, "fully charged" state (red charging LED goes off) will result in a SoC of 80%, not 100%. 
+
+In some cases you can [increase the charge voltage](#setchargevoltage-) to get a higher SoC, but there are limits, based on temperature.
+
 ### getVersion()
 `int getVersion();`
 
@@ -3555,8 +3559,33 @@ by the Device OS.
 #### setChargeCurrent()
 `bool setChargeCurrent(bool bit7, bool bit6, bool bit5, bool bit4, bool bit3, bool bit2);`
 
+The total charge current is the 512mA + the combination of the current that the following bits represent
+                     
+- bit7 = 2048mA
+- bit6 = 1024mA
+- bit5 = 512mA
+- bit4 = 256mA
+- bit3 = 128mA
+- bit2 = 64mA
+
+For example, to set a 1408 mA charge current:
+
+```
+PMIC pmic;
+pmic.setChargeCurrent(0,0,1,1,1,0);
+```
+
+- 512mA + (0+0+512mA+256mA+128mA+0) = 1408mA
+                    
+                    
+
 #### getChargeCurrent()
 `byte getChargeCurrent(void);`
+
+Returns the charge current register. This is the direct register value from the BQ24195 PMIC. The bits in this register correspond to the bits you pass into setChargeCurrent.
+
+- bit7 is the MSB, value 0x80
+- bit2 is the LSB, value 0x04
 
 ---
 
@@ -3581,8 +3610,39 @@ by the Device OS.
 #### setChargeVoltage()
 `bool setChargeVoltage(uint16_t voltage);`
 
+Voltage can be:
+
+- 4112 (4.112 volts), the default
+- 4208 (4.208 volts), only safe at lower temperatures
+
+The default charge voltage is 4112, which corresponds to 4.112 volts. 
+
+You can also set it 4208, which corresponds to 4.208 volts. This higher voltage should not be used if the battery will be charged in temperatures exceeding 45°F. Using a higher charge voltage will allow the battery to reach a higher state-of-charge (SoC) but could damage the battery at high temperatures.
+
+
+```
+void setup() {
+    PMIC power;
+    power.setChargeVoltage(4208);
+}
+```
+
+Note: Do not use 4208 with Device OS 0.4.8 or 0.5.0, as a bug will cause an incorrect, even higher, voltage to be used.
+
+#### getChargeVoltageValue()
+
+`uint16_t getChargeVoltageValue();`
+
+Returns the charge voltage constant that could pass into setChargeVoltage, typically 4208 or 4112.
+
 #### getChargeVoltage()
+
 `byte getChargeVoltage();`
+
+Returns the charge voltage register. This is the direct register value from the BQ24195 PMIC.
+
+- 155, 0x9b, 0b10011011, corresponds to 4112
+- 179, 0xb3, 0b10110011, corresponds to 4208
 
 ---
 
