@@ -11947,6 +11947,9 @@ Parameters:
 
 
 ## Language Syntax
+
+Particle devices are programmed in C/C++. While the Arduino compatibility features are available as described below, you can also write programs in plain C or C++, specically gcc C++11.
+
 The following documentation is based on the Arduino reference which can be found [here.](http://www.arduino.cc/en/Reference/HomePage)
 
 ### Structure
@@ -13309,6 +13312,27 @@ If you are getting unexpected errors when compiling valid code, it could be the 
 //
 #pragma SPARK_NO_PREPROCESSOR
 ```
+
+{{#if has-stm32f2}}
+
+## Memory
+
+The Photon, P1, and Electron all have an STM32F205 processor with 128K of available RAM and 128K of flash for your user firmware.
+
+Some tips for understanding the memory used by your firmware [can be found here](/faq/particle-devices/code-size-tips).
+
+Some of the available resources are used by the system, so there's about 80K of free RAM available for the user firmware to use.
+
+### Stack
+
+The available stack depends on the environment:
+
+- Main loop thread: 6144 bytes
+- Software timer callbacks: 1024 bytes
+
+The stack size cannot be changed as it's allocated by the Device OS before the user firmware is loaded. 
+
+{{/if}}
 
 ## Firmware Releases
 
