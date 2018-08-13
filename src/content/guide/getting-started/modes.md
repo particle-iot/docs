@@ -103,6 +103,10 @@ To put your {{device}} in Listening Mode, hold the `{{system-button}}` button fo
 To put your {{device}} in Listening Mode, hold the `{{system-button}}` button for three seconds, until the RGB LED begins blinking blue.
 {{/if}}
 
+{{#if photon}}
+__Note__: When programmatically entering listening mode on the Photon, P1 or P0, care should be taken to conserve the memory utilized by user firmware. Listening Mode on these devices utilizes a number of threads to create short-lived HTTP server instances, a TCP server for SoftAP access, and associated resources. If the free memory available on a device at the time Listening Mode is triggered is less than 21.5K, the device will be unable to enter listening mode. In some cases, it may appear as though the device is in listening mode, but any attempt to configure access via the CLI or Particle Mobile App will time out or fail. None of the device's user firmware is lost or affected in either case, but the RAM in use will need to be optimized below 21.5k before re-attempting to enter listening mode.
+{{/if}}
+
 ### Safe Mode
 
 {{device-animation device "breathe" "magenta" }}
