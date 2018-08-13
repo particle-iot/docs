@@ -583,7 +583,7 @@ particle device doctor
 ```
 {{/unless}}
 
-Some tips for reducing the memory used by your firmware [can be found here](https://github.com/rickkas7/particle_notes/tree/master/code-size-tips).
+Some tips for reducing the memory used by your firmware [can be found here](/faq/particle-devices/code-size-tips).
 
 **Stack overflow (13 blinks between 2 SOS patterns)**
 
