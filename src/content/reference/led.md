@@ -559,6 +559,12 @@ The two most common ones are:
 
 {{device-animation device "sos" 1 }}
 
+Some causes of hard fault include:
+
+- Using an invalid pointer.
+- Memory corruption caused by freeing memory twice, overwriting the end of a block of memory, etc.
+- Making Wire (I2C) calls without calling `Wire.begin()`.
+
 **Out of heap memory (8 blinks between 2 SOS patterns)**
 
 {{device-animation device "sos" 8 }}
@@ -577,7 +583,16 @@ particle device doctor
 ```
 {{/unless}}
 
-Don't forget that the [community forum is always there to help](https://community.particle.io).
+Some tips for reducing the memory used by your firmware [can be found here](https://github.com/rickkas7/particle_notes/tree/master/code-size-tips).
+
+**Stack overflow (13 blinks between 2 SOS patterns)**
+
+{{device-animation device "sos" 13 }}
+
+Stack overflow occurs when you try to store too much data on the stack. The size is quite limited, and storing large temporary objects on the stack can cause problems.
+
+- Main loop thread: 6144 bytes
+- Software timer callbacks: 1024 bytes
 
 ### Solid colors
 
@@ -594,4 +609,9 @@ Solid colors are rare. There only expected situation is:
 
 In most cases, solid colors are the side effect of a bug. If code crashes or infinitely loops with interrupts disabled, it's possible that the LED animation will stop. The color of the LED is the color it last was before failure. So for example, it could be solid cyan if it was previously breathing cyan, or solid red if it was trying to output an SOS pattern.
 
+### No status LED
+
+If you power up your {{device}} and the status LED never comes on and the small blue led next to pin D7 is on dimly, you have a missing or corrupted bootloader.
+
+This can be corrected using a [JTAG/SWD programmer](https://docs.particle.io/faq/particle-tools/jtag/) if you have one. Otherwise, you should [contact support](https://particle.io/support).
 
