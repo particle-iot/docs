@@ -48,6 +48,7 @@ void setup() {
 Expose a *variable* through the Cloud so that it can be called with `GET /v1/devices/{DEVICE_ID}/{VARIABLE}`.
 Returns a success value - `true` when the variable was registered.
 
+Particle.variable registers a variable, so its value can be retrieved from the cloud in the future. You only call Particle.variable once per variable, typically passing in a global variable. You can change the value of the underlying global variable as often as you want; the value is only retrieved when requested, so simply changing the global variable does not use any data. You do not call Particle.variable when you change the value.
 
 ```C++
 // EXAMPLE USAGE
@@ -87,6 +88,10 @@ Up to 20 cloud variables may be registered and each variable name is limited to 
 
 It is fine to call this function when the cloud is disconnected - the variable
 will be registered next time the cloud is connected.
+
+When using [SYSTEM_THREAD(ENABLED)](/reference/firmware/#system-thread) you must be careful of when you register your variables. At the beginning of setup(), before you do any lengthy operations, delays, or things like waiting for a key press, is best. The reason is that variable and function registrations are only sent up once, about 30 seconds after connecting to the cloud. Calling Particle.variable after the registration information has been sent does not re-send the request and the variable will not work.
+
+You will almost never call Particle.variable from loop() (or a function called from loop()).
 
 Prior to 0.4.7 firmware, variables were defined with an additional 3rd parameter
 to specify the data type of the variable. From 0.4.7 onward, the system can
@@ -139,6 +144,8 @@ my name is particle
 
 Expose a *function* through the Cloud so that it can be called with `POST /v1/devices/{DEVICE_ID}/{FUNCTION}`.
 
+Particle.function allows code on the device to be run when requested from the cloud API. You typically do this when you want to control something on your {{device}}, say a LCD display or a buzzer, or control features in your firmware from the cloud.
+
 ```cpp
 // SYNTAX
 bool success = Particle.function("funcKey", funcName);
@@ -156,6 +163,8 @@ Up to 15 cloud functions may be registered and each function name is limited to 
 In order to register a cloud  function, the user provides the `funcKey`, which is the string name used to make a POST request and a `funcName`, which is the actual name of the function that gets called in your app. The cloud function has to return an integer; `-1` is commonly used for a failed function call.
 
 A cloud function is set up to take one argument of the [String](#string-class) datatype. This argument length is limited to a max of 63 characters.
+
+When using [SYSTEM_THREAD(ENABLED)](/reference/firmware/#system-thread) you must be careful of when you register your functions. At the beginning of setup(), before you do any lengthy operations, delays, or things like waiting for a key press, is best. The reason is that variable and function registrations are only sent up once, about 30 seconds after connecting to the cloud. Calling Particle.function after the registration information has been sent does not re-send the request and the function will not work.
 
 ```cpp
 // EXAMPLE USAGE
@@ -225,11 +234,14 @@ curl https://api.particle.io/v1/devices/0123456789abcdef/brew \
      -d "args=coffee"
 ```
 
+
 ### Particle.publish()
 
 Publish an *event* through the Particle Device Cloud that will be forwarded to all registered listeners, such as callbacks, subscribed streams of Server-Sent Events, and other devices listening via `Particle.subscribe()`.
 
 This feature allows the device to generate an event based on a condition. For example, you could connect a motion sensor to the device and have the device generate an event whenever motion is detected.
+
+Particle.publish pushes the value out of the device at a time controlled by the device firmware. Particle.variable allows the value to be pulled from the device when requested from the cloud side.
 
 Cloud events have the following properties:
 
@@ -393,6 +405,7 @@ _Since 0.7.0_
 Particle.publish("motion-detected", PRIVATE | WITH_ACK);
 ```
 
+Unlike functions and variables, you typically call Particle.publish from loop() (or a function called from loop). 
 
 ### Particle.subscribe()
 
@@ -471,6 +484,8 @@ with the cloud next time the device connects.
 
 
 **NOTE 2:** `Particle.publish()` and the `Particle.subscribe()` handler(s) share the same buffer. As such, calling `Particle.publish()` within a `Particle.subscribe()` handler will wipe the subscribe buffer! In these cases, copying the subscribe buffer's content to a separate char buffer prior to calling `Particle.publish()` is recommended.
+
+Unlike functions and variables, you can call Particle.subscribe from setup() or from loop(). The subcription list can be added to at any time, and more than once.
 
 ### Particle.unsubscribe()
 
