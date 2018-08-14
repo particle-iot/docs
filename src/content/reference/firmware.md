@@ -485,7 +485,7 @@ with the cloud next time the device connects.
 
 **NOTE 2:** `Particle.publish()` and the `Particle.subscribe()` handler(s) share the same buffer. As such, calling `Particle.publish()` within a `Particle.subscribe()` handler will wipe the subscribe buffer! In these cases, copying the subscribe buffer's content to a separate char buffer prior to calling `Particle.publish()` is recommended.
 
-Unlike functions and variables, you can call Particle.subscribe from setup() or from loop(). The subcription list can be added to at any time, and more than once.
+Unlike functions and variables, you can call Particle.subscribe from setup() or from loop(). The subscription list can be added to at any time, and more than once, though you can only subscribe to 4 events.
 
 ### Particle.unsubscribe()
 
