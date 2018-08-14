@@ -1898,7 +1898,7 @@ void myPages(const char* url, ResponseCallback* cb, void* cbArg, Reader* body, W
 STARTUP(softap_set_application_page_handler(myPages, nullptr));
 ```
 
-The `softap_set_application_page_handler` is set during startup. When the system is in setup mode, and a request is made for an unknown URL, the system
+The `softap_set_application_page_handler` is set during startup. When the system is in setup mode (listening mode, blinking dark blue), and a request is made for an unknown URL, the system
 calls the page handler function provided by the application (here, `myPages`.)
 
 The page handler function is called whenever an unknown URL is requested. It is called with these parameters:
@@ -9511,7 +9511,7 @@ _Since 0.4.9_
 
 ### System Events Overview
 
-System events are messages sent by the system and received by application code. They inform the application about changes in the system, such as when the system has entered setup mode, or when an Over-the-Air (OTA) update starts, or when the system is about to reset.
+System events are messages sent by the system and received by application code. They inform the application about changes in the system, such as when the system has entered setup mode (listening mode, blinking dark blue), or when an Over-the-Air (OTA) update starts, or when the system is about to reset.
 
 System events are received by the application by registering a handler. The handler has this general format:
 
@@ -9585,6 +9585,8 @@ void setup()
 ### System Events Reference
 
 These are the system events produced by the system, their numeric value (what you will see when printing the system event to Serial) and details of how to handle the parameter value. The version of firmware these events became available is noted in the first column below.
+
+Setup mode is also referred to as listening mode (blinking dark blue).
 
 | Since | Event Name | ID | Description | Parameter |
 |-------|------------|----|-------------|-----------|
