@@ -3308,40 +3308,59 @@ WKP  |      |      |  x
 
 
 ```C++
+#include "application.h"
+// The Photon has 9 PWM pins: D0, D1, D2, D3, A4, A5, A7, RX and TX.
+//
 // EXAMPLE USAGE
-// Plays a melody - Connect small speaker to analog pin A0
+// Plays a melody - Connect small speaker to speakerPin
+int speakerPin = D0;
 
-int speakerPin = A0;
+// Notes defined in microseconds (Period/2) 
+// from note C to B, Octaves 3 through 7
+int notes[] = 
+{0,
+/* C,  C#,   D,  D#,   E,   F,  F#,   G,  G#,   A,  A#,   B */
+3817,3597,3401,3205,3030,2857,2703,2551,2404,2273,2146,2024,   // 3 (1-12)
+1908,1805,1701,1608,1515,1433,1351,1276,1205,1136,1073,1012,   // 4 (13-24)
+ 956, 903, 852, 804, 759, 716, 676, 638, 602, 568, 536, 506,   // 5 (25-37)
+ 478, 451, 426, 402, 379, 358, 338, 319, 301, 284, 268, 253,   // 6 (38-50)
+ 239, 226, 213, 201, 190, 179, 169, 159, 151, 142, 134, 127 }; // 7 (51-62)
+
+#define NOTE_G3  2551
+#define NOTE_G4  1276
+#define NOTE_C5  956
+#define NOTE_E5  759
+#define NOTE_G5  638
+#define RELEASE  20
+#define BPM      100
 
 // notes in the melody:
-int melody[] = {1908,2551,2551,2273,2551,0,2024,1908}; //C4,G3,G3,A3,G3,0,B3,C4
+int melody[] = {NOTE_E5,NOTE_E5,0,NOTE_E5,0,NOTE_C5,NOTE_E5,0,NOTE_G5,0,0,NOTE_G4};
 
-// note durations: 4 = quarter note, 8 = eighth note, etc.:
-int noteDurations[] = {4,8,8,4,4,4,4,4 };
+// note durations: 4 = quarter note, 2 = half note, etc.:
+int noteDurations[] = {4,4,4,4,4,4,4,4,4,2,4,4};
 
 void setup() {
   // iterate over the notes of the melody:
-  for (int thisNote = 0; thisNote < 8; thisNote++) {
+  for (int thisNote = 0; thisNote < 12; thisNote++) {
 
     // to calculate the note duration, take one second
     // divided by the note type.
-    //e.g. quarter note = 1000 / 4, eighth note = 1000/8, etc.
-    int noteDuration = 1000/noteDurations[thisNote];
-    tone(speakerPin, melody[thisNote],noteDuration);
+    // e.g. quarter note = 1000 / 4, eighth note = 1000/8, etc.
+    int noteDuration = 60*1000/BPM/noteDurations[thisNote];
+    tone(speakerPin, (melody[thisNote]!=0)?(500000/melody[thisNote]):0,noteDuration-RELEASE);
 
-    // to distinguish the notes, set a minimum time between them.
-    // the note's duration + 30% seems to work well:
-    int pauseBetweenNotes = noteDuration * 1.30;
-    delay(pauseBetweenNotes);
-    // stop the tone playing:
-    noTone(speakerPin);
+    // blocking delay needed because tone() does not block
+    delay(noteDuration);
   }
 }
 ```
 
 ### noTone()
 
-Stops the generation of a square wave triggered by tone() on a specified pin (D0, D1, A0, A1, A4, A5, A6, A7, RX, TX). Has no effect if no tone is being generated.
+Stops the generation of a square wave triggered by tone() on a specified pin. Has no effect if no tone is being generated.
+
+The available pins are the same as for tone().
 
 
 ```C++
@@ -6665,17 +6684,42 @@ Udp.begin(port);
 
 {{#if has-threading}}
 
-_Note: If using [`SYSTEM_THREAD(ENABLED)`](#system-thread), you'll need
+If using [`SYSTEM_THREAD(ENABLED)`](#system-thread), you'll need
 to wait until the network is connected before calling `Udp.begin()`.
 
+If you are listening on a specific port, you need to call begin(port) again every time the network is disconnected and reconnects, as well.
+
 ```
+const int LISTENING_PORT = 8080;
+
 SYSTEM_THREAD(ENABLED);
 
+UDP udp;
+bool wasConnected = false;
+
 void setup() {
-  waitUntil(Particle.connected);
-  Udp.begin(4567);
+
+}
+
+void loop() {
+{{#if has-cellular}}
+	if (Cellular.ready()) {
+{{/if}}
+{{#if has-wifi}}
+	if (WiFi.ready()) {
+{{/if}}
+
+		if (!wasConnected) {
+			udp.begin(LISTENING_PORT);
+			wasConnected = true;
+		}
+	}
+	else {
+		wasConnected = false;
+	}
 }
 ```
+
 
 {{/if}} {{!-- has-threading --}}
 
@@ -7275,6 +7319,8 @@ class ExternalRGB {
 // Connect an external RGB LED to D0, D1 and D2 (R, G, and B)
 ExternalRGB myRGB(D0, D1, D2);
 ```
+
+The onChange handler is called 1000 times per second so you should be careful to not do any lengthy computations or functions that take a long time to execute. Do not call functions like Log.info, Serial.print, or Particle.publish from the onChange handler. Instead, save the values from onChange in global variables and handle lengthy operations from loop if you need to do lengthy operations.
 
 {{#if has-rgb-mirror}}
 
