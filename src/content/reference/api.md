@@ -252,6 +252,10 @@ When your device starts ("online") or stops ("offline") a session with the cloud
 {"name":"spark/status","data":"offline","ttl":"60","published_at":"2015-01-01T14:31:49.787Z","coreid":"0123456789abcdef01234567"}
 ```
 
+For cellular devices (Electron, E Series), online events occur only on a full handshake with the cloud. Sleeping for short periods of time (under 23 minutes) will not cause an online event. Offline events are never generated for cellular devices.
+
+For Wi-Fi devices (Photon, P1, Core), online events occur on every connection to the cloud and after any length of sleep. If you abruptly power off the device and offline event may take some time to occur.
+
 If your device is a packaged product, you may see an "auto-update" event from time to time.  This is the cloud 
 signaling that a new version of firmware is available for your product from your manufacturer, and an update is 
 about to be delivered over the air.
