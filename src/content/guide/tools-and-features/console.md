@@ -66,16 +66,15 @@ Publishing events can be achieved in multiple ways:
 Filters let you narrow down your search and only see events that are relevant.
 
 You can filter the events by writing anything in the input. Your query will be compared with the event name, data, publisher, and date.
-<img src="/assets/images/eventlogs/filter_word.png" class="full-width" />
+<img src="/assets/images/eventlogs/filter_word.gif" class="full-width" />
 
 #### Modifiers
 
-Besides writing in the input, you can use modifiers to narrow down your search even further.
+Besides writing in the input, you can use modifiers to narrow down your search even further. You can see the list of modifiers by pressing the Advanced button.
 
 <img src="/assets/images/eventlogs/filters.png" class="full-width" />
 
-- `product` Filter by product (example: `product:my-product`)
-- `device` Filter by device ID (example: `device:34003d001647353236343012`)
+- `device` Filter by device ID (example: `device:34003d001647353236343012`). The `device` modifier is not usable when viewing a device's individual page, as the stream is already listening only for events coming from that device.
 - `event` Filter by event name (example: `event:status`)
 - `range` Only show events that have a number value between min and max (`range:min-max`, example: `range:20-100`)
 - `data` Filter by data (example: `data:device-is-ok`)
@@ -98,6 +97,12 @@ To view the raw version of the JSON, click on the `RAW` button.
 <img src="/assets/images/eventlogs/eventdata_raw.png" class="full-width" />
 
 You can copy the data to the clipboard if you click on the copy button.
+
+** Note: You can also navigate through the event list by using the up and down arrow keys **
+
+#### Clearing the event logs
+
+You can empty the list of received events by pressing on the Clear button.
 
 #### Pausing the event stream
 
