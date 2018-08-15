@@ -260,9 +260,10 @@ Only the owner of the device will be able to subscribe to private events.
 A device may not publish events beginning with a case-insensitive match for "spark".
 Such events are reserved for officially curated data originating from the Cloud.
 
-Calling `Particle.publish()` when the device is not connected to the cloud will not
-result in an event being published. This is indicated by the return success code
+Calling `Particle.publish()` when the cloud connecvtion has been turned off will not publish an event. This is indicated by the return success code
 of `false`.
+
+If the cloud connection is turned on and trying to connect to the cloud unsuccessfully, Particle.publish may block for 20 seconds to 5 minutes. Checking `Particle.connected()` can prevent this.
 
 For the time being there exists no way to access a previously published but TTL-unexpired event.
 
@@ -405,6 +406,14 @@ _Since 0.7.0_
 Particle.publish("motion-detected", PRIVATE | WITH_ACK);
 ```
 
+If you wish to send a public event, you should specify PUBLIC explictly. This will be required in the future, but is optional in 0.7.0.
+
+```cpp
+Particle.publish("motion-detected", PUBLIC);
+```
+
+PUBLIC and PRIVATE are mutually exclusive.
+
 Unlike functions and variables, you typically call Particle.publish from loop() (or a function called from loop). 
 
 ### Particle.subscribe()
@@ -440,12 +449,22 @@ To use `Particle.subscribe()`, define a handler function and register it in `set
 
 ---
 
-You can listen to events published only by your own devices by adding a `MY_DEVICES` constant.
+You can listen to events published only by your own devices by adding a `MY_DEVICES` constant. 
 
 ```cpp
 // only events from my devices
 Particle.subscribe("the_event_prefix", theHandler, MY_DEVICES);
 ```
+
+- Specifying MY\_DEVICES only receives PRIVATE events. 
+- Specifying ALL\_DEVICES or omitting the third parameter only receives PUBLIC events.
+
+| flags | subscribe ALL\_DEVICES | subscribe MY\_DEVICES | subscribe default |
+| --- | --- | --- | --- | --- |
+| publish PUBLIC | Y | - | Y |
+| publish PRIVATE | - | Y | - |
+| publish default | Y | - | Y |
+
 
 ---
 
@@ -485,7 +504,7 @@ with the cloud next time the device connects.
 
 **NOTE 2:** `Particle.publish()` and the `Particle.subscribe()` handler(s) share the same buffer. As such, calling `Particle.publish()` within a `Particle.subscribe()` handler will wipe the subscribe buffer! In these cases, copying the subscribe buffer's content to a separate char buffer prior to calling `Particle.publish()` is recommended.
 
-Unlike functions and variables, you can call Particle.subscribe from setup() or from loop(). The subscription list can be added to at any time, and more than once, though you can only subscribe to 4 events.
+Unlike functions and variables, you can call Particle.subscribe from setup() or from loop(). The subscription list can be added to at any time, and more than once.
 
 ### Particle.unsubscribe()
 
