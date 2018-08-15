@@ -7977,12 +7977,7 @@ The return value for millis is an unsigned long, errors may be generated if a pr
 
 ### micros()
 
-Returns the number of microseconds since the device began running the current program.
-
-Firmware v0.4.3 and earlier:
-- This number will overflow (go back to zero), after exactly 59,652,323 microseconds (0 .. 59,652,322) on the Core and after exactly 35,791,394 microseconds (0 .. 35,791,394) on the Photon and Electron.
-
-
+Returns the number of microseconds since the device booted.
 
 `unsigned long time = micros();`
 
@@ -8005,6 +8000,8 @@ void loop()
   delay(1000);
 }
 ```
+
+In Device OS v0.4.3 and earlier this number will overflow (go back to zero), after exactly 59,652,323 microseconds (0 .. 59,652,322) on the Core and after exactly 35,791,394 microseconds (0 .. 35,791,394) on the Photon and Electron. In newer Device OS versions, it overflows at the maximum 32-bit unsigned long value.
 
 ### delay()
 
@@ -8080,10 +8077,11 @@ Serial.print(Time.hour());
 Serial.print(Time.hour(1400647897));
 ```
 
-Optional parameters: Integer (Unix timestamp)
+Optional parameter: time_t (Unix timestamp), coordinated universal time (UTC), unsigned long integer
 
 Returns: Integer 0-23
 
+If you have set a timezone using zone(), beginDST(), etc. the hour returned will be local time. You must still pass in UTC time, otherwise the time offset will be applied twice.
 
 ### hourFormat12()
 
@@ -8096,12 +8094,13 @@ Serial.print(Time.hourFormat12());
 
 // Print the hour in 12-hour format for a given time, in this case: 3
 Serial.print(Time.hourFormat12(1400684400));
-```
+`
 
-Optional parameters: Integer (Unix timestamp)
+Optional parameter: time_t (Unix timestamp), coordinated universal time (UTC), unsigned long integer
 
 Returns: Integer 1-12
 
+If you have set a timezone using zone(), beginDST(), etc. the hour returned will be local time. You must still pass in UTC time, otherwise the time offset will be applied twice.
 
 ### isAM()
 
@@ -8115,10 +8114,11 @@ Serial.print(Time.isAM());
 Serial.print(Time.isAM(1400647897));
 ```
 
-Optional parameters: Integer (Unix timestamp)
+Optional parameter: time_t (Unix timestamp), coordinated universal time (UTC), unsigned long integer
 
 Returns: Unsigned 8-bit integer: 0 = false, 1 = true
 
+If you have set a timezone using zone(), beginDST(), etc. the hour returned will be local time. You must still pass in UTC time, otherwise the time offset will be applied twice, potentially causing AM/PM to be calculated incorrectly.
 
 ### isPM()
 
@@ -8132,10 +8132,11 @@ Serial.print(Time.isPM());
 Serial.print(Time.isPM(1400647897));
 ```
 
-Optional parameters: Integer (Unix timestamp)
+Optional parameter: time_t (Unix timestamp), coordinated universal time (UTC), unsigned long integer
 
 Returns: Unsigned 8-bit integer: 0 = false, 1 = true
 
+If you have set a timezone using zone(), beginDST(), etc. the hour returned will be local time. You must still pass in UTC time, otherwise the time offset will be applied twice, potentially causing AM/PM to be calculated incorrectly.
 
 ### minute()
 
@@ -8150,10 +8151,11 @@ Serial.print(Time.minute());
 Serial.print(Time.minute(1400647897));
 ```
 
-Optional parameters: Integer (Unix timestamp)
+Optional parameter: time_t (Unix timestamp), coordinated universal time (UTC), unsigned long integer
 
 Returns: Integer 0-59
 
+If you have set a timezone using zone(), beginDST(), etc. the hour returned will be local time. You must still pass in UTC time, otherwise the time offset will be applied twice.
 
 ### second()
 
@@ -8168,7 +8170,7 @@ Serial.print(Time.second());
 Serial.print(Time.second(1400647897));
 ```
 
-Optional parameters: Integer (Unix timestamp)
+Optional parameter: time_t (Unix timestamp), coordinated universal time (UTC), unsigned long integer
 
 Returns: Integer 0-59
 
@@ -8186,10 +8188,11 @@ Serial.print(Time.day());
 Serial.print(Time.day(1400647897));
 ```
 
-Optional parameters: Integer (Unix timestamp)
+Optional parameter: time_t (Unix timestamp), coordinated universal time (UTC), unsigned long integer
 
 Returns: Integer 1-31
 
+If you have set a timezone using zone(), beginDST(), etc. the hour returned will be local time. You must still pass in UTC time, otherwise the time offset will be applied twice, potentially causing an incorrect date.
 
 ### weekday()
 
@@ -8211,10 +8214,11 @@ Serial.print(Time.weekday());
 Serial.print(Time.weekday(1400647897));
 ```
 
-Optional parameters: Integer (Unix timestamp)
+Optional parameter: time_t (Unix timestamp), coordinated universal time (UTC), unsigned long integer
 
 Returns: Integer 1-7
 
+If you have set a timezone using zone(), beginDST(), etc. the hour returned will be local time. You must still pass in UTC time, otherwise the time offset will be applied twice, potentially causing an incorrect day of week.
 
 ### month()
 
@@ -8229,10 +8233,11 @@ Serial.print(Time.month());
 Serial.print(Time.month(1400647897));
 ```
 
-Optional parameters: Integer (Unix timestamp)
+Optional parameter: time_t (Unix timestamp), coordinated universal time (UTC), unsigned long integer
 
 Returns: Integer 1-12
 
+If you have set a timezone using zone(), beginDST(), etc. the hour returned will be local time. You must still pass in UTC time, otherwise the time offset will be applied twice, potentially causing an incorrect date.
 
 ### year()
 
@@ -8246,27 +8251,27 @@ Serial.print(Time.year());
 Serial.print(Time.year(1400647897));
 ```
 
-Optional parameters: Integer (Unix timestamp)
+Optional parameter: time_t (Unix timestamp), coordinated universal time (UTC), unsigned long integer
 
 Returns: Integer
 
 
 ### now()
 
-Retrieve the current time as seconds since January 1, 1970 (commonly known as "Unix time" or "epoch time"). This time is not affected by the timezone setting.
+Retrieve the current time as seconds since January 1, 1970 (commonly known as "Unix time" or "epoch time"). This time is not affected by the timezone setting, it's coordinated universal time (UTC).
 
 ```cpp
 // Print the current Unix timestamp
 Serial.print(Time.now()); // 1400647897
 ```
 
-Returns: Integer
+Returns: system_tick_t (uint32_t), 32-bit unsigned integer
 
 ### local()
 
 Retrieve the current time in the configured timezone as seconds since January 1, 1970 (commonly known as "Unix time" or "epoch time"). This time is affected by the timezone setting.
 
-Note that the functions in the `Time` class expect times in UTC time, so the result from this should be used carefully.
+Note that the functions in the `Time` class expect times in UTC time, so the result from this should be used carefully. You should not pass Time.local() to Time.format(), for example.
 
 _Since 0.6.0_
 
@@ -8298,6 +8303,8 @@ Serial.print(Time.isDST());
 ```
 
 Returns: Unsigned 8-bit integer: 0 = false, 1 = true
+
+This function only returns the current DST setting that you choose using beginDST() or endDST(). The setting does not automatically change based on the calendar date.
 
 ### getDSTOffset()
 
@@ -8332,11 +8339,15 @@ _Since 0.6.0_
 
 Start applying Daylight Saving Time (DST) offset to the current time.
 
+You must call beginDST() at startup if you want use DST mode. The setting is not remembered and is not automatically changed based on the calendar.
+
 ### endDST()
 
 _Since 0.6.0_
 
 Stop applying Daylight Saving Time (DST) offset to the current time.
+
+You must call endDST() on the appropriate date to end DST mode. It is not calculated automatically.
 
 ### setTime()
 
@@ -8352,8 +8363,7 @@ Also see: [`Particle.syncTime()`](#particle-synctime-)
 Time.setTime(1413034662);
 ```
 
-Parameters: Unix timestamp (integer)
-
+Parameter: time_t (Unix timestamp), coordinated universal time (UTC), unsigned long integer
 
 ### timeStr()
 
@@ -8368,7 +8378,7 @@ _NB: In 0.3.4 and earlier, this function included a newline at the end of the re
 
 ### format()
 
-Formats a time string using a configurable format.
+Formats a time string using a configurable format. 
 
 ```cpp
 // SYNTAX
@@ -8390,7 +8400,11 @@ The formats available are:
 
 - `TIME_FORMAT_DEFAULT`
 - `TIME_FORMAT_ISO8601_FULL`
-- custom format based on `strftime()`
+- custom format based on [strftime()](http://www.cplusplus.com/reference/ctime/strftime/)
+
+Optional parameter: time_t (Unix timestamp), coordinated universal time (UTC), unsigned long integer
+
+If you have set the time zone using Time.zone(), beginDST(), etc. the formatted time will be formatted in local time.
 
 **Note:** The custom time provided to `Time.format()` needs to be UTC based and *not* contain the time zone offset (as `Time.local()` would), since the time zone correction is performed by the high level `Time` methods internally.
 
