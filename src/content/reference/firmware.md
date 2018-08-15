@@ -6447,6 +6447,17 @@ client.connected();
 
 Returns true if the client is connected, false if not.
 
+### status()
+
+Returns true if the network socket is open and the underying network is ready. 
+
+```C++
+// SYNTAX
+client.status();
+```
+
+This is different than connected() which returns true if the socket is closed but there is still unread buffered data, available() is non-zero.
+
 ### connect()
 
 Connects to a specified IP address and port. The return value indicates success or failure. Also supports DNS lookups when using a domain name.
