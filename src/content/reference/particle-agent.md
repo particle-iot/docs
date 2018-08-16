@@ -4,10 +4,12 @@ title: Particle Agent (Raspberry Pi)
 layout: reference.hbs
 columns: three
 devices: [raspberry-pi]
-order: 10
+order: 20
 ---
 
-# Particle Agent
+# Particle Agent - Discontinued
+
+**The Particle Raspberry Pi project has been discontinued. It is still functional, but future release of the software are unlikely.**
 
 ![Agent architecture](/assets/images/particle-agent-architecture.png)
 
