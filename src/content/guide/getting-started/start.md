@@ -15,7 +15,7 @@ order: 2
 ## Particle Pi Discontinued
 <p class="boxedHead">Please read me!</p>
 <p class="boxed">
-**The Particle Raspberry Pi project has been discontinued. It is still functional, but future release of the software are unlikely.**
+**The Particle Raspberry Pi project has been discontinued. You can still follow these instructions to configure, connect, and flash your Pi, but future new releases of the Particle Agent software are unlikely.**
 <br>
 <br>
 If you need support and can't find the answer in our docs, head over to our [community forums](https://community.particle.io/c/raspberry-pi) and chat with the Particle team.
