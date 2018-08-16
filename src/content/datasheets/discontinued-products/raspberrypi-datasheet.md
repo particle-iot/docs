@@ -9,6 +9,8 @@ order: 3
 
 <div align=center><img src="/assets/images/raspberry-pi.svg" width=200></div>
 
+**The Particle Raspberry Pi project has been discontinued. It is still functional, but future release of the software are unlikely.**
+
 ## Functional description
 
 ### Overview

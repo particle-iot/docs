@@ -9,6 +9,8 @@ order: 10
 
 ![](/assets/images/particle-pi-cam/header2.jpg)
 
+**The Particle Raspberry Pi project has been discontinued. It is still functional, but future release of the software are unlikely.**
+
 ## Introduction
 
 Welcome to the official tutorial for building your very own
