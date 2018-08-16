@@ -9,7 +9,7 @@ order: 20
 
 # Particle Agent - Discontinued
 
-**The Particle Raspberry Pi project has been discontinued. It is still functional, but future release of the software are unlikely.**
+**The Particle Raspberry Pi project has been discontinued. You can still follow these instructions to configure, connect, and flash your Pi, but future new releases of the Particle Agent software are unlikely.**
 
 ![Agent architecture](/assets/images/particle-agent-architecture.png)
 

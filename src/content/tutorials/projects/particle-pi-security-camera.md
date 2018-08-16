@@ -9,7 +9,7 @@ order: 10
 
 ![](/assets/images/particle-pi-cam/header2.jpg)
 
-**The Particle Raspberry Pi project has been discontinued. It is still functional, but future release of the software are unlikely.**
+**The Particle Raspberry Pi project has been discontinued. Future new releases of the Particle Agent software are unlikely.**
 
 ## Introduction
 

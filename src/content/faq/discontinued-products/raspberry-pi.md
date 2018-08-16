@@ -8,7 +8,7 @@ order: 1
 
 # {{title}}
 
-**The Particle Raspberry Pi project has been discontinued. It is still functional, but future release of the software are unlikely.**
+**The Particle Raspberry Pi project has been discontinued. You can still follow these instructions to configure, connect, and flash your Pi, but future new releases of the Particle Agent software are unlikely.**
 
 ## What do I do to get started?
 Congratulations! You just received your confirmation email to the
