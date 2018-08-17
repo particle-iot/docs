@@ -58,7 +58,7 @@ To get started, you'll need the following things:
 * **Experience**
     * Connecting your Device [with your smartphone](/guide/getting-started/start) or [over USB](/guide/getting-started/connect)
 
-{{#if core}}**NOTE:** You may already have the Spark Core App for [iPhone](https://itunes.apple.com/us/app/spark-core/id760157884) or Android (requires Android 4.0 or higher). We recommend getting the newer Particle Mobile App anyway, since it's a very nice interface for Tinker that works across all devices. Sadly, the new Particle Mobile App will not connect your Core, though. If you don't feel like having two apps on your phone, the old Spark Core App will still work for these examples. However, the images in this tutorial will be from the newer and fancier Particle App.{{/if}}
+{{#if core}}**NOTE:** You may already have the Spark Core App for [iPhone](https://itunes.apple.com/us/app/spark-core/id760157884) or [Android](https://play.google.com/store/apps/details?id=io.spark.core.android) (requires Android 4.0 or higher). We recommend getting the newer Particle Mobile App anyway, since it's a very nice interface for Tinker that works across all devices. Sadly, the new Particle Mobile App will not connect your Core, though. If you don't feel like having two apps on your phone, the old Spark Core App will still work for these examples. However, the images in this tutorial will be from the newer and fancier Particle App.{{/if}}
 
 ## Step One: Select Your Device
 
@@ -222,7 +222,7 @@ To get started, you'll need the following things:
 * **Experience**
     * Connecting your Device [with your smartphone](/guide/getting-started/start) or [over USB](/guide/getting-started/connect)
 
-{{#if core}}**NOTE:** You may already have the Spark Core App for [iPhone](https://itunes.apple.com/us/app/spark-core/id760157884) or Android. We recommend getting the newer Particle Mobile App anyway, since it's a very nice interface for Tinker that works across all devices. Sadly, the new Particle Mobile App will not connect your Core, though. If you don't feel like having two apps on your phone, the old Spark Core App will still work for these examples. However, the images in this tutorial will be from the newer and fancier Particle App.{{/if}}
+{{#if core}}**NOTE:** You may already have the Spark Core App for [iPhone](https://itunes.apple.com/us/app/spark-core/id760157884) or [Android](https://play.google.com/store/apps/details?id=io.spark.core.android) (requires Android 4.0 or higher). We recommend getting the newer Particle Mobile App anyway, since it's a very nice interface for Tinker that works across all devices. Sadly, the new Particle Mobile App will not connect your Core, though. If you don't feel like having two apps on your phone, the old Spark Core App will still work for these examples. However, the images in this tutorial will be from the newer and fancier Particle App.{{/if}}
 
 ## Step One: Select Your Device
 
@@ -386,7 +386,7 @@ To get started, you'll need the following things:
 * **Experience**
     * Connecting your Device [with your smartphone](/guide/getting-started/start) or [over USB](/guide/getting-started/connect)
 
-{{#if core}}**NOTE:** You may already have the Spark Core App for [iPhone](https://itunes.apple.com/us/app/spark-core/id760157884) or Android. We recommend getting the newer Particle Mobile App anyway, since it's a very nice interface for Tinker that works across all devices. Sadly, the new Particle Mobile App will not connect your Core, though. If you don't feel like having two apps on your phone, the old Spark Core App will still work for these examples. However, the images in this tutorial will be from the newer and fancier Particle App.{{/if}}
+{{#if core}}**NOTE:** You may already have the Spark Core App for [iPhone](https://itunes.apple.com/us/app/spark-core/id760157884) or [Android](https://play.google.com/store/apps/details?id=io.spark.core.android) (requires Android 4.0 or higher). We recommend getting the newer Particle Mobile App anyway, since it's a very nice interface for Tinker that works across all devices. Sadly, the new Particle Mobile App will not connect your Core, though. If you don't feel like having two apps on your phone, the old Spark Core App will still work for these examples. However, the images in this tutorial will be from the newer and fancier Particle App.{{/if}}
 
 ## Step One: Select Your Device
 
