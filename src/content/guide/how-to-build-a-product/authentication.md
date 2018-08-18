@@ -189,13 +189,10 @@ customers, as well as how you would like your product to function.
 There are three ways to manage authentication for your customers.
   * [**Simple Authentication**](#simple-authentication): Customers are created and managed directly by Particle. This is the simplest and fastest way to get your connected product app working.
   * [**Two-legged Authentication**](#two-legged-authentication): You create and manage accounts for your customers yourself, and request scoped access to control customers' devices from Particle. This provides the maximum amount of flexibility and security for your application.
-  * [**Login with Particle**](#login-with-particle): Your customers will create a Particle account and a separate account on your website, and link the two together using OAuth 2.0 *(Coming soon)*.
 
-You will also need to choose what *medium* your customers will use to
-authenticate and setup their devices. This will likely depend on how you
-envision your customers interacting with their connected product.
-  * **Mobile**: Use an iOS or Android mobile app to allow your customers to authenticate, setup their devices, and interact with their product. [More info](/guide/how-to-build-a-product/mobile-app/)
-  * **Web**: Use a web browser and HTTP to allow your customers to authenticate, setup their devices, and interact with their product (*Coming soon*).
+Typically you will use an iOS or Android mobile app to allow your customers to authenticate, setup their devices, and interact with their product. [More info](/guide/how-to-build-a-product/mobile-app/)
+
+Other techniques such as a web-browser based setup and on-device setup are possible, as well.
 
 When you're ready, click on the authentication method that makes most sense to you.
 
@@ -351,8 +348,6 @@ For a mobile app, the SDK will require both the client ID and the secret to succ
 
 The `POST` customers endpoint both creates the customer as well as logs them in. As a result, an access token will be available to your application after successful customer creation. Remember that it is this access token that will allow the app to do things like claim the device, and interact with it.
 
-*Specific implementation details coming soon*
-
 ### 4. Create Claim Code & Send to Device
 
 This step actually comprises a lot of things that happen behind the scenes, but has been combined for simplicity and ease of communication. A **claim code** is what is used to associate a device with a person. In your case, the claim code will associate a device with a customer.
@@ -370,11 +365,11 @@ Once your mobile/web app has a claim code, it then must then send it to the devi
 
 This happens by connecting the customer's device to the *device's Wi-Fi access point*. When the photon is in [listening mode](/guide/getting-started/modes/core/#listening-mode), it is broadcasting a Wi-Fi network that the customer's computer or phone can connect to.
 
+__Note__: When programmatically entering listening mode on the Photon, P1 or P0, care should be taken to conserve the memory utilized by user firmware. Listening Mode on these devices utilizes a number of threads to create short-lived HTTP server instances, a TCP server for SoftAP access, and associated resources. If the free memory available on a device at the time Listening Mode is triggered is less than 21.5K, the device will be unable to enter listening mode. In some cases, it may appear as though the device is in listening mode, but any attempt to configure access via the CLI or Particle Mobile App will time out or fail. None of the device's user firmware is lost or affected in either case, but the RAM in use will need to be optimized below 21.5k before re-attempting to enter listening mode.
+
 Once the customer's device is connected to the Particle device's network, your mobile app then will send the claim code generated in the last step to the Particle device.
 
 Again, this will all be part of the boilerplate code of the SDKs, meaning that you will not need to worry much about the nitty-gritty details about how this works.
-
-*Specific implementation details coming soon*
 
 ### 5. Connect device to Wi-Fi
 
@@ -384,8 +379,6 @@ Now that your app is connected directly to the customer's Particle-powered devic
 <p class="caption">Your app will send the customer's device Wi-Fi credentials</p>
 
 Through your mobile or web app, your customer will choose from a list of available Wi-Fi networks, and provide a password (if necessary) to be able to connect. The app sends these credentials to the device. Once received, the device resets and uses these credentials to connect to the Internet.
-
-*Specific implementation details coming soon*
 
 ### 6. Associate device with customer
 
@@ -495,8 +488,6 @@ Because of the presence of your server, you should not need to add these credent
 
 **Do not share your client ID and secret publicly**. These credentials provide the ability to fully control your product's devices, and access sensitive information about your product. We recommend never publishing the client ID and secret to a GitHub repository. 
 
-*Coming soon: example implementation of client credentials*
-
 
 ### 3. Create a customer
 
@@ -594,7 +585,6 @@ https://api.particle.io/oauth/token
 
 The response will be identical to the new access token creation endpoint above.
 
-## Login with Particle
-*(Coming Soon)*
+
 
 

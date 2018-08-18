@@ -9,6 +9,8 @@ order: 3
 
 <div align=center><img src="/assets/images/raspberry-pi.svg" width=200></div>
 
+**The Particle Raspberry Pi project has been discontinued. You can still follow these instructions to configure, connect, and flash your Pi, but future new releases of the Particle Agent software are unlikely.**
+
 ## Functional description
 
 ### Overview

@@ -60,6 +60,7 @@ void setup() {
 Expose a *variable* through the Cloud so that it can be called with `GET /v1/devices/{DEVICE_ID}/{VARIABLE}`.
 Returns a success value - `true` when the variable was registered.
 
+Particle.variable registers a variable, so its value can be retrieved from the cloud in the future. You only call Particle.variable once per variable, typically passing in a global variable. You can change the value of the underlying global variable as often as you want; the value is only retrieved when requested, so simply changing the global variable does not use any data. You do not call Particle.variable when you change the value.
 
 ```C++
 // EXAMPLE USAGE
@@ -98,6 +99,10 @@ Up to 20 cloud variables may be registered and each variable name is limited to 
 
 It is fine to call this function when the cloud is disconnected - the variable
 will be registered next time the cloud is connected.
+
+When using [SYSTEM_THREAD(ENABLED)](/reference/firmware/#system-thread) you must be careful of when you register your variables. At the beginning of setup(), before you do any lengthy operations, delays, or things like waiting for a key press, is best. The reason is that variable and function registrations are only sent up once, about 30 seconds after connecting to the cloud. Calling Particle.variable after the registration information has been sent does not re-send the request and the variable will not work.
+
+You will almost never call Particle.variable from loop() (or a function called from loop()).
 
 Prior to 0.4.7 firmware, variables were defined with an additional 3rd parameter
 to specify the data type of the variable. From 0.4.7 onward, the system can
@@ -149,6 +154,8 @@ my name is particle
 
 Expose a *function* through the Cloud so that it can be called with `POST /v1/devices/{DEVICE_ID}/{FUNCTION}`.
 
+Particle.function allows code on the device to be run when requested from the cloud API. You typically do this when you want to control something on your {{device}}, say a LCD display or a buzzer, or control features in your firmware from the cloud.
+
 ```cpp
 // SYNTAX
 bool success = Particle.function("funcKey", funcName);
@@ -166,6 +173,8 @@ Up to 15 cloud functions may be registered and each function name is limited to 
 In order to register a cloud  function, the user provides the `funcKey`, which is the string name used to make a POST request and a `funcName`, which is the actual name of the function that gets called in your app. The cloud function has to return an integer; `-1` is commonly used for a failed function call.
 
 A cloud function is set up to take one argument of the [String](#string-class) datatype. This argument length is limited to a max of 63 characters (_prior to 0.8.0_), 622 characters (_since 0.8.0_). The Spark Core remains limited to 63 characters.
+
+When using [SYSTEM_THREAD(ENABLED)](/reference/firmware/#system-thread) you must be careful of when you register your functions. At the beginning of setup(), before you do any lengthy operations, delays, or things like waiting for a key press, is best. The reason is that variable and function registrations are only sent up once, about 30 seconds after connecting to the cloud. Calling Particle.function after the registration information has been sent does not re-send the request and the function will not work.
 
 ```cpp
 // EXAMPLE USAGE
@@ -235,11 +244,14 @@ curl https://api.particle.io/v1/devices/0123456789abcdef/brew \
      -d "args=coffee"
 ```
 
+
 ### Particle.publish()
 
 Publish an *event* through the Particle Device Cloud that will be forwarded to all registered listeners, such as callbacks, subscribed streams of Server-Sent Events, and other devices listening via `Particle.subscribe()`.
 
 This feature allows the device to generate an event based on a condition. For example, you could connect a motion sensor to the device and have the device generate an event whenever motion is detected.
+
+Particle.publish pushes the value out of the device at a time controlled by the device firmware. Particle.variable allows the value to be pulled from the device when requested from the cloud side.
 
 Cloud events have the following properties:
 
@@ -258,9 +270,10 @@ Only the owner of the device will be able to subscribe to private events.
 A device may not publish events beginning with a case-insensitive match for "spark".
 Such events are reserved for officially curated data originating from the Cloud.
 
-Calling `Particle.publish()` when the device is not connected to the cloud will not
-result in an event being published. This is indicated by the return success code
+Calling `Particle.publish()` when the cloud connecvtion has been turned off will not publish an event. This is indicated by the return success code
 of `false`.
+
+If the cloud connection is turned on and trying to connect to the cloud unsuccessfully, Particle.publish may block for 20 seconds to 5 minutes. Checking `Particle.connected()` can prevent this.
 
 For the time being there exists no way to access a previously published but TTL-unexpired event.
 
@@ -403,6 +416,15 @@ _Since 0.7.0_
 Particle.publish("motion-detected", PRIVATE | WITH_ACK);
 ```
 
+If you wish to send a public event, you should specify PUBLIC explictly. This will be required in the future, but is optional in 0.7.0.
+
+```cpp
+Particle.publish("motion-detected", PUBLIC);
+```
+
+PUBLIC and PRIVATE are mutually exclusive.
+
+Unlike functions and variables, you typically call Particle.publish from loop() (or a function called from loop). 
 
 ### Particle.subscribe()
 
@@ -437,12 +459,22 @@ To use `Particle.subscribe()`, define a handler function and register it in `set
 
 ---
 
-You can listen to events published only by your own devices by adding a `MY_DEVICES` constant.
+You can listen to events published only by your own devices by adding a `MY_DEVICES` constant. 
 
 ```cpp
 // only events from my devices
 Particle.subscribe("the_event_prefix", theHandler, MY_DEVICES);
 ```
+
+- Specifying MY\_DEVICES only receives PRIVATE events. 
+- Specifying ALL\_DEVICES or omitting the third parameter only receives PUBLIC events.
+
+| flags | subscribe ALL\_DEVICES | subscribe MY\_DEVICES | subscribe default |
+| --- | --- | --- | --- | --- |
+| publish PUBLIC | Y | - | Y |
+| publish PRIVATE | - | Y | - |
+| publish default | Y | - | Y |
+
 
 ---
 
@@ -481,6 +513,8 @@ with the cloud next time the device connects.
 
 
 **NOTE 2:** `Particle.publish()` and the `Particle.subscribe()` handler(s) share the same buffer. As such, calling `Particle.publish()` within a `Particle.subscribe()` handler will wipe the subscribe buffer! In these cases, copying the subscribe buffer's content to a separate char buffer prior to calling `Particle.publish()` is recommended.
+
+Unlike functions and variables, you can call Particle.subscribe from setup() or from loop(). The subscription list can be added to at any time, and more than once.
 
 ### Particle.unsubscribe()
 
@@ -1963,7 +1997,7 @@ void myPages(const char* url, ResponseCallback* cb, void* cbArg, Reader* body, W
 STARTUP(softap_set_application_page_handler(myPages, nullptr));
 ```
 
-The `softap_set_application_page_handler` is set during startup. When the system is in setup mode, and a request is made for an unknown URL, the system
+The `softap_set_application_page_handler` is set during startup. When the system is in setup mode (listening mode, blinking dark blue), and a request is made for an unknown URL, the system
 calls the page handler function provided by the application (here, `myPages`.)
 
 The page handler function is called whenever an unknown URL is requested. It is called with these parameters:
@@ -2931,6 +2965,10 @@ FuelGauge fuel;
 Serial.println( fuel.getSoC() );
 ```
 
+Note that in most cases, "fully charged" state (red charging LED goes off) will result in a SoC of 80%, not 100%. 
+
+In some cases you can [increase the charge voltage](#setchargevoltage-) to get a higher SoC, but there are limits, based on temperature.
+
 ### getVersion()
 `int getVersion();`
 
@@ -3452,40 +3490,59 @@ WKP  |      |      |  x
 
 
 ```C++
+#include "application.h"
+// The Photon has 9 PWM pins: D0, D1, D2, D3, A4, A5, A7, RX and TX.
+//
 // EXAMPLE USAGE
-// Plays a melody - Connect small speaker to analog pin A0
+// Plays a melody - Connect small speaker to speakerPin
+int speakerPin = D0;
 
-int speakerPin = A0;
+// Notes defined in microseconds (Period/2) 
+// from note C to B, Octaves 3 through 7
+int notes[] = 
+{0,
+/* C,  C#,   D,  D#,   E,   F,  F#,   G,  G#,   A,  A#,   B */
+3817,3597,3401,3205,3030,2857,2703,2551,2404,2273,2146,2024,   // 3 (1-12)
+1908,1805,1701,1608,1515,1433,1351,1276,1205,1136,1073,1012,   // 4 (13-24)
+ 956, 903, 852, 804, 759, 716, 676, 638, 602, 568, 536, 506,   // 5 (25-37)
+ 478, 451, 426, 402, 379, 358, 338, 319, 301, 284, 268, 253,   // 6 (38-50)
+ 239, 226, 213, 201, 190, 179, 169, 159, 151, 142, 134, 127 }; // 7 (51-62)
+
+#define NOTE_G3  2551
+#define NOTE_G4  1276
+#define NOTE_C5  956
+#define NOTE_E5  759
+#define NOTE_G5  638
+#define RELEASE  20
+#define BPM      100
 
 // notes in the melody:
-int melody[] = {1908,2551,2551,2273,2551,0,2024,1908}; //C4,G3,G3,A3,G3,0,B3,C4
+int melody[] = {NOTE_E5,NOTE_E5,0,NOTE_E5,0,NOTE_C5,NOTE_E5,0,NOTE_G5,0,0,NOTE_G4};
 
-// note durations: 4 = quarter note, 8 = eighth note, etc.:
-int noteDurations[] = {4,8,8,4,4,4,4,4 };
+// note durations: 4 = quarter note, 2 = half note, etc.:
+int noteDurations[] = {4,4,4,4,4,4,4,4,4,2,4,4};
 
 void setup() {
   // iterate over the notes of the melody:
-  for (int thisNote = 0; thisNote < 8; thisNote++) {
+  for (int thisNote = 0; thisNote < 12; thisNote++) {
 
     // to calculate the note duration, take one second
     // divided by the note type.
-    //e.g. quarter note = 1000 / 4, eighth note = 1000/8, etc.
-    int noteDuration = 1000/noteDurations[thisNote];
-    tone(speakerPin, melody[thisNote],noteDuration);
+    // e.g. quarter note = 1000 / 4, eighth note = 1000/8, etc.
+    int noteDuration = 60*1000/BPM/noteDurations[thisNote];
+    tone(speakerPin, (melody[thisNote]!=0)?(500000/melody[thisNote]):0,noteDuration-RELEASE);
 
-    // to distinguish the notes, set a minimum time between them.
-    // the note's duration + 30% seems to work well:
-    int pauseBetweenNotes = noteDuration * 1.30;
-    delay(pauseBetweenNotes);
-    // stop the tone playing:
-    noTone(speakerPin);
+    // blocking delay needed because tone() does not block
+    delay(noteDuration);
   }
 }
 ```
 
 ### noTone()
 
-Stops the generation of a square wave triggered by tone() on a specified pin (D0, D1, A0, A1, A4, A5, A6, A7, RX, TX). Has no effect if no tone is being generated.
+Stops the generation of a square wave triggered by tone() on a specified pin. Has no effect if no tone is being generated.
+
+The available pins are the same as for tone().
 
 
 ```C++
@@ -3718,8 +3775,33 @@ by the Device OS.
 #### setChargeCurrent()
 `bool setChargeCurrent(bool bit7, bool bit6, bool bit5, bool bit4, bool bit3, bool bit2);`
 
+The total charge current is the 512mA + the combination of the current that the following bits represent
+                     
+- bit7 = 2048mA
+- bit6 = 1024mA
+- bit5 = 512mA
+- bit4 = 256mA
+- bit3 = 128mA
+- bit2 = 64mA
+
+For example, to set a 1408 mA charge current:
+
+```
+PMIC pmic;
+pmic.setChargeCurrent(0,0,1,1,1,0);
+```
+
+- 512mA + (0+0+512mA+256mA+128mA+0) = 1408mA
+                    
+                    
+
 #### getChargeCurrent()
 `byte getChargeCurrent(void);`
+
+Returns the charge current register. This is the direct register value from the BQ24195 PMIC. The bits in this register correspond to the bits you pass into setChargeCurrent.
+
+- bit7 is the MSB, value 0x80
+- bit2 is the LSB, value 0x04
 
 ---
 
@@ -3744,8 +3826,39 @@ by the Device OS.
 #### setChargeVoltage()
 `bool setChargeVoltage(uint16_t voltage);`
 
+Voltage can be:
+
+- 4112 (4.112 volts), the default
+- 4208 (4.208 volts), only safe at lower temperatures
+
+The default charge voltage is 4112, which corresponds to 4.112 volts. 
+
+You can also set it 4208, which corresponds to 4.208 volts. This higher voltage should not be used if the battery will be charged in temperatures exceeding 45°F. Using a higher charge voltage will allow the battery to reach a higher state-of-charge (SoC) but could damage the battery at high temperatures.
+
+
+```
+void setup() {
+    PMIC power;
+    power.setChargeVoltage(4208);
+}
+```
+
+Note: Do not use 4208 with Device OS 0.4.8 or 0.5.0, as a bug will cause an incorrect, even higher, voltage to be used.
+
+#### getChargeVoltageValue()
+
+`uint16_t getChargeVoltageValue();`
+
+Returns the charge voltage constant that could pass into setChargeVoltage, typically 4208 or 4112.
+
 #### getChargeVoltage()
+
 `byte getChargeVoltage();`
+
+Returns the charge voltage register. This is the direct register value from the BQ24195 PMIC.
+
+- 155, 0x9b, 0b10011011, corresponds to 4112
+- 179, 0xb3, 0b10110011, corresponds to 4208
 
 ---
 
@@ -6544,6 +6657,17 @@ client.connected();
 
 Returns true if the client is connected, false if not.
 
+### status()
+
+Returns true if the network socket is open and the underying network is ready. 
+
+```C++
+// SYNTAX
+client.status();
+```
+
+This is different than connected() which returns true if the socket is closed but there is still unread buffered data, available() is non-zero.
+
 ### connect()
 
 Connects to a specified IP address and port. The return value indicates success or failure. Also supports DNS lookups when using a domain name.
@@ -6847,17 +6971,42 @@ Udp.begin(port);
 
 {{#if has-threading}}
 
-_Note: If using [`SYSTEM_THREAD(ENABLED)`](#system-thread), you'll need
+If using [`SYSTEM_THREAD(ENABLED)`](#system-thread), you'll need
 to wait until the network is connected before calling `Udp.begin()`.
 
+If you are listening on a specific port, you need to call begin(port) again every time the network is disconnected and reconnects, as well.
+
 ```
+const int LISTENING_PORT = 8080;
+
 SYSTEM_THREAD(ENABLED);
 
+UDP udp;
+bool wasConnected = false;
+
 void setup() {
-  waitUntil(Particle.connected);
-  Udp.begin(4567);
+
+}
+
+void loop() {
+{{#if has-cellular}}
+	if (Cellular.ready()) {
+{{/if}}
+{{#if has-wifi}}
+	if (WiFi.ready()) {
+{{/if}}
+
+		if (!wasConnected) {
+			udp.begin(LISTENING_PORT);
+			wasConnected = true;
+		}
+	}
+	else {
+		wasConnected = false;
+	}
 }
 ```
+
 
 {{/if}} {{!-- has-threading --}}
 
@@ -7457,6 +7606,8 @@ class ExternalRGB {
 // Connect an external RGB LED to D0, D1 and D2 (R, G, and B)
 ExternalRGB myRGB(D0, D1, D2);
 ```
+
+The onChange handler is called 1000 times per second so you should be careful to not do any lengthy computations or functions that take a long time to execute. Do not call functions like Log.info, Serial.print, or Particle.publish from the onChange handler. Instead, save the values from onChange in global variables and handle lengthy operations from loop if you need to do lengthy operations.
 
 {{#if has-rgb-mirror}}
 
@@ -8094,12 +8245,7 @@ The return value for millis is an unsigned long, errors may be generated if a pr
 
 ### micros()
 
-Returns the number of microseconds since the device began running the current program.
-
-Firmware v0.4.3 and earlier:
-- This number will overflow (go back to zero), after exactly 59,652,323 microseconds (0 .. 59,652,322) on the Core and after exactly 35,791,394 microseconds (0 .. 35,791,394) on the Photon and Electron.
-
-
+Returns the number of microseconds since the device booted.
 
 `unsigned long time = micros();`
 
@@ -8122,6 +8268,8 @@ void loop()
   delay(1000);
 }
 ```
+
+In Device OS v0.4.3 and earlier this number will overflow (go back to zero), after exactly 59,652,323 microseconds (0 .. 59,652,322) on the Core and after exactly 35,791,394 microseconds (0 .. 35,791,394) on the Photon and Electron. In newer Device OS versions, it overflows at the maximum 32-bit unsigned long value.
 
 ### delay()
 
@@ -8197,10 +8345,11 @@ Serial.print(Time.hour());
 Serial.print(Time.hour(1400647897));
 ```
 
-Optional parameters: Integer (Unix timestamp)
+Optional parameter: time_t (Unix timestamp), coordinated universal time (UTC), unsigned long integer
 
 Returns: Integer 0-23
 
+If you have set a timezone using zone(), beginDST(), etc. the hour returned will be local time. You must still pass in UTC time, otherwise the time offset will be applied twice.
 
 ### hourFormat12()
 
@@ -8213,12 +8362,13 @@ Serial.print(Time.hourFormat12());
 
 // Print the hour in 12-hour format for a given time, in this case: 3
 Serial.print(Time.hourFormat12(1400684400));
-```
+`
 
-Optional parameters: Integer (Unix timestamp)
+Optional parameter: time_t (Unix timestamp), coordinated universal time (UTC), unsigned long integer
 
 Returns: Integer 1-12
 
+If you have set a timezone using zone(), beginDST(), etc. the hour returned will be local time. You must still pass in UTC time, otherwise the time offset will be applied twice.
 
 ### isAM()
 
@@ -8232,10 +8382,11 @@ Serial.print(Time.isAM());
 Serial.print(Time.isAM(1400647897));
 ```
 
-Optional parameters: Integer (Unix timestamp)
+Optional parameter: time_t (Unix timestamp), coordinated universal time (UTC), unsigned long integer
 
 Returns: Unsigned 8-bit integer: 0 = false, 1 = true
 
+If you have set a timezone using zone(), beginDST(), etc. the hour returned will be local time. You must still pass in UTC time, otherwise the time offset will be applied twice, potentially causing AM/PM to be calculated incorrectly.
 
 ### isPM()
 
@@ -8249,10 +8400,11 @@ Serial.print(Time.isPM());
 Serial.print(Time.isPM(1400647897));
 ```
 
-Optional parameters: Integer (Unix timestamp)
+Optional parameter: time_t (Unix timestamp), coordinated universal time (UTC), unsigned long integer
 
 Returns: Unsigned 8-bit integer: 0 = false, 1 = true
 
+If you have set a timezone using zone(), beginDST(), etc. the hour returned will be local time. You must still pass in UTC time, otherwise the time offset will be applied twice, potentially causing AM/PM to be calculated incorrectly.
 
 ### minute()
 
@@ -8267,10 +8419,11 @@ Serial.print(Time.minute());
 Serial.print(Time.minute(1400647897));
 ```
 
-Optional parameters: Integer (Unix timestamp)
+Optional parameter: time_t (Unix timestamp), coordinated universal time (UTC), unsigned long integer
 
 Returns: Integer 0-59
 
+If you have set a timezone using zone(), beginDST(), etc. the hour returned will be local time. You must still pass in UTC time, otherwise the time offset will be applied twice.
 
 ### second()
 
@@ -8285,7 +8438,7 @@ Serial.print(Time.second());
 Serial.print(Time.second(1400647897));
 ```
 
-Optional parameters: Integer (Unix timestamp)
+Optional parameter: time_t (Unix timestamp), coordinated universal time (UTC), unsigned long integer
 
 Returns: Integer 0-59
 
@@ -8303,10 +8456,11 @@ Serial.print(Time.day());
 Serial.print(Time.day(1400647897));
 ```
 
-Optional parameters: Integer (Unix timestamp)
+Optional parameter: time_t (Unix timestamp), coordinated universal time (UTC), unsigned long integer
 
 Returns: Integer 1-31
 
+If you have set a timezone using zone(), beginDST(), etc. the hour returned will be local time. You must still pass in UTC time, otherwise the time offset will be applied twice, potentially causing an incorrect date.
 
 ### weekday()
 
@@ -8328,10 +8482,11 @@ Serial.print(Time.weekday());
 Serial.print(Time.weekday(1400647897));
 ```
 
-Optional parameters: Integer (Unix timestamp)
+Optional parameter: time_t (Unix timestamp), coordinated universal time (UTC), unsigned long integer
 
 Returns: Integer 1-7
 
+If you have set a timezone using zone(), beginDST(), etc. the hour returned will be local time. You must still pass in UTC time, otherwise the time offset will be applied twice, potentially causing an incorrect day of week.
 
 ### month()
 
@@ -8346,10 +8501,11 @@ Serial.print(Time.month());
 Serial.print(Time.month(1400647897));
 ```
 
-Optional parameters: Integer (Unix timestamp)
+Optional parameter: time_t (Unix timestamp), coordinated universal time (UTC), unsigned long integer
 
 Returns: Integer 1-12
 
+If you have set a timezone using zone(), beginDST(), etc. the hour returned will be local time. You must still pass in UTC time, otherwise the time offset will be applied twice, potentially causing an incorrect date.
 
 ### year()
 
@@ -8363,27 +8519,27 @@ Serial.print(Time.year());
 Serial.print(Time.year(1400647897));
 ```
 
-Optional parameters: Integer (Unix timestamp)
+Optional parameter: time_t (Unix timestamp), coordinated universal time (UTC), unsigned long integer
 
 Returns: Integer
 
 
 ### now()
 
-Retrieve the current time as seconds since January 1, 1970 (commonly known as "Unix time" or "epoch time"). This time is not affected by the timezone setting.
+Retrieve the current time as seconds since January 1, 1970 (commonly known as "Unix time" or "epoch time"). This time is not affected by the timezone setting, it's coordinated universal time (UTC).
 
 ```cpp
 // Print the current Unix timestamp
 Serial.print(Time.now()); // 1400647897
 ```
 
-Returns: Integer
+Returns: system_tick_t (uint32_t), 32-bit unsigned integer
 
 ### local()
 
 Retrieve the current time in the configured timezone as seconds since January 1, 1970 (commonly known as "Unix time" or "epoch time"). This time is affected by the timezone setting.
 
-Note that the functions in the `Time` class expect times in UTC time, so the result from this should be used carefully.
+Note that the functions in the `Time` class expect times in UTC time, so the result from this should be used carefully. You should not pass Time.local() to Time.format(), for example.
 
 _Since 0.6.0_
 
@@ -8415,6 +8571,8 @@ Serial.print(Time.isDST());
 ```
 
 Returns: Unsigned 8-bit integer: 0 = false, 1 = true
+
+This function only returns the current DST setting that you choose using beginDST() or endDST(). The setting does not automatically change based on the calendar date.
 
 ### getDSTOffset()
 
@@ -8449,11 +8607,15 @@ _Since 0.6.0_
 
 Start applying Daylight Saving Time (DST) offset to the current time.
 
+You must call beginDST() at startup if you want use DST mode. The setting is not remembered and is not automatically changed based on the calendar.
+
 ### endDST()
 
 _Since 0.6.0_
 
 Stop applying Daylight Saving Time (DST) offset to the current time.
+
+You must call endDST() on the appropriate date to end DST mode. It is not calculated automatically.
 
 ### setTime()
 
@@ -8469,8 +8631,7 @@ Also see: [`Particle.syncTime()`](#particle-synctime-)
 Time.setTime(1413034662);
 ```
 
-Parameters: Unix timestamp (integer)
-
+Parameter: time_t (Unix timestamp), coordinated universal time (UTC), unsigned long integer
 
 ### timeStr()
 
@@ -8485,7 +8646,7 @@ _NB: In 0.3.4 and earlier, this function included a newline at the end of the re
 
 ### format()
 
-Formats a time string using a configurable format.
+Formats a time string using a configurable format. 
 
 ```cpp
 // SYNTAX
@@ -8507,7 +8668,11 @@ The formats available are:
 
 - `TIME_FORMAT_DEFAULT`
 - `TIME_FORMAT_ISO8601_FULL`
-- custom format based on `strftime()`
+- custom format based on [strftime()](http://www.cplusplus.com/reference/ctime/strftime/)
+
+Optional parameter: time_t (Unix timestamp), coordinated universal time (UTC), unsigned long integer
+
+If you have set the time zone using Time.zone(), beginDST(), etc. the formatted time will be formatted in local time.
 
 **Note:** The custom time provided to `Time.format()` needs to be UTC based and *not* contain the time zone offset (as `Time.local()` would), since the time zone correction is performed by the high level `Time` methods internally.
 
@@ -9647,7 +9812,7 @@ _Since 0.4.9_
 
 ### System Events Overview
 
-System events are messages sent by the system and received by application code. They inform the application about changes in the system, such as when the system has entered setup mode, or when an Over-the-Air (OTA) update starts, or when the system is about to reset.
+System events are messages sent by the system and received by application code. They inform the application about changes in the system, such as when the system has entered setup mode (listening mode, blinking dark blue), or when an Over-the-Air (OTA) update starts, or when the system is about to reset.
 
 System events are received by the application by registering a handler. The handler has this general format:
 
@@ -9721,6 +9886,8 @@ void setup()
 ### System Events Reference
 
 These are the system events produced by the system, their numeric value (what you will see when printing the system event to Serial) and details of how to handle the parameter value. The version of firmware these events became available is noted in the first column below.
+
+Setup mode is also referred to as listening mode (blinking dark blue).
 
 | Since | Event Name | ID | Description | Parameter |
 |-------|------------|----|-------------|-----------|
@@ -12557,6 +12724,9 @@ Parameters:
 
 
 ## Language Syntax
+
+Particle devices are programmed in C/C++. While the Arduino compatibility features are available as described below, you can also write programs in plain C or C++, specically gcc C++11.
+
 The following documentation is based on the Arduino reference which can be found [here.](http://www.arduino.cc/en/Reference/HomePage)
 
 ### Structure
@@ -13919,6 +14089,27 @@ If you are getting unexpected errors when compiling valid code, it could be the 
 //
 #pragma SPARK_NO_PREPROCESSOR
 ```
+
+{{#if has-stm32f2}}
+
+## Memory
+
+The Photon, P1, and Electron all have an STM32F205 processor with 128K of available RAM and 128K of flash for your user firmware.
+
+Some tips for understanding the memory used by your firmware [can be found here](/faq/particle-devices/code-size-tips).
+
+Some of the available resources are used by the system, so there's about 80K of free RAM available for the user firmware to use.
+
+### Stack
+
+The available stack depends on the environment:
+
+- Main loop thread: 6144 bytes
+- Software timer callbacks: 1024 bytes
+
+The stack size cannot be changed as it's allocated by the Device OS before the user firmware is loaded. 
+
+{{/if}}
 
 ## Firmware Releases
 

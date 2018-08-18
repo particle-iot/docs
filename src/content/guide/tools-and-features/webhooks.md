@@ -227,16 +227,16 @@ You can also customize the structure of the data that gets sent. In the "Advance
 
 ## Monitoring your webhooks
 
-The easiest way to observe webhook activity is on the Logs hub of your Particle Console. Every time your webhook triggers, a `hook-sent` event will appear in your user event stream. This is confirmation that the Particle cloud successfully forwarded your event to your webhook's target URL.
+The easiest way to observe webhook activity is to view the Integrations tab in the Particle Console. Double click on the integration you want to view and the page shows the history, recent calls, and recent errors.
+
+Additionally, you can view the Events page of your Particle Console. Every time your webhook triggers, a `hook-sent` event will appear in your user event stream. This is confirmation that the Particle cloud successfully forwarded your event to your webhook's target URL. 
 
 If the webhook receives a response from the targeted web server with something in the body, a `hook-response` event will also appear in your event stream containing the response. This event will _only_ appear in your event stream if the web service returned something in the `body` of its response to the Particle cloud.
 
 ![Webhook Logs](/assets/images/webhook-logs.png)
 <p class="caption">`hook-sent` and `hook-response` events will appear in your event stream for an active webhook</p>
 
-It is also possible that you can see errors appear in your Logs from unsuccessful attempts to contact the third-party server. You can read more about those [here](/reference/webhooks/#error-limits).
-
-*Note*: This method of monitoring activity is not enabled for product-level webhooks. A method for monitoring product-level webhooks is coming soon.
+Note that this will only appears in the Events page for the device owner. The hook events do not appear in the device-specific event log, or in the product event log.
 
 ## Custom Template
 
@@ -302,69 +302,6 @@ void myHandler(const char *event, const char *data) {
 ```
 
 At any time, you can see some sample firmware for both triggering and getting responses from webhooks on your Particle Console. To do this, simply click on one of your product webhooks and scroll down to "Example Device Firmware."
-
-### Monitoring Product Webhooks
-[Coming Soon]
-
-## Debugging with RequestBin
-
-Depending on the service you're sending data to, it can be difficult to debug a webhook, especially if you're sending data using templates. A great debugging tool is the free service <http://requestb.in/>. You create a new RequestBin and it returns a URL that you use as the URL in your webhook. Then, when you refresh you RequestBin page, it will show you the requests that have come in, with all of the parameters and data. Very handy!
-
-
-Here's a simple webhook template. Save it in a file "hook1.json".
-
-```
-{
-    "event": "test1",
-    "url": "http://requestb.in/19le9w61",
-    "requestType": "POST",
-    "noDefaults":false
-}
-```
-
-You can create a webhook through the Console by using the "Custom Template" tab of the new webhook form or through the Particle CLI by issuing the command:
-
-```
-particle webhook create hook1.json
-```
-
-Tested it first using the CLI:
-
-```
-particle publish test1 "testing" --private
-```
-
-And this is what the request bin looks like:
-
-![Request Bin Example](/assets/images/webhooks/bin1.png)
-
-In this simple example, you can see the POST request with the default data in form encoding.
-
-Here's an example using JSON encoding.
-
-```
-{
-    "event": "test1",
-    "url": "http://requestb.in/19le9w61",
-    "requestType": "POST",
-    "json": {
-		"name": "\{{PARTICLE_EVENT_NAME}}",
-		"value": "\{{{PARTICLE_EVENT_VALUE}}}"
-    },
-    "noDefaults": true
-}
-
-```
-
-Generating the event:
-
-```
-particle publish test1 "testing2" --private
-```
-
-And the RequestBin results:
-![Request Bin Example](/assets/images/webhooks/bin2.png)
-
 
 ## Advanced Topics
 

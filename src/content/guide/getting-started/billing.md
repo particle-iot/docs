@@ -61,8 +61,8 @@ data was consumed.
 ![](/assets/images/Coverage-Map-V3.png)
 <p class="caption">A map indicating cellular zone grouping. <a target="_blank" href="/assets/images/Coverage-Map-V3.png">Click here</a> for a full size image.</p>
 
-More more information about pricing and carriers in each Zone/Country,
-please visit [our pricing page](https://www.particle.io/pricing#cellular-data) and inspect the dropdown menu of country names.
+For more information about pricing and carriers in each Zone/Country,
+please visit [our pricing page](https://www.particle.io/products/connectivity/cellular-iot-sim-2g-3g-lte#additional-mbs) and inspect the dropdown menu of country names.
 
 ## Initial Electron Promotion included with your order
 First, thank you for your purchase! The first 3 months of our Device

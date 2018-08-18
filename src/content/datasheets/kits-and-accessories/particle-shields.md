@@ -622,6 +622,9 @@ This is a 128x64 pixel graphic OLED screen that can be either controlled via the
 [Datasheet >](/assets/datasheets/makerkit/oled.pdf)
 
 ## Electron Solar Kit
+
+**The Electron Solar Kit has been discontinued and is no longer available.**
+
 The Solar Kit comes with everything you need to make a solar powered cellular project! Super efficient power design so you can go off-the-grid with no need of wires. It has a big 6W solar panel, waterproof enclosure with cable gland for connecting the panel, and a super low-power timing circuit so the Electron can sleep in between readings. It's an ideal solution for field sensing that needs to go on for months or years.
 
 ### Using the Solar Kit
@@ -647,8 +650,6 @@ Assembly:
 | Deep Sleep Current (4.2V LiPo) | I<sub>Qds</sub> | 5 |  | 10 | uA |
 | Operating Temperature | T<sub>op</sub> | -20 |  | +60 | °C |
 | Humidity Range Non condensing, relative humidity | | | | 95 | % |
-
-*Library and photos coming soon!*
 
 ## Electron Asset Tracker
 
@@ -853,8 +854,6 @@ AND
 - (1) [DS18B20](https://www.adafruit.com/products/381) waterproof temperature sensor
 - (1) [SW18020P](http://www.electrodragon.com/product/vibration-switch-sensor-sw-18020p/) vibration sensor
 - Various jumper wires, resistors, capacitors, LEDs, and push buttons
-
-*Library and photos coming soon!*
 
 
 <!--

@@ -56,8 +56,6 @@ event.
 You make a single Particle API call to create the webhook, and from that moment
 on, events matching your webhook will trigger our servers to call your web app.
 
-*Coming soon:* the ability to create a webhook for an organization or product.
-
 Check out our [Webhooks Guide](/guide/tools-and-features/webhooks/) for more
 information.
 
@@ -87,9 +85,6 @@ event stream. Here are some links to help out.
 
 - https://github.com/heroku-examples/node-articles-nlp
 - https://devcenter.heroku.com/articles/asynchronous-web-worker-model-using-rabbitmq-in-node
-
-*Coming soon:* a easy-to-deploy Heroku example.
-(Ping @zachary in the [forum](https://community.particle.io/) about this.)
 
 
 ## Initiating device behavior by calling functions
