@@ -83,7 +83,7 @@ Particle is now an MVNO (Mobile virtual network operator)! Every Electron comes 
 
 ### Low Cost Data Plan
 
-We’re also providing low cost data plans specifically for IoT devices that you can pause or cancel at any time without a contract. Data plans start as low as $2.99 a month for 1MB of data — enough to send a few thousand messages on our extremely data-efficient messaging platform.
+We’re also providing low cost data plans specifically for IoT devices that you can pause or cancel at any time without a contract. Data plans start as low as $2.99 a month for 3MB of data — enough to send a few thousand messages on our extremely data-efficient messaging platform.
 
 ### SIM Console
 
@@ -94,7 +94,7 @@ We’ve created a SIM management and billing [console](https://console.particle.
 
 ### Worldwide Coverage
 
-The Particle SIM leverages cellular agreements with most of the major GSM carriers throughout the world. Want to know who’s providing service in your neighborhood? Head over [here](http://particle.io/cellular) and find your country in the dropdown menu.
+The Particle SIM leverages cellular agreements with most of the major GSM carriers throughout the world. Want to know who’s providing service in your neighborhood? Head over [here](https://www.particle.io/products/connectivity/cellular-iot-sim-2g-3g-lte#additional-mbs) and find your country in the dropdown menu.
 
 
 
@@ -125,7 +125,7 @@ The Electron’s firmware helps you take full advantage of the all the additiona
 Because UDP is a connectionless protocol, the concept of a device being “online” or “offline” is fundamentally different for the Electron than for the Photon and Core. If you inquire your devices’ status in Particle Build/Dev or by issuing a `particle list` command in the CLI, you’ll be presented with the “last heard” status of each device, which represents the last time the Cloud successfully received communications from your device. -->
 
 ### "Online vs Offline"
-Because UDP is a connectionless protocol, the concept of a device being “online” or “offline” is fundamentally different for the Electron than for the Photon and Core. There are no frequent pings like with TCP that can be used to update Online status.  Currently, if you inquire about your devices’ status in Particle Build/Dev or by issuing a `particle list` command in the CLI, any Electron that has successfully been Online in the past will continue to show as Online.  We are working through possible alternatives for this Online status, to indicate something like Last Heard with a time and date.
+Because UDP is a connectionless protocol, the concept of a device being “online” or “offline” is fundamentally different for the Electron than for the Photon and Core. There are no frequent pings like with TCP that can be used to update Online status.  Currently, if you inquire about your devices’ status in Particle Build/Dev or by issuing a `particle list` command in the CLI, any Electron that has successfully been Online in the past will continue to show as Online. 
 
 ### Setup
 

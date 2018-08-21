@@ -193,6 +193,24 @@ codes in the 500 range indicate failure within Particle's server infrastructure.
 500 Server errors - Fail whale. Something's wrong on our end.
 ```
 
+## API rate limits
+
+There is an API rate limit of approximately 10 calls per second to api.particle.io from each public IP address. This limit is the total number of requests from a public IP address and does not depend on the access token or API endpoint used.
+
+#### Beware of monitoring variables for change
+
+One situation that can cause problems is continuously monitoring variables for change. If you're polling every few seconds it's not a problem for a single device and variable. But if you are trying to monitor many devices, or have a classroom of students each polling their own device, you can easily exceed the API rate limit.
+
+Having the device call [Particle.publish](https://docs.particle.io/reference/firmware/#particle-publish-) when the value changes may be more efficient.
+
+#### Make sure you handle error conditions properly
+
+If you get a 401 (Unauthorized), your access token has probably expired so retransmitting the request won't help.
+
+If you get a 429 (Too many requests) you've already hit the limit, so making another request immediately will not help.
+
+In response to most error conditions you may want to consider a delay before retrying the request.
+
 ## Versioning
 
 The API endpoints all start with `/v1` to represent the first official
@@ -233,6 +251,10 @@ When your device starts ("online") or stops ("offline") a session with the cloud
 # spark/status, offline
 {"name":"spark/status","data":"offline","ttl":"60","published_at":"2015-01-01T14:31:49.787Z","coreid":"0123456789abcdef01234567"}
 ```
+
+For cellular devices (Electron, E Series), online events occur only on a full handshake with the cloud. Sleeping for short periods of time (under 23 minutes) will not cause an online event. Offline events are never generated for cellular devices.
+
+For Wi-Fi devices (Photon, P1, Core), online events occur on every connection to the cloud and after any length of sleep. If you abruptly power off the device and offline event may take some time to occur.
 
 If your device is a packaged product, you may see an "auto-update" event from time to time.  This is the cloud 
 signaling that a new version of firmware is available for your product from your manufacturer, and an update is 

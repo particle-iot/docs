@@ -9,6 +9,8 @@ order: 10
 
 ![](/assets/images/particle-pi-cam/header2.jpg)
 
+**The Particle Raspberry Pi project has been discontinued. Future new releases of the Particle Agent software are unlikely.**
+
 ## Introduction
 
 Welcome to the official tutorial for building your very own

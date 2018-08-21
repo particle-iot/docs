@@ -2,7 +2,7 @@
 title: Serial2 on the Photon
 layout: faq.hbs
 columns: two
-devices: [ photon,electron,core,raspberry-pi ]
+devices: [ photon,electron ]
 order: 1140
 ---
 

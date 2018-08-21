@@ -19,6 +19,7 @@ var ignoreHosts = [
   'datasheets.maximintegrated.com',
   // Broken webserver that returns 404 not found for regular pages
   'www.emaxmodel.com',
+  'mingw.org', // seems to be a temporary server problem, will check back later
   '192.168.0.1',
 ];
 var devices = ['photon', 'electron', 'core', 'raspberry-pi'];
