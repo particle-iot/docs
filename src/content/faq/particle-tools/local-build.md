@@ -17,6 +17,10 @@ It is possible to build both application firmware and Device OS locally using th
 
 This note explains how to do a fully native installation. It's also possible to do a Docker installation. And, of course, you can use the cloud compilers [Particle Build](https://build.particle.io), [Particle Dev](/guide/tools-and-features/dev/), or [Particle CLI](/guide/tools-and-features/cli/) which are much easier to install and use.
 
+{{collapse op="computerOsSelector"}}
+
+{{collapse op="start" computerOs="Windows"}}
+
 ## Installation - Windows
 
 ### Install Cygwin - Windows
@@ -180,6 +184,9 @@ cp *.exe /usr/local/bin
 
 There are additional instructions in the README.md file if necessary, including how to rebuild the tools from the included source code.
 
+{{collapse op="end"}}
+
+{{collapse op="start" computerOs="Mac"}}
 
 ## Installation - Mac
 
@@ -247,6 +254,11 @@ brew install dfu-util
 ```
 
 There are additional instructions in the [FAQ for installing dfu-util](/faq/particle-tools/installing-dfu-util/) including installing Homebrew if necessary or using MacPorts if you use that instead of Homebrew.
+
+
+{{collapse op="end"}}
+
+{{collapse op="start" computerOs="Linux"}}
 
 ## Installation - Linux
 
@@ -339,11 +351,16 @@ sudo cp 50-particle.rules /etc/udev/rules.d/
 
 - You will probably need to reboot after installing this.
 
+{{collapse op="end"}}
+
+
 ## Building
 
 ### Selecting a source directory
 
 One of the things you need to do is decide where to store your source. For the examples here, I've used the following.
+
+{{collapse op="start" computerOs="Windows"}}
 
 #### Source directory - Windows
 
@@ -357,11 +374,20 @@ If you are using MinGW instead of Cygwin under Windows, the path would be **/c/U
 
 ![Windows directory structure](/assets/images/local-build-07windirs.png)
 
+{{collapse op="end"}}
+
+{{collapse op="start" computerOs="Mac"}}
+
+
 #### Source directory - Mac
 
 For the Mac, I used: **Documents/src**
 
 In other words, the src directory in the user's documents directory, for example, **/Users/rickk/Documents/src**.
+
+{{collapse op="end"}}
+
+{{collapse op="start" computerOs="Linux"}}
 
 #### Source directory - Linux
 
@@ -369,6 +395,7 @@ For Linux, I used: **Documents/src**
 
 In other words, the src directory in the user's documents directory, for example, **/home/rickk/Documents/src**. Remember that Linux paths are case-sensitive.
 
+{{collapse op="end"}}
 
 
 ### Check out the source

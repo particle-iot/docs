@@ -63,6 +63,9 @@ Pins:
 
 Since you plug the Photon into the programmer shield, there's nothing to connect.
 
+{{collapse op="computerOsSelector"}}
+
+{{collapse op="start" computerOs="Windows"}}
 
 ## Using ST/LINK for Windows
 
@@ -185,11 +188,16 @@ Select **Sector 1** (0x08004000) and **Sector 2** (0x080008000).
 
 Note that when you erase the configuration flash your device ID is preserved but your device private key will be lost. This means you won't be able to connect to the cloud until you upload your keys using the CLI command [particle keys doctor](/reference/cli/#particle-keys-doctor).
 
+{{collapse op="end"}}
+
 ## Installing OpenOCD - Standalone Installation
 
 If you've already set up [Particle Debugging with Eclipse](/faq/particle-tools/eclipse-debug/) you can use the installation of OpenOCD included with that and skip to the next section.
 
 [OpenOCD](http://openocd.org) is more complicated to install, but works on Mac and Linux as well as Windows, and also is a command-line interface which may be helpful if you're automating the setup of devices on an assembly line.
+
+{{collapse op="start" computerOs="Mac"}}
+
 
 ### Installation - Mac
 
@@ -209,14 +217,22 @@ If you are using the Particle Programmer shield you will also need to install th
 
 There are special concerns with the USB driver that may affect the programmer shield. You should check out the [official documentation](https://github.com/particle-iot/shields/tree/master/photon-shields/programmer-shield) for more information about configuring the USB device.
 
+{{collapse op="end"}}
+
+{{collapse op="start" computerOs="Windows"}}
+
 
 ### Installation - Windows
 
 It's theoretically possible to install OpenOCD under Cygwin under Windows. I haven't successfully gotten this to work when enabling USB (--enable-ftdi); I'll update this document when I get it to work.
 
+{{collapse op="end"}}
+
 ## Installing OpenOCD - Using Eclipse OpenOCD Installation
 
 If you've already set up [Particle Debugging with Eclipse](/faq/particle-tools/eclipse-debug/) you can use the installation of OpenOCD included with that. The only difference is the path to the scripts and executable.
+
+{{collapse op="start" computerOs="Mac"}}
 
 ### Installing OpenOCD - Using Eclipse OpenOCD Installation - Mac
 
@@ -229,6 +245,10 @@ cd "/Applications/GNU ARM Eclipse/OpenOCD/0.10.0-201510281129-dev/scripts"
 
 This is the directory you use in place of /usr/local/share/openocd/scripts in the examples below.
  
+{{collapse op="end"}}
+
+{{collapse op="start" computerOs="Windows"}}
+
 ### Installing OpenOCD - Using Eclipse OpenOCD Installation - Windows
 
 The installation directory will vary depending on the version you have installed, but usually it's something like:
@@ -242,6 +262,10 @@ This is the directory you use in place of /usr/local/share/openocd/scripts in th
 
 Windows Vista and later do not include telnet, which you'll probably need for programming the flash. If you are using Cygwin, you can install the **inetutils** package to get telnet.
 
+{{collapse op="end"}}
+
+{{collapse op="start" computerOs="Linux"}}
+
 
 ### Installing OpenOCD - Using Eclipse OpenOCD Installation - Linux
 
@@ -253,6 +277,8 @@ cd "/opt/gnuarmeclipse/openocd/0.10.0-201610281609-dev/scripts"
 ```
 
 This is the directory you use in place of /usr/local/share/openocd/scripts in the examples below.
+
+{{collapse op="end"}}
 
 
 ## Using OpenOCD
@@ -274,6 +300,8 @@ $ cd /usr/local/share/openocd/scripts
 $ openocd -f interface/stlink-v2.cfg -f target/stm32f2x.cfg -c "telnet_port 4444"
 ```
 
+{{collapse op="start" computerOs="Windows"}}
+
 If you are using Eclipse OpenOCD under Windows:
 
 ```
@@ -288,12 +316,18 @@ cd "/cygdrive/c/Program Files/GNU ARM Eclipse/OpenOCD/0.10.0-201610281609-dev/sc
 ../bin/openocd -f interface/stlink-v2.cfg -f target/stm32f2x.cfg -c "telnet_port 4444"
 ```
 
+{{collapse op="end"}}
+
+{{collapse op="start" computerOs="Mac"}}
+
 If you are using Eclipse OpenOCD on the Mac:
 
 ```
 $ cd "/Applications/GNU ARM Eclipse/OpenOCD/0.10.0-201510281129-dev/scripts"
 $ ../bin/openocd -f interface/stlink-v2.cfg -f target/stm32f2x.cfg -c "telnet_port 4444"
 ```
+
+{{collapse op="end"}}
 
 Then in a separate terminal window, you'd issue commands. The command prompt is the greater than symbol ">" so the commands you type are after that.
 

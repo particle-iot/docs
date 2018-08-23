@@ -58,6 +58,8 @@ Note that, if you enter this mode by holding `{{system-button}}` on boot, blinki
 {{#if has-wifi}}
 If your {{device}} is blinking green, it is trying to connect to Wi-Fi.
 
+{{collapse op="start" label="More information"}}
+
 If you are unable to get past blinking green, here are a few known working situations that the {{device}} is not compatible with:
 
 {{#if photon}}
@@ -104,6 +106,8 @@ Some other causes of never-ending blinking green include:
 - You are using a 2G {{device}} in an location that no longer has 2G service (Australia, Japan, Korea, Singapore, and other locations).
 - You are using a 3G {{device}} for different region. For example, using a U260 Americas model in Europe.
 {{/if}}
+
+{{collapse op="end"}}
 
 
 ### Connecting to the Cloud
@@ -395,6 +399,8 @@ If the Wi-Fi module is on but not connected to a network, your {{device}} will b
 
 When your {{device}} is connected to {{network-type}} but not to the cloud, it will be breathing green.
 
+{{collapse op="start" label="More information"}}
+
 #### I can't flash my {{device}} anymore
 
 Breathing green means that {{network-type}} is on, but you're not connected to the Particle cloud. Because of this, you cannot flash your {{device}} from the cloud. That includes Particle Build (Web IDE), Particle Dev (Atom IDE) and Particle CLI cloud-based flashing commands.
@@ -517,6 +523,8 @@ particle keys doctor YOUR_DEVICE_ID
 ```
 
 There are additional tips for a [missing openssl error on this page](https://github.com/rickkas7/particle_notes/tree/master/installing-openssl), including tips for Mac OS X and Linux.
+
+{{collapse op="end"}}
 
 
 ### Red Flash SOS
