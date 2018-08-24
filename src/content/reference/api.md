@@ -225,6 +225,8 @@ we'll give you lots of notice and a clear upgrade path.
 {{> api group=apiGroups.Devices}}
 ## Remote Diagnostics
 {{> api group=apiGroups.Diagnostics}}
+## User
+{{> api group=apiGroups.User}}
 ## Quarantine
 {{> api group=apiGroups.Quarantine}}
 ## SIM Cards
