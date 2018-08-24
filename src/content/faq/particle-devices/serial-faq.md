@@ -580,4 +580,15 @@ void loop() {
 }
 ```
 
+### Waiting at startup for USB serial connection
 
+If you want to wait in setup for the USB serial to connect so you can make sure you can see debugging messages, you can add something like this:
+
+```
+void setup() {
+  Serial.begin();
+  
+  // Wait for a USB serial connection for up to 10 seconds
+  waitFor(Serial.isConnected, 10000);
+}
+```

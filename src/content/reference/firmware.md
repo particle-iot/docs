@@ -1284,7 +1284,8 @@ byte bssid[6];
 
 void setup() {
   Serial.begin(9600);
-  while (!Serial.available()) Particle.process();
+  // Wait for a USB serial connection for up to 30 seconds
+  waitFor(Serial.isConnected, 30000);
 
   WiFi.BSSID(bssid);
   Serial.printlnf("%02X:%02X:%02X:%02X:%02X:%02X", bssid[0], bssid[1], bssid[2], bssid[3], bssid[4], bssid[5]);
@@ -1452,7 +1453,8 @@ void setup() {
 
 void setup() {
   Serial.begin(9600);
-  while(!Serial.available()) Particle.process();
+  // Wait for a USB serial connection for up to 30 seconds
+  waitFor(Serial.isConnected, 30000);
 
   // Prints out the local IP over Serial.
   Serial.println(WiFi.localIP());
@@ -1467,7 +1469,8 @@ void setup() {
 
 void setup() {
   Serial.begin(9600);
-  while(!Serial.available()) Particle.process();
+  // Wait for a USB serial connection for up to 30 seconds
+  waitFor(Serial.isConnected, 30000);
 
   // Prints out the subnet mask over Serial.
   Serial.println(WiFi.subnetMask());
@@ -1482,7 +1485,8 @@ void setup() {
 
 void setup() {
   Serial.begin(9600);
-  while(!Serial.available()) Particle.process();
+  // Wait for a USB serial connection for up to 30 seconds
+  waitFor(Serial.isConnected, 30000);
 
   // Prints out the gateway IP over Serial.
   Serial.println(WiFi.gatewayIP());
@@ -4376,8 +4380,8 @@ void setup()
 {
   // Make sure your Serial Terminal app is closed before powering your device
   Serial.begin(9600);
-  // Now open your Serial Terminal, and hit any key to continue!
-  while(!Serial.available()) Particle.process();
+  // Wait for a USB serial connection for up to 30 seconds
+  waitFor(Serial.isConnected, 30000);
 }
 
 void loop() {
@@ -6279,8 +6283,8 @@ void setup()
 
   // Make sure your Serial Terminal app is closed before powering your device
   Serial.begin(9600);
-  // Now open your Serial Terminal, and hit any key to continue!
-  while(!Serial.available()) Particle.process();
+  // Wait for a USB serial connection for up to 30 seconds
+  waitFor(Serial.isConnected, 30000);
 
   Serial.println(WiFi.localIP());
   Serial.println(WiFi.subnetMask());
@@ -6393,8 +6397,8 @@ void setup()
 {
   // Make sure your Serial Terminal app is closed before powering your device
   Serial.begin(9600);
-  // Now open your Serial Terminal, and hit any key to continue!
-  while(!Serial.available()) Particle.process();
+  // Wait for a USB serial connection for up to 30 seconds
+  waitFor(Serial.isConnected, 30000);
 
   Serial.println("connecting...");
 
@@ -10213,8 +10217,8 @@ void setup()
 {
   // Make sure your Serial Terminal app is closed before powering your device
   Serial.begin(9600);
-  // Now open your Serial Terminal, and hit any key to continue!
-  while(!Serial.available()) Particle.process();
+  // Wait for a USB serial connection for up to 30 seconds
+  waitFor(Serial.isConnected, 30000);
 
   String myID = System.deviceID();
   // Prints out the device ID over Serial
