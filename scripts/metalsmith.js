@@ -187,8 +187,8 @@ exports.metalsmith = function() {
           'particle-devices',
           'particle-tools',
           'pricing',
-          'raspberry-pi',
-          'wholesale'
+          'wholesale',
+          'discontinued-products'
         ]
       },
       datasheet: {

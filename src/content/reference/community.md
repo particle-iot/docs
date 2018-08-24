@@ -52,7 +52,6 @@ library it needs. Code level is Java-8. It should be trivial to use Java-7 or lo
 ## Swift
 
 * [Swift 3.0 Client Library](https://github.com/vakoc/particle-swift) - A Swift 3.0, package manager compatible, library for interacting with the Particle Device Cloud API
-* [Swift 3.0 Command Line Interface](https://github.com/vakoc/particle-swift-cli) - A Swift 3.0, package manager compatible, command line application utilizing particle-swift for interacting with the Particle Device Cloud API
 
 ## Typescript
 

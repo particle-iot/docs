@@ -12,13 +12,13 @@ order: 2
 
 ![](/assets/images/raspberry-pi-hero.png)
 
-## Particle Pi Beta
+## Particle Pi Discontinued
 <p class="boxedHead">Please read me!</p>
 <p class="boxed">
-Please note that the Raspberry Pi integration with the Particle Device Cloud is **currently in beta**. This means that, while the primary happy paths and use cases are tested, the software may still be a little rough around the edges in some areas.
+**The Particle Raspberry Pi project has been discontinued. You can still follow these instructions to configure, connect, and flash your Pi, but future new releases of the Particle Agent software are unlikely.**
 <br>
 <br>
-The good news is that you're about to join a wonderful community of Particle developers who are here to help. If you need support and can't find the answer in our docs, head over to our [community forums](https://community.particle.io/c/raspberry-pi) and chat with the Particle team. Find an issue? Log it in our [open-source repository](https://github.com/particle-iot/particle-agent) so we can fix it!
+If you need support and can't find the answer in our docs, head over to our [community forums](https://community.particle.io/c/raspberry-pi) and chat with the Particle team.
 <br>
 <br>
 Have fun!
@@ -431,7 +431,7 @@ Go to the next section to learn to [connect over USB](/guide/getting-started/con
 
 {{#if core}}
 * **Software**
-  * Spark Core Mobile App - [iPhone](https://itunes.apple.com/us/app/spark-core/id760157884?mt=8) | Android | [Windows](https://www.microsoft.com/en-us/store/p/particle/9nblggh4p55n)
+  * Spark Core Mobile App - [iPhone](https://itunes.apple.com/us/app/spark-core/id760157884?mt=8) | [Android](https://play.google.com/store/apps/details?id=io.spark.core.android) | [Windows](https://www.microsoft.com/en-us/store/p/particle/9nblggh4p55n)
   * *Note: We highly recommend using the mobile app for first time setup.*
 * **Hardware**
   * Your Particle device, brand new and out of the box!

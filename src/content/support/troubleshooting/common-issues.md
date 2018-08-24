@@ -310,7 +310,7 @@ There are known issues with the following types of networks:
 {{#if core}}
 **Prerequisites for Setup**
 * **Software**
-  * Spark Core Mobile App - <a href="https://itunes.apple.com/us/app/spark-core/id760157884" target="_blank">iPhone</a> | Android | <a href="https://www.microsoft.com/en-us/store/p/particle/9nblggh4p55n" target="_blank">Windows</a>
+  * Spark Core Mobile App - <a href="https://itunes.apple.com/us/app/spark-core/id760157884" target="_blank">iPhone</a> | <a href="https://play.google.com/store/apps/details?id=io.spark.core.android" target="_blank">Android</a> | <a href="https://www.microsoft.com/en-us/store/p/particle/9nblggh4p55n" target="_blank">Windows</a>
   * *Note: We highly recommend using the mobile app for first time setup.*
 * **Hardware**
   * Your Particle device, brand new and out of the box!
