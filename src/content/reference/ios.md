@@ -73,6 +73,15 @@ It's built on top of the Foundation URL Loading System, extending the powerful h
 The Particle Device Cloud SDK has been relying on this powerful library since the beginning, but when version 3.0 was released not long ago it contained some breaking changes, the main change from 2.x is that `NSURLConnectionOperation` was deprecated by Apple and `NSURLSessionDataTask` was introduced to replace it.
 You can ignore the return value (previously it was just `void`) coming out of the SDK functions, alternatively you can now make use of the `NSURLSessionDataTask` object as described.
 
+##### Error handling
+_Starting SDK version 0.8.0_
+
+If there's an error while executing API request, completion block will have non-null error object. `userInfo` dictionary has 2 custom values:
+* `ParticleSDKErrorResponseBodyKey` is the NSDictionary representation of JSON server response.
+* `ParticleSDKErrorLocalizedStringKey` contains human readable error message.  
+
+`NSError.code` contains HTTP status code. `NSError.localizedDescription` contains best attempt trying to explain what happened in human readable language based on `ParticleSDKErrorLocalizedStringKey` and `NSError.code`.
+
 Here are few examples for the most common use cases to get your started:
 
 #### Logging in to Particle cloud
