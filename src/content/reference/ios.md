@@ -1199,12 +1199,6 @@ setup wizard completes (delegate). Feel free to contribute to the example by sub
 Check out the [Reference in Cocoadocs website](http://cocoadocs.org/docsets/ParticleSetup/) or consult the javadoc style comments in `ParticleSetupCustomization.h` and `ParticleSetupMainController.h` for each public method or property.
 If the Device Setup library installation completed successfully in your XCode project - you should be able to press `Esc` to get an auto-complete hints from XCode for each public method or property in the library.
 
-### Requirements / limitations
-
-- iOS 8.0 and up supported
-- Currently setup wizard displays on portait mode only.
-- XCode 7 and up is required
-
 ### Installation
 
 #### Cocoapods
