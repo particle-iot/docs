@@ -1079,6 +1079,8 @@ Customize setup look and feel by accessing the `ParticleSetupCustomization` sing
 and modify its default properties. Setting the properties in this class is optional.
 These properies are shown in Objective-C syntax for convenience but work the same for Swift projects - use `String`, `Bool` instead of `NSString` and `BOOL`.
 
+In v0.9 `brandImageBackgroundImage` has been introduced in order to improve support for iPhone X. With introduction with iPhone X, the status bar is no longer fixed at 20px as it was since the original iPhone. To keep changes to API small `brandImage` should remain at 64px height (@1x). Top 20px (@1x) should still remain clear and the logo should be in the lower 44px (@1x). We suggest keeping this image with transparent background. If your design requires pattern or color under the logo, please use `brandImageBackgroundColor` or `brandImageBackgroundImage` respectively.
+
 #### Product/brand info:
 
 ```objc
@@ -1087,6 +1089,7 @@ These properies are shown in Objective-C syntax for convenience but work the sam
  NSString *brandName;                   // Your brand name
  UIImage *brandImage;                   // Your brand logo to fit in header of setup wizard screens
  UIColor *brandImageBackgroundColor;    // brand logo background color
+ UIImage *brandImageBackgroundImage;    // brand logo background image (introduced in v0.9)
  NSString *instructionalVideoFilename;  // Instructional video shown landscape full screen mode when "Show me how" button pressed on second setup screen
 ```
 ---
