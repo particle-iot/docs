@@ -982,7 +982,7 @@ iOS Device setup library is implemented as an open-source Cocoapod static librar
 
 **Rebranding notice**
 
-Particle has been rebranded as Particle. Code that previously used `Particle` keyword as class prefix now uses `Particle` keyword. CocoaPods library [ParticleSetup](https://cocoapods.org/pods/ParticleSetup) has been deprecated in favor of [ParticleSetup](https://cocoapods.org/pods/ParticleSetup) library. Github repository [particle-iot/particle-setup-ios](https://github.com/particle-iot/particle-setup-ios/) has been deprecated in favor of [particle-iot/particle-setup-ios](https://github.com/particle-iot/particle-setup-ios/) too.
+Spark has been rebranded as Particle. Code that previously used `Spark` keyword as class prefix now uses `Particle` keyword. CocoaPods library [SparkSetup](https://cocoapods.org/pods/SparkSetup) has been deprecated in favor of [ParticleSetup](https://cocoapods.org/pods/ParticleSetup) library. Github repository [particle-iot/spark-setup-ios](https://github.com/particle-iot/spark-setup-ios/) has been deprecated in favor of [particle-iot/particle-setup-ios](https://github.com/particle-iot/particle-setup-ios/) too.
 
 ### Usage
 
