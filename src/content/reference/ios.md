@@ -236,11 +236,12 @@ var bytesToReceive : Int64 = task.countOfBytesExpectedToReceive
 
 #### Retrieve current data usage (Electron only)
 _Starting SDK version 0.5.0_
+
 Assuming here that `myElectron` is an active instance of `ParticleDevice` class which represents an Electron device:
 
 **Objective-C**
 ```objc
-[myElectron getCurrentDataUsage:^(float dataUsed, NSError * _Nullable error) {
+[myElectron getCurrentDataUsage:^(float dataUsed, NSError * error) {
     if (!error) {
         NSLog(@"device has used %f MBs of data this month",dataUsed);
     }
@@ -398,8 +399,8 @@ handler = ParticleCloud.sharedInstance().subscribeToAllEvents(withPrefix: "temp"
 ```
 ---
 
-*Note:* specifying nil or empty string in the eventNamePrefix parameter will subscribe to ALL events (lots of data!)
-You can have multiple handlers per event name and/or same handler per multiple events names.
+*Note:* You can have multiple handlers per event name and/or same handler per multiple events names.
+
 
 Subscribe to all events, public and private, published by devices the user owns (`handler` is a [Obj-C block](http://goshdarnblocksyntax.com/) or [Swift closure](http://fuckingswiftblocksyntax.com/)):
 
@@ -418,7 +419,7 @@ eventListenerID = ParticleCloud.sharedInstance().subscribeToMyDevicesEvents(with
 ```
 ---
 
-Subscribe to events from one specific device (by deviceID, second parameter). If the API user owns the device, then he'll receive all events, public and private, published by that device. If the API user does not own the device he will only receive public events.
+Subscribe to events from one specific device (by deviceID, second parameter). If the API user owns the device, then he will receive all events, public and private, published by that device. If the API user does not own the device he will only receive public events.
 
 **Objective-C**
 
@@ -521,7 +522,8 @@ ParticleCloud.sharedInstance().publishEvent(withName: "event_from_app", data: "e
 ### Delegate Protocol
 
 _Starting version 0.5.0_
-You can opt-in to conform to the `ParticleDeviceDelegate` protocol in your viewcontroller code if you want to register for receiving system events notifications about the specific device.
+
+You can opt-in to conform to the `ParticleDeviceDelegate` protocol in your ViewController code if you want to register for receiving system events notifications about the specific device.
 You do it by setting `device.delegate = self` where device is an instance of `ParticleDevice`.
 
 The function that will be called on the delegate is:
@@ -549,9 +551,9 @@ The system events types are:
 
 ### OAuth client configuration
 
-If you're creating an app you're required to provide the `ParticleCloud` class with OAuth clientId and secret.
+If you are creating an app, you are required to provide the `ParticleCloud` class with OAuth clientId and secret.
 Those are used to identify users coming from your specific app to the Particle Device Cloud.
-Please follow the procedure decribed [in our guide](/guide/how-to-build-a-product/authentication/#creating-an-oauth-client) to create those strings,
+Please follow the procedure described [in our guide](/guide/how-to-build-a-product/authentication/#creating-an-oauth-client) to create those strings,
 then in your `AppDelegate` class you can supply those credentials by setting the following properties in `ParticleCloud` singleton:
 
 ```objc
@@ -562,8 +564,7 @@ then in your `AppDelegate` class you can supply those credentials by setting the
 **Important**
 Those credentials should be kept as secret. We recommend the use of [Cocoapods-keys plugin](https://github.com/orta/cocoapods-keys) for cocoapods
 (which you have to use anyways to install the SDK). It is essentially a key value store for environment and application keys.
-It's a good security practice to keep production keys out of developer hands. CocoaPods-keys makes it easy to have per-user config settings stored securely in the developer's keychain,
-and not in the application source. It is a plugin that once installed will run on every pod install or pod update.
+It is a good security practice to keep production keys out of developer hands. CocoaPods-keys makes it easy to have per-user config settings stored securely in the developer's keychain, and not in the application source. It is a plugin that once installed will run on every pod install or pod update.
 
 After adding the following additional lines your project `Podfile`:
 ```ruby
@@ -776,7 +777,7 @@ Get a specific device instance by its deviceID. If the device is offline the ins
 
  * **Parameters:**
    * `deviceID` — required deviceID
-   * `completion` — Completion block with first arguemnt as the device instance in case of success or with second argument NSError object if operation failed
+   * `completion` — Completion block with first argument as the device instance in case of success or with second argument NSError object if operation failed
  * **Returns:** NSURLSessionDataTask task for requested network access
 
   `-(NSURLSessionDataTask *)claimDevice:(NSString *)deviceID completion:(nullable ParticleCompletionBlock)completion`
