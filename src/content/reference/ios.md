@@ -908,7 +908,7 @@ Call a function on the device
 
 Signal device Will make the onboard LED "shout rainbows" for easy physical identification of a device
 
- * **Parameters:** `enale` — - YES to start or NO to stop LED signal.
+ * **Parameters:** `enable` — - YES to start or NO to stop LED signal.
 
   `-(NSURLSessionDataTask *)refresh:(nullable ParticleCompletionBlock)completion`
 
@@ -1227,7 +1227,7 @@ as an additional resource you can consult official [Apple documentation](https:/
 #### Carthage
 
 Starting version 0.4.0 Particle iOS device setup library is available through [Carthage](https://github.com/Carthage/Carthage). Carthage is intended to be the simplest way to add frameworks to your Cocoa application.
-You must have Carthage installed, if you don't then be sure to [install Carthage](https://github.com/Carthage/Carthage#installing-carthage) before you start.
+Be sure to [install Carthage](https://github.com/Carthage/Carthage#installing-carthage) before you start.
 Then to build the Particle iOS device setup library, simply create a `Cartfile` on your project root folder (that's important), containing the following line:
 
 ```
@@ -1244,7 +1244,7 @@ Go to your XCode target settings->General->Embedded binaries and press `+` and a
 Build your project - you now have the Particle SDK embedded in your project.
 Use `#import <ParticleDeviceSetupLibrary/ParticleDeviceSetupLibrary.h>` in Obj-C files or `import ParticleDeviceSetupLibrary` for Swift files to gain access to `ParticleSetupMainController` (see usage example).
 
-No need for any special process or operation integrating the Device Setup Library with Swift-based or Swift-dependant projects. This is the recommended way if you have a mixed set of dependencies.
+No need for any special process or operation integrating the Device Setup Library with Swift-based or Swift-dependant projects.
 
 ## License
 
