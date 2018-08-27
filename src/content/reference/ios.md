@@ -808,9 +808,13 @@ Get a short-lived claiming token for transmitting to soon-to-be-claimed device i
 
 Subscribe to the firehose of public events, plus private events published by devices one owns
 
+_Starting SDK version 0.8.0_
+
+Public event stream **no longer accepts*** nil or empty string as the eventNamePrefix
+
  * **Parameters:**
    * `eventHandler` — ParticleEventHandler event handler method - receiving NSDictionary argument which contains keys: event (name), data (payload), ttl (time to live), published_at (date/time emitted), coreid (device ID). Second argument is NSError object in case error occured in parsing the event payload.
-   * `eventName` — Filter only events that match name eventName, if nil is passed any event will trigger eventHandler
+   * `eventName` — Filter only events that match name eventName
  * **Returns:** eventListenerID function will return an id type object as the eventListener registration unique ID - keep and pass this object to the unsubscribe method in order to remove this event listener
 
   `-(nullable id)subscribeToMyDevicesEventsWithPrefix:(nullable NSString *)eventNamePrefix handler:(nullable ParticleEventHandler)eventHandler`
