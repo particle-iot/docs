@@ -581,13 +581,6 @@ func application(_ application: UIApplication, didFinishLaunchingWithOptions lau
 
 Be sure to replace `YourAppName` with your project name.
 
-### Deploying apps with the Particle Device Cloud SDK
-
-Starting iOS 10 / XCode 8, Apple requires the developer to enable *Keychain sharing* under the app Capabilities tab when clicking on your target in the project navigator pane. Otherwise an exception will be thrown when a user logs in, the the SDK tries to write the session token to the secure keychain and will fail without this capability enabled.
-Consult this [screenshot](http://i63.tinypic.com/szc3nc.png) for reference:
-
-![Keychain sharing screenshot](http://i63.tinypic.com/szc3nc.png "Enable keychain sharing capability before deploying")
-
 ### Installation
 
 #### CocoaPods
