@@ -357,6 +357,10 @@ You can make an API call that will open a stream of [Server-Sent Events (SSEs)](
 
 Subscribe to the firehose of public events with name that starts with "temp", plus the private events published by devices one owns:
 
+_Starting SDK version 0.8.0_
+
+Public event stream **no longer accepts*** nil or empty string as the eventNamePrefix
+
 **Objective-C**
 ```objc
 // The event handler:
