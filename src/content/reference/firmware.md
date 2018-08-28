@@ -2882,8 +2882,17 @@ void loop()
 }
 ```
 
+- When using INPUT\_PULLDOWN make sure a high level signal does not exceed 3.3V.
 - INPUT\_PULLUP does not work as expected on TX on the P1, Electron, and  E Series and should not be used. 
 - INPUT\_PULLDOWN does not work as expected on D0 and D1 on the P1 because the P1 module has hardware pull-up resistors on these pins. 
+
+Also beware when using pins D3, D5, D6, and D7 as OUTPUT controlling external devices. After reset, these pins will be briefly taken over for JTAG/SWD, before being restored to the default high-impedance INPUT state during boot.
+
+- D3, D5, and D7 are pulled high with a pull-up
+- D6 is pulled low with a pull-down
+- D4 is left floating
+
+The brief change in state (especially when connected to a MOSFET that can be triggered by the pull-up or pull-down) may cause issues when using these pins in certain circuits. You can see this with the D7 blue LED which will blink dimly and briefly at boot.
 
 ### getPinMode(pin)
 
@@ -3161,6 +3170,10 @@ On the Core, this parameter can be one of the following values (ADC clock = 18MH
  * ADC_SampleTime_112Cycles: Sample time equal to 112 cycles, 3.73us
  * ADC_SampleTime_144Cycles: Sample time equal to 144 cycles, 4.80us
  * ADC_SampleTime_480Cycles: Sample time equal to 480 cycles, 16.0us
+
+The default is ADC_SampleTime_480Cycles. This means that the ADC is sampled for 16 us which can provide a more accurate reading, at the expense of taking longer than using a shorter ADC sample time. If you are measuring a high frequency signal, such as audio, you will almost certainly want to reduce the ADC sample time.
+ 
+Furthermore, 5 consecutive samples at the sample time are averaged in analogRead(), so the time to convert is closer to 80 us, not 16 us, at 480 cycles.
 
 {{/if}} {{!-- has-adc --}}
 
