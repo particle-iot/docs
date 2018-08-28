@@ -279,6 +279,7 @@ There are two status LEDs located on the left of the JST battery connector label
 |OFF     | ON     | Charge done             |
 |OFF     | OFF    | Charge suspend (temperature), timer fault, and sleep mode |
 
+The Power Shield includes a MAX17043 I2C fuel gauge chip to monitor the battery level. This is connected using the I2C interface, pins D0 and D1. You can still use the I2C interface in your design, however you should avoid using D0 and D1 as GPIO as it will interfere with the fuel gauge. The Power Shield includes the I2C pull-up resistors.
 
 ### Power Shield - Specifications
  - Operating voltage: USB or External DC of 7 to 20V

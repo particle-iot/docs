@@ -472,6 +472,7 @@ If your device is not blinking blue, {{#if photon}}{{popup 'hold down the SETUP 
 
 If your device is not blinking at all, or if the LED is burning a dull orange color, it may not be getting enough power. Try changing your power source or USB cable.
 
+{{#if photon}}
 ### Step 2a: Connect your Photon to the Internet using the setup web application
 
 *Note: This process only works in Chrome / Firefox / Opera*
@@ -496,6 +497,11 @@ After opening the file:
 We care a lot about security, and we want to make sure that everything you do is safe. Downloading a local file ensures that the credentials are sent directly to the Photon, without any chance of being intercepted.
 
 ### Step 2b: Connect your Photon to the Internet using your smartphone
+{{/if}}
+
+{{#if core}}
+### Step 2: Connect your Core to the Internet using your smartphone
+{{/if}}
 
 Open the app on your phone. Log in or sign up for an account with Particle if you don't have one.
 

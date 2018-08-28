@@ -82,7 +82,7 @@ You'll need to use the **MinGW Shell** for entering your build commands, not the
 
 The gcc-arm toolchains are here: [https://launchpad.net/gcc-arm-embedded](https://launchpad.net/gcc-arm-embedded)
 
-Currently, the [5-2016-q1-update](https://launchpad.net/gcc-arm-embedded/5.0/5-2016-q1-update) is recommended.
+Currently, the [5_3-2016-q1-update](https://launchpad.net/gcc-arm-embedded/5.0/5-2016-q1-update) is recommended.
 
 Prior to Device OS version 0.6.3 you can also use the 4.9-2015-q3-update.
 
