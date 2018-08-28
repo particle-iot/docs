@@ -578,6 +578,8 @@ if (Particle.connected()) {
 While all of the causes above were unintentionally causing breathing green, you can also do it on purpose. Using the [SEMI_AUTOMATIC or MANUAL system mode](https://docs.particle.io/reference/firmware/#semi-automatic-mode) and only bringing up Wi-Fi and not the cloud will cause intentional breathing green. You would do this if you're sending data to a local server and not using the cloud at all, for example. 
 {{/if}}
 
+{{collapse op="end"}}
+
 
 ### Red Blink Basic Errors
 
@@ -588,6 +590,8 @@ Blinking red indicates various errors.
 Particle Device Cloud.
 - Blinking "orange": This sometimes is seen as yellow or red and indicates bad server keys. 
 - Alternating cyan and red blinks can also indicate a keys issue.
+
+{{collapse op="start" label="Repair instructions"}}
 
 Most keys related issues can be resolved using the [Particle CLI](https://docs.particle.io/guide/tools-and-features/cli).
 
