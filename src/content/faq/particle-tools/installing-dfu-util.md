@@ -32,6 +32,9 @@ Hold down RST and MODE, release RST and continue to hold down MODE while the mai
 
 If your device is in a particularly odd and confused state, sometimes you may need to unplug the power, hold down the SETUP/MODE button, and then plug in USB power. Release SETUP/MODE when blinking yellow.
 
+{{collapse op="computerOsSelector"}}
+
+{{collapse op="start" computerOs="Windows"}}
 
 ## Installation - Windows
 
@@ -210,6 +213,9 @@ And when in normal operating mode or listening mode (blinking blue), the Device 
 
 ![COM driver](/assets/images/installing-dfu-util-23com.png)
 
+{{collapse op="end"}}
+
+{{collapse op="start" computerOs="Mac"}}
 
 ## Installation - Mac
 
@@ -234,7 +240,9 @@ If you use [MacPorts](https://www.macports.org) you can install it using:
 ```
 port install libusb dfu-util
 ```
+{{collapse op="end"}}
 
+{{collapse op="start" computerOs="Linux"}}
 
 ## Installation - Linux
 
@@ -271,6 +279,8 @@ sudo cp 50-particle.rules /etc/udev/rules.d/
 ```
 
 You may need to restart after this step.
+
+{{collapse op="end"}}
 
 ## Using dfu-util
 
