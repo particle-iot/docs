@@ -59,3 +59,16 @@ function collapseComputerOsDefault(switchTo) {
 	}
 	return switchTo;
 }
+
+function collapseCopy(id) {
+	var elem = document.getElementById(id);
+	$(elem).show();
+	elem.select();
+	document.execCommand("copy");
+	$(elem).hide();
+}
+
+function collapseDrag(ev, id) {
+    ev.dataTransfer.setData("text", $('#' + id).text());
+}
+
