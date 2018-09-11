@@ -1,8 +1,10 @@
 ---
 title: Building your own mobile app (iOS and Android)
 columns: two
-template: guide.hbs
+layout: guide.hbs
 order: 7
+sdkversion: 0.5.0
+devicesetupversion: 0.5.3
 ---
 
 # Building your own Mobile App
@@ -20,15 +22,15 @@ focus more specifically on building mobile applications.
 
 **iOS**
 
-- Mac computer/laptop running latest OSX
+- Mac computer/laptop running latest macOS
 - [Apple developer account](https://developer.apple.com/programs/)
 - iOS device & USB lightning cable (Particle device setup process cannot run on simulator)
 - [XCode](https://developer.apple.com/xcode/downloads/) 6 and up
-- [Cocoapods](https://cocoapods.org/) installed
-- Particle iOS SDKs: [Cloud SDK](http://docs.particle.io/photon/ios/#ios-cloud-sdk) and [Device setup library](http://docs.particle.io/photon/ios/#ios-device-setup-library)
+- [CocoaPods](https://cocoapods.org/) installed
+- Particle iOS SDKs: [Cloud SDK](/photon/ios/#ios-cloud-sdk) and [Device setup library](/photon/ios/#ios-device-setup-library)
 - Skills in object oriented programming. Knowledge in Objective-C / Swift and Cocoa Touch APIs. Here are few recommended free learning resources:
 	- Official [Apple tutorials](https://developer.apple.com/resources/)
-	- [Developing iOS 8 Apps with Swift Stanford Universitry CS193p course](https://itunes.apple.com/us/course/developing-ios-8-apps-swift/id961180099) on iTunes U
+	- [Developing iOS 8 Apps with Swift Stanford University CS193p course](https://itunes.apple.com/us/course/developing-ios-8-apps-swift/id961180099) on iTunes U
 	- [Ray Wenderlich](http://www.raywenderlich.com/) - a great iOS-centric tutorials website
 	- [Try iOS](https://www.codeschool.com/courses/try-ios) - Free online iOS course from Codeschool
 	- and always: [Stack Overflow](http://stackoverflow.com/questions/tagged/ios) - best Q&A website for programmers. You can probably find an answer to ALL your how-do-I-do-that iOS questions there.
@@ -40,7 +42,7 @@ focus more specifically on building mobile applications.
 - [Google Play developer account](https://support.google.com/googleplay/android-developer/answer/6112435?hl=en)
 - An Android device running Android v4.0 and up (the Particle device setup process isn't supported via emulators), and a USB cable to connect the device to your computer
 - [Android Studio](https://developer.android.com/sdk/index.html) v1.4 and up
-- Particle Android SDKs: [Cloud SDK](https://docs.particle.io/reference/android/#android-cloud-sdk) and the [Device Setup library](https://docs.particle.io/reference/android/#android-device-setup-library)
+- Particle Android SDKs: [Cloud SDK](/reference/android/#android-cloud-sdk) and the [Device Setup library](/reference/android/#android-device-setup-library)
 - Basic familiarity with Android development using Java and the Gradle build system.  Here are few recommended free resources to get you started:
 	- Official [Google tutorials](https://developer.android.com/training/basics/firstapp/index.html)
 	- [Udemy Learn Android Programming From Scratch](https://www.udemy.com/learn-android-programming-from-scratch-beta/) free online video course
@@ -52,7 +54,9 @@ focus more specifically on building mobile applications.
 ### Two-tier SDK
 
 There are two parts to the Particle Mobile SDK: the Cloud SDK and the Device Setup library.
-In a nutshell, the **Cloud SDK** is a library that enables your mobile app to interact with internet-connected hardware through the Particle Cloud. It serves the same purpose as [ParticleJS](http://docs.particle.io/photon/javascript/) — it’s an easy-to-use wrapper for our REST API, accessible from Objective-C and Swift. The **Device Setup library** allows you to create a setup wizard within your app for connecting your device to the internet with two lines of code.
+In a nutshell, the **Cloud SDK** is a library that enables your mobile
+app to interact with internet-connected hardware through the Particle
+Device Cloud. It serves the same purpose as [ParticleJS](/photon/javascript/) — it’s an easy-to-use wrapper for our REST API, accessible from Objective-C and Swift. The **Device Setup library** allows you to create a setup wizard within your app for connecting your device to the internet with two lines of code.
 
 ### How To Get Started?
 
@@ -60,7 +64,7 @@ Let's go through a basic step by step example on how to integrate and use the mo
 
 #### iOS
 
-Both the Cloud SDK and Device Setup library are available through CocoaPods, the most widely used iOS dependency manager. If you don’t have it, you’ll need to start by installing the Cocoapods `ruby gem`; check out the CocoaPods site for more info.
+Both the Cloud SDK and Device Setup library are available through CocoaPods, the most widely used iOS dependency manager. If you don’t have it, you’ll need to start by installing the CocoaPods `ruby gem`; check out the CocoaPods site for more info.
 
 **Starting from scratch**
 
@@ -70,7 +74,7 @@ then name your app and identifier, choose if you prefer to code in Obj-C or Swif
 
 ![XCode new project](/assets/images/xcode-new-project.png)
 
- Open Finder or Terminal and go to your project folder - create a new plain textfile named `Podfile` in the same directory then install the Device Setup library for iOS (which has the Cloud SDK as a dependency). Simply add the following line to the `Podfile` in your iOS project root folder:
+ Open Finder or Terminal and go to your project folder - create a new plain text file named `Podfile` in the same directory then install the Device Setup library for iOS (which has the Cloud SDK as a dependency). Simply add the following line to the `Podfile` in your iOS project root folder:
 
 `pod "SparkSetup"`
 
@@ -99,9 +103,11 @@ Or the Swift version:
 }
 ```
 
-If you're using Objective-C, don't forget to import the file `SparkSetup.h` in your view controller implementation file. If you're using Swift, be sure to complete all the required steps to integrate the Objective-C Cocoapod libraries in your project, mainly adding bridging header file to the project settings, as described [here](http://swiftalicio.us/2014/11/using-cocoapods-from-swift/). We've included a bridging header file in both the SDKs.
+If you're using Objective-C, don't forget to import the file `SparkSetup.h` in your view controller implementation file. If you're using Swift, be sure to complete all the required steps to integrate the Objective-C CocoaPods libraries in your project, mainly adding bridging header file to the project settings, as described [here](http://swiftalicio.us/2014/11/using-cocoapods-from-swift/). We've included a bridging header file in both the SDKs.
 
-That's it. Build and run your project on a device or a simulator, tap the "Start Setup" button you created and you should see the device setup wizard pop up ready for authenticating with Particle Cloud and then setting up a new Particle Device.
+That's it. Build and run your project on a device or a simulator, tap
+the "Start Setup" button you created and you should see the device setup
+wizard pop up ready for authenticating with Particle Device Cloud and then setting up a new Particle Device.
 Make sure you set up your new Photon, and name the device `myDevice` at the last screen, you'll see why in a moment. If you already setup your device and just need to rename it you can do it from [Particle Build](https://build.particle.io/build) -> Devices. You can also rename the device from the Tinker app.
 
 Now, let's try to list your devices and read a variable from the device you just set up (by using the Cloud SDK). Stop the app and go back to the split view of your view controller and code. Drag another button and name it "Read Variable", Ctrl-Drag it to your code and create another IBAction function. Call the function "readVariableButtonTapped" and fill in its body like so:
@@ -182,32 +188,157 @@ Well Done! You've just created a mobile basic app that can:
 
 If you prefer to have a point of reference you're more than welcome to modify an existing app. Ideas for modifiable apps include:
 
-- [Example app](https://github.com/spark/spark-setup-ios-example)
-- [Particle Tinker open-source app](https://github.com/spark/photon-tinker-ios)
+- [Example app](https://github.com/particle-iot/ios-app-example-pod)
+- [Particle Tinker open-source app](https://github.com/particle-iot/photon-tinker-ios)
 - Other users/3rd party apps, [ideas?](https://www.hackster.io/particle/projects)
 
 There’s also an example app written in Swift that demonstrates the basic usage of invoking the setup wizard, customizing its UI and using the returned SparkDevice class instance once Device Setup wizard completes.
 
 You can find the source code for the Cloud SDK under our GitHub account:
 
-[Repository of iOS Cloud SDK](https://github.com/spark/spark-sdk-ios)
+[Repository of iOS Cloud SDK](https://github.com/particle-iot/spark-sdk-ios)
 
-[Repository of iOS Device Setup library](https://github.com/spark/spark-setup-ios)
+[Repository of iOS Device Setup library](https://github.com/particle-iot/spark-setup-ios)
 
 
 #### Android
 
-The overall process for building an Android app is very similar to that of building an iOS app, but with a native Java experience so Android developers will feel right at home.
-One major difference in the user experience of setting up a Photon from an Android app vs. an iOS app is that on Android an app can control which Wi-Fi network the phone connects to, whereas on iOS the user has to leave the app, go to settings, and change the Wi-Fi network. We’ve made both flows as easy as possible, but it’s definitely smoother on Android since the user doesn’t have to do as much.
+Both the Cloud SDK and Device Setup library are available through JCenter, default repository for Java and Android OSS libraries, packages and components.
+
+**Starting from scratch**
+
+1. Go ahead and create a new project in Android Studio by going to File menu and then:
+New -> New Project ->  Edit application domain and name -> Next -> Set minimum SDK to 15 or higher -> Next -> Empty Activity -> Next -> Finish and project will open up.
+From welcome screen go to "Start a new Android Studio project".
+
+2. In a project tree find and open `build.gradle` file of your application module (likely named 'app'), Android Studio specifies module name for each `build.gradle`. In `build.gradle` under `dependencies` add `compile 'io.particle:cloudsdk:{{sdkversion}}'` and `compile 'io.particle:devicesetup:{{devicesetupversion}}'`, after adding dependencies sync gradle by clicking on "Sync Now".
+![Gradle setup](/assets/images/android_studio_gradle.png)
+
+3. Open layout file of an empty activity you have created during step one. In the layout editor ("design" tab) drag in a button, configure button to have 'text' set to "Start Setup". Or you can modify layout by editing xml file in 'text' tab, end result should look similar to this:
+
+	```xml
+	<?xml version="1.0" encoding="utf-8"?>
+	<android.support.constraint.ConstraintLayout
+	    xmlns:android="http://schemas.android.com/apk/res/android"
+	    xmlns:app="http://schemas.android.com/apk/res-auto"
+	    android:layout_width="match_parent"
+	    android:layout_height="match_parent">
+
+	    <Button
+	        android:id="@+id/button"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:text="Start Setup"/>
+	</android.support.constraint.ConstraintLayout>
+	```
+4. Go to empty activity you have created during step one. Initiate setup library and connect setup button defined in step 3 by adding code below into your `onCreate` method.
+
+```java
+	 @Override
+	 protected void onCreate(Bundle savedInstanceState) {
+			 super.onCreate(savedInstanceState);
+			 setContentView(R.layout.this_activity_layout);
+			 //Initialise setup library
+			 ParticleDeviceSetupLibrary.init(this);
+			 //On "button" click call start Photon setup
+			 findViewById(R.id.button)
+                .setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        ParticleDeviceSetupLibrary
+                                .startDeviceSetup(YourActivityName.this,
+                                        YourActivityName.class);
+                    }
+                });
+	 }
+```
+
+That's it. Build and run your project on a device or emulator, tap the "Start Setup" button you created and you should see the device setup wizard pop up ready for authenticating with Particle Cloud and then setting up a new Particle Device. Make sure you set up your new Photon, and name the device `myDevice` at the last screen, you'll see why in a moment. If you already setup your device and just need to rename it you can do it from Particle Build -> Devices. You can also rename the device from the Tinker app.
+Now, let's try to list your devices and read a variable from the device you just set up (by using the Cloud SDK). Stop the app and go back to layout editor of your Activity. Drag another button and name it "Read Variable", or modify xml by adding new button below our previous one:
+
+```xml
+<Button
+		android:id="@+id/button2"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:text="Read Variable"
+		app:layout_constraintTop_toBottomOf="@+id/button"/>
+```
+
+Now in Activity `onCreate` add click listener for new button:
+
+```java
+findViewById(R.id.button2).setOnClickListener(new View.OnClickListener() {
+	@Override
+	public void onClick(View view) {
+		//1
+		Async.executeAsync(ParticleCloudSDK.getCloud(),
+			new Async.ApiProcedure<ParticleCloud>() {
+				@Override
+				public Void callApi(ParticleCloud particleCloud)
+				throws ParticleCloudException, IOException {
+					//2
+					List<ParticleDevice> devices = particleCloud.getDevices();
+					//3
+					for (ParticleDevice particleDevice : devices) {
+						if ("myDevice".equals(particleDevice.getName())) {
+							try {
+								//4
+								int result = particleDevice
+									.callFunction("digitalwrite",
+									Arrays.asList("D7", "HIGH"));
+								//5
+								if (result == 1) {
+									Toast.makeText(YourActivityName.this,
+										"Called a function on myDevice",
+										Toast.LENGTH_SHORT).show();
+								}
+							} catch (ParticleDevice
+								.FunctionDoesNotExistException e) {
+								//e.printStackTrace() to see whole stack trace
+							}
+						}
+					}
+					return null;
+				}
+
+				@Override
+				public void onFailure(ParticleCloudException exception) {
+					//e.printStackTrace() to see whole stack trace
+				}
+			});
+	}
+});
+```
+**Step by step explanation**
+See `// 1,2,3..` comments in code and follow:
+
+1. First we define special class from Particle to run code in different thread (Android does not permit running code on main thread if there is a connection to network)
+2. Here we are calling the ParticleCloud to get a list of all the device the user owns (the device you just set up should appear here)
+3. Then lets iterate on the returned array searching for a `ParticleDevice` with a `name` field which is `myDevice` (as we set it up)
+4. Once its found, call the function `digitalwrite` on `myDevice` device with two arguments, which mean `D7=HIGH` which should cause the onboard LED (connected to pin D7) to light up
+5. And if there wasn't any error calling this function on the device (default Tinker firmware exposes this function always) then print to console that call was successful
+
+Go ahead and run the app, see everything works alright.
+Well Done! You've just created a mobile basic app that can:
+1. Set up a Particle device interactively
+2. List the devices on the user's account
+3. Call a function on a device and report to the user
+
+**Modifying existing app**
+
+If you prefer to have a point of reference you're more than welcome to modify an existing app. Ideas for modifiable apps include:
+
+- [Particle Tinker open-source app](https://github.com/particle-iot/photon-tinker-android)
+- Other users/3rd party apps, [ideas?](https://www.hackster.io/particle/projects)
 
 The Cloud SDK and Device Setup library for Android are available on our GitHub and through [JCenter](https://bintray.com/bintray/jcenter) as Apache Maven packages for easy integration as dependencies in an Android Studio project.
 
-The guide for how to create an Android app for Particle devices in Android studio is coming soon.
-Meanwhile you can find the source code for the Android Cloud SDK and Device Setup under our GitHub account:
+You can find the source code for the Cloud SDK under our GitHub account:
 
-[Repository of Android Cloud SDK](https://github.com/spark/spark-sdk-android)
+[Repository of Android Cloud SDK](https://github.com/particle-iot/spark-sdk-android)
 
-[Repository of Android Device Setup library](https://github.com/spark/spark-setup-android)
+[Repository of Android Device Setup library](https://github.com/particle-iot/spark-setup-android)
 
 #### What's next?
 

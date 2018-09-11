@@ -46,7 +46,7 @@ Lo Smart Config con l'applicazione Texas Instruments CC3000 è simile al process
 
 Seguite le istruzioni sul sito di Texas Instrument:
 
-[CC3000 Smart Config @ Texas Instruments](http://processors.wiki.ti.com/index.php/CC3000_Smart_Config)
+CC3000 Smart Config @ Texas Instruments
 
 L'unica cosa che è differente è che dovrete attivare la chiave AES opzionale e immettere `sparkdevices2013`.
 

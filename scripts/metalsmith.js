@@ -1,8 +1,18 @@
+/*
+ * Generate the documentation website using the Metalsmith generator.
+ *
+ * Metalsmith reads all files in the source directory and passes an object of files through a set of plugins.
+ * Each key in the files object is a path and the value is an object with many properties.
+ * The contents properties has the contents of the file as a Buffer.
+ * The frontmatter (stuff between --- at the top of the file) is added as additional properties.
+ * When all the plugins are done running, the files object is written to the destination directory.
+ * That's it!
+ */
 'use strict';
 
 var Metalsmith = require('metalsmith');
 var markdown = require('metalsmith-markdown');
-var templates = require('metalsmith-templates');
+var layouts = require('metalsmith-layouts');
 var serve = require('metalsmith-serve');
 var moveUp = require('metalsmith-move-up');
 var less = require('metalsmith-less');
@@ -14,9 +24,11 @@ var compress = require('metalsmith-gzip');
 var paths = require('metalsmith-paths');
 var partials = require('metalsmith-register-partials');
 var helpers = require('metalsmith-register-helpers');
-var redirect = require('metalsmith-redirect');
+var deviceFeatureFlags = require('./device_feature_flags');
+var redirects = require('./redirects');
 var copy = require('metalsmith-copy');
 var fork = require('./fork');
+var fixLinks = require('./fixLinks');
 var inPlace = require('metalsmith-in-place');
 var watch = require('metalsmith-watch');
 var autotoc = require('metalsmith-autotoc');
@@ -26,7 +38,10 @@ var fileMetadata = require('metalsmith-filemetadata');
 var msIf = require('metalsmith-if');
 var precompile = require('./precompile');
 var apidoc = require('./apidoc');
+var insertFragment = require('./insert_fragment');
+var javascriptDocsPreprocess = require('./javascript_docs_preprocess');
 var git = require('git-rev');
+var path = require('path');
 
 var handlebars = require('handlebars');
 var prettify = require('prettify');
@@ -42,6 +57,11 @@ var environment;
 
 var gitBranch;
 
+var generateSearch = process.env.SEARCH_INDEX !== '0';
+
+// Make Particle.function searchable with function only
+lunr_.tokenizer.separator = /[\s\-.]+/;
+
 exports.metalsmith = function() {
   function removeEmptyTokens(token) {
     if (token.length > 0) {
@@ -52,40 +72,65 @@ exports.metalsmith = function() {
     .concurrency(100)
     .source('../src')
     .destination('../build')
+    // Convert assets/less/style.less to assets/css/style.css
+    // Put new styles in a .less file in assets/less and include it in style.less
     .use(less({
       pattern: '**/less/style.less',
       useDynamicSourceMap: true
     }))
+    // Don't copy the styless partials to the build folder
+    // Add other patterns of files that should not be copied
     .use(ignore([
       '**/less/*.less',
       'content/languages/**/*',
-      'assets/images/**/*.ai',
-      'content/reference/api_old.md'
+      'assets/images/**/*.ai'
     ]))
+    // Minify CSS
     .use(cleanCSS({
       files: '**/*.css'
     }))
-    .use(msIf(
-      (!process.env.TRAVIS_PULL_REQUEST || process.env.TRAVIS_PULL_REQUEST === 'false'),
+    // Auto-generate documentation from the API using comments formatted in the apidoc format
+    .use(
       apidoc({
-        src: '../api-node/',
-        config: '../api-node/',
         destFile: 'content/reference/api.md',
-        includeFilters: ['.*[vV]iews[^.]*\\.js$', 'lib/AccessTokenController.js']
+        apis: [
+          {
+            src: '../api-service/',
+            config: '../api-service/',
+            includeFilters: ['.*[vV]iews[^.]*\\.js$', 'lib/AccessTokenController.js']
+          },
+          {
+            src: '../api-service-libraries/',
+            config: '../api-service/',
+            includeFilters: ['.*Controller\\.js$']
+          },
+        ]
       })
-    ))
+    )
+    // Auto-generate documentation for the Javascript client library
+    .use(insertFragment({
+      destFile: 'content/reference/javascript.md',
+      srcFile: '../particle-api-js/docs/api.md',
+      fragment: 'GENERATED_JAVASCRIPT_DOCS',
+      preprocess: javascriptDocsPreprocess,
+    }))
+    // Make all files in this directory available to any Handlebar template
+    // Use partials like this: {{> arrows}}
     .use(partials({
       directory: '../templates/partials'
     }))
+    // Add properties to files that match the pattern
     .use(fileMetadata([
-      {pattern: 'content/**/*.md', metadata: {'lunr': true, 'assets': '/assets', 'branch': gitBranch}}
+      {pattern: 'content/**/*.md', metadata: {lunr: generateSearch, assets: '/assets', branch: gitBranch}}
     ]))
     .use(msIf(
       environment === 'development',
       fileMetadata([
-        {pattern: 'content/**/*.md', metadata: {'development': true}}
+        {pattern: 'content/**/*.md', metadata: {development: true}},
+        {pattern: '**/*.hbs', metadata: {development: true}}
       ])
     ))
+    // Handlebar templates for use in the front-end JS code
     .use(precompile({
       directory: '../templates/precompile',
       dest: 'assets/js/precompiled.js',
@@ -94,11 +139,19 @@ exports.metalsmith = function() {
         'if': true
       }
     }))
+    // Move files like contents/reference/firmware.md to reference/firmware.md
     .use(moveUp(['content/**/*']))
+    // Add a path key to each file, with sub-keys base, dir, ext, name
     .use(paths())
+    // Handlebar helpers to use in any Handlebar template
+    // Use helpers like this: {{ reset-button }}
+    // Note that the last parameter to the helper will be a context object with the file metadata in context.data.root
     .use(helpers({
       directory: '../templates/helpers'
     }))
+    // Group files into collections and add collection metadata
+    // This plugin is complex and buggy.
+    // It causes the duplicate nav bar bug during development with livereload
     .use(collections({
       guide: {
         pattern: 'guide/:section/*.md',
@@ -111,20 +164,42 @@ exports.metalsmith = function() {
       },
       reference: {
         pattern: 'reference/*md',
-        sortBy: 'order'
+        sortBy: 'order',
+        orderDynamicCollections: [
+          'apis',
+          'sdks',
+          'dev-tools'
+        ]
       },
-			tutorials: {
-				pattern: 'tutorials/:section/*.md',
-				sortBy: 'order',
-				orderDynamicCollections: [
-					'topics',
-					'projects',
-					'curriculum'
-				]
-			},
+      tutorials: {
+        pattern: 'tutorials/:section/*.md',
+        sortBy: 'order',
+        orderDynamicCollections: [
+          'integrations',
+          'dev-tools',
+          'projects'
+        ]
+      },
+      faq: {
+        pattern: 'faq/:section/*.md',
+        sortBy: 'order',
+        orderDynamicCollections: [
+          'particle-devices',
+          'particle-tools',
+          'pricing',
+          'wholesale',
+          'discontinued-products'
+        ]
+      },
       datasheet: {
-        pattern: 'datasheets/*.md',
-        sortBy: 'order'
+        pattern: 'datasheets/:section/*.md',
+        sortBy: 'order',
+        orderDynamicCollections: [
+          'photon-(wifi)',
+          'electron-(cellular)',
+          'kits-and-accessories',
+          'discontinued-products'
+        ]
       },
       support: {
         pattern: 'support/:section/*.md',
@@ -136,122 +211,69 @@ exports.metalsmith = function() {
         ]
       }
     }))//end of collections/sections
+    // Duplicate files that have the devices frontmatter set and make one copy for each device
+    // The original file will be replaced by a redirect link
     .use(fork({
       key: 'devices',
-      redirectTemplate: './templates/redirector.jade'
+      redirectTemplate: '../templates/redirector.html.hbs'
     }))
-    .use(inPlace({
-      engine: 'jade',
-      pattern: '**/*.jade'
+		// Fix previous / next links when a page doesn't exist for a specific device
+    .use(fixLinks({
+      key: 'devices'
     }))
-    .use(copy({
-      pattern: '**/*.jade',
-      extension: '.html',
-      move: true
+    // For files that have the devices key set, add a bunch of properties like has-wifi, has-cellular
+    // Use them in Handlebar templates like this:
+    // {{#if has-wifi}}Connect to Wi-Fi{{/if}}
+    .use(deviceFeatureFlags({
+      config: '../config/device_features.json'
     }))
+	// Create HTML pages with meta http-equiv='refresh' redirects
+    .use(redirects({
+        config: '../config/redirects.json'
+    }))
+    // Replace the {{handlebar}} markers inside Markdown files before they are rendered into HTML and
+    // any other files with a .hbs extension in the src folder
     .use(inPlace({
       engine: 'handlebars',
-      pattern: '**/*.md'
+      pattern: ['**/*.md', '**/*.hbs']
     }))
+	// Remove the .hbs extension from generated files that contained handlebar markers
+    .use(copy({
+        pattern: '**/*.hbs',
+        transform: function removeLastExtension(file) {
+			return path.join(path.dirname(file), path.basename(file, path.extname(file)));
+		},
+        move: true
+    }))
+	// THIS IS IT!
+	// Render the main docs files into HTML
     .use(markdown())
+    // Add a toc key for each file based on the HTML header elements in the file
     .use(autotoc({
       selector: 'h2, h3',
       pattern: '**/**/*.md'
     }))
+    // Generate Lunr search index for all the files that have lunr: true
+    // This is slow. Use SEARCH_INDEX=0 in development to avoid creating this file
     .use(lunr({
       indexPath: 'search-index.json',
       fields: {
-        contents: 1,
-        title: 10
+          contents: 1,
+          title: 10
       },
       pipelineFunctions: [
-        removeEmptyTokens
+          removeEmptyTokens
       ]
     }))
-    .use(templates({
+    // For files that have a template frontmatter key, look for that template file in the configured directory and
+    // render that template using the Metalsmith file with all its keys as context
+    .use(layouts({
       engine: 'handlebars',
-      directory: '../templates'
+      directory: '../templates/layouts'
     }))
+    // Rename files so that about.html is converted into about/index.html
     .use(permalinks({
       relative: false
-    }))
-    .use(redirect({
-      '/guide': '/guide/getting-started/intro',
-      '/guide/photon/': '/guide/photon/start',
-      '/guide/core/': '/guide/core/start',
-      '/reference': '/reference/firmware',
-      '/datasheets': '/datasheets/kits/',
-      '/datasheets/photon-shields': '/datasheets/particle-shields',
-      '/guide/getting-started': '/guide/getting-started/intro',
-      '/guide/how-to-build-a-product': '/guide/how-to-build-a-product/intro/',
-      '/guide/tools-and-features': '/guide/tools-and-features/intro',
-      '/support': '/support/support-and-fulfillment/menu-base',
-      '/photon' : '/',
-      '/photon/start' : '/guide/getting-started/start',
-      '/photon/connect' : '/guide/getting-started/connect',
-      '/photon/modes' : '/guide/getting-started/modes',
-      '/photon/tinker' : '/guide/getting-started/tinker',
-      '/photon/examples' : '/guide/getting-started/examples',
-      '/photon/dev' : '/guide/tools-and-features/dev',
-      '/photon/dashboard' : '/guide/tools-and-features/console',
-      '/photon/firmware' : '/reference/firmware',
-      '/photon/api' : '/reference/api',
-      '/photon/javascript' : '/reference/javascript',
-      '/photon/ios' : '/reference/ios',
-      '/photon/photon-datasheet' : '/datasheets/photon-datasheet',
-      '/photon/p1-datasheet' : '/datasheets/p1-datasheet',
-      '/photon/shields' : '/datasheets/particle-shields',
-      '/photon/cli' : '/reference/cli',
-      '/photon/ifttt' : '/guide/tools-and-features/ifttt',
-      '/photon/webhooks' : '/guide/tools-and-features/webhooks',
-      '/photon/hackathon' : '/guide/tools-and-features/hackathon',
-      '/core' : '/guide/getting-started/intro/core',
-      '/core/start' : '/guide/getting-started/start/core',
-      '/core/connect' : '/guide/getting-started/connect/core',
-      '/core/modes' : '/guide/getting-started/modes/core',
-      '/core/tinker' : '/guide/getting-started/tinker/core',
-      '/core/examples' : '/guide/getting-started/examples/core',
-      '/core/dev' : '/guide/tools-and-features/dev/core',
-      '/core/dashboard' : '/guide/tools-and-features/console/core',
-      '/core/firmware' : '/reference/firmware',
-      '/core/api' : '/reference/api',
-      '/core/javascript' : '/reference/javascript',
-      '/core/ios' : '/reference/ios',
-      '/core/hardware' : '/datasheets/core-datasheet',
-      '/core/shields' : '/datasheets/core-shields',
-      '/core/cli' : '/reference/cli',
-      '/core/ifttt' : '/guide/tools-and-features/ifttt/core',
-      '/core/webhooks' : '/guide/tools-and-features/webhooks/core',
-      '/core/hackathon' : '/guide/getting-started/hackathon/core',
-      '/electron' : '/guide/getting-started/intro/electron',
-      '/firmware' : '/reference/firmware',
-      '/api' : '/reference/api',
-      '/javascript' : '/reference/javascript',
-      '/ios' : '/reference/ios',
-      '/mobile' : '/reference/ios',
-      '/connect' : '/guide/getting-started/connect',
-      '/modes' : '/guide/getting-started/modes',
-      '/tinker' : '/guide/getting-started/tinker',
-      '/build' : '/guide/getting-started/build',
-      '/examples' : '/guide/getting-started/examples',
-      '/dev' : '/guide/tools-and-features/dev',
-      '/dashboard' : '/guide/tools-and-features/console',
-      '/cli' : '/guide/tools-and-features/cli',
-      '/monitor' : '/guide/tools-and-features/monitor',
-      '/ifttt' : '/guide/tools-and-features/ifttt',
-      '/webhooks' : '/guide/tools-and-features/webhooks',
-      '/hackathon' : '/guide/getting-started/hackathon',
-      '/photon-datasheet' : '/datasheets/photon-datasheet',
-      '/p1-datasheet' : '/datasheets/p1-datasheet',
-      '/hardware' : '/datasheets/core-datasheet',
-      '/photon-shields' : '/datasheets/particle-shields',
-      '/shields' : '/datasheets/kits/',
-      '/photon/hardware' : '/datasheets/photon-datasheet',
-      '/troubleshooting' : '/support/troubleshooting/common-issues',
-      '/help' : '/support/troubleshooting/common-issues',
-      '/faq' : '/support/support-and-fulfillment/faq',
-      '/tutorials': '/tutorials/topics/maker-kit',
-      '/guide/how-to-build-a-product/dashboard': '/guide/tools-and-features/console'
     }));
 
   return metalsmith;
@@ -290,9 +312,10 @@ exports.build = function(callback) {
 };
 
 exports.test = function(callback) {
-  var server = serve({ cache: 300 });
+  var server = serve({ cache: 300, port: 8081 });
   git.branch(function (str) {
     gitBranch = process.env.TRAVIS_BRANCH || str;
+    generateSearch = true;
     exports.metalsmith()
       .use(server)
       .build(function(err, files) {
@@ -311,17 +334,22 @@ exports.server = function(callback) {
   environment = 'development';
   git.branch(function (str) {
     gitBranch = process.env.TRAVIS_BRANCH || str;
-    exports.metalsmith().use(serve())
+    exports.metalsmith().use(serve({ port: 8080 }))
       .use(watch({
         paths: {
           '${source}/content/**/*.md': true,
           '${source}/assets/less/*.less': 'assets/less/*.less',
-          '../templates/reference.hbs': 'content/reference/*.md',
-          '../templates/guide.hbs': 'content/guide/**/*.md',
-          '../templates/datasheet.hbs': 'content/datasheets/*.md',
-          '../templates/support.hbs': 'content/support/**/*.md',
-          '../templates/suppMenu.hbs': 'content/support/**/*.md',
-          '${source}/assets/js/*.js' : true
+          '../templates/layouts/reference.hbs': 'content/reference/*.md',
+          '../templates/layouts/guide.hbs': 'content/guide/**/*.md',
+          '../templates/layouts/datasheet.hbs': 'content/datasheets/*.md',
+          '../templates/layouts/support.hbs': 'content/support/**/*.md',
+          '../templates/layouts/suppMenu.hbs': 'content/support/**/*.md',
+          '../templates/partials/**/*.hbs': 'content/**/*.md',
+          '${source}/assets/js/*.js*' : true,
+          '${source}/assets/images/**/*' : true,
+          '../config/device_features.json': 'content/**/*.md',
+          '../api-service/lib/**/*.js': 'content/reference/api.md',
+          '../config/redirects.json': '**/*'
         },
         livereload: true
       }))

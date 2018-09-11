@@ -1,17 +1,23 @@
 ---
 title: Cloud API
-template: api.hbs
+layout: api.hbs
 columns: three
 order: 2
 ---
 
-# Particle Cloud API
+{{!--
+  The Cloud API documentation is auto-generated from an internal repository.
+  To make a change, please open a GitHub issue with your change and
+  someone from Particle will be happy to merge it in for you!
+--}}
 
-The Particle Cloud API is a [REST](http://en.wikipedia.org/wiki/Representational_State_Transfer) API.
+# Particle Device Cloud API
+
+The Particle Device Cloud API is a [REST](http://en.wikipedia.org/wiki/Representational_State_Transfer) API.
 REST means a lot of things, but first and foremost it means that we use the URL in the way that it's intended:
 as a "Uniform Resource Locator".
 
-In this case, the unique "resource" in question is your device (Spark Core, Photon, Electron).
+In this case, the unique "resource" in question is your device (Core, Photon, Electron).
 Every device has a URL, which can be used to `GET` variables, `POST` a function call, or `PUT` new firmware.
 The variables and functions that you have written in your firmware are exposed as *subresources* under the device.
 
@@ -26,10 +32,35 @@ PROTOCOL AND HOST
 For example when you see something like `/v1/devices/:deviceId`
 you might code something like `/v1/devices/55ff8800beefcafe12345678`.
 
+![Product ID or slug](/assets/images/productIdOrSlug.png)
+
+For product endpoints, you need to specify which product the API call targets. You can use either the product ID or the short alphanumerical product slug. Get either from the Console. In this example, the product ID is 1337 and the product slug is `my-product-v1`.
+
+## Format
+
+The Particle API accepts requests in [JSON](https://www.w3schools.com/js/js_json_intro.asp) (content type `application/json`) and in [form encoded format](https://en.wikipedia.org/wiki/POST_(HTTP%29) (content type `application/x-www-form-urlencoded`). It always replies with JSON (content type `application/json`).
+
+```bash
+# Example with form encoded format
+curl https://api.particle.io/v1/devices/mydevice/wakeup \
+     -d arg=please \
+     -d access_token=1234
+
+# Same example with JSON
+curl "https://api.particle.io/v1/devices/mydevice/wakeup?access_token=1234" \
+     -H "Content-Type: application/json" \
+     -d "{\"arg\": \"please\"}"
+```
+
+In these docs, you'll see example calls written using a terminal program called [curl](https://curl.haxx.se/) which may already be available on your machine.
+
+The example use form encoded data to make them easier to read and type but unless specified otherwise any endpoint can also accept a JSON object with the parameters as properties.
+
+
 ## Authentication
 
 Just because you've connected your Particle device to the internet doesn't mean anyone else should have access to it.
-Permissions for controlling and communciating with your Particle device are managed with OAuth2.
+Permissions for controlling and communicating with your Particle device are managed with OAuth2.
 
 ```bash
 # You type in your terminal
@@ -67,13 +98,7 @@ There are three ways to send your access token in a request.
 
 * In an HTTP Authorization header (always works)
 * In the URL query string (only works with GET requests)
-* In the request body (only works for POST & PUT when body is URL-encoded)
-
-In these docs, you'll see example calls written using a terminal program called
-[curl](https://curl.haxx.se/)
-which may already be available on your machine.
-
-Example commands will always start with `curl`.
+* In the request body (only works for POST, PUT and DELETE when body is form encoded)
 
 ---
 
@@ -82,7 +107,7 @@ The access token is called a "Bearer" token and goes in the standard
 HTTP `Authorization` header.
 
 ``` bash
-curl -H "Authorization: Bearer 38bb7b318cc6898c80317decb34525844bc9db55"
+curl -H "Authorization: Bearer 38bb7b318cc6898c80317decb34525844bc9db55" \
   https://...
 ```
 
@@ -90,10 +115,11 @@ curl -H "Authorization: Bearer 38bb7b318cc6898c80317decb34525844bc9db55"
 
 The query string is the part of the URL after a `?` question mark.
 To send the access token in the query string just add `access_token=38bb...`.
-Because your terminal thinks the question mark is special, we escape it with a backslash.
+Because your terminal may think the question mark is special, enclose
+the entire URL in double quotes.
 
 ``` bash
-curl https://api.particle.io/v1/devices\?access_token=38bb7b318cc6898c80317decb34525844bc9db55
+curl "https://api.particle.io/v1/devices?access_token=38bb7b318cc6898c80317decb34525844bc9db55"
 ```
 
 ---
@@ -105,9 +131,10 @@ If you need a different request type, you have to specifically say so with the `
 for example `-X PUT`.
 
 ``` bash
-curl -d access_token=38bb7b318cc6898c80317decb34525844bc9db55
+curl -d access_token=38bb7b318cc6898c80317decb34525844bc9db55 \
   https://...
 ```
+
 
 {{> api group=apiGroups.Authentication}}
 
@@ -123,7 +150,7 @@ Some requests, like generating an access token, require you to specify an OAuth
 client ID and secret using HTTP Basic authentication. Normally, when calling the
 Particle API as a single developer user to access your own account, you can use
 `particle` for both the client ID and secret as in the example above for
-[generating an access token](#generate-an-access-token).
+generating an access token.
 
 ```bash
 curl -u particle:particle https://...
@@ -135,7 +162,7 @@ create your own client.
 
 *NEVER expose the client secret to a browser.*
 If, for example, you have a client that controls all your organization's
-products, and you use the client secret in front-end javascript, then a
+products, and you use the client secret in front-end JavaScript, then a
 tech-savvy customer using your website can read the secret in her developer
 console and hack all your customers' devices.
 
@@ -143,7 +170,7 @@ console and hack all your customers' devices.
 
 ## Errors
 
-The Particle Cloud uses traditional HTTP response codes to provide feedback from the device regarding the validity
+The Particle Device Cloud uses traditional HTTP response codes to provide feedback from the device regarding the validity
 of the request and its success or failure. As with other HTTP resources, response codes in the 200 range
 indicate success; codes in the 400 range indicate failure due to the information provided;
 codes in the 500 range indicate failure within Particle's server infrastructure.
@@ -161,12 +188,33 @@ codes in the 500 range indicate failure within Particle's server infrastructure.
 
 408 Timed Out - The cloud experienced a significant delay when trying to reach the device.
 
+429 Too Many Requests - You are either making requests too often or too many at the same time. Please slow down.
+
 500 Server errors - Fail whale. Something's wrong on our end.
 ```
 
+## API rate limits
+
+There is an API rate limit of approximately 10 calls per second to api.particle.io from each public IP address. This limit is the total number of requests from a public IP address and does not depend on the access token or API endpoint used.
+
+#### Beware of monitoring variables for change
+
+One situation that can cause problems is continuously monitoring variables for change. If you're polling every few seconds it's not a problem for a single device and variable. But if you are trying to monitor many devices, or have a classroom of students each polling their own device, you can easily exceed the API rate limit.
+
+Having the device call [Particle.publish](https://docs.particle.io/reference/firmware/#particle-publish-) when the value changes may be more efficient.
+
+#### Make sure you handle error conditions properly
+
+If you get a 401 (Unauthorized), your access token has probably expired so retransmitting the request won't help.
+
+If you get a 429 (Too many requests) you've already hit the limit, so making another request immediately will not help.
+
+In response to most error conditions you may want to consider a delay before retrying the request.
+
 ## Versioning
 
-The API endpoints all start with `/v1` to represent the first official version of the Particle Cloud API.
+The API endpoints all start with `/v1` to represent the first official
+version of the Particle Device Cloud API.
 The existing API is stable, and we may add new endpoints with the `/v1` prefix.
 
 If in the future we make backwards-incompatible changes to the API, the new endpoints will start with
@@ -175,10 +223,18 @@ we'll give you lots of notice and a clear upgrade path.
 
 ## Devices
 {{> api group=apiGroups.Devices}}
+## Remote Diagnostics
+{{> api group=apiGroups.Diagnostics}}
+## User
+{{> api group=apiGroups.User}}
+## Quarantine
+{{> api group=apiGroups.Quarantine}}
+## SIM Cards
+{{> api group=apiGroups.Sims}}
 ## Events
 {{> api group=apiGroups.Events}}
-## Webhooks
-{{> api group=apiGroups.Webhooks}}
+## Integrations [Webhooks]
+{{> api group=apiGroups.Integrations}}
 ## Special Events
 
 If you watch your event stream, you may notice your devices publishing events that don't appear in your firmware.  The
@@ -198,8 +254,12 @@ When your device starts ("online") or stops ("offline") a session with the cloud
 {"name":"spark/status","data":"offline","ttl":"60","published_at":"2015-01-01T14:31:49.787Z","coreid":"0123456789abcdef01234567"}
 ```
 
+For cellular devices (Electron, E Series), online events occur only on a full handshake with the cloud. Sleeping for short periods of time (under 23 minutes) will not cause an online event. Offline events are never generated for cellular devices.
+
+For Wi-Fi devices (Photon, P1, Core), online events occur on every connection to the cloud and after any length of sleep. If you abruptly power off the device and offline event may take some time to occur.
+
 If your device is a packaged product, you may see an "auto-update" event from time to time.  This is the cloud 
-signalling that a new version of firmware is available for your product from your manufacturer, and an update is 
+signaling that a new version of firmware is available for your product from your manufacturer, and an update is 
 about to be delivered over the air.
 
 ```
@@ -210,7 +270,8 @@ about to be delivered over the air.
     
 #### Safe-Mode
 
-If your device is running an app that needs a particular version of system firmware, your device may come online and
+If your device is running an app that needs a particular version of
+Device OS, your device may come online and
 report that it's in Safe Mode.  In this case, your device is waiting to run your app until it has received an update.
 Some products can receive system updates automatically while in safe mode, but others like the Electron prevent this to
 save you costs on bandwidth.  If you do get an automatic update, you may see a "spark/safe-mode-updater/updating" event.
@@ -228,7 +289,7 @@ save you costs on bandwidth.  If you do get an automatic update, you may see a "
 #### Flashing
 
 As updates are being delivered via the cloud to your device, you may see some events published by the cloud to help
-you monitor the update.  These may include an optional filename after the status type if available.
+you monitor the update.  These may include an optional file name after the status type if available.
 
 
 ```
@@ -292,7 +353,6 @@ has sent a request to your server.
 
 ```
 
-
 If the hook got an error back from your server, it'll publish a hook-error event with the contents of the error. See
 
 ```
@@ -303,20 +363,39 @@ If the hook got an error back from your server, it'll publish a hook-error event
 ```
 
 If the hook got a good response back, it'll break the response into 512 byte chunks and publish up to the first 100KB
-of the response back to your devices. 
+of the response back to your devices.
 
 ```
 # hook-response
 {"name":"hook-response/your_published_event_topic/0","data":"your server response...","ttl":"60","published_at":"2016-02-09T15:23:23.047Z","coreid":"particle-internal"}
 ```
 
+These special webhook events cannot trigger webhooks themselves to avoid the possibility of a bad webhook recursively triggering other webhooks. Use the [Console event logs](https://console.particle.io/logs) or open an [event stream](/reference/api/#get-a-stream-of-events) to see these events.
 
 ### Special IFTTT Events
 
 
 ## Firmware
 {{> api group=apiGroups.Firmware}}
+## Product Firmware
+{{> api group=apiGroups.ProductFirmware}}
+
+
+## Libraries
+The libraries endpoints are a little different as they follow the [JSON API](http://jsonapi.org/) specification.
+
+{{> api group=apiGroups.Libraries}}
 ## Products
 {{> api group=apiGroups.Products}}
+
+## Device Groups
+
+Device groups allow you to define subsets of your IoT deployment that
+can be addressed separately from the rest of the fleet. Groups are
+defined within the scope of a [product](#products). For more information,
+please see [the guide](/guide/how-to-build-a-product/device-groups/).
+
+{{> api group=apiGroups.Groups}}
+
 ## Customers
 {{> api group=apiGroups.Customers}}

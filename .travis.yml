@@ -1,18 +1,16 @@
-language: node_js
-sudo: required
-node_js:
-- '0.12'
 git:
-  submodules: false
-  depth: 2
+  depth: 3
+language: node_js
+sudo: false
+node_js:
+- 6
 cache:
   directories:
   - node_modules
 before_install:
 - echo -e "machine github.com\n  login $CI_USER_TOKEN" >> ~/.netrc
-- ./scripts/before_install.sh
+- "./scripts/update-api.sh"
 install:
-- npm install -g npm
 - npm install
 - npm prune
 script:
@@ -20,7 +18,7 @@ script:
 notifications:
   slack:
     rooms:
-    - s:1SUvEfTWrI5cPwufwTAkxFas#documentation
+      secure: JbnLkSvJkKCpHNE+eZWsaLA7ZCrJxdrHxpCdU+OeyN2DxpQp2oIRdMn1LabfVyes5UDInw9aiuBi9JPfPtJdsz5K3XkvD3lgdebRRH7HE6Zp7fI+e/oL2zbCwd3dA5pY6BuFG7QJkxrhhiSsuaRziJogdnHR1+37qsxdgkdCtm9MvA3VBCKH55oIjzd5KLh9nhplX5dRt1fn/n3UGQw8SaoXq6a7ArnGx3PxJp7O+UbCxudM/l0XVe6cwAgz2o5+Au12zZ8w3oozJuSozO+PNUQsLmXPyBTLe+V82lbQW56c+YxQQ3IzOkYRHDG2ggsjUcs9LGi/11U/i9plKnIGHiDHjARVJiNa76q9qiVjhTw29Sd+6vnJCGTEeH/zUJoQJKM1FF0Ip5fNExVMCowHAEy0xrwRiW4IZzGupATYel1frJGj0QUAZeYeNOnfbGwn9mHJAfQ4TQ2gD9sm1RLzKuXndPOh9tc9dC/gkdGpt1B7+VjbsQZjwrNkTKoAyieb0I+dVM9QYPkn/yyxVmt2GwAcHvhXcVIcZhpsY2TFcr28/owy8rGzBRZfBOFZwbFlpyHIrnJyO/bZ/NEqiiInf3NmZbbgT4qH4CYS22+lOpsm0jNg2gPJ5nTL3uiJ6oeTyO92Mhh5nutBiTr3JcX0OH6hv/AwqZt87LvP1f1MEZQ=
 env:
   global:
   - secure: IG50gM5ll3BpqYuCSOV+EztEeXpCURnyJ3fcXoi/eGD9gcvR3T5BLRBRSQb1t53/E+WdvqRbBDn4W+vEAtaquYRywtm6XAEH7++phwjS3dRdSFsnB62x9Bfn98+/TDjOxDrEGI/pwoNjOBmjfGQh0uBXGWqUOdnYQ2vYrklcQwS5ihC+AoK37YXy6hRfg7Jn2LnmBi72CMmcmt9he2Rr0v5lq/bwCaUCIzzpWeZZYcHCyMA7ylZUtI+a991Wn7QMgn0p7V/kbQ5Nbc/qNEjsPSqhxUdb0d0vxSycxTUvciZJddJhLcvVPeNP46+xS/1q7ZC0ipfw8NbL5RfsYBxzRPDdp+MtJTZy4sY7d+v8Dxc9U/BQtRS7pvH+NF8l0940ThiDBrWjZwtOkrrmaCDEVPcagosJsUcdnLnwMp2FdVxKOt/lDFRvOzTPqFSRP/3RmWaIbR5qZMuOd7BIKAr2h/htmf+R1J07ZIJSW96pVXvayxQMCWaYKmwDzKDyJeAYq1A+SEkuuFfO4chFGdVrdQDLPEkczpuCX1Jgrh3PPj0yVRy/v4MzDxdiZI1PH6W12xomVAkFA7tXgvne6+hZ1s7dEgTrh6hdYD5gizXTFPTbmlWf16OFGKUtcAhPDG2tB3pSy2/j1V+gAdUb23iPaJx3bDkF2sACD1SrTaj2bYE=

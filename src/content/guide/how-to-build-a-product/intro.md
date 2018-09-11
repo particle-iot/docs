@@ -1,7 +1,7 @@
 ---
 title: Introduction
 columns: two
-template: guide.hbs
+layout: guide.hbs
 order: 1
 ---
 
@@ -19,7 +19,7 @@ Sort of. We're a software company that serves hardware companies. In order to mo
 
 Before you start to follow this guide, you should already have:
 
-- A functional prototype running on a Core, Photon, P0, P1, or Electron
+- A functional prototype running on a Core, Photon, PØ, P1, or Electron
 - A working knowledge of Particle's development tools and cloud platform
 - Created a [Product in the Console](/guide/tools-and-features/console)
 

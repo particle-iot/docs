@@ -1,4 +1,4 @@
 ---
 title: Get started with Particle
-template: start.hbs
+layout: start.hbs
 ---

@@ -1,8 +1,8 @@
 ---
 title: Electron Product Changelog
-template: reference.hbs
+layout: reference.hbs
 columns: two
-order: 9
+order: 11
 ---
 
 # Electron Changelog
@@ -54,7 +54,7 @@ Additionally, we’ve added two new sets of GPIO pins (B0-B5, C0-C5) as well as 
 
 ### Power Management
 
-Cellular communication requires a different current consumption profile than Wi-Fi communication, so we’ve included an attachable Li-Po battery (2,000mAH) and battery management system to make product creation easier.
+Cellular communication requires a different current consumption profile than Wi-Fi communication, so we’ve included an attachable Li-Po battery (1,800mAH) and battery management system to make product creation easier.
 
 - **JST connector.** Each Electron includes a JST connector to make attaching an external battery quick and simple. All batteries we sell come with compatible connectors.
 - **Charge Management.** The Electron includes a very powerful charge management IC that handles all of the charge/discharge responsibilities of the device.
@@ -76,14 +76,14 @@ Need a more powerful antenna for your product? The Electron is compatible with a
 ### Particle SIM Included
 
 ![](/assets/images/electron-simcard.jpg)
-<p class="caption">The Particle SIM provides wordwide coverage for cellular IOT devices.</p>
+<p class="caption">The Particle SIM provides worldwide coverage for cellular IoT devices.</p>
 
 Particle is now an MVNO (Mobile virtual network operator)! Every Electron comes with a Particle SIM that is pre-provisioned for Internet access in over 100 countries. For a full list of supported countries and associated carriers, find your country in the dropdown menu [here](http://particle.io/cellular).
 
 
 ### Low Cost Data Plan
 
-We’re also providing low cost data plans specifically for IoT devices that you can pause or cancel at any time without a contract. Data plans start as low as $2.99 a month for 1MB of data — enough to send a few thousand messages on our extremely data-efficient messaging platform.
+We’re also providing low cost data plans specifically for IoT devices that you can pause or cancel at any time without a contract. Data plans start as low as $2.99 a month for 3MB of data — enough to send a few thousand messages on our extremely data-efficient messaging platform.
 
 ### SIM Console
 
@@ -94,14 +94,14 @@ We’ve created a SIM management and billing [console](https://console.particle.
 
 ### Worldwide Coverage
 
-The Particle SIM leverages cellular agreements with most of the major GSM carriers throughout the world. Want to know who’s providing service in your neighborhood? Head over [here](http://particle.io/cellular) and find your country in the dropdown menu.
+The Particle SIM leverages cellular agreements with most of the major GSM carriers throughout the world. Want to know who’s providing service in your neighborhood? Head over [here](https://www.particle.io/products/connectivity/cellular-iot-sim-2g-3g-lte#additional-mbs) and find your country in the dropdown menu.
 
 
 
 ## Firmware
 ### UDP Messaging
 
-In order to conserve bandwidth, we’ve switched all communications on the Electron over from TCP to a bandwidth-efficient implementation of UDP. Besides lowering overall data consumption, the biggest difference between UDP and TCP is that, unlike TCP, UDP is a connectionless protocol. This means that the Electron does not hold a persistent connection with the Cloud, and only checks in to send/receive messages or to let the Cloud know that it’s still around. If you prefer TCP, you can always switch protocols for your device in firmware.
+In order to conserve bandwidth, we’ve switched all communications on the Electron over from TCP to a bandwidth-efficient implementation of UDP. Besides lowering overall data consumption, the biggest difference between UDP and TCP is that, unlike TCP, UDP is a connection-less protocol. This means that the Electron does not hold a persistent connection with the Cloud, and only checks in to send/receive messages or to let the Cloud know that it’s still around. If you prefer TCP, you can always switch protocols for your device in firmware.
 
 ### Check Signal Strength
 
@@ -111,7 +111,7 @@ We’ve made it easier than ever to check the cellular signal of your device. Wh
 
 ### Sleep Modes
 
-The Electron is the perfect tool for untethered and remote projects. We’ve worked hard to minimize current consumption of the Electron in deep sleep modes to provide you the tools to significantly extend the battery life of your project. Check out the technical documentation for our [sleep() function](https://docs.particle.io/reference/firmware/#sleep-sleep-) to learn more.
+The Electron is the perfect tool for untethered and remote projects. We’ve worked hard to minimize current consumption of the Electron in deep sleep modes to provide you the tools to significantly extend the battery life of your project. Check out the technical documentation for our [sleep() function](/reference/firmware/#sleep-sleep-) to learn more.
 
 ### New Peripherals
 
@@ -125,7 +125,7 @@ The Electron’s firmware helps you take full advantage of the all the additiona
 Because UDP is a connectionless protocol, the concept of a device being “online” or “offline” is fundamentally different for the Electron than for the Photon and Core. If you inquire your devices’ status in Particle Build/Dev or by issuing a `particle list` command in the CLI, you’ll be presented with the “last heard” status of each device, which represents the last time the Cloud successfully received communications from your device. -->
 
 ### "Online vs Offline"
-Because UDP is a connectionless protocol, the concept of a device being “online” or “offline” is fundamentally different for the Electron than for the Photon and Core. There are no frequent pings like with TCP that can be used to update Online status.  Currently, if you inquire about your devices’ status in Particle Build/Dev or by issuing a `particle list` command in the CLI, any Electron that has successfully been Online in the past will continue to show as Online.  We are working through possible alternatives for this Online status, to indicate something like Last Heard with a time and date.
+Because UDP is a connectionless protocol, the concept of a device being “online” or “offline” is fundamentally different for the Electron than for the Photon and Core. There are no frequent pings like with TCP that can be used to update Online status.  Currently, if you inquire about your devices’ status in Particle Build/Dev or by issuing a `particle list` command in the CLI, any Electron that has successfully been Online in the past will continue to show as Online. 
 
 ### Setup
 
@@ -143,15 +143,15 @@ In order to help you monitor your data usage, we’ll present you with a confirm
 ## Everything Else
 ### New Documentation
 
-![](/assets/images/electronItemBox.png)
+![](/assets/images/electronItemBox.jpg)
 <p class="caption">The Electron comes loaded with awesome tools to help you build your first project.</p>
 
 Because the Electron is so different from the Photon and Core, we’ve built out a bunch of new example code and technical documentation for beginners, product creators, and everyone in between. Here are some of the highlights:
 
-- [Electron Hardware Datasheet](https://docs.particle.io/datasheets/electron-datasheet/)
-- [Electron Billing Guide](https://docs.particle.io/guide/getting-started/billing/)
-- [Electron Data Guide](https://docs.particle.io/guide/getting-started/data/)
-- [Electron Code Examples](https://docs.particle.io/guide/getting-started/examples/electron/)
+- [Electron Hardware Datasheet](/datasheets/electron-datasheet/)
+- [Electron Billing Guide](/guide/getting-started/billing/)
+- [Electron Data Guide](/guide/getting-started/data/)
+- [Electron Code Examples](/guide/getting-started/examples/electron/)
 
 We’ll be building integration guides and more detailed application notes for product creators in the near future.
 
@@ -159,11 +159,11 @@ We’ll be building integration guides and more detailed application notes for p
 
 The Electron ships with nearly every wireless certification that we could think of which significantly limits the time and cost associated with building products on the Electron platform. The full laundry list includes FCC, CE, IC, RoHS, PTCRB, GCF, and wireless carrier certifications.
 
-If you want more details on certification, visit the [Certification](https://docs.particle.io/guide/how-to-build-a-product/certification/) section of our Product Creator’s Guide.
+If you want more details on certification, visit the [Certification](/guide/how-to-build-a-product/certification/) section of our Product Creator’s Guide.
 
 ## More to Come
 
-We’ve still got a lot of great features planned for the Electron and the rest of the Particle platform. Like every new product, we expect the Electron to undergo rapid improvement in the upcoming months as we identify improvements to be made to our firmware and developer tools. We’re eager for your feedback — if you encounter bugs or want to request new features when you receive your Electron join our [online community](http://community.particle.io/) to learn how to create a Github issue or [contribute](http://community.particle.io/t/how-to-contribute-to-docs-spark-io/4976) a Pull Request. If you’re working on a project, post it on [Hackster](https://www.hackster.io/particle)--we often share our favorite projects with our community.
+We’ve still got a lot of great features planned for the Electron and the rest of the Particle platform. Like every new product, we expect the Electron to undergo rapid improvement in the upcoming months as we identify improvements to be made to our firmware and developer tools. We’re eager for your feedback — if you encounter bugs or want to request new features when you receive your Electron join our [online community](http://community.particle.io/) to learn how to create a GitHub issue or [contribute](http://community.particle.io/t/how-to-contribute-to-docs-spark-io/4976) a Pull Request. If you’re working on a project, post it on [Hackster](https://www.hackster.io/particle)--we often share our favorite projects with our community.
 
 Happy hacking--we'll see you online!
 

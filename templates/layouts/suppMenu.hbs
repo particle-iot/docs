@@ -1,0 +1,436 @@
+<!doctype html>
+<html class="two-columns">
+<head>
+
+  {{> head}}
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+<script src='/assets/js/checkform.js'></script>
+
+<script src="https://cdn.statuspage.io/se-v2.js"></script>
+<script src="/assets/js/status_widget.js"></script>
+</head>
+
+<body onload="detectBrowser()">
+
+<div id="docs" data-level>
+  {{> header}}
+
+
+<div class="content-root resources-wrapper">
+  <div> {{!-- Outer Static Div --}}
+    <a class='current-status-incidents empty' href='http://status.particle.io/' target="_blank">
+      <div>System Status: <span class='current-status-description'></span></div>
+      <div>Check the status page for details</div>
+    </a>
+    <div id="res-title">
+      <h2>How can we help you today?</h2>
+      <h4>We probably have the answer somewhere around here...</h4>
+    </div>
+    <div class='container' id='resources'> {{!-- Container Closing --}}
+      <div class='row'>{{!-- Help Buttons --}}
+        <div class='tile'>
+          <a class='resource-tile' href='/guide/getting-started/start' target="_blank">
+            <i class='icon-iHelp ion-document-text'></i>
+            <h3>Documentation</h3>
+            <p>Level up on the Particle platform.</p>
+          </a>
+        </div>
+        <div class='tile'>
+          <a class='resource-tile' href='/support/support-and-fulfillment/shipping/' target="_blank">
+            <i class='icon-iHelp ion-social-rss'></i>
+            <h3>Shipping</h3>
+            <p>Information about shipping and returns.</p>
+          </a>
+        </div>
+        <div class='tile'>
+          <a class='resource-tile' href='/support/troubleshooting/common-issues/' target="_blank">
+            <i class='icon-iHelp ion-wrench'></i>
+            <h3>Help</h3>
+            <p>Having an issue with your device?</p>
+          </a>
+        </div>
+      </div>
+      <div class='row'>
+        <div class='tile'>
+          <a class='resource-tile' href='https://community.particle.io/' target="_blank">
+            <i class='icon-iHelp ion-person-stalker'></i>
+            <h3>Community Forums</h3>
+            <p>Questions, answers, ideas. Join the Particle alliance, today.</p>
+          </a>
+        </div>
+        <div class='tile'>
+          <a class='resource-tile' href='/guide/getting-started/billing/' target="_blank">
+            <i class='icon-iHelp ion-gear-a'></i>
+            <h3>Billing & Data</h3>
+            <p>Electron billing, data, and accounts explained here.</p>
+          </a>
+        </div>
+        <div class='tile'>
+          <a class='resource-tile' href='http://status.particle.io/' target="_blank">
+            <i class="current-status-indicator empty"></i>
+            <h3>System Status</h3>
+            <h4 class="current-status-description">Loading...</h4>
+          </a>
+        </div>
+      </div> {{!-- Help Buttons --}}
+
+      {{!-- <div id="row row-form"> --}}
+        <div href="#" id="form-main"> {{!-- New webform section --}}
+          <div id="form-div">
+            <form class="form" id="form1">
+
+              <fieldset>
+              <legend>Do you have a different question?</legend>
+
+              <select id="category" name="category" class="feedback-input" required="required">
+                <option value="" disabled selected>--Select a category--</option>
+                <option value="Hardware">Hardware: Devices, Firmware, and Setup</option>
+                <option value="Software">Software: Tools, IDEs and Console</option>
+                <option value="Infrastructure">Infrastructure: Cloud and Cellular</option>
+                <option value="Orders">Shipping, Returns, and Pricing</option>
+                <option value="Enterprise">Enterprise: Product Development &amp; Sales, Distributors</option>
+                <option value="PreOrder">Pre-Order Questions</option>
+                <option value="Other">Other Questions</option>
+              </select>
+
+              <select id="deviceFamilyMenu" name="deviceFamily" class="feedback-input" style="display: none">
+                <option value="" disabled selected>--Select a Device Family--</option>
+                <option value="WiFi">Photon, P1, and P0</option>
+                <option value="Cellular">Electron, and E-Series</option>
+                <option value="Mesh">Argon, Boron, and Xenon</option>
+                <option value="RedBear">RedBear Products</option>
+                <option value="Shields">Spark Core, Shields, and Other</option>
+              </select>
+
+              <select id="detailmenu" name="detailOptions" class="feedback-input" style="display: none"></select>
+              <select id="questionmenu" name="subOptions" class="feedback-input" required="required"></select>
+
+              <script>
+              jQuery(function($) {
+                  var details = {
+                      "WiFi": [
+                          "--Select a device--",
+                          "Photon",
+                          "P1",
+                          "P0",
+                      ],
+                      "Cellular": [
+                          "Electron",
+                          "E-Series",
+                      ],
+                      "Mesh": [
+                            "Argon",
+                            "Boron",
+                            "Xenon",
+                      ],
+                      "RedBear": [
+                            "RedBear Duo",
+                            "RedBear Nano",
+                            "RedBear BLE Module",
+                            "RedBear Link Shield",
+                      ],
+                      "Shields": [
+                            "Spark Core",
+                            "Particle Classic Shield",
+                            "Particle FeatherWing",
+                            "Other Shield",
+                            "Something else",
+                      ],
+
+                      "Software": [
+                          "--Select a tool--",
+                          "CLI",
+                          "Build (Web IDE)",
+                          "Dev (Desktop IDE)",
+                          "Mobile App",
+                          "Console",
+                          "Other",
+                      ]
+                  };
+
+                  var questions = {
+                      "WiFi": [
+                          "--Select a hardware question--",
+                          "I'm unable to setup my device",
+                          "I'm unable to claim my device",
+                          "I'm unable to get my device online",
+                          "I'm unable to flash my device",
+                          "My device is crashing / not operating correctly",
+                          "I'm having an issue with a firmware feature",
+                          "My device has a hardware defect",
+                          "My device is doing something else",
+                          "I have another question not listed here",
+                      ],
+                      "Cellular": [
+                          "--Select a hardware question--",
+                          "I'm unable to setup my device",
+                          "I'm unable to claim my device",
+                          "I'm unable to get my device online",
+                          "I'm unable to flash my device",
+                          "I’m having trouble with my SIM card",
+                          "My device is crashing / not operating correctly",
+                          "I'm having an issue with a firmware feature",
+                          "My device has a hardware defect",
+                          "My device is doing something else",
+                          "I have another question not listed here",
+
+                      ],
+                      "Mesh": [
+                          "--Select a hardware question--",
+                          "I'm unable to setup my device",
+                          "I'm unable to claim my device",
+                          "I'm unable to get my device online",
+                          "I'm unable to flash my device",
+                          "I’m unable to setup my mesh network",
+                          "My device is crashing / not operating correctly",
+                          "I'm having an issue with a firmware feature",
+                          "My device has a hardware defect",
+                          "My device is doing something else",
+                          "I have another question not listed here",
+                      ],
+                      "Shields": [
+                          "--Select a hardware question--",
+                          "I'm unable to setup my device",
+                          "I'm unable to claim my device",
+                          "I'm unable to get my device online",
+                          "I'm unable to flash my device",
+                          "My device is crashing / not operating correctly",
+                          "I'm having an issue with a firmware feature",
+                          "My device has a hardware defect",
+                          "My device is doing something else",
+                          "I have another question not listed here",
+                      ],
+
+                      "Software": [
+                          "--Select a software question--",
+                          "I'm unable to claim a device",
+                          "I'm unable to flash a device",
+                          "I'm unable to login",
+                          "I'm unable to pull a device list",
+                          "I'm unable to logout",
+                          "I'm unable to add an app",
+                          "I'm unable to add a library",
+                          "I'm unable to view device logs",
+                          "An app I wrote is missing",
+                          "A device is showing up as the wrong kind of device",
+                          "I have another question not listed here",
+                      ],
+
+                      "Infrastructure": [
+                          "--Select an infrastructure question--",
+                          "The API isn't working",
+                          "My SIM card isn't working",
+                          "My webhooks are not working",
+                          "I'm having issues with the Spark Server",
+                          "I have another question not listed here",
+                      ],
+
+                      "Orders": [
+                          "--Select a pricing question--",
+                          "What’s the pricing breakdown now?",
+                          "What do I need to do to get on the new pricing plans?",
+                          "What happens when I add over 100 Wi-Fi devices?",
+                          "I have a question about Particle Studios",
+                          "I have another question not listed here",
+                          "--Select a shipping/returns question--",
+                          "Where is my package?",
+                          "I need an invoice for my store purchase.",
+                          "I need a return/refund.",
+                          "What was I charged for?",
+                          "I need an invoice for my subscription service.",
+                          "I have another question not listed here",
+                      ],
+
+                      "Enterprise": [
+                          "--Select an enterprise question--",
+                          "I would like to become a distributor.",
+                          "I would like to place a large order (100+ units)",
+                          "I would like to develop a product on your platform.",
+                          "I have a general enterprise question.",
+                          "I would like to place a tax-exempt order. ",
+                          "I have another question not listed here",
+                      ],
+
+                      "PreOrder": [
+                          "--Select a pre-order question--",
+                          "How does the referral program work?",
+                          "How can I find out how many people have used my referral code?",
+                          "My promo-code isn’t working",
+                          "When do the products ship?",
+                          "--I need to change or cancel my pre-order--",
+                          "I’m no longer interested in the products",
+                          "I decided to go with another solution",
+                          "I need a different quantity of products",
+                          "I need to change my address or credit card info",
+                          "I have a different reason",
+                      ],
+
+                      "Other": [
+                          "--Select another question--",
+                          "What is Mesh?",
+                          "What is OpenThread?",
+                          "I submitted my resume and I’d like to follow up.",
+                          "I’d like Particle to sponsor or attend my event.",
+                          "I have a feature request",
+                          "When will a product come back in stock?",
+                          "I have another question not listed here",
+                      ],
+                  }
+
+                  var $categorymenu = $('#category');
+                  var $questionmenu = $('#questionmenu');
+                  var $detailmenu = $('#detailmenu');
+                  var $devicefamilymenu = $('#deviceFamilyMenu');
+
+                  function changeCategory(category) {
+                      function populateMenu($menu, items) {
+                          var first = true;
+                          var html = $.map(items, function (s) {
+                              var $item = $('<option>');
+                              if(s.match(/^--/)) {
+                                $item.attr('disabled', true).attr('value', '');
+                              } else {
+                                $item.attr('value', s);
+                              }
+                              if(first) {
+                                $item.attr('selected', true);
+                                first = false;
+                              }
+                              return $item.html(s);
+                          });
+                          $menu.html(html);
+                      }
+
+                      var categoryDetails = details[category];
+                      var categoryQuestions = questions[category] || [];
+
+                      var isHardware = ($categorymenu.val() === 'Hardware');
+                      if (isHardware) {
+                          $devicefamilymenu.attr('required', 'required');
+                          $devicefamilymenu.show();
+                          categoryDetails = details[$devicefamilymenu.val()];
+                      }
+                      else {
+                          $devicefamilymenu.removeAttr('required');
+                          $devicefamilymenu.hide();
+                      }
+
+                      $detailmenu.toggle(!!categoryDetails).attr('required', !!categoryDetails);
+                      if(categoryDetails) {
+                          populateMenu($detailmenu, categoryDetails);
+                      }
+
+                      populateMenu($questionmenu, categoryQuestions);
+                  }
+
+                  $categorymenu.change(function() {
+                      changeCategory($categorymenu.val())
+                  });
+                  $devicefamilymenu.change(function() {
+                      changeCategory($devicefamilymenu.val())
+                  });
+
+                  // Helper function to print all possible topics
+                  window.printTopics = function () {
+                      var topics = [];
+
+                      var $categories = $categorymenu.find('option');
+                      for(var i = 0; i < $categories.length; i++) {
+                          var category = $($categories[i]).val();
+
+                          var categoryDetails = details[category] || [''];
+                          var categoryQuestions = questions[category] || [];
+
+                          for(var j = 0; j < categoryDetails.length; j++) {
+                              var categoryDetail = categoryDetails[j];
+                              if(categoryDetail.match(/^--/)) {
+                                  continue;
+                              }
+                              for(var k = 0; k < categoryQuestions.length; k++) {
+                                  var categoryQuestion = categoryQuestions[k];
+                                  if(categoryQuestion.match(/^--/)) {
+                                      continue;
+                                  }
+                                  topics.push(category +
+                                          (categoryDetail ? ' (' + categoryDetail + ')' : '') +
+                                           ': ' + categoryQuestion);
+                              }
+                          }
+                      }
+
+                      console.log(topics.join('\n'));
+                  };
+              })
+              </script>
+
+
+              <br/>
+
+              <p class="name">
+                <input type="text" name="name" type="text" class="validate[required,custom[onlyLetter],length[0,100]] feedback-input" placeholder="Name" id="name" required="required"/>
+              </p>
+
+              <p class="email">
+                <input type="email" name="EMAIL_1" type="text" class="validate[required,custom[email]] feedback-input" id="email" placeholder="Email"  required="required"/>
+              </p>
+
+              <p class="text">
+                <textarea type="text" name="text" class="validate[required,length[6,300]] feedback-input" id="comment" placeholder="Message" required="required"></textarea>
+              </p>
+
+              <script>
+
+              function detectBrowser() {
+                //console.log(navigator);
+               if((navigator.userAgent.indexOf("Opera") || navigator.userAgent.indexOf('OPR')) != -1 )
+              {
+                  browserType = 'Opera';
+                  ostype = navigator.appVersion;
+              }
+              else if(navigator.userAgent.indexOf("Chrome") != -1 )
+              {
+                  browserType = 'Chrome';
+                  ostype = navigator.appVersion;
+              }
+              else if(navigator.userAgent.indexOf("Safari") != -1)
+              {
+                  browserType = 'Safari';
+                  ostype = navigator.appVersion;
+              }
+              else if(navigator.userAgent.indexOf("Firefox") != -1 )
+              {
+                  browserType = 'Firefox';
+                  ostype = navigator.appVersion;
+              }
+              else if((navigator.userAgent.indexOf("MSIE") != -1 ) || (!!document.documentMode == true )) //IF IE > 10
+              {
+                  browserType = 'IE';
+                  ostype = navigator.appVersion;
+              }
+              else
+              {
+                  browserType = 'Unknown browser'
+                  ostype = navigator.appVersion;
+              }
+              }
+              </script>
+
+
+              <div class="submit">
+                <input type="submit" value="SEND" id="button-blue"/>
+              </div>
+
+              </fieldset>
+            </form>
+          </div>
+        </div>
+      {{!-- </div> --}} {{!-- New webform section --}}
+    </div> {{!-- Container Closing --}}
+  </div> {{!-- Outer Static Div --}}
+</div>
+  <!-- Scripts section before end of body -->
+  {{> scripts}}
+
+
+</body>
+</html>

@@ -1,6 +1,6 @@
 ---
 title: Cloud Solutions
-template: support.hbs
+layout: support.hbs
 columns: two
 devices: [ photon,electron,core ]
 order: 4
@@ -11,9 +11,9 @@ Cloud Solutions
 
 ### Building a Local Cloud for Devices
 
-This will guide you through on how to Setup the Local cloud and use it with Particle-cli after a successful installation.
+This will guide you through on how to Setup the Local cloud and use it with Particle-cli after a successful installation. Note that the local cloud can only be used with Wi-Fi devices (Photon/P1) and cannot be used with cellular devices.
 
-Before you proceed, make sure you fired up ``particle-server`` [link to particle-server](https://github.com/spark/spark-server) successfully at least once. We will need the server public keys generated on 1st run later.
+Before you proceed, make sure you fired up ``particle-server`` [link to particle-server](https://github.com/particle-iot/spark-server) successfully at least once. We will need the server public keys generated on 1st run later.
 
 **NOTE:** This will point the Particle-CLI to the local cloud and you will not be able to use features available on the Particle cloud.
 
@@ -31,7 +31,7 @@ This will create a new profile to point to your server and switching back to the
 
 This will create an account on the local cloud.
 
-Perform <kbd>``CTRL``</kbd>``+``<kbd>``C``</kbd> once you logon with Particle-cli asking you to send Wifi-credentials etc...
+Perform <kbd>``CTRL``</kbd>``+``<kbd>``C``</kbd> once you logon with Particle-cli asking you to send Wi-Fi credentials etc...
 
 **4. On Command-line, ``cd`` to particle-server**
 
@@ -76,7 +76,7 @@ Example activity from CMD output:
 **1. You will need to flash the respective cloud Public Key to the core which you are connecting to.
 
 - Place your {{device}} in DFU-mode (flashing yellow)
-- On the command line (to switch to Particle Cloud):
+- On the command line (to switch to Particle Device Cloud):
 
 	``particle keys server cloud_public.der``
 
@@ -85,7 +85,7 @@ Example activity from CMD output:
 	For local Cloud: ``particle keys server your_local_cloud_public_key.der IP-ADDRESS``
 - Reset your {{device}}
 
-**2.Changing of profile back to the default particle cloud on the Particle-cli must be performed using:
+**2. Changing of profile back to the default particle cloud on the Particle-cli must be performed using:
 
 ``particle config identify``
 
@@ -100,15 +100,4 @@ This will ensure that you are pointing to your own cloud!
 *Thanks to [Kenneth Lim](http://community.particle.io/users/kennethlimcp/activity) for writing this local cloud solution.*
 
 
-**Also**, check out and join our [community forums](http://community.particle.io/) for advanced help, tutorials, and troubleshooting.
-
-{{#if photon}}
-[Go to Community Forums >](http://community.particle.io/c/troubleshooting)
-{{/if}}
-
-{{#if core}}
-[Go to Community Forums >](http://community.particle.io/c/troubleshooting)
-{{/if}}
-
-
-
+For more help join our [community forums](http://community.particle.io/) and post in the [troubleshooting section](https://community.particle.io/c/troubleshooting).

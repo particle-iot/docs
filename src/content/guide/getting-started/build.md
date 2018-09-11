@@ -1,8 +1,8 @@
 ---
 title: Web IDE (Build)
-template: guide.hbs
+layout: guide.hbs
 columns: two
-devices: [ electron,photon,core ]
+devices: [ electron,photon,core,raspberry-pi ]
 order: 6
 ---
 
@@ -18,12 +18,11 @@ When you're ready to reprogram your device, head over to our IDE:
 
 [Particle Build >](https://build.particle.io)
 
-Creating an account is a simple one-step process.  When presented with the login screen, simply enter your email address (careful!), and desired account password.  Press the big friendly "Sign Up" button, and you'll reach the Particle Build home page.
+Creating an account is a simple one-step process.  When presented with the login screen, click the "create account" text and fill out the form including your email address (careful!) and desired account password. That's it!
 
 ![Particle Build](/assets/images/ide-login.png)
 
-If you've already logged into Particle Build before, click the "Let me log in" text beneath the Sign Up button, and you'll be presented with a login for existing users.  Don't worry--if you already have an account and accidentally click the "Sign Up" button, we'll still log you into your existing account.
-
+If you haven't logged into Particle Build before, click the "create account" text beneath the Log In button, and you'll be presented with a signup for existing users.  
 
 Web IDE
 ---
@@ -60,11 +59,11 @@ Particle Apps and Libraries
 
 The heart of Particle Build is the "Particle Apps" section, which displays the name of the current app in your editor, as well as a list of your other applications and community-supported example apps.
 
-The application you've got open in the editor is displayed under the "Current App" header.  You'll notice that this "HELLOWORLD" sample application has only one file, but firmware with associated libraries/multiple files are fully supported.
+The application you've got open in the editor is displayed under the "Current App" header.  You'll notice that this empty application has only one file, but firmware with associated libraries/multiple files are fully supported.
 
-From this pane, you've got a lot of buttons and actions available to you that can help you grow and manage your library of kick-ass applications:
+From this pane, you've got a lot of buttons and actions available to you that can help you grow and manage your library of applications:
 
-- **Create**: You can create a new application by clicking the "Create New App" button.  Give it a sweet name and press enter!  Your app is now saved to your account and ready for editing.
+- **Create**: You can create a new application by clicking the "Create New App" button.  Give it a descriptive name and press enter!  Your app is now saved to your account and ready for editing.
 
 - **Delete**: Click the "Remove App" button to remove it forever from your Particle library.
 
@@ -81,11 +80,18 @@ Flashing Your First App
 
 The best way to get started with the IDE is to start writing code:
 
-- **Connect**: Make sure your device is powered and "breathing" Cyan, which indicates that it's connected to the Particle Cloud and ready to be updated.
+{{#if raspberry-pi}}
+- **Connect**: Make sure your device is powered connected to the
+Particle Device Cloud and ready to be updated.
+{{else}}
+- **Connect**: Make sure your device is powered and "breathing" Cyan,
+which indicates that it's connected to the Particle Device Cloud and ready to be updated.
+{{/if}}
+
 - **Get Code**: Try clicking on the "Blink an LED" example under the "Example apps" header.  The Particle Build editor should display the code for the example application in an active tab.  Alternatively, you can copy and paste this snippet of code into a new application in the Build IDE.
 
 {{#if electron}}
-**NOTE**: Each over *over-the-air firmware update* on Electron counts towards your data allowance. You can also flash the Electron locally [using our CLI](https://github.com/spark/particle-cli#compiling-remotely-and-flashing-locally).
+**NOTE**: Each over *over-the-air firmware update* on Electron counts towards your data allowance. You can also flash the Electron locally [using our CLI](/reference/cli/#compiling-remotely-and-flashing-locally).
 {{/if}}
 
 ```
@@ -115,12 +121,27 @@ void loop() {
 ![Particle Build](/assets/images/ide-devices.png)
 {{/if}}
 
+{{#if raspberry-pi}}
+![Particle Build](/assets/images/ide-devices.png)
+{{/if}}
+
 - **Select Your Device**: If you have more than one device you have to make sure that you've selected which of your devices to flash code to.  Click on the "Devices" icon at the bottom left side of the navigation pane, then when you hover over device name the star will appear on the left. Click on it to set the device you'd like to update (it won't be visible if you have only one device). Once you've selected a device, the star associated with it will turn yellow. (If you only have one device, there is no need to select it, you can continue on to the next step).
+
+![Signal device](/assets/images/signal-device.png)
+
+- **Device details**: To identify a device in the "Devices" list, click the chevron then click Signal to make the device LED shout rainbows. Click Signal again to stop. You can also use the firmware selector to opt-in to the latest cutting edge features!
 
 **NOTE**: Devices are grouped by their platform. You can see the platform icon (circle with an letter) on the left of its name.
 
-- **Flash**: Click the "Flash" button, and your code will be sent wirelessly to your device.  If the flash was successful, the LED on your device will begin flashing magenta.
+- **Status bar**: You can see more information about your currently selected device in the bottom right corner of the Web IDE. It contains the following: Last Event Name, Last Event Data, Device Type, Device Name, Device Status, Device Version. Clicking on the lightbulb will signal the device.
 
+![Web IDE Status Bar](/assets/images/web-ide-status-bar.png)
+
+{{#if raspberry-pi}}
+- **Flash**: Click the "Flash" button, and your code will be sent wirelessly to your device.  If the flash was successful, your device will begin running the app.
+{{else}}
+- **Flash**: Click the "Flash" button, and your code will be sent wirelessly to your device.  If the flash was successful, the LED on your device will begin flashing magenta.
+{{/if}}
 ![Particle Build](/assets/images/ide-examples.png)
 
 - **Fork**: Wish the timing of that LED flash was a little bit faster?  Try clicking on the "Fork This Example" button after selecting the "Blink An LED" example application.  You've now got a personal copy of that application that you can modify, save, and flash to all of your devices.
@@ -130,22 +151,39 @@ void loop() {
 Adding files to your app
 ---
 
-As your codebase grows, you will naturally create libraries to better manage your firmware development. To add a file to your app, simply hit the "+" button located at the top right hand corner.
+As your code base grows, you will naturally create libraries to better manage your firmware development. To add a file to your app, simply hit the "+" button located at the top right hand corner.
 
 ![Particle Build](/assets/images/ide-add-files.png)
 
 This will create two new tabs, one with `.h` and one with `.cpp` extension. You can read more about why we need both in [this C++ tutorial](http://www.learncpp.com/cpp-tutorial/19-header-files/).
 
+Sharing your app
+---
+
+When you want to share the app you created with someone, you can create a "snapshot" of it by clicking **Share this revision**: button.
+
+![Share revision](/assets/images/web-ide/share-app.gif)
+
+Once you make the revision public anyone with the link can see a read-only version of your app.
+
+**Note:** you can't revert a revision to being private. Be careful about what you're making public.
+
+Any changes you make to the app after this won't be reflected under this link. To share newer version of your app, you need to generate a new link for the latest revision.
+
+When viewing a shared app you can either flash it to any of your devices or copy it to your apps so you can modify it:
+
+![Copy shared app](/assets/images/web-ide/copy-app.gif)
+
 Account Information
 ---
 
-There are a couple of other neat bells and whistles in Particle Build.  The Particle Build IDE the best tool for viewing important information about your device, managing devices associated with your Particle account, and "unclaiming" them so they can be transferred to your buddy.
+There are a couple of other neat bells and whistles in Particle Build.  The Particle Build IDE the best tool for viewing important information about your device, managing devices associated with your Particle account, and "unclaiming" them so they can be transferred to your friend.
 
 ![Particle Build](/assets/images/ide-account.png)
 
 - **Device ID**: You can view your device's ID by clicking on the "Device" icon at the bottom of the navigation pane, then clicking the dropdown arrow next to the device of interest.
 
-- **Unclaim**: You can "Unclaim" a device by pressing the "Remove Device" button that is revealed by clicking the dropdown arrow.  Once a device has been unclaimed, it is available to be reassociated with any Particle users' account.
+- **Unclaim**: You can "Unclaim" a device by pressing the "Remove Device" button that is revealed by clicking the dropdown arrow.  Once a device has been unclaimed, it is available to be associated with any Particle users' account.
 
 ![Particle Build](/assets/images/ide-settings.png)
 
@@ -155,23 +193,76 @@ There are a couple of other neat bells and whistles in Particle Build.  The Part
 Using Libraries
 ---
 
-![Include the library](/assets/images/choose-app-to-include-library.png)
+![Include the library](/assets/images/libraries/libraries.png)
 
-When you want to reuse code across multiple applications, Particle Libraries are your friend.
-Particle Libraries are easily shareable, extensible packages built by the community to help with common problems many Particle applications encounter. They are hosted on GitHub and easily pulled into the IDE where they can be included in apps and shared with others.
+Firmware libraries are an important part of how you connect your Photon or Electron to sensors and actuators. They make it easy to reuse code across multiple Particle projects, or to leverage code written by other people in the Particle community. As an example, firmware libraries make it easy to get data out of your DS18B20 temperature sensor without writing any of the code yourself.
 
-You can include a library in an application by opening the library drawer, finding a library that will work for your project, and clicking the "include in app" button. This will add an `#include` statement to your code that will expose all the capabilities of the library to your code.
+Particle libraries are hosted on GitHub, and can be easily accessed through through all of Particle's development tools including the Web IDE.
+
+To include a firmware library in your Particle project, open the library drawer, search for the corresponding library for your sensor or actuator, and click the `Include in Project` button. Including a library in your project will add the library dependency to the `project.properties` file that will be compiled with your project when it is verified or flashed to your target device.
+
+Read on for detailed instructions to include a firmware library in your Particle application with Build.
+
+We have [a detailed reference guide about libraries](/guide/tools-and-features/libraries/) but for now here's a step by step guide on how to include a library in the Web IDE.
+
+##### Step 1 - Go to the Libraries tab
+Click on the libraries bookmark icon on the left hand side of the Build interface.
+
+![Bookmark icon](/assets/images/libraries-guide-bookmarkicon.png)
+
+##### Step 2 - Find the library you need
+
+![Bookmark icon](/assets/images/libraries-guide-librarylist.png)
+
+Once you open the libraries tab, you'll be presented with a list of libraries. Libraries with the Particle logo next to them are Official libraries created by the Particle team for Particle hardware. Libraries that have a check mark next to them are Verified libraries. Verified libraries are popular community libraries that have been validated by the Particle team to ensure that they work and are well documented. Click [here](/guide/tools-and-features/libraries/#kinds-of-libraries) To learn more about the different kinds of Particle libraries.
+
+To find the right library for your project, you can either search for it directly or browse through popular firmware libraries using the browsing arrows at the bottom of the library list.
+
+**Search**. To search for a library, begin typing in the search bar. Search results are ranked by match with the search term with a preference for official and verified libraries.
+
+![Search](/assets/images/libraries-guide-search.png)
+
+**Browsing arrows**. Not sure what library you're looking for? Use the browsing arrows beneath the library list to view additional Particle libraries in our firmware library manager. Pagination also works with search results.
+
+![Pagination](/assets/images/libraries-guide-pagination.png)
+
+##### Step 3 - Inspect a library
+Clicking on a library from the library list shows you more detailed information about the library.
+
+![Library information](/assets/images/libraries-guide-libraryinfo.png)
+
+The detailed view for a library includes the following:
+
+- `Library name`: The name of the library. The name must be unique, so there aren't two libraries with the same name.
+- `Library version`: The version of the library. This follows the [semver convention](http://semver.org/).
+- `GitHub link`: Where the library is hosted. The code for public libraries must be open-sourced. See how to [Contribute a library](/guide/tools-and-features/libraries/#contributing-libraries).
+- `Library description`: Detailed information about the library
+- `Library files`: What files come with the library. This follows the [new library file structure](/guide/tools-and-features/libraries/#library-file-structure).
+- `Library examples`: Those are examples of usage. If you click on one of them, you will be shown the source code. To use it as one of your projects, click on 'Use this example'.
+
+![Library examples](/assets/images/libraries-guide-libraryexamples.png)
+
+- `Library source`: In the editor you will see all the code of the library.
+
+##### Step 4 - Click on 'Include in Project'
+
+![Include in Project](/assets/images/libraries-guide-includeinproject.png)
+
+To add a firmware library to a project, click the `Include in Project` button. You will be presented with a list of your Particle projects that the library can be added to. After you select your target project from the list, you'll be presented with a confirmation page.
+
+![Include in Project](/assets/images/libraries-guide-includeinappconfirmation.png)
+
+Clicking the `Confirm` button will bring you back to your Particle project. The library include should appear at the top of your project source file. It should also be listed in the `Included libraries` section of the project.
+
+![Include](/assets/images/libraries-guide-include.png)
+![Included libraries](/assets/images/libraries-guide-includedlibraries.png)
+
+**Congrats!** You have now added a firmware library to your Particle project!
 
 Contribute a library
 ---
 
-![Validate library](/assets/images/validate-library.png)
-
-Adding a library to the IDE starts by creating an open source GitHub repository where your code will live.
-At minimum, this repository needs a `spark.json` file, some documentation, some example firmware files, and some Arduino/C++ files.
-The import and validation process is designed to be forgiving and easy to interpret, so don't be scared; the IDE will walk you through what is required to get your library set to go.
-
-The easiest way to generate library boilerplate code is to follow the instructions on the [getting started section](https://github.com/spark/uber-library-example#getting-started) of the `uber-library-example`, a project designed to illustrate and document what a library is supposed to look like.
+This functionality was moved to the Desktop IDE and the Command Line Interface (CLI). You can follow [this link](/guide/tools-and-features/libraries/#contributing-libraries) to find more about contributing a library.
 
 Checking code memory usage
 ---
@@ -185,6 +276,9 @@ This allows you to view the amount of FLASH and RAM used by this particular code
 _If there are no code changes and you **verify** code for the second time, the "i" button will not be available. You can simply add an extra blank space or new line before you **verify** and the "i" button will now appear._
 
 ![Code memory information](/assets/images/ide-mem-usage.png)
+
+{{#if raspberry-pi}}
+{{else}}
 
 Wait, what is firmware?
 ---
@@ -201,6 +295,7 @@ In our case, because the Cores, Photons and Electrons are connected to the inter
 When you flash code onto your device, you are doing an *over-the-air firmware update*. This firmware update overwrites almost all of the software on the device; the only piece that is untouched is the bootloader, which manages the process of loading new firmware and ensures you can always update the firmware over USB or through a factory reset.
 
 For every device which version of our firmware you want to build against. In most cases you want to build with the latest firmware (which is used by default). If you need to target an older version (i.e. when newer version has some breaking changes) you can select it in dropdown located in device details.
+{{/if}}
 
 Troubleshooting
 ---
@@ -214,14 +309,4 @@ Feeling oriented? Let's move on to some more interesting [examples.](/guide/gett
 
 **Also**, check out and join our [community forums](http://community.particle.io/) for advanced help, tutorials, and troubleshooting.
 
-{{#if electron}}
 [Go to Community Forums >](http://community.particle.io/c/troubleshooting)
-{{/if}}
-
-{{#if photon}}
-[Go to Community Forums >](http://community.particle.io/c/troubleshooting)
-{{/if}}
-
-{{#if core}}
-[Go to Community Forums >](http://community.particle.io/c/troubleshooting)
-{{/if}}

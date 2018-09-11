@@ -3,14 +3,12 @@ word: intro
 title: Introduction
 order: 1
 columns: two
-template: guide.hbs
+layout: guide.hbs
 ---
 
 # Tools and Features
 
 This section of the guide will give you an overview of tools and features that you may need to use the Particle Platform.
-
-This section is still under development! More specifics and guided tutorials coming soon.
 
 We've ordered the sections in order of what we think will be most useful to the average user, but feel free to browse them in whatever order you'd like.
 

@@ -6,21 +6,45 @@
 		line-height: 30px;
 	}
 
-	div {
+	div, p {
 		font-size: 14px;
+		font-weight: normal;
 		padding: 10px;
-		color: #555;
+		color: @NC_SPACE_GRAY;
 	}
 
 	.api-field {
-		text-align: right;
-		min-width: 18%;
+		text-align: left;
+		width: 150px;
+		font-size: 14px;
 		float: left;
 		color: @almost-black;
+		overflow:hidden;
+		word-wrap: break-word;
 	}
 
 	.field-desc {
 		overflow: hidden;
+		padding-right: 0;
+		p {
+			padding: 0;
+		}
+
+		> p:first-child {
+			padding-top: 0;
+		}
+		> p:last-child {
+			padding-bottom: 0;
+		}
+    ul {
+      margin-left: 0;
+      li {
+        margin-bottom: 5px;
+        font-weight: normal;
+        line-height: 24px;
+        color: @NC_SPACE_GRAY;
+      }
+    }
 	}
 
 	.field-required {
@@ -33,41 +57,49 @@
 		display: block;
 		color: @another-gray;
 		text-transform: lowercase;
+		font-size: 12px;
 	}
 
-	li {
-		border-top: 1px solid #ddd;
+	> li {
+		border-top: 1px solid @NC_MORNING_MIST;
 		clear: both;
 		overflow: auto;
 		list-style-type: none;
-		font-weight: 400;
+		font-weight: normal;
 		margin: 0;
 		line-height: 1.4;
 	}
 
-	li:last-child {
-		border-bottom: 1px solid #ddd;
+	> li:last-child {
+		border-bottom: 1px solid @NC_MORNING_MIST;
 	}
 
 	.nested-params {
-		margin-left: 30px;
+		margin-left: 10px;
 		padding: 0;
-		
-		li:first-child {
+
+		> li {
+		  overflow: auto;
+		  list-style-type: none;
+			&.nested-param {
+				margin-left: 0;
+			}
+		}
+		> li:first-child {
 			border-top-width: 0;
 		}
-		li:last-child {
+		> li:last-child {
 			border-bottom-width: 0;
 		}
 	}
 }
 
 .content ul.api-attributes::before {
-	content: attr(data-title);	
+	content: attr(data-title);
 }
 
 .content pre.api-code::before {
-	content: attr(data-title);	
+	content: attr(data-title);
 }
 
 .api-code {
@@ -76,7 +108,7 @@
 
 	&::before {
 		color: @another-gray;
-		background-color: #272822;
+		background-color: @NC_SPACE_GRAY;
 		display: block;
 		margin: 0 -40px;
 		padding: 10px 40px;

@@ -4,22 +4,22 @@ title: Webhooks
 order: 6
 shared: true
 columns: two
-template: guide.hbs
+layout: guide.hbs
 ---
+
 
 # Webhooks
 
 Webhooks are a simple and flexible way to send data from your Particle devices to other apps and services around the Internet. Webhooks bridge the gap between the physical and the digital world, helping you get your data where you need it to be.
 
-You could use a webhook to save valuable information in a database, visualize data being read from a sensor, send the latest weather report to your device, trigger a payment, send a text message, and so much more!   
-
-
+You could use a webhook to save valuable information in a database, visualize data being read from a sensor, send the latest weather report to your device, trigger a payment, send a text message, and so much more!
 
 <img src="/assets/images/webhooks-overview.png" alt="Webhooks with Particle"/>
 <p class="caption">Webhooks allow you to send data from your connected device anywhere on the Internet</p>
 
 In this guide, we'll provide an overview of how you can use webhooks in your connected products, and walk you through a few examples to get you started.
 
+**If you are looking for all the juicy details, head over to the <a href="/reference/webhooks">webhook reference page</a>.**
 
 ## How webhooks work
 
@@ -41,7 +41,7 @@ Let's get started! For your first webhook, let's try to send some data from your
 
 ### Configure ThingSpeak
 
-[Create a ThingSpeak account](https://thingspeak.com/users/sign_up) if you don't already have one. Next, create a [channel](https://www.mathworks.com/help/thingspeak/channels-and-charts.html?requestedDomain=www.mathworks.com) by clicking the "New Channel" button on your ThingSpeak dashboard.
+[Create a ThingSpeak account](https://thingspeak.com/users/sign_up) if you don't already have one. Next, create a [channel](https://www.mathworks.com/help/thingspeak/channels-and-charts-api.html) by clicking the "New Channel" button on your ThingSpeak dashboard.
 
 Name your channel "Temperature," add one field called "temp" and create the channel.
 
@@ -63,13 +63,13 @@ The hub for managing your webhooks is the [Particle Console](https://console.par
 Let's configure our webhook:
 - Set the event name to `temp` to match the field in ThingSpeak
 - Set the URL to `https://api.thingspeak.com/update`
-- Make sure the request type is set to `POST` (it should be already)
+- Make sure the request type is set to `POST` and the request format is "Web Form"
 - If you'd like to limit the webhook triggering to a single one of your devices, choose it from the device dropdown
 
-Next, click on "Advanced Settings," and find "Send Custom Data." Choose "form" from the available options. Drop in the following key/value pairs:
+Next, click on "Advanced Settings," and chose "Custom" in the "Form Fields" section. Drop in the following key/value pairs:
 
 - `api_key`: `YOUR_API_KEY`<br/>
-- `field1`: `\{{PARTICLE_EVENT_VALUE}}`
+- `field1`: `\{{{PARTICLE_EVENT_VALUE}}}`
 
 The form should look something like this:
 
@@ -96,7 +96,7 @@ void setup() {
 
 void loop() {
   digitalWrite(led, HIGH);   // Turn ON the LED
-  
+
   String temp = String(random(60, 80));
   Particle.publish("temp", temp, PRIVATE);
   delay(30000);               // Wait for 30 seconds
@@ -132,6 +132,19 @@ Back on ThingSpeak, navigate back to your channel. You should see temperature da
 <p class="caption">Temperature data from your device being graphed in real-time!</p>
 
 Congratulations! You've created a webhook successfully and gotten data from your connected device into another service. Awesome!
+
+## Editing a webhook
+
+To edit a webhook, scroll to the bottom of any webhook page, and press the edit button.
+
+![Editing webhooks](/assets/images/integrations-webhook-edit.png)
+
+You will be presented with a form, containing the same inputs as the 'Create webhook' page.
+
+![Editing webhooks form](/assets/images/integrations-webhook-edit-form.png)
+
+If you press 'Cancel', all the changes you made won't be persisted. Clicking on 'Save' updates the integration. When the webhook is fired, it should contain the new information.
+
 
 ## Triggering a webhook
 
@@ -182,7 +195,7 @@ void setup() {
 void myHandler(const char *event, const char *data) {
   // Handle the webhook response
 }
-            
+
 
 ```
 
@@ -206,40 +219,49 @@ When a webhook gets triggered, some data will be sent to the third-party web ser
 
 This is same data you'd see if you subscribed to your [event stream](/reference/api/#events).
 
-
 These properties will all be strings except for `published_at`, which is an ISO8601 date formatted string, which tends to be in the form `YYYY-MM-DDTHH:mm:ssZ`.
 
-You can customize both the type and the structure of data that gets sent with a webhook. To do this, check out the "Send Custom Data" section of the advanced settings when creating a webhook via the console.
+You can customize the format of the data sent with the webhook by changing the "Request Format". When the "Request Type" is `POST`, `PUT` or `DELETE`, the data will be in the request body. You can select "Web Form" (similar to submitting a form from a browser), JSON (common for API requests) or write your own "Custom Body" using the [webhook template language](/reference/webhooks/#variable-substitution). When the "Request Type" is `GET`, the data can only be sent in the "Query Parameters".
 
-_Note:_ Even if you send custom JSON or form data with the webhook, the default data above will still be included in the request. If you do not want this, select "No" under "Include default data" in the advanced settings when creating a webhook.
+You can also customize the structure of the data that gets sent. In the "Advanced Settings" of the Webhook Builder, either keep the "Default" data and add some more fields, or switch to "Custom" and define your own mapping.
 
 ## Monitoring your webhooks
 
-The easiest way to observe webhook activity is on the Logs hub of your Particle Console. Every time your webhook triggers, a `hook-sent` event will appear in your user event stream. This is confirmation that the Particle cloud successfully forwarded your event to your webhook's target URL.
+The easiest way to observe webhook activity is to view the Integrations tab in the Particle Console. Double click on the integration you want to view and the page shows the history, recent calls, and recent errors.
+
+Additionally, you can view the Events page of your Particle Console. Every time your webhook triggers, a `hook-sent` event will appear in your user event stream. This is confirmation that the Particle cloud successfully forwarded your event to your webhook's target URL. 
 
 If the webhook receives a response from the targeted web server with something in the body, a `hook-response` event will also appear in your event stream containing the response. This event will _only_ appear in your event stream if the web service returned something in the `body` of its response to the Particle cloud.
 
 ![Webhook Logs](/assets/images/webhook-logs.png)
 <p class="caption">`hook-sent` and `hook-response` events will appear in your event stream for an active webhook</p>
 
-It is also possible that you can see errors appear in your Logs from unsuccessful attempts to contact the third-party server. You can read more about those [here](#error-limits).
+Note that this will only appears in the Events page for the device owner. The hook events do not appear in the device-specific event log, or in the product event log.
 
-*Note*: This method of monitoring activity is not enabled for product-level webhooks. A method for monitoring product-level webhooks is coming soon.
+## Custom Template
 
-## Product webhooks (beta)
+The "Custom Template" tab of the webhook editor shows the raw configuration for the webhook. The syntax is described in the [webhook reference page](/reference/webhooks/).
+
+![Webhook Custom Template](/assets/images/webhook-custom-template.png)
+
+If you want to create a webhook from an existing template, you can switch over to the "Custom Template" tab of the webhook editor and paste in a JSON webhook template. You can even switch back to the "Webhook Builder" and continue making some edits.
+
+You can also copy from the "Custom Template" tab and share the webhook template with others.
+
+## Product webhooks
 
 If you are building a product using Particle, you now have the ability to create webhooks at the product-level. This will allow you as a product creator to define a single webhook than any of the devices in the product's fleet can trigger.
 
 ![Product Webhooks](/assets/images/product-webhooks-overview.png)
 <p class="caption">Create a single webhook that any of your product devices can trigger</p>
 
-As devices in your product's fleet will be running the same firmware, product webhooks are a scalable way to integrate with third-party web services. Trigger a product webhook when you'd like to do thing like: 
+As devices in your product's fleet will be running the same firmware, product webhooks are a scalable way to integrate with third-party web services. Trigger a product webhook when you'd like to do thing like:
 - Sending information about how a customer's device is behaving to an analytics service
 - Make an API call to your servers to send personalized content to a device
 - Save data to a hosted database in the cloud
 
 
-### Create a product webhook 
+### Create a product webhook
 
 If you don't have one already, you'll need to [define a product](/guide/tools-and-features/console/#defining-a-product) before you will be able to create product webhooks. Currently, webhooks for products are in beta and will evolve over the coming months.
 
@@ -262,7 +284,7 @@ This is where the checkbox discussed in the previous section comes into play. Th
 As discussed [earlier](#webhook-firmware), any response from a webhook will result in a `hook-response/[event_name]` event in the event stream. Normally, if you wanted to get that response on your device, you would add something like this to your firmware: `Particle.subscribe("hook-response/weather/", myHandler, MY_DEVICES);`
 
 
-If you used this line of code in product firmware, however, a given device listening for a webhook response could receive it from _any device in the fleet_, not just the webhook that it triggered. 
+If you used this line of code in product firmware, however, a given device listening for a webhook response could receive it from _any device in the fleet_, not just the webhook that it triggered.
 
 Ensuring that the "Only the device that triggers the webhook should receive its response" checkbox is checked will prepend the device ID of the triggering webhook to the `hook-response` event. This will allow you to write firmware that will listen to only webhook responses for that particular device, like this:
 
@@ -281,101 +303,16 @@ void myHandler(const char *event, const char *data) {
 
 At any time, you can see some sample firmware for both triggering and getting responses from webhooks on your Particle Console. To do this, simply click on one of your product webhooks and scroll down to "Example Device Firmware."
 
-### Monitoring Product Webhooks
-[Coming Soon]
-
-
-
 ## Advanced Topics
 
-### Other ways to manage webhooks
+See [the webhook reference](/reference/webhooks) for more details on customizing webhooks with variables, examples of different webhook configurations as well as community guides on setting up webhooks with external services.
 
-If you prefer not to use the Particle Console, there are other tools you can use to manage webhooks.
+As a quick reference, these are the pre-defined webhook variables available for you to use (use triple braces to avoid HTML escaping of the values):
 
-If you prefer the command line: 
-
-1) The [Particle CLI](/reference/cli/) has commands for [creating](/reference/cli/#particle-webhook-create), [listing](/reference/cli/#particle-webhook-list), and [deleting](/reference/cli/#particle-webhook-delete) webhooks.
-
-If you prefer to manage webhooks programatically:
-
-2) The [Particle API](/reference/api/) has endpoints for [creating](/reference/api/#create-a-webhook), [listing](/reference/api/#list-all-webhooks), [retrieving](/reference/api/#get-a-webhook) and [deleting](/reference/api/#delete-a-webhook) webhooks.
-
-### Webhook variables
-
-A webhook can be configured to inject dynamic data at runtime. The following webhook variables are available for you to use:
-
-- `\{{PARTICLE_DEVICE_ID}}`: The ID of the device that triggered the webhook
-- `\{{PARTICLE_EVENT_NAME}}`: The name of the event that triggers the webhook
-- `\{{PARTICLE_EVENT_VALUE}}`: The data associated with the webhook event
-- `\{{PARTICLE_PUBLISHED_AT}}`: When the webhook was sent
-
-You can use these variables in a variety of different places when configuring a webhook, such as:
-- Custom JSON or form data sent with the request. This is most commonly used when the web server you are interacting with expects structured data in a specific way. Here's what custom JSON could look like with some webhook variables included:
-
-```
-{
-  "source": "\{{PARTICLE_DEVICE_ID}}",
-  "published_at": "\{{PARTICLE_PUBLISHED_AT}}"
-}
-```
-
-- The _response topic_, or the name of the event that gets sent back to the device with the results of the webhook. You'd want to use webhook variables if you were creating a product webhook that should only return a response to the device that triggered it. [Read here](#product-webhook-responses) for more details.
-
-- The _response template_, or the body of data that gets sent back to the device after the webhook has successfully been returned.
-
-## Limits
-
-### Be a good citizen
-
-**Please make sure you have permission from the target site!**
-
-Web requests via webhooks can go almost anywhere on the internet, and to almost any service, which is awesome!
-
-In being responsible members of the Internet community, we want to make sure we're not sending unwanted requests to sites, or sending too much traffic, or causing errors.  For this reason we ask that you make sure you have permission to make requests to any sites you configure webhooks for, and that you're sending those requests within their usage policies.  We will generally disable any hooks, or adjust rate limiting if we hear from site administrators that contact us about issues.
-
-
-### Limits by Host
-
-**Any host will be limited to 120 requests per minute
-unless we're contacted by the site administrator**
-
-Particle webhooks will not contact any host more often than 120 times per minute, despite any number of configured webhooks from any number of users.  Requests over this limit for the moment will be dropped.  We intend to add a proper queuing system so this is done more fairly, but for the moment we've opted to protect sites against abuse first.  If you're a site owner / operator and you want to allow more traffic, please email us at hello@particle.io.
-
-
-### Limits by User
-
-**You can create up to 20 webhooks,
-you can send 10 webhooks per minute per device**
-
-A user by default may trigger a webook up to 10 times per minute for every device that is registered to their account.  A user may create up to 20 webhooks in total.
-
-Note: This means you must have at least one device registered to your account to trigger a webhook.
-
-
-### Error Limits
-
-**A webhook will be disabled if the server responds with errors 10 times in a row.**
-
-Any webhook that results in an error code from the server (above a 400), 10 consecutive times in a row will be automatically disabled.  We'll be adding notifications, and the ability to pause/unpause when this happens, but for the moment you might notice that your webhook stops working for this reason.
-
-Error responses from the target url will also be sent back in the response event.  If you have 10 consecutive errors, the hook will send you a "Too many errors, webhook disabled" message.  Make sure you're watching the responses when developing your webhook!
-
-## Community Webhook Examples
-
-Below are a few community-written webhook examples. They have been sorted by what they do. These examples were not written by Particle but instead members of our community. Got your own webhook example? Post on the [community forums](https://community.particle.io/) and then issue a pull request to our [docs repo](https://github.com/spark/docs/compare).
-
-### Sending SMS (Text Messages)
-
-- [Twilio - Sending a text message using Twilio](https://community.particle.io/t/webhooks-sending-a-text-message/10560) by [hoxworth](https://community.particle.io/users/hoxworth/activity)
-- [Tropo - Sending a text message (or voice call) using Tropo](https://community.particle.io/t/webhook-tutorial-send-a-sms/11431) by [harrisonhjones](https://community.particle.io/users/harrisonhjones/activity)
-
-### Push Notifications
-
-- [Pushbullet - Sending a push notification using Pushbullet](https://www.hackster.io/gusgonnet/add-push-notifications-to-your-hardware-41fa5e) by [gusgonnet](https://community.particle.io/users/gusgonnet/activity)
-
-### Sending Emails
-
-- [mailgun - Sending emails with mailgun](https://github.com/harrisonhjones/webhook-examples/tree/master/mailgun.org) by [harrisonhjones](https://community.particle.io/users/harrisonhjones/activity)
+- `\{{{PARTICLE_DEVICE_ID}}}`: The ID of the device that triggered the webhook
+- `\{{{PARTICLE_EVENT_NAME}}}`: The name of the event that triggers the webhook
+- `\{{{PARTICLE_EVENT_VALUE}}}`: The data associated with the webhook event
+- `\{{{PARTICLE_PUBLISHED_AT}}}`: When the webhook was sent
 
 
 **Also**, check out and join our [community forums](http://community.particle.io/) for advanced help, tutorials, and troubleshooting.

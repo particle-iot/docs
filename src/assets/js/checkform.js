@@ -33,9 +33,13 @@ $(document).ready(function() {
 		  				urlFrom: window.location.pathname
 						};//object
 
+
+		var formUrl = (window.location.host === 'docs.staging.particle.io') ?
+		    'https://staging-supportal.herokuapp.com/' :
+		    'https://particle-support-portal.herokuapp.com';
 		$.ajax({
 		  method: "POST",
-		  url: "https://particle-support-portal.herokuapp.com",
+		  url: formUrl,
 		  dataType: 'json',
 		  cache: false,
 		  data: JSON.stringify(ddx),

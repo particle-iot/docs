@@ -1,3 +1,5 @@
+// Similar to contains but renders content even if the collection or
+// item is blank
 module.exports = function( collection, item, options ){
   if (!collection || !collection.length || !item) {
     return options.fn(this);

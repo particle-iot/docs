@@ -1,6 +1,6 @@
 ---
 title: Common Issues
-template: support.hbs
+layout: support.hbs
 columns: two
 devices: [ photon,electron,core ]
 order: 1
@@ -10,11 +10,19 @@ order: 1
 
 This section will help walk you through the diagnosis and resolution of the most common roadblocks that our users run into. Some of these roadblocks are caused by issues or bugs in the platform, but many are more innocuous than that, and few are permanent. We'll help you identify exactly why your device is `insert_issue_here` and help you get it back to happily connected.
 
+## Device Doctor
+
+If your {{device}} used to work but is not connecting to the cloud anymore, the easiest way to get it back to health is to use the Device Doctor.
+
+- Install [the Particle CLI](/guide/tools-and-features/cli)
+- Run [`particle device doctor`](/reference/cli/#particle-device-doctor)
+- Follow the prompts to reset various settings on your device.
+
 {{#if electron}}
 
 ## Blinking Green
 
-{{{device-animation device "blink" "lime" }}}
+{{device-animation device "blink" "lime" }}
 
 Electrons that are blinking green have successfully read the APN data from the inserted SIM card and are attempting to connect to a cellular tower. There are many different reasons that your Electron might fail to connect to your nearby cellular network. Here are a few things you can check if you find your device in an endless loop (5 minutes+) of blinking green:
 
@@ -28,7 +36,7 @@ There are three different variants of the Electron, and they each work in differ
 | Electron U260  | 3G with 2G fallback | North and South America, Australia | 850/1900
 | Electron U270 | 3G with 2G fallback | Europe, Asia, Africa | 900/1800/2100 |
 
-Make sure that your device is compatible with the cellular infrastructure in your country. Small country-by-country variations from the generalized table above may apply. For a detailed list of 3G service country by country, <a href="https://www.kickstarter.com/projects/sparkdevices/spark-electron-cellular-dev-kit-with-a-simple-data/description" target="_blank">please visit the following link</a>.
+Make sure that your device is compatible with the cellular infrastructure in your country. Small country-by-country variations from the generalized table above may apply. For a detailed list of 3G service country by country, <a href="https://www.particle.io/products/connectivity/cellular-iot-sim-2g-3g-lte#additional-mbs" target="_blank">please visit the following link</a>.
 
 If your device is not compatible with the cellular infrastructure in your country, **it will be unable to connect to the Internet using a Particle SIM or any other SIM.**
 
@@ -52,10 +60,12 @@ If you're not using a Particle SIM, you will have to change the cellular APN on 
 
 > **NOTE**: Until you have done this, your device _will not_ be able to connect to the Internet.
 
+There are additional instructions in the [3rd-party SIM FAQ](https://docs.particle.io/faq/particle-devices/electron-3rdparty-sims/electron/).
+
 ### 6) Check the cellular coverage in your area
 The Electron leverages a number of cellular carriers to provide excellent coverage, but it *is* possible that you are outside GSM coverage in your country. Fortunately, it's relatively simple to check:
 
-- Go to http://particle.io/cellular and select your country from the dropdown at the bottom of the page. Note the cellular provider in your country. In the US, for example, service is provided by `T-Mobile and AT&T`.
+- Go to [the pricing page](https://www.particle.io/products/connectivity/cellular-iot-sim-2g-3g-lte#additional-mbs) and select your country from the dropdown. Note the cellular provider in your country. In the US, for example, service is provided by `T-Mobile and AT&T`.
 - Navigate to <a href="http://opensignal.com" target="_blank">http://opensignal.com</a> in your browser
 - If you have an Electron G350, select "2G" and unselect "3G" and "4G" options. If you have an Electron U260 or U270, select both "2G" and "3G" and unselect the "4G" option. Limit the coverage map to the carrier providing service to your Particle SIM in your country (`T-Mobile and AT&T` in the US, for example).
 - Check the coverage map to ensure that you have coverage in your area.
@@ -91,7 +101,7 @@ Still having issues? [Write us an email](/support/support-and-fulfillment/menu-b
 
 ## Blinking Blue
 
-{{{device-animation device "blink" "blue" 300 300 }}}
+{{device-animation device "blink" "blue" 300 300 }}
 
 Electrons that are blinking blue are in listening mode. When an Electron boots up, it will attempt to read information from the its SIM card to connect to the cellular network. Electrons that do not have a SIM card, or that have an improperly configured SIM card will be unable to connect to a cell tower and will default back to listening mode. If you're in listening mode and don't want to be, try the steps listed below:
 
@@ -108,6 +118,8 @@ Remove *both* the USB cable and Li-Po battery from the Electron, so that the RGB
 
 ### 4\. Check the integrity of your SIM card holder
 Visually inspect the SIM card holder. Are all of the contacts soldered down? Does the holder lie flush against the Electron PCB (printed circuit board)? Are any of the pins bent or depressed downwards?
+
+The first step is to remove the SIM card and gently press down on the metal band. The little bit of extra pressure from the band is often enough for the SIM to work properly.
 
 The easiest way to identify a bad contact in the holder is by removing the SIM card and looking at the marks on the contacts. If there are any contacts without marks, then one of the spring pins in the holder may be bent down. You can try to fix this yourself by gently bending the pin upward until it lines up with the others using a pair of fine tweezers or an exacto knife.
 
@@ -128,56 +140,50 @@ Still having issues? [Write us an email](/support/support-and-fulfillment/menu-b
 
 ## Breathing Magenta
 
-{{{device-animation device "breathe" "magenta" }}}
+{{device-animation device "breathe" "magenta" }}
 
-If your Electron is breathing magenta, it is in Safe Mode. This means that, although it is connected to the Cloud, it is not running your user firmware. Your device can end up in Safe Mode if the user app that you programmed became corrupted, or the compile target of the user app is newer than the firmware version of the system modules on your device.
+If your Electron is breathing magenta, it is in Safe Mode. This means that, although it is connected to the Cloud, it is not running your user firmware. Your device can end up in Safe Mode if the user app that you programmed became corrupted.
 
-There are two primary ways that you can resolve this issue:
+Normally, if your user firmware requires a newer version of Device OS, it will automatically update itself using the safe mode healer. 
 
-### 1) Recompile your user app for your existing system firmware.
+If this is not working, you can reset the user firmware and Device OS using these steps:
 
-If you are developing in the Build IDE, the compiler should automatically target the version of system firmware running on the selected device. The Build IDE will also give you a warning if you select a firmware version build target for your device that is newer than the system modules running on it. To confirm that you're building with the right version of firmware, follow these steps:
+Put the Electron in DFU mode by holding down both the RESET and MODE buttons, releasing RESET and continuing to hold down MODE until it blinks yellow and issue this command in a Command Prompt or Terminal window. 
 
-- Go to [https://build.particle.io](https://build.particle.io)
-- Click on the `Devices` icon on the left-most navigation pane
-- Select the dropdown arrow next to the device that is in safe mode
-- Click the `Building with firmware` dropdown and make sure that it is set to `Default`
-- Try flashing the application to your device again over the air, or download the binary and flash it to your device using the CLI
+```
+particle flash --usb tinker
+```
 
-### 2) Update the system firmware on your Electron
+Put the Electron back into DFU mode (blinking yellow), then:
 
-The other option to resolve a mismatch between system and user firmware versions is to update the system firmware on your Electron to match the newer user firmware version. You can do this one of two ways:
+```
+particle update
+```
 
-**Using the Build IDE**  
-More details coming soon.
+## Blinking Cyan
 
-**Using the Particle Device Updater**  
-More details coming soon.
+{{device-animation device "blink" "cyan" }}
 
-**Using the Particle CLI**
-- Put your device into DFU mode by holding the `{{system-button}}` and `{{reset-button}}` buttons, then releasing the `{{reset-button}}` button while continuing to hold the `{{system-button}}` button. The LED on your Electron will begin flashing yellow.
-- Open up a terminal session and type `particle update`
-- Your device will download the most recent version of system firmware and will reboot successfully.
+If your Electron is blinking cyan and sometimes orange/red without connecting, it is helpful to first try to manually update your firmware, in the same way as listed as above. If this does not work, then move on to a key reset.
 
-### 3) Check your application for issues
+### Public Key Reset
 
-If you are confident that there is a version match between the system and user compile targets of firmware on your device or you see the LED on your device flash [red or orange](http://docs.particle.io/support/troubleshooting/troubleshooting-support/electron/#error-codes) after startup, it is likely that there is an issue with the user firmware running on your device. To return your device to a stable condition, reflash the Tinker app to your device in one of two ways:
+Sometimes, a firmware upgrade will not be enough to solve your Photon's problem. If your are still having an issue, and particularly **if your Electron is blinking cyan and sometimes orange/red without connecting**, It's time to try resetting the public key.
 
-**Using the CLI** - Uses _no_ data
-- Attach the Electron to your computer using a USB cable
-- Put your Electron in DFU mode
-- Type the following command: `particle flash --usb tinker`
+Put the Electron into Listening mode (blinking blue) by holding down MODE until it blinks blue. Then issue the CLI command:
 
-**Using the Build IDE** - Uses data
-- Go to https://build.particle.io
-- Click on the `Devices` icon on the left-most navigation pane
-- Select the dropdown arrow next to the device that is in safe mode
-- Click the `Building with firmware` dropdown and make sure that it is set to `Default`
-- Click the `Code` icon on the left-most navigation pane
-- Click the `Tinker` application from the list of "Example Apps" section at the bottom of your applications pane
-- Click the `Flash` button
+```
+particle serial identify
+```
 
+Save the Device ID; you’ll need it later.
 
+Then put the Electron in DFU mode by holding down both the RESET and MODE buttons, releasing RESET and continuing to hold down MODE until it blinks yellow and issue the commands below, in order.
+
+```
+particle keys server
+particle keys doctor YOUR_DEVICE_ID
+```
 
 
 {{/if}}
@@ -186,21 +192,37 @@ If you are confident that there is a version match between the system and user c
 
 ## Breathing Magenta
 
-{{{device-animation device "breathe" "magenta" }}}
+{{device-animation device "breathe" "magenta" }}
 
-Photons that have been interrupted mid-firmware update often breathe magenta (defaulting to Safe Mode) to avoid running faulty firmware. To solve this issue, you can update your firmware manually.
+Normally, if your user firmware requires a newer version of Device OS, it will automatically update itself using the safe mode healer. 
+
+You can reset the user firmware and Device OS using these steps:
+
+Put the Electron in DFU mode by holding down both the RESET and MODE buttons, releasing RESET and continuing to hold down MODE until it blinks yellow and issue this command in a Command Prompt or Terminal window. 
+
+```
+particle flash --usb tinker
+```
+
+Put the Electron back into DFU mode (blinking yellow), then:
+
+```
+particle update
+```
 
 ### Manual Firmware Update
+
+The particle update command above is the preferred way to update, however you can update manually using these steps:
 
 If you do not have a Mac/Apple computer then you should not read the instructions below for a firmware upgrade. These are specifically for users who have Mac OS/OS X machines.
 
 *For Windows* If you have a Windows machine, please follow <a href="http://blog.jongallant.com/2015/08/particle-photon-firmware-flash-windows.html" target="_blank">these instructions</a>.
 
-Since your device is offline, I recommend using our dfu-util method. If you want more info on this, the local DFU-UTIL method is roughly explained [here](https://github.com/spark/firmware/releases).
+Since your device is offline, I recommend using our dfu-util method. If you want more info on this, the local DFU-UTIL method is roughly explained [here](https://github.com/particle-iot/firmware/releases).
 
 To upgrade your Photon, follow the instructions below:
 
--  Download the latest system Part-1 and Part-2 firmware binaries for the Photon linked here: [latest release](https://github.com/spark/firmware/releases/latest)
+-  Download the latest system Part-1 and Part-2 firmware binaries for the Photon linked here: [latest release](https://github.com/particle-iot/firmware/releases/latest)
 
 -  Install dfu-util on your Mac using: ```brew install dfu-util```
 If you don't have brew or homebrew installed, install it here: <a href="http://brew.sh/" target="_blank">http://brew.sh/</a>
@@ -216,9 +238,10 @@ If you don't have brew or homebrew installed, install it here: <a href="http://b
 -  Wait... Your device should eventually restart and start blinking blue, breathing cyan, or flashing green -- all dependent on if you've setup the device before.
 
 
+
 ## Blinking Cyan
 
-{{{device-animation device "blink" "cyan" }}}
+{{device-animation device "blink" "cyan" }}
 
 If your Photon is blinking cyan and sometimes orange/red without connecting, it is helpful to first try to manually update your firmware, in the same way as listed as above. If this does not work, then move on to a key reset.
 
@@ -226,25 +249,24 @@ If your Photon is blinking cyan and sometimes orange/red without connecting, it 
 
 Sometimes, a firmware upgrade will not be enough to solve your Photon's problem. If your are still having an issue, and particularly **if your Photon is blinking cyan and sometimes orange/red without connecting**, It's time to try resetting the public key.
 
-- **If you haven't ever claimed the device before:**
-You will need <a href="http://dfu-util.sourceforge.net/" target="_blank">dfu-util</a>. Install it, then download the [this file](https://s3.amazonaws.com/spark-website/cloud_public.der).
-Use the command line to navigate to that file.
-Run the following command:
-`dfu-util -d 2b04:d006 -a 1 -s 2082 -D cloud_public.der`
-This should reset your public key.
+Put the Photon into Listening mode (blinking blue) by holding down SETUP until it blinks blue. Then issue the CLI command:
 
-- **If you claimed the device previously:**
-You need the [CLI](https://docs.particle.io/guide/tools-and-features/cli/). Once it is installed, run:
-`particle keys server cloud_public.der`
-`particle keys new photon`
-`particle keys load photon.der`
-`particle keys send photon.pub.pem`
-This should reset your public key.
+```
+particle serial identify
+```
 
+Save the Device ID; you’ll need it later.
+
+Then put the Photon in DFU mode by holding down both the RESET and SETUP buttons, releasing RESET and continuing to hold down SETUP until it blinks yellow and issue the commands below, in order.
+
+```
+particle keys server
+particle keys doctor YOUR_DEVICE_ID
+```
 
 ## Blinking Green
 
-{{{device-animation device "blink" "lime" }}}
+{{device-animation device "blink" "lime" }}
 
 If your device is blinking green without connecting, there are a few things to check immediately.
 
@@ -259,26 +281,27 @@ There are known issues with the following types of networks:
 - **Enterprise networks**. We have had mixed results connecting the devices to enterprise networks, although we don't yet have a great understanding of what's causing the issue. This is something that we are working to improve.
 - **Complex Networks**. Networks with multiple routers, with non-standard firewalls, and with non-standard settings.
 - **Channels above 11**. This is in particular an international issue; if you are outside the U.S., your Wi-Fi router might run at channels 12, 13, or 14, which the CC3000 does not support. Please use channels numbered 11 or lower.
+- If your router uses **WEP encryption**, you should upgrade your router to something more secure. However it may be possible to connect your Photon with some difficulty by following the [WEP configuration instructions](http://rickkas7.github.io/wep/).
 
 {{/if}}
 
 {{#if photon}}
 **Prerequisites for Setup**
 * **Software**
-  * Particle Mobile App - <a href="https://itunes.apple.com/us/app/particle-build-photon-electron/id991459054?ls=1&mt=8" target="_blank">iPhone</a> | <a href="https://play.google.com/store/apps/details?id=io.particle.android.app" target="_blank">Android</a>
+  * Particle Mobile App - <a href="https://itunes.apple.com/us/app/particle-build-photon-electron/id991459054?ls=1&mt=8" target="_blank">iPhone</a> | <a href="https://play.google.com/store/apps/details?id=io.particle.android.app" target="_blank">Android</a> | <a href="https://www.microsoft.com/en-us/store/p/particle/9nblggh4p55n" target="_blank">Windows</a>
   * *Note: We highly recommend using the mobile app for first time setup.*
 * **Hardware**
   * Your Particle device, brand new and out of the box!
   * USB to micro USB cable {{#if photon}}(included with Photon Kit and Maker Kit){{/if}}
   * Power source for USB cable (such as your computer, USB battery, or power brick)
-  * Your iPhone or Android smartphone
-* **Wifi Settings**
+  * Your iPhone, Windows, or Android smartphone
+* **Wi-Fi Settings**
   * 2.4GHz capable router
   * Channels 1-11
   * WPA/WPA2 encryption
-  * On a broadcasted SSID network
+  * On a broadcast SSID network
   * Not behind a hard firewall or Enterprise network
-  * *Note: We do not recommend using WEP wifi settings, for security reasons.*
+  * *Note: We do not recommend using WEP Wi-Fi settings, for security reasons.*
 * **Experience**
     * None! This is your first project.
 
@@ -287,20 +310,20 @@ There are known issues with the following types of networks:
 {{#if core}}
 **Prerequisites for Setup**
 * **Software**
-  * Spark Core Mobile App - <a href="https://itunes.apple.com/us/app/spark-core/id760157884" target="_blank">iPhone</a> | <a href="https://play.google.com/store/apps/details?id=io.spark.core.android" target="_blank">Android</a>
+  * Spark Core Mobile App - <a href="https://itunes.apple.com/us/app/spark-core/id760157884" target="_blank">iPhone</a> | <a href="https://play.google.com/store/apps/details?id=io.spark.core.android" target="_blank">Android</a> | <a href="https://www.microsoft.com/en-us/store/p/particle/9nblggh4p55n" target="_blank">Windows</a>
   * *Note: We highly recommend using the mobile app for first time setup.*
 * **Hardware**
   * Your Particle device, brand new and out of the box!
   * USB to micro USB cable {{#if photon}}(included with Photon Kit and Maker Kit){{/if}}
   * Power source for USB cable (such as your computer, USB battery, or power brick)
-  * Your iPhone or Android smartphone
-* **Wifi Settings**
+  * Your iPhone, Windows, or Android smartphone
+* **Wi-Fi Settings**
   * 2.4GHz capable router
   * Channels 1-11
   * WPA/WPA2 encryption
-  * On a broadcasted SSID network
+  * On a broadcast SSID network
   * Not behind a hard firewall or Enterprise network
-  * *Note: We do not recommend using WEP wifi settings, for security reasons.*
+  * *Note: We do not recommend using WEP Wi-Fi settings, for security reasons.*
 * **Experience**
     * None! This is your first project.
 
@@ -313,11 +336,17 @@ There are known issues with the following types of networks:
 If you are having intermittent connectivity issues, odd behavior or believe your firmware to be corrupted or out of date, you would benefit from performing a full firmware upgrade. This requires using <a href="http://dfu-util.sourceforge.net/" target="_blank">dfu-util</a> and installing the [Particle CLI](/guide/tools-and-features/cli)
 , which provides an excellent local development and troubleshooting environment for your Particle development.
 
-Once the Particle CLI and dfu-util are installed, you have to enter DFU mode. Once that is done, please run the following commands through the Particle CLI:
+Put the Core in DFU mode by holding down both the RST and MODE buttons, releasing RST and continuing to hold down MODE until it blinks yellow and issue the commands below, in order.
 
-- particle flash --factory tinker
-- particle flash --usb cc3000
-- particle flash --usb tinker
+After completing some of the steps the color may change to something else; if so note what color/pattern it is, then use the button combination to get back to blinking yellow. The core should be blinking yellow before each of the commands listed below is entered.
+
+```
+particle flash --usb --factory tinker
+particle flash --usb deep_update_2014_06
+particle flash --usb tinker
+particle flash --usb cc3000
+particle flash --usb tinker
+```
 
 These commands replace the factory reset image, and re-patch the radio, bringing your Core to an upgraded factory state.
 
@@ -327,6 +356,4 @@ These commands replace the factory reset image, and re-patch the radio, bringing
 
 Check out [connection help](/support/troubleshooting/connection-help) for more info.
 
-**Also**, check out and join our [community forums](http://community.particle.io/) for advanced help, tutorials, and troubleshooting.
-
-[Go to Community Forums >](http://community.particle.io/c/troubleshooting)
+For more help join our [community forums](http://community.particle.io/) and post in the [troubleshooting section](https://community.particle.io/c/troubleshooting).

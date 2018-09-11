@@ -1,6 +1,6 @@
 ---
 title: Device Ownership
-template: support.hbs
+layout: support.hbs
 columns: two
 devices: [ photon,electron,core ]
 order: 3
@@ -19,18 +19,18 @@ There are several ways to **find the device ID of your {{device}}**, but the bes
 
 If you haven't claimed your {{device}} yet, there are two ways for you to figure out your {{device}} device ID:
 
-  1a. **Get your {{device}} ID using the Particle CLI** Make sure that you've got the Particle Command Line Interface (CLI) installed by typing ``particle``
+  1a. **Get your {{device}} ID using the Particle CLI** Make sure that you've got the Particle Command Line Interface (CLI) installed by typing `particle`
 into your terminal.
 You should see a help message that displays the various commands available to you.  Please make sure your {{device}} is in [Listening Mode](https://mtc.cdn.vine.co/r/videos/B75AACF6B91015398617940668416_154e6c92f81.4.3.1608668747173494282_V_AMvRCF0NS2Y_i_y0FdDV9ABtESHh9GR_VFKEu8Pn8Q3ZHYx9l32NfspugyWKJh.mp4?versionId=l_G0UVaqFXFSdJVxAeJ3.56M1HhVfO9S) (flashing blue), and type ``particle serial identify``.
 
 Your {{device}} should respond with it's {{device}} device ID!
 
   1b. **Get your {{device}} device ID using CoolTerm, PuTTY, or screen** CoolTerm and PuTTY are programs for Mac and Windows, respectively, that allow you to communicate with your {{device}} using the exposed serial lines.  You can find the download links for CoolTerm and PuTTY at the links attached--
-  [CoolTerm](http://freeware.the-meiers.org/) & [PuTTy](http://the.earth.li/~sgtatham/putty/latest/x86/putty.exe).
+  [CoolTerm](http://freeware.the-meiers.org/) & [PuTTy](http://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html).
 
 Plug your {{device}} into your computer over USB. When the {{device}} is in Listening Mode (flashing blue), open a serial port over USB using the standard settings, which should be:
 
-- Baudrate: 9600
+- Baud rate: 9600
 - Data Bits: 8
 - Parity: none
 - Stop Bits: 1
@@ -63,9 +63,10 @@ Remove the {{device}} from the account it was previously registered to, using th
 
 **2. Connect the {{device}}**
 
-Make sure that the {{device}} is connected to the Particle Cloud (breathing or pulsing cyan).
+Make sure that the {{device}} is connected to the Particle Device Cloud (breathing or pulsing cyan).
 
-NOTE: A {{device}} cannot be claimed unless it is connected to the Particle Cloud, and is breathing/pulsing cyan.
+Note that {{a-device}} cannot be claimed unless it is connected to the
+Particle Device Cloud, and is breathing/pulsing cyan.
 
 **3. Claim the {{device}}**
 
@@ -79,9 +80,9 @@ We take **security** extremely seriously at Particle, and that means being very 
 
 If you really are the owner of your {{device}}, and are having trouble logging into your Particle account or configuring your {{device}}, send us an email at [hello @ particle dot io], and our Troubleshooting staff would be happy to help you resolve the issue.
 
-### How do I unclaim a {{device}} ?
+### How do I unclaim {{a-device}} ?
 
-There are two primary ways to remove a {{device}} from your account--using the Particle Build Web IDE, or using the Particle Command Line Interface (CLI).
+There are two primary ways to remove {{a-device}} from your account--using the Particle Build Web IDE, or using the Particle Command Line Interface (CLI).
 
 **Using Particle Build**
 
@@ -96,13 +97,13 @@ There are two primary ways to remove a {{device}} from your account--using the P
 
 **Using the Particle CLI**
 
-**1. Install [CLI](https://github.com/spark/particle-cli)**.  Make sure you've got the CLI installed by typing
+**1. Install [CLI](/guide/tools-and-features/cli)**.  Make sure you've got the CLI installed by typing
 
 ``particle help``
 
 into your terminal. If you're presented with a list of commands, the CLI is installed correctly. If not, please see the following article:
 
-Installing the Particle CLI
+[Installing the Particle CLI](/guide/tools-and-features/cli/)
 
 **2. Login**.  Make sure you're logged into your Particle account by typing
 
@@ -128,14 +129,4 @@ where <name> is either the familiar name or device ID of the {{device}} you'd li
 
 **That's it!** The {{device}} has now been disassociated with your account, and is once again available to be claimed.
 
-**Also**, check out and join our [community forums](http://community.particle.io/) for advanced help, tutorials, and troubleshooting.
-
-{{#if photon}}
-[Go to Community Forums >](http://community.particle.io/c/troubleshooting)
-{{/if}}
-
-{{#if core}}
-[Go to Community Forums >](http://community.particle.io/c/troubleshooting)
-{{/if}}
-
-
+For more help join our [community forums](http://community.particle.io/) and post in the [troubleshooting section](https://community.particle.io/c/troubleshooting).

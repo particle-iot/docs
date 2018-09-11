@@ -1,7 +1,10 @@
-module.exports = function (long, short, options) {
+// Check if long string starts with short string
+// Usage:
+// {{starts-with device 'P'}}
+module.exports = function (long, short, context) {
 	if (!long || long.indexOf(short) === 0) {
-		return options.fn(this);
+		return context.fn(this);
 	} else {
-		return options.inverse(this);
+		return context.inverse(this);
 	}
 };

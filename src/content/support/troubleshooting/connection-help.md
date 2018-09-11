@@ -1,6 +1,6 @@
 ---
 title: Connectivity Help
-template: support.hbs
+layout: support.hbs
 columns: two
 devices: [ photon,core ]
 order: 8
@@ -12,7 +12,8 @@ Connection Issues
 {{#if electron}}
 ## Using non Particle SIM card
 ### Steps for using non Particle SIM card for Electron
-*This section is coming soon!*
+
+You can find full instructions in [the 3rd-party SIM FAQ](https://docs.particle.io/faq/particle-devices/electron-3rdparty-sims/electron/).
 {{/if}}
 
 
@@ -69,7 +70,13 @@ So often, electronics start behaving after you shut them off and turn them back 
 There are a million ways router settings could cause problems, but here's a few things to look out for:
 
 - **Use DHCP**. Although the {{device}} can handle static IP addresses, it's not configured for it out of the box, so you'll have to dig into the source code.
-- **Turn off access control and firewalls**. Not permanently, but temporarily, to see if it resolves the issue. If it does, you can hopefully just tweak your settings to accommodate the {{device}} rather than taking down your security. The only change you may need to make to your router is to open up outgoing port 5683, the default [CoAP](http://en.wikipedia.org/wiki/Constrained_Application_Protocol) port the {{device}} uses to connect to the Particle Cloud. If your {{device}} flashes cyan and occasionally flashes red, router issues are likely the culprit.
+- **Turn off access control and firewalls**. Not permanently, but
+temporarily, to see if it resolves the issue. If it does, you can
+hopefully just tweak your settings to accommodate the {{device}} rather
+than taking down your security. The only change you may need to make to
+your router is to open up outgoing port 5683, the default
+[CoAP](http://en.wikipedia.org/wiki/Constrained_Application_Protocol)
+port the {{device}} uses to connect to the Particle Device Cloud. If your {{device}} flashes cyan and occasionally flashes red, router issues are likely the culprit.
 
 **STEP 5: Search the forums**
 
@@ -94,7 +101,7 @@ Please post issues with connectivity either as responses to this topic or, if th
 ***Pulsing White***
 
 - **What's the Core Doing?** The main LED on my Core slowly pulses white, even if I reset it or [perform a factory reset](https://community.particle.io/t/how-to-do-a-factory-reset/2579).
-- **What's the problem?** The CC3000 on the COre is having trouble initializing due ot a potential hardware issue.
+- **What's the problem?** The CC3000 on the COre is having trouble initializing due to a potential hardware issue.
 - **How do I fix it?** In general, if the LED on your Core starts breathing white, the best thing to do is to reach out to the Particle team. Refer to this issue in your email, and Particle's Technical Support staff will help you resolve the problem directly.
 
 
@@ -104,13 +111,13 @@ Please post issues with connectivity either as responses to this topic or, if th
 - **What’s the problem?** Your Core is missing firmware.
 - **How do I fix it?**
 
-1. Try a factory reset. Hold down both buttons, then release the RST button, while holding down the `{{system-button}}` button. The LED should begin flashing yellow. Continue holding down the `{{system-button}}` button until you see the Core change from flashing yellow to flashing white. Then release the button. The Core should begin after the factory reset is complete. [Here](http://docs.particle.io/core/connect/#appendix-factory-reset) is a video to illustrate it being done.
+1. Try a factory reset. Hold down both buttons, then release the RST button, while holding down the `{{system-button}}` button. The LED should begin flashing yellow. Continue holding down the `{{system-button}}` button until you see the Core change from flashing yellow to flashing white. Then release the button. The Core should begin after the factory reset is complete. [Here](/core/connect/#appendix-factory-reset) is a video to illustrate it being done.
 
 2. If you see no flashing lights during factory reset, then your Core may be temporarily nonfunctional. If you have a JTAG shield, contact [hello @ particle dot io] so we can help walk you through re-installing the Core firmware. If you do not have a JTAG shield, please contact the Particle team to let us know, and we’ll help you take next steps.
 
 ***Both LEDs off and Unresponsive***
 
-- **What's the Core doing?** My Core isn't showing any LED acitivity when I power it over USB.
+- **What's the Core doing?** My Core isn't showing any LED activity when I power it over USB.
 - **What's the problem?** Your core is not receiving power.
 - **How do I fix it?**
 
@@ -124,7 +131,7 @@ Please complete the following steps:
 
 ### Deep Update for the Core
 
-A **deep update** is a firmware update that reaches **deep** into the internals of a core and updates the firmware of peripheral modules like the CC3000. Periodically, as enhancements and bugfixes become available for components on the Core, we'll release new deep updates to keep your hardware always running the latest, greatest firmware within your application and the other underlying flashable components. Our first deep update release, **deep_update_2014_06** is the maiden voyage of this feature, designed to apply the CC3000 patch, fix the flashing cyan issue, and dramatically improve the stability and performance of the Core.
+A **deep update** is a firmware update that reaches **deep** into the internals of a core and updates the firmware of peripheral modules like the CC3000. Periodically, as enhancements and bug fixes become available for components on the Core, we'll release new deep updates to keep your hardware always running the latest, greatest firmware within your application and the other underlying flashable components. Our first deep update release, **deep_update_2014_06** is the maiden voyage of this feature, designed to apply the CC3000 patch, fix the flashing cyan issue, and dramatically improve the stability and performance of the Core.
 
 ***Overview***
 
@@ -149,16 +156,13 @@ If you want to get a preview of what to expect, please checkout these **videos t
 The easiest way to apply **deep_update_2014_06** is to simply log into the [Particle Build IDE](https://build.particle.io/build).
 When you login, you'll be prompted with instructions and links that will show you the way. Once all of your claimed cores have had the deep update applied to them, you'll no longer be prompted. Note: You'll need have a Core connected and breathing cyan for this to work.
 
-If you're on a noisy WiFi network you've had troubles flashing wirelessly in the past, you might want to consider using one of the alternate USB-based approaches described below.
+If you're on a noisy Wi-Fi network you've had troubles flashing wirelessly in the past, you might want to consider using one of the alternate USB-based approaches described below.
 
 **Flash via Particle CLI**
 
-The [Particle CLI](https://github.com/spark/particle-cli) s a swiss army command line knife that can be used to do all kinds of cool things...like flash a deep update to your core. The README provides some nice documentation about how to install it and [how to do a deep update over USB](https://github.com/spark/particle-cli#performing-a-deep-update). The process is pretty simple:
+The [Particle CLI](/guide/tools-and-features/cli/) is a Swiss army command line knife that can be used to do all kinds of cool things...like flash a deep update to your core. The process is pretty simple:
 
-Install or Upgrade the CLI (requires Node.js):
-
-``npm install -g particle-cli``
-
+[Install or upgrade the CLI](/guide/tools-and-features/cli/#installing)
 Connect a Core to your computer via USB and put it into [dfu-mode](/guide/getting-started/modes/core/#dfu-mode-device-firmware-upgrade-)
 
 Run the flash command:
@@ -167,30 +171,36 @@ Run the flash command:
 - `particle flash --usb cc3000` **(v1.29 stable - recommended)**
 - `particle flash --usb cc3000_1_14` **(v1.32 latest - not recommended without testing)**
 
-This installs the deep udate from a binary that is packaged with the Particle CLI, so you don't have to download it.
+This installs the deep update from a binary that is packaged with the Particle CLI, so you don't have to download it.
 
+When it's done running, your Core will be blinking yellow in DFU-mode, you'll need to flash regular firmware like Tinker
+to get connected and developing again.
+
+1. Run `particle flash --usb tinker`. This will flash a new version of Tinker to your Core and return to a blinking blue "listening" state, where
+you can:
+1. Run `particle setup` or `particle setup wifi` to provide your network credentials to get connected again.
+
+{{/if}}
 
 ### Full Firmware Upgrade
 
-If you are having intermittent connectivity issues, odd behavior or believe your firmware to be corrupted or out of date, you would benefit from performing a full firmware upgrade. This requires using dfu-util and installing the [Particle CLI](https://github.com/spark/particle-cli)
+If you are having intermittent connectivity issues, odd behavior or believe your firmware to be corrupted or out of date, you would benefit from performing a full firmware upgrade. This requires using dfu-util and installing the [Particle CLI](/guide/tools-and-features/cli)
 , which provides an excellent local development and troubleshooting environment for your Particle development.
 
 Once the Particle CLI and dfu-util are installed, you have to enter DFU mode. Once that is done, please run the following commands through the Particle CLI:
 
+{{#if core}}
 - particle flash --factory tinker
 - particle flash --usb cc3000
 - particle flash --usb tinker
 
 These commands replace the factory reset image, and re-patch the radio, bringing your Core to an upgraded factory state. Good luck!
+{{else}}
+- particle upgrade
+- particle flash --usb tinker
 
+These commands upgrade the Device OS to the latest version and restores the app to the default Tinker. Good luck!
 {{/if}}
 
-**Also**, check out and join our [community forums](http://community.particle.io/) for advanced help, tutorials, and troubleshooting.
 
-{{#if photon}}
-[Go to Community Forums >](http://community.particle.io/c/troubleshooting)
-{{/if}}
-
-{{#if core}}
-[Go to Community Forums >](http://community.particle.io/c/troubleshooting)
-{{/if}}
+For more help join our [community forums](http://community.particle.io/) and post in the [troubleshooting section](https://community.particle.io/c/troubleshooting).

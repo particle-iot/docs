@@ -1,15 +1,19 @@
 ---
 title: Particle API JS (Javascript SDK)
-template: reference.hbs
+layout: reference.hbs
 columns: three
 order: 4
 ---
 
 # Particle API JS
 
-ParticleJS is a library for interacting with your devices and the Particle Cloud.
-It uses node.js and can run on Windows, Mac OS X, and Linux fairly easily.
-It's also open source so you can edit, change or even send in pull requests if you want to share!
+ParticleJS is JavaScript library for the Particle Device Cloud API for Node.js and the browser.
+It's [open source](https://github.com/particle-iot/particle-api-js) so you can edit, change or even send in pull requests if you want to share!
+
+This page contains examples to get started using the library.
+
+For more details, see the [detailed reference below](#detailed-reference) and check the
+[examples folder on GitHub](https://github.com/particle-iot/particle-api-js/blob/master/examples).
 
 ## Installation
 
@@ -23,9 +27,7 @@ Next, open a command prompt or terminal, and install by typing:
 $ npm install particle-api-js
 ```
 
-## Client side
-
-#### Including Particle API JS
+### Browser
 
 Particle API JS can be included using bower:
 
@@ -42,22 +44,9 @@ Alternately, you can pull in Particle API JS from the JSDelivr and simply includ
 
 Now you will have a `Particle` object available that you can use in your application.
 
-## Logging in
-
-### With username/password
-
-You can create an account [here](https://build.particle.io/signup)
-
-```javascript
-var Particle = require('particle-api-js');
-var particle = new Particle();
-
-particle.login({username: 'user@email.com', password: 'pass'});
-```
-
 ## Responses
 
-You interact with the api using [promises](https://promisesaplus.com/).
+All functions in this library return [promises](https://promisesaplus.com/).
 
 ```javascript
 particle.login({username: 'email@example.com', password: 'pass'}).then(
@@ -70,13 +59,36 @@ particle.login({username: 'email@example.com', password: 'pass'}).then(
 );
 ```
 
-# Supported commands
+# Examples
+
+Here are some common use cases of using the functions in the Javascript library.
+
+## Logging in
+
+### With username/password
+
+You can create an account [here](https://build.particle.io/signup). Use the token from [`login`](#login) as the `auth` parameter in other calls.
+
+```javascript
+var Particle = require('particle-api-js');
+var particle = new Particle();
+var token;
+
+particle.login({username: 'user@email.com', password: 'pass'}).then(
+  function(data) {
+    token = data.body.access_token;
+  },
+  function (err) {
+    console.log('Could not log in.', err);
+  }
+);
+```
 
 ## Device management
 
 ### List devices
 
-List devices for a user
+List devices for a user with [`listDevices`](#listdevices).
 
 ```javascript
 var token; // from result of particle.login
@@ -92,9 +104,10 @@ devicesPr.then(
 );
 ```
 
+
 ### callFunction
 
-Call a function in device
+Call a function in device with [`callFunction`](#callfunction).
 
 ```javascript
 var fnPr = particle.callFunction({ deviceId: 'DEVICE_ID', name: 'brew', argument: 'D0:HIGH', auth: token });
@@ -112,9 +125,11 @@ device and registered to the Particle cloud.
 
 You pass along the name of the function and the params.
 
+If the function call succeeds, `data.return_value` is the value returned by the function call on the Particle device.
+
 ### claimDevice
 
-Claims device and adds it to the user account
+Claims device and adds it to the user account with [`claimDevice`](#claimdevice)
 
 ```javascript
 particle.claimDevice({ deviceId: 'DEVICE_ID', auth: token }).then(function(data) {
@@ -126,7 +141,7 @@ particle.claimDevice({ deviceId: 'DEVICE_ID', auth: token }).then(function(data)
 
 ### flash
 
-Flash firmware to device
+Flash firmware to device with [`flashDevice`](#flashdevice)
 
 ```javascript
 particle.flashDevice({ deviceId: 'DEVICE_ID', files: { file1: './path/file1' }, auth: token }).then(function(data) {
@@ -138,7 +153,7 @@ particle.flashDevice({ deviceId: 'DEVICE_ID', files: { file1: './path/file1' }, 
 
 ### getAttributes
 
-Gets all attributes for the device
+Gets all attributes for the device with [`getDevice`](#getdevice)
 
 ```javascript
 var devicesPr = particle.getDevice({ deviceId: 'DEVICE_ID', auth: token });
@@ -155,7 +170,7 @@ devicesPr.then(
 
 ### getVariable
 
-Gets a variable value for the device
+Gets a variable value for the device with [`getVariable`](#getvariable)
 
 ```javascript
 particle.getVariable({ deviceId: 'DEVICE_ID', name: 'temp', auth: token }).then(function(data) {
@@ -167,9 +182,12 @@ particle.getVariable({ deviceId: 'DEVICE_ID', name: 'temp', auth: token }).then(
 
 The variable needs to be defined in your device's code.
 
+If getting the variable succeeds, `data.result` is the value of the variable on the Particle device.
+
+
 ### removeDevice
 
-Removes device from the user account
+Removes device from the user account with [`removeDevice`](#removedevice)
 
 ```javascript
 particle.removeDevice({ deviceId: 'DEVICE_ID', auth: token }).then(function(data) {
@@ -181,7 +199,7 @@ particle.removeDevice({ deviceId: 'DEVICE_ID', auth: token }).then(function(data
 
 ### renameDevice
 
-Renames device for the user account
+Renames device for the user account with [`renameDevice`](#renamedevice)
 
 ```javascript
 particle.renameDevice({ deviceId: 'DEVICE_ID', name: 'new-name', auth: token }).then(function(data) {
@@ -193,7 +211,7 @@ particle.renameDevice({ deviceId: 'DEVICE_ID', name: 'new-name', auth: token }).
 
 ### signalDevice
 
-Send a signal to the device to shout rainbows
+Send a signal to the device to shout rainbows with [`signalDevice`](#signaldevice)
 
 ```javascript
 particle.signalDevice({ deviceId: 'DEVICE_ID', signal: true, auth: token }).then(function(data) {
@@ -215,7 +233,7 @@ particle.signalDevice({ deviceId: 'DEVICE_ID', signal: false, auth: token }).the
 
 ### sendPublicKey
 
-Send public key for a device to the cloud
+Send public key for a device to the cloud with [`sendPublicKey`](#sendpublickey)
 
 ```javascript
 particle.sendPublicKey({ deviceId: 'DEVICE_ID', key: 'key', auth: token }).then(function(data) {
@@ -227,32 +245,32 @@ particle.sendPublicKey({ deviceId: 'DEVICE_ID', key: 'key', auth: token }).then(
 
 ### Get event stream
 
-Get event listener to an stream in the Particle cloud
+Get event listener to an stream in the Particle cloud with [`getEventStream`](#geteventstream)
 
 ```javascript
 //Get all events
 particle.getEventStream({ auth: token}).then(function(stream) {
   stream.on('event', function(data) {
-    console.log("Event: " + data);
+    console.log("Event: ", data);
   });
 });
 
 //Get your devices events
 particle.getEventStream({ deviceId: 'mine', auth: token }).then(function(stream) {
   stream.on('event', function(data) {
-    console.log("Event: " + data);
+    console.log("Event: ", data);
   });
 });
 
 //Get test event for specific device
 particle.getEventStream({ deviceId: 'DEVICE_ID', name: 'test', auth: token }).then(function(stream) {
   stream.on('event', function(data) {
-    console.log("Event: " + data);
+    console.log("Event: ", data);
   });
 });
 ```
 
-data is an object with the following properties
+`data` is an object with the following properties
 
 ```
 {
@@ -266,7 +284,7 @@ data is an object with the following properties
 
 ### Publishing event
 
-Register an event stream in the Particle cloud
+Register an event stream in the Particle cloud with [`publishEvent`](#publishevent)
 
 ```javascript
 var publishEventPr = particle.publishEvent({ name: 'test', data: {}, auth: token });
@@ -285,7 +303,7 @@ publishEventPr.then(
 
 ### Compiling
 
-Compiles files in the Particle cloud
+Compiles files in the Particle cloud with [`compileCode`](#compilecode)
 
 ```javascript
 var ccPr = particle.compileCode({ files: { 'main.cpp': './project/main.cpp', 'my_lib/lib.cpp': './project/my_lib/lib.cpp' }, auth: token });
@@ -300,7 +318,7 @@ ccPr.then(
 
 ### Flashing
 
-Flash firmware to a device
+Flash firmware to a device with [`flashDevice`](#flashdevice)
 
 ```javascript
 var flashPr = particle.flashDevice({ deviceId: 'DEVICE_ID',
@@ -319,10 +337,10 @@ flashPr.then(
 
 ### Create user
 
-Creates a user in the Particle cloud
+Creates a user in the Particle cloud with [`createUser`](#createuser)
 
 ```javascript
-particle.createUser({ username: 'example@email.com', password: 'pass' }.then(function(data) {
+particle.createUser({ username: 'example@email.com', password: 'pass' }).then(function(data) {
 ```
 
 We try to login and get back an accessToken to verify user creation
@@ -348,7 +366,7 @@ We'll use promises to check the result of the login process
 
 ### List access tokens
 
-Lists access tokens from the Particle cloud for the specified user.
+Lists access tokens from the Particle cloud for the specified user with [`listAccessTokens`](#listaccesstokens)
 
 ```javascript
 particle.listAccessTokens({ username: 'u@m.com', password: 'pass' }).then(function(data) {
@@ -358,46 +376,35 @@ particle.listAccessTokens({ username: 'u@m.com', password: 'pass' }).then(functi
 });
 ```
 
-### Remove access token
+### Delete access token
 
-Removes an access token from the Particle cloud for the specified user.
+Removes an access token from the Particle cloud for the specified user with [`deleteAccessToken`](#deleteaccesstoken)
 
 ```javascript
-particle.removeAccessToken({ username: 'u@m.com', password: 'pass', token: 'token' }).then(function(data) {
-  console.log('data on removing accessToken: ', data);
+particle.deleteAccessToken({ username: 'u@m.com', password: 'pass', token: 'token' }).then(function(data) {
+  console.log('data on deleting accessToken: ', data);
 }, function(err) {
-  console.log('error on removing accessToken: ', err);
+  console.log('error on deleting accessToken: ', err);
 });
 ```
 
-## Setup your dev environment
+## Product support
 
-Install project dependencies
+If you are a [product creator](/guide/how-to-build-a-product/intro/) you can use the Javascript library to manage devices, firmware, integrations, and more.
 
-```shell
-$ npm install
-```
+Many of the functions in the Javascript library accept a `product` parameter. Pass your product ID number (such as 4567) or the slug (such as `myproduct-v100`) to make that function act on that product.
 
-### Test
+## Detailed reference
 
-Run the mocha test suite
+Here a full reference of every function available in the Javascript
+client library.
 
-```bash
-npm test
-```
+{{!--
+  The detailed Javascript docs are automatically generated from JSDoc comments
+  in the source code of the library.  To fix any issues in the generated
+  documentation, edit the source code at https://github.com/particle-iot/particle-api-js
+  and make a pull request with your changes on that repository. The docs will be
+  automatically updated with the new content.
+--}}
 
-### Lint
-
-Lint your code using eslint
-
-```bash
-npm run lint
-```
-
-### Coverage
-
-Generate istanbul coverage report
-
-```bash
-npm run cover
-```
+GENERATED_JAVASCRIPT_DOCS

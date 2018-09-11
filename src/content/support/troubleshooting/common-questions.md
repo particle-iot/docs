@@ -1,6 +1,6 @@
 ---
 title: Common Questions
-template: support.hbs
+layout: support.hbs
 columns: two
 devices: [ photon,electron,core ]
 order: 5
@@ -26,8 +26,10 @@ Feel free to contact [hello @ particle dot io] with **subject line: *"Sponsorshi
 
 ## How do I get my deviceID [device ID] ?
 * Put the device into [Listening Mode](/guide/getting-started/modes/#listening-mode) mode while being plugged into a computer via USB
-* Issue `particle serial identify` from the [particle CLI](https://github.com/spark/particle-cli)
+* Issue `particle serial identify` from the [particle CLI](/guide/tools-and-features/cli)
 	and it should return the deviceID.
+
+* There are many more options available in [the device ID FAQ](https://docs.particle.io/faq/particle-devices/finding-device-id/).
 
 {{#if core}}
 ## Troubleshoot LED Color on the Core
@@ -37,23 +39,15 @@ Here is a [comprehensive community guide](https://community.particle.io/t/spark-
 
 ## Installing Particle CLI
 
-For [installation instructions](https://github.com/spark/particle-cli) and to stay up-to-date on the most recent revisions of our Particle-cli, follow our repo
-[Particle CLI Repo](https://github.com/spark/particle-cli).
+Please see the [installation instructions](/guide/tools-and-features/cli) for step-by-step guide to installing the CLI.
+
+To stay up-to-date on the most recent revisions of our Particle-cli, follow our repo
+[Particle CLI Repo](https://github.com/particle-iot/particle-cli).
 
 
 ## {{device}} Pinout Map & Datasheets
 
-{{#if photon}}
-Go to our Photon datasheets [collection](/datasheets/photon-datasheet/) to get an in-depth view of the Photon pinouts.
-{{/if}}
-
-{{#if core}}
-Go to our Core datasheets [collection](/datasheets/core-datasheet/) to get an in-depth view of the Core's pinouts.
-{{/if}}
-
-{{#if electron}}
-Go to our Electron datasheets [collection](/datasheets/electron-datasheet/) to get an in-depth view of the Electron pinouts.
-{{/if}}
+Go to our {{device}} datasheets [collection](/datasheets/{{deviceValue}}-datasheet/) to get an in-depth view of the {{device}} pinouts.
 
 ## Hardware Questions
 
@@ -69,13 +63,6 @@ This includes:
 - Internet Button
 - Particle Dev (Electron, Photon, Core) Kit
 - Particle Maker Kit
-
-{{#if photon}}
-## Avoid Factory Reset
-
-It’s best to avoid doing a Factory Reset on your Photon. Here’s an in-depth explanation and some ways to avoid it
-[link here](https://community.particle.io/t/avoid-factory-reset-what-do-do-with-unexpected-led-behavior-on-a-photon/13358).
-{{/if}}
 
 **Also**, check out and join our [community forums](http://community.particle.io/) for advanced help, tutorials, and troubleshooting.
 

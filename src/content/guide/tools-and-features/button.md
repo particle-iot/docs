@@ -1,6 +1,6 @@
 ---
 title: Internet Button
-template: guide.hbs
+layout: guide.hbs
 columns: two
 devices: [ photon,electron,core ]
 order: 7
@@ -21,21 +21,21 @@ order: 7
 
 ## Unboxing
 
-Your Internet Button comes in a {{{popup 'helpful carrying tin' 'img' 'internet-button-in-box.jpg'}}}.
+Your Internet Button comes in a {{popup 'helpful carrying tin' 'img' 'internet-button-in-box.jpg'}}.
 
 Inside the tin, you will find:
 
-   - (1) {{{popup 'USB cable' 'img' 'usb-cable.jpg'}}}
-   - (1) {{{popup 'clear plastic module cover' 'img' 'internet-button-cover.jpg'}}} to prevent damage to your Photon
-   - (1) {{{popup 'opaque plastic shield cover' 'img' 'internet-button-no-cover.jpg'}}} to help diffuse the light from the LEDs
-   - (1) {{{popup 'Photon' 'img' 'photon-loose-top.jpg'}}} resting between the two removeable covers
+   - (1) {{popup 'USB cable' 'img' 'usb-cable.jpg'}}
+   - (1) {{popup 'clear plastic module cover' 'img' 'internet-button-cover.jpg'}} to prevent damage to your Photon
+   - (1) {{popup 'opaque plastic shield cover' 'img' 'internet-button-no-cover.jpg'}} to help diffuse the light from the LEDs
+   - (1) {{popup 'Photon' 'img' 'photon-loose-top.jpg'}} resting between the two removeable covers
 
 </br>
 </br>
-If you {{{popup 'turn your internet button over' 'img' 'internet-button-bottom.jpg'}}}, you can see some of the components. There are four buttons, a buzzer, and a space for a JST connector if you prefer battery power to USB power.
+If you {{popup 'turn your internet button over' 'img' 'internet-button-bottom.jpg'}}, you can see some of the components. There are four buttons, a buzzer, and a space for a JST connector if you prefer battery power to USB power.
 </br>
 </br>
-You can also remove the module cover and Photon, then the shield cover, to expose the {{{popup 'top of the shield' 'img' 'internet-button-uncovered.jpg'}}}. Here, you can see the exposed LEDs and and the accelerometer.
+You can also remove the module cover and Photon, then the shield cover, to expose the {{popup 'top of the shield' 'img' 'internet-button-uncovered.jpg'}}. Here, you can see the exposed LEDs and and the accelerometer.
 
 For more information, check out the [Internet Button datasheet](/datasheets/particle-shields/#internet-button).
 
@@ -46,9 +46,9 @@ Plug in your Photon and go through the setup process as seen in either the [star
 
 ## Examples
 
-You can find examples on how to use your Internet Button in the [official Internet Button library under the Libraries tab on Particle Build](https://build.particle.io/libs/55bfd80bcaf78dbf5e000f48/tab/1_Blink_An_LED.cpp). You can also access them via [this Github repo](https://github.com/spark/InternetButton/tree/master/firmware/examples), or by checking out the text below.
+You can find examples on how to use your Internet Button in the [official Internet Button library under the Libraries tab on Particle Build](https://build.particle.io/libs/InternetButton/0.1.11/tab/example/1_Blink_An_LED.cpp). You can also access them via [this GitHub repo](https://github.com/particle-iot/InternetButton/tree/master/examples), or by checking out the text below.
 
-You should be able to fork the examples from Particle Build or copy and paste the code from the Github repo or from this page. We recommend going through these examples in order for the best understanding of how the Internet Button works. If you haven't used Particle Build before, read the [Particle Build guide](/guide/getting-started/build/photon/).
+You should be able to fork the examples from Particle Build or copy and paste the code from the GitHub repo or from this page. We recommend going through these examples in order for the best understanding of how the Internet Button works. If you haven't used Particle Build before, read the [Particle Build guide](/guide/getting-started/build/photon/).
 
 **If you copy and paste these examples, make sure that you include the official Internet Button library before flashing the code.** Instructions on how to include a library can be found [here](/guide/getting-started/build/photon/#using-libraries).
 
@@ -279,7 +279,7 @@ void loop(){
 ### Orientation Awareness
 
 ```cpp
-#include "InternetButton/InternetButton.h"
+#include "InternetButton.h"
 #include "math.h"
 
 /* Did you know that the Internet Button can detect if it's moving? It's true!
@@ -287,28 +287,38 @@ Specifically it can read when it's being accelerated. Recall that gravity
 is a constant acceleration and this becomes very useful- you know the orientation!*/
 
 InternetButton b = InternetButton();
+int ledPos = 0;
 
 void setup() {
     // Tell b to get everything ready to go
     // Use b.begin(1); if you have the original SparkButton, which does not have a buzzer or a plastic enclosure
     // to use, just add a '1' between the parentheses in the code below.
     b.begin();
+
+    // reduce to less than full eye-blazing brightness
+    b.setBrightness(95);
+    
+    Particle.variable("ledPos",ledPos);
 }
 
 void loop(){
+    // previous LED off (or 'null' LED0 off the first time through)
+    b.ledOn(ledPos, 0, 0, 0);
+    
     // Want to figure out which LED is the lowest?
     // We've hidden the necessary trigonometry in this function.
-    int ledPos = b.lowestLed();
-
-    // Turn the LEDs off so they don't all end up on
-    b.allLedsOff();
-
-    // Now turn that LED on
+    ledPos = b.lowestLed();
+    
+    // give some time for human retinal response
+    delay(330);
+    
+    // Now turn the lowest LED on
     b.ledOn(ledPos, 0, 30, 30);
 
     // Wait a mo'
-    delay(100);
+    delay(330);
 }
+
 ```
 
 ### Connecting to the Internet
@@ -319,9 +329,9 @@ void loop(){
 
 /* Let me show you how easy it is to put the Button on the Internet.
 Useful info, like how to access the data from your browser, can be
-found here: http://docs.particle.io/photon/firmware/#particle-function-
+found here: https://docs.particle.io/photon/firmware/#particle-function-
 The code to control the number of illuminated LEDs is here:
-https://github.com/spark/InternetButton/blob/master/controlKnob.html
+https://github.com/particle-iot/InternetButton/blob/master/controlKnob.html
 Try naming one of your devices "InternetButton" and running controlKnob in your browser or on your phone!
 Note that the Core or Photon *must* be named "InternetButton" because the javascript looks for it.
 */

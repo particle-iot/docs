@@ -2,7 +2,7 @@
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
   background: @white;
-  font-size: 12px;
+  font-size: 16px;
   padding-top: 30px;
   padding-bottom: 75px;
   overflow-y: auto;
@@ -12,7 +12,7 @@
   bottom: 0;
   width: @menubarWidth;
   box-sizing: border-box;
-  border-right: solid 1px #dfe2e7;
+  border-right: solid 1px @NC_MORNING_MIST;
   z-index: @menuZindex;
 
   // Start with menu hidden on mobile
@@ -25,7 +25,7 @@
     padding: 10px 20px;
 
     p {
-      font-weight: 700;
+      font-weight: bold;
       text-transform: uppercase;
       margin-top: 10px;
     }
@@ -84,10 +84,10 @@
 
 
 h3.guide-section-titles {
-  font-size: 12px;
+  font-size: 16px;
   text-transform: uppercase;
   letter-spacing: .7px;
-  font-weight: 700;
+  font-weight: bold;
   margin-bottom: 5px;
 }
 
@@ -118,15 +118,16 @@ ul.guide-menu {
   color: @gray;
   cursor: pointer;
   position: absolute;
-  top: 11px;
-  right: 15px;
+  top: 50%;
+  right: .5em;
+  margin-top: -.5em;
   .transition(color 0.2s);
 }
 
 .menubar li a,
 .menubar li a:visited {
-  font-size: 14px;
-  font-weight: 400;
+  font-size: 16px;
+  font-weight: normal;
   color: @gray;
   margin: 2px 0;
   &:hover {
@@ -138,6 +139,10 @@ ul.guide-menu {
   overflow-x: hidden;
   white-space: nowrap;
   padding: 2px 0;
+  i {
+      font-size: .875em;
+      user-select: none;
+  }
 }
 
 ul.in-page-toc {
@@ -154,25 +159,27 @@ ul.in-page-toc {
     padding: 2px 0;
     i.toggle-secondary-toc {
       color: @gray;
-      margin-right: 5px;
+      margin-right: 4px;
       cursor: pointer;
       .transition(color 0.2s);
+      width: 1em;
+      display: inline-block;
       &:hover {
         color: @spark-blue;
       }
     }
     &.active {
       a {
-        font-weight: 700;
+        font-weight: bold;
         color: @spark-blue;
       }
     }
     a {
-      font-size: 12px;
+      font-size: 14px;
     }
   }
   .secondary-in-page-toc {
-    padding-left: 10px;
+    padding-left: 18px; // .875em (14px) + 4px
     display: none;
   }
 }
@@ -193,12 +200,16 @@ ul.in-page-toc {
     }
   }
   span {
-    font-weight: 700;
+    font-weight: bold;
     color: @gray;
-    font-size: 14px;
   }
 }
 .guide-section {
   margin-bottom: 15px;
 }
 
+@media print {
+  .menubar {
+    display: none;
+  }
+}

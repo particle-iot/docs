@@ -1,36 +1,60 @@
 ---
 title: Code Examples
-template: guide.hbs
+layout: guide.hbs
 columns: two
-devices: [ photon,electron,core ]
+devices: [ photon,electron,core,raspberry-pi ]
 order: 7
 ---
 
 # Annotated examples
 
+{{#if raspberry-pi }}
+
+Here you will find a bunch of examples to get you started using your Raspberry Pi with Particle!
+
+{{else}}
+
 Here you will find a bunch of examples to get you started with your new Particle device! {{#unless electron}}The diagrams here show the Photon, but these examples will work with either the Photon or the Core.{{/unless}}
 
 These examples are also listed in the online IDE in the Code menu.
+
+{{/if}} {{!-- raspberry-pi --}}
 
 To complete all the examples, you will need the following materials:
 
 #### Materials
 * **Hardware**
+  {{#if raspberry-pi }}
+  * Your Raspberry Pi 2 or 3
+  {{else}}
   * Your Particle device
+  {{/if}}
   * USB to micro USB cable {{#if photon}}(included with Photon Kit and Maker Kit){{/if}}{{#if electron}}(included with the Electron){{/if}}
   * Power source for USB cable (such as your computer, USB battery, or power brick)
   * (2) Resistors between 220 Ohms and 1000 Ohms {{#if photon}}(220 Ohm Resistors included with Photon Kit and Maker Kit){{/if}}{{#if electron}}(included with the Electron){{/if}}
   * (1) LED, any color {{#if photon}}(Red LED included with Photon Kit and Maker Kit){{/if}}{{#if electron}}(included with the Electron){{/if}}
   * (1) Photoresistor {{#if photon}}(Included with Photon Kit and Maker Kit){{/if}}{{#if electron}}(included with the Electron){{/if}}
-  {{#if electron}}* LiPo Battery (included with the Electron){{/if}}
+  {{#if electron}}
+  * LiPo Battery (included with the Electron)
+  {{/if}}
+  {{#if raspberry-pi}}
+  * (Optional) A break out board like the [Adafruit Pi T-Cobbler](https://www.adafruit.com/product/2028)
+  {{/if}}
 
 {{#if electron}}All of the example circuits are based on the reference card that came along with your Electron kit. If you have misplaced yours, download it [here!](/assets/images/electron/illustrations/electron-card.pdf){{/if}}
 * **Software**
-  * The [online IDE](http://build.particle.io) 
+  * The [online IDE](http://build.particle.io)
   * or the local [Particle Dev](http://particle.io/dev)
 * **Experience**
-  {{#unless electron}}* Connecting your Device [with your smartphone](/guide/getting-started/start/) or [over USB](/guide/getting-started/connect){{/unless}}
-  {{#if electron}}* Connecting your Device [with your browser or smartphone](/guide/getting-started/start/electron/){{/if}}
+{{#if raspberry-pi}}
+  * [Connecting your Raspberry Pi to Particle](/guide/getting-started/start)
+{{else}}
+  {{#if electron}}
+  * Connecting your Device [with your browser or smartphone](/guide/getting-started/start/electron/)
+  {{else}}
+  * Connecting your Device [with your smartphone](/guide/getting-started/start/) or [over USB](/guide/getting-started/connect)
+  {{/if}}
+{{/if}}
 
 {{#if electron}}
 <p class = "boxedHead">NOTE:</p>
@@ -40,7 +64,7 @@ Since Electron is a cellular device and OTA usage consumes data, it's important 
 
 </p>
 
-{{/if}}
+{{/if}} {{!-- electron --}}
 
 
 
@@ -54,17 +78,27 @@ Blinking an LED is the ["Hello World"](http://en.wikipedia.org/wiki/Hello_world_
 
 ### Setup
 
-Connect everything together as shown in the image below. The negative (shorter) pin of the LED is connected to ground via a resistor and the positive (longer) pin is connected to {{#unless electron}}D0.{{/unless}}{{#if electron}}D6.{{/if}}
+Connect everything together as shown in the image below. The negative (shorter) pin of the LED is connected to ground via a resistor and the positive (longer) pin is connected to {{#if electron}}D6{{else}}D0{{/if}}.{{#if raspberry-pi}} If you have a Pi break out board, you can use it instead of connecting components directly to the GPIO pins.{{/if}}
+ 
+{{#if raspberry-pi}}
+Feel free to continue without connecting the external LED if that's too much trouble since the Raspberry Pi has a green LED on board that we'll use in the blink example.
+{{/if}}
 
-{{#unless electron}}![One LED illustration](/assets/images/photon-led-fritzing.png){{/unless}}
-{{#if electron}}![One LED illustration](/assets/images/electron/illustrations/electron-blink-led.png){{/if}}
+{{#if raspberry-pi}}
+![One LED illustration](/assets/images/raspberry-pi/illustrations/raspberry-pi-blink-led.png)
+{{else}}
+  {{#if electron}}
+  ![One LED illustration](/assets/images/electron/illustrations/electron-blink-led.png)
+  {{else}}
+  ![One LED illustration](/assets/images/photon-led-fritzing.png)
+  {{/if}}
+{{/if}}
 
+Next, we're going to load code onto your device. Copy and paste this code into a new application on <http://build.particle.io> or on Particle Dev. We've heavily commented this code so that you can see what is going on in each line.
 
-Next, we're going to load code onto your device. Copy and paste this code into a new application on http://build.particle.io or on Particle Dev. We've heavily commented this code so that you can see what is going on in each line.
+Go ahead and save this application, then flash it to your {{device}}. You should be able to see that LED blinking away!
 
-Go ahead and save this application, then flash it to your {{#unless electron}}Core or Photon{{/unless}}{{#if electron}}Electron{{/if}}. You should be able to see that LED blinking away!
-
-_(In case you wonder how the pretty wiring diagram above was made, check out [Fritzing](http://fritzing.org/) and the [Particle Fritzing parts library](https://github.com/spark/hardware-libraries))_
+_(In case you wonder how the pretty wiring diagram above was made, check out [Fritzing](http://fritzing.org/) and the [Particle Fritzing parts library](https://github.com/particle-iot/hardware-libraries))_
 
 ### Code
 
@@ -88,7 +122,7 @@ loop - runs continuously over and over
 You'll see how we use these in a second.
 
 This program will blink an led on and off every second.
-It blinks the D7 LED on your Particle device. If you have an LED wired to {{#unless electron}}D0{{/unless}}{{#if electron}}D6{{/if}}, it will blink that LED as well.
+It blinks the D7 LED on your Particle device. If you have an LED wired to {{#if electron}}D6{{else}}D0{{/if}}, it will blink that LED as well.
 
 -------------*/
 
@@ -96,11 +130,15 @@ It blinks the D7 LED on your Particle device. If you have an LED wired to {{#unl
 // First, we're going to make some variables.
 // This is our "shorthand" that we'll use throughout the program:
 
-int led1 = {{#unless electron}}D0{{/unless}}{{#if electron}}D6{{/if}}; // Instead of writing {{#unless electron}}D0{{/unless}}{{#if electron}}D6{{/if}} over and over again, we'll write led1
+int led1 = {{#if electron}}D6{{else}}D0{{/if}}; // Instead of writing {{#if electron}}D6{{else}}D0{{/if}} over and over again, we'll write led1
 // You'll need to wire an LED to this one to see it blink.
 
 int led2 = D7; // Instead of writing D7 over and over again, we'll write led2
+{{#if raspberry-pi}}
+// This one is the little green LED next to micro-USB connector
+{{else}}
 // This one is the little blue LED on your board. On the Photon it is next to D7, and on the Core it is next to the USB jack.
+{{/if}}
 
 // Having declared these variables, let's move on to the setup function.
 // The setup function is a standard part of any microcontroller program.
@@ -108,7 +146,7 @@ int led2 = D7; // Instead of writing D7 over and over again, we'll write led2
 
 void setup() {
 
-  // We are going to tell our device that {{#unless electron}}D0{{/unless}}{{#if electron}}D6{{/if}} and D7 (which we named led1 and led2 respectively) are going to be output
+  // We are going to tell our device that {{#if electron}}D6{{else}}D0{{/if}} and D7 (which we named led1 and led2 respectively) are going to be output
   // (That means that we will be sending voltage to them, rather than monitoring voltage that comes from them)
 
   // It's important you do this here, inside the setup() function rather than outside it or in the loop function.
@@ -158,10 +196,18 @@ We've heavily commented the code below so that you can see what's going on. Basi
 
 ### Setup
 
-As in the previous example, connect everything together as shown in the image below. The negative (shorter) pin of the LED is connected to ground via a resistor and the positive (longer) pin is connected to {{#unless electron}}D0{{/unless}}{{#if electron}}D6{{/if}}.
+As in the previous example, connect everything together as shown in the image below. The negative (shorter) pin of the LED is connected to ground via a resistor and the positive (longer) pin is connected to {{#if electron}}D6{{else}}D0{{/if}}.
 
-{{#unless electron}}![One LED illustration](/assets/images/photon-led-fritzing.png){{/unless}}
-{{#if electron}}![One LED illustration](/assets/images/electron/illustrations/electron-blink-led.png){{/if}}
+{{#if raspberry-pi}}
+![One LED illustration](/assets/images/raspberry-pi/illustrations/raspberry-pi-blink-led.png)
+{{else}}
+  {{#if electron}}
+  ![One LED illustration](/assets/images/electron/illustrations/electron-blink-led.png)
+  {{else}}
+  ![One LED illustration](/assets/images/photon-led-fritzing.png)
+  {{/if}}
+{{/if}}
+
 
 ### Code
 
@@ -173,9 +219,9 @@ As in the previous example, connect everything together as shown in the image be
 
 /* First, let's create our "shorthand" for the pins
 Same as in the Blink an LED example:
-led1 is {{#unless electron}}D0{{/unless}}{{#if electron}}D6{{/if}}, led2 is D7 */
+led1 is {{#if electron}}D6{{else}}D0{{/if}}, led2 is D7 */
 
-int led1 = {{#unless electron}}D0{{/unless}}{{#if electron}}D6{{/if}};
+int led1 = {{#if electron}}D6{{else}}D0{{/if}};
 int led2 = D7;
 
 // Last time, we only needed to declare pins in the setup function.
@@ -261,9 +307,9 @@ and replace your-access-token-goes-here with your actual access token-->
   <form action="https://api.particle.io/v1/devices/your-device-ID-goes-here/led?access_token=your-access-token-goes-here" method="POST">
     Tell your device what to do!<br>
     <br>
-    <input type="radio" name="args" value="on">Turn the LED on.
+    <input type="radio" name="arg" value="on">Turn the LED on.
     <br>
-    <input type="radio" name="args" value="off">Turn the LED off.
+    <input type="radio" name="arg" value="off">Turn the LED off.
     <br>
     <br>
     <input type="submit" value="Do it!">
@@ -307,14 +353,68 @@ POST /v1/devices/{DEVICE_ID}/led
 # Your access token is 123412341234
 curl https://api.particle.io/v1/devices/0123456789abcdef/led \
   -d access_token=123412341234 \
-  -d params=on
+  -d arg=on
 ```
 
-Note that the API endpoint is 'led', not 'ledToggle'. This is because the endpoint is defined by the first argument of [Particle.function() PLACEHOLDER], which is a string of characters, rather than the second argument, which is a function.
+Note that the API endpoint is 'led', not 'ledToggle'. This is because the endpoint is defined by the first argument of [Particle.function()](/reference/firmware/#particle-function-), which is a string of characters, rather than the second argument, which is a function.
 
 To better understand the concept of making API calls to your device over the cloud checkout the [Cloud API reference.](/reference/api)
 
 <div style="display: none;" id="variables-and-functions-with-photoresistors" data-firmware-example-url="https://docs.particle.io/guide/getting-started/examples/photon/#read-your-photoresistor-function-and-variable" data-firmware-example-title="Function Variable" data-firmware-example-description="Learn about Variables and Functions using Photoresistors"></div>
+
+{{#if raspberry-pi}}
+
+## Script Execution, Publish and the Console
+
+### Intro
+
+One of the most common use cases for IoT is to bring valuable sensor data online to make it accessible from anywhere and to inform intelligent reactions. Is the room temperature in your den climbing too high? Time to lower the shades. Are your plants overwatered from summer storms? Best not turn on the sprinklers.
+
+In this example, we'll show you how to collect sensor data from your Raspberry Pi (the internal temperature of your Pi's processor) and post that data to the Particle Console.
+
+The program to access the temperature sensor is `vcgencmd measure_temp`. It returns a string like `temp=43.5'C`.
+
+After flashing the code below to your Raspberry Pi, you can check out the results on your console at [console.particle.io](https://console.particle.io). When the CPU is very busy the temperature will go up.
+
+You can also hook up publishes to IFTTT! More info [here](/guide/tools-and-features/ifttt).
+
+### Setup
+For this example, we'll use the internal CPU temperature sensor in the Raspberry Pi so just power it up.
+
+### Code
+
+<pre><code class="lang-cpp" data-firmware-example-code-block=true>
+// -----------------------------------------
+// Execute a script and publish the result
+// -----------------------------------------
+   
+void setup() {
+  // Nothing to set up here
+}
+
+void loop() {
+  // Measure the CPU temperature by running the vcgencmd program
+  Process proc = Process::run("vcgencmd measure_temp");
+  // Wait for vcgencmd to finish
+  proc.wait();
+
+  // The output is temp=43.5'C so fast-forward until the the character = is found
+  proc.out().find("=");
+  // Convert the string to a number
+  float cpuTemp = proc.out().parseFloat();
+
+  // Publish the event to the Particle cloud. It will be visible in the Console.
+  Particle.publish("cpu_temp", String(cpuTemp), PRIVATE);
+
+  // Repeat after a 1 second pause
+  delay(1000);
+}
+
+</code></pre>
+
+{{/if}} {{!-- raspberry-pi --}}
+
+{{#unless raspberry-pi}}
 
 ## Read your Photoresistor: Function and Variable
 
@@ -322,11 +422,11 @@ To better understand the concept of making API calls to your device over the clo
 <p class = "boxedHead">NOTE:</p>
 <p class = "boxed">
 
-There is a known issue with the first revision of the product card included with your Electron. 
+There is a known issue with the first revision of the product card included with your Electron.
 The holes marked "A5" and "A0" are misaligned with the headers of the Electron, and _actually_ align with pins "A4" and "B5", respectively. This issue will be corrected in later revisions of the project card. In the meantime, please ensure that the resistor and photoresistor included with your kit are connected to the correct pins (A5 and A0, _not_ A4 and B5).
 </p>
 
-{{/if}}
+{{/if}} {{!-- electron --}}
 
 ### Intro
 
@@ -339,8 +439,11 @@ Paste the following code into your IDE, or just access the examples on the left 
 ### Setup
 
 Set up your breadboard as shown in the image below:
-{{#unless electron}}![Fritzing Diagram](/assets/images/photon-photoresistor-fritzing.png){{/unless}}
-{{#if electron}}![Electron Diagram](/assets/images/electron/illustrations/electron-example.png){{/if}}
+{{#if electron}}
+![Electron Diagram](/assets/images/electron/illustrations/electron-example.png)
+{{else}}
+![Fritzing Diagram](/assets/images/photon-photoresistor-fritzing.png)
+{{/if}}
 
 
 Make sure that the short leg of the LED is plugged into `GND`. The other orientations do not matter.
@@ -360,7 +463,7 @@ Copy and paste the following code into your [online IDE](http://build.particle.i
 
 // We're going to start by declaring which pins everything is plugged into.
 
-int led = {{#unless electron}}D0{{/unless}}{{#if electron}}D6{{/if}}; // This is where your LED is plugged in. The other side goes to a resistor connected to GND.
+int led = {{#if electron}}D6{{else}}D0{{/if}}; // This is where your LED is plugged in. The other side goes to a resistor connected to GND.
 
 int photoresistor = A0; // This is where your photoresistor is plugged in. The other side goes to the "power" pin (below).
 
@@ -517,8 +620,11 @@ You can also hook up publishes to IFTTT! More info [here](/guide/tools-and-featu
 ### Setup
 The setup is the same as in the last example. Set up your breadboard as follows:
 
-{{#unless electron}}![Fritzing Diagram](/assets/images/photon-photoresistor-fritzing.png){{/unless}}
-{{#if electron}}![Electron Diagram](/assets/images/electron/illustrations/electron-example.png){{/if}}
+{{#if electron}}
+![Electron Diagram](/assets/images/electron/illustrations/electron-example.png)
+{{else}}
+![Fritzing Diagram](/assets/images/photon-photoresistor-fritzing.png)
+{{/if}}
 
 Ensure that the short end of the LED is plugged into `GND` and that the LED and Photoresistor are bent to face each other. (You want the LED, when turned on, to shine its beam of light directly at the photoresistor.) Try to leave enough space between the LED and the Photoresistor for your finger or a piece of paper.
 
@@ -534,7 +640,7 @@ Ensure that the short end of the LED is plugged into `GND` and that the LED and 
 
 // Just like before, we're going to start by declaring which pins everything is plugged into.
 
-int led = {{#unless electron}}D0{{/unless}}{{#if electron}}D6{{/if}}; // This is where your LED is plugged in. The other side goes to a resistor connected to GND.
+int led = {{#if electron}}D6{{else}}D0{{/if}}; // This is where your LED is plugged in. The other side goes to a resistor connected to GND.
 int boardLed = D7; // This is the LED that is already on your device.
 // On the Core, it's the LED in the upper right hand corner.
 // On the Photon, it's next to the D7 pin.
@@ -711,8 +817,11 @@ When the beam is broken on your device, the D7 LED on your buddy's device will l
 ### Setup
 The setup is the same as in the last example. Set up your breadboard as follows:
 
-{{#unless electron}}![Fritzing Diagram](/assets/images/photon-photoresistor-fritzing.png){{/unless}}
-{{#if electron}}![Electron Diagram](/assets/images/electron/illustrations/electron-example.png){{/if}}
+{{#if electron}}
+![Electron Diagram](/assets/images/electron/illustrations/electron-example.png)
+{{else}}
+![Fritzing Diagram](/assets/images/photon-photoresistor-fritzing.png)
+{{/if}}
 
 Ensure that the short end of the LED is plugged into `GND` and that the LED and Photoresistor are bent to face each other. (You want the LED, when turned on, to shine its beam of light directly at the photoresistor.) Try to leave enough space between the LED and the Photoresistor for your finger or a piece of paper.
 
@@ -746,7 +855,7 @@ You and your buddy will both publish an event, and listen for each others events
 ------------------------------------------*/
 
 
-int led = {{#unless electron}}D0{{/unless}}{{#if electron}}D6{{/if}};
+int led = {{#if electron}}D6{{else}}D0{{/if}};
 int boardLed = D7;
 int photoresistor = A0;
 int power = A5;
@@ -772,10 +881,10 @@ void setup() {
   // (Remember to replace buddy_unique_event_name with your buddy's actual unique event name that they have in their firmware.)
   // myHandler() is declared later in this app.
 
-  // Next, write the power of the photoresistor to be the maximum possible, which is 4095 in analog.
-  analogWrite(power,4095);
+  // Next, deliver power to the photoresistor
+  digitalWrite(power,HIGH);
 
-  // Since everyone sets up their leds differently, we are also going to start by calibrating our photoresistor.
+  // Since everyone sets up their LEDs differently, we are also going to start by calibrating our photoresistor.
   // This one is going to require some input from the user!
 
   // Calibrate:
@@ -893,6 +1002,8 @@ void myHandler(const char *event, const char *data)
 
 </code></pre>
 
+{{/unless}} {{!-- raspberry-pi --}}
+
 
 {{#if electron}}
 <div style="display: none;" id="electron-combined-publish" data-firmware-example-url="https://docs.particle.io/guide/getting-started/examples/photon/#electron-combined-publish" data-firmware-example-title="Electron Combined Publishes" data-firmware-example-description="Learn how to send many data points in a single Publish to save data"></div>
@@ -933,30 +1044,30 @@ int i = 0;
 long lastMeasurement = 0;
 
 void setup() {
-    
+
 }
 
 void loop() {
-    
-    /* This statement is incredibly useful. 
+
+    /* This statement is incredibly useful.
     millis() tells us what the current time is in milliseconds
     lastMeasurement will be when we recorded last; it starts out as 0 because we've never measured
-    If the difference in milliseconds between the current time and the last time we've measured 
+    If the difference in milliseconds between the current time and the last time we've measured
     is more than 600,000 milliseconds (ten minutes) then... do all the things!
     */
     if(millis()-lastMeasurement > 600000){
         // Measure the value on the photoresistor, and put it into the array
         light[i] = analogRead(A0);
-        
+
         // Keep track of when last measurement was taken
         lastMeasurement = millis();
-    
+
         // If we've taken 5 measurements (0-4, inclusive) then we should send that data
         if(i == 4){
             /* We're using a short event name "T" to reduce data transmitted
             String::format will create a single string for us out of many data points
             Each %d means to put an integer there. %s is used for strings.
-            To learn more, read https://en.wikipedia.org/wiki/Printf_format_string 
+            To learn more, read https://en.wikipedia.org/wiki/Printf_format_string
             Since this will only happen every 5 measurements, we can assume these publishes will be 50 minutes apart*/
             Particle.publish("L", String::format("%d,%d,%d,%d,%d", light[0],light[1],light[2],light[3],light[4]));
             // Reset index to beginning
@@ -978,7 +1089,7 @@ If you want to subscribe to these publishes from another Particle device, you ca
 // Parsing publishes that contain multiple data points
 /* ---------------------------------------------------
 
-Subscribing the the example above, this example will listen for data from 
+Subscribing the the example above, this example will listen for data from
 the "L" event, split it up, and put it into the subscribeData array.
 
 ------------------------------------------*/
@@ -987,18 +1098,18 @@ the "L" event, split it up, and put it into the subscribeData array.
 int subscribeData[5];
 
 void setup() {
-    
+
     // if you are subscribing to a private event published with the syntax
     //    Particle.publish("event-name", event-data,time-to-live,PRIVATE);
     // you should use:
     Particle.subscribe("L",myHandler,MY_DEVICES);
-    
+
     // Otherwise, for a public event published with the syntax
     //    Particle.publish("event-name", event-data);
     // you should use:
     Particle.subscribe("L",myHandler);
     // Note that this will subscribe to all public events with the name "L".
-    
+
 }
 
 void loop() {
@@ -1032,11 +1143,11 @@ void myHandler(const char *event, const char *data) {
         Serial.println(subscribeData[4]);
     }
 }
-  
+
 
 </code></pre>
 
-{{/if}}
+{{/if}} {{!-- electron --}}
 
 <div style="display: none;" id="annotated-tinker-firmware" data-firmware-example-url="http://docs.particle.io/photon/tinker/#annotated-tinker-firmware" data-firmware-example-title="Tinker" data-firmware-example-description="The factory default firmware that mobile apps interact with"></div>
 
@@ -1048,14 +1159,16 @@ When you tap a pin on the mobile app, it sends a message up to the cloud. Your d
 
 Your device already knew how to communicate with the mobile app because of the firmware loaded onto your device as a default. We call this the Tinker firmware. It's just like the user firmware you've been loading onto your device in these examples. It's just that with the Tinker firmware, we've specified special `Particle.function`s that the mobile app knows and understands.
 
-If your device is new, it already has the Tinker firmware on it. It's the default firmware stored on your device right from the factory. When you put your own user firmware on your device, you'll rewrite the Tinker firmware. (That means that your device will no longer understand commands from the Particle mobile app.) However, you can always get the Tinker firmware back on your device {{#unless electron}}by putting it in [factory reset mode](/guide/getting-started/modes/#factory-reset), or {{/unless}}by re-flashing your device with Tinker in the Particle app.
+If your device is new, it already has the Tinker firmware on it. It's the default firmware stored on your device right from the factory. When you put your own user firmware on your device, you'll rewrite the Tinker firmware. (That means that your device will no longer understand commands from the Particle mobile app.) However, you can always get the Tinker firmware back on your device {{#if raspberry-pi}}by running `particle-agen setup`.{{else}}{{#unless electron}}by putting it in [factory reset mode](/guide/getting-started/modes/#factory-reset), or {{/unless}}by re-flashing your device with Tinker in the Particle app.{{/if}}
 
+{{#unless raspberry-pi}}
 To reflash Tinker from within the app:
 
 - **iOS Users**: Tap the list button at the top left. Then tap the arrow next to your desired device and tap the "Re-flash Tinker" button in the pop out menu.
 - **Android Users**: With your desired device selected, tap the options button in the upper right and tap the "Reflash Tinker" option in the drop down menu.
+{{/unless}} {{!-- raspberry-pi --}}
 
-The Tinker app is a great example of how to build a very powerful application with not all that much code. If you're a technical person, you can have a look at the latest release [here.](https://github.com/spark/firmware/blob/master/user/src/application.cpp)
+The Tinker app is a great example of how to build a very powerful application with not all that much code. If you're a technical person, you can have a look at the latest release [here.](https://github.com/particle-iot/firmware/blob/master/user/src/application.cpp)
 
 I know what you're thinking: this is amazing, but I really want to use Tinker *while* my code is running so I can see what's happening! Now you can.
 
@@ -1099,7 +1212,7 @@ void loop()
  *******************************************************************************/
 int tinkerDigitalRead(String pin)
 {
-    //convert ascii to integer
+    //convert ASCII to integer
     int pinNumber = pin.charAt(1) - '0';
     //Sanity check to see if the pin numbers are within limits
     if (pinNumber < 0 || pinNumber > 7) return -1;
@@ -1141,7 +1254,7 @@ int tinkerDigitalRead(String pin)
 int tinkerDigitalWrite(String command)
 {
     bool value = 0;
-    //convert ascii to integer
+    //convert ASCII to integer
     int pinNumber = command.charAt(1) - '0';
     //Sanity check to see if the pin numbers are within limits
     if (pinNumber < 0 || pinNumber > 7) return -1;
@@ -1191,7 +1304,7 @@ int tinkerDigitalWrite(String command)
  *******************************************************************************/
 int tinkerAnalogRead(String pin)
 {
-    //convert ascii to integer
+    //convert ASCII to integer
     int pinNumber = pin.charAt(1) - '0';
     //Sanity check to see if the pin numbers are within limits
     if (pinNumber < 0 || pinNumber > 7) return -1;
@@ -1238,7 +1351,7 @@ int tinkerAnalogWrite(String command)
         return 1;
     }
 
-    //convert ascii to integer
+    //convert ASCII to integer
     int pinNumber = command.charAt(1) - '0';
     //Sanity check to see if the pin numbers are within limits
 
@@ -1291,12 +1404,4 @@ int tinkerAnalogWrite(String command)
 
 **Also**, check out and join our [community forums](http://community.particle.io/) for advanced help, tutorials, and troubleshooting.
 
-{{#if photon}}
 [Go to Community Forums >](http://community.particle.io/c/troubleshooting)
-{{/if}}
-{{#if core}}
-[Go to Community Forums >](http://community.particle.io/c/troubleshooting)
-{{/if}}
-{{#if electron}}
-[Go to Community Forums >](http://community.particle.io/c/troubleshooting)
-{{/if}}

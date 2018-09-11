@@ -149,10 +149,10 @@ Le Core possède 24 broches que vous pouvez connecter à un circuit. Ces broches
 
 Quand vous souhaitez utiliser la fonction `analogWrite()` du Core, par exemple pour diminuer l'intensité lumineuse de LED, vous devez utiliser les broches qui possèdent un timer. Les gens les appellent fréquemment des broches PWM, car ce qu'elles font est appelé Pulse Width Modulation (Modulation par Largeur d'Impulsion). Le Core possède 8 broches PWM : A0, A1, A4, A5, A6, A7, D0 et D1.
 
-Le Particle Cloud
+Le Particle Device Cloud
 ---
 
-Le Particle Cloud est le réseau de serveurs hébergés à l'adresse `https://api.particle.io/` auquel se connecte le Spark Core une fois qu'il est connecté au réseau Wi-Fi.
+Le Particle Device Cloud est le réseau de serveurs hébergés à l'adresse `https://api.particle.io/` auquel se connecte le Spark Core une fois qu'il est connecté au réseau Wi-Fi.
 
 Le Cloud existe pour trois raisons principales :
 
@@ -210,7 +210,7 @@ Le firmware Tinker
 
 Le firmware Tinker est l'application stockée par défaut quand le Spark Core quitte les lignes d'assemblages à l'usine. Vous pouvez le retrouver en mettant le Core en mode [restauration des réglages d'usine](#boutons), ou bien en reflashant votre Core avec Tinker depuis l'application mobile Particle.
 
-L'application Tinker est un bon exemple de comment construire une application puissante avec peu de code. Vous pouvez jeter un œil sur la dernière version disponible [ici.](https://github.com/spark/core-firmware/blob/master/src/application.cpp)
+L'application Tinker est un bon exemple de comment construire une application puissante avec peu de code. Vous pouvez jeter un œil sur la dernière version disponible [ici.](https://github.com/particle-iot/core-firmware/blob/master/src/application.cpp)
 
 L'API Tinker
 ---
@@ -415,7 +415,7 @@ Il y a aussi quelques autres trucs utiles dans Spark Build. L'IDE Spark Build es
 La ligne de commande Spark
 ===
 
-Les outils en ligne de commande Spark fournisse un jeu de fonctionnalités allant de la création du compte à l'interaction avec les Cores déployés, en passant par la vérification et flashage de code via le Spark Cloud. Vous trouverez plus de détails sur l'installation et toutes les choses intéressantes que vous pourrez faire avec [sur GitHub](https://github.com/spark/spark-cli).
+Les outils en ligne de commande Spark fournisse un jeu de fonctionnalités allant de la création du compte à l'interaction avec les Cores déployés, en passant par la vérification et flashage de code via le Spark Cloud. Vous trouverez plus de détails sur l'installation et toutes les choses intéressantes que vous pourrez faire avec [sur GitHub](https://github.com/particle-iot/spark-cli).
 
 Déployer une application web Spark
 ===

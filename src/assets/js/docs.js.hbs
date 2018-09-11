@@ -1,0 +1,496 @@
+/* eslint-env browser */
+/* global jQuery, lunr, Handlebars, prettyPrint */
+/*!
+
+Documentation middleware.
+Created by Zach Supalla.
+(c) 2016 Particle Industries, Inc. MIT licensed.
+
+*/
+
+(function($) {
+  var exports = this;
+
+  /**
+   * Basic Docs module.
+   */
+
+  var Docs = exports.Docs = {};
+
+  Docs.transform = function() {
+    this.tagImages();
+    this.prettifyCode();
+  };
+
+  /**
+   * Tags paragraphs that include images.
+   */
+
+  Docs.tagImages = function() {
+    $('.content').find('p:has(img)').each(function() {
+      var $el = $(this);
+      $el.addClass('img');
+    });
+  };
+
+  /**
+   * Make code prettier
+   */
+
+  Docs.prettifyCode = function() {
+    $('.content').find('pre code').each(function() {
+      $(this).addClass('prettyprint');
+    });
+  };
+
+
+  Docs.rememberDevices = function() {
+    if (typeof Storage !== 'undefined') {
+      var currentPath = window.location.pathname;
+      if (currentPath.indexOf('photon') > -1) {
+        localStorage.setItem('lastDevice', 'photon');
+      } else if (currentPath.indexOf('core') > -1) {
+        localStorage.setItem('lastDevice', 'core');
+      } else if (currentPath.indexOf('electron') > -1) {
+        localStorage.setItem('lastDevice', 'electron');
+      } else if (currentPath.indexOf('raspberry-pi') > -1) {
+        localStorage.setItem('lastDevice', 'raspberry-pi');
+      }
+    }
+  };
+
+  /**
+   * Synchronize table of contents with page scroll position
+   */
+
+  Docs.setupTOCScrollSpy = function() {
+    var content = $('.content-inner');
+    var headers = content.find('h2, h3');
+
+    if (headers.length === 0) {
+      return;
+    }
+
+    var twoLevelTOC = content.find('h2').length > 0;
+    var currentHeader = -1;
+
+    // When scrolling, find the closest header and synchronize which TOC
+    // entry is active
+    content.on('scroll', function() {
+      var scrollPosition = content.scrollTop();
+      var done = false;
+
+      var oldHeader = currentHeader;
+      while (!done) {
+        if (currentHeader < headers.length - 2 &&
+           scrollPosition >= Math.floor($(headers[currentHeader + 1]).position().top)) {
+          currentHeader += 1;
+        } else if (currentHeader > 0 &&
+                  scrollPosition < Math.floor($(headers[currentHeader]).position().top)) {
+          currentHeader -= 1;
+        } else {
+          done = true;
+        }
+      }
+
+      if (oldHeader !== currentHeader) {
+        Docs.updateTOC($(headers[currentHeader]), twoLevelTOC);
+      }
+    });
+  };
+
+  Docs.updateTOC = function($currentHeader, twoLevelTOC) {
+    var elementId = $currentHeader.attr('id');
+
+    if ($currentHeader.prop('tagName') === 'H3') {
+      Docs.updateTOCforH3(elementId, twoLevelTOC);
+    } else {
+      Docs.updateTOCforH2(elementId);
+    }
+
+    Docs.expandInPageTOC();
+  };
+
+  Docs.updateTOCforH2 = function(elementId) {
+    // This is the menu li that corresponds to the h2 that was scrolled to
+    var $correspondingNavElement = $('ul.in-page-toc li[data-nav] a[href="#'+ elementId+'"]').parent('li');
+    Docs.expandPrimaryTOC($correspondingNavElement);
+  };
+
+  Docs.expandPrimaryTOC = function($correspondingNavElement) {
+    // Remove active class
+    $('ul.in-page-toc li[data-nav]').removeClass('active')
+       // Show the secondary nav as collapsed
+      .find('.toggle-secondary-toc').removeClass('ion-arrow-down-b').addClass('ion-arrow-right-b');
+    // Make the current nav element active
+    $correspondingNavElement.addClass('active')
+       // Show the secondary nav as expanded
+      .find('.toggle-secondary-toc').removeClass('ion-arrow-right-b').addClass(' ion-arrow-down-b');
+
+    // Hide all the other secondary in page tocs
+    $('ul.secondary-in-page-toc').hide()
+        // Make all secondary pages inactive
+        .find('li').removeClass('active');
+
+    // Show the secondary in page toc for this section
+    var $secondaryNav = $correspondingNavElement.next('.secondary-in-page-toc');
+    if ($secondaryNav.length > 0) {
+      $secondaryNav.show();
+    }
+  };
+
+  Docs.updateTOCforH3 = function(elementId, twoLevelTOC) {
+    var dataSelector = twoLevelTOC ? 'data-secondary-nav' : 'data-nav';
+    // This is the menu li that corresponds to the h3 that was scrolled to
+    var $correspondingNavElement = $('li['+dataSelector+'] a[href="#'+elementId+ '"]').parent('li');
+
+    if (twoLevelTOC) {
+      // Make sure primary section is visible
+      var $parentli = $correspondingNavElement.parent().prev('li[data-nav]');
+      if (!$parentli.hasClass('active')) {
+        Docs.expandPrimaryTOC($parentli);
+      }
+    }
+
+    // Remove active class
+    $('li['+dataSelector+']').removeClass('active');
+    // Make the current nav element active
+    $correspondingNavElement.addClass('active');
+  };
+
+  Docs.expandInPageTOC = function() {
+    var inPageTOC = $('ul.in-page-toc');
+    var isExpanded = Docs.inPageTOCExpanded || inPageTOC.hasClass('show');
+    var isGuide = window.location.pathname.indexOf('/guide/') > -1;
+    if (!isExpanded && !isGuide) {
+      $('li.active').click();
+      Docs.inPageTOCExpanded = true;
+    }
+  };
+
+  Docs.scrollToElement = function(element) {
+    var $element = $(element);
+    if ($element.length === 1) {
+      var position = $element.position().top + 10;
+      $('.content-inner').scrollTop(position);
+    }
+  };
+
+  Docs.scrollToInternalLinks = function() {
+    var $internalLinks = $('.menubar a[href^="#"], a.header-permalinks');
+    $internalLinks.click(function() {
+      var href = $(this).attr('href');
+      if (window.history) {
+        history.pushState({hash: href}, 'New Hash', href);
+      }
+    });
+
+    window.onpopstate = function(e) {
+      if (e.state && e.state.hash) {
+        Docs.scrollToElement(e.state.hash);
+      }
+    };
+  };
+
+  Docs.inPageTOCExpanded = false;
+
+  Docs.watchToggleInPageNav = function() {
+    $('li.top-level.active').click(function() {
+      $('ul.in-page-toc').toggleClass('show hide');
+      $(this).find('#toggle-in-page-nav').toggleClass('ion-plus ion-minus');
+    });
+  };
+
+  Docs.watchToggleSecondaryInPageNav = function() {
+    $('.toggle-secondary-toc').click(function() {
+      var $this = $(this);
+      var $parent = $this.parent();
+      if ($this.hasClass('ion-arrow-down-b')) {
+        $this.removeClass('ion-arrow-down-b').addClass('ion-arrow-right-b');
+        $parent.next('.secondary-in-page-toc').hide();
+      } else {
+        $this.removeClass('ion-arrow-right-b').addClass('ion-arrow-down-b');
+        $parent.next('.secondary-in-page-toc').show();
+      }
+    });
+  };
+
+  Docs._removeEmptyTokens = function removeEmptyTokens(token) {
+    if (token.length > 0) {
+      return token;
+    };
+  };
+
+  Docs.resultsAdded = 0;
+
+  Docs.buildSearch = function() {
+    if (typeof lunr === 'undefined') {
+      return;
+    }
+    // Make Particle.function searchable with function only
+    lunr.tokenizer.separator = /[\s\-.]+/;
+    lunr.Pipeline.registerFunction(Docs._removeEmptyTokens, 'removeEmptyTokens');
+
+    $.getJSON('/search-index.json', function(data) {
+      var store = data.store;
+      var idx = lunr.Index.load(data.index);
+      $('input.search-box').keyup(function() {
+        var searchQuery = this.value;
+        var specifier="";
+        if (searchQuery.indexOf(":")!=-1) { // if the searchQuery has a specifier
+          specifier = searchQuery.split(":")[0];
+          searchQuery = searchQuery.split(":")[1];
+        }
+        Docs.emptyResults();
+        if (searchQuery === '' || searchQuery.length < 3) {
+          $('.search-results').hide();
+        } else {
+          $('.search-results').show();
+          var results = idx.search(searchQuery);
+
+          // filter by section
+          var sectionResults = Docs.filterSearchBySection(results,specifier);
+
+          // define urls to prioritize
+          // var urlArray = ["faq/particle-devices/led-troubleshooting/photon/#blinking-green"];
+          // Docs.boostSearchByUrl(sectionResults,urlArray);
+
+          // filter by device
+          var topFilteredResults = Docs.filterSearchByDevice(sectionResults,specifier);
+
+          // build search
+          Docs.buildSearchResults(topFilteredResults, store);
+        }
+      });
+    });
+
+    $('body').click(function() {
+      $('.search-results').hide();
+    });
+    $('.search-results').click(function(e) {
+      e.stopPropagation();
+    });
+  };
+  Docs.emptyResults = function() {
+    $('.search-results ul.results').empty();
+    Docs.resultsAdded = 0;
+  };
+
+  Docs.titleize = function(string) {
+    var stringNoDashes = string.replace(/-/g, ' ');
+    var stringToTitleCase = stringNoDashes.replace(/\w\S*/g, function(txt){
+      return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
+    });
+    return stringToTitleCase;
+  };
+
+  Docs.boostSearchByUrl = function(results,urlArray) {
+    var resultsBoost=[];
+    // if the results you get contain a particular URL, push this URL to the top of the pile.
+    for (x=0; x<results.length; x++) {
+      // check to see if there is any overlap between the two arrays
+      var currentResult = results[x];
+      var currentUrl = String(currentResult.ref);
+      for (y=0; y<urlArray.length; y++) {
+        if (currentUrl.indexOf(urlArray[y])!=-1) {
+          // splice
+          results.splice(x-1,x);
+          // unshift
+          results.unshift(currentResult);
+        }
+      }
+    }
+    return resultsBoost;
+  }
+
+  Docs.filterSearchBySection = function(results,specifier) {
+    var pathSearch = window.location.pathname.split("/").filter(function(n){return n!=""});
+    var sectionSearch = pathSearch[0];
+
+    var sectionFilteredResults = [];
+    var allSections = ["guide","tutorials","faq","reference","support"];
+
+    if (specifier.length>0) { // if the searchQuery has a specifier
+      if (allSections.indexOf(specifier)!=-1) {  // if your specifier identifies one of the sections
+        // narrow by that section
+        for (x=0; x<results.length; x++) {
+          var params = String(results[x].ref);
+          if (params.indexOf(specifier)!=-1) {  // if the specifier is in this ref, then include it
+            sectionFilteredResults.push(results[x]);
+          }
+        }
+      }
+      else { // if specifier is "all" or anything else, no need to narrow by section
+        sectionFilteredResults = results;
+      }
+    }
+    // else {  // if there is no specifier, then narrow by current section
+    //   for (x=0; x<results.length; x++) {
+    //     var params = String(results[x].ref);
+    //     if (params.indexOf(sectionSearch)!=-1) {  // if the this section is in this ref, then include it
+    //       sectionFilteredResults.push(results[x]);
+    //     }
+    //   }
+    // }
+
+    else { // if there is no specifier, then search all
+      sectionFilteredResults = results;
+    }
+
+    return sectionFilteredResults;
+  }
+
+  Docs.filterSearchByDevice = function(results,specifier) {
+    var pathSearch = window.location.pathname.split("/").filter(function(n){return n!=""});
+    var deviceSearch = pathSearch[pathSearch.length - 1];
+
+    var allDevices = ["photon","core","electron","raspberry-pi"];
+
+    if (specifier.length>0) {
+      if (allDevices.indexOf(specifier)!=-1) { // the specifier is one of the devices
+        deviceSearch=specifier;
+      }
+    }
+
+    var topFilteredResults = [];
+
+    if (allDevices.indexOf(deviceSearch)!=-1) { // this section has device sensitivity
+      for (x=0; x<results.length; x++) {
+        var params = String(results[x].ref);
+        var paramDeviceCount=0;
+        for (y=0; y<allDevices.length; y++) {
+          if (params.indexOf(allDevices[y])>=0) {
+            paramDeviceCount++;
+          }
+        }
+        if (paramDeviceCount==0) {  // does it have one of the allDevices in it?
+          topFilteredResults.push(results[x]);
+        }
+        else {  // check to see if it includes the deviceSearch term
+          if (String(results[x].ref).indexOf(deviceSearch) >= 0) {
+            topFilteredResults.push(results[x]);
+          }
+        }
+      }
+    }
+    else {  // this section does not have device sensitivity, do not filter by device
+      // probably should filter by some "default" device, whatever is what people most likely want to see
+      topFilteredResults=results;
+    }
+    return topFilteredResults;
+  }
+
+  Docs.buildSearchResults = function(results, store) {
+    var fiveResults = results.slice(0,5);
+
+    var niceResults = fiveResults.map(function(r) {
+      var resultInfo = store[r.ref];
+      var nr = {};
+      nr.link = r.ref;
+      nr.title = resultInfo.title;
+      nr.device = resultInfo.device;
+      nr.collection = Docs.titleize(resultInfo.collection);
+      nr.pageTitle = resultInfo.pageTitle;
+      nr.collectionClass = resultInfo.collection;
+      return nr;
+    });
+
+    var html = Handlebars.templates.search({results: niceResults});
+    $('.search-results').append(html);
+  };
+
+  Docs.toggleShowing = function() {
+    $('span.popupLink, span.footnoteLink').on('click', function() {
+      $(this).toggleClass('showing');
+    });
+  };
+
+  Docs.toggleNav = function() {
+    var $root = $(".content-root");
+    $('.toggle-navigation').click(function(e) {
+      e.preventDefault();
+      toggleNav();
+      updateBackdrop();
+    });
+
+    $root.on('click', '.menubar-backdrop', function(e) {
+      e.preventDefault();
+      closeNav();
+      updateBackdrop();
+    });
+
+    function toggleNav() {
+      $root.toggleClass('menubar-show');
+    }
+
+    function closeNav() {
+      $root.removeClass('menubar-show');
+    }
+
+    function updateBackdrop() {
+      if($root.hasClass('menubar-show')) {
+        $root.prepend('<div class="menubar-backdrop"></div>');
+      } else {
+        $('.menubar-backdrop').remove();
+      }
+    }
+  };
+
+  Docs.catchRedirectLinks = function() {
+    $(document).on('click', 'a', function (e) {
+      var components = $(this).attr('href').split("#");
+      var href = components[0].replace(/\/$/, '');
+      var hash = components[1];
+      var redirect = applyRedirect(href);
+      redirect = applyDeviceRedirect(redirect);
+      if (href !== redirect) {
+        e.preventDefault();
+        window.location.href = redirect + '/' + (hash ? '#' + hash : '');
+      }
+    });
+  }
+
+  function applyRedirect(href) {
+    for (var link in redirects) {
+      if (href === link) {
+        return redirects[link];
+      }
+    }
+    return href;
+  }
+
+  function applyDeviceRedirect(href) {
+    for (var link in deviceLinks) {
+      if (href === link) {
+        var lastDevice = localStorage.getItem('lastDevice');
+        if (deviceLinks[link].indexOf(lastDevice) >= 0) {
+          return link + '/' + lastDevice;
+        }
+      }
+    }
+    return href;
+  }
+
+  var deviceLinks = {{{ json forkList }}};
+  var redirects = {{{ json redirectList }}};
+
+  // Ok, then let's do it!
+  Docs.rememberDevices();
+  Docs.transform();
+  Docs.setupTOCScrollSpy();
+  Docs.scrollToInternalLinks();
+  Docs.watchToggleInPageNav();
+  Docs.watchToggleSecondaryInPageNav();
+  Docs.buildSearch();
+  Docs.toggleNav();
+  Docs.toggleShowing();
+  Docs.catchRedirectLinks();
+  if (prettyPrint) {
+    prettyPrint();
+  }
+
+  {{#if development}}
+  // Make sure to scroll the element after live reload
+  Docs.scrollToElement(window.location.hash);
+  {{/if}}
+})(jQuery);

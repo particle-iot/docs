@@ -1,6 +1,6 @@
 ---
 title: Page Not found
-template: page-not-found.hbs
+layout: page-not-found.hbs
 ---
 <div class="page-not-found">
   <div class="wrapper">

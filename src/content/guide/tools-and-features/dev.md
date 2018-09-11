@@ -1,19 +1,21 @@
 ---
 word: Dev
-title: Particle Dev
+title: Desktop IDE (Dev)
 order: 2
 shared: true
 columns: two
-template: guide.hbs
+layout: guide.hbs
 ---
 
-# Particle Dev
+# Desktop IDE (Dev)
 
 ## Getting Started
 
 ![IDE Menu]({{assets}}/images/ide-menu.jpg)
 
-**Particle Dev** is a desktop application that allows you to work with local copies of your firmware files. However, **internet** access is required as the files are pushed to the Particle Cloud for compilation and returns a binary. i.e. This is not an offline development tool, yet.
+**Particle Dev** is a desktop application that allows you to work with
+local copies of your firmware files. However, **internet** access is
+required as the files are pushed to the Particle Device Cloud for compilation and returns a binary. i.e. This is not an offline development tool, yet.
 
 All the commands are available from the **Particle** menu. The menu changes depending on whether you're logged in or have selected a device, so some of the commands will only show up once you're in the right context.
 
@@ -33,7 +35,13 @@ There's also a toolbar on left side of IDE which contains shortcuts to the most 
 
 If you want to work on more advanced projects, Particle Dev could be the choice for you. Head over and download latest release:
 
-[Particle Dev Download >](https://www.particle.io/dev)
+[Download for Windows >](https://updates.particle.io/latest/windows)
+
+[Download for Windows X64 >](https://updates.particle.io/latest/windows-x64)
+
+[Download for Mac >](https://updates.particle.io/latest/mac)
+
+[Download for Linux >](https://github.com/particle-iot/particle-dev-app#linux)
 
 ![IDE Window]({{assets}}/images/ide-window.jpg)
 
@@ -109,13 +117,13 @@ You can also add parameters to the call by entering them to the right of button.
 
 ## Managing Your Device
 
-### Setting up WiFi
+### Setting up Wi-Fi
 
 ![WiFi list]({{assets}}/images/ide-wifi-list.jpg)
 
-To setup device's WiFi, connect it via USB and click **Setup device's WiFi...** button on the toolbar.
+To setup device's Wi-Fi, connect it via USB and click **Setup device's Wi-Fi...** button on the toolbar.
 
-If your device isn't in {{#if photon}}{{{popup 'Listening Mode,' 'vine' 'https://vine.co/v/eZUH7WaWjMT/embed/simple'}}}{{/if}}{{#if core}}{{{popup 'Listening Mode,' 'vine' 'https://vine.co/v/eZU6YiK20Hl/embed/simple'}}}{{/if}} you'll see animation showing how to enter that state.
+If your device isn't in {{#if photon}}{{popup 'Listening Mode,' 'vine' 'https://vine.co/v/eZUH7WaWjMT/embed/simple'}}{{/if}}{{#if core}}{{popup 'Listening Mode,' 'vine' 'https://vine.co/v/eZU6YiK20Hl/embed/simple'}}{{/if}} you'll see animation showing how to enter that state.
 
 Next you'll see all available networks. The one you are currently connected to will be listed first.
 
@@ -123,39 +131,125 @@ Select the one you want your device to use or choose **Enter SSID manually** (li
 
 ![WiFi setup]({{assets}}/images/ide-wifi-save.jpg)
 
-Now you need to fill missing information and click **Save**. Your device will go dark for a second and then try to connect to the WiFi.
+Now you need to fill missing information and click **Save**. Your device will go dark for a second and then try to connect to the Wi-Fi.
 
 ## Using Community Libraries
 
-Currently community libraries aren't supported natively (but we're working on it). You can still use them, just follow these instructions:
+![Include the library](/assets/images/libraries/libraries-dev.png)
 
-Find the [library you want to use](/guide/getting-started/build/photon/#using-libraries)
+Firmware libraries are an important part of how you connect your Photon or Electron to sensors and actuators. They make it easy to reuse code across multiple Particle projects, or to leverage code written by other people in the Particle community. As an example, firmware libraries make it easy to get data out of your DS18B20 temperature sensor without writing any of the code yourself.
 
-![Link to GitHub repository]({{assets}}/images/build-libraries.jpg)
+Particle libraries are hosted on GitHub, and can be easily accessed through through all of Particle's development tools including the Web IDE.
 
-View it on GitHub
+To include a firmware library in your Particle project, open the library drawer in the Desktop IDE, search for the corresponding library for your sensor or actuator, click the `Use` button, then select `Add to current project`. Adding a library in your project will add the library dependency to the `project.properties` file that will be compiled with your project when it is verified or flashed to your target device.
 
-![Download link]({{assets}}/images/build-library-github.jpg)
+Read on for detailed instructions to include a firmware library in your Particle application with Build.
 
-Download the repository
+We have [a detailed reference guide about libraries](/guide/tools-and-features/libraries) but for now here's a step by step guide on how to include a library in our Desktop IDE.
 
-![Correct files selected]({{assets}}/images/github-download.jpg)
+##### Step 1 - Open the libraries tab
 
-Copy files from `firmware` directory **without** `examples` to your project directory
+Once you have opened your Particle project in the Desktop IDE, open the libraries tab by clicking on the `Browse and manage libraries` button on the left hand toolbar.
 
-![Example project with include]({{assets}}/images/ide-selected-library.jpg)
+![Open the libraries tab](/assets/images/libraries/libraries-tab.png)
 
-Include library adding `#include "LIBRARY.h"` to your code
+##### Step 2 - Find the library you need
 
-![include-library]({{assets}}/images/ide-include-library.jpg)
+![Library list](/assets/images/libraries/libraries-list-dev.png)
 
+Once you open the libraries tab, you'll be presented with a list of libraries. Libraries with the Particle logo next to them are Official libraries created by the Particle team for Particle hardware. Libraries that have a check mark next to them are Verified libraries. Verified libraries are popular community libraries that have been validated by the Particle team to ensure that they work and are well documented. Click [here](/guide/tools-and-features/libraries/#kinds-of-libraries) To learn more about the different kinds of Particle libraries.
 
-**Also**, check out and join our [community forums](http://community.particle.io/) for advanced help, tutorials, and troubleshooting.
+To find the right library for your project, you can either search for it directly or browse through popular firmware libraries using the browsing buttons at the bottom of the library list.
 
-{{#if photon}}
-[Go to Community Forums >](http://community.particle.io/c/troubleshooting)
-{{/if}}
+**Search**. To search for a library, begin typing in the search bar. Search results are ranked by match with the search term with a preference for official and verified libraries.
 
-{{#if core}}
-[Go to Community Forums >](http://community.particle.io/c/troubleshooting)
-{{/if}}
+![Search](/assets/images/libraries/libraries-dev-search.png)
+
+**Browsing buttons**. Not sure what library you're looking for? Use the browsing arrows beneath the library list to view additional Particle libraries in our firmware library manager. Pagination also works with search results.
+
+![Pagination](/assets/images/libraries/libraries-dev-browsing.png)
+
+##### Step 3 - Library details
+
+All the information you need to select your library is available in the search result cards for each library.
+
+![Library information](/assets/images/libraries/libraries-dev-info.png)
+
+The information included with each library search result includes:
+
+- `Library name`: The name of the library. The name must be unique, so there aren't two libraries with the same name.
+- `Library version`: The version of the library. This follows the [semver convention](http://semver.org/).
+- `GitHub link`: Where the library is hosted. The code for public libraries must be open-sourced. See how to [Contribute a library](/guide/tools-and-features/libraries/#contributing-libraries).
+- `Library description`: Detailed information about the library
+- `View source`: Clicking this icon will download the source files of the library and open them in another window. Library source files include the source files for the library itself which follow the [new library file structure](/guide/tools-and-features/libraries/#library-file-structure), as well as library examples, which demonstrate usage of the library.
+
+![View source](/assets/images/libraries/libraries-dev-source.png)
+
+- `Install count`: This is the number of times a particular library has been added to a Particle project
+
+##### Step 4 - Click on `Add to current project`
+
+![Include in App](/assets/images/libraries/libraries-dev-use.png)
+
+To add a firmware library to a project, click the `Use` button. You will be presented with two options -- `Add to current project` or `Copy to current project`.
+
+- **Add to current project** will include the library as a line in your project's project.properties file and will be included by the Particle compiler when your project is verified or flashed.
+
+- **Copy to current project** will download a local copy of the source files of the library to your project's `src` folder. The library can be inspected and modified before it is sent to the Particle compiler. If you copy a library into a project, the library files must be included in the `src` folder or they will not be compiled with the rest of your project.
+
+Once you add the library to your Particle project, you should see a confirmation message
+
+![Confirmation](/assets/images/libraries/libraries-dev-confirmation.png)
+
+the library name and version number should be added to the `project.properties` file for your Particle project.
+
+![Library included](/assets/images/libraries/libraries-dev-properties.png)
+
+To make the library functionality available to your application, you add an include statement to your application source code.
+The include statement names the library header file, which is the library name with a `.h` ending.  
+
+For example, if we were using the library "UberSensor", it would be included like this:
+
+```
+#include "UberSensor.h"
+```
+
+**Congrats!** You have now added a firmware library to your Particle project in the Desktop IDE!
+
+## Contribute a library
+
+See the [detailed library guide](/guide/tools-and-features/libraries/#contributing-libraries) to find more about contributing a library from the Desktop IDE.
+
+## Targeting different platforms and firmware versions
+
+Similarly to the [Web IDE](/guide/getting-started/build/photon/#wait-what-is-firmware-) you can specify exactly which platform (Core, Photon, Electron or others) you're using and at which specific firmware version your project is depending.
+
+**Note:** By default all projects are compiled for latest version of firmware for a Photon.
+
+To know what platform and version you are targeting take a look at the status bar:
+
+![](/assets/images/local-ide/status-bar.png)
+
+The first item is currently selected device. Once you select a different device, the target platform will be automatically changed to its platform.
+
+The second one is the platform you want to target. Different platforms have different capabilities (i.e. Photon has WiFi but Electron has cellular instead) so keep in mind that some firmware methods might not exist or work differently (consult [the reference](/reference) to make sure they will work as you expect).
+
+Clicking on the platform name will allow you to select a different one:
+
+![](/assets/images/local-ide/platforms.png)
+
+**Note:** You can target platforms you don't own hardware of and at least test if the code compiles.
+
+The last item is the firmware version aka the build target. This allows you to select exactly which version you want to use. When reading [the reference](/reference/firmware) you might have noticed that some functions have a note saying: _Since X.Y.Z_. This specifies the minimum build target you need to use in order to have this function available.
+
+When you use a version newer than's on your device (which can be checked
+using `particle serial inspect` [CLI
+command](/guide/tools-and-features/cli)) it will enter **safe mode**
+which should be automatically fixed with multiple consecutive flashes.
+The exception here is the Electron where updating Device OS versions would incur charges. In this case, the IDE will select the build target that's currently on the device in order to keep the device running.
+
+Clicking on the build target will show the list of available ones for current platform:
+
+![](/assets/images/local-ide/build-targets.png)
+
+You can see that some of the build targets have a warning sign next to them. Those are pre-releases. They will bring the latest features but might not be as stable as the other releases. We encourage you to test them but only for experimental purposes (i.e. not in production).

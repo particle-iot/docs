@@ -9,7 +9,7 @@
 	}
 
 	h4 {
-		margin: 10px auto;
+		margin: 0;
     font-size: 18px;
     line-height: 28px;
     max-width: 860px;
@@ -59,14 +59,62 @@
 	color: @super-dark-gray;
 	padding: 20px;
 	margin-top: 10px;
-	
-  
+
+
 }
 
 .icon-iHelp {
 	font-size: 36px;
 	color: @spark-blue;
 }
+/* Status.io Widget */
+
+.current-status-indicator {
+  width: 36px;
+  height: 36px;
+  margin: 0 0 0 5px;
+  display: inline-block;
+  border-radius: 18px
+}
+
+.current-status-incidents {
+  display: block;
+  margin: 0 auto 20px;
+  max-width: 600px;
+  padding: 5px;
+
+  &, &:hover, &:active {
+	color: @NC_WHITE;
+  }
+}
+
+.current-status-incidents.empty {
+  display: none;
+}
+
+.current-status-indicator.empty {
+  border: 1px solid @dark-gray;
+}
+
+.current-status-indicator,
+.current-status-incidents {
+  &.green {
+	background: @NC_EMERALD;
+  }
+
+  &.yellow {
+	background: @NC_MACARONI;
+  }
+
+  &.red {
+	background: @NC_WARNING;
+  }
+
+  &.blue {
+	background: @NC_CYAN;
+  }
+}
+
 //end of Regular sizing
 
 @media (max-width: @medium-size) {
@@ -78,7 +126,7 @@
 		border: 2px solid transparent;
 		border-radius: 5px;
 		text-align: center;
-		color: #34495e;
+		color: @NC_SPACE_GRAY;
 		padding: 5px;
 		margin-top: 10px;
 	}
@@ -90,15 +138,22 @@
 	  border: 2px solid transparent;
 	  border-radius: 5px;
 	  text-align: center;
-	  color: #34495e;
+	  color: @NC_SPACE_GRAY;
 	  padding: 5px;
 	  margin-top: 10px;
-		
+
 
 	}
 
 	.icon-iHelp {
 		font-size: 22px;
+	}
+	.current-status-indicator {
+	    width: 22px;
+	    height: 22px;
+	    margin: 0 0 0 5px;
+	    display: inline-block;
+	    border-radius: 11px;
 	}
 
 	.resources-wrapper {
@@ -107,7 +162,6 @@
 		h3 {
 			font-size: 20px;
 		}
-
 		p {
 			font-size: 10px;
 		}
@@ -129,7 +183,7 @@
 	  border: 2px solid transparent;
 	  border-radius: 5px;
 	  text-align: center;
-	  color: #34495e;
+	  color: @NC_SPACE_GRAY;
 	  padding: 5px;
 	  margin-top: 10px;
 	  margin-right: auto;
@@ -143,20 +197,27 @@
 	  border: 2px solid transparent;
 	  border-radius: 5px;
 	  text-align: center;
-	  color: #34495e;
+	  color: @NC_SPACE_GRAY;
 	  padding: 5px;
 	  margin-top: 10px;
 	  margin-right: auto;
-	  margin-left: auto;	
+	  margin-left: auto;
 
 	}
 
 	.icon-iHelp {
 		font-size: 22px;
 	}
+	.current-status-indicator {
+	    width: 22px;
+	    height: 22px;
+	    margin: 0 0 0 5px;
+	    display: inline-block;
+	    border-radius: 11px;
+	}
 
 	.resources-wrapper {
-		
+
 		padding: 5px 5px;
 
 		h3 {
@@ -200,7 +261,7 @@
 .help-button-wrapper {
 	position: fixed;
 	bottom: 25px;
-	left: 25px; 
+	left: 25px;
 	z-index: 999;
 }
 
@@ -210,9 +271,9 @@
   width:50px;
   height:50px;
   line-height:55px;
-  //border: 2px solid #f5f5f5;
+  //border: 2px solid @NC_ALMOST_WHITE;
   border-radius: 50%;
-  color:#f5f5f5;
+  color:@NC_ALMOST_WHITE;
   text-align:center;
   text-decoration:none;
   box-shadow: 0 0 3px gray;
@@ -232,9 +293,9 @@
   width:55px;
   height:55px;
   line-height:55px;
-  //border: 2px solid #f5f5f5;
+  //border: 2px solid @NC_ALMOST_WHITE;
   border-radius: 55%;
-  color:#f5f5f5;
+  color:@NC_ALMOST_WHITE;
   text-align:center;
   text-decoration:none;
   box-shadow: 0 0 3px gray;
@@ -243,12 +304,10 @@
 }
 
 a.buttonTextHelp {
-	color: #fff;
+	color: @NC_WHITE;
 	padding: -2px;
 	font-size: 26px;
   text-decoration: none;
 }
 
 //Extract this to external JS file -end
-
-

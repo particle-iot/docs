@@ -1,13 +1,9 @@
-## Particle Documentation [![Build Status](https://travis-ci.org/spark/docs.svg?branch=master)](https://travis-ci.org/spark/docs)
-=======
+## Particle Documentation [![Build Status](https://travis-ci.org/particle-iot/docs.svg?branch=master)](https://travis-ci.org/particle-iot/docs)
 
-Here you'll find the documentation for the Particle platform, including the Particle Cloud, Photon, and Spark Core.
+Here you'll find the documentation for the Particle platform, including
+the Particle Device Cloud, Photon, Electron, and Spark Core.
 
-To view this documentation, visit [our website](http://docs.particle.io), where the documentation is hosted.
-
-**Note**: This is a new public repository as of May 18, 2015. All
-outstanding pull requests from the old docs repository have been closed.
-Please re-open them in this repo.
+To view this documentation, visit [our website](https://docs.particle.io), where the documentation is hosted.
 
 ### Installation
 
@@ -27,9 +23,16 @@ This documentation uses a fabulous tool from the folks at Segment called [Metals
 
 To run a locally hosted version of the documentation, follow the installation instructions above, and then within the 'docs' directory type in your terminal:
 
-`npm start`
+```
+export SEARCH_INDEX=0 # optional. speeds up the build if you don't need the search
+npm start
+```
 
 This will set up a server running at `http://localhost:8080`. If you make changes to the source content, your browser should automatically refresh using `livereload`.
+
+### Spell checking
+
+To check the spelling of all Markdown files, run `npm run spell`.
 
 ### Testing
 
@@ -41,36 +44,15 @@ not.
 
 When updated documentation is pushed to the master branch, it is automatically pushed to Amazon S3 by Travis CI.
 
-TODO: FURTHER INSTRUCTIONS FOR DEPLOYMENT
-
-To see the latest build, visit the [Travis CI page](https://travis-ci.org/spark/docs).
+To see the latest build, visit the [Travis CI page](https://travis-ci.org/particle-iot/docs).
 
 ### Organization
 
-The majority of the content herein is stored in the `src/content/en` directory as a set of Markdown files. Assets such as images and javascript are stored in the `src/assets` directory.
-
-Within the `en` subdirectory, there are three subfolders: `core`,
-`photon`, and `shared`. Files in `core` will only be shown in the menu when the user
-is viewing Core-specific docs, and `photon` files will be visible when
-viewing Photon-specific docs. Files in `shared` will be nested under both
-devices, so put pages here that apply to both the Core and the Photon.
-
-If you create a new file under the `shared`, please add `shared: true`
-to the front-matter at the beginning of the MD file so that the link to
-edit the file on GitHub will be correct. For instance:
-
-```
----
-word: API
-title: Cloud code (API)
-order: 4
-shared: true
----
-```
+The majority of the content herein is stored in the `src/content` directory as a set of Markdown files. Assets such as images and javascript are stored in the `src/assets` directory.
 
 ### Structuring your content
 
-The docs dynamically generate a table of contents for navigation purposes based on the headers (i.e. `###`) that you use on each page. It is important to note that _order and heirarchy matters_ when you are designing the organization of content on your page. Your page should include the following:
+The docs dynamically generate a table of contents for navigation purposes based on the headers (i.e. `###`) that you use on each page. It is important to note that _order and hierarchy matters_ when you are designing the organization of content on your page. Your page should include the following:
 
 * 1 `h1` at the top of the page that will serve as the title of the page. You can even copy the `title` directly from the front-matter of the markdown file like this: `# {{title}}`
 
@@ -89,9 +71,38 @@ front-matter of the MD file, like this:
 ```
 devices: [ photon, electron, core ]
 ```
-Where Photon, Electron and Core are the relevant devices to this page. Then, in
-the body of the page, you can specify device-specific content by
-using a special helper, like this:
+Where Photon, Electron and Core are the relevant devices to this page.
+
+Then add a new key to [`device_features.json`](config/device_features.json) for each device that
+supports the feature:
+```
+{
+  "Core": [
+    ...
+  ],
+  "Photon": [
+    ..
+    "backup-ram"
+  ],
+  "Electron": [
+    ...
+    "backup-ram"
+  ]
+}
+```
+
+Then, in the body of the page, you can specify feature-specific content by using:
+```
+{{#if has-backup-ram}}
+## Backup RAM
+
+...
+{{/if}} {{!-- has-backup-ram --}}
+```
+
+For content that is exclusively for one device and where defining a new
+feature name doesn't make sense (for example, which pins have PWM
+support for a device), you can also device-specific content by using:
 
 ```
 {{#if photon}}
@@ -105,24 +116,29 @@ using a special helper, like this:
 {{#if electron}}
   ELECTRON SPECIFIC STUFFZ
 {{/if}}
-
-{{#unless core}}
-  STM32F205 SPECIFIC STUFFZ (Photon, P1, Electron)
-{{/unless}}
-
-{{#unless electron}}
-  Wi-Fi SPECIFIC STUFFZ (Core, Photon, P1)
-{{/unless}}
 ```
+Prefer defining new feature names over using device-specific sections.
 
 You can also insert the selected device name into text like this:
 ```
 Without a doubt, the {{device}} rocks!
 ```
 
-### Tests
 
-To run the test scripts, run `npm test`.
+### Adding a new device
+
+When the firmware is available on a new device, add that device to the docs in these places:
+
+- Make the firmware docs available for the new device by adding an entry to the `devices` frontmatter in <src/content/reference/firmware.md>
+- Also update `devices` in the guides and tools frontmatter as appropriate
+- Update the device selection dropdown in <templates/partials/header.hbs>
+- Add the device in <src/assets/js> `rememberDevices()`
+- Add a new SVG in <src/assets/image> named `<device>.svg`
+- Tell the tests to crawl the new device page in <test/crawler.js>
+
+### Redirects
+
+When moving pages around or defining the default page for a section, add redirect links to [`redirects.json`](config/redirects.json). 
 
 ### Attributions
 
@@ -134,7 +150,7 @@ This documentation was originally built using [Flatdoc](http://ricostacruz.com/f
 
 This documentation is managed by Particle, but supported by the community. We welcome contributions such as:
 
-* Edits to improve grammar or fix typos
+* Edits to improve grammar or fix typos (run `npm run spell` for automated spell check)
 * Edits to improve clarity
 * Additional annotated examples for others to follow
 * Additional content that would help provide a complete understanding of the Particle platform

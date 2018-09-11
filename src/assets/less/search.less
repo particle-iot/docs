@@ -2,10 +2,11 @@
   display: inline-block;
   width: 290px;
   position: relative;
-  border-left: 1px solid @light-gray;
+  border-right: 1px solid @light-gray;
+  margin-right: 11px;
   margin-top: 10px;
   vertical-align: top;
-  padding-left: 22px;
+  padding-right: 22px;
   @media(max-width: @medium-size) {
     display: none;
   }
@@ -94,7 +95,7 @@
         float: right;
         padding-left: 4px;
         color: @gray;
-        font-weight: 700;
+        font-weight: bold;
         width: 70px;
         margin-top: 10px;
         &.guide {
@@ -114,6 +115,10 @@
         float: left;
         width: 280px;
       }
+      .left-note {
+        float: left;
+        width: 380px;
+      }
       span.title {
         display: block;
         font-weight: 500;
@@ -121,7 +126,7 @@
       }
       span.device {
         display: inline-block;
-        font-weight: 300;
+        // font-weight: 300;
         color: @gray;
         line-height: 1;
         padding-left: 7px;
@@ -138,9 +143,13 @@
           color: @light-gray;
         }
       }
+      span.note {
+        // font-weight: 300;
+        color: @gray;
+      }
       span.page-title {
         display: inline-block;
-        font-weight: 300;
+        // font-weight: 300;
         color: @gray;
         margin-right: 7px;
       }
@@ -157,13 +166,13 @@
     }
     &:after {
       border-color: rgba(255, 255, 255, 0);
-      border-bottom-color: #ffffff;
+      border-bottom-color: @NC_WHITE;
       border-width: 7px;
       margin-left: -7px;
     }
     &:before {
       border-color: rgba(199, 199, 199, 0);
-      border-bottom-color: #c7c7c7;
+      border-bottom-color: @NC_MORNING_MIST;
       border-width: 8px;
       margin-left: -8px;
     }

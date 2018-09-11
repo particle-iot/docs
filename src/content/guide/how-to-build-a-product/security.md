@@ -1,7 +1,7 @@
 ---
 title: Security
 columns: two
-template: guide.hbs
+layout: guide.hbs
 order: 5
 ---
 
@@ -20,11 +20,11 @@ that you would like them to be treated as part of your product instead of
 as development kits.
 
 There are certain security implications that arise around devices behaving as products. Ideally, the following is always true:
-- Only the _devices_ that be given product privileges will recieve them
+- Only the _devices_ that be given product privileges will receive them
 - Only the _people_ who should have the ability to interact with the
   product device will be allowed to do so
 
-There can be, however, cases when the Particle cloud won't have all the information it needs to be certain that a device should in fact be treated as a part of your product. As such, you have the power as a product creator to choose the [level of strictness](#mismatched-product-ids) around which devices receive product priveleges and which do not.
+There can be, however, cases when the Particle cloud won't have all the information it needs to be certain that a device should in fact be treated as a part of your product. As such, you have the power as a product creator to choose the [level of strictness](#mismatched-product-ids) around which devices receive product privileges and which do not.
 
 Before making this decision, it is important to get a grasp of the role of the Product ID in the Particle cloud.
 
@@ -88,7 +88,7 @@ ID reported by the device in firmware.
 
 ## Mismatched Product IDs
 
-There is the possiblity that the Product ID saved in the Particle cloud for a
+There is the possibility that the Product ID saved in the Particle cloud for a
 given device does not match the self-identified Product ID reported by the
 device in firmware.
 
@@ -107,7 +107,7 @@ binary.
 
 ## Quarantining Devices
 
-This is the most secure and recommmended option for handling unrecognized
+This is the most secure and recommended option for handling unrecognized
 devices. By default, unrecognized devices will be quarantined unless you
 override the setting in your product's config page. This is done to protect
 against potentially malicious actions from unrecognized devices.

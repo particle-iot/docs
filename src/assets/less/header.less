@@ -17,7 +17,7 @@
 
 .sections {
   display: block;
-  float: left;
+  float: right;
   @media(max-width: @xlarge-size) {
     display: none;
   }
@@ -28,7 +28,7 @@
   margin: 10px 10px 0 15px;
   display: none;
   a {
-    color: @light-gray;
+    color: @gray;
     .transition(color 0.2s);
     &:hover {
       color: @dark-gray;
@@ -47,7 +47,7 @@ a.nav {
   margin-top: 16px;
   text-transform: uppercase;
   font-size: 12px;
-  font-weight: 700;
+  font-weight: bold;
   letter-spacing: .7px;
   color: @gray;
   display: inline-block;
@@ -55,7 +55,7 @@ a.nav {
     margin-right: 5px;
     display: inline-block;
     vertical-align: middle;
-    margin-top: -1px;
+    margin-top: -2px;
     &.im-devices-icon {
       margin-right: 1px;
     }
@@ -79,7 +79,7 @@ a.nav-device {
   background: @almost-white;
   zoom: 1;
   height: @headerHeight;
-  border-bottom: solid 1px #dfe2e7;
+  border-bottom: solid 1px @NC_MORNING_MIST;
   position: absolute;
   top: 0;
   left: 0;
@@ -90,6 +90,7 @@ a.nav-device {
 .header .right {
   float: right;
   @media (max-width: @medium-size) {
+    padding-right: 8px;
     display: none;
   }
 }
@@ -120,6 +121,7 @@ a.nav-device {
 .dropdown {
   position: relative;
   display: inline-block;
+  margin-right: 10px;
   a {
     margin-right: 12px !important;
   }
@@ -146,10 +148,10 @@ a.nav-device {
   font-size: 14px;
   text-align: left;
   list-style: none;
-  background-color: #fff;
+  background-color: @NC_WHITE;
   -webkit-background-clip: padding-box;
           background-clip: padding-box;
-  border: 1px solid #ccc;
+  border: 1px solid @NC_MORNING_MIST;
   border: 1px solid rgba(0, 0, 0, .15);
   border-radius: 4px;
   -webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, .175);
@@ -170,7 +172,7 @@ a.nav-device {
   height: 1px;
   margin: 9px 0;
   overflow: hidden;
-  background-color: #e5e5e5;
+  background-color: @NC_MORNING_MIST;
 }
 .dropdown-menu > li > a {
   display: block;
@@ -178,28 +180,28 @@ a.nav-device {
   clear: both;
   font-weight: normal;
   line-height: 1.42857143;
-  color: #333;
+  color: @NC_SPACE_GRAY;
   white-space: nowrap;
   width: 100%;
 }
 .dropdown-menu > li > a:hover,
 .dropdown-menu > li > a:focus {
-  color: #262626;
+  color: @NC_BLACK;
   text-decoration: none;
-  background-color: #f5f5f5;
+  background-color: @NC_ALMOST_WHITE;
 }
 .dropdown-menu > .active > a,
 .dropdown-menu > .active > a:hover,
 .dropdown-menu > .active > a:focus {
-  color: #fff;
+  color: @NC_WHITE;
   text-decoration: none;
-  background-color: #337ab7;
+  background-color: @NC_CYAN_HOVER;
   outline: 0;
 }
 .dropdown-menu > .disabled > a,
 .dropdown-menu > .disabled > a:hover,
 .dropdown-menu > .disabled > a:focus {
-  color: #777;
+  color: @NC_COOL_GRAY;
 }
 .dropdown-menu > .disabled > a:hover,
 .dropdown-menu > .disabled > a:focus {
@@ -228,7 +230,7 @@ a.nav-device {
   padding: 3px 20px;
   font-size: 12px;
   line-height: 1.42857143;
-  color: #777;
+  color: @NC_COOL_GRAY;
   white-space: nowrap;
 }
 .dropdown-backdrop {
@@ -264,5 +266,25 @@ a.nav-device {
   .navbar-right .dropdown-menu-left {
     right: auto;
     left: 0;
+  }
+}
+
+@media print {
+  .header {
+    display: none;
+  }
+}
+
+@media (max-width: @small-size) { // 452px to be precise
+  .header:not(.redirector-header) .left {
+    > a {
+      display: none;
+    }
+    .dropdown {
+      margin-right: 0;
+      > a {
+        margin-right: 8px !important; // because of important in `.dropdown a` rule from line 126
+      }
+    }
   }
 }

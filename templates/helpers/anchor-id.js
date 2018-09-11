@@ -1,3 +1,5 @@
+// Unused
+// TODO: remove
 var crypto = require('crypto');
 
 function makeid(str)

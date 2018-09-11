@@ -46,7 +46,7 @@ Texas Instruments(德州仪器) CC3000手机应用程序的智能配置过程与
 
 按照德州仪器(TI)的网站上的说明：
 
-[CC3000 Smart Config @ Texas Instruments](http://processors.wiki.ti.com/index.php/CC3000_Smart_Config)
+CC3000 Smart Config @ Texas Instruments
 
 唯一的不同的是，您需要通过可选的AES密钥并输入`sparkdevices2013`.
 
@@ -100,7 +100,7 @@ __操作方法__
 
 如果使用手机应用程序来设置您的 Spark Core， 它应该会自动认领. 但是，如果您通过USB连接您的 Core, 或者认领过程不成功，您可以亲自认领.
 
-通过 USB 手动认取 core  最简单的方法是使用[Spark 命令行界面](https://github.com/spark/spark-cli). 一旦您安装了这个，您可以简单的输入'setup'的设置，并按照说明进行操作.
+通过 USB 手动认取 core  最简单的方法是使用[Spark 命令行界面](https://github.com/particle-iot/spark-cli). 一旦您安装了这个，您可以简单的输入'setup'的设置，并按照说明进行操作.
 
 另外，如果您在安装命令行工具时遇到问题，您可以通过串行得到 core 的 标识号.
  
