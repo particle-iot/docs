@@ -260,7 +260,7 @@ Only the owner of the device will be able to subscribe to private events.
 A device may not publish events beginning with a case-insensitive match for "spark".
 Such events are reserved for officially curated data originating from the Cloud.
 
-Calling `Particle.publish()` when the cloud connecvtion has been turned off will not publish an event. This is indicated by the return success code
+Calling `Particle.publish()` when the cloud connection has been turned off will not publish an event. This is indicated by the return success code
 of `false`.
 
 If the cloud connection is turned on and trying to connect to the cloud unsuccessfully, Particle.publish may block for 20 seconds to 5 minutes. Checking `Particle.connected()` can prevent this.
