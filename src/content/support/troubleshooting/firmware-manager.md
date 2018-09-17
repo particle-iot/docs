@@ -1,10 +1,6 @@
 ---
 title: Firmware Manager
-<<<<<<< HEAD:src/content/guide/tools-and-features/firmware-manager.md
-order: 5
-=======
 layout: support.hbs
->>>>>>> master:src/content/support/troubleshooting/firmware-manager.md
 columns: two
 devices: [ photon,electron ]
 order: 12
