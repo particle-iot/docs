@@ -67,7 +67,7 @@ Two-step authentication is also supported from the iOS and Android Particle mobi
 
 The [Particle CLI]() also allows two-step authentication:
 
-```text
+```html
 $ particle login
 ? Please enter your email address user@company.com
 ? Please enter your password [hidden]
