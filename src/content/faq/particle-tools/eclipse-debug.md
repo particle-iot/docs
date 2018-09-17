@@ -47,6 +47,11 @@ The Photon USB cable isn't entirely necessary because the shield can power the P
 
 ![Particle Programmer Shield](/assets/images/eclipse-debug-progshield.jpg)
 
+
+{{collapse op="computerOsSelector"}}
+
+{{collapse op="start" computerOs="Windows"}}
+
 ### Particle Programmer Shield - Windows
 
 In order to use a Particle Programmer Shield with OpenOCD under Windows you'll need to assign the **STM32 STLink** device using [Zadig](http://zadig.akeo.ie).
@@ -57,6 +62,9 @@ Select **USB <-> Serial Converter (Interface 0)** (USB ID 0403 6010 00). Then se
 
 ![Zadig settings for Particle Programmer Shield](/assets/images/eclipse-debug-programmer-zadig.png)
 
+{{collapse op="end"}}
+
+{{collapse op="start" computerOs="Mac"}}
 
 ### Particle Programmer Shield - Mac
 
@@ -68,6 +76,7 @@ In some cases, you may need to unload and reload the driver to get the Programme
 sudo kextunload -bundle com.apple.driver.AppleUSBFTDI 
 sudo kextload -bundle com.apple.driver.AppleUSBFTDI
 ```
+{{collapse op="end"}}
 
 ### Inexpensive mini SWD device
 
@@ -101,6 +110,7 @@ In this picture, it's wired as follows. Note that the color code is not official
 
 It's a little unclear whether the VCC pin (orange) should be connected for the mini devices. I generally leave it unconnected for the mini devices but connected for the actual ST-LINK/V2 real device.
 
+{{collapse op="start" computerOs="Windows"}}
 
 ### Mini SWD device - Windows
 
@@ -112,6 +122,7 @@ Select **STM32 STLink** (USB ID 0483 3748). Then set the driver to **libusbK**.
 
 ![Setting libusbk driver for STM32 STLink device](/assets/images/eclipse-debug-stlink-zadig.png)
 
+{{collapse op="end"}}
 
 
 ### ST-LINK/V2 USB JTAG device
@@ -216,6 +227,10 @@ particle update
 
 This is the abbreviated method that will allow you to use the source debugger in Eclipse. Setting up a project that has full code analysis and auto-completion is much more complicated, and will be the topic of a separate FAQ. For this version, we just turn off displaying some errors.
 
+{{collapse op="computerOsSelector"}}
+
+{{collapse op="start" computerOs="Windows"}}
+
 ### Eclipse Base Install - Windows
 
 
@@ -242,6 +257,10 @@ The download is a zip file, not an installer. Select the file in your Downloads 
 For convenience, I created a desktop shortcut icon as well. Right click on **eclipse.exe** and select **Create Shortcut** and select **Yes** to create it on the desktop (or drag and drop it there).
 
 Now you should be able to launch Eclipse and complete the next step of the instructions, [Eclipse Install GNU ARM C/C++](#eclipse-install-gnu-arm-c-c-), which is common for all operating systems.
+
+{{collapse op="end"}}
+
+{{collapse op="start" computerOs="Mac"}}
 
 ### Eclipse Base Install - Mac
 
@@ -287,7 +306,9 @@ Make sure you link to the version of the JDK you installed, which might not be b
 
 Now you should be able to launch Eclipse and complete the next step of the instructions, [Eclipse Install GNU ARM C/C++](#eclipse-install-gnu-arm-c-c-), which is common for all operating systems.
 
+{{collapse op="end"}}
 
+{{collapse op="start" computerOs="Linux"}}
 
 ### Eclipse Base Install - Linux
 
@@ -355,6 +376,8 @@ rickk@ubuntu:~/Desktop$ ln -s /usr/local/bin/eclipse/eclipse .
 
 Now you should be able to launch Eclipse and complete the next step of the instructions, [Eclipse Install GNU ARM C/C++](#eclipse-install-gnu-arm-c-c-), which is common for all operating systems.
 
+{{collapse op="end"}}
+
 ### Eclipse Install GNU ARM C/C++
 
 These steps are required for Windows, Mac and Linux to use the gcc-arm compiler and GDB with the Photon and Electron.
@@ -397,7 +420,7 @@ You may get a warning for unsigned content. You should select **OK** and proceed
 
 ![Unsigned Content Warning](/assets/images/eclipse-debug-eclipse-add-4.png)
 
-
+{{collapse op="start" computerOs="Windows"}}
 
 ### Install GNU ARM Eclipse OpenOCD - Windows
 
@@ -443,6 +466,9 @@ Info : stm32f2x.cpu: hardware has 6 breakpoints, 4 watchpoints
 If you are using the Particle Programmer Shield, you will need to copy the configuration file. Download [particle-ftdi.cfg](/assets/files/eclipse-debug/particle-ftdi.cfg) and copy it into your OpenOCD installation directory, into **scripts/interface/ftdi/particle-ftdi.cfg**.
 
 
+{{collapse op="end"}}
+
+{{collapse op="start" computerOs="Mac"}}
 
 ### Install GNU ARM Eclipse OpenOCD - Mac
 
@@ -481,6 +507,9 @@ Info : stm32f2x.cpu: hardware has 6 breakpoints, 4 watchpoints
 
 If you are using the Particle Programmer Shield, you will need to copy the configuration file. Download [particle-ftdi.cfg](/assets/files/eclipse-debug/particle-ftdi.cfg) and copy it into your OpenOCD installation directory, into **scripts/interface/ftdi/particle-ftdi.cfg**.
 
+{{collapse op="end"}}
+
+{{collapse op="start" computerOs="Linux"}}
 
 ### Install GNU ARM Eclipse OpenOCD - Linux
 
@@ -524,6 +553,8 @@ Info : stm32f2x.cpu: hardware has 6 breakpoints, 4 watchpoints
 ```
 
 If you are using the Particle Programmer Shield, you will need to copy the configuration file. Download [particle-ftdi.cfg](/assets/files/eclipse-debug/particle-ftdi.cfg) and copy it into your OpenOCD installation directory, into **scripts/interface/ftdi/particle-ftdi.cfg**.
+
+{{collapse op="end"}}
 
 
 ## Create an Eclipse project - All Operating Systems
@@ -594,6 +625,7 @@ After making a change in the preferences, it's a good idea to click **Apply** (3
 
 - Select **Environment** (1) in the **C/C++ Build** preferences.
 
+{{collapse op="start" computerOs="Windows"}}
 
 - For Windows: Use the **Add** button (2) to add new environment variables:
 
@@ -608,6 +640,10 @@ After making a change in the preferences, it's a good idea to click **Apply** (3
 
 ![Environment Properties Windows](/assets/images/eclipse-debug-settings-5.png)
 
+{{collapse op="end"}}
+
+{{collapse op="start" computerOs="Mac"}}
+
 - For Mac OS X: Use the **Add** button (2) to add new environment variables:
 
 | Name | Type | Value |
@@ -621,6 +657,10 @@ After making a change in the preferences, it's a good idea to click **Apply** (3
 
 ![Environment Properties Mac](/assets/images/eclipse-debug-settings-7.png)
 
+{{collapse op="end"}}
+
+{{collapse op="start" computerOs="Linux"}}
+
 - For Linux: Use the **Add** button (2) to add new environment variables:
 
 | Name | Type | Value |
@@ -633,6 +673,8 @@ After making a change in the preferences, it's a good idea to click **Apply** (3
 | TARGETBIN | String | target/${ProjName}.bin |
 
 ![Environment Properties Linux](/assets/images/eclipse-debug-settings-6.png)
+
+{{collapse op="end"}}
 
 APPDIR is the path to your source directory, the one you previously created a Makefile in. For Windows, make sure you use forward slashes (/) as the directory separator, not backward slashes commonly used in Windows. The reason is that the path is passed to GNU make, which handles the directory separators in a more Unix-like manner.
 
