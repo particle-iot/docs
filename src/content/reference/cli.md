@@ -122,7 +122,7 @@ Okay!
 ### particle device doctor
 
 Brings back a device with bad firmware, bad network settings or bad keys
-to health so it can connec to the Particle cloud.
+to health so it can connect to the Particle cloud.
 
 The Device Doctor will:
 * Update Device OS to the latest version
