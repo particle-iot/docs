@@ -49,7 +49,7 @@
         "metalsmith-paths": "2.1.1",
         "metalsmith-permalinks": "^0.4.0",
         "metalsmith-redirect": "^2.1.0",
-        "metalsmith-register-helpers": "git://github.com/brycekahle/metalsmith-register-helpers",
+        "metalsmith-register-helpers": "0.4.0",
         "metalsmith-register-partials": "git://github.com/particle-iot/metalsmith-register-partials",
         "metalsmith-serve": "0.0.7",
         "metalsmith-watch": "^1.0.1",
