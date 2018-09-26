@@ -209,7 +209,13 @@ exports.metalsmith = function() {
           'troubleshooting',
           'inquiries'
         ]
-      }
+      },
+      quickstart: {
+          pattern: 'quickstart/*md',
+          sortBy: 'order',
+          orderDynamicCollections: [
+          ]
+        }
     }))//end of collections/sections
     // Duplicate files that have the devices frontmatter set and make one copy for each device
     // The original file will be replaced by a redirect link
@@ -344,6 +350,8 @@ exports.server = function(callback) {
           '../templates/layouts/datasheet.hbs': 'content/datasheets/*.md',
           '../templates/layouts/support.hbs': 'content/support/**/*.md',
           '../templates/layouts/suppMenu.hbs': 'content/support/**/*.md',
+          '../templates/layouts/quickstart.hbs': 'content/quickstart/*.md',
+          '../templates/layouts/landing.hbs': 'content/*.md',
           '../templates/partials/**/*.hbs': 'content/**/*.md',
           '${source}/assets/js/*.js*' : true,
           '${source}/assets/images/**/*' : true,
