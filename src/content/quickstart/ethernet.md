@@ -5,5 +5,6 @@ layout: quickstart.hbs
 
 # Quick start: Ethernet
 
-Put some Quick start content content here.
 
+![Image of the Ethernet FeatherWing](/assets/images/ethernet-featherwing.jpg)
+Put some Quick start content content here.
