@@ -4,6 +4,7 @@
  i {
    line-height: 1;
  }
+  
  .two-columns body:not(.no-literate) .content .inline-header-image {
    display: inline-block;
   vertical-align: middle;
@@ -761,6 +762,66 @@ hr {
     background: @almost-white;
     padding: 10px;
     max-height: 375px !important;
+  }
+}
+
+.one-column {
+  .content {
+    padding: 40px 30px 80px;
+    margin: 0 auto;
+    max-width: 1200px;
+  }
+  .content p.img {
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+  .iframe-wrapper {
+    margin: 40px 0;
+    text-align: center;
+    iframe {
+      margin-bottom: 0;
+    }
+  }
+  .content pre > code {
+    margin-bottom: 10px;
+  }
+  body:not(.no-literate) .content img {
+    margin: 40px auto;
+    max-width: 95%;
+    max-height: 500px;
+    //border: 1px solid @light-gray;
+    @media(max-width: @medium-size) {
+      max-width: 100%;
+    }
+    &.full-width {
+      max-width: 100%;
+    }
+    &.small {
+      max-width: 300px;
+      @media(max-width: @medium-size) {
+        max-width: 50%;
+      }
+      @media(max-width: @small-size) {
+        max-width: 80%;
+      }
+    }
+  }
+  .content h4:after, .content h5:after, .content .small-heading:after, body:not(.big-h3) .content h3:after {
+    left: 0;
+    width: 100%;
+  }
+  table {
+    margin: 40px auto;
+  }
+  @media screen {
+    .content pre > code {
+      background: @NC_SPACE_GRAY;
+      border-radius: 2px;
+      padding: 10px;
+    }
+  }
+  .content h4, .content h5, .content .small-heading, body:not(.big-h3) .content h3 {
+    margin-bottom: 10px;
   }
 }
 
