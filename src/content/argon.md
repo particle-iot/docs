@@ -15,13 +15,14 @@ Based on the Nordic nRF52840, the Argon has built-in battery charging circuitry 
 - [Quick start](/quickstart/argon/)
 - Starter project
 - Code examples
+- [Support](/support/support-and-fulfillment/menu-base/)
 {{box op="switch"}}
 **Resources:**
-- Code
-- Gerber files
-- Data sheets
+- [Code](https://github.com/particle-iot/argon)
+- [Gerber files](https://github.com/particle-iot/argon)
+- [Data sheets](https://github.com/particle-iot/argon)
 - [Community](https://community.particle.io/c/mesh)
-- Buy more
+- [Buy more mesh hardware](https://store.particle.io/collections/mesh)
 {{box op="end"}}
 
 ## Hardware specifications

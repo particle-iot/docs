@@ -18,13 +18,14 @@ The Xenon is best for connecting sensors, motors, pumps, valves, and points of d
 - [Quick start](/quickstart/xenon/)
 - Starter project
 - Code examples
+- [Support](/support/support-and-fulfillment/menu-base/)
 {{box op="switch"}}
 **Resources:**
-- Code
-- Gerber files
-- Data sheets
+- [Code](https://github.com/particle-iot/xenon)
+- [Gerber files](https://github.com/particle-iot/xenon)
+- [Data sheets](https://github.com/particle-iot/xenon)
 - [Community](https://community.particle.io/c/mesh)
-- Buy more
+- [Buy more mesh hardware](https://store.particle.io/collections/mesh)
 {{box op="end"}}
 
 ## Hardware specifications
