@@ -9,13 +9,25 @@ layout: guide.hbs
 
 # Desktop IDE (Dev)
 
-## Getting Started
-
-![IDE Menu]({{assets}}/images/ide-menu.jpg)
-
 **Particle Dev** is a desktop application that allows you to work with
 local copies of your firmware files. However, **internet** access is
-required as the files are pushed to the Particle Device Cloud for compilation and returns a binary. i.e. This is not an offline development tool, yet.
+required as the files are pushed to the Particle Device Cloud for compilation and returns a binary. i.e. This is not an offline development tool.
+
+## Download
+
+Head over and download latest release:
+
+[Download for Windows >](https://updates.particle.io/latest/windows)
+
+[Download for Windows X64 >](https://updates.particle.io/latest/windows-x64)
+
+[Download for Mac >](https://updates.particle.io/latest/mac)
+
+[Download for Linux >](https://github.com/particle-iot/particle-dev-app#linux)
+
+### Getting Started
+
+![IDE Menu]({{assets}}/images/ide-menu.jpg)
 
 All the commands are available from the **Particle** menu. The menu changes depending on whether you're logged in or have selected a device, so some of the commands will only show up once you're in the right context.
 
@@ -32,16 +44,6 @@ To show the palette press `Command`+`Shift`+`P` keys together on a Mac or `Contr
 There's also a toolbar on left side of IDE which contains shortcuts to the most frequently used commands like compiling and flashing (looks a lot like the one from [Web IDE (Build)](https://build.particle.io/), doesn't it?).
 
 ### Logging In
-
-If you want to work on more advanced projects, Particle Dev could be the choice for you. Head over and download latest release:
-
-[Download for Windows >](https://updates.particle.io/latest/windows)
-
-[Download for Windows X64 >](https://updates.particle.io/latest/windows-x64)
-
-[Download for Mac >](https://updates.particle.io/latest/mac)
-
-[Download for Linux >](https://github.com/particle-iot/particle-dev-app#linux)
 
 ![IDE Window]({{assets}}/images/ide-window.jpg)
 

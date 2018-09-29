@@ -448,8 +448,15 @@ Created by Zach Supalla.
         window.location.href = redirect + '/' + (hash ? '#' + hash : '');
       }
     });
-  }
-
+  };
+  
+  Docs.enableZendeskWidget = function() {
+	// Enable only for wide displays, typically desktop.
+    if ($(document).width() >= 750) {
+        $('head').append('<script id="ze-snippet" src="https://static.zdassets.com/ekr/snippet.js?key=21252a40-c7b8-4de4-9b39-1d22e8786070"> </script>');
+    } 
+  };
+  
   function applyRedirect(href) {
     for (var link in redirects) {
       if (href === link) {
@@ -485,6 +492,7 @@ Created by Zach Supalla.
   Docs.toggleNav();
   Docs.toggleShowing();
   Docs.catchRedirectLinks();
+  Docs.enableZendeskWidget();
   if (prettyPrint) {
     prettyPrint();
   }

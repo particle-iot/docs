@@ -270,7 +270,7 @@ Only the owner of the device will be able to subscribe to private events.
 A device may not publish events beginning with a case-insensitive match for "spark".
 Such events are reserved for officially curated data originating from the Cloud.
 
-Calling `Particle.publish()` when the cloud connecvtion has been turned off will not publish an event. This is indicated by the return success code
+Calling `Particle.publish()` when the cloud connection has been turned off will not publish an event. This is indicated by the return success code
 of `false`.
 
 If the cloud connection is turned on and trying to connect to the cloud unsuccessfully, Particle.publish may block for 20 seconds to 5 minutes. Checking `Particle.connected()` can prevent this.
@@ -1022,7 +1022,10 @@ _Since 0.6.1_
 WiFi.setListenTimeout(seconds);
 ```
 
-`WiFi.setListenTimeout(seconds)` is used to set a timeout value for Listening Mode.  Values are specified in `seconds`, and 0 disables the timeout.  By default, Wi-Fi devices do not have any timeout set (seconds=0).  As long as interrupts are enabled, a timer is started and running while the device is in listening mode (WiFi.listening()==true).  After the timer expires, listening mode will be exited automatically.  If WiFi.setListenTimeout() is called while the timer is currently in progress, the timer will be updated and restarted with the new value (e.g. updating from 10 seconds to 30 seconds, or 10 seconds to 0 seconds (disabled)).  {{#if has-threading}}**Note:** Enabling multi-threaded mode with SYSTEM_THREAD(ENABLED) will allow user code to update the timeout value while Listening Mode is active.{{/if}} {{#if core}}Because listening mode blocks your application code on the Core, this command should be avoided in loop().  It can be used with the STARTUP() macro or in setup() on the Core.
+`WiFi.setListenTimeout(seconds)` is used to set a timeout value for Listening Mode.  Values are specified in `seconds`, and 0 disables the timeout.  By default, Wi-Fi devices do not have any timeout set (seconds=0).  As long as interrupts are enabled, a timer is started and running while the device is in listening mode (WiFi.listening()==true).  After the timer expires, listening mode will be exited automatically.  If WiFi.setListenTimeout() is called while the timer is currently in progress, the timer will be updated and restarted with the new value (e.g. updating from 10 seconds to 30 seconds, or 10 seconds to 0 seconds (disabled)).  {{#if has-threading}}**Note:** Enabling multi-threaded mode with SYSTEM_THREAD(ENABLED) will allow user code to update the timeout value while Listening Mode is active.{{/if}} 
+
+{{#if core}}
+Because listening mode blocks your application code on the Core, this command should be avoided in loop().  It can be used with the STARTUP() macro or in setup() on the Core.
 It will always return `false`.
 
 This setting is not persistent in memory if the {{device}} is rebooted.
@@ -1294,7 +1297,8 @@ byte bssid[6];
 
 void setup() {
   Serial.begin(9600);
-  while (!Serial.available()) Particle.process();
+  // Wait for a USB serial connection for up to 30 seconds
+  waitFor(Serial.isConnected, 30000);
 
   WiFi.BSSID(bssid);
   Serial.printlnf("%02X:%02X:%02X:%02X:%02X:%02X", bssid[0], bssid[1], bssid[2], bssid[3], bssid[4], bssid[5]);
@@ -1532,7 +1536,8 @@ void setup() {
 
 void setup() {
   Serial.begin(9600);
-  while(!Serial.available()) Particle.process();
+  // Wait for a USB serial connection for up to 30 seconds
+  waitFor(Serial.isConnected, 30000);
 
   // Prints out the local IP over Serial.
   Serial.println(WiFi.localIP());
@@ -1547,7 +1552,8 @@ void setup() {
 
 void setup() {
   Serial.begin(9600);
-  while(!Serial.available()) Particle.process();
+  // Wait for a USB serial connection for up to 30 seconds
+  waitFor(Serial.isConnected, 30000);
 
   // Prints out the subnet mask over Serial.
   Serial.println(WiFi.subnetMask());
@@ -1562,7 +1568,8 @@ void setup() {
 
 void setup() {
   Serial.begin(9600);
-  while(!Serial.available()) Particle.process();
+  // Wait for a USB serial connection for up to 30 seconds
+  waitFor(Serial.isConnected, 30000);
 
   // Prints out the gateway IP over Serial.
   Serial.println(WiFi.gatewayIP());
@@ -3038,6 +3045,18 @@ void loop()
 }
 ```
 
+- When using INPUT\_PULLDOWN make sure a high level signal does not exceed 3.3V.
+- INPUT\_PULLUP does not work as expected on TX on the P1, Electron, and  E Series and should not be used. 
+- INPUT\_PULLDOWN does not work as expected on D0 and D1 on the P1 because the P1 module has hardware pull-up resistors on these pins. 
+
+Also beware when using pins D3, D5, D6, and D7 as OUTPUT controlling external devices. After reset, these pins will be briefly taken over for JTAG/SWD, before being restored to the default high-impedance INPUT state during boot.
+
+- D3, D5, and D7 are pulled high with a pull-up
+- D6 is pulled low with a pull-down
+- D4 is left floating
+
+The brief change in state (especially when connected to a MOSFET that can be triggered by the pull-up or pull-down) may cause issues when using these pins in certain circuits. You can see this with the D7 blue LED which will blink dimly and briefly at boot.
+
 ### getPinMode(pin)
 
 Retrieves the current pin mode.
@@ -3162,14 +3181,14 @@ void loop()
 }
 ```
 
-- On the Core, this function works on pins D0, D1, A0, A1, A4, A5, A6, A7, RX and TX.
+{{#if core}}- On the Core, this function works on pins D0, D1, A0, A1, A4, A5, A6, A7, RX and TX.{{/if}}
 - On the Photon, P1 and Electron, this function works on pins D0, D1, D2, D3, A4, A5, WKP, RX and TX with a caveat: PWM timer peripheral is duplicated on two pins (A5/D2) and (A4/D3) for 7 total independent PWM outputs. For example: PWM may be used on A5 while D2 is used as a GPIO, or D2 as a PWM while A5 is used as an analog input. However A5 and D2 cannot be used as independently controlled PWM outputs at the same time.
 - Additionally on the Electron, this function works on pins B0, B1, B2, B3, C4, C5.
 - Additionally on the P1, this function works on pins P1S0, P1S1, P1S6 (note: for P1S6, the WiFi Powersave Clock should be disabled for complete control of this pin. {{#if has-backup-ram}}See [System Features](#system-features)).{{/if}}
 
 The PWM frequency must be the same for pins in the same timer group.
 
-- On the Core, the timer groups are D0/D1, A0/A1/RX/TX, A4/A5/A6/A7.
+{{#if core}}- On the Core, the timer groups are D0/D1, A0/A1/RX/TX, A4/A5/A6/A7.{{/if}}
 - On the Photon, the timer groups are D0/D1, D2/D3/A4/A5, WKP, RX/TX.
 - On the P1, the timer groups are D0/D1, D2/D3/A4/A5/P1S0/P1S1, WKP, RX/TX/P1S6.
 - On the Electron, the timer groups are D0/D1/C4/C5, D2/D3/A4/A5/B2/B3, WKP, RX/TX, B0/B1.
@@ -3291,6 +3310,7 @@ void loop()
 
 The function `setADCSampleTime(duration)` is used to change the default sample time for `analogRead()`.
 
+{{#if core}}
 On the Core, this parameter can be one of the following values (ADC clock = 18MHz or 55.6ns per cycle):
 
  * ADC_SampleTime_1Cycles5: Sample time equal to 1.5 cycles, 83ns
@@ -3301,6 +3321,7 @@ On the Core, this parameter can be one of the following values (ADC clock = 18MH
  * ADC_SampleTime_55Cycles5: Sample time equal to 55.5 cycles, 3.08us
  * ADC_SampleTime_71Cycles5: Sample time equal to 71.5 cycles, 3.97us
  * ADC_SampleTime_239Cycles5: Sample time equal to 239.5 cycles, 13.3us
+{{/if}}
 
  On the Photon and Electron, this parameter can be one of the following values (ADC clock = 30MHz or 33.3ns per cycle):
 
@@ -3312,6 +3333,10 @@ On the Core, this parameter can be one of the following values (ADC clock = 18MH
  * ADC_SampleTime_112Cycles: Sample time equal to 112 cycles, 3.73us
  * ADC_SampleTime_144Cycles: Sample time equal to 144 cycles, 4.80us
  * ADC_SampleTime_480Cycles: Sample time equal to 480 cycles, 16.0us
+
+The default is ADC_SampleTime_480Cycles. This means that the ADC is sampled for 16 us which can provide a more accurate reading, at the expense of taking longer than using a shorter ADC sample time. If you are measuring a high frequency signal, such as audio, you will almost certainly want to reduce the ADC sample time.
+ 
+Furthermore, 5 consecutive samples at the sample time are averaged in analogRead(), so the time to convert is closer to 80 us, not 16 us, at 480 cycles.
 
 {{/if}} {{!-- has-adc --}}
 
@@ -3458,7 +3483,9 @@ void loop()
 
 Generates a square wave of the specified frequency and duration (and 50% duty cycle) on a timer channel pin which supports PWM. Use of the tone() function will interfere with PWM output on the selected pin. tone() is generally used to make sounds or music on speakers or piezo buzzers.
 
+{{#if core}}
 - On the Core, this function works on pins D0, D1, A0, A1, A4, A5, A6, A7, RX and TX.
+{{/if}}
 
 - On the Photon, P1 and Electron, this function works on pins D0, D1, D2, D3, A4, A5, WKP, RX and TX with a caveat: Tone timer peripheral is duplicated on two pins (A5/D2) and (A4/D3) for 7 total independent Tone outputs. For example: Tone may be used on A5 while D2 is used as a GPIO, or D2 for Tone while A5 is used as an analog input. However A5 and D2 cannot be used as independent Tone outputs at the same time.
 
@@ -4539,8 +4566,8 @@ void setup()
 {
   // Make sure your Serial Terminal app is closed before powering your device
   Serial.begin(9600);
-  // Now open your Serial Terminal, and hit any key to continue!
-  while(!Serial.available()) Particle.process();
+  // Wait for a USB serial connection for up to 30 seconds
+  waitFor(Serial.isConnected, 30000);
 }
 
 void loop() {
@@ -6442,8 +6469,8 @@ void setup()
 
   // Make sure your Serial Terminal app is closed before powering your device
   Serial.begin(9600);
-  // Now open your Serial Terminal, and hit any key to continue!
-  while(!Serial.available()) Particle.process();
+  // Wait for a USB serial connection for up to 30 seconds
+  waitFor(Serial.isConnected, 30000);
 
   Serial.println(WiFi.localIP());
   Serial.println(WiFi.subnetMask());
@@ -6603,8 +6630,8 @@ void setup()
 {
   // Make sure your Serial Terminal app is closed before powering your device
   Serial.begin(9600);
-  // Now open your Serial Terminal, and hit any key to continue!
-  while(!Serial.available()) Particle.process();
+  // Wait for a USB serial connection for up to 30 seconds
+  waitFor(Serial.isConnected, 30000);
 
   Serial.println("connecting...");
 
@@ -8766,12 +8793,76 @@ Specifies a function to call when an external interrupt occurs. Replaces any pre
 
 External interrupts are supported on the following pins:
 
-- Core: D0, D1, D2, D3, D4, A0, A1, A3, A4, A5, A6, A7
-- Photon: All pins with the exception of D0 and A5 (since at present Mode Button external interrupt(EXTI) line is shared with D0, A5). Also please note following are the pins for which EXTI lines are shared so only one can work at a time:
-    - D1, A4
-    - D2, A0, A3
-    - D3, DAC
-    - D4, A1
+**Photon**
+
+Not supported on the Photon (you can't use attachInterrupt on these pins):
+
+  - D0, A5 (shared with SETUP button)
+
+No restrictions on the Photon (all of these can be used at the same time):
+
+  - D5, D6, D7, A2, A6, WKP, TX, RX
+
+Shared on the Photon (only one pin for each bullet item can be used at the same time):
+
+  - D1, A4
+  - D2, A0, A3
+  - D3, DAC
+  - D4, A1
+ 
+For example, you can use attachInterrupt on D1 or A4, but not both. Since they share an EXTI line, there is no way to tell which pin generated the interrupt.
+
+But you can still attachInterrupt to D2, D3, and D4, as those are on different EXTI lines.
+ 
+**P1**
+   
+Not supported on the P1 (you can't use attachInterrupt on these pins):
+
+  - D0, A5 (shared with MODE button)
+
+No restrictions on the P1 (all of these can be used at the same time):
+
+  - D5, D6, A2, A6, TX, RX
+
+Shared on the P1 (only one pin for each bullet item can be used at the same time):
+
+  - D1, A4
+  - D2, A0, A3
+  - D3, DAC, P1S3
+  - D4, A1
+  - D7, P1S4
+  - A7 (WKP), P1S0, P1S2
+  - P1S1, P1S5
+
+**Electron/E Series**
+
+Not supported on the Electron/E series (you can't use attachInterrupt on these pins):
+
+  - D0, A5 (shared with MODE button)
+  - D7 (shared with BATT_INT_PC13)
+
+No restrictions on the Electron/E series (all of these can be used at the same time):
+
+  - D5, D6, A6
+
+Shared on the Electron/E series (only one pin for each bullet item can be used at the same time):
+
+  - D1, A4, B1
+  - D2, A0, A3
+  - D3, DAC
+  - D4, A1
+  - A2, C0
+  - A7 (WKP), B2, B4
+  - B0, C5
+  - B3, B5
+  - C3, TX
+  - C4, RX
+
+{{#if core}}
+#### Spark Core
+
+Interrupts supported on D0, D1, D2, D3, D4, A0, A1, A3, A4, A5, A6, A7 only.
+{{/if}}
 
 ```
 // SYNTAX
@@ -10470,8 +10561,8 @@ void setup()
 {
   // Make sure your Serial Terminal app is closed before powering your device
   Serial.begin(9600);
-  // Now open your Serial Terminal, and hit any key to continue!
-  while(!Serial.available()) Particle.process();
+  // Wait for a USB serial connection for up to 30 seconds
+  waitFor(Serial.isConnected, 30000);
 
   String myID = System.deviceID();
   // Prints out the device ID over Serial

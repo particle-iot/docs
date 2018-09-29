@@ -100,7 +100,7 @@ refreshing device vitals.
 
 If you'd like to programmatically instruct the device to re-send its
 device vitals, you can use the Device Cloud REST API. **This is especially
-usefull if you'd like to automate devices in your fleet reporting
+useful if you'd like to automate devices in your fleet reporting
 diagnostic information on a regular cadence**.
 
 You will need to make a `POST` request to the [refresh device

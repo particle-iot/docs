@@ -6,7 +6,7 @@ devices: [ electron ]
 order: 10
 ---
 
-# {{title}} <sub style="color: #777;font-size:18px; bottom: 0;">beta</sub>
+# {{title}}
 
 SIM Management equips product creators with the functionality needed to operate at scale with
 cellular-connected devices. This suite of tools is focused on reducing friction of
@@ -25,9 +25,6 @@ for cellular service available exclusively to product creators
 products](/assets/images/sims-for-products/sims-for-products.png)
 <p class="caption">Seamlessly manage a large fleet of SIM cards by
 associating them with your Particle product</p>
-
-This set of features is currently released as a beta and is subject to change.
-Please report any issues you experience via our <a href="/support">support form</a>.
 
 ## Introduction
 
