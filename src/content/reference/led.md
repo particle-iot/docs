@@ -552,6 +552,7 @@ There are a number of other red blink codes that may be expressed after the SOS 
 11. Invalid case
 12. Pure virtual call
 13. Stack overflow
+14. Semaphore lock timeout (_Since 0.8.0_ 60 seconds expired while trying to acquire a semaphore lock, likely due to dynamic memory allocation)
 
 The two most common ones are:
 
