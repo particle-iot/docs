@@ -107,9 +107,8 @@ Associated properties are most commonly stored in `msg.payload`.
 ## Getting Started
 Let's get you up and running with the Rules Engine.
 
-You should have gotten an email from the Particle team that includes the
-URL where you can access your organization's Rules Engine instance. The
-URL should look something like `https://myorganization.rules.particle.io`.
+To apply for beta access to the Rules Engine, please visit [https://www.particle.io/iot-rules-engine](https://www.particle.io/iot-rules-engine). Once accepted, you should get an email with your Rules Engine instance URL. The
+URL should look something like `https://myname.rules.particle.io`.
 
 When visiting your Rules Engine instance, you will first be asked to log
 in with your Particle account. Only approved members of your team will
