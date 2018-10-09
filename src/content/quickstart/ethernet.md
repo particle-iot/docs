@@ -1,6 +1,7 @@
 ---
 title: Ethernet
 layout: quickstart.hbs
+columns: two
 ---
 
 # Quick start: Ethernet

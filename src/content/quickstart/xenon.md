@@ -1,6 +1,7 @@
 ---
 title: Xenon Kit
 layout: quickstart.hbs
+columns: two
 ---
 
 # Quick start: Xenon Kit
