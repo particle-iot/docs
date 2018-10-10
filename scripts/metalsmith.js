@@ -215,6 +215,12 @@ exports.metalsmith = function() {
           sortBy: 'order',
           orderDynamicCollections: [
           ]
+      },
+      landing: {
+          pattern: '*md',
+          sortBy: 'order',
+          orderDynamicCollections: [
+          ]
         }
     }))//end of collections/sections
     // Duplicate files that have the devices frontmatter set and make one copy for each device
