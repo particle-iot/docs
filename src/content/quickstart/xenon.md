@@ -29,16 +29,16 @@ The Particle Xenon is a mesh and Bluetooth development kit designed for building
 
 ## STEP 1: DOWNLOAD THE MOBILE APP
 
-Download the mobile app for iOS or Android. The app is used to set up the Xenon, add devices to local mesh networks, and to TKTK.
+Download the Particle IoT app for iPhone or Android. The app is used to set up the Xenon, add devices to local mesh networks, and to TKTK.
 
 
 
 ### Download links
 {{box op="start" cssClass="boxedSideBySide"}}
-[![Play Store](/assets/images/google-play-badge.png)](https://play.google.com/store/apps/details?id=io.particle.android.app)
+[![**iOS**](/assets/images/app-store-badge.png)](https://itunes.apple.com/us/app/particle-build-photon-electron/id991459054?ls=1&mt=8)
 
 {{box op="switch"}}
-[**iOS**](https://itunes.apple.com/us/app/particle-build-photon-electron/id991459054?ls=1&mt=8)
+[![Play Store](/assets/images/google-play-badge.png)](https://play.google.com/store/apps/details?id=io.particle.android.app)
 
 {{box op="end"}}
 
