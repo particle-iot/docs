@@ -2,7 +2,7 @@
 title: Electron Data Guide
 layout: guide.hbs
 columns: two
-devices: [ electron ]
+devices: [ electron,boron ]
 order: 9
 ---
 

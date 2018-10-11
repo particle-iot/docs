@@ -2,7 +2,7 @@
 title: Cloud Solutions
 layout: support.hbs
 columns: two
-devices: [ photon,electron,core ]
+devices: [ photon,core ]
 order: 4
 ---
 

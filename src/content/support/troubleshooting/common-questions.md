@@ -2,7 +2,7 @@
 title: Common Questions
 layout: support.hbs
 columns: two
-devices: [ photon,electron,core ]
+devices: [ photon,electron,core,argon,boron,xenon ]
 order: 5
 ---
 

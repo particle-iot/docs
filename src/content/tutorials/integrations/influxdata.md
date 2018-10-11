@@ -1,6 +1,5 @@
 ---
 title: InfluxData
-devices: [ photon, electron, core ]
 layout: tutorials.hbs
 columns: two
 order: 400

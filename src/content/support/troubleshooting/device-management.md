@@ -2,7 +2,7 @@
 title: Device Ownership
 layout: support.hbs
 columns: two
-devices: [ photon,electron,core ]
+devices: [ photon,electron,core,argon,boron,xenon ]
 order: 3
 ---
 

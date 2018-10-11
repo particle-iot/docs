@@ -2,7 +2,7 @@
 title: Firmware
 layout: reference.hbs
 columns: three
-devices: [photon,electron,core,raspberry-pi]
+devices: [photon,electron,core,raspberry-pi,xenon,argon,boron]
 order: 1
 ---
 

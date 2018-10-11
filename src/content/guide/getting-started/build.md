@@ -2,7 +2,7 @@
 title: Web IDE (Build)
 layout: guide.hbs
 columns: two
-devices: [ electron,photon,core,raspberry-pi ]
+devices: [ electron,photon,core,raspberry-pi,argon,boron,xenon ]
 order: 6
 ---
 

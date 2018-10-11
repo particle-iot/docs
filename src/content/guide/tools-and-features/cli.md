@@ -3,7 +3,7 @@ word: CLI
 title: Command Line
 order: 5
 columns: two
-devices: [electron,photon,core,raspberry-pi]
+devices: [electron,photon,core,raspberry-pi,argon,boron,xenon]
 layout: guide.hbs
 ---
 
