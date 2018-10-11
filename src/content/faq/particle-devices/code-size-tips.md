@@ -2,7 +2,7 @@
 title: Code Size Tips
 layout: faq.hbs
 columns: two
-devices: [ photon,electron ]
+devices: [ photon,electron,argon,boron,xenon ]
 order: 1150
 ---
 

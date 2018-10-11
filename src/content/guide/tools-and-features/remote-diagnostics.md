@@ -4,7 +4,7 @@ title: Remote Diagnostics
 order: 11
 columns: two
 layout: guide.hbs
-devices: [photon, electron]
+devices: [photon, electron, argon, boron, xenon]
 ---
 
 # {{title}}

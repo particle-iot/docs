@@ -8,6 +8,8 @@ module.exports = function(context) {
 	return 'Wi-Fi';
   } else if (metadata['has-cellular']) {
 	return 'cellular';
+  } else if (metadata['has-mesh']) {
+	return 'mesh';
   } else {
 	return 'network';
   }

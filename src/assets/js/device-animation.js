@@ -32,7 +32,43 @@ var DeviceAnimation = function(element, deviceType) {
         y: 38.5,
         radius: 30
       }
-    }
+    },
+    "Argon": {
+        image: "/assets/images/argon.svg",
+        zoom: 4,
+        width: 197,
+        height: 77,
+        rotate: -90,
+        led: {
+          x: 87.5,
+          y: 38.5,
+          radius: 10
+        }
+    },
+    "Boron": {
+        image: "/assets/images/boron-generic.svg",
+        zoom: 4,
+        width: 197,
+        height: 77,
+        rotate: -90,
+        led: {
+          x: 87.5,
+          y: 38.5,
+          radius: 10
+        }
+    },
+    "Xenon": {
+        image: "/assets/images/xenon.svg",
+        zoom: 4,
+        width: 197,
+        height: 77,
+        rotate: -90,
+        led: {
+          x: 87.5,
+          y: 38.5,
+          radius: 10
+        }
+     }
   };
 
   var device = deviceSpecs[deviceType];
@@ -43,7 +79,7 @@ var DeviceAnimation = function(element, deviceType) {
   var group = draw.group().scale(device.zoom).translate(0.5, 0.5);
 
   // Add the device image
-  var img = group.image(device.image).size(device.width, device.height).loaded(function() {
+  var img = group.image(device.image).size(device.width, device.height).rotate(device.rotate || 0).loaded(function() {
     showLight = true;
   });
 

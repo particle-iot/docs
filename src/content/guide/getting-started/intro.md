@@ -2,7 +2,7 @@
 title: Introduction
 layout: guide.hbs
 columns: two
-devices: [ photon,electron,core,raspberry-pi ]
+devices: [ photon,electron,core,raspberry-pi,argon,boron,xenon ]
 order: 1
 ---
 

@@ -2,7 +2,7 @@
 title: Firmware
 layout: reference.hbs
 columns: three
-devices: [photon,electron,core,raspberry-pi]
+devices: [photon,electron,core,raspberry-pi,xenon,argon,boron]
 order: 1
 ---
 
@@ -853,6 +853,20 @@ void setup() {
     Particle.publish("particle/device/random");
 }
 ```
+
+{{#if has-mesh}}
+## Mesh
+
+### publish()
+
+Content goes here.
+
+### subscribe()
+
+Content goes here.
+
+{{/if}}
+
 
 {{#if has-wifi}}
 ## WiFi

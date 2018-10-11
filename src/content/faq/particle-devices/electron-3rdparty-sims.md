@@ -2,7 +2,7 @@
 title: 3rd-party SIM cards
 layout: faq.hbs
 columns: two
-devices: [ electron ]
+devices: [ electron,boron ]
 order: 1020
 ---
 
