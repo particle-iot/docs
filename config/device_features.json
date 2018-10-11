@@ -1,6 +1,7 @@
 {
   "Core": [
-    "stm32f1",
+	"stm32",
+	"stm32f1",
     "wifi",
     "embedded",
     "listening",
@@ -19,6 +20,7 @@
     "spi-settings"
   ],
   "Photon": [
+	"stm32",
     "stm32f2",
     "wifi",
     "embedded",
@@ -53,6 +55,7 @@
     "wpa-enterprise"
   ],
   "Electron": [
+	"stm32",
     "stm32f2",
     "cellular",
     "embedded",
@@ -94,6 +97,7 @@
     "multiple-spi"
   ],
   "Argon": [
+	"nrf52",
 	"nrf52840",
     "mesh",
     "wifi",
@@ -121,6 +125,7 @@
     "spi-settings"	  
   ],
   "Boron": [
+	"nrf52",
 	"nrf52840",
     "mesh",
     "cellular",
@@ -148,6 +153,7 @@
     "spi-settings"	  
   ],
   "Xenon": [
+	"nrf52",
 	"nrf52840",
     "mesh",
     "embedded",

@@ -854,6 +854,20 @@ void setup() {
 }
 ```
 
+{{#if has-mesh}}
+## Mesh
+
+### publish()
+
+Content goes here.
+
+### subscribe()
+
+Content goes here.
+
+{{/if}}
+
+
 {{#if has-wifi}}
 ## WiFi
 
