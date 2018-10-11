@@ -27,14 +27,7 @@
                     <div class="in-page-toc-container">
                       <ul class="nav in-page-toc hide">
                         {{#each ../../../toc}}
-                        <li class="middle-level" data-nav="">{{#if children}}<i class="toggle-secondary-toc ion-arrow-right-b"></i>{{/if}}<a href="#{{id}}">{{{text}}}</a></li>
-                        {{#if children}}
-                          <ul class="nav secondary-in-page-toc">
-                            {{#each children}}
-                              <li data-secondary-nav=""><a href="#{{id}}">{{{text}}}</a></li>
-                            {{/each}}
-                          </ul>
-                        {{/if}}
+                        <li class="middle-level" data-nav=""><a href="#{{id}}">{{{text}}}</a></li>
                         {{/each}}
                       </ul>
                     </div>
