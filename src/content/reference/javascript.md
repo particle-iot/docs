@@ -27,7 +27,7 @@ Next, open a command prompt or terminal, and install by typing:
 $ npm install particle-api-js
 ```
 
-### Browser
+### Bower
 
 Particle API JS can be included using bower:
 
