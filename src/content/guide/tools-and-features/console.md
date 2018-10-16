@@ -1,7 +1,7 @@
 ---
 word: Console
 title: Console
-order: 3
+order: 2
 shared: true
 columns: two
 layout: guide.hbs
