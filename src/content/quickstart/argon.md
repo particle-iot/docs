@@ -2,6 +2,7 @@
 title: Argon Kit
 layout: quickstart.hbs
 columns: two
+devices: [photon,electron,xenon,argon,boron]
 ---
 
 # Quick start: Argon Kit

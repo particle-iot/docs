@@ -1,0 +1,379 @@
+---
+title: Electron
+layout: quickstart.hbs
+columns: two
+devices: [photon,electron,xenon,argon,boron]
+---
+
+# Quick start: Electron
+
+## What's in the Box?
+
+{{#if photon}}
+![](/assets/images/photon-kit-new.jpg)
+<p class="caption">Your new Photon! Note that many components pictured will only be included if you purchased a Photon Kit.</p>
+{{/if}}
+
+{{#if core}}
+![](/assets/images/core-box.jpg)
+{{/if}}
+
+{{#if electron}}
+![](/assets/images/electronItemBox.jpg)
+<p class="caption">Introducing the Electron.</p>
+{{/if}}
+
+Congratulations on being the owner of a brand new Particle Device! Go ahead and open the box. You can see the different [kit addons](/datasheets/kits) and check out the [{{device}} datasheet](/datasheets/{{deviceValue}}-datasheet/) if you like!
+
+{{#if photon}}
+If you have an Internet Button, read through this section to get started and connect your device, then hop over to the [Internet Button Guide](/guide/tools-and-features/button/) for more detailed info.
+{{/if}}
+
+{{#if core}}
+If you have an Internet Button, read through this section to get started and connect your device, then hop over to the [Internet Button Guide](/guide/tools-and-features/button/) for more detailed info.
+{{/if}}
+
+Let's quickly go over what you see.
+
+{{#if photon}}
+### What's on it?
+{{/if}}
+
+{{#if core}}
+### What's on it?
+{{/if}}
+
+{{#if electron}}
+### What's all here?
+{{/if}}
+
+{{#if has-cellular}}{{popup '**The Cellular Module.**' 'img' 'electronUblox.jpg'}}
+This is probably why you bought your device-- the cellular module allows your Electron to communicate with the internet in over 120 countries!
+The cellular module is also accompanied with a Particle SIM card.
+
+It connects your device to the internet in the same way that your smartphone might connect to its cellular network.
+[See our coverage map](/support/troubleshooting/common-issues/electron/#6-check-the-cellular-coverage-in-your-area).
+{{/if}}
+
+{{#if has-wifi}}
+{{#if photon}}{{popup '**The Wi-Fi Module.**' 'img' 'photon-module.jpg'}}{{/if}}
+{{#if core}}{{popup '**The Wi-Fi Module.**' 'img' 'core-cc3000.jpg'}}{{/if}}
+This is probably why you bought your device-- the Wi-Fi module allows your {{device}} to communicate with the internet. It connects your device to the internet in the same way that your smartphone might connect to a wifi network.
+{{#if photon}} **Do not press down on the Photon's module.** Doing so triggers a reset and is generally not good for the Photon.{{/if}}
+{{/if}} {{!-- has-wifi --}}
+
+{{#if photon}}{{popup '**The Microcontroller.**' 'img' 'photon-module.jpg'}}{{/if}}
+{{#if core}}{{popup '**The Microcontroller.**' 'img' 'core-stm32.jpg'}}{{/if}}
+{{#if electron}}{{popup '**The Microcontroller.**' 'img' 'electronMCU.jpg'}}{{/if}}
+The microcontroller is the brain of your device. It runs your software and tells your prototype what to do. Unlike your computer, it can only run one application (often called *firmware* or an *embedded application*). This application can be simple (just a few lines of code), or very complex, depending on what you want to do. The microcontroller interacts with the outside world using pins.
+
+
+{{#if electron}}{{popup '**The Pins.**' 'img' 'mk-header-male.jpg'}}{{/if}}
+{{#if photon}}{{popup '**The Pins.**' 'img' 'photon-pinout.png'}}{{/if}}
+{{#if core}} {{popup '**The Pins.**' 'img' 'core-pinout.png'}}{{/if}}
+Pins are the input and output parts of the microcontroller that are exposed on the sides of your device. GPIO pins can be hooked to sensors or buttons to listen to the world, or they can be hooked to lights and buzzers to act upon the world. There are also pins to allow you to power your device, or power motors and outputs outside of your device. There are pins for Serial/UART communication, and a pin for resetting your device.
+
+
+{{#if has-cellular}}
+{{popup '**The Antenna & USB Cable.**' 'img' 'electronAntenna.jpg'}}
+The cellular antenna is imperative for the {{device}} to reach connection to a cellular tower. It will operate for all 2G/3G frequencies that your
+{{device}} needs, depending on the version you have. The USB cable provides a means to charge your {{device}} as well as send serial and DFU commands to your device.
+{{/if}} {{!-- has-cellular --}}
+
+
+{{#if has-battery}}
+{{popup '**The Battery.**' 'img' 'electronBattery.jpg'}}
+The {{device}} comes with a standard 1,800mAh 3.7V LiPo battery (rechargeable) which allows the {{device}} to be powered over long periods of time without needing a connection
+to wired power source. Consider this battery your {{device}}'s best friend!
+{{/if}} {{!-- has-battery --}}
+
+
+{{#if photon}}{{popup '**Buttons**' 'img' 'photon-buttons.jpg'}} **and** {{popup '**LEDs.**' 'img' 'photon-leds.jpg'}}{{/if}}
+{{#if core}}{{popup '**Buttons**' 'img' 'core-buttons.jpg'}} **and** {{popup '**LEDs.**' 'img' 'core-leds.jpg'}}{{/if}}
+{{#if electron}}**Buttons and LEDs.**{{/if}}
+There are several awesome buttons and LEDs on your {{device}} to make it easier to use.
+
+- The `{{system-button}}` button is on the left and the `{{reset-button}}` button is on the right. You can use these buttons to help you set your device's [mode](/guide/getting-started/modes).
+- The **RGB LED** is in the center of your {{device}}, above the module. The color of the RGB LED tells you what [mode](/guide/getting-started/modes) your {{device}} is currently in.
+{{#if core}}
+- The **D7 LED** in the upper right side of your {{device}}. This LED will turn on when the D7 pin is set to `HIGH`.
+{{else}}
+- The **D7 LED** is next to the D7 pin on your {{device}}, on the upper right quadrant. This LED will turn on when the D7 pin is set to `HIGH`.
+{{/if}} {{!-- core }}
+
+{{/if}}
+
+For more technical details on what comes on your device, go [here](/datasheets/{{deviceValue}}-datasheet/).
+
+
+{{#if electron}}
+## New User Features On the Electron
+### Onboard power management
+- The Electron charges its own battery!
+- If the small red LED is on, the battery is charging
+- When the LED turns off, the battery is fully charged
+
+### Display signal strength!
+- Press `{{system-button}}` once quickly when the Electron is breathing cyan
+- The signal strength (RSSI) will be shown in a 0-5 green blinks, 5 being the strongest
+
+### Soft Power Down
+- Tap `{{system-button}}` twice quickly, then the LED will show white, and then it will turn off in a few seconds
+- To turn it back on tap `{{reset-button}}` once
+- You can use use soft power down instead of unplugging the battery or power
+- This uses a deep sleep mode for the Electron, and will still use 0.13mA
+{{/if}}
+
+## Prerequisites for Setup
+{{#if electron}}
+* **Software**
+  * We highly recommend using our [online web setup](https://setup.particle.io) for the Electron.
+  * You can also use the Particle Mobile App - [iPhone](https://itunes.apple.com/us/app/particle-build-iot-projects-wifi-or-cellular/id991459054?mt=8) | [Android](https://play.google.com/store/apps/details?id=io.particle.android.app) | [Windows](https://www.microsoft.com/en-us/store/p/particle/9nblggh4p55n)
+* **Hardware**
+  * Your Particle Electron, brand new and out of the box!
+  * USB to micro USB cable (included)
+  * Power source for USB cable (such as your computer, USB battery, or power brick)
+  * Cellular Antenna (included)
+  * SIM Card (included)
+  * 3.7V LiPo Battery (included)
+  * A computer for the [setup process](https://setup.particle.io).
+* **Experience**
+    * None! This is your first project.
+
+## Billing for Electron
+### Overview
+- Each SIM card will be billed a *base rate* which includes 1 MB of data (1 MB = 1,000,000 bytes)
+- The base rate covers you up to 1.0MB, additional MB are billed at a cheaper rate than the base
+- We bill your base rate at beginning of a period, additional MB at the end, so you'll often see both
+- Base and additional MB rates are based on your [country and Zone](/guide/getting-started/billing/electron/#roaming-zones-)
+- You can set a data limit for each SIM. It defaults to 5MB on new SIMs, but you can change it in the [Console](https://console.particle.io/billing)
+- Data limits are soft maximums; we only charge you for the number of MB used, rounded up, and we'll cut off usage as quickly as we have updated metering from your carrier
+- If a SIM goes over the limit, it'll be paused and won't be able to use more data until the beginning of the next period or you raise the data limit
+- You can use the [Console](https://console.particle.io/billing) to manage SIMs, billing, and see data usage
+- See the full [Electron Billing Guide](/guide/getting-started/billing/)
+
+## Data Use on the Electron
+### Overview
+- Any cellular communication to or from the Electron uses data, since it goes through the cell network
+- Maintaining a connection also uses a small amount of data, to keep the device active on the network
+- Some actions are very data efficient, like `Particle.publish`
+- Others, like flashing your code over the air, will use much more data
+- We've done a ton of work to save you data and warn you if an action will use lots of data
+- You can save even more data by optimizing your code behavior
+- See the full [Electron Data Guide](/guide/getting-started/data/)
+
+Go to the next section to learn to [connect over USB](/guide/getting-started/connect/electron/).    
+{{/if}} {{!-- electron --}}
+
+{{#if photon}}
+* **Software**
+  * Particle Mobile App - [iPhone](https://itunes.apple.com/us/app/particle-build-iot-projects-wifi-or-cellular/id991459054?mt=8) | [Android](https://play.google.com/store/apps/details?id=io.particle.android.app) | [Windows](https://www.microsoft.com/en-us/store/p/particle/9nblggh4p55n)
+  * *Note: We highly recommend using the mobile app for first time setup.*
+* **Hardware**
+  * Your Particle device, brand new and out of the box!
+  * USB to micro USB cable {{#if photon}}(included with Photon Kit and Maker Kit){{/if}}
+  * Power source for USB cable (such as your computer, USB battery, or power brick)
+  * Your iPhone or Android or Windows smartphone
+* **Wi-Fi Settings**
+  * 2.4GHz capable router
+  * Channels 1-11
+  * WPA/WPA2 encryption
+  * On a broadcast SSID network
+  * Not behind a hard firewall or Enterprise network
+  * *Note: We do not recommend using WEP Wi-Fi settings, for security reasons.*
+* **Experience**
+    * None! This is your first project.
+
+{{/if}} {{!-- photon --}}
+
+{{#if core}}
+* **Software**
+  * Spark Core Mobile App - [iPhone](https://itunes.apple.com/us/app/spark-core/id760157884?mt=8) | [Android](https://play.google.com/store/apps/details?id=io.spark.core.android) | [Windows](https://www.microsoft.com/en-us/store/p/particle/9nblggh4p55n)
+  * *Note: We highly recommend using the mobile app for first time setup.*
+* **Hardware**
+  * Your Particle device, brand new and out of the box!
+  * USB to micro USB cable {{#if photon}}(included with Photon Kit and Maker Kit){{/if}}
+  * Power source for USB cable (such as your computer, USB battery, or power brick)
+  * Your iPhone or Android or Windows smartphone
+* **Wi-Fi Settings**
+  * 2.4GHz capable router
+  * Channels 1-11
+  * WPA/WPA2 encryption
+  * On a broadcast SSID network
+  * Not behind a hard firewall or Enterprise network
+  * *Note: We do not recommend using WEP Wi-Fi settings, for security reasons.*
+* **Experience**
+    * None! This is your first project.
+
+{{/if}} {{!-- core --}}
+
+{{#if has-wifi}}
+## Connect Your {{device}}
+
+In this example, we will connect your device to the internet for the very first time. Then, we will blink the D7 LED on your device by using your smartphone.
+
+{{#if photon}}
+<iframe src="https://player.vimeo.com/video/178282058" width="320" height="240" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+{{/if}}
+
+
+### Step 1: Power On Your Device
+{{#if photon}}![plug in your device!](/assets/images/photon-plugged-in.jpg){{/if}}
+{{#if core}}![plug in your device!](/assets/images/core-front.jpg){{/if}}
+
+Plug the USB cable into your power source. {{{ popup '(Your computer works perfectly for this purpose.)' 'note' 'Your Particle device does not need your computer to connect to wifi. You could just as easily power your device with a power brick, a battery shield, or another power source wired to the VIN pin.'}}}
+
+As soon as it is plugged in, the RGB LED on your device should begin {{#if photon}}{{popup 'blinking blue.' 'vine' 'https://vine.co/v/eZUH7WaWjMT/embed/simple'}}{{/if}}{{#if core}}{{popup 'blinking blue.' 'vine' 'https://vine.co/v/eZU6YiK20Hl/embed/simple'}}{{/if}}
+
+If your device is not blinking blue, {{#if photon}}{{popup 'hold down the SETUP button.' 'vine' 'https://vine.co/v/eZUHUIjq7pO/embed/simple'}}{{/if}}{{#if core}}{{popup 'hold down the MODE button.' 'vine' 'https://vine.co/v/eZUgHYYrYgl/embed/simple'}}{{/if}}
+
+If your device is not blinking at all, or if the LED is burning a dull orange color, it may not be getting enough power. Try changing your power source or USB cable.
+
+{{#if photon}}
+### Step 2a: Connect your Photon to the Internet using the setup web application
+
+*Note: This process only works in Chrome / Firefox / Opera*
+
+- **Step 1** Go to [setup.particle.io](https://setup.particle.io)
+- **Step 2** Click on `Setup a Photon`
+- **Step 3** After clicking on `NEXT`, you should be presented with a file (`photonsetup.html`)
+- **Step 4** Open the file
+
+After opening the file:
+- **Step 5** Connect your PC to the Photon, by connecting to the network named `PHOTON-...`
+- **Step 6** Configure your Wi-Fi credentials
+
+*Note: If you mistyped your credentials, the Photon will blink dark blue or green. You have to go through the process again (by refreshing the page or clicking on the retry process part)*
+
+-  **Step 7** Rename your device. You will also see a confirmation if the device was claimed or not
+
+*Note: Make sure your Photon is not part of a product before claiming it*
+
+#### Why a separate file?
+
+We care a lot about security, and we want to make sure that everything you do is safe. Downloading a local file ensures that the credentials are sent directly to the Photon, without any chance of being intercepted.
+
+### Step 2b: Connect your Photon to the Internet using your smartphone
+{{/if}}
+
+{{#if core}}
+### Step 2: Connect your Core to the Internet using your smartphone
+{{/if}}
+
+Open the app on your phone. Log in or sign up for an account with Particle if you don't have one.
+
+Press the plus icon and select the device you'd like to add. Then follow the instructions on the screen to {{#if photon}}{{{ popup 'connect your device to Wi-Fi.' 'note' 'Your device remembers up to 5 wifi networks, and it will connect to these automatically if it can find them.'}}}{{/if}} {{#if core}}{{{ popup 'connect your device to Wi-Fi.' 'note' 'Your device remembers up to 7 wifi networks, and it will connect to these automatically if it can find them.'}}}{{/if}} Remember that to connect the Core, you need the older Spark Core app and to connect the Photon you need the new Particle App.
+
+This may take a little while - but don't worry.
+
+{{#if core}}While you're waiting, your Core will go through the following colors:
+
+* *Blinking blue:* Listening for Wi-Fi credentials
+* *Solid blue:* Getting Wi-Fi info from app
+* *Blinking green:* Connecting to the Wi-Fi network
+* *Blinking cyan:* Connecting to the Particle Device Cloud
+* *Blinking magenta:* Updating to the newest firmware
+* *Breathing cyan:* Connected!
+
+{{/if}}
+
+{{#if photon}} If this is your Photon's first time connecting, it will blink purple for a few minutes as it downloads updates. **This is perfectly normal.** It may take 6-12 minutes for the updates to complete, depending on your internet connection, with the Photon restarting a few times in the process. **Please do not restart or unplug your Photon during this time.** If you do, you may need to follow [this guide](http://community.particle.io/t/photon-troubleshooting-guide-as-of-firmware-v0-4-5/16042) to fix your device. {{/if}}
+
+If you can't seem to get the Mobile App to connect your device, that's okay! Read over this example quickly, and then check out the [next lesson](/guide/getting-started/connect) to connect your device using the USB cable.
+
+Once you have connected your device, it has learned that network. Your device can store up to {{#if core}}seven{{/if}} {{#if photon}}five{{/if}} networks. To add a new network after your initial setup, you'd put your device into {{#if photon}}{{popup 'Listening Mode' 'vine' 'https://vine.co/v/eZUH7WaWjMT/embed/simple'}}{{/if}}{{#if core}}{{popup 'Listening Mode' 'vine' 'https://vine.co/v/eZU6YiK20Hl/embed/simple'}}{{/if}} again and proceed as above (the claiming part can be skipped). If you feel like your device has too many networks on it, you can wipe your device's memory of any Wi-Fi networks it has learned. You can do so by continuing to hold the `{{system-button}}` button for 10 seconds until the RGB LED flashes blue quickly, signaling that all profiles have been deleted.
+
+### Step 3: Blink an LED!
+{{#if core}}The Spark Core App should now be on the {{{ popup 'Tinker' 'note' 'We have taken the liberty of loading some firmware onto your device for you. It is called Tinker, and it helps you talk to your device by sending power to the pins and reading power levels from the pins. More info about Tinker is available [here](/guide/getting-started/tinker/core).'}}} screen, as shown below.
+
+![Tinker on your Phone!](/assets/images/tinker-core.png)
+{{/if}}
+{{#if photon}}The Particle App should now be on the {{{ popup 'Tinker' 'note' 'We have taken the liberty of loading some firmware onto your device for you. It is called Tinker, and it helps you talk to your device by sending power to the pins and reading power levels from the pins. More info about Tinker is available [here](/guide/getting-started/tinker/photon).'}}} screen, as shown below.
+
+![Tinker on your Phone!](/assets/images/tinker.png)
+{{/if}}
+
+As you can see on your smartphone, the circles represent different pins on your device. If you tap on these circles, you can see the Tinker functions available for the associated pins.
+
+We could use Tinker and the smartphone app to talk to any pin on your device. If you had a buzzer, an LED, a sensor, etc., you could interact with it using Tinker on your phone. But since I know you're very eager to get started, let's use an LED already provided on your device.
+
+The D7 pin comes already wired to a small blue LED on the face of your device. When you set the power of the D7 pin to high, this LED turns on. Let's do that now.
+
+Tap `D7` then `digitalWrite` in the popup. Now when you tap the D7 circle the tiny blue LED should turn off or on!
+
+**Congratulations, you just blinked an LED over the internet, using your Particle device!**
+
+
+Keep in mind that with Tinker, you can communicate with any of the pins, not just with the D7 LED. You can wire things to the pins to run motors, read sensors, and much more. The real fun part comes when you write your own firmware, of course. We'll go over that in later sections.
+
+If you don't have your smartphone with you, go ahead and move to the next lesson on [connecting over USB.](/guide/getting-started/connect). If you've successfully connected with your smartphone and you'd like to keep playing around with Tinker, skip ahead to learn [device modes](/guide/getting-started/modes) and then do some [Tinker examples](/guide/getting-started/tinker).
+
+Otherwise, go to the next section to learn to connect over USB.
+{{/if}} {{!-- has-wifi --}}
+
+# Connecting your Device over USB
+
+The easiest way to connect your device to {{network-type}} network is using the {{#if has-cellular}}browser{{else}}mobile app{{/if}} as described in the [previous lesson](/guide/getting-started/start). {{#if has-cellular}}It's worth noting here that you currently cannot set up {{a-device}} from the command line (CLI) because we require that a credit card number be entered, but the CLI will be extremely useful for other things. Please use [setup.particle.io](https://setup.particle.io/) or the mobile apps.{{else}}But in case that's not working for you, there are other methods as well.{{/if}}
+
+For all of the following methods, the device must be in [Listening Mode](/guide/getting-started/modes/#listening-mode), where the RGB LED is {{#unless core}}{{popup 'blinking blue.' 'vine' 'https://vine.co/v/eZUH7WaWjMT/embed/simple'}}{{else}}{{popup 'blinking blue.' 'vine' 'https://vine.co/v/eZU6YiK20Hl/embed/simple'}}{{/unless}}
+
+Particle devices boot into listening mode by default, so if your device is brand new, it should go straight into listening mode. If your device is not blinking blue, {{#if photon}}{{popup 'hold down the SETUP button.' 'vine' 'https://vine.co/v/eZUHUIjq7pO/embed/simple'}}{{/if}}{{#if electron}}{{popup 'hold down the MODE button.' 'vine' 'https://vine.co/v/eZUHUIjq7pO/embed/simple'}}{{/if}}{{#if core}}{{popup 'hold down the MODE button.' 'vine' 'https://vine.co/v/eZUgHYYrYgl/embed/simple'}}{{/if}}
+
+## Install the Particle CLI
+
+Next we're going to install the Particle CLI on your computer.
+
+### Using macOS or Linux
+
+Open Terminal, or preferred terminal program and paste this command to install the Particle CLI:
+
+```sh
+bash <( curl -sL https://particle.io/install-cli )
+```
+
+**You may need to open a new terminal after the install completes to use the `particle` command.**
+
+If you get a message about installing dfu-util for your OS, make sure you have [homebrew](http://brew.sh) installed and run the command above again.
+
+### Using Windows
+
+Download the [Windows CLI Installer](https://binaries.particle.io/cli/installer/windows/ParticleCLISetup.exe) and run it to install the Particle CLI, the device drivers and the dependencies that the CLI needs.
+
+You'll need to open the command prompt for this next part. You can also use Powershell or a similar command line tool if that is what you are used to.
+
+To open the command prompt:
+1) Mouse over the upper right hand corner of the screen and select "Search"
+2) Search for `cmd` in the search box
+3) Click on Command Prompt
+
+Now your Command Prompt, is open for use.
+ 
+{{#if has-wifi}}
+### Connecting Your Device
+Make sure your device is plugged in via USB and in [Listening Mode](/guide/getting-started/modes/#listening-mode) (blinking blue). Open the terminal and type:
+`particle setup`
+
+Log in with your Particle account and follow the prompts to set up your device.
+
+If you have already claimed your device and you want to connect it to Wi-Fi, type `particle serial wifi` instead of `particle setup`. This will set up your device on the current Wi-Fi.
+
+**Wait! What is an SSID? What kind of security does my Wi-Fi have?**
+- __The SSID__ is the name of your network. When you connect on your computer, it is the name that you select when you connect your computer to Wi-Fi.
+- __The Security__ of your Wi-Fi is often set up by the administrator. Typically this is WPA2 if a password is needed, or unsecured if no password is needed. Contact your network administrator if you can't get this step to work, and find out exactly what kind of Wi-Fi you have.
+{{/if}} {{!-- has-wifi --}}
+
+{{#if has-cellular}}
+### Connecting Your Device
+To check that your {{device}} can talk over USB, open a terminal and
+type `particle setup`.
+
+However to finish setting up your device, you will need to follow the instructions at [https://setup.particle.io](https://setup.particle.io).
+{{/if}} {{!-- has-cellular --}}
+
+If your device is not connecting, try troubleshooting [here](/support/troubleshooting/common-issues).
+
+[More info on the CLI and steps to install it manually are available](/guide/tools-and-features/cli/).
+
+
+Once you've finished connecting your device, head over to [the next section](/guide/getting-started/modes) to learn about the different modes for your device.
+

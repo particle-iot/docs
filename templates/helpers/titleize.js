@@ -7,6 +7,7 @@ module.exports = function(string) {
   var stringToTitleCase = stringNoDashes.replace(/\w\S*/g, function(txt){
 	txt = txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
 	txt = txt.replace('Iot', 'IoT');
+	txt = txt.replace('Sdks', 'SDKs');
 	return txt;
   });
   return stringToTitleCase;

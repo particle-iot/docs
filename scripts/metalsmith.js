@@ -163,12 +163,12 @@ exports.metalsmith = function() {
         ]
       },
       reference: {
-        pattern: 'reference/*md',
+        pattern: 'reference/:section/*md',
         sortBy: 'order',
         orderDynamicCollections: [
-          'apis',
-          'sdks',
-          'dev-tools'
+          'reference',
+          'SDKs',
+          'community'
         ]
       },
       tutorials: {
@@ -187,16 +187,17 @@ exports.metalsmith = function() {
           'particle-devices',
           'particle-tools',
           'pricing',
-          'wholesale',
-          'discontinued-products'
+          'wholesale'
         ]
       },
-      datasheet: {
-        pattern: 'datasheets/:section/*.md',
+      hardware: {
+        pattern: 'hardware/:section/*.md',
         sortBy: 'order',
         orderDynamicCollections: [
-          'photon-(wifi)',
-          'electron-(cellular)',
+          'photon',
+          'p-series',
+          'electron',
+          'e-series',
           'kits-and-accessories',
           'discontinued-products'
         ]
@@ -353,7 +354,7 @@ exports.server = function(callback) {
           '${source}/assets/less/*.less': 'assets/less/*.less',
           '../templates/layouts/reference.hbs': 'content/reference/*.md',
           '../templates/layouts/guide.hbs': 'content/guide/**/*.md',
-          '../templates/layouts/datasheet.hbs': 'content/datasheets/*.md',
+          '../templates/layouts/hardware.hbs': 'content/hardware/**/*.md',
           '../templates/layouts/support.hbs': 'content/support/**/*.md',
           '../templates/layouts/suppMenu.hbs': 'content/support/**/*.md',
           '../templates/layouts/quickstart.hbs': 'content/quickstart/*.md',
