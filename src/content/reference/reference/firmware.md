@@ -589,7 +589,8 @@ While this function will disconnect from the Cloud, it will keep the connection 
 
 **NOTE:* When the device is disconnected, many features are not possible, including over-the-air updates, reading Particle.variables, and calling Particle.functions.
 
-*If you disconnect from the Cloud, you will NOT BE ABLE to flash new firmware over the air. A factory reset should resolve the issue.*
+*If you disconnect from the Cloud, you will NOT BE ABLE to flash new firmware over the air. 
+{{#if core}}A factory reset should resolve the issue.{{/if}}{{#unless core}}Safe mode can be used to reconnect to the cloud.{{/unless}}*
 
 ### Particle.connected()
 
