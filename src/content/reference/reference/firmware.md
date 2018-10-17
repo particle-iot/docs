@@ -14,9 +14,7 @@ Particle Device Firmware
 {{#if has-cellular}}
 ### Optimizing Cellular Data Use with Cloud connectivity on the {{device}}
 
-{{#if has-stm32}}
-_Since 0.6.0_
-{{/if}}
+{{since when="0.6.0"}}
 
 When the device first connects to the cloud, it establishes a secure channel
 and informs the cloud of the registered functions, variables and subscriptions. This uses 4400 bytes of data, plus additional data for each function, variable and subscription.
@@ -388,9 +386,7 @@ Particle.publish("t", String::format("%.2f",temperature), ttl, PRIVATE, NO_ACK);
 
 *`WITH_ACK` flag*
 
-{{#if has-stm32}}
-_Since 0.6.1_
-{{/if}}
+{{since when="0.6.1"}}
 
 This flag causes `Particle.publish()` to return only after receiving an acknowledgement that the published event has been received by the Cloud.
 
@@ -404,9 +400,7 @@ Particle.publish("motion-detected", NULL, ttl, PRIVATE, WITH_ACK);
 
 ---
 
-{{#if has-stm32}}
-_Since 0.7.0_
-{{/if}}
+{{since when="0.7.0"}}
 
 `Particle.publish()` flags can be combined using a regular syntax with OR operator (`|`).
 
@@ -702,9 +696,7 @@ See [`Particle.syncTimeDone()`](#particle-synctimedone-), [`Particle.timeSyncedL
 
 ### Particle.syncTimeDone()
 
-{{#if has-stm32}}
-_Since 0.6.1_
-{{/if}}
+{{since when="0.6.1"}}
 
 Returns `true` if there is no `syncTime()` request currently pending or there is no active connection to Particle Device Cloud. Returns `false` when there is a pending `syncTime()` request.
 
@@ -734,9 +726,7 @@ See also [`Particle.timeSyncedLast()`](#particle-timesyncedlast-) and [`Time.isV
 
 ### Particle.syncTimePending()
 
-{{#if has-stm32}}
-_Since 0.6.1_
-{{/if}}
+{{since when="0.6.1"}}
 
 Returns `true` if there a `syncTime()` request currently pending. Returns `false` when there is no `syncTime()` request pending or there is no active connection to Particle Device Cloud.
 
@@ -773,9 +763,7 @@ See also [`Particle.timeSyncedLast()`](#particle-timesyncedlast-) and [`Time.isV
 
 ### Particle.timeSyncedLast()
 
-{{#if has-stm32}}
-_Since 0.6.1_
-{{/if}}
+{{since when="0.6.1"}}
 
 Used to check when time was last synchronized with Particle Device Cloud.
 
@@ -1068,9 +1056,7 @@ Attempts to connect to the Wi-Fi network. If there are no credentials stored, th
 WiFi.connect();
 ```
 
-{{#if has-stm32}}
-_Since 0.4.5_
-{{/if}}
+{{since when="0.4.5"}}
 
 It's possible to call `WiFi.connect()` without entering listening mode in the case where no credentials are stored:
 
@@ -1200,9 +1186,7 @@ It will return `false` when the device is not in listening mode.
 
 ### setListenTimeout()
 
-{{#if has-stm32}}
-_Since 0.6.1_
-{{/if}}
+{{since when="0.6.1"}}
 
 ```cpp
 // SYNTAX
@@ -1237,9 +1221,7 @@ void loop() {
 
 ### getListenTimeout()
 
-{{#if has-stm32}}
-_Since 0.6.1_
-{{/if}}
+{{since when="0.6.1"}}
 
 ```cpp
 // SYNTAX
@@ -1266,7 +1248,7 @@ Your device can remember more than one set of credentials:
 - Photon: remembers the 5 most recently set credentials.
 
 {{#if has-stm32}}
-_Since 0.7.0_: Photon can store one set of WPA Enterprise credentials.
+{{since when="0.7.0"}} Photon can store one set of WPA Enterprise credentials.
 {{/if}}
 
 ```cpp
@@ -1307,9 +1289,8 @@ credentials.setSsid("My_Router")
 WiFi.setCredentials(credentials);
 ```
 
-{{#if has-stm32}}
-_Since 0.7.0_: 
-{{/if}}
+{{since when="0.7.0"}}
+
 Credentials can be set using [WiFiCredentials class](#wificredentials-class).
 
 {{#if has-wpa-enterprise}}
@@ -1379,9 +1360,7 @@ This function returns `true` if credentials were successfully saved, or `false` 
 
 ### getCredentials()
 
-{{#if has-stm32}}
-_Since 0.4.9_
-{{/if}}
+{{since when="0.4.9"}}
 
 Lists the Wi-Fi networks with credentials stored on the device. Returns the number of stored networks.
 
@@ -1764,9 +1743,8 @@ is called, without needing to be reconfigured using `WiFi.setStaticIP()`
 
 ### setHostname()
 
-{{#if has-stm32}}
-_Since 0.7.0_
-{{/if}}
+
+{{since when="0.7.0"}}
 
 Sets a custom hostname to be used as DHCP client name (DHCP option 12).
 
@@ -1794,9 +1772,7 @@ Serial.println(System.deviceID());
 
 ### hostname()
 
-{{#if has-stm32}}
-_Since 0.7.0_
-{{/if}}
+{{since when="0.7.0"}}
 
 Retrieves device hostname used as DHCP client name (DHCP option 12).
 
@@ -2115,7 +2091,7 @@ This enum defines wireless security ciphers.
 {{#if has-softap}}
 ## SoftAP HTTP Pages
 
-_Since 0.5.0_
+{{since when="0.5.0"}}
 
 When the device is in listening mode, it creates a temporary access point (AP) and a HTTP server on port 80. The HTTP server is used to configure the Wi-Fi access points the device attempts to connect to. As well as the system providing HTTP URLs, applications can add their own pages to the
 SoftAP HTTP server.
@@ -2413,9 +2389,7 @@ It will return `false` when the device is not in listening mode.
 
 ### setListenTimeout()
 
-{{#if has-stm32}}
-_Since 0.6.1_
-{{/if}}
+{{since when="0.6.1"}}
 
 ```cpp
 // SYNTAX
@@ -2444,9 +2418,7 @@ void loop() {
 
 ### getListenTimeout()
 
-{{#if has-stm32}}
-_Since 0.6.1_
-{{/if}}
+{{since when="0.6.1"}}
 
 ```cpp
 // SYNTAX
@@ -2687,9 +2659,9 @@ void loop()
 bool Cellular.getBandSelect(CellularBand &data_get);
 
 ### getBandAvailable()
-{{#if has-stm32}}
-_Since 0.5.0._
-{{/if}}
+
+{{since when="0.5.0"}}
+
 Gets the cellular bands currently available in the modem.  `Bands` are the carrier frequncies used to communicate with the cellular network.  Some modems have 2 bands available (U260/U270) and others have 4 bands (G350).
 
 To use the band select API, an instance of the `CellularBand` type needs to be created to read or set bands.  All band select API functions and the CellularBand object itself return `bool` - `true` indicating the last operation was successful and the CellularBand object was updated. For set and get functions, `CellularBand` is passed by reference `Cellular.getBandSelect(CellularBand&);` and updated by the function.  There is 1 array, 1 integer, 1 boolean and 1 helper function within the CellularBand object:
@@ -2745,9 +2717,9 @@ else {
 ```
 
 ### getBandSelect()
-{{#if has-stm32}}
-_Since 0.5.0_
-{{/if}}
+
+{{since when="0.5.0"}}
+
 Gets the cellular bands currently set in the modem.  `Bands` are the carrier frequncies used to communicate with the cellular network.
 
 There is one supported function for getting selected bands using the CellularBand object:
@@ -2777,9 +2749,7 @@ else {
 ```
 
 ### setBandSelect()
-{{#if has-stm32}}
-_Since 0.5.0_
-{{/if}}
+{{since when="0.5.0"}}
 Sets the cellular bands currently set in the modem.  `Bands` are the carrier frequncies used to communicate with the cellular network.
 
 **Caution:** The Band Select API is an advanced feature designed to give users selective frequency control over their {{device}}. When changing location or between cell towers, you may experience connectivity issues if you have only set one specific frequency for use. Because these settings are permanently saved in non-volatile memory, it is recommended to keep the factory default value of including all frequencies with mobile applications.  Only use the selective frequency control for stationary applications, or for special use cases.
@@ -2850,9 +2820,7 @@ else {
 ```
 
 ### resolve()
-{{#if has-stm32}}
-_Since 0.6.1_
-{{/if}}
+{{since when="0.6.1"}}
 
 `Cellular.resolve()` finds the IP address for a domain name.
 
@@ -2882,9 +2850,8 @@ void setup() {
 ```
 
 ### localIP()
-{{#if has-stm32}}
-_Since 0.5.0_
-{{/if}}
+
+{{since when="0.5.0"}}
 
 `Cellular.localIP()` returns the local (private) IP address assigned to the device as an `IPAddress`.
 
@@ -3287,9 +3254,7 @@ On mesh devices, pin A0, A1, A2, A3, D4, D5, D6, D7, and D8 can be used for PWM.
 ### analogWriteResolution() (PWM)
 {{/if}}
 
-{{#if has-stm32}}
-_Since 0.6.0_
-{{/if}}
+{{since when="0.6.0"}}
 
 Sets or retrieves the resolution of `analogWrite()` function of a particular pin.
 
@@ -3315,9 +3280,7 @@ analogWrite(D1, 3000, 1000); // 3000/4095 = ~73% duty cycle at 1kHz
 
 ### analogWriteMaxFrequency() (PWM)
 
-{{#if has-stm32}}
-_Since 0.6.0_
-{{/if}}
+{{since when="0.6.0"}}
 
 Returns maximum frequency that can be used with `analogWrite()` on this pin.
 
@@ -3772,9 +3735,8 @@ loop() {
 
 ### pulseIn()
 
-{{#if has-stm32}}
-_Since 0.4.7_
-{{/if}}
+
+{{since when="0.4.7"}}
 
 Reads a pulse (either HIGH or LOW) on a pin. For example, if value is HIGH, pulseIn() waits for the pin to go HIGH, starts timing, then waits for the pin to go LOW and stops timing. Returns the length of the pulse in microseconds or 0 if no complete pulse was received within the timeout.
 
@@ -4284,9 +4246,7 @@ Pre-defined Serial configurations available:
 - `SERIAL_9N1` - 9 data bits, no parity, 1 stop bit
 - `SERIAL_9N2` - 9 data bits, no parity, 2 stop bits
 
-{{#if has-stm32}}
-_Since 0.6.0_
-{{/if}}
+{{since when="0.6.0"}}
 
 - `SERIAL_7O1` - 7 data bits, odd parity, 1 stop bit
 - `SERIAL_7O2` - 7 data bits, odd parity, 1 stop bit
@@ -4363,9 +4323,8 @@ Disables serial channel.
 When used with hardware serial channels (Serial1, Serial2{{#if electron}}, Serial4, Serial5{{/if}}), disables serial communication, allowing channel's RX and TX pins to be used for general input and output. To re-enable serial communication, call `SerialX.begin()`.
 
 {{#unless core}}{{#unless raspberry-pi}}
-{{#if has-stm32}}
-_Since 0.6.0_
-{{/if}}
+
+{{since when="0.6.0"}}
 
 When used with USB serial channels (`Serial`{{#if has-usb-serial1}} or `USBSerial1`{{/if}}), `end()` will cause the device to quickly disconnect from Host and connect back without the selected serial channel.
 {{/unless}}{{/unless}}
@@ -4469,9 +4428,7 @@ HAL_USB_USART_Config acquireUSBSerial1Buffer()
 }
 ```
 
-{{#if has-stm32}}
-_Since 0.6.0_
-{{/if}}
+{{since when="0.6.0"}}
 
 It is possible for the application to allocate its own buffers for `Serial` and `USBSerial1` by implementing `acquireSerialBuffer` and `acquireUSBSerial1Buffer` functions. Minimum receive buffer size is 65 bytes.
 
@@ -4692,9 +4649,7 @@ void loop() {
 
 ### printf()
 
-{{#if has-stm32}}
-_Since 0.4.6_
-{{/if}}
+{{since when="0.4.6"}}
 
 _Available on Serial, {{#if has-usb-serial1}}USBSerial1, {{/if}}Serial1{{#if has-serial2}}, Serial2{{/if}}{{#if has-serial4-5}}, Serial4, Serial5{{/if}}._
 
@@ -4720,9 +4675,8 @@ The last `printf()` call could be changed to `printlnf()` to avoid a separate ca
 
 ### printlnf()
 
-{{#if has-stm32}}
-_Since 0.4.6_
-{{/if}}
+
+{{since when="0.4.6"}}
 
 _Available on Serial, {{#if has-usb-serial1}}USBSerial1, {{/if}}Serial1{{#if has-serial2}}, Serial2{{/if}}{{#if has-serial4-5}}, Serial4, Serial5{{/if}}._
 
@@ -4823,9 +4777,7 @@ void loop() {
 }
 ```
 
-{{#if has-stm32}}
-_Since 0.6.0_
-{{/if}}
+{{since when="0.6.0"}}
 
 This library allows {{device}} to act as a native USB HID Mouse.
 
@@ -5157,9 +5109,7 @@ void loop() {
 }
 ```
 
-{{#if has-stm32}}
-_Since 0.6.0_
-{{/if}}
+{{since when="0.6.0"}}
 
 This library allows {{device}} to act as a native USB HID Keyboard.
 
@@ -5381,7 +5331,7 @@ SPI
 This library allows you to communicate with SPI devices, with the {{device}} as the master device.
 
 {{#if has-spi-slave}}
-_Since 0.5.0_ the {{device}} can function as a slave.
+{{#if has-stm32}}_Since 0.5.0_ {{/if}}The {{device}} can function as a SPI slave.
 {{/if}}
 
 {{#if core}}
@@ -5392,10 +5342,17 @@ _Since 0.5.0_ the {{device}} can function as a slave.
 
 The hardware SPI pin functions, which can
 be used via the `SPI` object, are mapped as follows:
+{{#if has-stm32}}
 * `SS` => `A2` (default)
 * `SCK` => `A3`
 * `MISO` => `A4`
 * `MOSI` => `A5`
+{{/if}}
+{{#if has-nrf52}}
+* `SCK` => `SCK (D13)`
+* `MISO` => `MISO (D11)`
+* `MOSI` => `MOSI (D12)`
+{{/if}}
 
 {{#if has-multiple-spi}}
 There is a second hardware SPI interface available, which can
@@ -5476,9 +5433,7 @@ SPI2.begin(C0);
 
 ### begin(SPI_Mode, uint16_t)
 
-{{#if has-stm32}}
-_Since 0.5.0_
-{{/if}}
+{{since when="0.5.0"}}
 
 Initializes the {{device}} SPI peripheral in master or slave mode.
 
@@ -5492,10 +5447,14 @@ Parameters:
 ```C++
 // Example using SPI in master mode, with A2 (default) as the SS pin:
 SPI.begin(SPI_MODE_MASTER);
+{{#if has-multiple-spi}}
 // Example using SPI1 in slave mode, with D5 as the SS pin
 SPI1.begin(SPI_MODE_SLAVE, D5);
+{{#if electron}}
 // Example using SPI2 in slave mode, with C0 as the SS pin
 SPI2.begin(SPI_MODE_SLAVE, C0);
+{{/if}}
+{{/if}}
 ```
 
 {{/if}} {{!-- has-spi-slave --}}
@@ -5702,9 +5661,7 @@ _Since 0.5.0_ When SPI peripheral is configured in slave mode, the transfer will
 
 ### transferCancel()
 
-{{#if has-stm32}}
-_Since 0.5.0_
-{{/if}}
+{{since when="0.5.0"}}
 
 Aborts the configured DMA transfer and disables the DMA peripheral’s channel and stream for the selected SPI peripheral for both outgoing and incoming data.
 
@@ -5712,9 +5669,7 @@ Aborts the configured DMA transfer and disables the DMA peripheral’s channel a
 
 ### onSelect()
 
-{{#if has-stm32}}
-_Since 0.5.0_
-{{/if}}
+{{since when="0.5.0"}}
 
 Registers a function to be called when the SPI master selects or deselects this slave device by pulling configured slave-select pin low (selected) or high (deselected).
 
@@ -5783,9 +5738,7 @@ void loop() {
 
 ### available()
 
-{{#if has-stm32}}
-_Since 0.5.0_
-{{/if}}
+{{since when="0.5.0"}}
 
 Returns the number of bytes available for reading in the `rx_buffer` supplied in `transfer()`. In general, returns the actual number of bytes received/transmitted during the ongoing or finished DMA transfer.
 
@@ -5801,9 +5754,7 @@ Returns the number of bytes available.
 {{#if has-spi-settings}}
 ### SPISettings
 
-{{#if has-stm32}}
-_Since 0.6.2_
-{{/if}}
+{{since when="0.6.2"}}
 
 The `__SPISettings` object specifies the SPI peripheral settings. This object can be used with [`beginTransaction()`](#begintransaction-) function and can replace separate calls to [`setClockSpeed()`](#setclockspeed), [`setBitOrder()`](#setbitorder-) and [`setDataMode()`](#setdatamode-).
 
@@ -5832,9 +5783,7 @@ Parameters:
 
 ### beginTransaction()
 
-{{#if has-stm32}}
-_Since 0.6.1_
-{{/if}}
+{{since when="0.6.1"}}
 
 Reconfigures the SPI peripheral with the supplied settings (see [`SPISettings`](#spisettings) documentation).
 
@@ -5864,9 +5813,7 @@ Returns: Negative integer in case of an error.
 
 ### endTransaction()
 
-{{#if has-stm32}}
-_Since 0.6.1_
-{{/if}}
+{{since when="0.6.1"}}
 
 Releases the SPI peripheral.
 
@@ -5991,9 +5938,7 @@ Parameters: `address`: the 7-bit slave address (optional); if not specified, joi
 
 ### end()
 
-{{#if has-stm32}}
-_Since 0.4.6_
-{{/if}}
+{{since when="0.4.6"}}
 
 Releases the I2C bus so that the pins used by the I2C bus are available for general purpose I/O.
 
@@ -6039,9 +5984,7 @@ Returns: `byte` : the number of bytes returned from the slave device.  If a time
 
 ### reset()
 
-{{#if has-stm32}}
-_Since 0.4.6_
-{{/if}}
+{{since when="0.4.6"}}
 
 Attempts to reset the I2C bus. This should be called only if the I2C bus has
 has hung. In 0.4.6 additional rework was done for the I2C bus on the Photon and Electron, so
@@ -6255,9 +6198,7 @@ void loop() {
 
 ![CAN bus](/assets/images/can.png)
 
-{{#if has-stm32}}
-_Since 0.4.9_
-{{/if}}
+{{since when="0.4.9"}}
 
 <a href="https://en.wikipedia.org/wiki/CAN_bus" target="_blank">Controller area network (CAN bus)</a> is a bus used in most automobiles, as well as some industrial equipment, for communication between different microcontrollers.
 
@@ -6892,9 +6833,7 @@ client.flush();
 
 ### remoteIP()
 
-{{#if has-stm32}}
-_Since 0.4.5_
-{{/if}}
+{{since when="0.4.5"}}
 
 Retrieves the remote `IPAddress` of a connected `TCPClient`. When the `TCPClient` is retrieved
 from `TCPServer.available()` (where the client is a remote client connecting to a local server) the
@@ -7268,9 +7207,7 @@ Returns:
 
 ### setBuffer()
 
-{{#if has-stm32}}
-_Since 0.4.5_
-{{/if}}
+{{since when="0.4.5"}}
 
 Initializes the buffer used by a `UDP` instance for buffered reads/writes. The buffer
 is used when your application calls `beginPacket()` and `parsePacket()`.  If `setBuffer()` isn't called,
@@ -7315,7 +7252,7 @@ the function always returns `true`.)
 
 ### releaseBuffer()
 
-_Since 0.4.5_
+{{since when="0.4.5"}}
 
 Releases the buffer previously set by a call to `setBuffer()`.
 
@@ -7329,7 +7266,7 @@ not scoped to the lifetime of the application._
 
 ### sendPacket()
 
-_Since 0.4.5_
+{{since when="0.4.5"}}
 
 Sends a packet, unbuffered, to a remote UDP peer.
 
@@ -7367,7 +7304,7 @@ Returns:
 {{#if photon}}
 ### joinMulticast()
 
-_Since 0.4.5_
+{{since when="0.4.5"}}
 
 Join a multicast address for all UDP sockets which are on the same network interface as this one.
 
@@ -7391,7 +7328,7 @@ Must be called only after `begin()` so that the network interface is established
 
 ### leaveMulticast()
 
-_Since 0.4.5_
+{{since when="0.4.5"}}
 
 Leaves a multicast group previously joined on a specific multicast address.
 
@@ -7682,7 +7619,7 @@ The onChange handler is called 1000 times per second so you should be careful to
 
 ### mirrorTo()
 
-_Since 0.6.1_
+{{since when="0.6.1"}}
 
 Allows a set of PWM pins to mirror the functionality of the on-board RGB LED.
 
@@ -7708,7 +7645,7 @@ Parameters:
 
 ### mirrorDisable()
 
-_Since 0.6.1_
+{{since when="0.6.1"}}
 
 Disables RGB LED mirroring.
 
@@ -7719,7 +7656,7 @@ Parameters:
 
 ## LED Signaling
 
-_Since 0.6.1_
+{{since when="0.6.1"}}
 
 This library allows applications to share control over the on-device RGB
 LED with the Device OS in a non-exclusive way, making it possible for the system to use the LED for various important indications, such as cloud connection errors, even if an application already uses the LED for its own signaling. For this to work, an application needs to assign a [_priority_](#ledpriority-enum) to every application-specific LED indication (using instances of the [`LEDStatus`](#ledstatus-class) class), and the system will ensure that the LED only shows a highest priority indication at any moment of time.
@@ -8630,7 +8567,7 @@ Parameters: floating point offset from UTC in hours, from -12.0 to 14.0
 
 ### isDST()
 
-_Since 0.6.0_
+{{since when="0.6.0"}}
 
 Returns true if Daylight Saving Time (DST) is in effect.
 
@@ -8645,7 +8582,7 @@ This function only returns the current DST setting that you choose using beginDS
 
 ### getDSTOffset()
 
-_Since 0.6.0_
+{{since when="0.6.0"}}
 
 Retrieve the current Daylight Saving Time (DST) offset that is added to the current local time when Time.beginDST() has been called. The default is 1 hour.
 
@@ -8658,7 +8595,7 @@ Returns: floating point DST offset in hours (default is +1.0 hours)
 
 ### setDSTOffset()
 
-_Since 0.6.0_
+{{since when="0.6.0"}}
 
 Set a custom Daylight Saving Time (DST) offset.
 The device will remember this offset until reboot.
@@ -8672,7 +8609,7 @@ Parameters: floating point offset in hours, from 0.0 to 2.0
 
 ### beginDST()
 
-_Since 0.6.0_
+{{since when="0.6.0"}}
 
 Start applying Daylight Saving Time (DST) offset to the current time.
 
@@ -8680,7 +8617,7 @@ You must call beginDST() at startup if you want use DST mode. The setting is not
 
 ### endDST()
 
-_Since 0.6.0_
+{{since when="0.6.0"}}
 
 Stop applying Daylight Saving Time (DST) offset to the current time.
 
@@ -8778,7 +8715,7 @@ Retrieves the currently configured format string for time formatting with `forma
 
 ### isValid()
 
-_Since 0.6.1_
+{{since when="0.6.1"}}
 
 ```cpp
 // SYNTAX
@@ -9035,8 +8972,10 @@ noInterrupts();
 
 ## Software Timers
 
+{{#if has-stm32}}
 _Since 0.4.7. This feature is available on the Photon, P1 and Electron out the box. On the Core, the
 `freertos4core` Particle library <a href="https://build.particle.io/libs/freertos4core/0.2.0/tab/example/timers.ino" target="_blank">(Timers.ino example found here)</a> should be used to add FreeRTOS to the core._
+{{/if}}
 
 Software Timers provide a way to have timed actions in your program.  FreeRTOS provides the ability to have up to 10 Software Timers at a time with a minimum resolution of 1 millisecond.  It is common to use millis() based "timers" though exact timing is not always possible (due to other program delays).  Software timers are maintained by FreeRTOS and provide a more reliable method for running timed actions using callback functions.  Please note that Software Timers are "chained" and will be serviced sequentially when several timers trigger simultaneously, thus requiring special consideration when writing callback functions.
 
@@ -9075,7 +9014,7 @@ The timer callback is similar to an interrupt - it shouldn't block. However, it 
 
 ### Class member callbacks
 
-_Since 0.4.9_
+{{since when="0.4.9"}}
 
 A class member function can be used as a callback using this syntax to create the timer:
 
@@ -9190,7 +9129,7 @@ timer.dispose(); // stop and delete timer from timer list.
 
 ### isActive()
 
-_Since 0.5.0_
+{{since when="0.5.0"}}
 
 `bool isActive()`
 
@@ -9207,7 +9146,7 @@ if (timer.isActive()) {
 
 ## Application Watchdog
 
-_Since 0.5.0_
+{{since when="0.5.0"}}
 
 The Application Watchdog is a software-implemented watchdog using a critical-priority thread that wakes up at a given timeout interval to see if the application has checked in.
 
@@ -9895,7 +9834,7 @@ when new `retained` variables are added to the end of the list, or when they are
 
 ### STARTUP()
 
-_Since 0.4.5_
+{{since when="0.4.5"}}
 
 Typically an application will have its initialization code in the `setup()` function.
 This works well if a delay of a few seconds from power on/reset is acceptable.
@@ -9941,7 +9880,7 @@ You can find more details about the product ID and how to get yours in the [_Con
 
 ## System Events
 
-_Since 0.4.9_
+{{since when="0.4.9"}}
 
 ### System Events Overview
 
@@ -10138,7 +10077,7 @@ When using manual mode:
 {{#if has-threading}}
 ## System Thread
 
-_Since 0.4.6_
+{{since when="0.4.6"}}
 
 {{#if electron}}**Please note:** The System Thread feature is in Beta - we advise only using this
 in production after extensive testing.{{/if}}
@@ -10403,7 +10342,7 @@ if (waitFor(notConnected, 10000)) {
 
 ### version()
 
-_Since 0.4.7_
+{{since when="0.4.7"}}
 
 Determine the version of Device OS available. Returns a version string
 of the format:
@@ -10442,7 +10381,7 @@ Firmware 0.4.7 has a version number 0x00040700
 
 ### buttonPushed()
 
-_Since 0.4.6_
+{{since when="0.4.6"}}
 
 Can be used to determine how long the System button (MODE on Core/Electron, SETUP on Photon) has been pushed.
 
@@ -10479,7 +10418,7 @@ void loop()
 
 ### System Cycle Counter
 
-_Since 0.4.6_
+{{since when="0.4.6"}}
 
 The system cycle counter is incremented for each instruction executed. It functions
 in normal code and during interrupts. Since it operates at the clock frequency
@@ -10551,7 +10490,7 @@ at compile time and inline the function calls, reducing overhead to a minimum.
 
 ### freeMemory()
 
-_Since 0.4.4_
+{{since when="0.4.4"}}
 
 Retrieves the amount of free memory in the system in bytes.
 
@@ -10616,7 +10555,7 @@ void loop() {}
 
 ### enterSafeMode()
 
-_Since 0.4.6_
+{{since when="0.4.6"}}
 
 ```C++
 // SYNTAX
@@ -10881,7 +10820,7 @@ Returns `true` if the system needs to reset the device.
 
 ### Reset Reason
 
-_Since 0.6.0_
+{{since when="0.6.0"}}
 
 The system can track the hardware and software resets of the device.
 
@@ -11266,7 +11205,7 @@ system("my_command");
 {{#if has-button-mirror}}
 ### buttonMirror()
 
-_Since 0.6.1_
+{{since when="0.6.1"}}
 
 Allows a pin to mirror the functionality of the SETUP/MODE button.
 
@@ -11300,7 +11239,7 @@ STARTUP(System.buttonMirror(D1, RISING, true));
 
 ### disableButtonMirror()
 
-_Since 0.6.1_
+{{since when="0.6.1"}}
 
 Disables SETUP button mirroring on a pin.
 
@@ -11341,7 +11280,7 @@ System.disableFeature(FEATURE_RETAINED_MEMORY);
 {{#if has-powersave-clock}}
 #### FEATURE_WIFI_POWERSAVE_CLOCK
 
-_Since 0.6.1_
+{{since when="0.6.1"}}
 
 ```cpp
 // SYNTAX
@@ -11642,7 +11581,7 @@ Returns:
 
 ### format()
 
-_Since 0.4.6_
+{{since when="0.4.6"}}
 
 Provides [printf](http://www.cplusplus.com/reference/cstdio/printf/)-style formatting for strings.
 
@@ -12120,7 +12059,7 @@ Returns: parsed float value (float). If no valid digits were read when the time-
 
 ## Logging
 
-_Since 0.6.0_
+{{since when="0.6.0"}}
 
 This library provides various classes for logging.
 

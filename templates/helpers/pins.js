@@ -1,6 +1,6 @@
-// Fixes the grammar of "a Electron" to "an Electron"
-// Usage in a page that has the "devices" front-matter key:
-// {{pins}}
+// Returns a pin or list of pins for various situations
+// For example: the last A pin (A7 for STM32 devices or A5 for nRF52 devices)
+// {{pins op="last-a"}}
 module.exports = function(context) {
   var metadata = context.data.root;
   
