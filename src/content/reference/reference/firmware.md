@@ -14,7 +14,9 @@ Particle Device Firmware
 {{#if has-cellular}}
 ### Optimizing Cellular Data Use with Cloud connectivity on the {{device}}
 
+{{#if has-stm32}}
 _Since 0.6.0_
+{{/if}}
 
 When the device first connects to the cloud, it establishes a secure channel
 and informs the cloud of the registered functions, variables and subscriptions. This uses 4400 bytes of data, plus additional data for each function, variable and subscription.
@@ -386,7 +388,9 @@ Particle.publish("t", String::format("%.2f",temperature), ttl, PRIVATE, NO_ACK);
 
 *`WITH_ACK` flag*
 
+{{#if has-stm32}}
 _Since 0.6.1_
+{{/if}}
 
 This flag causes `Particle.publish()` to return only after receiving an acknowledgement that the published event has been received by the Cloud.
 
@@ -400,7 +404,9 @@ Particle.publish("motion-detected", NULL, ttl, PRIVATE, WITH_ACK);
 
 ---
 
+{{#if has-stm32}}
 _Since 0.7.0_
+{{/if}}
 
 `Particle.publish()` flags can be combined using a regular syntax with OR operator (`|`).
 
@@ -696,7 +702,9 @@ See [`Particle.syncTimeDone()`](#particle-synctimedone-), [`Particle.timeSyncedL
 
 ### Particle.syncTimeDone()
 
+{{#if has-stm32}}
 _Since 0.6.1_
+{{/if}}
 
 Returns `true` if there is no `syncTime()` request currently pending or there is no active connection to Particle Device Cloud. Returns `false` when there is a pending `syncTime()` request.
 
@@ -726,7 +734,9 @@ See also [`Particle.timeSyncedLast()`](#particle-timesyncedlast-) and [`Time.isV
 
 ### Particle.syncTimePending()
 
+{{#if has-stm32}}
 _Since 0.6.1_
+{{/if}}
 
 Returns `true` if there a `syncTime()` request currently pending. Returns `false` when there is no `syncTime()` request pending or there is no active connection to Particle Device Cloud.
 
@@ -763,7 +773,9 @@ See also [`Particle.timeSyncedLast()`](#particle-timesyncedlast-) and [`Time.isV
 
 ### Particle.timeSyncedLast()
 
+{{#if has-stm32}}
 _Since 0.6.1_
+{{/if}}
 
 Used to check when time was last synchronized with Particle Device Cloud.
 
@@ -1056,7 +1068,10 @@ Attempts to connect to the Wi-Fi network. If there are no credentials stored, th
 WiFi.connect();
 ```
 
+{{#if has-stm32}}
 _Since 0.4.5_
+{{/if}}
+
 It's possible to call `WiFi.connect()` without entering listening mode in the case where no credentials are stored:
 
 ```cpp
@@ -1185,7 +1200,9 @@ It will return `false` when the device is not in listening mode.
 
 ### setListenTimeout()
 
+{{#if has-stm32}}
 _Since 0.6.1_
+{{/if}}
 
 ```cpp
 // SYNTAX
@@ -1220,7 +1237,9 @@ void loop() {
 
 ### getListenTimeout()
 
+{{#if has-stm32}}
 _Since 0.6.1_
+{{/if}}
 
 ```cpp
 // SYNTAX
@@ -1246,7 +1265,9 @@ Your device can remember more than one set of credentials:
 - Core: remembers the 7 most recently set credentials
 - Photon: remembers the 5 most recently set credentials.
 
+{{#if has-stm32}}
 _Since 0.7.0_: Photon can store one set of WPA Enterprise credentials.
+{{/if}}
 
 ```cpp
 // Connects to an unsecured network.
@@ -1286,7 +1307,10 @@ credentials.setSsid("My_Router")
 WiFi.setCredentials(credentials);
 ```
 
-_Since 0.7.0_: Credentials can be set using [WiFiCredentials class](#wificredentials-class).
+{{#if has-stm32}}
+_Since 0.7.0_: 
+{{/if}}
+Credentials can be set using [WiFiCredentials class](#wificredentials-class).
 
 {{#if has-wpa-enterprise}}
 ```cpp
@@ -1355,7 +1379,9 @@ This function returns `true` if credentials were successfully saved, or `false` 
 
 ### getCredentials()
 
+{{#if has-stm32}}
 _Since 0.4.9_
+{{/if}}
 
 Lists the Wi-Fi networks with credentials stored on the device. Returns the number of stored networks.
 
@@ -1738,7 +1764,9 @@ is called, without needing to be reconfigured using `WiFi.setStaticIP()`
 
 ### setHostname()
 
+{{#if has-stm32}}
 _Since 0.7.0_
+{{/if}}
 
 Sets a custom hostname to be used as DHCP client name (DHCP option 12).
 
@@ -1766,7 +1794,9 @@ Serial.println(System.deviceID());
 
 ### hostname()
 
+{{#if has-stm32}}
 _Since 0.7.0_
+{{/if}}
 
 Retrieves device hostname used as DHCP client name (DHCP option 12).
 
@@ -2383,7 +2413,9 @@ It will return `false` when the device is not in listening mode.
 
 ### setListenTimeout()
 
+{{#if has-stm32}}
 _Since 0.6.1_
+{{/if}}
 
 ```cpp
 // SYNTAX
@@ -2412,7 +2444,9 @@ void loop() {
 
 ### getListenTimeout()
 
+{{#if has-stm32}}
 _Since 0.6.1_
+{{/if}}
 
 ```cpp
 // SYNTAX
@@ -2653,8 +2687,9 @@ void loop()
 bool Cellular.getBandSelect(CellularBand &data_get);
 
 ### getBandAvailable()
+{{#if has-stm32}}
 _Since 0.5.0._
-
+{{/if}}
 Gets the cellular bands currently available in the modem.  `Bands` are the carrier frequncies used to communicate with the cellular network.  Some modems have 2 bands available (U260/U270) and others have 4 bands (G350).
 
 To use the band select API, an instance of the `CellularBand` type needs to be created to read or set bands.  All band select API functions and the CellularBand object itself return `bool` - `true` indicating the last operation was successful and the CellularBand object was updated. For set and get functions, `CellularBand` is passed by reference `Cellular.getBandSelect(CellularBand&);` and updated by the function.  There is 1 array, 1 integer, 1 boolean and 1 helper function within the CellularBand object:
@@ -2710,8 +2745,9 @@ else {
 ```
 
 ### getBandSelect()
+{{#if has-stm32}}
 _Since 0.5.0_
-
+{{/if}}
 Gets the cellular bands currently set in the modem.  `Bands` are the carrier frequncies used to communicate with the cellular network.
 
 There is one supported function for getting selected bands using the CellularBand object:
@@ -2741,8 +2777,9 @@ else {
 ```
 
 ### setBandSelect()
+{{#if has-stm32}}
 _Since 0.5.0_
-
+{{/if}}
 Sets the cellular bands currently set in the modem.  `Bands` are the carrier frequncies used to communicate with the cellular network.
 
 **Caution:** The Band Select API is an advanced feature designed to give users selective frequency control over their {{device}}. When changing location or between cell towers, you may experience connectivity issues if you have only set one specific frequency for use. Because these settings are permanently saved in non-volatile memory, it is recommended to keep the factory default value of including all frequencies with mobile applications.  Only use the selective frequency control for stationary applications, or for special use cases.
@@ -2813,7 +2850,9 @@ else {
 ```
 
 ### resolve()
+{{#if has-stm32}}
 _Since 0.6.1_
+{{/if}}
 
 `Cellular.resolve()` finds the IP address for a domain name.
 
@@ -2843,7 +2882,9 @@ void setup() {
 ```
 
 ### localIP()
+{{#if has-stm32}}
 _Since 0.5.0_
+{{/if}}
 
 `Cellular.localIP()` returns the local (private) IP address assigned to the device as an `IPAddress`.
 
@@ -3063,6 +3104,8 @@ void loop()
 ```
 
 - When using INPUT\_PULLDOWN make sure a high level signal does not exceed 3.3V.
+
+{{#if has-stm32}}
 - INPUT\_PULLUP does not work as expected on TX on the P1, Electron, and  E Series and should not be used. 
 - INPUT\_PULLDOWN does not work as expected on D0 and D1 on the P1 because the P1 module has hardware pull-up resistors on these pins. 
 
@@ -3073,6 +3116,7 @@ Also beware when using pins D3, D5, D6, and D7 as OUTPUT controlling external de
 - D4 is left floating
 
 The brief change in state (especially when connected to a MOSFET that can be triggered by the pull-up or pull-down) may cause issues when using these pins in certain circuits. You can see this with the D7 blue LED which will blink dimly and briefly at boot.
+{{/if}}
 
 ### getPinMode(pin)
 
@@ -3119,7 +3163,13 @@ void loop()
 }
 ```
 
+{{#if has-stm32}}
 **Note:** All GPIO pins (`A0`..`A7`, {{#if electron}}`B0`..`B5`, `C0`..`C5`, {{/if}}`D0`..`D7`, `DAC`, `WKP`, `RX`, `TX`) can be used as long they are not used otherwise (e.g. as `Serial1` `RX`/`TX`).
+{{/if}}
+{{#if has-nrf52}}
+**Note:** All GPIO pins (`A0`..`A5`, `D0`..`D13`) can be used as long they are not used otherwise (e.g. as `Serial1` `RX`/`TX`).
+{{/if}}
+
 
 ### digitalRead()
 
@@ -3153,7 +3203,16 @@ void loop()
 }
 
 ```
+
+{{#if has-stm32}}
 **Note:** All GPIO pins (`A0`..`A7`, {{#if electron}}`B0`..`B5`, `C0`..`C5`, {{/if}}`D0`..`D7`, `DAC`, `WKP`, `RX`, `TX`) can be used as long they are not used otherwise (e.g. as `Serial1` `RX`/`TX`).
+{{/if}}
+
+{{#if has-nrf52}}
+**Note:** All GPIO pins (`A0`..`A5`, `D0`..`D13`) can be used as long they are not used otherwise (e.g. as `Serial1` `RX`/`TX`).
+{{/if}}
+
+{{#if has-pwm}}
 
 ### analogWrite() (PWM)
 
@@ -3198,6 +3257,7 @@ void loop()
 }
 ```
 
+{{#if has-stm32}}
 {{#if core}}- On the Core, this function works on pins D0, D1, A0, A1, A4, A5, A6, A7, RX and TX.{{/if}}
 - On the Photon, P1 and Electron, this function works on pins D0, D1, D2, D3, A4, A5, WKP, RX and TX with a caveat: PWM timer peripheral is duplicated on two pins (A5/D2) and (A4/D3) for 7 total independent PWM outputs. For example: PWM may be used on A5 while D2 is used as a GPIO, or D2 as a PWM while A5 is used as an analog input. However A5 and D2 cannot be used as independently controlled PWM outputs at the same time.
 - Additionally on the Electron, this function works on pins B0, B1, B2, B3, C4, C5.
@@ -3209,8 +3269,15 @@ The PWM frequency must be the same for pins in the same timer group.
 - On the Photon, the timer groups are D0/D1, D2/D3/A4/A5, WKP, RX/TX.
 - On the P1, the timer groups are D0/D1, D2/D3/A4/A5/P1S0/P1S1, WKP, RX/TX/P1S6.
 - On the Electron, the timer groups are D0/D1/C4/C5, D2/D3/A4/A5/B2/B3, WKP, RX/TX, B0/B1.
+{{/if}}
+{{#if has-nrf52}}
+On mesh devices, pin A0, A1, A2, A3, D4, D5, D6, D7, and D8 can be used for PWM.
+{{/if}}
+
 
 **NOTE:** When used with PWM capable pins, the `analogWrite()` function sets up these pins as PWM only.  {{#if has-dac}}This function operates differently when used with the [`Analog Output (DAC)`](#analog-output-dac-) pins.{{/if}}
+
+{{/if}} {{!-- has-pwm --}}
 
 {{#if has-pwm}}
 
@@ -3220,7 +3287,9 @@ The PWM frequency must be the same for pins in the same timer group.
 ### analogWriteResolution() (PWM)
 {{/if}}
 
+{{#if has-stm32}}
 _Since 0.6.0_
+{{/if}}
 
 Sets or retrieves the resolution of `analogWrite()` function of a particular pin.
 
@@ -3246,7 +3315,9 @@ analogWrite(D1, 3000, 1000); // 3000/4095 = ~73% duty cycle at 1kHz
 
 ### analogWriteMaxFrequency() (PWM)
 
+{{#if has-stm32}}
 _Since 0.6.0_
+{{/if}}
 
 Returns maximum frequency that can be used with `analogWrite()` on this pin.
 
@@ -3287,18 +3358,26 @@ analogWrite(DAC1, 1024);
 
 ### analogRead() (ADC)
 
-Reads the value from the specified analog pin. The device has 8 channels (A0 to A7) with a 12-bit resolution. This means that it will map input voltages between 0 and 3.3 volts into integer values between 0 and 4095. This yields a resolution between readings of: 3.3 volts / 4096 units or, 0.0008 volts (0.8 mV) per unit.
+Reads the value from the specified analog pin. 
+
+{{#if has-stm32}}
+The device has 8 channels (A0 to A7) with a 12-bit resolution. This means that it will map input voltages between 0 and 3.3 volts into integer values between 0 and 4095. This yields a resolution between readings of: 3.3 volts / 4096 units or, 0.0008 volts (0.8 mV) per unit.
 
 _Before 0.5.3_ **Note**: do *not* set the pinMode() with `analogRead()`. The pinMode() is automatically set to AN_INPUT the first time analogRead() is called for a particular analog pin. If you explicitly set a pin to INPUT or OUTPUT after that first use of analogRead(), it will not attempt to switch it back to AN_INPUT the next time you call analogRead() for the same analog pin. This will create incorrect analog readings.
 
 _Since 0.5.3_ **Note:** you do not need to set the pinMode() with analogRead(). The pinMode() is automatically set to AN_INPUT any time analogRead() is called for a particular analog pin, if that pin is set to a pinMode other than AN_INPUT.  If you explicitly set a pin to INPUT, INPUT_PULLUP, INPUT_PULLDOWN or OUTPUT before using analogRead(), it will switch it back to AN_INPUT before taking the reading.  If you use digitalRead() afterwards, it will automatically switch the pinMode back to whatever you originally explicitly set it to.
+{{/if}}
+
+{{#if has-nrf52}}
+The device has 6 channels (A0 to A5) with a 12-bit resolution. This means that it will map input voltages between 0 and 3.3 volts into integer values between 0 and 4095. This yields a resolution between readings of: 3.3 volts / 4096 units or, 0.0008 volts (0.8 mV) per unit.
+{{/if}}
 
 ```C++
 // SYNTAX
 analogRead(pin);
 ```
 
-`analogRead()` takes one argument `pin`: the number of the analog input pin to read from ('A0 to A7'.)
+`analogRead()` takes one argument `pin`: the number of the analog input pin to read from ({{pins op='all-a'}})
 
 `analogRead()` returns an integer value ranging from 0 to 4095.
 
@@ -3693,7 +3772,9 @@ loop() {
 
 ### pulseIn()
 
+{{#if has-stm32}}
 _Since 0.4.7_
+{{/if}}
 
 Reads a pulse (either HIGH or LOW) on a pin. For example, if value is HIGH, pulseIn() waits for the pin to go HIGH, starts timing, then waits for the pin to go LOW and stops timing. Returns the length of the pulse in microseconds or 0 if no complete pulse was received within the timeout.
 
@@ -4203,7 +4284,9 @@ Pre-defined Serial configurations available:
 - `SERIAL_9N1` - 9 data bits, no parity, 1 stop bit
 - `SERIAL_9N2` - 9 data bits, no parity, 2 stop bits
 
+{{#if has-stm32}}
 _Since 0.6.0_
+{{/if}}
 
 - `SERIAL_7O1` - 7 data bits, odd parity, 1 stop bit
 - `SERIAL_7O2` - 7 data bits, odd parity, 1 stop bit
@@ -4280,7 +4363,9 @@ Disables serial channel.
 When used with hardware serial channels (Serial1, Serial2{{#if electron}}, Serial4, Serial5{{/if}}), disables serial communication, allowing channel's RX and TX pins to be used for general input and output. To re-enable serial communication, call `SerialX.begin()`.
 
 {{#unless core}}{{#unless raspberry-pi}}
+{{#if has-stm32}}
 _Since 0.6.0_
+{{/if}}
 
 When used with USB serial channels (`Serial`{{#if has-usb-serial1}} or `USBSerial1`{{/if}}), `end()` will cause the device to quickly disconnect from Host and connect back without the selected serial channel.
 {{/unless}}{{/unless}}
@@ -4384,7 +4469,9 @@ HAL_USB_USART_Config acquireUSBSerial1Buffer()
 }
 ```
 
+{{#if has-stm32}}
 _Since 0.6.0_
+{{/if}}
 
 It is possible for the application to allocate its own buffers for `Serial` and `USBSerial1` by implementing `acquireSerialBuffer` and `acquireUSBSerial1Buffer` functions. Minimum receive buffer size is 65 bytes.
 
@@ -4605,7 +4692,9 @@ void loop() {
 
 ### printf()
 
+{{#if has-stm32}}
 _Since 0.4.6_
+{{/if}}
 
 _Available on Serial, {{#if has-usb-serial1}}USBSerial1, {{/if}}Serial1{{#if has-serial2}}, Serial2{{/if}}{{#if has-serial4-5}}, Serial4, Serial5{{/if}}._
 
@@ -4631,7 +4720,9 @@ The last `printf()` call could be changed to `printlnf()` to avoid a separate ca
 
 ### printlnf()
 
+{{#if has-stm32}}
 _Since 0.4.6_
+{{/if}}
 
 _Available on Serial, {{#if has-usb-serial1}}USBSerial1, {{/if}}Serial1{{#if has-serial2}}, Serial2{{/if}}{{#if has-serial4-5}}, Serial4, Serial5{{/if}}._
 
@@ -4732,7 +4823,9 @@ void loop() {
 }
 ```
 
+{{#if has-stm32}}
 _Since 0.6.0_
+{{/if}}
 
 This library allows {{device}} to act as a native USB HID Mouse.
 
@@ -5064,7 +5157,9 @@ void loop() {
 }
 ```
 
+{{#if has-stm32}}
 _Since 0.6.0_
+{{/if}}
 
 This library allows {{device}} to act as a native USB HID Keyboard.
 
@@ -5381,7 +5476,9 @@ SPI2.begin(C0);
 
 ### begin(SPI_Mode, uint16_t)
 
+{{#if has-stm32}}
 _Since 0.5.0_
+{{/if}}
 
 Initializes the {{device}} SPI peripheral in master or slave mode.
 
@@ -5605,7 +5702,9 @@ _Since 0.5.0_ When SPI peripheral is configured in slave mode, the transfer will
 
 ### transferCancel()
 
+{{#if has-stm32}}
 _Since 0.5.0_
+{{/if}}
 
 Aborts the configured DMA transfer and disables the DMA peripheral’s channel and stream for the selected SPI peripheral for both outgoing and incoming data.
 
@@ -5613,7 +5712,9 @@ Aborts the configured DMA transfer and disables the DMA peripheral’s channel a
 
 ### onSelect()
 
+{{#if has-stm32}}
 _Since 0.5.0_
+{{/if}}
 
 Registers a function to be called when the SPI master selects or deselects this slave device by pulling configured slave-select pin low (selected) or high (deselected).
 
@@ -5682,7 +5783,9 @@ void loop() {
 
 ### available()
 
+{{#if has-stm32}}
 _Since 0.5.0_
+{{/if}}
 
 Returns the number of bytes available for reading in the `rx_buffer` supplied in `transfer()`. In general, returns the actual number of bytes received/transmitted during the ongoing or finished DMA transfer.
 
@@ -5698,7 +5801,9 @@ Returns the number of bytes available.
 {{#if has-spi-settings}}
 ### SPISettings
 
+{{#if has-stm32}}
 _Since 0.6.2_
+{{/if}}
 
 The `__SPISettings` object specifies the SPI peripheral settings. This object can be used with [`beginTransaction()`](#begintransaction-) function and can replace separate calls to [`setClockSpeed()`](#setclockspeed), [`setBitOrder()`](#setbitorder-) and [`setDataMode()`](#setdatamode-).
 
@@ -5727,7 +5832,9 @@ Parameters:
 
 ### beginTransaction()
 
+{{#if has-stm32}}
 _Since 0.6.1_
+{{/if}}
 
 Reconfigures the SPI peripheral with the supplied settings (see [`SPISettings`](#spisettings) documentation).
 
@@ -5757,7 +5864,9 @@ Returns: Negative integer in case of an error.
 
 ### endTransaction()
 
+{{#if has-stm32}}
 _Since 0.6.1_
+{{/if}}
 
 Releases the SPI peripheral.
 
@@ -5882,7 +5991,9 @@ Parameters: `address`: the 7-bit slave address (optional); if not specified, joi
 
 ### end()
 
+{{#if has-stm32}}
 _Since 0.4.6_
+{{/if}}
 
 Releases the I2C bus so that the pins used by the I2C bus are available for general purpose I/O.
 
@@ -5928,7 +6039,9 @@ Returns: `byte` : the number of bytes returned from the slave device.  If a time
 
 ### reset()
 
+{{#if has-stm32}}
 _Since 0.4.6_
+{{/if}}
 
 Attempts to reset the I2C bus. This should be called only if the I2C bus has
 has hung. In 0.4.6 additional rework was done for the I2C bus on the Photon and Electron, so
@@ -6142,7 +6255,9 @@ void loop() {
 
 ![CAN bus](/assets/images/can.png)
 
+{{#if has-stm32}}
 _Since 0.4.9_
+{{/if}}
 
 <a href="https://en.wikipedia.org/wiki/CAN_bus" target="_blank">Controller area network (CAN bus)</a> is a bus used in most automobiles, as well as some industrial equipment, for communication between different microcontrollers.
 
@@ -6777,7 +6892,9 @@ client.flush();
 
 ### remoteIP()
 
+{{#if has-stm32}}
 _Since 0.4.5_
+{{/if}}
 
 Retrieves the remote `IPAddress` of a connected `TCPClient`. When the `TCPClient` is retrieved
 from `TCPServer.available()` (where the client is a remote client connecting to a local server) the
@@ -7151,7 +7268,9 @@ Returns:
 
 ### setBuffer()
 
+{{#if has-stm32}}
 _Since 0.4.5_
+{{/if}}
 
 Initializes the buffer used by a `UDP` instance for buffered reads/writes. The buffer
 is used when your application calls `beginPacket()` and `parsePacket()`.  If `setBuffer()` isn't called,
