@@ -17,7 +17,9 @@
     "sleep",
     "software-timers",
     "eeprom",
-    "spi-settings"
+    "spi-settings",
+    "tcpserver",
+    "tcpclient"
   ],
   "Photon": [
 	"stm32",
@@ -52,7 +54,9 @@
     "rgb-mirror",
     "spi-settings",
     "powersave-clock",
-    "wpa-enterprise"
+    "wpa-enterprise",
+    "tcpserver",
+    "tcpclient"
   ],
   "Electron": [
 	"stm32",
@@ -87,14 +91,17 @@
     "eeprom",
     "button-mirror",
     "rgb-mirror",
-    "spi-settings"
+    "spi-settings",
+    "tcpclient"
   ],
   "Raspberry Pi": [
     "linux",
     "i2c",
     "spi",
     "pwm",
-    "multiple-spi"
+    "multiple-spi",
+    "tcpserver",
+    "tcpclient"
   ],
   "Argon": [
 	"nrf52",
@@ -122,7 +129,9 @@
     "eeprom",
     "button-mirror",
     "rgb-mirror",
-    "spi-settings"	  
+    "spi-settings",
+    "tcpserver",
+    "tcpclient"	  
   ],
   "Boron": [
 	"nrf52",
@@ -150,7 +159,8 @@
     "eeprom",
     "button-mirror",
     "rgb-mirror",
-    "spi-settings"	  
+    "spi-settings",
+    "tcpclient"	  
   ],
   "Xenon": [
 	"nrf52",

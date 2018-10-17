@@ -2,7 +2,6 @@
 title: SIM Management
 columns: two
 layout: tutorials.hbs
-devices: [ electron,boron ]
 order: 10
 ---
 

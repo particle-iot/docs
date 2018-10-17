@@ -243,6 +243,10 @@ This feature allows the device to generate an event based on a condition. For ex
 
 Particle.publish pushes the value out of the device at a time controlled by the device firmware. Particle.variable allows the value to be pulled from the device when requested from the cloud side.
 
+{{#if has-mesh}}
+Mesh devices support Particle.publish as well as Mesh.publish, which allows publishing to devices on your local mesh network only. 
+{{/if}}
+
 Cloud events have the following properties:
 
 * name (1–63 ASCII characters)
@@ -857,13 +861,175 @@ void setup() {
 {{#if has-mesh}}
 ## Mesh
 
+
 ### publish()
 
-Content goes here.
+On Mesh devices, there are two publish options: Particle.publish and Mesh.publish:
+
+- Particle.publish communicates by the cloud. It's used when interacting with an external web service (webhooks, server-sent-events, or rules engine), a classic device (Photon or Electron), or across different mesh networks.
+- Mesh.publish communicates locally within a Mesh network. It is faster and does not send data across the Internet, but can only communicate between Mesh devices (Argon, Boron, Xenon) that are on the same Mesh network in the same location. 
+
+The publish function takes two parameters:
+
+* name (1–63 ASCII characters)
+
+**Note:** Only use letters, numbers, underscores, dashes and slashes in event names. Spaces and special characters may be escaped by different tools and libraries causing unexpected results.
+
+* optional data (up to 255 bytes)
+
+
+```C++
+// SYNTAX
+Mesh.publish(const char *name, const char *data);
+
+RETURNS
+boolean (true or false)
+
+// EXAMPLE USAGE
+Mesh.publish("motion-sensor", "living room");
+```
 
 ### subscribe()
 
-Content goes here.
+Mesh.subscribe subscribes to events within the Mesh network. Like Particle.subscribe, the event name is a prefix, matching any event that begins with that name.
+
+```C++
+
+void myHandler(const char *event, const char *data)
+{
+  Serial.printlnf("event=%s data=%s", event, data ? data : "NULL");
+}
+
+void setup()
+{
+  Serial.begin(9600);
+  Mesh.subscribe("motion-sensor", myHandler);
+}
+```
+
+### on()
+
+`Mesh.on()` turns on the Mesh module. Useful when you've turned it off, and you changed your mind.
+
+Note that `Mesh.on()` does not need to be called unless you have changed the [system mode](#system-modes) or you have previously turned the Mesh module off.
+
+### off()
+
+`Mesh.off()` turns off the Mesh module. 
+ 
+### connect()
+
+Attempts to connect to the Mesh network. If there are no credentials stored, this will enter listening mode. When this function returns, the device may not have an IP address on the LAN; use `Mesh.ready()` to determine the connection status.
+
+```cpp
+// SYNTAX
+Mesh.connect();
+```
+
+### disconnect()
+
+Disconnects from the Mesh network, but leaves the Mesh module on.
+
+```cpp
+// SYNTAX
+Mesh.disconnect();
+```
+
+### connecting()
+
+This function will return `true` once the device is attempting to connect using stored credentials, and will return `false` once the device has successfully connected to the Mesh network.
+
+```cpp
+// SYNTAX
+Mesh.connecting();
+```
+
+### ready()
+
+This function will return `true` once the device is connected to the network and has been assigned an IP address, which means that it's ready to open TCP sockets and send UDP datagrams. Otherwise it will return `false`.
+
+```cpp
+// SYNTAX
+Mesh.ready();
+```
+
+### listen()
+
+This will enter or exit listening mode, which opens a Serial connection to get Mesh credentials over USB, and also listens for credentials over
+Bluetooth.
+
+```cpp
+// SYNTAX - enter listening mode
+Mesh.listen();
+```
+
+Listening mode blocks application code. Advanced cases that use multithreading, interrupts, or system events
+have the ability to continue to execute application code while in listening mode, and may wish to then exit listening
+mode, such as after a timeout. Listening mode is stopped using this syntax:
+
+```cpp
+
+// SYNTAX - exit listening mode
+Mesh.listen(false);
+
+```
+
+
+
+### listening()
+
+```cpp
+// SYNTAX
+Mesh.listening();
+```
+
+This command is only useful in connection with `SYSTEM_THREAD(ENABLED)`, otherwise it will always return `false`, because listening mode blocks application code.
+With a dedicated system thread though `Mesh.listening()` will return `true` once `Mesh.listen()` has been called
+or the {{system-button}} button has been held for 3 seconds, when the RGB LED should be blinking blue.
+It will return `false` when the device is not in listening mode.
+
+### setListenTimeout()
+
+```cpp
+// SYNTAX
+Mesh.setListenTimeout(seconds);
+```
+
+`Mesh.setListenTimeout(seconds)` is used to set a timeout value for Listening Mode.  Values are specified in `seconds`, and 0 disables the timeout.  By default, Mesh devices do not have any timeout set (seconds=0).  As long as interrupts are enabled, a timer is started and running while the device is in listening mode (Mesh.listening()==true).  After the timer expires, listening mode will be exited automatically.  If Mesh.setListenTimeout() is called while the timer is currently in progress, the timer will be updated and restarted with the new value (e.g. updating from 10 seconds to 30 seconds, or 10 seconds to 0 seconds (disabled)).  
+**Note:** Enabling multi-threaded mode with SYSTEM_THREAD(ENABLED) will allow user code to update the timeout value while Listening Mode is active.
+
+```cpp
+// EXAMPLE
+// If desired, use the STARTUP() macro to set the timeout value at boot time.
+STARTUP(Mesh.setListenTimeout(60)); // set listening mode timeout to 60 seconds
+
+void setup() {
+  // your setup code
+}
+
+void loop() {
+  // update the timeout later in code based on an expression
+  if (disableTimeout) Mesh.setListenTimeout(0); // disables the listening mode timeout
+}
+```
+
+
+### getListenTimeout()
+
+```cpp
+// SYNTAX
+uint16_t seconds = Mesh.getListenTimeout();
+```
+
+`Mesh.getListenTimeout()` is used to get the timeout value currently set for Listening Mode.  Values are returned in (uint16_t)`seconds`, and 0 indicates the timeout is disabled.  By default, Mesh devices do not have any timeout set (seconds=0).
+
+```cpp
+// EXAMPLE
+void setup() {
+  Serial.begin();
+  Serial.println(Mesh.getListenTimeout());
+}
+```
 
 {{/if}}
 
@@ -6295,6 +6461,7 @@ IPAddress myIP = WiFi.localIP();
 Serial.println(myIP);    // prints the device's IP address
 ```
 
+{{#if has-tcpserver}}
 ## TCPServer
 
 Create a server that listens for incoming connections on the specified port.
@@ -6343,11 +6510,6 @@ void loop()
 }
 ```
 
-{{#if has-cellular}}
-**Data Usage Warning**
-
-When using a Particle SIM with the {{device}}, be careful interacting with web hosts with `TCPServer` or libraries using `TCPServer`. These can use a lot of data in a short period of time resulting in a higher bill. To keep the data usage low, use [`Particle.publish`](#particle-publish-) along with [webhooks](/guide/tools-and-features/webhooks/).
-{{/if}} {{!-- has-cellular --}}
 
 ### begin()
 
@@ -6415,6 +6577,9 @@ Parameters:
 - `data` (optional): the data to print (char, byte, int, long, or string)
 - `BASE` (optional): the base in which to print numbers: BIN for binary (base 2), DEC for decimal (base 10), OCT for octal (base 8), HEX for hexadecimal (base 16).
 
+{{/if}}
+
+{{#if has-tcpclient}}
 
 ## TCPClient
 
@@ -6671,6 +6836,7 @@ Disconnect from the server.
 // SYNTAX
 client.stop();
 ```
+{{/if}}
 
 
 ## UDP
