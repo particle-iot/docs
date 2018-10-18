@@ -2,6 +2,7 @@
 title: Boron Kit
 layout: quickstart.hbs
 columns: two
+order: 4
 ---
 
 # Quick start: Boron Kit

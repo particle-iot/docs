@@ -1,6 +1,6 @@
 ---
 title: Status LED and Device Modes
-layout: reference.hbs
+layout: tutorials.hbs
 columns: two
 devices: [ photon,electron,core,argon,boron,xenon ]
 order: 10

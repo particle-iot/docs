@@ -1,9 +1,9 @@
 ---
 word: Firmware Libraries
 title: Firmware Libraries
-order: 9
+order: 20
 columns: two
-layout: guide.hbs
+layout: tutorials.hbs
 ---
 
 # {{title}}

@@ -1,10 +1,10 @@
 ---
 word: Dev
 title: Desktop IDE (Dev)
-order: 3
+order: 21
 shared: true
 columns: two
-layout: guide.hbs
+layout: tutorials.hbs
 ---
 
 # Desktop IDE (Dev)

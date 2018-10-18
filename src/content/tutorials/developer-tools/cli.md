@@ -1,10 +1,10 @@
 ---
 word: CLI
 title: Command Line
-order: 5
+order: 22
 columns: two
 devices: [electron,photon,core,raspberry-pi,argon,boron,xenon]
-layout: guide.hbs
+layout: tutorials.hbs
 ---
 
 # Particle CLI

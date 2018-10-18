@@ -8,6 +8,7 @@ module.exports = function(string) {
 	txt = txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
 	txt = txt.replace('Iot', 'IoT');
 	txt = txt.replace('Sdks', 'SDKs');
+	txt = txt.replace('Os', 'OS');
 	return txt;
   });
   return stringToTitleCase;
