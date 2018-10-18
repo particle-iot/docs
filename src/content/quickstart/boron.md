@@ -10,6 +10,11 @@ columns: two
 
 The Particle Boron is a mesh and Bluetooth development kit designed for building connected projects and products. To set up the device you'll need an Android or iOS mobile phone and a connection to the internet.
 
+<div  align="center">
+<br />
+<a href="https://setup.particle.io/"  target="_blank" class="button">SET UP YOUR XENON</a>
+</div>
+
 
 ### The Boron Kit comes with the following things:
 

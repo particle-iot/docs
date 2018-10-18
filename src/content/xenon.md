@@ -6,26 +6,30 @@ layout: landing.hbs
 # Particle Xenon: Bluetooth + Mesh
 
 ![Image of the Xenon in a breadboard](/assets/images/xenon-breadboard-05.png)
+
+
 The Xenon is a low cost mesh-enabled development kit that can act as either an endpoint or repeater within a Particle Mesh network.
 
 Xenon is mesh only and designed to function as the endpoint of your IoT network. It is based on the Nordic nRF52840 and has built-in battery charging circuitry so it’s easy to connect a Li-Po and deploy your local network in minutes.
 
 The Xenon is best for connecting sensors, motors, pumps, valves, and points of data-interest. Pair it with an Argon or Boron gateway to get all that great data into the Device Cloud.
 
+<div  align="center">
+<br />
+<a href="https://setup.particle.io/"  target="_blank" class="button">SET UP YOUR XENON</a>
+</div>
+
 
 {{box op="start" cssClass="boxedSideBySide"}}
 **Tutorials**
-- [Quick start](/quickstart/xenon/)
-- Starter project
+- [Quick start with starter project](/quickstart/xenon/)
 - Code examples
 - [Support](/support/support-and-fulfillment/menu-base/)
 {{box op="switch"}}
 **Resources:**
-- [Code](https://github.com/particle-iot/xenon)
-- [Gerber files](https://github.com/particle-iot/xenon)
-- [Data sheets](https://github.com/particle-iot/xenon)
+- [Hardware files](https://github.com/particle-iot/xenon)
+- [Datasheets](https://github.com/particle-iot/xenon)
 - [Community](https://community.particle.io/c/mesh)
-- [Buy more mesh hardware](https://store.particle.io/collections/mesh)
 {{box op="end"}}
 
 ## Hardware specifications
@@ -53,4 +57,10 @@ The Xenon is best for connecting sensors, motors, pumps, valves, and points of d
   - Meets the [Feather specification](https://learn.adafruit.com/adafruit-feather/feather-specification) in dimensions and pinout
   - FCC, CE and IC certified
   - RoHS compliant (lead-free)
+  <div align="center">
+  <br />
+
+  <a href="https://store.particle.io/products/xenon" target="_blank" class="button">BUY A XENON</a>
+  </div>
+
   {{box op="end"}}

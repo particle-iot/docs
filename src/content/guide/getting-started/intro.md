@@ -27,7 +27,6 @@ order: 1
 {{#if has-embedded}}
 This guide will show you how to use Particle to make a connected device, from the first time you connect to the cloud to the day you manufacture and ship your connected product.
 
-Anxious to connect right away?
 
 {{#if photon}}
 <a href="/guide/getting-started/start/#step-1-power-on-your-device" target="_blank" class="button">SETUP MY PHOTON</a>
