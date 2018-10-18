@@ -13,22 +13,15 @@ Particle products may be subject to standard manufacturing lead times depending 
 
 SKU | Name | Standard Manufacturing Lead Time
 ------------ | ------------- | -------------
-ACC-ADPT | PARTICLE CLASSIC ADAPTER | 12 - 16 weeks
-ACC-DEBUG | PARTICLE DEBUGGER | 12 - 16 weeks
 ANTDUCK | DUCK ANTENNA | 4 - 6 weeks
 ANTELEC | CELLULAR ANTENNA | 4 - 6 weeks
 ANTELEC50 | CELLULAR ANTENNA (BULK) | 4 - 6 weeks
 ANTFLEX | FLEX ANTENNA | 4 - 6 weeks
-ARGN-H | ARGON | 12 - 16 weeks
-ARGNKIT | ARGON KIT | 12 - 16 weeks
 ASSET2GV2 | ASSET TRACKER 2G KIT V2 | 10 - 13 weeks
 ASSET3G260V2 | ASSET TRACKER 3G KIT V2 (AMERICAS/AUS) | 10 - 13 weeks
 ASSET3G270V2 | ASSET TRACKER 3G KIT V2 (EUR/ASIA/AFR) | 10 - 13 weeks
 BAT1800 | LI-PO BATTERY | 4 - 6 weeks
 BATT18MOD50 | LI-PO BATTERY (BULK) | 4 - 6 weeks
-BRN310KIT | BORON 2G/3G KIT | 12 - 16 weeks
-BRN402 | BORON LTE | 12 - 16 weeks
-BRN402KIT | BORON LTE KIT | 12 - 16 weeks
 E260KIT | ELECTRON 3G KIT (AMERICAS/AUS) | 12 - 16 weeks
 E260TRAY50 | ELECTRON 3G (AMERICAS/AUS) IN TRAYS | 12 - 16 weeks
 E270KIT | ELECTRON 3G KIT (EUR/ASIA/AFR) | 12 - 16 weeks
@@ -41,11 +34,7 @@ E350TRAY50 | ELECTRON 2G (GLOBAL) IN TRAYS | 12 - 16 weeks
 E402KIT | E SERIES LTE EVALUATION KIT | 12 - 16 weeks
 E402MOD1 | E SERIES LTE MODULE | 12 - 16 weeks
 E402TRAY50 | E SERIES LTE IN TRAYS | 12 - 16 weeks
-FWNG-ETH | PARTICLE ETHERNET FEATHERWING | 12 - 16 weeks
-FWNG-INA219 | ADAFRUIT INA219 FEATHERWING | 12 - 16 weeks
-FWNG-OLED | ADAFRUIT OLED FEATHERWING | 12 - 16 weeks
-FWNG-PWRLY | ADAFRUIT POWER RELAY FEATHERWING | 12 - 16 weeks
-FWNG-TRP | PARTICLE FEATHERWING TRIPLER | 12 - 16 weeks
+GSWPH | GETTING STARTED WITH THE PHOTON BOOK | 8 - 10 weeks
 MB-N2-MOD2 | REDBEAR MB-N2 (2 PACK) | 6 - 8 weeks
 MKITPH | MAKER KIT | 12 - 16 weeks
 NANH | REDBEAR NANO V2 WITH HEADERS | 6 - 8 weeks
@@ -67,12 +56,9 @@ RLYSHIELD | RELAY SHIELD | 8 - 10 weeks
 SHLD-RBLINK | REDBEAR LINK SHIELD | 6 - 8 weeks
 SIMBLANK50 | SIM CARD (BULK) | 4 - 6 weeks
 SIMTELE | SIM CARD | 4 - 6 weeks
-SNSR-GRVKIT | GROVE STARTER KIT FOR PARTICLE MESH | 12 - 16 weeks
 SNSRKIT3G260 | SENSOR KIT WITH ELECTRON 3G (AMERICAS/AUS) | 12 - 16 weeks
 SNSRKIT3G270 | SENSOR KIT WITH ELECTRON 3G (EUR/ASIA/AFR) | 12 - 16 weeks
 SPKBTTN | INTERNET BUTTON | 12 - 16 weeks
-XENN-H | XENON | 12 - 16 weeks
-XENNKIT | XENON KIT | 12 - 16 weeks
 
 
 Lead times apply only from the point of payment. Requesting a lead time will not reserve stock. Only a committed, non-refundable, non-cancellable purchase order (PO) or a purchase with payment will guarantee lead times. Particle reserves the right to increase or decrease lead times at any time.

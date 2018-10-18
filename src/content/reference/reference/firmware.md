@@ -11609,24 +11609,6 @@ Parameters:
 
 Returns: None
 
-### c_str()
-
-Gets a pointer (const char *) to the internal c-string representation of the string. You can use this to pass to a function that require a c-string. This string cannot be modified.
-
-The object also supports `operator const char *` so for things that specifically take a c-string (like Particle.publish) the conversion is automatic.
-
-You would normally use c_str() if you need to pass the string to something like Serial.printlnf or Log.info where the conversion is ambiguous:
-
-```C++
-Serial.printlnf("the string is: %s", string.c_str());
-```
-
-This is also helpful if you want to print out an IP address:
-
-```C++
-Serial.printlnf("ip addr: %s", WiFi.localIP().toString().c_str());
-```
-
 ### indexOf()
 
 Locates a character or String within another String. By default, searches from the beginning of the String, but can also start from a given index, allowing for the locating of all instances of the character or String.
