@@ -230,7 +230,7 @@ If things are looking good, you should see a table like this:
 
 Nice! Everything looks to be wired up correctly. We've proven that we are now successfully getting data from
 a Particle device -> Particle Device Cloud -> Google Cloud Pub/Sub. From here, it's up to you how you'd like to leverage
-Googe Cloud Platform's products & services to add value to your connected product. The rest of this tutorial will
+Google Cloud Platform's products & services to add value to your connected product. The rest of this tutorial will
 focus on specific IoT use cases for Google Cloud Platform.
 
 ## Example Use Cases
@@ -327,7 +327,7 @@ is where the Node script comes into play. It's job is simple:
 - Subscribe to events published to your Pub/Sub Topic
 - Route those events into Datastore
 
-With the help of our friends at Googe Cloud Platform, we've created an
+With the help of our friends at Google Cloud Platform, we've created an
 open-source repository that has all the code you need to do just this.
 
 <a class="btn"
