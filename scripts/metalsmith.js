@@ -184,9 +184,10 @@ exports.metalsmith = function() {
           'device-os',
           'developer-tools',
           'integrations',
-          'dev-tools',
+          'developer-tools',
           'device-cloud',
-          'projects'
+          'cellular-connectivity',
+          'product-tools'
         ]
       },
       faq: {

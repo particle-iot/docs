@@ -2,7 +2,7 @@
 title: Device Groups
 columns: two
 layout: tutorials.hbs
-order: 12
+order: 41
 ---
 
 # {{title}}

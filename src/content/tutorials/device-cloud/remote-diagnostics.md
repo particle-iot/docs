@@ -1,9 +1,9 @@
 ---
 word: Remote Diagnostics
 title: Remote Diagnostics
-order: 11
+order: 34
 columns: two
-layout: guide.hbs
+layout: tutorials.hbs
 devices: [photon, electron, argon, boron, xenon]
 ---
 

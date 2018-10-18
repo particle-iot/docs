@@ -1,10 +1,10 @@
 ---
 word: Webhooks
 title: Webhooks
-order: 6
+order: 32
 shared: true
 columns: two
-layout: guide.hbs
+layout: tutorials.hbs
 ---
 
 
