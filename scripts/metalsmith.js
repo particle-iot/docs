@@ -159,22 +159,15 @@ exports.metalsmith = function() {
         orderDynamicCollections: [
         ]
       },
-      guide: {
-        pattern: 'guide/:section/*.md',
-        sortBy: 'order',
-        orderDynamicCollections: [
-          'getting-started',
-          'tools-and-features',
-          'how-to-build-a-product'
-        ]
-      },
       reference: {
         pattern: 'reference/:section/*md',
         sortBy: 'order',
         orderDynamicCollections: [
-          'reference',
+          'device-os',
+          'developer-tools',
+          'device-cloud',
           'SDKs',
-          'community'
+          'discontinued'
         ]
       },
       tutorials: {
@@ -183,42 +176,40 @@ exports.metalsmith = function() {
         orderDynamicCollections: [
           'device-os',
           'developer-tools',
-          'integrations',
-          'developer-tools',
           'device-cloud',
           'cellular-connectivity',
-          'product-tools'
-        ]
-      },
-      faq: {
-        pattern: 'faq/:section/*.md',
-        sortBy: 'order',
-        orderDynamicCollections: [
-          'particle-devices',
-          'particle-tools',
-          'pricing',
-          'wholesale'
+          'product-tools',
+          'iot-rules-engine',
+          'integrations',
+          'project-tutorials'
         ]
       },
       hardware: {
         pattern: 'hardware/:section/*.md',
         sortBy: 'order',
         orderDynamicCollections: [
-          'photon',
-          'p-series',
-          'electron',
-          'e-series',
-          'kits-and-accessories',
-          'discontinued-products'
+          'wi-fi',
+          'cellular',
+          'certifications',
+          'discontinued'
         ]
       },
+      community: {
+          pattern: 'community/*md',
+          sortBy: 'order',
+          orderDynamicCollections: [
+          ]
+        },
       support: {
         pattern: 'support/:section/*.md',
         sortBy: 'order',
         orderDynamicCollections: [
-          'support-and-fulfillment',
-          'troubleshooting',
-          'inquiries'
+          'particle-devices-faq',
+          'particle-tools-faq',
+          'pricing',
+          'shipping-and-returns',
+          'wholesale-store',
+          'troubleshooting'
         ]
       },
       quickstart: {
@@ -363,11 +354,11 @@ exports.server = function(callback) {
           '${source}/content/**/*.md': true,
           '${source}/assets/less/*.less': 'assets/less/*.less',
           '../templates/layouts/reference.hbs': 'content/reference/*.md',
-          '../templates/layouts/guide.hbs': 'content/guide/**/*.md',
           '../templates/layouts/hardware.hbs': 'content/hardware/**/*.md',
           '../templates/layouts/support.hbs': 'content/support/**/*.md',
           '../templates/layouts/suppMenu.hbs': 'content/support/**/*.md',
           '../templates/layouts/quickstart.hbs': 'content/quickstart/*.md',
+          '../templates/layouts/community.hbs': 'content/community/*.md',
           '../templates/layouts/landing.hbs': 'content/*.md',
           '../templates/partials/**/*.hbs': 'content/**/*.md',
           '${source}/assets/js/*.js*' : true,

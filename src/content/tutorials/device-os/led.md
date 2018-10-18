@@ -3,7 +3,7 @@ title: Status LED and Device Modes
 layout: tutorials.hbs
 columns: two
 devices: [ photon,electron,core,argon,boron,xenon ]
-order: 10
+order: 11
 ---
 
 ## Standard Modes

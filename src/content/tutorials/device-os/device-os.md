@@ -3,7 +3,7 @@ word: Device OS
 title: Device OS
 order: 10
 columns: two
-layout: guide.hbs
+layout: tutorials.hbs
 ---
 
 # {{title}}
