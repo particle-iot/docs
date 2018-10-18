@@ -11,6 +11,11 @@ The Boron LTE is a powerful LTE CAT-M1/NB1 enabled development kit that can act 
 
 The Boron is great for connecting existing projects to the Particle Device Cloud or as a gateway to connect an entire group of local endpoints where Wi-Fi is missing or unreliable.
 
+<div  align="center">
+<br />
+<a href="https://setup.particle.io/"  target="_blank" class="button">SET UP YOUR BORON</a>
+</div>
+
 
 {{box op="start" cssClass="boxedSideBySide"}}
 **Tutorials**
@@ -63,4 +68,11 @@ The Boron is great for connecting existing projects to the Particle Device Cloud
 - Meets the Feather specification in dimensions and pinout
 - FCC and PTCRB certified
 - RoHS compliant (lead-free)
+
+<div align="center">
+<br />
+
+<a href="https://store.particle.io/products/xenon" target="_blank" class="button">BUY A BORON</a>
+</div>
+
 {{box op="end"}}
