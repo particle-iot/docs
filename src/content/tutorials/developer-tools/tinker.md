@@ -1,9 +1,9 @@
 ---
 title: Tinker & Mobile App
-layout: guide.hbs
+layout: tutorials.hbs
 columns: two
 devices: [ photon,electron,core,raspberry-pi,argon,boron,xenon]
-order: 5
+order: 23
 ---
 
 # Tinkering with "Tinker"

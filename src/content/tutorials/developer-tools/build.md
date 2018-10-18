@@ -1,9 +1,9 @@
 ---
 title: Web IDE (Build)
-layout: guide.hbs
+layout: tutorials.hbs
 columns: two
 devices: [ electron,photon,core,raspberry-pi,argon,boron,xenon ]
-order: 6
+order: 20
 ---
 
 Flash Apps with Particle Build
