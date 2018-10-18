@@ -49,10 +49,6 @@ library it needs. Code level is Java-8. It should be trivial to use Java-7 or lo
 
 * [Particle API for LabVIEW](https://github.com/freddiepingpong/labview-particle-api) - A set of LabVIEW VIs to connect to the Particle Device Cloud API.
 
-## Swift
-
-* [Swift 3.0 Client Library](https://github.com/vakoc/particle-swift) - A Swift 3.0, package manager compatible, library for interacting with the Particle Device Cloud API
-
 ## Typescript
 
 * [Soft AP Setup library for Typescript by Mark Terrill](https://www.npmjs.com/package/softap-setup-ts) - Port of the [Particle SoftAP Setup library](https://github.com/particle-iot/softap-setup-js) to perform wireless setup of Particle devices

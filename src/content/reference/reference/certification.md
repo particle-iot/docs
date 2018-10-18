@@ -110,6 +110,12 @@ Particle's certifications will help you decrease the time and cost associated wi
 - [Certificate of Conformity](/assets/pdfs/electron/fcc-u201-certificate.pdf)
 - [Test Reports - E310](/assets/pdfs/electron/fcc-u201-test-report.pdf)
 
+#### E-Series E402 LTE (R410M)
+
+- FCC ID: [XPY2AGQN4NNN](https://apps.fcc.gov/oetcf/eas/reports/ViewExhibitReport.cfm?mode=Exhibits&RequestTimeout=500&calledFromFrame=N&application_id=ikrR3FBKrpgwIGJS1sm7Bw%3D%3D&fcc_id=XPY2AGQN4NNN)
+- [Certificate of Conformity](/assets/pdfs/e402-fcc.pdf)
+
+
 ## IC<img class="inline-header-image" src="/assets/images/logo-ic.png"/>
 
 ### Description
@@ -152,8 +158,13 @@ For certificates of conformity, search [here](https://sms-sgs.ic.gc.ca/equipment
 - [Test Report](/assets/pdfs/electron/ic-g350-test-report.pdf)
 
 #### E Series E310 (U201)
+- IC ID: **8595A-1CGM5NNN**.
 - [Certificate of Conformity](/assets/pdfs/electron/ic-u201-certificate.pdf)
 - [Test Report](/assets/pdfs/electron/ic-u201-test-report.pdf)
+
+#### E-Series E402 LTE (R410M)
+- IC ID: **8595A-2AGQN4NNN**.
+- [Certificate of Conformity](/assets/pdfs/e402-ic.pdf)
 
 ## CE<img class="inline-header-image" src="/assets/images/logo-ce.png"/>
 
@@ -325,6 +336,10 @@ When an End Product like the Electron is connected to a host device (PC, PDA, et
 - [Certificate of Conformity](/assets/pdfs/electron/ptcrb-u201-certificate.pdf)
 - [Test Reports](/assets/pdfs/electron/ptcrb-u201-test-report.pdf)
 
+#### E-Series E402 LTE (R410M)
+
+- [Certificate of Conformity](/assets/pdfs/e402-ptcrb.pdf)
+- [AT&T LTE Certification](/assets/pdfs/e402-ota-att.pdf)
 
 ## GCF<img class="inline-header-image" src="/assets/images/logo-gcf.png"/>
 ### Description
