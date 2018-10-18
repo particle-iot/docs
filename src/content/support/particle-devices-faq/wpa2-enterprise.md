@@ -2,7 +2,6 @@
 title: WPA2 Enterprise Setup 
 layout: support.hbs
 columns: two
-devices: [ photon ]
 order: 1030
 ---
 

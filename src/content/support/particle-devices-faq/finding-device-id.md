@@ -2,7 +2,6 @@
 title: Finding your device ID
 layout: support.hbs
 columns: two
-devices: [ photon,electron,core,argon,boron,xenon ]
 order: 1010
 ---
 

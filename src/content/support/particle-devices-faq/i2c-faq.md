@@ -2,7 +2,6 @@
 title: I2C FAQ
 layout: support.hbs
 columns: two
-devices: [ photon,electron,core,raspberry-pi,argon,boron,xenon ]
 order: 1100
 ---
 

@@ -2,7 +2,6 @@
 title: Local build using gcc-arm
 layout: support.hbs
 columns: two
-devices: [ photon,electron,core,argon,boron,xenon ]
 order: 1001
 ---
 
