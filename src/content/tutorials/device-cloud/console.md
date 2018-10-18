@@ -1,10 +1,10 @@
 ---
 word: Console
 title: Console
-order: 2
+order: 31
 shared: true
 columns: two
-layout: guide.hbs
+layout: tutorials.hbs
 ---
 
 

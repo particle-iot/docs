@@ -1,9 +1,8 @@
 ---
 title: Cellular Data Guide
-layout: reference.hbs
+layout: tutorials.hbs
 columns: two
-devices: [ electron,boron ]
-order: 71
+order: 12
 ---
 
 ## Cellular Data Service with Particle

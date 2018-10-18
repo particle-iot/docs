@@ -1,9 +1,8 @@
 ---
 title: Cellular Billing Guide
-layout: reference.hbs
+layout: tutorials.hbs
 columns: two
-devices: [ electron,boron ]
-order: 70
+order: 11
 ---
 
 ## Billing Service with Particle
