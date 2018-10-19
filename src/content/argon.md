@@ -10,6 +10,11 @@ The Argon is a powerful Wi-Fi development kit that can act as a standalone Wi-Fi
 
 Based on the Nordic nRF52840, the Argon has built-in battery charging circuitry so it’s easy to connect a Li-Po and deploy your local network in minutes.
 
+<div  align="center">
+<br />
+<a href="https://setup.particle.io/"  target="_blank" class="button">SET UP YOUR ARGON</a>
+</div>
+
 {{box op="start" cssClass="boxedSideBySide"}}
 **Tutorials**
 - [Quick start](/quickstart/argon/)
@@ -64,4 +69,11 @@ Based on the Nordic nRF52840, the Argon has built-in battery charging circuitry 
 - Meets the [Feather specification](https://learn.adafruit.com/adafruit-feather/feather-specification) in dimensions and pinout
 - FCC, CE and IC certified
 - RoHS compliant (lead-free)
+
+<div align="center">
+<br />
+
+<a href="https://store.particle.io/products/xenon" target="_blank" class="button">BUY A ARGON</a>
+</div>
+
 {{box op="end"}}
