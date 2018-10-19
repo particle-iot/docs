@@ -17,7 +17,7 @@ If you're here, a Particle product must be on it's way to you! Congratulations!
 
 #### Shipping timing
 
-All packages ship out within 2 business days of the order being placed. Please see below to understand the timing of our shipping methods. 
+Orders typically ship within 2 business days unless the items you purchased are on preorder. If your cart contains a preordered item, your entire order will not ship until all products are available. Please review the product descriptions for the shipping lead times.   
 
 #### Tracking your package
 
@@ -28,7 +28,7 @@ Your order confirmation and tracking information will be sent to the email addre
 
 #### Domestic Shipping Methods
 
-For domestic orders (contiguous USA only) we have flat-rate shipping options, detailed below:
+For domestic orders (contiguous US only) we have flat-rate shipping options, detailed below:
 
 |         Name         	      |    Time For Shipping   	| Weight in Lbs 	|  Price 	|
 |:--------------------------:	|:----------------------:	|:-------------:	|:------:	|
