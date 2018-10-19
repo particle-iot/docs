@@ -2,7 +2,7 @@
 title: InfluxData
 layout: tutorials.hbs
 columns: two
-order: 400
+order: 130
 ---
 
 # {{title}} Integration

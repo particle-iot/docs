@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="21px" height="23px" viewBox="0 0 21 23" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 52.2 (67145) - http://www.bohemiancoding.com/sketch -->
+    <title>faq</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Page-1—New" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="faq" transform="translate(-1.000000, -1.000000)">
+            <g id="Duotone" transform="translate(1.000000, 1.000000)">
+                <polygon id="Path" fill="#FFFFFF" points="20.5 17 10.5 22.5 0.5 17 0.5 6 10.5 0.5 20.5 6"></polygon>
+                <polygon id="Path" fill="#B2C0DB" points="18.5 15.5 10.5 20 2.5 15.5 0.5 17 10.5 22.5 20.5 17"></polygon>
+                <polygon id="Path" fill="#B2C0DB" points="11.5 13.5 11.5 12 14.5 10 14.5 6.5 10.5 3.8 6.5 6.3 6.5 8.5 10.5 6 12.5 7.5 12.5 9 9.5 11 9.5 13.5"></polygon>
+                <rect id="Rectangle" fill="#B2C0DB" transform="translate(10.429040, 16.999950) rotate(-45.000000) translate(-10.429040, -16.999950) " x="9.37905007" y="15.9499601" width="2.09997986" height="2.09997986"></rect>
+                <polygon id="Path" stroke="#002F87" stroke-linecap="round" stroke-linejoin="round" points="20.5 17 10.5 22.5 0.5 17 0.5 6 10.5 0.5 20.5 6"></polygon>
+                <polygon id="Path" stroke="#002F87" stroke-linecap="round" stroke-linejoin="round" points="11.5 13.5 11.5 12 14.5 10 14.5 6.5 10.5 3.8 6.5 6.3 6.5 8.5 10.5 6 12.5 7.5 12.5 9 9.5 11 9.5 13.5"></polygon>
+                <rect id="Rectangle" stroke="#002F87" stroke-width="0.99999041" stroke-linecap="round" stroke-linejoin="round" transform="translate(10.429040, 16.999950) rotate(-45.000000) translate(-10.429040, -16.999950) " x="9.37905007" y="15.9499601" width="2.09997986" height="2.09997986"></rect>
+            </g>
+            <g id="Frames-24px">
+                <rect id="Rectangle" x="0" y="0" width="24" height="24"></rect>
+            </g>
+        </g>
+    </g>
+</svg>

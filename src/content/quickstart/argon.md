@@ -2,6 +2,7 @@
 title: Argon Kit
 layout: quickstart.hbs
 columns: two
+order: 3
 ---
 
 # Quick start: Argon Kit

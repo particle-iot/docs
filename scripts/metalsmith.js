@@ -153,61 +153,63 @@ exports.metalsmith = function() {
     // This plugin is complex and buggy.
     // It causes the duplicate nav bar bug during development with livereload
     .use(collections({
-      guide: {
-        pattern: 'guide/:section/*.md',
+      quickstart: {
+        pattern: 'quickstart/*md',
         sortBy: 'order',
         orderDynamicCollections: [
-          'getting-started',
-          'tools-and-features',
-          'how-to-build-a-product'
         ]
       },
       reference: {
-        pattern: 'reference/*md',
+        pattern: 'reference/:section/*md',
         sortBy: 'order',
         orderDynamicCollections: [
-          'apis',
-          'sdks',
-          'dev-tools'
+          'device-os',
+          'developer-tools',
+          'device-cloud',
+          'SDKs',
+          'discontinued'
         ]
       },
       tutorials: {
         pattern: 'tutorials/:section/*.md',
         sortBy: 'order',
         orderDynamicCollections: [
+          'device-os',
+          'developer-tools',
+          'device-cloud',
+          'cellular-connectivity',
+          'product-tools',
+          'iot-rules-engine',
           'integrations',
-          'dev-tools',
-          'projects'
+          'project-tutorials'
         ]
       },
-      faq: {
-        pattern: 'faq/:section/*.md',
+      hardware: {
+        pattern: 'hardware/:section/*.md',
         sortBy: 'order',
         orderDynamicCollections: [
-          'particle-devices',
-          'particle-tools',
-          'pricing',
-          'wholesale',
-          'discontinued-products'
+          'wi-fi',
+          'cellular',
+          'certifications',
+          'discontinued'
         ]
       },
-      datasheet: {
-        pattern: 'datasheets/:section/*.md',
-        sortBy: 'order',
-        orderDynamicCollections: [
-          'photon-(wifi)',
-          'electron-(cellular)',
-          'kits-and-accessories',
-          'discontinued-products'
-        ]
-      },
+      community: {
+          pattern: 'community/*md',
+          sortBy: 'order',
+          orderDynamicCollections: [
+          ]
+        },
       support: {
         pattern: 'support/:section/*.md',
         sortBy: 'order',
         orderDynamicCollections: [
-          'support-and-fulfillment',
-          'troubleshooting',
-          'inquiries'
+          'particle-devices-faq',
+          'particle-tools-faq',
+          'pricing',
+          'shipping-and-returns',
+          'wholesale-store',
+          'troubleshooting'
         ]
       },
       quickstart: {
@@ -352,11 +354,11 @@ exports.server = function(callback) {
           '${source}/content/**/*.md': true,
           '${source}/assets/less/*.less': 'assets/less/*.less',
           '../templates/layouts/reference.hbs': 'content/reference/*.md',
-          '../templates/layouts/guide.hbs': 'content/guide/**/*.md',
-          '../templates/layouts/datasheet.hbs': 'content/datasheets/*.md',
+          '../templates/layouts/hardware.hbs': 'content/hardware/**/*.md',
           '../templates/layouts/support.hbs': 'content/support/**/*.md',
           '../templates/layouts/suppMenu.hbs': 'content/support/**/*.md',
           '../templates/layouts/quickstart.hbs': 'content/quickstart/*.md',
+          '../templates/layouts/community.hbs': 'content/community/*.md',
           '../templates/layouts/landing.hbs': 'content/*.md',
           '../templates/partials/**/*.hbs': 'content/**/*.md',
           '${source}/assets/js/*.js*' : true,

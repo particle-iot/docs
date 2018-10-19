@@ -2,7 +2,7 @@
 title: Google Maps
 layout: tutorials.hbs
 columns: two
-order: 150
+order: 110
 ---
 
 # {{title}}
