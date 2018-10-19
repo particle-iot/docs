@@ -33,36 +33,36 @@ For domestic orders (contiguous USA only) we have flat-rate shipping options, de
 |         Name         	      |    Time For Shipping   	| Weight in Lbs 	|  Price 	|
 |:--------------------------:	|:----------------------:	|:-------------:	|:------:	|
 |        Economy            	| Approx 7 business days 	|  Less than 1  	|  $4.80 	|
-| Economy+ (For PO Box Only)  | Approx 7 business days 	|     1 - 40    	|  $8.68 	|
-|        Standard           	| Approx 5 business days 	|   0 - 10.99   	|  $5.99 	|
-|                           	|                        	|   11 - 20.99  	| $12.53 	|
-|                           	|                        	|    21 - 40    	| $32.84 	|
-|       Expedited           	| Approx 3 business days 	|   0 - 10.99   	| $12.13 	|
-|                           	|                        	|   11 - 20.99  	| $21.76 	|
-|                           	|                        	|    21 - 40    	| $32.84 	|
-|        Express            	| Approx 2 business days 	|   0 - 10.99   	| $19.22 	|
-|                           	|                        	|   11 - 20.99  	| $28.35 	|
-|                      	      |                        	|    21 - 40    	| $34.02 	|
+| Economy+ (For PO Box Only)  | Approx 7 business days 	|    1 - 9.99   	|  $8.68 	|
+|        Standard           	| Approx 5 business days 	|    0 - 9.99    	|  $5.99 	|
+|                           	|                        	|   10 - 19.99  	| $12.53 	|
+|                           	|                        	|   20 - 29.99   	| $18.07 	|
+|       Expedited           	| Approx 3 business days 	|    0 - 9.99   	| $12.13 	|
+|                           	|                        	|   10 - 19.99  	| $21.76 	|
+|                           	|                        	|   20 - 29.99   	| $32.84 	|
+|        Express            	| Approx 2 business days 	|    0 - 9.99   	| $19.22 	|
+|                           	|                        	|   10 - 19.99  	| $28.35 	|
+|                      	      |                        	|   20 - 29.99   	| $34.02 	|
 
 Please note these shipping timelines are from **ship date** not **order date**. 
 
 #### PO Boxes
 
-Please note that for PO Boxes, there's only 2 options for shipping, Economy (for less than 1lb) and Economy Plus (for over 1lb). If you need it quicker, you'll have to choose a different, non-PO Box, address since we only have 1 option with our logistic partner to ship to PO boxes.
+Please note that for PO Boxes, there are only 2 options for shipping, Economy (for less than 1lb) and Economy+ (for over 1lb). If you need it quicker, you'll have to choose a different, non-PO Box, address since we only have 1 option with our logistic partner to ship to PO boxes.
 
 ### International Shipping
 
 We ship to your country unless you live in Iran, Iraq, South Sudan, North Korea, Sudan, Cuba, Syria, or any country that is embargoed by the US Government. 
 
 For international orders we only have FedEx at this time. New shipping methods are being added frequently as we work with different partners and carriers. 
-- FedEx International Ground - Usually is delivered in 5 Business days if placed before 12pm PST
-- FedEx International Priority - Usually is delivered in 3 Business days if placed before 12pm PST
+- FedEx International Economy - Usually is delivered in 5 Business days or less if placed before 12pm PST
+- FedEx International Priority - Usually is delivered in 3 Business days or less if placed before 12pm PST
 
 We ship all our products from Indiana, but we have many distributors around the world (you can find a list of some our international distributors [here](https://www.particle.io/distributors).
 
 #### Duties and Taxes
 
-Additional fees such as VAT, import costs, duties, and taxes for international shipments are your responsibility and are not included in shipping and handling costs. Particle is not responsible for any extra charges once the original package has been shipped. We can’t tell you exactly what the charges will be, but here’s a duty calculator to help with estimation. If you refuse to pay these extra charges, the return shipping and any additional fees will be taken out of the cost of the order with any remaining funds being refunded to you. In the event that the extra charges exceed the value of the order, we may charge those amounts to the credit card originally used for the order.
+Additional fees such as VAT, import costs, duties, and taxes for international shipments are your responsibility and are not included in shipping and handling costs. Particle is not responsible for any extra charges once the original package has been shipped. If you refuse to pay these extra charges, the return shipping and any additional fees will be taken out of your refund. In the event that the extra charges exceed the value of the order, we may charge those amounts to the credit card originally used for the order.
 
 ### Return to Sender
 
@@ -81,7 +81,7 @@ We include an invoice with international orders, but sometimes packages do get h
 
 ### Shipping Cost
 
-We work hard to lower the shipping rates you see. If they are higher than you expected though, there are some things you can do: 
+We work hard to lower the shipping rates you see. If they are higher than you expected, there are some things you can do: 
 - Consolidate shipments. It costs the same to ship 1 and 5 Photons.
 - Use a slower shipping method.
 - Use one of our [distributors](https://www.particle.io/distributors).
