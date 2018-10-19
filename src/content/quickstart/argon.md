@@ -28,36 +28,20 @@ The Particle Argon is a mesh and Bluetooth development kit designed for building
 
 ---
 
-## STEP 1: DOWNLOAD THE MOBILE APP
-
-Download the Particle IoT app for iPhone or Android. The app is used to set up the Argon, add devices to local mesh networks, and to TKTK.
+## STEP 1: SET UP YOUR ARGON
 
 
 
-### Download links
-{{box op="start" cssClass="boxedSideBySide"}}
-[![**iOS**](/assets/images/app-store-badge.png)](https://itunes.apple.com/us/app/particle-build-photon-electron/id991459054?ls=1&mt=8)
+To set up your Argon, click the button below and follow the onscreen instructions. The setup application will walk you through configuration of your new Argon, register the device with your Particle account, and connect to Device Cloud.
 
-{{box op="switch"}}
-[![Play Store](/assets/images/google-play-badge.png)](https://play.google.com/store/apps/details?id=io.particle.android.app)
-
-{{box op="end"}}
-
-{{box op="start"}}
-**TIP:**
-
-While the app is downloading, gather the micro-USB cable, breadboard, and Argon that came in your kit. You'll need all of those during the mobile setup.
-{{box op="end"}}
-
----
+<div  align="center">
+<br />
+<a href="https://setup.particle.io/"  target="_blank" class="button">SET UP YOUR Argon</a>
+<br />
+</div>
 
 
-## STEP 2: FOLLOW THE DIRECTIONS IN THE MOBILE APP
 
-
-The Particle mobile app temporarily connects your phone with your Argon using a Bluetooth connection and has you enter your mesh network credentials.
-
-Depending on how you want to use the Argon — as a part of a local mesh network or with the Ethernet FeatherWing to build a Argon gateway — the app will prompt you to answer a series of network related questions.
 
 {{box op="start" cssClass="boxed warningBox"}}
 **WARNING:**
@@ -69,11 +53,8 @@ Remove your Argon from the packaging foam before you plug it in!
 
 
 ---
-## STEP 3: BLINK THE ONBOARD LED
 
-
-
-### STEP 3A: OPEN THE WEB IDE
+## STEP 2: OPEN THE WEB IDE
 ![Image of the Web IDE](/assets/images/webide.png)
 
 To program your Argon, open a new browser tab and go to [the Web IDE](https://build.particle.io).
@@ -89,7 +70,7 @@ If you're looking for a more traditional embedded development experience, be sur
 
 ---
 
-### STEP 3B: LOAD THE BLINK EXAMPLE
+## STEP 3: LOAD THE BLINK EXAMPLE
 
 ![Image of the Web IDE with example code](/assets/images/webide-with-examples.png)
 
@@ -98,7 +79,7 @@ Click on _Blink an LED_ on the left side of the page. This will load the example
 
 ---
 
-### STEP 3C: TARGET YOUR DEVICE
+## STEP 4: TARGET YOUR DEVICE
 
 Look at the bottom right of the page and ensure that the device name is the name of your new Argon.
 
@@ -111,7 +92,7 @@ If you don't see your Argon listed, click on the device name. A sidebar will app
 
 ---
 
-### STEP 3D: COMPILE YOUR CODE AND FLASH YOUR DEVICE
+## STEP 5: COMPILE YOUR CODE AND FLASH YOUR DEVICE
 
 
 
@@ -128,12 +109,12 @@ You'll often see words like flashing and deploying used interchangeably.
 
 ---
 
-### STEP 3E: ENJOY THE BLINKING LED
+## STEP 6: ENJOY THE BLINKING LED
 
 
 ---
 
-## STEP 4: WHERE TO GO NEXT
+## STEP 7: WHERE TO GO NEXT
 set up is complete
 learn about build and workbench
 generally to know about console
