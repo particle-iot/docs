@@ -1,6 +1,6 @@
 ---
 title: E Series Evaluation Board
-layout: hardware.hbs
+layout: datasheet.hbs
 columns: two
 order: 4
 ---

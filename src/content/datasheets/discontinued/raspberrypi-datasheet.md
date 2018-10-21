@@ -1,6 +1,6 @@
 ---
 title: Raspberry Pi datasheet
-layout: hardware.hbs
+layout: datasheet.hbs
 columns: two
 order: 21
 ---

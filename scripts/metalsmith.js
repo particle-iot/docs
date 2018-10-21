@@ -184,8 +184,8 @@ exports.metalsmith = function() {
           'project-tutorials'
         ]
       },
-      hardware: {
-        pattern: 'hardware/:section/*.md',
+      datasheets: {
+        pattern: 'datasheets/:section/*.md',
         sortBy: 'order',
         orderDynamicCollections: [
           'wi-fi',
@@ -354,7 +354,7 @@ exports.server = function(callback) {
           '${source}/content/**/*.md': true,
           '${source}/assets/less/*.less': 'assets/less/*.less',
           '../templates/layouts/reference.hbs': 'content/reference/*.md',
-          '../templates/layouts/hardware.hbs': 'content/hardware/**/*.md',
+          '../templates/layouts/datasheet.hbs': 'content/datasheets/**/*.md',
           '../templates/layouts/support.hbs': 'content/support/**/*.md',
           '../templates/layouts/suppMenu.hbs': 'content/support/**/*.md',
           '../templates/layouts/quickstart.hbs': 'content/quickstart/*.md',

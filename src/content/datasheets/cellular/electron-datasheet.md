@@ -1,6 +1,6 @@
 ---
 title: Electron datasheet
-layout: hardware.hbs
+layout: datasheet.hbs
 columns: two
 order: 1
 ---

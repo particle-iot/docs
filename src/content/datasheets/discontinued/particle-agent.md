@@ -1,7 +1,7 @@
 ---
 word: Agent
 title: Particle Agent (Raspberry Pi)
-layout: hardware.hbs
+layout: datasheet.hbs
 columns: two
 order: 22
 ---

@@ -581,6 +581,21 @@ While all of the causes above were unintentionally causing breathing green, you 
 {{collapse op="end"}}
 
 
+### Rainbows/Nyan
+
+Using the Signal option in the Web IDE, or the [particle cloud nyan](/reference/cli/#particle-nyan) CLI command, you can have a device's status LED display a rainbow pattern. This is handy if you have multiple devices nearby and are not sure which one is which. 
+
+{{device-animation device "pattern"
+  "on #0000f3 100ms"
+  "on #00f300 100ms"
+  "on #f3f300 100ms"
+  "on #f39c00 100ms"
+  "on #f30000 100ms"
+  "on #e37ae3 100ms"
+  "on #47007a 100ms"
+}}
+
+
 ### Red Blink Basic Errors
 
 Blinking red indicates various errors.

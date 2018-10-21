@@ -1,6 +1,6 @@
 ---
 title: Core datasheet
-layout: hardware.hbs
+layout: datasheet.hbs
 columns: two
 order: 10
 ---

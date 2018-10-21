@@ -1,6 +1,6 @@
 ---
 title: Particle shields and kits
-layout: hardware.hbs
+layout: datasheet.hbs
 columns: two
 order: 30
 ---

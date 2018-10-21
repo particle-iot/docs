@@ -1,6 +1,6 @@
 ---
 title: Certification
-layout: hardware.hbs
+layout: datasheet.hbs
 columns: two
 order: 60
 ---

@@ -1,6 +1,6 @@
 ---
 title: E Series datasheet
-layout: hardware.hbs
+layout: datasheet.hbs
 columns: two
 order: 2
 ---
