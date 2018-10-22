@@ -22,7 +22,7 @@ module.exports = function(context) {
 	  platformMin = stringVerToNum('0.4.9');	  	  
   }
   else
-  if (device === 'Argon' || device === 'Boron' || device === 'Electron') {
+  if (device === 'Argon' || device === 'Boron' || device === 'Xenon') {
 	  platformMin = stringVerToNum('0.8.0');	  
   }
   else {

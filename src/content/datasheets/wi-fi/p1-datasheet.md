@@ -1,6 +1,6 @@
 ---
 title: P1 datasheet
-layout: hardware.hbs
+layout: datasheet.hbs
 columns: two
 order: 2
 ---

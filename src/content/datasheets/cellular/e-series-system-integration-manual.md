@@ -1,6 +1,6 @@
 ---
 title: E Series System Integration Manual
-layout: hardware.hbs
+layout: datasheet.hbs
 columns: two
 order: 6
 ---

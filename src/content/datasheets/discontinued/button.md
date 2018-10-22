@@ -1,6 +1,6 @@
 ---
 title: Internet Button
-layout: hardware.hbs
+layout: datasheet.hbs
 columns: two
 order: 31
 ---

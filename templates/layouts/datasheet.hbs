@@ -1,7 +1,7 @@
 <!doctype html>
 <html class="{{columns}}-columns">
 <head>
-  {{> head sectionTitle='Hardware Documentation'}}
+  {{> head sectionTitle='Datasheets'}}
 </head>
 <body>
   <div id="docs" data-level>
@@ -10,7 +10,7 @@
     <div class='content-root'>
       <div class='menubar'>
       <ul class="nav guide-menu">
-        {{#each hardware}}
+        {{#each datasheets}}
         <li data-level="{{inc @index}}" class="guide-section {{#contains ../path.href section}}active-section{{/contains}}">
           <h3 class="guide-section-titles" >{{{titleize section}}}</h3>
             <ul type="1">
