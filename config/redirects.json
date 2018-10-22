@@ -173,8 +173,6 @@
 	"/photon/tinker" : "/guide/getting-started/tinker",
 	"/photon/webhooks" : "/tutorials/device-os/webhooks",
 	"/quickstart": "/quickstart/xenon",
-	"/quickstart/electron": "/tutorials/project-tutorials/getting-started/electron",
-	"/quickstart/photon": "/tutorials/project-tutorials/getting-started/photon",
 	"/reference/android": "/reference/SDKs/android",
 	"/reference/api": "/reference/device-cloud/api",
 	"/reference/cli": "/reference/developer-tools/cli",
