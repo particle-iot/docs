@@ -21,9 +21,8 @@ The Xenon is best for connecting sensors, motors, pumps, valves, and points of d
 
 
 {{box op="start" cssClass="boxedSideBySide"}}
-**Tutorials**
-- [Quick start with starter project](/quickstart/xenon/)
-- Code examples
+**Learn more:**
+- [Quickstart with starter project](/quickstart/xenon/)
 - [Support](/support/support-and-fulfillment/menu-base/)
 {{box op="switch"}}
 **Resources:**

@@ -12,17 +12,17 @@ Have a question? We’re here to help — send us a note using the icon below.
 {{box op="start" cssClass="boxedCentered3col"}}
 ### Argon
 [![Argon](/assets/images/Argon-mock-2.png)
-Wi-Fi + mesh](/quickstart/argon)
+Wi-Fi + mesh](/argon)
 {{box op="switch"}}
 
 ### Boron
 [![](/assets/images/Boron-mock-2.png)
-LTE + mesh](/quickstart/boron)
+LTE + mesh](/boron)
 {{box op="switch"}}
 
 ### Xenon
 [![](/assets/images/Xenon-mock-2.png)
-mesh](/quickstart/xenon)
+mesh](/xenon)
 {{box op="switch"}}
 
 ### Photon
@@ -70,6 +70,7 @@ Wi-Fi | Cellular | Mesh
 ### Web IDE
 
 Write, compile, and flash your code from the browser
+<br />
 
 {{box op="switch"}}
 ### Console
@@ -90,22 +91,23 @@ A drag-and-drop IoT application builder designed to accelerate your time to mark
 ## Software APIs & Libraries
 {{box op="start" cssClass="boxedCentered3col"}}
 ### Device OS
-[Firmware](/reference/firmware/)
+[Learn more](/tutorials/device-os/device-os/)
 
 {{box op="switch"}}
 ### Device Cloud  APIs
-
+[Learn more](/reference/api/)
 {{box op="switch"}}
 ### Device Cloud Integrations
+[Learn more](/tutorials/integrations)
 
 {{box op="switch"}}
 ### Web Hooks
-
+[Learn more](/tutorials/integrations/webhooks/)
 {{box op="switch"}}
 ### SDKs
-  Android
-  iOS
-  JavaScript
+*  [Android](/reference/android/)
+*  [iOS](https://docs.particle.io/reference/ios/)
+*  [JavaScript](https://docs.particle.io/reference/javascript/)
 {{box op="end"}}
 
 <div align="center">

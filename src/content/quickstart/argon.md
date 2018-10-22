@@ -9,7 +9,7 @@ order: 3
 
 ![Image of the Argon in a breadboard](/assets/images/argon-breadboard.jpg)
 
-The Particle Argon is a mesh and Bluetooth development kit designed for building connected projects and products. To set up the device you'll need an Android or iOS mobile phone and a connection to the internet.
+The Particle Argon is a development kit with Wi-Fi, mesh, and Bluetooth radios for building connected projects and products. To set up your Argon, you'll need an Android or iOS mobile phone and a connection to the internet.
 
 
 ### The Argon Kit comes with the following things:
@@ -44,9 +44,9 @@ To set up your Argon, click the button below and follow the onscreen instruction
 
 
 {{box op="start" cssClass="boxed warningBox"}}
-**WARNING:**
+**NOTE:**
 
-Remove your Argon from the packaging foam before you plug it in!
+If you have already used the Particle Mobile App to set up your Argon, skip to Step #2.
 {{box op="end"}}
 
 
