@@ -28,7 +28,7 @@ The Particle Xenon is a mesh and Bluetooth development kit designed for building
 
 ---
 
-## STEP 1: Set up your Xenon
+## 1. Set up your Xenon
 
 
 
@@ -54,7 +54,7 @@ If you have already used the Particle Mobile App to set up your Xenon, skip to S
 
 ---
 
-## STEP 2: USING THE WEB IDE
+## 2. Using the Web IDE
 Now that your Xenon is connected to Device Cloud, you can write some code in the online Web IDE and send new code to your device to run.
 
 To program your Xenon, open a new browser tab and go to [the Web IDE](https://build.particle.io). You will see a layout like the image below.
@@ -73,7 +73,7 @@ If you're looking for a more traditional embedded development experience, be sur
 
 ---
 
-## STEP 3: LOAD THE BLINK EXAMPLE
+## 3. Load the Blink example
 
 ![Image of the Web IDE with example code](/assets/images/webide-with-examples.png)
 
@@ -82,7 +82,7 @@ Click on _Blink an LED_ on the left side of the page. This will load the example
 
 ---
 
-## STEP 4: TARGET YOUR DEVICE
+## 4. Target your device
 
 Look at the bottom right of the page and ensure that the device name is the name of your new Xenon.
 
@@ -95,7 +95,7 @@ If you don't see your Xenon listed, click on the device name. A sidebar will app
 
 ---
 
-## STEP 5: COMPILE YOUR CODE AND FLASH YOUR DEVICE
+## 5. Compile your code & flash
 
 
 
@@ -112,12 +112,12 @@ You'll often see words like flashing and deploying used interchangeably.
 
 ---
 
-## STEP 6: ENJOY THE BLINKING LED
+## 6. Enjoy the blinking LED
 
 
 ---
 
-## STEP 7: WHERE TO GO NEXT
+## 7. Where to go next
 set up is complete
 learn about build and workbench
 generally to know about console

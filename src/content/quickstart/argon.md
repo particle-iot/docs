@@ -28,8 +28,7 @@ The Particle Argon is a development kit with Wi-Fi, mesh, and Bluetooth radios f
 
 ---
 
-## STEP 1: SET UP YOUR ARGON
-
+## 1. Set up your Argon
 
 
 To set up your Argon, click the button below and follow the onscreen instructions. The setup application will walk you through configuration of your new Argon, register the device with your Particle account, and connect to Device Cloud.
@@ -54,7 +53,7 @@ If you have already used the Particle Mobile App to set up your Argon, skip to S
 
 ---
 
-## STEP 2: OPEN THE WEB IDE
+## 2. Open the Web IDE
 ![Image of the Web IDE](/assets/images/webide.png)
 
 To program your Argon, open a new browser tab and go to [the Web IDE](https://build.particle.io).
@@ -70,7 +69,7 @@ If you're looking for a more traditional embedded development experience, be sur
 
 ---
 
-## STEP 3: LOAD THE BLINK EXAMPLE
+## 3. Load the Blink example
 
 ![Image of the Web IDE with example code](/assets/images/webide-with-examples.png)
 
@@ -79,7 +78,7 @@ Click on _Blink an LED_ on the left side of the page. This will load the example
 
 ---
 
-## STEP 4: TARGET YOUR DEVICE
+## 4. Target your device
 
 Look at the bottom right of the page and ensure that the device name is the name of your new Argon.
 
@@ -92,8 +91,7 @@ If you don't see your Argon listed, click on the device name. A sidebar will app
 
 ---
 
-## STEP 5: COMPILE YOUR CODE AND FLASH YOUR DEVICE
-
+## 5. Compile your code & flash
 
 
 
@@ -109,8 +107,7 @@ You'll often see words like flashing and deploying used interchangeably.
 
 ---
 
-## STEP 6: ENJOY THE BLINKING LED
-
+## 6. Enjoy the blinking LED
 <span class="popupLink">
 testing
 <span class="popup">
@@ -120,8 +117,7 @@ testing
 
 ---
 
-## STEP 7: CONTROL AN EXTERNAL LED
-
+## 7. Control an external LED
 ![](/assets/images/Argon-external-LED-2.png)
 
 
