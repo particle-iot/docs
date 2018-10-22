@@ -111,10 +111,20 @@ You'll often see words like flashing and deploying used interchangeably.
 
 ## STEP 6: ENJOY THE BLINKING LED
 
+<span class="popupLink">
+testing
+<span class="popup">
+<img src="/assets/images/electronBattery.jpg style="margin:auto; max-width:100%">
+</span>
+</span>
 
 ---
 
-## STEP 7: WHERE TO GO NEXT
+## STEP 7: CONTROL AN EXTERNAL LED
+
+![](/assets/images/Argon-external-LED-2.png)
+
+
 set up is complete
 learn about build and workbench
 generally to know about console
