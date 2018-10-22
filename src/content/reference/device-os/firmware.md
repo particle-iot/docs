@@ -4048,8 +4048,26 @@ Returns the charge voltage register. This is the direct register value from the 
 ## Serial
 
 {{#unless raspberry-pi}}
-Used for communication between the {{device}} and a computer or other devices. The {{device}} has {{#if electron}}four{{else}}two{{/if}} hardware (USART) serial channels and {{#if has-usb-serial1}}two{{else}}one{{/if}} USB serial channel{{#if has-usb-serial1}}s{{else}}{{/if}}.
-{{/unless}}
+
+{{#if electron}}
+Used for communication between the {{device}} and a computer or other devices. The {{device}} has four hardware (USART) serial channels. 
+{{/if}}
+
+{{#unless electron}}
+
+{{#if has-serial2}}
+Used for communication between the {{device}} and a computer or other devices. The {{device}} has two hardware (USART) serial channels. 
+{{/if}}
+
+{{#unless has-serial2}}
+Used for communication between the {{device}} and a computer or other devices. The {{device}} has one hardware (USART) serial channel.
+{{/unless}} 
+
+{{/unless}} {{!-- electron --}} 
+
+It also has {{#if has-usb-serial1}}two{{else}}one{{/if}} USB serial channel{{#if has-usb-serial1}}s{{else}}{{/if}}.
+
+{{/unless}}{{!-- raspberry-pi --}}
 
 {{#unless raspberry-pi}}
 `Serial:` This channel communicates through the USB port and when connected to a computer, will show up as a virtual COM port.
@@ -4071,6 +4089,10 @@ void setup()
 
 `Serial1:` This channel is available via the device's TX and RX pins.
 
+{{#if has-nrf52}}
+Hardware flow control for Serial1 is optionally available on pins D3(CTS) and D2(RTS) on the {{device}}. 
+{{/if}}
+
 {{#if raspberry-pi}}
 **IMPORTANT**: Support for `Serial1` is not complete for the Raspberry Pi so `Serial1` never returns any data.
 {{/if}}
@@ -4083,15 +4105,22 @@ void setup()
 
 {{#if photon}}
 `Serial2:` This channel is optionally available via pins 28/29 (RGB LED Blue/Green). These pins are accessible via the pads on the botton of the PCB [See PCB Land Pattern](/datasheets/photon-datasheet/#recommended-pcb-land-pattern-photon-without-headers-). The Blue and Green current limiting resistors should be removed.
+
+If the user enables Serial2, they should also consider using RGB.onChange() to move the RGB functionality to an external RGB LED on some PWM pins.
 {{/if}}
 
 {{#if electron}}
 `Serial2:` This channel is optionally available via the device's RGB Green (TX) and Blue (RX) LED pins. The Blue and Green current limiting resistors should be removed.
+
+If the user enables Serial2, they should also consider using RGB.onChange() to move the RGB functionality to an external RGB LED on some PWM pins.
+{{/if}}
+
+{{#if xenon}}
+`Serial2:` This channel is optionally available on D4(TX) and D5(RX). Optional hardware flow control is available on D6(CTS) and D8(RTS) on the {{device}}. 
 {{/if}}
 
 To use Serial2, add `#include "Serial2/Serial2.h"` near the top of your app's main code file.
 
-If the user enables Serial2, they should also consider using RGB.onChange() to move the RGB functionality to an external RGB LED on some PWM pins.
 
 {{/if}} {{!-- has-serial2 --}}
 
@@ -4209,8 +4238,20 @@ Serial5.begin(speed, config); //  "
 ```
 
 Parameters:
-- `speed`: parameter that specifies the baud rate *(long)* _(optional for `Serial` {{#if has-usb-serial1}}and `USBSerial1`{{/if}})_ Baud rates of 1200 up to 115200 are supported for hardware serial channels.
+- `speed`: parameter that specifies the baud rate *(long)* _(optional for `Serial` {{#if has-usb-serial1}}and `USBSerial1`{{/if}})_ 
 - `config`: parameter that specifies the number of data bits used, parity and stop bits *(long)* _(not used with `Serial` {{#if has-usb-serial1}}and `USBSerial1`{{/if}})_
+
+{{#if core}}
+Hardware serial port baud rates are: 600, 1200, 2400, 4800, 9600, 19200, 38400, 57600, and 115200 on the {{device}}.
+{{/if}}
+
+{{#if has-stm32f2}}
+Hardware serial port baud rates are: 1200, 2400, 4800, 9600, 19200, 38400, 57600, 115200, and 230400 on the {{device}}.
+{{/if}}
+
+{{#if has-nrf52}}
+Hardware serial port baud rates are: 1200, 2400, 4800, 9600, 19200, 28800, 38400, 57600, 76800, 115200, 230400, 250000, 460800, 921600 and 1000000 on the {{device}}.
+{{/if}}
 
 
 ```C++
@@ -4232,7 +4273,7 @@ void setup()
 void loop() {}
 ```
 
-As of 0.5.0 firmware, 28800 baudrate set by the Host on `Serial` will put the device in Listening Mode, where a YMODEM download can be started by additionally sending an `f` character. Baudrate 14400 can be used to put the device into DFU Mode.
+{{since when="0.5.0"}} 28800 baudrate set by the Host on `Serial` will put the device in Listening Mode, where a YMODEM download can be started by additionally sending an `f` character. Baudrate 14400 can be used to put the device into DFU Mode.
 
 When using hardware serial channels (Serial1, Serial2{{#if electron}}, Serial4, Serial5{{/if}}), the configuration of the serial channel may also specify the number of data bits, stop bits, parity, flow control and other settings. The default is SERIAL_8N1 (8 data bits, no parity and 1 stop bit) and does not need to be specified to achieve this configuration.  To specify one of the following configurations, add one of these defines as the second parameter in the `begin()` function, e.g. `Serial1.begin(9600, SERIAL_8E1);` for 8 data bits, even parity and 1 stop bit.
 
@@ -4253,9 +4294,11 @@ Pre-defined Serial configurations available:
 - `SERIAL_7O2` - 7 data bits, odd parity, 1 stop bit
 - `SERIAL_7E1` - 7 data bits, odd parity, 1 stop bit
 - `SERIAL_7E2` - 7 data bits, odd parity, 1 stop bit
+{{#if has-linbus}}
 - `LIN_MASTER_13B` - 8 data bits, no parity, 1 stop bit, LIN Master mode with 13-bit break generation
 - `LIN_SLAVE_10B` - 8 data bits, no parity, 1 stop bit, LIN Slave mode with 10-bit break detection
 - `LIN_SLAVE_11B` - 8 data bits, no parity, 1 stop bit, LIN Slave mode with 11-bit break detection
+{{/if}}
 
 Alternatively, configuration may be constructed manually by ORing (`|`) the following configuration constants:
 
@@ -4278,14 +4321,26 @@ Parity:
 {{#if core}}
 Hardware flow control, available only on Serial1 (`CTS` - `A0`, `RTS` - `A1`):
 {{/if}}
-{{#if has-serial2}}{{#unless core}}
+
+{{#if has-stm32f2}} {{!-- photon and electron --}}
 Hardware flow control, available only on Serial2 (`CTS` - `A7`, `RTS` - `RGBR` ):
-{{/unless}}{{/if}}
+{{/if}}
+
+{{#if has-nrf52}}
+On mesh devices, flow control is available on Serial1 D3(CTS) and D2(RTS). 
+{{/if}}
+
+{{#if xenon}}
+On the {{device}} flow control is also available on Serial2 D6(CTS) and D8(RTS). 
+{{/if}}
+
+
 - `SERIAL_FLOW_CONTROL_NONE` - no flow control
 - `SERIAL_FLOW_CONTROL_RTS` - RTS flow control
 - `SERIAL_FLOW_CONTROL_CTS` - CTS flow control
 - `SERIAL_FLOW_CONTROL_RTS_CTS` - RTS/CTS flow control
 
+{{#if has-linbus}}
 LIN configuration:
 - `LIN_MODE_MASTER` - LIN Master
 - `LIN_MODE_SLAVE` - LIN Slave
@@ -4294,10 +4349,10 @@ LIN configuration:
 - `LIN_BREAK_11B` - 11-bit break detection
 
 **NOTE:** LIN break detection may be enabled in both Master and Slave modes.
-
+{{/if}} {{!-- has-linbus --}}
 
 {{#if has-usb-serial1}}
-***NOTE*** _Since 0.6.0_: When `USBSerial1` is enabled by calling `USBSerial1.begin()` in `setup()` or during normal application execution, the device will quickly disconnect from Host and connect back with `USBSerial1` enabled. If such behavior is undesireable, `USBSerial1` may be enabled with `STARTUP()` macro, which will force the device to connect to the Host with both `Serial` and `USBSerial1` by default.
+***NOTE*** {{since when="0.6.0"}}: When `USBSerial1` is enabled by calling `USBSerial1.begin()` in `setup()` or during normal application execution, the device will quickly disconnect from Host and connect back with `USBSerial1` enabled. If such behavior is undesireable, `USBSerial1` may be enabled with `STARTUP()` macro, which will force the device to connect to the Host with both `Serial` and `USBSerial1` by default.
 
 ```C++
 // EXAMPLE USAGE
@@ -4377,11 +4432,11 @@ void loop()
 
 ### availableForWrite()
 
-_Since 0.4.9 Available on Serial1{{#if has-serial2}}, Serial2{{/if}}{{#if has-serial4-5}}, Serial4, Serial5{{/if}}._
+{{since when="0.4.9"}} Available on Serial1{{#if has-serial2}}, Serial2{{/if}}{{#if has-serial4-5}}, Serial4, Serial5{{/if}}.
 
-_Since 0.5.0 Available on USB Serial (Serial)_
+{{since when="0.5.0"}} Available on USB Serial (Serial)
 
-{{#if has-usb-serial1}}_Since 0.6.0 Available on `USBSerial1`_{{/if}}
+{{#if has-usb-serial1}}{{since when="0.6.0"}} Available on `USBSerial1`{{/if}}
 
 Retrieves the number of bytes (characters) that can be written to this serial port without blocking.
 
@@ -4431,17 +4486,17 @@ HAL_USB_USART_Config acquireUSBSerial1Buffer()
 
 {{since when="0.6.0"}}
 
-It is possible for the application to allocate its own buffers for `Serial` and `USBSerial1` by implementing `acquireSerialBuffer` and `acquireUSBSerial1Buffer` functions. Minimum receive buffer size is 65 bytes.
+It is possible for the application to allocate its own buffers for `Serial` (USB serial) and `USBSerial1` by implementing `acquireSerialBuffer` and `acquireUSBSerial1Buffer` functions. Minimum receive buffer size is 65 bytes.
 
 {{/if}} {{!-- has-usb-serial1 --}}
 
 ### blockOnOverrun()
 
-_Since 0.4.9 Available on Serial1{{#if has-serial2}}, Serial2{{/if}}{{#if has-serial4-5}}, Serial4, Serial5{{/if}}._
+{{since when="0.4.9"}} Available on Serial1{{#if has-serial2}}, Serial2{{/if}}{{#if has-serial4-5}}, Serial4, Serial5{{/if}}.
 
-_Since 0.5.0 Available on USB Serial (Serial)_
+{{since when="0.5.0"}} Available on USB Serial (Serial)
 
-{{#if has-usb-serial1}}_Since 0.6.0 Available on `USBSerial1`_{{/if}}
+{{#if has-usb-serial1}}{{since when="0.6.0"}} Available on `USBSerial1`{{/if}}
 
 Defines what should happen when calls to `write()/print()/println()/printlnf()` that would overrun the buffer.
 
@@ -4698,6 +4753,9 @@ Serial1.flush();
 
 `flush()` neither takes a parameter nor returns anything.
 
+
+{{#if has-serial-half-duplex}}
+
 ### halfduplex()
 
 _Available on Serial1{{#if has-serial2}}, Serial2{{/if}}{{#if has-serial4-5}}, Serial4, Serial5{{/if}}._
@@ -4723,6 +4781,8 @@ Serial1.halfduplex(true);
 `halfduplex()` takes one argument: `true` enables half-duplex mode, `false` disables half-duplex mode
 
 `halfduplex()` returns nothing
+
+{{/if}}
 
 ### isConnected()
 
