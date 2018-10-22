@@ -44,9 +44,9 @@ To set up your Xenon, click the button below and follow the onscreen instruction
 
 
 {{box op="start" cssClass="boxed warningBox"}}
-**WARNING:**
+**NOTE:**
 
-Remove your Xenon from the packaging foam before you plug it in!
+If you have already used the Particle Mobile App to set up your Xenon, skip to Step #2.
 {{box op="end"}}
 
 
@@ -54,10 +54,13 @@ Remove your Xenon from the packaging foam before you plug it in!
 
 ---
 
-## STEP 2: OPEN THE WEB IDE
+## STEP 2: USING THE WEB IDE
+Now that your Xenon is connected to Device Cloud, you can write some code in the online Web IDE and send new code to your device to run.
+
+To program your Xenon, open a new browser tab and go to [the Web IDE](https://build.particle.io). You will see a layout like the image below.
+
 ![Image of the Web IDE](/assets/images/webide.png)
 
-To program your Xenon, open a new browser tab and go to [the Web IDE](https://build.particle.io).
 
 
 {{box op="start"}}
@@ -65,7 +68,7 @@ To program your Xenon, open a new browser tab and go to [the Web IDE](https://bu
 
 The Web IDE is one of the ways you can write, compile, and deploy code to your Particle devices.
 
-If you're looking for a more traditional embedded development experience, be sure to learn about [Particle Workbench], a full toolchain integration with Microsoft Visual Studio Code.
+If you're looking for a more traditional embedded development experience, be sure to learn about [Particle Workbench](https://www.particle.io/workbench), a full toolchain integration with Microsoft Visual Studio Code.
 {{box op="end"}}
 
 ---

@@ -49,9 +49,9 @@ To set up your Boron, click the button below and follow the onscreen instruction
 
 
 {{box op="start" cssClass="boxed warningBox"}}
-**WARNING:**
+**NOTE:**
 
-Remove your Boron from the packaging foam before you plug it in!
+If you have already used the Particle Mobile App to set up your Boron, skip to Step #2.
 {{box op="end"}}
 
 

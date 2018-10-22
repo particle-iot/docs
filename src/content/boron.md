@@ -7,7 +7,7 @@ layout: landing.hbs
 
 ![Image of the Boron Kit](/assets/images/boron-kit-docs-crop.jpg)
 
-The Boron LTE is a powerful LTE CAT-M1/NB1 enabled development kit that can act as either a standalone cellular endpoint or LTE enabled gateway for Particle Mesh networks. It is based on the Nordic nRF52840 and has built-in battery charging circuitry so it’s easy to connect a Li-Po and deploy your local network in minutes.
+The Boron LTE is a powerful LTE CAT-M1/NB1 enabled development kit that can act as either a standalone cellular device or LTE enabled gateway for Particle Mesh networks. It is based on the Nordic nRF52840 and has built-in battery charging circuitry so it’s easy to connect a Li-Po and deploy your local network in minutes.
 
 The Boron is great for connecting existing projects to the Particle Device Cloud or as a gateway to connect an entire group of local endpoints where Wi-Fi is missing or unreliable.
 
@@ -18,18 +18,15 @@ The Boron is great for connecting existing projects to the Particle Device Cloud
 
 
 {{box op="start" cssClass="boxedSideBySide"}}
-**Tutorials**
-- [Quick start](/quickstart/boron/)
-- Starter project
-- Code examples
+**Learn more:**
+- [Quickstart with starter project](/quickstart/boron/)
 - [Support](/support/support-and-fulfillment/menu-base/)
 {{box op="switch"}}
 **Resources:**
 - [Code](https://github.com/particle-iot/boron)
 - [Gerber files](https://github.com/particle-iot/boron)
-- [Data sheets](https://github.com/particle-iot/boron)
+- [Datasheets](https://github.com/particle-iot/boron)
 - [Community](https://community.particle.io/c/mesh)
-- [Buy more mesh hardware](https://store.particle.io/collections/mesh)
 {{box op="end"}}
 
 ## Hardware specifications
@@ -72,7 +69,7 @@ The Boron is great for connecting existing projects to the Particle Device Cloud
 <div align="center">
 <br />
 
-<a href="https://store.particle.io/products/xenon" target="_blank" class="button">BUY A BORON</a>
+<a href="https://store.particle.io/products/boron-lte" target="_blank" class="button">BUY A BORON</a>
 </div>
 
 {{box op="end"}}
