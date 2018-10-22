@@ -3239,7 +3239,17 @@ The PWM frequency must be the same for pins in the same timer group.
 - On the Electron, the timer groups are D0/D1/C4/C5, D2/D3/A4/A5/B2/B3, WKP, RX/TX, B0/B1.
 {{/if}}
 {{#if has-nrf52}}
-On mesh devices, pin A0, A1, A2, A3, D4, D5, D6, D7, and D8 can be used for PWM.
+On mesh devices, pin A0, A1, A2, A3, D2, D3, D4, D5, D6, D7, and D8 can be used for PWM. Pins are assigned a PWM group. Each group must share the same 
+frequency and resolution, but individual pins in the group can have a different duty cycle.
+
+- Group 3: Pins D2, D3, A4, and A5.
+
+- Group 2: Pins A0, A1, A2, and A3.
+
+- Group 1: Pins D4, D6, D7, and D8.
+
+- Group 0: Pin D5 and the RGB LED. This must use the default resolution of 8 bits (0-255) and frequency of 500 Hz.
+
 {{/if}}
 
 
@@ -3334,6 +3344,8 @@ _Since 0.5.3_ **Note:** you do not need to set the pinMode() with analogRead(). 
 
 {{#if has-nrf52}}
 The device has 6 channels (A0 to A5) with a 12-bit resolution. This means that it will map input voltages between 0 and 3.3 volts into integer values between 0 and 4095. This yields a resolution between readings of: 3.3 volts / 4096 units or, 0.0008 volts (0.8 mV) per unit.
+
+The sample time to read one analog value is 10 microseconds.
 {{/if}}
 
 ```C++
@@ -3366,6 +3378,8 @@ void loop()
 }
 ```
 
+{{#if has-adc-sample-time}}
+
 ### setADCSampleTime()
 
 The function `setADCSampleTime(duration)` is used to change the default sample time for `analogRead()`.
@@ -3397,6 +3411,8 @@ On the Core, this parameter can be one of the following values (ADC clock = 18MH
 The default is ADC_SampleTime_480Cycles. This means that the ADC is sampled for 16 us which can provide a more accurate reading, at the expense of taking longer than using a shorter ADC sample time. If you are measuring a high frequency signal, such as audio, you will almost certainly want to reduce the ADC sample time.
  
 Furthermore, 5 consecutive samples at the sample time are averaged in analogRead(), so the time to convert is closer to 80 us, not 16 us, at 480 cycles.
+{{/if}} {{!-- has-adc-sample-time --}}
+
 
 {{/if}} {{!-- has-adc --}}
 
