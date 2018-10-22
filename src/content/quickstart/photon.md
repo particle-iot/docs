@@ -1,5 +1,5 @@
 ---
-title: Xenon Kit
+title: Photon
 layout: quickstart.hbs
 columns: two
 order: 6
