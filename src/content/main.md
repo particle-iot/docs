@@ -27,12 +27,12 @@ mesh](/xenon)
 
 ### Photon
 [![](/assets/images/Photon-mock-2.png)
-Wi-Fi](/guide/getting-started/start/photon/)
+Wi-Fi](/photon/)
 {{box op="switch"}}
 
 ### Electron
 [![](/assets/images/Electron-mock-2.png)
-Cellular](/guide/getting-started/start/electron/)
+Cellular](/electron/)
 {{box op="switch"}}
 
 ### Accessories
@@ -49,7 +49,7 @@ Classic Accessories & FeatherWings
 
 ### P Series
 ![](/assets/images/P0-mock-2.png) ![](/assets/images/P1-mock-2.png)
-Wi-Fi](/datasheets/photon-\(wifi\)/p1-datasheet/)
+Wi-Fi](/datasheets/wi-fi/p1-datasheet/)
 {{box op="switch"}}
 
 ### E Series
