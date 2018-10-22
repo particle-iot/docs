@@ -28,7 +28,7 @@ The Particle Xenon is a mesh and Bluetooth development kit designed for building
 
 ---
 
-## STEP 1: SET UP YOUR XENON
+## STEP 1: Set up your Xenon
 
 
 
