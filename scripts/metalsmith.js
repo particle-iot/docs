@@ -212,6 +212,12 @@ exports.metalsmith = function() {
           'troubleshooting'
         ]
       },
+      supportBase: {
+          pattern: 'support/*.md',
+          sortBy: 'order',
+          orderDynamicCollections: [
+          ]
+        },
       quickstart: {
           pattern: 'quickstart/*md',
           sortBy: 'order',
