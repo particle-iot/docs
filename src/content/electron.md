@@ -9,6 +9,9 @@ layout: landing.hbs
 The Electron 3G Kit is a tiny development kit for creating 3G cellular-connected electronics projects and products. It comes with a Particle SIM card with service in more than 100 countries worldwide.
 
 
+
+
+
 <div  align="center">
 <br />
 <a href="https://setup.particle.io/"  target="_blank" class="button">SET UP YOUR ELECTRON</a>
@@ -33,7 +36,18 @@ The Electron 3G Kit is a tiny development kit for creating 3G cellular-connected
 ### Main processor:
 * STM32F205 ARM Cortex M3 microcontroller
 * 1MB Flash, 128K RAM
-* Cellular modem: u-blox SARA U-series (3G)
+
+### Cellular radio
+
+{{box op="start" cssClass="boxed warningBox"}}
+**NOTE:**
+The Electron comes in three different versions with different u-blox cellular modems.
+* 3G for Americas and Australia
+* 3G for Europe, Asia, and Africa
+* 2G for global coverage
+{{box op="end"}}
+* u-blox SARA U-series (for 3G Electron versions)
+* u-blox SARA G-series (for 2G Electron versions)
 
 ### General specification:
 * 36 pins total:
