@@ -18,15 +18,15 @@ If you have an Internet Button, read through this section to get started and con
 Let's quickly go over what you see.
 
 ### What's on it?
-#### The Wi-Fi Module
+#### The Wi-Fi module
 
 This is probably why you bought your device-- the Wi-Fi module allows your Photon to communicate with the internet. It connects your device to the internet in the same way that your smartphone might connect to a wifi network. **Do not press down on the Photon's module. Doing so triggers a reset and is generally not good for the Photon.**
 
-#### The Microcontroller
+#### The microcontroller
 
 The microcontroller is the brain of your device. It runs your software and tells your prototype what to do. Unlike your computer, it can only run one application (often called _firmware_ or an _embedded application_). This application can be simple (just a few lines of code), or very complex, depending on what you want to do. The microcontroller interacts with the outside world using pins.
 
-#### The Pins
+#### The pins
 
 Pins are the input and output parts of the microcontroller that are exposed on the sides of your device. GPIO pins can be hooked to sensors or buttons to listen to the world, or they can be hooked to lights and buzzers to act upon the world. There are also pins to allow you to power your device, or power motors and outputs outside of your device. There are pins for Serial/UART communication, and a pin for resetting your device.
 
