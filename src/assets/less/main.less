@@ -18,16 +18,31 @@ a.mainGridButton {
   color: @NC_BLACK;
 }
 
-div.mainSquare {
-  float:left;
-  position: relative;
-  width: 30%;
-  padding-bottom: 30%;
-  margin:1.66%;
-  overflow:hidden;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.15), 0 6px 20px 0 rgba(0, 0, 0, 0.13);
+
+@media all and (max-width: 599px) {
+	div.mainSquare {
+	  float:left;
+	  position: relative;
+	  width: 90%;
+	  padding-bottom: 90%;
+	  margin:1.66%;
+	  overflow:hidden;
+	  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.15), 0 6px 20px 0 rgba(0, 0, 0, 0.13);
+	}
 }
 
+@media all and (min-width: 600px) {
+	div.mainSquare {
+	  float:left;
+	  position: relative;
+	  width: 30%;
+	  padding-bottom: 30%;
+	  margin:1.66%;
+	  overflow:hidden;
+	  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.15), 0 6px 20px 0 rgba(0, 0, 0, 0.13);
+	}
+}
+  
 div.mainContent {
   position:absolute;
   text-align:center;
@@ -35,6 +50,7 @@ div.mainContent {
   width:90%;
   padding: 10% 5%;
 }
+
 
 div.mainTopBottom {
 }
@@ -44,14 +60,14 @@ div.mainTop {
     vertical-align:center;
     top:0;
     height:75%;
-    width:100%;
+    width:90%;
 }
 div.mainBottom {
     position:absolute;
     vertical-align:center;
     top:75%;
     height:25%;
-    width:100%;
+    width:90%;
     color:@NC_COOL_GRAY;
 }
 
@@ -64,14 +80,27 @@ div.mainBoxDescription {
 	font-size: x-small;
 }
 
-div.mainNoPicRect {
-  float:left;
-  position: relative;
-  width: 30%;
-  padding-bottom: 15%;
-  margin:1.66%;
-  overflow:hidden;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+@media all and (max-width: 599px) {
+	div.mainNoPicRect {
+	  float:left;
+	  position: relative;
+	  width: 90%;
+	  padding-bottom: 45%;
+	  margin:1.66%;
+	  overflow:hidden;
+	  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+	}
+}
+@media all and (min-width: 600px) {
+	div.mainNoPicRect {
+	  float:left;
+	  position: relative;
+	  width: 30%;
+	  padding-bottom: 15%;
+	  margin:1.66%;
+	  overflow:hidden;
+	  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+	}
 }
 
 div.mainNoPicTop {
