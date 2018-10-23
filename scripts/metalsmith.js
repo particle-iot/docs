@@ -360,6 +360,7 @@ exports.server = function(callback) {
           '../templates/layouts/quickstart.hbs': 'content/quickstart/*.md',
           '../templates/layouts/community.hbs': 'content/community/*.md',
           '../templates/layouts/landing.hbs': 'content/*.md',
+          '../templates/layouts/main.hbs': 'content/index.md',
           '../templates/partials/**/*.hbs': 'content/**/*.md',
           '${source}/assets/js/*.js*' : true,
           '${source}/assets/images/**/*' : true,

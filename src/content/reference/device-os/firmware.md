@@ -5426,6 +5426,7 @@ be used via the `SPI` object, are mapped as follows:
 * `MOSI` => `A5`
 {{/if}}
 {{#if has-nrf52}}
+* `SS` => `D14` (but can use any available GPIO)
 * `SCK` => `SCK (D13)`
 * `MISO` => `MISO (D11)`
 * `MOSI` => `MOSI (D12)`
