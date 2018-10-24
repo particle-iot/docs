@@ -900,7 +900,7 @@ Click on **My Applets** at the bottom of the page to start the creation of your 
 * Step 1: Select **Particle** from the services list. You'll be prompted to connect your Particle account to IFTTT if you have not done so already.
 * Step 2: Select **New event published**
 * Step 3: Enter `temperature` in the **If (Event Name)** field, and select your device in the **Device Name or ID** field.
-* Step 4: Select **Google Drive** from the integrations list. You'll be prompted to connect your Google Drive account to IFTTT if you have not done so already.
+* Step 4: Select **Google Sheets** from the integrations list. You'll be prompted to connect your Google Sheets account to IFTTT if you have not done so already.
 * Step 5: Select **Add row to spreadsheet**
 * Step 6: Paste the following line into the **Formatted Row** box: `=DATEVALUE(SUBSTITUTE("\{{CreatedAt}}"," at ", " "))|||=TIMEVALUE(SUBSTITUTE("\{{CreatedAt}}"," at ", " "))|||\{{EventContents}}`. This line makes separate columns for the date, time, and temperature.
 * Step 7: Click **Next** and then **Finish**!
