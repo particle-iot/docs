@@ -5957,17 +5957,25 @@ These pins are used via the `Wire` object.
 * `SCL` => `D1`
 * `SDA` => `D0`
 
+{{#if has-i2c-wire1}}
+
 {{#if electron}}
 Additionally on the Electron, there is an alternate pin location for the I2C interface, which can
 be used via the `Wire1` object. This alternate location is mapped as follows:
 * `SCL` => `C5`
 * `SDA` => `C4`
+Note that you cannot use both Wire and Wire1. These are merely alternative pin locations for a 
+single hardware I2C port.
+{{/if}}
+{{#if has-nrf52}}
+Additionally, on the Argon and Xenon, there a second I2C port that can be used with the `Wire1` object:
+* `SCL` => `D3`
+* `SDA` => `D2` 
+{{/if}}
 
-**Note**: Because there are multiple I2C locations available, be sure to use the same `Wire` or `Wire1` object with all associated functions. I.e.,
+**Note**: Because there are multiple I2C locations available, be sure to use the same `Wire` or `Wire1` object with all associated functions. 
+For example, do not use `Wire.begin()` with `Wire1.write()`.
 
-Do **NOT** use **Wire**.begin() with **Wire1**.write();
-
-**Do** use **Wire1**.begin() with **Wire1**.transfer();
 {{/if}}
 
 {{/if}} {{!-- has-embedded --}}
