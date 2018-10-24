@@ -10,10 +10,37 @@ order: 2
 <div align=center><img src="/assets/images/argon/argon-top.png" ></div>
 
 ## Functional description
- - Overview
+
+### Overview
     what is this product?
 
- - Features
+### Features
+
+ * Espressif ESP32-D0WD 2.4G Wi-Fi coprocessor 
+  * On-board 4MB flash for ESP32 
+  * 802.11 b/g/n support 
+  * 802.11 n (2.4 GHz), up to 150 Mbps
+ * Nordic Semiconductor nRF52840 SoC 
+  * ARM Cortex-M4F 32-bit processor @ 64MHz 
+  * 1MB flash, 256KB RAM 
+  * IEEE 802.15.4-2006: 250 Kbps 
+  * Bluetooth 5: 2 Mbps, 1 Mbps, 500 Kbps, 125 Kbps 
+  * Supports DSP instructions, HW accelerated Floating Point Unit (FPU) calculations 
+  * ARM TrustZone CryptoCell-310 Cryptographic and security module 
+  * Up to +8 dBm TX power (down to -20 dBm in 4 dB steps) 
+  * NFC-A tag
+ * On-board additional 2MB SPI flash
+ * 20 mixed signal GPIO (6 x Analog, 8 x PWM), UART, I2C, SPI
+ * Micro USB 2.0 full speed (12 Mbps)
+ * Integrated Li-Po charging and battery connector
+ * JTAG (SWD) Connector
+ * RGB status LED
+ * Reset and Mode buttons
+ * On-board PCB antenna
+ * u.FL connector for external antenna
+ * Meets the Adafruit Feather [specification](https://learn.adafruit.com/adafruit-feather/feather-specification) in dimensions and pinout
+ * FCC, CE and IC certified
+ * RoHS compliant (lead-free)
 
 ## Interfaces
 
