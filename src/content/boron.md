@@ -7,7 +7,9 @@ layout: landing.hbs
 
 ![Image of the Boron Kit](/assets/images/boron-kit-docs-crop.jpg)
 
-The Boron LTE is a powerful LTE CAT-M1/NB1 enabled development kit that can act as either a standalone cellular device or LTE enabled gateway for Particle Mesh networks. It is based on the Nordic nRF52840 and has built-in battery charging circuitry so it’s easy to connect a Li-Po and deploy your local network in minutes.
+The Boron LTE is a powerful LTE CAT-M1/NB1 enabled development kit that can act as either a standalone cellular device or LTE enabled gateway, repeater, or endpoint for a Particle Mesh networks.
+
+Equipped with the Nordic nRF52840 and u-blox SARA 410 processors, the Boron has built-in battery charging circuitry which makes it easier to connect a Li-Po battery and 20 mixed signal GPIOs to interface with sensors, actuators, and other electronics.
 
 The Boron is great for connecting existing projects to the Particle Device Cloud or as a gateway to connect an entire group of local endpoints where Wi-Fi is missing or unreliable.
 
@@ -28,7 +30,7 @@ The Boron is great for connecting existing projects to the Particle Device Cloud
 - [Community](https://community.particle.io/c/mesh)
 {{box op="end"}}
 
-## Hardware specifications
+## Hardware specifications:
 
 {{box op="start"}}
 ### Main processor:
