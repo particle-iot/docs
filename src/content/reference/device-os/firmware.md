@@ -3086,6 +3086,14 @@ Also beware when using pins D3, D5, D6, and D7 as OUTPUT controlling external de
 The brief change in state (especially when connected to a MOSFET that can be triggered by the pull-up or pull-down) may cause issues when using these pins in certain circuits. You can see this with the D7 blue LED which will blink dimly and briefly at boot.
 {{/if}}
 
+{{#if has-nrf52}}
+If you are using the Particle Ethernet FeatherWing you cannot use the pins for GPIO as they are used for the Ethernet interface:
+- D3 (RESET)
+- D4 (INTN)
+- D5 (SCSN) 
+- SPI (SCK, MOSI, MISO) is also used, however you can still share the SPI bus in many cases.
+{{/if}}
+
 ### getPinMode(pin)
 
 Retrieves the current pin mode.
@@ -5435,10 +5443,17 @@ be used via the `SPI` object, are mapped as follows:
 {{#if has-multiple-spi}}
 There is a second hardware SPI interface available, which can
 be used via the `SPI1` object. This second port is mapped as follows:
+{{#if has-stm32}}
 * `SS` => `D5` (default)
 * `SCK` => `D4`
 * `MISO` => `D3`
 * `MOSI` => `D2`
+{{/if}}
+{{#if has-nrf52}}
+* `SCK` => `D2`
+* `MISO` => `D3`
+* `MOSI` => `D4`
+{{/if}}
 {{/if}}
 
 {{#if electron}}
@@ -10648,6 +10663,12 @@ Resets the device and restarts in safe mode.
 ### sleep() [ Sleep ]
 
 `System.sleep()` can be used to dramatically improve the battery life of a Particle-powered project by temporarily deactivating the {{network-type}} module, which is by far the biggest power draw.
+
+{{#if has-nrf52}}
+**The sleep modes described here are for the Photon and Electron. Updated documentation with details
+for mesh devices will be provided soon.**
+{{/if}}
+
 
 ```
 // Variants of System.sleep()
