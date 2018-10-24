@@ -22,7 +22,7 @@ The Particle Xenon is a mesh and Bluetooth development kit designed for building
   * One mini breadboard
 * **Electronic components**
   * Two resistors (220 ohm)
-  * One red light-emitting diode (LED)
+  * One light-emitting diode (LED)
   * One photodiode
 {{box op="end"}}
 
@@ -32,7 +32,17 @@ The Particle Xenon is a mesh and Bluetooth development kit designed for building
 
 
 
-To set up your Xenon, click the button below and follow the onscreen instructions. The setup application will walk you through configuration of your new Xenon, register the device with your Particle account, and connect to Device Cloud.
+
+Use the online setup application to configure your new Xenon. The process includes the following.
+* Registration of your device with your Particle account
+* Connection of your device to the Particle Device Cloud
+* Particle Mesh network configuration
+
+
+
+Once you've completed the setup you will be able to program your device and send over-the-air (OTA) updates to it.
+
+To begin setting up your Xenon, click the button below and follow the onscreen instructions. When you've completed set up, continue to Step #2.
 
 <div  align="center">
 <br />
@@ -44,9 +54,12 @@ To set up your Xenon, click the button below and follow the onscreen instruction
 
 
 {{box op="start" cssClass="boxed warningBox"}}
-**NOTE:**
+**NOTES:**</br>
+1.) If you have already used the Particle Mobile App to set up your Xenon, skip to Step #2.<br /><br />
+2.) During set up you may skip setting up a Particle Mesh network and use the Xenon in a standalone mode.
 
-If you have already used the Particle Mobile App to set up your Xenon, skip to Step #2.
+
+
 {{box op="end"}}
 
 

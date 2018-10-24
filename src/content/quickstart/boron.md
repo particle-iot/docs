@@ -27,7 +27,7 @@ The Particle Boron is a mesh and Bluetooth development kit designed for building
   * One mini breadboard
 * **Electronic components**
   * Two resistors (220 ohm)
-  * One red light-emitting diode (LED)
+  * One light-emitting diode (LED)
   * One photodiode
 {{box op="end"}}
 
