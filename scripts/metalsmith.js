@@ -190,6 +190,7 @@ exports.metalsmith = function() {
         orderDynamicCollections: [
           'wi-fi',
           'cellular',
+          'mesh',
           'certifications',
           'discontinued'
         ]
