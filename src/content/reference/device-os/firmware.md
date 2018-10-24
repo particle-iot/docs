@@ -10664,6 +10664,12 @@ Resets the device and restarts in safe mode.
 
 `System.sleep()` can be used to dramatically improve the battery life of a Particle-powered project by temporarily deactivating the {{network-type}} module, which is by far the biggest power draw.
 
+{{#if has-nrf52}}
+**The sleep modes described here are for the Photon and Electron. Updated documentation with details
+for mesh devices will be provided soon.**
+{{/if}}
+
+
 ```
 // Variants of System.sleep()
 
