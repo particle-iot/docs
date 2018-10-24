@@ -249,14 +249,27 @@ The Xenon can be directly soldered onto the PCB or be mounted with the above men
 
 <div align=center><img src="/assets/images/xenon/xenon-landing-pattern.png" ></div>
 
-<!---
+
 ## Schematic
 
 ### Power
-### nRF52840
-### Interfaces
-### JTAG
 
+<div align=center><img src="/assets/images/xenon/schematic-usb-power.png" ></div>
+
+### nRF52840
+
+<div align=center><img src="/assets/images/xenon/schematic-main.png" ></div>
+
+### SPI FLASH
+
+<div align=center><img src="/assets/images/xenon/schematic-spi-flash.png" ></div>
+
+### Interfaces
+
+<div align=center><img src="/assets/images/xenon/schematic-interfaces.png" ></div>
+
+
+<!---
 ## Bill of materials
 -->
 

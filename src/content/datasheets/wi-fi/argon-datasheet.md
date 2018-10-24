@@ -268,14 +268,22 @@ The Argon can be directly soldered onto the PCB or be mounted with the above men
 
 <div align=center><img src="/assets/images/argon/argon-landing-pattern.png" ></div>
 
-<!---
+
 ## Schematic
 
 ### Power
-### nRF52840
-### Interfaces
-### JTAG
 
+<div align=center><img src="/assets/images/argon/schematic-power.png" ></div>
+
+### nRF52840
+
+<div align=center><img src="/assets/images/argon/schematic-nrf52840.png" ></div>
+
+### ESP32
+
+<div align=center><img src="/assets/images/argon/schematic-esp32.png" ></div>
+
+<!---
 ## Bill of materials
 -->
 
