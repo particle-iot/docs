@@ -29,10 +29,10 @@ All Particle Mesh devices are 3.3V logic compatible.
 The USB port is the easiest way to power up the Xenon. Please make sure that the USB port is able to provided at least 500mA. Power from the USB is regulated down to 3.3V by the on board Torex XC9258A step-down regulator. 
 
 #### VUSB PIN
-The pin is internally connected to the VBUS of the USB port. The nominal output should be around 4.5 to 5 VDC when the device is plugged into the USB port and 0 when not connected to a USB source. You can use this pin to power peripherals that operate at such voltages. Do not exceed the current rating of the USB port, which is nominally rated to 500mA.
+The pin is internally connected to the VBUS of the USB port. The typical output should be around 4.5 to 5 VDC when the device is plugged into the USB port and 0 when not connected to a USB source. You can use this pin to power peripherals that operate at such voltages. Do not exceed the current rating of the USB port, which is nominally rated to 500mA.
 
 #### LIPO
-If you want to make your projects truly wireless, you can power the device with a single cell LiPo (3.7V). The Xenon has an on board LiPo charger that will charge and power the device when USB source is plugged in, or power the device from the LiPo alone in the absence of the USB.
+If you want to make your projects truly wireless, you can power the device with a single cell LiPo/Lithium Ion (3.7V). The Xenon has an on board LiPo charger that will charge and power the device when USB source is plugged in, or power the device from the LiPo alone in the absence of the USB.
 
 **Note:** Please pay attention to the polarity of the LiPo connector. Not all LiPo follow the same polarity convention!
 
@@ -40,31 +40,17 @@ If you want to make your projects truly wireless, you can power the device with 
 This pin is internally connected to the positive terminal of the LiPo connector. You can connect a single cell LiPo/Lithium Ion or a DC supply source to this pin for powering the Xenon. Remember that the input voltage range on this pin is 3.6 to 4.2 VDC. 
 
 #### 3V3 PIN
-This pin is the output of the on board 3.3V step-down switching regulator (Torex XC9258A). The regulator is rated at 1000mA max. When using this pin to power other devices or peripherals remember to budget in the current requirement of the Xenon first.
+This pin is the output of the on board 3.3V step-down switching regulator (Torex XC9258A). The regulator is rated at 1000mA max. When using this pin to power other devices or peripherals remember to budget in the current requirement of the Xenon first. This pin can also be used to power the Xenon in absence of the USB or LiPo power. When powering over this pin, please connect the ENABLE pin to GND so that the on board regulator is disabled.
 
 
-## FCC approved antennas
+### FCC approved antennas
 
-Mesh and WiFi
-
-Custom Particle 2.4GHz Antenna.
->> Add datasheet and parameters here
-
-
-Cellular
-
-|Particle Device|Antenna Type|Manufacturer|MFG. Part #    | Gain       |
-|:--------------|:-----------|:-----------|:--------------|:-----------|
-|Boron 2G/3G    | PCB Antenna|Taoglas     |PC104.07.0165C |2.39dBi peak|
-|Boron LTE      | PCB Antenna|Taoglas     |FXUB63.07.0150C|5.00dBi peak|
+|Particle Device|Frequency     |Antenna Type|Manufacturer| Gain      |
+|:--------------|:-------------|:-----------|:----------|:-----------|
+|Xenon          | 2400-2500 MHz|PCB Antenna |Particle    |2.0dBi peak|
 
 
-NFC
-
-Custom Particle NFC Antenna.
->> Add datasheet and parameters here
-
-## Peripherals and GPIO
+### Peripherals and GPIO
 
 | Peripheral Type | Qty | Input(I) / Output(O) |
 | :---:|:---:|:---:|
@@ -78,7 +64,7 @@ Custom Particle NFC Antenna.
 
 **Note:** All GPIOs are only rated at 3.3VDC max.
 
-## SWD 
+### SWD 
 
 The Xenon has a dedicated 10 pin debug connector that exposes the SWD interface of the nRF5280. This interface can be used to debug your code or reprogram your Xenon bootloader, device OS, or the user firmware using any standard SWD tools including out Mesh Debugger.
 
@@ -115,27 +101,12 @@ The Xenon has a dedicated 10 pin debug connector that exposes the SWD interface 
 
 
 
-## LED status
+### LED status
 
-### System RGB LED
-For a detailed explanation of different color codes of the RGB system LED, please take a look here. (https://docs.particle.io/guide/getting-started/modes)
+#### System RGB LED
+For a detailed explanation of different color codes of the RGB system LED, please take a look [here.](/guide/getting-started/modes/)
 
-### Charge status LED
-
-(BORON)
-
-|State | Description |
-|:---|:---|
-|ON | Charging in progress |
-|OFF | Charging complete |
-|Blink at 1Hz| Fault condition<sup>[1]</sup> |
-|Rapid blinking | Battery disconnected<sup>[2]</sup> |
-
-**Notes:**
-
-<sup>[1]</sup> A fault condition can occur due to several reasons, for example, battery over/under voltage, temperature fault or safety timer fault. You can find the root cause by reading the fault register of the power management IC in firmware.
-
-(XENON/ARGON)
+#### Charge status LED
 
 |State | Description |
 |:---|:---|
@@ -143,7 +114,7 @@ For a detailed explanation of different color codes of the RGB system LED, pleas
 |OFF | Charging complete |
 
 
-## Pinout diagram
+### Pinout diagram
 
 >> add pinout diagram
 
@@ -185,13 +156,9 @@ conditions is not implied. Exposure to absolute-maximum-rated conditions for ext
 
 <sup>[2]</sup> These are very short average current bursts when transmitting and receiving.  On average if minimizing frequency of TX/RX events, current consumption in powersave mode will be 18mA
 
-## Radio specifications
+### Radio specifications
 
-BORON
-
-Boron has two radio modules.
-
-Nordic Semiconductor nRF52840
+Xenon uses the Nordic Semiconductor nRF52840 SoC as the main controller and the mesh radio.
 
 | Feature | Description|
 | :-------|:---------- |
@@ -200,50 +167,7 @@ Nordic Semiconductor nRF52840
 |PLL channel spacing| 1 MHz|
 |On the air data rate| 125 to 2000 kbps|
 
-u-blox SARA U201 (2G/3G) and R410 (LTE)
-
-
-| BORON  | Compatible Countries |
-|:-------|:---------------------|
-|2G/3G   | Worldwide            |
-|LTE     | USA only             |
-
-XENON
-
-Xenon has one radio SoC, the Nordic Semiconductor nRF52840
-
-| Feature | Description|
-| :-------|:---------- |
-|Operating Frequencies| 2360 to 2500 MHz|
-|Output Power| Programmable -20dBm to +8dBm|
-|PLL channel spacing| 1 MHz|
-|On the air data rate| 125 to 2000 kbps|
-
-ARGON
-
-Argon has two radio modules. 
-
-Nordic Semiconductor nRF52840 SoC for BLE, Thread, and NFC.
-
-| Feature | Description|
-| :-------|:---------- |
-|Operating Frequencies| 2360 to 2500 MHz|
-|Output Power| Programmable -20dBm to +8dBm|
-|PLL channel spacing| 1 MHz|
-|On the air data rate| 125 to 2000 kbps|
-
-Espressif Systems ESP32 for WiFi
-
-| Feature | Description|
-| :-------|:-----------|
-| WLAN Standards | IEEE 802 11b/g/n |
-| Antenna Port | Single Antenna |
-| Frequency Band | 2412 to 2484 MHz |
-
-
-Note: Bluetooth features of the ESP32 are not exposed.
-
-## I/O Characteristics 
+### I/O Characteristics 
 
 | Parameter | Symbol | Conditions | Min | Typ | Max | Unit |
 | :---------|:-------|:----------:|:---:|:---:|:---:|:---: |
@@ -265,29 +189,35 @@ Note: Bluetooth features of the ESP32 are not exposed.
 
 ### Mating connectors
 
-USB connector
-Debug connector
-JST connector
-u.FL connector
-Male header
+The Xenon uses two single row 0.1" pitch male header pins. One of them is 16 pin while the other is 12 pin. It can be mounted with matching 0.1" pitch female headers with a typical height of 0.335" (8.5mm). When you search for parts like these it can be difficult to navigate the thousands of parts available online so here are a few good choices for the Xenon:
 
+| Description | MFG | MFG Part Number |
+|:----------- |:----|:----------------|
+|16-pin 0.1" (2.54mm) Female Header|Sullins|PPTC161LFBN-RC|
+|16-pin 0.1" (2.54mm) Female Header|TE|6-535541-4|
+|12-pin 0.1" (2.54mm) Female Header|Sullins|PPTC121LFBN-RC|
+|12-pin 0.1" (2.54mm) Female Header|TE|6-534237-0|
 
 ## Recommended PCB land pattern
 
+The Xenon can be directly soldered onto the PCB or be mounted with the above mentioned female headers.
+
 <div align=center><img src="/assets/images/xenon/xenon-landing-pattern.png" ></div>
 
+<!---
 ## Schematic
 
 ### Power
 ### nRF52840
-### u-blox
-### ESP32
 ### Interfaces
 ### JTAG
+-->
 
 ## Bill of materials
 
 ## Ordering information
+
+Xenons are available from [store.particle.io](https://store.particle.io/) in single quantities.
 
 ## Product Handling
 
@@ -297,13 +227,31 @@ The Xenon contains highly sensitive electronic circuitry and is an Electrostatic
 
 ### Connectors
 
+There are four connectors on the Xenon that will get damaged with improper usage. The JST connector on the circuit board, where you plug in the LiPo battery, is very durable but the connector on the battery itself is not. When unplugging the battery, take extra precaution to **NOT** pull the connector using the wires, but instead hold the plug at its base to avoid putting stress on the wires. This can be tricky with bare hands - nose pliers are your friend here.
+
+>>add image here
+
+The micro B USB connector on the Xenon is soldered on the PCB with large surface pads as well as couple of through hole anchor points. Despite this reinforcement, it is very easy to rip out the connector if too much stress is put on in the vertical direction.
+
+>>add image here
+
+The u.FL antenna connector is a very fragile piece of hardware ( and is fancy too with all the gold plating). The connector was not designed to be constantly plugged and unplugged. Care must be taken not to put stress on it at any time (yes, swinging the Xenon by the antenna is a very bad idea, this is not your cat). The antenna pin is also the most static sensitive and you can destroy the radio with improper handling. If you are feeling adventurous, we highly recommend putting a tiny dab of glue (epoxy, rubber cement, liquid tape or hot glue) on the connector to securely hold the plug in place.
+
+>>add image here
+
+The 10 pin SWD connector provides an easy in-system debugging access to the device. The pins on the connector can easily be damaged if the mating connector cable is inserted improperly. If you are trying to debug the device, you probably are not in a good mood to begin with. The last thing you want is to render the connector useless. Be nice, and be gentle on the connector. Good luck with the debugging!
+
+>>add image here
+
 ### Breadboarding
 
 The breadboard provided with the Xenon is specifically designed to require low insertion force. This makes it easy to plug the Xenon in and out of the breadboard. If you end up using a different breadboard, remember that it may require more force. In this case, always remember to pinch-hold your precious Xenon by the sides (along the header pins) when plugging-unplugging and not by the USB connector (don't be this person).
 
 ## Default settings
 
-## Glossary
+The Xenon comes preprogrammed with a bootloader and a user application called Tinker. This application works with an iOS and Android app also named Tinker that allows you to very easily toggle digital pins, take analog and digital readings and drive variable PWM outputs.
+
+The bootloader allows you to easily update the user application via several different methods, USB, OTA, Serial Y-Modem, and also internally via the Factory Reset procedure. All of these methods have multiple tools associated with them as well.
 
 ## FCC IC CE Warnings and End Product Labeling Requirements
 
@@ -370,3 +318,15 @@ Cet équipement devrait être installé et actionné avec une distance minimum d
 ## Known Errata
 
 ## Contact
+
+**Web**
+
+[https://www.particle.io](https://www.particle.io)
+
+**Community Forums**
+
+[https://community.particle.io](https://community.particle.io)
+
+**Email**
+
+[https://support.particle.io](https://support.particle.io)

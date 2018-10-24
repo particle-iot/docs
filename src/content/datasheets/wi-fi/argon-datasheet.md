@@ -43,19 +43,16 @@ This pin is internally connected to the positive terminal of the LiPo connector.
 This pin is the output of the on board 3.3V step-down switching regulator (Torex XC9258A). The regulator is rated at 1000mA max. When using this pin to power other devices or peripherals remember to budget in the current requirement of the Argon first.
 
 
-## FCC approved antennas
+### FCC approved antennas
 
 **Mesh and WiFi**
 
-Custom Particle 2.4GHz Antenna.
->> Add datasheet and parameters here
+|Particle Device|Frequency     |Antenna Type|Manufacturer| Gain      |
+|:--------------|:-------------|:-----------|:-----------|:----------|
+|Argon          | 2400-2500 MHz|PCB Antenna |Particle    |2.0dBi peak|
 
-**NFC**
 
-Custom Particle NFC Antenna.
->> Add datasheet and parameters here
-
-## Peripherals and GPIO
+### Peripherals and GPIO
 
 | Peripheral Type | Qty | Input(I) / Output(O) |
 | :---:|:---:|:---:|
@@ -69,7 +66,7 @@ Custom Particle NFC Antenna.
 
 **Note:** All GPIOs are only rated at 3.3VDC max.
 
-## SWD 
+### SWD 
 
 The Argon has a dedicated 10 pin debug connector that exposes the SWD interface of the nRF5280. This interface can be used to debug your code or reprogram your Argon bootloader, device OS, or the user firmware using any standard SWD tools including out Mesh Debugger.
 
@@ -108,12 +105,12 @@ The Argon has a dedicated 10 pin debug connector that exposes the SWD interface 
 
 
 
-## LED status
+### LED status
 
-### System RGB LED
-For a detailed explanation of different color codes of the RGB system LED, please take a look here. (https://docs.particle.io/guide/getting-started/modes)
+#### System RGB LED
+For a detailed explanation of different color codes of the RGB system LED, please take a look [here.](/guide/getting-started/modes/)
 
-### Charge status LED
+#### Charge status LED
 
 |State | Description |
 |:---|:---|
@@ -121,7 +118,7 @@ For a detailed explanation of different color codes of the RGB system LED, pleas
 |OFF | Charging complete |
 
 
-## Pinout diagram
+### Pinout diagram
 
 >> add pinout diagram
 
@@ -163,7 +160,7 @@ conditions is not implied. Exposure to absolute-maximum-rated conditions for ext
 
 <sup>[2]</sup> These are very short average current bursts when transmitting and receiving.  On average if minimizing frequency of TX/RX events, current consumption in powersave mode will be 18mA
 
-## Radio specifications
+### Radio specifications
 
 Argon has two radio modules. 
 
@@ -187,7 +184,7 @@ Espressif Systems ESP32 for WiFi
 
 Note: Bluetooth features of the ESP32 are not exposed.
 
-## I/O Characteristics 
+### I/O Characteristics 
 
 | Parameter | Symbol | Conditions | Min | Typ | Max | Unit |
 | :---------|:-------|:----------:|:---:|:---:|:---:|:---: |
@@ -209,31 +206,35 @@ Note: Bluetooth features of the ESP32 are not exposed.
 
 ### Mating connectors
 
-USB connector
-Debug connector
-JST connector
-u.FL connector
-Male header
+The Argon uses two single row 0.1" pitch male header pins. One of them is 16 pin while the other is 12 pin. It can be mounted with matching 0.1" pitch female headers with a typical height of 0.335" (8.5mm). When you search for parts like these it can be difficult to navigate the thousands of parts available online so here are a few good choices for the Argon:
 
+| Description | MFG | MFG Part Number |
+|:----------- |:----|:----------------|
+|16-pin 0.1" (2.54mm) Female Header|Sullins|PPTC161LFBN-RC|
+|16-pin 0.1" (2.54mm) Female Header|TE|6-535541-4|
+|12-pin 0.1" (2.54mm) Female Header|Sullins|PPTC121LFBN-RC|
+|12-pin 0.1" (2.54mm) Female Header|TE|6-534237-0|
 
 ## Recommended PCB land pattern
 
-The Argon uses standard 0.1" pitch male header pins. 
+The Argon can be directly soldered onto the PCB or be mounted with the above mentioned female headers.
 
 <div align=center><img src="/assets/images/argon/argon-landing-pattern.png" ></div>
 
+<!---
 ## Schematic
 
 ### Power
 ### nRF52840
-### u-blox
-### ESP32
 ### Interfaces
 ### JTAG
+-->
 
 ## Bill of materials
 
 ## Ordering information
+
+Argon are available from [store.particle.io](https://store.particle.io/) in single quantities.
 
 ## Product Handling
 
@@ -243,13 +244,31 @@ The Argon contains highly sensitive electronic circuitry and is an Electrostatic
 
 ### Connectors
 
+There are four connectors on the Argon that will get damaged with improper usage. The JST connector on the circuit board, where you plug in the LiPo battery, is very durable but the connector on the battery itself is not. When unplugging the battery, take extra precaution to **NOT** pull the connector using the wires, but instead hold the plug at its base to avoid putting stress on the wires. This can be tricky with bare hands - nose pliers are your friend here.
+
+>>add image here
+
+The micro B USB connector on the Argon is soldered on the PCB with large surface pads as well as couple of through hole anchor points. Despite this reinforcement, it is very easy to rip out the connector if too much stress is put on in the vertical direction.
+
+>>add image here
+
+The u.FL antenna connector is a very fragile piece of hardware ( and is fancy too with all the gold plating). The connector was not designed to be constantly plugged and unplugged. Care must be taken not to put stress on it at any time (yes, swinging the Argon by the antenna is a very bad idea, this is not your cat). The antenna pin is also the most static sensitive and you can destroy the radio with improper handling. If you are feeling adventurous, we highly recommend putting a tiny dab of glue (epoxy, rubber cement, liquid tape or hot glue) on the connector to securely hold the plug in place.
+
+>>add image here
+
+The 10 pin SWD connector provides an easy in-system debugging access to the device. The pins on the connector can easily be damaged if the mating connector cable is inserted improperly. If you are trying to debug the device, you probably are not in a good mood to begin with. The last thing you want is to render the connector useless. Be nice, and be gentle on the connector. Good luck with the debugging!
+
+>>add image here
+
 ### Breadboarding
 
 The breadboard provided with the Argon is specifically designed to require low insertion force. This makes it easy to plug the Argon in and out of the breadboard. If you end up using a different breadboard, remember that it may require more force. In this case, always remember to pinch-hold your precious Argon by the sides (along the header pins) when plugging-unplugging and not by the USB connector (don't be this person).
 
 ## Default settings
 
-## Glossary
+The Argon comes preprogrammed with a bootloader and a user application called Tinker. This application works with an iOS and Android app also named Tinker that allows you to very easily toggle digital pins, take analog and digital readings and drive variable PWM outputs.
+
+The bootloader allows you to easily update the user application via several different methods, USB, OTA, Serial Y-Modem, and also internally via the Factory Reset procedure. All of these methods have multiple tools associated with them as well.
 
 ## FCC IC CE Warnings and End Product Labeling Requirements
 
@@ -316,3 +335,15 @@ Cet équipement devrait être installé et actionné avec une distance minimum d
 ## Known Errata
 
 ## Contact
+
+**Web**
+
+[https://www.particle.io](https://www.particle.io)
+
+**Community Forums**
+
+[https://community.particle.io](https://community.particle.io)
+
+**Email**
+
+[https://support.particle.io](https://support.particle.io)
