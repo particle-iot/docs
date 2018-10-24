@@ -12,7 +12,12 @@ order: 2
 ## Functional description
 
 ### Overview
-    what is this product?
+
+The Xenon is a low cost mesh-enabled development board that can act as either an endpoint or repeater within a Particle Mesh network.
+
+The Xenon is mesh only and designed to function as the endpoint of your IoT network. It is based on the Nordic nRF52840 and has built-in battery charging circuitry so it’s easy to connect a Li-Po and deploy your local network in minutes.
+
+The Xenon is best for connecting sensors, motors, pumps, valves, and points of data-interest. Pair it with an Argon or Boron gateway to get all that great data into the Device Cloud.
 
 ### Features
 
@@ -46,20 +51,23 @@ order: 2
 
 ### Power
 
-All Particle Mesh devices are 3.3V logic compatible.
-
 #### USB PORT
 The USB port is the easiest way to power up the Xenon. Please make sure that the USB port is able to provided at least 500mA. Power from the USB is regulated down to 3.3V by the on board Torex XC9258A step-down regulator. 
 
 #### VUSB PIN
-The pin is internally connected to the VBUS of the USB port. The typical output should be around 4.5 to 5 VDC when the device is plugged into the USB port and 0 when not connected to a USB source. You can use this pin to power peripherals that operate at such voltages. Do not exceed the current rating of the USB port, which is nominally rated to 500mA.
+The pin is internally connected to the VBUS of the USB port. The typical output should be around 4.5 to 5 VDC when the device is plugged into the USB port and 0 when not connected to a USB source. You can use this pin to power peripherals that operate at such voltages. Do not exceed the current rating of the USB port, which is nominally rated to 500mA. This pin is also protected with an internal fuse rated at 1000mA.
 
 #### LIPO
 If you want to make your projects truly wireless, you can power the device with a single cell LiPo/Lithium Ion (3.7V). The Xenon has an on board LiPo charger that will charge and power the device when USB source is plugged in, or power the device from the LiPo alone in the absence of the USB.
 
-**Note:** Please pay attention to the polarity of the LiPo connector. Not all LiPo follow the same polarity convention!
+{{box op="start" cssClass="boxed warningBox"}}
+**NOTE:**
+Please pay attention to the polarity of the LiPo connector. Not all LiPo batteries follow the same polarity convention!
+{{box op="end"}}
 
-#### LIPO PIN
+<div align=center><img src="/assets/images/lipo-polarity.png" ></div>
+
+#### Li+ PIN
 This pin is internally connected to the positive terminal of the LiPo connector. You can connect a single cell LiPo/Lithium Ion or a DC supply source to this pin for powering the Xenon. Remember that the input voltage range on this pin is 3.6 to 4.2 VDC. 
 
 #### 3V3 PIN
@@ -95,7 +103,19 @@ The Xenon has a dedicated 10 pin debug connector that exposes the SWD interface 
 
 ## Memory map
 
->> need input from the firmware team here
+### nRF52840 Flash Layout Overview
+
+ - Bootloader (48KB, @0xF4000)
+ - User Application (128KB, @0xD4000)
+ - System (656KB, @0x30000)
+ - SoftDevice (192KB)
+
+### External SPI Flash Layout Overview (DFU offset: 0x80000000)
+
+ - OTA (1500KB, @0x00289000)
+ - Reserved (420KB, @0x00220000)
+ - FAC (128KB, @0x00200000)
+ - LittleFS (2M, @0x00000000)
 
 ## Pins and button definitions
 
@@ -192,6 +212,8 @@ Xenon uses the Nordic Semiconductor nRF52840 SoC as the main controller and the 
 
 ### I/O Characteristics 
 
+These specifications are based on the nRF52840 datasheet.
+
 | Parameter | Symbol | Conditions | Min | Typ | Max | Unit |
 | :---------|:-------|:----------:|:---:|:---:|:---:|:---: |
 |Input high voltage | V<sub>IH</sub>||0.7*3.3|--|3.3|V|
@@ -234,13 +256,23 @@ The Xenon can be directly soldered onto the PCB or be mounted with the above men
 ### nRF52840
 ### Interfaces
 ### JTAG
--->
 
 ## Bill of materials
+-->
 
 ## Ordering information
 
 Xenons are available from [store.particle.io](https://store.particle.io/) in single quantities.
+
+## Qualification and approvals
+
+<div align=left><img src="/assets/images/lead-free-fcc-ce.png" height=100></div>
+
+-   Model Number: XENN
+-   RoHS
+-   CE
+-   FCC ID: 2AEMI-XENN
+-   IC: 20127-XENN
 
 ## Product Handling
 
@@ -252,19 +284,15 @@ The Xenon contains highly sensitive electronic circuitry and is an Electrostatic
 
 There are four connectors on the Xenon that will get damaged with improper usage. The JST connector on the circuit board, where you plug in the LiPo battery, is very durable but the connector on the battery itself is not. When unplugging the battery, take extra precaution to **NOT** pull the connector using the wires, but instead hold the plug at its base to avoid putting stress on the wires. This can be tricky with bare hands - nose pliers are your friend here.
 
->>add image here
+<div align=center><img src="/assets/images/lipo-connection.png" ></div>
 
 The micro B USB connector on the Xenon is soldered on the PCB with large surface pads as well as couple of through hole anchor points. Despite this reinforcement, it is very easy to rip out the connector if too much stress is put on in the vertical direction.
 
->>add image here
+<div align=center><img src="/assets/images/proper-usb-connection.png" ></div>
 
 The u.FL antenna connector is a very fragile piece of hardware ( and is fancy too with all the gold plating). The connector was not designed to be constantly plugged and unplugged. Care must be taken not to put stress on it at any time (yes, swinging the Xenon by the antenna is a very bad idea, this is not your cat). The antenna pin is also the most static sensitive and you can destroy the radio with improper handling. If you are feeling adventurous, we highly recommend putting a tiny dab of glue (epoxy, rubber cement, liquid tape or hot glue) on the connector to securely hold the plug in place.
 
->>add image here
-
 The 10 pin SWD connector provides an easy in-system debugging access to the device. The pins on the connector can easily be damaged if the mating connector cable is inserted improperly. If you are trying to debug the device, you probably are not in a good mood to begin with. The last thing you want is to render the connector useless. Be nice, and be gentle on the connector. Good luck with the debugging!
-
->>add image here
 
 ### Breadboarding
 
@@ -302,7 +330,7 @@ In the event that these conditions can not be met (for example certain laptop co
 **End Product Labeling**
 The final end product must be labeled in a visible area with the following:
 
->> add FCC number here
+ * Contains FCC ID: 2AEMI-XENN
 
 **Manual Information to the End User**
 The OEM integrator has to be aware not to provide information to the end user regarding how to install or remove this RF module in the user’s manual of the end product which integrates this module.
@@ -329,7 +357,7 @@ Le dispositif répond à l'exemption des limites d'évaluation de routine dans l
 **The final end product must be labelled in a visible area with the following:**
 The Industry Canada certification label of a module shall be clearly visible at all times when installed in the host device, otherwise the host device must be labelled to display the Industry Canada certification number of the module, preceded by the words “Contains transmitter module”, or the word “Contains”, or similar wording expressing the same meaning, as follows:
 
->> add IC number here
+ * Contains transmitter module IC: 20127-XENN
 
 This End equipment should be installed and operated with a minimum distance of 20 centimeters between the radiator and your body.
 Cet équipement devrait être installé et actionné avec une distance minimum de 20 centimètres entre le radiateur et votre corps.
@@ -337,6 +365,10 @@ Cet équipement devrait être installé et actionné avec une distance minimum d
 > The end user manual shall include all required regulatory information/warning as shown in this manual.
 
 ## Revision history
+
+| Revision | Date | Author | Comments |
+|:---------|:-----|:-------|:---------|
+| v001     | 26 Oct 2018 | MB | Initial release |
 
 ## Known Errata
 
