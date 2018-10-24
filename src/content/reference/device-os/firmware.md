@@ -3086,6 +3086,14 @@ Also beware when using pins D3, D5, D6, and D7 as OUTPUT controlling external de
 The brief change in state (especially when connected to a MOSFET that can be triggered by the pull-up or pull-down) may cause issues when using these pins in certain circuits. You can see this with the D7 blue LED which will blink dimly and briefly at boot.
 {{/if}}
 
+{{#if has-nrf52}}
+If you are using the Particle Ethernet FeatherWing you cannot use the pins for GPIO as they are used for the Ethernet interface:
+- D3 (RESET)
+- D4 (INTN)
+- D5 (SCSN) 
+- SPI (SCK, MOSI, MISO) is also used, however you can still share the SPI bus in many cases.
+{{/if}}
+
 ### getPinMode(pin)
 
 Retrieves the current pin mode.
@@ -5435,10 +5443,17 @@ be used via the `SPI` object, are mapped as follows:
 {{#if has-multiple-spi}}
 There is a second hardware SPI interface available, which can
 be used via the `SPI1` object. This second port is mapped as follows:
+{{#if has-stm32}}
 * `SS` => `D5` (default)
 * `SCK` => `D4`
 * `MISO` => `D3`
 * `MOSI` => `D2`
+{{/if}}
+{{#if has-nrf52}}
+* `SCK` => `D2`
+* `MISO` => `D3`
+* `MOSI` => `D4`
+{{/if}}
 {{/if}}
 
 {{#if electron}}
@@ -5942,17 +5957,25 @@ These pins are used via the `Wire` object.
 * `SCL` => `D1`
 * `SDA` => `D0`
 
+{{#if has-i2c-wire1}}
+
 {{#if electron}}
 Additionally on the Electron, there is an alternate pin location for the I2C interface, which can
 be used via the `Wire1` object. This alternate location is mapped as follows:
 * `SCL` => `C5`
 * `SDA` => `C4`
+Note that you cannot use both Wire and Wire1. These are merely alternative pin locations for a 
+single hardware I2C port.
+{{/if}}
+{{#if has-nrf52}}
+Additionally, on the Argon and Xenon, there a second I2C port that can be used with the `Wire1` object:
+* `SCL` => `D3`
+* `SDA` => `D2` 
+{{/if}}
 
-**Note**: Because there are multiple I2C locations available, be sure to use the same `Wire` or `Wire1` object with all associated functions. I.e.,
+**Note**: Because there are multiple I2C locations available, be sure to use the same `Wire` or `Wire1` object with all associated functions. 
+For example, do not use `Wire.begin()` with `Wire1.write()`.
 
-Do **NOT** use **Wire**.begin() with **Wire1**.write();
-
-**Do** use **Wire1**.begin() with **Wire1**.transfer();
 {{/if}}
 
 {{/if}} {{!-- has-embedded --}}
@@ -10648,6 +10671,12 @@ Resets the device and restarts in safe mode.
 ### sleep() [ Sleep ]
 
 `System.sleep()` can be used to dramatically improve the battery life of a Particle-powered project by temporarily deactivating the {{network-type}} module, which is by far the biggest power draw.
+
+{{#if has-nrf52}}
+**The sleep modes described here are for the Photon and Electron. Updated documentation with details
+for mesh devices will be provided soon.**
+{{/if}}
+
 
 ```
 // Variants of System.sleep()

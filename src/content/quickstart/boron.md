@@ -27,7 +27,7 @@ The Particle Boron is a mesh and Bluetooth development kit designed for building
   * One mini breadboard
 * **Electronic components**
   * Two resistors (220 ohm)
-  * One red light-emitting diode (LED)
+  * One light-emitting diode (LED)
   * One photodiode
 {{box op="end"}}
 
@@ -35,13 +35,20 @@ The Particle Boron is a mesh and Bluetooth development kit designed for building
 
 ## 1. Set up your Boron
 
+Use the online setup application to configure your new Boron. The process includes the following.
+* Registration of your device with your Particle account
+* Connection of your device to the Particle Device Cloud
+* Particle Mesh network configuration
 
 
-To set up your Boron, click the button below and follow the onscreen instructions. The setup application will walk you through configuration of your new Boron, register the device with your Particle account, and connect to Device Cloud.
+
+Once you've completed the setup you will be able to program your device and send over-the-air (OTA) updates to it.
+
+To begin setting up your Boron, click the button below and follow the onscreen instructions. When you've completed set up, continue to Step #2.
 
 <div  align="center">
 <br />
-<a href="https://setup.particle.io/"  target="_blank" class="button">SET UP YOUR BORON</a>
+<a href="https://setup.particle.io/"  target="_blank" class="button">SET UP YOUR XENON</a>
 <br />
 </div>
 
@@ -49,9 +56,12 @@ To set up your Boron, click the button below and follow the onscreen instruction
 
 
 {{box op="start" cssClass="boxed warningBox"}}
-**NOTE:**
+**NOTES:**</br>
+1.) If you have already set up your Boron, skip to Step #2.<br /><br />
+2.) During set up you may skip setting up a Particle Mesh network and use the Xenon in a standalone mode.
 
-If you have already used the Particle Mobile App to set up your Boron, skip to Step #2.
+
+
 {{box op="end"}}
 
 
@@ -62,7 +72,7 @@ If you have already used the Particle Mobile App to set up your Boron, skip to S
 ## 2. Open the Web IDE
 ![Image of the Web IDE](/assets/images/webide.png)
 
-To program your Boron, open a new browser tab and go to [the Web IDE](https://build.particle.io).
+To program your Boron, open a new browser tab and go to the <a target="_blank" href="https://build.particle.io">Web IDE</a>.
 
 
 {{box op="start"}}
@@ -114,12 +124,29 @@ You'll often see words like flashing and deploying used interchangeably.
 
 ---
 
-## 6. Enjoy the blinking LED
+## 6. Blink an external LED
+
+![](/assets/images/Argon-external-LED-2.png)
 
 
----
+TKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTK
+TKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTK
+TKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTK
+TKTKTKTKTKTKTKTKTKTKTKTK
+TKTKTKTKTKTK
+
+<span class="popupLink">
+testing
+<span class="popup">
+<img src="/assets/images/electronBattery.jpg style="margin:auto; max-width:100%">
+</span>
+</span>
+
 
 ## 7. Where to go next
-set up is complete
-learn about build and workbench
-generally to know about console
+
+TKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTK
+TKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTK
+TKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTK
+TKTKTKTKTKTKTKTKTKTKTKTK
+TKTKTKTKTKTK

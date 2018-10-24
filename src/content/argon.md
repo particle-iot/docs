@@ -6,9 +6,9 @@ layout: landing.hbs
 # Particle Argon: Wi-Fi + Bluetooth + Mesh
 ![Image of the Argon Kit](/assets/images/argon-kit-looped-antenna-docs-crop.jpg)
 
-The Particle Argon is a powerful Wi-Fi development kit that you can use as a standalone Wi-Fi device or Wi-Fi enabled gateway for Particle Mesh networks.
+The Particle Argon is a powerful Wi-Fi development kit that you can use as a standalone Wi-Fi device or Wi-Fi enabled gateway, repeater, or endpoint for Particle Mesh networks.
 
-Based on the Nordic nRF52840, the Argon has built-in battery charging circuitry which makes it easier to connect a Li-Po battery and deploy a local network in minutes.
+Equipped with the Nordic nRF52840 and Espressif ESP32 processors, the Argon has built-in battery charging circuitry which makes it easier to connect a Li-Po battery and 20 mixed signal GPIOs to interface with sensors, actuators, and other electronics.
 
 <div  align="center">
 <br />
@@ -21,13 +21,12 @@ Based on the Nordic nRF52840, the Argon has built-in battery charging circuitry 
 - [Support](/support/support-and-fulfillment/menu-base/)
 {{box op="switch"}}
 **Resources:**
-- [Code](https://github.com/particle-iot/argon)
-- [Gerber files](https://github.com/particle-iot/argon)
-- [Datasheets](https://github.com/particle-iot/argon)
+- [Hardware files](https://github.com/particle-iot/argon)
+- [Datasheets](/datasheets/wi-fi/argon-datasheet/)
 - [Community](https://community.particle.io/c/mesh)
 {{box op="end"}}
 
-## Hardware specifications
+## Hardware specifications:
 
 {{box op="start"}}
 ### Main processor:

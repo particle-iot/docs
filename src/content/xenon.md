@@ -10,7 +10,7 @@ layout: landing.hbs
 
 The Xenon is a low cost mesh-enabled development kit that can act as either an endpoint or repeater within a Particle Mesh network.
 
-Xenon is mesh only and designed to function as the endpoint of your IoT network. It is based on the Nordic nRF52840 and has built-in battery charging circuitry so it’s easy to connect a Li-Po and deploy your local network in minutes.
+Equipped with the Nordic nRF52840, the Xenon has built-in battery charging circuitry which makes it easier to connect a Li-Po battery and 20 mixed signal GPIOs to interface with sensors, actuators, and other electronics.
 
 The Xenon is best for connecting sensors, motors, pumps, valves, and points of data-interest. Pair it with an Argon or Boron gateway to get all that great data into the Device Cloud.
 
@@ -31,7 +31,7 @@ The Xenon is best for connecting sensors, motors, pumps, valves, and points of d
 - [Community](https://community.particle.io/c/mesh)
 {{box op="end"}}
 
-## Hardware specifications
+## Hardware specifications:
 {{box op="start"}}
 ### Main processor:
 **Nordic Semiconductor nRF52840 SoC**
