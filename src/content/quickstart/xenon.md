@@ -127,12 +127,30 @@ You'll often see words like flashing and deploying used interchangeably.
 
 ---
 
-## 6. Enjoy the blinking LED
+## 6. Blink an external LED
+
+![](/assets/images/Argon-external-LED-2.png)
 
 
----
+TKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTK
+TKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTK
+TKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTK
+TKTKTKTKTKTKTKTKTKTKTKTK
+TKTKTKTKTKTK
+
+<span class="popupLink">
+testing
+<span class="popup">
+<img src="/assets/images/electronBattery.jpg style="margin:auto; max-width:100%">
+</span>
+</span>
 
 ## 7. Where to go next
-set up is complete
-learn about build and workbench
-generally to know about console
+
+
+
+TKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTK
+TKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTK
+TKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTK
+TKTKTKTKTKTKTKTKTKTKTKTK
+TKTKTKTKTKTK

@@ -68,7 +68,7 @@ To begin setting up your Argon, click the button below and follow the onscreen i
 ## 2. Open the Web IDE
 ![Image of the Web IDE](/assets/images/webide.png)
 
-To program your Argon, open a new browser tab and go to the <a target="_blank" href="https://build.particle.io">Web IDE</a>.
+To program your Argon, open a new browser tab and go to the <a target="_blank" href="https://build.particle.io">Web IDE</a>. You will see a layout like the image below.
 
 
 {{box op="start"}}
@@ -119,7 +119,17 @@ You'll often see words like flashing and deploying used interchangeably.
 
 ---
 
-## 6. Enjoy the blinking LED
+## 6. Blink an external LED
+
+![](/assets/images/Argon-external-LED-2.png)
+
+
+TKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTK
+TKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTK
+TKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTK
+TKTKTKTKTKTKTKTKTKTKTKTK
+TKTKTKTKTKTK
+
 <span class="popupLink">
 testing
 <span class="popup">
@@ -129,10 +139,11 @@ testing
 
 ---
 
-## 7. Control an external LED
-![](/assets/images/Argon-external-LED-2.png)
 
+## 7. Where to go next
 
-set up is complete
-learn about build and workbench
-generally to know about console
+TKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTK
+TKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTK
+TKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTK
+TKTKTKTKTKTKTKTKTKTKTKTK
+TKTKTKTKTKTK
