@@ -70,7 +70,9 @@ To begin setting up your Xenon, click the button below and follow the onscreen i
 ## 2. Using the Web IDE
 Now that your Xenon is connected to Device Cloud, you can write some code in the online Web IDE and send new code to your device to run.
 
-To program your Xenon, open a new browser tab and go to [the Web IDE](https://build.particle.io). You will see a layout like the image below.
+To program your Xenon, open a new browser tab and go to the <a target="_blank" href="https://build.particle.io">Web IDE</a>. You will see a layout like the image below.
+
+
 
 ![Image of the Web IDE](/assets/images/webide.png)
 

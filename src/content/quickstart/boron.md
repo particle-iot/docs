@@ -72,7 +72,7 @@ To begin setting up your Boron, click the button below and follow the onscreen i
 ## 2. Open the Web IDE
 ![Image of the Web IDE](/assets/images/webide.png)
 
-To program your Boron, open a new browser tab and go to [the Web IDE](https://build.particle.io).
+To program your Boron, open a new browser tab and go to the <a target="_blank" href="https://build.particle.io">Web IDE</a>.
 
 
 {{box op="start"}}
