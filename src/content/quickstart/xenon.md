@@ -55,7 +55,7 @@ To begin setting up your Xenon, click the button below and follow the onscreen i
 
 {{box op="start" cssClass="boxed warningBox"}}
 **NOTES:**</br>
-1.) If you have already used the Particle Mobile App to set up your Xenon, skip to Step #2.<br /><br />
+1.) If you have already set up your Xenon, skip to Step #2.<br /><br />
 2.) During set up you may skip setting up a Particle Mesh network and use the Xenon in a standalone mode.
 
 

@@ -35,13 +35,20 @@ The Particle Boron is a mesh and Bluetooth development kit designed for building
 
 ## 1. Set up your Boron
 
+Use the online setup application to configure your new Boron. The process includes the following.
+* Registration of your device with your Particle account
+* Connection of your device to the Particle Device Cloud
+* Particle Mesh network configuration
 
 
-To set up your Boron, click the button below and follow the onscreen instructions. The setup application will walk you through configuration of your new Boron, register the device with your Particle account, and connect to Device Cloud.
+
+Once you've completed the setup you will be able to program your device and send over-the-air (OTA) updates to it.
+
+To begin setting up your Boron, click the button below and follow the onscreen instructions. When you've completed set up, continue to Step #2.
 
 <div  align="center">
 <br />
-<a href="https://setup.particle.io/"  target="_blank" class="button">SET UP YOUR BORON</a>
+<a href="https://setup.particle.io/"  target="_blank" class="button">SET UP YOUR XENON</a>
 <br />
 </div>
 
@@ -49,9 +56,12 @@ To set up your Boron, click the button below and follow the onscreen instruction
 
 
 {{box op="start" cssClass="boxed warningBox"}}
-**NOTE:**
+**NOTES:**</br>
+1.) If you have already set up your Boron, skip to Step #2.<br /><br />
+2.) During set up you may skip setting up a Particle Mesh network and use the Xenon in a standalone mode.
 
-If you have already used the Particle Mobile App to set up your Boron, skip to Step #2.
+
+
 {{box op="end"}}
 
 
