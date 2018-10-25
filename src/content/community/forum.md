@@ -8,8 +8,5 @@ order: 10
 Community Forum
 ===
 
-Insert text here
-
-[https://community.particle.io](https://community.particle.io)
-
+The [Particle forum](https://community.particle.io) is a place to ask questions, get help from other community members, and share your Particle project and product stories. Stop by and join on of the best places online meet other people using Particle to power their connected creations.
 
