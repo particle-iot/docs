@@ -3254,9 +3254,9 @@ frequency and resolution, but individual pins in the group can have a different 
 
 - Group 2: Pins A0, A1, A2, and A3.
 
-- Group 1: Pins D4, D6, D7, and D8.
+- Group 1: Pins D4, D5, D6, and D8.
 
-- Group 0: Pin D5 and the RGB LED. This must use the default resolution of 8 bits (0-255) and frequency of 500 Hz.
+- Group 0: Pin D7 and the RGB LED. This must use the default resolution of 8 bits (0-255) and frequency of 500 Hz.
 
 {{/if}}
 
