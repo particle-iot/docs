@@ -278,6 +278,8 @@ The Argon can be directly soldered onto the PCB or be mounted with the above men
 
 ## Schematic
 
+The complete schematic and board files are open source and available on Particle's GitHub repository [here.](https://github.com/particle-iot/argon)
+
 ### Power
 
 <div align=center><img src="/assets/images/argon/schematic-power.png" ></div>

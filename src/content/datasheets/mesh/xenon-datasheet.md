@@ -262,6 +262,8 @@ The Xenon can be directly soldered onto the PCB or be mounted with the above men
 
 ## Schematic
 
+The complete schematic and board files are open source and available on Particle's GitHub repository [here.](https://github.com/particle-iot/xenon)
+
 ### Power
 
 <div align=center><img src="/assets/images/xenon/schematic-usb-power.png" ></div>
