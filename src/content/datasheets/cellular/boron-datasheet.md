@@ -88,9 +88,9 @@ This pin is the output of the on board 3.3V step-down switching regulator (Torex
 
 **Mesh**
 
-|Particle Device|Frequency     |Antenna Type|Manufacturer| Gain     |
-|:--------------|:-------------|:-----------|:----------|:----------|
-|Boron          | 2400-2500 MHz|PCB Antenna|Particle    |2.0dBi peak|
+|Particle Device|Frequency     |Antenna Type|Manufacturer|MFG. Part # | Gain      |
+|:--------------|:-------------|:-----------|:-----------|:-----------|:----------|
+|Boron          | 2400-2500 MHz|PCB Antenna |Particle    | ANT-FLXV2  |2.0dBi peak|
 
 **Cellular**
 
@@ -114,7 +114,7 @@ This pin is the output of the on board 3.3V step-down switching regulator (Torex
 
 ### SWD 
 
-The Boron has a dedicated 10 pin debug connector that exposes the SWD interface of the nRF5280. This interface can be used to debug your code or reprogram your Boron bootloader, device OS, or the user firmware using any standard SWD tools including out Mesh Debugger.
+The Boron has a dedicated 10 pin debug connector that exposes the SWD interface of the nRF5280. This interface can be used to debug your code or reprogram your Boron bootloader, device OS, or the user firmware using any standard SWD tools including our Mesh Debugger.
 
 <div align=center><img src="/assets/images/boron/swd-connector-pinout.png" ></div>
 

@@ -73,12 +73,18 @@ This pin is internally connected to the positive terminal of the LiPo connector.
 #### 3V3 PIN
 This pin is the output of the on board 3.3V step-down switching regulator (Torex XC9258A). The regulator is rated at 1000mA max. When using this pin to power other devices or peripherals remember to budget in the current requirement of the Xenon first. This pin can also be used to power the Xenon in absence of the USB or LiPo power. When powering over this pin, please connect the ENABLE pin to GND so that the on board regulator is disabled.
 
+### Antenna
 
-### FCC approved antennas
+There are two options for the Mesh antenna on the Xenon. It comes with an on-board PCB antenna which is selected by default in the device OS and a u.FL connector if you wish to connect an external antenna. If you wish to use the external antenna, you'll need to issue an appropriate command in the firmware.
 
-|Particle Device|Frequency     |Antenna Type|Manufacturer| Gain      |
-|:--------------|:-------------|:-----------|:----------|:-----------|
-|Xenon          | 2400-2500 MHz|PCB Antenna |Particle    |2.0dBi peak|
+### FCC approved antenna
+
+The following antenna is optional, as the Xenon comes with an on-board PCB antenna.
+
+
+|Particle Device|Frequency     |Antenna Type|Manufacturer|MFG. Part # | Gain      |
+|:--------------|:-------------|:-----------|:-----------|:-----------|:----------|
+|Xenon          | 2400-2500 MHz|PCB Antenna |Particle    | ANT-FLXV2  |2.0dBi peak|
 
 
 ### Peripherals and GPIO
@@ -97,7 +103,7 @@ This pin is the output of the on board 3.3V step-down switching regulator (Torex
 
 ### SWD 
 
-The Xenon has a dedicated 10 pin debug connector that exposes the SWD interface of the nRF5280. This interface can be used to debug your code or reprogram your Xenon bootloader, device OS, or the user firmware using any standard SWD tools including out Mesh Debugger.
+The Xenon has a dedicated 10 pin debug connector that exposes the SWD interface of the nRF5280. This interface can be used to debug your code or reprogram your Xenon bootloader, device OS, or the user firmware using any standard SWD tools including our Mesh Debugger.
 
 <div align=center><img src="/assets/images/xenon/swd-connector-pinout.png" ></div>
 
@@ -122,6 +128,8 @@ The Xenon has a dedicated 10 pin debug connector that exposes the SWD interface 
 ### Pin markings
 
 <div align=center><img src="/assets/images/xenon/xenon-pin-markings.png" ></div>
+
+<div align=center><img src="/assets/images/xenon/xenon-bottom-pin-markings.png" ></div>
 
 ### Pin description
 
@@ -195,7 +203,7 @@ conditions is not implied. Exposure to absolute-maximum-rated conditions for ext
 
 **Notes:**
 
-<sup>[1]</sup> These numbers represent the extreme range of short peak current bursts when transmitting and receiving in 802.11b/g/n modes at different power levels.  Average TX current consumption in will be 80-100mA.
+<sup>[1]</sup> These numbers represent the extreme range of short peak current bursts when transmitting and receiving at different power levels.
 
 <sup>[2]</sup> These are very short average current bursts when transmitting and receiving.  On average if minimizing frequency of TX/RX events, current consumption in powersave mode will be 18mA
 
