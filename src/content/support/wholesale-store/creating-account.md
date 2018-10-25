@@ -24,7 +24,7 @@ Choose a tab at the top of the page for the type of account you would like to cr
 ## Wholesale Account Types
 
  - [Business](http://www-wholesale.particle.io/wholesale-b2b) contains our standard bulk pricing and bulk format products. If you are a product creator, choose this option. Processing of your account will take up to 2 business days. 
- - [Particle For Good](http://www-wholesale.particle.io/wholesale-particle-for-good) contains our preferred pricing for non-profits, educators, and those commited to making a positive impact. To learn more about the Particle For Good program and to apply to be apart of this program, please visit the [P4G](https://www.particle.io/for-good/) site. 
+ - [Particle For Good](http://www-wholesale.particle.io/wholesale-particle-for-good) contains our preferred pricing for non-profits, educators, and those committed to making a positive impact. To learn more about the Particle For Good program and to apply to be apart of this program, please visit the [P4G](https://www.particle.io/for-good/) site. 
  - [Distributors](http://www-wholesale.particle.io/wholesale-distributors) is for our reseller network. Use this account type if you would like to become an official Particle Distributor. Our application process requires relevant business information and will take up to 2 weeks to process. We may ask you to provide proof of your reseller status and reserve the right to decline any distributors. 
 
 ## Particle Distributor Requirements

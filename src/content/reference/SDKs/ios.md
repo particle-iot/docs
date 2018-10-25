@@ -45,7 +45,7 @@ iOS Cloud SDK is implemented as an open-source CocoaPods static library and also
 
 **Rebranding notice**
 
-Spark has been rebranded as Particle. Code that previously used `Spark` keyword as class prefix now uses `Particle` keyword. CocoaPods library [Spark-SDK](https://cocoapods.org/pods/Spark-SDK) has been deprecated in favor of [Particle-SDK](https://cocoapods.org/pods/Particle-SDK) library. Github repository [particle-iot/spark-sdk-ios](https://github.com/particle-iot/spark-sdk-ios/) has been deprecated in favor of [particle-iot/particle-sdk-ios](https://github.com/particle-iot/particle-sdk-ios/) too.
+Spark has been rebranded as Particle. Code that previously used `Spark` keyword as class prefix now uses `Particle` keyword. CocoaPods library [Spark-SDK](https://cocoapods.org/pods/Spark-SDK) has been deprecated in favor of [Particle-SDK](https://cocoapods.org/pods/Particle-SDK) library. GitHub repository [particle-iot/spark-sdk-ios](https://github.com/particle-iot/spark-sdk-ios/) has been deprecated in favor of [particle-iot/particle-sdk-ios](https://github.com/particle-iot/particle-sdk-ios/) too.
 
 **Swift support**
 
@@ -543,7 +543,7 @@ The system events types are:
 - CameOnline (device came online)
 - WentOffline (device went offline)
 - FlashStarted (OTA flashing started)
-- FlashSucceeded (OTA flashing succeeded - new uesr firmware app is live)
+- FlashSucceeded (OTA flashing succeeded - new user firmware app is live)
 - FlashFailed (OTA flashing process failed - user firmware app was not updated)
 - AppHashUpdated (a new app which is different from last one was flashed to the device)
 - EnteredSafeMode (device has entered safe mode due to firmware dependency issue )

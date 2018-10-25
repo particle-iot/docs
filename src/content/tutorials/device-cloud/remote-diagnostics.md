@@ -262,7 +262,7 @@ class="full-width"/>
 healthy! Woot!</p>
 
 You can see that each connectivity layer has been marked as _healthy_,
-with a green checkmark. You will also notice a top-level summary
+with a green check mark. You will also notice a top-level summary
 that confirms that all tests have passed and diagnostic vitals are in healthy
 ranges.
 
@@ -284,7 +284,7 @@ src="/assets/images/remote-diagnostics/warning-diagnostics-test-wifi.png"
 class="full-width" style="max-height: inherit"/>
 {{/if}}
 
-In the warning state, you will receive some helpul text to explain what
+In the warning state, you will receive some helpful text to explain what
 is happening as well as some recommendations on how to return the device
 to a fully healthy state.
 

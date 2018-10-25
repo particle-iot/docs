@@ -500,7 +500,7 @@ Unlocking a product device breaks its association with the locked
 firmware version and makes the device eligible to receive released
 product firmwares once again.
 
-To unlock a devcie, visit the device's details view by clicking on it
+To unlock a device, visit the device's details view by clicking on it
 from your product's device list. Click the **Edit button** (shown
 above), and then click the **Unlock** button:
 

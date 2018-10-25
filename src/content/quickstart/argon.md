@@ -80,19 +80,24 @@ If you're looking for a more traditional embedded development experience, be sur
 {{box op="end"}}
 
 ---
-
 ## 3. Load the Blink example
 
 ![Image of the Web IDE with example code](/assets/images/webide-with-examples.png)
 
 
-Click on _Blink an LED_ on the left side of the page. This will load the example code to blink the LED on your Argon.
+Click on _Blink an LED_ on the left side of the page. As soon as you click the _Blink and LED_ code will load and fill the screen as shown below.
+
+![Image of the Web IDE with example code loaded](/assets/images/loaded-blink.png)
+
+The code is heavily commented to help you understand the general structure of the sketch: the first part of the code declares two variables, the setup() function configures two pins as outputs, and finally the loop() which turns the onboard LED on, then off, then loops continuously.
 
 ---
 
 ## 4. Target your device
 
-Look at the bottom right of the page and ensure that the device name is the name of your new Argon.
+The Web IDE can be used with multiple devices. As such, when you go to compile source code, it's a good idea to verify that the board you
+
+Before you compile the source code and flash your device with its binary output, make sure that the correct Particle device is selected.
 
 
 {{box op="start"}}

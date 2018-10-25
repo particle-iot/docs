@@ -29,7 +29,7 @@ source project for those that want deep visibility into Device OS code. To view 
 
 
 ## Versioning
-New features, security patches, and bugfixes are introduced to new versions of Device OS regularly by the Particle team. These changes to Device OS are bundled into _releases_ that are versioned using [semantic versioning](http://semver.org/) best practices.
+New features, security patches, and bug fixes are introduced to new versions of Device OS regularly by the Particle team. These changes to Device OS are bundled into _releases_ that are versioned using [semantic versioning](http://semver.org/) best practices.
 
 Device OS versions that are suffixed with `-rc.x` are called _prereleases_ ("rc" stands for release candidate). These prereleases contain the changes that will eventually become a default release, but still need more thorough usage and testing. We recommend that you **do not** flash prereleased firmware to your production units deployed in the field.
 
@@ -40,7 +40,7 @@ Each release is documented thoroughly to give you a comprehensive picture of wha
 Particle firmware is split into modules: two or more modules for the
 Device OS (the code Particle writes and maintains)
 and one module for the _application firmware_ (the code you write for your
-deivce app).
+device app).
 
 Each module can be updated independently. This is why
 over-the-air updates to the user application are so fast: you can update
@@ -189,7 +189,7 @@ $ particle update
 > Your device should now restart automatically.
 ```
 
-Be sure to put the device in [DFU mode](/tutorials/device-os/led/#dfu-mode-device-firmware-upgrade-) before running the command. Note that this will update your device to the _newest_ Device OS - it does not currently allow you to flash a different verrsion of firmware other than the latest. 
+Be sure to put the device in [DFU mode](/tutorials/device-os/led/#dfu-mode-device-firmware-upgrade-) before running the command. Note that this will update your device to the _newest_ Device OS - it does not currently allow you to flash a different version of firmware other than the latest. 
 
 If you'd like to use the CLI to flash a Device OS version _other than the latest_, you can use the `particle flash` command in a similar way as [outlined above](#cli-remote-). The only difference will be that you'll pass an argument to tell the CLI to flash the files over USB, and you won't have to include the device name or ID in the command:
 

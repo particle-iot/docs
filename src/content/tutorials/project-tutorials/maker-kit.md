@@ -110,7 +110,7 @@ Next, make a new applet in the Do Button app:
 
 1. Click the **My Applets** button on the bottom of the screen
 2. Click the **+** button to start a new applet
-3. Press the blue **+ this** buttom to find an applet
+3. Press the blue **+ this** button to find an applet
 4. Find **Particle** in services
 5. Tap **Particle**
 6. Tap **Monitor a function result**

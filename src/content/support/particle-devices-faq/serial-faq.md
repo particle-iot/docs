@@ -65,7 +65,7 @@ Then select **Serial Monitor** from the **Tools** menu.
 
 ![Arduino Window](/assets/images/serial-faq-02arduino.png)
 
-You can send data via serial with the Ardiuno IDE as well, but you need to enter text to send in the box at the top of the window and press Return or click **Send**.
+You can send data via serial with the Arduino IDE as well, but you need to enter text to send in the box at the top of the window and press Return or click **Send**.
 
 ### Windows - using PuTTY or CoolTerm
 
@@ -514,7 +514,7 @@ This allows loop to run freely, and still only execute some code once per second
 
 Serial is a byte or character-oriented method for transferring data. The hardware assures that you will always receive a character at a time; you'll never get half a character, for example.
 
-For convenience, data may be grouped into lines of characters. The Ardiuno example, above, read a line at a time. Even if you're expecting a line of data, there is no guaranteed that all of your data will arrive at once. In fact, it's quite likely that it won't and you will have to write your code to handle that.
+For convenience, data may be grouped into lines of characters. The Arduino example, above, read a line at a time. Even if you're expecting a line of data, there is no guaranteed that all of your data will arrive at once. In fact, it's quite likely that it won't and you will have to write your code to handle that.
 
 One easy way to do this is to use readStringUntil. For example:
 

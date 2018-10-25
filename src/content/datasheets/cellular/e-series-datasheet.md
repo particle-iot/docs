@@ -13,7 +13,7 @@ order: 2
 
 ### Overview
 
-The E Series module is an IOT platform for creating cellular-connected products. It is an industrial version of Particle's Electron dev kit. It is specifically designed for mass scale manufacturing and integration. It comes with an affordable data plan for low-bandwidth applications. Plus the E Series is available for more than 100 countries worldwide!
+The E Series module is an IoT platform for creating cellular-connected products. It is an industrial version of Particle's Electron dev kit. It is specifically designed for mass scale manufacturing and integration. It comes with an affordable data plan for low-bandwidth applications. Plus the E Series is available for more than 100 countries worldwide!
 
 It also comes with Particle's development tools and cloud platform for managing and interacting with your new connected hardware.
 
@@ -42,7 +42,7 @@ The E series can be powered via the VIN (3.88V-12VDC) pin, over USB, or a LiPo b
 #### VIN
 The input voltage range on VIN pin is 3.88VDC to 12VDC. When powering from the VIN pin alone, make sure that the power supply is rated at 10W (for example 5 VDC at 2 Amp). If the power source is unable to meet this requirement, you'll need connect the LiPo battery as well.  An additional bulk capacitance of 470uF to 1000uF should be added to the VIN input when the LiPo Battery is disconnected.  The amount of capacitance required will depend on the ability of the power supply to deliver peak currents to the cellular modem.
 
-#### LIPO
+#### LiPo
 This pin serves two purposes. You can use this pin to connect a LiPo battery directly without having to use a JST connector or it can be used to connect an external DC power source (and this is where one needs to take extra precautions). When powering it from an external regulated DC source, the  recommended input voltage range on this pin is between 3.6V to 4.4VDC. Make sure that the supply can handle currents of at least 3Amp. This is the most efficient way of powering the E series since the PMIC by-passes the regulator and supplies power to the E series module via an internal FET leading to lower quiescent current.
 
 When powered from a LiPo battery alone, the power management IC switches off the internal regulator and supplies power to the system directly from the battery. This reduces the conduction losses and maximizes battery run time. The battery provided with the E series module is a Lithium-Ion Polymer battery rated at 3.7VDC 1,800mAh. You can substitute this battery with another 3.7V LiPo with higher current rating. Remember to never exceed this voltage rating and always pay attention to the polarity of the connector.

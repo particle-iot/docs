@@ -16,7 +16,7 @@ For further information about this module please refer to:
 
 ## E series architecture:
 
-The block diagram below summarizes the architecture of the E series module. It's key components are the STM32F205 microcontroller and the uBlox SARA cellular modem. In addition to that, the module has an on board power management IC, 3.3V DC regulator, LiPo fuel gauge, and an Particle embedded SIM chip. There is also room for additional SPI based FLASH memory expansion.
+The block diagram below summarizes the architecture of the E series module. It's key components are the STM32F205 microcontroller and the u-blox SARA cellular modem. In addition to that, the module has an on board power management IC, 3.3V DC regulator, LiPo fuel gauge, and an Particle embedded SIM chip. There is also room for additional SPI based FLASH memory expansion.
 
 <div align=center><img src="/assets/images/e-series/illustrations/e-blockdiagram.png" ></div>
 
@@ -36,7 +36,7 @@ You can download a high resolution pinout diagram in a <a href="/assets/images/e
 |2| GND   | POWER     | System ground.
 |3| VBUS  | POWER     | This is connected to the VBUS power pin of the USB port.
 |4| GND   | POWER     | System ground.
-|5| LIPO  | POWER     | This is connected to the +LiPo connector.       
+|5| LiPo  | POWER     | This is connected to the +LiPo connector.       
 |6| NC    | TBD       | Do not connect.
 |7| GND   | POWER     | System ground.
 |8| PMID  | POWER     | This is connected to the PMID pin of the PMIC.      
@@ -92,9 +92,9 @@ You can download a high resolution pinout diagram in a <a href="/assets/images/e
 |58| GND  | POWER     | System ground.
 |59| GND  | POWER     | System ground.
 |60| GND  | POWER     | System ground.
-|61| UB_USB+ | IO        | Data+ pin of the ublox USB port.
-|62| UB_USB- | IO        | Data- pin of the ublox USB port.
-|63| UB_VUSB_DET | IO        | USB detect pin of the ublox USB port. 5V on this pin enables the ublox's USB interface.
+|61| UB_USB+ | IO        | Data+ pin of the u-blox USB port.
+|62| UB_USB- | IO        | Data- pin of the u-blox USB port.
+|63| UB_VUSB_DET | IO        | USB detect pin of the u-blox USB port. 5V on this pin enables the u-blox's USB interface.
 
 [1] PWM is available on D0, D1, D2, D3, B0, B1, B2, B3, A4, A5, WKP, RX, TX with a caveat: PWM timer peripheral is duplicated on two pins (A5/D2) and (A4/D3) for 11 total independent PWM outputs. For example: PWM may be used on A5 while D2 is used as a GPIO, or D2 as a PWM while A5 is used as an analog input. However A5 and D2 cannot be used as independently controlled PWM outputs at the same time.
 
@@ -145,9 +145,9 @@ conditions is not implied. Exposure to absolute-maximum-rated conditions for ext
 
 ### Power supply interface
 
-The E series modules can be powered over VIN, VBUS, LIPO or a combination of them. The VIN and VBUS pins are connected to the input of the power management IC which handles regulation, charging and powering of system. The VIN pin is directly connected to the inpout while VBUS pin has a reverse polarity protection diode so that power over VIN does not back feed into the USB port. You will see a drop of 0.43 V at the input when powered over USB.
+The E series modules can be powered over VIN, VBUS, LiPo or a combination of them. The VIN and VBUS pins are connected to the input of the power management IC which handles regulation, charging and powering of system. The VIN pin is directly connected to the inpout while VBUS pin has a reverse polarity protection diode so that power over VIN does not back feed into the USB port. You will see a drop of 0.43 V at the input when powered over USB.
 
- > **Tip:** Most of the power requirements of the E series module are dictated by the ublox's SARA cellular modem, so it is important that you also refer to the SARA-G3 and SARA-U2-series System Integration Manual's section 1.5.
+ > **Tip:** Most of the power requirements of the E series module are dictated by the u-blox's SARA cellular modem, so it is important that you also refer to the SARA-G3 and SARA-U2-series System Integration Manual's section 1.5.
 
 #### Powering using a battery:
 
@@ -172,9 +172,9 @@ The E series module can be powered from an external DC source via the VIN pin. T
 <div align=center><img src="/assets/images/e-series/schematics/e-ps-vin.png"></div>
 
 
-**LIPO**
+**LiPo**
 
-You can also bypass the PMIC's internal regulator and power the module directly by connecting an externally regulated DC source (3.8 V to 4.1 V) to the LIPO pin as long as the VIN pin is left disconnected. The PMID internally routes power from the LIPO pin to the system via a FET with minimal losses.
+You can also bypass the PMIC's internal regulator and power the module directly by connecting an externally regulated DC source (3.8 V to 4.1 V) to the LiPo pin as long as the VIN pin is left disconnected. The PMID internally routes power from the LiPo pin to the system via a FET with minimal losses.
 
 <div align=center><img src="/assets/images/e-series/schematics/e-ps-lipo-ext.png"></div>
 
@@ -206,7 +206,7 @@ This is the supply to the internal RTC, backup registers and SRAM. You can conne
 
 The following is a sample schematic needed to power up and use the E series module. The module is powered over VIN with an external DC power source along with a LiPo battery used as a back up. The RGB LED provides a visual aide to detect the state of the module. Two buttons, RESET and MODE provide the ability to put the module in different modes. LED1 indicates the charging status of the LiPo battery. The main USB port can be used for debugging or to update the firmware on the module.
 
-In addition to these parts, it is also encouraged to add a USB interface for the ublox module as it provides additional debugging channel and can be used to update the firmware of the modem. The JTAG/SWD interface can be useful to provision the product during manufacturing or when testing/debugging the firmware.
+In addition to these parts, it is also encouraged to add a USB interface for the u-blox module as it provides additional debugging channel and can be used to update the firmware of the modem. The JTAG/SWD interface can be useful to provision the product during manufacturing or when testing/debugging the firmware.
 
 <div align=center><img src="/assets/images/e-series/schematics/e-sample-setup.png"></div>
 

@@ -752,7 +752,7 @@ Examples:
 
 ![atv2](/assets/images/shields/asset-tracker-shield-v2/asset.png)
 
-This new revision of the Electron Asset Tracker uses a uBlox M8 engine GNSS receiver. Unlike the v1, this module is capable of receiving 3 GNSS (GPS, Galileo, GLONASS, BeiDou) concurrently. We have also added a low noise amplifier and a band pass filter for improved performance with the on-board antenna.
+This new revision of the Electron Asset Tracker uses a u-blox M8 engine GNSS receiver. Unlike the v1, this module is capable of receiving 3 GNSS (GPS, Galileo, GLONASS, BeiDou) concurrently. We have also added a low noise amplifier and a band pass filter for improved performance with the on-board antenna.
 
 ### Using the Asset Tracker
 
@@ -788,7 +788,7 @@ We have provided two grove sensor ports for you to easily connect sensors to the
 
 **Enclosure**
 
-You can choose to mount the asset tracker board inside the provided enclosure as shown below. Use the four M3 screws to secure the board in place. The antenna comes with a peel-able sticky back that can be used to stick the antenna to the side wall. Remember not to block the GPS antenna with anything - wires, antenna, battery, etc. Enclosure dimentions are: 115.06 x 65.02 x 39.88 mm.
+You can choose to mount the asset tracker board inside the provided enclosure as shown below. Use the four M3 screws to secure the board in place. The antenna comes with a peel-able sticky back that can be used to stick the antenna to the side wall. Remember not to block the GPS antenna with anything - wires, antenna, battery, etc. Enclosure dimensions are: 115.06 x 65.02 x 39.88 mm.
 
 ![atv2](/assets/images/shields/asset-tracker-shield-v2/asset-enclosure.png)
 
@@ -803,7 +803,7 @@ Examples:
 
 ### Specifications
 
- - 72-channel u-bloxM8 engine
+ - 72-channel u-blox M8 engine
  - GPS/QZSS L1 C/A, GLONASS L10F, BeiDou B1I, Galileo E1B/C, SBAS L1 C/A: WAAS, EGNOS, MSAS, GAGAN
  - Update rates: Single GNSS: up to 18 Hz, 2 Concurrent GNSS: up to 10 Hz
  - Position accuracy of 2.5 m

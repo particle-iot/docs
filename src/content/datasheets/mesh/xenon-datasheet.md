@@ -57,7 +57,7 @@ The USB port is the easiest way to power up the Xenon. Please make sure that the
 #### VUSB PIN
 The pin is internally connected to the VBUS of the USB port. The typical output should be around 4.5 to 5 VDC when the device is plugged into the USB port and 0 when not connected to a USB source. You can use this pin to power peripherals that operate at such voltages. Do not exceed the current rating of the USB port, which is nominally rated to 500mA. This pin is also protected with an internal fuse rated at 1000mA.
 
-#### LIPO
+#### LiPo
 If you want to make your projects truly wireless, you can power the device with a single cell LiPo/Lithium Ion (3.7V). The Xenon has an on board LiPo charger that will charge and power the device when USB source is plugged in, or power the device from the LiPo alone in the absence of the USB.
 
 {{box op="start" cssClass="boxed warningBox"}}

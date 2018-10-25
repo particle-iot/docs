@@ -273,7 +273,7 @@ It's inexpensive (US$1.90 in single quantities) and tiny (SOIC-8 package), and y
 
 You can get the chip from stores such as [Digi-Key](https://www.digikey.com/product-detail/en/maxim-integrated/DS7505S-/DS7505S--ND/2045448) along with the [SparkFun SOIC-8 to DIP Adapter](https://www.digikey.com/product-detail/en/sparkfun-electronics/BOB-13655/1568-1123-ND/5528943). It takes some careful soldering to solder a SOIC-8 by hand, but it's not bad if you have a good soldering iron after you've done it a few times.
 
-The driver, code examples, and wiring instructions are in the [DS75-RK Github repository](https://github.com/rickkas7/DS75-RK). The library is in the community libraries as DS75-RK.
+The driver, code examples, and wiring instructions are in the [DS75-RK GitHub repository](https://github.com/rickkas7/DS75-RK). The library is in the community libraries as DS75-RK.
 
 ![DS75 Circuit](/assets/images/i2c-faq-DS75.jpg)
 

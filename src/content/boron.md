@@ -27,7 +27,7 @@ The Boron is great for connecting existing projects to the Particle Device Cloud
 {{box op="switch"}}
 **Resources:**
 - [Hardware files](https://github.com/particle-iot/boron)
-- [Datasheets](/datasheets/cellular/boron-datasheet/)
+- [Datasheet](/datasheets/cellular/boron-datasheet/)
 - [Certification](/datasheets/certifications/certification)
 
 {{box op="end"}}

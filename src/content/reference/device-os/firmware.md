@@ -499,7 +499,7 @@ A _subscription handler_ (like `myHandler` above) must return `void` and take tw
 - The first argument is the full name of the published event.
 - The second argument (which may be NULL) is any data that came along with the event.
 
-`Particle.subscribe()` returns a `bool` indicating success. It is ok to register a subscription when
+`Particle.subscribe()` returns a `bool` indicating success. It is OK to register a subscription when
 the device is not connected to the cloud - the subscription is automatically registered
 with the cloud next time the device connects.
 
@@ -1467,7 +1467,7 @@ void loop() {}
 
 ### BSSID()
 
-`WiFi.BSSID()` retrives the 6-byte MAC address of the access point the device is currently connected to.
+`WiFi.BSSID()` retrieves the 6-byte MAC address of the access point the device is currently connected to.
 
 byte bssid[6];
 
@@ -2182,7 +2182,7 @@ if (!stricmp(url, '/helloworld') {
 When a browser requests the default page (`http://192.168.0.1/`) the system internally redirects this to `/index` so that it can be handled
 by the application.
 
-The application may provide an actual page at `/index` or redirect to another page if the application pefers to have another page as its launch page.
+The application may provide an actual page at `/index` or redirect to another page if the application prefers to have another page as its launch page.
 
 ### Sending a Redirect
 
@@ -2204,7 +2204,7 @@ if (strcmp(url,"/index")==0) {
 
 ### Complete Example
 
-Here's a complete example providing a Web UI for setting up WiFi via HTTP. Credit for the HTTP pages goes to Github user @mebrunet! ([Included from PR #909 here](https://github.com/particle-iot/firmware/pull/906)) ([Source code here](https://github.com/mebrunet/softap-setup-page))
+Here's a complete example providing a Web UI for setting up WiFi via HTTP. Credit for the HTTP pages goes to GitHub user @mebrunet! ([Included from PR #909 here](https://github.com/particle-iot/firmware/pull/906)) ([Source code here](https://github.com/mebrunet/softap-setup-page))
 
 
 
@@ -2614,7 +2614,7 @@ Cellular.resetDataUsage();
 `CellularSignal`
 - `rssi`: (`int`) is the signal strength with range -113dBm to -51dBm (in 2dBm steps). This variable also doubles as an error response for the entire struct; positive return values indicate an error with:
     - 1: indicating a Cellular module or time-out error
-    - 2: the module responded that the rssi value is not known, not detectable or currently not available.
+    - 2: the module responded that the RSSI value is not known, not detectable or currently not available.
 - `qual`: (`int`) is a number in UMTS RAT indicating the Energy per Chip/Noise ratio in dB levels of the current cell. This value ranges from 0 to 49, higher numbers indicate higher signal quality.
 
 **Note**: `qual` is not supported on 2G Electrons (Model G350) and will return 0.
@@ -2663,7 +2663,7 @@ bool Cellular.getBandSelect(CellularBand &data_get);
 
 {{since when="0.5.0"}}
 
-Gets the cellular bands currently available in the modem.  `Bands` are the carrier frequncies used to communicate with the cellular network.  Some modems have 2 bands available (U260/U270) and others have 4 bands (G350).
+Gets the cellular bands currently available in the modem.  `Bands` are the carrier frequencies used to communicate with the cellular network.  Some modems have 2 bands available (U260/U270) and others have 4 bands (G350).
 
 To use the band select API, an instance of the `CellularBand` type needs to be created to read or set bands.  All band select API functions and the CellularBand object itself return `bool` - `true` indicating the last operation was successful and the CellularBand object was updated. For set and get functions, `CellularBand` is passed by reference `Cellular.getBandSelect(CellularBand&);` and updated by the function.  There is 1 array, 1 integer, 1 boolean and 1 helper function within the CellularBand object:
 
@@ -2672,7 +2672,7 @@ To use the band select API, an instance of the `CellularBand` type needs to be c
 - **band[5]**: (MDM_Band[]) array of up to 5 MDM_Band enumerated types.  Available enums are: `BAND_DEFAULT, BAND_0, BAND_700, BAND_800, BAND_850, BAND_900, BAND_1500, BAND_1700, BAND_1800, BAND_1900, BAND_2100, BAND_2600`.  All elements set to 0 when CellularBand object is first created, but after getBandSelect() is called successfully the currently selected bands will be populated started with index 0, i.e., (`.band[0]`). Can be 5 values when getBandAvailable() is called on a G350 modem, as it will return factory default value of 0 as an available option, i.e., `0,850,900,1800,1900`.
 - **bool isBand(int)**: helper function built into the CellularBand type that can be used to check if an integer is a valid band.  This is helpful if you would like to test a value before manually setting a band in the .band[] array.
 
-CellularBand is a Printable object, so using it directly with `Serial.println(CellularBand);` will print the number of bands that are retreived from the modem.  This will be output as follows:
+CellularBand is a Printable object, so using it directly with `Serial.println(CellularBand);` will print the number of bands that are retrieved from the modem.  This will be output as follows:
 
 ```
 // EXAMPLE PRINTABLE
@@ -2721,7 +2721,7 @@ else {
 
 {{since when="0.5.0"}}
 
-Gets the cellular bands currently set in the modem.  `Bands` are the carrier frequncies used to communicate with the cellular network.
+Gets the cellular bands currently set in the modem.  `Bands` are the carrier frequencies used to communicate with the cellular network.
 
 There is one supported function for getting selected bands using the CellularBand object:
 
@@ -2751,7 +2751,7 @@ else {
 
 ### setBandSelect()
 {{since when="0.5.0"}}
-Sets the cellular bands currently set in the modem.  `Bands` are the carrier frequncies used to communicate with the cellular network.
+Sets the cellular bands currently set in the modem.  `Bands` are the carrier frequencies used to communicate with the cellular network.
 
 **Caution:** The Band Select API is an advanced feature designed to give users selective frequency control over their {{device}}. When changing location or between cell towers, you may experience connectivity issues if you have only set one specific frequency for use. Because these settings are permanently saved in non-volatile memory, it is recommended to keep the factory default value of including all frequencies with mobile applications.  Only use the selective frequency control for stationary applications, or for special use cases.
 
@@ -3324,7 +3324,7 @@ The Photon and Electron support true analog output on pins DAC (`DAC1` or `A6` i
 with these pins, the output of the pin is set to an analog voltage from 0V to 3.3V that corresponds to values
 from 0-4095.
 
-**NOTE:** This output is buffered inside the STM32 to allow for more output current at the cost of not being able to acheive rail-to-rail performance, i.e., the output will be about 50mV when the DAC is set to 0, and approx 50mV less than the 3V3 voltage when DAC output is set to 4095.
+**NOTE:** This output is buffered inside the STM32 to allow for more output current at the cost of not being able to achieve rail-to-rail performance, i.e., the output will be about 50mV when the DAC is set to 0, and approx 50mV less than the 3V3 voltage when DAC output is set to 4095.
 
 **NOTE:** Device OS version 0.4.6 and 0.4.7 only - not applicable to versions from 0.4.9 onwards: While for PWM pins one single call to `pinMode(pin, OUTPUT);` sets the pin mode for multiple `analogWrite(pin, value);` calls, for DAC pins you need to set `pinMode(DAC, OUTPUT);` each time you want to perform an `analogWrite()`.
 
@@ -3809,7 +3809,7 @@ void loop()
 
 {{#if has-pmic}}
 
-## PMIC (Power Managment IC)
+## PMIC (Power Management IC)
 
 *Note*: This is advanced IO and for experienced users. This
 controls the LiPo battery management system and is handled automatically
@@ -4128,7 +4128,7 @@ Hardware flow control for Serial1 is optionally available on pins D3(CTS) and D2
 {{/if}}
 
 {{#if photon}}
-`Serial2:` This channel is optionally available via pins 28/29 (RGB LED Blue/Green). These pins are accessible via the pads on the botton of the PCB [See PCB Land Pattern](/datasheets/photon-datasheet/#recommended-pcb-land-pattern-photon-without-headers-). The Blue and Green current limiting resistors should be removed.
+`Serial2:` This channel is optionally available via pins 28/29 (RGB LED Blue/Green). These pins are accessible via the pads on the bottom of the PCB [See PCB Land Pattern](/datasheets/photon-datasheet/#recommended-pcb-land-pattern-photon-without-headers-). The Blue and Green current limiting resistors should be removed.
 
 If the user enables Serial2, they should also consider using RGB.onChange() to move the RGB functionality to an external RGB LED on some PWM pins.
 {{/if}}
@@ -4376,7 +4376,7 @@ LIN configuration:
 {{/if}} {{!-- has-linbus --}}
 
 {{#if has-usb-serial1}}
-***NOTE*** {{since when="0.6.0"}}: When `USBSerial1` is enabled by calling `USBSerial1.begin()` in `setup()` or during normal application execution, the device will quickly disconnect from Host and connect back with `USBSerial1` enabled. If such behavior is undesireable, `USBSerial1` may be enabled with `STARTUP()` macro, which will force the device to connect to the Host with both `Serial` and `USBSerial1` by default.
+***NOTE*** {{since when="0.6.0"}}: When `USBSerial1` is enabled by calling `USBSerial1.begin()` in `setup()` or during normal application execution, the device will quickly disconnect from Host and connect back with `USBSerial1` enabled. If such behavior is undesirable, `USBSerial1` may be enabled with `STARTUP()` macro, which will force the device to connect to the Host with both `Serial` and `USBSerial1` by default.
 
 ```C++
 // EXAMPLE USAGE
@@ -5215,7 +5215,7 @@ void setup() {
 }
 ```
 
-***NOTE:*** When `Keyboard.begin()` is called in `setup()` or during normal application execution, the device will quickly disconnect from Host and connect back with USB HID enabled. If such behavior is undesireable, `Keyboard` may be enabled with `STARTUP()` macro, which will force the device to connect to the Host after booting with `Keyboard` already enabled.
+***NOTE:*** When `Keyboard.begin()` is called in `setup()` or during normal application execution, the device will quickly disconnect from Host and connect back with USB HID enabled. If such behavior is undesirable, `Keyboard` may be enabled with `STARTUP()` macro, which will force the device to connect to the Host after booting with `Keyboard` already enabled.
 
 This function takes no parameters and does not return anything.
 
@@ -5253,7 +5253,7 @@ This function takes no parameters and does not return anything.
 Keyboard.write(character);
 ```
 
-Momementarily clicks a keyboard key. A click is a [`press()`](#press--1) quickly followed by [`release()`](#release--1). This function works only with ASCII characters. ASCII characters are translated into USB HID keycodes according to the [conversion table](https://github.com/particle-iot/firmware/blob/develop/wiring/src/spark_wiring_usbkeyboard.cpp#L33). For example ASCII character 'a' would be translated into 'a' keycode (leftmost middle row letter key on a QWERTY keyboard), whereas 'A' ASCII character would be sent as 'a' keycode with SHIFT modifier.
+Momentarily clicks a keyboard key. A click is a [`press()`](#press--1) quickly followed by [`release()`](#release--1). This function works only with ASCII characters. ASCII characters are translated into USB HID keycodes according to the [conversion table](https://github.com/particle-iot/firmware/blob/develop/wiring/src/spark_wiring_usbkeyboard.cpp#L33). For example ASCII character 'a' would be translated into 'a' keycode (leftmost middle row letter key on a QWERTY keyboard), whereas 'A' ASCII character would be sent as 'a' keycode with SHIFT modifier.
 
 ```cpp
 // EXAMPLE USAGE
@@ -5284,7 +5284,7 @@ Keyboard.click(key);
 Keyboard.click(key, modifiers);
 ```
 
-Momementarily clicks a keyboard key as well as one or more modifier keys (e.g. ALT, CTRL, SHIFT etc.). A click is a [`press()`](#press--1) quickly followed by [`release()`](#release--1). This function works only with USB HID [keycodes (defined in `enum UsbKeyboardScanCode`)](https://github.com/particle-iot/firmware/blob/develop/wiring/inc/spark_wiring_usbkeyboard_scancode.h#L5) and [modifiers (defined in `enum UsbKeyboardModifier`)](https://github.com/particle-iot/firmware/blob/develop/wiring/inc/spark_wiring_usbkeyboard_scancode.h#L396). `Keyboard` implementation supports keycodes ranging from `0x04 (KEY_A / Keyboard a and A)` to `0xDD (KEY_KPHEX / Keypad Hexadecimal)`.
+Momentarily clicks a keyboard key as well as one or more modifier keys (e.g. ALT, CTRL, SHIFT etc.). A click is a [`press()`](#press--1) quickly followed by [`release()`](#release--1). This function works only with USB HID [keycodes (defined in `enum UsbKeyboardScanCode`)](https://github.com/particle-iot/firmware/blob/develop/wiring/inc/spark_wiring_usbkeyboard_scancode.h#L5) and [modifiers (defined in `enum UsbKeyboardModifier`)](https://github.com/particle-iot/firmware/blob/develop/wiring/inc/spark_wiring_usbkeyboard_scancode.h#L396). `Keyboard` implementation supports keycodes ranging from `0x04 (KEY_A / Keyboard a and A)` to `0xDD (KEY_KPHEX / Keypad Hexadecimal)`.
 
 ```cpp
 // EXAMPLE USAGE
@@ -6812,7 +6812,7 @@ Returns true if the client is connected, false if not.
 
 ### status()
 
-Returns true if the network socket is open and the underying network is ready. 
+Returns true if the network socket is open and the underlying network is ready. 
 
 ```C++
 // SYNTAX

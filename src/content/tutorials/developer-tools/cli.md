@@ -32,7 +32,7 @@ The installer also works on the Raspberry Pi!
 
 Download the [Windows CLI Installer](https://binaries.particle.io/cli/installer/windows/ParticleCLISetup.exe) and run it to install the Particle CLI, the device drivers and [DFU-util](/faq/particle-tools/installing-dfu-util/).
 
-The CLI is installed to `%LOCALAPPDATA%\particle` (`C:\Users\username\AppData\Local\particle` for Windodws in English).
+The CLI is installed to `%LOCALAPPDATA%\particle` (`C:\Users\username\AppData\Local\particle` for Windows in English).
 
 ### Advanced Install
 

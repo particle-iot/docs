@@ -403,13 +403,13 @@ The Photon (with headers) can be mounted with (qty 2) 12-pin single row 0.1" fem
 
 | Description | MFG | MFG Part Number | Distributor |
 |:-:|:-:|:-:|
-| 12-pin 0.1" Female Header (Tin) | Sullins Connector Solutions | [PPTC121LFBN-RC](http://www.digikey.com/product-search/en?keywords=PPTC121LFBN-RC) | Digikey |
-| 12-pin 0.1" Female Header (Gold) | Sullins Connector Solutions | [PPPC121LFBN-RC](http://www.digikey.com/product-search/en?keywords=PPPC121LFBN-RC) | Digikey |
+| 12-pin 0.1" Female Header (Tin) | Sullins Connector Solutions | [PPTC121LFBN-RC](http://www.digikey.com/product-search/en?keywords=PPTC121LFBN-RC) | Digi-Key |
+| 12-pin 0.1" Female Header (Gold) | Sullins Connector Solutions | [PPPC121LFBN-RC](http://www.digikey.com/product-search/en?keywords=PPPC121LFBN-RC) | Digi-Key |
 | 12-pin 0.1" Female Header (Tin) | Harwin | [M20-7821246](http://www.mouser.com/search/ProductDetail.aspx?R=0virtualkey0virtualkeyM20-7821246) | Mouser |
 
 You may also use other types, such as reverse mounted (bottom side SMT) female headers, low profile types, etc..
 
-### Recommended pcb land pattern (Photon with headers)
+### Recommended PCB land pattern (Photon with headers)
 
 The Photon (with headers) can be mounted with 0.1" 12-pin female header receptacles using the following PCB land pattern:
 

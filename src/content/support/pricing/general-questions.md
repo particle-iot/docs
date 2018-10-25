@@ -160,7 +160,7 @@ than cellular, and access to the Device Cloud is always free for your first 100 
 - **Manage cellular devices closely**: If you are using cellular, you can
   avoid Device Cloud costs by deactivating your SIM card when it is not
 in use. Also, make sure to set and check the data limit on your SIM to avoid
-incuring overages. For more info on reducing your cellular bill,
+incurring overages. For more info on reducing your cellular bill,
 [check out the cellular billing
 guide](/tutorials/cellular-connectivity/billing/#how-to-reduce-your-bill)
 and the [cellular data guide](/tutorials/cellular-connectivity/data/#what-consumes-data-)
@@ -196,7 +196,7 @@ get going with Particle are devices and a User account.
 
 When you are ready to professionalize your IoT prototype, you'll want to
 create a _Product_ and add your devices to it. A product unifies a group of Particle devices into a
-homogenous fleet, and provides additional features to easily manage an IoT deployment
+homogeneous fleet, and provides additional features to easily manage an IoT deployment
 at scale. A Product also has team members, which allows many Particle users to
 collaborate on an IoT project together. As a user, you can _belong to_
 one or more Product teams. For more information on

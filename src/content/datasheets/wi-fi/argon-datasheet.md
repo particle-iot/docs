@@ -19,7 +19,7 @@ The Argon is great for connecting existing projects to the Particle Device Cloud
 
 ### Features
 
- * Espressif ESP32-D0WD 2.4G Wi-Fi coprocessor 
+ * Espressif ESP32-D0WD 2.4Ghz Wi-Fi coprocessor 
   * On-board 4MB flash for ESP32 
   * 802.11 b/g/n support 
   * 802.11 n (2.4 GHz), up to 150 Mbps
@@ -59,7 +59,7 @@ The USB port is the easiest way to power up the Argon. Please make sure that the
 #### VUSB PIN
 The pin is internally connected to the VBUS of the USB port. The nominal output should be around 4.5 to 5 VDC when the device is plugged into the USB port and 0 when not connected to a USB source. You can use this pin to power peripherals that operate at such voltages. Do not exceed the current rating of the USB port, which is nominally rated to 500mA.  This pin is also protected with an internal fuse rated at 1000mA.
 
-#### LIPO
+#### LiPo
 If you want to make your projects truly wireless, you can power the device with a single cell LiPo (3.7V). The Argon has an on board LiPo charger that will charge and power the device when USB source is plugged in, or power the device from the LiPo alone in the absence of the USB.
 
 {{box op="start" cssClass="boxed warningBox"}}

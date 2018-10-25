@@ -36,7 +36,7 @@ This is a simple breakout board for Particle's E series of cellular IoT modules.
 |:-----|:--------:|:-----------|
 | VIN  | POWER    | This pin can be used as an input or output. As an input, supply 5VDC to 12VDC to power the Electron. When the Electron is powered via the USB port, this pin will output a voltage of approximately 4.8VDC due to a reverse polarity protection series Schottky diode between VUSB and VIN. When used as an output, the max load on VIN is 1Amp.	|
 | VUSB | POWER    | This is connected to the VUSB power pin of the USB port. |
-| LIPO | POWER    | This is connected to the +LiPo connector.				|
+| LiPo | POWER    | This is connected to the +LiPo connector.				|
 | PMID | POWER    | This is connected to the PMID pin of the PMIC.			|
 | 3V3  | POWER    | This is the output of the 3V3 regulator on the E series		|
 | GND  | POWER    | Common GND pin. 											|

@@ -26,7 +26,7 @@ The board should now power up and connect to the Particle cloud. Make sure you h
 
 <div align=center><img src="/assets/images/e-series/illustrations/e-evalkit-setup.png" ></div>
 
-> **Tip:** At this point, you can click on the MODE button once to note the signal strength. The LED will blink once or upto five times and then return to breathing cyan. Number of blinks convey the signal strength (1 for poor and 5 for excellent reception).
+> **Tip:** At this point, you can click on the MODE button once to note the signal strength. The LED will blink once or up to five times and then return to breathing cyan. Number of blinks convey the signal strength (1 for poor and 5 for excellent reception).
 
 ### Setup
 

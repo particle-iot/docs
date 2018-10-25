@@ -60,12 +60,12 @@ The Boron is great for connecting existing projects to the Particle Device Cloud
 #### USB PORT
 The USB port is the easiest way to power up the Boron. Please make sure that the USB port is able to provided at least 500mA. Power from the USB is regulated down to 3.3V by the on board Torex XC9258A step-down regulator. 
 
-For powering the Boron 2G/3G version, you'll either need a USB port that is able support 2A current, or have the LiPo battery plugged in when powering over USB. This is because the on-board u-blox modem can consumes upto 1.8A peak current when operating in 2G mode. The Boron will intelligently source power from the USB most of the time and keep the battery charged. During peak current requirements, the additional power will be sourced from the battery. This reduces the charge-discharge cycle load on the battery, thus improving its longevity.
+For powering the Boron 2G/3G version, you'll either need a USB port that is able support 2A current, or have the LiPo battery plugged in when powering over USB. This is because the on-board u-blox modem can consumes up to 1.8A peak current when operating in 2G mode. The Boron will intelligently source power from the USB most of the time and keep the battery charged. During peak current requirements, the additional power will be sourced from the battery. This reduces the charge-discharge cycle load on the battery, thus improving its longevity.
 
 #### VUSB PIN
 The pin is internally connected to the VBUS of the USB port. The nominal output should be around 4.5 to 5 VDC when the device is plugged into the USB port and 0 when not connected to a USB source. You can use this pin to power peripherals that operate at such voltages. Do not exceed the current rating of the USB port, which is nominally rated to 500mA.
 
-#### LIPO
+#### LiPo
 If you want to make your projects truly wireless, you can power the device with a single cell LiPo (3.7V). The Boron has an on board LiPo charger that will charge and power the device when USB source is plugged in, or power the device from the LiPo alone in the absence of the USB.
 
 {{box op="start" cssClass="boxed warningBox"}}

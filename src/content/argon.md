@@ -23,7 +23,7 @@ Equipped with the Nordic nRF52840 and Espressif ESP32 processors, the Argon has 
 {{box op="switch"}}
 **Resources:**
 - [Hardware files](https://github.com/particle-iot/argon)
-- [Datasheets](/datasheets/wi-fi/argon-datasheet/)
+- [Datasheet](/datasheets/wi-fi/argon-datasheet/)
 - [Certification](/datasheets/certifications/certification)
 {{box op="end"}}
 
@@ -47,7 +47,7 @@ Equipped with the Nordic nRF52840 and Espressif ESP32 processors, the Argon has 
 
 ### Argon Wi-Fi network coprocessor:
 
-**Espressif ESP32-D0WD 2.4G Wi-Fi coprocessor**
+**Espressif ESP32-D0WD 2.4Ghz Wi-Fi coprocessor**
   - On-board 4MB flash for the ESP32
   - 802.11 b/g/n support
   - 802.11 n (2.4 GHz), up to 150 Mbps
@@ -60,8 +60,8 @@ Equipped with the Nordic nRF52840 and Espressif ESP32 processors, the Argon has 
 - JTAG (SWD) Connector
 - RGB status LED
 - Reset and Mode buttons
-- On-board 2.4GHz PCB antenna for Thread/BLE (does not support Wi-Fi)
-- Two U.FL connectors for external antennas (one for Thread/BLE, another for Wi-Fi)
+- On-board 2.4GHz PCB antenna for Thread/Bluetooth (does not support Wi-Fi)
+- Two U.FL connectors for external antennas (one for Thread/Bluetooth, another for Wi-Fi)
 
 - Meets the [Feather specification](https://learn.adafruit.com/adafruit-feather/feather-specification) in dimensions and pinout
 - FCC, CE and IC certified
