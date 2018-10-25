@@ -75,6 +75,11 @@ This pin is internally connected to the positive terminal of the LiPo connector.
 #### 3V3 PIN
 This pin is the output of the on board 3.3V step-down switching regulator (Torex XC9258A). The regulator is rated at 1000mA max. When using this pin to power other devices or peripherals remember to budget in the current requirement of the Argon first. This pin can also be used to power the Argon in absence of the USB or LiPo power. When powering over this pin, please connect the ENABLE pin to GND so that the on board regulator is disabled.
 
+### Antenna
+
+There are two radios on the Argon. A Mesh radio (nRF52840) and a WiFi radio (ESP32). For the WiFi radio, we have provide a u.FL connector to plug in the WiFi antenna. This is required if you wish to use the WiFi connectivity. 
+
+There are two options for the Mesh antenna on the Argon. It comes with an on-board PCB antenna which is selected by default in the device OS and a u.FL connector if you wish to connect an external antenna. If you wish to use the external antenna, you'll need to issue an appropriate command in the firmware.
 
 ### FCC approved antennas
 
@@ -165,7 +170,9 @@ For a detailed explanation of different color codes of the RGB system LED, pleas
 
 ### Pinout diagram
 
->> add pinout diagram
+<div align=center><img src="/assets/images/argon/argon-pinout.png" ></div>
+
+You can download a high resolution PDF version of the pin out [here](/assets/images/argon/argon-pinout-v1.0.pdf)
 
 ## Technical specifications
 

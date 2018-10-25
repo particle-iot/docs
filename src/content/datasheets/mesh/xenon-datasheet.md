@@ -167,7 +167,9 @@ For a detailed explanation of different color codes of the RGB system LED, pleas
 
 ### Pinout diagram
 
->> add pinout diagram
+<div align=center><img src="/assets/images/xenon/xenon-pinout.png" ></div>
+
+You can download a high resolution PDF version of the pin out [here](/assets/images/xenon/xenon-pinout-v1.0.pdf)
 
 ## Technical specifications
 
