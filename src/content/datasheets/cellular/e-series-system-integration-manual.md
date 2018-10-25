@@ -11,7 +11,7 @@ This manual provides the necessary guidelines to successfully integrate the E se
 For further information about this module please refer to:
 
  - <a href="/datasheets/electron-(cellular)/e-series-datasheet">Datasheet</a>
- - [Firmware development](/reference/firmware/electron/)
+ - [Firmware development](/reference/device-os/firmware/electron/)
  - [Product management](/guide/tools-and-features/console/)
 
 ## E series architecture:

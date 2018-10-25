@@ -542,7 +542,7 @@ The drop in free RAM isn't exactly 1000 bytes because there's some overhead for 
 
 ### String objects
 
-The [String](https://docs.particle.io/reference/firmware/#string-class) object allocates the data for the string itself dynamically, on the heap. The object itself (16 bytes) is allocated based on how it's allocated.
+The [String](/reference/device-os/firmware/#string-class) object allocates the data for the string itself dynamically, on the heap. The object itself (16 bytes) is allocated based on how it's allocated.
 
 This is a really simple program:
 
@@ -626,7 +626,7 @@ Also note that stack allocation variables are not initialized to zero automatica
 
 ## Retained memory
 
-[Retained memory](https://docs.particle.io/reference/firmware/photon/#backup-ram-sram-), or the special static RAM (SRAM) or backup RAM section in the processor, is a special block of 3068 bytes that is preserved when the processor is in deep sleep mode and across resets. On the Photon, it's also possible to add a coin cell battery to preserve the contents when the power is removed.
+[Retained memory](/reference/device-os/firmware/photon/#backup-ram-sram-), or the special static RAM (SRAM) or backup RAM section in the processor, is a special block of 3068 bytes that is preserved when the processor is in deep sleep mode and across resets. On the Photon, it's also possible to add a coin cell battery to preserve the contents when the power is removed.
 
 Unlike flash, the SRAM block can be written to at full processor speed, and does not wear out when written to.
 

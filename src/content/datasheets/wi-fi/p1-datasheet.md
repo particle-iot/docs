@@ -120,7 +120,7 @@ The P1 module has ton of capability in a super small footprint, with analog, dig
 
 ### RGB LED, SETUP and RESET button
 
-When using the P1 module, it is very important to remember that your device must have an RGB LED to show the user the connectivity status.  Also required is a SETUP and RESET button to enter various [Device Modes](/guide/getting-started/modes). By default the RGB LED outputs are configured for a Common Anode type of LED. These components should be wired according to the [P1 Reference Design - User I/O](#schematic-user-i-o).  RGB pins may be accessed in code as: RGBR, RGBG and RGBB.
+When using the P1 module, it is very important to remember that your device must have an RGB LED to show the user the connectivity status.  Also required is a SETUP and RESET button to enter various [Device Modes](/tutorials/device-os/led). By default the RGB LED outputs are configured for a Common Anode type of LED. These components should be wired according to the [P1 Reference Design - User I/O](#schematic-user-i-o).  RGB pins may be accessed in code as: RGBR, RGBG and RGBB.
 
 ---
 

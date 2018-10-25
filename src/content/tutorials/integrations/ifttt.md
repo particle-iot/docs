@@ -15,7 +15,7 @@ Anything you build with Particle is now easily available on IFTTT! IFTTT is a se
 
 The Particle Channel on IFTTT will let you connect your devices to other powerful channels. You can now easily send and receive tweets, SMS, check the weather, respond to price changes, monitor astronauts, and much, much more. This page is a reference for you to use as you get your Particle Recipes set up.
 
-If you're totally new to Particle, that's okay! Before you get going on the Particle channel, be sure to get your Photon or Core connected and claimed. [Get started here](/guide/getting-started/start).
+If you're totally new to Particle, that's okay! Before you get going on the Particle channel, be sure to get your Photon or Core connected and claimed.
 
 Lets go!
 
@@ -75,7 +75,7 @@ Particle.publish("Boiling!", "212", 60, PRIVATE);
 
 #### Firmware requirements
 
-To use this Trigger, firmware must include Particle.publish(). Complete documentation on using [Particle.publish() is here.](/reference/firmware/#particle-publish-)
+To use this Trigger, firmware must include Particle.publish(). Complete documentation on using [Particle.publish() is here.](/reference/device-os/firmware/#particle-publish-)
 
 A word of caution - firmware loops quickly, so it's very easy to run
 publish() too frequently. You'll trigger your IFTTT recipe 100 times in
@@ -125,7 +125,7 @@ January 12, 2015 at 6:59pm
 #### Firmware requirements
 Monitoring variables is also a simple way to get going. You'll need to create a variable at the top of your code, call Particle.variable() using the format to the right in the setup() function, and then you're good to go.
 
-Complete documentation on using [Particle.variable() is here.](/reference/firmware/#particle-variable-)
+Complete documentation on using [Particle.variable() is here.](/reference/device-os/firmware/#particle-variable-)
 
 ```C++
 // EXAMPLE SHOWING THREE DATA TYPES
@@ -244,7 +244,7 @@ Your Particle.function()s can be used in several ways with IFTTT. You can send a
 #### Firmware requirements
 All of the details are covered in the example to the right. Just remember to declare a function at the top of your code, make it Particle.function() in setup(), and then declare what the function does down below. Currently, only the first 4 Particle.function()s that you register will show up in IFTTT.
 
-Complete documentation on using [Particle.function() is here.](/reference/firmware/#particle-function-)
+Complete documentation on using [Particle.function() is here.](/reference/device-os/firmware/#particle-function-)
 
 
 #### Trigger fields
@@ -368,7 +368,7 @@ You must have firmware on your Particle device, but nothing else is necessary. B
   Particle.subscribe("the_event_prefix", theHandler, MY_DEVICES);
   ```
 
-  Complete documentation on using [Particle.subscribe() is here.](/reference/firmware/#particle-subscribe-)
+  Complete documentation on using [Particle.subscribe() is here.](/reference/device-os/firmware/#particle-subscribe-)
 
 #### Action fields
 
@@ -392,7 +392,7 @@ You must have firmware on your Particle device, but nothing else is necessary. B
 
   This is very similar to using a Particle.function() as a trigger, only you won't be using any values it returns. The same setup on the firmware side, and the example code above for Particle.function() as trigger, will work for this as well.
 
-  Complete documentation on using [Particle.function() is here.](/reference/firmware/#particle-function-)
+  Complete documentation on using [Particle.function() is here.](/reference/device-os/firmware/#particle-function-)
 
 #### Action fields
 

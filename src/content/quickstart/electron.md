@@ -28,7 +28,7 @@ to wired power source. Consider this battery your Electron&apos;s best friend!</
 <p><strong>Buttons and LEDs.</strong>
 There are several awesome buttons and LEDs on your Electron to make it easier to use.</p>
 <ul>
-<li>The <code>MODE</code> button is on the left and the <code>RESET</code> button is on the right. You can use these buttons to help you set your device&apos;s <a href="/guide/getting-started/modes">mode</a>.</li>
-<li>The <strong>RGB LED</strong> is in the center of your Electron, above the module. The color of the RGB LED tells you what <a href="/guide/getting-started/modes">mode</a> your Electron is currently in.</li>
+<li>The <code>MODE</code> button is on the left and the <code>RESET</code> button is on the right. You can use these buttons to help you set your device&apos;s <a href="/tutorials/device-os/led">mode</a>.</li>
+<li>The <strong>RGB LED</strong> is in the center of your Electron, above the module. The color of the RGB LED tells you what <a href="/tutorials/device-os/led">mode</a> your Electron is currently in.</li>
 <li>The <strong>D7 LED</strong> is next to the D7 pin on your Electron, on the upper right quadrant. This LED will turn on when the D7 pin is set to <code>HIGH</code>.</li>
 </ul>

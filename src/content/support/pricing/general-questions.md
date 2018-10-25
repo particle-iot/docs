@@ -89,7 +89,7 @@ you will be charged an overage rate per MB used. For most countries, the
 overage rate is $0.40/MB.
 
 For more information on cellular billing, check out [the
-guide](/guide/getting-started/billing/electron/).
+guide](/tutorials/cellular-connectivity/billing).
 
 ### What about 3rd Party SIMs?
 While we encourage you to use Particle SIM cards with your cellular
@@ -162,8 +162,8 @@ than cellular, and access to the Device Cloud is always free for your first 100 
 in use. Also, make sure to set and check the data limit on your SIM to avoid
 incuring overages. For more info on reducing your cellular bill,
 [check out the cellular billing
-guide](/guide/getting-started/billing/electron/#how-to-reduce-your-bill)
-and the [cellular data guide](/guide/getting-started/data/electron/#what-consumes-data-)
+guide](/tutorials/cellular-connectivity/billing/#how-to-reduce-your-bill)
+and the [cellular data guide](/tutorials/cellular-connectivity/data/#what-consumes-data-)
 
 Doing something with Particle that makes a positive social impact? Check
 out <a href="https://particle.io/for-good" target="_blank">Particle for

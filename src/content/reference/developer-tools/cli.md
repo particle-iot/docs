@@ -203,7 +203,7 @@ $ particle flash --serial tinker
 
 ### Compiling remotely and flashing locally
 
-To work locally, but use the cloud compiler, simply use the compile command, and then the local flash command after.  Make sure you connect your device via USB and place it into [DFU mode](/guide/getting-started/modes/#dfu-mode-device-firmware-upgrade-).
+To work locally, but use the cloud compiler, simply use the compile command, and then the local flash command after.  Make sure you connect your device via USB and place it into [DFU mode](/tutorials/device-os/led/#dfu-mode-device-firmware-upgrade-).
 
 ```sh
 # how to compile a directory of source code and tell the CLI where to save the results
@@ -246,7 +246,7 @@ $ particle compile e myapp.ino
 
 ---
 
-The cloud compiles `.ino` and `.cpp` files differently.  For `.ino` files, the cloud will apply a pre-processor.  It will add missing function declarations, and it will inject an `#include "Particle.h"` line at the top of your files if it is missing. See [the pre-processor documentation for details](/reference/firmware/#preprocessor).
+The cloud compiles `.ino` and `.cpp` files differently.  For `.ino` files, the cloud will apply a pre-processor.  It will add missing function declarations, and it will inject an `#include "Particle.h"` line at the top of your files if it is missing. See [the pre-processor documentation for details](/reference/device-os/firmware/#preprocessor).
 
 If you want to build a library that can be used for both Arduino and Particle, here's a useful code snippet:
 
@@ -635,7 +635,7 @@ $ particle update
 
 Helps you update your keys, or recover your device when the keys on the server are out of sync with the keys on your device.  The ```particle keys``` tools requires both dfu-util, and openssl to be installed.
 
-Connect your device in [DFU mode](/guide/getting-started/modes/#dfu-mode-device-firmware-upgrade-), and run this command to replace the unique cryptographic keys on your device.  Automatically attempts to send the new public key to the cloud as well.
+Connect your device in [DFU mode](/tutorials/device-os/led/#dfu-mode-device-firmware-upgrade-), and run this command to replace the unique cryptographic keys on your device.  Automatically attempts to send the new public key to the cloud as well.
 
 ```sh
 # helps repair key issues on a device
@@ -666,7 +666,7 @@ New Key Created!
 
 ### particle keys load
 
-Copies a ```.DER``` formatted private key onto your device's external flash.  Make sure your device is connected and in [DFU mode](/guide/getting-started/modes/#dfu-mode-device-firmware-upgrade-).  The ```particle keys``` tools requires both dfu-util, and openssl to be installed.  Make sure any key you load is sent to the cloud with ```particle keys send device.pub.pem```
+Copies a ```.DER``` formatted private key onto your device's external flash.  Make sure your device is connected and in [DFU mode](/tutorials/device-os/led/#dfu-mode-device-firmware-upgrade-).  The ```particle keys``` tools requires both dfu-util, and openssl to be installed.  Make sure any key you load is sent to the cloud with ```particle keys send device.pub.pem```
 
 ```sh
 # loads a key to your device via USB
@@ -679,7 +679,7 @@ Saved!
 
 ### particle keys save
 
-Copies a ```.DER``` formatted private key from your device's external flash to your computer.  Make sure your device is connected and in [DFU mode](/guide/getting-started/modes/#dfu-mode-device-firmware-upgrade-).  The ```particle keys``` tools requires both dfu-util, and openssl to be installed.
+Copies a ```.DER``` formatted private key from your device's external flash to your computer.  Make sure your device is connected and in [DFU mode](/tutorials/device-os/led/#dfu-mode-device-firmware-upgrade-).  The ```particle keys``` tools requires both dfu-util, and openssl to be installed.
 
 ```sh
 # creates a backup of the private key from your device to a file

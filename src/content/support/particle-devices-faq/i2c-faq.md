@@ -468,7 +468,7 @@ The example code and library are here [https://github.com/rickkas7/I2CSlaveRK](h
 
 ## Raspberry Pi Master, Photon I2C Slave
 
-It's possible to make a Raspberry Pi the I2C Master and use a Photon/Electron as an I2C slave. This example uses direct I2C from Raspberry Pi C++ code. You could use Wiring Pi or [Particle Pi](https://docs.particle.io/guide/getting-started/intro/raspberry-pi/), but I had trouble getting Particle Pi to work. I don't think it supports DMA I2C mode used by the library above.
+It's possible to make a Raspberry Pi the I2C Master and use a Photon/Electron as an I2C slave. This example uses direct I2C from Raspberry Pi C++ code. You could use Wiring Pi or [Particle Pi](/datasheets/discontinued/raspberry-pi), but I had trouble getting Particle Pi to work. I don't think it supports DMA I2C mode used by the library above.
 
 It may be necessary to [enable I2C mode](https://learn.adafruit.com/adafruits-raspberry-pi-lesson-4-gpio-setup/configuring-i2c) in the Linux kernel configuration of your Pi.
 

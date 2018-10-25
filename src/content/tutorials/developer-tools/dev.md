@@ -103,7 +103,7 @@ To access all registered variables and functions, go to **Particle** -> **Show c
 
 ![Getting variable]({{assets}}/images/ide-get-variable.gif)
 
-All variables declared with [Particle.variable()](/reference/firmware/#particle-variable-) are shown on the left side of panel. To poll latest variable value, click **Refresh** button for variable you want to update.
+All variables declared with [Particle.variable()](/reference/device-os/firmware/#particle-variable-) are shown on the left side of panel. To poll latest variable value, click **Refresh** button for variable you want to update.
 
 ![Watching variable]({{assets}}/images/ide-watch-variable.gif)
 
@@ -113,7 +113,7 @@ When you want to check variable value constantly, you can click **Watch** button
 
 ![Functions]({{assets}}/images/ide-functions.gif)
 
-To call an [exposed function](/reference/firmware/#particle-function-) simply click on the button with its name. You'll see any data the function returns on the right side.
+To call an [exposed function](/reference/device-os/firmware/#particle-function-) simply click on the button with its name. You'll see any data the function returns on the right side.
 
 You can also add parameters to the call by entering them to the right of button.
 
@@ -224,7 +224,7 @@ See the [detailed library guide](/guide/tools-and-features/libraries/#contributi
 
 ## Targeting different platforms and firmware versions
 
-Similarly to the [Web IDE](/guide/getting-started/build/photon/#wait-what-is-firmware-) you can specify exactly which platform (Core, Photon, Electron or others) you're using and at which specific firmware version your project is depending.
+Similarly to the [Web IDE](/tutorials/developer-tools/build) you can specify exactly which platform (Core, Photon, Electron or others) you're using and at which specific firmware version your project is depending.
 
 **Note:** By default all projects are compiled for latest version of firmware for a Photon.
 
@@ -242,7 +242,7 @@ Clicking on the platform name will allow you to select a different one:
 
 **Note:** You can target platforms you don't own hardware of and at least test if the code compiles.
 
-The last item is the firmware version aka the build target. This allows you to select exactly which version you want to use. When reading [the reference](/reference/firmware) you might have noticed that some functions have a note saying: _Since X.Y.Z_. This specifies the minimum build target you need to use in order to have this function available.
+The last item is the firmware version aka the build target. This allows you to select exactly which version you want to use. When reading [the reference](/reference/device-os/firmware) you might have noticed that some functions have a note saying: _Since X.Y.Z_. This specifies the minimum build target you need to use in order to have this function available.
 
 When you use a version newer than's on your device (which can be checked
 using `particle serial inspect` [CLI

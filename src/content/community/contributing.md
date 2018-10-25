@@ -22,7 +22,7 @@ Before you contribute to the code base, check out the [`style-guides`](https://g
 ### Firmware
 
 The [`firmware`](https://github.com/particle-iot/firmware) repo contains
-the [Device OS](/reference/firmware) code that runs on the Core and Photon.
+the [Device OS](/reference/device-os/firmware) code that runs on the Core and Photon.
 
 See the [local build tools FAQ](/faq/particle-tools/local-build) for steps to build the firmware on your machine.
 
@@ -59,7 +59,7 @@ The [`particle-dev`](https://github.com/particle-iot/particle-dev) repo contains
 
 ### Documentation
 
-The [`docs`](https://github.com/particle-iot/docs) repo contains Particle's open source [documentation](/guide/getting-started/intro). If you want something to be added or changed, just make a pull request.
+The [`docs`](https://github.com/particle-iot/docs) repo contains Particle's open source [documentation](/reference/device-os/firmware). If you want something to be added or changed, just make a pull request.
 
 
 ### Official Libraries

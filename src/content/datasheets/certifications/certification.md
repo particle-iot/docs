@@ -368,8 +368,3 @@ The 1,800mAh lithium-polymer (Li-Po) battery included with the Electron and othe
 - [Air Freight Transport](/assets/pdfs/new-certs/battery/air-goods-updated.pdf)
 - [Sea Freight Transport](/assets/pdfs/new-certs/battery/sea-freight-updated.pdf)
 
-## What's next?
-
-Now that we've covered product certifications, click through to our last page for some closing comments on building products with the Particle platform:
-
-[Further Considerations >](../further-considerations)

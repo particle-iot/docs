@@ -7,7 +7,7 @@ order: 100
 
 # {{title}}
 
-This section provides tutorials for new users of the [Photon Maker Kit](https://store.particle.io/collections/shields-and-kits#particle-maker-kit) to get started quickly and build some projects using the contents of the kit. These tutorials assume you’ve gone through the [Getting Started](/guide/getting-started/intro/photon/) guide and have set up your Photon. You'll also need to know how to use the [Particle Web IDE](http://build.particle.io), for which we have a tutorial [here](/guide/getting-started/build/photon/).
+This section provides tutorials for new users of the [Photon Maker Kit](https://store.particle.io/collections/shields-and-kits#particle-maker-kit) to get started quickly and build some projects using the contents of the kit. These tutorials assume you’ve gone through the getting started guide and have set up your Photon. You'll also need to know how to use the [Particle Web IDE](http://build.particle.io).
 
 ![Photon Maker Kit](/assets/images/maker-kit-box.jpg)
 
@@ -223,7 +223,7 @@ If it works, congrats! You've created your bus prediction URL.
 
 ### Create a webhook to retrieve prediction times
 
-Great, so we’ve got our prediction URL and we can access it from a browser, but how do we access it from the Photon? The answer is to use a **webhook**, which you can read more about in our [webhooks guide](/guide/tools-and-features/webhooks/).
+Great, so we’ve got our prediction URL and we can access it from a browser, but how do we access it from the Photon? The answer is to use a **webhook**, which you can read more about in our [webhooks guide](/tutorials/device-cloud/webhooks/).
 
 To create a webhook:
 * Go to the **[Particle Console](https://console.particle.io)**
@@ -399,7 +399,7 @@ This function **publishes** an **event** called *get_nextbus* to the Particle cl
 // retrieve the webhook data and send it to the gotNextBusData function
 Particle.subscribe("hook-response/get_nextbus/0", gotNextBusData, MY_DEVICES);
 ```
-This line **subscribes** your device to the *get_nextbus* event, which pulls in data coming from the webhook attached to it. (The `/0` tells it to reference the first chunk of data, since there are a few of them.) It then sends that data to a function called `gotNextBusData`, which parses all the XML and pulls out the tiny bits we need, which are the number of **minutes** for the next two buses. See our [publish and subscribe](/guide/getting-started/examples/photon/#the-buddy-system-publish-and-subscribe) guide for more info on publishing and subscribing.
+This line **subscribes** your device to the *get_nextbus* event, which pulls in data coming from the webhook attached to it. (The `/0` tells it to reference the first chunk of data, since there are a few of them.) It then sends that data to a function called `gotNextBusData`, which parses all the XML and pulls out the tiny bits we need, which are the number of **minutes** for the next two buses. See our [publish and subscribe](/tutorials/project-tutorials/examples#the-buddy-system-publish-and-subscribe) guide for more info on publishing and subscribing.
 
 ### Fill in your bus name and lead time
 Near the top of the code above, you'll see:
@@ -450,13 +450,13 @@ void getBusTimes() {
     Particle.publish("get_nextbus");
 }
 ```
-By keeping these functions separate from the main *loop()* function, code can be made much neater and more flexible. For more complex code, software timers are essential because they save you from having to weave timed events (which are sometimes blocking) into code that needs to run continuously. To learn more, read our [software timers guide](/reference/firmware/photon/#software-timers).
+By keeping these functions separate from the main *loop()* function, code can be made much neater and more flexible. For more complex code, software timers are essential because they save you from having to weave timed events (which are sometimes blocking) into code that needs to run continuously. To learn more, read our [software timers guide](/reference/device-os/firmware/photon/#software-timers).
 
 ### Troubleshooting
 
 **My OLED screen doesn't turn on.**
 * Re-check your wiring. "DC" and "D0" look pretty similar, so make sure you haven't swapped any pins.
-* If your Photon is not breathing cyan, check the [device modes guide](/guide/getting-started/modes/photon/).
+* If your Photon is not breathing cyan, check the [device modes guide](/tutorials/device-os/led/photon/).
 
 **My OLED screen works, but it shows 0 for both prediction times.**
 * First enter your prediction URL into your web browser to make sure it's working properly.
@@ -578,7 +578,7 @@ Particle.publish("conf_avail"); //publish to conf_avail webhook
 ```
 The name of the event being published matches the **event name** parameter in the webhook we just made.
 
-Check out the [Publish](/reference/firmware/photon/#particle-publish-),  [Subscribe](/reference/firmware/photon/#particle-subscribe-), and [Webhooks](/guide/tools-and-features/webhooks) documentation for more information.
+Check out the [Publish](/reference/device-os/firmware/photon/#particle-publish-),  [Subscribe](/reference/device-os/firmware/photon/#particle-subscribe-), and [Webhooks](/tutorials/device-cloud/webhooks) documentation for more information.
 
 ### Set up the hardware
 On the PIR sensor itself, with the back of the PCB facing up, find the two small potentiometers. The one on the left controls the range of the sensor (3-7 meters), and the one on the right controls how long the sensor stays triggered once tripped (1.5 - 300 seconds). Set the range potentiometer to the size of your conference room, or just turn it all the way to the right if your conference room has no windows. Set the second potentiometer all the way to the left (counterclockwise) to maximize its timing resolution.
@@ -874,7 +874,7 @@ The second-to-last line publishes the data to the cloud:
 ```
 Particle.publish("temperature", temperature, PRIVATE); // publish to cloud
 ```
-This line publishes an **event** named "temperature" to the Particle cloud, which brings with it the data stored in the `temperature` variable. You can read more about publishing events [here](/reference/firmware/photon/#particle-publish-).
+This line publishes an **event** named "temperature" to the Particle cloud, which brings with it the data stored in the `temperature` variable. You can read more about publishing events [here](/reference/device-os/firmware/photon/#particle-publish-).
 
 The default is to take a reading every five seconds, which is great for  for short-term projects and for testing this setup to make sure it works. If you want a longer interval once you get it working, change `delay(5000)` to something larger. Google spreadsheets can hold a maximum of 2000 rows, so the following line will take a reading every five minutes, which fits about a week's worth of readings into one sheet:
 ```
@@ -886,7 +886,7 @@ Your device should start publishing temperature readings to the **[Particle Cons
 
 ![Temperatures displayed in the Particle Console](/assets/images/temp-logger-dashboard.png)
 
-For more information about the Console, read our [Console guide](/guide/tools-and-features/console/).
+For more information about the Console, read our [Console guide](/tutorials/device-cloud/console/).
 
 ### IFTTT
 [IFTTT](https://ifttt.com) (which stands for "IF This Then That" and is pronounced "ift") is an incredibly flexible service that allows you to select a trigger and perform actions based on that trigger. In this case, the trigger will be our Photon publishing an event called `temperature`, and the action will be to add a row to a Google Spreadsheet containing the temperature and the current date and time. This will allow us to graph the temperature later on.

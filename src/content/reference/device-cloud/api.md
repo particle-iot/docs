@@ -85,7 +85,7 @@ Your access token can be found in the Particle Build web IDE on the 'Settings' p
 When you connect your Particle device to the Cloud for the first time, it will be associated with your account,
 and only you will have permission to control your Particle device—using your access token.
 
-If you need to transfer ownership of the device to another user, the easiest way is to simply log into the [Particle build site](https://build.particle.io), click on the 'Devices' drawer on the bottom left, and then click the small 'right arrow' by the device you want to release, then click "Remove Device". This will make it possible for the other person you are transferring the device to, to go through the normal [claiming process](/guide/getting-started/start).
+If you need to transfer ownership of the device to another user, the easiest way is to simply log into the [Particle build site](https://build.particle.io), click on the 'Devices' drawer on the bottom left, and then click the small 'right arrow' by the device you want to release, then click "Remove Device". This will make it possible for the other person you are transferring the device to, to go through the normal [claiming process](https://setup.particle.io).
 
 In the future, you will be able to provision access to your Particle device to other accounts
 and to third-party app developers; however, these features are not yet available.
@@ -201,7 +201,7 @@ There is an API rate limit of approximately 10 calls per second to api.particle.
 
 One situation that can cause problems is continuously monitoring variables for change. If you're polling every few seconds it's not a problem for a single device and variable. But if you are trying to monitor many devices, or have a classroom of students each polling their own device, you can easily exceed the API rate limit.
 
-Having the device call [Particle.publish](https://docs.particle.io/reference/firmware/#particle-publish-) when the value changes may be more efficient.
+Having the device call [Particle.publish](/reference/device-os/firmware/#particle-publish-) when the value changes may be more efficient.
 
 #### Make sure you handle error conditions properly
 
@@ -393,7 +393,7 @@ The libraries endpoints are a little different as they follow the [JSON API](htt
 Device groups allow you to define subsets of your IoT deployment that
 can be addressed separately from the rest of the fleet. Groups are
 defined within the scope of a [product](#products). For more information,
-please see [the guide](/guide/how-to-build-a-product/device-groups/).
+please see [the guide](/tutorials/product-tools/device-groups/).
 
 {{> api group=apiGroups.Groups}}
 

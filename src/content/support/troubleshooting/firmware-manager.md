@@ -112,8 +112,8 @@ If the update gets stuck or you see an error message, try following these steps
 
 - Close the device updater if it's already open
 - Connect the device directly to your computer rather than via USB hubs
-- Restart the device in [Safe Mode](/guide/getting-started/modes/#safe-mode)
-- When the device has connected to the cloud, put the device in [listening mode](/guide/getting-started/modes/#listening-mode)
+- Restart the device in [Safe Mode](/tutorials/device-os/led/#safe-mode)
+- When the device has connected to the cloud, put the device in [listening mode](/tutorials/device-os/led/#listening-mode)
 - launch the device updater and perform the update as described above
 
 

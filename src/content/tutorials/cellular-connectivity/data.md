@@ -57,7 +57,7 @@ and the Particle Device Cloud, and this set of messages can use as much as 6KB! 
 - Handshakes (whenever the device comes online, and once a week. up to 6kB) 
 
 **Flashing code:**
-- Flashing code over the air (try [flashing code via USB instead!](/guide/tools-and-features/cli/electron/#flashing-over-serial-for-the-electron))
+- Flashing code over the air (try [flashing code via USB instead!](/tutorials/developer-tools/cli/electron/#flashing-over-serial-for-the-electron))
 
 **Starting a connection:**
 Whenever the Electron has to join the cellular network it will "handshake" and register itself and your functions and variables.
@@ -84,7 +84,7 @@ There are lots of things you can do to save data! We'll go through these in orde
 
 **Use Shorter Names** This applies to Particle.publish, .variable, and .function. Those longer names have to be sent to/from the cloud, so you're much better off using `Particle.publish("x")` than `Particle.publish("xylophone_is_now_playing_a_song")`.
 
-**Use Serial() for Development** When you're first testing and debugging your code, you can avoid costly and embarrassing runaway data publishing scenarios by sending sensor readings, alerts, etc over a USB cable. Comment out your `Particle.publish()` line, add `Serial.begin(9600);` to `setup()` and instead use `Serial.println(your_data_here")` to log data out to a serial terminal. You can use [Particle Dev](https://www.particle.io/dev), the Arduino IDE, `screen` or any other terminal program. Find out more in the [Serial reference](/reference/firmware/electron/#serial)
+**Use Serial() for Development** When you're first testing and debugging your code, you can avoid costly and embarrassing runaway data publishing scenarios by sending sensor readings, alerts, etc over a USB cable. Comment out your `Particle.publish()` line, add `Serial.begin(9600);` to `setup()` and instead use `Serial.println(your_data_here")` to log data out to a serial terminal. You can use [Particle Dev](https://www.particle.io/dev), the Arduino IDE, `screen` or any other terminal program. Find out more in the [Serial reference](/reference/device-os/firmware/electron/#serial)
 
 **Event-Driven Publishing** One of the very common structures we see in code is a loop() with a sensor reading, then a publish and delay. This calls the publish (and uses data) at some regular interval, but the data being reported may not have changed! Picture a temperature sensor in your yard- the temperature is unlikely to have changed much after 1 second, 1 minute, or even 10 minutes. The data-efficient thing to do is to save the temperature you last published and compare the current reading to that previous one. If it's more than a few degrees different, then publish the new one.
 
@@ -105,6 +105,6 @@ We're also working on a new kind of Particle.publish that will do this for you a
 
 **On-Device Logic** Most of the behaviors you'd like to implement can live right on the Electron. For example, if you have a greenhouse with a motorized vent, and you want the vent to turn on if the temperature exceeds a user-set threshold, then there are two options. You could send the temperature reading to the cloud from time to time, compare the reading to the threshold, and have the cloud control the vent via a function if the temp is above the threshold. This is much, much less data efficient than using a function to set the threshold on the device when necessary, and otherwise keeping the logic and control entirely on the device. This has the added benefit of being more reliable in the event of a connectivity outage.
 
-**Being "Sleepy"** When your Electron is asleep you won't use pings and power consumption will be much lower! For now, hop over to the firmware reference and read about [sleep](/reference/firmware/electron/#sleep-sleep-). 
+**Being "Sleepy"** When your Electron is asleep you won't use pings and power consumption will be much lower! For now, hop over to the firmware reference and read about [sleep](/reference/device-os/firmware/electron/#sleep-sleep-). 
 
 

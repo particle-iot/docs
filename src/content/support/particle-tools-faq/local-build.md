@@ -14,7 +14,7 @@ It is possible to build both application firmware and Device OS locally using th
 - To work entirely offline, with no Internet access
 - To use the GDB debugger
 
-This note explains how to do a fully native installation. It's also possible to do a Docker installation. And, of course, you can use the cloud compilers [Particle Build](https://build.particle.io), [Particle Dev](/guide/tools-and-features/dev/), or [Particle CLI](/guide/tools-and-features/cli/) which are much easier to install and use.
+This note explains how to do a fully native installation. It's also possible to do a Docker installation. And, of course, you can use the cloud compilers [Particle Build](https://build.particle.io), [Particle Dev](/tutorials/developer-tools/dev/), or [Particle CLI](/tutorials/developer-tools/cli/) which are much easier to install and use.
 
 {{collapse op="computerOsSelector"}}
 
@@ -340,7 +340,7 @@ sudo apt-get install dfu-util
 
 By default, dfu-util requires sudo (root access) to run. This will cause a problem using the program-dfu option in make, and many other locations.
 
-The easiest solution is to install the [Particle CLI](/guide/tools-and-features/cli/), however you can also manually install a udev rule:
+The easiest solution is to install the [Particle CLI](/tutorials/developer-tools/cli), however you can also manually install a udev rule:
 
 - Download the [50-particle.rules](/assets/files/50-particle.rules) file, then:
 
@@ -477,7 +477,7 @@ cd src
 mkdir blinkled
 ```
 
-- And I created the file blinkled.cpp. It's very slightly modified from the source in the [Particle example](/guide/getting-started/examples/photon/#blink-an-led).
+- And I created the file blinkled.cpp.
 
 ```bash
 cd firmware/modules
@@ -515,7 +515,7 @@ particle flash --serial target/blinkled.bin
 
 ## Building with libraries
 
-To use libraries with local build you should use the [extended project structure](https://docs.particle.io/guide/tools-and-features/libraries/#project-file-structure) within the APPDIR.
+To use libraries with local build you should use the [extended project structure](/tutorials/device-os/libraries) within the APPDIR.
 
 It looks like this:
 
@@ -529,7 +529,7 @@ myappdir
 
 You can start out with an empty file for project.properties. 
 
-To add a library you typically cd into myappdir then use a [CLI library copy command](/guide/tools-and-features/cli/electron/#using-libraries) for example:
+To add a library you typically cd into myappdir then use a [CLI library copy command](/tutorials/developer-tools/cli#using-libraries) for example:
 
 ```
 particle library copy neopixel
@@ -545,7 +545,7 @@ If you have a project in the extended format, building with APPDIR automatically
 
 ## Including additional header directories
 
-Sometimes you want to include other directories as locations for header files. For example, say you are using the [extended project structure](/guide/tools-and-features/libraries/#project-file-structure) within the APPDIR with the following layout:
+Sometimes you want to include other directories as locations for header files. For example, say you are using the [extended project structure](/tutorials/device-os/libraries/#project-file-structure) within the APPDIR with the following layout:
 
 ```
 myappdir
