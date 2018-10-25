@@ -24,10 +24,7 @@ Connected devices nearly always require certifications that ensure they operate 
 
 
 
-Here is a graphical representation of the current state of certification across Particle's hardware portfolio:
 
-![particle certifications table](/assets/pdfs/new-certs/particle-certifications-v6.png)
-<p class="caption">It is important to understand which certifications apply to your end product. <a target="_blank" href="/assets/pdfs/new-certs/particle-certifications-v6.png">Click here</a> for a full size image. Updated 4/19/17.</p>
 
 
 ## FCC<img class="inline-header-image" src="/assets/images/logo-fcc.png"/>
