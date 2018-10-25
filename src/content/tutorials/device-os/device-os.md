@@ -74,7 +74,7 @@ So what happens in these cases?
 ### Safe Mode
 When booting up, the Particle device will check dependencies between the
 application firmware and the Device OS version. In the case of an incompatibility
-between the two, the device will automatically enter into [_safe mode_](/guide/getting-started/modes/#safe-mode) (breathing magenta). 
+between the two, the device will automatically enter into [_safe mode_](/tutorials/device-os/led/#safe-mode) (breathing magenta). 
 
 Safe mode allows the device to connect to the Particle cloud, but does not run application firmware. There are many uses for safe mode, but is particularly relevant when a device receives application firmware compiled against a newer version of Device OS than it currently is running. In this case, safe mode prevents the device from running the incompatible application firmware that will cause it to hard fault.
 
@@ -142,7 +142,7 @@ Sweet! You just updated the Device OS on your device.
 
 There's a couple of things to note:
 
-- This approach will also work for _product firmware_. When a product firmware binary is [released to a fleet](/guide/tools-and-features/console/#releasing-firmware), any device that receives it will enter into safe mode and heal itself by downloading the required Device OS
+- This approach will also work for _product firmware_. When a product firmware binary is [released to a fleet](/tutorials/device-cloud/console/#releasing-firmware), any device that receives it will enter into safe mode and heal itself by downloading the required Device OS
 - This approach will trigger Device OS _upgrades_, but not _downgrades_. As mentioned earlier, Device OS is backwards compatible meaning that devices can successfully run application firmware compiled against an older version of Device OS than it currently is running
 
 #### CLI (Remote)
@@ -158,7 +158,7 @@ When you find the desired release, scroll down to the **Downloads** section. Her
 
 Find the files relevant to your device (each binary is suffixed with the device type) and click to download them to your machine. Note that you'll only need to do this step once to store a copy of the binaries on your computer.
 
-Next, you'll flash these files to a device using the `particle flash` command in the CLI. If you haven't already, you must [download the Particle CLI](/guide/tools-and-features/cli/photon/). Open up your Terminal and run the following commands to flash the system modules to a device:
+Next, you'll flash these files to a device using the `particle flash` command in the CLI. If you haven't already, you must [download the Particle CLI](/tutorials/developer-tools/cli). Open up your Terminal and run the following commands to flash the system modules to a device:
 
 ```bash
 particle flash YOUR_DEVICE_NAME_OR_ID path/to/system-part1.bin
@@ -173,7 +173,7 @@ particle flash YOUR_DEVICE_NAME_ID path/to/system-part3.bin
 For devices in which you have physical access, there are also methods to update Device OS over-the-wire.
 
 #### CLI (Local)
-The Particle CLI offers two different methods of updating Device OS locally. Both require that the device is connected to your computer over USB.  If you haven't already, you must [download the Particle CLI](/guide/tools-and-features/cli/photon/) and ensure you are running version **1.24.1** or later. You can check with `particle --version`.
+The Particle CLI offers two different methods of updating Device OS locally. Both require that the device is connected to your computer over USB.  If you haven't already, you must [download the Particle CLI](/tutorials/developer-tools/cli) and ensure you are running version **1.24.1** or later. You can check with `particle --version`.
 
 The first approach is to run [`particle update`](/reference/cli/#particle-update). Open up your Terminal and run the following command to flash the latest Device OS to a device:
 
@@ -189,7 +189,7 @@ $ particle update
 > Your device should now restart automatically.
 ```
 
-Be sure to put the device in [DFU mode](/guide/getting-started/modes/#dfu-mode-device-firmware-upgrade-) before running the command. Note that this will update your device to the _newest_ Device OS - it does not currently allow you to flash a different verrsion of firmware other than the latest. 
+Be sure to put the device in [DFU mode](/tutorials/device-os/led/#dfu-mode-device-firmware-upgrade-) before running the command. Note that this will update your device to the _newest_ Device OS - it does not currently allow you to flash a different verrsion of firmware other than the latest. 
 
 If you'd like to use the CLI to flash a Device OS version _other than the latest_, you can use the `particle flash` command in a similar way as [outlined above](#cli-remote-). The only difference will be that you'll pass an argument to tell the CLI to flash the files over USB, and you won't have to include the device name or ID in the command:
 

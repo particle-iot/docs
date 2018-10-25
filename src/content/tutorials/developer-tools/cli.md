@@ -138,8 +138,8 @@ Assuming you've compiled and downloaded the firmware binary from [Build IDE](htt
 be able to use the Particle CLI, mentioned above, to flash your application firmware to your Electron *without using data.*
 
 Steps:
-- **1:** Put the Electron in to [listening mode](/guide/getting-started/modes/electron/#listening-mode)
-- **2:** Open Particle CLI from your machine (make sure you've [installed it first](/guide/tools-and-features/cli/electron/#installing))
+- **1:** Put the Electron in to [listening mode](/tutorials/device-os/led/electron/#listening-mode)
+- **2:** Open Particle CLI from your machine (make sure you've [installed it first](/tutorials/developer-tools/cli/electron/#installing))
 - **3:** Navigate to the folder where you've downloaded the `firmware.bin` file.
 - **4:** From the CLI issue `particle flash --serial firmware.bin`
 
@@ -155,7 +155,7 @@ Flash success!
 ```
 
 *Note*: If your Electron goes into [safe
-mode](/guide/getting-started/modes/electron/#safe-mode), this is okay,
+mode](/tutorials/device-os/led/electron/#safe-mode), this is okay,
 just make sure that the Device OS version you have on the device matches
 the dependency of the Device OS version used to compile the application
 firmware.

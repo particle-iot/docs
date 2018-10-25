@@ -56,13 +56,13 @@ To get started, you'll need the following things:
 * **Software**
   * Particle Mobile App - [iPhone](https://itunes.apple.com/us/app/particle-build-photon-electron/id991459054?ls=1&mt=8) | [Android](https://play.google.com/store/apps/details?id=io.particle.android.app) (requires Android 4.0.3 or higher) | [Windows](https://www.microsoft.com/en-us/store/p/particle/9nblggh4p55n)
 * **Experience**
-    * Connecting your Device [with your smartphone](/guide/getting-started/start) or [over USB](/guide/getting-started/connect)
+    * Connecting your Device with your [smartphone or USB](/quickstart/photon) 
 
 {{#if core}}**NOTE:** You may already have the Spark Core App for [iPhone](https://itunes.apple.com/us/app/spark-core/id760157884) or [Android](https://play.google.com/store/apps/details?id=io.spark.core.android) (requires Android 4.0 or higher). We recommend getting the newer Particle Mobile App anyway, since it's a very nice interface for Tinker that works across all devices. Sadly, the new Particle Mobile App will not connect your Core, though. If you don't feel like having two apps on your phone, the old Spark Core App will still work for these examples. However, the images in this tutorial will be from the newer and fancier Particle App.{{/if}}
 
 ## Step One: Select Your Device
 
-You've already connected your device, either with [your smartphone](/guide/getting-started/start) or [over USB](/guide/getting-started/connect). This means that when you open the Particle App, you'll see a screen like this:
+You've already connected your device, either with [smartphone or USB](/quickstart/photon). This means that when you open the Particle App, you'll see a screen like this:
 
 ![](/assets/images/tinker-device-screen.png)
 
@@ -199,7 +199,7 @@ Hold your breadboard with the photoresistor on it up to a light source and tap A
 You can try testing different kinds of light, or you can even swap out your photoresistor for another kind of fluctuating resistor like a thermistor or a force sensitive resistor.
 
 
-When you're ready, let's move on to [putting your own firmware on your Particle device using the web IDE.](/guide/getting-started/build)
+When you're ready, let's move on to [putting your own firmware on your Particle device using the web IDE.](/tutorials/developer-tools/build)
 {{/if}}
 
 {{#if electron}}
@@ -220,13 +220,13 @@ To get started, you'll need the following things:
 * **Software**
   * Particle Mobile App - [iPhone](https://itunes.apple.com/us/app/particle-build-photon-electron/id991459054?ls=1&mt=8) | [Android](https://play.google.com/store/apps/details?id=io.particle.android.app) (requires Android 4.0.3 or higher) | [Windows](https://www.microsoft.com/en-us/store/p/particle/9nblggh4p55n)
 * **Experience**
-    * Connecting your Device [with your smartphone](/guide/getting-started/start) or [over USB](/guide/getting-started/connect)
+    * Connecting your Device [smartphone or USB](/quickstart/electron)
 
 {{#if core}}**NOTE:** You may already have the Spark Core App for [iPhone](https://itunes.apple.com/us/app/spark-core/id760157884) or [Android](https://play.google.com/store/apps/details?id=io.spark.core.android) (requires Android 4.0 or higher). We recommend getting the newer Particle Mobile App anyway, since it's a very nice interface for Tinker that works across all devices. Sadly, the new Particle Mobile App will not connect your Core, though. If you don't feel like having two apps on your phone, the old Spark Core App will still work for these examples. However, the images in this tutorial will be from the newer and fancier Particle App.{{/if}}
 
 ## Step One: Select Your Device
 
-You've already connected your device, either with [your smartphone](/guide/getting-started/start) or [over USB](/guide/getting-started/connect). This means that when you open the Particle App, you'll see a screen like this:
+You've already connected your device, either with [smartphone or USB](/quickstart/electron). This means that when you open the Particle App, you'll see a screen like this:
 
 ![](/assets/images/tinker-device-screen.png)
 
@@ -363,7 +363,7 @@ Hold your breadboard with the photoresistor on it up to a light source and tap A
 You can try testing different kinds of light, or you can even swap out your photoresistor for another kind of fluctuating resistor like a thermistor or a force sensitive resistor.
 
 
-When you're ready, let's move on to [putting your own firmware on your Particle device using the web IDE.](/guide/getting-started/build)
+When you're ready, let's move on to [putting your own firmware on your Particle device using the web IDE.](/tutorials/developer-tools/build)
 {{/if}}
 
 {{#if core}}
@@ -384,13 +384,13 @@ To get started, you'll need the following things:
 * **Software**
   * Particle Mobile App - [iPhone](https://itunes.apple.com/us/app/particle-build-photon-electron/id991459054?ls=1&mt=8) | [Android](https://play.google.com/store/apps/details?id=io.particle.android.app) (requires Android 4.0.3 or higher)
 * **Experience**
-    * Connecting your Device [with your smartphone](/guide/getting-started/start) or [over USB](/guide/getting-started/connect)
+    * Connecting your Device with your smartphone or over USB
 
 {{#if core}}**NOTE:** You may already have the Spark Core App for [iPhone](https://itunes.apple.com/us/app/spark-core/id760157884) or [Android](https://play.google.com/store/apps/details?id=io.spark.core.android) (requires Android 4.0 or higher). We recommend getting the newer Particle Mobile App anyway, since it's a very nice interface for Tinker that works across all devices. Sadly, the new Particle Mobile App will not connect your Core, though. If you don't feel like having two apps on your phone, the old Spark Core App will still work for these examples. However, the images in this tutorial will be from the newer and fancier Particle App.{{/if}}
 
 ## Step One: Select Your Device
 
-You've already connected your device, either with [your smartphone](/guide/getting-started/start) or [over USB](/guide/getting-started/connect). This means that when you open the Particle App, you'll see a screen like this:
+You've already connected your device, either with your smartphone or over USB. This means that when you open the Particle App, you'll see a screen like this:
 
 ![](/assets/images/tinker-device-screen.png)
 
@@ -527,5 +527,5 @@ Hold your breadboard with the photoresistor on it up to a light source and tap A
 You can try testing different kinds of light, or you can even swap out your photoresistor for another kind of fluctuating resistor like a thermistor or a force sensitive resistor.
 
 
-When you're ready, let's move on to [putting your own firmware on your Particle device using the web IDE.](/guide/getting-started/build)
+When you're ready, let's move on to [putting your own firmware on your Particle device using the web IDE.](/tutorials/developer-tools/build)
 {{/if}}

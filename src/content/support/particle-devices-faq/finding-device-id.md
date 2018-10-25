@@ -21,7 +21,7 @@ Also note: even though the device ID is hexadecimal, many commands that take a d
 
 For the Photon, Electron, and Core, an easy way is to use the [Particle CLI](/guide/tools-and-features/cli/).
 
-Connect the device to your computer using USB and put the device in [listening mode](/guide/getting-started/modes/electron/#listening-mode) (blinking dark blue) by holding down the SETUP (or MODE) button until the main status LED blinks dark blue, about 3 seconds.
+Connect the device to your computer using USB and put the device in [listening mode](/tutorials/device-os/led/electron/#listening-mode) (blinking dark blue) by holding down the SETUP (or MODE) button until the main status LED blinks dark blue, about 3 seconds.
 
 Then issue the command:
 
@@ -46,7 +46,7 @@ This technique is useful if you have a device built around a P1 and you don't ha
 
 It's also handy because you can do it from your phone with no USB connection to the device, though you still need to access the SETUP button.
 
-Put the device in [listening mode](/guide/getting-started/modes/electron/#listening-mode) (blinking dark blue) by holding down the SETUP button until the main status LED blinks dark blue, about 3 seconds, if it's not already in that state.
+Put the device in [listening mode](/tutorials/device-os/led/electron/#listening-mode) (blinking dark blue) by holding down the SETUP button until the main status LED blinks dark blue, about 3 seconds, if it's not already in that state.
 
 Find the device's Wi-Fi network and connect to it. It's usually called something like "Photon-57R2" where the last 4 letters and numbers are random.
 
@@ -73,7 +73,7 @@ This also works on the P1, assuming the USB port is exposed.
 
 For Windows, you'll need a program like [PuTTY](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html) or [CoolTerm](http://freeware.the-meiers.org).
 
-Connect the device to your computer using USB and put the device in [listening mode](/guide/getting-started/modes/electron/#listening-mode) (blinking dark blue) by holding down the SETUP (or MODE) button until the main status LED blinks dark blue, about 3 seconds.
+Connect the device to your computer using USB and put the device in [listening mode](/tutorials/device-os/led/electron/#listening-mode) (blinking dark blue) by holding down the SETUP (or MODE) button until the main status LED blinks dark blue, about 3 seconds.
 
 It's hard to say what COM port it will use, but if you open the Windows Device Manager and expand **Ports (COM & LPT)** it should show the Photon.
 
@@ -93,7 +93,7 @@ Your device id is 1e0032123447343149111039
 
 ### Serial - Mac 
 
-Connect the device to your computer using USB and put the device in [listening mode](/guide/getting-started/modes/electron/#listening-mode) (blinking dark blue) by holding down the SETUP (or MODE) button until the main status LED blinks dark blue, about 3 seconds.
+Connect the device to your computer using USB and put the device in [listening mode](/tutorials/device-os/led/electron/#listening-mode) (blinking dark blue) by holding down the SETUP (or MODE) button until the main status LED blinks dark blue, about 3 seconds.
 
 Find the serial port that is being used using the Terminal program command line:
 
@@ -119,7 +119,7 @@ You will probably want to issue the screen command in a new Terminal window, bec
 
 ### Serial - Linux
 
-Connect the device to your computer using USB and put the device in [listening mode](/guide/getting-started/modes/electron/#listening-mode) (blinking dark blue) by holding down the SETUP (or MODE) button until the main status LED blinks dark blue, about 3 seconds.
+Connect the device to your computer using USB and put the device in [listening mode](/tutorials/device-os/led/electron/#listening-mode) (blinking dark blue) by holding down the SETUP (or MODE) button until the main status LED blinks dark blue, about 3 seconds.
 
 Find the serial port that is being used using the Terminal program command line:
 
@@ -144,7 +144,7 @@ You will probably want to issue the screen command in a new Terminal window, bec
 
 If you have the Particle Dev (Atom IDE) installed on your Windows or Mac computer, you can use that. 
 
-Connect the device to your computer using USB and put the device in [listening mode](/guide/getting-started/modes/electron/#listening-mode) (blinking dark blue) by holding down the SETUP (or MODE) button until the main status LED blinks dark blue, about 3 seconds.
+Connect the device to your computer using USB and put the device in [listening mode](/tutorials/device-os/led/electron/#listening-mode) (blinking dark blue) by holding down the SETUP (or MODE) button until the main status LED blinks dark blue, about 3 seconds.
 
 Select **Show Serial Monitor** from the Particle menu.
 
@@ -156,7 +156,7 @@ Type the letter i (lowercase i, as in identify) in the **Enter string to send** 
 
 If you have the Arduino IDE installed, you can use that.
 
-Connect the device to your computer using USB and put the device in [listening mode](/guide/getting-started/modes/electron/#listening-mode) (blinking dark blue) by holding down the SETUP (or MODE) button until the main status LED blinks dark blue, about 3 seconds.
+Connect the device to your computer using USB and put the device in [listening mode](/tutorials/device-os/led/electron/#listening-mode) (blinking dark blue) by holding down the SETUP (or MODE) button until the main status LED blinks dark blue, about 3 seconds.
 
 Select the serial port from the **Port** menu in the **Tools** menu.
 
@@ -172,7 +172,7 @@ If your Android phone supports USB OTG ("on the go") and you have an OTG adapter
 
 Install the Android USB Serial Monitor Lite application from the Google Play store. 
 
-Connect the device to your phone using a USB cable and a USB OTG adapter and put the device in [listening mode](/guide/getting-started/modes/electron/#listening-mode) (blinking dark blue) by holding down the SETUP (or MODE) button until the main status LED blinks dark blue, about 3 seconds.
+Connect the device to your phone using a USB cable and a USB OTG adapter and put the device in [listening mode](/tutorials/device-os/led/electron/#listening-mode) (blinking dark blue) by holding down the SETUP (or MODE) button until the main status LED blinks dark blue, about 3 seconds.
 
 Open the serial monitor app and it should ask if you want to connect to the device. Tap yes and you should see a screen like this:
 

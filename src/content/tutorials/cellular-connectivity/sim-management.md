@@ -80,7 +80,7 @@ cards into your product</p>
 
 SIM activation requires selection of a home country for billing
 purposes. For more information on home countries, please see the
-[cellular billing guide](/guide/getting-started/billing/electron). You
+[cellular billing guide](/tutorials/cellular-connectivity/billing). You
 will be presented with a dropdown to select the home country after
 importing the desired ICCIDs:
 
@@ -161,7 +161,7 @@ plan will no longer apply** (i.e. free 1MB data plan for 3 months)
 Each SIM card has its own _data limit_ or the maximum data that you'd
 like a particular SIM to be allowed to consume as a safety cutoff. For
 more information on data limits, please read the docs on [SIM data
-limits](/guide/getting-started/billing/electron/#data-limits).
+limits](/tutorials/cellular-connectivity/billing/#data-limits).
 
 For large product fleet, it can become cumbersome to individually set data
 limits for each SIM card. You have the ability to set a default data
@@ -242,7 +242,7 @@ from your product's billing account
 This section will outline billing and invoicing information specific to
 associating a SIM with a product. For general information about how
 SIM data is billed, check out the
-[cellular billing guide](/guide/getting-started/billing/electron/).
+[cellular billing guide](/tutorials/cellular-connectivity/billing/).
 
 ### Data plans
 

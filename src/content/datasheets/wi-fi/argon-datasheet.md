@@ -153,7 +153,7 @@ The Argon has a dedicated 10 pin debug connector that exposes the SWD interface 
 ### LED status
 
 #### System RGB LED
-For a detailed explanation of different color codes of the RGB system LED, please take a look [here.](/guide/getting-started/modes/)
+For a detailed explanation of different color codes of the RGB system LED, please take a look [here.](/tutorials/device-os/led/)
 
 #### Charge status LED
 

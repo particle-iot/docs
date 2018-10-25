@@ -19,15 +19,15 @@ The Ethernet FeatherWing is the fastest way to add wired connectivity to your Ar
 {{box op="switch"}}
 **Resources:**
 - Code
-- Gerber files
+- Hardware files
 - Data sheets
 - [Community](https://community.particle.io/c/mesh)
-- [Buy more mesh hardware](https://store.particle.io/collections/mesh)
 {{box op="end"}}
 
 ## Hardware specifications
 {{box op="start"}}
 
-TKTKT SPECS TKTKTK
+Add wired connectivity to your Mesh dev kit
+
 
 {{box op="end"}}

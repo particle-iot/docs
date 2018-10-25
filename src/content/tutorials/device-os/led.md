@@ -63,7 +63,7 @@ If your {{device}} is blinking green, it is trying to connect to Wi-Fi.
 If you are unable to get past blinking green, here are a few known working situations that the {{device}} is not compatible with:
 
 {{#if photon}}
-- If you are using a corporate or school network that uses WPA2 Enterprise, you will need to follow [special setup instructions](/faq/particle-devices/wpa2-enterprise/photon/). If you require both a username and a password, or see a mention of 802.1(x), or RADIUS you're using WPA2 Enterprise.
+- If you are using a corporate or school network that uses WPA2 Enterprise, you will need to follow [special setup instructions](/support/particle-devices-faq/wpa2-enterprise). If you require both a username and a password, or see a mention of 802.1(x), or RADIUS you're using WPA2 Enterprise.
 {{/if}} 
 {{#if core}}
 - If you are using a corporate or school network that uses WPA2 Enterprise, you cannot use a {{device}}. If you require both a username and a password, or see a mention of 802.1(x), or RADIUS you're using WPA2 Enterprise.
@@ -405,7 +405,7 @@ _Since 0.6.0_
 
 {{device-animation device "blink" "lime" }}
 
-The Electron can store a backup copy of any desired user firmware in flash memory at address 0x080A0000, separate from user flash memory which is located at 0x08080000.  This backup copy of firmware can be restored to user memory with a button sequence that is only available when the backup copy flash memory contains a valid firmware image.  To program your Electron with a backup copy of user firmware via USB, you'll need to put the Electron in [DFU Mode](/guide/getting-started/modes/#dfu-mode-device-firmware-upgrade-) and run this command: `particle flash --factory user-backup-firmware.bin`
+The Electron can store a backup copy of any desired user firmware in flash memory at address 0x080A0000, separate from user flash memory which is located at 0x08080000.  This backup copy of firmware can be restored to user memory with a button sequence that is only available when the backup copy flash memory contains a valid firmware image.  To program your Electron with a backup copy of user firmware via USB, you'll need to put the Electron in [DFU Mode](/tutorials/device-os/led/#dfu-mode-device-firmware-upgrade-) and run this command: `particle flash --factory user-backup-firmware.bin`
 
 A CLI installation tutorial can be found [here.](/guide/tools-and-features/cli/)
 
@@ -549,7 +549,7 @@ In general it's better to structure your code so it always returns from loop(), 
 {{#unless core}}
 #### Solution 2: Enable SYSTEM_THREAD
 
-The other solution is to use [SYSTEM_THREAD](https://docs.particle.io/reference/firmware/#system-thread) mode.
+The other solution is to use [SYSTEM_THREAD](/reference/device-os/firmware/#system-thread) mode.
 
 ```
 SYSTEM_THREAD(ENABLED);
@@ -575,7 +575,7 @@ if (Particle.connected()) {
 {{#if has-wifi}}
 #### Side note: Wi-Fi only mode
 
-While all of the causes above were unintentionally causing breathing green, you can also do it on purpose. Using the [SEMI_AUTOMATIC or MANUAL system mode](https://docs.particle.io/reference/firmware/#semi-automatic-mode) and only bringing up Wi-Fi and not the cloud will cause intentional breathing green. You would do this if you're sending data to a local server and not using the cloud at all, for example. 
+While all of the causes above were unintentionally causing breathing green, you can also do it on purpose. Using the [SEMI_AUTOMATIC or MANUAL system mode](/reference/device-os/firmware/#semi-automatic-mode) and only bringing up Wi-Fi and not the cloud will cause intentional breathing green. You would do this if you're sending data to a local server and not using the cloud at all, for example. 
 {{/if}}
 
 {{collapse op="end"}}
@@ -693,7 +693,7 @@ Some causes of hard fault include:
 
 {{device-animation device "sos" 8 }}
 
-If your {{device}} crashes repeatedly with an SOS code, first try recovering with [Safe Mode](/guide/getting-started/modes/#safe-mode) and flashing Tinker with the CLI to see if it was something recently added in your user application.
+If your {{device}} crashes repeatedly with an SOS code, first try recovering with [Safe Mode](/tutorials/device-os/led/#safe-mode) and flashing Tinker with the CLI to see if it was something recently added in your user application.
 
 ```
 particle flash <mydevice> tinker

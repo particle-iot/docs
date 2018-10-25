@@ -19,7 +19,7 @@ For more information about Device Cloud pricing, check out <a
 href="https://particle.io/pricing" target="_blank">our pricing page</a>.
 
 There are also FAQs for cellular Device Cloud pricing
-[here](/faq/pricing/general-questions/electron/).
+[here](/support/pricing/general-questions).
 
 ## Data Limits
 Limits act as a safety cutoff for your data usage to avoid paying
@@ -99,7 +99,7 @@ It's important to note that the estimated cost represents data used *up to that 
 ## How to Reduce Your Bill
 You can reduce your monthly cost in two main ways. One is by setting your data limit lower. This will make sure that your bill will never be much higher than you expect (allowing for taxes, fees, and slight overshoots). It's also a bit abrupt. Your device will lose connection and the behavior will change unless you've written in offline behavior.
 
-The lighter approach is to reduce the amount of data consumed by the device itself via firmware optimization. We have a whole guide for that! [Data Usage Guide](/guide/getting-started/data)
+The lighter approach is to reduce the amount of data consumed by the device itself via firmware optimization. We have a whole guide for that! [Data Usage Guide](/tutorials/cellular-connectivity/data)
 
 ## How to Update Billing Info
 If there's ever a need to update your billing information, or add a new credit card, you can do this easily from the Console. If a payment attempt ever fails, we'll ask you to go and edit your billing information before we try and charge your card again. To do this, simply visit the [Edit Card](https://console.particle.io/billing/edit-card) screen on the billing page of your Console.

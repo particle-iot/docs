@@ -22,12 +22,14 @@ The Boron is great for connecting existing projects to the Particle Device Cloud
 {{box op="start" cssClass="boxedSideBySide"}}
 **Learn more:**
 - [Quickstart with starter project](/quickstart/boron/)
+- [Community](https://community.particle.io/c/mesh)
 - [Support](/support/support-and-fulfillment/menu-base/)
 {{box op="switch"}}
 **Resources:**
 - [Hardware files](https://github.com/particle-iot/boron)
 - [Datasheets](/datasheets/cellular/boron-datasheet/)
-- [Community](https://community.particle.io/c/mesh)
+- [Certification](/datasheets/certifications/certification)
+
 {{box op="end"}}
 
 ## Hardware specifications:

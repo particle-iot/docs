@@ -16,7 +16,7 @@ Leveraging high quality libraries to build Internet-connected projects and appli
 
 In general, libraries in the Particle ecosystem have the following features:
 
-1. **Most Arduino libraries are compatible with Particle.** We've worked hard to ensure that our [firmware API](/reference/firmware) contains all of the most commonly used Arduino functions and firmware commands so that many Arduino libraries can be submitted into the Particle library ecosystem without modification. All of the most popular Arduino libraries are already available through our libraries system, and many others can be easily modified for compatibility.
+1. **Most Arduino libraries are compatible with Particle.** We've worked hard to ensure that our [firmware API](/reference/device-os/firmware) contains all of the most commonly used Arduino functions and firmware commands so that many Arduino libraries can be submitted into the Particle library ecosystem without modification. All of the most popular Arduino libraries are already available through our libraries system, and many others can be easily modified for compatibility.
 
 2. **Particle libraries can include and depend on other Particle libraries.** If your library requires another external library as a dependency, it is easy to specify the particular library and even version of the library that your library depends on. A good example is our `internet-button` library, which depends on the popular `neopixel` library for controlling NeoPixel LEDs. You can learn more about libraries with dependencies in the [Library file structure](#library-file-structure) section below.
 
@@ -155,9 +155,9 @@ An extended project can be created by using the Desktop IDE "Start a new project
 
 Libraries consumption is supported in each of our three primary development tools. Instructions for using libraries can be found in the documentation for each of those tools, linked below:
 
-- [Using libraries with the Web IDE](/guide/getting-started/build/#using-libraries)
-- [Using libraries with the Desktop IDE](/guide/tools-and-features/dev/#using-community-libraries)
-- [Using libraries with the Command Line Interface (CLI)](/guide/tools-and-features/cli/#using-libraries)
+- [Using libraries with the Web IDE](/tutorials/developer-tools/build)
+- [Using libraries with the Desktop IDE](/tutorials/developer-tools/dev)
+- [Using libraries with the Command Line Interface (CLI)](/tutorials/developer-tools/cli)
 
 ## Contributing libraries
 

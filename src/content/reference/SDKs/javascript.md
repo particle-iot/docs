@@ -390,7 +390,7 @@ particle.deleteAccessToken({ username: 'u@m.com', password: 'pass', token: 'toke
 
 ## Product support
 
-If you are a [product creator](/guide/how-to-build-a-product/intro/) you can use the Javascript library to manage devices, firmware, integrations, and more.
+If you are a product creator you can use the Javascript library to manage devices, firmware, integrations, and more.
 
 Many of the functions in the Javascript library accept a `product` parameter. Pass your product ID number (such as 4567) or the slug (such as `myproduct-v100`) to make that function act on that product.
 

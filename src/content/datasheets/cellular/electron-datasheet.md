@@ -292,7 +292,7 @@ _Since 0.6.0 firmware_
 
 #### System RGB LED
 
-For a detailed explanation of different color codes of the RGB system LED, please take a look [here.](/guide/getting-started/modes/electron/)
+For a detailed explanation of different color codes of the RGB system LED, please take a look [here.](/tutorials/device-os/led/electron/)
 
 ### Pinout diagram
 
@@ -671,7 +671,7 @@ Cet équipement devrait être installé et actionné avec une distance minimum d
 
 > The end user manual shall include all required regulatory information/warning as shown in this manual.
 >
-> For an in-depth review on certifications, please click [here.](/guide/how-to-build-a-product/certification/)
+> For an in-depth review on certifications, please click [here.](/datasheets/certifications/certification/)
 
 ## Revision history
 

@@ -18,7 +18,7 @@ Particle Device Cloud. The first thing you should do is make sure you follow all
  - Using Particle's Web IDE
  - Several basic code examples
 
-The [firmware reference](/reference/firmware/raspberry-pi/) is also available.
+The [firmware reference](/reference/device-os/firmware/raspberry-pi/) is also available.
 
 ## Is connecting my Raspberry Pi to the Particle Device Cloud free?
 Yes, it is free, for the first 25 Pi’s that you provision to your Particle Account. After that, you’ll have to create a product, which follows our standard product creator pricing, described on our [pricing page](http://particle.io/pricing).

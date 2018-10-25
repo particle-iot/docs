@@ -15,7 +15,7 @@ This is also different than situations where you enter a password (sometimes a u
 
 ## Install the Particle CLI
 
-You should install the Particle Command Line Interface using the [Particle CLI Installer](https://docs.particle.io/guide/tools-and-features/cli/photon/) for Windows, Mac, or Linux if you have not already done so.
+You should install the Particle Command Line Interface using the [Particle CLI Installer](/tutorials/developer-tools/cli) for Windows, Mac, or Linux if you have not already done so.
 
 It's the easiest way to upgrade the Particle Device OS on your Photon and set up WPA2 Enterprise. 
 
@@ -25,7 +25,7 @@ It is not currently possible to do a WPA2 Enterprise setup using the Particle mo
 
 Photons and P1s ship with an earlier version of the Particle Device OS that does not support WPA2 Enterprise, so you will need to upgrade it first over USB.
 
-Put the Photon in [DFU mode](https://docs.particle.io/guide/getting-started/modes/photon/#dfu-mode-device-firmware-upgrade-) (blinking yellow) by holding down RESET and SETUP, releasing RESET and continuing to hold down SETUP while the main LED blinks magenta until it blinks yellow, then release.
+Put the Photon in [DFU mode](/tutorials/device-os/led/photon/#dfu-mode-device-firmware-upgrade-) (blinking yellow) by holding down RESET and SETUP, releasing RESET and continuing to hold down SETUP while the main LED blinks magenta until it blinks yellow, then release.
 
 Then from a Command Prompt or Terminal window, enter the command:
 
@@ -35,7 +35,7 @@ particle update
 
 ## Configure your Photon
 
-Connect the Photon to your computer using USB and put the device in [listening mode](https://docs.particle.io/guide/getting-started/modes/electron/#listening-mode) (blinking dark blue) by holding down the SETUP (or MODE) button until the main status LED blinks dark blue, about 3 seconds, if not already blinking blue.
+Connect the Photon to your computer using USB and put the device in [listening mode](/tutorials/device-os/led/electron/#listening-mode) (blinking dark blue) by holding down the SETUP (or MODE) button until the main status LED blinks dark blue, about 3 seconds, if not already blinking blue.
 
 In a Command Prompt or Terminal window, enter the command:
 
@@ -165,7 +165,7 @@ particle device add 1e0032123447343149111039
 
 To troubleshoot the connection process, download the [TinkerDebug070.bin](/assets/files/TinkerDebug070.bin) file.
 
-Put the Photon in [DFU mode](https://docs.particle.io/guide/getting-started/modes/photon/#dfu-mode-device-firmware-upgrade-) (blinking yellow) by holding down RESET and SETUP, releasing RESET and continuing to hold down SETUP while the main LED blinks magenta until it blinks yellow, then release.
+Put the Photon in [DFU mode](/tutorials/device-os/led/photon/#dfu-mode-device-firmware-upgrade-) (blinking yellow) by holding down RESET and SETUP, releasing RESET and continuing to hold down SETUP while the main LED blinks magenta until it blinks yellow, then release.
 
 Then from a Command Prompt or Terminal window, enter the command:
 

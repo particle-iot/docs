@@ -29,7 +29,7 @@ Firmware and library coverage for all versions of Raspberry Pi hardware will imp
 
 ## Operating System
 
-The Particle firmware and agent (the supervisor for the firmware) expects Raspbian Jessie or later. Please visit our Getting Started Guide for instructions on [updating your existing OS](/guide/getting-started/start/raspberry-pi/#i-have-an-sd-card-with-raspbian), or [flashing a new SD card](/guide/getting-started/start/raspberry-pi/#i-don-39-t-have-an-sd-card-with-raspbian) from scratch.
+The Particle firmware and agent (the supervisor for the firmware) expects Raspbian Jessie or later. Please visit our Getting Started Guide for [instructions](/datasheets/discontinued/raspberry-pi) from scratch.
 
 You can download the latest version of Raspbian for your Raspberry Pi from the Raspberry Pi Foundation, [here](https://www.raspberrypi.org/downloads/raspbian/).
 

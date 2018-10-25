@@ -55,8 +55,8 @@ The left side of the page contains a real-time log of events passing through the
 #### How to publish events
 
 Publishing events can be achieved in multiple ways:
-- Using `particle.publish` in firmware ([docs](https://docs.particle.io/reference/firmware/#particle-publish-))
-- Using Particle API JS's `publishEvent` ([docs](https://docs.particle.io/reference/javascript/#publishevent))
+- Using `particle.publish` in firmware ([docs](/reference/device-os/firmware/#particle-publish-))
+- Using Particle API JS's `publishEvent` ([docs](/reference/SDKs/javascript/#publishevent))
 - Using the Publish event button in the Event Logs page:
 
 <img src="/assets/images/eventlogs/publish.png" class="full-width" />
@@ -127,7 +127,7 @@ check out:
 - [Webhooks
 guide](/guide/tools-and-features/webhooks/)
 - [Webhooks
-tutorial](/tutorials/integrations/webhooks/)
+tutorial](/tutorials/device-cloud/webhooks/)
 - [Azure IoT Hub
 tutorial](/tutorials/integrations/azure-iot-hub/)
 - [Google Cloud Platform
@@ -340,7 +340,7 @@ Click the Firmware icon in the left sidebar to get started. This will direct you
 <img src="/assets/images/firmware-page.png" class="full-width"
 alt="Firmware page"/>
 
-If you have been using the [Web IDE](/guide/getting-started/build/) to
+If you have been using the [Web IDE](/tutorials/developer-tools/build) to
 develop firmware, you are used to the process of writing, compiling, and
 then flashing firmware. You will follow the same high-level process
 here, but altered slightly to work with a fleet of devices. The first thing you'll need to do is compile a *firmware binary* that you will upload to your Console.

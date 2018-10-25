@@ -53,7 +53,7 @@ After installing the package, the install script runs the setup command.
 To run it again do `sudo particle-agent setup`.
 
 When setup finishes, the Agent will start the [Tinker
-firmware](/guide/getting-started/tinker/).
+firmware](/tutorials/developer-tools/tinker/).
 Tinker will connect to the Particle cloud and allow you to toggle pins
 using the Particle Mobile App.
 
@@ -103,7 +103,7 @@ steps](#uninstall) then follow the [install steps](#install).
 ## Agent commands
 
 You'll mostly interact with the Particle firmware running on the
-Raspberry Pi through other tools like the [Web IDE](/guide/getting-started/build), the [Console](/guide/tools-and-features/console/) or the [Command Line Interface (CLI)](/guide/tools-and-features/cli).
+Raspberry Pi through other tools like the [Web IDE](/tutorials/developer-tools/build), the [Console](/tutorials/device-cloud/console) or the [Command Line Interface (CLI)](/tutorials/developer-tools/cli).
 
 ### Setup and connect to the Cloud
 

@@ -46,12 +46,12 @@ To complete all the examples, you will need the following materials:
   * or the local [Particle Dev](http://particle.io/dev)
 * **Experience**
 {{#if raspberry-pi}}
-  * [Connecting your Raspberry Pi to Particle](/guide/getting-started/start)
+  * Connecting your Raspberry Pi to Particle
 {{else}}
   {{#if electron}}
-  * Connecting your Device [with your browser or smartphone](/guide/getting-started/start/electron/)
+  * [Connecting your Device](/quickstart/electron) 
   {{else}}
-  * Connecting your Device [with your smartphone](/guide/getting-started/start/) or [over USB](/guide/getting-started/connect)
+  * [Connecting your Device](/quickstart/photon) 
   {{/if}}
 {{/if}}
 
@@ -67,7 +67,7 @@ Since Electron is a cellular device and OTA usage consumes data, it's important 
 
 
 
-<div style="display: none;" id="blink-an-led" data-firmware-example-url="https://docs.particle.io/guide/getting-started/examples/photon/#blink-an-led" data-firmware-example-title="Blink an LED" data-firmware-example-description="Blink an LED"></div>
+<div style="display: none;" id="blink-an-led" data-firmware-example-url="https://docs.particle.io/tutorials/getting-started/examples/photon/#blink-an-led" data-firmware-example-title="Blink an LED" data-firmware-example-description="Blink an LED"></div>
 
 ## Blink an LED
 
@@ -179,7 +179,7 @@ void loop() {
 
 </code></pre>
 
-<div style="display: none;" id="control-led-over-the-net" data-firmware-example-url="https://docs.particle.io/guide/getting-started/examples/photon/#control-leds-over-the-39-net" data-firmware-example-title="Web-Connected LED" data-firmware-example-description="Control an LED over the Internet"></div>
+<div style="display: none;" id="control-led-over-the-net" data-firmware-example-url="https://docs.particle.io/tutorials/getting-started/examples/photon/#control-leds-over-the-39-net" data-firmware-example-title="Web-Connected LED" data-firmware-example-description="Control an LED over the Internet"></div>
 
 ## Control LEDs over the 'net
 
@@ -355,11 +355,11 @@ curl https://api.particle.io/v1/devices/0123456789abcdef/led \
   -d arg=on
 ```
 
-Note that the API endpoint is 'led', not 'ledToggle'. This is because the endpoint is defined by the first argument of [Particle.function()](/reference/firmware/#particle-function-), which is a string of characters, rather than the second argument, which is a function.
+Note that the API endpoint is 'led', not 'ledToggle'. This is because the endpoint is defined by the first argument of [Particle.function()](/reference/device-os/firmware/#particle-function-), which is a string of characters, rather than the second argument, which is a function.
 
 To better understand the concept of making API calls to your device over the cloud checkout the [Cloud API reference.](/reference/api)
 
-<div style="display: none;" id="variables-and-functions-with-photoresistors" data-firmware-example-url="https://docs.particle.io/guide/getting-started/examples/photon/#read-your-photoresistor-function-and-variable" data-firmware-example-title="Function Variable" data-firmware-example-description="Learn about Variables and Functions using Photoresistors"></div>
+<div style="display: none;" id="variables-and-functions-with-photoresistors" data-firmware-example-url="https://docs.particle.io/tutorials/getting-started/examples/photon/#read-your-photoresistor-function-and-variable" data-firmware-example-title="Function Variable" data-firmware-example-description="Learn about Variables and Functions using Photoresistors"></div>
 
 {{#if raspberry-pi}}
 
@@ -598,7 +598,7 @@ and make sure you replace `device_name` with either your device ID or the casual
 
 Now you can turn your LED on and off and see the values at A0 change based on the photoresistor!
 
-<div style="display: none;" id="publish-and-the-dashboard" data-firmware-example-url="https://docs.particle.io/guide/getting-started/examples/photon/#make-a-motion-detector-publish-and-the-console" data-firmware-example-title="Publish" data-firmware-example-description="Publish and the Console"></div>
+<div style="display: none;" id="publish-and-the-dashboard" data-firmware-example-url="https://docs.particle.io/tutorials/getting-started/examples/photon/#make-a-motion-detector-publish-and-the-console" data-firmware-example-title="Publish" data-firmware-example-description="Publish and the Console"></div>
 
 ## Make a Motion Detector: Publish and the Console
 
@@ -793,7 +793,7 @@ void loop() {
 }
 </code></pre>
 
-<div style="display: none;" id="publish-and-subscribe-with-photoresistors" data-firmware-example-url="https://docs.particle.io/guide/getting-started/examples/photon/#the-buddy-system-publish-and-subscribe" data-firmware-example-title="Subscribe" data-firmware-example-description="Learn about Publish and Subscribe using Photoresistors"></div>
+<div style="display: none;" id="publish-and-subscribe-with-photoresistors" data-firmware-example-url="https://docs.particle.io/tutorials/getting-started/examples/photon/#the-buddy-system-publish-and-subscribe" data-firmware-example-title="Subscribe" data-firmware-example-description="Learn about Publish and Subscribe using Photoresistors"></div>
 
 ## The Buddy System: Publish and Subscribe
 
@@ -1005,7 +1005,7 @@ void myHandler(const char *event, const char *data)
 
 
 {{#if electron}}
-<div style="display: none;" id="electron-combined-publish" data-firmware-example-url="https://docs.particle.io/guide/getting-started/examples/photon/#electron-combined-publish" data-firmware-example-title="Electron Combined Publishes" data-firmware-example-description="Learn how to send many data points in a single Publish to save data"></div>
+<div style="display: none;" id="electron-combined-publish" data-firmware-example-url="https://docs.particle.io/tutorials/getting-started/examples/photon/#electron-combined-publish" data-firmware-example-title="Electron Combined Publishes" data-firmware-example-description="Learn how to send many data points in a single Publish to save data"></div>
 
 ## Electron Combined Publish
 
@@ -1158,7 +1158,7 @@ When you tap a pin on the mobile app, it sends a message up to the cloud. Your d
 
 Your device already knew how to communicate with the mobile app because of the firmware loaded onto your device as a default. We call this the Tinker firmware. It's just like the user firmware you've been loading onto your device in these examples. It's just that with the Tinker firmware, we've specified special `Particle.function`s that the mobile app knows and understands.
 
-If your device is new, it already has the Tinker firmware on it. It's the default firmware stored on your device right from the factory. When you put your own user firmware on your device, you'll rewrite the Tinker firmware. (That means that your device will no longer understand commands from the Particle mobile app.) However, you can always get the Tinker firmware back on your device {{#if raspberry-pi}}by running `particle-agen setup`.{{else}}{{#unless electron}}by putting it in [factory reset mode](/guide/getting-started/modes/#factory-reset), or {{/unless}}by re-flashing your device with Tinker in the Particle app.{{/if}}
+If your device is new, it already has the Tinker firmware on it. It's the default firmware stored on your device right from the factory. When you put your own user firmware on your device, you'll rewrite the Tinker firmware. (That means that your device will no longer understand commands from the Particle mobile app.) However, you can always get the Tinker firmware back on your device {{#if raspberry-pi}}by running `particle-agen setup`.{{else}}{{#unless electron}}by putting it in [factory reset mode](/tutorials/device-os/led/#factory-reset), or {{/unless}}by re-flashing your device with Tinker in the Particle app.{{/if}}
 
 {{#unless raspberry-pi}}
 To reflash Tinker from within the app:

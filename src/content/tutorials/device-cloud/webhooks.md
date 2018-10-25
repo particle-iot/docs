@@ -23,7 +23,7 @@ In this guide, we'll provide an overview of how you can use webhooks in your con
 
 ## How webhooks work
 
-Webhooks are tightly integrated with Particle's event system. Devices have the ability to both [publish events](/reference/firmware/#particle-publish-) to the Particle cloud, as well as [subscribe to events](/reference/firmware/electron/#particle-subscribe-) from the cloud.
+Webhooks are tightly integrated with Particle's event system. Devices have the ability to both [publish events](/reference/device-os/firmware/#particle-publish-) to the Particle cloud, as well as [subscribe to events](/reference/device-os/firmware/#particle-subscribe-) from the cloud.
 
 A webhook listens for a specific event published by a device. When this event is published, the webhook triggers a [web request](http://rve.org.uk/dumprequest) to a URL on the web. The request sent by the webhook can include information about the event, such as its name as well as any data included when the event was published.
 
@@ -108,7 +108,7 @@ void loop() {
 
 This code will toggle the on-board LED on and off every 30 seconds. When the LED turns on, the device will generate a random temperature value between 60 and 80 degrees and publish it to the cloud with the event `temp`. The temperature value is what will be passed on to ThingSpeak and graphed.
 
-Make sure your [device is connected](/guide/getting-started/start/) and selected in the IDE (Ensure that the <i class="ion-star"></i> appears next to your device in the Devices pane). Flash the code to your device (Click the <i class="ion-flash"></i> icon in the sidebar).
+Make sure your device is connected and selected in the IDE (Ensure that the <i class="ion-star"></i> appears next to your device in the Devices pane). Flash the code to your device (Click the <i class="ion-flash"></i> icon in the sidebar).
 
 Your device should now restart and start publishing the event that will trigger the webhook.
 

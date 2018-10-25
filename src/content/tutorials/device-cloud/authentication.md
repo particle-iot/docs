@@ -363,7 +363,7 @@ Once your mobile/web app has a claim code, it then must then send it to the devi
 ![Claim codes](/assets/images/claim-code-setup.png)
 <p class="caption">Your app will use the customer access token to generate a device claim code and send it to the device</p>
 
-This happens by connecting the customer's device to the *device's Wi-Fi access point*. When the photon is in [listening mode](/guide/getting-started/modes/core/#listening-mode), it is broadcasting a Wi-Fi network that the customer's computer or phone can connect to.
+This happens by connecting the customer's device to the *device's Wi-Fi access point*. When the photon is in [listening mode](/tutorials/device-os/led/core/#listening-mode), it is broadcasting a Wi-Fi network that the customer's computer or phone can connect to.
 
 __Note__: When programmatically entering listening mode on the Photon, P1 or P0, care should be taken to conserve the memory utilized by user firmware. Listening Mode on these devices utilizes a number of threads to create short-lived HTTP server instances, a TCP server for SoftAP access, and associated resources. If the free memory available on a device at the time Listening Mode is triggered is less than 21.5K, the device will be unable to enter listening mode. In some cases, it may appear as though the device is in listening mode, but any attempt to configure access via the CLI or Particle Mobile App will time out or fail. None of the device's user firmware is lost or affected in either case, but the RAM in use will need to be optimized below 21.5k before re-attempting to enter listening mode.
 

@@ -31,7 +31,7 @@ The `Serial.begin(9600);` call initializes the serial port. When you're using th
 
 The `Serial.printlnf` prints a formatted string to the debugging USB serial.
 
-The [documentation for Serial is here](https://docs.particle.io/reference/firmware/photon/#serial).
+The [documentation for Serial is here](/reference/device-os/firmware#serial).
 
 ### Particle CLI 
 
@@ -182,7 +182,7 @@ When you connect a Photon another device, say an Arduino, the RX pin on the Phot
 
 ### Additional ports on the Electron
 
-The Electron has two additional UART serial ports that you can use, [Serial4 and Serial5](https://docs.particle.io/reference/firmware/electron/#serial). 
+The Electron has two additional UART serial ports that you can use, [Serial4 and Serial5](/reference/device-os/firmware/electron/#serial). 
 
 - C0 Serial5 RX
 - C1 Serial5 TX
@@ -270,7 +270,7 @@ The available values are:
 - SERIAL_9N1
 - SERIAL_9N2
 
-You use these with the [Serial.begin](https://docs.particle.io/reference/firmware/photon/#begin-) call, for example:
+You use these with the [Serial.begin](/reference/device-os/firmware/#begin-) call, for example:
 
 ```
 Serial1.begin(9600, SERIAL_9N1);
