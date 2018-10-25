@@ -47,7 +47,7 @@ The Xenon is best for connecting sensors, motors, pumps, valves, and points of d
 
 ### Block diagram
 
-<div align=center><img src="/assets/images/xenon/xenon-block-diagram.png" ></div>
+<div align=center> <a href="/assets/images/xenon/xenon-block-diagram.png" target="_blank"> <img src="/assets/images/xenon/xenon-block-diagram.png" ></a></div>
 
 ### Power
 
@@ -167,7 +167,9 @@ For a detailed explanation of different color codes of the RGB system LED, pleas
 
 ### Pinout diagram
 
->> add pinout diagram
+<div align=center> <a href="/assets/images/xenon/xenon-pinout-v1.0.pdf" target="_blank"> <img src="/assets/images/xenon/xenon-pinout.png" ></a></div>
+
+You can download a high resolution <a href="/assets/images/xenon/xenon-pinout-v1.0.pdf" target="_blank"><strong>PDF version of the pin out here.</strong></a></div><br>
 
 ## Technical specifications
 
@@ -259,6 +261,8 @@ The Xenon can be directly soldered onto the PCB or be mounted with the above men
 
 
 ## Schematic
+
+The complete schematic and board files are open source and available on Particle's GitHub repository [here.](https://github.com/particle-iot/xenon)
 
 ### Power
 

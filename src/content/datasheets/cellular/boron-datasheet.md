@@ -53,7 +53,7 @@ The Boron is great for connecting existing projects to the Particle Device Cloud
 
 ### Block diagram
 
-<div align=center><img src="/assets/images/boron/boron-block-diagram.png" ></div>
+<div align=center> <a href="/assets/images/boron/boron-block-diagram.png" target="_blank"> <img src="/assets/images/boron/boron-block-diagram.png" ></a></div>
 
 ### Power
 
@@ -83,6 +83,11 @@ For the Boron 2G/3G version, make sure that the external DC supply is able to su
 #### 3V3 PIN
 This pin is the output of the on board 3.3V step-down switching regulator (Torex XC9258A). The regulator is rated at 1000mA max. When using this pin to power other devices or peripherals remember to budget in the current requirement of the Boron first. Unlike the Xenon or the Argon, this pin _CANNOT_ be used to power the Boron.
 
+### Antenna
+
+There are two radios on the Boron. A Mesh radio (nRF52840) and a cellular radio (u-blox). For the cellular radio, we have provide a u.FL connector to plug in the cellular antenna. This is required if you wish to use the cellular connectivity.
+
+There are two options for the Mesh antenna on the Boron. It comes with an on-board PCB antenna which is selected by default in the device OS and a u.FL connector if you wish to connect an external antenna. If you wish to use the external antenna, you'll need to issue an appropriate command in the firmware.
 
 ### FCC approved antennas
 
@@ -185,7 +190,9 @@ For a detailed explanation of different color codes of the RGB system LED, pleas
 
 ### Pinout diagram
 
->> add pinout diagram
+<div align=center> <a href="/assets/images/boron/boron-pinout-v1.0.pdf" target="_blank"> <img src="/assets/images/boron/boron-pinout.png" ></a></div>
+
+You can download a high resolution <a href="/assets/images/boron/boron-pinout-v1.0.pdf" target="_blank"><strong>PDF version of the pin out here.</strong></a></div><br>
 
 ## Technical specifications
 
@@ -227,11 +234,9 @@ conditions is not implied. Exposure to absolute-maximum-rated conditions for ext
 
 ### Radio specifications
 
-BORON
-
 Boron has two radio modules.
 
-Nordic Semiconductor nRF52840
+Nordic Semiconductor nRF52840 for Mesh.
 
 | Feature | Description|
 | :-------|:---------- |
@@ -240,7 +245,7 @@ Nordic Semiconductor nRF52840
 |PLL channel spacing| 1 MHz|
 |On the air data rate| 125 to 2000 kbps|
 
-u-blox SARA U201 (2G/3G) and R410 (LTE)
+u-blox SARA U201 (2G/3G) and R410 (LTE) for cellular.
 
 
 | BORON  | Compatible Countries |
@@ -290,6 +295,8 @@ The Boron can be directly soldered onto the PCB or be mounted with the above men
 
 
 ## Schematic
+
+The complete schematic and board files are open source and available on Particle's GitHub repository [here.](https://github.com/particle-iot/boron)
 
 ### Power
 

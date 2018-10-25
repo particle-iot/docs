@@ -49,7 +49,7 @@ The Argon is great for connecting existing projects to the Particle Device Cloud
 
 ### Block diagram
 
-<div align=center><img src="/assets/images/argon/argon-block-diagram.png" ></div>
+<div align=center> <a href="/assets/images/argon/argon-block-diagram.png" target="_blank"> <img src="/assets/images/argon/argon-block-diagram.png" ></a></div>
 
 ### Power
 
@@ -75,6 +75,11 @@ This pin is internally connected to the positive terminal of the LiPo connector.
 #### 3V3 PIN
 This pin is the output of the on board 3.3V step-down switching regulator (Torex XC9258A). The regulator is rated at 1000mA max. When using this pin to power other devices or peripherals remember to budget in the current requirement of the Argon first. This pin can also be used to power the Argon in absence of the USB or LiPo power. When powering over this pin, please connect the ENABLE pin to GND so that the on board regulator is disabled.
 
+### Antenna
+
+There are two radios on the Argon. A Mesh radio (nRF52840) and a WiFi radio (ESP32). For the WiFi radio, we have provide a u.FL connector to plug in the WiFi antenna. This is required if you wish to use the WiFi connectivity. 
+
+There are two options for the Mesh antenna on the Argon. It comes with an on-board PCB antenna which is selected by default in the device OS and a u.FL connector if you wish to connect an external antenna. If you wish to use the external antenna, you'll need to issue an appropriate command in the firmware.
 
 ### FCC approved antennas
 
@@ -165,7 +170,9 @@ For a detailed explanation of different color codes of the RGB system LED, pleas
 
 ### Pinout diagram
 
->> add pinout diagram
+<div align=center> <a href="/assets/images/argon/argon-pinout-v1.0.pdf" target="_blank"> <img src="/assets/images/argon/argon-pinout.png" ></a></div>
+
+You can download a high resolution <a href="/assets/images/argon/argon-pinout-v1.0.pdf" target="_blank"><strong>PDF version of the pin out here.</strong></a></div><br>
 
 ## Technical specifications
 
@@ -227,7 +234,7 @@ Espressif Systems ESP32 for WiFi
 | Frequency Band | 2412 to 2484 MHz |
 
 
-Note: Bluetooth features of the ESP32 are not exposed.
+**Note:** Bluetooth features of the ESP32 are not exposed.
 
 ### I/O Characteristics 
 
@@ -270,6 +277,8 @@ The Argon can be directly soldered onto the PCB or be mounted with the above men
 
 
 ## Schematic
+
+The complete schematic and board files are open source and available on Particle's GitHub repository [here.](https://github.com/particle-iot/argon)
 
 ### Power
 
