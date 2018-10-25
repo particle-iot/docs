@@ -190,9 +190,9 @@ For a detailed explanation of different color codes of the RGB system LED, pleas
 
 ### Pinout diagram
 
-<div align=center><img src="/assets/images/boron/boron-pinout.png" ></div>
+<div align=center> <a href="/assets/images/boron/boron-pinout-v1.0.pdf" target="_blank"> <img src="/assets/images/boron/boron-pinout.png" ></a></div>
 
-You can download a high resolution PDF version of the pin out [here](/assets/images/boron/boron-pinout-v1.0.pdf)
+You can download a high resolution <a href="/assets/images/boron/boron-pinout-v1.0.pdf" target="_blank"><strong>PDF version of the pin out here.</strong></a></div><br>
 
 ## Technical specifications
 
@@ -234,11 +234,9 @@ conditions is not implied. Exposure to absolute-maximum-rated conditions for ext
 
 ### Radio specifications
 
-BORON
-
 Boron has two radio modules.
 
-Nordic Semiconductor nRF52840
+Nordic Semiconductor nRF52840 for Mesh.
 
 | Feature | Description|
 | :-------|:---------- |
@@ -247,7 +245,7 @@ Nordic Semiconductor nRF52840
 |PLL channel spacing| 1 MHz|
 |On the air data rate| 125 to 2000 kbps|
 
-u-blox SARA U201 (2G/3G) and R410 (LTE)
+u-blox SARA U201 (2G/3G) and R410 (LTE) for cellular.
 
 
 | BORON  | Compatible Countries |

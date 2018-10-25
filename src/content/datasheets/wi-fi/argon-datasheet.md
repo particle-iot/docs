@@ -170,9 +170,9 @@ For a detailed explanation of different color codes of the RGB system LED, pleas
 
 ### Pinout diagram
 
-<div align=center><img src="/assets/images/argon/argon-pinout.png" ></div>
+<div align=center> <a href="/assets/images/argon/argon-pinout-v1.0.pdf" target="_blank"> <img src="/assets/images/argon/argon-pinout.png" ></a></div>
 
-You can download a high resolution PDF version of the pin out [here](/assets/images/argon/argon-pinout-v1.0.pdf)
+You can download a high resolution <a href="/assets/images/argon/argon-pinout-v1.0.pdf" target="_blank"><strong>PDF version of the pin out here.</strong></a></div><br>
 
 ## Technical specifications
 
@@ -234,7 +234,7 @@ Espressif Systems ESP32 for WiFi
 | Frequency Band | 2412 to 2484 MHz |
 
 
-Note: Bluetooth features of the ESP32 are not exposed.
+**Note:** Bluetooth features of the ESP32 are not exposed.
 
 ### I/O Characteristics 
 
