@@ -53,7 +53,7 @@ The Boron is great for connecting existing projects to the Particle Device Cloud
 
 ### Block diagram
 
-<div align=center><img src="/assets/images/boron/boron-block-diagram.png" ></div>
+<div align=center> <a href="/assets/images/boron/boron-block-diagram.png" target="_blank"> <img src="/assets/images/boron/boron-block-diagram.png" ></a></div>
 
 ### Power
 

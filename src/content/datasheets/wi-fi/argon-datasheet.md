@@ -49,7 +49,7 @@ The Argon is great for connecting existing projects to the Particle Device Cloud
 
 ### Block diagram
 
-<div align=center><img src="/assets/images/argon/argon-block-diagram.png" ></div>
+<div align=center> <a href="/assets/images/argon/argon-block-diagram.png" target="_blank"> <img src="/assets/images/argon/argon-block-diagram.png" ></a></div>
 
 ### Power
 

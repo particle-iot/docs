@@ -47,7 +47,7 @@ The Xenon is best for connecting sensors, motors, pumps, valves, and points of d
 
 ### Block diagram
 
-<div align=center><img src="/assets/images/xenon/xenon-block-diagram.png" ></div>
+<div align=center> <a href="/assets/images/xenon/xenon-block-diagram.png" target="_blank"> <img src="/assets/images/xenon/xenon-block-diagram.png" ></a></div>
 
 ### Power
 
