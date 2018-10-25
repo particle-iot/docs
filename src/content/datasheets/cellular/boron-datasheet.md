@@ -288,14 +288,38 @@ The Boron can be directly soldered onto the PCB or be mounted with the above men
 
 <div align=center><img src="/assets/images/boron/boron-landing-pattern.png" ></div>
 
-<!---
+
 ## Schematic
 
 ### Power
-### nRF52840
-### Interfaces
-### JTAG
 
+<div align=center><img src="/assets/images/boron/schematic-power.png" ></div>
+
+### nRF52840
+
+<div align=center><img src="/assets/images/boron/schematic-nrf52840.png" ></div>
+
+### u-blox
+
+<div align=center><img src="/assets/images/boron/schematic-ublox.png" ></div>
+
+### SIM
+
+<div align=center><img src="/assets/images/boron/schematic-sim.png" ></div>
+
+### SPI Flash
+
+<div align=center><img src="/assets/images/boron/schematic-spi-flash.png" ></div>
+
+### Fuel Gauge
+
+<div align=center><img src="/assets/images/boron/schematic-fuelgauge.png" ></div>
+
+### Interfaces
+
+<div align=center><img src="/assets/images/boron/schematic-interfaces.png" ></div>
+
+<!---
 ## Bill of materials
 -->
 
