@@ -1,5 +1,5 @@
 ---
-title: Supported Clients
+title: Community Supported Clients
 layout: community.hbs
 columns: two
 order: 20

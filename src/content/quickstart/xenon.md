@@ -12,7 +12,7 @@ order: 5
 The Particle Xenon is a mesh and Bluetooth development kit designed for building connected projects and products. To set up the device you'll need an iOS or Android mobile phone and a connection to the internet.
 
 
-### The Xenon  comes with the following things:
+### The Xenon Kit comes with the following things:
 
 {{box op="start"}}
 
@@ -135,29 +135,3 @@ You'll often see words like flashing and deploying used interchangeably.
 {{box op="end"}}
 
 ---
-
-## 6. Blink an external LED
-
-![](/assets/images/Xenon-LED.png)
-
-
-TKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTK
-TKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTK
-TKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTK
-TKTKTKTKTKTKTKTKTKTKTKTK
-TKTKTKTKTKTK
-
-<span class="popupLink">
-testing
-<span class="popup">
-<img src="/assets/images/electronBattery.jpg style="margin:auto; max-width:100%">
-</span>
-</span>
-
-## 7. Where to go next
-
-TKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTK
-TKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTK
-TKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTKTK
-TKTKTKTKTKTKTKTKTKTKTKTK
-TKTKTKTKTKTK
