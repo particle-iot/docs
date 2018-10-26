@@ -171,7 +171,6 @@
 	"/photon/start" : "/quickstart/photon",
 	"/photon/tinker" : "/tutorials/developer-tools/tinker",
 	"/photon/webhooks" : "/tutorials/device-os/webhooks",
-	"/photon": "/quickstart/photon",
 	"/quickstart": "/quickstart/xenon",
 	"/reference/android": "/reference/SDKs/android",
 	"/reference/api": "/reference/device-cloud/api",
