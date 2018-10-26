@@ -50,7 +50,6 @@
 	"/datasheets/kits-and-accessories/kits":"/datasheets/discontinued/particle-shields",
 	"/datasheets/kits-and-accessories/particle-shields":"/datasheets/discontinued/particle-shields",
 	"/dev" : "/tutorials/developer-tools/dev",
-	"/electron": "/quickstart/electron",
 	"/examples" : "/tutorials",
 	"/faq" : "/support/particle-devices-faq/finding-device-id",
 	"/faq/particle-devices/code-size-tips" : "/support/particle-devices-faq/code-size-tips",
