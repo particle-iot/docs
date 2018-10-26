@@ -2,7 +2,7 @@
 title: Open Source
 layout: community.hbs
 columns: two
-order: 20
+order: 30
 ---
 
 # How to Contribute to Particle's Open Source Repositories

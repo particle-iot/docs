@@ -1,8 +1,8 @@
 ---
-title: Community Supported Clients
+title: Supported Clients
 layout: community.hbs
 columns: two
-order: 30
+order: 20
 ---
 
 # Community Supported Clients
@@ -40,7 +40,7 @@ See [the official JavaScript client](/reference/javascript/).
 
 * [JParticle by Walter Stroebel](https://github.com/Walter-Stroebel/JParticle) - This is a threaded library in Java to use
 the Particle cloud from your programs. Currently provided as a Maven project to satisfy the single dependency on the JSON
-library it needs. Code level is Java-8. It should be trivial to use Java-7 or lower though. 
+library it needs. Code level is Java-8. It should be trivial to use Java-7 or lower though.
 
 ## .NET
 * [ParticleSDK for .NET](https://github.com/ParticleNET/ParticleSDK/) - A wrapper around the Particle cloud API.
