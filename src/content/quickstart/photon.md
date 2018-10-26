@@ -133,7 +133,7 @@ Here you will find a bunch of examples to get you started with your new Particle
 
 
 
-<h2>1. Blink an LED</h2>
+<h2 id="blink-an-led">1. Blink an LED</h2>
 
 
 <p>Blinking an LED is the <a href="http://en.wikipedia.org/wiki/Hello_world_program" target="_blank" rel="noopener noreferrer">&quot;Hello World&quot;</a> example of the microcontroller universe. It&apos;s a nice way to warm up and start your journey into the land of embedded hardware.</p>

@@ -399,7 +399,7 @@ This function **publishes** an **event** called *get_nextbus* to the Particle cl
 // retrieve the webhook data and send it to the gotNextBusData function
 Particle.subscribe("hook-response/get_nextbus/0", gotNextBusData, MY_DEVICES);
 ```
-This line **subscribes** your device to the *get_nextbus* event, which pulls in data coming from the webhook attached to it. (The `/0` tells it to reference the first chunk of data, since there are a few of them.) It then sends that data to a function called `gotNextBusData`, which parses all the XML and pulls out the tiny bits we need, which are the number of **minutes** for the next two buses. See our [publish and subscribe](/tutorials/project-tutorials/examples#the-buddy-system-publish-and-subscribe) guide for more info on publishing and subscribing.
+This line **subscribes** your device to the *get_nextbus* event, which pulls in data coming from the webhook attached to it. (The `/0` tells it to reference the first chunk of data, since there are a few of them.) It then sends that data to a function called `gotNextBusData`, which parses all the XML and pulls out the tiny bits we need, which are the number of **minutes** for the next two buses.
 
 ### Fill in your bus name and lead time
 Near the top of the code above, you'll see:
