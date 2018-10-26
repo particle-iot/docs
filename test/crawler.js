@@ -23,7 +23,7 @@ var ignoreHosts = [
   '192.168.0.1',
 ];
 var devices = ['photon', 'electron', 'core', 'raspberry-pi', 'argon', 'boron', 'xenon'];
-var isPullRequest = true; // TEMPORARY! should be: process.env.TRAVIS_PULL_REQUEST && process.env.TRAVIS_PULL_REQUEST !== 'false';
+var isPullRequest = process.env.TRAVIS_PULL_REQUEST && process.env.TRAVIS_PULL_REQUEST !== 'false';
 
 function classifyUrl(item) {
   var info = {
