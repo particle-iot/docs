@@ -1,3 +1,11 @@
+# WARNING
+
+This repository was used for private development of mesh content 
+
+**AND IS NO LONGER USED**.
+
+It will be archived then deleted soon. Last use: October 26, 2018.
+
 ## Particle Documentation [![Build Status](https://travis-ci.org/particle-iot/docs.svg?branch=master)](https://travis-ci.org/particle-iot/docs)
 
 Here you'll find the documentation for the Particle platform, including
