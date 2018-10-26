@@ -139,7 +139,7 @@
 	"/guide/tools-and-features/two-step-authentication":"/tutorials/developer-tools/two-step-authentication",
 	"/guide/tools-and-features/webhooks":"/tutorials/device-cloud/webhooks",
 	"/hackathon" : "/",
-	"/hardware" : "/datasheets/wi-fi/photon-datasheet",
+	"/hardware" : "/datasheets/wi-fi/argon-datasheet",
 	"/help" : "/support/troubleshooting/common-issues",
 	"/ifttt" : "/tutorials/integrations/ifttt",
 	"/ios" : "/reference/SDKs/ios",
