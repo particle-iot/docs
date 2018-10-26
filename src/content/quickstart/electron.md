@@ -55,7 +55,7 @@ There are several awesome buttons and LEDs on your Electron to make it easier to
 </ul>
 </li>
 <li><strong>Experience</strong><ul>
-<li>Connecting your Device <a href="/guide/getting-started/start/electron/">with your browser or smartphone</a></li>
+<li>Connecting your Device with your browser or smartphone</li>
 </ul>
 </li>
 </ul>
