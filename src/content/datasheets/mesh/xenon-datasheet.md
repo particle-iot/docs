@@ -154,8 +154,8 @@ You can download a high resolution <a href="/assets/images/xenon/xenon-pinout-v1
 |SDA    |Primarily used as data pin for I2C, but can also be used as a digital GPIO.|
 |SCL    |Primarily used as clock pin for I2C, but can also be used as a digital GPIO.|
 |MO,MI,SCK| These are the SPI interface pins,  but can also be used as a digital GPIO.|
-|D2-D8  | These are generic GPIO pins. D4-D8 are PWM-able.|
-|A0-A5  | These are analog input pins that can also act as standard digital GPIO. A0-A3 are PWM-able.|
+|D2-D8  | These are generic GPIO pins. D2-D8 are PWM-able.|
+|A0-A5  | These are analog input pins that can also act as standard digital GPIO. A0-A5 are PWM-able.|
 
 
 
