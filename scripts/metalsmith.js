@@ -109,7 +109,7 @@ exports.metalsmith = function() {
     )
     // Auto-generate documentation for the Javascript client library
     .use(insertFragment({
-      destFile: 'content/reference/javascript.md',
+      destFile: 'content/reference/SDKs/javascript.md',
       srcFile: '../particle-api-js/docs/api.md',
       fragment: 'GENERATED_JAVASCRIPT_DOCS',
       preprocess: javascriptDocsPreprocess,
