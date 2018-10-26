@@ -2,7 +2,7 @@
 title: Cellular Data Guide
 layout: tutorials.hbs
 columns: two
-order: 12
+order: 22
 ---
 
 ## Cellular Data Service with Particle

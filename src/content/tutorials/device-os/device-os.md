@@ -1,12 +1,13 @@
 ---
 word: Device OS
 title: Device OS
-order: 10
+order: 1
 columns: two
 layout: tutorials.hbs
 ---
 
 # {{title}}
+
 _Note: Device OS was previously referred to as **system firmware**, and
 may still be called system firmware in certain Particle interfaces_.
 

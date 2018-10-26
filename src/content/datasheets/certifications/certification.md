@@ -1,11 +1,10 @@
 ---
-title: Certification
+title: Certifications
 layout: datasheet.hbs
 columns: two
 order: 60
 ---
 
-# Certification
 
 ## Overview
 
