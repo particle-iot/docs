@@ -92,7 +92,7 @@ exports.metalsmith = function() {
     // Auto-generate documentation from the API using comments formatted in the apidoc format
     .use(
       apidoc({
-        destFile: 'content/reference/api.md',
+        destFile: 'content/reference/device-cloud/api.md',
         apis: [
           {
             src: '../api-service/',
