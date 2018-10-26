@@ -125,7 +125,7 @@
 	"/guide/photon": "/quickstart/photon",
 	"/guide/tools-and-features": "/tutorials/device-cloud/console",
 	"/guide/tools-and-features/intro": "/tutorials/device-cloud/console",
-	"/guide/tools-and-features/button": "/datasheets/discontinued/button",
+	"/guide/tools-and-features/button": "/quickstart/button",
 	"/guide/tools-and-features/cli":"/tutorials/developer-tools/cli",
 	"/guide/tools-and-features/console":"/tutorials/device-cloud/console",
 	"/guide/tools-and-features/dev":"/tutorials/developer-tools/dev",
