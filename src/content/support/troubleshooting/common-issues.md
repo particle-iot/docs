@@ -60,7 +60,7 @@ If you're not using a Particle SIM, you will have to change the cellular APN on 
 
 > **NOTE**: Until you have done this, your device _will not_ be able to connect to the Internet.
 
-There are additional instructions in the [3rd-party SIM FAQ](https://docs.particle.io/faq/particle-devices/electron-3rdparty-sims/electron/).
+There are additional instructions in the [3rd-party SIM FAQ](https://docs.particle.io/support/particle-devices-faq/electron-3rdparty-sims/electron/).
 
 ### 6) Check the cellular coverage in your area
 The Electron leverages a number of cellular carriers to provide excellent coverage, but it *is* possible that you are outside GSM coverage in your country. Fortunately, it's relatively simple to check:

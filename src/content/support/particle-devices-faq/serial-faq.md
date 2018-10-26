@@ -35,7 +35,7 @@ The [documentation for Serial is here](/reference/device-os/firmware#serial).
 
 ### Particle CLI 
 
-A common way to view debug serial messages is the [Particle CLI](https://docs.particle.io/guide/tools-and-features/cli/photon/). Note that the CLI only reads serial messages, it is strictly a serial monitor, and you can't type things to the Photon/Electron. Still, it's quick and easy, and very handy.
+A common way to view debug serial messages is the [Particle CLI](/tutorials/developer-tools/cli/). Note that the CLI only reads serial messages, it is strictly a serial monitor, and you can't type things to the Photon/Electron. Still, it's quick and easy, and very handy.
 
 ```
 $ particle serial monitor
