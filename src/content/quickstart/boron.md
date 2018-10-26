@@ -1,11 +1,11 @@
 ---
-title: Boron Kit
+title: Boron
 layout: quickstart.hbs
 columns: two
 order: 4
 ---
 
-# Quick start: Boron Kit
+# Quick start: Boron
 
 ![Image of the Boron in a breadboard](/assets/images/boron-breadboard.jpg)
 

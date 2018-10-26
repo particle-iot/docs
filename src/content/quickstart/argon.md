@@ -1,11 +1,11 @@
 ---
-title: Argon Kit
+title: Argon
 layout: quickstart.hbs
 columns: two
 order: 3
 ---
 
-# Quick start: Argon Kit
+# Quick start: Argon
 
 ![Image of the Argon in a breadboard](/assets/images/argon-breadboard.jpg)
 

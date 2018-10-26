@@ -1,18 +1,18 @@
 ---
-title: Xenon Kit
+title: Xenon
 layout: quickstart.hbs
 columns: two
 order: 5
 ---
 
-# Quick start: Xenon Kit
+# Quick start: Xenon
 
 ![Image of the Xenon in a breadboard](/assets/images/xenon-breadboard-05.png)
 
 The Particle Xenon is a mesh and Bluetooth development kit designed for building connected projects and products. To set up the device you'll need an iOS or Android mobile phone and a connection to the internet.
 
 
-### The Xenon Kit comes with the following things:
+### The Xenon  comes with the following things:
 
 {{box op="start"}}
 
