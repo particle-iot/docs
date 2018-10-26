@@ -131,6 +131,13 @@ The Xenon has a dedicated 10 pin debug connector that exposes the SWD interface 
 
 <div align=center><img src="/assets/images/xenon/xenon-bottom-pin-markings.png" ></div>
 
+### Pinout diagram
+
+<div align=center> <a href="/assets/images/xenon/xenon-pinout-v1.0.pdf" target="_blank"> <img src="/assets/images/xenon/xenon-pinout.png" ></a></div>
+
+You can download a high resolution <a href="/assets/images/xenon/xenon-pinout-v1.0.pdf" target="_blank"><strong>PDF version of the pin out here.</strong></a></div><br>
+
+
 ### Pin description
 
 |   Pin | Description |
@@ -163,13 +170,6 @@ For a detailed explanation of different color codes of the RGB system LED, pleas
 |:---|:---|
 |ON | Charging in progress |
 |OFF | Charging complete |
-
-
-### Pinout diagram
-
-<div align=center> <a href="/assets/images/xenon/xenon-pinout-v1.0.pdf" target="_blank"> <img src="/assets/images/xenon/xenon-pinout.png" ></a></div>
-
-You can download a high resolution <a href="/assets/images/xenon/xenon-pinout-v1.0.pdf" target="_blank"><strong>PDF version of the pin out here.</strong></a></div><br>
 
 ## Technical specifications
 

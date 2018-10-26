@@ -147,6 +147,13 @@ The Boron has a dedicated 10 pin debug connector that exposes the SWD interface 
 
 <div align=center><img src="/assets/images/boron/boron-bottom-pin-markings.png" ></div>
 
+### Pinout diagram
+
+<div align=center> <a href="/assets/images/boron/boron-pinout-v1.0.pdf" target="_blank"> <img src="/assets/images/boron/boron-pinout.png" ></a></div>
+
+You can download a high resolution <a href="/assets/images/boron/boron-pinout-v1.0.pdf" target="_blank"><strong>PDF version of the pin out here.</strong></a></div><br>
+
+
 ### Pin description
 
 |   Pin | Description |
@@ -187,12 +194,6 @@ For a detailed explanation of different color codes of the RGB system LED, pleas
 <sup>[1]</sup> A fault condition can occur due to several reasons, for example, battery over/under voltage, temperature fault or safety timer fault. You can find the root cause by reading the fault register of the power management IC in firmware.
 
 <sup>[2]</sup> You can stop this behavior by either plugging in the LiPo battery or by disabling charging using firmware command: `PMIC().disableCharging();`.
-
-### Pinout diagram
-
-<div align=center> <a href="/assets/images/boron/boron-pinout-v1.0.pdf" target="_blank"> <img src="/assets/images/boron/boron-pinout.png" ></a></div>
-
-You can download a high resolution <a href="/assets/images/boron/boron-pinout-v1.0.pdf" target="_blank"><strong>PDF version of the pin out here.</strong></a></div><br>
 
 ## Technical specifications
 
