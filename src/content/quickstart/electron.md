@@ -62,7 +62,7 @@ There are several awesome buttons and LEDs on your Electron to make it easier to
 <p class="boxedHead">NOTE:</p>
 <p class="boxed">
 
-Since Electron is a cellular device and OTA usage consumes data, it&apos;s important for us to think about conserving data. Every time you update your firmware over the air, push data to the device or remain connected to the network, you are consuming data. In the development phase of your project, it is suggested that you <a href="/guide/tools-and-features/cli/electron/#flashing-over-serial-for-the-electron">update firmware happen over USB</a>, instead of the cellular network. You&apos;ll first need to install the <a href="/guide/tools-and-features/cli/">Particle Command Line Interface</a> on your computer.
+Since Electron is a cellular device and OTA usage consumes data, it&apos;s important for us to think about conserving data. Every time you update your firmware over the air, push data to the device or remain connected to the network, you are consuming data. In the development phase of your project, it is suggested that you update firmware happen over USB, instead of the cellular network. You&apos;ll first need to install the <a href="/tutorials/developer-tools/cli/">Particle Command Line Interface</a> on your computer.
 
 </p>
 
@@ -436,7 +436,7 @@ curl -G https://api.particle.io/v1/devices/0123456789abcdef/analogvalue \
 <p>In this example, we&apos;ve created a system where you turn your LED and photoresistor to face each other, making a beam of light that can be broken by the motion of your finger. Every time the beam is broken or reconnected, your device will send a <code>Particle.publish</code> to the cloud letting it know the state of the beam. Basically, a tripwire!</p>
 <p>For your convenience, we&apos;ve set up a little calibrate function so that your device will work no matter how bright your LED is, or how bright the ambient light may be. Put your finger in the beam when the D7 LED goes on, and hold it in the beam until you see two flashes from the D7 LED. Then take your finger out of the beam. If you mess up, don&apos;t worry-- you can just hit &quot;reset&quot; on your device and do it again!</p>
 <p>You can check out the results on your console at <a href="https://console.particle.io" target="_blank" rel="noopener noreferrer">console.particle.io</a>. As you put your finger in front of the beam, you&apos;ll see an event appear that says the beam was broken. When you remove your finger, the event says that the beam is now intact.</p>
-<p>You can also hook up publishes to IFTTT! More info <a href="/guide/tools-and-features/ifttt">here</a>.</p>
+<p>You can also hook up publishes to IFTTT! More info <a href="/tutorials/integrations/ifttt">here</a>.</p>
 <h3 id="setup-3">Setup<a href="#setup-3" class="header-permalinks"><i class="ion-link"></i></a></h3><p>The setup is the same as in the last example. Set up your breadboard as follows:</p>
 <p><img src="/assets/images/electron/illustrations/electron-example.png" alt="Electron Diagram"></p>
 <p>Ensure that the short end of the LED is plugged into <code>GND</code> and that the LED and Photoresistor are bent to face each other. (You want the LED, when turned on, to shine its beam of light directly at the photoresistor.) Try to leave enough space between the LED and the Photoresistor for your finger or a piece of paper.</p>
