@@ -195,19 +195,14 @@ conditions is not implied. Exposure to absolute-maximum-rated conditions for ext
 | LiPo Battery Voltage | V<sub>LiPo</sub> | +3.3 |  | +4.4 | V |
 | Supply Input Voltage | V<sub>3V3</sub> | +3.0 | +3.3 | +3.6 | V |
 | Supply Output Voltage | V<sub>3V3</sub> |  | +3.3 |  | V |
-| Operating Current (uC on, Radio ON) | I<sub>Li+ avg</sub> |  | xxx | xxx | mA |
-| Peak Current (uC on, Radio ON) | I<sub>Li+ pk</sub> | xxx<sup>[2]</sup> |  | xxx<sup>[3]</sup> | mA |
-| Operating Current (uC on, Radio OFF) | I<sub>Li+ avg</sub> |  | xx | xx | mA |
-| Sleep Current (4.2V LiPo, Radio OFF)| I<sub>Qs</sub> |  | xx | xx | mA |
-| Deep Sleep Current (4.2V LiPo, Radio OFF) | I<sub>Qds</sub> |  | xxx | xxx | uA |
+| Operating Current (uC on, Radio ON) | I<sub>Li+ avg</sub> |  | 6 | 20 | mA |
+| Operating Current (uC on, Radio OFF) | I<sub>Li+ avg</sub> |  | TBD | TBD | mA |
+| Operating Current (EN pin = LOW) | I<sub>disable</sub> |  | 20 | 30 | uA |
+| Sleep Current (4.2V LiPo, Radio OFF)| I<sub>Qs</sub> |  | TBD | TBD | mA |
+| Deep Sleep Current (4.2V LiPo, Radio OFF) | I<sub>Qds</sub> |  | TBD | TBD | uA |
 | Operating Temperature | T<sub>op</sub> | -20 |  | +60 | °C |
 | Humidity Range Non condensing, relative humidity | | | | 95 | % |
 
-**Notes:**
-
-<sup>[1]</sup> These numbers represent the extreme range of short peak current bursts when transmitting and receiving at different power levels.
-
-<sup>[2]</sup> These are very short average current bursts when transmitting and receiving.  On average if minimizing frequency of TX/RX events, current consumption in powersave mode will be 18mA
 
 ### Radio specifications
 

@@ -204,7 +204,7 @@ You can download a high resolution <a href="/assets/images/boron/boron-pinout-v1
 | Battery Input Voltage | V<sub>LiPo</sub> |  |  | +6.5 | V |
 | Supply Output Current | I<sub>3V3-MAX-L</sub> |  |  | 1000 | mA |
 | Storage Temperature | T<sub>stg</sub> | -30 |  | +75 | °C |
-| ESD Susceptibility HBM (Human Body Mode) | V<sub>ESD</sub> |  |  | 2 | kV |
+| ESD Susceptibility HBM (Human Body Mode) | V<sub>ESD</sub> |  |  | 1 | kV |
 
 <sup>[1]</sup> Stresses beyond those listed under absolute maximum ratings may cause permanent damage to the device. These are stress ratings
 only, and functional operation of the device at these or any other conditions beyond those indicated under recommended operating
@@ -218,19 +218,21 @@ conditions is not implied. Exposure to absolute-maximum-rated conditions for ext
 | LiPo Battery Voltage | V<sub>LiPo</sub> | +3.3 |  | +4.4 | V |
 | Supply Input Voltage | V<sub>3V3</sub> | +3.0 | +3.3 | +3.6 | V |
 | Supply Output Voltage | V<sub>3V3</sub> |  | +3.3 |  | V |
-| Operating Current (uC on, Radio ON) | I<sub>Li+ avg</sub> |  | xxx | xxx | mA |
-| Peak Current (uC on, Radio ON) | I<sub>Li+ pk</sub> | xxx<sup>[2]</sup> |  | xxx<sup>[3]</sup> | mA |
-| Operating Current (uC on, Radio OFF) | I<sub>Li+ avg</sub> |  | xx | xx | mA |
-| Sleep Current (4.2V LiPo, Radio OFF)| I<sub>Qs</sub> |  | xx | xx | mA |
-| Deep Sleep Current (4.2V LiPo, Radio OFF) | I<sub>Qds</sub> |  | xxx | xxx | uA |
+| Operating Current (uC on, Radio ON) | I<sub>Li+ avg</sub> |  | 100 | 200 | mA |
+| Peak Current (Boron LTE) | I<sub>Li+ pk</sub> | 120 |  | 490 | mA |
+| Peak Current (Boron 2G/3G) | I<sub>Li+ pk</sub> | 800<sup>[1]</sup> |  | 1800<sup>[2]</sup> | mA |
+| Operating Current (uC on, Radio OFF) | I<sub>Li+ avg</sub> |  | 6 | 60 | mA |
+| Operating Current (EN pin = LOW) | I<sub>disable</sub> |  | 70 | 75 | uA |
+| Sleep Current (4.2V LiPo, Radio OFF)| I<sub>Qs</sub> |  | TBD | TBD | mA |
+| Deep Sleep Current (4.2V LiPo, Radio OFF) | I<sub>Qds</sub> |  | TBD | TBD | uA |
 | Operating Temperature | T<sub>op</sub> | -20 |  | +60 | °C |
 | Humidity Range Non condensing, relative humidity | | | | 95 | % |
 
 **Notes:**
 
-<sup>[1]</sup> These numbers represent the extreme range of short peak current bursts when transmitting and receiving in 802.11b/g/n modes at different power levels.  Average TX current consumption in will be 80-100mA.
+<sup>[1]</sup> 3G operation
 
-<sup>[2]</sup> These are very short average current bursts when transmitting and receiving.  On average if minimizing frequency of TX/RX events, current consumption in powersave mode will be 18mA
+<sup>[2]</sup> 2G operation
 
 ### Radio specifications
 
