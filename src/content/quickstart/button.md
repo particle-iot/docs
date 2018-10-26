@@ -1,6 +1,6 @@
 ---
 title: Internet Button
-layout: datasheet.hbs
+layout: quickstart.hbs
 columns: two
 order: 31
 ---
@@ -296,21 +296,21 @@ void setup() {
 
     // reduce to less than full eye-blazing brightness
     b.setBrightness(95);
-    
+
     Particle.variable("ledPos",ledPos);
 }
 
 void loop(){
     // previous LED off (or 'null' LED0 off the first time through)
     b.ledOn(ledPos, 0, 0, 0);
-    
+
     // Want to figure out which LED is the lowest?
     // We've hidden the necessary trigonometry in this function.
     ledPos = b.lowestLed();
-    
+
     // give some time for human retinal response
     delay(330);
-    
+
     // Now turn the lowest LED on
     b.ledOn(ledPos, 0, 30, 30);
 
