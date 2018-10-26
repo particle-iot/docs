@@ -1,9 +1,8 @@
 ---
 title: InfluxData
-devices: [ photon, electron, core ]
 layout: tutorials.hbs
 columns: two
-order: 400
+order: 130
 ---
 
 # {{title}} Integration

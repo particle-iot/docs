@@ -2,7 +2,7 @@
 title: Connectivity Help
 layout: support.hbs
 columns: two
-devices: [ photon,core ]
+devices: [ photon,core,electron,argon,boron,xenon ]
 order: 8
 ---
 
@@ -39,18 +39,12 @@ There are known issues with the following types of networks:
 
 So, let's dig in. If your {{device}} is not connecting to your Wi-Fi network, we recommend following these steps:
 
-**STEP 0: Check the basics**
+**STEP 1: Check the basics**
 
 - Check your Wi-Fi credentials (SSID and password) to make sure you typed them correctly.
 - Make sure you're in range of your Wi-Fi network. If your phone or computer has a poor connection in the same location, try moving closer to your Wi-Fi access point.
 - If you're using a u.FL {{#if photon}}antenna{{/if}}{{#if core}}Core{{/if}}, make sure you have an antenna attached, and that it's firmly connected.
 - Make sure your {{device}} has enough power to transmit Wi-Fi signals (300mA in bursts). Try a different power source, or unplug components that draw a lot of power.
-
-**STEP 1: Set up your {{device}} over USB**
-
-On some networks, {{#if photon}}the mobile app won't work{{/if}}{{#if core}}Smart Config does not work{{/if}}, but the {{device}} can connect to the network just fine. We've implemented a back-up mechanism so you can set up your {{device}} over USB. Don't forget that you'll need to claim your {{device}} manually as well if you haven't already!
-
-{{#if photon}}[Setup with USB >](/guide/getting-started/intro/photon){{/if}}{{#if core}}[Setup with USB >](/guide/getting-started/intro/core){{/if}}
 
 **STEP 2: Try another network**
 
@@ -163,7 +157,7 @@ If you're on a noisy Wi-Fi network you've had troubles flashing wirelessly in th
 The [Particle CLI](/guide/tools-and-features/cli/) is a Swiss army command line knife that can be used to do all kinds of cool things...like flash a deep update to your core. The process is pretty simple:
 
 [Install or upgrade the CLI](/guide/tools-and-features/cli/#installing)
-Connect a Core to your computer via USB and put it into [dfu-mode](/guide/getting-started/modes/core/#dfu-mode-device-firmware-upgrade-)
+Connect a Core to your computer via USB and put it into [dfu-mode](/tutorials/device-os/led/core/#dfu-mode-device-firmware-upgrade-)
 
 Run the flash command:
 

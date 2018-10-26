@@ -2,7 +2,7 @@
 title: Common Issues
 layout: support.hbs
 columns: two
-devices: [ photon,electron,core ]
+devices: [ photon,electron,core,argon,boron,xenon ]
 order: 1
 ---
 
@@ -227,7 +227,7 @@ To upgrade your Photon, follow the instructions below:
 -  Install dfu-util on your Mac using: ```brew install dfu-util```
 If you don't have brew or homebrew installed, install it here: <a href="http://brew.sh/" target="_blank">http://brew.sh/</a>
 
--  Put photon into DFU MODE, instructions [here](/guide/getting-started/modes/photon/#dfu-mode-device-firmware-upgrade-).
+-  Put photon into DFU MODE, instructions [here](/tutorials/device-os/led/photon/#dfu-mode-device-firmware-upgrade-).
 
 -  Flash part1:
 ```dfu-util -d 2b04:d006 -a 0 -s 0x8020000 -D system-part1-x.x.x-photon.bin``` (replace x.x.x with actual version number)

@@ -69,6 +69,13 @@
 }
 /* Status.io Widget */
 
+.support-icon {
+ width: 36px;
+  height: 36px;
+  margin: 0 0 0 5px;
+  display: inline-block;
+}
+
 .current-status-indicator {
   width: 36px;
   height: 36px;
@@ -96,22 +103,45 @@
   border: 1px solid @dark-gray;
 }
 
+@StatusGreen          : #70d44b;
+@StatusYellow         : #ffcd00;
+@StatusRed            : #ed1c24;
+@StatusBlue           : #00aeef;
+
 .current-status-indicator,
 .current-status-incidents {
   &.green {
-	background: @NC_EMERALD;
+	background: @StatusGreen;
   }
 
   &.yellow {
-	background: @NC_MACARONI;
+	background: @StatusYellow;
   }
 
   &.red {
-	background: @NC_WARNING;
+	background: @StatusRed;
   }
 
   &.blue {
-	background: @NC_CYAN;
+	background: @StatusBlue;
+  }
+}
+
+.current-status-text {
+  &.green {
+	color: @StatusGreen;
+  }
+
+  &.yellow {
+	color: @StatusYellow;
+  }
+
+  &.red {
+	color: @StatusRed;
+  }
+
+  &.blue {
+	color: @StatusBlue;
   }
 }
 

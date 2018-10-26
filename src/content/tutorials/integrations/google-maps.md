@@ -2,7 +2,7 @@
 title: Google Maps
 layout: tutorials.hbs
 columns: two
-order: 150
+order: 110
 ---
 
 # {{title}}
@@ -35,7 +35,7 @@ Maps integration.
 
 There are four common ways to find a location of a device, described
 below. It is important to note that while these methods are distinct
-from one another, it is possible (and often preferrable) to use multiple
+from one another, it is possible (and often preferable) to use multiple
 geolocation methods together to enhance end-user experience and/or
 increase the likelihood of successfully locating a device.
 
@@ -274,7 +274,7 @@ can be found in the [Google Maps device locator
 examples](https://github.com/particle-iot/google-maps-device-locator-examples)
 repository.
 
-To use this firmware example, you should downlod the repo, either by
+To use this firmware example, you should download the repo, either by
 clone or download zip. Then, `cd` into the `oled-locator` directory.
 
 ### Using the Particle CLI

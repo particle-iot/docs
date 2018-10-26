@@ -2,7 +2,7 @@
 title: Azure IoT Hub
 layout: tutorials.hbs
 columns: two
-order: 200
+order: 120
 ---
 
 # {{title}}

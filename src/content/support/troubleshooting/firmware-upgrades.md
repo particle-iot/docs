@@ -2,7 +2,7 @@
 title: Firmware Upgrades
 layout: support.hbs
 columns: two
-devices: [ photon,electron,core ]
+devices: [ photon,electron,core,argon,boron,xenon ]
 order: 9
 ---
 
@@ -20,10 +20,10 @@ If you are using the [Particle CLI](/guide/tools-and-features/cli) and have been
 - [Particle {{device}}](https://store.particle.io/?product=particle-{{deviceValue}}) 
 
 **Step One:** 
-- Put {{device}} into [DFU mode](/guide/getting-started/modes/{{deviceValue}}/#dfu-mode-device-firmware-upgrade-) while being plugged into computer. {{#if has-cellular}}Make sure the antenna and battery are connected.{{/if}}
+- Put {{device}} into [DFU mode](/tutorials/device-os/led/{{deviceValue}}/#dfu-mode-device-firmware-upgrade-) while being plugged into computer. {{#if has-cellular}}Make sure the antenna and battery are connected.{{/if}}
 
 **Step Two:** 
-- While {{device}} in [DFU mode](/guide/getting-started/modes/{{deviceValue}}/#dfu-mode-device-firmware-upgrade-), issue `particle update` from the CLI and that's it! Your device should upgrade to the newest available firmware and you should be a happy camper!
+- While {{device}} in [DFU mode](/tutorials/device-os/led/{{deviceValue}}/#dfu-mode-device-firmware-upgrade-), issue `particle update` from the CLI and that's it! Your device should upgrade to the newest available firmware and you should be a happy camper!
 
 
 
@@ -47,7 +47,7 @@ On Windows, dfu-util will be installed if you install the CLI through the [Windo
 
 On Ubuntu Linux, type: ```sudo apt install dfu-util```
 
--  Put {{device}} into DFU MODE, instructions [here](/guide/getting-started/modes/{{deviceValue}}/#dfu-mode-device-firmware-upgrade-).
+-  Put {{device}} into DFU MODE, instructions [here](/tutorials/device-os/led/{{deviceValue}}/#dfu-mode-device-firmware-upgrade-).
 
 {{#if photon}}
 -  Flash part1:

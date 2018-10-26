@@ -8,14 +8,26 @@
           <i class="im-devices-icon"></i> {{device}} <i class="icon ion-chevron-down"></i>
         </a>
         <ul class="dropdown-menu" aria-labelledby="dLabel">
-          {{#contains devices 'electron'}}
-            <li><a href="{{path.href}}{{path.name}}/electron/">Electron</a></li>
+          <li>Wi-Fi</li>
+          {{#contains devices 'argon'}}
+          <li><a href="{{path.href}}{{path.name}}/argon/">Argon</a></li>
           {{/contains}}
           {{#contains devices 'photon'}}
-            <li><a href="{{path.href}}{{path.name}}/photon/">Photon</a></li>
+          <li><a href="{{path.href}}{{path.name}}/photon/">Photon</a></li>
           {{/contains}}
           {{#contains devices 'core'}}
-            <li><a href="{{path.href}}{{path.name}}/core/">Core</a></li>
+          <li><a href="{{path.href}}{{path.name}}/core/">Core</a></li>
+          {{/contains}}
+          <li>Cellular</li>
+          {{#contains devices 'boron'}}
+          <li><a href="{{path.href}}{{path.name}}/boron/">Boron</a></li>
+          {{/contains}}
+          {{#contains devices 'electron'}}
+          <li><a href="{{path.href}}{{path.name}}/electron/">Electron &amp; E-Series</a></li>
+          {{/contains}}
+          {{#contains devices 'xenon'}}
+          <li>Mesh</li>
+          <li><a href="{{path.href}}{{path.name}}/xenon/">Xenon</a></li>
           {{/contains}}
         </ul>
       </div>
@@ -27,18 +39,18 @@
       </a>
     </div>
 
-    <a href="/guide/getting-started/intro">
+    <a href="/">
       <img src="/assets/images/particle-docs.png" id="logo">
     </a>
 
     <div class="sections">
-      <a class="nav {{#contains path.href 'guide'}}active{{/contains}}" href="/guide">Guide</a>
+      <a class="nav {{#is path.href '/'}}active{{/is}}" href="/">Home</a>
+      <a class="nav {{#contains path.href 'quickstart'}}active{{/contains}}" href="/quickstart">Quickstart</a>
       <a class="nav {{#contains path.href 'tutorials'}}active{{/contains}}" href="/tutorials">Tutorials</a>
-      <a class="nav {{#contains path.href 'faq'}}active{{/contains}}"
-      href="/faq">FAQ</a>
       <a class="nav {{#contains path.href 'reference'}}active{{/contains}}"
       href="/reference">Reference</a>
-      <a class="nav {{#contains path.href 'datasheets'}}active{{/contains}}" href="/datasheets">Datasheets</a>
+      <a class="nav {{#contains path.href 'datasheets'}}active{{/contains}}" href="/hardware">Datasheets</a>
+      <a class="nav {{#contains path.href 'community'}}active{{/contains}}" href="/community">Community</a>
       <a class="nav {{#contains path.href 'support'}}active{{/contains}}" href="/support">Support</a>
     </div>
 
@@ -52,7 +64,7 @@
         <li><a href="/tutorials">Tutorials</a></li>
         <li><a href="/faq">FAQ</a></li>
         <li><a href="/reference">Reference</a></li>
-        <li><a href="/datasheets">Datasheets</a></li>
+        <li><a href="/hardware">Datasheets</a></li>
         <li><a href="/support">Support</a></li>
       </ul>
     </div>

@@ -1,5 +1,6 @@
 ---
-title: Get started with Particle
-layout: start.hbs
+title: Welcome to the Particle docs
+layout: main.hbs
 ---
-<script src='/assets/js/redirect.js'></script>
+
+
