@@ -111,7 +111,6 @@ If you don't see your Argon listed, click on the device name. A sidebar will app
 ## 5. Compile your code & flash
 
 
-
 Click the lightning bolt icon on the top left of your screen to flash your code to your device.
 
 As soon as you click, the Particle Device cloud will compile the program source code to a binary file and send it over-the-air (OTA) to your Argon.
