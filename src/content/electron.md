@@ -3,10 +3,10 @@ title: Electron
 layout: landing.hbs
 ---
 
-# Particle Electron:
+# Particle Electron: Cellular
 ![Image of the Electron](/assets/images/electron.png)
 
-The Electron 3G Kit is a tiny development kit for creating 3G cellular-connected electronics projects and products. It comes with a Particle SIM card with service in more than 100 countries worldwide.
+The Electron is a tiny development kit for creating 3G cellular-connected electronics projects and products. It comes with a Particle SIM card with service in more than 100 countries worldwide.
 
 
 
@@ -21,13 +21,12 @@ The Electron 3G Kit is a tiny development kit for creating 3G cellular-connected
 {{box op="start" cssClass="boxedSideBySide"}}
 **Learn more:**
 - [Quickstart with starter project](/quickstart/electron/)
+- [Community](https://community.particle.io/)
 - [Support](/support/support-and-fulfillment/menu-base/)
 {{box op="switch"}}
 **Resources:**
-- [Code](https://github.com/particle-iot/electron)
 - [Hardware files](https://github.com/particle-iot/electron/)
-- [Datasheets](/datasheets/cellular/electron-datasheet/)
-- [Community](https://community.particle.io/)
+- [Datasheet](/datasheets/cellular/electron-datasheet/)
 {{box op="end"}}
 
 ## Electron 3G hardware specifications
