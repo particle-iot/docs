@@ -2,7 +2,7 @@
 title: Boron datasheet
 layout: datasheet.hbs
 columns: two
-order: 2
+order: 1
 ---
 
 # Boron Datasheet <sup>(v001)</sup>

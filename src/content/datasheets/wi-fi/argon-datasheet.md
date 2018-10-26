@@ -2,7 +2,7 @@
 title: Argon datasheet
 layout: datasheet.hbs
 columns: two
-order: 2
+order: 1
 ---
 
 # Argon Datasheet <sup>(v001)</sup>

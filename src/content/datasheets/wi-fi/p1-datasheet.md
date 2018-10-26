@@ -2,7 +2,7 @@
 title: P1 datasheet
 layout: datasheet.hbs
 columns: two
-order: 2
+order: 3
 ---
 
 {{#unless pdf-generation}}
