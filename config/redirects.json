@@ -176,6 +176,8 @@
 	"/reference/cli": "/reference/developer-tools/cli",
 	"/reference/community": "/community/community",
 	"/reference/firmware": "/reference/device-os/firmware",
+	"/reference/firmware/photon": "/reference/device-os/firmware/photon",
+	"/reference/firmware/electron": "/reference/device-os/firmware/electron",
 	"/reference/ios": "/reference/SDKs/ios",
 	"/reference/javascript": "/reference/SDKs/javascript",
 	"/reference/led": "/tutorials/device-os/led",
