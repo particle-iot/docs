@@ -105,7 +105,7 @@
 	"/guide/getting-started/start":"/",
 	"/guide/getting-started/start/photon":"/quickstart/photon",
 	"/guide/getting-started/start/electron":"/quickstart/electron",
-	"/guide/getting-started/start/raspberry-pi/":"/datasheets/discontinued/raspberry-pi",
+	"/guide/getting-started/start/raspberry-pi":"/datasheets/discontinued/raspberry-pi",
 	"/guide/getting-started/tinker":"/tutorials/developer-tools/tinker",
 	"/guide": "/tutorials/device-os/led",
 	"/guide/how-to-build-a-product/certification":"/datasheets/certification/certification",
