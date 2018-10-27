@@ -45,7 +45,7 @@ To begin setting up your Argon, click the button below and follow the onscreen i
 
 <div  align="center">
 <br />
-<a href="https://setup.particle.io/"  target="_blank" class="button">SET UP YOUR XENON</a>
+<a href="https://setup.particle.io/"  target="_blank" class="button">SET UP YOUR ARGON</a>
 <br />
 </div>
 
@@ -55,7 +55,7 @@ To begin setting up your Argon, click the button below and follow the onscreen i
 {{box op="start" cssClass="boxed warningBox"}}
 **NOTES:**</br>
 1.) If you have already set up your Argon, skip to Step #2.<br /><br />
-2.) During set up you may skip setting up a Particle Mesh network and use the Xenon in a standalone mode.
+2.) During set up you may skip setting up a Particle Mesh network and use the Argon in a standalone mode.
 
 
 
