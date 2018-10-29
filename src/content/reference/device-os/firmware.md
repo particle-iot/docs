@@ -6623,6 +6623,11 @@ Serial.println(myIP);    // prints the device's IP address
 
 Create a server that listens for incoming connections on the specified port.
 
+{{#if has-mesh}}
+The TCPServer can only be used on a Wi-Fi or Ethernet mesh gateway, including the Argon and the Xenon when used in an Ethernet shield. 
+The Thread mesh network does not support TCP across the mesh network; it only supports UDP from nodes that are only on mesh. 
+{{/if}}
+
 ```C++
 // SYNTAX
 TCPServer server = TCPServer(port);
@@ -6741,6 +6746,11 @@ Parameters:
 ## TCPClient
 
 Creates a client which can connect to a specified internet IP address and port (defined in the `client.connect()` function).
+
+{{#if has-mesh}}
+The TCPClient can only be used on mesh gateway, including the Argon, Boron, and the Xenon when used in an Ethernet shield. 
+The Thread mesh network does not support TCP across the mesh network; it only supports UDP from nodes that are only on mesh. 
+{{/if}}
 
 ```C++
 // SYNTAX

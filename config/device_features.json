@@ -194,6 +194,8 @@
     "eeprom",
     "button-mirror",
     "rgb-mirror",
-    "spi-settings"	  
+    "spi-settings",
+    "tcpserver",
+    "tcpclient"	  
   ]
 }
