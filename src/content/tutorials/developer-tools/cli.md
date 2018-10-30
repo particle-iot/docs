@@ -3,7 +3,6 @@ word: CLI
 title: Command Line
 order: 22
 columns: two
-devices: [electron,photon,core,raspberry-pi,argon,boron,xenon]
 layout: tutorials.hbs
 ---
 
@@ -236,7 +235,7 @@ Then let's compile that program to make sure it's valid code.  The CLI will auto
 
 ```sh
 # how to compile a program without flashing to your device
-$ particle compile {{deviceValue}} blinky.ino
+$ particle compile photon blinky.ino
 Including:
 blinky.ino
 attempting to compile firmware
@@ -245,6 +244,17 @@ grabbing binary from: https://api.particle.io/v1/binaries/01234567890ABCDEFGH
 saved firmware to firmware_123456781234.bin
 Compiled firmware downloaded.
 ```
+
+Replace photon with the type of device you have:
+
+- argon
+- boron
+- xenon
+- photon
+- p1
+- electron (also E series)
+- core (Spark Core, discontinued)
+- pi (Raspberry Pi, discontinued)
 
 
 Now that we have a valid program, let's flash it to our device!  We can use either the source code again, or we can send our binary.
@@ -473,15 +483,8 @@ has been published, the files and data cannot be changed. Subsequent changes mus
 and subsequent publish.
 
 ## Reference
-For more info on CLI commands, go [here](/reference/cli).
+For more info on CLI commands, go [here](/reference/developer-tools/cli).
 
 
 **Also**, check out and join our [community forums](http://community.particle.io/) for advanced help, tutorials, and troubleshooting.
 
-{{#if photon}}
-[Go to Community Forums >](http://community.particle.io/c/troubleshooting)
-{{/if}}
-
-{{#if core}}
-[Go to Community Forums >](http://community.particle.io/c/troubleshooting)
-{{/if}}

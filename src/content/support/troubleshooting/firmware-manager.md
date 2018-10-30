@@ -10,7 +10,7 @@ order: 12
 
 **The firmware manager is no longer supported.**
 
-It can still be used to update devices to Device OS 0.6.0 but cannot upgrade to newer versions. The [Particle CLI](/guide/tools-and-features/cli) should be used instead.
+It can still be used to update devices to Device OS 0.6.0 but cannot upgrade to newer versions. The [Particle CLI](/tutorials/developer-tools/cli) should be used instead.
 
 The Firmware Manager is a desktop application that upgrades your {{device}} to the latest Device OS version. It provides an easy way to update Device OS version while avoiding cellular data charges.
 

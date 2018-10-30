@@ -8,7 +8,7 @@ order: 40
 
 # CLI Command Reference
 
-For information on how to install the Particle CLI, see the [CLI guide](/guide/tools-and-features/cli/).
+For information on how to install the Particle CLI, see the [CLI guide](/tutorials/developer-tools/cli/).
 
 ## particle setup
 

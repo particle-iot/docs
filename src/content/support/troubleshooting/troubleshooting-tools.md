@@ -64,7 +64,7 @@ Your device MAC address is
 ### Get Device ID [deviceID] CLI method
 _Using the Particle CLI_
 * Put your device into [Listening Mode](/tutorials/device-os/led/#listening-mode) mode while being plugged into a computer via USB
-* Issue `particle serial identify` from the [Particle CLI](/guide/tools-and-features/cli)
+* Issue `particle serial identify` from the [Particle CLI](/tutorials/developer-tools/cli)
 	and it should return the deviceID.
 
 ### Get Device ID

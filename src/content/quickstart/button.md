@@ -7,9 +7,9 @@ order: 31
 
 # The Internet Button
 
-{{#if electron}}
-**_Note_**: The internet button is not currently available for the Electron.
-{{/if}}
+{{#unless photon}}
+**_Note_**: The internet button is only compatible with the Photon. It cannot be used with the Electron, Argon, Boron, or Xenon.
+{{/unless}}
 
 ![](/assets/images/internet-button-cover.jpg)
 

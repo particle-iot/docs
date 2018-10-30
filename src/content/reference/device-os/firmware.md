@@ -360,7 +360,7 @@ event: motion-detected
 data: {"data":"23:23:44","ttl":"60","published_at":"2014-05-28T19:20:34.638Z","deviceid":"0123456789abcdef"}
 ```
 
-{{#if electron}}
+{{#if has-udp-cloud}}
 ---
 
 *`NO_ACK` flag*
@@ -10292,9 +10292,6 @@ When using manual mode:
 
 {{since when="0.4.6"}}
 
-{{#if electron}}**Please note:** The System Thread feature is in Beta - we advise only using this
-in production after extensive testing.{{/if}}
-
 The System Thread is a system configuration that helps ensure the application loop
 is not interrupted by the system background processing and network management.
 It does this by running the application loop and the system loop on separate threads,
@@ -10964,7 +10961,7 @@ System.sleep(D1,RISING,60);
     - RISING to trigger when the pin goes from low to high,
     - FALLING for when the pin goes from high to low.
 - `seconds`: wakeup after the specified number of seconds (0 = no alarm is set)
-{{#if electron}}
+{{#if has-cellular}}
 - `SLEEP_NETWORK_STANDBY`: optional - keeps the cellular modem in a standby state while the device is sleeping..
 {{/if}}
 

@@ -14,23 +14,23 @@ This section will help walk you through the diagnosis and resolution of the most
 
 If your {{device}} used to work but is not connecting to the cloud anymore, the easiest way to get it back to health is to use the Device Doctor.
 
-- Install [the Particle CLI](/guide/tools-and-features/cli)
+- Install [the Particle CLI](/tutorials/developer-tools/cli)
 - Run [`particle device doctor`](/reference/cli/#particle-device-doctor)
 - Follow the prompts to reset various settings on your device.
 
-{{#if electron}}
+{{#if has-cellular}}
 
 ## Blinking Green
 
 {{device-animation device "blink" "lime" }}
 
-Electrons that are blinking green have successfully read the APN data from the inserted SIM card and are attempting to connect to a cellular tower. There are many different reasons that your Electron might fail to connect to your nearby cellular network. Here are a few things you can check if you find your device in an endless loop (5 minutes+) of blinking green:
+Cellular devices that are blinking green have successfully read the APN data from the inserted SIM card and are attempting to connect to a cellular tower. There are many different reasons that your {{device}} might fail to connect to your nearby cellular network. Here are a few things you can check if you find your device in an endless loop (5 minutes+) of blinking green:
 
-### 1) Is your Electron compatible with your local cellular network?
-There are three different variants of the Electron, and they each work in different parts of the world:
+### 1) Is your {{device}} compatible with your local cellular network?
+There are three different variants of the {{device}}, and they each work in different parts of the world:
 
 
-| Electron Name  | Service | Service Location | Bands (MHz) |
+| Name  | Service | Service Location | Bands (MHz) |
 | ------------- | :-------------: | :----: | :----: |
 | Electron G350  | 2G only | Worldwide | 850/900/1800/1900
 | Electron U260  | 3G with 2G fallback | North and South America, Australia | 850/1900
@@ -41,29 +41,29 @@ Make sure that your device is compatible with the cellular infrastructure in you
 If your device is not compatible with the cellular infrastructure in your country, **it will be unable to connect to the Internet using a Particle SIM or any other SIM.**
 
 ### 2) Is your antenna connected?
-Your Electron cannot connect without the included external cellular antenna. Please make sure it is connected as depicted below:
+Your {{device}} cannot connect without the included external cellular antenna. Please make sure it is connected as depicted below:
 
 ![Attach the antenna](/assets/images/antenna_attach.jpg)
 
 ### 3) Is your battery connected?
-Your Electron *requires a Li-Po battery or high current power source to communicate wirelessly*. Make sure your battery is connected as depicted below:
+Your {{device}} *requires a Li-Po battery or high current power source to communicate wirelessly*. Make sure your battery is connected as depicted below:
 
 ![Connect the battery](/assets/images/attach_batt.jpg)
 
-While the Electron does not *require* that you attach the USB cable, this will ensure that your battery does not run out of charge during the connection process.
+While the {{device}} does not *require* that you attach the USB cable, this will ensure that your battery does not run out of charge during the connection process.
 
 ### 4) Is your SIM activated?
 In order for your Particle SIM card to connect to the cellular network, it needs to be activated. The *only* way to do this is to go through SIM activation and setup at [https://setup.particle.io](https://setup.particle.io). Follow the on-screen prompts to complete device setup and SIM activation.
 
 ### 5) Are you using a 3rd party (non-Particle) SIM?
-If you're not using a Particle SIM, you will have to change the cellular APN on the Electron before it can connect. A Username and Password may also be required.  To connect the Electron with a 3rd party SIM, visit our [setup page](http://setup.particle.io), choose  "Setup an Electron with SIM card" and follow the on screen instructions to set your APN, download a new firmware binary, and flash it to your device.
+If you're not using a Particle SIM, you will have to change the cellular APN on the {{device}} before it can connect. A Username and Password may also be required.  To connect the {{device}} with a 3rd party SIM, visit our [setup page](http://setup.particle.io), choose  "Setup an {{device}} with SIM card" and follow the on screen instructions to set your APN, download a new firmware binary, and flash it to your device.
 
 > **NOTE**: Until you have done this, your device _will not_ be able to connect to the Internet.
 
 There are additional instructions in the [3rd-party SIM FAQ](/support/particle-devices-faq/electron-3rdparty-sims).
 
 ### 6) Check the cellular coverage in your area
-The Electron leverages a number of cellular carriers to provide excellent coverage, but it *is* possible that you are outside GSM coverage in your country. Fortunately, it's relatively simple to check:
+The {{device}} leverages a number of cellular carriers to provide excellent coverage, but it *is* possible that you are outside GSM coverage in your country. Fortunately, it's relatively simple to check:
 
 - Go to [the pricing page](https://www.particle.io/products/connectivity/cellular-iot-sim-2g-3g-lte#additional-mbs) and select your country from the dropdown. Note the cellular provider in your country. In the US, for example, service is provided by `T-Mobile and AT&T`.
 - Navigate to <a href="http://opensignal.com" target="_blank">http://opensignal.com</a> in your browser
@@ -83,12 +83,12 @@ There are a bunch of things that you can do to improve your cellular reception:
 
 
 ### 8) Check your data limit
-If you've been using your Electron successfully for a while and it's now just started flashing green, you might have hit your data limit, and your SIM might be paused. You can check your data usage and update your data limits by visiting the SIM console at the following link:
+If you've been using your {{device}} successfully for a while and it's now just started flashing green, you might have hit your data limit, and your SIM might be paused. You can check your data usage and update your data limits by visiting the SIM console at the following link:
 
 [https://console.particle.io/billing](https://console.particle.io/billing)
 
 ### 9) Cold boot your device
-If all else fails, try restarting it! Remove *both* the USB cable and Li-Po battery from the Electron, so that the RGB LED fully powers off. Then, reconnect the Li-Po battery and USB cable--the Electron should reboot and retry the connection sequence.
+If all else fails, try restarting it! Remove *both* the USB cable and Li-Po battery from the {{device}}, so that the RGB LED fully powers off. Then, reconnect the Li-Po battery and USB cable--the {{device}} should reboot and retry the connection sequence.
 
 ### 10) Are Particle's mobile carriers experiencing issues?
 Check out [our status page](http://status.particle.io/) to see if there's a known issue with Particle's mobile carriers.
@@ -103,7 +103,7 @@ Still having issues? [Write us an email](/support/support-and-fulfillment/menu-b
 
 {{device-animation device "blink" "blue" 300 300 }}
 
-Electrons that are blinking blue are in listening mode. When an Electron boots up, it will attempt to read information from the its SIM card to connect to the cellular network. Electrons that do not have a SIM card, or that have an improperly configured SIM card will be unable to connect to a cell tower and will default back to listening mode. If you're in listening mode and don't want to be, try the steps listed below:
+Devices that are blinking blue are in listening mode. When an {{device}} boots up, it will attempt to read information from the its SIM card to connect to the cellular network. Electrons that do not have a SIM card, or that have an improperly configured SIM card will be unable to connect to a cell tower and will default back to listening mode. If you're in listening mode and don't want to be, try the steps listed below:
 
 ### 1\. Is your SIM card inserted?
 Your device cannot exit listening mode and connect to a cellular tower if your SIM is not inserted. Please make sure your SIM is inserted as demonstrated below:
@@ -114,10 +114,10 @@ Your device cannot exit listening mode and connect to a cellular tower if your S
 Give your SIM an extra little push to make sure it's fully in the SIM card holder. No need to press too hard--just make sure there's no empty space between the card and the end of the holder.
 
 ### 3\. Try a cold boot
-Remove *both* the USB cable and Li-Po battery from the Electron, so that the RGB LED fully powers off. Then, reconnect the Li-Po battery and USB cable--the Electron should reboot and retry the connection sequence.
+Remove *both* the USB cable and Li-Po battery from the {{device}}, so that the RGB LED fully powers off. Then, reconnect the Li-Po battery and USB cable--the {{device}} should reboot and retry the connection sequence.
 
 ### 4\. Check the integrity of your SIM card holder
-Visually inspect the SIM card holder. Are all of the contacts soldered down? Does the holder lie flush against the Electron PCB (printed circuit board)? Are any of the pins bent or depressed downwards?
+Visually inspect the SIM card holder. Are all of the contacts soldered down? Does the holder lie flush against the {{device}} PCB (printed circuit board)? Are any of the pins bent or depressed downwards?
 
 The first step is to remove the SIM card and gently press down on the metal band. The little bit of extra pressure from the band is often enough for the SIM to work properly.
 
@@ -126,10 +126,10 @@ The easiest way to identify a bad contact in the holder is by removing the SIM c
 ![Identifying and fixing SIM holder](/assets/images/bad-sim-socket.png)
 <p class="caption"> <a target="_blank" href="/assets/images/bad-sim-socket.png">Click here</a> for a larger image.</p>
 
-Try using your hands to press down on the SIM card to improve contact between the SIM and the metal pins underneath--while pressing on the SIM card, press the `{{reset-button}}` button on the Electron. If you see the device begin to connect to the cellular network (flash green), you may have a damaged SIM card holder and should [contact Particle](/support/support-and-fulfillment/menu-base/).
+Try using your hands to press down on the SIM card to improve contact between the SIM and the metal pins underneath--while pressing on the SIM card, press the `{{reset-button}}` button on the {{device}}. If you see the device begin to connect to the cellular network (flash green), you may have a damaged SIM card holder and should [contact Particle](/support/support-and-fulfillment/menu-base/).
 
 ### 5\. Is your SIM card damaged or defective?
-Try using the SIM card from your cell phone, if you have one. If the RGB LED on the Electron begins to blink green when your phone's SIM is inserted, your Particle SIM may need to be replaced, and you should [contact Particle](/support/support-and-fulfillment/menu-base/).
+Try using the SIM card from your cell phone, if you have one. If the RGB LED on the {{device}} begins to blink green when your phone's SIM is inserted, your Particle SIM may need to be replaced, and you should [contact Particle](/support/support-and-fulfillment/menu-base/).
 
 ### 6\. Contact Particle
 Still having issues? [Write us an email](/support/support-and-fulfillment/menu-base/) and include the following to help us with troubleshooting:
@@ -142,19 +142,19 @@ Still having issues? [Write us an email](/support/support-and-fulfillment/menu-b
 
 {{device-animation device "breathe" "magenta" }}
 
-If your Electron is breathing magenta, it is in Safe Mode. This means that, although it is connected to the Cloud, it is not running your user firmware. Your device can end up in Safe Mode if the user app that you programmed became corrupted.
+If your {{device}} is breathing magenta, it is in Safe Mode. This means that, although it is connected to the Cloud, it is not running your user firmware. Your device can end up in Safe Mode if the user app that you programmed became corrupted.
 
 Normally, if your user firmware requires a newer version of Device OS, it will automatically update itself using the safe mode healer. 
 
 If this is not working, you can reset the user firmware and Device OS using these steps:
 
-Put the Electron in DFU mode by holding down both the RESET and MODE buttons, releasing RESET and continuing to hold down MODE until it blinks yellow and issue this command in a Command Prompt or Terminal window. 
+Put the {{device}} in DFU mode by holding down both the RESET and MODE buttons, releasing RESET and continuing to hold down MODE until it blinks yellow and issue this command in a Command Prompt or Terminal window. 
 
 ```
 particle flash --usb tinker
 ```
 
-Put the Electron back into DFU mode (blinking yellow), then:
+Put the {{device}} back into DFU mode (blinking yellow), then:
 
 ```
 particle update
@@ -164,13 +164,13 @@ particle update
 
 {{device-animation device "blink" "cyan" }}
 
-If your Electron is blinking cyan and sometimes orange/red without connecting, it is helpful to first try to manually update your firmware, in the same way as listed as above. If this does not work, then move on to a key reset.
+If your {{device}} is blinking cyan and sometimes orange/red without connecting, it is helpful to first try to manually update your firmware, in the same way as listed as above. If this does not work, then move on to a key reset.
 
 ### Public Key Reset
 
-Sometimes, a firmware upgrade will not be enough to solve your Photon's problem. If your are still having an issue, and particularly **if your Electron is blinking cyan and sometimes orange/red without connecting**, It's time to try resetting the public key.
+Sometimes, a firmware upgrade will not be enough to solve your Photon's problem. If your are still having an issue, and particularly **if your {{device}} is blinking cyan and sometimes orange/red without connecting**, It's time to try resetting the public key.
 
-Put the Electron into Listening mode (blinking blue) by holding down MODE until it blinks blue. Then issue the CLI command:
+Put the {{device}} into Listening mode (blinking blue) by holding down MODE until it blinks blue. Then issue the CLI command:
 
 ```
 particle serial identify
@@ -178,7 +178,7 @@ particle serial identify
 
 Save the Device ID; you’ll need it later.
 
-Then put the Electron in DFU mode by holding down both the RESET and MODE buttons, releasing RESET and continuing to hold down MODE until it blinks yellow and issue the commands below, in order.
+Then put the {{device}} in DFU mode by holding down both the RESET and MODE buttons, releasing RESET and continuing to hold down MODE until it blinks yellow and issue the commands below, in order.
 
 ```
 particle keys server
@@ -198,13 +198,13 @@ Normally, if your user firmware requires a newer version of Device OS, it will a
 
 You can reset the user firmware and Device OS using these steps:
 
-Put the Electron in DFU mode by holding down both the RESET and MODE buttons, releasing RESET and continuing to hold down MODE until it blinks yellow and issue this command in a Command Prompt or Terminal window. 
+Put the {{device}} in DFU mode by holding down both the RESET and MODE buttons, releasing RESET and continuing to hold down MODE until it blinks yellow and issue this command in a Command Prompt or Terminal window. 
 
 ```
 particle flash --usb tinker
 ```
 
-Put the Electron back into DFU mode (blinking yellow), then:
+Put the {{device}} back into DFU mode (blinking yellow), then:
 
 ```
 particle update
@@ -333,7 +333,7 @@ There are known issues with the following types of networks:
 
 ## Full Firmware Upgrade
 
-If you are having intermittent connectivity issues, odd behavior or believe your firmware to be corrupted or out of date, you would benefit from performing a full firmware upgrade. This requires using <a href="http://dfu-util.sourceforge.net/" target="_blank">dfu-util</a> and installing the [Particle CLI](/guide/tools-and-features/cli)
+If you are having intermittent connectivity issues, odd behavior or believe your firmware to be corrupted or out of date, you would benefit from performing a full firmware upgrade. This requires using <a href="http://dfu-util.sourceforge.net/" target="_blank">dfu-util</a> and installing the [Particle CLI](/tutorials/developer-tools/cli)
 , which provides an excellent local development and troubleshooting environment for your Particle development.
 
 Put the Core in DFU mode by holding down both the RST and MODE buttons, releasing RST and continuing to hold down MODE until it blinks yellow and issue the commands below, in order.

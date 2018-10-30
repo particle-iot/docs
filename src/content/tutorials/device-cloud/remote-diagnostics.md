@@ -23,7 +23,7 @@ device falling into an unhealthy state, your team will be empowered with
 rich context and suggested courses of action to quickly diagnose and
 rapidly resolve the issue.
 
-{{#if electron}}
+{{#if has-cellular}}
 <img
 src="/assets/images/remote-diagnostics/successful-diagnostics-test.png"
 class="full-width"/>
@@ -56,11 +56,11 @@ class="small"/>
 
 The device collects the following diagnostic vitals, and sends them to
 the Device Cloud:
-{{#if electron}}
+{{#if has-cellular}}
 - *Battery state of charge*: The state of charge of the device’s connected battery, represented as a percentage.
 {{/if}}
 - *Signal strength*: The strength of the device’s connection to the
-{{#if electron}}Cellular{{else}}Wi-Fi{{/if}} network, measured in decibels of received signal power.
+{{#if has-cellular}}Cellular{{else}}Wi-Fi{{/if}} network, measured in decibels of received signal power.
 - *Disconnect events*: The number of times the device disconnected
 unexpectedly from the Particle Device Cloud since its last reset.
 - *Round-trip time*: The amount of time it takes for the device to
@@ -123,7 +123,7 @@ Wi-Fi vs. Cellular).
 
 For your device, these connectivity layers are:
 
-{{#if electron}}
+{{#if has-cellular}}
   <img class="full-width" alt="Device Vitals, SIM Card, Cellular Network, and
   Particle Device Cloud"
   src="/assets/images/remote-diagnostics/connectivity-layers-cellular.png"/>
@@ -148,7 +148,7 @@ See the section on [device vitals](#device-vitals) for detailed
 information on what data gets sent from the device.
 
 
-{{#if electron}}
+{{#if has-cellular}}
 ### SIM Card
 
 Cellular devices rely on a SIM card to facilitate a connection to the
@@ -224,7 +224,7 @@ device on the Console:
 Click the **Run Tests** button to run the test suite, if the tests have
 not already begun to run:
 
-{{#if electron}}
+{{#if has-cellular}}
 <img class="full-width"
 src="/assets/images/remote-diagnostics/default-diagnostics-state-cellular.png"/>
 {{else}}
@@ -249,7 +249,7 @@ A _healthy_ test result means that all tests have passed
 successfully. The device is operating normally. This state looks like
 this:
 
-{{#if electron}}
+{{#if has-cellular}}
 <img
 src="/assets/images/remote-diagnostics/successful-diagnostics-test.png"
 class="full-width"/>
@@ -274,7 +274,7 @@ the healthy range. However, all diagnostic tests still passed. This is
 an indication that there _may be a problem_, and you should investigate
 it further:
 
-{{#if electron}}
+{{#if has-cellular}}
 <img
 src="/assets/images/remote-diagnostics/warning-diagnostics-test.png"
 class="full-width" style="max-height: inherit"/>
@@ -288,7 +288,7 @@ In the warning state, you will receive some helpful text to explain what
 is happening as well as some recommendations on how to return the device
 to a fully healthy state.
 
-{{#if electron}}
+{{#if has-cellular}}
 In this case, the device's battery is running low (12%) but the device
 is still online and able to communicate with the Particle Device Cloud.
 For devices with low battery, the recommendation is simple
@@ -306,7 +306,7 @@ The test run will be marked as _unhealthy_ if one or more of the Remote
 Diagnostic tests fail. Note that failure is defined as a state in which
 the device will not be able to communicate with the Particle Device Cloud:
 
-{{#if electron}}
+{{#if has-cellular}}
 <img src="/assets/images/remote-diagnostics/diagnostic-failure.png"
 class="full-width" />
 <p class="caption">This Remote Diagnostic test reports a problem because the
@@ -327,13 +327,13 @@ Anytime the Remote Diagnostic tests fail, there will be a course of
 action suggested in the test results summary. These calls-to-action are
 designed to help your team quickly identify a solution to the
 connectivity issue that has arisen. In this scenario, the call to action
-is {{#if electron}}simple &mdash; reactivate the SIM{{else}} to visit
+is {{#if has-cellular}}simple &mdash; reactivate the SIM{{else}} to visit
 the docs to troubleshoot device connectivity{{/if}}. Remote Diagnostics provides this
 call-to-action intelligently based on the test failures.
 
 To help uncover what the cause of the issue might be, the last known
 device diagnostic reading is displayed. For this device, we can see that
-{{#if electron}}the SIM card is deactivated. This prevents the device from connecting
+{{#if has-cellular}}the SIM card is deactivated. This prevents the device from connecting
 and the cellular network from initiating a session.{{else}} the last
 known diagnostics reading showed a weak Wi-Fi signal. This may be the
 cause of why the device is now not responsive to requests from the

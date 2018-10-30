@@ -154,9 +154,9 @@ If you're on a noisy Wi-Fi network you've had troubles flashing wirelessly in th
 
 **Flash via Particle CLI**
 
-The [Particle CLI](/guide/tools-and-features/cli/) is a Swiss army command line knife that can be used to do all kinds of cool things...like flash a deep update to your core. The process is pretty simple:
+The [Particle CLI](/tutorials/developer-tools/cli/) is a Swiss army command line knife that can be used to do all kinds of cool things...like flash a deep update to your core. The process is pretty simple:
 
-[Install or upgrade the CLI](/guide/tools-and-features/cli/#installing)
+[Install or upgrade the CLI](/tutorials/developer-tools/cli/#installing)
 Connect a Core to your computer via USB and put it into [dfu-mode](/tutorials/device-os/led/core/#dfu-mode-device-firmware-upgrade-)
 
 Run the flash command:
@@ -178,7 +178,7 @@ you can:
 
 ### Full Firmware Upgrade
 
-If you are having intermittent connectivity issues, odd behavior or believe your firmware to be corrupted or out of date, you would benefit from performing a full firmware upgrade. This requires using dfu-util and installing the [Particle CLI](/guide/tools-and-features/cli)
+If you are having intermittent connectivity issues, odd behavior or believe your firmware to be corrupted or out of date, you would benefit from performing a full firmware upgrade. This requires using dfu-util and installing the [Particle CLI](/tutorials/developer-tools/cli)
 , which provides an excellent local development and troubleshooting environment for your Particle development.
 
 Once the Particle CLI and dfu-util are installed, you have to enter DFU mode. Once that is done, please run the following commands through the Particle CLI:
