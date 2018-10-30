@@ -167,7 +167,9 @@
     "button-mirror",
     "rgb-mirror",
     "spi-settings",
-    "tcpclient"	  
+    "tcpclient",
+    "set-credentials",
+    "set-active-sim"
   ],
   "Xenon": [
 	"nrf52",

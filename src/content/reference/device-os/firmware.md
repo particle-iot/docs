@@ -2292,7 +2292,7 @@ STARTUP(softap_set_application_page_handler(myPage, nullptr));
 {{/if}} {{!-- has-softap --}}
 
 
-{{#if electron}}
+{{#if has-cellular}}
 ## Cellular
 
 ### on()
@@ -2436,7 +2436,64 @@ void setup() {
 }
 ```
 
+{{#if has-set-credentials}}
 
+### setCredentials()
+
+Sets 3rd party SIM credentials for the Cellular network from within the user application. 
+
+These credentials added to the device's non-volatile memory and only need to be set once. The setting will be preserved across reset, power down, and firmware upgrades. 
+This is different than the Electron and E series where you must call `cellular_credentials_set()` from all user firmware.
+
+You may set credentials in 3 different ways:
+
+- APN only
+- USERNAME & PASSWORD only
+- APN, USERNAME & PASSWORD
+
+The following example can be copied to a file called `setcreds.ino` and compiled and flashed to your {{device}} over USB via the [Particle CLI](/tutorials/developer-tools/cli).  With your {{device}} in [DFU mode](/tutorials/device-os/led/electron/#dfu-mode-device-firmware-upgrade-), the command for this is:
+
+`particle compile electron setcreds.ino --saveTo firmware.bin && particle flash --usb firmware.bin`
+
+
+```cpp
+SYSTEM_MODE(SEMI_AUTOMATIC);
+
+void setup() {
+	// Clears any existing credentials. Use this to restore the use of the Particle SIM.
+	Cellular.clearCredentials();
+
+	// You should only use one of the following three commands.
+	// Only one set of credentials can be stored.
+
+	// Connects to a cellular network by APN only
+	Cellular.setCredentials("broadband");
+
+	// Connects to a cellular network with USERNAME and PASSWORD only
+	Cellular.setCredentials("username", "password");
+
+	// Connects to a cellular network with a specified APN, USERNAME and PASSWORD
+	Cellular.setCredentials("some-apn", "username", "password");
+	
+	Particle.connect();
+}
+
+void loop() {
+}
+
+```
+
+**Note**: Your {{device}} only uses one set of credentials, and they
+must be correctly matched to the SIM card that's used.  If using a
+Particle SIM, using `Cellular.setCredentials()` is not necessary as the
+default APN will be used. If you have set a different APN to use a 3rd-party
+SIM card, you can restore the use of the Particle SIM by using
+`Cellular.clearCredentials()`. 
+
+{{/if}} {{!-- has-nrfhas-set-credentials52 --}}
+
+
+{{#unless has-set-credentials}} {{!-- Electron and E series that don't save credentials in non-volatile memory --}}
 
 ### setCredentials()
 
@@ -2450,7 +2507,7 @@ Sets 3rd party credentials for the Cellular network from within the user applica
 
 **Note**: When using the default `SYSTEM_MODE(AUTOMATIC)` connection behavior, it is necessary to call `cellular_credentials_set()` with the `STARTUP()` macro outside of `setup()` and `loop()` so that the system will have the correct credentials before it tries to connect to the cellular network (see EXAMPLE).
 
-The following examples can be copied to a file called `setcreds.ino` and compiled and flashed to your {{device}} over USB via the [Particle CLI](/guide/tools-and-features/cli).  With your {{device}} in [DFU mode](/tutorials/device-os/led/electron/#dfu-mode-device-firmware-upgrade-), the command for this is:
+The following examples can be copied to a file called `setcreds.ino` and compiled and flashed to your {{device}} over USB via the [Particle CLI](/tutorials/developer-tools/cli).  With your {{device}} in [DFU mode](/tutorials/device-os/led/electron/#dfu-mode-device-firmware-upgrade-), the command for this is:
 
 `particle compile electron setcreds.ino --saveTo firmware.bin && particle flash --usb firmware.bin`
 
@@ -2487,6 +2544,51 @@ void loop() {
   // your loop code
 }
 ```
+{{/unless}} {{!-- has-set-credentials --}}
+
+
+{{#if has-set-active-sim}}
+
+### setActiveSim()
+
+The {{device}} can use either the built-in M2FF embedded Particle SIM card or an external nano SIM card in 
+the SIM card connector. The active SIM card setting is stored in non-volatile memory and only needs to be set 
+once. The setting will be preserved across reset, power down, and firmware upgrades.
+
+
+```cpp
+SYSTEM_MODE(SEMI_AUTOMATIC);
+
+void setup() {
+	// Choose one of these:
+	Cellular.setActiveSim(EXTERNAL_SIM);
+	Cellular.setActiveSim(INTERNAL_SIM);
+}
+
+void loop() {
+}
+```
+
+### getActiveSim()
+
+Get the current active SIM (internal or external):
+
+- INTERNAL_SIM = 1
+- EXTERNAL_SIM = 2
+
+```cpp
+void setup() {
+	Serial.begin();
+}
+
+void loop() {
+	SimType simType = Cellular.getActiveSim();
+	Serial.printlnf("simType=%d", simType);
+	delay(5000);
+}
+```
+
+{{/if}} {{!-- has-set-active-sim --}}
 
 ### getDataUsage()
 
