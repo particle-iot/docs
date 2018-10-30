@@ -89,7 +89,7 @@ Up to 20 cloud variables may be registered and each variable name is limited to 
 It is fine to call this function when the cloud is disconnected - the variable
 will be registered next time the cloud is connected.
 
-When using [SYSTEM_THREAD(ENABLED)](/reference/device-os/firmware/#system-thread) you must be careful of when you register your variables. At the beginning of setup(), before you do any lengthy operations, delays, or things like waiting for a key press, is best. The reason is that variable and function registrations are only sent up once, about 30 seconds after connecting to the cloud. Calling Particle.variable after the registration information has been sent does not re-send the request and the variable will not work.
+When using [SYSTEM_THREAD(ENABLED)](/reference/device-os/firmware#system-thread) you must be careful of when you register your variables. At the beginning of setup(), before you do any lengthy operations, delays, or things like waiting for a key press, is best. The reason is that variable and function registrations are only sent up once, about 30 seconds after connecting to the cloud. Calling Particle.variable after the registration information has been sent does not re-send the request and the variable will not work.
 
 You will almost never call Particle.variable from loop() (or a function called from loop()).
 
@@ -164,7 +164,7 @@ In order to register a cloud  function, the user provides the `funcKey`, which i
 
 A cloud function is set up to take one argument of the [String](#string-class) datatype. This argument length is limited to a max of 63 characters.
 
-When using [SYSTEM_THREAD(ENABLED)](/reference/device-os/firmware/#system-thread) you must be careful of when you register your functions. At the beginning of setup(), before you do any lengthy operations, delays, or things like waiting for a key press, is best. The reason is that variable and function registrations are only sent up once, about 30 seconds after connecting to the cloud. Calling Particle.function after the registration information has been sent does not re-send the request and the function will not work.
+When using [SYSTEM_THREAD(ENABLED)](/reference/device-os/firmware#system-thread) you must be careful of when you register your functions. At the beginning of setup(), before you do any lengthy operations, delays, or things like waiting for a key press, is best. The reason is that variable and function registrations are only sent up once, about 30 seconds after connecting to the cloud. Calling Particle.function after the registration information has been sent does not re-send the request and the function will not work.
 
 ```cpp
 // EXAMPLE USAGE
@@ -2451,7 +2451,7 @@ You may set credentials in 3 different ways:
 - USERNAME & PASSWORD only
 - APN, USERNAME & PASSWORD
 
-The following example can be copied to a file called `setcreds.ino` and compiled and flashed to your {{device}} over USB via the [Particle CLI](/tutorials/developer-tools/cli).  With your {{device}} in [DFU mode](/tutorials/device-os/led/electron/#dfu-mode-device-firmware-upgrade-), the command for this is:
+The following example can be copied to a file called `setcreds.ino` and compiled and flashed to your {{device}} over USB via the [Particle CLI](/tutorials/developer-tools/cli).  With your {{device}} in [DFU mode](/tutorials/device-os/led/electron#dfu-mode-device-firmware-upgrade-), the command for this is:
 
 `particle compile electron setcreds.ino --saveTo firmware.bin && particle flash --usb firmware.bin`
 
@@ -2507,7 +2507,7 @@ Sets 3rd party credentials for the Cellular network from within the user applica
 
 **Note**: When using the default `SYSTEM_MODE(AUTOMATIC)` connection behavior, it is necessary to call `cellular_credentials_set()` with the `STARTUP()` macro outside of `setup()` and `loop()` so that the system will have the correct credentials before it tries to connect to the cellular network (see EXAMPLE).
 
-The following examples can be copied to a file called `setcreds.ino` and compiled and flashed to your {{device}} over USB via the [Particle CLI](/tutorials/developer-tools/cli).  With your {{device}} in [DFU mode](/tutorials/device-os/led/electron/#dfu-mode-device-firmware-upgrade-), the command for this is:
+The following examples can be copied to a file called `setcreds.ino` and compiled and flashed to your {{device}} over USB via the [Particle CLI](/tutorials/developer-tools/cli).  With your {{device}} in [DFU mode](/tutorials/device-os/led/electron#dfu-mode-device-firmware-upgrade-), the command for this is:
 
 `particle compile electron setcreds.ino --saveTo firmware.bin && particle flash --usb firmware.bin`
 
@@ -4230,7 +4230,7 @@ Hardware flow control for Serial1 is optionally available on pins D3(CTS) and D2
 {{/if}}
 
 {{#if photon}}
-`Serial2:` This channel is optionally available via pins 28/29 (RGB LED Blue/Green). These pins are accessible via the pads on the bottom of the PCB [See PCB Land Pattern](/datasheets/photon-datasheet/#recommended-pcb-land-pattern-photon-without-headers-). The Blue and Green current limiting resistors should be removed.
+`Serial2:` This channel is optionally available via pins 28/29 (RGB LED Blue/Green). These pins are accessible via the pads on the bottom of the PCB [See PCB Land Pattern](/datasheets/photon-datasheet#recommended-pcb-land-pattern-photon-without-headers-). The Blue and Green current limiting resistors should be removed.
 
 If the user enables Serial2, they should also consider using RGB.onChange() to move the RGB functionality to an external RGB LED on some PWM pins.
 {{/if}}
@@ -6083,7 +6083,7 @@ For example, do not use `Wire.begin()` with `Wire1.write()`.
 {{/if}} {{!-- has-embedded --}}
 
 {{#if raspberry-pi}}
-There are dedicated pins for I2C on the Raspberry Pi: Serial Data Line (SDA) and Serial Clock (SCL). [See the pin out diagram](/datasheets/raspberrypi-datasheet/#pin-out-diagram) to find out where pins are located.
+There are dedicated pins for I2C on the Raspberry Pi: Serial Data Line (SDA) and Serial Clock (SCL). [See the pin out diagram](/datasheets/raspberrypi-datasheet#pin-out-diagram) to find out where pins are located.
 
 **Note**: Before using the I2C interface on the Raspberry Pi, you have to enable it in hardware. In a terminal, type `sudo raspi-config`, go to `Advanced Options`, select `I2C` and answer `Yes` to enable it. Reboot the Raspberry Pi before flashing firmware that uses the I2C peripheral.
 
@@ -6908,7 +6908,7 @@ void loop()
 {{#if has-cellular}}
 **Data Usage Warning**
 
-When using a Particle SIM with the {{device}}, be careful interacting with web hosts with `TCPClient` or libraries using `TCPClient`. These can use a lot of data in a short period of time resulting in a higher bill. To keep the data usage low, use [`Particle.publish`](#particle-publish-) along with [webhooks](/guide/tools-and-features/webhooks/).
+When using a Particle SIM with the {{device}}, be careful interacting with web hosts with `TCPClient` or libraries using `TCPClient`. These can use a lot of data in a short period of time resulting in a higher bill. To keep the data usage low, use [`Particle.publish`](#particle-publish-) along with [webhooks](/tutorials/device-cloud/webhooks).
 {{/if}} {{!-- has-cellular --}}
 
 ### connected()
@@ -7176,7 +7176,7 @@ There are two primary ways of working with UDP - buffered operation and unbuffer
 {{#if has-cellular}}
 **Data Usage Warning**
 
-When using a Particle SIM with the {{device}}, be careful interacting with web hosts with `UDP` or libraries using `UDP`. These can use a lot of data in a short period of time resulting in a higher bill. To keep the data usage low, use [`Particle.publish`](#particle-publish-) along with [webhooks](/guide/tools-and-features/webhooks/).
+When using a Particle SIM with the {{device}}, be careful interacting with web hosts with `UDP` or libraries using `UDP`. These can use a lot of data in a short period of time resulting in a higher bill. To keep the data usage low, use [`Particle.publish`](#particle-publish-) along with [webhooks](/tutorials/device-cloud/webhooks).
 {{/if}} {{!-- has-cellular --}}
 
 ### begin()
@@ -9386,7 +9386,7 @@ void loop() {
 // AWDT count reset automatically after loop() ends
 ```
 
-A default `stack_size` of 512 is used for the thread. `stack_size` is an optional parameter. The stack can be made larger or smaller as needed.  This is the amount of memory needed to support the thread and function that is called.  In practice, on the Photon (v0.5.0) calling the `System.reset` function requires approx. 170 bytes of memory. If not enough memory is allocated, the application will crash due to a Stack Overflow.  The RGB LED will flash a [red SOS pattern, followed by 13 blinks](/tutorials/device-os/led/photon/#red-flash-sos).
+A default `stack_size` of 512 is used for the thread. `stack_size` is an optional parameter. The stack can be made larger or smaller as needed.  This is the amount of memory needed to support the thread and function that is called.  In practice, on the Photon (v0.5.0) calling the `System.reset` function requires approx. 170 bytes of memory. If not enough memory is allocated, the application will crash due to a Stack Overflow.  The RGB LED will flash a [red SOS pattern, followed by 13 blinks](/tutorials/device-os/led#red-flash-sos).
 
 The application watchdog requires interrupts to be active in order to function.  Enabling the hardware watchdog in combination with this is recommended, so that the system resets in the event that interrupts are not firing.
 
@@ -10089,7 +10089,7 @@ PRODUCT_ID(94); // replace by your product ID
 PRODUCT_VERSION(1); // increment each time you upload to the console
 ```
 
-You can find more details about the product ID and how to get yours in the [_Console_ guide.](/guide/tools-and-features/console/#your-product-id)
+You can find more details about the product ID and how to get yours in the [_Console_ guide.](/tutorials/device-cloud/console#your-product-id)
 
 ## System Events
 
@@ -10974,7 +10974,7 @@ System.sleep(D1,RISING,60);
  - In *standard sleep mode*, the device current consumption is in the range of: **30mA to 38mA**
  - In *deep sleep mode*, the current consumption is around: **3.2 μA**
 - Photon
- - Please see the [Photon datasheet](/datasheets/photon-datasheet/#recommended-operating-conditions)
+ - Please see the [Photon datasheet](/datasheets/photon-datasheet#recommended-operating-conditions)
 
 
 _Since 0.4.5._ The state of the {{network-type}} and Cloud connections is restored when the system wakes up from sleep. So if the device was connected to the cloud before sleeping, then the cloud connection
@@ -14158,9 +14158,9 @@ The easiest way to upgrade to Device OS Version @FW_VER@ is to use the
 Particle CLI with a single command.  You will first upgrade the Device
 OS, then optionally program Tinker on the device. This **requires CLI version @CLI_VER@**. You can check with `particle --version`.
 
-If you have the [Particle CLI](/guide/tools-and-features/cli) installed already, you can update it with the following command `sudo npm update -g particle-cli@v@CLI_VER@` (note: you can try without sudo first if you wish).
+If you have the [Particle CLI](/tutorials/developer-tools/cli) installed already, you can update it with the following command `sudo npm update -g particle-cli@v@CLI_VER@` (note: you can try without sudo first if you wish).
 
-To upgrade Device OS, make sure the device is in [DFU mode](/photon/modes/#selecting-various-modes-dfu-mode-device-firmware-upgrade) (flashing yellow LED) and run these commands in order:
+To upgrade Device OS, make sure the device is in [DFU mode](/tutorials/device-os/led#dfu-mode-device-firmware-upgrade-) (flashing yellow LED) and run these commands in order:
 
 ```
 The easy local method using Particle CLI
@@ -14256,9 +14256,9 @@ particle flash YOUR_DEVICE_NAME tinker (optional)
 
 This **requires CLI version @CLI_VER@ or newer**. You can check with `particle --version`.
 
-If you have the [Particle CLI](/guide/tools-and-features/cli) installed already, you can update it with the following command `sudo npm update -g particle-cli` (note: you can try without sudo first if you wish).
+If you have the [Particle CLI](/tutorials/developer-tools/cli) installed already, you can update it with the following command `sudo npm update -g particle-cli` (note: you can try without sudo first if you wish).
 
-To upgrade Device OS, make sure the device is in [DFU mode](/photon/modes/#selecting-various-modes-dfu-mode-device-firmware-upgrade) (flashing yellow LED) and run these commands in order for your device type:
+To upgrade Device OS, make sure the device is in [DFU mode](/tutorials/device-os/led#dfu-mode-device-firmware-upgrade-) (flashing yellow LED) and run these commands in order for your device type:
 
 ##### @ELECTRON_PARTS@2if
 ```
@@ -14313,7 +14313,7 @@ particle flash --usb tinker (optional)
 
 **The local DFU-UTIL method**
 can be applied to offline devices locally over USB using `dfu-util`
-- Put the device in [DFU mode](/photon/modes/#selecting-various-modes-dfu-mode-device-firmware-upgrade) (flashing yellow LED)
+- Put the device in [DFU mode](/tutorials/device-os/led#dfu-mode-device-firmware-upgrade-) (flashing yellow LED)
 - open a terminal window, change to the directory where you downloaded the files above, and run these commands in order for your device type:
 
 ##### @ELECTRON_PARTS@2if
@@ -14382,9 +14382,9 @@ Current default Device OS would be the latest non-rc.x firmware version.  E.g. i
 ##### @FW_VER@0.7.0endif
 The easiest way to downgrade from a Device OS Version @FW_VER@ is to use the Particle CLI with a single command.  You will first put the Tinker back on the device, then downgrade the Device OS. Running the commands in this order prevents the device from automatically re-upgrading (based on user app version dependencies) after downgrading.  This will **require a CLI version associated with your desired default firmware**. To determine which version to use, click on the default version desired in the table under [Programming and Debugging Notes](#programming-and-debugging-notes) and refer to the CLI version required in **The easy local method using Particle CLI** section.
 
-If you have the [Particle CLI](/guide/tools-and-features/cli) installed already, you can install a specific version like v1.16.0 with the following command `sudo npm update -g particle-cli@v1.16.0` (note: you can try without sudo first if you wish).  Replace v1.16.0 with your desired version.
+If you have the [Particle CLI](/tutorials/developer-tools/cli) installed already, you can install a specific version like v1.16.0 with the following command `sudo npm update -g particle-cli@v1.16.0` (note: you can try without sudo first if you wish).  Replace v1.16.0 with your desired version.
 
-To downgrade Device OS, make sure the device is in [DFU mode](/photon/modes/#selecting-various-modes-dfu-mode-device-firmware-upgrade) (flashing yellow LED) and run these commands in order:
+To downgrade Device OS, make sure the device is in [DFU mode](/tutorials/device-os/led#dfu-mode-device-firmware-upgrade-) (flashing yellow LED) and run these commands in order:
 
 ```
 Downgrading from @FW_VER@ to current default firmware
