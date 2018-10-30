@@ -1,11 +1,11 @@
 ---
-title: Particle shields and kits
+title: Legacy Accessories
 layout: datasheet.hbs
 columns: two
 order: 30
 ---
 
-# Shields and accessories
+# Legacy Accessories
 
 ## Shield Shield
 

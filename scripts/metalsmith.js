@@ -192,6 +192,7 @@ exports.metalsmith = function() {
           'cellular',
           'mesh',
           'certifications',
+          'accessories',
           'discontinued'
         ]
       },
