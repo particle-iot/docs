@@ -83,6 +83,8 @@ For the Boron 2G/3G version, make sure that the external DC supply is able to su
 #### 3V3 PIN
 This pin is the output of the on board 3.3V step-down switching regulator (Torex XC9258A). The regulator is rated at 1000mA max. When using this pin to power other devices or peripherals remember to budget in the current requirement of the Boron first. Unlike the Xenon or the Argon, this pin _CANNOT_ be used to power the Boron.
 
+---
+
 ### Antenna
 
 There are two radios on the Boron. A Mesh radio (nRF52840) and a cellular radio (u-blox). For the cellular radio, we have provide a u.FL connector to plug in the cellular antenna. This is required if you wish to use the cellular connectivity.
@@ -173,7 +175,7 @@ You can download a high resolution <a href="/assets/images/boron/boron-pinout-v1
 |D2-D8  | These are generic GPIO pins. D2-D8 are PWM-able.|
 |A0-A5  | These are analog input pins that can also act as standard digital GPIO. A0-A5 are PWM-able.|
 
-
+---
 
 ### LED status
 
