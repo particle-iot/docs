@@ -3,6 +3,7 @@ word: CLI
 title: Command Line
 order: 22
 columns: two
+redirects: true
 layout: tutorials.hbs
 ---
 

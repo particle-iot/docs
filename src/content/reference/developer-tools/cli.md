@@ -3,6 +3,7 @@ word: CLI
 title: Command Line Interface (CLI)
 layout: reference.hbs
 columns: three
+redirects: true
 order: 40
 ---
 
