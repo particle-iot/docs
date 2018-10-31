@@ -4,7 +4,7 @@ layout: landing.hbs
 ---
 
 # Particle Photon: Wi-Fi
-![Image of the Photon](/assets/images/photon-plugged-in.jpg)
+![Image of the Photon](/assets/images/photon-kit.jpg)
 
 The Photon is a $19 tiny Wi-Fi IoT device for creating connected projects and products for the Internet of Things. It's easy to use, it's powerful, and it's connected to the cloud. The board is powered by a Cypress Wi-Fi chip alongside a powerful STM32 ARM Cortex M3 microcontroller.
 
