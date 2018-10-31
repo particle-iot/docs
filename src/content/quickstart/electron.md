@@ -63,7 +63,7 @@ There are several awesome buttons and LEDs on your Electron to make it easier to
 <p class="boxedHead">NOTE:</p>
 <p class="boxed">
 
-Since Electron is a cellular device and OTA usage consumes data, it&apos;s important for us to think about conserving data. Every time you update your firmware over the air, push data to the device or remain connected to the network, you are consuming data. In the development phase of your project, it is suggested that you update firmware happen over USB, instead of the cellular network. You&apos;ll first need to install the <a href="/tutorials/developer-tools/cli/">Particle Command Line Interface</a> on your computer.
+Since Electron is a cellular device and OTA usage consumes data, it&apos;s important for us to think about conserving data. Every time you update your firmware over the air, push data to the device or remain connected to the network, you are consuming data. In the development phase of your project, it is suggested that you update firmware happen over USB, instead of the cellular network. You&apos;ll first need to install the <a href="/tutorials/developer-tools/cli">Particle Command Line Interface</a> on your computer.
 
 </p>
 

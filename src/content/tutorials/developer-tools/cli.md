@@ -138,7 +138,7 @@ be able to use the Particle CLI, mentioned above, to flash your application firm
 
 Steps:
 - **1:** Put the Electron in to [listening mode](/tutorials/device-os/led/electron/#listening-mode)
-- **2:** Open Particle CLI from your machine (make sure you've [installed it first](/tutorials/developer-tools/cli/electron/#installing))
+- **2:** Open a command prompt or terminal window.
 - **3:** Navigate to the folder where you've downloaded the `firmware.bin` file.
 - **4:** From the CLI issue `particle flash --serial firmware.bin`
 
