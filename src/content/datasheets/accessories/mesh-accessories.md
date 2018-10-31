@@ -154,7 +154,7 @@ You can purchase one from the [Particle Store](https://store.particle.io/collect
 
 The library is available in the Web IDE as [oled-wing-adafruit](https://build.particle.io/libs/oled-wing-adafruit/0.0.4/tab/oled-wing-adafruit.cpp). You can find additional documentation [here](https://github.com/rickkas7/oled-wing-adafruit).
 
-The display is a SSD1306 and connects by I2C (pins D0 and P1).
+The display is a SSD1306 and connects by I2C (pins D0 and D1).
 
 The three buttons are:
 
