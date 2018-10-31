@@ -143,3 +143,34 @@ The library is available in the Web IDE as [Grove_4Digit_Display](https://build.
 
 Additional information available [here.](http://wiki.seeedstudio.com/Grove-4-Digit_Display/)
 
+
+## Adafruit FeatherWing OLED Display 128x32
+
+![Adafruit FeatherWing OLED Display](/assets/images/accessories/adafruit_oled.jpg)
+
+The Adafruit OLED display FeatherWing makes it easy to add a small text and graphics display to your project. Built in a FeatherWing form-factor, you can use a FeatherWing Doubler or FeatherWing Tripler to add a display to your Argon, Boron, or Xenon project with no loose wires. And it includes three handy momentary push-buttons.
+
+You can purchase one from the [Particle Store](https://store.particle.io/collections/accessories) or from [Adafruit](https://www.adafruit.com/product/2900). You can find more technical information [at Adafruit](https://learn.adafruit.com/adafruit-oled-featherwing/overview).
+
+The library is available in the Web IDE as [oled-wing-adafruit](https://build.particle.io/libs/oled-wing-adafruit/0.0.4/tab/oled-wing-adafruit.cpp). You can find additional documentation [here](https://github.com/rickkas7/oled-wing-adafruit).
+
+The display is a SSD1306 and connects by I2C (pins D0 and P1).
+
+The three buttons are:
+
+| Button | Pin | Notes |
+| --- | --- | --- |
+| A | D4 | No pull-up. Can't be used with Ethernet. |
+| B | D3 | 100K pull-up. Can't be used with Ethernet. |
+| C | D2 | No pull-up. |
+
+The library takes care of setting the appropriate input modes and debouncing the buttons for you.
+
+Note that if you are using the Adafruit OLED display and the Particle Ethernet FeatherWing, you cannot use buttons A or B as those pins are used by Ethernet.
+
+
+
+
+
+
+
