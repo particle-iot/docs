@@ -73,6 +73,8 @@ This pin is internally connected to the positive terminal of the LiPo connector.
 #### 3V3 PIN
 This pin is the output of the on board 3.3V step-down switching regulator (Torex XC9258A). The regulator is rated at 1000mA max. When using this pin to power other devices or peripherals remember to budget in the current requirement of the Xenon first. This pin can also be used to power the Xenon in absence of the USB or LiPo power. When powering over this pin, please connect the ENABLE pin to GND so that the on board regulator is disabled.
 
+---
+
 ### Antenna
 
 There are two options for the Mesh antenna on the Xenon. It comes with an on-board PCB antenna which is selected by default in the device OS and a u.FL connector if you wish to connect an external antenna. If you wish to use the external antenna, you'll need to issue an appropriate command in the firmware.
@@ -157,7 +159,7 @@ You can download a high resolution <a href="/assets/images/xenon/xenon-pinout-v1
 |D2-D8  | These are generic GPIO pins. D2-D8 are PWM-able.|
 |A0-A5  | These are analog input pins that can also act as standard digital GPIO. A0-A5 are PWM-able.|
 
-
+---
 
 ### LED status
 
