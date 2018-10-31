@@ -101,7 +101,8 @@
     "button-mirror",
     "rgb-mirror",
     "spi-settings",
-    "tcpclient"
+    "tcpclient",
+    "udp-cloud"
   ],
   "Raspberry Pi": [
     "linux",
@@ -139,7 +140,8 @@
     "rgb-mirror",
     "spi-settings",
     "tcpserver",
-    "tcpclient"	  
+    "tcpclient",
+    "udp-cloud"	  
   ],
   "Boron": [
 	"nrf52",
@@ -169,7 +171,8 @@
     "spi-settings",
     "tcpclient",
     "set-credentials",
-    "set-active-sim"
+    "set-active-sim",
+    "udp-cloud"
   ],
   "Xenon": [
 	"nrf52",
@@ -198,6 +201,7 @@
     "rgb-mirror",
     "spi-settings",
     "tcpserver",
-    "tcpclient"	  
+    "tcpclient"	,
+    "udp-cloud"  
   ]
 }

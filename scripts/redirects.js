@@ -15,6 +15,9 @@ module.exports = function plugin(options) {
 		// delegate to the plugin
 		var redirectPlugin = redirect(redirectList);
 
+		var redirectsRE = /redirects *: *true/;
+		var allDevices = ['photon','electron','core','raspberry-pi','xenon','argon','boron'];
+		
 		// Auto-generate redirects for core, photon, electron, etc. if the destination specifies the device
 		var toAdd = [];
 		for(var oldLink in redirectList) {
@@ -28,6 +31,12 @@ module.exports = function plugin(options) {
 				// devices: [photon,electron,core,raspberry-pi,xenon,argon,boron]
 				// order: 20
 				// ---
+				
+				// When removing a devices selector, its good to add in its place:
+				// redirects: true
+				// This will cause the redirects to be generated with the device to the page
+				// without the device so the links won't be broken if one was saved with
+				// the device present
 				
 				var path = metalsmith.path('../src/content' + newLink + '.md');
 				if (fs.existsSync(path)) {
@@ -50,6 +59,16 @@ module.exports = function plugin(options) {
 									}
 								}
 							}
+						}
+						if (redirectsRE.test(header)) {
+							// For old URL
+							for(var ii = 0; ii < allDevices.length; ii++) {
+								toAdd.push({oldLink:oldLink + '/' + allDevices[ii], newLink:newLink});
+							}						
+							// For current URL
+							for(var ii = 0; ii < allDevices.length; ii++) {
+								toAdd.push({oldLink:newLink + '/' + allDevices[ii], newLink:newLink});
+							}						
 						}
 					}
 				}

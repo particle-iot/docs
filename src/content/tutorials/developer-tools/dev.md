@@ -53,7 +53,7 @@ To access most of features you need to log in using your Particle account (which
 
 Enter your email and password then click the "Log In" button. After a successful login, the dialog will hide and a link will appear at the bottom showing your current account email.
 
-**NOTE**: When using [Command Line](/guide/tools-and-features/cli) you'll notice that log-in status is shared between Particle Dev and CLI. So if you successfully ran `particle login`, you will be logged in within the Particle Dev.
+**NOTE**: When using [Command Line](/tutorials/developer-tools/cli) you'll notice that log-in status is shared between Particle Dev and CLI. So if you successfully ran `particle login`, you will be logged in within the Particle Dev.
 
 ### Selecting Device
 
@@ -246,7 +246,7 @@ The last item is the firmware version aka the build target. This allows you to s
 
 When you use a version newer than's on your device (which can be checked
 using `particle serial inspect` [CLI
-command](/guide/tools-and-features/cli)) it will enter **safe mode**
+command](/tutorials/developer-tools/cli)) it will enter **safe mode**
 which should be automatically fixed with multiple consecutive flashes.
 The exception here is the Electron where updating Device OS versions would incur charges. In this case, the IDE will select the build target that's currently on the device in order to keep the device running.
 

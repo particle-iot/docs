@@ -12,11 +12,11 @@ How do I upgrade my firmware?
 
 ### The Simple Way (one CLI command)
 
-If you are using the [Particle CLI](/guide/tools-and-features/cli) and have been able to use it successfully to login to your account, then you should be able to upgrade your device firmware and it will auto-update the CLI for you. Yeah I know, it's great right?!
+If you are using the [Particle CLI](/tutorials/developer-tools/cli) and have been able to use it successfully to login to your account, then you should be able to upgrade your device firmware and it will auto-update the CLI for you. Yeah I know, it's great right?!
 
 *Requirements:* 
 - dfu-util --> Install dfu-util on your Mac using: ```brew install dfu-util```
-- [particle-cli](/guide/tools-and-features/cli)
+- [particle-cli](/tutorials/developer-tools/cli)
 - [Particle {{device}}](https://store.particle.io/?product=particle-{{deviceValue}}) 
 
 **Step One:** 
@@ -79,7 +79,7 @@ On Ubuntu Linux, type: ```sudo apt install dfu-util```
 
 ### Full Firmware Upgrade
 
-If you are having intermittent connectivity issues, odd behavior or believe your firmware to be corrupted or out of date, you would benefit from performing a full firmware upgrade. This requires using [dfu-util](http://dfu-util.sourceforge.net/) and installing the [Particle CLI](/guide/tools-and-features/cli)
+If you are having intermittent connectivity issues, odd behavior or believe your firmware to be corrupted or out of date, you would benefit from performing a full firmware upgrade. This requires using [dfu-util](http://dfu-util.sourceforge.net/) and installing the [Particle CLI](/tutorials/developer-tools/cli)
 , which provides an excellent local development and troubleshooting environment for your Particle development.
 
 Once the Particle CLI and dfu-util are installed, you have to enter DFU mode. Once that is done, please run the following commands through the Particle CLI:

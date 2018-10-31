@@ -559,7 +559,7 @@ response from the webhook server.
 
 ## Using the CLI
 
-Webhooks can be created, listed and deleted with the [Particle Command Line Interface (CLI)](/guide/tools-and-features/cli/).
+Webhooks can be created, listed and deleted with the [Particle Command Line Interface (CLI)](/tutorials/developer-tools/cli/).
 
 Product webhooks cannot currently be created through the CLI.
 

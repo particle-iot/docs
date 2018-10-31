@@ -349,7 +349,7 @@ The device will itself automatically enter safe mode if there is no application 
 
 If you wish to program your {{device}} with a custom firmware via USB, you'll need to use this mode. This mode triggers the on-board bootloader that accepts firmware binary files via [dfu-util](/faq/particle-tools/installing-dfu-util/)
 
-Installation tutorial can be found [here.](/guide/tools-and-features/cli/)
+Installation tutorial can be found [here.](/tutorials/developer-tools/cli/)
 
 And a usage guide [here.](/reference/cli/)
 
@@ -392,7 +392,7 @@ Some users have reported issues with dfu-util on a USB3 ports (typically the blu
 {{#if photon}}
 Firmware reset is not available on the {{device}}, but not to worry! If you are experiencing problems with your application firmware, you can use [Safe Mode](#safe-mode) to recover.
 
-The [Particle CLI](https://docs.particle.io/guide/tools-and-features/cli) can also restore the default Tinker firmware by entering DFU mode by holding down both the {{reset-button}} and {{system-button}} buttons, releasing {{reset-button}} and continuing to hold down {{system-button}} until it blinks yellow then entering the command:
+The [Particle CLI](https://docs.particle.io/tutorials/developer-tools/cli) can also restore the default Tinker firmware by entering DFU mode by holding down both the {{reset-button}} and {{system-button}} buttons, releasing {{reset-button}} and continuing to hold down {{system-button}} until it blinks yellow then entering the command:
 
 ```
 particle flash --usb tinker
@@ -407,7 +407,7 @@ _Since 0.6.0_
 
 The Electron can store a backup copy of any desired user firmware in flash memory at address 0x080A0000, separate from user flash memory which is located at 0x08080000.  This backup copy of firmware can be restored to user memory with a button sequence that is only available when the backup copy flash memory contains a valid firmware image.  To program your Electron with a backup copy of user firmware via USB, you'll need to put the Electron in [DFU Mode](/tutorials/device-os/led/#dfu-mode-device-firmware-upgrade-) and run this command: `particle flash --factory user-backup-firmware.bin`
 
-A CLI installation tutorial can be found [here.](/guide/tools-and-features/cli/)
+A CLI installation tutorial can be found [here.](/tutorials/developer-tools/cli/)
 
 And a usage guide [here.](/reference/cli/)
 
@@ -431,7 +431,7 @@ Factory reset is not available on the {{device}}, but not to worry! If you are e
 You can reset Wi-Fi credentials by performing a [Wi-Fi Network Reset](#wi-fi-network-reset).
 {{/if}}
 
-The [Particle CLI](https://docs.particle.io/guide/tools-and-features/cli) can also reset the firmware using:
+The [Particle CLI](https://docs.particle.io/tutorials/developer-tools/cli) can also reset the firmware using:
 
 ```
 particle device doctor
@@ -608,7 +608,7 @@ Particle Device Cloud.
 
 {{collapse op="start" label="Repair instructions"}}
 
-Most keys related issues can be resolved using the [Particle CLI](https://docs.particle.io/guide/tools-and-features/cli).
+Most keys related issues can be resolved using the [Particle CLI](https://docs.particle.io/tutorials/developer-tools/cli).
 
 Put the {{device}} into Listening mode (blinking blue) by holding down {{system-button}} until it blinks blue. Then issue the CLI command:
 

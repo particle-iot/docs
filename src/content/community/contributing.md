@@ -29,7 +29,7 @@ See the [local build tools FAQ](/faq/particle-tools/local-build) for steps to bu
 
 ### CLI
 
-The [`particle-cli`](https://github.com/particle-iot/particle-cli) repo contains the code used to run the [Command Line Interface](/guide/tools-and-features/cli).
+The [`particle-cli`](https://github.com/particle-iot/particle-cli) repo contains the code used to run the [Command Line Interface](/tutorials/developer-tools/cli).
 
 
 ### Particle API JS
