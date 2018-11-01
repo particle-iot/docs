@@ -15,9 +15,12 @@ const postcss = require('gulp-postcss');
 const autoprefixer = require('autoprefixer');
 /* gulp — utilities */
 const rename = require('gulp-rename');
+const ignore = require('gulp-ignore');
 
 /* utilities */
 const del = require('del');
+const md5 = require('md5');
+const fs = require('fs');
 // const browserSync = require('browser-sync'); // for dev purposes, `npm i browser-sync`
 
 /* ---------------- */
@@ -34,7 +37,38 @@ const paths = {
     cssEntry: 'scripts/pdf-generation/styles/datasheets.less',
     covers: 'src/content/datasheets/covers', // for wkHTMLtoPDF
     xsl: 'scripts/pdf-generation/styles/toc.xsl', // for wkHTMLtoPDF
+    hashes: 'scripts/pdf-generation/hashes.json'
 };
+
+
+/* ---------------- determine unchanged files from hash ---------------- */
+function filterUnchanged(vf) {
+	// Passed to ignore.include (gulp-ignore)
+	// https://www.npmjs.com/package/gulp-ignore
+		
+	var md = md5(vf.contents);
+	
+	var hashes = {};
+	try {
+		hashes = JSON.parse(fs.readFileSync(paths.hashes, 'utf8'));
+	}
+	catch (e) {		
+		console.log('hashes file ' + paths.hashes + ' not valid or not found');
+	}
+	
+	if (hashes[vf.relative] === md) {
+		// Matches
+		console.log(vf.relative + ' matches hash, not processing again');
+		return false;
+	}
+	
+	hashes[vf.relative] = md;
+	fs.writeFileSync(paths.hashes, JSON.stringify(hashes, Object.keys(hashes).sort(), 2));
+
+	console.log(vf.relative + ' changed, will rebuild');
+
+	return true;
+}
 
 /* ---------------- wkHTMLtoPDF ---------------- */
 
@@ -87,6 +121,7 @@ gulp.task('assets', () => gulp.src(paths.assets)
 gulp.task('transfrom md to pdf', ['assets', 'css'], () => gulp.src(paths.md)
     .pipe(replace(/^---$[^]*?^---$/m, '')) // strip frontmatter
     .pipe(replace(/{{#unless pdf-generation}}[^]*?{{\/unless}} {{!-- pdf-generation --}}/mg, '')) // strip sections from the pdf
+	.pipe(ignore.include(filterUnchanged))
     .pipe(replace(/\/assets\//g, '../assets/')) // fix relative paths
     .pipe(replace(/{{assets}}/g, '../assets')) // fix relative paths
     .pipe(replace(/\]\(\//g, '](https://docs.particle.io/')) // point to website in non-assets cases
