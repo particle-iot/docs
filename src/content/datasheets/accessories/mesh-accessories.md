@@ -169,7 +169,99 @@ The library takes care of setting the appropriate input modes and debouncing the
 Note that if you are using the Adafruit OLED display and the Particle Ethernet FeatherWing, you cannot use buttons A or B as those pins are used by Ethernet.
 
 
+## Ethernet FeatherWing
 
+<div align=center><img src="/assets/images/accessories/ethernet-featherwing/ethernet-featherwing.png" ></div>
+
+The Ethernet FeatherWing is the fastest way to add wired connectivity to your Argon, Boron, or Xenon and turns any Particle Mesh developer kit into an Ethernet gateway. Based on the WIZnet W5500 chip, this side-by-side FeatherWing maintains great RF performance even while adding Ethernet connectivity to any Particle Mesh device.
+
+The form-factor is based around the Adafruit FeatherWing Tripler. The two side connectors allow you to plug in one Particle Mesh device along with a Feather accessory.
+
+<div align=center><img src="/assets/images/accessories/ethernet-featherwing/ethernet-featherwing-plugged.png" ></div>
+
+### Pin Map
+
+|Mesh Pin|Ethernet FeatherWing Pin   |
+|:-------|:--------------------------|
+|MISO    | SPI MISO                  |
+|MOSI    | SPI MOSI                  |
+|SCK     | SPI SCK                   |
+|D3      | nRESET<sup>[1]</sup>      |
+|D4      | nINTERRUPT<sup>[1]</sup>  |
+|D5      | nCHIP SELECT<sup>[1]</sup>|
+
+**Notes:**
+
+<sup>[1]</sup> These pins are connected via jumper pads on the bottom. You can cut these jumper traces and rewire them to a different pin on the Mesh device if the need arises.
+
+The Ethernet driver for this wing is baked into the Mesh Device OS. When you set up a new Particle Mesh device that is plugged into an Ethernet FeatherWing, simply select the _USE WITH ETHERNET?_ option on your Particle mobile app and it should recognize and talk over Ethernet automagically. It's that simple.
+
+The hardware design for this wing is completely opensource. All the files are available on our [GitHub repository here.](https://github.com/particle-iot/ethernet-wing)
+
+## Classic Adapter
+
+<div align=center><img src="/assets/images/accessories/classic-adapter.png" ></div>
+
+The Particle Classic Adapter lets you use your Asset Tracker, Relay Shield, or other third-party shields with our third generation developer kits. Plug your Argon, Boron, or Xenon into this adapter and continue development as usual!
+
+The top of the adapter has female connectors for you to plug in the Particle Mesh device. The bottom has male header pins in the Particle legacy form-factor for devices such as the Electron, Photon, or the Core.
+
+**Note:** This product is a one-way adapter. That is, this product does not enable use of Adafruit FeatherWings with the Photon or Electron.
+
+### Pin Map
+
+|Legacy Device | Mesh Device|
+|:-------------|:-----------|
+|A0 |A0 |
+|A1 |A1 |
+|A2 |A2 |
+|A3 |A3 |
+|A4 |A4 |
+|A5 |A5 |
+|D0 |D0 |
+|D1 |D1 |
+|D2 |D2 |
+|D3 |D3 |
+|D4 |D4 |
+|D5 |D5 |
+|D6 |D6 |
+|D7 |D7 |
+|C5<sup>[1]</sup>  |D8 |
+|TX |TX |
+|RX |RX |
+|B5<sup>[1]</sup>  |D11 |
+|WKP<sup>[1]</sup>  |D12 |
+|DAC<sup>[1]</sup>  |D13 |
+|RST |RST |
+|VIN |VUSB |
+|3V3 |3V3 |
+
+**Notes:**
+
+<sup>[1]</sup> These pins are connected via jumper pads on the top. You can cut these jumper traces and rewire them to a different pin on the Mesh device if the need arises.
+
+<sup>[2]</sup> Pins C0 to C4 and B0 to B4 on the Particle legacy device headers are not connected to anything.
+
+<sup>[3]</sup> Pins MD, Li+, and EN on the Particle Mesh device are not connected to anything.
+
+
+## Debugger
+
+<div align=center><img src="/assets/images/accessories/debugger.png" ></div>
+
+The Particle Debugger gives you the power of professional debugging at a fraction of the cost. Using this accessory, you’ll be able to program Particle mesh-ready hardware over common interfaces like JTAG and SWD, using open source tools like GDB.
+
+Supports the open source CMSIS-DAP specification and DAPLink firmware developed by ARM.
+
+Comes with one JTAG ribbon cable.
+
+## FeatherWing Tripler
+
+<div align=center><img src="/assets/images/accessories/mesh-tripler-top-view.png" ></div>
+
+Perfect for any prototyping project, the Tripler provides space to add-on up to two FeatherWing accessories without any stacking header needs. Compatible with the newest generation of Particle developer kits (Particle Mesh).
+
+The Tripler has three breakouts for each pin on a Feather, as well as plain grid proto holes. In addition, three sets of pins are cross connected with a full strip of connected pads for GND and 3.3V.
 
 
 
