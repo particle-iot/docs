@@ -7,6 +7,10 @@ order: 1
 
 # Boron Datasheet <sup>(v001)</sup>
 
+{{#unless pdf-generation}}
+{{downloadButton url="/assets/pdfs/datasheets/boron-datasheet.pdf"}}
+{{/unless}}
+
 <div align=center><img src="/assets/images/boron/boron-top.png" ></div>
 
 ## Functional description

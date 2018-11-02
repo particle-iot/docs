@@ -11,6 +11,9 @@ order: 2
 
 **Model number:** PHOTONH, PHOTONNOH
 
+{{downloadButton url="/assets/pdfs/datasheets/photon-datasheet.pdf"}}
+
+
 <div align=center><img src="/assets/images/photon_vector2_600.png" width=200></div>
 
 ```c++

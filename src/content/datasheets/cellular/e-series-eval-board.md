@@ -6,6 +6,10 @@ order: 4
 ---
 # E Series Evaluation Board
 
+{{#unless pdf-generation}}
+{{downloadButton url="/assets/pdfs/datasheets/e-series-eval-board.pdf"}}
+{{/unless}}
+
 This is a simple breakout board for Particle's E series of cellular IoT modules. It breaks out all of its pins via easy to use headers. The board features a redundant USB port, connector for the LiPo battery, a barrel jack power connector, buttons, RGB LED, and charge status LED.
 
 ## Description

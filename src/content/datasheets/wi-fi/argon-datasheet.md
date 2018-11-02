@@ -7,6 +7,10 @@ order: 1
 
 # Argon Datasheet <sup>(v001)</sup>
 
+{{#unless pdf-generation}}
+{{downloadButton url="/assets/pdfs/datasheets/argon-datasheet.pdf"}}
+{{/unless}}
+
 <div align=center><img src="/assets/images/argon/argon-top.png" ></div>
 
 ## Functional description

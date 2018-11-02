@@ -6,6 +6,10 @@ order: 6
 ---
 # System Integration Manual
 
+{{#unless pdf-generation}}
+{{downloadButton url="/assets/pdfs/datasheets/e-series-system-integration-manual.pdf"}}
+{{/unless}}
+
 This manual provides the necessary guidelines to successfully integrate the E series module in your product.
 
 For further information about this module please refer to:
