@@ -9,6 +9,8 @@ order: 2
 
 # Electron Datasheet <sup>(v005)</sup>
 
+{{downloadButton url="/assets/pdfs/datasheets/electron-datasheet.pdf"}}
+
 <div align=center><img src="/assets/images/electron/illustrations/electron-v20.png" ></div>
 
 {{/unless}} {{!-- pdf-generation --}}

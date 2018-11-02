@@ -7,6 +7,10 @@ order: 2
 
 # Xenon Datasheet <sup>(v001)</sup>
 
+{{#unless pdf-generation}}
+{{downloadButton url="/assets/pdfs/datasheets/xenon-datasheet.pdf"}}
+{{/unless}}
+
 <div align=center><img src="/assets/images/xenon/xenon-top.png" ></div>
 
 ## Functional description

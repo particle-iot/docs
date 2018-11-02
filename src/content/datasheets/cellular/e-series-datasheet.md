@@ -7,6 +7,10 @@ order: 3
 
 # E Series Module Datasheet <sup>(v001)</sup>
 
+{{#unless pdf-generation}}
+{{downloadButton url="/assets/pdfs/datasheets/e-series-datasheet.pdf"}}
+{{/unless}}
+
 <div align=center><img src="/assets/images/e-series/illustrations/e0-top.png" ></div>
 
 ## Functional description

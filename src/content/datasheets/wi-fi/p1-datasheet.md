@@ -9,6 +9,8 @@ order: 3
 
 # P1 Datasheet <sup>(v010)</sup>
 
+{{downloadButton url="/assets/pdfs/datasheets/p1-datasheet.pdf"}}
+
 <div align=center><img src="/assets/images/p1-vector.png" width=200></div>
 
 ```c++
