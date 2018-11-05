@@ -14,8 +14,7 @@ setdevice: electron
 <h3 id="what-39-s-all-here-">What&apos;s all here?<a href="#what-39-s-all-here-" class="header-permalinks"><i class="ion-link"></i></a></h3><p><span class="popupLink"><strong>The Cellular Module.</strong><span class="popup"><img src="/assets/images/electronUblox.jpg" style="margin:auto; max-width:100%"></span></span>
 This is probably why you bought your device-- the cellular module allows your Electron to communicate with the internet in over 120 countries!
 The cellular module is also accompanied with a Particle SIM card.</p>
-<p>It connects your device to the internet in the same way that your smartphone might connect to its cellular network.
-<a href="/support/troubleshooting/common-issues/electron/#6-check-the-cellular-coverage-in-your-area">See our coverage map</a>.</p>
+<p>It connects your device to the internet in the same way that your smartphone might connect to its cellular network.</p>
 <p><span class="popupLink"><strong>The Microcontroller.</strong><span class="popup"><img src="/assets/images/electronMCU.jpg" style="margin:auto; max-width:100%"></span></span>
 The microcontroller is the brain of your device. It runs your software and tells your prototype what to do. Unlike your computer, it can only run one application (often called <em>firmware</em> or an <em>embedded application</em>). This application can be simple (just a few lines of code), or very complex, depending on what you want to do. The microcontroller interacts with the outside world using pins.</p>
 <p><span class="popupLink"><strong>The Pins.</strong><span class="popup"><img src="/assets/images/mk-header-male.jpg" style="margin:auto; max-width:100%"></span></span></p>
