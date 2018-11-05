@@ -20,15 +20,30 @@ Occasionally you'll see SWIM was well, but that's generally for STM8 processors.
 
 ## Programmers 
 
-The standard programmer is the [ST-LINK/V2](http://www.st.com/en/development-tools/st-link-v2.html). It connects to your computer using USB and to the board using JTAG or SWD.
+### Particle Debugger 
+
+The Particle Debugger is the easiest way to use SWD on mesh devices. It connects easily with the included ribbon cable.
+
+![Debugger](/assets/images/debugger2.jpg)
+
+It can also be used with the Photon, P1, Electron, and E Series using the debugging header. 
+
+
+### ST-LINK/V2
+
+Another common programmer is the [ST-LINK/V2](http://www.st.com/en/development-tools/st-link-v2.html). It connects to your computer using USB and to the board using JTAG or SWD.
 
 ![ST-LINK/V2](/assets/images/jtag-01stlink.jpg)
+
+### ST-LINK/V2 Mini SWD
 
 There are also "ST-LINK/V2 Mini" devices. These also connect by USB but only use the SWD interface. These inexpensive clone devices are available on Amazon and eBay for US$12 or even less.
 
 ![ST-LINK/V2 Mini](/assets/images/jtag-07mini.jpg)
 
-Finally, there's the [Particle Programmer Shield](https://github.com/particle-iot/shields/tree/master/photon-shields/programmer-shield), primarily designed for the Photon.  
+### Particle Photon Programmer Shield
+
+Finally, there's the [Particle Programmer Shield](https://github.com/particle-iot/shields/tree/master/photon-shields/programmer-shield), primarily designed for the Photon but can be used with the Electron.
 
 ![Particle Programmer Shield](/assets/images/jtag-08shield.jpg)
 
@@ -57,6 +72,29 @@ Pins:
 - D7: SWDIO
 - D6: SWCLK
 - GND
+
+### Particle Debugger
+
+With the Particle Debugger positioned like this, USB connector toward you and the headers facing up:
+
+![Debugger](/assets/images/debugger1.jpg)
+
+| Left Header | Right Header |
+| --- | ----- |
+| VDD | SWCLK |
+| RTS | SWDIO |
+| RX  | NC    |
+| TX  | NC    |  
+| CTS | GND   | 
+| GND | VUSB  |
+
+In order to use SWD debugging you need to connect:
+
+- D7: SWDIO
+- D6: SWCLK
+- GND
+
+You can optionally connect the serial TX and RX pins for Serial1 serial debugging.
 
 ### Programmer shield
 
@@ -360,6 +398,28 @@ flash size = 1024kbytes
 STM32F2xx - Rev: X
 ```
 
+### With the Particle Debugger
+
+Using the Particle debugger and a Photon, P1, or Electron:
+
+```
+$ cd /usr/local/share/openocd/scripts
+$ openocd -f interface/cmsis-dap.cfg -f target/stm32f2x.cfg -c "telnet_port 4444"
+```
+
+The difference is that you use the cmsis-dap.cfg interface instead of stlink-v2.cfg or particle-ftdi.cfg.
+
+If you are programming for the Particle mesh platform, you'll need the nrf52 board file. Download the file [nrf52-var.cfg](/assets/files/nrf52-var.cfg) and put it in your install location, typically one of:
+
+- /usr/local/share/openocd/scripts/target (Mac using HomeBrew)
+- /Applications/GNU ARM Eclipse/OpenOCD/0.10.0-201510281129-dev/scripts/target (Mac using GNU ARM Eclipse)
+- C:\Program Files\GNU ARM Eclipse\OpenOCD\0.10.0-201610281609-dev\scripts\target (Windows using GNU ARM Eclipse)
+- /cygdrive/c/Program Files/GNU ARM Eclipse/OpenOCD/0.10.0-201610281609-dev/scripts/target (Windows using using GNU ARM Eclipse and Cygwin)
+- /opt/gnuarmeclipse/openocd/0.10.0-201610281609-dev/scripts/target (Linux using using GNU ARM Eclipse)
+
+There are some additions to this file that are not in the standard nrf52.cfg file.
+
+
 ### With the Particle Programmer Shield
 
 On the Mac, I use this command to connect OpenOCD to the Particle Programmer Shield.
@@ -394,7 +454,9 @@ Info : Target voltage: 3.258847
 Info : stm32f2x.cpu: hardware has 6 breakpoints, 4 watchpoints
 ```
 
-## Common OpenOCD telnet commands
+## OpenOCD telnet commands for legacy devices
+
+These are only for the Photon, P1, Electron and E Series.
 
 ### Programming the boot loader
 
