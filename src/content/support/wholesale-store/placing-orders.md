@@ -127,7 +127,7 @@ If you are struggling with a Particle product or aren’t satisfied with your pu
  
 In the case of demonstrable manufacturing issues or a failure due to defective materials, we will troubleshoot and replace the item(s) as needed.
  
-Please check out the troubleshooting tips and assistance on our [documentation page](/support/troubleshooting/common-issues). Our amazing [community](https://community.particle.io/) is also a great resource and may be able to help as well. If you still have not resolved your problem, please visit our [support portal](https://support.particle.io/) to begin basic troubleshooting with our team. Often, defective units have simple misconfigurations that can easily be fixed, and this will put you in position to quickly and easily resolve certain issues if they crop up again. 
+Please check out the troubleshooting tips and assistance on our [documentation page](/tutorials/device-os/led). Our amazing [community](https://community.particle.io/) is also a great resource and may be able to help as well. If you still have not resolved your problem, please visit our [support portal](https://support.particle.io/) to begin basic troubleshooting with our team. Often, defective units have simple misconfigurations that can easily be fixed, and this will put you in position to quickly and easily resolve certain issues if they crop up again. 
 
 ### Modules Incorporated into custom boards
 
