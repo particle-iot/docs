@@ -1469,6 +1469,7 @@ void loop() {}
 
 `WiFi.BSSID()` retrieves the 6-byte MAC address of the access point the device is currently connected to.
 
+```cpp
 byte bssid[6];
 
 void setup() {
@@ -1479,7 +1480,7 @@ void setup() {
   WiFi.BSSID(bssid);
   Serial.printlnf("%02X:%02X:%02X:%02X:%02X:%02X", bssid[0], bssid[1], bssid[2], bssid[3], bssid[4], bssid[5]);
 }
-
+```
 
 ### RSSI()
 
