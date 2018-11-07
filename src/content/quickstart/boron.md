@@ -131,7 +131,4 @@ You'll often see words like flashing and deploying used interchangeably.
 
 ---
 
-## Hardware examples
-
-{{> codeexamples mesh=true}}
-
+For more hardware examples to try, visit the [hardware examples](/tutorials/hardware-projects/hardware-examples/boron).

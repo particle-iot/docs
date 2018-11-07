@@ -111,6 +111,4 @@ Once you have connected your device, it has learned that network. Your device ca
 <p><strong>Congratulations, you just blinked an LED over the internet, using your Particle device!</strong></p>
 
 
-## Hardware examples
-
-{{> codeexamples photon=true}}
+For more hardware examples to try, visit the [hardware examples](/tutorials/hardware-projects/hardware-examples/photon).
