@@ -65,10 +65,10 @@ describe('Crawler', function() {
     this.timeout(500000);
     var errors = 0;
     var crawler = new Crawler('localhost', '/', 8081);
-    crawler.maxConcurrency = 10;
+    crawler.maxConcurrency = 8;
     crawler.userAgent = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.134 Safari/537.36';
     crawler.acceptCookies = false;
-    crawler.timeout = 20000;
+    crawler.timeout = 30000;
     crawler.filterByDomain = false;
     crawler.interval = 5;
     crawler.supportedMimeTypes = [/^text\//i];
