@@ -28,7 +28,7 @@ The Particle Boron is a mesh and Bluetooth development kit designed for building
 * **Electronic components**
   * Two resistors (220 ohm)
   * One light-emitting diode (LED)
-  * One photodiode
+  * One phototransistor
 {{box op="end"}}
 
 ---
@@ -130,3 +130,8 @@ You'll often see words like flashing and deploying used interchangeably.
 {{box op="end"}}
 
 ---
+
+## Hardware examples
+
+{{> codeexamples mesh=true}}
+
