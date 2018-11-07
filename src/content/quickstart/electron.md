@@ -67,8 +67,5 @@ Since Electron is a cellular device and OTA usage consumes data, it&apos;s impor
 </p>
 
 
-## Hardware examples
-
-{{> codeexamples electron=true}}
-
+For more hardware examples to try, visit the [hardware examples](/tutorials/hardware-projects/hardware-examples/electron).
 

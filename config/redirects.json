@@ -194,6 +194,7 @@
     "/tinker": "/tutorials/developer-tools/tinker",
     "/troubleshooting": "/tutorials/device-os/led",
     "/tutorials": "/tutorials/device-os/device-os",
+    "/tutorials/hardware-projects": "/tutorials/hardware-projects/hardware-examples",
     "/tutorials/integrations": "/tutorials/integrations/google-cloud-platform",
     "/tutorials/projects/e-series-eval-kit": "/tutorials/hardware-projects/e-series-eval-kit",
     "/tutorials/projects/maker-kit": "/tutorials/hardware-projects/maker-kit",

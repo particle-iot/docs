@@ -1,3 +1,12 @@
+---
+title: Hardware Examples
+layout: tutorials.hbs
+columns: two
+devices: [photon,electron,core,raspberry-pi,xenon,argon,boron]
+order: 90
+---
+
+# Hardware Examples
 
 {{#if raspberry-pi }}
 
@@ -444,7 +453,7 @@ The holes marked "A5" and "A0" are misaligned with the headers of the Electron, 
 
 This example uses the same setup as the LED control example to make a `Particle.function`. This time, though, we're going to add a sensor.
 
-{{#if mesh}}
+{{#if has-mesh}}
 We will get a value from a photo transistor and store it in the cloud. The photo transistor and a clear LED look similar, but the LED has rounded top and the photo transistor has a flat top.
 
 {{else}}
