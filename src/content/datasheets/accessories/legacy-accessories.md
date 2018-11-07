@@ -345,10 +345,20 @@ Examples include:
 
 ## Photon Kit
 
-### Photoresistor (1)
-![LDR](/assets/images/mk-ldr.jpg)
+### Photo sensor (1)
 
-A photo resistor is a light dependent resistor whose resistance decreases with the increase in the intensity of light striking it. You can use it to detect the ambient light in the surrounding, detect shadows or use it as a part of a burglar alarm system. One photoresistor comes in your Photon Kit.
+![Photo Sensor](/assets/images/photosensor.jpg)
+
+Your kit will come with either a photo resistor (left) or a photo transistor (right). 
+
+The circuits for using them vary slightly but both output a signal that varies depending on the intensity of light striking them. You can use them to detect the ambient light in the surrounding, detect shadows, or use them as a part of a burglar alarm system.
+
+The cadmium sulfide (CdS) photo resistor was removed from newer kits because of RoHS restrictions on the use of cadmium.
+
+[Photo resistor datasheet >](/assets/datasheets/makerkit/photoresistor.pdf)
+
+[Photo transistor datasheet >](/assets/datasheets/ALS-PT243.pdf)
+
 
 ### LED (1)
 ![LEDs](/assets/images/mk-led-3mm.jpg)
@@ -494,13 +504,20 @@ There are three different value resistor in this kit. All of them are rated at 5
 
 You can use this [online guide](http://www.digikey.com/en/resources/conversion-calculators/conversion-calculator-resistor-color-code-4-band) to help identify which resistor is which value.
 
-### Photoresistors (2)
+### Photo sensor (2)
 
-![LDR](/assets/images/mk-ldr.jpg)
+![Photo Sensor](/assets/images/photosensor.jpg)
 
-A photo resistor is a light dependent resistor whose resistance decreases with the increase in the intensity of light striking it. You can use it to detect the ambient light in the surrounding, detect shadows or use it as a part of a burglar alarm system.
+Your kit will come with either a photo resistor (left) or a photo transistor (right). 
 
-[Datasheet >](/assets/datasheets/makerkit/photoresistor.pdf)
+The circuits for using them vary slightly but both output a signal that varies depending on the intensity of light striking them. You can use them to detect the ambient light in the surrounding, detect shadows, or use them as a part of a burglar alarm system.
+
+The cadmium sulfide (CdS) photo resistor was removed from newer kits because of RoHS restrictions on the use of cadmium.
+
+[Photo resistor datasheet >](/assets/datasheets/makerkit/photoresistor.pdf)
+
+[Photo transistor datasheet >](/assets/datasheets/ALS-PT243.pdf)
+
 
 ### 10K Rotary Potentiometer (1)
 [Datasheet >](/assets/datasheets/makerkit/10k-pot.pdf)
@@ -840,8 +857,8 @@ This is the big one! A fantastic collection of premium and versatile sensors.
 - (1) Particle Sticker
 - (2) Resistor 220-Ohm
 - (1) Breadboard
-- (1) Photoresistor
-- (1) Bright LED - White
+- (1) Photo resistor or photo transistor
+- (1) White or red LED
 
 AND
 
@@ -856,6 +873,26 @@ AND
 - (1) [SW18020P](http://www.electrodragon.com/product/vibration-switch-sensor-sw-18020p/) vibration sensor
 - Various jumper wires, resistors, capacitors, LEDs, and push buttons
 
+![Photo Sensor](/assets/images/photosensor.jpg)
+
+Your kit will come with either a photo resistor (left) or a photo transistor (right). 
+
+The circuits for using them vary slightly but both output a signal that varies depending on the intensity of light striking them. You can use them to detect the ambient light in the surrounding, detect shadows, or use them as a part of a burglar alarm system.
+
+The cadmium sulfide (CdS) photo resistor was removed from newer kits because of RoHS restrictions on the use of cadmium.
+
+[Photo resistor datasheet >](/assets/datasheets/makerkit/photoresistor.pdf)
+
+[Photo transistor datasheet >](/assets/datasheets/ALS-PT243.pdf)
+
+![LEDs](/assets/images/kit-leds.jpg)
+
+Your kit may include a variety of similar looking components:
+
+- IR LED (blue-ish)
+- White LED (clear with rounded top)
+- Red LED (included with most kits that contain a photo transistor instead of the white LED to reduce confusion)
+- Photo transistor (clear and flat on top)
 
 <!--
 Ceramic Capacitor - 10nF

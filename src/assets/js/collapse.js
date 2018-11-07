@@ -7,6 +7,14 @@ $(document).ready(function() {
 	else {
 		collapseComputerOs('Windows');
 	}
+	
+	d = collapsePhotoSensorDefault();
+	if (d) {
+		collapsePhotoSensor(d);
+	}
+	else {
+		collapsePhotoSensor('Transistor');
+	}
 });
 
 function collapseToggle(id) {	 
@@ -60,6 +68,45 @@ function collapseComputerOsDefault(switchTo) {
 	return switchTo;
 }
 
+function collapsePhotoSensor(switchTo) {
+	$('div.collapsePhotoSensor').hide();
+	$('div.collapsePhotoSensor' + switchTo).show();			
+
+	$('input.collapsePhotoSensor').removeProp('checked');
+	$('input.collapsePhotoSensor' + switchTo).prop('checked', 'checked');
+
+	// Hide navigation menu items for sections that are hidden
+	$('div.in-page-toc-container').each(function(index, toc) {		
+		$(toc).find('a').each(function(index, anchor) {
+			var href = $(anchor).prop('href');
+			var hashOffset = href.lastIndexOf('#');
+			if (hashOffset >= 0) {
+				var hash = href.substring(hashOffset + 1);
+				if ($('#' + hash).is(':hidden')) {
+					$(anchor).parents('li').hide();
+				}
+				else {
+					$(anchor).parents('li').show();
+				}
+			}
+		});
+	});
+	
+	collapsePhotoSensorDefault(switchTo);
+
+}
+
+function collapsePhotoSensorDefault(switchTo) {
+	var localStorageKey = 'collapsePhotoSensorDefault';
+	
+	if (switchTo) {
+		localStorage.setItem(localStorageKey, switchTo);
+	}
+	else {
+		switchTo = localStorage.getItem(localStorageKey);
+	}
+	return switchTo;
+}
 function collapseCopy(id) {
 	var elem = document.getElementById(id);
 	$(elem).show();

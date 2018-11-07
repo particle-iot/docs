@@ -25,7 +25,7 @@ To set up your Argon, you'll need an Android or iOS mobile phone and a connectio
 * **Electronic components**
   * Two resistors (220 ohm)
   * One light-emitting diode (LED)
-  * One photodiode
+  * One phototransistor
 {{box op="end"}}
 
 ---
@@ -122,3 +122,9 @@ You'll often see words like flashing and deploying used interchangeably.
 {{box op="end"}}
 
 ---
+
+## Hardware examples
+
+{{> codeexamples mesh=true}}
+
+

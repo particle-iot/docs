@@ -24,7 +24,7 @@ To complete all the examples, you will need the following materials:
   * Power source for USB cable (such as your computer, USB battery, or power brick)
   * (2) Resistors between 220 Ohms and 1000 Ohms {{#if photon}}(220 Ohm Resistors included with Photon Kit and Maker Kit){{/if}}{{#if electron}}(included with the Electron){{/if}}
   * (1) LED, any color {{#if photon}}(Red LED included with Photon Kit and Maker Kit){{/if}}{{#if electron}}(included with the Electron){{/if}}
-  * (1) Photoresistor {{#if photon}}(Included with Photon Kit and Maker Kit){{/if}}{{#if electron}}(included with the Electron){{/if}}
+  * (1) Photoresistor or phototransistor (explained below)
   {{#if electron}}
   * LiPo Battery (included with the Electron)
   {{/if}}
@@ -33,19 +33,6 @@ To complete all the examples, you will need the following materials:
   {{/if}}
 
 {{#if electron}}All of the example circuits are based on the reference card that came along with your Electron kit. If you have misplaced yours, download it [here!](/assets/images/electron/illustrations/electron-card.pdf){{/if}}
-* **Software**
-  * The [online IDE](http://build.particle.io)
-  * or the local [Particle Dev](http://particle.io/dev)
-* **Experience**
-{{#if raspberry-pi}}
-  * [Connecting your Raspberry Pi to Particle](/guide/getting-started/start)
-{{else}}
-  {{#if electron}}
-  * Connecting your Device [with your browser or smartphone](/guide/getting-started/start/electron/)
-  {{else}}
-  * Connecting your Device [with your smartphone](/guide/getting-started/start/) or [over USB](/guide/getting-started/connect)
-  {{/if}}
-{{/if}}
 
 {{#if electron}}
 <p class = "boxedHead">NOTE:</p>
@@ -67,31 +54,71 @@ Since Electron is a cellular device and OTA usage consumes data, it's important 
 
 Blinking an LED is the ["Hello World"](http://en.wikipedia.org/wiki/Hello_world_program) example of the microcontroller universe. It's a nice way to warm up and start your journey into the land of embedded hardware.
 
+![LEDs](/assets/images/kit-leds.jpg)
+
+Depending on the kit you have, you may have one or more of the items above. Left to right:
+
+- IR (infrared) LED. It has a blue-ish tint. Don't use that one here, as you can't see the light with the naked eye!
+- White LED. It has a rounded top. You can use this instead of the red LED in the examples below.
+- Red LED. 
+- Photo transistor. The top of this is flat and is not an LED, it's a light sensor. You'll use that later.
+
+There may also be smaller red or green LEDs. Those are also fine.
+
 ### Setup
 
-Connect everything together as shown in the image below. The negative (shorter) pin of the LED is connected to ground via a resistor and the positive (longer) pin is connected to {{#if electron}}D6{{else}}D0{{/if}}.{{#if raspberry-pi}} If you have a Pi break out board, you can use it instead of connecting components directly to the GPIO pins.{{/if}}
+It's good practice to connect the red (+) bus bar on the top to 3V3 and the blue (-) bus bar on the bottom to ground.
+
+{{#if electron}}
+- 3V3 is left-most pin on the top (with the USB connector on the left). It is often connected using a red wire.
+- Ground is the second from the left on the bottom. It is typically connected using a black wire. 
+{{else}}
+{{#if photon}}
+- 3V3 is left-most pin on the top (with the USB connector on the left). It is often connected using a red wire.
+- Ground is the second from the left on the bottom. It is typically connected using a black wire. 
+{{else}}
+- 3V3 is second from the left on the bottom (with the USB connector on the left). It is often connected using a red wire.
+- Ground is the fourth from the left on the bottom. It is typically connected using a black wire. 
+{{/if}}
+{{/if}}
+
+Position the LED in the breadboard. The long lead (anode) goes to + (left) and the short lead (cathode) goes to - (right). When using an LED, you must always add a current liming resistor. Normally you'd use a 220 ohm resistor (red-red-brown-gold) for 3.3 volt circuits.
+
+In the picture, the long lead of the LED connects to pin D6 using the blue wire. The short lead of the LED connects to a 220 ohm resistor that connects it to ground. That completes the circuit.
  
 {{#if raspberry-pi}}
 Feel free to continue without connecting the external LED if that's too much trouble since the Raspberry Pi has a green LED on board that we'll use in the blink example.
 {{/if}}
 
 {{#if raspberry-pi}}
-![One LED illustration](/assets/images/raspberry-pi/illustrations/raspberry-pi-blink-led.png)
+![Blink LED Circuit](/assets/images/raspberry-pi/illustrations/raspberry-pi-blink-led.png)
 {{else}}
-  {{#if electron}}
-  ![One LED illustration](/assets/images/electron/illustrations/electron-blink-led.png)
-  {{else}}
-  ![One LED illustration](/assets/images/photon-led-fritzing.png)
-  {{/if}}
+{{#if electron}}
+![Blink LED Circuit](/assets/images/blink-led-electron.jpg)
+{{else}}
+{{#if photon}}
+![Blink LED Circuit](/assets/images/blink-led-photon.jpg)
+{{else}}
+![Blink LED Circuit](/assets/images/blink-led-argon.jpg)
+{{/if}}
+{{/if}}
 {{/if}}
 
-Next, we're going to load code onto your device. Copy and paste this code into a new application on <http://build.particle.io> or on Particle Dev. We've heavily commented this code so that you can see what is going on in each line.
+Here's a close-up of the connections
 
-Go ahead and save this application, then flash it to your device. You should be able to see that LED blinking away!
+![Blink LED Circuit](/assets/images/led-close.jpg)
 
-_(In case you wonder how the pretty wiring diagram above was made, check out [Fritzing](http://fritzing.org/) and the [Particle Fritzing parts library](https://github.com/particle-iot/hardware-libraries))_
+- The long lead of the LED is on the left. The blue wire connects to this lead.
+- The short lead of the LED is on the right. This connects to ground with a 220 ohm resistor.
+
+Next, we're going to load code onto your device.
+
 
 ### Code
+
+[Click this link](https://go.particle.io/shared_apps/5be2de1e88096abb6e00094f) to open the source code in the Particle Web IDE, or copy and paste the code below.
+ 
+Go ahead and save this application, then flash it to your device. You should be able to see that LED blinking away!
 
 <pre><code class="lang-cpp" data-firmware-example-code-block=true>
 // ------------
@@ -113,7 +140,7 @@ loop - runs continuously over and over
 You'll see how we use these in a second.
 
 This program will blink an led on and off every second.
-It blinks the D7 LED on your Particle device. If you have an LED wired to {{#if electron}}D6{{else}}D0{{/if}}, it will blink that LED as well.
+It blinks the D7 LED on your Particle device. If you have an LED wired to D0, it will blink that LED as well.
 
 -------------*/
 
@@ -121,15 +148,11 @@ It blinks the D7 LED on your Particle device. If you have an LED wired to {{#if 
 // First, we're going to make some variables.
 // This is our "shorthand" that we'll use throughout the program:
 
-int led1 = {{#if electron}}D6{{else}}D0{{/if}}; // Instead of writing {{#if electron}}D6{{else}}D0{{/if}} over and over again, we'll write led1
+int led1 = D6; // Instead of writing D0 over and over again, we'll write led1
 // You'll need to wire an LED to this one to see it blink.
 
 int led2 = D7; // Instead of writing D7 over and over again, we'll write led2
-{{#if raspberry-pi}}
-// This one is the little green LED next to micro-USB connector
-{{else}}
 // This one is the little blue LED on your board. On the Photon it is next to D7, and on the Core it is next to the USB jack.
-{{/if}}
 
 // Having declared these variables, let's move on to the setup function.
 // The setup function is a standard part of any microcontroller program.
@@ -137,13 +160,13 @@ int led2 = D7; // Instead of writing D7 over and over again, we'll write led2
 
 void setup() {
 
-  // We are going to tell our device that {{#if electron}}D6{{else}}D0{{/if}} and D7 (which we named led1 and led2 respectively) are going to be output
-  // (That means that we will be sending voltage to them, rather than monitoring voltage that comes from them)
+	// We are going to tell our device that D0 and D7 (which we named led1 and led2 respectively) are going to be output
+	// (That means that we will be sending voltage to them, rather than monitoring voltage that comes from them)
 
-  // It's important you do this here, inside the setup() function rather than outside it or in the loop function.
+	// It's important you do this here, inside the setup() function rather than outside it or in the loop function.
 
-  pinMode(led1, OUTPUT);
-  pinMode(led2, OUTPUT);
+	pinMode(led1, OUTPUT);
+	pinMode(led2, OUTPUT);
 
 }
 
@@ -152,23 +175,22 @@ void setup() {
 // Note: Code that blocks for too long (like more than 5 seconds), can make weird things happen (like dropping the network connection).  The built-in delay function shown below safely interleaves required background activity, so arbitrarily long delays can safely be done if you need them.
 
 void loop() {
-  // To blink the LED, first we'll turn it on...
-  digitalWrite(led1, HIGH);
-  digitalWrite(led2, HIGH);
+	// To blink the LED, first we'll turn it on...
+	digitalWrite(led1, HIGH);
+	digitalWrite(led2, HIGH);
 
-  // We'll leave it on for 1 second...
-  delay(1000);
+	// We'll leave it on for 1 second...
+	delay(1000);
 
-  // Then we'll turn it off...
-  digitalWrite(led1, LOW);
-  digitalWrite(led2, LOW);
+	// Then we'll turn it off...
+	digitalWrite(led1, LOW);
+	digitalWrite(led2, LOW);
 
-  // Wait 1 second...
-  delay(1000);
+	// Wait 1 second...
+	delay(1000);
 
-  // And repeat!
+	// And repeat!
 }
-
 </code></pre>
 
 <div style="display: none;" id="control-led-over-the-net" data-firmware-example-url="https://docs.particle.io/guide/getting-started/examples/photon/#control-leds-over-the-39-net" data-firmware-example-title="Web-Connected LED" data-firmware-example-description="Control an LED over the Internet"></div>
@@ -187,20 +209,11 @@ We've heavily commented the code below so that you can see what's going on. Basi
 
 ### Setup
 
-As in the previous example, connect everything together as shown in the image below. The negative (shorter) pin of the LED is connected to ground via a resistor and the positive (longer) pin is connected to {{#if electron}}D6{{else}}D0{{/if}}.
-
-{{#if raspberry-pi}}
-![One LED illustration](/assets/images/raspberry-pi/illustrations/raspberry-pi-blink-led.png)
-{{else}}
-  {{#if electron}}
-  ![One LED illustration](/assets/images/electron/illustrations/electron-blink-led.png)
-  {{else}}
-  ![One LED illustration](/assets/images/photon-led-fritzing.png)
-  {{/if}}
-{{/if}}
-
+Set up the LED as in the previous example.
 
 ### Code
+
+[Click this link](https://go.particle.io/shared_apps/5be2dec088096a588500095e) to open the source code in the Particle Web IDE, or copy and paste the code below.
 
 
 <pre><code class="lang-cpp" data-firmware-example-code-block=true>
@@ -210,9 +223,9 @@ As in the previous example, connect everything together as shown in the image be
 
 /* First, let's create our "shorthand" for the pins
 Same as in the Blink an LED example:
-led1 is {{#if electron}}D6{{else}}D0{{/if}}, led2 is D7 */
+led1 is D6, led2 is D7 */
 
-int led1 = {{#if electron}}D6{{else}}D0{{/if}};
+int led1 = D6;
 int led2 = D7;
 
 // Last time, we only needed to declare pins in the setup function.
@@ -273,6 +286,14 @@ int ledToggle(String command) {
 }
 
 </code></pre>
+
+### Testing
+
+The easiest way to test your new function is from [the console](https://console.particle.io). In the devices tab, click on the row for the device you just flashed your code to.
+
+![Device Info](/assets/images/console-function.png)
+
+On the right-hand side of the screen is a box for functions. There should be one labeled "led". If you type "on" (without the quotes") and click the Call button the LED should turn on.
 
 ### Use
 
@@ -407,7 +428,7 @@ void loop() {
 
 {{#unless raspberry-pi}}
 
-## Read your Photoresistor: Function and Variable
+## Read your photo sensor: Function and Variable
 
 {{#if electron}}
 <p class = "boxedHead">NOTE:</p>
@@ -423,67 +444,195 @@ The holes marked "A5" and "A0" are misaligned with the headers of the Electron, 
 
 This example uses the same setup as the LED control example to make a `Particle.function`. This time, though, we're going to add a sensor.
 
-We will get a value from a photoresistor and store it in the cloud.
+{{#if mesh}}
+We will get a value from a photo transistor and store it in the cloud. The photo transistor and a clear LED look similar, but the LED has rounded top and the photo transistor has a flat top.
+
+{{else}}
+We will get a value from a photo resistor or photo transistor and store it in the cloud.
+
+![Photo Resistor or Transistor](/assets/images/photosensor.jpg)
+
+Depending on the kit you have, there may be a photo resistor (left, thin and flat with the squiggle pattern on the face) or photo transistor (right, clear and round with a flat top). The photo transistor and a clear LED look similar, but the LED has rounded top and the photo transistor has a flat top.
+
+{{collapse op="photoSensor"}}
+
+{{/if}}
 
 Paste the following code into your IDE, or just access the examples on the left hand menu bar in the online IDE.
 
 ### Setup
 
-Set up your breadboard as shown in the image below:
+The basic wiring is the same as the previous example:
+
+- The long lead of the LED connects to D6 using the blue wire.
+- The short lead of the LED connects to a 220 ohm (red-red-brown-gold) resistor. The other side of the resistor connects to ground.
+
+{{collapse op="start" photoSensor="Transistor"}}
+The photo transistor is connected as follows:
+
+- The short lead of the photo transistor connects to 3V3. In the picture, that's the right lead, using the red wire.
+- The long lead of the photo transistor connects to a 220 ohm (red-red-brown-gold) resistor. The other side of the resistor connects to ground.
+- The left lead of the photo transistor (connected to the resistor) also connects to pin A0 using the orange wire.
+
+Point the LED and photo transistor at each other.
+
 {{#if electron}}
-![Electron Diagram](/assets/images/electron/illustrations/electron-example.png)
+![Electron Diagram](/assets/images/phototransistor-electron.jpg)
 {{else}}
-![Fritzing Diagram](/assets/images/photon-photoresistor-fritzing.png)
+{{#if photon}}
+![Photon Diagram](/assets/images/phototransistor-photon.jpg)
+{{else}}
+![Argon Diagram](/assets/images/phototransistor-argon.jpg)
+{{/if}}
 {{/if}}
 
+Since it's a little hard to follow the complete picture, here it is broken down into two parts.
 
-Make sure that the short leg of the LED is plugged into `GND`. The other orientations do not matter.
+![LED Circuit](/assets/images/led-close.jpg)
 
-Bend the LED and the Photoresistor so that they are pointing at each other. (You want the LED, when turned on, to shine its beam of light directly at the photoresistor.)
+- The long lead of the LED is on the left. The blue wire connects to this lead.
+- The short lead of the LED is on the right. This connects to ground with a 220 ohm resistor.
+
+![Photo transistor Circuit](/assets/images/photo-transistor-close.jpg)
+
+- The long lead of the photo transistor is on the left. It connects to ground with a 220 ohm resistor and also to the orange wire.
+- The short lead of the photo transistor is on the right. It connects to 3V3 with the red wire.
+{{collapse op="end"}}
+
+{{collapse op="start" photoSensor="Resistor"}}
+The photo resistor is connected as follows:
+
+- One lead of the photo resistor connects to 3V3. In the picture, that's the right lead, using the red wire.
+- The other lead of the photo resistor connects to another 220 ohm resistor. The other side of the resistor connects to ground.
+- The left lead of the photo resistor (connected to the resistor) also connects to pin A0 using the orange wire.
+
+Point the LED and photo resistor at each other.
+
+{{#if electron}}
+![Electron Diagram](/assets/images/photoresistor-electron.jpg)
+{{else}}
+![Photon Diagram](/assets/images/photoresistor-photon.jpg)
+{{/if}}
+{{collapse op="end"}}
+
+Bend the LED and the photo sensor so that they are pointing at each other. (You want the LED, when turned on, to shine its beam of light directly at the photo sensor.)
+
+### Schematics
+
+A schematic diagram is often use to document a circuit. You don't need to understand schematic diagrams, so feel free to skip this section, but they can make it easier to understand a circuit once you know the basics.
+
+{{collapse op="start" photoSensor="Transistor"}}
+{{#if electron}}
+![Electron Diagram](/assets/images/schematic-phototransistor-electron.png)
+{{else}}
+{{#if photon}}
+![Photon Diagram](/assets/images/schematic-phototransistor-photon.png)
+{{else}}
+![Argon Diagram](/assets/images/schematic-phototransistor-argon.png)
+{{/if}}
+{{/if}}
+{{collapse op="end"}}
+
+{{collapse op="start" photoSensor="Resistor"}}
+{{#if electron}}
+![Electron Diagram](/assets/images/schematic-photoresistor-electron.png)
+{{else}}
+![Photon Diagram](/assets/images/schematic-photoresistor-photon.png)
+{{/if}}
+{{collapse op="end"}}
+
+#### LED
+
+A LED (light emitting diode) produces light. 
+
+- The side with bar is the cathode and connects to ground. It's the short lead.
+- The side with the triangle is the anode and connects to 3V3/VCC. It's the long lead.
+
+You must always connect an LED using a current-limiting resistor. It can be on either the + or - side.
+ 
+![LED](/assets/images/schematic-led.png)
+
+
+#### Resistor
+
+![Resistor](/assets/images/schematic-resistor.png)
+
+#### VCC
+
+VCC in this diagram is 3V3 (3.3 volts DC).
+
+![VCC](/assets/images/schematic-vcc.png)
+
+#### GND (Ground)
+
+![GND](/assets/images/schematic-gnd.png)
+
+{{collapse op="start" photoSensor="Transistor"}}
+#### Phototransistor
+
+The photo transistor is used to sense light. 
+
+- The top of the symbol (without the arrow) is the collector. It's the short lead, and connects to 3V3/VCC.
+- The bottom of the symbol (with the arrow point out) is the emitter. It's the long lead, and connects to GND with a resistor. You sense the voltage at this pin.
+
+![Phototransistor](/assets/images/schematic-phototransistor.png)
+{{collapse op="end"}}
+{{collapse op="start" photoSensor="Resistor"}}
+#### Photoresistor
+
+![Photoresistor](/assets/images/schematic-photoresistor.png)
+{{collapse op="end"}}
+
+
+#### Lines
+
+The green lines are connections between two pins. 
+
+- When the line crosses and there is no dot, then the crossing lines are just passing by each other and are not connected.
+- When the line crosses and there's a dot - both lines are connected.
+
+
+![Lines](/assets/images/schematic-lines.png)
+
 
 ### Code
 
-Copy and paste the following code into your [online IDE](http://build.particle.io) or [Particle Dev](http://particle.io/dev) environment.
+[Click this link](https://go.particle.io/shared_apps/5be2df2588096afd2a0009b5) to open the source code in the Particle Web IDE, or copy and paste the code below.
 
 <pre><code class="lang-cpp" data-firmware-example-code-block=true>
-// -----------------------------------------
-// Function and Variable with Photoresistors
-// -----------------------------------------
-// In this example, we're going to register a Particle.variable() with the cloud so that we can read brightness levels from the photoresistor.
+// -----------------------------------------------------------------
+// Function and Variable with photo sensors (resistor or transistor)
+// -----------------------------------------------------------------
+// In this example, we're going to register a Particle.variable() with the cloud so that we can read brightness levels from the photoresistor or phototransistor.
 // We'll also register a Particle.function so that we can turn the LED on and off remotely.
 
 // We're going to start by declaring which pins everything is plugged into.
 
-int led = {{#if electron}}D6{{else}}D0{{/if}}; // This is where your LED is plugged in. The other side goes to a resistor connected to GND.
+int led = D6; // This is where your LED is plugged in. The other side goes to a resistor connected to GND.
 
-int photoresistor = A0; // This is where your photoresistor is plugged in. The other side goes to the "power" pin (below).
+int photosensor = A0; // This is where your photoresistor or phototransistor is plugged in. The other side goes to the "power" pin (below).
 
-int power = A5; // This is the other end of your photoresistor. The other side is plugged into the "photoresistor" pin (above).
-// The reason we have plugged one side into an analog pin instead of to "power" is because we want a very steady voltage to be sent to the photoresistor.
-// That way, when we read the value from the other side of the photoresistor, we can accurately calculate a voltage drop.
+int analogvalue; // Here we are declaring the integer variable analogvalue, which we will use later to store the value of the photoresistor or phototransistor.
 
-int analogvalue; // Here we are declaring the integer variable analogvalue, which we will use later to store the value of the photoresistor.
-
+int ledToggle(String command); // Forward declaration
 
 // Next we go into the setup function.
 
 void setup() {
+	// This is here to allow for debugging using the USB serial port
+	Serial.begin();
 
-    // First, declare all of our pins. This lets our device know which ones will be used for outputting voltage, and which ones will read incoming voltage.
-    pinMode(led,OUTPUT); // Our LED pin is output (lighting up the LED)
-    pinMode(photoresistor,INPUT);  // Our photoresistor pin is input (reading the photoresistor)
-    pinMode(power,OUTPUT); // The pin powering the photoresistor is output (sending out consistent power)
+	// First, declare all of our pins. This lets our device know which ones will be used for outputting voltage, and which ones will read incoming voltage.
+	pinMode(led, OUTPUT); // Our LED pin is output (lighting up the LED)
+	digitalWrite(led, HIGH);
 
-    // Next, write one pin of the photoresistor to be the maximum possible, so that we can use this for power.
-    digitalWrite(power,HIGH);
+	// We are going to declare a Particle.variable() here so that we can access the value of the photosensor from the cloud.
+	Particle.variable("analogvalue", &analogvalue, INT);
+	// This is saying that when we ask the cloud for "analogvalue", this will reference the variable analogvalue in this app, which is an integer variable.
 
-    // We are going to declare a Particle.variable() here so that we can access the value of the photoresistor from the cloud.
-    Particle.variable("analogvalue", &analogvalue, INT);
-    // This is saying that when we ask the cloud for "analogvalue", this will reference the variable analogvalue in this app, which is an integer variable.
-
-    // We are also going to declare a Particle.function so that we can turn the LED on and off from the cloud.
-    Particle.function("led",ledToggle);
-    // This is saying that when we ask the cloud for the function "led", it will employ the function ledToggle() from this app.
+	// We are also going to declare a Particle.function so that we can turn the LED on and off from the cloud.
+	Particle.function("led",ledToggle);
+	// This is saying that when we ask the cloud for the function "led", it will employ the function ledToggle() from this app.
 
 }
 
@@ -492,10 +641,15 @@ void setup() {
 
 void loop() {
 
-    // check to see what the value of the photoresistor is and store it in the int variable analogvalue
-    analogvalue = analogRead(photoresistor);
-    delay(100);
+	// check to see what the value of the photoresistor or phototransistor is and store it in the int variable analogvalue
+	analogvalue = analogRead(photosensor);
 
+	// This prints the value to the USB debugging serial port (for optional debugging purposes)
+	Serial.printlnf("%d", analogvalue);
+
+	// This delay is just to prevent overflowing the serial buffer, plus we really don't need to read the sensor more than
+	// 10 times per second (100 millisecond delay)
+	delay(100);
 }
 
 
@@ -503,18 +657,17 @@ void loop() {
 
 int ledToggle(String command) {
 
-    if (command=="on") {
-        digitalWrite(led,HIGH);
-        return 1;
-    }
-    else if (command=="off") {
-        digitalWrite(led,LOW);
-        return 0;
-    }
-    else {
-        return -1;
-    }
-
+	if (command=="on") {
+		digitalWrite(led,HIGH);
+		return 1;
+	}
+	else if (command=="off") {
+		digitalWrite(led,LOW);
+		return 0;
+	}
+	else {
+		return -1;
+	}
 }
 
 </code></pre>
@@ -588,7 +741,7 @@ You can also check out this value by using the command line. Type:
 
 and make sure you replace `device_name` with either your device ID or the casual nickname you made for your device when you set it up.
 
-Now you can turn your LED on and off and see the values at A0 change based on the photoresistor!
+Now you can turn your LED on and off and see the values at A0 change based on the phototransistor or photoresistor!
 
 <div style="display: none;" id="publish-and-the-dashboard" data-firmware-example-url="https://docs.particle.io/guide/getting-started/examples/photon/#make-a-motion-detector-publish-and-the-console" data-firmware-example-title="Publish" data-firmware-example-description="Publish and the Console"></div>
 
@@ -600,228 +753,29 @@ What if we simply want to know that something has happened, without all the info
 
 `Particle.publish` sends a message to the cloud saying that some event has occured. We're allowed to name that event, set the privacy of that event, and add a little bit of info to go along with the event.
 
-In this example, we've created a system where you turn your LED and photoresistor to face each other, making a beam of light that can be broken by the motion of your finger. Every time the beam is broken or reconnected, your device will send a `Particle.publish` to the cloud letting it know the state of the beam. Basically, a tripwire!
+In this example, we've created a system where you turn your LED and photo sensor to face each other, making a beam of light that can be broken by the motion of your finger. Every time the beam is broken or reconnected, your device will send a `Particle.publish` to the cloud letting it know the state of the beam. Basically, a tripwire!
 
 For your convenience, we've set up a little calibrate function so that your device will work no matter how bright your LED is, or how bright the ambient light may be. Put your finger in the beam when the D7 LED goes on, and hold it in the beam until you see two flashes from the D7 LED. Then take your finger out of the beam. If you mess up, don't worry-- you can just hit "reset" on your device and do it again!
 
 You can check out the results on your console at [console.particle.io](https://console.particle.io). As you put your finger in front of the beam, you'll see an event appear that says the beam was broken. When you remove your finger, the event says that the beam is now intact.
 
+![Console](/assets/images/console-beamstatus.png)
+
 You can also hook up publishes to IFTTT! More info [here](/guide/tools-and-features/ifttt).
 
 ### Setup
-The setup is the same as in the last example. Set up your breadboard as follows:
 
-{{#if electron}}
-![Electron Diagram](/assets/images/electron/illustrations/electron-example.png)
-{{else}}
-![Fritzing Diagram](/assets/images/photon-photoresistor-fritzing.png)
-{{/if}}
-
-Ensure that the short end of the LED is plugged into `GND` and that the LED and Photoresistor are bent to face each other. (You want the LED, when turned on, to shine its beam of light directly at the photoresistor.) Try to leave enough space between the LED and the Photoresistor for your finger or a piece of paper.
-
+The setup for your breadboard is the same as in the last example. 
 
 ### Code
 
-<pre><code class="lang-cpp" data-firmware-example-code-block=true>
-// -----------------------------------------
-// Publish and Console with Photoresistors
-// -----------------------------------------
-// This app will publish an event when the beam of light between the LED and the photoresistor is broken.
-// It will publish a different event when the light is intact again.
-
-// Just like before, we're going to start by declaring which pins everything is plugged into.
-
-int led = {{#if electron}}D6{{else}}D0{{/if}}; // This is where your LED is plugged in. The other side goes to a resistor connected to GND.
-int boardLed = D7; // This is the LED that is already on your device.
-// On the Core, it's the LED in the upper right hand corner.
-// On the Photon, it's next to the D7 pin.
-
-int photoresistor = A0; // This is where your photoresistor is plugged in. The other side goes to the "power" pin (below).
-
-int power = A5; // This is the other end of your photoresistor. The other side is plugged into the "photoresistor" pin (above).
-
-// The following values get set up when your device boots up and calibrates:
-int intactValue; // This is the average value that the photoresistor reads when the beam is intact.
-int brokenValue; // This is the average value that the photoresistor reads when the beam is broken.
-int beamThreshold; // This is a value halfway between ledOnValue and ledOffValue, above which we will assume the led is on and below which we will assume it is off.
-
-bool beamBroken = false; // This flag will be used to mark if we have a new status or not. We will use it in the loop.
-
-// We start with the setup function.
-
-void setup() {
-  // This part is mostly the same:
-  pinMode(led,OUTPUT); // Our LED pin is output (lighting up the LED)
-  pinMode(boardLed,OUTPUT); // Our on-board LED is output as well
-  pinMode(photoresistor,INPUT);  // Our photoresistor pin is input (reading the photoresistor)
-  pinMode(power,OUTPUT); // The pin powering the photoresistor is output (sending out consistent power)
-
-  // Next, write the power of the photoresistor to be the maximum possible, which is 4095 in analog.
-  digitalWrite(power,HIGH);
-
-  // Since everyone sets up their leds differently, we are also going to start by calibrating our photoresistor.
-  // This one is going to require some input from the user!
-
-  // First, the D7 LED will go on to tell you to put your hand in front of the beam.
-  digitalWrite(boardLed,HIGH);
-  delay(2000);
-
-  // Then, the D7 LED will go off and the LED will turn on.
-  digitalWrite(boardLed,LOW);
-  digitalWrite(led,HIGH);
-  delay(500);
-
-  // Now we'll take some readings...
-  int on_1 = analogRead(photoresistor); // read photoresistor
-  delay(200); // wait 200 milliseconds
-  int on_2 = analogRead(photoresistor); // read photoresistor
-  delay(300); // wait 300 milliseconds
-
-  // Now flash to let us know that you've taken the readings...
-  digitalWrite(boardLed,HIGH);
-  delay(100);
-  digitalWrite(boardLed,LOW);
-  delay(100);
-  digitalWrite(boardLed,HIGH);
-  delay(100);
-  digitalWrite(boardLed,LOW);
-  delay(100);
-
-  // Now the D7 LED will go on to tell you to remove your hand...
-  digitalWrite(boardLed,HIGH);
-  delay(2000);
-
-  // The D7 LED will turn off...
-  digitalWrite(boardLed,LOW);
-
-  // ...And we will take two more readings.
-  int off_1 = analogRead(photoresistor); // read photoresistor
-  delay(200); // wait 200 milliseconds
-  int off_2 = analogRead(photoresistor); // read photoresistor
-  delay(1000); // wait 1 second
-
-  // Now flash the D7 LED on and off three times to let us know that we're ready to go!
-  digitalWrite(boardLed,HIGH);
-  delay(100);
-  digitalWrite(boardLed,LOW);
-  delay(100);
-  digitalWrite(boardLed,HIGH);
-  delay(100);
-  digitalWrite(boardLed,LOW);
-  delay(100);
-  digitalWrite(boardLed,HIGH);
-  delay(100);
-  digitalWrite(boardLed,LOW);
-
-
-  // Now we average the "on" and "off" values to get an idea of what the resistance will be when the LED is on and off
-  intactValue = (on_1+on_2)/2;
-  brokenValue = (off_1+off_2)/2;
-
-  // Let's also calculate the value between ledOn and ledOff, above which we will assume the led is on and below which we assume the led is off.
-  beamThreshold = (intactValue+brokenValue)/2;
-
-}
-
-
-// Now for the loop.
-
-void loop() {
-  /* In this loop function, we're going to check to see if the beam has been broken.
-  When the status of the beam changes, we'll send a Particle.publish() to the cloud
-  so that if we want to, we can check from other devices when the LED is on or off.
-
-  We'll also turn the D7 LED on when the Photoresistor detects a beam breakage.
-  */
-
-  if (analogRead(photoresistor)>beamThreshold) {
-
-    /* If you are above the threshold, we'll assume the beam is intact.
-    If the beam was intact before, though, we don't need to change anything.
-    We'll use the beamBroken flag to help us find this out.
-    This flag monitors the current status of the beam.
-    After the beam is broken, it is set TRUE
-    and when the beam reconnects it is set to FALSE.
-    */
-
-    if (beamBroken==true) {
-        // If the beam was broken before, then this is a new status.
-        // We will send a publish to the cloud and turn the LED on.
-
-        // Send a publish to your devices...
-        Particle.publish("beamStatus","intact",60,PRIVATE);
-        // And flash the on-board LED on and off.
-        digitalWrite(boardLed,HIGH);
-        delay(500);
-        digitalWrite(boardLed,LOW);
-
-        // Finally, set the flag to reflect the current status of the beam.
-        beamBroken=false;
-    }
-    else {
-        // Otherwise, this isn't a new status, and we don't have to do anything.
-    }
-  }
-
-  else {
-      // If you are below the threshold, the beam is probably broken.
-      if (beamBroken==false) {
-
-        // Send a publish...
-        Particle.publish("beamStatus","broken",60,PRIVATE);
-        // And flash the on-board LED on and off.
-        digitalWrite(boardLed,HIGH);
-        delay(500);
-        digitalWrite(boardLed,LOW);
-
-        // Finally, set the flag to reflect the current status of the beam.
-        beamBroken=true;
-      }
-      else {
-          // Otherwise, this isn't a new status, and we don't have to do anything.
-      }
-  }
-
-}
-</code></pre>
-
-<div style="display: none;" id="publish-and-subscribe-with-photoresistors" data-firmware-example-url="https://docs.particle.io/guide/getting-started/examples/photon/#the-buddy-system-publish-and-subscribe" data-firmware-example-title="Subscribe" data-firmware-example-description="Learn about Publish and Subscribe using Photoresistors"></div>
-
-## The Buddy System: Publish and Subscribe
-
-### Intro
-
-In the previous example, we sent a private publish. This publish went to you alone; it was just for you and your own apps, programs, integrations, and devices. We can also send a public publish, though, which allows anyone anywhere to see and subscribe to our event in the cloud. All they need is our event name.
-
-Go find a buddy who has a Core, Photon, or Electron. Your buddy does not have to be next to you--she or he can be across the world if you like! All you need is a connection.
-
-Connect your device and copy the firmware on the right into a new app. Pick a weird name for your event. {{#unless electron}}If your device were named `starfish` for example, you could make your event name something like `starfish_special_event_20150515`. Have your buddy pick a name for their event as well. No more than 63 ASCII characters, and no spaces!{{/unless}}{{#if electron}}Keep it short for data efficiency, but unique so no one else will be using it.{{/if}}
-
-Now replace `your_unique_event_name` with your actual event name and `buddy_unique_event_name` with your buddy's unique event name.
-
-Have your buddy do the same thing, only with their event name and yours (swap 'em).
-
-Flash the firmware to your devices. Calibrate your device when it comes online (same as in the previous example).
-
-When the beam is broken on your device, the D7 LED on your buddy's device will light up! Now you can send little messages to each other in morse code... though if one of you is using an Electron, you should be restrained.
-
-### Setup
-The setup is the same as in the last example. Set up your breadboard as follows:
-
-{{#if electron}}
-![Electron Diagram](/assets/images/electron/illustrations/electron-example.png)
-{{else}}
-![Fritzing Diagram](/assets/images/photon-photoresistor-fritzing.png)
-{{/if}}
-
-Ensure that the short end of the LED is plugged into `GND` and that the LED and Photoresistor are bent to face each other. (You want the LED, when turned on, to shine its beam of light directly at the photoresistor.) Try to leave enough space between the LED and the Photoresistor for your finger or a piece of paper.
-
-### Code
+[Click this link](https://go.particle.io/shared_apps/5be2df6f88096a97af0008d6) to open the source code in the Particle Web IDE, or copy and paste the code below.
 
 <pre><code class="lang-cpp" data-firmware-example-code-block=true>
-// -----------------------------------------
-// Publish and Subscribe with Photoresistors
-/* -----------------------------------------
+
+// -------------------------------------------------------------
+// Publish and Subscribe with photoresistors or phototransistors
+/* -------------------------------------------------------------
 
 Go find a buddy who also has a Particle device.
 Each of you will pick a unique event name
@@ -846,9 +800,212 @@ You and your buddy will both publish an event, and listen for each others events
 ------------------------------------------*/
 
 
-int led = {{#if electron}}D6{{else}}D0{{/if}};
+int led = D6;
 int boardLed = D7;
-int photoresistor = A0;
+int photosensor = A0;
+int power = A5;
+
+int intactValue;
+int brokenValue;
+int beamThreshold;
+
+bool beamBroken = false;
+
+void myHandler(const char *event, const char *data); // forward declaration
+
+// We start with the setup function.
+
+void setup() {
+	// This part is mostly the same:
+	pinMode(led,OUTPUT); // Our LED pin is output (lighting up the LED)
+	pinMode(boardLed,OUTPUT); // Our on-board LED is output as well
+	pinMode(power,OUTPUT); // The pin powering the photosensor is output (sending out consistent power)
+
+	// Here we are going to subscribe to your buddy's event using Particle.subscribe
+	Particle.subscribe("buddy_unique_event_name", myHandler);
+	// Subscribe will listen for the event buddy_unique_event_name and, when it finds it, will run the function myHandler()
+	// (Remember to replace buddy_unique_event_name with your buddy's actual unique event name that they have in their firmware.)
+	// myHandler() is declared later in this app.
+
+	// Next, deliver power to the photosensor
+	digitalWrite(power,HIGH);
+
+	// Since everyone sets up their LEDs differently, we are also going to start by calibrating our photosensor.
+	// This one is going to require some input from the user!
+
+	// Calibrate:
+	// First, the D7 LED will go on to tell you to put your hand in front of the beam.
+	digitalWrite(boardLed,HIGH);
+	delay(2000);
+
+	// Then, the D7 LED will go off and the LED will turn on.
+	digitalWrite(boardLed,LOW);
+	digitalWrite(led,HIGH);
+	delay(500);
+
+	// Now we'll take some readings...
+	int off_1 = analogRead(photosensor); // read photosensor
+	delay(200); // wait 200 milliseconds
+	int off_2 = analogRead(photosensor); // read photosensor
+	delay(1000); // wait 1 second
+
+	// Now flash to let us know that you've taken the readings...
+	digitalWrite(boardLed,HIGH);
+	delay(100);
+	digitalWrite(boardLed,LOW);
+	delay(100);
+	digitalWrite(boardLed,HIGH);
+	delay(100);
+	digitalWrite(boardLed,LOW);
+	delay(100);
+
+	// Now the D7 LED will go on to tell you to remove your hand...
+	digitalWrite(boardLed,HIGH);
+	delay(2000);
+
+	// The D7 LED will turn off...
+	digitalWrite(boardLed,LOW);
+
+	// ...And we will take two more readings.
+	int on_1 = analogRead(photosensor); // read photosensor
+	delay(200); // wait 200 milliseconds
+	int on_2 = analogRead(photosensor); // read photosensor
+	delay(300); // wait 300 milliseconds
+
+	// Now flash the D7 LED on and off three times to let us know that we're ready to go!
+	digitalWrite(boardLed,HIGH);
+	delay(100);
+	digitalWrite(boardLed,LOW);
+	delay(100);
+	digitalWrite(boardLed,HIGH);
+	delay(100);
+	digitalWrite(boardLed,LOW);
+	delay(100);
+	digitalWrite(boardLed,HIGH);
+	delay(100);
+	digitalWrite(boardLed,LOW);
+
+	intactValue = (on_1+on_2)/2;
+	brokenValue = (off_1+off_2)/2;
+	beamThreshold = (intactValue+brokenValue)/2;
+
+}
+
+
+void loop() {
+	// This loop sends a publish when the beam is broken.
+	if (analogRead(photosensor)>beamThreshold) {
+		if (beamBroken==true) {
+			Particle.publish("your_unique_event_name", "intact", PUBLIC);
+			// publish this public event
+			// rename your_unique_event_name with your actual unique event name. No spaces, 63 ASCII characters.
+			// give your event name to your buddy and have them put it in their app.
+
+			// Set the flag to reflect the current status of the beam.
+			beamBroken=false;
+		}
+	}
+
+	else {
+		if (beamBroken==false) {
+			// Same deal as before...
+			Particle.publish("your_unique_event_name", "broken", PUBLIC);
+			beamBroken=true;
+		}
+	}
+}
+
+
+// Now for the myHandler function, which is called when the cloud tells us that our buddy's event is published.
+void myHandler(const char *event, const char *data)
+{
+	/* Particle.subscribe handlers are void functions, which means they don't return anything.
+	  They take two variables-- the name of your event, and any data that goes along with your event.
+	  In this case, the event will be "buddy_unique_event_name" and the data will be "intact" or "broken"
+
+	  Since the input here is a char, we can't do
+		 data=="intact"
+		or
+		 data=="broken"
+
+	  chars just don't play that way. Instead we're going to strcmp(), which compares two chars.
+	  If they are the same, strcmp will return 0.
+	 */
+
+	if (strcmp(data,"intact")==0) {
+		// if your buddy's beam is intact, then turn your board LED off
+		digitalWrite(boardLed,LOW);
+	}
+	else if (strcmp(data,"broken")==0) {
+		// if your buddy's beam is broken, turn your board LED on
+		digitalWrite(boardLed,HIGH);
+	}
+	else {
+		// if the data is something else, don't do anything.
+		// Really the data shouldn't be anything but those two listed above.
+	}
+}
+
+</code></pre>
+
+<div style="display: none;" id="publish-and-subscribe-with-photoresistors" data-firmware-example-url="https://docs.particle.io/guide/getting-started/examples/photon/#the-buddy-system-publish-and-subscribe" data-firmware-example-title="Subscribe" data-firmware-example-description="Learn about Publish and Subscribe using Photoresistors"></div>
+
+## The Buddy System: Publish and Subscribe
+
+### Intro
+
+In the previous example, we sent a private publish. This publish went to you alone; it was just for you and your own apps, programs, integrations, and devices. We can also send a public publish, though, which allows anyone anywhere to see and subscribe to our event in the cloud. All they need is our event name.
+
+Go find a buddy who has a Core, Photon, or Electron. Your buddy does not have to be next to you--she or he can be across the world if you like! All you need is a connection.
+
+Connect your device and copy the firmware on the right into a new app. Pick a weird name for your event. {{#unless electron}}If your device were named `starfish` for example, you could make your event name something like `starfish_special_event_20150515`. Have your buddy pick a name for their event as well. No more than 63 ASCII characters, and no spaces!{{/unless}}{{#if electron}}Keep it short for data efficiency, but unique so no one else will be using it.{{/if}}
+
+Now replace `your_unique_event_name` with your actual event name and `buddy_unique_event_name` with your buddy's unique event name.
+
+Have your buddy do the same thing, only with their event name and yours (swap 'em).
+
+Flash the firmware to your devices. Calibrate your device when it comes online (same as in the previous example).
+
+When the beam is broken on your device, the D7 LED on your buddy's device will light up! Now you can send little messages to each other in morse code... though if one of you is using an Electron, you should be restrained.
+
+### Setup
+The setup for your breadboard is the same as in the last example. 
+
+### Code
+
+[Click this link](https://go.particle.io/shared_apps/5be2dfca88096afd2a0009c1) to open the source code in the Particle Web IDE, or copy and paste the code below.
+
+<pre><code class="lang-cpp" data-firmware-example-code-block=true>
+// -------------------------------------------------------------
+// Publish and Subscribe with photoresistors or phototransistors
+/* -------------------------------------------------------------
+
+Go find a buddy who also has a Particle device.
+Each of you will pick a unique event name
+   (make it weird so that no one else will have it)
+   (no more that 63 ASCII characters, and no spaces)
+
+In the following code, replace "your_unique_event_name" with your chosen name.
+Replace "buddy_unique_event_name" with your buddy's chosen name.
+
+Have your buddy do the same on his or her IDE.
+
+Then, each of you should flash the code to your device.
+
+Breaking the beam on one device will turn on the D7 LED on the second device.
+
+But how does this magic work? Through the miracle of publish and subscribe.
+
+We are going to Particle.publish a public event to the cloud.
+That means that everyone can see you event and anyone can subscribe to it.
+You and your buddy will both publish an event, and listen for each others events.
+
+------------------------------------------*/
+
+
+int led = D6;
+int boardLed = D7;
+int photosensor = A0;
 int power = A5;
 
 int intactValue;
@@ -860,136 +1017,136 @@ bool beamBroken = false;
 // We start with the setup function.
 
 void setup() {
-  // This part is mostly the same:
-  pinMode(led,OUTPUT); // Our LED pin is output (lighting up the LED)
-  pinMode(boardLed,OUTPUT); // Our on-board LED is output as well
-  pinMode(photoresistor,INPUT);  // Our photoresistor pin is input (reading the photoresistor)
-  pinMode(power,OUTPUT); // The pin powering the photoresistor is output (sending out consistent power)
+	// This part is mostly the same:
+	pinMode(led,OUTPUT); // Our LED pin is output (lighting up the LED)
+	pinMode(boardLed,OUTPUT); // Our on-board LED is output as well
+	pinMode(power,OUTPUT); // The pin powering the photosensor is output (sending out consistent power)
 
-  // Here we are going to subscribe to your buddy's event using Particle.subscribe
-  Particle.subscribe("buddy_unique_event_name", myHandler);
-  // Subscribe will listen for the event buddy_unique_event_name and, when it finds it, will run the function myHandler()
-  // (Remember to replace buddy_unique_event_name with your buddy's actual unique event name that they have in their firmware.)
-  // myHandler() is declared later in this app.
+	// Here we are going to subscribe to your buddy's event using Particle.subscribe
+	Particle.subscribe("buddy_unique_event_name", myHandler);
+	// Subscribe will listen for the event buddy_unique_event_name and, when it finds it, will run the function myHandler()
+	// (Remember to replace buddy_unique_event_name with your buddy's actual unique event name that they have in their firmware.)
+	// myHandler() is declared later in this app.
 
-  // Next, deliver power to the photoresistor
-  digitalWrite(power,HIGH);
+	// Next, deliver power to the photosensor
+	digitalWrite(power,HIGH);
 
-  // Since everyone sets up their LEDs differently, we are also going to start by calibrating our photoresistor.
-  // This one is going to require some input from the user!
+	// Since everyone sets up their LEDs differently, we are also going to start by calibrating our photosensor.
+	// This one is going to require some input from the user!
 
-  // Calibrate:
-  // First, the D7 LED will go on to tell you to put your hand in front of the beam.
-  digitalWrite(boardLed,HIGH);
-  delay(2000);
+	// Calibrate:
+	// First, the D7 LED will go on to tell you to put your hand in front of the beam.
+	digitalWrite(boardLed,HIGH);
+	delay(2000);
 
-  // Then, the D7 LED will go off and the LED will turn on.
-  digitalWrite(boardLed,LOW);
-  digitalWrite(led,HIGH);
-  delay(500);
+	// Then, the D7 LED will go off and the LED will turn on.
+	digitalWrite(boardLed,LOW);
+	digitalWrite(led,HIGH);
+	delay(500);
 
-  // Now we'll take some readings...
-  int off_1 = analogRead(photoresistor); // read photoresistor
-  delay(200); // wait 200 milliseconds
-  int off_2 = analogRead(photoresistor); // read photoresistor
-  delay(1000); // wait 1 second
+	// Now we'll take some readings...
+	int off_1 = analogRead(photosensor); // read photosensor
+	delay(200); // wait 200 milliseconds
+	int off_2 = analogRead(photosensor); // read photosensor
+	delay(1000); // wait 1 second
 
-  // Now flash to let us know that you've taken the readings...
-  digitalWrite(boardLed,HIGH);
-  delay(100);
-  digitalWrite(boardLed,LOW);
-  delay(100);
-  digitalWrite(boardLed,HIGH);
-  delay(100);
-  digitalWrite(boardLed,LOW);
-  delay(100);
+	// Now flash to let us know that you've taken the readings...
+	digitalWrite(boardLed,HIGH);
+	delay(100);
+	digitalWrite(boardLed,LOW);
+	delay(100);
+	digitalWrite(boardLed,HIGH);
+	delay(100);
+	digitalWrite(boardLed,LOW);
+	delay(100);
 
-  // Now the D7 LED will go on to tell you to remove your hand...
-  digitalWrite(boardLed,HIGH);
-  delay(2000);
+	// Now the D7 LED will go on to tell you to remove your hand...
+	digitalWrite(boardLed,HIGH);
+	delay(2000);
 
-  // The D7 LED will turn off...
-  digitalWrite(boardLed,LOW);
+	// The D7 LED will turn off...
+	digitalWrite(boardLed,LOW);
 
-  // ...And we will take two more readings.
-  int on_1 = analogRead(photoresistor); // read photoresistor
-  delay(200); // wait 200 milliseconds
-  int on_2 = analogRead(photoresistor); // read photoresistor
-  delay(300); // wait 300 milliseconds
+	// ...And we will take two more readings.
+	int on_1 = analogRead(photosensor); // read photosensor
+	delay(200); // wait 200 milliseconds
+	int on_2 = analogRead(photosensor); // read photosensor
+	delay(300); // wait 300 milliseconds
 
-  // Now flash the D7 LED on and off three times to let us know that we're ready to go!
-  digitalWrite(boardLed,HIGH);
-  delay(100);
-  digitalWrite(boardLed,LOW);
-  delay(100);
-  digitalWrite(boardLed,HIGH);
-  delay(100);
-  digitalWrite(boardLed,LOW);
-  delay(100);
-  digitalWrite(boardLed,HIGH);
-  delay(100);
-  digitalWrite(boardLed,LOW);
+	// Now flash the D7 LED on and off three times to let us know that we're ready to go!
+	digitalWrite(boardLed,HIGH);
+	delay(100);
+	digitalWrite(boardLed,LOW);
+	delay(100);
+	digitalWrite(boardLed,HIGH);
+	delay(100);
+	digitalWrite(boardLed,LOW);
+	delay(100);
+	digitalWrite(boardLed,HIGH);
+	delay(100);
+	digitalWrite(boardLed,LOW);
 
-  intactValue = (on_1+on_2)/2;
-  brokenValue = (off_1+off_2)/2;
-  beamThreshold = (intactValue+brokenValue)/2;
+	intactValue = (on_1+on_2)/2;
+	brokenValue = (off_1+off_2)/2;
+	beamThreshold = (intactValue+brokenValue)/2;
 
 }
 
 
 void loop() {
-  // This loop sends a publish when the beam is broken.
-  if (analogRead(photoresistor)>beamThreshold) {
-    if (beamBroken==true) {
-        Particle.publish("your_unique_event_name","intact");
-        // publish this public event
-        // rename your_unique_event_name with your actual unique event name. No spaces, 63 ASCII characters.
-        // give your event name to your buddy and have them put it in their app.
+	// This loop sends a publish when the beam is broken.
+	if (analogRead(photosensor)>beamThreshold) {
+		if (beamBroken==true) {
+			Particle.publish("your_unique_event_name","intact");
+			// publish this public event
+			// rename your_unique_event_name with your actual unique event name. No spaces, 63 ASCII characters.
+			// give your event name to your buddy and have them put it in their app.
 
-        // Set the flag to reflect the current status of the beam.
-        beamBroken=false;
-    }
-  }
+			// Set the flag to reflect the current status of the beam.
+			beamBroken=false;
+		}
+	}
 
-  else {
-      if (beamBroken==false) {
-        // Same deal as before...
-        Particle.publish("your_unique_event_name","broken");
-        beamBroken=true;
-      }
-  }
+	else {
+		if (beamBroken==false) {
+			// Same deal as before...
+			Particle.publish("your_unique_event_name","broken");
+			beamBroken=true;
+		}
+	}
 }
 
 
 // Now for the myHandler function, which is called when the cloud tells us that our buddy's event is published.
 void myHandler(const char *event, const char *data)
 {
-  /* Particle.subscribe handlers are void functions, which means they don't return anything.
-  They take two variables-- the name of your event, and any data that goes along with your event.
-  In this case, the event will be "buddy_unique_event_name" and the data will be "intact" or "broken"
+	/* Particle.subscribe handlers are void functions, which means they don't return anything.
+	  They take two variables-- the name of your event, and any data that goes along with your event.
+	  In this case, the event will be "buddy_unique_event_name" and the data will be "intact" or "broken"
+	
+	  Since the input here is a char, we can't do
+		 data=="intact"
+		or
+		 data=="broken"
+	
+	  chars just don't play that way. Instead we're going to strcmp(), which compares two chars.
+	  If they are the same, strcmp will return 0.
+	 */
 
-  Since the input here is a char, we can't do
-     data=="intact"
-    or
-     data=="broken"
-
-  chars just don't play that way. Instead we're going to strcmp(), which compares two chars.
-  If they are the same, strcmp will return 0.
-  */
-
-  if (strcmp(data,"intact")==0) {
-    // if your buddy's beam is intact, then turn your board LED off
-    digitalWrite(boardLed,LOW);
-  }
-  else if (strcmp(data,"broken")==0) {
-    // if your buddy's beam is broken, turn your board LED on
-    digitalWrite(boardLed,HIGH);
-  }
-  else {
-    // if the data is something else, don't do anything.
-    // Really the data shouldn't be anything but those two listed above.
-  }
+	if (strcmp(data,"intact")==0) {
+		// if your buddy's beam is intact, then turn your board LED off
+		digitalWrite(boardLed,LOW);
+	}
+	else if (strcmp(data,"broken")==0) {
+		// if your buddy's beam is broken, turn your board LED on
+		digitalWrite(boardLed,HIGH);
+	}
+	else {
+		// if the data is something else, don't do anything.
+		// Really the data shouldn't be anything but those two listed above.
+	}
 }
+
 
 </code></pre>
 
@@ -1006,7 +1163,7 @@ Every message the Electron sends to or from the Cloud has a certain fixed overhe
 
 
 ### Setup
-You can use the previous circuit, with the photoresistor connected to A0.
+You can use the previous circuit, with the photoresistor or phototransistor connected to A0.
 
 
 ### Code
