@@ -1049,7 +1049,7 @@ void setup() {
 {{#if has-ethernet}}
 ## Ethernet
 
-Ethernet is available on the Argon, Boron, and Xenon when used with the Ethernet Shield.
+Ethernet is available on the Argon, Boron, and Xenon when used with the [Ethernet FeatherWing](/datasheets/accessories/mesh-accessories/#ethernet-featherwing).
 
 ### on()
 
