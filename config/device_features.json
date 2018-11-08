@@ -141,7 +141,8 @@
     "spi-settings",
     "tcpserver",
     "tcpclient",
-    "udp-cloud"	  
+    "udp-cloud",
+    "ethernet"
   ],
   "Boron": [
 	"nrf52",
@@ -172,7 +173,8 @@
     "tcpclient",
     "set-credentials",
     "set-active-sim",
-    "udp-cloud"
+    "udp-cloud",
+    "ethernet"
   ],
   "Xenon": [
 	"nrf52",
@@ -201,7 +203,8 @@
     "rgb-mirror",
     "spi-settings",
     "tcpserver",
-    "tcpclient"	,
-    "udp-cloud"  
+    "tcpclient",
+    "udp-cloud",
+    "ethernet"
   ]
 }

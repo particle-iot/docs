@@ -1032,6 +1032,225 @@ void setup() {
 }
 ```
 
+### localIP()
+
+
+`Mesh.localIP()` is used to get the ML-EID (Mesh-Local EID) IP address of the mesh node. This is an IPv6 address.
+
+```cpp
+// EXAMPLE
+void setup() {
+  Serial.begin();
+  Serial.printlnf("localIP: %s", Mesh.localIP().toString().c_str());
+}
+```
+{{/if}}
+
+{{#if has-ethernet}}
+## Ethernet
+
+Ethernet is available on the Argon, Boron, and Xenon when used with the Ethernet Shield.
+
+### on()
+
+`Ethernet.on()` turns on the Ethernet module. Useful when you've turned it off, and you changed your mind.
+
+Note that `Ethernet.on()` does not need to be called unless you have changed the [system mode](#system-modes) or you have previously turned the Ethernet module off.
+
+### off()
+
+`Ethernet.off()` turns off the Ethernet module. 
+ 
+### connect()
+
+Attempts to connect to the Ethernet network. If there are no credentials stored, this will enter listening mode. When this function returns, the device may not have an IP address on the LAN; use `Ethernet.ready()` to determine the connection status.
+
+```cpp
+// SYNTAX
+Ethernet.connect();
+```
+
+### disconnect()
+
+Disconnects from the Ethernet network, but leaves the Ethernet module on.
+
+```cpp
+// SYNTAX
+Ethernet.disconnect();
+```
+
+### connecting()
+
+This function will return `true` once the device is attempting to connect using stored credentials, and will return `false` once the device has successfully connected to the Ethernet network.
+
+```cpp
+// SYNTAX
+Ethernet.connecting();
+```
+
+### ready()
+
+This function will return `true` once the device is connected to the network and has been assigned an IP address, which means that it's ready to open TCP sockets and send UDP datagrams. Otherwise it will return `false`.
+
+```cpp
+// SYNTAX
+Ethernet.ready();
+```
+
+### listen()
+
+This will enter or exit listening mode, which opens a Serial connection to get Ethernet credentials over USB, and also listens for credentials over
+Bluetooth.
+
+```cpp
+// SYNTAX - enter listening mode
+Ethernet.listen();
+```
+
+Listening mode blocks application code. Advanced cases that use multithreading, interrupts, or system events
+have the ability to continue to execute application code while in listening mode, and may wish to then exit listening
+mode, such as after a timeout. Listening mode is stopped using this syntax:
+
+```cpp
+
+// SYNTAX - exit listening mode
+Ethernet.listen(false);
+
+```
+
+### listening()
+
+```cpp
+// SYNTAX
+Ethernet.listening();
+```
+
+This command is only useful in connection with `SYSTEM_THREAD(ENABLED)`, otherwise it will always return `false`, because listening mode blocks application code.
+With a dedicated system thread though `Ethernet.listening()` will return `true` once `Ethernet.listen()` has been called
+or the {{system-button}} button has been held for 3 seconds, when the RGB LED should be blinking blue.
+It will return `false` when the device is not in listening mode.
+
+### setListenTimeout()
+
+```cpp
+// SYNTAX
+Ethernet.setListenTimeout(seconds);
+```
+
+`Ethernet.setListenTimeout(seconds)` is used to set a timeout value for Listening Mode.  Values are specified in `seconds`, and 0 disables the timeout.  By default, Ethernet devices do not have any timeout set (seconds=0).  As long as interrupts are enabled, a timer is started and running while the device is in listening mode (Ethernet.listening()==true).  After the timer expires, listening mode will be exited automatically.  If Ethernet.setListenTimeout() is called while the timer is currently in progress, the timer will be updated and restarted with the new value (e.g. updating from 10 seconds to 30 seconds, or 10 seconds to 0 seconds (disabled)).  
+**Note:** Enabling multi-threaded mode with SYSTEM_THREAD(ENABLED) will allow user code to update the timeout value while Listening Mode is active.
+
+```cpp
+// EXAMPLE
+// If desired, use the STARTUP() macro to set the timeout value at boot time.
+STARTUP(Ethernet.setListenTimeout(60)); // set listening mode timeout to 60 seconds
+
+void setup() {
+  // your setup code
+}
+
+void loop() {
+  // update the timeout later in code based on an expression
+  if (disableTimeout) Ethernet.setListenTimeout(0); // disables the listening mode timeout
+}
+```
+
+
+### getListenTimeout()
+
+```cpp
+// SYNTAX
+uint16_t seconds = Ethernet.getListenTimeout();
+```
+
+`Ethernet.getListenTimeout()` is used to get the timeout value currently set for Listening Mode.  Values are returned in (uint16_t)`seconds`, and 0 indicates the timeout is disabled.  By default, Ethernet devices do not have any timeout set (seconds=0).
+
+```cpp
+// EXAMPLE
+void setup() {
+  Serial.begin();
+  Serial.println(Ethernet.getListenTimeout());
+}
+```
+
+
+### macAddress
+
+`Ethernet.macAddress()` gets the MAC address of the Ethernet interface.
+
+```cpp
+// EXAMPLE
+void setup() {
+  Serial.begin();
+  
+  // Wait for a USB serial connection for up to 30 seconds
+  waitFor(Serial.isConnected, 30000);
+
+  uint8_t addr[6];
+  Ethernet.macAddress(addr);
+  
+  Serial.printlnf("mac: %02x-%02x-%02x-%02x-%02x-%02x", addr[0], addr[1], addr[2], addr[3], addr[4], addr[5]);
+}
+```
+
+### localIP()
+
+`Ethernet.localIP()` is used to get the IP address of the Ethernet interface as an `IPAddress`.
+
+```cpp
+// EXAMPLE
+void setup() {
+  Serial.begin();
+
+  // Wait for a USB serial connection for up to 30 seconds
+  waitFor(Serial.isConnected, 30000);
+
+  Serial.printlnf("localIP: %s", Ethernet.localIP().toString().c_str());
+}
+```
+
+### subnetMask()
+
+`Ethernet.subnetMask()` returns the subnet mask of the network as an `IPAddress`.
+
+```cpp
+
+void setup() {
+  Serial.begin(9600);
+  // Wait for a USB serial connection for up to 30 seconds
+  waitFor(Serial.isConnected, 30000);
+
+  // Prints out the subnet mask over Serial.
+  Serial.println(Ethernet.subnetMask());
+}
+```
+
+### gatewayIP()
+
+`Ethernet.gatewayIP()` returns the gateway IP address of the network as an `IPAddress`.
+
+```cpp
+
+void setup() {
+  Serial.begin(9600);
+  // Wait for a USB serial connection for up to 30 seconds
+  waitFor(Serial.isConnected, 30000);
+
+  // Prints out the gateway IP over Serial.
+  Serial.println(Ethernet.gatewayIP());
+}
+```
+
+### dnsServerIP()
+
+`Ethernet.dnsServerIP()` retrieves the IP address of the DNS server that resolves
+DNS requests for the device's network connection. This will often be 0.0.0.0.
+
+### dhcpServerIP()
+
+`Ethernet.dhcpServerIP()` retrieves the IP address of the DHCP server that manages
+the IP address used by the device's network connection. This often will be 0.0.0.0.
+
 {{/if}}
 
 
