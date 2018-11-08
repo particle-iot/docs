@@ -28,3 +28,4 @@ cd api-service && git fetch && git merge origin/${BRANCH} && cd ..
 [ -d api-service-libraries ] || git clone --depth ${DEPTH} https://github.com/particle-iot/api-service-libraries.git
 cd api-service-libraries && git fetch && git merge origin/master && cd ..
 
+	
