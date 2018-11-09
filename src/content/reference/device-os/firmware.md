@@ -1174,7 +1174,7 @@ void setup() {
 ```
 
 
-### macAddress
+### macAddress()
 
 `Ethernet.macAddress()` gets the MAC address of the Ethernet interface.
 
