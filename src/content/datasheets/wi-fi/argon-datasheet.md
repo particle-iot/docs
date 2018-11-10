@@ -36,7 +36,7 @@ The Argon is great for connecting existing projects to the Particle Device Cloud
   * ARM TrustZone CryptoCell-310 Cryptographic and security module 
   * Up to +8 dBm TX power (down to -20 dBm in 4 dB steps) 
   * NFC-A tag
- * On-board additional 2MB SPI flash
+ * On-board additional 4MB SPI flash
  * 20 mixed signal GPIO (6 x Analog, 8 x PWM), UART, I2C, SPI
  * Micro USB 2.0 full speed (12 Mbps)
  * Integrated Li-Po charging and battery connector
