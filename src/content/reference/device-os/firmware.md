@@ -10474,8 +10474,6 @@ The semi-automatic mode is therefore much like the automatic mode, except:
 - When the device boots up, `setup()` and `loop()` will begin running immediately.
 - Once the user calls [`Particle.connect()`](#particle-connect-), the user code will be blocked while the device attempts to negotiate a connection. This connection will block execution of `loop()` or `setup()` until either the device connects to the Cloud or an interrupt is fired that calls [`Particle.disconnect()`](#particle-disconnect-).
 
-`Particle.connect();
-
 ### Manual mode
 
 
