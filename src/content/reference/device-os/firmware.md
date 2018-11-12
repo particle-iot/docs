@@ -11234,7 +11234,7 @@ void setup() {
     // Register the event handler
     System.on(reset_pending, on_reset_pending);
     // Disable resetting of the device
-    System.enableReset();
+    System.disableReset();
 
 }
 
