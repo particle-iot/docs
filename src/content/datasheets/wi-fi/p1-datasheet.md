@@ -290,11 +290,11 @@ echo -e "\xFF" > fillbyte && dfu-util -d 2b04:d00a -a 1 -s 3106 -D fillbyte
 
 ### Pinout diagram
 
-<div align=left><a href="/assets/images/p1-pinout.pdf" target="_blank"><img src="/assets/images/p1-pinout1.png"</div></a></div>
+<div align=left><a href="/assets/images/p1-pinout.pdf" target="_blank"><img src="/assets/images/p1-pinout1.png"></a></div>
 
-<div align=left><a href="/assets/images/p1-pinout.pdf" target="_blank"><img src="/assets/images/p1-pinout2.png"</div></a></div>
+<div align=left><a href="/assets/images/p1-pinout.pdf" target="_blank"><img src="/assets/images/p1-pinout2.png"></a></div>
 
-<div align=left><a href="/assets/images/p1-pinout.pdf" target="_blank"><img src="/assets/images/p1-pinout3.png"</div></a></div>
+<div align=left><a href="/assets/images/p1-pinout.pdf" target="_blank"><img src="/assets/images/p1-pinout3.png"></a></div>
 
 You can download a high resolution pinout diagram in a <a href="/assets/images/p1-pinout.pdf" target="_blank"><strong>PDF version here.</strong></a></div><br>
 
