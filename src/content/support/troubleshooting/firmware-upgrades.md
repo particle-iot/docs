@@ -80,7 +80,7 @@ particle flash --usb system-part3-0.8.0-rc.11-electron.bin
 
 ### Electron and E Series (except E402)
 
-- Go to the [E402 firmware releases page](https://github.com/particle-iot/firmware/releases/latest). At the time of writing, this was 0.7.0.
+- Go to the [firmware releases page](https://github.com/particle-iot/firmware/releases/latest). At the time of writing, this was 0.7.0.
 - Download the system-part1, part2, and part3. for your device, for example: system-part1-0.7.0-electron.bin, system-part2-0.7.0-electron.bin, and system-part3-0.7.0-electron.bin. (The Electron and E series use the same system firmware.)
 - Put your device into DFU mode (blinking yellow), instructions [here](/tutorials/device-os/led/#dfu-mode-device-firmware-upgrade-).
 - Flash the code:
