@@ -106,9 +106,15 @@ There are three different variants of the Electron, and they each work in differ
 
 | Electron Name  | Service | Service Location | Bands (MHz) |
 | ------------- | :-------------: | :----: | :----: |
-| Electron G350  | 2G only | Worldwide | 850/900/1800/1900
+| Electron G350  | 2G only | Worldwide | 850/900/1800/1900 |
 | Electron U260  | 3G with 2G fallback | North and South America, Australia | 850/1900
 | Electron U270 | 3G with 2G fallback | Europe, Asia, Africa | 900/1800/2100 |
+| E Series E310 | 3G with 2G fallback | Worldwide | 850/900/1800/1900/2100 |
+| E Series E402 | LTE Cat M1 | United States (AT&T) | Bands 2, 4, 12 |
+| Boron 2G/3G | 3G with 2G fallback | Worldwide | 850/900/1800/1900/2100 | 
+| Boron LTE | LTE Cat M1 | United States (AT&T) | Bands 2, 4, 12 |
+
+The Boron LTE can be used in other locations with a 3rd-party SIM card on bands 2, 3, 4, 5, 8, 12, 13, 20, and 28.
 
 Make sure that your device is compatible with the cellular infrastructure in your country. Small country-by-country variations from the generalized table above may apply. For a detailed list of 3G service country by country, <a href="https://www.kickstarter.com/projects/sparkdevices/spark-electron-cellular-dev-kit-with-a-simple-data/description" target="_blank">please visit the following link</a>.
 
@@ -120,27 +126,32 @@ Your Electron cannot connect without the included external cellular antenna. Ple
 ![Attach the antenna](/assets/images/antenna_attach.jpg)
 
 ### 3) Is your battery connected?
-Your Electron *requires a Li-Po battery or high current power source to communicate wirelessly*. Make sure your battery is connected as depicted below:
+Your Electron, E Series E310, or Boron 2G/3G *requires a Li-Po battery or high current power source to communicate wirelessly*. Make sure your battery is connected as depicted below:
 
 ![Connect the battery](/assets/images/attach_batt.jpg)
 
 While the Electron does not *require* that you attach the USB cable, this will ensure that your battery does not run out of charge during the connection process.
 
+The E Series E402 (LTE) and Boron LTE can be used only powered by USB.
+
 ### 4) Is your SIM activated?
-In order for your Particle SIM card to connect to the cellular network, it needs to be activated. The *only* way to do this is to go through SIM activation and setup at [https://setup.particle.io](https://setup.particle.io). Follow the on-screen prompts to complete device setup and SIM activation.
+In order for your Particle SIM card to connect to the cellular network, it needs to be activated. The *only* way to do this is to go through SIM activation and setup at [https://setup.particle.io](https://setup.particle.io) or the mobile apps. Follow the on-screen prompts to complete device setup and SIM activation.
 
 ### 5) Are you using a 3rd party (non-Particle) SIM?
 If you're not using a Particle SIM, you will have to change the cellular APN on the Electron before it can connect. A Username and Password may also be required.  To connect the Electron with a 3rd party SIM, visit our [setup page](http://setup.particle.io), choose  "Setup an Electron with SIM card" and follow the on screen instructions to set your APN, download a new firmware binary, and flash it to your device.
 
 > **NOTE**: Until you have done this, your device _will not_ be able to connect to the Internet.
 
+If you are using the Boron, you should follow [the Boron 3rd-party SIM instructions](/support/particle-devices-faq/electron-3rdparty-sims/#setting-up-a-boron-with-a-3rd-party-sim-card) instead.
+
 ### 6) Check the cellular coverage in your area
 The Electron leverages a number of cellular carriers to provide excellent coverage, but it *is* possible that you are outside GSM coverage in your country. Fortunately, it's relatively simple to check:
 
 - Go to https://www.particle.io/pricing#cellular-data and select your country from the dropdown at the bottom of the page. Note the cellular provider in your country. In the US, for example, service is provided by `T-Mobile and AT&T`.
 - Navigate to <a href="http://opensignal.com" target="_blank">http://opensignal.com</a> in your browser
-- If you have an Electron G350, select "2G" and unselect "3G" and "4G" options. If you have an Electron U260 or U270, select both "2G" and "3G" and unselect the "4G" option. Limit the coverage map to the carrier providing service to your Particle SIM in your country (`T-Mobile and AT&T` in the US, for example).
+- If you have an Electron G350, select "2G" and unselect "3G" and "4G" options. If you have an Electron U260 or U270, select both "2G" and "3G" and unselect the "4G" option. Limit the coverage map to the carrier providing service to your Particle SIM in your country (`T-Mobile and AT&T` in the US, for example). Note that AT&T no longer provides 2G coverage.
 - Check the coverage map to ensure that you have coverage in your area.
+- If you are using an E Series E402 (LTE) or Boron LTE, the built-in Particle SIM card can only be used in the United States, on AT&T. It will only work in areas with LTE coverage; it cannot fall back to 3G.
 
 If you are outside of the coverage map, it's possible that the Particle SIM does not have coverage in your area, and your device will be unable to connect. We are always looking to expand our coverage network, and hope to provide coverage in your area soon!
 
@@ -279,6 +290,23 @@ Tapping the `{{system-button}}` button twice on your {{device}} enter soft power
 {{/if}}
 
 
+{{#if has-mesh}}
+### Network Reset (fast blinking blue)
+
+{{device-animation device "pattern"
+  "blink blue 20 times"
+  "blink blue 50ms 50ms 20 times"
+}}
+
+To erase the stored network settings on your {{device}}, hold the `{{system-button}}` button blinks dark blue, the continue to hold it down for about ten seconds longer, until the RGB LED blinks blue rapidly, then release.
+
+- For all mesh devices it will clear the mesh settings and the setup complete flag, so the device will go back into setup mode (listening mode)
+- For the Argon it will also clear Wi-Fi settings.
+- For the Boron, it will also clear the cellular APN and SIM selection.
+- For Ethernet, it will also clear the using Ethernet flag.
+
+{{/if}}
+
 {{#if photon}}
 
 ### Wi-Fi Network Reset
@@ -400,6 +428,48 @@ particle flash --usb tinker
 
 {{/if}}
 
+{{#if has-mesh}}
+Mesh devices can store a backup copy of any desired user firmware in flash memory at address 0x80200000, separate from user flash memory which is located at 0x000D4000.  This backup copy of firmware can be restored to user memory with a button sequence that is only available when the backup copy flash memory contains a valid firmware image. 
+
+To program your device with a backup copy of user firmware via USB, you'll need to put it in [DFU Mode](/tutorials/device-os/led/#dfu-mode-device-firmware-upgrade-) and run a command like one of the following:
+
+Argon:
+```
+dfu-util -d 2b04:d00c -a 2 -s 0x80200000 -D tinker-0.8.0-rc.25-argon.bin
+```
+
+Boron:
+```
+dfu-util -d 2b04:d00d -a 2 -s 0x80200000 -D tinker-0.8.0-rc.25-boron.bin
+```
+
+Xenon:
+```
+dfu-util -d 2b04:d00e -a 2 -s 0x80200000 -D tinker-0.8.0-rc.25-xenon.bin
+```
+
+You don't have to flash tinker, of course, that's just an example. Note that the d00c, d00d, or d00e varies depending on the type of device which is why there are three different commands.
+
+To factory reset the user firmware after flashing valid firmware using the previous step:
+
+Hold down the MODE button and tap RESET. The status LED will blink:
+
+- Magenta (red and blue at the same time, safe mode)
+- Yellow (DFU mode)
+- Fast blinking yellow (restore factory firmware)
+
+{{device-animation device "pattern"
+  "blink magenta 20 times"
+  "blink yellow 20 times"
+  "blink yellow 50ms 50ms 20 times"
+  "blink magenta 50ms 50ms 20 times"
+}}
+
+Be sure to release the mode button as soon as you get to fast blinking yellow, otherwise you'll go one step farther and clear all of your settings as well.
+
+ 
+{{/if}}
+
 {{#if electron}}
 _Since 0.6.0_
 
@@ -425,6 +495,37 @@ To enter Firmware Reset Mode:
 
 {{#unless core}}
 
+{{#if has-mesh}}
+
+Mesh devices from the factory somewhat ironically do not have a factory user firmware backup image installed. Thus it's best if you pre-install one using the steps above first. 
+
+To factory reset, hold down the MODE button and tap RESET. The status LED will blink:
+
+- Magenta (red and blue at the same time, safe mode)
+- Yellow (DFU mode)
+- Fast blinking yellow (restore factory firmware)
+- Fast blinking white (factory reset)
+
+This will:
+
+- Restore the factory backup user firmware (if present)
+- Clear mesh credentials
+- Boron: Clear any saved APN and default to internal SIM
+- Argon: Clear Wi-Fi credentials
+- Ethernet: Clear the using Ethernet flag
+- Clear the setup complete flag, to force setup mode again
+
+{{device-animation device "pattern"
+  "blink magenta 20 times"
+  "blink yellow 20 times"
+  "blink yellow 50ms 50ms 20 times"
+  "blink white 50ms 50ms 20 times"
+  "blink magenta 50ms 50ms 20 times"
+  "blink blue 50 times"
+}}
+
+{{else}}
+
 Factory reset is not available on the {{device}}, but not to worry! If you are experiencing problems with your application firmware, you can use [Safe Mode](#safe-mode) to recover.
 
 {{#if photon}}
@@ -436,8 +537,9 @@ The [Particle CLI](https://docs.particle.io/tutorials/developer-tools/cli) can a
 ```
 particle device doctor
 ```
+{{/if}} {{!-- has-mesh --}}
 
-{{/unless}}
+{{/unless}} {{!-- core --}}
 
 {{#if core}}
 
