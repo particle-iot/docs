@@ -57,7 +57,7 @@ Some carriers may also require a username and password. Note those, if they are 
 {{collapse op="cellularDevice"}}
 
 {{collapse op="start" cellularDevice="Boron"}}
-## Setting up a Boron with a 3rd-party SIM card
+## Setting up a 3rd-party SIM card - Boron
 
 - For the Boron 2G/3G most nano SIM cards are compatible.
 - For the Boron LTE, support for LTE Cat M1 is required. This is an IoT-specific subset of LTE, and not all carriers support LTE Cat M1 at this time. Some may not have approved the u-blox SARA-R410M-02B modem used in the Boron LTE yet and may not allow it on their network, as well.
@@ -168,7 +168,7 @@ On the Boron, the APN (also username and password, if used) and the SIM card cho
 You only need to set the APN and SIM selection once, however the keep-alive value is not saved, so you will still need to add that to your user firmware.
 
 
-## Switching back to the Particle SIM
+## Switching back to the Particle SIM - Boron
 
 To switch back to the internal M2FF embedded Particle SIM card on the Boron, you need to flash code to change the SIM card setting:
 
@@ -192,7 +192,7 @@ void loop() {
 
 You don't need to do anything with the cloud settings or claiming when swapping between internal and external SIM cards. 
 
-## Models and cellular bands
+## Models and cellular bands - Boron
 
 ### Boron 2G/3G
 
@@ -209,11 +209,11 @@ Note that the Boron LTE is LTE Cat M1, which is a special subset of LTE for IoT 
 
 The embedded M2FF Particle SIM card on the Boron LTE only supports AT&T, and only in the United States. It may be possible to use it with a 3rd-party SIM card in other locations with the Boron LTE, but this is not currently supported and may or may not work.
 
-
 {{collapse op="end"}}
+
 {{collapse op="start" cellularDevice="Electron"}}
 
-## Using setup.particle.io with 3rd-party SIM
+## Using setup.particle.io with 3rd-party SIM - Electron
 
 Using the standard setup at [https://setup.particle.io](https://setup.particle.io) is the easiest way to get started. You'll need the ICCID of your 3rd-party SIM card. 
 
@@ -228,7 +228,7 @@ You'll then be taken to the page for non-Particle SIM cards.
 You can follow the instructions on the page to complete setup. There are some additional hints below, as well.
 
 
-## Making Tinker with APN setting
+## Making Tinker with APN setting - Electron
 
 One of the features of setup.particle.io is the ability to download a version of Tinker (the default user firmware on your Electron) that sets the APN for your SIM card. 
 
@@ -484,7 +484,7 @@ particle flash --usb firmware.bin
 You can flash an Electron with code even before you're claimed it or gotten connected to the Internet. In fact, you'll have to when you're using a 3rd-party SIM.
 
 
-## About APN setting (lack of) persistence
+## About APN setting persistence - Electron
 
 On the Electron, APN setting is not stored in configuration flash. Thus you should include it in every program that you run on the Electron that uses a 3rd party SIM. This is different than the Photon, where configuration parameters like Wi-Fi settings are stored in configuration flash. 
 
@@ -492,13 +492,13 @@ In other words, even though you flashed a APN setting Tinker to your Electron, y
 
 You can be fooled into believing otherwise, because the APN is actually stored in the cellular modem, and flashing new user code or using the RESET button doesn't completely reset the modem to save time and data usage. So it looks like the setting sticks, but as soon as you completely power down the modem by unplugging the battery or using deep sleep the APN setting will go away.
 
-## Switching between Particle and 3rd-party SIM cards
+## Switching between Particle and 3rd-party SIM cards - Electron
 
 The only thing you need to do when switching between Particle and 3rd-party SIM cards is update the firmware to set or not set the APN and keep-alive, completely power down the Electron, swap the SIM card, and power it back up.
 
 You don't need to do anything with the cloud settings or claiming when swapping between SIM cards. 
 
-## Models and cellular bands
+## Models and cellular bands - Electron and E Series
 
 ### Electron
 
@@ -515,8 +515,6 @@ The U260 model supports 850/1900 MHz for both 3G (UMTS/HSPA) and 2G (GPRS/EDGE).
 The U270 model supports 900/2100 MHz for 3G (UMTS/HSPA) and 900/1800 MHz for 2G (GPRS/EDGE).
 
 The 2G Electron (G350) supports 850, 900, 1800 and 1900 MHz (GPRS/EDGE).
-
-### E Series
 
 ### E Series E310
 
