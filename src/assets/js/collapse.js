@@ -1,20 +1,19 @@
 
 $(document).ready(function() {
-	var d = collapseComputerOsDefault();
-	if (d) {
-		collapseComputerOs(d);
-	}
-	else {
-		collapseComputerOs('Windows');
-	}
-	
-	d = collapsePhotoSensorDefault();
-	if (d) {
-		collapsePhotoSensor(d);
-	}
-	else {
-		collapsePhotoSensor('Transistor');
-	}
+
+	$('input.collapseDefault').each(function(index) {
+		var genericCssClass = $(this).attr('name');
+		var defaultValue = $(this).attr('value');
+
+		var switchTo = localStorage.getItem(genericCssClass) || defaultValue;
+    	collapseSelector(genericCssClass, switchTo);
+	});
+	$('input.collapseForce').each(function(index) {
+		var genericCssClass = $(this).attr('name');
+		var defaultValue = $(this).attr('value');
+
+    	collapseSelector(genericCssClass, defaultValue);
+	});
 });
 
 function collapseToggle(id) {	 
@@ -28,52 +27,12 @@ function collapseToggle(id) {
 	}
 }
 
-function collapseComputerOs(switchTo) {
-	$('div.collapseComputerOs').hide();
-	$('div.collapseComputerOs' + switchTo).show();			
+function collapseSelector(genericCssClass, switchTo) {
+	$('div.' + genericCssClass).hide();
+	$('div.' + genericCssClass + switchTo).show();			
 
-	$('input.collapseComputerOs').removeProp('checked');
-	$('input.collapseComputerOs' + switchTo).prop('checked', 'checked');
-
-	// Hide navigation menu items for sections that are hidden
-	$('div.in-page-toc-container').each(function(index, toc) {		
-		$(toc).find('a').each(function(index, anchor) {
-			var href = $(anchor).prop('href');
-			var hashOffset = href.lastIndexOf('#');
-			if (hashOffset >= 0) {
-				var hash = href.substring(hashOffset + 1);
-				if ($('#' + hash).is(':hidden')) {
-					$(anchor).parents('li').hide();
-				}
-				else {
-					$(anchor).parents('li').show();
-				}
-			}
-		});
-	});
-	
-	collapseComputerOsDefault(switchTo);
-
-}
-
-function collapseComputerOsDefault(switchTo) {
-	var localStorageKey = 'collapseComputerOsDefault';
-	
-	if (switchTo) {
-		localStorage.setItem(localStorageKey, switchTo);
-	}
-	else {
-		switchTo = localStorage.getItem(localStorageKey);
-	}
-	return switchTo;
-}
-
-function collapsePhotoSensor(switchTo) {
-	$('div.collapsePhotoSensor').hide();
-	$('div.collapsePhotoSensor' + switchTo).show();			
-
-	$('input.collapsePhotoSensor').removeProp('checked');
-	$('input.collapsePhotoSensor' + switchTo).prop('checked', 'checked');
+	$('input.' + genericCssClass).removeProp('checked');
+	$('input.' + genericCssClass + switchTo).prop('checked', 'checked');
 
 	// Hide navigation menu items for sections that are hidden
 	$('div.in-page-toc-container').each(function(index, toc) {		
@@ -92,21 +51,9 @@ function collapsePhotoSensor(switchTo) {
 		});
 	});
 	
-	collapsePhotoSensorDefault(switchTo);
-
+	localStorage.setItem(genericCssClass, switchTo);
 }
 
-function collapsePhotoSensorDefault(switchTo) {
-	var localStorageKey = 'collapsePhotoSensorDefault';
-	
-	if (switchTo) {
-		localStorage.setItem(localStorageKey, switchTo);
-	}
-	else {
-		switchTo = localStorage.getItem(localStorageKey);
-	}
-	return switchTo;
-}
 function collapseCopy(id) {
 	var elem = document.getElementById(id);
 	$(elem).show();
