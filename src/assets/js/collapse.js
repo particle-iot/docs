@@ -42,7 +42,7 @@ function collapseSelector(genericCssClass, switchTo) {
 			if (hashOffset >= 0) {
 				var hash = href.substring(hashOffset + 1);
 				if ($('#' + hash).is(':hidden')) {
-					$(anchor).parents('li').hide();
+					$(anchor).parent('li').hide();
 				}
 				else {
 					$(anchor).parents('li').show();
@@ -50,7 +50,7 @@ function collapseSelector(genericCssClass, switchTo) {
 			}
 		});
 	});
-	
+
 	localStorage.setItem(genericCssClass, switchTo);
 }
 
