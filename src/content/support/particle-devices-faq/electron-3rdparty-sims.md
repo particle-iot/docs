@@ -15,6 +15,8 @@ The **E Series** does not have a SIM card slot and cannot use a 3rd-party SIM ca
 
 The **Boron** has both a M2FF embedded SIM card (the default) and a nano SIM card slot for a 3rd-party SIM card. You need to tell the device which one you want to use, however.
 
+{{collapse op="cellularDevice"}}
+
 Several of the steps below require the Particle CLI, so if you haven't installed it yet, you should do so now. The instructions are at the [top of CLI page](/tutorials/developer-tools/cli/).
 
 All SIMs, including 3rd-party SIMs, must be activated. The method for activating varies by carrier; you might do this from a web site or with a phone call. If you're using the SIM that was in your phone, it's already activated. Being activated or not is part of the state of the SIM and doesn't depend on what device it's being used in. 
@@ -41,6 +43,20 @@ The Electron and Boron do not currently support SIM cards with a PIN. If your SI
 
 The easiest way to remove a SIM PIN is from a phone. On the iPhone, it's in Settings - Phone - SIM PIN. 
 
+## Finding your APN
+
+The APN ("Access Point Name") specifies how the Electron should connect to the Internet. The setting varies by carrier, and sometimes by country. If you're searching Google for your APN, be aware that some carriers may list separate WAP APN or MMS APNs; you want to use the Generic or Internet APN.
+
+There is no set structure to an APN. Here are some examples: broadband, internet, three.co.uk.
+
+If you have set your APN correctly the Electron should proceed through the normal states: breathing white, blinking green, blinking cyan, fast blinking cyan, and finally to breathing cyan, even before you've claimed the Electron. In fact, the Electron must be in breathing cyan to complete the claiming process.
+
+Some carriers may also require a username and password. Note those, if they are required, as well.
+
+
+{{collapse op="cellularDevice"}}
+
+{{collapse op="start" cellularDevice="Boron"}}
 ## Setting up a Boron with a 3rd-party SIM card
 
 - For the Boron 2G/3G most nano SIM cards are compatible.
@@ -84,7 +100,7 @@ void loop() {
 }
 ```
 
-- Replace "epc.tmobile.com" with the APN for your SIM card (see below for more details about the APN).
+- Replace "epc.tmobile.com" with the APN for your SIM card (see above for more details about the APN).
 - Compile the code and flash it in DFU mode (blinking yellow):
 
 ```html
@@ -145,7 +161,59 @@ void loop() {
 
 - This method is intended for using the Boron as a standalone, non-mesh, device, like an Electron. It's difficult to set up a mesh network using a 3rd-party SIM card at this time, because the mobile app will default to trying to activate the Particle SIM card. You can, however, set up the network using the Particle SIM and switch it to a 3rd-party SIM card once set up.
 
-## Electron: Using setup.particle.io with 3rd-party SIM
+## The APN setting is persistent on the Boron
+
+On the Boron, the APN (also username and password, if used) and the SIM card choice (internal or external) is saved in configuration flash. This setting is saved across reset, power-down, user and system firmware updates.
+
+You only need to set the APN and SIM selection once, however the keep-alive value is not saved, so you will still need to add that to your user firmware.
+
+
+## Switching back to the Particle SIM
+
+To switch back to the internal M2FF embedded Particle SIM card on the Boron, you need to flash code to change the SIM card setting:
+
+```cpp
+#include "Particle.h"
+
+SYSTEM_MODE(SEMI_AUTOMATIC);
+
+void setup() {
+	Cellular.setActiveSim(INTERNAL_SIM);
+	Cellular.clearCredentials();
+
+	// This is just so you know the operation is complete
+	pinMode(D7, OUTPUT);
+	digitalWrite(D7, HIGH);
+}
+
+void loop() {
+}
+```
+
+You don't need to do anything with the cloud settings or claiming when swapping between internal and external SIM cards. 
+
+## Models and cellular bands
+
+### Boron 2G/3G
+
+The Boron 2G/3G uses the 5-band u-blox SARA-U201 cellular modem and can be used for 2G and 3G world-wide:
+
+- In the Americas, it can use 2G and 3G on 850 MHz and 1900 MHz
+- In Europe, Asia, and Africa it can use 900/1800 MHz for 2G and 900/2100 MHz for 3G.
+- In places with a mix, like Australia, it can use combinations like 850/2100.
+- In places that no longer have 2G service, like Australia, Korea, Japan, and Singapore, it will of course only use 3G.
+
+### Boron LTE
+
+Note that the Boron LTE is LTE Cat M1, which is a special subset of LTE for IoT devices. Many carriers do not support Cat M1 LTE at this time.
+
+The embedded M2FF Particle SIM card on the Boron LTE only supports AT&T, and only in the United States. It may be possible to use it with a 3rd-party SIM card in other locations with the Boron LTE, but this is not currently supported and may or may not work.
+
+
+{{collapse op="end"}}
+{{collapse op="start" cellularDevice="Electron"}}
+
+## Using setup.particle.io with 3rd-party SIM
 
 Using the standard setup at [https://setup.particle.io](https://setup.particle.io) is the easiest way to get started. You'll need the ICCID of your 3rd-party SIM card. 
 
@@ -159,17 +227,8 @@ You'll then be taken to the page for non-Particle SIM cards.
 
 You can follow the instructions on the page to complete setup. There are some additional hints below, as well.
 
-## Finding your APN
 
-The APN ("Access Point Name") specifies how the Electron should connect to the Internet. The setting varies by carrier, and sometimes by country. If you're searching Google for your APN, be aware that some carriers may list separate WAP APN or MMS APNs; you want to use the Generic or Internet APN.
-
-There is no set structure to an APN. Here are some examples: broadband, internet, three.co.uk.
-
-If you have set your APN correctly the Electron should proceed through the normal states: breathing white, blinking green, blinking cyan, fast blinking cyan, and finally to breathing cyan, even before you've claimed the Electron. In fact, the Electron must be in breathing cyan to complete the claiming process.
-
-Some carriers may also require a username and password. Note those, if they are required, as well.
-
-## Electron: Making Tinker with APN setting
+## Making Tinker with APN setting
 
 One of the features of setup.particle.io is the ability to download a version of Tinker (the default user firmware on your Electron) that sets the APN for your SIM card. 
 
@@ -425,7 +484,7 @@ particle flash --usb firmware.bin
 You can flash an Electron with code even before you're claimed it or gotten connected to the Internet. In fact, you'll have to when you're using a 3rd-party SIM.
 
 
-## Electron: About APN setting (lack of) persistence
+## About APN setting (lack of) persistence
 
 On the Electron, APN setting is not stored in configuration flash. Thus you should include it in every program that you run on the Electron that uses a 3rd party SIM. This is different than the Photon, where configuration parameters like Wi-Fi settings are stored in configuration flash. 
 
@@ -433,11 +492,50 @@ In other words, even though you flashed a APN setting Tinker to your Electron, y
 
 You can be fooled into believing otherwise, because the APN is actually stored in the cellular modem, and flashing new user code or using the RESET button doesn't completely reset the modem to save time and data usage. So it looks like the setting sticks, but as soon as you completely power down the modem by unplugging the battery or using deep sleep the APN setting will go away.
 
-## Boron: The APN setting is persistent!
+## Switching between Particle and 3rd-party SIM cards
 
-On the Boron, the APN (also username and password, if used) and the SIM card choice (internal or external) is saved in configuration flash. This setting is saved across reset, power-down, user and system firmware updates.
+The only thing you need to do when switching between Particle and 3rd-party SIM cards is update the firmware to set or not set the APN and keep-alive, completely power down the Electron, swap the SIM card, and power it back up.
 
-You only need to set the APN and SIM selection once, however the keep-alive value is not saved, so you will still need to add that to your user firmware.
+You don't need to do anything with the cloud settings or claiming when swapping between SIM cards. 
+
+## Models and cellular bands
+
+### Electron
+
+The 3G Electrons come in two varieties, the Americas/Australia (U260) and Europe/Asia/Africa (U270). 
+
+The lines are not that clearly drawn, however, and may vary by carrier in a given country. For example:
+
+In Australia, we recommend the U260 because the carrier used by the Particle SIM, Telstra, primarily uses 850 MHz. However, if you are using a 3rd-party SIM from Optus, you'll need the U270 because Optus uses 900/2100 MHz.
+
+In Uruguay, the carrier used by the Particle SIM, Movistar, uses 1900 MHz so the U260 Americas model is the correct one. If you're using an Ancel SIM, however, that uses 2100 MHz you you'll nee the U270 model, instead.
+
+The U260 model supports 850/1900 MHz for both 3G (UMTS/HSPA) and 2G (GPRS/EDGE).
+
+The U270 model supports 900/2100 MHz for 3G (UMTS/HSPA) and 900/1800 MHz for 2G (GPRS/EDGE).
+
+The 2G Electron (G350) supports 850, 900, 1800 and 1900 MHz (GPRS/EDGE).
+
+### E Series
+
+### E Series E310
+
+The E Series E310 uses the 5-band u-blox SARA-U201 cellular modem and can be used for 2G and 3G world-wide:
+
+- In the Americas, it can use 2G and 3G on 850 MHz and 1900 MHz
+- In Europe, Asia, and Africa it can use 900/1800 MHz for 2G and 900/2100 MHz for 3G.
+- In places with a mix, like Australia, it can use combinations like 850/2100.
+- In places that no longer have 2G service, like Australia, Korea, Japan, and Singapore, it will of course only use 3G.
+
+### E Series E402
+
+Note that the E Series LTE is LTE Cat M1, which is a special subset of LTE for IoT devices. Many carriers do not support Cat M1 LTE at this time.
+
+The embedded M2FF Particle SIM card on the E Series E402 only supports AT&T, and only in the United States.
+
+
+{{collapse op="end"}}
+
 
 ## Claiming an Electron or Boron manually
 
@@ -539,67 +637,6 @@ And add this to your loop:
 
 Basically, you need to set the keep alive only after successfully connected to the Particle cloud, and every time you've disconnected.
 
-## Electron: Switching between Particle and 3rd-party SIM cards
-
-The only thing you need to do when switching between Particle and 3rd-party SIM cards is update the firmware to set or not set the APN and keep-alive, completely power down the Electron, swap the SIM card, and power it back up.
-
-You don't need to do anything with the cloud settings or claiming when swapping between SIM cards. 
-
-## Boron: Switching back to the Particle SIM
-
-To switch back to the internal M2FF embedded Particle SIM card on the Boron, you need to flash code to change the SIM card setting:
-
-```cpp
-#include "Particle.h"
-
-SYSTEM_MODE(SEMI_AUTOMATIC);
-
-void setup() {
-	Cellular.setActiveSim(INTERNAL_SIM);
-	Cellular.clearCredentials();
-
-	// This is just so you know the operation is complete
-	pinMode(D7, OUTPUT);
-	digitalWrite(D7, HIGH);
-}
-
-void loop() {
-}
-```
-
-You don't need to do anything with the cloud settings or claiming when swapping between internal and external SIM cards. 
-
-
-## Electron models and cellular bands
-
-The 3G Electrons come in two varieties, the Americas/Australia (U260) and Europe/Asia/Africa (U270). 
-
-The lines are not that clearly drawn, however, and may vary by carrier in a given country. For example:
-
-In Australia, we recommend the U260 because the carrier used by the Particle SIM, Telstra, primarily uses 850 MHz. However, if you are using a 3rd-party SIM from Optus, you'll need the U270 because Optus uses 900/2100 MHz.
-
-In Uruguay, the carrier used by the Particle SIM, Movistar, uses 1900 MHz so the U260 Americas model is the correct one. If you're using an Ancel SIM, however, that uses 2100 MHz you you'll nee the U270 model, instead.
-
-The U260 model supports 850/1900 MHz for both 3G (UMTS/HSPA) and 2G (GPRS/EDGE).
-
-The U270 model supports 900/2100 MHz for 3G (UMTS/HSPA) and 900/1800 MHz for 2G (GPRS/EDGE).
-
-The 2G Electron (G350) supports 850, 900, 1800 and 1900 MHz (GPRS/EDGE).
-
-## Boron 2G/3G and E Series E310 cellular bands
-
-The Boron 2G/3G uses the 5-band u-blox SARA-U201 cellular modem and can be used for 2G and 3G world-wide:
-
-- In the Americas, it can use 2G and 3G on 850 MHz and 1900 MHz
-- In Europe, Asia, and Africa it can use 900/1800 MHz for 2G and 900/2100 MHz for 3G.
-- In places with a mix, like Australia, it can use combinations like 850/2100.
-- In places that no longer have 2G service, like Australia, Korea, Japan, and Singapore, it will of course only use 3G.
-
-## Boron LTE and E Series E402 carrier support
-
-Note that the Boron LTE and E Series LTE is LTE Cat M1, which is a special subset of LTE for IoT devices. Many carriers do not support Cat M1 LTE at this time.
-
-The embedded M2FF Particle SIM card on the Boron LTE only supports AT&T, and only in the United States. It may be possible to use it with a 3rd-party SIM card in other locations with the Boron LTE, but this is not currently supported and may or may not work.
 
 ## More troubleshooting tips
 
@@ -626,6 +663,8 @@ Also note that the 2G Electron is not supported in Japan, Australia, Korea, and 
 [Blinking magenta](/tutorials/device-os/led/electron/#safe-mode) is safe mode, and is an entirely different problem than connectivity. You can find more about safe mode in [this post](https://community.particle.io/t/safe-mode-explained/26259).
 
 
+{{collapse op="start" cellularDevice="Electron"}}
+
 ## Electron troubleshooting app
 
 The Electron troubleshooting app allows you to test individual features of connectivity. A report from this tool is helpful if you have a problem that you need to report to technical support.
@@ -646,3 +685,4 @@ This program can print some useful information about your cellular connection th
 
 [https://github.com/rickkas7/electron_cellular](https://github.com/rickkas7/electron_cellular)
 
+{{collapse op="end"}}

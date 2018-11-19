@@ -456,6 +456,8 @@ This example uses the same setup as the LED control example to make a `Particle.
 {{#if has-mesh}}
 We will get a value from a photo transistor and store it in the cloud. The photo transistor and a clear LED look similar, but the LED has rounded top and the photo transistor has a flat top.
 
+{{collapse op="photoSensor" force="Transistor"}}
+
 {{else}}
 We will get a value from a photo resistor or photo transistor and store it in the cloud.
 

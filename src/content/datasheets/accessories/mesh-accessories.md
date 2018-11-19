@@ -253,7 +253,7 @@ The Particle Debugger gives you the power of professional debugging at a fractio
 
 Supports the open source [CMSIS-DAP specification](https://os.mbed.com/handbook/DAPLink) and DAPLink firmware developed by ARM. On Mac, Linux, and Windows it requires no additional device drivers. 
 
-It also provides a USB to TTL serial port. This requires no device drivers on Mac, Linux, or Windows 10 or later, but you may need to [install a device driver](http://os.mbed.com/media/downloads/drivers/mbedWinSerial_16466.exe) for earlier versions of Windows to use the serial port feature.
+It also provides a USB to TTL serial port. This requires no device drivers on Mac, Linux, or Windows 10 or later, but you may need to [install a device driver](https://os.mbed.com/docs/v5.9/tutorials/windows-serial-driver.html) for earlier versions of Windows to use the serial port feature.
 
 Comes with one JTAG ribbon cable.
 
