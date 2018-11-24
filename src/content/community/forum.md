@@ -76,7 +76,6 @@ Stop by and join on of the best places online meet other people using Particle t
 
 ## Conferences
 
-- [June 11-15 - NDC {Oslo} ](https://ndcoslo.com/talk/ditching-promises-and-socially-acceptable-callback-hell/)
 - [August 5-8 - That Conference](https://www.thatconference.com/sessions/session/12893)
 - [September 27 - Open Source Hardware Summit](https://2018.oshwa.org/)
 - [October 21-23 - All Things Open](https://allthingsopen.org/)
