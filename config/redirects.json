@@ -189,6 +189,7 @@
     "/support/support-and-fulfillment/returns": "/support/shipping-and-returns/returns",
     "/support/support-and-fulfillment/shipping": "/support/shipping-and-returns/shipping",
     "/support/troubleshooting/common-issues": "/tutorials/device-os/led",
+    "/support/troubleshooting/common-issues/p1": "/tutorials/device-os/led/photon",
     "/support/troubleshooting/connecting-help": "/tutorials/device-os/led",
     "/support/troubleshooting/troubleshooting-support": "/tutorials/device-os/led",
     "/tinker": "/tutorials/developer-tools/tinker",
