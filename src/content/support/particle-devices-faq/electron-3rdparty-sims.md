@@ -498,7 +498,7 @@ The only thing you need to do when switching between Particle and 3rd-party SIM 
 
 You don't need to do anything with the cloud settings or claiming when swapping between SIM cards. 
 
-## Models and cellular bands - Electron and E Series
+## Models and cellular bands - Electron
 
 ### Electron
 
