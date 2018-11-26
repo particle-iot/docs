@@ -9184,7 +9184,7 @@ void loop()
 
 ### Advanced
 
-For more advanced date parsing, formatting, normalization and manipulation functions, use the C standard library time functions like `mktime`. See the [note about the standard library on the {{device}}](#other-functions) and the [description of the C standard libray time functions](https://en.wikipedia.org/wiki/C_date_and_time_functions).
+For more advanced date parsing, formatting, normalization and manipulation functions, use the C standard library time functions like `mktime`. See the [note about the standard library on the {{device}}](#other-functions) and the [description of the C standard library time functions](https://en.wikipedia.org/wiki/C_date_and_time_functions).
 
 {{#if has-interrupts}}
 
