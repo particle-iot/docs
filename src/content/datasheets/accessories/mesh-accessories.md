@@ -198,6 +198,8 @@ The Ethernet driver for this wing is baked into the Mesh Device OS. When you set
 
 The hardware design for this wing is completely opensource. All the files are available on our [GitHub repository here.](https://github.com/particle-iot/ethernet-wing)
 
+If you are using the Adafruit Ethernet Feather Wing, be sure to connect the nRESET and nINTERRUPT pins (on the small header on the short side) to pins D3 and D4 with jumper wires. These are required for proper operation.
+
 ## Classic Adapter
 
 <div align=center><img src="/assets/images/accessories/classic-adapter.png" ></div>

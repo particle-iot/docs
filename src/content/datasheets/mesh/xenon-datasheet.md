@@ -99,7 +99,7 @@ The following antenna is optional, as the Xenon comes with an on-board PCB anten
 | :---:|:---:|:---:|
 | Digital | 20 | I/O |
 | Analog (ADC) | 6 | I |
-| UART | 1 | I/O |
+| UART | 2 | I/O |
 | SPI  | 1 | I/O |
 | I2C  | 2 | I/O |
 | USB  | 1 | I/O |
@@ -162,6 +162,10 @@ You can download a high resolution <a href="/assets/images/xenon/xenon-pinout-v1
 |MO,MI,SCK| These are the SPI interface pins,  but can also be used as a digital GPIO.|
 |D2-D8  | These are generic GPIO pins. D2-D8 are PWM-able.|
 |A0-A5  | These are analog input pins that can also act as standard digital GPIO. A0-A5 are PWM-able.|
+|D4 | TX for Serial2. Can be used as GPIO if not using Serial2.|
+|D5 | RX for Serial2. Can be used as GPIO if not using Serial2.|
+|D6 | CTS for Serial2. Can be used as GPIO if not using Serial2.|
+|D8 | RTS for Serial2. Can be used as GPIO if not using Serial2.|
 
 ---
 

@@ -142,7 +142,9 @@
     "tcpserver",
     "tcpclient",
     "udp-cloud",
-    "ethernet"
+    "ethernet",
+    "battery-voltage",
+    "eeprom-file"
   ],
   "Boron": [
 	"nrf52",
@@ -174,7 +176,8 @@
     "set-credentials",
     "set-active-sim",
     "udp-cloud",
-    "ethernet"
+    "ethernet",
+    "eeprom-file"
   ],
   "Xenon": [
 	"nrf52",
@@ -205,6 +208,8 @@
     "tcpserver",
     "tcpclient",
     "udp-cloud",
-    "ethernet"
+    "ethernet",
+    "battery-voltage",
+    "eeprom-file"
   ]
 }

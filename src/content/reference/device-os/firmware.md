@@ -862,6 +862,7 @@ void setup() {
 {{#if has-mesh}}
 ## Mesh
 
+At the time of writing (Device OS 0.8.0-rc.25), mesh antenna selection is not yet supported. Only the internal mesh antenna can be used at this time.
 
 ### publish()
 
@@ -1050,6 +1051,16 @@ void setup() {
 ## Ethernet
 
 Ethernet is available on the Argon, Boron, and Xenon when used with the [Ethernet FeatherWing](/datasheets/accessories/mesh-accessories/#ethernet-featherwing).
+
+By default, Ethernet detection is not done because it will toggle GPIO that may affect circuits that are not using Ethernet. When you select Ethernet during mobile app setup, it is enabled and the setting stored in configuration flash.
+
+It's also possible to enable Ethernet detection from code. This is saved in configuration flash so you don't need to call it every time.
+
+```
+STARTUP(System.enableFeature(FEATURE_ETHERNET_DETECTION));
+```
+
+If you are using the Adafruit Ethernet Feather Wing (instead of the Particle Feather Wing), be sure to connect the nRESET and nINTERRUPT pins (on the small header on the short side) to pins D3 and D4 with jumper wires. These are required for proper operation.
 
 ### on()
 
@@ -3192,6 +3203,10 @@ void setup() {
 
 `Cellular.command()` is a powerful API that allows users access to directly send AT commands to, and parse responses returned from, the Cellular module.  Commands may be sent with and without printf style formatting. The API also includes the ability pass a callback function pointer which is used to parse the response returned from the cellular module.
 
+{{#if boron}}
+At the time of writing (Device OS 0.8.0-rc.25), Cellular.command has not been implemented on the Boron yet.
+{{/if}}
+
 **Note:** Obviously for this command to work the cellular module needs to be switched on, which is not automatically the case in [`SYSTEM_MODE(MANUAL)`](#manual-mode) or [`SYSTEM_MODE(SEMI_AUTOMATIC)`](#semi-automatic-mode). This can be achieved explicitly via [`Cellular.on()`](#on-) or implicitly by calling [`Cellular.connect()`](#connect-) or [`Particle.connect()`](#particle-connect-).
 
 You can download the latest <a href="https://www.u-blox.com/en/product-resources/2432?f[0]=field_file_category%3A210" target="_blank">u-blox AT Commands Manual</a>.
@@ -3292,6 +3307,18 @@ There are 13 different enumerated AT command responses passed by the system into
 
 {{/if}} {{!-- electron --}}
 
+{{#if has-battery-voltage}}
+## Battery Voltage
+
+The {{device}} does not have a fuel gauge chip, however you can determine the voltage of the LiPo battery, if present.
+
+```C++
+float voltage = analogRead(BATT) * 0.0011224;
+```
+
+The constant 0.0011224 is based on the voltage divider circuit (R1 = 806K, R2 = 2M) that lowers the 3.6V LiPo battery output to a value that can be read by the ADC.
+
+{{/if}}
 
 {{#if has-fuel-gauge}}
 ## FuelGauge
@@ -3414,6 +3441,17 @@ If you are using the Particle Ethernet FeatherWing you cannot use the pins for G
 - D4 (INTN)
 - D5 (SCSN) 
 - SPI (SCK, MOSI, MISO) is also used, however you can still share the SPI bus in many cases.
+{{/if}}
+
+{{#if xenon}}
+On the Xenon only, there is an optional second UART (serial) interface. If using Serial2, the following pins cannot be used as GPIO:
+
+- D4 (TX for Serial2)
+- D5 (RX for Serial2)
+- D6 (CTS for Serial2)
+- D8 (RTS for Serial2)
+
+As these pins overlap the Particle Ethernet FeatherWing, you cannot use Serial2 and the Ethernet FeatherWing at the same time.
 {{/if}}
 
 ### getPinMode(pin)
@@ -9203,6 +9241,11 @@ Specifies a function to call when an external interrupt occurs. Replaces any pre
 **NOTE:**
 `pinMode()` MUST be called prior to calling attachInterrupt() to set the desired mode for the interrupt pin (INPUT, INPUT_PULLUP or INPUT_PULLDOWN).
 
+{{#if has-nrf52}}
+All A and D pins (including TX, RX, and SPI) on 3rd generation (mesh) devices can be used for interrupts, however you can only attach interrupts to 8 pins at the same time.
+{{/if}}
+
+{{#if has-stm32}}
 External interrupts are supported on the following pins:
 
 **Photon**
@@ -9275,6 +9318,7 @@ Shared on the Electron/E series (only one pin for each bullet item can be used a
 
 Interrupts supported on D0, D1, D2, D3, D4, A0, A1, A3, A4, A5, A6, A7 only.
 {{/if}}
+{{/if}} {{!-- has-stm32 --}}
 
 ```
 // SYNTAX
@@ -9897,6 +9941,12 @@ from the cloud, and setting the seed is left to up you.
 
 ## EEPROM
 
+{{#if has-eeprom-file}}
+EEPROM emulation allows small amounts  of data to be stored and persisted even across reset, power down, and user and system firmware flash operations.
+
+On the {{device}} the EEPROM emulation is stored as a file on the flash file system. Since the data is spread across a large number of flash sectors, flash erase-write cycle limits should not be an issue in general.
+
+{{else}}
 EEPROM emulation allocates a region of the device's built-in Flash memory to act as EEPROM.
 Unlike "true" EEPROM, flash doesn't suffer from write "wear" with each write to
 each individual address. Instead, the page suffers wear when it is filled.
@@ -9905,6 +9955,8 @@ Each write containing changed values will add more data to the page until it is 
 
 The EEPROM functions can be used to store small amounts of data in Flash that
 will persist even after the device resets after a deep sleep or is powered off.
+{{/if}}
+
 
 ### length()
 Returns the total number of bytes available in the emulated EEPROM.
@@ -9915,7 +9967,8 @@ size_t length = EEPROM.length();
 ```
 
 - The Core has 127 bytes of emulated EEPROM.
-- The Photon and Electron have 2047 bytes of emulated EEPROM.
+- The 2nd generation Photon, P1, Electron, and E Series have 2047 bytes of emulated EEPROM.
+- The 3rd-generation (mesh) devices have 4096 bytes of emulated EEPROM.
 
 ### put()
 This function will write an object to the EEPROM. You can write single values like `int` and
@@ -10063,10 +10116,13 @@ Erase all the EEPROM so that all reads will return 255 (hexadecimal 0xFF).
 EEPROM.clear();
 ```
 
+{{#unless has-eeprom-file}}
 Calling this function pauses processor execution (including code running in interrupts) for 800ms since
 no instructions can be fetched from Flash while the Flash controller is busy erasing both EEPROM
 pages.
+{{/unless}}
 
+{{#unless has-eeprom-file}}
 ### hasPendingErase()
 ### performPendingErase()
 
@@ -10103,6 +10159,8 @@ If the application never calls `performPendingErase()` then the pending page era
 when data is written using `put()` or `write()` and both pages are full. So calling
 `performPendingErase()` is optional and provided to avoid the uncertainty of a potential processor
 pause any time `put()` or `write()` is called.
+{{/unless}} {{!-- has-eeprom-file --}}
+
 
 {{/if}}
 
@@ -11000,8 +11058,7 @@ Resets the device and restarts in safe mode.
 `System.sleep()` can be used to dramatically improve the battery life of a Particle-powered project by temporarily deactivating the {{network-type}} module, which is by far the biggest power draw.
 
 {{#if has-nrf52}}
-**The sleep modes described here are for the Photon and Electron. Updated documentation with details
-for mesh devices will be provided soon.**
+**The sleep modes described here are for the Photon and Electron. Updated documentation with details for mesh devices will be provided soon. At the time of writing (Device OS 0.8.0-rc.25), sleep modes are not implemented for mesh devices yet.**
 {{/if}}
 
 
