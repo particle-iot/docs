@@ -837,7 +837,18 @@ In most cases, solid colors are the side effect of a bug. If code crashes or inf
 
 ### No status LED
 
+{{#if has-stm32}}
 If you power up your {{device}} and the status LED never comes on and the small blue led next to pin D7 is on dimly, you have a missing or corrupted bootloader.
+{{else}}
+If you power up your {{device}} and the status LED never comes on, you could have a missing or corrupted bootloader. 
+
+- Unplug the USB (and battery, if you are using one)
+- Hold down the SETUP button while plugging in the USB power
+
+If you still see no change in the status LED you probably have a missing or corrupted bootloader. 
+{{/if}}
+
+
 
 This can be corrected using a [JTAG/SWD programmer](https://docs.particle.io/faq/particle-tools/jtag/) if you have one. Otherwise, you should [contact support](https://particle.io/support).
 

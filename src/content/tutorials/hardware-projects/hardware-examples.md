@@ -814,7 +814,6 @@ You and your buddy will both publish an event, and listen for each others events
 int led = D6;
 int boardLed = D7;
 int photosensor = A0;
-int power = A5;
 
 int intactValue;
 int brokenValue;
@@ -830,16 +829,12 @@ void setup() {
 	// This part is mostly the same:
 	pinMode(led,OUTPUT); // Our LED pin is output (lighting up the LED)
 	pinMode(boardLed,OUTPUT); // Our on-board LED is output as well
-	pinMode(power,OUTPUT); // The pin powering the photosensor is output (sending out consistent power)
 
 	// Here we are going to subscribe to your buddy's event using Particle.subscribe
 	Particle.subscribe("buddy_unique_event_name", myHandler);
 	// Subscribe will listen for the event buddy_unique_event_name and, when it finds it, will run the function myHandler()
 	// (Remember to replace buddy_unique_event_name with your buddy's actual unique event name that they have in their firmware.)
 	// myHandler() is declared later in this app.
-
-	// Next, deliver power to the photosensor
-	digitalWrite(power,HIGH);
 
 	// Since everyone sets up their LEDs differently, we are also going to start by calibrating our photosensor.
 	// This one is going to require some input from the user!
@@ -1017,7 +1012,6 @@ You and your buddy will both publish an event, and listen for each others events
 int led = D6;
 int boardLed = D7;
 int photosensor = A0;
-int power = A5;
 
 int intactValue;
 int brokenValue;
@@ -1031,16 +1025,12 @@ void setup() {
 	// This part is mostly the same:
 	pinMode(led,OUTPUT); // Our LED pin is output (lighting up the LED)
 	pinMode(boardLed,OUTPUT); // Our on-board LED is output as well
-	pinMode(power,OUTPUT); // The pin powering the photosensor is output (sending out consistent power)
 
 	// Here we are going to subscribe to your buddy's event using Particle.subscribe
 	Particle.subscribe("buddy_unique_event_name", myHandler);
 	// Subscribe will listen for the event buddy_unique_event_name and, when it finds it, will run the function myHandler()
 	// (Remember to replace buddy_unique_event_name with your buddy's actual unique event name that they have in their firmware.)
 	// myHandler() is declared later in this app.
-
-	// Next, deliver power to the photosensor
-	digitalWrite(power,HIGH);
 
 	// Since everyone sets up their LEDs differently, we are also going to start by calibrating our photosensor.
 	// This one is going to require some input from the user!

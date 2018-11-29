@@ -13,7 +13,7 @@ The Particle Boron is a mesh and Bluetooth development kit designed for building
 
 <div  align="center">
 <br />
-<a href="https://setup.particle.io/"  target="_blank" class="button">SET UP YOUR Boron</a>
+<a href="https://setup.particle.io/"  target="_blank" class="button">SET UP YOUR BORON</a>
 </div>
 
 
@@ -48,7 +48,7 @@ To begin setting up your Boron, click the button below and follow the onscreen i
 
 <div  align="center">
 <br />
-<a href="https://setup.particle.io/"  target="_blank" class="button">SET UP YOUR XENON</a>
+<a href="https://setup.particle.io/"  target="_blank" class="button">SET UP YOUR BORON</a>
 <br />
 </div>
 
@@ -58,7 +58,7 @@ To begin setting up your Boron, click the button below and follow the onscreen i
 {{box op="start" cssClass="boxed warningBox"}}
 **NOTES:**</br>
 1.) If you have already set up your Boron, skip to Step #2.<br /><br />
-2.) During set up you may skip setting up a Particle Mesh network and use the Xenon in a standalone mode.
+2.) During set up you may skip setting up a Particle Mesh network and use the Boron in a standalone mode.
 
 
 
