@@ -11,34 +11,33 @@ order: 5
 
 The Particle Xenon is a mesh and Bluetooth development kit designed for building connected projects and products. To set up the device you'll need an iOS or Android mobile phone and a connection to the internet.
 
-
 ### The Xenon Kit comes with the following things:
 
 {{box op="start"}}
 
-* **Xenon development kit**
-* **Starter Project**
-  * One micro-USB cable
-  * One mini breadboard
-* **Electronic components**
-  * Two resistors (220 ohm)
-  * One light-emitting diode (LED)
-  * One phototransistor
-{{box op="end"}}
+- **Xenon development kit**
+- **Starter Project**
+  - One micro-USB cable
+  - One mini breadboard
+- **Electronic components**
+  - Two resistors (220 ohm)
+  - One light-emitting diode (LED)
+  - One phototransistor
+    {{box op="end"}}
 
 ---
 
 ## 1. Set up your Xenon
 
+For a short (~4 min) overview of what the Xenon setup process looks like, watch the video below.
 
+<iframe width="640" height="360" class="video"  src="https://www.youtube.com/embed/4bPcRFRHkBc" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
+Once you're ready to proceed, use the online setup application to configure your new Xenon. The process includes the following.
 
-Use the online setup application to configure your new Xenon. The process includes the following.
-* Registration of your device with your Particle account
-* Connection of your device to the Particle Device Cloud
-* Particle Mesh network configuration
-
-
+- Registration of your device with your Particle account
+- Connection of your device to the Particle Device Cloud
+- Particle Mesh network configuration
 
 Once you've completed the setup you will be able to program your device and send over-the-air (OTA) updates to it.
 
@@ -50,33 +49,22 @@ To begin setting up your Xenon, click the button below and follow the onscreen i
 <br />
 </div>
 
-
-
-
 {{box op="start" cssClass="boxed warningBox"}}
 **NOTES:**</br>
 1.) If you have already set up your Xenon, skip to Step #2.<br /><br />
 2.) During set up you may skip setting up a Particle Mesh network and use the Xenon in a standalone mode.
 
-
-
 {{box op="end"}}
-
-
-
 
 ---
 
 ## 2. Using the Web IDE
+
 Now that your Xenon is connected to Device Cloud, you can write some code in the online Web IDE and send new code to your device to run.
 
 To program your Xenon, open a new browser tab and go to the <a target="_blank" href="https://build.particle.io">Web IDE</a>. You will see a layout like the image below.
 
-
-
 ![Image of the Web IDE](/assets/images/webide.png)
-
-
 
 {{box op="start"}}
 **NOTE:**
@@ -92,7 +80,6 @@ If you're looking for a more traditional embedded development experience, be sur
 
 ![Image of the Web IDE with example code](/assets/images/webide-with-examples.png)
 
-
 Click on _Blink an LED_ on the left side of the page. As soon as you click the _Blink and LED_ code will load and fill the screen as shown below.
 
 ![Image of the Web IDE with example code loaded](/assets/images/loaded-blink.png)
@@ -107,10 +94,6 @@ The Web IDE can be used with multiple devices. As such, when you go to compile s
 
 Before you compile the source code and flash your device with its binary output, make sure that the correct Particle device is selected.
 
-
-
-
-
 {{box op="start"}}
 **NOTE:**
 
@@ -120,9 +103,6 @@ If you don't see your Xenon listed, click on the device name. A sidebar will app
 ---
 
 ## 5. Compile your code & flash
-
-
-
 
 Click the lightning bolt icon on the top left of your screen to flash your code to your device.
 

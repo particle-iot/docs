@@ -4,6 +4,7 @@ layout: landing.hbs
 ---
 
 # Particle Argon: Wi-Fi + Bluetooth + Mesh
+
 ![Image of the Argon Kit](/assets/images/argon-kit-looped-antenna-docs-crop.jpg)
 
 The Particle Argon is a powerful Wi-Fi development kit that you can use as a standalone Wi-Fi device or Wi-Fi enabled gateway, repeater, or endpoint for Particle Mesh networks.
@@ -17,43 +18,46 @@ Equipped with the Nordic nRF52840 and Espressif ESP32 processors, the Argon has 
 
 {{box op="start" cssClass="boxedSideBySide"}}
 **Learn more:**
+
 - [Quickstart with starter project](/quickstart/argon/)
+- [Particle 101 Videos](https://www.youtube.com/playlist?list=PLIeLC6NIW2tKvC5W007j_PU-dxONK_ZXR)
 - [Community](https://community.particle.io/c/mesh)
 - [Support](/support/support-and-fulfillment/menu-base/)
-{{box op="switch"}}
-**Resources:**
+  {{box op="switch"}}
+  **Resources:**
 - [Hardware files](https://github.com/particle-iot/argon)
 - [Datasheet](/datasheets/wi-fi/argon-datasheet/)
 - [Certification](/datasheets/certifications/certification)
-{{box op="end"}}
+  {{box op="end"}}
 
 ## Hardware specifications:
 
 {{box op="start"}}
+
 ### Main processor:
 
 **Nordic Semiconductor nRF52840 SoC**
-  - ARM Cortex-M4F 32-bit processor @ 64MHz
-  - 1MB flash, 256KB RAM
-  - IEEE 802.15.4-2006: 250 Kbps
-  - Bluetooth 5: 2 Mbps, 1 Mbps, 500 Kbps, 125 Kbps
-  - 20 mixed signal GPIO (6 x Analog, 8 x PWM), UART, I2C, SPI
-  - Supports DSP instructions, HW accelerated Floating Point Unit (FPU) calculations
-  - ARM TrustZone CryptoCell-310 Cryptographic and security module
-  - Up to +8 dBm TX power (down to -20 dBm in 4 dB steps)
-  - NFC-A radio
 
-
+- ARM Cortex-M4F 32-bit processor @ 64MHz
+- 1MB flash, 256KB RAM
+- IEEE 802.15.4-2006: 250 Kbps
+- Bluetooth 5: 2 Mbps, 1 Mbps, 500 Kbps, 125 Kbps
+- 20 mixed signal GPIO (6 x Analog, 8 x PWM), UART, I2C, SPI
+- Supports DSP instructions, HW accelerated Floating Point Unit (FPU) calculations
+- ARM TrustZone CryptoCell-310 Cryptographic and security module
+- Up to +8 dBm TX power (down to -20 dBm in 4 dB steps)
+- NFC-A radio
 
 ### Argon Wi-Fi network coprocessor:
 
 **Espressif ESP32-D0WD 2.4Ghz Wi-Fi coprocessor**
-  - On-board 4MB flash for the ESP32
-  - 802.11 b/g/n support
-  - 802.11 n (2.4 GHz), up to 150 Mbps
 
+- On-board 4MB flash for the ESP32
+- 802.11 b/g/n support
+- 802.11 n (2.4 GHz), up to 150 Mbps
 
 ### Argon general specifications:
+
 - On-board additional 4MB SPI flash
 - Micro USB 2.0 full speed (12 Mbps)
 - Integrated Li-Po charging and battery connector
@@ -71,6 +75,7 @@ Equipped with the Nordic nRF52840 and Espressif ESP32 processors, the Argon has 
 <br />
 
 <a href="https://store.particle.io/products/argon" target="_blank" class="button">BUY AN ARGON</a>
+
 </div>
 
 {{box op="end"}}

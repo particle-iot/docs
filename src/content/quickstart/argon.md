@@ -13,31 +13,33 @@ The Particle Argon is a development kit with Wi-Fi, mesh, and Bluetooth radios f
 
 To set up your Argon, you'll need an Android or iOS mobile phone and a connection to the internet.
 
-
 ### The Argon Kit comes with the following things:
 
 {{box op="start"}}
 
-* **Argon development kit**
-* **Starter Project**
-  * One micro-USB cable
-  * One mini breadboard
-* **Electronic components**
-  * Two resistors (220 ohm)
-  * One light-emitting diode (LED)
-  * One phototransistor
-{{box op="end"}}
+- **Argon development kit**
+- **Starter Project**
+  - One micro-USB cable
+  - One mini breadboard
+- **Electronic components**
+  - Two resistors (220 ohm)
+  - One light-emitting diode (LED)
+  - One phototransistor
+    {{box op="end"}}
 
 ---
 
 ## 1. Set up your Argon
 
-Use the online setup application to configure your new Argon. The process includes the following.
-* Registration of your device with your Particle account
-* Connection of your device to the Particle Device Cloud
-* Particle Mesh network configuration
+For a short (~4 min) overview of what the Argon setup process looks like, watch the video below.
 
+<iframe width="640" height="360" class="video" src="https://www.youtube.com/embed/54kmDEoQSP0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
+Once you're ready to proceed, use the online setup application to configure your new Argon. The process includes the following.
+
+- Registration of your device with your Particle account
+- Connection of your device to the Particle Device Cloud
+- Particle Mesh network configuration
 
 Once you've completed the setup you will be able to program your device and send over-the-air (OTA) updates to it.
 
@@ -49,27 +51,20 @@ To begin setting up your Argon, click the button below and follow the onscreen i
 <br />
 </div>
 
-
-
-
 {{box op="start" cssClass="boxed warningBox"}}
 **NOTES:**</br>
 1.) If you have already set up your Argon, skip to Step #2.<br /><br />
 2.) During set up you may skip setting up a Particle Mesh network and use the Argon in a standalone mode.
 
-
-
 {{box op="end"}}
-
-
 
 ---
 
 ## 2. Open the Web IDE
+
 ![Image of the Web IDE](/assets/images/webide.png)
 
 To program your Argon, open a new browser tab and go to the <a target="_blank" href="https://build.particle.io">Web IDE</a>. You will see a layout like the image below.
-
 
 {{box op="start"}}
 **NOTE:**
@@ -80,10 +75,10 @@ If you're looking for a more traditional embedded development experience, be sur
 {{box op="end"}}
 
 ---
+
 ## 3. Load the Blink example
 
 ![Image of the Web IDE with example code](/assets/images/webide-with-examples.png)
-
 
 Click on _Blink an LED_ on the left side of the page. As soon as you click the _Blink and LED_ code will load and fill the screen as shown below.
 
@@ -99,7 +94,6 @@ The Web IDE can be used with multiple devices. As such, when you go to compile s
 
 Before you compile the source code and flash your device with its binary output, make sure that the correct Particle device is selected.
 
-
 {{box op="start"}}
 **NOTE:**
 
@@ -109,7 +103,6 @@ If you don't see your Argon listed, click on the device name. A sidebar will app
 ---
 
 ## 5. Compile your code & flash
-
 
 Click the lightning bolt icon on the top left of your screen to flash your code to your device.
 
@@ -124,4 +117,3 @@ You'll often see words like flashing and deploying used interchangeably.
 ---
 
 For more hardware examples to try, visit the [hardware examples](/tutorials/hardware-projects/hardware-examples/argon).
-
