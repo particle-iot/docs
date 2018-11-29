@@ -86,7 +86,9 @@ device/month).
 
 If your device consumes more than 3MB of cellular data in a given month,
 you will be charged an overage rate per MB used. For most countries, the
-overage rate is $0.40/MB.
+overage rate is $0.40/MB, in 1 MB increments.
+
+The device cloud charge occurs even if you have no data usage in a month, as the SIM is still active in the mobile carrier network. If you do not need to use the device, you can pause the SIM, which will stop billing. 
 
 For more information on cellular billing, check out [the
 guide](/tutorials/cellular-connectivity/billing).
