@@ -238,24 +238,23 @@ Still having issues? [Write us an email](/support/support-and-fulfillment/menu-b
 
 {{/if}}
 
+{{#if has-mesh}}
+When your {{device}} is in Listening Mode, it is waiting for you to configure your mesh network, or is waiting for configuration by USB serial.
+
+{{else}}
+
+{{#if has-cellular}}
+When your {{device}} is in Listening Mode, it either cannot find the SIM card, or is waiting for configuration by USB serial.
+{{/if}}
+
 {{#if has-wifi}}
-When your {{device}} is in Listening Mode, it is waiting for your input to connect to {{#if electron}}a cellular tower{{/if}}{{#if photon}}Wi-Fi{{/if}}{{#if core}}Wi-Fi{{/if}}. Your {{device}} needs to be in Listening Mode in order to begin connecting with the Mobile App or over USB.
-
-{{#if photon}}
-{{vine "https://vine.co/v/eZUHUIjq7pO/embed/simple"}}
+When your {{device}} is in Listening Mode, it is waiting for your input to connect to Wi-Fi. Your {{device}} needs to be in Listening Mode in order to begin connecting with the Mobile App or over USB.
 {{/if}}
 
-{{#unless core}}
-To put your {{device}} in Listening Mode, hold the `{{system-button}}` button for three seconds, until the RGB LED begins blinking blue.
-{{/unless}}
-
-{{#if core}}
-{{vine "https://vine.co/v/eZUgHYYrYgl/embed/simple"}}
+{{/if}} {{!-- has-mesh --}}
 
 To put your {{device}} in Listening Mode, hold the `{{system-button}}` button for three seconds, until the RGB LED begins blinking blue.
-{{/if}}
 
-{{/if}}
 
 
 {{#if has-cellular}}
