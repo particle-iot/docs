@@ -11,6 +11,11 @@ order: 5
 
 The Particle Xenon is a mesh and Bluetooth development kit designed for building connected projects and products. To set up the device you'll need an iOS or Android mobile phone and a connection to the internet.
 
+<div  align="center">
+<br />
+<a href="https://setup.particle.io/"  target="_blank" class="button">SET UP YOUR XENON</a>
+</div>
+
 ### The Xenon Kit comes with the following things:
 
 {{box op="start"}}
