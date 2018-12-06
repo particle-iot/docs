@@ -1477,6 +1477,7 @@ Allows the application to set credentials for the Wi-Fi network from within the 
 Your device can remember more than one set of credentials:
 - Core: remembers the 7 most recently set credentials
 - Photon: remembers the 5 most recently set credentials.
+- Argon: remembers the 10 most recently set credentials.
 
 {{#if has-stm32}}
 {{since when="0.7.0"}} Photon can store one set of WPA Enterprise credentials.
