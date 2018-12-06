@@ -11,6 +11,12 @@ setdevice: electron
 
 <p>Congratulations on being the owner of a brand new Particle Device! Go ahead and open the box. You can see the different <a href="/datasheets/kits">kit addons</a> and check out the <a href="/datasheets/electron-datasheet/">Electron datasheet</a> if you like!</p>
 <p>Let&apos;s quickly go over what you see.</p>
+
+<div  align="center">
+<br />
+<a href="https://setup.particle.io/"  target="_blank" class="button">SET UP YOUR ELECTRON</a>
+</div>
+
 <h3 id="what-39-s-all-here-">What&apos;s all here?<a href="#what-39-s-all-here-" class="header-permalinks"><i class="ion-link"></i></a></h3><p><span class="popupLink"><strong>The Cellular Module.</strong><span class="popup"><img src="/assets/images/electronUblox.jpg" style="margin:auto; max-width:100%"></span></span>
 This is probably why you bought your device-- the cellular module allows your Electron to communicate with the internet in over 120 countries!
 The cellular module is also accompanied with a Particle SIM card.</p>
