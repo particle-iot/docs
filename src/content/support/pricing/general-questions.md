@@ -174,15 +174,7 @@ organizations.
 
 ### Do I have to pay anything to use Particle Mesh devices?
 
-For mesh deployments, Particle will charge product creators an additional monthly fee in addition
-to our baseline Device Cloud pricing for Argon and Boron devices acting as gateways within a Particle
-Mesh network. All Particle customers will get 10 free gateway upgrades for prototyping and evaluating
-Particle Mesh. All local communications between mesh endpoints are free.
-
-With 10 free gateways, you could build:
-- **One giant network** of 100+ devices
-- **Ten different networks** of 10+ devices
-- **Five different networks** with redundant gateways (Ethernet + Cellular backup, for example)
+Pricing for mesh deployments is available by visiting http://particle.io/pricing and selecting "Mesh" from the top dropdown.
 
 ## Users vs. Products
 
