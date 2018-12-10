@@ -701,11 +701,12 @@ Using the Signal option in the Web IDE, or the [particle cloud nyan](/reference/
 
 Blinking red indicates various errors.
 
-- 2 red blinks: Could not reach the internet.
-- 3 red blinks: Connected to the internet, but could not reach the
-Particle Device Cloud.
-- Blinking "orange": This sometimes is seen as yellow or red and indicates bad server keys. 
-- Alternating cyan and red blinks can also indicate a keys issue.
+While connecting to the Cloud, the RGB LED will be blinking cyan followed by:
+- 1 orange blink: Decryption error.
+- 2 orange blinks: Could not reach the internet.
+- 3 orange blinks: Connected to the internet, but could not reach the Particle Device Cloud. This sometimes is seen as yellow or red and indicates bad server keys.
+- 1 magenta blink: Authentication error.
+- 1 red blink: Generic handshake error. The device could have the wrong keys or has just encountered a generic error in the handshake process.
 
 {{collapse op="start" label="Repair instructions"}}
 

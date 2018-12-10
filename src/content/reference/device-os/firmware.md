@@ -862,7 +862,24 @@ void setup() {
 {{#if has-mesh}}
 ## Mesh
 
-At the time of writing (Device OS 0.8.0-rc.25), mesh antenna selection is not yet supported. Only the internal mesh antenna can be used at this time.
+### Antenna selection
+
+At the time of writing (Device OS 0.8.0-rc.26), mesh antenna selection is not yet supported. Only the internal mesh antenna can be used at this time. However, you can use this function to select the external mesh antenna. The setting is not saved and the default is internal.
+
+```
+void selectExternalMeshAntenna() {
+
+#if (PLATFORM_ID == PLATFORM_ARGON)
+    digitalWrite(ANTSW1, 1);
+    digitalWrite(ANTSW2, 0);
+#elif (PLATFORM_ID == PLATFORM_BORON)
+    digitalWrite(ANTSW1, 0);
+#else
+    digitalWrite(ANTSW1, 0);
+    digitalWrite(ANTSW2, 1);
+#endif
+}
+```
 
 ### publish()
 
@@ -893,7 +910,7 @@ Mesh.publish("motion-sensor", "living room");
 
 ### subscribe()
 
-Mesh.subscribe subscribes to events within the Mesh network. Like Particle.subscribe, the event name is a prefix, matching any event that begins with that name.
+Mesh.subscribe subscribes to events within the Mesh network. Like Particle.subscribe, the event name is a prefix, matching any event that begins with that name. You can have up to 5 mesh subscription handlers.
 
 ```C++
 
@@ -908,6 +925,9 @@ void setup()
   Mesh.subscribe("motion-sensor", myHandler);
 }
 ```
+
+The return value is an int (integer), `SYSTEM_ERROR_NONE` if successful or `SYSTEM_ERROR_NO_MEMORY` if there are no slots left. This is different from Particle.subscribe which returns a bool (boolean).
+
 
 ### on()
 
@@ -5812,8 +5832,10 @@ be used via the `SPI1` object. This second port is mapped as follows:
 {{/if}}
 {{#if has-nrf52}}
 * `SCK` => `D2`
-* `MISO` => `D3`
-* `MOSI` => `D4`
+* `MOSI` => `D3`
+* `MISO` => `D4`
+
+Note: On 3rd-generation devices (mesh), the SPI1 pins different than 2nd-generation (Photon/Electron), so you cannot use SPI1 on a mesh device with the classic adapter.
 {{/if}}
 {{/if}}
 
@@ -7820,6 +7842,8 @@ Udp.leaveMulticast(multicastAddress);
 
 This library allows your device to control RC (hobby) servo motors. Servos have integrated gears and a shaft that can be precisely controlled. Standard servos allow the shaft to be positioned at various angles, usually between 0 and 180 degrees. Continuous rotation servos allow the rotation of the shaft to be set to various speeds.
 
+This example uses pin D0, but D0 cannot be used for Servo on all devices.
+
 ```cpp
 // EXAMPLE CODE
 
@@ -7852,6 +7876,10 @@ void loop()
 
 **NOTE:** Unlike Arduino, you do not need to include `Servo.h`; it is included automatically.
 
+{{#if has-nrf52}}
+**NOTE:** Servo is only supported on mesh devices in Device OS 0.8.0-rc.26 and later.
+{{/if}}
+
 
 ### attach()
 
@@ -7859,6 +7887,10 @@ Set up a servo on a particular pin. Note that, Servo can only be attached to pin
 
 - on the Core, Servo can be connected to A0, A1, A4, A5, A6, A7, D0, and D1.
 - on the Photon, Servo can be connected to A4, A5, WKP, RX, TX, D0, D1, D2, D3
+- on the P1, Servo can be connected to A4, A5, WKP, RX, TX, D0, D1, D2, D3, P1S0, P1S1
+- on the Electron, Servo can be connected to A4, A5, WKP, RX, TX, D0, D1, D2, D3, B0, B1, B2, B3, C4, C5
+- on mesh devices, pin A0, A1, A2, A3, D2, D3, D4, D5, D6, D7, and D8 can be used for Servo.
+
 
 ```cpp
 // SYNTAX
