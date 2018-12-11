@@ -4,7 +4,7 @@ layout: landing.hbs
 ---
 
 # Particle Workbench
-![Image of the Workbench ](/assets/images/workbench-hero.png)
+![Image of the Workbench ](/assets/images/workbench/workbench-hero.png)
 
 Particle Workbench allows you to develop Particle projects locally and offline. Powered by Microsoft Visual Studio Code, Workbench is a suite of professional developer tools TKTK.
 
