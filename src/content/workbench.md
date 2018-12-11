@@ -6,7 +6,9 @@ layout: landing.hbs
 # Particle Workbench
 ![Image of the Workbench ](/assets/images/workbench/workbench-hero.png)
 
-Particle Workbench allows you to develop Particle projects locally and offline. Powered by Microsoft Visual Studio Code, Workbench is a suite of professional developer tools TKTK.
+Particle Workbench provides IoT developers with a cross-platform desktop development environment for Windows, macOS, and Linux.
+
+Installation is straightforward, comes preconfigured for development, and includes everything you need to build, compile, and deploy code for your Particle-powered products.
 
 <div  align="center">
 <br />
