@@ -14,6 +14,12 @@ order: 23
 **Note: Tinker on the Electron uses data and should be used sparingly.**
 {{/if}}
 
+{{#if has-nrf52}}
+While the 3rd-generation devices (Argon, Boron, and Xenon) do work with Tinker for some pins, it's rather confusing as the Tinker app only shows the Photon, which has pins in different locations.
+
+This tutorial was been omitted for these devices.
+{{/if}}
+
 {{#if raspberry-pi}}
 
 ## Beta Compatibility
