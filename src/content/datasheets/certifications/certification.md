@@ -50,7 +50,7 @@ Any host product incorporating the Photon/PØ or P1 modules does not require add
 
 The Photon/PØ and P1 modules were certified with antennas of the following gain:
 - **Photon/PØ Module**: Chip antenna (1.3dBi), external antenna (2.15dBi)
-- **P1 Module**: External antenna (2.5dBi)
+- **P1 Module**: On-board antenna (printed trace). Deployment with external antenna leveraging the onboard u.FL requires verification of certification.
 
 ### Customer Responsibilities
 Even though we've certified the Photon and PØ/P1 Modules, as a product creator you're still responsible for meeting test requirements determined by the class of your product as described by the FCC. In general, there are two types of products--**Class A** and **Class B**:
@@ -86,7 +86,7 @@ Particle's certifications will help you decrease the time and cost associated wi
 
 #### P1 Module
 - FCC ID: [COFWMNBM11](https://apps.fcc.gov/oetcf/eas/reports/ViewExhibitReport.cfm?mode=Exhibits&RequestTimeout=500&calledFromFrame=N&application_id=VG3YVqF5xjUgj%2BOio7CoOw%3D%3D&fcc_id=COFWMNBM11)  
-- [Test Reports](https://apps.fcc.gov/oetcf/eas/reports/ViewExhibitReport.cfm?mode=Exhibits&RequestTimeout=500&calledFromFrame=N&application_id=ug625xSKTLocEEah0xLMFw%3D%3D&fcc_id=COFWMNBM11)
+- [Test Reports](https://apps.fcc.gov/oetcf/eas/reports/ViewExhibitReport.cfm?mode=Exhibits&RequestTimeout=500&calledFromFrame=N&application_id=VG3YVqF5xjUgj%2BOio7CoOw%3D%3D&fcc_id=COFWMNBM11)
 - [Test Firmware and Instructions](/assets/files/P0_P1_FCC_Firmware.zip)
 
 #### Electron U260 - (Updated 4/19/17)
