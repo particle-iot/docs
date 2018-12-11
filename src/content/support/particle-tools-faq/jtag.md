@@ -489,6 +489,24 @@ nc localhost 4444
 > program /Users/rickk/Downloads/bootloader-0.8.0-rc.25-xenon.bin 0xf4000 verify reset exit
 ```
 
+If you flash the bootloader and get no status LED on, you may need to flash the soft device as well. You will definitely need to do this if:
+
+- You erased the whole flash
+- You accidentally flashed the bootloader to 0 instead of 0xf4000
+
+Download [s140_nrf52_6.0.0_softdevice.hex](/assets/files/s140_nrf52_6.0.0_softdevice.hex), then:
+
+```
+nc localhost 4444
+> adapter_khz 1000
+> transport select swd
+> init
+> program /Users/rickk/Downloads/s140_nrf52_6.0.0_softdevice.hex verify reset exit
+```
+
+This is not necessary in most cases.
+
+
 ## OpenOCD telnet commands (2nd generation)
 
 These are only for the Photon, P1, Electron and E Series.
