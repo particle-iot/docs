@@ -7,13 +7,13 @@ order: 1005
 
 # JTAG and SWD
 
-*JTAG and SWD tips for Particle Photon, P1, and Electron.*
+*JTAG and SWD tips for Particle Devices.*
 
 JTAG ("Joint Test Action Group") is a standard for testing and verifying electronic circuit boards. It can be used with Photon, P1 and Electron devices and this document will describe using it for tasks like programming flash and saving configurations.
 
 JTAG can also be used with a source-level debugger ([gdb](https://www.gnu.org/software/gdb/) and [OpenOCD](http://openocd.org)), but that's a big topic and will get its own tutorial.
 
-There is also a variation known as Serial Wire Debug (SWD), used with ARM devices, of which the Photon/P1/Electron are. This is helpful because it only requires two pins (D6 and D7).
+There is also a variation known as Serial Wire Debug (SWD), used with ARM devices, of which the Photon/P1/Electron are. It's also used with the mesh devices (nRF52840). This is helpful because it only requires two pins (D6 and D7).
 
 Occasionally you'll see SWIM was well, but that's generally for STM8 processors. It won't hurt if your programmer supports SWD and SWIM, but a SWIM-only programmer can't program STM32 Particle devices.
 
@@ -31,9 +31,11 @@ It can also be used with the Photon, P1, Electron, and E Series using the debugg
 
 ### ST-LINK/V2
 
-Another common programmer is the [ST-LINK/V2](http://www.st.com/en/development-tools/st-link-v2.html). It connects to your computer using USB and to the board using JTAG or SWD.
+Another common programmer is the [ST-LINK/V2](http://www.st.com/en/development-tools/st-link-v2.html). It connects to your computer using USB and to the board using JTAG or SWD. 
 
 ![ST-LINK/V2](/assets/images/jtag-01stlink.jpg)
+
+It can only be used with 1st and 2nd generation devices (Photon, P1, Electron, E Series, and Core), not with mesh devices.
 
 ### ST-LINK/V2 Mini SWD
 
@@ -41,11 +43,15 @@ There are also "ST-LINK/V2 Mini" devices. These also connect by USB but only use
 
 ![ST-LINK/V2 Mini](/assets/images/jtag-07mini.jpg)
 
+It can only be used with 1st and 2nd generation devices (Photon, P1, Electron, E Series, and Core), not with mesh devices.
+
 ### Particle Photon Programmer Shield
 
 Finally, there's the [Particle Programmer Shield](https://github.com/particle-iot/shields/tree/master/photon-shields/programmer-shield), primarily designed for the Photon but can be used with the Electron.
 
 ![Particle Programmer Shield](/assets/images/jtag-08shield.jpg)
+
+It can only be used with 1st and 2nd generation devices (Photon, Elecron, and Core), not with mesh devices.
 
 
 ## Connecting to the Photon/Electron/P1
@@ -368,6 +374,8 @@ $ ../bin/openocd -f interface/stlink-v2.cfg -f target/stm32f2x.cfg -c "telnet_po
 
 Then in a separate terminal window, you'd issue commands. The command prompt is the greater than symbol ">" so the commands you type are after that.
 
+In many cases, telnet is not installed by default. You may want to use nc (netcat) instead of telnet.
+
 ```
 $ telnet localhost 4444
 Connected to localhost.
@@ -398,7 +406,26 @@ flash size = 1024kbytes
 STM32F2xx - Rev: X
 ```
 
-### With the Particle Debugger
+### With the Particle Debugger (3rd generation)
+
+Using the Particle debugger and mesh devices (Argon, Boron, Xenon):
+
+You'll need the nrf52 board file. Download the file [nrf52-var.cfg](/assets/files/nrf52-var.cfg) and put it in your install location, typically one of:
+
+- /usr/local/share/openocd/scripts/target (Mac using HomeBrew)
+- /Applications/GNU ARM Eclipse/OpenOCD/0.10.0-201510281129-dev/scripts/target (Mac using GNU ARM Eclipse)
+- C:\Program Files\GNU ARM Eclipse\OpenOCD\0.10.0-201610281609-dev\scripts\target (Windows using GNU ARM Eclipse)
+- /cygdrive/c/Program Files/GNU ARM Eclipse/OpenOCD/0.10.0-201610281609-dev/scripts/target (Windows using using GNU ARM Eclipse and Cygwin)
+- /opt/gnuarmeclipse/openocd/0.10.0-201610281609-dev/scripts/target (Linux using using GNU ARM Eclipse)
+
+Then use the command:
+
+```
+$ cd /usr/local/share/openocd/scripts
+$ openocd -f interface/cmsis-dap.cfg -f target/nrf52-var.cfg -c "telnet_port 4444"
+```
+
+### With the Particle Debugger (2nd generation)
 
 Using the Particle debugger and a Photon, P1, or Electron:
 
@@ -408,16 +435,6 @@ $ openocd -f interface/cmsis-dap.cfg -f target/stm32f2x.cfg -c "telnet_port 4444
 ```
 
 The difference is that you use the cmsis-dap.cfg interface instead of stlink-v2.cfg or particle-ftdi.cfg.
-
-If you are programming for the Particle mesh platform, you'll need the nrf52 board file. Download the file [nrf52-var.cfg](/assets/files/nrf52-var.cfg) and put it in your install location, typically one of:
-
-- /usr/local/share/openocd/scripts/target (Mac using HomeBrew)
-- /Applications/GNU ARM Eclipse/OpenOCD/0.10.0-201510281129-dev/scripts/target (Mac using GNU ARM Eclipse)
-- C:\Program Files\GNU ARM Eclipse\OpenOCD\0.10.0-201610281609-dev\scripts\target (Windows using GNU ARM Eclipse)
-- /cygdrive/c/Program Files/GNU ARM Eclipse/OpenOCD/0.10.0-201610281609-dev/scripts/target (Windows using using GNU ARM Eclipse and Cygwin)
-- /opt/gnuarmeclipse/openocd/0.10.0-201610281609-dev/scripts/target (Linux using using GNU ARM Eclipse)
-
-There are some additions to this file that are not in the standard nrf52.cfg file.
 
 
 ### With the Particle Programmer Shield
@@ -454,11 +471,47 @@ Info : Target voltage: 3.258847
 Info : stm32f2x.cpu: hardware has 6 breakpoints, 4 watchpoints
 ```
 
-## OpenOCD telnet commands for legacy devices
+## OpenOCD telnet commands (3rd generation)
+
+These commands are for 3rd-generation (mesh) devices including the Argon, Boron, and Xenon.
+
+### Programming the boot loader (3rd generation)
+
+Download the appropriate bootloader bin file from the [release site](https://github.com/particle-iot/firmware/releases). 
+
+Then connect to the server with telnet or nc:
+
+```
+nc localhost 4444
+> adapter_khz 1000
+> transport select swd
+> init
+> program /Users/rickk/Downloads/bootloader-0.8.0-rc.25-xenon.bin 0xf4000 verify reset exit
+```
+
+If you flash the bootloader and get no status LED on, you may need to flash the soft device as well. You will definitely need to do this if:
+
+- You erased the whole flash
+- You accidentally flashed the bootloader to 0 instead of 0xf4000
+
+Download [s140_nrf52_6.0.0_softdevice.hex](/assets/files/s140_nrf52_6.0.0_softdevice.hex), then:
+
+```
+nc localhost 4444
+> adapter_khz 1000
+> transport select swd
+> init
+> program /Users/rickk/Downloads/s140_nrf52_6.0.0_softdevice.hex verify reset exit
+```
+
+This is not necessary in most cases.
+
+
+## OpenOCD telnet commands (2nd generation)
 
 These are only for the Photon, P1, Electron and E Series.
 
-### Programming the boot loader
+### Programming the boot loader (2nd generation)
 
 After you're connected OpenOCD to your hardware device and opened the telnet session, you can program the boot loader via telnet as follows:
 
@@ -471,7 +524,7 @@ After you're connected OpenOCD to your hardware device and opened the telnet ses
 
 You'll need to edit the path to the bootloader-photon.bin file. You need to specify a full path to the directory as well as filename.
 
-### Programming system and user firmware
+### Programming system and user firmware (2nd generation)
 
 To program Device OS, use a set of commands like this for the Photon:
 
@@ -529,7 +582,7 @@ For user firmware on the Electron:
 > program /Users/rickk/Downloads/firmware.bin verify 0x8080000
 ```
 
-### Saving and erasing configuration
+### Saving and erasing configuration (2nd generation)
 
 To save a copy of your configuration using OpenOCD:
 
