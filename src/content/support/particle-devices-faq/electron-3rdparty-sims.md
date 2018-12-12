@@ -607,7 +607,7 @@ particle call YOUR_DEVICE_NAME digitalWrite "D7=HIGH"
 particle call YOUR_DEVICE_NAME digitalWrite "D7=LOW"
 ```
 
-Find the shortest interval where the calls still work, and that's what you should set as your keep-alive. It's usually between 30 seconds and several minutes.
+Find the longest interval where the calls still work, and that's what you should set as your keep-alive. It's usually between 30 seconds and several minutes.
 
 For the Electron, also note that the keep-alive settings is only in device OS 0.5.0 and later, so if you have the original factory default firmware 0.4.8 you'll need to upgrade the Device OS.
 
