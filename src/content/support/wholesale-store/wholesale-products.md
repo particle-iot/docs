@@ -15,6 +15,11 @@ SKU | Name | Standard Manufacturing Lead Time
 ------------ | ------------- | -------------
 ACC-ADPT | PARTICLE CLASSIC ADAPTER | 12 - 16 weeks
 ACC-DEBUG | PARTICLE DEBUGGER | 12 - 16 weeks
+ANT-FLXU | CELLULAR FLEX ANTENNA (2G/3G/M1/NB1) | 4 - 6 weeks
+ANT-FLXU-50 | CELLULAR FLEX ANTENNA (2G/3G/M1/NB1) IN BULK | 4 - 6 weeks
+ANT-FLXV2 | 2.4GHz FLEX ANTENNA (WI-FI OR MESH) | 4 - 6 weeks
+ANT-FLXV2-50 | 2.4GHz FLEX ANTENNA (WI-FI OR MESH) IN BULK | 4 - 6 weeks
+ANT-NFC | NFC ANTENNA | 4 - 6 weeks
 ANTDUCK | DUCK ANTENNA | 4 - 6 weeks
 ANTELEC | CELLULAR ANTENNA | 4 - 6 weeks
 ANTELEC50 | CELLULAR ANTENNA (BULK) | 4 - 6 weeks
@@ -87,6 +92,8 @@ Many of our products have minimum order quantities based on our case pack size. 
 
 SKU | Minimum order quantity
 ------------ | -------------
+ANT-FLXU-50 | 50 units
+ANT-FLXV2-50 | 50 units
 ANTELEC50 | 50 units
 BATT18MOD50 | 50 units
 E260TRAY50 | 50 units
