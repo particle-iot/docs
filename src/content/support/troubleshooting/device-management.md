@@ -2,7 +2,7 @@
 title: Device Ownership
 layout: support.hbs
 columns: two
-devices: [ photon,electron,core ]
+devices: [ photon,electron,core,argon,boron,xenon ]
 order: 3
 ---
 
@@ -97,13 +97,13 @@ There are two primary ways to remove {{a-device}} from your account--using the P
 
 **Using the Particle CLI**
 
-**1. Install [CLI](/guide/tools-and-features/cli)**.  Make sure you've got the CLI installed by typing
+**1. Install [CLI](/tutorials/developer-tools/cli)**.  Make sure you've got the CLI installed by typing
 
 ``particle help``
 
 into your terminal. If you're presented with a list of commands, the CLI is installed correctly. If not, please see the following article:
 
-[Installing the Particle CLI](/guide/tools-and-features/cli/)
+[Installing the Particle CLI](/tutorials/developer-tools/cli/)
 
 **2. Login**.  Make sure you're logged into your Particle account by typing
 

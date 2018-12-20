@@ -2,7 +2,7 @@
 title: Device Keys
 layout: support.hbs
 columns: two
-devices: [ photon,electron,core,raspberry-pi ]
+devices: [ photon,electron,core,raspberry-pi,argon,boron,xenon ]
 order: 7
 ---
 
@@ -36,7 +36,7 @@ If you have physical access to the {{device}} in question, here's how to change 
 
 Bare with me for these next steps! This is slightly complicated because of the great security implemented on the {{device}}.
 
-1. Before we can start, you're going to want to install the Particle CLI tool to make life easier! [Particle CLI](/guide/tools-and-features/cli)
+1. Before we can start, you're going to want to install the Particle CLI tool to make life easier! [Particle CLI](/tutorials/developer-tools/cli)
 
 2. Once the CLI tool is installed the first thing you should do is login to your Particle account.  If you do not have an account yet, please set one up at https://build.particle.io/build .
 

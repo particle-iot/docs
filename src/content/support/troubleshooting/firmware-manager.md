@@ -10,7 +10,7 @@ order: 12
 
 **The firmware manager is no longer supported.**
 
-It can still be used to update devices to Device OS 0.6.0 but cannot upgrade to newer versions. The [Particle CLI](/guide/tools-and-features/cli) should be used instead.
+It can still be used to update devices to Device OS 0.6.0 but cannot upgrade to newer versions. The [Particle CLI](/tutorials/developer-tools/cli) should be used instead.
 
 The Firmware Manager is a desktop application that upgrades your {{device}} to the latest Device OS version. It provides an easy way to update Device OS version while avoiding cellular data charges.
 
@@ -112,8 +112,8 @@ If the update gets stuck or you see an error message, try following these steps
 
 - Close the device updater if it's already open
 - Connect the device directly to your computer rather than via USB hubs
-- Restart the device in [Safe Mode](/guide/getting-started/modes/#safe-mode)
-- When the device has connected to the cloud, put the device in [listening mode](/guide/getting-started/modes/#listening-mode)
+- Restart the device in [Safe Mode](/tutorials/device-os/led/#safe-mode)
+- When the device has connected to the cloud, put the device in [listening mode](/tutorials/device-os/led/#listening-mode)
 - launch the device updater and perform the update as described above
 
 

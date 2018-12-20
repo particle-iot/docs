@@ -1,0 +1,149 @@
+
+img.mainGridImg {
+  max-width:100% !important;
+  max-height:70% !important;
+}
+
+h1.mainTitle {
+	text-align: center;
+}
+
+div.mainGrid {
+  float:left;
+  position: relative;
+  width: 100%;
+}
+
+a.mainGridButton {
+  color: @NC_BLACK;
+}
+
+
+@media all and (max-width: 599px) {
+	div.mainSquare {
+	  float:left;
+	  position: relative;
+	  width: 90%;
+	  padding-bottom: 90%;
+	  margin:1.66%;
+	  overflow:hidden;
+	  box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.15);
+	  border-radius: 5px;
+	}
+}
+
+@media all and (min-width: 600px) {
+	div.mainSquare {
+	  float:left;
+	  position: relative;
+	  width: 30%;
+	  padding-bottom: 30%;
+	  margin:1.66%;
+	  overflow:hidden;
+	  box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.15);
+	  border-radius: 5px;
+	}
+}
+
+div.mainSquare:hover { 
+  position: relative; 
+  top: -5px;
+  cursor: pointer;
+  transition-duration: .2s;
+} 
+  
+div.mainContent {
+  position:absolute;
+  text-align:center;
+  height:80%; 
+  width:90%;
+  padding: 10% 5%;
+}
+
+
+div.mainTopBottom {
+}
+
+div.mainTop {
+    position:absolute;
+    vertical-align:center;
+    top:0;
+    height:75%;
+    width:90%;
+}
+div.mainBottom {
+    position:absolute;
+    vertical-align:center;
+    top:75%;
+    height:25%;
+    width:90%;
+    color:@NC_COOL_GRAY;
+}
+
+div.mainBoxTitle {
+	font-size: small;
+	font-weight: bold;
+}
+
+div.mainBoxDescription {
+	font-size: x-small;
+}
+
+@media all and (max-width: 599px) {
+	div.mainNoPicRect {
+	  float:left;
+	  position: relative;
+	  width: 90%;
+	  padding-bottom: 45%;
+	  margin:1.66%;
+	  overflow:hidden;
+	  box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.15);
+	  border-radius: 5px;
+	}
+}
+@media all and (min-width: 600px) {
+	div.mainNoPicRect {
+	  float:left;
+	  position: relative;
+	  width: 30%;
+	  padding-bottom: 15%;
+	  margin:1.66%;
+	  overflow:hidden;
+	  box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.15);
+	  border-radius: 5px;
+	}
+}
+
+div.mainNoPicRect:hover { 
+  position: relative; 
+  top: -5px;
+  cursor: pointer;
+  transition-duration: .2s;
+} 
+  
+
+div.mainNoPicTop {
+    position:absolute;
+    vertical-align:center;
+    padding: 15% 0%;
+    top:0;
+    height:40%;
+    width:90%;
+	font-size: small;
+	font-weight: bold;
+}
+div.mainNoPicBottom {
+    position:absolute;
+    vertical-align:center;
+    top:40%;
+    height:60%;
+    width:90%;
+	font-size: x-small;
+    color:@NC_COOL_GRAY;
+}
+
+
+
+
+
+

@@ -2,7 +2,7 @@
 title: Troubleshooting Tools
 layout: support.hbs
 columns: two
-devices: [ photon,electron,core,raspberry-pi ]
+devices: [ photon,electron,core,raspberry-pi,argon,boron,xenon ]
 order: 10
 ---
 
@@ -14,7 +14,7 @@ Here are some tools to help you as you troubleshoot your {{device}}.
 
 ## Listening Mode Commands
 
-It is possible to put your {{device}} in [Listening Mode](/guide/getting-started/modes/#listening-mode) to get some information about its system, version, and MAC address, and Device ID. {{#if has-wifi}}You can even add Wi-Fi credentials with this method.{{/if}}
+It is possible to put your {{device}} in [Listening Mode](/tutorials/device-os/led/#listening-mode) to get some information about its system, version, and MAC address, and Device ID. {{#if has-wifi}}You can even add Wi-Fi credentials with this method.{{/if}}
 
 ### Setup
 
@@ -22,7 +22,7 @@ It is possible to put your {{device}} in [Listening Mode](/guide/getting-started
 
 For Windows users, we recommend downloading [PuTTY](http://www.putty.org/). You will also need to download and install the [Particle driver](https://github.com/particle-iot/windows-device-drivers/releases/download/v6.1.0.51/particle_drivers_6.1.0.51.exe).
 
-Plug your device into your computer over USB. When the {{device}} is in [Listening Mode](/guide/getting-started/modes/#listening-mode), open a serial port over USB using the standard settings, which should be:
+Plug your device into your computer over USB. When the {{device}} is in [Listening Mode](/tutorials/device-os/led/#listening-mode), open a serial port over USB using the standard settings, which should be:
 
 - Baud rate: 9600
 - Data Bits: 8
@@ -63,8 +63,8 @@ Your device MAC address is
 
 ### Get Device ID [deviceID] CLI method
 _Using the Particle CLI_
-* Put your device into [Listening Mode](/guide/getting-started/modes/#listening-mode) mode while being plugged into a computer via USB
-* Issue `particle serial identify` from the [Particle CLI](/guide/tools-and-features/cli)
+* Put your device into [Listening Mode](/tutorials/device-os/led/#listening-mode) mode while being plugged into a computer via USB
+* Issue `particle serial identify` from the [Particle CLI](/tutorials/developer-tools/cli)
 	and it should return the deviceID.
 
 ### Get Device ID
@@ -118,7 +118,7 @@ The configuration process will be almost identical to the process laid out in th
 
 ## DFU Commands
 
-If you can't get the CLI working, you may have to put your device in [DFU mode](/guide/getting-started/modes/#dfu-mode-device-firmware-upgrade-) and use [dfu-util](http://dfu-util.sourceforge.net/) to get some basic commands done. A list of DFU commands is below. To use these, you can download dfu-util via the above link, then go to the command line and run dfu-util with one of the following commands.
+If you can't get the CLI working, you may have to put your device in [DFU mode](/tutorials/device-os/led/#dfu-mode-device-firmware-upgrade-) and use [dfu-util](http://dfu-util.sourceforge.net/) to get some basic commands done. A list of DFU commands is below. To use these, you can download dfu-util via the above link, then go to the command line and run dfu-util with one of the following commands.
 
 We don't recommend using these commands unless you're very comfortable with the platform or unless you've been instructed to do so by Particle Support or an Elite community member.
 

@@ -1,12 +1,19 @@
 
 $(document).ready(function() {
-	var d = collapseComputerOsDefault();
-	if (d) {
-		collapseComputerOs(d);
-	}
-	else {
-		collapseComputerOs('Windows');
-	}
+
+	$('input.collapseDefault').each(function(index) {
+		var genericCssClass = $(this).attr('name');
+		var defaultValue = $(this).attr('value');
+
+		var switchTo = localStorage.getItem(genericCssClass) || defaultValue;
+    	collapseSelector(genericCssClass, switchTo);
+	});
+	$('input.collapseForce').each(function(index) {
+		var genericCssClass = $(this).attr('name');
+		var defaultValue = $(this).attr('value');
+
+    	collapseSelector(genericCssClass, defaultValue);
+	});
 });
 
 function collapseToggle(id) {	 
@@ -20,12 +27,12 @@ function collapseToggle(id) {
 	}
 }
 
-function collapseComputerOs(switchTo) {
-	$('div.collapseComputerOs').hide();
-	$('div.collapseComputerOs' + switchTo).show();			
+function collapseSelector(genericCssClass, switchTo) {
+	$('div.' + genericCssClass).hide();
+	$('div.' + genericCssClass + switchTo).show();			
 
-	$('input.collapseComputerOs').removeProp('checked');
-	$('input.collapseComputerOs' + switchTo).prop('checked', 'checked');
+	$('input.' + genericCssClass).removeProp('checked');
+	$('input.' + genericCssClass + switchTo).prop('checked', 'checked');
 
 	// Hide navigation menu items for sections that are hidden
 	$('div.in-page-toc-container').each(function(index, toc) {		
@@ -35,7 +42,7 @@ function collapseComputerOs(switchTo) {
 			if (hashOffset >= 0) {
 				var hash = href.substring(hashOffset + 1);
 				if ($('#' + hash).is(':hidden')) {
-					$(anchor).parents('li').hide();
+					$(anchor).parent('li').hide();
 				}
 				else {
 					$(anchor).parents('li').show();
@@ -43,21 +50,8 @@ function collapseComputerOs(switchTo) {
 			}
 		});
 	});
-	
-	collapseComputerOsDefault(switchTo);
 
-}
-
-function collapseComputerOsDefault(switchTo) {
-	var localStorageKey = 'collapseComputerOsDefault';
-	
-	if (switchTo) {
-		localStorage.setItem(localStorageKey, switchTo);
-	}
-	else {
-		switchTo = localStorage.getItem(localStorageKey);
-	}
-	return switchTo;
+	localStorage.setItem(genericCssClass, switchTo);
 }
 
 function collapseCopy(id) {

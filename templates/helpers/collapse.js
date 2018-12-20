@@ -3,24 +3,63 @@ var crypto = require('crypto');
 var Handlebars = require('handlebars');
 
 // Default computerOs (when not stored in localstorage) is set in src/assets/js/collapse.js
-var collapseComputerOsList = [
-	'Windows',
-	'Mac',
-	'Linux'
-];
+
+var collapseConfig = {
+	'computerOs':{
+		'prompt':'Select computer operating system:',
+		'defaultValue':'Windows',
+		'cssClass':'collapseComputerOs',
+		'op':'computerOsSelector',
+		'options':[
+			{'title':'Windows', 'tag':'Windows'},
+			{'title':'Mac', 'tag':'Mac'},
+			{'title':'Linux', 'tag':'Linux'}
+		]
+	},
+	'photoSensor':{
+		'prompt':'Select the type of photo sensor in your kit:',
+		'defaultValue':'Resistor',
+		'cssClass':'collapsePhotoSensor',
+		'op':'photoSensor',
+		'options':[
+			{'title':'Transistor', 'tag':'Transistor'},
+			{'title':'Resistor', 'tag':'Resistor'}
+		]		
+	},
+	'cellularDevice':{
+		'prompt':'Select the type of cellular device you have:',
+		'defaultValue':'Electron',
+		'cssClass':'collapseCellularDevice',
+		'op':'cellularDevice',
+		'options':[
+			{'title':'Electron or E Series', 'tag':'Electron'},
+			{'title':'Boron', 'tag':'Boron'}
+		]				
+	}
+};
 
 module.exports = function(context) {
 	var html = '';
 	
 	var op = context.hash.op;
 	if (op === 'start') {
-		if (context.hash.computerOs) {
-			// computerOs start (Mac, Windows, Linux)
-			// Start with all sections hidden, one will be opened at runtime, either the default or the one
-			// saved in localstorage, from the code in src/assets/js/collapse.js (runtime code)
-			html += '</p><div class="collapseComputerOs collapseComputerOs' + context.hash.computerOs + '" style="display:none;">';
+		var hasSelector = false;
+		
+		for (var key in collapseConfig) {
+		    if (collapseConfig.hasOwnProperty(key)) {
+		    	if (context.hash[key]) {
+		    		hasSelector = true;
+
+		    		var genericClass = collapseConfig[key].cssClass;
+		    		var specificClass = genericClass + context.hash[key];
+		    		
+					html += '</p><div class="' + genericClass + ' ' + specificClass + '" style="display:none">';
+
+		    	}
+		    }
 		}
-		else {
+		
+		if (!hasSelector)  {
 			// Default hidden section start					
 			var id = crypto.randomBytes(12).toString("hex");
 			html += '</p><p onclick="collapseToggle(\'' + id + '\')"><img src="/assets/images/disclosure-right.png" style="position:static; display:inline; margin:4px; width:12px; height:12px;" id="i' + id + '"/>' + context.hash.label + '</p>';
@@ -32,22 +71,44 @@ module.exports = function(context) {
 	if (op === 'end') {
 		html += '</div><p>';	
 	}
-	else
-	if (op === 'computerOsSelector') {
-		var id = crypto.randomBytes(12).toString("hex");
+	else {
+		for (var key in collapseConfig) {
+		    if (collapseConfig.hasOwnProperty(key)) {	    		
+		    	if (op === collapseConfig[key].op) {
+		    		var genericClass = collapseConfig[key].cssClass;
 
-		html += '</p><form><p>Select computer operating system:<br/>';
-		
-		for(var ii = 0; ii < collapseComputerOsList.length; ii++) {
-			html += '<span onclick="collapseComputerOs(\'' + collapseComputerOsList[ii] + '\')">';
-			html += '<input type="radio" class="collapseComputerOs collapseComputerOs' + collapseComputerOsList[ii] + '" id=" + id + ">'; 
-			html += '<label for="' + id + '">' + collapseComputerOsList[ii] + '&nbsp;&nbsp;&nbsp;&nbsp;</label>';
-			html += '</span>';
+		    		if (!context.hash.force) {
+			    		var id = crypto.randomBytes(12).toString("hex");
+	
+			    		html += '</p><form><p>' + collapseConfig[key].prompt + '<br/>';
+	
+			    		
+			    		for(var ii = 0; ii < collapseConfig[key].options.length; ii++) {
+				    		var specificClass = genericClass + collapseConfig[key].options[ii].tag;
+				    		
+			    			html += '<span onclick="collapseSelector(\'' + genericClass + '\', \'' + collapseConfig[key].options[ii].tag + '\')">';
+			    			html += '<input type="radio" class="' + genericClass + ' ' + specificClass + '" id=" + id + ">'; 
+			    			html += '<label for="' + id + '">' + collapseConfig[key].options[ii].title + '&nbsp;&nbsp;&nbsp;&nbsp;</label>';
+			    			html += '</span>';
+			    		}
+			    		
+			    		html += '<input type="hidden" class="collapseDefault" name="' + genericClass + '" value="' + collapseConfig[key].defaultValue + '"/>';
+			    		
+			    		html += '</p></form><p>';
+		    		}
+		    		else {
+			    		html += '</p><form>';
+			    		
+			    		html += '<input type="hidden" class="collapseForce" name="' + genericClass + '" value="' + context.hash.force + '"/>';
+			    		
+			    		html += '</form><p>';
+	
+		    		}
+		    	}
+		    }
 		}
-		
-		html += '</p></form><p>';
+	
 	}
-
 		
 	return new Handlebars.SafeString(html);
 };
