@@ -15016,7 +15016,7 @@ If you don't see any notes below the table or if they are the wrong version, ple
 
 |Firmware Version||||||||
 |:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|
-|v0.8.x-rc.x prereleases|[v0.8.0-rc.10](/reference/device-os/firmware/photon/?fw_ver=0.8.0-rc.10&cli_ver=1.33.0&electron_parts=3#programming-and-debugging-notes)|[v0.8.0-rc.11](/reference/device-os/firmware/photon/?fw_ver=0.8.0-rc.11&cli_ver=1.35.0&electron_parts=3#programming-and-debugging-notes)|[v0.8.0-rc.12](/reference/device-os/firmware/photon/?fw_ver=0.8.0-rc.12&cli_ver=1.36.2&electron_parts=3#programming-and-debugging-notes)|-|-|-|-|
+|v0.8.x-rc.x prereleases|[v0.8.0-rc.10](/reference/device-os/firmware/photon/?fw_ver=0.8.0-rc.10&cli_ver=1.33.0&electron_parts=3#programming-and-debugging-notes)|[v0.8.0-rc.11](/reference/device-os/firmware/photon/?fw_ver=0.8.0-rc.11&cli_ver=1.35.0&electron_parts=3#programming-and-debugging-notes)|[v0.8.0-rc.12](/reference/device-os/firmware/photon/?fw_ver=0.8.0-rc.12&cli_ver=1.36.3&electron_parts=3#programming-and-debugging-notes)|-|-|-|-|
 |v0.8.x-rc.x prereleases|[v0.8.0-rc.1](/reference/device-os/firmware/photon/?fw_ver=0.8.0-rc.1&cli_ver=1.29.0&electron_parts=3#programming-and-debugging-notes)|[v0.8.0-rc.2](/reference/device-os/firmware/photon/?fw_ver=0.8.0-rc.2&cli_ver=1.29.0&electron_parts=3#programming-and-debugging-notes)|[v0.8.0-rc.3](/reference/device-os/firmware/photon/?fw_ver=0.8.0-rc.3&cli_ver=1.29.0&electron_parts=3#programming-and-debugging-notes)|[v0.8.0-rc.4](/reference/device-os/firmware/photon/?fw_ver=0.8.0-rc.4&cli_ver=1.29.0&electron_parts=3#programming-and-debugging-notes)|[v0.8.0-rc.7](/reference/device-os/firmware/photon/?fw_ver=0.8.0-rc.7&cli_ver=1.29.0&electron_parts=3#programming-and-debugging-notes)|[v0.8.0-rc.8](/reference/device-os/firmware/photon/?fw_ver=0.8.0-rc.8&cli_ver=1.32.1&electron_parts=3#programming-and-debugging-notes)|[v0.8.0-rc.9](/reference/device-os/firmware/photon/?fw_ver=0.8.0-rc.9&cli_ver=1.32.4&electron_parts=3#programming-and-debugging-notes)|
 |v0.7.x default releases|[v0.7.0](/reference/device-os/firmware/photon/?fw_ver=0.7.0&cli_ver=1.29.0&electron_parts=3#programming-and-debugging-notes)|-|-|-|-|-|-|
 |v0.7.x-rc.x prereleases|[v0.7.0-rc.1](/reference/device-os/firmware/photon/?fw_ver=0.7.0-rc.1&cli_ver=1.23.1&electron_parts=3#programming-and-debugging-notes)|[v0.7.0-rc.2](/reference/device-os/firmware/photon/?fw_ver=0.7.0-rc.2&cli_ver=1.23.1&electron_parts=3#programming-and-debugging-notes)|[v0.7.0-rc.3](/reference/device-os/firmware/photon/?fw_ver=0.7.0-rc.3&cli_ver=1.23.1&electron_parts=3#programming-and-debugging-notes)|[v0.7.0-rc.4](/reference/device-os/firmware/photon/?fw_ver=0.7.0-rc.4&cli_ver=1.23.1&electron_parts=3#programming-and-debugging-notes)|[v0.7.0-rc.5](/reference/device-os/firmware/photon/?fw_ver=0.7.0-rc.5&cli_ver=1.23.1&electron_parts=3#programming-and-debugging-notes)|[v0.7.0-rc.6](/reference/device-os/firmware/photon/?fw_ver=0.7.0-rc.6&cli_ver=1.23.1&electron_parts=3#programming-and-debugging-notes)|[v0.7.0-rc.7](/reference/device-os/firmware/photon/?fw_ver=0.7.0-rc.7&cli_ver=1.23.1&electron_parts=3#programming-and-debugging-notes)|
@@ -15028,7 +15028,7 @@ If you don't see any notes below the table or if they are the wrong version, ple
 
 <!--
 CLI VERSION is compatable with FIRMWARE VERSION
-v1.36.2 = 0.8.0-rc.12
+v1.36.3 = 0.8.0-rc.12
 v1.35.0 = 0.8.0-rc.11
 v1.33.0 = 0.8.0-rc.10
 v1.32.4 = 0.8.0-rc.9
@@ -15107,8 +15107,8 @@ v1.12.0 = 0.5.0
 ##### @CLI_VER@1.33.0endif
 ##### @CLI_VER@1.35.0if
 ##### @CLI_VER@1.35.0endif
-##### @CLI_VER@1.36.2if
-##### @CLI_VER@1.36.2endif
+##### @CLI_VER@1.36.3if
+##### @CLI_VER@1.36.3endif
 ##### @ELECTRON_PARTS@2if
 ##### @ELECTRON_PARTS@2endif
 ##### @ELECTRON_PARTS@3if
