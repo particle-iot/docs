@@ -7453,7 +7453,7 @@ _Since 0.7.0_
 This function also takes an optional argument `timeout`, which allows the caller to specify the maximum amount of time the function may take. If `timeout` value is specified, write operation may succeed partially and it's up to the caller to check the actual number of bytes written and schedule the next `write()` call in order to send all the data out.
 {{/if}}
 
-The application code may additionally check if an error occured during the last `write()` call by checking [`getWriteError()`](#getwriteerror--1) return value. Any non-zero error code indicates and error during write operation.
+The application code may additionally check if an error occured during the last `write()` call by checking {{#if has-tcpserver}}[`getWriteError()`](#getwriteerror--1){{/if}}{{#if has-no-tcpserver}}[`getWriteError()`](#getwriteerror-){{/if}} return value. Any non-zero error code indicates and error during write operation.
 
 
 ```C++
@@ -7477,7 +7477,7 @@ Parameters:
 
 Returns: `size_t`: `write()` returns the number of bytes written.
 
-**NOTE**: `write()` currently may return negative error codes. This behavior will change in the next major release (0.9.0). Applications will be required to use [`getWriteError()`](#getwriteerror--1) to check for write errors.
+**NOTE**: `write()` currently may return negative error codes. This behavior will change in the next major release (0.9.0). Applications will be required to use {{#if has-tcpserver}}[`getWriteError()`](#getwriteerror--1){{/if}}{{#if has-no-tcpserver}}[`getWriteError()`](#getwriteerror-){{/if}} to check for write errors.
 
 ### print()
 
@@ -7621,7 +7621,9 @@ Get the error code of the most recent [`write()`](#write--4) operation.
 
 Returns: int `0` when everything is ok, a non-zero error code in case of an error.
 
-This value is updated every after every call to [`write()`](#write--4) or can be manually cleared by  [`clearWriteError()`](#clearwriteerror--1)
+
+This value is updated every after every call to [`write()`](#write--4) or can be manually cleared by {{#if has-tcpserver}}[`clearWriteError()`](#clearwriteerror--1){{/if}}{{#if has-no-tcpserver}}[`clearWriteError()`](#clearwriteerror-){{/if}}
+
 
 ```C++
 // SYNTAX

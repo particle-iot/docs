@@ -101,6 +101,7 @@
     "button-mirror",
     "rgb-mirror",
     "spi-settings",
+    "no-tcpserver",
     "tcpclient",
     "udp-cloud"
   ],
@@ -175,6 +176,7 @@
     "button-mirror",
     "rgb-mirror",
     "spi-settings",
+    "no-tcpserver",
     "tcpclient",
     "set-credentials",
     "set-active-sim",
