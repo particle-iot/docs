@@ -222,6 +222,9 @@ something different, probably `/v2`.  If we decide to deprecate any `/v1` endpoi
 we'll give you lots of notice and a clear upgrade path.
 
 ## Devices
+
+Note: The connected or online state of devices is not always accurate. When a Wi-Fi device is unplugged, for example, it may still be listed as online when not. For cellular (Electron, E-Series) and mesh (Argon, Boron, Xenon) devices, the connected or online state is set to true on the first connection and never set to false again.
+
 {{> api group=apiGroups.Devices}}
 ## Remote Diagnostics
 {{> api group=apiGroups.Diagnostics}}
@@ -254,7 +257,7 @@ When your device starts ("online") or stops ("offline") a session with the cloud
 {"name":"spark/status","data":"offline","ttl":"60","published_at":"2015-01-01T14:31:49.787Z","coreid":"0123456789abcdef01234567"}
 ```
 
-For cellular devices (Electron, E Series), online events occur only on a full handshake with the cloud. Sleeping for short periods of time (under 23 minutes) will not cause an online event. Offline events are never generated for cellular devices.
+For cellular devices (Electron, E Series) and mesh devices (Argon, Boron, and Xenon), online events occur only on a full handshake with the cloud. Sleeping for short periods of time (under 23 minutes) will not cause an online event. Offline events are never generated for cellular or mesh devices.
 
 For Wi-Fi devices (Photon, P1, Core), online events occur on every connection to the cloud and after any length of sleep. If you abruptly power off the device and offline event may take some time to occur.
 
