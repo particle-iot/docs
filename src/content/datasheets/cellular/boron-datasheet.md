@@ -23,9 +23,10 @@ The Boron is great for connecting existing projects to the Particle Device Cloud
 
 ### Features
 
- * u-blox SARA R410 LTE modem (Boron LTE)
+ * u-blox SARA-R410-02B LTE modem (Boron LTE)
   * LTE CAT M1/ NB1 module with global hardware support (MVNO support for US only) 
   * 3GPP Release 13 LTE Cat M1 
+  * Cat M1/NB1 bands: 2, 3, 4, 5, 8, 12, 13, 20, 28
  * u-blox SARA U201 2G/3G modem (Boron 2G/3G)
   * HSPA/GSMqq with global hardware and SIM support 
   * Bands 800/850/900/1900/2100 MHz 
@@ -99,9 +100,13 @@ There are two options for the Mesh antenna on the Boron. It comes with an on-boa
 
 **Mesh**
 
+The following antenna is optional, as the Boron comes with an on-board chip antenna for mesh. It can be purchased in the [Particle online store](https://store.particle.io/products/wi-fi-or-mesh-2-4ghz-antenna).
+
 |Particle Device|Frequency     |Antenna Type|Manufacturer|MFG. Part # | Gain      |
 |:--------------|:-------------|:-----------|:-----------|:-----------|:----------|
 |Boron          | 2400-2500 MHz|PCB Antenna |Particle    | ANT-FLXV2  |2.0dBi peak|
+
+It is also possible to use most antennas designed for Wi-Fi (2.4 GHz) as a mesh antenna. For example, you can use duck or even Yagi antennas for longer range. In some cases, a u.FL to RP-SMA adapter will be required. If you are building a product using alternative antennas, additional certification may be required. 
 
 **Cellular**
 
