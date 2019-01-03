@@ -360,5 +360,5 @@ The 1,800mAh lithium-polymer (Li-Po) battery included with the Electron and othe
 **Ratings**: 3.7V DC, 1,800mAh, 7.4Wh  
 **Manufacturer**: ZHAONENG BATTERY INDUSTRIAL CO., LTD. (Shenzhen, China)  
 **Test Reports**: 
-- [IEC62133](/assets/pdfs/electron/battery/zn-103450-iec621331.pdf)
+- [IEC62133](/assets/pdfs/new-certs/battery/zn-103450-iec621331.pdf)
 
