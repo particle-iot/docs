@@ -91,9 +91,14 @@ There are two options for the Mesh antenna on the Argon. It comes with an on-boa
 
 **Mesh and WiFi**
 
+The Argon includes one of these antennas, but a second for use with mesh can be purchased in the [Particle online store](https://store.particle.io/products/wi-fi-or-mesh-2-4ghz-antenna).
+
+
 |Particle Device|Frequency     |Antenna Type|Manufacturer|MFG. Part # | Gain      |
 |:--------------|:-------------|:-----------|:-----------|:-----------|:----------|
 |Argon          | 2400-2500 MHz|PCB Antenna |Particle    | ANT-FLXV2  |2.0dBi peak|
+
+It is also possible to use most antennas designed for Wi-Fi (2.4 GHz) as a mesh antenna. For example, you can use duck or even Yagi antennas for longer range. In some cases, a u.FL to RP-SMA adapter will be required. If you are building a product using alternative antennas, additional certification may be required. 
 
 
 ### Peripherals and GPIO
