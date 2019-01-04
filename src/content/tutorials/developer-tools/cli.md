@@ -459,12 +459,12 @@ This will create a `.bin` file which you then flash to your device.
 
 ### Contributing the library
 
-Once you have tested the library and you are ready to upload the library to the cloud, you run the `library contribute`
+Once you have tested the library and you are ready to upload the library to the cloud, you run the `library upload`
 command.  You run this command from the directory containing the library
 
 ```
 cd lib/mylib
-particle library contribute
+particle library upload
 ```
 
 Before the library is contributed, it is first validated. If validation succeeds, the library is contributed
