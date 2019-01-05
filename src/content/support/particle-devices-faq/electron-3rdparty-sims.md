@@ -65,8 +65,8 @@ Some carriers may also require a username and password. Note those, if they are 
 If you're ready to set up your Boron, follow these steps:
 
 - Go to the [mesh firmware releases page](https://github.com/particle-iot/firmware/releases/tag/v0.8.0-rc.27).
-- Download the hybrid bin file: <a href="https://github.com/particle-iot/firmware/releases/download/v0.8.0-rc.27/hybrid-0.8.0-rc.27-boron.bin" target="_blank">hybrid-0.8.0-rc.27-boron.bin</a>
-- While you're at it also download: <a href="https://github.com/particle-iot/firmware/releases/download/v0.8.0-rc.27/tinker-0.8.0-rc.27-boron.bin" target="_blank">tinker-0.8.0-rc.27-boron.bin</a>
+- Download the hybrid bin file: [hybrid-0.8.0-rc.27-boron.bin](https://github.com/particle-iot/firmware/releases/download/v0.8.0-rc.27/hybrid-0.8.0-rc.27-boron.bin)
+- While you're at it also download [tinker-0.8.0-rc.27-boron.bin](https://github.com/particle-iot/firmware/releases/download/v0.8.0-rc.27/tinker-0.8.0-rc.27-boron.bin)
 - Put your device into DFU mode (blinking yellow), instructions [here](/tutorials/device-os/led/#dfu-mode-device-firmware-upgrade-).
 - Flash the Device OS:
 
