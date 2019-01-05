@@ -208,6 +208,10 @@ The Particle Classic Adapter lets you use your Asset Tracker, Relay Shield, or o
 
 The top of the adapter has female connectors for you to plug in the Particle Mesh device. The bottom has male header pins in the Particle legacy form-factor for devices such as the Electron, Photon, or the Core.
 
+The legacy side (male pins on the bottom) are designed to fit an Electron. So when plugging into a Photon socket please make sure the B/C pins side are hanging off the end, not plugged into anything.
+
+You cannot supply more than 3.3V to any pin on the Argon/Boron/Xenon (except VUSB and the USB connector).
+
 **Note:** This product is a one-way adapter. That is, this product does not enable use of Adafruit FeatherWings with the Photon or Electron.
 
 ### Pin Map

@@ -725,7 +725,7 @@ Examples:
  - 22 Tracking/ 66 acquisition channels
  - Update rate: 1Hz (default), 10Hz (max)
  - Position accuracy: 2.5 to 3.0 meters
- - Altitude: 18000 (max)
+ - Altitude: 18000m (max)
  - Velocity: 515m/s (max)
  - Velocity accuracy: 0.05 to 0.1m/s
  - Acceleration: 4G (max)

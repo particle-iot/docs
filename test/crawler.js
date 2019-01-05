@@ -62,7 +62,7 @@ describe('Crawler', function() {
   });
 
   it('should complete without error', function(done) {
-    this.timeout(500000);
+    this.timeout(600000);
     var errors = 0;
     var crawler = new Crawler('localhost', '/', 8081);
     crawler.maxConcurrency = 8;

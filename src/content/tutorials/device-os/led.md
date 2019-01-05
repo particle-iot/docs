@@ -361,7 +361,7 @@ To put your device in Safe Mode:
 3. Wait for the LED to start blinking magenta
 6. Release the `{{system-button}}` button
 
-Before entering safe mode, the {{device}} will proceed through the normal steps of connecting to the cloud; blinking green, blinking cyan, and fast blinking cyan. If you're unable to connect to the cloud, you won't be able to enter safe mode.
+Before entering safe mode, the {{device}} will proceed through the normal steps of connecting to the cloud; blinking green, blinking cyan, and fast blinking cyan. If you're unable to connect to the cloud, you won't actually end up with breathing magenta, but execution of application firmware will still be blocked - so you are in a "sort-of safe mode" (e.g. to enter "Safe Listening Mode").
 
 The device will itself automatically enter safe mode if there is no application code flashed to the device or when the application is not valid.
 
