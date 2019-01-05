@@ -26,6 +26,7 @@ ANTELEC50 | CELLULAR ANTENNA (BULK) | 4 - 6 weeks
 ANTFLEX | FLEX ANTENNA | 4 - 6 weeks
 ARGN-H | ARGON | 12 - 16 weeks
 ARGNKIT | ARGON KIT | 12 - 16 weeks
+ARGNTRAY50 | ARGON IN TRAYS | 12 - 16 weeks
 ASSET2GV2 | ASSET TRACKER 2G KIT V2 | 10 - 13 weeks
 ASSET3G260V2 | ASSET TRACKER 3G KIT V2 (AMERICAS/AUS) | 10 - 13 weeks
 ASSET3G270V2 | ASSET TRACKER 3G KIT V2 (EUR/ASIA/AFR) | 10 - 13 weeks
@@ -36,8 +37,10 @@ BNDL-M402 | PARTICLE MESH LTE BUNDLE | 12 - 16 weeks
 BNDL-MULT | PARTICLE MESH ULTIMATE BUNDLE | 12 - 16 weeks
 BNDL-MWF | PARTICLE MESH WI-FI BUNDLE | 12 - 16 weeks
 BRN310KIT | BORON 2G/3G KIT | 12 - 16 weeks
+BRN310TRAY50 | BORON 2G/3G IN TRAYS | 12 - 16 weeks
 BRN402 | BORON LTE | 12 - 16 weeks
 BRN402KIT | BORON LTE KIT | 12 - 16 weeks
+BRN402TRAY50 | BORON LTE IN TRAYS | 12 - 16 weeks
 E260KIT | ELECTRON 3G KIT (AMERICAS/AUS) | 12 - 16 weeks
 E260TRAY50 | ELECTRON 3G (AMERICAS/AUS) IN TRAYS | 12 - 16 weeks
 E270KIT | ELECTRON 3G KIT (EUR/ASIA/AFR) | 12 - 16 weeks
@@ -82,6 +85,7 @@ SNSRKIT3G270 | SENSOR KIT WITH ELECTRON 3G (EUR/ASIA/AFR) | 12 - 16 weeks
 SPKBTTN | INTERNET BUTTON | 12 - 16 weeks
 XENN-H | XENON | 12 - 16 weeks
 XENNKIT | XENON KIT | 12 - 16 weeks
+XENNTRAY50 | XENON IN TRAYS | 12 - 16 weeks
 
 
 Lead times apply only from the point of payment. Requesting a lead time will not reserve stock. Only a committed, non-refundable, non-cancellable purchase order (PO) or a purchase with payment will guarantee lead times. Particle reserves the right to increase or decrease lead times at any time.
@@ -95,7 +99,10 @@ SKU | Minimum order quantity
 ANT-FLXU-50 | 50 units
 ANT-FLXV2-50 | 50 units
 ANTELEC50 | 50 units
+ARGNTRAY50 | 50 units
 BATT18MOD50 | 50 units
+BRN310TRAY50 | 50 units
+BRN402TRAY50 | 50 units
 E260TRAY50 | 50 units
 E270TRAY50 | 50 units
 E310TRAY50 | 50 units
@@ -108,6 +115,7 @@ P1REEL | 500 units
 PHNTRAYH | 50 units
 PHNTRAYNOH | 50 units
 SIMBLANK50 | 50 units
+XENNTRAY50 | 50 units
 
 ## Refunds and Replacements
 
