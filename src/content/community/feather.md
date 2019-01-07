@@ -116,6 +116,25 @@ The [Adafruit DotStar FeatherWing - 6 x 12 RGB LEDs](https://www.adafruit.com/pr
 
 You can learn more about using the DotStartMatrix library from the [Adafruit Tutorial](https://learn.adafruit.com/adafruit-dotstar-leds/dotstarmatrix-library). You can use it to draw graphics and text on the display.
 
+### Adafruit 4-Digit 7-Segment LED Matrix Display FeatherWing
+
+The [Adafruit 4-Digit 7-Segment LED Matrix Display FeatherWing](https://www.adafruit.com/product/3088) provides a numeric clock-like 0.56" high display and is available in several colors (blue, green red, white, and yellow).
+
+![Feather 7-segment](/assets/images/feather-7seg.jpg)
+
+It connects by I2C:
+
+| Pin | Notes |
+| --- | --- |
+| D0 | SDA (I2C Data) |
+| D1 | SCL (I2C Clock) |
+
+You can learn more about this display at the [Adafruit Tutorial](https://learn.adafruit.com/adafruit-7-segment-led-featherwings/overview).
+
+There's Particle sample code to use it as a digital clock in the [Feather Clock Example](https://go.particle.io/shared_apps/5c33b28b2872bdbc4300028f).
+
+
+
 ## Relays
 
 ### Adafruit Power Relay FeatherWing
