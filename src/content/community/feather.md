@@ -216,6 +216,69 @@ To open the relay, use:
 digitalWrite(D6, LOW);
 ```
 
+### Adafruit Latching Mini Relay FeatherWing
+
+The [Adafruit Latching Mini Relay FeatherWing](https://www.adafruit.com/product/2923) provides a small 2 amp SPDT relay that you can include on on your Feather doubler or tripler. This is a latching (bistable) relay. You can set it (NO and COM connected) or unset it (NC and COM are connected), and it will stay in that state, even if you disconnect the power.
+
+![Feather Latching Relay](/assets/images/feather-latching.jpg)
+
+There is a great deal of information about this relay in the [Adafruit FeatherWing Relay Tutorial](https://learn.adafruit.com/mini-relay-featherwings/overview/).
+
+You must connect the SET and UNSET holes (next to the Reset button) to actual pins. The most common are D8-D2 on the top row and A0-A5 on the bottom row:
+
+![Feather Latching Pin Selection](/assets/images/feather-latch-pins.png)
+
+In the picture above, SET is connected to A0 with a green wire and UNSET is connected to A1 with a blue wire.
+
+There's a Particle sample app [FeatherLatchingRelay](https://go.particle.io/shared_apps/5c34bfcfe1b63be846000fc2).
+
+You can control the relay from the cloud.
+
+Calling the "relay" function can perform two different functions:
+
+```
+particle call argon2 relay on
+particle call argon2 relay off
+```
+
+Replace argon2 with the name of your device. You can also do this from https://console.particle.io.
+
+When you turn the relay on the upper red LED will blink briefly. Turning it off will cause the lower red LED to blink briefly. If the relay actually changes state, it will make an audible click.
+
+
+### Adafruit Non-Latching Mini Relay FeatherWing
+
+The [Adafruit Non-Latching Mini Relay FeatherWing](https://www.adafruit.com/product/2895) provides a small 2 amp SPDT relay that you can include on on your Feather doubler or tripler.
+
+![Feather Non-Latching Relay](/assets/images/feather-non-latching.jpg)
+
+In order to choose which pin to use to activate the relay, you must solder a jumper wire between the Signal line (in the middle of the board) to one of the on the FeatherWing.
+
+On the top row, the most common choices are D8-D2, and on the bottom row A0-A5.
+
+![Feather Non-Latching Pin Selection](/assets/images/feather-non-latch-pins.png)
+
+
+If you want to keep your choice of pin flexible, you can do something like the former picture: I soldered male header pins on D8-D2 and also on A0-A5. I then soldered a small piece of flexible wire with a female socket (from a ribbon cable) to the Signal hole. This allows any of these pins to be easily selected.
+
+There is a great deal of information about this relay in the [Adafruit FeatherWing Relay Tutorial](https://learn.adafruit.com/mini-relay-featherwings/overview/).
+
+There's a Particle sample app [FeatherRelay](https://go.particle.io/shared_apps/5c34bcb6e1b63bd1fc0010bf).
+
+You can control the relay from the cloud or locally with the MODE button.
+
+Pressing the MODE button will toggle the relay state.
+
+Calling the "relay" function can perform three different functions:
+
+```
+particle call argon2 relay on
+particle call argon2 relay off
+particle call argon2 relay toggle
+```
+
+Replace argon2 with the name of your device. You can also do this from https://console.particle.io.
+
 ## Sensors
 
 ### Adafruit INA219 FeatherWing
