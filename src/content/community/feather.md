@@ -131,8 +131,37 @@ It connects by I2C:
 
 You can learn more about this display at the [Adafruit Tutorial](https://learn.adafruit.com/adafruit-7-segment-led-featherwings/overview).
 
+Use the Adafruit_LEDBackpack_RK library. The object to use for this display is:
+
+```
+Adafruit_7segment matrix = Adafruit_7segment();
+```
+
 There's Particle sample code to use it as a digital clock in the [Feather Clock Example](https://go.particle.io/shared_apps/5c33b28b2872bdbc4300028f).
 
+
+### Adafruit 14-Segment Alphanumeric LED FeatherWing
+
+The [Adafruit 14-Segment Alphanumeric LED FeatherWing](https://www.adafruit.com/product/3089) is similar to the previous one, except it can also display alphabetic characters.
+
+![Feather alpha 4](/assets/images/feather-alpha4.jpg)
+
+It connects by I2C:
+
+| Pin | Notes |
+| --- | --- |
+| D0 | SDA (I2C Data) |
+| D1 | SCL (I2C Clock) |
+
+Use the Adafruit_LEDBackpack_RK library. The object to use for this display is:
+
+```
+Adafruit_AlphaNum4 alpha4 = Adafruit_AlphaNum4();
+```
+
+There's Particle sample code to use it as a small ticker display in the [Feather Ticker Example](https://go.particle.io/shared_apps/5c349834e1b63bd1fc000e77).
+
+You can change the message by calling the setMessage function. And adjust the speed using the setSpeed function. The default speed is 250 (milliseconds between updates). Smaller number make it go faster.
 
 
 ## Relays
@@ -195,7 +224,14 @@ The [Adafruit INA219 FeatherWing](https://www.adafruit.com/product/3650) is used
 
 ![INA219](/assets/images/feather-ina219.jpg)
 
-It connects by I2C (SDA and SCL, D0 and D1) and there is a port of the Adafruit library:
+It connects by I2C:
+
+| Pin | Notes |
+| --- | --- |
+| D0 | SDA (I2C Data) |
+| D1 | SCL (I2C Clock) |
+
+There is a port of the Adafruit library available:
 
 - [adafruit-ina219](https://github.com/cyberlord8/adafruit-ina219) library
 
