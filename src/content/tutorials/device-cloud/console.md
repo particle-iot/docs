@@ -40,9 +40,9 @@ class="full-width"/>
 You can also take certain actions on devices from this view, such as
 renaming the device and unclaiming it from your account.
 
-### Event Logs
+### Events
 
-The Logs feature provides a clean interface to view event information in real-time, just from your devices. We're hoping that this is handy both while debugging code during development, and checking out recent activity on your device once you power-on your finished project. Tailored around improving the experience of browsing logs, the page provides a handful of tools, like filtering, modifiers which enable you to narrow down your search for events, making it easier to view only the data that is relevant to you. In this view, you'll only see events that come in while the browser window is open.
+The Events feature provides a clean interface to view event information in real-time, just from your devices. We're hoping that this is handy both while debugging code during development, and checking out recent activity on your device once you power-on your finished project. Tailored around improving the experience of browsing logs, the page provides a handful of tools, like filtering, modifiers which enable you to narrow down your search for events, making it easier to view only the data that is relevant to you. In this view, you'll only see events that come in while the browser window is open.
 
 To visit the page go to [https://console.particle.io/events](https://console.particle.io/events)
 
@@ -574,8 +574,6 @@ Particle Device Cloud. For example, this could include a Particle.publish() call
 
 If you have multiple JS applications subscribed to an event then each will consume one of your outbound messages with each published event- watch out for running many copies of your app!
 
-When you hit the outbound event limit you can choose to upgrade to the new tier or stay at the current tier. If you do choose to stay with the current tier then any future events that month won’t be sent. You’ll get a fresh batch of events at the beginning of the next month, and normal behavior will resume then. Don’t worry, we’ll send you a warning before and an alert when you reach the event limit. 
-
 #### Team Members
 
 Team members are people that you’ve added to a Product to give them administrative access to the data, controlling firmware on devices, adding integrations, and more. The product owner can add and remove team members as necessary, but they’ll need to have a Particle account before they can be invited to join your team.
@@ -587,10 +585,10 @@ Products in the Console are billed separately, so if you have more than one they
 All Console plans are billed at the beginning of the plan period; in other words, it’s prepaid. You’ll pay for the following month or year, and can later cancel for a prorated remainder. 
 
 ### Status
-It’s easy to find out the status of your Product’s metrics. Visit [console.particle.io/billing](https://console.particle.io/billing) and you’ll see an up-to-date list of each Product you own, how many outbound events they’ve used that billing cycle, number of devices in each, and how many team members they have. The renewal date for each Product plan is also shown, so you know when the next bill is coming up.
+It’s easy to find out the status of your Product’s metrics. Visit [console.particle.io/billing](https://console.particle.io/billing) and you’ll see an up-to-date list of each Product you own, number of devices in each, and how many team members they have. The renewal date for each Product plan is also shown, so you know when the next bill is coming up.
 
 ### Changing Plans 
-You can upgrade to a higher tier at any time from the Billing view in order to add more team members or devices, or increase your monthly outbound event limit. We’ll send you notifications before you encounter the outbound event limit, but it’s wise to upgrade early because no events will be sent after you hit it. If you’ve hit the event limit, tried to add more devices than are supported by the current tier, or attempted to add a 6th team member while on the free Prototype tier, you’ll be prompted to upgrade to a higher tier.
+You can upgrade to a higher tier at any time from the Billing view in order to add more team members or devices. If you’ve tried to add more devices than are supported by the current tier, or attempted to add a 6th team member while on the free Prototype tier, you’ll be prompted to upgrade to a higher tier.
 
 When you upgrade we’ll prorate the new price for the rest of the month (or year, depending on your billing period) so you’ll never be double-billed.
 
