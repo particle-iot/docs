@@ -129,6 +129,19 @@ It connects by I2C:
 | D0 | SDA (I2C Data) |
 | D1 | SCL (I2C Clock) |
 
+The default I2C address is 0x70 but by closing the solder jumpers, you can change the address to avoid conflicts or to add more than one display:
+
+| A0 | A1 | A2 | Address |
+| --- | --- | --- | --- |
+| Open | Open | Open | 0x70 |
+| Closed | Open | Open | 0x71 |
+| Open | Closed | Open | 0x72 |
+| Closed | Closed | Open | 0x73 |
+| Open | Open | Closed | 0x74 |
+| Closed | Open | Closed | 0x75 |
+| Open | Closed | Closed | 0x76 |
+| Closed | Closed | Closed | 0x77 |
+
 You can learn more about this display at the [Adafruit Tutorial](https://learn.adafruit.com/adafruit-7-segment-led-featherwings/overview).
 
 Use the Adafruit_LEDBackpack_RK library. The object to use for this display is:
@@ -153,6 +166,19 @@ It connects by I2C:
 | D0 | SDA (I2C Data) |
 | D1 | SCL (I2C Clock) |
 
+The default I2C address is 0x70 but by closing the solder jumpers, you can change the address to avoid conflicts or to add more than one display:
+
+| A0 | A1 | A2 | Address |
+| --- | --- | --- | --- |
+| Open | Open | Open | 0x70 |
+| Closed | Open | Open | 0x71 |
+| Open | Closed | Open | 0x72 |
+| Closed | Closed | Open | 0x73 |
+| Open | Open | Closed | 0x74 |
+| Closed | Open | Closed | 0x75 |
+| Open | Closed | Closed | 0x76 |
+| Closed | Closed | Closed | 0x77 |
+
 Use the Adafruit_LEDBackpack_RK library. The object to use for this display is:
 
 ```
@@ -162,6 +188,13 @@ Adafruit_AlphaNum4 alpha4 = Adafruit_AlphaNum4();
 There's Particle sample code to use it as a small ticker display in the [Feather Ticker Example](https://go.particle.io/shared_apps/5c349834e1b63bd1fc000e77).
 
 You can change the message by calling the setMessage function. And adjust the speed using the setSpeed function. The default speed is 250 (milliseconds between updates). Smaller number make it go faster.
+
+```
+particle call argon2 setMessage "HELLO WORLD!"
+particle call argon2 setSpeed 100
+```
+
+Replace argon2 with the name of your device. You can also do this from [https://console.particle.io](https://console.particle.io).
 
 
 ## Relays
@@ -230,6 +263,8 @@ You must connect the SET and UNSET holes (next to the Reset button) to actual pi
 
 In the picture above, SET is connected to A0 with a green wire and UNSET is connected to A1 with a blue wire.
 
+You must not use D3, D4, and D5 if you are using the Particle Ethernet FeatherWing, as those pins are used by Ethernet. Pin D7 is also the blue LED next to the USB connector.
+
 There's a Particle sample app [FeatherLatchingRelay](https://go.particle.io/shared_apps/5c34bfcfe1b63be846000fc2).
 
 You can control the relay from the cloud.
@@ -241,7 +276,7 @@ particle call argon2 relay on
 particle call argon2 relay off
 ```
 
-Replace argon2 with the name of your device. You can also do this from https://console.particle.io.
+Replace argon2 with the name of your device. You can also do this from [https://console.particle.io](https://console.particle.io).
 
 When you turn the relay on the upper red LED will blink briefly. Turning it off will cause the lower red LED to blink briefly. If the relay actually changes state, it will make an audible click.
 
@@ -261,6 +296,8 @@ On the top row, the most common choices are D8-D2, and on the bottom row A0-A5.
 
 If you want to keep your choice of pin flexible, you can do something like the former picture: I soldered male header pins on D8-D2 and also on A0-A5. I then soldered a small piece of flexible wire with a female socket (from a ribbon cable) to the Signal hole. This allows any of these pins to be easily selected.
 
+You must not use D3, D4, and D5 if you are using the Particle Ethernet FeatherWing, as those pins are used by Ethernet. Pin D7 is also the blue LED next to the USB connector.
+
 There is a great deal of information about this relay in the [Adafruit FeatherWing Relay Tutorial](https://learn.adafruit.com/mini-relay-featherwings/overview/).
 
 There's a Particle sample app [FeatherRelay](https://go.particle.io/shared_apps/5c34bcb6e1b63bd1fc0010bf).
@@ -277,7 +314,7 @@ particle call argon2 relay off
 particle call argon2 relay toggle
 ```
 
-Replace argon2 with the name of your device. You can also do this from https://console.particle.io.
+Replace argon2 with the name of your device. You can also do this from [https://console.particle.io](https://console.particle.io).
 
 ## Sensors
 
@@ -297,6 +334,16 @@ It connects by I2C:
 There is a port of the Adafruit library available:
 
 - [adafruit-ina219](https://github.com/cyberlord8/adafruit-ina219) library
+
+The default I2C address is 0x40 but by closing the solder jumpers, you can change the address to avoid conflicts or to add more than one sensor:
+
+| A0 | A1 | Address |
+| --- | --- | --- |
+| Open | Open | 0x40 |
+| Closed | Open | 0x41 |
+| Open | Closed | 0x42 |
+| Closed | Closed | 0x43 |
+
 
 ## Other Accessories
 
