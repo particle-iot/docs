@@ -339,7 +339,7 @@ You can use this transistor to switch small loads like relays, mini motors, buzz
 
 [1N4004](http://en.wikipedia.org/wiki/1N4004) is a general purpose diode rated at 400V, 1000mA with a forward voltage drop of 1.1V. Excellent as a [fly-back diode](http://en.wikipedia.org/wiki/Flyback_diode) or as a general rectifying diode.
 
-[Datasheet >](https://www.diodes.com/assets/Datasheets/products_inactive_data/ds28002.pdf)
+[Datasheet >](https://www.diodes.com/assets/Datasheets/ds28002.pdf)
 
 ### 8. Micro Servo (1)
 
