@@ -112,7 +112,11 @@ Make sure your device is connected and selected in the IDE (Ensure that the <i c
 
 Your device should now restart and start publishing the event that will trigger the webhook.
 
-To ensure that everything is working properly, head over to your Logs hub on the console. Every time your webhook triggers, a `hook-sent` event will appear in your user event stream. If the webhook receives a response from the targeted web server with something in the `body`, a `hook-response` event will also appear in your event stream containing the response.
+To ensure that everything is working properly, head over to the Events page in the console. You can troubleshoot your integration by.... `What is the best practice now that we dont have the Logs hub? commented out in code below...`
+<!---
+All this should be 
+commented out
+ your Logs hub on the console. Every time your webhook triggers, a `hook-sent` event will appear in your user event stream. If the webhook receives a response from the targeted web server with something in the `body`, a `hook-response` event will also appear in your event stream containing the response.
 
 ![Webhook Logs](/assets/images/webhook-logs.png)
 <p class="caption">`hook-sent` and `hook-response` events will appear in your event stream for an active webhook</p>
@@ -123,6 +127,7 @@ You should see three types of events appearing in your stream:
 - `hook-response/temp/0`: The response that the webhook received from ThingSpeak. According to [ThingSpeak's docs](https://www.mathworks.com/help/thingspeak/update-channel-feed.html), the response is the entry ID of the update. If the update fails, the response is `0`.
 
 Sweet! Things appear to be working properly. Let's check out ThingSpeak and see how our data looks.
+-->
 
 ### See the results
 
@@ -227,6 +232,9 @@ You can also customize the structure of the data that gets sent. In the "Advance
 
 ## Monitoring your webhooks
 
+`Updated best practice should be updated here...`
+<!---
+
 The easiest way to observe webhook activity is to view the Integrations tab in the Particle Console. Double click on the integration you want to view and the page shows the history, recent calls, and recent errors.
 
 Additionally, you can view the Events page of your Particle Console. Every time your webhook triggers, a `hook-sent` event will appear in your user event stream. This is confirmation that the Particle cloud successfully forwarded your event to your webhook's target URL. 
@@ -237,7 +245,7 @@ If the webhook receives a response from the targeted web server with something i
 <p class="caption">`hook-sent` and `hook-response` events will appear in your event stream for an active webhook</p>
 
 Note that this will only appears in the Events page for the device owner. The hook events do not appear in the device-specific event log, or in the product event log.
-
+-->
 ## Custom Template
 
 The "Custom Template" tab of the webhook editor shows the raw configuration for the webhook. The syntax is described in the [webhook reference page](/reference/webhooks/).
