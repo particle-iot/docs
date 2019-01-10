@@ -172,7 +172,7 @@ If your flash is very corrupted, you may also need to flash system and user firm
 
 ### Programming system and user firmware
 
-You can download Device OS binaries for all released versions from [the GitHub release site](https://github.com/particle-iot/firmware/releases).
+You can download Device OS binaries for all released versions from [the GitHub release site](https://github.com/particle-iot/device-os/releases).
 
 For the Photon, flash, for example:
 
@@ -477,7 +477,7 @@ These commands are for 3rd-generation (mesh) devices including the Argon, Boron,
 
 ### Programming the boot loader (3rd generation)
 
-Download the appropriate bootloader bin file from the [release site](https://github.com/particle-iot/firmware/releases). 
+Download the appropriate bootloader bin file from the [release site](https://github.com/particle-iot/device-os/releases). 
 
 Then connect to the server with telnet or nc:
 

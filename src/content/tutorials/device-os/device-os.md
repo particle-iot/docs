@@ -26,7 +26,7 @@ Particle Device OS abstracts much of the complexity away from the traditional fi
 Unlike application firmware, Device OS is written and maintained primarily by the Particle team. This is a conscious decision meant to keep you focused on your particular use case without needing to understand the nuances of low-level device behaviors.
 
 That being said, Particle's firmware repository is available as an open
-source project for those that want deep visibility into Device OS code. To view the code and/or contribute, check out the [repo on GitHub](https://github.com/particle-iot/firmware).
+source project for those that want deep visibility into Device OS code. To view the code and/or contribute, check out the [repo on GitHub](https://github.com/particle-iot/device-os).
 
 
 ## Versioning
@@ -34,7 +34,7 @@ New features, security patches, and bug fixes are introduced to new versions of 
 
 Device OS versions that are suffixed with `-rc.x` are called _prereleases_ ("rc" stands for release candidate). These prereleases contain the changes that will eventually become a default release, but still need more thorough usage and testing. We recommend that you **do not** flash prereleased firmware to your production units deployed in the field.
 
-Each release is documented thoroughly to give you a comprehensive picture of what has changed in the new version. For a full list of Device OS releases and their descriptions, please check out [the release page on GitHub](https://github.com/particle-iot/firmware/releases) for the firmware repository.
+Each release is documented thoroughly to give you a comprehensive picture of what has changed in the new version. For a full list of Device OS releases and their descriptions, please check out [the release page on GitHub](https://github.com/particle-iot/device-os/releases) for the firmware repository.
 
 ## Firmware Modules
 
@@ -150,7 +150,7 @@ There's a couple of things to note:
 You can also use the Particle CLI to remotely update a device's Device
 OS version without changing the application firmware. This is a more advanced approach and requires some technical chops.
 
-To do this, first visit the [Device OS releases page](https://github.com/particle-iot/firmware/releases) on GitHub and locate the version you'd like to send to a device.
+To do this, first visit the [Device OS releases page](https://github.com/particle-iot/device-os/releases) on GitHub and locate the version you'd like to send to a device.
 
 When you find the desired release, scroll down to the **Downloads** section. Here you will find the Device OS binary files. Remember that these binaries are specific to a device type, and a complete Device OS is comprised of multiple parts. Hone in on the files that begin with `system-part`:
 

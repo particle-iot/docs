@@ -404,7 +404,7 @@ In other words, the src directory in the user's documents directory, for example
 - Once you have Git installed, getting the source is easy:
 
 ```bash
-git clone https://github.com/particle-iot/firmware.git
+git clone https://github.com/particle-iot/device-os.git
 cd firmware
 git checkout release/stable
 ```
