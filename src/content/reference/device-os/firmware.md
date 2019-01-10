@@ -15001,15 +15001,16 @@ Please go to Github to read the Changelog for your desired firmware version (Cli
 
 |Firmware Version||||||||
 |:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|
-|v0.8.x-rc.x prereleases|[v0.8.0-rc.10](https://github.com/spark/firmware/releases/tag/v0.8.0-rc.10)|[v0.8.0-rc.11](https://github.com/spark/firmware/releases/tag/v0.8.0-rc.11)|[v0.8.0-rc.12](https://github.com/spark/firmware/releases/tag/v0.8.0-rc.12)|[v0.8.0-rc.14](https://github.com/spark/firmware/releases/tag/v0.8.0-rc.14)|-|-|-|
-|v0.8.x-rc.x prereleases|[v0.8.0-rc.1](https://github.com/spark/firmware/releases/tag/v0.8.0-rc.1)|[v0.8.0-rc.2](https://github.com/spark/firmware/releases/tag/v0.8.0-rc.2)|[v0.8.0-rc.3](https://github.com/spark/firmware/releases/tag/v0.8.0-rc.3)|[v0.8.0-rc.4](https://github.com/spark/firmware/releases/tag/v0.8.0-rc.4)|[v0.8.0-rc.7](https://github.com/spark/firmware/releases/tag/v0.8.0-rc.7)|[v0.8.0-rc.8](https://github.com/spark/firmware/releases/tag/v0.8.0-rc.8)|[v0.8.0-rc.9](https://github.com/spark/firmware/releases/tag/v0.8.0-rc.9)|
+|v1.0.x default releases|[v1.0.0](https://github.com/particle-iot/firmware/releases/tag/v1.0.0)|-|-|-|-|-|-|
+|v0.8.x-rc.x prereleases|[v0.8.0-rc.10](https://github.com/particle-iot/firmware/releases/tag/v0.8.0-rc.10)|[v0.8.0-rc.11](https://github.com/particle-iot/firmware/releases/tag/v0.8.0-rc.11)|[v0.8.0-rc.12](https://github.com/particle-iot/firmware/releases/tag/v0.8.0-rc.12)|[v0.8.0-rc.14](https://github.com/particle-iot/firmware/releases/tag/v0.8.0-rc.14)|-|-|-|
+|v0.8.x-rc.x prereleases|[v0.8.0-rc.1](https://github.com/particle-iot/firmware/releases/tag/v0.8.0-rc.1)|[v0.8.0-rc.2](https://github.com/particle-iot/firmware/releases/tag/v0.8.0-rc.2)|[v0.8.0-rc.3](https://github.com/particle-iot/firmware/releases/tag/v0.8.0-rc.3)|[v0.8.0-rc.4](https://github.com/particle-iot/firmware/releases/tag/v0.8.0-rc.4)|[v0.8.0-rc.7](https://github.com/particle-iot/firmware/releases/tag/v0.8.0-rc.7)|[v0.8.0-rc.8](https://github.com/particle-iot/firmware/releases/tag/v0.8.0-rc.8)|[v0.8.0-rc.9](https://github.com/particle-iot/firmware/releases/tag/v0.8.0-rc.9)|
 |v0.7.x default releases|[v0.7.0](https://github.com/particle-iot/firmware/releases/tag/v0.7.0)|-|-|-|-|-|-|
-|v0.7.x-rc.x prereleases|[v0.7.0-rc.1](https://github.com/spark/firmware/releases/tag/v0.7.0-rc.1)|[v0.7.0-rc.2](https://github.com/spark/firmware/releases/tag/v0.7.0-rc.2)|[v0.7.0-rc.3](https://github.com/spark/firmware/releases/tag/v0.7.0-rc.3)|[v0.7.0-rc.4](https://github.com/spark/firmware/releases/tag/v0.7.0-rc.4)|[v0.7.0-rc.5](https://github.com/spark/firmware/releases/tag/v0.7.0-rc.5)|[v0.7.0-rc.6](https://github.com/spark/firmware/releases/tag/v0.7.0-rc.6)|[v0.7.0-rc.7](https://github.com/spark/firmware/releases/tag/v0.7.0-rc.7)|
-|v0.6.x default releases|[v0.6.0](https://github.com/spark/firmware/releases/tag/v0.6.0)|[v0.6.1](https://github.com/spark/firmware/releases/tag/v0.6.1)|[v0.6.2](https://github.com/spark/firmware/releases/tag/v0.6.2)|[v0.6.3](https://github.com/spark/firmware/releases/tag/v0.6.3)|[v0.6.4](https://github.com/spark/firmware/releases/tag/v0.6.4)|-|-|
-|v0.6.x-rc.x prereleases|[v0.6.2-rc.1](https://github.com/spark/firmware/releases/tag/v0.6.2-rc.1)|[v0.6.2-rc.2](https://github.com/spark/firmware/releases/tag/v0.6.2-rc.2)|-|-|-|-|-|
-|-|[v0.6.0-rc.1](https://github.com/spark/firmware/releases/tag/v0.6.0-rc.1)|[v0.6.0-rc.2](https://github.com/spark/firmware/releases/tag/v0.6.0-rc.2)|[v0.6.1-rc.1](https://github.com/spark/firmware/releases/tag/v0.6.1-rc.1)|[v0.6.1-rc.2](https://github.com/spark/firmware/releases/tag/v0.6.1-rc.2)|-|-|-|
-|v0.5.x default releases|[v0.5.0](https://github.com/spark/firmware/releases/tag/v0.5.0)|[v0.5.1](https://github.com/spark/firmware/releases/tag/v0.5.1)|[v0.5.2](https://github.com/spark/firmware/releases/tag/v0.5.2)|[v0.5.3](https://github.com/spark/firmware/releases/tag/v0.5.3)|[v0.5.4](https://github.com/particle-iot/firmware/releases/tag/v0.5.4)|[v0.5.5](https://github.com/spark/firmware/releases/tag/v0.5.5)|-|
-|v0.5.x-rc.x prereleases|[v0.5.3-rc.1](https://github.com/spark/firmware/releases/tag/v0.5.3-rc.1)|[v0.5.3-rc.2](https://github.com/spark/firmware/releases/tag/v0.5.3-rc.2)|[v0.5.3-rc.3](https://github.com/spark/firmware/releases/tag/v0.5.3-rc.3)|-|-|-|-|
+|v0.7.x-rc.x prereleases|[v0.7.0-rc.1](https://github.com/particle-iot/firmware/releases/tag/v0.7.0-rc.1)|[v0.7.0-rc.2](https://github.com/particle-iot/firmware/releases/tag/v0.7.0-rc.2)|[v0.7.0-rc.3](https://github.com/particle-iot/firmware/releases/tag/v0.7.0-rc.3)|[v0.7.0-rc.4](https://github.com/particle-iot/firmware/releases/tag/v0.7.0-rc.4)|[v0.7.0-rc.5](https://github.com/particle-iot/firmware/releases/tag/v0.7.0-rc.5)|[v0.7.0-rc.6](https://github.com/particle-iot/firmware/releases/tag/v0.7.0-rc.6)|[v0.7.0-rc.7](https://github.com/particle-iot/firmware/releases/tag/v0.7.0-rc.7)|
+|v0.6.x default releases|[v0.6.0](https://github.com/particle-iot/firmware/releases/tag/v0.6.0)|[v0.6.1](https://github.com/particle-iot/firmware/releases/tag/v0.6.1)|[v0.6.2](https://github.com/particle-iot/firmware/releases/tag/v0.6.2)|[v0.6.3](https://github.com/particle-iot/firmware/releases/tag/v0.6.3)|[v0.6.4](https://github.com/particle-iot/firmware/releases/tag/v0.6.4)|-|-|
+|v0.6.x-rc.x prereleases|[v0.6.2-rc.1](https://github.com/particle-iot/firmware/releases/tag/v0.6.2-rc.1)|[v0.6.2-rc.2](https://github.com/particle-iot/firmware/releases/tag/v0.6.2-rc.2)|-|-|-|-|-|
+|-|[v0.6.0-rc.1](https://github.com/particle-iot/firmware/releases/tag/v0.6.0-rc.1)|[v0.6.0-rc.2](https://github.com/particle-iot/firmware/releases/tag/v0.6.0-rc.2)|[v0.6.1-rc.1](https://github.com/particle-iot/firmware/releases/tag/v0.6.1-rc.1)|[v0.6.1-rc.2](https://github.com/particle-iot/firmware/releases/tag/v0.6.1-rc.2)|-|-|-|
+|v0.5.x default releases|[v0.5.0](https://github.com/particle-iot/firmware/releases/tag/v0.5.0)|[v0.5.1](https://github.com/particle-iot/firmware/releases/tag/v0.5.1)|[v0.5.2](https://github.com/particle-iot/firmware/releases/tag/v0.5.2)|[v0.5.3](https://github.com/particle-iot/firmware/releases/tag/v0.5.3)|[v0.5.4](https://github.com/particle-iot/firmware/releases/tag/v0.5.4)|[v0.5.5](https://github.com/particle-iot/firmware/releases/tag/v0.5.5)|-|
+|v0.5.x-rc.x prereleases|[v0.5.3-rc.1](https://github.com/particle-iot/firmware/releases/tag/v0.5.3-rc.1)|[v0.5.3-rc.2](https://github.com/particle-iot/firmware/releases/tag/v0.5.3-rc.2)|[v0.5.3-rc.3](https://github.com/particle-iot/firmware/releases/tag/v0.5.3-rc.3)|-|-|-|-|
 
 ### Programming and Debugging Notes
 
@@ -15017,6 +15018,7 @@ If you don't see any notes below the table or if they are the wrong version, ple
 
 |Firmware Version||||||||
 |:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|
+|v1.0.x default releases|[v1.0.0](/reference/device-os/firmware/photon/?fw_ver=1.0.0&cli_ver=1.37.0&electron_parts=3#programming-and-debugging-notes)|-|-|-|-|-|-|
 |v0.8.x-rc.x prereleases|[v0.8.0-rc.10](/reference/device-os/firmware/photon/?fw_ver=0.8.0-rc.10&cli_ver=1.33.0&electron_parts=3#programming-and-debugging-notes)|[v0.8.0-rc.11](/reference/device-os/firmware/photon/?fw_ver=0.8.0-rc.11&cli_ver=1.35.0&electron_parts=3#programming-and-debugging-notes)|[v0.8.0-rc.12](/reference/device-os/firmware/photon/?fw_ver=0.8.0-rc.12&cli_ver=1.36.3&electron_parts=3#programming-and-debugging-notes)|[v0.8.0-rc.14](/reference/device-os/firmware/photon/?fw_ver=0.8.0-rc.14&cli_ver=1.36.3&electron_parts=3#programming-and-debugging-notes)|-|-|-|
 |v0.8.x-rc.x prereleases|[v0.8.0-rc.1](/reference/device-os/firmware/photon/?fw_ver=0.8.0-rc.1&cli_ver=1.29.0&electron_parts=3#programming-and-debugging-notes)|[v0.8.0-rc.2](/reference/device-os/firmware/photon/?fw_ver=0.8.0-rc.2&cli_ver=1.29.0&electron_parts=3#programming-and-debugging-notes)|[v0.8.0-rc.3](/reference/device-os/firmware/photon/?fw_ver=0.8.0-rc.3&cli_ver=1.29.0&electron_parts=3#programming-and-debugging-notes)|[v0.8.0-rc.4](/reference/device-os/firmware/photon/?fw_ver=0.8.0-rc.4&cli_ver=1.29.0&electron_parts=3#programming-and-debugging-notes)|[v0.8.0-rc.7](/reference/device-os/firmware/photon/?fw_ver=0.8.0-rc.7&cli_ver=1.29.0&electron_parts=3#programming-and-debugging-notes)|[v0.8.0-rc.8](/reference/device-os/firmware/photon/?fw_ver=0.8.0-rc.8&cli_ver=1.32.1&electron_parts=3#programming-and-debugging-notes)|[v0.8.0-rc.9](/reference/device-os/firmware/photon/?fw_ver=0.8.0-rc.9&cli_ver=1.32.4&electron_parts=3#programming-and-debugging-notes)|
 |v0.7.x default releases|[v0.7.0](/reference/device-os/firmware/photon/?fw_ver=0.7.0&cli_ver=1.29.0&electron_parts=3#programming-and-debugging-notes)|-|-|-|-|-|-|
@@ -15029,6 +15031,7 @@ If you don't see any notes below the table or if they are the wrong version, ple
 
 <!--
 CLI VERSION is compatable with FIRMWARE VERSION
+v1.37.0 = 1.0.0
 v1.36.3 = 0.8.0-rc.14
 v1.36.3 = 0.8.0-rc.12
 v1.35.0 = 0.8.0-rc.11
@@ -15111,6 +15114,8 @@ v1.12.0 = 0.5.0
 ##### @CLI_VER@1.35.0endif
 ##### @CLI_VER@1.36.3if
 ##### @CLI_VER@1.36.3endif
+##### @CLI_VER@1.37.0if
+##### @CLI_VER@1.37.0endif
 ##### @ELECTRON_PARTS@2if
 ##### @ELECTRON_PARTS@2endif
 ##### @ELECTRON_PARTS@3if
