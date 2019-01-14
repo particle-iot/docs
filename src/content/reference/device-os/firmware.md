@@ -8055,7 +8055,7 @@ Parameters:
 Returns:
 - `int`: The number of bytes written. Negative value on error.
 
-{{#if photon}}
+{{#if has-udp-multicast}}
 ### joinMulticast()
 
 {{since when="0.4.5"}}
@@ -8096,7 +8096,7 @@ IPAddress multicastAddress(224,0,0,0);
 Udp.leaveMulticast(multicastAddress);
 ```
 
-{{/if}} {{!-- photon --}}
+{{/if}} {{!-- has-udp-multicast --}}
 
 ## Servo
 

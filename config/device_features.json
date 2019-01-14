@@ -61,7 +61,8 @@
     "powersave-clock",
     "wpa-enterprise",
     "tcpserver",
-    "tcpclient"
+    "tcpclient",
+    "udp-multicast"
   ],
   "Electron": [
 	"stm32",
@@ -146,7 +147,8 @@
     "udp-cloud",
     "ethernet",
     "battery-voltage",
-    "eeprom-file"
+    "eeprom-file",
+    "udp-multicast"
   ],
   "Boron": [
 	"nrf52",
@@ -182,7 +184,8 @@
     "set-active-sim",
     "udp-cloud",
     "ethernet",
-    "eeprom-file"
+    "eeprom-file",
+    "udp-multicast"
   ],
   "Xenon": [
 	"nrf52",
@@ -216,6 +219,7 @@
     "udp-cloud",
     "ethernet",
     "battery-voltage",
-    "eeprom-file"
+    "eeprom-file",
+    "udp-multicast"
   ]
 }
