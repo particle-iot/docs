@@ -405,7 +405,7 @@ In other words, the src directory in the user's documents directory, for example
 
 ```bash
 git clone https://github.com/particle-iot/device-os.git
-cd firmware
+cd device-os
 git checkout release/stable
 ```
 
