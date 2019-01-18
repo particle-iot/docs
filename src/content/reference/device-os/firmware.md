@@ -52,7 +52,7 @@ void setup() {
 | Function Key | 12 | 64 | |
 | Function Argument | 63 | 622 | |
 | Publish/Subscribe Event Name | 64 | 64 | |
-| Publish/Subscribe Event Data | 255 | 622 | Cloud API currently still limits to 255, but Device OS can publish 622.  Will change Cloud API to accept 622. |
+| Publish/Subscribe Event Data | 255 | 622 |  |
 **Note:** Spark Core limits remain as-is prior to 0.8.0
 
 ### Particle.variable()
