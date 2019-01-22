@@ -297,7 +297,7 @@ Tapping the `{{system-button}}` button twice on your {{device}} enter soft power
   "blink blue 50ms 50ms 20 times"
 }}
 
-To erase the stored network settings on your {{device}}, hold the `{{system-button}}` button blinks dark blue, the continue to hold it down for about ten seconds longer, until the RGB LED blinks blue rapidly, then release.
+To erase the stored network settings on your {{device}}, hold the `{{system-button}}` button blinks dark blue, then continue to hold it down for about ten seconds longer, until the RGB LED blinks blue rapidly, then release.
 
 - For all mesh devices it will clear the mesh settings and the setup complete flag, so the device will go back into setup mode (listening mode)
 - For the Argon it will also clear Wi-Fi settings.
@@ -312,7 +312,7 @@ To erase the stored network settings on your {{device}}, hold the `{{system-butt
 
 {{vine "https://vine.co/v/eZUwtJljYnK/embed/simple"}}
 
-To erase the stored Wi-Fi networks on your {{device}}, hold the `{{system-button}}` button blinks dark blue, the continue to hold it down for about ten seconds longer, until the RGB LED blinks blue rapidly, then release.
+To erase the stored Wi-Fi networks on your {{device}}, hold the `{{system-button}}` button blinks dark blue, then continue to hold it down for about ten seconds longer, until the RGB LED blinks blue rapidly, then release.
 
 {{/if}}
 
@@ -621,10 +621,10 @@ void setup() {
 
 void loop() {
 
-	// Don't do this: preventing loop from returning will cause breathing green
-	while(true) {
+    // Don't do this: preventing loop from returning will cause breathing green
+    while(true) {
 
-	}
+    }
 }
 ```
 
@@ -638,10 +638,10 @@ One way to solve this is to sprinkle Particle.process() calls in code that block
 
 ```
 void waitForSwitch() {
-	while(digitalRead(D7) == HIGH) {
-		// Without the following line, you'd go into breathing green
-		Particle.process();
-	}
+    while(digitalRead(D7) == HIGH) {
+        // Without the following line, you'd go into breathing green
+        Particle.process();
+    }
 }
 ```
 
@@ -668,7 +668,7 @@ You might also do something like this in loop():
 
 ```
 if (Particle.connected()) {
-	Particle.publish("myEvent", PRIVATE);
+    Particle.publish("myEvent", PRIVATE);
 }
 ```
 {{/unless}}
