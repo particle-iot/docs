@@ -218,6 +218,11 @@ You can expose a method on a C++ object to the Cloud.
 class CoffeeMaker {
   public:
     CoffeeMaker() {
+    }
+    
+    void setup() {
+      // You should not call Particle.function from the constructor 
+      // of an object that will be declared as a global variable.
       Particle.function("brew", &CoffeeMaker::brew, this);
     }
 
@@ -228,7 +233,10 @@ class CoffeeMaker {
 };
 
 CoffeeMaker myCoffeeMaker;
-// nothing else needed in setup() or loop()
+
+void setup() {
+	myCoffeeMaker.setup();
+}
 ```
 
 ---
