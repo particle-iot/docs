@@ -17,16 +17,16 @@ order: 1
 
 ### Overview
 
-The Boron LTE is a powerful LTE CAT-M1/NB1 enabled development kit that can act as either a standalone cellular endpoint or LTE enabled gateway for Particle Mesh networks. It is based on the Nordic nRF52840 and has built-in battery charging circuitry so it’s easy to connect a Li-Po and deploy your local network in minutes.
+The Boron LTE is a powerful LTE CAT-M1 enabled development kit that can act as either a standalone cellular endpoint or LTE enabled gateway for Particle Mesh networks. It is based on the Nordic nRF52840 and has built-in battery charging circuitry so it’s easy to connect a Li-Po and deploy your local network in minutes.
 
 The Boron is great for connecting existing projects to the Particle Device Cloud or as a gateway to connect an entire group of local endpoints where Wi-Fi is missing or unreliable.
 
 ### Features
 
  * u-blox SARA-R410-02B LTE modem (Boron LTE)
-  * LTE CAT M1/ NB1 module with global hardware support (MVNO support for US only) 
+  * LTE CAT M1 module with global hardware support (MVNO support for US only) 
   * 3GPP Release 13 LTE Cat M1 
-  * Cat M1/NB1 bands: 2, 3, 4, 5, 8, 12, 13, 20, 28
+  * Cat M1 bands: 2, 3, 4, 5, 8, 12, 13, 20, 28
  * u-blox SARA U201 2G/3G modem (Boron 2G/3G)
   * HSPA/GSMqq with global hardware and SIM support 
   * Bands 800/850/900/1900/2100 MHz 
