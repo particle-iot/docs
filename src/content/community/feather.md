@@ -316,6 +316,43 @@ particle call argon2 relay toggle
 
 Replace argon2 with the name of your device. You can also do this from [https://console.particle.io](https://console.particle.io).
 
+## Storage
+
+### Adafruit AdaLogger SD card and RTC
+
+![Adalogger](/assets/images/feather-adalogger.jpg)
+
+The [Adafruit AdaLogger FeatherWing](https://www.adafruit.com/product/2922) is an SD card and real-time-clock (RTC). You can find more about the board [here](https://learn.adafruit.com/adafruit-adalogger-featherwing/overview).
+
+The [AdafruitDataLoggerRK](https://github.com/rickkas7/AdafruitDataLoggerRK) library allows you to use both features easily, or you can directly use the libraries for the two things on the FeatherWing:
+
+- [Adafruit\_RTClib\_RK](https://github.com/rickkas7/Adafruit_RTClib_RK), a port of the Adafruit RTCLib (real time clock)
+- SdFat, version 1.0.16 or later.
+
+The SD card is connected to the SPI bus and the default connection for the CS pin is D5. 
+
+| Pin | Usage |
+| --- | ----- | 
+| MISO | SD Card DO |
+| MOSI | SD Card DI |
+| SCK | SD Card SCK | 
+| D5 | SD Card CS |
+
+The RTC can only be used if the CR1220 battery is inserted. It connects by I2C and uses address 0x68.
+
+| Pin | Usage |
+| --- | ----- | 
+| D0 | RTC I2C SDA |
+| D1 | RTC I2C SCL |
+
+The AdafruitDataLoggerRK library includes a class to synchronize the RTC and the Time class clock in both directions, depending on which one has a valid time. This is especially useful on the 3rd-generation devices which don't maintain the time clock when powered down or in deep sleep modes.
+
+The AdafruitDataLoggerRK library also includes the [SdCardLogHandlerRK](https://github.com/rickkas7/SdCardLogHandlerRK), an optional class that makes it easy to write to a rotating log file. Each file is sequentially numbered. The largest number is newest, and writing appends to this file.
+
+The maximum size of the file can be specified, as can the maximum number of files to keep.
+
+This is intended to be used with text-based information, as data is written to the card by lines (ending with \n).
+
 ## Sensors
 
 ### Adafruit INA219 FeatherWing
