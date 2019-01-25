@@ -116,6 +116,30 @@ The [Adafruit DotStar FeatherWing - 6 x 12 RGB LEDs](https://www.adafruit.com/pr
 
 You can learn more about using the DotStartMatrix library from the [Adafruit Tutorial](https://learn.adafruit.com/adafruit-dotstar-leds/dotstarmatrix-library). You can use it to draw graphics and text on the display.
 
+### Adafruit Color TFT Joystick FeatherWing
+
+![Adafruit Color TFT Joystick FeatherWing](/assets/images/feather-joystick-tft.jpg)
+
+The [AdafruitColorTFTJoystickFeatherWing](https://github.com/rickkas7/AdafruitColorTFTJoystickFeatherWing) library makes it easy to use the [Adafruit Mini Color TFT with Joystick FeatherWing](https://www.adafruit.com/product/3321). Additional information the board is available [here](https://learn.adafruit.com/adafruit-mini-tft-featherwing).
+
+| Pin | Function | 
+| --- | --- |
+| D2 | TFT CS | 
+| D3 | TFT CD | 
+| SCK | TFT SCK | 
+| MOSI | TFT DI |
+
+This library basically just pulls in the necessary libraries and provides working examples. It directly depends on:
+
+- [Adafruit_ST7735_RK](https://github.com/rickkas7/Adafruit_ST7735_RK)
+- [Adafruit_Seesaw](https://github.com/bsatrom/Adafruit_Seesaw)
+
+The ST7735_RK library further depends on:
+
+- [Adafruit_GFX_RK](https://github.com/rickkas7/Adafruit_GFX_RK)
+
+The examples in the AdafruitColorTFTJoystickFeatherWing show how to read the joystick and buttons, and how to do graphic operations on the color TFT display.
+
 ### Adafruit 4-Digit 7-Segment LED Matrix Display FeatherWing
 
 The [Adafruit 4-Digit 7-Segment LED Matrix Display FeatherWing](https://www.adafruit.com/product/3088) provides a numeric clock-like 0.56" high display and is available in several colors (blue, green red, white, and yellow).
