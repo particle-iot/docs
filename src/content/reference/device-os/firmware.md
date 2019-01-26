@@ -4498,7 +4498,7 @@ Voltage can be:
 
 The default charge voltage is 4112, which corresponds to 4.112 volts. 
 
-You can also set it 4208, which corresponds to 4.208 volts. This higher voltage should not be used if the battery will be charged in temperatures exceeding 45°F. Using a higher charge voltage will allow the battery to reach a higher state-of-charge (SoC) but could damage the battery at high temperatures.
+You can also set it 4208, which corresponds to 4.208 volts. This higher voltage should not be used if the battery will be charged in temperatures exceeding 45°C. Using a higher charge voltage will allow the battery to reach a higher state-of-charge (SoC) but could damage the battery at high temperatures.
 
 
 ```
