@@ -2672,6 +2672,10 @@ Attempts to connect to the Cellular network. If there are no credentials entered
 Cellular.connect();
 ```
 
+{{#if has-mesh}}
+**Note:** Due to an open [issue](https://github.com/particle-iot/device-os/issues/1631) the automatic activation of the {{network-type}} connection is currently not working as expected. If the {{network-type}} module is not already powered up, your code needs to explicitly call {{#if has-wifi}}[`WiFi.on()`](#on--2){{/if}}{{#if has-cellular}}[`Cellular.on()`](#on--2){{/if}} before calling {{#if has-wifi}}[`WiFi.connect()`](#connect--2){{/if}}{{#if has-cellular}}[`Cellular.connect()`](#on-){{/if}}.
+{{/if}}
+
 ### disconnect()
 
 Disconnects from the Cellular network, but leaves the Cellular module on.
@@ -2680,10 +2684,6 @@ Disconnects from the Cellular network, but leaves the Cellular module on.
 // SYNTAX
 Cellular.disconnect();
 ```
-
-{{#if has-mesh}}
-**Note:** Due to an open [issue](https://github.com/particle-iot/device-os/issues/1631) the automatic activation of the {{network-type}} connection is currently not working as expected. If the {{network-type}} module is not already powered up, your code needs to explicitly call {{#if has-wifi}}[`WiFi.on()`](#on--2){{/if}}{{#if has-cellular}}[`Cellular.on()`](#on--2){{/if}} before calling {{#if has-wifi}}[`WiFi.connect()`](#connect--2){{/if}}{{#if has-cellular}}[`Cellular.connect()`](#on-){{/if}}.
-{{/if}}
 
 ### connecting()
 
