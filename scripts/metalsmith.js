@@ -181,7 +181,8 @@ exports.metalsmith = function() {
           'product-tools',
           'iot-rules-engine',
           'integrations',
-          'hardware-projects'
+          'hardware-projects',
+          'learn-more'
         ]
       },
       datasheets: {

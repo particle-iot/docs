@@ -200,6 +200,27 @@ The hardware design for this wing is completely opensource. All the files are av
 
 If you are using the Adafruit Ethernet Feather Wing, be sure to connect the nRESET and nINTERRUPT pins (on the small header on the short side) to pins D3 and D4 with jumper wires. These are required for proper operation.
 
+## PoE (Power over Ethernet)
+
+**TKTK: Picture**
+
+The PoE (Power over Ethernet) adapter for the Ethernet FeatherWing plugs into the Ethernet side of the FeatherWing. 
+
+It uses the Silvertel [Ag9905M](/assets/datasheets/Ag9900M.pdf) and can supply 1800 mA to your device and any Feather accessories. It is a Class 0 IEEE 802.3af device.
+
+| Parameter | Minimum | Typical | Maximum | Units |
+| --- | --- | --- | --- | --- |
+| Input Supply Voltage | 36 | 48 | 57 | Volts |
+| Operating Temperature<sup>1</sup> | -40 | 25 | 70 | &deg;C |
+| Output Voltage | | 5 | | V |
+| Output Current | | | 1800 | mA |
+
+<sup>1</sup>Operating temperature of the Ag9905M module only. The operating temperature range of the Xenon is smaller, -20 to +60&deg;C.
+
+Note that because the Ethernet FeatherWing with PoE supplies 5V to the device by the VUSB pin, you should not power it by both PoE and the USB serial port at the same time. 
+
+![PoE Schematic](/assets/images/poe-schematic.png)
+
 ## Classic Adapter
 
 <div align=center><img src="/assets/images/accessories/classic-adapter.png" ></div>
