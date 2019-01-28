@@ -22,8 +22,6 @@ Some common situations where Ethernet is useful include:
 
 The form-factor is based around the Adafruit FeatherWing Tripler. The two side connectors allow you to plug in one Particle Mesh device along with a Feather accessory. Ethernet uses the WIZnet W5500 chip.
 
-<div align=center><img src="/assets/images/accessories/ethernet-featherwing/ethernet-featherwing-plugged.png" ></div>
-
 
 ## PoE (Power over Ethernet)
 
@@ -31,7 +29,11 @@ The Power over Ethernet, commonly referred to as PoE, provides a way to power a 
 
 The Particle PoE module plugs into the Ethernet FeatherWing to add the ability to power your 3rd-generation Particle device, typically a Xenon.
 
-It uses the Silvertel [Ag9905M](/assets/datasheets/Ag9900M.pdf) and can supply 1800 mA to your device and any Feather accessories. 
+It uses the Silvertel [Ag9905M](/assets/datasheets/Ag9900M.pdf) and can supply 1800 mA to your device and any Feather accessories. It is a Class 0 IEEE 802.3af device. 
+
+Note that because the Ethernet FeatherWing with PoE supplies 5V to the device by the VUSB pin, you should not power it by both PoE and the USB serial port at the same time. 
+
+
 
 **TKTK: Picture**
 
@@ -39,7 +41,7 @@ It uses the Silvertel [Ag9905M](/assets/datasheets/Ag9900M.pdf) and can supply 1
 
 **TKTK: Pictures**
 
-### Powering
+### Powering by PoE
 
 You can only use the PoE module with a IEEE 802.3af compliant Ethernet switch or power injector. Other common devices that use PoE include some models of security cameras, Wi-Fi access points, and Internet-based telephones.
 
@@ -50,6 +52,8 @@ There are many compatible Ethernet switches with PoE capabilities, ranging from 
 For example, for home use you might use something like the [Netgear GS305P](https://www.amazon.com/dp/B01MRO4M73/) 5-port PoE switch.
 
 **TKTK: Picture**
+
+In some cases, you may prefer to centralize the power like this, eliminating the need for small USB power supplies distributed to many locations. It also makes it easier to use one central uninterruptible power supply instead of distributing batteries to many small devices.
 
 ### PoE Power Injector
 

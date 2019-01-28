@@ -173,9 +173,12 @@ Note that if you are using the Adafruit OLED display and the Particle Ethernet F
 
 <div align=center><img src="/assets/images/accessories/ethernet-featherwing/ethernet-featherwing.png" ></div>
 
-The Ethernet FeatherWing is the fastest way to add wired connectivity to your Argon, Boron, or Xenon and turns any Particle Mesh developer kit into an Ethernet gateway. Based on the WIZnet W5500 chip, this side-by-side FeatherWing maintains great RF performance even while adding Ethernet connectivity to any Particle Mesh device.
+The Ethernet FeatherWing is the fastest way to add wired connectivity to your Argon, Boron, or Xenon and turns any Particle Mesh developer kit into an Ethernet gateway. Based on the [WIZnet W5500](/assets/datasheets/w5500.pdf) chip, this side-by-side FeatherWing maintains great RF performance even while adding Ethernet connectivity to any Particle Mesh device.
 
 The form-factor is based around the Adafruit FeatherWing Tripler. The two side connectors allow you to plug in one Particle Mesh device along with a Feather accessory.
+
+- 10BaseT/100BaseTX Ethernet 
+- Support Auto Negotiation (Full and half duplex, for both 10BaseT and 100BaseTX)
 
 <div align=center><img src="/assets/images/accessories/ethernet-featherwing/ethernet-featherwing-plugged.png" ></div>
 
@@ -192,13 +195,14 @@ The form-factor is based around the Adafruit FeatherWing Tripler. The two side c
 
 **Notes:**
 
-<sup>[1]</sup> These pins are connected via jumper pads on the bottom. You can cut these jumper traces and rewire them to a different pin on the Mesh device if the need arises.
+<sup>[1]</sup> These pins are connected via jumper pads on the bottom. You can cut these jumper traces and rewire them to a different pin on the Mesh device if the need arises. However the Device OS does not allow use of other pins (as of 0.8.0-rc.27).
 
 The Ethernet driver for this wing is baked into the Mesh Device OS. When you set up a new Particle Mesh device that is plugged into an Ethernet FeatherWing, simply select the _USE WITH ETHERNET?_ option on your Particle mobile app and it should recognize and talk over Ethernet automagically. It's that simple.
 
 The hardware design for this wing is completely opensource. All the files are available on our [GitHub repository here.](https://github.com/particle-iot/ethernet-wing)
 
 If you are using the Adafruit Ethernet Feather Wing, be sure to connect the nRESET and nINTERRUPT pins (on the small header on the short side) to pins D3 and D4 with jumper wires. These are required for proper operation.
+
 
 ## PoE (Power over Ethernet)
 
